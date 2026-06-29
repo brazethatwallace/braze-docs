@@ -76,7 +76,7 @@ Guarda la configuración y reinicia VS Code.
 {% endtabs %}
 
 {% alert note %}
-Context7 es diferente del [servidor MCP de Braze]({{site.baseurl}}/developer_guide/mcp_server/). Context7 proporciona a tu asistente de IA acceso a **la documentación de Braze**, mientras que el servidor MCP de Braze proporciona acceso de solo lectura a **los datos de tu espacio de trabajo de Braze** (como campañas, segmentos y análisis). Puedes utilizar ambos juntos para disfrutar de una experiencia de desarrollo asistida por IA más completa.
+Context7 es diferente del [servidor MCP de Braze]({{site.baseurl}}/developer_guide/mcp_server). Context7 proporciona a tu asistente de IA acceso a **la documentación de Braze**, mientras que el servidor MCP de Braze proporciona acceso de solo lectura a **los datos de tu espacio de trabajo de Braze** (como campañas, segmentos y análisis). Puedes utilizar ambos juntos para disfrutar de una experiencia de desarrollo asistida por IA más completa.
 {% endalert %}
 
 ## Redacción de prompts para el desarrollo del SDK de Braze {#writing-prompts-for-braze-sdk-development}
@@ -85,7 +85,7 @@ Después de configurar Context7, incluye `use context7` en tus prompts para indi
 
 ### SDK de React Native {#react-native-sdk}
 
-Estos prompts muestran tareas de integración comunes para el [SDK de Braze React Native]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=react%20native).
+Estos prompts muestran tareas de integración comunes para el [SDK de Braze React Native]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native).
 
 #### Inicialización del SDK {#initializing-the-sdk}
 
@@ -122,7 +122,7 @@ programmatically. Use context7.
 
 ### SDK Web {#web-sdk}
 
-Estos prompts muestran tareas de integración comunes para el [SDK Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web).
+Estos prompts muestran tareas de integración comunes para el [SDK Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web).
 
 #### Inicialización del SDK
 

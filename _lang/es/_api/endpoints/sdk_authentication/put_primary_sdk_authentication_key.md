@@ -18,7 +18,7 @@ description: "Este artículo describe los detalles sobre el punto de conexión d
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `sdk_authentication.primary`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `sdk_authentication.primary`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -42,7 +42,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | --------- | -------- | --------- | ----------- |
 | `app_id` | Obligatorio | Cadena | El identificador de API de la aplicación. |
 | `key_id` | Obligatorio | Cadena | El ID de la clave de autenticación SDK que se va a marcar como principal. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 ```bash
@@ -84,7 +84,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/app_group/sdk_authe
 | `keys[].rsa_public_key` | Cadena | La cadena de clave pública RSA. |
 | `keys[].description` | Cadena | Descripción de la clave de autenticación SDK. |
 | `keys[].is_primary` | Booleano | Si esta clave es la clave de autenticación SDK principal. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parámetros de respuesta" }
 
 ### Reglas de validación {#validation-rules}
 

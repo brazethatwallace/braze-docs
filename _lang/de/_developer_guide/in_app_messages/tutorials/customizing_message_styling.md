@@ -1,20 +1,20 @@
 ---
-nav_title: Anpassen des Stils der Nachrichten
-article_title: "Anleitung: Anpassen des Stils mit Schlüssel-Wert-Paaren"
+nav_title: Nachrichtenstil anpassen
+article_title: "Anleitung: Stil mit Schlüssel-Wert-Paaren anpassen"
 description: ""
 page_order: 1
 layout: scrolly
 ---
 
-# Anleitung: Anpassen des Stils von Nachrichten mit Schlüssel-Wert-Paaren
+# Anleitung: Nachrichtenstil mit Schlüssel-Wert-Paaren anpassen {#tutorial-customizing-message-styling-using-key-value-pairs}
 
-> Folgen Sie dem Beispielcode in diesem Tutorial, um das Styling Ihrer In-App-Nachricht mit Hilfe von Schlüssel-Wert-Paaren im Braze SDK anzupassen.
+> Folgen Sie dem Beispielcode in dieser Anleitung, um den Stil Ihrer In-App-Nachricht mithilfe von Schlüssel-Wert-Paaren im Braze SDK anzupassen.
 
 {% sdktabs %}
 {% sdktab web %}
 {% multi_lang_include developer_guide/prerequisites/web.md %} Es ist jedoch keine zusätzliche Einrichtung erforderlich.
 
-## Anpassen des Stils von Nachrichten mit Hilfe von Schlüssel-Wert-Paaren für das Internet
+## Nachrichtenstil mit Schlüssel-Wert-Paaren für Web anpassen {#customizing-message-styling-using-key-value-pairs-for-web}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Customizing Message Styling Web" %}
 
@@ -44,47 +44,47 @@ braze.subscribeToInAppMessage(function (message) {
 });
 ```
 
-!Schritt
-Zeilen-index.js=2
+!!step
+lines-index.js=2
 
-#### 1\. Entfernen Sie Aufrufe von `automaticallyShowInAppMessages()`
+### 1. Aufrufe von `automaticallyShowInAppMessages()` entfernen {#1-remove-calls-to-automaticallyshowinappmessages}
 
-Entfernen Sie alle Aufrufe von [`automaticallyShowInAppMessages()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#automaticallyshowinappmessages) da sie jede angepasste Logik, die Sie später implementieren, außer Kraft setzen werden.
+Entfernen Sie alle Aufrufe von [`automaticallyShowInAppMessages()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#automaticallyshowinappmessages), da diese jede angepasste Logik überschreiben, die Sie später implementieren.
 
-!Schritt
-Zeilen-index.js=6
+!!step
+lines-index.js=6
 
-#### 2\. Enablement von Fehlersuchen (optional)
+#### 2. Debugging aktivieren (optional) {#2-enable-debugging-optional}
 
 Um die Fehlerbehebung während der Entwicklung zu erleichtern, sollten Sie das Debugging aktivieren.
 
-!Schritt
-Zeilen-index.js=9-21
+!!step
+lines-index.js=9-21
 
-#### 3\. Abonnieren Sie den Callback Handler für In-App-Nachrichten
+#### 3. Den Callback-Handler für In-App-Nachrichten abonnieren {#3-subscribe-to-the-in-app-message-callback-handler}
 
-Registrieren Sie einen Callback mit [`subscribeToInAppMessage(callback)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage) um jedes Mal eine Nachricht zu erhalten, wenn eine In-App-Nachricht ausgelöst wird.
+Registrieren Sie einen Callback mit [`subscribeToInAppMessage(callback)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage), um jedes Mal eine Nachricht zu erhalten, wenn eine In-App-Nachricht getriggert wird.
 
-!Schritt
-Zeilen-index.js=10-13
+!!step
+lines-index.js=10-13
 
-#### 4\. Rufen Sie die Eigenschaft `message.extras` auf.
+#### 4. Auf die Eigenschaft `message.extras` zugreifen {#4-access-the-messageextras-property}
 
-Verwenden Sie `message.extras`, um auf angepasste Typen, Attribute für die Gestaltung oder andere im Dashboard definierte Werte zuzugreifen. Alle Werte werden als Strings zurückgegeben.
+Verwenden Sie `message.extras`, um auf Anpassungstypen, Styling-Attribute oder andere im Dashboard definierte Werte zuzugreifen. Alle Werte werden als Strings zurückgegeben.
 
-!Schritt
-Zeilen-index.js=19
+!!step
+lines-index.js=19
 
-#### 5\. Bedingt aufrufen `showInAppMessage`
+#### 5. `showInAppMessage` bedingt aufrufen {#5-conditionally-call-showinappmessage}
 
-Um die Nachricht anzuzeigen, rufen Sie [`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage). Andernfalls verwenden Sie die angepassten Eigenschaften nach Bedarf.
+Um die Nachricht anzuzeigen, rufen Sie [`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage) auf. Andernfalls verwenden Sie die angepassten Eigenschaften nach Bedarf.
 
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab android %}
-{% multi_lang_include developer_guide/prerequisites/android.md %} Bitte beachten Sie, dass Sie [für Android]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=android#android_enabling-in-app-messages) auch [In-App-Nachrichten aktivieren]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=android#android_enabling-in-app-messages) müssen.
+{% multi_lang_include developer_guide/prerequisites/android.md %} Außerdem müssen Sie [In-App-Nachrichten für Android aktivieren]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=android#android_enabling-in-app-messages).
 
-## Anpassen des Stils von Nachrichten mit Schlüssel-Wert-Paaren für Android
+## Nachrichtenstil mit Schlüssel-Wert-Paaren für Android anpassen {#customizing-message-styling-using-key-value-pairs-for-android}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Customizing Message Styling Android" %}
 
@@ -177,54 +177,54 @@ class CustomInAppMessageViewFactory : IInAppMessageViewFactory {
 }
 ```
 
-!Schritt
-Zeilen-MainApplication.kt=19
+!!step
+lines-MainApplication.kt=19
 
-#### 1\. Enablement von Fehlersuchen (optional)
+### 1. Debugging aktivieren (optional) {#1-enable-debugging-optional}
 
 Um die Fehlerbehebung während der Entwicklung zu erleichtern, sollten Sie das Debugging aktivieren.
 
-!Schritt
-Zeilen-MainApplication.kt=28-30
+!!step
+lines-MainApplication.kt=28-30
 
-#### 2\. Lebenszyklusrückrufe für Aktivitäten registrieren
+#### 2. Activity-Lifecycle-Callbacks registrieren {#2-register-activity-lifecycle-callbacks}
 
 Registrieren Sie den Standard-Listener von Braze, um den Lebenszyklus der In-App-Nachrichten zu verwalten.
 
-!Schritt
-Zeilen-CustomInAppMessageViewFactory.kt=8
+!!step
+lines-CustomInAppMessageViewFactory.kt=8
 
-#### 3\. Erstellen Sie Ihre angepasste View Factory Klasse
+#### 3. Ihre angepasste View-Factory-Klasse erstellen {#3-create-your-custom-view-factory-class}
 
-Stellen Sie sicher, dass Ihre Klasse konform ist mit [`IInAppMessageViewFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-i-in-app-message-view-factory/index.html) damit sie angepasste Nachrichtenansichten erstellen und zurückgeben kann.
+Stellen Sie sicher, dass Ihre Klasse [`IInAppMessageViewFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-i-in-app-message-view-factory/index.html) implementiert, damit sie angepasste Nachrichtenansichten erstellen und zurückgeben kann.
 
-!Schritt
-Zeilen-CustomInAppMessageViewFactory.kt=15-20
+!!step
+lines-CustomInAppMessageViewFactory.kt=15-20
 
-#### 4\. Delegieren Sie an die Standardfabrik von Braze
+#### 4. An die Standard-Factory von Braze delegieren {#4-delegate-to-brazes-default-factory}
 
-Delegieren Sie an die Standardfabrik, um das in Braze integrierte Styling beizubehalten, bevor Sie Ihre eigenen bedingten Änderungen anwenden.
+Delegieren Sie an die Standard-Factory, um das in Braze integrierte Styling beizubehalten, bevor Sie Ihre eigenen bedingten Änderungen anwenden.
 
-!Schritt
-Zeilen-CustomInAppMessageViewFactory.kt=30-32,35-41
+!!step
+lines-CustomInAppMessageViewFactory.kt=30-32,35-41
 
-#### 5\. Zugriff auf Schlüssel-Wert-Paare von `inAppMessage.extras`
+#### 5. Auf Schlüssel-Wert-Paare über `inAppMessage.extras` zugreifen {#5-access-key-value-pairs-from-inappmessageextras}
 
-Verwenden Sie `inAppMessage.extras`, um auf angepasste Typen, Attribute für die Gestaltung oder andere im Dashboard definierte Werte zuzugreifen. Wenden Sie Styling-Überschreibungen an, bevor Sie die Ansicht zurückgeben.
+Verwenden Sie `inAppMessage.extras`, um auf Anpassungstypen, Styling-Attribute oder andere im Dashboard definierte Werte zuzugreifen. Wenden Sie Styling-Überschreibungen an, bevor Sie die Ansicht zurückgeben.
 
-!Schritt
-Zeilen-MainApplication.kt=33-34
+!!step
+lines-MainApplication.kt=33-34
 
-#### 6\. Implementieren Sie eine angepasste `IInAppMessageViewFactory`
+#### 6. Eine angepasste `IInAppMessageViewFactory` implementieren {#6-implement-a-custom-iinappmessageviewfactory}
 
 Implementieren Sie [`IInAppMessageViewFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-i-in-app-message-view-factory/index.html) in Ihrer angepassten Klasse, um In-App-Nachricht-Ansichten zu erstellen und darzustellen.
 
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab swift %}
-{% multi_lang_include developer_guide/prerequisites/swift.md %} Bitte beachten Sie, dass Sie auch [In-App-Nachrichten für SWIFT aktivieren]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=swift#swift_enabling-in-app-messages) müssen.
+{% multi_lang_include developer_guide/prerequisites/swift.md %} Außerdem müssen Sie [In-App-Nachrichten für Swift aktivieren]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=swift#swift_enabling-in-app-messages).
 
-## Anpassen des Stils von Nachrichten mit Schlüssel-Wert-Paaren für Swift
+## Nachrichtenstil mit Schlüssel-Wert-Paaren für Swift anpassen {#customizing-message-styling-using-key-value-pairs-for-swift}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Customizing Message Styling Swift" %}
 
@@ -299,40 +299,40 @@ struct SampleApp: App {
 }
 ```
 
-!Schritt
-Zeilen-AppDelegate.swift=5
+!!step
+lines-AppDelegate.swift=5
 
-#### 1\. Implementieren Sie `BrazeInAppMessageUIDelegate`
+### 1. `BrazeInAppMessageUIDelegate` implementieren {#1-implement-brazeinappmessageuidelegate}
 
-Implementieren Sie in Ihrer Klasse `AppDelegate` [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/delegate) damit Sie die Methode `inAppMessage` später überschreiben können.
+Implementieren Sie in Ihrer `AppDelegate`-Klasse [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/delegate), damit Sie die Methode `inAppMessage` später überschreiben können.
 
-!Schritt
-Zeilen-AppDelegate.swift=17
+!!step
+lines-AppDelegate.swift=17
 
-#### 2\. Enablement von Fehlersuchen (optional)
+#### 2. Debugging aktivieren (optional)
 
 Um die Fehlerbehebung während der Entwicklung zu erleichtern, sollten Sie das Debugging aktivieren.
 
-!Schritt
-Zeilen-AppDelegate.swift=30-50
+!!step
+lines-AppDelegate.swift=30-50
 
-#### 3\. Bereiten Sie Nachrichten vor, bevor sie angezeigt werden
+#### 3. Nachrichten vor der Anzeige vorbereiten {#3-prepare-messages-before-theyre-displayed}
 
-Braze ruft `inAppMessage(_:prepareWith:)` während der Vorbereitung von Nachrichten auf. Verwenden Sie es, um den Stile anzupassen oder Logik auf der Grundlage von Schlüssel-Wert-Paaren anzuwenden.
+Braze ruft `inAppMessage(_:prepareWith:)` während der Nachrichtenvorbereitung auf. Verwenden Sie diese Methode, um den Stil anzupassen oder Logik auf Grundlage von Schlüssel-Wert-Paaren anzuwenden.
 
-!Schritt
-Zeilen-AppDelegate.swift=34
+!!step
+lines-AppDelegate.swift=34
 
-#### 4\. Zugriff auf Schlüssel-Wert-Paare von `message.extras`
+#### 4. Auf Schlüssel-Wert-Paare über `message.extras` zugreifen {#4-access-key-value-pairs-from-messageextras}
 
-Verwenden Sie `message.extras`, um auf angepasste Typen, Attribute für die Gestaltung oder andere im Dashboard definierte Werte zuzugreifen.
+Verwenden Sie `message.extras`, um auf Anpassungstypen, Styling-Attribute oder andere im Dashboard definierte Werte zuzugreifen.
 
-!Schritt
-Zeilen-AppDelegate.swift=38-46
+!!step
+lines-AppDelegate.swift=38-46
 
-#### 5\. Update der Styling-Attribute der Nachricht
+#### 5. Styling-Attribute der Nachricht aktualisieren {#5-update-the-messages-styling-attributes}
 
-Verwenden Sie [`inAppMessage(_:prepareWith:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog) um auf `PresentationContext` zuzugreifen, damit Sie die Attribute für die Gestaltung direkt ändern können. Jede Art von In-App-Nachricht enthält unterschiedliche Attribute.
+Verwenden Sie [`inAppMessage(_:prepareWith:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog), um auf den `PresentationContext` zuzugreifen und Styling-Attribute direkt zu ändern. Jeder In-App-Nachrichtentyp stellt unterschiedliche Attribute bereit.
 
 {% endscrolly %}
 {% endsdktab %}

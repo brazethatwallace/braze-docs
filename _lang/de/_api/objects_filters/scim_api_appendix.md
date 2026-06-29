@@ -1,12 +1,12 @@
 ---
 nav_title: "SCIM-API-Objekte und Anhang"
-article_title: SCIM-API-Objekte und Anhang
+article_title: "SCIM-API-Objekte und Anhang"
 page_type: reference
 description: "Dieser Artikel erklärt die verschiedenen SCIM-API-Objekte und den Anhang."
 alias: /scim_api_appendix/
 ---
 
-# SCIM-API-Objekte und Anhang
+# SCIM-API-Objekte und Anhang {#scim-api-objects-and-appendix}
 
 > Dieser Artikel erklärt die verschiedenen SCIM-API-Objekte und den Anhang.
 

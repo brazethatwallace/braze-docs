@@ -32,7 +32,7 @@ description: "この記事では、ユーザーのサブスクリプショング
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`subscription.status.get` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`subscription.status.get` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -42,16 +42,16 @@ description: "この記事では、ユーザーのサブスクリプショング
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
-| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types/?tab=subscription%20group%20ids) | 必須 | 文字列 | サブスクリプショングループの`id`。 |
+| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types?tab=subscription%20group%20ids) | 必須 | 文字列 | サブスクリプショングループの`id`。 |
 | `external_id` | 必須* | 文字列 | ユーザーの`external_id`（少なくとも1つ、最大50の`external_ids`を含める必要があります）。<br><br>`external_id`と`email`/`phone`の両方が送信された場合、指定された`external_id`のみが結果クエリに適用されます。 |
 | `email` | 必須* | 文字列 | ユーザーのメールアドレス。最大50個の文字列の配列として渡すことができます。<br><br>メールアドレスと電話番号の両方を送信した場合（`external_id`なし）、エラーが発生します。 |
 | `phone` | 必須* | [E.164](https://en.wikipedia.org/wiki/E.164) 形式の文字列 | ユーザーの電話番号。メールが含まれていない場合は、少なくとも1つの電話番号を含める必要があります（最大50）。<br><br>メールアドレスと電話番号の両方を送信した場合（`external_id`なし）、エラーが発生します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="リクエストパラメーター" }
 
-*ユーザーごとに`external_id`または`email`または`phone`のいずれかが必要です。
+*ユーザーごとに`external_id`または`email`または`phone`のいずれかが必須です。
 
-- SMSおよびWhatsAppサブスクリプショングループの場合、`external_id`または`phone`のいずれかが必要です。両方が送信された場合、`external_id`のみがクエリに使用され、電話番号はそのユーザーに適用されます。
-- メールサブスクリプショングループの場合、`external_id`または`email`のいずれかが必要です。両方が送信された場合、`external_id`のみがクエリに使用され、メールアドレスはそのユーザーに適用されます。
+- SMSおよびWhatsAppサブスクリプショングループの場合、`external_id`または`phone`のいずれかが必須です。両方が送信された場合、`external_id`のみがクエリに使用され、電話番号はそのユーザーに適用されます。
+- メールサブスクリプショングループの場合、`external_id`または`email`のいずれかが必須です。両方が送信された場合、`external_id`のみがクエリに使用され、メールアドレスはそのユーザーに適用されます。
 
 ## リクエスト例 {#example-request}
 
@@ -74,7 +74,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/sta
 {% tab Email %}
 {% raw %}
 ```
-curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@braze.com' \
+curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@example.com' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 {% endraw %}

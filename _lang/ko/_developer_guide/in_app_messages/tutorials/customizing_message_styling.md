@@ -1,20 +1,20 @@
 ---
-nav_title: 메시지 스타일 사용자 정의
-article_title: "Tutorial: 키-값 쌍을 사용하여 스타일링 사용자 지정하기"
+nav_title: 메시지 스타일 커스터마이즈
+article_title: "튜토리얼: 키-값 페어를 사용하여 스타일링 커스터마이즈하기"
 description: ""
 page_order: 1
 layout: scrolly
 ---
 
-# Tutorial: 키-값 쌍을 사용하여 메시지 스타일 지정하기
+# 튜토리얼: 키-값 페어를 사용하여 메시지 스타일링 커스터마이즈하기 {#tutorial-customizing-message-styling-using-key-value-pairs}
 
-> 이 튜토리얼의 샘플 코드를 따라 Braze SDK에서 키-값 쌍을 사용하여 인앱 메시지 스타일링을 사용자 지정하세요.
+> 이 튜토리얼의 샘플 코드를 따라 Braze SDK에서 키-값 페어를 사용하여 인앱 메시지 스타일링을 커스터마이즈하세요.
 
 {% sdktabs %}
 {% sdktab web %}
 {% multi_lang_include developer_guide/prerequisites/web.md %} 그러나 추가 설정은 필요하지 않습니다.
 
-## 웹용 키-값 쌍을 사용하여 메시지 스타일 지정 사용자 지정하기
+## 웹용 키-값 페어를 사용하여 메시지 스타일링 커스터마이즈하기 {#customizing-message-styling-using-key-value-pairs-for-web}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Customizing Message Styling Web" %}
 
@@ -44,47 +44,47 @@ braze.subscribeToInAppMessage(function (message) {
 });
 ```
 
-!!단계
+!!step
 lines-index.js=2
 
-#### 1\. `automaticallyShowInAppMessages()`에 대한 호출을 제거하십시오.
+### 1. `automaticallyShowInAppMessages()` 호출 제거 {#1-remove-calls-to-automaticallyshowinappmessages}
 
-나중에 구현하는 모든 사용자 정의 논리를 재정의하므로 [`automaticallyShowInAppMessages()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#automaticallyshowinappmessages)에 대한 호출을 제거하십시오.
+나중에 구현하는 커스텀 로직을 재정의하므로 [`automaticallyShowInAppMessages()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#automaticallyshowinappmessages)에 대한 모든 호출을 제거하세요.
 
-!!단계
+!!step
 lines-index.js=6
 
-#### 2\. 디버깅 활성화(선택 사항)
+#### 2. 디버깅 활성화(선택 사항) {#2-enable-debugging-optional}
 
 개발 중 문제 해결을 쉽게 하기 위해 디버깅을 활성화하는 것을 고려하세요.
 
-!!단계
-라인-index.js=9-21
+!!step
+lines-index.js=9-21
 
-#### 3\. 인앱 메시지 콜백 핸들러에 가입하십시오.
+#### 3. 인앱 메시지 콜백 핸들러 구독 {#3-subscribe-to-the-in-app-message-callback-handler}
 
-인앱 메시지가 트리거될 때마다 메시지를 받기 위해 [`subscribeToInAppMessage(callback)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage)에 콜백을 등록하십시오.
+인앱 메시지가 트리거될 때마다 메시지를 수신하려면 [`subscribeToInAppMessage(callback)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage)에 콜백을 등록하세요.
 
-!!단계
+!!step
 lines-index.js=10-13
 
-#### 4\. `message.extras` 속성에 액세스
+#### 4. `message.extras` 속성에 액세스 {#4-access-the-messageextras-property}
 
-`message.extras` 을 사용하여 사용자 지정 유형, 스타일 지정 속성 또는 대시보드에 정의된 기타 값에 액세스합니다. 모든 값은 문자열로 반환됩니다.
+`message.extras`를 사용하여 커스터마이즈 유형, 스타일링 속성 또는 대시보드에 정의된 기타 값에 액세스합니다. 모든 값은 문자열로 반환됩니다.
 
-!!단계
+!!step
 lines-index.js=19
 
-#### 5\. 조건부 호출 `showInAppMessage`
+#### 5. 조건부로 `showInAppMessage` 호출 {#5-conditionally-call-showinappmessage}
 
-메시지를 표시하려면 [`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage). 그렇지 않으면 필요에 따라 사용자 지정 속성을 사용합니다.
+메시지를 표시하려면 [`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage)를 호출합니다. 그렇지 않으면 필요에 따라 커스텀 속성을 사용합니다.
 
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab android %}
-{% multi_lang_include developer_guide/prerequisites/android.md %} Android용 인앱 메시지를 [활성화해야 합니다.]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=android#android_enabling-in-app-messages)
+{% multi_lang_include developer_guide/prerequisites/android.md %} 또한 [Android용 인앱 메시지를 활성화]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=android#android_enabling-in-app-messages)해야 합니다.
 
-## Android용 키-값 쌍을 사용하여 메시지 스타일 지정하기
+## Android용 키-값 페어를 사용하여 메시지 스타일링 커스터마이즈하기 {#customizing-message-styling-using-key-value-pairs-for-android}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Customizing Message Styling Android" %}
 
@@ -177,54 +177,54 @@ class CustomInAppMessageViewFactory : IInAppMessageViewFactory {
 }
 ```
 
-!!단계
+!!step
 lines-MainApplication.kt=19
 
-#### 1\. 디버깅 활성화(선택 사항)
+### 1. 디버깅 활성화(선택 사항) {#1-enable-debugging-optional}
 
 개발 중 문제 해결을 쉽게 하기 위해 디버깅을 활성화하는 것을 고려하세요.
 
-!!단계
-라인-MainApplication.kt=28-30
+!!step
+lines-MainApplication.kt=28-30
 
-#### 2\. 활동 수명 주기 콜백 등록
+#### 2. 액티비티 라이프사이클 콜백 등록 {#2-register-activity-lifecycle-callbacks}
 
-Braze의 기본 리스너를 등록하여 인앱 메시지 생명 주기를 처리합니다.
+Braze의 기본 리스너를 등록하여 인앱 메시지 라이프사이클을 처리합니다.
 
-!!단계
+!!step
 lines-CustomInAppMessageViewFactory.kt=8
 
-#### 3\. 사용자 지정 뷰 팩토리 클래스 만들기
+#### 3. 커스텀 뷰 팩토리 클래스 생성 {#3-create-your-custom-view-factory-class}
 
-클래스가 다음을 준수하는지 확인합니다. [`IInAppMessageViewFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-i-in-app-message-view-factory/index.html) 를 준수하는지 확인하여 사용자 지정 메시지 보기를 구성하고 반환할 수 있도록 합니다.
+클래스가 [`IInAppMessageViewFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-i-in-app-message-view-factory/index.html)를 준수하는지 확인하여 커스텀 메시지 뷰를 구성하고 반환할 수 있도록 합니다.
 
-!!단계
-라인-CustomInAppMessageViewFactory.kt=15-20
+!!step
+lines-CustomInAppMessageViewFactory.kt=15-20
 
-#### 4\. 브레이즈의 기본 공장에 위임하기
+#### 4. Braze의 기본 팩토리에 위임 {#4-delegate-to-brazes-default-factory}
 
-조건부 변경 사항을 적용하기 전에 기본 팩토리로 위임하여 Braze의 기본 제공 스타일링을 유지하세요.
+조건부 변경 사항을 적용하기 전에 기본 팩토리에 위임하여 Braze의 기본 제공 스타일링을 유지합니다.
 
-!!단계
+!!step
 lines-CustomInAppMessageViewFactory.kt=30-32,35-41
 
-#### 5\. 다음에서 키-값 쌍에 액세스합니다. `inAppMessage.extras`
+#### 5. `inAppMessage.extras`에서 키-값 페어에 액세스 {#5-access-key-value-pairs-from-inappmessageextras}
 
-`inAppMessage.extras` 을 사용하여 사용자 지정 유형, 스타일 지정 속성 또는 대시보드에 정의된 기타 값에 액세스합니다. 뷰를 반환하기 전에 스타일 재정의를 적용합니다.
+`inAppMessage.extras`를 사용하여 커스터마이즈 유형, 스타일링 속성 또는 대시보드에 정의된 기타 값에 액세스합니다. 뷰를 반환하기 전에 스타일 재정의를 적용합니다.
 
-!!단계
-라인-MainApplication.kt=33-34
+!!step
+lines-MainApplication.kt=33-34
 
-#### 6\. 사용자 지정 구현 `IInAppMessageViewFactory`
+#### 6. 커스텀 `IInAppMessageViewFactory` 구현 {#6-implement-a-custom-iinappmessageviewfactory}
 
-구현 [`IInAppMessageViewFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-i-in-app-message-view-factory/index.html) 를 구현하여 인앱 메시지 보기를 구성하고 렌더링하세요.
+커스텀 클래스에서 [`IInAppMessageViewFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-i-in-app-message-view-factory/index.html)를 구현하여 인앱 메시지 뷰를 구성하고 렌더링합니다.
 
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab swift %}
-{% multi_lang_include developer_guide/prerequisites/swift.md %} Swift용 인앱 메시지를 [활성화해야 합니다.]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=swift#swift_enabling-in-app-messages)
+{% multi_lang_include developer_guide/prerequisites/swift.md %} 또한 [Swift용 인앱 메시지를 활성화]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=swift#swift_enabling-in-app-messages)해야 합니다.
 
-## Swift에서 키-값 쌍을 사용하여 메시지 스타일 지정하기
+## Swift용 키-값 페어를 사용하여 메시지 스타일링 커스터마이즈하기 {#customizing-message-styling-using-key-value-pairs-for-swift}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Customizing Message Styling Swift" %}
 
@@ -299,40 +299,40 @@ struct SampleApp: App {
 }
 ```
 
-!!단계
+!!step
 lines-AppDelegate.swift=5
 
-#### 1\. 구현 `BrazeInAppMessageUIDelegate`
+### 1. `BrazeInAppMessageUIDelegate` 구현 {#1-implement-brazeinappmessageuidelegate}
 
-`AppDelegate` 클래스에서 [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/delegate) 를 구현하여 나중에 `inAppMessage` 메서드를 재정의할 수 있도록 합니다.
+`AppDelegate` 클래스에서 [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/delegate)를 구현하여 나중에 `inAppMessage` 메서드를 재정의할 수 있도록 합니다.
 
-!!단계
+!!step
 lines-AppDelegate.swift=17
 
-#### 2\. 디버깅 활성화(선택 사항)
+#### 2. 디버깅 활성화(선택 사항)
 
 개발 중 문제 해결을 쉽게 하기 위해 디버깅을 활성화하는 것을 고려하세요.
 
-!!단계
+!!step
 lines-AppDelegate.swift=30-50
 
-#### 3\. 메시지가 표시되기 전에 메시지 준비하기
+#### 3. 메시지가 표시되기 전에 준비하기 {#3-prepare-messages-before-theyre-displayed}
 
-메시지를 준비하는 동안 Braze는 `inAppMessage(_:prepareWith:)` 으로 전화합니다. 이를 사용하여 스타일을 사용자 지정하거나 키-값 쌍을 기반으로 로직을 적용할 수 있습니다.
+Braze는 메시지 준비 중에 `inAppMessage(_:prepareWith:)`를 호출합니다. 이를 사용하여 스타일링을 커스터마이즈하거나 키-값 페어를 기반으로 로직을 적용할 수 있습니다.
 
-!!단계
+!!step
 lines-AppDelegate.swift=34
 
-#### 4\. 다음에서 키-값 쌍에 액세스합니다. `message.extras`
+#### 4. `message.extras`에서 키-값 페어에 액세스 {#4-access-key-value-pairs-from-messageextras}
 
-`message.extras` 을 사용하여 사용자 지정 유형, 스타일 지정 속성 또는 대시보드에 정의된 기타 값에 액세스합니다.
+`message.extras`를 사용하여 커스터마이즈 유형, 스타일링 속성 또는 대시보드에 정의된 기타 값에 액세스합니다.
 
-!!단계
-라인-AppDelegate.swift=38-46
+!!step
+lines-AppDelegate.swift=38-46
 
-#### 5\. 메시지의 스타일 지정 속성 업데이트하기
+#### 5. 메시지의 스타일링 속성 업데이트 {#5-update-the-messages-styling-attributes}
 
-를 사용하여 [`inAppMessage(_:prepareWith:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog) 을 사용하여 `PresentationContext` 에 액세스하여 스타일 속성을 직접 수정할 수 있습니다. 각 인앱 메시지 유형은 서로 다른 속성을 노출합니다.
+[`inAppMessage(_:prepareWith:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog)를 사용하여 `PresentationContext`에 액세스하면 스타일링 속성을 직접 수정할 수 있습니다. 각 인앱 메시지 유형은 서로 다른 속성을 노출합니다.
 
 {% endscrolly %}
 {% endsdktab %}

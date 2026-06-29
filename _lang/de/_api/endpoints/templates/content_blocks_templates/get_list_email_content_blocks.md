@@ -14,12 +14,12 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Verf�
 /content_blocks/list
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um Informationen zu Ihren vorhandenen [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) aufzulisten.
+> Verwenden Sie diesen Endpunkt, um Informationen zu Ihren vorhandenen [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) aufzulisten.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6d87048f-68fd-46c9-aa15-3a970e99540e {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key/) mit der Berechtigung `content_blocks.list`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `content_blocks.list`.
 
 ## Rate-Limit
 
@@ -33,7 +33,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | `modified_before`  |  Optional | String im [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)-Format | Ruft nur Content Blocks ab, die zum oder vor dem angegebenen Zeitpunkt aktualisiert wurden. |
 | `limit` | Optional | Positive Zahl | Maximale Anzahl der abzurufenden Content Blocks. Standardmäßig 100, wenn nicht angegeben, mit einem maximal zulässigen Wert von 1000. |
 | `offset`  |  Optional | Positive Zahl | Anzahl der Content Blocks, die übersprungen werden sollen, bevor der Rest der Templates zurückgegeben wird, die den Suchkriterien entsprechen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 ```
@@ -75,6 +75,6 @@ In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehle
 | `Content Block number limit exceeds maximum of 1000` | Ändern Sie den Parameter `limit` in eine Ganzzahl kleiner als 1000. |
 | `Offset is invalid` | Der Parameter `offset` muss eine Ganzzahl größer als 0 sein. |
 | `Offset must be greater than 0` | Ändern Sie den Parameter `offset` in eine Ganzzahl größer als 0. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
 {% endapi %}

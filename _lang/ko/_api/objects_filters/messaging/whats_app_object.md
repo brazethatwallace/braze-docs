@@ -1,18 +1,18 @@
 ---
-nav_title: "WhatsApp 개체"
-article_title: WhatsApp 메시징 개체
+nav_title: "WhatsApp 오브젝트"
+article_title: WhatsApp 메시징 오브젝트
 page_order: 15
 page_type: reference
 channel: WhatsApp
-description: "이 참고 문서에서는 Braze WhatsApp 객체의 다양한 구성요소에 대해 설명합니다."
+description: "이 참조 문서에서는 Braze WhatsApp 오브젝트의 다양한 구성요소에 대해 설명합니다."
 
 ---
 
-# WhatsApp 개체
+# WhatsApp 오브젝트 {#whatsapp-object}
 
-> `whats_app` 개체를 사용하면 [메시징 엔드포인트를]({{site.baseurl}}/api/endpoints/messaging) 통해 WhatsApp 메시지를 수정하거나 생성할 수 있습니다.
+> `whats_app` 오브젝트를 사용하면 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging)를 통해 WhatsApp 메시지를 수정하거나 생성할 수 있습니다.
 
-## WhatsApp 개체
+## WhatsApp 오브젝트
 
 ```json
 {
@@ -24,9 +24,9 @@ description: "이 참고 문서에서는 Braze WhatsApp 객체의 다양한 구�
 }
 ```
 
-- [앱 식별자]({{site.baseurl}}/api/identifier_types/)
+- [앱 식별자]({{site.baseurl}}/api/identifier_types)
 
-### 메시지 유형
+### 메시지 유형 {#message-types}
 
 #### template_message
 
@@ -42,17 +42,17 @@ description: "이 참고 문서에서는 Braze WhatsApp 객체의 다양한 구�
 ```
 
 {% alert important %}
-**미디어 전송 제한:** 미디어 전송(문서, 비디오 및 기타 미디어 유형)은 `messages/send` API에서 지원되지 않습니다. API를 통해 전송되는 템플릿 메시지에는 TEXT 및 IMAGE 헤더 유형만 지원됩니다. WhatsApp 템플릿이 DOCUMENT, VIDEO 또는 기타 미디어 유형 헤더를 사용하는 경우 `messages/send` API를 사용하여 전송할 수 없습니다. 미디어 헤더가 있는 템플릿을 전송하려면 [캠페인 트리거 API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) 또는 Braze 대시보드를 사용하세요.
+**미디어 전송 제한:** 미디어 전송(문서, 비디오 및 기타 미디어 유형)은 `messages/send` API에서 지원되지 않습니다. API를 통해 전송되는 템플릿 메시지에는 TEXT 및 IMAGE 헤더 유형만 지원됩니다. WhatsApp 템플릿이 DOCUMENT, VIDEO 또는 기타 미디어 유형 헤더를 사용하는 경우 `messages/send` API를 사용하여 전송할 수 없습니다. 미디어 헤더가 있는 템플릿을 전송하려면 [Campaigns 트리거 API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) 또는 Braze 대시보드를 사용하세요.
 {% endalert %}
 
-##### 헤더 변수 객체
+##### 헤더 변수 오브젝트 {#header-variables-object}
 
-`header_variables` 개체를 사용하면 WhatsApp 템플릿에서 헤더 변수의 값을 지정할 수 있습니다. 각 키는 지정된 값으로 대체할 WhatsApp 템플릿 변수 인덱스(인덱되지 않음)입니다.
+`header_variables` 오브젝트를 사용하면 WhatsApp 템플릿에서 헤더 변수의 값을 지정할 수 있습니다. 각 키는 지정된 값으로 대체할 WhatsApp 템플릿 변수 인덱스(0부터 시작)입니다.
 
 {% alert note %}
-`header_variables`는 TEXT 유형 헤더가 있는 템플릿과만 사용할 수 있습니다. IMAGE 헤더의 경우 대신 `header_media_uri`을 사용하세요. DOCUMENT, VIDEO 및 기타 미디어 헤더 유형은 `messages/send` API에서 지원되지 않습니다.<br><br>
+`header_variables`는 TEXT 유형 헤더가 있는 템플릿에서만 사용할 수 있습니다. IMAGE 헤더의 경우 대신 `header_media_uri`를 사용하세요. DOCUMENT, VIDEO 및 기타 미디어 헤더 유형은 `messages/send` API에서 지원되지 않습니다.<br><br>
 
-`header_image_uri`은 응답 메시지 유형(예: `quick_reply_response_message`)에만 사용되며 템플릿 메시지에는 사용되지 않습니다.
+`header_image_uri`는 응답 메시지 유형(예: `quick_reply_response_message`)에만 사용되며 템플릿 메시지에는 사용되지 않습니다.
 {% endalert %}
 
 ```json
@@ -60,10 +60,10 @@ description: "이 참고 문서에서는 Braze WhatsApp 객체의 다양한 구�
   "$TEMPLATE_VARIABLE_INDEX_0": "$TEMPLATE_VARIABLE_VALUE_0"
 }
 ```
-현재 헤더 변수는 0 또는 하나만 지정할 수 있습니다.
+현재 헤더 변수는 0개 또는 1개만 지정할 수 있습니다.
 
 
-###### 예시
+###### 예시 {#example}
 
 ```json
 {
@@ -71,9 +71,9 @@ description: "이 참고 문서에서는 Braze WhatsApp 객체의 다양한 구�
 }
 ```
 
-##### 본문 변수 개체
+##### 본문 변수 오브젝트 {#body-variables-object}
 
-`body_variables` 개체를 사용하면 WhatsApp 템플릿에서 본문 변수의 값을 지정할 수 있습니다. 각 키는 지정된 값으로 대체할 WhatsApp 템플릿 변수 인덱스(인덱되지 않음)입니다.
+`body_variables` 오브젝트를 사용하면 WhatsApp 템플릿에서 본문 변수의 값을 지정할 수 있습니다. 각 키는 지정된 값으로 대체할 WhatsApp 템플릿 변수 인덱스(0부터 시작)입니다.
 ```json
 {
   "$TEMPLATE_VARIABLE_INDEX_0": "$TEMPLATE_VARIABLE_VALUE_0",
@@ -90,9 +90,9 @@ description: "이 참고 문서에서는 Braze WhatsApp 객체의 다양한 구�
 }
 ```
 
-##### 버튼 변수 개체
+##### 버튼 변수 오브젝트 {#button-variables-object}
 
-`button_variables` 개체를 사용하면 WhatsApp 템플릿에서 버튼 변수에 대한 값을 지정할 수 있습니다. 각 키는 지정된 값으로 대체할 WhatsApp 템플릿 변수 인덱스(인덱되지 않음)입니다.
+`button_variables` 오브젝트를 사용하면 WhatsApp 템플릿에서 버튼 변수의 값을 지정할 수 있습니다. 각 키는 지정된 값으로 대체할 WhatsApp 템플릿 변수 인덱스(0부터 시작)입니다.
 
 ```json
 {
@@ -100,7 +100,7 @@ description: "이 참고 문서에서는 Braze WhatsApp 객체의 다양한 구�
 }
 ```
 
-현재 버튼 변수는 콜투액션 URL의 경로 구성 요소인 버튼 변수 하나만 지정할 수 있습니다. 변수 인덱스는 템플릿의 CTA URL 버튼 인덱스와 일치해야 합니다. 예를 들어 CTA 버튼이 템플릿의 두 번째 버튼인 경우 가변 인덱스 "1"을 사용합니다.
+현재 버튼 변수는 콜투액션 URL의 경로 구성요소인 하나만 지정할 수 있습니다. 변수 인덱스는 템플릿의 CTA URL 버튼 인덱스와 일치해야 합니다. 예를 들어 CTA 버튼이 템플릿의 두 번째 버튼인 경우 변수 인덱스 "1"을 사용합니다.
 
 ###### 예시
 
@@ -110,7 +110,7 @@ description: "이 참고 문서에서는 Braze WhatsApp 객체의 다양한 구�
 }
 ```
 
-### 응답 메시지
+### 응답 메시지 {#response-messages}
 
 #### text_response_message
 
@@ -121,7 +121,7 @@ description: "이 참고 문서에서는 Braze WhatsApp 객체의 다양한 구�
 }
 ```
 
-###### 예시
+##### 예시
 
 ```json
 {
@@ -139,7 +139,7 @@ description: "이 참고 문서에서는 Braze WhatsApp 객체의 다양한 구�
 }
 ```
 
-###### 예시
+##### 예시
 
 ```json
 {
@@ -160,7 +160,7 @@ description: "이 참고 문서에서는 Braze WhatsApp 객체의 다양한 구�
 }
 ```
 
-##### 버튼 개체
+##### 버튼 오브젝트 {#button-object}
 
 ```json
 {
@@ -186,7 +186,7 @@ description: "이 참고 문서에서는 Braze WhatsApp 객체의 다양한 구�
 
 #### list_response_message
 
-`list_response_message` 유형은 WhatsApp에서 목록 기반 메시지를 보낼 수 있습니다. 이 메시지 유형에는 수신자가 상호 작용할 수 있는 항목 목록이 포함되어 있습니다.
+`list_response_message` 유형을 사용하면 WhatsApp에서 목록 기반 메시지를 보낼 수 있습니다. 이 메시지 유형에는 수신자가 상호작용할 수 있는 항목 목록이 포함되어 있습니다.
 
 ```json
 {
@@ -199,7 +199,7 @@ description: "이 참고 문서에서는 Braze WhatsApp 객체의 다양한 구�
 }
 ```
 
-#### 섹션 개체 나열
+#### 목록 섹션 오브젝트 {#list-section-object}
 
 ```json
 {
@@ -208,7 +208,7 @@ description: "이 참고 문서에서는 Braze WhatsApp 객체의 다양한 구�
 }
 ```
 
-#### 행 개체 나열
+#### 목록 행 오브젝트 {#list-row-object}
 
 ```json
 {
@@ -217,10 +217,10 @@ description: "이 참고 문서에서는 Braze WhatsApp 객체의 다양한 구�
 }
 ```
 
-##### 제약 조건
+##### 제약 조건 {#constraints}
 
 - **list_sections**: 섹션이 하나 이상 있어야 합니다.
-- **list_rows**: 모든 섹션에 최대 10개의 행을 포함할 수 있습니다.
+- **list_rows**: 모든 섹션에 걸쳐 최대 10개의 행을 포함할 수 있습니다.
 - **row_description**: 각 행에 대해 선택 사항입니다.
 
 ##### 예시
@@ -264,7 +264,7 @@ description: "이 참고 문서에서는 Braze WhatsApp 객체의 다양한 구�
 
 #### flow_response_message
 
-`flow_response_message` 유형은 WhatsApp에서 흐름 기반 메시지를 전송할 수 있게 해줍니다. 이 메시지 유형에는 수신자가 완료할 수 있는 대화형 흐름이 포함됩니다.
+`flow_response_message` 유형을 사용하면 WhatsApp에서 플로우 기반 메시지를 전송할 수 있습니다. 이 메시지 유형에는 수신자가 완료할 수 있는 대화형 플로우가 포함됩니다.
 
 ```json
 {
@@ -278,7 +278,7 @@ description: "이 참고 문서에서는 Braze WhatsApp 객체의 다양한 구�
 }
 ```
 
-##### 흐름 버튼 객체
+##### 플로우 버튼 오브젝트 {#flow-button-object}
 
 ```json
 {
@@ -289,9 +289,9 @@ description: "이 참고 문서에서는 Braze WhatsApp 객체의 다양한 구�
 
 ##### 제약 조건
 
-- **flow_button**: 캡션과 `flow_id`을 모두 포함해야 합니다.
+- **flow_button**: 캡션과 `flow_id`를 모두 포함해야 합니다.
 - **캡션**: 최대 20자입니다.
-- **flow_id**: 유효한 게시된 흐름 ID여야 합니다.
+- **flow_id**: 유효한 게시된 플로우 ID여야 합니다.
 
 ##### 예시
 

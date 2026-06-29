@@ -76,7 +76,7 @@ Enregistrez la configuration et redémarrez VS Code.
 {% endtabs %}
 
 {% alert note %}
-Context7 est différent du [serveur Braze MCP]({{site.baseurl}}/developer_guide/mcp_server/). Context7 permet à votre assistant d'intelligence artificielle d'accéder à la **documentation Braze**, tandis que le serveur Braze MCP offre un accès en lecture seule aux **données de votre espace de travail Braze** (telles que les campagnes, les segments et les analyses). Vous pouvez utiliser les deux ensemble pour bénéficier d'une expérience de développement assistée par l'intelligence artificielle plus complète.
+Context7 est différent du [serveur Braze MCP]({{site.baseurl}}/developer_guide/mcp_server). Context7 permet à votre assistant d'intelligence artificielle d'accéder à la **documentation Braze**, tandis que le serveur Braze MCP offre un accès en lecture seule aux **données de votre espace de travail Braze** (telles que les campagnes, les segments et les analyses). Vous pouvez utiliser les deux ensemble pour bénéficier d'une expérience de développement assistée par l'intelligence artificielle plus complète.
 {% endalert %}
 
 ## Rédiger des prompts pour le développement du SDK Braze {#writing-prompts-for-braze-sdk-development}
@@ -85,7 +85,7 @@ Une fois Context7 configuré, incluez `use context7` dans vos prompts afin d'ind
 
 ### React Native SDK {#react-native-sdk}
 
-Ces prompts illustrent les tâches d'intégration courantes pour le [SDK Braze React Native]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=react%20native).
+Ces prompts illustrent les tâches d'intégration courantes pour le [SDK Braze React Native]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native).
 
 #### Initialisation du SDK {#initializing-the-sdk}
 
@@ -122,7 +122,7 @@ programmatically. Use context7.
 
 ### Web SDK {#web-sdk}
 
-Ces prompts illustrent les tâches d'intégration courantes pour le [SDK Web Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web).
+Ces prompts illustrent les tâches d'intégration courantes pour le [SDK Web Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web).
 
 #### Initialisation du SDK
 

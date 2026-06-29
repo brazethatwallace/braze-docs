@@ -1,6 +1,6 @@
 ---
 nav_title: "WhatsApp-Objekt"
-article_title: WhatsApp Messaging Objekt
+article_title: WhatsApp-Messaging-Objekt
 page_order: 15
 page_type: reference
 channel: WhatsApp
@@ -8,7 +8,7 @@ description: "Dieser Referenzartikel erklärt die verschiedenen Komponenten des 
 
 ---
 
-# WhatsApp-Objekt
+# WhatsApp-Objekt {#whatsapp-object}
 
 > Das Objekt `whats_app` ermöglicht es Ihnen, WhatsApp-Nachrichten über unsere [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging) zu ändern oder zu erstellen.
 
@@ -24,9 +24,9 @@ description: "Dieser Referenzartikel erklärt die verschiedenen Komponenten des 
 }
 ```
 
-- [App Kennung]({{site.baseurl}}/api/identifier_types/)
+- [App-Bezeichner]({{site.baseurl}}/api/identifier_types)
 
-### Nachrichtentypen
+### Nachrichtentypen {#message-types}
 
 #### template_message
 
@@ -42,17 +42,17 @@ description: "Dieser Referenzartikel erklärt die verschiedenen Komponenten des 
 ```
 
 {% alert important %}
-**Einschränkungen beim Versand von Medien:** Medien-Sendungen (Dokumente, Videos und andere Medientypen) werden von der`messages/send`API nicht unterstützt. Für über die API gesendete Templates werden ausschließlich die Header-Typen TEXT und IMAGE unterstützt. Wenn Ihr WhatsApp-Template eine DOCUMENT-, Video- oder andere Medien-Header verwendet, können Sie diese nicht über die`messages/send`API versenden. Bitte verwenden Sie die [Campaigns Triggered API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) oder das Braze-Dashboard, um Templates mit Medien-Headern zu versenden.
+**Einschränkungen beim Versand von Medien:** Medien-Sendungen (Dokumente, Videos und andere Medientypen) werden von der `messages/send`-API nicht unterstützt. Für über die API gesendete Template-Nachrichten werden ausschließlich die Header-Typen TEXT und IMAGE unterstützt. Wenn Ihr WhatsApp-Template einen DOCUMENT-, VIDEO- oder anderen Medien-Header verwendet, können Sie es nicht über die `messages/send`-API versenden. Verwenden Sie die [Campaigns Triggered API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) oder das Braze-Dashboard, um Templates mit Medien-Headern zu versenden.
 {% endalert %}
 
-##### Kopfzeilen-Variablen Objekt
+##### Header-Variablen-Objekt {#header-variables-object}
 
-Mit dem Objekt `header_variables` können Sie Werte für Kopfvariablen in der WhatsApp-Vorlage angeben. Jeder Schlüssel ist der Index der WhatsApp-Vorlagevariable (null-indiziert), die durch den angegebenen Wert ersetzt werden soll.
+Mit dem Objekt `header_variables` können Sie Werte für Header-Variablen im WhatsApp-Template angeben. Jeder Schlüssel ist der Index der WhatsApp-Template-Variable (nullindiziert), die durch den angegebenen Wert ersetzt werden soll.
 
 {% alert note %}
-Sie können dies`header_variables`ausschließlich mit Templates verwenden, die Überschriften vom Typ TEXT enthalten. Für IMAGE-Header verwenden Sie bitte`header_media_uri` stattdessen. Die Header-Typen DOCUMENT, Video und andere Medien werden von der`messages/send`API nicht unterstützt.<br><br>
+Sie können `header_variables` ausschließlich mit Templates verwenden, die Header vom Typ TEXT enthalten. Für IMAGE-Header verwenden Sie stattdessen `header_media_uri`. Die Header-Typen DOCUMENT, VIDEO und andere Medien werden von der `messages/send`-API nicht unterstützt.<br><br>
 
-`header_image_uri` wird ausschließlich für Antwortnachrichtentypen (wie z. B. `quick_reply_response_message`) verwendet, nicht für Templates.
+`header_image_uri` wird ausschließlich für Antwortnachrichtentypen (wie z. B. `quick_reply_response_message`) verwendet, nicht für Template-Nachrichten.
 {% endalert %}
 
 ```json
@@ -60,10 +60,10 @@ Sie können dies`header_variables`ausschließlich mit Templates verwenden, die �
   "$TEMPLATE_VARIABLE_INDEX_0": "$TEMPLATE_VARIABLE_VALUE_0"
 }
 ```
-Derzeit können nur null oder eine Kopfvariable angegeben werden.
+Derzeit können null oder eine Header-Variable angegeben werden.
 
 
-###### Beispiel
+###### Beispiel {#example}
 
 ```json
 {
@@ -71,9 +71,9 @@ Derzeit können nur null oder eine Kopfvariable angegeben werden.
 }
 ```
 
-##### Körper Variablen Objekt
+##### Body-Variablen-Objekt {#body-variables-object}
 
-Mit dem Objekt `body_variables` können Sie Werte für Body-Variablen in der WhatsApp-Vorlage angeben. Jeder Schlüssel ist der Index der WhatsApp-Vorlagevariable (null-indiziert), die durch den angegebenen Wert ersetzt werden soll.
+Mit dem Objekt `body_variables` können Sie Werte für Body-Variablen im WhatsApp-Template angeben. Jeder Schlüssel ist der Index der WhatsApp-Template-Variable (nullindiziert), die durch den angegebenen Wert ersetzt werden soll.
 ```json
 {
   "$TEMPLATE_VARIABLE_INDEX_0": "$TEMPLATE_VARIABLE_VALUE_0",
@@ -90,9 +90,9 @@ Mit dem Objekt `body_variables` können Sie Werte für Body-Variablen in der Wha
 }
 ```
 
-##### Schaltfläche variables Objekt
+##### Button-Variablen-Objekt {#button-variables-object}
 
-Mit dem Objekt `button_variables` können Sie Werte für Schaltflächenvariablen in der WhatsApp-Vorlage angeben. Jeder Schlüssel ist der Index der WhatsApp-Vorlagevariable (null-indiziert), die durch den angegebenen Wert ersetzt werden soll.
+Mit dem Objekt `button_variables` können Sie Werte für Button-Variablen im WhatsApp-Template angeben. Jeder Schlüssel ist der Index der WhatsApp-Template-Variable (nullindiziert), die durch den angegebenen Wert ersetzt werden soll.
 
 ```json
 {
@@ -100,7 +100,7 @@ Mit dem Objekt `button_variables` können Sie Werte für Schaltflächenvariablen
 }
 ```
 
-Derzeit kann nur eine Schaltflächenvariable angegeben werden, nämlich die Pfadkomponente einer Call-to-Action-URL. Der Variablenindex muss mit dem Index der CTA-URL-Schaltfläche in der Vorlage übereinstimmen. Wenn Ihre CTA-Schaltfläche zum Beispiel die zweite Schaltfläche in Ihrer Vorlage ist, verwenden Sie den Variablenindex "1".
+Derzeit kann nur eine Button-Variable angegeben werden, nämlich die Pfadkomponente einer Call-to-Action-URL. Der Variablenindex muss mit dem Index des CTA-URL-Buttons im Template übereinstimmen. Wenn Ihr CTA-Button zum Beispiel der zweite Button in Ihrem Template ist, verwenden Sie den Variablenindex „1“.
 
 ###### Beispiel
 
@@ -110,7 +110,7 @@ Derzeit kann nur eine Schaltflächenvariable angegeben werden, nämlich die Pfad
 }
 ```
 
-### Responsive Messages
+### Antwortnachrichten {#response-messages}
 
 #### text_response_message
 
@@ -121,7 +121,7 @@ Derzeit kann nur eine Schaltflächenvariable angegeben werden, nämlich die Pfad
 }
 ```
 
-###### Beispiel
+##### Beispiel
 
 ```json
 {
@@ -139,7 +139,7 @@ Derzeit kann nur eine Schaltflächenvariable angegeben werden, nämlich die Pfad
 }
 ```
 
-###### Beispiel
+##### Beispiel
 
 ```json
 {
@@ -160,7 +160,7 @@ Derzeit kann nur eine Schaltflächenvariable angegeben werden, nämlich die Pfad
 }
 ```
 
-##### Schaltfläche Objekt
+##### Button-Objekt {#button-object}
 
 ```json
 {
@@ -186,7 +186,7 @@ Derzeit kann nur eine Schaltflächenvariable angegeben werden, nämlich die Pfad
 
 #### list_response_message
 
-Der Typ `list_response_message` ermöglicht es Ihnen, in WhatsApp eine listenbasierte Nachricht zu versenden. Dieser Nachrichtentyp enthält eine Liste von Artikeln, mit denen der Empfänger:in interagieren kann.
+Der Typ `list_response_message` ermöglicht es Ihnen, in WhatsApp eine listenbasierte Nachricht zu versenden. Dieser Nachrichtentyp enthält eine Liste von Elementen, mit denen die Empfänger:innen interagieren können.
 
 ```json
 {
@@ -199,7 +199,7 @@ Der Typ `list_response_message` ermöglicht es Ihnen, in WhatsApp eine listenbas
 }
 ```
 
-#### Liste Abschnitt Objekt
+#### Listenabschnitt-Objekt {#list-section-object}
 
 ```json
 {
@@ -208,7 +208,7 @@ Der Typ `list_response_message` ermöglicht es Ihnen, in WhatsApp eine listenbas
 }
 ```
 
-#### Liste Zeilenobjekt
+#### Listenzeilen-Objekt {#list-row-object}
 
 ```json
 {
@@ -217,10 +217,10 @@ Der Typ `list_response_message` ermöglicht es Ihnen, in WhatsApp eine listenbas
 }
 ```
 
-##### Einschränkungen
+##### Einschränkungen {#constraints}
 
-- **list_sections**: Muss mindestens einen Abschnitt haben.
-- **list_rows**: Es können maximal 10 Zeilen in allen Abschnitten enthalten sein.
+- **list_sections**: Muss mindestens einen Abschnitt enthalten.
+- **list_rows**: Es können maximal 10 Zeilen über alle Abschnitte hinweg enthalten sein.
 - **row_description**: Optional für jede Zeile.
 
 ##### Beispiel
@@ -264,7 +264,7 @@ Der Typ `list_response_message` ermöglicht es Ihnen, in WhatsApp eine listenbas
 
 #### flow_response_message
 
-Mit diesem`flow_response_message`Typ ist es zulässig, eine flussbasierte Nachricht in WhatsApp zu senden. Dieser Nachrichtentyp umfasst einen interaktiven Ablauf, den die Empfänger:innen abschließen können.
+Der Typ `flow_response_message` ermöglicht es Ihnen, eine Flow-basierte Nachricht in WhatsApp zu senden. Dieser Nachrichtentyp umfasst einen interaktiven Ablauf, den die Empfänger:innen abschließen können.
 
 ```json
 {
@@ -278,7 +278,7 @@ Mit diesem`flow_response_message`Typ ist es zulässig, eine flussbasierte Nachri
 }
 ```
 
-##### Flow-Button-Objekt
+##### Flow-Button-Objekt {#flow-button-object}
 
 ```json
 {
@@ -289,9 +289,9 @@ Mit diesem`flow_response_message`Typ ist es zulässig, eine flussbasierte Nachri
 
 ##### Einschränkungen
 
-- **flow_button**: Es müssen sowohl die Bildunterschrift als auch die Datei`flow_id` . enthalten sein.
-- **Bildunterschrift**: Maximal 20 Zeichen.
-- **flow_id**: Es muss sich um eine gültige, veröffentlichte Flow-ID handeln.
+- **flow_button**: Muss sowohl die Beschriftung als auch die `flow_id` enthalten.
+- **caption**: Maximal 20 Zeichen.
+- **flow_id**: Muss eine gültige, veröffentlichte Flow-ID sein.
 
 ##### Beispiel
 

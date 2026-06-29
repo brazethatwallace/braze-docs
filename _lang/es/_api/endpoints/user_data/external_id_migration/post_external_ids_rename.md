@@ -20,7 +20,7 @@ Puedes enviar hasta 50 objetos de renombramiento por solicitud.
 
 Con este punto de conexión se establece un nuevo (principal) `external_id` para el usuario y se deja obsoleto su `external_id` existente. Esto significa que el usuario puede ser identificado por cualquiera de los dos `external_id` hasta que se elimine el obsoleto. Tener varios ID externos permite un periodo de migración para que no se rompan las versiones heredadas de tus aplicaciones que utilizan el esquema de nombres de ID externos anterior.
 
-Cuando ya no utilices tu antiguo esquema de nombres, te recomendamos encarecidamente que elimines los ID externos obsoletos utilizando el [punto de conexión `/users/external_ids/remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove/).
+Cuando ya no utilices tu antiguo esquema de nombres, te recomendamos encarecidamente que elimines los ID externos obsoletos utilizando el [punto de conexión `/users/external_ids/remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove).
 
 {% alert warning %}
 Asegúrate de eliminar los ID externos obsoletos con el punto de conexión `/users/external_ids/remove` en lugar de `/users/delete`. Enviar una solicitud a `/users/delete` con el ID externo obsoleto elimina el perfil de usuario por completo y no se puede deshacer.
@@ -30,7 +30,7 @@ Asegúrate de eliminar los ID externos obsoletos con el punto de conexión `/use
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `users.external_ids.rename`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `users.external_ids.rename`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -54,7 +54,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
 | `external_id_renames` | Obligatorio | Matriz de objetos de renombramiento de identificadores externos | Consulta el ejemplo de solicitud y las limitaciones siguientes para conocer la estructura del objeto de renombramiento de identificador externo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de solicitud" }
 
 Toma nota de lo siguiente:
 

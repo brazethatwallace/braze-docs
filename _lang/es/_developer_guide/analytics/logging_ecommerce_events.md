@@ -11,7 +11,7 @@ platform:
 
 # Registrar eventos de comercio electrónico {#log-ecommerce-events}
 
-> Aprende a registrar [eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/) a través de los SDK de Android, Swift y Web de Braze usando clases de eventos tipadas y `logEcommerceEvent`. Para esquemas de propiedades de eventos, características de la plataforma y validación de ingesta, consulta [Eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/) y [Validación de eventos y solución de problemas]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-validation-and-troubleshooting).
+> Aprende a registrar [eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) a través de los SDK de Android, Swift y Web de Braze usando clases de eventos tipadas y `logEcommerceEvent`. Para esquemas de propiedades de eventos, características de la plataforma y validación de ingesta, consulta [Eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events) y [Validación de eventos y solución de problemas]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-validation-and-troubleshooting).
 
 {% alert note %}
 Para los SDK envolventes no incluidos en la lista, usa el método nativo de Android o Swift correspondiente en su lugar.
@@ -19,7 +19,7 @@ Para los SDK envolventes no incluidos en la lista, usa el método nativo de Andr
 
 ## Esquemas de eventos {#event-schemas}
 
-Los seis eventos recomendados de comercio electrónico comparten un esquema a nivel de pedido en todas las plataformas. Usa las siguientes tablas de propiedades cuando construyas la carga útil de cada evento. Para el esquema canónico con el comportamiento de validación completo y ejemplos de REST API, consulta [Eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-schemas). Para características de la plataforma como segmentación, Plantillas de Canvas e informes, consulta [Cómo usar eventos de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/).
+Los seis eventos recomendados de comercio electrónico comparten un esquema a nivel de pedido en todas las plataformas. Usa las siguientes tablas de propiedades cuando construyas la carga útil de cada evento. Para el esquema canónico con el comportamiento de validación completo y ejemplos de REST API, consulta [Eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-schemas). Para características de la plataforma como segmentación, plantillas de Canvas e informes, consulta [Cómo usar eventos de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 
 {% tabs local %}
 {% tab product_viewed %}
@@ -240,10 +240,10 @@ El SDK de Android [42.3.0+](https://github.com/braze-inc/braze-android-sdk/relea
 
 ### Bloques de construcción compartidos {#shared-building-blocks}
 
-- `EcommerceProduct`: Elementos de línea para eventos de carrito, pago y pedido.
+- `EcommerceProduct`: elementos de línea para eventos de carrito, pago y pedido.
   - Obligatorios: `productId`, `productName`, `variantId`, `price`, `quantity` (`Long` no negativo)
   - Opcionales: `imageUrl`, `productUrl`, `metadata`
-- `BrazeProperties`: `metadata` a nivel de evento o de producto. Las claves deben ser cadenas no vacías de como máximo 255 caracteres sin signo de dólar ($) inicial.
+- `BrazeProperties`: `metadata` a nivel de evento o de producto. Las claves deben ser cadenas no vacías de hasta 255 caracteres sin signo de dólar ($) inicial.
 
 ### Validación del lado del cliente {#client-side-validation}
 
@@ -1273,6 +1273,6 @@ braze.logCustomEvent("ecommerce.order_refunded", {
 Para registrar manualmente un evento recomendado, llama a `logCustomEvent` con el nombre exacto del evento (por ejemplo, `ecommerce.product_viewed`) y una carga útil `BrazeProperties` o `JSONObject` construida manualmente. El SDK no valida los esquemas de eventos recomendados en las llamadas manuales. Braze valida estas cargas útiles durante la ingesta:
 
 - Las cargas útiles válidas se procesan como eventos recomendados con posprocesamiento completo.
-- Las cargas útiles no válidas (campos obligatorios faltantes, tipos incorrectos, propiedades adicionales de nivel superior) se descartan después de la ingesta. Los fallos aparecen en el registro de procesamiento del SDK del espacio de trabajo y en el [correo electrónico de resumen de fallos]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#find-failures).
+- Las cargas útiles no válidas (campos obligatorios faltantes, tipos incorrectos, propiedades adicionales de nivel superior) se descartan después de la ingesta. Los fallos aparecen en el registro de procesamiento del SDK del espacio de trabajo y en el [correo electrónico de resumen de fallos]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#find-failures).
 
-Usa `logEcommerceEvent` siempre que sea posible para detectar datos no válidos antes de que salgan de la aplicación. Para el uso general de `logCustomEvent`, consulta [Registrar eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android).
+Usa `logEcommerceEvent` siempre que sea posible para detectar datos no válidos antes de que salgan de la aplicación. Para el uso general de `logCustomEvent`, consulta [Registrar eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android).

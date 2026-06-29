@@ -14,7 +14,7 @@ description: "Découvrez comment enregistrer des événements personnalisés via
 Pour les SDK wrapper non répertoriés, utilisez plutôt la méthode native Android ou Swift correspondante.
 {% endalert %}
 
-Pour les événements eCommerce recommandés, consultez [Enregistrer des événements eCommerce]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+Pour les événements eCommerce recommandés, consultez [Enregistrer des événements eCommerce]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 ## Enregistrement d'un événement personnalisé {#logging-a-custom-event}
 
@@ -345,9 +345,9 @@ Plusieurs propriétés peuvent être enregistrées chaque fois qu'un événement
 
 Vérifiez auprès de vos développeurs quelles propriétés d'événement sont suivies. Gardez à l'esprit que toutes les propriétés d'événement sont sensibles à la casse. Pour plus d'informations sur le suivi des événements personnalisés, consultez ces articles en fonction de votre plateforme :
 
-* [Android]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)
-* [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
-* [Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)
+* [Android]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)
+* [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)
+* [Web]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)
 
 ### Vérifier le journal {#verify-log}
 
@@ -359,11 +359,11 @@ Pour confirmer que les propriétés d'événement sont bien suivies, vous pouvez
 
 ### Vérifier les valeurs {#verify-values}
 
-Après [avoir ajouté votre utilisateur en tant qu'utilisateur test]({{site.baseurl}}/user_guide/administrative/app_settings/internal_groups_tab/#adding-test-users), suivez ces étapes pour vérifier vos valeurs :
+Après [avoir ajouté votre utilisateur en tant qu'utilisateur test]({{site.baseurl}}/user_guide/administrative/app_settings/internal_groups_tab#adding-test-users), suivez ces étapes pour vérifier vos valeurs :
 
 1. Exécutez l'événement personnalisé dans l'application.
 2. Attendez environ 10 secondes pour que les données soient transmises.
-3. Actualisez le [journal des événements utilisateurs]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) pour afficher l'événement personnalisé et la valeur de la propriété d'événement qui lui a été transmise.
+3. Actualisez le [journal des événements utilisateurs]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) pour afficher l'événement personnalisé et la valeur de la propriété d'événement qui lui a été transmise.
 
 ## Résolution des problèmes liés aux événements personnalisés {#troubleshooting-custom-events}
 
@@ -381,13 +381,13 @@ Si un événement personnalisé n'apparaît pas, il est possible que l'action su
 Si vous n'identifiez pas un utilisateur avant d'enregistrer un événement personnalisé, Braze peut associer cet événement à un profil anonyme.
 
 - Appelez `changeUser()` avant d'exécuter l'événement personnalisé afin que Braze l'enregistre sur un profil utilisateur identifié.
-- Testez avec un utilisateur test identifié, puis consultez le [journal des événements utilisateurs]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/).
+- Testez avec un utilisateur test identifié, puis consultez le [journal des événements utilisateurs]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log).
 
 ### Vérifier la configuration de l'enregistrement des événements personnalisés {#verifying-custom-event-logging-setup}
 
 Si les événements personnalisés n'apparaissent pas comme prévu, confirmez que votre équipe de développement a bien implémenté l'enregistrement des événements personnalisés pour la bonne action de l'application.
 
 - Demandez à votre équipe de développement de vérifier que l'événement est correctement enregistré et déclenché par l'action utilisateur attendue.
-- Lorsque votre équipe ouvre un ticket auprès de l'assistance Braze, incluez les [journaux détaillés]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) et les extraits de code pertinents.
-- Si votre application utilise Swift ou Android, votre équipe de développement peut utiliser les [conditions préalables de l'outil de débogage du SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging/#prerequisites) pour générer des journaux détaillés.
-- Si votre équipe de développement ne parvient pas à identifier le problème, ouvrez un [ticket auprès de l'assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+- Lorsque votre équipe ouvre un ticket auprès de l'assistance Braze, incluez les [journaux détaillés]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) et les extraits de code pertinents.
+- Si votre application utilise Swift ou Android, votre équipe de développement peut utiliser les [conditions préalables de l'outil de débogage du SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging#prerequisites) pour générer des journaux détaillés.
+- Si votre équipe de développement ne parvient pas à identifier le problème, ouvrez un [ticket auprès de l'assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).

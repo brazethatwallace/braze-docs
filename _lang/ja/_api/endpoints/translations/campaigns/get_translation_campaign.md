@@ -15,11 +15,11 @@ description: "この記事では、「キャンペーンのすべての翻訳を
 /campaigns/translations
 {% endapimethod %}
 
-> このエンドポイントを使用して、Campaign内の各メッセージバリアントのすべての翻訳を表示します。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
+> このエンドポイントを使用して、Campaign内の各メッセージバリアントのすべての翻訳を表示します。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)を参照してください。
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`campaigns.translations.get` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`campaigns.translations.get` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -33,7 +33,7 @@ description: "この記事では、「キャンペーンのすべての翻訳を
 | `message_variation_id` | 必須 | 文字列 | メッセージバリエーションのID。 |
 | `locale_id` | オプション | 文字列 | 応答をフィルタリングするためのロケールUUID。 |
 | `post_launch_draft_version` | オプション | ブール値 | `true` の場合、最新の公開済みライブバージョンではなく、最新の下書きバージョンを返します。デフォルトは `false` で、最新のライブバージョンを返します。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="クエリパラメーター" }
 
 {% alert note %}
 すべての翻訳IDはユニバーサル一意識別子（UUID）とみなされ、GETエンドポイントの応答で確認できます。

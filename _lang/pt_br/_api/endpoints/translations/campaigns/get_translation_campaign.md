@@ -15,11 +15,11 @@ description: "Este artigo descreve detalhes sobre o endpoint Ver todas as tradu�
 /campaigns/translations
 {% endapimethod %}
 
-> Use esse endpoint para visualizar todas as traduções de cada variante de mensagem em uma campanha. Consulte [Locais em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para saber mais sobre os recursos de tradução.
+> Use esse endpoint para visualizar todas as traduções de cada variante de mensagem em uma campanha. Consulte [Locais em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para saber mais sobre os recursos de tradução.
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `campaigns.translations.get`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `campaigns.translations.get`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -33,7 +33,7 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | `message_variation_id` | Obrigatória | String | O ID da sua variação de mensagem. |
 | `locale_id` | Opcional | String | Um UUID de localidade para filtrar as respostas. |
 | `post_launch_draft_version` | Opcional | booleano | Quando `true`, retorna a versão de rascunho mais recente em vez da versão publicada mais recente. O padrão é `false`, retornando a versão publicada mais recente. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de consulta" }
 
 {% alert note %}
 Todos os IDs de tradução são considerados identificadores únicos universais (UUIDs), que podem ser encontrados na resposta do endpoint GET.

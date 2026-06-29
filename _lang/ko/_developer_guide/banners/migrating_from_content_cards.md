@@ -56,7 +56,7 @@ Content Cards를 다음 용도로 사용 중이라면 배너로 마이그레이�
 
 - **피드 경험:** 여러 개의 스크롤 가능한 메시지 또는 카드 기반 "받은편지함"과 관련된 모든 사용 사례.
 - **특정 기능:** 연결된 콘텐츠 또는 프로모션 코드가 필요한 메시지. 배너는 이러한 기능을 기본적으로 지원하지 않습니다.
-- **트리거된 전달:** API 트리거 또는 실행 기반 전달이 반드시 필요한 사용 사례. 배너는 API 트리거 또는 실행 기반 전달을 지원하지 않지만, 실시간 자격 평가를 통해 사용자가 각 새로고침 시 Segment 멤버십에 따라 즉시 자격을 부여받거나 상실합니다.
+- **트리거된 전달:** API 트리거 또는 실행 기반 전달이 반드시 필요한 사용 사례. 배너는 API 트리거 또는 실행 기반 전달을 지원하지 않지만, 실시간 자격 평가를 통해 사용자가 각 새로고침 시 세그먼트 멤버십에 따라 즉시 자격을 부여받거나 상실합니다.
 
 ## 마이그레이션 가이드 {#migration-guide}
 
@@ -65,6 +65,10 @@ Content Cards를 다음 용도로 사용 중이라면 배너로 마이그레이�
 마이그레이션하기 전에 Braze SDK가 최소 버전 요구 사항을 충족하는지 확인하세요:
 
 {% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
+
+해제 및 재자격에는 다음 최소 SDK 버전이 필요합니다:
+
+{% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### 업데이트 구독 {#subscribe-to-updates}
 
@@ -759,10 +763,10 @@ Content Cards에서 배너로 마이그레이션할 때 다음 제한 사항에 
 
 ### 트리거된 메시지 마이그레이션 {#migrating-triggered-messages}
 
-배너는 스케줄된 전달 Campaign만 지원합니다. 이전에 API 트리거 또는 실행 기반이었던 메시지를 마이그레이션하려면 Segment 기반 타겟팅으로 변환하세요:
+배너는 스케줄된 전달 Campaign만 지원합니다. 이전에 API 트리거 또는 실행 기반이었던 메시지를 마이그레이션하려면 세그먼트 기반 타겟팅으로 변환하세요:
 
-- **예시:** API로 "프로필 완성" 카드를 트리거하는 대신, 지난 7일 이내에 가입했지만 프로필을 완료하지 않은 사용자를 위한 Segment를 생성하세요.
-- **실시간 자격:** 사용자는 Segment 멤버십에 따라 각 새로고침 시 배너 자격을 즉시 부여받거나 상실합니다.
+- **예시:** API로 "프로필 완성" 카드를 트리거하는 대신, 지난 7일 이내에 가입했지만 프로필을 완료하지 않은 사용자를 위한 세그먼트를 생성하세요.
+- **실시간 자격:** 사용자는 세그먼트 멤버십에 따라 각 새로고침 시 배너 자격을 즉시 부여받거나 상실합니다.
 
 ### 기능 차이 {#feature-differences}
 
@@ -782,9 +786,10 @@ Content Cards에서 배너로 마이그레이션할 때 다음 제한 사항에 
 | **표시 및 타겟팅** |
 | 피드 UI | ✅ 기본 피드 사용 가능 | ❌ 배치 기반만 가능 |
 | 상황별 배치 | ❌ 피드 기반 | ✅ 네이티브 배치 지원 |
-| 네이티브 우선순위 | ❌ 커스텀 로직 필요 | ✅ 내장 우선순위 지정 |
+| 우선순위 지정 | ❌ 커스텀 로직 필요 | ✅ 네이티브 우선순위 지정 |
 | **사용자 상호작용** |
-| 수동 해제 | ✅ 지원됨 | ❌ 지원되지 않음 |
+| 수동 해제 | ✅ 지원됨 | ✅ 지원됨 |
+| 해제 후 재자격 | ❌ 커스텀 필터 또는 Campaign 로직 필요 | ✅ 기본 대기 기간 |
 | 고정 카드 | ✅ 지원됨 | N/A |
 | **분석** |
 | 자동 분석 (기본 UI) | ✅ 지원됨 | ✅ 지원됨 |
@@ -792,7 +797,7 @@ Content Cards에서 배너로 마이그레이션할 때 다음 제한 사항에 
 | **콘텐츠 업데이트** |
 | Liquid 템플릿 새로고침 | ❌ 카드 전송/시작 시 한 번만 | ✅ 매번 새로고침 시 갱신 |
 | 자격 새로고침 | ❌ 카드 전송/시작 시 한 번만 | ✅ 매 세션마다 갱신 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Feature differences" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="기능 차이" }
 
 ### 제품 제한 사항 {#product-limitations}
 
@@ -806,7 +811,7 @@ Content Cards에서 배너로 마이그레이션할 때 다음 제한 사항에 
 
 ## 관련 문서 {#related-articles}
 
-- [배너 배치]({{site.baseurl}}/developer_guide/banners/placements/)
-- [튜토리얼: 배치 ID로 배너 표시하기]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/)
-- [배너 분석]({{site.baseurl}}/developer_guide/banners/analytics/)
-- [배너 FAQ]({{site.baseurl}}/developer_guide/banners/faq/)
+- [배너 배치]({{site.baseurl}}/developer_guide/banners/placements)
+- [튜토리얼: 배치 ID로 배너 표시하기]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
+- [배너 분석]({{site.baseurl}}/developer_guide/banners/analytics)
+- [배너 FAQ]({{site.baseurl}}/developer_guide/banners/faq)

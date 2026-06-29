@@ -13,7 +13,7 @@ platform:
 
 # バナー配置を管理する {#manage-banner-placements}
 
-> Braze SDKでバナー配置の作成と管理方法を学びます。配置固有のプロパティへのアクセスやインプレッションの記録についても説明します。一般的な情報については、[バナーについて]({{site.baseurl}}/developer_guide/banners/)を参照してください。
+> Braze SDKでバナー配置の作成と管理方法を学びます。配置固有のプロパティへのアクセスやインプレッションの記録についても説明します。一般的な情報については、[バナーについて]({{site.baseurl}}/developer_guide/banners)を参照してください。
 
 ## 配置リクエストについて {#requests}
 
@@ -268,7 +268,7 @@ This feature is not currently supported on Roku.
 ### ステップ4:配置IDを使って挿入する {#insertBanner}
 
 {% alert tip %}
-完全なステップバイステップのチュートリアルについては、[配置IDによるバナーの表示]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/)を参照してください。
+完全なステップバイステップのチュートリアルについては、[配置IDによるバナーの表示]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)を参照してください。
 {% endalert %}
 
 {% tabs %}
@@ -555,7 +555,7 @@ This feature is not currently supported on Roku.
 
 ### ステップ5:テストバナーを送信する（オプション） {#handling-test-cards}
 
-バナーCampaignを開始する前に、[テストバナーを送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=banners)して統合を確認できます。テストバナーは別のインメモリキャッシュに保存され、アプリの再起動後は保持されません。追加のセットアップは不要ですが、テストを表示できるようにテストデバイスがフォアグラウンドのプッシュ通知を受信できる必要があります。
+バナーCampaignを開始する前に、[テストバナーを送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=banners)して統合を確認できます。テストバナーは別のインメモリキャッシュに保存され、アプリの再起動後は保持されません。追加のセットアップは不要ですが、テストを表示できるようにテストデバイスがフォアグラウンドのプッシュ通知を受信できる必要があります。
 
 {% alert note %}
 テストバナーは他のバナーと同じですが、次のアプリセッションで削除される点が異なります。
@@ -583,13 +583,13 @@ Brazeは、SDKメソッドを使ってバナーを挿入する際に、表示さ
 </button>
 ```
 
-完全なリファレンスについては、[バナー用のカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-code)を参照してください。`brazeBridge`は、バナーの内部HTMLと親Braze SDKの間の通信レイヤーを提供します。
+完全なリファレンスについては、[バナー用のカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-code)を参照してください。`brazeBridge`は、バナーの内部HTMLと親Braze SDKの間の通信レイヤーを提供します。
 
 ### カスタムUI実装（ヘッドレス） {#custom-ui-implementations-headless}
 
 バナーのHTMLをレンダリングする代わりに、バナーの[カスタムプロパティ](#custom-properties)を使って完全にカスタムのUIを構築する場合、アプリケーションコードからクリックとインプレッションを手動で記録する必要があります。SDKがバナーをレンダリングしていないため、カスタムUI要素とのインタラクションを自動的にトラッキングする方法がありません。
 
-メソッドシグネチャと詳細については、[Braze SDKリファレンスドキュメント]({{site.baseurl}}/developer_guide/references/)を参照してください。
+メソッドシグネチャと詳細については、[Braze SDKリファレンスドキュメント]({{site.baseurl}}/developer_guide/references)を参照してください。
 
 #### インプレッションを記録する {#logging-impressions}
 
@@ -867,7 +867,7 @@ bannerView.onDismiss = { dismissedBanner in
 
 ### 前提条件
 
-バナーCampaignに[カスタムプロパティを追加]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-properties)する必要があります。さらに、カスタムプロパティにアクセスするために必要な最小SDKバージョンは以下の通りです。
+バナーCampaignに[カスタムプロパティを追加]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-properties)する必要があります。さらに、カスタムプロパティにアクセスするために必要な最小SDKバージョンは以下の通りです。
 
 {% sdk_min_versions swift:13.1.0 android:38.0.0 web:6.1.0 reactnative:17.0.0 flutter:15.1.0 %}
 

@@ -22,7 +22,7 @@ Até 50 mesclagens podem ser especificadas por solicitação. Este endpoint é a
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `users.merge`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `users.merge`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -60,7 +60,7 @@ Este endpoint mescla os seguintes campos se eles não forem encontrados no usuá
 
 - Nome
 - Sobrenome
-- Endereços de e-mail (a menos que estejam [criptografados]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/))
+- Endereços de e-mail (a menos que estejam [criptografados]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption))
 - Gênero
 - Data de nascimento
 - Número de telefone
@@ -94,7 +94,7 @@ Este endpoint mescla os seguintes campos se eles não forem encontrados no usuá
 Ao mesclar usuários, o uso do endpoint `/users/merge` funciona da mesma forma que o [método `changeUser()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser).
 {% endalert %}
 
-A Braze lida com três tipos de usuários de forma diferente ao mesclar: usuários marcados para exclusão, usuários teste e usuários do Grupo de controle global. Para saber mais, consulte [Comportamento de mesclagem de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/).
+A Braze lida com três tipos de usuários de forma diferente ao mesclar: usuários marcados para exclusão, usuários teste e usuários do Grupo de controle global. Para saber mais, consulte [Comportamento de mesclagem de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior).
 
 #### Comportamento da data do evento personalizado e da data do evento de compra {#custom-event-date-and-purchase-event-date-behavior}
 
@@ -142,11 +142,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
     },
     {
       "identifier_to_merge": {
-        "email": "user1@braze.com",
+        "email": "user1@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep":  {
-        "email": "user2@braze.com",
+        "email": "user2@example.com",
         "prioritization": ["identified", "most_recently_updated"]
       }
     },
@@ -170,7 +170,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### Mesclando usuário não identificado {#merging-unidentified-user}
 
-A seguinte solicitação mesclaria o usuário não identificado atualizado mais recentemente com o endereço de e-mail `john.smith@braze.com` no usuário com ID externo `john`. Neste exemplo, usar `most_recently_updated` filtra a consulta para um usuário não identificado. Portanto, se houvesse dois usuários não identificados com este endereço de e-mail, apenas um seria mesclado no usuário que tem o ID externo `john`.
+A seguinte solicitação mesclaria o usuário não identificado atualizado mais recentemente com o endereço de e-mail `john.smith@example.com` no usuário com ID externo `john`. Neste exemplo, usar `most_recently_updated` filtra a consulta para um usuário não identificado. Portanto, se houvesse dois usuários não identificados com este endereço de e-mail, apenas um seria mesclado no usuário que tem o ID externo `john`.
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
@@ -180,7 +180,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep": {
@@ -193,7 +193,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### Mesclando usuário não identificado com usuário identificado {#merging-unidentified-user-into-identified-user}
 
-Este próximo exemplo mescla o usuário não identificado atualizado mais recentemente com o endereço de e-mail `john.smith@braze.com` no usuário identificado atualizado mais recentemente com o endereço de e-mail `john.smith@braze.com`.
+Este próximo exemplo mescla o usuário não identificado atualizado mais recentemente com o endereço de e-mail `john.smith@example.com` no usuário identificado atualizado mais recentemente com o endereço de e-mail `john.smith@example.com`.
 
 Usar `most_recently_updated` filtra as consultas para um usuário (um usuário não identificado para `identifier_to_merge` e um usuário identificado para `identifier_to_keep`).
 
@@ -205,11 +205,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["identified", "most_recently_updated"]
       }
     }
@@ -219,7 +219,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### Mesclando um usuário não identificado sem incluir a priorização most_recently_updated {#merging-an-unidentified-user-without-including-the-most_recently_updated-prioritization}
 
-Se houver dois usuários não identificados com o endereço de e-mail `john.smith@braze.com`, este exemplo de solicitação não mescla nenhum usuário porque há dois usuários não identificados com esse endereço de e-mail. Esta solicitação só funciona se houver apenas um usuário não identificado com o endereço de e-mail `john.smith@braze.com`.
+Se houver dois usuários não identificados com o endereço de e-mail `john.smith@example.com`, este exemplo de solicitação não mescla nenhum usuário porque há dois usuários não identificados com esse endereço de e-mail. Esta solicitação só funciona se houver apenas um usuário não identificado com o endereço de e-mail `john.smith@example.com`.
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
@@ -229,7 +229,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified"]
       },
       "identifier_to_keep": {

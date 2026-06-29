@@ -14,7 +14,7 @@ platform:
 
 # Personalizar la fuente para Content Cards {#customize-the-feed-for-content-cards}
 
-> Una fuente de Content Cards es la secuencia de Content Cards en tus aplicaciones móviles o web. Este artículo cubre la configuración de cuándo se actualiza la fuente, el orden de las tarjetas, la gestión de múltiples fuentes y los mensajes de error de "fuente vacía". Para obtener la lista completa de tipos de tarjetas de contenido, consulta [Acerca de Content Cards]({{site.baseurl}}/developer_guide/content_cards/).
+> Una fuente de Content Cards es la secuencia de Content Cards en tus aplicaciones móviles o web. Este artículo cubre la configuración de cuándo se actualiza la fuente, el orden de las tarjetas, la gestión de múltiples fuentes y los mensajes de error de "fuente vacía". Para obtener la lista completa de tipos de tarjetas de contenido, consulta [Acerca de Content Cards]({{site.baseurl}}/developer_guide/content_cards).
 
 {% multi_lang_include developer_guide/_shared/about_session_lifecycle.md %}
 
@@ -50,7 +50,7 @@ function refresh() {
 }
 ```
 
-Para abrir los enlaces de Content Cards en una nueva pestaña del navegador en lugar de la misma pestaña, configura `openCardsInNewTab: true` en las opciones de inicialización de tu SDK Web. Para más información sobre las opciones de inicialización, consulta la [guía del repositorio del SDK Web]({{site.baseurl}}/developer_guide/sdk_repository_guides/web/).
+Para abrir los enlaces de Content Cards en una nueva pestaña del navegador en lugar de la misma pestaña, configura `openCardsInNewTab: true` en las opciones de inicialización de tu SDK Web. Para más información sobre las opciones de inicialización, consulta la [guía del repositorio del SDK Web]({{site.baseurl}}/developer_guide/sdk_repository_guides/web).
 
 {% endtab %}
 {% tab android %}
@@ -128,7 +128,7 @@ Braze utiliza un algoritmo de contenedor de tokens para aplicar los siguientes l
 - `subscribeToContentCards()` seguirá devolviendo tarjetas almacenadas en caché incluso cuando se haya alcanzado el límite de velocidad
 
 {% alert important %}
-El SDK de Braze también aplica límites de velocidad para garantizar el rendimiento y la fiabilidad. Ten esto en cuenta al ejecutar pruebas automatizadas o realizar controles de calidad manuales. Consulta [Límites de velocidad del SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration/rate_limits/) para obtener más información.
+El SDK de Braze también aplica límites de velocidad para garantizar el rendimiento y la fiabilidad. Ten esto en cuenta al ejecutar pruebas automatizadas o realizar controles de calidad manuales. Consulta [Límites de velocidad del SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration/rate_limits) para obtener más información.
 {% endalert %}
 
 ## Personalizar el orden de las tarjetas mostradas {#customizing-displayed-card-order}
@@ -385,7 +385,7 @@ El estilo utilizado para mostrar este mensaje se puede encontrar a través de [`
 </style>
 ```
 
-Para obtener más información sobre la personalización de los elementos de estilo de Content Cards, consulta [Personalizar el estilo]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style/).
+Para obtener más información sobre la personalización de los elementos de estilo de Content Cards, consulta [Personalizar el estilo]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style).
 {% endsubtab %}
 {% subtab Jetpack Compose %}
 Para personalizar el mensaje de error de "fuente vacía" con Jetpack Compose, puedes pasar un `emptyString` a [`ContentCardsList`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards/-content-cards-list.html). También puedes pasar [`emptyTextStyle`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-list-styling/index.html#1193499348%2FProperties%2F-1725759721) a `ContentCardListStyling` para personalizar aún más este mensaje.
@@ -447,7 +447,7 @@ Content Cards pueden filtrarse en tu aplicación para que solo se muestren tarje
 
 ### Paso 1: Establecer pares clave-valor en las tarjetas {#step-1-set-key-value-pairs-on-cards}
 
-Al crear una campaña de tarjeta de contenido, establece [datos de par clave-valor]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior/) en cada tarjeta. Utilizarás este par clave-valor para clasificar las tarjetas. Los pares clave-valor se almacenan en la propiedad `extras` del modelo de datos de la tarjeta.
+Al crear una campaña de tarjeta de contenido, establece [datos de par clave-valor]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior) en cada tarjeta. Utilizarás este par clave-valor para clasificar las tarjetas. Los pares clave-valor se almacenan en la propiedad `extras` del modelo de datos de la tarjeta.
 
 En este ejemplo, estableceremos un par clave-valor con la clave `feed_type` que designará en qué fuente de Content Cards debe mostrarse la tarjeta. El valor será el que tengan tus fuentes personalizadas, como `home_screen` o `marketing`.
 

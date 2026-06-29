@@ -19,7 +19,7 @@ description: "이 문서에서는 사용 가능한 이메일 템플릿 목록 Br
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#eec24bf4-a3f4-47cb-b4d8-bb8f03964cca {% endapiref %}
 
 ## 필수 조건 {#prerequisites}
-이 엔드포인트를 사용하려면 `templates.email.list` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `templates.email.list` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -33,9 +33,9 @@ description: "이 문서에서는 사용 가능한 이메일 템플릿 목록 Br
 | `modified_before` | 선택 사항 | [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 형식의 문자열 | 지정된 시간 이전에 업데이트된 템플릿만 검색합니다. |
 | `limit` | 선택 사항 | 양수 | 검색할 최대 템플릿 수입니다. 제공하지 않으면 기본값은 100이며, 허용되는 최대값은 1000입니다. |
 | `offset` | 선택 사항 | 양수 | 검색 기준에 맞는 나머지 템플릿을 반환하기 전에 건너뛸 템플릿 수입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
-## 예시 요청 {#example-request}
+## 요청 예시 {#example-request}
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/templates/email/list?modified_after=2020-01-01T01:01:01.000000&modified_before=2020-02-01T01:01:01.000000&limit=1&offset=0' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY'

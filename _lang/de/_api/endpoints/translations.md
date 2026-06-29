@@ -14,49 +14,49 @@ guide_top_text: "Verwenden Sie die Braze-Übersetzungsendpunkte, um Übersetzung
 guide_featured_title: "Campaign-Endpunkte"
 guide_featured_list:
   - name: "GET: Übersetzung für eine Campaign anzeigen"
-    link: /docs/api/endpoints/translations/campaigns/get_translation_campaign/
+    link: /docs/api/endpoints/translations/campaigns/get_translation_campaign
     image: /assets/img/braze_icons/message-plus-square.svg
   - name: "PUT: Übersetzung in einer Campaign aktualisieren"
-    link: /docs/api/endpoints/translations/campaigns/put_update_translation_campaign/
+    link: /docs/api/endpoints/translations/campaigns/put_update_translation_campaign
     image: /assets/img/braze_icons/target-04.svg
   - name: "GET: Standardquellwerte für Campaign-Übersetzungen anzeigen"
-    link: /docs/api/endpoints/translations/campaigns/get_source_campaign/
+    link: /docs/api/endpoints/translations/campaigns/get_source_campaign
     image: /assets/img/braze_icons/message-plus-square.svg
 
 guide_menu_title: "Canvas-Endpunkte"
 guide_menu_list:
   - name: "GET: Übersetzung für ein Canvas anzeigen"
-    link: /docs/api/endpoints/translations/canvas/get_translation_canvas/
+    link: /docs/api/endpoints/translations/canvas/get_translation_canvas
     image: /assets/img/braze_icons/message-plus-square.svg
   - name: "PUT: Übersetzung in einem Canvas aktualisieren"
-    link: /docs/api/endpoints/translations/canvas/put_update_translation_canvas/
+    link: /docs/api/endpoints/translations/canvas/put_update_translation_canvas
     image: /assets/img/braze_icons/target-04.svg
   - name: "GET: Standardquellwerte für Canvas-Übersetzungen anzeigen"
-    link: /docs/api/endpoints/translations/canvas/get_source_canvas/
+    link: /docs/api/endpoints/translations/canvas/get_source_canvas
     image: /assets/img/braze_icons/message-plus-square.svg
 
 guide_menu_title2: "E-Mail-Template-Endpunkte"
 guide_menu_list2:
   - name: "GET: Standardquellwerte für E-Mail-Template-Übersetzungen anzeigen"
-    link: /docs/api/endpoints/translations/email_templates/get_view_source_template/
+    link: /docs/api/endpoints/translations/email_templates/get_view_source_template
     image: /assets/img/braze_icons/message-plus-square.svg
   - name: "GET: Bestimmte Übersetzung und Locale anzeigen"
-    link: /docs/api/endpoints/translations/email_templates/get_view_translation_locale_template/
+    link: /docs/api/endpoints/translations/email_templates/get_view_translation_locale_template
     image: /assets/img/braze_icons/target-04.svg
   - name: "GET: Alle Übersetzungen und Locales anzeigen"
-    link: /docs/api/endpoints/translations/email_templates/get_view_translation_template/
+    link: /docs/api/endpoints/translations/email_templates/get_view_translation_template
     image: /assets/img/braze_icons/target-04.svg
   - name: "PUT: Übersetzungen in einem E-Mail-Template aktualisieren"
-    link: /docs/api/endpoints/translations/email_templates/put_update_template/
+    link: /docs/api/endpoints/translations/email_templates/put_update_template
     image: /assets/img/braze_icons/target-04.svg
 
 guide_menu_title3: "Content-Block-Endpunkte"
 guide_menu_list3:
   - name: "GET: Alle Übersetzungen für einen Content-Block anzeigen"
-    link: /docs/api/endpoints/translations/content_blocks/get_translation_content_block/
+    link: /docs/api/endpoints/translations/content_blocks/get_translation_content_block
     image: /assets/img/braze_icons/message-plus-square.svg
   - name: "PUT: Übersetzung in einem Content-Block aktualisieren"
-    link: /docs/api/endpoints/translations/content_blocks/put_update_translation_content_block/
+    link: /docs/api/endpoints/translations/content_blocks/put_update_translation_content_block
     image: /assets/img/braze_icons/target-04.svg
 
 ---
@@ -65,11 +65,11 @@ guide_menu_list3:
 
 ## So funktionieren unsere Übersetzungsendpunkte {#how-our-translation-endpoints-work}
 
-Unsere Übersetzungsendpunkte arbeiten mit der [mehrsprachigen Komposition]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings/), bei der eine Nachricht verschiedene Versionen haben kann, die je nach empfangender Nutzer:in unterschiedlich gerendert werden.
+Unsere Übersetzungsendpunkte arbeiten mit der [mehrsprachigen Komposition]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings), bei der eine Nachricht verschiedene Versionen haben kann, die je nach empfangender Nutzer:in unterschiedlich gerendert werden.
 
 ### Voraussetzungen {#prerequisites}
 
-Bevor Sie diese Endpunkte verwenden, müssen Sie [Ihre Locales hinzufügen]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings/#add-a-locale).
+Bevor Sie diese Endpunkte verwenden, müssen Sie [Ihre Locales hinzufügen]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale).
 
 ### So testen Sie Ihre Übersetzungen {#how-to-test-your-translations}
 
@@ -80,7 +80,7 @@ Es gibt zwei Möglichkeiten, die Übersetzungsunterstützung mithilfe der API un
 
 Bevor Sie das Aktualisieren von Übersetzungen testen, müssen Sie:
 
-1. [Ihre Locales hinzufügen]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings/#add-a-locale).
+1. [Ihre Locales hinzufügen]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale).
 2. Eine Nachricht erstellen und gegebenenfalls Übersetzungs-Tags verwenden.
 3. Die Nachricht speichern.
 4. Die einzubeziehenden Locales auswählen.

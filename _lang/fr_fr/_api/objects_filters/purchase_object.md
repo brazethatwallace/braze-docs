@@ -15,7 +15,7 @@ description: "Cet article de référence explique les différents composants d'u
 
 ## Qu'est-ce qu'un objet Achat ? {#what-is-a-purchase-object}
 
-Un objet Achat est un objet transmis via l'API lorsqu'un achat a été effectué. Chaque objet Achat se trouve dans un tableau d'achats, et chaque objet représente un achat unique réalisé par un utilisateur donné à un moment donné. L'objet Achat comporte de nombreux champs qui permettent au backend de Braze de stocker et d'exploiter ces informations à des fins de personnalisation et de collecte de données.
+Un objet Achat est un objet transmis via l'API lorsqu'un achat a été effectué. Chaque objet Achat se trouve dans un tableau d'achats, et chaque objet représente un achat unique réalisé par un utilisateur donné à un moment donné. L'objet Achat comporte de nombreux champs qui permettent au backend de Braze de stocker et d'exploiter ces informations à des fins de personnalisation, de collecte de données et d'adaptation du contenu.
 
 ### Corps de l'objet {#object-body}
 
@@ -43,13 +43,13 @@ Un objet Achat est un objet transmis via l'API lorsqu'un achat a été effectué
 }
 ```
 
-- [ID utilisateur externe]({{site.baseurl}}/api/basics/#user-ids)
-- [Identifiant d'application]({{site.baseurl}}/api/identifier_types/)
-- [Code des devises ISO 4217 Wiki](http://en.wikipedia.org/wiki/ISO_4217)
-- [Code temporel ISO 8601 Wiki](https://en.wikipedia.org/wiki/ISO_8601)
+- [ID utilisateur externe]({{site.baseurl}}/api/basics#user-ids)
+- [Identifiant d'application]({{site.baseurl}}/api/identifier_types)
+- [Code des devises ISO 4217 (Wiki)](http://en.wikipedia.org/wiki/ISO_4217)
+- [Code temporel ISO 8601 (Wiki)](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-Certaines paires d'identifiants ne peuvent pas être utilisées conjointement, et `email` a priorité sur `phone` lorsque les deux sont fournis. Pour plus de détails, consultez la section [Résolution des identifiants]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution).
+Certaines paires d'identifiants ne peuvent pas être utilisées conjointement, et `email` a priorité sur `phone` lorsque les deux sont fournis. Pour plus de détails, consultez la section [Résolution des identifiants]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
 {% endalert %}
 
 ## ID du produit d'achat {#purchase-product-id}
@@ -98,13 +98,13 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 {% include data_activation/purchase_event_property_data_types.md %}
 
-Pour une référence consolidée des types de données à travers les attributs personnalisés, les propriétés d'événement et les catalogues, consultez [Types de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#purchase-event-property-data-types).
+Pour une référence consolidée des types de données à travers les attributs personnalisés, les propriétés d'événement et les catalogues, consultez [Types de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#purchase-event-property-data-types).
 
 ### Propriétés d'achat {#purchase-properties}
 
-Les [propriétés d'achat]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties) peuvent être utilisées pour déclencher des messages et pour la personnalisation à l'aide de Liquid, ce qui vous permet également de segmenter en fonction de ces propriétés.
+Les [propriétés d'achat]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-properties) peuvent être utilisées pour déclencher des messages et pour la personnalisation à l'aide de Liquid, ce qui vous permet également de segmenter en fonction de ces propriétés.
 
-#### Conventions de nommage {#naming-conventions}
+#### Conventions de nommage
 
 Il est important de noter que cette fonctionnalité est activée **par produit**, et non par achat. Par exemple, si vous avez un volume élevé de produits distincts, mais que chacun d'entre eux possède les mêmes propriétés, la segmentation peut s'avérer superflue.
 
@@ -166,6 +166,6 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ### Objets Achat, objets d'événement et webhooks {#purchase-objects-event-objects-and-webhooks}
 
-À l'aide de l'exemple fourni, nous pouvons voir que quelqu'un a acheté un sac à dos avec les propriétés suivantes : couleur, monogramme, durée de paiement, taille et marque. Nous pouvons ensuite créer des segments avec ces propriétés en utilisant les [propriétés d'événement d'achat]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties) ou envoyer des messages personnalisés par le biais d'un canal à l'aide de Liquid. Par exemple : « Bonjour **Ann F.**, merci d'avoir acheté ce **sac à dos rouge de taille moyenne** pour **40,00 $** ! Merci d'avoir fait vos achats chez **Backpack Locker** ! »
+À l'aide de l'exemple fourni, nous pouvons voir que quelqu'un a acheté un sac à dos avec les propriétés suivantes : couleur, monogramme, durée de paiement, taille et marque. Nous pouvons ensuite créer des segments avec ces propriétés en utilisant les [propriétés d'événement d'achat]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-properties) ou envoyer des messages personnalisés par le biais d'un canal à l'aide de Liquid. Par exemple : « Bonjour **Ann F.**, merci d'avoir acheté ce **sac à dos rouge de taille moyenne** pour **40,00 $** ! Merci d'avoir fait vos achats chez **Backpack Locker** ! »
 
-Si vous souhaitez enregistrer, stocker et suivre les propriétés pour segmenter, vous devez les configurer comme attributs personnalisés. Pour ce faire, vous pouvez utiliser les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), qui vous permettent de cibler les utilisateurs en fonction d'un événement personnalisé ou d'un comportement d'achat stocké pendant toute la durée de vie de ce profil utilisateur.
+Si vous souhaitez enregistrer, stocker et suivre les propriétés pour segmenter, vous devez les configurer comme attributs personnalisés. Pour ce faire, vous pouvez utiliser les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension), qui vous permettent de cibler les utilisateurs en fonction d'un événement personnalisé ou d'un comportement d'achat stocké pendant toute la durée de vie de ce profil utilisateur.

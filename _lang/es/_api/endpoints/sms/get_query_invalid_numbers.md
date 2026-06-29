@@ -13,13 +13,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /sms/invalid_phone_numbers
 {% endapimethod %}
 
-> Utiliza este punto de conexión para obtener una lista de números de teléfono que se han marcado como "no válidos" en un periodo de tiempo determinado. Consulta la documentación [Manejo de números de teléfono no válidos]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers/#handling-invalid-phone-numbers) para obtener más información.
+> Utiliza este punto de conexión para obtener una lista de números de teléfono que se han marcado como "no válidos" en un periodo de tiempo determinado. Consulta la documentación [Manejo de números de teléfono no válidos]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers#handling-invalid-phone-numbers) para obtener más información.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81ceae19-15d1-4ac1-ad22-a6b86a92456d {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `sms.invalid_phone_numbers`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `sms.invalid_phone_numbers`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -35,7 +35,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | `offset` | Opcional | Entero | Punto de inicio opcional de la lista desde el que recuperar. |
 | `phone_numbers` | Opcional <br>(ver nota) | Matriz de cadenas en formato e.164 | Si lo proporcionas, te devolveremos el número de teléfono si se comprueba que no es válido. |
 | `reason` | Opcional <br>(ver nota) | Cadena | Los valores disponibles son "provider_error" (el error del proveedor indica que el teléfono no puede recibir SMS) o "deactivated" (el número de teléfono ha sido desactivado). Si se omite, se devuelven todas las razones. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 {% alert note %}
 Debes proporcionar un `start_date` y un `end_date` O `phone_numbers`. Si proporcionas los tres, `start_date`, `end_date` y `phone_numbers`, damos prioridad a los números de teléfono indicados y no tenemos en cuenta el intervalo de fechas.

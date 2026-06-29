@@ -12,12 +12,12 @@ tool: Campaigns
 
 > Lorsque vous utilisez l'un des endpoints pour envoyer une Campaign avec une réception déclenchée par API, vous pouvez fournir un mappage de clés et de valeurs pour personnaliser votre message.
 
-Si vous effectuez une requête API contenant un objet dans `trigger_properties`, les valeurs de cet objet peuvent alors être référencées dans votre modèle de message sous l'espace de nom `api_trigger_properties`. Par exemple, une requête contenant les éléments suivants pourrait ajouter le mot `"shoes"` à un message en ajoutant {% raw %}`{{api_trigger_properties.${product_name}}}`{% endraw %}.
+Si vous effectuez une requête API contenant un objet dans `trigger_properties`, les valeurs de cet objet peuvent alors être référencées dans votre modèle de message sous l'espace de noms `api_trigger_properties`. Par exemple, une requête contenant les éléments suivants pourrait ajouter le mot `"shoes"` à un message en ajoutant {% raw %}`{{api_trigger_properties.${product_name}}}`{% endraw %}.
 
-Notez que si les propriétés des déclencheurs peuvent être intégrées dans les messages, elles ne sont pas automatiquement stockées dans le profil utilisateur par défaut.
+Notez que si les propriétés de déclencheur peuvent être intégrées dans les messages, elles ne sont pas automatiquement stockées dans le profil utilisateur par défaut.
 
 {% alert note %}
-L'objet `trigger_properties` et la syntaxe {% raw %}`api_trigger_properties.${product_name}`{% endraw %} ne sont pris en charge que dans les Campaigns. Pour personnaliser les messages avec des clés et des valeurs provenant d'une requête de déclenchement par API pour Canvas, utilisez l'[objet de propriétés d'entrées Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/). La taille maximale de l'objet `trigger_properties` est de 50 ko.
+L'objet `trigger_properties` et la syntaxe {% raw %}`api_trigger_properties.${product_name}`{% endraw %} ne sont pris en charge que dans les Campaigns. Pour personnaliser les messages avec des clés et des valeurs provenant d'une requête de déclenchement par API pour Canvas, utilisez l'[objet de propriétés d'entrées Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context). La taille maximale de l'objet `trigger_properties` est de 50 ko.
 {% endalert %}
 
 ## Corps de l'objet {#object-body}

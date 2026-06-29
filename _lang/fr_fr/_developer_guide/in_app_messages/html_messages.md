@@ -8,7 +8,7 @@ description: "Découvrez comment ajouter l'interface JavaScript de Braze à votr
 
 # Messages in-app HTML {#html-in-app-messages}
 
-> Découvrez comment ajouter l'interface JavaScript de Braze à votre application, afin d'utiliser l'API de Braze pour créer des [messages HTML in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/) dans vos WebViews personnalisées.
+> Découvrez comment ajouter l'interface JavaScript de Braze à votre application, afin d'utiliser l'API de Braze pour créer des [messages HTML in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html) dans vos WebViews personnalisées.
 
 {% sdktabs %}
 {% sdktab android %}

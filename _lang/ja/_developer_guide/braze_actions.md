@@ -16,7 +16,7 @@ hidden: true
 
 `brazeActions://` ディープリンクスキームは、アプリ内メッセージやContent Cards内にディープリンクやリダイレクトオプションがあれば、どこでも使用できます。
 
-HTMLアプリ内メッセージの場合、HTMLメッセージタイプではディープリンクはサポートされていないため、代わりに[`Javascript Bridge`]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize/#javascript-bridge)を使用してください。
+HTMLアプリ内メッセージの場合、HTMLメッセージタイプではディープリンクはサポートされていないため、代わりに[`Javascript Bridge`]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize#javascript-bridge)を使用してください。
 
 ## スキーマ {#schema}
 
@@ -44,7 +44,7 @@ BrazeアクションのURIスキームは `brazeActions://v1/{base64encodedJsonS
 
 次のJavaScriptは、JSON文字列のエンコードとデコードの方法を示しています。
 
-`````````javascript
+```javascript
 function decode(encoded) {
     const binary = window.atob(encoded.replace(/-/g, '+').replace(/_/g, '/'));
     let bits8 = new Uint8Array(binary.length);
@@ -93,7 +93,7 @@ function encode(input) {
 | `removeFromSubscriptionGroup` | `subscriptionGroupId` |
 | `addToCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
 | `removeFromCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported Actions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="対応アクション" }
 
 ## JSONエンコーダー {#json-encoder}
 

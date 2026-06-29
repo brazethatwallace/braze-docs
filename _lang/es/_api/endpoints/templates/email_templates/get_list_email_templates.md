@@ -19,7 +19,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#eec24bf4-a3f4-47cb-b4d8-bb8f03964cca {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `templates.email.list`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `templates.email.list`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -33,7 +33,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | `modified_before` | Opcional | Cadena en formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera solo las plantillas actualizadas a la hora indicada o antes. |
 | `limit` | Opcional | Número positivo | Número máximo de plantillas a recuperar. Predeterminado en 100 si no se indica, con un valor máximo aceptable de 1000. |
 | `offset` | Opcional | Número positivo | Número de plantillas que se omiten antes de devolver el resto de plantillas que se ajustan a los criterios de búsqueda. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 ```

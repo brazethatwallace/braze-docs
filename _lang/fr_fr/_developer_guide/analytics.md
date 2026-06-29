@@ -26,9 +26,9 @@ Lors de la mise en œuvre de Braze, n'oubliez pas de discuter des objectifs mark
 
 ## Données collectées automatiquement {#automatically-collected-data}
 
-Certaines données utilisateur sont collectées automatiquement par notre SDK, par exemple : Première application utilisée, Dernière application utilisée, Nombre total de sessions, Système d'exploitation de l'appareil, etc. Si vous suivez nos guides d'intégration pour mettre en œuvre nos SDK, vous pourrez profiter de cette [collecte de données par défaut]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/). Vérifier cette liste peut vous aider à éviter de stocker plusieurs fois les mêmes informations sur les utilisateurs. À l'exception du début et de la fin de session, toutes les autres données suivies automatiquement ne sont pas comptabilisées dans votre consommation de points de donnée.
+Certaines données utilisateur sont collectées automatiquement par notre SDK, par exemple : Première application utilisée, Dernière application utilisée, Nombre total de sessions, Système d'exploitation de l'appareil, etc. Si vous suivez nos guides d'intégration pour mettre en œuvre nos SDK, vous pourrez profiter de cette [collecte de données par défaut]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection). Vérifier cette liste peut vous aider à éviter de stocker plusieurs fois les mêmes informations sur les utilisateurs. À l'exception du début et de la fin de session, toutes les autres données suivies automatiquement ne sont pas comptabilisées dans votre consommation de points de donnée.
 
-Consultez notre article [Présentation du SDK]({{site.baseurl}}/developer_guide/getting_started/sdk_overview/) pour établir une liste d'autorisation des processus qui bloquent la collecte par défaut de certains éléments de données.
+Consultez notre article [Présentation du SDK]({{site.baseurl}}/developer_guide/getting_started/sdk_overview) pour établir une liste d'autorisation des processus qui bloquent la collecte par défaut de certains éléments de données.
 
 ## Événements personnalisés {#custom-events}
 
@@ -53,7 +53,7 @@ Braze enregistre le nombre de fois où ces événements se sont produits ainsi q
 ![Graphique d'analyse d'événements personnalisés affichant des statistiques sur les utilisateurs qui ont ajouté une carte de crédit et effectué une recherche sur une période de trente jours.]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
 {% alert note %}
-L'[incrémentation des attributs personnalisés]({{site.baseurl}}/api/endpoints/messaging/) peut être utilisée pour maintenir un compteur sur une action utilisateur, de manière similaire à un événement personnalisé. Cependant, vous ne pourrez pas visualiser les données d'attribut personnalisé sous forme de série temporelle. Les actions utilisateur qui n'ont pas besoin d'être analysées en série temporelle doivent être enregistrées via cette méthode.
+L'[incrémentation des attributs personnalisés]({{site.baseurl}}/api/endpoints/messaging) peut être utilisée pour maintenir un compteur sur une action utilisateur, de manière similaire à un événement personnalisé. Cependant, vous ne pourrez pas visualiser les données d'attribut personnalisé sous forme de série temporelle. Les actions utilisateur qui n'ont pas besoin d'être analysées en série temporelle doivent être enregistrées via cette méthode.
 {% endalert %}
 
 ### Stockage des événements personnalisés {#custom-event-storage}
@@ -68,7 +68,7 @@ Par exemple, si une application de commerce électronique souhaitait envoyer un 
 
 ![Exemple d'événement personnalisé qui enverra une campagne à un utilisateur ayant abandonné son panier et laissé la valeur du panier à plus de 100 et moins de 200.]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png")
 
-Les propriétés d'événement personnalisé peuvent également être utilisées pour la personnalisation dans le modèle de message. Toute campagne utilisant la [livraison par événement]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) avec un événement déclencheur peut exploiter les propriétés d'événement personnalisé de cet événement pour personnaliser les messages. Si une application de jeu souhaitait envoyer un message aux utilisateurs ayant terminé un niveau, elle pourrait personnaliser davantage le message avec une propriété indiquant le temps qu'il a fallu aux utilisateurs pour terminer ce niveau. Dans cet exemple, le message est personnalisé pour trois segments différents à l'aide de la [logique conditionnelle]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/). La propriété d'événement personnalisé appelée ``time_spent`` peut être incluse dans le message en appelant ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
+Les propriétés d'événement personnalisé peuvent également être utilisées pour la personnalisation dans le modèle de message. Toute campagne utilisant la [livraison par événement]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) avec un événement déclencheur peut exploiter les propriétés d'événement personnalisé de cet événement pour personnaliser les messages. Si une application de jeu souhaitait envoyer un message aux utilisateurs ayant terminé un niveau, elle pourrait personnaliser davantage le message avec une propriété indiquant le temps qu'il a fallu aux utilisateurs pour terminer ce niveau. Dans cet exemple, le message est personnalisé pour trois segments différents à l'aide de la [logique conditionnelle]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic). La propriété d'événement personnalisé appelée ``time_spent`` peut être incluse dans le message en appelant ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
 
 {% raw %}
 ```liquid
@@ -120,7 +120,7 @@ Lors de la segmentation à l'aide du filtre **NE CORRESPOND PAS À L'EXPRESSION 
 Pour en savoir plus sur l'utilisation de notre filtre d'expressions régulières, consultez cette documentation sur les [expressions régulières compatibles avec Perl (PCRE)](http://www.regextester.com/pregsyntax.html).
 <br>
 Plus de ressources sur les expressions régulières :
-- [Braze et les expressions régulières]({{site.baseurl}}/user_guide/audience/segments/regex/)
+- [Braze et les expressions régulières]({{site.baseurl}}/user_guide/audience/segments/regex)
 - [Débogueur et testeur d'expressions régulières](https://regex101.com/)
 - [Tutoriel sur les expressions régulières](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -188,7 +188,7 @@ Le tableau suivant décrit les options de segmentation disponibles pour les attr
 Les attributs numériques couvrent une grande variété de cas d'utilisation. Les attributs personnalisés de type nombre incrémental sont utiles pour stocker le nombre de fois qu'une action ou un événement donné s'est produit. Les nombres standards servent à toutes sortes d'usages, par exemple : enregistrer la pointure de chaussures, le tour de taille, ou le nombre de fois qu'un utilisateur a consulté une certaine fonctionnalité ou catégorie de produit.
 
 {% alert note %}
-L'argent dépensé ne doit pas être enregistré via cette méthode. Il convient plutôt de l'enregistrer via nos [méthodes d'achat]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#purchase-events--revenue-tracking).
+L'argent dépensé ne doit pas être enregistré via cette méthode. Il convient plutôt de l'enregistrer via nos [méthodes d'achat]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#purchase-events--revenue-tracking).
 {% endalert %}
 
 Le tableau suivant décrit les options de segmentation disponibles pour les attributs numériques.
@@ -264,7 +264,7 @@ Ces actions peuvent ensuite être associées aux événements personnalisés sui
 
 Une fois les événements définis, vous pouvez lancer les campagnes suivantes :
 
-1. Envoyer des messages aux utilisateurs qui ont commencé l'inscription sans la terminer dans un certain délai.
+1. Envoyer des messages aux utilisateurs qui ont commencé l'inscription sans déclencher l'événement « Inscription terminée » dans un certain délai.
 2. Envoyer des messages de félicitations aux utilisateurs qui ont terminé leur inscription.
 3. Envoyer des excuses et un crédit promotionnel aux utilisateurs dont les appels de taxi ont échoué et qui n'ont pas été suivis d'un appel réussi dans un certain délai.
 4. Envoyer des promotions aux utilisateurs les plus actifs ayant de nombreux appels de taxi réussis pour les remercier de leur fidélité.
@@ -285,9 +285,9 @@ Ces caractéristiques peuvent ensuite être associées aux attributs personnalis
 
 L'ajout de ces attributs vous permettrait d'envoyer des campagnes aux utilisateurs, par exemple :
 
-1. Rappeler aux utilisateurs qui ne se sont pas connectés depuis 7 jours mais qui disposent d'un crédit promotionnel que ce crédit existe et qu'ils devraient revenir sur l'application pour l'utiliser !
+1. Rappeler aux utilisateurs qui ne se sont pas connectés depuis sept jours mais qui disposent d'un crédit promotionnel que ce crédit existe et qu'ils devraient revenir sur l'application pour l'utiliser !
 2. Envoyer des messages aux utilisateurs qui donnent de mauvaises notes aux chauffeurs pour obtenir un retour direct et comprendre pourquoi ils n'ont pas apprécié leur trajet.
-3. Utiliser nos [fonctionnalités de modélisation et de personnalisation des messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/) pour intégrer l'attribut de code promotionnel unique dans les messages adressés aux utilisateurs.
+3. Utiliser nos [fonctionnalités de modélisation et de personnalisation des messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) pour intégrer l'attribut de code promotionnel unique dans les messages adressés aux utilisateurs.
 
 ## Bonnes pratiques {#best-practices}
 
@@ -306,8 +306,8 @@ L'ajout de ces attributs vous permettrait d'envoyer des campagnes aux utilisateu
 Les ID utilisateur doivent être définis pour chacun de vos utilisateurs. Ils doivent être immuables et accessibles lorsqu'un utilisateur ouvre l'application. Nous vous **recommandons vivement** de fournir cet identifiant, car il vous permettra de :
 
 - Suivre vos utilisateurs sur les appareils et plateformes, améliorant la qualité de vos données comportementales et démographiques.
-- Importer des données sur vos utilisateurs à l'aide de notre [API de données utilisateur]({{site.baseurl}}/api/endpoints/user_data/).
-- Cibler des utilisateurs spécifiques avec notre [API d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging/) pour les messages généraux et transactionnels.
+- Importer des données sur vos utilisateurs à l'aide de notre [API de données utilisateur]({{site.baseurl}}/api/endpoints/user_data).
+- Cibler des utilisateurs spécifiques avec notre [API d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging) pour les messages généraux et transactionnels.
 
 Les ID utilisateur doivent comporter moins de 512 caractères et doivent être privés et difficiles à obtenir (par exemple, pas une simple adresse e-mail ou un nom d'utilisateur). Si un tel identifiant n'est pas disponible, Braze attribuera un identifiant unique à vos utilisateurs, mais vous ne bénéficierez pas des fonctionnalités mentionnées ci-dessus. Évitez de définir des ID utilisateur pour les utilisateurs pour lesquels vous ne disposez pas d'un identifiant unique qui leur soit propre. La transmission d'un identifiant d'appareil n'offre aucun avantage par rapport au suivi automatique des utilisateurs anonymes que Braze propose par défaut. Voici quelques exemples d'identifiants utilisateur appropriés et inappropriés.
 

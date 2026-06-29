@@ -14,7 +14,7 @@ description: "Braze SDKを通じてカスタムイベントを記録する方法
 リストされていないラッパーSDKの場合は、代わりに関連するネイティブAndroidまたはSwiftメソッドを使用してください。
 {% endalert %}
 
-eコマースの推奨イベントについては、[eコマースイベントを記録する]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)を参照してください。
+eコマースの推奨イベントについては、[eコマースイベントを記録する]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)を参照してください。
 
 ## カスタムイベントをログに記録する {#logging-a-custom-event}
 
@@ -345,9 +345,9 @@ AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>
 
 どのイベントプロパティがトラッキングされているかを開発者に確認してください。すべてのイベントプロパティは大文字と小文字を区別することに留意してください。カスタムイベントのトラッキングに関する追加情報については、プラットフォーム別に以下の記事を参照してください：
 
-* [Android]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)
-* [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
-* [Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)
+* [Android]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)
+* [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)
+* [Web]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)
 
 ### ログを確認する {#verify-log}
 
@@ -359,11 +359,11 @@ AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>
 
 ### 値を確認する {#verify-values}
 
-[テストユーザーとしてユーザーを追加]({{site.baseurl}}/user_guide/administrative/app_settings/internal_groups_tab/#adding-test-users)した後、以下のステップで値を確認します：
+[テストユーザーとしてユーザーを追加]({{site.baseurl}}/user_guide/administrative/app_settings/internal_groups_tab#adding-test-users)した後、以下のステップで値を確認します：
 
 1. アプリ内でカスタムイベントを実行します。
 2. データがフラッシュされるまで約10秒待ちます。
-3. [イベントユーザーログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/)を更新して、カスタムイベントと渡されたイベントプロパティの値を確認します。
+3. [イベントユーザーログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log)を更新して、カスタムイベントと渡されたイベントプロパティの値を確認します。
 
 ## カスタムイベントのトラブルシューティング {#troubleshooting-custom-events}
 
@@ -381,13 +381,13 @@ AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>
 カスタムイベントを記録する前にユーザーを識別しない場合、Brazeはそのイベントを匿名プロファイルに関連付ける可能性があります。
 
 - カスタムイベントを実行する前に`changeUser()`を呼び出して、Brazeが識別済みのユーザープロファイルにイベントを記録するようにしてください。
-- 識別済みのテストユーザーでテストし、[イベントユーザーログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/)を確認してください。
+- 識別済みのテストユーザーでテストし、[イベントユーザーログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log)を確認してください。
 
 ### カスタムイベントロギングの設定を検証する {#verifying-custom-event-logging-setup}
 
 カスタムイベントが期待通りに表示されない場合、開発者チームが正しいアプリアクションに対してカスタムイベントロギングを実装しているか確認してください。
 
 - 開発者チームに、イベントが正しくログに記録され、期待されるユーザーアクションからトリガーされていることを確認するよう依頼してください。
-- チームがBrazeサポートにチケットを開く際は、[詳細ログ]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)と関連するコードスニペットを含めてください。
-- アプリがSwiftまたはAndroidを使用している場合、開発者チームは[SDKデバッガーの前提条件]({{site.baseurl}}/developer_guide/sdk_integration/debugging/#prerequisites)を使用して詳細ログの生成を支援できます。
-- 開発者チームが問題を特定できない場合は、[Brazeサポートチケット]({{site.baseurl}}/user_guide/administer/personal/braze_support/)を開いてください。
+- チームがBrazeサポートにチケットを開く際は、[詳細ログ]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)と関連するコードスニペットを含めてください。
+- アプリがSwiftまたはAndroidを使用している場合、開発者チームは[SDKデバッガーの前提条件]({{site.baseurl}}/developer_guide/sdk_integration/debugging#prerequisites)を使用して詳細ログの生成を支援できます。
+- 開発者チームが問題を特定できない場合は、[Brazeサポートチケット]({{site.baseurl}}/user_guide/administer/personal/braze_support)を開いてください。

@@ -14,12 +14,12 @@ description: "En este artículo se describen los detalles del punto de conexión
 /content_blocks/info
 {% endapimethod %}
 
-> Utiliza este punto de conexión para consultar información de tus [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) existentes.
+> Utiliza este punto de conexión para consultar información de tus [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) existentes.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#589adda3-0def-4369-9ddc-eae71923c0ee {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `content_blocks.info`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `content_blocks.info`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -29,9 +29,9 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `content_block_id`  | Obligatorio | Cadena | El identificador del bloque de contenido. <br><br>Puedes encontrarlo listando la información de Content Blocks a través de una llamada a la API o yendo a la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/), desplazándote hasta el final y buscando tu identificador de API de Content Blocks.|
+| `content_block_id`  | Obligatorio | Cadena | El identificador del bloque de contenido. <br><br>Puedes encontrarlo listando la información de Content Blocks a través de una llamada a la API o yendo a la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers), desplazándote hasta el final y buscando tu identificador de API de Content Blocks.|
 | `include_inclusion_data`  | Opcional | Booleano | Cuando se establece en `true`, la API devuelve el identificador de API de variación de mensajes de las Campaigns y los Canvas en los que se incluye este bloque de contenido, para utilizarlo en llamadas posteriores.  Los resultados excluyen las Campaigns o los Canvas archivados o eliminados. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 {% raw %}
@@ -69,7 +69,7 @@ La siguiente tabla enumera los posibles errores devueltos y los pasos asociados 
 | `Content Block ID is invalid for this workspace` | Este bloque de contenido no existe o está en una cuenta de empresa o espacio de trabajo diferente. |
 | `Content Block has been deleted—content not available` | Este bloque de contenido, aunque puede haber existido antes, ha sido eliminado. |
 | `Include Inclusion Data—error` | Este parámetro solo acepta valores booleanos (true o false). Asegúrate de que el valor de `include_inclusion_data` no está encapsulado entre comillas (`""`), lo que hace que el valor se envíe como una cadena en lugar de un booleano. Consulta los [parámetros de la solicitud](#request-parameters) para más detalles. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 
 {% endapi %}

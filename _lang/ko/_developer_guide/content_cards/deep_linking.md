@@ -14,7 +14,7 @@ platform:
 
 # Content Cards에서 딥링킹 {#deep-linking-in-content-cards}
 
-> Braze SDK를 사용하여 Content Cards 내에서 딥링크하는 방법을 알아보세요. 딥링크에 대해 더 알아보려면 [딥링킹이란?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)을 확인하세요.
+> Braze SDK를 사용하여 Content Cards 내에서 딥링크하는 방법을 알아보세요. 딥링크에 대해 더 알아보려면 [딥링킹이란?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking)을 확인하세요.
 
 {% sdktabs %}
 {% sdktab web %}

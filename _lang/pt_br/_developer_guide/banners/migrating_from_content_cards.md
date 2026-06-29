@@ -16,7 +16,7 @@ platform:
 
 # Migrar de Content Cards para Banners {#migrate-from-content-cards-to-banners}
 
-> Este guia ajuda você a migrar de Content Cards para Banners para casos de uso de envio de mensagens em estilo banner. Banners são ideais para mensagens inline e persistentes no app e na web que aparecem em locais específicos na sua aplicação.
+> Este guia ajuda você a migrar de Content Cards para Banners para casos de uso de envio de mensagens em estilo banner. Banners são ideais para mensagens inline e persistentes no app e na web que aparecem em posicionamentos específicos na sua aplicação.
 
 ## Por que migrar para Banners? {#why-migrate-to-banners}
 
@@ -39,7 +39,7 @@ Banners oferecem várias vantagens sobre Content Cards para envio de mensagens e
 
 ### Persistência {#persistence}
 
-- **Sem limite de expiração**: Campaigns de banner não têm um limite de expiração de 30 dias como os Content Cards, permitindo a verdadeira persistência das mensagens
+- **Sem limite de expiração**: Campaigns de banner não têm um limite de expiração de 30 dias como Content Cards, permitindo a verdadeira persistência das mensagens
 
 ## Quando migrar {#when-to-migrate}
 
@@ -50,13 +50,13 @@ Considere migrar para Banners se você estiver usando Content Cards para:
 - Mensagens sempre ativas que duram mais de 30 dias
 - Mensagens onde você deseja personalização em tempo real e elegibilidade
 
-## Quando manter os Content Cards {#when-to-keep-content-cards}
+## Quando manter Content Cards {#when-to-keep-content-cards}
 
-Continue usando os Content Cards se você precisar de:
+Continue usando Content Cards se você precisar de:
 
 - **Experiências de feed:** Qualquer caso de uso envolvendo várias mensagens roláveis ou uma "Caixa de Entrada" baseada em cartões.
-- **Recursos específicos:** Mensagens que requerem Conteúdo conectado ou códigos promocionais, pois os Banners não suportam isso nativamente.
-- **Entrega disparada:** Casos de uso que exigem estritamente entrega disparada por API ou entrega baseada em ação. Embora os Banners não suportem entrega disparada por API ou entrega baseada em ação, a avaliação de elegibilidade em tempo real significa que os usuários se qualificam ou desqualificam instantaneamente com base na associação ao segmento a cada atualização.
+- **Recursos específicos:** Mensagens que requerem Conteúdo conectado ou códigos promocionais, pois Banners não suportam isso nativamente.
+- **Entrega disparada:** Casos de uso que exigem estritamente entrega disparada por API ou entrega baseada em ação. Embora Banners não suportem entrega disparada por API ou entrega baseada em ação, a avaliação de elegibilidade em tempo real significa que os usuários se qualificam ou desqualificam instantaneamente com base na associação ao segmento a cada atualização.
 
 ## Guia de migração {#migration-guide}
 
@@ -65,6 +65,10 @@ Continue usando os Content Cards se você precisar de:
 Antes de migrar, certifique-se de que seu SDK da Braze atende aos requisitos mínimos de versão:
 
 {% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
+
+Descartes e reelegibilidade exigem as seguintes versões mínimas do SDK:
+
+{% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### Inscrever-se para receber atualizações {#subscribe-to-updates}
 
@@ -195,7 +199,7 @@ StreamSubscription bannerStreamSubscription = braze.subscribeToBanners((List<Bra
 ### Exibir conteúdo {#display-content}
 
 {% alert note %}
-Os Content Cards podem ser renderizados manualmente com lógica de UI personalizada, enquanto os Banners só podem ser renderizados com os métodos padrão do SDK.
+Content Cards podem ser renderizados manualmente com lógica de UI personalizada, enquanto Banners só podem ser renderizados com os métodos padrão do SDK.
 {% endalert %}
 
 #### Abordagem de Content Cards
@@ -382,7 +386,7 @@ braze.requestBannersRefresh(["sample_placement_id"]);
 ### Registrar análise de dados (implementações personalizadas) {#log-analytics-custom-implementations}
 
 {% alert note %}
-Tanto os Content Cards quanto os Banners rastreiam automaticamente a análise de dados ao usar seus componentes de UI padrão. Os exemplos abaixo são para implementações personalizadas onde você está construindo sua própria UI.
+Tanto Content Cards quanto Banners rastreiam automaticamente a análise de dados ao usar seus componentes de UI padrão. Os exemplos abaixo são para implementações personalizadas onde você está construindo sua própria UI.
 {% endalert %}
 
 #### Abordagem de Content Cards
@@ -782,9 +786,10 @@ Banners suportam apenas Campaigns de entrega agendada. Para migrar uma mensagem 
 | **Exibição e direcionamento** |
 | Interface do feed | ✅ Feed padrão disponível | ❌ Apenas baseado em posicionamento |
 | Posicionamento específico de contexto | ❌ Baseado em feed | ✅ Suporte nativo a posicionamento |
-| Priorização nativa | ❌ Requer lógica personalizada | ✅ Priorização integrada |
+| Priorização | ❌ Requer lógica personalizada | ✅ Priorização nativa |
 | **Interação do usuário** |
-| Descarte manual | ✅ Suportado | ❌ Não suportado |
+| Descarte manual | ✅ Suportado | ✅ Suportado |
+| Reelegibilidade após descarte | ❌ Requer filtros personalizados ou lógica de Campaign | ✅ Período de espera padrão |
 | Cartões fixados | ✅ Suportado | N/D |
 | **Analytics** |
 | Análise automática (UI padrão) | ✅ Suportado | ✅ Suportado |
@@ -806,7 +811,7 @@ Banners suportam apenas Campaigns de entrega agendada. Para migrar uma mensagem 
 
 ## Artigos relacionados {#related-articles}
 
-- [Posicionamentos de banner]({{site.baseurl}}/developer_guide/banners/placements/)
-- [Tutorial: Exibindo um banner pelo ID de posicionamento]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/)
-- [Análise de dados de banner]({{site.baseurl}}/developer_guide/banners/analytics/)
-- [Perguntas frequentes sobre banners]({{site.baseurl}}/developer_guide/banners/faq/)
+- [Posicionamentos de banner]({{site.baseurl}}/developer_guide/banners/placements)
+- [Tutorial: Exibindo um banner pelo ID de posicionamento]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
+- [Análise de dados de banner]({{site.baseurl}}/developer_guide/banners/analytics)
+- [Perguntas frequentes sobre banners]({{site.baseurl}}/developer_guide/banners/faq)

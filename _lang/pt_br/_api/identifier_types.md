@@ -10,7 +10,7 @@ page_type: reference
 
 # Tipos de identificadores da API {#api-identifier-types}
 
-> Este guia de referência aborda os diferentes tipos de identificadores de API que podem ser encontrados no dashboard da Braze, sua finalidade, onde você pode encontrá-los e como eles são normalmente usados. Para obter informações sobre as chaves da API REST ou as chaves da API do espaço de trabalho, consulte a [visão geral da API]({{site.baseurl}}/api/api_key/).
+> Este guia de referência aborda os diferentes tipos de identificadores de API que podem ser encontrados no dashboard da Braze, sua finalidade, onde você pode encontrá-los e como eles são normalmente usados. Para obter informações sobre as chaves da API REST ou as chaves da API do espaço de trabalho, consulte a [visão geral da API]({{site.baseurl}}/api/api_key).
 
 Os seguintes identificadores podem ser usados para acessar seu modelo, Canvas, Campaign ou Segment a partir da API externa da Braze. Todas as mensagens devem seguir a codificação [UTF-8](https://en.wikipedia.org/wiki/UTF-8).
 
@@ -59,11 +59,11 @@ Quando a variante de compilação é compilada, ela usa o novo identificador.
 
 ## Identificador do modelo {#template-identifier}
 
-Um identificador de [modelo]({{site.baseurl}}/api/endpoints/templates/) ou ID de modelo é uma chave aleatória gerada pela Braze para um determinado modelo dentro do dashboard. Os IDs de modelo são exclusivos para cada modelo e podem ser usados para fazer referência a modelos por meio da API.
+Um identificador de [modelo]({{site.baseurl}}/api/endpoints/templates) ou ID de modelo é uma chave aleatória gerada pela Braze para um determinado modelo dentro do dashboard. Os IDs de modelo são exclusivos para cada modelo e podem ser usados para fazer referência a modelos por meio da API.
 
 Os modelos são ótimos se sua empresa terceiriza seus designs de HTML para campanhas. Depois que os modelos forem criados, você terá um modelo que não é específico para uma campanha, mas que pode ser aplicado a uma série de campanhas, como um boletim informativo.
 
-### Onde posso encontrá-lo? {#where-can-i-find-it}
+### Onde posso encontrá-lo?
 
 Você pode encontrar o ID do modelo de duas maneiras:
 
@@ -78,22 +78,22 @@ Acesse **Configurações** > **APIs e identificadores**. Aqui, a Braze oferece u
 {% endtab %}
 {% endtabs %}
 
-### Para que ele pode ser usado? {#what-can-it-be-used-for}
+### Para que ele pode ser usado?
 
 - Atualizar modelos usando a API
 - Obter informações sobre um modelo específico
 
 ## Identificador do Canvas {#canvas-identifier}
 
-Um identificador de [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/) ou ID do Canvas é uma chave aleatória gerada pela Braze para um determinado Canvas dentro do dashboard. Os IDs do Canvas são exclusivos para cada Canvas e podem ser usados para fazer referência a Canvas por meio da API.
+Um identificador de [Canvas]({{site.baseurl}}/user_guide/messaging/canvas) ou ID do Canvas é uma chave aleatória gerada pela Braze para um determinado Canvas dentro do dashboard. Os IDs do Canvas são exclusivos para cada Canvas e podem ser usados para fazer referência a Canvas por meio da API.
 
 Lembre-se de que, se você tiver um Canvas com variantes, haverá um ID geral do Canvas, bem como IDs de Canvas de variantes individuais aninhados sob o Canvas principal.
 
-### Onde posso encontrá-lo? {#where-can-i-find-it}
+### Onde posso encontrá-lo?
 
 Você pode encontrar seu ID do Canvas no dashboard. Acesse **Envio de mensagens** > **Canvas** e selecione um Canvas pré-existente. Se o Canvas que você deseja ainda não existir, crie um e salve-o. Na parte inferior de uma página individual do Canvas, clique em **Analyze Variants**. Uma janela é exibida com o identificador da API do Canvas localizado na parte inferior.
 
-### Para que ele pode ser usado? {#what-can-it-be-used-for}
+### Para que ele pode ser usado?
 
 - Rastrear análise de dados em uma mensagem específica
 - Obter estatísticas agregadas de alto nível sobre o desempenho do Canvas
@@ -103,11 +103,11 @@ Você pode encontrar seu ID do Canvas no dashboard. Acesse **Envio de mensagens*
 
 ## Identificador de Campaign {#campaign-identifier}
 
-Um identificador de [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/) ou ID de Campaign é uma chave aleatória gerada pela Braze para uma determinada Campaign dentro do dashboard. Os IDs de Campaign são exclusivos para cada Campaign e podem ser usados para fazer referência a Campaigns por meio da API.
+Um identificador de [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns) ou ID de Campaign é uma chave aleatória gerada pela Braze para uma determinada Campaign dentro do dashboard. Os IDs de Campaign são exclusivos para cada Campaign e podem ser usados para fazer referência a Campaigns por meio da API.
 
 Tenha em mente que, se você tiver uma Campaign que possui variantes, há tanto um ID de Campaign geral quanto IDs de Campaign de variantes individuais aninhados sob a Campaign principal.
 
-### Onde posso encontrá-lo? {#where-can-i-find-it}
+### Onde posso encontrá-lo?
 
 Você pode encontrar seu ID de Campaign de duas maneiras:
 
@@ -123,20 +123,20 @@ Acesse **Configurações** > **APIs e identificadores**. Aqui, a Braze oferece u
 {% endtab %}
 {% endtabs %}
 
-### Para que ele pode ser usado? {#what-can-it-be-used-for}
+### Para que ele pode ser usado?
 
 - Rastrear análise de dados em uma mensagem específica
 - Obter estatísticas agregadas de alto nível sobre o desempenho da Campaign
 - Obter detalhes sobre uma Campaign específica
 - Com o Currents para trazer dados de nível de usuário para uma abordagem "mais ampla" das Campaigns
 - Com entrega disparada por API para coletar estatísticas de mensagens transacionais
-- Para [pesquisar uma Campaign específica]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/search_campaigns/#search-syntax) na página **Campaigns** usando o filtro `api_id:YOUR_API_ID`
+- Para [pesquisar uma Campaign específica]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/search_campaigns#search-syntax) na página **Campaigns** usando o filtro `api_id:YOUR_API_ID`
 
 ## Identificador de Segment {#segment-identifier}
 
-Um identificador de [Segment]({{site.baseurl}}/user_guide/audience/segments/) ou ID de Segment é uma chave aleatória gerada pela Braze para um determinado Segment dentro do dashboard. Os IDs de Segment são exclusivos para cada Segment e podem ser usados para fazer referência a Segments por meio da API.
+Um identificador de [Segment]({{site.baseurl}}/user_guide/audience/segments) ou ID de Segment é uma chave aleatória gerada pela Braze para um determinado Segment dentro do dashboard. Os IDs de Segment são exclusivos para cada Segment e podem ser usados para fazer referência a Segments por meio da API.
 
-### Onde posso encontrá-lo? {#where-can-i-find-it}
+### Onde posso encontrá-lo?
 
 Você pode encontrar seu ID de Segment de duas maneiras:
 
@@ -152,7 +152,7 @@ Acesse **Configurações** > **APIs e identificadores**. Aqui, a Braze oferece u
 {% endtab %}
 {% endtabs %}
 
-### Para que ele pode ser usado? {#what-can-it-be-used-for}
+### Para que ele pode ser usado?
 
 - Obter detalhes sobre um Segment específico
 - Recuperar análise de dados de um Segment específico
@@ -161,24 +161,24 @@ Acesse **Configurações** > **APIs e identificadores**. Aqui, a Braze oferece u
 
 ## Identificador de envio {#send-identifier}
 
-Um identificador de envio, ou ID de envio, é uma chave gerada pela Braze ou criada por você para um determinado envio de mensagens sob a qual a análise de dados deve ser rastreada. O identificador de envio permite que você obtenha análise de dados para uma instância específica de um envio de Campaign por meio do [endpoint `/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/).
+Um identificador de envio, ou ID de envio, é uma chave gerada pela Braze ou criada por você para um determinado envio de mensagens sob a qual a análise de dados deve ser rastreada. O identificador de envio permite que você obtenha análise de dados para uma instância específica de um envio de Campaign por meio do [endpoint `/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics).
 
-### Onde posso encontrá-lo? {#where-can-i-find-it}
+### Onde posso encontrá-lo?
 
-As Campaigns disparadas por API que são enviadas como broadcast geram automaticamente um identificador de envio se um identificador de envio não for fornecido. Se quiser especificar seu próprio identificador de envio, você deve primeiro criar um por meio do [endpoint `/sends/id/create`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_create_send_ids/). O identificador precisa conter apenas caracteres ASCII e ter no máximo 64 caracteres. Você pode reutilizar um identificador de envio em vários envios da mesma Campaign se quiser agrupar a análise de dados desses envios.
+As Campaigns disparadas por API que são enviadas como broadcast geram automaticamente um identificador de envio se um identificador de envio não for fornecido. Se quiser especificar seu próprio identificador de envio, você deve primeiro criar um por meio do [endpoint `/sends/id/create`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_create_send_ids). O identificador precisa conter apenas caracteres ASCII e ter no máximo 64 caracteres. Você pode reutilizar um identificador de envio em vários envios da mesma Campaign se quiser agrupar a análise de dados desses envios.
 
-### Para que ele pode ser usado? {#what-can-it-be-used-for}
+### Para que ele pode ser usado?
 Enviar e rastrear o desempenho das mensagens de forma programática, sem a criação de Campaigns para cada envio.
 
 ## Identificador do grupo de inscrições {#subscription-group-identifier}
 
 Um identificador de grupo de inscrições, ou ID de grupo de inscrições, é uma chave gerada pela Braze para um determinado grupo de inscrições. Os IDs são exclusivos para cada grupo de inscrições e podem ser usados para fazer referência a grupos de inscrições por meio da API.
 
-### Onde posso encontrá-lo? {#where-can-i-find-it}
+### Onde posso encontrá-lo?
 
 Acesse **Público** > **Inscrições** e copie o ID ao lado do respectivo grupo de inscrições.
 
-### Para que ele pode ser usado? {#what-can-it-be-used-for}
+### Para que ele pode ser usado?
 
 - Listar os grupos de inscrições de um usuário
 - Obter o status do grupo de inscrições de um usuário

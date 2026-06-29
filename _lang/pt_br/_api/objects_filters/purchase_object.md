@@ -43,13 +43,13 @@ Um objeto de compra é um objeto que é passado pela API quando uma compra é fe
 }
 ```
 
-- [ID de usuário externo]({{site.baseurl}}/api/basics/#user-ids)
-- [Identificador do app]({{site.baseurl}}/api/identifier_types/)
+- [ID de usuário externo]({{site.baseurl}}/api/basics#user-ids)
+- [Identificador do app]({{site.baseurl}}/api/identifier_types)
 - [Wiki do código de moeda ISO 4217](http://en.wikipedia.org/wiki/ISO_4217)
 - [Wiki do código de tempo ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-Alguns pares de identificadores não podem ser usados juntos, e `email` tem precedência sobre `phone` quando ambos são fornecidos. Para detalhes completos, consulte [Resolução de identificadores]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution).
+Alguns pares de identificadores não podem ser usados juntos, e `email` tem precedência sobre `phone` quando ambos são fornecidos. Para detalhes completos, consulte [Resolução de identificadores]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
 {% endalert %}
 
 ## ID do produto de compra {#purchase-product-id}
@@ -98,13 +98,13 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 {% include data_activation/purchase_event_property_data_types.md %}
 
-Para uma referência consolidada dos tipos de dados em atributos personalizados, propriedades de evento e catálogos, consulte [Tipos de dados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#purchase-event-property-data-types).
+Para uma referência consolidada dos tipos de dados em atributos personalizados, propriedades de evento e catálogos, consulte [Tipos de dados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#purchase-event-property-data-types).
 
 ### Propriedades de compra {#purchase-properties}
 
-[As propriedades de compra]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties) podem ser usadas para disparar mensagens e para personalização usando Liquid, permitindo também a segmentação com base nessas propriedades.
+[As propriedades de compra]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-properties) podem ser usadas para disparar mensagens e para personalização usando Liquid, permitindo também a segmentação com base nessas propriedades.
 
-#### Convenções de nomenclatura {#naming-conventions}
+#### Convenções de nomenclatura
 
 É importante notar que esse recurso está ativado **por produto**, não por compra. Por exemplo, se você tiver um alto volume de produtos distintos, mas cada um tiver as mesmas propriedades, a segmentação pode ser desnecessária.
 
@@ -166,6 +166,6 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ### Objetos de compra, objetos de evento e webhooks {#purchase-objects-event-objects-and-webhooks}
 
-Usando o exemplo fornecido, podemos ver que alguém comprou uma mochila com as propriedades: cor, monograma, duração do checkout, tamanho e marca. Em seguida, podemos criar segmentos com essas propriedades usando [propriedades de eventos de compra]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties) ou enviar mensagens personalizadas por meio de um canal usando Liquid. Por exemplo, "Olá **Ana F.**, obrigado por comprar aquela **mochila vermelha média** por **R$ 40,00**! Obrigado por comprar na **Backpack Locker**!"
+Usando o exemplo fornecido, podemos ver que alguém comprou uma mochila com as propriedades: cor, monograma, duração do checkout, tamanho e marca. Em seguida, podemos criar segmentos com essas propriedades usando [propriedades de eventos de compra]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-properties) ou enviar mensagens personalizadas por meio de um canal usando Liquid. Por exemplo, "Olá **Ana F.**, obrigado por comprar aquela **mochila vermelha média** por **R$ 40,00**! Obrigado por comprar na **Backpack Locker**!"
 
-Se quiser salvar, armazenar e rastrear propriedades para segmentar, será necessário configurá-las como atributos personalizados. Isso pode ser feito usando [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), que permitem o direcionamento de usuários com base em eventos personalizados ou comportamento de compra armazenado durante toda a vida útil desse perfil de usuário.
+Se quiser salvar, armazenar e rastrear propriedades para segmentar, será necessário configurá-las como atributos personalizados. Isso pode ser feito usando [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension), que permitem o direcionamento de usuários com base em eventos personalizados ou comportamento de compra armazenado durante toda a vida útil desse perfil de usuário.

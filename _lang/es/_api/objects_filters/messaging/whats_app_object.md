@@ -4,11 +4,11 @@ article_title: Objeto de mensajería WhatsApp
 page_order: 15
 page_type: reference
 channel: WhatsApp
-description: "Este artículo de referencia explica los distintos componentes del objeto Braze WhatsApp."
+description: "Este artículo de referencia explica los distintos componentes del objeto WhatsApp de Braze."
 
 ---
 
-# Objeto WhatsApp
+# Objeto WhatsApp {#whatsapp-object}
 
 > El objeto `whats_app` te permite modificar o crear mensajes de WhatsApp a través de nuestros [puntos finales de mensajería]({{site.baseurl}}/api/endpoints/messaging).
 
@@ -24,9 +24,9 @@ description: "Este artículo de referencia explica los distintos componentes del
 }
 ```
 
-- [Identificador de la aplicación]({{site.baseurl}}/api/identifier_types/)
+- [Identificador de la aplicación]({{site.baseurl}}/api/identifier_types)
 
-### Tipos de mensaje
+### Tipos de mensaje {#message-types}
 
 #### template_message
 
@@ -42,17 +42,17 @@ description: "Este artículo de referencia explica los distintos componentes del
 ```
 
 {% alert important %}
-**Limitaciones en el envío de archivos multimedia:** Los envíos multimedia (documentos, videos y otros tipos de archivos multimedia) no son compatibles con la`messages/send`API. Solo se admiten los tipos de encabezado TEXTO e IMAGEN para los mensajes de plantilla enviados a través de la API. Si tu plantilla de WhatsApp utiliza un encabezado de tipo DOCUMENTO, VIDEO u otro tipo de medio, no podrás enviarla mediante la`messages/send`API. Utiliza la [API de campañas activadas]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) o el panel de Braze para enviar plantillas con encabezados multimedia.
+**Limitaciones en el envío de archivos multimedia:** Los envíos multimedia (documentos, videos y otros tipos de archivos multimedia) no son compatibles con la API `messages/send`. Solo se admiten los tipos de encabezado TEXT e IMAGE para los mensajes de plantilla enviados a través de la API. Si tu plantilla de WhatsApp utiliza un encabezado de tipo DOCUMENT, VIDEO u otro tipo de medio, no podrás enviarla mediante la API `messages/send`. Utiliza la [API de Campaigns activadas]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) o el panel de Braze para enviar plantillas con encabezados multimedia.
 {% endalert %}
 
-##### Objeto variables de cabecera
+##### Objeto de variables de encabezado {#header-variables-object}
 
-El objeto `header_variables` te permite especificar valores para las variables de cabecera de la plantilla de WhatsApp. Cada clave es el índice de la variable de la plantilla WhatsApp (índice cero) que hay que sustituir por el valor especificado.
+El objeto `header_variables` te permite especificar valores para las variables de encabezado de la plantilla de WhatsApp. Cada clave es el índice de la variable de la plantilla de WhatsApp (indexado desde cero) que se sustituirá por el valor especificado.
 
 {% alert note %}
-Puedes utilizar`header_variables`  solo con plantillas que tengan encabezados de tipo TEXT. Para los encabezados IMAGE, utiliza`header_media_uri`  en su lugar. Los tipos de encabezado DOCUMENT, video y otros medios no son compatibles con la`messages/send`API.<br><br>
+Solo puedes utilizar `header_variables` con plantillas que tengan encabezados de tipo TEXT. Para los encabezados IMAGE, utiliza `header_media_uri` en su lugar. Los tipos de encabezado DOCUMENT, VIDEO y otros medios no son compatibles con la API `messages/send`.<br><br>
 
-`header_image_uri` Se utiliza solo para tipos de mensajes de respuesta (como `quick_reply_response_message`), no para mensajes de plantilla.
+`header_image_uri` se utiliza solo para tipos de mensajes de respuesta (como `quick_reply_response_message`), no para mensajes de plantilla.
 {% endalert %}
 
 ```json
@@ -60,10 +60,10 @@ Puedes utilizar`header_variables`  solo con plantillas que tengan encabezados de
   "$TEMPLATE_VARIABLE_INDEX_0": "$TEMPLATE_VARIABLE_VALUE_0"
 }
 ```
-Actualmente, solo se pueden especificar cero o una variable del encabezado.
+Actualmente, solo se pueden especificar cero o una variable de encabezado.
 
 
-###### Ejemplo
+###### Ejemplo {#example}
 
 ```json
 {
@@ -71,9 +71,9 @@ Actualmente, solo se pueden especificar cero o una variable del encabezado.
 }
 ```
 
-##### Objeto variables corporales
+##### Objeto de variables del cuerpo {#body-variables-object}
 
-El objeto `body_variables` te permite especificar valores para las variables del cuerpo de la plantilla de WhatsApp. Cada clave es el índice de la variable de la plantilla WhatsApp (índice cero) que hay que sustituir por el valor especificado.
+El objeto `body_variables` te permite especificar valores para las variables del cuerpo de la plantilla de WhatsApp. Cada clave es el índice de la variable de la plantilla de WhatsApp (indexado desde cero) que se sustituirá por el valor especificado.
 ```json
 {
   "$TEMPLATE_VARIABLE_INDEX_0": "$TEMPLATE_VARIABLE_VALUE_0",
@@ -90,9 +90,9 @@ El objeto `body_variables` te permite especificar valores para las variables del
 }
 ```
 
-##### Objeto de variables de botón
+##### Objeto de variables de botón {#button-variables-object}
 
-El objeto `button_variables` te permite especificar valores para las variables de los botones en la plantilla de WhatsApp. Cada clave es el índice de la variable de la plantilla WhatsApp (índice cero) que hay que sustituir por el valor especificado.
+El objeto `button_variables` te permite especificar valores para las variables de los botones en la plantilla de WhatsApp. Cada clave es el índice de la variable de la plantilla de WhatsApp (indexado desde cero) que se sustituirá por el valor especificado.
 
 ```json
 {
@@ -100,7 +100,7 @@ El objeto `button_variables` te permite especificar valores para las variables d
 }
 ```
 
-Actualmente, sólo se puede especificar una variable de botón, que es el componente de ruta de una URL de llamada a la acción. El índice de la variable debe coincidir con el índice del botón URL CTA de la plantilla. Por ejemplo, si tu botón CTA es el segundo botón de tu plantilla, utiliza el índice variable "1".
+Actualmente, solo se puede especificar una variable de botón, que es el componente de ruta de una URL de llamada a la acción. El índice de la variable debe coincidir con el índice del botón de URL CTA en la plantilla. Por ejemplo, si tu botón CTA es el segundo botón de tu plantilla, utiliza el índice de variable "1".
 
 ###### Ejemplo
 
@@ -110,7 +110,7 @@ Actualmente, sólo se puede especificar una variable de botón, que es el compon
 }
 ```
 
-### Mensajes de respuesta
+### Mensajes de respuesta {#response-messages}
 
 #### text_response_message
 
@@ -121,7 +121,7 @@ Actualmente, sólo se puede especificar una variable de botón, que es el compon
 }
 ```
 
-###### Ejemplo
+##### Ejemplo
 
 ```json
 {
@@ -139,7 +139,7 @@ Actualmente, sólo se puede especificar una variable de botón, que es el compon
 }
 ```
 
-###### Ejemplo
+##### Ejemplo
 
 ```json
 {
@@ -160,7 +160,7 @@ Actualmente, sólo se puede especificar una variable de botón, que es el compon
 }
 ```
 
-##### Objeto botón
+##### Objeto de botón {#button-object}
 
 ```json
 {
@@ -186,7 +186,7 @@ Actualmente, sólo se puede especificar una variable de botón, que es el compon
 
 #### list_response_message
 
-El`list_response_message`tipo te permite enviar un mensaje basado en una lista en WhatsApp. Este tipo de mensaje incluye una lista de elementos con los que el destinatario puede interactuar.
+El tipo `list_response_message` te permite enviar un mensaje basado en una lista en WhatsApp. Este tipo de mensaje incluye una lista de elementos con los que el destinatario puede interactuar.
 
 ```json
 {
@@ -199,7 +199,7 @@ El`list_response_message`tipo te permite enviar un mensaje basado en una lista e
 }
 ```
 
-#### Sección Lista Objeto
+#### Objeto de sección de lista {#list-section-object}
 
 ```json
 {
@@ -208,7 +208,7 @@ El`list_response_message`tipo te permite enviar un mensaje basado en una lista e
 }
 ```
 
-#### Objeto de fila de lista
+#### Objeto de fila de lista {#list-row-object}
 
 ```json
 {
@@ -217,7 +217,7 @@ El`list_response_message`tipo te permite enviar un mensaje basado en una lista e
 }
 ```
 
-##### Restricciones
+##### Restricciones {#constraints}
 
 - **list_sections**: Debe tener al menos una sección.
 - **list_rows**: Se puede incluir un máximo de 10 filas en todas las secciones.
@@ -264,7 +264,7 @@ El`list_response_message`tipo te permite enviar un mensaje basado en una lista e
 
 #### flow_response_message
 
-El`flow_response_message`tipo te permite enviar un mensaje basado en flujos en WhatsApp. Este tipo de mensaje incluye un flujo interactivo que el destinatario puede completar.
+El tipo `flow_response_message` te permite enviar un mensaje basado en flujos en WhatsApp. Este tipo de mensaje incluye un flujo interactivo que el destinatario puede completar.
 
 ```json
 {
@@ -278,7 +278,7 @@ El`flow_response_message`tipo te permite enviar un mensaje basado en flujos en W
 }
 ```
 
-##### Objeto botón de flujo
+##### Objeto de botón de flujo {#flow-button-object}
 
 ```json
 {
@@ -289,9 +289,9 @@ El`flow_response_message`tipo te permite enviar un mensaje basado en flujos en W
 
 ##### Restricciones
 
-- **flow_button**: Debe incluir tanto el título como el `flow_id`.
-- **pie de foto**: Máximo 20 caracteres.
-- **flow_id**: Debe ser un ID de flujo válido publicado.
+- **flow_button**: Debe incluir tanto el caption como el `flow_id`.
+- **caption**: Máximo 20 caracteres.
+- **flow_id**: Debe ser un ID de flujo válido y publicado.
 
 ##### Ejemplo
 
