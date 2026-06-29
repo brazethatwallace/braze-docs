@@ -46,7 +46,7 @@ guide_featured_list:
   - name: メッセージステップ
     link: /docs/user_guide/messaging/canvas/canvas_components/message_step
     image: /assets/img/braze_icons/message-square-02.svg
-  - name: 送信先ステップ
+  - name: 指定先に送信ステップ
     link: /docs/user_guide/messaging/canvas/canvas_components/send_to_destination
     image: /assets/img/braze_icons/dataflow-02.svg
   - name: ユーザーの更新ステップ
