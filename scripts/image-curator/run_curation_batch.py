@@ -190,9 +190,8 @@ def image_still_referenced(rel_path: str) -> bool:
     """True if any file in the repo still references rel_path."""
     needle = rel_path.replace("\\", "/")
     fragments = {needle, needle.split("assets/", 1)[-1] if "assets/" in needle else needle}
-    for root, _, files in os.walk(REPO_ROOT):
-        if ".git" in root.split(os.sep):
-            continue
+    for root, dirs, files in os.walk(REPO_ROOT):
+        dirs[:] = [d for d in dirs if d != ".git"]
         for name in files:
             if name.endswith(
                 (
@@ -311,7 +310,13 @@ def main() -> int:
         if args.github_output:
             write_github_output(
                 args.github_output,
-                {"skip_reason": msg, "edited_count": "0", "pr_title": ""},
+                {
+                    "skip_reason": msg,
+                    "edited_count": "0",
+                    "deleted_image_count": "0",
+                    "skipped_count": "0",
+                    "pr_title": "",
+                },
             )
         return 0
 
