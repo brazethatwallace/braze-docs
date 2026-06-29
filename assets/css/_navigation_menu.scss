@@ -634,7 +634,7 @@ $nav-focus-offset-rail: 0; // main rail toggle â€” ring hugs 40px target (less â
 				@include focus-ring($offset: -2px, $radius: 4px);
 			}
 		}
-		#status-indicator {
+		.status-indicator {
 			&:hover {
 				.status-title {
 					opacity: 1;
@@ -685,7 +685,7 @@ $nav-focus-offset-rail: 0; // main rail toggle â€” ring hugs 40px target (less â
 		.status-title {
 			display: block;
 			font-family: $braze-bold;
-			margin-left: 15px;
+			margin: 0 0 0 15px;
 			opacity: 0.7;
 			letter-spacing: 0.46px;
 			color: $black-shark;
