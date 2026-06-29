@@ -30,6 +30,10 @@ No, the media library doesn't support video files. We recommend you host these e
 
 No, the media library doesn't support cropping GIF images.
 
+### Can I use SVG images in email?
+
+SVG images are not recommended for email due to limited support across email clients. Gmail and several other major email providers do not render SVG images, which can result in broken or missing images for recipients. For reliable email rendering, use PNG, JPEG, or GIF formats instead.
+
 ### How do I crop an existing image?
 
 You can crop an existing image by selecting the image from the media library and clicking **Crop & Save New Image**. 
