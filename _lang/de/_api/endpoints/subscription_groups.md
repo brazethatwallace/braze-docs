@@ -10,7 +10,7 @@ page_type: landing
 search_tag: Endpoint
 
 guide_top_header: "Endpunkte für Abo-Gruppen"
-guide_top_text: "Verwenden Sie die REST APIs für Abo-Gruppen, um die Abo-Gruppen, die Sie im Braze-Dashboard auf der Seite **Subscription Group** gespeichert haben, programmatisch zu verwalten. Dies gilt sowohl für SMS- als auch für E-Mail-Abo-Gruppen.<br><br> Sie suchen eine Anleitung zur Erstellung von Abo-Gruppen? Sehen Sie sich unsere Artikel für <a href='/docs/user_guide/message_building_by_channel/sms/sms_subscription_group'>SMS-Abo-Gruppen</a> und <a href='/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions'>E-Mail-Abo-Gruppen</a> an."
+guide_top_text: "Verwenden Sie die REST APIs für Abo-Gruppen, um die Abo-Gruppen, die Sie im Braze-Dashboard auf der Seite **Abo-Gruppe** gespeichert haben, programmatisch zu verwalten. Dies gilt sowohl für SMS- als auch für E-Mail-Abo-Gruppen.<br><br> Sie suchen eine Anleitung zur Erstellung von Abo-Gruppen? Sehen Sie sich unsere Artikel für <a href='/docs/user_guide/message_building_by_channel/sms/sms_subscription_group'>SMS-Abo-Gruppen</a> und <a href='/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions'>E-Mail-Abo-Gruppen</a> an."
 
 guide_featured_title: ""
 guide_featured_list:

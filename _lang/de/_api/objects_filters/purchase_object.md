@@ -104,6 +104,8 @@ Eine konsolidierte Referenz der Datentypen für angepasste Attribute, Event-Eige
 
 [Kauf-Eigenschaften]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-properties) können zum Triggern von Nachrichten und zur Personalisierung mit Liquid verwendet werden. Außerdem ist eine Segmentierung auf der Grundlage dieser Eigenschaften möglich.
 
+{% include data_activation/segmentable_purchase_properties_keys_note.md %}
+
 #### Namenskonventionen
 
 Bitte beachten Sie, dass dieses Feature **pro Produkt** und nicht pro Kauf aktiviert wird. Wenn Sie z. B. ein großes Volumen an unterschiedlichen Produkten haben, die aber alle die gleichen Eigenschaften haben, ist eine Segmentierung möglicherweise eher unnötig.

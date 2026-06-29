@@ -10,7 +10,7 @@ page_type: reference
 
 # API-Bezeichnertypen {#api-identifier-types}
 
-> Dieser Referenzleitfaden behandelt die verschiedenen Arten von API-Bezeichnern, die im Braze-Dashboard zu finden sind, ihren Zweck, wo Sie sie finden und wie sie typischerweise verwendet werden. Informationen zu REST-API-Schlüsseln oder Workspace-API-Schlüsseln finden Sie in der [API-Übersicht]({{site.baseurl}}/api/api_key).
+> Dieser Referenzleitfaden behandelt die verschiedenen Arten von API-Bezeichnern, die im Braze-Dashboard zu finden sind, ihren Zweck, wo Sie sie finden und wie sie typischerweise verwendet werden. Informationen zu REST API-Schlüsseln oder Workspace-API-Schlüsseln finden Sie in der [API-Übersicht]({{site.baseurl}}/api/api_key).
 
 Die folgenden Bezeichner können verwendet werden, um über die externe API von Braze auf Ihr Template, Ihr Canvas, Ihre Campaign oder Ihr Segment zuzugreifen. Alle Nachrichten sollten in [UTF-8](https://en.wikipedia.org/wiki/UTF-8) kodiert sein.
 
@@ -35,7 +35,7 @@ Gehen Sie zu **Einstellungen** > **App Settings**. Ihr API-Schlüssel ist neben 
 
 ### Wofür kann er verwendet werden? {#what-can-it-be-used-for}
 
-App-Bezeichner bei Braze werden bei der Integration des SDK verwendet und dienen auch dazu, eine bestimmte App in REST-API-Aufrufen zu referenzieren. Mit der `app_id` können Sie viele Dinge tun, z. B. Daten für ein angepasstes Event abrufen, das für eine bestimmte App aufgetreten ist, Deinstallationsstatistiken, Statistiken über neue Nutzer:innen, DAU-Statistiken und Statistiken über den Sitzungsbeginn für eine bestimmte App abrufen.
+App-Bezeichner bei Braze werden bei der Integration des SDK verwendet und dienen auch dazu, eine bestimmte App in REST API-Aufrufen zu referenzieren. Mit der `app_id` können Sie viele Dinge tun, z. B. Daten für ein angepasstes Event abrufen, das für eine bestimmte App aufgetreten ist, Deinstallationsstatistiken, Statistiken über neue Nutzer:innen, DAU-Statistiken und Statistiken über den Sitzungsbeginn für eine bestimmte App abrufen.
 
 {% alert tip %}
 Manchmal werden Sie zur Eingabe einer `app_id` aufgefordert, obwohl Sie nicht mit einer App arbeiten, da es sich um ein Legacy-Feld für eine bestimmte Plattform handelt. Sie können dieses Feld auslassen, indem Sie einen beliebigen String als Platzhalter für diesen erforderlichen Parameter einfügen.
