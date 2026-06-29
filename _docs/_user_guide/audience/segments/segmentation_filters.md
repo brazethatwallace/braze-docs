@@ -219,7 +219,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Hard Bounced
-    description: Segment your users by whether their email address has hard bounced (such as the email address is invalid). To export users with invalid emails, call the [`/email/hard_bounces`]({{site.baseurl}}/api/endpoints/email/get_list_hard_bounces) endpoint or build a segment with filters such as email address is not blank, email is not available, and email subscription status is not unsubscribed.
+    description: Segment your users by whether their email address has hard bounced (such as the email address is invalid). To export users with invalid emails, call the <a href="/docs/api/endpoints/email/get_list_hard_bounces/"><code>/email/hard_bounces</code> endpoint</a> or build a segment with filters such as email address is not blank, email is not available, and email subscription status is not unsubscribed.
     tags:
       - Retargeting
   - name: Soft Bounced
