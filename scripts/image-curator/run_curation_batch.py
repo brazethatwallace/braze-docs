@@ -203,6 +203,7 @@ def image_still_referenced(rel_path: str) -> bool:
                     ".yaml",
                     ".js",
                     ".css",
+                    ".scss",
                     ".rb",
                     ".liquid",
                     ".json",
