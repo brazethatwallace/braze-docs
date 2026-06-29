@@ -14,7 +14,7 @@ page_order: 6
 Antes de visualizar os relatórios do Decisioning Studio na Braze, você precisará:
 
 - Ter um contrato ativo para a Braze e o BrazeAI Decisioning Studio™.
-- Fale com seu CSM para ativar o BrazeAI Decisioning Studio™ para você.
+- Falar com seu CSM para ativar o BrazeAI Decisioning Studio™ para você.
 - Ter um agente do BrazeAI Decisioning Studio™ ativo.
 
 ## Visualizar relatórios {#view}
@@ -37,7 +37,7 @@ Para definir ou excluir datas, selecione <i class="fa-solid fa-gear" aria-label=
 
 ## Relatórios disponíveis {#available-reports}
 
-- [Desempenho]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/performance/): Métricas de alto nível do agente que comparam grupos de tratamento a grupos de controle, com as visualizações **Trending** e **Driver Tree**.
-- [Insights]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/insights/): Como as opções de recomendação no seu banco de ações são geradas, incluindo preferências do agente e relatórios SHAPs.
-- [Diagnóstico]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/diagnostics/): Integridade dos dados de saída e entrada, incluindo volume de recomendações e monitoramento de feeds de dados.
-- [Linha do tempo]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/timeline/): Um registro visual dos principais eventos (execuções de agentes, alterações de configuração, atualizações de guardrails) juntamente com métricas de desempenho.
+- [Desempenho]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/performance): Métricas de alto nível do agente que comparam grupos de tratamento a grupos de controle, com as visualizações **Trending** e **Driver Tree**.
+- [Insights]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/insights): Como as opções de recomendação no seu banco de ações são geradas, incluindo preferências do agente e relatórios SHAPs.
+- [Diagnóstico]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/diagnostics): Integridade dos dados de saída e entrada, incluindo volume de recomendações e monitoramento de feeds de dados.
+- [Linha do tempo]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/timeline): Um registro visual dos principais eventos (execuções de agentes, alterações de configuração, atualizações de guardrails) juntamente com métricas de desempenho.

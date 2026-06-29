@@ -24,7 +24,7 @@ Se você está enfrentando taxas de abertura de e-mail repentinamente baixas, co
 
 Se links de redirecionamento rastreados retornam **403 Forbidden**, a falha geralmente ocorre na sua rede de distribuição de conteúdo (CDN) ou firewall de aplicação web (WAF) — por exemplo, regras no AWS WAF ou Amazon CloudFront que bloqueiam determinados user agents, query strings ou padrões de redirecionamento. Revise os registros e métricas de solicitações bloqueadas com seu CDN ou provedor de nuvem. Para AWS, consulte [Solução de problemas com o CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html).
 
-Para verificar se o problema é específico do rastreamento de cliques, desative o rastreamento de cliques para um link de teste (consulte [Desativando o rastreamento de cliques link a link]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis)). Se a URL de destino carrega quando o rastreamento de cliques está desativado, mas retorna 403 quando o rastreamento está ativado, concentre-se na configuração do seu domínio de rastreamento de cliques, CDN e WAF.
+Para verificar se o problema é específico do rastreamento de cliques, desative o rastreamento de cliques para um link de teste (consulte [Desativando o rastreamento de cliques link a link]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)). Se a URL de destino carrega quando o rastreamento de cliques está desativado, mas retorna 403 quando o rastreamento está ativado, concentre-se na configuração do seu domínio de rastreamento de cliques, CDN e WAF.
 
 ## Problemas no registro de domínio {#domain-registry-issues}
 
@@ -256,7 +256,7 @@ Use o modelo a seguir para testar a configuração do CDN do seu domínio de ras
 3. Envie um e-mail de teste para você mesmo e selecione ambos os botões.
 4. Verifique se o comportamento esperado e os critérios de sucesso estão conforme descrito no modelo.
 
-Se a URL não rastreada funciona, mas a URL rastreada falha, pode haver uma lacuna na configuração. Para solucionar, consulte a documentação do seu ESP e provedor de CDN específicos. Você também pode revisar o artigo [SSL na Braze]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/) para requisitos detalhados sobre provisionamento de certificados.
+Se a URL não rastreada funciona, mas a URL rastreada falha, pode haver uma lacuna na configuração. Para solucionar, consulte a documentação do seu ESP e provedor de CDN específicos. Você também pode revisar o artigo [SSL na Braze]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl) para requisitos detalhados sobre provisionamento de certificados.
 
 Use a tabela a seguir para diagnosticar erros comuns ao testar o rastreamento de cliques.
 

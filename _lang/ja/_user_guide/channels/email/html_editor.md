@@ -32,9 +32,9 @@ search_rank: 1
 1. **メッセージング** > **Campaigns**に移動し、**キャンペーンを作成**を選択します。
 2. **Email**を選択するか、複数チャネルを対象とするCampaignの場合は**マルチチャネル**を選択します。
 3. Campaignにわかりやすく意味のある名前を付けます。
-4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
-   * タグを使うと、Campaignの検索やレポートの作成が容易になります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)を使用する際に、特定のタグでフィルタリングできます。
-5. Campaignに必要な数のバリアントを追加して名前を付けます。このトピックの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を参照してください。
+4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)を追加します。
+   * タグを使うと、Campaignの検索やレポートの作成が容易になります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder)を使用する際に、特定のタグでフィルタリングできます。
+5. Campaignに必要な数のバリアントを追加して名前を付けます。このトピックの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)を参照してください。
 
 {% alert tip %}
 Campaign内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**バリアントを追加**ドロップダウンから**バリアントからコピー**を選択できます。
@@ -42,11 +42,11 @@ Campaign内のすべてのメッセージが類似している、または同じ
 {% endtab %}
 {% tab Canvas %}
 
-1. Canvasコンポーザーを使用して[Canvasを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)します。
+1. Canvasコンポーザーを使用して[Canvasを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)します。
 2. Canvasの設定が完了したら、Canvasビルダーでステップを追加します。ステップにわかりやすく意味のある名前を付けます。
-3. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay)を選択し、必要に応じて遅延を指定します。
-4. 必要に応じて、このステップのオーディエンスをフィルタリングします。セグメントを指定し、追加のフィルターを追加することで、このステップの受信者をさらに絞り込むことができます。オーディエンスオプションは、遅延後のメッセージ送信時にチェックされます。
-5. [進行動作]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/)を選択します。
+3. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay)を選択し、必要に応じて遅延を指定します。
+4. 必要に応じて、このステップのオーディエンスをフィルタリングします。Segmentを指定し、追加のフィルターを追加することで、このステップの受信者をさらに絞り込むことができます。オーディエンスオプションは、遅延後のメッセージ送信時にチェックされます。
+5. [進行動作]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases)を選択します。
 6. メッセージと組み合わせたい他のメッセージングチャネルを選択します。
 {% endtab %}
 {% endtabs %}
@@ -59,11 +59,11 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 ## ステップ2:編集エクスペリエンスを選択する {#step-2-choose-your-template-and-compose-your-email}
 
-Brazeでは、メールキャンペーンを作成する際に2つの編集エクスペリエンスを提供しています。[ドラッグ＆ドロップエディター]({{site.baseurl}}/dnd/)と標準HTMLエディターです。お好みの編集エクスペリエンスに対応するタイルを選択してください。
+Brazeでは、メールキャンペーンを作成する際に2つの編集エクスペリエンスを提供しています。[ドラッグ＆ドロップエディター]({{site.baseurl}}/dnd)と標準HTMLエディターです。お好みの編集エクスペリエンスに対応するタイルを選択してください。
 
 ![メール編集エクスペリエンスとして、ドラッグ＆ドロップエディター、HTMLエディター、またはテンプレートから選択する画面。]({% image_buster /assets/img_archive/choose_email_creation.png %}){: style="max-width:75%" }
 
-次に、既存の[メールテンプレート]({{site.baseurl}}/user_guide/channels/email/html_editor/#creating-an-email-template)を選択するか、ファイルから[テンプレートをアップロード]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)するか（HTMLエディターのみ）、空白のテンプレートを使用できます。
+次に、既存の[メールテンプレート]({{site.baseurl}}/user_guide/channels/email/html_editor#creating-an-email-template)を選択するか、ファイルから[テンプレートをアップロード]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)するか（HTMLエディターのみ）、空白のテンプレートを使用できます。
 
 HTMLエディターを使用していて、デバイスがダークモードの場合にGmailモバイルアプリで背景色の一貫性を保つ必要がある場合は、[Gmailモバイルアプリとダークモードの背景色](#gmail-dark-mode)を参照してください。
 
@@ -73,7 +73,7 @@ HTMLエディターを使用していて、デバイスがダークモードの�
 
 ## ステップ3:メールを作成する {#step-3-compose-your-email}
 
-テンプレートを選択すると、メールの概要が表示され、フルスクリーンエディターに直接移動してメールを作成したり、送信情報を変更したり、配信性やコンプライアンスに関する警告を確認したりできます。作成中は、HTML、クラシック、プレーンテキスト、[AMP]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email/)タブを切り替えることができます。
+テンプレートを選択すると、メールの概要が表示され、フルスクリーンエディターに直接移動してメールを作成したり、送信情報を変更したり、配信性やコンプライアンスに関する警告を確認したりできます。作成中は、HTML、クラシック、プレーンテキスト、[AMP]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email)タブを切り替えることができます。
 
 ![「HTMLから再生成」ボタン。]({% image_buster /assets/img_archive/regenerate_from_html.png %}){: style="max-width:30%;float:right;margin-left:15px;border:none;" }
 
@@ -89,12 +89,12 @@ Brazeは、属性として参照されるHTMLイベントハンドラーを自�
 {% endalert %}
 
 {% alert tip %}
-素晴らしいコピーの作成にお困りですか？[AIコピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy)をお試しください。製品名や説明を入力すると、AIがメッセージングに使用できる人間らしいマーケティングコピーを生成します。
+素晴らしいコピーの作成にお困りですか？[AIコピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy)をお試しください。製品名や説明を入力すると、AIがメッセージングに使用できる人間らしいマーケティングコピーを生成します。
 
 ![メールコンポーザーの本文タブにある「AIコピーライターを起動」ボタン。]({% image_buster /assets/img/ai_copywriter/ai_copywriter_email.png %}){: style="max-width:80%"}
 {% endalert %}
 
-アラビア語やヘブライ語などの右から左に書く言語のメッセージ作成にお困りですか？ベストプラクティスについては、[右から左に書くメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/)を参照してください。
+アラビア語やヘブライ語などの右から左に書く言語のメッセージ作成にお困りですか？ベストプラクティスについては、[右から左に書くメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)を参照してください。
 
 ### Gmailモバイルアプリとダークモード {#gmail-dark-mode}
 
@@ -141,14 +141,14 @@ Gmailモバイルアプリ（AndroidおよびiOS）は、デバイスがダー�
 以下の方法でメールに添付ファイルを追加することもできます。
 
 - **ファイルをアップロード：** コンピューターからファイルをドラッグ＆ドロップするか、参照して直接アップロードします。Brazeはアップロード前にファイルの種類とサイズ（デフォルトで最大2&nbsp;MB）を検証し、ファイルはメディアライブラリにアップロードされます。2&nbsp;MBの制限を超えるファイルはアップロードできません。
-- **メディアライブラリを使用：** [メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)に既に保存されているアセットを参照して選択します。PDF、Word文書、Excelファイル、PowerPointプレゼンテーションがすべてサポートされています。
+- **メディアライブラリを使用：** [メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)に既に保存されているアセットを参照して選択します。PDF、Word文書、Excelファイル、PowerPointプレゼンテーションがすべてサポートされています。
 - **URLから追加：** ファイルを指すURLを入力し、表示ファイル名を指定します。Brazeはメール作成中に任意のURLのサイズを調べることができないため、ファイルサイズは送信時に適用されます。このフィールドではLiquidはサポートされていません。
 
-具体的なベストプラクティスについては、[メールガイドライン]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/)を参照してください。
+具体的なベストプラクティスについては、[メールガイドライン]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines)を参照してください。
 
 ##### メールヘッダー {#email-headers}
 
-メールヘッダーを追加するには、**新しいヘッダーを追加**を選択します。メールヘッダーには、送信されるメールに関する情報が含まれています。これらの[キーと値のペア]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/)には、通常、送信者、受信者、認証プロトコル、ルーティング情報が含まれます。Brazeは、メールが受信トレイプロバイダーに到達するために必要なRFC準拠のヘッダー情報を自動的に追加します。
+メールヘッダーを追加するには、**新しいヘッダーを追加**を選択します。メールヘッダーには、送信されるメールに関する情報が含まれています。これらの[キーと値のペア]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs)には、通常、送信者、受信者、認証プロトコル、ルーティング情報が含まれます。Brazeは、メールが受信トレイプロバイダーに到達するために必要なRFC準拠のヘッダー情報を自動的に追加します。
 
 Brazeでは、高度なユースケースに必要な追加のメールヘッダーを柔軟に追加できます。Brazeプラットフォームが送信時に上書きする予約フィールドがいくつかあります。
 
@@ -209,7 +209,7 @@ Brazeでは、高度なユースケースに必要な追加のメールヘッダ
 追加されたキーと値のペアの合計は1 KBを超えてはなりません。超えた場合、メッセージは中止されます。
 {% endalert %}
 
-メールエクストラの値はCurrentsやSnowflakeには公開されません。追加のメタデータやダイナミックな値をCurrentsやSnowflakeに送信する場合は、代わりに[`message_extras`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/)を使用してください。
+メールエクストラの値はCurrentsやSnowflakeには公開されません。追加のメタデータやダイナミックな値をCurrentsやSnowflakeに送信する場合は、代わりに[`message_extras`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras)を使用してください。
 
 ### ステップ3.2:メッセージをプレビューしてテストする {#step-3b-preview-and-test-your-message}
 
@@ -256,7 +256,7 @@ Apple Mailアプリでは、HTMLメール内の画像リンクがクリック可
 - Liquid構文エラー
 - 完全な`<!DOCTYPE html>`を含むContent Blocks
 - メール本文が400&nbsp;KBを超えている
-  - クリッピングを避けるため、[102&nbsp;KB未満]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices/guidelines_and_tips/#email-size)を目指してください。
+  - クリッピングを避けるため、[102&nbsp;KB未満]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices/guidelines_and_tips#email-size)を目指してください。
 - 空の本文または件名
 - 配信停止リンクがない
 - 差出人ドメインが許可リストに登録されていない（送信が大幅にスロットリングされます）
@@ -269,23 +269,23 @@ Apple Mailアプリでは、HTMLメール内の画像リンクがクリック可
 
 ### 配信スケジュールまたはトリガーを選択する {#choose-delivery-schedule-or-trigger}
 
-スケジュールされた時間、アクション、またはAPIトリガーに基づいてメールを配信します。詳細については、[Campaignのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)を参照してください。
+スケジュールされた時間、アクション、またはAPIトリガーに基づいてメールを配信します。詳細については、[Campaignのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)を参照してください。
 
 {% alert note %}
 APIトリガーCampaignの場合、トリガーアクションが**Interact With Campaign**に設定されている場合、インタラクションとして**Receive**オプションを選択すると、Brazeが選択したCampaignを送信済みとしてマークした時点で新しいCampaignがトリガーされます。これは、そのメッセージがバウンスしたり配信に失敗した場合でも同様です。
 {% endalert %}
 
-Campaignの期間を設定したり、[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)を指定したり、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)ルールを設定したりすることもできます。
+Campaignの期間を設定したり、[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)を指定したり、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)ルールを設定したりすることもできます。
 
 ### ターゲットユーザーを選択する {#choose-users-to-target}
 
-次に、セグメントやフィルターを選択して[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)します。Brazeは、メールでリーチ可能なユーザー数を含むセグメント人口のライブプレビューを表示します。正確なセグメントメンバーシップは送信直前に計算されます。
+次に、Segmentやフィルターを選択して[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)します。Brazeは、メールでリーチ可能なユーザー数を含むSegment人口のライブプレビューを表示します。正確なSegmentメンバーシップは送信直前に計算されます。
 
 {% multi_lang_include audience/target_audiences.md %}
 
-特定の[サブスクリプションステータス]({{site.baseurl}}/user_guide/channels/email/subscriptions/)を持つユーザー（購読中でメールにオプトインしているユーザーなど）にのみCampaignを送信することもできます。
+特定の[サブスクリプションステータス]({{site.baseurl}}/user_guide/channels/email/subscriptions)を持つユーザー（購読中でメールにオプトインしているユーザーなど）にのみCampaignを送信することもできます。
 
-オプションで、セグメント内の指定された数のユーザーに配信を制限したり、Campaignの繰り返し時にユーザーが同じメッセージを2回受信できるようにしたりすることもできます。
+オプションで、Segment内の指定された数のユーザーに配信を制限したり、Campaignの繰り返し時にユーザーが同じメッセージを2回受信できるようにしたりすることもできます。
 
 {% alert note %}
 新しいメールキャンペーンを作成する場合、コントロールグループはデフォルトで20%に設定されており、Campaignの必要に応じて調整または削除できます。
@@ -307,18 +307,18 @@ Campaignの期間を設定したり、[サイレント時間]({{site.baseurl}}/u
 
 ### コンバージョンイベントを選択する {#choose-conversion-events}
 
-Brazeでは、Campaignを受信した後にユーザーが特定のアクション（[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)）を実行する頻度を追跡できます。以下のアクションのいずれかをコンバージョンイベントとして指定できます。
+Brazeでは、Campaignを受信した後にユーザーが特定のアクション（[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)）を実行する頻度を追跡できます。以下のアクションのいずれかをコンバージョンイベントとして指定できます。
 
 - アプリを開く
 - 購入する（一般的な購入または特定のアイテム）
 - 特定のカスタムイベントを実行する
 - メールを開封する
 
-ユーザーが指定されたアクションを実行した場合にBrazeがコンバージョンをカウントする最大30日間の時間枠を設定できます。Brazeは開封とクリックを自動的に追跡しますが、[インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/)を使用するために、コンバージョンイベントを開封またはクリックに設定することもできます。
+ユーザーが指定されたアクションを実行した場合にBrazeがコンバージョンをカウントする最大30日間の時間枠を設定できます。Brazeは開封とクリックを自動的に追跡しますが、[インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)を使用するために、コンバージョンイベントを開封またはクリックに設定することもできます。
 {% endtab %}
 
 {% tab Canvas %}
-まだ完了していない場合は、Canvasコンポーネントの残りのセクションを完了してください。Canvasの残りの構築方法、多変量テストとインテリジェントセレクションの実装などの詳細については、Canvasドキュメントの[Canvasを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas)ステップを参照してください。
+まだ完了していない場合は、Canvasコンポーネントの残りのセクションを完了してください。Canvasの残りの構築方法、多変量テストとインテリジェントセレクションの実装などの詳細については、Canvasドキュメントの[Canvasを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas)ステップを参照してください。
 {% endtab %}
 {% endtabs %}
 
@@ -326,4 +326,4 @@ Brazeでは、Campaignを受信した後にユーザーが特定のアクショ�
 
 最後のセクションでは、設計したCampaignの概要が表示されます。関連するすべての詳細を確認し、**Launch Campaign**を選択します。
 
-メールキャンペーンの結果にアクセスする方法については、[メールレポート]({{site.baseurl}}/user_guide/channels/email/reporting/)をご覧ください。
+メールキャンペーンの結果にアクセスする方法については、[メールレポート]({{site.baseurl}}/user_guide/channels/email/reporting)をご覧ください。

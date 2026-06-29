@@ -17,7 +17,7 @@ description: "Dieser Artikel erklärt Ihnen, wie Sie Ihre IPs und Domains für d
 <br>
 
 {% alert important %}
-Sie können SendGrid, SparkPost oder Amazon Simple Email Service (SES) als E-Mail-Anbieter (ESP) verwenden. Ab 2026 nutzt Braze Amazon SES als Standard-ESP für neue E-Mail-Einrichtungen. Weitere Details finden Sie unter [Amazon SES einrichten]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses/).
+Sie können SendGrid, SparkPost oder Amazon Simple Email Service (SES) als E-Mail-Anbieter (ESP) verwenden. Ab 2026 nutzt Braze Amazon SES als Standard-ESP für neue E-Mail-Einrichtungen. Weitere Details finden Sie unter [Amazon SES einrichten]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses).
 {% endalert %}
 
 ## Methode 1: Koordinieren Sie mit Braze (empfohlen) {#method-1-coordinate-with-braze-recommended}
@@ -72,7 +72,7 @@ Eine Versand-Domain wird in der „Von“-Adresse beim E-Mail-Versand verwendet.
 
 Fügen Sie anschließend die TXT- und CNAME-Einträge vom unteren Bereich der Seite bei Ihrem DNS-Anbieter hinzu. Kehren Sie dann zum Braze-Dashboard zurück und klicken Sie auf **Verify**.
 
-![Die Seite „Senderüberprüfung“ mit den rDNS-Einträgen für die E-Mail-Einrichtung.]({% image_buster /assets/img_archive/email_setup_rdns_records.png %})
+![E-Mail-Einrichtungsseite mit TXT- und CNAME-DNS-Einträgen zur Verifizierung einer Versand-Domain.]({% image_buster /assets/img_archive/email_setup_rdns_records.png %})
 
 Falls die Verifizierung fehlschlägt und Sie der Meinung sind, dass Ihre DNS-Einträge korrekt sind, kontaktieren Sie den Braze-Support für Unterstützung.
 
@@ -100,4 +100,4 @@ Wenn ein IP-Pool mehrere dedizierte IP-Adressen enthält, verteilen Braze und Ih
 
 ### Nächste Schritte
 
-Nach Abschluss Ihrer Senderüberprüfung empfehlen wir IP-Warming, damit Ihre Nachrichten mit einer konstant hohen Rate in den Posteingängen ankommen. Nachdem Sie diese Einrichtung abgeschlossen haben, stimmen Sie sich auch mit dem Braze-Onboarding-Team ab, um zu bestätigen, dass Ihre Domains und Ihre [IP-Adresse]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/) funktionieren.
+Nach Abschluss Ihrer Senderüberprüfung empfehlen wir IP-Warming, damit Ihre Nachrichten mit einer konstant hohen Rate in den Posteingängen ankommen. Nachdem Sie diese Einrichtung abgeschlossen haben, stimmen Sie sich auch mit dem Braze-Onboarding-Team ab, um zu bestätigen, dass Ihre Domains und Ihre [IP-Adresse]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) funktionieren.

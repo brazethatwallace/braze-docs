@@ -16,4 +16,4 @@ description: "In diesem Referenzartikel erfahren Sie, wie Sie eine Qualitätssic
 
 {% multi_lang_include brazeai/generative_ai/access_content_qa.md %}
 
-Weitere Informationen, einschließlich unterstützter Features, Best Practices und Beispiel-Prompts, finden Sie unter [Inhaltsqualität überprüfen in den Operator-Funktionen]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#review-content-quality).
+Weitere Informationen, einschließlich unterstützter Features, Best Practices und Beispiel-Prompts, finden Sie unter [Inhaltsqualität überprüfen in den Operator-Funktionen]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#review-content-quality).

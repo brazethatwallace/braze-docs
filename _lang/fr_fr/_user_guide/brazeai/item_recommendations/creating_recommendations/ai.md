@@ -11,7 +11,7 @@ page_order: 1
 
 ## À propos des recommandations d'articles par intelligence artificielle {#about-ai-item-recommendations}
 
-Les recommandations d'articles par intelligence artificielle vous permettent de calculer les produits les plus populaires ou de créer des recommandations personnalisées par intelligence artificielle pour un [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/) spécifique. Une fois votre recommandation créée, vous pouvez utiliser la personnalisation pour insérer ces produits dans vos messages.
+Les recommandations d'articles par intelligence artificielle vous permettent de calculer les produits les plus populaires ou de créer des recommandations personnalisées par intelligence artificielle pour un [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs) spécifique. Une fois votre recommandation créée, vous pouvez utiliser la personnalisation pour insérer ces produits dans vos messages.
 
 {% alert tip %}
 Les [recommandations personnalisées par intelligence artificielle](#recommendation-types) fonctionnent mieux avec au moins quelques centaines d'articles de catalogue, au maximum 100 000 articles de catalogue, et généralement au moins 30 000 utilisateurs avec des données d'achat ou d'interaction. Il s'agit d'une indication approximative qui peut varier. Les autres types de recommandations peuvent fonctionner avec moins de données, y compris lorsque **Les plus populaires** est utilisé comme solution de repli.
@@ -25,7 +25,7 @@ Les [recommandations personnalisées par intelligence artificielle](#recommendat
 
 Avant de commencer, vous devez disposer des éléments suivants :
 
-- Au moins un [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/) pour utiliser l'un des types de recommandation décrits ci-dessous.
+- Au moins un [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs) pour utiliser l'un des types de recommandation décrits ci-dessous.
 - Des données d'achat ou d'événement dans Braze (événements personnalisés, l'événement de commande passée ou l'objet d'achat) qui incluent une référence à l'article et correspondent aux ID d'articles du catalogue.
 
 ### Étape 1 : Créer une nouvelle recommandation {#step-1-create-a-new-recommendation}
@@ -51,7 +51,7 @@ Donnez un nom à votre recommandation et ajoutez une description facultative.
 
 ### Étape 3 : Définir votre recommandation {#recommendation-type}
 
-Sélectionnez un type de recommandation. Chaque type utilise les six derniers mois de données d'interaction avec les articles, comme les données d'achat, de commande passée ou d'événement personnalisé. Pour plus de détails et des cas d'utilisation pour chaque type, consultez [Types et cas d'utilisation]({{site.baseurl}}/user_guide/brazeai/item_recommendations/).
+Sélectionnez un type de recommandation. Chaque type utilise les six derniers mois de données d'interaction avec les articles, comme les données d'achat, de commande passée ou d'événement personnalisé. Pour plus de détails et des cas d'utilisation pour chaque type, consultez [Types et cas d'utilisation]({{site.baseurl}}/user_guide/brazeai/item_recommendations).
 
 {% alert tip %}
 Avec les types **Plus récent** ou **Personnalisé par l'IA**, les utilisateurs dont les données sont insuffisantes pour générer des recommandations individualisées recevront les articles **les plus populaires** en guise de solution de repli. Vous pouvez consulter une estimation de la proportion d'utilisateurs recevant la solution de repli **Les plus populaires** sur la page **Analytics**. Cette solution de repli ne renvoie que les articles présents dans le catalogue associé.
@@ -69,11 +69,11 @@ Par exemple, avec la version pro des recommandations d'articles par intelligence
 
 #### Étape 3.2 : Sélectionner un catalogue {#step-32-select-a-catalog}
 
-S'il n'est pas déjà renseigné, sélectionnez le [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/) à partir duquel cette recommandation tirera ses articles.
+S'il n'est pas déjà renseigné, sélectionnez le [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs) à partir duquel cette recommandation tirera ses articles.
 
 #### Étape 3.3 : Ajouter une sélection (facultatif) {#step-33-add-a-selection-optional}
 
-Si vous souhaitez mieux contrôler votre recommandation, choisissez une [sélection]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) pour appliquer des filtres personnalisés. Les sélections filtrent les recommandations en fonction de colonnes spécifiques de votre catalogue, telles que la marque, la taille ou l'emplacement. Les sélections contenant du Liquid ne peuvent pas être utilisées dans votre recommandation.
+Si vous souhaitez mieux contrôler votre recommandation, choisissez une [sélection]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) pour appliquer des filtres personnalisés. Les sélections filtrent les recommandations en fonction de colonnes spécifiques de votre catalogue, telles que la marque, la taille ou l'emplacement. Les sélections contenant du Liquid ne peuvent pas être utilisées dans votre recommandation.
 
 ![Un exemple de la sélection « en stock » choisie pour la recommandation.]({% image_buster /assets/img/item_recs_2-2.png %})
 
@@ -87,10 +87,10 @@ Sélectionnez l'événement pour lequel vous souhaitez optimiser cette recommand
 
 Vous pouvez optimiser pour :
 
-- Les événements d'achat avec l'[objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object/)
+- Les événements d'achat avec l'[objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object)
 - Les événements personnalisés représentant un achat
 - Les événements personnalisés représentant toute autre interaction avec un article (comme les consultations de produits, les clics ou les lectures de médias)
-- Les commandes passées avec l'[événement de commande passée]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/?tab=ecommerce.order_placed)
+- Les commandes passées avec l'[événement de commande passée]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.order_placed)
 
 Si vous choisissez **Custom Event**, sélectionnez votre événement dans la liste.
 
@@ -115,7 +115,7 @@ Le champ **Property Name** sera pré-rempli avec une liste de champs envoyés vi
 La sélection de votre propriété est soumise à certaines conditions :
 
 - Elle doit correspondre au champ `id` du catalogue sélectionné.
-- **Si vous avez sélectionné l'événement de commande passée ou si vous utilisez des [événements e-commerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/) pour entraîner les recommandations d'articles :** saisissez `products.product_id` pour l'ID du produit.
+- **Si vous avez sélectionné l'événement de commande passée ou si vous utilisez des [événements e-commerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) pour entraîner les recommandations d'articles :** saisissez `products.product_id` pour l'ID du produit.
   - Le champ peut se trouver à l'intérieur d'un tableau de produits ou se terminer par un tableau d'ID. Dans les deux cas, chaque ID de produit sera traité comme un événement distinct et séquentiel avec le même horodatage.
 - **Si vous avez sélectionné l'objet d'achat :** il doit s'agir du `product_id` ou d'un champ des `properties` de votre événement d'interaction.
 - **Si vous avez sélectionné un événement personnalisé :** il doit s'agir d'un champ des `properties` de votre événement personnalisé.

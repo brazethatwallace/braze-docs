@@ -12,7 +12,7 @@ channel: email
 
 ## テストメールでHTMLが正しくレンダリングされない {#html-renders-incorrectly-in-test-emails}
 
-[テストメール]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa)の表示がおかしい場合は、まずHTMLの設定を確認することをお勧めします。次に、以下の問題を確認してください。
+[テストメール]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa)の表示がおかしい場合は、まずHTMLの設定を確認することをお勧めします。次に、以下の問題を確認してください。
 * [拡張機能の競合](#check-conflicts)
 * [メールのレンダリング](#check-rendering)
 * [CSSインライン化](#switch-css-inlining)
@@ -29,11 +29,11 @@ channel: email
 
 メールはブラウザやメールクライアントによってレンダリングが異なるため、問題が発生しているブラウザやメールクライアントを記録しておいてください。
 
-- [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision/#inbox-vision/)を使用してメールをプレビューし、さまざまなブラウザやメールクライアントでメールがどのように表示されるかを確認してください。
+- [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#inbox-vision)を使用してメールをプレビューし、さまざまなブラウザやメールクライアントでメールがどのように表示されるかを確認してください。
 - 問題を引き起こしているブラウザやメールクライアントを特定したら、開発者チームにHTMLを修正し、それらのブラウザやメールクライアントに対応するための編集が必要であることを伝えてください。
 
 ### CSSインライン化 {#switch-css-inlining}
 
 Inbox Visionのプレビューが、Brazeで送信されたものと一致しない場合があります。これは、Brazeと他のツールで実行されるCSSインライン化の違いが原因である可能性があります。これが原因と思われる場合は、CSSインライン化をオフにしてください。
 
-まだサポートが必要ですか？[サポートチケット]({{site.baseurl}}/braze_support/)を開いてください。
+まだサポートが必要ですか？[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。

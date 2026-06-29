@@ -39,7 +39,7 @@ La validation des e-mails a lieu lorsque l'adresse e-mail d'un utilisateur est m
 
 Les adresses e-mail ciblées via les serveurs de Braze doivent être validées conformément aux normes [RFC 2822](https://datatracker.ietf.org/doc/html/rfc2822). Braze n'accepte pas certains caractères et les considère comme invalides. Si un e-mail fait l'objet d'un rebond, Braze marque l'adresse comme invalide et le statut d'abonnement n'est pas modifié.
 
-Pour plus d'informations sur les caractères non autorisés et les règles de validation des e-mails, consultez [Validation des e-mails]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation/#how-it-works).
+Pour plus d'informations sur les caractères non autorisés et les règles de validation des e-mails, consultez [Validation des e-mails]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation#how-it-works).
 
 ## Adresses d'expéditeur et de réponse {#from-and-reply-to-addresses}
 

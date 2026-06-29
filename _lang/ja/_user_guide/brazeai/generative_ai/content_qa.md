@@ -16,4 +16,4 @@ description: "このリファレンス記事では、送信前にメッセージ
 
 {% multi_lang_include brazeai/generative_ai/access_content_qa.md %}
 
-サポートされている機能、ベストプラクティス、プロンプトの例など、詳細については[Operatorの機能のコンテンツ品質レビュー]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#review-content-quality)を参照してください。
+サポートされている機能、ベストプラクティス、プロンプトの例など、詳細については[オペレーターの機能のコンテンツ品質レビュー]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#review-content-quality)を参照してください。

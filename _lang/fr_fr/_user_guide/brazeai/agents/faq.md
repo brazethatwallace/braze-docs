@@ -32,13 +32,13 @@ Non, tenter d'écrire des blocs Liquid comme les instructions {% raw %}`{% if %}
 
 ### Les agents peuvent-ils accéder aux données utilisateur au-delà des attributs ou valeurs Liquid spécifiques que je leur transmets ? {#can-agents-access-user-data-beyond-the-specific-liquid-attributes-or-values-that-i-pass-to-them}
 
-Non. Les agents ne reçoivent que les points de donnée utilisateur spécifiques qui leur sont transmis via Liquid, ainsi que les [ressources]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#add-resources) ajoutées au contexte de l'agent. Les agents ne peuvent pas rechercher dans les profils des utilisateurs des attributs que le marketeur ne les a pas configurés pour trouver.
+Non. Les agents ne reçoivent que les points de donnée utilisateur spécifiques qui leur sont transmis via Liquid, ainsi que les [ressources]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources) ajoutées au contexte de l'agent. Les agents ne peuvent pas rechercher dans les profils des utilisateurs des attributs que le marketeur ne les a pas configurés pour trouver.
 
 ## Résolution des problèmes {#troubleshooting}
 
 ### Pourquoi mon agent n'a-t-il pas suivi mes instructions ou mes règles ? {#why-did-my-agent-not-follow-my-instructions-or-rules}
 
-Envisagez d'utiliser [Operator]({{site.baseurl}}/user_guide/brazeai/operator/) pour comprendre pourquoi votre agent ne suit pas vos instructions. Operator peut fournir des instructions étape par étape et des explications détaillées.
+Envisagez d'utiliser [Operator]({{site.baseurl}}/user_guide/brazeai/operator) pour comprendre pourquoi votre agent ne suit pas vos instructions. Operator peut fournir des instructions étape par étape et des explications détaillées.
 
 ### Pourquoi mon agent de catalogue a-t-il ignoré certaines lignes ? {#why-did-my-catalog-agent-skip-some-rows}
 
@@ -46,7 +46,7 @@ Les agents de catalogue ignorent une ligne lorsqu'une colonne que vous avez marq
 
 L'agent respecte également les dépendances entre colonnes. Si une colonne de sortie dépend d'autres colonnes (par exemple, la colonne D nécessite des valeurs dans les colonnes B et C), l'agent ne s'exécute pas tant que ces colonnes en amont ne sont pas renseignées pour cette ligne.
 
-Pour plus de détails, consultez les [bonnes pratiques pour les agents de catalogue]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#catalog-agent-best-practices).
+Pour plus de détails, consultez les [bonnes pratiques pour les agents de catalogue]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices).
 
 ### Mon agent a du mal avec une tâche complexe. Comment puis-je améliorer ses performances ? {#subagent-approach}
 
@@ -65,7 +65,7 @@ Un agent personnalisé peut expirer si :
 - Les instructions de l'agent demandent un format de sortie différent de celui spécifié dans l'onglet **Output** (par exemple, si les instructions demandent une chaîne de caractères, mais que dans l'onglet **Output**, la sortie est définie comme un nombre)
 - La tâche de l'agent est trop complexe et gagnerait à adopter une [approche par sous-agents](#subagent-approach)
 
-Pour les agents Canvas, configurez des [valeurs de repli]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) dans la Console des agents afin que les utilisateurs reçoivent tout de même une sortie lorsqu'une invocation échoue.
+Pour les agents Canvas, configurez des [valeurs de repli]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) dans la Console des agents afin que les utilisateurs reçoivent tout de même une sortie lorsqu'une invocation échoue.
 
 ## Conformité {#compliance}
 

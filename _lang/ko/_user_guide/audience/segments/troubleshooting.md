@@ -57,7 +57,7 @@ Braze는 사용자별 과거 Segment 멤버십을 저장하지 않습니다. 특
 
 이 드문 오류는 타겟 오디언스에 너무 많은 정규식 값, 지나치게 긴 정규식 값, 지나치게 상세한 필터(예: "30,000개의 우편번호 중 하나에 해당")가 포함되어 있거나 필터가 너무 많을 때 발생합니다. 여기에는 참조된 Segment 내의 필터이든 **타겟 오디언스** 단계에서 필터로 추가된 것이든 Campaign 또는 Canvas 오디언스의 모든 필터가 포함됩니다.
 
-![복잡도 임계값에 도달한 타겟 오디언스에 대한 오류.]({% image_buster /assets/img/segment/target_audience_too_complex_error.png %})
+![복잡도 임계값에 도달한 타겟 오디언스에 대한 오류]({% image_buster /assets/img/segment/target_audience_too_complex_error.png %})
 
 Campaign 또는 Canvas에 Segment 필터를 추가하면 해당 필터는 Braze에서 쿼리로 변환됩니다(이러한 쿼리의 문자 수는 대시보드 사용자가 보는 문자 수와 1:1로 대응하지 않습니다). Braze가 Campaign 또는 Canvas를 발송할 때, 타겟 오디언스의 모든 필터를 결합하는 쿼리를 실행합니다. 타겟 오디언스에 대한 결과 쿼리의 문자 수를 제한하는 임계값이 적용됩니다. 주어진 Campaign 또는 Canvas에 대해, 모든 추가 필터를 포함하여 참조된 모든 Segment의 문자 수를 합산합니다. 주어진 Segment에 대해, 모든 필터와 필터 값의 문자 수를 합산합니다.
 
@@ -78,15 +78,15 @@ Campaign, Canvas 또는 Segment가 임계값을 초과하여 시작할 수 없�
 
 이 배너는 활성 또는 중지된 Campaigns 또는 Canvases의 오디언스가 오디언스 복잡도 임계값을 초과할 때마다 Campaign 또는 Canvas 목록 상단에 표시됩니다. 배너를 선택하면 임계값을 초과하는 Campaigns 또는 Canvases만 필터링하여 표시한 다음, [타겟 오디언스가 너무 복잡하여 시작할 수 없음](#target-audience-is-too-complex-to-launch)의 문제 해결 단계를 따르세요.
 
-![4개의 활성 또는 중지된 Canvases가 오디언스 복잡도 임계값을 초과한다는 오류 배너.]({% image_buster /assets/img/segment/audience_complexity_threshold_banner.png %})
+![4개의 활성 또는 중지된 Canvases가 오디언스 복잡도 임계값을 초과한다는 오류 배너]({% image_buster /assets/img/segment/audience_complexity_threshold_banner.png %})
 
 ### 필터가 10,000바이트를 초과하거나 너무 길어서 저장할 수 없음 {#filter-exceeds-10000-bytes-or-is-too-long-to-save}
 
 Braze는 개별 Segment 필터를 최대 10,000바이트로 제한하며, 이는 영문 10,000자 또는 일본어 3,333자에 해당합니다. 개별 필터가 10,000바이트를 초과하면 해당 필터가 Segment 내에 있든 Campaign 또는 Canvas에 직접 추가되었든 경고가 나타납니다.
 
-![10,000자를 초과하는 값을 가진 필터에 대한 오류 배너.]({% image_buster /assets/img/segment/filter_error.png %})
+![10,000자를 초과하는 값을 가진 필터에 대한 오류 배너]({% image_buster /assets/img/segment/filter_error.png %})
 
-![속성 값이 10,000자를 초과하는 커스텀 속성 필터 `menu_item`에 대한 오류.]({% image_buster /assets/img/segment/segment_filter_error.png %})
+![속성 값이 10,000자를 초과하는 커스텀 속성 필터 `menu_item`에 대한 오류]({% image_buster /assets/img/segment/segment_filter_error.png %})
 
 이 오류는 매우 드물게 발생하지만, 발생할 경우 일반적으로 사용자 ID 또는 이메일 주소 목록을 대상으로 하는 정규식 필터에서 나타납니다. 이 경우 다음 단계에 따라 필터를 CSV로 변환할 수 있습니다:
 

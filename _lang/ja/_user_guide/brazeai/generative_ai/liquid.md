@@ -16,4 +16,4 @@ page_order: 5
 
 {% multi_lang_include brazeai/generative_ai/access_liquid.md %}
 
-サポートされているチャネル、Liquid属性、ベストプラクティス、プロンプトの例などの詳細については、[オペレーター機能でのLiquid生成]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-liquid)を参照してください。
+サポートされているチャネル、Liquid属性、ベストプラクティス、プロンプトの例などの詳細については、[オペレーター機能でのLiquid生成]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-liquid)を参照してください。

@@ -14,14 +14,14 @@ channel: email
 
 ## 購読状態 {#subscriber-states}
 
-ユーザーのメール購読状態には、**オプトイン済み**、**購読中**、**配信停止済み**の3つがあります。ユーザーの購読状態を変更するには、[サブスクリプションの変更]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-subscriptions)に関する記事を確認するか、[Subscription API]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)を使用してください。
+ユーザーのメール購読状態には、**オプトイン済み**、**購読中**、**配信停止済み**の3つがあります。ユーザーの購読状態を変更するには、[サブスクリプションの変更]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-subscriptions)に関する記事を確認するか、[Subscription API]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)を使用してください。
 
 | 購読状態 | 説明 |
 |---|---|
 | オプトイン済み | 確認メール内のリンクをクリックし、メッセージの受信に積極的にオプトインした顧客です。 |
 | 購読中 | デフォルトでは、プロファイルに有効なメールアドレスが保存されている限り、ユーザーはメールを購読中の状態になります。ユーザーは、配信停止またはオプトインするまで購読中の状態が維持されます。 |
 | 配信停止済み | 配信停止済みとしてマークされた顧客は、明示的にメールの購読を解除したか、メールをスパムとしてマークしています。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscriber states" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="購読状態" }
 
 ## アドレス収集方法 {#address-collection-methods}
 

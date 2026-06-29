@@ -79,11 +79,11 @@ Existem várias etapas que você pode seguir para limitar a exposição de IPI a
 
 ### Restringir o acesso ao Operator {#restrict-access-to-operator}
 
-O acesso ao Operator é gerenciado no nível do espaço de trabalho por meio de [Permissões granulares de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/). Os administradores podem conceder ou revogar a permissão **Use BrazeAI Operator** para usuários individuais, garantindo que apenas pessoal autorizado possa interagir com a ferramenta. Sem essas permissões específicas, a interface do Operator é completamente suprimida e os endpoints de backend permanecem protegidos.
+O acesso ao Operator é gerenciado no nível do espaço de trabalho por meio de [Permissões granulares de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions). Os administradores podem conceder ou revogar a permissão **Use BrazeAI Operator** para usuários individuais, garantindo que apenas pessoal autorizado possa interagir com a ferramenta. Sem essas permissões específicas, a interface do Operator é completamente suprimida e os endpoints de backend permanecem protegidos.
 
 ### Modelo com humano no circuito {#human-in-the-loop-model}
 
-Por padrão, o Operator requer aprovação explícita antes de confirmar qualquer alteração. As modificações propostas são apresentadas como [cartões de ação]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/) para revisão. Se um usuário rejeitar uma proposta, nenhuma alteração ocorre. Se um usuário aceitar uma proposta, o dashboard é atualizado, mas as alterações permanecem pendentes e devem ser salvas ou lançadas manualmente para se tornarem persistentes.
+Por padrão, o Operator requer aprovação explícita antes de confirmar qualquer alteração. As modificações propostas são apresentadas como [cartões de ação]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) para revisão. Se um usuário rejeitar uma proposta, nenhuma alteração ocorre. Se um usuário aceitar uma proposta, o dashboard é atualizado, mas as alterações permanecem pendentes e devem ser salvas ou lançadas manualmente para se tornarem persistentes.
 
 Os usuários podem ativar **Aprovação automática de ações** no painel de chat do Operator, o que faz com que as ações sugeridas sejam executadas imediatamente sem revisão manual. Mesmo com a aprovação automática ativada, algumas ações sempre exigem aprovação explícita por segurança, incluindo a geração de imagens e a modificação de configurações no nível do espaço de trabalho.
 
@@ -93,4 +93,4 @@ O Operator herda completamente o perfil de permissões do usuário conectado. El
 
 ### Auditar o uso da equipe {#audit-team-usage}
 
-Baixe o [Relatório de eventos de segurança]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report) da Braze para monitorar o uso da equipe. O evento "Requested BrazeAI Operator Response" fornece uma trilha de auditoria abrangente, permitindo que você revise as entradas exatas fornecidas ao Operator.
+Baixe o [Relatório de eventos de segurança]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report) da Braze para monitorar o uso da equipe. O evento "Requested BrazeAI Operator Response" fornece uma trilha de auditoria abrangente, permitindo que você revise as entradas exatas fornecidas ao Operator.

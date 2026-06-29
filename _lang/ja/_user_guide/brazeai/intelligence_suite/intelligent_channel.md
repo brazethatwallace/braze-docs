@@ -6,13 +6,13 @@ description: "この記事では、インテリジェントチャネルフィル
 search_rank: 11
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/most-engaged-channel){: style="float:right;width:120px;border:0;" class="noimgborder"}インテリジェントチャネルフィルター {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecommost-engaged-channel-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-channel-filter}
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/most-engaged-channel){: style="float:right;width:120px;border:0;" class="noimgborder"}インテリジェントチャネルフィルター {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecommost-engaged-channel-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-channel-filter}
 
 > `Intelligent Channel` フィルター（旧称 `Most Engaged`）は、選択されたメッセージングチャネルが「最適な」チャネルであるオーディエンスの一部を選択します。
 
 ## チャネルフィルターについて {#about-the-channel-filter}
 
-![インテリジェントチャネルフィルター（選択可能な各チャネルのドロップダウン付き）。]({% image_buster /assets/img/intelligent_channel_filter.png %}){: style="float:right;max-width:40%;margin-left:10px;margin-top:10px;border:0"}
+![選択可能な各チャネルのドロップダウンが表示されたインテリジェントチャネルフィルター。]({% image_buster /assets/img/intelligent_channel_filter.png %}){: style="float:right;max-width:40%;margin-left:10px;margin-top:10px;border:0"}
 
 この場合の最良とは、ユーザーの履歴からエンゲージメントの可能性が最も高いチャネルを意味します。メール、SMS、WhatsApp、Webプッシュ、またはモバイルプッシュ（利用可能なモバイルOSまたはデバイスを含む）をチャネルとして選択できます。
 
@@ -20,10 +20,10 @@ search_rank: 11
 
 メッセージがユーザーに送信されるたびに、またはユーザーがメッセージとインタラクションするたびに、エンゲージメント比率が数秒以内に再計算されます。ユーザーがメッセージとインタラクションしたとカウントされるのは1回のみです（例えば、同じメールを開封してクリックした場合、そのメッセージは2回ではなく1回だけエンゲージされたとマークされます）。
 
-インテリジェントチャネルフィルターを有効にするには、メール、Webプッシュ、またはモバイルプッシュのキャンペーン作成時に、**ターゲットオーディエンス**ページで**インテリジェントチャネル**フィルターを選択します。
+インテリジェントチャネルフィルターを有効にするには、メール、Webプッシュ、またはモバイルプッシュのCampaign作成時に、**ターゲットオーディエンス**ページで**インテリジェントチャネル**フィルターを選択します。
 
 {% alert important %}
-SMSチャネルのエンゲージメント率を計算するには、高度なトラッキングとクリックトラッキングで[SMSリンク短縮]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening#overview/)をオンにします。このトラッキングを行わない場合、[優先判定動作]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/#tie-breaking)のためにエンゲージメント率が0%のインテリジェントチャネルとしてSMSが選択されることがあります。
+SMSチャネルのエンゲージメント率を計算するには、高度なトラッキングとクリックトラッキングで[SMSリンク短縮]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening#overview)をオンにします。このトラッキングを行わない場合、[優先判定動作]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking)のためにエンゲージメント率が0%のインテリジェントチャネルとしてSMSが選択されることがあります。
 {% endalert %}
 
 ## 「データ不足」オプション {#the-not-enough-data-option}
@@ -32,12 +32,12 @@ Brazeが「最良」のチャネルを判定するには、十分なデータが
 
 ユーザーがこれらのチャネルにわたって十分なメッセージを受信していない場合、それらのユーザーはこのフィルターの「データ不足」オプションに該当します。これにより、3つの使用可能なメッセージングチャネルのいずれかを使用して、これらのユーザーをターゲットにすることができます。
 
-例えば、プッシュメッセージを好むユーザーにプッシュを受信させ、十分なデータがないユーザーにも同じプッシュメッセージを受信させたいとします。この場合、インテリジェントチャネルフィルターを**モバイルプッシュ**に設定し、**または**を使用して、2番目のインテリジェントチャネルフィルターを**データ不足**に設定します。メールを好むユーザーには、インテリジェントチャネルフィルターをメールに設定した別のキャンペーンで対応できます。
+例えば、プッシュメッセージを好むユーザーにプッシュを受信させ、十分なデータがないユーザーにも同じプッシュメッセージを受信させたいとします。この場合、インテリジェントチャネルフィルターを**モバイルプッシュ**に設定し、**または**を使用して、2番目のインテリジェントチャネルフィルターを**データ不足**に設定します。メールを好むユーザーには、インテリジェントチャネルフィルターをメールに設定した別のCampaignで対応できます。
 
-![モバイルプッシュ用インテリジェントチャネルフィルター、あるいはデータ不足の場合。]({% image_buster /assets/img/intelligent_example.png %}){:style="border:none"}
+![モバイルプッシュまたはデータ不足用のインテリジェントチャネルフィルター。]({% image_buster /assets/img/intelligent_example.png %}){:style="border:none"}
 
 {% alert note %}
-[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-rules)を無視するキャンペーンとキャンバスステップは、インテリジェントチャネルでは考慮されず、データ要件に貢献できません。
+[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-rules)を無視するCampaignsとキャンバスステップは、インテリジェントチャネルでは考慮されず、データ要件に貢献できません。
 {% endalert %}
 
 ## 「モバイルプッシュ」オプション {#the-mobile-push-option}
@@ -48,7 +48,7 @@ Brazeが「最良」のチャネルを判定するには、十分なデータが
 
 ## 個々のチャネルに対するメッセージ開封可能性フィルター {#individual-channels}
 
-ユーザーにとって最適な単一チャネルをBrazeに選択させる代わりに、[「メッセージ開封可能性」セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#message-open-likelihood)を使用して、ユーザーが特定の選択したチャネルでメッセージを開封する可能性の有無に基づいてフィルタリングできます。このフィルターは、各チャネルで送信された直近100通のメッセージについて、受信したメッセージ総数に対するインタラクションの割合で算出されます。
+ユーザーにとって最適な単一チャネルをBrazeに選択させる代わりに、[「メッセージ開封可能性」セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#message-open-likelihood)を使用して、ユーザーが特定の選択したチャネルでメッセージを開封する可能性の有無に基づいてフィルタリングできます。このフィルターは、各チャネルで送信された直近100通のメッセージについて、受信したメッセージ総数に対するインタラクションの割合で算出されます。
 
 特定のチャネルでユーザーに可能性スコアが割り当てられるには、そのユーザーが当該チャネルで少なくとも3通のメッセージを受信している必要があることに注意してください。チャネルの可能性を測定するのに十分なデータがないユーザーは、「空白である」を使用して選択できます。
 

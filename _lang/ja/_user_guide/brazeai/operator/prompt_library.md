@@ -1,14 +1,14 @@
 ---
 nav_title: プロンプトライブラリー
 article_title: BrazeAI Operatorのプロンプトライブラリー
-page_order: 5
+page_order: 4
 page_type: reference
 description: "BrazeAI Operatorのプロンプト例を、達成したい目的別に整理して紹介します。"
 ---
 
 # BrazeAI Operatorのプロンプトライブラリー {#prompt-library-for-brazeai-operator}
 
-> Brazeのエキスパートが作成したOperatorプロンプトのキュレートされたコレクションを閲覧できます。目的を選択して、関連するプロンプトを見つけてください。詳細については、[ページ対応コンテキストの活用]({{site.baseurl}}/user_guide/brazeai/operator/#leverage-page-aware-context)を参照してください。
+> Brazeのエキスパートが作成したオペレータープロンプトのキュレートされたコレクションを閲覧できます。目的を選択して、関連するプロンプトを見つけてください。詳細については、[ページ対応コンテキストの活用]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context)を参照してください。
 
 
 <div class="prompt-library-tabs">

@@ -14,7 +14,7 @@ tool:
 
 > Les paramètres de style globaux vous permettent de personnaliser l'apparence de vos campagnes e-mail et Canvas. Vous pouvez ajouter et personnaliser un thème par défaut pour votre éditeur par glisser-déposer. Cela inclut la modification de vos styles pour les titres d'e-mails, le texte, les boutons, et bien plus encore. L'utilisation combinée de ces paramètres peut vous aider à créer une apparence cohérente dans l'ensemble de vos envois de messages par e-mail.
 
-Pour modifier vos paramètres de style globaux, accédez à **Paramètres** > **Préférences des e-mails** > **Préférences des e-mails par glisser-déposer**. Après avoir modifié les styles dans l'éditeur d'e-mails par glisser-déposer, sélectionnez **Enregistrer**. Pour personnaliser davantage vos campagnes e-mail et Canvas, découvrez comment intégrer les [blocs de l'éditeur (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email).
+Pour modifier vos paramètres de style globaux, accédez à **Paramètres** > **Préférences des e-mails** > **Préférences des e-mails par glisser-déposer**. Après avoir modifié les styles dans l'éditeur d'e-mails par glisser-déposer, sélectionnez **Enregistrer**. Pour personnaliser davantage vos campagnes e-mail et Canvas, découvrez comment intégrer les [blocs de l'éditeur (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email).
 
 ![Section des paramètres de style globaux des e-mails dans l'onglet des paramètres de l'éditeur d'e-mails par glisser-déposer.]({% image_buster /assets/img_archive/dnd_global_style_settings.png %})
 
@@ -57,7 +57,7 @@ Pour ajouter une police personnalisée, procédez comme suit :
 Gmail ne prend pas en charge les polices personnalisées, votre police personnalisée peut donc s'afficher comme une police système par défaut. Pour les autres plateformes de messagerie, vérifiez que votre police personnalisée s'affiche correctement avant d'envoyer vos e-mails.
 {% endalert %}
 
-Pour utiliser d'autres polices personnalisées dans vos campagnes e-mail, vous pouvez créer un [modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/) ou des [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) incluant la police personnalisée. Par exemple, vous pouvez créer un modèle d'e-mail spécifique conçu avec des polices personnalisées festives adaptées à votre thème de promotion. Assurez-vous de vérifier que votre choix de police est compatible avec le web et pris en charge par vos plateformes de messagerie.
+Pour utiliser d'autres polices personnalisées dans vos campagnes e-mail, vous pouvez créer un [modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) ou des [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) incluant la police personnalisée. Par exemple, vous pouvez créer un modèle d'e-mail spécifique conçu avec des polices personnalisées festives adaptées à votre thème de promotion. Assurez-vous de vérifier que votre choix de police est compatible avec le web et pris en charge par vos plateformes de messagerie.
 
 ### Police de secours {#fallback-font}
 

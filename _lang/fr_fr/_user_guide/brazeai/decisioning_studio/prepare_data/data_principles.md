@@ -17,9 +17,9 @@ Chaque ressource de données (profils clients, activations, engagements, convers
 | Exigence | Conséquence en cas de non-respect |
 |-------------|------------------------|
 | Un identifiant client unique doit être présent dans chaque ressource | Si différentes ressources utilisent des systèmes d'ID différents (par exemple, un ID d'entrepôt de données pour les caractéristiques et un ID de plateforme pour les activations), le moteur de Decisioning Studio ne peut pas les joindre de manière fiable. Cela rompt la boucle de rétroaction et dégrade à la fois l'entraînement du modèle et la précision des rapports. Si le mappage entre les deux systèmes d'ID s'avère être de type plusieurs-à-plusieurs plutôt que un-à-plusieurs, les problèmes d'intégrité des données qui en résultent peuvent être graves. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="One consistent customer identifier across all assets" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Un identifiant client cohérent dans toutes les ressources" }
 
-Consultez [Utiliser l'ID externe Braze]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id/) pour savoir quel identifiant utiliser.
+Consultez [Utiliser l'ID externe Braze]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id) pour savoir quel identifiant utiliser.
 
 ## Les données d'événements doivent être transmises sous forme de flux incrémental, et non sous forme de snapshot {#event-data-must-be-passed-as-an-incremental-stream-not-as-a-snapshot}
 
@@ -28,9 +28,9 @@ Les événements, tels que les conversions, les engagements et les activations, 
 | Exigence | Conséquence en cas de non-respect |
 |-------------|------------------------|
 | Les données d'événements doivent être structurées sous forme d'enregistrements individuels horodatés et transmises de manière incrémentale | Lorsque les données d'événements sont agrégées dans un snapshot (par exemple, en stockant un attribut « heure du dernier envoi » plutôt que des enregistrements d'envoi individuels), vous perdez le timing précis de chaque événement. Il devient alors impossible d'attribuer correctement les résultats à des décisions spécifiques, ce qui rompt la boucle de rétroaction dont le modèle a besoin pour apprendre. Sans horodatages précis des événements, vous ne pouvez pas savoir exactement quand une conversion a eu lieu ni quelle recommandation l'a déclenchée. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Event data must be passed as an incremental stream, not as a snapshot" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Les données d'événements doivent être transmises sous forme de flux incrémental, et non sous forme de snapshot" }
 
-Consultez [Snapshots et flux d'événements]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/) pour une explication complète de la distinction ainsi que des exemples de schémas corrects et incorrects.
+Consultez [Snapshots et flux d'événements]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams) pour une explication complète de la distinction ainsi que des exemples de schémas corrects et incorrects.
 
 ## Les données de snapshot doivent être mises à jour selon un calendrier régulier {#snapshot-data-must-be-updated-on-a-regular-time-driven-schedule}
 
@@ -39,7 +39,7 @@ Les données de snapshot (telles que les profils et caractéristiques des client
 | Exigence | Conséquence en cas de non-respect |
 |-------------|------------------------|
 | Les snapshots doivent être mis à jour pour tous les clients selon un calendrier régulier, qu'un client ait eu ou non un événement ce jour-là | Si les mises à jour de snapshot ne sont déclenchées que lorsqu'un événement survient, les caractéristiques qui dépendent de l'écoulement du temps (telles que « jours depuis le dernier achat » ou « jours depuis l'inscription ») deviennent obsolètes pour les clients n'ayant pas eu d'événement récent. Le modèle s'entraîne alors sur des valeurs de caractéristiques périmées, ce qui réduit sa capacité à formuler des recommandations précises et opportunes. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Snapshot data must be updated on a regular, time-driven schedule" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Les données de snapshot doivent être mises à jour selon un calendrier régulier" }
 
 ## Toutes les ressources doivent respecter des exigences minimales de qualité et d'intégrité des données {#all-assets-must-meet-minimum-data-quality-and-integrity-requirements}
 
@@ -48,13 +48,13 @@ Au-delà de la structure, les données elles-mêmes doivent être cohérentes en
 | Exigence | Conséquence en cas de non-respect |
 |-------------|------------------------|
 | Chaque ressource doit contenir les champs nécessaires pour établir une clé primaire et, le cas échéant, des clés de jointure vers d'autres ressources. Les enregistrements en double doivent être supprimés ou dédupliqués avant l'ingestion. | Les enregistrements en double ou non appariables ajoutent du bruit à l'entraînement du modèle et peuvent entraîner une attribution incorrecte. Les clés manquantes empêchent le moteur de relier les événements tout au long du parcours client, de la recommandation jusqu'à la conversion. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="All assets must meet minimum data quality and integrity requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Toutes les ressources doivent respecter des exigences minimales de qualité et d'intégrité des données" }
 
 Pour les données de flux d'événements en particulier, chaque enregistrement doit inclure au minimum :
 
 **Champs requis :**
 - Identifiant client
-- Horodatage du moment où l'événement s'est produit (et non du moment où l'enregistrement a été créé dans votre système ; ces deux valeurs sont différentes ; consultez [Snapshots et flux d'événements]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/) pour comprendre pourquoi c'est important)
+- Horodatage du moment où l'événement s'est produit (et non du moment où l'enregistrement a été créé dans votre système ; ces deux valeurs sont différentes ; consultez [Snapshots et flux d'événements]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams) pour comprendre pourquoi c'est important)
 - Horodatage du moment où l'enregistrement a été créé dans votre système (utilisé pour découper de manière fiable les exports incrémentaux)
 - Type d'événement
 - Champs suffisants pour filtrer les événements spécifiques qui vous intéressent

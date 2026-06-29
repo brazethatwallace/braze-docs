@@ -25,8 +25,8 @@ IP ウォームアップは、インターネットサービスプロバイダ�
 
 IP ウォームアップを開始する前に：
 
-1. **設定** > **メール設定**で、デフォルトの送信ドメインを設定し、[カスタムフッター]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/)に有効な配信停止リンクを追加し、[リスト配信停止ヘッダー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe)を有効にし、必要に応じてカスタムの配信停止/オプトインページを検討してください。
-2. メールの[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)を設定してください。
+1. **設定** > **メール設定**で、デフォルトの送信ドメインを設定し、[カスタムフッター]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer)に有効な配信停止リンクを追加し、[リスト配信停止ヘッダー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe)を有効にし、必要に応じてカスタムの配信停止/オプトインページを検討してください。
+2. メールの[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)を設定してください。
 3. **コンテンツ** > **メール**で必要なテンプレートを作成してください。
 
 ## IP をウォームアップする時間がない場合はどうすればよいですか？ {#what-if-i-dont-have-time-to-warm-ips}
@@ -37,7 +37,7 @@ ISP はスパムの疑いが生じた場合、ユーザーを保護するため�
 
 エンゲージメントが中程度の場合、ISP はメールがスパムかどうかをより確実に判断するために、さらにエンゲージメントデータを収集しながらスロットリングを続ける可能性があります。メールのエンゲージメント指標が非常に高い場合、ISP はスロットリングを完全に停止する可能性があります。ISP はこのデータを使用してメールのレピュテーションを構築し、最終的にメールが自動的にスパムにフィルタリングされるかどうかを決定します。
 
-ドメインや IP が ISP によってブロックされた場合、[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)のメッセージログに、これらの ISP に異議申し立てを行い、ブロックリストから削除してもらうためにアクセスすべき Web サイトの情報が含まれています。
+ドメインや IP が ISP によってブロックされた場合、[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)のメッセージログに、これらの ISP に異議申し立てを行い、ブロックリストから削除してもらうためにアクセスすべき Web サイトの情報が含まれています。
 
 ## IP ウォームアップスケジュール {#ip-warming-schedules}
 
@@ -151,13 +151,13 @@ IP ウォームアップが完了し、目標の1日のボリュームに達し�
 
 ### IP アドレス {#ip-addresses}
 
-3か月間使用されなかった場合、Braze は IP アドレスをリサイクルして再割り当てする場合があります。IP アドレスの過去の履歴に関係なく、ほとんどの ISP がレピュテーションデータを 30 日間しか保持しないため、新しく割り当てられたすべての IP に対して完全な IP ウォームアップが推奨されます。ほとんどの ISP にとって、これは3か月のクールダウンで事実上レピュテーションがリセットされることを意味します。特定の IP アドレスの履歴についてさらにご質問がある場合は、[Braze サポート]({{site.baseurl}}/user_guide/administer/personal/braze_support/)にお問い合わせください。
+3か月間使用されなかった場合、Brazeは IP アドレスをリサイクルして再割り当てする場合があります。IP アドレスの過去の履歴に関係なく、ほとんどの ISP がレピュテーションデータを 30 日間しか保持しないため、新しく割り当てられたすべての IP に対して完全な IP ウォームアップが推奨されます。ほとんどの ISP にとって、これは3か月のクールダウンで事実上レピュテーションがリセットされることを意味します。特定の IP アドレスの履歴についてさらにご質問がある場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)にお問い合わせください。
 
 ## ウォームアップ中に送信を制限する方法 {#how-to-limit-sends-during-warming}
 
-組み込みのユーザー制限機能は、IP アドレスのウォームアップに役立つ便利なツールです。Campaign作成時に目的のメッセージングセグメントを選択した後、[ターゲットユーザー]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas)ステップで**詳細オプション**ドロップダウンを選択してユーザーを制限します。ウォームアップスケジュールが進むにつれて、この制限を徐々に引き上げて送信するメールのボリュームを増やすことができます。
+組み込みのユーザー制限機能は、IP アドレスのウォームアップに役立つ便利なツールです。Campaign作成時に目的のメッセージングSegmentを選択した後、[ターゲットユーザー]({{site.baseurl}}/user_guide/channels/email/html_editor#step-4-build-the-remainder-of-your-campaign-or-canvas)ステップで**詳細オプション**ドロップダウンを選択してユーザーを制限します。ウォームアップスケジュールが進むにつれて、この制限を徐々に引き上げて送信するメールのボリュームを増やすことができます。
 
-![]({% image_buster /assets/img_archive/email_ip_warming_sends_limit_new.png %})
+![組み込みのユーザー制限機能は、IP アドレスのウォームアップに役立つ便利なツールです。Campaign作成時に目的のメッセージングSegmentを選択した後、ターゲットユーザーステップで詳細オプションドロップダウンを選択してユーザーを制限します。ウォームアップスケジュールが進むにつれて、この制限を徐々に引き上げて送信するメールのボリュームを増やすことができます。]({% image_buster /assets/img_archive/email_ip_warming_sends_limit_new.png %})
 
 ## サブドメインセグメンテーション {#subdomain-segmentation}
 
@@ -189,17 +189,17 @@ IP ウォームアップが完了したら、送信ケイデンスを作成し�
 
 ### メールリストをクリーンに保つ {#clean-your-email-lists}
 
-メールリストがクリーンで、古いメールや未確認のメールが含まれていないことを確認してください。[CASL および CAN-SPAM に準拠]({{site.baseurl}}/user_guide/administer/global/privacy/spam_regulations/)していることが理想的です。
+メールリストがクリーンで、古いメールや未確認のメールが含まれていないことを確認してください。[CASL および CAN-SPAM に準拠]({{site.baseurl}}/user_guide/administer/global/privacy/spam_regulations)していることが理想的です。
 
 ### 送信者のレピュテーションを監視する {#monitor-your-sender-reputation}
 
 IP ウォームアッププロセスを実施する際は、送信者のレピュテーションを注意深く監視してください。以下の指標を特に注視することが重要です：
-- **バウンス率：** Campaignのバウンス率が 3〜5% を超える場合は、[Keep It Clean: The Importance of Email List Hygiene](https://www.braze.com/blog/email-list-hygiene/) の記事のガイドラインに従ってリストのクリーンさを評価する必要があります。さらに、エンゲージメントのない、または休止状態のメールアドレスへの送信を停止するための[サンセットポリシー]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/)の実装を検討してください。
+- **バウンス率：** Campaignのバウンス率が 3〜5% を超える場合は、[Keep It Clean: The Importance of Email List Hygiene](https://www.braze.com/blog/email-list-hygiene/) の記事のガイドラインに従ってリストのクリーンさを評価する必要があります。さらに、エンゲージメントのない、または休止状態のメールアドレスへの送信を停止するための[サンセットポリシー]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies)の実装を検討してください。
 - **スパム報告：** Campaignのスパム報告率が 0.08% を超える場合は、送信しているコンテンツを再評価し、関心のあるオーディエンスにターゲティングされていることを確認し、メールが受信者の興味を引くように適切に表現されていることを確認してください。
 - **開封率：** 開封率は受信トレイへの配置の有用な指標です。ユニーク開封率が 25% を超えている場合、受信トレイへの配置率が高く、送信者のレピュテーションが良好であることを示しています。
 
 {% alert tip %}
-Brazeは IP ウォームアップに[インテリジェントタイミング]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)を使用しないことを推奨しています。IP ウォームアップCampaignは最初に送信するCampaignの一部であるため、Brazeにはユーザーの最適な送信時間を計算するための十分な情報がありません。この場合、インテリジェントタイミングを使用したすべてのメッセージはフォールバック時間にデフォルト設定され、結局同じ時間に送信されます。
+Brazeは IP ウォームアップに[インテリジェントタイミング]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)を使用しないことを推奨しています。IP ウォームアップCampaignは最初に送信するCampaignの一部であるため、Brazeにはユーザーの最適な送信時間を計算するための十分な情報がありません。この場合、インテリジェントタイミングを使用したすべてのメッセージはフォールバック時間にデフォルト設定され、結局同じ時間に送信されます。
 {% endalert %}
 
 {% alert tip %}

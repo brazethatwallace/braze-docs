@@ -16,4 +16,4 @@ description: "このリファレンス記事では、Operatorを使用してメ�
 
 {% multi_lang_include brazeai/generative_ai/access_images.md %}
 
-プロンプトのヒント、プロンプトの例、使用制限などの詳細については、[Operator機能の画像生成]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-images)を参照してください。
+プロンプトのヒント、プロンプトの例、使用制限などの詳細については、[Operator機能の画像生成]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images)を参照してください。

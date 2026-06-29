@@ -80,4 +80,4 @@ Bestätigen Sie, dass Ihre DKIM/SPF-Konfiguration mit dem übereinstimmt, was Si
 {% endtab %}
 {% endtabs %}
 
-Wenn Sie weitere Fragen haben, eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/).
+Wenn Sie weitere Fragen haben, eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support).

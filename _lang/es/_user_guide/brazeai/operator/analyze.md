@@ -17,7 +17,7 @@ Operator Analyze se encuentra actualmente en fase beta. Las capacidades y los an
 
 ## ¿Por qué usar Operator Analyze? {#why-use-operator-analyze}
 
-La mayoría de las preguntas sobre rendimiento aún requieren cambiar de herramienta, crear vistas o esperar a que alguien más lo haga. Algunos ejemplos incluyen "¿Cómo fue la semana pasada?", "¿Estamos alineados con el punto de referencia?" y "¿Qué Campaign está generando los mejores resultados?"
+La mayoría de las preguntas sobre rendimiento aún requieren cambiar de herramienta, crear vistas o esperar a que alguien más lo haga. Algunos ejemplos incluyen "¿Cómo fue la semana pasada?", "¿Estamos alineados con el punto de referencia?" y "¿Qué campaña está generando los mejores resultados?"
 
 Operator Analyze cubre métricas de interacción, *ingresos atribuidos* y puntos de referencia del sector. Son los mismos datos que de otro modo tendrías que extraer en un informe o dashboard. Pregunta con tus propias palabras desde el panel de Operator. Obtienes un gráfico, una comparación clasificada o una tabla, además de una a cinco piezas de información accionable.
 
@@ -29,7 +29,7 @@ Operator Analyze se ejecuta en el panel de conversación de Operator.
 2. Pregunta sobre la interacción de canales o comparaciones con puntos de referencia (consulta [Preguntas de ejemplo](#example-questions)).
 3. Operator devuelve la respuesta y, cuando es útil, un gráfico o tabla y una breve lista de información.
 
-Para más información sobre el panel de chat de Operator, consulta [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/).
+Para más información sobre el panel de chat de Operator, consulta [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator).
 
 ## Preguntas de ejemplo {#example-questions}
 
@@ -159,9 +159,9 @@ Las preguntas fuera del alcance reciben una respuesta directa, una alternativa s
 
 ## Privacidad y seguridad de datos {#data-privacy-and-security}
 
-Operator Analyze sigue el mismo modelo de privacidad y seguridad que BrazeAI Operator<sup>TM</sup>. Para más información, consulta [Privacidad y seguridad de datos]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/).
+Operator Analyze sigue el mismo modelo de privacidad y seguridad que BrazeAI Operator<sup>TM</sup>. Para más información, consulta [Privacidad y seguridad de datos]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
 
 ## Próximos pasos {#next-steps}
 
-* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)
-* [Revisar acciones]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/)
+* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)
+* [Revisar acciones]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)

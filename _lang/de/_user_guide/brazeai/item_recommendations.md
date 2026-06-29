@@ -12,18 +12,18 @@ description: "Erfahren Sie alles über Empfehlungssysteme für Artikel in Braze.
 
 ## Voraussetzungen {#prerequisites}
 
-Bevor Sie Artikel-Empfehlungen in Braze erstellen oder verwenden können, müssen Sie [mindestens einen Katalog erstellen]({{site.baseurl}}/user_guide/data/activation/catalogs/create/)&#8212;nur Artikel aus diesem Katalog werden den Nutzer:innen empfohlen.
+Bevor Sie Artikel-Empfehlungen in Braze erstellen oder verwenden können, müssen Sie [mindestens einen Katalog erstellen]({{site.baseurl}}/user_guide/data/activation/catalogs/create)&#8212;nur Artikel aus diesem Katalog werden den Nutzer:innen empfohlen.
 
 ## Typen und Anwendungsfälle {#types-and-use-cases}
 
 ### KI-personalisiert {#ai}
 
-Als Teil des Features [KI-Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/) nutzen KI-personalisierte Empfehlungen Deep Learning, um auf der Grundlage der bisherigen Interessen Ihrer Nutzer:innen vorherzusagen, woran diese als Nächstes am ehesten interessiert sein könnten. Diese Methode bietet ein dynamisches und maßgeschneidertes Empfehlungssystem, das sich dem Nutzerverhalten anpasst.
+Als Teil des Features [KI-Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai) nutzen KI-personalisierte Empfehlungen Deep Learning, um auf der Grundlage der bisherigen Interessen Ihrer Nutzer:innen vorherzusagen, woran diese als Nächstes am ehesten interessiert sein könnten. Diese Methode bietet ein dynamisches und maßgeschneidertes Empfehlungssystem, das sich dem Nutzerverhalten anpasst.
 
 KI-personalisierte Empfehlungen verwenden die Daten der letzten 6 Monate zu Artikelinteraktionen, wie Käufe oder angepasste Events, um das Empfehlungsmodell zu erstellen. Für Nutzer:innen, die nicht über ausreichende Daten für eine personalisierte Liste verfügen, dienen die beliebtesten Artikel als Fallback, sodass Ihre Nutzer:innen weiterhin relevante Vorschläge erhalten.
 
 Mit den KI-Artikelempfehlungen können Sie die verfügbaren Artikel auch weiter mit
-[Auswahlen]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) filtern. Allerdings können Auswahlen mit Liquid nicht in KI-Empfehlungen verwendet werden. Beachten Sie dies also, wenn Sie Ihre Katalogauswahlen erstellen.
+[Auswahlen]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) filtern. Allerdings können Auswahlen mit Liquid nicht in KI-Empfehlungen verwendet werden. Beachten Sie dies also, wenn Sie Ihre Katalogauswahlen erstellen.
 
 {% alert tip %}
 KI-personalisierte Empfehlungen funktionieren am besten bei Hunderten oder Tausenden von Artikeln und typischerweise mindestens 30.000 Nutzer:innen mit Kauf- oder Interaktionsdaten. Dies ist nur ein grober Richtwert und kann variieren. Die anderen Empfehlungstypen können mit weniger Daten arbeiten.
@@ -43,17 +43,17 @@ Sagen Sie voraus und empfehlen Sie die Artikel, die Nutzer:innen wahrscheinlich 
 {% details Voraussetzungen %}
 - KI-Artikelempfehlungen
 - Katalog der relevanten Artikel
-- Ein Verfahren zum Tracking von Käufen: ein Kauf-Objekt, ein angepasstes Event oder ein [Bestellungs-Event]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/?tab=ecommerce.order_placed)
+- Ein Verfahren zum Tracking von Käufen: ein Kauf-Objekt, ein angepasstes Event oder ein [Bestellungs-Event]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.order_placed)
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Setzen Sie den **Typ** auf **KI-personalisiert**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
 5. Wählen Sie, wie Sie derzeit Kauf-Events tracken, und die entsprechende Event-Eigenschaft.
 6. Trainieren Sie die Empfehlung.
-7. [Verwenden Sie die Empfehlung im Messaging]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+7. [Verwenden Sie die Empfehlung im Messaging]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -77,13 +77,13 @@ Animieren Sie Nutzer:innen dazu, beliebte Artikel in Ihrem Katalog basierend auf
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Setzen Sie den **Typ** auf **Beliebteste**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken. Der Essenslieferdienst könnte zum Beispiel eine Auswahl haben, um nach dem Standort des Restaurants oder der Art des Gerichts zu filtern.
 5. Wählen Sie Ihre derzeitige Methode zum Tracking von Events und die entsprechende Event-Eigenschaft aus.
 6. Trainieren Sie die Empfehlung.
-7. [Verwenden Sie die Empfehlung im Messaging]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+7. [Verwenden Sie die Empfehlung im Messaging]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 
@@ -97,13 +97,13 @@ Ermuntern Sie die Nutzer:innen, Artikel zu entdecken, die ihnen kürzlich gefall
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Setzen Sie den **Typ** auf **Neueste**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
 5. Wählen Sie **Angepasstes Event** und wählen Sie Ihr angepasstes Event für Likes aus der Liste aus.
 6. Trainieren Sie die Empfehlung.
-7. [Verwenden Sie die Empfehlung im Messaging]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+7. [Verwenden Sie die Empfehlung im Messaging]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 
@@ -117,13 +117,13 @@ Heben Sie Artikel hervor, die in Ihrer Nutzerbasis durch Aufrufe Aufmerksamkeit 
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Setzen Sie den **Typ** auf **Beliebteste**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
 5. Wählen Sie **Angepasstes Event** und wählen Sie Ihr angepasstes Event für Aufrufe aus der Liste aus.
 6. Trainieren Sie die Empfehlung.
-7. [Verwenden Sie die Empfehlung im Messaging]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+7. [Verwenden Sie die Empfehlung im Messaging]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 
@@ -139,13 +139,13 @@ Ein Modehändler könnte z. B. Kleidung und Accessoires bewerben, die gerade im 
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Setzen Sie den **Typ** auf **Beliebteste**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
 5. Wählen Sie **Angepasstes Event** und wählen Sie aus der Liste Ihr angepasstes Event für „In den Warenkorb gelegt“ aus.
 6. Trainieren Sie die Empfehlung.
-7. [Verwenden Sie die Empfehlung im Messaging]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+7. [Verwenden Sie die Empfehlung im Messaging]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -169,13 +169,13 @@ Ermuntern Sie Nutzer:innen dazu, Artikel, auf die sie kürzlich geklickt haben, 
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Setzen Sie den **Typ** auf **Neueste**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
 5. Wählen Sie **Angepasstes Event** und wählen Sie Ihr angepasstes Event für Klicks aus der Liste aus.
 6. Trainieren Sie die Empfehlung.
-7. [Verwenden Sie die Empfehlung im Messaging]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+7. [Verwenden Sie die Empfehlung im Messaging]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 
 {% endtab %}
@@ -189,13 +189,13 @@ Ermuntern Sie die Nutzer:innen, Artikel zu entdecken, die ihnen kürzlich gefall
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Setzen Sie den **Typ** auf **Neueste**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
 5. Wählen Sie **Angepasstes Event** und wählen Sie Ihr angepasstes Event für Likes aus der Liste aus.
 6. Trainieren Sie die Empfehlung.
-7. [Verwenden Sie die Empfehlung im Messaging]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+7. [Verwenden Sie die Empfehlung im Messaging]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 
@@ -213,13 +213,13 @@ Bewerben Sie Artikel, mit denen Nutzer:innen kürzlich interagiert haben, z. B. 
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Setzen Sie den **Typ** auf **Neueste**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
 5. Wählen Sie **Angepasstes Event** und wählen Sie Ihr angepasstes Event für Klicks aus der Liste aus.
 6. Trainieren Sie die Empfehlung.
-7. [Verwenden Sie die Empfehlung im Messaging]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+7. [Verwenden Sie die Empfehlung im Messaging]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 
@@ -233,13 +233,13 @@ Erinnern Sie Nutzer:innen an ihr Interesse an Artikeln, die sie kürzlich in ihr
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Setzen Sie den **Typ** auf **Neueste**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
 5. Wählen Sie **Angepasstes Event** und wählen Sie aus der Liste Ihr angepasstes Event für „In den Warenkorb gelegt“ aus.
 6. Trainieren Sie die Empfehlung.
-7. [Verwenden Sie die Empfehlung im Messaging]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+7. [Verwenden Sie die Empfehlung im Messaging]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -265,13 +265,13 @@ Heben Sie Artikel hervor, die Ihre Nutzer:innen in letzter Zeit besonders häufi
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/ai_item_recommendations/).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/ai_item_recommendations).
 2. Setzen Sie den **Typ** auf **Trending**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
 5. Wählen Sie entweder ein Kauf-Event oder ein angepasstes Event, das Käufe trackt, zusammen mit der entsprechenden Eigenschaft.
 6. Trainieren Sie die Empfehlung.
-7. [Verwenden Sie die Empfehlung im Messaging.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)
+7. [Verwenden Sie die Empfehlung im Messaging.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
 {% enddetails %}
 {% endtab %}
 
@@ -285,20 +285,20 @@ Heben Sie Artikel hervor, die Ihren Nutzer:innen in letzter Zeit besonders häuf
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/ai_item_recommendations/).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/ai_item_recommendations).
 2. Setzen Sie den **Typ** auf **Trending**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
 5. Wählen Sie Ihr angepasstes Event zum Tracking von Likes zusammen mit der entsprechenden Eigenschaft.
 6. Trainieren Sie die Empfehlung.
-7. [Verwenden Sie die Empfehlung im Messaging.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)
+7. [Verwenden Sie die Empfehlung im Messaging.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
 
 ### Auf Auswahlen basierend {#selections-based}
 
-[Auswahlen]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) sind bestimmte Gruppen von Katalogdaten. Wenn Sie eine Auswahl verwenden, richten Sie im Wesentlichen angepasste Filter ein, die auf bestimmten Spalten in Ihrem Katalog basieren. Dies könnte Filter für Marke, Größe, Standort, Hinzufügedatum und mehr beinhalten. Damit haben Sie die Kontrolle über Ihre Empfehlungen, da Sie Kriterien definieren können, die Artikel erfüllen müssen, um Nutzer:innen angezeigt zu werden.
+[Auswahlen]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) sind bestimmte Gruppen von Katalogdaten. Wenn Sie eine Auswahl verwenden, richten Sie im Wesentlichen angepasste Filter ein, die auf bestimmten Spalten in Ihrem Katalog basieren. Dies könnte Filter für Marke, Größe, Standort, Hinzufügedatum und mehr beinhalten. Damit haben Sie die Kontrolle über Ihre Empfehlungen, da Sie Kriterien definieren können, die Artikel erfüllen müssen, um Nutzer:innen angezeigt zu werden.
 
 Bei den drei vorangegangenen Typen geht es darum, ein Empfehlungsmodell in Braze einzurichten und zu trainieren. Sie können zwar auch in diesen Modellen Auswahlen verwenden, aber Sie können einige Empfehlungsanwendungen auch nur mit Katalogauswahlen und Liquid-Personalisierung umsetzen.
 
@@ -326,7 +326,7 @@ Eine E-Commerce-Plattform für Technik könnte zum Beispiel Technikbegeisterte �
 3. Stellen Sie sicher, dass **Randomize Sort Order** ausgeschaltet ist.
 4. Wählen Sie unter **Sort Field** Ihr Feld für das Hinzufügedatum aus.
 5. Setzen Sie die **Sort Order** auf absteigend.
-6. [Verwenden Sie die Auswahl im Messaging]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/#using-selections-in-messaging).
+6. [Verwenden Sie die Auswahl im Messaging]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#using-selections-in-messaging).
 {% enddetails %}
 {% endtab %}
 
@@ -341,17 +341,17 @@ Eine Online-Buchhandlung könnte zum Beispiel eine „Überrasch mich“-Funktio
 {% enddetails %}
 
 {% details Einrichtung %}
-1. [Erstellen Sie eine Auswahl]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/#creating-a-selection) auf der Grundlage Ihres Katalogs.
+1. [Erstellen Sie eine Auswahl]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#creating-a-selection) auf der Grundlage Ihres Katalogs.
 2. (Optional) Fügen Sie ggf. Filter hinzu.
 3. Aktivieren Sie **Randomize Sort Order**.
-4. [Verwenden Sie die Auswahl im Messaging]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/#using-selections-in-messaging).
+4. [Verwenden Sie die Auswahl im Messaging]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#using-selections-in-messaging).
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
 
 ### Regelbasiert {#rules-based}
 
-Ein [regelbasiertes Empfehlungssystem]({{site.baseurl}}/rules_based_recommendations/) verwendet Nutzerdaten und Produktinformationen, um relevante Artikel in Nachrichten vorzuschlagen. Es verwendet Liquid und entweder Braze-Kataloge oder Connected-Content, um Inhalte auf der Grundlage von Nutzerverhalten und Attributen dynamisch zu personalisieren.
+Ein [regelbasiertes Empfehlungssystem]({{site.baseurl}}/rules_based_recommendations) verwendet Nutzerdaten und Produktinformationen, um relevante Artikel in Nachrichten vorzuschlagen. Es verwendet Liquid und entweder Braze-Kataloge oder Connected-Content, um Inhalte auf der Grundlage von Nutzerverhalten und Attributen dynamisch zu personalisieren.
 
 Regelbasierte Empfehlungen basieren auf einer festen Logik, die Sie manuell einstellen müssen. Das bedeutet, dass sich Ihre Empfehlungen nicht an den individuellen Kaufverlauf und die Vorlieben von Nutzer:innen anpassen, es sei denn, Sie aktualisieren die Logik. Daher eignet sich diese Methode am besten für Empfehlungen, die keine häufigen Updates erfordern.
 

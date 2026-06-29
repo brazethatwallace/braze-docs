@@ -18,17 +18,17 @@ description: "이 페이지에서는 억제 목록을 사용하여 메시지를 
 
 ### 억제 목록의 영향을 받는 메시지 유형 및 채널 {#message-types-and-channels-affected-by-suppression-lists}
 
-억제 목록은 [피처 플래그]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags/)를 제외한 모든 메시지 유형과 채널에 적용됩니다. 즉, 억제 목록은 기본적으로 다음을 포함한 모든 채널, Campaign, Canvases에 적용됩니다:
-- [API 캠페인]({{site.baseurl}}/api/api_campaigns/)
+억제 목록은 [피처 플래그]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags)를 제외한 모든 메시지 유형과 채널에 적용됩니다. 즉, 억제 목록은 기본적으로 다음을 포함한 모든 채널, Campaign, Canvases에 적용됩니다:
+- [API 캠페인]({{site.baseurl}}/api/api_campaigns)
 - API 트리거 Campaign 및 Canvases
-- [트랜잭션 이메일]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)
+- [트랜잭션 이메일]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)
 
 억제 목록이 적용되지 않는 유일한 메시지 유형은 피처 플래그입니다. 억제 목록에 있는 사용자는 피처 플래그에서는 억제되지 않지만, 다른 모든 채널에서는 억제됩니다.
 
 예외 태그를 사용하면 억제 목록 사용자가 특정 Campaign 및 Canvases의 타겟이 될 수 있습니다. 자세한 내용은 [억제 목록 설정하기](#setup)의 4단계를 참조하세요. 억제 목록에 예외 태그를 추가하지 않으면 해당 억제 목록의 사용자는 피처 플래그를 제외한 어떤 메시징의 타겟도 되지 않습니다.
 
 {% alert note %}
-억제 목록은 Braze 대시보드에서 `campaign_id`로 생성된 API 캠페인에 적용됩니다. 억제 목록은 연결된 `campaign_id` 없이 [Braze 메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/)를 통해 전송된 메시지에는 적용되지 않습니다.
+억제 목록은 Braze 대시보드에서 `campaign_id`로 생성된 API 캠페인에 적용됩니다. 억제 목록은 연결된 `campaign_id` 없이 [Braze 메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging)를 통해 전송된 메시지에는 적용되지 않습니다.
 {% endalert %}
 
 ![API 트리거 Campaign 및 Canvases에 억제 목록을 적용하지 않는 체크박스가 있는 "예외 설정" 섹션.]({% image_buster /assets/img/suppression_list_checkbox.png %}){: style="max-width:70%;"}
@@ -44,7 +44,7 @@ description: "이 페이지에서는 억제 목록을 사용하여 메시지를 
 3. Segment 필터를 사용하여 억제 목록에 포함할 사용자를 식별합니다. 최소 하나 이상을 선택해야 합니다.
 
 {% alert important %}
-설정 과정이 [Segment 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)과 유사해 보이지만, 억제 목록은 Segment 멤버십과 관계없이 메시지를 보내고 싶지 **않은** 사용자 그룹입니다.
+설정 과정이 [Segment 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)과 유사해 보이지만, 억제 목록은 Segment 멤버십과 관계없이 메시지를 보내고 싶지 **않은** 사용자 그룹입니다.
 {% endalert %}
 
 ![90일 이상 이메일을 열지 않은 사용자에 대한 필터가 있는 억제 목록 빌더.]({% image_buster /assets/img/suppression_list_filters.png %})

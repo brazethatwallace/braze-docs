@@ -13,7 +13,7 @@ page_order: 2
 既存のドラッグ＆ドロップユーザー設定センターは、**オーディエンス** > **メールユーザー設定センター**から管理できます。
 
 - ユーザー設定センターの名前やコンテンツを変更するには、ダッシュボードからユーザー設定センターを開きます。
-- ドラッグ＆ドロップユーザー設定センターはダッシュボードから削除できません。削除するには、まずメールCampaignsまたはキャンバスステップからLiquidタグを削除してから、[Brazeサポート]({{site.baseurl}}/support_contact/)にお問い合わせください。
+- ドラッグ＆ドロップユーザー設定センターはダッシュボードから削除できません。削除するには、まずメールCampaignsまたはキャンバスステップからLiquidタグを削除してから、[Brazeサポート]({{site.baseurl}}/support_contact)にお問い合わせください。
 - 削除されたユーザー設定センターが以前送信されたメッセージで使用されていた場合、配信済みのメールでは機能しなくなります。
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
@@ -47,7 +47,7 @@ page_order: 2
 - **すべての購読を解除**チェックボックスを追加または削除する。これにより、ユーザーはこのブロックに表示されているすべてのサブスクリプショングループから登録解除されます
 
 
-テンプレート下部の**すべての購読を解除**ボタンは削除できず、ユーザーをすべてのメールメッセージの受信から[グローバル配信停止]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-states)にします。
+テンプレート下部の**すべての購読を解除**ボタンは削除できず、ユーザーをすべてのメールメッセージの受信から[グローバル配信停止]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states)にします。
 
 ## ステップ 4: ドラッグ＆ドロップエディターでユーザー設定センターをカスタマイズする {#step-4-customize-the-preference-center-using-the-drag-and-drop-editor}
 
@@ -85,7 +85,7 @@ page_order: 2
 
 ![タイトル、段落、ボタン、画像、スペーサーなどのブロックを選択するオプション。]({% image_buster /assets/img/preference_center/preference_center8.png %}){: style="max-width:45%;"}
 
-各ブロックには、パディングの細かいコントロールなど、独自の設定があります。右側のパネルは、選択したコンテンツ要素のスタイリングパネルに自動的に切り替わります。詳細については、[エディターブロック（ユーザー設定センター）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=preference%20center)を参照してください。
+各ブロックには、パディングの細かいコントロールなど、独自の設定があります。右側のパネルは、選択したコンテンツ要素のスタイリングパネルに自動的に切り替わります。詳細については、[エディターブロック（ユーザー設定センター）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=preference%20center)を参照してください。
 
 ユーザー設定センターでカスタムコードブロックを使用している場合、ユーザーに配信される際にカスタムコード内でインラインフレームが生成されない場合があります。
 
@@ -114,7 +114,7 @@ page_order: 2
 
 ![ユーザー設定センターの行にある「Liquidをコピー」オプション。]({% image_buster /assets/img/preference_center/preference_center10.png %}){: style="max-width:75%;"}
 
-[配信停止URL]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/#adding-a-custom-unsubscribe-link)を挿入する方法と同様に、メール内の目的の場所にLiquidタグを追加します。
+[配信停止URL]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer#adding-a-custom-unsubscribe-link)を挿入する方法と同様に、メール内の目的の場所にLiquidタグを追加します。
 
 ## エラーの処理 {#handling-errors}
 

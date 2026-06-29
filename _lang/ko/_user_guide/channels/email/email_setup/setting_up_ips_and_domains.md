@@ -17,7 +17,7 @@ description: "이 도움말 문서에서는 Braze를 통해 이메일을 보내�
 <br>
 
 {% alert important %}
-이메일 서비스 공급자(ESP) 파트너로 SendGrid, SparkPost 또는 Amazon Simple Email Service(SES)를 사용할 수 있습니다. 2026년부터 Braze는 새로운 이메일 설정에 대해 Amazon SES를 기본 ESP로 사용합니다. 자세한 내용은 [Amazon SES 설정]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses/)을 참조하세요.
+이메일 서비스 공급자(ESP) 파트너로 SendGrid, SparkPost 또는 Amazon Simple Email Service(SES)를 사용할 수 있습니다. 2026년부터 Braze는 새로운 이메일 설정에 대해 Amazon SES를 기본 ESP로 사용합니다. 자세한 내용은 [Amazon SES 설정]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses)을 참조하세요.
 {% endalert %}
 
 ## 방법 1: Braze와 조정(권장) {#method-1-coordinate-with-braze-recommended}
@@ -72,7 +72,7 @@ Braze에서 DNS 레코드를 제공한 후, 귀사의 DNS 또는 IT 팀이 가�
 
 다음으로, 페이지 하단의 TXT 및 CNAME 레코드를 DNS 공급자에 추가합니다. 그런 다음 Braze 대시보드로 돌아가서 **확인**을 클릭합니다.
 
-![]({% image_buster /assets/img_archive/email_setup_rdns_records.png %})
+![발송 도메인을 확인하기 위한 TXT 및 CNAME DNS 레코드가 표시된 이메일 설정 페이지.]({% image_buster /assets/img_archive/email_setup_rdns_records.png %})
 
 검증이 실패하고 DNS 레코드가 올바르다고 판단되는 경우, Braze 고객지원에 도움을 요청하세요.
 
@@ -100,4 +100,4 @@ IP 풀에 전용 IP 주소가 여러 개 포함된 경우, Braze와 이메일 �
 
 ### 다음 단계
 
-발송자 확인이 완료되면, 메시지가 지속적으로 높은 비율로 대상 받은편지함에 도달할 수 있도록 IP 워밍을 권장합니다. 이 설정을 완료한 후, Braze 온보딩 팀과 상담하여 도메인과 [IP 주소]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/)가 정상적으로 작동하는지 확인하세요.
+발송자 확인이 완료되면, 메시지가 지속적으로 높은 비율로 대상 받은편지함에 도달할 수 있도록 IP 워밍을 권장합니다. 이 설정을 완료한 후, Braze 온보딩 팀과 상담하여 도메인과 [IP 주소]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)가 정상적으로 작동하는지 확인하세요.

@@ -11,17 +11,17 @@ channel: email
 
 > この記事では、メールに関するよくある質問への回答を提供します。
 
-### メールが送信されたとき、複数のプロファイルが同じメールアドレスを持っている場合はどうなりますか？ {#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address}
+## メールが送信されたとき、複数のプロファイルが同じメールアドレスを持っている場合はどうなりますか？ {#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address}
 
-一致するメールアドレスを持つ複数のユーザーがCampaignを受信するセグメントに含まれている場合、送信時にそのメールアドレスを持つ単一のユーザープロファイルが選択されます。これにより、メールは1回だけ送信され、重複が排除されるため、同じメールアドレスに複数回届くことはありません。
+一致するメールアドレスを持つ複数のユーザーがCampaignを受信するSegmentに含まれている場合、送信時にそのメールアドレスを持つ単一のユーザープロファイルが選択されます。これにより、メールは1回だけ送信され、重複が排除されるため、同じメールアドレスに複数回届くことはありません。
 
 **ユニークなメールアドレス：** Brazeはプロファイル間でメールアドレスの一意性を強制しません。メールアドレスとプロファイルの1対1の関係に依存している場合は、ユーザー作成時に内部で重複を監視してください。
 
-**Liquid実行前の重複排除：** Brazeが1回のディスパッチ内でメールアドレスによる重複排除を行う送信（例えば、同じアドレスを持つ複数のセグメントメンバーがまとめて処理されるスケジュールされたCampaign）では、重複排除はそのアドレスを代表するために選択されたプロファイルに対してLiquidが実行される前に行われます。そのプロファイルでLiquidが中止された場合（例えば[`abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)を使用した場合）、そのアドレスはそのディスパッチでメッセージを受信しません。これには、重複排除によって既にスキップされたプロファイルも含まれます。トリガー送信では同じディスパッチ内のアドレス重複排除は適用されません。同じアドレスを共有する複数のプロファイルが1つのバッチ内ですべて対象のままとなる可能性があるため、この中止動作は同じようには適用されません（次の段落を参照してください）。
+**Liquid実行前の重複排除：** Brazeが1回のディスパッチ内でメールアドレスによる重複排除を行う送信（例えば、同じアドレスを持つ複数のSegmentメンバーがまとめて処理されるスケジュールされたCampaign）では、重複排除はそのアドレスを代表するために選択されたプロファイルに対してLiquidが実行される前に行われます。そのプロファイルでLiquidが中止された場合（例えば[`abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)を使用した場合）、そのアドレスはそのディスパッチでメッセージを受信しません。これには、重複排除によって既にスキップされたプロファイルも含まれます。トリガー送信では同じディスパッチ内のアドレス重複排除は適用されません。同じアドレスを共有する複数のプロファイルが1つのバッチ内ですべて対象のままとなる可能性があるため、この中止動作は同じようには適用されません（次の段落を参照してください）。
 
 複数のプロファイルが同じメールアドレスを共有しており、1つのプロファイルが配信停止した場合、Brazeはそのアドレスを持つ他のプロファイル（最大100件）を同じサブスクリプション状態に更新します。これは、配信停止やグローバルサブスクリプション状態、個別のサブスクリプショングループのステータスなどの変更に適用されます。
 
-**シードグループ：** [シードグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups)を使用するCampaignでは、複数のプロファイルが同じアドレスを共有している場合、Brazeはプライマリ配信用に1つのプロファイルを選択します。そのプライマリ受信者は、同じアドレスを持つ別のプロファイルがシードグループに含まれていても、シードグループに含まれていない場合があります。
+**シードグループ：** [シードグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups)を使用するCampaignでは、複数のプロファイルが同じアドレスを共有している場合、Brazeはプライマリ配信用に1つのプロファイルを選択します。そのプライマリ受信者は、同じアドレスを持つ別のプロファイルがシードグループに含まれていても、シードグループに含まれていない場合があります。
 
 以下のシナリオでは、ユーザーがメールを2回受信したように見えることがあります。
 
@@ -36,21 +36,21 @@ channel: email
 
 ユーザーはCanvasのエントリ時にメールアドレスで重複排除されないため、レート制限されたエントリにより進行タイミングがわずかに異なる場合、Canvasの最初のステップ以降では重複排除されない可能性があります。特定のメールアドレスに関連付けられたユーザーがメールを開封またはクリックすると、そのメールアドレスを共有するすべてのユーザープロファイルが、Campaignを開封またはクリックしたとしてマークされます。
 
-#### 例外：APIトリガーCampaign {#exception-api-triggered-campaigns}
+### 例外：APIトリガーCampaign {#exception-api-triggered-campaigns}
 
 APIトリガーCampaignは、オーディエンスがどこで定義されているかに応じて、重複排除するか、重複を送信します。複数の配信を受信するには、APIコール内で異なる`user_ids`を使用して重複メールを個別にターゲットする必要があります。APIトリガーCampaignには3つの可能なシナリオがあります。
 
-- **シナリオ1：ターゲットセグメント内の重複メール：** 同じメールが、APIトリガーCampaignのダッシュボードのオーディエンスフィルターでグループ化された複数のユーザープロファイルに表示される場合、プロファイルの1つだけがメールを受信します。
+- **シナリオ1：ターゲットSegment内の重複メール：** 同じメールが、APIトリガーCampaignのダッシュボードのオーディエンスフィルターでグループ化された複数のユーザープロファイルに表示される場合、プロファイルの1つだけがメールを受信します。
 - **シナリオ2：recipientsオブジェクト内の異なる`user_ids`における重複メール：** 同じメールが`recipients`オブジェクトで参照される複数の`external_user_id`値内に表示される場合、メールは2回送信されます。
 - **シナリオ3：recipientsオブジェクト内の重複`user_ids`による重複メール：** 同じユーザープロファイルを2回追加しようとした場合、プロファイルの1つだけがメールを受信します。
 
 {% alert important %}
-APIコールを通じてAPI Campaign（APIトリガーCampaignを除く）を送信し、同じメールアドレスを持つ複数のユーザーがセグメントオーディエンスに指定されている場合、コールにリストされた回数だけそのアドレスに送信されます。これは、APIコールが意図的に構成されていると見なされるためです。
+APIコールを通じてAPI Campaign（APIトリガーCampaignを除く）を送信し、同じメールアドレスを持つ複数のユーザーがSegmentオーディエンスに指定されている場合、コールにリストされた回数だけそのアドレスに送信されます。これは、APIコールが意図的に構成されていると見なされるためです。
 {% endalert %}
 
 #### 重複メールアドレスでのABテスト {#ab-testing-with-duplicate-email-addresses}
 
-複数のプロファイルが同じメールアドレスを共有する可能性がある場合、メールでの[多変量テストおよびABテスト]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/)は避けてください。バリアントはプロファイルごとに割り当てられるため、同じ受信トレイに複数のメッセージが届く可能性があります。そのような状況でテストを行う必要がある場合、**勝者バリアント**ステップと[ローカルタイムゾーン配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/#local-time-zone-campaigns)を組み合わせて勝者の選択を遅延させないでください。これらのオプションを組み合わせると、重複送信の可能性が高まります。
+複数のプロファイルが同じメールアドレスを共有する可能性がある場合、メールでの[多変量テストおよびABテスト]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing)は避けてください。バリアントはプロファイルごとに割り当てられるため、同じ受信トレイに複数のメッセージが届く可能性があります。そのような状況でテストを行う必要がある場合、**勝者バリアント**ステップと[ローカルタイムゾーン配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery#local-time-zone-campaigns)を組み合わせて勝者の選択を遅延させないでください。これらのオプションを組み合わせると、重複送信の可能性が高まります。
 
 #### Canvasと重複メールアドレス {#canvas-and-duplicate-email-addresses}
 
@@ -72,7 +72,7 @@ Canvasジャーニーでは、重複メールアドレスが1回の送信を受�
 
 さらに、メッセージが配信されてもスパムフォルダに入っている可能性があり、これは潜在的に深刻なレピュテーションの問題を示しています。配信されたメッセージの数だけでなく、開封率やクリック率も監視して、ユーザーが実際に受信トレイでメッセージを見ているかどうかを判断することが重要です。プロバイダーは通常すべてのスパムインスタンスを報告しないため、1%のスパム率でも懸念の原因となり、さらなる分析が必要になる可能性があります。
 
-最後に、ビジネスや送信するメールの種類も配信に影響する可能性があります。例えば、主に[トランザクションメール]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign/)を送信している場合は、多くのマーケティングメッセージを送信している場合よりも良い率を期待できるはずです。
+最後に、ビジネスや送信するメールの種類も配信に影響する可能性があります。例えば、主に[トランザクションメール]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign)を送信している場合は、多くのマーケティングメッセージを送信している場合よりも良い率を期待できるはずです。
 
 ### メール配信指標が合計100%にならないのはなぜですか？ {#why-are-my-email-delivery-metrics-not-adding-up-to-100}
 
@@ -86,7 +86,7 @@ Canvasジャーニーでは、重複メールアドレスが1回の送信を受�
 
 ### 開封トラッキングピクセルとは何ですか？ {#what-are-open-tracking-pixels}
 
-[開封トラッキングピクセル]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#changing-location-of-tracking-pixel)は、送信者のメールクリックトラッキングドメインを利用してメールの開封イベントを追跡します。ピクセルはメールのHTMLに追加される画像タグです。通常、bodyタグ内の最後のHTML要素です。ユーザーがメールを読み込むと、ブランドトラッキングドメインから画像を取得するリクエストが行われ、開封イベントが記録されます。
+[開封トラッキングピクセル]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#changing-location-of-tracking-pixel)は、送信者のメールクリックトラッキングドメインを利用してメールの開封イベントを追跡します。ピクセルはメールのHTMLに追加される画像タグです。通常、bodyタグ内の最後のHTML要素です。ユーザーがメールを読み込むと、ブランドトラッキングドメインから画像を取得するリクエストが行われ、開封イベントが記録されます。
 
 ### メールCampaignまたはCanvasが停止された場合はどうなりますか？ {#what-happens-when-an-email-campaign-or-canvas-is-stopped}
 
@@ -114,7 +114,7 @@ CampaignまたはCanvasが停止された後、Brazeはそれ以上のリクエ�
 
 過度に長いメッセージや感嘆符の多用など、メールメッセージの特定の要素がメールセキュリティの応答をトリガーする可能性があります。これらの応答はレポートやIPレピュテーションに影響を与え、ユーザーの配信停止につながる可能性があります。
 
-これらの応答への対処方法のベストプラクティスについては、[クリック率の増加への対処]({{site.baseurl}}/user_guide/channels/email/reporting/)を参照してください。
+これらの応答への対処方法のベストプラクティスについては、[クリック率の増加への対処]({{site.baseurl}}/user_guide/channels/email/reporting)を参照してください。
 
 ### Brazeは「配信停止」指標にカウントされる配信停止リンクを追跡できますか？ {#can-braze-track-unsubscribe-links-counted-toward-the-unsubscribe-metric}
 
@@ -122,7 +122,7 @@ Brazeは、メール内で以下のLiquidが使用されている場合に配信
 
 ### 配信停止数と配信停止リンクのクリック数が異なるのはなぜですか？ {#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link}
 
-*配信停止数*がメール本文の配信停止リンクをクリックしたユーザー数より多い場合、[**List-unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe)がその差を説明していることが多いです。List-unsubscribeは、メールヘッダー内の追加の配信停止パス（メッセージ本文のリンクではありません）です。ユーザーがこの方法で配信停止した場合、*配信停止数*にはカウントされますが、本文内のトラッキングされた配信停止URLのクリックとしてはカウントされません。
+*配信停止数*がメール本文の配信停止リンクをクリックしたユーザー数より多い場合、[**List-unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe)がその差を説明していることが多いです。List-unsubscribeは、メールヘッダー内の追加の配信停止パス（メッセージ本文のリンクではありません）です。ユーザーがこの方法で配信停止した場合、*配信停止数*にはカウントされますが、本文内のトラッキングされた配信停止URLのクリックとしてはカウントされません。
 
 本文の配信停止リンクの合計クリック数が*配信停止数*より多い場合、ユーザーがリンクを複数回クリックした可能性があります。例えば、配信停止してから再度サブスクライブし、その後再び配信停止した場合、メール分析ではクリック内訳に複数回のクリックが記録されることがあります。
 
@@ -149,20 +149,20 @@ Brazeは、メール内で以下のLiquidが使用されている場合に配信
 これを軽減するには：
 
 - **受信者に送信ドメインの許可リストへの追加を推奨する：** 影響を受ける受信者のITチームと協力して、送信ドメインとBrazeのトラッキングドメインをメールセキュリティの許可リストに追加してもらいます。
-- **ユーザー設定センターを使用する：** 直接の配信停止リンクの代わりに、配信停止アクションを確認するためにユーザーの操作を必要とする[ユーザー設定センター]({{site.baseurl}}/user_guide/channels/email/subscriptions/)を使用します。セキュリティスキャナーは通常、複数ステップのフォームを完了しません。
+- **ユーザー設定センターを使用する：** 直接の配信停止リンクの代わりに、配信停止アクションを確認するためにユーザーの操作を必要とする[ユーザー設定センター]({{site.baseurl}}/user_guide/channels/email/subscriptions)を使用します。セキュリティスキャナーは通常、複数ステップのフォームを完了しません。
 - **配信停止ログを確認する：** Currentsの配信停止イベントデータの`User-Agent`ヘッダーとIPアドレスを確認して、自動スキャンと一致するパターン（複数の配信停止にわたる一貫した`User-Agent`ヘッダーなど）を特定します。
 
-サーバーサイドスキャンがメール指標に与える影響の詳細については、[クリック率の増加への対処]({{site.baseurl}}/user_guide/channels/email/reporting/#handling-increases-in-click-rates)を参照してください。
+サーバーサイドスキャンがメール指標に与える影響の詳細については、[クリック率の増加への対処]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates)を参照してください。
 
 ### マシン開封率が予期せず変化したのはなぜですか？ {#why-has-my-machine-open-rate-changed-unexpectedly}
 
-[マシン開封]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#machine-opens)は、Apple Mail Privacy Protection（MPP）などのメールセキュリティ機能によってトリガーされ、ユーザーが実際にメールを開封することなくメールコンテンツ（トラッキングピクセルを含む）をプリロードします。マシン開封率は以下に基づいて変動する可能性があります。
+[マシン開封]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens)は、Apple Mail Privacy Protection（MPP）などのメールセキュリティ機能によってトリガーされ、ユーザーが実際にメールを開封することなくメールコンテンツ（トラッキングピクセルを含む）をプリロードします。マシン開封率は以下に基づいて変動する可能性があります。
 
 - Apple Mailやその他のプライバシー対応メールクライアントを使用しているオーディエンスの割合の変化。
 - メールプロバイダーのプライバシー機能やボット検出動作の更新。
 - オーディエンスのセグメンテーションやターゲティングの変更。
 
-マシン開封率は、実際のエンゲージメントの信頼できる指標ではありません。メールパフォーマンスのより正確なビューを得るには、*その他の開封*（非マシン開封）と*ユニーククリック数*に注目してください。また、[メールパフォーマンスダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/)を使用して、これらの指標を時系列で比較することもできます。
+マシン開封率は、実際のエンゲージメントの信頼できる指標ではありません。メールパフォーマンスのより正確なビューを得るには、*その他の開封*（非マシン開封）と*ユニーククリック数*に注目してください。また、[メールパフォーマンスダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance)を使用して、これらの指標を時系列で比較することもできます。
 
 ### Gmailでディープリンクが機能しないのはなぜですか？ {#why-are-my-deep-links-not-working-in-gmail}
 
@@ -170,7 +170,7 @@ Gmailはメールメッセージからすべての非HTTP/HTTPSリンクを除�
 
 これを回避するには：
 
-- **Universal Links（iOS）またはApp Links（Android）を使用する。** これらは標準の`https://`URLを使用し、アプリがインストールされている場合はアプリを開き、そうでない場合はWebページにフォールバックします。設定手順については、[Universal LinksとApp Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/)を参照してください。
+- **Universal Links（iOS）またはApp Links（Android）を使用する。** これらは標準の`https://`URLを使用し、アプリがインストールされている場合はアプリを開き、そうでない場合はWebページにフォールバックします。設定手順については、[Universal LinksとApp Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links)を参照してください。
 - **ディープリンクプロバイダーを使用する。** [Branch](https://www.branch.io/)などのサービスは、Gmailを含むメールクライアントと互換性のあるHTTP形式のディープリンクを生成します。
 - **リダイレクトエンドポイントを設定する。** サーバー上にアプリのカスタムスキームURLにリダイレクトする`https://`エンドポイントをホストします。メールクライアントは`https://`リンクを保持し、リダイレクトがアプリの起動を処理します。
 
@@ -197,11 +197,11 @@ Brazeが設定どおりに動作していても、配信が誤っているよう
 
 - 1つの受信トレイを共有する**重複プロファイル**（[メールが送信されたとき、複数のプロファイルが同じメールアドレスを持っている場合はどうなりますか？](#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)を参照）。
 - オーディエンスに含まれている、またはCC/BCCとして送信に含まれている**シードリスト、テスト受信者、または内部アドレス**。
-- **セグメントまたはキャンバスのタイミング：** Brazeが適格性を評価した時点でユーザーがオーディエンスまたはキャンバスステップに一致し、その後メッセージを読む前に属性やサブスクリプション状態が変更された。
+- **SegmentまたはCanvasのタイミング：** Brazeが適格性を評価した時点でユーザーがオーディエンスまたはキャンバスステップに一致し、その後メッセージを読む前に属性やサブスクリプション状態が変更された。
 - **サブスクリプショングループ：** グローバルサブスクリプション状態が別の状態を示唆していても、メッセージがターゲットにしたグループにユーザーがオプトインしたままだった。
 - **APIまたはファイルインポート：** セグメンテーション後、変更が適用されると予想する前にユーザーを更新した。
 
-[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)、CampaignまたはCanvasの変更ログ、およびセグメントの定義を確認してください。それでも送信を照合できない場合は、ユーザー識別子、`dispatch_id`（利用可能な場合）、およびタイムスタンプを添えてBrazeサポートにお問い合わせください。
+[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)、CampaignまたはCanvasの変更ログ、およびSegmentの定義を確認してください。それでも送信を照合できない場合は、ユーザー識別子、`dispatch_id`（利用可能な場合）、およびタイムスタンプを添えてBrazeサポートにお問い合わせください。
 
 ### ユーザーがメールメッセージを受信していないのはなぜですか？ {#why-hasnt-a-user-received-my-email-message}
 
@@ -222,10 +222,10 @@ Brazeの配信イベントは、メールがメールボックスプロバイダ
 
 | 考えられる原因 | 確認事項 |
 |---|---|
-| ユーザーがCampaignまたはCanvasの対象ではなかった | **Target Audiences**（Campaignの場合）または**Target Audience**（Canvasの場合）の[設定]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)を確認して、送信時にユーザーがすべてのオーディエンスフィルター、セグメントの条件、および配信ルールを満たしていたことを確認します。 |
-| メッセージが中止された | [メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)でLiquidエラーや必須フィールドの欠落などの中止理由を確認します。 |
+| ユーザーがCampaignまたはCanvasの対象ではなかった | **Target Audiences**（Campaignの場合）または**Target Audience**（Canvasの場合）の[設定]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)を確認して、送信時にユーザーがすべてのオーディエンスフィルター、Segmentの条件、および配信ルールを満たしていたことを確認します。 |
+| メッセージが中止された | [メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)でLiquidエラーや必須フィールドの欠落などの中止理由を確認します。 |
 | ユーザーのメールアドレスが無効または欠落していた | **ユーザー検索**でユーザーのプロファイルを確認し、送信時に有効なメールアドレスが登録されていたことを確認します。 |
-| ユーザーのメールアドレスが以前にハードバウンスした | ハードバウンスはメールアドレスを無効としてマークし、そのアドレスへの今後の送信を防止します。同様に、受信者がメールをスパムとしてマークした場合、Brazeはそのユーザーにトランザクションメールのみを送信し、標準のCampaignは送信しません。ユーザーのプロファイルの**エンゲージメント**タブを確認してください。詳細については、[配信停止されたメールアドレス]({{site.baseurl}}/user_guide/channels/email/subscriptions/#unsubscribed-email-addresses)および[バウンスと無効なメール]({{site.baseurl}}/user_guide/channels/email/subscriptions/#bounces-and-invalid-emails)を参照してください。 |
+| ユーザーのメールアドレスが以前にハードバウンスした | ハードバウンスはメールアドレスを無効としてマークし、そのアドレスへの今後の送信を防止します。同様に、受信者がメールをスパムとしてマークした場合、Brazeはそのユーザーにトランザクションメールのみを送信し、標準のCampaignは送信しません。ユーザーのプロファイルの**エンゲージメント**タブを確認してください。詳細については、[配信停止されたメールアドレス]({{site.baseurl}}/user_guide/channels/email/subscriptions#unsubscribed-email-addresses)および[バウンスと無効なメール]({{site.baseurl}}/user_guide/channels/email/subscriptions#bounces-and-invalid-emails)を参照してください。 |
 | ユーザーがメールの配信停止をしている | **エンゲージメント**タブの**連絡先設定**でユーザーのサブスクリプションステータスを確認します。Brazeは配信停止しているユーザーにメールを送信しません。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="メールが送信されなかった原因" }
 
@@ -233,8 +233,8 @@ Brazeの配信イベントは、メールがメールボックスプロバイダ
 
 | 考えられる原因 | 確認事項 |
 |---|---|
-| メールボックスプロバイダー（MBP）に到達できなかった | 一時的な問題により、メールが受信者のMBPに到達できませんでした。これは通常、リトライにより自動的に解決されます。メールサービスプロバイダーはソフトバウンスを最大72時間リトライします。 |
-| MBPがメールをバウンスした | 受信者のメールサーバーがメールを拒否しました。[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)でバウンスの詳細を確認してください。 |
+| メールボックスプロバイダー（MBP）に到達できなかった | 一時的な問題により、メールが受信者のMBPに到達できませんでした。これは通常、リトライにより自動的に解決されます。メールサービスプロバイダー（ESP）はソフトバウンスを最大72時間リトライします。 |
+| MBPがメールをバウンスした | 受信者のメールサーバーがメールを拒否しました。[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)でバウンスの詳細を確認してください。 |
 | MBPがメールをサイレントにドロップした | MBPはメールを受け入れましたが、ユーザーに表示せず、バウンスも返しませんでした。これはBrazeの制御外であり、Brazeのログでは検出できません。 |
 | メールがスパムフォルダに入った | MBPがメッセージをスパムと判定し、ユーザーのスパムまたは迷惑メールフォルダにルーティングしました。ユーザーにスパムフォルダを確認するよう依頼してください。 |
 | 受信者がカスタムメールフィルタリングを設定している | ユーザーまたはIT管理者が、受信メッセージをフィルタリング、リダイレクト、または削除するメールボックスルールを設定している可能性があります。 |
@@ -260,15 +260,15 @@ SVG画像はGmail WebやGmail iOSではレンダリングされません。WEBP�
 
 ### メールテンプレートが見つかりません。どこにありますか？ {#my-email-template-is-missing-where-is-it}
 
-まず、テンプレートを表示するための[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)があることを確認してください。保存済みのメールテンプレートを表示するには、**コンテンツ** > **メール**に移動します。ステータスやタイプ（HTMLまたはドラッグ＆ドロップ）でテンプレートをフィルタリングできます。
+まず、テンプレートを表示するための[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)があることを確認してください。保存済みのメールテンプレートを表示するには、**コンテンツ** > **メール**に移動します。ステータスやタイプ（HTMLまたはドラッグ＆ドロップ）でテンプレートをフィルタリングできます。
 
 ### リレーメールやマスクメールのためにドメインを登録する必要がありますか？ {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 
-[Appleのプライベートメールリレー]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO/)では、バウンスを防ぐためにApple Developer Portalで送信ドメインを登録する必要があります。Googleのシールドメールでは、手動でのドメイン登録や許可リスト登録プロセスは必要ありません。
+[Appleのプライベートメールリレー]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO)では、バウンスを防ぐためにApple Developer Portalで送信ドメインを登録する必要があります。Googleのシールドメールでは、手動でのドメイン登録や許可リスト登録プロセスは必要ありません。
 
 ### バウンス理由の`unable to get mx info`や`failed to get IPs from PTR record`はどういう意味ですか？ {#what-does-the-bounce-reason-unable-to-get-mx-info-or-failed-to-get-ips-from-ptr-record-mean}
 
-[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)で、以下のようなバウンス理由が表示された場合、これはBrazeのメッセージ構成ではなく、受信ドメインのメール設定（アドレスの`@`以降のドメイン）の解決に問題があることを示しています。
+[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)で、以下のようなバウンス理由が表示された場合、これはBrazeのメッセージ構成ではなく、受信ドメインのメール設定（アドレスの`@`以降のドメイン）の解決に問題があることを示しています。
 
 一般的な原因には以下が含まれます。
 
@@ -282,4 +282,4 @@ SVG画像はGmail WebやGmail iOSではレンダリングされません。WEBP�
 - アドレスが正しい場合は、そのドメインのメールボックス所有者またはITチームに連絡します。
 - DNSプロバイダーに対して、メールサーバーのPTRレコードを含むMXおよび関連DNSレコードの監査を依頼するよう伝えます。
 
-他の受信者は通常影響を受けません。ソフトバウンスがレポートにどのように表示されるかについては、[ソフトバウンス]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#soft-bounce)を参照してください。
+他の受信者は通常影響を受けません。ソフトバウンスがレポートにどのように表示されるかについては、[ソフトバウンス]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce)を参照してください。

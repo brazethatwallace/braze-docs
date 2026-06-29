@@ -1,14 +1,14 @@
 ---
 nav_title: Bibliothèque de prompts
 article_title: Bibliothèque de prompts pour BrazeAI Operator
-page_order: 5
+page_order: 4
 page_type: reference
 description: "Parcourez des exemples de prompts pour BrazeAI Operator, organisés par objectif."
 ---
 
 # Bibliothèque de prompts pour BrazeAI Operator {#prompt-library-for-brazeai-operator}
 
-> Parcourez une collection d'exemples de prompts pour Operator, compilée par les experts de Braze. Sélectionnez un objectif pour trouver les prompts pertinents. Pour en savoir plus, consultez [Exploiter le contexte lié à la page]({{site.baseurl}}/user_guide/brazeai/operator/#leverage-page-aware-context).
+> Parcourez une collection d'exemples de prompts pour Operator, compilée par les experts de Braze. Sélectionnez un objectif pour trouver les prompts pertinents. Pour en savoir plus, consultez [Exploiter le contexte lié à la page]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context).
 
 
 <div class="prompt-library-tabs">

@@ -9,7 +9,7 @@ description: "BrazeAI Decisioning Studio Goエージェントの設計方法に�
 
 > この記事では、Decisioning Studio Goエージェントの設計方法について説明します。オーディエンスの定義、ディメンションの選択、Go固有の機能と制限事項の理解を含みます。
 
-意思決定エージェントに関する基礎概念（成功指標、ディメンション、アクションバンク、制約など）については、[意思決定エージェントの設計]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents/)を参照してください。
+意思決定エージェントに関する基礎概念（成功指標、ディメンション、アクションバンク、制約など）については、[意思決定エージェントの設計]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents)を参照してください。
 
 ## GoとProの機能比較 {#go-versus-pro-capabilities}
 
@@ -23,7 +23,7 @@ Decisioning Studio Goは、Decisioning Studio Proと比較して機能が簡素�
 | **顧客データ** | エンゲージメントのみ | すべての1Pデータ |
 | **設定** | セルフサービス | AI意思決定サービスサポート |
 | **実験グループ** | Go + ランダムコントロール + オプションのBAU | 完全にカスタマイズ可能 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Go versus Pro capabilities" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="GoとProの機能比較" }
 
 ## Goエージェントの設計 {#design-your-go-agent}
 
@@ -38,11 +38,11 @@ Decisioning Studio Goエージェントを設計する際には、以下の領�
 
 **Brazeでオーディエンスを定義する：**
 
-1. Brazeで、エージェントがターゲットとする顧客を定義するセグメントを作成します。
-2. Decisioning Studio Goポータルで実験設定を行う際、このセグメントをターゲットオーディエンスとして選択します。
+1. Brazeで、エージェントがターゲットとする顧客を定義するSegmentを作成します。
+2. Decisioning Studio Goポータルで実験設定を行う際、このSegmentをターゲットオーディエンスとして選択します。
 
 {% alert tip %}
-Decisioning Studio Goの実験用に専用のセグメントを作成することを検討してください。テストを分離し、測定可能な状態に保つことができます。
+Decisioning Studio Goの実験用に専用のSegmentを作成することを検討してください。テストを分離し、測定可能な状態に保つことができます。
 {% endalert %}
 
 {% endtab %}
@@ -62,7 +62,7 @@ Decisioning Studio Goの実験用に専用のセグメントを作成するこ�
 ディメンションとは、エージェントがカスタマーエクスペリエンスをパーソナライズするために操作できる「レバー」です。件名やヒーロー画像といったクリエイティブディメンションや、メールの頻度や送信時間帯といった送信タイプのディメンションが含まれます。
 
 {% alert note %}
-利用可能な具体的なディメンションは、CEPとキャンペーンの設定方法によって異なります。CEPで設定したテンプレートとコンテンツを使って作業してください。
+利用可能な具体的なディメンションは、CEPとCampaignの設定方法によって異なります。CEPで設定したテンプレートとコンテンツを使って作業してください。
 {% endalert %}
 
 ### ステップ 3: アクションバンクを設定する {#step-3-configure-your-action-bank}
@@ -81,8 +81,8 @@ Decisioning Studio Goは自動的に実験グループを作成し、パフォ�
 |-------|-------------|
 | **Decisioning Studio Go** | AIによって最適化されたおすすめを受け取る顧客 |
 | **ランダムコントロール** | ランダムに選択されたオプションを受け取る顧客（ベースライン比較） |
-| **通常運用（オプション）** | 既存のキャンペーンを受け取る顧客（現在のパフォーマンスと比較する場合） |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Set up experiment groups" }
+| **通常運用（オプション）** | 既存のCampaignを受け取る顧客（現在のパフォーマンスと比較する場合） |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 4: 実験グループを設定する" }
 
 {% alert important %}
 正確な比較のためには、顧客が複数の実験グループに属さないようにし、顧客が偏りなくランダムにグループに割り当てられるようにしてください。
@@ -107,4 +107,4 @@ Goエージェントを設計する際には、以下の制限事項を念頭に
 
 エージェントを設計し、Decisioning Studio Goポータルで設定したら、起動の準備が整います。
 
-- [エージェントを起動する]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent/)
+- [エージェントを起動する]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent)

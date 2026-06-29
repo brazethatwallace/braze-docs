@@ -22,9 +22,9 @@ Si vous constatez soudainement de faibles taux d'ouverture des e-mails, vérifie
 
 ## HTTP 403 sur les liens de redirection {#http-403-on-redirect-links}
 
-Si les liens de redirection suivis renvoient **403 Forbidden**, l'échec se produit souvent au niveau de votre réseau de diffusion de contenu (CDN) ou de votre pare-feu d'application web (WAF) — par exemple, des règles sur AWS WAF ou Amazon CloudFront qui bloquent certains agents utilisateurs, chaînes de requête ou schémas de redirection. Examinez les journaux et les indicateurs des requêtes bloquées avec votre fournisseur de réseau de diffusion de contenu ou de cloud. Pour AWS, consultez [Troubleshooting issues with CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html).
+Si les liens de redirection suivis renvoient **403 Forbidden**, l'échec se produit souvent au niveau de votre réseau de diffusion de contenu (CDN) ou de votre pare-feu d'application web (WAF) — par exemple, des règles sur AWS WAF ou Amazon CloudFront qui bloquent certains agents utilisateurs, chaînes de requête ou schémas de redirection. Examinez les journaux et les indicateurs des requêtes bloquées avec votre fournisseur de réseau de diffusion de contenu ou de cloud. Pour AWS, consultez [Résolution des problèmes avec CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html).
 
-Pour déterminer si le problème est spécifique au suivi des clics, désactivez le suivi des clics pour un lien de test (voir [Désactiver le suivi des clics lien par lien]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis)). Si l'URL de destination se charge lorsque le suivi des clics est désactivé mais renvoie 403 lorsqu'il est activé, concentrez-vous sur la configuration de votre domaine de suivi des clics, de votre réseau de diffusion de contenu et de votre WAF.
+Pour déterminer si le problème est spécifique au suivi des clics, désactivez le suivi des clics pour un lien de test (voir [Désactiver le suivi des clics lien par lien]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)). Si l'URL de destination se charge lorsque le suivi des clics est désactivé mais renvoie 403 lorsqu'il est activé, concentrez-vous sur la configuration de votre domaine de suivi des clics, de votre réseau de diffusion de contenu et de votre WAF.
 
 ## Problèmes de registre de domaine {#domain-registry-issues}
 
@@ -56,7 +56,7 @@ Les problèmes courants de redirection résultent généralement d'une mauvaise 
 
 Utilisez le modèle suivant pour tester la configuration du réseau de diffusion de contenu de votre domaine de suivi, qui est le mécanisme prenant en charge l'analyse des liens dans vos e-mails.
 
-1. Copiez et collez le modèle suivant dans une campagne d'e-mail HTML Braze.
+1. Copiez et collez le modèle suivant dans une Campaign d'e-mail HTML Braze.
 
 {% details Modèle de résolution des problèmes de suivi des clics %}
 {% raw %}
@@ -256,7 +256,7 @@ Utilisez le modèle suivant pour tester la configuration du réseau de diffusion
 3. Envoyez-vous un e-mail de test et sélectionnez les deux boutons.
 4. Vérifiez que le comportement attendu et les critères de réussite correspondent à ce qui est décrit dans le modèle.
 
-Si votre URL non suivie fonctionne mais que votre URL suivie échoue, il se peut qu'il y ait un problème de configuration. Pour résoudre le problème, consultez la documentation de votre ESP et de votre fournisseur de réseau de diffusion de contenu. Vous pouvez également consulter [SSL chez Braze]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/) pour connaître les exigences détaillées en matière de provisionnement de certificats.
+Si votre URL non suivie fonctionne mais que votre URL suivie échoue, il se peut qu'il y ait un problème de configuration. Pour résoudre le problème, consultez la documentation de votre ESP et de votre fournisseur de réseau de diffusion de contenu. Vous pouvez également consulter [SSL chez Braze]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl) pour connaître les exigences détaillées en matière de provisionnement de certificats.
 
 Utilisez le tableau suivant pour diagnostiquer les erreurs courantes lors du test du suivi des clics.
 

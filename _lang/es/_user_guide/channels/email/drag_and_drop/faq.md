@@ -15,7 +15,7 @@ tool:
 
 > Esta página ofrece respuestas a algunas preguntas frecuentes relacionadas con el editor de arrastrar y soltar para correo electrónico.
 
-### ¿Puedo previsualizar cómo se ve mi correo electrónico en modo oscuro? {#can-i-preview-how-my-email-appears-in-dark-mode}
+## ¿Puedo previsualizar cómo se ve mi correo electrónico en modo oscuro? {#can-i-preview-how-my-email-appears-in-dark-mode}
 
 Sí. Ve a la sección **Preview and Test** del editor de arrastrar y soltar y activa **Dark mode**. También recomendamos previsualizar y probar tus correos electrónicos en diferentes plataformas de usuario y usar imágenes transparentes para las imágenes de fondo de las filas cuando sea posible.
 
@@ -46,16 +46,16 @@ El editor de arrastrar y soltar actualmente admite dos capas. Puedes establecer 
 
 ### ¿Puedo guardar mi correo electrónico de arrastrar y soltar como plantilla después de crearlo dentro de mi campaña o Canvas? {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-No. No puedes guardar un correo electrónico de arrastrar y soltar desde una campaña o Canvas como una **plantilla de correo electrónico** de arrastrar y soltar en **Templates** > **Email Templates**. Recrea el diseño en **Templates** > **Email Templates**, o la próxima vez comienza desde una plantilla guardada. Para obtener instrucciones, consulta [Crear una plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/).
+No. No puedes guardar un correo electrónico de arrastrar y soltar desde una campaña o Canvas como una **plantilla de correo electrónico** de arrastrar y soltar en **Templates** > **Email Templates**. Recrea el diseño en **Templates** > **Email Templates**, o la próxima vez comienza desde una plantilla guardada. Para obtener instrucciones, consulta [Crear una plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template).
 
-Si necesitas una plantilla HTML reutilizable, selecciona **Download file** mientras editas el cuerpo de arrastrar y soltar, abre el HTML del archivo ZIP y pega el código en una [plantilla de correo electrónico HTML]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/) usando el editor de código HTML. Vuelve a verificar el Liquid, los enlaces y los activos alojados después.
+Si necesitas una plantilla HTML reutilizable, selecciona **Download file** mientras editas el cuerpo de arrastrar y soltar, abre el HTML del archivo ZIP y pega el código en una [plantilla de correo electrónico HTML]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template) usando el editor de código HTML. Vuelve a verificar el Liquid, los enlaces y los activos alojados después.
 
-Para más información sobre dónde se encuentran las plantillas, consulta [Plantillas y medios]({{site.baseurl}}/user_guide/messaging/templates/).
+Para más información sobre dónde se encuentran las plantillas, consulta [Plantillas y medios]({{site.baseurl}}/user_guide/messaging/templates).
 
 ### ¿Por qué no puedo cambiar el color de relleno de un botón en el editor de arrastrar y soltar? {#why-cant-i-change-a-buttons-fill-color-in-the-drag-and-drop-editor}
 
 Los estilos a nivel de página pueden anular los estilos a nivel de mensaje. Si actualizar **Fill** en un botón o bloque no tiene efecto, intenta lo siguiente:
-1. Abre la [configuración global de estilos de correo electrónico]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) y selecciona **Reset to default** en el estilo de página en conflicto para que el color a nivel de mensaje pueda aplicarse.
+1. Abre la [configuración global de estilos de correo electrónico]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings) y selecciona **Reset to default** en el estilo de página en conflicto para que el color a nivel de mensaje pueda aplicarse.
 2. Establece el color de nuevo en el bloque.
 
 ### ¿Puedo agregar archivos adjuntos de correo electrónico en el editor de arrastrar y soltar? {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
@@ -68,7 +68,7 @@ Sí. Puedes agregar archivos adjuntos a tu mensaje de correo electrónico yendo 
 2. Selecciona **Edit email body** para abrir el editor de arrastrar y soltar.
 3. Selecciona **Download file** (en la parte inferior del editor). Extrae el archivo para acceder al HTML generado.
 
-Puedes pegar ese HTML en un [bloque HTML]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#content) o en el editor HTML cuando necesites ediciones de bajo nivel, por ejemplo, para [desactivar el seguimiento de clics en enlaces específicos]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis).
+Puedes pegar ese HTML en un [bloque HTML]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#content) o en el editor HTML cuando necesites ediciones de bajo nivel, por ejemplo, para [desactivar el seguimiento de clics en enlaces específicos]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis).
 
 ### ¿Por qué se rompe mi diseño de arrastrar y soltar? {#why-is-my-drag-and-drop-layout-breaking}
 

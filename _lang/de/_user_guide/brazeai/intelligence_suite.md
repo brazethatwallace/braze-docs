@@ -18,8 +18,8 @@ Die Intelligence Suite bietet leistungsstarke Features zur Analyse des Verlaufs 
 
 ### E-Commerce {#ecommerce}
 
-- **Flash-Sales:** Verwenden Sie den [Intelligenten Kanalfilter]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/), um den Verlauf von Nutzer:innen zu untersuchen und diejenigen zu identifizieren, die eher auf Push-Benachrichtigungen als auf E-Mails reagieren, und senden Sie dann Push-Benachrichtigungen und E-Mails an die entsprechenden Nutzer:innen. Optional können Sie einen bestimmten Kanal für Nutzer:innen auswählen, die nicht über genügend Daten verfügen, um ihren bevorzugten Kanal zu bestimmen.
-- **Werbebanner:** Verwenden Sie die [Intelligente Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/), um die Performance verschiedener Werbebanner in einer wiederkehrenden Campaign zu analysieren und dann automatisch das Banner auszuwählen und zu versenden, das die höchsten Click-through-Raten erzielt.
+- **Flash-Sales:** Verwenden Sie den [Intelligenten Kanalfilter]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel), um den Verlauf von Nutzer:innen zu untersuchen und diejenigen zu identifizieren, die eher auf Push-Benachrichtigungen als auf E-Mails reagieren, und senden Sie dann Push-Benachrichtigungen und E-Mails an die entsprechenden Nutzer:innen. Optional können Sie einen bestimmten Kanal für Nutzer:innen auswählen, die nicht über genügend Daten verfügen, um ihren bevorzugten Kanal zu bestimmen.
+- **Werbebanner:** Verwenden Sie die [Intelligente Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), um die Performance verschiedener Werbebanner in einer wiederkehrenden Campaign zu analysieren und dann automatisch das Banner auszuwählen und zu versenden, das die höchsten Click-through-Raten erzielt.
 
 ### Reisen {#travel}
 
@@ -28,5 +28,5 @@ Die Intelligence Suite bietet leistungsstarke Features zur Analyse des Verlaufs 
 
 ### Unterhaltung {#entertainment}
 
-- **Neue Inhalte bewerben:** Nutzen Sie [Intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/), um Benachrichtigungen über neue Filme, Sendungen, Musik und andere Arten von Inhalten dann zu versenden, wenn Nutzer:innen Ihre Nachrichten am ehesten öffnen.
+- **Neue Inhalte bewerben:** Nutzen Sie [Intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing), um Benachrichtigungen über neue Filme, Sendungen, Musik und andere Arten von Inhalten dann zu versenden, wenn Nutzer:innen Ihre Nachrichten am ehesten öffnen.
 - **In-Game-Käufe:** Verwenden Sie die Intelligente Auswahl, um verschiedene Werbenachrichten für In-Game-Käufe zu testen und automatisch diejenige auszuwählen, die die höchsten Conversion-Raten erzielt.

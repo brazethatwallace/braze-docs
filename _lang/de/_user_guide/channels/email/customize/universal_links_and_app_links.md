@@ -12,7 +12,7 @@ channel: email
 > Dieser Artikel beschreibt, wie Sie Apple Universal Links und Android App Links einrichten.
 
 {% alert tip %}
-Einen Vergleich der Link-Typen über alle Messaging-Kanäle hinweg und eine Anleitung, wann Sie eine AASA-Datei benötigen, finden Sie im [iOS-Deeplinking-Leitfaden]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/).
+Einen Vergleich der Link-Typen über alle Messaging-Kanäle hinweg und eine Anleitung, wann Sie eine AASA-Datei benötigen, finden Sie im [iOS-Deeplinking-Leitfaden]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide).
 {% endalert %}
 
 Apple Universal Links und Android App Links sind Mechanismen, die einen nahtlosen Übergang zwischen Web-Inhalten und mobilen Apps ermöglichen. Während Universal Links spezifisch für iOS sind, erfüllen Android App Links denselben Zweck für Android-Anwendungen.
@@ -439,7 +439,7 @@ Es ist wichtig sicherzustellen, dass diese Dateien immer öffentlich zugänglich
 
 Stellen Sie sicher, dass Sie die korrekten Definitionen für Domains haben, die Ihre App öffnen darf.
 
-- **iOS:** Überprüfen Sie die in Xcode für Ihre App eingerichteten Associated Domains ([Schritt 1c: Associated Domains in Ihrem Xcode-Projekt aktivieren]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Prüfen Sie, ob die Klick-Tracking-Domain in dieser Liste enthalten ist.
+- **iOS:** Überprüfen Sie die in Xcode für Ihre App eingerichteten Associated Domains ([Schritt 1c: Associated Domains in Ihrem Xcode-Projekt aktivieren]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links?tab=ios#step-1c)). Prüfen Sie, ob die Klick-Tracking-Domain in dieser Liste enthalten ist.
 - **Android:** Öffnen Sie die App-Infoseite (langes Drücken auf das App-Symbol und Klick auf ⓘ). Suchen Sie im App-Info-Menü nach **Standardmäßig öffnen** und tippen Sie darauf. Es sollte ein Bildschirm mit allen verifizierten Links angezeigt werden, die die App öffnen darf. Prüfen Sie, ob die Klick-Tracking-Domain in dieser Liste enthalten ist.
 
 #### Tracking-Domain kann keine .well-known-Dateien bereitstellen {#tracking-domain-cant-serve-well-known-files}

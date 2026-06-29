@@ -16,4 +16,4 @@ description: "Este artículo de referencia explica cómo generar imágenes para 
 
 {% multi_lang_include brazeai/generative_ai/access_images.md %}
 
-Para más información, incluyendo consejos para prompts, ejemplos de prompts y límites de uso, consulta [Generar imágenes en las capacidades de Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-images).
+Para más información, incluyendo consejos para prompts, ejemplos de prompts y límites de uso, consulta [Generar imágenes en las capacidades de Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images).

@@ -16,4 +16,4 @@ description: "Dieser Referenzartikel beschreibt, wie Sie mit dem Operator Market
 
 {% multi_lang_include brazeai/generative_ai/access_copy.md %}
 
-Weitere Informationen, einschließlich verfügbarer Töne, Beispiel-Prompts und Integration von Markenrichtlinien, finden Sie unter [Texte generieren in den Operator-Funktionen]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy).
+Weitere Informationen, einschließlich verfügbarer Töne, Beispiel-Prompts und Integration von Markenrichtlinien, finden Sie unter [Texte generieren in den Operator-Funktionen]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy).

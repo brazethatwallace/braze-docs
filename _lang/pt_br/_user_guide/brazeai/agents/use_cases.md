@@ -70,7 +70,7 @@ You must return an object containing exactly five keys: "email_subject_line", "e
 
 Input & Output Example:
 <input_example>
-{{${first_name}}}: John Doe
+{{${first_name}}}: Alex Smith
 {{${language}}}: en
 {{custom_attribute.${loyalty_status}}}: Gold Tier
 {{context.${city_searched}}}: Tokyo
@@ -78,7 +78,7 @@ Input & Output Example:
 The user IS in the segment: “Logged multiple searches in the past 30D”.
 </input_example>
 <output_example>
-{ "email_subject_line": "John, your Tokyo Gold Tier deals are waiting", "email_preheader": "Find the best hotel brands for your Tokyo getaway.", "push_title": "John, Tokyo is calling!", "push_body": "Your Gold Tier deals are ready. Tap to view exclusive hotel offers.", "explanation": "Personalized on Tokyo and Gold Tier; matched survey value props; English per language code; kept within character limits for email and push." }
+{ "email_subject_line": "Alex, your Tokyo Gold Tier deals are waiting", "email_preheader": "Find the best hotel brands for your Tokyo getaway.", "push_title": "Alex, Tokyo is calling!", "push_body": "Your Gold Tier deals are ready. Tap to view exclusive hotel offers.", "explanation": "Personalized on Tokyo and Gold Tier; matched survey value props; English per language code; kept within character limits for email and push." }
 </output_example>
 ```
 {% endraw %}
@@ -135,7 +135,7 @@ You must return an object containing exactly four fields: sentiment, topic, acti
 
 Input & Output Example:
 <input_example>
-{{${first_name}}}: Sarah
+{{${first_name}}}: Alex
 {{custom_attribute.${loyalty_status}}}: Platinum
 {{context.${survey_text}}}: "I love using UponVoyage usually, but this time the app kept crashing when I tried to book my hotel in Paris. It was really frustrating."
 {{context.${trip_destination}}}: Paris
@@ -240,7 +240,7 @@ Estas instruções pressupõem que as seguintes informações estão disponívei
     - **Campos do catálogo:**
         - **Catálogo:** `<Destination Catalog name>` que contém uma linha por destino (por exemplo, seu catálogo de destinos no app).
         - **Campos:** `<Destination_Name>`, `<Country>`, `<Primary_Vibe>`, `<Price_Tier>`, que são nomes de colunas mapeados para o nome do destino, país, vibe principal e faixa de preço que as instruções utilizam.
-    - **Diretrizes da marca:** [Diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) da StyleRyde
+    - **Diretrizes da marca:** [Diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) da StyleRyde
 
 ### Instruções
 

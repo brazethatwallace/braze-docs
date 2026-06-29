@@ -1,20 +1,20 @@
 ---
 nav_title: Event-Analytics
-article_title: Prognose-Analytics für Events
+article_title: Predictive-Event-Analytics
 description: "Dieser Referenzartikel behandelt die verschiedenen Komponenten der Seite Predictive Events Analytics und zeigt, wie Sie diese nutzen können, um aufschlussreiche, zielgerichtete Entscheidungen zu treffen."
 page_order: 1.3
 
 ---
 
-# Prognostische Event-Analytics {#predictive-event-analytics}
+# Predictive-Event-Analytics {#predictive-event-analytics}
 
-> Nachdem Ihre Vorhersage erstellt und trainiert wurde, haben Sie Zugriff auf die Seite **Vorhersageanalyse**. Diese Seite hilft Ihnen bei der Entscheidung, welche Nutzer:innen Sie auf der Grundlage ihres Wahrscheinlichkeitswertes oder ihrer Kategorie ansprechen sollten.
+> Nachdem Ihre Prognose erstellt und trainiert wurde, haben Sie Zugriff auf die Seite **Prediction Analytics**. Diese Seite hilft Ihnen bei der Entscheidung, welche Nutzer:innen Sie auf der Grundlage ihres Wahrscheinlichkeitswerts oder ihrer Kategorie ansprechen sollten.
 
-## Über prognostische Event-Analytics {#about-predictive-event-analytics}
+## Über Predictive-Event-Analytics {#about-predictive-event-analytics}
 
-Sobald das Training der Vorhersage abgeschlossen und diese Seite gefüllt ist, können Sie mit der Verwendung von [Filtern]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users/#filters) in Segmenten oder Campaigns beginnen, um die Ergebnisse des Modells zu nutzen. Wenn Sie Hilfe bei der Entscheidung brauchen, wen Sie ansprechen und warum, kann Ihnen diese Seite auf der Grundlage der historischen Genauigkeit des Modells und Ihrer eigenen Geschäftsziele helfen.
+Sobald das Training der Prognose abgeschlossen und diese Seite gefüllt ist, können Sie mit der Verwendung von [Filtern]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users#filters) in Segmenten oder Campaigns beginnen, um die Ergebnisse des Modells zu nutzen. Wenn Sie Hilfe bei der Entscheidung benötigen, wen Sie ansprechen und warum, kann Ihnen diese Seite auf der Grundlage der historischen Genauigkeit des Modells und Ihrer eigenen Geschäftsziele helfen.
 
-Dies sind die Komponenten, aus denen die prognostische Event-Analytics besteht:
+Dies sind die Komponenten, aus denen sich die Predictive-Event-Analytics zusammensetzen:
 
 - [Wahrscheinlichkeitswert](#purchase_score)
 - [Prognosequalität](#prediction_quality)
@@ -25,7 +25,7 @@ Die Verteilung der Wahrscheinlichkeitswerte für die gesamte Prognosegruppe wird
 
 Wenn Sie die Griffe des Schiebereglers in verschiedene Positionen bewegen, informiert Sie der Balken in der linken Hälfte des Panels darüber, wie viele Nutzer:innen aus der gesamten Prognosegruppe mit dem von Ihnen ausgewählten Teil der Population angesprochen werden würden.
 
-![]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"}
+![Wenn Sie die Griffe des Schiebereglers in verschiedene Positionen bewegen, informiert Sie der Balken in der linken Hälfte des Panels darüber, wie viele Nutzer:innen aus der gesamten Prognosegruppe mit dem von Ihnen ausgewählten Teil der Population angesprochen werden würden.]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"}
 
 ## Wahrscheinlichkeitswert {#purchase_score}
 
@@ -41,13 +41,13 @@ Die Werte und die entsprechenden Kategorien werden entsprechend dem Zeitplan akt
 
 ### Zugriff auf Wahrscheinlichkeitswerte auf Nutzer:innen-Ebene {#accessing-user-level-likelihood-scores}
 
-Um den Wahrscheinlichkeitswert für eine:n einzelne:n Nutzer:in anzuzeigen, suchen Sie diese:n Nutzer:in im Dashboard und gehen Sie zu **Engagement** > **Predictions**, um den Wert anzuzeigen. Um auf die Werte und Kategorien für mehrere Nutzer:innen gleichzeitig zuzugreifen, erstellen Sie ein [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) mithilfe der Filter [Event Likelihood Score]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#event-likelihood-score) oder [Event Likelihood Category]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#event-likelihood-category) und exportieren Sie anschließend die Nutzer:innen aus diesem Segment. Beim Exportieren können Sie die Wahrscheinlichkeitswerte in die Exportdaten aufnehmen.
+Um den Wahrscheinlichkeitswert für eine:n einzelne:n Nutzer:in anzuzeigen, suchen Sie diese:n Nutzer:in im Dashboard und gehen Sie zu **Engagement** > **Predictions**, um den Wert anzuzeigen. Um auf die Werte und Kategorien für mehrere Nutzer:innen gleichzeitig zuzugreifen, erstellen Sie ein [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) mithilfe der Filter [Event Likelihood Score]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score) oder [Event Likelihood Category]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-category) und exportieren Sie anschließend die Nutzer:innen aus diesem Segment. Beim Exportieren können Sie die Wahrscheinlichkeitswerte in die Exportdaten aufnehmen.
 
 {% alert note %}
-Obwohl sowohl bei Predictive Events als auch bei [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) den Nutzer:innen Werte zugewiesen werden, gibt es wichtige Unterschiede:<br><br>
+Obwohl sowohl bei Predictive Events als auch bei [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) den Nutzer:innen Werte zugewiesen werden, gibt es wichtige Unterschiede:<br><br>
 
 - **Predictive Events** (Kaufprognosen): Berücksichtigen alle Nutzer:innen in der Prognosegruppe, unabhängig davon, ob sie das Ziel-Event zuvor durchgeführt haben. Beispielsweise kann eine Kaufprognose Nutzer:innen identifizieren, die wahrscheinlich ihren ersten Kauf tätigen werden.
-- **Predictive Churn**: Berücksichtigt nur Nutzer:innen, die das angepasste Event bereits durchgeführt haben. Churn-Prognosen identifizieren Nutzer:innen, die zuvor eine bestimmte Handlung durchgeführt haben und diese wahrscheinlich nicht mehr ausführen werden. Eine Nutzer:in, die sich noch nie angemeldet hat, kann nicht als „abgewandert“ betrachtet werden, wenn sie sich nicht anmeldet.
+- **Predictive Churn**: Berücksichtigt nur Nutzer:innen, die das angepasste Event bereits durchgeführt haben. Churn-Prognosen identifizieren Nutzer:innen, die zuvor eine bestimmte Handlung durchgeführt haben und diese wahrscheinlich nicht mehr ausführen werden. Ein:e Nutzer:in, die sich noch nie angemeldet hat, kann nicht als „abgewandert“ betrachtet werden, wenn sie sich nicht anmeldet.
 
 Beim Exportieren von Churn-Risiko-Werten aus einem Segment spiegeln diese Werte das Churn-Prognosemodell wider, das sich von Kauf- oder anderen Event-Prognosemodellen unterscheidet.
 {% endalert %}
@@ -62,7 +62,7 @@ In der rechten Hälfte des Panels unterhalb des Charts werden Schätzungen der e
 
 Anhand der geschätzten Genauigkeit können Sie überprüfen, wie viele ausgewählte Nutzer:innen das Event voraussichtlich durchführen werden.
 
-Die Vorhersage ist nicht perfekt genau, und keine Vorhersage ist das jemals. Das bedeutet, dass Braze nicht in der Lage sein wird, jede einzelne zukünftige Nutzer:in zu identifizieren, die das Event durchführt. Die Wahrscheinlichkeitswerte sind wie eine Reihe von fundierten und zuverlässigen Vorhersagen. Der Fortschrittsbalken zeigt an, wie viele der in der Prognosegruppe erwarteten „True Positives“ mit der ausgewählten Zielgruppe erreicht werden. Dabei wird davon ausgegangen, dass diese Nutzer:innen das Event auch dann durchführen, wenn Sie ihnen keine Nachricht senden.
+Die Prognose ist nicht perfekt genau, und keine Prognose ist das jemals. Das bedeutet, dass Braze nicht in der Lage sein wird, jede einzelne zukünftige Nutzer:in zu identifizieren, die das Event durchführt. Die Wahrscheinlichkeitswerte sind wie eine Reihe von fundierten und zuverlässigen Vorhersagen. Der Fortschrittsbalken zeigt an, wie viele der in der Prognosegruppe erwarteten „True Positives“ mit der ausgewählten Zielgruppe erreicht werden. Dabei wird davon ausgegangen, dass diese Nutzer:innen das Event auch dann durchführen, wenn Sie ihnen keine Nachricht senden.
 
 ### Voraussichtlich keine Durchführung {#not-expected-to-perform}
 
@@ -78,11 +78,11 @@ Anhand dieser Informationen sollten Sie entscheiden, wie viele der True Positive
 
 ## Event-Korrelationstabelle {#correlation_table}
 
-Diese Analyse zeigt Nutzer:innen-Attribute oder -Verhaltensweisen an, die mit Events in der Prognosegruppe korreliert sind. Die bewerteten Attribute sind Alter, Land, Geschlecht und Sprache. Zu den analysierten Verhaltensweisen gehören Sitzungen, Käufe, Gesamtausgaben, angepasste Events sowie Campaigns und Canvas-Schritte, die in den letzten 30 Tagen empfangen wurden.
+Diese Analyse zeigt Nutzerattribute oder -verhaltensweisen an, die mit Events in der Prognosegruppe korreliert sind. Die bewerteten Attribute sind Alter, Land, Geschlecht und Sprache. Zu den analysierten Verhaltensweisen gehören Sitzungen, Käufe, Gesamtausgaben, angepasste Events sowie Campaigns und Canvas-Schritte, die in den letzten 30 Tagen empfangen wurden.
 
 Die Tabellen sind in links und rechts unterteilt – für höhere bzw. geringere Wahrscheinlichkeit, das Event durchzuführen. Für jede Zeile wird in der rechten Spalte das Verhältnis angezeigt, in dem die Nutzer:innen mit dem Verhalten oder Attribut in der linken Spalte eher oder weniger wahrscheinlich das Event durchführen. Diese Zahl ist das Verhältnis der Wahrscheinlichkeitswerte von Nutzer:innen mit diesem Verhalten oder Attribut geteilt durch die Wahrscheinlichkeit, das Event bei der gesamten Prognosegruppe durchzuführen.
 
-Diese Tabelle wird nur aktualisiert, wenn die Vorhersage neu trainiert wird, und nicht, wenn die Wahrscheinlichkeitswerte der Nutzer:innen aktualisiert werden.
+Diese Tabelle wird nur aktualisiert, wenn die Prognose neu trainiert wird, und nicht, wenn die Wahrscheinlichkeitswerte der Nutzer:innen aktualisiert werden.
 
 {% alert note %}
 Die Korrelationsdaten für Vorschau-Prognosen werden teilweise ausgeblendet. Um diese Informationen zu erhalten, ist ein Kauf erforderlich. Kontaktieren Sie Ihren Account Manager für weitere Informationen.

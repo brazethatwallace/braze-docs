@@ -18,8 +18,8 @@ A Braze calcula o momento ideal para o envio com base em uma análise estatísti
 - Aberturas diretas de push
 - Aberturas por influência de push
 - Cliques em e-mail
-- Aberturas de e-mail (excluindo [aberturas por máquina]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#machine-opens))
-- Cliques em SMS (somente se [o encurtamento de links]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) e o rastreamento avançado estiverem ativados)
+- Aberturas de e-mail (excluindo [aberturas por máquina]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens))
+- Cliques em SMS (somente se [o encurtamento de links]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) e o rastreamento avançado estiverem ativados)
 
 Por exemplo, Sam pode abrir seus e-mails pela manhã regularmente, mas ela abre seu app e interage com as notificações à noite. Isso significa que Sam receberia uma campanha de e-mail com Intelligent Timing pela manhã, enquanto receberia campanhas com notificações por push à noite, quando é mais provável que ela interaja.
 
@@ -65,7 +65,7 @@ Quando o horário de silêncio está ativado, a Braze não enviará mensagens du
 
 Por exemplo, se o horário de silêncio for definido das 22h às 6h e o horário ideal do usuário for 5h30, a Braze reterá a mensagem e a entregará às 6h — o horário mais próximo fora do período de silêncio.
 
-Para saber mais, consulte [Horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
+Para saber mais, consulte [Horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
 #### Prévia dos horários de entrega {#preview-delivery-times}
 
@@ -101,7 +101,7 @@ Para saber mais, consulte as [Perguntas frequentes: Intelligent Timing](#when-do
 
 #### Agende variantes vencedoras 2 dias após os testes A/B {#schedule-winning-variants-2-days-after-ab-test}
 
-Se você estiver utilizando [testes A/B com uma otimização]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/), como o envio automático da **Variante Vencedora** ou o uso de uma **Variante Personalizada**, o Intelligent Timing poderá afetar a duração e o timing da sua campanha.
+Se você estiver utilizando [testes A/B com uma otimização]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations), como o envio automático da **Variante Vencedora** ou o uso de uma **Variante Personalizada**, o Intelligent Timing poderá afetar a duração e o timing da sua campanha.
 
 Ao usar o Intelligent Timing, recomendamos programar o envio da Variante Vencedora pelo menos **dois dias após** o início dos testes A/B. Por exemplo, se o seu teste A/B começar em 16 de abril às 16h, programe a Variante Vencedora para ser enviada não antes de 18 de abril às 16h. Isso dá à Braze tempo suficiente para avaliar o comportamento do usuário e enviar mensagens no momento ideal.
 
@@ -147,7 +147,7 @@ O gráfico mostra em azul os usuários que tiveram eventos relevantes para calcu
 
 ### Etapa 1: Adicionar Intelligent Timing
 
-No seu Canvas, adicione uma [etapa de Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/), acesse as **Delivery Settings** e selecione **Using Intelligent Timing**.
+No seu Canvas, adicione uma [etapa de Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step), acesse as **Delivery Settings** e selecione **Using Intelligent Timing**.
 
 As mensagens serão enviadas aos usuários que entraram na etapa naquele dia, no horário local ideal. No entanto, se o horário ideal já tiver passado nesse dia, a entrega será feita nesse horário no dia seguinte. Etapas de mensagem que direcionam vários canais podem enviar ou tentar enviar mensagens em horários diferentes para canais diferentes. Quando a primeira mensagem em uma etapa de Mensagem tenta ser enviada, todos os usuários são avançados automaticamente.
 
@@ -159,7 +159,7 @@ Escolha um horário de fallback para enviar a mensagem aos usuários do seu púb
 
 Ao contrário das campanhas, você não precisa lançar seu Canvas 48 horas antes da data de envio, pois o Intelligent Timing é definido no nível da etapa, e não no nível do Canvas.
 
-Em vez disso, adicione uma [etapa de postergação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/) de pelo menos dois dias corridos entre o momento em que o usuário entra no Canvas e o momento em que recebe a etapa com Intelligent Timing.
+Em vez disso, adicione uma [etapa de postergação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) de pelo menos dois dias corridos entre o momento em que o usuário entra no Canvas e o momento em que recebe a etapa com Intelligent Timing.
 
 #### Dias corridos vs. dias de 24 horas {#calendar-vs-24-hour-days}
 
@@ -203,7 +203,7 @@ Se os usuários não receberem as mensagens como esperado, verifique se o campo 
 
 ### Envio além da data agendada {#sending-past-the-scheduled-date}
 
-Sua campanha com Intelligent Timing pode estar sendo enviada após a data programada se você estiver utilizando [testes A/B com uma otimização]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/). Campanhas usando otimizações de testes A/B podem enviar automaticamente a Variante Vencedora após o teste inicial, aumentando a duração da campanha. Por padrão, campanhas com uma otimização enviarão a Variante Vencedora para os usuários restantes no dia seguinte ao teste inicial, mas você pode alterar essa data de envio.
+Sua campanha com Intelligent Timing pode estar sendo enviada após a data programada se você estiver utilizando [testes A/B com uma otimização]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations). Campanhas usando otimizações de testes A/B podem enviar automaticamente a Variante Vencedora após o teste inicial, aumentando a duração da campanha. Por padrão, campanhas com uma otimização enviarão a Variante Vencedora para os usuários restantes no dia seguinte ao teste inicial, mas você pode alterar essa data de envio.
 
 Se você usar o Intelligent Timing, recomendamos deixar mais tempo para o teste A/B terminar e agendar a Variante Vencedora para ser enviada 2 dias após o teste inicial, em vez de 1 dia.
 
@@ -235,7 +235,7 @@ Para calcular o horário ideal, o Intelligent Timing:
 
 #### As aberturas por máquina são incluídas no cálculo do horário ideal? {#are-machine-opens-included-when-calculating-optimal-time}
 
-Não, as [aberturas por máquina]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#machine-opens) são excluídas dos cálculos do horário ideal. Isso significa que os horários de envio são baseados exclusivamente no engajamento genuíno do usuário, proporcionando um timing mais preciso para suas campanhas.
+Não, as [aberturas por máquina]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) são excluídas dos cálculos do horário ideal. Isso significa que os horários de envio são baseados exclusivamente no engajamento genuíno do usuário, proporcionando um timing mais preciso para suas campanhas.
 
 #### Quão preciso é o horário ideal? {#how-precise-is-the-optimal-time}
 

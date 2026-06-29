@@ -16,4 +16,4 @@ description: "Este artigo de referência aborda como realizar a garantia de qual
 
 {% multi_lang_include brazeai/generative_ai/access_content_qa.md %}
 
-Para saber mais, incluindo recursos compatíveis, práticas recomendadas e exemplos de prompts, consulte [Revisar a qualidade do conteúdo nas capacidades do Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#review-content-quality).
+Para saber mais, incluindo recursos compatíveis, práticas recomendadas e exemplos de prompts, consulte [Revisar a qualidade do conteúdo nas capacidades do Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#review-content-quality).

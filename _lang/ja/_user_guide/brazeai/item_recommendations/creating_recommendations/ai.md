@@ -11,7 +11,7 @@ page_order: 1
 
 ## AI項目レコメンデーションについて {#about-ai-item-recommendations}
 
-AI項目レコメンデーションを使用して、最も人気のある製品を計算したり、特定の[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)に対してパーソナライズ済みのAIレコメンデーションを作成したりできます。レコメンデーションを作成した後、パーソナライゼーションを使用してメッセージにそれらの製品を挿入できます。
+AI項目レコメンデーションを使用して、最も人気のある製品を計算したり、特定の[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)に対してパーソナライズ済みのAIレコメンデーションを作成したりできます。レコメンデーションを作成した後、パーソナライゼーションを使用してメッセージにそれらの製品を挿入できます。
 
 {% alert tip %}
 [AIパーソナライズドレコメンデーション](#recommendation-types)は、少なくとも数百のカタログ項目、最大100,000のカタログ項目があり、通常は購入またはインタラクションデータを持つユーザーが30,000人以上いる場合に最も効果的です。これはあくまでも目安であり、状況によって異なります。他のレコメンデーションタイプは、より少ないデータでも動作します。**最も人気がある**がフォールバックとして使用される場合も同様です。
@@ -25,7 +25,7 @@ AI項目レコメンデーションを使用して、最も人気のある製品
 
 始める前に、以下を準備しておく必要があります。
 
-- 以下に説明するレコメンデーションタイプのいずれかを使用するには、少なくとも1つの[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)が必要です。
+- 以下に説明するレコメンデーションタイプのいずれかを使用するには、少なくとも1つの[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)が必要です。
 - Braze上に、項目への参照を含む購入データまたはイベントデータ（カスタムイベント、注文確定イベント、または購入オブジェクト）があり、カタログの項目IDと一致している必要があります。
 
 ### ステップ 1: 新しいレコメンデーションを作成する {#step-1-create-a-new-recommendation}
@@ -51,7 +51,7 @@ AI項目レコメンデーションを使用して、最も人気のある製品
 
 ### ステップ 3: レコメンデーションを定義する {#recommendation-type}
 
-レコメンデーションタイプを選択します。各タイプは、過去6か月間の項目インタラクションデータ（購入、注文確定、またはカスタムイベントデータなど）を使用します。それぞれの詳細な情報とユースケースについては、[タイプとユースケース]({{site.baseurl}}/user_guide/brazeai/item_recommendations/)を参照してください。
+レコメンデーションタイプを選択します。各タイプは、過去6か月間の項目インタラクションデータ（購入、注文確定、またはカスタムイベントデータなど）を使用します。それぞれの詳細な情報とユースケースについては、[タイプとユースケース]({{site.baseurl}}/user_guide/brazeai/item_recommendations)を参照してください。
 
 {% alert tip %}
 **最新**または**AIパーソナライズド**を使用する場合、個別のレコメンデーションを作成するためのデータが不十分なユーザーには、フォールバックとして**最も人気がある**項目が表示されます。**最も人気がある**フォールバックを受信するユーザーの割合の概算は、**Analytics**ページに表示されます。**最も人気がある**フォールバックは、リンクされたカタログに存在する項目のみを返します。
@@ -69,11 +69,11 @@ AI項目レコメンデーションを使用して、最も人気のある製品
 
 #### ステップ 3.2: カタログを選択する {#step-32-select-a-catalog}
 
-まだ入力されていない場合は、このレコメンデーションが項目を取得する[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)を選択します。
+まだ入力されていない場合は、このレコメンデーションが項目を取得する[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)を選択します。
 
 #### ステップ 3.3: セレクションを追加する（オプション） {#step-33-add-a-selection-optional}
 
-レコメンデーションをさらに細かくコントロールしたい場合は、[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/)を選択してカスタムフィルターを適用します。セレクションは、ブランド、サイズ、ロケーションなど、カタログ内の特定の列によってレコメンデーションをフィルタリングします。Liquidを含むセレクションは、レコメンデーションで使用できません。
+レコメンデーションをさらに細かくコントロールしたい場合は、[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)を選択してカスタムフィルターを適用します。セレクションは、ブランド、サイズ、ロケーションなど、カタログ内の特定の列によってレコメンデーションをフィルタリングします。Liquidを含むセレクションは、レコメンデーションで使用できません。
 
 ![レコメンデーションに「在庫あり」のセレクションが選択されている例。]({% image_buster /assets/img/item_recs_2-2.png %})
 
@@ -87,10 +87,10 @@ AI項目レコメンデーションを使用して、最も人気のある製品
 
 以下のイベントで最適化できます。
 
-- [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object/)を使用した購入イベント
+- [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object)を使用した購入イベント
 - 購入を表すカスタムイベント
 - その他の項目インタラクションを表すカスタムイベント（商品の表示、クリック、メディア再生など）
-- [注文確定イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/?tab=ecommerce.order_placed)を使用した注文確定
+- [注文確定イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.order_placed)を使用した注文確定
 
 **Custom Event**を選択した場合は、リストからイベントを選択します。
 
@@ -115,7 +115,7 @@ AI項目レコメンデーションを使用して、最も人気のある製品
 プロパティを選択する際には、いくつかの要件があります。
 
 - 選択したカタログの`id`フィールドにマッピングする必要があります。
-- **注文確定イベントを選択した場合、または[eコマースイベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/)を使って項目レコメンデーションをトレーニングする場合:** 製品IDには`products.product_id`を入力します。
+- **注文確定イベントを選択した場合、または[eコマースイベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)を使って項目レコメンデーションをトレーニングする場合:** 製品IDには`products.product_id`を入力します。
   - フィールドは製品の配列の中にあっても、IDの配列で終わっても構いません。いずれの場合も、各製品IDは、同じタイムスタンプを持つ個別の連続したイベントとして扱われます。
 - **購入オブジェクトを選択した場合:** `product_id`またはインタラクションイベントの`properties`のフィールドである必要があります。
 - **カスタムイベントを選択した場合:** カスタムイベントの`properties`のフィールドである必要があります。

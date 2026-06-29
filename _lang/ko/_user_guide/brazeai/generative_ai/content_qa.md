@@ -16,4 +16,4 @@ description: "이 참조 문서는 메시지 콘텐츠에 대한 품질 보증�
 
 {% multi_lang_include brazeai/generative_ai/access_content_qa.md %}
 
-지원되는 기능, 모범 사례, 예시 프롬프트 등 자세한 내용은 [Operator 기능에서 콘텐츠 품질 검토하기]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#review-content-quality)를 참조하세요.
+지원되는 기능, 모범 사례, 예시 프롬프트 등 자세한 내용은 [Operator 기능에서 콘텐츠 품질 검토하기]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#review-content-quality)를 참조하세요.

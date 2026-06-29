@@ -1,7 +1,7 @@
 ---
 nav_title: Fehlerbehebung
 article_title: Fehlerbehebung für BrazeAI Operator
-page_order: 4
+page_order: 10
 description: "Häufige Probleme und Lösungen für BrazeAI Operator<sup>TM</sup>."
 ---
 

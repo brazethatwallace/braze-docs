@@ -29,7 +29,7 @@ hidden: true
 2. チャネルエンゲージメントやベンチマーク比較について質問します（[質問の例](#example-questions)を参照）。
 3. オペレーターが回答を返し、必要に応じてチャートまたはテーブルと簡潔なインサイトのリストを表示します。
 
-オペレーターチャットパネルの詳細については、[BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)を参照してください。
+オペレーターチャットパネルの詳細については、[BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)を参照してください。
 
 ## 質問の例 {#example-questions}
 
@@ -105,7 +105,7 @@ hidden: true
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="サポートされるチャネル、指標、ベンチマークの利用可否" }
 
 {% alert tip %}
-オペレーターは率の計算にユニークカウントを使用します（例：*メール開封率*の場合、*ユニーク開封数*を*配信数*で割ります）。数値がダッシュボードと異なる場合は、アトリビューションウィンドウ、時間範囲、定義を比較してください。オペレーターは各回答で3つすべてを記載します。
+オペレーターは率の計算にユニークカウントを使用します（例：*メール開封率*の場合、*ユニーク開封数*を*配信数*で割ります）。数値がダッシュボードと異なる場合は、アトリビューションウィンドウ、時間範囲、定義を比較してください。オペレーターは各回答でこれら3つすべてを記載します。
 {% endalert %}
 
 ## 期間とアトリビューションウィンドウ {#time-periods-and-attribution-windows}
@@ -159,9 +159,9 @@ hidden: true
 
 ## データプライバシーとセキュリティ {#data-privacy-and-security}
 
-オペレーター分析は、BrazeAI Operator<sup>TM</sup>と同じプライバシーおよびセキュリティモデルに従います。詳細については、[データプライバシーとセキュリティ]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/)を参照してください。
+オペレーター分析は、BrazeAI Operator<sup>TM</sup>と同じプライバシーおよびセキュリティモデルに従います。詳細については、[データプライバシーとセキュリティ]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security)を参照してください。
 
 ## 次のステップ {#next-steps}
 
-* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)
-* [アクションの確認]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/)
+* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)
+* [アクションの確認]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)

@@ -26,7 +26,7 @@ page_order: 3
 - AI를 활용하여 대량의 콘텐츠 배리언트를 빠르게 테스트합니다.
 - 성과가 저조한 콘텐츠는 자동으로 단계적으로 제거하고 성과가 좋은 콘텐츠는 확대합니다.
 
-[콘텐츠 최적화 프로그램 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step/)를 만드는 방법을 알아보세요.
+[콘텐츠 최적화 프로그램 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step)를 만드는 방법을 알아보세요.
 
 ## 활용 사례 {#use-cases}
 
@@ -39,7 +39,7 @@ page_order: 3
 | 본문 콘텐츠 형식 | 가독성 및 참여도 향상 | 스토리텔링 대 기능 목록, 글머리 기호 대 단락, 콘텐츠 길이를 테스트합니다. |
 | CTA 문구 및 톤 | 클릭률 증가 | 행동 중심, 이점 중심, 1인칭 CTA 문구를 비교합니다. |
 | 테마 콘텐츠 조합 | 고성과 조합 발견 | 최적의 전체 조합을 찾기 위해 테마별 제목, 본문 및 CTA 구성요소를 혼합하고 매칭합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Email" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="이메일" }
 
 ### 푸시 알림 {#push-notifications}
 
@@ -47,7 +47,7 @@ page_order: 3
 | --- | --- | --- |
 | 제목 변형 | 열람률 증가 | 푸시 제목에서 명확성, 긴급성, 개인화 및 톤을 테스트합니다. |
 | 본문 문구 스타일 | 참여도 향상 | 푸시 본문에서 간결한, 이점 중심, 행동 지향적 메시징을 비교합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push notifications" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="푸시 알림" }
 
 ### SMS, MMS, RCS 메시지 {#sms-mms-and-rcs-messages}
 
@@ -56,7 +56,7 @@ page_order: 3
 | 훅 변형 | 참여도 증가 | SMS 미리보기, MMS 캡션 또는 RCS 도입부에 표시되는 첫 번째 줄에서 긴급성, 개인화 및 톤을 테스트합니다. |
 | 본문 문구 스타일 | 참여도 향상 | MMS 및 RCS에서 미디어와 함께 표시되는 문구를 포함하여 본문에서 간결하고 행동 지향적인 메시징을 비교합니다. |
 | CTA 문구 변형 | 클릭률 증가 | SMS, MMS, RCS에서 링크 및 다음 단계 안내에 대한 행동 중심 및 대화형 CTA 문구를 비교합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS, MMS, and RCS messages" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS, MMS, RCS 메시지" }
 
 ## 작동 방식 {#how-it-works}
 
@@ -66,7 +66,7 @@ Braze의 독자적인 밴딧 최적화 알고리즘은 콘텐츠 최적화 프�
 
 단계가 처음 시작되면 콘텐츠 최적화 프로그램은 초기 성과 데이터를 수집하기 위해 배리언트를 무작위로 발송합니다. 이 초기 탐색 기간이 지나면 알고리즘은 고성과 콘텐츠 조합으로 트래픽을 이동시키기 시작하고 저성과 옵션에 대한 할당을 점차 줄입니다. 탐색 기간 동안 트래픽은 알고리즘이 상대적 성과를 학습할 수 있도록 사용 가능한 배리언트에 전반적으로 분배됩니다.
 
-콘텐츠 최적화 프로그램은 Canvas의 메시지 단계와 유사하며, 방해금지 시간, [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/), 이벤트 로깅과 같은 기능을 갖추고 있습니다. 기본 메시지를 생성하고 최적화할 콘텐츠 구성요소(예: 제목란, 본문 텍스트 또는 콜투액션)를 정의하여 콘텐츠 최적화 프로그램 단계를 구성할 수 있습니다. 각 구성요소의 배리언트는 AI로 생성하거나 수동으로 입력할 수 있으며, 구성요소를 메시지 콘텐츠에 매핑하려면 기본 메시지에 Liquid 태그를 추가해야 합니다.
+콘텐츠 최적화 프로그램은 Canvas의 메시지 단계와 유사하며, 방해금지 시간, [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing), 이벤트 로깅과 같은 기능을 갖추고 있습니다. 기본 메시지를 생성하고 최적화할 콘텐츠 구성요소(예: 제목란, 본문 텍스트 또는 콜투액션)를 정의하여 콘텐츠 최적화 프로그램 단계를 구성할 수 있습니다. 각 구성요소의 배리언트는 AI로 생성하거나 수동으로 입력할 수 있으며, 구성요소를 메시지 콘텐츠에 매핑하려면 기본 메시지에 Liquid 태그를 추가해야 합니다.
 
 각 사용자는 콘텐츠 최적화 프로그램 단계에 진입할 때마다 하나의 메시지를 받습니다. 재진입은 이전 배리언트에 대한 기억 없이 새로운 진입으로 처리됩니다.
 
@@ -74,7 +74,7 @@ Braze의 독자적인 밴딧 최적화 알고리즘은 콘텐츠 최적화 프�
 
 최상의 결과를 얻으려면 사용자가 시간에 걸쳐 점진적이고 정기적으로 단계에 진입하는 Canvas에서 콘텐츠 최적화 프로그램을 사용하세요. 예를 들어, 일관된 일일 볼륨이 있는 반복 또는 상시 운영 Canvases가 적합합니다. 모든 사용자가 한꺼번에 단계에 진입하면 에이전트가 초기 결과로부터 학습할 시간이 없습니다. 이 경우 단계는 실시간 최적화 엔진이 아닌 정적 A/B 테스트처럼 작동하게 됩니다.
 
-콘텐츠 최적화 프로그램에 가장 적합한 것은 일일 반복 진입 Canvases와 비교적 일관된 일일 사용자 진입이 있는 이벤트 트리거 및 API 트리거 Canvases입니다. 단일 발송 Canvases나 "급증형" 진입 Canvases(예: 월간 반복)에서 콘텐츠 최적화 프로그램을 사용하는 경우, [진입 제어]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls)를 사용하여 여러 날에 걸쳐 사용자 진입을 분산시키는 것을 고려하세요.
+콘텐츠 최적화 프로그램에 가장 적합한 것은 일일 반복 진입 Canvases와 비교적 일관된 일일 사용자 진입이 있는 이벤트 트리거 및 API 트리거 Canvases입니다. 단일 발송 Canvases나 "급증형" 진입 Canvases(예: 월간 반복)에서 콘텐츠 최적화 프로그램을 사용하는 경우, [진입 제어]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls)를 사용하여 여러 날에 걸쳐 사용자 진입을 분산시키는 것을 고려하세요.
 
 ### 핵심 개념 {#key-concepts}
 
@@ -85,7 +85,7 @@ Braze의 독자적인 밴딧 최적화 알고리즘은 콘텐츠 최적화 프�
 | 콘텐츠 배리언트    | 콘텐츠 구성요소가 가질 수 있는 다양한 값입니다. |
 | 콘텐츠 조합 | 콘텐츠 배리언트를 혼합하고 매칭하여 생성된 고유한 메시지입니다. |
 | 최적화 이벤트       | 콘텐츠 최적화 프로그램이 성과를 평가하고 시간에 따라 콘텐츠 조합에 트래픽을 할당하는 방식을 결정합니다(예: 이메일의 클릭 수 또는 열람 수). 단계 내 모든 콘텐츠 구성요소에 적용됩니다. 콘텐츠 최적화 프로그램은 이 이벤트로부터 지속적으로 학습하고 자동으로 더 높은 성과를 내는 콘텐츠 조합으로 전달을 전환합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Key concepts" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="핵심 개념" }
 
 ## 고려 사항 {#considerations}
 
@@ -107,4 +107,4 @@ Braze의 독자적인 밴딧 최적화 알고리즘은 콘텐츠 최적화 프�
 ## 다음 단계 {#next-steps}
 
 - 베타에 참여하거나 온보딩 지원을 받으려면 고객 성공 매니저에게 문의하세요.
-- [콘텐츠 최적화 프로그램 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step/)를 만드는 방법을 알아보세요.
+- [콘텐츠 최적화 프로그램 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step)를 만드는 방법을 알아보세요.

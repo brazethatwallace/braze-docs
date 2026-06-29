@@ -25,9 +25,9 @@ Una tasa de entrega saludable suele estar alrededor del 99 % entregado con una t
 
 Antes de comenzar el calentamiento de IP:
 
-1. En **Settings** > **Email Preferences**, establece tu dominio de envío predeterminado, añade un enlace válido para cancelar suscripción en tu [pie de página personalizado]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/), activa el [encabezado list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) y considera páginas personalizadas de cancelación de suscripción/adhesión voluntaria donde sea necesario.
-2. Configura la [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) para correo electrónico.
-3. Crea las plantillas necesarias yendo a **Content** > **Email**.
+1. En **Configuración** > **Preferencias de correo electrónico**, establece tu dominio de envío predeterminado, añade un enlace válido para cancelar suscripción en tu [pie de página personalizado]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), activa el [encabezado list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) y considera páginas personalizadas de cancelación de suscripción/adhesión voluntaria donde sea necesario.
+2. Configura la [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) para correo electrónico.
+3. Crea las plantillas necesarias yendo a **Contenido** > **Correo electrónico**.
 
 ## ¿Qué pasa si no tengo tiempo para calentar las IP? {#what-if-i-dont-have-time-to-warm-ips}
 
@@ -37,7 +37,7 @@ Los ISP limitan la entrega de correo electrónico cuando surge sospecha de corre
 
 Si la interacción es moderada, pueden continuar limitando tu correo electrónico para recopilar más datos de interacción y determinar con mayor certeza si el correo electrónico es correo no deseado o no. Si el correo electrónico tiene métricas de interacción muy altas, pueden dejar de limitar este correo electrónico por completo. Utilizan esos datos para crear una reputación de correo electrónico que eventualmente determinará si tus correos electrónicos se filtran automáticamente como correo no deseado.
 
-Si tu dominio o IP es bloqueado por un ISP, los registros de mensajes en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) contendrán información sobre qué sitios web visitar para apelar ante estos ISP y salir de esas listas.
+Si tu dominio o IP es bloqueado por un ISP, los registros de mensajes en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) contendrán información sobre qué sitios web visitar para apelar ante estos ISP y salir de esas listas.
 
 ## Programas de calentamiento de IP {#ip-warming-schedules}
 
@@ -151,13 +151,13 @@ La mayoría de los ISP solo almacenan datos de reputación durante 30 días. Si 
 
 ### Direcciones IP {#ip-addresses}
 
-Después de tres meses sin uso, Braze puede reciclar y reasignar direcciones IP. Independientemente del historial previo de una dirección IP, se recomienda un calentamiento de IP completo para todas las IP recién asignadas, ya que la mayoría de los ISP solo almacenan datos de reputación durante 30 días. Para la mayoría de los ISP, esto significa que un período de inactividad de tres meses restablece efectivamente la reputación. Si tienes más preguntas sobre el historial de una dirección IP específica, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+Después de tres meses sin uso, Braze puede reciclar y reasignar direcciones IP. Independientemente del historial previo de una dirección IP, se recomienda un calentamiento de IP completo para todas las IP recién asignadas, ya que la mayoría de los ISP solo almacenan datos de reputación durante 30 días. Para la mayoría de los ISP, esto significa que un período de inactividad de tres meses restablece efectivamente la reputación. Si tienes más preguntas sobre el historial de una dirección IP específica, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ## Cómo limitar los envíos durante el calentamiento {#how-to-limit-sends-during-warming}
 
-Nuestra función integrada de limitación de usuarios sirve como una herramienta útil para ayudarte con el calentamiento de tu dirección IP. Después de elegir los segmentos de mensajería deseados durante la creación de la campaña, en el paso [Target Users]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas), selecciona el desplegable **Advanced Options** para limitar tus usuarios. A medida que continúa tu programa de calentamiento, puedes aumentar gradualmente este límite para incrementar el volumen de correos electrónicos que envías.
+Nuestra función integrada de limitación de usuarios sirve como una herramienta útil para ayudarte con el calentamiento de tu dirección IP. Después de elegir los segmentos de mensajería deseados durante la creación de la campaña, en el paso [Target Users]({{site.baseurl}}/user_guide/channels/email/html_editor#step-4-build-the-remainder-of-your-campaign-or-canvas), selecciona el desplegable **Opciones avanzadas** para limitar tus usuarios. A medida que continúa tu programa de calentamiento, puedes aumentar gradualmente este límite para incrementar el volumen de correos electrónicos que envías.
 
-![]({% image_buster /assets/img_archive/email_ip_warming_sends_limit_new.png %})
+![La función integrada de limitación de usuarios sirve como una herramienta útil para ayudarte con el calentamiento de tu dirección IP. Después de elegir los segmentos de mensajería deseados durante la creación de la campaña, en el paso Target Users, selecciona el desplegable Opciones avanzadas para limitar tus usuarios. A medida que continúa tu programa de calentamiento, puedes aumentar gradualmente este límite para incrementar el volumen de correos electrónicos que envías.]({% image_buster /assets/img_archive/email_ip_warming_sends_limit_new.png %})
 
 ## Segmentación de subdominios {#subdomain-segmentation}
 
@@ -189,17 +189,17 @@ Consulta nuestro [programa de calentamiento de IP](#ip-warming-schedules) para d
 
 ### Limpia tus listas de correo electrónico {#clean-your-email-lists}
 
-Confirma que tu lista de correo electrónico esté limpia y no tenga correos electrónicos antiguos o no verificados. Asegurarte de cumplir con [CASL y CAN-SPAM]({{site.baseurl}}/user_guide/administer/global/privacy/spam_regulations/) es lo ideal.
+Confirma que tu lista de correo electrónico esté limpia y no tenga correos electrónicos antiguos o no verificados. Asegurarte de cumplir con [CASL y CAN-SPAM]({{site.baseurl}}/user_guide/administer/global/privacy/spam_regulations) es lo ideal.
 
 ### Monitorea tu reputación como remitente {#monitor-your-sender-reputation}
 
 Al realizar el proceso de calentamiento de IP, asegúrate de monitorear cuidadosamente tu reputación como remitente. Estas métricas específicas son importantes de observar:
-- **Tasas de rebote:** Si alguna campaña rebota a más del 3-5 %, debes evaluar la limpieza de tu lista siguiendo las directrices de nuestro artículo [Keep It Clean: The Importance of Email List Hygiene](https://www.braze.com/blog/email-list-hygiene/). Además, debes considerar implementar una [política de desactivación]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/) para dejar de enviar correos electrónicos a direcciones de correo electrónico no comprometidas o inactivas.
+- **Tasas de rebote:** Si alguna campaña rebota a más del 3-5 %, debes evaluar la limpieza de tu lista siguiendo las directrices de nuestro artículo [Keep It Clean: The Importance of Email List Hygiene](https://www.braze.com/blog/email-list-hygiene/). Además, debes considerar implementar una [política de desactivación]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies) para dejar de enviar correos electrónicos a direcciones de correo electrónico no comprometidas o inactivas.
 - **Informes de correos no deseados:** Si alguna campaña es reportada como correo no deseado a una tasa superior al 0,08 %, debes reevaluar el contenido que estás enviando, verificar que esté dirigido a una audiencia interesada y asegurarte de que tus correos electrónicos estén redactados adecuadamente para despertar su interés.
 - **Tasas de apertura:** Las tasas de apertura son un indicador útil de la ubicación en el buzón de entrada. Si tus tasas de apertura únicas superan el 25 %, es probable que estés experimentando una alta ubicación en el buzón de entrada, lo que indica una reputación positiva como remitente.
 
 {% alert tip %}
-Braze no recomienda usar [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/) para calentar tus IP. Dado que las campañas de calentamiento de IP son algunas de las primeras campañas que envías, Braze no tendrá suficiente información sobre tus usuarios para calcular un momento de envío óptimo. En este caso, todos los mensajes con Intelligent Timing se enviarían por defecto a la hora alternativa y se enviarían al mismo tiempo de todos modos.
+Braze no recomienda usar [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) para calentar tus IP. Dado que las campañas de calentamiento de IP son algunas de las primeras campañas que envías, Braze no tendrá suficiente información sobre tus usuarios para calcular un momento de envío óptimo. En este caso, todos los mensajes con Intelligent Timing se enviarían por defecto a la hora alternativa y se enviarían al mismo tiempo de todos modos.
 {% endalert %}
 
 {% alert tip %}

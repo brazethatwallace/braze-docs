@@ -40,10 +40,10 @@ Uma definição de população de previsão não pode exceder 100 milhões de us
 
 ### A previsão tem qualidade ruim {#prediction-has-poor-quality}
 
-![]({% image_buster /assets/img/churn/churn3.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
-Se o seu modelo tiver uma [qualidade de previsão]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics/) de 40% ou mais, você está em um ótimo lugar! Mas se a qualidade da previsão cair para 39% ou menos, talvez seja necessário editar as definições de churn e de população de previsão para que sejam mais específicas ou tenham períodos diferentes.
+![Captura de tela relacionada à qualidade ruim da previsão.]({% image_buster /assets/img/churn/churn3.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
+Se o seu modelo tiver uma [qualidade de previsão]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics) de 40% ou mais, você está em um ótimo lugar! Mas se a qualidade da previsão cair para 39% ou menos, talvez seja necessário editar as definições de churn e de população de previsão para que sejam mais específicas ou tenham períodos diferentes.
 
-Se não for possível atender ao requisito de tamanho do público ao criar suas definições de previsão e obter uma qualidade de previsão superior a 40%, isso provavelmente significa que os dados enviados à Braze não são ideais para esse caso de uso, que não há usuários suficientes para criar um modelo ou que o ciclo de vida do seu produto é mais longo do que nossa janela de lookback atual de 60 dias suporta.
+Se não for possível atender ao requisito de tamanho do público ao criar suas definições de previsão e obter uma qualidade de previsão superior a 40%, isso provavelmente significa que os dados enviados à Braze não são ideais para esse caso de uso, que não há usuários suficientes para criar um modelo ou que o ciclo de vida do seu produto é mais longo do que a janela de lookback atual de 60 dias suporta.
 
 ## Considerações sobre os dados {#data-considerations}
 

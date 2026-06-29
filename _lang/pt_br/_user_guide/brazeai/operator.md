@@ -7,7 +7,7 @@ toc_headers: h2
 description: "Aprenda a acessar e usar o BrazeAI Operator<sup>TM</sup>, um assistente alimentado por IA integrado ao dashboard da Braze, incluindo suas funcionalidades e melhores práticas."
 ---
 
-# BrazeAI Operator {#brazeai-operator}
+# BrazeAI Operator
 
 > O BrazeAI Operator<sup>TM</sup> é um assistente alimentado por IA integrado ao dashboard. O Operator ajuda a realizar tarefas — respondendo perguntas, orientando na configuração, solucionando problemas e gerando ideias.
 
@@ -39,7 +39,7 @@ Descreva o que você está tentando realizar usando linguagem natural. As solici
 - **Simples:** Por que meu Liquid não está sendo renderizado?
 - **Complexo:** Como posso fazer com que a tag `abort_message` da minha mensagem inclua o atributo do usuário que causou a interrupção?
 
-O Operator pode fornecer instruções passo a passo, links para a documentação da Braze e explicações em linguagem simples. Perguntas claras e específicas levam a respostas mais úteis. O Operator usa o [GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2), que oferece raciocínio avançado e é adequado para tarefas complexas e de múltiplas etapas. Para exemplos prontos para uso, consulte a [biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library/).
+O Operator pode fornecer instruções passo a passo, links para a documentação da Braze e explicações em linguagem simples. Perguntas claras e específicas levam a respostas mais úteis. O Operator usa o [GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2), que oferece raciocínio avançado e é adequado para tarefas complexas e de múltiplas etapas. Para exemplos prontos para uso, consulte a [biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 
 ## Melhores práticas {#best-practices}
 
@@ -55,7 +55,7 @@ Trate o Operator como uma conversa, não como um mecanismo de busca. Prompts cur
 
 Adicione diretrizes da marca como contexto às consultas do Operator para que as respostas correspondam à voz, ao tom e à personalidade da sua marca. O Operator usa as diretrizes da marca configuradas no seu espaço de trabalho, o que ajuda a garantir uma comunicação consistente quando sugere textos ou explica recursos.
 
-Para configurar diretrizes da marca, acesse **Configurações** > **Diretrizes da marca**. Para mais informações, veja [Diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/).
+Para configurar diretrizes da marca, acesse **Configurações** > **Diretrizes da marca**. Para mais informações, veja [Diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines).
 
 ![Selecionando diretrizes da marca no painel de chat do Operator.]({% image_buster /assets/img/operator/operator_brand_guidelines.png %})
 
@@ -63,7 +63,7 @@ Para configurar diretrizes da marca, acesse **Configurações** > **Diretrizes d
 
 O Operator entende automaticamente sua localização na Braze e adapta as respostas com base nesse contexto. Por exemplo, quando você abre o Operator enquanto constrói um Canvas, ele pode sugerir etapas relevantes ou fornecer orientações sobre os recursos do Canvas sem que você precise explicar onde está no seu fluxo de trabalho.
 
-Essa consciência de contexto significa que você pode fazer perguntas mais curtas e naturais, como "Como eu adiciono uma postergação?" em vez de "Como eu adiciono uma etapa de postergação em um fluxo de trabalho no Canvas?". Para prompts prontos para uso organizados por página do dashboard, consulte a [biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library/).
+Essa consciência de contexto significa que você pode fazer perguntas mais curtas e naturais, como "Como eu adiciono uma postergação?" em vez de "Como eu adiciono uma etapa de postergação em um fluxo de trabalho no Canvas?". Para prompts prontos para uso organizados por página do dashboard, consulte a [biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 
 ## Trabalhe com as respostas do Operator {#work-with-operator-responses}
 
@@ -79,7 +79,7 @@ O Operator mostra seus passos de raciocínio em seções recolhíveis rotuladas 
 
 ### Aja com o Operator {#take-action-with-operator}
 
-O Operator pode propor e executar mudanças diretamente no dashboard da Braze, como preencher campos de formulário, atualizar configurações ou gerar conteúdo. Cada mudança proposta é apresentada como um cartão de ação para você revisar e aprovar antes que entre em vigor. Para mais informações sobre como isso funciona, veja [Revisando ações]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/).
+O Operator pode propor e executar mudanças diretamente no dashboard da Braze, como preencher campos de formulário, atualizar configurações ou gerar conteúdo. Cada mudança proposta é apresentada como um cartão de ação para você revisar e aprovar antes que entre em vigor. Para mais informações sobre como isso funciona, veja [Revisando ações]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions).
 
 ### Copie respostas para outras ferramentas {#copy-responses-to-other-tools}
 
@@ -132,12 +132,12 @@ Na parte inferior de cada resposta, use os botões de polegar para cima ou para 
 
 ## Privacidade e segurança de dados {#data-privacy-and-security}
 
-O BrazeAI Operator<sup>TM</sup> integra-se com a OpenAI, que atua como subprocessadora da Braze, sujeita ao Adendo de Processamento de Dados (DPA) entre você e a Braze. Os dados enviados para a OpenAI via Braze não são usados para treinar ou melhorar os modelos da OpenAI. Para detalhes sobre conformidade com HIPAA, retenção de dados, tratamento de IPI e governança, consulte [Privacidade e segurança de dados]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/).
+O BrazeAI Operator<sup>TM</sup> integra-se com a OpenAI, que atua como subprocessadora da Braze, sujeita ao Adendo de Processamento de Dados (DPA) entre você e a Braze. Os dados enviados para a OpenAI via Braze não são usados para treinar ou melhorar os modelos da OpenAI. Para detalhes sobre conformidade com HIPAA, retenção de dados, tratamento de IPI e governança, consulte [Privacidade e segurança de dados]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
 
 ## Próximos passos {#next-steps}
 
-- [Biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library/): Explore exemplos de prompts organizados por página do dashboard
-- [Revisar ações]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/): Saiba como revisar e aprovar as alterações propostas pelo Operator
-- [Abrir tickets de suporte]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/): Abra tickets de suporte diretamente pelo Operator
-- [Solução de problemas]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/): Consulte problemas comuns e soluções
-- [Privacidade e segurança de dados]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/): Revise conformidade com HIPAA, retenção de dados e orientações de minimização de IPI
+- [Biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library): Explore exemplos de prompts organizados por página do dashboard
+- [Revisar ações]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): Saiba como revisar e aprovar as alterações propostas pelo Operator
+- [Abrir tickets de suporte]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets): Abra tickets de suporte diretamente pelo Operator
+- [Solução de problemas]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting): Consulte problemas comuns e soluções
+- [Privacidade e segurança de dados]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security): Revise conformidade com HIPAA, retenção de dados e orientações de minimização de IPI

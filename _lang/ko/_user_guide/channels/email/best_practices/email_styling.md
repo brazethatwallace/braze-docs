@@ -16,7 +16,7 @@ channel: email
 
 제목란은 수신자가 메시지를 받았을 때 가장 먼저 보게 되는 항목 중 하나입니다. 6~10개 단어로 유지하면 열람률이 가장 높습니다.
 
-좋은 제목란을 만드는 방법에는 다양한 접근 방식이 있습니다. 독자의 흥미를 유발하는 질문을 던지거나, 보다 직접적으로 표현하거나, 고객의 참여를 유도하기 위해 개인화하는 방법 등이 있습니다. 한 가지 제목란만 고집하지 말고, [A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/#what-are-multivariate-and-ab-testing/)를 활용하여 새로운 제목을 시도하고 그 효과를 측정하세요. 제목은 모바일에서 적절하게 표시되도록 35자 이내로 작성해야 합니다.
+좋은 제목란을 만드는 방법에는 다양한 접근 방식이 있습니다. 독자의 흥미를 유발하는 질문을 던지거나, 보다 직접적으로 표현하거나, 고객의 참여를 유도하기 위해 개인화하는 방법 등이 있습니다. 한 가지 제목란만 고집하지 말고, [A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing#what-are-multivariate-and-ab-testing)를 활용하여 새로운 제목을 시도하고 그 효과를 측정하세요. 제목은 모바일에서 적절하게 표시되도록 35자 이내로 작성해야 합니다.
 
 "보낸 사람" 필드에는 발신자가 누구인지 명확하게 표시되어야 합니다. 사람의 이름이나 흔하지 않은 약어는 사용하지 마세요. 대신 브랜드 이름과 같이 알아볼 수 있는 이름을 사용하세요. 사람의 이름을 사용하는 것이 브랜드의 이메일 개인화 방식에 적합하다면 일관성을 유지하여 수신자와의 관계를 발전시키세요. "보낸 사람" 이름은 모바일에서 적절하게 표시되도록 25자 이내로 입력해야 합니다.
 
@@ -63,7 +63,7 @@ channel: email
   | Android Gmail          | 24      |
   | iOS 기본                | 82      |
   | iOS Gmail              | 30      |
-  {: .reset-td-br-1 .reset-td-br-2 aria-label="Preheader character limits" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="프리헤더 글자 수 제한" }
 
   |  데스크탑 이메일 클라이언트  |  제한  |
   |:----------------------:|:-------:|
@@ -71,7 +71,7 @@ channel: email
   | Outlook '13            | 38      |
   | Outlook for Mac '15   | 53      |
   | Outlook '16            | 50      |
-  {: .reset-td-br-1 .reset-td-br-2 aria-label="Preheader character limits" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="프리헤더 글자 수 제한" }
 
 
   |  웹메일 이메일 클라이언트  |  제한  |
@@ -81,19 +81,19 @@ channel: email
   | Outlook.com            | 49      |
   | Office 365             | 40      |
   | Mail.ru                | 64      |
-  {: .reset-td-br-1 .reset-td-br-2 aria-label="Preheader character limits" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="프리헤더 글자 수 제한" }
 
 ## 이메일 크기 {#email-size}
 
 이메일 크기는 Braze에서 메시지 HTML의 크기를 의미합니다(구축한 본문과 메시지 발송 시 Braze가 추가하는 내용 포함).
 
 - 이메일 크기를 제한하세요. 102&nbsp;KB보다 큰 이메일 본문은 Braze 서버에 큰 부담을 줄 뿐만 아니라, Gmail 및 기타 이메일 클라이언트에서 잘립니다.
-- URL로 참조하는 호스팅된 이미지는 대용량 인라인 자산을 붙여넣는 것과 같은 방식으로 HTML에 포함되지 않습니다. [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)를 사용하고 `href`로 링크하면 메시지 크기를 줄이는 데 도움이 됩니다.
+- URL로 참조하는 호스팅된 이미지는 대용량 인라인 자산을 붙여넣는 것과 같은 방식으로 HTML에 포함되지 않습니다. [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)를 사용하고 `href`로 링크하면 메시지 크기를 줄이는 데 도움이 됩니다.
 
 |   텍스트만   | 텍스트 + 이미지 |     이메일 너비    |
 |:-------------:|:----------------:|:------------------:|
 | 최대 25&nbsp;KB |   최대 60&nbsp;KB   | 최대 600픽셀 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Email size" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="이메일 크기" }
 
 잘림 위험을 줄이려면:
 
@@ -102,7 +102,7 @@ channel: email
 - 이미지와 HTML 자산을 압축하세요.
 
 {% alert note %}
-이메일 Campaign이나 템플릿을 저장하려면 이메일 본문이 400&nbsp;KB를 초과하지 않아야 합니다.
+이메일 캠페인이나 템플릿을 저장하려면 이메일 본문이 400&nbsp;KB를 초과하지 않아야 합니다.
 {% endalert %}
 
 ### 최종 이메일 크기에 영향을 주는 요소 {#what-can-add-to-the-final-email-size}
@@ -126,7 +126,7 @@ channel: email
 | 제목란 길이 | 최대 35자(최적의 모바일 표시를 위해) (6~10단어) |
 | 발신자 이름 길이 | 최대 25자(최적의 모바일 표시를 위해) |
 | 프리헤더 길이 | 최대 85자 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Text length" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="텍스트 길이" }
 
 ## 이미지 크기 {#image-size}
 
@@ -135,7 +135,7 @@ channel: email
 |     크기    | 헤더 이미지 너비 |  본문 이미지 너비  |   파일 형식  |
 |:-----------:|:------------------:|:------------------:|:-------------:|
 | 최대 5&nbsp;MB | 최대 600픽셀 | 최대 480픽셀 | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Image size" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="이미지 크기" }
 
 {% alert note %}
 Gmail 웹 및 Gmail 모바일 앱은 SVG를 렌더링하지 못하는 경우가 많습니다(WEBP 지원도 일관적이지 않습니다). Gmail에서 안정적으로 표시되어야 하는 이미지에는 PNG 또는 JPEG를 사용하세요.
@@ -143,13 +143,13 @@ Gmail 웹 및 Gmail 모바일 앱은 SVG를 렌더링하지 못하는 경우가 
 
 ## 딥링킹 {#deep-linking}
 
-푸시 알림과 인앱 메시지에서 [딥링크]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/)는 사용자를 앱 내 지정된 대상으로 직접 이동시킵니다. 그러나 딥링크는 앱이 설치되어 있어야 하며, 이메일은 수신자가 앱을 설치했는지 확인할 방법을 제공하지 않습니다. 따라서 이메일의 딥링크는 앱이 설치되지 않은 수신자에게 오류를 발생시킬 수 있습니다.
+푸시 알림과 인앱 메시지에서 [딥링크]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls)는 사용자를 앱 내 지정된 대상으로 직접 이동시킵니다. 그러나 딥링크는 앱이 설치되어 있어야 하며, 이메일은 수신자가 앱을 설치했는지 확인할 방법을 제공하지 않습니다. 따라서 이메일의 딥링크는 앱이 설치되지 않은 수신자에게 오류를 발생시킬 수 있습니다.
 
-대신 표준 URL로 작동하는 [유니버설 링크 및 App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/)를 사용하세요. 앱을 열거나 사용자를 특정 페이지로 안내하도록 설정할 수 있습니다. 또한 앱이 설치되지 않은 경우 앱 스토어로 리디렉션하거나 웹페이지로 폴백할 수도 있습니다.
+대신 표준 URL로 작동하는 [유니버설 링크 및 App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links)를 사용하세요. 앱을 열거나 사용자를 특정 페이지로 안내하도록 설정할 수 있습니다. 또한 앱이 설치되지 않은 경우 앱 스토어로 리디렉션하거나 웹페이지로 폴백할 수도 있습니다.
 
 ## 투명 이미지가 포함된 Content Blocks {#content-blocks-with-transparent-images}
 
-Content Blocks에 투명 배경의 이미지(예: 로고)가 포함되어 있고 Liquid 태그로 삽입된 경우, 이미지 뒤에 배경색이 나타날 수 있습니다. 이 색상은 드래그 앤 드롭 에디터의 [이메일 글로벌 스타일 설정]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/), 특히 **이메일 배경색**에서 가져옵니다. 글로벌 스타일 설정에서 흰색이 아닌 다른 색상을 사용하면 해당 색상이 대신 나타납니다.
+Content Blocks에 투명 배경의 이미지(예: 로고)가 포함되어 있고 Liquid 태그로 삽입된 경우, 이미지 뒤에 배경색이 나타날 수 있습니다. 이 색상은 드래그 앤 드롭 에디터의 [이메일 글로벌 스타일 설정]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings), 특히 **이메일 배경색**에서 가져옵니다. 글로벌 스타일 설정에서 흰색이 아닌 다른 색상을 사용하면 해당 색상이 대신 나타납니다.
 
 Content Blocks를 의도한 대로 표시하려면:
 

@@ -16,4 +16,4 @@ description: "Este artigo de referência aborda como gerar imagens para sua Bibl
 
 {% multi_lang_include brazeai/generative_ai/access_images.md %}
 
-Para saber mais, incluindo dicas de prompt, exemplos de prompts e limites de uso, consulte [Gerar imagens nas capacidades do Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-images).
+Para saber mais, incluindo dicas de prompt, exemplos de prompts e limites de uso, consulte [Gerar imagens nas capacidades do Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images).

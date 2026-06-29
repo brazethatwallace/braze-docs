@@ -16,4 +16,4 @@ description: "このリファレンス記事では、オペレーターを使用
 
 {% multi_lang_include brazeai/generative_ai/access_copy.md %}
 
-利用可能なトーン、プロンプトの例、ブランドガイドラインの統合などの詳細については、[オペレーターの機能でコピーを生成する]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy)を参照してください。
+利用可能なトーン、プロンプトの例、ブランドガイドラインの統合などの詳細については、[オペレーターの機能でコピーを生成する]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy)を参照してください。

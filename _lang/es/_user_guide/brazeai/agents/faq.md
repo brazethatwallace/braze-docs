@@ -32,13 +32,13 @@ No, intentar escribir bloques de Liquid como sentencias {% raw %}`{% if %}`{% en
 
 ### ¿Pueden los agentes acceder a datos de usuario más allá de los atributos o valores de Liquid específicos que les paso? {#can-agents-access-user-data-beyond-the-specific-liquid-attributes-or-values-that-i-pass-to-them}
 
-No. Los agentes solo reciben los puntos de datos de usuario específicos que se les pasan mediante Liquid, así como los [recursos]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#add-resources) añadidos al contexto del agente. Los agentes no pueden buscar en los perfiles de los usuarios atributos que el especialista en marketing no haya configurado para que los busquen.
+No. Los agentes solo reciben los puntos de datos de usuario específicos que se les pasan mediante Liquid, así como los [recursos]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources) añadidos al contexto del agente. Los agentes no pueden buscar en los perfiles de los usuarios atributos que el especialista en marketing no haya configurado para que los busquen.
 
 ## Solución de problemas {#troubleshooting}
 
 ### ¿Por qué mi agente no siguió mis instrucciones o reglas? {#why-did-my-agent-not-follow-my-instructions-or-rules}
 
-Considera usar [Operator]({{site.baseurl}}/user_guide/brazeai/operator/) para investigar por qué tu agente no está siguiendo tus instrucciones. Operator puede proporcionar instrucciones paso a paso y explicaciones detalladas.
+Considera usar [Operator]({{site.baseurl}}/user_guide/brazeai/operator) para investigar por qué tu agente no está siguiendo tus instrucciones. Operator puede proporcionar instrucciones paso a paso y explicaciones detalladas.
 
 ### ¿Por qué mi agente de catálogo omitió algunas filas? {#why-did-my-catalog-agent-skip-some-rows}
 
@@ -46,7 +46,7 @@ Los agentes de catálogo omiten una fila cuando una columna que marcaste como **
 
 El agente también respeta las dependencias entre columnas. Si una columna de salida depende de otras columnas (por ejemplo, la columna D requiere valores en las columnas B y C), el agente no se ejecuta hasta que esas columnas previas estén completadas para esa fila.
 
-Para más detalles, consulta [Mejores prácticas de agentes de catálogo]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#catalog-agent-best-practices).
+Para más detalles, consulta [Mejores prácticas de agentes de catálogo]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices).
 
 ### Mi agente tiene dificultades con una tarea compleja. ¿Cómo puedo mejorar su rendimiento? {#subagent-approach}
 
@@ -65,7 +65,7 @@ Un agente personalizado puede agotar el tiempo de espera si:
 - Las instrucciones del agente le piden que genere un formato de salida diferente al especificado en la pestaña **Salida** (por ejemplo, si las instrucciones del agente piden una cadena, pero en la pestaña **Salida** la salida está definida como un número)
 - La tarea del agente es demasiado compleja y se beneficiaría de un [enfoque de subagentes](#subagent-approach) en su lugar
 
-Para los agentes de Canvas, configura [valores alternativos]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) en la Consola de Agente para que los usuarios sigan recibiendo una salida cuando una invocación falle.
+Para los agentes de Canvas, configura [valores alternativos]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) en la Consola de Agente para que los usuarios sigan recibiendo una salida cuando una invocación falle.
 
 ## Cumplimiento normativo {#compliance}
 

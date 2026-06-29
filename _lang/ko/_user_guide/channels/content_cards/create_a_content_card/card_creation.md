@@ -2,7 +2,7 @@
 nav_title: 카드 생성
 article_title: 카드 생성
 alias: /card_creation/
-description: "이 문서에서는 캠페인 시작 또는 캔버스 단계 진입 시 콘텐츠 카드를 만들 때와 첫 번째 노출 시 만들 때의 차이점에 대해 설명합니다."
+description: "이 문서에서는 Campaign 시작 또는 캔버스 단계 진입 시 콘텐츠 카드를 만들 때와 첫 번째 노출 시 만들 때의 차이점에 대해 설명합니다."
 page_order: 0
 tool: Campaigns
 channel:
@@ -20,14 +20,14 @@ toc_headers: h2
 
 {% sdk_min_versions swift:5.2.0 android:23.0.0 web:4.2.0 %}
 
-SDK를 업그레이드한 후에는 모바일 사용자가 앱을 업그레이드해야 합니다. Campaign 또는 Canvas 오디언스를 필터링하여 [이러한 최소 앱 버전의 사용자만 타겟팅할]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions) 수 있습니다.
+SDK를 업그레이드한 후에는 모바일 사용자가 앱을 업그레이드해야 합니다. Campaign 또는 Canvas 오디언스를 필터링하여 [이러한 최소 앱 버전의 사용자만 타겟팅할]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions) 수 있습니다.
 
 ## 개요 {#overview}
 
 {% tabs %}
 {% tab Campaign %}
 
-예약 전달로 새 [콘텐츠 카드 캠페인]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/)을 만들 때 **Delivery** 단계에서 Braze가 카드를 생성하는 시기를 선택할 수 있습니다.
+예약 전달로 새 [콘텐츠 카드 캠페인]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card)을 만들 때 **Delivery** 단계에서 Braze가 카드를 생성하는 시기를 선택할 수 있습니다.
 
 ![예약된 콘텐츠 카드의 전달을 편집할 때 콘텐츠 카드 제어 섹션.]({% image_buster /assets/img_archive/card_creation.png %})
 
@@ -41,7 +41,7 @@ SDK를 업그레이드한 후에는 모바일 사용자가 앱을 업그레이�
 {% endtab %}
 {% tab Canvas %}
 
-Content Cards [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)의 **Messaging Channels** 탭에서 Braze가 카드를 생성하는 시기를 선택할 수 있습니다.
+Content Cards [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)의 **Messaging Channels** 탭에서 Braze가 카드를 생성하는 시기를 선택할 수 있습니다.
 
 ![예약된 콘텐츠 카드의 전달을 편집할 때 콘텐츠 카드 제어 섹션.]({% image_buster /assets/img_archive/card_creation_canvas.png %})
 
@@ -69,7 +69,7 @@ Content Cards [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/ca
 ![콘텐츠 카드 만료를 위한 컨텍스트 변수로 구성된 기간 개인화를 보여주는 만료 설정.]({% image_buster /assets/img/content_card_personalize_duration.png %})
 
 {% alert important %}
-Content Cards의 최대 만료 기간은 컨텍스트 변수를 사용한 개인화된 기간을 설정하더라도 30일입니다. 30일을 초과하는 값은 30일로 제한됩니다. 자세한 내용은 [카드 만료]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#card-expiration)를 참조하세요.
+Content Cards의 최대 만료 기간은 컨텍스트 변수를 사용한 개인화된 기간을 설정하더라도 30일입니다. 30일을 초과하는 값은 30일로 제한됩니다. 자세한 내용은 [카드 만료]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#card-expiration)를 참조하세요.
 {% endalert %}
 
 {% endtab %}
@@ -137,7 +137,7 @@ Content Cards의 최대 만료 기간은 컨텍스트 변수를 사용한 개인
 
 ### Canvas 컨텍스트 등록정보 사용 {#using-canvas-context-properties}
 
-Content Cards를 [Canvas 컨텍스트 등록정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)로 개인화할 때는 `${...}` 구문을 사용하세요(예: {%raw%}`{{context.${property_name}}}`{%endraw%}). 이 구문 없이 점 표기법을 사용하면(예: {%raw%}`{{context.property_name}}`{%endraw%}) 푸시나 이메일 같은 다른 채널에서는 작동하더라도 Content Cards에서는 올바르게 처리되지 않을 수 있습니다.
+Content Cards를 [Canvas 컨텍스트 등록정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)로 개인화할 때는 `${...}` 구문을 사용하세요(예: {%raw%}`{{context.${property_name}}}`{%endraw%}). 이 구문 없이 점 표기법을 사용하면(예: {%raw%}`{{context.property_name}}`{%endraw%}) 푸시나 이메일 같은 다른 채널에서는 작동하더라도 Content Cards에서는 올바르게 처리되지 않을 수 있습니다.
 
 ### 시작 후 카드 생성 방식 변경 {#changing-card-creation-after-launch}
 

@@ -12,7 +12,7 @@ channel: email
 > 이 문서에서는 Apple 유니버설 링크와 Android 앱 링크를 설정하는 방법을 설명합니다.
 
 {% alert tip %}
-모든 메시징 채널에서의 링크 유형 비교와 AASA 파일이 필요한 시점에 대한 안내는 [iOS 딥링킹 가이드]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/)를 참조하세요.
+모든 메시징 채널에서의 링크 유형 비교와 AASA 파일이 필요한 시점에 대한 안내는 [iOS 딥링킹 가이드]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide)를 참조하세요.
 {% endalert %}
 
 Apple 유니버설 링크와 Android 앱 링크는 웹 콘텐츠와 모바일 앱 간의 원활한 전환을 제공하기 위해 고안된 메커니즘입니다. 유니버설 링크는 iOS에 특화되어 있으며, Android 앱 링크는 Android 애플리케이션에서 동일한 목적을 수행합니다.
@@ -439,7 +439,7 @@ AASA 파일(iOS) 또는 Digital Asset Links 파일(Android)이 올바른 위치�
 
 앱이 열 수 있는 도메인에 대한 올바른 정의가 있는지 확인합니다.
 
-- **iOS:** Xcode에서 앱에 설정된 Associated Domains를 검토합니다([1c단계: Xcode 프로젝트에서 Associated Domains 활성화]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). 클릭 추적 도메인이 해당 목록에 포함되어 있는지 확인합니다.
+- **iOS:** Xcode에서 앱에 설정된 Associated Domains를 검토합니다([1c단계: Xcode 프로젝트에서 Associated Domains 활성화]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links?tab=ios#step-1c)). 클릭 추적 도메인이 해당 목록에 포함되어 있는지 확인합니다.
 - **Android:** 앱 정보 페이지를 엽니다(앱 아이콘을 길게 누르고 ⓘ를 클릭). 앱 정보 메뉴에서 **기본으로 열기**를 찾아 탭합니다. 앱이 열 수 있는 모든 확인된 링크가 표시되는 화면이 나타납니다. 클릭 추적 도메인이 해당 목록에 포함되어 있는지 확인합니다.
 
 #### 추적 도메인에서 .well-known 파일을 제공할 수 없는 경우 {#tracking-domain-cant-serve-well-known-files}

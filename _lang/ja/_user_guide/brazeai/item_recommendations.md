@@ -1,28 +1,28 @@
 ---
 nav_title: アイテムのおすすめ
-article_title: Braze でのアイテムのおすすめ
+article_title: Brazeでのアイテムのおすすめ
 page_order: 10
 search_rank: 1
-description: "Braze のアイテムレコメンデーションエンジンについてすべて学びます。"
+description: "Brazeのアイテムレコメンデーションエンジンについてすべて学びます。"
 ---
 
 # アイテムのおすすめ {#item-recommendations}
 
-> Braze でレコメンデーションを強化するには、ユーザーが実際に求めているアイテムやコンテンツを提案できるレコメンデーションエンジンを作成します。AIを使ったエクスペリエンスのカスタマイズから、Liquidやコネクテッドコンテンツを使った独自のエンジンの構築まで、すべてのおすすめを価値あるものにするために必要な情報がすべて揃っています。
+> Brazeでレコメンデーションを強化するには、ユーザーが実際に求めているアイテムやコンテンツを提案できるレコメンデーションエンジンを作成します。AIを使ったエクスペリエンスのカスタマイズから、Liquidやコネクテッドコンテンツを使った独自のエンジンの構築まで、すべてのおすすめを価値あるものにするために必要な情報がすべて揃っています。
 
 ## 前提条件 {#prerequisites}
 
-Braze でアイテムのおすすめを作成または使用する前に、[少なくとも1つのカタログを作成]({{site.baseurl}}/user_guide/data/activation/catalogs/create/)する必要があります&#8212;そのカタログのアイテムのみがユーザーにおすすめされます。
+Brazeでアイテムのおすすめを作成または使用する前に、[少なくとも1つのカタログを作成]({{site.baseurl}}/user_guide/data/activation/catalogs/create)する必要があります&#8212;そのカタログのアイテムのみがユーザーにおすすめされます。
 
 ## 種類とユースケース {#types-and-use-cases}
 
 ### AIパーソナライズ {#ai}
 
-[AI項目レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)機能の一環として、AIパーソナライズレコメンデーションはディープラーニングを活用し、ユーザーが過去に関心を示した内容に基づいて、次に最も興味を持ちそうなアイテムを予測します。この方法は、ユーザーの動作に適応するダイナミックでカスタマイズされたレコメンデーションシステムを提供します。
+[AI項目レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)機能の一環として、AIパーソナライズレコメンデーションはディープラーニングを活用し、ユーザーが過去に関心を示した内容に基づいて、次に最も興味を持ちそうなアイテムを予測します。この方法は、ユーザーの動作に適応するダイナミックでカスタマイズされたレコメンデーションシステムを提供します。
 
 AIパーソナライズレコメンデーションは、購入やカスタムイベントなど、過去6か月分のアイテムインタラクションデータを使用してレコメンデーションモデルを構築します。パーソナライズされたリストを作成するのに十分なデータがないユーザーには、最も人気のあるアイテムがフォールバックとして表示されるため、ユーザーは引き続き関連性の高い提案を受け取ることができます。
 
-AI項目レコメンデーションでは、[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/)を使用して利用可能なアイテムをさらに絞り込むこともできます。ただし、Liquidを使用したセレクションはAIレコメンデーションでは使用できないため、カタログのセレクションを作成する際にはその点に留意してください。
+AI項目レコメンデーションでは、[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)を使用して利用可能なアイテムをさらに絞り込むこともできます。ただし、Liquidを使用したセレクションはAIレコメンデーションでは使用できないため、カタログのセレクションを作成する際にはその点に留意してください。
 
 {% alert tip %}
 AIパーソナライズレコメンデーションは、数百から数千のアイテムがあり、通常、購入またはインタラクションデータを持つユーザーが30,000人以上いる場合に最も効果的です。これはあくまで目安であり、状況によって異なります。他のレコメンデーションタイプは、より少ないデータでも機能します。
@@ -42,17 +42,17 @@ AIパーソナライズレコメンデーションは、数百から数千のア
 {% details 要件 %}
 - AI項目レコメンデーション
 - 関連アイテムのカタログ
-- 購入の追跡方法: 購入オブジェクト、カスタムイベント、または[注文完了イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/?tab=ecommerce.order_placed)
+- 購入の追跡方法：購入オブジェクト、カスタムイベント、または[注文完了イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.order_placed)
 {% enddetails %}
 
 {% details 設定方法 %}
-1. [AI項目レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)を作成します。
+1. [AI項目レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)を作成します。
 2. **タイプ**を**AIパーソナライズ**に設定します。
 3. カタログを選択します。
-4. (オプション) セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。
+4. （オプション）セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。
 5. 購入イベントの現在の追跡方法と、対応するイベントプロパティを選択します。
 6. レコメンデーションをトレーニングします。
-7. [メッセージングでおすすめを使用します]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)。
+7. [メッセージングでおすすめを使用します]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)。
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -76,13 +76,13 @@ AIパーソナライズレコメンデーションは、数百から数千のア
 {% enddetails %}
 
 {% details 設定方法 %}
-1. [AI項目レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)を作成します。
+1. [AI項目レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)を作成します。
 2. **タイプ**を**最も人気**に設定します。
 3. カタログを選択します。
-4. (オプション) セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。たとえば、フードデリバリーサービスの場合、レストランのロケーションや料理のタイプでフィルタリングするセレクションが考えられます。
+4. （オプション）セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。たとえば、フードデリバリーサービスの場合、レストランのロケーションや料理のタイプでフィルタリングするセレクションが考えられます。
 5. 現在のイベント追跡方法と対応するイベントプロパティを選択します。
 6. レコメンデーションをトレーニングします。
-7. [メッセージングでおすすめを使用します]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)。
+7. [メッセージングでおすすめを使用します]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)。
 {% enddetails %}
 {% endtab %}
 
@@ -96,13 +96,13 @@ AIパーソナライズレコメンデーションは、数百から数千のア
 {% enddetails %}
 
 {% details 設定方法 %}
-1. [AI項目レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)を作成します。
+1. [AI項目レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)を作成します。
 2. **タイプ**を**最新**に設定します。
 3. カタログを選択します。
-4. (オプション) セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。
+4. （オプション）セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。
 5. **カスタムイベント**を選択し、リストから「いいね」のカスタムイベントを選択します。
 6. レコメンデーションをトレーニングします。
-7. [メッセージングでおすすめを使用します]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)。
+7. [メッセージングでおすすめを使用します]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)。
 {% enddetails %}
 {% endtab %}
 
@@ -116,13 +116,13 @@ AIパーソナライズレコメンデーションは、数百から数千のア
 {% enddetails %}
 
 {% details 設定方法 %}
-1. [AI項目レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)を作成します。
+1. [AI項目レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)を作成します。
 2. **タイプ**を**最も人気**に設定します。
 3. カタログを選択します。
-4. (オプション) セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。
+4. （オプション）セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。
 5. **カスタムイベント**を選択し、リストから閲覧のカスタムイベントを選択します。
 6. レコメンデーションをトレーニングします。
-7. [メッセージングでおすすめを使用します]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)。
+7. [メッセージングでおすすめを使用します]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)。
 {% enddetails %}
 {% endtab %}
 
@@ -138,13 +138,13 @@ AIパーソナライズレコメンデーションは、数百から数千のア
 {% enddetails %}
 
 {% details 設定方法 %}
-1. [AI項目レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)を作成します。
+1. [AI項目レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)を作成します。
 2. **タイプ**を**最も人気**に設定します。
 3. カタログを選択します。
-4. (オプション) セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。
+4. （オプション）セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。
 5. **カスタムイベント**を選択し、リストから「カートに追加」のカスタムイベントを選択します。
 6. レコメンデーションをトレーニングします。
-7. [メッセージングでおすすめを使用します]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)。
+7. [メッセージングでおすすめを使用します]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)。
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -168,13 +168,13 @@ AIパーソナライズレコメンデーションは、数百から数千のア
 {% enddetails %}
 
 {% details 設定方法 %}
-1. [AI項目レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)を作成します。
+1. [AI項目レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)を作成します。
 2. **タイプ**を**最新**に設定します。
 3. カタログを選択します。
-4. (オプション) セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。
+4. （オプション）セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。
 5. **カスタムイベント**を選択し、リストからクリックのカスタムイベントを選択します。
 6. レコメンデーションをトレーニングします。
-7. [メッセージングでおすすめを使用します]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)。
+7. [メッセージングでおすすめを使用します]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)。
 {% enddetails %}
 
 {% endtab %}
@@ -188,22 +188,22 @@ AIパーソナライズレコメンデーションは、数百から数千のア
 {% enddetails %}
 
 {% details 設定方法 %}
-1. [AI項目レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)を作成します。
+1. [AI項目レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)を作成します。
 2. **タイプ**を**最新**に設定します。
 3. カタログを選択します。
-4. (オプション) セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。
+4. （オプション）セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。
 5. **カスタムイベント**を選択し、リストから「いいね」のカスタムイベントを選択します。
 6. レコメンデーションをトレーニングします。
-7. [メッセージングでおすすめを使用します]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)。
+7. [メッセージングでおすすめを使用します]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)。
 {% enddetails %}
 {% endtab %}
 
 {% tab 最近エンゲージしたアイテム %}
 ユーザーが最近インタラクションしたアイテム（閲覧、クリック、購入など）を宣伝します。このアプローチにより、おすすめの内容を常に新鮮に保ち、ユーザーの最新の興味に沿ったものにできます。以下に例を示します。
 
-- **教育:** オンライン教育プラットフォームでは、最近教育動画を視聴したもののコースに登録していないユーザーに対して、類似のコースや興味のある科目をチェックするよう促すことで、ユーザーのエンゲージメントと学習意欲を維持できます。
-- **フィットネス:** フィットネスアプリでは、ユーザーが最近完了した、またはインタラクションしたものに似たワークアウトやチャレンジを提案することで、変化に富んだ魅力的なエクササイズルーティンを提供し続けることができます。
-- **ホームセンター:** 顧客が電動工具を購入した後に、最近の購入に基づいて関連アクセサリーや安全用品をおすすめし、ユーザーの体験と安全性を向上させることができます。
+- **教育：** オンライン教育プラットフォームでは、最近教育動画を視聴したもののコースに登録していないユーザーに対して、類似のコースや興味のある科目をチェックするよう促すことで、ユーザーのエンゲージメントと学習意欲を維持できます。
+- **フィットネス：** フィットネスアプリでは、ユーザーが最近完了した、またはインタラクションしたものに似たワークアウトやチャレンジを提案することで、変化に富んだ魅力的なエクササイズルーティンを提供し続けることができます。
+- **ホームセンター：** 顧客が電動工具を購入した後に、最近の購入に基づいて関連アクセサリーや安全用品をおすすめし、ユーザーの体験と安全性を向上させることができます。
 
 {% details 要件 %}
 - AI項目レコメンデーション
@@ -212,13 +212,13 @@ AIパーソナライズレコメンデーションは、数百から数千のア
 {% enddetails %}
 
 {% details 設定方法 %}
-1. [AI項目レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)を作成します。
+1. [AI項目レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)を作成します。
 2. **タイプ**を**最新**に設定します。
 3. カタログを選択します。
-4. (オプション) セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。
+4. （オプション）セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。
 5. **カスタムイベント**を選択し、リストからクリックのカスタムイベントを選択します。
 6. レコメンデーションをトレーニングします。
-7. [メッセージングでおすすめを使用します]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)。
+7. [メッセージングでおすすめを使用します]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)。
 {% enddetails %}
 {% endtab %}
 
@@ -232,13 +232,13 @@ AIパーソナライズレコメンデーションは、数百から数千のア
 {% enddetails %}
 
 {% details 設定方法 %}
-1. [AI項目レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)を作成します。
+1. [AI項目レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)を作成します。
 2. **タイプ**を**最新**に設定します。
 3. カタログを選択します。
-4. (オプション) セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。
+4. （オプション）セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。
 5. **カスタムイベント**を選択し、リストから「カートに追加」のカスタムイベントを選択します。
 6. レコメンデーションをトレーニングします。
-7. [メッセージングでおすすめを使用します]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)。
+7. [メッセージングでおすすめを使用します]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)。
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -264,13 +264,13 @@ AIパーソナライズレコメンデーションは、数百から数千のア
 {% enddetails %}
 
 {% details 設定方法 %}
-1. [AI項目レコメンデーション]({{site.baseurl}}/ai_item_recommendations/)を作成します。
+1. [AI項目レコメンデーション]({{site.baseurl}}/ai_item_recommendations)を作成します。
 2. **タイプ**を**トレンド**に設定します。
 3. カタログを選択します。
-4. (オプション) セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。
+4. （オプション）セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。
 5. 購入イベントまたは購入を追跡するカスタムイベントを、対応するプロパティとともに選択します。
 6. レコメンデーションをトレーニングします。
-7. [メッセージングでおすすめを使用します。]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)
+7. [メッセージングでおすすめを使用します。]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
 {% enddetails %}
 {% endtab %}
 
@@ -284,20 +284,20 @@ AIパーソナライズレコメンデーションは、数百から数千のア
 {% enddetails %}
 
 {% details 設定方法 %}
-1. [AI項目レコメンデーション]({{site.baseurl}}/ai_item_recommendations/)を作成します。
+1. [AI項目レコメンデーション]({{site.baseurl}}/ai_item_recommendations)を作成します。
 2. **タイプ**を**トレンド**に設定します。
 3. カタログを選択します。
-4. (オプション) セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。
+4. （オプション）セレクションを追加して、関連するアイテムのみにおすすめを絞り込みます。
 5. 「いいね」追跡のカスタムイベントを、対応するプロパティとともに選択します。
 6. レコメンデーションをトレーニングします。
-7. [メッセージングでおすすめを使用します。]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)
+7. [メッセージングでおすすめを使用します。]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
 
 ### セレクションベース {#selections-based}
 
-[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/)は、カタログデータの特定のグループです。セレクションを使用する場合、基本的にはカタログ内の特定の列に基づいてカスタムフィルターを設定します。これには、ブランド、サイズ、ロケーション、追加日などのフィルターが含まれます。ユーザーに表示するアイテムが満たすべき条件を定義できるため、おすすめする内容をコントロールできます。
+[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)は、カタログデータの特定のグループです。セレクションを使用する場合、基本的にはカタログ内の特定の列に基づいてカスタムフィルターを設定します。これには、ブランド、サイズ、ロケーション、追加日などのフィルターが含まれます。ユーザーに表示するアイテムが満たすべき条件を定義できるため、おすすめする内容をコントロールできます。
 
 前述の3つのタイプはすべて、Brazeでレコメンデーションモデルを設定してトレーニングするものです。これらのモデルでもセレクションを使用できますが、カタログのセレクションとLiquidパーソナライゼーションだけでも、いくつかのレコメンデーションユースケースを実現できます。
 
@@ -311,7 +311,7 @@ AIパーソナライズレコメンデーションは、数百から数千のア
 
 {% tabs local %}
 {% tab 新着アイテム %}
-このシナリオはユーザーのアクションに直接依存するのではなく、カタログデータに依存します。カタログへの追加日に基づいて新しいアイテムをフィルタリングし、ターゲットを絞ったキャンペーンやキャンバスを通じて宣伝できます。レコメンデーションモデルのトレーニングは不要です。
+このシナリオはユーザーのアクションに直接依存するのではなく、カタログデータに依存します。カタログへの追加日に基づいて新しいアイテムをフィルタリングし、ターゲットを絞ったCampaignsやCanvasesを通じて宣伝できます。レコメンデーションモデルのトレーニングは不要です。
 
 たとえば、テック系eコマースプラットフォームでは、フィルターを使用してカタログに最近追加されたアイテムをターゲットにし、最新のガジェットや今後の予約注文についてテック愛好家に通知できます。
 
@@ -321,11 +321,11 @@ AIパーソナライズレコメンデーションは、数百から数千のア
 
 {% details 設定方法 %}
 1. カタログに基づいてセレクションを作成します。カタログに、アイテムが追加された日付に対応する時間フィールド（**データタイプ**が**時間**に設定されたフィールド）があることを確認します。
-2. (オプション) 必要に応じてフィルターを追加します。
+2. （オプション）必要に応じてフィルターを追加します。
 3. **並べ替え順序をランダム化**がオフになっていることを確認します。
 4. **ソートフィールド**で、追加日フィールドを選択します。
 5. **並べ替え順序**を降順に設定します。
-6. [メッセージングでセレクションを使用します]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/#using-selections-in-messaging)。
+6. [メッセージングでセレクションを使用します]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#using-selections-in-messaging)。
 {% enddetails %}
 {% endtab %}
 
@@ -340,17 +340,17 @@ AIパーソナライズレコメンデーションは、数百から数千のア
 {% enddetails %}
 
 {% details 設定方法 %}
-1. カタログに基づいて[セレクションを作成]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/#creating-a-selection)します。
-2. (オプション) 必要に応じてフィルターを追加します。
+1. カタログに基づいて[セレクションを作成]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#creating-a-selection)します。
+2. （オプション）必要に応じてフィルターを追加します。
 3. **並べ替え順序をランダム化**をオンにします。
-4. [メッセージングでセレクションを使用します]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/#using-selections-in-messaging)。
+4. [メッセージングでセレクションを使用します]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#using-selections-in-messaging)。
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
 
 ### ルールベース {#rules-based}
 
-[ルールベースのレコメンデーション]({{site.baseurl}}/rules_based_recommendations/)エンジンは、ユーザーデータと製品情報を使用して、メッセージ内でユーザーに関連するアイテムを提案します。LiquidとBrazeのカタログまたはコネクテッドコンテンツを使用して、ユーザーの動作や属性に基づいてコンテンツをダイナミックにパーソナライズします。
+[ルールベースのレコメンデーション]({{site.baseurl}}/rules_based_recommendations)エンジンは、ユーザーデータと製品情報を使用して、メッセージ内でユーザーに関連するアイテムを提案します。LiquidとBrazeのカタログまたはコネクテッドコンテンツを使用して、ユーザーの動作や属性に基づいてコンテンツをダイナミックにパーソナライズします。
 
 ルールベースのレコメンデーションは、手動で設定する必要がある固定ロジックに基づいています。つまり、ロジックを更新しない限り、ユーザーの個々の購入履歴や好みに応じてレコメンデーションが調整されることはありません。そのため、この方法は頻繁な更新を必要としないレコメンデーションに最適です。
 
@@ -358,10 +358,10 @@ AIパーソナライズレコメンデーションは、数百から数千のア
 
 追跡しているインタラクションデータに基づき、このモデルのユースケースとして、次の例が考えられます。
 
-- **補充リマインダー:** 使用サイクルが予測できるアイテム（毎月のビタミン剤や毎週の食料品など）について、最終購入日に基づいて補充リマインダーを送信します。
-- **初回購入者:** 2回目の購入を促すために、初回購入者にスターターキットや導入オファーをおすすめします。
-- **ロイヤルティプログラム:** 顧客の現在のポイント残高に基づいて、ロイヤルティポイントや報酬を最大化できる製品を強調表示します。
-- **教育コンテンツ:** 以前に消費または購入した素材のトピックに基づいて、新しいコースやコンテンツを提案します。
+- **補充リマインダー：** 使用サイクルが予測できるアイテム（毎月のビタミン剤や毎週の食料品など）について、最終購入日に基づいて補充リマインダーを送信します。
+- **初回購入者：** 2回目の購入を促すために、初回購入者にスターターキットや導入オファーをおすすめします。
+- **ロイヤルティプログラム：** 顧客の現在のポイント残高に基づいて、ロイヤルティポイントや報酬を最大化できる製品を強調表示します。
+- **教育コンテンツ：** 以前に消費または購入した素材のトピックに基づいて、新しいコースやコンテンツを提案します。
 
 {% multi_lang_include brazeai/recommendations/ai.md section="Plan-specific features" %}
 

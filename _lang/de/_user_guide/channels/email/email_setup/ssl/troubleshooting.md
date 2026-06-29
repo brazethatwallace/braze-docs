@@ -24,7 +24,7 @@ Wenn Sie plötzlich niedrige E-Mail-Öffnungsraten feststellen, überprüfen Sie
 
 Wenn getrackte Weiterleitungslinks **403 Forbidden** zurückgeben, tritt der Fehler häufig bei Ihrem Content Delivery Network (CDN) oder Ihrer Web Application Firewall (WAF) auf – beispielsweise durch Regeln in AWS WAF oder Amazon CloudFront, die bestimmte User-Agents, Query-Strings oder Weiterleitungsmuster blockieren. Überprüfen Sie die Protokolle und Metriken blockierter Anfragen bei Ihrem CDN- oder Cloud-Anbieter. Für AWS siehe [Troubleshooting issues with CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html).
 
-Um festzustellen, ob das Problem spezifisch für das Klick-Tracking ist, deaktivieren Sie das Klick-Tracking für einen Testlink (siehe [Klick-Tracking auf Link-Ebene deaktivieren]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis)). Wenn die Ziel-URL geladen wird, wenn das Klick-Tracking deaktiviert ist, aber 403 zurückgibt, wenn das Tracking aktiviert ist, konzentrieren Sie sich auf die Konfiguration Ihrer Klick-Tracking-Domain, Ihres CDN und Ihrer WAF.
+Um festzustellen, ob das Problem spezifisch für das Klick-Tracking ist, deaktivieren Sie das Klick-Tracking für einen Testlink (siehe [Klick-Tracking auf Link-Ebene deaktivieren]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)). Wenn die Ziel-URL geladen wird, wenn das Klick-Tracking deaktiviert ist, aber 403 zurückgibt, wenn das Tracking aktiviert ist, konzentrieren Sie sich auf die Konfiguration Ihrer Klick-Tracking-Domain, Ihres CDN und Ihrer WAF.
 
 ## Probleme mit der Domain-Registrierung {#domain-registry-issues}
 
@@ -256,7 +256,7 @@ Verwenden Sie das folgende Template, um die CDN-Konfiguration Ihrer Tracking-Dom
 3. Senden Sie eine Test-E-Mail an sich selbst und klicken Sie auf beide Buttons.
 4. Überprüfen Sie, ob das erwartete Verhalten und die Erfolgskriterien den Beschreibungen im Template entsprechen.
 
-Wenn Ihre ungetrackte URL funktioniert, aber Ihre getrackte URL fehlschlägt, liegt möglicherweise eine Konfigurationslücke vor. Zur Fehlerbehebung lesen Sie die Dokumentation Ihres jeweiligen ESP- und CDN-Anbieters. Sie können auch [SSL bei Braze]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/) für detaillierte Anforderungen zur Zertifikatsbereitstellung lesen.
+Wenn Ihre ungetrackte URL funktioniert, aber Ihre getrackte URL fehlschlägt, liegt möglicherweise eine Konfigurationslücke vor. Zur Fehlerbehebung lesen Sie die Dokumentation Ihres jeweiligen ESP- und CDN-Anbieters. Sie können auch [SSL bei Braze]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl) für detaillierte Anforderungen zur Zertifikatsbereitstellung lesen.
 
 Verwenden Sie die folgende Tabelle, um häufige Fehler beim Testen des Klick-Trackings zu diagnostizieren.
 
