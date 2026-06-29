@@ -71,8 +71,17 @@ $toc_color: rgba($braze-purple-dark,0.6);
           display: block;
           height: 6px;
         }
-        div {
+        div,
+        li {
           padding-bottom: 5px;
+        }
+        ul.nav {
+          margin-left: 0;
+          padding-left: 0.5rem;
+          list-style: none;
+        }
+        ul.nav > li {
+          list-style: none;
         }
         a.nav-link {
           padding: 0 0 0 0;
@@ -115,7 +124,9 @@ $toc_color: rgba($braze-purple-dark,0.6);
       // border-bottom: 2px solid $toc_color;
       font-family: $braze-bold;
       font-size: $toc_font_size + 1;
-      margin-bottom: 6px;
+      margin: 0 0 6px 0;
+      line-height: 1.6;
+      font-weight: inherit;
     }
   }
 
