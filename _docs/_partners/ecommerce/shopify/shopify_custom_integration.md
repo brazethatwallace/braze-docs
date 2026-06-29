@@ -57,7 +57,7 @@ npm install --save @braze/web-sdk@5.4.0
 ```
 
 {% alert important %}
-The Braze Web SDK version must be 5.4.0.
+The Braze Web SDK version must be 5.4.0 or later.
 {% endalert %}
 
 Then, [include this setting]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) as a top-level key in your `vite.config.js` file:
