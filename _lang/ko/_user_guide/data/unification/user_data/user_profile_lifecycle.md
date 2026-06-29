@@ -68,11 +68,15 @@ description: "이 참조 문서에서는 Braze 고객 프로필 수명주기와 
 익명 프로필의 모든 데이터가 병합되는 것은 아닙니다. 푸시 토큰과 메시징 기록은 이전되며, 익명 프로필의 커스텀 속성, 커스텀 이벤트, 구매 기록은 식별된 고객 프로필에 해당 필드가 아직 존재하지 않는 경우에만 식별된 사용자에게 병합됩니다. 충돌하는 데이터가 있는 경우 식별된 사용자의 값이 유지됩니다. 이전되는 필드와 이전되지 않는 필드의 전체 목록은 [병합 동작]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior)을 참조하세요.
 {% endalert %}
 
-고객 프로필에 `external_id`를 설정하는 방법에 대한 자세한 내용은 설명서([iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=android), [웹]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web)를 참조하세요.
+고객 프로필에 `external_id`를 설정하는 방법에 대한 자세한 내용은 설명서([iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=android), [웹]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web))를 참조하세요.
 
 {% alert note %}
 고아화된 사용자는 메시지를 수신할 수 없습니다.
 {% endalert %}
+
+### 중복 사용자 병합 {#merging-duplicate-users}
+
+워크스페이스에서 중복 고객 프로필을 발견한 경우 REST API를 사용하여 병합할 수 있습니다. 사용자 병합 및 사용 가능한 방법에 대한 자세한 내용은 [중복 사용자 병합]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/)을 참조하세요.
 
 ## 사용자 별칭 {#user-aliases}
 
@@ -104,7 +108,7 @@ Braze `external_id` 이외의 식별자로 사용자를 참조하려면 고객 �
 
 알려진 고객 프로필에 사용자 별칭을 설정하여 외부에서 알려진 다른 ID로 해당 사용자를 참조할 수도 있습니다. 예를 들어, 사용자가 Braze 내에서 참조하고자 하는 비즈니스 인텔리전스 도구 ID(예: Amplitude ID)를 가지고 있을 수 있습니다.
 
-사용자 별칭을 설정하는 방법에 대한 자세한 내용은 각 플랫폼별 설명서([iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#aliasing-users), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_user_ids/#aliasing-users), [웹]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/#aliasing-users)를 참조하세요.
+사용자 별칭을 설정하는 방법에 대한 자세한 내용은 각 플랫폼별 설명서([iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#aliasing-users), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_user_ids/#aliasing-users), [웹]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/#aliasing-users))를 참조하세요.
 
 ![Braze에서 고객 프로필의 수명주기를 보여주는 흐름도입니다. 익명 사용자에 대해 changeUser()가 호출되면 해당 사용자는 식별된 사용자가 되고 데이터는 식별된 고객 프로필로 마이그레이션됩니다. 식별된 사용자에게는 Braze ID와 외부 ID가 있습니다. 이 시점에서 두 번째 익명 사용자가 changeUser()를 호출하면 식별된 사용자에 아직 존재하지 않는 사용자 데이터 필드가 병합됩니다. 식별된 사용자가 기존 고객 프로필에 별칭을 추가한 경우 데이터는 영향을 받지 않지만 별칭이 있는 식별된 사용자가 됩니다. 식별된 사용자와 별칭 라벨은 같지만 별칭 이름이 다른 세 번째 익명 사용자가 changeUser()를 호출하면 식별된 사용자에 존재하지 않는 모든 필드가 병합되고 식별된 고객 프로필의 별칭 라벨이 유지됩니다.]({% image_buster /assets/img_archive/Braze_User_flowchart.png %})
 

@@ -60,7 +60,7 @@ Use the `capture` tag and a Connected Content request to call DOTS.ECO's certifi
 ```  
 {% capture post_body %} 
 {  
-  "remote_user_email": "{{${email_address} | default: 'braze+nadav@dots.eco'}}",  
+  "remote_user_email": "{{${email_address} | default: 'braze+user@example.com'}}",  
   "app_token": "YOUR_DOTS.ECO_APP_TOKEN",  
   "impact_qty": 1,  
   "remote_user_id": "{{${user_id} | default: ${braze_id}}}",  

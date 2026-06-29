@@ -12,11 +12,11 @@ search_rank: 1
 
 # アプリ内メッセージテンプレートの作成 {#create-an-in-app-message-template}
 
-> **テンプレート** > **アプリ内メッセージテンプレート**を使用して、アプリ内メッセージやブラウザ内メッセージのレイアウトの再利用可能なライブラリーを構築できます。ドラッグ＆ドロップエディターからデザインを保存したり、[従来のエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)用の**カラープロファイル**や**CSSテンプレート**アセットを作成したりできます。
+> **コンテンツ** > **アプリ内メッセージ**を使用して、アプリ内メッセージやブラウザ内メッセージのレイアウトの再利用可能なライブラリーを構築できます。ドラッグ＆ドロップエディターからデザインを保存したり、[従来のエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)用の**カラープロファイル**や**CSSテンプレート**アセットを作成したりできます。
 
 ## ステップ 1:アプリ内メッセージテンプレートを開く {#step-1-open-in-app-message-templates}
 
-Brazeダッシュボードで、**テンプレート** > **アプリ内メッセージテンプレート**に移動します。
+Brazeダッシュボードで、**コンテンツ** > **アプリ内メッセージ**に移動します。
 
 ## ステップ 2:テンプレートの作成方法を選択する {#step-2-choose-how-to-create-a-template}
 
@@ -35,9 +35,9 @@ Brazeダッシュボードで、**テンプレート** > **アプリ内メッセ
 
 ## ステップ 3:テンプレートを管理する {#step-3-manage-your-templates}
 
-**テンプレート** > **アプリ内メッセージテンプレート**で、テンプレートのフィルタリング、検索、または編集のために開くことができます。他のテンプレートタイプと同様に、テンプレートを[複製]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates)したり[アーカイブ]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates)したりできます。テンプレートとメディアのワークフローの概要については、[テンプレート]({{site.baseurl}}/user_guide/messaging/templates/)を参照してください。
+**コンテンツ** > **アプリ内メッセージ**で、テンプレートのフィルタリング、検索、または編集のために開くことができます。他のテンプレートタイプと同様に、テンプレートを[複製]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates)したり[アーカイブ]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates)したりできます。テンプレートとメディアのワークフローの概要については、[テンプレート]({{site.baseurl}}/user_guide/messaging/templates/)を参照してください。
 
-テンプレートにアクセスするには権限が必要です。たとえば、「Campaigns、Canvases、カード、Content Blocks、フィーチャーフラグ、Segments、メディアライブラリ、ロケーション、プロモーションコード、およびユーザー設定センターへのアクセス」またはそれに相当する詳細な権限を付与して、アプリ内メッセージテンプレートの表示や編集を行えるようにします。詳細については、[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)を参照してください。
+アプリ内メッセージテンプレートにアクセスするには、アプリ内メッセージテンプレートの表示または編集を行うための[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)が必要です。
 
 ### カラープロファイルとCSSテンプレートの作成 {#reusable-color-profiles}
 

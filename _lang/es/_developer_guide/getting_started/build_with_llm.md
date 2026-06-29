@@ -76,7 +76,7 @@ Guarda la configuración y reinicia VS Code.
 {% endtabs %}
 
 {% alert note %}
-Context7 es diferente del [servidor MCP de Braze]({{site.baseurl}}/developer_guide/mcp_server/). Context7 proporciona a tu asistente de IA acceso a **la documentación de Braze**, mientras que el servidor MCP de Braze proporciona acceso de solo lectura a **los datos de tu espacio de trabajo de Braze** (como Campaigns, Segments y análisis). Puedes utilizar ambos juntos para disfrutar de una experiencia de desarrollo asistida por IA más completa.
+Context7 es diferente del [servidor MCP de Braze]({{site.baseurl}}/developer_guide/mcp_server/). Context7 proporciona a tu asistente de IA acceso a **la documentación de Braze**, mientras que el servidor MCP de Braze proporciona acceso de solo lectura a **los datos de tu espacio de trabajo de Braze** (como campañas, segmentos y análisis). Puedes utilizar ambos juntos para disfrutar de una experiencia de desarrollo asistida por IA más completa.
 {% endalert %}
 
 ## Redacción de prompts para el desarrollo del SDK de Braze {#writing-prompts-for-braze-sdk-development}
@@ -166,8 +166,8 @@ Puedes acceder a la documentación de la Guía para desarrolladores de Braze com
 
 | Archivo | Descripción |
 |------|-------------|
-| [llms.txt](https://www.braze.com/docs/developer_guide/llms.txt) | Un índice de las páginas de documentación para desarrolladores de Braze con títulos y descripciones. Utilízalo como punto de partida para descubrir la documentación disponible. |
-| [llms-full.txt](https://www.braze.com/docs/developer_guide/llms-full.txt) | La documentación completa para desarrolladores de Braze en un único archivo de texto sin formato, formateado para su uso con LLM. |
+| [llms.txt]({{site.baseurl}}/developer_guide/llms.txt) | Un índice de las páginas de documentación para desarrolladores de Braze con títulos y descripciones. Utilízalo como punto de partida para descubrir la documentación disponible. |
+| [llms-full.txt]({{site.baseurl}}/developer_guide/llms-full.txt) | La documentación completa para desarrolladores de Braze en un único archivo de texto sin formato, formateado para su uso con LLM. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Documentación en texto sin formato" }
 
 Estos archivos siguen el [estándar llms.txt](https://llmstxt.org/), una convención emergente para hacer que la documentación sea accesible para las herramientas de IA. Puedes hacer referencia a estos archivos directamente en tus prompts o pegar su contenido en un LLM como contexto.

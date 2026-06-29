@@ -61,7 +61,7 @@ guide_menu_list3:
 
 ---
 
-{% multi_lang_include early_access_beta_alert.md feature='Access to the Braze translation endpoints' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Access to the Braze translation endpoints' %}
 
 ## Como funcionam nossos endpoints de tradução {#how-our-translation-endpoints-work}
 

@@ -100,7 +100,7 @@ Vous n'avez pas besoin des extensions de segments pour utiliser les propriétés
 
 ### Étape 4 : Définir les paramètres d'actualisation (facultatif) {#step-4-designate-refresh-settings-optional}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ### Étape 5 : Enregistrer votre extension de segments {#step-5-save-your-segment-extension}
 

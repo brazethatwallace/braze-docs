@@ -12,7 +12,7 @@ noindex: true
 
 # Deep linking for iOS
 
-For introductory information on deep links, refer to our [User Guide article]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking). If you're looking to implement deep links for the first time in your Braze app, the steps below will get you started.
+For introductory information on deep links, refer to our [User Guide article]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking). If you're looking to implement deep links for the first time in your Braze app, the steps below will get you started.
 
 ## Step 1: Register a scheme
 
@@ -95,7 +95,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 {% endtab %}
 {% endtabs %}
 
-![]({% image_buster /assets/img_archive/deep_link.png %})
+![Example of deep link configuration in the Braze dashboard.]({% image_buster /assets/img_archive/deep_link.png %})
 
 # Universal links
 

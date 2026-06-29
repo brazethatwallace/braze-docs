@@ -16,7 +16,7 @@ _この統合は Adikteev によって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとAdikteevの統合により、Braze CRM Campaigns内でAdikteevの解約予測技術を活用し、リスクの高いユーザーSegmentsを優先的にターゲットにすることで、ユーザーリテンションを高めることができます。
+BrazeとAdikteevの統合により、Braze CRM キャンペーン内でAdikteevの解約予測技術を活用し、リスクの高いユーザーセグメントを優先的にターゲットにすることで、ユーザーリテンションを高めることができます。
 
 ## 前提条件 {#prerequisites}
 
@@ -31,14 +31,14 @@ BrazeとAdikteevの統合により、Braze CRM Campaigns内でAdikteevの解約�
 
 {% tabs %}
 {% tab オーディエンスフィルタリング %}
-解約リスクに基づいてオーディエンスSegmentsを絞り込みます。<br> Adikteevにより送信されるカスタム属性の名前と値は設定可能です。
+解約リスクに基づいてオーディエンスセグメントを絞り込みます。<br> Adikteevにより送信されるカスタム属性の名前と値は設定可能です。
 
-![Adikteevから送信されたカスタム属性をオーディエンスSegmentフィルターとして使用する方法の例を示すスクリーンショット。]({% image_buster /assets/img/adikteev/audience.png %})
+![Adikteevから送信されたカスタム属性をオーディエンスセグメントフィルターとして使用する方法の例を示すスクリーンショット。]({% image_buster /assets/img/adikteev/audience.png %})
 {% endtab %}
 {% tab メッセージターゲティング %}
-受信者の解約リスクに基づいてBrazeメッセージングCampaignsをカスタマイズします。
+受信者の解約リスクに基づいてBrazeメッセージングキャンペーンをカスタマイズします。
 
-![Adikteevから送信されたカスタム属性をCampaignターゲティングフィルターとして使用する例を示すスクリーンショット。]({% image_buster /assets/img/adikteev/campaign.png %})
+![Adikteevから送信されたカスタム属性をキャンペーンターゲティングフィルターとして使用する例を示すスクリーンショット。]({% image_buster /assets/img/adikteev/campaign.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -63,12 +63,12 @@ Brazeで**設定** > **APIキー**に移動します。**新しいAPIキーを�
 `user.track` エンドポイントは、ユーザーの詳細を更新するために使用されます。エンドポイントのレート制限、リクエストのバッチ処理、リクエストの詳細については、[APIドキュメント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を参照してください。
 
 {% alert tip %}
-API呼び出しの総数を削減するため、変更されたデータを更新する目的でのみAPI呼び出しを実行すべきであることを覚えておいてください。つまり、解約Segmentが変更されたユーザーだけを更新してください。
+API呼び出しの総数を削減するため、変更されたデータを更新する目的でのみAPI呼び出しを実行すべきであることを覚えておいてください。つまり、解約セグメントが変更されたユーザーだけを更新してください。
 {% endalert %}
 
 ## ユーザーとデバイスの識別子 {#user-and-device-identifiers}
 
-Brazeのユーザープロファイルは、任意のタイプのユーザーまたはデバイス識別子に関連付けることができます。使用できるオプションのリストは、データ収集をBrazeとどのように統合したかに応じて異なります。Adikteevでは、解約Segment情報を正しく送信するために、MMPとBrazeのユーザープロファイルの間で共通の識別子を見つける必要があります。
+Brazeのユーザープロファイルは、任意のタイプのユーザーまたはデバイス識別子に関連付けることができます。使用できるオプションのリストは、データ収集をBrazeとどのように統合したかに応じて異なります。Adikteevでは、解約セグメント情報を正しく送信するために、MMPとBrazeのユーザープロファイルの間で共通の識別子を見つける必要があります。
 
 ## データの保持と削除 {#data-retention-and-deletion}
 

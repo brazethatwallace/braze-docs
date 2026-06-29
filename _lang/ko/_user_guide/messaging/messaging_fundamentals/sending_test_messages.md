@@ -23,14 +23,14 @@ description: "이 참조 문서에서는 다양한 Braze 채널에서 테스트 
 
 ### 선택 사항: 콘텐츠 테스트 그룹 만들기 {#optional-create-a-content-test-group}
 
-테스트 사용자를 구성하는 편리한 방법은 [콘텐츠 테스트 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/)을 만드는 것입니다. 이 그룹에는 Campaigns에서 테스트 메시지를 받을 사용자 그룹이 포함됩니다. Campaign의 **테스트 수신자** 아래 **콘텐츠 테스트 그룹 추가** 필드에 이 테스트 그룹을 추가하면 개별 테스트 사용자를 만들거나 추가하지 않고도 테스트를 시작할 수 있습니다.
+테스트 사용자를 구성하는 편리한 방법은 [콘텐츠 테스트 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/)을 만드는 것입니다. 이 그룹에는 Campaign에서 테스트 메시지를 받을 사용자 그룹이 포함됩니다. Campaign의 **테스트 수신자** 아래 **콘텐츠 테스트 그룹 추가** 필드에 이 테스트 그룹을 추가하면 개별 테스트 사용자를 만들거나 추가하지 않고도 테스트를 시작할 수 있습니다.
 
 ## 2단계: 채널별 테스트 메시지 보내기 {#step-2-send-channel-specific-test-messages}
 
 테스트 메시지를 보내는 단계는 해당 채널에 대한 다음 섹션을 참조하세요.
 
 {% tabs local %}
-{% tab Banners %}
+{% tab 배너 %}
 
 {% alert important %}
 Braze에서 배너 메시지를 테스트하려면 먼저 Braze에서 배너 Campaign을 만들어야 합니다. 또한 테스트하려는 배치가 이미 [앱 또는 웹사이트에 배치]({{site.baseurl}}/developer_guide/banners/placements/)되어 있는지 확인하세요.
@@ -147,7 +147,7 @@ Content Cards가 전송된 후 개발자 콘솔의 [이벤트 사용자 로그](
 여기에서 메시지 설정과 콘텐츠를 검토하여 사용자가 특정 Content Card를 볼 수 없는 이유를 파악할 수 있습니다.
 
 {% endtab %}
-{% tab Email %}
+{% tab 이메일 %}
 
 1. 이메일 메시지를 작성합니다.
 2. **미리보기 및 테스트**를 선택합니다.
@@ -159,7 +159,7 @@ Content Cards가 전송된 후 개발자 콘솔의 [이벤트 사용자 로그](
 이메일 Campaign에 큰 이미지가 포함되어 있고 Outlook에서 예상대로 표시되지 않는 경우, CSS나 HTML로만 크기를 조정하는 대신 이미지 편집 또는 크기 조정 도구를 사용하여 이미지의 실제 파일 크기를 줄이는 것을 고려하세요.
 
 {% endtab %}
-{% tab In-app message %}
+{% tab 인앱 메시지 %}
 
 {% alert warning %}
 [콘텐츠 테스트 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) 또는 개별 사용자에게 테스트를 보내려면 보내기 전에 테스트 기기에서 푸시가 활성화되어 있어야 합니다. 예를 들어, 테스트 메시지가 표시되기 전에 알림을 탭하려면 iOS 기기에서 푸시가 활성화되어 있어야 합니다. {% endalert %}
@@ -233,7 +233,7 @@ Braze에는 세 세대의 인앱 메시지가 있습니다. 지원하는 세대�
 ![테스트 LINE 메시지.]({% image_buster /assets/img/line/test_preview.png %})
 
 {% endtab %}
-{% tab Push %}
+{% tab 푸시 %}
 
 #### 모바일 푸시 {#mobile-push}
 
@@ -242,6 +242,8 @@ Braze에는 세 세대의 인앱 메시지가 있습니다. 지원하는 세대�
 3. **테스트 보내기**를 선택하여 작성한 메시지를 기기에 보냅니다.
 
 ![테스트 푸시]({% image_buster /assets/img_archive/testpush.png %})
+
+선택한 사용자 중 일치하는 푸시 토큰이 없다는 오류가 표시되면 테스트 사용자가 선택한 플랫폼에 대해 유효한 푸시 토큰을 가지고 있지 않은 것입니다. 사용자가 앱에서 세션을 시작하고 해당 기기에서 푸시를 활성화해야 합니다. 자세한 내용은 [푸시 활성화 및 푸시 구독]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/)을 참조하세요.
 
 #### 웹 푸시 {#web-push}
 
@@ -257,7 +259,7 @@ Braze 대시보드에서 이미 푸시 메시지를 수락한 경우 화면 모�
 선택한 사용자 중 웹 푸시에 대한 일치하는 푸시 토큰이 없다는 오류가 표시되면 테스트 사용자가 선택한 플랫폼에 대해 유효한 푸시 토큰이 등록되어 있는지 확인하세요. 푸시 토큰을 받으려면 사용자가 기기에서 해당 앱에 대한 푸시 알림을 받도록 설정되어 있어야 합니다. 자세한 내용은 [푸시 활성화 및 푸시 구독]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/)을 참조하세요.
 
 {% endtab %}
-{% tab SMS/MMS and RCS %}
+{% tab SMS/MMS 및 RCS %}
 
 SMS, MMS 또는 RCS 메시지를 만든 후 휴대폰에 테스트 메시지를 보내 실시간으로 어떻게 보이는지 확인할 수 있습니다.
 
@@ -268,11 +270,9 @@ SMS, MMS 또는 RCS 메시지를 만든 후 휴대폰에 테스트 메시지를 
 ![테스트 SMS]({% image_buster /assets/img/sms_test.png %})
 
 {% endtab %}
-{% tab Webhook %}
+{% tab 웹훅 %}
 
 웹훅을 만든 후 테스트 전송을 수행하여 웹훅 응답을 확인할 수 있습니다. **테스트** 탭을 선택하고 **테스트 보내기**를 선택하여 제공된 웹훅 URL로 테스트 전송을 보냅니다. 특정 사용자로 응답을 미리보기 위해 개별 사용자를 선택할 수도 있습니다.
-
-![테스트 웹훅]({% image_buster /assets/img/webhook_test.png %})
 
 {% endtab %}
 {% tab WhatsApp %}
@@ -315,14 +315,14 @@ SMS, MMS 또는 RCS 메시지를 만든 후 휴대폰에 테스트 메시지를 
 
 임의의 사용자 또는 기존 사용자의 개별 필드를 편집하여 메시지 내 동적 콘텐츠를 테스트할 수 있습니다. **편집**을 선택하여 선택한 사용자를 수정할 수 있는 커스텀 사용자로 변환합니다.
 
-![편집 버튼이 있는 '사용자로 미리보기' 탭.]({% image_buster /assets/img_archive/edit_user_preview.png %}){: style="max-width:50%;"}
+![편집 버튼이 있는 사용자로 미리보기 탭.]({% image_buster /assets/img_archive/edit_user_preview.png %}){: style="max-width:50%;"}
 
 ### 커스텀 이벤트 속성정보로 개인화된 Campaign 테스트하기 {#testing-campaigns-personalized-with-custom-event-properties}
 
 [커스텀 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/)로 개인화된 Campaign을 테스트하는 것은 위에서 설명한 다른 유형의 Campaign 테스트와 약간 다릅니다.
 
 {% tabs local %}
-{% tab Trigger manually %}
+{% tab 수동 트리거 %}
 
 #### 방법 1: 수동으로 Campaign 트리거하기 {#method-1-triggering-campaign-manually}
 
@@ -354,7 +354,7 @@ Campaign이 트리거되고 이벤트 속성정보로 커스터마이징된 메�
 ![테스트 메시지 예시]({% image_buster /assets/img_archive/testeventproperties-message2.png %})
 
 {% endtab %}
-{% tab Test message %}
+{% tab 테스트 메시지 %}
 
 #### 방법 2: 자신에게 테스트 메시지 보내기 {#method-2-sending-yourself-a-test-message}
 
@@ -382,7 +382,7 @@ Liquid을 사용하여 값을 수동으로 입력하여 커스텀 이벤트 속�
 
 ## 제한 사항 {#limitations}
 
-테스트 메시지가 실제 사용자에게 전송되는 Campaigns 또는 Canvases와 동일하게 작동하지 않는 몇 가지 상황이 있습니다. 이러한 경우 이 동작을 검증하기 위해 제한된 테스트 사용자 세트에 Campaign 또는 Canvas를 시작하는 것을 고려하세요.
+테스트 메시지가 실제 사용자에게 전송되는 Campaign 또는 Canvas와 동일하게 작동하지 않는 몇 가지 상황이 있습니다. 이러한 경우 이 동작을 검증하기 위해 제한된 테스트 사용자 세트에 Campaign 또는 Canvas를 시작하는 것을 고려하세요.
 
 - 테스트 메시지에서 Braze 환경설정 센터를 보면 **환경설정 저장** 버튼이 회색으로 비활성화됩니다.
 - 인앱 메시지 및 Content Cards 테스트의 경우 타겟 사용자는 타겟 기기에 대한 푸시 토큰이 있어야 합니다.

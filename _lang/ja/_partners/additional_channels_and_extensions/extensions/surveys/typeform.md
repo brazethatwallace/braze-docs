@@ -29,7 +29,7 @@ BrazeとTypeformを統合することで、以下のことが可能になりま�
 
 ### ステップ1: TypeformのWebhookを受け入れるようにBrazeデータ変換を設定する {#step-1}
 
-{% multi_lang_include create_transformation.md location="typeform" %}
+{% multi_lang_include data_activation/create_transformation.md location="typeform" %}
 
 ### ステップ2: TypeformのWebhookを設定する {#step-2-set-up-typeform-webhooks}
 
@@ -339,7 +339,7 @@ Content-Type: application/json
 {% tabs local %}
 {% tab Input %}
 
-```javascript
+`````````javascript
 /* In the Typeform webhook payload each question is stored as a “title” within each object of the “fields” array. Our code defines a “title” variable where we store the value of each field title. */
 const titles = payload.form_response.definition.fields.map(field => field.title);
 
@@ -479,7 +479,7 @@ Typeformの隠しフィールドを使用して、Typeformの回答でこの情�
 {% tabs local %}
 {% tab Input %}
 
-```javascript
+`````````javascript
 /* In the Typeform webhook payload each question is stored as a “title” within each object of the “fields” array. Our code defines a “title” variable where we store the value of each field title. */
 const titles = payload.form_response.definition.fields.map(field => field.title);
 

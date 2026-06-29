@@ -85,9 +85,9 @@ Campaigns 또는 Canvases에서 할인 코드가 몇 번 참조되더라도 사�
 
 {% enddetails %}
 
-[1]: {% image_buster /assets/img/Shopify/configure_discount_codes.png %}
-[2]: {% image_buster /assets/img/Shopify/export_discount_codes.png %}
-[3]: {% image_buster /assets/img/Shopify/edited_codes_csv.png %}
-[4]: {% image_buster /assets/img/Shopify/liquid_code_snippet.png %}
-[5]: {% image_buster /assets/img/Shopify/liquid_promo_code.gif %}
-[6]: {% image_buster /assets/img/Shopify/user_update_step.png %}
+[1]: {% image_buster /assets/img/shopify/configure_discount_codes.png %}
+[2]: {% image_buster /assets/img/shopify/export_discount_codes.png %}
+[3]: {% image_buster /assets/img/shopify/edited_codes_csv.png %}
+[4]: {% image_buster /assets/img/shopify/liquid_code_snippet.png %}
+[5]: {% image_buster /assets/img/shopify/liquid_promo_code.gif %}
+[6]: {% image_buster /assets/img/shopify/user_update_step.png %}

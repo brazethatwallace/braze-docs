@@ -45,4 +45,4 @@ Todos os eventos enviados ao RudderStack incluirão o `external_user_id` do usu�
 
 A Braze suporta a exportação de todos os dados listados nos [glossários de eventos do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) para o RudderStack.
 
-A estrutura de carga útil dos dados exportados é a mesma que a estrutura de carga útil dos conectores HTTP personalizados, que pode ser visualizada no [repositório de exemplos para conectores HTTP personalizados](https://github.com/Appboy/currents-examples/tree/master/sample-data/Custom%20HTTP/users/behaviors).
+A estrutura da carga útil dos dados exportados é a mesma dos conectores HTTP personalizados, que pode ser visualizada no [repositório de exemplos para conectores HTTP personalizados](https://github.com/Appboy/currents-examples/tree/master/sample-data/Custom%20HTTP/users/behaviors).

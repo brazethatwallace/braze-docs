@@ -31,12 +31,14 @@ Bevor Sie auf Landing-Pages zugreifen, diese erstellen und veröffentlichen kön
 
 ## Tarifoptionen {#plan-tiers}
 
-Die Anzahl der veröffentlichten Landing-Pages und angepassten Domains, die Sie nutzen können, hängt von Ihrem Tariftyp ab: kostenlos oder kostenpflichtig (inkrementell).
+Die Anzahl der veröffentlichten Landing-Pages, angepassten Domains und Features, die Sie nutzen können, hängt von Ihrem Tariftyp ab: kostenlos oder kostenpflichtig (inkrementell).
 
 | Feature | Kostenloser Tarif | Kostenpflichtiger Tarif (inkrementell) |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | Veröffentlichte Landing-Pages | Fünf pro Unternehmen | 20 zusätzlich |
 | Angepasste Domains | Eine pro Unternehmen | Fünf zusätzlich |
+| [Liquid-Personalisierung]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/) | Nicht verfügbar | Verfügbar |
+| Vorausgefüllte Formularfelder | Nicht verfügbar | Verfügbar |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tarifoptionen" }
 
 ## Google Tag Manager zu einer Landing-Page hinzufügen {#adding-google-tag-manager-to-a-landing-page}

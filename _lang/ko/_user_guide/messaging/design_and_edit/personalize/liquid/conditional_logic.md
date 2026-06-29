@@ -67,10 +67,11 @@ This is a message from Braze! This is going to go to anyone who did not match th
 
 조건 로직에 `{% else %}` 문을 포함할 수 있습니다. 설정한 조건 중 어느 것도 충족되지 않으면, `{% else %}` 문이 전송할 메시지를 지정합니다. 이 예제에서는 사용자의 언어가 영어, 스페인어 또는 중국어가 아닌 경우 기본적으로 영어를 사용합니다.
 
-#### Case 및 when 태그 {#case-and-when-tags}
-{: #case-and-when-tags}
+#### `case`와 `when` {#case-and-when}
 
 `{% case %}`, `{% when %}`, `{% endcase %}`는 switch 문처럼 작동합니다. `case` 뒤에 하나의 표현식을 설정하면, 각 `when` 분기는 해당 표현식이 나열된 값과 같을 때 실행됩니다(Liquid는 내부적으로 동등 비교를 사용하며, `if`와 `elsif`를 `==`로 연결하는 것과 유사합니다). 하나의 `when` 태그에 쉼표 또는 `or`로 구분하여 여러 값을 나열할 수 있습니다. 일치하는 항목이 없을 때의 대체 처리에는 `{% else %}`를 사용하고, `{% endcase %}`로 닫습니다.
+
+`when` 값의 형식을 데이터 유형에 맞게 일치시켜야 합니다. 텍스트(예: 언어 코드)의 경우 따옴표를 사용합니다: `{% when 'es' %}`. 숫자의 경우 따옴표를 생략합니다: `{% when 2 %}`.
 
 ```liquid
 {% assign handle = 'cake' %}

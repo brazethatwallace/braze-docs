@@ -12,17 +12,17 @@ tool: Campaigns
 
 > This article provides answers to some frequently asked questions about campaigns.
 
-### How do I create a multichannel campaign?
+## How do I create a multichannel campaign?
 
-See [Multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns) in **Create a campaign** for setup steps and supported channels.
+See [Multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) in **Create a campaign** for setup steps and supported channels.
 
 ### Can I add a control group to my multichannel campaign?
 
-See [Control groups]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-control-groups) in **Create a campaign**. For cross-channel testing, use [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/).
+See [Control groups]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-control-groups) in **Create a campaign**. For cross-channel testing, use [Canvas]({{site.baseurl}}/user_guide/messaging/canvas).
 
 ### What are some ways I can start testing and optimizing campaigns?
 
-Multivariate campaigns and running Canvases with multiple variants are a great way to start! For example, you can run a [multivariate campaign]({{site.baseurl}}/user_guide/messaging/ab_testing/) to test out one message that has different copies or subject lines. Canvases with multiple variants can help test entire workflows.
+Multivariate campaigns and running Canvases with multiple variants are a great way to start! For example, you can run a [multivariate campaign]({{site.baseurl}}/user_guide/messaging/ab_testing) to test out one message that has different copies or subject lines. Canvases with multiple variants can help test entire workflows.
 
 ### Why did the open rate for my campaign decrease?
 
@@ -48,11 +48,11 @@ The same pattern applies to recurring campaigns and to re-eligibility: if two us
 
 ### Why can the number of conversions exceed the number of unique users for multichannel campaigns?
 
-See [Conversions and reporting]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-conversions) in **Create a campaign** and [Conversion tracking rules]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules) in **Conversion events**.
+See [Conversions and reporting]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-conversions) in **Create a campaign** and [Conversion tracking rules]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules) in **Conversion events**.
 
 ### Why does my campaign have a smaller reachable user base than the segment that I'm using for the campaign?
 
-If you have a [Global Control Group]({{site.baseurl}}/user_guide/audience/global_control_group/) set up, this will prevent a percentage of your reachable audience from receiving campaigns. This means that the number of reachable users for your segment can sometimes be larger than the number of reachable users for your campaign, even if the campaign is using that same segment.
+If you have a [Global Control Group]({{site.baseurl}}/user_guide/audience/global_control_group) set up, this will prevent a percentage of your reachable audience from receiving campaigns. This means that the number of reachable users for your segment can sometimes be larger than the number of reachable users for your campaign, even if the campaign is using that same segment.
 
 ### What does local time zone delivery offer?
 
@@ -64,7 +64,7 @@ For example, a London-based company sending a campaign at 12 pm will reach users
 
 Braze will automatically determine a user's time zone from their device. This ensures time zone accuracy and full coverage of your users. Users created through the User API or otherwise without a time zone will have your company's time zone as their default time zone until they are recognized in your app by the SDK. 
 
-You can check your company's time zone in your [company settings]({{site.baseurl}}/user_guide/administer/global/admin_settings/) on the dashboard.
+You can check your company's time zone in your [company settings]({{site.baseurl}}/user_guide/administer/global/admin_settings) on the dashboard.
 
 ### When does Braze evaluate users for local time zone delivery?
 
@@ -168,13 +168,17 @@ The number of users entering a campaign may differ from your expected number bec
 For further assistance with campaign troubleshooting, be sure to contact Braze Support within 30 days of your issue's occurrence, as we only have the last 30 days of diagnostic logs.
 {% endalert %}
 
+### Why did users receive my campaign twice after I edited it?
+
+If you edit a live campaign without stopping it first, users may receive the message twice. This happens because editing a live campaign re-enqueues users for the updated version while the original queue is still being processed. Users who haven't received the original message yet can end up in both queues. To prevent this, always [stop the campaign]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch#stopping-your-campaign) before making changes.
+
 ### What is the difference between the CSV Export User Data and CSV Export Email Address options on my campaign analytics page?
 
 Selecting the **CSV Export Email Addresses** option downloads data for only users with email addresses. For example, if you have a segment of 100,000 users, but only 50,000 of those users have email addresses, and you click **CSV Export Email Addresses**, the export contains only 50,000 rows of data. In comparison, selecting **CSV Export User Data** exports all user data.
 
 ### Can I search for a campaign by its API identifier?
 
-Yes, use the filter `api_id:YOUR_API_ID` on the **Campaigns** page to search for a campaign by its API identifier. Refer to [searching for campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/search_campaigns/) to learn more.
+Yes, use the filter `api_id:YOUR_API_ID` on the **Campaigns** page to search for a campaign by its API identifier. Refer to [searching for campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/search_campaigns) to learn more.
 
 ### Why does whitespace appear differently in input fields versus displayed text? 
 
@@ -189,6 +193,14 @@ For example, if you enter a campaign name or UTM parameter with multiple spaces 
 API-triggered campaigns allow you to manage campaign copy, multivariate testing, and re-eligibility rules within the Braze dashboard while triggering the delivery of that content from your own servers and systems. These messages can also include additional data to be templated into the messages in real time.
 
 API campaigns are used to track the messages sent using the API. Unlike most campaigns, you don't specify the message, recipients, or schedule but instead pass the identifiers into your API calls. 
+
+### How can I confirm if my users received an API-triggered campaign?
+
+You can [create a segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) using the **Received Campaign** filter, then select the specific API-triggered campaign you want to verify. After you save the segment, use the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) to export the users in that segment.
+
+### Can I delete a campaign?
+
+No, but you can [archive a campaign]({{site.baseurl}}/user_guide/messaging/governance/archiving).
 
 ### What is the difference between action-based and API-triggered campaigns?
 
@@ -221,7 +233,7 @@ API-triggered and server-triggered campaigns are ideal for handling more advance
 
 ### What should I include when submitting a support ticket for a "Request Timed Out" error?
 
-If you encounter a "Request Timed Out" error while creating or editing a campaign or Canvas and need to contact [Braze Support]({{site.baseurl}}/braze_support/), include the following information to help speed up resolution:
+If you encounter a "Request Timed Out" error while creating or editing a campaign or Canvas and need to contact [Braze Support]({{site.baseurl}}/braze_support), include the following information to help speed up resolution:
 
 - **Screen recording:** A recording of the steps you took before seeing the error, including any page transitions.
 - **Timestamp and time zone:** The exact time the error occurred and your time zone.
@@ -245,8 +257,8 @@ Several factors can cause the number of sends to be lower than the estimated aud
 
 - **Action-based delivery:** Users only generate sends after they perform the trigger, so sends accumulate over time and can trail the upfront estimate shown when you first built the campaign.
 - **Audience edits after launch:** Changing entry or target filters after launch can leave the **Estimated audience** snapshot out of sync with who still qualifies on later sends (for example, when users aren't eligible to re-enter).
-- **Audience Paths step:** For Canvas, an [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) step only messages users who match the highest-priority branch they qualify for, which can reduce sends versus a flat segment count.
-- **Control groups:** If a [Global Control Group]({{site.baseurl}}/user_guide/audience/global_control_group/) or campaign-level control group is in use, a portion of the audience is withheld from delivery.
+- **Audience Paths step:** For Canvas, an [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) step only messages users who match the highest-priority branch they qualify for, which can reduce sends versus a flat segment count.
+- **Control groups:** If a [Global Control Group]({{site.baseurl}}/user_guide/audience/global_control_group) or campaign-level control group is in use, a portion of the audience is withheld from delivery.
 - **Delivery timing and windows:** For local time zone or scheduled campaigns, users must qualify at both entry and send time; users in certain time zones may fall outside the delivery window.
 - **Email deduplication:** Your campaign or Canvas targets multiple users with matching emails, so a random user with that email address is chosen at the time of send. The message only sends once and is deduplicated so that it doesn’t send to the same email multiple times, but your estimated audience size includes all users.
 - **Email deliverability filters:** For email campaigns, Braze excludes users who have hard-bounced, unsubscribed from emails, been marked as spam, have no email address on their profile, or are not subscribed to a required subscription group. These checks run at send time, so a user present in your segment can still be excluded from the actual send count.
@@ -259,3 +271,22 @@ Several factors can cause the number of sends to be lower than the estimated aud
 - **Segment re-evaluation:** For action-based or scheduled campaigns that re-evaluate at send time, users who were in the segment when the campaign was enqueued may no longer qualify when the message is actually sent.
 - **Send caps:** A Maximum number of users (or similar cap) in **Target Audiences** stops delivery when the cap is hit.
 - **Strict device or browser filters:** Filters that only match the newest app versions or browsers shrink the reachable set at send time compared to a broad segment preview.
+
+### Where are frequently asked questions about global frequency capping?
+
+For questions about calendar days, silent push, webhooks, Canvas behavior, and related topics, see the [Frequently asked questions]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq) for [Rate limiting and frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).
+
+
+### Why can unique recipients exceed sends for email and SMS?
+
+For email and SMS, Braze increments **Unique recipients** before the ESP send attempt and increments **Sends** after a successful ESP response. Permanent errors (such as invalid email addresses) or duplicate addresses cause unique recipients to exceed sends.
+
+### Why doesn't **Last sent** match my scheduled send time?
+
+For a campaign with a single scheduled send, **Last sent** matches the launch time. For repeating campaigns with **Send in local time zone** enabled, **Last sent** can appear earlier than the scheduled time because sends to users in earlier time zones (for example, GMT vs. PST) complete before your workspace schedule time.
+
+### Why does a stopped historical campaign no longer show metrics on the **Analytics** page?
+
+The **Analytics** tab defaults to the last 90 days. If the campaign last sent outside that window, metrics can appear as zero until you adjust the date range on the **Analytics** page to include when the campaign sent. For more information, see [Campaign analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics).
+
+**Restore interaction data** does not restore campaign analytics. It applies only to retargeting filters and user interaction history. For more information, see [Messaging interaction data]({{site.baseurl}}/messaging_interaction_data).

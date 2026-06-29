@@ -68,7 +68,7 @@ En **Configuración de suscripción**, en **Enviar a estos usuarios:** seleccion
 
 #### Paso 4a: Añadir una ruta de acción {#step-4a-add-an-action-path}
 
-Bajo tu variante, selecciona el icono más y luego selecciona **Rutas de acción**.
+Bajo tu variante, selecciona <i class="fas fa-plus"></i> **Añadir** y luego selecciona **Rutas de acción**.
 
 ![Canvas con "Rutas de acción" en el menú que se abre con el icono más.]({% image_buster /assets/img/b2b/action_paths_simple.png %}){: style="max-width:60%;"}
 
@@ -105,7 +105,7 @@ En la pestaña **Redactar** de cada paso de actualización de usuario, haz lo si
 | **Nombre del atributo** | Selecciona el atributo de puntuación de clientes potenciales que seleccionaste en el paso 2 (`lead score`). |
 | **Acción** | Cambia la acción a **Incrementar por** si la ruta aumenta la puntuación o **Decrementar por** si la ruta disminuye la puntuación. |
 | **Incrementar por** o **Decrementar por** | Introduce el número de puntos que se aumentarán o disminuirán de la puntuación de clientes potenciales. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 4d: Añadir pasos de actualización de usuario" }
 
 ### Paso 5: Lanza tu Canvas {#step-5-launch-your-canvas}
 
@@ -161,7 +161,7 @@ Para actualizar el registro de clientes potenciales en Salesforce con el estado 
 
 2. Introduce la URL de tu webhook en el formato {% raw %}`https://YOUR_SALESFORCE_INSTANCE.my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %}. El ID de usuario de Braze {% raw %}`{{${user_id}}}`{% endraw %} debe coincidir con tu ID de contacto de Salesforce. Si no es así, utiliza un alias en lugar de {% raw %}`{{${user_id}}}`{% endraw %}.
 
-3. Actualiza el **HTTP Method** a **PATCH**.
+3. Actualiza el **método HTTP** a **PATCH**.
 
 4. Configura la carga útil para que solo actualice el registro de clientes potenciales en Salesforce si la puntuación del cliente potencial supera el umbral predefinido. Consulta el ejemplo de cuerpo de solicitud a continuación para una puntuación de cliente potencial superior a 100.
 
@@ -184,7 +184,7 @@ Para actualizar el registro de clientes potenciales en Salesforce con el estado 
 | --- | --- |
 | Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>Para recuperar un token, [configura una aplicación conectada](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) para el flujo de credenciales de cliente OAuth 2.0 y luego usa contenido conectado para recuperar el bearer de Salesforce: <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
 | Content-Type | application/json |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2a: Compose webhook" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2a: Redactar webhook" }
 
 ![Webhook que se compone con una URL de webhook de Salesforce, método HTTP PATCH, cuerpo de solicitud de texto sin formato y encabezados de solicitud.]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
 

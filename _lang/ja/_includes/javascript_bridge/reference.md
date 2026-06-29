@@ -50,19 +50,11 @@ window.addEventListener("ab.BridgeReady", function(){
 }
 </style>
 
-{% alert note %}
-Liquidを参照して、<code>customAttributes</code>をJavaScriptブリッジメソッドに挿入することはできません。
-{% endalert %}
-
 {% multi_lang_include archive/appboyBridge.md %}
 
 ### ボタンクリックのトラッキング {#button-click-tracking}
 
 カスタムHTML内のクリックをトラッキングするには、`brazeBridge.logClick(button_id)`メソッドを使用します。
-
-{% alert note %}
-**バナー：**引数なしの`brazeBridge.logClick()`のみがサポートされています。ボタンIDとカスタムボタントラッキングは、アプリ内メッセージでのみサポートされています。
-{% endalert %}
 
 アプリ内メッセージでは、`brazeBridge.logClick('0')`、`brazeBridge.logClick('1')`、`brazeBridge.logClick()`を使用して、それぞれ「ボタン1」、「ボタン2」、「本文クリック」をプログラムでトラッキングできます。
 
@@ -71,8 +63,8 @@ Liquidを参照して、<code>customAttributes</code>をJavaScriptブリッジ�
 | 本文クリック | `brazeBridge.logClick()` | アプリ内メッセージとバナー |
 | ボタン1 | `brazeBridge.logClick('0')` | アプリ内メッセージのみ |
 | ボタン2 | `brazeBridge.logClick('1')` | アプリ内メッセージのみ |
-| カスタムボタントラッキング | `brazeBridge.logClick('your custom name here')` | アプリ内メッセージのみ |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Button click tracking" }
+| カスタムボタントラッキング | `brazeBridge.logClick('your custom name here')` | アプリ内メッセージとバナー |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ボタンクリックのトラッキング" }
 
 アプリ内メッセージでは、1回のインプレッションごとに複数のボタンクリックイベントをトラッキングできます。例えば、メッセージを閉じてボタン2のクリックを記録するには：
 

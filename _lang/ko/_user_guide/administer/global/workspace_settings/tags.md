@@ -10,17 +10,18 @@ description: "이 참조 문서에서는 Braze 대시보드에서 태그를 관�
 
 > Campaigns, Canvases, Segments 전반에서 사용하는 태그를 중앙 위치에서 관리할 수 있습니다. 태그의 이름을 변경하거나, 제거하거나, 추가하려면 **설정** > **태그 관리**로 이동하세요.
 
-Campaigns, Canvases, Segments 및 커스텀 데이터에 태그를 추가하는 방법은 [태그]({{site.baseurl}}/user_guide/messaging/governance/tags/)를 참조하세요.
+Campaigns, Canvases, Segments 및 커스텀 데이터에 태그를 추가하는 방법은 [태그]({{site.baseurl}}/user_guide/messaging/governance/tags)를 참조하세요.
 
 ## 태그 중첩 {#nesting-tags}
 
 태그를 더 체계적으로 정리하려면 상위 태그 아래에 중첩할 수 있습니다. 예를 들어, 모든 휴일 태그를 상위 `Holidays` 태그 아래에 중첩하거나, 마케팅 퍼널의 특정 단계와 관련된 모든 태그를 상위 `Funnel` 태그 아래에 중첩할 수 있습니다.
 
-![중첩 그룹별로 정리된 태그 목록을 보여주는 태그 관리 페이지.]({% image_buster /assets/img_archive/tags_view.png %})
+- **새 태그 중첩:** 태그를 생성한 후 **Nest Tag Under**를 선택하고, 새 태그를 중첩할 기존 태그를 선택합니다.
+- **기존 태그 중첩:** **태그 관리** 페이지로 이동하여 해당 태그가 있는 행에 마우스를 올린 후 **<i class="fas fa-pencil-alt"></i>편집**을 선택합니다. 그런 다음 **Nest Tag Under**를 선택하고 상위 태그를 선택합니다.
 
-새 태그를 중첩하려면 태그를 생성한 후 **Nest Tag Under**를 선택하고, 새 태그를 중첩할 기존 태그를 선택합니다.
+### 상위 태그가 사용 중이지만 **Nest Tag Under**에 표시되지 않는 경우 {#parent-tag-is-in-use-but-missing-from-nest-tag-under}
 
-기존 태그를 중첩하려면 **태그 관리** 페이지로 이동하여 해당 태그가 있는 행에 마우스를 올린 후 **<i class="fas fa-pencil-alt"></i>Edit**를 선택합니다. 그런 다음 **Nest Tag Under**를 선택하고 상위 태그를 선택합니다.
+상위 태그가 대시보드에 적용되어 있지만 새 태그를 생성할 때 **Nest Tag Under** 드롭다운에 표시되지 않는 경우, 해당 상위 태그를 독립 태그로 다시 생성하면 목록에서 검색할 수 있게 됩니다. 이 동작은 상위 태그가 워크스페이스의 다른 곳에서 중첩 종속성으로만 존재하는 경우에 예상되는 동작입니다.
 
 ![Nest Tag Under 옵션이 선택된 새 태그 대화 상자.]({% image_buster /assets/img_archive/tag_nested.png %}){: style="max-width:70%;" }
 
@@ -37,7 +38,7 @@ table td {
 </style>
 
 
-<table aria-label="Best practices #tags-best-practices">
+<table aria-label="모범 사례">
   <caption>모범 사례</caption>
 <thead>
   <tr>
@@ -81,7 +82,7 @@ table td {
 
 ### 보고서 {#reporting}
 
-특정 태그가 있는 모든 Campaign의 볼륨을 모니터링하기 위해 인게이지먼트 보고서를 설정합니다. 예를 들어, 모든 푸시 Campaign을 모니터링하려면 해당 Campaign에 `Push Reporting`과 같은 태그를 추가한 다음, 태그가 지정된 Campaign의 보고서를 매일 전송하도록 [인게이지먼트 보고서]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases)를 설정할 수 있습니다.
+특정 태그가 있는 모든 Campaign의 볼륨을 모니터링하기 위해 인게이지먼트 보고서를 설정합니다. 예를 들어, 모든 푸시 Campaign을 모니터링하려면 해당 Campaign에 `Push Reporting`과 같은 태그를 추가한 다음, 태그가 지정된 Campaign의 보고서를 매일 전송하도록 [인게이지먼트 보고서]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#automatically-select-campaigns-or-canvases)를 설정할 수 있습니다.
 
 {% endtab %}
 {% endtabs %}

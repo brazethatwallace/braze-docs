@@ -16,7 +16,7 @@ description: "이 문서에서는 식별자별 사용자 내보내기 Braze 엔�
 
 > 이 엔드포인트를 사용하여 사용자 식별자를 지정하여 모든 사용자 프로필에서 데이터를 내보낼 수 있습니다.
 
-하나의 요청에 최대 50개의 `external_ids` 또는 `user_aliases`를 포함할 수 있습니다. `device_id`, `email_address`, `phone` 중 하나를 지정하려는 경우 요청당 이 식별자 중 하나만 포함할 수 있습니다.
+하나의 요청에 최대 50개의 `external_ids` 또는 `user_aliases`를 포함할 수 있습니다. `device_id`, `email_address`, `phone`을 지정하려는 경우 요청당 이 식별자 중 하나만 포함할 수 있습니다.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#b9750447-9d94-4263-967f-f816f0c76577 {% endapiref %}
 
@@ -62,7 +62,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `email_address` | 선택 사항 | 문자열 | 사용자의 이메일 주소입니다. |
 | `phone` | 선택 사항 | [E.164](https://en.wikipedia.org/wiki/E.164) 형식의 문자열 | 사용자의 전화번호입니다. |
 | `fields_to_export` | 선택 사항* | 문자열 배열 | 내보낼 사용자 데이터 필드의 이름입니다.<br><br>*초당 40건의 빠른 사용량 제한을 사용하려면 이 필드가 필수입니다. 생략하면 기본값인 분당 250건의 요청 제한이 대신 사용됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 *2024년 8월 22일 이후에 Braze에 온보딩한 고객에게 필수입니다.
 
@@ -123,7 +123,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 | `total_revenue` | 플로트 | 이 사용자에게 귀속된 총 매출입니다. 총 매출은 사용자가 수신한 Campaign 및 Canvases의 전환 기간 동안 수행한 구매를 기반으로 계산됩니다. |
 | `uninstalled_at` | 타임스탬프 | 사용자가 앱을 삭제한 날짜와 시간입니다. 앱이 삭제되지 않은 경우 생략됩니다. |
 | `user_aliases` | 오브젝트 | `alias_name` 및 `alias_label`을 포함하는 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification)(있는 경우)입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fields to export" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="내보낼 필드" }
 
 `/users/export/ids` 엔드포인트는 수신한 모든 Campaign 및 Canvases, 수행한 모든 커스텀 이벤트, 모든 구매, 모든 커스텀 속성 등의 데이터를 포함하여 이 사용자의 전체 사용자 프로필을 가져온다는 점에 유의하세요. 결과적으로 이 엔드포인트는 다른 REST API 엔드포인트보다 속도가 느립니다.
 
@@ -146,7 +146,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 사용자 내보내기 오브젝트(가능한 최소한의 데이터만 포함 - 오브젝트에서 필드가 누락된 경우 null 또는 비어있는 것으로 가정해야 합니다):
 
 {% tabs %}
-{% tab All fields %}
+{% tab 모든 필드 %}
 
 ```json
 {
@@ -215,7 +215,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
         "platform" : (string),
         "token" : (string),
         "device_id": (string),
-        "notifications_enabled": (boolean) whether foreground push notifications are enabled for this token. `true` means foreground push is enabled for the token, and `false` means foreground push is disabled (for example, background-only). This is device-level and doesn't indicate the user's global push subscription status
+        "notifications_enabled": (boolean) whether foreground push notifications are enabled for this token. `true` means foreground push is enabled for the token, and `false` means foreground push is disabled (for example, background-only). This is device-level and doesn't indicate the user's global push subscription status,
+        "provisionally_opted_in": (boolean) included for iOS and Android tokens only. Indicates whether the token is in a provisional push authorization state. `true` means the token is provisionally opted in (notifications are delivered quietly), `false` means the token isn't provisional (the user has explicitly authorized or denied push), and `null` means provisional status isn't set. Provisional authorization applies to iOS; Android tokens report `null`
       },
       ...
     ],
@@ -288,7 +289,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 ```
 
 {% endtab %}
-{% tab Sample output %}
+{% tab 샘플 출력 %}
 
 ```json
 {
@@ -361,7 +362,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
         "platform": "Android",
         "token": "12345abcd",
         "device_id": "312ef2c1-83db-4789-967-554545a1bf7a",
-        "notifications_enabled": true
+        "notifications_enabled": true,
+        "provisionally_opted_in": null
       },
       ...
     ],

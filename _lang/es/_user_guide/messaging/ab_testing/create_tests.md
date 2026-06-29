@@ -11,7 +11,7 @@ local_redirect: #optimizations
 
 # Crear pruebas multivariantes y pruebas A/B {#creating-tests}
 
-> Puedes crear una prueba multivariante o A/B para cualquier campaña que se dirija a un solo canal y un solo dispositivo. Por ejemplo, si quieres usar pruebas multivariantes o A/B para una campaña push, puedes dirigirte solo a dispositivos iOS o solo a dispositivos Android, pero no a ambos tipos de dispositivo en la misma campaña.
+> Puedes crear una prueba multivariante o A/B para cualquier campaña que se dirija a un solo canal. Por ejemplo, si quieres usar pruebas multivariantes o A/B para una campaña push, puedes dirigirte a dispositivos iOS y Android en la misma campaña.
 
 ![El menú desplegable que aparece al seleccionar el botón "Create Campaign" para elegir entre multicanal o canal único.]({% image_buster /assets/img/ab_create_1.png %}){: style="max-width:25%;float:right;margin-left:15px;" }
 
@@ -26,7 +26,7 @@ Puedes crear hasta ocho variantes de tu mensaje, diferenciando entre títulos, c
 
 Para obtener ideas sobre cómo empezar a diferenciar tus variantes, consulta [Consejos para diferentes canales](#tips-different-channels).
 
-![Seleccionar "Add Variant" para una campaña.]({% image_buster /assets/img/ab_create_2.png %})
+![Seleccionar "Añadir variante" para una campaña.]({% image_buster /assets/img/ab_create_2.png %})
 
 ## Paso 3: Planifica tu campaña {#step-3-schedule-your-campaign}
 
@@ -90,7 +90,7 @@ Dependiendo del canal que selecciones, puedes probar diferentes componentes de t
 | Push | Texto <br> Uso de imágenes y emojis <br> Vínculos profundos <br> Presentación de números (por ejemplo, "triple" versus "aumento del 200 %") <br> Presentación del tiempo (por ejemplo, "termina a medianoche" versus "termina en 6 horas") | Aperturas <br> Tasa de conversión |
 | Correo electrónico | Asunto <br> Nombre para mostrar <br> Saludo <br> Cuerpo del texto <br> Uso de imágenes y emojis <br> Presentación de números (por ejemplo, "triple" versus "aumento del 200 %") <br> Presentación del tiempo (por ejemplo, "termina a medianoche" versus "termina en 6 horas") | Aperturas <br> Tasa de conversión |
 | Mensaje dentro de la aplicación | Aspectos listados para "push" <br> [Especificaciones de imagen para mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#in-app-messages) | Clic <br> Tasa de conversión |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Consejos para diferentes canales" }
 
 {% alert tip %}
 Al ejecutar pruebas A/B, no olvides generar [informes de embudo]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/) que te permitan entender cómo cada variante impactó tu embudo de conversión, especialmente si la "conversión" para tu negocio implica realizar múltiples pasos o acciones.

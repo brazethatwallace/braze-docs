@@ -25,7 +25,7 @@ La integración de Braze y Microsoft Azure Blob Storage te permite exportar dato
 | ----------- | ----------- |
 | Cuenta de almacenamiento de Microsoft Azure y Azure | Se necesita una cuenta de Microsoft Azure y de almacenamiento Azure para aprovechar esta asociación. |
 | Currents | Para exportar datos a Currents, debes tener configurado [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) para tu cuenta. Currents no es necesario si solo estás configurando el archivado de mensajes. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -37,7 +37,7 @@ En Microsoft Azure, ve a **Storage Accounts** en la barra lateral y haz clic en 
 
 Aunque ya tengas una cuenta de almacenamiento, te recomendamos que crees una nueva específicamente para tus datos de Braze.
 
-![]({% image_buster /assets/img/azure-currents-step-1.png %})
+![Página de creación de cuenta de almacenamiento de Microsoft Azure en la pestaña Basics, con el campo de nombre de la cuenta de almacenamiento resaltado.]({% image_buster /assets/img/azure-currents-step-1.png %})
 
 ### Paso 2: Obtener la cadena de conexión {#step-2-get-the-connection-string}
 
@@ -49,7 +49,7 @@ Microsoft proporciona dos claves de acceso para mantener las conexiones utilizan
 Braze utiliza la cadena de conexión de este menú, no la clave.
 {% endalert %}
 
-![]({% image_buster /assets/img/azure-currents-step-2.png %})
+![Página de claves de acceso de una cuenta de almacenamiento Azure, con el campo de cadena de conexión bajo key1 resaltado.]({% image_buster /assets/img/azure-currents-step-2.png %})
 
 ### Paso 3: Crear un contenedor de servicio blob {#step-3-create-a-blob-service-container}
 
@@ -57,7 +57,7 @@ Navega hasta el menú **Blobs** en la sección **Blob Service** de tu cuenta de 
 
 Proporciona un nombre para tu contenedor de servicio blob. No será necesario actualizar otras configuraciones predeterminadas.
 
-![]({% image_buster /assets/img/azure-currents-step-3.png %})
+![Página de blobs de una cuenta de almacenamiento Azure en Blob Service, con la opción de añadir un contenedor.]({% image_buster /assets/img/azure-currents-step-3.png %})
 
 ### Paso 4: Configurar Currents {#step-4-set-up-currents}
 
@@ -94,7 +94,13 @@ Los usuarios que hayan integrado una solución de almacenamiento de datos en la 
 - Todos los informes del dashboard y los informes CSV se enviarán al correo electrónico del usuario para su descarga (sin necesidad de permisos de almacenamiento) y se realizará una copia de seguridad en el almacenamiento de datos.
 
 {% alert important %}
-**Requisito de formato JSON**: Para las exportaciones JSON, Braze utiliza el formato JSONL (JSON delimitado por nuevas líneas), en el que cada línea contiene un objeto JSON independiente. Este formato difiere del JSON estándar, que es una única matriz u objeto JSON. Cada línea del archivo exportado es un objeto JSON válido, pero el archivo en su conjunto no es un único documento JSON válido. Al procesar estos archivos, analiza cada línea individualmente como un objeto JSON distinto, en lugar de intentar analizar todo el archivo como un único documento JSON.
-
-Las exportaciones de Currents utilizan el formato Apache Avro (archivos `.avro`), no JSON. Este requisito de formato JSON se aplica a las exportaciones de datos del dashboard y a las exportaciones de API que utilizan el formato JSON.
+**Requisito de formato JSON**: Para las exportaciones JSON, Braze utiliza el formato [JSONL](https://jsonlines.org/) (JSON delimitado por nuevas líneas), en el que cada línea contiene un objeto JSON independiente. Este formato difiere del JSON estándar, que es una única matriz u objeto JSON. Cada línea del archivo exportado es un objeto JSON válido, pero el archivo en su conjunto no es un único documento JSON válido. Al procesar estos archivos, analiza cada línea individualmente como un objeto JSON distinto, en lugar de intentar analizar todo el archivo como un único documento JSON. <br><br> Las exportaciones de Currents utilizan el formato [Apache Avro](https://avro.apache.org/) (archivos `.avro`), no JSON. Este requisito de formato JSON se aplica a las exportaciones de datos del dashboard y a las exportaciones de API que utilizan el formato JSON.
 {% endalert %}
+
+## Preguntas frecuentes {#faq}
+
+### ¿Puede Braze proporcionar direcciones IP para incluir en la lista de permitidos de Azure Blob Storage? {#can-braze-provide-ip-addresses-to-allowlist-for-azure-blob-storage}
+
+Braze no publica una lista fija de IP permitidas para Currents ni para las exportaciones del dashboard a Azure Blob Storage. Braze escribe en tu contenedor utilizando la cadena de conexión y el nombre del contenedor que proporcionas, y Azure controla el acceso a la red a través de la configuración de tu cuenta de almacenamiento (por ejemplo, reglas de firewall en la cuenta de almacenamiento o puntos de conexión privados).
+
+Si tu equipo de seguridad requiere restricciones basadas en IP, utiliza las características de red de Azure en tu cuenta de almacenamiento en lugar de una lista de IP de Braze. Para conocer los pasos de configuración, consulta la [documentación de Microsoft sobre la protección de Azure Storage](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security).

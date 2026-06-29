@@ -4,12 +4,12 @@ article_title: Fondamentaux de l'envoi de messages
 layout: dev_guide
 page_order: 1
 guide_top_header: "Fondamentaux"
-guide_top_text: "Définissez qui reçoit votre message, quand il est envoyé et comment vous mesurez le succès. Ces concepts s'appliquent que vous utilisiez une <a href='/docs/user_guide/get_started/campaigns_and_canvases'>Campaign ou un Canvas</a>."
+guide_top_text: "Définissez qui reçoit votre message, quand il est envoyé et comment vous mesurez le succès, que vous utilisiez une <a href='/docs/user_guide/get_started/campaigns_and_canvases'>campagne ou un Canvas</a>. Cette section couvre le ciblage d'audience, les types de distribution et d'entrée, le suivi des événements de conversion, la limite de fréquence, les règles de rééligibilité, la localisation, l'accessibilité et la checklist de pré-lancement. Passez en revue ces concepts avant de créer vos messages afin d'atteindre les bons utilisateurs sans les submerger."
 page_type: landing
 tool:
   - Campaigns
   - Canvas
-description: "Concepts partagés par les Campaigns et les Canvas : ciblage, distribution, événements de conversion et workflow de pré-lancement."
+description: "Concepts partagés par les campagnes et les Canvas : ciblage, distribution, événements de conversion et workflow de pré-lancement."
 
 guide_featured_title: "Articles de la section"
 guide_featured_list:
@@ -19,13 +19,16 @@ guide_featured_list:
   - name: Types de distribution et d'entrée
     link: /docs/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types
     image: /assets/img/braze_icons/line-chart-up-01.svg
+  - name: Dispatch ID
+    link: /docs/user_guide/messaging/messaging_fundamentals/dispatch_id
+    image: /assets/img/braze_icons/key-01.svg
   - name: Rééligibilité
     link: /docs/user_guide/messaging/messaging_fundamentals/re_eligibility
     image: /assets/img/braze_icons/users-01.svg
   - name: Événements de conversion
     link: /docs/user_guide/messaging/messaging_fundamentals/conversion_events
     image: /assets/img/braze_icons/edit-05.svg
-  - name: Limites de débit et limites de fréquence
+  - name: Limite de débit et limite de fréquence
     link: /docs/user_guide/messaging/messaging_fundamentals/frequency_capping
     image: /assets/img/braze_icons/bar-chart-01.svg
   - name: Localisation

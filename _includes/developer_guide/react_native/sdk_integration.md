@@ -14,11 +14,17 @@ Starting with SDK version 6.0.0, Braze uses a React Native Turbo Module, which i
 If your iOS app conforms to `RCTAppDelegate` and follows our previous `AppDelegate` setup, review the samples in [Complete native setup](#reactnative_step-2-complete-native-setup) to prevent crashes when subscribing to events in the Turbo Module.
 {% endalert %}
 
+## React and React Native version requirements
+
+Braze doesn't publish separate minimum React versions beyond what the React Native SDK supports. To integrate the SDK, use React Native version 0.71 or later. For the full list of supported React Native versions, see the [React Native SDK GitHub repository](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support).
+
+When you upgrade React, React Native, or the Braze SDK, review the SDK [CHANGELOG](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md) for breaking changes before you deploy.
+
 ## Integrating the React Native SDK
 
 ### Prerequisites
 
-To integrate the SDK, React Native version 0.71 or later is required. For the full list of supported versions, see our [React Native SDK GitHub repository](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support).
+For supported React Native versions and upgrade guidance, see [React and React Native version requirements](#react-and-react-native-version-requirements).
 
 ### Step 1: Integrate the Braze library
 
@@ -67,7 +73,7 @@ In your `app.json`, add the Braze Expo plugin. The API key and endpoint are no l
 | `enableFirebaseCloudMessaging`                | boolean | Android only. Whether to use Firebase Cloud Messaging for push notifications.             |
 | `firebaseCloudMessagingSenderId`              | string  | Android only. Your Firebase Cloud Messaging sender ID.                                    |
 | `sessionTimeout`                              | integer | The Braze session timeout for your application in seconds.                                                                                               |
-| `enableSdkAuthentication`                     | boolean | Whether to enable the [SDK Authentication](https://www.braze.com/docs/developer_guide/platform_wide/sdk_authentication#sdk-authentication) feature.      |
+| `enableSdkAuthentication`                     | boolean | Whether to enable the [SDK Authentication]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication#sdk-authentication) feature.      |
 | `logLevel`                                    | integer | The log level for your application. The default log level is 8 and minimally logs info. To enable verbose logging for debugging, use log level 0.    |
 | `minimumTriggerIntervalInSeconds`             | integer | The minimum time interval in seconds between triggers. Defaults to 30 seconds.                                                                           |
 | `enableAutomaticLocationCollection`           | boolean | Whether automatic location collection is enabled (if the user permits).                                                                                  |
@@ -426,7 +432,7 @@ In your `app.json`, add the Braze Expo plugin. You can provide the following con
 | `enableFirebaseCloudMessaging`                | boolean | Android only. Whether to use Firebase Cloud Messaging for push notifications. Introduced in React Native SDK v1.38.0 and Expo Plugin v0.4.0.             |
 | `firebaseCloudMessagingSenderId`              | string  | Android only. Your Firebase Cloud Messaging sender ID. Introduced in React Native SDK v1.38.0 and Expo Plugin v0.4.0.                                    |
 | `sessionTimeout`                              | integer | The Braze session timeout for your application in seconds.                                                                                               |
-| `enableSdkAuthentication`                     | boolean | Whether to enable the [SDK Authentication](https://www.braze.com/docs/developer_guide/platform_wide/sdk_authentication#sdk-authentication) feature.      |
+| `enableSdkAuthentication`                     | boolean | Whether to enable the [SDK Authentication]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication#sdk-authentication) feature.      |
 | `logLevel`                                    | integer | The log level for your application. The default log level is 8 and minimally logs info. To enable verbose logging for debugging, use log level 0.    |
 | `minimumTriggerIntervalInSeconds`             | integer | The minimum time interval in seconds between triggers. Defaults to 30 seconds.                                                                           |
 | `enableAutomaticLocationCollection`           | boolean | Whether automatic location collection is enabled (if the user permits).                                                                                  |

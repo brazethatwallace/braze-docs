@@ -50,7 +50,7 @@ Hier sind einige Beispiele für gängige Anwendungsfälle von Web-Push-Nachricht
 | App-Download | Leiten Sie Web-Nutzer:innen zu Ihrer mobilen App, damit sie noch mehr Wert aus Ihren Produkten ziehen können. Nutzen Sie Personalisierung, um App-Vorteile basierend auf ihren aktuellen Engagement-Mustern hervorzuheben. |
 | Rabatte und Aktionen | Steigern Sie das Bewusstsein der Kund:innen für zeitlich begrenzte Ereignisse und Aktionen. Kommunizieren Sie über mehrere Kanäle, einschließlich Web-Push, um die Bekanntheit der Aktionen Ihrer Marke zu erhöhen. |
 | Abgebrochener Einkauf | Senden Sie automatisierte Erinnerungen an Nutzer:innen, die ihre Transaktionen nicht abgeschlossen haben, um sie zurück zum Checkout-Prozess zu bringen. <br><br>Untersuchungen von Braze haben ergeben, dass Web-Push 53 % effektiver als E-Mail und 23 % wirkungsvoller als mobiler Push ist, wenn es darum geht, Empfänger:innen dazu zu bringen, zurückzukehren und einen Kauf abzuschließen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Mögliche Anwendungsfälle" }
 
 ## Unterstützte Browser {#supported-browsers}
 
@@ -70,3 +70,13 @@ Weitere Informationen zu den Push-Protokollstandards und der Browserunterstützu
 - [Safari (Mobilgerät)]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=safari)
 - [Mozilla Firefox](https://developer.mozilla.org/en-us/docs/web/api/push_api#browser_compatibility)
 - [Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/push)
+
+## 410 (Gone) und ungültige Web-Push-Endpunkte {#410-gone-and-invalid-web-push-endpoints}
+
+Browser und Push-Dienste können **410 Gone** (oder ähnliche Fehler wie „Endpunkt nicht gültig“) zurückgeben, wenn ein Web-Push-Abonnement nicht mehr akzeptiert wird. Häufige Ursachen sind:
+
+- Die Nutzer:innen haben Benachrichtigungen für Ihre Website in den Browser- oder Betriebssystemeinstellungen deaktiviert.
+- Ein anderes Nutzerprofil hat sich im selben Browserprofil angemeldet, sodass der Endpunkt auf den/die neue Abonnent:in rotiert wurde.
+- Das Abonnement ist nach einer langen Zeit ohne Engagement abgelaufen – nachdem die Nutzer:innen erneut zugestimmt haben, wird in der nächsten Sitzung ein neues Abonnement erstellt.
+
+Nachdem die Nutzer:innen Benachrichtigungen wieder aktiviert haben, lösen Sie den normalen Web-Push-Registrierungsablauf Ihrer Website erneut aus, damit Braze den neuen Abonnement-Endpunkt speichert.

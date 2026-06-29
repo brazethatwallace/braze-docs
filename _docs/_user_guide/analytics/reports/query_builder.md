@@ -9,13 +9,13 @@ alias: /query_builder/
 
 # Query Builder
 
-> The Query Builder generates reports using Braze data in Snowflake. The Query Builder comes with pre-built SQL [query templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/) to get you started, or you can write your own custom SQL queries to unlock even more insights.
+> The Query Builder generates reports using Braze data in Snowflake. The Query Builder comes with pre-built SQL [query templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) to get you started, or you can write your own custom SQL queries to unlock even more insights.
 
-Because the Query Builder allows direct access to some customer data, you can only access the Query Builder if you have the "View PII" [permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Because the Query Builder allows direct access to some customer data, you can only access the Query Builder if you have the "View PII" [permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ## Available data tables
 
-Query Builder uses the same Snowflake SQL tables as [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) and [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/). For a complete list of available tables and their columns, refer to the [SQL table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/).
+Query Builder uses the same Snowflake SQL tables as [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) and [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). For a complete list of available tables and their columns, refer to the [SQL table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 
 ## Running reports in the Query Builder
 
@@ -37,11 +37,11 @@ Results from each report can be generated once a day. If you run the same report
 
 Access query templates by selecting **Create SQL Query** > **Query Template** when first creating a report.
 
-See [Query templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/) for a list of available templates.
+See [Query templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) for a list of available templates.
 
 ### Data timeframe
 
-Queries return data from the past 60 days. If you use Currents or [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/), you may be able to query up to two years of data, which is how long your data is retained in Snowflake. For more details about extended data retention, contact your customer success manager.
+Queries return data from the past 60 days. If you use Currents or [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake), you may be able to query up to two years of data, which is how long your data is retained in Snowflake. For more details about extended data retention, contact your customer success manager.
 
 ### Query Builder time zone
 
@@ -90,7 +90,7 @@ To generate SQL with the AI Query Builder:
 
 ### Tips
 
-- Familiarize yourself with the available tables and columns in the [SQL table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/). Asking for data that doesn't exist in these tables may result in ChatGPT making up a fake table.
+- Familiarize yourself with the available tables and columns in the [SQL table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables). Asking for data that doesn't exist in these tables may result in ChatGPT making up a fake table.
 - Familiarize yourself with the [SQL writing rules]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql) for this feature. Not following these rules will cause an error.
 - You can send up to 20 prompts per minute with the AI Query Builder.
 
@@ -98,13 +98,13 @@ To generate SQL with the AI Query Builder:
 
 ## Writing custom SQL queries {#custom-sql}
 
-Write your SQL query using [Snowflake syntax](https://docs.snowflake.com/en/sql-reference). Consult the [table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/) for a full list of tables and columns available to be queried.
+Write your SQL query using [Snowflake syntax](https://docs.snowflake.com/en/sql-reference). Consult the [table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables) for a full list of tables and columns available to be queried.
 
 To view table details within the Query Builder:
 
 1. From the **Query Builder** page, open the **Reference** panel and select **Available Data Tables** to view available data tables and their names.
 3. Select <i class="fas fa-chevron-down" alt=""></i> **See Details** to view the table description and information about the table columns, such as data types.
-4. To insert the table name in your SQL, select <i class="fas fa-copy" title="Copy table name to SQL editor"></i>.
+4. To insert the table name in your SQL, select <i class="fas fa-copy" title="Copy table name to SQL editor"></i> **Copy table name to SQL editor**.
 
 To use pre-written queries provided by Braze, select **Query Template** when first creating a report in the Query Builder.
 

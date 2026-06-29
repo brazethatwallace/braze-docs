@@ -39,8 +39,8 @@ Unterdrückungslisten werden auf API-Kampagnen angewendet, die im Braze-Dashboar
 Alle Nutzer:innen können Unterdrückungslisten einsehen, aber nur Nutzer:innen mit [Admin-Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions?tab=admin) können Unterdrückungslisten erstellen und verwalten.
 {% endalert %}
 
-1. Gehen Sie zu **Audience** > **Suppression Lists**.<br><br>![Die Seite „Unterdrückungslisten“ mit einer Liste von drei Unterdrückungslisten.]({% image_buster /assets/img/suppression_lists_home.png %})<br><br>
-2. Wählen Sie **Create Suppression List** und geben Sie einen Namen ein.<br><br>![Ein Fenster mit dem Titel „Create a Suppression List“ mit einem Feld zur Eingabe eines Namens.]({% image_buster /assets/img/create_suppression_list.png %}){: style="max-width:80%;"}<br><br>
+1. Gehen Sie zu **Audience** > **Suppression Lists**.
+2. Wählen Sie **Create Suppression List** und geben Sie einen Namen ein.
 3. Verwenden Sie Segmentfilter, um die Nutzer:innen in Ihren Unterdrückungslisten zu identifizieren. Sie müssen mindestens einen auswählen.
 
 {% alert important %}
@@ -81,13 +81,13 @@ Verwenden Sie beim Erstellen einer Campaign oder eines Canvas **User Lookup** im
 
 ![Das Fenster „User Lookup“, das zeigt, dass Nutzer:innen in einer Unterdrückungsliste sind.]({% image_buster /assets/img/suppression_list_user_lookup.png %}){: style="max-width:70%;"}
 
-### Campaign {#campaign}
+### Campaign
 
 Wenn Nutzer:innen in einer Unterdrückungsliste sind, erhalten sie keine Campaign, für die diese Unterdrückungsliste gilt. Informationen zu Fällen, in denen eine Unterdrückungsliste nicht gilt, finden Sie unter [Nachrichtentypen und Kanäle, die von Unterdrückungslisten betroffen sind](#message-types-and-channels-affected-by-suppression-lists).
 
 ![Der Abschnitt „Unterdrückungslisten“ mit einer aktiven Unterdrückungsliste namens „Low marketing health scores“.]({% image_buster /assets/img/active_suppression_list.png %})
 
-### Canvas {#canvas}
+### Canvas
 
 Ab dem Moment, in dem Nutzer:innen zu einer Unterdrückungsliste hinzugefügt werden, treten sie nicht in Canvases ein. Wenn sie bereits in ein Canvas eingetreten sind, erhalten sie keine Nachrichtenschritte. Das bedeutet, dass Nutzer:innen, die sich bereits in einem Canvas befinden, wenn sie zu einer Unterdrückungsliste hinzugefügt werden, durch das Canvas bis zum nächsten Nachrichtenschritt voranschreiten und an diesem Punkt aussteigen, ohne den Nachrichtenschritt zu erhalten.
 

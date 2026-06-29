@@ -17,8 +17,8 @@ description: "この記事には2019年1月のリリースノートが含まれ�
 
 Brazeは、内部チームによる多数のインフラアップグレードにより、すべてのクラスターでコネクテッドコンテンツのIPホワイトリストを提供できるようになったことをお知らせいたします。今後、EU以外のクラスターのIPを追加する予定です。
 
-## Canvasの遅延 {#canvas-delay}
+## キャンバスの遅延 {#canvas-delay}
 
 任意のキャンバスステップを即時送信するオプションを追加しました。
 
-![Canvasの遅延]({% image_buster /assets/img/canvas_delay_immediate.png %})
+![キャンバスの遅延]({% image_buster /assets/img/canvas_delay_immediate.png %})

@@ -126,6 +126,6 @@ A maioria dos endpoints na Braze tem uma implementação de limite de taxa que r
 
 ## Postback de evento HTTP transacional {#transactional-http-event-postback}
 
-{% multi_lang_include http_event_postback.md %}
+{% multi_lang_include channels/transactional_email/http_event_postback.md %}
 
 {% endapi %}

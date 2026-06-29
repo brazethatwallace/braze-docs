@@ -133,7 +133,7 @@ Erstellen Sie eine In-App-Nachricht-Campaign, die den Wert des Standortzugriffs 
 Für beste Ergebnisse zeigen Sie den Standort-Primer, wenn Nutzer:innen engagiert sind und wahrscheinlich einen Mehrwert in der Standortfreigabe sehen.
 
 - **Sprechen Sie Nutzer:innen an, die noch keinen Standortzugriff gewährt haben.** Arbeiten Sie mit Ihrem Entwicklungsteam zusammen, um die beste Methode zu bestimmen, Nutzer:innen basierend auf ihrem Standortberechtigungsstatus zu tracken und zu segmentieren.
-- **Zeigen Sie den Primer nach einer hochwertigen Aktion,** wie dem Abschluss eines Kaufs, dem Speichern eines Shops als Favorit oder dem Durchsuchen von Veranstaltungen in der Nähe. Nutzer:innen sind eher bereit, sich anzumelden, wenn sie den Vorteil verstehen.
+- **Zeigen Sie den Primer nach einer hochwertigen Aktion,** wie dem Abschluss eines Kaufs, dem Speichern eines Shops als Favorit oder dem Durchsuchen von Ereignissen in der Nähe. Nutzer:innen sind eher bereit, sich anzumelden, wenn sie den Vorteil verstehen.
 - **Vermeiden Sie es, den Primer beim ersten Start zu zeigen.** Warten Sie, bis Nutzer:innen genug Mehrwert aus der App erfahren haben, um ein personalisierteres Erlebnis zu wünschen.
 
 ### 4. Schritt: Die empfohlene Berechtigungsstufe fördern {#step-4-encourage-the-recommended-permission-level}
@@ -154,7 +154,7 @@ Verwenden Sie einen Deeplink in einer benutzerdefinierten [In-App-Nachricht]({{s
 Beachten Sie beim Erstellen dieser In-App-Nachricht Folgendes:
 
 - **Wann anzeigen:** Sprechen Sie Nutzer:innen an, die die Berechtigung „Bei Verwendung der App“ haben, wenn Sie „Immer erlauben“ benötigen, oder Nutzer:innen, die zuvor den Standortzugriff verweigert haben.
-- **Nachrichtenbeispiel:** „Um das Beste aus standortbasierten Features herauszuholen, aktualisieren Sie Ihre Standorteinstellungen auf ‚Immer erlauben'. Tippen Sie unten, um zu den Einstellungen zu gelangen.“
+- **Nachrichtenbeispiel:** „Um das Beste aus standortbasierten Features herauszuholen, aktualisieren Sie Ihre Standorteinstellungen auf „Immer erlauben“. Tippen Sie unten, um zu den Einstellungen zu gelangen."
 
 {% alert tip %}
 Sie können diese In-App-Nachricht an jedem Punkt der User Journey auslösen – nach einem Kauf, beim Durchsuchen von Inhalten in der Nähe oder als Teil eines Canvas-Flows. Seien Sie selektiv beim erneuten Auffordern: Beschränken Sie diese Campaigns auf loyale oder stark engagierte Nutzer:innen, um Opt-in-Müdigkeit zu vermeiden.
@@ -178,7 +178,7 @@ Dieser Ansatz ist effektiv, weil Nutzer:innen bereits Interesse an einem bestimm
 Nachdem Nutzer:innen die Berechtigung „Bei Verwendung der App“ gewährt haben, zeigen Sie eine Nachfass-In-App-Nachricht während der nächsten Sitzung:
 
 - **Überschrift:** „Verpassen Sie nie ein Angebot in der Nähe“
-- **Text:** „Aktualisieren Sie Ihre Standorteinstellungen auf ‚Immer', damit wir Sie über Angebote benachrichtigen können, auch wenn Sie die App nicht nutzen. Wir senden nur relevante Benachrichtigungen, wenn Sie in der Nähe teilnehmender Standorte sind.“
+- **Text:** „Aktualisieren Sie Ihre Standorteinstellungen auf „Immer“, damit wir Sie über Angebote benachrichtigen können, auch wenn Sie die App nicht nutzen. Wir senden nur relevante Benachrichtigungen, wenn Sie in der Nähe teilnehmender Standorte sind."
 - **CTA:** **Einstellungen aktualisieren** verlinkt per Deeplink zur Standorteinstellungsseite der App im Betriebssystem
 - **Schließen:** **Aktuelle Einstellungen beibehalten** schließt die Nachricht
 
@@ -307,15 +307,11 @@ Die grundlegende SDK-Integration aktiviert nur Standort-Tracking. Geofencing erf
 
 Sie können Geofences auch mit Braze-Technologie-Partnern verwenden, wie [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/) und [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/).
 
+## Unterschiede zwischen Geofences und Standort-Tracking {#differences-between-geofences-and-location-tracking}
+
+{% multi_lang_include locations_and_geofences/geofences_vs_location_tracking.md %}
+
 ## Häufig gestellte Fragen {#frequently-asked-questions}
-
-### Was ist der Unterschied zwischen Geofences und Standort-Tracking? {#whats-the-difference-between-geofences-and-location-tracking}
-
-In Braze ist ein Geofence ein anderes Konzept als Standort-Tracking. Geofences werden als Trigger für bestimmte Aktionen verwendet – wenn Nutzer:innen eine virtuelle Grenze um einen geografischen Standort betreten oder verlassen, kann eine bestimmte Aktion ausgelöst werden, z. B. das Senden einer Nachricht.
-
-Standort-Tracking erfasst und speichert die aktuellsten Standortdaten von Nutzer:innen. Diese Daten können verwendet werden, um Nutzer:innen basierend auf dem Filter `Most Recent Location` zu segmentieren. Sie könnten beispielsweise den Filter `Most Recent Location` verwenden, um Nutzer:innen in New York anzusprechen.
-
-Weitere Informationen finden Sie unter [Standort-Tracking]({{site.baseurl}}/user_guide/audience/locations_and_geofences/location_tracking/).
 
 ### Wie genau sind Braze-Geofences? {#how-accurate-are-braze-geofences}
 

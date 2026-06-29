@@ -3,7 +3,7 @@ nav_title: "Traitement des messages"
 article_title: "Traitement des messages"
 page_order: 3
 page_type: landing
-description: "Découvrez comment Braze et Meta gèrent l'évaluation de la qualité WhatsApp, les limites d'envoi de messages, les abonnements et désabonnements, les messages aux utilisateurs et les numéros de téléphone inconnus."
+description: "Découvrez comment Braze et Meta gèrent l'évaluation de la qualité WhatsApp, les limites d'envoi de messages, les abonnements et désabonnements, les messages des utilisateurs et les numéros de téléphone inconnus."
 channel:
   - WhatsApp
 layout: dev_guide
@@ -18,7 +18,7 @@ guide_featured_list:
   - name: Abonnements et désabonnements
     link: /docs/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs
     image: /assets/img/braze_icons/toggle-01-left.svg
-  - name: Envoyer des messages aux utilisateurs
+  - name: Messages des utilisateurs
     link: /docs/user_guide/channels/whatsapp/message_processing/messaging_users
     image: /assets/img/braze_icons/send-01.svg
   - name: Gérer les numéros de téléphone inconnus

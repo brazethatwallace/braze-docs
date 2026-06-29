@@ -28,7 +28,7 @@ O seguinte é necessário antes de começar:
 | App iOS ou Android | Essa integração é compatível com apps iOS e Android. Dependendo da sua plataforma, trechos de código podem ser necessários no seu aplicativo. |
 | SDK do Linkrunner | Você deve instalar o [SDK do Linkrunner](https://docs.linkrunner.io/introduction). |
 | SDK da Braze | Você deve integrar o [SDK da Braze]({{site.baseurl}}/developer_guide/sdk_integration/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -66,16 +66,14 @@ try await LinkrunnerSDK.shared.signup(userData: userData)
 
 ### Etapa 2: Criar chave de API na Braze {#step-2-create-api-key-in-braze}
 
-No dashboard da Braze, acesse **Settings** > **Setup and Testing** > **APIs and Identifiers** > **API Keys**.
+No dashboard da Braze, acesse **Configurações** > **Configurações e teste** > **APIs e identificadores** > **Chaves de API**.
 
-1. Selecione **Create API Key**.
-2. Em **User Data**, selecione as seguintes permissões:
+1. Selecione **Criar chave de API**.
+2. Em **Dados de usuários**, selecione as seguintes permissões:
    - `users.track`
    - `users.export.ids`
 3. Salve a chave de API.
-4. Copie a chave de API e o endpoint REST.
-
-![Esta imagem mostra a página de chaves de API na Braze, onde você pode criar e gerenciar chaves de API, incluindo a chave de importação de dados e o endpoint REST necessários para a integração com o Linkrunner.]({% image_buster /assets/img/attribution/linkrunner/1.png %})
+4. Copie a chave de API e o endpoint REST. Cole esses valores no Linkrunner na próxima etapa. Trate a chave de API como um segredo e não a compartilhe publicamente.
 
 ### Etapa 3: Configurar a Braze no dashboard do Linkrunner {#step-3-configure-braze-in-linkrunners-dashboard}
 
@@ -87,7 +85,7 @@ Para saber mais, consulte a [documentação do Linkrunner](https://docs.linkrunn
 
 ### Etapa 4: Visualizar dados de atribuição de usuários {#step-4-view-user-attribution-data}
 
-O Linkrunner envia `lr_campaign` e `lr_ad_network` como atributos personalizados. Visualize esses dados na seção **Custom Attributes** do perfil de usuário no dashboard da Braze.
+O Linkrunner envia `lr_campaign` e `lr_ad_network` como atributos personalizados. Visualize esses dados na seção **Atributos personalizados** do perfil de usuário no dashboard da Braze.
 
 ## Dados de atribuição do Facebook e X (antigo Twitter) {#facebook-and-x-formerly-twitter-attribution-data}
 

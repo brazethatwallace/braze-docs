@@ -22,7 +22,7 @@ The **Segments** page of your Braze dashboard contains a summary of all of your 
 
 After selecting the name of a segment, you can view segment statistics and filters, and edit the segment by adding or deleting filters. Be sure to save any changes!
 
-When you turn on [analytics tracking for a segment]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/), you can view sessions, custom events, and revenue over time for this segment.
+When you turn on [analytics tracking for a segment]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking), you can view sessions, custom events, and revenue over time for this segment.
 
 ![Analytics tracking toggle for a segment]({% image_buster /assets/img_archive/A_Tracking_2.png %})
 
@@ -59,7 +59,7 @@ You can view the following segment statistics, which update in real-time as you 
         </tr>
         <tr>
             <td class="no-split">Emailable (Opted-In)</td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Emailable' %} Due to <a href="/docs/help/best_practices/spam_regulations/#spam-regulationsspam regulations">spam regulations</a> it's a good idea to ask your users to explicitly opt-in by implementing a double opt-in policy where users must click a link in an initial confirmation email. To encourage more users to opt-in, you can target a message at <a href="/docs/user_guide/channels/email/subscriptions#segmenting-by-user-subscriptions">those who have neither opted in nor out</a>.</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Emailable' %} Due to <a href="/docs/help/best_practices/spam_regulations#spam-regulationsspam regulations">spam regulations</a> it's a good idea to ask your users to explicitly opt-in by implementing a double opt-in policy where users must click a link in an initial confirmation email. To encourage more users to opt-in, you can target a message at <a href="/docs/user_guide/channels/email/subscriptions#segmenting-by-user-subscriptions">those who have neither opted in nor out</a>.</td>
         </tr>
         <tr>
             <td class="no-split">Push Enabled (Opted-In)</td>
@@ -70,7 +70,7 @@ You can view the following segment statistics, which update in real-time as you 
 
 ### Segment Insights
 
-You can see how one segment is performing compared to another across a set of pre-selected KPIs by visiting the [Segment Insights]({{site.baseurl}}/user_guide/audience/segments/segment_insights/) page of your dashboard.
+You can see how one segment is performing compared to another across a set of pre-selected KPIs by visiting the [Segment Insights]({{site.baseurl}}/user_guide/audience/segments/segment_insights) page of your dashboard.
 
 ### Messaging use
 The **Messaging Use** section shows which segments, currently enabled campaigns, and currently enabled canvases are targeting your segment.
@@ -79,7 +79,7 @@ The **Messaging Use** section shows which segments, currently enabled campaigns,
 
 The **Historical Membership** section shows how the size of your segment changed over time. Use the dropdown to filter segment membership by date range.
 
-To learn more about monitoring your segment’s membership and size, refer to [Measuring segment size]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
+To learn more about monitoring your segment’s membership and size, refer to [Measuring segment size]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
 ### User preview
 
@@ -93,11 +93,11 @@ Note that in cases where your segment is very small relative to your workspace s
 
 ## Viewing performance data by segment
 
-Use [Query Builder report templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/data_by_segments/) to break down performance metrics for campaigns, Canvas, variants, and steps by segments.
+Use [Query Builder report templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/data_by_segments) to break down performance metrics for campaigns, Canvas, variants, and steps by segments.
 
 ## Creating a segment breakdown report using Query Builder
 
-To create a report from a [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) template, go to **Query Builder** and do the following:
+To create a report from a [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) template, go to **Query Builder** and do the following:
 
 1. Select **Create SQL Query** > **Query Template**.
 2. Filter templates for those that have metrics that include “segment breakdowns”.
@@ -125,7 +125,7 @@ The variables include:
 
 Data is available for time periods where both of these conditions are met:
 
-1. [Segment analytics tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/) is turned on for the segments that you want to see data for.
+1. [Segment analytics tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) is turned on for the segments that you want to see data for.
 2. The performance data by segment feature is turned on.
 
 You can't access data from time periods prior to when this feature is turned on for your company. For example, if analytics tracking is turned on for Segment A on October 1 and this feature is turned on for your company on October 2, then you can only view data for Segment A for the campaigns and Canvases that recorded metrics after October 2. 

@@ -17,8 +17,6 @@ description: "Cet article décrit en détail l'endpoint source de traduction des
 
 > Utilisez cet endpoint pour afficher toutes les sources de traduction par défaut des étiquettes de traduction d'un bloc de contenu. Il s'agit des valeurs contenues dans {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Consultez [Paramètres régionaux dans les messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) pour plus d'informations sur les fonctionnalités de traduction.
 
-{% include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Conditions préalables {#prerequisites}
 
 Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec la permission `content_blocks.translations.get`.

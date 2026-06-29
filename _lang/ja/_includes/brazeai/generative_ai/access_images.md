@@ -1,0 +1,1 @@
+[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)で、アセットのアップロードパネルから**オペレーターで生成**を選択します。必要な画像を説明すると、オペレーターがそれを生成し、メディアライブラリに直接保存します。

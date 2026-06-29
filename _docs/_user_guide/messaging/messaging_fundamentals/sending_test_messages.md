@@ -23,7 +23,7 @@ Before testing your messaging campaign, it's important to identify your test use
 
 ### Optional: Create a Content Test Group
 
-A convenient way to organize your test users is by creating a [Content Test Group]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/), which includes a group of users that will receive test messages from campaigns. You can add this test group to the **Add Content Test Groups** field under **Test Recipients** in your campaign, and launch your tests without creating or adding individual test users.
+A convenient way to organize your test users is by creating a [Content Test Group]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups), which includes a group of users that will receive test messages from campaigns. You can add this test group to the **Add Content Test Groups** field under **Test Recipients** in your campaign, and launch your tests without creating or adding individual test users.
 
 ## Step 2: Send channel-specific test messages
 
@@ -62,7 +62,7 @@ Keep in mind, your preview may not be identical to the final render on a user's 
 {% tab Content Card %}
 
 {% alert important %}
-To send a test to either [content test groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) or individual users, push must be enabled on your test devices with valid push tokens registered for the test user before sending. For iOS users, you must tap the push notification sent by Braze in order to view the test Content Card. This behavior only applies to test Content Cards.
+To send a test to either [content test groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) or individual users, push must be enabled on your test devices with valid push tokens registered for the test user before sending. For iOS users, you must tap the push notification sent by Braze in order to view the test Content Card. This behavior only applies to test Content Cards.
 {% endalert %}
 
 Test Content Cards are delivered through a push notification. The card is packaged in the push payload, and the SDK extracts and caches it locally when the push is received.
@@ -91,7 +91,7 @@ In the **Preview** tab of your composer, the view of your message might not be i
 
 - Is your test user opted in to push with a valid push token?
 - Do the images and media show up and act as expected?
-- Does the Liquid function as expected? Have you accounted for a [default attribute value]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#accounting-for-null-attribute-values) if the Liquid returns no information?
+- Does the Liquid function as expected? Have you accounted for a [default attribute value]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) if the Liquid returns no information?
 - Is your copy clear, concise, and correct?
 - Do your links direct the user to where they should go?
 - Is your test user opted into push with a valid push token?
@@ -107,7 +107,7 @@ If a Content Card image is not rendering or appears broken:
 
 ### Debug
 
-After your Content Cards are sent, you can break down or debug any issues from the [Event User Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) in the Developer Console. 
+After your Content Cards are sent, you can break down or debug any issues from the [Event User Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) in the Developer Console. 
 
 A common use case is trying to debug why a user can't see a particular Content Card. To do so, you can look in the **Event User Logs** for the Content Cards delivered to the SDK on session start, but prior to an impression, and trace those back to a specific campaign:
 
@@ -162,7 +162,7 @@ If your email campaign includes a large image and isn't displaying as expected i
 {% tab In-app message %}
 
 {% alert warning %}
-To send a test to either [Content Test Groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) or individual users, push must be enabled on your test devices before sending. For example, you must have push enabled on your iOS device in order to tap the notification before the test message displays. {% endalert %}
+To send a test to either [Content Test Groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) or individual users, push must be enabled on your test devices before sending. For example, you must have push enabled on your iOS device in order to tap the notification before the test message displays. {% endalert %}
 
 If you have push notifications set up within your app and on your test device, you can send test in-app messages to your app to see what it looks like in real-time. 
 
@@ -197,7 +197,7 @@ In **Preview**, the view of your message might not be identical to its actual re
 ### Test checklist
 
 - Do the images and media show up and act as expected?
-- Does the Liquid function as expected? Have you accounted for a [default attribute value]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#accounting-for-null-attribute-values) if the Liquid returns no information?
+- Does the Liquid function as expected? Have you accounted for a [default attribute value]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) if the Liquid returns no information?
 - Is your copy clear, concise, and correct?
 - Do your buttons direct the user where they should go?
 
@@ -243,6 +243,8 @@ The scanner runs automatically on custom HTML messages and evaluates your entire
 
 ![Test push]({% image_buster /assets/img_archive/testpush.png %})
 
+If you see an error that none of the selected users have matching push tokens, the test user does not have a valid push token for the selected platform. The user must have started a session in the app and enabled push for that device. For more information, see [Push enablement and push subscription]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
+
 #### Web push
 
 1. Create your web push.
@@ -270,9 +272,7 @@ After creating your SMS, MMS, or RCS message, you can send a test message to you
 {% endtab %}
 {% tab Webhook %}
 
-After creating your webhook, you can do a test send to check the webhook response. Select the **Test** tab and select **Send Test** to send a test send to the supplied webhook URL. You can also select an individual user to preview the response as a specific user. 
-
-![Test Content Card]({% image_buster /assets/img/webhook_test.png %})
+After creating your webhook, you can do a test send to check the webhook response. Select the **Test** tab and select **Send Test** to send a test send to the supplied webhook URL. You can also select an individual user to preview the response as a specific user.
 
 {% endtab %}
 {% tab WhatsApp %}
@@ -293,7 +293,7 @@ If you are testing campaigns that populate user data or use custom event propert
 
 ### Testing campaigns personalized with user attributes
 
-If you are using [personalization]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/overview/) in your message, you'll need to take additional steps to properly preview your campaign and check that user data is properly populating the content.
+If you are using [personalization]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/overview) in your message, you'll need to take additional steps to properly preview your campaign and check that user data is properly populating the content.
 
 When sending a test message, make sure to choose either the option to **Select Existing User** or preview as a **Custom User**.
 
@@ -319,7 +319,7 @@ You can edit individual fields from a random or existing user to help test dynam
 
 ### Testing campaigns personalized with custom event properties
 
-Testing campaigns personalized with [custom event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/) differs slightly from testing other types of campaigns outlined. 
+Testing campaigns personalized with [custom event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) differs slightly from testing other types of campaigns outlined. 
 
 {% tabs local %}
 {% tab Trigger manually %}
@@ -333,7 +333,7 @@ You can trigger the campaign yourself as a robust way to test campaigns personal
 ![Composing Test Message with Properties]({% image_buster /assets/img_archive/testeventproperties-compose.png %})
 
 {: start="2"}
-2. Use [action-based delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) to deliver the campaign when the event occurs.
+2. Use [action-based delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) to deliver the campaign when the event occurs.
 
 {% alert note %}
 If you're testing an iOS push campaign, you must set the delay to one minute to allow yourself time to exit the app because iOS doesn't deliver push notifications for the currently open app. Other types of campaigns can be set to deliver immediately.
@@ -397,6 +397,6 @@ If your in-app message campaign is not triggered by a push campaign, check the i
 
 For test sends on Android and iOS, the in-app messages that use the **Request push permission** on-click behavior may not display on some devices. As a workaround:
 - **Android:** Devices must be on Android 13 and our Android SDK version 21.0.0. Another reason may be that the device on which the in-app message is displayed already has a system-level prompt. You may have selected **Do not ask again**, so you may need to reinstall the app to reset the notification permissions before testing again.
-- **iOS:** We recommend your developer team review the implementation of push notifications for your app and manually remove any code that would request push permissions. For more information, see [Push primer in-app messages]({{site.baseurl}}/user_guide/channels/push/best_practices/).
+- **iOS:** We recommend your developer team review the implementation of push notifications for your app and manually remove any code that would request push permissions. For more information, see [Push primer in-app messages]({{site.baseurl}}/user_guide/channels/push/best_practices).
 
 For an action-based in-app message campaign to deliver, you must log custom events through the Braze SDK, not REST APIs, so users can receive eligible in-app messages directly to their device. Users receive the in-app message if they perform the event during the session.

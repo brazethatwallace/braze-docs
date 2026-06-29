@@ -24,13 +24,13 @@ To use Experiment Paths, your Canvas must include conversion events. While you c
 
 Experiment Paths are best suited for testing delivery, cadence, message copy, and channel combinations.
 
-- **Delivery:** Compare the results between messages sent with different time [delays]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/), based on user actions ([Action Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/)), and using [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#canvas).<br><br>
+- **Delivery:** Compare the results between messages sent with different time [delays]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step), based on user actions ([Action Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)), and using [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#canvas).<br><br>
 - **Cadence:** Test multiple messaging flows over a specific period. For example, you could test two different onboarding cadences:
     - Cadence 1: Send 2 messages in the user's first 2 weeks
     - Cadence 2: Send 3 messages in the user's first 2 weeks
     
     When targeting lapsing users, you can test the effectiveness of sending two win-back messages in a week versus sending just one.
-- **Message copy:** Similar to a standard [A/B test]({{site.baseurl}}/user_guide/messaging/ab_testing/), you can test different message copy to see which wording results in a higher conversion rate.<br><br>
+- **Message copy:** Similar to a standard [A/B test]({{site.baseurl}}/user_guide/messaging/ab_testing), you can test different message copy to see which wording results in a higher conversion rate.<br><br>
 - **Channel combinations:** Test the effectiveness of different message channel combinations. For example, you can compare the impact of using just an email versus an email combined with a push.
 
 ## Creating an experiment path
@@ -64,14 +64,14 @@ Lastly, you must build your downstream paths. Select **Done** and return to the 
 Keep in mind that paths and their downstream steps cannot be removed from a Canvas after they're created. However, when launched, you can modify the audience distribution across paths as you see fit. For example, if a day after launching a Canvas, you conclude that one path is superior to the rest based on the analytics, you can set that path to 100% and the others to 0%. Or, depending on your needs, you can continue sending users down multiple paths.
 
 {% alert important %}
-To prevent experiment contamination, if your Canvas has an active or in-progress Winning Path or Personalized Path experiment and you update the active Canvas, regardless if you update the Experiment Path step itself, the in-progress experiment will end and the experiment step will not determine a winning path or personalized paths. To restart the experiment, you can disconnect the existing Experiment Path and launch a new one, or duplicate the Canvas and launch a new Canvas. Otherwise, users will flow through the experiment path as if no optimization method was selected. You also can't turn on Personalized Paths or Winning Paths for an already active Canvas with an Experiment Path step.<br><br>For more information, refer to [Editing Canvases after launch]({{site.baseurl}}/post-launch_edits/).
+To prevent experiment contamination, if your Canvas has an active or in-progress Winning Path or Personalized Path experiment and you update the active Canvas, regardless if you update the Experiment Path step itself, the in-progress experiment will end and the experiment step will not determine a winning path or personalized paths. To restart the experiment, you can disconnect the existing Experiment Path and launch a new one, or duplicate the Canvas and launch a new Canvas. Otherwise, users will flow through the experiment path as if no optimization method was selected. You also can't turn on Personalized Paths or Winning Paths for an already active Canvas with an Experiment Path step.<br><br>For more information, refer to [Editing Canvases after launch]({{site.baseurl}}/post-launch_edits).
 {% endalert %}
 
 ## Tracking performance
 
-From the **Canvas Analytics** page, select the Experiment Path to open a [detailed table]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#performance-breakdown-by-variant) identical to the **Analyze Variants** tab to compare detailed performance and conversion statistics across paths. You can also export the table via CSV and compare percent changes for metrics of interest relative to the path or control you select.
+From the **Canvas Analytics** page, select the Experiment Path to open a [detailed table]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#performance-breakdown-by-variant) identical to the **Analyze Variants** tab to compare detailed performance and conversion statistics across paths. You can also export the table via CSV and compare percent changes for metrics of interest relative to the path or control you select.
 
-Each step in each path displays statistics in the [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/) view, just like any Canvas step. However, keep in mind that individual step analytics and Experiment Path analytics measure conversions differently:
+Each step in each path displays statistics in the [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics) view, just like any Canvas step. However, keep in mind that individual step analytics and Experiment Path analytics measure conversions differently:
 
 - **Experiment Path analytics** track conversions starting from when the user enters the Experiment Path step. This is the recommended view for comparing performance across paths because all paths share the same starting point.
 - **Individual step analytics** (such as Message step analytics) track conversions starting from when the user receives that specific step (for example, when the message sends).
@@ -82,20 +82,31 @@ Because these conversion windows have different starting points, they can show d
 
 Take advantage of Winning Paths to track performance over a period of time and then automatically send subsequent users down the path with the best performance. For more information on analytics when **Winning Path** or **Personalized Paths** are turned on for your experiment, refer to:
 
-- [Winning Path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path/#analytics)
-- [Personalized Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths/#analytics)
+- [Winning Path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path#analytics)
+- [Personalized Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths#analytics)
 
 The winning metric and the analytics shown in Experiment Paths can differ:
 
 - The conversion event you configure for **Winning Path** or **Personalized Paths** determines how Braze compares paths and selects a winner during the experiment window.
-- Experiment Path analytics still follows the same Canvas [conversion events]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events/) framework as the rest of the Canvas, including your [primary conversion event]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events/#primary-conversion-event). As a result, the metrics emphasized in the dashboard might not match the winning metric.
-- For push, *Direct Opens* and *Total Opens* differ. For more information, see [Influenced opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/).
+- Experiment Path analytics still follows the same Canvas [conversion events]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events) framework as the rest of the Canvas, including your [primary conversion event]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events#primary-conversion-event). As a result, the metrics emphasized in the dashboard might not match the winning metric.
+- For push, *Direct Opens* and *Total Opens* differ. For more information, see [Influenced opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens).
+
 ### Additional settings
 
 Experiment Paths record users who enter each step and convert while in the assigned path. This tracks all conversion events specified in the Canvas setup. On the **Additional Settings** tab, enter how many days (between 1 and 30) you want this experiment to track conversions. The time window you specify here determines how long conversion events (chosen in the Canvas setup) are tracked for the experiment. The per-event conversion windows specified in the Canvas setup don't apply to this step's tracking and are replaced by this conversion window.
 
-The conversion window starts when the user enters the Experiment Path step, not when a downstream message sends. If a path includes delays—such as a Delay step or [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)—those delays consume part of the conversion window.
+The conversion window starts when the user enters the Experiment Path step, not when a downstream message sends. If a path includes delays—such as a Delay step or [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)—those delays consume part of the conversion window.
 
 {% alert important %}
 If you're using Intelligent Timing on a Message step within an experiment path, the time between experiment entry and the actual message send reduces the effective conversion window for that path. For example, if your experiment has a 5-day conversion window and Intelligent Timing delays the message by 2 days, users on that path only have 3 days after receiving the message to convert within the experiment window—even though the Message step's own analytics track conversions from the time of message send.<br><br>For cleaner experiment analytics, place any delays (such as Delay steps) **before** the Experiment Path step rather than within an experiment path. This way, all paths start from the same point and delays don't consume any of the conversion window.
 {% endalert %}
+
+## Frequently asked questions
+
+### Why do sends differ across paths when the experiment split looks even?
+
+Downstream _Sends_ depend on each path’s steps, delays, channel eligibility, and content, not only the percentage split at the Experiment Path. For example, different delays, intelligent send times, or subscription status can change how many users receive a message even when the path assignment was balanced. To compare path outcomes, use [Experiment Path analytics](#tracking-performance), which measures conversions from a common entry point.
+
+### How long does the experiment conversion window last?
+
+The **Additional Settings** conversion window (1–30 days) starts when the user enters the Experiment Path step. Time spent in downstream Delay steps or waiting for Intelligent Timing counts against that window. See [Tracking performance](#tracking-performance) for more details.

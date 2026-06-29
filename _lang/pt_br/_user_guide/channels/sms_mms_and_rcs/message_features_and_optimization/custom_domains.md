@@ -72,9 +72,7 @@ Após serem configurados, os domínios personalizados podem ser atribuídos a um
 
 1. Acesse **Público** > **Gerenciamento de grupos de inscrições**.
 2. Encontre e selecione seu grupo de inscrições na lista.
-3. Em **Informações do grupo de inscrições**, selecione seu domínio personalizado como o **Link Shortening Domain**.
-
-![Configurações de grupos de inscrições que permitem selecionar um domínio de encurtamento de links.]({% image_buster /assets/img/custom_domain.png %})
+3. Em **Informações do grupo de inscrições**, selecione seu domínio personalizado no menu suspenso **Link Shortening Domain**.
 
 Campaigns enviadas com o encurtamento de links ativado usarão o domínio atribuído associado ao seu grupo de inscrições de SMS, RCS ou WhatsApp.
 

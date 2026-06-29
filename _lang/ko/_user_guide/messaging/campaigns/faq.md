@@ -1,16 +1,16 @@
 ---
 nav_title: FAQ
-article_title: 캠페인 FAQ
+article_title: Campaigns FAQ
 page_order: 10
 page_type: FAQ
-description: "이 페이지에서는 캠페인에 대해 자주 묻는 질문에 대한 답변을 제공합니다."
+description: "이 페이지에서는 Campaign에 대해 자주 묻는 질문에 대한 답변을 제공합니다."
 tool: Campaigns
 
 ---
 
 # 자주 묻는 질문 {#frequently-asked-questions}
 
-> 이 문서에서는 캠페인에 대해 자주 묻는 질문에 대한 답변을 제공합니다.
+> 이 문서에서는 Campaign에 대해 자주 묻는 질문에 대한 답변을 제공합니다.
 
 ### 멀티채널 캠페인은 어떻게 만드나요? {#how-do-i-create-a-multichannel-campaign}
 
@@ -168,6 +168,10 @@ Canvas 구성요소의 경우, 현지 시간대 전달을 위해 사용자 여�
 캠페인 문제 해결에 대한 추가 지원이 필요하면 문제 발생 후 30일 이내에 Braze 고객지원에 문의하세요. 최근 30일간의 진단 로그만 보유하고 있습니다.
 {% endalert %}
 
+### 캠페인을 편집한 후 사용자가 메시지를 두 번 받은 이유는 무엇인가요? {#why-did-users-receive-my-campaign-twice-after-i-edited-it}
+
+라이브 캠페인을 먼저 중지하지 않고 편집하면 사용자가 메시지를 두 번 받을 수 있습니다. 이는 라이브 캠페인을 편집하면 원래 대기줄이 아직 처리되는 동안 업데이트된 버전에 대해 사용자가 다시 대기줄에 들어가기 때문입니다. 아직 원래 메시지를 받지 못한 사용자가 두 대기줄 모두에 포함될 수 있습니다. 이를 방지하려면 변경하기 전에 항상 [캠페인을 중지]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch/#stopping-your-campaign)하세요.
+
 ### 캠페인 분석 페이지에서 CSV 내보내기 사용자 데이터와 CSV 내보내기 이메일 주소 옵션의 차이점은 무엇인가요? {#what-is-the-difference-between-the-csv-export-user-data-and-csv-export-email-address-options-on-my-campaign-analytics-page}
 
 **CSV 내보내기 이메일 주소** 옵션을 선택하면 이메일 주소가 있는 사용자의 데이터만 다운로드됩니다. 예를 들어, 100,000명의 사용자가 있는 Segment에서 50,000명만 이메일 주소가 있는 경우 **CSV 내보내기 이메일 주소**를 클릭하면 내보내기에는 50,000행의 데이터만 포함됩니다. 반면 **CSV 내보내기 사용자 데이터**를 선택하면 모든 사용자 데이터가 내보내집니다.
@@ -190,6 +194,14 @@ API 트리거 캠페인을 사용하면 Braze 대시보드 내에서 캠페인 �
 
 API 캠페인은 API를 사용하여 보낸 메시지를 추적하는 데 사용됩니다. 대부분의 캠페인과 달리 메시지, 수신자 또는 스케줄을 지정하지 않고 대신 API 호출에 식별자를 전달합니다.
 
+### API 트리거 캠페인을 사용자가 수신했는지 어떻게 확인할 수 있나요? {#how-can-i-confirm-if-my-users-received-an-api-triggered-campaign}
+
+**Campaign 수신** 필터를 사용하여 [Segment를 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)한 다음 확인하려는 특정 API 트리거 캠페인을 선택할 수 있습니다. Segment를 저장한 후 [`/users/export/segment` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)를 사용하여 해당 Segment의 사용자를 내보낼 수 있습니다.
+
+### 캠페인을 삭제할 수 있나요? {#can-i-delete-a-campaign}
+
+아니요, 하지만 [캠페인을 아카이브]({{site.baseurl}}/user_guide/messaging/governance/archiving/)할 수 있습니다.
+
 ### 실행 기반 캠페인과 API 트리거 캠페인의 차이점은 무엇인가요? {#what-is-the-difference-between-action-based-and-api-triggered-campaigns}
 
 <style>
@@ -208,7 +220,7 @@ table th:nth-child(3) {
 | 장점 | 단점 |
 | ---- | ---- |
 | • **메시지 활동 로그**를 통해 플랫폼으로 들어오는 JSON 페이로드의 가시성(테스트 사용자가 이벤트를 트리거한 경우)<br><br>• 개인화 요소가 커스텀 이벤트 등록정보에 포함됨<br><br>• 커스텀 이벤트를 사용하여 메시지를 받을 자격이 있는 사용자의 Segment를 생성할 수 있음 | • 데이터 포인트를 소비함 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="실행 기반" }
 
 #### API 트리거 {#api-triggered}
 
@@ -217,7 +229,7 @@ API 트리거 및 서버 트리거 캠페인은 더 고급 트랜잭션을 처�
 | 장점 | 고려 사항 |
 | ---- | ---- |
 | • 데이터 포인트를 기록하지 않음<br><br>• 개인화 요소가 JSON 페이로드 등록정보에 포함됨 | • JSON 페이로드 등록정보에서 메시지를 받을 자격이 있는 사용자의 Segment를 생성할 수 없음<br><br>• **메시지 활동 로그**로 들어오는 JSON 페이로드를 볼 수 없음 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="API 트리거" }
 
 ### "요청 시간 초과" 오류에 대한 고객지원 티켓을 제출할 때 무엇을 포함해야 하나요? {#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error}
 
@@ -259,3 +271,21 @@ API 트리거 및 서버 트리거 캠페인은 더 고급 트랜잭션을 처�
 - **Segment 재평가:** 발송 시점에 재평가하는 실행 기반 또는 스케줄 캠페인의 경우, 캠페인이 대기줄에 들어갔을 때 Segment에 있던 사용자가 메시지가 실제로 발송될 때는 더 이상 자격을 갖추지 못할 수 있습니다.
 - **발송 제한:** **타겟 오디언스**의 최대 사용자 수(또는 유사한 제한)가 제한에 도달하면 전달을 중지합니다.
 - **엄격한 기기 또는 브라우저 필터:** 최신 앱 버전이나 브라우저만 일치하는 필터는 광범위한 Segment 미리보기에 비해 발송 시점의 도달 가능 집합을 줄입니다.
+
+### 글로벌 최대 게재빈도 설정에 대한 자주 묻는 질문은 어디에 있나요? {#where-are-frequently-asked-questions-about-global-frequency-capping}
+
+캘린더 일, 사일런트 푸시, 웹훅, Canvas 동작 및 관련 주제에 대한 질문은 [사용량 제한 및 최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)의 [자주 묻는 질문]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/)을 참조하세요.
+
+### 이메일 및 SMS에서 고유 수신자가 발송 수를 초과할 수 있는 이유는 무엇인가요? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
+
+이메일 및 SMS의 경우, Braze는 ESP 발송 시도 전에 **고유 수신자**를 증가시키고 ESP 응답이 성공한 후에 **발송**을 증가시킵니다. 영구적인 오류(예: 유효하지 않은 이메일 주소) 또는 중복 주소로 인해 고유 수신자가 발송 수를 초과할 수 있습니다.
+
+### **마지막 발송**이 스케줄된 발송 시간과 일치하지 않는 이유는 무엇인가요? {#why-doesnt-last-sent-match-my-scheduled-send-time}
+
+단일 스케줄 발송이 있는 캠페인의 경우, **마지막 발송**은 시작 시간과 일치합니다. **현지 시간대에 맞춰 발송**이 활성화된 반복 캠페인의 경우, 더 이른 시간대(예: GMT 대 PST)의 사용자에 대한 발송이 워크스페이스 스케줄 시간보다 먼저 완료되므로 **마지막 발송**이 스케줄된 시간보다 일찍 나타날 수 있습니다.
+
+### 중지된 과거 캠페인이 **Analytics** 페이지에서 더 이상 측정기준을 표시하지 않는 이유는 무엇인가요? {#why-does-a-stopped-historical-campaign-no-longer-show-metrics-on-the-analytics-page}
+
+**Analytics** 탭은 기본적으로 최근 90일을 표시합니다. 캠페인이 해당 기간 밖에서 마지막으로 발송된 경우, **Analytics** 페이지에서 캠페인이 발송된 시점을 포함하도록 날짜 범위를 조정할 때까지 측정기준이 0으로 나타날 수 있습니다. 자세한 내용은 [캠페인 분석]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/)을 참조하세요.
+
+**상호작용 데이터 복원**은 캠페인 분석을 복원하지 않습니다. 이는 리타겟팅 필터와 사용자 상호작용 기록에만 적용됩니다. 자세한 내용은 [메시징 상호작용 데이터]({{site.baseurl}}/messaging_interaction_data/)를 참조하세요.

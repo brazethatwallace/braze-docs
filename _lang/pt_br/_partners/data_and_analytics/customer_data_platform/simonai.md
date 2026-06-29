@@ -20,7 +20,7 @@ Para começar, você precisa autenticar sua conta da Braze dentro da sua conta d
 | Requisito | Descrição |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Simon AI | Você precisa ter uma conta existente do Simon AI para aproveitar a integração com a Braze de dentro do Simon AI. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.track`, `campaigns.trigger.schedule.create` e `campaigns.trigger.send`. <br><br> Ela pode ser criada no dashboard da Braze em **Settings** > **API Keys**. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.track`, `campaigns.trigger.schedule.create` e `campaigns.trigger.send`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | URL do dashboard da Braze | [Sua URL de endpoint REST][3]. Seu endpoint dependerá da URL da Braze para a sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -42,7 +42,7 @@ Para usar a integração com a Braze, primeiro autentique sua conta da Braze no 
 
 1. Na navegação à esquerda, clique em **Integrations** e role até Braze.
 2. Insira sua [chave da API REST][2] da Braze e sua [URL do dashboard][3].
-3. Clique em **Save Changes**.
+3. Clique em **Salvar alterações**.
 
 Uma conexão bem-sucedida exibe **Connected** na janela.
 

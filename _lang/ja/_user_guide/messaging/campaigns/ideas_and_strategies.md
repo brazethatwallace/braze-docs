@@ -3,22 +3,22 @@ nav_title: アイデアと戦略
 article_title: アイデアと戦略
 layout: dev_guide
 guide_top_header: "アイデアと戦略"
-guide_top_text: "これらのユースケースやその他のアイデアを参考に、理想的なキャンペーンの構築方法について詳しく学びましょう。"
+guide_top_text: "一般的なCampaign目標に対応する実践的な例やパターンをご覧いただけます。このセクションでは、アクティブユーザーや離脱ユーザーのリターゲティング、機能導入やアプリ更新の促進、インストールアトリビューションの取得、メッセージへのカレンダーリンクの追加、Zoomなどの外部ツールを使った登録ワークフローの自動化について説明します。これらのユースケースを参考に、ご自身のオーディエンスに合わせたアプローチを見つけてください。"
 page_order: 5
 
 tool: Campaigns
 page_type: landing
-description: "このランディングページには、キャンペーンのアイデアと戦略がまとめられています。ローカライゼーション、リターゲティング、ベストプラクティスなどのトピックに関する記事をご覧いただけます。"
+description: "このランディングページには、Campaignのアイデアと戦略がまとめられています。ローカライゼーション、リターゲティング、ベストプラクティスなどのトピックに関する記事をご覧いただけます。"
 
 guide_featured_title: "セクション記事"
 guide_featured_list:
   - name: ベストプラクティス
-    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/getting_high_ratings#high-ratings
+    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/best_practices#high-ratings
     image: /assets/img/braze_icons/target-04.svg
   - name: アクティブユーザーキャンペーン
     link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns
     image: /assets/img/braze_icons/users-01.svg
-  - name: カレンダーに追加リンク
+  - name: カレンダー追加リンク
     link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/add_to_calendar_links
     image: /assets/img/braze_icons/calendar-date.svg
   - name: 離脱ユーザーの獲得

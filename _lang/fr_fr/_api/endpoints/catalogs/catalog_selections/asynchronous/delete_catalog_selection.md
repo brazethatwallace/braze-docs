@@ -31,7 +31,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | ---------------- | -------- | --------- | ------------------------------ |
 | `catalog_name` | Requis | Chaîne de caractères | Nom du catalogue. |
 | `selection_name` | Requis | Chaîne de caractères | Nom de la sélection du catalogue. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de chemin" }
 
 ## Exemple de requête {#example-request}
 
@@ -85,6 +85,6 @@ Le tableau suivant répertorie les erreurs possibles et les étapes de résoluti
 | -------------------- | -------------------------------------------------------- |
 | `catalog-not-found` | Vérifiez que le nom du catalogue est valide. |
 | `invalid-selection` | Vérifiez que le nom de la sélection est valide. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }
 
 {% endapi %}

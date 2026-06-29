@@ -4,6 +4,7 @@
     "fblinks": "ts-node ./scripts/find_broken_links.ts"
   },
   "devDependencies": {
+    "@lhci/cli": "^0.15.1",
     "@types/node": "^22.13.9",
     "cspell": "^8.17.5",
     "ts-node": "^10.9.2"

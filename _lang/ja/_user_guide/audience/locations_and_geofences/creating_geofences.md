@@ -4,7 +4,7 @@ article_title: ジオフェンスの作成
 page_order: 1
 page_type: reference
 toc_headers: h2
-description: "位置情報の権限設定、位置情報権限プライマーの作成、位置情報ベースのCampaignsのためのジオフェンス構築方法について説明します。"
+description: "位置情報の権限設定、位置情報権限プライマーの作成、位置情報ベースのキャンペーンのためのジオフェンス構築方法について説明します。"
 tool:
   - Location
 search_rank: 9
@@ -12,7 +12,7 @@ search_rank: 9
 
 # ジオフェンス {#geofences}
 
-> ジオフェンスは、緯度と経度に半径を組み合わせた仮想的な地理的エリアで、特定のグローバル位置を中心とした円を形成します。ジオフェンスは建物サイズから都市全体のサイズまでさまざまです。ジオフェンスを使用して、ユーザーがその境界に出入りする際にリアルタイムでCampaignsをトリガーしたり、数時間後や数日後にフォローアップCampaignsを送信したりできます。
+> ジオフェンスは、緯度と経度に半径を組み合わせた仮想的な地理的エリアで、特定のグローバル位置を中心とした円を形成します。ジオフェンスは建物サイズから都市全体のサイズまでさまざまです。ジオフェンスを使用して、ユーザーがその境界に出入りする際にリアルタイムでCampaignをトリガーしたり、数時間後や数日後にフォローアップCampaignを送信したりできます。
 
 {% alert tip %}
 ガイド付きウォークスルーについては、Brazeラーニングコース[ジオフェンスの作成](https://learning.braze.com/create-a-geofence)を参照してください。
@@ -44,7 +44,7 @@ search_rank: 9
 
 ### SDKとプラットフォームの要件 {#sdk-and-platform-requirements}
 
-ジオフェンストリガーのCampaignsはiOSとAndroidで利用できます。ジオフェンスをサポートするには、以下が必要です：
+ジオフェンストリガーのCampaignはiOSとAndroidで利用できます。ジオフェンスをサポートするには、以下が必要です：
 
 * Brazeジオフェンスまたは位置情報収集が有効になっていること。
 * ユーザーが「常に許可」の位置情報アクセスを付与していること。
@@ -157,7 +157,7 @@ Brazeのアプリ内メッセージにはネイティブの位置情報権限プ
 - **メッセージの例：** 「位置情報ベースの機能を最大限に活用するには、位置情報の設定を『常に許可』に更新してください。下のボタンをタップして設定に移動します。」
 
 {% alert tip %}
-このアプリ内メッセージは、ユーザージャーニーの任意のポイント（購入後、近くのコンテンツを閲覧しているとき、またはCanvasフローの一部として）でトリガーできます。再プロンプトする際は選択的に行いましょう。オプトイン疲れを避けるため、これらのCampaignsをロイヤルまたは高エンゲージメントのユーザーに限定してください。
+このアプリ内メッセージは、ユーザージャーニーの任意のポイント（購入後、近くのコンテンツを閲覧しているとき、またはCanvasフローの一部として）でトリガーできます。再プロンプトする際は選択的に行いましょう。オプトイン疲れを避けるため、これらのCampaignをロイヤルまたは高エンゲージメントのユーザーに限定してください。
 {% endalert %}
 
 ## 位置情報プライミング戦略の例 {#example-location-priming-strategies}
@@ -264,7 +264,7 @@ JSONファイルをアップロードするには、**More** > **Upload JSON**�
 
 ジオフェンスを設定した後、それらを使用してユーザーとのコミュニケーション方法を強化し充実させることができます。
 
-### CampaignsとCanvasesのトリガー {#triggering-campaigns-and-canvases}
+### CampaignとCanvasのトリガー {#triggering-campaigns-and-canvases}
 
 ジオフェンスデータをCampaignとCanvasのトリガーの一部として使用するには、配信方法として**アクションベースの配信**を選択します。次に、`Trigger a Geofence`のトリガーアクションを追加します。最後に、メッセージのジオフェンスセットとジオフェンストランジションイベントタイプを選択します。ジオフェンスイベントを使用してCanvasでユーザーを進めることもできます。
 
@@ -307,15 +307,11 @@ Braze SDKはセッション開始時に1日1回のみジオフェンスをリク
 
 [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/)や[Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)などのBrazeテクノロジーパートナーとジオフェンスを使用することもできます。
 
+## ジオフェンスと位置情報の追跡の違い {#differences-between-geofences-and-location-tracking}
+
+{% multi_lang_include locations_and_geofences/geofences_vs_location_tracking.md %}
+
 ## よくある質問 {#frequently-asked-questions}
-
-### ジオフェンスと位置情報の追跡の違いは何ですか？ {#whats-the-difference-between-geofences-and-location-tracking}
-
-Brazeでは、ジオフェンスは位置情報の追跡とは異なる概念です。ジオフェンスは特定のアクションのトリガーとして使用されます。ユーザーが地理的な場所の周りに設定された仮想境界に出入りすると、メッセージの送信などの特定のアクションをトリガーできます。
-
-位置情報の追跡は、ユーザーの最新の位置情報データを収集して保存します。このデータは`Most Recent Location`フィルターに基づいてユーザーをセグメント化するために使用できます。例えば、`Most Recent Location`フィルターを使用して、ニューヨークにいるユーザーをターゲットにすることができます。
-
-詳細については、[位置情報の追跡]({{site.baseurl}}/user_guide/audience/locations_and_geofences/location_tracking/)を参照してください。
 
 ### Brazeジオフェンスの精度はどの程度ですか？ {#how-accurate-are-braze-geofences}
 
@@ -337,7 +333,7 @@ Brazeジオフェンスは、アプリが閉じているときも含め、1日�
 
 ### ジオフェンスデータはユーザープロファイルに保存されますか？ {#is-geofence-data-stored-in-user-profiles}
 
-いいえ、Brazeはユーザープロファイルにジオフェンスデータを保存しません。ジオフェンスはAppleとGoogleの位置情報サービスによって監視され、Brazeはユーザーがジオフェンスをトリガーしたときにのみ通知を受けます。その時点で、Brazeは関連するトリガーCampaignsを処理します。
+いいえ、Brazeはユーザープロファイルにジオフェンスデータを保存しません。ジオフェンスはAppleとGoogleの位置情報サービスによって監視され、Brazeはユーザーがジオフェンスをトリガーしたときにのみ通知を受けます。その時点で、Brazeは関連するトリガーCampaignを処理します。
 
 ### ジオフェンスの中にジオフェンスを設定できますか？ {#can-i-set-up-a-geofence-within-a-geofence}
 

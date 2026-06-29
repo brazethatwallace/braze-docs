@@ -109,10 +109,10 @@ Pour mettre à niveau votre connecteur Test Currents, modifiez l'intégration da
 
 ## Mise à jour de Currents {#updating-currents}
 
-{% multi_lang_include updating_currents.md %}
+{% multi_lang_include currents/updating_currents.md %}
 
 ## Liste d'adresses IP autorisées {#ip-allowlisting}
 
 Braze enverra les données Currents à partir des adresses IP répertoriées :
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}

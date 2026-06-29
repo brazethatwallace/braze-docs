@@ -41,15 +41,11 @@
 
 ## 사용자가 배너를 닫을 수 있나요? {#can-users-dismiss-a-banner}
 
-{% alert important %}
-사용자가 배너를 수동으로 닫을 수 있도록 허용하는 기능은 얼리 액세스 중입니다. 자세한 내용은 [닫기 동작 구성]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior)을 참조하세요. 얼리 액세스에 참여하고 싶으시면 고객 성공 매니저에게 문의하세요.
-{% endalert %}
+네. 배너 작성기에서 닫기 동작을 활성화하여 사용자가 배너를 수동으로 닫을 수 있도록 허용할 수 있습니다. 닫기 기능 활성화 및 닫기 버튼 커스터마이징에 대한 자세한 내용은 [닫기 동작 구성]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior)을 참조하세요.
 
-사용자는 닫기 동작이 활성화되어 있고 워크스페이스가 얼리 액세스에 참여하고 있는 경우에만 배너를 수동으로 닫을 수 있습니다. 닫기 기능이 활성화되지 않았거나 워크스페이스에서 사용할 수 없는 경우, 사용자 Segment 자격을 관리하여 배너 표시 여부를 제어할 수 있습니다. 사용자가 배너 Campaign의 타겟팅 기준을 더 이상 충족하지 않으면, 다음 세션에서 해당 배너를 다시 보지 않게 됩니다.
+사용자는 닫기 동작이 활성화된 경우에만 배너를 수동으로 닫을 수 있습니다. 닫기 기능이 활성화되지 않은 경우, 사용자 Segment 자격을 관리하여 배너 표시 여부를 제어할 수 있습니다. 사용자가 배너 Campaign의 타겟팅 기준을 더 이상 충족하지 않으면, 다음 세션에서 해당 배너를 다시 보지 않게 됩니다.
 
-{% alert important %}
-[배너 닫기]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals)는 현재 얼리 액세스 중입니다. 얼리 액세스에 참여하고 싶으시면 고객 성공 매니저에게 문의하세요.
-{% endalert %}
+사용자가 배너를 닫으면 기본적으로 해당 Campaign에 대한 자격이 없어집니다. 닫은 사용자가 배너를 다시 볼 수 있도록 하려면 Campaign의 **전달 제어** 단계에서 [재자격 구성]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility)을 설정하세요. Canvas 배너 단계는 재자격을 제어하기 위해 Canvas 재진입 설정을 대신 사용합니다.
 
 예를 들어, 사용자가 구매할 때까지 프로모션 배너를 표시하는 경우, `purchase_completed`와 같은 이벤트를 기록하면 해당 사용자가 타겟팅된 Segment에서 제거되어 이후 세션에서 배너가 효과적으로 숨겨집니다.
 

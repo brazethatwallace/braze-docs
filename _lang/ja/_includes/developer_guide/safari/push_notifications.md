@@ -28,7 +28,7 @@
 
 ウェブサイトの`<head>` 要素に、マニフェストファイルがホストされている場所を指す次の`<link>` タグを追加する。
 
-```html
+`````````html
 <link rel="manifest" href="/manifest.json" />
 ```
 
@@ -53,7 +53,7 @@
 
 以下はその例です。
 
-```typescript
+`````````typescript
 import { requestPushPermission } from "@braze/web-sdk";
 
 button.onclick = function(){

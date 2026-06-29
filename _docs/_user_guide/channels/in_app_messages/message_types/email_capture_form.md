@@ -10,18 +10,18 @@ channel:
 
 # Email capture form {#email-capture-form}
 
-> Email capture messages allow you to easily prompt users of your site to submit their email address, after which it will be available within their user profile for use in all your messaging campaigns.
+> Email capture messages let you prompt users of your site to submit their email address. Braze adds the address to their user profile for use in all your messaging campaigns.
 
-This message type is available in the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+This message type is available in the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 ## How it works
 
-When an end-user enters their email address to this form, the email address will get added to their user profile.
+When an end user enters their email address in this form, Braze adds the email address to their user profile.
 
-- For [anonymous users]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#anonymous-user-profiles) who don't yet have an account, the email address will live on the anonymous user profile that is tied to the user's device.
-- If an email address already exists on the user profile, then the existing email address will be overwritten by the newly entered email address.
-- If the known user has an email address that is flagged as having [hard bounced]({{site.baseurl}}/help/help_articles/email/email_bounces#email-bounces), we'll check to see if the newly-entered email address differs to what's on their Braze profile. If the email address provided is different, the email address will be updated and the hard bounce status will be removed. 
-- If a user enters an invalid email address, the user will see the error message: "Please enter a valid email."
+- For [anonymous users]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#anonymous-user-profiles) who don't yet have an account, the email address is stored on the anonymous user profile tied to the user's device.
+- If an email address already exists on the user profile, the newly entered email address overwrites the existing email address.
+- If the known user has an email address that is flagged as having [hard bounced]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#hard-bounce), Braze checks whether the newly entered email address differs from the address on their Braze profile. If the provided email address is different, Braze updates the email address and removes the hard bounce status.
+- If a user enters an invalid email address, they see the error message: "Please enter a valid email."
     - Invalid email addresses: 
         - `example`
         - `example@`
@@ -30,17 +30,17 @@ When an end-user enters their email address to this form, the email address will
     - Valid email addresses: 
         - `example@gmail.com`
         - `example@gnail.com` (with a typo)
-    - For more information on email validation in Braze, refer to [Email technical guidelines and notes]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation/).
+    - For more information on email validation in Braze, refer to [Email technical guidelines and notes]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation).
 
 {% details More on identified versus anonymous users %}
 
-In general, the logic behind the email capture form is straightforward. It will set the email address on the user profile in Braze for the user that is currently active. However, that means the behavior differs based on whether the user is identified (logged in, `changeUser` called) or not.
+The email capture form sets the email address on the currently active user profile in Braze. Behavior differs based on whether the user is identified (logged in, `changeUser` called) or not.
 
 If an anonymous user enters their email in the form and submits it, Braze adds the email address to their profile. If `changeUser` is called later on in their web journey and a new `external_id` is assigned (such as when a new user registers with the service), all anonymous user profile data is merged including the email address.
 
-If `changeUser` is called with an existing `external_id`, the anonymous user profile is orphaned and [specific user profile data fields]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge_updates-behavior) that do not already exist on the identified user are merged, but any fields that do already exist are lost, including the email address.
+If `changeUser` is called with an existing `external_id`, the anonymous user profile is orphaned and [specific user profile data fields]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge_updates-behavior) that do not already exist on the identified user are merged, but any fields that do already exist are lost, including the email address.
 
-For more information, refer to the [User profile lifecycle]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
+For more information, refer to the [User profile lifecycle]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 
 {% enddetails %}
 
@@ -54,7 +54,7 @@ To navigate to this option, you must create an in-app messaging campaign. From t
 
 ## Step 2: Customize the form {#customizable-features}
 
-Next, customize your form as needed. You can customize the following features for your email capture form:
+Next, customize your form as needed. Customize the following features for your email capture form:
 
 - Header, body, and submit button text
 - An optional image
@@ -62,10 +62,12 @@ Next, customize your form as needed. You can customize the following features fo
 - Different colors for the header and body text, buttons, and background
 - Key-value pairs
 - Style for header and body text, buttons, button border color, background, and overlay
+- Submit button
+    - Note that the submit button appears only after the user enters a valid email address. This helps you collect complete email addresses.
 
 ![Composer for email capture form.]({% image_buster /assets/img/email_capture.png %})
 
-If you need to make further customization, choose **Custom Code** for your **Message Type**. You can use this [email capture modal template](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/5-email-capture-modal) from the [Braze Templates](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates) GitHub repository as your starter code.
+If you need to make further customization, choose **Custom Code** for your **Message Type**. Use this [email capture modal template](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/5-email-capture-modal) from the [Braze Templates](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates) GitHub repository as your starter code.
 
 ## Step 3: Set your entry audience
 
@@ -80,7 +82,6 @@ You can also combine the two filters using `AND` logic, if desired. This makes t
 
 After you've launched the email capture form and collected email addresses from your users, you can target users who filled out the form.
 
-1. In any segment filter in Braze, select the filter `Clicked/Opened Campaign`. 
-2. From the dropdown, select `clicked in-app message button 1`
+1. In any segment filter in Braze, select the filter `Clicked/Opened Campaign`.
+2. From the dropdown, select `clicked in-app message button 1`.
 3. Select your email capture form campaign.
-

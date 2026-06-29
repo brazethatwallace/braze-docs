@@ -33,7 +33,7 @@ L'utilisation de Liquid vous permet de récupérer les noms de vos groupes d'abo
 | Espace de travail valide avec un groupe d'abonnement e-mail, SMS ou WhatsApp | Un espace de travail fonctionnel avec des utilisateurs valides et un groupe d'abonnement e-mail, SMS ou WhatsApp. |
 | Utilisateur valide | Un utilisateur avec une adresse e-mail et un ID externe. |
 | Clé API générée avec les autorisations du centre de préférences | Dans le tableau de bord de Braze, accédez à **Paramètres** > **Clés API** pour confirmer que vous avez accès à une clé API avec les autorisations du centre de préférences. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ### Étape 1 : Utiliser l'endpoint de création du centre de préférences {#step-1-use-the-create-preference-center-endpoint}
 

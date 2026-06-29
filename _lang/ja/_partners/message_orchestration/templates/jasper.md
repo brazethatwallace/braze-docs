@@ -15,13 +15,13 @@ _この連携はJasperによって管理されています。_
 
 ## 概要 {#overview}
 
-JasperとBrazeの連携により、コンテンツ作成とCampaign実行を効率化できます。Jasperを使用すると、マーケティングチームは高品質でブランドに沿ったコピーを数分で生成できます。Brazeは、これらのメッセージを最適なタイミングで適切なオーディエンスに配信します。この連携により、シームレスなワークフローが促進され、手作業が削減され、より強力なエンゲージメント成果が得られます。
+JasperとBrazeの連携により、コンテンツ作成とキャンペーン実行を効率化できます。Jasperを使用すると、マーケティングチームは高品質でブランドに沿ったコピーを数分で生成できます。Brazeは、これらのメッセージを最適なタイミングで適切なオーディエンスに配信します。この連携により、シームレスなワークフローが促進され、手作業が削減され、より強力なエンゲージメント成果が得られます。
 
 この連携を使用する利点は以下のとおりです。
 
-- **迅速なCampaign実行：** 数週間ではなく、数分でCampaignを起動できます。
+- **迅速なキャンペーン実行：** 数週間ではなく、数分でキャンペーンを起動できます。
 - **一貫したブランドボイス：** Jasperテンプレートを使用して、生成されたコピーがブランドガイドラインに厳密に準拠していることを確認できます。
-- **ターゲットコンテンツの生成：** オーディエンスSegment、スタイルガイド、独自のナレッジアイテムを使用して、高度にカスタマイズされたメッセージングを作成できます。
+- **ターゲットコンテンツの生成：** オーディエンスセグメント、スタイルガイド、独自のナレッジアイテムを使用して、高度にカスタマイズされたメッセージングを作成できます。
 - **ダイナミックなパーソナライゼーション：** Braze内でスケーラブルなパーソナライゼーションを実現するために、{% raw %}`{{${first_name}}}`{% endraw %}のようなLiquidプレースホルダーを使用できます。
 - **エラーの削減：** 自動化されたワークフローにより、コピー＆ペーストのエラーが最小化され、手動ステップが削減されます。
 
@@ -122,7 +122,7 @@ curl --location 'https://api.jasper.ai/v1/templates/skl_BC53D8AC5B4B47E8BE557EBB
 
 ### メールテンプレートを作成するためのBraze APIリクエストの例 {#sample-braze-api-request-to-create-an-email-template}
 
-```bash
+`````````bash
 curl --location --request POST 'https://rest.iad-03.braze.com/templates/email/create' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <YOUR_BRAZE_API_KEY>' \
@@ -176,7 +176,7 @@ Jasper Studioは、ITサポートを必要とせずにカスタマイズされ�
 ## Braze APIリクエストの例（カスタムアプリ出力を使用） {#sample-braze-api-request-using-custom-app-output}
 
 {% raw %}
-```bash
+`````````bash
 curl --location --request POST 'https://rest.iad-03.braze.com/templates/email/create' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <YOUR_BRAZE_API_KEY>' \

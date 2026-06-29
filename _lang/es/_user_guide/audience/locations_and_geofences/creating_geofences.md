@@ -118,7 +118,7 @@ Para más información sobre vínculos profundos, consulta [Vinculación en prof
 
 ### Paso 2: Construye el mensaje previo de ubicación dentro de la aplicación {#step-2-build-the-location-primer-in-app-message}
 
-Crea una campaña de mensaje dentro de la aplicación que explique el valor del acceso a la ubicación. Todos los tipos de mensajes dentro de la aplicación admiten esta adhesión voluntaria, incluido el de arrastrar y soltar.
+Crea una Campaign de mensaje dentro de la aplicación que explique el valor del acceso a la ubicación. Todos los tipos de mensajes dentro de la aplicación admiten esta adhesión voluntaria, incluido el de arrastrar y soltar.
 
 1. Ve a **Messaging** > **Campaigns**, luego selecciona **Create Campaign** > **In-App Message**.
 2. Elige un tipo de mensaje y diseño. Un diseño **Modal** o **Full** te da más espacio para articular los beneficios.
@@ -307,15 +307,11 @@ La integración básica del SDK habilita solo el seguimiento de ubicación. El g
 
 También puedes usar geovallas con socios tecnológicos de Braze, como [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/) y [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/).
 
+## Diferencias entre geovallas y seguimiento de ubicación {#differences-between-geofences-and-location-tracking}
+
+{% multi_lang_include locations_and_geofences/geofences_vs_location_tracking.md %}
+
 ## Preguntas frecuentes {#frequently-asked-questions}
-
-### ¿Cuál es la diferencia entre geovallas y seguimiento de ubicación? {#whats-the-difference-between-geofences-and-location-tracking}
-
-En Braze, una geovalla es un concepto diferente del seguimiento de ubicación. Las geovallas se usan como desencadenantes para ciertas acciones: cuando un usuario entra o sale de un límite virtual establecido alrededor de una ubicación geográfica, puede desencadenar una acción específica, como enviar un mensaje.
-
-El seguimiento de ubicación recopila y almacena los datos de ubicación más recientes de un usuario. Estos datos se pueden usar para segmentar usuarios basándose en el filtro `Most Recent Location`. Por ejemplo, podrías usar el filtro `Most Recent Location` para dirigirte a usuarios ubicados en Nueva York.
-
-Para más información, consulta [Seguimiento de ubicación]({{site.baseurl}}/user_guide/audience/locations_and_geofences/location_tracking/).
 
 ### ¿Qué tan precisas son las geovallas de Braze? {#how-accurate-are-braze-geofences}
 

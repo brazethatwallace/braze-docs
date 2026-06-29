@@ -15,8 +15,8 @@ guide_featured_list:
 - name: 코호트 가져오기 통합
   link: /docs/partners/isv_partners/cohort_import
   image: /assets/img/braze_icons/users-01.svg
-- name: 커스텀 커런츠 커넥터
-  link: /docs/partners/isv_partners/currents_integration
+- name: 커스텀 HTTP 커넥터
+  link: /docs/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/
   image: /assets/img/braze_icons/waves.svg
 - name: Snowflake 데이터 공유
   link: /docs/partners/isv_partners/snowflake_datasharing

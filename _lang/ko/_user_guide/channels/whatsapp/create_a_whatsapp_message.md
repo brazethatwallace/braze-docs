@@ -37,15 +37,15 @@ WhatsApp은 각 언어에 대해 서로 다른 [메시지 템플릿](#template-m
 
 **단계:**
 
-1. **Campaigns** 페이지로 이동하여 <i class="fas fa-plus"></i> **Create Campaign**을 클릭합니다.
-2. **WhatsApp**을 선택하거나, 여러 채널을 타겟팅하는 Campaign의 경우 **Multichannel Campaign**을 선택합니다.
+1. **Campaigns** 페이지로 이동하여 <i class="fas fa-plus"></i> **캠페인 생성**을 클릭합니다.
+2. **WhatsApp**을 선택하거나, 여러 채널을 타겟팅하는 Campaign의 경우 **멀티채널 Campaign**을 선택합니다.
 3. Campaign에 명확하고 의미 있는 이름을 지정합니다.
 4. 필요에 따라 [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) 및 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)를 추가합니다.
    * 태그를 사용하면 Campaign을 더 쉽게 찾고 보고서를 작성할 수 있습니다. 예를 들어, [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)를 사용할 때 특정 태그로 필터링할 수 있습니다.
 5. Campaign에 필요한 만큼 배리언트를 추가하고 이름을 지정합니다. 추가된 각 배리언트에 대해 서로 다른 플랫폼, 메시지 유형 및 레이아웃을 선택할 수 있습니다. 이 주제에 대한 자세한 내용은 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)를 참조하세요.
 
 {% alert tip %}
-Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가지고 있다면, 추가 배리언트를 추가하기 전에 메시지를 작성하세요. 그런 다음 **Add Variant** 드롭다운에서 **Copy from Variant**를 선택할 수 있습니다.
+Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가지고 있다면, 추가 배리언트를 추가하기 전에 메시지를 작성하세요. 그런 다음 **배리언트 추가** 드롭다운에서 **배리언트에서 복사**를 선택할 수 있습니다.
 {% endalert %}
 
 {% endtab %}
@@ -130,19 +130,57 @@ Liquid를 사용할 계획이라면, 수신자의 고객 프로필이 불완전�
 
 ### 3단계: 메시지 미리보기 및 테스트 {#step-3-preview-and-test-your-message}
 
-Braze는 항상 메시지를 보내기 전에 미리보기하고 테스트하는 것을 권장합니다. **Test** 탭으로 전환하여 [콘텐츠 테스트 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) 또는 개별 사용자에게 테스트 WhatsApp 메시지를 보내거나, Braze에서 직접 사용자로서 메시지를 미리볼 수 있습니다.
+Braze는 항상 메시지를 보내기 전에 미리보기하고 테스트하는 것을 권장합니다. **테스트** 탭으로 전환하여 [콘텐츠 테스트 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) 또는 개별 사용자에게 테스트 WhatsApp 메시지를 보내거나, Braze에서 직접 사용자로서 메시지를 미리볼 수 있습니다.
 
 ![Max라는 커스텀 사용자에 대한 미리보기 메시지.]({% image_buster /assets/img/whatsapp/whatsapp8.png %}){: style="max-width:80%;"}
 
 {% alert note %}
-응답 메시지(테스트 메시지 포함)를 보내려면 대화 기간이 필요합니다. 대화 기간을 시작하려면 이 메시지에 사용 중인 구독 그룹과 연결된 전화번호로 WhatsApp 메시지를 보내세요. 연결된 전화번호는 **Test** 탭의 알림에 나열되어 있습니다.
+응답 메시지(테스트 메시지 포함)를 보내려면 대화 기간이 필요합니다. 대화 기간을 시작하려면 이 메시지에 사용 중인 구독 그룹과 연결된 전화번호로 WhatsApp 메시지를 보내세요. 연결된 전화번호는 **테스트** 탭의 알림에 나열되어 있습니다.
 {% endalert %}
 
-![테스트하려면 먼저 +1 217-582-9414로 WhatsApp 메시지를 보내 대화 기간을 여세요. 그런 다음 테스트 사용자에게 응답 메시지를 보내세요.]({% image_buster /assets/img/whatsapp/whatsapp_test_phone_number.png %}){: style="max-width:70%;"}
+![대화 기간을 열려면 WhatsApp 메시지를 보내고, 그런 다음 테스트 사용자에게 메시지를 보내라는 알림.]({% image_buster /assets/img/whatsapp/whatsapp_test_phone_number.png %}){: style="max-width:70%;"}
 
 자세한 내용은 [테스트 메시지 보내기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=whatsapp)를 참조하세요.
 
-### 4단계: Campaign 또는 Canvas의 나머지 부분 구축 {#step-4-build-the-remainder-of-your-campaign-or-canvas}
+### 4단계: 테스트 발송 결과 확인 {#step-4-view-test-send-results}
+
+테스트 WhatsApp 메시지를 보낸 후 메시지 작성기에서 직접 상세한 전달 보고서를 확인할 수 있습니다. 이를 통해 메시지가 의도한 수신자에게 도달했는지 확인하고, 시작 전에 실패를 해결할 수 있습니다.
+
+**테스트 결과 보기** 버튼은 현재 Campaign 또는 캔버스 단계에 대한 테스트 발송 데이터가 있을 때 나타납니다. 이 버튼을 선택하면 결과 패널이 열립니다.
+
+결과 패널에는 메시지가 수신자에게 전달되기까지 거친 각 단계가 표시됩니다:
+- **Braze:** Braze가 메시지를 성공적으로 처리하고 발송했는지 여부
+- **Meta:** Meta가 메시지를 전달 승인했는지 여부
+- **사용자 기기:** 메시지가 수신자의 기기에 전달되었는지 여부
+
+각 단계에는 현재 상태가 표시됩니다. 단계가 실패한 경우, 패널에 발생한 오류와 해결 방법에 대한 안내가 표시됩니다. 동일한 Campaign 또는 Canvas를 닫았다가 다시 열어도 결과는 유지됩니다.
+
+![두 건의 성공적인 테스트 발송과 한 건의 실패한 테스트 발송을 보여주는 테스트 결과 패널.]({% image_buster /assets/img/whatsapp/whatsapp_test_results.png %}){: style="max-width:80%;"}
+
+#### 재시도 및 이전 시도 {#retries-and-past-attempts}
+
+테스트 발송이 실패하면 Braze는 최대 24시간 동안 자동으로 전달을 재시도합니다. 결과 패널에는 두 개의 탭이 표시됩니다:
+
+- **최신:** 재시도가 발생할 때 실시간으로 업데이트되는 가장 최근 전달 시도
+- **이전 시도:** 이전 재시도 기록으로, 각 단계 상태와 발생한 오류가 표시됩니다
+
+최종 결과가 결정되면(성공적인 전달, 재시도 소진 또는 재시도로 해결할 수 없는 실패), 탭 이름이 각각 **결과**와 **재시도 기록**으로 변경됩니다.
+
+{% alert note %}
+재시도는 최대 24시간 동안 계속될 수 있으므로, 발송 실패 직후에 최종 결과가 표시되지 않을 수 있습니다.
+{% endalert %}
+
+#### 실패 문제 해결 {#troubleshoot-failures}
+
+단계에서 실패가 표시되면 패널에 오류와 권장 다음 단계가 표시됩니다. 테스트 발송이 실패하는 일반적인 이유는 다음과 같습니다:
+
+- 메시지 템플릿이 Meta에서 일시 중지되었거나 아직 승인되지 않음
+- 수신자의 전화번호가 속도 제한됨
+- 메시지의 Liquid 변수가 선택한 테스트 사용자에 대해 채워지지 않음
+
+지속적인 문제의 경우, Meta Business Manager에서 템플릿 상태를 확인하거나 테스트 수신자에게 Braze에서 필요한 사용자 속성이 채워져 있는지 확인하세요.
+
+### 5단계: Campaign 또는 Canvas의 나머지 부분 구축 {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
@@ -153,7 +191,7 @@ Braze는 항상 메시지를 보내기 전에 미리보기하고 테스트하는
 
 WhatsApp 메시지는 스케줄된 시간, 실행 또는 API 트리거를 기반으로 전달할 수 있습니다. 자세한 내용은 [Campaign 스케줄링]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)을 참조하세요.
 
-실행 기반 전달의 경우, Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)도 설정할 수 있습니다.
+실행 기반 전달의 경우, Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)도 설정할 수 있습니다.
 
 이 단계에서는 사용자가 Campaign을 [다시 받을 수 있도록]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) 허용하거나 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) 규칙을 활성화하는 등의 전달 제어를 지정할 수도 있습니다.
 
@@ -161,7 +199,7 @@ WhatsApp 메시지는 스케줄된 시간, 실행 또는 API 트리거를 기반
 
 다음으로 Segments 또는 필터를 선택하여 오디언스를 좁혀 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)해야 합니다. 이미 구독 그룹을 선택했어야 하며, 이는 사용자가 원하는 커뮤니케이션 수준이나 카테고리에 따라 사용자를 좁힙니다. 이 단계에서는 Segments에서 더 큰 오디언스를 선택하고 필터를 사용하여 해당 Segment를 더 세밀하게 좁힙니다. 대략적인 Segment 인구가 어떻게 보이는지에 대한 스냅샷이 자동으로 제공됩니다. 정확한 Segment 멤버십은 항상 메시지가 전송되기 전에 계산된다는 점을 기억하세요.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 #### 전환 이벤트 선택 {#choose-conversion-events}
 
@@ -202,7 +240,7 @@ Braze를 통해 전송하는 아웃바운드 WhatsApp 메시지에 대해 다음
 | 문서 | 문서는 본문 텍스트 내에 삽입할 수 있습니다. 파일은 URL을 통해 호스팅되어야 합니다. | < 100 MB | `.txt`, `.xls`, `.xlsx`, `.doc`, `.docx`, `.ppt`, `.pttx`, `.pdf` |
 | 동영상 | 동영상은 본문 텍스트 내에 삽입할 수 있습니다. 파일은 URL을 통해 호스팅되거나 [Braze 미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)에 있어야 합니다. | < 16 MB | `.3gp`, `.mp4` |
 | 오디오 | 오디오는 응답 메시징을 통해서만 지원됩니다. 파일은 URL을 통해 호스팅되어야 합니다. | < 16 MB | `.aac`, `.amr`, `.mp3`, `.mp4`, `.ogg` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Outbound messages" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="아웃바운드 메시지" }
 
 {% multi_lang_include alerts/important_alerts.md alert='Meta MP4 video issue' %}
 
@@ -218,7 +256,7 @@ Braze를 통해 수신하는 인바운드 WhatsApp 메시지에 대해 다음 �
 | 문서 | 문서는 메시지 첨부를 통해 지원됩니다. | `.txt`, `.pdf`, `.ppt`, `.doc`, `.xls`, `.docx`, `.pptx`, `.xlsx` |
 | 동영상 | H.264 비디오 코덱과 AAC 오디오 코덱만 지원됩니다. 동영상에는 단일 오디오 스트림이 있거나 오디오 스트림이 없어야 합니다. | `.mp4`, `.3gp` |
 | CTA 링크 | 다양한 콜투액션(CTA) 유형이 지원됩니다. 자세한 내용은 [콜투액션 유형](#ctas)을 참조하세요. | — |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Inbound messages" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="인바운드 메시지" }
 
 ### 콜투액션 유형 {#ctas}
 
@@ -233,4 +271,4 @@ Braze를 통해 전송하는 WhatsApp 메시지에 대해 다음 콜투액션 �
 | 쿠폰 코드 메시지 템플릿 | 메시지 템플릿에서만 사용 가능합니다. <br>다른 메시지 템플릿처럼 열고 편집할 수 있으며, Liquid 및 Braze 프로모션 코드와 호환됩니다. |
 | CTA 응답 메시지 | 콜투액션 버튼이 포함된 응답 메시지를 만듭니다. |
 | [목록 응답 메시지]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users/#list-messages) | 사용자가 선택할 수 있는 최대 10개의 옵션 목록이 포함된 응답 메시지를 만듭니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Call-to-action types" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="콜투액션 유형" }

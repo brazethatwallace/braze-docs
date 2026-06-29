@@ -22,10 +22,10 @@ A integração da Braze e da Lexer permite sincronizar dados entre as duas plata
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta de parceiro | É necessário ter uma conta Lexer para aproveitar essa parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com todas as permissões `user` (exceto `user.delete`) e permissões `segment.list`. O conjunto de permissões pode mudar à medida que a Lexer adiciona suporte a mais objetos da Braze, portanto, talvez você queira conceder mais permissões agora ou planejar a atualização dessas permissões no futuro.<br><br> Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com todas as permissões `user` (exceto `user.delete`) e permissões `segment.list`. O conjunto de permissões pode mudar à medida que a Lexer adiciona suporte a mais objetos da Braze, portanto, talvez você queira conceder mais permissões agora ou planejar a atualização dessas permissões no futuro.<br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | Endpoint REST da Braze | [URL do seu endpoint REST]({{site.baseurl}}/api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
 | Bucket S3 e credenciais do Amazon AWS | Antes de iniciar a integração, é necessário ter credenciais de acesso para um bucket S3 do AWS conectado ao seu hub da Lexer (pode ser um bucket criado por você ou um que a Lexer crie e gerencie para você). Visite [a Lexer](https://learn.lexer.io/docs/amazon-s3) para obter orientação sobre esse requisito. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -37,7 +37,7 @@ Na Lexer, navegue até **Manage > Integration**, selecione o bloco **Braze** e c
   - **AWS S3 [bucket region](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingBucket.html)**
   - **AWS S3 bucket path**: Esse caminho deve corresponder ao caminho que você especificou ao [conectar seu bucket S3 à Braze]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/). Deixe em branco se você não especificou nada para a Braze.
   - **AWS S3 secret access key**: Visite a Amazon para informações sobre [criar uma chave de acesso](https://aws.amazon.com/premiumsupport/knowledge-center/create-access-key/).
-- **Braze export segment ID**: O ID do segmento que você criou na Braze contendo todos os usuários que deseja exportar para a Lexer. Se houver usuários que não deseja exportar para a Lexer, você poderá excluí-los do segmento criado na Braze. Para encontrar seu identificador de segmento, clique no segmento desejado na Braze e localize o **Segment API Identifier**.
+- **Braze export segment ID**: O ID do segmento que você criou na Braze contendo todos os usuários que deseja exportar para a Lexer. Se houver usuários que não deseja exportar para a Lexer, você poderá excluí-los do segmento criado na Braze. Para encontrar seu identificador de segmento, clique no segmento desejado na Braze e localize o **Identificador de API do segmento**.
 
 ![]({% image_buster /assets/img/lexer/braze_integrate_screen.png %})
 

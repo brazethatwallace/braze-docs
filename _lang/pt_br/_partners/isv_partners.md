@@ -12,11 +12,11 @@ guide_featured_list:
 - name: Integração com parceiros da API
   link: /docs/partners/isv_partners/api_partner
   image: /assets/img/braze_icons/user-circle.svg
-- name: Integração da importação de coortes
+- name: Integração de importação de coorte
   link: /docs/partners/isv_partners/cohort_import
   image: /assets/img/braze_icons/users-01.svg
-- name: Conector de Currents personalizado
-  link: /docs/partners/isv_partners/currents_integration
+- name: Conector HTTP personalizado
+  link: /docs/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/
   image: /assets/img/braze_icons/waves.svg
 - name: Compartilhamento de dados do Snowflake
   link: /docs/partners/isv_partners/snowflake_datasharing

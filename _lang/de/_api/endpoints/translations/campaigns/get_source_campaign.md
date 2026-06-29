@@ -17,8 +17,6 @@ description: "Dieser Artikel enthält detaillierte Informationen zum Endpunkt f�
 
 > Verwenden Sie diesen Endpunkt, um alle Standardübersetzungsquellen für die Übersetzungs-Tags einer Campaign anzuzeigen. Dies sind die Werte innerhalb von {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Weitere Informationen zu den Übersetzungs-Features finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `campaigns.translations.get`.
@@ -71,7 +69,7 @@ Der Statuscode `200` könnte den folgenden Antwort-Header und -Body zurückgeben
 
 ### Beispiel für eine Fehlerantwort {#example-error-response}
 
-Der Statuscode `400` könnte den folgenden Antwort-Body zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die auftreten können.
+Der Statuscode `400` könnte den folgenden Antwort-Body zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu möglichen Fehlern.
 
 ```json
 {

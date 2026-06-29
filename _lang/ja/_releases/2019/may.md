@@ -56,7 +56,7 @@ Campaign作成プロセスのこのステップを強調するプラットフォ
 ## メールのディスパッチID Currentsフィールド {#dispatch-id-currents-field-for-email}
 
 {% alert update %}
-CanvasとCampaignの間で`dispatch_id`の動作が異なるのは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を「スケジュールされた」場合でもトリガーイベントとして扱うためです。CanvasやCampaignでの[`dispatch_id`の動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)について詳しくはこちらをご覧ください。
+CanvasとCampaignの間で`dispatch_id`の動作が異なるのは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を「スケジュールされた」場合でもトリガーイベントとして扱うためです。CanvasやCampaignでの[`dispatch_id`の動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)について詳しくはこちらをご覧ください。
 
 _更新は2019年8月に記録されました。_
 {% endalert %}
@@ -88,11 +88,10 @@ Mailjetも使用しているユーザーは、以前のユニーク判定の時�
 これらの更新された用語は、[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)で検索できます。
 
 {% alert update %}
-CanvasとCampaignの間で`dispatch_id`の動作が異なるのは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を「スケジュールされた」場合でもトリガーイベントとして扱うためです。[CanvasとCampaignにおける`dispatch_id`の動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)について詳しくはこちらをご覧ください。
+CanvasとCampaignの間で`dispatch_id`の動作が異なるのは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を「スケジュールされた」場合でもトリガーイベントとして扱うためです。[CanvasとCampaignにおける`dispatch_id`の動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)について詳しくはこちらをご覧ください。
 
 _更新は2019年8月に記録されました。_
 {% endalert %}
-
 
 ## 最もエンゲージされたチャネル {#most-engaged-channel}
 

@@ -216,6 +216,14 @@ Facebook 커스텀 오디언스 서비스 약관에 동의한 후 다음을 수�
 
 그러면 Braze는 사용자가 Facebook 오디언스 동기화 단계에 도달하는 즉시 사용자를 동기화할 수 있습니다.
 
+### **Connected Facebook** 및 **Number of Facebook Friends Using App** 필터는 어떻게 되었나요? {#what-happened-to-the-connected-facebook-and-number-of-facebook-friends-using-app-filters}
+
+**Number of Facebook Friends Using App** 및 **Connected Facebook** Braze 세분화 필터는 더 이상 사용되지 않습니다. Facebook과 Braze SDK는 더 이상 해당 필터가 의존하던 기본 데이터를 수집하지 않습니다.
+
+더 이상 사용되지 않는 필터를 커스텀 속성, 커스텀 이벤트 또는 참여 기반 Segments로 대체하세요. 예를 들어 **Connected Facebook** 대신 Facebook 로그인 또는 소셜 연결을, **Number of Facebook Friends Using App** 대신 추천, 초대, 공유를 사용할 수 있습니다.
+
+Canvas 리타겟팅의 경우 [4단계: 동기화 설정](#step-4-sync-setup)에서 설명한 대로 이메일, 전화, 이름, 성으로 사용자를 일치시킵니다. 도달 범위를 확장하려면 고가치 Segment를 Facebook에 동기화하고 Meta 광고 매니저에서 유사 오디언스를 생성하세요.
+
 ## 문제 해결 {#troubleshooting}
 
 <style>
@@ -234,7 +242,6 @@ table td {
 </style>
 
 <table aria-label="Troubleshooting">
-  <caption>문제 해결</caption>
   <thead>
     <tr>
       <th>오류</th>
@@ -279,6 +286,21 @@ table td {
       <td>Facebook 기술 파트너 페이지에서 "Connected"로 표시되지만, 오디언스를 동기화할 때 Facebook 오디언스 동기화 단계에서 "Failed to create audience 'audience name'"이라는 오류가 발생합니다. Facebook 계정 인증에 실패했습니다. 기술 파트너 페이지를 방문하여 계정을 다시 연결하세요.</td>
       <td><a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>이 문제 해결 섹션</a> 의 단계를 따라 계정에 문제가 있는지 확인하세요.
       </td>
+    </tr>
+    <tr>
+      <td><b>드롭다운에 광고 계정이 표시되지 않음</b></td>
+      <td>Facebook 오디언스 단계를 구성할 때 예상하는 광고 계정이 광고 계정 선택기에 나열되지 않습니다.</td>
+      <td>Facebook 앱이 마케팅 API 사용에 필요한 액세스 수준으로 <code>ads_management</code>에 대한 <a href="https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management">앱 검토</a> 를 완료했는지 확인하세요. <a href="https://business.facebook.com/">Facebook 비즈니스 매니저</a> 에서 시스템 사용자 토큰이 올바른 권한을 가지고 있고 Braze에서 사용하는 광고 계정과 연결되어 있으며, 광고 계정 약관에 동의했는지 확인하세요. <br><br>새 Canvas에서는 드롭다운이 작동하지만 이미 편집한 Canvas에서는 작동하지 않는 경우, 브라우저를 강제 새로고침(또는 캐시 삭제)하고 해당 광고 계정에 대한 액세스 권한이 있는 사용자로 로그인되어 있는지 확인하세요.</td>
+    </tr>
+    <tr>
+      <td><b>액세스 토큰 유효성 검사 오류</b></td>
+      <td>Braze를 Facebook에 연결하거나 오디언스를 동기화할 때 Facebook 액세스 토큰 유효성 검사에 대한 오류가 표시됩니다.</td>
+      <td>브라우저에서 Facebook에서 로그아웃합니다. Braze에서 <b>파트너 통합</b> &gt; <b>Facebook</b>으로 이동하여 저장된 Facebook 자격 증명을 제거한 다음 Facebook을 다시 연결합니다. Braze의 Facebook 기술 파트너 페이지에서 옵션이 있는 경우 통합의 연결을 해제하고 다시 연결합니다. <br><br>문제가 계속되면 <a href="#audit-your-facebook-account">Facebook 계정 감사하기</a> 를 따르세요.</td>
+    </tr>
+    <tr>
+      <td><b>오디언스 내보내기 또는 동기화 권한 오류</b></td>
+      <td>Facebook 오디언스 내보내기 또는 동기화가 인증, 관리자 또는 광고 계정 오류로 실패합니다.</td>
+      <td><a href="https://developers.facebook.com/">Meta for Developers</a> 에서 앱을 열고 <b>App roles</b>에서 사용자에게 <b>Admin</b> 역할이 있는지 확인합니다. <b>App settings</b> &gt; <b>Advanced</b>에서 <b>Advertising accounts</b>에 Braze와 함께 사용하는 계정이 포함되어 있는지 확인합니다. <a href="https://business.facebook.com/latest/settings">비즈니스 설정</a> 에서 연결하는 사용자 또는 시스템 사용자가 올바른 광고 계정에 대한 액세스 권한이 있는지 확인합니다.</td>
     </tr>
   </tbody>
 </table>

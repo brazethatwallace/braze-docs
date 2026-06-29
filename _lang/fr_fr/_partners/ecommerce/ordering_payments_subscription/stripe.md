@@ -29,7 +29,7 @@ En intégrant Braze et Stripe, vous pouvez :
 
 ### Étape 1 : Configurer la Transformation des données Braze pour accepter les webhooks de Stripe {#step-1}
 
-{% multi_lang_include create_transformation.md %}
+{% multi_lang_include data_activation/create_transformation.md %}
 
 ### Étape 2 : Configurer les webhooks de Stripe {#step-2-set-up-stripe-webhooks}
 

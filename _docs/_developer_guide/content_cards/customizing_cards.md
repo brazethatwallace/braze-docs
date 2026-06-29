@@ -10,13 +10,13 @@ guide_top_text: "> Learn about customizing Content Cards for the Braze SDK."
 guide_featured_title: "Articles in this section"
 guide_featured_list:
 - name: Customizing Card Style
-  link: /docs/developer_guide/content_cards/customizing_cards/style/
+  link: /docs/developer_guide/content_cards/customizing_cards/style
   image: /assets/img/braze_icons/edit-03.svg
 - name: Customizing Card Behavior
-  link: /docs/developer_guide/content_cards/customizing_cards/behavior/
+  link: /docs/developer_guide/content_cards/customizing_cards/behavior
   image: /assets/img/braze_icons/sliders-01.svg
 - name: Customizing the Default Feed
-  link: /docs/developer_guide/content_cards/customizing_cards/feed/
+  link: /docs/developer_guide/content_cards/customizing_cards/feed
   image: /assets/img/braze_icons/layout-grid-01.svg
 ---
 

@@ -52,12 +52,14 @@ Le **Panier actif** inclut les éléments suivants :
 
 ### Segmentation {#segmentation}
 
-Les événements eCommerce se comportent comme des événements personnalisés, ce qui signifie que tous les filtres d'événements personnalisés existants fonctionnent immédiatement. Par exemple, vous pourriez filtrer par « A effectué l'événement personnalisé `ecommerce.order_placed` plus de X fois ».
+Braze propose trois façons de segmenter les utilisateurs en fonction des données eCommerce :
 
-Pour le ciblage basé sur des données produit imbriquées (comme des ID de produit spécifiques, des noms de variantes ou des seuils de prix), utilisez les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) avec le filtrage par propriétés d'événement imbriquées. Cela vous permet de créer des audiences comme « les utilisateurs ayant acheté le produit SKU-123 au cours des 90 derniers jours » ou de combiner des critères sur différentes propriétés de la même commande.
+- **Filtres eCommerce :** utilisez la catégorie **eCommerce** dans le segmenteur, qui contient des filtres alimentés par les événements recommandés pour le commerce électronique (tels que **Last Order Placed**, **Total Revenue** et **Average Order Value**). Pour une liste complète des filtres disponibles, consultez [Filtres de Segment]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+- **Filtres d'événements personnalisés :** comme les événements eCommerce se comportent comme des événements personnalisés, tous les filtres d'événements personnalisés existants fonctionnent immédiatement. Par exemple, vous pouvez filtrer par « A effectué l'événement personnalisé `ecommerce.order_placed` plus de X fois » ou « A effectué pour la première fois l'événement personnalisé `ecommerce.order_placed` ».
+- **Extensions de segments :** pour segmenter sur des propriétés d'événement imbriquées, y compris le tableau de produits imbriqué ou les propriétés des objets de métadonnées, utilisez les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) avec le filtrage par propriétés d'événement imbriquées. Cela vous permet de créer des audiences comme « les utilisateurs ayant acheté le produit SKU-123 au cours des 90 derniers jours » ou de combiner des critères sur différentes propriétés de la même commande.
 
 {% alert important %}
-Les Extensions de segments sont une fonctionnalité payante. Vérifiez que votre forfait inclut l'accès avant de recommander la segmentation par propriétés imbriquées à votre équipe.
+Les Extensions de segments pour les événements recommandés eCommerce sont une fonctionnalité payante en accès anticipé. Si vous souhaitez participer à l'accès anticipé, contactez votre gestionnaire de la satisfaction client. Vérifiez que votre forfait inclut l'accès avant de recommander la segmentation par propriétés imbriquées à votre équipe.
 {% endalert %}
 
 ### Déclenchement {#triggering}
@@ -160,15 +162,15 @@ Les événements recommandés pour le commerce électronique alimentent les mêm
 | Rapport | Ce qu'il affiche |
 |---------------------------------------------|-------------------------------------------|
 | Rapport sur les revenus | Chiffre d'affaires total, chiffre d'affaires quotidien moyen, achats quotidiens et chiffre d'affaires par utilisateur au fil du temps, toutes sources confondues, pour la plage de dates et les applications sélectionnées. |
-| Tableau de bord Last Touch Attribution Revenue | Chiffre d'affaires attribué à la dernière Campaign ou au dernier Canvas avec lequel un utilisateur a interagi avant de passer une commande. Les événements de contact incluent les clics sur les e-mails, les ouvertures de push, les clics sur les cartes de contenu, les clics sur les messages in-app et les clics sur les liens courts SMS ou WhatsApp. |
-| Analyses des Campaigns et des Canvas | Chiffre d'affaires total attribué à une Campaign ou un Canvas spécifique dans la fenêtre de conversion principale. |
-| Rapport de conversions | Chiffre d'affaires lié aux événements de conversion sur les Campaigns et les Canvas.<br> **Remarque :** pour comptabiliser le chiffre d'affaires de `ecommerce.order_placed`, la Campaign ou le Canvas doit utiliser le type d'événement de conversion « Place Order » comme événement de conversion. |
+| Tableau de bord Last Touch Attribution Revenue | Chiffre d'affaires attribué à la dernière campagne ou au dernier Canvas avec lequel un utilisateur a interagi avant de passer une commande. Les événements de contact incluent les clics sur les e-mails, les ouvertures de push, les clics sur les cartes de contenu, les clics sur les messages in-app et les clics sur les liens courts SMS ou WhatsApp. |
+| Analyses des campagnes et des Canvas | Chiffre d'affaires total attribué à une campagne ou un Canvas spécifique dans la fenêtre de conversion principale. |
+| Rapport de conversions | Chiffre d'affaires lié aux événements de conversion sur les campagnes et les Canvas.<br> **Remarque :** pour comptabiliser le chiffre d'affaires de `ecommerce.order_placed`, la campagne ou le Canvas doit utiliser le type d'événement de conversion « Place Order » comme événement de conversion. |
 | Statistiques des segments | Comparaisons de chiffre d'affaires entre les segments dans le tableau de bord Statistiques des segments. |
 | Générateur de rapports | Indicateurs de chiffre d'affaires dans les rapports personnalisés créés dans le Générateur de rapports. |
 | Générateur de tableaux de bord | Indicateurs de chiffre d'affaires dans les tableaux de bord personnalisés créés dans le Générateur de tableaux de bord. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce reporting" }
 
-Pour les champs calculés non liés à l'utilisateur (par exemple, le chiffre d'affaires d'une Campaign ou d'un Canvas), le chiffre d'affaires est calculé de la même manière dans tous les rapports : `price` multiplié par `quantity` par produit dans la commande, sommé sur l'ensemble des produits de chaque événement `order_placed`.
+Pour les champs calculés non liés à l'utilisateur (par exemple, le chiffre d'affaires d'une campagne ou d'un Canvas), le chiffre d'affaires est calculé de la même manière dans tous les rapports : `price` multiplié par `quantity` par produit dans la commande, sommé sur l'ensemble des produits de chaque événement `order_placed`.
 
 {% alert note %}
 Pour éviter le double comptage du chiffre d'affaires, n'envoyez pas à la fois des achats hérités et des événements recommandés pour le commerce électronique pour les mêmes commandes. Si vous prévoyez de passer des achats hérités aux événements recommandés, coordonnez le changement avec votre équipe de compte Braze avant d'effectuer toute modification d'intégration.<br><br>

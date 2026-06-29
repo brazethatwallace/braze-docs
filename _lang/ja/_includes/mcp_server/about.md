@@ -4,6 +4,18 @@
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
+{% alert important %}
+## ローカルホスト型Braze MCPサーバーのSunsetting (配信停止) {#sunsetting-the-locally-hosted-braze-mcp-server}
+
+今夏、BrazeはリモートのBrazeホスト型MCPサーバーを早期アクセスとして提供開始します。これは、ローカルホスト型のベータサーバー（[PyPI](https://pypi.org/project/braze-mcp-server/)上の`braze-mcp-server`およびClaude Desktopの拡張機能ディレクトリ）に代わるものです。
+
+**これがあなたにとって意味すること：**
+
+- ローカルホスト型サーバーは引き続き動作しますが、サポートは終了しています。ベータ版への新しいエンドポイントの追加や問題の修正は行いません。
+- リモートサーバーが早期アクセスで利用可能になった際には、切り替えが必要です。リモートサーバーはローカルインストール不要で、静的APIキーの代わりにOAuthを使用し、Claude、Copilot、Gemini CLI、Codex、CursorなどのMCPクライアントで動作します。
+- 早期アクセスの提供開始については、このページをご確認いただくか、Brazeアカウントチームにご連絡ください。
+{% endalert %}
+
 ## モデルコンテキストプロトコル（MCP）とは {#what-is-model-context-protocol-mcp}
 
 モデルコンテキストプロトコル（MCP）とは、AIエージェントが別のプラットフォームのデータに接続し、そのデータと連動できるようにする規格です。主に2つの部分で構成されています。
@@ -31,11 +43,13 @@ ClaudeやCursorのようなツールを使って、自然言語でBrazeとやり
 
 {% tabs %}
 {% tab Claude %}
-![「利用可能なBrazeの機能は何ですか？」という質問がClaudeで尋ねられ、回答されている様子。]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**プロンプトの例：** `What are my available Braze functions?`
+**応答の例：** `list_functions`を使用し、利用可能なBraze MCP機能カテゴリを返しました。
 {% endtab %}
 
 {% tab Cursor %}
-![「利用可能なBrazeの機能は何ですか」という質問がCursorで尋ねられ、回答されている様子。]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**プロンプトの例：** `What are my available Braze functions?`
+**応答の例：** `list_functions`をクエリし、`get_canvas_list`などの機能を一覧表示しました。
 {% endtab %}
 {% endtabs %}
 
@@ -67,7 +81,7 @@ Brazeデータに対してサードパーティのMCPサーバーを使用する
 
 ### Braze MCPサーバーはローカルでホストされていますか、それともリモートですか？ {#is-the-braze-mcp-server-hosted-locally-or-remotely}
 
-Braze MCPサーバーはローカルでホストされています。
+現在利用可能なBraze MCPサーバーはローカルでホストされています。リモートのBrazeホスト型MCPサーバーは今夏に早期アクセスとして提供開始され、ローカルホスト型のベータサーバーに代わるものとなります。
 
 ### Cursorが関数のリストしか表示しないのはなぜですか？ {#why-is-cursor-only-listing-functions}
 

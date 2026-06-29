@@ -37,15 +37,15 @@ Vous ne savez pas si votre message doit être envoyé via une campagne ou un Can
 
 **Étapes :**
 
-1. Accédez à la page **Campaigns** et cliquez sur <i class="fas fa-plus"></i> **Create Campaign**.
-2. Sélectionnez **WhatsApp** ou, pour les Campaigns ciblant plusieurs canaux, sélectionnez **Multichannel Campaign**.
+1. Accédez à la page **Campaigns** et cliquez sur <i class="fas fa-plus"></i> **Créer une campagne**.
+2. Sélectionnez **WhatsApp** ou, pour les Campaigns ciblant plusieurs canaux, sélectionnez **Campagne multicanale**.
 3. Donnez à votre campagne un nom clair et significatif.
 4. Ajoutez des [Équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) et des [Étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) selon vos besoins.
    * Les étiquettes facilitent la recherche de vos Campaigns et la création de rapports. Par exemple, lorsque vous utilisez le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder/), vous pouvez filtrer par étiquettes spécifiques.
 5. Ajoutez et nommez autant de variantes que nécessaire pour votre campagne. Vous pouvez choisir différentes plateformes, types de messages et dispositions pour chacune de vos variantes ajoutées. Pour en savoir plus sur ce sujet, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
 {% alert tip %}
-Si tous les messages de votre campagne sont similaires ou ont le même contenu, composez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite choisir **Copy from Variant** dans le menu déroulant **Add Variant**.
+Si tous les messages de votre campagne sont similaires ou ont le même contenu, composez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite choisir **Copier depuis la variante** dans le menu déroulant **Ajouter une variante**.
 {% endalert %}
 
 {% endtab %}
@@ -97,7 +97,7 @@ Notez que les champs de texte désactivés (surlignés en gris) ne peuvent pas �
 
 {% alert tip %}
 {% raw %}
-Si vous prévoyez d'utiliser Liquid, assurez-vous d'inclure une valeur par défaut pour la personnalisation choisie afin que, dans le cas où le profil utilisateur du destinataire est incomplet, celui-ci ne reçoive pas un message vide. Tout message contenant des variables Liquid manquantes ne sera pas envoyé par WhatsApp.
+Si vous prévoyez d'utiliser Liquid, assurez-vous d'inclure une valeur par défaut pour la personnalisation choisie afin que, dans le cas où le profil utilisateur du destinataire est incomplet, celui-ci ne reçoive pas de message. Tout message contenant des variables Liquid manquantes ne sera pas envoyé par WhatsApp.
 {% endraw %}
 {% endalert %}
 
@@ -138,11 +138,49 @@ Braze recommande toujours de prévisualiser et de tester votre message avant de 
 Une fenêtre de conversation est nécessaire pour envoyer des messages de réponse, y compris les messages de test. Pour initier une fenêtre de conversation, envoyez un message WhatsApp au numéro de téléphone associé au groupe d'abonnement que vous utilisez pour ce message. Le numéro de téléphone associé est indiqué dans l'alerte de l'onglet **Test**.
 {% endalert %}
 
-![Une alerte indiquant : « Pour tester, ouvrez d'abord une fenêtre de conversation en envoyant un message WhatsApp au +1 217-582-9414. Ensuite, envoyez votre message de réponse à l'utilisateur test. »]({% image_buster /assets/img/whatsapp/whatsapp_test_phone_number.png %}){: style="max-width:70%;"}
+![Une alerte indiquant d'ouvrir une fenêtre de conversation en envoyant un message WhatsApp, puis d'envoyer un message à l'utilisateur test.]({% image_buster /assets/img/whatsapp/whatsapp_test_phone_number.png %}){: style="max-width:70%;"}
 
 Pour plus d'informations, consultez [Envoyer des messages de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=whatsapp).
 
-### Étape 4 : Construire le reste de votre campagne ou Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
+### Étape 4 : Consulter les résultats de l'envoi test {#step-4-view-test-send-results}
+
+Après avoir envoyé un message WhatsApp de test, vous pouvez consulter un rapport de livraison détaillé directement dans le compositeur de messages. Cela vous aide à confirmer que votre message a bien atteint le destinataire prévu et à résoudre les éventuels échecs avant le lancement.
+
+Le bouton **Voir les résultats du test** apparaît lorsque des données d'envoi test sont disponibles pour la campagne ou l'étape Canvas en cours. Sélectionnez-le pour ouvrir le panneau de résultats.
+
+Le panneau de résultats affiche chaque étape par laquelle votre message est passé pour atteindre le destinataire :
+- **Braze :** indique si Braze a correctement traité et envoyé le message
+- **Meta :** indique si Meta a accepté le message pour la livraison
+- **Appareil de l'utilisateur :** indique si le message a été livré sur l'appareil du destinataire
+
+Chaque étape affiche son état actuel. Si une étape a échoué, le panneau affiche l'erreur rencontrée et des conseils pour la résoudre. Les résultats persistent si vous fermez et rouvrez la même campagne ou le même Canvas.
+
+![Panneau de résultats de test montrant deux envois test réussis et un envoi test échoué.]({% image_buster /assets/img/whatsapp/whatsapp_test_results.png %}){: style="max-width:80%;"}
+
+#### Nouvelles tentatives et tentatives précédentes {#retries-and-past-attempts}
+
+Si un envoi test échoue, Braze retente automatiquement la livraison pendant 24 heures maximum. Le panneau de résultats reflète cela avec deux onglets :
+
+- **Dernière :** la tentative de livraison la plus récente, mise à jour en temps réel au fur et à mesure des nouvelles tentatives
+- **Tentatives précédentes :** un historique des tentatives précédentes, chacune affichant les états des étapes et les erreurs rencontrées
+
+Lorsque le résultat final est déterminé (livraison réussie, tentatives épuisées ou échec qu'une nouvelle tentative ne résoudra pas), les onglets sont respectivement renommés **Résultat** et **Historique des tentatives**.
+
+{% alert note %}
+Étant donné que les nouvelles tentatives peuvent se poursuivre pendant 24 heures maximum, il est possible que vous ne voyiez pas de résultat final immédiatement après un envoi échoué.
+{% endalert %}
+
+#### Résoudre les échecs {#troubleshoot-failures}
+
+Si une étape affiche un échec, le panneau affiche l'erreur et les prochaines étapes suggérées. Les raisons courantes d'échec d'un envoi test incluent :
+
+- Le modèle de message est en pause ou pas encore approuvé dans Meta
+- Le numéro de téléphone du destinataire est soumis à une limitation de débit
+- Les variables Liquid du message n'ont pas été renseignées pour l'utilisateur test sélectionné
+
+Pour les problèmes persistants, vérifiez le statut de votre modèle dans le Meta Business Manager ou vérifiez que votre destinataire test possède les attributs utilisateur requis renseignés dans Braze.
+
+### Étape 5 : Construire le reste de votre campagne ou Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
@@ -153,7 +191,7 @@ Ensuite, construisez le reste de votre campagne. Consultez les sections suivante
 
 Les messages WhatsApp peuvent être envoyés selon un horaire planifié, une action ou un déclencheur API. Pour en savoir plus, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours).
+Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 Cette étape vous permet également de spécifier les contrôles de livraison, comme permettre aux utilisateurs de devenir [rééligibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) pour recevoir la campagne, ou activer les règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
@@ -161,7 +199,7 @@ Cette étape vous permet également de spécifier les contrôles de livraison, c
 
 Ensuite, vous devez [cibler les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) en choisissant des segments ou des filtres pour affiner votre audience. Vous devriez avoir déjà choisi le groupe d'abonnement, qui restreint les utilisateurs selon le niveau ou la catégorie de communication qu'ils souhaitent avoir avec vous. À cette étape, vous sélectionnez l'audience plus large parmi vos segments et affinez davantage ce segment avec nos filtres. Vous recevez automatiquement un aperçu de la population approximative de ce segment. N'oubliez pas que l'appartenance exacte au segment est toujours calculée avant l'envoi du message.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 #### Choisir les événements de conversion {#choose-conversion-events}
 
@@ -225,7 +263,7 @@ Les fonctionnalités suivantes sont prises en charge pour les messages WhatsApp 
 Les types d'appel à l'action suivants sont pris en charge pour les messages WhatsApp que vous envoyez via Braze :
 
 | Type de CTA | Détails |
-| ----------- |---------------- |
+| ----------- | ---------------- |
 | Visiter le site web | Un bouton maximum (y compris les paramètres variables). |
 | Appeler un numéro de téléphone | Disponible uniquement pour les modèles de messages. <br>Un bouton maximum. |
 | Boutons de réponse rapide personnalisés | Trois boutons maximum. |

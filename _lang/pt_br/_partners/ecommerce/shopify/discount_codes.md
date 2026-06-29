@@ -42,7 +42,7 @@ No arquivo CSV, exclua a linha 1 para remover o cabeçalho da coluna "Promo". Is
 
 ### Etapa 3: Adicione seus códigos de desconto à Braze {#step-3-add-your-discount-codes-to-braze}
 
-Na Braze, acesse **Data Settings** > **Promotion Codes** > **Create Promotion Code List** e [configure sua lista de códigos de desconto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/#creating-a-promotion-code-list). Verifique se a data de expiração corresponde à que foi configurada pelo Bulk Discounts Code Bot.
+Na Braze, acesse **Configurações de dados** > **Códigos de promoção** > **Criar lista de códigos de promoção** e [configure sua lista de códigos de desconto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/#creating-a-promotion-code-list). Verifique se a data de expiração corresponde à que foi configurada pelo Bulk Discounts Code Bot.
 
 Em seguida, faça upload do seu arquivo CSV e selecione **Save List**.
 
@@ -59,10 +59,10 @@ Cole o snippet Liquid em uma Campaign ou etapa do Canvas.
 Se quiser que os usuários recebam um único código de desconto exclusivo, não importa quantas vezes o código de desconto seja referenciado em Campaigns ou Canvas, crie uma etapa de [Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) diretamente antes da primeira etapa de Mensagem que atribua o código de desconto a um atributo personalizado, como "Promo Code".
 
 {% alert tip %}
-Você também pode [criar um atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) acessando **Data Settings** > **Custom Attributes**.
+Você também pode [criar um atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) acessando **Configurações de dados** > **Atributos personalizados**.
 {% endalert %}
 
-Na etapa Atualização de usuário, faça o seguinte para cada campo:
+Na etapa de Atualização de usuário, faça o seguinte para cada campo:
 - **Attribute Name:** Selecione **Promo Code**.
 - **Action:** Selecione **Update**.
 - **Key Value:** Cole o snippet de código Liquid.
@@ -85,9 +85,9 @@ Quando um código de desconto é referenciado por várias etapas no mesmo Canvas
 
 {% enddetails %}
 
-[1]: {% image_buster /assets/img/Shopify/configure_discount_codes.png %}
-[2]: {% image_buster /assets/img/Shopify/export_discount_codes.png %}
-[3]: {% image_buster /assets/img/Shopify/edited_codes_csv.png %}
-[4]: {% image_buster /assets/img/Shopify/liquid_code_snippet.png %}
-[5]: {% image_buster /assets/img/Shopify/liquid_promo_code.gif %}
-[6]: {% image_buster /assets/img/Shopify/user_update_step.png %}
+[1]: {% image_buster /assets/img/shopify/configure_discount_codes.png %}
+[2]: {% image_buster /assets/img/shopify/export_discount_codes.png %}
+[3]: {% image_buster /assets/img/shopify/edited_codes_csv.png %}
+[4]: {% image_buster /assets/img/shopify/liquid_code_snippet.png %}
+[5]: {% image_buster /assets/img/shopify/liquid_promo_code.gif %}
+[6]: {% image_buster /assets/img/shopify/user_update_step.png %}

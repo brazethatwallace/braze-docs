@@ -24,7 +24,7 @@ Les avantages du modèle Auto de Braze incluent :
 
 ### Où puis-je consulter mon utilisation actuelle des agents ? {#where-can-i-find-my-current-agent-usage}
 
-Accédez à **Settings** > **Billing** > **Credits Usage** pour voir les détails de votre utilisation des agents et les coûts en crédits.
+Accédez à **Paramètres** > **Facturation** > **Utilisation des crédits** pour voir les détails de votre utilisation des agents et les coûts en crédits.
 
 ### Puis-je utiliser des instructions Liquid conditionnelles dans les instructions de l'agent ? {#can-i-use-conditional-liquid-statements-in-agent-instructions}
 
@@ -40,6 +40,14 @@ Non. Les agents ne reçoivent que les points de donnée utilisateur spécifiques
 
 Envisagez d'utiliser [Operator]({{site.baseurl}}/user_guide/brazeai/operator/) pour comprendre pourquoi votre agent ne suit pas vos instructions. Operator peut fournir des instructions étape par étape et des explications détaillées.
 
+### Pourquoi mon agent de catalogue a-t-il ignoré certaines lignes ? {#why-did-my-catalog-agent-skip-some-rows}
+
+Les agents de catalogue ignorent une ligne lorsqu'une colonne que vous avez marquée comme **requise pour l'exécution** est vide ou manquante — par exemple, un champ `gender` qui n'a pas été renseigné. Après avoir sélectionné les colonnes d'entrée, activez le contrôle d'entrée requise pour le champ du catalogue et choisissez les colonnes qui doivent contenir des valeurs avant que l'agent ne s'exécute ; les colonnes sélectionnées sont requises par défaut, mais vous pouvez retirer les colonnes qui peuvent rester vides sans bloquer l'invocation. Cela évite de gaspiller des jetons sur des données incomplètes.
+
+L'agent respecte également les dépendances entre colonnes. Si une colonne de sortie dépend d'autres colonnes (par exemple, la colonne D nécessite des valeurs dans les colonnes B et C), l'agent ne s'exécute pas tant que ces colonnes en amont ne sont pas renseignées pour cette ligne.
+
+Pour plus de détails, consultez les [bonnes pratiques pour les agents de catalogue]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#catalog-agent-best-practices).
+
 ### Mon agent a du mal avec une tâche complexe. Comment puis-je améliorer ses performances ? {#subagent-approach}
 
 Si vous constatez que l'agent a du mal avec les tâches que vous lui demandez d'accomplir, envisagez une approche par sous-agents. Par exemple, vous pourriez utiliser trois agents pour effectuer les opérations suivantes :
@@ -53,9 +61,11 @@ Si vous constatez que l'agent a du mal avec les tâches que vous lui demandez d'
 Un agent personnalisé peut expirer si :
 
 - Les instructions de l'agent sont incomplètes ou contradictoires
-- Les instructions de l'agent ne couvrent pas tous les scénarios ou n'incluent pas de condition de repli (par exemple, « Si toutes les entrées sont vides, renvoyer "Impossible de personnaliser" »)
-- Les instructions de l'agent demandent un format de sortie différent de celui spécifié dans l'onglet **Output** (par exemple, si les instructions de l'agent demandent une chaîne de caractères, mais que dans l'onglet **Output**, la sortie est définie comme un nombre)
+- Les instructions de l'agent ne couvrent pas tous les scénarios ou n'incluent pas de condition de repli (par exemple, « Si toutes les entrées sont vides, renvoyer "Could not personalize" »)
+- Les instructions de l'agent demandent un format de sortie différent de celui spécifié dans l'onglet **Output** (par exemple, si les instructions demandent une chaîne de caractères, mais que dans l'onglet **Output**, la sortie est définie comme un nombre)
 - La tâche de l'agent est trop complexe et gagnerait à adopter une [approche par sous-agents](#subagent-approach)
+
+Pour les agents Canvas, configurez des [valeurs de repli]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) dans la Console des agents afin que les utilisateurs reçoivent tout de même une sortie lorsqu'une invocation échoue.
 
 ## Conformité {#compliance}
 

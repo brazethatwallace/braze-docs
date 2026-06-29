@@ -22,7 +22,7 @@ Braze는 현재 모든 사용자 수준 데이터를 Snowflake AWS US East-1 및
 {% endalert %}
 
 {% alert tip %}
-여기에서 [원시 테이블 스키마]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ffbc5f5ca7092bc9ae26268aa0e711df)를 다운로드하거나 Snowflake 마켓플레이스에서 제공되는 이 [샘플 이벤트 데이터](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset) 세트를 사용하여 공유된 이벤트에 익숙해지세요.
+[원시 테이블 스키마](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)를 다운로드하거나 Snowflake 마켓플레이스에서 제공되는 이 [샘플 이벤트 데이터](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset) 세트를 사용하여 공유된 이벤트에 익숙해지세요.
 {% endalert %}
 
 ## 중복 이벤트 처리 {#handling-duplicate-events}
@@ -50,7 +50,7 @@ Braze는 현재 모든 사용자 수준 데이터를 Snowflake AWS US East-1 및
 
 ## SNAPSHOTS 및 CHANGELOGS 테이블이 업데이트되는 시점 {#when-snapshots-and-changelogs-tables-are-updated}
 
-SNAPSHOTS 및 CHANGELOGS 테이블은 Campaigns과 Canvases의 변경 사항을 추적합니다. 이 테이블이 업데이트되는 시점을 이해하는 것은 가장 최근의 메시지 변형 및 Canvas 구성을 쿼리하는 데 중요합니다.
+SNAPSHOTS 및 CHANGELOGS 테이블은 Campaign(캠페인)과 Canvases의 변경 사항을 추적합니다. 이 테이블이 업데이트되는 시점을 이해하는 것은 가장 최근의 메시지 변형 및 Canvas 구성을 쿼리하는 데 중요합니다.
 
 ### CHANGELOGS_CAMPAIGN_SHARED
 

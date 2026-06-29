@@ -11,7 +11,7 @@ tool: Media
 
 # コンテンツカードのクリエイティブの詳細 {#creative-details-for-content-cards}
 
-> Content Cardsとそれが配置されるフィードのカスタマイズは、Campaign作成プロセス中には行えません。エンジニアや開発者と協力して、カードの構築とカスタマイズを行う必要があります。技術的な詳細については、[開発者ドキュメント]({{site.baseurl}}/developer_guide/getting_started/customization_overview/)をご覧ください。
+> Content Cardsとそれが配置されるフィードのカスタマイズは、キャンペーン作成プロセス中には行えません。エンジニアや開発者と協力して、カードの構築とカスタマイズを行う必要があります。技術的な詳細については、[開発者ドキュメント]({{site.baseurl}}/developer_guide/getting_started/customization_overview/)をご覧ください。
 
 ## コンテンツカードのタイプ {#content-card-types}
 

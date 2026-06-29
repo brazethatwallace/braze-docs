@@ -247,6 +247,10 @@ Stream now!
 
 ## 문제 해결 {#troubleshooting}
 
+### `abort_message` 사용 시 테스트 발송이 도착하지 않음 {#test-send-doesnt-arrive-when-using-abort_message}
+
+[`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)를 사용하고 테스트 발송이 도착하지 않는 경우, 미리보기 사용자에게 Liquid가 기대하는 속성이 누락되어 있을 수 있습니다. 중단 로직은 렌더링 중에 실행되며, 실행되면 Braze는 메시지를 발송하지 않습니다. 필요한 프로필 데이터를 가진 사용자로 미리보기하거나, **사용자로 미리보기**를 사용하여 프로덕션 오디언스와 동일한 값을 제공하는 수신자 필드를 테스트하세요.
+
 ### 미리보기에서 등록정보 유형이 잘못 변환될 수 있음 {#preview-may-incorrectly-coerce-property-types}
 
 대시보드에서 메시지를 미리볼 때 대부분의 변수(예: 커스텀 속성)는 올바른 유형으로 변환됩니다. 그러나 일부 변수는 미리보기에서 조회할 수 있는 정의된 유형이 없습니다:

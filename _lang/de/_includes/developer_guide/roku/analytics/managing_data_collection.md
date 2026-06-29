@@ -12,6 +12,7 @@ Das Braze Roku SDK speichert Daten in den folgenden Registry-Abschnitten:
 | `braze.section.user_id` | Die externe Nutzer-ID, sofern eine festgelegt wurde. |
 | `braze.section.session` | Die aktive Sitzungs-UUID, Startzeit und Endzeit. |
 | `braze.section.config` | Zwischengespeicherte SDK-Konfiguration und Feature-Flag-Daten. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Wiping previously-stored data" }
 
 ### 1. Schritt: Registry-Abschnitte löschen {#step-1-clear-the-registry-sections}
 

@@ -21,19 +21,19 @@ BrazeとEppoの統合により、BrazeでABテストを設定し、Eppoで結果
 |---|---|
 | Eppoアカウント | このパートナーシップを利用するには、Eppoアカウントが必要です。 |
 | CurrentsまたはSnowflakeデータ共有 | Eppoが実験データを分析するには、CurrentsまたはSnowflakeデータ共有が必要です。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
-### ステップ1:BrazeでCurrentsまたはSnowflakeデータ共有を設定する {#step-1-configure-currents-or-snowflake-data-sharing-in-braze}
+### ステップ 1:BrazeでCurrentsまたはSnowflakeデータ共有を設定する {#step-1-configure-currents-or-snowflake-data-sharing-in-braze}
 
 Eppoはデータウェアハウスで直接実験を分析します。統合を有効にするには、Brazeのメッセージエンゲージメントデータが、Eppoに接続されたデータウェアハウスで利用可能である必要があります。Currentsを使用してBrazeからCampaignデータをエクスポートしたり、[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)を使用してSnowflakeインスタンスでBrazeデータにアクセスしたりできます。
 
-### ステップ2:BrazeのCampaignまたはCanvasで実験を設定する {#step-2-set-up-your-experiment-in-a-braze-campaign-or-canvas}
+### ステップ 2:BrazeのCampaignまたはCanvasで実験を設定する {#step-2-set-up-your-experiment-in-a-braze-campaign-or-canvas}
 
-CampaignsやCanvasesでネイティブのABテスト機能を使用できます。詳しくは、[多変量テストとABテスト](https://www.braze.com/docs/user_guide/engagement_tools/testing/multivariant_testing#what-are-multivariate-and-ab-testing)を参照してください。
+CampaignsやCanvasesでネイティブのABテスト機能を使用できます。詳しくは、[多変量テストとABテスト]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/#what-are-multivariate-and-ab-testing)を参照してください。
 
-### ステップ3:Eppoを設定してBrazeの実験を測定する {#step-3-set-up-eppo-to-measure-braze-experiments}
+### ステップ 3:Eppoを設定してBrazeの実験を測定する {#step-3-set-up-eppo-to-measure-braze-experiments}
 
 EppoでBrazeデータを使用して実験を実行するには、Brazeからエクスポートされたユーザーレベルのメッセージイベントデータに基づいて、データウェアハウスに[割り当てテーブル](https://docs.geteppo.com/data-management/definitions/assignment-sql/)を作成します。CanvasとCampaignの実験は異なるメタデータに依存しているため、別々のテーブルを使用することを推奨します。
 
@@ -49,7 +49,7 @@ Canvasの実験では、割り当ては以下のいずれかで作成できま�
 {% endtab %}
 
 {% tab Campaign実験 %}
-Campaign実験では、送信イベント（プッシュ、メール、SMSなど）を使って、ユーザーがいつ実験に参加したかを判断します。`campaign_name`、`message_variation_name`、および`time`は、割り当てテーブルに入力するために使用されます。
+Campaignの実験では、送信イベント（プッシュ、メール、SMSなど）を使って、ユーザーがいつ実験に参加したかを判断します。`campaign_name`、`message_variation_name`、および`time`は、割り当てテーブルに入力するために使用されます。
 
 {% endtab %}
 {% endtabs %}
@@ -60,6 +60,6 @@ Eppoは、これらの割り当てとファクトテーブルを使用して結�
 
 ## サポート {#support}
 
-Braze Currentsの設定、Snowflakeデータ共有、または多変量キャンペーンの設定については、Brazeカスタマーサクセスマネージャーにお問い合わせください。
+Braze Currentsの設定、Snowflakeデータ共有、または多変量Campaignsの設定については、Brazeカスタマーサクセスマネージャーにお問い合わせください。
 
 Brazeの実験を測定するためのEppoの設定に関するサポートについては、Eppoサポートチームにお問い合わせください。

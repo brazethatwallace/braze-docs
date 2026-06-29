@@ -1,16 +1,16 @@
-# ChatGPT 앱 통합
+# ChatGPT 앱 통합 {#chatgpt-app-integration}
 
-## 설정
+## 설정 {#setup}
 
-### 1단계: Braze 통합 파일을 받으세요
+### 1단계: Braze 통합 파일 가져오기 {#step-1-get-the-braze-integration-file}
 
-저희 [ChatGPT 앱 통합 ](https://github.com/braze-inc/chatgpt-apps-braze-integration/blob/main/src/braze/braze.ts)저장소에서 파일을`braze.js` 복사하여 여러분의 프로젝트에 붙여넣으세요. 이 파일에는 필요한 모든 Braze 소프트웨어 개발 키트 구성 및 헬퍼 함수가 포함되어 있습니다.
+[ChatGPT 앱 통합 리포지토리](https://github.com/braze-inc/chatgpt-apps-braze-integration/blob/main/src/braze/braze.ts)에서 `braze.js` 파일을 복사하여 프로젝트에 추가하세요. 이 파일에는 필요한 모든 Braze SDK 구성 및 헬퍼 함수가 포함되어 있습니다.
 
-### 2단계: 의존성 설치
+### 2단계: 종속성 설치 {#step-2-install-dependencies}
 
-Braze의 최신 기능 세트를 위해 당사 웹 소프트웨어 개발 키트를 설치하세요:
+Braze의 최신 기능 세트를 사용하기 위해 웹 SDK를 설치하세요:
 
-**클라이언트 측 통합을 위해:**
+**클라이언트 측 통합의 경우:**
 ```bash
 npm install @braze/web-sdk
 ```
@@ -24,19 +24,19 @@ npm install @braze/javascript-sdk
 
 ## Implementation
 
-사용 사례에 따라 Braze를 ChatGPT 앱과 통합하는 두 가지 방법이 있습니다:
+There are two ways to integrate Braze with your ChatGPT app depending on your use case:
 
-### 클라이언트 측 통합 (커스텀 위젯)
+### Client-side integration (custom widgets)
 
 {% alert tip %}
-**권장 접근법:** 이 방법은 ChatGPT 앱 위젯 내에서 풍부한 메시징 경험과 실시간 사용자 상호작용 추적을 가능하게 합니다.
+**Recommended Approach:** This method enables rich messaging experiences and real-time user interaction tracking within your ChatGPT app widgets.
 {% endalert %}
 
-사용자 정의 ChatGPT 앱 위젯 내에서 Braze 메시지를 표시하고 사용자 상호작용을 추적하려면 웹 SDK 통합을 사용하십시오. 전체 메시징 예시는 [여기](https://github.com/braze-inc/chatgpt-apps-braze-integration/tree/main/src/inbox) 샘플 저장소에서 확인할 수 있습니다.
+For displaying Braze messaging and tracking user interactions within your custom ChatGPT app widgets, use the Web SDK integration. A full messaging example can be found in our sample repository [here](https://github.com/braze-inc/chatgpt-apps-braze-integration/tree/main/src/inbox).
 
-#### 위젯 메타데이터 구성
+#### Configure widget metadata
 
-다음 메타데이터를 MCP 서버 파일에 추가하여 Braze 도메인을 허용하고, [해당 지역에](https://www.braze.com/docs/developer_guide/platforms/web/content_security_policy) 따라 CDN 도메인을 업데이트하십시오:
+Add the following metadata to your MCP server file to allow Braze domains, ensuring to update the CDN domain based on [your region]({{site.baseurl}}/developer_guide/platforms/web/content_security_policy/):
 
 ```javascript
 "openai/widgetCSP": {
@@ -50,9 +50,9 @@ npm install @braze/javascript-sdk
 }
 ```
 
-실제 Braze SDK 엔드포인트로  `YOUR-SDK-ENDPOINT`를 대체하십시오.
+`YOUR-SDK-ENDPOINT`를 실제 Braze SDK 엔드포인트로 대체하세요.
 
-#### useBraze 훅 설정
+#### useBraze 훅 설정 {#set-up-the-usebraze-hook}
 
 ```javascript
 import { useBraze } from "./utils/braze";
@@ -70,7 +70,7 @@ function YourWidget() {
 
     // Set user identity
     braze.changeUser("user-id-123");
-    
+
     // Log widget interactions
     braze.logCustomEvent("viewed_pizzaz_list");
   }, [braze.isInitialized]);
@@ -81,7 +81,7 @@ function YourWidget() {
 }
 ```
 
-#### Braze 콘텐츠 카드 표시
+#### Braze Content Cards 표시 {#display-braze-content-cards}
 
 ```javascript
 const [cards, setCards] = useState([]);
@@ -104,7 +104,7 @@ useEffect(() => {
 }, []);
 ```
 
-#### 위젯 이벤트 추적
+#### 위젯 이벤트 추적 {#track-widget-events}
 
 ```javascript
 // Track user interactions within your widget
@@ -123,10 +123,10 @@ const handleItemInteraction = (itemId) => {
 };
 ```
 
-### 서버 측 통합 (MCP 서버)
+### 서버 측 통합 (MCP 서버) {#server-side-integration-mcp-server}
 
 <!-- For tracking events and purchases from your MCP server, add these code snippets to your server file (typically `server.js` or `server.ts`) where you handle ChatGPT app requests and tool calls. -->
-MCP 서버에서 메시징 기능을 위한 서버 측 통합이 필요한 경우, 문의하십시오<span style="white-space:nowrap;">`mcp-product@braze.com`</span>. MCP 서버의 이벤트 및 구매 내역을 추적하려면 당사의 [REST API를]({{site.baseurl}}/api/home) 사용하십시오.
+MCP 서버에서 메시징 기능을 위한 서버 측 통합이 필요한 경우 <span style="white-space:nowrap;">`mcp-product@braze.com`</span>으로 문의하세요. MCP 서버에서 이벤트 및 구매를 추적하려면 [REST API]({{site.baseurl}}/api/home/)를 사용하세요.
 
 <!-- #### Import the Braze functions
 
@@ -178,15 +178,15 @@ const purchaseProperties = {
 
 // Log the purchase to Braze
 await logPurchase(
-  brazeSessionInfo, 
-  "pizza", 
-  totalPrice, 
-  "USD", 
-  args.quantity, 
+  brazeSessionInfo,
+  "pizza",
+  totalPrice,
+  "USD",
+  args.quantity,
   purchaseProperties
 );
 ```
 
 {% alert tip %}
-Use the [SDK debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging) to verify your integration and troubleshoot any issues.
+Use the [SDK debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging/) to verify your integration and troubleshoot any issues.
 {% endalert %} -->

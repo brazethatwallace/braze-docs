@@ -7,9 +7,9 @@ description: "この記事には、2018年11月のリリースノートが含ま
 ---
 ## 2018年11月 {#november-2018}
 
-### Canvasエントリ設定ウィザード {#canvas-entry-settings-wizard}
+### キャンバスエントリ設定ウィザード {#canvas-entry-settings-wizard}
 
-CanvasのUIは、タスクの見落としやそれに伴うエラーを防ぐために簡素化されます。特にCanvasの設定は、**Campaigns**ウィザードのデザインと同様に、ウィザード形式で表示されるようになります。詳細については、[Canvasを作成する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)のステップをご確認ください。
+キャンバスのUIは、タスクの見落としやそれに伴うエラーを防ぐために簡素化されます。特にキャンバスの設定は、**キャンペーン**ウィザードのデザインと同様に、ウィザード形式で表示されるようになります。詳細については、[キャンバスを作成する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)のステップをご確認ください。
 
 この新機能についてより詳しく知りたい場合は、[エントリウィザード](https://learning.braze.com/the-new-canvas-entry-step/264889/scorm/20z5ij5ublxbk)に関するBrazeラーニングコースをご覧ください。
 

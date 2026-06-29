@@ -9,7 +9,7 @@ description: "Dieser Referenzartikel behandelt die Verwendung eines Arrays von O
 
 # Array von Objekten {#array-of-objects}
 
-> Auf dieser Seite erfahren Sie, wie Sie ein Array von Objekten verwenden können, um verwandte Attribute zu gruppieren. Sie können z. B. eine Gruppe von Haustierobjekten, Liedobjekten und Kontoobjekten haben, die alle zu einem/einer Nutzer:in gehören. Diese Arrays von Objekten können verwendet werden, um Ihr Messaging mit Liquid zu personalisieren oder Zielgruppen-Segmente zu erstellen, wenn irgendein Element innerhalb eines Objekts den Kriterien entspricht.
+> Auf dieser Seite erfahren Sie, wie Sie ein Array von Objekten verwenden können, um verwandte Attribute zu gruppieren. Sie können z. B. eine Gruppe von Haustierobjekten, Liedobjekten und Kontoobjekten haben, die alle zu einer Nutzer:in gehören. Diese Arrays von Objekten können verwendet werden, um Ihr Messaging mit Liquid zu personalisieren oder Zielgruppen-Segmente zu erstellen, wenn irgendein Element innerhalb eines Objekts den Kriterien entspricht.
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 
@@ -31,10 +31,14 @@ Weitere Informationen zur Verwendung von Arrays von Objekten für Nutzer:innen-A
 
 ## API-Beispiel {#api-example}
 
+Verwenden Sie diese Beispiele, wenn Sie `/users/track`-Anfragen senden, die verschachtelte angepasste Attribute erstellen oder aktualisieren, die als Arrays von Objekten gespeichert sind. Der Payload verwendet die Operatoren `$add`, `$remove` und `$update`, sodass Sie bestimmte Objekte ändern können, ohne bei jeder Anfrage das gesamte Array neu aufzubauen.
+
 {% tabs local %}
-{% tab Create %}
+{% tab Erstellen %}
 
 Das Folgende ist ein `/users/track`-Beispiel mit einem `pets`-Array. Um die Eigenschaften der Haustiere zu erfassen, senden Sie eine API-Anfrage, die `pets` als Array von Objekten auflistet. Beachten Sie, dass jedem Objekt eine eindeutige `id` zugewiesen wurde, auf die später bei Updates verwiesen werden kann.
+
+Verwenden Sie dieses Format, wenn Sie das Attribut zum ersten Mal erstellen oder das gesamte Array durch einen neuen Basissatz von Objekten ersetzen möchten.
 
 ```json
 {
@@ -60,9 +64,11 @@ Das Folgende ist ein `/users/track`-Beispiel mit einem `pets`-Array. Um die Eige
 }
 ```
 {% endtab %}
-{% tab Add %}
+{% tab Hinzufügen %}
 
 Fügen Sie dem Array mit dem `$add`-Operator ein weiteres Element hinzu. Das folgende Beispiel zeigt das Hinzufügen von drei weiteren Haustier-Objekten zum `pets`-Array der Nutzer:in.
+
+Verwenden Sie `$add`, wenn Sie ein oder mehrere neue Objekte anhängen und bestehende Objekte unverändert lassen möchten.
 
 ```json
 {
@@ -96,11 +102,13 @@ Fügen Sie dem Array mit dem `$add`-Operator ein weiteres Element hinzu. Das fol
 }
 ```
 {% endtab %}
-{% tab Update %}
+{% tab Aktualisieren %}
 
-Aktualisieren Sie Werte für bestimmte Objekte innerhalb eines Arrays mit dem Parameter `_merge_objects` und dem Operator `$update`. Ähnlich wie bei Updates einfacher [verschachtelter angepasster Attribute]({{site.baseurl}}/nested_custom_attribute_support/#api-request-body) wird hierbei ein Deep Merge durchgeführt.
+Aktualisieren Sie Werte für bestimmte Objekte innerhalb eines Arrays mit dem Parameter `_merge_objects` und dem Operator `$update`. Ähnlich wie bei Updates anderer [verschachtelter angepasster Attribute]({{site.baseurl}}/nested_custom_attribute_support/#api-request-body) wird hierbei ein Deep Merge durchgeführt.
 
 Beachten Sie, dass `$update` nicht verwendet werden kann, um eine verschachtelte Eigenschaft aus einem Objekt innerhalb eines Arrays zu entfernen. Dazu müssen Sie das gesamte Element aus dem Array entfernen und dann das Objekt ohne diesen spezifischen Schlüssel wieder hinzufügen (mit einer Kombination aus `$remove` und `$add`).
+
+Verwenden Sie `$update`, wenn das Objekt bereits existiert und Sie ein oder mehrere Felder ändern möchten, indem Sie nach `$identifier_key` und `$identifier_value` abgleichen.
 
 Das folgende Beispiel zeigt die Aktualisierung der Eigenschaft `breed` auf `goldfish` für das Objekt mit einer `id` von `4`. Dieses Anfrage-Beispiel aktualisiert auch das Objekt mit `id` gleich `5` mit einem neuen `name` von `Annette`. Da der Parameter `_merge_objects` auf `true` gesetzt ist, bleiben alle anderen Felder für diese beiden Objekte unverändert.
 
@@ -138,9 +146,11 @@ Sie müssen `_merge_objects` auf true setzen, da Ihre Objekte sonst überschrieb
 {% endalert %}
 
 {% endtab %}
-{% tab Remove %}
+{% tab Entfernen %}
 
 Entfernen Sie Objekte aus einem Array mit dem Operator `$remove` in Kombination mit einem passenden Schlüssel (`$identifier_key`) und Wert (`$identifier_value`).
+
+Verwenden Sie `$remove`, wenn Sie alle übereinstimmenden Objekte für ein bekanntes Bezeichner-Paar löschen möchten, z.&nbsp;B. `id = 2` oder `type = dog`.
 
 Das folgende Beispiel zeigt das Entfernen aller Objekte im `pets`-Array, die eine `id` mit dem Wert `1`, eine `id` mit dem Wert `2` und einen `type` mit dem Wert `dog` haben. Wenn es mehrere Objekte mit dem `type`-Wert `dog` gibt, werden alle übereinstimmenden Objekte entfernt.
 
@@ -181,6 +191,8 @@ Wenn eine einzelne `/users/track`-Anfrage `$add`-, `$remove`- und `$update`-Oper
 1. `$add`
 2. `$remove`
 3. `$update`
+
+Diese Reihenfolge gilt innerhalb eines einzelnen Attribut-Update-Objekts in einer Anfrage und bestimmt den endgültigen Zustand des Arrays, nachdem alle Operationen ausgewertet wurden.
 
 Da `$add` vor `$remove` ausgeführt wird, können Sie `$remove` gefolgt von `$add` nicht als Upsert-Mechanismus innerhalb einer einzelnen Anfrage verwenden. `$add` wird zuerst verarbeitet, dann löscht `$remove` das Element. Für einen Upsert senden Sie `$remove` in einer separaten Anfrage vor `$add`.
 
@@ -519,7 +531,7 @@ braze.getUser().setCustomUserAttribute("pets", json, true);
 {% endtab %}
 {% endtabs %}
 
-## Liquid-Templating
+## Liquid-Templating {#liquid-templating}
 
 Sie können dieses `pets`-Array verwenden, um eine Nachricht zu personalisieren. Das folgende Liquid-Templating-Beispiel zeigt, wie Sie auf die Eigenschaften des angepassten Attribut-Objekts verweisen, die aus der vorherigen API-Anfrage gespeichert wurden, und diese in Ihrem Messaging verwenden.
 
@@ -591,7 +603,7 @@ Sie können ein Segment mit bis zu einer Ebene der Array-Verschachtelung erstell
 Datenpunkte werden unterschiedlich protokolliert, je nachdem, ob Sie eine Eigenschaft erstellen, aktualisieren oder entfernen.
 
 {% tabs local %}
-{% tab Create %}
+{% tab Erstellen %}
 
 Das Erstellen eines neuen Arrays protokolliert einen Datenpunkt für jedes Attribut in einem Objekt. Dieses Beispiel kostet acht Datenpunkte – jedes Haustier-Objekt hat vier Attribute und es gibt zwei Objekte.
 
@@ -619,7 +631,7 @@ Das Erstellen eines neuen Arrays protokolliert einen Datenpunkt für jedes Attri
 }
 ```
 {% endtab %}
-{% tab Update %}
+{% tab Aktualisieren %}
 
 Das Aktualisieren eines bestehenden Arrays protokolliert einen Datenpunkt für jede hinzugefügte Eigenschaft. Dieses Beispiel kostet zwei Datenpunkte, da es nur eine Eigenschaft in jedem der beiden Objekte aktualisiert.
 
@@ -652,7 +664,7 @@ Das Aktualisieren eines bestehenden Arrays protokolliert einen Datenpunkt für j
 }
 ```
 {% endtab %}
-{% tab Remove %}
+{% tab Entfernen %}
 
 Das Entfernen eines Objekts aus einem Array protokolliert einen Datenpunkt für jedes gesendete Entfernungskriterium. Dieses Beispiel kostet drei Datenpunkte, auch wenn Sie mit dieser Anweisung möglicherweise mehrere Hunde entfernen.
 

@@ -10,7 +10,7 @@ search_tag: Partner
 > Voici la liste des relations entre entités pour Snowflake et Braze, pour chaque canal de communication.
 
 {% alert important %}
-Les diagrammes de relations entre entités mettent en évidence les champs partagés et les relations entre les tables. Ils ne représentent pas les schémas complets des tables. Pour une liste complète des champs, consultez les [schémas de tables individuels]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt).
+Les diagrammes de relations entre entités mettent en évidence les champs partagés et les relations entre les tables. Ils ne représentent pas les schémas complets des tables. Pour une liste complète des champs, consultez les [schémas de tables individuels](/docs/assets/download_file/data-sharing-raw-table-schemas.txt).
 {% endalert %}
 
 {% sdktabs %}

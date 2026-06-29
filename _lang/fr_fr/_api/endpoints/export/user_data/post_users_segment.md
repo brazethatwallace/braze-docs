@@ -93,7 +93,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `segment_id`                  | Requis    | Chaîne de caractères           | Identifiant du segment à exporter. Voir [identifiant de segment]({{site.baseurl}}/api/identifier_types/).<br><br>Le `segment_id` d'un segment donné se trouve sur la page [Clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) de votre compte Braze ou vous pouvez utiliser l'[endpoint de la liste des segments]({{site.baseurl}}/api/endpoints/export/segments/get_segment/). |
 | `callback_endpoint`           | Facultatif  | Chaîne de caractères           | Endpoint auquel envoyer une URL de téléchargement lorsque l'exportation est disponible.                                                                                                                                                                                                                                                                                                                                             |
 | `fields_to_export`            | Requis* | Tableau de chaînes de caractères | Nom des champs de données utilisateur à exporter. Vous pouvez également exporter tous les attributs personnalisés en incluant `custom_attributes` dans ce paramètre. Consultez [Champs à exporter](#fields-to-export) pour la liste complète des champs exportables.                                                                                                                                                                                        |
-| `custom_attributes_to_export` | Facultatif  | Tableau de chaînes de caractères | Nom de l'attribut personnalisé spécifique à exporter. Il est possible d'exporter jusqu'à 500 attributs personnalisés. Pour créer et gérer des attributs personnalisés dans le tableau de bord, allez dans **Paramètres des données** > **Attributs personnalisés**.                                                                                                                                                                                                          |
+| `custom_attributes_to_export` | Facultatif  | Tableau de chaînes de caractères | Noms des attributs personnalisés spécifiques à exporter (jusqu'à 500). Omettez `custom_attributes` de `fields_to_export` lorsque vous utilisez ce paramètre, sinon Braze exporte tous les attributs personnalisés indépendamment de cette liste. Pour créer et gérer des attributs personnalisés dans le tableau de bord, allez dans **Paramètres des données** > **Attributs personnalisés**.                                                                                                                                                                                                          |
 | `output_format`               | Facultatif  | Chaîne de caractères           | Le format de sortie de votre fichier. Format de fichier `zip` par défaut. Si vous utilisez votre propre compartiment S3, vous pouvez spécifier `zip` ou `gzip`.                                                                                                                                                                                                                                                                         |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
@@ -174,6 +174,7 @@ Voici la liste des valeurs valides pour `fields_to_export`. Utiliser `fields_to_
 - Le nombre d'exportations de segments simultanées qu'une entreprise peut exécuter au niveau de l'endpoint est plafonné à 100. Toute tentative dépassant cette limite entraîne une erreur.
 - Tenter d'exporter un segment une seconde fois alors que la première tâche d'exportation est toujours en cours entraîne une erreur 429.
 - Une [réponse `403 Forbidden`]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/?sdktab=cloud%20storage%20connected#segment-export-api-downloads) signifie souvent que le fichier d'exportation n'est pas encore prêt.
+- Les données des groupes d'abonnement ne sont pas disponibles via les exportations de segments. Pour identifier les utilisateurs par statut d'abonnement, créez un segment distinct basé sur l'appartenance à un groupe d'abonnement et exportez ce segment.
 
 ## Réponse {#response}
 
@@ -267,7 +268,8 @@ Objet d'exportation utilisateur (Braze inclut le moins de données possible&#821
         "platform" : (string),
         "token" : (string),
         "device_id": (string),
-        "notifications_enabled": (boolean) whether foreground push notifications are enabled for this token. `true` means foreground push is enabled for the token, and `false` means foreground push is disabled (for example, background-only). This is device-level and doesn't indicate the user's global push subscription status
+        "notifications_enabled": (boolean) whether foreground push notifications are enabled for this token. `true` means foreground push is enabled for the token, and `false` means foreground push is disabled (for example, background-only). This is device-level and doesn't indicate the user's global push subscription status,
+        "provisionally_opted_in": (boolean) included for iOS and Android tokens only. Indicates whether the token is in a provisional push authorization state. `true` means the token is provisionally opted in (notifications are delivered quietly), `false` means the token isn't provisional (the user has explicitly authorized or denied push), and `null` means provisional status isn't set. Provisional authorization applies to iOS; Android tokens report `null`
       },
       ...
     ],
@@ -413,7 +415,8 @@ Objet d'exportation utilisateur (Braze inclut le moins de données possible&#821
         "platform": "Android",
         "token": "12345abcd",
         "device_id": "312ef2c1-83db-4789-967-554545a1bf7a",
-        "notifications_enabled": true
+        "notifications_enabled": true,
+        "provisionally_opted_in": null
       },
       ...
     ],

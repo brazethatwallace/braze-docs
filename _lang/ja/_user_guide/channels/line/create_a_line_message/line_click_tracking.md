@@ -32,7 +32,7 @@ LINEクリックトラッキングの設定は、メッセージ作成中に**Se
 
 1. **Text**メッセージを作成画面にドラッグし、テキストフィールドにURLを追加します。
 
-![長いURL（https://braze.com/docs/user_guide/channels/line/create/）を含むTextメッセージが表示されたLINEメッセージ作成画面]({% image_buster /assets/img/line/click_tracking_text_message.png %})
+![長いURLを含むTextメッセージが表示されたLINEメッセージ作成画面]({% image_buster /assets/img/line/click_tracking_text_message.png %})
 
 {: start="2"}
 2. **Settings**タブに移動し、**Click Tracking**が有効になっていることを確認します。クリックトラッキングは、すべての新しいメッセージでデフォルトで有効になっています。
@@ -41,7 +41,7 @@ LINEクリックトラッキングの設定は、メッセージ作成中に**Se
 短縮リンクのプレビューは、**Settings**タブまたは**Preview & Test**タブで確認できます。メッセージの作成中は、作成画面に完全なリンクが表示されます。
 {% endalert %}
 
-![「Click Tracking」がオンに切り替えられたLINEメッセージ作成画面の「Settings」タブと、短縮URL（https://olaf.brz.ai/p/9rcfdqdD）を含むプレビューテキストメッセージ]({% image_buster /assets/img/line/click_tracking_settings.png %})
+![「Click Tracking」がオンに切り替えられたLINEメッセージ作成画面の「Settings」タブと、短縮URLを含むプレビューテキストメッセージ]({% image_buster /assets/img/line/click_tracking_settings.png %})
 
 ### リッチメッセージ {#rich-messages}
 

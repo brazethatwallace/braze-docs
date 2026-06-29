@@ -31,13 +31,13 @@ Verwenden Sie Agenten, um Inhalte anhand des spezifischen Kontexts einer Nutzer:
 
 Der Agent lernt jedoch nicht durch Versuch und Irrtum und hat keine Vorstellung von einem übergeordneten Marketingziel, das er messen und maximieren möchte. Selbst wenn Sie ihn anweisen, generell Texte zu verfassen, die Conversions fördern, verfügt er über keinen Mechanismus, um die Conversion-Auswirkungen seines agentenbasierten Schreibens zu „überwachen“ und diese Daten in zukünftige agentenbasierte Aufrufe zu integrieren. Man kann sich dies als „Stimmungs“-Entscheidungsfindung vorstellen, nicht als belohnungsbasierte KI-Entscheidungsfindung.
 
-Im Gegensatz dazu sind andere BrazeAI-Tools darauf ausgelegt, die von ihnen gemessenen Metriken zu maximieren. Beispielsweise sind Agenten sehr gut darin, qualitativ zu beurteilen, inwiefern die Eigenschaften einer Nutzer:in deren Wahrscheinlichkeit oder Neigung beeinflussen, eine bestimmte Handlung auszuführen oder ein bestimmtes Produkt zu mögen. Da der Agent jedoch nicht durch Versuch und Irrtum lernt, hat er keine Vorstellung davon, wie er seine Genauigkeit bei der Vorhersage von Wahrscheinlichkeiten messen und das Signal im Laufe der Zeit verbessern kann. Daher übertrifft die Predictive Suite den Agent-Schritt, wenn man die Genauigkeit der Prognosen und die Verbesserungen im Laufe der Zeit betrachtet.
+Im Gegensatz dazu sind andere BrazeAI-Tools darauf ausgelegt, die von ihnen gemessenen Metriken zu maximieren. Beispielsweise sind Agenten sehr gut darin, qualitativ zu beurteilen, inwiefern die Eigenschaften einer Nutzer:in deren Wahrscheinlichkeit oder Neigung beeinflussen, ein bestimmtes Ereignis auszulösen oder ein bestimmtes Produkt zu mögen. Da der Agent jedoch nicht durch Versuch und Irrtum lernt, hat er keine Vorstellung davon, wie er seine Genauigkeit bei der Vorhersage von Wahrscheinlichkeiten messen und das Signal im Laufe der Zeit verbessern kann. Daher übertrifft die Predictive Suite den Agent-Schritt, wenn man die Genauigkeit der Prognosen und die Verbesserungen im Laufe der Zeit betrachtet.
 
-## Funktionen {#features}
+## Features {#features}
 
 Zu den Features von Braze Agents gehören:
 
-- **Flexible Einrichtung:** Verwenden Sie ein von Braze bereitgestelltes LLM oder verbinden Sie Ihre eigenen [KI-Modellanbieter]({{site.baseurl}}/partners/ai_model_providers/) (wie OpenAI, Anthropic oder Google Gemini).
+- **Flexible Einrichtung:** Verwenden Sie ein von Braze bereitgestelltes LLM oder verbinden Sie Ihre eigenen [KI-Modellanbieter]({{site.baseurl}}/partners/ai_model_providers/) (wie OpenAI, Anthropic, Google Gemini oder Databricks Mosaic).
 - **Nahtlose Integration:** Setzen Sie Agenten direkt in Canvas-Schritten oder Katalogfeldern ein.
 - **Test- und Protokollierungstools:** Erhalten Sie eine Vorschau auf die Ausgabe Ihres Agenten, indem Sie ihn vor dem Start mit Beispiel-Eingaben testen. Sehen Sie sich die Protokolle für jeden Ausführungsvorgang des Agenten an, einschließlich der Ein- und Ausgaben für diesen Vorgang.
 - **Nutzungskontrollen:** Tägliche Limits unterstützen bei der Verwaltung von Performance und Kosten.
@@ -67,6 +67,18 @@ Es gelten die folgenden Einschränkungen:
 - Standardmäßig muss jeder Durchlauf innerhalb von 20 Sekunden abgeschlossen sein. Nach 20 Sekunden gibt der Agent eine `null`-Antwort zurück, wo immer er verwendet wird.
     - Sollten Ihre Agenten regelmäßig eine Zeitüberschreitung haben, wenden Sie sich an Ihren Braze Account Manager, um dieses Limit zu erhöhen.
 - Die Eingabedaten sind auf 25 KB pro Anfrage begrenzt. Längere Eingaben werden gekürzt.
+
+## Best Practices {#best-practices}
+
+Konzentrieren Sie sich auf hochwertige Anwendungsfälle, bei denen Agenten die größte Kapitalrendite (ROI) erzielen können, und wählen Sie Zielgruppen aus, die wahrscheinlich reagieren werden. Eine kleinere Zielgruppe mit hoher Opportunity übertrifft oft eine große Zielgruppe mit geringer Opportunity – beispielsweise das Retargeting von Nutzer:innen, die kürzlich gesucht, aber nicht konvertiert haben, anstatt agentengenerierten Text an Ihre gesamte Nutzerbasis zu senden.
+
+Um den ROI vor der Skalierung zu validieren, verwenden Sie einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/)-Schritt, um nur einen Teil Ihrer Zielgruppe durch einen Agent-Schritt zu leiten. Weitere Hinweise zur Bereitstellung finden Sie unter [Angepasste Agenten bereitstellen]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/).
+
+## Fehlerbehandlung {#error-handling}
+
+Wenn das verbundene Modell während eines **Canvas-Agent-Schritts** einen [Rate-Limit-Fehler]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) vom LLM-Anbieter zurückgibt, wiederholt Braze die Anfrage kontinuierlich mit exponentiellem Backoff. Katalog-Agenten wiederholen Rate-Limit-begrenzte Ausführungen nicht. Bei anderen Fehlern (wie einer Zeitüberschreitung oder einem ungültigen API-Schlüssel) wird die Canvas-Agentenausgabe auf `null` gesetzt, es sei denn, der Agent verfügt über [konfigurierte Fallback-Werte]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) in der Agentenkonsole (nur Canvas-Schritt-Agenten). Wenn ein Agent sein tägliches Ausführungslimit erreicht, wendet Braze die konfigurierten Fallback-Werte an, sofern vorhanden; andernfalls wird die Ausgabe auf `null` gesetzt.
+
+Wenn viele Nutzer:innen gleichzeitig einen Agent-Schritt betreten, kann die Verarbeitung aufgrund von [Ausführungsflusskontrollen]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls) länger dauern. Konfigurieren Sie Fallback-Werte in der Agentenkonsole für Canvas-Agenten, damit Nutzer:innen auch dann eine Ausgabe erhalten, wenn eine Ausführung fehlschlägt, oder verwenden Sie [Standard-Liquid-Werte]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) in nachgelagerten Nachrichten-Schritten.
 
 ## Wie werden meine Daten verwendet und an die von Braze bereitgestellten LLMs übermittelt? {#how-is-my-data-used-and-sent-to-braze-provided-llms}
 

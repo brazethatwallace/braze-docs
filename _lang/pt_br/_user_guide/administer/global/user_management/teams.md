@@ -8,7 +8,7 @@ description: "Este artigo de referência cobre como usar as Equipes da Braze no 
 
 ---
 
-# Equipes
+# Equipes {#teams}
 
 > Como administrador da Braze, você pode agrupar os usuários da sua empresa em Equipes com diferentes funções e permissões de usuário. Isso permite que você tenha múltiplos grupos não relacionados de usuários da empresa trabalhando juntos em um espaço de trabalho, separando os tipos de conteúdo que podem ser editados.
 
@@ -16,9 +16,9 @@ As Equipes podem ser configuradas com base no local da base de clientes, idioma 
 
 As Equipes não estão disponíveis em todos os contratos da Braze. Para acessar esse recurso, entre em contato com seu gerente de conta da Braze ou [fale com a gente](mailto:success@braze.com) para uma consulta.
 
-## Como as Equipes diferem de conjuntos de permissões e funções?
+## Como as Equipes diferem de conjuntos de permissões e funções? {#how-do-teams-differ-from-permission-sets-and-roles}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Criar Equipes {#creating-teams}
 
@@ -30,9 +30,17 @@ Digite o **Nome da equipe**. Se desejado, use o campo **Definir Equipe (Opcional
 
 Se uma Equipe for definida por um atributo personalizado, idioma ou país, você pode usar a Equipe para filtrar usuários finais em recursos como Campaigns, Canvas, Content Cards, Segments e muito mais. Para saber mais, consulte [Atribuir tags de Equipe](#tags-and-filters).
 
-## Atribuir usuários a Equipes
+## Atribuir usuários a Equipes {#assign-users-to-teams}
 
 Administradores da Braze e usuários limitados com a permissão de nível de empresa "Pode gerenciar configurações da empresa" podem atribuir permissões de nível de Equipe a um usuário da empresa com acesso limitado. Quando atribuídos a uma Equipe, os usuários da empresa ficam limitados a apenas ler ou gravar dados disponíveis para suas Equipes específicas, como idioma do usuário, local ou atributo personalizado, conforme definido quando a Equipe foi criada.
+
+### Limitar permissões de um usuário da empresa sem excluí-lo {#limit-company-user-permissions-without-deleting-a-user}
+
+Para impedir que um usuário da empresa faça login sem excluir a conta dele, [suspenda o usuário]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users). A suspensão coloca a conta em um estado inativo, impedindo o login.
+
+Se o usuário precisar continuar com acesso limitado, acesse **Configurações** > **Usuários da empresa**, selecione o usuário e edite suas permissões. Remova as permissões de nível de espaço de trabalho para Campaigns, Canvas, Segments e dados de usuários, e deixe apenas o acesso mínimo — por exemplo, "View Media Library Assets". Para saber mais, consulte [Editar permissões de um usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#edit-a-users-permissions).
+
+As permissões de Equipe funcionam em cima das permissões de espaço de trabalho. Se você atribuir o usuário a uma Equipe, conceda apenas as permissões mínimas de nível de equipe necessárias e não conceda permissões para Campaigns, Canvas, Segments ou perfis de usuário. Ele permanecerá no espaço de trabalho e poderá fazer login, mas não poderá executar a maioria das ações de envio de mensagens ou de público.
 
 Para atribuir um usuário a uma Equipe, acesse **Configurações** > **Usuários da empresa** e selecione o usuário que deseja adicionar à sua Equipe.
 
@@ -48,81 +56,53 @@ Em seguida, siga estas etapas:
 
 ![Permissões de modelo de landing page de nível de equipe.]({% image_buster /assets/img/teams.png %})
 
-### Permissões de nível de Equipe disponíveis
+### Permissões de nível de Equipe disponíveis {#available-team-level-permissions}
 
 A seguir estão todas as permissões disponíveis que você pode atribuir no nível de Equipe. Quaisquer permissões não listadas aqui são concedidas apenas no nível do espaço de trabalho, e essas permissões aparecerão como "--" na coluna de permissões de **Equipes**.
 
-{% tabs %}
-{% tab Permissões granulares %}
+- View Campaigns
+- Edit Campaigns
+- Archive Campaigns
+- Launch Campaigns
+- Approve Campaigns
+- View Canvases
+- Edit Canvases
+- Archive Canvases
+- Launch Canvases
+- Approve Canvases
+- View Content Blocks
+- Edit Content Blocks
+- Archive Content Blocks
+- Launch Content Blocks
+- View Segments
+- Edit Segments
+- Archive Segments
+- View IAM Templates
+- Edit IAM Templates
+- Archive IAM Templates
+- View Email Templates
+- Edit Email Templates
+- Archive Email Templates
+- View Webhook Templates
+- Edit Webhook Templates
+- Archive Webhook Templates
+- View Email Link Templates
+- Edit Email Link Templates
+- View Media Library Assets
+- Edit Media Library Assets
+- Delete Media Library Assets
+- Export User Data
+- View User Profiles (PII Redacted)
+- View PII
+- Edit Dashboard Users
+- Edit Canvas Templates
+- View Canvas Templates
+- Archive Canvas Templates
+- View Dashboard Reports
+- Edit Dashboard Reports
+- Delete Dashboard Reports
 
-{% multi_lang_include alerts/important_alerts.md alert="granular permissions ea" %}
-
-- Visualizar Campaigns
-- Editar Campaigns
-- Arquivar Campaigns
-- Lançar Campaigns
-- Aprovar Campaigns
-- Visualizar Canvas
-- Editar Canvas
-- Arquivar Canvas
-- Lançar Canvas
-- Aprovar Canvas
-- Visualizar Content Blocks
-- Editar Content Blocks
-- Arquivar Content Blocks
-- Lançar Content Blocks
-- Visualizar Segments
-- Editar Segments
-- Arquivar Segments
-- Visualizar modelos de IAM
-- Editar modelos de IAM
-- Arquivar modelos de IAM
-- Visualizar modelos de e-mail
-- Editar modelos de e-mail
-- Arquivar modelos de e-mail
-- Visualizar modelos de webhook
-- Editar modelos de webhook
-- Arquivar modelos de webhook
-- Visualizar modelos de links de e-mail
-- Editar modelos de links de e-mail
-- Visualizar ativos da Biblioteca de mídia
-- Editar ativos da Biblioteca de mídia
-- Excluir ativos da Biblioteca de mídia
-- Exportar dados de usuários
-- Visualizar perfis de usuário (IPI ocultadas)
-- Visualizar IPI
-- Editar usuários do dashboard
-- Editar modelos de Canvas
-- Visualizar modelos de Canvas
-- Arquivar modelos de Canvas
-- Visualizar relatórios do dashboard
-- Editar relatórios do dashboard
-- Excluir relatórios do dashboard
-
-{% endtab %}
-{% tab Permissões legadas %}
-
-- Acessar Campaigns, Canvas, cartões, Content Blocks, Feature Flags, Segments, Biblioteca de mídia e Central de Preferências
-- Enviar Campaigns, Canvas
-- Lançar e gerenciar Content Cards
-- Editar Segments
-- Exportar dados de usuários
-- Visualizar perfis de usuário em conformidade com IPI
-- Gerenciar usuários do dashboard
-- Gerenciar ativos da Biblioteca de mídia
-- Aprovar e rejeitar Campaigns
-- Aprovar e rejeitar Canvas
-- Criar e editar modelos de Canvas
-- Visualizar modelos de Canvas
-- Arquivar modelos de Canvas
-- Editar modelos de landing page
-- Visualizar modelos de landing page
-- Arquivar modelos de landing page
-
-{% endtab %}
-{% endtabs %}
-
-Para ver descrições do que cada permissão de usuário inclui e como usá-las, consulte nossa seção [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#editing-user-permissions).
+Para ver descrições do que cada permissão de usuário inclui e como usá-las, consulte nossa seção [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
 
 ## Atribuir tags de Equipe {#tags-and-filters}
 
@@ -133,7 +113,7 @@ Você pode atribuir uma Equipe a Canvas, Campaigns, Content Cards, Segments, mod
 - Com base nas *definições* aplicadas quando a Equipe foi criada, quando um filtro de Equipe é atribuído, o público dessa ferramenta de engajamento é restrito a perfis de usuário que correspondem à definição.
 - Com base nas *permissões* atribuídas, os membros da Equipe só poderão acessar ferramentas de engajamento do dashboard que tenham o filtro de Equipe deles configurado. Se tiverem permissões de espaço de trabalho limitadas ou nenhuma, eles devem adicionar um filtro de Equipe a determinados objetos antes de poder salvá-los ou lançá-los. Os membros da Equipe também podem filtrar Canvas, Campaigns, Content Cards e Segments por Equipe para identificar conteúdo relevante para eles.
 
-### Casos de uso
+### Casos de uso {#use-cases}
 
 Considere os dois cenários a seguir para uma profissional de marketing na Braze chamada Michelle. Michelle é membro de uma Equipe chamada "Development". Ela tem acesso a todas as permissões de nível de Equipe para a Equipe Development.
 
@@ -182,7 +162,7 @@ Para alterações em campanhas ativas:
 2. A Equipe Development faz as edições e compartilha com a Equipe de Aprovação.
 3. A Equipe de Aprovação remove a tag de Equipe "Development", pausa a campanha anterior e lança a nova campanha.
 
-## Arquivar uma Equipe existente
+## Arquivar uma Equipe existente {#archive-an-existing-team}
 
 Você pode arquivar Equipes na página **Equipes internas**.
 

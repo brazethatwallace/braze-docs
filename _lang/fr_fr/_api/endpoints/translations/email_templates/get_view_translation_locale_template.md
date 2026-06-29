@@ -17,8 +17,6 @@ description: "Cet article décrit les détails de l'endpoint permettant d'affich
 
 > Utilisez cet endpoint pour afficher une traduction et une locale spécifiques pour un [modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/). Consultez [Locales dans les messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) pour plus d'informations sur les fonctionnalités de traduction.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Conditions préalables {#prerequisites}
 
 Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `templates.translations.get`.

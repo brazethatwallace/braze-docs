@@ -24,7 +24,7 @@ En complément de cet article, nous vous recommandons également de consulter no
 Vous pouvez filtrer par les contenus suivants enregistrés dans le **Journal d'activité des messages** :
 
 - Erreurs de notification push
-- Erreurs de messages abandonnés
+- Erreurs de messages in-app modélisés abandonnés
 - Erreurs de webhook
 - Erreurs d'e-mail
 - Enregistrements de messages API

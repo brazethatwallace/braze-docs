@@ -27,7 +27,7 @@ Depuis le 7 avril 2022, Transifex a rendu obsolètes les versions 2 et 2.5 de so
 | Condition | Description |
 | --- | --- |
 | Compte Transifex | Un [compte Transifex](https://www.transifex.com/signin/) est nécessaire pour bénéficier de ce partenariat. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 

@@ -88,7 +88,7 @@ For a full list of available fields, their types, and helpful descriptions, have
 
 ### Step 2: Create and encode an undefined payload variable
 
-Create and name a new Content Block by navigating to **Templates** > **Content Blocks** within the Braze dashboard.
+Create and name a new Content Block by navigating to **Content** > **Content Block** within the Braze dashboard.
 
 Select **Create Content Block** to get started.
 

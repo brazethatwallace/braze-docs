@@ -36,11 +36,11 @@ Push Maxを使用して送信されたプッシュ通知は、少なくとも以
 ## Push Maxの使用 {#using-push-max}
 
 {% tabs %}
-{% tab Campaigns %}
+{% tab キャンペーン %}
 
-CampaignでPush Maxを使用するには：
+キャンペーンでPush Maxを使用するには：
 
-1. プッシュCampaignを作成します。
+1. プッシュキャンペーンを作成します。
 2. プラットフォームとして**Android Push**を選択します。
 3. **Schedule Delivery**ステップに移動します。
 4. **Send using Push Max**を選択します。
@@ -50,9 +50,9 @@ CampaignでPush Maxを使用するには：
 {% endtab %}
 {% tab Canvas %}
 
-CanvasでPush Maxを使用するには：
+キャンバスでPush Maxを使用するには：
 
-1. Canvasにメッセージステップを追加します。
+1. キャンバスにメッセージステップを追加します。
 2. プラットフォームとして**Android Push**を選択します。
 3. **Delivery Settings**タブに移動します。
 4. **Send using Push Max**を選択します。
@@ -84,6 +84,6 @@ Push Maxがオンになっているメッセージでは、Brazeの[プロモー
 
 プロモーションコードはユニークであるためです。プロモーションコードを含むプッシュ通知の配信に失敗した場合、Push Maxによってその通知が再送信される際に、新しいプロモーションコードが送信されます。これにより、プロモーションコードが予想よりも早く消費される可能性があります。
 
-### Canvasイベントプロパティとエントリプロパティ {#canvas-event-properties-and-entry-properties}
+### キャンバスイベントプロパティとエントリプロパティ {#canvas-event-properties-and-entry-properties}
 
-メッセージに[Canvasエントリプロパティまたはイベントプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)へのLiquid参照を含めると、Push Maxが期待どおりに動作しない場合があります。これは、Push Maxがメッセージの再送信を試みる際に、エントリプロパティとイベントプロパティが利用できないためです。
+メッセージに[キャンバスエントリプロパティまたはイベントプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)へのLiquid参照を含めると、Push Maxが期待どおりに動作しない場合があります。これは、Push Maxがメッセージの再送信を試みる際に、エントリプロパティとイベントプロパティが利用できないためです。

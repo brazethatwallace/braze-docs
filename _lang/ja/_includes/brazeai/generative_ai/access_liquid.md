@@ -1,0 +1,1 @@
+メッセージ作成画面でオペレーターを開き、パーソナライゼーション用のLiquidを生成・改良できます。オペレーターは[Liquid構文]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)、標準および[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)を理解しており、コードの動作を説明することもできます。

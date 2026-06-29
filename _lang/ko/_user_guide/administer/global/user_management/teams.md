@@ -8,7 +8,7 @@ description: "이 참조 문서에서는 대시보드에서 Braze Teams를 사�
 
 ---
 
-# Teams
+# Teams {#teams}
 
 > Braze 관리자는 다양한 사용자 역할과 권한을 가진 Teams로 회사 사용자를 그룹화할 수 있습니다. 이를 통해 편집할 수 있는 콘텐츠 유형을 분리하여 하나의 워크스페이스에서 여러 개의 관련 없는 회사 사용자 그룹이 함께 작업할 수 있습니다.
 
@@ -16,13 +16,13 @@ Teams는 고객 기반 위치, 언어, 커스텀 속성에 따라 설정할 수 
 
 모든 Braze 계약에서 Teams를 사용할 수 있는 것은 아닙니다. 이 기능에 접근하려면 Braze 계정 매니저에게 문의하거나 [저희에게 연락하세요](mailto:success@braze.com).
 
-## Teams는 권한 세트 및 역할과 어떻게 다른가요?
+## Teams는 권한 세트 및 역할과 어떻게 다른가요? {#how-do-teams-differ-from-permission-sets-and-roles}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Teams 생성 {#creating-teams}
 
-**설정** > **내부 Teams**로 이동하여 <i class="fas fa-plus"></i> **Teams 추가**를 선택합니다.
+**설정** > **내부 팀**으로 이동하여 <i class="fas fa-plus"></i> **Teams 추가**를 선택합니다.
 
 ![새 Teams를 추가하는 창.]({% image_buster /assets/img_archive/adding_a_team.png %})
 
@@ -30,9 +30,17 @@ Teams는 고객 기반 위치, 언어, 커스텀 속성에 따라 설정할 수 
 
 Teams가 커스텀 속성, 언어 또는 국가로 정의된 경우, 해당 Teams를 사용하여 Campaigns, Canvases, Content Cards, Segments 등의 기능에 대해 최종 사용자를 필터링할 수 있습니다. 자세한 내용은 [Teams 태그 할당](#tags-and-filters)을 참조하세요.
 
-## 사용자를 Teams에 할당하기
+## 사용자를 Teams에 할당하기 {#assign-users-to-teams}
 
 Braze 관리자와 "회사 설정 관리 가능"이라는 회사 수준 권한이 있는 제한된 사용자는 제한된 접근 권한이 있는 회사 사용자에게 Teams 수준 권한을 할당할 수 있습니다. Teams에 할당되면, 회사 사용자는 Teams 생성 시 정의된 사용자 언어, 위치 또는 커스텀 속성과 같은 특정 Teams에서 사용 가능한 데이터만 읽거나 쓸 수 있습니다.
+
+### 사용자를 삭제하지 않고 회사 사용자 권한 제한하기 {#limit-company-user-permissions-without-deleting-a-user}
+
+회사 사용자의 계정을 유지하면서 로그인을 중지하려면 [사용자를 일시 중지]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users)하세요. 일시 중지하면 계정이 비활성 상태가 되어 사용자가 로그인할 수 없습니다.
+
+사용자가 제한된 기능으로 계속 로그인할 수 있어야 하는 경우, **설정** > **회사 사용자**로 이동하여 사용자를 선택하고 권한을 편집합니다. Campaigns, Canvases, Segments 및 사용자 데이터에 대한 워크스페이스 수준 권한을 제거하고 최소한의 접근 권한만 남겨두세요. 예를 들어 "미디어 라이브러리 자산 보기"만 남길 수 있습니다. 자세한 내용은 [사용자 권한 편집]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#edit-a-users-permissions)을 참조하세요.
+
+Teams 권한은 워크스페이스 권한 위에서 작동합니다. 사용자를 Teams에 할당하는 경우, 필요한 최소한의 Teams 수준 권한만 부여하고 Campaigns, Canvases, Segments 또는 고객 프로필에 대한 권한은 부여하지 마세요. 사용자는 워크스페이스에 남아 로그인할 수 있지만, 대부분의 메시징 또는 오디언스 작업을 수행할 수 없습니다.
 
 사용자를 Teams에 할당하려면 **설정** > **회사 사용자**로 이동하여 Teams에 추가할 사용자를 선택합니다.
 
@@ -43,19 +51,14 @@ Braze 관리자와 "회사 설정 관리 가능"이라는 회사 수준 권한�
 ![배너 템플릿 권한 세트가 있는 워크스페이스 수준 권한.]({% image_buster /assets/img/team_level_permissions.png %})
 
 {: start="2"}
-2. **\+ Teams 수준 권한 추가**를 선택한 다음, 이 사용자를 추가할 **Teams**를 선택합니다.
+2. **+ Teams 수준 권한 추가**를 선택한 다음, 이 사용자를 추가할 **Teams**를 선택합니다.
 3. **Teams** 권한 섹션에서 특정 권한을 할당합니다.
 
 ![Teams 수준 랜딩 페이지 템플릿 권한.]({% image_buster /assets/img/teams.png %})
 
-### 사용 가능한 Teams 수준 권한
+### 사용 가능한 Teams 수준 권한 {#available-team-level-permissions}
 
 다음은 Teams 수준에서 할당할 수 있는 모든 권한입니다. 여기에 나열되지 않은 권한은 워크스페이스 수준에서만 부여되며, 이러한 권한은 **Teams** 권한 열에 "--"로 표시됩니다.
-
-{% tabs %}
-{% tab 세분화된 권한 %}
-
-{% multi_lang_include alerts/important_alerts.md alert="granular permissions ea" %}
 
 - Campaigns 보기
 - Campaigns 편집
@@ -99,30 +102,7 @@ Braze 관리자와 "회사 설정 관리 가능"이라는 회사 수준 권한�
 - 대시보드 보고서 편집
 - 대시보드 보고서 삭제
 
-{% endtab %}
-{% tab 레거시 권한 %}
-
-- Campaigns, Canvases, 카드, Content Blocks, 기능 플래그, Segments, 미디어 라이브러리 및 환경설정 센터 접근
-- Campaigns, Canvases 전송
-- Content Cards 시작 및 관리
-- Segments 편집
-- 사용자 데이터 내보내기
-- PII 준수 고객 프로필 보기
-- 대시보드 사용자 관리
-- 미디어 라이브러리 자산 관리
-- Campaigns 승인 및 거부
-- Canvases 승인 및 거부
-- 캔버스 템플릿 생성 및 편집
-- 캔버스 템플릿 보기
-- 캔버스 템플릿 아카이브
-- 랜딩 페이지 템플릿 편집
-- 랜딩 페이지 템플릿 보기
-- 랜딩 페이지 템플릿 아카이브
-
-{% endtab %}
-{% endtabs %}
-
-각 사용자 권한에 포함된 내용과 사용 방법에 대한 설명은 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#editing-user-permissions) 섹션을 확인하세요.
+각 사용자 권한에 포함된 내용과 사용 방법에 대한 설명은 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) 섹션을 확인하세요.
 
 ## Teams 태그 할당 {#tags-and-filters}
 
@@ -133,7 +113,7 @@ Braze 관리자와 "회사 설정 관리 가능"이라는 회사 수준 권한�
 - Teams 생성 시 적용된 *정의*에 따라, Teams 필터가 할당되면 해당 참여 툴의 오디언스는 정의와 일치하는 고객 프로필로 제한됩니다.
 - 할당된 *권한*에 따라, Teams 멤버는 자신의 Teams 필터가 설정된 대시보드 참여 툴에만 접근할 수 있습니다. 워크스페이스 권한이 제한적이거나 없는 경우, 특정 오브젝트를 저장하거나 시작하기 전에 Teams 필터를 추가해야 합니다. Teams 멤버는 또한 Teams별로 Canvases, Campaigns, Content Cards 및 Segments를 필터링하여 관련 콘텐츠를 식별할 수 있습니다.
 
-### 활용 사례
+### 활용 사례 {#use-cases}
 
 Braze의 마케터인 Michelle에 대한 다음 두 가지 시나리오를 살펴보세요. Michelle은 "Development"라는 Teams의 멤버입니다. Development Teams에 대한 모든 Teams 수준 권한을 가지고 있습니다.
 
@@ -182,9 +162,9 @@ Teams의 가능한 사용 사례 중 하나는 프로덕션 환경에서 콘텐�
 2. Development Teams가 편집을 수행하고 승인자 Teams와 공유합니다.
 3. 승인자 Teams가 "Development" Teams 태그를 제거하고, 이전 Campaign을 일시 중지한 후 새 Campaign을 시작합니다.
 
-## 기존 Teams 아카이브
+## 기존 Teams 아카이브 {#archive-an-existing-team}
 
-**내부 Teams** 페이지에서 Teams를 아카이브할 수 있습니다.
+**내부 팀** 페이지에서 Teams를 아카이브할 수 있습니다.
 
 아카이브할 하나 이상의 Teams를 선택합니다. Teams가 Braze 내의 어떤 오브젝트와도 연결되어 있지 않으면 즉시 아카이브됩니다. Teams가 오브젝트와 연결되어 있는 경우, 아카이브 프로세스 후 Teams를 제거하거나 교체하는 옵션이 표시됩니다.
 

@@ -18,7 +18,7 @@ Teams are not available on all Braze contracts. To access this feature, contact 
 
 ## How do Teams differ from permission sets and roles?
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Create Teams {#creating-teams}
 
@@ -33,6 +33,14 @@ If a Team is defined by a custom attribute, language, or country, you can then u
 ## Assign users to Teams
 
 Braze administrators and limited users with the company-level permission "Can Manage Company Settings" can assign Team-level permissions to a company user with limited access. When assigned to a Team, company users are limited to only read or write data available to their particular Teams, such as user language, location, or custom attribute, as defined when the Team was created.
+
+### Limit company user permissions without deleting a user
+
+To stop a company user from signing in while preserving their account, [suspend the user]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users) instead. Suspending puts the account in an inactive state where the user can't log in.
+
+If the user should remain able to sign in with limited capabilities, go to **Settings** > **Company Users**, select the user, and edit their permissions. Remove workspace-level permissions for campaigns, Canvases, segments, and user data, and leave only minimal access—for example, "View Media Library Assets". For more information, see [Edit a user's permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
+
+Team permissions work on top of workspace permissions. If you assign the user to a Team, grant only the minimum team-level permissions they need, and don't grant permissions for campaigns, Canvases, segments, or user profiles. They remain in the workspace and can sign in, but they can't perform most messaging or audience actions.
 
 To assign a user to a Team, navigate to **Settings** > **Company Users** and select a user you'd like to add to your Team.
 
@@ -51,11 +59,6 @@ Then perform the following steps:
 ### Available Team-level permissions
 
 The following are all available permissions you can assign at the Team level. Any permissions not listed here are only granted on the workspace level, and these permissions will appear as "--" in the **Teams** permissions column.
-
-{% tabs %}
-{% tab Granular permissions %}
-
-{% multi_lang_include alerts/important_alerts.md alert="granular permissions ea" %}
 
 - View Campaigns
 - Edit Campaigns
@@ -99,30 +102,7 @@ The following are all available permissions you can assign at the Team level. An
 - Edit Dashboard Reports
 - Delete Dashboard Reports
 
-{% endtab %}
-{% tab Legacy permissions %}
-
-- Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, and Preference Centers
-- Send Campaigns, Canvases
-- Launch and Manage Content Cards
-- Edit Segments
-- Export User Data
-- View User Profiles PII Compliant
-- Manage Dashboard Users
-- Manage Media Library Assets
-- Approve and Deny Campaigns
-- Approve and Deny Canvases
-- Create and Edit Canvas Templates
-- View Canvas Templates
-- Archive Canvas Templates
-- Edit Landing Page Templates
-- View Landing Page Templates
-- Archive Landing Page Templates
-
-{% endtab %}
-{% endtabs %}
-
-To see descriptions of what each user permission includes and how to use them, check out our [User Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#editing-user-permissions) section.
+To see descriptions of what each user permission includes and how to use them, check out our [User Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) section.
 
 ## Assign Team tags {#tags-and-filters}
 

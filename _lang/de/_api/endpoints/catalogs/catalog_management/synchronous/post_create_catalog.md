@@ -80,6 +80,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
         },
         {
           "name": "Location",
+          "type": "geo"
+        },
+        {
+          "name": "Preferences",
           "type": "object"
         },
         {
@@ -95,6 +99,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
   ]
 }'
 ```
+
+{% alert note %}
+Der Datentyp `geo` speichert eine geografische Koordinate als Array im Format `[longitude, latitude]`. Zum Beispiel `[-73.988103, 40.779109]`.
+{% endalert %}
 
 ## Antwort {#response}
 
@@ -136,6 +144,10 @@ Der Statuscode `201` könnte den folgenden Antworttext zurückgeben.
         },
         {
           "name": "Location",
+          "type": "geo"
+        },
+        {
+          "name": "Preferences",
           "type": "object"
         },
         {

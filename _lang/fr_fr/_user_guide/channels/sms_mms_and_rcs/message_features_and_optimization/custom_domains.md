@@ -52,7 +52,7 @@ Nous vous demandons de déléguer votre domaine personnalisé à Braze afin que 
 
 Braze interrogera votre configuration DNS environ toutes les 30 minutes pour vérifier les mises à jour.
 
-![Section « DNS record » avec 3 étapes à compléter pour terminer la configuration de votre domaine.]({% image_buster /assets/img/dns_record.png %})
+![Section « Enregistrement DNS » avec 3 étapes à compléter pour terminer la configuration de votre domaine.]({% image_buster /assets/img/dns_record.png %})
 
 {% alert note %}
 La progression de votre domaine est enregistrée automatiquement. Si vous devez quitter en cours de processus, vous pouvez reprendre plus tard en sélectionnant l'entrée de domaine en attente sur la page **Domaines SMS/RCS et applications de messagerie**.
@@ -72,9 +72,7 @@ Une fois configurés, les domaines personnalisés peuvent être attribués à un
 
 1. Accédez à **Audience** > **Gestion des groupes d'abonnement**.
 2. Recherchez et sélectionnez votre groupe d'abonnement dans la liste.
-3. Sous **Détails du groupe d'abonnement**, sélectionnez votre domaine personnalisé comme **Link Shortening Domain**.
-
-![Paramètres des groupes d'abonnement permettant de sélectionner un domaine de raccourcissement de liens.]({% image_buster /assets/img/custom_domain.png %})
+3. Sous **Détails du groupe d'abonnement**, sélectionnez votre domaine personnalisé dans le menu déroulant **Link Shortening Domain**.
 
 Les campagnes envoyées avec le raccourcissement de liens activé utiliseront le domaine attribué associé à votre groupe d'abonnement SMS, RCS ou WhatsApp.
 

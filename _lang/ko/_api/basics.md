@@ -49,7 +49,7 @@ API 호출에 엔드포인트를 사용할 때는 REST 엔드포인트를 사용
 SDK 통합의 경우 REST 엔드포인트가 아닌 [SDK 엔드포인트]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)를 사용하세요.
 {% endalert %}
 
-{% multi_lang_include data_centers.md datacenters='instances' %}
+{% multi_lang_include administer/data_centers.md datacenters='instances' %}
 
 ### API 제한 {#api-limits}
 

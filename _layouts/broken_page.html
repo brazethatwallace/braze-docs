@@ -73,7 +73,7 @@ if (site_language && (site_language != 'en')){
     {%- endif -%}
     {% unless hide_url %}
     siteurl = removeleadingslash("{{ page.url }}");
-    validurls['{{ site.baseurl }}' + siteurl.toLowerCase()] = '{{ site.baseurl }}' + siteurl + '/';
+    validurls['{{ site.baseurl }}' + siteurl.toLowerCase()] = '{{ site.baseurl }}' + siteurl;
     {% endunless %}
   {%- endfor -%}
 

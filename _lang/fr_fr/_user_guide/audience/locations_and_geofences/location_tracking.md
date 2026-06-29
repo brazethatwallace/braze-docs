@@ -68,6 +68,10 @@ La combinaison de la prise en charge existante des balises ou du géorepérage a
 - [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion/)
 - [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)
 
+## Différences entre géorepérage et suivi de la localisation {#differences-between-geofences-and-location-tracking}
+
+{% multi_lang_include locations_and_geofences/geofences_vs_location_tracking.md %}
+
 ## Questions fréquemment posées {#frequently-asked-questions}
 
 ### Quand Braze collecte-t-il les données de localisation ? {#when-does-braze-collect-location-data}

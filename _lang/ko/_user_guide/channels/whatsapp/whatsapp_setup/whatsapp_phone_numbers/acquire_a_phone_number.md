@@ -38,20 +38,15 @@ Braze에서 번호를 프로비저닝하지 않으므로 직접 전화번호를 
 
 ### 2단계: 전화번호 구성 {#step-2-configure-your-phone-number}
 
-Twilio의 안내에 따라 [Twilio Voice](https://www.twilio.com/docs/whatsapp/self-sign-up#add-your-whatsapp-phone-number)**만** 사용하여 이메일로 인증 코드를 수신할 수 있도록 Twilio 전화번호를 설정합니다. **다른 단계의 안내는 따르지 마세요.**
+이메일로 인증 코드를 수신할 수 있도록 Twilio 전화번호를 구성합니다. **Twilio 콘솔에서 전화번호를 WhatsApp에 연결하지 마세요.**
 
 {% alert warning %}
-인증 코드를 수신하기 위한 Twilio의 안내만 따르세요.
-다음 단계를 따르면 전화번호가 Twilio에 연결되므로, 마이그레이션을 수행하거나 다른 번호를 구매하지 않는 한 해당 번호를 Braze에 연결할 수 없습니다.
+Twilio 콘솔에서 전화번호를 WhatsApp에 연결하지 마세요. 연결하면 해당 번호가 Twilio의 WhatsApp Business Account에 등록되어 임베디드 가입 워크플로를 통해 Braze에 연결할 수 없게 됩니다.
 {% endalert %}
 
 1. Twilio 콘솔에서 [Active Numbers 페이지](https://www.twilio.com/console/phone-numbers/incoming)로 이동하여 구매한 전화번호를 선택합니다.
 2. **Voice Configuration** 섹션으로 이동하여 **Configure with** 드롭다운에서 **Webhook, TwiML Bin, Function, Studio Flow, Proxy Service**를 선택합니다.
 3. **A call comes in** 행에서 **Webhook**을 선택하고 URL을 `https://twimlets.com/voicemail?Email=YOUR_EMAIL_ADDRESS`로 설정합니다. `YOUR_EMAIL_ADDRESS`를 본인의 이메일 주소로 바꿉니다.
-4. Twilio 콘솔에서 **2. Link WhatsApp Business Account with your number** > **2. Copy the phone number you register**로 이동하여 전화번호 옆의 **Copy**를 선택합니다.
-5. **Self Sign-up** 창의 **Add your WhatsApp phone number** 페이지에서 **Add a new phone number**를 선택하고 전화번호를 붙여넣습니다.
-6. 인증 방법으로 **Phone call**을 선택한 다음 **Next**를 선택합니다.
-7. 10분 이내에 이메일로 인증 코드를 수신합니다.
 
 ### 3단계: 임베디드 가입 워크플로 완료 {#step-3-complete-the-embedded-sign-up-workflow}
 

@@ -1,4 +1,4 @@
-Angepasste HTML-In-App-Nachrichten und Banner unterstützen eine JavaScript-„Bridge“ als Schnittstelle zum Braze SDK, sodass Sie benutzerdefinierte Braze-Aktionen triggern können, wenn Nutzer:innen auf Elemente mit Links klicken oder anderweitig mit Ihren Inhalten interagieren. Diese Methoden existieren mit der globalen Variable `brazeBridge` oder `appboyBridge`.
+Angepasste HTML-In-App-Nachrichten und Banner unterstützen eine JavaScript-„Bridge“ als Schnittstelle zum Braze SDK, sodass Sie angepasste Braze-Aktionen triggern können, wenn Nutzer:innen auf Elemente mit Links klicken oder anderweitig mit Ihren Inhalten interagieren. Diese Methoden existieren mit der globalen Variable `brazeBridge` oder `appboyBridge`.
 
 {% alert important %}
 Braze empfiehlt Ihnen, die globale Variable `brazeBridge` zu verwenden. Die globale Variable `appboyBridge` ist veraltet, wird aber für bestehende Nutzer:innen weiterhin funktionieren. Wenn Sie `appboyBridge` verwenden, empfehlen wir Ihnen eine Migration auf `brazeBridge`. <br><br> `appboyBridge` wurde in den folgenden SDK-Versionen als veraltet markiert:<br><br>
@@ -50,19 +50,11 @@ Die folgenden JavaScript-Methoden werden in angepasstem HTML für In-App-Nachric
 }
 </style>
 
-{% alert note %}
-Sie können Liquid nicht verwenden, um <code>customAttributes</code> in JavaScript-Bridge-Methoden einzufügen.
-{% endalert %}
-
 {% multi_lang_include archive/appboyBridge.md %}
 
 ### Tracking von Button-Klicks {#button-click-tracking}
 
 Verwenden Sie die Methode `brazeBridge.logClick(button_id)` zum Tracking von Klicks in Ihrem angepassten HTML.
-
-{% alert note %}
-**Banner:** Es wird nur `brazeBridge.logClick()` (ohne Argumente) unterstützt. Button-IDs und angepasstes Button-Tracking werden ausschließlich für In-App-Nachrichten unterstützt.
-{% endalert %}
 
 Bei In-App-Nachrichten können Sie „Button 1“, „Button 2“ und „Body Clicks“ programmgesteuert mit `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')` bzw. `brazeBridge.logClick()` tracken.
 
@@ -71,7 +63,7 @@ Bei In-App-Nachrichten können Sie „Button 1“, „Button 2“ und „Body Cl
 | Body-Klick | `brazeBridge.logClick()` | In-App-Nachrichten und Banner |
 | Button 1 | `brazeBridge.logClick('0')` | Nur In-App-Nachrichten |
 | Button 2 | `brazeBridge.logClick('1')` | Nur In-App-Nachrichten |
-| Angepasstes Button-Tracking | `brazeBridge.logClick('your custom name here')` | Nur In-App-Nachrichten |
+| Angepasstes Button-Tracking | `brazeBridge.logClick('your custom name here')` | In-App-Nachrichten und Banner |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Button-Klick-Tracking" }
 
 Bei In-App-Nachrichten können Sie mehrere Button-Klick-Events pro Impression tracken. Um beispielsweise eine Nachricht zu schließen und einen Klick auf Button 2 zu protokollieren:

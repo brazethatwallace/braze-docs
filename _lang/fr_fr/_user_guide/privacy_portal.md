@@ -58,7 +58,7 @@ guide_featured_list:
   link: /docs/user_archival/
   image: /assets/img/braze_icons/users-01.svg
 - name: Accès aux informations personnelles des utilisateurs
-  link: https://www.braze.com/docs/user_guide/administer/global/admin_settings/security_settings#view-pii
+  link: /docs/user_guide/administer/global/admin_settings/security_settings#view-pii
   image: /assets/img/braze_icons/eye.svg
 - name: Ressources supplémentaires sur la confidentialité
   link: https://www.braze.com/resources/search?section%5B%5D=articles&q=privacy

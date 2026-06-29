@@ -14,14 +14,12 @@ page_order: 6
 Antes de poder ver los informes de Decisioning Studio en Braze, debes:
 
 - Tener un contrato activo para Braze y BrazeAI Decisioning Studio™.
-- Ponerte en contacto con tu CSM para que te habilite BrazeAI Decisioning Studio™ en tu nombre.
+- Ponerte en contacto con tu CSM para que habilite BrazeAI Decisioning Studio™ en tu nombre.
 - Disponer de un agente de BrazeAI Decisioning Studio™ en vivo.
 
 ## Ver informes {#view}
 
 Para ver las métricas de un agente de Decisioning Studio en Braze, ve a **AI Decisioning** > **BrazeAI Decisioning Studio™** y selecciona un agente.
-
-![Pantalla de inicio de informes de BrazeAI Decisioning Studio™ que muestra un dashboard con varias tarjetas de informe. Cada tarjeta muestra un tipo de informe, como Rendimiento, Información, Diagnóstico y Cronología, con breves descripciones e íconos para cada uno.]({% image_buster /assets/img/decisioning_studio/reporting_home.png %})
 
 Aquí puedes ver informes como los de rendimiento, información, diagnósticos y cronologías. Para más detalles, consulta [Informes disponibles](#available-reports).
 
@@ -33,7 +31,7 @@ Tras [abrir un informe](#view), puedes cambiar el intervalo de fechas selecciona
 
 También puedes establecer una fecha de inicio predeterminada o elegir fechas para excluir siempre. Las fechas excluidas se filtrarán de todos los informes de ese agente.
 
-Para establecer o excluir fechas, selecciona <i class="fa-solid fa-gear"></i> **Settings** y, a continuación, cambia la fecha predeterminada o excluye las fechas que necesites.
+Para establecer o excluir fechas, selecciona <i class="fa-solid fa-gear" aria-label="Configuración"></i> **Configuración** y, a continuación, cambia la fecha predeterminada o excluye las fechas que necesites.
 
 ![Panel de configuración abierto en BrazeAI Decisioning Studio™ que muestra las opciones para establecer una fecha de inicio predeterminada y excluir fechas específicas de los informes. El panel muestra dos secciones denominadas Fecha de inicio predeterminada y Fechas excluidas. En Excluir fechas, aparecen varias fechas con casillas de verificación junto a cada una.]({% image_buster /assets/img/decisioning_studio/reporting_set_exclude_dates.png %})
 

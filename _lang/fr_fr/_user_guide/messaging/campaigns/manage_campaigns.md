@@ -13,13 +13,13 @@ description: "Cette page d'accueil couvre la gestion des campagnes. Vous y trouv
 guide_featured_title: "Articles de la section"
 guide_featured_list:
   - name: Modifier votre campagne après le lancement
-    link: /docs/user_guide/messaging/campaigns/managing_campaigns/change_your_campaign_after_launch
+    link: /docs/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch
     image: /assets/img/braze_icons/edit-05.svg
   - name: Alertes de campagne
-    link: /docs/user_guide/messaging/campaigns/managing_campaigns/campaign_alerts
+    link: /docs/user_guide/messaging/campaigns/manage_campaigns/campaign_alerts
     image: /assets/img/braze_icons/bell-03.svg
   - name: Rechercher des campagnes
-    link: /docs/user_guide/messaging/campaigns/managing_campaigns/search_campaigns
+    link: /docs/user_guide/messaging/campaigns/manage_campaigns/search_campaigns
     image: /assets/img/braze_icons/search-refraction.svg
 
 guide_menu_title: "Ressources supplémentaires"

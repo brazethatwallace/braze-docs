@@ -22,7 +22,7 @@ Braze currently hosts all user-level data in the Snowflake AWS US East-1 and EU-
 {% endalert %}
 
 {% alert tip %}
-Download the [raw table schemas]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ffbc5f5ca7092bc9ae26268aa0e711df) here or use this set of [sample event data](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset) available in the Snowflake marketplace to familiarize yourself with the events shared.
+Download the [raw table schemas](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) or use this set of [sample event data](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset) available in the Snowflake marketplace to familiarize yourself with the events shared.
 {% endalert %}
 
 ## Handling duplicate events

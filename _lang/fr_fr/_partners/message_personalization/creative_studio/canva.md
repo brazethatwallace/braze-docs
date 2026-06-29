@@ -20,7 +20,7 @@ L'intégration de Braze et Canva prend en charge deux chemins d'exportation :
 | --- | --- |
 | **Image ou conception vers la bibliothèque multimédia** | Envoie votre conception en tant que ressource dans la bibliothèque multimédia de Braze. |
 | **Conception d'e-mail vers Braze** | Publie un document **E-mail** Canva en tant que modèle d'e-mail Braze, y compris les métadonnées de la ligne d'objet. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="À propos de l'intégration" }
 
 ## Intégrer Braze avec Canva {#integrate-braze-with-canva}
 

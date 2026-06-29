@@ -22,7 +22,7 @@ De forma predeterminada, Braze envía un mensaje a un usuario solo una vez, incl
 
 {% tabs local %}
 {% tab campaign %}
-Para activar la reelegibilidad de una campaña, selecciona la casilla **Allow users to become re-eligible to receive campaign** en la sección **Delivery Controls**. El tiempo máximo de reelegibilidad para una campaña es de 720 días.
+Para activar la reelegibilidad de una campaña, selecciona la casilla **Permitir que los usuarios vuelvan a ser elegibles para recibir la campaña** en la sección **Controles de entrega**. El tiempo máximo de reelegibilidad para una campaña es de 720 días.
 
 Para campañas desencadenadas con la reelegibilidad activada, los usuarios que [no recibieron realmente el mensaje de la campaña]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/#why-did-a-user-not-receive-my-triggered-campaign) (a pesar de completar el evento desencadenante) cumplirán automáticamente los requisitos para el mensaje la próxima vez que completen el evento desencadenante. Esto se debe a que la reelegibilidad se basa en la recepción del mensaje y no en la entrada a la campaña. Al hacer que los usuarios sean reelegibles para una campaña desencadenada, les permites recibir realmente (y no simplemente desencadenar) el mensaje más de una vez.
 
@@ -32,7 +32,7 @@ Para campañas desencadenadas con la reelegibilidad activada, los usuarios que [
 
 Además, si intentas enviar un mensaje de forma inmediata con una reelegibilidad de cero minutos, siempre intentaremos planificarlo de inmediato, independientemente de cómo un usuario haya recibido versiones anteriores de la campaña o Canvas.
 
-#### Reelegibilidad con campañas desencadenadas por API {#re-eligibility-with-api-triggered-campaigns}
+### Reelegibilidad con campañas desencadenadas por API {#re-eligibility-with-api-triggered-campaigns}
 
 El número de veces que un usuario recibe una campaña desencadenada por API puede limitarse mediante la configuración de reelegibilidad. Esto significa que el usuario recibirá la campaña solo una vez o una vez en un período determinado, independientemente de cuántas veces se active el desencadenante de API.
 
@@ -41,7 +41,7 @@ Por ejemplo, supongamos que estás utilizando una campaña desencadenada por API
 
 {% tab canvas %}
 
-Para activar la reelegibilidad de un Canvas, selecciona **Allow users to re-enter this Canvas** en la sección **Entry Controls**. Puedes elegir entre permitir que los usuarios vuelvan a entrar después de la duración máxima del Canvas o después de un período especificado.
+Para activar la reelegibilidad de un Canvas, selecciona **Permitir que los usuarios vuelvan a entrar en este Canvas** en la sección **Controles de entrada**. Puedes elegir entre permitir que los usuarios vuelvan a entrar después de la duración máxima del Canvas o después de un período especificado.
 
 La reelegibilidad para las variantes en Canvas está vinculada a la entrada al Canvas en lugar de a la recepción del mensaje. Los usuarios que entran en un Canvas y no reciben ningún mensaje no podrán volver a entrar en el Canvas a menos que la reelegibilidad esté activada.
 
@@ -73,6 +73,14 @@ Considera el siguiente escenario:
 * Hay menos de 30 días entre el 15 de febrero y el 15 de marzo.
 
 Esto significa que los usuarios que recibieron la campaña el 15 de febrero no son elegibles para la campaña que se envía el 15 de marzo. (Un usuario puede quedar marcado como que "recibió" la campaña debido a identificadores de canal compartidos; por ejemplo, si comparte un correo electrónico o número de teléfono con alguien que recibió, abrió o hizo clic en el mensaje). Si la campaña está configurada para enviarse diariamente a las 8 am con una reelegibilidad de 1 día, y hay una latencia en el envío del mensaje, los usuarios que recibieron la campaña a las 8:30 am aún no son reelegibles al día siguiente a las 8 am.
+
+## Reelegibilidad para Content Cards {#re-eligibility-for-content-cards}
+
+Cuando la reelegibilidad está habilitada para campañas de Content Cards o pasos en Canvas, un usuario puede recibir otra tarjeta mientras una tarjeta anterior de la misma campaña todavía está en su fuente, lo que puede parecer tarjetas duplicadas. Para reducir los duplicados, desactiva la reelegibilidad o amplía el período de reelegibilidad para que la primera tarjeta [expire de la fuente]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#the-30-day-expiration-and-re-eligibility) antes de que el usuario cumpla los requisitos para otro envío.
+
+## Reelegibilidad para banners {#re-eligibility-for-banners}
+
+Cuando la reelegibilidad está habilitada para campañas de Banner, los usuarios que descarten un banner pueden volver a ser elegibles después de un período de espera configurable que comienza en el momento del descarte. Si la reelegibilidad no está activada, los usuarios que descartaron el banner permanecen no elegibles. Para configurar la reelegibilidad, consulta [Configurar la reelegibilidad]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility). Ten en cuenta que los pasos de Banner en Canvas usan la configuración de reentrada de Canvas en su lugar.
 
 ## Pruebas multivariante {#multivariate-testing}
 

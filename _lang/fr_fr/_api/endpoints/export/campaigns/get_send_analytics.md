@@ -18,6 +18,8 @@ description: "Cet article présente en détail l'endpoint Braze Exporter l'analy
 
 Braze stocke les analyses d'envoi pendant 14 jours après l'envoi. Les conversions de la campagne seront attribuées au `send_id` le plus récent qu'un utilisateur donné a reçu de cette campagne.
 
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='send' %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#76f822a8-a13b-4bfb-b20e-72b5013dfe86 {% endapiref %}
 
 ## Conditions préalables {#prerequisites}

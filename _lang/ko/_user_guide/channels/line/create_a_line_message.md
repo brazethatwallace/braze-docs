@@ -42,7 +42,7 @@ Braze에서 LINE 메시지를 발송하면 계정의 메시지 또는 액션 크
 5. Campaign에 필요한 만큼 배리언트를 추가하고 이름을 지정합니다. 추가된 각 배리언트에 대해 서로 다른 플랫폼, 메시지 유형 및 레이아웃을 선택할 수 있습니다. 이 주제에 대한 자세한 내용은 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)를 참조하세요.
 
 {% alert tip %}
-Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 경우, 추가 배리언트를 추가하기 전에 메시지를 작성하세요. 그런 다음 **배리언트 추가** 드롭다운에서 **배리언트에서 복사**를 선택할 수 있습니다.
+Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 경우, 추가 배리언트를 추가하기 전에 메시지를 작성하세요. 그런 다음 **Add Variant** 드롭다운에서 **Copy from Variant**를 선택할 수 있습니다.
 {% endalert %}
 
 {% endtab %}
@@ -97,7 +97,7 @@ Campaign의 나머지 부분을 구축합니다. LINE 메시지를 작성하기 
 
 LINE 메시지는 스케줄된 시간, 동작 또는 API 트리거를 기반으로 전달할 수 있습니다. 스케줄 및 트리거 옵션에 대한 자세한 내용은 [Campaign 스케줄 설정]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)을 참조하세요.
 
-사용자가 Campaign을 다시 받을 수 있도록 [재적격성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)을 허용하거나 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) 규칙을 활성화하는 등 전달 제어를 지정할 수 있습니다. 실행 기반 전달의 경우 Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)도 설정할 수 있습니다.
+사용자가 Campaign을 다시 받을 수 있도록 [재적격성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)을 허용하거나 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) 규칙을 활성화하는 등 전달 제어를 지정할 수 있습니다. 실행 기반 전달의 경우 Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)도 설정할 수 있습니다.
 
 ### 타겟 사용자 선택 {#choose-users-to-target}
 

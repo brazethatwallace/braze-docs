@@ -20,7 +20,7 @@ channel:
 
 ### ステップ 1:WhatsApp テンプレートに移動する {#step-1-go-to-whatsapp-templates}
 
-**テンプレート** > **WhatsApp テンプレート**に移動し、**新規テンプレートを作成**を選択します。
+**コンテンツ** > **WhatsApp**に移動し、**新規テンプレートを作成**を選択します。
 
 ![新しいテンプレートを作成するボタンがあるWhatsAppテンプレートページ。]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 
@@ -96,7 +96,7 @@ channel:
 
 WhatsApp テンプレートビルダーでは、現在マーケティングテンプレートのみがサポートされています。
 
-## 承認済みテンプレートをキャンペーンで使用する {#use-an-approved-template-in-a-campaign}
+## 承認済みテンプレートをCampaignで使用する {#use-an-approved-template-in-a-campaign}
 
 Metaがテンプレートを承認した後、WhatsApp CampaignまたはCanvasで使用できます。
 
@@ -106,7 +106,7 @@ Metaがテンプレートを承認した後、WhatsApp CampaignまたはCanvas�
 4. 必要に応じて変数コンテンツやパーソナライゼーションを更新します。Metaによってロックされたフィールド（グレーで表示）は編集できません。ロックされたコンテンツを変更するには、テンプレートを編集して承認のために再送信する必要があります。
 5. **テスト**タブを使用してメッセージをプレビューし、本文変数を更新し、起動前にメッセージが期待どおりに表示されることを確認します。
 
-WhatsApp Campaignsの構築の詳細については、[WhatsAppメッセージを作成する]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)を参照してください。
+WhatsApp Campaignの構築の詳細については、[WhatsAppメッセージを作成する]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)を参照してください。
 
 ## よくある質問 {#frequently-asked-questions}
 

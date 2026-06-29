@@ -32,7 +32,7 @@ Con el rico nivel de contenido que ofrecen los mensajes dentro de la aplicación
 | Ventas y promociones | Usa mensajes modales dentro de la aplicación para recibir a los clientes con contenido multimedia visualmente atractivo que contenga códigos promocionales estáticos u ofertas. Incentívalos a realizar compras o conversiones cuando de otro modo no lo habrían hecho. |
 | Fomentar la adopción de características | Anima a los clientes a usar otras partes de tu aplicación o a aprovechar un servicio. |
 | Campañas altamente personalizadas | Coloca mensajes dentro de la aplicación como lo primero que tus clientes ven cuando entran en tu aplicación o sitio. Añade algunas características de personalización de Braze, como [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), para impulsar a los usuarios a tomar acción y así hacer que tu alcance sea más efectivo.
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 Otros casos de uso a considerar incluyen los siguientes:
 

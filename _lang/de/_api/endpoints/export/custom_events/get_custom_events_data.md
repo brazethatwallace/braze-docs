@@ -31,7 +31,7 @@ Beachten Sie, dass jeder Aufruf dieses Endpunkts 50 Events zurückgibt. Bei mehr
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `cursor` | Optional | String | Bestimmt die Paginierung der angepassten Events. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Abfrageparameter" }
 
 ## Beispielanfragen {#example-requests}
 

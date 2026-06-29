@@ -8,7 +8,12 @@ page_type: glossary
 description: "Ce glossaire répertorie les différents événements d'engagement par message que Braze peut suivre et envoyer vers des entrepôts de données de votre choix à l'aide de Currents."
 tool: Currents
 search_rank: 6
+lazy_partner_tabs: true
 ---
+
+<div class="api-glossary-preamble" markdown="1">
+
+{% details Portée du schéma et ressources associées %}
 
 Les schémas de stockage s'appliquent aux données d'événements sous forme de fichiers plats que nous envoyons aux partenaires de stockage de l'entrepôt de données (Google Cloud Storage, Amazon S3 et Microsoft Azure Blob Storage). Pour les schémas qui s'appliquent aux autres partenaires, reportez-vous à notre liste de [partenaires disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) et consultez leurs pages respectives.
 
@@ -17,6 +22,8 @@ Ces événements sont également disponibles sous forme de tables SQL dans le [G
 {% endalert %}
 
 Contactez votre gestionnaire de compte ou ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support/) si vous avez besoin d'accéder à des droits d'événements supplémentaires. Si vous ne trouvez pas ce dont vous avez besoin dans cet article, consultez notre [bibliothèque d'événements de comportement client]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) ou nos [exemples de données Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+
+{% enddetails %}
 
 {% details Explication de la structure des événements d'engagement par message et des valeurs de plateforme %}
 
@@ -56,27 +63,25 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 
 {% enddetails %}
 
-{% alert important %}
-Currents abandonnera les événements dont le payload est excessivement volumineux (plus de 900 Ko).
-{% endalert %}
+{% details Considérations relatives aux événements d'engagement par message %}
 
-{% alert note %}
-Les objets liés à Canvas Flow ont des ID qui peuvent être utilisés pour le regroupement et traduits en noms lisibles par l'utilisateur grâce à l'[endpoint Exporter les détails du Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/).
-{% endalert %}
+- Currents abandonne les événements dont le payload dépasse 900&nbsp;Ko.
+- Les objets liés à Canvas Flow ont des ID qui peuvent être utilisés pour le regroupement et traduits en noms lisibles par l'utilisateur grâce à l'[endpoint Exporter les détails du Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/).
+- Certains champs peuvent ne pas afficher leur état le plus récent immédiatement après la mise à jour d'une Campaign ou d'un Canvas :
+  - `campaign_name`
+  - `canvas_name`
+  - `canvas_step_name`
+  - `conversion_behavior`
+  - `canvas_variation_name`
+  - `experiment_split_name`
+  - `message_variation_name`
+- Si une cohérence totale est requise pour ces champs, attendez une heure après la dernière mise à jour avant d'envoyer vos messages à vos utilisateurs.
 
-{% alert note %}
-Certains champs peuvent prendre plus de temps pour afficher leur état le plus récent après la mise à jour d'une Campaign ou d'un Canvas. Ces champs sont les suivants :
-<ul>
-  <li>"campaign_name"</li>
-  <li>"canvas_name"</li>
-  <li>"canvas_step_name"</li>
-  <li>"conversion_behavior"</li>
-  <li>"canvas_variation_name"</li>
-  <li>"experiment_split_name"</li>
-  <li>"message_variation_name"</li>
-</ul>
-Si une cohérence totale est requise, nous vous recommandons d'attendre une heure après la dernière mise à jour de ces champs avant d'envoyer vos messages à vos utilisateurs.
-{% endalert %}
+{% enddetails %}
+
+</div>
+
+<!--overview-end-->
 
 {% api %}
 
@@ -239,7 +244,7 @@ Il s'agit du schéma d'enregistrement Kafka utilisé lorsqu'un outil est exécut
 Uninstall
 {% endapitags %}
 
-Cet événement se produit lorsqu'un utilisateur désinstalle une application. Utilisez ces données pour suivre les utilisateurs qui désinstallent une application. C'est actuellement un événement d'engagement lié aux messages, mais cela sera changé en événement de comportement utilisateur dans le futur.
+Cet événement se produit lorsqu'un utilisateur désinstalle une application. Utilisez ces données pour suivre les désinstallations d'applications. Bien qu'il s'agisse actuellement d'un événement d'engagement lié aux messages, il sera reclassé en événement de comportement utilisateur à l'avenir.
 
 {% alert important %}
 Cet événement n'est pas déclenché au moment précis où l'utilisateur désinstalle réellement l'application, car cette action est impossible à suivre exactement. Braze envoie une notification push silencieuse quotidienne pour déterminer si l'application existe toujours sur l'appareil de votre utilisateur, et si nous obtenons une erreur sur cette notification push silencieuse, on suppose alors que l'application a été désinstallée.
@@ -1912,7 +1917,7 @@ Cet événement se produit lorsqu'un utilisateur quitte un Canvas en effectuant 
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Connecteur HTTP personnalisé %}
 ```json
 // users.canvas.exit.PerformedEvent
 
@@ -2033,7 +2038,7 @@ Cet événement se produit lorsqu'un utilisateur quitte un Canvas en effectuant 
 ## Événements de conversion d'étape d'expérience {#experiment-step-conversion-events}
 
 {% apitags %}
-Canvas
+Canvas, Conversion
 {% endapitags %}
 
 Cet événement se produit lorsqu'un utilisateur effectue une conversion pour une étape d'expérience Canvas.
@@ -2092,7 +2097,7 @@ Cet événement se produit lorsqu'un utilisateur effectue une conversion pour un
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Connecteur HTTP personnalisé %}
 ```json
 // users.canvas.experimentstep.Conversion
 
@@ -2232,7 +2237,7 @@ Cet événement se produit lorsqu'un utilisateur effectue une conversion pour un
 ## Événements d'entrée dans une branche d'expérience {#experiment-split-entry-events}
 
 {% apitags %}
-Canvas
+Canvas, Entry
 {% endapitags %}
 
 Cet événement se produit lorsqu'un utilisateur entre dans un parcours d'étape d'expérience Canvas.
@@ -2287,7 +2292,7 @@ Cet événement se produit lorsqu'un utilisateur entre dans un parcours d'étape
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Connecteur HTTP personnalisé %}
 ```json
 // users.canvas.experimentstep.SplitEntry
 
@@ -2481,7 +2486,7 @@ Cet événement se produit lorsqu'un utilisateur franchit une étape d'un Canvas
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Connecteur HTTP personnalisé %}
 ```json
 // users.canvasstep.Progression
 
@@ -2908,7 +2913,7 @@ Cet événement se produit lorsqu'un message de bannière initialement planifié
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété
+#### Détails des propriétés
 
 - Le champ `abort_type` décrit la raison pour laquelle le message a été interrompu. Pour consulter la liste complète des valeurs, reportez-vous à [Types d'interruption]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
 - `abort_type` prendra la valeur `frequency_capped` si le message a été interrompu en raison d'une règle de limitation de fréquence globale.
@@ -3198,6 +3203,10 @@ Cet événement se produit lorsqu'un utilisateur clique sur une bannière.
 {% api %}
 
 ## Événements de fermeture de bannière {#banner-dismissal-events}
+
+{% apitags %}
+Banner, Dismissal
+{% endapitags %}
 
 Cet événement se produit lorsqu'un utilisateur ferme une bannière.
 
@@ -5569,7 +5578,7 @@ Cet événement survient lorsqu'un fournisseur de services Internet renvoie un �
 #### Détails de la propriété
 
 - `dispatch_id` est un ID associé à un envoi de message spécifique, comme l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de corréler le cycle de vie du message push pour cet envoi (par exemple envoi, rebond et ouverture).
-  - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées. En savoir plus sur le [comportement des ID de répartition]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+  - Le comportement de `dispatch_id` diffère entre Canvas et Campaigns, car Braze traite les étapes Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées. Pour en savoir plus, consultez [Comportement de l'ID de répartition]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 {% endapi %}
 
@@ -5907,7 +5916,7 @@ Cet événement se produit lorsqu'un utilisateur clique sur un e-mail. Plusieurs
 #### Détails de la propriété
 
 - `dispatch_id` est un ID associé à un envoi de message spécifique, comme l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de corréler le cycle de vie du message push pour cet envoi (par exemple envoi, rebond et ouverture).
-  - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées. En savoir plus sur le [comportement des ID de répartition]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+  - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées. Pour en savoir plus, consultez [Comportement de l'ID de répartition]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 {% endapi %}
 
@@ -7492,8 +7501,8 @@ Cet événement se produit lorsqu'une demande d'envoi d'e-mail a été transmise
 #### Détails de la propriété
 
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, tel qu'un envoi de Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (comme Envoi, Rebond et Ouverture).
-  - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées. En savoir plus sur le [comportement des ID de répartition]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
-- `message_extras` vous permet d'annoter vos événements d'envoi avec des données dynamiques provenant du contenu connecté, des attributs personnalisés (tels que la langue, le pays) et des propriétés d'entrée Canvas. Pour en savoir plus, consultez la section [Suppléments de messages]({{site.baseurl}}/message_extras_tag/).
+  - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées. Pour en savoir plus, consultez [Comportement de l'ID de répartition]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
+- `message_extras` vous permet d'annoter vos événements d'envoi avec des données dynamiques provenant du contenu connecté, des attributs personnalisés (tels que la langue, le pays) et des propriétés d'entrée Canvas. Pour en savoir plus, consultez [Suppléments de messages]({{site.baseurl}}/message_extras_tag/).
 
 {% endapi %}
 
@@ -7746,7 +7755,7 @@ Cet événement se produit lorsqu'un fournisseur de services Internet renvoie un
 #### Détails de la propriété
 
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, tel qu'un envoi de Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (comme Envoi, Rebond et Ouverture).
-  - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées. En savoir plus sur le [comportement des ID de répartition]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+  - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées. Pour en savoir plus, consultez [Comportement de l'ID de répartition]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 {% endapi %}
 
@@ -7760,7 +7769,7 @@ Email, Subscription
 Cet événement se produit lorsque l'utilisateur final a cliqué sur « Se désabonner » dans l'e-mail.
 
 {% alert important %}
-L'événement `Unsubscribe` est considéré comme un événement de clic spécialisé qui se déclenche lorsque l'utilisateur clique sur le lien de désabonnement dans l'e-mail (qu'il s'agisse d'un lien de désabonnement normal dans le corps ou le pied de page de l'e-mail, ou d'un lien utilisant l'[en-tête list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#include-a-list-unsubscribe-header)), et non lorsque l'utilisateur passe à l'état désabonné. Si le changement d'état de l'abonnement est envoyé via l'API ou avec un lien de désabonnement personnalisé (non Braze), cela ne déclenche pas d'événement de désabonnement par e-mail sur Currents.
+L'événement `Unsubscribe` est considéré comme un événement de clic spécialisé qui se déclenche lorsque l'utilisateur clique sur le lien de désabonnement dans l'e-mail (qu'il s'agisse d'un lien de désabonnement normal dans le corps ou le pied de page de l'e-mail, ou d'un lien utilisant l'[en-tête list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe)), et non lorsque l'utilisateur passe à l'état désabonné. Si le changement d'état de l'abonnement est envoyé via l'API ou avec un lien de désabonnement personnalisé (non Braze), cela ne déclenche pas d'événement de désabonnement par e-mail sur Currents.
 {% endalert %}
 
 {% tabs %}
@@ -7983,7 +7992,7 @@ L'événement `Unsubscribe` est considéré comme un événement de clic spécia
 #### Détails de la propriété
 
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, tel qu'un envoi de Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (comme Envoi, Rebond et Ouverture).
-  - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées. En savoir plus sur le [comportement des ID de répartition]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+  - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées. Pour en savoir plus, consultez [Comportement de l'ID de répartition]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 {% endapi %}
 
@@ -10899,7 +10908,7 @@ Cet événement se produit si un message de notification push a été interrompu
 ## Événements de rebond des notifications push {#push-notification-bounce-events}
 
 {% apitags %}
-Push, Sends, Bounce
+Push, Bounce
 {% endapitags %}
 
 Cet événement survient lorsqu'une erreur est reçue du service de notification push d'Apple ou de Fire Cloud Messaging. Cela signifie que le message de notification push a rebondi et n'a donc pas été distribué sur l'appareil de l'utilisateur.
@@ -11160,7 +11169,7 @@ Cet événement survient lorsqu'une erreur est reçue du service de notification
 ## Événements d'ouverture en premier plan des notifications push iOS {#push-notification-ios-foreground-open-events}
 
 {% apitags %}
-Push, iOS, Sends
+Push, iOS, Opens
 {% endapitags %}
 
 Cet événement n'est pas pris en charge par notre [SDK Swift](https://github.com/braze-inc/braze-swift-sdk) et est désormais obsolète avec notre [SDK Obj-C](https://github.com/Appboy/appboy-ios-sdk).
@@ -12386,7 +12395,7 @@ Cet événement est généré lorsqu'un envoi RCS est interrompu en raison d'une
 RCS, Clicks
 {% endapitags %}
 
-Événement généré lorsque l'utilisateur interagit avec un message RCS en appuyant ou en cliquant sur un élément de l'interface utilisateur.
+Cet événement est généré lorsque l'utilisateur interagit avec un message RCS en appuyant ou en cliquant sur un élément de l'interface utilisateur.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -14510,7 +14519,7 @@ Cet événement se produit lorsqu'un SMS a été distribué avec succès au tél
 ## Événements d'échec de distribution des SMS {#sms-delivery-failure-events}
 
 {% apitags %}
-SMS, Delivery
+SMS, Delivery, Failure
 {% endapitags %}
 
 Cet événement survient lorsqu'un SMS rencontre un échec de distribution. Utilisez cet événement et les codes d'erreur fournis pour résoudre les problèmes liés à la distribution des SMS.
@@ -14766,9 +14775,9 @@ SMS, Inbound Received
 
 Cet événement se produit lorsque l'un de vos utilisateurs envoie un SMS à un numéro de téléphone appartenant à l'un de vos groupes d'abonnement SMS Braze.
 
-Lorsque Braze reçoit un SMS entrant, ce message est attribué à tout utilisateur partageant ce numéro de téléphone. Par conséquent, vous pouvez recevoir plusieurs événements par message entrant si plusieurs utilisateurs de votre instance Braze partagent le même numéro de téléphone. Si vous devez attribuer des ID utilisateur spécifiques sur la base des messages précédents envoyés à cet utilisateur, vous pouvez utiliser l'événement de distribution SMS pour attribuer les événements entrants reçus à l'ID utilisateur qui a reçu le plus récemment un message depuis votre numéro Braze.
+Lorsque Braze reçoit un SMS entrant, ce message est attribué à tout utilisateur partageant ce numéro de téléphone. Par conséquent, vous pouvez recevoir plusieurs événements par message entrant si plusieurs utilisateurs de votre instance Braze partagent le même numéro de téléphone. Si vous devez attribuer des ID utilisateur spécifiques sur la base des messages précédemment envoyés à cet utilisateur, vous pouvez utiliser l'événement de distribution SMS pour attribuer les événements entrants reçus à l'ID utilisateur qui a reçu le plus récemment un message depuis votre numéro Braze.
 
-Si Braze détecte que ce message entrant est une réponse à une Campaign sortante ou à un composant Canvas envoyé depuis Braze, les métadonnées de la Campaign ou du Canvas sont également incluses dans l'événement. Braze définit une réponse comme un message entrant reçu dans les quatre heures suivant un message sortant. Toutefois, il existe un cache d'une minute pour les informations de Campaign attribuées au dernier SMS sortant envoyé depuis votre numéro Braze.
+Si Braze détecte que ce message entrant est une réponse à une Campaign sortante ou à un composant Canvas envoyé depuis Braze, les métadonnées de la Campaign ou du Canvas sont également incluses dans l'événement. Braze définit une réponse comme un message entrant reçu dans les quatre heures suivant un message sortant. Toutefois, il existe un cache d'une minute pour les informations de Campaign attribuées au dernier SMS sortant reçu.
 
 
 {% tabs %}
@@ -17203,7 +17212,7 @@ Cet événement se produit lorsqu'un message WhatsApp a été interrompu en rais
 
 #### Détails de la propriété
 
-- `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
+- `dispatch_id` est un ID associé à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
 - Le champ `abort_type` décrit la raison pour laquelle le message a été interrompu. Pour consulter la liste complète des valeurs, voir [Types d'interruption]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
 - `abort_type` prendra la valeur `frequency_capped` si le message a été interrompu en raison d'une règle de limite de fréquence globale.
 - `abort_log` contient des informations sur la règle spécifique ayant déclenché l'interruption. Exemple : `Frequency cap rule: 5 WhatsApp messages every 1 week`
@@ -18536,7 +18545,7 @@ Cet événement se produit lorsqu'un message WhatsApp est lu par l'utilisateur.
 
 #### Détails de la propriété
 
-- `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
+- `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (par exemple envoi, rebond et ouverture).
 
 {% endapi %}
 

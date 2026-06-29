@@ -1,12 +1,12 @@
 ---
-nav_title: Operator
-article_title: Liquid Operator
+nav_title: オペレーター
+article_title: Liquidオペレーター
 page_order: 2
 description: "このリファレンスページでは、Liquidがサポートする演算子と関連する例について説明します。"
 
 ---
 
-# Operator {#operators}
+# オペレーター {#operators}
 
 > Liquidは、条件文で使用できる多くの[演算子](https://docs.shopify.com/themes/liquid/basics/operators)をサポートしています。このページでは、Liquidがサポートする演算子と、メッセージでの使用方法のユースケースを紹介します。
 
@@ -246,6 +246,10 @@ Stream now!
 コネクテッドコンテンツに基づいて[メッセージを中止する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/)こともできます。
 
 ## トラブルシューティング {#troubleshooting}
+
+### `abort_message` 使用時にテスト送信が届かない {#test-send-doesnt-arrive-when-using-abort_message}
+
+[`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)を使用していてテスト送信が届かない場合、プレビューユーザーにLiquidが期待する属性が不足している可能性があります。中止ロジックはレンダリング中に実行され、発動するとBrazeはメッセージを送信しません。必要なプロファイルデータを持つユーザーでプレビューするか、**ユーザーとしてプレビュー**を使用して、本番オーディエンスと同じ値を提供する受信者フィールドをテストしてください。
 
 ### プレビューでプロパティの型が誤って変換される場合がある {#preview-may-incorrectly-coerce-property-types}
 

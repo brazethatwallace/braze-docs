@@ -52,7 +52,7 @@ Brazeにはユーザーと連絡を取るための多くのオプションがあ
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: They implement your desired messaging channels" }
 
 {% alert tip %}
-Brazeを使えば、各チャネルでアクセスしやすいメッセージングCampaignsを作成できます。開発者と協力して、実装においてアクセシビリティ基準を満たすようにしてください。
+Brazeを使えば、各チャネルでアクセスしやすいメッセージングキャンペーンを作成できます。開発者と協力して、実装においてアクセシビリティ基準を満たすようにしてください。
 {% endalert %}
 
 ### ステップ 3: データを設定する {#step-3-they-set-up-your-data}
@@ -61,7 +61,7 @@ Brazeは1つの機能しかないツールではありません。これは、�
 
 では、開発者にこの情報を提供するにはどうすればいいのでしょうか？
 
-1. マーケティングチームと協力して、Campaigns、目標、属性、追跡が必要なイベントを定義します。それらのユースケースを定義し、チームと共有します。
+1. マーケティングチームと協力して、キャンペーン、目標、属性、追跡が必要なイベントを定義します。それらのユースケースを定義し、チームと共有します。
 2. カスタムデータ要件（[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)など）を定義します。
 3. そこから、そのデータがどのように追跡されるべきか（SDKを通じてトリガーされるなど）について議論します。
 4. 必要な[ワークスペース]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/)の数を定義します。エンジニアは、これらのワークスペースを[テストおよび設定する]({{site.baseurl}}/user_guide/get_started/workspaces/)方法を知っておく必要があります。

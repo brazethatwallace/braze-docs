@@ -30,19 +30,19 @@ Para concluir este guia, você precisa de:
 
 | Requisito | Descrição |
 | --- | --- |
-| Chave da REST API da Braze | Uma chave com a permissão `messages.send`. Para criar uma, acesse **Settings** > **APIs and Identifiers** > **API Keys**. |
-| ID do app da Braze | O identificador do seu app dentro do seu espaço de trabalho. Para encontrá-lo, acesse **Settings** > **APIs and Identifiers** e verifique a seção **App identifiers**. Esse valor é obrigatório no campo `app_id` do objeto de envio de mensagens de e-mail. Para saber mais, consulte [Identificador de app]({{site.baseurl}}/api/identifier_types/). |
+| Chave da REST API da Braze | Uma chave com a permissão `messages.send`. Para criar uma, acesse **Configurações** > **APIs e identificadores** > **Chaves de API**. |
+| ID do app da Braze | O identificador do seu app dentro do seu espaço de trabalho. Para encontrá-lo, acesse **Configurações** > **APIs e identificadores** e verifique a seção **App identifiers**. Esse valor é obrigatório no campo `app_id` do objeto de envio de mensagens de e-mail. Para saber mais, consulte [Identificador de app]({{site.baseurl}}/api/identifier_types/). |
 | Conteúdo HTML do e-mail | O corpo HTML da sua mensagem de e-mail, preparado com antecedência. |
 | Serviço de backend | Um serviço de backend ou ambiente de script capaz de fazer solicitações HTTP POST para a REST API da Braze. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Etapa 1: Criar uma Campanha da API {#step-1-create-an-api-campaign}
 
-1. No dashboard da Braze, acesse **Messaging** > **Campaigns**.
-2. Selecione **Create Campaign** e, em seguida, selecione **API Campaign**.
+1. No dashboard da Braze, acesse **Envio de mensagens** > **Campaigns**.
+2. Selecione **Criar campanha** e, em seguida, selecione **Campanha da API**.
 3. Insira um nome e uma descrição para sua campanha, como "Notificação de mensagem por e-mail".
 4. Adicione tags relevantes para identificação e rastreamento.
-5. Selecione **Add Messaging Channel** e, em seguida, selecione **Email**.
+5. Selecione **Adicionar canal de envio de mensagens** e, em seguida, selecione **E-mail**.
 6. Anote o **Campaign ID** exibido na página da campanha. Você precisará desse valor ao construir sua solicitação de API. Opcionalmente, anote também o **Message Variation ID** — inclua-o na sua solicitação se quiser atribuir estatísticas de envio a uma variação de mensagem específica.
 
 ## Etapa 2: Enviar um e-mail usando a API {#step-2-send-an-email-using-the-api}

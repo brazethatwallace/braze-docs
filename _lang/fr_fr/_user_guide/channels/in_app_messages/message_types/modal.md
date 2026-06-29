@@ -20,7 +20,7 @@ Ce type de message est disponible dans l'[éditeur par glisser-déposer]({{site.
 
 ## Spécifications des images {#image-specifications}
 
-{% multi_lang_include image_specs.md variable_name='in-app messages' %}
+{% multi_lang_include channels/image_specs.md variable_name='in-app messages' %}
 
 ## Écrans plus grands {#larger-screens}
 

@@ -199,3 +199,7 @@ WhatsApp ist ein Kanal, der auf bidirektionales Messaging ausgerichtet ist und d
 Faktoren, die die Qualitätsbewertung der Telefonnummer beeinflussen, sind unter anderem, dass ein:e Endnutzer:in ein Unternehmen blockiert (und die Gründe, die dabei angegeben werden) sowie dass ein:e Endnutzer:in ein Unternehmen meldet.
 
 Wenn die Qualitätsbewertung niedrig ist, ändert sich der Telefonnummernstatus von **Connected** zu **Flagged**. Wenn sich die Qualität innerhalb von sieben Tagen nicht verbessert, kehrt der Status zu **Connected** zurück. Allerdings wird das Messaging-Limit auf die nächstniedrigere Stufe verringert. Beispielsweise hat eine Telefonnummer, die zuvor ein Messaging-Limit von 100.000 hatte, nun ein Messaging-Limit von 10.000.
+
+#### Was ist, wenn mein Template fälschlicherweise wegen eines Verstoßes gegen die WhatsApp-Handelsrichtlinie markiert wurde? {#what-if-my-template-was-falsely-flagged-for-violating-whatsapps-commerce-policy}
+
+Wenn Sie der Meinung sind, dass Meta Ihr Template fälschlicherweise markiert hat, verwenden Sie den Überprüfungslink in der E-Mail von WhatsApp, um eine erneute Überprüfung anzufordern. Das WhatsApp-Business-Team prüft die Entscheidung und hebt sie gegebenenfalls auf.

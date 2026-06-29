@@ -81,7 +81,7 @@ Utilisez ce filtre pour trouver les utilisateurs qui font ou ne font pas partie 
 
 Utilisez ce filtre pour trouver les utilisateurs qui ont reçu pour la dernière fois une campagne spécifique avant ou après une date ou un nombre de jours donné. Ce filtre ne tient pas compte du moment où les utilisateurs ont reçu d'autres campagnes.
 
-{% multi_lang_include segments.md section='same channel identifier' %}
+{% multi_lang_include audience/segments.md section='same channel identifier' %}
 
 ![]({% image_buster /assets/img_archive/last_received_specific_campaign.png %})
 
@@ -95,7 +95,7 @@ Utilisez ce filtre pour trouver les utilisateurs qui ont reçu pour la dernière
 
 Utilisez ce filtre pour trouver les utilisateurs qui ont ou n'ont pas reçu votre campagne cible.
 
-{% multi_lang_include segments.md section='same channel identifier' %}
+{% multi_lang_include audience/segments.md section='same channel identifier' %}
 
 ![]({% image_buster /assets/img_archive/receivedcamp.png %})
 

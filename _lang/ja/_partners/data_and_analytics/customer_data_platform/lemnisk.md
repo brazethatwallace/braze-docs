@@ -40,7 +40,7 @@ Lemniskで、External APIチャネルに移動します。**Add New External API
 
 ![Lemniskで新しいExternal APIの基本設定の詳細を入力する]({% image_buster /assets/img/lemnisk/ext_api_basic_details.png %})
 
-**External API details**で、`users.track` エンドポイントの関連する詳細を入力します。{% raw %}`{{}}`{% endraw %}を使って複数のエンゲージメントレベルのフィールドを定義でき、Campaignごとに異なる値を設定できます。
+**External API details**で、`users.track` エンドポイントの関連する詳細を入力します。{% raw %}`{{}}`{% endraw %}を使って複数のエンゲージメントレベルのフィールドを定義でき、キャンペーンごとに異なる値を設定できます。
 
 ![External APIエンドポイントとペイロードの詳細を記入する]({% image_buster /assets/img/lemnisk/ext_api_ext_api_details.png %})
 
@@ -60,8 +60,8 @@ Track Usersの設定を完了するには、**Save**を選択します。自動�
 
 ### ステップ 3: Brazeでユーザーイベントをトリガーする {#step-3-trigger-user-events-in-braze}
 
-1. Lemniskで新しいSegmentを作成します。たとえば、ユーザーがリードフォームを送信するとすぐにBrazeに情報を送信するSegmentを作成できます。
-2. 新しいSegmentで、**External API** > **Add Engagement**に進みます。
+1. Lemniskで新しいセグメントを作成します。たとえば、ユーザーがリードフォームを送信するとすぐにBrazeに情報を送信するセグメントを作成できます。
+2. 新しいセグメントで、**External API** > **Add Engagement**に進みます。
 3. **Engagement Creation**で、基本的な詳細を入力し、[以前に作成した](#create-a-braze-external-api)設定を選択します。
 4. **Configure Parameters**の下に、エンゲージメントレベルで公開することにしたBrazeパラメータの入力項目があります。以下の例では、_ユーザー名_、_製品ID_、_イベント時間_が表示されています。
     ![ユーザーデータをBrazeに送信するエンゲージメントを作成する]({% image_buster /assets/img/lemnisk/create_an_engagement.png %})

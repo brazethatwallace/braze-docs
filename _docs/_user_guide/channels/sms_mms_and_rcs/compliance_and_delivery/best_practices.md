@@ -23,11 +23,11 @@ Complying with recipient requests to opt-out of communications is required by la
 Under their subscription agreements with us, our customers are solely responsible  for their compliance with applicable law in their use of our services. Accordingly, we strongly recommend that customers pay close attention to correctly configuring their SMS set-up, and that they test those set-ups thoroughly, take measures to monitor opt-out compliance, and act promptly should they identify instances of non-compliance with opt-out requests.
 
 When setting up SMS and MMS in Braze to manage opt-ins and opt-outs, refer to the following list of resources:
-* [SMS subscription groups]({{site.baseurl}}/sms_rcs_subscription_groups/): Subscription groups and opt-in/out methods and statuses.
+* [SMS subscription groups]({{site.baseurl}}/sms_rcs_subscription_groups): Subscription groups and opt-in/out methods and statuses.
 * [Subscription Group REST APIs]({{site.baseurl}}/api/endpoints/subscription_groups): How to process opt-ins and outs they receive from a source other than a direct response to a message.
-* [Keyword processing]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/): Explanations for how Braze approaches keyword processing and management.
-* [SMS double opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/): Requires users to explicitly confirm their opt-in intent before they can receive SMS messages. SMS double opt-in is a requirement for some countries, so Braze recommends configuring this.
-* [SMS message sending]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending/): Fundamentals of SMS sending at Braze, including the importance of subscription groups, requirements for SMS segments and message bodies, and more.
+* [Keyword processing]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing): Explanations for how Braze approaches keyword processing and management.
+* [SMS double opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in): Requires users to explicitly confirm their opt-in intent before they can receive SMS messages. SMS double opt-in is a requirement for some countries, so Braze recommends configuring this.
+* [SMS message sending]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending): Fundamentals of SMS sending at Braze, including the importance of subscription groups, requirements for SMS segments and message bodies, and more.
 
 ### Considerations
 
@@ -42,13 +42,13 @@ Braze manages SMS/MMS subscriptions at both the user profile (`user_id`) level a
 
 Maintaining phone number list hygiene helps you keep valid consent and reachability data over time. Braze marks some phone numbers as invalid to help reduce compliance risk, support consent-based messaging practices, and avoid sending to numbers that may no longer belong to the original user.
 
-For reasons why phone numbers are typically marked invalid, see [Handling invalid phone numbers]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#handling-invalid-phone-numbers).
+For reasons why phone numbers are typically marked invalid, see [Handling invalid phone numbers]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#handling-invalid-phone-numbers).
 
 We recommend the following workflow to remove invalid phone numbers:
 
-1. Identify impacted phone numbers through the [`/sms/invalid_phone_numbers` endpoint]({{site.baseurl}}/api/endpoints/sms/get_query_invalid_numbers/).
+1. Identify impacted phone numbers through the [`/sms/invalid_phone_numbers` endpoint]({{site.baseurl}}/api/endpoints/sms/get_query_invalid_numbers).
 2. Differentiate between phone numbers that are deactivated and phone numbers that received provider errors.
-3. For deactivated phone numbers, re-verify the phone number with the user. After the user confirms their phone number, remove the phone number from the invalid list through the [`/sms/invalid_phone_numbers/remove` endpoint]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers/).
+3. For deactivated phone numbers, re-verify the phone number with the user. After the user confirms their phone number, remove the phone number from the invalid list through the [`/sms/invalid_phone_numbers/remove` endpoint]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers).
 
 ## Traffic pumping recommendations
 
@@ -60,7 +60,7 @@ Traffic pumping is a form of fraud that occurs when a bad actor uses an online f
 
 * Premium rate numbers supporting this kind of scam are often, but not always, set up in countries outside of your normal sending geographies.
 * Unusual spikes in sending of messages from online forms might indicate traffic pumping.
-    * We recommend setting up [campaign alerts]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/campaign_alerts/) to cap and notify if an implausibly high number of messages are sent.
+    * We recommend setting up [campaign alerts]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/campaign_alerts) to cap and notify if an implausibly high number of messages are sent.
 * Incomplete online forms can indicate programmatic form filling.
 * When building online forms, we recommend setting rules to ensure forms are fully complete and use tools such as CAPTCHA to minimise risk.
 
@@ -72,7 +72,7 @@ Customers are responsible for monitoring the traffic that they are sending and w
 
 Some brands may wish to send to a group of users that have phone numbers from different countries. In order to send an SMS message to a phone number in a particular country, it is best practice to use a long code or short code that is from the same country. In fact, short codes can only send SMS to phone numbers from the same country the short code was created in. 
 
-To overcome this limitation, during the subscription groups [setup process]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/), groups can be set up to hold long and short codes from multiple different countries. When completed, sending phone numbers with the same country code as the target user's phone number will automatically be used when launching a campaign. You will not have to create separate campaigns for users with phone numbers with different country codes, allowing you to launch one campaign or use one Canvas component to target relevant users.
+To overcome this limitation, during the subscription groups [setup process]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups), groups can be set up to hold long and short codes from multiple different countries. When completed, sending phone numbers with the same country code as the target user's phone number will automatically be used when launching a campaign. You will not have to create separate campaigns for users with phone numbers with different country codes, allowing you to launch one campaign or use one Canvas component to target relevant users.
 
 ![SMS payloads are sent using the same country code as the target user's phone number.]({% image_buster /assets/img/sms/multi_country_subgroups.png %})
 
@@ -99,7 +99,7 @@ Plan on doing some high-volume sending? We have some best practices for you to e
 
 ### Braze-native Quiet Hours
 
-We strongly recommend enabling [Quiet Hours]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/#quiet-hours) across all SMS campaigns and Canvases to help meet regional regulations and best practices. 
+We strongly recommend enabling [Quiet Hours]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#quiet-hours) across all SMS campaigns and Canvases to help meet regional regulations and best practices. 
 
 ### Additional safeguard through Content Blocks
 
@@ -107,7 +107,7 @@ You can add a Liquid-based check inside a Content Block. This provides a reliabl
 
 #### Setup
 
-Include the following snippet at the top of your SMS message body. This example aborts the send if it falls outside a 9 am–9 pm window in the user's [local time zone]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#what-does-local-time-zone-delivery-offer).
+Include the following snippet at the top of your SMS message body. This example aborts the send if it falls outside a 9 am–9 pm window in the user's [local time zone]({{site.baseurl}}/user_guide/messaging/campaigns/faq#what-does-local-time-zone-delivery-offer).
 
 {% raw %}
 ```liquid
@@ -121,6 +121,6 @@ Include the following snippet at the top of your SMS message body. This example 
 
 #### Considerations
 
-- {% raw %}`time_zone: ${time_zone}`{% endraw %} allows the window to be evaluated against each user’s local time, not a fixed global time, as explained in [this FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#what-does-local-time-zone-delivery-offer).
+- {% raw %}`time_zone: ${time_zone}`{% endraw %} allows the window to be evaluated against each user’s local time, not a fixed global time, as explained in [this FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq#what-does-local-time-zone-delivery-offer).
 - Messages suppressed by {% raw %}`abort_message()`{% endraw %} are not rescheduled for the next day; they are cancelled.
-- {% raw %} By default, aborted messages are not visible in standard campaign reporting. However, when Liquid aborts a send with `{% abort_message %}`, Braze logs it to the Message Activity Log as a message error (by default it shows `{% abort_message %}` called). If you pass a string, that reason is what shows in the log, such as `{% abort_message('language was nil') %}`{% endraw %}. For visibility into these suppressions in the dashboard, contact your customer success manager for access to the [Messaging Diagnostics Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/).
+- {% raw %} By default, aborted messages are not visible in standard campaign reporting. However, when Liquid aborts a send with `{% abort_message %}`, Braze logs it to the Message Activity Log as a message error (by default it shows `{% abort_message %}` called). If you pass a string, that reason is what shows in the log, such as `{% abort_message('language was nil') %}`{% endraw %}. For visibility into these suppressions in the dashboard, contact your customer success manager for access to the [Messaging Diagnostics Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard).

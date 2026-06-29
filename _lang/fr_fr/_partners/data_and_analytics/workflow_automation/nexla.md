@@ -36,7 +36,7 @@ Si vous n'avez pas encore de compte Nexla, rendez-vous sur le [site web](https:/
 ### Étape 2 : Ajouter votre source {#step-2-add-your-source}
 
 #### Si Braze est votre source de données {#if-braze-is-your-data-source}
-1. Sur la plateforme Nexla, accédez à **Flows > Create a New Flow** dans la barre d'outils de gauche.
+1. Sur la plateforme Nexla, accédez à **Flows** > **Create a New Flow** dans la barre d'outils de gauche.
 2. Cliquez sur **Create New Source**, sélectionnez le connecteur Braze, puis cliquez sur **Next**.
 3. Sélectionnez **Add a New Credential**, nommez l'identifiant, ajoutez votre clé API Braze et votre endpoint REST, puis cliquez sur **Save**.
 4. Enfin, sélectionnez vos données et cliquez sur **Save**.

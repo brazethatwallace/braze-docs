@@ -10,7 +10,7 @@ tool: Reporting
 
 # レポートの設定 {#configure-reporting}
 
-> Brazeは、アプリやメッセージングCampaignsのパフォーマンスを把握するために、毎週メールレポートを自動的に生成します。
+> Brazeは、アプリやメッセージングキャンペーンのパフォーマンスを把握するために、毎週メールレポートを自動的に生成します。
 
 ## レポートの購読 {#subscribing-to-reports}
 

@@ -80,6 +80,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
         },
         {
           "name": "Location",
+          "type": "geo"
+        },
+        {
+          "name": "Preferences",
           "type": "object"
         },
         {
@@ -95,6 +99,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
   ]
 }'
 ```
+
+{% alert note %}
+`geo` 데이터 유형은 지리적 좌표를 `[longitude, latitude]` 형식의 배열로 저장합니다. 예를 들어, `[-73.988103, 40.779109]`입니다.
+{% endalert %}
 
 ## 응답 {#response}
 
@@ -136,6 +144,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
         },
         {
           "name": "Location",
+          "type": "geo"
+        },
+        {
+          "name": "Preferences",
           "type": "object"
         },
         {

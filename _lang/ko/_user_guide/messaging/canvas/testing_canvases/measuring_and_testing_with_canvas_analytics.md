@@ -22,7 +22,18 @@ tool:
 
 이곳은 캔버스가 목표 대비 어떻게 성과를 내고 있는지 높은 수준에서 개요를 확인하기에 좋은 곳입니다.
 
-![]({% image_buster /assets/img_archive/Journey_5.png %})
+### 도달 가능 사용자 및 정확한 통계 {#reachable-users-and-exact-statistics}
+
+캔버스에 연결된 오디언스에 대해 **[정확한 통계 계산]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#single-user-segments)**이 실행 중일 때, Braze는 **도달 가능 사용자** 영역에 반올림된 추정치를 잠시 표시할 수 있습니다. 계산이 완료되면 정확한 합계가 추정치를 대체합니다. 채널별 전체 분석을 보려면 **Show Additional Stats**를 선택하세요. Canvas 빌더에서도 **대상 집단** 아래에 동일한 흐름이 문서화되어 있습니다. [대상 집단 계산]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#calculating-target-population)을 참조하세요.
+
+![발송된 메시지, 전환율, 총 진입, 총 매출, 총 이탈, 예상 오디언스 등 주요 통계와 채널 및 통계 필터가 표시된 Canvas Details 페이지.]({% image_buster /assets/img_archive/Journey_5.png %})
+
+{% alert tip %}
+캔버스 활동에서 구축한 Segment가 캔버스 분석 기준으로 예상보다 적은 도달 가능 사용자를 표시하는 경우, 두 가지 일반적인 이유가 있습니다:
+
+- **추정 샘플링:** Segment 통계는 정확한 수치가 아닌 ±1%의 95% 신뢰 구간을 가진 무작위 샘플 기반 추정치를 표시할 수 있습니다.
+- **사용자가 더 이상 기준에 부합하지 않음:** 캔버스 분석에서 집계된 일부 사용자가 더 이상 해당 Segment에 해당하지 않을 수 있습니다. 예를 들어, 캔버스가 실행된 이후 구독을 취소했거나 프로필 데이터가 변경되었을 수 있습니다. 대량의 구독 취소가 있는지 캔버스의 **Historical Performance**를 확인하세요.
+{% endalert %}
 
 ### Changes Since Last Viewed {#changes-since-last-viewed}
 
@@ -54,7 +65,7 @@ Canvas Flow의 경우, 사용자는 사용자 여정의 마지막 단계에서 �
 
 효과적인 배리언트를 빠르게 파악하고 적절한 빈도, 콘텐츠, 트리거, 타이밍 등을 식별할 수 있습니다.
 
-![]({% image_buster /assets/img_archive/analyze_variants.png %})
+![Path 1과 Path 2의 진입, 발송, 매출, 전환율, 변화율, 신뢰도 측정기준을 비교하는 테이블이 있는 Analyze Variants 탭이 선택된 Analyze Canvas 모달.]({% image_buster /assets/img_archive/analyze_variants.png %})
 
 기본 측정기준은 다음과 같습니다:
 

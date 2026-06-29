@@ -126,6 +126,6 @@ Die meisten Endpunkte bei Braze verfügen über eine Rate-Limit-Implementierung,
 
 ## Transaktionelles HTTP-Ereignis-Postback {#transactional-http-event-postback}
 
-{% multi_lang_include http_event_postback.md %}
+{% multi_lang_include channels/transactional_email/http_event_postback.md %}
 
 {% endapi %}

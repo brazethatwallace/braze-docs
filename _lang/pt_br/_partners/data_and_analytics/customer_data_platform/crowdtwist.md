@@ -33,7 +33,7 @@ Por exemplo, use um Data Push para passar eventos personalizados e atributos rel
 | --- | --- |
 | Conta Oracle Crowdtwist | É necessário ter uma [conta Oracle Crowdtwist](https://www.oracle.com/uk/cx/marketing/customer-loyalty/) para aproveitar essa parceria. |
 | Endpoint de Transformação de dados da Braze | Essa integração se baseia na [ferramenta de Transformação de dados]({{site.baseurl}}/user_guide/data/unification/data_transformation/) da Braze. Quando você cria uma Transformação de dados, a Braze gera um endpoint exclusivo que pode ser adicionado como um destino para o Data Push do Crowdtwist.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -41,7 +41,7 @@ A Braze e o Oracle Crowdtwist criaram [modelos de Transformação de dados]({{si
 
 ## Etapa 1: Criar Transformação de dados a partir do modelo Oracle Crowdtwist {#step-1-create-data-transformation-from-oracle-crowdtwist-template}
 
-Navegue até **Data Settings** > **Data Transformation** > **Create Transformations** > **Use a Template** e selecione o modelo "BRAZE <> CROWDTWIST" de sua escolha.
+Navegue até **Configurações de dados** > **Transformação de dados** > **Criar transformações** > **Usar um modelo** e selecione o modelo "BRAZE <> CROWDTWIST" de sua escolha.
 
 Você encontrará quatro modelos — um para transformar eventos de perfil de usuário, atividade de usuário e resgate de usuário, e um modelo mestre que usa lógica condicional para aplicar a vários eventos de Data Push.
 
@@ -241,11 +241,9 @@ Os modelos deste guia foram criados para serem entregues ao destino "Track Users
 
 ### Testes {#testing}
 
-Depois de modificar o modelo a seu gosto, você deve validar se ele está funcionando corretamente. Clique em **Validate** para retornar uma prévia da saída do seu código e verificar se é uma solicitação aceitável para o destino escolhido.
+Depois de modificar o modelo a seu gosto, você deve validar se ele está funcionando corretamente. No editor de transformação, selecione **Validar** para gerar uma prévia na seção **Saída** e confirmar se a Braze aceitará a solicitação mapeada para o destino escolhido.
 
-![Captura de tela da interface de Transformação de dados da Braze]({% image_buster /assets/img/crowdtwist_tools/screenshot.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
-
-Quando estiver satisfeito com o objeto que você vê no campo "output", clique em **Activate** para que o endpoint da Transformação de dados esteja pronto para aceitar dados.
+Quando estiver satisfeito com o objeto que você vê no campo **Saída**, selecione **Ativar** para que o endpoint da Transformação de dados esteja pronto para aceitar dados.
 
 Você encontrará a URL do webhook da sua Transformação de dados no painel do lado esquerdo. Copie-a e use-a para configuração no Hub de integração do Oracle Crowdtwist.
 

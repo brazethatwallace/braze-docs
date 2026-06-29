@@ -1,0 +1,1 @@
+In the HTML email template editor, the **Generate** sidebar group contains the **Template** option. Select it to generate or iterate on an on-brand HTML email template. Operator applies your [brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) so the result matches your voice and style.

@@ -9,29 +9,29 @@ description: "このランディングページには、Brazeの翻訳エンド�
 page_type: landing
 
 guide_top_header: "翻訳エンドポイント"
-guide_top_text: "Brazeの翻訳エンドポイントを使って、Campaign、Canvases、Content Blocks内の翻訳を管理し更新できます。"
+guide_top_text: "Brazeの翻訳エンドポイントを使って、キャンペーン、キャンバス、Content Blocks内の翻訳を管理し更新できます。"
 
-guide_featured_title: "Campaignエンドポイント"
+guide_featured_title: "キャンペーンエンドポイント"
 guide_featured_list:
-  - name: "GET:Campaignの翻訳を表示"
+  - name: "GET:キャンペーンの翻訳を表示"
     link: /docs/api/endpoints/translations/campaigns/get_translation_campaign/
     image: /assets/img/braze_icons/message-plus-square.svg
-  - name: "PUT:Campaign内の翻訳を更新"
+  - name: "PUT:キャンペーン内の翻訳を更新"
     link: /docs/api/endpoints/translations/campaigns/put_update_translation_campaign/
     image: /assets/img/braze_icons/target-04.svg
-  - name: "GET:Campaignのデフォルトソース翻訳を表示"
+  - name: "GET:キャンペーンのデフォルトソース翻訳を表示"
     link: /docs/api/endpoints/translations/campaigns/get_source_campaign/
     image: /assets/img/braze_icons/message-plus-square.svg
 
-guide_menu_title: "Canvasエンドポイント"
+guide_menu_title: "キャンバスエンドポイント"
 guide_menu_list:
-  - name: "GET:Canvasの翻訳を表示"
+  - name: "GET:キャンバスの翻訳を表示"
     link: /docs/api/endpoints/translations/canvas/get_translation_canvas/
     image: /assets/img/braze_icons/message-plus-square.svg
-  - name: "PUT:Canvas内の翻訳を更新"
+  - name: "PUT:キャンバス内の翻訳を更新"
     link: /docs/api/endpoints/translations/canvas/put_update_translation_canvas/
     image: /assets/img/braze_icons/target-04.svg
-  - name: "GET:Canvasのデフォルトソース翻訳を表示"
+  - name: "GET:キャンバスのデフォルトソース翻訳を表示"
     link: /docs/api/endpoints/translations/canvas/get_source_canvas/
     image: /assets/img/braze_icons/message-plus-square.svg
 
@@ -61,7 +61,7 @@ guide_menu_list3:
 
 ---
 
-{% multi_lang_include early_access_beta_alert.md feature='Access to the Braze translation endpoints' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Access to the Braze translation endpoints' %}
 
 ## 翻訳エンドポイントの仕組み {#how-our-translation-endpoints-work}
 
@@ -73,7 +73,7 @@ guide_menu_list3:
 
 ### 翻訳のテスト方法 {#how-to-test-your-translations}
 
-APIとBrazeダッシュボードを使用して、Campaign、Canvases（個々のステップを含む）、Content Blocks、メールテンプレート全体で翻訳サポートを検証するには、以下の2つの方法があります。
+APIとBrazeダッシュボードを使用して、キャンペーン、キャンバス（個々のステップを含む）、Content Blocks、メールテンプレート全体で翻訳サポートを検証するには、以下の2つの方法があります。
 
 - 構成中（起動前）
 - 起動後（起動後の下書きを使用）

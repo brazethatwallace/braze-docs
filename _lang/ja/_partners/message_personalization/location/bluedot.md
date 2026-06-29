@@ -16,7 +16,7 @@ _この統合はBluedotによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとBluedotの統合により、Bluedotのジオフェンスロケーションサービスを利用してユーザーイベントを作成し、ジャーニーやCampaignsの構築、顧客の行動や関心の分析に活用できます。ユーザーがデバイス上で発生させたイベント（入場/退場）は、すべての関連情報とともに即座にBrazeに送信されます。
+BrazeとBluedotの統合により、Bluedotのジオフェンスロケーションサービスを利用してユーザーイベントを作成し、ジャーニーやキャンペーンの構築、顧客の行動や関心の分析に活用できます。ユーザーがデバイス上で発生させたイベント（入場/退場）は、すべての関連情報とともに即座にBrazeに送信されます。
 
 ## 前提条件 {#prerequisites}
 
@@ -27,7 +27,7 @@ BrazeとBluedotの統合により、Bluedotのジオフェンスロケーショ�
 
 ## ユースケース {#use-cases}
 
-Bluedotによって提供されるカスタムイベントのロケーション情報は、Campaignsで次のような一般的なユースケースを実現するために使用できます。
+Bluedotによって提供されるカスタムイベントのロケーション情報は、キャンペーンで次のような一般的なユースケースを実現するために使用できます。
 - [`QSR`](https://bluedot.io/solutions/quick-service-restaurants/)（クイックサービスレストラン）
 - [`Click and Collect`](https://bluedot.io/solutions/click-and-collect/)
 - [`Drive-Thru`](https://bluedot.io/solutions/qsr-drive-thru/)
@@ -35,7 +35,7 @@ Bluedotによって提供されるカスタムイベントのロケーション�
 ## 統合 {#integration}
 
 ### ステップ1：Bluedotプロジェクトを作成する {#step-1-create-a-bluedot-project}
-Bluedotアカウントを設定し、[Bluedot Canvasダッシュボード](https://docs.bluedot.io/canvas/)にログインします。新しいプロジェクトの作成方法については、[Bluedotのドキュメント](https://docs.bluedot.io/canvas/creating-a-new-project/)を参照してください。
+Bluedotアカウントを設定し、[Bluedot キャンバスダッシュボード](https://docs.bluedot.io/canvas/)にログインします。新しいプロジェクトの作成方法については、[Bluedotのドキュメント](https://docs.bluedot.io/canvas/creating-a-new-project/)を参照してください。
 
 ### ステップ2：SDKを統合する {#step-2-integrate-the-sdks}
 [BluedotとBrazeの統合](https://docs.bluedot.io/integrations/braze-integration/)に関するドキュメントに記載されている手順を使用して、Bluedot Point SDKとBraze SDKをアプリに統合します。
@@ -47,13 +47,13 @@ Bluedotアカウントを設定し、[Bluedot Canvasダッシュボード](https
 
 #### メッセージのトリガー {#triggering-messages}
 
-Bluedot SDKによって生成されたロケーションイベントをもとにアクションを実行するプッシュCampaignまたはCanvasを設定できます。この統合ルートは、ユーザーが会場や関心のあるロケーションに入った直後のリアルタイムメッセージングや、ユーザーがその場を離れた後の遅延フォローアップコミュニケーションに最適です。
+Bluedot SDKによって生成されたロケーションイベントをもとにアクションを実行するプッシュキャンペーンまたはキャンバスを設定できます。この統合ルートは、ユーザーが会場や関心のあるロケーションに入った直後のリアルタイムメッセージングや、ユーザーがその場を離れた後の遅延フォローアップコミュニケーションに最適です。
 
 Brazeでアクションベースのキャンペーンを設定し、設定したロケーションに基づいてメッセージを送信します。トリガーには、以下のスクリーンショットに示すように、`bluedot_entry`または`bluedot_exit`のカスタムイベントを使用します。
 
-![配信ステップでのアクションベースのCampaign。ここでは、ユーザーがカスタムの`bluedot_entry`または`bluedot_exit`イベントを実行した場合にCampaignを送信する2つのスケジュールオプションがあります。]({%image_buster /assets/img_archive/Campaign-Delivery-BD.png %}){: style="max-width:80%"}
+![配信ステップでのアクションベースのキャンペーン。ここでは、ユーザーがカスタムの`bluedot_entry`または`bluedot_exit`イベントを実行した場合にキャンペーンを送信する2つのスケジュールオプションがあります。]({%image_buster /assets/img_archive/Campaign-Delivery-BD.png %}){: style="max-width:80%"}
 
 #### ユーザーのターゲット設定 {#targeting-users}
 
 ワークスペースのターゲットとして**すべてのユーザー**を選択してください。
-![アクションベースのCampaignのターゲットユーザーステップで、目的のSegmentとして「すべてのユーザー」を選択することを推奨しています。]({%image_buster /assets/img_archive/Campaign-Target_users-BD.png %}){: style="max-width:80%"}
+![アクションベースのキャンペーンのターゲットユーザーステップで、目的のセグメントとして「すべてのユーザー」を選択することを推奨しています。]({%image_buster /assets/img_archive/Campaign-Target_users-BD.png %}){: style="max-width:80%"}

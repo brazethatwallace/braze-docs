@@ -40,7 +40,7 @@ Kognitivのwebhookを使用して、ロイヤルティイベント発生時にBr
 {% raw %}
 ### Brazeによる報酬の発行 {#braze-issue-reward}
 
-次のKognitivの例では、会員報酬を発行します。Kognitiv Inspireはその報酬発行イベントを、webhookを使用してBrazeにカスタムイベントとして伝えます。報酬を伝えるフォローアップメールを送信するには、そのカスタムイベントをトリガーとするCampaignまたはCanvasを作成します。
+次のKognitivの例では、会員報酬を発行します。Kognitiv Inspireはその報酬発行イベントを、webhookを使用してBrazeにカスタムイベントとして伝えます。報酬を伝えるフォローアップメールを送信するには、そのカスタムイベントをトリガーとするキャンペーンまたはキャンバスを作成します。
 
 **Webhook URL**: `<braze-api-rest-endpoint>`
 **リクエスト本文**: `Raw Text`
@@ -70,7 +70,7 @@ Kognitivのwebhookを使用して、ロイヤルティイベント発生時にBr
 
 ### ユーザーを作成し、ウェルカムメールを送信する {#create-a-user-and-send-a-welcome-email}
 
-次のKognitivの例では、新規ユーザーがKLSに登録すると、Brazeに新規ユーザーが作成されます。このユーザーのウェルカムメールをスケジュールするには、特定のカスタム属性に基づいてトリガーするCampaignまたはCanvasをBrazeで作成します。
+次のKognitivの例では、新規ユーザーがKLSに登録すると、Brazeに新規ユーザーが作成されます。このユーザーのウェルカムメールをスケジュールするには、特定のカスタム属性に基づいてトリガーするキャンペーンまたはキャンバスをBrazeで作成します。
 
 **Webhook URL**: `<braze-api-rest-endpoint>` <br>
 **リクエスト本文**: `Raw Text`

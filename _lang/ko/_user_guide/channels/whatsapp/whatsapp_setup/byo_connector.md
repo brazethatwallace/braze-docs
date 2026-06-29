@@ -20,7 +20,7 @@ channel:
 | 메시지 또는 액션 크레딧 | WhatsApp 메시지를 보낼 때 Braze 액션 크레딧이 소비됩니다. |
 | WhatsApp 요구 사항 | 모든 [WhatsApp 요구 사항]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/#prerequisites)을 완료하세요. |
 | 전화번호 | 편의를 위해 [Infobip을 통해 전화번호를 취득](https://www.infobip.com/docs/numbers/getting-started)하는 것을 권장합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="요구 사항" }
 
 ## 설정 {#set-up}
 
@@ -71,7 +71,7 @@ BYO WhatsApp 커넥터를 설정하기 전에, WhatsApp Business 계정의 이�
 
 {: start="3"}
 3. [1단계](#step-1)에서 가져온 API 키와 기본 URL을 입력합니다.
-4. **Connect**를 선택합니다.
+4. **연결**을 선택합니다.
 5. 다음 사항을 고려하여 [임베디드 가입 워크플로우]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/#whatsapp-embedded-signup-workflow)를 진행합니다:
 - 다른 Business Solution Provider가 사용하는 것과 동일한 비즈니스 포트폴리오를 선택할 수 없습니다.
 - 다른 Business Solution Provider가 사용하는 전화번호를 선택할 수 없습니다.
@@ -106,10 +106,7 @@ WhatsApp Business 계정이 다른 Braze 워크스페이스에 연결되어 있�
 1. WhatsApp Business 계정이 Braze 또는 다른 파트너에 연결되어 있지 않은지 확인하세요.
 2. WhatsApp Business 계정의 전화번호가 다른 Infobip 계정에 연결되어 있지 않은지 확인하세요. 가져온 번호의 경우 Infobip에서 해당 번호를 찾아 **Cancel number**를 선택할 수 있습니다.
 
-![Infobip 번호의 "Cancel number" 버튼.]({% image_buster /assets/img/whatsapp/byo_connector/cancel_number.png %})
-
 ## 고려 사항 {#considerations}
-
 
 Braze의 모든 기존 기능이 지원되지만, 다음 사용 사례는 현재 지원되지 않습니다.
 
@@ -117,4 +114,4 @@ Braze의 모든 기존 기능이 지원되지만, 다음 사용 사례는 현재
 | --- | --- |
 | Braze와 Infobip에서 인바운드 메시지 처리 | 이는 두 시스템 중 하나에 의해 트리거되는 로직 체인을 방지하여, 중복되고 잠재적으로 모순되는 메시지 스레드가 생성되는 것을 막기 위함입니다. |
 | Braze와 Infobip에서 메시지 발송 | Braze에 연결된 WhatsApp Business 계정의 경우, 모든 발송은 Braze에서 시작됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Considerations" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="고려 사항" }

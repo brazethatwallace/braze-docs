@@ -31,7 +31,7 @@ Esse é um teste separado do intervalo de confiança, que descreve apenas o dese
 
 ### Por que a distribuição de variantes não é uniforme? {#why-isnt-the-variant-distribution-even}
 
-A atribuição de variantes é aleatória em cada envio, então a divisão real pode não corresponder exatamente às porcentagens configuradas — especialmente com amostras menores. Para saber mais, consulte [Distribuição de variantes]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/variant_distribution/).
+A atribuição de variantes é aleatória em cada envio, então a divisão real pode não corresponder exatamente às porcentagens configuradas — especialmente com amostras menores. Para saber mais, consulte [Distribuição de variantes]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/variant_distribution).
 
 ## Execução e conclusão de testes {#running-and-concluding-tests}
 
@@ -57,7 +57,7 @@ O mesmo se aplica, pois as jornadas do Canvas que seguem um experimento também 
 
 #### Posso tomar ações para redistribuir usuários em Campaigns e Canvas? {#can-i-take-actions-to-redistribute-users-in-campaigns-and-canvases}
 
-A única maneira de redistribuir usuários em Canvas é usar [Jornadas Aleatórias nas Jornadas do Experimento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/#step-1-choose-the-number-of-paths-and-audience-distribution), que sempre randomizará as atribuições de jornada quando os usuários reentrarem no Canvas. No entanto, isso não é um experimento padrão e pode invalidar quaisquer resultados do experimento, pois o grupo de controle pode ser contaminado com usuários do grupo de tratamento.
+A única maneira de redistribuir usuários em Canvas é usar [Jornadas Aleatórias nas Jornadas do Experimento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#step-1-choose-the-number-of-paths-and-audience-distribution), que sempre randomizará as atribuições de jornada quando os usuários reentrarem no Canvas. No entanto, isso não é um experimento padrão e pode invalidar quaisquer resultados do experimento, pois o grupo de controle pode ser contaminado com usuários do grupo de tratamento.
 
 ## Intervalo de confiança e viés {#confidence-and-bias}
 
@@ -67,6 +67,8 @@ O intervalo de confiança aumenta com o tempo se todas as outras condições per
 
 O intervalo de confiança é uma medida de quão confiante a Braze está de que a variante é diferente do controle. À medida que mais mensagens são enviadas, o poder estatístico do teste aumenta, o que eleva o intervalo de confiança de que as diferenças medidas no desempenho não se devem ao acaso. Geralmente, uma amostra maior aumenta nossa confiança em identificar diferenças menores no desempenho entre variantes e controle.
 
+No entanto, se as taxas de conversão entre as variantes e o controle convergirem (ficarem mais próximas) à medida que mais mensagens são enviadas, o intervalo de confiança pode diminuir, pois a diferença medida que importa está encolhendo, o que pode superar o benefício de uma amostra maior.
+
 ### A atribuição de grupos de controle e teste pode introduzir viés nos testes? {#can-control-and-test-group-assignments-introduce-bias-to-testing}
 
 Não há uma maneira prática pela qual os atributos ou comportamentos de um usuário antes da criação de uma Campaign ou Canvas específico possam variar sistematicamente entre variantes e controle.
@@ -75,4 +77,4 @@ Para atribuir usuários a variantes de mensagem, variantes do Canvas ou seus res
 
 ### Por que não posso usar limite de taxa com um grupo de controle? {#why-cant-i-use-rate-limiting-with-a-control-group}
 
-Atualmente, a Braze não oferece suporte a limite de taxa com testes A/B que possuem um grupo de controle. Isso ocorre porque o limite de taxa não se aplica ao grupo de controle da mesma forma que às variantes, introduzindo viés. Em vez disso, considere usar a [Seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/), que ajusta automaticamente a porcentagem de usuários que receberão cada variante com base na análise de dados e no desempenho da Campaign.
+Atualmente, a Braze não oferece suporte a limite de taxa com testes A/B que possuem um grupo de controle. Isso ocorre porque o limite de taxa não se aplica ao grupo de controle da mesma forma que às variantes, introduzindo viés. Em vez disso, considere usar a [Seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), que ajusta automaticamente a porcentagem de usuários que receberão cada variante com base na análise de dados e no desempenho da Campaign.

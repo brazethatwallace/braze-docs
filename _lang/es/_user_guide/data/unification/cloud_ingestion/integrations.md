@@ -32,6 +32,10 @@ La [guía de inicio rápido de Snowflake](https://quickstarts.snowflake.com/guid
 2. En tu instancia de Redshift, configura las tablas o vistas que quieras sincronizar con Braze.
 3. Crea una nueva fuente y sincronización en el dashboard de Braze.
 4. Prueba la integración e inicia la sincronización.
+
+{% alert note %}
+Las filas procesadas por sincronización dependen del rendimiento de tu almacén, la latencia de red y la cantidad de datos nuevos que coincidan con la consulta de sincronización. Utiliza el **Historial de sincronización** de la integración en el dashboard para ver la duración y el recuento de filas de las ejecuciones recientes.
+{% endalert %}
 {% endtab %}
 {% tab BigQuery %}
 1. Crea una cuenta de servicio y permite el acceso a los proyectos de BigQuery y a los conjuntos de datos que contienen los datos que deseas sincronizar.
@@ -144,7 +148,7 @@ Cuando conectes diferentes espacios de trabajo a la misma cuenta de Snowflake, d
 
 Dependiendo de la configuración de tu cuenta de Snowflake, puede que necesites permitir las siguientes direcciones IP en tu política de red de Snowflake. Para obtener más información sobre cómo habilitarlo, consulta la documentación pertinente de Snowflake sobre la [modificación de una política de red](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Redshift %}
@@ -207,7 +211,7 @@ Algunas cosas importantes que debes saber:
 
 Permite el acceso desde las siguientes IP correspondientes a la región de tu dashboard de Braze.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab BigQuery %}
@@ -250,7 +254,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 1.1: Preparar la tabla" }
 
 Puedes nombrar el proyecto, el conjunto de datos y la tabla como desees, pero los nombres de las columnas deben coincidir con la definición anterior.
 
@@ -290,7 +294,7 @@ Tras crear la cuenta de servicio y conceder los permisos, genera una clave JSON.
 
 Si tienes políticas de red en vigor, debes dar acceso de red a Braze a tu instancia de BigQuery. Permite el acceso desde las siguientes IP correspondientes a la región de tu dashboard de Braze.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Databricks %}
@@ -335,7 +339,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 1.1: Preparar la tabla" }
 
 Puedes nombrar el esquema y la tabla como desees, pero los nombres de las columnas deben coincidir con la definición anterior.
 
@@ -364,7 +368,7 @@ Guarda el token en un lugar seguro hasta que necesites introducirlo en el dashbo
 
 Si tienes políticas de red en vigor, debes dar acceso de red a Braze a tu instancia de Databricks. Permite el acceso desde las siguientes IP correspondientes a la región de tu dashboard de Braze.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -453,7 +457,7 @@ Para recuperar el punto de conexión SQL de tu almacén, ve al **espacio de trab
 
 Dependiendo de la configuración de tu cuenta de Microsoft Fabric, puede que necesites permitir las siguientes direcciones IP en tu cortafuegos para permitir el tráfico desde Braze. Para más información sobre cómo habilitarlo, consulta la documentación correspondiente sobre el [acceso condicional de Entra](https://learn.microsoft.com/en-us/fabric/security/protect-inbound-traffic#entra-conditional-access).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -471,9 +475,16 @@ En el dashboard de Braze, ve a **Data Settings** > **Cloud Data Ingestion** > **
 
 Elige un nombre para tu fuente e introduce tus credenciales y configuración de Snowflake, y luego pasa al siguiente paso.
 
-{% alert note %}
-En el campo **Snowflake Account Locator**, introduce tu [identificador de cuenta](https://docs.snowflake.com/en/user-guide/admin-account-identifier) de Snowflake, que suele seguir un formato como `xy12345.us-east-1.aws`. No es lo mismo que el nombre de una base de datos o el nombre de un almacén.
-{% endalert %}
+Antes de continuar, confirma el valor que introduces en **Snowflake Account Locator**.
+
+En el campo **Snowflake Account Locator**, introduce tu [identificador de cuenta](https://docs.snowflake.com/en/user-guide/admin-account-identifier) de Snowflake. Introduce solo el valor del identificador de cuenta, como `myorganization-myaccount`. No incluyas `https://`, `.snowflakecomputing.com` ni ninguna ruta.
+
+Para encontrar tu identificador de cuenta de Snowflake:
+
+1. En Snowsight, selecciona el menú de tu cuenta.
+2. Selecciona **View account details**.
+3. Copia el valor de **Account identifier**.
+4. Si copias desde una URL de Snowflake, utiliza solo el valor antes de `.snowflakecomputing.com`.
 
 #### Paso 2.2: Añadir una clave pública al usuario de Braze {#step-22-add-a-public-key-to-the-braze-user}
 
@@ -578,14 +589,14 @@ Estos problemas pueden incluir lo siguiente:
 - Problemas de conectividad
 - Falta de recursos
 - Problemas de permisos
-- (Solo para sincronización de catálogos) No hay espacio en el nivel de catálogo
+- (Solo para sincronizaciones de catálogos) No hay espacio en el nivel de catálogo
 
 #### Paso 3.3: Planificación {#step-33-scheduling}
 Por último, configura tu sincronización como no recurrente o recurrente.
 
 Las sincronizaciones no recurrentes se pueden desencadenar manualmente o a través de la API.
 
-Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze utiliza la zona horaria configurada en tu dashboard de Braze para programar la sincronización recurrente.
+Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze programa la sincronización recurrente en la zona horaria UTC.
 
 {% endtab %}
 
@@ -611,14 +622,14 @@ Estos problemas pueden incluir lo siguiente:
 - Falta de recursos
 - Problemas de permisos
 
-(Solo para sincronización de catálogos) No hay espacio en el nivel de catálogo
+(Solo para sincronizaciones de catálogos) No hay espacio en el nivel de catálogo
 
 #### Paso 3.3: Planificación
 Por último, configura tu sincronización como no recurrente o recurrente.
 
 Las sincronizaciones no recurrentes se pueden desencadenar manualmente o a través de la API.
 
-Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze utiliza la zona horaria configurada en tu dashboard de Braze para programar la sincronización recurrente.
+Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze programa la sincronización recurrente en la zona horaria UTC.
 
 {% endtab %}
 
@@ -642,14 +653,14 @@ Los correos electrónicos de contacto solo reciben notificaciones de errores glo
 - Falta de recursos
 - Problemas de permisos
 
-(Solo para sincronización de catálogos) No hay espacio en el nivel de catálogo
+(Solo para sincronizaciones de catálogos) No hay espacio en el nivel de catálogo
 
 #### Paso 3.3: Planificación
 Por último, configura tu sincronización como no recurrente o recurrente.
 
 Las sincronizaciones no recurrentes se pueden desencadenar manualmente o a través de la API.
 
-Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze utiliza la zona horaria configurada en tu dashboard de Braze para programar la sincronización recurrente.
+Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze programa la sincronización recurrente en la zona horaria UTC.
 
 {% endtab %}
 
@@ -674,14 +685,14 @@ Estos problemas pueden incluir lo siguiente:
 - Falta de recursos
 - Problemas de permisos
 
-(Solo para sincronización de catálogos) No hay espacio en el nivel de catálogo
+(Solo para sincronizaciones de catálogos) No hay espacio en el nivel de catálogo
 
 #### Paso 3.3: Planificación
 Por último, configura tu sincronización como no recurrente o recurrente.
 
 Las sincronizaciones no recurrentes se pueden desencadenar manualmente o a través de la API.
 
-Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze utiliza la zona horaria configurada en tu dashboard de Braze para programar la sincronización recurrente.
+Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze programa la sincronización recurrente en la zona horaria UTC.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -707,14 +718,14 @@ Estos problemas pueden incluir lo siguiente:
 - Falta de recursos
 - Problemas de permisos
 
-(Solo para sincronización de catálogos) No hay espacio en el nivel de catálogo
+(Solo para sincronizaciones de catálogos) No hay espacio en el nivel de catálogo
 
 #### Paso 3.3: Planificación
 Por último, configura tu sincronización como no recurrente o recurrente.
 
 Las sincronizaciones no recurrentes se pueden desencadenar manualmente o a través de la API.
 
-Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze utiliza la zona horaria configurada en tu dashboard de Braze para programar la sincronización recurrente.
+Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze programa la sincronización recurrente en la zona horaria UTC.
 
 {% endtab %}
 {% endtabs %}
@@ -763,26 +774,26 @@ Si reutilizas el mismo usuario en varias integraciones, no podrás eliminar el u
 
 {% tabs %}
 {% tab Snowflake %}
-Una vez activada, la sincronización se ejecuta según la planificación configurada durante la instalación. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
+Una vez activada, la sincronización se ejecuta según la planificación configurada durante la configuración. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
 
 {% endtab %}
 {% tab Redshift %}
-Una vez activada, la sincronización se ejecuta según la planificación configurada durante la instalación. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
+Una vez activada, la sincronización se ejecuta según la planificación configurada durante la configuración. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
 
 {% endtab %}
 {% tab BigQuery %}
 
-Una vez activada, la sincronización se ejecuta según la planificación configurada durante la instalación. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
+Una vez activada, la sincronización se ejecuta según la planificación configurada durante la configuración. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
 
 {% endtab %}
 {% tab Databricks %}
 
-Una vez activada, la sincronización se ejecuta según la planificación configurada durante la instalación. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
+Una vez activada, la sincronización se ejecuta según la planificación configurada durante la configuración. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
 
-Una vez activada, la sincronización se ejecuta según la planificación configurada durante la instalación. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
+Una vez activada, la sincronización se ejecuta según la planificación configurada durante la configuración. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
 
 {% endtab %}
 
