@@ -87,7 +87,7 @@ Brazeで最も一般的な競合の1つは、新しく作成されたユーザ�
 
 [`/users/track/sync/`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/)を使用して、カスタムイベントと購入を記録し、ユーザープロファイル属性を同期的に更新します。このエンドポイントを使用してユーザープロファイルを同時に単一のコールで更新することで、潜在的な競合を防ぐことができます。
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This endpoint' type='beta' %}
 
 ## シナリオ3：アクションベースのトリガーとオーディエンスフィルターの一致 {#scenario-3-matching-action-based-triggers-and-audience-filters}
 

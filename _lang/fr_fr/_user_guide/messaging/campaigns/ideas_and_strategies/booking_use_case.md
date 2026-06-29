@@ -6,4 +6,4 @@ page_type: tutorial
 page_order: 8
 ---
 
-{% multi_lang_include booking_use_case.md %}
+{% multi_lang_include messaging/use_cases/booking_use_case.md %}

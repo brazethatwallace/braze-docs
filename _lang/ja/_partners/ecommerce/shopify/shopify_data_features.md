@@ -863,7 +863,7 @@ BrazeがShopifyの顧客をインポートする際、設定で選択した`exte
 アクティブなCampaignsやCanvasesを持つ既存のBrazeユーザーの場合、履歴バックフィルを有効にする前に、インポートされた顧客と注文イベントがSegmentsやジャーニーにどのように影響するかを確認してください。
 {% endalert %}
 
-{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
+{% multi_lang_include partners/shopify.md section='Custom external ID historical backfill' %}
 
 ### Shopify履歴バックフィルの設定 {#setting-up-shopify-historical-backfill}
 

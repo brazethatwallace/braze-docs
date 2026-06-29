@@ -18,7 +18,7 @@ Teams are not available on all Braze contracts. To access this feature, contact 
 
 ## How do Teams differ from permission sets and roles?
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Create Teams {#creating-teams}
 
@@ -36,9 +36,9 @@ Braze administrators and limited users with the company-level permission "Can Ma
 
 ### Limit company user permissions without deleting a user
 
-To stop a company user from signing in while preserving their account, [suspend the user]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users) instead. Suspending puts the account in an inactive state where the user can't log in.
+To stop a company user from signing in while preserving their account, [suspend the user]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users) instead. Suspending puts the account in an inactive state where the user can't log in.
 
-If the user should remain able to sign in with limited capabilities, go to **Settings** > **Company Users**, select the user, and edit their permissions. Remove workspace-level permissions for campaigns, Canvases, segments, and user data, and leave only minimal access—for example, "View Media Library Assets". For more information, see [Edit a user's permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#edit-a-users-permissions).
+If the user should remain able to sign in with limited capabilities, go to **Settings** > **Company Users**, select the user, and edit their permissions. Remove workspace-level permissions for campaigns, Canvases, segments, and user data, and leave only minimal access—for example, "View Media Library Assets". For more information, see [Edit a user's permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
 
 Team permissions work on top of workspace permissions. If you assign the user to a Team, grant only the minimum team-level permissions they need, and don't grant permissions for campaigns, Canvases, segments, or user profiles. They remain in the workspace and can sign in, but they can't perform most messaging or audience actions.
 
@@ -102,7 +102,7 @@ The following are all available permissions you can assign at the Team level. An
 - Edit Dashboard Reports
 - Delete Dashboard Reports
 
-To see descriptions of what each user permission includes and how to use them, check out our [User Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) section.
+To see descriptions of what each user permission includes and how to use them, check out our [User Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) section.
 
 ## Assign Team tags {#tags-and-filters}
 

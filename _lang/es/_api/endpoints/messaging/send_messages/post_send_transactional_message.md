@@ -126,6 +126,6 @@ La mayoría de los puntos de conexión de Braze tienen una implementación de l�
 
 ## Postback de eventos HTTP transaccionales {#transactional-http-event-postback}
 
-{% multi_lang_include http_event_postback.md %}
+{% multi_lang_include channels/transactional_email/http_event_postback.md %}
 
 {% endapi %}

@@ -46,7 +46,7 @@ To test your email message in Inbox Vision:
 5. Select **Run Inbox Vision**. This may take between two to ten minutes to complete.
 
 {% alert note %}
-Inbox Vision doesn't support email messages that include [abort logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) because these emails render as static content.
+Inbox Vision doesn't support email messages that include [abort logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) because these emails render as static content.
 {% endalert %}
 
 ### Previewing as a user
@@ -139,7 +139,7 @@ The drag-and-drop editor does not support setting a document `<title>` element, 
 
 ### Review your email subscriber list
 
-Reference the [email insights dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard) to determine the most popular device type and providers where your subscribers are engaging. If you need more granularity, such as the browser, device model, and more, you can leverage your [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) data or [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) to retrieve this level of detail about your users’ recent email engagement.
+Reference the [email insights dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard) to determine the most popular device type and providers where your subscribers are engaging. If you need more granularity, such as the browser, device model, and more, you can leverage your [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) data or [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) to retrieve this level of detail about your users’ recent email engagement.
 
 Otherwise, Braze defaults to the top 20 previews based on general industry and expert data, which covers the majority of where your subscribers are engaging with your emails. If your data analysis points to other, more popular previews, you can define a default set of previews every time you run Inbox Vision.
 
@@ -155,7 +155,7 @@ We suggest running Inbox Vision when the email message is production-ready or cl
 
 Running Inbox Vision every time you make a single edit or change can quickly consume previews. We suggest making all the necessary changes to the email first, and then running Inbox Vision to preview how all your changes can affect the rendering of your email across environments.
 
-Braze runs tests through actual email clients and works to ensure renderings are accurate. If you consistently see an issue with a client, open a [support ticket]({{site.baseurl}}/braze_support/).
+Braze runs tests through actual email clients and works to ensure renderings are accurate. If you consistently see an issue with a client, open a [support ticket]({{site.baseurl}}/braze_support).
 
 ### Test accuracy versus live inboxes
 

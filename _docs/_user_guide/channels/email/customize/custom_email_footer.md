@@ -57,7 +57,7 @@ To add a custom unsubscribe link, you can change the unsubscribe link in the cus
 > https://www.braze.com/unsubscribe?user_id={{${user_id}}}
 {% endraw %}
 
-Next, call the [`/email/status` endpoint]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status/) to update the user's subscription status. For more details, see our documentation on [changing email subscription status]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions).
+Next, call the [`/email/status` endpoint]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status) to update the user's subscription status. For more details, see our documentation on [changing email subscription status]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
 
 Then, save this new link. The default Braze unsubscribe tag {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} must be in the footer. This means you need to include the default link by "hiding" it by either placing the tag in a comment or in a hidden `<div>` tag.
 
@@ -67,7 +67,7 @@ We suggest the following best practices when creating and using custom footers.
 
 ### Personalizing with attributes
 
-When creating a custom footer, Braze suggests using [attributes for personalization]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/). The full set of default and custom attributes are available, but here are a few you may find useful:
+When creating a custom footer, Braze suggests using [attributes for personalization]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags). The full set of default and custom attributes are available, but here are a few you may find useful:
 
 | Attribute | Tag |
 | --------- | --- |
@@ -94,4 +94,4 @@ If you don't include a plaintext footer, Braze will automatically build one from
 
 ## Considerations
 
-If you're using [BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio), note that {% raw %}`{{${email_footer}}}`{% endraw %} is not a standard Liquid tag. It's pre-processed before Liquid runs, so using {% raw %}`{{${email_footer}}}`{% endraw %} as a context variable value and calling the `:rerender` flag silently fails. Instead, use a [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/#email-footers) for an email footer.
+If you're using [BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio), note that {% raw %}`{{${email_footer}}}`{% endraw %} is not a standard Liquid tag. It's pre-processed before Liquid runs, so using {% raw %}`{{${email_footer}}}`{% endraw %} as a context variable value and calling the `:rerender` flag silently fails. Instead, use a [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers) for an email footer.

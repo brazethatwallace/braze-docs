@@ -183,7 +183,7 @@ Para ver estatísticas adicionais, como a receita média de tempo de vida dos us
 
 #### Por que a contagem do público-alvo pode diferir da contagem de usuários contatáveis {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 
-{% multi_lang_include segments.md section='Differing audience size' %}
+{% multi_lang_include audience/segments.md section='Differing audience size' %}
 
 ### Etapa 1.4: Selecione suas configurações de envio {#step-14-select-your-send-settings}
 

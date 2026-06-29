@@ -10,7 +10,7 @@ page_type: reference
 
 > Brazeは、プラットフォームにユーザーデータをインポートするためのさまざまな方法を提供しています。SDK、API、クラウドデータ取り込み、テクノロジーパートナー連携、CSVファイルなどです。この記事では、[CSVファイルによるカスタムイベントのインポート（早期アクセス）](#importing-custom-events)を含む、ユーザーデータのインポートに関する詳細な手順を説明します。
 
-{% multi_lang_include email-via-sms-warning.md %}
+{% multi_lang_include channels/sms/email_via_sms_warning.md %}
 
 先に進む前に、Brazeはインポート時にHTMLデータのサニタイズ（検証や適切なフォーマット）を行わないことに注意してください。つまり、Webパーソナライゼーション用のすべてのインポートデータからスクリプトタグを除去する必要があります。
 

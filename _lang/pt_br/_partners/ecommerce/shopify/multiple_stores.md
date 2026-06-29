@@ -37,7 +37,7 @@ Como na sua primeira integração com a loja do Shopify, você pode escolher ent
 
 Escolha a opção que melhor atenda às suas necessidades:
 
-{% multi_lang_include shopify.md section='Integration Tabs' %}
+{% multi_lang_include partners/shopify.md section='Integration Tabs' %}
 
 Para visualizar a integração de cada loja e definir configurações avançadas, selecione uma loja no menu suspenso.
 

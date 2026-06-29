@@ -37,7 +37,7 @@ Wie bei Ihrer ersten Shopify Shop-Integration können Sie zwischen einer Standar
 
 Wählen Sie die Option, die Ihren Bedürfnissen am besten entspricht:
 
-{% multi_lang_include shopify.md section='Integration Tabs' %}
+{% multi_lang_include partners/shopify.md section='Integration Tabs' %}
 
 Um die einzelnen Shop-Integrationen anzuzeigen und erweiterte Einstellungen zu konfigurieren, wählen Sie einen Shop im Dropdown-Menü aus.
 

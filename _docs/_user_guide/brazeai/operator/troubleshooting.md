@@ -1,7 +1,7 @@
 ---
 nav_title: Troubleshooting
 article_title: Troubleshooting BrazeAI Operator
-page_order: 4
+page_order: 10
 description: "Common issues and solutions for BrazeAI Operator<sup>TM</sup>."
 ---
 

@@ -16,4 +16,4 @@ description: "This reference article covers how to generate marketing copy for S
 
 {% multi_lang_include brazeai/generative_ai/access_copy.md %}
 
-For more information, including available tones, example prompts, and brand guideline integration, see [Generate copy in Operator capabilities]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy).
+For more information, including available tones, example prompts, and brand guideline integration, see [Generate copy in Operator capabilities]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy).

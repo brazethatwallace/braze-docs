@@ -48,7 +48,7 @@ Testversendungen und Seed-Gruppen-E-Mail-Versendungen verbrauchen Aktionscodes, 
 
 ### Mit Message Extras für Currents
 
-{% multi_lang_include shopify.md section='Liquid promotion codes with Currents' %}
+{% multi_lang_include partners/shopify.md section='Liquid promotion codes with Currents' %}
 
 ## Aktionscodes in Nutzerprofilen speichern {#save-to-profile}
 

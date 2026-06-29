@@ -49,7 +49,7 @@ Brazeとセグメントの統合により、Braze Currentsを利用してBraze�
 
 Brazeは、**Include events from anonymous users** にチェックが入っている場合にのみ、`external_user_id`を持たないユーザーのイベントデータを送信する点にご注意ください。
 
-{% multi_lang_include early_access_beta_alert.md feature='Anonymous user export' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Anonymous user export' %}
 
 ![Brazeのセグメント Currentsページで利用可能なすべてのメッセージエンゲージメントイベントのリスト。]({% image_buster /assets/img/segment/segment_currents_data_config.png %})
 
@@ -61,7 +61,7 @@ Brazeは、**Include events from anonymous users** にチェックが入って�
 
 ## Currentsの更新 {#updating-your-current}
 
-{% multi_lang_include updating_currents.md %}
+{% multi_lang_include currents/updating_currents.md %}
 
 ## サポートされているCurrentsイベント {#supported-currents-events}
 

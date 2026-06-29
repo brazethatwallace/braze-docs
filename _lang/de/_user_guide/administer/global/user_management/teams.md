@@ -18,7 +18,7 @@ Teams sind nicht in allen Braze-Verträgen enthalten. Um auf dieses Feature zuzu
 
 ## Wie unterscheiden sich Teams von Berechtigungsgruppen und Rollen? {#how-do-teams-differ-from-permission-sets-and-roles}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Teams erstellen {#creating-teams}
 

@@ -2,11 +2,7 @@
 
 > Learn about the Braze MCP server, a secure connection that lets AI tools like Claude and Cursor access non-PII Braze data to answer questions, analyze trends, and provide insights.
 
-{% multi_lang_include mcp_server/beta_alert.md %}
-
 {% alert important %}
-## Sunsetting the locally hosted Braze MCP server
-
 This summer, Braze is launching a remote, Braze-hosted MCP server in Early Access. It replaces the locally hosted beta server (`braze-mcp-server` on [PyPI](https://pypi.org/project/braze-mcp-server/) and the Claude Desktop extension directory).
 
 **What this means for you:**

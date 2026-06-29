@@ -17,7 +17,7 @@ tool: Dashboard
 
 ## Criar um conjunto de permissões {#create-a-permission-set}
 
-Use conjuntos de permissões para agrupar permissões relacionadas a áreas de assunto ou ações específicas. Você pode aplicar conjuntos de permissões a usuários do dashboard que precisam do mesmo acesso em diferentes espaços de trabalho. Para criar um conjunto de permissões, acesse **Configurações** > **Gerenciamento de usuários** > **Conjuntos de permissões** e selecione **Criar conjunto de permissões**. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
+Use conjuntos de permissões para agrupar permissões relacionadas a áreas de assunto ou ações específicas. Você pode aplicar conjuntos de permissões a usuários do dashboard que precisam do mesmo acesso em diferentes espaços de trabalho. Para criar um conjunto de permissões, acesse **Configurações** > **Gerenciamento de usuários** > **Conjuntos de permissões** e selecione **Criar conjunto de permissões**. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 {% tabs local %}
 {% tab exemplos de conjuntos de permissões %}
@@ -32,7 +32,7 @@ Use conjuntos de permissões para agrupar permissões relacionadas a áreas de a
 
 ## Criar um papel {#creating-a-role}
 
-Os papéis permitem mais estrutura ao agrupar suas permissões personalizadas individuais com controles de acesso ao espaço de trabalho. Isso é especialmente útil se você tem muitas marcas ou espaços de trabalho regionais em um único dashboard. Com papéis, você pode adicionar usuários do dashboard aos espaços de trabalho corretos e conceder diretamente as permissões associadas. Para criar um papel, acesse **Configurações** > **Gerenciamento de usuários** > **Papéis** e selecione **Criar papel**. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
+Os papéis permitem mais estrutura ao agrupar suas permissões personalizadas individuais com controles de acesso ao espaço de trabalho. Isso é especialmente útil se você tem muitas marcas ou espaços de trabalho regionais em um único dashboard. Com papéis, você pode adicionar usuários do dashboard aos espaços de trabalho corretos e conceder diretamente as permissões associadas. Para criar um papel, acesse **Configurações** > **Gerenciamento de usuários** > **Papéis** e selecione **Criar papel**. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 {% tabs local %}
 {% tab exemplos de papéis %}
@@ -47,7 +47,7 @@ Os papéis permitem mais estrutura ao agrupar suas permissões personalizadas in
 
 ## Qual a diferença entre conjuntos de permissões, papéis e equipes? {#how-do-permission-sets-and-roles-differ-from-teams}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ### Considerações ao adicionar permissões de usuário a equipes {#considerations-for-adding-user-permissions-to-teams}
 
@@ -91,7 +91,7 @@ Tenha em mente os seguintes comportamentos ao atribuir acesso ao dashboard:
 - **Usuários limitados:** Usuários limitados com a permissão "Edit Dashboard Users" podem gerenciar outros usuários limitados, mas não podem criar ou gerenciar contas de administrador da empresa.
 - **Escopo de gerenciamento de usuários do dashboard:** Na página de detalhes do usuário, as permissões aparecem apenas para os espaços de trabalho que o editor pode acessar. Um usuário limitado que pode editar usuários em um espaço de trabalho pode não ver as caixas de seleção de permissões de outro espaço de trabalho.
 - **Exportar dados de usuários:** A exportação de dados de usuários requer acesso no nível do espaço de trabalho, além da permissão de exportação.
-- **Permissões compostas:** Algumas áreas exigem múltiplas permissões. Por exemplo, configurar [Parceiros de tecnologia]({{site.baseurl}}/partners/) normalmente requer tanto o acesso ao parceiro quanto uma permissão básica de leitura para os recursos relacionados do espaço de trabalho.
+- **Permissões compostas:** Algumas áreas exigem múltiplas permissões. Por exemplo, configurar [Parceiros de tecnologia]({{site.baseurl}}/partners) normalmente requer tanto o acesso ao parceiro quanto uma permissão básica de leitura para os recursos relacionados do espaço de trabalho.
 - **Importar e atualizar dados de usuários:** Essa permissão inclui a capacidade de editar perfis de usuários do app por meio de fluxos de importação, não apenas registros de usuários do dashboard.
 
 ## Editar as permissões de um usuário {#edit-a-users-permissions}
@@ -107,8 +107,8 @@ Para editar as permissões atuais de administrador, empresa ou espaço de trabal
 
 Administradores têm acesso a todos os recursos e a capacidade de modificar qualquer configuração da empresa. Eles podem:
 
-- Alterar [configurações de aprovação]({{site.baseurl}}/user_guide/messaging/governance/approvals/#turning-on-the-approval-workflow)
-- Adicionar, editar, excluir, suspender ou reativar outros [usuários da Braze]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#adding-company-users)
+- Alterar [configurações de aprovação]({{site.baseurl}}/user_guide/messaging/governance/approvals#turning-on-the-approval-workflow)
+- Adicionar, editar, excluir, suspender ou reativar outros [usuários da Braze]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#adding-company-users)
 - Exportar usuários da Braze como CSV
 
 Para conceder ou remover privilégios de administrador, selecione **Este usuário é um administrador** e depois selecione **Atualizar usuário**.
@@ -173,8 +173,6 @@ Quando terminar, selecione **Atualizar usuário**.
 
 Para baixar uma lista dos seus usuários e suas permissões, acesse **Configurações** > **Gerenciamento de usuários** > **Usuários da empresa** e selecione **Exportar usuários**. Um arquivo CSV será enviado para o seu endereço de e-mail em breve.
 
-![A página "Usuários da empresa" na Braze com a opção "Exportar usuários" em destaque.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
-
 ## Lista de permissões {#list-of-permissions}
 
 ### Envio de mensagens {#messaging}
@@ -185,12 +183,12 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Campaigns | Launch Campaigns | Iniciar, parar, pausar ou retomar Campaigns existentes |
 | Campaigns | Archive Campaigns | Mover Campaigns para o arquivo |
 | Campaigns | Edit Campaigns | Criar e atualizar Campaigns |
-| Campaigns | Approve and Deny Campaigns | Aprovar ou rejeitar Campaigns. O [fluxo de aprovação para Campaigns]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) deve estar ativado para que essa permissão se aplique. Essa configuração está atualmente em acesso antecipado. Entre em contato com seu gerente de conta se tiver interesse em participar do acesso antecipado. |
+| Campaigns | Approve and Deny Campaigns | Aprovar ou rejeitar Campaigns. O [fluxo de aprovação para Campaigns]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals) deve estar ativado para que essa permissão se aplique. Essa configuração está atualmente em acesso antecipado. Entre em contato com seu gerente de conta se tiver interesse em participar do acesso antecipado. |
 | Canvas | View Canvases | Visualizar Canvas |
 | Canvas | Archive Canvases | Mover Canvas para o arquivo |
 | Canvas | Edit Canvases | Criar e atualizar Canvas |
 | Canvas | Launch Canvases | Iniciar, parar, pausar ou retomar Canvas existentes |
-| Canvas | Approve and Deny Canvases | Aprovar ou rejeitar Canvas. O [fluxo de aprovação para Canvas]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) deve estar ativado para que essa permissão se aplique. Essa configuração está atualmente em acesso antecipado. Entre em contato com seu gerente de conta se tiver interesse em participar do acesso antecipado. |
+| Canvas | Approve and Deny Canvases | Aprovar ou rejeitar Canvas. O [fluxo de aprovação para Canvas]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals) deve estar ativado para que essa permissão se aplique. Essa configuração está atualmente em acesso antecipado. Entre em contato com seu gerente de conta se tiver interesse em participar do acesso antecipado. |
 | Feature Flags | View Feature Flags | Visualizar Feature Flags |
 | Feature Flags | Archive Feature Flags | Mover Feature Flags para o arquivo |
 | Feature Flags | Edit Feature Flags | Criar e atualizar Feature Flags |
@@ -257,7 +255,7 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Modelos de webhook | View Webhook Templates | Visualizar modelos de webhook sem fazer alterações |
 | Modelos de webhook | Archive Webhook Templates | Mover modelos de webhook para o arquivo |
 | Modelos de webhook | Edit Webhook Templates | Criar e atualizar modelos de webhook |
-| Modelos de mensagens do WhatsApp | View WhatsApp Message Templates | Permite que os usuários visualizem [modelos de mensagens do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#step-2-compose-your-whatsapp-message) |
+| Modelos de mensagens do WhatsApp | View WhatsApp Message Templates | Permite que os usuários visualizem [modelos de mensagens do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#step-2-compose-your-whatsapp-message) |
 | Modelos de mensagens do WhatsApp | Edit WhatsApp Message Templates | Permite que os usuários criem modelos de mensagens do WhatsApp no construtor de modelos. Esse recurso está atualmente em acesso antecipado. |
 | Modelos de mensagens do WhatsApp do Meta | View WhatsApp Message Templates From Meta | Visualizar todos os modelos do WhatsApp |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permissões de modelos" }

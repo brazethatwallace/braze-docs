@@ -184,7 +184,7 @@ In diesem Schritt können Sie auch Zustellungs-Kontrollgruppen festlegen, z. B. 
 
 Als Nächstes müssen Sie [Nutzer:innen als Zielgruppe auswählen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/), indem Sie Segmente oder Filter wählen, um Ihre Zielgruppe einzugrenzen. In diesem Schritt wählen Sie die größere Zielgruppe aus Ihren Segmenten aus und grenzen dieses Segment bei Bedarf mit unseren Filtern weiter ein. Sie erhalten automatisch eine Vorschau der ungefähren Segmentgröße. Beachten Sie, dass die genaue Segment-Zugehörigkeit immer direkt vor dem Nachrichtenversand berechnet wird.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 ### Konversions-Events wählen {#choose-conversion-events}
 
@@ -260,7 +260,7 @@ Braze sendet Webhooks von den folgenden IPs. Die aufgelisteten IPs werden automa
 Wenn Sie einen Braze-zu-Braze-Webhook erstellen und Allowlisting verwenden, sollten Sie alle folgenden IPs einschließlich `127.0.0.1` auf die Allowlist setzen.
 {% endalert %}
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### Nutzer:innen löschen {#delete-users}
 

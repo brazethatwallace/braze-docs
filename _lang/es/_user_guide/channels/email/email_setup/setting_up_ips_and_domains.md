@@ -38,7 +38,7 @@ Tras recibir tu correo electrónico, nos pondremos manos a la obra para configur
 
 Una vez que tus IP, dominios, subdominios y pools de IP estén configurados, te enviaremos una lista de registros DNS. Pide a tus ingenieros y desarrolladores que añadan estos registros DNS donde sea necesario y, una vez que se hayan añadido, informa al equipo de incorporación de Braze.
 
-{% multi_lang_include dns_records.md %}
+{% multi_lang_include channels/email/dns_records.md %}
 
 Después de que Braze te proporcione tus registros DNS, añádelos tan pronto como tu equipo de DNS o de TI pueda. La verificación de dominio tiene un límite de tiempo, y si los registros se añaden demasiado tarde, la verificación puede fallar incluso si los registros DNS se resuelven correctamente después. Si tus registros DNS parecen correctos pero la verificación falla, ponte en contacto con el equipo de incorporación o soporte de Braze para reiniciar la verificación.
 
@@ -50,7 +50,7 @@ Revisaremos tu configuración y validaremos toda la información en nuestros sis
 
 Este método configurará un dominio de envío, un dominio de seguimiento y una IP en total para una empresa. Si planeas configurar más, consulta con el equipo de incorporación de Braze (método 1).
 
-{% multi_lang_include early_access_beta_alert.md feature='This self-service email setup feature' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This self-service email setup feature' type='beta' %}
 <br>Si estás usando la característica de configuración de correo electrónico de autoservicio, asegúrate de consultar también con el equipo de incorporación de Braze.
 
 ### Requisitos previos {#prerequisites}

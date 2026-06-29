@@ -37,7 +37,7 @@ Braze 계정에 사용자를 추가하려면 관리자 권한이 있어야 합�
 
 ## 사용자 액세스 및 책임 할당 {#assigning-user-access-and-responsibilities}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## 회사 사용자 일시 중지 {#suspending-company-users}
 

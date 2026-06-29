@@ -36,7 +36,7 @@ Oloでは、承認されたブランドごとに1環境につき1つのWebhook�
 
 ### ステップ1:Oloのテストイベントを受け入れるようにBrazeデータ変換を設定する {#step-1}
 
-{% multi_lang_include create_transformation.md location="default" %}
+{% multi_lang_include data_activation/create_transformation.md location="default" %}
 
 ### ステップ2:Olo Webhookを設定する {#step-2-set-up-olo-webhooks}
 

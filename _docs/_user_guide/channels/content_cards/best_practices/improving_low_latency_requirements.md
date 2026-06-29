@@ -12,7 +12,7 @@ channel:
 > If you're experiencing latency with your Content Cards implementation for critical use cases, such as homepage banners, review this page for strategies and tips to help resolve and speed up your rendering.
 
 {% alert tip %}
-Are you trying to display prominent, customized banners on your app or website? Try [Banners]({{site.baseurl}}/user_guide/channels/banners/), which are built to support low-latency banner use cases.
+Are you trying to display prominent, customized banners on your app or website? Try [Banners]({{site.baseurl}}/user_guide/channels/banners), which are built to support low-latency banner use cases.
 {% endalert %}
 
 ## Use scheduled entry instead of action-based entry

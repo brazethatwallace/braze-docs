@@ -25,7 +25,7 @@ platform:
 
 バナー配置を作成するために必要な最小SDKバージョンは以下の通りです。
 
-{% multi_lang_include sdk_versions.md feature='banners' %}
+{% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
 {% multi_lang_include banners/creating_placements.md section="developer" %}
 

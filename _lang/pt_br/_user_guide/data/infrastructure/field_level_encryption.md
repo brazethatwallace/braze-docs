@@ -11,7 +11,7 @@ page_type: reference
 
 > Criptografe endereços de e-mail para minimizar as informações de identificação pessoal (IPI) compartilhadas na Braze.
 
-{% multi_lang_include field_level_encryption_pii_description.md %}
+{% multi_lang_include data_activation/field_level_encryption_pii_description.md %}
 
 {% alert important %}
 A criptografia em nível de campo do identificador está disponível como um recurso complementar. Para começar com a criptografia em nível de campo do identificador, entre em contato com seu gerente de conta da Braze.

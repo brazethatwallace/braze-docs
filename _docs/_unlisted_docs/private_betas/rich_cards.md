@@ -180,7 +180,7 @@ Specify your delivery controls, such as allowing users to become re-eligible to 
 
 Target users by choosing segments or filters to narrow down your audience. You should have already selected the subscription group, which narrows users by the level or category of communication they want to have with you.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 Next, you'll select the larger audience from your segments and narrow that segment further with optional [filters]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/). You'll automatically be given a preview of what that approximate segment population looks like right now. Keep in mind that exact segment membership is always calculated just before the message is sent.
 

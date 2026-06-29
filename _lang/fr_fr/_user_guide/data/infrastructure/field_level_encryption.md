@@ -11,7 +11,7 @@ page_type: reference
 
 > Chiffrez les adresses e-mail afin de minimiser les informations personnelles identifiables (PII) partagées dans Braze.
 
-{% multi_lang_include field_level_encryption_pii_description.md %}
+{% multi_lang_include data_activation/field_level_encryption_pii_description.md %}
 
 {% alert important %}
 Le chiffrement au niveau du champ de l'identifiant est disponible en tant que fonctionnalité supplémentaire. Pour commencer à utiliser le chiffrement au niveau du champ de l'identifiant, contactez votre gestionnaire de compte Braze.

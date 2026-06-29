@@ -78,7 +78,7 @@ Selecione **Export rows** para exportar os registros em nível de linha para uma
 * **Linhas com erros:** Baixa um arquivo contendo apenas as linhas que tiveram um status de **Error**.
 * **Todas as linhas:** Baixa um arquivo contendo todas as linhas processadas na execução.
 
-{% multi_lang_include early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
 
 Os registros não podem ser exportados diretamente do dashboard. Após a exportação ser gerada, você receberá um e-mail com um link para baixar o arquivo de exportação do registro.
 

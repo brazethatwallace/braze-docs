@@ -24,7 +24,7 @@ You can set the email subscription state for an email address that is not yet as
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `email.status` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `email.status` permission.
 
 ## Rate limit
 
@@ -39,7 +39,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ```json
 {
-  "email": "example@braze.com",
+  "email": "example@example.com",
   "subscription_state": "subscribed"
 }
 ```
@@ -54,7 +54,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Troubleshooting SendGrid email blocks
 
-When SendGrid blocks a recipient, update subscription status with this endpoint and review engagement with segment filters. Use [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) soft-bounce events for deliverability monitoring, and confirm subscription state before retrying sends.
+When SendGrid blocks a recipient, update subscription status with this endpoint and review engagement with segment filters. Use [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) soft-bounce events for deliverability monitoring, and confirm subscription state before retrying sends.
 
 ## Example request
 ```
@@ -62,7 +62,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/email/status' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
 --data-raw '{
-  "email": "example@braze.com",
+  "email": "example@example.com",
   "subscription_state": "subscribed"
 }'
 ```

@@ -16,7 +16,7 @@ hidden: true
 
 This upgrade path is intended for brands with a Shopify online store. 
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## Upgrade requirements
 
@@ -160,7 +160,7 @@ You need to create a public endpoint that Braze can call to retrieve the externa
 
 ```
 GET 
-https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
+https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@example.com&shopify_storefront=dev-store.myshopify.com
 ```
 
 ##### Expected response

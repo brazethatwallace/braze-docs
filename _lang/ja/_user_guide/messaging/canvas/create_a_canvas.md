@@ -183,7 +183,7 @@ Brazeでは、IPウォーミングのときに**キャンバスがスケジュ�
 
 #### ターゲットオーディエンス数と到達可能なユーザー数が異なる理由 {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 
-{% multi_lang_include segments.md section='Differing audience size' %}
+{% multi_lang_include audience/segments.md section='Differing audience size' %}
 
 ### ステップ 1.4: 送信設定を選択する {#step-14-select-your-send-settings}
 

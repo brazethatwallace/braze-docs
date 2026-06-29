@@ -184,7 +184,7 @@ En este paso también puedes especificar controles de entrega, como permitir que
 
 A continuación, debes [dirigirte a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) eligiendo segmentos o filtros para acotar tu audiencia. En este paso, seleccionas la audiencia más amplia de tus segmentos y acotas aún más ese segmento con nuestros filtros, si lo deseas. Recibirás automáticamente una vista previa de la población aproximada de ese segmento. Ten en cuenta que la pertenencia exacta al segmento siempre se calcula antes de enviar el mensaje.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 ### Elige eventos de conversión {#choose-conversion-events}
 
@@ -260,7 +260,7 @@ Braze enviará webhooks desde las siguientes IPs. Las IPs listadas se añaden au
 Si estás haciendo un webhook de Braze a Braze y usas la lista de permitidos, deberías incluir todas las siguientes IPs, incluyendo `127.0.0.1`.
 {% endalert %}
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### Eliminar usuarios {#delete-users}
 

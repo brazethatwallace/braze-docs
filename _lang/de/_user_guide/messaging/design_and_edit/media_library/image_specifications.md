@@ -18,7 +18,7 @@ Sie sollten Ihre Nachrichten immer auf verschiedenen Geräten [in der Vorschau a
 
 ## Bildverhalten {#image-behavior}
 
-{% multi_lang_include image_specs.md variable_name='image behavior' %}
+{% multi_lang_include channels/image_specs.md variable_name='image behavior' %}
 
 ## Video {#video}
 
@@ -34,15 +34,15 @@ GIFs werden in iOS-Push-Benachrichtigungen, In-App-Nachrichten, E-Mails, Content
 
 ### Content Cards
 
-{% multi_lang_include image_specs.md variable_name='content cards' %}
+{% multi_lang_include channels/image_specs.md variable_name='content cards' %}
 
 ### E-Mail {#email}
 
-{% multi_lang_include image_specs.md variable_name='email' %}
+{% multi_lang_include channels/image_specs.md variable_name='email' %}
 
 ### In-App-Nachrichten {#in-app-messages}
 
-{% multi_lang_include image_specs.md variable_name='in-app messages' %}
+{% multi_lang_include channels/image_specs.md variable_name='in-app messages' %}
 
 {% alert tip %} Erstellen Sie Assets mit Zuversicht! Unsere Bildvorlagen und Safe-Zone-Overlays für In-App-Nachrichten sind so konzipiert, dass sie auf Geräten aller Größen optimal funktionieren. [Design-Vorlagen-ZIP herunterladen]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}). {% endalert %}
 
@@ -54,9 +54,9 @@ Braze unterstützt die Verwendung von [Font Awesome v4.3.0](https://fontawesome.
 
 ### Push-Benachrichtigungen {#push-notifications}
 
-{% multi_lang_include image_specs.md variable_name='payload size' %}
+{% multi_lang_include channels/image_specs.md variable_name='payload size' %}
 
-{% multi_lang_include image_specs.md variable_name='push notifications' %}
+{% multi_lang_include channels/image_specs.md variable_name='push notifications' %}
 
 #### Empfohlene Nachrichtenlängen {#recommended-message-lengths}
 

@@ -25,7 +25,7 @@ platform:
 
 배너 배치를 생성하는 데 필요한 최소 SDK 버전은 다음과 같습니다:
 
-{% multi_lang_include sdk_versions.md feature='banners' %}
+{% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
 {% multi_lang_include banners/creating_placements.md section="developer" %}
 

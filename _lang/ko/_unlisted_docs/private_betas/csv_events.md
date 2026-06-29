@@ -10,7 +10,7 @@ page_type: reference
 
 > Braze는 플랫폼에 사용자 데이터를 가져오는 다양한 방법을 제공합니다: SDK, API, 클라우드 데이터 수집, 기술 파트너 통합, CSV 파일 등이 있습니다. 이 문서에서는 [CSV 파일을 통한 커스텀 이벤트 가져오기(얼리 액세스)](#importing-custom-events)를 포함하여 사용자 데이터를 가져오는 방법에 대한 자세한 안내를 제공합니다.
 
-{% multi_lang_include email-via-sms-warning.md %}
+{% multi_lang_include channels/sms/email_via_sms_warning.md %}
 
 진행하기 전에, Braze는 가져오기 중에 HTML 데이터를 정제(유효성 검사 또는 올바른 형식 지정)하지 않는다는 점에 유의하세요. 이는 웹 개인화를 위한 모든 가져오기 데이터에서 스크립트 태그를 제거해야 함을 의미합니다.
 

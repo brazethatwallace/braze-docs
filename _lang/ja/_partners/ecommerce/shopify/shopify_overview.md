@@ -26,13 +26,13 @@ ShopifyとのBraze統合は、カスタマーエンゲージメントを高め�
 
 Brazeは、Shopify加盟店向けに、eコマースビジネスの多様なニーズを満たすように設計された2つの統合オプションである**標準統合**と**カスタム統合**を提供しています。
 
-{% multi_lang_include shopify.md section='Integration Tabs' %}
+{% multi_lang_include partners/shopify.md section='Integration Tabs' %}
 
 ## 統合の仕組み {#how-the-integration-works}
 
 設定で[履歴バックフィル]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)をすでに設定してオンにしている場合は、最初のデータ同期がすぐに開始されます。
 
-{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
+{% multi_lang_include partners/shopify.md section='Custom external ID historical backfill' %}
 
 最初のデータ同期後、BrazeはShopifyとBraze SDKから直接、新しいデータと更新を継続的に追跡します。
 

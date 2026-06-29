@@ -22,7 +22,7 @@ tool:
 {% tabs %}
 {% tab ドラッグ＆ドロップ %}
 
-{% multi_lang_include create_content_block.md location="dnd" %}
+{% multi_lang_include messaging/create_content_block.md location="dnd" %}
 
 {% alert important %}
 各ドラッグ＆ドロップコンテンツブロックは1行に制限されています。ただし、ドラッグ＆ドロップエディターブロックを使用して、メールメッセージングに合わせてコンテンツブロックを構築・カスタマイズできます。
@@ -31,7 +31,7 @@ tool:
 {% endtab %}
 {% tab HTML %}
 
-{% multi_lang_include create_content_block.md location="html" %}
+{% multi_lang_include messaging/create_content_block.md location="html" %}
 
 {% endtab %}
 {% endtabs %}

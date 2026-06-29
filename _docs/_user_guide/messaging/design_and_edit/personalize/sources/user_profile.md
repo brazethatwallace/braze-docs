@@ -21,7 +21,7 @@ Hi {{${first_name} | default: 'there'}}, check out our latest picks for you!
 ```
 {% endraw %}
 
-For a complete list of standard attribute tags, see [Supported personalization tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
+For a complete list of standard attribute tags, see [Supported personalization tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
 ## Custom attributes
 
@@ -39,7 +39,7 @@ For example, to personalize a message based on a user's membership tier:
 ```
 {% endraw %}
 
-For more information about creating and managing custom attributes, see [Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/).
+For more information about creating and managing custom attributes, see [Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes).
 
 ## Event properties
 
@@ -53,7 +53,7 @@ Thanks for purchasing {{event_properties.${product_name}}}! Your order is on its
 ```
 {% endraw %}
 
-Event properties are available in action-based campaigns and the first step of an action-based Canvas. For more information, see [Custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/).
+Event properties are available in action-based campaigns and the first step of an action-based Canvas. For more information, see [Custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events).
 
 ## API trigger properties
 
@@ -67,7 +67,7 @@ Your verification code is {{api_trigger_properties.${verification_code}}}.
 ```
 {% endraw %}
 
-For more information, see [API trigger properties object]({{site.baseurl}}/api/objects_filters/trigger_properties_object/).
+For more information, see [API trigger properties object]({{site.baseurl}}/api/objects_filters/trigger_properties_object).
 
 ## Device attributes
 
@@ -75,7 +75,7 @@ For more information, see [API trigger properties object]({{site.baseurl}}/api/o
 You can also reference attributes from the user's most recently used device. For example, `{{most_recently_used_device.${model}}}` returns the device model name, and `{{most_recently_used_device.${os}}}` returns the operating system.
 {% endraw %}
 
-For the full list of device attribute tags, see [Supported personalization tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#most-recently-used-device-information).
+For the full list of device attribute tags, see [Supported personalization tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#most-recently-used-device-information).
 
 ## Setting default values
 
@@ -87,4 +87,4 @@ Hi {{${first_name} | default: 'there'}},
 ```
 {% endraw %}
 
-For more information, see [Setting default values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/).
+For more information, see [Setting default values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values).

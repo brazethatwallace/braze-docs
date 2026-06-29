@@ -20,7 +20,7 @@ description: "이 문서에서는 메시지에서 로캘을 사용하는 방법�
 {% tabs %}
 {% tab 다국어 로캘 %}
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 {% endtab %}
 {% tab 메시지 유형 %}

@@ -87,7 +87,7 @@ Braze에서 가장 일반적인 경합 조건 중 하나는 새로 생성된 사
 
 [`/users/track/sync/` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/)를 사용하여 커스텀 이벤트와 구매를 기록하고 고객 프로필 속성을 동기적으로 업데이트할 수 있습니다. 이 엔드포인트를 사용하여 고객 프로필을 동시에 단일 호출로 업데이트하면 잠재적인 경합 조건을 방지하는 데 도움이 됩니다.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This endpoint' type='beta' %}
 
 ## 시나리오 3: 동작 기반 트리거와 오디언스 필터 매칭 {#scenario-3-matching-action-based-triggers-and-audience-filters}
 

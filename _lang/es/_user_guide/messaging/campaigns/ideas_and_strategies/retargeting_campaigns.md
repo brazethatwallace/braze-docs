@@ -81,7 +81,7 @@ Usa este filtro para encontrar usuarios que están o no están en el grupo de co
 
 Usa este filtro para encontrar usuarios que recibieron por última vez una campaña específica antes o después de una fecha o número de días determinado. Este filtro no tiene en cuenta cuándo los usuarios recibieron otras campañas.
 
-{% multi_lang_include segments.md section='same channel identifier' %}
+{% multi_lang_include audience/segments.md section='same channel identifier' %}
 
 ![]({% image_buster /assets/img_archive/last_received_specific_campaign.png %})
 
@@ -95,7 +95,7 @@ Usa este filtro para encontrar usuarios que recibieron por última vez una campa
 
 Usa este filtro para encontrar usuarios que han o no han recibido tu campaña objetivo.
 
-{% multi_lang_include segments.md section='same channel identifier' %}
+{% multi_lang_include audience/segments.md section='same channel identifier' %}
 
 ![]({% image_buster /assets/img_archive/receivedcamp.png %})
 

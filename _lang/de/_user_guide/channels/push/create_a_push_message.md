@@ -192,7 +192,7 @@ In diesem Schritt können Sie auch Zustellungskontrollen festlegen, z. B. Nutzer
 
 Als Nächstes müssen Sie die [Zielgruppe zusammenstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/), indem Sie Segmente oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Sie erhalten automatisch eine Vorschau der ungefähren Segment-Population. Detaillierte Zielgruppenstatistiken für die von Ihrer Campaign angesprochenen Kanäle sind in der Fußzeile verfügbar. Um zu sehen, welcher Prozentsatz Ihrer Nutzerbasis angesprochen wird und den Lifetime-Value für dieses Segment, wählen Sie **Show Additional Stats**.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 {% details Warum stimmt meine Metrik „Gesamte erreichbare Nutzer:innen“ nicht mit der Summe aller Kanäle überein? %}
 

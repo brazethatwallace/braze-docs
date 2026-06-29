@@ -215,7 +215,7 @@ Samのプロファイルには2つの購入イベントがありますが、実�
 
 ### キャンバスのエントリプロパティとイベントプロパティ {#canvas-entry-properties-and-event-properties}
 
-{% multi_lang_include canvas_entry_event_properties.md %}
+{% multi_lang_include canvas/entry_event_properties.md %}
 
 ### 注文レベルでの購入のログ記録 {#log-purchases-at-the-order-level}
 

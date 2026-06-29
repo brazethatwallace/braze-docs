@@ -183,7 +183,7 @@ Pour afficher des statistiques supplémentaires, comme le chiffre d'affaires moy
 
 #### Pourquoi le nombre de l'audience cible peut différer du nombre d'utilisateurs pouvant être atteints {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 
-{% multi_lang_include segments.md section='Differing audience size' %}
+{% multi_lang_include audience/segments.md section='Differing audience size' %}
 
 ### Étape 1.4 : Sélectionner vos paramètres d'envoi {#step-14-select-your-send-settings}
 

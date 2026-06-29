@@ -90,11 +90,11 @@ Si l'API répondait avec {%raw%}`{{localweather.consolidated_weather[0].weather_
 
 ![Notification push avec le message « It's raining! Grab an umbrella! »]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){:style="max-width:50%" }
 
-{% multi_lang_include connected_content.md section='default behavior' %}
+{% multi_lang_include connected_content/sections.md section='default behavior' %}
 
 ## HTTP POST
 
-{% multi_lang_include connected_content.md section='http post' %}
+{% multi_lang_include connected_content/sections.md section='http post' %}
 
 ### Fournir un payload JSON {#providing-json-body}
 

@@ -44,7 +44,7 @@ Utiliza este campo para definir durante cuánto tiempo Braze mantendrá activa t
 
 Puedes restringir a tus usuarios para que inicien sesión usando una contraseña o SSO.
 
-Para [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/), los clientes deben configurar sus ajustes de SAML antes de aplicar la restricción. Si los clientes usan Google SSO, solo necesitan aplicar la configuración en la página de configuración de seguridad sin ningún paso adicional.
+Para [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on), los clientes deben configurar sus ajustes de SAML antes de aplicar la restricción. Si los clientes usan Google SSO, solo necesitan aplicar la configuración en la página de configuración de seguridad sin ningún paso adicional.
 
 ## Lista de IP permitidas del dashboard {#dashboard-ip-allowlisting}
 
@@ -115,8 +115,6 @@ El acceso elevado añade una capa adicional de seguridad para acciones sensibles
 
 Si un usuario no puede volver a verificarse, será redirigido a donde estaba y no podrá continuar con la acción sensible. Después de verificarse correctamente, no necesitará hacerlo de nuevo durante la siguiente hora, a menos que cierre sesión primero.
 
-![Interruptor de acceso elevado.]({% image_buster /assets/img/elevated_access.png %})
-
 ## Descargar un informe de eventos de seguridad {#security-event-report}
 
 El informe de eventos de seguridad es un informe CSV de eventos de seguridad como invitaciones a cuentas, eliminaciones de cuentas, intentos de inicio de sesión fallidos y exitosos, y otras actividades. Puedes usarlo para realizar auditorías internas.
@@ -129,7 +127,7 @@ Para descargar este informe, haz lo siguiente:
 
 Esta descarga manual de informe solo contiene los 10 000 eventos de seguridad más recientes de tu cuenta.
 
-Para exportar eventos de seguridad a Amazon S3 sin este límite de filas, consulta [Exportación de eventos de seguridad con Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/).
+Para exportar eventos de seguridad a Amazon S3 sin este límite de filas, consulta [Exportación de eventos de seguridad con Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3).
 
 ### Definiciones de columnas del CSV {#csv-column-definitions}
 
@@ -145,7 +143,7 @@ El informe CSV de eventos de seguridad contiene las siguientes columnas:
 | JsonProperties | Propiedades específicas del evento en formato JSON. Los campos incluidos varían según el tipo de evento. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Definiciones de columnas del CSV" }
 
-Las [exportaciones a S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/) incluyen estas columnas más `Version`, la versión del esquema para el formato de exportación (actualmente `1`).
+Las [exportaciones a S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3) incluyen estas columnas más `Version`, la versión del esquema para el formato de exportación (actualmente `1`).
 
 {% details Eventos de seguridad reportados %}
 ### Inicio de sesión y cuenta {#login-and-account}
@@ -265,15 +263,15 @@ Canvas
 El permiso **View PII** solo es accesible para unos pocos usuarios seleccionados de la empresa. De forma predeterminada, todos los administradores tienen su permiso **View PII** activado en los permisos de usuario. Esto significa que pueden ver todos los atributos estándar y personalizados que tu empresa ha definido como PII en todo el dashboard. Cuando este permiso está desactivado para los usuarios, esos usuarios no podrán ver ninguno de esos atributos.
 
 {% alert note %}
-Necesitas el permiso **View PII** para usar el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries/), ya que permite el acceso directo a algunos datos de clientes.
+Necesitas el permiso **View PII** para usar el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries), ya que permite el acceso directo a algunos datos de clientes.
 {% endalert %}
 
-Para las capacidades existentes de permisos de equipo, consulta [Configurar permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#available-limited-and-team-role-permissions).
+Para las capacidades existentes de permisos de equipo, consulta [Configurar permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions).
 
 ### Definir PII {#defining-pii}
 
 {% alert important %}
-Seleccionar y definir ciertos campos como campos PII solo afecta lo que los usuarios pueden ver en el dashboard de Braze y no afecta cómo se manejan los datos del usuario final en dichos campos PII.<br><br>Consulta con tu equipo legal para alinear la configuración de tu dashboard con cualquier regulación y política de privacidad aplicable a tu empresa, incluidas las relacionadas con la [retención de datos]({{site.baseurl}}/data_retention/).
+Seleccionar y definir ciertos campos como campos PII solo afecta lo que los usuarios pueden ver en el dashboard de Braze y no afecta cómo se manejan los datos del usuario final en dichos campos PII.<br><br>Consulta con tu equipo legal para alinear la configuración de tu dashboard con cualquier regulación y política de privacidad aplicable a tu empresa, incluidas las relacionadas con la [retención de datos]({{site.baseurl}}/data_retention).
 {% endalert %}
 
 Puedes seleccionar los campos que tu empresa designa como PII en el dashboard. Para hacerlo, ve a **Configuración de empresa** > **Configuración de administrador** > **Configuración de seguridad**.
@@ -344,7 +342,7 @@ Si te encuentras atrapado en un bucle después de introducir correctamente tu n�
 3. Reinicia tu PC o portátil.
 4. Intenta configurar 2FA de nuevo.
 
-Si el problema persiste después de estos pasos, ponte en contacto con [Soporte]({{site.baseurl}}/braze_support/) para obtener asistencia.
+Si el problema persiste después de estos pasos, ponte en contacto con [Soporte]({{site.baseurl}}/braze_support) para obtener asistencia.
 
 ### No se puede habilitar la autenticación de dos factores (2FA) {#cant-enable-two-factor-authentication-2fa}
 
@@ -368,5 +366,5 @@ Si los problemas persisten, elimina el perfil antiguo en la aplicación Authy y 
 
 Para más información sobre autenticación y acceso, consulta:
 
-- [SAML e inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/) para configurar SSO con tu proveedor de identidad.
-- [Permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para controlar qué acciones pueden realizar los usuarios en el dashboard.
+- [SAML e inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) para configurar SSO con tu proveedor de identidad.
+- [Permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para controlar qué acciones pueden realizar los usuarios en el dashboard.

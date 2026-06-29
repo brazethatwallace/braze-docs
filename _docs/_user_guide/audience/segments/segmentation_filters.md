@@ -83,11 +83,11 @@ glossaries:
     tags:
       - Custom events
   - name: X Custom Event In Y Days
-    description: Determines whether or not a user has performed a specially recorded event between 0 and 50 times in the last specified number of calendar days between 1 and 30. (Calendar Day = 1 calendar day looks at 24-48 hours of user history)<br> <a href="/docs/x-in-y-behavior/"> Learn more about X-in-Y behavior here.</a> <br><br>Example:<br>Abandoned Cart exactly 0 times in the last 1 calendar day<br><br>Time zone:<br>UTC - To account for all time zones, 1 calendar day looks at 24-48 hours of user history, depending on the time the segment is evaluated; for 2 calendar days, looks at 48-72 hours of user history, and so on.
+    description: Determines whether or not a user has performed a specially recorded event between 0 and 50 times in the last specified number of calendar days between 1 and 30. (Calendar Day = 1 calendar day looks at 24-48 hours of user history)<br> <a href="/docs/x-in-y-behavior"> Learn more about X-in-Y behavior here.</a> <br><br>Example:<br>Abandoned Cart exactly 0 times in the last 1 calendar day<br><br>Time zone:<br>UTC - To account for all time zones, 1 calendar day looks at 24-48 hours of user history, depending on the time the segment is evaluated; for 2 calendar days, looks at 48-72 hours of user history, and so on.
     tags:
       - Custom events
   - name: X Custom Event Property In Y Days
-    description: Determines whether or not a user has performed a specially recorded event in relation to a specific property between 0 and 50 times in the last specified number of calendar days between 1 and 30. (Calendar Day = 1 calendar day looks at 24-48 hours of user history)<br><a href="/docs/x-in-y-behavior/">Learn more about X-in-Y behavior here.</a> <br><br>Example:<br> Added to Favorites w/ property "event_name" exactly 0 times in the last 1 calendar day<br><br>Time zone:<br>UTC - To account for all time zones, 1 calendar day looks at 24-48 hours of user history, depending on the time the segment is evaluated; for 2 calendar days, looks at 48-72 hours of user history, and so on.
+    description: Determines whether or not a user has performed a specially recorded event in relation to a specific property between 0 and 50 times in the last specified number of calendar days between 1 and 30. (Calendar Day = 1 calendar day looks at 24-48 hours of user history)<br><a href="/docs/x-in-y-behavior">Learn more about X-in-Y behavior here.</a> <br><br>Example:<br> Added to Favorites w/ property "event_name" exactly 0 times in the last 1 calendar day<br><br>Time zone:<br>UTC - To account for all time zones, 1 calendar day looks at 24-48 hours of user history, depending on the time the segment is evaluated; for 2 calendar days, looks at 48-72 hours of user history, and so on.
     tags:
       - Custom events
   - name: Email Address
@@ -111,7 +111,7 @@ glossaries:
     tags:
       - Sessions
   - name: X Sessions In Last Y Days
-    description: Segments your users by the number of sessions (between 0 and 50) they have had in your app in the last specified number of calendar days between 1 and 30. <br> <a href="/docs/x-in-y-behavior/">Learn more about X-in-Y behavior here.</a>
+    description: Segments your users by the number of sessions (between 0 and 50) they have had in your app in the last specified number of calendar days between 1 and 30. <br> <a href="/docs/x-in-y-behavior">Learn more about X-in-Y behavior here.</a>
     tags:
       - Sessions
   - name: First Used App
@@ -219,7 +219,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Hard Bounced
-    description: Segment your users by whether their email address has hard bounced (such as the email address is invalid). To export users with invalid emails, call the [`/email/hard_bounces`]({{site.baseurl}}/api/endpoints/email/get_list_hard_bounces/) endpoint or build a segment with filters such as email address is not blank, email is not available, and email subscription status is not unsubscribed.
+    description: Segment your users by whether their email address has hard bounced (such as the email address is invalid). To export users with invalid emails, call the [`/email/hard_bounces`]({{site.baseurl}}/api/endpoints/email/get_list_hard_bounces) endpoint or build a segment with filters such as email address is not blank, email is not available, and email subscription status is not unsubscribed.
     tags:
       - Retargeting
   - name: Soft Bounced
@@ -275,7 +275,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Feature Flags
-    description: The segment of your users that have a particular <a href="/docs/developer_guide/feature_flags/">feature flag</a> currently enabled.
+    description: The segment of your users that have a particular <a href="/docs/developer_guide/feature_flags">feature flag</a> currently enabled.
     tags:
       - Retargeting
   - name: Subscription Group
@@ -335,11 +335,11 @@ glossaries:
     tags:
       - Purchase behavior
   - name: X Purchases in Last Y Days
-    description: Segments your users by the number of times (between 0 and 50) they have made a purchase in the last specified number of calendar days between 1 and 30. <br> <a href="/docs/x-in-y-behavior/">Learn more about X-in-Y behavior here.</a>
+    description: Segments your users by the number of times (between 0 and 50) they have made a purchase in the last specified number of calendar days between 1 and 30. <br> <a href="/docs/x-in-y-behavior">Learn more about X-in-Y behavior here.</a>
     tags:
       - Purchase behavior
   - name: X Purchase Property In Y Days
-    description: Segments your users by the number of times a purchase was made in relation to a certain purchase property in the last specified number of calendar days between 1 and 30. <br> <a href="/docs/x-in-y-behavior/">Learn more about X-in-Y behavior here.</a>
+    description: Segments your users by the number of times a purchase was made in relation to a certain purchase property in the last specified number of calendar days between 1 and 30. <br> <a href="/docs/x-in-y-behavior">Learn more about X-in-Y behavior here.</a>
     tags:
       - Purchase behavior
   - name: First Made Purchase
@@ -363,7 +363,7 @@ glossaries:
     tags:
       - Purchase behavior
   - name: X Money Spent in Y Days
-    description: Segments your users by the amount of money that they have spent in your app in the last specified number of calendar days between 1 and 30. This amount includes only the sum of the last 50 purchases. <br> <a href="/docs/x-in-y-behavior/">Learn more about X-in-Y behavior here.</a>
+    description: Segments your users by the amount of money that they have spent in your app in the last specified number of calendar days between 1 and 30. This amount includes only the sum of the last 50 purchases. <br> <a href="/docs/x-in-y-behavior">Learn more about X-in-Y behavior here.</a>
     tags:
       - Purchase behavior
   - name: Last order placed (last 730 days)
@@ -523,7 +523,7 @@ glossaries:
     tags:
       - Location
   - name: Location Available
-    description: Segments your users by whether they have reported their locations. In order to use this filter, your app needs to have <a href="/docs/search/?query=location%20tracking">location tracking integrated.</a>
+    description: Segments your users by whether they have reported their locations. In order to use this filter, your app needs to have <a href="/docs/search?query=location%20tracking">location tracking integrated.</a>
     tags:
       - Location
   - name: Amplitude Cohorts

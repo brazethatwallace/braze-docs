@@ -10,7 +10,7 @@ description: "Learn how to use various Braze features to power your B2B account-
 
 > This page shows how to use various Braze features to power your B2B account-based segmentation use cases.
 
-You can do B2B account-based segmentation in two ways, depending on how you set up your [B2B data model]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models/):
+You can do B2B account-based segmentation in two ways, depending on how you set up your [B2B data model]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models):
 
 - When using [catalogs for your business objects](#option-1-when-using-catalogs-for-your-business-objects)
 - When using [connected sources for your business objects](#option-2-when-using-connected-sources-for-your-business-objects)
@@ -47,7 +47,7 @@ Select the following variables for a B2B account-based segmentation use case:
 
 #### Sophisticated SQL segmentation
 
-For more sophisticated or complex segmentation, refer to [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/). To help you get started, here are a few SQL templates you can use to help you get a head start with B2B account-based segmentation:
+For more sophisticated or complex segmentation, refer to [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments). To help you get started, here are a few SQL templates you can use to help you get a head start with B2B account-based segmentation:
 
 1. Create a segment comparing two filters in a single catalog (such as users who work in the restaurant industry for an enterprise-level account). You must include the catalog ID and item ID.
 
@@ -108,7 +108,7 @@ AND salesforce_opportunities.Stage = 'Closed Won'
 
 ### Option 2: When using connected sources for your business objects
 
-For the basics on how to use connected sources in segmentation, refer to [CDI Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/). Use the templates covered in [When using catalogs](#option-1-when-using-catalogs-for-your-business-objects) for inspiration on how to format the source tables, as you can format them any way you want.
+For the basics on how to use connected sources in segmentation, refer to [CDI Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments). Use the templates covered in [When using catalogs](#option-1-when-using-catalogs-for-your-business-objects) for inspiration on how to format the source tables, as you can format them any way you want.
 
 ## Using your account-based extension in a segment
 

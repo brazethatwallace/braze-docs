@@ -143,7 +143,7 @@ GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
 
 Snowflake 계정의 구성에 따라 Snowflake 네트워크 정책에서 다음 IP 주소를 허용해야 할 수 있습니다. 이에 대한 자세한 내용은 [네트워크 정책 수정](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies)에 관한 Snowflake 설명서를 참조하세요.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 {% endtab %}
 
 {% tab Redshift %}
@@ -171,7 +171,7 @@ Braze가 Redshift의 데이터에 접근할 수 있도록 보안 그룹을 변�
 
 Redshift 클러스터를 공개적으로 접근 가능하게 하고 싶지 않은 경우 VPC 및 EC2 인스턴스를 설정하여 SSH 터널을 사용해 Redshift 데이터에 접근할 수 있습니다. 자세한 내용은 [AWS: 로컬 머신에서 프라이빗 Amazon Redshift 클러스터에 접근하려면 어떻게 해야 하나요?](https://repost.aws/knowledge-center/private-redshift-cluster-local-machine)를 참조하세요.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -198,7 +198,7 @@ Braze가 CDI **Segment** Extensions 쿼리 결과로 테이블을 생성한 후 
 
 네트워크 정책이 있는 경우 Braze 네트워크에 BigQuery 인스턴스에 대한 접근 권한을 부여해야 합니다. Braze 대시보드 리전에 해당하는 아래 IP에서의 접근을 허용하세요.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -226,7 +226,7 @@ Braze가 CDI **Segment** Extensions 쿼리 결과로 테이블을 생성한 후 
 
 네트워크 정책이 있는 경우 Braze 네트워크에 Databricks 인스턴스에 대한 접근 권한을 부여해야 합니다. Braze 대시보드 리전에 해당하는 아래 IP에서의 접근을 허용하세요.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -265,7 +265,7 @@ Braze가 연결하려면 웨어하우스의 SQL 엔드포인트가 필요합니�
 
 Microsoft Fabric 계정의 구성에 따라 방화벽에서 다음 IP 주소를 허용하여 Braze의 트래픽을 허용해야 할 수 있습니다. 이를 활성화하는 방법에 대한 자세한 내용은 [Entra 조건부 접근](https://learn.microsoft.com/en-us/fabric/security/protect-inbound-traffic#entra-conditional-access)에 관한 설명서를 참조하세요.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 

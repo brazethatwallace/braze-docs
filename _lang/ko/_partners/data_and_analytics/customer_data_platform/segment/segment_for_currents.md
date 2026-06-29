@@ -49,7 +49,7 @@ Segment 쓰기 키를 최신 상태로 유지하는 것이 중요합니다. 커�
 
 **Include events from anonymous users**가 체크되어 있는 경우에만 Braze가 `external_user_id`가 없는 사용자의 이벤트 데이터를 전송한다는 점에 유의하세요.
 
-{% multi_lang_include early_access_beta_alert.md feature='Anonymous user export' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Anonymous user export' %}
 
 ![Braze의 Segment Currents 페이지에서 사용 가능한 모든 메시지 참여 이벤트 목록.]({% image_buster /assets/img/segment/segment_currents_data_config.png %})
 
@@ -61,7 +61,7 @@ Segment 쓰기 키를 최신 상태로 유지하는 것이 중요합니다. 커�
 
 ## Currents 업데이트하기 {#updating-your-current}
 
-{% multi_lang_include updating_currents.md %}
+{% multi_lang_include currents/updating_currents.md %}
 
 ## 지원되는 Currents 이벤트 {#supported-currents-events}
 

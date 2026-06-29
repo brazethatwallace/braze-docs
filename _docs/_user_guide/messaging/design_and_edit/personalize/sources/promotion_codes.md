@@ -50,9 +50,9 @@ Promotion codes are available in in-app message campaigns as an early access fea
 
 Looking for next steps? Start here:
 
-- [Creating a promotion code list]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/)
-- [Using promotion codes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#using-promotion-codes)
-- [Viewing promotion code usage]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#viewing-promotion-code-usage)
+- [Creating a promotion code list]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create)
+- [Using promotion codes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes)
+- [Viewing promotion code usage]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#viewing-promotion-code-usage)
 
 ## Frequently asked questions
 
@@ -87,7 +87,7 @@ If you've uploaded incorrect codes, you have two options to resolve this:
 - **Deprecate the entire list:** Stop using the current list in any campaigns, Canvases, or templates. Then upload the correct codes to a new list and switch all your messages to use the new list.
 - **Exhaust the incorrect codes:** Create a campaign that sends codes from the incorrect list to a placeholder user until all the wrong codes are used. After that, re-upload the correct codes to the same list, excluding the incorrect ones.
 
-For general guidance on updating a list, see [Updating a promotion code list]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/#updating-a-promotion-code-list).
+For general guidance on updating a list, see [Updating a promotion code list]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create#updating-a-promotion-code-list).
 
 ### Does Braze track which users received or redeemed which promotion codes?
 
@@ -95,9 +95,9 @@ When a message uses a promotion code, Braze marks that code as consumed so it ca
 
 If you need to associate codes with users or track redemption yourself, you can:
 
-- Save promotion codes to user profiles through a User Update step. For more information, see [Saving promotion codes to user profiles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#save-to-profile).
-- Send promotion code values to Currents using the `message_extras` Liquid tag. For more information, see [Sending promotion code information to Currents]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/#sending-promotion-code-information-to-currents).
+- Save promotion codes to user profiles through a User Update step. For more information, see [Saving promotion codes to user profiles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#save-to-profile).
+- Send promotion code values to Currents using the `message_extras` Liquid tag. For more information, see [Sending promotion code information to Currents]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras#sending-promotion-code-information-to-currents).
 
 ### Can I save a promotion code to a user's profile for future messages?
 
-Yes. You can save promotion codes to a user's profile through a User Update step. For more information, see [Saving promotion codes to user profiles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#save-to-profile).
+Yes. You can save promotion codes to a user's profile through a User Update step. For more information, see [Saving promotion codes to user profiles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#save-to-profile).

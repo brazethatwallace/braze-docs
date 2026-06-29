@@ -24,7 +24,7 @@ Data returned includes how many messages were sent, opened, clicked, or converte
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `campaigns.data_series` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `campaigns.data_series` permission.
 
 ## Rate limit
 
@@ -34,7 +34,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 
 | Parameter | Required | Data Type | Description |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | Required | String | See [campaign API identifier]({{site.baseurl}}/api/identifier_types/).<br><br> The `campaign_id` for API campaigns can be found on the [API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) page and the **Campaign Details** page within your dashboard, or you can use the [List campaigns endpoint]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/). |
+| `campaign_id` | Required | String | See [campaign API identifier]({{site.baseurl}}/api/identifier_types).<br><br> The `campaign_id` for API campaigns can be found on the [API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) page and the **Campaign Details** page within your dashboard, or you can use the [List campaigns endpoint]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns). |
 | `length` | Required | Integer | Maximum number of days before `ending_at` to include in the returned series. Must be between 1 and 100 (inclusive). |
 | `ending_at` | Optional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Date on which the data series should end. Defaults to time of the request. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
@@ -227,7 +227,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/data_s
 The possible message types are: `email`, `trigger_in_app_message`, `webhook`, `android_push`, `ios_push`, `kindle_push`, and `web_push`. All push message types will have the same statistics shown for `android_push`.
 
 {% alert tip %}
-For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}
@@ -236,6 +236,6 @@ For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl
 
 ### Viewing delivery failures for API-triggered campaigns
 
-The [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) endpoint returns aggregated daily stats (for example, `delivery_failed` for SMS or `errors` for webhooks). It does not return per-recipient failure reasons.
+The [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) endpoint returns aggregated daily stats (for example, `delivery_failed` for SMS or `errors` for webhooks). It does not return per-recipient failure reasons.
 
-For per-message send failures, bounces, and aborts from API-triggered or API campaigns, use the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) in the dashboard. For custom reports on send and delivery events, use [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) with [query templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/) or custom SQL. You can also stream failure events through Currents or Snowflake Data Sharing if your workspace has those products enabled.
+For per-message send failures, bounces, and aborts from API-triggered or API campaigns, use the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) in the dashboard. For custom reports on send and delivery events, use [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) with [query templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) or custom SQL. You can also stream failure events through Currents or Snowflake Data Sharing if your workspace has those products enabled.

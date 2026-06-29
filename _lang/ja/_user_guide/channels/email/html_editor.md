@@ -281,7 +281,7 @@ Campaignの期間を設定したり、[サイレント時間]({{site.baseurl}}/u
 
 次に、セグメントやフィルターを選択して[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)します。Brazeは、メールでリーチ可能なユーザー数を含むセグメント人口のライブプレビューを表示します。正確なセグメントメンバーシップは送信直前に計算されます。
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 特定の[サブスクリプションステータス]({{site.baseurl}}/user_guide/channels/email/subscriptions/)を持つユーザー（購読中でメールにオプトインしているユーザーなど）にのみCampaignを送信することもできます。
 

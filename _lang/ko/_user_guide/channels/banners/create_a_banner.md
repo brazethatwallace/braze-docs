@@ -150,7 +150,7 @@ channel:
 
 1. **타겟 오디언스**에서 Segments 또는 필터를 선택하여 오디언스를 좁힙니다. 대략적인 Segment 인구의 미리보기가 자동으로 제공됩니다. 정확한 Segment 멤버십은 메시지가 발송되기 전에 계산됩니다.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 {:start="2"}
 2. **전환 할당**에서 전환 이벤트를 정의하여 캠페인을 수신한 후 사용자가 특정 행동을 수행하는 빈도를 추적합니다. 해당 행동을 전환으로 집계하기 위한 최대 30일의 기간을 설정할 수 있습니다.

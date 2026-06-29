@@ -113,7 +113,7 @@ En lo que respecta al uso de suscripción, las propiedades de eventos personaliz
 
 ### Propiedades de entrada de Canvas y propiedades de eventos {#canvas-entry-properties-and-event-properties}
 
-{% multi_lang_include canvas_entry_event_properties.md %}
+{% multi_lang_include canvas/entry_event_properties.md %}
 
 ### Objetos anidados {#nested-objects}
 

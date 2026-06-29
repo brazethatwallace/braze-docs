@@ -37,7 +37,7 @@ Like your first Shopify store integration, you can choose either between a stand
 
 Choose the option that best fits your needs:
 
-{% multi_lang_include shopify.md section='Integration Tabs' %}
+{% multi_lang_include partners/shopify.md section='Integration Tabs' %}
 
 To view each store integration and configure advanced settings, select a store in the dropdown menu.
 

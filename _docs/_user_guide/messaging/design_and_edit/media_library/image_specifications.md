@@ -14,15 +14,15 @@ tool:
 
 > In general, smaller and high-quality images will load faster, so we recommend using the smallest asset possible to achieve your desired output. To maximize your image use in specific channels, refer to the details in this article.
 
-You should always [preview and test your messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) on a variety of devices to confirm that the most important areas of your image and message appear as expected.
+You should always [preview and test your messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) on a variety of devices to confirm that the most important areas of your image and message appear as expected.
 
 ## Image behavior
 
-{% multi_lang_include image_specs.md variable_name='image behavior' %}
+{% multi_lang_include channels/image_specs.md variable_name='image behavior' %}
 
 ## Video
 
-Videos uploaded to the media library can only be used in WhatsApp messages. For more information, refer to [Creating a WhatsApp message]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#outbound-messages).
+Videos uploaded to the media library can only be used in WhatsApp messages. For more information, refer to [Creating a WhatsApp message]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#outbound-messages).
 
 ## GIFs
 
@@ -34,19 +34,19 @@ GIFs are supported in iOS push, in-app messages, email, Content Cards, and MMS o
 
 ### Content Cards
 
-{% multi_lang_include image_specs.md variable_name='content cards' %}
+{% multi_lang_include channels/image_specs.md variable_name='content cards' %}
 
 ### Email
 
-{% multi_lang_include image_specs.md variable_name='email' %}
+{% multi_lang_include channels/image_specs.md variable_name='email' %}
 
 ### In-app messages
 
-{% multi_lang_include image_specs.md variable_name='in-app messages' %}
+{% multi_lang_include channels/image_specs.md variable_name='in-app messages' %}
 
 {% alert tip %} Create assets with confidence! Our in-app message image templates and safe-zone overlays are designed to play nicely with devices of all sizes. [Download Design Templates ZIP]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}). {% endalert %}
 
-For more information, refer to [In-app message creative details]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/).
+For more information, refer to [In-app message creative details]({{site.baseurl}}/user_guide/channels/in_app_messages/customize).
 
 #### Font Awesome
 
@@ -54,9 +54,9 @@ Braze supports using [Font Awesome v4.3.0](https://fontawesome.com/v4.7.0/cheats
 
 ### Push notifications
 
-{% multi_lang_include image_specs.md variable_name='payload size' %}
+{% multi_lang_include channels/image_specs.md variable_name='payload size' %}
 
-{% multi_lang_include image_specs.md variable_name='push notifications' %}
+{% multi_lang_include channels/image_specs.md variable_name='push notifications' %}
 
 #### Recommended message lengths
 
@@ -71,7 +71,7 @@ For best results, refer to the following message length guidelines when crafting
 | Android notification drawer | 597 characters | N/A |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Recommended message lengths" }
 
-For more information about iOS character counts, see [iOS character count guidelines]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count).
+For more information about iOS character counts, see [iOS character count guidelines]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications#character-count).
 
 #### Web push
 
@@ -140,5 +140,5 @@ Large image notifications display best when using an image of at least 600 x 300
 {% endtab %}
 {% endtabs %}
 
-For additional resources, see [Push image and text specifications]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/).
+For additional resources, see [Push image and text specifications]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats).
 

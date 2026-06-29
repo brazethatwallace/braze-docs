@@ -33,7 +33,7 @@ The constraints described in this article apply only to template messages (outbo
 
 ## Message Extras
 
-The [`message_extras` Liquid tag]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/) lets you annotate a message with key-value metadata at send time. This data is not rendered in the message body. Instead, the data flows to Connected Content, Currents, or other data capture mechanisms for purposes like attribution, impact measurement, and event enrichment.
+The [`message_extras` Liquid tag]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras) lets you annotate a message with key-value metadata at send time. This data is not rendered in the message body. Instead, the data flows to Connected Content, Currents, or other data capture mechanisms for purposes like attribution, impact measurement, and event enrichment.
 
 {% raw %}
 ```liquid

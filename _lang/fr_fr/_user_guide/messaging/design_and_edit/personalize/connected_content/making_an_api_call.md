@@ -219,7 +219,7 @@ Braze enverra les requêtes de contenu connecté depuis les plages d'IP suivante
 
 Braze dispose d'un ensemble réservé d'IP utilisées pour tous les services, qui ne sont pas toutes actives à un moment donné. Cela est conçu pour que Braze puisse envoyer depuis un centre de données différent ou effectuer de la maintenance, si nécessaire, sans impacter les clients. Braze peut utiliser une, un sous-ensemble ou toutes les IP suivantes lors des requêtes de contenu connecté.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### En-tête `User-Agent` {#user-agent-header}
 
@@ -272,9 +272,9 @@ La mise en cache peut aider à réduire les appels de contenu connecté en doubl
 
 ### Quel est le comportement HTTP par défaut du contenu connecté ? {#what-is-the-connected-content-http-default-behavior}
 
-{% multi_lang_include connected_content.md section='default behavior' %}
+{% multi_lang_include connected_content/sections.md section='default behavior' %}
 
-{% multi_lang_include connected_content.md section='http post' %}
+{% multi_lang_include connected_content/sections.md section='http post' %}
 
 ### Que se passe-t-il si j'utilise le même appel de contenu connecté à plusieurs endroits ? {#what-happens-if-i-use-the-same-connected-content-call-in-multiple-places}
 

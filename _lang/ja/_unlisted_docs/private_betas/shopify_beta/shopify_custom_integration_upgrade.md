@@ -16,7 +16,7 @@ hidden: true
 
 このアップグレードパスは、Shopifyヘッドレスストアまたは Shopify Hydrogenストアを使用しているブランドを対象としています。
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## アップグレード要件 {#upgrade-requirements}
 

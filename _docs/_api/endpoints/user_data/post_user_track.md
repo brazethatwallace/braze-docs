@@ -22,13 +22,13 @@ Braze processes the data passed through the API at face value, and you should on
 
 ## Need to update users in bulk?
 
-Use the [`/users/track/bulk` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track_bulk/) to send larger batches and reduce request volume.
+Use the [`/users/track/bulk` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track_bulk) to send larger batches and reduce request volume.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4cf57ea9-9b37-4e99-a02e-4373c9a4ee59 {% endapiref %}
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key/) with the `users.track` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `users.track` permission.
 
 Customers using the API for server-to-server calls may need to allowlist `rest.iad-01.braze.com` if they're behind a firewall.
 
@@ -59,9 +59,9 @@ For each request component listed in the following table, you must include one o
 
 | Parameter | Required | Data Type | Description |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | Optional | Array of attributes objects | See [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
-| `events` | Optional | Array of event objects | See [events object]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | Optional | Array of purchase objects | See [purchases object]({{site.baseurl}}/api/objects_filters/purchase_object/) |
+| `attributes` | Optional | Array of attributes objects | See [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) |
+| `events` | Optional | Array of event objects | See [events object]({{site.baseurl}}/api/objects_filters/event_object) |
+| `purchases` | Optional | Array of purchase objects | See [purchases object]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### Identifier resolution
@@ -96,7 +96,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --data-raw '{
     "attributes": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "string_attribute": "fruit",
             "boolean_attribute_1": true,
             "integer_attribute": 26,
@@ -108,7 +108,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     ],
     "events": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "app_id": "your_app_identifier",
             "name": "rented_movie",
             "time": "2022-12-06T19:20:45+01:00",
@@ -139,7 +139,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     ],
     "purchases": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "app_id": "your_app_identifier",
             "product_id": "product_name",
             "currency": "USD",
@@ -199,7 +199,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
   "attributes": [
   {
     "external_id": "user_identifier",
-    "email": "example@email.com",
+    "email": "example@example.com",
     "email_subscribe": "subscribed",
     "subscription_groups": [{
       "subscription_group_id": "subscription_group_identifier_1",
@@ -221,7 +221,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 ```
 
 {% alert note %}
-For SMS subscription groups, when you set a group's `subscription_state` to `subscribed`, you can include the optional `use_double_opt_in_logic` parameter set to `true` within that subscription group object to enter the user into the [SMS double opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) workflow. If this parameter is omitted or set to `false` when `subscription_state` is `subscribed`, the user is subscribed without entering the double opt-in workflow. This parameter is not applied when `subscription_state` is set to other values, such as `unsubscribed`.
+For SMS subscription groups, when you set a group's `subscription_state` to `subscribed`, you can include the optional `use_double_opt_in_logic` parameter set to `true` within that subscription group object to enter the user into the [SMS double opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) workflow. If this parameter is omitted or set to `false` when `subscription_state` is `subscribed`, the user is subscribed without entering the double opt-in workflow. This parameter is not applied when `subscription_state` is set to other values, such as `unsubscribed`.
 {% endalert %}
 
 ### Example request to create an alias-only user
@@ -298,9 +298,9 @@ If your message has a fatal error, you receive the following response:
 
 ### Fatal error response codes
 
-For status codes and associated error messages that Braze returns if your request encounters a fatal error, reference [Fatal errors & responses]({{site.baseurl}}/api/errors/#fatal-errors).
+For status codes and associated error messages that Braze returns if your request encounters a fatal error, reference [Fatal errors & responses]({{site.baseurl}}/api/errors#fatal-errors).
 
-If you receive the error "provided external_id is blacklisted and disallowed", your request may have included a "dummy user." For more information, refer to [Spam blocking]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking).
+If you receive the error "provided external_id is blacklisted and disallowed", your request may have included a "dummy user." For more information, refer to [Spam blocking]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#spam-blocking).
 
 ### Endpoint-specific errors
 
@@ -334,7 +334,7 @@ The following errors are specific to the `/users/track` endpoint and are returne
 If the `external_id` exists, Braze prioritizes the most recently updated profile with an external ID for updates. If the `external_id` doesn't exist, Braze prioritizes the most recently updated profile for updates.
 
 ### What happens if no profile with the email address exists?
-Braze creates a profile and an email-only user and sets the email field to test@braze.com, as noted in the example request for updating a user profile by email address. Braze does not create an alias.
+Braze creates a profile and an email-only user and sets the email field to test@example.com, as noted in the example request for updating a user profile by email address. Braze does not create an alias.
 
 ### How do you use `/users/track` to import legacy user data?
 You may submit data through the Braze API for a user who has not yet used your mobile app to generate a user profile. If the user subsequently uses the application, all information following their identification using the SDK is merged with the existing user profile you created using the API call. Any user behavior recorded anonymously by the SDK before identification is lost upon merging with the existing API-generated user profile.
@@ -347,8 +347,8 @@ Duplicate profiles can occur when a request includes a primary identifier (such 
 
 To avoid duplicates:
 
-- When transitioning users from email-only or phone-only profiles to identified profiles, use the [`/users/identify` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) to assign an `external_id` to the existing profile, rather than sending both to `/users/track`.
-- If duplicates already exist, merge them using the [`/users/merge` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/).
+- When transitioning users from email-only or phone-only profiles to identified profiles, use the [`/users/identify` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) to assign an `external_id` to the existing profile, rather than sending both to `/users/track`.
+- If duplicates already exist, merge them using the [`/users/merge` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_users_merge).
 
 ### How does `/users/track` handle duplicate events?
 
@@ -374,7 +374,7 @@ For more information about race conditions and best practices, see [Race conditi
 
 ### Why is my `/users/track` response slower than I expect?
 
-Successful `/users/track` calls are usually accepted quickly, but Braze still processes attribute, event, and purchase updates asynchronously. Perceived latency can increase when payloads are large or when network routing to your [REST endpoint]({{site.baseurl}}/api/basics/#endpoints) is slow. If you need a synchronous acknowledgment per user or stricter ordering between calls, see [`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/) (**limited beta**).
+Successful `/users/track` calls are usually accepted quickly, but Braze still processes attribute, event, and purchase updates asynchronously. Perceived latency can increase when payloads are large or when network routing to your [REST endpoint]({{site.baseurl}}/api/basics#endpoints) is slow. If you need a synchronous acknowledgment per user or stricter ordering between calls, see [`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous) (**limited beta**).
 
 ### How do rate limits affect `/users/track`?
 
@@ -382,7 +382,7 @@ When you approach your [rate limit](#rate-limit), you receive `429` responses. F
 
 ### Why do I get `400 Bad Request` with a bad syntax or parse error?
 
-An HTTP `400` with a syntax or parse error typically means the request body is not valid JSON. Common causes include trailing commas, comments inside JSON, single-quoted strings, an extra opening `{` before the payload, or sending a non-JSON body while the `Content-Type` header is `application/json`. Validate payloads with a JSON linter before sending, confirm your HTTP client JSON-encodes objects (rather than concatenating raw strings), and confirm the body is UTF-8 encoded. For other `400` responses (for example, payload size and per-request object limits), refer to [Fatal errors & responses]({{site.baseurl}}/api/errors/#fatal-errors) and the [Endpoint-specific errors](#endpoint-specific-errors) table on this page.
+An HTTP `400` with a syntax or parse error typically means the request body is not valid JSON. Common causes include trailing commas, comments inside JSON, single-quoted strings, an extra opening `{` before the payload, or sending a non-JSON body while the `Content-Type` header is `application/json`. Validate payloads with a JSON linter before sending, confirm your HTTP client JSON-encodes objects (rather than concatenating raw strings), and confirm the body is UTF-8 encoded. For other `400` responses (for example, payload size and per-request object limits), refer to [Fatal errors & responses]({{site.baseurl}}/api/errors#fatal-errors) and the [Endpoint-specific errors](#endpoint-specific-errors) table on this page.
 
 ## Monthly Active Users CY 24-25, Universal MAU, Web MAU, and Mobile MAU
 

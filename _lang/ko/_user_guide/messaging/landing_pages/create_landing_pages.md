@@ -70,7 +70,7 @@ page_order: 0
 
 #### 스팬 텍스트 {#span-text}
 
-{% multi_lang_include span_text.md %}
+{% multi_lang_include drag_and_drop/span_text.md %}
 
 {% endtab %}
 {% tab 양식 블록 %}

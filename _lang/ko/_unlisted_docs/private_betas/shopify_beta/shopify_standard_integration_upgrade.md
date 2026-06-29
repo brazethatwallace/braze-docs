@@ -16,7 +16,7 @@ hidden: true
 
 이 업그레이드 경로는 Shopify 온라인 스토어를 보유한 브랜드를 위한 것입니다.
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## 업그레이드 요구 사항 {#upgrade-requirements}
 

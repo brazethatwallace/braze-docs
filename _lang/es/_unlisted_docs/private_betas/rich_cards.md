@@ -180,7 +180,7 @@ Especifica tus controles de entrega, como permitir que los usuarios vuelvan a se
 
 Dirige a los usuarios eligiendo segmentos o filtros para acotar tu audiencia. Ya deberías haber seleccionado el grupo de suscripción, que filtra a los usuarios por el nivel o categoría de comunicación que desean tener contigo.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 A continuación, seleccionarás la audiencia más amplia de tus segmentos y la acotarás aún más con [filtros]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/) opcionales. Obtendrás automáticamente una vista previa de cómo se ve aproximadamente la población de ese segmento en este momento. Ten en cuenta que la pertenencia exacta al segmento siempre se calcula justo antes de que se envíe el mensaje.
 

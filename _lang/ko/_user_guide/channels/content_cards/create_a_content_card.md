@@ -149,7 +149,7 @@ Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messagin
 
 다음으로, Segments 또는 필터를 선택하여 오디언스를 좁혀 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)합니다. 대략적인 Segment 인구의 미리보기가 자동으로 표시됩니다. 정확한 Segment 멤버십은 항상 메시지가 전송되기 전에 계산된다는 점을 유의하세요.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 #### 전환 이벤트 선택 {#choose-conversion-events}
 

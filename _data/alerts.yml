@@ -1,9 +1,9 @@
-tip: '<div class="alert alert-tip" role="alert"><div class="alert-msg"> <b>Tip: </b>'
-note: '<div class="alert alert-note" role="alert"><div class="alert-msg"><b>Note: </b>'
-important: '<div class="alert alert-important" role="alert"><div class="alert-msg"><b>Important: </b>'
-warning: '<div class="alert alert-warning" role="alert"><div class="alert-msg"><b>Warning: </b>'
-update: '<div class="alert alert-update" role="alert"><div class="alert-msg"><b>Update: </b>'
-checkpoint: '<div class="alert alert-checkpoint" role="alert"><div class="alert-msg"><b>Checkpoint: </b>'
+tip: '<div class="alert alert-tip" role="alert"><div class="alert-msg"><span class="alert-label" role="heading" aria-level="6">Tip</span> '
+note: '<div class="alert alert-note" role="alert"><div class="alert-msg"><span class="alert-label" role="heading" aria-level="6">Note</span> '
+important: '<div class="alert alert-important" role="alert"><div class="alert-msg"><span class="alert-label" role="heading" aria-level="6">Important</span> '
+warning: '<div class="alert alert-warning" role="alert"><div class="alert-msg"><span class="alert-label" role="heading" aria-level="6">Warning</span> '
+update: '<div class="alert alert-update" role="alert"><div class="alert-msg"><span class="alert-label" role="heading" aria-level="6">Update</span> '
+checkpoint: '<div class="alert alert-checkpoint" role="alert"><div class="alert-msg"><span class="alert-label" role="heading" aria-level="6">Checkpoint</span> '
 
 end: '</div></div>'
 

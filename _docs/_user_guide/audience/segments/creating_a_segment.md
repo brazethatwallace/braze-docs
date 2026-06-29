@@ -22,8 +22,8 @@ Select **Create Segment** to begin building your segment. Name your segment by d
 
 Optionally, you can do the following:
 - Add a description to the segment to provide more details about the intention of this audience and leave notes for other team members to refer back to.
-- Add a [team]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) to your segment.
-- Add [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) to your segment for further organization.
+- Add a [team]({{site.baseurl}}/user_guide/administer/global/user_management/teams) to your segment.
+- Add [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) to your segment for further organization.
 
 ![Create Segment modal where the segment is named "Lapsed Users" with the Segment Description as "This is our main Lapsed User segment to target non-actives within the past fourteen days." with two buttons: Cancel and Create Segment.]({% image_buster /assets/img_archive/segment_app_selection.png %}){: style="max-width:80%;"}
 
@@ -123,7 +123,7 @@ By adding filters that document your user flow, you can see the points where use
 After adding apps and filters to your segment, you can test if your segment is set up as expected by looking up a user to confirm if they match the segment criteria. To do so, search for a user’s `external_id` or `braze_id` in the **User Lookup** section. 
 
 {% alert note %}
-**User Lookup** accepts only `external_id` and `braze_id`. It does not accept email addresses, phone numbers, or other identifiers. To find a profile by email, phone, or other fields, use [**Search Users**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#access-profiles) instead.
+**User Lookup** accepts only `external_id` and `braze_id`. It does not accept email addresses, phone numbers, or other identifiers. To find a profile by email, phone, or other fields, use [**Search Users**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles) instead.
 {% endalert %}
 
 ![User Lookup section with a search field.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%;"}
@@ -155,7 +155,7 @@ Select **Save**. Now you're ready to start sending messages to your users!
 
 ## Measuring segment size
 
-To learn about monitoring your segment’s membership and size, refer to [Measuring segment size]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
+To learn about monitoring your segment’s membership and size, refer to [Measuring segment size]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
 ## Archiving segments
 
@@ -171,7 +171,7 @@ You can unarchive the segment by navigating to it within the **Segments** page, 
 
 ## Targeting behavior when users have multiple devices
 
-Users have more than one device if they log into the same account on multiple devices. You can check for multiple devices in the **Recent Devices** section of a [user profile]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/).
+Users have more than one device if they log into the same account on multiple devices. You can check for multiple devices in the **Recent Devices** section of a [user profile]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
 
 When segmenting with device-dependent filters (device model, device OS, and app version), your segment will contain all users that match your filter criteria. These users will be sent a message on all their devices, including ones that may not meet your filter criteria. For example, let's say User A has two devices: Device 1 is OS 13.0, and Device 2 is OS 10.0. If a segment targets users with OS 10.0, this user will be part of that segment and receive messages on both of their devices.
 

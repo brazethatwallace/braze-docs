@@ -17,7 +17,7 @@ hidden: true
 - **2월 말~4월:** 특정 그룹(코호트)의 업그레이드 준비가 완료되면 알림을 받게 됩니다. 이 중요한 정보를 놓치지 마세요.
 - **업그레이드 마감일:** 모든 고객은 **2025년 8월 28일**까지 업그레이드를 완료해야 합니다.
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## Shopify 통합에서 변경되는 사항 {#whats-changing-in-the-shopify-integration}
 

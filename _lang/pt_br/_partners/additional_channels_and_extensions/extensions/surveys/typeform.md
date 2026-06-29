@@ -29,7 +29,7 @@ Ao integrar a Braze e a Typeform, você pode:
 
 ### Etapa 1: configure a Transformação de dados da Braze para aceitar os webhooks do Typeform {#step-1}
 
-{% multi_lang_include create_transformation.md location="typeform" %}
+{% multi_lang_include data_activation/create_transformation.md location="typeform" %}
 
 ### Etapa 2: configure os webhooks do Typeform {#step-2-set-up-typeform-webhooks}
 

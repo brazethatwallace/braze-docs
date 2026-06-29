@@ -38,7 +38,7 @@ After receiving your email, we'll get to work configuring your IPs, domains and 
 
 After your IPs, domains, subdomains, and IP pools are configured, we'll send you a list of DNS records. Ask your engineers and developers to add these DNS records where needed, and after they have been added, let the Braze Onboarding team know.
 
-{% multi_lang_include dns_records.md %}
+{% multi_lang_include channels/email/dns_records.md %}
 
 After Braze provides your DNS records, add them as soon as your DNS or IT team is able. Domain verification is time-bound, and if records are added too late, verification may fail even if the DNS records later resolve correctly. If your DNS records appear correct but verification fails, contact the Braze Onboarding or Support team to reinitiate verification.
 
@@ -50,7 +50,7 @@ We'll check your setup and validate all information in our internal systems. The
 
 This method will set up one sending domain, one tracking domain, and one IP in total for a company. If you're planning to set up more, please consult with Braze Onboarding team (method 1).
 
-{% multi_lang_include early_access_beta_alert.md feature='This self-service email setup feature' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This self-service email setup feature' type='beta' %}
 <br>If you're using the self-service email setup feature, be sure to also consult with the Braze Onboarding team.
 
 ### Prerequisites
@@ -72,7 +72,7 @@ A sending domain is used in the "from" address when sending an email. Enter a se
 
 Next, add the TXT and CNAME records from the bottom of the page to your DNS provider. Then, return to the Braze dashboard and click **Verify**.
 
-![]({% image_buster /assets/img_archive/email_setup_rdns_records.png %})
+![Email setup page showing TXT and CNAME DNS records to verify a sending domain.]({% image_buster /assets/img_archive/email_setup_rdns_records.png %})
 
 If verification fails and you believe your DNS records are correct, contact Braze Support for assistance.
 
@@ -100,4 +100,4 @@ When an IP pool contains multiple dedicated IP addresses, Braze and your email s
 
 ### Next steps
 
-After your sender verification is complete, we recommend IP warming so that your messages reach their destination inboxes at a consistently high rate. After completing this setup, be sure to also consult with the Braze Onboarding team to confirm if your domains and [IP address]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/) are working.
+After your sender verification is complete, we recommend IP warming so that your messages reach their destination inboxes at a consistently high rate. After completing this setup, be sure to also consult with the Braze Onboarding team to confirm if your domains and [IP address]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) are working.

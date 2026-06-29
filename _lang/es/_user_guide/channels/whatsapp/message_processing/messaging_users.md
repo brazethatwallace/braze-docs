@@ -105,7 +105,7 @@ Solo puedes agregar mensajes de lista de WhatsApp a Canvas que estén basados en
 
 #### Paso 2: Crear un paso de mensaje de WhatsApp {#step-2-create-a-whatsapp-message-step}
 
-Agrega un [paso de mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) de WhatsApp y luego selecciona el diseño de mensaje de respuesta de **List Message**.
+Agrega un [paso de mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) de WhatsApp y luego selecciona el diseño de mensaje de respuesta de **List Message**.
 
 ![Una colección seleccionable de los diferentes tipos de mensajes de respuesta de WhatsApp que puedes crear, incluyendo "List Message".]({% image_buster /assets/img/whatsapp/list_message_option.png %}){: style="max-width:70%;"}
 
@@ -121,7 +121,7 @@ Cambia el orden de las secciones y filas seleccionando y arrastrando el icono ju
 
 ![Arrastrando una sección de lista a una nueva ubicación.]({% image_buster /assets/img/whatsapp/drag_list_order.png %}){: style="max-width:60%;"}
 
-De vuelta en el creador de Canvas, agrega una [ruta de acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) después del paso de mensaje que tenga un grupo para cada respuesta de lista. En cada grupo:
+De vuelta en el creador de Canvas, agrega una [ruta de acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) después del paso de mensaje que tenga un grupo para cada respuesta de lista. En cada grupo:
 
 1. Agrega un desencadenante para **Sent inbound WhatsApp subscription group** y selecciona el grupo de suscripción de WhatsApp correspondiente.
 2. Marca la casilla **Where the message body**.
@@ -133,7 +133,7 @@ Continúa construyendo tu Canvas.
 
 ### Crear rutas de acción para descripciones largas {#creating-actions-paths-for-long-descriptions}
 
-Si tienes descripciones de filas, debes usar **Matches regex** para especificar una fila. Por ejemplo, si quieres especificar una fila con la descripción "Nuestro nuevo estilo que se ajusta sobre tu par favorito de botines", podrías usar [regex]({{site.baseurl}}/user_guide/audience/segments/regex/) con "botines".
+Si tienes descripciones de filas, debes usar **Matches regex** para especificar una fila. Por ejemplo, si quieres especificar una fila con la descripción "Nuestro nuevo estilo que se ajusta sobre tu par favorito de botines", podrías usar [regex]({{site.baseurl}}/user_guide/audience/segments/regex) con "botines".
 
 ![Un desencadenante de WhatsApp que usa el filtro "Matches regex" para capturar mensajes de respuesta con "ankle boots".]({% image_buster /assets/img/whatsapp/regex_list_message.png %})
 
@@ -146,11 +146,11 @@ Los mensajes de respuesta deben enviarse dentro de las 24 horas posteriores a la
 Los siguientes eventos desbloquean los mensajes de respuesta:
 
 - Mensaje entrante
-  - [Ruta de acción]({{site.baseurl}}/action_paths/) o [entrada basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) con el desencadenante **Send a WhatsApp inbound message**.
+  - [Ruta de acción]({{site.baseurl}}/action_paths) o [entrada basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) con el desencadenante **Send a WhatsApp inbound message**.
 
 ![Un paso de entrada basado en acciones con el desencadenante "Send a WhatsApp inbound message".]({% image_buster /assets/img/whatsapp/whatsapp_inbound_message_trigger.png %})
 
-- [Entrada desencadenada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)
+- [Entrada desencadenada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)
 - Mensaje de producto entrante
   - Evento [`ecommerce.cart_updated`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events?tab=ecommerce.cart_updated)
 
@@ -158,4 +158,14 @@ Los siguientes eventos desbloquean los mensajes de respuesta:
 
 ### Filtrar por un atributo de tiempo personalizado {#filtering-by-a-custom-time-attribute}
 
-Si la audiencia de tu campaña o Canvas de WhatsApp basado en acciones depende de un atributo de tiempo personalizado que cae dentro de una ventana relativa (por ejemplo, entre ahora y las próximas 24 horas), combina dos filtros como se describe en [Tiempo]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/#time).
+Si la audiencia de tu Campaign o Canvas de WhatsApp basado en acciones depende de un atributo de tiempo personalizado que cae dentro de una ventana relativa (por ejemplo, entre ahora y las próximas 24 horas), combina dos filtros como se describe en [Tiempo]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes#time).
+
+### Almacenamiento de medios entrantes y expiración de URL {#inbound-media-storage-and-url-expiration}
+
+Cuando un usuario envía un mensaje de WhatsApp que contiene medios (como una imagen, un archivo de audio o un documento), Braze almacena esos medios en Amazon S3 durante 30 días a partir del momento en que se recibe el mensaje.
+
+Sin embargo, el campo Liquid `inbound_media_urls`, que hace referencia a la URL de esos medios, es válido durante siete días a partir del momento en que Braze recibe el mensaje entrante. Dado que la URL se genera una sola vez en el momento de la recepción y no se regenera, la ventana de siete días aplica independientemente de cuándo accedas al campo. El límite más corto de los dos es el que aplica, por lo que en la práctica, `inbound_media_urls` debe considerarse válido por un máximo de siete días.
+
+{% alert note %}
+Si guardas un valor de `inbound_media_urls` en un atributo personalizado de usuario para usarlo más adelante, ten en cuenta esta expiración de siete días. Intentar acceder a la URL después de que haya expirado resultará en un enlace roto.
+{% endalert %}

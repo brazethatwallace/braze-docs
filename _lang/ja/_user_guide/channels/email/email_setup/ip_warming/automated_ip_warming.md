@@ -11,7 +11,7 @@ channel: email
 
 > 自動 IP ウォームアップを使用すると、新しい IP アドレスからのメール送信量を徐々に増やし、受信トレイプロバイダーにおける送信者の評価を構築できます。
 
-{% multi_lang_include early_access_beta_alert.md feature='Automated IP warming' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Automated IP warming' %}
 
 ## 仕組み
 

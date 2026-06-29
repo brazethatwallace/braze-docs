@@ -15,7 +15,7 @@ tool:
 
 > This page provides answers to some frequently asked questions related to the drag-and-drop editor for email.
 
-### Can I preview how my email appears in dark mode?
+## Can I preview how my email appears in dark mode?
 
 Yes. Go to the **Preview and Test** section of the drag-and-drop editor and turn on **Dark mode**. We recommend also previewing and testing your emails across different user platforms and using transparent images for row background images when possible. 
 
@@ -46,16 +46,16 @@ The drag-and-drop editor currently supports two layers. You can set a row backgr
 
 ### Can I save my drag-and-drop email as a template after I build it within my campaign or Canvas?
 
-No. You can't save a drag-and-drop email from a campaign or Canvas as a drag-and-drop **Email Template** in **Templates** > **Email Templates**. Recreate the layout under **Templates** > **Email Templates**, or start from a saved template next time. For instructions, see [Create an email template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/).
+No. You can't save a drag-and-drop email from a campaign or Canvas as a drag-and-drop **Email Template** in **Templates** > **Email Templates**. Recreate the layout under **Templates** > **Email Templates**, or start from a saved template next time. For instructions, see [Create an email template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template).
 
-If you need a reusable HTML template instead, select **Download file** while editing the drag-and-drop body, open the HTML from the ZIP, and paste the markup into an [HTML email template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/) using the HTML code editor. Recheck Liquid, links, and hosted assets afterward.
+If you need a reusable HTML template instead, select **Download file** while editing the drag-and-drop body, open the HTML from the ZIP, and paste the markup into an [HTML email template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template) using the HTML code editor. Recheck Liquid, links, and hosted assets afterward.
 
-For more information about where templates live, see [Templates and Media]({{site.baseurl}}/user_guide/messaging/templates/).
+For more information about where templates live, see [Templates and Media]({{site.baseurl}}/user_guide/messaging/templates).
 
 ### Why can't I change a button's fill color in the drag-and-drop editor?
 
 Page-level styles can override message-level styles. If updating **Fill** on a button or block does nothing, try the following:
-1. Open [email global style settings]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) and select **Reset to default** on the conflicting page style so the message-level color can apply.
+1. Open [email global style settings]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings) and select **Reset to default** on the conflicting page style so the message-level color can apply.
 2. Set the color again on the block.
 
 ### Can I add email attachments to the drag-and-drop editor?
@@ -68,7 +68,7 @@ Yes. You can add attachments to your email message by going to **Sending Setting
 2. Select **Edit email body** to open the drag-and-drop editor.
 3. Select **Download file** (bottom of the editor). Extract the archive to access the generated HTML.
 
-You can paste that HTML into an [HTML block]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#content) or the HTML editor when you need low-level edits—for example, to [turn off click tracking for specific links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis).
+You can paste that HTML into an [HTML block]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#content) or the HTML editor when you need low-level edits—for example, to [turn off click tracking for specific links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis).
 
 ### Why is my drag-and-drop layout breaking?
 

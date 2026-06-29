@@ -20,7 +20,7 @@ Regardez la vidéo suivante pour un aperçu facultatif de la configuration et de
 {% tabs %}
 {% tab Paramètres régionaux multilingues %}
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 {% endtab %}
 {% tab Types de messages %}

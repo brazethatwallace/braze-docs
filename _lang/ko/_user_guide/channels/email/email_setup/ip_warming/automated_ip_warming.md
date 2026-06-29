@@ -11,7 +11,7 @@ channel: email
 
 > 자동화된 IP 워밍을 사용하여 새로운 IP 주소에서 이메일 볼륨을 점진적으로 증가시켜 받은편지함 제공자와의 발신자 평판을 구축하세요.
 
-{% multi_lang_include early_access_beta_alert.md feature='Automated IP warming' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Automated IP warming' %}
 
 ## 작동 방식
 

@@ -38,7 +38,7 @@ description: "この記事では、Braze経由でメールを送信するため�
 
 IP、ドメイン、サブドメイン、およびIPプールの設定が完了したら、DNSレコードのリストをお送りします。エンジニアや開発者に、必要な場所にこれらのDNSレコードを追加するよう依頼し、追加が完了したらBrazeオンボーディングチームにお知らせください。
 
-{% multi_lang_include dns_records.md %}
+{% multi_lang_include channels/email/dns_records.md %}
 
 BrazeからDNSレコードが提供されたら、DNSチームまたはITチームが対応可能になり次第、すぐに追加してください。ドメイン検証には期限があり、レコードの追加が遅れると、DNSレコードが後で正しく解決されても検証が失敗する場合があります。DNSレコードが正しいにもかかわらず検証が失敗した場合は、Brazeオンボーディングチームまたはサポートチームに連絡して、検証の再開を依頼してください。
 
@@ -50,7 +50,7 @@ BrazeからDNSレコードが提供されたら、DNSチームまたはITチー�
 
 この方法では、会社の送信ドメイン、トラッキングドメイン、IPをそれぞれ1つずつ設定します。さらに設定する場合は、Brazeオンボーディングチームに相談してください（方法1）。
 
-{% multi_lang_include early_access_beta_alert.md feature='This self-service email setup feature' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This self-service email setup feature' type='beta' %}
 <br>セルフサービスのメール設定機能を使用している場合は、Brazeオンボーディングチームにも必ずご相談ください。
 
 ### 前提条件 {#prerequisites}

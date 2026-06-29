@@ -26,9 +26,9 @@ Use campaigns for single, simple messaging (such as informing users about a prod
 1. Go to **Messaging** > **Campaigns** and select **Create Campaign**.
 2. Select **Content Cards** or, for campaigns targeting multiple channels, select **Multichannel**.
 3. Name your campaign something clear and meaningful.
-4. Add [teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) and [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) as needed.
-   * Tags make your campaigns easier to find and build reports out of. For example, when using the [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder/), you can filter by the relevant tags.
-5. Add and name as many variants as you like for your campaign. You can choose different platforms, message types, and layouts for each of your added variants. For more on variants, refer to [Multivariate and A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+4. Add [teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) and [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) as needed.
+   * Tags make your campaigns easier to find and build reports out of. For example, when using the [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder), you can filter by the relevant tags.
+5. Add and name as many variants as you like for your campaign. You can choose different platforms, message types, and layouts for each of your added variants. For more on variants, refer to [Multivariate and A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
 If all of the messages in your campaign are going to be similar or have the same content, compose your message before adding additional variants. You can then select **Copy from Variant** from the **Add Variant** dropdown.
@@ -37,7 +37,7 @@ If all of the messages in your campaign are going to be similar or have the same
 {% endtab %}
 {% tab Canvas %}
 
-1. [Create your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) using the Canvas composer.
+1. [Create your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) using the Canvas composer.
 2. After setting up your Canvas, add a Message step in the Canvas builder. Name your step something clear and meaningful.
 3. Select **Content Cards** as your messaging channel.
 4. Choose when Braze calculates audience eligibility and personalization for the Content Card. This can be at step entry or at first impression (recommended). Steps containing Content Cards can be scheduled or action-based.
@@ -53,13 +53,13 @@ If all of the messages in your campaign are going to be similar or have the same
 
 Select one of three essential Content Card types: **Classic**, **Captioned Image**, and **Image Only**. 
 
-To learn more about the expected behavior and look of each type, refer to [Creative Details]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/), or check out the links in the following table. These Content Card types are accepted by both mobile apps and web applications.
+To learn more about the expected behavior and look of each type, refer to [Creative Details]({{site.baseurl}}/user_guide/channels/content_cards/creative_details), or check out the links in the following table. These Content Card types are accepted by both mobile apps and web applications.
 
 | Message Type | Example | Description |
 |---|---|---|
-|[Classic]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#classic)| ![A Classic Content Card with a small icon and text to encourage booking a workout class.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) |The Classic Card has a straightforward layout with a bolded title, message text, and an optional image that sits to the left of the title and text. It's best to use a square image or icon with the Classic Card. |
-|[Captioned Image]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#captioned-image)| ![A Captioned Content Card with a image of a weightlifter and text to encourage booking a workout class.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | The Captioned Image Card showcases your content with copy and an attention-grabbing image. |
-|[Image Only]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#banner)| ![An Image Only Content Card with text only.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | The Image Only Card commands attention with space for images, GIFs, and other creative non-text content. |
+|[Classic]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#classic)| ![A Classic Content Card with a small icon and text to encourage booking a workout class.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) |The Classic Card has a straightforward layout with a bolded title, message text, and an optional image that sits to the left of the title and text. It's best to use a square image or icon with the Classic Card. |
+|[Captioned Image]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#captioned-image)| ![A Captioned Content Card with a image of a weightlifter and text to encourage booking a workout class.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | The Captioned Image Card showcases your content with copy and an attention-grabbing image. |
+|[Image Only]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#banner)| ![An Image Only Content Card with text only.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | The Image Only Card commands attention with space for images, GIFs, and other creative non-text content. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Specify your message types" }
 
 ## Step 3: Compose a Content Card
@@ -70,15 +70,15 @@ You can edit all aspects of your message's content and behavior in the **Compose
 
 The content here varies based on the **Card Type** chosen in the previous step, but may include any of the following options:
 
-#### Language
+### Language
 
-Select **Add Languages** to add your desired languages from the provided list. This inserts [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#conditional-logic) into your message. We recommend selecting your languages before writing your content so you can fill in your text where it belongs in the Liquid. For our full list of available languages you can use, refer to [Languages supported]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported).
+Select **Add Languages** to add your desired languages from the provided list. This inserts [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic) into your message. We recommend selecting your languages before writing your content so you can fill in your text where it belongs in the Liquid. For our full list of available languages you can use, refer to [Languages supported]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported).
 
 ![A window with English, Spanish, and French selected for the languages, and title, description, and link text selected for fields to internationalize.]({% image_buster /assets/img/add_languages.png %}){: style="max-width:70%;"}
 
-##### Create right-to-left messages
+#### Create right-to-left messages
 
-The final appearance of right-to-left messages depends largely on how service providers render them. For best practices on crafting right-to-left messages that display as accurately as possible, refer to [Creating right-to-left messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
+The final appearance of right-to-left messages depends largely on how service providers render them. For best practices on crafting right-to-left messages that display as accurately as possible, refer to [Creating right-to-left messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 #### Title and message
 
@@ -107,9 +107,9 @@ The following actions are available for Content Card links:
 | Action | Description |
 |---|---|
 | Redirect to Web URL | Open a non-native web page. |
-| [Deep Link into App]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content) | Deep link into an existing screen in your app. |
-| Log Custom Event | Choose a [custom event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) to trigger. Can be used to display another Content Card or trigger additional messaging. |
-| Log Custom Attribute | Choose a [custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) to set for the current user. |
+| [Deep Link into App]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content) | Deep link into an existing screen in your app. |
+| Log Custom Event | Choose a [custom event]({{site.baseurl}}/user_guide/data/activation/events/custom_events) to trigger. Can be used to display another Content Card or trigger additional messaging. |
+| Log Custom Attribute | Choose a [custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) to set for the current user. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
 
 The **Log Custom Event** and **Log Custom Attribute** options require the following SDK version compatibility:
@@ -118,7 +118,7 @@ The **Log Custom Event** and **Log Custom Attribute** options require the follow
 
 ## Step 4: Configure additional settings (optional)
 
-You can use [key-value pairs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/) to create categories for your Cards, create [multiple Content Card feeds]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds), and customize how cards are sorted.
+You can use [key-value pairs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) to create categories for your Cards, create [multiple Content Card feeds]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds), and customize how cards are sorted.
 
 To add key-value pairs to your message, go to the **Settings** tab and select **Add New Pair**.
 
@@ -129,11 +129,11 @@ To add key-value pairs to your message, go to the **Settings** tab and select **
 
 Build the remainder of your campaign. Continue to the next sections for additional details on how to best use our tools to build Content Cards.
 
-#### Choose a delivery schedule or trigger
+### Choose a delivery schedule or trigger
 
-Content Cards can be delivered based on a scheduled time, an action, or an API trigger. For more, refer to [Scheduling your campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
+Content Cards can be delivered based on a scheduled time, an action, or an API trigger. For more, refer to [Scheduling your campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-You can also set the campaign's duration and [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) and determine the Content Card's expiration. Set a specific expiration date or the days until a Card expires, up to 30 days. All variants have identical expiration dates.
+You can also set the campaign's duration and [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) and determine the Content Card's expiration. Set a specific expiration date or the days until a Card expires, up to 30 days. All variants have identical expiration dates.
 
 If you choose to expire a card after a set duration (for example, after two weeks), the expiration is calculated from the card's send time. For scheduled campaigns, this is the scheduled launch time. For action-based campaigns, this is the time the user performs the triggering action. For example, if an action-based card is sent at 2 pm today with a 1-day expiration, it expires at 2 pm the following day.
 
@@ -141,38 +141,38 @@ If you choose to expire a card after a set duration (for example, after two week
 
 For action-based delivery, there is an expected short delay before the Content Card appears. For example, when a campaign is triggered on session start, this trigger event must first be flushed to Braze's servers. Next, the user's eligibility for the campaign is recorded. When the SDK syncs, the card is created and returned in the same sync response. If the SDK sync happened before the user's eligibility is recorded, they do not receive the card. For first-session users, this delay is unavoidable. For existing users who need instant availability, consider using scheduled delivery instead.
 
-##### Scheduled delivery
+#### Scheduled delivery
 
 For Content Card campaigns with scheduled delivery, you can choose when Braze evaluates audience eligibility and personalization for new Content Card campaigns by specifying when the card is created. For more, refer to [card creation]({{site.baseurl}}/card_creation).
 
 #### Choose users to target
 
-Next, [target users]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) by choosing segments or filters to narrow your audience. You automatically receive a preview of what that approximate segment population looks like. Keep in mind that exact segment membership is always calculated before the message is sent.
+Next, [target users]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) by choosing segments or filters to narrow your audience. You automatically receive a preview of what that approximate segment population looks like. Keep in mind that exact segment membership is always calculated before the message is sent.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 #### Choose conversion events
 
-Braze allows you to track how often users perform specific actions, [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), after receiving a campaign. You have the option of allowing up to a 30-day window during which a conversion is counted if the user takes the specified action.
+Braze allows you to track how often users perform specific actions, [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), after receiving a campaign. You have the option of allowing up to a 30-day window during which a conversion is counted if the user takes the specified action.
 
 {% endtab %}
 
 {% tab Canvas %}
 
-If you haven't done so already, complete the remaining sections of your Canvas component. For further details on how build out the rest of your Canvas, implement [multivariate testing]({{site.baseurl}}/user_guide/messaging/ab_testing/) and [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/), and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) step of our Canvas documentation.
+If you haven't done so already, complete the remaining sections of your Canvas component. For further details on how build out the rest of your Canvas, implement [multivariate testing]({{site.baseurl}}/user_guide/messaging/ab_testing) and [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) step of our Canvas documentation.
 
 {% endtab %}
 {% endtabs %}
 
 ## Step 6: Review and deploy
 
-After you've finished building the last of your campaign or Canvas, review its details, [test it]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/), then send it when you're ready. For more information, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=content%20card).
+After you've finished building the last of your campaign or Canvas, review its details, [test it]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages), then send it when you're ready. For more information, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=content%20card).
 
 {% alert warning %}
-After a Content Card is launched, it can't be edited. It can only be stopped from sending to new users and removed from users' feeds. Refer to [Updating sent cards]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#updating-launched-cards) to understand how you can approach this scenario.
+After a Content Card is launched, it can't be edited. It can only be stopped from sending to new users and removed from users' feeds. Refer to [Updating sent cards]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#updating-launched-cards) to understand how you can approach this scenario.
 {% endalert %}
 
-Next, check out [Content Card reporting]({{site.baseurl}}/user_guide/channels/content_cards/reporting/) to learn how you can access the results of your Content Card campaigns.
+Next, check out [Content Card reporting]({{site.baseurl}}/user_guide/channels/content_cards/reporting) to learn how you can access the results of your Content Card campaigns.
 
 ## Things to know
 
@@ -228,7 +228,7 @@ Do you want your content to last longer than 30 days? Try [Banners]({{site.baseu
 
 If you turn on re-eligibility, the countdown for when a user can "re-enter" a campaign begins after they are sent the message. The specific moment this countdown starts depends on your card creation settings:
 
-- Content Cards using [at first impression]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression) use impression time to calculate re-eligibility.
+- Content Cards using [at first impression]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression) use impression time to calculate re-eligibility.
 - Content Cards created at campaign launch, in multichannel campaigns, or at Canvas step entry use whichever send time or impression time is latest.
 
 #### The 30-day expiration and re-eligibility
@@ -331,7 +331,7 @@ If you want a card to seem like it's always available, you can create a recurrin
 
 ### Content Card sync and refresh
 
-Content Cards sync on a schedule and when your app refreshes the feed. Sync behavior differs between full and partial syncs, and your SDK integration affects when cards refresh at session start. For implementation details, see [Customize the Content Card feed]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/) and [Creating Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards/).
+Content Cards sync on a schedule and when your app refreshes the feed. Sync behavior differs between full and partial syncs, and your SDK integration affects when cards refresh at session start. For implementation details, see [Customize the Content Card feed]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed) and [Creating Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards).
 
 ### Impact of stopping Content Cards campaigns
 

@@ -44,7 +44,7 @@ Use esse campo para definir por quanto tempo a Braze manterá sua sessão ativa.
 
 Você pode restringir seus usuários a fazer login usando uma senha ou SSO.
 
-Para [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/), os clientes precisam configurar suas definições de SAML antes de aplicar a restrição. Se os clientes usam Google SSO, basta aplicar a página de configurações de segurança sem nenhuma configuração adicional.
+Para [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on), os clientes precisam configurar suas definições de SAML antes de aplicar a restrição. Se os clientes usam Google SSO, basta aplicar a página de configurações de segurança sem nenhuma configuração adicional.
 
 ## Lista de permissões de IP do dashboard {#dashboard-ip-allowlisting}
 
@@ -111,11 +111,9 @@ Para ativar manualmente a autenticação de dois fatores (2FA) na sua conta Braz
 
 ## Acesso elevado {#elevated-access}
 
-O Acesso elevado adiciona uma camada extra de segurança para ações sensíveis no seu dashboard da Braze. Quando ativo, os usuários precisam verificar novamente sua conta antes de exportar um Segment ou visualizar uma chave de API. Para usar o Acesso elevado, acesse **Configurações** > **Configurações de administrador** > **Configurações de segurança** e ative o recurso.
+O Acesso elevado adiciona uma camada extra de segurança para ações sensíveis no seu dashboard da Braze. Quando ativo, os usuários precisam verificar novamente sua conta antes de exportar um segmento ou visualizar uma chave de API. Para usar o Acesso elevado, acesse **Configurações** > **Configurações de administrador** > **Configurações de segurança** e ative o recurso.
 
 Se um usuário não conseguir verificar novamente, ele será redirecionado para onde estava e não poderá continuar com a ação sensível. Após a verificação bem-sucedida, ele não precisará verificar novamente na próxima hora — a menos que faça logout primeiro.
-
-![Botão de ativação do Acesso elevado.]({% image_buster /assets/img/elevated_access.png %})
 
 ## Download de relatório de eventos de segurança {#security-event-report}
 
@@ -129,7 +127,7 @@ Para baixar esse relatório, faça o seguinte:
 
 Esse download manual de relatório contém apenas os 10.000 eventos de segurança mais recentes da sua conta.
 
-Para exportar eventos de segurança para o Amazon S3 sem esse limite de linhas, consulte [Exportação de eventos de segurança com Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/).
+Para exportar eventos de segurança para o Amazon S3 sem esse limite de linhas, consulte [Exportação de eventos de segurança com Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3).
 
 ### Definições das colunas do CSV {#csv-column-definitions}
 
@@ -145,7 +143,7 @@ O CSV do relatório de eventos de segurança contém as seguintes colunas:
 | JsonProperties | Propriedades específicas do evento em formato JSON. Os campos incluídos variam por tipo de evento. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Definições das colunas do CSV" }
 
-As [exportações para S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/) incluem essas colunas mais `Version`, a versão do esquema para o formato de exportação (atualmente `1`).
+As [exportações para S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3) incluem essas colunas mais `Version`, a versão do esquema para o formato de exportação (atualmente `1`).
 
 {% details Eventos de segurança reportados %}
 ### Login e conta {#login-and-account}
@@ -265,15 +263,15 @@ Removed Push Credential
 A permissão **Visualizar IPI** é acessível apenas a alguns usuários selecionados da empresa. Por padrão, todos os administradores têm a permissão **Visualizar IPI** ativada nas permissões de usuário. Isso significa que eles podem ver todos os atributos padrão e personalizados que sua empresa definiu como IPI em todo o dashboard. Quando essa permissão é desativada para os usuários, eles não poderão ver nenhum desses atributos.
 
 {% alert note %}
-Você precisa da permissão **Visualizar IPI** para usar o [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries/), pois ele permite acesso direto a alguns dados de clientes.
+Você precisa da permissão **Visualizar IPI** para usar o [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries), pois ele permite acesso direto a alguns dados de clientes.
 {% endalert %}
 
-Para as capacidades existentes de permissão de equipe, consulte [Definição de permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#available-limited-and-team-role-permissions).
+Para as capacidades existentes de permissão de equipe, consulte [Definição de permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions).
 
 ### Definição de IPI {#defining-pii}
 
 {% alert important %}
-Selecionar e definir determinados campos como campos de IPI afeta apenas o que os usuários podem visualizar no dashboard da Braze e não impacta como os dados do usuário final nesses campos de IPI são tratados.<br><br>Consulte sua equipe jurídica para alinhar as configurações do seu dashboard com quaisquer regulamentações e políticas de privacidade aplicáveis à sua empresa, incluindo aquelas relacionadas à [retenção de dados]({{site.baseurl}}/data_retention/).
+Selecionar e definir determinados campos como campos de IPI afeta apenas o que os usuários podem visualizar no dashboard da Braze e não impacta como os dados do usuário final nesses campos de IPI são tratados.<br><br>Consulte sua equipe jurídica para alinhar as configurações do seu dashboard com quaisquer regulamentações e políticas de privacidade aplicáveis à sua empresa, incluindo aquelas relacionadas à [retenção de dados]({{site.baseurl}}/data_retention).
 {% endalert %}
 
 Você pode selecionar os campos que sua empresa designa como IPI no dashboard. Para fazer isso, acesse **Configurações da empresa** > **Configurações de administrador** > **Configurações de segurança**.
@@ -344,7 +342,7 @@ Se você ficar preso em um loop após inserir com sucesso seu número de telefon
 3. Reinicie seu PC ou laptop.
 4. Tente configurar a 2FA novamente.
 
-Se o problema persistir após essas etapas, entre em contato com o [Suporte]({{site.baseurl}}/braze_support/) para obter assistência.
+Se o problema persistir após essas etapas, entre em contato com o [Suporte]({{site.baseurl}}/braze_support) para obter assistência.
 
 ### Não é possível ativar a autenticação de dois fatores (2FA) {#cant-enable-two-factor-authentication-2fa}
 
@@ -368,5 +366,5 @@ Se os problemas persistirem, exclua o perfil antigo no app Authy e escaneie o c�
 
 Para saber mais sobre autenticação e acesso, consulte:
 
-- [SAML e login único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/) para configurar SSO com seu provedor de identidade.
-- [Permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para controlar quais ações os usuários podem realizar no dashboard.
+- [SAML e login único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) para configurar SSO com seu provedor de identidade.
+- [Permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para controlar quais ações os usuários podem realizar no dashboard.

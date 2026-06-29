@@ -215,7 +215,7 @@ Une fois approuvées, des propriétés supplémentaires peuvent être ajoutées 
 
 ### Propriétés d'entrée Canvas et propriétés d'événement {#canvas-entry-properties-and-event-properties}
 
-{% multi_lang_include canvas_entry_event_properties.md %}
+{% multi_lang_include canvas/entry_event_properties.md %}
 
 ### Enregistrer les achats au niveau de la commande {#log-purchases-at-the-order-level}
 

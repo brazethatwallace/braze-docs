@@ -113,7 +113,7 @@ Em relação ao uso de inscrição, as propriedades de eventos personalizados at
 
 ### Propriedades de entrada do Canvas e propriedades de eventos {#canvas-entry-properties-and-event-properties}
 
-{% multi_lang_include canvas_entry_event_properties.md %}
+{% multi_lang_include canvas/entry_event_properties.md %}
 
 ### Objetos aninhados {#nested-objects}
 

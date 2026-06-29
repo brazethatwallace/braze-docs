@@ -113,7 +113,7 @@ En ce qui concerne l'utilisation de l'abonnement, les propriétés d'événement
 
 ### Propriétés d'entrée Canvas et propriétés d'événement {#canvas-entry-properties-and-event-properties}
 
-{% multi_lang_include canvas_entry_event_properties.md %}
+{% multi_lang_include canvas/entry_event_properties.md %}
 
 ### Objets imbriqués {#nested-objects}
 

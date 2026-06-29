@@ -37,7 +37,7 @@ When you turn on uninstall tracking for an app, Braze sends a nightly background
 
 ### Configuration
 
-To configure uninstall tracking for your iOS application, use a [utility method]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls/?sdktab=swift). For your Android application, use [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html). When Braze detects an uninstall, whether from uninstall tracking or normal push campaign delivery, we will record the best estimated time of the uninstall on the user. This time is stored in the user profile as a standard attribute and can be used to define a segment of users for win-back campaigns.
+To configure uninstall tracking for your iOS application, use a [utility method]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls?sdktab=swift). For your Android application, use [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html). When Braze detects an uninstall, whether from uninstall tracking or normal push campaign delivery, we will record the best estimated time of the uninstall on the user. This time is stored in the user profile as a standard attribute and can be used to define a segment of users for win-back campaigns.
 
 ## Filtering segments by uninstalls
 
@@ -101,7 +101,7 @@ To view uninstalls by segment:
 1. Go to the **Home** page of the dashboard.
 2. In the **Performance Over Time** section, select **Uninstalls** for **Statistics For** and **By Segment** for **Breakdown**.
 
-If you have a segment tracking lapsing users with [analytics tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/) enabled, compare its uninstall trend to the overall app trend.
+If you have a segment tracking lapsing users with [analytics tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) enabled, compare its uninstall trend to the overall app trend.
 
 ### How do I confirm uninstalls are genuine?
 

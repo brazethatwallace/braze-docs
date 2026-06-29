@@ -25,7 +25,7 @@ platform:
 
 Estas são as versões mínimas do SDK necessárias para criar posicionamentos de Banner:
 
-{% multi_lang_include sdk_versions.md feature='banners' %}
+{% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
 {% multi_lang_include banners/creating_placements.md section="developer" %}
 

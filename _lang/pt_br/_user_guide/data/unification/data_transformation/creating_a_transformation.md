@@ -28,7 +28,7 @@ O seguinte é um exemplo de [webhook do Typeform](https://www.typeform.com/help/
 
 ## Etapa 2: Criar uma transformação {#step-2-create-a-transformation}
 
-{% multi_lang_include create_transformation.md location="default" %}
+{% multi_lang_include data_activation/create_transformation.md location="default" %}
 
 ## Etapa 3: Enviar um webhook de teste (recomendado) {#step-3-send-a-test-webhook-recommended}
 

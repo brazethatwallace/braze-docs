@@ -219,7 +219,7 @@ Braze는 다음 IP 범위에서 연결된 콘텐츠 요청을 보냅니다. 나�
 
 Braze는 모든 서비스에 사용되는 예약된 IP 세트를 보유하고 있으며, 특정 시점에 모든 IP가 활성화되어 있는 것은 아닙니다. 이는 필요한 경우 고객에게 영향을 주지 않고 Braze가 다른 데이터 센터에서 발송하거나 유지보수를 수행할 수 있도록 설계되었습니다. Braze는 연결된 콘텐츠 요청을 할 때 다음에 나열된 IP 중 하나, 일부 또는 전부를 사용할 수 있습니다.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### `User-Agent` 헤더 {#user-agent-header}
 
@@ -272,9 +272,9 @@ GET 요청은 기본적으로 캐시됩니다([응답 캐싱]({{site.baseurl}}/u
 
 ### 연결된 콘텐츠 HTTP 기본 동작은 무엇인가요? {#what-is-the-connected-content-http-default-behavior}
 
-{% multi_lang_include connected_content.md section='default behavior' %}
+{% multi_lang_include connected_content/sections.md section='default behavior' %}
 
-{% multi_lang_include connected_content.md section='http post' %}
+{% multi_lang_include connected_content/sections.md section='http post' %}
 
 ### 동일한 연결된 콘텐츠 호출을 여러 곳에서 사용하면 어떻게 되나요? {#what-happens-if-i-use-the-same-connected-content-call-in-multiple-places}
 

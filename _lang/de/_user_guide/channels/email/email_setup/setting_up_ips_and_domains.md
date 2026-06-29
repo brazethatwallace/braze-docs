@@ -38,7 +38,7 @@ Nachdem wir Ihre E-Mail erhalten haben, machen wir uns an die Arbeit und konfigu
 
 Nachdem Ihre IPs, Domains, Subdomains und IP-Pools konfiguriert sind, senden wir Ihnen eine Liste mit DNS-Einträgen. Bitten Sie Ihre Techniker:innen und Entwickler:innen, diese DNS-Einträge bei Bedarf hinzuzufügen, und informieren Sie anschließend das Braze-Onboarding-Team, nachdem sie hinzugefügt wurden.
 
-{% multi_lang_include dns_records.md %}
+{% multi_lang_include channels/email/dns_records.md %}
 
 Nachdem Braze Ihnen Ihre DNS-Einträge bereitgestellt hat, fügen Sie diese so bald wie möglich hinzu, sobald Ihr DNS- oder IT-Team verfügbar ist. Die Domain-Verifizierung ist zeitlich begrenzt, und wenn Einträge zu spät hinzugefügt werden, kann die Verifizierung fehlschlagen, selbst wenn die DNS-Einträge später korrekt aufgelöst werden. Falls Ihre DNS-Einträge korrekt erscheinen, die Verifizierung aber dennoch fehlschlägt, kontaktieren Sie das Braze-Onboarding- oder Support-Team, um die Verifizierung erneut zu starten.
 
@@ -50,7 +50,7 @@ Wir überprüfen Ihre Einrichtung und validieren alle Informationen in unseren i
 
 Diese Methode richtet insgesamt eine Versand-Domain, eine Tracking-Domain und eine IP für ein Unternehmen ein. Wenn Sie mehr einrichten möchten, wenden Sie sich bitte an das Braze-Onboarding-Team (Methode 1).
 
-{% multi_lang_include early_access_beta_alert.md feature='This self-service email setup feature' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This self-service email setup feature' type='beta' %}
 <br>Wenn Sie die Self-Service-E-Mail-Einrichtung nutzen, sollten Sie sich zusätzlich mit dem Braze-Onboarding-Team abstimmen.
 
 ### Voraussetzungen {#prerequisites}

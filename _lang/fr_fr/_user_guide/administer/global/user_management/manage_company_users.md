@@ -37,7 +37,7 @@ Pour des raisons de sécurité, les utilisateurs ne peuvent pas modifier l'adres
 
 ## Attribuer l'accès et les responsabilités des utilisateurs {#assigning-user-access-and-responsibilities}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Suspendre des utilisateurs de l'entreprise {#suspending-company-users}
 

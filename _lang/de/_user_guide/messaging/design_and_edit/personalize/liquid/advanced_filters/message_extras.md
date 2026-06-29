@@ -60,7 +60,7 @@ Jede andere Eingabe, die nicht dem oben beschriebenen Tag-Standard entspricht, w
 
 ## Aktionscode-Informationen an Currents senden {#sending-promotion-code-information-to-currents}
 
-{% multi_lang_include shopify.md section='Liquid promotion codes with Currents' %}
+{% multi_lang_include partners/shopify.md section='Liquid promotion codes with Currents' %}
 
 ## Hinweise {#considerations}
 

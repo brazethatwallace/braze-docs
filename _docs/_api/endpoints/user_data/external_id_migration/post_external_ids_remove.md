@@ -26,7 +26,7 @@ This endpoint completely removes the deprecated ID and cannot be undone. Using t
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key/) with the `users.external_ids.remove` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `users.external_ids.remove` permission.
 
 ## Rate limit
 

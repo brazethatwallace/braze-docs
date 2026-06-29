@@ -22,7 +22,7 @@ Up to 50 merges may be specified per request. This endpoint is asynchronous.
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key/) with the `users.merge` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `users.merge` permission.
 
 ## Rate limit
 
@@ -60,7 +60,7 @@ This endpoint merges the following fields if they're not found on the target use
 
 - First name
 - Last name
-- Email addresses (unless they are [encrypted]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/))
+- Email addresses (unless they are [encrypted]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption))
 - Gender
 - Date of birth
 - Phone number
@@ -94,7 +94,7 @@ This endpoint merges the following fields if they're not found on the target use
 When merging users, using the `/users/merge` endpoint works the same way as using the [`changeUser()` method](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser).
 {% endalert %}
 
-Braze handles three user types differently when merging: users marked for deletion, test users, and Global Control Group users. For details, see [User merge behavior]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/).
+Braze handles three user types differently when merging: users marked for deletion, test users, and Global Control Group users. For details, see [User merge behavior]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior).
 
 #### Custom event date and purchase event date behavior
 
@@ -142,11 +142,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
     },
     {
       "identifier_to_merge": {
-        "email": "user1@braze.com",
+        "email": "user1@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep":  {
-        "email": "user2@braze.com",
+        "email": "user2@example.com",
         "prioritization": ["identified", "most_recently_updated"]
       }
     },
@@ -170,7 +170,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### Merging unidentified user
 
-The following request would merge the most recently updated unidentified user with email address `john.smith@braze.com` into the user with an external ID `john`. In this example, using `most_recently_updated` filters the query to one unidentified user. So, if there were two unidentified users with this email address, only one would get merged into the user who has an external ID `john`.
+The following request would merge the most recently updated unidentified user with email address `john.smith@example.com` into the user with an external ID `john`. In this example, using `most_recently_updated` filters the query to one unidentified user. So, if there were two unidentified users with this email address, only one would get merged into the user who has an external ID `john`.
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
@@ -180,7 +180,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep": {
@@ -193,7 +193,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### Merging unidentified user into identified user
 
-This next example merges the most recently updated unidentified user with email address `john.smith@braze.com` into the most recently updated identified user with email address `john.smith@braze.com`.
+This next example merges the most recently updated unidentified user with email address `john.smith@example.com` into the most recently updated identified user with email address `john.smith@example.com`.
 
 Using `most_recently_updated` filters the queries to one user (one unidentified user for `identifier_to_merge`, and one identified user for the `identifier_to_keep`).
 
@@ -205,11 +205,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["identified", "most_recently_updated"]
       }
     }
@@ -219,7 +219,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### Merging an unidentified user without including the most_recently_updated prioritization
 
-If there are two unidentified users with the mail address `john.smith@braze.com`, this example request doesn't merge any users because there are two unidentified users with that email address. This request only works if there is only one unidentified user with the email address `john.smith@braze.com`.
+If there are two unidentified users with the mail address `john.smith@example.com`, this example request doesn't merge any users because there are two unidentified users with that email address. This request only works if there is only one unidentified user with the email address `john.smith@example.com`.
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
@@ -229,7 +229,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified"]
       },
       "identifier_to_keep": {

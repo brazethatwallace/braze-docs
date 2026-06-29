@@ -48,7 +48,7 @@ description: "キャンペーンやキャンバスでプロモーションコー
 
 ### Currents でのメッセージエクストラとの使用
 
-{% multi_lang_include shopify.md section='Liquid promotion codes with Currents' %}
+{% multi_lang_include partners/shopify.md section='Liquid promotion codes with Currents' %}
 
 ## プロモーションコードをユーザープロファイルに保存する {#save-to-profile}
 

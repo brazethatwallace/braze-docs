@@ -24,12 +24,12 @@ Braze는 [통합 링크 단축]({{site.baseurl}}/user_guide/channels/sms_mms_and
 {% sdktabs %}
 {% sdktab Legacy %}
 
-{% multi_lang_include link_shortening_temp/legacy_link_shortening.md %}
+{% multi_lang_include channels/sms/legacy_link_shortening.md %}
 
 {% endsdktab %}
 {% sdktab Unified %}
 
-{% multi_lang_include link_shortening_temp/unified_link_shortening.md %}
+{% multi_lang_include channels/sms/unified_link_shortening.md %}
 
 {% endsdktab %}
 {% endsdktabs %}

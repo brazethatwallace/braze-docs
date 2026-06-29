@@ -12,7 +12,7 @@ channel:
 
 # Upload an HTML email template
 
-> The Braze dashboard allows you to upload your very own HTML email templates and save them for later use in campaigns. You can also [create an email template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/) using our editor.
+> The Braze dashboard allows you to upload your very own HTML email templates and save them for later use in campaigns. You can also [create an email template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) using our editor.
 
 ## Requirements {#upload-requirements}
 
@@ -53,7 +53,7 @@ To use your email for an API campaign, you need the `email_template_id`, which c
 
 ## Managing email templates
 
-You can [duplicate]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) and [archive]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) email templates! Learn more about creating and managing templates and creative content in [Templates]({{site.baseurl}}/user_guide/messaging/templates/).
+You can [duplicate]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) and [archive]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) email templates! Learn more about creating and managing templates and creative content in [Templates]({{site.baseurl}}/user_guide/messaging/templates).
 
 ## Troubleshooting
 
@@ -74,6 +74,6 @@ Note that when downloading the files for HTML campaigns, Canvas steps with email
 
 ## Frequently asked questions
 
-For answers to frequently asked questions about email templates, check out our [email and link templates FAQ]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq/) page.
+For answers to frequently asked questions about email templates, check out our [email and link templates FAQ]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq) page.
 
 

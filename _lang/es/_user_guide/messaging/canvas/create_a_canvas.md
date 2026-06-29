@@ -183,7 +183,7 @@ Para ver estadísticas adicionales, como los ingresos promedio de por vida de lo
 
 #### Por qué el recuento de la audiencia objetivo podría diferir del recuento de usuarios alcanzables {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 
-{% multi_lang_include segments.md section='Differing audience size' %}
+{% multi_lang_include audience/segments.md section='Differing audience size' %}
 
 ### Paso 1.4: Selecciona tus ajustes de envío {#step-14-select-your-send-settings}
 

@@ -17,7 +17,7 @@ hidden: true
 - **Final de fevereiro até abril:** Você receberá notificações sobre quando o seu grupo específico (coorte) estará pronto para o upgrade. Fique atento a essa informação importante.
 - **Prazo para o upgrade:** Todos os clientes devem concluir o upgrade até **28 de agosto de 2025**.
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## O que está mudando na integração com o Shopify? {#whats-changing-in-the-shopify-integration}
 
