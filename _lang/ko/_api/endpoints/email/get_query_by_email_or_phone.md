@@ -23,9 +23,9 @@ description: "이 문서에서는 이메일 주소 또는 전화번호로 구독
 | --- | --- | --- | --- |
 | `email` | 예 | 문자열 | 사용자의 이메일 주소(최소 1개, 최대 50개의 주소를 포함해야 합니다). |
 | `phone` | 예 | 문자열 | 사용자의 전화번호(최소 1개, 최대 50개의 전화번호를 포함해야 합니다). E.164 형식으로 제공하는 것이 좋습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
-## 예시 요청 {#example-request}
+## 요청 예시 {#example-request}
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/users/subscriptions?phone=+12123355555&email=example%40braze.com' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY'
@@ -39,7 +39,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/users/subscriptions
 {
   "emails": [
     {
-      "email": "example@braze.com",
+      "email": "example@example.com",
       "email_subscribe": {
         "email_subscription_event_date": "2019-11-20T19:58:04.825Z",
         "email_subscription_state": "Subscribed"

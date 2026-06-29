@@ -20,7 +20,7 @@ description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Geplante N
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `messages.schedule.delete`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `messages.schedule.delete`.
 
 ## Rate-Limit
 

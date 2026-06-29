@@ -20,7 +20,7 @@ description: "Cet article présente en détail l'endpoint Braze Supprimer les me
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `messages.schedule.delete`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `messages.schedule.delete`.
 
 ## Limite de débit {#rate-limit}
 

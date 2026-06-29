@@ -60,7 +60,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations?cu
 ステータスコード `200` は、次の応答本文を返す可能性があります。
 
 {% alert note %}
-`Link` ヘッダーは、統合の合計が10件以下の場合は存在しません。カーソルなしの呼び出しでは、`prev` は表示されません。アイテムの最後のページを表示している場合、`next` は表示されません。
+統合の合計が10件以下の場合、`Link` ヘッダーは存在しません。カーソルなしの呼び出しでは、`prev` は表示されません。アイテムの最後のページを表示している場合、`next` は表示されません。
 {% endalert %}
 
 ```
@@ -90,13 +90,13 @@ Link: </cdi/integrations?cursor=c2tpcDow>; rel="prev",</cdi/integrations?cursor=
 
 ## トラブルシューティング {#troubleshooting}
 
-次の表に、返される可能性のあるエラーと、関連するトラブルシューティング手順を示します。
+次の表に、返される可能性のあるエラーと、関連するトラブルシューティングステップを示します。
 
 | エラー | トラブルシューティング |
 | --- | --- |
 | `400 Invalid cursor` | `cursor` が有効であることを確認してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
-その他のステータスコードと関連するエラーメッセージについては、[致命的なエラーと応答]({{site.baseurl}}/api/errors/#fatal-errors)を参照してください。
+その他のステータスコードと関連するエラーメッセージについては、[致命的なエラーと応答]({{site.baseurl}}/api/errors#fatal-errors)を参照してください。
 
 {% endapi %}

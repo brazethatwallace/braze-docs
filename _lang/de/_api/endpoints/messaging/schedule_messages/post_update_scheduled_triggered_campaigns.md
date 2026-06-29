@@ -17,7 +17,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts zum Aktu
 
 Sie können `trigger_properties` übergeben, die Braze als Templates in die Nachricht selbst einfügt.
 
-Beachten Sie, dass Sie zum Versenden von Nachrichten mit diesem Endpunkt eine Campaign-ID benötigen, die beim Erstellen einer [API-getriggerten Campaign]({{site.baseurl}}/api/api_campaigns/) erzeugt wurde.
+Beachten Sie, dass Sie zum Versenden von Nachrichten mit diesem Endpunkt eine Campaign-ID benötigen, die beim Erstellen einer [API-getriggerten Campaign]({{site.baseurl}}/api/api_campaigns) erzeugt wurde.
 
 Jeder Zeitplan überschreibt vollständig den Zeitplan, den Sie in der Anfrage zum Erstellen des Zeitplans oder in früheren Anfragen zum Aktualisieren des Zeitplans angegeben haben. Wenn Sie den Zeitplan beispielsweise ursprünglich auf `"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}` eingestellt haben und ihn später auf `"schedule" : {"time" : "2015-02-20T14:14:47"}` aktualisieren, sendet Braze die Nachricht zur angegebenen Zeit in UTC, nicht in der Ortszeit der Nutzer:innen.
 
@@ -27,7 +27,7 @@ Geplante Trigger, die kurz vor oder während der geplanten Sendezeit aktualisier
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `campaigns.trigger.schedule.update`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `campaigns.trigger.schedule.update`.
 
 ## Rate-Limit
 
@@ -54,9 +54,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | Erforderlich | String | Siehe [Campaign-Bezeichner]({{site.baseurl}}/api/identifier_types/) |
+| `campaign_id` | Erforderlich | String | Siehe [Campaign-Bezeichner]({{site.baseurl}}/api/identifier_types) |
 | `schedule_id` | Erforderlich | String | Die zu aktualisierende `schedule_id` (erhalten aus der Antwort zum Erstellen eines Zeitplans). |
-| `schedule` | Erforderlich | Objekt | Siehe [Zeitplan-Objekt]({{site.baseurl}}/api/objects_filters/schedule_object/). |
+| `schedule` | Erforderlich | Objekt | Siehe [Zeitplan-Objekt]({{site.baseurl}}/api/objects_filters/schedule_object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}

@@ -14,22 +14,22 @@ guide_top_text: "이 엔드포인트 세트를 사용하여 사용자의 이메�
 guide_featured_title: ""
 guide_featured_list:
   - name: "GET: 하드바운스 목록 조회"
-    link: /docs/api/endpoints/email/get_list_hard_bounces/
+    link: /docs/api/endpoints/email/get_list_hard_bounces
     image: /assets/img/braze_icons/message-plus-square.svg
-  - name: "GET: 탈퇴한 이메일 주소 조회"
-    link: /docs/api/endpoints/email/get_query_unsubscribed_email_addresses/
+  - name: "GET: 탈퇴한 이메일 주소 쿼리"
+    link: /docs/api/endpoints/email/get_query_unsubscribed_email_addresses
     image: /assets/img/braze_icons/mail-01.svg
   - name: "POST: 이메일 구독 상태 변경"
-    link: /docs/api/endpoints/email/post_email_subscription_status/
+    link: /docs/api/endpoints/email/post_email_subscription_status
     image: /assets/img/braze_icons/at-sign.svg
   - name: "POST: 하드바운스 제거"
-    link: /docs/api/endpoints/email/post_remove_hard_bounces/
+    link: /docs/api/endpoints/email/post_remove_hard_bounces
     image: /assets/img/braze_icons/message-plus-square.svg
   - name: "POST: 스팸 제거"
-    link: /docs/api/endpoints/email/post_remove_spam/
+    link: /docs/api/endpoints/email/post_remove_spam
     image: /assets/img/braze_icons/mail-04.svg
   - name: "POST: 이메일 차단 목록 등록"
-    link: /docs/api/endpoints/email/post_blocklist/
+    link: /docs/api/endpoints/email/post_blocklist
     image: /assets/img/braze_icons/mail-04.svg
 ---
 {% comment %}

@@ -16,7 +16,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 {% endapimethod %}
 
 {% alert important %}
-Braze ha lanzado el [punto de conexión `/email/blocklist`]({{site.baseurl}}/api/endpoints/email/post_blocklist/) con la misma funcionalidad que el punto de conexión `/email/blacklist`. Te recomendamos que utilices el punto de conexión `/email/blocklist` en su lugar.
+Braze ha lanzado el [punto de conexión `/email/blocklist`]({{site.baseurl}}/api/endpoints/email/post_blocklist) con la misma funcionalidad que el punto de conexión `/email/blacklist`. Te recomendamos que utilices el punto de conexión `/email/blocklist` en su lugar.
 {% endalert %}
 
 > Utiliza este punto de conexión para cancelar la suscripción de un usuario del correo electrónico y marcarlo como rebote duro.
@@ -25,7 +25,7 @@ Braze ha lanzado el [punto de conexión `/email/blocklist`]({{site.baseurl}}/api
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `email.blacklist`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `email.blacklist`.
 
 ## Límite de velocidad {#rate-limit}
 

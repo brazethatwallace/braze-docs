@@ -24,7 +24,7 @@ Braze 내에서 아직 사용자와 연결되지 않은 이메일 주소의 이�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `email.status` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `email.status` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -39,7 +39,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ```json
 {
-  "email": "example@braze.com",
+  "email": "example@example.com",
   "subscription_state": "subscribed"
 }
 ```
@@ -54,7 +54,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## SendGrid 이메일 차단 문제 해결 {#troubleshooting-sendgrid-email-blocks}
 
-SendGrid가 수신자를 차단하는 경우, 이 엔드포인트를 사용하여 구독 상태를 업데이트하고 세그먼트 필터로 참여를 검토하세요. 전달 가능성 모니터링을 위해 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) 소프트 반송 이벤트를 활용하고, 재발송 전에 구독 상태를 확인하세요.
+SendGrid가 수신자를 차단하는 경우, 이 엔드포인트를 사용하여 구독 상태를 업데이트하고 세그먼트 필터로 참여를 검토하세요. 전달 가능성 모니터링을 위해 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) 소프트 반송 이벤트를 활용하고, 재발송 전에 구독 상태를 확인하세요.
 
 ## 요청 예시 {#example-request}
 ```
@@ -62,7 +62,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/email/status' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
 --data-raw '{
-  "email": "example@braze.com",
+  "email": "example@example.com",
   "subscription_state": "subscribed"
 }'
 ```

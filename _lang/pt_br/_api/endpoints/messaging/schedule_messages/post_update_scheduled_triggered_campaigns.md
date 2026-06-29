@@ -17,7 +17,7 @@ description: "Este artigo descreve os detalhes sobre o endpoint da Braze \"Atual
 
 Você pode passar `trigger_properties` que a Braze usa como template na própria mensagem.
 
-Observe que, para enviar mensagens com esse endpoint, você deve ter um ID de campanha, criado ao criar uma [campanha disparada por API]({{site.baseurl}}/api/api_campaigns/).
+Observe que, para enviar mensagens com esse endpoint, você deve ter um ID de campanha, criado ao criar uma [campanha disparada por API]({{site.baseurl}}/api/api_campaigns).
 
 Qualquer programação sobrescreve completamente a que você forneceu na solicitação de criação de programação ou nas solicitações de atualização de programação anteriores. Por exemplo, se você originalmente definiu a programação como `"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}` e depois a atualizou para `"schedule" : {"time" : "2015-02-20T14:14:47"}`, a Braze envia a mensagem no horário especificado em UTC, não no horário local do usuário.
 
@@ -27,7 +27,7 @@ Os gatilhos programados que são atualizados perto ou durante o horário em que 
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `campaigns.trigger.schedule.update`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `campaigns.trigger.schedule.update`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -54,9 +54,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | Obrigatória | String | Consulte [identificador de campanha]({{site.baseurl}}/api/identifier_types/) |
+| `campaign_id` | Obrigatória | String | Consulte [identificador de campanha]({{site.baseurl}}/api/identifier_types) |
 | `schedule_id` | Obrigatória | String | O `schedule_id` a ser atualizado (obtido da resposta ao criar uma programação). |
-| `schedule` | Obrigatória | Objeto | Consulte [objeto de programação]({{site.baseurl}}/api/objects_filters/schedule_object/). |
+| `schedule` | Obrigatória | Objeto | Consulte [objeto de programação]({{site.baseurl}}/api/objects_filters/schedule_object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}

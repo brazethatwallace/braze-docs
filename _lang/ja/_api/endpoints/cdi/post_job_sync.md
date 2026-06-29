@@ -63,6 +63,6 @@ curl --location --request POST 'https://rest.iad-03.braze.com/cdi/integrations/0
 | `429 Another job is in progress` | この統合に対して現在同期が実行中です。同期が完了してから再度お試しください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
-その他のステータスコードと関連するエラーメッセージについては、[致命的なエラーと応答]({{site.baseurl}}/api/errors/#fatal-errors)を参照してください。
+その他のステータスコードと関連するエラーメッセージについては、[致命的なエラーと応答]({{site.baseurl}}/api/errors#fatal-errors)を参照してください。
 
 {% endapi %}

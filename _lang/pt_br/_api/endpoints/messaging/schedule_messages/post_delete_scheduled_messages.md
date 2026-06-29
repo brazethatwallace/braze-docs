@@ -20,7 +20,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Excluir
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `messages.schedule.delete`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `messages.schedule.delete`.
 
 ## Limite de taxa {#rate-limit}
 

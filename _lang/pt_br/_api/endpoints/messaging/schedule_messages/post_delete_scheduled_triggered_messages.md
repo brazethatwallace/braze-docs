@@ -14,7 +14,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Excluir 
 /campaigns/trigger/schedule/delete
 {% endapimethod %}
 
-> Use esse endpoint para cancelar uma mensagem de Campaign que você programou anteriormente via API antes de ser enviada.
+> Use esse endpoint para cancelar uma mensagem do Canvas que você programou anteriormente via API antes de ser enviada.
 
 As mensagens programadas ou os disparos que são excluídos perto ou durante o horário em que deveriam ser enviados são atualizados com base no melhor esforço, de modo que a Braze pode aplicar exclusões de último segundo a todos, alguns ou nenhum dos seus usuários direcionados.
 
@@ -22,7 +22,7 @@ As mensagens programadas ou os disparos que são excluídos perto ou durante o h
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `campaigns.trigger.schedule.delete`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `campaigns.trigger.schedule.delete`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -46,7 +46,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | Obrigatória | String | Consulte [identificador de campanha]({{site.baseurl}}/api/identifier_types/). |
+| `campaign_id` | Obrigatória | String | Consulte [identificador de campanha]({{site.baseurl}}/api/identifier_types). |
 | `schedule_id` | Obrigatória | String | O `schedule_id` a ser excluído (obtido da resposta à programação de criação). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 

@@ -63,6 +63,6 @@ In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehle
 | `429 Another job is in progress` | Für diese Integration wird derzeit eine Synchronisation durchgeführt. Versuchen Sie es erneut, nachdem die Synchronisation abgeschlossen ist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
-Weitere Statuscodes und zugehörige Fehlermeldungen finden Sie unter [Schwerwiegende Fehler und Antworten]({{site.baseurl}}/api/errors/#fatal-errors).
+Weitere Statuscodes und zugehörige Fehlermeldungen finden Sie unter [Schwerwiegende Fehler und Antworten]({{site.baseurl}}/api/errors#fatal-errors).
 
 {% endapi %}

@@ -24,7 +24,7 @@ Chaque requête peut prendre en charge jusqu'à 50 éléments. Cet endpoint est 
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `catalogs.update_items`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `catalogs.update_items`.
 
 ## Limite de débit {#rate-limit}
 

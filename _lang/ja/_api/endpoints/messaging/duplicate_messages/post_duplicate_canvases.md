@@ -44,7 +44,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id` | 必須 | 文字列 | [Canvas識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
+| `canvas_id` | 必須 | 文字列 | [Canvas識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
 | `name` | 必須 | 文字列 | 作成されるCanvasの名前。 |
 | `description` | オプション | 文字列 | 作成されるCanvasの説明フィールド。 |
 | `tag_names` | オプション | 文字列 | 作成されるCanvasのタグ。これらは既存のタグである必要があります。リクエストに新しいタグを追加すると、元のCanvasにあったすべてのタグが上書きされます。 |

@@ -44,7 +44,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id` | Erforderlich | String | Siehe [Canvas-Bezeichner]({{site.baseurl}}/api/identifier_types/). |
+| `canvas_id` | Erforderlich | String | Siehe [Canvas-Bezeichner]({{site.baseurl}}/api/identifier_types). |
 | `name` | Erforderlich | String | Der Name des resultierenden Canvas. |
 | `description` | Optional | String | Das Beschreibungsfeld für das resultierende Canvas. |
 | `tag_names` | Optional | String | Die Tags für das resultierende Canvas. Es muss sich um bestehende Tags handeln. Wenn Sie in der Anfrage neue Tags hinzufügen, überschreiben diese alle Tags, die sich auf dem ursprünglichen Canvas befanden. |

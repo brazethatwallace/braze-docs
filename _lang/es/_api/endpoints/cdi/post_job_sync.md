@@ -63,6 +63,6 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | `429 Another job is in progress` | Actualmente se está ejecutando una sincronización para esta integración. Inténtalo de nuevo cuando se haya completado la sincronización. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
-Para obtener más códigos de estado y mensajes de error asociados, consulta [Errores fatales y respuestas]({{site.baseurl}}/api/errors/#fatal-errors).
+Para obtener más códigos de estado y mensajes de error asociados, consulta [Errores fatales y respuestas]({{site.baseurl}}/api/errors#fatal-errors).
 
 {% endapi %}

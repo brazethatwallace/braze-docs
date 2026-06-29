@@ -22,7 +22,7 @@ description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Neues Dash
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Sie verwenden die Herkunft Ihres Dienstes als `X-Request-Origin`-Header. Weitere Informationen finden Sie unter [Automatisierte Nutzer:innen-Bereitstellung]({{site.baseurl}}/scim/automated_user_provisioning/).
+Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Sie verwenden die Herkunft Ihres Dienstes als `X-Request-Origin`-Header. Weitere Informationen finden Sie unter [Automatisierte Nutzer:innen-Bereitstellung]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Rate-Limit
 
@@ -37,7 +37,7 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 ```
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -84,8 +84,8 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | `schemas` | Erforderlich | String-Array | Erwarteter SCIM-2.0-Schemaname für das Nutzer:innen-Objekt. |
 | `userName` | Erforderlich | String | Die E-Mail-Adresse der Nutzer:in. |
 | `name` | Erforderlich | JSON-Objekt | Dieses Objekt enthält den Vornamen und den Nachnamen der Nutzer:in. |
-| `department` | Erforderlich | String | Gültiger Abteilungs-String aus der [Dokumentation zu Abteilungs-Strings]({{site.baseurl}}/scim_api_appendix/#department-strings). |
-| `permissions` | Optional | JSON-Objekt | Berechtigungsobjekt wie in der [Dokumentation zum Berechtigungsobjekt]({{site.baseurl}}/scim_api_appendix/#permissions-object) beschrieben. |
+| `department` | Erforderlich | String | Gültiger Abteilungs-String aus der [Dokumentation zu Abteilungs-Strings]({{site.baseurl}}/scim_api_appendix#department-strings). |
+| `permissions` | Optional | JSON-Objekt | Berechtigungsobjekt wie in der [Dokumentation zum Berechtigungsobjekt]({{site.baseurl}}/scim_api_appendix#permissions-object) beschrieben. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
@@ -96,7 +96,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 --header 'Authorization: Bearer YOUR-SCIM–TOKEN-HERE' \
 --data raw '{
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -133,7 +133,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "id": "dfa245b7-24195aec-887bb3ad-602b3340",
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -212,8 +212,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 | `schemas` | String-Array | Erwarteter SCIM-2.0-Schemaname für das Nutzer:innen-Objekt. |
 | `userName` | String | Die E-Mail-Adresse der Nutzer:in. |
 | `name` | JSON-Objekt | Dieses Objekt enthält den Vornamen und den Nachnamen der Nutzer:in. |
-| `department` | String | Gültiger Abteilungs-String aus der [Dokumentation zu Abteilungs-Strings]({{site.baseurl}}/scim_api_appendix/#department-strings). |
-| `permissions` | JSON-Objekt | Berechtigungsobjekt wie in der [Dokumentation zum Berechtigungsobjekt]({{site.baseurl}}/scim_api_appendix/#permissions-object) beschrieben. |
+| `department` | String | Gültiger Abteilungs-String aus der [Dokumentation zu Abteilungs-Strings]({{site.baseurl}}/scim_api_appendix#department-strings). |
+| `permissions` | JSON-Objekt | Berechtigungsobjekt wie in der [Dokumentation zum Berechtigungsobjekt]({{site.baseurl}}/scim_api_appendix#permissions-object) beschrieben. |
 | `id` | String | Von Braze generierte ID, die für die Suche und Verwaltung von Nutzer:innen-Konten verwendet wird. |
 | `lastSignInAt` | String | Datum der letzten erfolgreichen Anmeldung in UTC-Zeit. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Antwortparameter" }

@@ -17,7 +17,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 Puedes pasar `trigger_properties` que Braze incluye como plantilla en el propio mensaje.
 
-Ten en cuenta que para enviar mensajes con este punto de conexión, debes tener un ID de Campaign, creado al crear una [Campaign activada por API]({{site.baseurl}}/api/api_campaigns/).
+Ten en cuenta que para enviar mensajes con este punto de conexión, debes tener un ID de Campaign, creado al crear una [Campaign activada por API]({{site.baseurl}}/api/api_campaigns).
 
 Cualquier programación sobrescribe completamente la que proporcionaste en la solicitud de creación de programación o en las solicitudes de actualización de programación anteriores. Por ejemplo, si originalmente estableces la programación en `"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}` y más tarde la actualizas a `"schedule" : {"time" : "2015-02-20T14:14:47"}`, Braze envía el mensaje a la hora especificada en UTC, no en la hora local del usuario.
 
@@ -27,7 +27,7 @@ Los desencadenantes programados que se actualizan cerca de la hora a la que deb�
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `campaigns.trigger.schedule.update`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `campaigns.trigger.schedule.update`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -54,9 +54,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | Obligatorio | Cadena | Ver [identificador de Campaign]({{site.baseurl}}/api/identifier_types/) |
+| `campaign_id` | Obligatorio | Cadena | Ver [identificador de Campaign]({{site.baseurl}}/api/identifier_types) |
 | `schedule_id` | Obligatorio | Cadena | El `schedule_id` a actualizar (obtenido de la respuesta para crear una programación). |
-| `schedule` | Obligatorio | Objeto | Ver [objeto de programación]({{site.baseurl}}/api/objects_filters/schedule_object/). |
+| `schedule` | Obligatorio | Objeto | Ver [objeto de programación]({{site.baseurl}}/api/objects_filters/schedule_object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}

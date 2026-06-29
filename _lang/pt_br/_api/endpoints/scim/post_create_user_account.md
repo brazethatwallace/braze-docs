@@ -22,7 +22,7 @@ description: "Este artigo descreve detalhes sobre o endpoint Criar nova conta de
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de um token SCIM. Você usará a origin do seu serviço como o cabeçalho `X-Request-Origin`. Para saber mais, consulte [Provisionamento automatizado de usuários]({{site.baseurl}}/scim/automated_user_provisioning/).
+Para usar esse endpoint, você precisará de um token SCIM. Você usará a origin do seu serviço como o cabeçalho `X-Request-Origin`. Para saber mais, consulte [Provisionamento automatizado de usuários]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Limite de taxa {#rate-limit}
 
@@ -37,7 +37,7 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 ```
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -79,14 +79,14 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `schemas` | Obrigatória | Array de strings | Nome do esquema SCIM 2.0 esperado para o objeto do usuário. |
-| `userName` | Obrigatória | String | O endereço de e-mail do usuário. |
-| `name` | Obrigatória | Objeto JSON | Esse objeto contém o nome e o sobrenome do usuário. |
-| `department` | Obrigatória | String | String de departamento válida da [documentação de string de departamento]({{site.baseurl}}/scim_api_appendix/#department-strings). |
-| `permissions` | Opcional | Objeto JSON | Objeto de permissões, conforme descrito na [documentação do objeto de permissões]({{site.baseurl}}/scim_api_appendix/#permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `schemas` | Obrigatório | Array de strings | Nome do esquema SCIM 2.0 esperado para o objeto do usuário. |
+| `userName` | Obrigatório | String | O endereço de e-mail do usuário. |
+| `name` | Obrigatório | Objeto JSON | Esse objeto contém o nome e o sobrenome do usuário. |
+| `department` | Obrigatório | String | String de departamento válida da [documentação de string de departamento]({{site.baseurl}}/scim_api_appendix#department-strings). |
+| `permissions` | Opcional | Objeto JSON | Objeto de permissões, conforme descrito na [documentação do objeto de permissões]({{site.baseurl}}/scim_api_appendix#permissions-object). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 ```bash
@@ -96,7 +96,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 --header 'Authorization: Bearer YOUR-SCIM–TOKEN-HERE' \
 --data raw '{
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -133,7 +133,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "id": "dfa245b7-24195aec-887bb3ad-602b3340",
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -212,11 +212,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 | `schemas` | Array de strings | Nome do esquema SCIM 2.0 esperado para o objeto do usuário. |
 | `userName` | String | O endereço de e-mail do usuário. |
 | `name` | Objeto JSON | Esse objeto contém o nome e o sobrenome do usuário. |
-| `department` | String | String de departamento válida da [documentação de string de departamento]({{site.baseurl}}/scim_api_appendix/#department-strings). |
-| `permissions` | Objeto JSON | Objeto de permissões, conforme descrito na [documentação do objeto de permissões]({{site.baseurl}}/scim_api_appendix/#permissions-object). |
+| `department` | String | String de departamento válida da [documentação de string de departamento]({{site.baseurl}}/scim_api_appendix#department-strings). |
+| `permissions` | Objeto JSON | Objeto de permissões, conforme descrito na [documentação do objeto de permissões]({{site.baseurl}}/scim_api_appendix#permissions-object). |
 | `id` | String | ID gerado pela Braze usado para pesquisar e gerenciar contas de usuário. |
 | `lastSignInAt` | String | Data do último login bem-sucedido, em UTC. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parâmetros de resposta" }
 
 ### Estados de erro {#error-states}
 

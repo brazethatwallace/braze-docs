@@ -22,7 +22,7 @@ Este punto de conexión acepta actualizaciones de los parámetros `schedule`, `m
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `messages.schedule.update`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `messages.schedule.update`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -51,8 +51,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
 | `schedule_id` | Obligatorio | Cadena | El `schedule_id` a actualizar (obtenido de la respuesta de crear planificación). |
-| `schedule` | Opcional | Objeto | Ver [objeto de planificación]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-| `messages` | Opcional | Objeto | Ver [objetos de mensajería disponibles]({{site.baseurl}}/api/objects_filters/#messaging-objects). |
+| `schedule` | Opcional | Objeto | Ver [objeto de planificación]({{site.baseurl}}/api/objects_filters/schedule_object). |
+| `messages` | Opcional | Objeto | Ver [objetos de mensajería disponibles]({{site.baseurl}}/api/objects_filters#messaging-objects). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}

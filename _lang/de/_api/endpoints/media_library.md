@@ -14,10 +14,10 @@ guide_top_text: "Verwenden Sie die Endpunkte der Braze-Medienbibliothek, um Asse
 guide_featured_title: "Assets verwalten"
 guide_featured_list:
   - name: "POST: Neues Asset per URL hochladen"
-    link: /docs/api/endpoints/media_library/manage_assets/create/
+    link: /docs/api/endpoints/media_library/manage_assets/create
     image: /assets/img/braze_icons/message-plus-square.svg
   - name: "PUT: Ein Asset in der Medienbibliothek ersetzen"
-    link: /docs/api/endpoints/media_library/manage_assets/replace_file/
+    link: /docs/api/endpoints/media_library/manage_assets/replace_file
     image: /assets/img/braze_icons/pencil-01.svg
 
 ---

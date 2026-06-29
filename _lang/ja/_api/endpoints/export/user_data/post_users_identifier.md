@@ -22,7 +22,7 @@ description: "この記事では、「識別子によるユーザーのエクス
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.export.ids`権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`users.export.ids`権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -56,7 +56,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | パラメーター | 必須 | データタイプ | 説明 |
 | ------------------ | -------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | `external_ids` | オプション | 文字列の配列 | エクスポートするユーザーの外部識別子。 |
-| `user_aliases` | オプション | ユーザーエイリアスオブジェクトの配列 | エクスポートするユーザーの[ユーザーエイリアス]({{site.baseurl}}/api/objects_filters/user_alias_object/)。 |
+| `user_aliases` | オプション | ユーザーエイリアスオブジェクトの配列 | エクスポートするユーザーの[ユーザーエイリアス]({{site.baseurl}}/api/objects_filters/user_alias_object)。 |
 | `device_id` | オプション | 文字列 | `getDeviceId`などのさまざまなSDKメソッドによって返されるデバイス識別子。 |
 | `braze_id` | オプション | 文字列 | 特定のユーザーのBraze識別子。 |
 | `email_address` | オプション | 文字列 | ユーザーのメールアドレス。 |
@@ -81,7 +81,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
   ],
   "device_id": "1234567",
   "braze_id": "braze_identifier",
-  "email_address": "example@braze.com",
+  "email_address": "example@example.com",
   "phone": "11112223333",
   "fields_to_export": ["first_name", "email", "purchases"]
 }'
@@ -94,10 +94,10 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 | エクスポートするフィールド | データタイプ | 説明 |
 | --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `apps` | 配列 | このユーザーがセッションを記録したアプリ。以下のフィールドが含まれます。<br><br>- `name`: アプリ名<br>- `platform`: アプリプラットフォーム（iOS、Android、Webなど）<br>- `version`: アプリのバージョン番号または名前<br>- `sessions`: このアプリの総セッション数<br>- `first_used`: 初回セッションの日付<br>- `last_used`: 最終セッションの日付<br><br>すべてのフィールドは文字列です。 |
-| `attributed_campaign` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。特定の広告キャンペーンの識別子。 |
-| `attributed_source` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。広告が表示されたプラットフォームの識別子。 |
-| `attributed_adgroup` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。キャンペーンの下のオプションのサブグループの識別子。 |
-| `attributed_ad` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。キャンペーンおよび広告グループの下のオプションのサブグループの識別子。 |
+| `attributed_campaign` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。特定の広告キャンペーンの識別子。 |
+| `attributed_source` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。広告が表示されたプラットフォームの識別子。 |
+| `attributed_adgroup` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。キャンペーンの下のオプションのサブグループの識別子。 |
+| `attributed_ad` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。キャンペーンおよび広告グループの下のオプションのサブグループの識別子。 |
 | `push_subscribe` | 文字列 | ユーザーのプッシュ通知のサブスクリプションステータス。 |
 | `email_subscribe` | 文字列 | ユーザーのメールサブスクリプションステータス。 |
 | `braze_id` | 文字列 | このユーザーにBrazeが設定したデバイス固有の一意のユーザー識別子。 |
@@ -118,16 +118,16 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 | `phone` | 文字列 | E.164形式のユーザーの電話番号。 |
 | `purchases` | 配列 | このユーザーが過去90日間に行った購入。 |
 | `push_tokens` | 配列 | アプリの通知の送信先を指定する一意の匿名識別子。 |
-| `random_bucket` | 整数 | ユーザーの[乱数バケット番号]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event)。ランダムユーザーの均一分布セグメントを作成するために使用されます。 |
+| `random_bucket` | 整数 | ユーザーの[乱数バケット番号]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event)。ランダムユーザーの均一分布Segmentを作成するために使用されます。 |
 | `time_zone` | 文字列 | IANAタイムゾーンデータベースと同じ形式のユーザーのタイムゾーン。 |
 | `total_revenue` | 浮動小数点 | このユーザーに帰属する総収益。総収益は、受信したCampaignおよびCanvasesのコンバージョン期間中にユーザーが行った購入に基づいて計算されます。 |
 | `uninstalled_at` | タイムスタンプ | ユーザーがアプリをアンインストールした日時。アプリがアンインストールされていない場合は省略されます。 |
-| `user_aliases` | オブジェクト | `alias_name`および`alias_label`を含む[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification)（存在する場合）。 |
+| `user_aliases` | オブジェクト | `alias_name`および`alias_label`を含む[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification)（存在する場合）。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="エクスポートするフィールド" }
 
 `/users/export/ids`エンドポイントは、受信したすべてのCampaignやCanvases、実行されたすべてのカスタムイベント、行われたすべての購入、すべてのカスタム属性などのデータを含む、このユーザーのユーザープロファイル全体をまとめることに注意してください。このため、このエンドポイントは他のREST APIエンドポイントよりも低速になります。
 
-リクエストされたデータによっては、このAPIエンドポイントでは1分あたり250件のリクエストのレート制限があるため、ニーズを満たすには不十分な場合があります。このエンドポイントを定期的に使用してユーザーをエクスポートすることを想定している場合は、代わりに、非同期で大規模なデータプルに最適化されているセグメント別のユーザーエクスポートを検討してください。
+リクエストされたデータによっては、このAPIエンドポイントでは1分あたり250件のリクエストのレート制限があるため、ニーズを満たすには不十分な場合があります。このエンドポイントを定期的に使用してユーザーをエクスポートすることを想定している場合は、代わりに、非同期で大規模なデータプルに最適化されているSegment別のユーザーエクスポートを検討してください。
 
 ## レスポンス {#response}
 
@@ -303,13 +303,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
     ],
     "braze_id": "5fbd99bac125ca40511f2cb1",
     "random_bucket" : 2365,
-    "first_name" : "Jane",
-    "last_name" : "Doe",
-    "email" : "example@braze.com",
+    "first_name" : "Alex",
+    "last_name" : "Smith",
+    "email" : "example@example.com",
     "dob" : "1980-12-21",
     "home_city" : "Chicago",
     "country" : "US",
-    "phone" : "+442071838750",
+    "phone" : "+15555550123",
     "language" : "en",
     "time_zone" : "Eastern Time (US & Canada)",
     "last_coordinates" : [41.84157636433568, -87.83520818508256],
@@ -432,7 +432,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 {% endtabs %}
 
 {% alert tip %}
-CSVおよびAPIのエクスポートに関するヘルプについては、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)を参照してください。
+CSVおよびAPIのエクスポートに関するヘルプについては、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)を参照してください。
 {% endalert %}
 
 {% endapi %}

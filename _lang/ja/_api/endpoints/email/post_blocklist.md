@@ -20,7 +20,7 @@ description: "この記事では、メールのブロックリスト登録Braze�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`email.blacklist` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`email.blacklist` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 

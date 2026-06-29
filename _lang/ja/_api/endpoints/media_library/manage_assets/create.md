@@ -15,15 +15,15 @@ description: "この記事では、`POST /media_library/create` エンドポイ�
 /media_library/create
 {% endapimethod %}
 
-> このエンドポイントを使用すると、外部でホストされているURL（`asset_url`）またはリクエスト本文で送信されたバイナリファイルデータ（`asset_file`）のいずれかを使用して、[Brazeメディアライブラリ]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/)にアセットを追加できます。このエンドポイントは画像と、画像を含むZIPファイルをサポートしています。
+> このエンドポイントを使用すると、外部でホストされているURL（`asset_url`）またはリクエスト本文で送信されたバイナリファイルデータ（`asset_file`）のいずれかを使用して、[Brazeメディアライブラリ]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library)にアセットを追加できます。このエンドポイントは画像と、画像を含むZIPファイルをサポートしています。
 
 {% alert tip %}
-このエンドポイントは、[Braze MCPサーバー]({{site.baseurl}}/user_guide/brazeai/mcp_server/)から[`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#media-library)関数を使用して呼び出すこともできます。これにより、ClaudeやCursorなどのAIツールが自然言語プロンプトを通じてメディアライブラリにアセットをアップロードできます。
+このエンドポイントは、[Braze MCPサーバー]({{site.baseurl}}/user_guide/brazeai/mcp_server)から[`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library)関数を使用して呼び出すこともできます。これにより、ClaudeやCursorなどのAIツールが自然言語プロンプトを通じてメディアライブラリにアセットをアップロードできます。
 {% endalert %}
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`media_library.create` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`media_library.create` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -154,7 +154,7 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 | `ZIP_FILE_TOO_LARGE` | 400 | ZIPファイルの非圧縮時の合計サイズが5 MBの制限を超えています。`meta`オブジェクトには`zip_file_name`と`zip_file_size`が含まれています。 |
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | ZIP内のファイルエントリに名前がありません。ZIPファイルが破損していないことを確認し、名前のないファイルエントリに名前を追加してください。 |
 | `ZIPPED_ENTITY_CANNOT_HAVE_NESTED_DIRECTORY` | 400 | ZIPファイルにネストされたディレクトリが含まれていますが、これはサポートされていません。すべてのファイルはZIPのルートレベルに配置する必要があります。 |
-| `GENERIC_ERROR` | 500 | アップロード中に予期しないエラーが発生しました。`meta`オブジェクトにはデバッグ用の`original_error`メッセージが含まれています。再試行するか、[サポート]({{site.baseurl}}/support_contact/)にお問い合わせください。 |
+| `GENERIC_ERROR` | 500 | アップロード中に予期しないエラーが発生しました。`meta`オブジェクトにはデバッグ用の`original_error`メッセージが含まれています。再試行するか、[サポート]({{site.baseurl}}/support_contact)にお問い合わせください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="処理エラー" }
 
 

@@ -44,7 +44,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | Obligatorio | Cadena | Ver [identificador de campaña]({{site.baseurl}}/api/identifier_types/). |
+| `campaign_id` | Obligatorio | Cadena | Ver [identificador de campaña]({{site.baseurl}}/api/identifier_types). |
 | `name` | Obligatorio | Cadena | El nombre de la campaña resultante. |
 | `description` | Opcional | Cadena | El campo de descripción de la campaña resultante. |
 | `tag_names` | Opcional | Cadena | Las etiquetas de la campaña resultante. Deben ser etiquetas existentes. Si añades etiquetas nuevas en la solicitud, sobrescribirán cualquier etiqueta que existiera en la campaña original. |
