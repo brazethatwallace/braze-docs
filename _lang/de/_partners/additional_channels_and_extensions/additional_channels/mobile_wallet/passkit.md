@@ -24,7 +24,7 @@ Die Integration von Braze und PassKit ermöglicht es Ihnen, das Engagement Ihrer
 | ----------- | ----------- |
 | PassKit-Konto | Sie müssen ein PassKit-Konto und einen PassKit Account Manager haben. |
 | `userDefinedID` | Um angepasste Events und angepasste Attribute für Ihre Nutzer:innen zwischen PassKit und Braze angemessen zu aktualisieren, müssen Sie die externe ID von Braze als `userDefinedID` festlegen. Diese `userDefinedID` wird verwendet, wenn Sie API-Aufrufe zu den PassKit-Endpunkten tätigen. |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
 | Braze REST-Endpunkt  | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -33,10 +33,10 @@ Die Integration von Braze und PassKit ermöglicht es Ihnen, das Engagement Ihrer
 Um die Erfahrungen Ihrer Kund:innen mit der mobilen Wallet weiter zu verbessern, können Sie von Ihrem PassKit-Dashboard aus Daten über den Braze [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint) an Braze weitergeben.
 
 Beispiele für Daten, die Sie von PassKit weitergeben können:
-- **Pass erstellt**: wenn ein Kunde auf einen Pass-Link klickt und zum ersten Mal einen Pass angezeigt bekommt.
-- **Pass-Installationen**: wenn der Kunde den Pass in seine Wallet-App einfügt und speichert.
+- **Pass erstellt**: wenn ein:e Kund:in auf einen Pass-Link klickt und zum ersten Mal einen Pass angezeigt bekommt.
+- **Pass-Installationen**: wenn der/die Kund:in den Pass in seine/ihre Wallet-App einfügt und speichert.
 - **Pass-Updates**: wenn ein Pass aktualisiert wird.
-- **Pass löschen**: wenn ein Kunde den Pass aus seiner Wallet-App löscht.
+- **Pass löschen**: wenn ein:e Kund:in den Pass aus seiner/ihrer Wallet-App löscht.
 
 Sobald die Daten an Braze übergeben wurden, können Sie Zielgruppen aufbauen, Inhalte über Liquid personalisieren und Campaigns oder Canvases triggern, nachdem diese Aktionen durchgeführt wurden.
 
@@ -88,7 +88,7 @@ Eine vollständige Liste der verfügbaren Felder, ihrer Typen und hilfreichen Be
 
 ### 2. Schritt: Erstellen und kodieren Sie eine undefinierte Nutzlastvariable {#step-2-create-and-encode-an-undefined-payload-variable}
 
-Erstellen und benennen Sie einen neuen Content-Block, indem Sie im Braze-Dashboard zu **Templates** > **Content Blocks** navigieren.
+Erstellen und benennen Sie einen neuen Content-Block, indem Sie im Braze-Dashboard zu **Content** > **Content Block** navigieren.
 
 Wählen Sie **Create Content Block**, um loszulegen.
 
@@ -196,7 +196,7 @@ Erfassen Sie Ihre minimierte JSON-Nutzlast aus [Schritt 1](#passkit-integrations
 {% endraw %}
 
 Ihr Nachrichtentext sollte in etwa so aussehen:
-![Ein Bild des Nachrichten-Editors für Content Blocks mit den erfassten JSON- und Content-Block-Referenzen.]({% image_buster /assets/img/passkit/passkit1.png %}){: style="max-width:70%"}
+![Ein Bild des Nachrichten-Editors für Content-Blöcke mit den erfassten JSON- und Content-Block-Referenzen.]({% image_buster /assets/img/passkit/passkit1.png %}){: style="max-width:70%"}
 
 Die Ausgabe-URL für das Beispiel lautet:
 ![Die Ausgabe-URL, die einen langen, zufällig generierten String aus Buchstaben und Zahlen enthält.]({% image_buster /assets/img/passkit/passkit2.png %}){: style="max-width:70%"}
@@ -224,7 +224,7 @@ Bevor Sie beginnen, finden Sie hier die üblichen JSON-Payload-Parameter, die Si
 
 ### 1. Schritt: Erstellen Sie Ihr Braze-Webhook-Template {#step-1-create-your-braze-webhook-template}
 
-Um ein PassKit-Webhook-Template zu erstellen, das Sie in zukünftigen Campaigns oder Canvases verwenden können, navigieren Sie zum Abschnitt **Templates und Medien** im Braze-Dashboard. Wenn Sie eine einmalige PassKit-Webhook-Kampagne erstellen oder ein bestehendes Template verwenden möchten, wählen Sie bei der Erstellung einer neuen Campaign **Webhook** in Braze aus.
+Um ein PassKit-Webhook-Template zu erstellen, das Sie in zukünftigen Campaigns oder Canvases verwenden können, navigieren Sie zum Abschnitt **Templates & Media** im Braze-Dashboard. Wenn Sie eine einmalige PassKit-Webhook-Kampagne erstellen oder ein bestehendes Template verwenden möchten, wählen Sie bei der Erstellung einer neuen Campaign **Webhook** in Braze aus.
 
 Sobald Sie das PassKit-Webhook-Template ausgewählt haben, sollten Sie Folgendes sehen:
 - **Webhook URL**: `https://api-pub1.passkit.io/coupon/singleUse/coupon`

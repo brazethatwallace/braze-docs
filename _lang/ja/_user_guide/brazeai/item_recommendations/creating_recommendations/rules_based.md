@@ -21,7 +21,7 @@ page_order: 2
 
 利用可能なリソースやユースケースに適したレコメンデーションエンジンを判断する際には、以下の検討事項表を参考にしてください。
 
-<table aria-label="Recommendation engine options" style="text-align: center;">
+<table aria-label="レコメンデーションエンジンのオプション" style="text-align: center;">
   <caption>レコメンデーションエンジンのオプション</caption>
   <thead>
     <tr>
@@ -73,7 +73,7 @@ page_order: 2
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 aria-label="Recommendation engine options" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 aria-label="レコメンデーションエンジンのオプション" }
 
 ## レコメンデーションエンジンの作成 {#creating-a-recommendation-engine}
 
@@ -100,13 +100,11 @@ page_order: 2
 | **title** | 各IDに対して送信されるコンテンツカードのタイトル。「今週のランチ用の作り置き」や「タコスについて話そう」などです。 |
 | **link** | レシピ記事へのリンク。 |
 | **image_url** | レシピに対応する画像。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="例" }
 
-カタログがBrazeにアップロードされたら、一部のカタログアイテムのプレビューを確認して、情報が正確にインポートされたことを確認してください。プレビューではアイテムがランダムに表示される場合がありますが、レコメンデーションエンジンの出力には影響しません。
+カタログがBrazeにアップロードされたら、カタログページからカタログを選択し、**プレビュー**タブを開いて、情報が正確にインポートされたことを確認します。プレビューには一部のアイテムが表示され、ランダムに表示される場合がありますが、レコメンデーションエンジンの出力には影響しません。
 
-![Brazeのカタログの例。]({% image_buster /assets/img/recs/catalog_items.png %})
-
-コンテンツカードCampaignを作成します。作成画面で、Campaignを受信するユーザーと、表示するレシピおよび画像を決定するLiquidロジックを入力します。このユースケースでは、Brazeがユーザーの`start_date`（登録日）を取得し、現在の日付と比較します。日数の差によって、送信されるコンテンツカードが決まります。
+カタログの準備ができたら、[コンテンツカードCampaignを作成]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/)します。作成画面で、Campaignを受信するユーザーと、表示するレシピおよび画像を決定するLiquidロジックを入力します。このユースケースでは、Brazeがユーザーの`start_date`（登録日）を取得し、現在の日付と比較します。日数の差によって、送信されるコンテンツカードが決まります。
 
 {% subtabs local %}
 {% subtab title %}
@@ -157,7 +155,7 @@ page_order: 2
 
 ![コンテンツカードCampaignのメッセージ作成画面の例。]({% image_buster /assets/img/recs/content_card_preview.png %})
 
-**On click behavior**セクションで、iOS、Android、Webデバイスでユーザーがコンテンツカードをクリックしたときにリダイレクトされる先のLiquidロジックを入力します。
+**クリック時の動作**セクションで、iOS、Android、Webデバイスでユーザーがコンテンツカードをクリックしたときにリダイレクトされる先のLiquidロジックを入力します。
 
 {% raw %}
 ```liquid
@@ -174,7 +172,7 @@ page_order: 2
 
 ![作成画面でのクリック時の動作ブロックの例。]({% image_buster /assets/img/recs/on_click_behavior.png %}){: style="max-width:60%;"}<br><br>
 
-**Test**タブに移動し、**Preview message as user**で**Custom user**を選択します。**Custom attribute**フィールドに日付を入力して、その日にサインアップしたユーザーに送信されるコンテンツカードをプレビューします。<br><br>
+**テスト**タブに移動し、**ユーザーとしてメッセージをプレビュー**で**カスタムユーザー**を選択します。**カスタム属性**フィールドに日付を入力して、その日にサインアップしたユーザーに送信されるコンテンツカードをプレビューします。<br><br>
 
 ![「start_date」というカスタム属性の例。]({% image_buster /assets/img/recs/custom_attributes_test.png %})
 {% endtab %}
@@ -187,7 +185,7 @@ page_order: 2
 | **スプレッドシートの変換** | SheetDPなどのサービスを使用してスプレッドシートをJSON APIエンドポイントに変換し、生成されるAPI URLを控えておきます。 |
 | **カスタムエンドポイントの作成** | カスタムビルドの社内エンドポイントを構築し、ホスティングおよびメンテナンスを行います。 |
 | **サードパーティエンジンの使用** | [Alloyパートナー]({{site.baseurl}}/partners/message_personalization/)などのサードパーティレコメンデーションエンジンを使用します。[Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize/)、[Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona/)、[Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield/)などが含まれます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="例" }
 
 次に、メッセージ内でLiquidを使用してエンドポイントを呼び出し、カスタム属性値をユーザーのプロファイルと照合して、対応するレコメンデーションを取得します。
 
@@ -211,7 +209,7 @@ page_order: 2
 | `YOUR_API_URL` | 実際のAPIのURLに置き換えます。 |
 | `RECOMMENDED_ITEM_IDS` | 推奨アイテムのIDを含むカスタム属性の実際の名前に置き換えます。この属性は、セミコロンで区切られたIDの文字列であることが想定されています。 |
 | `ITEM_ID` | アイテムIDに対応するAPIレスポンス内の実際の属性名に置き換えます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="例" }
 
 {% alert note %}
 これは基本的な例であり、特定のニーズやデータ構造に基づいてさらに修正が必要になる場合があります。詳細なガイダンスについては、[Liquidのドキュメント]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を参照するか、開発者に相談してください。

@@ -47,7 +47,7 @@ else {
 {% endtab %}
 {% tab Java %}
 
-```java
+`````````java
 if (braze.getFeatureFlag("new_shopping_cart").getEnabled()) {
   // Show the new homepage your team has built
 } else {
@@ -58,7 +58,7 @@ if (braze.getFeatureFlag("new_shopping_cart").getEnabled()) {
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 if (braze.getFeatureFlag("new_shopping_cart")?.enabled == true) {
   // Show the new homepage your team has built
 } else {
@@ -73,7 +73,7 @@ if (braze.getFeatureFlag("new_shopping_cart")?.enabled == true) {
 
 マーケティングチームは、機能がごく一部のユーザーにのみ有効化されている場合に、製品のお知らせ（製品ローンチメールなど）を調整するためにフィーチャーフラグを使用できます。
 
-例えば、Braze のフィーチャーフラグを使用すると、アプリのユーザーの10%に新しいロイヤルティプログラムをロールアウトし、Canvas のフィーチャーフラグステップを使用して、同じ10%の有効化されたユーザーにメール、プッシュ、またはその他のメッセージングを送信できます。
+例えば、Braze のフィーチャーフラグを使用すると、アプリのユーザーの10%に新しいロイヤルティプログラムをロールアウトし、キャンバス のフィーチャーフラグステップを使用して、同じ10%の有効化されたユーザーにメール、プッシュ、またはその他のメッセージングを送信できます。
 
 ### プロダクトチームはフィーチャーフラグをどのように活用できますか？ {#product-teams}
 
@@ -81,7 +81,7 @@ if (braze.getFeatureFlag("new_shopping_cart")?.enabled == true) {
 
 プロダクトチームは、[フィーチャーフラグプロパティ]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create/#properties)を使用して、ディープリンク、テキスト、画像、その他のダイナミックなコンテンツなど、アプリ内のコンテンツをリモートで配信できます。
 
-Canvas のフィーチャーフラグステップを使用すると、プロダクトチームは A/B スプリットテストを実行して、新機能がコンバージョン率に与える影響を、機能が無効化されたユーザーと比較して測定することもできます。
+キャンバス のフィーチャーフラグステップを使用すると、プロダクトチームは A/B スプリットテストを実行して、新機能がコンバージョン率に与える影響を、機能が無効化されたユーザーと比較して測定することもできます。
 
 ### エンジニアリングチームはフィーチャーフラグをどのように活用できますか？ {#engineering-teams}
 
@@ -93,7 +93,7 @@ Canvas のフィーチャーフラグステップを使用すると、プロダ�
 
 ### フィーチャーフラグを特定のユーザーグループにのみロールアウトできますか？ {#target-users}
 
-はい、Braze でメールアドレス、`user_id`、またはユーザープロファイルのその他の属性を使用して特定のユーザーをターゲットにするSegmentを作成できます。その後、そのSegmentの100%にフィーチャーフラグをデプロイします。
+はい、Braze でメールアドレス、`user_id`、またはユーザープロファイルのその他の属性を使用して特定のユーザーをターゲットにするセグメントを作成できます。その後、そのセグメントの100%にフィーチャーフラグをデプロイします。
 
 ### ロールアウトの割合を調整すると、以前に有効化グループにバケットされたユーザーにどのような影響がありますか？ {#random-buckets}
 

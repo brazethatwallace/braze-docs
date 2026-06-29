@@ -25,23 +25,23 @@ Dieses Feature unterstützt nicht Shopify Markets oder Markets Pro. Wenn Sie Unt
 ## Einen zusätzlichen Shop verbinden {#connecting-an-additional-store}
 Nachdem Sie die Braze App in Ihrem Shopify Shop installiert und Ihren ersten Shop eingerichtet haben, wählen Sie **+ Connect New Store**.
 
-![Der Button „+ Connect New Store“ auf der Shopify Integrationsseite.]({% image_buster /assets/img/Shopify/begin_setup_button.png %}){: style="max-width:80%;"}
+![Der Button „+ Connect New Store“ auf der Shopify Integrationsseite.]({% image_buster /assets/img/shopify/begin_setup_button.png %}){: style="max-width:80%;"}
 
 Für Ihren zusätzlichen regionalen Shopify Shop wählen Sie **Begin setup**.
 
-![Der Bereich „Integration settings“ mit einem Button „Begin setup“.]({% image_buster /assets/img/Shopify/multiple_stores.png %}){: style="max-width:80%;"}
+![Der Bereich „Integration settings“ mit einem Button „Begin setup“.]({% image_buster /assets/img/shopify/multiple_stores.png %}){: style="max-width:80%;"}
 
 Wie bei Ihrer ersten Shopify Shop-Integration können Sie zwischen einer Standard- oder angepassten Einrichtung wählen.
 
-![Bereich „Enable the Braze SDKs“ mit Optionen zur Implementierung des Braze Web SDK mit der Standard- oder angepassten Einrichtung.]({% image_buster /assets/img/Shopify/standard_or_custom.png %}){: style="max-width:80%;"}
+![Bereich „Enable the Braze SDKs“ mit Optionen zur Implementierung des Braze Web SDK mit der Standard- oder angepassten Einrichtung.]({% image_buster /assets/img/shopify/standard_or_custom.png %}){: style="max-width:80%;"}
 
 Wählen Sie die Option, die Ihren Bedürfnissen am besten entspricht:
 
-{% multi_lang_include shopify.md section='Integration Tabs' %}
+{% multi_lang_include partners/shopify.md section='Integration Tabs' %}
 
 Um die einzelnen Shop-Integrationen anzuzeigen und erweiterte Einstellungen zu konfigurieren, wählen Sie einen Shop im Dropdown-Menü aus.
 
-![„Integration settings“ mit einem Dropdown-Menü zum Auswählen eines Shopify Shops.]({% image_buster /assets/img/Shopify/store_dropdown_menu.png %})
+![„Integration settings“ mit einem Dropdown-Menü zum Auswählen eines Shopify Shops.]({% image_buster /assets/img/shopify/store_dropdown_menu.png %})
 
 ## Synchronisierung von Nutzer:innen über verschiedene Shops {#syncing-users-across-stores}
 
@@ -122,7 +122,7 @@ Wenn Sie mehr als einen Shop verbinden, werden die folgenden Attribute mit dem n
 
 Wenn Sie mehrere Shops verbinden, enthalten eingehende empfohlene E-Commerce-Events eine Quell-Event-Eigenschaft. Diese Eigenschaft gibt an, von welcher Storefront-URL das Event stammt, sodass Sie diese Information zur Segmentierung oder zum Triggern bestimmter Anwendungsfälle verwenden können.
 
-![Ein aktionsbasiertes Canvas mit einem Trigger zur Erfassung von Nutzer:innen, die das angepasste Event „ecommerce.order_placed“ ausführen.]({% image_buster /assets/img/Shopify/ecommerce_order_placed.png %}){: style="max-width:80%;"}
+![Ein aktionsbasiertes Canvas mit einem Trigger zur Erfassung von Nutzer:innen, die das angepasste Event „ecommerce.order_placed“ ausführen.]({% image_buster /assets/img/shopify/ecommerce_order_placed.png %}){: style="max-width:80%;"}
 
 Die unterstützten empfohlenen E-Commerce-Events innerhalb der Shopify-Integration sind:
 
@@ -137,7 +137,7 @@ Die unterstützten empfohlenen E-Commerce-Events innerhalb der Shopify-Integrati
 
 Eingehende angepasste Shopify-Events enthalten eine Event-Eigenschaft namens `shopify_storefront`. Diese Eigenschaft zeigt an, von welcher Storefront-URL das Event stammt, sodass Sie sie für die Segmentierung oder das Triggern von Anwendungsfällen nutzen können.
 
-![Ein aktionsbasiertes Canvas mit einem Trigger zur Erfassung von Nutzer:innen, die das angepasste Event „shopify_paid_order“ ausführen.]({% image_buster /assets/img/Shopify/shopify_paid_order.png %}){: style="max-width:80%;"}
+![Ein aktionsbasiertes Canvas mit einem Trigger zur Erfassung von Nutzer:innen, die das angepasste Event „shopify_paid_order“ ausführen.]({% image_buster /assets/img/shopify/shopify_paid_order.png %}){: style="max-width:80%;"}
 
 Zu den unterstützten angepassten Shopify-Events gehören:
 
@@ -154,4 +154,4 @@ Wenn Sie jeden Shopify Shop in Braze verbinden und konfigurieren, können Sie op
 
 Wenn Sie die Produktsynchronisierung für jeden Shop aktivieren, nimmt Braze den Namen Ihres Shopify Shops in den Katalognamen auf. So können Sie Produkte aus verschiedenen Shops unterscheiden.
 
-![Shopify-Kataloge mit ihrem Shopify-Shop-Namen.]({% image_buster /assets/img/Shopify/catalog_store_name.png %})
+![Shopify-Kataloge mit ihrem Shopify-Shop-Namen.]({% image_buster /assets/img/shopify/catalog_store_name.png %})

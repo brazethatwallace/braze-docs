@@ -35,6 +35,11 @@ collections:
     default_nav_url: basics/
   partners:
     title: テクノロジーパートナー
+  releases:
+    title: 新着情報
+    output: true
+    default_nav_url: home/
+    page_order: 6
   help:
     output: true
     default_nav_url: home/

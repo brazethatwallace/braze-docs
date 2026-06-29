@@ -26,7 +26,7 @@ if (featureFlag?.enabled) {
 {% subtabs local %}
 {% subtab Java %}
 
-```java
+`````````java
 FeatureFlag featureFlag = braze.getFeatureFlag("my-new-feature");
 braze.logFeatureFlagImpression("my-new-feature");
 if (featureFlag != null && featureFlag.getEnabled()) {
@@ -39,7 +39,7 @@ if (featureFlag != null && featureFlag.getEnabled()) {
 {% endsubtab %}
 {% subtab Kotlin %}
 
-```kotlin
+`````````kotlin
 val featureFlag = braze.getFeatureFlag("my-new-feature")
 braze.logFeatureFlagImpression("my-new-feature")
 if (featureFlag?.enabled == true) {

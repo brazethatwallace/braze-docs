@@ -166,8 +166,8 @@ Você pode acessar a documentação do Guia do Desenvolvedor da Braze como arqui
 
 | Arquivo | Descrição |
 |------|-------------|
-| [llms.txt](https://www.braze.com/docs/developer_guide/llms.txt) | Um índice das páginas de documentação do desenvolvedor da Braze com títulos e descrições. Use como ponto de partida para descobrir a documentação disponível. |
-| [llms-full.txt](https://www.braze.com/docs/developer_guide/llms-full.txt) | A documentação completa do desenvolvedor da Braze em um único arquivo de texto simples, formatado para consumo por LLMs. |
+| [llms.txt]({{site.baseurl}}/developer_guide/llms.txt) | Um índice das páginas de documentação do desenvolvedor da Braze com títulos e descrições. Use como ponto de partida para descobrir a documentação disponível. |
+| [llms-full.txt]({{site.baseurl}}/developer_guide/llms-full.txt) | A documentação completa do desenvolvedor da Braze em um único arquivo de texto simples, formatado para consumo por LLMs. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Documentação em texto simples" }
 
 Esses arquivos seguem o [padrão llms.txt](https://llmstxt.org/), uma convenção emergente para tornar a documentação acessível a ferramentas de IA. Você pode referenciar esses arquivos diretamente nos seus prompts ou colar o conteúdo deles em um LLM para contexto.

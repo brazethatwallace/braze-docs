@@ -126,6 +126,6 @@ Braze의 대부분의 엔드포인트는 너무 많은 요청을 할 경우 429 
 
 ## 트랜잭션 HTTP 이벤트 포스트백 {#transactional-http-event-postback}
 
-{% multi_lang_include http_event_postback.md %}
+{% multi_lang_include channels/transactional_email/http_event_postback.md %}
 
 {% endapi %}

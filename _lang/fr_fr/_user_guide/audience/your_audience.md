@@ -91,7 +91,7 @@ Les utilisateurs sont créés dans Braze chaque fois qu'une personne interagit a
 {% endtab %}
 
 {% tab API et intégrations %}
-- Vous pouvez créer ou mettre à jour des utilisateurs directement via les [REST API]({{site.baseurl}}/api/endpoints/user_data/) ou en [importent un CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/).
+- Vous pouvez créer ou mettre à jour des utilisateurs directement via les [REST API]({{site.baseurl}}/api/endpoints/user_data/) ou en [importantun CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/).
 - Les outils externes (tels que les CDP, CRM ou entrepôts de données) peuvent synchroniser automatiquement les utilisateurs dans Braze.
 {% endtab %}
 {% endtabs %}
@@ -164,7 +164,7 @@ Une fois les données utilisateur dans Braze, elles alimentent pratiquement tout
 | ---- | ---- |
 | [Segmentation]({{site.baseurl}}/user_guide/audience/segments/) | Créez des audiences basées sur : {::nomarkdown}<ul><li>Les attributs et champs personnalisés</li> <li>Les événements et comportements</li> <li>L'engagement des messages</li> <li>Les propriétés des appareils et des canaux</li></ul>{:/} <br>Les segments peuvent être réutilisés dans les Campaigns et les Canvas. |
 | [Personnalisation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/) | Utilisez les données utilisateur pour adapter le contenu, par exemple : {::nomarkdown}<ul><li>Les noms et préférences dans le texte des messages</li> <li>Les recommandations dynamiques</li> <li>Le contenu spécifique à l'emplacement ou à la langue</li></ul>{:/} |
-| Automatisation et orchestration | Déclenchez des messages et des parcours basés sur : {::nomarkdown}<ul><li>Les actions des utilisateurs</li> <li>Les changements d'attributs</li> <li>Les conditions temporelles</li></ul>{:/} |
+| Automatisation et orchestration  | Déclenchez des messages et des parcours basés sur : {::nomarkdown}<ul><li>Les actions des utilisateurs</li> <li>Les changements d'attributs</li> <li>Les conditions temporelles</li></ul>{:/} |
 | Coordination cross-canal | Atteignez les utilisateurs sur le canal le plus approprié tout en respectant : {::nomarkdown}<ul><li>Le statut d'abonnement</li> <li>Les limites de fréquence</li> <li>Les préférences de canal</li></ul>{:/} |
 | [Analyse et informations]({{site.baseurl}}/user_guide/analytics/) | Comprenez comment différentes audiences se comportent en analysant : {::nomarkdown}<ul><li>Les taux d'engagement</li> <li>Les parcours de conversion</li> <li>La performance des segments au fil du temps</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Fonctionnalités liées aux données d'audience" }

@@ -101,6 +101,10 @@ Une fois le processus d'intégration terminé, Braze récupérera automatiquemen
 | Jeton d'accès au canal | Sélectionnez votre fournisseur puis accédez à **Channels** > votre canal > **Messaging API**. S'il n'y a pas de jeton d'accès au canal, sélectionnez **Issue**. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
+{% alert note %}
+Si vous devez mettre à jour ou renouveler le secret du canal pour un canal LINE déjà intégré, contactez l'[assistance Braze]({{site.baseurl}}/braze_support/) pour demander une mise à jour.
+{% endalert %}
+
 {: start="3"}
 3. Accédez à votre page **Settings** > **Response settings** et procédez comme suit :
    - Désactivez **Greeting message**. Cela peut être géré dans Braze via un déclencheur lors du suivi.
@@ -343,7 +347,7 @@ Thanks for following Flash n' Thread on LINE! For personalized offers and 20% of
 
 {: start="3"}
 3. Créez un message de suivi qui délivre le code de réduction.
-4. (Facultatif) Créez une campagne ou un Canvas basé sur une action qui se déclenche lorsque l'utilisateur LINE est identifié pour lui envoyer son code de réduction. <br>![Campagne basée sur une action qui se déclenche lorsque l'utilisateur LINE est identifié.]({% image_buster /assets/img/line/account_link_2.png %})
+4. (Facultatif) Créez une campagne ou un Canvas basé sur une action qui se déclenche lorsque l'utilisateur LINE est identifié pour lui envoyer son code de réduction. <br>![Campaign basée sur une action qui se déclenche lorsque l'utilisateur LINE est identifié.]({% image_buster /assets/img/line/account_link_2.png %})
 
 #### Fonctionnement {#how-it-works}
 

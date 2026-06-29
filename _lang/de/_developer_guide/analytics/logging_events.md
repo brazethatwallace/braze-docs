@@ -14,6 +14,8 @@ description: "Erfahren Sie, wie Sie angepasste Events über das Braze SDK protok
 Für Wrapper-SDKs, die nicht aufgeführt sind, verwenden Sie stattdessen die entsprechende native Android- oder Swift-Methode.
 {% endalert %}
 
+Informationen zu empfohlenen E-Commerce-Events finden Sie unter [E-Commerce-Events protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+
 ## Protokollieren eines angepassten Events {#logging-a-custom-event}
 
 Um ein angepasstes Event zu protokollieren, verwenden Sie die folgende Event-Protokollierungsmethode.
@@ -329,7 +331,7 @@ AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>
 Die Schlüssel `time` und `event_name` sind reserviert und können nicht als angepasste Event-Eigenschaften verwendet werden.
 {% endalert %}
 
-## Best Practices
+## Best Practices {#best-practices}
 
 Es gibt drei wichtige Überprüfungen, damit Ihre angepassten Event-Eigenschaften wie erwartet protokolliert werden:
 
@@ -353,7 +355,7 @@ Um zu bestätigen, dass die Event-Eigenschaften erfolgreich getrackt werden, kö
 
 1. Gehen Sie zu **Dateneinstellungen** > **Angepasste Events**.
 2. Suchen Sie Ihr angepasstes Event in der Liste.
-3. Wählen Sie für Ihr Event **Manage Properties**, um die Namen der mit einem Event verknüpften Eigenschaften anzuzeigen.
+3. Wählen Sie für Ihr Event **Eigenschaften verwalten**, um die Namen der mit einem Event verknüpften Eigenschaften anzuzeigen.
 
 ### Werte überprüfen {#verify-values}
 
@@ -361,7 +363,7 @@ Nachdem Sie [Ihre:n Nutzer:in als Testnutzer:in hinzugefügt haben]({{site.baseu
 
 1. Führen Sie das angepasste Event innerhalb der App aus.
 2. Warten Sie etwa 10 Sekunden, bis die Daten übertragen wurden.
-3. Aktualisieren Sie das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/), um das angepasste Event und den Wert der damit übergebenen Eigenschaft anzuzeigen.
+3. Aktualisieren Sie das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/), um das angepasste Event und den Wert der damit übergebenen Event-Eigenschaft anzuzeigen.
 
 ## Fehlerbehebung bei angepassten Events {#troubleshooting-custom-events}
 
@@ -387,5 +389,5 @@ Wenn angepasste Events nicht wie erwartet angezeigt werden, bestätigen Sie, das
 
 - Bitten Sie Ihr Entwickler:innen-Team zu überprüfen, ob das Event korrekt protokolliert und durch die erwartete Nutzer:innen-Aktion getriggert wird.
 - Wenn Ihr Team ein Ticket beim Braze Support eröffnet, fügen Sie [ausführliche Protokolle]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) und relevante Code-Snippets bei.
-- Wenn Ihre App Swift oder Android verwendet, kann Ihr Entwickler:innen-Team die [Voraussetzungen für den SDK-Debugger](https://www.braze.com/docs/developer_guide/sdk_integration/debugging/#prerequisites) nutzen, um ausführliche Protokolle zu generieren.
+- Wenn Ihre App Swift oder Android verwendet, kann Ihr Entwickler:innen-Team die [Voraussetzungen für den SDK-Debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging/#prerequisites) nutzen, um ausführliche Protokolle zu generieren.
 - Wenn Ihr Entwickler:innen-Team das Problem nicht identifizieren kann, eröffnen Sie ein [Braze Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support/).

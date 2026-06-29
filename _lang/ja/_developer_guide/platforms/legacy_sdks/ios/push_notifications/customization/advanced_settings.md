@@ -14,7 +14,7 @@ noindex: true
 
 # 高度な設定 {#advanced-settings}
 
-プッシュCampaignを作成する際、作成ステップで **設定** を選択し、利用可能な高度な設定を表示します。
+プッシュキャンペーンを作成する際、作成ステップで **設定** を選択し、利用可能な高度な設定を表示します。
 
 ![]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
 

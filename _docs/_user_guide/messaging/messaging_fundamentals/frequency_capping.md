@@ -86,7 +86,7 @@ When targeting users during campaign creation, you can navigate to **Target Audi
 Note that non-rate-limited campaigns may exceed these delivery limits. However, be aware that messages will be aborted if they’re delayed 72 hours or more due to a low rate limit. If the rate limit is too low, the creator of the campaign will receive alerts in the dashboard and by email.
 
 {% alert tip %}
-Set a [workspace messaging rate limit]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/) to enforce a rate limit across an entire workspace.
+Set a [workspace messaging rate limit]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits) to enforce a rate limit across an entire workspace.
 {% endalert %}
 
 #### Example
@@ -139,17 +139,17 @@ Some notes to keep in mind when configuring rate limits and what behavior you sh
 - The following messages will not be throttled by or counted towards the rate limit:
     - Test sends
     - Seed groups
-    - Content Cards configured to create "at first impression" (This will be controlled by the rate of app impressions. Refer to [Card creation]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences) for more information on the differences between Card Creation options.)
+    - Content Cards configured to create "at first impression" (This will be controlled by the rate of app impressions. Refer to [Card creation]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences) for more information on the differences between Card Creation options.)
 - Delivery rate speed limits aren't supported for the following:
     - SMS autoresponses
-    - SLA-backed messages (such as [Transactional Email]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/))
+    - SLA-backed messages (such as [Transactional Email]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email))
     - In-app messages
     - Feature flags
     - Banners
 
 #### Rate limiting and Connected Content retries
 
-When the [Connected Content retry]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/) is turned on, Braze will retry call failures while respecting the rate limit you set for each resend. Let’s consider the scenario of sending 75,000 messages with a 10,000 per minute rate limit. Imagine that in the first minute, the call fails or is slow and only sends 4,000 messages.
+When the [Connected Content retry]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries) is turned on, Braze will retry call failures while respecting the rate limit you set for each resend. Let’s consider the scenario of sending 75,000 messages with a 10,000 per minute rate limit. Imagine that in the first minute, the call fails or is slow and only sends 4,000 messages.
 
 Instead of trying to make up for the delay and send the remaining 6,000 messages in the second minute or add them to the 10,000 that are already set to send, Braze will move those 6,000 messages to the “back of the queue” and add a minute, if necessary, to the total minutes it would take to send your message.
 
@@ -193,9 +193,11 @@ Each line of frequency caps is connected using the `AND` operator, and you can a
 
 ![Frequency capping section with lists of campaigns and Canvases that rules will and will not apply to.]({% image_buster /assets/img_archive/rate_limiting_overview_2.png %}){: style="max-width:90%;"} 
 
-#### Behavior when users are frequency capped on a Canvas step
+#### Behavior when users are frequency capped or a message is aborted on a Canvas step
 
-If a Canvas user is frequency-capped because of global frequency capping settings, then the user will immediately advance to the next Canvas step. The user will not exit the Canvas because of the frequency cap.
+Global frequency capping alone doesn't exit users from a Canvas. On [Message steps]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step), users still advance when a message isn't sent because of global frequency capping, in line with [how users advance]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#how-users-advance) through the step. The same applies when a message is aborted (for example, by a Liquid abort condition): the user continues through the Canvas as if the message had been sent.
+
+This is separate from **Delivery validations** on a Message step. If a user doesn't meet your delivery validation criteria at send time, they can exit the Canvas at that step.
 
 ### Delivery rules
 
@@ -205,7 +207,7 @@ If you want a particular campaign to override frequency capping rules, you can s
 
 After this, you will be asked if you still want this campaign to count toward your frequency cap. Messages that count toward frequency capping are included in calculations for the Intelligent Channel filter. 
 
-When sending [API campaigns]({{site.baseurl}}/developer_guide/rest_api/messaging/#messaging), which are often transactional, you'll have the ability to specify that a campaign should ignore frequency capping rules by setting `override_frequency_capping` to `true` in the API request.
+When sending [API campaigns]({{site.baseurl}}/developer_guide/rest_api/messaging#messaging), which are often transactional, you'll have the ability to specify that a campaign should ignore frequency capping rules by setting `override_frequency_capping` to `true` in the API request.
 
 By default, new campaigns and Canvases that do not obey frequency caps will also not count toward them. This is configurable for each campaign and Canvas.
 
@@ -215,7 +217,13 @@ This behavior changes the default behavior when you turn off frequency capping f
 
 ![Delivery Controls section with Frequency Capping turned on.]({% image_buster /assets/img_archive/frequencycappingupdate.png %}){: style="max-width:90%;"} 
 
-Different channels within a multichannel campaign individually count toward the frequency cap. For instance, if you create a multichannel campaign with both push and email and have frequency capping set up for both of those channels, then the push counts toward one push campaign, and the email message counts toward one email message campaign. The campaign also counts toward one "campaign of any type." If users are capped to one push and one email campaign per day, and a user receives this multichannel campaign, then they are no longer eligible for push or email campaigns for the rest of the day (unless a campaign ignores frequency capping rules).
+#### How sends count toward caps
+
+Frequency capping applies per dispatch: each time Braze sends a campaign or Canvas component to a user counts toward your caps—not each message variant or platform inside that send. For example, if users are capped at five push campaigns per week, they don't receive any push campaigns after the fifth dispatch until the cap resets.
+
+##### Multichannel sends
+
+When a single dispatch uses multiple channels, that dispatch counts at most once per frequency capping rule that applies. For example, if you create a multichannel campaign that sends email, iOS push, and Android push in one delivery and your workspace has rules for push and email, and a rule that applies to all channels, that delivery counts once toward the push rule, once toward the email rule, and once toward the all-channel rule—it does not count once per push platform or per message inside the send. If users are capped to one push and one email campaign per day and they receive this multichannel campaign, they aren't eligible for additional push or email campaigns for the rest of the day unless a campaign ignores frequency capping rules.
 
 In-app messages and Content Cards are not counted as or toward caps on campaigns or Canvas components of any type.
 
@@ -327,13 +335,30 @@ This rule determines that no users receive more than 100 emails per week because
 
 ### If I change a send throttle on an active Canvas, does it affect users already in the Canvas?
 
-Yes, when you increase or decrease a Canvas rate limit, the updated limit will take effect for new messages within approximately 30 seconds of the change due to caching.
+Yes, when you increase or decrease a Canvas rate limit, the updated limit takes effect for new messages within approximately 30 seconds of the change due to caching.
 
 ### Does frequency capping cause users to exit a Canvas?
 
-No. If a Canvas user is frequency-capped because of global frequency capping settings, the user will immediately advance to the next Canvas step. The user will **not** exit the Canvas because of the frequency cap.
+No. If a Canvas user is frequency-capped because of global frequency capping settings, the user immediately advances to the next Canvas step. The user does **not** exit the Canvas because of the frequency cap.
 
 ### How can I identify users who were frequency capped in a Canvas?
 
-Users who are frequency capped don't generate a send event for that step. To identify these users, you can use [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) to track message frequency capped events. Alternatively, you can create a [Segment Extension]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) to analyze users who entered the Canvas but didn't receive the expected message.
+Users who are frequency capped don't generate a send event for that step. To identify these users, you can use [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) to track message frequency capped events. Alternatively, you can create a [Segment Extension]({{site.baseurl}}/user_guide/audience/segments/segment_extension) to analyze users who entered the Canvas but didn't receive the expected message.
 
+### Why does the dashboard show a rate limit error for my campaign?
+
+This usually means the campaign's [delivery speed rate limit](#delivery-speed-rate-limiting) is set too low for the audience size, so completing the send would take longer than the allowed window and Braze surfaces a warning. Increase the delivery speed rate limit, reduce the audience, or use **Limit send volume** so each scheduled occurrence finishes within the allowed send window. You can also set a [workspace messaging rate limit]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits) to enforce a cap across campaigns.
+
+**Limit send volume** controls how many users are eligible for a send, not how many messages Braze sends per minute. Only a delivery speed rate limit sets per-minute throughput.
+
+### What does "Sent" mean for frequency capping?
+
+In analytics and frequency capping, _Sent_ refers to when Braze dispatches the message (the send is recorded), not guaranteed final delivery to the device or inbox. Frequency capping and send counts use these recorded send events, which can differ from downstream "delivered" metrics.
+
+### Why am I seeing email bounces or deferrals?
+
+Email bounce and deferral messages use many different codes and provider-specific text. Don't treat a particular code as a sign of a rate limiting problem, as the cause depends on your sending context and mailbox-provider feedback.
+
+If messages are temporarily deferred, sending less may help in the short term. Use a [delivery speed rate limit](#delivery-speed-rate-limiting), **Limit send volume**, or both.
+
+For a long-term solution, work with a deliverability expert to review your bounce and deferral data.

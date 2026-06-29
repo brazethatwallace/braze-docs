@@ -4,12 +4,12 @@ article_title: Fundamentos de mensajería
 layout: dev_guide
 page_order: 1
 guide_top_header: "Fundamentos"
-guide_top_text: "Configura quién recibe tu mensaje, cuándo se envía y cómo mides el éxito. Estos conceptos se aplican tanto si usas una <a href='/docs/user_guide/get_started/campaigns_and_canvases'>Campaign como un Canvas</a>."
+guide_top_text: "Configura quién recibe tu mensaje, cuándo se envía y cómo mides el éxito, ya sea que uses una <a href='/docs/user_guide/get_started/campaigns_and_canvases'>campaña o un Canvas</a>. Esta sección cubre la segmentación de audiencia, los tipos de entrega y entrada, el seguimiento de eventos de conversión, la limitación de frecuencia, las reglas de re-elegibilidad, la localización, la accesibilidad y la lista de verificación previa al lanzamiento. Revisa estos conceptos antes de crear tus mensajes para que lleguen a los usuarios correctos sin saturarlos."
 page_type: landing
 tool:
   - Campaigns
   - Canvas
-description: "Conceptos compartidos por Campaigns y Canvas: segmentación, entrega, eventos de conversión y flujo de trabajo previo al lanzamiento."
+description: "Conceptos compartidos por campañas y Canvas: segmentación, entrega, eventos de conversión y flujo de trabajo previo al lanzamiento."
 
 guide_featured_title: "Artículos de la sección"
 guide_featured_list:
@@ -19,13 +19,16 @@ guide_featured_list:
   - name: Tipos de entrega y entrada
     link: /docs/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types
     image: /assets/img/braze_icons/line-chart-up-01.svg
+  - name: ID de envío
+    link: /docs/user_guide/messaging/messaging_fundamentals/dispatch_id
+    image: /assets/img/braze_icons/key-01.svg
   - name: Re-elegibilidad
     link: /docs/user_guide/messaging/messaging_fundamentals/re_eligibility
     image: /assets/img/braze_icons/users-01.svg
   - name: Eventos de conversión
     link: /docs/user_guide/messaging/messaging_fundamentals/conversion_events
     image: /assets/img/braze_icons/edit-05.svg
-  - name: Límites de velocidad y limitación de frecuencia
+  - name: Límite de velocidad y limitación de frecuencia
     link: /docs/user_guide/messaging/messaging_fundamentals/frequency_capping
     image: /assets/img/braze_icons/bar-chart-01.svg
   - name: Localización

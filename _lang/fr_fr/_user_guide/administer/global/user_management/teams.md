@@ -8,17 +8,17 @@ description: "Cet article de référence traite de l'utilisation des Teams Braze
 
 ---
 
-# Équipes
+# Équipes {#teams}
 
 > En tant qu'administrateur Braze, vous pouvez regrouper les utilisateurs de votre entreprise au sein de Teams avec différents rôles et autorisations. Cela permet à plusieurs groupes d'utilisateurs, sans lien entre eux, de collaborer au sein d'un même espace de travail tout en séparant les types de contenu pouvant être modifiés.
 
 Les Teams peuvent être constituées en fonction de la localisation des clients, de la langue et d'attributs personnalisés, de sorte que les membres et les non-membres d'une équipe aient un accès différent aux fonctionnalités d'envoi de messages et aux données clients. Des filtres et des étiquettes d'équipe peuvent être attribués à différents outils d'engagement. Il n'y a aucune limite au nombre d'équipes que vous pouvez créer dans votre espace de travail.
 
-L'option Teams n'est pas disponible sur tous les contrats Braze. Pour accéder à cette fonctionnalité, contactez votre Account Manager Braze ou [contactez-nous](mailto:success@braze.com) pour une consultation.
+L'option Teams n'est pas disponible sur tous les contrats Braze. Pour accéder à cette fonctionnalité, contactez votre gestionnaire de compte Braze ou [contactez-nous](mailto:success@braze.com) pour une consultation.
 
-## En quoi les Teams diffèrent-elles des jeux d'autorisations et des rôles ?
+## En quoi les Teams diffèrent-elles des jeux d'autorisations et des rôles ? {#how-do-teams-differ-from-permission-sets-and-roles}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Créer des Teams {#creating-teams}
 
@@ -30,9 +30,17 @@ Saisissez le **nom de l'équipe**. Si vous le souhaitez, utilisez le champ **Dé
 
 Si une équipe est définie par un attribut personnalisé, une langue ou un pays, vous pouvez alors utiliser l'équipe pour filtrer les utilisateurs finaux pour des fonctionnalités telles que les Campaigns, les Canvas, les Content Cards, les Segments, et plus encore. Pour en savoir plus, consultez [Attribuer des étiquettes d'équipe](#tags-and-filters).
 
-## Affecter des utilisateurs à des Teams
+## Affecter des utilisateurs à des Teams {#assign-users-to-teams}
 
 Les administrateurs Braze et les utilisateurs limités disposant de l'autorisation au niveau de l'entreprise « Peut gérer les paramètres de l'entreprise » peuvent attribuer des autorisations au niveau de l'équipe à un utilisateur de l'entreprise ayant un accès limité. Lorsqu'un utilisateur est affecté à une équipe, il est limité à la lecture ou à l'écriture des données disponibles pour ses équipes spécifiques, telles que la langue de l'utilisateur, l'emplacement ou l'attribut personnalisé, tels que définis lors de la création de l'équipe.
+
+### Limiter les autorisations d'un utilisateur sans supprimer son compte {#limit-company-user-permissions-without-deleting-a-user}
+
+Pour empêcher un utilisateur de se connecter tout en conservant son compte, [suspendez l'utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users). La suspension place le compte dans un état inactif où l'utilisateur ne peut pas se connecter.
+
+Si l'utilisateur doit pouvoir continuer à se connecter avec des capacités limitées, accédez à **Paramètres** > **Utilisateurs de l'entreprise**, sélectionnez l'utilisateur et modifiez ses autorisations. Supprimez les autorisations au niveau de l'espace de travail pour les Campaigns, les Canvas, les Segments et les données utilisateur, et ne laissez qu'un accès minimal, par exemple « Voir les ressources de la bibliothèque multimédia ». Pour plus d'informations, consultez [Modifier les autorisations d'un utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#edit-a-users-permissions).
+
+Les autorisations d'équipe s'ajoutent aux autorisations de l'espace de travail. Si vous affectez l'utilisateur à une équipe, n'accordez que les autorisations minimales au niveau de l'équipe dont il a besoin, et n'accordez pas d'autorisations pour les Campaigns, les Canvas, les Segments ou les profils utilisateur. L'utilisateur reste dans l'espace de travail et peut se connecter, mais il ne peut pas effectuer la plupart des actions d'envoi de messages ou de ciblage d'audience.
 
 Pour affecter un utilisateur à une équipe, accédez à **Paramètres** > **Utilisateurs de l'entreprise** et sélectionnez l'utilisateur que vous souhaitez ajouter à votre équipe.
 
@@ -48,14 +56,9 @@ Effectuez ensuite les étapes suivantes :
 
 ![Autorisations de modèle de page d'accueil au niveau de l'équipe.]({% image_buster /assets/img/teams.png %})
 
-### Autorisations disponibles au niveau de l'équipe
+### Autorisations disponibles au niveau de l'équipe {#available-team-level-permissions}
 
 Voici toutes les autorisations disponibles que vous pouvez attribuer au niveau de l'équipe. Toute autorisation non répertoriée ici n'est accordée qu'au niveau de l'espace de travail, et ces autorisations apparaîtront sous la forme « -- » dans la colonne des autorisations **Teams**.
-
-{% tabs %}
-{% tab Autorisations granulaires %}
-
-{% multi_lang_include alerts/important_alerts.md alert="granular permissions ea" %}
 
 - Voir les Campaigns
 - Modifier les Campaigns
@@ -99,30 +102,7 @@ Voici toutes les autorisations disponibles que vous pouvez attribuer au niveau d
 - Modifier les rapports du tableau de bord
 - Supprimer les rapports du tableau de bord
 
-{% endtab %}
-{% tab Autorisations héritées %}
-
-- Accéder aux Campaigns, Canvas, cartes, Content Blocks, indicateurs de fonctionnalité, Segments, bibliothèque multimédia et centres de préférences
-- Envoyer des Campaigns, des Canvas
-- Lancer et gérer les Content Cards
-- Modifier les Segments
-- Exporter les données utilisateur
-- Voir les profils utilisateur conformes aux PII
-- Gérer les utilisateurs du tableau de bord
-- Gérer les ressources de la bibliothèque multimédia
-- Approuver et refuser les Campaigns
-- Approuver et refuser les Canvas
-- Créer et modifier les modèles de Canvas
-- Voir les modèles de Canvas
-- Archiver les modèles de Canvas
-- Modifier les modèles de page d'accueil
-- Voir les modèles de page d'accueil
-- Archiver les modèles de page d'accueil
-
-{% endtab %}
-{% endtabs %}
-
-Pour consulter les descriptions de ce que chaque autorisation utilisateur inclut et comment les utiliser, consultez notre section [Autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#editing-user-permissions).
+Pour consulter les descriptions de ce que chaque autorisation utilisateur inclut et comment les utiliser, consultez notre section [Autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
 
 ## Attribuer des étiquettes d'équipe {#tags-and-filters}
 
@@ -133,7 +113,7 @@ Vous pouvez attribuer une équipe aux Canvas, Campaigns, Content Cards, Segments
 - En fonction des *définitions* appliquées lors de la création de l'équipe, lorsqu'un filtre d'équipe est attribué, l'audience de cet outil d'engagement est restreinte aux profils utilisateur correspondant à la définition.
 - En fonction des *autorisations* attribuées, les membres de l'équipe ne pourront accéder qu'aux outils d'engagement du tableau de bord auxquels leur filtre d'équipe est appliqué. S'ils disposent d'autorisations limitées ou inexistantes au niveau de l'espace de travail, ils doivent ajouter un filtre d'équipe à certains objets avant de pouvoir les enregistrer ou les lancer. Les membres de l'équipe peuvent également filtrer les Canvas, Campaigns, Content Cards et Segments par équipe pour identifier le contenu qui les concerne.
 
-### Cas d'utilisation
+### Cas d'utilisation {#use-cases}
 
 Considérez les deux scénarios suivants pour une marketeur utilisant Braze nommée Michelle. Michelle est membre d'une équipe appelée « Development ». Elle a accès à toutes les autorisations au niveau de l'équipe pour l'équipe Development.
 
@@ -149,7 +129,7 @@ En fonction des autorisations attribuées à Michelle, chaque fois qu'elle crée
 ![Menu déroulant des étiquettes d'équipe de la campagne qui n'affiche que l'étiquette d'équipe « Development ».]({% image_buster /assets/img_archive/team_permissions_scenario1.gif %})
 
 {% endtab %}
-{% tab Scénario 2 - Autorisations d'équipe et autorisations d'espace de travail %}
+{% tab Scénario 2 - Autorisations d'équipe et d'espace de travail %}
 
 Dans ce scénario, Michelle est toujours membre de l'équipe Development, mais elle dispose également d'une autorisation supplémentaire au niveau de l'espace de travail.
 
@@ -182,7 +162,7 @@ Pour les modifications apportées aux campagnes actives :
 2. L'équipe Development effectue les modifications et les partage avec l'équipe d'approbation.
 3. L'équipe d'approbation supprime l'étiquette d'équipe « Development », met en pause la campagne précédente et lance la nouvelle campagne.
 
-## Archiver une équipe existante
+## Archiver une équipe existante {#archive-an-existing-team}
 
 Vous pouvez archiver des équipes depuis la page **Équipes internes**.
 

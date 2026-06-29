@@ -72,7 +72,7 @@ LIMIT 10
 
 ### 새로고침 설정 지정하기 {#designating-refresh-settings}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ## 활용 사례 {#use-cases}
 

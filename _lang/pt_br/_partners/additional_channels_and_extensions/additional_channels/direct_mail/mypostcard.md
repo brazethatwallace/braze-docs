@@ -11,7 +11,7 @@ search_tag: Partner
 
 # MyPostcard
 
-> O [MyPostcard](https://www.mypostcard.com), um aplicativo global líder em cartões postais, capacita você a executar campanhas de mala direta com facilidade, proporcionando uma maneira simples e lucrativa de se conectar com seus clientes.
+> O [MyPostcard](https://www.mypostcard.com), um app global líder em cartões postais, capacita você a executar campanhas de mala direta com facilidade, proporcionando uma maneira simples e lucrativa de se conectar com seus clientes.
 
 Use a integração do MyPostcard com a Braze para enviar facilmente correspondências impressas aos seus clientes.
 
@@ -38,11 +38,7 @@ Para integrar com o MyPostcard, [faça login ou inscreva-se](https://www.mypostc
 
 ### Etapa 1: Crie seu modelo de webhook da Braze {#step-1-create-your-braze-webhook-template}
 
-Crie um modelo de webhook do MyPostcard para usar em futuras Campaigns ou Canvas navegando até **Templates** > **Webhook Templates** na plataforma Braze.
-
-{% alert note %}
-Se você estiver usando a [navegação mais antiga]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), acesse **Engagement** > **Templates & Media** > **Webhook Templates**.
-{% endalert %}
+Para criar um modelo de webhook do MyPostcard para usar em futuras Campaigns ou Canvas, acesse **Conteúdo** > **Webhook** na plataforma Braze. Em seguida, selecione **Create webhook template**.
 
 Se você quiser criar uma campanha de webhook do MyPostcard única ou usar um modelo existente, selecione **Webhook** na Braze ao criar uma nova campanha. Preencha os seguintes campos:
 

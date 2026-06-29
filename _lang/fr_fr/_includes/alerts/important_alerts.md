@@ -1,11 +1,3 @@
-{% if include.alert == "Shopify deprecation" %}
-
-{% alert important %}
-Une [nouvelle version de l'intégration Shopify]({{site.baseurl}}/partners/shopify/#new-shopify-integration) sera publiée par étapes à partir d'avril 2025. Les phases seront basées sur le type de boutique Shopify et l'ID externe utilisé pour configurer l'intégration initiale. <br><br>**L'ancienne version de l'intégration ne sera plus disponible après le 28 août 2025. Effectuez la mise à jour vers la nouvelle version avant cette date afin de continuer à utiliser l'intégration sans problème.**
-{% endalert %}
-
-{% endif %}
-
 {% if include.alert == 'Web push private browsing' %}
 
 {% alert important %}

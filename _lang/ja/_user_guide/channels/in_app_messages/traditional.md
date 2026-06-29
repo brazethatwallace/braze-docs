@@ -17,7 +17,7 @@ toc_headers: h2
 
 ## ステップ 1:メッセージの作成場所を選択する {#create-new-campaign-in-app}
 
-メッセージをCampaignとCanvasのどちらで送信すべきかわからない場合は、Campaignsは単一のターゲットメッセージングに適しており、Canvasesはマルチステップのユーザージャーニーに適しています。
+メッセージをCampaignsとCanvasのどちらで送信すべきかわからない場合は、Campaignsは単一のターゲットメッセージングに適しており、Canvasesはマルチステップのユーザージャーニーに適しています。
 
 {% tabs %}
 {% tab Campaign %}
@@ -61,7 +61,7 @@ Canvas固有の詳細情報については、[Canvasのアプリ内メッセー�
 | Mobile Apps | iOS、Android、Vega SDK |
 | Web Browsers | Web SDK |
 | Mobile AppsとWeb Browsersの両方 | iOS、Android、Vega、Web SDK |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Specify delivery platforms" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="配信プラットフォームの指定" }
 
 ## ステップ 3:メッセージタイプを指定する {#step-3-specify-your-message-types}
 
@@ -84,7 +84,7 @@ Canvas固有の詳細情報については、[Canvasのアプリ内メッセー�
 .tg th{word-break:normal;}
 </style>
 
-<table aria-label="Message types" class="tg">
+<table aria-label="メッセージタイプ" class="tg">
   <caption>メッセージタイプ</caption>
 <thead>
   <tr>
@@ -106,7 +106,7 @@ Canvas固有の詳細情報については、[Canvasのアプリ内メッセー�
       </ul>
     </td>
     <td>デバイスの向きの強制（縦向きまたは横向き）</td>
-    <td>大きくて大胆に！最も重要なCampaign、重要な通知、大規模なプロモーションなど、ユーザーにコンテンツを確実に見てもらいたい場合に使用します。<br><br>モバイルデバイスでは、デバイスの向きがメッセージの向きと一致しない場合、縦向きおよび横向きのメッセージは表示されないことに注意してください。</td>
+    <td>大きくて大胆に！最も重要なCampaigns、重要な通知、大規模なプロモーションなど、ユーザーにコンテンツを確実に見てもらいたい場合に使用します。<br><br>モバイルデバイスでは、デバイスの向きがメッセージの向きと一致しない場合、縦向きおよび横向きのメッセージは表示されないことに注意してください。</td>
   </tr>
   <tr>
     <td><a href='/docs/user_guide/channels/in_app_messages/message_types/modal'>モーダル</a></td>
@@ -134,7 +134,7 @@ Canvas固有の詳細情報については、[Canvasのアプリ内メッセー�
 
 これらのアプリ内メッセージは、ニーズに合わせてカスタマイズできます。
 
-<table aria-label="Advanced message types" class="tg">
+<table aria-label="高度なメッセージタイプ" class="tg">
   <caption>高度なメッセージタイプ</caption>
 <thead>
   <tr>
@@ -207,7 +207,7 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 
 ##### AIコピーの生成 {#generating-ai-copy}
 
-素晴らしいコピーの作成にお困りですか？[AIコピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/)を使用してみてください。製品名または説明を入力すると、AIがメッセージングに使用できる人間のようなマーケティングコピーを生成します。
+素晴らしいコピーの作成にお困りですか？[AIコピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy)を使用してみてください。製品名または説明を入力すると、AIがメッセージングに使用できる人間のようなマーケティングコピーを生成します。
 
 ![アプリ内メッセージコンポーザーのメッセージフィールドにある「AIコピーライターを起動」ボタン。]({% image_buster /assets/img/ai_copywriter/ai_copywriter_iam.png %}){: style="max-width:60%"}
 
@@ -241,7 +241,7 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 | カスタムイベントを記録 | トリガーする[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)を選択します。別のアプリ内メッセージの表示や追加のメッセージングのトリガーに使用できます。 |
 | カスタム属性を記録 | 現在のユーザーに設定する[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)を選択します。 |
 | プッシュ許可をリクエスト | ネイティブのプッシュ許可を表示します。[プッシュプライミング]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)の詳細と、プッシュのためのユーザー準備の[ベストプラクティス]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#best-practices)をお読みください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior #button-actions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="クリック時の動作" }
 
 注意：__プッシュ許可をリクエスト__、__カスタムイベントを記録__、__カスタム属性を記録__オプションには、以下のSDK最小バージョンが必要です。
 
@@ -287,7 +287,7 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 | 背景色 | 16進数カラーコード。 | 希望の16進数カラーが表示されます。色の不透明度も選択できます。これはメッセージ全体の背景で、テキスト本文の背後にはっきりと表示されます。 |
 | 画面オーバーレイ | 16進数カラーコード。 | 希望の16進数カラーが表示されます。色の不透明度も選択できます。新しいBraze SDKバージョンでのみ利用可能です。これはメッセージ全体の周りのフレームです。 |
 | シェブロンまたはその他のメッセージ閉じオプション | 16進数カラーコード。 | 希望の16進数カラーが表示されます。色の不透明度も選択できます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Style your in-app message #step-5-style-your-in-app-message" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="アプリ内メッセージのスタイル設定" }
 
 送信前に必ずメッセージを[プレビューしてテスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message)してください。
 
@@ -308,7 +308,7 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 
 Campaignの残りの部分を構築します。アプリ内メッセージを構築するためのツールの最適な使用方法については、以下のセクションを参照してください。
 
-#### トリガーを選択する {#choose-a-trigger}
+### トリガーを選択する {#choose-a-trigger}
 
 メッセージをトリガーするアクション、およびCampaignまたはCanvasの開始時間と終了時間を選択します。
 
@@ -331,7 +331,7 @@ Campaignの残りの部分を構築します。アプリ内メッセージを構
 
 [サーバーサイドイベントトリガー]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web)と[ローカルアプリ内メッセージ配信]({{site.baseurl}}/developer_guide/platform_integration_guides/web/in-app_messaging/in-app_message_delivery/#local-in-app-messages)については、開発者ドキュメントを参照してください。
 
-##### オンラインとオフラインのトリガー {#online-versus-offline-triggering}
+#### オンラインとオフラインのトリガー {#online-versus-offline-triggering}
 
 アプリ内メッセージは、メッセージとトリガーをユーザーのデバイスに送信することで機能します。アプリ内メッセージがデバイスに届くと、トリガー条件が満たされるまで表示を待ちます。アプリ内メッセージがすでにユーザーのデバイスにキャッシュされている場合、Brazeへの接続がなくてもオフラインでアプリ内メッセージをトリガーできます（たとえば、機内モードの場合）。
 
@@ -339,7 +339,7 @@ Campaignの残りの部分を構築します。アプリ内メッセージを構
 アプリ内メッセージが停止された後も、メッセージが停止される前にセッションを開始し、その後トリガーイベントを実行したユーザーには引き続きメッセージが表示される場合があります。これらのユーザーは、Campaignが停止された後でもユニークインプレッションとしてカウントされます。
 {% endalert %}
 
-#### 優先度を選択する {#choose-a-priority}
+### 優先度を選択する {#choose-a-priority}
 
 最後に、アプリ内メッセージがトリガーされるアクションを選択した後、優先度も設定する必要があります。同じアクションで2つのメッセージがトリガーされた場合、優先度の高いメッセージが優先度の低いメッセージよりも先にユーザーのデバイスに表示されるようにスケジュールされます。
 
@@ -351,14 +351,14 @@ Campaignの残りの部分を構築します。アプリ内メッセージを構
 
 トリガーメッセージの優先度の高、中、低オプションはバケットであるため、複数のメッセージが同じ選択された優先度を持つことがあります。同じ優先度を共有する複数のメッセージがある場合、最も最近作成または割り当てられたメッセージが優先され、最初に表示されます。
 
-- **デフォルト優先度バケット：**2つのCampaignsが同じトリガーを共有し、デフォルト（中）優先度を使用している場合、最後に作成されたCampaignがトリガーを受け取ります。
-- **特定の優先度バケット：**複数のCampaignsが同じトリガーを共有し、特定の優先度バケットに割り当てられている場合、そのバケットに最も最近割り当てられたCampaignがトリガーを受け取ります。
+- **デフォルト優先度バケット：**2つのCampaignが同じトリガーを共有し、デフォルト（中）優先度を使用している場合、最後に作成されたCampaignがトリガーを受け取ります。
+- **特定の優先度バケット：**複数のCampaignが同じトリガーを共有し、特定の優先度バケットに割り当てられている場合、そのバケットに最も最近割り当てられたCampaignがトリガーを受け取ります。
 
 これらのバケット内で優先度を設定するには、**正確な優先度を設定**をクリックし、Campaignsをドラッグ＆ドロップして正しい優先度に並べ替えることができます。
 
 ![アプリ内メッセージのCampaignとCanvasの優先度設定の例。]({% image_buster /assets/img_archive/bucket_prioritization.png %}){: style="max-width:70%"}
 
-#### ターゲットユーザーを選択する {#choose-users-to-target}
+### ターゲットユーザーを選択する {#choose-users-to-target}
 
 次に、Segmentsまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)する必要があります。おおよそのSegment人口のスナップショットが自動的に表示されます。正確なSegmentメンバーシップは、メッセージが送信される前に常に計算されることに注意してください。
 
@@ -366,15 +366,15 @@ Campaignの残りの部分を構築します。アプリ内メッセージを構
 アプリ内メッセージステップに遅延がある場合、Segmentメンバーシップは遅延後に評価されます。ユーザーが対象の場合、アプリ内メッセージは次の利用可能なセッションで同期されます。
 {% endalert %}
 
-##### Campaignの適格性とLiquidの再評価 {#re-evaluate-campaign-eligibility-and-liquid}
+#### Campaignの適格性とLiquidの再評価 {#re-evaluate-campaign-eligibility-and-liquid}
 
-一部のシナリオでは、アプリ内メッセージの表示をトリガーする際にユーザーの適格性を再評価したい場合があります。例としては、頻繁に変更されるカスタム属性をターゲットにするCampaignsや、直前のプロファイル変更を反映すべきメッセージなどがあります。
+一部のシナリオでは、アプリ内メッセージの表示をトリガーする際にユーザーの適格性を再評価したい場合があります。例としては、頻繁に変更されるカスタム属性をターゲットにするCampaignや、直前のプロファイル変更を反映すべきメッセージなどがあります。
 
 ![「表示前にCampaignの適格性を再評価する」のチェックボックスが選択されている状態。]({% image_buster /assets/img_archive/re-evaluate-iam-membership.png %}){:style="max-width:60%"}
 
 **Re-evaluate campaign eligibility before displaying**を選択すると、送信前にユーザーがこのメッセージの対象であることを確認するために、Brazeへの追加リクエストが行われます。さらに、メッセージが表示される前に、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)変数や[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)がその時点でテンプレート化されます。
 
-これにより、期限切れまたはアーカイブされたCampaigns内のユーザーにアプリ内メッセージが送信されることを防ぎます。ユーザーの適格性を再評価しない場合、メッセージはSDK内にあり、ユーザーがトリガーするのを待っているため、Campaignが期限切れまたはアーカイブされた後でもユーザーはアプリ内メッセージを受信します。
+これにより、期限切れまたはアーカイブされたCampaign内のユーザーにアプリ内メッセージが送信されることを防ぎます。ユーザーの適格性を再評価しない場合、メッセージはSDK内にあり、ユーザーがトリガーするのを待っているため、Campaignが期限切れまたはアーカイブされた後でもユーザーはアプリ内メッセージを受信します。
 
 {% alert note %}
 このオプションを有効にすると、追加の適格性とテンプレートリクエストにより、ユーザーがアプリ内メッセージをトリガーしてからメッセージが表示されるまでにわずかな遅延（100ms未満）が発生します。
@@ -382,13 +382,13 @@ Campaignの残りの部分を構築します。アプリ内メッセージを構
 ユーザーがオフラインの場合や、適格性とLiquidの再評価が不要な場合は、このオプションを使用しないでください。
 {% endalert %}
 
-##### REST APIで追加されたデータをメッセージで使用する {#use-data-added-by-rest-api-in-a-message}
+#### REST APIで追加されたデータをメッセージで使用する {#use-data-added-by-rest-api-in-a-message}
 
 同じセッション内で[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)が追加したユーザーデータは、そのユーザーのアプリ内メッセージで使用できる場合があります。たとえば、ユーザーがトリガーを待っているアプリ内メッセージのオーディエンスに含まれており、セッションを開始し、同じセッション内でREST APIがプロファイルを更新した場合、**Re-evaluate campaign eligibility before displaying**が選択されていれば、その新しいデータがアプリ内メッセージに表示される可能性があります。Brazeはレンダリングの時間までアプリ内メッセージをテンプレート化しません。
 
 1つのトリガーがBrazeにデータを送信し、同時にアプリ内メッセージを発火する場合、スケジュールされた遅延があっても、メッセージはその新しく更新されたプロファイルデータを使用できません。代わりに、データを送信するトリガーとアプリ内メッセージをトリガーするトリガーの2つの別々のトリガーを使用してください。
 
-#### コンバージョンイベントを選択する {#choose-conversion-events}
+### コンバージョンイベントを選択する {#choose-conversion-events}
 
 Brazeでは、Campaignを受信した後にユーザーが特定のアクション（[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)）を実行する頻度を追跡できます。ユーザーが指定されたアクションを実行した場合にコンバージョンがカウントされる最大30日間の時間枠を設定するオプションがあります。
 
@@ -410,7 +410,7 @@ CampaignまたはCanvasの最後の部分の構築が完了したら、詳細を
 
 ## 知っておくべきこと {#things-to-know}
 
-### アクティブなアプリ内メッセージCampaignの制限 {#active-in-app-message-campaign-limits}
+### アクティブなアプリ内メッセージCampaignsの制限 {#active-in-app-message-campaign-limits}
 
 Brazeは信頼性と速度を重視しています。必要なデータのみをBrazeに送信し、ブランドに価値を提供しなくなったCampaignsはオフにすることをお勧めします。
 

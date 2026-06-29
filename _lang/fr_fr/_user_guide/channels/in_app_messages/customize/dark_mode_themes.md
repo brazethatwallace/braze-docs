@@ -34,9 +34,13 @@ Vous pouvez toujours utiliser cette fonctionnalité même si votre application n
 
 ### Utiliser le mode sombre de manière cohérente {#using-dark-mode-consistently}
 
-Pour utiliser le mode sombre pour tous les messages in-app, allez dans **Modèles** > **Modèles de messages in-app**.
+Pour utiliser le mode sombre pour tous les messages in-app, commencez par créer un profil de couleurs correspondant à votre thème en mode sombre.
 
-À partir de là, sélectionnez [Créer un profil de couleurs]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/#color-profile) dans le menu déroulant. Créez un profil de couleurs qui correspond à votre thème en mode sombre. Ensuite, chaque fois que vous créez une version en mode sombre d'un message in-app, vous pouvez sélectionner ce profil de couleurs et conserver une apparence cohérente pour vos messages in-app.
+1. Accédez à **Contenu** > **In-App Message**.
+2. Sélectionnez **Create Templates** et choisissez [Color Profile]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/#color-profile) dans le menu déroulant.
+3. Créez et enregistrez votre profil de couleurs.
+
+Lors de la création d'une version en mode sombre d'un message in-app, vous pouvez sélectionner ce profil de couleurs pour conserver une apparence cohérente pour vos messages in-app.
 
 ## Compatibilité {#compatibility}
 

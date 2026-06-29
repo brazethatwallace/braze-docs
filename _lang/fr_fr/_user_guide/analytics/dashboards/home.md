@@ -17,41 +17,36 @@ La page **Accueil** comporte deux sections principales :
 - [Reprendre là où vous vous étiez arrêté](#pick-up-where-you-left-off)
 - [Aperçu des performances](#performance-overview)
 
-![Tableau de bord Accueil dans Braze.]({% image_buster /assets/img_archive/home_dashboard.png %})
 
 ## Reprendre là où vous vous étiez arrêté {#pick-up-where-you-left-off}
 
 Vous pouvez reprendre là où vous vous étiez arrêté dans le tableau de bord de Braze grâce à un accès direct aux fichiers que vous avez récemment modifiés ou créés. Cette section apparaît en haut de la page **Accueil** du tableau de bord de Braze.
 
-Vous pouvez revenir aux campagnes, Canvas et segments récemment modifiés ou créés. Chaque carte est accompagnée d'étiquettes indiquant le type de contenu (campagne, Canvas, segment) et l'état (actif, brouillon, archivé, arrêté).
+Vous pouvez revenir aux Campaigns, Canvas et Segments récemment modifiés ou créés. Chaque carte est accompagnée d'étiquettes indiquant le type de contenu (Campaign, Canvas, Segment) et l'état (actif, brouillon, archivé, arrêté).
 
 {% alert note %}
-La section **Reprendre là où vous vous étiez arrêté** apparaît après que vous avez modifié ou créé une campagne, un Canvas ou un segment.
+La section **Reprendre là où vous vous étiez arrêté** apparaît après que vous avez modifié ou créé une Campaign, un Canvas ou un Segment.
 {% endalert %}
 
-![Un brouillon de Canvas, un segment actif et un brouillon de campagne dans la section « Reprendre là où vous vous étiez arrêté ».]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
+![Un brouillon de Canvas, un Segment actif et un brouillon de Campaign dans la section « Reprendre là où vous vous étiez arrêté ».]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
 
 ## Aperçu des performances {#performance-overview}
 
 Par défaut, la section **Aperçu des performances** affiche les données des 30 derniers jours pour l'ensemble des applications et sites. Tous vos indicateurs sont calculés en fonction de la plage de dates sélectionnée.
 
-![Champs de plage de dates et d'application sur le tableau de bord Accueil.]({% image_buster /assets/img_archive/home_dashboard_select_date.png %}){: style="max-width:60%;"}
-
 Les pourcentages sont calculés en comparant la plage de dates actuelle à la plage de dates précédente, à l'exception des *utilisateurs actifs par mois* (MAU), qui utilisent le dernier jour de la période précédente plutôt qu'une plage.
 
 Par exemple, si vous définissez votre plage de dates sur **7 derniers jours** et que vos *utilisateurs actifs quotidiens* affichent une augmentation de 1,8 %, cela signifie que vous avez eu 1,8 % d'utilisateurs actifs quotidiens de plus cette semaine par rapport à la semaine précédente.
 
-![]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![Tuile d'indicateur pour les utilisateurs actifs quotidiens affichant une moyenne de 22,2 milliers avec un badge d'augmentation de 7,1 % et une courbe de tendance.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### Afficher le détail {#show-breakdown}
 
 Sélectionnez **Show Breakdown** pour chaque ligne des statistiques de l'aperçu des performances afin de visualiser la valeur de chaque statistique par jour pour la plage de dates spécifiée.
 
-![Développer]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
-
 ### Performances dans le temps {#performance-over-time}
 
-Le graphique **Performances dans le temps** affiche la valeur de chaque statistique sur la plage de dates spécifiée pour les applications sélectionnées.
+Le graphique **Performance Over Time** affiche la valeur de chaque statistique sur la plage de dates spécifiée pour les applications sélectionnées.
 
 ![Le graphique Performances dans le temps montrant les statistiques des nouveaux utilisateurs sur 30 jours.]({% image_buster /assets/img/dashboards/performance_over_time.png %})
 
@@ -59,7 +54,7 @@ Vous pouvez tracer des statistiques pour :
 - Bannières
 - Content Cards
 - Utilisateurs actifs quotidiens
-  - (Facultatif) Répartition par segment
+  - (Facultatif) Répartition par Segment
 - E-mail
 - Messages in-app
 - Formules d'indicateurs clés de performance
@@ -68,15 +63,15 @@ Vous pouvez tracer des statistiques pour :
 - Utilisateurs actifs par mois (MAU)
 - Nouveaux utilisateurs
 - Push
-  - (Facultatif) Répartition par segment
+  - (Facultatif) Répartition par Segment
 - Sessions
-  - (Facultatif) Répartition par segment ou version de l'application
+  - (Facultatif) Répartition par Segment ou version de l'application
 - Sessions par heure
 - Sessions par MAU
 - SMS
 - Adhérence
 - Désinstallations
-  - (Facultatif) Répartition par segment
+  - (Facultatif) Répartition par Segment
 - Utilisateurs
 - Webhooks
 - WhatsApp
@@ -93,8 +88,7 @@ Un faible ratio MAU/utilisateurs peut indiquer que vous devez diversifier vos ca
 
 ### Sessions à vie {#lifetime-sessions}
 
-*Sessions à vie* correspond au nombre total de sessions enregistrées par Braze depuis l'intégration. Une session correspond à chaque utilisation de l'application ou visite de votre site web par un utilisateur. Pour une définition plus précise de la manière dont les sessions sont définies par plateforme, consultez les articles développeur correspondants sur le suivi des sessions pour
-[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [Android et FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android) ou [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web).
+*Sessions à vie* correspond au nombre total de sessions enregistrées par Braze depuis l'intégration. Une session correspond à chaque utilisation de l'application ou visite de votre site web par un utilisateur. Pour une définition plus précise de la manière dont les sessions sont définies par plateforme, consultez les articles développeur correspondants sur le suivi des sessions pour [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [Android et FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android) ou [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web).
 
 ### Utilisateurs actifs par mois {#monthly-active-users}
 
@@ -110,13 +104,15 @@ Le calcul des MAU suit des règles spécifiques pour garantir une facturation pr
 
 - **Moment du calcul** : calculé une fois par jour à 12h05 UTC sous forme d'instantané sur 30 jours ; les comptages ne changent jamais rétroactivement.
 - **Profils anonymes** : comptabilisés **uniquement** lorsqu'au moins une session est enregistrée.
-- **Profils identifiés** : comptabilisés automatiquement dès leur création.
+- **Profils identifiés** : comptabilisés uniquement lorsque `date_of_last_session` se situe dans la fenêtre glissante de 30 jours.
 - **Profils orphelins** : les doublons fusionnés avec un autre utilisateur ne sont **pas** comptabilisés.
-- **Imports CSV** : les utilisateurs importés par CSV ne sont comptabilisés que lorsque `date_of_first_session` ou `date_of_last_session` est fourni, ou lorsqu'ils enregistrent ultérieurement une session.
+- **Imports CSV et imports via la REST API** : les utilisateurs importés par CSV ou via la REST API sont comptabilisés dans les MAU lorsque vous fournissez `date_of_last_session` dans la fenêtre glissante de 30 jours, ou lorsqu'ils enregistrent ultérieurement une session. Fournir uniquement `date_of_first_session` n'affecte pas les MAU.
 - **Suppressions via API** : la suppression d'un utilisateur via l'API ne met pas à jour les MAU immédiatement ; le comptage se corrige automatiquement lors du cycle mensuel suivant.
 
 {% alert note %}
 Les utilisateurs anonymes comptent également dans vos MAU. Pour les appareils mobiles, les utilisateurs anonymes dépendent de l'appareil. Pour les utilisateurs web, les utilisateurs anonymes dépendent du cache du navigateur.
+
+Les comptages de MAU dans Braze peuvent différer de ceux d'outils tels qu'Amplitude lorsque chaque produit utilise une définition différente d'un utilisateur actif. Comparez la configuration dans Amplitude (et vos règles de MAU Braze ci-dessus) avant d'investiguer un écart comme un problème de pipeline de données.
 {% endalert %}
 
 #### Exemple de calcul des MAU {#mau-calculation-example}
@@ -135,7 +131,7 @@ Les instantanés de MAU sont calculés une fois par jour et ne changent jamais r
 
 ### Utilisateurs actifs quotidiens {#daily-active-users}
 
-*Utilisateurs actifs quotidiens* (DAU) affiche le nombre d'utilisateurs uniques qui enregistrent au moins une session dans votre application ou site un jour donné. Les DAU peuvent être une statistique utile pour examiner la variabilité quotidienne de l'utilisation de votre application ou site et adapter vos campagnes de communication pour qu'elles soient aussi efficaces que possible. Par exemple, l'utilisation de votre application peut connaître un pic notable le week-end, ce qui vous indiquerait que vous pourriez toucher davantage d'utilisateurs avec des messages in-app ces jours-là plutôt qu'en semaine.
+*Utilisateurs actifs quotidiens* (DAU) affiche le nombre d'utilisateurs uniques qui enregistrent au moins une session dans votre application ou site un jour donné. Les DAU peuvent être une statistique utile pour examiner la variabilité quotidienne de l'utilisation de votre application ou site et adapter vos Campaigns pour qu'elles soient aussi efficaces que possible. Par exemple, l'utilisation de votre application peut connaître un pic notable le week-end, ce qui vous indiquerait que vous pourriez toucher davantage d'utilisateurs avec des messages in-app ces jours-là plutôt qu'en semaine.
 
 ### Nouveaux utilisateurs {#new-users}
 
@@ -143,6 +139,8 @@ Les instantanés de MAU sont calculés une fois par jour et ne changent jamais r
 
 {% alert note %}
 Lors de l'intégration initiale de Braze, tous les utilisateurs apparaîtront comme de nouveaux utilisateurs, car Braze n'a jamais enregistré de session pour eux auparavant.
+
+Contrairement aux MAU, le nombre de *Nouveaux utilisateurs* peut diminuer rétroactivement lorsque Braze fusionne un profil anonyme avec un profil identifié et rend le profil anonyme orphelin. Braze retire le profil orphelin des totaux d'utilisation de l'application, ce qui peut réduire le nombre de *Nouveaux utilisateurs* pour des dates que vous avez déjà consultées. Pour en savoir plus sur le comportement de liaison des profils, consultez [Cycle de vie du profil utilisateur]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
 {% endalert %}
 
 {% alert important %}
@@ -168,6 +166,10 @@ La valeur des MAU est calculée chaque nuit et ne sera mise à jour que le lende
 ### Sessions quotidiennes {#daily-sessions}
 
 *Sessions quotidiennes* correspond au nombre de sessions enregistrées un jour donné. En comparant cette valeur à votre nombre de DAU, vous pouvez déterminer combien de fois vos utilisateurs ouvrent l'application ou visitent votre site web les jours où ils enregistrent au moins une session.
+
+{% alert note %}
+Le *nombre de sessions quotidiennes* pour une date donnée peut varier lorsque vous consultez le tableau de bord Accueil à des jours différents. Si un utilisateur démarre une session hors ligne, celle-ci peut ne pas parvenir à Braze tant qu'il n'ouvre pas à nouveau l'application. Lorsque cette session est transmise, Braze l'attribue à la date de début de la session, ce qui peut augmenter rétroactivement le comptage pour cette date.
+{% endalert %}
 
 ### Sessions quotidiennes par MAU {#daily-sessions-per-mau}
 

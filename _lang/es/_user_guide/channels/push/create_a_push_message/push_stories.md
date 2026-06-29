@@ -15,8 +15,8 @@ channel:
 
 | Ejemplo de Android (expandido) | Ejemplo de iOS (expandido) |
 | :-----: | :----------: |
-| ![]({% image_buster /assets/img_archive/pushstories_android_preview.png %}) | ![]({% image_buster /assets/img_archive/pushstories_ios_preview.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Push Stories" }
+| ![Vista previa de historias push en Android.]({% image_buster /assets/img_archive/pushstories_android_preview.png %}) | ![Vista previa de historias push en iOS]({% image_buster /assets/img_archive/pushstories_ios_preview.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Historias push" }
 
 {% alert note %}
 En las versiones 3.13.0+ del SDK de iOS, debido a un cambio en la forma en que el SDK descarga las imágenes, no se mostrará una miniatura de la primera imagen en la vista condensada de la notificación push. Asegúrate de que el texto de tu mensaje invite a los usuarios a expandir la notificación push para ver las imágenes.
@@ -31,7 +31,7 @@ Se requieren las siguientes versiones del SDK para recibir historias push:
 
 ## Cómo usar las historias push {#how-to-use-push-stories}
 
-![]({% image_buster /assets/img_archive/pushstories_composer_dropdown2.png %}){: style="float:right;max-width:50%;margin-left:15px;margin-bottom:15px;"}
+![Menú desplegable del compositor de historias push]({% image_buster /assets/img_archive/pushstories_composer_dropdown2.png %}){: style="float:right;max-width:50%;margin-left:15px;margin-bottom:15px;"}
 
 Para usar las historias push, haz lo siguiente:
 
@@ -43,14 +43,13 @@ Para usar las historias push, haz lo siguiente:
 
 Para crear una página, realiza los siguientes pasos:
 
-1. Haz clic en **Manage Pages** desde el compositor principal.
-    <br><br>![]({% image_buster /assets/img_archive/pushstories_add_pages.png %}){: style="max-width:70%"}<br><br>
+1. Selecciona **Add new page** desde el compositor principal.
 2. Inserta una imagen para cada página, junto con el comportamiento de clic para esa imagen.
 3. Si lo deseas, añade un **Title** y una **Description** para cada página. Si usas un título y una descripción para una página, deben insertarse para todas las páginas.
 
 Las vistas previas se reflejarán y son interactivas.
 
-![]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
+![Compositor de historias push]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
 
 {% alert important %}
 Si estás extrayendo imágenes con [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/#about-connected-content), asegúrate de que la URL de tu imagen comience con `https://`. Usar `http://` hará que tu aplicación se bloquee.

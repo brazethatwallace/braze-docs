@@ -60,6 +60,6 @@ Flutter SDK 17.1.0以前を使用している場合、iOSネイティブレイ�
 #### コンテンツカードのコールバックを再生する {#replaying-the-callback-for-content-cards}
 
 コールバックが利用可能になる前にトリガーされたコンテンツカードを保存し、設定後に再生するには、`BrazePlugin`の初期化時に次のエントリを`customConfigs`マップに追加します。
-```dart
+`````````dart
 BrazePlugin braze = new BrazePlugin(customConfigs: {replayCallbacksConfigKey: true});
 ```

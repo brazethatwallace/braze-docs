@@ -58,7 +58,7 @@ guide_featured_list:
   link: /docs/user_archival/
   image: /assets/img/braze_icons/users-01.svg
 - name: 사용자 PII 액세스
-  link: https://www.braze.com/docs/user_guide/administer/global/admin_settings/security_settings#view-pii
+  link: /docs/user_guide/administer/global/admin_settings/security_settings#view-pii
   image: /assets/img/braze_icons/eye.svg
 - name: 추가 개인정보 보호 리소스
   link: https://www.braze.com/resources/search?section%5B%5D=articles&q=privacy

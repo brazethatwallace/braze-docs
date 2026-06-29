@@ -19,17 +19,17 @@ KakaoTalk es compatible tanto con Campaigns como con Canvas. Las Campaigns son m
 {% tabs local %}
 {% tab Campaign %}
 
-1. Ve a **Messaging** > **Campaigns** y selecciona **Create Campaign**.
-2. Selecciona **KakaoTalk** para una campaña de un solo canal, o **Multichannel Campaign** para una campaña de múltiples canales.
+1. Ve a **Mensajería** > **Campaigns** y selecciona **Crear campaña**.
+2. Selecciona **KakaoTalk** para una campaña de un solo canal, o **Campaña multicanal** para una campaña de múltiples canales.
 
 ![Panel con opciones para seleccionar el canal de mensajería.]({% image_buster /assets/img/kakaotalk/kakaotalk_campaign.png %}){: style="max-width:30%" }
 
-3. Puedes añadir variantes adicionales a tu campaña, lo que te permite elegir diferentes tipos de mensajes y diseños. Para más información, consulta [Pruebas multivariantes y A/B](https://www.braze.com/docs/user_guide/messaging/ab_testing/).
+3. Puedes añadir variantes adicionales a tu campaña, lo que te permite elegir diferentes tipos de mensajes y diseños. Para más información, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
 {% endtab %}
 {% tab Canvas %}
 
-1. [Crea tu Canvas](https://www.braze.com/docs/user_guide/messaging/canvas/create_a_canvas/).
+1. [Crea tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/).
 2. Añade un paso de mensaje en el constructor de Canvas y selecciona **KakaoTalk**.
 
 ![Selecciones de canal de mensajería en Canvas.]({% image_buster /assets/img/kakaotalk/kakaotalk_canvas.png %})
@@ -194,7 +194,7 @@ Después de seleccionar tus usuarios de prueba, selecciona **Send Test**. Una no
 Para previsualizar y enviar un mensaje de prueba a un usuario existente, debes tener permisos de "Ver PII". Puedes previsualizar y enviar un mensaje de prueba a un usuario personalizado sin esos permisos.
 {% endalert %}
 
-Para revisar los resultados de un envío o solucionar problemas, ve a **Settings** > **Message Activity Log**. Para más información, consulta [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/).
+Para revisar los resultados de un envío o solucionar problemas, ve a **Configuración** > **Registro de actividad de mensajes**. Para más información, consulta [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/).
 
 ## Paso 5: Construye el resto de tu campaña o Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
@@ -204,7 +204,7 @@ Consulta las siguientes secciones para obtener detalles sobre cómo usar mejor n
 
 Los mensajes de KakaoTalk se pueden entregar según un horario planificado, una acción o un desencadenador de API. Para más información sobre las opciones de planificación y desencadenadores, consulta [Planifica tu campaña]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/) o [Tipos de horario de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types) (para tu Canvas).
 
-Puedes especificar controles de entrega, como permitir que los usuarios vuelvan a ser elegibles para recibir la campaña, o activar reglas de limitación de frecuencia. Para la entrega basada en acciones, también puedes establecer la duración de la campaña y las horas tranquilas.
+Puedes especificar controles de entrega, como permitir que los usuarios vuelvan a ser elegibles para recibir la campaña, o activar reglas de limitación de frecuencia. Para la entrega basada en acciones, también puedes establecer la duración de la campaña y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 ### Elige los usuarios objetivo {#choose-users-to-target}
 

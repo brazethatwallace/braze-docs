@@ -93,7 +93,7 @@ Utilisez les champs suivants pour enregistrer les métadonnées qui aident votre
 | Équipe | Facultatif. Affectez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) pour que les bons groupes puissent modifier ou consulter les rapports de cet envoi. |
 | Étiquettes | Facultatif. Ajoutez des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) pour filtrer dans les listes et les outils tels que le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder/). |
 | ID de campagne | Lorsqu'il est affiché dans l'éditeur ou le résumé, copiez cet identifiant pour les appels API, les rapports et les intégrations qui font référence à une campagne spécifique. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign details" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Détails de la campagne" }
 
 ### Canaux et éditeurs {#channels-and-editors}
 
@@ -116,13 +116,13 @@ Choisissez quand les utilisateurs deviennent éligibles pour recevoir la campagn
 | [Distribution planifiée]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/) | Envoyez à une heure ou une cadence spécifiée. |
 | [Livraison par événement]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) | Envoyez lorsque les utilisateurs effectuent des comportements ou remplissent des conditions que vous définissez. |
 | [Distribution déclenchée par API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) | Envoyez lorsque vos systèmes appellent Braze pour déclencher la campagne pour les utilisateurs éligibles. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Schedule delivery" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Planifier la distribution" }
 
 Pour les concepts de planification dans Braze, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
 ### Contrôles de l'envoi {#delivery-controls}
 
-Selon le type de distribution, vous pouvez ajuster la [rééligibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) (si les utilisateurs peuvent entrer à nouveau dans la campagne) et respecter les règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) de l'espace de travail. Vous pouvez également configurer les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) pour que les messages ne soient pas envoyés pendant des fenêtres restreintes.
+Selon le type de distribution, vous pouvez ajuster la [rééligibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) (si les utilisateurs peuvent entrer à nouveau dans la campagne) et respecter les règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) de l'espace de travail. Vous pouvez également configurer les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) pour que les messages ne soient pas envoyés pendant des fenêtres restreintes.
 
 ## Étape 3 : Cibler les audiences {#step-3-target-audiences}
 
@@ -130,7 +130,7 @@ Dans **Target Audiences**, définissez qui est éligible pour recevoir la campag
 
 ### Options de ciblage {#targeting-options}
 
-Dans cette section, vous pouvez cibler les utilisateurs en choisissant des segments ou des filtres pour affiner votre audience. Les utilisateurs éligibles doivent toujours remplir le déclencheur ou les critères que vous définissez à l'étape **Schedule Delivery**. L'audience cible est comme une salle d'attente : seules les personnes déjà à l'intérieur peuvent avancer lorsque l'action suivante se produit.
+Dans cette section, vous pouvez cibler les utilisateurs en choisissant des segments ou des filtres pour affiner votre audience. Les utilisateurs éligibles doivent toujours remplir le déclencheur ou les critères que vous définissez à l'étape **Schedule Delivery**. L'audience cible fonctionne comme une salle d'attente : seules les personnes déjà à l'intérieur peuvent avancer lorsque l'action suivante se produit.
 
 Les [listes de suppression]({{site.baseurl}}/user_guide/audience/suppression_lists/) de l'espace de travail excluent automatiquement les utilisateurs répertoriés, sauf si vous autorisez une exception pour cette campagne.
 
@@ -158,7 +158,7 @@ Si vous anticipez que de grandes campagnes provoquent un pic d'activité utilisa
 
 ### Tests A/B {#ab-testing}
 
-Vous pouvez créer un [test multivarié ou A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/) pour toute campagne ciblant un seul canal et un seul type d'appareil. Par exemple, si vous souhaitez utiliser un test multivarié ou A/B pour une campagne push, vous pouvez cibler uniquement les appareils iOS ou uniquement les appareils Android, mais pas les deux types d'appareils dans la même campagne.
+Vous pouvez créer un [test multivarié ou A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/) pour toute campagne ciblant un seul canal, même si ce canal inclut plusieurs appareils. Par exemple, si vous souhaitez utiliser un test multivarié ou A/B pour une campagne push, vous pouvez cibler uniquement les appareils iOS ou uniquement les appareils Android, mais pas les deux types d'appareils dans la même campagne.
 
 Pour les campagnes push, e-mail et webhook planifiées pour un envoi unique, vous pouvez également utiliser une [optimisation]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/). Une optimisation réserve une partie de votre audience cible du test A/B et la conserve pour un second envoi optimisé basé sur les résultats du premier test.
 

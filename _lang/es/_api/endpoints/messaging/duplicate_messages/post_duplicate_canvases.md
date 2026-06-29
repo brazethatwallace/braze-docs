@@ -10,7 +10,7 @@ description: "Este artículo describe los detalles sobre el punto de conexión D
 
 {% api %}
 # Duplicar Canvas utilizando la API {#duplicate-canvases-using-the-api}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/duplicate
 {% endapimethod %}
 
@@ -44,11 +44,11 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id` | Obligatorio | Cadena | Ver [identificador de Canvas](https://www.braze.com/docs/api/identifier_types/). |
+| `canvas_id` | Obligatorio | Cadena | Ver [identificador de Canvas]({{site.baseurl}}/api/identifier_types/). |
 | `name` | Obligatorio | Cadena | El nombre del Canvas resultante. |
 | `description` | Opcional | Cadena | El campo de descripción del Canvas resultante. |
 | `tag_names` | Opcional | Cadena | Las etiquetas del Canvas resultante. Deben ser etiquetas existentes. Si añades nuevas etiquetas en la solicitud, sobrescribirán cualquier etiqueta que hubiera en el Canvas original. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Respuesta {#response}
 

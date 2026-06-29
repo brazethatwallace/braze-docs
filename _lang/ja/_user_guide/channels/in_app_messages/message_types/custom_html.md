@@ -117,7 +117,7 @@ HTMLアップロードでカスタムコードのアプリ内メッセージを�
 | SVG画像 | `.svg` |
 | JavaScriptファイル | `.js` |
 | CSSファイル | `.css` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Asset files" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="アセットファイル" }
 
 Brazeでは、以下の2つの理由からアセットをメディアライブラリにアップロードすることを推奨しています。
 
@@ -152,13 +152,25 @@ HTMLエディター内で<i class="fa-solid fa-magnifying-glass"></i> **Search**
 | ---------- | ---------------------------- |
 | Button 1   | `brazeBridge.logClick('0')` |
 | Button 2   | `brazeBridge.logClick('1')` |
-| Body click | `brazeBridge.logClick()` |
+| Body click | `brazeBridge.logClick()`    |
 | カスタムボタントラッキング | `brazeBridge.logClick('your custom name here')` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Button tracking #button-tracking-improvements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ボタントラッキング" }
 
 {% alert note %}
 このボタントラッキング方法は、以前の自動クリックトラッキング方法（`?abButtonId=0`など）に代わるもので、それらは削除されました。
 {% endalert %}
+
+トラッキング対象のボタンが3つ以上必要な場合は、プレビュー付きHTMLメッセージで[`brazeBridge.logClick(button_id)`](#button-tracking-improvements)を使用します。ボタン1とボタン2はそれぞれ`'0'`と`'1'`にマッピングされ、追加のボタンにはカスタムIDを使用します（Campaignあたり最大100個のユニークID）。ボタンIDの文字制限については、[ボタントラッキング](#button-tracking-improvements)を参照してください。
+
+### カスタムHTMLリンクと閉じる動作のトラブルシューティング {#troubleshoot-custom-html-links-and-close-behavior}
+
+#### ボタンクリックでリンクが開かない {#button-clicks-do-not-open-the-link}
+
+カスタムHTMLアプリ内メッセージのボタンがクリックしても読み込まれない場合は、リンクが有効なURLまたはサポートされているディープリンクスキームを使用しているか確認してください。不正なURLやサポートされていないカスタムスキームは、クリックアクションの完了を妨げる可能性があります。
+
+#### メッセージを閉じる際のボディクリック {#body-clicks-when-closing-the-message}
+
+`brazeBridge.closeMessage()`を呼び出すとメッセージは閉じられますが、それ自体では分析を記録しません。ユーザーがメッセージを閉じる際にボディクリックを記録するには、`brazeBridge.closeMessage()`の前に`brazeBridge.logClick()`を呼び出して、プラットフォーム間でクリックログの一貫性を保ちます。
 
 ### 後方互換性のない変更 {#backward-incompatible-changes}
 
@@ -172,4 +184,4 @@ HTMLエディター内で<i class="fa-solid fa-magnifying-glass"></i> **Search**
    |<code>&lt;a href="braze://close?abButtonId=0"&gt;Close Button&lt;/a&gt;</code>|<code>&lt;a href="#" onclick="brazeBridge.logClick('0');brazeBridge.closeMessage()"&gt;Close Button&lt;/a&gt;</code>|
    |<code>&lt;a href="app://deeplink?abButtonId=0">Track button 1&lt;/a&gt;</code>|<code>&lt;a href="app://deeplink" onclick="brazeBridge.logClick('0')"&gt;Track button 1&lt;/a&gt;</code>|
    |<code>&lt;script&gt;<br>location.href = "braze://close?abButtonId=1"<br>&lt;/script&gt;</code>|<code>&lt;script&gt;<br>window.addEventListener("ab.BridgeReady", function(){<br>&nbsp;&nbsp;brazeBridge.logClick("1");<br>&nbsp;&nbsp;brazeBridge.closeMessage();<br>});<br>&lt;/script&gt;</code>|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Backward incompatible changes #backward-incompatible-changes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="後方互換性のない変更" }

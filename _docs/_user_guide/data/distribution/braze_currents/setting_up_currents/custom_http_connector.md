@@ -1,16 +1,20 @@
 ---
-nav_title: Custom HTTP Connector
-article_title: Custom HTTP Connector
+nav_title: Custom Currents Export
+article_title: Custom Currents Export
 alias: /currents/custom_http_connector/
 page_order: 3
 page_type: reference
 tool: Currents
-description: "This reference article outlines how to set up a Custom HTTP Connector to stream Braze Currents event data directly to your own HTTP endpoint in real time."
+description: "This reference article outlines how to set up a Custom Currents Export to stream Braze Currents event data directly to your own HTTP endpoint in real time."
 ---
 
-# Custom HTTP connector
+# Custom Currents Export
 
 > Learn how to integrate a custom Currents connector, so you can get event data from Braze in real time, enabling more customized analytics, reporting, and automation.
+
+{% alert note %}
+This feature is also referred to as the Custom HTTP Connector in technical documentation and API references.
+{% endalert %}
 
 ## Prerequisites
 
@@ -56,7 +60,7 @@ Occasionally, we'll make non-breaking changes to Braze Currents schemas. Non-bre
 We typically give a two-week notice for these changes, but sometimes this isn't possible. It's essential that you design your integration to handle unrecognized fields or event types, otherwise it will likely lead to data loss.
 
 {% alert tip %}
-For the full list of Currents event schemas, see [Message Engagement Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) and [Customer Behavior Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
+For the full list of Currents event schemas, see [Message Engagement Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) and [Customer Behavior Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).
 {% endalert %}
 
 ## Batching and serialization

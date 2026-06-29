@@ -6,9 +6,9 @@ noindex: true
 
 # Exemplo de layout: Visão geral {#example-layout-overview}
 
-> O layout de visão geral é bom para criar uma opção de navegação específica na parte superior de uma página que permita aos usuários clicar em um botão para ir a uma parte específica da página ou a uma página completamente diferente.
+> O layout de visão geral é ideal para criar uma opção de navegação específica na parte superior de uma página, permitindo que os usuários cliquem em um botão para ir a uma parte específica da página ou a uma página completamente diferente.
 
-Exemplos clássicos do layout de seletor são a página de [changelogs do SDK](https://www.braze.com/docs/developer_guide/changelogs) ou a página de [detalhes de criativos da mensagem no app](https://www.braze.com/docs/user_guide/message_building_by_channel/in-app_messages/creative_details/).
+Exemplos clássicos do layout de seletor são a página de [changelogs do SDK]({{site.baseurl}}/developer_guide/changelogs/) ou a página de [detalhes de criativos da mensagem no app]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/creative_details/).
 
 ## Componentes necessários {#required-components}
 
@@ -27,7 +27,7 @@ Exemplos clássicos do layout de seletor são a página de [changelogs do SDK](h
 | `guide_top_text` | Alfanumérico | Descreva sua página; isso será exibido diretamente acima dos botões e de seu título. São necessárias aspas em torno do conteúdo. |
 | `guide_featured_title` | Alfanumérico | Dê um título aos seus cartões. Ele ficará diretamente acima dos botões.
 | `guide_featured_list` | Mais YAML, alfanumérico | Consulte o [formato de listagem do guia](#guide-listing-format) abaixo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Required Parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parâmetros necessários" }
 
 ### Formato de listagem do guia {#guide-listing-format}
 
@@ -36,7 +36,7 @@ Exemplos clássicos do layout de seletor são a página de [changelogs do SDK](h
 | `name` | Alfanumérico | Dê um nome à caixa. |
 | `link` | URL ou caminho | Link de destino da caixa. Deve conter o URL completo ou (se for um link interno) `/docs...` |
 | `image` | Caminho | Link do local da imagem. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Guide Listing Format" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Formato de listagem do guia" }
 
 Exemplo de formato:
 

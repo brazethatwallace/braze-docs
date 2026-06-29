@@ -13,15 +13,15 @@ description: "Cette page présente un aperçu du processus de suppression d'util
 
 Les synchronisations de suppression d'utilisateurs sont prises en charge pour toutes les sources de données d'Ingestion de données cloud disponibles.
 
-## Configuration de l'intégration {#configuring-the-integration}
+## Configurer l'intégration {#configure-the-integration}
 
 Suivez le processus standard pour [créer une nouvelle intégration dans le tableau de bord de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views) pour l'entrepôt de données auquel vous souhaitez vous connecter. Assurez-vous d'inclure un rôle qui peut accéder à la table de suppression. Sur la page **Create import sync**, définissez le **Data Type** sur **Delete Users** afin que les actions appropriées soient exécutées pendant l'intégration pour supprimer les utilisateurs.
 
 ![]({% image_buster /assets/img/cloud_ingestion/deletion_1.png %})
 
-## Configuration des données sources {#configuring-source-data}
+## Configurer les données sources {#configure-source-data}
 
-Les tables sources pour les suppressions d'utilisateurs doivent inclure un ou plusieurs types d'identifiants d'utilisateurs et un horodatage `UPDATED_AT`. Les colonnes `payload` ne sont pas prises en charge pour les données de suppression d'utilisateurs.
+Les tables sources pour les suppressions d'utilisateurs doivent inclure un ou plusieurs types d'identifiants d'utilisateurs et un horodatage `UPDATED_AT`. Les colonnes de payload ne sont pas prises en charge pour les données de suppression d'utilisateurs.
 
 ### `UPDATED_AT`
 
@@ -35,7 +35,7 @@ Votre table peut contenir une ou plusieurs colonnes d'identifiants utilisateur. 
 - `BRAZE_ID` : l'identifiant utilisateur Braze. Il est généré par le SDK Braze et les nouveaux utilisateurs ne peuvent pas être créés à l'aide d'un ID Braze via l'Ingestion de données cloud. Pour créer de nouveaux utilisateurs, spécifiez un ID utilisateur externe ou un alias d'utilisateur.
 
 {% alert important %}
-N'incluez pas de colonne `payload` dans votre table pour la suppression d'utilisateurs. Pour éviter la suppression accidentelle et permanente d'utilisateurs, la synchronisation échouera si une colonne `payload` est fournie dans la table source. Toute autre colonne est autorisée mais sera ignorée par Braze.
+N'incluez pas de colonne `payload` dans votre table pour la suppression d'utilisateurs. Pour éviter la suppression accidentelle et permanente d'utilisateurs, la synchronisation échouera si une colonne de payload est fournie dans la table source. Toute autre colonne est autorisée mais sera ignorée par Braze.
 {% endalert %}
 
 {% tabs %}
@@ -120,7 +120,7 @@ Avec l'Ingestion de données cloud de Braze, vous configurez une intégration en
 Lorsqu'une synchronisation s'exécute, Braze se connecte directement à votre instance d'entrepôt de données, récupère toutes les nouvelles données de la table spécifiée et supprime les profils utilisateur correspondants dans votre tableau de bord de Braze.
 
 {% alert warning %}
-La suppression de profils utilisateur est irréversible. Cette action supprime définitivement les utilisateurs, ce qui peut entraîner des écarts dans vos données. Pour en savoir plus, consultez la section [Supprimer un profil utilisateur]({{site.baseurl}}/help/help_articles/api/delete_user/).
+La suppression de profils utilisateur est irréversible. Cette action supprime définitivement les utilisateurs, ce qui peut entraîner des écarts dans vos données. Pour en savoir plus, consultez la section [Effets de la suppression de profils utilisateur]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#effects-of-deleting-user-profiles).
 {% endalert %}
 
 <br><br>

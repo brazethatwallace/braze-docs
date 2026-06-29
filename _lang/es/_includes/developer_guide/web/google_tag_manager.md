@@ -6,7 +6,17 @@ Google Tag Manager (GTM) te permite añadir, eliminar y editar etiquetas de form
 |--------|--------|
 | Etiqueta de inicialización | Esta etiqueta te permite [integrar el SDK Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?tab=google%20tag%20manager&sdktab=web) sin necesidad de modificar el código de tu sitio. |
 | Etiqueta de acción | Esta etiqueta te permite [crear Content Cards]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_using-google-tag-manager), [establecer atributos de usuario]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=google%20tag%20manager&sdktab=web) y [administrar la recopilación de datos]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?tab=google%20tag%20manager&sdktab=web). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="About Google Tag Manager for Web #google-tag-manager" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Acerca de Google Tag Manager para Web" }
+
+## Secuenciación de etiquetas para las etiquetas de acción de Braze {#tag-sequencing-for-braze-action-tags}
+
+Los eventos personalizados y otras etiquetas de acción de Braze pueden fallar cuando se activan antes de que la etiqueta **Braze Initialization** termine de cargar el SDK Web. En Google Tag Manager, abre la etiqueta de acción, ve a **Advanced Settings** > **Tag Sequencing**, selecciona **A tag that fires before [this tag] is fired** y elige tu etiqueta Braze Initialization.
+
+Para más detalles, consulta [Verificar la secuenciación de etiquetas para eventos personalizados]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#tag-sequencing).
+
+## Registrar compras con GTM {#log-purchases-with-gtm}
+
+En las etiquetas de acción de Braze y las etiquetas Custom HTML, llama a `braze.logPurchase()` para registrar ingresos. El espacio de nombres heredado `appboy.logPurchase()` no es compatible con las integraciones actuales del SDK Web.
 
 ## Registro de eventos personalizados con GTM {#logging-custom-events-with-gtm}
 

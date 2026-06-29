@@ -22,7 +22,7 @@ Braze aloja actualmente todos los datos a nivel de usuario en las regiones Snowf
 {% endalert %}
 
 {% alert tip %}
-Descarga los [esquemas de tablas sin procesar]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ffbc5f5ca7092bc9ae26268aa0e711df) aquí o utiliza este conjunto de [datos de eventos de muestra](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset) disponible en el marketplace de Snowflake para familiarizarte con los eventos compartidos.
+Descarga los [esquemas de tablas sin procesar](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) o utiliza este conjunto de [datos de eventos de muestra](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset) disponible en el marketplace de Snowflake para familiarizarte con los eventos compartidos.
 {% endalert %}
 
 ## Gestión de eventos duplicados {#handling-duplicate-events}
@@ -50,7 +50,7 @@ Siempre que sea posible, los cambios de ruptura irán precedidos de un anuncio y
 
 ## Cuándo se actualizan las tablas SNAPSHOTS y CHANGELOGS {#when-snapshots-and-changelogs-tables-are-updated}
 
-Las tablas SNAPSHOTS y CHANGELOGS realizan un seguimiento de los cambios en Campaigns y Canvas. Comprender cuándo se actualizan estas tablas es importante para consultar las variaciones de mensajes y las configuraciones de Canvas más recientes.
+Las tablas SNAPSHOTS y CHANGELOGS realizan un seguimiento de los cambios en las Campaigns y los Canvas. Comprender cuándo se actualizan estas tablas es importante para consultar las variaciones de mensajes y las configuraciones de Canvas más recientes.
 
 ### CHANGELOGS_CAMPAIGN_SHARED
 

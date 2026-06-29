@@ -1,16 +1,16 @@
 ---
-nav_title: "POST:スケジュールされたAPIトリガーCampaignsを削除"
-article_title: "POST:スケジュールされたAPIトリガーCampaignsを削除"
+nav_title: "POST:スケジュールされたAPIトリガーキャンペーンを削除"
+article_title: "POST:スケジュールされたAPIトリガーキャンペーンを削除"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、スケジュールされたAPIトリガーCampaignsの削除Brazeエンドポイントについて詳しく説明します。"
+description: "この記事では、スケジュールされたAPIトリガーキャンペーンの削除Brazeエンドポイントについて詳しく説明します。"
 
 ---
 {% api %}
-# スケジュールされたAPIトリガーCampaignsを削除 {#delete-scheduled-api-triggered-campaigns}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+# スケジュールされたAPIトリガーキャンペーンを削除 {#delete-scheduled-api-triggered-campaigns}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/schedule/delete
 {% endapimethod %}
 

@@ -12,6 +12,6 @@ description: "この記事には2016年12月のリリースノートが含まれ
 
 メールヘッダーにより、送信エンドポイントを介してメールヘッダーを明示的に設定できるようになりました。Brazeを使用したメール送信の詳細については、[メールのベストプラクティス]({{site.baseurl}}/user_guide/channels/email/best_practices/)を参照してください。
 
-## Canvasの更新 {#canvas-updates}
+## キャンバスの更新 {#canvas-updates}
 
-この更新により、1つのステップを複数のステップに接続したり、複数のステップを1つのマージされたステップに接続したり、それらの間に接続ポイントを描画したりできます。例えば、購入を行ったユーザーは、購入を行っていないユーザーとは別のフローをたどることができます。Canvasの詳細については、[Branchの作成]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/branching/#branching)を参照してください。
+この更新により、1つのステップを複数のステップに接続したり、複数のステップを1つのマージされたステップに接続したり、それらの間に接続ポイントを描画したりできます。例えば、購入を行ったユーザーは、購入を行っていないユーザーとは別のフローをたどることができます。キャンバスの詳細については、[Branchの作成]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/branching/#branching)を参照してください。

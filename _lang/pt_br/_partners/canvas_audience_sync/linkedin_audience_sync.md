@@ -21,7 +21,7 @@ Usando o Braze Audience Sync com o LinkedIn, as marcas podem adicionar dados de 
 
 Esse recurso permite que as marcas controlem quais dados primários específicos são compartilhados com o LinkedIn. Na Braze, as integrações com as quais você pode e não pode compartilhar seus dados primários recebem a máxima consideração. Para saber mais, consulte nossa [política de privacidade](https://www.braze.com/privacy).
 
-{% multi_lang_include early_access_beta_alert.md feature='Audience Sync to LinkedIn' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Audience Sync to LinkedIn' type='beta' %}
 
 ## Pré-requisitos {#prerequisites}
 
@@ -31,7 +31,7 @@ Certifique-se de que os seguintes itens tenham sido criados, concluídos ou acei
 | --- | --- | --- |
 | Conta de anúncios do LinkedIn | [LinkedIn](https://www.linkedin.com/campaignmanager) | Uma conta ativa de anúncios do LinkedIn vinculada à sua marca.<br><br>Certifique-se de que aceitou todos os termos e condições relevantes do LinkedIn para acessar e usar essa conta e que seu administrador do LinkedIn lhe concedeu as permissões apropriadas para gerenciar públicos. |
 | Termos e políticas do LinkedIn | LinkedIn | Concorde em cumprir todos os termos, políticas, diretrizes e documentação exigidos pelo LinkedIn relacionados ao seu uso do LinkedIn Audience Sync, incluindo quaisquer termos, políticas, diretrizes e documentação incorporados por referência, que podem incluir os do LinkedIn: Termos de Serviços, Contrato de Anúncios, Contrato de Processamento de Dados e Diretrizes da Comunidade Profissional. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -133,7 +133,7 @@ O limite de taxa da API do LinkedIn não permite mais do que dez consultas por s
 
 A tabela a seguir inclui métricas e descrições para ajudá-lo a entender melhor a análise de dados do seu componente Audience Sync.
 
-| MÉTRICA | DESCRIÇÃO |
+| Métrica | Descrição |
 | ------ | ----------- |
 | Entraram | Número de usuários que entraram nesse componente para serem sincronizados com o LinkedIn. |
 | Avançaram para a próxima etapa | Quantos usuários avançaram para o próximo componente, se houver um? Todos os usuários avançarão automaticamente se essa for a última etapa da ramificação do Canvas. |
@@ -142,7 +142,7 @@ A tabela a seguir inclui métricas e descrições para ajudá-lo a entender melh
 | Usuários pendentes | Número de usuários atualmente sendo processados pela Braze para sincronização no LinkedIn. |
 | Usuários com erro | Número de usuários que não foram sincronizados com o LinkedIn devido a um erro de API após cerca de 13 horas de tentativas. As possíveis causas de erros podem incluir um token inválido do LinkedIn ou se o público foi excluído no LinkedIn. |
 | Saíram do Canvas | Número de usuários que saíram do Canvas. Isso ocorre quando a última etapa de um Canvas é um componente de Audience Sync. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Entendendo a análise de dados" }
 
 {% alert important %}
 Lembre-se de que haverá um atraso nos relatórios das métricas de usuários sincronizados e usuários com erro devido ao envio em massa e à nova tentativa de 13 horas, respectivamente.

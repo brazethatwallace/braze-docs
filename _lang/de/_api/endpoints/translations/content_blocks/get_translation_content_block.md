@@ -17,8 +17,6 @@ description: "Dieser Artikel enthält detaillierte Informationen zum Endpunkt �
 
 > Verwenden Sie diesen Endpunkt, um alle Übersetzungen für einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) anzuzeigen. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
 
-{% include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `content_blocks.translations.get`.

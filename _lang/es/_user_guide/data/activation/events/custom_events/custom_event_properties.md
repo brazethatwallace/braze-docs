@@ -87,8 +87,6 @@ Las propiedades de eventos para eventos personalizados se actualizan en tiempo r
 
 Necesitas el [permiso de usuario]({{site.baseurl}}/user_guide/data/infrastructure/data_points/#viewing-data-point-usage) "Edit Custom Event Property Segmentation" para crear segmentos basados en la recencia y frecuencia de propiedades de eventos.
 
-{% multi_lang_include deprecations/user_permissions.md %}
-
 De forma predeterminada, puedes tener 20 propiedades de eventos segmentables por espacio de trabajo. Ponte en contacto con tu director de cuentas de Braze para aumentar este límite.
 
 Para añadir propiedades de eventos para segmentación, haz lo siguiente:
@@ -115,7 +113,7 @@ En lo que respecta al uso de suscripción, las propiedades de eventos personaliz
 
 ### Propiedades de entrada de Canvas y propiedades de eventos {#canvas-entry-properties-and-event-properties}
 
-{% multi_lang_include canvas_entry_event_properties.md %}
+{% multi_lang_include canvas/entry_event_properties.md %}
 
 ### Objetos anidados {#nested-objects}
 

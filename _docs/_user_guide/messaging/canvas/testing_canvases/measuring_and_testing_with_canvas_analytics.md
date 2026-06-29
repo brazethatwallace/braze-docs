@@ -22,7 +22,18 @@ The top of the **Canvas Details** page contains top-line Canvas statistics. Thes
 
 This is a great place to get a high-level overview to check how your Canvas is performing against your goal.
 
-![]({% image_buster /assets/img_archive/Journey_5.png %})
+### Reachable users and exact statistics {#reachable-users-and-exact-statistics}
+
+When **[Calculate exact statistics]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#single-user-segments)** is running for audiences tied to your Canvas, Braze may briefly show a rounded estimate in the **Reachable users** area. The exact total replaces the estimate when the calculation finishes. Select **Show Additional Stats** for a full per-channel breakdown. The Canvas builder documents the same flow under **Target Population**; see [Calculating target population]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#calculating-target-population).
+
+![The Canvas Details page showing top-line statistics including messages sent, conversion rate, total entries, total revenue, total exits, and estimated audience, with channel and statistics filters.]({% image_buster /assets/img_archive/Journey_5.png %})
+
+{% alert tip %}
+If a segment you've built from Canvas activity shows fewer reachable users than you expect based on Canvas analytics, there are two common reasons:
+
+- **Estimation sampling:** Segment statistics may display an estimate based on a random sample with a 95% confidence interval of ±1%, rather than an exact count.
+- **Users no longer matching criteria:** Some users counted in Canvas analytics may no longer qualify for the segment—for example, because they unsubscribed or their profile data changed since the Canvas ran. Check the **Historical Performance** of the Canvas for a high volume of unsubscribes.
+{% endalert %}
 
 ### Changes Since Last Viewed
 
@@ -54,7 +65,7 @@ In the **Analyze Variants** tab, you can see a breakdown of performance by varia
 
 You can quickly infer effective variants and identify the right cadences, content, triggers, timing, and more.
 
-![]({% image_buster /assets/img_archive/analyze_variants.png %})
+![The Analyze Canvas modal with the Analyze Variants tab selected, showing a comparison table for Path 1 and Path 2 with entries, sends, revenue, conversion rates, percent change, and confidence metrics.]({% image_buster /assets/img_archive/analyze_variants.png %})
 
 Basic metrics include the following:  
 
@@ -69,7 +80,7 @@ Like conversions, revenue is technically tracked at the Canvas level, but is att
 For example, if a user completes two steps and then makes a purchase, that revenue is attributed to the second component, and to the variant they entered. If they enter the Canvas but make a purchase before receiving the first Canvas component, that revenue is attributed to the variant they entered, but not to any component.
 {% endalert %}
 
-Beyond that, you can see a more explicit breakdown of [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), including the following:
+Beyond that, you can see a more explicit breakdown of [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), including the following:
 
 - Conversion totals and conversion rates for each conversion event
 - Uplift against the control variant
@@ -97,9 +108,8 @@ For our last example, let's say we have a Canvas with re-eligibility turned on. 
 
 ### Funnel report
 
-Funnel reporting offers a visual report that allows you to analyze the journeys your customers take after receiving a Canvas. If your Canvas uses a control group or multiple variants, you'll be able to understand how the different variants have impacted the conversion funnel at a more granular level and optimize based on this data. For more information on funnel reports, see [Funnel reports]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/).
+Funnel reporting offers a visual report that allows you to analyze the journeys your customers take after receiving a Canvas. If your Canvas uses a control group or multiple variants, you'll be able to understand how the different variants have impacted the conversion funnel at a more granular level and optimize based on this data. For more information on funnel reports, see [Funnel reports]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports).
 
 ### Retention report
 
-User retention is one of the most important metrics for any marketer. Keeping engaged users coming back for more indicates that business is healthy. Braze now allows you to measure user retention right on the **Canvas Analytics** page. For more information on how to read and interpret your retention report, check out [Retention reports]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/).
-
+User retention is one of the most important metrics for any marketer. Keeping engaged users coming back for more indicates that business is healthy. Braze now allows you to measure user retention right on the **Canvas Analytics** page. For more information on how to read and interpret your retention report, check out [Retention reports]({{site.baseurl}}/user_guide/analytics/reports/retention_reports).

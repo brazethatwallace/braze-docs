@@ -1,6 +1,6 @@
 ---
 nav_title: "追加チャンネルとエクステンション"
-article_title: 追加チャンネルとエクステンション
+article_title: "追加チャンネルとエクステンション"
 page_order: 11
 
 page_type: landing
@@ -45,6 +45,8 @@ valid_partner_list:
   url: /docs/partners/odicci/
 - name: CataBoom
   url: /docs/partners/cataboom/
+- name: DailyPlay
+  url: /docs/partners/dailyplay/
 - name: Digioh
   url: /docs/partners/digioh/
 - name: Knak

@@ -28,7 +28,7 @@ There are two subscription states for WhatsApp users: `subscribed` and `unsubscr
 
 ### Setting users' WhatsApp subscription groups
 
-- **Rest API:** User profiles can be programmatically set by the [`/subscription/status/set` endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) using the Braze REST API.
+- **Rest API:** User profiles can be programmatically set by the [`/subscription/status/set` endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) using the Braze REST API.
 - **Web SDK:** Users can be added to an email, SMS, or WhatsApp subscription group using the `addToSubscriptionGroup` method for [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)), or [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup).
 - **User import**: Users can be added to email or SMS subscription groups via **Import Users**. When updating the subscription group status, you must have these two columns in your CSV: `subscription_group_id` and `subscription_state`. Refer to [User import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#updating-subscription-group-status) for more information.
 
@@ -36,11 +36,23 @@ There are two subscription states for WhatsApp users: `subscribed` and `unsubscr
 
 - **User Profile:** Individual user profiles can be accessed through the Braze dashboard from **Audience** > **Search Users**. Here, you can look up user profiles by email address, phone number, or external user ID. When you're inside a user profile, under the **Engagement** tab, you can view a user’s WhatsApp subscription group and their status.
 
-- **Rest API:** Individual user profiles subscription group can be viewed by the [List user’s subscription groups endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) or [List user’s subscription group status endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) by using Braze's REST API. 
+- **Rest API:** Individual user profiles subscription group can be viewed by the [List user’s subscription groups endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) or [List user’s subscription group status endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) by using Braze's REST API. 
+
+## Archive subscription groups
+
+If you need to stop using a WhatsApp subscription group, you can archive it to mark it as inactive. 
+
+Archiving a subscription group marks it as inactive but does not delete it from your workspace. If you need to remove a WhatsApp phone number or subscription group entirely, you must first archive the subscription group in the Subscription Group Manager before requesting deletion from Braze support.
+
+To archive a subscription group:
+
+1. Go to **Audience** > **Subscription Group Management**.
+2. Find the WhatsApp subscription group you want to archive.
+3. Hover over the status for the subscription group and select <i class="fa-solid fa-box-archive"></i> **Archive**.
 
 ## WhatsApp opt-in and opt-out process
 
-Currently, users can subscribe and [opt-in and opt-out]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs/) to WhatsApp messaging in various ways, including [SMS](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/4-sms-capture-modal), through a website, a WhatsApp thread, phone, or in person. Note that opt-ins are required.
+Currently, users can subscribe and [opt-in and opt-out]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs) to WhatsApp messaging in various ways, including [SMS](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/4-sms-capture-modal), through a website, a WhatsApp thread, phone, or in person. Note that opt-ins are required.
 
 Opt-in keywords are not currently supported for the WhatsApp channel, so it will be up to you to maintain a user list. WhatsApp has a retrospective approach to opt-ins and rate limits, where if users start reporting or blocking you, your rate limit will be lowered. 
 
@@ -48,7 +60,7 @@ Opt-in keywords are not currently supported for the WhatsApp channel, so it will
 
 Regardless of the opt-in and opt-out methods you use, you can update the subscription status of user profiles with one of the following update methods:
 
-- Create a [Braze-to-Braze webhook]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook/#things-to-know) that updates the subscription status via REST API, such as in the following example:
+- Create a [Braze-to-Braze webhook]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#things-to-know) that updates the subscription status via REST API, such as in the following example:
 
 ![Webhook composer with a message using the POST method.]({% image_buster /assets/img/whatsapp/whatsapp118.png %}){: style="max-width:90%;"}
 

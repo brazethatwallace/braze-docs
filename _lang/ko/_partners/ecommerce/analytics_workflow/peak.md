@@ -1,8 +1,8 @@
 ---
 nav_title: Peak
 article_title: Peak
-description: "이 참조 문서에서는 의사결정 인텔리전스 플랫폼인 Peak과 Braze 간의 파트너십을 설명합니다. 이 파트너십을 통해 고객 행동 및 상호작용을 기반으로 예측된 고객이탈 확률과 속성을 가져와 Braze로 임포트한 후 고객 세분화 및 타겟팅에 활용할 수 있습니다."
-alias: /partners/Peak/
+description: "이 참조 문서에서는 의사결정 인텔리전스 플랫폼인 Peak과 Braze 간의 파트너십을 설명합니다. 이 파트너십을 통해 고객 행동 및 상호작용을 기반으로 예측된 고객이탈 확률과 속성을 가져와 Braze로 가져온 후 고객 세분화 및 타겟팅에 활용할 수 있습니다."
+alias: /partners/peak/
 page_type: partner
 search_tag: Partner
 
@@ -16,7 +16,7 @@ _이 통합은 Peak에서 유지 관리합니다._
 
 ## 통합 소개 {#about-the-integration}
 
-Braze와 Peak 간의 파트너십을 통해 고객 행동 및 상호작용을 기반으로 예측된 고객이탈 확률과 속성을 가져와 Braze로 임포트한 후 고객 세분화 및 타겟팅에 활용할 수 있습니다.
+Braze와 Peak 간의 파트너십을 통해 고객 행동 및 상호작용을 기반으로 예측된 고객이탈 확률과 속성을 가져와 Braze로 가져온 후 고객 세분화 및 타겟팅에 활용할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -27,7 +27,7 @@ Braze와 Peak 간의 파트너십을 통해 고객 행동 및 상호작용을 �
 | Peak 테넌트 | 테넌트라고 하는 Peak 플랫폼의 인스턴스가 통합을 호스팅하고 오케스트레이션하는 데 필요합니다. |
 | 의사결정 인텔리전스 솔루션 | Peak과 Braze 간의 통합은 AI 기반 출력을 기반으로 하므로 테넌트 내에 Peak 또는 고객이 배포한 솔루션이 필요합니다. |
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br>이 키는 Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 

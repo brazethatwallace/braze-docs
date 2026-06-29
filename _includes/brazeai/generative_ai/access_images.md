@@ -1,0 +1,1 @@
+In the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/), select **Generate with Operator** from the Upload Assets panel. Describe the image you want, and Operator generates it and saves it directly to your media library.

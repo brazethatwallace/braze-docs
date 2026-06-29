@@ -36,7 +36,7 @@ Snowflakeのデータ共有の詳細については、[セキュアデータ共�
 | ----------- | ----------- |
 | Brazeへのアクセス | データ共有を設定するには、Brazeアカウントマネージャーまたはカスタマーサクセスマネージャーにお問い合わせください。 |
 | Snowflakeアカウント | `admin` 権限を持つSnowflakeアカウント。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## セキュアデータ共有の設定 {#setting-up-secure-data-sharing}
 
@@ -77,7 +77,7 @@ Currentsと同様に、Snowflakeセキュアデータ共有を使用して以下
 - 生のイベントまたはユーザーデータをCRM（Salesforceなど）にマッピング
 - その他
 
-[生のテーブルスキーマはこちらからダウンロードできます。]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %})
+[生のテーブルスキーマをダウンロードできます。](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)
 
 ### ユーザーIDスキーマ {#user-id-schema}
 
@@ -87,7 +87,7 @@ Currentsと同様に、Snowflakeセキュアデータ共有を使用して以下
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Brazeによって自動的に割り当てられるユニーク識別子です。 |
 | `external_id` | `"EXTERNAL_USER_ID"` | 顧客が設定するユーザープロファイルのユニーク識別子です。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="User ID schema" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーIDスキーマ" }
 
 ## 重要な情報と制限事項 {#important-information-and-limitations}
 

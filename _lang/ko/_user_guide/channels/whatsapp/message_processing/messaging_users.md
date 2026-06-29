@@ -105,7 +105,7 @@ WhatsApp 목록 메시지는 사용자 메시지에 대한 응답이어야 하�
 
 #### 2단계: WhatsApp 메시지 단계 생성 {#step-2-create-a-whatsapp-message-step}
 
-WhatsApp [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)를 추가한 다음 **목록 메시지** 응답 메시지 레이아웃을 선택하세요.
+WhatsApp [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)를 추가한 다음 **목록 메시지** 응답 메시지 레이아웃을 선택하세요.
 
 ![생성할 수 있는 다양한 유형의 WhatsApp 응답 메시지 중 '목록 메시지'를 포함한 선택 가능한 컬렉션.]({% image_buster /assets/img/whatsapp/list_message_option.png %}){: style="max-width:70%;"}
 
@@ -121,7 +121,7 @@ WhatsApp [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_
 
 ![목록 섹션을 새 위치로 드래그하는 모습.]({% image_buster /assets/img/whatsapp/drag_list_order.png %}){: style="max-width:60%;"}
 
-Canvas 작성기로 돌아가서 메시지 단계 뒤에 각 목록 응답에 대한 그룹이 있는 [행동 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/)를 추가하세요. 각 그룹에서:
+Canvas 작성기로 돌아가서 메시지 단계 뒤에 각 목록 응답에 대한 그룹이 있는 [행동 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)를 추가하세요. 각 그룹에서:
 
 1. **인바운드 WhatsApp 구독 그룹 전송**에 대한 트리거를 추가하고 해당 WhatsApp 구독 그룹을 선택하세요.
 2. **메시지 본문이 다음인 경우** 체크박스를 선택하세요.
@@ -133,9 +133,9 @@ Canvas를 계속 구축하세요.
 
 ### 긴 설명에 대한 행동 경로 생성 {#creating-actions-paths-for-long-descriptions}
 
-행 설명이 있는 경우 행을 지정하기 위해 **정규식 일치**를 사용해야 합니다. 예를 들어, "좋아하는 앵클 부츠 위에 신을 수 있는 새로운 스타일"이라는 설명이 있는 행을 지정하려면 "앵클 부츠"로 [정규식]({{site.baseurl}}/user_guide/audience/segments/regex/)을 사용할 수 있습니다.
+행 설명이 있는 경우 행을 지정하기 위해 **정규식 일치**를 사용해야 합니다. 예를 들어, "좋아하는 앵클 부츠 위에 신을 수 있는 새로운 스타일"이라는 설명이 있는 행을 지정하려면 "ankle boots"로 [정규식]({{site.baseurl}}/user_guide/audience/segments/regex)을 사용할 수 있습니다.
 
-!['정규식 일치' 필터를 사용하여 '앵클 부츠'가 포함된 응답 메시지를 캡처하는 WhatsApp 트리거.]({% image_buster /assets/img/whatsapp/regex_list_message.png %})
+!['정규식 일치' 필터를 사용하여 'ankle boots'가 포함된 응답 메시지를 캡처하는 WhatsApp 트리거.]({% image_buster /assets/img/whatsapp/regex_list_message.png %})
 
 ## 고려 사항 {#considerations}
 
@@ -146,11 +146,11 @@ Canvas를 계속 구축하세요.
 다음 이벤트가 응답 메시지를 차단 해제합니다:
 
 - 인바운드 메시지
-  - **WhatsApp 인바운드 메시지 보내기** 트리거가 있는 [행동 경로]({{site.baseurl}}/action_paths/) 또는 [행동 기반 진입]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/).
+  - **WhatsApp 인바운드 메시지 보내기** 트리거가 있는 [행동 경로]({{site.baseurl}}/action_paths) 또는 [행동 기반 진입]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery).
 
 ![트리거가 'WhatsApp 인바운드 메시지 보내기'인 행동 기반 진입 단계.]({% image_buster /assets/img/whatsapp/whatsapp_inbound_message_trigger.png %})
 
-- [API 트리거 진입]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)
+- [API 트리거 진입]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)
 - 인바운드 제품 메시지
   - [`ecommerce.cart_updated`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events?tab=ecommerce.cart_updated) 이벤트
 
@@ -158,4 +158,14 @@ Canvas를 계속 구축하세요.
 
 ### 커스텀 시간 속성으로 필터링 {#filtering-by-a-custom-time-attribute}
 
-행동 기반 WhatsApp Campaign 또는 Canvas 오디언스가 상대적 기간 내(예: 현재부터 향후 24시간 사이)에 해당하는 커스텀 시간 속성에 의존하는 경우, [시간]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/#time)에 설명된 대로 두 개의 필터를 결합하세요.
+행동 기반 WhatsApp Campaign 또는 Canvas 오디언스가 상대적 기간 내(예: 현재부터 향후 24시간 사이)에 해당하는 커스텀 시간 속성에 의존하는 경우, [시간]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes#time)에 설명된 대로 두 개의 필터를 결합하세요.
+
+### 인바운드 미디어 저장 및 URL 만료 {#inbound-media-storage-and-url-expiration}
+
+사용자가 미디어(이미지, 오디오 파일 또는 문서 등)가 포함된 WhatsApp 메시지를 보내면, Braze는 해당 미디어를 메시지 수신 시점부터 30일 동안 Amazon S3에 저장합니다.
+
+그러나 해당 미디어의 URL을 참조하는 `inbound_media_urls` Liquid 필드는 Braze가 인바운드 메시지를 수신한 시점부터 7일 동안만 유효합니다. URL은 수신 시 한 번 생성되며 재생성되지 않으므로, 필드에 접근하는 시점과 관계없이 7일 기간이 적용됩니다. 두 제한 중 더 짧은 기간이 적용되므로, 실제로 `inbound_media_urls`는 최대 7일까지 유효한 것으로 간주해야 합니다.
+
+{% alert note %}
+나중에 사용하기 위해 `inbound_media_urls` 값을 사용자 커스텀 속성에 저장하는 경우, 이 7일 만료 기간에 유의하세요. 만료된 후 URL에 접근하려고 하면 깨진 링크가 발생합니다.
+{% endalert %}

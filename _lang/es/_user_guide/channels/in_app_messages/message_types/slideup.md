@@ -31,9 +31,15 @@ Los mensajes de deslizamiento hacia arriba pueden contener hasta tres líneas de
 | Diseño | Tamaño del activo | Notas |
 |--- | --- | --- |
 | Imagen + texto | Relación de aspecto 1:1<br>Alta resolución 150 x 150&nbsp;px<br> Mínimo 50 x 50&nbsp;px | Las imágenes de diversas relaciones de aspecto se ajustarán a un contenedor de imagen cuadrado, sin recorte. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Image and copy behavior" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Comportamiento de imagen y texto" }
 
 Siempre debes [previsualizar y probar tus mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) en una variedad de dispositivos para asegurarte de que las áreas más importantes de tu imagen y mensaje aparezcan como se espera. Ten en cuenta que al previsualizar tu mensaje en el compositor, la representación real en los dispositivos puede diferir.
+
+## Hipervínculos y texto de anclaje {#hyperlinks-and-anchor-text}
+
+Para añadir un enlace en un deslizamiento hacia arriba, introduce el texto del mensaje en el campo **Cuerpo** y configura el destino en **Comportamiento de clic** (por ejemplo, **Redirigir a URL**). Cuando se configura el **Comportamiento de clic**, tocar en cualquier parte del mensaje excepto el control de cerrar desencadena esa acción.
+
+Para mensajes dentro de la aplicación con HTML personalizado, puedes usar enlaces HTML directamente. Consulta [Mensajes dentro de la aplicación con HTML personalizado]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/).
 
 ## Dispositivos móviles {#mobile-devices}
 

@@ -19,7 +19,7 @@ channel:
 
 Wir empfehlen, Telefonnummern im [`E.164`](https://en.wikipedia.org/wiki/e.164)-Format zu importieren, um die Genauigkeit sicherzustellen – insbesondere wenn Sie in mehrere Regionen mit unterschiedlichen Länder- oder Vorwahlen senden&#8212;auch für US-amerikanische Telefonnummern.
 
-- **US-Nummern:** Alle US-Nummern müssen gültige, 10-stellige Telefonnummern mit einer gültigen Vorwahl sein. Wenn bei einer 10-stelligen Telefonnummer ein `+` und die Landesvorwahl fehlen, ordnet Braze sie als US-Nummer zu.
+- **US-Nummern:** Alle US-Nummern müssen gültige, 10-stellige Telefonnummern mit einer gültigen Vorwahl sein. Wenn bei einer 10-stelligen Telefonnummer ein `+` und die Landesvorwahl fehlen, ordnet Braze sie als US-Nummer zu. Puerto-ricanische Telefonnummern erfordern weiterhin ein `+` und eine Landesvorwahl, obwohl sie das 10-stellige Format mit US-amerikanischen Vorwahlen verwenden.
 - **Internationale Nummern:** Alle internationalen Nummern sollten mit einem `+` beginnen, gefolgt von der Landesvorwahl und dann der Telefonnummer. Zum Beispiel: `+442071838750`.
 
 ![Beispiel einer gültigen internationalen Telefonnummer im E.164-Format.]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
@@ -33,7 +33,7 @@ Hier sind einige Beispiele, die die Unterschiede zwischen lokaler und `E.164`-Fo
 | Brasilien | `1155256325` | 55 | `+551155256325` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Empfohlenes Format" }
 
-## Telefonnummern importieren {#importing-phone-numbers}
+## Telefonnummern importieren {#import-phone-numbers}
 
 Beim Import von Telefonnummern ist es wichtig, das [empfohlene Format](#recommended-format) einzuhalten. Verwenden Sie zum Importieren von Telefonnummern eine der folgenden Methoden:
 
@@ -44,7 +44,11 @@ Beim Import von Telefonnummern ist es wichtig, das [empfohlene Format](#recommen
 Telefonnummern von Nutzer:innen werden in Braze als Ziffernfolge angezeigt. Wenn Sie eine Nummer importieren, die Nicht-Ziffern enthält (wie `,`, `-` oder `(`) – abgesehen vom führenden {% raw %}`+`{% endraw %} –, werden die Nicht-Ziffern bei der Darstellung in Braze entfernt. Beispielsweise wird `+1 (724) 123-4567` als `+17241234567` angezeigt.
 {% endalert %}
 
-## Umgang mit ungültigen Telefonnummern {#handling-invalid-phone-numbers}
+## Validierung von Telefonnummern {#phone-number-validation}
+
+Braze verwendet die [libphonenumber](https://github.com/google/libphonenumber)-Bibliothek von Google zur Validierung von Telefonnummern. Wenn neue Mobilfunknummern-Präfixe eingeführt werden, wird die Unterstützung hinzugefügt, sobald die Upstream-Bibliothek aktualisiert wird. Braze pflegt keine separate Liste gültiger Präfixe.
+
+### Umgang mit ungültigen Telefonnummern {#handling-invalid-phone-numbers}
 
 Wenn eine Telefonnummer als ungültig eingestuft wird, markiert Braze die Telefonnummer der Nutzer:in als ungültig und unternimmt keine weiteren Kommunikationsversuche an diese Telefonnummer. Eine ungültige Telefonnummer wird im **Engagement-Tab** eines Nutzerprofils gekennzeichnet.
 
@@ -63,7 +67,21 @@ Wenn mehrere Nutzerprofile dieselbe Telefonnummer haben und diese Telefonnummer 
 
 Sie können beim [Erstellen eines Segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#step-4-add-filters-to-your-segment) auch Nutzer:innen mit ungültigen Telefonnummern ein- oder ausschließen.
 
-## Nutzer:innen zu SMS- und RCS-Abo-Gruppen hinzufügen {#adding-users-to-sms-and-rcs-subscription-groups}
+## Abgelehnte SMS-Sendungen aus der Segmentierung ausschließen {#exclude-rejected-sms-sends-from-segmentation}
+
+{% alert important %}
+Abgelehnte SMS-Sendungen werden auf Ihr SMS-Kontingent angerechnet.
+{% endalert %}
+
+Um Nutzer:innen mit abgelehnten SMS-Sendungen aus Ihren Segmenten auszuschließen, verwenden Sie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) und gehen Sie wie folgt vor:
+
+1. Gehen Sie zu **Zielgruppe** > **Segmenterweiterungen**.
+2. Wählen Sie **Neue Erweiterung erstellen** > **Vollständige Aktualisierung** oder **Inkrementelle Aktualisierung**.
+3. Schreiben Sie eine SQL-Abfrage, die Nutzer:innen mit SMS-Ablehnungen identifiziert. Sie können beispielsweise das Ereignis `USERS_MESSAGES_SMS_REJECTION_SHARED` abfragen, um Nutzer:innen zu finden, die SMS-Ablehnungen erhalten haben.
+4. Speichern Sie Ihre Segmenterweiterung.
+5. Fügen Sie beim Erstellen Ihres SMS-Segments einen Filter hinzu, um Nutzer:innen in dieser Segmenterweiterung auszuschließen.
+
+## Nutzer:innen zu SMS- und RCS-Abo-Gruppen hinzufügen {#add-users-to-sms-and-rcs-subscription-groups}
 
 Damit Nutzer:innen eine SMS- oder RCS-Nachricht empfangen können, müssen sie eine gültige Telefonnummer haben und in eine Abo-Gruppe eingewilligt haben. Abo-Gruppen sind an das SMS- oder RCS-Programm gebunden, das Sie betreiben (stellen Sie sicher, dass Sie die [gesetzlichen Anforderungen für SMS, MMS und RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/) einhalten und die Einwilligung jeder Kund:in dokumentiert haben). Weitere Informationen finden Sie unter [SMS- und RCS-Abo-Gruppen]({{site.baseurl}}/sms_rcs_subscription_groups/).
 

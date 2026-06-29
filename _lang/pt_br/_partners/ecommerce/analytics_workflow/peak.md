@@ -2,7 +2,7 @@
 nav_title: Peak
 article_title: Peak
 description: "Este artigo de referência descreve a parceria entre a Braze e a Peak, uma plataforma de inteligência de decisão, que permite que você pegue a probabilidade de churn prevista e os atributos com base nos comportamentos e interações dos clientes, e os importe para a Braze para usar na segmentação e direcionamento de clientes."
-alias: /partners/Peak/
+alias: /partners/peak/
 page_type: partner
 search_tag: Partner
 

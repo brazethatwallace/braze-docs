@@ -42,7 +42,7 @@ table td {
 | [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync/) | N/A | Snapchat은 초당 10개의 쿼리를 처리하고 요청당 100,000명의 사용자를 처리합니다. Braze는 5초마다 사용자를 배치 처리합니다. | 예 | Snapchat은 최대 1,000개의 광고 오디언스를 지원합니다. |
 | [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync/) | 최대 24시간 | N/A | 예 | {::nomarkdown}<ul><li>The Trade Desk에서 CRM 오디언스에 대한 최소 오디언스 크기는 없습니다.</li><li>The Trade Desk가 지원하는 오디언스 수에는 제한이 없습니다.</li><li>EU 지역으로 설정된 오디언스에 동기화하는 경우 전화번호는 지원되지 않습니다.</li></ul>{:/} |
 | [TikTok]({{site.baseurl}}/partners/canvas_audience_sync/tiktok_audience_sync/) | 24~48시간 | TikTok은 초당 50개의 쿼리를 처리하고 요청당 10,000명의 사용자를 처리합니다. Braze는 5초마다 사용자를 배치 처리합니다. | 예 | {::nomarkdown}<ul><li>TikTok은 최대 400개의 광고 오디언스를 지원합니다.</li><li>TikTok 오디언스는 광고 게재를 시작하려면 최소 1,000명의 사용자가 필요합니다.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Overview" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="개요" }
 <sup>사용량 제한에 도달하면 Braze는 13시간 동안 동기화를 재시도합니다.</sup>
 
 ## 작동 방식 {#how-it-works}
@@ -76,7 +76,7 @@ TikTok, Pinterest, Snapchat 또는 Criteo를 포함한 Audience Sync Pro 파트�
 
 ![아직 파트너가 선택되지 않은 Audience Sync Pro.]({% image_buster /assets/img/audience_sync/audience_sync_pro1.png %}){: style="max-width:75%;"}
 
-먼저 **Select Partners**를 선택하여 사용하려는 파트너를 선택합니다. Audience Sync Pro를 구매할 때마다 3개의 Audience Sync Pro 대상이 할당되며, 대시보드 내 각 워크스페이스에서 사용할 수 있습니다.
+먼저 **파트너 선택**을 선택하여 사용하려는 파트너를 선택합니다. Audience Sync Pro를 구매할 때마다 3개의 Audience Sync Pro 대상이 할당되며, 대시보드 내 각 워크스페이스에서 사용할 수 있습니다.
 
 ![Braze에 연결할 최대 3개의 파트너를 선택하는 옵션.]({% image_buster /assets/img/audience_sync/audience_sync_pro2.png %}){: style="max-width:65%;"}
 
@@ -87,6 +87,22 @@ Audience Sync Pro 대상을 선택한 후 파트너 타일을 클릭하여 선�
 !["Snapchat 계정 1개를 성공적으로 연결했습니다"라는 메시지가 표시된 Snapchat Audience Sync 설정.]({% image_buster /assets/img/audience_sync/audience_sync_pro4.png %}){: style="max-width:70%;"}
 
 마지막으로, 이 Audience Sync Pro 대상을 사용하여 Canvas에서 Audience Sync 단계를 생성합니다.
+
+### 배치 처리 및 지연 시간 {#batching-and-latency}
+
+사용자가 Canvas의 Audience Sync 단계에 진입하면, Braze는 파트너 API로 전송하기 전에 사용자 업데이트를 집계하는 배치 처리 시스템에 대기열로 추가합니다. 다음 조건 중 하나가 충족되면 배치가 전송됩니다:
+
+- **배치가 크기 제한에 도달한 경우.** 이는 파트너에 따라 다릅니다:
+  - 기본값은 최대 2,000명의 사용자를 지원합니다
+  - Google Ads는 최대 10,000명의 사용자를 지원합니다
+  - Facebook 및 TikTok은 최대 2,000명의 사용자를 지원합니다
+- **배치 지연 타이머가 만료된 경우.** 기본값은 1시간이지만, 파트너별로 구성할 수 있습니다. 예를 들어, The Trade Desk는 10분을 사용합니다.
+
+대량 Canvas는 배치가 더 빨리 채워지므로 더 빨리 전송될 수 있습니다. 소량 Canvas는 지연 타이머가 만료될 때까지 대기합니다. Braze는 고정된 전송 시간을 보장하지 않으며, 타이밍은 배치 크기와 구성된 지연 기간에 따라 달라집니다.
+
+Braze는 모니터링 및 문제 해결을 위해 내부 로그에 전송 활동을 기록하지만, 이러한 타임스탬프는 쿼리 가능한 필드로 노출되지 않습니다. Braze가 파트너 API에 배치를 전송한 후, 파트너는 자체 서비스 수준 계약에 따라 오디언스 업데이트를 처리합니다. 일반적으로 6~48시간이 소요됩니다.
+
+Braze는 개별 사용자가 매칭되었거나 동기화되었다는 확인을 파트너로부터 받지 않습니다. 파트너 응답은 매칭 확인이 아닌 수신 확인을 위한 HTTP 응답입니다. 오디언스가 채워졌는지 확인하려면 파트너의 광고 플랫폼(예: Google Ads Audience Manager 또는 Meta Business Manager)을 확인하세요.
 
 ### Audience Sync 오류 이메일 {#audience-sync-error-emails}
 

@@ -164,7 +164,7 @@ For more, refer to the example webhooks under [sample payloads](#sample-payloads
 {
   "events": [
     {
-      "email": "test@braze.com",
+      "email": "test@example.com",
       "name": "Product Viewed",
       "time": "2023-12-06T19:20:45+01:00",
       "properties": {

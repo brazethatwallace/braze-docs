@@ -23,6 +23,8 @@ Hay varios paquetes de Braze Unity disponibles para su descarga en la [página d
 
 {% alert note %}
 A partir de Unity 2.6.0, el artefacto incluido del SDK de Braze para Android requiere dependencias de [AndroidX](https://developer.android.com/jetpack/androidx). Si antes utilizabas un `jetified unitypackage`, puedes pasar sin problemas al `unitypackage` correspondiente.
+
+Si las compilaciones de Android fallan con "This project uses AndroidX dependencies, but the 'android.useAndroidX' property is not enabled", habilita [Custom Gradle Properties Template](https://docs.unity3d.com/Manual/class-PlayerSettingsAndroid.html#Publishing) en tu configuración de publicación de Unity. A continuación, abre `Assets/Plugins/Android/gradleTemplate.properties` y establece `android.useAndroidX=true`. Para ver una plantilla funcional, consulta la [aplicación de ejemplo de Unity de Braze](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples) y su archivo [`gradleTemplate.properties`](https://github.com/braze-inc/braze-unity-sdk/blob/master/unity-samples/Assets/Plugins/Android/gradleTemplate.properties).
 {% endalert %}
 {% endtab %}
 
@@ -247,7 +249,7 @@ Para habilitar el registro detallado en el editor de Unity, haz lo siguiente:
 Para utilizar el plugin Unity de Braze con los plugins de Prime31, edita el `AndroidManifest.xml` de tu proyecto para utilizar las clases de Activity compatibles con Prime31. Cambia todas las referencias de
 `com.braze.unity.BrazeUnityPlayerActivity` a `com.braze.unity.prime31compatible.BrazeUnityPlayerActivity`
 
-### Amazon Device Messaging (ADM) {#amazon-device-messaging-adm}
+### Amazon Device Messaging (ADM)
 
 Braze es compatible con la integración de [ADM push](https://developer.amazon.com/public/apis/engage/device-messaging) en aplicaciones Unity. Si quieres integrar ADM push, crea un archivo llamado `api_key.txt` que contenga tu clave de API de ADM y colócalo en la carpeta `Plugins/Android/assets/`. Para más información sobre la integración de ADM con Braze, visita nuestras [instrucciones de integración push de ADM]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=unity).
 
@@ -266,7 +268,7 @@ Ahora deberías poder empaquetar un `.apk` desde el IDE de Unity que esté total
 
 ## Solución de problemas {#troubleshooting}
 
-### Error: "File could not be read" {#error-file-could-not-be-read}
+### Error: "File could not be read"
 
 Los errores parecidos a los siguientes pueden ignorarse con seguridad. El software de Apple utiliza una extensión PNG propietaria llamada CgBI, que Unity no reconoce. Estos errores no afectarán a tu compilación de iOS ni a la correcta visualización de las imágenes asociadas en el paquete de Braze.
 

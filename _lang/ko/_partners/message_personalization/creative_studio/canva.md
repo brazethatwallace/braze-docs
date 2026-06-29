@@ -20,7 +20,7 @@ Braze와 Canva 통합은 두 가지 내보내기 경로를 지원합니다.
 | --- | --- |
 | **이미지 또는 디자인을 미디어 라이브러리로** | 디자인을 자산으로 Braze 미디어 라이브러리에 전송합니다. |
 | **이메일 디자인을 Braze로** | Canva **이메일** 문서를 제목란 메타데이터를 포함하여 Braze 이메일 템플릿으로 게시합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="About the integration" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="통합 소개" }
 
 ## Braze와 Canva 통합하기 {#integrate-braze-with-canva}
 

@@ -22,27 +22,27 @@ Brazeは、世界中のさまざまな地域にある複数のデータセンタ
 
 ### オーストラリア {#australia}
 
-{% multi_lang_include data_centers.md datacenters='AU' %}
+{% multi_lang_include administer/data_centers.md datacenters='AU' %}
 
 ### 欧州連合 {#european-union}
 
-{% multi_lang_include data_centers.md datacenters='EU' %}
+{% multi_lang_include administer/data_centers.md datacenters='EU' %}
 
 ### インドネシア {#indonesia}
 
-{% multi_lang_include data_centers.md datacenters='ID' %}
+{% multi_lang_include administer/data_centers.md datacenters='ID' %}
 
 ### 日本 {#japan}
 
-{% multi_lang_include data_centers.md datacenters='JP' %}
+{% multi_lang_include administer/data_centers.md datacenters='JP' %}
 
 ### 韓国 {#south-korea}
 
-{% multi_lang_include data_centers.md datacenters='KR' %}
+{% multi_lang_include administer/data_centers.md datacenters='KR' %}
 
 ### アメリカ合衆国 {#united-states}
 
-{% multi_lang_include data_centers.md datacenters='US' %}
+{% multi_lang_include administer/data_centers.md datacenters='US' %}
 
 ## 地域固有のデータセンターへの登録 {#signing-up-for-region-specific-data-centers}
 

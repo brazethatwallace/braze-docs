@@ -42,7 +42,7 @@ Assurez-vous que vous faites partie du segment que vous ciblez (s'il s'agit d'un
 
 ![Liste des segments]({% image_buster /assets/img_archive/trouble2.png %})
 
-Vous pouvez également confirmer que l'utilisateur fait partie du segment en utilisant **User Lookup** lors de la création d'un segment.
+Vous pouvez également confirmer que l'utilisateur fait partie du segment en utilisant **User Lookup** lors de la création d'un segment. **User Lookup** n'accepte que les `external_id` ou `braze_id`, pas les adresses e-mail ni les numéros de téléphone. Pour effectuer une recherche par e-mail, téléphone, jeton de notification push ou alias d'utilisateur, utilisez [**Rechercher des utilisateurs**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/).
 
 ![Section User Lookup avec un champ de recherche.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -90,7 +90,7 @@ Pour trouver la bonne clé serveur Firebase et la remplacer :
 
 1. Accédez à la console Firebase de votre application.
 2. Sous **Project Overview**, sélectionnez **Project Settings**.
-3. Dans l'onglet **Cloud Messaging**, vérifiez que le Sender ID sous les clés API correspond à celui dans Braze (dans **Settings** > **App Settings** > **Cloud Messaging API Key**).
+3. Dans l'onglet **Cloud Messaging**, vérifiez que le Sender ID sous les clés API correspond à celui dans Braze (dans **Paramètres** > **Paramètres des applications** > **Cloud Messaging API Key**).
 
 {% alert warning %}
 Ne modifiez pas votre Sender ID dans votre tableau de bord de Braze. Cela invaliderait les enregistrements push existants. Si le Sender ID ne correspond pas, vous devez trouver votre projet Firebase avec le Sender ID correspondant.
@@ -98,8 +98,8 @@ Ne modifiez pas votre Sender ID dans votre tableau de bord de Braze. Cela invali
 
 {:start="4"}
 4. Copiez la **Server Key** sous **Project credentials**.
-5. Dans Braze, accédez à **Settings** > **App Settings**, sélectionnez votre application et collez la clé serveur dans le champ **Cloud Messaging API Key** (en remplaçant la clé obsolète).
-6. Sélectionnez **Save**.
+5. Dans Braze, accédez à **Paramètres** > **Paramètres des applications**, sélectionnez votre application et collez la clé serveur dans le champ **Cloud Messaging API Key** (en remplaçant la clé obsolète).
+6. Sélectionnez **Enregistrer**.
 7. Pour vérifier, envoyez une notification push de test à un appareil avant et après avoir changé la clé API sans ouvrir l'application. Cela permet de confirmer que les utilisateurs continuent de recevoir des notifications push sans qu'un nouvel ID d'enregistrement push (jeton de notification push) ne doive être généré.
 
 ## Scénarios de résolution des problèmes {#troubleshooting-scenarios}
@@ -132,13 +132,13 @@ Si cliquer sur une notification push n'ouvre pas votre application, vérifiez le
 2. **Vérifiez la gestion des liens profonds :** Dans votre fichier `braze.xml`, vérifiez si `com_braze_handle_push_deep_links_automatically` est défini sur `true` ou `false`.
    - S'il est défini sur `true`, le SDK Braze gère les liens profonds directement et l'application devrait s'ouvrir comme prévu.
    - S'il est défini sur `false`, votre application a besoin d'un récepteur de diffusion pour écouter et gérer les intentions de réception et d'ouverture des notifications push. Vérifiez que ce récepteur est correctement implémenté.
-3. **Collectez les journaux détaillés :** [Activez la journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), reproduisez le problème et fournissez les journaux ainsi que vos fichiers `braze.xml` et `AndroidManifest.xml` au support Braze.
+3. **Collectez les journaux détaillés :** [Activez la journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), reproduisez le problème et fournissez les journaux ainsi que vos fichiers `braze.xml` et `AndroidManifest.xml` à l'assistance Braze.
 
 ### iOS
 
 1. **Vérifiez le comportement au clic :** Confirmez que la campagne est configurée pour ouvrir l'application lorsqu'on clique dessus.
 2. **Vérifiez l'intégration push :** La création de liens profonds depuis une notification push vers l'application est automatiquement gérée par l'[intégration push standard]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) de Braze. Confirmez que l'intégration est correctement implémentée, y compris toute gestion de délégué personnalisée.
-3. **Collectez les journaux détaillés :** [Activez la journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), reproduisez le problème et fournissez les journaux au support Braze.
+3. **Collectez les journaux détaillés :** [Activez la journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), reproduisez le problème et fournissez les journaux à l'assistance Braze.
 
 ## Les clics sur les notifications push ouvrent de manière inattendue dans l'application {#push-clicks-unexpectedly-open-in-app}
 
@@ -172,6 +172,20 @@ Si les liens profonds fonctionnent lorsque l'application n'est pas en cours d'ex
 Les clés d'authentification Apple `.p8` sont l'approche requise pour les notifications push APNs dans Braze. Contrairement aux types de fichiers de certificat hérités, les clés `.p8` n'expirent pas et prennent en charge toutes vos applications sous une seule clé, éliminant ainsi le besoin de renouvellements annuels de certificats et réduisant le risque d'échecs de distribution des notifications push.
 
 Si vous utilisez actuellement un certificat `.p12` ou `.pem`, migrez vers une clé `.p8` dès que possible. Pour les instructions sur la création et le téléchargement d'une clé `.p8`, consultez [Télécharger votre certificat push APNs]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift). Pour les recommandations d'Apple sur la génération d'une clé `.p8` depuis votre compte développeur, consultez [Communicate with APNs using authentication tokens](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
+
+### Clés .p8 et certificats .p12 {#p8-keys-versus-p12-certificates}
+
+| Identifiant | Expiration | Indicateur de statut dans le tableau de bord |
+| --- | --- | --- |
+| Clé d'authentification `.p8` | N'expire pas | Pas d'indicateur de statut vert (c'est normal) |
+| Certificat push `.p12` | Expire chaque année | Indicateur vert lorsque le certificat est valide |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Clés .p8 et certificats .p12" }
+
+Lorsque vous remplacez un certificat `.p12` par une clé `.p8` (ou téléchargez un nouvel identifiant), la distribution des notifications push peut être brièvement interrompue pendant que Braze traite le changement. Planifiez les mises à jour pendant une fenêtre de maintenance si possible.
+
+Dans **Paramètres** > **Paramètres des applications** > **Paramètres des notifications push**, confirmez que l'**App Bundle ID**, le **Team ID** et le **Key ID** (pour les clés `.p8`) correspondent aux valeurs de votre compte Apple Developer. Plusieurs espaces de travail Braze peuvent utiliser le même identifiant push Apple lorsque le **bundle ID** de l'application iOS est identique ; l'environnement de l'identifiant (développement ou production) doit correspondre à la façon dont l'application a été compilée.
+
+Les applications utilisant le [SDK Swift Braze 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) ou version ultérieure peuvent utiliser la [gestion dynamique de la passerelle APNs]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#dynamic-apns-gateway-management), qui achemine automatiquement les jetons vers le bon environnement APNs.
 
 ## Les notifications push web ne fonctionnent pas comme prévu {#web-push-notifications-arent-behaving-as-expected}
 

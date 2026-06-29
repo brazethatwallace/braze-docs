@@ -2,7 +2,7 @@
 nav_title: コンバージョン
 article_title: コンバージョンダッシュボード
 alias: "/conversions_dashboard_v2/"
-description: "コンバージョンダッシュボードでは、さまざまなアトリビューション方法を使用して、Campaign、Canvases、チャネル全体のコンバージョンを分析できます。"
+description: "コンバージョンダッシュボードでは、さまざまなアトリビューション方法を使用して、Campaigns、Canvases、チャネル全体のコンバージョンを分析できます。"
 page_order: 3
 page_type: reference
 tool:
@@ -11,7 +11,7 @@ tool:
 
 # コンバージョンダッシュボード {#conversions-dashboard}
 
-> コンバージョンダッシュボードでは、さまざまな[アトリビューション方法](#attribution-methods)を使用して、Campaign、Canvases、チャネル全体のコンバージョンを分析します。コンバージョンを測定する際に、期間、コンバージョンイベント、コンバージョン時間枠を指定できます。
+> コンバージョンダッシュボードでは、さまざまな[アトリビューション方法](#attribution-methods)を使用して、Campaigns、Canvases、チャネル全体のコンバージョンを分析します。コンバージョンを測定する際に、期間、コンバージョンイベント、コンバージョン時間枠を指定できます。
 
 ## レポートの設定 {#setting-up-your-report}
 
@@ -19,8 +19,8 @@ tool:
 
 1. **Analytics** > **コンバージョン**に移動します。
 2. レポートの**日付範囲**を選択します（最大90日間）。
-3. 分析するCampaignまたはCanvases（あるいはその両方）を選択します。
-   - （オプション）タグを選択してCampaignとCanvasesをフィルタリングします。
+3. 分析するCampaignsまたはCanvases（あるいはその両方）を選択します。
+   - （オプション）タグを選択してCampaignsとCanvasesをフィルタリングします。
 4. メッセージを分析する**チャネル**を選択します。
 5. **分類**レイヤーを選択して、バリアント、キャンバスステップ、国、言語など、さまざまなデータのディメンションを表示します。
 6. （オプション）CampaignまたはCanvasでコンバージョンイベントとして設定されていないイベントのコンバージョンを計算する場合は、[カスタムイベントを使用](#using-custom-events)をオンにします。
@@ -33,7 +33,7 @@ tool:
 {:start="8"}
 8. **作成**を選択してレポートを実行します。
 
-ページが読み込まれたら、**コンバージョンイベント**を選択してコンバージョンデータでレポートをフィルタリングします。利用可能な選択肢には、CanvasesとCampaignで事前に設定されたイベントが含まれます。レポートの設定時にカスタムイベントを選択した場合（ステップ6）、このオプションは利用できません。
+ページが読み込まれたら、**コンバージョンイベント**を選択してコンバージョンデータでレポートをフィルタリングします。利用可能な選択肢には、CanvasesとCampaignsで事前に設定されたイベントが含まれます。レポートの設定時にカスタムイベントを選択した場合（ステップ6）、このオプションは利用できません。
 
 ### カスタムイベントの使用 {#using-custom-events}
 
@@ -87,13 +87,13 @@ CampaignまたはCanvasでコンバージョンイベントとして設定され
 | コンバージョン率（アトリビューション方法） | レポートの設定時に選択した[アトリビューション方法](#attribution-methods)によって定義されます。複数のチャネルが選択されている場合は、デフォルトでラストタッチアトリビューションになります。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="コンバージョン詳細" }
 
-[レポートの設定](#setting-up-your-report)（ステップ5）でCampaignまたはCanvasesの分類レベルの詳細を選択した場合は、<i class="fas fa-angle-down"></i> をクリックしてテーブルを展開できます。
+[レポートの設定](#setting-up-your-report)（ステップ5）でCampaignsまたはCanvasesの分類レベルの詳細を選択した場合は、<i class="fas fa-angle-down"></i>**展開**を選択してテーブルを展開できます。
 
 ### コンバージョンファネル {#conversion-funnel}
 
 この棒グラフは、選択したチャネルに基づく各[エンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)の絶対数を表示します。コンバージョン数は、選択したアトリビューション方法に従って定義されます。
 
-デフォルトでは、選択したすべてのCampaignとCanvasesが表示されます。CampaignまたはCanvasの選択を解除するには、除外したいCampaignまたはCanvasの名前を選択します。エンゲージメントイベントの詳細については、各バーにカーソルを合わせてください。
+デフォルトでは、選択したすべてのCampaignsとCanvasesが表示されます。CampaignまたはCanvasの選択を解除するには、除外したいCampaignまたはCanvasの名前を選択します。エンゲージメントイベントの詳細については、各バーにカーソルを合わせてください。
 
 時系列データをダウンロードするには、ダウンロードオプション（PNG、JPEG、PDF、SVG、またはCSV）を選択します。
 
@@ -101,15 +101,15 @@ CampaignまたはCanvasでコンバージョンイベントとして設定され
 このグラフは一度に1つのチャネルのデータのみを表示します。チャート上の**チャネル**ドロップダウンを使用して、単一のチャネルを選択してください。
 {% endalert %}
 
-![メール配信、メール開封、メールクリック、コンバージョンで類似した結果を示す2つのメールCampaignのコンバージョンファネル棒グラフ。]({% image_buster /assets/img_archive/conversions2_funnel.png %})
+![メール配信、メール開封、メールクリック、コンバージョンで類似した結果を示す2つのメールCampaignsのコンバージョンファネル棒グラフ。]({% image_buster /assets/img_archive/conversions2_funnel.png %})
 
 ### 時系列コンバージョン {#conversions-over-time}
 
-この時系列グラフには、CampaignまたはCanvasごとの時間経過に伴うコンバージョンが表示されます。デフォルトでは、選択したすべてのCampaignとCanvasesが表示されます。CampaignまたはCanvasの選択を解除するには、除外したいCampaignまたはCanvasの名前をクリックします。
+この時系列グラフには、CampaignまたはCanvasごとの時間経過に伴うコンバージョンが表示されます。デフォルトでは、選択したすべてのCampaignsとCanvasesが表示されます。CampaignまたはCanvasの選択を解除するには、除外したいCampaignまたはCanvasの名前をクリックします。
 
-時系列データをダウンロードするには、<i class="fas fa-bars"></i> を選択してからダウンロードオプションを選択します。利用可能なオプションは、PNG、JPEG、PDF、SVG、またはCSVです。
+時系列データをダウンロードするには、<i class="fas fa-bars" title="チャートコンテキストメニュー"></i>**チャートコンテキストメニュー**を選択してからダウンロードオプションを選択します。利用可能なオプションは、PNG、JPEG、PDF、SVG、またはCSVです。
 
-![日別のコンバージョンを表示する2つのメールCampaignの時系列コンバージョングラフ。]({% image_buster /assets/img_archive/conversions2_over_time.png %})
+![日別のコンバージョンを表示する2つのメールCampaignsの時系列コンバージョングラフ。]({% image_buster /assets/img_archive/conversions2_over_time.png %})
 
 ### アトリビューション方法 {#attribution-methods}
 
@@ -134,7 +134,7 @@ CampaignまたはCanvasでコンバージョンイベントとして設定され
 
 ### CampaignまたはCanvasのコンバージョンが低いのはなぜですか？ {#why-do-i-have-low-campaign-or-canvas-conversions}
 
-以前のCampaignや期待値と比較して、コンバージョンが想定ほど高くない場合があります。コンバージョンは、イベントトラッキングとコンバージョン期限という2つの重要な機能に依存しています。
+以前のCampaignsや期待値と比較して、コンバージョンが想定ほど高くない場合があります。コンバージョンは、イベントトラッキングとコンバージョン期限という2つの重要な機能に依存しています。
 
 トラブルシューティングするには、イベントトラッキングとコンバージョン期限を確認してください。
 

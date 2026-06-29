@@ -159,7 +159,7 @@ A partir daí, você pode revisar as configurações e o conteúdo da mensagem p
 Se sua Campaign de e-mail contém uma imagem grande e não está sendo exibida conforme o esperado no Outlook, considere reduzir as dimensões reais do arquivo da imagem com uma ferramenta de edição ou redimensionamento de imagem, em vez de apenas redimensioná-la com CSS ou HTML.
 
 {% endtab %}
-{% tab In-app message %}
+{% tab Mensagem no app %}
 
 {% alert warning %}
 Para enviar um teste para [grupos de teste de conteúdo]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) ou usuários individuais, o push deve estar ativado nos seus dispositivos de teste antes do envio. Por exemplo, você deve ter o push ativado no seu dispositivo iOS para tocar na notificação antes que a mensagem de teste seja exibida. {% endalert %}
@@ -243,6 +243,8 @@ O scanner é executado automaticamente em mensagens HTML personalizadas e avalia
 
 ![Testar push]({% image_buster /assets/img_archive/testpush.png %})
 
+Se você vir um erro informando que nenhum dos usuários selecionados possui tokens de push correspondentes, o usuário de teste não possui um token de push válido para a plataforma selecionada. O usuário deve ter iniciado uma sessão no app e ativado o push para esse dispositivo. Para saber mais, consulte [Ativação de push e estados de inscrição de push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/).
+
 #### Push para a web {#web-push}
 
 1. Crie seu push para a web.
@@ -257,7 +259,7 @@ Se você já aceitou mensagens push do dashboard da Braze, a mensagem aparecerá
 Se você vir um erro informando que nenhum dos usuários selecionados possui tokens de push correspondentes para push para a web, verifique se o usuário de teste possui um token de push válido registrado para a plataforma selecionada. Para receber um token de push, o usuário deve estar configurado para receber notificações por push do app no seu dispositivo. Para mais detalhes, consulte [Ativação de push e estados de inscrição de push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/).
 
 {% endtab %}
-{% tab SMS/MMS and RCS %}
+{% tab SMS/MMS e RCS %}
 
 Após criar sua mensagem SMS, MMS ou RCS, você pode enviar uma mensagem de teste para o seu telefone e ver como ficará em tempo real.
 
@@ -265,14 +267,12 @@ Após criar sua mensagem SMS, MMS ou RCS, você pode enviar uma mensagem de test
 2. Selecione a guia **Test** e selecione pelo menos um grupo de teste de conteúdo ou usuário individual para receber esta mensagem de teste.
 3. Selecione **Send Test** para enviar sua mensagem de teste.
 
-![Testar Content Card]({% image_buster /assets/img/sms_test.png %})
+![Testar mensagem SMS]({% image_buster /assets/img/sms_test.png %})
 
 {% endtab %}
 {% tab Webhook %}
 
 Após criar seu webhook, você pode fazer um envio de teste para verificar a resposta do webhook. Selecione a guia **Test** e selecione **Send Test** para enviar um teste para a URL do webhook fornecida. Você também pode selecionar um usuário individual para pré-visualizar a resposta como um usuário específico.
-
-![Testar Content Card]({% image_buster /assets/img/webhook_test.png %})
 
 {% endtab %}
 {% tab WhatsApp %}
@@ -322,7 +322,7 @@ Você pode editar campos individuais de um usuário aleatório ou existente para
 Testar Campaigns personalizadas com [propriedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/) difere um pouco do teste de outros tipos de Campaigns descritos.
 
 {% tabs local %}
-{% tab Trigger manually %}
+{% tab Disparar manualmente %}
 
 #### Método 1: Disparando a Campaign manualmente {#method-1-triggering-campaign-manually}
 
@@ -354,7 +354,7 @@ A Campaign será disparada e mostrará a mensagem personalizada com a propriedad
 ![Exemplo de mensagem de teste]({% image_buster /assets/img_archive/testeventproperties-message2.png %})
 
 {% endtab %}
-{% tab Test message %}
+{% tab Mensagem de teste %}
 
 #### Método 2: Enviando uma mensagem de teste para si mesmo {#method-2-sending-yourself-a-test-message}
 
@@ -397,6 +397,6 @@ Se sua Campaign de mensagem no app não está sendo disparada por uma Campaign d
 
 Para envios de teste no Android e iOS, as mensagens no app que usam o comportamento ao clicar **Request push permission** podem não ser exibidas em alguns dispositivos. Como solução alternativa:
 - **Android:** Os dispositivos devem estar no Android 13 e na versão 21.0.0 do nosso SDK Android. Outro motivo pode ser que o dispositivo no qual a mensagem no app é exibida já possui um prompt no nível do sistema. Você pode ter selecionado **Do not ask again**, então pode ser necessário reinstalar o app para redefinir as permissões de notificação antes de testar novamente.
-- **iOS:** Recomendamos que sua equipe de desenvolvimento revise a implementação de notificações por push do seu app e remova manualmente qualquer código que solicite permissões de push. Para mais informações, consulte [Mensagens no app de introdução ao push]({{site.baseurl}}/user_guide/channels/push/best_practices/).
+- **iOS:** Recomendamos que sua equipe de desenvolvimento revise a implementação de notificações por push do seu app e remova manualmente qualquer código que solicite permissões de push. Para saber mais, consulte [Mensagens no app de introdução ao push]({{site.baseurl}}/user_guide/channels/push/best_practices/).
 
 Para que uma Campaign de mensagem no app baseada em ação seja entregue, você deve registrar eventos personalizados por meio do SDK da Braze, não por REST APIs, para que os usuários recebam mensagens no app elegíveis diretamente em seus dispositivos. Os usuários recebem a mensagem no app se realizarem o evento durante a sessão.

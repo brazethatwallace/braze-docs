@@ -34,7 +34,7 @@ Para conectar sua chave de API da OpenAI à Braze:
 
 1. Acesse **Integrações de parceiros** > **Parceiros de tecnologia** no dashboard da Braze e encontre a OpenAI.
 2. Digite sua chave de API da OpenAI.
-3. Selecione **Save**.
+3. Selecione **Salvar**.
 
 Depois de salvar, você pode selecionar modelos da OpenAI ao [criar um agente personalizado]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/) no Console do agente.
 

@@ -20,7 +20,7 @@ search_rank: 2
 
 ## 1단계: 메시지 작성 위치 선택 {#step-1-choose-where-to-build-your-message}
 
-메시지를 Campaign으로 보낼지 Canvas로 보낼지 확실하지 않으신가요? Campaign은 단일 타겟 메시징에 적합하고, Canvas는 다단계 사용자 여정에 적합합니다.
+메시지를 Campaign으로 보낼지 Canvas로 보낼지 확실하지 않으신가요? Campaign은 단일 타겟 메시징 캠페인에 적합하고, Canvas는 다단계 사용자 여정에 적합합니다.
 
 {% tabs %}
 {% tab Campaign %}
@@ -67,7 +67,7 @@ search_rank: 2
 
 ![예시 웹훅 템플릿이 있는 '작성' 탭.]({% image_buster /assets/img_archive/webhook_compose.png %})
 
-#### 언어 {#internationalization}
+### 언어 {#internationalization}
 
 [국제화]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/#campaigns-in-multiple-languages)는 URL과 요청 본문에서 지원됩니다. 메시지를 국제화하려면 **언어 추가**를 선택하고 필수 필드를 입력합니다.
 
@@ -75,7 +75,7 @@ search_rank: 2
 
 오른쪽에서 왼쪽으로 쓰는 언어로 텍스트를 추가하는 경우, 오른쪽에서 왼쪽으로 쓰는 메시지의 최종 모양은 서비스 제공업체가 렌더링하는 방식에 크게 좌우됩니다. 가능한 한 정확하게 표시되는 오른쪽에서 왼쪽으로 쓰는 메시지를 작성하는 모범 사례는 [오른쪽에서 왼쪽으로 쓰는 메시지 생성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/)을 참조하세요.
 
-#### 웹훅 URL {#webhook-url}
+### 웹훅 URL {#webhook-url}
 
 웹훅 URL 또는 HTTP URL은 엔드포인트를 지정합니다. 엔드포인트는 웹훅에서 캡처하는 정보를 전송할 위치입니다.
 
@@ -83,11 +83,11 @@ search_rank: 2
 
 Braze는 표준 포트 `80`(HTTP) 및 `443`(HTTPS)을 통해 통신하는 URL만 허용합니다.
 
-##### Liquid 사용 {#using-liquid}
+#### Liquid 사용 {#using-liquid}
 
 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)를 사용하여 웹훅 URL을 개인화할 수 있습니다. 특정 엔드포인트에서는 URL의 일부로 사용자를 식별하거나 사용자별 정보를 제공해야 할 수 있습니다. Liquid를 사용할 때는 URL에 사용하는 각 사용자별 정보에 대해 [기본값]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web)을 포함해야 합니다.
 
-#### HTTP 메서드 {#http-method}
+### HTTP 메서드 {#http-method}
 
 사용해야 하는 HTTP 메서드는 정보를 전송하는 엔드포인트에 따라 다릅니다. 대부분의 경우 POST를 사용합니다.
 
@@ -97,13 +97,13 @@ Braze는 표준 포트 `80`(HTTP) 및 `443`(HTTPS)을 통해 통신하는 URL만
 | GET | 새 정보를 기록하는 것이 아니라 기존 정보를 검색합니다. 정의상 GET 요청은 요청 본문을 지원하지 않습니다. |
 | PUT | 엔드포인트의 정보를 업데이트하여 기존 정보를 요청 본문의 내용으로 대체합니다. |
 | DELETE | HTTP URL의 리소스를 삭제합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTTP 메서드" }
 
-#### 요청 본문 {#request-body}
+### 요청 본문 {#request-body}
 
 요청 본문은 지정한 URL로 전송될 정보입니다. JSON 키-값 페어 또는 원시 텍스트로 웹훅 요청의 본문을 생성할 수 있습니다.
 
-##### JSON 키-값 페어 {#json-key-value-pairs}
+#### JSON 키-값 페어 {#json-key-value-pairs}
 
 JSON 키-값 페어를 사용하면 JSON 형식을 기대하는 엔드포인트에 대한 요청을 쉽게 작성할 수 있습니다. JSON 요청을 기대하는 엔드포인트에서만 사용할 수 있습니다. 예를 들어, 키가 `message_body`인 경우 해당 값은 `Your order just arrived!`일 수 있습니다. 키-값 페어를 입력하면 작성기가 JSON 구문으로 요청을 구성하고, JSON 요청의 미리보기가 자동으로 채워집니다.
 
@@ -111,7 +111,7 @@ JSON 키-값 페어를 사용하면 JSON 형식을 기대하는 엔드포인트�
 
 사용자 속성, [커스텀 속성]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#additional-notes-and-best-practices) 또는 [이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)를 포함하여 Liquid를 사용해 키-값 페어를 개인화할 수 있습니다. 예를 들어, 요청에 고객의 이름과 이메일을 포함할 수 있습니다. 각 속성에 대해 [기본값]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web)을 포함해야 합니다.
 
-##### 원시 텍스트 {#raw-text}
+#### 원시 텍스트 {#raw-text}
 
 원시 텍스트 옵션은 모든 형식의 본문을 기대하는 엔드포인트에 대한 요청을 작성할 수 있는 유연성을 제공합니다. 예를 들어, XML 형식의 요청을 기대하는 엔드포인트에 대한 요청을 작성하는 데 사용할 수 있습니다.
 
@@ -131,11 +131,11 @@ to={{custom_attribute.${example}}}&text=Your+order+just+arrived
 
 ## 3단계: 추가 설정 구성 {#step-3-configure-additional-settings}
 
-#### 요청 헤더(선택 사항) {#request-headers-optional}
+### 요청 헤더(선택 사항) {#request-headers-optional}
 
 특정 엔드포인트에서는 요청에 헤더를 포함해야 할 수 있습니다. 작성기의 **작성** 섹션에서 필요한 만큼 헤더를 추가할 수 있습니다.
 
-!['Authorization' 키와 'Content-Type' 키에 대한 요청 헤더 예시.]({% image_buster /assets/img_archive/webhook_request_headers_example.png %})
+![Authorization 키와 Content-Type 키에 대한 요청 헤더 예시.]({% image_buster /assets/img_archive/webhook_request_headers_example.png %})
 
 일반적인 요청 헤더는 `Content-Type` 사양(본문에서 기대하는 데이터 유형(예: XML 또는 JSON)을 설명)과 벤더 또는 시스템의 자격 증명을 포함하는 인증 헤더입니다.
 
@@ -172,21 +172,21 @@ Content-Type 사양은 `Content-Type` 키를 사용해야 합니다. 일반적�
 
 다음으로 캠페인의 나머지 부분을 구축합니다. 웹훅을 구축하기 위한 도구 활용 방법에 대한 자세한 내용은 다음 섹션을 참조하세요.
 
-#### 전달 스케줄 또는 트리거 선택 {#choose-delivery-schedule-or-trigger}
+### 전달 스케줄 또는 트리거 선택 {#choose-delivery-schedule-or-trigger}
 
 웹훅은 예약된 시간, 동작 또는 API 트리거를 기반으로 전달할 수 있습니다. 자세한 내용은 [캠페인 예약]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)을 참조하세요.
 
-실행 기반 전달의 경우 캠페인 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)을 설정할 수도 있습니다.
+실행 기반 전달의 경우 캠페인 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)을 설정할 수도 있습니다.
 
 이 단계에서는 사용자가 캠페인을 [재수신]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)할 수 있도록 허용하거나 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) 규칙을 활성화하는 등의 전달 제어를 지정할 수도 있습니다.
 
-#### 타겟 사용자 선택 {#choose-users-to-target}
+### 타겟 사용자 선택 {#choose-users-to-target}
 
 다음으로 Segments 또는 필터를 선택하여 오디언스를 좁혀 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)해야 합니다. 이 단계에서는 Segments에서 더 큰 오디언스를 선택하고, 원하는 경우 필터를 사용하여 해당 Segment를 더 세밀하게 좁힙니다. 대략적인 Segment 인구의 미리보기가 자동으로 표시됩니다. 정확한 Segment 멤버십은 항상 메시지가 전송되기 전에 계산된다는 점을 유의하세요.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
-#### 전환 이벤트 선택 {#choose-conversion-events}
+### 전환 이벤트 선택 {#choose-conversion-events}
 
 Braze를 사용하면 캠페인을 수신한 후 사용자가 특정 동작인 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)를 수행하는 빈도를 추적할 수 있습니다. 사용자가 지정된 동작을 수행하면 전환으로 집계되는 최대 30일의 기간을 설정할 수 있습니다.
 
@@ -230,7 +230,7 @@ Braze를 사용하면 캠페인을 수신한 후 사용자가 특정 동작인 [
 | `429` (사용량 제한)  | 아니요 | 예 |
 | `기타 4XX` (클라이언트 오류)  | 아니요 | 아니요 |
 | `5XX` (서버 오류)   | 아니요 | 예 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="응답 코드 및 재시도 로직" }
 
 {% alert note %}
 Braze는 위의 상태 코드에 대해 지수 백오프를 사용하여 30분 이내에 최대 5회까지 재시도합니다. 엔드포인트에 도달할 수 없는 경우 재시도가 24시간에 걸쳐 분산될 수 있습니다.<br><br>각 웹훅은 타임아웃되기 전까지 90초가 허용됩니다.
@@ -248,7 +248,7 @@ Braze는 특정 **저장된 웹훅 템플릿**을 참조하는 모든 캠페인 
 
 #### 문제 해결 및 추가 오류 세부 정보 {#troubleshooting-and-additional-error-details}
 
-특정 웹훅 오류를 해결하기 위한 자세한 설명, 문제 해결 단계 및 지침은 [웹훅 및 연결된 콘텐츠 요청 문제 해결]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/)을 참조하세요. 비정상 호스트 감지 시스템의 작동 방식과 Braze가 자동 이메일 및 Braze 커런츠의 추가 로깅을 통해 오류 알림을 제공하는 방법에 대한 자세한 설명도 확인할 수 있습니다.
+특정 웹훅 오류를 해결하기 위한 자세한 설명, 문제 해결 단계 및 지침은 [웹훅 및 연결된 콘텐츠 요청 문제 해결]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content/)을 참조하세요. 비정상 호스트 감지 시스템의 작동 방식과 Braze가 자동 이메일 및 Braze 커런츠의 추가 로깅을 통해 오류 알림을 제공하는 방법에 대한 자세한 설명도 확인할 수 있습니다.
 
 ### IP 허용 목록 {#ip-allowlisting}
 
@@ -260,4 +260,10 @@ Braze는 다음 IP에서 웹훅을 전송합니다. 나열된 IP는 허용 목�
 Braze 간 웹훅을 만들고 허용 목록을 사용하는 경우 `127.0.0.1`을 포함한 다음 IP를 모두 허용 목록에 추가해야 합니다.
 {% endalert %}
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
+
+### 사용자 삭제 {#delete-users}
+
+개별 사용자 또는 Segment의 사용자를 삭제하려면 **오디언스** > **오디언스 관리** > **사용자 삭제**로 이동합니다. 대시보드는 대량 Segment 삭제(최대 1,000만 프로필)를 지원하며, 7일간의 취소 기간이 포함되어 있고, 공유 REST API 사용량 제한을 소비하지 않습니다. 단계, 제한 및 권한에 대한 자세한 내용은 [사용자 삭제]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)를 참조하세요.
+
+소규모 배치의 프로그래밍 방식 삭제에는 웹훅 캠페인 대신 [`/users/delete` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/)를 사용하세요.

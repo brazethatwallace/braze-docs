@@ -4,35 +4,43 @@ article_title: チーム
 page_order: 2
 page_type: reference
 alias: /teams/
-description: "この参照記事では、ダッシュボードでの Braze チームの使用方法について説明します。ここでは、チームの作成方法、役割の割り当て方法、タグとフィルターの割り当て方法について説明します。"
+description: "このリファレンス記事では、ダッシュボードでの Braze チームの使用方法について説明します。ここでは、チームの作成方法、役割の割り当て方法、タグとフィルターの割り当て方法について説明します。"
 
 ---
 
-# チーム
+# チーム {#teams}
 
-> Braze の管理者として、会社のユーザーをさまざまなユーザー役割と権限を持つチームにグループ化できます。これにより、編集可能なコンテンツの種類を分離することで、複数の関連性のない企業ユーザーグループが1つのワークスペースで共同作業できるようになります。
+> Braze の管理者として、会社のユーザーをさまざまなユーザー役割と権限を持つチームにグループ化できます。これにより、編集可能なコンテンツの種類を分離することで、複数の関連性のない会社ユーザーグループが1つのワークスペースで共同作業できるようになります。
 
 チームは、顧客ベースのロケーション、言語、およびカスタム属性にわたって設定できます。これにより、チームメンバーと非チームメンバーは、メッセージング機能および顧客データについて異なるアクセス権を持つことができます。チームのフィルターとタグは、さまざまなエンゲージメントツールに割り当てることができます。ワークスペース内で作成できるチームの数に制限はありません。
 
 Braze の契約によっては、チームを使用できない場合があります。この機能を利用するには、Braze のアカウントマネージャーに連絡するか、[お問い合わせ](mailto:success@braze.com)ください。
 
-## チームは権限セットや役割とどう違うのですか？
+## チームは権限セットや役割とどう違うのですか？ {#how-do-teams-differ-from-permission-sets-and-roles}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## チームを作成する {#creating-teams}
 
-**設定** > **社内チーム**に移動し、<i class="fas fa-plus"></i> **チームを追加**を選択します。
+**設定** > **社内チーム**に移動し、<i class="fas fa-plus" aria-label="追加"></i> **チームを追加**を選択します。
 
-![新しいチームを追加する時間枠。]({% image_buster /assets/img_archive/adding_a_team.png %})
+![新しいチームを追加するウィンドウ。]({% image_buster /assets/img_archive/adding_a_team.png %})
 
 **チーム名**を入力します。必要に応じて、**チームを定義（オプション）**フィールドを使用してカスタム属性、ロケーション、または言語を選択し、チームがアクセスできるユーザーデータをさらに定義します。たとえば、考えられるユースケースとして、カスタム属性で識別されるテストユーザーのみにアクセスできる開発チームを作成して、[チームでテスト](#test-with-teams)を実行することがあります。別のユースケースは、製品に基づいてユーザーとのコミュニケーションを制限することです。
 
-チームがカスタム属性、言語、または国で定義されている場合は、チームを使用して、Campaigns、Canvases、Content Cards、Segments などの機能のエンドユーザーをフィルタリングできます。詳細については、[チームタグの割り当て](#tags-and-filters)を参照してください。
+チームがカスタム属性、言語、または国で定義されている場合は、チームを使用して、Campaigns、Canvases、Content Cards、Segmentsなどの機能のエンドユーザーをフィルタリングできます。詳細については、[チームタグの割り当て](#tags-and-filters)を参照してください。
 
-## ユーザーをチームに割り当てる
+## ユーザーをチームに割り当てる {#assign-users-to-teams}
 
 Braze の管理者および「会社設定の管理」という会社レベルの権限を持つ限定ユーザーは、アクセスが制限された会社ユーザーに対してチームレベルの権限を割り当てることができます。チームに割り当てられた会社ユーザーは、チームの作成時に定義された範囲（ユーザー言語、ロケーション、カスタム属性など）において、該当するチームで利用可能なデータのみを読み書きできます。
+
+### ユーザーを削除せずに会社ユーザーの権限を制限する {#limit-company-user-permissions-without-deleting-a-user}
+
+会社ユーザーのアカウントを保持したままサインインを停止するには、ユーザーを削除する代わりに[ユーザーを一時停止]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users)します。一時停止すると、アカウントは非アクティブ状態になり、ユーザーはログインできなくなります。
+
+ユーザーが制限された機能でサインインできるようにする場合は、**設定** > **会社ユーザー**に移動し、ユーザーを選択して権限を編集します。Campaigns、Canvases、Segments、およびユーザーデータに対するワークスペースレベルの権限を削除し、最小限のアクセスのみを残します（例：「メディアライブラリアセットを表示」）。詳細については、[ユーザーの権限を編集する]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#edit-a-users-permissions)を参照してください。
+
+チーム権限はワークスペース権限の上に機能します。ユーザーをチームに割り当てる場合は、必要最小限のチームレベルの権限のみを付与し、Campaigns、Canvases、Segments、またはユーザープロファイルに対する権限は付与しないでください。ユーザーはワークスペースに残りサインインできますが、ほとんどのメッセージングやオーディエンスアクションを実行できません。
 
 ユーザーをチームに割り当てるには、**設定** > **会社ユーザー**に移動し、チームに追加するユーザーを選択します。
 
@@ -48,32 +56,27 @@ Braze の管理者および「会社設定の管理」という会社レベル�
 
 ![チームレベルのランディングページテンプレート権限。]({% image_buster /assets/img/teams.png %})
 
-### 利用可能なチームレベルの権限
+### 利用可能なチームレベルの権限 {#available-team-level-permissions}
 
 以下は、チームレベルで割り当てることができるすべての権限です。ここに記載されていない権限はワークスペースレベルでのみ付与され、**チーム**権限列では「--」と表示されます。
 
-{% tabs %}
-{% tab 詳細な権限 %}
-
-{% multi_lang_include alerts/important_alerts.md alert="granular permissions ea" %}
-
-- Campaigns を表示
-- Campaigns を編集
-- Campaigns をアーカイブ
-- Campaigns を起動
-- Campaigns を承認
-- Canvases を表示
-- Canvases を編集
-- Canvases をアーカイブ
-- Canvases を起動
-- Canvases を承認
-- Content Blocks を表示
-- Content Blocks を編集
-- Content Blocks をアーカイブ
-- Content Blocks を起動
-- Segments を表示
-- Segments を編集
-- Segments をアーカイブ
+- キャンペーンを表示
+- キャンペーンを編集
+- キャンペーンをアーカイブ
+- キャンペーンを起動
+- キャンペーンを承認
+- Canvasを表示
+- Canvasを編集
+- Canvasをアーカイブ
+- Canvasを起動
+- Canvasを承認
+- Content Blocksを表示
+- Content Blocksを編集
+- Content Blocksをアーカイブ
+- Content Blocksを起動
+- Segmentsを表示
+- Segmentsを編集
+- Segmentsをアーカイブ
 - アプリ内メッセージテンプレートを表示
 - アプリ内メッセージテンプレートを編集
 - アプリ内メッセージテンプレートをアーカイブ
@@ -90,7 +93,7 @@ Braze の管理者および「会社設定の管理」という会社レベル�
 - メディアライブラリアセットを削除
 - ユーザーデータをエクスポート
 - ユーザープロファイルを表示（PII 非表示）
-- PII を表示
+- PIIを表示
 - ダッシュボードユーザーを編集
 - キャンバステンプレートを編集
 - キャンバステンプレートを表示
@@ -99,41 +102,18 @@ Braze の管理者および「会社設定の管理」という会社レベル�
 - ダッシュボードレポートを編集
 - ダッシュボードレポートを削除
 
-{% endtab %}
-{% tab レガシー権限 %}
-
-- Campaigns、Canvases、カード、Content Blocks、フィーチャーフラグ、Segments、メディアライブラリ、およびユーザー設定センターにアクセス
-- Campaigns、Canvases を送信
-- Content Cards を起動および管理
-- Segments を編集
-- ユーザーデータをエクスポート
-- ユーザープロファイルを PII 準拠で表示
-- ダッシュボードユーザーを管理
-- メディアライブラリアセットを管理
-- Campaigns を承認および拒否
-- Canvases を承認および拒否
-- キャンバステンプレートを作成および編集
-- キャンバステンプレートを表示
-- キャンバステンプレートをアーカイブ
-- ランディングページテンプレートを編集
-- ランディングページテンプレートを表示
-- ランディングページテンプレートをアーカイブ
-
-{% endtab %}
-{% endtabs %}
-
-各ユーザー権限の内容と使用方法については、[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#editing-user-permissions)セクションをご覧ください。
+各ユーザー権限の内容と使用方法については、[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)セクションをご覧ください。
 
 ## チームタグの割り当て {#tags-and-filters}
 
 **チームを追加**フィルターを使用して、Canvases、Campaigns、Content Cards、Segments、メールテンプレート、Webhook テンプレート、Content Blocks、およびメディアライブラリアセットにチームを割り当てることができます。
 
-![Campaign にチームタグを追加する。]({% image_buster /assets/img/teams1.png %}){: style="max-width:70%;"}
+![キャンペーンにチームタグを追加する。]({% image_buster /assets/img/teams1.png %}){: style="max-width:70%;"}
 
 - チームの作成時に適用された*定義*に基づいて、チームフィルターが割り当てられると、そのエンゲージメントツールのオーディエンスは定義に一致するユーザープロファイルに制限されます。
-- 割り当てられた*権限*に基づいて、チームメンバーは自分のチームフィルターが設定されたダッシュボードエンゲージメントツールにのみアクセスできます。ワークスペース権限が制限されているか、権限がない場合は、特定のオブジェクトを保存または起動する前にチームフィルターを追加する必要があります。チームメンバーは、Canvases、Campaigns、Content Cards、および Segments をチームでフィルタリングして、関連するコンテンツを特定することもできます。
+- 割り当てられた*権限*に基づいて、チームメンバーは自分のチームフィルターが設定されたダッシュボードエンゲージメントツールにのみアクセスできます。ワークスペース権限が制限されているか、権限がない場合は、特定のオブジェクトを保存または起動する前にチームフィルターを追加する必要があります。チームメンバーは、Canvases、Campaigns、Content Cards、およびSegmentsをチームでフィルタリングして、関連するコンテンツを特定することもできます。
 
-### ユースケース
+### ユースケース {#use-cases}
 
 Braze のマーケターである Michelle の以下の2つのシナリオを考えてみましょう。Michelle は「Development」というチームのメンバーです。彼女は Development チームのすべてのチームレベルの権限にアクセスできます。
 
@@ -144,9 +124,9 @@ Braze のマーケターである Michelle の以下の2つのシナリオを考
 
 ![ワークスペースレベルの権限がなく、16のチームベースの権限があるカスタム権限。]({% image_buster /assets/img_archive/scenario1.png %})
 
-Michelle に割り当てられた権限に基づいて、Campaign を作成する際には「Development」チームのみをその Campaign に割り当てることができます。チームが割り当てられていない限り Campaign を起動できず、他のチームタグを表示またはアクセスすることもできません。
+Michelle に割り当てられた権限に基づいて、キャンペーンを作成する際には「Development」チームのみをそのキャンペーンに割り当てることができます。チームが割り当てられていない限りキャンペーンを起動できず、他のチームタグを表示またはアクセスすることもできません。
 
-![「Development」チームタグのみが表示される Campaign チームタグドロップダウン。]({% image_buster /assets/img_archive/team_permissions_scenario1.gif %})
+![「Development」チームタグのみが表示されるキャンペーンチームタグドロップダウン。]({% image_buster /assets/img_archive/team_permissions_scenario1.gif %})
 
 {% endtab %}
 {% tab シナリオ 2 - チーム権限とワークスペース権限 %}
@@ -155,11 +135,11 @@ Michelle に割り当てられた権限に基づいて、Campaign を作成す�
 
 ![1つのワークスペースレベルの権限と15のチームベースの権限があるカスタム権限。]({% image_buster /assets/img_archive/scenario2.png %})
 
-Michelle は「Campaigns、Canvases、カード、Content Blocks、フィーチャーフラグ、Segments、メディアライブラリ、およびユーザー設定センターにアクセス」というワークスペースレベルの権限を持っているため、作成した Campaign に他のチームフィルターを表示および割り当てることができます。
+Michelle は「Campaigns、Canvases、カード、Content Blocks、フィーチャーフラグ、Segments、メディアライブラリ、およびユーザー設定センターにアクセス」というワークスペースレベルの権限を持っているため、作成したキャンペーンに他のチームフィルターを表示および割り当てることができます。
 
-![複数のチームタグがある Campaign チームタグドロップダウン。]({% image_buster /assets/img_archive/team_permissions_scenario2.gif %})
+![複数のチームタグがあるキャンペーンチームタグドロップダウン。]({% image_buster /assets/img_archive/team_permissions_scenario2.gif %})
 
-最初のシナリオと同様に、Michelle は Campaign を起動する前に Development チームタグを追加する必要があります。
+最初のシナリオと同様に、Michelle はキャンペーンを起動する前に Development チームタグを追加する必要があります。
 
 {% endtab %}
 {% endtabs %}
@@ -172,17 +152,17 @@ Michelle は「Campaigns、Canvases、カード、Content Blocks、フィーチ�
 
 一般的なプロセスは次のとおりです。
 
-1. Development チームが Campaign を作成し、「Development」チームタグを追加します。
-2. Development チームがテストユーザーに Campaign を起動します。
-3. 承認者チームがローカルの Campaign デザインを検証し、プロモートして起動します。起動するには、承認者チームがチームタグを「Development」から「[All Teams]」に変更し、Campaign を再起動します。
+1. Development チームがキャンペーンを作成し、「Development」チームタグを追加します。
+2. Development チームがテストユーザーにキャンペーンを起動します。
+3. 承認者チームがローカルのキャンペーンデザインを検証し、プロモートして起動します。起動するには、承認者チームがチームタグを「Development」から「[All Teams]」に変更し、キャンペーンを再起動します。
 
-アクティブな Campaign の変更の場合：
+アクティブなキャンペーンの変更の場合：
 
-1. Development チームが実行中の Campaign を複製し、「Development」チームタグを追加して保存します。
+1. Development チームが実行中のキャンペーンを複製し、「Development」チームタグを追加して保存します。
 2. Development チームが編集を行い、承認者チームと共有します。
-3. 承認者チームが「Development」チームタグを削除し、以前の Campaign を一時停止して、新しい Campaign を起動します。
+3. 承認者チームが「Development」チームタグを削除し、以前のキャンペーンを一時停止して、新しいキャンペーンを起動します。
 
-## 既存のチームをアーカイブする
+## 既存のチームをアーカイブする {#archive-an-existing-team}
 
 **社内チーム**ページからチームをアーカイブできます。
 

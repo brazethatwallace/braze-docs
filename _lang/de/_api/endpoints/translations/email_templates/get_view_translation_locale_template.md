@@ -17,8 +17,6 @@ description: "Dieser Artikel beschreibt die Details des Endpunkts „Spezifische
 
 > Verwenden Sie diesen Endpunkt, um eine bestimmte Übersetzung und Lokalisierung für ein [E-Mail-Template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/) anzuzeigen. Weitere Informationen zu Übersetzungsfeatures finden Sie unter [Lokalisierungen in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `templates.translations.get`.
@@ -33,7 +31,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 |---------------|----------|-----------|---------------------------------|
 | `template_id` | Erforderlich | String | Die ID für Ihr E-Mail-Template. |
 | `locale_id` | Optional | String | Die ID (UUID) der Lokalisierung. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Query parameters" }
 
 {% alert note %}
 Alle Übersetzungs-IDs gelten als universelle eindeutige Bezeichner (UUIDs), die in der Antwort des GET-Endpunkts zu finden sind.

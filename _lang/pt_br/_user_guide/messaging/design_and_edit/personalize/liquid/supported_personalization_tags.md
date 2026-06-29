@@ -20,7 +20,7 @@ Para facilitar, um resumo das tags de personalização compatíveis é fornecido
 | -------------  | ---- |
 | Atributos padrão (default) | `{{${city}}}` <br> `{{${country}}}` <br> `{{${date_of_birth}}}` <br> `{{${email_address}}}` <br> `{{${first_name}}}` <br> `{{${gender}}}` <br> `{{${language}}}` <br> `{{${last_name}}}` <br> `{{${last_used_app_date}}}` <br> `{{${most_recent_app_version}}}` <br> `{{${most_recent_locale}}}` <br> `{{${most_recent_location}}}` <br> `{{${phone_number}}}` <br> `{{${time_zone}}}` <br> `{{${user_id}}}` <br> `{{${braze_id}}}` <br> `{{${random_bucket_number}}}` <br> `{{subscribed_state.${email_global}}}` <br> `{{subscribed_state.${subscription_group_id}}}` |
 | Atributos do dispositivo | `{{most_recently_used_device.${carrier}}}` <br> `{{most_recently_used_device.${id}}}` <br> `{{most_recently_used_device.${idfa}}}` <br> `{{most_recently_used_device.${model}}}` <br> `{{most_recently_used_device.${os}}}` <br> `{{most_recently_used_device.${platform}}}` <br> `{{most_recently_used_device.${google_ad_id}}}` <br> `{{most_recently_used_device.${roku_ad_id}}}` <br> `{{most_recently_used_device.${foreground_push_enabled}}}`|
-| <a href='/docs/user_guide/channels/email/subscriptions#managing-user-subscriptions'>Atributos de lista de e-mail</a> | `{{${set_user_to_unsubscribed_url}}}` <br>Esta tag substitui a tag anterior `{{${unsubscribe_url}}}`. Embora a tag antiga ainda funcione em e-mails criados anteriormente, recomendamos que você use a tag mais recente. <br><br> `{{${set_user_to_one_click_list_unsubscribe}}}` <br> `{{${set_user_to_subscribed_url}}}` <br> `{{${set_user_to_opted_in_url}}}` |
+| <a href='/docs/user_guide/channels/email/subscriptions#managing-user-subscriptions'>Atributos de lista de e-mail</a> | `{{${set_user_to_unsubscribed_url}}}` <br>Essa tag substitui a tag anterior `{{${unsubscribe_url}}}`. Embora a tag antiga ainda funcione em e-mails criados anteriormente, recomendamos que você use a tag mais recente. <br><br> `{{${set_user_to_one_click_list_unsubscribe}}}` <br> `{{${set_user_to_subscribed_url}}}` <br> `{{${set_user_to_opted_in_url}}}` |
 | <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting#trigger-messages'>Atributos de SMS</a> | `{{sms.${inbound_message_body}}}` <br> `{{sms.${inbound_media_urls}}}` |
 | <a href='/docs/user_guide/channels/whatsapp/message_processing/messaging_users'>Atributos do WhatsApp</a> | `{{whats_app.${inbound_message_body}}}` <br> `{{whats_app.${inbound_media_urls}}}` <br> `{{whats_app.${inbound_flow_response}}}` <br> `{{whats_app.${inbound_product_id}}}` <br> `{{whats_app.${inbound_catalog_id}}}` <br> `{{whats_app.${inbound_profile_name}}}` |
 | Atributos de Campaign e atributos de etapa do Canvas | `{{campaign.${api_id}}}` <br> `{{campaign.${dispatch_id}}}` <br> `{{campaign.${name}}}` <br> `{{campaign.${message_name}}}` <br> `{{campaign.${message_api_id}}}` |
@@ -36,18 +36,32 @@ Para facilitar, um resumo das tags de personalização compatíveis é fornecido
 
 {% endraw %}
 
+{% alert note %}
+As propriedades de gatilho da API devem usar duas chaves por tag: {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`. Chaves triplas (por exemplo, `{{{...}}}`){% endraw %} não são uma sintaxe de personalização válida da Braze. Consulte [Por que meu Liquid disparado por API está falhando na Braze?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze).
+{% endalert %}
+
 ### Atributos compatíveis {#supported-attributes}
 
-Os atributos de Campaign, cartão e Canvas são compatíveis apenas em seus modelos de envio de mensagens correspondentes (por exemplo, `dispatch_id` não está disponível em campanhas de mensagens no app).
+Os atributos de Campaign, cartão e Canvas são compatíveis apenas em seus modelos de envio de mensagens correspondentes. Por exemplo, `dispatch_id` é compatível com Liquid para canais de envio de mensagens como e-mail, push, SMS e WhatsApp, mas não para mensagens no app ou Banners.
 
-Consulte este artigo de ajuda para saber mais sobre [como alguns desses atributos diferem entre fontes na Braze]({{site.baseurl}}/help/help_articles/api/attribute_name_id_across_sources/).
+Para saber mais, consulte [Atributos de Campaign e Canvas entre fontes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/).
 
 ### Diferenças entre tags do Canvas e de Campaigns {#canvas-and-campaign-tag-differences}
 
 O comportamento das tags a seguir difere entre Canvas e Campaigns:
 {% raw %}
-- O comportamento de `dispatch_id` difere porque a Braze trata as etapas do Canvas como eventos disparados, mesmo quando são "agendadas" (exceto para etapas de entrada, que podem ser agendadas). Para saber mais, consulte [Comportamento do dispatch ID]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+- O comportamento de `dispatch_id` difere porque a Braze trata as etapas do Canvas como eventos disparados, mesmo quando são "agendadas" (exceto para etapas de entrada, que podem ser agendadas). Para saber mais, consulte [Comportamento do dispatch ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 - Usar a tag `{{campaign.${name}}}` com Canvas exibe o nome do componente do Canvas. Ao usar essa tag com Campaigns, ela exibe o nome da Campaign.
+{% endraw %}
+
+#### Nomes de Campaign em URLs {#campaign-names-in-urls}
+
+{% raw %}
+Nomes de Campaign e variantes de mensagem podem conter caracteres que não são seguros para URLs, como `%`, espaços ou `&`. Ao inserir `{{campaign.${name}}}` ou `{{campaign.${message_name}}}` em um link ou string de consulta, como um parâmetro `utm_campaign`, aplique o filtro [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters) para que a URL seja analisada corretamente. Por exemplo:
+
+```liquid
+https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
+```
 {% endraw %}
 
 ## Informações do dispositivo usado mais recentemente {#most-recently-used-device-information}
@@ -62,7 +76,7 @@ Você pode usar os seguintes atributos como template para o dispositivo mais rec
 |`{{most_recently_used_device.${id}}}` | O identificador de dispositivo da Braze. No iOS, pode ser o Apple Identifier for Vendor (IDFV) ou um UUID. Para Android e outras plataformas, é um UUID gerado aleatoriamente. |
 | `{{most_recently_used_device.${carrier}}}` | A operadora de telefonia do dispositivo usado mais recentemente, se disponível. Exemplos incluem "Verizon" e "Orange". |
 | `{{most_recently_used_device.${ad_tracking_enabled}}}` | Se o dispositivo tem o rastreamento de anúncios ativado ou não. Este é um valor booleano (`true` ou `false`). |
-| `{{most_recently_used_device.${idfa}}}` | Para dispositivos iOS, este valor é o Identifier for Advertising (IDFA) se seu aplicativo estiver configurado com nossa [coleta opcional de IDFA]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/). Para dispositivos não iOS, este valor é null. |
+| `{{most_recently_used_device.${idfa}}}` | Para dispositivos iOS, este valor é o Identifier for Advertising (IDFA) se seu aplicativo estiver configurado com nossa [coleta opcional de IDFA]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection). Para dispositivos não iOS, este valor é null. |
 | `{{most_recently_used_device.${google_ad_id}}}` | Para dispositivos Android, este valor é o Google Play Advertising Identifier se seu aplicativo estiver configurado com nossa coleta opcional de Google Play Advertising ID. Para dispositivos não Android, este valor é null. |
 | `{{most_recently_used_device.${roku_ad_id}}}` | Para dispositivos Roku, este valor é o Roku Advertising Identifier coletado quando seu aplicativo é configurado com a Braze. Para dispositivos não Roku, este valor é null. |
 | `{{most_recently_used_device.${model}}}` | O nome do modelo do dispositivo, se disponível. Exemplos incluem "iPhone 6S", "Nexus 6P" e "Firefox". |
@@ -101,7 +115,7 @@ Para notificações por push, mensagens no app e Banners, você pode usar os seg
 |------------------|---|
 | `{{targeted_device.${id}}}` | Este é o identificador de dispositivo da Braze. No iOS, pode ser o Apple Identifier for Vendor (IDFV) ou um UUID. Para Android e outras plataformas, é um UUID gerado aleatoriamente. Por exemplo, se um usuário tem cinco dispositivos, uma tentativa de envio ocorre para todos os cinco dispositivos, cada um usando o identificador de dispositivo correspondente. Se uma mensagem estiver configurada para enviar ao dispositivo usado mais recentemente pelo usuário, apenas uma tentativa de envio ocorre para o dispositivo mais recente identificado pela Braze. |
 | `{{targeted_device.${carrier}}}` | A operadora de telefonia do dispositivo usado mais recentemente, se disponível. Exemplos incluem "Verizon" e "Orange". |
-| `{{targeted_device.${idfa}}}` | Para dispositivos iOS, este valor é o Identifier for Advertising (IDFA) se seu aplicativo estiver configurado com nossa [coleta opcional de IDFA]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/). Para dispositivos não iOS, este valor é null. |
+| `{{targeted_device.${idfa}}}` | Para dispositivos iOS, este valor é o Identifier for Advertising (IDFA) se seu aplicativo estiver configurado com nossa [coleta opcional de IDFA]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection). Para dispositivos não iOS, este valor é null. |
 | `{{targeted_device.${google_ad_id}}}` | Para dispositivos Android, este valor é o Google Play Advertising Identifier se seu aplicativo estiver configurado com nossa [coleta opcional de Google Play Advertising ID]. Para dispositivos não Android, este valor é null. |
 | `{{targeted_device.${roku_ad_id}}}` | Para dispositivos Roku, este valor é o Roku Advertising Identifier coletado quando seu aplicativo é configurado com a Braze. Para dispositivos não Roku, este valor é null. |
 | `{{targeted_device.${model}}}` | O nome do modelo do dispositivo, se disponível. Exemplos incluem "iPhone 6S", "Nexus 6P" e "Firefox". |
@@ -244,7 +258,7 @@ Essa chave só é adicionada automaticamente ao objeto de Conteúdo conectado se
 
 Em algumas situações, você pode querer enviar mensagens específicas para determinadas localidades. Por exemplo, o português brasileiro é tipicamente diferente do português europeu.
 
-### Caso de uso: Localizar com base na localidade recente {#use-case-localize-based-on-recent-locale}
+### Caso de uso: localizar com base na localidade recente {#use-case-localize-based-on-recent-locale}
 
 Aqui está um caso de uso de como você pode usar a localidade mais recente para localizar ainda mais uma mensagem internacionalizada.
 
@@ -274,7 +288,7 @@ Message in default language
 
 Neste caso de uso, clientes com a localidade mais recente `pt_BR` recebem uma mensagem em português brasileiro, e clientes com a localidade mais recente `pt_PT` recebem uma mensagem em português europeu. Clientes que não atendem às duas primeiras condições, mas têm o idioma definido como português, recebem uma mensagem no tipo de português padrão que você desejar.
 
-### Caso de uso: Direcionar usuários por fuso horário {#use-case-target-users-by-time-zone}
+### Caso de uso: direcionar usuários por fuso horário {#use-case-target-users-by-time-zone}
 
 Você também pode direcionar usuários pelo fuso horário. Por exemplo, enviar uma mensagem se eles estiverem no fuso EST e outra se estiverem no PST. Para fazer isso, salve o horário atual em UTC e compare uma instrução if/else com o horário atual do usuário para enviar a mensagem certa para o fuso horário certo. Você deve configurar a Campaign para enviar no horário local do usuário, para que ele receba a Campaign no momento certo.
 
@@ -306,7 +320,7 @@ A tag `{% random %}` retorna um número aleatório. Você pode usá-la para lóg
 
 {% endraw %}
 
-### Caso de uso: Enviar variantes aleatórias para os usuários {#use-case-send-users-random-variants}
+### Caso de uso: enviar variantes aleatórias para os usuários {#use-case-send-users-random-variants}
 
 {% raw %}
 ```liquid

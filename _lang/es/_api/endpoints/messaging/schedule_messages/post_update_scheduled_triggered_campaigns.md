@@ -9,7 +9,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 ---
 {% api %}
 # Actualizar Campaigns programadas activadas por API {#update-scheduled-api-triggered-campaigns}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/schedule/update
 {% endapimethod %}
 
@@ -57,7 +57,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `campaign_id` | Obligatorio | Cadena | Ver [identificador de Campaign]({{site.baseurl}}/api/identifier_types/) |
 | `schedule_id` | Obligatorio | Cadena | El `schedule_id` a actualizar (obtenido de la respuesta para crear una programación). |
 | `schedule` | Obligatorio | Objeto | Ver [objeto de programación]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 ```

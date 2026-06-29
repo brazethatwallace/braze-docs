@@ -72,7 +72,7 @@ Wenn Sie ein Segment erstellt haben, bei dem Sie erwarten, dass Nutzer:innen reg
 
 ### Aktualisierungseinstellungen festlegen {#designating-refresh-settings}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ## Anwendungsfälle {#use-cases}
 

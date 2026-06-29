@@ -65,7 +65,7 @@ description: "この記事では、ライブアクティビティを更新する
 
 ## Example request
 
-```bash
+`````````bash
 curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_activity/update' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer {YOUR-REST-API-KEY}' \

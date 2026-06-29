@@ -27,10 +27,6 @@ search_tag: Partner
 | SessionM | A SessionM Connect REST Retailer ID | A unique guid identification to the specific customer associated with your instance. Contact your SessionM technical account manager or Delivery team to provide. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
-{% alert note %} 
-If you are using the [older navigation]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), you can create an API key at **Developer Console** > **API Settings**. 
-{% endalert %} 
-
 ## Use cases
 
 The following use cases showcase a few ways to leverage the SessionM and Braze integration.

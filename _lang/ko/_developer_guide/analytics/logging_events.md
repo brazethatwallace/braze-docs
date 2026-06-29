@@ -14,6 +14,8 @@ description: "Braze SDK를 통해 커스텀 이벤트를 기록하는 방법을 
 목록에 없는 래퍼 SDK의 경우 관련 네이티브 Android 또는 Swift 메서드를 대신 사용하세요.
 {% endalert %}
 
+이커머스 권장 이벤트에 대해서는 [이커머스 이벤트 기록]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
+
 ## 커스텀 이벤트 로깅하기 {#logging-a-custom-event}
 
 커스텀 이벤트를 기록하려면 다음 이벤트 로깅 메서드를 사용하세요.
@@ -341,7 +343,7 @@ AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>
 
 ### 이벤트 확인 {#verify-events}
 
-개발자에게 어떤 이벤트 속성정보가 추적되고 있는지 확인하세요. 모든 이벤트 등록정보는 대소문자를 구분한다는 점을 유의하세요. 커스텀 이벤트 추적에 대한 추가 정보는 플랫폼에 따라 다음 문서를 확인하세요:
+개발자에게 어떤 이벤트 등록정보가 추적되고 있는지 확인하세요. 모든 이벤트 등록정보는 대소문자를 구분한다는 점을 유의하세요. 커스텀 이벤트 추적에 대한 추가 정보는 플랫폼에 따라 다음 문서를 확인하세요:
 
 * [Android]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)
 * [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
@@ -361,7 +363,7 @@ AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>
 
 1. 앱 내에서 커스텀 이벤트를 수행합니다.
 2. 데이터가 플러시될 때까지 약 10초 정도 기다립니다.
-3. [이벤트 사용자 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/)를 새로고침하여 커스텀 이벤트 및 함께 전달된 이벤트 속성정보 값을 확인합니다.
+3. [이벤트 사용자 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/)를 새로고침하여 커스텀 이벤트 및 함께 전달된 이벤트 등록정보 값을 확인합니다.
 
 ## 커스텀 이벤트 문제 해결 {#troubleshooting-custom-events}
 
@@ -387,5 +389,5 @@ AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>
 
 - 개발자 팀에 이벤트가 올바르게 기록되고 예상된 사용자 동작에서 트리거되는지 확인하도록 요청하세요.
 - 팀이 Braze 고객지원에 티켓을 열 때 [상세 로그]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) 및 관련 코드 스니펫을 포함하세요.
-- 앱이 Swift 또는 Android를 사용하는 경우, 개발자 팀은 [SDK 디버거 필수 조건](https://www.braze.com/docs/developer_guide/sdk_integration/debugging/#prerequisites)을 사용하여 상세 로그를 생성할 수 있습니다.
+- 앱이 Swift 또는 Android를 사용하는 경우, 개발자 팀은 [SDK 디버거 필수 조건]({{site.baseurl}}/developer_guide/sdk_integration/debugging/#prerequisites)을 사용하여 상세 로그를 생성할 수 있습니다.
 - 개발자 팀이 문제를 식별할 수 없는 경우, [Braze 고객지원 티켓]({{site.baseurl}}/user_guide/administer/personal/braze_support/)을 열어주세요.

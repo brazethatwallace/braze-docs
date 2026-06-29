@@ -43,7 +43,7 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 4. Braze가 콘텐츠 카드의 오디언스 자격 및 개인화를 계산하는 시점을 선택합니다. 단계 진입 시 또는 첫 노출 시(권장)로 설정할 수 있습니다. Content Cards를 포함하는 단계는 스케줄 기반 또는 실행 기반으로 설정할 수 있습니다.
 5. 사용자가 구매를 완료하거나 커스텀 이벤트를 수행할 때 Content Cards를 제거할지 여부를 선택합니다.
 6. Content Cards의 만료 기간(피드 내 유지 시간)을 설정합니다. 일정 기간 후 또는 특정 시간에 만료되도록 설정할 수 있습니다.
-7. **Delivery Settings**에서 필요에 따라 이 단계의 오디언스 또는 수신자를 필터링합니다. Segment를 지정하고 추가 필터를 추가하여 오디언스를 더 세밀하게 조정할 수 있습니다. 오디언스 옵션은 지연 후 메시지가 전송되는 시점에 확인됩니다.
+7. **Delivery Settings**에서 필요에 따라 이 단계의 오디언스 또는 수신자를 필터링합니다. Segments를 지정하고 추가 필터를 추가하여 오디언스를 더 세밀하게 조정할 수 있습니다. 오디언스 옵션은 지연 후 메시지가 전송되는 시점에 확인됩니다.
 8. 메시지와 함께 사용할 다른 메시징 채널을 선택합니다.
 
 {% endtab %}
@@ -60,7 +60,7 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 | [클래식]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#classic) | ![운동 수업 예약을 권장하는 작은 아이콘과 텍스트가 있는 클래식 콘텐츠 카드.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | 클래식 카드는 굵은 제목, 메시지 텍스트, 그리고 제목과 텍스트 왼쪽에 위치하는 선택적 이미지로 구성된 간단한 레이아웃입니다. 클래식 카드에는 정사각형 이미지나 아이콘을 사용하는 것이 좋습니다. |
 | [자막 이미지]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#captioned-image) | ![역도 선수 이미지와 운동 수업 예약을 권장하는 텍스트가 있는 자막 콘텐츠 카드.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | 자막 이미지 카드는 문구와 시선을 끄는 이미지로 콘텐츠를 보여줍니다. |
 | [이미지 전용]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#banner) | ![텍스트만 있는 이미지 전용 콘텐츠 카드.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | 이미지 전용 카드는 이미지, GIF 및 기타 텍스트가 아닌 크리에이티브 콘텐츠를 위한 공간으로 주목을 끕니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Specify your message types" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2단계: 메시지 유형 지정" }
 
 ## 3단계: 콘텐츠 카드 작성 {#step-3-compose-a-content-card}
 
@@ -94,7 +94,7 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 
 #### 상단에 고정 {#pin-to-top}
 
-Braze는 고정된 카드를 사용자 피드 상단에 표시하며, 사용자는 이를 닫을 수 없습니다. 사용자의 피드에 여러 개의 고정 카드가 있는 경우, Braze는 시간순으로 정렬합니다. 카드를 전송한 후에는 고정 옵션을 소급하여 업데이트할 수 없습니다. Campaign을 전송한 후 이 옵션을 변경하면 향후 전송에만 영향을 미칩니다.
+Braze는 고정된 카드를 사용자 피드 상단에 표시하며, 사용자는 이를 닫을 수 없습니다. 사용자의 피드에 여러 개의 고정 카드가 있는 경우, Braze는 시간순으로 정렬합니다. Braze가 콘텐츠 카드를 전달할 때 카드는 고정 또는 고정 해제 상태이며, 해당 상태는 카드의 수명 동안 변경되지 않습니다. Campaign에서 고정 설정을 변경하면 향후 전송되는 카드에만 업데이트가 적용됩니다. 이미 사용자의 피드에 있는 카드의 고정 상태는 변경되지 않습니다.
 
 !["이 카드를 피드 상단에 고정" 옵션이 선택된 모바일 및 웹용 Braze 콘텐츠 카드 미리보기 나란히 비교.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
@@ -110,13 +110,13 @@ Braze는 고정된 카드를 사용자 피드 상단에 표시하며, 사용자�
 | [앱으로 딥링크]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content) | 앱의 기존 화면으로 딥링크합니다. |
 | 커스텀 이벤트 기록 | 트리거할 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)를 선택합니다. 다른 콘텐츠 카드를 표시하거나 추가 메시징을 트리거하는 데 사용할 수 있습니다. |
 | 커스텀 속성 기록 | 현재 사용자에 대해 설정할 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)을 선택합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="클릭 시 동작" }
 
 **커스텀 이벤트 기록** 및 **커스텀 속성 기록** 옵션에는 다음 SDK 버전 호환성이 필요합니다:
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
-## 4단계: 추가 설정 구성 (선택 사항) {#step-4-configure-additional-settings-optional}
+## 4단계: 추가 설정 구성(선택 사항) {#step-4-configure-additional-settings-optional}
 
 [키-값 페어]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/)를 사용하여 카드의 카테고리를 만들고, [여러 Content Cards 피드]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds)를 생성하며, 카드 정렬 방식을 커스터마이즈할 수 있습니다.
 
@@ -133,7 +133,7 @@ Campaign의 나머지 부분을 구축합니다. Content Cards를 구축하기 �
 
 Content Cards는 스케줄된 시간, 동작 또는 API 트리거를 기반으로 전달할 수 있습니다. 자세한 내용은 [Campaign 스케줄링]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)을 참조하세요.
 
-Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)을 설정하고 Content Cards의 만료를 결정할 수도 있습니다. 특정 만료 날짜 또는 카드가 만료될 때까지의 일수를 최대 30일까지 설정할 수 있습니다. 모든 배리언트의 만료 날짜는 동일합니다.
+Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)을 설정하고 Content Cards의 만료를 결정할 수도 있습니다. 특정 만료 날짜 또는 카드가 만료될 때까지의 일수를 최대 30일까지 설정할 수 있습니다. 모든 배리언트의 만료 날짜는 동일합니다.
 
 설정된 기간 후에 카드를 만료시키도록 선택한 경우(예: 2주 후), 만료는 카드의 전송 시간부터 계산됩니다. 스케줄된 Campaign의 경우 스케줄된 시작 시간이 기준이 됩니다. 실행 기반 Campaign의 경우 사용자가 트리거 동작을 수행한 시간이 기준이 됩니다. 예를 들어, 실행 기반 카드가 오늘 오후 2시에 전송되고 만료 기간이 1일인 경우, 다음 날 오후 2시에 만료됩니다.
 
@@ -147,9 +147,9 @@ Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messagin
 
 #### 타겟 사용자 선택 {#choose-users-to-target}
 
-다음으로, Segment 또는 필터를 선택하여 오디언스를 좁혀 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)합니다. 대략적인 Segment 인구의 미리보기가 자동으로 표시됩니다. 정확한 Segment 멤버십은 항상 메시지가 전송되기 전에 계산된다는 점을 유의하세요.
+다음으로, Segments 또는 필터를 선택하여 오디언스를 좁혀 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)합니다. 대략적인 Segment 인구의 미리보기가 자동으로 표시됩니다. 정확한 Segment 멤버십은 항상 메시지가 전송되기 전에 계산된다는 점을 유의하세요.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 #### 전환 이벤트 선택 {#choose-conversion-events}
 
@@ -186,10 +186,10 @@ Content Cards가 시작된 후에는 편집할 수 없습니다. 새 사용자�
 
 * 제목
 * 메시지
-* 이미지 URL (이미지 파일 크기가 아닌 URL 문자열 자체의 길이)
+* 이미지 URL(이미지 파일 크기가 아닌 URL 문자열 자체의 길이)
 * 링크 텍스트
-* 지정된 모든 플랫폼의 링크 URL (iOS, Android, 웹의 별도 URL이 모두 총합에 포함됨)
-* 키-값 페어 (키 이름과 값 모두)
+* 지정된 모든 플랫폼의 링크 URL(iOS, Android, 웹의 별도 URL이 모두 총합에 포함됨)
+* 키-값 페어(키 이름과 값 모두)
 
 Liquid를 사용하여 긴 텍스트 문자열(예: 커스텀 속성에서)을 가져오면 제한을 초과할 수 있습니다.
 
@@ -204,7 +204,7 @@ Content Cards 페이로드 크기를 관리하기 위한 모범 사례는 다음
 * 긴 링크에는 URL 단축 서비스를 사용하세요. URL, 특히 광범위한 추적 매개변수가 포함된 URL은 크기 제한 문제가 발생할 수 있습니다. URL 단축 서비스를 사용하면 문자 수를 크게 줄이고 페이로드의 공간을 확보할 수 있습니다.
 * Liquid로 동적 콘텐츠를 잘라내세요. 사용자 속성이나 API 호출의 동적 텍스트로 카드를 개인화할 때 콘텐츠의 길이가 예측 불가능할 수 있습니다. `truncate`와 같은 Liquid 필터를 사전에 사용하여 동적 텍스트의 길이를 제한하세요.
 * 멀티 플랫폼 URL을 효율적으로 사용하세요. 2KB 제한에는 정의한 모든 플랫폼의 URL이 포함됩니다. 각 플랫폼에 길고 고유한 URL을 사용하면 페이로드 크기가 배로 늘어날 수 있습니다. 가능하면 모든 플랫폼에서 작동하는 단일 링크를 사용하거나 필요에 따라 URL 단축 서비스를 사용하세요.
-* 더 풍부한 콘텐츠에는 배너를 고려하세요. 지속적으로 많은 양의 콘텐츠가 필요한 활용 사례의 경우 Content Cards가 적합한 채널이 아닐 수 있습니다. 배너에는 동일한 2KB 페이로드 제한이 없으며, 앱이나 웹사이트 경험에 더 풍부한 콘텐츠를 직접 삽입하는 데 더 적합합니다.
+* 더 풍부한 콘텐츠에는 배너를 고려하세요. 지속적으로 많은 양의 콘텐츠가 필요한 사용 사례의 경우 Content Cards가 적합한 채널이 아닐 수 있습니다. 배너에는 동일한 2KB 페이로드 제한이 없으며, 앱이나 웹사이트 경험에 더 풍부한 콘텐츠를 직접 삽입하는 데 더 적합합니다.
 
 #### 피드 내 카드 수 {#number-of-cards-in-feed}
 
@@ -228,8 +228,8 @@ Content Cards 페이로드 크기를 관리하기 위한 모범 사례는 다음
 
 재자격을 활성화하면, 사용자가 Campaign에 "재진입"할 수 있는 시점의 카운트다운은 메시지가 전송된 후 시작됩니다. 이 카운트다운이 시작되는 구체적인 시점은 카드 생성 설정에 따라 달라집니다:
 
-* [첫 노출 시]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression)를 사용하는 Content Cards는 노출 시간을 기준으로 재자격을 계산합니다.
-* Campaign 시작 또는 캔버스 단계 진입 시 생성된 Content Cards는 전송 시간 또는 노출 시간 중 더 늦은 시간을 기준으로 합니다.
+- [첫 노출 시]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression)를 사용하는 Content Cards는 노출 시간을 기준으로 재자격을 계산합니다.
+- Campaign 시작 시, 멀티채널 Campaign에서, 또는 캔버스 단계 진입 시 생성된 Content Cards는 전송 시간 또는 노출 시간 중 더 늦은 시간을 기준으로 합니다.
 
 #### 30일 만료와 재자격 {#the-30-day-expiration-and-re-eligibility}
 
@@ -247,7 +247,7 @@ Content Cards가 전송된 후에는 사용자에게 전달될 준비가 된 "�
 
 이미 카드를 받은 사용자의 카드를 변경하려면 다음 방법 중 하나를 사용해야 합니다:
 
-##### 옵션 1: Campaign 복제 (즉각적인 변경에 권장) {#option-1-duplicate-the-campaign-recommended-for-immediate-changes}
+##### 옵션 1: Campaign 복제(즉각적인 변경에 권장) {#option-1-duplicate-the-campaign-recommended-for-immediate-changes}
 
 {% alert tip %}
 카드에 최신 콘텐츠를 표시하거나, 변경 사항을 즉시 보여줘야 하거나, 재자격이 비활성화된 경우에 이 옵션을 권장합니다.
@@ -320,7 +320,7 @@ Content Cards는 전송된 후 최대 30일 동안 사용할 수 있으며, 30�
 #### 카드를 30일 이상 유지하기 {#making-cards-last-longer-than-30-days}
 
 {% alert tip %}
-30일 Content Cards 제한보다 더 오래 메시지를 유지해야 하는 활용 사례의 경우 배너 사용을 고려하세요. 배너는 지속성을 위해 설계되었으며 필수 만료 날짜가 없어 필요한 만큼 오래 표시할 수 있습니다.
+30일 Content Cards 제한보다 더 오래 메시지를 유지해야 하는 사용 사례의 경우 배너 사용을 고려하세요. 배너는 지속성을 위해 설계되었으며 필수 만료 날짜가 없어 필요한 만큼 오래 표시할 수 있습니다.
 {% endalert %}
 
 카드가 항상 사용 가능한 것처럼 보이게 하려면 30일마다 카드를 효과적으로 교체하는 반복 Campaign을 만들 수 있습니다:
@@ -328,3 +328,11 @@ Content Cards는 전송된 후 최대 30일 동안 사용할 수 있으며, 30�
 1. Content Cards의 기간을 30일로 설정합니다.
 2. Campaign 재자격을 30일로 설정합니다.
 3. Campaign을 "세션 시작" 시 트리거되도록 설정합니다.
+
+### Content Cards 동기화 및 새로고침 {#content-card-sync-and-refresh}
+
+Content Cards는 스케줄에 따라 그리고 앱이 피드를 새로고침할 때 동기화됩니다. 동기화 동작은 전체 동기화와 부분 동기화에 따라 다르며, SDK 통합에 따라 세션 시작 시 카드가 새로고침되는 시점이 달라집니다. 구현 세부 정보는 [Content Cards 피드 커스터마이즈]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/) 및 [Content Cards 생성]({{site.baseurl}}/developer_guide/content_cards/creating_cards/)을 참조하세요.
+
+### Content Cards Campaign 중지의 영향 {#impact-of-stopping-content-cards-campaigns}
+
+Campaign을 중지하고 **다음 동기화 후 카드 제거**를 선택하면, Braze는 다음 새로고침 시 사용자 피드에서 카드를 제거합니다. 사용자가 카드를 보기 전에 제거될 수 있으므로 노출 수가 전송 수보다 낮을 수 있습니다.

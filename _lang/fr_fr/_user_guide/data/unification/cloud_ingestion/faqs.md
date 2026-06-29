@@ -43,7 +43,7 @@ Le test de connexion s'exécute sur votre entrepôt de données : augmenter la c
 
 Essayez d'ajouter les adresses IP officielles de Braze à votre liste d'autorisation. Pour plus d'informations, reportez-vous à la section [Intégrations d'entrepôts de données]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/), ou autorisez les adresses IP correspondantes :
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### Erreur lors de l'exécution SQL due à la configuration client : 002003 (42S02) : erreur de compilation SQL : n'existe pas ou non autorisé {#error-executing-sql-due-to-customer-config-002003-42s02-sql-compilation-error-does-not-exist-or-not-authorized}
 

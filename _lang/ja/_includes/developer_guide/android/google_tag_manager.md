@@ -43,7 +43,7 @@ mFirebaseAnalytics.logEvent("played song", params);
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 val params = Bundle()
 params.putString("genre", "pop")
 params.putInt("number of times listened", 42);
@@ -60,7 +60,7 @@ mFirebaseAnalytics.logEvent("played song", params)
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 Bundle params = new Bundle();
 params.putString("customAttributeKey", "favorite song");
 params.putString("customAttributeValue", "Private Eyes");
@@ -70,7 +70,7 @@ mFirebaseAnalytics.logEvent("customAttribute", params);
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 val params = Bundle()
 params.putString("customAttributeKey", "favorite song")
 params.putString("customAttributeValue", "Private Eyes")
@@ -87,7 +87,7 @@ mFirebaseAnalytics.logEvent("customAttribute", params)
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 Bundle params = new Bundle();
 params.putString("externalUserId", userId);
 mFirebaseAnalytics.logEvent("changeUser", params);
@@ -96,7 +96,7 @@ mFirebaseAnalytics.logEvent("changeUser", params);
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 val params = Bundle()
 params.putString("externalUserId", userId)
 mFirebaseAnalytics.logEvent("changeUser", params)
@@ -120,7 +120,7 @@ Google タグマネージャがアプリにインストールされたら、カ�
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 public class BrazeGtmTagProvider implements CustomTagProvider {
   private static final String TAG = BrazeLogger.getBrazeLogTag(BrazeGtmTagProvider.class);
   private static final String ACTION_TYPE_KEY = "actionType";
@@ -251,7 +251,7 @@ public class BrazeGtmTagProvider implements CustomTagProvider {
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 class BrazeGtmTagProvider : CustomTagProvider {
 
   override fun execute(map: MutableMap<String, Any>) {
@@ -368,14 +368,14 @@ class BrazeGtmTagProvider : CustomTagProvider {
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 BrazeGtmTagProvider.setApplicationContext(this.getApplicationContext());
 ```
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 BrazeGtmTagProvider.setApplicationContext(this.applicationContext)
 ```
 

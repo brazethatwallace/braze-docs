@@ -43,6 +43,8 @@ Los pares clave-valor se pueden agregar a las notificaciones push de Android, iO
 
 En el creador de mensajes, selecciona la pestaña **Settings**, selecciona **Add New Pair** y especifica tus pares clave-valor.
 
+Cuando agregas pares clave-valor en el creador de mensajes, los valores se envían como cadenas. Para las notificaciones push de iOS, las claves de alerta reservadas del servicio de notificaciones push de Apple (APN) que agregas a través de **Alert Options** (como `loc-args` para argumentos de localización) se formatean con los tipos JSON correctos en la carga útil. Para claves personalizadas, tu aplicación recibe valores de cadena a menos que los analices en tu integración.
+
 ### iOS
 
 El servicio de notificaciones push de Apple (APN) admite la configuración de preferencias de alertas y el envío de datos personalizados mediante pares clave-valor. APN utiliza la biblioteca reservada de Apple `aps`, que incluye claves y valores predeterminados que gobiernan las propiedades de las alertas.

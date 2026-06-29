@@ -10,7 +10,7 @@ description: "Cet article présente en détail l'endpoint Braze Créer des messa
 ---
 {% api %}
 # Créer des messages planifiés {#create-scheduled-messages}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/schedule/create
 {% endapimethod %}
 
@@ -86,7 +86,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `recipient_subscription_state` | Facultatif | Chaîne de caractères | Utilisez cette option pour envoyer des messages uniquement aux utilisateurs qui ont confirmé l'abonnement (`opted_in`), aux utilisateurs qui sont abonnés ou ont confirmé l'abonnement (`subscribed`) ou à tous les utilisateurs, y compris les utilisateurs désabonnés (`all`). <br><br>L'option `all` est utile pour les e-mails transactionnels. Par défaut, `subscribed`. |
 | `schedule` | Requis | Objet planification | Voir [objet de planification]({{site.baseurl}}/api/objects_filters/schedule_object/). |
 | `messages` | Facultatif | Objet d'envoi de messages | Voir [les objets d'envoi de messages disponibles]({{site.baseurl}}/api/objects_filters/#messaging-objects). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de demande" }
 
 ## Exemple de demande {#example-request}
 ```

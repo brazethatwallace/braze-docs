@@ -15,10 +15,10 @@ channel:
 > Kontaktkarten (manchmal auch als vCard oder Virtual Contact Files (VCF) bezeichnet) sind ein standardisiertes Dateiformat zum Versenden von Geschäfts- und Kontaktinformationen, die sich einfach in Adressbücher oder Kontaktverzeichnisse importieren lassen.
 
 {% alert note %}
-Das Senden einer Kontaktkarte wird als MMS berechnet. Überprüfen Sie Ihr erwartetes MMS-Volumen und die Nutzung von Nachrichtenguthaben, wenn Sie Kontaktkarten erstellen, und bestätigen Sie die Kosten auf Ihrer Braze-[Abrechnungsseite]({{site.baseurl}}/user_guide/administer/global/billing/).
+Das Senden einer Kontaktkarte wird als MMS berechnet. Überprüfen Sie Ihr erwartetes MMS-Volumen und die Nutzung von Nachrichtenguthaben oder Aktionsguthaben, wenn Sie Kontaktkarten erstellen, und bestätigen Sie die Kosten auf Ihrer Braze-[Abrechnungsseite]({{site.baseurl}}/user_guide/administer/global/billing).
 {% endalert %}
 
-Kontaktkarten können [programmatisch](https://www.twilio.com/blog/send-vcard-twilio-sms) erstellt und in die Braze-[Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#media-library) hochgeladen oder über unseren integrierten Kontaktkarten-Generator erstellt werden. Diesen Karten können gängige Eigenschaften wie Ihr Unternehmensname, Ihre Telefonnummer, Adresse, E-Mail und ein kleines Foto zugewiesen werden. Um mit der Erstellung von Kontaktkarten zu beginnen, stellen Sie zunächst sicher, dass Sie für die Nutzung von MMS in Braze eingerichtet sind.
+Kontaktkarten können [programmatisch](https://www.twilio.com/blog/send-vcard-twilio-sms) erstellt und in die Braze-[Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#media-library) hochgeladen oder über unseren integrierten Kontaktkarten-Generator erstellt werden. Diesen Karten können gängige Eigenschaften wie Ihr Unternehmensname, Ihre Telefonnummer, Adresse, E-Mail und ein kleines Foto zugewiesen werden. Um mit der Erstellung von Kontaktkarten zu beginnen, stellen Sie zunächst sicher, dass Sie für die Nutzung von MMS in Braze eingerichtet sind.
 
 ## Kontaktkarten-Generator {#contact-card-generator}
 
@@ -42,18 +42,24 @@ Beachten Sie, dass alphanumerische Codes nicht mit bidirektionalem Messaging kom
 
 #### Kontaktfoto für die Kontaktkarte hochladen {#upload-contact-card-contact-photo}
 
-Sie können ein optionales Thumbnail-Kontaktfoto für Ihre Kontaktkarte hochladen. Wir empfehlen ein JPEG- oder PNG-Bild mit 240 x 240&nbsp;px. Alle hochgeladenen hochauflösenden Bilder werden auf 240 x 240&nbsp;px verkleinert, um die Zustellbarkeit Ihrer Nachricht sicherzustellen, da MMS-Nachrichten größer als 5&nbsp;MB fehlschlagen können.
+Sie können ein optionales Kontaktfoto für Ihre Kontaktkarte hochladen. Wir empfehlen ein JPEG- oder PNG-Bild mit 240 x 240&nbsp;px. Alle hochgeladenen hochauflösenden Bilder werden auf 240 x 240&nbsp;px verkleinert, um die Zustellbarkeit der Nachricht sicherzustellen, da MMS-Nachrichten größer als 5&nbsp;MB fehlschlagen können.
+
+{% alert note %}
+Das hochgeladene Bild wird auf der Kontaktkarte angezeigt, wenn der/die Empfänger:in sie öffnet. Das Feld [**Full Name**](#add-more-information) bestimmt, was im Nachrichten-Chat-Thumbnail angezeigt wird.
+{% endalert %}
 
 #### Weitere Informationen hinzufügen {#add-more-information}
 
 Weitere Felder ermöglichen es Ihnen, Ihren Namen, eine Unterüberschrift, eine Adresse und andere Kontaktinformationen einzufügen, die Ihre Nutzer:innen möglicherweise zur Verfügung haben möchten.
 
+Das Feld **Full Name** bestimmt die Initialen, die im Nachrichten-Chat-Thumbnail angezeigt werden. Wenn das Feld als optional gekennzeichnet ist und leer gelassen wird, sehen Empfänger:innen einen weißen Kreis anstelle von Initialen.
+
 ### 4. Schritt: Kontaktkarte speichern {#step-4-saving-your-contact-card}
 
-Nachdem Sie alle erforderlichen Felder ausgefüllt haben, klicken Sie auf **Generate Contact Card**, und die Karte wird automatisch an Ihre **Campaign** oder Ihren Canvas angehängt. Von hier aus können Sie eine Nachricht hinzufügen, Ihre Kontaktkarte testen und Ihre **Campaign** oder Ihren Canvas starten.
+Nachdem Sie alle erforderlichen Felder ausgefüllt haben, klicken Sie auf **Generate Contact Card**, und die Karte wird automatisch an Ihre Kampagne oder Ihren Canvas angehängt. Von hier aus können Sie eine Nachricht hinzufügen, Ihre Kontaktkarte testen und Ihre Kampagne oder Ihren Canvas starten.
 
-Die Kontaktkarte wird auch in der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#media-library) gespeichert, um sie in zukünftigen **Campaigns** und Canvases einfach wiederverwenden zu können.
+Die Kontaktkarte wird auch in der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#media-library) gespeichert, um sie in zukünftigen Kampagnen und Canvases einfach wiederverwenden zu können.
 
 ## Eine vorhandene Kontaktkarte hinzufügen {#adding-an-existing-contact-card}
 
-Um eine vorhandene Kontaktkarte hinzuzufügen, erstellen Sie eine **Campaign** oder einen Canvas und wählen Sie Ihre gewünschte Abo-Gruppe aus. Anschließend erscheint im Nachrichten-Editor-Fenster die Option **Add Media**. Hier können Sie eine vorhandene Kontaktkartendatei hochladen oder eine über die Medienbibliothek suchen.
+Um eine vorhandene Kontaktkarte hinzuzufügen, erstellen Sie eine Kampagne oder einen Canvas und wählen Sie Ihre gewünschte Abo-Gruppe aus. Anschließend erscheint im Nachrichten-Editor-Fenster die Option **Add Media**. Hier können Sie eine vorhandene Kontaktkartendatei hochladen oder eine über die Medienbibliothek suchen.

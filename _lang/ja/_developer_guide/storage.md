@@ -84,7 +84,7 @@ braze.initialize("API-KEY", {
 {% tab android %}
 例えば、許可リストに登録するAndroid OSバージョンとデバイスロケールを指定できます。詳細については、[`setDeviceObjectAllowlistEnabled()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist-enabled.html) と [`setDeviceObjectAllowlist()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist.html) メソッドを参照してください。
 
-```java
+`````````java
 new BrazeConfig.Builder()
     .setDeviceObjectAllowlistEnabled(true)
     .setDeviceObjectAllowlist(EnumSet.of(DeviceKey.ANDROID_VERSION, DeviceKey.LOCALE));
@@ -97,14 +97,14 @@ new BrazeConfig.Builder()
 {% subtabs %}
 {% subtab swift %}
 
-```swift
+`````````swift
 configuration.devicePropertyAllowList = [.timeZone, .locale]
 ```
 
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-```objc
+`````````objc
 configuration.devicePropertyAllowList = @[
     BRZDeviceProperty.timeZone,
     BRZDeviceProperty.locale
@@ -139,7 +139,7 @@ configuration.devicePropertyAllowList = @[
 
 デフォルトでは、BrazeのCookieは400日後に期限切れになります。これを上書きするには、Web SDKを初期化する際に `cookieExpiryInDays` オプションを使用します。値は0より大きい必要があります。このオプションが省略された場合、または0以下に設定された場合は、400日のデフォルトが適用されます。このオプションにはWeb SDK 6.6.0以降が必要です。
 
-```javascript
+`````````javascript
 import * as braze from "@braze/web-sdk";
 braze.initialize("API-KEY", {
   baseUrl: "BASE-URL",
@@ -151,7 +151,7 @@ braze.initialize("API-KEY", {
 
 すべてのCookieを無効にするには、Web SDKを初期化する際に [`noCookies`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) オプションを使用します。これにより、サブドメインをまたいで移動する匿名ユーザーを関連付けることができなくなり、各サブドメインで新しいユーザーが生成されます。
 
-```javascript
+`````````javascript
 import * as braze from "@braze/web-sdk";
 braze.initialize("API-KEY", {
   baseUrl: "BASE-URL",

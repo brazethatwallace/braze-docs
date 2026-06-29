@@ -39,7 +39,12 @@ Estas selecciones determinan qué días se incluyen, qué grupos se comparan, c�
 Cambiar la configuración de agregación (como promedio móvil de 7 días) solo afecta la visualización del gráfico. No cambia los datos almacenados.
 {% endalert %}
 
-Si no puedes seleccionar una fecha reciente en el selector de fechas, es probable que esa fecha esté deshabilitada para reflejar un retraso temporal en los datos. Normalmente toma unos días obtener los datos de tu CDP en Decisioning Studio de forma confiable.
+Si no puedes seleccionar una fecha reciente en el selector de fechas, es probable que esa fecha esté deshabilitada debido a retrasos configurados en los datos. Hay dos tipos de retrasos que pueden limitar la disponibilidad de fechas:
+
+- **Retrasos en el pipeline de datos:** El tiempo que toma ingerir y procesar datos de tu CDP en Decisioning Studio. Esto asegura que los informes solo muestren datos completos y confiables.
+- **Retrasos en la activación de recomendaciones:** El tiempo entre el momento en que el motor de Decisioning Studio predice una recomendación y el momento en que la activas en tus Campaigns. Los informes no incluirán días en los que las recomendaciones aún no se hayan activado.
+
+Estos retrasos se configuran para tu caso de uso. Si necesitas entender tu ventana de informes específica, ponte en contacto con tu AI Success Manager.
 
 ## Tarjetas de KPI {#kpi-cards}
 
@@ -119,9 +124,13 @@ Los KPIs para casos de uso Go se establecen automáticamente y están estandariz
 
 ### ¿Por qué no puedo seleccionar ciertas fechas recientes? {#why-cant-i-select-certain-recent-dates}
 
-El selector de fechas puede no permitir seleccionar los días más recientes. Esto es intencional. Los informes pueden aplicar retrasos de activación, retrasos en la disponibilidad de datos o fechas explícitamente excluidas. Estas protecciones evitan que datos incompletos o inestables aparezcan en tus resultados.
+El selector de fechas puede no permitir seleccionar los días más recientes. Esto es intencional. Los informes pueden aplicar las siguientes restricciones para evitar que aparezcan datos incompletos o inestables:
 
-Si necesitas claridad sobre tu ventana de informes o las reglas de disponibilidad de datos, ponte en contacto con tu AI Success Manager para conocer la configuración específica de tu caso de uso.
+- **Retrasos en el pipeline de datos:** Configurados para tener en cuenta el tiempo que toma ingerir y procesar datos de tu CDP. Esto asegura que todos los datos de un día determinado estén completos antes de que ese día aparezca en los informes.
+- **Retrasos en la activación de recomendaciones:** Configurados para tener en cuenta el desfase entre el momento en que se generan las recomendaciones y el momento en que se activan en tus Campaigns. Los días en los que las recomendaciones aún no se hayan activado no aparecerán en los informes.
+- **Fechas explícitamente excluidas:** Fechas que has excluido manualmente en la configuración de informes.
+
+Si necesitas claridad sobre tu ventana de informes específica o las reglas de disponibilidad de datos, ponte en contacto con tu AI Success Manager.
 
 ### ¿Cuál es la diferencia entre KPIs de "volumen" y de "tasa"? {#whats-the-difference-between-volume-and-rate-kpis}
 

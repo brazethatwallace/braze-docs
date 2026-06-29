@@ -26,7 +26,7 @@ Braze와 OpenAI 통합을 통해 OpenAI API 키를 Braze에 연결하여 커스�
 |---|---|
 | API 키가 있는 OpenAI 계정 | API 키가 있는 OpenAI 계정이 필요합니다. 문제나 질문이 있는 경우 관리자 또는 [OpenAI 고객지원](https://help.openai.com/)에 문의하세요. |
 | Braze 인스턴스 | [API 개요 페이지]({{site.baseurl}}/api/basics/#endpoints) 또는 Braze 온보딩 매니저를 통해 Braze 인스턴스를 확인할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 

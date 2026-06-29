@@ -31,12 +31,14 @@ Antes de poder acceder, crear y publicar páginas de inicio, necesitas [permisos
 
 ## Niveles de plan {#plan-tiers}
 
-El número de páginas de inicio publicadas y dominios personalizados que puedes usar depende de tu tipo de plan: gratuito o de pago (incremental).
+El número de páginas de inicio publicadas, dominios personalizados y características que puedes usar depende de tu tipo de plan: gratuito o de pago (incremental).
 
 | Característica | Nivel gratuito | Nivel de pago (incremental) |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | Páginas de inicio publicadas | Cinco por empresa | 20 adicionales |
 | Dominios personalizados | Uno por empresa | Cinco adicionales |
+| [Personalización con Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/) | No disponible | Disponible |
+| Campos de formulario prerrellenados | No disponible | Disponible |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Niveles de plan" }
 
 ## Añadir Google Tag Manager a una página de inicio {#adding-google-tag-manager-to-a-landing-page}

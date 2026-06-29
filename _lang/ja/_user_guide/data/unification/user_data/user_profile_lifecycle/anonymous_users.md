@@ -9,7 +9,7 @@ description: "この記事では、匿名ユーザーとユーザーエイリア
 
 # 匿名ユーザー {#anonymous-users}
 
-> ゲスト訪問者のように、ログインせずにWebサイトやアプリケーションにアクセスするユーザーは、匿名ユーザーとして認識されます。これらのユーザーには`external_ids`はありません。`external_ids`はBraze APIを使用してユーザープロファイルを更新するために使用されますが、匿名ユーザーにも[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)が割り当てられており、Segmentでターゲットにすることができます。
+> ゲスト訪問者のように、ログインせずにWebサイトやアプリケーションにアクセスするユーザーは、匿名ユーザーとして認識されます。これらのユーザーには`external_ids`はありません。`external_ids`はBraze APIを使用してユーザープロファイルを更新するために使用されますが、匿名ユーザーにも[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)が割り当てられており、セグメントでターゲットにすることができます。
 
 匿名ユーザーがWebサイトまたはアプリケーションにアクセスすると、Braze SDKはそれらを作成し、「匿名」ユーザープロファイルに割り当てます。ユーザーがブラウズする間、SDKは使用状況情報やデバイス情報など、匿名ユーザープロファイルのデータを自動的にキャプチャします（カスタム属性やカスタムイベントを設定している場合はそれらも含みます）。
 
@@ -49,7 +49,7 @@ console.log(braze.getDeviceId());
 
 ## ユースケース {#use-cases}
 
-### Segmentで匿名ユーザーをターゲットにする {#target-anonymous-users-in-your-segment}
+### セグメントで匿名ユーザーをターゲットにする {#target-anonymous-users-in-your-segment}
 
 匿名ユーザーには`external_id`がないため、セグメンテーションフィルター**外部ユーザーIDが空白**を使用して一括でターゲットにできます。さらに精度を高めるために、ターゲットにしたい匿名ユーザーにカスタム属性を追加し、それでフィルタリングすることもできます。
 
@@ -58,7 +58,7 @@ console.log(braze.getDeviceId());
 - **外部ユーザーIDが空白である**
 - 「is_lead_profile」が**真である**
 
-![外部ユーザーIDが空白で、「is_lead_profile」カスタム属性が真のSegmentフィルター。]({% image_buster /assets/img/getting_started/anonymous_users.png %})
+![外部ユーザーIDが空白で、「is_lead_profile」カスタム属性が真のセグメントフィルター。]({% image_buster /assets/img/getting_started/anonymous_users.png %})
 
 ### 匿名ユーザーからのチェックアウトデータのキャプチャ {#capture-checkout-data-from-an-anonymous-user}
 

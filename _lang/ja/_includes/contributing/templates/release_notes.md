@@ -76,6 +76,6 @@ The following SDK updates have been released. Breaking updates are listed below;
 - [SDK_NAME](LINK_TO_GITHUB_CHANGELOG)
 - [SDK_NAME](LINK_TO_GITHUB_CHANGELOG)
 
-`````
+```
 {% endraw %}
 {% enddetails %}

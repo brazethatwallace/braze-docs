@@ -71,7 +71,7 @@ Brazeでは、購入オブジェクトの`product_id`に関する一般的な命
 
 たとえば、Web SDKで注文レベルの購入を記録するには以下のようにします。
 
-```html
+`````````html
 POST https://YOUR_REST_API_URL/users/track
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -116,7 +116,7 @@ Braze REST APIを使用して製品を追加できます。たとえば、`/user
 
 ### 購入オブジェクトの例 {#example-purchase-object}
 
-```html
+`````````html
 POST https://YOUR_REST_API_URL/users/track
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -166,6 +166,6 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ### 購入オブジェクト、イベントオブジェクト、およびWebhook {#purchase-objects-event-objects-and-webhooks}
 
-提供された例を使用すると、誰かが色、モノグラム、チェックアウト時間、サイズ、ブランドのプロパティを持つバックパックを購入したことがわかります。次に、[購入イベントプロパティ]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties)を使用してこれらのプロパティでSegmentを作成したり、Liquidを使用してチャネル経由でカスタムメッセージを送信したりできます。たとえば、「こんにちは **Ann F.** さん、**赤のミディアムバックパック**を **$40.00** でご購入いただきありがとうございます！**Backpack Locker** でのお買い物ありがとうございました！」
+提供された例を使用すると、誰かが色、モノグラム、チェックアウト時間、サイズ、ブランドのプロパティを持つバックパックを購入したことがわかります。次に、[購入イベントプロパティ]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties)を使用してこれらのプロパティでセグメントを作成したり、Liquidを使用してチャネル経由でカスタムメッセージを送信したりできます。たとえば、「こんにちは **Ann F.** さん、**赤のミディアムバックパック**を **$40.00** でご購入いただきありがとうございます！**Backpack Locker** でのお買い物ありがとうございました！」
 
 プロパティを保存、保管、追跡してセグメント化に使用する場合は、それらをカスタム属性として設定する必要があります。これは[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して行うことができ、カスタムイベントやそのユーザープロファイルの生涯にわたって保存される購入行動に基づいてユーザーをターゲットにすることができます。

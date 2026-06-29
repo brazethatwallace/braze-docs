@@ -17,13 +17,13 @@ description: "この記事では、APIトリガー配信を使用したトラン
 
 > このエンドポイントを使用して、指定したユーザーに即時の単発トランザクションメッセージを送信します。
 
-このエンドポイントは、Brazeの[トランザクションメールCampaign]({{site.baseurl}}/api/api_campaigns/transactional_campaigns/)と対応するCampaign IDの作成と併せて使用されます。
+このエンドポイントは、Brazeの[トランザクションメールキャンペーン]({{site.baseurl}}/api/api_campaigns/transactional_campaigns/)と対応するキャンペーン IDの作成と併せて使用されます。
 
 {% alert important %}
 トランザクションメールは現在、一部のBrazeパッケージで利用できます。詳細については、担当のBrazeカスタマーサクセスマネージャーにお問い合わせください。
 {% endalert %}
 
-[送信トリガーCampaignエンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)と同様に、このCampaignタイプでは、Brazeダッシュボード内にメッセージコンテンツを格納しながら、API経由でメッセージの送信タイミングと送信先を指定できます。メッセージの送信先となるオーディエンスまたはSegmentを受け入れる送信トリガーCampaignエンドポイントとは異なり、このCampaignタイプは注文確認やパスワードリセットなどのアラートの1対1メッセージングに特化しているため、このエンドポイントへのリクエストでは`external_user_id`または`user_alias`で1人のユーザーを指定する必要があります。
+[送信トリガーキャンペーンエンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)と同様に、このキャンペーンタイプでは、Brazeダッシュボード内にメッセージコンテンツを格納しながら、API経由でメッセージの送信タイミングと送信先を指定できます。メッセージの送信先となるオーディエンスまたはセグメントを受け入れる送信トリガーキャンペーンエンドポイントとは異なり、このキャンペーンタイプは注文確認やパスワードリセットなどのアラートの1対1メッセージングに特化しているため、このエンドポイントへのリクエストでは`external_user_id`または`user_alias`で1人のユーザーを指定する必要があります。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#cec874e1-fa51-42a6-9a8d-7fc57d6a63bc {% endapiref %}
 
@@ -111,11 +111,11 @@ curl -X POST \
 
 | エラー | トラブルシューティング |
 | ----- | --------------- |
-| `The campaign is not a transactional campaign. Only transactional campaigns may use this endpoint` | 指定されたCampaign IDはトランザクションCampaign用ではありません。 |
+| `The campaign is not a transactional campaign. Only transactional campaigns may use this endpoint` | 指定されたキャンペーン IDはトランザクションキャンペーン用ではありません。 |
 | `The external reference has been queued.  Please retry to obtain send_id.` | external_send_idは最近作成されたものです。新しいメッセージを送信する場合は、新しいexternal_send_idを試してください。 |
-| `Campaign does not exist` | 指定されたCampaign IDが既存のCampaignに対応していません。 |
-| `The campaign is archived. Unarchive the campaign in order for trigger requests to take effect.` | 指定されたCampaign IDはアーカイブされたCampaignに対応しています。 |
-| `The campaign is paused. Resume the campaign in order for trigger requests to take effect.` | 指定されたCampaign IDは一時停止中のCampaignに対応しています。 |
+| `キャンペーン does not exist` | 指定されたキャンペーン IDが既存のキャンペーンに対応していません。 |
+| `The campaign is archived. Unarchive the campaign in order for trigger requests to take effect.` | 指定されたキャンペーン IDはアーカイブされたキャンペーンに対応しています。 |
+| `The campaign is paused. Resume the campaign in order for trigger requests to take effect.` | 指定されたキャンペーン IDは一時停止中のキャンペーンに対応しています。 |
 | `campaign_id must be a string of the campaign api identifier` | 指定されたCampaign IDは有効なフォーマットではありません。 |
 | `Error authenticating credentials` | 指定されたAPIキーが無効です。 |
 | `Invalid whitelisted IPs `| リクエストを送信しているIPアドレスがIPホワイトリストに含まれていません（使用されている場合）。 |
@@ -126,6 +126,6 @@ Brazeのほとんどのエンドポイントにはレート制限が実装され
 
 ## トランザクションHTTPイベントポストバック {#transactional-http-event-postback}
 
-{% multi_lang_include http_event_postback.md %}
+{% multi_lang_include channels/transactional_email/http_event_postback.md %}
 
 {% endapi %}

@@ -81,7 +81,7 @@ Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die in der Kontrollgrupp
 
 Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die zuletzt eine bestimmte Kampagne vor oder nach einem bestimmten Datum oder einer bestimmten Anzahl von Tagen erhalten haben. Dieser Filter berücksichtigt nicht, wann Nutzer:innen andere Kampagnen erhalten haben.
 
-{% multi_lang_include segments.md section='same channel identifier' %}
+{% multi_lang_include audience/segments.md section='same channel identifier' %}
 
 ![]({% image_buster /assets/img_archive/last_received_specific_campaign.png %})
 
@@ -95,7 +95,7 @@ Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die zuletzt eine Kampagn
 
 Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die Ihre Zielkampagne erhalten haben oder nicht.
 
-{% multi_lang_include segments.md section='same channel identifier' %}
+{% multi_lang_include audience/segments.md section='same channel identifier' %}
 
 ![]({% image_buster /assets/img_archive/receivedcamp.png %})
 

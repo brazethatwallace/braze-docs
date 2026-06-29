@@ -177,6 +177,18 @@ When writing instructions or detailing steps for a reader to follow, avoid using
 
 If someone has difficulty with the steps or instructions, your casual descriptors can feel condescending. You may also unintentionally exclude people from your documentation who interpret that as an indicator they are in some way not skilled enough to follow your instructions.
 
+##### Antithesis and contrast
+
+Do not use "not X, but Y" or "it isn't this, it's that" antithesis constructions at the sentence level. State the positive directly. This ban is separate from contrast.
+
+Contrast is fine when it lives in the framing, not in a clever clause. Anchor the current state against what it replaced — for example, hidden → tracked, manual → systemic, ad hoc → shared standard. Let the before/after carry the value of the outcome in how you frame the point, not in a snappy antithesis sentence.
+
+<table>
+<tr><th>Don't</th><th>Do</th></tr>
+<tr><td>This isn't a deprecation; it's a migration.</td><td>These capabilities now live in Operator. The entry point changed; the functionality did not.</td></tr>
+<tr><td>Operator doesn't just generate copy — it understands your workspace.</td><td>Operator generates copy using your workspace context — brand guidelines, attributes, and the page you're working on.</td></tr>
+</table>
+
 ##### Customers versus clients
 
 When referring to company users and their consumers, use the following terms accordingly:
@@ -1148,7 +1160,7 @@ At the same time, support the intentionality of the product's development by fra
 
 #### Data sizes
 
-Before documenting a size limit, verify the exact byte value using [`reference-repos.mdc`](.cursor/rules/reference-repos.mdc) (or confirm with engineering). Do not infer the byte count from an abbreviated unit alone. For example, "KB" has been used in Braze code to mean both 1,000 bytes and 1,024 bytes depending on the implementation.
+Before documenting a size limit, verify the exact byte value using the [`reference-repos` skill](.github/skills/reference-repos/SKILL.md) (or confirm with engineering). Do not infer the byte count from an abbreviated unit alone. For example, "KB" has been used in Braze code to mean both 1,000 bytes and 1,024 bytes depending on the implementation.
 
 When expressing a data size limit, lead with the exact byte count. Follow it with the abbreviated unit in parentheses:
 
@@ -1445,7 +1457,7 @@ Use the format “name@example.com” for generic email addresses. Replace “na
 
 #### Figures and other images
 
-When creating figures and images, refer to the [Image copy style guide](image_style_guide.md). Never include personally identifiable information (PII) in figures or images.
+When creating figures and images, refer to the [Image copy style guide](image_style_guide.md). Never include personally identifiable information (PII) or customer data in figures or images.
 
 ##### Alt text
 

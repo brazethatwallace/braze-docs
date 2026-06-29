@@ -50,6 +50,8 @@ function refresh() {
 }
 ```
 
+Content Cards 링크를 같은 탭이 아닌 새 브라우저 탭에서 열려면 웹 SDK 초기화 옵션에서 `openCardsInNewTab: true`를 설정하세요. 초기화 옵션에 대한 자세한 내용은 [웹 SDK 리포지토리 가이드]({{site.baseurl}}/developer_guide/sdk_repository_guides/web/)를 참조하세요.
+
 {% endtab %}
 {% tab android %}
 
@@ -353,7 +355,7 @@ let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze,
 
 사용자가 Content Cards를 받을 자격이 없는 경우 SDK는 "We have no updates. Please check again later."라는 "빈 피드" 오류 메시지를 표시합니다. 이 "빈 피드" 오류 메시지는 다음과 같이 커스터마이즈할 수 있습니다:
 
-![빈 피드 오류 메시지. "This is a custom empty state message."]({% image_buster/assets/img/content_cards/content-card-customization-empty.png %})
+![빈 피드 오류 메시지. "This is a custom empty state message."라고 표시됩니다.]({% image_buster/assets/img/content_cards/content-card-customization-empty.png %})
 
 {% tabs %}
 {% tab web %}

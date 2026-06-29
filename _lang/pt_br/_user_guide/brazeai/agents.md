@@ -1,11 +1,11 @@
 ---
 nav_title: Console do agente
-article_title: Agentes da Braze
+article_title: Braze Agents
 page_order: 1
-description: "Os agentes da Braze podem gerar conteúdo, tomar decisões inteligentes e enriquecer seus dados para que você possa oferecer experiências mais personalizadas aos clientes."
+description: "Os Braze Agents podem gerar conteúdo, tomar decisões inteligentes e enriquecer seus dados para que você possa oferecer experiências mais personalizadas aos clientes."
 ---
 
-# Agentes da Braze no Console do agente {#braze-agents-in-agent-console}
+# Braze Agents no Console do agente {#braze-agents-in-agent-console}
 
 > Os Braze Agents são assistentes alimentados por IA que você pode criar dentro da Braze. Os agentes podem gerar conteúdo, tomar decisões inteligentes e enriquecer seus dados para que você possa oferecer experiências mais personalizadas aos clientes.
 
@@ -17,15 +17,15 @@ Assista a este vídeo para ter uma visão geral dos Braze Agents no Console do a
 
 {% multi_lang_include video.html id="afd0hp0vrh" source="wistia" title="Visão geral dos Braze Agents no Console do agente" %}
 
-## Por que usar os agentes da Braze? {#why-use-braze-agents}
+## Por que usar os Braze Agents? {#why-use-braze-agents}
 
-Os agentes da Braze ajudam sua equipe a oferecer experiências mais inteligentes e personalizadas, sem adicionar trabalho extra. Eles agem como agentes autônomos que não apenas respondem a comandos, mas compreendem o contexto, tomam decisões e agem em direção a um objetivo.
+Os Braze Agents ajudam sua equipe a oferecer experiências mais inteligentes e personalizadas, sem adicionar trabalho extra. Eles agem como agentes autônomos que não apenas respondem a comandos, mas compreendem o contexto, tomam decisões e agem em direção a um objetivo.
 
 Na prática, os agentes podem criar automaticamente textos de mensagens — como linhas de assunto ou texto no produto — para que cada cliente receba uma comunicação que pareça feita sob medida. Eles também podem se adaptar em tempo real, direcionando as pessoas por diferentes jornadas do Canvas com base em preferências, comportamentos ou outros dados.
 
-Além do envio de mensagens, os agentes podem enriquecer seus catálogos calculando ou gerando valores de campos de produtos e perfis, mantendo seus dados atualizados e dinâmicos. Ao assumir tarefas repetitivas ou complexas, eles liberam sua equipe para se concentrar em estratégia e criatividade, em vez de configurações manuais. Os agentes da Braze atuam mais como colaboradores do que como processos em segundo plano — ajudando você a resolver problemas e causar impacto em grande escala.
+Além do envio de mensagens, os agentes podem enriquecer seus catálogos calculando ou gerando valores de campos de produtos e perfis, mantendo seus dados atualizados e dinâmicos. Ao assumir tarefas repetitivas ou complexas, eles liberam sua equipe para se concentrar em estratégia e criatividade, em vez de configurações manuais. Os Braze Agents atuam mais como colaboradores do que como processos em segundo plano — ajudando você a resolver problemas e causar impacto em grande escala.
 
-### Quando usar os agentes da Braze em comparação com outros recursos do BrazeAI {#when-to-use-braze-agents-versus-other-brazeai-features}
+### Quando usar os Braze Agents em comparação com outros recursos do BrazeAI {#when-to-use-braze-agents-versus-other-brazeai-features}
 
 Use agentes para personalizar o conteúdo em tempo real, utilizando o contexto específico do usuário. Por exemplo, se um agente sabe que o sabor de sorvete favorito de um determinado usuário é chocolate e sua cobertura favorita são ursinhos de goma, ele pode criar um texto de push específico para essa combinação para esse usuário quando ele passar pelo Canvas.
 
@@ -35,14 +35,14 @@ Em contrapartida, outras ferramentas do BrazeAI são projetadas para maximizar a
 
 ## Recursos {#features}
 
-Os recursos dos agentes da Braze incluem:
+Os recursos dos Braze Agents incluem:
 
-- **Configuração flexível:** Use um LLM fornecido pela Braze ou conecte seus próprios [provedores de modelos de IA]({{site.baseurl}}/partners/ai_model_providers/) (como OpenAI, Anthropic ou Google Gemini).
+- **Configuração flexível:** Use um LLM fornecido pela Braze ou conecte seus próprios [provedores de modelos de IA]({{site.baseurl}}/partners/ai_model_providers/) (como OpenAI, Anthropic, Google Gemini ou Databricks Mosaic).
 - **Integração perfeita:** Implemente agentes diretamente nas etapas do Canvas ou nos campos do catálogo.
 - **Ferramentas de teste e registro:** Pré-visualize o resultado do seu agente testando com entradas de amostra antes de lançar. Visualize os registros de cada execução do agente, incluindo a entrada e a saída dessa execução.
 - **Controles de uso:** Os limites diários ajudam a gerenciar o desempenho e os custos.
 
-## Sobre os agentes da Braze {#about-braze-agents}
+## Sobre os Braze Agents {#about-braze-agents}
 
 Os agentes são configurados com instruções (prompts de sistema) que definem como eles se comportam. Quando um agente é executado, ele usa suas instruções juntamente com quaisquer dados que você passar para gerar uma resposta. Eles não podem acessar dados de usuários além do que é fornecido pelo contexto e pelas instruções selecionados.
 
@@ -67,6 +67,18 @@ As seguintes limitações se aplicam:
 - Por padrão, cada execução deve ser concluída em 20 segundos. Após 20 segundos, o agente retorna uma resposta `null` onde é usado.
     - Se seus agentes estiverem constantemente excedendo o tempo limite, entre em contato com o gerente da sua conta na Braze para aumentar esse limite.
 - Os dados de entrada estão limitados a 25 KB por solicitação. Entradas mais longas são truncadas.
+
+## Práticas recomendadas {#best-practices}
+
+Priorize casos de uso de alto valor em que os agentes possam gerar o maior retorno sobre o investimento (ROI) e escolha públicos com maior probabilidade de responder. Um público menor e com alta oportunidade frequentemente supera um público grande com baixa oportunidade — por exemplo, redirecionar usuários que pesquisaram recentemente mas não converteram, em vez de enviar textos gerados por agentes para toda a sua base de usuários.
+
+Para validar o ROI antes de escalar, use uma etapa de [Jornadas do experimento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) para enviar apenas parte do seu público por uma etapa de agente. Para mais orientações sobre implantação, consulte [Implantar agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/).
+
+## Tratamento de erros {#error-handling}
+
+Se o modelo conectado retornar um [erro de limite de taxa]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) do provedor de LLM durante uma **etapa de agente do Canvas**, a Braze tenta novamente a solicitação continuamente usando backoff exponencial. Os agentes de catálogo não tentam novamente invocações com limite de taxa. Para outras falhas (como tempo limite ou chave de API inválida), a saída do agente do Canvas é definida como `null`, a menos que o agente tenha [valores de fallback configurados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) no Console do agente (apenas agentes de etapa do Canvas). Se um agente atingir seu limite diário de invocações, a Braze aplica os valores de fallback configurados quando presentes; caso contrário, a saída é definida como `null`.
+
+Quando muitos usuários entram em uma etapa de agente ao mesmo tempo, o processamento pode demorar mais por causa dos [controles de fluxo de invocação]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls). Configure valores de fallback no Console do agente para agentes do Canvas para que os usuários ainda recebam uma saída quando uma invocação falhar, ou use [valores padrão de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) nas etapas de mensagem subsequentes.
 
 ## Como meus dados são usados e enviados para os LLMs fornecidos pela Braze? {#how-is-my-data-used-and-sent-to-braze-provided-llms}
 

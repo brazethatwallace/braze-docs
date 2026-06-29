@@ -9,11 +9,11 @@ search_tag: Partner
 
 # Cloudinary
 
-> [Cloudinary](https://www.cloudinary.com?utm_source=braze_partner_page)は、画像と動画の管理、編集、最適化、配信に使用される画像・動画プラットフォームで、チャネルやカスタマージャーニー全体にわたるあらゆるCampaignに対してスケーラブルに提供します。統合して有効にすると、Cloudinaryのメディア管理機能により、BrazeのCampaignやCanvasesに対してダイナミックで文脈に応じたパーソナライズ済みのアセット配信が可能になります。
+> [Cloudinary](https://www.cloudinary.com?utm_source=braze_partner_page)は、画像と動画の管理、編集、最適化、配信に使用される画像・動画プラットフォームで、チャネルやカスタマージャーニー全体にわたるあらゆるCampaignに対してスケーラブルに提供します。統合して有効にすると、Cloudinaryのメディア管理機能により、BrazeのCampaignsやCanvasesに対してダイナミックで文脈に応じたパーソナライズ済みのアセット配信が可能になります。
 
 ## この連携について {#about-this-integration}
 
-CloudinaryをBrazeに接続すると、Cloudinary Assetsに保存されているビジュアルメディアをBrazeのメッセージングチャネルで使用できるようになります。Cloudinaryのダイナミックリンクを使用すると、Brazeのユーザー属性に基づいてリアルタイムで画像や動画を選択・カスタマイズできます。CloudinaryとBrazeを組み合わせることで、各製品のストーリーを伝え、唯一無二の体験をスケーラブルに提供する、視覚的にリッチでパーソナライズされたCampaignの構築を支援します。
+CloudinaryをBrazeに接続すると、Cloudinary Assetsに保存されているビジュアルメディアをBrazeのメッセージングチャネルで使用できるようになります。Cloudinaryのダイナミックリンクを使用すると、Brazeのユーザー属性に基づいてリアルタイムで画像や動画を選択・カスタマイズできます。CloudinaryとBrazeを組み合わせることで、各製品のストーリーを伝え、唯一無二の体験をスケーラブルに提供する、視覚的にリッチでパーソナライズされたCampaignsの構築を支援します。
 
 このページでは、CloudinaryとBrazeの間で可能な4つの連携方法について説明します（ただし、これらに限定されるものではありません）。これらの連携方法は、主にCloudinaryのメディアライブラリから手動でコピーしたアセットリンクの変更に依存しています。
 
@@ -39,7 +39,7 @@ CloudinaryをBrazeに接続すると、Cloudinary Assetsに保存されている
 
 ## Cloudinary DAMからCampaignアセットを選択する {#select-campaign-assets-through-cloudinary-dam}
 
-BrazeのCampaignやCanvasesでCloudinaryのDAMから画像や動画を直接使用する最も簡単な方法は、Cloudinaryメディアライブラリの**アセット**ページからURLを取得することです。
+BrazeのCampaignsやCanvasesでCloudinaryのDAMから画像や動画を直接使用する最も簡単な方法は、Cloudinaryメディアライブラリの**アセット**ページからURLを取得することです。
 
 ![Cloudinaryの画像アセットライブラリのグリッドビュー。画像の右上に「URLをコピー」ツールチップがハイライト表示されています。]({% image_buster /assets/img/cloudinary/one.png %})
 
@@ -119,7 +119,7 @@ Cloudinaryは、[タグ](https://cloudinary.com/documentation/assets_onboarding_
 
 ### 前提条件
 
-ダイナミックなアセット選択を有効にするには、Cloudinaryがタグとメタデータに基づいてアセットのセットを返せる必要があります。リスト配信タイプが制限されている場合、CloudinaryはBrazeのCampaignでのパーソナライズされたアセット選択に必要なダイナミックリストを提供できません。
+ダイナミックなアセット選択を有効にするには、Cloudinaryがタグとメタデータに基づいてアセットのセットを返せる必要があります。リスト配信タイプが制限されている場合、CloudinaryはBrazeのCampaignsでのパーソナライズされたアセット選択に必要なダイナミックリストを提供できません。
 - リスト配信タイプの制限を解除します：Cloudinaryコンソールでセキュリティ設定を開き、制限画像タイプのリソースリスト項目をクリアします。
 
 ### ダイナミック選択の設定 {#dynamic-selection-setup}
@@ -140,8 +140,8 @@ Cloudinaryは、[タグ](https://cloudinary.com/documentation/assets_onboarding_
 {% assign audience = {{custom_attribute.${sample_audience_identifier}}} %}
 {% assign locale = {{${language}}}%}
 
-// The URL for the "samples" tag used in the campaign is https://papish.cloudinary.us/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
-<img src="https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner">
+// The URL for the "samples" tag used in the campaign is https://solutions-demo-res.cloudinary.com/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
+<img src="https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner">
 ```
 {% endraw %}
 
@@ -149,15 +149,15 @@ Cloudinaryは、[タグ](https://cloudinary.com/documentation/assets_onboarding_
 
 - オーディエンスが`internal`でロケールが`en`のユーザーの出力URL：
 ```
-https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - オーディエンスが`external`でロケールが`es`のユーザーの出力URL：
 ```
-https://papish.cloudinary.us/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - フォールバック画像URL：
 ```
-https://papish.cloudinary.us/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 
 {% endtab %}
@@ -167,11 +167,11 @@ https://papish.cloudinary.us/image/list/$locale_!unknown!/$audience_!unknown!/fn
 
 Cloudinaryの[テキストオーバーレイトランスフォーメーション](https://cloudinary.com/documentation/accessible_media_visual_audio_clarity#text_overlays_on_images_and_videos/)は、Cloudinaryアセット内でBrazeのユーザーデータを直接使用します。
 
-以下の例では、`l_text`トランスフォーメーションを使用してユーザーの名前をアセットに挿入する方法を示しています。CampaignやCanvasesを開発する際にLiquidタグを活用して、`l_text`パラメータに入力するテキストを決定することで、さらなるカスタマイズが可能です。
+以下の例では、`l_text`トランスフォーメーションを使用してユーザーの名前をアセットに挿入する方法を示しています。CampaignsやCanvasesを開発する際にLiquidタグを活用して、`l_text`パラメータに入力するテキストを決定することで、さらなるカスタマイズが可能です。
 
 トランスフォーメーションパラメータを使用してアセットをデザインする方法の詳細については、Cloudinaryサポートチームにお問い合わせください。
 
-### `l_text`トランスフォーメーションの例 {#example-ltext-transformation}
+### `l_text`トランスフォーメーションの例 {#example-l_text-transformation}
 
 {% raw %}
 ```bash

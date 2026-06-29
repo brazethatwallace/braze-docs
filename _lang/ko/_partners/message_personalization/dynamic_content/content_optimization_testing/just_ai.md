@@ -29,7 +29,7 @@ JustAI를 Braze [연결된 콘텐츠]({{site.baseurl}}/user_guide/personalizatio
 | 요구 사항 | 설명 |
 |---|---|
 | JustAI 계정 | 이 파트너십을 활용하려면 [JustAI](https://www.getjust.ai/) 계정이 필요합니다. JustAI 계정이 없는 경우 [30분 온보딩 통화를 예약](https://www.getjust.ai/book-demo)하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## JustAI와 Braze 통합하기 {#integrating-justai-with-braze}
 

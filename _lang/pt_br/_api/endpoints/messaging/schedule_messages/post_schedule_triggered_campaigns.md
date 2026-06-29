@@ -10,7 +10,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze para agen
 ---
 {% api %}
 # Agendar Campaigns disparadas por API {#schedule-api-triggered-campaigns}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/schedule/create
 {% endapimethod %}
 
@@ -68,7 +68,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `broadcast` | Opcional | Booleano | Você deve definir `broadcast` como true ao enviar uma mensagem para um Segment inteiro segmentado por uma Campaign ou Canvas. O padrão desse parâmetro é false (a partir de 31 de agosto de 2017). <br><br> Se `broadcast` estiver definido como true, uma lista `recipients` não poderá ser incluída. No entanto, tenha cuidado ao definir `broadcast: true`, pois definir esse flag de forma não intencional pode fazer com que você envie sua mensagem para um público maior do que o esperado. |
 | `trigger_properties` | Opcional | Objeto | Pares de valores-chave de personalização para todos os usuários nesse envio. Consulte [propriedades de gatilho]({{site.baseurl}}/api/objects_filters/trigger_properties_object/). |
 | `schedule` | Obrigatória | Objeto de agendamento | Consulte [objeto de agendamento]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 ```

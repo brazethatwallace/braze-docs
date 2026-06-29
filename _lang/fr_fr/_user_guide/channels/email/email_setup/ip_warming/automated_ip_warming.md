@@ -11,7 +11,7 @@ channel: email
 
 > Utilisez le réchauffement d'adresses IP automatisé pour augmenter progressivement le volume d'e-mails envoyés depuis une nouvelle adresse IP et ainsi construire votre réputation de l'expéditeur auprès des fournisseurs de boîtes de réception.
 
-{% multi_lang_include early_access_beta_alert.md feature='Automated IP warming' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Automated IP warming' %}
 
 ## Fonctionnement
 

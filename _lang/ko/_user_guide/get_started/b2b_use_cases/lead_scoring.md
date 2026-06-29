@@ -68,7 +68,7 @@ Braze에서 리드 스코어링 워크플로를 만드는 두 가지 주요 단�
 
 #### 4a단계: 행동 경로 추가 {#step-4a-add-an-action-path}
 
-배리언트 아래에서 더하기 아이콘을 선택한 다음 **행동 경로**를 선택합니다.
+배리언트 아래에서 <i class="fas fa-plus" aria-label="추가"></i> **추가**를 선택한 다음 **행동 경로**를 선택합니다.
 
 ![더하기 아이콘으로 열린 메뉴에 "행동 경로"가 표시된 Canvas.]({% image_buster /assets/img/b2b/action_paths_simple.png %}){: style="max-width:60%;"}
 
@@ -105,7 +105,7 @@ Braze에서 리드 스코어링 워크플로를 만드는 두 가지 주요 단�
 | **Attribute Name** | 2단계에서 선택한 리드 점수 속성(`lead score`)을 선택합니다. |
 | **Action** | 경로가 점수를 증가시키면 **Increment By**로, 경로가 점수를 감소시키면 **Decrement By**로 변경합니다. |
 | **Increment By** 또는 **Decrement By** | 리드 점수에서 증가하거나 감소할 포인트 수를 입력합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="4d단계: 사용자 업데이트 단계 추가" }
 
 ### 5단계: Canvas 시작 {#step-5-launch-your-canvas}
 
@@ -184,7 +184,7 @@ Braze의 리드 상태로 Salesforce의 리드 레코드를 업데이트하려�
 | --- | --- |
 | Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>토큰을 가져오려면 OAuth 2.0 클라이언트 자격 증명 흐름에 대해 [연결된 앱을 구성](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5)한 다음 연결된 콘텐츠를 사용하여 Salesforce에서 베어러를 가져옵니다. <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
 | Content-Type | application/json |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2a단계: 웹훅 작성" }
 
 ![Salesforce 웹훅 URL, PATCH HTTP 메서드, 원시 텍스트 요청 본문 및 요청 헤더로 구성되는 웹훅.]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
 

@@ -31,7 +31,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | -------------- | -------- | --------- | -------------------------- |
 | `catalog_name` | Obligatorio | Cadena | Nombre del catálogo. |
 | `field_name` | Obligatorio | Cadena | Nombre del campo del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la ruta" }
 
 ## Ejemplo de solicitud {#example-request}
 
@@ -87,6 +87,6 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | `field-referenced-by-selection` | Comprueba que el campo del catálogo no está siendo utilizado actualmente por una selección. |
 | `field-is-inventory` | Comprueba que el campo del catálogo se utiliza como campo de inventario. |
 | `invalid-field-name` | Comprueba que el nombre del campo del catálogo es válido. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 {% endapi %}

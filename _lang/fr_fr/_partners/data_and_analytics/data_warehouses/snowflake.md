@@ -47,7 +47,7 @@ Avant de pouvoir utiliser cette fonctionnalité, vous devez remplir les conditio
 | Condition | Description |
 | ----------- | ----------- |
 | Accès à Braze | Pour accéder à cette fonctionnalité dans Braze, contactez votre gestionnaire de compte ou votre gestionnaire de la satisfaction client Braze. |
-| Compte Snowflake | Un compte Snowflake avec les autorisations `admin`. |
+| Compte Snowflake | Un compte Snowflake avec les autorisations `admin`. Pour les clients non-HIPAA, l'édition Snowflake Standard ou Enterprise est prise en charge. Pour le partage de données conforme à la norme HIPAA, l'édition Business Critical est requise. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Mise en place du partage sécurisé des données {#setting-up-secure-data-sharing}
@@ -56,10 +56,10 @@ Avec Snowflake, le partage des données s'effectue entre un [fournisseur de donn
 
 ### Étape 1 : Envoyer le partage de données depuis Braze {#step-1-send-the-datashare-from-braze}
 
-1. Dans Braze, accédez à **Partner Integrations** > **Data Sharing**.
+1. Dans Braze, accédez à **Intégrations partenaires** > **Partage de données**.
 2. Saisissez les détails de votre compte Snowflake et votre localisateur. Pour obtenir votre localisateur de compte, exécutez `SELECT CURRENT_ACCOUNT()` dans le compte de destination.
 3. Si vous utilisez un partage CRR, spécifiez le fournisseur de cloud et la région.
-4. Lorsque vous avez terminé, sélectionnez **Create Datashare**. Le partage de données sera alors envoyé à votre compte Snowflake.
+4. Lorsque vous avez terminé, sélectionnez **Créer le partage de données**. Le partage de données sera alors envoyé à votre compte Snowflake.
 
 ### Étape 2 : Créer la base de données dans Snowflake {#step-2-create-the-database-in-snowflake}
 
@@ -89,7 +89,7 @@ Comme avec Currents, vous pouvez utiliser le partage sécurisé de données Snow
 
 Pour obtenir la liste complète des tables et colonnes disponibles, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/). Le partage de données Snowflake inclut toutes les tables de cette référence, ainsi que des tables supplémentaires exclusives à Snowflake pour les snapshots, les journaux des modifications de Campaign et de Canvas, les événements de la console des agents et les événements de renvoi de messages.
 
-Vous pouvez également [télécharger les schémas de tables bruts]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %}) sous forme de fichier texte.
+Vous pouvez également [télécharger les schémas de tables bruts](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) sous forme de fichier texte.
 
 ### Schéma d'ID utilisateur {#user-id-schema}
 

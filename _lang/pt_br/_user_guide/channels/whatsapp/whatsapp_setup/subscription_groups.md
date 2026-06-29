@@ -24,7 +24,7 @@ Existem dois estados de inscrição para usuários do WhatsApp: `subscribed` e `
 | --- | --- |
 | Inscrito | O usuário confirmou explicitamente que deseja receber mensagens do WhatsApp de uma empresa específica. Os usuários podem ser inscritos tendo seu estado de inscrição atualizado por meio da API de inscrição da Braze ou implantando uma estratégia de opt-in, conforme as diretrizes do WhatsApp. |
 | Cancelou inscrição | O usuário não deu consentimento explícito para opt-in ou seu status de opt-in foi explicitamente removido. <br><br> Usuários que cancelaram a inscrição de um grupo de inscrições do WhatsApp não receberão mais nenhuma mensagem do WhatsApp dos números de telefone de envio que pertencem ao grupo de inscrições. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="WhatsApp subscription states" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de inscrição do WhatsApp" }
 
 ### Configurando os grupos de inscrições do WhatsApp dos usuários {#setting-users-whatsapp-subscription-groups}
 
@@ -37,6 +37,18 @@ Existem dois estados de inscrição para usuários do WhatsApp: `subscribed` e `
 - **Perfil de usuário:** perfis de usuário individuais podem ser acessados pelo dashboard da Braze em **Audience** > **Search Users**. Aqui, você pode pesquisar perfis de usuário por endereço de e-mail, número de telefone ou ID de usuário externo. Dentro de um perfil de usuário, na guia **Engagement**, você pode visualizar o grupo de inscrições do WhatsApp de um usuário e seu status.
 
 - **REST API:** o grupo de inscrições de perfis de usuário individuais pode ser visualizado pelo [endpoint Listar grupos de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) ou pelo [endpoint Listar status do grupo de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) usando a REST API da Braze.
+
+## Arquivar grupos de inscrições {#archive-subscription-groups}
+
+Se você precisar parar de usar um grupo de inscrições do WhatsApp, pode arquivá-lo para marcá-lo como inativo.
+
+Arquivar um grupo de inscrições o marca como inativo, mas não o exclui do seu espaço de trabalho. Se você precisar remover completamente um número de telefone do WhatsApp ou um grupo de inscrições, primeiro é necessário arquivar o grupo de inscrições no Gerenciamento de grupos de inscrições antes de solicitar a exclusão ao suporte da Braze.
+
+Para arquivar um grupo de inscrições:
+
+1. Acesse **Audience** > **Subscription Group Management**.
+2. Encontre o grupo de inscrições do WhatsApp que deseja arquivar.
+3. Passe o cursor sobre o status do grupo de inscrições e selecione <i class="fa-solid fa-box-archive" aria-label="Arquivar"></i> **Arquivar**.
 
 ## Processo de opt-in e descadastramento do WhatsApp {#whatsapp-opt-in-and-opt-out-process}
 

@@ -30,7 +30,7 @@ UNUserNotificationCenter.current().setNotificationCategories(Braze.Notifications
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [[UNUserNotificationCenter currentNotificationCenter] setNotificationCategories:BRZNotifications.categories];
 ```
 
@@ -48,14 +48,14 @@ UNUserNotificationCenter.current().setNotificationCategories(Braze.Notifications
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 AppDelegate.braze?.notifications.handleUserNotification(response: response, withCompletionHandler: completionHandler)
 ```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [AppDelegate.braze.notifications handleUserNotificationWithResponse:response
                                               withCompletionHandler:completionHandler];
 ```
@@ -80,7 +80,7 @@ Brazeはデフォルトのプッシュカテゴリのセットを提供するだ
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 Braze.Notifications.categories.insert(
   .init(identifier: "LIKE_CATEGORY",
         actions: [
@@ -96,7 +96,7 @@ UNUserNotificationCenter.current().setNotificationCategories(Braze.Notifications
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 NSMutableSet<UNNotificationCategory *> *categories = [BRZNotifications.categories mutableCopy];
 
 UNNotificationAction *likeAction = [UNNotificationAction actionWithIdentifier:@"LIKE_IDENTIFIER"
@@ -147,7 +147,7 @@ UNNotificationCategory *likeCategory = [UNNotificationCategory categoryWithIdent
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 Braze.Notifications.categories.insert(
   .init(identifier: "YOUR_CATEGORY",
         actions: [
@@ -176,7 +176,7 @@ Brazeは、アプリがフォアグラウンドにあるときにBraze通知を�
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 // For iOS 16.0+
 let center = UNUserNotificationCenter.current()
 do {
@@ -192,7 +192,7 @@ UIApplication.shared.applicationIconBadgeNumber = 0
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 // For iOS 16.0+
 UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
 [center setBadgeCount:0 withCompletionHandler:^(NSError * _Nullable error) {
@@ -229,7 +229,7 @@ UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotification
 
 afconvert ツールを使用して、サウンドを変換できます。たとえば、16ビットリニア PCM システムサウンド Submarine.aiff を CAF ファイルの IMA4オーディオに変換するには、ターミナルで次のコマンドを使用します。
 
-```bash
+`````````bash
 afconvert /System/Library/Sounds/Submarine.aiff ~/Desktop/sub.caf -d ima4 -f caff -v
 ```
 

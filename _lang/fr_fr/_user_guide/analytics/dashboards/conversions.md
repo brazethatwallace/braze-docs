@@ -85,9 +85,9 @@ Le tableau suivant décrit les indicateurs possibles.
 | Taux de conversion (destinataires) | Calculé comme suit : (Nombre de conversions) / (Nombre de destinataires) |
 | Méthode d'attribution | Définie par la [méthode d'attribution](#attribution-methods) que vous avez sélectionnée lors de la configuration du rapport. Pour l'attribution au dernier point de contact ou si plusieurs canaux sont sélectionnés, cela apparaît sous la forme [Points de contact](#terms-to-know). |
 | Taux de conversion (méthode d'attribution) | Défini par la [méthode d'attribution](#attribution-methods) que vous avez sélectionnée lors de la configuration du rapport. Si plusieurs canaux sont sélectionnés, l'attribution au dernier point de contact est appliquée par défaut. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion details" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Détails des conversions" }
 
-Si vous avez sélectionné un niveau de ventilation pour les campagnes ou Canvas lors de la [configuration de votre rapport](#setting-up-your-report) (étape 5), vous pouvez cliquer sur <i class="fas fa-angle-down"></i> pour développer le tableau.
+Si vous avez sélectionné un niveau de ventilation pour les campagnes ou Canvas lors de la [configuration de votre rapport](#setting-up-your-report) (étape 5), vous pouvez sélectionner <i class="fas fa-angle-down"></i> **Développer** pour développer le tableau.
 
 ### Tunnel de conversion {#conversion-funnel}
 
@@ -107,7 +107,7 @@ Ce graphique n'affiche les données que pour un seul canal à la fois. Utilisez 
 
 Ce graphique de série temporelle représente les conversions par campagne ou Canvas au fil du temps. Par défaut, toutes les campagnes et tous les Canvas sélectionnés sont affichés. Pour désélectionner une campagne ou un Canvas, cliquez sur le nom de la campagne ou du Canvas que vous souhaitez exclure.
 
-Pour télécharger les données de la série temporelle, sélectionnez <i class="fas fa-bars"></i> puis choisissez votre option de téléchargement. Les options disponibles sont PNG, JPEG, PDF, SVG ou CSV.
+Pour télécharger les données de la série temporelle, sélectionnez <i class="fas fa-bars" title="Menu contextuel du graphique"></i> **Menu contextuel du graphique** puis choisissez votre option de téléchargement. Les options disponibles sont PNG, JPEG, PDF, SVG ou CSV.
 
 ![Graphique de série temporelle des conversions au fil du temps pour deux campagnes e-mail, montrant les conversions par jour.]({% image_buster /assets/img_archive/conversions2_over_time.png %})
 
@@ -121,14 +121,14 @@ Pour télécharger les données de la série temporelle, sélectionnez <i class=
 | Au clic | Nombre total de conversions survenues après un clic sur le message | Calculé comme suit : (Conversions uniques au clic) / (Destinataires uniques) | {::nomarkdown}<ul><li>Au clic sur l'e-mail</li><li>Au clic sur la carte de contenu</li><li>Au clic sur le message in-app</li></ul>{:/} |
 | À l'impression | Nombre total de conversions survenues après une impression | Calculé comme suit : (Conversions uniques à l'impression) / (Destinataires uniques) | {::nomarkdown}<ul><li>À l'impression du message in-app</li><li>À l'impression de la carte de contenu</li></ul>{:/} |
 | Au dernier point de contact | Conversions attribuant tout le crédit au dernier message touché ou cliqué pendant la fenêtre de conversion | Calculé comme suit : (Nombre de points de contact) / (Destinataires uniques) | L'attribution au dernier point de contact est automatiquement sélectionnée si plusieurs canaux sont ajoutés au rapport. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Attribution methods" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Méthodes d'attribution" }
 
 ## Termes à connaître {#terms-to-know}
 
 | Terme | Définition |
 | --- | --- |
 | Point de contact | Une interaction physique ou un point de contact avec un message.<br><br>Les points de contact peuvent inclure :<br>{::nomarkdown}<ul><li>Clic sur l'e-mail</li><li>Ouverture de la notification push</li><li>Clic sur la carte de contenu</li><li>Clic sur le message in-app</li><li>Clic sur le SMS</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Terms to know" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Termes à connaître" }
 
 ## Résolution des problèmes {#troubleshooting}
 

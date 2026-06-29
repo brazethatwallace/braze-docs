@@ -9,9 +9,9 @@ page_type: partner
 tool:
   - Dashboard
   - Docs
-  - Canvas
-  - Campaigns
-  - Segments
+  - キャンバス
+  - キャンペーン
+  - セグメント
   - Templates
   - Media
   - Location
@@ -122,7 +122,7 @@ noindex: true
 
 技術的な概念を説明する場合は、ここに記載し、コードサンプルを示してください。
 
-```html
+`````````html
 <!DOCTYPE html>
 <html>
 <head>

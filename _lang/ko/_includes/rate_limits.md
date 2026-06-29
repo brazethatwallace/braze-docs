@@ -149,6 +149,10 @@ Braze 엔드포인트는 [API 요청의 일괄 처리]({{site.baseurl}}/api/api_
 {% elsif include.endpoint == "cdi job sync status" %}
 이 엔드포인트는 분당 100건의 요청으로 사용량 제한이 적용됩니다.
 
+<!---/media_library/create, /media_library/replace_file--->
+{% elsif include.endpoint == "media_library" %}
+이 엔드포인트는 [API 사용량 제한]({{site.baseurl}}/api/api_limits/) 설명서에 명시된 대로 시간당 100건의 요청으로 사용량 제한이 적용됩니다.
+
 {% endif %}
 
 <!---Additional if statement for Messaging endpoints-->

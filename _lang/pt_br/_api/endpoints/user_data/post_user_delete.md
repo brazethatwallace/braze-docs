@@ -10,7 +10,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Excluir
 ---
 {% api %}
 # Excluir usuários {#delete-users}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/delete
 {% endapimethod %}
 
@@ -21,7 +21,7 @@ Até 50 `external_ids`, `user_aliases`, `braze_ids`, `email_addresses` ou `phone
 Se tiver um caso de uso que não possa ser resolvido com a exclusão de usuários em massa por meio da API, entre em contato com a [equipe de suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) para obter assistência.
 
 {% alert warning %}
-A exclusão de perfis de usuário não pode ser desfeita. Ela removerá permanentemente os usuários, o que pode causar discrepâncias nos seus dados. Saiba mais sobre o que acontece quando você [exclui um perfil de usuário usando a API]({{site.baseurl}}/help/help_articles/api/delete_user/) em nossa documentação de Ajuda.
+A exclusão de perfis de usuário não pode ser desfeita. Ela removerá permanentemente os usuários, o que pode causar discrepâncias nos seus dados. Para saber mais, consulte [Efeitos da exclusão de perfis de usuário](#effects-of-deleting-user-profiles).
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#22e91d00-d178-4b4f-a3df-0073ecfcc992 {% endapiref %}
@@ -59,7 +59,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `braze_ids`       | Opcional | Array de strings           | Identificadores de usuário da Braze a serem excluídos.                                                  |
 | `email_addresses` | Opcional | Array de strings           | E-mails de usuários a serem excluídos. Para saber mais, consulte [Exclusão de usuários por e-mail](#deleting-users-by-email).                                                             |
 | `phone_numbers` | Opcional | Array de strings | Números de telefone do usuário a serem excluídos. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ### Exclusão de usuários por endereços de e-mail e números de telefone {#deleting-users-by-email-addresses-and-phone-numbers}
 
@@ -109,6 +109,18 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
   "deleted" : (required, integer) number of user IDs queued for deletion
 }
 ```
+
+## Efeitos da exclusão de perfis de usuário {#effects-of-deleting-user-profiles}
+
+Quando você remove um usuário com esse endpoint, o seguinte ocorre:
+
+- O perfil do usuário é excluído (anulado).
+- As contagens de usuários do espaço de trabalho (como o total de usuários na [página inicial de análise de dados]({{site.baseurl}}/user_guide/analytics/dashboards/home/)) são atualizadas para refletir os usuários removidos.
+- O usuário removido ainda conta para a porcentagem de conversão agregada. As contagens de eventos personalizados e de compras não são atualizadas para os usuários removidos.
+
+### Vários perfis com um endereço de e-mail compartilhado {#multiple-profiles-with-a-shared-email-address}
+
+Para mesclar perfis de usuário que compartilham o mesmo endereço de e-mail, chame o [endpoint `/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/).
 
 ## Solução de problemas {#troubleshooting}
 

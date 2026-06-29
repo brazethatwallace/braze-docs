@@ -68,6 +68,10 @@ Combinar o suporte existente a beacons ou geofences com nossos recursos de direc
 - [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion/)
 - [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)
 
+## Diferenças entre geofences e monitoramento de localização {#differences-between-geofences-and-location-tracking}
+
+{% multi_lang_include locations_and_geofences/geofences_vs_location_tracking.md %}
+
 ## Perguntas frequentes {#frequently-asked-questions}
 
 ### Quando a Braze coleta dados de localização? {#when-does-braze-collect-location-data}

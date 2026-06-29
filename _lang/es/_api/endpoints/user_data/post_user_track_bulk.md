@@ -12,7 +12,7 @@ description: "Este artículo describe los detalles del punto de conexión masivo
 ---
 {% api %}
 # Crear y actualizar usuarios (masivo) {#create-and-update-users-bulk}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 
@@ -79,7 +79,7 @@ Para cada objeto de solicitud, debes incluir uno de los siguientes: `external_id
 | `attributes` | Opcional | Array de objetos de atributos | Consulta [objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/) |
 | `events` | Opcional | Array de objetos de eventos | Consulta [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | Opcional | Array de objetos de compras | Consulta [objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplos de solicitudes {#example-requests}
 

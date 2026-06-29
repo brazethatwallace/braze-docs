@@ -49,7 +49,7 @@ Aqui estão alguns exemplos de casos de uso comuns de mensagens push para a web.
 | Download do app | Direcione os usuários da web para o seu app móvel para que obtenham ainda mais valor dos seus produtos. Considere usar personalização para destacar os benefícios do app com base nos padrões de engajamento atuais. |
 | Descontos e promoções | Aumente a conscientização dos clientes sobre eventos e promoções com prazo limitado. Envie mensagens por múltiplos canais, incluindo push para a web, para aumentar a visibilidade das promoções da sua marca. |
 | Abandono de carrinho | Envie lembretes automatizados para usuários que não concluíram suas transações, trazendo-os de volta ao fluxo de checkout. <br><br>Uma pesquisa realizada pela Braze descobriu que o push para a web é 53% mais eficaz que o e-mail e 23% mais impactante que o push móvel para fazer com que os destinatários voltem e concluam uma compra. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Potential use cases" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Possíveis casos de uso" }
 
 ## Navegadores compatíveis {#supported-browsers}
 
@@ -69,3 +69,13 @@ Para saber mais sobre os padrões do protocolo de push e a compatibilidade de na
 - [Safari (mobile)]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=safari)
 - [Mozilla Firefox](https://developer.mozilla.org/en-us/docs/web/api/push_api#browser_compatibility)
 - [Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/push)
+
+## Endpoints de push para a web 410 (Gone) e inválidos {#410-gone-and-invalid-web-push-endpoints}
+
+Navegadores e serviços de push podem retornar **410 Gone** (ou erros semelhantes de "endpoint inválido") quando uma inscrição de push para a web não é mais aceita. As causas comuns incluem:
+
+- O usuário desativou as notificações do seu site nas configurações do navegador ou do sistema operacional.
+- Um perfil de usuário diferente se inscreveu no mesmo perfil de navegador, então o endpoint foi rotacionado para o novo inscrito.
+- A inscrição expirou após um longo período sem engajamento — depois que o usuário aceitar as notificações novamente, uma nova inscrição será criada na próxima sessão.
+
+Depois que o usuário reativar as notificações, acione novamente o fluxo normal de registro de push para a web do seu site para que a Braze armazene o novo endpoint de inscrição.

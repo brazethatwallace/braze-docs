@@ -15,6 +15,32 @@ channel:
 
 {% multi_lang_include push/subscription_states.md %}
 
+## Wo Push-Registrierung und -Status angezeigt werden {#where-push-registration-and-status-appear}
+
+Sie können den Push-Abo-Status, die Registrierung und die Aktivierung an drei Hauptstellen in Braze überprüfen:
+
+1. **[Nutzerprofile](#user-profiles-and-push-changelog)** im Tab **Engagement**
+2. **[Segmentierung](#segmentation-and-push-filters)** im Segment-Builder
+3. **[Campaign- und Canvas-Analytics](#campaign-and-canvas-analytics)** auf der Analytics-Seite jeder Nachricht
+
+### Nutzerprofile und Push-Änderungsprotokoll {#user-profiles-and-push-changelog}
+
+Im Profil von Nutzer:innen ([**Nutzer:innen suchen**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) > Nutzer:in auswählen > Tab **Engagement**) listet **Contact Settings** den Push-Abo-Status auf, **Push Registered For** (welche Apps und Plattformen Braze zum Senden von Vordergrund-Push an dieses Profil verwenden kann) und das **Push-Änderungsprotokoll** für Token-Verschiebungen, Fehler und Registrierungsupdates. Informationen zum Lesen von **Push Registered For** und zur Vordergrund- vs. Hintergrund-Autorisierung finden Sie unter [Push-Registrierungsstatus überprüfen]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#checking-push-registration-status).
+
+Unter iOS und Android kann das Push-Änderungsprotokoll einen Eintrag wie „Push token was updated from foreground push enabled to foreground push disabled“ enthalten, wenn ein Gerät von der Vordergrund-Push-Autorisierung zur reinen Hintergrund-Autorisierung wechselt (z. B. nachdem Nutzer:innen Benachrichtigungen in den Systemeinstellungen deaktiviert haben und das SDK die Änderung meldet).
+
+Nachdem Sie neue SDK-Daten erwarten (z. B. direkt nach einer Testsitzung), wählen Sie **Refresh** im Nutzerprofil, wenn die Werte veraltet erscheinen. Es kann eine kurze Verzögerung zwischen dem Senden der SDK-Daten und der Aktualisierung des Profils mit der neuesten Push-Registrierung geben.
+
+Für Nutzer:innen, die Sie einer [internen Gruppe]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/) hinzufügen, wählen Sie **Record User Events for group members** in den **Internal Group Settings** für diese Gruppe, damit SDK-Anfragen im Protokoll erscheinen. Öffnen Sie dann das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) unter **Einstellungen** > **Event User Log**, suchen Sie die SDK-Anfragen der Nutzer:innen und erweitern Sie den Roh-Payload. Sie können Felder wie `remote_notification_enabled` überprüfen, um zu validieren, ob das Gerät Remote-Benachrichtigungen als aktiviert oder deaktiviert meldet.
+
+### Segmentierung und Push-Filter {#segmentation-and-push-filters}
+
+Im Segment-Builder verwenden Sie Filter wie **`Foreground Push Enabled`**, **`Foreground Push Enabled for App`**, **`Background or Foreground Push Enabled`** und Push-Abo-Filter, um Nutzer:innen nach Präferenz und Autorisierung auf Geräteebene anzusprechen oder zu prüfen. Unter iOS hängt es davon ab, ob Nutzer:innen die Betriebssystem-Aufforderung abgeschlossen, Einstellungen geändert oder [provisorische Autorisierung](#provisional-push) verwenden, wie diese Filter für bestimmte Nutzer:innen gelesen werden; siehe [iOS-Nutzer:innenaktionen und Push-Status](#ios-user-actions-push-status) und [Weitere plattformspezifische Szenarien](#foreground-push-enabled).
+
+### Campaign- und Canvas-Analytics {#campaign-and-canvas-analytics}
+
+Auf der Analytics-Seite einer Push-**Campaign** oder eines **Canvas** spiegeln Metriken wie *Gesendet*, *Bounces* und *Öffnungen* die Zustellung und das Engagement für diesen Versand wider. Um diese Zahlen mit einzelnen Profilen abzugleichen, exportieren Sie Empfänger:innen aus **Campaign Details** oder **Canvas Details** über **User Data** (CSV). Schritte und Berechtigungen finden Sie unter [Campaign-Daten exportieren]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_campaign_results_data/) und [Canvas-Daten exportieren]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/). Wenn die Zahlen zwischen Analytics und einem Export nicht übereinstimmen, siehe [Campaign- und Canvas-Analytics]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/#campaign-and-canvas-analytics) in der Export-Fehlerbehebung.
+
 ## iOS-Nutzer:innenaktionen und Push-Status {#ios-user-actions-push-status}
 
 Die folgende Tabelle zeigt, wie verschiedene Nutzer:innenaktionen die iOS-Push-Aktivierung, die Vordergrund- oder Hintergrund-Push-Registrierung und den Push-Abo-Status in Braze beeinflussen. Wenn Nutzer:innen Ihre App installieren und ihre erste Sitzung starten, ist ihr Status in der Regel wie in der ersten Zeile dargestellt. Jede nachfolgende Aktion kann einige dieser Werte aktualisieren, andere jedoch nicht.
@@ -27,7 +53,7 @@ Die folgende Tabelle zeigt, wie verschiedene Nutzer:innenaktionen die iOS-Push-A
 | Nutzer:in aktiviert Push in den Geräteeinstellungen und protokolliert eine Sitzung | `true` | `true` | Vordergrund | `Opted-In`** |
 | Nutzer:in deaktiviert Push in den Geräteeinstellungen und protokolliert eine Sitzung | `false` | `false` | Hintergrund | Nicht aktualisiert |
 | Nutzer:in löscht die App | Nicht aktualisiert | Aktualisiert, wenn Push-Token zurückgezogen wird | Aktualisiert, wenn Push-Token zurückgezogen wird | Nicht aktualisiert |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="iOS user actions and push status #ios-user-actions-push-status" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="iOS-Nutzer:innenaktionen und Push-Status" }
 
 <sup>* Wenn die App kein provisorisches Push verwendet, ist `Foreground Push Enabled` `false`, bis Nutzer:innen Push-Benachrichtigungen erlauben. Wenn die App provisorisches Push verwendet, ist `Foreground Push Enabled` zu Beginn der ersten Sitzung `true`. Weitere Informationen finden Sie unter [Provisorische Autorisierung und stilles Push](#provisional-push).</sup>
 
@@ -46,7 +72,7 @@ Da die Entscheidung der Nutzer:innen endgültig ist und Sie nach einer Ablehnung
 | iOS | ![Eine native iOS-Push-Aufforderung mit der Frage „My App would like to send you notifications“ und zwei Buttons „Don't Allow“ und „Allow“ am unteren Rand der Nachricht.]({% image_buster /assets/img/push_implementation_guide/ios-push-prompt.png %}){: style="max-width:410px;"} | Dies gilt nicht bei der Anforderung einer [provisorischen Push](#provisional-push)-Berechtigung. |
 | Android | ![Eine Android-Push-Nachricht mit der Frage „Allow Kitchenerie to send you notifications?“ und zwei Buttons „Allow“ und „Don't allow“ am unteren Rand der Nachricht.]({% image_buster /assets/img/push_implementation_guide/android-push-prompt.png %}){: style="max-width:410px;"} | Diese Push-Berechtigung wurde in Android 13 eingeführt. Vor Android 13 war keine Berechtigung zum Senden von Push erforderlich. |
 | Web | ![Eine native Push-Aufforderung des Webbrowsers mit der Frage „Braze.com wants to show notification“ und zwei Buttons „Block“ und „Allow“ am unteren Rand der Nachricht.]({% image_buster /assets/img/push_implementation_guide/web-push-prompt.png %}){: style="max-width:410px;"} | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push permission" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push-Berechtigung" }
 
 ### Android
 
@@ -68,7 +94,7 @@ Vor iOS 12 (veröffentlicht 2018) mussten alle Nutzer:innen explizit dem Empfang
 
 In iOS 12 führte Apple die [provisorische Autorisierung](https://www.braze.com/resources/articles/mastering-provisional-push) ein, die es Marken ermöglicht, stille Push-Benachrichtigungen an das Benachrichtigungscenter ihrer Nutzer:innen zu senden, bevor diese explizit zustimmen, und Ihnen so die Möglichkeit gibt, den Wert Ihrer Nachrichten frühzeitig zu demonstrieren. Weitere Informationen finden Sie unter [Provisorische Autorisierung]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push-authentication--quiet-notifications).
 
-### Web-Push {#web}
+### Web {#web}
 
 Für Web müssen Sie ein explizites Opt-in der Nutzer:innen über den nativen Browser-Berechtigungsdialog anfordern.
 
@@ -97,7 +123,7 @@ Push-Token sind sowohl geräte- als auch app-spezifisch, sodass es nicht möglic
 
 Angenommen, Sie haben zwei Nutzer:innen: Charlie und Kim. Wenn Charlie Push-Benachrichtigungen für Ihre App auf seinem Telefon aktiviert hat und Kim Charlies Telefon verwendet, um sich aus Charlies Profil abzumelden und sich in ihr eigenes einzuloggen, wird das Push-Token Kims Profil zugewiesen. Das Push-Token bleibt dann auf diesem Gerät Kims Profil zugewiesen, bis sie sich abmeldet und Charlie sich wieder einloggt.
 
-Eine App oder Website kann nur ein Push-Abo pro Gerät haben. Wenn sich also Nutzer:innen von einem Gerät oder einer Website abmelden und neue Nutzer:innen sich einloggen, wird das Push-Token den neuen Nutzer:innen zugewiesen. Dies wird im Nutzerprofil im Abschnitt **Kontakteinstellungen** des Tabs **Engagement** angezeigt:
+Eine App oder Website kann nur ein Push-Abo pro Gerät haben. Wenn sich also Nutzer:innen von einem Gerät oder einer Website abmelden und neue Nutzer:innen sich einloggen, wird das Push-Token den neuen Nutzer:innen zugewiesen. Dies wird im Nutzerprofil im Abschnitt **Contact Settings** des Tabs **Engagement** angezeigt:
 
 ![Push-Token-Änderungsprotokoll im Tab „Engagement“ eines Nutzerprofils, das zeigt, wann das Push-Token zu anderen Nutzer:innen verschoben wurde und um welches Token es sich handelt.]({% image_buster /assets/img/push_token_changelog.png %})
 
@@ -129,11 +155,11 @@ Im Dashboard finden Sie Informationen zur Push-Registrierung und zu Push-Änderu
 
 - **Segmentierung** – Filtern Sie nach Abo-Status, Aktivierungsstatus sowie Vordergrund- und Hintergrund-Aktivierungsstatus der Nutzer:innen.
 - **Campaign Analytics** – Zeigen Sie Push-Statistiken und Feedback für eine einzelne Campaign oder ein einzelnes Canvas an.
-- **Nutzerprofil (Tab „Engagement“)** – Zeigen Sie **Kontakteinstellungen** und das Push-Änderungsprotokoll für bestimmte Nutzer:innen an.
+- **Nutzerprofil (Tab „Engagement“)** – Zeigen Sie **Contact Settings** und das Push-Änderungsprotokoll für bestimmte Nutzer:innen an.
 
 Bei der Überprüfung des Push-Aktivierungsstatus zeigt **Push Registered for** an, für welche Plattformen Braze Vordergrund-Push an diese Nutzer:innen senden kann. Unter iOS und Android wird, wenn Nutzer:innen von Vordergrund-Push-aktiviert zu Hintergrund-Push-aktiviert (`remote_notification_enabled`) wechseln, dies im Push-Änderungsprotokoll als „Push token was updated from foreground push enabled to foreground push disabled“ dokumentiert.
 
-Wenn Nutzer:innen als Testnutzer:innen hinzugefügt werden, zeigt das Nutzerprofil unter **Entwicklungskonsole** > **Nutzer:innen-Ereignisprotokoll** eine SDK-Anfrage mit `remote_notification_enabled` als `true` oder `false` an. Möglicherweise müssen Sie das Nutzerprofil aktualisieren, um die Updates zu sehen, da es eine kurze Verzögerung gibt, bis SDK-Updates das Nutzerprofil erreichen.
+Wenn Nutzer:innen als Testnutzer:innen hinzugefügt werden, zeigt das Nutzerprofil unter **Entwicklungskonsole** > **Event User Log** eine SDK-Anfrage mit `remote_notification_enabled` als `true` oder `false` an. Möglicherweise müssen Sie das Nutzerprofil aktualisieren, um die Updates zu sehen, da es eine kurze Verzögerung gibt, bis SDK-Updates das Nutzerprofil erreichen.
 
 **Segmentierungsfilter für den iOS-Push-Status:**
 

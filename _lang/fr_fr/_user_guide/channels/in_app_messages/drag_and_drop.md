@@ -20,16 +20,16 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 Si vous souhaitez utiliser vos modèles HTML personnalisés existants ou des modèles créés par un tiers, ils doivent être recréés dans l'éditeur par glisser-déposer.
 
-Vous ne savez pas si votre message in-app doit être envoyé via une Campaign ou un [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/) ? Les Campaigns sont plus adaptées aux campagnes de communication ciblées et ponctuelles, tandis que les Canvas sont plus adaptés aux parcours utilisateur en plusieurs étapes. Une fois que vous avez choisi où créer votre message, passons aux étapes de création d'un message in-app par glisser-déposer.
+Vous ne savez pas si votre message in-app doit être envoyé via une campagne ou un [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/) ? Les Campaigns sont plus adaptées aux campagnes de communication ciblées et ponctuelles, tandis que les Canvas sont plus adaptés aux parcours utilisateur en plusieurs étapes. Une fois que vous avez choisi où créer votre message, passons aux étapes de création d'un message in-app par glisser-déposer.
 
 ## Conditions préalables {#prerequisites}
 
 ### Exigences du SDK {#sdk-requirements}
 
-| Version minimale du SDK                                                          | Version recommandée du SDK                                                       |
+| Version minimale du SDK                                                       | Version recommandée du SDK                                                    |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}{:/} | {::nomarkdown}{% sdk_min_versions swift:6.5.0 android:26.0.0 web:4.8.1 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Exigences du SDK" }
 
 {% details Plus d'informations sur les SDK minimaux %}
 
@@ -42,10 +42,10 @@ Pour profiter de toutes les fonctionnalités disponibles dans l'éditeur par gli
 
 Voici les exigences minimales individuelles du SDK pour ces fonctionnalités :
 
-| Liens texte*                                                         | Demande d'amorce push                                                           |
+| Liens texte*                                                         | Demande d'amorce push                                                         |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:6.2.0 android:26.0.0 %}{:/} | {::nomarkdown}{% sdk_min_versions web:4.8.1 swift:6.5.0 android:26.0.0 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Exigences du SDK" }
 
 *Si vous incluez un lien dans votre message in-app qui redirige vers une URL et que l'utilisateur final ne dispose pas des versions minimales du SDK spécifiées, la sélection du lien fermera le message et l'utilisateur ne pourra pas revenir au message pour soumettre le formulaire.
 
@@ -95,7 +95,7 @@ Vous pouvez ajouter jusqu'à 10 pages par message in-app.
 
 Pour dupliquer une page existante :
 
-1. Survolez la page dans la liste et sélectionnez <i class="fas fa-ellipsis-vertical"></i> pour ouvrir plus d'options.
+1. Survolez la page dans la liste et sélectionnez <i class="fas fa-ellipsis-vertical"></i> **More options**.
 2. Sélectionnez **Duplicate**.
 3. Donnez un nom significatif à la page. Cela vous aidera lorsque vous relierez les pages entre elles.
 
@@ -104,7 +104,7 @@ Pour dupliquer une page existante :
 
 Pour supprimer ou renommer une page :
 
-1. Survolez la page dans la liste et sélectionnez <i class="fas fa-ellipsis-vertical"></i> pour ouvrir plus d'options.
+1. Survolez la page dans la liste et sélectionnez <i class="fas fa-ellipsis-vertical"></i> **More options**.
 2. Sélectionnez **Rename** ou **Delete**.
 
 {% endtab %}
@@ -140,9 +140,9 @@ C'est ici que votre message prend vie, habillé du style signature de votre marq
 
 ## Étape 5 : Tester votre message in-app {#step-5-test-your-in-app-message}
 
-La section **Preview & Test** vous permet de prévisualiser vos messages in-app sur différents appareils et d'envoyer un message de test à votre appareil. Vous pouvez ainsi vous assurer que les détails sont cohérents sur toutes vos plateformes pour votre Campaign de message in-app par glisser-déposer.
+La section **Preview & Test** vous permet de prévisualiser vos messages in-app sur différents appareils et d'envoyer un message de test à votre appareil. Vous pouvez ainsi vous assurer que les détails sont cohérents sur toutes vos plateformes pour votre campagne de message in-app par glisser-déposer.
 
-Il est important de toujours tester vos messages in-app avant d'envoyer vos Campaigns afin de visualiser à quoi ressemblera votre message final du point de vue de l'utilisateur.
+Il est important de toujours tester vos messages in-app avant d'envoyer vos campagnes afin de visualiser à quoi ressemblera votre message final du point de vue de l'utilisateur.
 
 ### Prévisualiser le message en tant qu'utilisateur {#preview-message-as-a-user}
 
@@ -168,28 +168,28 @@ Tenez compte des questions suivantes lorsque vous testez votre message in-app :
 
 ## Questions fréquemment posées {#frequently-asked-questions}
 
-#### Pourquoi les clics sur le corps n'apparaissent-ils pas sur ma page d'analyse ? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
+### Pourquoi les clics sur le corps n'apparaissent-ils pas sur ma page d'analyse ? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
 
 Les clics sur le corps ne sont pas automatiquement collectés pour les messages in-app créés avec l'éditeur par glisser-déposer. Pour plus de détails, consultez les journaux de modifications du SDK pour [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog#3310) et [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog#1100).
 
-#### Puis-je segmenter en fonction des clics sur les boutons ? {#can-i-segment-based-on-button-clicks}
+### Puis-je segmenter en fonction des clics sur les boutons ? {#can-i-segment-based-on-button-clicks}
 
 Oui, vous pouvez segmenter en fonction des clics sur les boutons pour un maximum de deux boutons dans votre message. Pour ce faire, définissez l'**Identifier for Reporting** de vos boutons sur « 0 » et « 1 », ce qui correspondra respectivement aux filtres de segmentation « Clicked in-app message button 1 » et « Clicked in-app message button 2 ».
 
 ![Le champ « Identifier for Reporting » avec une valeur de « 0 ».]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 
-#### Puis-je personnaliser mon message in-app en utilisant du HTML ou du JavaScript personnalisé, ou transférer des messages HTML existants dans l'éditeur ? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
+### Puis-je personnaliser mon message in-app en utilisant du HTML ou du JavaScript personnalisé, ou transférer des messages HTML existants dans l'éditeur ? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
 Vous ne pouvez pas transférer directement des messages HTML existants dans l'éditeur, mais vous pouvez insérer du HTML brut, du CSS et du JavaScript dans un bloc de code personnalisé. Vous pouvez utiliser les blocs de code personnalisé pour intégrer des vidéos tierces et du Liquid avancé, comme le Contenu connecté ou les instructions conditionnelles.
 
-#### Comment puis-je créer un message in-app contextuel ? {#how-can-i-create-a-slideup-in-app-message}
+### Comment puis-je créer un message in-app contextuel ? {#how-can-i-create-a-slideup-in-app-message}
 
 Actuellement, l'éditeur est limité aux messages modaux et plein écran uniquement. Vous pouvez basculer entre les types d'affichage dans la section **Message container** du panneau **Message styles**.
 
-#### Puis-je enregistrer mon message in-app en tant que modèle après l'avoir créé dans ma Campaign ou mon Canvas ? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+### Puis-je enregistrer mon message in-app en tant que modèle après l'avoir créé dans ma campagne ou mon Canvas ? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-Oui. Pour tout message in-app que vous souhaitez réutiliser dans une future Campaign ou étape Canvas, vous pouvez l'enregistrer en tant que modèle personnalisé en utilisant le bouton **Save as template**, disponible après avoir quitté l'éditeur. Avant de pouvoir l'enregistrer en tant que modèle, vous devez d'abord lancer la Campaign OU l'enregistrer en tant que brouillon.
+Oui. Pour tout message in-app que vous souhaitez réutiliser dans une future campagne ou étape Canvas, vous pouvez l'enregistrer en tant que modèle personnalisé en utilisant le bouton **Save as template**, disponible après avoir quitté l'éditeur. Avant de pouvoir l'enregistrer en tant que modèle, vous devez d'abord lancer la campagne OU l'enregistrer en tant que brouillon.
 
 ![Une prévisualisation d'un message in-app pour une visite guidée du produit.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
-Vous pouvez également créer et enregistrer des modèles de messages in-app en accédant à **Templates** > **In-App Message Templates**.
+Vous pouvez également créer et enregistrer des modèles de messages in-app en accédant à **Content** > **In-App Message Templates**.

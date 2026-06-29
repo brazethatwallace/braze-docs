@@ -86,7 +86,7 @@ Podfile を更新したら、ターミナル内で Xcode アプリプロジェ�
 
 独自のUNNotificationServiceExtension を使用する必要がある場合は、`didReceive` メソッドで[`brazeHandle`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazenotificationservice/brazehandle(request:contenthandler:)) を呼び出すことができます。
 
-```swift
+`````````swift
 import BrazeNotificationService
 import UserNotifications
 
@@ -111,7 +111,7 @@ class NotificationService: UNNotificationServiceExtension {
 
 Brazeを初期化する前に、アプリグループの名前をBraze設定の [`push.appGroup`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/push-swift.class/appgroup)プロパティに割り当てる。
 
-```swift
+`````````swift
 let configuration = Braze.Configuration(apiKey: "<YOUR-BRAZE-API-KEY>",
                                         endpoint: "<YOUR-BRAZE-ENDPOINT>")
 configuration.push.appGroup = "REPLACE_WITH_APPGROUP"

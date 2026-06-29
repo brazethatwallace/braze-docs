@@ -17,8 +17,6 @@ description: "Este artículo describe los detalles sobre el punto de conexión d
 
 > Usa este punto de conexión para ver todas las fuentes de traducción predeterminadas para las etiquetas de traducción de una Campaign. Estos son los valores dentro de {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para obtener más información sobre las características de traducción.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Requisitos previos {#prerequisites}
 
 Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `campaigns.translations.get`.

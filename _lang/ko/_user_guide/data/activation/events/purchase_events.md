@@ -215,7 +215,7 @@ Sam의 프로필에는 두 건의 구매 이벤트가 있지만, 실제로는 �
 
 ### Canvas 진입 속성정보 및 이벤트 속성정보 {#canvas-entry-properties-and-event-properties}
 
-{% multi_lang_include canvas_entry_event_properties.md %}
+{% multi_lang_include canvas/entry_event_properties.md %}
 
 ### 주문 수준에서 구매 기록 {#log-purchases-at-the-order-level}
 

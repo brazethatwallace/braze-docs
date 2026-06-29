@@ -36,7 +36,7 @@ AppDelegate.braze?.requestImmediateDataFlush()
 ```
 {% endtab %}
 {% tab OBJECTIVE-C %}
-```objc
+`````````objc
 [AppDelegate.braze requestImmediateDataFlush];
 ```
 {% endtab %}
@@ -48,12 +48,12 @@ AppDelegate.braze?.requestImmediateDataFlush()
 
 {% tabs %}
 {% tab swift %}
-```swift
+`````````swift
 configuration.api.requestPolicy = .automatic
 ```
 {% endtab %}
 {% tab OBJECTIVE-C %}
-```objc
+`````````objc
 configuration.api.requestPolicy = BRZRequestPolicyAutomatic;
 ```
 {% endtab %}

@@ -55,7 +55,7 @@ Supposons que vous souhaitiez envoyer un message in-app uniquement aux applicati
 ![Un segment ciblant les utilisateurs d'une application spécifique, « Test_Android ».]({% image_buster /assets/img_archive/app_test_android.png %}){: style="max-width:60%;"}
 
 {: start="2"}
-2. Dans votre campagne ou Canvas, accédez à l'étape **Audiences cibles** et confirmez que votre segment est ajouté dans la section **Cibler des utilisateurs par segment**.
+2. Dans l'étape **Audiences cibles**, confirmez que votre segment est ajouté dans la section **Cibler des utilisateurs par segment**.
 
 ![L'étape « Audiences cibles » avec un exemple de segment sélectionné.]({% image_buster /assets/img_archive/target_users_by_segment_example.png %})
 
@@ -78,9 +78,9 @@ Après avoir ajouté des segments et des filtres à votre audience, vous pouvez 
 
 #### Résumé de l'audience {#audience-summary}
 
-Le **Résumé de l'audience** affiche un aperçu des personnes composant votre audience cible. Ici, vous pouvez limiter davantage votre audience en définissant un plafond maximum d'utilisateurs ou en [limitant le débit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) de la vitesse de distribution.
+Le **Résumé de l'audience** affiche un aperçu des personnes composant votre audience cible. Ici, vous pouvez limiter davantage votre audience en définissant un plafond maximum d'utilisateurs ou en [limitant le débit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) de distribution.
 
-![La section « Résumé de l'audience » avec des options pour définir un plafond maximum d'utilisateurs ou limiter le débit de la vitesse de distribution.]({% image_buster /assets/img_archive/audience_summary.png %})
+![La section « Résumé de l'audience » avec des options pour définir un plafond maximum d'utilisateurs ou limiter le débit de distribution.]({% image_buster /assets/img_archive/audience_summary.png %})
 
 #### Test A/B {#ab-testing}
 
@@ -97,7 +97,7 @@ Braze fournit des statistiques détaillées sur l'audience des canaux ciblés da
 
 ##### Pourquoi le nombre de l'audience cible peut différer du nombre d'utilisateurs pouvant être atteints {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 
-{% multi_lang_include segments.md section='Differing audience size' %}
+{% multi_lang_include audience/segments.md section='Differing audience size' %}
 
 ![La section « Population totale » avec des estimations du nombre d'utilisateurs pouvant être atteints pour chaque canal ciblé.]({% image_buster /assets/img_archive/multi_channel_footer.png %})
 

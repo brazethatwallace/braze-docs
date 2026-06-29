@@ -109,10 +109,10 @@ Currents는 900&nbsp;KB를 초과하는 지나치게 큰 페이로드가 있는 
 
 ## 커런츠 업데이트 {#updating-currents}
 
-{% multi_lang_include updating_currents.md %}
+{% multi_lang_include currents/updating_currents.md %}
 
 ## IP 허용 목록 {#ip-allowlisting}
 
 Braze는 나열된 IP에서 Currents 데이터를 전송합니다:
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}

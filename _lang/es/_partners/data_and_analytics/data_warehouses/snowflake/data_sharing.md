@@ -24,7 +24,7 @@ Con el uso compartido de datos, no se copian ni transfieren datos reales entre c
 
 Además, utilizando las capacidades integradas de roles y permisos de Snowflake, el acceso a los datos compartidos desde Braze puede controlarse y gobernarse utilizando los controles de acceso ya existentes para tu cuenta de Snowflake y los datos que contiene. El acceso puede restringirse y monitorizarse de la misma manera que tus propios datos.
 
-- **Reduce el tiempo para obtener información**<br>Di adiós a los procesos ETL que tardan semanas en construirse. Las arquitecturas únicas de Braze y Snowflake hacen que todos los datos de interacción con los clientes y Campaign sean inmediatamente accesibles y consultables desde el instante en que llegan al data lake. No se copian ni mueven datos, por lo que puedes ofrecer experiencias del cliente basadas únicamente en la información más relevante y actualizada.
+- **Reduce el tiempo para obtener información**<br>Di adiós a los procesos ETL que tardan semanas en construirse. Las arquitecturas únicas de Braze y Snowflake hacen que todos los datos de interacción con los clientes y de Campaign sean inmediatamente accesibles y consultables desde el instante en que llegan al data lake. No se copian ni mueven datos, por lo que puedes ofrecer experiencias del cliente basadas únicamente en la información más relevante y actualizada.
 - **Elimina los silos de datos**<br>Crea una visión holística de tus clientes a través de canales y plataformas. El uso compartido de datos hace que unir tus datos de interacción con los clientes de Braze con todos tus demás datos de Snowflake sea más fácil que nunca, creando información más rica a través de una única fuente de verdad fiable.
 - **Compara tu rendimiento de interacción**<br>Optimiza tus estrategias de interacción con los clientes con Braze Benchmarks. Esta herramienta interactiva, impulsada por Braze y Snowflake, te permite comparar los datos de interacción de tu marca con puntos de referencia en canales, industria y plataformas de dispositivos.
 
@@ -36,7 +36,7 @@ Para obtener más información sobre el uso compartido de datos de Snowflake, co
 | ----------- | ----------- |
 | Acceso a Braze | Ponte en contacto con tu administrador de cuenta o administrador del éxito del cliente de Braze para configurar el uso compartido de datos. |
 | Cuenta de Snowflake | Una cuenta de Snowflake con permisos de `admin`. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Configurar Secure Data Sharing {#setting-up-secure-data-sharing}
 
@@ -44,7 +44,7 @@ En Snowflake, el uso compartido de datos se realiza entre un [proveedor de datos
 
 ### Paso 1: Enviar el datashare desde Braze {#step-1-send-the-datashare-from-braze}
 
-1. En Braze, ve a **Partner Integrations** > **Data Sharing**.
+1. En Braze, ve a **Integraciones de socios** > **Uso compartido de datos**.
 2. Introduce los detalles y el localizador de tu cuenta de Snowflake. Para obtener tu localizador de cuenta, ejecuta `SELECT CURRENT_ACCOUNT()` en la cuenta de destino.
 3. Si estás utilizando un recurso compartido CRR, especifica el proveedor de nube y la región.
 4. Cuando hayas terminado, selecciona **Create Datashare**. Esto enviará el datashare a tu cuenta de Snowflake.
@@ -77,7 +77,7 @@ De forma similar a Currents, puedes usar Snowflake Secure Data Sharing para:
 - Mapear datos de eventos sin procesar o datos de usuario a un CRM (como Salesforce)
 - Y más
 
-[Descarga los esquemas de tablas sin procesar aquí.]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %})
+[Descarga los esquemas de tablas sin procesar.](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)
 
 ### Esquema de ID de usuario {#user-id-schema}
 
@@ -87,7 +87,7 @@ Ten en cuenta las siguientes diferencias entre las convenciones de nomenclatura 
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | El identificador único que Braze asigna automáticamente. |
 | `external_id` | `"EXTERNAL_USER_ID"` | El identificador único del perfil de un usuario que establece el cliente. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="User ID schema" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de ID de usuario" }
 
 ## Información importante y limitaciones {#important-information-and-limitations}
 

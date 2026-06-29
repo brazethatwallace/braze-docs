@@ -13,9 +13,9 @@ Brazeを使って[Appleの通知グループ機能]({{site.baseurl}}/user_guide/
 
 ## サイレント時間 {#quiet-time}
 
-Canvasに[サイレント時間]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/#step-5-select-your-send-settings)（メッセージを送信しない時間帯）を指定できるようになりました。**Canvasの送信設定**で「サイレント時間を有効にする」にチェックを入れるだけです。次に、ユーザーの現地時間でサイレント時間を選択し、そのサイレント時間内にメッセージがトリガーされた場合の後続のアクションを選択します。
+キャンバスに[サイレント時間]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/#step-5-select-your-send-settings)（メッセージを送信しない時間帯）を指定できるようになりました。**キャンバスの送信設定**で「サイレント時間を有効にする」にチェックを入れるだけです。次に、ユーザーの現地時間でサイレント時間を選択し、そのサイレント時間内にメッセージがトリガーされた場合の後続のアクションを選択します。
 
-Campaignsでも、「1日のうち特定の時間帯にこのメッセージを送信する」の代わりにサイレント時間を使用するようになりました。
+キャンペーンでも、「1日のうち特定の時間帯にこのメッセージを送信する」の代わりにサイレント時間を使用するようになりました。
 
 ## Adjustのお客様 {#adjust-customers}
 
@@ -23,15 +23,15 @@ Campaignsでも、「1日のうち特定の時間帯にこのメッセージを�
 
 ## セグメント除外フィルター {#not-in-segment-filter}
 
-[特定のSegmentに含まれていない]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#retargeting)ユーザーからSegmentを作成できるようになりました。
+[特定のセグメントに含まれていない]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#retargeting)ユーザーからセグメントを作成できるようになりました。
 
-## Canvas受信者のCSVエクスポート {#canvas-recipient-csv-exports}
+## キャンバス受信者のCSVエクスポート {#canvas-recipient-csv-exports}
 
-Canvasにエントリーしたユーザーの[データをエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/)できるようになりました。生成されるCSVはCampaignのCSVと同様のものになります。
+キャンバスにエントリーしたユーザーの[データをエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/)できるようになりました。生成されるCSVはキャンペーンのCSVと同様のものになります。
 
-## iOS 12の仮承認Segmentフィルター {#provisionally-authorized-ios-12-segment-filter}
+## iOS 12の仮承認セグメントフィルター {#provisionally-authorized-ios-12-segment-filter}
 
-特定のアプリのiOS 12で仮承認されているユーザーを見つけることができる[Segmentフィルター]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#other)が追加されました。
+特定のアプリのiOS 12で仮承認されているユーザーを見つけることができる[セグメントフィルター]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#other)が追加されました。
 
 ## アプリ内メッセージ画像アップローダー {#in-app-message-image-uploader}
 

@@ -55,9 +55,10 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
       "id": "restaurant1",
       "Name": "Restaurant",
       "Loyalty_Program": false,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Hamburger",
@@ -77,6 +78,10 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
   ]
 }'
 ```
+
+{% alert note %}
+`Location` 필드는 `geo` 데이터 유형을 사용하며, `[longitude, latitude]` 형식의 배열을 기대합니다.
+{% endalert %}
 
 ## 응답 {#response}
 

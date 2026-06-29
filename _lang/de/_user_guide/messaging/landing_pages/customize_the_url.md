@@ -57,7 +57,7 @@ So migrieren Sie eine angepasste Domain in einen anderen Workspace:
 
 ## DNS-Ressourcen {#dns-resources}
 
-{% multi_lang_include dns_records.md %}
+{% multi_lang_include channels/email/dns_records.md %}
 
 ## Fehlerbehebung {#troubleshooting}
 

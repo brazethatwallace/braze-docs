@@ -84,7 +84,7 @@ Por defecto, para que tu usuario reciba tus mensajes a través de push, su estad
 | Suscrito | Estado predeterminado de la suscripción push cuando se crea un perfil de usuario en Braze. |
 | Adhesión voluntaria | Un usuario ha expresado explícitamente su preferencia por recibir notificaciones push. Braze cambiará automáticamente el estado de adhesión voluntaria de un usuario a `Opted-In` si acepta un aviso push a nivel del sistema operativo.<br><br>Esto no se aplica a usuarios con Android 12 o inferior. |
 | No suscrito | Un usuario se da de baja explícitamente de push a través de tu aplicación o de otros métodos que tu marca proporciona. Por defecto, las Campaigns push de Braze solo se dirigen a los usuarios que están en `Subscribed` o `Opted-in` para push. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="¿Cuál es la diferencia entre los estados de suscripción push?" }
 
 {% endapi %}
 {% api %}

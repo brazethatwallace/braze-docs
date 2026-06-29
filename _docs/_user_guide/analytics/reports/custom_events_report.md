@@ -31,8 +31,22 @@ Use the following options to customize what data appears in the **Performance Ov
 
 ## Exporting data
 
-To export your custom events data, select <i class="fas fa-bars" title="Chart context menu"></i> in the **Performance Over Time** graph and select your export option.
+To export your custom events data, select <i class="fas fa-bars" title="Chart context menu"></i> **Chart context menu** in the **Performance Over Time** graph and select your export option.
 
 {% alert tip %}
-For help with CSV and API exports, refer to [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+For help with CSV and API exports, refer to [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
+
+## Troubleshooting
+
+### Segment breakdown doesn't match workspace totals
+
+When you use **Filter by Segments** or narrow the report with the **Apps** dropdown, the chart counts users in the selected segment (or app) who performed the custom event—not every event occurrence across the workspace.
+
+If you compare a segment line to an unfiltered view (or to **All Apps**), totals often differ because:
+
+- **All Apps** can include users and events from every app in the workspace.
+- A single-app filter only includes profiles tied to that app.
+- Segment filters count users who match the segment definition at query time, which may exclude users who performed the event outside the segment's criteria.
+
+To compare like with like, use the same app filter and segment selection for each series you compare, or export the data and reconcile counts in your analytics tool.

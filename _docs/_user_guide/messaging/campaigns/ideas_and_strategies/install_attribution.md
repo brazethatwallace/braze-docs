@@ -13,7 +13,7 @@ tool:
 
 > Install attribution tracking is a great way to improve your initial relationship with your user. Knowing how, where, and even more importantly, why a user installs your app allows you to get a better understanding of who your user is and how you should introduce them to your app. 
 
-While Braze does not provide install attribution tracking, we can integrate with [services]({{site.baseurl}}/partners/message_orchestration/) such as Branch and AppsFlyer to seamlessly provide you with install data.
+While Braze does not provide install attribution tracking, we can integrate with [services]({{site.baseurl}}/partners/message_orchestration) such as Branch and AppsFlyer to seamlessly provide you with install data.
 
 ## Segment your users
 
@@ -23,7 +23,7 @@ Once your user installs your app, you can begin segmenting them based on the fol
 
 ### Personalized onboarding
 
-Now that you have more information about your user, you can personalize their onboarding process. This could be as simple as changing the images in your messages to fit their preferences, or as complex as creating a unique user onboarding for each ad that could lead to an install. To scale out a fully comprehensive sequence of messages that can take user behavior into consideration, refer to our documentation on [Canvas]({{site.baseurl}}/developer_guide/rest_api/messaging/#canvas).
+Now that you have more information about your user, you can personalize their onboarding process. This could be as simple as changing the images in your messages to fit their preferences, or as complex as creating a unique user onboarding for each ad that could lead to an install. To scale out a fully comprehensive sequence of messages that can take user behavior into consideration, refer to our documentation on [Canvas]({{site.baseurl}}/developer_guide/rest_api/messaging#canvas).
 
 ### Reference data from the ad
 

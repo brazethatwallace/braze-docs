@@ -26,7 +26,7 @@ Pour plus d'informations sur les Stories, l'API Customer Data de Movable Ink et 
 | Identifiants API Movable Ink | L'équipe Solutions de Movable Ink générera des identifiants API pour vous. Les identifiants API se composent de :{::nomarkdown}<ul><li>Une URL d'endpoint (où les données seront envoyées)</li><li>Un nom d'utilisateur et un mot de passe (utilisés pour authentifier l'API)</li></ul>{:/} Si vous le souhaitez, Movable Ink peut fournir le nom d'utilisateur et le mot de passe sous forme de valeur encodée en base64 à utiliser comme valeur d'en-tête d'autorisation basique. |
 | Payloads d'événements comportementaux | Vous devrez partager vos payloads d'événements avec l'équipe Expérience Client de Movable Ink. Consultez la section [Partage des payloads d'événements](#event-payloads) avec Movable Ink pour plus de détails. |
 | Ressources créatives et logique métier | Vous devrez partager des ressources créatives avec Movable Ink, notamment des fichiers Adobe Photoshop (PSD) indiquant à Movable Ink comment construire le bloc, ainsi qu'une image de secours. Vous devrez également fournir la logique métier définissant comment et quand afficher le bloc de contenu activé par le partenaire. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -52,7 +52,7 @@ Pour plus d'informations sur les Stories, l'API Customer Data de Movable Ink et 
 | --- | --- |
 | Content-Type | application/json |
 | Authorization | Saisissez l'authentification basique que vous avez reçue de Movable Ink. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 1b : Ajouter vos identifiants API Customer Data" }
 
 ![Onglet Settings du compositeur webhook dans Braze avec des paires clé-valeur pour Content-Type et Authorization.]({% image_buster /assets/img/movable_ink/cd_api_webhook_settings.png %}){: style="max-width:75%" }
 
