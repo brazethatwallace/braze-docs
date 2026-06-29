@@ -15,14 +15,14 @@ description: "This article outlines details about the Start Live Activity endpoi
 /messages/live_activity/start
 {% endapimethod %}
 
-> Use this endpoint to remotely start [Live Activities]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift) displayed in your iOS app. This endpoint requires additional setup.
+> Use this endpoint to remotely start [Live Activities]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift) displayed in your iOS app. This endpoint requires additional setup.
 
 After you create a Live Activity, you can make a POST request to remotely start your activity for a segment, a connected audience, or specific external user IDs. For more information about Apple's Live Activities, see [Starting and updating Live Activities with ActivityKit push notifications](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications).
 
 If `content-available` isn't set, the default Apple Push Notification service (APNs) priority is 10. If `content-available` is set, this priority is 5. Refer to [Apple push object]({{site.baseurl}}/api/objects_filters/messaging/apple_object) for more details.
 
 {% alert tip %}
-To end a Live Activity, use the [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/) endpoint with `end_activity` set to `true`.
+To end a Live Activity, use the [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) endpoint with `end_activity` set to `true`.
 {% endalert %}
 
 ## Arranging automatic dismissal
@@ -32,8 +32,8 @@ To arrange automatic dismissal after a Live Activity starts, schedule a follow-u
 1. Send a `/messages/live_activity/start` request with an `activity_id` you can reuse later.
 2. Store that `activity_id` and your target end time in your backend scheduler.
 3. At the target end time, send a `/messages/live_activity/update` request with `end_activity` set to `true`.
-4. Configure dismissal behavior in the same update request. For details, see the [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/) endpoint.
-5. Verify send and outcome events in the [Message Activity Log]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab/).
+4. Configure dismissal behavior in the same update request. For details, see the [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) endpoint.
+5. Verify send and outcome events in the [Message Activity Log]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#2300226e-f26a-4154-9bcc-5883f1f294cd {% endapiref %}
 
@@ -42,7 +42,7 @@ To arrange automatic dismissal after a Live Activity starts, schedule a follow-u
 To use this endpoint, you'll need to complete the following:
 
 - Generate an API key with the `messages.live_activity.start` permission.
-- [Create a Live Activity]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?tab=local&sdktab=swift#swift_create-an-activity) using the Braze Swift SDK.
+- [Create a Live Activity]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?tab=local&sdktab=swift#swift_create-an-activity) using the Braze Swift SDK.
 
 {% multi_lang_include api/payload_size_alert.md %}
 
@@ -72,16 +72,16 @@ To use this endpoint, you'll need to complete the following:
 
 | Parameter | Required | Data Type| Description  |
 |-----------|----------|----------|--------------|
-| `app_id` | Required | String | App [API identifier]({{site.baseurl}}/api/identifier_types/#the-app-identifier) retrieved from the [API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) page.  |
+| `app_id` | Required | String | App [API identifier]({{site.baseurl}}/api/identifier_types#the-app-identifier) retrieved from the [API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) page.  |
 | `activity_id` | Required | String  | Define a custom string as your `activity_id`. You will use this ID when you wish to send update or end events to your Live Activity.  |
 | `activity_attributes_type`  | Required | String | The activity attributes type you define within `liveActivities.registerPushToStart` in your app.  |
 | `activity_attributes` | Required | Object  | The static attribute values for the activity type (such as the sports team names, which don't change). |
 | `content_state` | Required | Object  | You define the `ContentState` parameters when you create your Live Activity. Pass the updated values for your `ContentState` using this object.<br><br>The format of this request must match the shape you initially defined. |
 | `stale_date` | Optional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | This parameter tells the system when the Live Activity content is marked as outdated in the user's UI. |
-| `notification` | Required | Object | Include an [`apple_push`]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) object to define a push notification. The behavior of this push notification depends on if the user is active or if the user is using a proxy device. {::nomarkdown}<ul><li>If a <code>notification</code> is included and the user is active on their iPhone when the update is delivered, the updated Live Activity UI will slide down and display like a push notification.</li><li>If a <code>notification</code> is included and the user is not active on their iPhone, their screen will light up to display the updated Live Activity UI on their lock screen.</li><li>The <code>notification alert</code> will not display as a standard push notification. Additionally, if a user has a proxy device, like an Apple Watch, the <code>alert</code> will be displayed there.</li></ul>{:/} |
-| `external_user_ids` | Optional if `segment_id` or `custom_audience` is provided | Array of strings | See [external user ID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields). Maximum 50 external user IDs.  |
-| `segment_id`  | Optional if `external_user_ids` or `custom_audience` is provided | String    | See [segment identifier]({{site.baseurl}}/api/identifier_types/). |
-| `custom_audience` | Optional if `external_user_ids` or `segment_id` is provided | Connected audience object  | See [connected audience]({{site.baseurl}}/api/objects_filters/connected_audience/). |
+| `notification` | Required | Object | Include an [`apple_push`]({{site.baseurl}}/api/objects_filters/messaging/apple_object) object to define a push notification. The behavior of this push notification depends on if the user is active or if the user is using a proxy device. {::nomarkdown}<ul><li>If a <code>notification</code> is included and the user is active on their iPhone when the update is delivered, the updated Live Activity UI will slide down and display like a push notification.</li><li>If a <code>notification</code> is included and the user is not active on their iPhone, their screen will light up to display the updated Live Activity UI on their lock screen.</li><li>The <code>notification alert</code> will not display as a standard push notification. Additionally, if a user has a proxy device, like an Apple Watch, the <code>alert</code> will be displayed there.</li></ul>{:/} |
+| `external_user_ids` | Optional if `segment_id` or `custom_audience` is provided | Array of strings | See [external user ID]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields). Maximum 50 external user IDs.  |
+| `segment_id`  | Optional if `external_user_ids` or `custom_audience` is provided | String    | See [segment identifier]({{site.baseurl}}/api/identifier_types). |
+| `custom_audience` | Optional if `external_user_ids` or `segment_id` is provided | Connected audience object  | See [connected audience]({{site.baseurl}}/api/objects_filters/connected_audience). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 On this endpoint, pass connected audience filters in `custom_audience`.
@@ -134,7 +134,7 @@ A `201` status code is returned if the request was formatted correctly and we re
 
 ### Example error response
 
-The `4XX` class of status code indicates a client error. Refer to the [API errors and responses article]({{site.baseurl}}/api/errors/) for more information about errors you may encounter.
+The `4XX` class of status code indicates a client error. Refer to the [API errors and responses article]({{site.baseurl}}/api/errors) for more information about errors you may encounter.
 
 The status code `400` could return the following response body.
 

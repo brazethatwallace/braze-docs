@@ -16,7 +16,7 @@ hidden: true
 
 Dieser Upgrade-Pfad ist für Marken mit einem Shopify-Onlineshop vorgesehen.
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## Upgrade-Anforderungen {#upgrade-requirements}
 

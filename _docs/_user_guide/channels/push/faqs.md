@@ -14,7 +14,7 @@ channel:
 
 ## Why are push notifications sometimes delayed?
 
-Delivery usually follows three stages: Braze **processing** (segmentation, scheduling, and handoff to the provider), transport from Braze to **APNs or FCM**, and delivery from the provider to the **device**. Delays can occur at any stage. Braze does not have visibility into provider or device queues; use [verbose logging]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/) on the client when you need to narrow down device-side timing.
+Delivery usually follows three stages: Braze **processing** (segmentation, scheduling, and handoff to the provider), transport from Braze to **APNs or FCM**, and delivery from the provider to the **device**. Delays can occur at any stage. Braze does not have visibility into provider or device queues; use [verbose logging]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs) on the client when you need to narrow down device-side timing.
 
 ## What happens when multiple users log into a single device?
 
@@ -28,13 +28,13 @@ When a push token is reassigned, the change is reflected in the user profile's *
 
 Yes. The test push is sent to every push-enabled device associated with the selected user profile. If you have multiple phones or tablets logged in with the same user, each device with a valid push token receives the notification.
 
-To send the test push to only one device, you can remove push tokens for the other devices from the user profile before testing. Alternatively, if you're sending with the [`/messages/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/), set `send_to_most_recent_device_only` to `true` in the `apple_push` or `android_push` object so that only the most recently active device receives the push.
+To send the test push to only one device, you can remove push tokens for the other devices from the user profile before testing. Alternatively, if you're sending with the [`/messages/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages), set `send_to_most_recent_device_only` to `true` in the `apple_push` or `android_push` object so that only the most recently active device receives the push.
 
 ## What does “Error sending push because the payload was invalid” mean?
 
 This message indicates that APNs rejected the push request due to an invalid payload (for example, an empty payload or a payload that’s too large).
 
-For details and next steps, see [Common push error messages]({{site.baseurl}}/user_guide/channels/push/push_error_codes/).
+For details and next steps, see [Common push error messages]({{site.baseurl}}/user_guide/channels/push/push_error_codes).
 
 ## Why doesn't an opted-in user have a push token?
 
@@ -72,10 +72,10 @@ These segmentation filters check for different conditions:
 | Filter | What it checks | Use case |
 |--------|---------------|----------|
 | **Foreground Push Enabled** | The user has a valid foreground push token **and** their push subscription state is `Opted-In` or `Subscribed`. | Target users who can receive visible push notifications. |
-| **Background or Foreground Push Enabled** | The user has any push token (foreground or background) **and** their push subscription state is `Opted-In` or `Subscribed`. This includes users who have disabled visible push notifications but still have a background push token. | Used for [uninstall tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/), [silent push notifications]({{site.baseurl}}/developer_guide/push_notifications/silent/), and geofencing. |
+| **Background or Foreground Push Enabled** | The user has any push token (foreground or background) **and** their push subscription state is `Opted-In` or `Subscribed`. This includes users who have disabled visible push notifications but still have a background push token. | Used for [uninstall tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking), [silent push notifications]({{site.baseurl}}/developer_guide/push_notifications/silent), and geofencing. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="What is the difference between the "Foreground Push Enabled" and "Background or Foreground Push Enabled" filters?" }
 
-A user can be `Background or Foreground Push Enabled` without being `Foreground Push Enabled`. This happens when the user has disabled visible push notifications in their device settings but the app still holds a background push token. For more details, see [Push users and subscriptions]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#foreground-push-enabled).
+A user can be `Background or Foreground Push Enabled` without being `Foreground Push Enabled`. This happens when the user has disabled visible push notifications in their device settings but the app still holds a background push token. For more details, see [Push users and subscriptions]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#foreground-push-enabled).
 
 ## How does Braze determine when a push message is sent successfully?
 

@@ -64,7 +64,7 @@ platform:
 
 移行前に、Braze SDKが最低バージョン要件を満たしていることを確認してください：
 
-{% multi_lang_include sdk_versions.md feature='banners' %}
+{% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
 ### 更新をサブスクライブする {#subscribe-to-updates}
 

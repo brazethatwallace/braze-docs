@@ -14,7 +14,7 @@ description: "This article outlines the details about the Retrieve list of or qu
 /email/unsubscribes
 {% endapimethod %}
 
-> Use this endpoint to return the latest emails that have unsubscribed during the time period from `start_date` to `end_date`. For a full subscription state history, use [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) to track this data.
+> Use this endpoint to return the latest emails that have unsubscribed during the time period from `start_date` to `end_date`. For a full subscription state history, use [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) to track this data.
 
 You can use this endpoint to set up a bi-directional sync between Braze and other email systems or your own database.
 
@@ -22,7 +22,7 @@ You can use this endpoint to set up a bi-directional sync between Braze and othe
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `email.unsubscribe` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `email.unsubscribe` permission.
 
 ## Rate limit
 
@@ -48,7 +48,7 @@ If your date range has more than `limit` number of unsubscribes, you will need t
 
 ## Example request
 ```
-curl --location --request GET 'https://rest.iad-01.braze.com/email/unsubscribes?start_date=2020-01-01&end_date=2020-02-01&limit=1&offset=1&sort_direction=desc&email=example@braze.com' \
+curl --location --request GET 'https://rest.iad-01.braze.com/email/unsubscribes?start_date=2020-01-01&end_date=2020-02-01&limit=1&offset=1&sort_direction=desc&email=example@example.com' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE'
 ```
 

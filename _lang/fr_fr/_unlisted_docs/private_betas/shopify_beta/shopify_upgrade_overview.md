@@ -17,7 +17,7 @@ hidden: true
 - **De fin février à avril :** Vous recevrez des notifications indiquant quand votre groupe spécifique (cohorte) sera prêt pour la mise à niveau. Restez attentif à ces informations importantes.
 - **Date limite de mise à niveau :** Tous les clients doivent terminer la mise à niveau avant le **28 août 2025**.
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## Qu'est-ce qui change dans l'intégration Shopify ? {#whats-changing-in-the-shopify-integration}
 

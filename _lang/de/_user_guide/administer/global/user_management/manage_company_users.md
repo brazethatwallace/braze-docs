@@ -37,7 +37,7 @@ Aus Sicherheitsgründen können Nutzer:innen die mit ihrem Braze-Konto verknüpf
 
 ## Nutzerzugriff und Verantwortlichkeiten zuweisen {#assigning-user-access-and-responsibilities}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Unternehmensnutzer:innen sperren {#suspending-company-users}
 

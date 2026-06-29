@@ -97,7 +97,7 @@ Brazeは、フッターにターゲットチャネルの詳細なオーディエ
 
 ##### ターゲットオーディエンス数と到達可能なユーザー数が異なる理由 {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 
-{% multi_lang_include segments.md section='Differing audience size' %}
+{% multi_lang_include audience/segments.md section='Differing audience size' %}
 
 ![各ターゲットチャネルの到達可能なユーザーの推定数がある「Total Population」セクション。]({% image_buster /assets/img_archive/multi_channel_footer.png %})
 

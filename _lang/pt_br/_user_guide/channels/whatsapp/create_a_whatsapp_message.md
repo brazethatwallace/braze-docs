@@ -199,7 +199,7 @@ Nesta etapa, você também pode especificar controles de entrega, como permitir 
 
 Em seguida, você deve [direcionar usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo segmentos ou filtros para refinar seu público. Você já deve ter escolhido o grupo de inscrições, que restringe os usuários pelo nível ou categoria de comunicação que desejam ter com você. Nesta etapa, você seleciona o público maior dos seus segmentos e refina ainda mais esse segmento com nossos filtros. Você recebe automaticamente um resumo de como é a população aproximada desse segmento. Lembre-se de que a composição exata do segmento é sempre calculada antes do envio da mensagem.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 #### Escolha eventos de conversão {#choose-conversion-events}
 

@@ -64,7 +64,7 @@ Verwenden Sie weiterhin Content Cards, wenn Sie Folgendes benötigen:
 
 Stellen Sie vor der Migration sicher, dass das Braze SDK die Mindestversionsanforderungen erfüllt:
 
-{% multi_lang_include sdk_versions.md feature='banners' %}
+{% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
 ### Updates abonnieren {#subscribe-to-updates}
 

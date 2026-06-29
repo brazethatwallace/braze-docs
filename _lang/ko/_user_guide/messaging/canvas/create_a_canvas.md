@@ -183,7 +183,7 @@ Braze는 IP 워밍에서는 **Canvas가 스케줄될 때마다** 옵션을 선�
 
 #### 타겟 오디언스 수가 도달 가능 사용자 수와 다를 수 있는 이유 {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 
-{% multi_lang_include segments.md section='Differing audience size' %}
+{% multi_lang_include audience/segments.md section='Differing audience size' %}
 
 ### 1.4단계: 발송 설정 선택 {#step-14-select-your-send-settings}
 

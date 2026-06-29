@@ -101,7 +101,7 @@ Si vous ajoutez un composant Délai à votre Canvas et qu'il n'y a pas d'étapes
 
 ### Délais personnalisés
 
-{% multi_lang_include early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
 
 Activez le bouton **Personnaliser le délai** pour configurer un délai personnalisé pour vos utilisateurs. Vous pouvez l'utiliser avec une [étape Context]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) pour sélectionner la variable de contexte sur laquelle baser le délai. Cela remplacera l'heure de la journée définie dans l'attribut ou la propriété sélectionnée. C'est utile lorsque vous appliquez un décalage en jours ou en semaines et que vous souhaitez que les utilisateurs avancent à une heure spécifique. Le fuseau horaire provient de l'attribut ou de la propriété, ou utilise le fuseau horaire de secours si aucun n'est disponible.
 

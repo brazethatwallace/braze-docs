@@ -101,7 +101,7 @@ Wenn Sie eine Verzögerungskomponente zu Ihrem Canvas hinzufügen und es keine n
 
 ### Personalisierte Verzögerungen
 
-{% multi_lang_include early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
 
 Wählen Sie den Schalter **Personalize delay**, um eine personalisierte Verzögerung für Ihre Nutzer:innen einzurichten. Sie können dies mit einem [Context-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) verwenden, um die Kontextvariable auszuwählen, nach der verzögert werden soll. Dies überschreibt die im ausgewählten Attribut oder der Eigenschaft festgelegte Tageszeit. Dies ist nützlich, wenn Sie einen Versatz in Tagen oder Wochen anwenden und möchten, dass Nutzer:innen zu einer bestimmten Uhrzeit weitergehen. Die Zeitzone stammt aus dem Attribut oder der Eigenschaft oder verwendet den Fallback, wenn keine verfügbar ist.
 

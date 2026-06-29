@@ -76,7 +76,7 @@ When your RCS-verified sender is approved, our operations team will update your 
 
 ## Step 3: Set up subscription groups
 
-Depending on your integration, Braze can add RCS-verified senders to your existing SMS subscription groups or set up new ones. For detailed setup instructions, refer to [SMS and RCS subscription groups]({{site.baseurl}}/sms_rcs_subscription_groups/).
+Depending on your integration, Braze can add RCS-verified senders to your existing SMS subscription groups or set up new ones. For detailed setup instructions, refer to [SMS and RCS subscription groups]({{site.baseurl}}/sms_rcs_subscription_groups).
 
 ## Migrating SMS traffic to RCS
 
@@ -125,7 +125,7 @@ Add a User Update Step to your Canvas. In the step, open the **Advanced JSON Edi
 
 ### Step 4: Test the Canvas
 
-We highly recommend [testing your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases/) to confirm it works as expected before sending it to your broader audience.
+We highly recommend [testing your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases) to confirm it works as expected before sending it to your broader audience.
 
 ### Step 5: Launch your Canvas
 

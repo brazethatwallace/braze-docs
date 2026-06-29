@@ -150,7 +150,7 @@ La cuenta regresiva comienza cuando el usuario descarta el banner. Después de q
 
 1. En **Público objetivo**, elige segmentos o filtros para delimitar tu audiencia. Recibirás automáticamente una vista previa de la población aproximada del segmento. La pertenencia exacta al segmento se calcula antes de que se envíe el mensaje.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 {:start="2"}
 2. En **Asignar conversiones**, realiza un seguimiento de la frecuencia con la que los usuarios realizan acciones específicas después de recibir una campaña definiendo eventos de conversión con una ventana de hasta 30 días para contar la acción como una conversión.

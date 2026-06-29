@@ -192,7 +192,7 @@ Campaignの残りを構築します。プッシュ通知を構築するための
 
 次に、Segmentsやフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)する必要があります。おおよそのセグメント人口のプレビューが自動的に表示されます。Campaignがターゲットとするチャネルの詳細なオーディエンス統計は、フッターで確認できます。ユーザー群のうちターゲットされている割合とこのセグメントのライフタイムバリューを確認するには、**Show Additional Stats**を選択します。
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 {% details 到達可能なユーザーの合計指標がすべてのチャネルの合計と一致しないのはなぜですか？ %}
 

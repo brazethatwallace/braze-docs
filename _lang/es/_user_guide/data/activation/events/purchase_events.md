@@ -215,7 +215,7 @@ Una vez aprobado, se pueden añadir propiedades adicionales en el dashboard en *
 
 ### Propiedades de entrada de Canvas y propiedades de eventos {#canvas-entry-properties-and-event-properties}
 
-{% multi_lang_include canvas_entry_event_properties.md %}
+{% multi_lang_include canvas/entry_event_properties.md %}
 
 ### Registrar compras a nivel de pedido {#log-purchases-at-the-order-level}
 

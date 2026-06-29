@@ -44,7 +44,7 @@ description: "이 참조 문서에서는 인증 규칙, IP 허용 목록, PII, 2
 
 사용자가 비밀번호 또는 SSO를 사용하여 로그인하지 못하도록 제한할 수 있습니다.
 
-[SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/)의 경우, 고객은 시행하기 전에 SAML 설정을 구성해야 합니다. 고객이 Google SSO를 사용하는 경우 추가 작업 없이 보안 설정 페이지만 적용하면 됩니다.
+[SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on)의 경우, 고객은 시행하기 전에 SAML 설정을 구성해야 합니다. 고객이 Google SSO를 사용하는 경우 추가 작업 없이 보안 설정 페이지만 적용하면 됩니다.
 
 ## 대시보드 IP 허용 목록 {#dashboard-ip-allowlisting}
 
@@ -115,8 +115,6 @@ Braze 계정에서 2단계 인증(2FA)을 수동으로 활성화하려면 다음
 
 사용자가 다시 인증할 수 없는 경우 이전 위치로 리디렉션되며 민감한 작업을 계속할 수 없습니다. 성공적으로 다시 인증한 후에는 로그아웃하지 않는 한 다음 1시간 동안 다시 인증할 필요가 없습니다.
 
-![상승된 액세스 토글.]({% image_buster /assets/img/elevated_access.png %})
-
 ## 보안 이벤트 보고서 다운로드 {#security-event-report}
 
 보안 이벤트 보고서는 계정 초대, 계정 제거, 실패 및 성공한 로그인 시도 및 기타 활동과 같은 보안 이벤트의 CSV 보고서입니다. 내부 감사를 수행하는 데 사용할 수 있습니다.
@@ -129,7 +127,7 @@ Braze 계정에서 2단계 인증(2FA)을 수동으로 활성화하려면 다음
 
 이 수동 보고서 다운로드에는 계정의 가장 최근 10,000개의 보안 이벤트만 포함됩니다.
 
-이 행 제한 없이 보안 이벤트를 Amazon S3로 내보내려면 [Amazon S3로 보안 이벤트 내보내기]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/)를 참조하세요.
+이 행 제한 없이 보안 이벤트를 Amazon S3로 내보내려면 [Amazon S3로 보안 이벤트 내보내기]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3)를 참조하세요.
 
 ### CSV 열 정의 {#csv-column-definitions}
 
@@ -145,7 +143,7 @@ Braze 계정에서 2단계 인증(2FA)을 수동으로 활성화하려면 다음
 | JsonProperties | JSON 형식의 이벤트별 속성. 포함되는 필드는 이벤트 유형에 따라 다릅니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="CSV 열 정의" }
 
-[S3 내보내기]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/)에는 이러한 열과 함께 내보내기 형식의 스키마 버전인 `Version`(현재 `1`)이 포함됩니다.
+[S3 내보내기]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3)에는 이러한 열과 함께 내보내기 형식의 스키마 버전인 `Version`(현재 `1`)이 포함됩니다.
 
 {% details 보고되는 보안 이벤트 %}
 ### 로그인 및 계정 {#login-and-account}
@@ -265,15 +263,15 @@ Removed Push Credential
 **PII 보기** 권한은 일부 선택된 회사 사용자만 액세스할 수 있습니다. 기본적으로 모든 관리자는 사용자 권한에서 **PII 보기** 권한이 켜져 있습니다. 이는 회사가 PII로 정의한 모든 표준 및 커스텀 속성을 대시보드 전체에서 볼 수 있음을 의미합니다. 사용자에 대해 이 권한이 꺼져 있으면 해당 사용자는 이러한 속성을 볼 수 없습니다.
 
 {% alert note %}
-[쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries/)를 사용하려면 **PII 보기** 권한이 필요합니다. 이는 일부 고객 데이터에 직접 액세스할 수 있기 때문입니다.
+[쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries)를 사용하려면 **PII 보기** 권한이 필요합니다. 이는 일부 고객 데이터에 직접 액세스할 수 있기 때문입니다.
 {% endalert %}
 
-기존 팀 권한 기능에 대해서는 [사용자 권한 설정]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#available-limited-and-team-role-permissions)을 참조하세요.
+기존 팀 권한 기능에 대해서는 [사용자 권한 설정]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions)을 참조하세요.
 
 ### PII 정의 {#defining-pii}
 
 {% alert important %}
-특정 필드를 PII 필드로 선택하고 정의하는 것은 Braze 대시보드에서 사용자가 볼 수 있는 내용에만 영향을 미치며, 해당 PII 필드의 최종 사용자 데이터가 처리되는 방식에는 영향을 미치지 않습니다.<br><br>[데이터 보존]({{site.baseurl}}/data_retention/)과 관련된 규정을 포함하여 회사에 적용되는 개인정보 보호 규정 및 정책에 맞게 대시보드 설정을 조정하려면 법무팀에 문의하세요.
+특정 필드를 PII 필드로 선택하고 정의하는 것은 Braze 대시보드에서 사용자가 볼 수 있는 내용에만 영향을 미치며, 해당 PII 필드의 최종 사용자 데이터가 처리되는 방식에는 영향을 미치지 않습니다.<br><br>[데이터 보존]({{site.baseurl}}/data_retention)과 관련된 규정을 포함하여 회사에 적용되는 개인정보 보호 규정 및 정책에 맞게 대시보드 설정을 조정하려면 법무팀에 문의하세요.
 {% endalert %}
 
 대시보드에서 회사가 PII로 지정하는 필드를 선택할 수 있습니다. 이렇게 하려면 **회사 설정** > **관리자 설정** > **보안 설정**으로 이동합니다.
@@ -344,7 +342,7 @@ Removed Push Credential
 3. PC 또는 노트북을 재시작합니다.
 4. 2FA 설정을 다시 시도합니다.
 
-이러한 단계를 수행한 후에도 문제가 지속되면 [고객지원]({{site.baseurl}}/braze_support/)에 문의하세요.
+이러한 단계를 수행한 후에도 문제가 지속되면 [고객지원]({{site.baseurl}}/braze_support)에 문의하세요.
 
 ### 2단계 인증(2FA)을 활성화할 수 없음 {#cant-enable-two-factor-authentication-2fa}
 
@@ -368,5 +366,5 @@ Authy 페이지에서 전화번호를 입력할 때 문제가 발생하고 SMS�
 
 인증 및 액세스에 대한 자세한 내용은 다음을 참조하세요:
 
-- [SAML 및 싱글 사인온]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/)으로 ID 공급자와 SSO를 설정합니다.
-- [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)으로 사용자가 대시보드에서 수행할 수 있는 작업을 제어합니다.
+- [SAML 및 싱글 사인온]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on)으로 ID 공급자와 SSO를 설정합니다.
+- [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)으로 사용자가 대시보드에서 수행할 수 있는 작업을 제어합니다.

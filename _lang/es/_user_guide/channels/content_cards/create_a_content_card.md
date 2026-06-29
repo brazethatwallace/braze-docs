@@ -149,7 +149,7 @@ Para Campaigns de Content Cards con entrega planificada, puedes elegir cuándo B
 
 A continuación, [segmenta a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) eligiendo segmentos o filtros para delimitar tu audiencia. Recibirás automáticamente una vista previa de cómo se ve aproximadamente la población de ese segmento. Ten en cuenta que la pertenencia exacta al segmento siempre se calcula antes de enviar el mensaje.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 #### Elige eventos de conversión {#choose-conversion-events}
 

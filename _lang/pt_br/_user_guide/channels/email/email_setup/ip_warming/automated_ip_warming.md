@@ -11,7 +11,7 @@ channel: email
 
 > Use o aquecimento de IP automatizado para aumentar gradualmente o volume de e-mails de um novo endereço IP e construir a reputação do remetente com os provedores de caixa de entrada.
 
-{% multi_lang_include early_access_beta_alert.md feature='Automated IP warming' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Automated IP warming' %}
 
 ## Como funciona
 

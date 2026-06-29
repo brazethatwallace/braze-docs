@@ -49,7 +49,7 @@ Sélectionnez ensuite les événements d'engagement des messages que vous souhai
 
 N'oubliez pas que Braze n'envoie les données d'événements que pour les utilisateurs sans `external_user_id` si l'option **Include events from anonymous users** est cochée.
 
-{% multi_lang_include early_access_beta_alert.md feature='Anonymous user export' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Anonymous user export' %}
 
 ![Liste de tous les événements d'engagement de messages disponibles sur la page Segment Currents de Braze.]({% image_buster /assets/img/segment/segment_currents_data_config.png %})
 
@@ -61,7 +61,7 @@ Pour en savoir plus, consultez la [documentation](https://segment.com/docs/conne
 
 ## Mettre à jour votre Current {#updating-your-current}
 
-{% multi_lang_include updating_currents.md %}
+{% multi_lang_include currents/updating_currents.md %}
 
 ## Événements Currents pris en charge {#supported-currents-events}
 

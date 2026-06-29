@@ -10,7 +10,7 @@ channel:
 
 # Video in custom HTML  in-app messages {#video}
 
-> This article applies to [custom HTML messages]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/) in the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/). 
+> This article applies to [custom HTML messages]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html) in the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional). 
 
 ## Embed videos
 
@@ -32,9 +32,9 @@ Video content is only available when the device has a reasonable network speed, 
 
 ## Android considerations
 
-To embed video and other HTML5 content in HTML in-app messages on Android, hardware acceleration is required to be enabled in the Activity where the in-app message is displayed. For more information, refer to the [Android developer guide]({{site.baseurl}}/developer_guide/in_app_messages/html_messages/#android_embedding-youtube-content).
+To embed video and other HTML5 content in HTML in-app messages on Android, hardware acceleration is required to be enabled in the Activity where the in-app message is displayed. For more information, refer to the [Android developer guide]({{site.baseurl}}/developer_guide/in_app_messages/html_messages#android_embedding-youtube-content).
 
-**auto-play**: Even with hardware acceleration enabled, Android WebViews may require a user gesture to start media playback. If you need auto-play, configure the WebView used to render HTML in-app messages to disable the user gesture requirement by setting [`WebSettings.setMediaPlaybackRequiresUserGesture(false)`](https://developer.android.com/reference/android/webkit/WebSettings#setMediaPlaybackRequiresUserGesture(boolean)). This requires SDK-level customization of how HTML in-app messages are displayed. For setup guidance, see [Customize in-app messages for the Braze SDK]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android).
+**auto-play**: Even with hardware acceleration enabled, Android WebViews may require a user gesture to start media playback. If you need auto-play, configure the WebView used to render HTML in-app messages to disable the user gesture requirement by setting [`WebSettings.setMediaPlaybackRequiresUserGesture(false)`](https://developer.android.com/reference/android/webkit/WebSettings#setMediaPlaybackRequiresUserGesture(boolean)). This requires SDK-level customization of how HTML in-app messages are displayed. For setup guidance, see [Customize in-app messages for the Braze SDK]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=android).
 
 ## iOS considerations
 
@@ -43,7 +43,7 @@ To support iOS devices:
 - You must include the `playsinline` attribute because full screen playback is not supported.
 - **auto-play is not guaranteed on iOS**. iOS playback behavior depends on `WKWebView` and OS-level media policies, and may require a user gesture even when `autoplay` and `muted` are set. Test your HTML in-app message on your target iOS versions and devices.
 
-If auto-play is required and your tests show it doesn’t work by default, you can customize the `WKWebViewConfiguration` used by HTML in-app messages to adjust the media playback user-action requirement, for example by setting the `mediaTypesRequiringUserActionForPlayback` property. This requires SDK-level customization. For Swift resources, see [Customize in-app messages for the Braze SDK]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=swift) and [Adding the Braze JavaScript interface to WebViews for Swift]({{site.baseurl}}/developer_guide/in_app_messages/html_messages/?sdktab=swift).
+If auto-play is required and your tests show it doesn’t work by default, you can customize the `WKWebViewConfiguration` used by HTML in-app messages to adjust the media playback user-action requirement, for example by setting the `mediaTypesRequiringUserActionForPlayback` property. This requires SDK-level customization. For Swift resources, see [Customize in-app messages for the Braze SDK]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=swift) and [Adding the Braze JavaScript interface to WebViews for Swift]({{site.baseurl}}/developer_guide/in_app_messages/html_messages?sdktab=swift).
 
 ## Web considerations
 

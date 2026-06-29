@@ -18,7 +18,7 @@ Braze の契約によっては、チームを使用できない場合があり�
 
 ## チームは権限セットや役割とどう違うのですか？ {#how-do-teams-differ-from-permission-sets-and-roles}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## チームを作成する {#creating-teams}
 

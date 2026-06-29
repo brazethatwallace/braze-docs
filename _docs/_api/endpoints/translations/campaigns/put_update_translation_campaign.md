@@ -15,13 +15,13 @@ description: "This article outlines details about the Update translation in a ca
 /campaigns/translations
 {% endapimethod %}
 
-> Use this endpoint to update multiple translations for a campaign. See [Locales in messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) for more information about translation features.
+> Use this endpoint to update multiple translations for a campaign. See [Locales in messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) for more information about translation features.
 
-If you want to update translations after a campaign has been launched, you'll need to [save your message as a draft]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch/) first.
+If you want to update translations after a campaign has been launched, you'll need to [save your message as a draft]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch) first.
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `campaigns.translations.update` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `campaigns.translations.update` permission.
 
 ## Rate limit
 

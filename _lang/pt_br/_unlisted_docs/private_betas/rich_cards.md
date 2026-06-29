@@ -180,7 +180,7 @@ Especifique seus controles de entrega, como permitir que os usuários se tornem 
 
 Direcione os usuários escolhendo segmentos ou filtros para restringir seu público. Você já deve ter selecionado o grupo de inscrições, que restringe os usuários pelo nível ou categoria de comunicação que desejam ter com você.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 Em seguida, você selecionará o público maior dos seus segmentos e restringirá ainda mais esse segmento com [filtros]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/) opcionais. Você receberá automaticamente uma pré-visualização de como é a população aproximada desse segmento no momento. Tenha em mente que a composição exata do segmento é sempre calculada imediatamente antes do envio da mensagem.
 

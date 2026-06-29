@@ -16,7 +16,7 @@ hidden: true
 
 Esta ruta de actualización está destinada a marcas con una tienda Shopify headless o Shopify Hydrogen.
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## Requisitos de actualización {#upgrade-requirements}
 

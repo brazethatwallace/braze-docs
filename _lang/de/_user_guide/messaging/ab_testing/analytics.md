@@ -8,13 +8,13 @@ description: "Dieser Artikel erklärt, wie Sie die Ergebnisse einer multivariate
 
 # Multivariate und A/B-Test-Analytics {#multivariate-and-ab-test-analytics}
 
-> Dieser Artikel erklärt, wie Sie die Ergebnisse eines multivariaten oder A/B-Tests anzeigen. Wenn Sie Ihren Test noch nicht eingerichtet haben, lesen Sie [Multivariate und A/B-Tests erstellen]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/) für die einzelnen Schritte.
+> Dieser Artikel erklärt, wie Sie die Ergebnisse eines multivariaten oder A/B-Tests anzeigen. Wenn Sie Ihren Test noch nicht eingerichtet haben, lesen Sie [Multivariate und A/B-Tests erstellen]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) für die einzelnen Schritte.
 
 Nachdem Ihre Campaign gestartet wurde, können Sie die Performance jeder Variante überprüfen, indem Sie Ihre Campaign im Bereich **Campaigns** des Dashboards auswählen.
 
 ## Analytics nach Optimierungsoption {#analytics-by-optimization-option}
 
-Ihre Analytics-Ansicht variiert je nachdem, welche [Optimierung]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) Sie bei der Ersteinrichtung ausgewählt haben.
+Ihre Analytics-Ansicht variiert je nachdem, welche [Optimierung]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) Sie bei der Ersteinrichtung ausgewählt haben.
 
 ### Keine Optimierung {#no-optimization}
 
@@ -22,13 +22,13 @@ Wenn Sie bei der Einrichtung Ihrer Campaign **No optimization** ausgewählt habe
 
 ![Performance-Bereich der Campaign Analytics für eine E-Mail-Campaign mit mehreren Varianten. Die Tabelle listet verschiedene Performance-Metriken für jede Variante auf, wie Empfänger:innen, Bounces, Klicks und Conversions.]({% image_buster /assets/img_archive/ab_analytics_no_optimization.png %})
 
-Weitere Details finden Sie im Artikel [Kampagnen-Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) für Ihren Messaging-Kanal.
+Weitere Details finden Sie im Artikel [Kampagnen-Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) für Ihren Messaging-Kanal.
 
 ### BrazeAI<sup>TM</sup>-Variantenauswahl (nur Push) {#brazeai-variant-selection-push-only}
 
 Wenn Sie die BrazeAI<sup>TM</sup>-Variantenauswahl verwenden, sehen Sie – je nachdem, ob es sich um einen Einzelversand oder eine wiederkehrende Campaign handelt – nach Ablauf des Experimentfensters (oder der ersten Periode bei wiederkehrenden Campaigns) den Uplift, sofern vorhanden, auf der Startseite der Campaign. Außerdem sehen Sie weitere Details ähnlich wie bei der Gewinnervariante unten, wenn Sie eine Einzelversand-Campaign durchführen.
 
-Weitere Details dazu, wie wir den Uplift bei der BrazeAI<sup>TM</sup>-Variantenauswahl berichten, finden Sie unter [Variantenauswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/).
+Weitere Details dazu, wie wir den Uplift bei der BrazeAI<sup>TM</sup>-Variantenauswahl berichten, finden Sie unter [Variantenauswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 
 ![Campaign Analytics mit Uplift durch BrazeAI<sup>TM</sup>-Variantenauswahl, einschließlich Vergleichsmetriken nach dem Experimentfenster.]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
 
@@ -43,7 +43,7 @@ Das **A/B Test Result** ist in zwei Tabs unterteilt: **Initial Test** und **Winn
 
 Der Tab **Initial Test** zeigt die Metriken für jede Variante aus dem anfänglichen A/B-Test, der an einen Teil Ihres Zielsegments gesendet wurde. Sie können eine Zusammenfassung sehen, wie alle Varianten abgeschnitten haben und ob es während des Tests eine Gewinnervariante gab.
 
-Wenn eine Variante alle anderen mit einer [Konfidenz]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics/#understanding-confidence) von mehr als 95 % übertroffen hat, kennzeichnet Braze diese Variante mit dem Label „Winner“.
+Wenn eine Variante alle anderen mit einer [Konfidenz]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#understanding-confidence) von mehr als 95 % übertroffen hat, kennzeichnet Braze diese Variante mit dem Label „Winner“.
 
 Wenn keine Variante alle anderen mit 95 % Konfidenz übertrifft und Sie sich entschieden haben, die am besten performende Variante trotzdem zu senden, wird die am besten performende Variante dennoch versendet und mit dem Label „Winner“ gekennzeichnet.
 
@@ -84,7 +84,7 @@ Standardmäßig sucht der Test nach Zusammenhängen zwischen den angepassten Eve
 
 Die Zusammenhänge zwischen angepassten Events und Nachrichtenpräferenzen werden in der Tabelle auf dem Tab **Initial Send** angezeigt.
 
-![Tabelle auf dem Tab „Initial Test“, die die Zusammenhänge zwischen angepassten Events der Nutzer:innen und ihren bevorzugten Nachrichtenvarianten zusammenfasst.]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
+![Tabellen mit angepassten Event-Daten für Variante 1 und Variante 2, die Einfluss-Scores für angepasste Events zeigen und angeben, wie jedes Event die Variantenpräferenz beeinflusst.]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
 
 Wenn der Test keinen aussagekräftigen Zusammenhang zwischen angepassten Events und Pfadpräferenzen finden kann, greift der Test auf eine sitzungsbasierte Analysemethode zurück, und es werden keine Tabellen mit angepassten Event-Daten angezeigt.
 
@@ -125,7 +125,7 @@ Die drei Karten auf dieser Seite zeigen Ihren prognostizierten Lift, die Gesamte
 
 Die Tabelle auf dieser Seite zeigt die Metriken für jede Variante aus dem Personalized-Variant-Versand. Ihr **Audience %** summiert sich auf den Prozentsatz des Zielsegments, den Sie für die Personalized-Variant-Gruppe reserviert haben.
 
-![Tabelle auf dem Tab „Personalized Variant“ mit Zielgruppenprozentsatz und Performance-Metriken für jede Variante nach dem finalen Versand.]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
+![Ergebnistabelle des Personalized-Variant-Versands mit Performance-Metriken für Variante A, Variante B und alle Varianten, einschließlich Zielgruppenprozentsatz, Versendungen, Zustellungen, Öffnungen, Klicks und Conversions.]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -144,7 +144,9 @@ Braze vergleicht die Konversionsrate jeder Variante mit der Konversionsrate der 
 
 Im Allgemeinen ist eine Konfidenz von mindestens 95 % erforderlich, um zu zeigen, dass Ihre Ergebnisse die tatsächlichen Präferenzen der Nutzer:innen widerspiegeln und nicht auf Zufall beruhen. In strengen wissenschaftlichen Tests ist 95 % Konfidenz (oder anders ausgedrückt: ein „p“-Wert von weniger als 0,05) der gängige Maßstab zur Bestimmung statistischer Signifikanz. Wenn Sie wiederholt keine 95 % Konfidenz erreichen, versuchen Sie, Ihre Stichprobengröße zu erhöhen oder die Anzahl der Varianten zu reduzieren.
 
-Konfidenz beschreibt nicht, ob eine Variante besser als die anderen ist. Sie ist rein ein Maß dafür, wie sicher wir sind, dass die zwei (oder mehr) Konversionsraten tatsächlich voneinander verschieden sind. Dies ist ausschließlich eine Funktion der Stichprobengröße und der Unterschiede zwischen den scheinbaren Konversionsraten. Ob die Gesamtraten hoch oder niedrig sind, beeinflusst die Stärke des Konfidenzmaßes nicht. Es ist möglich, dass eine Variante eine sehr unterschiedliche Konversionsrate im Vergleich zu einer anderen hat und dennoch keine Konfidenz von 95 % oder höher erreicht. Es ist auch möglich, dass zwei Gruppen von Varianten ähnliche Konversions-/Uplift-Raten haben und dennoch unterschiedliche Konfidenz aufweisen.
+Konfidenz beschreibt, wie wahrscheinlich es ist, dass ein beobachteter Unterschied zwischen den Konversionsraten von Variante und Kontrollgruppe real ist und nicht auf zufällige Schwankungen zurückzuführen ist. Sie ist eine Funktion der Stichprobengröße und der Größe des Unterschieds zwischen den Konversionsraten. Ob die Gesamtkonversionsraten hoch oder niedrig sind, ist in der Regel weniger wichtig als der beobachtete Unterschied und die Stichprobengröße für die Stärke des Konfidenzmaßes. Es ist möglich, dass eine Variante eine sehr unterschiedliche Konversionsrate im Vergleich zu einer anderen hat und dennoch keine Konfidenz von 95 % oder höher erreicht. Es ist auch möglich, dass zwei Gruppen von Varianten ähnliche Konversions- oder Uplift-Raten haben und dennoch unterschiedliche Konfidenz aufweisen.
+
+Wenn mehr Daten eintreffen, kann die Konfidenz sinken, wenn sich die Konversionsraten von Variante und Kontrollgruppe annähern – der Unterschied, den Sie messen, wird kleiner, was den Effekt einer größeren Stichprobe überwiegen kann.
 
 ### Statistisch nicht signifikante Ergebnisse {#statistically-insignificant-results}
 
@@ -159,7 +161,7 @@ Unabhängig davon, ob Ihr Test einen klaren Gewinner hat, kann es hilfreich sein
 
 ## Diskrepanzen zwischen Kontrollgruppe und Variante {#discrepancies-between-the-control-group-and-variant}
 
-Bei In-App-Nachrichten-Campaigns kann die Art und Weise, wie Nutzer:innen getrackt werden und wie Impressionen protokolliert werden, zu Diskrepanzen in der erwarteten Aufteilung zwischen Kontrollgruppe und Variante führen. Das liegt daran, dass die tatsächlich protokollierten Impressionen diese Aufteilung möglicherweise nicht widerspiegeln und Braze letztlich keine Kontrolle über das individuelle Verhalten der Nutzer:innen hat, die den Trigger auslösen.
+Bei In-App-Nachrichten-Campaigns mit A/B- oder multivariaten Aufteilungen sind die von Ihnen konfigurierten Prozentsätze Zuweisungsziele. Die gemeldeten Impressionen stimmen selten genau mit diesen Prozentsätzen überein, da nur Nutzer:innen, die die Trigger-Aktion ausführen, Impressionen protokollieren und Kontrollgruppen-Nutzer:innen, die den Trigger auslösen, eine Impression protokollieren, obwohl sie keine Nachricht sehen.
 
 Nehmen wir zum Beispiel an, eine Campaign hat beim Start eine Zielgruppe von 200 Nutzer:innen, mit 100 Nutzer:innen in der Kontrollgruppe und 100 Nutzer:innen in der Variante.
 
@@ -205,4 +207,4 @@ Nutzen Sie die Erkenntnisse, die Sie aus vergangenen Tests gewonnen haben, um Ih
 
 ### Vergleichen Sie die langfristige Wirkung verschiedener Varianten {#compare-the-long-term-impact-of-different-variants}
 
-Wenn Sie A/B-Tests für Nachrichten zur erneuten Interaktion durchführen, vergessen Sie nicht, die langfristige Wirkung verschiedener Varianten mithilfe von [Retention Reports]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/) zu vergleichen. Sie können Retention Reports verwenden, um zu analysieren, wie jede Variante jedes gewünschte Nutzer:innen-Verhalten Tage, Wochen oder einen Monat nach Nachrichtenempfang beeinflusst hat, und um festzustellen, ob es einen Uplift gibt.
+Wenn Sie A/B-Tests für Nachrichten zur erneuten Interaktion durchführen, vergessen Sie nicht, die langfristige Wirkung verschiedener Varianten mithilfe von [Retention Reports]({{site.baseurl}}/user_guide/analytics/reports/retention_reports) zu vergleichen. Sie können Retention Reports verwenden, um zu analysieren, wie jede Variante jedes gewünschte Nutzer:innen-Verhalten Tage, Wochen oder einen Monat nach Nachrichtenempfang beeinflusst hat, und um festzustellen, ob es einen Uplift gibt.

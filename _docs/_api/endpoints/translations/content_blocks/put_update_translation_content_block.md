@@ -15,11 +15,11 @@ description: "This article outlines details about the Update translation in a Co
 /content_blocks/translations
 {% endapimethod %}
 
-> Use this endpoint to update multiple translations for a [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). See [Locales in messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) for more information about translation features.
+> Use this endpoint to update multiple translations for a [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). See [Locales in messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) for more information about translation features.
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `content_blocks.translations.update` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `content_blocks.translations.update` permission.
 
 ## Rate limit
 

@@ -37,7 +37,7 @@ Comme pour votre première intégration de boutique Shopify, vous pouvez choisir
 
 Choisissez l'option qui correspond le mieux à vos besoins :
 
-{% multi_lang_include shopify.md section='Integration Tabs' %}
+{% multi_lang_include partners/shopify.md section='Integration Tabs' %}
 
 Pour afficher l'intégration de chaque boutique et configurer les paramètres avancés, sélectionnez une boutique dans le menu déroulant.
 

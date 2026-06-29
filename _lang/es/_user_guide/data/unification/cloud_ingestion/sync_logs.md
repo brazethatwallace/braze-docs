@@ -78,7 +78,7 @@ Selecciona **Export rows** para exportar los registros a nivel de fila de una ej
 * **Filas con errores:** Descarga un archivo que contiene solo las filas que tenían un estado **Error**.
 * **Todas las filas:** Descarga un archivo que contiene todas las filas procesadas en la ejecución.
 
-{% multi_lang_include early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
 
 Los registros no se pueden exportar directamente desde el dashboard. Una vez generada la exportación, recibirás un correo electrónico con un enlace para descargar el archivo de exportación del registro.
 

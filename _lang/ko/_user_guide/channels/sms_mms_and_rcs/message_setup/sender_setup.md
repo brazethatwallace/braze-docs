@@ -11,7 +11,7 @@ channel:
   - RCS
 ---
 
-{% multi_lang_include short_and_long_codes.md %}
+{% multi_lang_include channels/sms/short_and_long_codes.md %}
 
 ## MMS 관련 요구 사항 {#mms-specific-requirements}
 

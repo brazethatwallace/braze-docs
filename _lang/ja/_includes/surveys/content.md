@@ -4,7 +4,7 @@
   - channel (必須): "in_app_message" または "landing_page"
 {% endcomment %}
 
-{% multi_lang_include early_access_beta_alert.md feature='Braze surveys' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Braze surveys' %}
 
 ## 前提条件 {#prerequisites}
 

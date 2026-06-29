@@ -142,11 +142,11 @@ Les spécifications suivantes s'appliquent à tous les médias dans les en-tête
 
 ### Images {#images}
 
-{% multi_lang_include image_specs.md variable_name='WhatsApp images' %}
+{% multi_lang_include channels/image_specs.md variable_name='WhatsApp images' %}
 
 ### Vidéo {#video}
 
-{% multi_lang_include image_specs.md variable_name='WhatsApp videos' %}
+{% multi_lang_include channels/image_specs.md variable_name='WhatsApp videos' %}
 
 #### Compatibilité Android {#android-compatibility}
 

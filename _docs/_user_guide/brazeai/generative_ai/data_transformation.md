@@ -16,4 +16,4 @@ description: "This reference article covers how to generate Data Transformation 
 
 {% multi_lang_include brazeai/generative_ai/access_data_transformation.md %}
 
-For more information, including example prompts, see [Generate data transformation code in Operator capabilities]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-data-transformation-code).
+For more information, including example prompts, see [Generate data transformation code in Operator capabilities]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code).

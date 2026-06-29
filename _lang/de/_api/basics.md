@@ -49,7 +49,7 @@ Wenn Sie Endpunkte für API-Aufrufe verwenden, benutzen Sie den REST-Endpunkt.
 Verwenden Sie für die SDK-Integration den [SDK-Endpunkt]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/), nicht den REST-Endpunkt.
 {% endalert %}
 
-{% multi_lang_include data_centers.md datacenters='instances' %}
+{% multi_lang_include administer/data_centers.md datacenters='instances' %}
 
 ### API-Limits
 

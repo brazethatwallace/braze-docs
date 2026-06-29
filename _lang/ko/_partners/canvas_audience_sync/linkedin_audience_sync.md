@@ -21,7 +21,7 @@ Braze Audience Sync to LinkedIn을 사용하면 브랜드는 Braze 통합에서 
 
 이 기능을 통해 브랜드는 LinkedIn과 공유되는 특정 퍼스트파티 데이터를 제어할 수 있습니다. Braze에서는 퍼스트파티 데이터를 공유할 수 있는 통합과 공유할 수 없는 통합에 대해 최대한 신중하게 고려합니다. 자세한 내용은 [개인정보 보호정책](https://www.braze.com/privacy)을 참조하세요.
 
-{% multi_lang_include early_access_beta_alert.md feature='Audience Sync to LinkedIn' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Audience Sync to LinkedIn' type='beta' %}
 
 ## 필수 조건 {#prerequisites}
 

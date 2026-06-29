@@ -18,7 +18,7 @@ Siempre debes [previsualizar y probar tus mensajes]({{site.baseurl}}/user_guide/
 
 ## Comportamiento de las imágenes {#image-behavior}
 
-{% multi_lang_include image_specs.md variable_name='image behavior' %}
+{% multi_lang_include channels/image_specs.md variable_name='image behavior' %}
 
 ## Video {#video}
 
@@ -34,15 +34,15 @@ Los GIF son compatibles con push de iOS, mensajes dentro de la aplicación, corr
 
 ### Content Cards
 
-{% multi_lang_include image_specs.md variable_name='content cards' %}
+{% multi_lang_include channels/image_specs.md variable_name='content cards' %}
 
 ### Correo electrónico {#email}
 
-{% multi_lang_include image_specs.md variable_name='email' %}
+{% multi_lang_include channels/image_specs.md variable_name='email' %}
 
 ### Mensajes dentro de la aplicación {#in-app-messages}
 
-{% multi_lang_include image_specs.md variable_name='in-app messages' %}
+{% multi_lang_include channels/image_specs.md variable_name='in-app messages' %}
 
 {% alert tip %} ¡Crea activos con confianza! Nuestras plantillas de imágenes para mensajes dentro de la aplicación y las superposiciones de zona segura están diseñadas para funcionar bien con dispositivos de todos los tamaños. [Descargar ZIP de plantillas de diseño]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}). {% endalert %}
 
@@ -54,9 +54,9 @@ Braze admite el uso de [Font Awesome v4.3.0](https://fontawesome.com/v4.7.0/chea
 
 ### Notificaciones push {#push-notifications}
 
-{% multi_lang_include image_specs.md variable_name='payload size' %}
+{% multi_lang_include channels/image_specs.md variable_name='payload size' %}
 
-{% multi_lang_include image_specs.md variable_name='push notifications' %}
+{% multi_lang_include channels/image_specs.md variable_name='push notifications' %}
 
 #### Longitudes de mensaje recomendadas {#recommended-message-lengths}
 

@@ -4,7 +4,7 @@
   - channel (obligatorio): "in_app_message" o "landing_page"
 {% endcomment %}
 
-{% multi_lang_include early_access_beta_alert.md feature='Braze surveys' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Braze surveys' %}
 
 ## Requisitos previos {#prerequisites}
 

@@ -17,7 +17,7 @@ Também recomendamos conferir nosso curso do Braze Learning [Testes e solução 
 
 ## Pré-requisitos {#prerequisites}
 
-Para criar e gerenciar grupos internos, você precisa das seguintes [permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/):
+Para criar e gerenciar grupos internos, você precisa das seguintes [permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions):
 
 - Visualizar chaves de API
 - Editar chaves de API
@@ -63,18 +63,16 @@ Depois de criar seu grupo interno, adicione usuários teste como membros desse g
 | Método | Descrição |
 |---|---|
 | **Adicionar usuário identificado** | Pesquise o usuário pelo ID externo, endereço de e-mail, número de telefone ou token por push. |
-| **Adicionar usuário anônimo** | Pesquise por endereço IP. Em seguida, forneça um nome para cada usuário teste adicionado. Esse é o nome ao qual todos os registros de eventos são associados na página [Registro de usuários de eventos]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/). |
-| **Adicionar usuários em massa** | Copie e cole uma lista de endereços de e-mail ou IDs externos. Você só pode adicionar usuários que já são conhecidos no dashboard. Para saber mais, consulte [Importação de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/). |
+| **Adicionar usuário anônimo** | Pesquise por endereço IP. Em seguida, forneça um nome para cada usuário teste adicionado. Esse é o nome ao qual todos os registros de eventos são associados na página [Registro de usuários de eventos]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log). |
+| **Adicionar usuários em massa** | Copie e cole uma lista de endereços de e-mail ou IDs externos. Você só pode adicionar usuários que já são conhecidos no dashboard. Para saber mais, consulte [Importação de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/import_users). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Adicionando usuários teste" }
-
-![Configurações de grupo interno ao criar um novo grupo interno]({% image_buster /assets/img_archive/internal_group_add_user.png %})
 
 ### Grupos de teste de conteúdo {#content-test-groups}
 
 Semelhante ao envio de uma pré-visualização de teste de uma mensagem, o grupo de teste de conteúdo economiza tempo e permite que você lance testes para uma lista predefinida de usuários da Braze simultaneamente. Isso está disponível para push, mensagens no app, SMS, e-mail e Content Cards na Braze. Somente grupos marcados como grupos de teste de conteúdo ficam disponíveis na seção de pré-visualização de uma mensagem.
 
 {% alert note %}
-Mensagens de teste de [SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/) só podem ser enviadas para números de telefone válidos no banco de dados.
+Mensagens de teste de [SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) só podem ser enviadas para números de telefone válidos no banco de dados.
 {% endalert %}
 
 Selecione usuários individuais da Braze ou qualquer número de grupos internos para enviar a mensagem. Se sua mensagem incluir Liquid ou outra personalização dinâmica, a Braze usa os atributos disponíveis para cada usuário para personalizar o conteúdo da mensagem. Para usuários que não possuem atributos, a Braze usa o valor padrão definido.
@@ -89,7 +87,7 @@ Se você usar um pool de IP para enviar um e-mail, selecione de qual pool de IP 
 
 Os grupos de teste são compatíveis apenas com o canal de e-mail. Adicione usuários a um grupo de teste para enviar cópias de cada variante de mensagem de e-mail para todos os membros do grupo.
 
-Os grupos de teste não estão disponíveis para Campaigns da API, mas você pode incluir grupos de teste usando uma entrada disparada por API na Campaign. Use isso para medir métricas de entregabilidade e manter um registro do conteúdo do seu e-mail para fins históricos e de arquivamento.
+Os grupos de teste não estão disponíveis para campanhas da API, mas você pode incluir grupos de teste usando uma entrada disparada por API na campanha. Use isso para medir métricas de entregabilidade e manter um registro do conteúdo do seu e-mail para fins históricos e de arquivamento.
 
 Depois de criar um grupo interno e marcá-lo para ser usado como grupo de teste, selecione-o na etapa **Público-alvo** do editor de Campaign ou na etapa **Configurações de envio** em um Canvas.
 
@@ -108,7 +106,7 @@ Os envios de teste são projetados para QA e revisão internos, então eles inte
 {% alert tip %}
 Se os membros do grupo de teste não estiverem vendo a mensagem, confirme que eles estão no grupo interno, use linhas de assunto distintas para que o Gmail não agrupe as mensagens e peça que verifiquem a pasta de spam.
 
-Se o e-mail usar [Liquid `abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/), os membros do grupo de teste ainda devem satisfazer a condição de cancelamento para receber o envio.
+Se o e-mail usar [Liquid `abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages), os membros do grupo de teste ainda devem satisfazer a condição de cancelamento para receber o envio.
 {% endalert %}
 
 #### Para Campaigns {#for-campaigns}

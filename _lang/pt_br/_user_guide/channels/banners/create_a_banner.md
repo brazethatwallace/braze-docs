@@ -150,7 +150,7 @@ A contagem regressiva começa a partir do momento em que o usuário dispensa o B
 
 1. Em **Target Audiences**, escolha Segments ou filtros para refinar seu público. Você recebe automaticamente uma pré-visualização da população aproximada do Segment. A associação exata ao Segment é calculada antes do envio da mensagem.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 {:start="2"}
 2. Em **Assign Conversions**, acompanhe a frequência com que os usuários realizam ações específicas após receberem uma campanha, definindo eventos de conversão com um período de até 30 dias para contar a ação como uma conversão.

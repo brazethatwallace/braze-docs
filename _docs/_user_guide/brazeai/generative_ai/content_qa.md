@@ -16,4 +16,4 @@ description: "This reference article covers how to perform quality assurance on 
 
 {% multi_lang_include brazeai/generative_ai/access_content_qa.md %}
 
-For more information, including supported features, best practices, and example prompts, see [Review content quality in Operator capabilities]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#review-content-quality).
+For more information, including supported features, best practices, and example prompts, see [Review content quality in Operator capabilities]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#review-content-quality).

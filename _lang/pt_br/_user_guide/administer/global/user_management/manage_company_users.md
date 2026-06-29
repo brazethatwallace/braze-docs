@@ -37,7 +37,7 @@ Por motivos de segurança, os usuários não podem alterar o endereço de e-mail
 
 ## Atribuindo acesso e responsabilidades ao usuário {#assigning-user-access-and-responsibilities}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Suspendendo usuários da empresa {#suspending-company-users}
 

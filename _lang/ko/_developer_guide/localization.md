@@ -19,4 +19,4 @@ platform:
 
 사용자의 휴대폰 언어가 지원되는 언어 중 하나로 설정되면, 메시징 채널에 기본적으로 포함된 SDK 메시지가 해당 언어로 번역됩니다. 예를 들어, 앱이 연결 문제에 대한 메시지를 표시하면 사용자가 선택한 언어로 번역됩니다.
 
-{% multi_lang_include supported_language_codes.md %}
+{% multi_lang_include messaging/localization/supported_language_codes.md %}

@@ -192,7 +192,7 @@ En este paso también puedes especificar controles de entrega, como permitir que
 
 A continuación, debes [dirigirte a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) eligiendo segmentos o filtros para reducir tu audiencia. Recibirás automáticamente una vista previa de cómo se ve la población aproximada de ese segmento. Las estadísticas detalladas de audiencia para los canales a los que se dirige tu campaña están disponibles en el pie de página. Para ver qué porcentaje de tu base de usuarios está siendo objetivo y el valor de duración del ciclo de vida para este segmento, selecciona **Show Additional Stats**.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 {% details ¿Por qué mi métrica de total de usuarios alcanzables no coincide con la suma de todos los canales? %}
 

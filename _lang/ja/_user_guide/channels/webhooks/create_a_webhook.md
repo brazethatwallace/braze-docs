@@ -184,7 +184,7 @@ Webhookは、スケジュールされた時間、アクション、またはAPI�
 
 次に、セグメントまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)する必要があります。このステップでは、セグメントからより大きなオーディエンスを選択し、必要に応じてフィルターを使用してそのセグメントをさらに絞り込みます。おおよそのセグメント人口のプレビューが自動的に表示されます。正確なセグメントメンバーシップは、メッセージが送信される前に常に計算されることに注意してください。
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 ### コンバージョンイベントを選択する {#choose-conversion-events}
 
@@ -260,7 +260,7 @@ Brazeは以下のIPからWebhookを送信します。リストされたIPは、�
 Braze間のWebhookを作成し、許可リストを使用している場合は、`127.0.0.1`を含む以下のすべてのIPを許可リストに追加する必要があります。
 {% endalert %}
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### ユーザーの削除 {#delete-users}
 

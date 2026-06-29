@@ -38,7 +38,7 @@ Après avoir reçu votre e-mail, nous nous chargerons de configurer vos adresses
 
 Une fois vos adresses IP, domaines, sous-domaines et pools d'adresses IP configurés, nous vous enverrons une liste d'enregistrements DNS. Demandez à vos ingénieurs et développeurs d'ajouter ces enregistrements DNS là où c'est nécessaire, et une fois qu'ils ont été ajoutés, informez-en l'équipe d'onboarding de Braze.
 
-{% multi_lang_include dns_records.md %}
+{% multi_lang_include channels/email/dns_records.md %}
 
 Dès que Braze vous fournit vos enregistrements DNS, ajoutez-les dès que votre équipe DNS ou informatique est en mesure de le faire. La vérification de domaine est limitée dans le temps : si les enregistrements sont ajoutés trop tard, la vérification peut échouer même si les enregistrements DNS se résolvent correctement par la suite. Si vos enregistrements DNS semblent corrects mais que la vérification échoue, contactez l'équipe d'onboarding ou d'assistance de Braze pour relancer la vérification.
 
@@ -50,7 +50,7 @@ Nous vérifierons votre configuration et validerons toutes les informations dans
 
 Cette méthode permet de configurer un domaine d'envoi, un domaine de suivi et une adresse IP au total pour une société. Si vous prévoyez d'en configurer davantage, veuillez consulter l'équipe d'onboarding de Braze (méthode 1).
 
-{% multi_lang_include early_access_beta_alert.md feature='This self-service email setup feature' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This self-service email setup feature' type='beta' %}
 <br>Si vous utilisez la fonctionnalité de configuration e-mail en libre-service, assurez-vous de consulter également l'équipe d'onboarding de Braze.
 
 ### Conditions préalables {#prerequisites}

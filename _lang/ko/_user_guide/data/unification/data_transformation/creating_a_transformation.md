@@ -28,7 +28,7 @@ Braze에 연결하려는 외부 플랫폼을 식별하고 해당 플랫폼이 �
 
 ## 2단계: 변환 만들기 {#step-2-create-a-transformation}
 
-{% multi_lang_include create_transformation.md location="default" %}
+{% multi_lang_include data_activation/create_transformation.md location="default" %}
 
 ## 3단계: 테스트 웹훅 보내기(권장) {#step-3-send-a-test-webhook-recommended}
 

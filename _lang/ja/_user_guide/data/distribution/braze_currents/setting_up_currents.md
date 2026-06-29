@@ -109,10 +109,10 @@ Currents のテストコネクターをアップグレードするには、ダ�
 
 ## Currents の更新 {#updating-currents}
 
-{% multi_lang_include updating_currents.md %}
+{% multi_lang_include currents/updating_currents.md %}
 
 ## IP 許可リスト {#ip-allowlisting}
 
 Braze は、リストされた IP から Currents データを送信します。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}

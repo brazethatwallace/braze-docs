@@ -32,7 +32,7 @@ For example, if you're sending consecutive requests for the same user over a sho
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key/) with the `users.track.sync` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `users.track.sync` permission.
 
 Customers using the API for server-to-server calls may need to allowlist `rest.iad-01.braze.com` if they're behind a firewall.
 
@@ -65,9 +65,9 @@ For each request component listed in the following table, you must include one o
 
 | Parameter | Required | Data Type | Description |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | Optional | One attributes object | See [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
-| `events` | Optional | One event object | See [events object]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | Optional | One purchase object | See [purchases object]({{site.baseurl}}/api/objects_filters/purchase_object/) |
+| `attributes` | Optional | One attributes object | See [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) |
+| `events` | Optional | One event object | See [events object]({{site.baseurl}}/api/objects_filters/event_object) |
+| `purchases` | Optional | One purchase object | See [purchases object]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Responses
@@ -162,7 +162,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 --data-raw '{
     "events": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "app_id": "your_app_identifier",
             "name": "rented_movie",
             "time": "2022-12-06T19:20:45+01:00",
@@ -191,7 +191,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 {
     "users": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "custom_events": [
                 {
                 "name": "rented_movie",

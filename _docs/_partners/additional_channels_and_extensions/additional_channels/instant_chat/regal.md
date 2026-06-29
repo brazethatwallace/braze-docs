@@ -273,8 +273,6 @@ To create a Data Transformation:
 2. Give your transformation a name and click **Create transformation**.
 3. From the list of transformations, select <i class="fa-solid fa-ellipsis-vertical" title="View actions"></i> **View actions** and select **Copy webhook URL**.
 
-![]({% image_buster /assets/img/regal/copy_webhook_url.png %})
-
 ### Step 2: Enable reporting webhooks in Regal
 
 To set up reporting webhooks:
@@ -283,8 +281,6 @@ To set up reporting webhooks:
 2. In the **Reporting Webhooks** section, click **Create Webhooks**.
 
 3. In the webhook endpoint input, add the Braze Data Transformation webhook URL for the associated Data Transformation.
-
-![]({% image_buster /assets/img/regal/edit_webhook.png %}){: style="max-width:60%;"}
 
 #### Updating an endpoint
 
@@ -329,18 +325,18 @@ Below is a sample payload for a `call.completed` event in Regal.
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "call.completed",
   "properties": {
-    "agent_firstname": "Rebecca",
-    "agent_fullname": "Rebecca Greene",
-    "agent_id": "xxxx@yourbrand.com",
+    "agent_firstname": "Alex",
+    "agent_fullname": "Alex Lee",
+    "agent_id": "xxxx@example.com",
     "direction": "OUTBOUND",
-    "regal_voice_phone": "+19545558563",
+    "regal_voice_phone": "+15555550200",
     "regal_voice_phone_internal_name": "Sales Line",
-    "contact_phone": "+17625555555",
+    "contact_phone": "+15555550123",
     "call_id": "WTxxxxx9",
     "type": "Outbound Call",
     "disposition": "Converted During Convo",
@@ -427,13 +423,13 @@ Below is a sample payload for a `contact.attribute.edited` event in Regal. Regal
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "contact.attribute.edited",
   "properties": {
-    "agent_email": "xxxx@yourbrand.com",
-    "contact_phone": "+17625555555",
+    "agent_email": "xxxx@example.com",
+    "contact_phone": "+15555550123",
     "changes": {
       "custom_properties": {
         "annual_income": {
@@ -491,8 +487,8 @@ Below is a sample payload for a `contact.experiment.assigned` event in Regal.
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "contact.experiment.assigned",
   "properties": {
@@ -554,8 +550,8 @@ Below is a sample payload for a `contact.unsubscribed` event in Regal.
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com",
+    "phone": "+15555550123",
+    "email": "xxx@example.com",
     "ip": "78.97.213.166"
   },
   "name": "contact.unsubscribed",
@@ -617,11 +613,11 @@ Below is a sample payload for a `call.analysis.available` event in Regal.
 {
   "traits": {
     "phone": "+1XXXXXXXXXX",
-    "email": "xxx@gmail.com"
+    "email": "xxx@example.com"
   },
   "name": "call.analysis.available",
   "brand": "circle-bank",
-  "contact_email": "xxx@gmail.com",
+  "contact_email": "xxx@example.com",
   "contact_phone": "+1XXXXXXXXXX",
   "created_at": "1754079836",
   "entity_type": "event",
@@ -631,7 +627,7 @@ Below is a sample payload for a `call.analysis.available` event in Regal.
   "original_timestamp": "1754079835",
   "profile_id": "62653af1111111173af128291e92",
   "properties": {
-    "agent_email": "xxx@yourbrand.com",
+    "agent_email": "xxx@example.com",
     "call_analysis": {
       "purchase_intent": "medium",
       "primary_objection": "price",
@@ -652,7 +648,7 @@ Below is a sample payload for a `call.analysis.available` event in Regal.
     "is_ai_agent": true,
     "outgoing_sip_headers": {
       "Via": "SIP/2.0/TCP srv2.example.com;branch=z9hG4bKgsdh7723",
-      "To": "<sip:agent@yourbrand.com>",
+      "To": "<sip:agent@example.com>",
       "User-Agent": "RegalVoiceAI/1.0"
     },
     "task_id": "WT7f3ea47fa6e6055aa847f0a62111111"
@@ -677,16 +673,16 @@ Below is a sample payload for a `call.transcript.available` event in Regal.
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625551796",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "call.transcript.available",
   "properties": {
-    "agent_email": "xxx@yourbrand.com",
+    "agent_email": "xxx@example.com",
     "task_id": "WT953358e8822dd9333fc38dfbac25e1e1",
-    "call_summary": "The agent Zoe explained insurance options to Joe and he said he'll need to think about it before moving forward Agent politely ended the call.",
-    "contact_name": "Joe Smith",
-    "contact_phone": "+13523182825",
+    "call_summary": "The agent Yuri explained insurance options to Alex and he said he'll need to think about it before moving forward Agent politely ended the call.",
+    "contact_name": "Alex Smith",
+    "contact_phone": "+15555550123",
     "is_voicemail": false,
     "moments_count": 18,
     "recording_id": "RE0118052841b7299d0630d1dff610c1fb",
@@ -697,8 +693,8 @@ Below is a sample payload for a `call.transcript.available` event in Regal.
     "sentiments": {
       "contact_sentiment": 70,
       "agent_sentiment": 75,
-      "agent_sentiment_reason": "Zoe was polite and attentive, effectively gathering information and providing a resource, which contributed to a positive interaction.",
-      "contact_sentiment_reason": "Joe was satisfied with the information provided but may have wanted more assistance regarding insurance options."
+      "agent_sentiment_reason": "Yuri was polite and attentive, effectively gathering information and providing a resource, which contributed to a positive interaction.",
+      "contact_sentiment_reason": "Alex was satisfied with the information provided but may have wanted more assistance regarding insurance options."
     },
     "trackers": [
       {
@@ -710,7 +706,7 @@ Below is a sample payload for a `call.transcript.available` event in Regal.
         "tracker_name": "High Intent"
       }
     ],
-    "transcript": "[handling agent]: Hi Joe, this is Zoe with BrightCover Insurance. I'll be going over some insurance options with you today. [contact]: Sounds good. [handling agent]: Before we start, I'm going to transfer you to a specialist for a moment. One sec. [transfer agent]: Hi Joe, this is Mark. Just verifying a few details before sending you back to Zoe. [contact]: Okay. [handling agent]: Thanks, Joe. Based on what you shared, here are some plan options... [contact]: I'll need to think about it. [handling agent]: Totally understandable. Feel free to reach out anytime. Have a great day! END OF TRANSCRIPT",
+    "transcript": "[handling agent]: Hi Alex, this is Yuri with BrightCover Insurance. I'll be going over some insurance options with you today. [contact]: Sounds good. [handling agent]: Before we start, I'm going to transfer you to a specialist for a moment. One sec. [transfer agent]: Hi Alex, this is Lee. Just verifying a few details before sending you back to Yuri. [contact]: Okay. [handling agent]: Thanks, Alex. Based on what you shared, here are some plan options... [contact]: I'll need to think about it. [handling agent]: Totally understandable. Feel free to reach out anytime. Have a great day! END OF TRANSCRIPT",
     "transcript_is_truncated": false,
     "transcript_url": "https://app.regalvoice.com/transcripts/WT953358e8822dd9333fc38dfbac25e1e1"
   },

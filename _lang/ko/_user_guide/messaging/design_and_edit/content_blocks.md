@@ -22,7 +22,7 @@ tool:
 {% tabs %}
 {% tab 드래그 앤 드롭 %}
 
-{% multi_lang_include create_content_block.md location="dnd" %}
+{% multi_lang_include messaging/create_content_block.md location="dnd" %}
 
 {% alert important %}
 각 드래그 앤 드롭 콘텐츠 블록은 하나의 행으로 제한됩니다. 그러나 드래그 앤 드롭 편집기 블록을 사용하여 이메일 메시징에 맞게 콘텐츠 블록을 구축하고 커스터마이즈할 수 있습니다.
@@ -31,7 +31,7 @@ tool:
 {% endtab %}
 {% tab HTML %}
 
-{% multi_lang_include create_content_block.md location="html" %}
+{% multi_lang_include messaging/create_content_block.md location="html" %}
 
 {% endtab %}
 {% endtabs %}

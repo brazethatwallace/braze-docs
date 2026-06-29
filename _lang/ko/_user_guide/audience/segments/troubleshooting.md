@@ -10,7 +10,7 @@ description: "이 참조 문서에서는 Segment 오류, 사용자 자격, 필�
 
 # Segment 문제 해결 {#troubleshoot-segments}
 
-> 아래에서 증상을 찾아 해당 섹션으로 이동하세요. 이 페이지에서는 시작 오류, 사용자 자격, 필터 문제 및 분석 불일치를 다룹니다. 필터 정의는 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)를 참조하세요. Segment 크기 추정, 정확한 수 및 과거 멤버십 차트에 대해서는 [Segment 크기 측정]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/)을 참조하세요.
+> 아래에서 증상을 찾아 해당 섹션으로 이동하세요. 이 페이지에서는 시작 오류, 사용자 자격, 필터 문제 및 분석 불일치를 다룹니다. 필터 정의는 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)를 참조하세요. Segment 크기 추정, 정확한 수 및 과거 멤버십 차트에 대해서는 [Segment 크기 측정]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size)을 참조하세요.
 
 ## 시작하기: 증상 매칭 {#start-here-match-your-symptom}
 
@@ -32,24 +32,24 @@ description: "이 참조 문서에서는 Segment 오류, 사용자 자격, 필�
 사용자가 Segment에 포함되어야 하는데 포함되지 않거나, Segment 수가 잘못된 것처럼 보일 때 이 워크플로를 사용하세요.
 
 1. **시작 차단:** Campaign 또는 Canvas에서 오디언스 복잡도 또는 10,000바이트 필터 오류가 표시되면 [오류](#errors)(CSV 우회 방법, 필터 단순화)부터 시작하세요.
-2. **사용자 미리보기 또는 사용자 조회:** Segment 필터에 대해 특정 사용자를 테스트하세요. 사용자가 기준의 일부 또는 전체와 일치하지 않으면, 문제 해결을 위해 누락된 기준이 나열됩니다. 단계는 Segment 생성의 [Segment 테스트]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments)를 참조하세요.
-3. **정확한 통계 계산:** Segment 추정치가 0명의 사용자를 표시하거나 잘못된 것 같으면, **도달 가능 사용자** 패널에서 **정확한 통계 계산**을 선택하세요. 계산하기 전에 Segment를 저장하세요. 계산이 이미 실행 중이면 완료될 때까지 기다리세요. 새 계산이 완료될 때까지 오래된 수치가 표시될 수 있습니다. 자세한 내용은 [정확한 통계 계산]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/#calculating-exact-statistics)을 참조하세요.
+2. **사용자 미리보기 또는 사용자 조회:** Segment 필터에 대해 특정 사용자를 테스트하세요. 사용자가 기준의 일부 또는 전체와 일치하지 않으면, 문제 해결을 위해 누락된 기준이 나열됩니다. 단계는 Segment 생성의 [Segment 테스트]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments)를 참조하세요.
+3. **정확한 통계 계산:** Segment 추정치가 0명의 사용자를 표시하거나 잘못된 것 같으면, **도달 가능 사용자** 패널에서 **정확한 통계 계산**을 선택하세요. 계산하기 전에 Segment를 저장하세요. 계산이 이미 실행 중이면 완료될 때까지 기다리세요. 새 계산이 완료될 때까지 오래된 수치가 표시될 수 있습니다. 자세한 내용은 [정확한 통계 계산]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics)을 참조하세요.
 4. **필터 값 확인:** 오타, 데이터 유형 불일치, 오래된 캔버스 단계 참조 및 [부정 필터 + OR 로직](#segment-is-much-larger-than-expected)을 확인하세요.
 5. **복잡도 확인:** 시작이 차단된 경우 [타겟 오디언스가 너무 복잡하여 시작할 수 없음](#target-audience-is-too-complex-to-launch)을 참조하세요.
-6. **고객지원에 문의:** 필터 최적화에 대한 추가 지원이 필요하면 [고객지원에 문의]({{site.baseurl}}/braze_support/)하세요.
+6. **고객지원에 문의:** 여전히 차단된 경우 [Braze 고객지원]({{site.baseurl}}/braze_support)에 문의하세요.
 
 ## Segment에 사용자가 0명으로 표시됨 {#segment-shows-zero-users}
 
 대시보드의 Segment 크기는 사용자 샘플을 기반으로 한 추정치인 경우가 많습니다. 매우 작은 Segment는 필터와 일치하는 사용자가 있더라도 0을 포함하는 추정 범위를 표시할 수 있습니다.
 
-- 정확한 수를 확인하려면 **도달 가능 사용자** 패널에서 **정확한 통계 계산**을 선택하세요. 먼저 Segment를 저장하세요. 자세한 내용은 [추정 수에 대한 고려 사항]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/#considerations-for-estimate-counts)을 참조하세요.
-- 작은 Segment에 대해 **사용자 미리보기**가 0명의 사용자를 반환하더라도 반드시 Segment가 비어 있다는 의미는 아닙니다. 확인하려면 **정확한 통계 계산**을 실행하세요. 자세한 내용은 [사용자 미리보기]({{site.baseurl}}/user_guide/audience/segments/segment_data/#user-preview)를 참조하세요.
+- 정확한 수를 확인하려면 **도달 가능 사용자** 패널에서 **정확한 통계 계산**을 선택하세요. 먼저 Segment를 저장하세요. 자세한 내용은 [추정 수에 대한 고려 사항]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#considerations-for-estimate-counts)을 참조하세요.
+- 작은 Segment에 대해 **사용자 미리보기**가 0명의 사용자를 반환하더라도 반드시 Segment가 비어 있다는 의미는 아닙니다. 확인하려면 **정확한 통계 계산**을 실행하세요. 자세한 내용은 [사용자 미리보기]({{site.baseurl}}/user_guide/audience/segments/segment_data#user-preview)를 참조하세요.
 
 ## 소급 Segment 멤버십 {#retroactive-segment-membership}
 
 Braze는 사용자별 과거 Segment 멤버십을 저장하지 않습니다. 특정 사용자가 과거 발송 시점에 Segment에 포함되어 있었는지 조회할 수 없습니다.
 
-특정 시점의 멤버십을 캡처하려면, Campaign 또는 Canvas를 발송하기 전에 대시보드에서 Segment의 사용자를 내보내거나 [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) 엔드포인트를 호출하세요. 자세한 내용은 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)(Segment 멤버십 필터) 및 [Segment 데이터를 CSV로 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/)를 참조하세요.
+특정 시점의 멤버십을 캡처하려면, Campaign 또는 Canvas를 발송하기 전에 대시보드에서 Segment의 사용자를 내보내거나 [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) 엔드포인트를 호출하세요. 자세한 내용은 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)(Segment 멤버십 필터) 및 [Segment 데이터를 CSV로 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv)를 참조하세요.
 
 ## 오류 {#errors}
 
@@ -65,10 +65,10 @@ Campaign, Canvas 또는 Segment가 임계값을 초과하여 시작할 수 없�
 
 - 오디언스가 여러 Segment를 참조하는 경우, 동일한 필터가 여러 Segment에 나타나는 등의 중복이 없는지 확인하세요.
 - Segment 필터에서 오래된 데이터를 참조하고 있지 않은지 확인하세요. 예를 들어, Canvas가 몇 달 전에 중지되었음에도 불구하고 지난 주에 특정 캔버스 단계를 받지 않은 사용자를 찾는 오래된 필터가 있을 수 있습니다.
-- 사용자 ID 또는 이메일 목록에 불과한 Segment(주로 정규식 필터를 사용하는 경우)는 [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/)로 변환하여 단일 CSV 필터로 단순화할 수 있습니다.
+- 사용자 ID 또는 이메일 목록에 불과한 Segment(주로 정규식 필터를 사용하는 경우)는 [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)로 변환하여 단일 CSV 필터로 단순화할 수 있습니다.
 - CDI를 사용하는 경우, 데이터 웨어하우스에서 직접 그룹을 가져오는 CDI Segment를 생성할 수 있습니다.
 
-필터 최적화에 대한 추가 지원이 필요하면 [고객지원에 문의]({{site.baseurl}}/braze_support/)할 수도 있습니다.
+필터 최적화에 대한 추가 지원이 필요하면 [고객지원에 문의]({{site.baseurl}}/braze_support)할 수도 있습니다.
 
 {% alert note %}
 문자 수 제한은 2025년 4월부터 적용되기 시작했습니다. 2025년 4월 이전에 시작된 Campaigns 및 Canvases는 면제되어 제한을 계속 초과할 수 있지만, 새로 생성된 Campaigns 및 Canvases는 제한을 초과할 수 없습니다. 면제된 Campaign 또는 Canvas를 편집하거나 복제하는 경우, 오디언스가 제한 이하로 업데이트될 때까지 시작할 수 없습니다.
@@ -92,7 +92,7 @@ Braze는 개별 Segment 필터를 최대 10,000바이트로 제한하며, 이는
 
 1. 영향을 받는 Segment 또는 특정 정규식 필터에서 사용자를 내보냅니다.
 2. 필요에 따라 CSV를 정리합니다. Braze ID 또는 Appboy ID가 필요하지만, 필요하지 않은 다른 열은 모두 제거할 수 있습니다. 또한 데이터가 최신인지 확인하는 것이 좋습니다(예: 더 이상 타겟팅하지 않는 사용자를 제거).
-3. CSV 파일을 다시 [가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/)하면 사용자가 자동으로 단일의 매우 효율적인 CSV 기반 필터로 그룹화됩니다.
+3. CSV 파일을 다시 [가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)하면 사용자가 자동으로 단일의 매우 효율적인 CSV 기반 필터로 그룹화됩니다.
 
 ## 사용자 동작 {#user-behavior}
 
@@ -100,7 +100,7 @@ Braze는 개별 Segment 필터를 최대 10,000바이트로 제한하며, 이는
 
 Segment를 생성할 때 사용자를 찾을 수 없는 경우, Segment 자격을 결정하는 사용자 데이터가 해당 사용자의 자체 활동이나 이전에 상호작용한 다른 Campaigns 및 Canvases의 결과로 변경되었을 수 있습니다. 재자격이 활성화되어 있으면 고객 프로필에 수신된 Campaign의 최신 데이터가 표시됩니다.
 
-특정 사용자가 현재 Segment와 일치하는지 테스트하려면 [사용자 미리보기 또는 사용자 조회]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments)를 사용하세요.
+특정 사용자가 현재 Segment와 일치하는지 테스트하려면 [사용자 미리보기 또는 사용자 조회]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments)를 사용하세요.
 
 ### 특정 앱으로 필터링할 때 다른 앱의 사용자 정보가 표시됨 {#info-displays-for-users-of-other-apps-when-i-filter-for-a-specific-app}
 
@@ -112,17 +112,17 @@ Segment를 생성할 때 사용자를 찾을 수 없는 경우, Segment 자격�
 
 필터 옵션은 커스텀 속성에 대해 Braze에 전달하는 형식(데이터 유형)과 관련이 있습니다. Braze가 커스텀 속성에 대해 인식하는 데이터 유형을 확인하려면 **데이터 설정** > **커스텀 속성**으로 이동하세요.
 
-필터 옵션이 변경된 경우, 이는 데이터가 이전과 다른 형식(데이터 유형)으로 Braze에 전달되고 있음을 나타냅니다. 다양한 데이터 유형과 필터링 옵션에 대한 자세한 설명은 [커스텀 속성 데이터 유형]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types)을 참조하세요.
+필터 옵션이 변경된 경우, 이는 데이터가 이전과 다른 형식(데이터 유형)으로 Braze에 전달되고 있음을 나타냅니다. 다양한 데이터 유형과 필터링 옵션에 대한 자세한 설명은 [커스텀 속성 데이터 유형]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types)을 참조하세요.
 
 대시보드에서 커스텀 속성의 데이터 유형을 변경하면 다른 형식으로 Braze에 전송되는 데이터가 거부된다는 점에 유의하세요. 해당 속성이 활성 Campaigns, Canvases 또는 Segments에서 참조되고 있는 동안에는 커스텀 속성의 데이터 유형을 변경할 수 없으며, 대시보드에서 오류가 표시되고 변경이 차단됩니다.
 
-커스텀 속성의 **값** 탭은 약 250,000명의 사용자 샘플에서 가져온 결과를 표시합니다. 문제 해결을 위해 특정 속성 값이 존재하는지 확인하는 데 **값** 탭을 사용하지 마세요. 자세한 내용은 [값 탭]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#values-tab)을 참조하세요.
+커스텀 속성의 **값** 탭은 약 250,000명의 사용자 샘플에서 가져온 결과를 표시합니다. 문제 해결을 위해 특정 속성 값이 존재하는지 확인하는 데 **값** 탭을 사용하지 마세요. 자세한 내용은 [값 탭]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#values-tab)을 참조하세요.
 
 ### Segment가 예상보다 훨씬 큼 {#segment-is-much-larger-than-expected}
 
 제한적으로 보이는 필터에도 불구하고 Segment가 예상보다 훨씬 큰 경우, 동일한 속성에 대해 부정 필터(`다음이 아님`, `같지 않음`, `정규식과 일치하지 않음` 또는 `포함되지 않음`)를 **OR** 연산자와 함께 두 번 이상 사용하고 있는지 확인하세요. 이 조합은 해당 속성의 모든 값을 가진 사용자를 타겟팅할 수 있습니다.
 
-**AND** 대신 **OR**을 사용해야 하는 경우에 대한 안내는 Segment 생성의 [OR 연산자를 피해야 하는 경우]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#when-to-avoid-the-or-operator)를 참조하세요.
+**AND** 대신 **OR**을 사용해야 하는 경우에 대한 안내는 Segment 생성의 [OR 연산자를 피해야 하는 경우]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#when-to-avoid-the-or-operator)를 참조하세요.
 
 ## 분석 및 보고 {#analytics-and-reporting}
 
@@ -138,9 +138,9 @@ Campaign 분석의 *발송된 메시지* 또는 *고유 수신자* 수가 Segmen
 
 ### 사용자가 하나의 앱에서만 세션을 기록했음에도 두 개의 앱에 할당됨 {#user-is-assigned-to-two-apps-despite-logging-a-session-in-only-one-app}
 
-Segment를 생성할 때 [특정 앱을 사용한]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#step-3-choose-your-app-or-platform) 사용자를 타겟팅할 수 있습니다. 사용자가 특정 앱에 할당되려면 해당 앱에서 세션이 있어야 하지만, 앱에서 세션을 기록하지 않고도 특정 앱에 할당될 수 있는 두 가지 시나리오가 있습니다.
+Segment를 생성할 때 [특정 앱을 사용한]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#step-3-choose-your-app-or-platform) 사용자를 타겟팅할 수 있습니다. 사용자가 특정 앱에 할당되려면 해당 앱에서 세션이 있어야 하지만, 앱에서 세션을 기록하지 않고도 특정 앱에 할당될 수 있는 두 가지 시나리오가 있습니다.
 
-첫 번째 시나리오는 `/users/track` 엔드포인트를 사용할 때 `app_id` 필드가 채워지는 경우입니다. 구체적으로 다음 예시와 같이 [이벤트]({{site.baseurl}}/api/objects_filters/event_object/) 또는 [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object/)를 사용할 때입니다:
+첫 번째 시나리오는 `/users/track` 엔드포인트를 사용할 때 `app_id` 필드가 채워지는 경우입니다. 구체적으로 다음 예시와 같이 [이벤트]({{site.baseurl}}/api/objects_filters/event_object) 또는 [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object)를 사용할 때입니다:
 
 ```json
 {

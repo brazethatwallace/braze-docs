@@ -49,7 +49,7 @@ Next, select the message engagement events you would like to export. Reference t
 
 Keep in mind, Braze only sends event data for users without an `external_user_id` if **Include events from anonymous users** is checked.
 
-{% multi_lang_include early_access_beta_alert.md feature='Anonymous user export' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Anonymous user export' %}
 
 ![List of all available message engagement events on the Segment Currents page in Braze.]({% image_buster /assets/img/segment/segment_currents_data_config.png %})
 
@@ -61,7 +61,7 @@ To read more, visit Segment [documentation](https://segment.com/docs/connections
 
 ## Updating your Current
 
-{% multi_lang_include updating_currents.md %}
+{% multi_lang_include currents/updating_currents.md %}
 
 ## Supported Currents events
 

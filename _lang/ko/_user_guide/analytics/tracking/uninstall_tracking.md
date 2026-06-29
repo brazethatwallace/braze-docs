@@ -47,7 +47,7 @@ iOS 애플리케이션의 제거 추적을 구성하려면 [유틸리티 메서�
 
 ![제거 Segment.]({% image_buster /assets/img_archive/Uninstall_Segment.png %} "Uninstall Segment")
 
-그래프는 Braze가 제공하는 다른 통계와 마찬가지로 앱과 Segment별로 세분화할 수 있습니다. **Performance overview** 섹션에서 날짜 범위를 선택하고, 원하는 경우 앱을 선택합니다. 그런 다음 **Performance Over Time** 그래프로 스크롤하여 다음을 수행합니다:
+그래프는 Braze가 제공하는 다른 통계와 마찬가지로 앱과 Segment별로 세분화할 수 있습니다. **성과 개요** 섹션에서 날짜 범위를 선택하고, 원하는 경우 앱을 선택합니다. 그런 다음 **시간별 성과** 그래프로 스크롤하여 다음을 수행합니다:
 
 1. **Statistics For** 드롭다운에서 **Uninstalls**를 선택합니다.
 2. **Breakdown** 드롭다운에서 **By segment**를 선택합니다.
@@ -81,6 +81,10 @@ Braze는 다음 FCM 응답을 토큰 제거(제거) 응답으로 처리합니다
 
 ## 문제 해결 {#troubleshooting}
 
+### 사용자의 프로필이 제거로 표시되는 시점은 언제인가요? 제거 태그는 언제 해제되나요? {#when-is-a-users-profile-flagged-as-uninstalled-when-is-the-uninstall-tag-cleared}
+
+Braze는 기기에 앱이 더 이상 없음을 감지하면 해당 사용자를 제거로 표시합니다(감지 방법에 대한 자세한 내용은 [작동 방식](#how-it-works)을 참조하세요). 사용자가 앱을 다시 설치한 후에도 **앱을 열고 새 세션을 시작**할 때까지 제거 태그가 프로필에 남아 있을 수 있습니다. 다시 설치하는 것만으로는 태그가 해제되지 않습니다. 해당 세션이 시작될 때까지 제거 상태를 사용하는 Segment와 필터(예: **Has Not Uninstalled**)는 해당 사용자를 여전히 제거된 것으로 처리합니다.
+
 ### 갑자기 제거가 급증하는 이유는 무엇인가요? {#why-am-i-suddenly-seeing-a-spike-in-uninstalls}
 
 앱 제거가 급증하는 경우, Firebase 클라우드 메시징(FCM)과 Apple 푸시 알림 서비스(APNs)가 오래된 토큰을 다른 주기로 해지하기 때문일 수 있습니다.
@@ -97,7 +101,7 @@ Segment별 제거를 확인하려면:
 1. 대시보드의 **홈** 페이지로 이동합니다.
 2. **Performance Over Time** 섹션에서 **Statistics For**에 **Uninstalls**를, **Breakdown**에 **By Segment**를 선택합니다.
 
-[분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/)이 활성화된 이탈 사용자 추적 Segment가 있는 경우, 해당 Segment의 제거 추세를 전체 앱 추세와 비교하세요.
+[분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)이 활성화된 이탈 사용자 추적 Segment가 있는 경우, 해당 Segment의 제거 추세를 전체 앱 추세와 비교하세요.
 
 ### 제거가 실제인지 어떻게 확인하나요? {#how-do-i-confirm-uninstalls-are-genuine}
 

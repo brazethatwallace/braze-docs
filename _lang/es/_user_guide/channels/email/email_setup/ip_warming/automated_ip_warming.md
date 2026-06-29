@@ -11,7 +11,7 @@ channel: email
 
 > Utiliza el calentamiento de IP automatizado para aumentar gradualmente el volumen de correos electrónicos desde una nueva dirección IP y así mejorar la reputación del remitente ante los proveedores de buzón de entrada.
 
-{% multi_lang_include early_access_beta_alert.md feature='Automated IP warming' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Automated IP warming' %}
 
 ## Cómo funciona
 

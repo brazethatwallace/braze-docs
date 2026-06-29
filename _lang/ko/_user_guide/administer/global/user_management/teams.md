@@ -18,7 +18,7 @@ Teams는 고객 기반 위치, 언어, 커스텀 속성에 따라 설정할 수 
 
 ## Teams는 권한 세트 및 역할과 어떻게 다른가요? {#how-do-teams-differ-from-permission-sets-and-roles}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Teams 생성 {#creating-teams}
 

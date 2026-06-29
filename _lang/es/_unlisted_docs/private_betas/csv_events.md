@@ -10,7 +10,7 @@ page_type: reference
 
 > Braze ofrece diversas formas de importar datos de usuario a la plataforma: SDK, API, Ingesta de datos de Cloud, integraciones de socios tecnológicos y archivos CSV. Este artículo proporciona instrucciones detalladas sobre cómo importar datos de usuario, incluyendo cómo [importar eventos personalizados a través de archivos CSV (acceso anticipado)](#importing-custom-events).
 
-{% multi_lang_include email-via-sms-warning.md %}
+{% multi_lang_include channels/sms/email_via_sms_warning.md %}
 
 Antes de continuar, ten en cuenta que Braze no sanea (valida ni formatea correctamente) los datos HTML durante la importación. Esto significa que las etiquetas de script deben eliminarse de todos los datos de importación destinados a la personalización web.
 

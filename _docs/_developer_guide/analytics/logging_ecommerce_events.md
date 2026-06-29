@@ -11,7 +11,7 @@ platform:
 
 # Log eCommerce events
 
-> Learn how to log [eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/) through the Braze Android, Swift, and Web SDKs using typed event classes and `logEcommerceEvent`. For event property schemas, platform features, and ingestion validation, see [Recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/) and [Event validation and troubleshooting]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-validation-and-troubleshooting).
+> Learn how to log [eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) through the Braze Android, Swift, and Web SDKs using typed event classes and `logEcommerceEvent`. For event property schemas, platform features, and ingestion validation, see [Recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events) and [Event validation and troubleshooting]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-validation-and-troubleshooting).
 
 {% alert note %}
 For wrapper SDKs not listed, use the relevant native Android or Swift method instead.
@@ -19,7 +19,7 @@ For wrapper SDKs not listed, use the relevant native Android or Swift method ins
 
 ## Event schemas
 
-The six eCommerce recommended events share an order-level schema across all platforms. Use the following property tables when you build each event payload. For the canonical schema with full validation behavior and REST API examples, see [Recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-schemas). For platform features such as segmentation, Canvas templates, and reporting, see [How to use eCommerce events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/).
+The six eCommerce recommended events share an order-level schema across all platforms. Use the following property tables when you build each event payload. For the canonical schema with full validation behavior and REST API examples, see [Recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-schemas). For platform features such as segmentation, Canvas templates, and reporting, see [How to use eCommerce events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 
 {% tabs local %}
 {% tab product_viewed %}
@@ -1273,6 +1273,6 @@ braze.logCustomEvent("ecommerce.order_refunded", {
 To manually log a recommended event, call `logCustomEvent` with the exact event name (for example, `ecommerce.product_viewed`) and a manually built `BrazeProperties` or `JSONObject` payload. The SDK does not validate recommended-event schemas for manual calls. Braze validates these payloads during ingestion:
 
 - Valid payloads are processed as recommended events with full post-processing.
-- Invalid payloads (missing required fields, wrong types, extra top-level properties) are dropped after ingestion. Failures appear in the workspace SDK processing log and the [failure summary email]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#find-failures).
+- Invalid payloads (missing required fields, wrong types, extra top-level properties) are dropped after ingestion. Failures appear in the workspace SDK processing log and the [failure summary email]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#find-failures).
 
-Use `logEcommerceEvent` when possible so you catch invalid data before it leaves the app. For general `logCustomEvent` usage, see [Log custom events]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android).
+Use `logEcommerceEvent` when possible so you catch invalid data before it leaves the app. For general `logCustomEvent` usage, see [Log custom events]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android).

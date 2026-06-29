@@ -281,7 +281,7 @@ Você também pode definir a duração da campanha, especificar o [horário de s
 
 Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo segmentos ou filtros. A Braze mostra uma pré-visualização ao vivo da população do segmento, incluindo quantos usuários são alcançáveis por e-mail. A associação exata ao segmento é calculada logo antes do envio.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 Você também pode optar por enviar sua campanha apenas para usuários que tenham um [status de inscrição]({{site.baseurl}}/user_guide/channels/email/subscriptions/) específico, como aqueles que estão inscritos e optaram por receber e-mail.
 

@@ -37,7 +37,7 @@ Shopifyストアに Brazeアプリをインストールし、最初のストア�
 
 ニーズに最も適したオプションを選択します。
 
-{% multi_lang_include shopify.md section='Integration Tabs' %}
+{% multi_lang_include partners/shopify.md section='Integration Tabs' %}
 
 各ストアの統合を表示し、詳細設定を行うには、ドロップダウンメニューからストアを選択します。
 

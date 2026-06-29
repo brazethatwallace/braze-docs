@@ -150,7 +150,7 @@ Der Countdown beginnt, wenn Nutzer:innen das Banner schließen. Nach Ablauf des 
 
 1. Wählen Sie unter **Target Audiences** Segmente oder Filter aus, um Ihre Zielgruppe einzugrenzen. Sie erhalten automatisch eine Vorschau der ungefähren Segment-Population. Die genaue Segment-Zugehörigkeit wird berechnet, bevor die Nachricht gesendet wird.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 {:start="2"}
 2. Verfolgen Sie unter **Assign Conversions**, wie oft Nutzer:innen bestimmte Aktionen nach Erhalt einer Kampagne ausführen, indem Sie Konversions-Events mit einem Zeitfenster von bis zu 30 Tagen definieren, um die Aktion als Conversion zu zählen.

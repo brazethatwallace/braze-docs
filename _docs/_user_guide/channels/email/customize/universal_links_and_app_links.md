@@ -439,7 +439,7 @@ It's important to ensure that these files are always publicly accessible. If you
 
 Make sure you have the correct definitions for domains your app is allowed to open.
 
-- **iOS:** Review the Associated Domains set up in Xcode for your app ([Step 1c: Turn on Associated Domains in your Xcode project]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Check that the click-tracking domain is included in that list.
+- **iOS:** Review the Associated Domains set up in Xcode for your app ([Step 1c: Turn on Associated Domains in your Xcode project]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links?tab=ios#step-1c)). Check that the click-tracking domain is included in that list.
 - **Android:** Open the app info page (long press the app icon and click ⓘ). Within the app info menu, locate **Open by default** and tap that. This should show a screen with all verified links the app is allowed to open. Check that the click-tracking domain is included in that list.
 
 #### Tracking domain can't serve .well-known files

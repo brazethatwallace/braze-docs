@@ -20,7 +20,7 @@ description: "このリファレンス記事では、モーダルアプリ内メ
 
 ## 画像の仕様 {#image-specifications}
 
-{% multi_lang_include image_specs.md variable_name='in-app messages' %}
+{% multi_lang_include channels/image_specs.md variable_name='in-app messages' %}
 
 ## 大きな画面 {#larger-screens}
 

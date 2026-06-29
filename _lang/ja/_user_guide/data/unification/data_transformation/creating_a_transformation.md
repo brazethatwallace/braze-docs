@@ -28,7 +28,7 @@ Brazeに接続する外部プラットフォームを特定し、そのプラッ
 
 ## ステップ2:変換の作成 {#step-2-create-a-transformation}
 
-{% multi_lang_include create_transformation.md location="default" %}
+{% multi_lang_include data_activation/create_transformation.md location="default" %}
 
 ## ステップ3:テストWebhookの送信（推奨） {#step-3-send-a-test-webhook-recommended}
 

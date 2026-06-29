@@ -17,7 +17,7 @@ hidden: true
 - **Ende Februar bis April:** Sie erhalten Benachrichtigungen darüber, wann Ihre spezifische Gruppe (Kohorte) für das Upgrade bereit ist. Achten Sie auf diese wichtigen Informationen.
 - **Upgrade-Frist:** Alle Kund:innen müssen das Upgrade bis zum **28. August 2025** abschließen.
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## Was ändert sich an der Shopify-Integration? {#whats-changing-in-the-shopify-integration}
 

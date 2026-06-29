@@ -20,7 +20,7 @@ description: "この記事では、メッセージでロケールを使用する
 {% tabs %}
 {% tab 多言語ロケール %}
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 {% endtab %}
 {% tab メッセージタイプ %}

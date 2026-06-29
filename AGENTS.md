@@ -20,6 +20,7 @@ For the full reference — descriptions, when-to-use guidance, and invocation sy
 | [`salesforce-migration`](.github/skills/salesforce-migration/SKILL.md) | Jira SF KB migration tickets and `_data/sf_*.xml` / CSV workflows |
 | [`image-pruner`](.github/skills/image-pruner/SKILL.md) | Finding and removing unreferenced `assets/img/` files (all locales) |
 | [`screenshot-pii-audit`](.github/skills/screenshot-pii-audit/SKILL.md) | OCR audit of screenshots for PII before PRs; CI blocking check |
+| [`snippet-pii`](scripts/check_snippet_pii.py) | Advisory fenced-code-block PII scan for `_docs/` and `_includes/` (see `check-snippet-pii.yml`) |
 | [`tam-solutions`](.github/skills/tam-solutions/SKILL.md) | Converting TAM solution assets into public User Guide example articles |
 
 ## How to invoke (Cursor)

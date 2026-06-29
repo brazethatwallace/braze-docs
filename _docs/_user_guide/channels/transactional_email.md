@@ -15,11 +15,11 @@ description: "Send transactional emails for critical, time-sensitive notificatio
 
 ## Prerequisites
 
-Transactional email is only available as part of select Braze packages. Contact your Braze customer success manager or open a [support ticket]({{site.baseurl}}/braze_support/) for more details.
+Transactional email is only available as part of select Braze packages. Contact your Braze customer success manager or open a [support ticket]({{site.baseurl}}/braze_support) for more details.
 
 Before you start, make sure you have the following:
 
-- Completed [email setup]({{site.baseurl}}/user_guide/channels/email/email_setup/), including IP and domain configuration, authentication, and IP warming
+- Completed [email setup]({{site.baseurl}}/user_guide/channels/email/email_setup), including IP and domain configuration, authentication, and IP warming
 - A **Braze REST API key** with the `transactional.send` permission
 
 ## Use cases
@@ -36,7 +36,7 @@ Transactional email is designed for sending non-promotional, service-triggered m
 
 ## How transactional email differs from marketing email
 
-Transactional emails are sent through a dedicated Braze [transactional HTTP API]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign/), which is optimized for speed and reliability. Unlike marketing emails, transactional emails:
+Transactional emails are sent through a dedicated Braze [transactional HTTP API]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign), which is optimized for speed and reliability. Unlike marketing emails, transactional emails:
 
 - Don't require a user to be opted in to marketing communications
 - Are triggered by API calls rather than scheduled or action-based triggers
@@ -44,5 +44,5 @@ Transactional emails are sent through a dedicated Braze [transactional HTTP API]
 
 ## Next steps
 
-- [Create a transactional email]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)
-- [Tracking]({{site.baseurl}}/user_guide/channels/transactional_email/tracking/)
+- [Create a transactional email]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)
+- [Tracking]({{site.baseurl}}/user_guide/channels/transactional_email/tracking)

@@ -180,7 +180,7 @@ Spécifiez vos contrôles de livraison, comme permettre aux utilisateurs de rede
 
 Ciblez les utilisateurs en choisissant des segments ou des filtres pour affiner votre audience. Vous devriez avoir déjà sélectionné le groupe d'abonnement, qui restreint les utilisateurs selon le niveau ou la catégorie de communication qu'ils souhaitent avoir avec vous.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 Ensuite, vous sélectionnerez l'audience plus large parmi vos segments et affinerez ce segment davantage avec des [filtres]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/) optionnels. Vous obtiendrez automatiquement un aperçu de ce à quoi ressemble approximativement la population de ce segment en ce moment. Gardez à l'esprit que l'appartenance exacte au segment est toujours calculée juste avant l'envoi du message.
 

@@ -60,7 +60,7 @@ alias: "/message_extras_tag/"
 
 ## プロモーションコード情報をCurrentsに送信する {#sending-promotion-code-information-to-currents}
 
-{% multi_lang_include shopify.md section='Liquid promotion codes with Currents' %}
+{% multi_lang_include partners/shopify.md section='Liquid promotion codes with Currents' %}
 
 ## 考慮事項 {#considerations}
 

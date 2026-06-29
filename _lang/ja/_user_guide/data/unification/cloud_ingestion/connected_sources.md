@@ -143,7 +143,7 @@ Brazeと接続情報を共有し、後のステップでユーザーに付加す
 
 Snowflakeアカウントの設定によっては、Snowflakeのネットワークポリシー内で以下のIPアドレスを許可する必要があります。この方法の詳細については、[ネットワークポリシーの変更](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies)に関するSnowflakeの関連ドキュメントを参照してください。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 {% endtab %}
 
 {% tab Redshift %}
@@ -171,7 +171,7 @@ GRANT SELECT ON TABLE USERS_ATTRIBUTES_SYNC TO braze_user;
 
 Redshiftクラスターにパブリックアクセスを許可しない場合は、SSHトンネルを使用してRedshiftデータにアクセスするようにVPCとEC2インスタンスを設定できます。詳しくは、[AWS：ローカルマシンからAmazon Redshiftのプライベートクラスターにアクセスするには？](https://repost.aws/knowledge-center/private-redshift-cluster-local-machine)を参照してください。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -198,7 +198,7 @@ GCPで、Brazeがテーブルに接続してデータを読み取るために使
 
 ネットワークポリシーを設定している場合は、BrazeにBigQueryインスタンスへのネットワークアクセスを許可する必要があります。Brazeダッシュボードのリージョンに対応する以下のIPからのアクセスを許可してください。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -226,7 +226,7 @@ BrazeがDatabricksにアクセスするには、パーソナルアクセスト�
 
 ネットワークポリシーを設定している場合は、BrazeにDatabricksインスタンスへのネットワークアクセスを許可する必要があります。Brazeダッシュボードのリージョンに対応する以下のIPからのアクセスを許可してください。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -265,7 +265,7 @@ Brazeを接続するには、ウェアハウスのSQLエンドポイントが必
 
 Microsoft Fabricアカウントの設定によっては、Brazeからのトラフィックを許可するように、ファイアウォールで以下のIPアドレスを許可する必要があります。これを有効にする方法の詳細については、[Entra Conditional Access](https://learn.microsoft.com/en-us/fabric/security/protect-inbound-traffic#entra-conditional-access)の関連ドキュメントを参照してください。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 

@@ -81,7 +81,7 @@ Brazeは、ユーザーが受信したメッセージに基づいてリターゲ
 
 このフィルターを使用して、指定した日付または日数の前後に特定のキャンペーンを最後に受信したユーザーを検索します。このフィルターは、ユーザーが他のキャンペーンを受信した時期は考慮しません。
 
-{% multi_lang_include segments.md section='same channel identifier' %}
+{% multi_lang_include audience/segments.md section='same channel identifier' %}
 
 ![]({% image_buster /assets/img_archive/last_received_specific_campaign.png %})
 
@@ -95,7 +95,7 @@ Brazeは、ユーザーが受信したメッセージに基づいてリターゲ
 
 このフィルターを使用して、ターゲットキャンペーンを受信した、またはしていないユーザーを検索します。
 
-{% multi_lang_include segments.md section='same channel identifier' %}
+{% multi_lang_include audience/segments.md section='same channel identifier' %}
 
 ![]({% image_buster /assets/img_archive/receivedcamp.png %})
 

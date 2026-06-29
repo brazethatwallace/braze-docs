@@ -863,7 +863,7 @@ When Braze imports your Shopify customers, we assign the `external_id` type that
 If you're an existing Braze customer with active campaigns or Canvases, review how imported customers and order events affect your segments and journeys before you enable historical backfill.
 {% endalert %}
 
-{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
+{% multi_lang_include partners/shopify.md section='Custom external ID historical backfill' %}
 
 ### Setting up Shopify historical backfill
 

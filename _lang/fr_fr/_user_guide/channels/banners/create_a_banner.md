@@ -150,7 +150,7 @@ Le décompte commence à partir du moment où l'utilisateur ferme la bannière. 
 
 1. Dans **Audience cible**, choisissez des segments ou des filtres pour affiner votre audience. Vous obtenez automatiquement un aperçu de la population approximative du segment. L'appartenance exacte au segment est calculée avant l'envoi du message.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 {:start="2"}
 2. Dans **Assign Conversions**, suivez la fréquence à laquelle les utilisateurs effectuent des actions spécifiques après avoir reçu une campagne en définissant des événements de conversion avec une fenêtre pouvant aller jusqu'à 30 jours pour comptabiliser l'action comme une conversion.

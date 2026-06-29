@@ -16,7 +16,7 @@ hidden: true
 
 Ce parcours de mise à niveau est destiné aux marques disposant d'une boutique en ligne Shopify.
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## Conditions requises pour la mise à niveau {#upgrade-requirements}
 

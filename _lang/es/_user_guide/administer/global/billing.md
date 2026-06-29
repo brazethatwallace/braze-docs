@@ -76,8 +76,6 @@ Los campos en esta sección se definen de la siguiente manera:
 - **Puntos de datos asignados:** La cantidad de puntos de datos asignados en el contrato por período de facturación.
 - **Uso de puntos de datos del contrato:** Un total acumulado de todos los puntos de datos registrados durante la vigencia del contrato, que no se restablece en el siguiente período de facturación.
 
-![Sección de detalles del contrato en la pestaña de total de uso de puntos de datos]({% image_buster /assets/img/contract_details.png %})
-
 ### Datos de facturación de la empresa {#company-billing-data}
 
 #### Uso total de puntos de datos a nivel de aplicación {#app-level-total-data-point-usage}
@@ -110,5 +108,5 @@ Este gráfico te permite ver rápidamente tu uso total de puntos de datos en com
 
 ## Próximos pasos {#next-steps}
 
-- [Preferencias de notificación]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) para configurar alertas de eventos relacionados con la facturación y umbrales de uso.
-- [Dashboard de uso de créditos]({{site.baseurl}}/credits_usage_dashboard/) para supervisar el consumo de créditos de mensajes.
+- [Preferencias de notificación]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) para configurar alertas de eventos relacionados con la facturación y umbrales de uso.
+- [Dashboard de uso de créditos]({{site.baseurl}}/credits_usage_dashboard) para supervisar el consumo de créditos de mensajes.

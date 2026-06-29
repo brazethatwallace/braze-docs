@@ -203,7 +203,7 @@ Wählen Sie eine SQL-Segmenterweiterung aus, um zu sehen, wo die Erweiterung ver
 
 ### Festlegen der Aktualisierungseinstellungen {#designating-refresh-settings}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ## Snowflake-Credits {#credits}
 

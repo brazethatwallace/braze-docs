@@ -97,7 +97,7 @@ A Braze fornece estatísticas detalhadas do público dos canais direcionados no 
 
 ##### Por que a contagem do público-alvo pode diferir da contagem de usuários contatáveis {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 
-{% multi_lang_include segments.md section='Differing audience size' %}
+{% multi_lang_include audience/segments.md section='Differing audience size' %}
 
 ![A seção "População total" com contagens estimadas de usuários contatáveis em cada canal direcionado.]({% image_buster /assets/img_archive/multi_channel_footer.png %})
 

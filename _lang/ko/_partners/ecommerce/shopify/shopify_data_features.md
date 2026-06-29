@@ -863,7 +863,7 @@ Braze가 Shopify 고객을 가져올 때 구성 설정에서 선택한 `external
 활성 Campaigns 또는 Canvases가 있는 기존 Braze 고객인 경우, 과거 데이터 백필을 활성화하기 전에 가져온 고객과 주문 이벤트가 세그먼트 및 여정에 미치는 영향을 검토하세요.
 {% endalert %}
 
-{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
+{% multi_lang_include partners/shopify.md section='Custom external ID historical backfill' %}
 
 ### Shopify 과거 데이터 백필 설정 {#setting-up-shopify-historical-backfill}
 

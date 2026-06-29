@@ -79,11 +79,11 @@ There are several steps you can take to limit PII exposure when using Operator:
 
 ### Restrict access to Operator
 
-Access to Operator is managed at the workspace level through [Granular User Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/). Administrators can grant or revoke the **Use BrazeAI Operator** permission for individual users, ensuring that only authorized personnel can interact with the tool. Without these specific permissions, the Operator interface is completely suppressed and backend endpoints remain secured.
+Access to Operator is managed at the workspace level through [Granular User Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions). Administrators can grant or revoke the **Use BrazeAI Operator** permission for individual users, ensuring that only authorized personnel can interact with the tool. Without these specific permissions, the Operator interface is completely suppressed and backend endpoints remain secured.
 
 ### Human-in-the-loop model
 
-By default, Operator requires explicit approval before committing any change. Proposed modifications are presented as [action cards]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/) for review. If a user rejects a proposal, no changes occur. If a user accepts a proposal, the dashboard updates, but the changes remain pending and must be manually saved or launched to become persistent.
+By default, Operator requires explicit approval before committing any change. Proposed modifications are presented as [action cards]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) for review. If a user rejects a proposal, no changes occur. If a user accepts a proposal, the dashboard updates, but the changes remain pending and must be manually saved or launched to become persistent.
 
 Users can enable **Auto-approve actions** in the Operator chat panel, which causes suggested actions to execute immediately without manual review. Even with auto-approve enabled, some actions always require explicit approval for safety, including generating images and modifying workspace-level settings.
 
@@ -93,4 +93,4 @@ Operator fully inherits the permission profile of the logged-in user. It is rest
 
 ### Audit team usage
 
-Download Braze's [Security Event Report]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report) to monitor team usage. The "Requested BrazeAI Operator Response" event provides a comprehensive audit trail, allowing you to review the exact inputs provided to the Operator.
+Download Braze's [Security Event Report]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report) to monitor team usage. The "Requested BrazeAI Operator Response" event provides a comprehensive audit trail, allowing you to review the exact inputs provided to the Operator.

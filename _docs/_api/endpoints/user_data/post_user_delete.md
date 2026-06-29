@@ -18,7 +18,7 @@ description: "This article outlines details about the Delete users Braze endpoin
 
 Up to 50 `external_ids`, `user_aliases`, `braze_ids`, `email_addresses`, or `phone_numbers` can be included in a single request. Only one of `external_ids`, `user_aliases`, `braze_ids`, `email_addresses`, or `phone_numbers` can be included in a single request.
 
-If you have a use case that can't be solved with bulk user deletion through the API, contact the [Braze Support team]({{site.baseurl}}/user_guide/administer/personal/braze_support/) for assistance.
+If you have a use case that can't be solved with bulk user deletion through the API, contact the [Braze Support team]({{site.baseurl}}/user_guide/administer/personal/braze_support) for assistance.
 
 {% alert warning %}
 Deleting user profiles cannot be undone. The delete action permanently removes users, which may cause discrepancies in your data. For details, see [Effects of deleting user profiles](#effects-of-deleting-user-profiles).
@@ -28,7 +28,7 @@ Deleting user profiles cannot be undone. The delete action permanently removes u
 
 ## Prerequisites
 
-To use this endpoint, you need an [API key]({{site.baseurl}}/api/api_key/) with the `users.delete` permission.
+To use this endpoint, you need an [API key]({{site.baseurl}}/api/api_key) with the `users.delete` permission.
 
 ## Rate limit
 
@@ -55,7 +55,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | Parameter         | Required | Data Type                  | Description                                                                                      |
 |-------------------|----------|----------------------------|--------------------------------------------------------------------------------------------------|
 | `external_ids`    | Optional | Array of strings           | External identifiers to be deleted.                                                    |
-| `user_aliases`    | Optional | Array of user alias object | [User aliases]({{site.baseurl}}/api/objects_filters/user_alias_object/) to be deleted. |
+| `user_aliases`    | Optional | Array of user alias object | [User aliases]({{site.baseurl}}/api/objects_filters/user_alias_object) to be deleted. |
 | `braze_ids`       | Optional | Array of strings           | Braze user identifiers to be deleted.                                                  |
 | `email_addresses` | Optional | Array of strings           | User emails to be deleted. Refer to [Deleting users by email](#deleting-users-by-email) for more information.                                                             |
 | `phone_numbers` | Optional | Array of strings | User phone numbers to be deleted. |
@@ -95,7 +95,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
   ],
   "email_addresses": [
     {
-      "email": "john.smith@braze.com",
+      "email": "john.smith@example.com",
       "prioritization": ["unidentified", "most_recently_updated"]
     }
   ]
@@ -115,12 +115,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
 When you remove a user with this endpoint, the following occurs:
 
 - The user profile is deleted (nulled).
-- Workspace user counts (such as total users on the [analytics home]({{site.baseurl}}/user_guide/analytics/dashboards/home/)) update to account for the removed users.
+- Workspace user counts (such as total users on the [analytics home]({{site.baseurl}}/user_guide/analytics/dashboards/home)) update to account for the removed users.
 - The removed user still counts toward the aggregated conversion percentage. Custom event counts and purchase counts are not updated for removed users.
 
 ### Multiple profiles with a shared email address
 
-To merge user profiles that share the same email address, call the [`/users/merge` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/). 
+To merge user profiles that share the same email address, call the [`/users/merge` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_users_merge). 
 
 ## Troubleshooting
 
@@ -131,9 +131,9 @@ A successful response confirms the request was queued, not that deletion is comp
 If the user still exists after several minutes, verify that the identifier in your request matches the user's actual profile:
 
 - **`external_ids` array:** Confirm each value matches a user's external ID exactly.
-- **`braze_id`:** You can find a user's `braze_id` by exporting their data with the [`/users/export/ids` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) or by exporting a segment to CSV (where the `braze_id` appears as "Appboy ID").
+- **`braze_id`:** You can find a user's `braze_id` by exporting their data with the [`/users/export/ids` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) or by exporting a segment to CSV (where the `braze_id` appears as "Appboy ID").
 - **Alias-only or email-only profiles:** If the profile has no `external_id`, create a segment filtering for **External User ID is blank** combined with the known email or phone number, then export to CSV to retrieve the `braze_id`.
 
-To confirm whether a user has been deleted, call the [`/users/export/ids` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) using the same identifier type you used in the delete request (for example, including the value in `external_ids`, `braze_id`, or `user_aliases`). If the user no longer exists, the response contains `"users": []` and may include `"invalid_user_ids"` listing that identifier.
+To confirm whether a user has been deleted, call the [`/users/export/ids` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) using the same identifier type you used in the delete request (for example, including the value in `external_ids`, `braze_id`, or `user_aliases`). If the user no longer exists, the response contains `"users": []` and may include `"invalid_user_ids"` listing that identifier.
 
 {% endapi %}

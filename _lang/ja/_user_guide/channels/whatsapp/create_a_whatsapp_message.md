@@ -199,7 +199,7 @@ WhatsAppメッセージは、スケジュールされた時間、アクション
 
 次に、Segmentsまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)する必要があります。サブスクリプショングループはすでに選択されているはずで、これによりユーザーが希望するコミュニケーションのレベルやカテゴリで絞り込まれます。このステップでは、Segmentsからより大きなオーディエンスを選択し、フィルターを使用してそのセグメントをさらに絞り込みます。おおよそのセグメント人口のスナップショットが自動的に表示されます。正確なセグメントメンバーシップは、メッセージ送信前に常に計算されることに注意してください。
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 #### コンバージョンイベントを選択する {#choose-conversion-events}
 

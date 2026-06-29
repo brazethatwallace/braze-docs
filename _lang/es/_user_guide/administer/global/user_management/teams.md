@@ -18,7 +18,7 @@ Los equipos no están disponibles en todos los contratos de Braze. Para acceder 
 
 ## ¿En qué se diferencian los equipos de los conjuntos de permisos y los roles? {#how-do-teams-differ-from-permission-sets-and-roles}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Crear equipos {#creating-teams}
 

@@ -16,7 +16,7 @@ hidden: true
 
 Essa jornada de upgrade é destinada a marcas com uma loja Shopify headless ou Shopify Hydrogen.
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## Requisitos de upgrade {#upgrade-requirements}
 

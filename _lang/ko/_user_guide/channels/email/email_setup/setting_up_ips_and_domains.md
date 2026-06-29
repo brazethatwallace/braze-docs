@@ -38,7 +38,7 @@ description: "이 도움말 문서에서는 Braze를 통해 이메일을 보내�
 
 IP, 도메인, 하위 도메인 및 IP 풀이 구성되면 DNS 레코드 목록을 보내드립니다. 엔지니어와 개발자에게 필요한 곳에 이러한 DNS 레코드를 추가하도록 요청하고, 추가가 완료되면 Braze 온보딩 팀에 알려주세요.
 
-{% multi_lang_include dns_records.md %}
+{% multi_lang_include channels/email/dns_records.md %}
 
 Braze에서 DNS 레코드를 제공한 후, 귀사의 DNS 또는 IT 팀이 가능한 한 빨리 추가하세요. 도메인 검증은 시간 제한이 있으며, 레코드를 너무 늦게 추가하면 DNS 레코드가 나중에 올바르게 해석되더라도 검증이 실패할 수 있습니다. DNS 레코드가 올바르게 표시되지만 검증이 실패하는 경우, Braze 온보딩 또는 고객지원 팀에 문의하여 검증 절차를 다시 시작하세요.
 
@@ -50,7 +50,7 @@ Braze에서 DNS 레코드를 제공한 후, 귀사의 DNS 또는 IT 팀이 가�
 
 이 방법은 회사에 대해 하나의 발송 도메인, 하나의 추적 도메인 및 총 하나의 IP를 설정합니다. 더 많은 설정을 계획하고 있다면 Braze 온보딩 팀에 문의하세요(방법 1).
 
-{% multi_lang_include early_access_beta_alert.md feature='This self-service email setup feature' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This self-service email setup feature' type='beta' %}
 <br>셀프 서비스 이메일 설정 기능을 사용하는 경우 Braze 온보딩 팀과도 반드시 상담하세요.
 
 ### 필수 조건 {#prerequisites}

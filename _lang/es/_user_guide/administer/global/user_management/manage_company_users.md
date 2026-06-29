@@ -37,7 +37,7 @@ Por razones de seguridad, los usuarios no pueden cambiar la dirección de correo
 
 ## Asignar acceso y responsabilidades de usuario {#assigning-user-access-and-responsibilities}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Suspender usuarios de la empresa {#suspending-company-users}
 

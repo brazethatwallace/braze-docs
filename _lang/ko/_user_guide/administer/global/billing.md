@@ -76,8 +76,6 @@ search_rank: 5
 - **할당된 데이터 포인트:** 청구 기간당 계약에서 할당된 데이터 포인트 양입니다.
 - **계약 데이터 포인트 사용량:** 계약 기간 동안 기록된 모든 데이터 포인트의 누적 합계이며, 다음 청구 기간에 초기화되지 않습니다.
 
-![총 데이터 포인트 사용량 탭의 계약 세부 정보 섹션]({% image_buster /assets/img/contract_details.png %})
-
 ### 회사 청구 데이터 {#company-billing-data}
 
 #### 앱 수준 총 데이터 포인트 사용량 {#app-level-total-data-point-usage}
@@ -110,5 +108,5 @@ search_rank: 5
 
 ## 다음 단계 {#next-steps}
 
-- [알림 환경설정]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/)에서 청구 관련 이벤트 및 사용량 임계값에 대한 알림을 구성할 수 있습니다.
-- [크레딧 사용량 대시보드]({{site.baseurl}}/credits_usage_dashboard/)에서 메시지 크레딧 소비를 모니터링할 수 있습니다.
+- [알림 환경설정]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences)에서 청구 관련 이벤트 및 사용량 임계값에 대한 알림을 구성할 수 있습니다.
+- [크레딧 사용량 대시보드]({{site.baseurl}}/credits_usage_dashboard)에서 메시지 크레딧 소비를 모니터링할 수 있습니다.

@@ -142,11 +142,11 @@ Die folgenden Spezifikationen gelten für alle Medien in WhatsApp-Template-Heade
 
 ### Bilder {#images}
 
-{% multi_lang_include image_specs.md variable_name='WhatsApp images' %}
+{% multi_lang_include channels/image_specs.md variable_name='WhatsApp images' %}
 
 ### Video {#video}
 
-{% multi_lang_include image_specs.md variable_name='WhatsApp videos' %}
+{% multi_lang_include channels/image_specs.md variable_name='WhatsApp videos' %}
 
 #### Android-Kompatibilität {#android-compatibility}
 

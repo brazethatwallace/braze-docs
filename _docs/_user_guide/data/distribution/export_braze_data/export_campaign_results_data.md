@@ -76,14 +76,14 @@ In-app message campaign results contain graphs for the following analytics:
 You can export user data for all the recipients of a campaign as a CSV file. To do so, select the **User Data** button in the **Campaign Details** section.
 
 {% alert note %}
-Can't see the **User Data** button? To export user data, you need the **Export User Data** [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#limited-and-team-role-permissions) for that workspace.
+Can't see the **User Data** button? To export user data, you need the **Export User Data** [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#limited-and-team-role-permissions) for that workspace.
 {% endalert %}
 
 ![User Data dropdown on the Campaign Details page]({% image_buster /assets/img/campaign_export_example.png %})
 
 The CSV output contains user profile data for every recipient of the campaign. Braze will generate the report in the background and email it to the user who is currently logged in.
 
-If you've linked your [Amazon S3 credentials]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/) to Braze, then the CSV will also be uploaded in your S3 bucket. Otherwise, the link emailed to you will expire in a few hours.
+If you've linked your [Amazon S3 credentials]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3) to Braze, then the CSV will also be uploaded in your S3 bucket. Otherwise, the link emailed to you will expire in a few hours.
 
 The exported file includes the same user data fields that are included when you [export user data for a segment]({{site.baseurl}}/user_guide/analytics/dashboards/home#exporting-app-usage-data). In addition to those data fields, if you choose "Export All Recipient Data," then the exported file will also contain the following data for each user:
 
@@ -92,6 +92,6 @@ The exported file includes the same user data fields that are included when you 
 - Whether user is in control group
 
 {% alert tip %}
-For help with CSV and API exports, check out [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+For help with CSV and API exports, check out [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 

@@ -113,7 +113,7 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 
 ### Canvas 진입 속성정보 및 이벤트 속성정보 {#canvas-entry-properties-and-event-properties}
 
-{% multi_lang_include canvas_entry_event_properties.md %}
+{% multi_lang_include canvas/entry_event_properties.md %}
 
 ### 중첩 오브젝트 {#nested-objects}
 

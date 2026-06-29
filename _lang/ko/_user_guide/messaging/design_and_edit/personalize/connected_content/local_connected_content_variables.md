@@ -90,11 +90,11 @@ API가 {%raw%}`{{localweather.consolidated_weather[0].weather_state_name}}`{%end
 
 ![메시지가 "It's raining! Grab an umbrella!"인 푸시 알림]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){:style="max-width:50%" }
 
-{% multi_lang_include connected_content.md section='default behavior' %}
+{% multi_lang_include connected_content/sections.md section='default behavior' %}
 
 ## HTTP POST
 
-{% multi_lang_include connected_content.md section='http post' %}
+{% multi_lang_include connected_content/sections.md section='http post' %}
 
 ### JSON 본문 제공 {#providing-json-body}
 

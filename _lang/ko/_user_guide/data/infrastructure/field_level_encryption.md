@@ -11,7 +11,7 @@ page_type: reference
 
 > Braze에서 공유되는 개인 식별 정보(PII)를 최소화하기 위해 이메일 주소를 암호화합니다.
 
-{% multi_lang_include field_level_encryption_pii_description.md %}
+{% multi_lang_include data_activation/field_level_encryption_pii_description.md %}
 
 {% alert important %}
 식별자 필드 수준 암호화는 애드온 기능으로 사용할 수 있습니다. 식별자 필드 수준 암호화를 시작하려면 Braze 계정 매니저에게 문의하세요.

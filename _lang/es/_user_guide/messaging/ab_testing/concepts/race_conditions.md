@@ -87,7 +87,7 @@ Cuando estos objetos se incluyen con el desencadenante, los atributos se procesa
 
 Usa el [punto final `/users/track/sync/`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/) para registrar eventos personalizados y compras, y actualizar atributos del perfil de usuario de forma sincrónica. Usar este punto final para actualizar perfiles de usuario al mismo tiempo y en una sola llamada puede ayudar a prevenir posibles condiciones de carrera.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This endpoint' type='beta' %}
 
 ## Escenario 3: Hacer coincidir desencadenantes basados en acciones y filtros de audiencia {#scenario-3-matching-action-based-triggers-and-audience-filters}
 
