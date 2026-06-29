@@ -14,6 +14,7 @@ For the full reference — descriptions, when-to-use guidance, and invocation sy
 |-------|-------------|
 | [`braze-docs`](.github/skills/braze-docs/SKILL.md) | Drafting, editing, reviewing docs; broken links; merge conflicts |
 | [`check-accessibility`](.github/skills/check-accessibility/SKILL.md) | Pre-PR WCAG 2.2 AA gate for docs and site files |
+| [`create-pr`](.github/skills/create-pr/SKILL.md) | Opening draft pull requests with repo-aligned descriptions and pre-PR gates |
 | [`reference-repos`](.github/skills/reference-repos/SKILL.md) | Verifying product, API, or SDK behavior against source repos |
 | [`docs-discrepancies`](.github/skills/docs-discrepancies/SKILL.md) | Page-by-page doc vs platform audits and discrepancy PRs |
 | [`support-analyzer`](.github/skills/support-analyzer/SKILL.md) | Manual triage of support case CSVs (after CI digest / Phase 2) |
@@ -27,7 +28,7 @@ For the full reference — descriptions, when-to-use guidance, and invocation sy
 
 - **Routine `_docs/` edits:** Describe the task; no tag required. The repo bootstrap rule points agents at `braze-docs`.
 - **Verification:** Invoke **`/reference-repos`** from chat, or ask to “verify against source.” Open [`braze-workspace.code-workspace`](braze-workspace.code-workspace) so `platform` and SDK repos are sibling folders.
-- **Heavy workflows:** Invoke from chat once (for example `/support-analyzer`, `/salesforce-migration`, `/docs-discrepancies`, `/image-pruner`, `/screenshot-pii-audit`).
+- **Heavy workflows:** Invoke from chat once (for example `/support-analyzer`, `/salesforce-migration`, `/docs-discrepancies`, `/image-pruner`, `/screenshot-pii-audit`, `/create-pr`).
 
 Inside `SKILL.md` files and agent rules, cross-reference other skills with `braze-docs:skill-name` or relative links — not `@` or `/`. See [CAPABILITIES.md](CAPABILITIES.md#cross-referencing-skills-in-instructions).
 

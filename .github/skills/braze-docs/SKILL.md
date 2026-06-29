@@ -144,11 +144,11 @@ Optional fields: `tool`, `noindex`, `hidden`, `layout`, `local_redirect`, `searc
 ## Internal linking
 
 ```markdown
-[Link text]({{site.baseurl}}/user_guide/path/to/page/)
+[Link text]({{site.baseurl}}/user_guide/path/to/page)
 ```
 
-- Always use `{{site.baseurl}}` (resolves to `/docs`). Trailing slash required.
-- Anchor links: `{{site.baseurl}}/user_guide/path/to/page/#heading-slug`
+- Always use `{{site.baseurl}}` (resolves to `/docs`). Do not add a trailing slash on internal links.
+- Anchor links: `{{site.baseurl}}/user_guide/path/to/page#heading-slug`
 - Same-page anchors: `[heading text](#heading-slug)`
 - Never use "Learn more", "here", or "click here" as link text.
 - Standard cross-reference phrase: "To learn more, refer to [Topic](...)." or "For more information, see [Topic](...)."
@@ -217,3 +217,4 @@ When chaining another skill, use **REQUIRED SUB-SKILL:** `braze-docs:skill-name`
 | [support-analyzer](../support-analyzer/SKILL.md) (`braze-docs:support-analyzer`) | Triage support case CSVs and draft docs updates |
 | [salesforce-migration](../salesforce-migration/SKILL.md) (`braze-docs:salesforce-migration`) | SF Knowledge Base migration tickets (Phase 1/2) |
 | [check-accessibility](../check-accessibility/SKILL.md) (`braze-docs:check-accessibility`) | Pre-PR accessibility gate — run before any PR touching `_docs/`, `_includes/`, layouts, JS, or CSS |
+| [create-pr](../create-pr/SKILL.md) (`braze-docs:create-pr`) | Open a draft PR to `develop` with repo-aligned description, pre-PR gates, and manual verification checklist |

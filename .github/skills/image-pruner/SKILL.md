@@ -142,22 +142,28 @@ Re-run the scan until `Unreferenced` count stops decreasing or you have reviewed
 
 Image deletion batches use the **Image Pruning** PR template. Skill/tooling-only changes (script, skill doc) belong on a separate branch—do not mix with image binaries in one PR.
 
-- **Title:** `[IP] Remove N unreferenced images from assets/img` (prefix is required)
-- **Body:** Must include an **Image Pruning** section stating this PR is for Image Pruning; list bytes reclaimed, scan commands, and note that `_lang/`, `docs/`, and site chrome were included in the reference pass and `logos/` / `braze_icons/` / `icons/` were excluded from deletion.
-- **Label:** `image pruning` (required)
-- Assign per `CODEOWNERS`; if none, `@braze-inc/docs-team`.
+**REQUIRED SUB-SKILL:** Use [create-pr](../create-pr/SKILL.md) (`braze-docs:create-pr`) for Steps 0–1, 3–4, quality checklist, and anti-patterns. **Override Step 2 only** as follows.
 
-After `--delete`, the script prints a suggested `gh pr create` command with title, label, and body.
+#### Step 2 override (image-pruner)
 
-```bash
-gh pr create --title "[IP] Remove 100 unreferenced images from assets/img" \
-  --label "image pruning" \
-  --body "$(cat <<'EOF'
-## Image Pruning
+| Field | Value |
+|-------|--------|
+| **Title** | `[IP] Remove N unreferenced images from assets/img` (prefix is required) |
+| **Label** | `image pruning` — `gh pr edit --add-label "image pruning"` after create |
+| **Reviewers** | Per `CODEOWNERS`; if none, `braze-inc/docs-team` |
 
-This PR is for **Image Pruning**: removes 100 unreferenced image files (~X MB).
+**Body** — use the create-pr template and include:
 
-## Scan
+````markdown
+### Why are you making this change? (required)
+
+Remove unreferenced image files to reduce repo size and maintenance burden.
+
+### Image Pruning
+
+This PR is for **Image Pruning**: removes N unreferenced image files (~X MB).
+
+### Scan
 
 ```bash
 python3 scripts/image-pruner/find_unreferenced_images.py --csv scripts/image-pruner/unreferenced_images.csv
@@ -165,9 +171,18 @@ UNREFERENCED_IMAGE_DELETE_FORCE=1 python3 scripts/image-pruner/find_unreferenced
 ```
 
 Reference pass included `_lang/`, `docs/`, and site chrome. Excluded: `logos/`, `braze_icons/`, `icons/`.
-EOF
-)"
-```
+
+### Verification
+
+- [ ] Spot-check pages that previously referenced removed images (if any edge cases)
+- [ ] Confirm scan commands above reproduce the deletion set
+
+### Contributor checklist
+
+<Copy from create-pr Step 2 — redirects and image-replacement rules usually N/A for pure deletions.>
+````
+
+After `--delete`, the script may print a suggested title and body — adapt them into this format when opening the PR.
 
 ---
 
