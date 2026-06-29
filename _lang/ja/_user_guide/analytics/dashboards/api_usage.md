@@ -27,7 +27,7 @@ API 使用状況ダッシュボードには、以下の統計情報が含まれ�
 | 合計リクエスト数 | ダッシュボードに適用されたフィルターとコントロールに基づく、現在のワークスペースでBrazeに送信されたリクエストの合計数。 |
 | 成功率 | Brazeが `2XX` 成功応答を返した合計リクエストの割合。 |
 | エラー率 | Brazeが `4XX` または `5XX` エラー応答を返した合計リクエストの割合。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Available metrics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="利用可能な指標" }
 
 ## ダッシュボードの使用方法 {#using-the-dashboard}
 
@@ -78,5 +78,5 @@ API 使用状況ダッシュボードには、Brazeが受信し、`2XX`、`4XX`�
 
 ## 関連記事 {#related-articles}
 
-- [API 使用状況アラート]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts/)
-- [レート制限]({{site.baseurl}}/api/api_limits/)
+- [API 使用状況アラート]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
+- [レート制限]({{site.baseurl}}/api/api_limits)

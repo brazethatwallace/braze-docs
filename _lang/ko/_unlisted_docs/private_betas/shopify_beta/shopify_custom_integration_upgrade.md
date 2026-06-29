@@ -10,7 +10,7 @@ hidden: true
 
 # Shopify 통합 업그레이드 (커스텀) {#upgrading-your-shopify-integration-custom}
 
-> Braze의 커스텀 경로를 사용하여 Shopify 통합을 업그레이드하는 방법을 알아보세요. 최상의 경험을 제공하기 위한 노력의 일환으로, 모든 Shopify 통합은 2025년 8월 28일까지 최신 버전으로 [업그레이드]({{site.baseurl}}/shopify/)해야 합니다. 이 업그레이드는 Shopify 기술의 중요한 변경 사항이 통합 기능에 영향을 미치기 때문에 필수적입니다.
+> Braze의 커스텀 경로를 사용하여 Shopify 통합을 업그레이드하는 방법을 알아보세요. 최상의 경험을 제공하기 위한 노력의 일환으로, 모든 Shopify 통합은 2025년 8월 28일까지 최신 버전으로 [업그레이드]({{site.baseurl}}/shopify)해야 합니다. 이 업그레이드는 Shopify 기술의 중요한 변경 사항이 통합 기능에 영향을 미치기 때문에 필수적입니다.
 
 ## 대상 {#whos-eligible}
 
@@ -24,8 +24,8 @@ hidden: true
 
 | 요구 사항 | 설명 |
 |-----------------------|-------------|
-| **주요 변경 사항** | [Shopify 업그레이드 개요]({{site.baseurl}}/shopify_upgrade_overview/#subscriber-collection)에서 레거시 커넥터에서 새 커넥터로의 모든 중요한 변경 사항을 검토했는지 확인하세요. |
-| **업그레이드 필수 조건** | 엔지니어링 및 마케팅 팀과 함께 필요한 모든 [업그레이드 필수 조건]({{site.baseurl}}/shopify_upgrade_overview/#upgrade-prerequisites)을 완료했는지 확인하세요. Braze로 Shopify 헤드리스 스토어를 업그레이드하려면 두 가지 중요한 단계를 완료해야 합니다:<br><br>- 온사이트 추적을 활성화하기 위해 Braze Web SDK를 초기화하고 로드합니다<br>- 제품 내 업그레이드 경험을 통해 기존 스토어를 업그레이드합니다 |
+| **주요 변경 사항** | [Shopify 업그레이드 개요]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection)에서 레거시 커넥터에서 새 커넥터로의 모든 중요한 변경 사항을 검토했는지 확인하세요. |
+| **업그레이드 필수 조건** | 엔지니어링 및 마케팅 팀과 함께 필요한 모든 [업그레이드 필수 조건]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites)을 완료했는지 확인하세요. Braze로 Shopify 헤드리스 스토어를 업그레이드하려면 두 가지 중요한 단계를 완료해야 합니다:<br><br>- 온사이트 추적을 활성화하기 위해 Braze Web SDK를 초기화하고 로드합니다<br>- 제품 내 업그레이드 경험을 통해 기존 스토어를 업그레이드합니다 |
 | **호환성 문제 변경 사항** | Braze에서 플래그된 모든 호환성 문제 변경 사항을 검토하고 수정하세요. 전체 안내는 [호환성 문제 변경 사항 수정](#fixing-breaking-changes-fixing-breaking-changes)을 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
@@ -63,13 +63,13 @@ Shopify 데이터를 사용하는 영향을 받는 Canvases, Campaigns 및 Segme
 Shopify 통합에서 중단된 이벤트를 사용하는 활성 메시지를 처리하지 않으면, 영향을 받는 메시지가 더 이상 고객에게 전송되지 않습니다.
 {% endalert %}
 
-자세한 내용은 [지원되는 Shopify 이벤트]({{site.baseurl}}/shopify_upgrade_overview/#supported-shopify-events)를 참조하세요.
+자세한 내용은 [지원되는 Shopify 이벤트]({{site.baseurl}}/shopify_upgrade_overview#supported-shopify-events)를 참조하세요.
 {% endtab %}
 
 {% tab 구독자 목록 %}
 통합을 통해 Shopify에서 이메일 또는 SMS 구독자를 수집하는 경우, 활성 메시지에 Shopify 스토어에 해당하는 구독자 목록이 포함되어 있는지 확인하세요.
 
-업그레이드가 완료되면 통합을 위한 새로운 기본 구독 그룹이 생성되며, 이를 활성 메시징의 일부로 활용해야 합니다. 변경 사항에 대한 자세한 내용은 [구독자 수집]({{site.baseurl}}/shopify_upgrade_overview/#subscriber-collection)을 참조하세요.
+업그레이드가 완료되면 통합을 위한 새로운 기본 구독 그룹이 생성되며, 이를 활성 메시징의 일부로 활용해야 합니다. 변경 사항에 대한 자세한 내용은 [구독자 수집]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection)을 참조하세요.
 {% endtab %}
 {% endtabs %}
 
@@ -81,7 +81,7 @@ Shopify 통합에서 중단된 이벤트를 사용하는 활성 메시지를 처
 
 ### 1단계: 온사이트 추적을 활성화하기 위해 Braze Web SDK 초기화 및 로드 {#step-1}
 
-아직 하지 않았다면, 온사이트 추적을 활성화하기 위해 Braze Web SDK를 초기화하고 로드하세요. 전체 안내는 [Shopify 커스텀 통합 설정]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-1)을 참조하세요:
+아직 하지 않았다면, 온사이트 추적을 활성화하기 위해 Braze Web SDK를 초기화하고 로드하세요. 전체 안내는 [Shopify 커스텀 통합 설정]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration#step-1)을 참조하세요:
 - Braze 웹 앱 생성
 - 하위 도메인 및 환경 변수 추가
 - 온사이트 추적 활성화
@@ -169,7 +169,7 @@ Braze가 외부 ID를 검색하기 위해 호출할 수 있는 공개 엔드포�
 
 ```
 GET
-https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
+https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@example.com&shopify_storefront=dev-store.myshopify.com
 ```
 
 ##### 예상 응답 {#expected-response}
@@ -219,4 +219,4 @@ Braze로 돌아가면 Shopify 통합 설치가 완료되었을 때 알림을 받
 - **SDK 커스터마이징(선택 사항):** Braze 및 Shopify 통합에 커스터마이징(예: 커스텀 이벤트 또는 속성 로깅)을 적용한 경우, 업그레이드 후 올바르게 작동하는지 확인합니다.
 - **이메일 또는 SMS 구독자 수집(선택 사항):** 이전에 이메일 또는 SMS 구독자 수집을 활성화한 경우, 업그레이드 중 구독자의 최신 상태를 반영하기 위해 새로운 기본 구독 그룹이 생성됩니다. 기본 구독 그룹은 Shopify 스토어프론트의 이름으로 지정됩니다. 이러한 새로운 기본 구독 그룹은 업그레이드 후 약 5시간 후에 사용할 수 있으며, 활성 메시지에 추가해야 합니다.
 
-질문이 있으시면 [고객지원에 문의]({{site.baseurl}}/user_guide/administrative/access_braze/support/)하세요.
+질문이 있으시면 [고객지원에 문의]({{site.baseurl}}/user_guide/administrative/access_braze/support)하세요.

@@ -21,15 +21,15 @@ hidden: true
 1. **メッセージング** > **Campaigns**に移動し、**キャンペーンを作成**を選択します。
 2. **SMS/MMS/RCS**を選択するか、複数チャネルをターゲットとするCampaignsの場合は**マルチチャネル**を選択します。
 3. Campaignにわかりやすく意味のある名前を付けます。
-4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/teams/)と[タグ]({{site.baseurl}}/user_guide/administrative/app_settings/tags/)を追加します。
-   * タグを使うと、Campaignsの検索やレポートの作成が容易になります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/)を使用する際に、特定のタグでフィルタリングできます。
+4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/teams)と[タグ]({{site.baseurl}}/user_guide/administrative/app_settings/tags)を追加します。
+   * タグを使うと、Campaignsの検索やレポートの作成が容易になります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reporting/report_builder)を使用する際に、特定のタグでフィルタリングできます。
 
 {: start="5"}
-5. Campaignに必要な数のバリアントを追加して名前を付けます。追加した各バリアントに対して、異なるプラットフォーム、メッセージタイプ、レイアウトを選択できます。このトピックの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/)を参照してください。
+5. Campaignに必要な数のバリアントを追加して名前を付けます。追加した各バリアントに対して、異なるプラットフォーム、メッセージタイプ、レイアウトを選択できます。このトピックの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing)を参照してください。
 - **SMSとRCSのバリアントテスト**:Brazeでは、単一のCampaign内にSMSとRCSの両方のバリアントを含めることができ、それぞれのパフォーマンスを比較できます。メッセージ作成の最初のステップで、SMSとRCSのバリアントを追加できます。
 
 {: start="6"}
-6. RCS対応の[サブスクリプショングループ]({{site.baseurl}}/sms_rcs_subscription_groups/)を選択します。サブスクリプショングループを選択すると、Brazeは自動的にセグメンテーションフィルターを追加し、購読中のユーザーのみがCampaignを受信するようにします。そのサブスクリプショングループに属するロングコードとショートコードのみが、ターゲットユーザーへのSMS送信に使用されます。
+6. RCS対応の[サブスクリプショングループ]({{site.baseurl}}/sms_rcs_subscription_groups)を選択します。サブスクリプショングループを選択すると、Brazeは自動的にセグメンテーションフィルターを追加し、購読中のユーザーのみがCampaignを受信するようにします。そのサブスクリプショングループに属するロングコードとショートコードのみが、ターゲットユーザーへのSMS送信に使用されます。
 - **SMSフォールバック**:Brazeは、RCS送信者を含むすべてのサブスクリプショングループに、フォールバック用のSMSコードを少なくとも1つ含めることを強く推奨します。これは、RCSメッセージの配信に失敗した場合の到達性にとって重要です。失敗の理由としては、ユーザーのデバイスの非互換性や、特定の国や地域でのキャリアカバレッジの不完全さなどが考えられます。SMSフォールバックを有効にすることで、メッセージは引き続きユーザーに配信され、ユーザーとつながる機会を逃すことがなくなります。
 
 {: start="7"}
@@ -43,10 +43,10 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 {% endtab %}
 {% tab Canvas %}
-1. Canvasコンポーザーを使用して[Canvasを作成]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/)します。
+1. Canvasコンポーザーを使用して[Canvasを作成]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas)します。
 2. Canvasの設定が完了したら、Canvasビルダーで**SMS/MMS/RCS**メッセージステップを追加します。
 3. ステップにわかりやすく意味のある名前を付けます。
-4. RCS対応の[サブスクリプショングループ]({{site.baseurl}}/sms_rcs_subscription_groups/)を選択します。サブスクリプショングループを選択すると、Brazeは自動的にセグメンテーションフィルターを追加し、購読中のユーザーのみがCampaignを受信するようにします。そのサブスクリプショングループに属するロングコードとショートコードのみが、ターゲットユーザーへの送信に使用されます。
+4. RCS対応の[サブスクリプショングループ]({{site.baseurl}}/sms_rcs_subscription_groups)を選択します。サブスクリプショングループを選択すると、Brazeは自動的にセグメンテーションフィルターを追加し、購読中のユーザーのみがCampaignを受信するようにします。そのサブスクリプショングループに属するロングコードとショートコードのみが、ターゲットユーザーへの送信に使用されます。
 - **SMSフォールバック**:Brazeは、RCS送信者を含むすべてのサブスクリプショングループに、フォールバック用のSMSコードを少なくとも1つ含めることを強く推奨します。これは、RCSメッセージの配信に失敗した場合の到達性にとって重要です。失敗の理由としては、ユーザーのデバイスの非互換性や、特定の国や地域でのキャリアカバレッジの不完全さなどが考えられます。SMSフォールバックを有効にすることで、メッセージは引き続きユーザーに配信され、ユーザーとつながる機会を逃すことがなくなります。
 
 {: start="5"}
@@ -85,7 +85,7 @@ CampaignおよびCanvasの作成時に、3つのRCSメッセージタイプ（�
 {% endtab %}
 
 {% tab メディア %}
-RCSメディアメッセージでは、SMSでは不可能な魅力的なメディア形式を使用できます。これには、画像、動画、ドキュメントファイルが含まれます。これらのメディアオプションは、オーディエンスとのエンゲージメントをさらに深め、まったく新しいユースケースを可能にするために存在します。現時点では、[メディアライブラリ]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/)を通じた画像のアップロードのみがサポートされています。
+RCSメディアメッセージでは、SMSでは不可能な魅力的なメディア形式を使用できます。これには、画像、動画、ドキュメントファイルが含まれます。これらのメディアオプションは、オーディエンスとのエンゲージメントをさらに深め、まったく新しいユースケースを可能にするために存在します。現時点では、[メディアライブラリ]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library)を通じた画像のアップロードのみがサポートされています。
 
 #### 機能
 
@@ -154,10 +154,10 @@ RCSメッセージの受信時のユーザー体験は、送信先の国での�
 
 ### ステップ 3:RCS メッセージを作成する {#step-3-compose-your-rcs-message}
 
-必要に応じて、言語とパーソナライゼーション（[Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/)、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/)、絵文字）を使用してメッセージを作成します。超過料金の可能性を減らすために、メッセージのコピー制限を必ず遵守してください。
+必要に応じて、言語とパーソナライゼーション（[Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid)、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content)、絵文字）を使用してメッセージを作成します。超過料金の可能性を減らすために、メッセージのコピー制限を必ず遵守してください。
 
 {% alert important %}
-先に進む前に、[RCSメッセージ制限のガイドライン](#step-2-select-your-rcs-message-type)をお読みください。RCSメッセージは[メッセージ単位で課金]({{site.baseurl}}/sms_rcs_billing_calculators/)されるため、各タイプのRCSメッセージに含められる内容のニュアンスを理解しておくことをお勧めします。
+先に進む前に、[RCSメッセージ制限のガイドライン](#step-2-select-your-rcs-message-type)をお読みください。RCSメッセージは[メッセージ単位で課金]({{site.baseurl}}/sms_rcs_billing_calculators)されるため、各タイプのRCSメッセージに含められる内容のニュアンスを理解しておくことをお勧めします。
 {% endalert %}
 
 ### ステップ 4:メッセージをプレビューしてテストする {#step-4-preview-and-test-your-message}
@@ -170,7 +170,7 @@ Brazeでは、送信前にメッセージをプレビューしてテストする
 
 #### ステップ 5.1:配信スケジュールまたはトリガーを選択する {#step-51-choose-delivery-schedule-or-trigger}
 
-RCSメッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。詳細については、[Campaignのスケジュール設定]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/)を参照してください。
+RCSメッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。詳細については、[Campaignのスケジュール設定]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types)を参照してください。
 
 アクションベースの配信では、Campaignの期間とサイレント時間も設定できます。
 
@@ -182,10 +182,10 @@ Segmentsまたはフィルターを選択して、オーディエンスを絞り
 
 {% multi_lang_include audience/target_audiences.md %}
 
-次に、Segmentsからより大きなオーディエンスを選択し、オプションの[フィルター]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/)でそのSegmentをさらに絞り込みます。現在のおおよそのSegment人口のプレビューが自動的に表示されます。正確なSegmentメンバーシップは、メッセージが送信される直前に常に計算されることに留意してください。
+次に、Segmentsからより大きなオーディエンスを選択し、オプションの[フィルター]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters)でそのSegmentをさらに絞り込みます。現在のおおよそのSegment人口のプレビューが自動的に表示されます。正確なSegmentメンバーシップは、メッセージが送信される直前に常に計算されることに留意してください。
 
 {% alert tip %}
-SMSおよびRCSのインタラクションに基づいてユーザーをターゲットにするRCSリターゲティングに興味がありますか？[リターゲティング]({{site.baseurl}}/sms_mms_rcs_user_retargeting/)を参照してください。
+SMSおよびRCSのインタラクションに基づいてユーザーをターゲットにするRCSリターゲティングに興味がありますか？[リターゲティング]({{site.baseurl}}/sms_mms_rcs_user_retargeting)を参照してください。
 {% endalert %}
 
 #### ステップ 5.3:コンバージョンイベントを選択する {#step-53-choose-conversion-events}
@@ -202,7 +202,7 @@ Brazeでは、Campaignを受信した後にユーザーが特定のアクショ�
 
 CampaignまたはCanvasの構築が完了したら、詳細を確認し、テストしてから送信してください。
 
-次に、[SMS、MMS、RCSのレポート]({{site.baseurl}}/sms_mms_rcs_reporting/)を参照して、RCS Campaignsの結果にアクセスする方法を確認してください。
+次に、[SMS、MMS、RCSのレポート]({{site.baseurl}}/sms_mms_rcs_reporting)を参照して、RCS Campaignsの結果にアクセスする方法を確認してください。
 
 ## 分析とレポート {#analytics-and-reporting}
 
@@ -223,7 +223,7 @@ Liquidを使用する予定がある場合は、選択したパーソナライ�
 
 ### AIコピーの生成 {#generating-ai-copy}
 
-魅力的なコピーの作成にお困りですか？[AIコピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy)を使用してみてください。製品名や説明を入力すると、AIがメッセージングで使用できる人間のようなマーケティングコピーを生成します。
+魅力的なコピーの作成にお困りですか？[AIコピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy)を使用してみてください。製品名や説明を入力すると、AIがメッセージングで使用できる人間のようなマーケティングコピーを生成します。
 
 ![AIコピーライティングアシスタントを開くアイコン付きのメッセージ作成画面。]({% image_buster /assets/unlisted_docs/img/rcs/rcs_ai_copywriter.png %}){: style="max-width:70%;"}
 

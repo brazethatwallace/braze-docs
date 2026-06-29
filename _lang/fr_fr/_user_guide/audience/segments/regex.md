@@ -20,7 +20,7 @@ Dans le cours d'apprentissage Braze associé, nous vous montrons comment les exp
 ## Ressources {#resources}
 
 - Cours d'apprentissage Braze [Les bases des expressions régulières](https://learning.braze.com/regular-expression-basics-for-braze)
-- [Aide-mémoire regex]({{site.baseurl}}/regex_cheat_sheet/)
+- [Aide-mémoire regex]({{site.baseurl}}/regex_cheat_sheet)
 - [Données d'exemple RTF]({% image_buster /assets/download_file/regex-dummy-data.rtf %})
 
 ## Débogueur regex {#regex-debugger}
@@ -32,7 +32,7 @@ Les expressions régulières pour les propriétés de déclencheur d'événement
 {% endalert %}
 
 {% tabs %}
-{% tab Regex Debugger %}
+{% tab Débogueur regex %}
 <div>
 Ce formulaire permet la validation et le test de base des expressions régulières.
 ​
@@ -201,7 +201,7 @@ Par exemple, si vous essayez de cibler les utilisateurs qui vivent dans des vill
 
 ### Comment filtrer des numéros de téléphone spécifiques ? {#how-do-i-filter-for-specific-phone-numbers}
 
-Avant d'utiliser les expressions régulières pour filtrer les numéros de téléphone, n'oubliez pas que les numéros enregistrés pour les profils utilisateur doivent être au format [E.164](https://en.wikipedia.org/wiki/E.164), tel que spécifié dans [Numéros de téléphone des utilisateurs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/).
+Avant d'utiliser les expressions régulières pour filtrer les numéros de téléphone, n'oubliez pas que les numéros enregistrés pour les profils utilisateur doivent être au format [E.164](https://en.wikipedia.org/wiki/E.164), tel que spécifié dans [Numéros de téléphone des utilisateurs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers).
 
 En supposant que vous recherchez des numéros de téléphone américains, utilisez le format regex `1?\d\d\d\d\d\d\d\d\d\d`, où chaque répétition de `\d` est un chiffre que vous souhaitez spécifier. Les trois premiers chiffres correspondent à l'indicatif régional.
 

@@ -143,7 +143,7 @@ Puedes compartir un enlace del dashboard al informe seleccionando **Share** y un
 1. Selecciona el icono de puntos en la parte superior de la tabla del informe.
 2. Selecciona **Add to dashboard**.
 3. Selecciona si deseas crear un nuevo dashboard o añadirlo a un dashboard existente.<br><br>![Ventana con opciones para seleccionar si deseas añadir el informe a un dashboard nuevo o existente.]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
-4. Sigue los pasos en [Generador de dashboards]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/) para aprender más sobre cómo construir un dashboard.
+4. Sigue los pasos en [Generador de dashboards]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder) para aprender más sobre cómo construir un dashboard.
 
 ## Solución de problemas {#troubleshooting}
 
@@ -157,4 +157,4 @@ Por ejemplo, supongamos que **Last sent** es del 1 de enero de 2025 al 14 de abr
 
 Los enlaces de descarga de informes caducan después de una hora. Si tu enlace ha caducado, genera un nuevo informe y descárgalo dentro de la hora. No hay forma de extender el tiempo de caducidad.
 
-Si tienes un [contenedor de Amazon S3]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3/) conectado en **Integraciones de socios**, es posible que puedas recuperar datos de informes anteriores navegando directamente por tu contenedor de S3.
+Si tienes un [contenedor de Amazon S3]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3) conectado en **Integraciones de socios**, es posible que puedas recuperar datos de informes anteriores navegando directamente por tu contenedor de S3.

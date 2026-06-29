@@ -16,7 +16,7 @@ page_type: reference
 
 ## REST API
 
-[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を使用して、ユーザーのカスタムイベント、ユーザー属性、購入を記録できます。
+[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用して、ユーザーのカスタムイベント、ユーザー属性、購入を記録できます。
 
 ## CSVインポート {#csv-import}
 
@@ -34,7 +34,7 @@ CSVファイルを使用したユーザーデータのインポートでは、�
 
 ### external IDを使用したインポート {#importing-with-external-id}
 
-顧客データをインポートする際には、各顧客のユニーク識別子（`external_id`とも呼ばれます）を指定する必要があります。CSVインポートを開始する前に、Brazeでユーザーがどのように識別されるかをエンジニアリングチームに確認することが重要です。通常、これは内部データベースIDです。これは、モバイルおよびWebでBraze SDKによってユーザーが識別される方法と一致する必要があり、各顧客がデバイス間でBraze内に単一のユーザープロファイルを持つように設計されています。Brazeの[ユーザープロファイルライフサイクル]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/)の詳細をご覧ください。
+顧客データをインポートする際には、各顧客のユニーク識別子（`external_id`とも呼ばれます）を指定する必要があります。CSVインポートを開始する前に、Brazeでユーザーがどのように識別されるかをエンジニアリングチームに確認することが重要です。通常、これは内部データベースIDです。これは、モバイルおよびWebでBraze SDKによってユーザーが識別される方法と一致する必要があり、各顧客がデバイス間でBraze内に単一のユーザープロファイルを持つように設計されています。Brazeの[ユーザープロファイルライフサイクル]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle)の詳細をご覧ください。
 
 インポートで`external_id`を指定すると、Brazeは同じ`external_id`を持つ既存のユーザーを更新するか、見つからない場合はその`external_id`が設定された新しい識別済みユーザーを作成します。
 
@@ -59,7 +59,7 @@ CSVファイルを使用したユーザーデータのインポートでは、�
 インポートで`user_alias_name`と`user_alias_label`の両方を指定すると、Brazeは同じ`user_alias_name`と`user_alias_label`を持つ既存のユーザーを更新します。ユーザーが見つからない場合、Brazeはその`user_alias_name`が設定された新しい識別済みユーザーを作成します。
 
 {% alert important %}
-既に`external_id`を持つ既存のユーザーを`user_alias_name`で更新するためにCSVインポートを使用することはできません。代わりに、関連する`user_alias_name`を持つ新しいユーザープロファイルが作成されます。エイリアスのみのユーザーを`external_id`に関連付けるには、[ユーザー識別エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/)を使用してください。
+既に`external_id`を持つ既存のユーザーを`user_alias_name`で更新するためにCSVインポートを使用することはできません。代わりに、関連する`user_alias_name`を持つ新しいユーザープロファイルが作成されます。エイリアスのみのユーザーを`external_id`に関連付けるには、[ユーザー識別エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)を使用してください。
 {% endalert %}
 
 - **ダウンロード：** [CSVエイリアス属性インポートテンプレート][template_alias_attributes]
@@ -101,8 +101,8 @@ BrazeダッシュボードからのCSVエクスポートでは、`braze_id`の�
 | `dob` | 文字列 | 「YYYY-MM-DD」の形式で渡す必要があります（例：`1980-12-21`）。これにより、ユーザーの生年月日がインポートされ、誕生日が「今日」のユーザーをターゲットにできます。 | いいえ |
 | `gender` | 文字列 | 「M」、「F」、「O」（その他）、「N」（該当なし）、「P」（回答しない）、またはnil（不明）。 | いいえ |
 | `home_city` | 文字列 | ユーザーが示した居住都市（例：`London`）。 | いいえ |
-| `language` | 文字列 | 言語はISO-639-1規格でBrazeに渡す必要があります（例：`en`）。<br>[対応言語一覧]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/language_codes/)を参照してください。 | いいえ |
-| `phone` | 文字列 | ユーザーが示した電話番号。`E.164`形式（例：`+442071838750`）。<br>フォーマットのガイダンスについては、[ユーザーの電話番号]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers/)を参照してください。 | いいえ |
+| `language` | 文字列 | 言語はISO-639-1規格でBrazeに渡す必要があります（例：`en`）。<br>[対応言語一覧]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/language_codes)を参照してください。 | いいえ |
+| `phone` | 文字列 | ユーザーが示した電話番号。`E.164`形式（例：`+442071838750`）。<br>フォーマットのガイダンスについては、[ユーザーの電話番号]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers)を参照してください。 | いいえ |
 | `email_open_tracking_disabled` | ブール値 | trueまたはfalseを受け付けます。trueに設定すると、このユーザーに送信される今後のすべてのメールに開封トラッキングピクセルが追加されなくなります。 | いいえ |
 | `email_click_tracking_disabled` | ブール値 | trueまたはfalseを受け付けます。trueに設定すると、このユーザーに送信される今後のメール内のすべてのリンクのクリックトラッキングが無効になります。 | いいえ |
 | `email_subscribe` | 文字列 | 使用可能な値は`opted_in`（メールメッセージの受信を明示的に登録）、`unsubscribed`（メールメッセージを明示的にオプトアウト）、`subscribed`（オプトインもオプトアウトもしていない）です。 | いいえ |
@@ -136,16 +136,16 @@ BrazeダッシュボードからのCSVエクスポートでは、`braze_id`の�
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert important %}
-配列とプッシュトークンはユーザーインポートではサポートされていません。特に配列の場合、CSVファイル内のカンマは列区切りとして解釈されるため、値内のカンマはファイルの解析エラーを引き起こします。<br>この種の値をアップロードするには、[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)または[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion/)を使用してください。
+配列とプッシュトークンはユーザーインポートではサポートされていません。特に配列の場合、CSVファイル内のカンマは列区切りとして解釈されるため、値内のカンマはファイルの解析エラーを引き起こします。<br>この種の値をアップロードするには、[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)または[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion)を使用してください。
 {% endalert %}
 
 ### サブスクリプショングループのステータスの更新 {#updating-subscription-group-status}
 
-ユーザーインポートを通じて、メールまたはSMSのサブスクリプショングループにユーザーを追加できます。これはSMSの場合に特に便利です。ユーザーがSMSチャネルでメッセージを受信するには、SMSサブスクリプショングループに登録されている必要があるためです。詳細については、[SMSサブスクリプショングループ]({{site.baseurl}}/user_guide/message_building_by_channel/sms/sms_subscription_group/#subscription-group-mms-enablement)を参照してください。
+ユーザーインポートを通じて、メールまたはSMSのサブスクリプショングループにユーザーを追加できます。これはSMSの場合に特に便利です。ユーザーがSMSチャネルでメッセージを受信するには、SMSサブスクリプショングループに登録されている必要があるためです。詳細については、[SMSサブスクリプショングループ]({{site.baseurl}}/user_guide/message_building_by_channel/sms/sms_subscription_group#subscription-group-mms-enablement)を参照してください。
 
 サブスクリプショングループのステータスを更新する場合は、CSVに次の2つの列が必要です：
 
-- `subscription_group_id`：[サブスクリプショングループ]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#subscription-groups)の`id`。
+- `subscription_group_id`：[サブスクリプショングループ]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#subscription-groups)の`id`。
 - `subscription_state`：使用可能な値は`unsubscribed`（サブスクリプショングループに含まれない）または`subscribed`（サブスクリプショングループに含まれる）です。
 
 <style type="text/css">
@@ -263,7 +263,7 @@ CSVインポートは大文字と小文字を区別します。つまり、CSV�
 
 さらに、Brazeはプレビュー用に入力ファイルのすべての行をスキャンするわけではないため、アップロード前にCSVファイル全体を確認することが重要です。つまり、Brazeがこのプレビューの生成中にキャッチしないエラーが存在する可能性があります。
 
-不正な形式の行やexternal IDが欠落している行はインポートされません。その他のすべてのエラーはインポートできますが、Segmentを作成する際のフィルタリングに影響を与える可能性があります。詳細については、[トラブルシューティング](#troubleshooting)セクションに進んでください。
+不正な形式の行やexternal IDが欠落している行はインポートされません。その他のすべてのエラーはインポートできますが、セグメントを作成する際のフィルタリングに影響を与える可能性があります。詳細については、[トラブルシューティング](#troubleshooting)セクションに進んでください。
 
 {% alert warning %}
 エラーはデータタイプとファイル構造のみに基づいています。例えば、フォーマットが不適切なメールアドレスでも、文字列として解析できるため、インポートされます。
@@ -273,15 +273,15 @@ CSVインポートは大文字と小文字を区別します。つまり、CSV�
 
 サーバーレスのS3 Lambda CSVインポートスクリプトを使用して、ユーザー属性をプラットフォームにアップロードできます。このソリューションはCSVアップローダーとして機能し、CSVをS3バケットにドロップすると、スクリプトがAPIを介してアップロードします。
 
-100万行のファイルの推定実行時間は約5分です。詳細については、[ユーザー属性CSVからBrazeへのインポート]({{site.baseurl}}/user_csv_lambda/)を参照してください。
+100万行のファイルの推定実行時間は約5分です。詳細については、[ユーザー属性CSVからBrazeへのインポート]({{site.baseurl}}/user_csv_lambda)を参照してください。
 
 ## セグメンテーション {#segmenting}
 
-ユーザーインポートはユーザープロファイルを作成および更新し、Segmentの作成にも使用できます。Segmentを作成するには、インポートを開始する前に**このCSVからインポートされたユーザーからSegmentを自動的に生成する**を選択します。
+ユーザーインポートはユーザープロファイルを作成および更新し、セグメントの作成にも使用できます。セグメントを作成するには、インポートを開始する前に**このCSVからインポートされたユーザーからセグメントを自動的に生成する**を選択します。
 
-Segmentの名前を設定するか、デフォルト（ファイル名）を受け入れることができます。Segmentの作成に使用されたファイルには、インポートが完了した後にSegmentを表示するためのリンクが表示されます。
+セグメントの名前を設定するか、デフォルト（ファイル名）を受け入れることができます。セグメントの作成に使用されたファイルには、インポートが完了した後にセグメントを表示するためのリンクが表示されます。
 
-Segmentの作成に使用されるフィルターは、選択されたインポートで作成または更新されたユーザーを選択し、Segment編集ページの他のすべてのフィルターとともに使用できます。
+セグメントの作成に使用されるフィルターは、選択されたインポートで作成または更新されたユーザーを選択し、セグメント編集ページの他のすべてのフィルターとともに使用できます。
 
 ## トラブルシューティング {#troubleshooting}
 

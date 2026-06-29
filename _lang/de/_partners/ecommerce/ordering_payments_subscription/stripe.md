@@ -22,8 +22,8 @@ Durch die Integration von Braze und Stripe können Sie:
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Stripe-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Stripe-Konto mit Zugang zu Webhooks. |
-| Braze-Datentransformation | Um Daten von Stripe zu empfangen, ist eine [URL für die Datentransformation]({{site.baseurl}}/data_transformation/) erforderlich. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze-Datentransformation | Um Daten von Stripe zu empfangen, ist eine [URL für die Datentransformation]({{site.baseurl}}/data_transformation) erforderlich. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -307,4 +307,4 @@ return brazecall;
 
 ## Überwachung und Fehlerbehebung {#monitoring-and-troubleshooting}
 
-Weitere Informationen zur Überwachung und Fehlerbehebung Ihrer Transformation finden Sie unter [Überwachung Ihrer Transformation]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation/#step-5-monitor-your-transformation).
+Weitere Informationen zur Überwachung und Fehlerbehebung Ihrer Transformation finden Sie unter [Überwachung Ihrer Transformation]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation).

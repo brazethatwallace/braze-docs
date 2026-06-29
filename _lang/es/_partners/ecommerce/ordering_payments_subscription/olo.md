@@ -21,7 +21,7 @@ Al integrar Olo y Braze, puedes:
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta Olo | Se requiere una cuenta de Olo con acceso a webhooks para aprovechar esta asociación. Configura suscripciones a webhooks a través de la [herramienta de webhooks de autoservicio](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks) dentro del dashboard de Olo. |
-| Transformación de datos de Braze | Se necesita una [URL de Transformación de datos]({{site.baseurl}}/data_transformation/) para recibir datos de Olo. |
+| Transformación de datos de Braze | Se necesita una [URL de Transformación de datos]({{site.baseurl}}/data_transformation) para recibir datos de Olo. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 Un webhook es una forma en que Olo envía información basada en eventos a Braze sobre los usuarios y sus acciones, incluidos eventos como Order Placed, Guest Opt In, Order Picked Up y más. El webhook de Olo entrega el evento a Braze generalmente a los pocos segundos de realizarse la acción.
@@ -61,7 +61,7 @@ En este paso, transformarás la carga útil del webhook que se enviará desde la
 1. Envía una solicitud a tu URL de Transformación de datos con una carga útil de ejemplo de un evento de Olo que pretendas admitir. Consulta el [formato del cuerpo de la solicitud](#request-body-format) para obtener ayuda sobre el formato de tu solicitud.
 2. Actualiza tu Transformación de datos y asegúrate de que puedes ver la carga útil del evento de ejemplo en los **Detalles del webhook**.
 3. Actualiza tu código de Transformación de datos para que sea compatible con los eventos de Olo elegidos.
-4. Haz clic en **Validate** para obtener una vista previa de la salida de tu código y comprobar si se trata de una solicitud `/users/track` aceptable.
+4. Haz clic en **Validar** para obtener una vista previa de la salida de tu código y comprobar si se trata de una solicitud `/users/track` aceptable.
 5. Guarda y activa tu Transformación de datos.
 
 #### Formato del cuerpo de la solicitud {#request-body-format}

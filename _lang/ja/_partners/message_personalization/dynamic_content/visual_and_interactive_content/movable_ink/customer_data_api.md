@@ -34,7 +34,7 @@ Movable Inkは、Customer Data APIを介してBrazeから行動イベントを�
 
 #### ステップ1a: 新しいCampaignを作成する {#step-1a-create-a-new-campaign}
 
-1. Brazeで、[Webhook Campaignを作成します]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)。
+1. Brazeで、[Webhook Campaignを作成します]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)。
 2. Campaignに名前と任意の説明を付けます。
 3. テンプレートとして**Blank Template**を選択します。
 
@@ -45,7 +45,7 @@ Movable Inkは、Customer Data APIを介してBrazeから行動イベントを�
 ![Movable InkエンドポイントURLとリクエストボディがJSON Key/Value Pairsに設定されているBrazeのWebhookコンポーザーの作成タブ]({% image_buster /assets/img/movable_ink/cd_api_webhook_url.png %}){: style="max-width:75%" }
 
 {:start="2"}
-2. **Settings**タブを選択します。
+2. **設定**タブを選択します。
 3. 以下のリクエストヘッダーをキーと値のペアとして追加します。
 
 | キー | 値 |
@@ -83,14 +83,14 @@ Webhookをテストするには、以下の手順を実行します。
 
 #### ステップ2a: Campaignをスケジュールする {#step-2a-schedule-your-campaign}
 
-Webhookの作成とテストが完了したら、[Campaignをスケジュールします]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)。
+Webhookの作成とテストが完了したら、[Campaignをスケジュールします]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)。
 
-Brazeでは、スケジュール配信、アクションベースの配信、およびAPIトリガー配信がサポートされています。[アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)は、通常ほとんどの行動イベントのユースケースに最適です。ユースケースに最適な方法についてのご質問は、BrazeおよびMovable Inkのカスタマーサクセスマネージャーにお問い合わせください。
+Brazeでは、スケジュール配信、アクションベースの配信、およびAPIトリガー配信がサポートされています。[アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)は、通常ほとんどの行動イベントのユースケースに最適です。ユースケースに最適な方法についてのご質問は、BrazeおよびMovable Inkのカスタマーサクセスマネージャーにお問い合わせください。
 
 アクションベースの配信の場合:
 
 1. トリガーアクションを指定します。これは、Movable InkへのWebhookをトリガーするイベントです。
-2. **Schedule Delay**が**Immediately**に設定されていることを確認します。イベント発生直後にイベントデータが遅延なくMovable Inkに送信される必要があります。
+2. **スケジュールの遅延**が**Immediately**に設定されていることを確認します。イベント発生直後にイベントデータが遅延なくMovable Inkに送信される必要があります。
 3. 開始時間を指定してCampaign期間を設定します。終了時刻は適用されない可能性がありますが、ユースケースに必要な場合は設定できます。
 
 {% alert note %}
@@ -99,9 +99,9 @@ Brazeでは、スケジュール配信、アクションベースの配信、お
 
 #### ステップ2b: オーディエンスを指定する {#step-2b-specify-your-audience}
 
-次に、このCampaignでターゲットにするユーザーを決定します。詳細については、「[ユーザーをターゲットにする]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)」を参照してください。
+次に、このCampaignでターゲットにするユーザーを決定します。詳細については、「[ユーザーをターゲットにする]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)」を参照してください。
 
-**Control Group**のチェックボックスをオフにして、CampaignでABテストを使用しないようにしてください。コントロールグループが含まれている場合、一定の割合のユーザーのデータがMovable Inkに送信されません。オーディエンス全体を、コントロールグループではなくバリアントに移動する必要があります。
+**コントロールグループ**のチェックボックスをオフにして、CampaignでABテストを使用しないようにしてください。コントロールグループが含まれている場合、一定の割合のユーザーのデータがMovable Inkに送信されません。オーディエンス全体を、コントロールグループではなくバリアントに移動する必要があります。
 
 ![バリアント分布の100%がバリアント1に割り当てられ、コントロールグループがないBraze CampaignのABテストパネル]({% image_buster /assets/img/movable_ink/cd_api_webhook_ab.png %})
 
@@ -135,7 +135,7 @@ Movable InkのCustomer Data APIへのコネクターを設定する前に、イ�
 
 このサンプルペイロードをMovable Inkクライアントエクスペリエンスチームと共有してください。サンプルペイロードに、機密性の高い個人識別情報（メールアドレス、電話番号、誕生日全体など）が含まれていないことを確認してください。
 
-カスタムイベントプロパティと、プロパティに含まれるデータの想定形式について詳しくは、「[カスタムイベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/)」を参照してください。
+カスタムイベントプロパティと、プロパティに含まれるデータの想定形式について詳しくは、「[カスタムイベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties)」を参照してください。
 
 ### 既知のユーザーと匿名のユーザー {#known-versus-anonymous-users}
 
@@ -164,7 +164,7 @@ Webhook Campaignで`External User ID`フィルターを使用して、フィル�
 {
   "events": [
     {
-      "email": "test@braze.com",
+      "email": "test@example.com",
       "name": "Product Viewed",
       "time": "2023-12-06T19:20:45+01:00",
       "properties": {

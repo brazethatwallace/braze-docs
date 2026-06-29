@@ -51,7 +51,7 @@ Sur la page de profil de l'utilisateur, sélectionnez <i class="fa-solid fa-elli
 
 ### Supprimer un segment {#delete-segment}
 
-Si ce n'est pas déjà fait, [créez un segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) contenant les profils utilisateurs que vous souhaitez supprimer. Assurez-vous d'inclure tous les profils utilisateurs si vous supprimez des utilisateurs en double.
+Si ce n'est pas déjà fait, [créez un segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) contenant les profils utilisateurs que vous souhaitez supprimer. Assurez-vous d'inclure tous les profils utilisateurs si vous supprimez des utilisateurs en double.
 
 Dans Braze, accédez à **Audience** > **Manage Audience**, puis sélectionnez l'onglet **Delete Users**.
 
@@ -68,7 +68,7 @@ Tapez **DELETE** pour confirmer votre demande, puis sélectionnez **Delete users
 Les utilisateurs de ce segment ne seront pas supprimés immédiatement. Ils seront marqués comme en attente de suppression pendant les 7 prochains jours. Après cette période, ils seront supprimés et nous vous enverrons un e-mail pour vous en informer.
 
 {% alert tip %}
-Pour garantir que ces utilisateurs exacts soient supprimés indépendamment des modifications du segment, un filtre de segment appelé **Pending Deletion** est automatiquement créé. Vous pouvez [utiliser ce filtre]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters) pour vérifier l'état des suppressions en attente.
+Pour garantir que ces utilisateurs exacts soient supprimés indépendamment des modifications du segment, un filtre de segment appelé **Pending Deletion** est automatiquement créé. Vous pouvez [utiliser ce filtre]({{site.baseurl}}/user_guide/audience/segments/managing_segments#filters) pour vérifier l'état des suppressions en attente.
 {% endalert %}
 
 ## Confirmer les suppressions de segments {#confirming-segment-deletions}
@@ -103,7 +103,7 @@ Vous pouvez vérifier l'état d'une suppression à l'aide des [filtres de segmen
 
 ### Filtres de segment {#segment-filters}
 
-Lorsque vous demandez la suppression d'un segment d'utilisateurs, un [filtre de segment]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters) appelé **Pending Deletion** est automatiquement créé. Vous pouvez l'utiliser pour :
+Lorsque vous demandez la suppression d'un segment d'utilisateurs, un [filtre de segment]({{site.baseurl}}/user_guide/audience/segments/managing_segments#filters) appelé **Pending Deletion** est automatiquement créé. Vous pouvez l'utiliser pour :
 
 - Voir l'ensemble exact d'utilisateurs liés à une date d'exécution de suppression spécifique.
 - Exclure ces utilisateurs des campagnes afin qu'ils ne reçoivent pas de messages avant leur suppression.
@@ -135,13 +135,13 @@ Pour plus de détails sur une demande spécifique, sélectionnez <i class="fa-so
 
 ### Rapport d'événements de sécurité {#security-event-report}
 
-Vous pouvez également vérifier l'état des suppressions précédentes en téléchargeant un rapport d'événements de sécurité. Pour plus d'informations, consultez [Paramètres de sécurité]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report).
+Vous pouvez également vérifier l'état des suppressions précédentes en téléchargeant un rapport d'événements de sécurité. Pour plus d'informations, consultez [Paramètres de sécurité]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report).
 
 ## Questions fréquentes {#faq}
 
 ### Puis-je supprimer des segments de plus de 10 millions d'utilisateurs ? {#can-i-delete-segments-with-more-than-10-million-users}
 
-Non. Vous ne pouvez pas supprimer des segments de plus de 10 millions d'utilisateurs. Si vous avez besoin d'aide pour supprimer un segment de cette taille, contactez l'[assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+Non. Vous ne pouvez pas supprimer des segments de plus de 10 millions d'utilisateurs. Si vous avez besoin d'aide pour supprimer un segment de cette taille, contactez l'[assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ### Je ne peux supprimer que 10 millions d'utilisateurs à la fois. Est-ce un bug ? {#i-can-only-delete-up-to-10-million-users-at-a-time-is-this-a-bug}
 
@@ -155,7 +155,7 @@ Si une fusion planifiée inclut des profils utilisateurs en attente de suppressi
 
 Les données envoyées depuis des systèmes externes ou des SDK sont toujours acceptées, mais les utilisateurs seront supprimés comme prévu, indépendamment de l'activité.
 
-### Les Canvas et les Campaigns se déclenchent-ils pour les utilisateurs en attente de suppression ? {#do-canvases-and-campaigns-trigger-for-users-pending-deletion}
+### Les Canvas et les campagnes se déclenchent-ils pour les utilisateurs en attente de suppression ? {#do-canvases-and-campaigns-trigger-for-users-pending-deletion}
 
 Oui. Cependant, vous pouvez ajouter un filtre d'inclusion de segment pour exclure tous les utilisateurs avec le [filtre de segment](#segment-filters) **Pending Deletion**.
 
@@ -167,4 +167,4 @@ Vous pouvez [annuler les suppressions de segments](#cancel) dans les 7 premiers 
 
 ### Puis-je supprimer des utilisateurs via l'API au lieu du tableau de bord ? {#can-i-delete-users-with-the-api-instead-of-the-dashboard}
 
-Oui. Pour des lots plus petits, vous pouvez utiliser l'[endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/), qui accepte jusqu'à 50 identifiants par requête et est soumis à la [limite de débit]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#rate-limit) de cet endpoint. La suppression par segment via le tableau de bord est mieux adaptée aux très grandes audiences, mais inclut la [période d'attente de 7 jours](#about-user-deletion).
+Oui. Pour des lots plus petits, vous pouvez utiliser l'[endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete), qui accepte jusqu'à 50 identifiants par requête et est soumis à la [limite de débit]({{site.baseurl}}/api/endpoints/user_data/post_user_delete#rate-limit) de cet endpoint. La suppression par segment via le tableau de bord est mieux adaptée aux très grandes audiences, mais inclut la [période d'attente de 7 jours](#about-user-deletion).

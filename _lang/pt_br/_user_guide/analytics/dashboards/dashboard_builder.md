@@ -29,7 +29,7 @@ Agora, siga as etapas correspondentes à sua fonte de dados:
 {% tab Reports %}
 
 {: start="4"}
-4. Selecione **+ Add Tile** e escolha um dos relatórios que você criou no [Criador de relatórios (Novo)]({{site.baseurl}}/user_guide/analytics/reports/report_builder/).
+4. Selecione **+ Add Tile** e escolha um dos relatórios que você criou no [Criador de relatórios (Novo)]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
 {% alert important %}
 Depois que um relatório do Criador de relatórios é adicionado a um bloco do Criador de dashboard, o bloco não fica conectado ao relatório original. Se você editar o relatório original no Criador de relatórios, será necessário excluir o bloco existente do dashboard e criar um novo usando o relatório atualizado como fonte de dados.
@@ -50,7 +50,7 @@ Depois que um relatório do Criador de relatórios é adicionado a um bloco do C
         - Se você escolher uma das opções de gráfico, use o menu suspenso **X-axis** para selecionar uma única coluna dos resultados da consulta para usar como eixo X.
         - Use o menu suspenso **Y-axis** para selecionar quais métricas incluir na sua visualização. Por padrão, todas as colunas dos resultados da consulta serão exibidas, então desmarque as colunas que você não deseja visualizar.<br><br>![Alternadores para diferentes tipos de gráfico.]({% image_buster /assets/img/query_builder_axis.png %})<br><br>
         - (Opcional) Você pode usar o menu suspenso **Grouping** para agrupar os resultados da consulta. Por exemplo, se você tem o ID da campanha como resultado de coluna e deseja somar todas as linhas com esse valor, use o menu suspenso **Grouping**.
-        - (Opcional) Para editar os dados exibidos, selecione a consulta vinculada ao visual e faça suas edições no [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/).
+        - (Opcional) Para editar os dados exibidos, selecione a consulta vinculada ao visual e faça suas edições no [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder).
 6. Selecione **Save** depois de ajustar a visualização conforme desejado.
 7. Adicione um nome, uma descrição e uma tag para facilitar a localização do seu dashboard posteriormente.
 {% endtab %}
@@ -111,7 +111,7 @@ Os pontos de contato incluem _Clique em e-mail_ (clique em link), _Clique em car
 | Compras por produto | Contagem de todas as compras agrupadas por produto. |
 | Receita por canal | Soma de todos os eventos de receita de Campaigns e Canvas com um evento de último ponto de contato qualificado, agrupados por canal. |
 | Série temporal de receita | Soma de todos os eventos de receita de Campaigns e Canvas com um evento de último ponto de contato qualificado, agrupados por dia em UTC. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Revenue - Last Touch Attribution" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Receita - Atribuição de último ponto de contato" }
 
 #### Dispositivos e operadoras {#devices-and-carriers}
 
@@ -121,7 +121,7 @@ Os pontos de contato incluem _Clique em e-mail_ (clique em link), _Clique em car
 | Modelo do dispositivo | Contagem de usuários no intervalo de datas selecionado que abriram uma notificação por push, agrupados por modelo do dispositivo. |
 | Sistema operacional do dispositivo | Contagem de usuários no intervalo de datas selecionado que abriram uma notificação por push, agrupados por sistema operacional do dispositivo. |
 | Tamanho da tela do dispositivo | Contagem de usuários no intervalo de datas selecionado que abriram uma notificação por push, agrupados por resolução de tela (tamanho) do dispositivo. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Devices and carriers" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dispositivos e operadoras" }
 
 #### Insights de segmento - E-mail {#segment-insights-email}
 
@@ -141,7 +141,7 @@ Os pontos de contato incluem _Clique em e-mail_ (clique em link), _Clique em car
 | 10 piores Campaigns para métricas de compra | Lista classificada de Campaigns com as menores métricas de conversão de compra a partir de engajamento de e-mail (métrica configurável para classificação).|
 | Top 10 Canvas para métricas de compra | Lista classificada de Canvas com as maiores métricas de conversão de compra a partir de engajamento de e-mail (métrica configurável para classificação).|
 | 10 piores Canvas para métricas de compra | Lista classificada de Canvas com as menores métricas de conversão de compra a partir de engajamento de e-mail (métrica configurável para classificação).|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment Insights - Email" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Insights de segmento - E-mail" }
 
 #### Análise de sessões {#session-analytics}
 
@@ -152,7 +152,7 @@ Os pontos de contato incluem _Clique em e-mail_ (clique em link), _Clique em car
 | Campaigns que convertem em sessões | Contagem de sessões únicas que ocorreram ao mesmo tempo que conversões de Campaign, agrupadas por ID de Campaign e classificadas por contagem de sessões.|
 | Canvas que convertem em sessões | Contagem de sessões únicas que ocorreram ao mesmo tempo que conversões de Canvas, agrupadas por ID de Canvas e classificadas por contagem de sessões.|
 | Nº total de sessões por usuário | Lista dos 1.000 principais usuários por contagem total de sessões dentro do intervalo de datas selecionado.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Session Analytics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Análise de sessões" }
 
 ## Compartilhe seu feedback conosco {#share-your-feedback-with-us}
 

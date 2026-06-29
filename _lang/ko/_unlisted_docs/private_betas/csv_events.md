@@ -16,7 +16,7 @@ page_type: reference
 
 ## REST API
 
-[`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)를 사용하여 사용자의 커스텀 이벤트, 사용자 속성 및 구매를 기록할 수 있습니다.
+[`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하여 사용자의 커스텀 이벤트, 사용자 속성 및 구매를 기록할 수 있습니다.
 
 ## CSV 가져오기 {#csv-import}
 
@@ -34,7 +34,7 @@ CSV 파일을 사용한 사용자 데이터 가져오기는 이름, 이메일 �
 
 ### 외부 ID로 가져오기 {#importing-with-external-id}
 
-고객 데이터를 가져올 때 각 고객의 고유 식별자(`external_id`라고도 함)를 지정해야 합니다. CSV 가져오기를 시작하기 전에 엔지니어링 팀에서 Braze에서 사용자를 어떻게 식별할지 이해하는 것이 중요합니다. 일반적으로 이는 내부 데이터베이스 ID입니다. 이는 모바일 및 웹에서 Braze SDK가 사용자를 식별하는 방식과 일치해야 하며, 각 고객이 기기 전체에서 Braze 내에 단일 사용자 프로필을 갖도록 설계되었습니다. Braze [고객 프로필 수명주기]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/)에 대해 자세히 알아보세요.
+고객 데이터를 가져올 때 각 고객의 고유 식별자(`external_id`라고도 함)를 지정해야 합니다. CSV 가져오기를 시작하기 전에 엔지니어링 팀에서 Braze에서 사용자를 어떻게 식별할지 이해하는 것이 중요합니다. 일반적으로 이는 내부 데이터베이스 ID입니다. 이는 모바일 및 웹에서 Braze SDK가 사용자를 식별하는 방식과 일치해야 하며, 각 고객이 기기 전체에서 Braze 내에 단일 사용자 프로필을 갖도록 설계되었습니다. Braze [고객 프로필 수명주기]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle)에 대해 자세히 알아보세요.
 
 가져오기에서 `external_id`를 제공하면 Braze는 동일한 `external_id`를 가진 기존 사용자를 업데이트하거나, 해당 `external_id`가 발견되지 않으면 해당 `external_id`가 설정된 새로 식별된 사용자를 생성합니다.
 
@@ -59,7 +59,7 @@ CSV 파일을 사용한 사용자 데이터 가져오기는 이름, 이메일 �
 가져오기에서 `user_alias_name`과 `user_alias_label`을 모두 제공하면 Braze는 동일한 `user_alias_name`과 `user_alias_label`을 가진 기존 사용자를 업데이트합니다. 사용자를 찾을 수 없으면 Braze는 해당 `user_alias_name`이 설정된 새로 식별된 사용자를 생성합니다.
 
 {% alert important %}
-이미 `external_id`가 있는 기존 사용자를 `user_alias_name`으로 업데이트하기 위해 CSV 가져오기를 사용할 수 없습니다. 대신 연결된 `user_alias_name`으로 새 사용자 프로필이 생성됩니다. 별칭 전용 사용자를 `external_id`와 연결하려면 [사용자 식별 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/)를 사용하세요.
+이미 `external_id`가 있는 기존 사용자를 `user_alias_name`으로 업데이트하기 위해 CSV 가져오기를 사용할 수 없습니다. 대신 연결된 `user_alias_name`으로 새 사용자 프로필이 생성됩니다. 별칭 전용 사용자를 `external_id`와 연결하려면 [사용자 식별 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)를 사용하세요.
 {% endalert %}
 
 - **다운로드:** [CSV 별칭 속성 가져오기 템플릿][template_alias_attributes]
@@ -101,8 +101,8 @@ Braze 대시보드의 CSV 내보내기에서 `braze_id` 값이 `Appboy ID`로 �
 | `dob` | 문자열 | "YYYY-MM-DD" 형식으로 전달해야 합니다(예: `1980-12-21`). 이렇게 하면 사용자의 생년월일이 가져와지고 생일이 "오늘"인 사용자를 타겟팅할 수 있습니다. | 아니요 |
 | `gender` | 문자열 | "M", "F", "O"(기타), "N"(해당 없음), "P"(밝히고 싶지 않음) 또는 nil(알 수 없음). | 아니요 |
 | `home_city` | 문자열 | 사용자가 표시한 거주 도시(예: `London`). | 아니요 |
-| `language` | 문자열 | 언어는 ISO-639-1 표준으로 Braze에 전달해야 합니다(예: `en`). <br>[허용되는 언어 목록]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/language_codes/)을 참조하세요. | 아니요 |
-| `phone` | 문자열 | 사용자가 표시한 전화번호, `E.164` 형식(예: `+442071838750`). <br>형식 지정 안내는 [사용자 전화번호]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers/)를 참조하세요. | 아니요 |
+| `language` | 문자열 | 언어는 ISO-639-1 표준으로 Braze에 전달해야 합니다(예: `en`). <br>[허용되는 언어 목록]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/language_codes)을 참조하세요. | 아니요 |
+| `phone` | 문자열 | 사용자가 표시한 전화번호, `E.164` 형식(예: `+442071838750`). <br>형식 지정 안내는 [사용자 전화번호]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers)를 참조하세요. | 아니요 |
 | `email_open_tracking_disabled` | 부울 | true 또는 false를 허용합니다. true로 설정하면 이 사용자에게 전송되는 모든 향후 이메일에 오픈 추적 픽셀이 추가되지 않습니다. | 아니요 |
 | `email_click_tracking_disabled` | 부울 | true 또는 false를 허용합니다. true로 설정하면 이 사용자에게 전송되는 향후 이메일 내 모든 링크에 대한 클릭 추적이 비활성화됩니다. | 아니요 |
 | `email_subscribe` | 문자열 | 사용 가능한 값은 `opted_in`(이메일 메시지 수신에 명시적으로 등록), `unsubscribed`(이메일 메시지 수신을 명시적으로 거부), `subscribed`(수신 동의도 거부도 하지 않음)입니다. | 아니요 |
@@ -136,16 +136,16 @@ Braze 대시보드의 CSV 내보내기에서 `braze_id` 값이 `Appboy ID`로 �
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert important %}
-배열과 푸시 토큰은 사용자 가져오기에서 지원되지 않습니다. 특히 배열의 경우 CSV 파일의 쉼표가 열 구분자로 해석되므로 값에 포함된 쉼표는 파일 구문 분석 시 오류를 발생시킵니다. <br>이러한 종류의 값을 업로드하려면 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 또는 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion/)을 사용하세요.
+배열과 푸시 토큰은 사용자 가져오기에서 지원되지 않습니다. 특히 배열의 경우 CSV 파일의 쉼표가 열 구분자로 해석되므로 값에 포함된 쉼표는 파일 구문 분석 시 오류를 발생시킵니다. <br>이러한 종류의 값을 업로드하려면 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 또는 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion)을 사용하세요.
 {% endalert %}
 
 ### 구독 그룹 상태 업데이트 {#updating-subscription-group-status}
 
-사용자 가져오기를 통해 이메일 또는 SMS 구독 그룹에 사용자를 추가할 수 있습니다. 이는 SMS 채널로 메시지를 보내려면 사용자가 SMS 구독 그룹에 등록되어 있어야 하므로 SMS에 특히 유용합니다. 자세한 내용은 [SMS 구독 그룹]({{site.baseurl}}/user_guide/message_building_by_channel/sms/sms_subscription_group/#subscription-group-mms-enablement)을 참조하세요.
+사용자 가져오기를 통해 이메일 또는 SMS 구독 그룹에 사용자를 추가할 수 있습니다. 이는 SMS 채널로 메시지를 보내려면 사용자가 SMS 구독 그룹에 등록되어 있어야 하므로 SMS에 특히 유용합니다. 자세한 내용은 [SMS 구독 그룹]({{site.baseurl}}/user_guide/message_building_by_channel/sms/sms_subscription_group#subscription-group-mms-enablement)을 참조하세요.
 
 구독 그룹 상태를 업데이트하는 경우 CSV에 다음 두 열이 있어야 합니다:
 
-- `subscription_group_id`: [구독 그룹]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#subscription-groups)의 `id`.
+- `subscription_group_id`: [구독 그룹]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#subscription-groups)의 `id`.
 - `subscription_state`: 사용 가능한 값은 `unsubscribed`(구독 그룹에 속하지 않음) 또는 `subscribed`(구독 그룹에 속함)입니다.
 
 <style type="text/css">
@@ -273,7 +273,7 @@ CSV 가져오기는 대소문자를 구분합니다. 이는 CSV 가져오기에�
 
 서버리스 S3 Lambda CSV 가져오기 스크립트를 사용하여 사용자 속성을 플랫폼에 업로드할 수 있습니다. 이 솔루션은 CSV를 S3 버킷에 드롭하면 스크립트가 API를 통해 업로드하는 CSV 업로더로 작동합니다.
 
-100만 행이 포함된 파일의 예상 실행 시간은 약 5분입니다. 자세한 내용은 [사용자 속성 CSV를 Braze로 가져오기]({{site.baseurl}}/user_csv_lambda/)를 참조하세요.
+100만 행이 포함된 파일의 예상 실행 시간은 약 5분입니다. 자세한 내용은 [사용자 속성 CSV를 Braze로 가져오기]({{site.baseurl}}/user_csv_lambda)를 참조하세요.
 
 ## 세분화 {#segmenting}
 

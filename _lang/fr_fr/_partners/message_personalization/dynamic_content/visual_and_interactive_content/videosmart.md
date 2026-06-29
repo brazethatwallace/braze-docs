@@ -44,7 +44,7 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 | Identifiants de Contenu connecté Braze | Un identifiant d'authentification basique de Contenu connecté nommé **basic_credentials**, configuré avec les valeurs fournies par VideoSmart |
 | Modèle de **Content Block VideoSmart** | Le modèle de **Content Block VideoSmart** ajouté à votre tableau de bord de Braze (fourni par VideoSmart) |
 | Un message e-mail Braze | Un e-mail de Campaign Braze ou une étape e-mail Canvas dans lequel vous insérerez le **Content Block VideoSmart** |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -60,7 +60,7 @@ VideoSmart fournira les identifiants pour l'authentification du Contenu connect�
 
 Créez un identifiant d'authentification basique de Contenu connecté dans Braze nommé « basic_credentials ».
 
-- Suivez les instructions de la section [Utiliser l'authentification basique]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/#using-basic-authentication).
+- Suivez les instructions de la section [Utiliser l'authentification basique]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call#using-basic-authentication).
 - Utilisez le nom d'utilisateur et le mot de passe fournis par VideoSmart.
 
 ### Étape 3 : Ajouter le Content Block à votre e-mail {#step-3-add-the-content-block-to-your-email}
@@ -94,7 +94,7 @@ Cet exemple utilise les attributs utilisateur Braze pour le prénom et le nom de
 
 {% capture vs_record_data %}
 {
-  "FirstName": "{{ ${first_name} | default: 'John' | json_escape }}",
+  "FirstName": "{{ ${first_name} | default: 'Alex' | json_escape }}",
   "LastName": "{{ ${last_name} | default: 'Doe' | json_escape }}"
 }
 {% endcapture %}
@@ -129,7 +129,7 @@ L'API de VideoSmart a une limite de débit de 10 000 requêtes par minute. Si vo
 
 Pour réduire ce risque, configurez la limitation de débit de votre Campaign Braze afin que le rythme d'envoi des messages reste en dessous de la capacité de l'API VideoSmart.
 
-Pour en savoir plus sur la vitesse de distribution et la limitation de débit dans Braze, consultez [Vitesse de distribution et limitation de débit]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#delivery-speed-rate-limiting).
+Pour en savoir plus sur la vitesse de distribution et la limitation de débit dans Braze, consultez [Vitesse de distribution et limitation de débit]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting#delivery-speed-rate-limiting).
 
 ## Points à prendre en compte {#considerations}
 

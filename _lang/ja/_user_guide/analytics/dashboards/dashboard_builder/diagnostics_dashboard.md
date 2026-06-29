@@ -35,7 +35,7 @@ Brazeがメッセージを「送信」した場合、最終的な配信は外部
 | SMS/MMS/RCS | BrazeがメッセージをSMSゲートウェイ（Twilioなど）に引き渡します。そのゲートウェイがモバイルキャリアへの最終配信を担当します。 |
 | Webhook | Webhookリクエストが正常に実行され、`2xx` レスポンスが返されました。 |
 | WhatsApp | メッセージが送信パートナーに正常に引き渡されました。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Sent and delivered" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="送信済みと配信済み" }
 
 ### データの鮮度 {#data-freshness}
 
@@ -101,31 +101,31 @@ Brazeがメッセージを「送信」した場合、最終的な配信は外部
 | Content Cardsが無効 | Content Cardsにエラーがあり、ユーザーに送信されませんでした。一般的な理由には以下が含まれます: {::nomarkdown}<ul><li> 最大サイズ（2 KB）を超過 </li><li> 有効期限が無効 </li><li> メッセージに無効な文字が含まれている </li></ul>{:/} |
 | コネクテッドコンテンツの失敗 | Brazeはメッセージの送信を試みましたが、コネクテッドコンテンツが最大リトライ回数（デフォルトは5回）後に失敗しました。**注:** このカウントは、最大リトライ回数に達したために中止されたメッセージの数であり、コネクテッドコンテンツリクエストの失敗の合計数ではありません。 |
 | アプリ内メッセージのレンダリングタイムアウト | 複数回のリトライ後、Liquidをレンダリングできずタイムアウトしました。 |
-| Liquidによる中止 | [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) Liquidタグが呼び出されたため、送信がキャンセルされました。 |
+| Liquidによる中止 | [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) Liquidタグが呼び出されたため、送信がキャンセルされました。 |
 | Liquidレンダリングタイムアウト | Liquidテンプレートのレンダリングに時間がかかりすぎました。バナー、アプリ内メッセージ、メールで最も発生しやすいです。 |
 | Liquid構文エラー | Liquidテンプレートに解析エラーがあったため、メッセージがキャンセルされました。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="コンテンツとレンダリング" }
 
 #### CampaignとCanvasの状態 {#campaign-and-canvas-state}
 
 | 中止の結果 | 説明 |
 | ---- | ---- |
-| 遅延ステップの失敗 | [遅延ステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/#personalized-delays)が失敗し、ユーザーがCanvasを退出しました。この失敗は以下の場合に発生する可能性があります: {::nomarkdown}<ul><li> パーソナライズされた遅延ステップに提供された変数が空または無効な型だった </li><li> 遅延がCanvas内で許可される最大期間を超えている</li></ul>{:/} |
+| 遅延ステップの失敗 | [遅延ステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step#personalized-delays)が失敗し、ユーザーがCanvasを退出しました。この失敗は以下の場合に発生する可能性があります: {::nomarkdown}<ul><li> パーソナライズされた遅延ステップに提供された変数が空または無効な型だった </li><li> 遅延がCanvas内で許可される最大期間を超えている</li></ul>{:/} |
 | 例外イベントまたは終了イベント | ユーザーは以前メッセージを受信する資格がありましたが、{::nomarkdown}<ul><li> アクションベースのCampaignの<a href="/docs/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-3-select-exception-events">例外イベント</a> を実行したためメッセージが中止されたか、または </li><li> Canvasの<a href="/docs/user_guide/messaging/canvas/create_a_canvas#setting-exit-criteria">終了条件</a> を満たしたためジャーニーの途中でドロップされました。</li></ul>{:/} |
 | 非アクティブなCampaign | メッセージの送信中にCampaignが停止されたため、中止されました。 |
 | 非アクティブなCanvas | ユーザーがジャーニーに入る前にCanvasが停止されました。 |
 | 非アクティブなキャンバスステップ | これはCanvasで以下の場合に発生する可能性があります: {::nomarkdown}<ul><li> キャンバスステップが削除された </li> <li>Canvasが停止され、すべてのステップが非アクティブになった </li></ul>{:/} |
 | ボリューム制限 | Campaignが設定されたボリューム制限に達したため、送信がキャンセルされました。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign and Canvas state" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CampaignとCanvasの状態" }
 
 #### レート制限とタイミング {#rate-limiting-and-timing}
 
 | 中止の結果 | 説明 |
 | ---- | ---- |
-| フリークエンシーキャップ | ワークスペースの[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#about-frequency-capping)ルールで許可されたメッセージの最大数をユーザーがすでに受信しているため、送信がキャンセルされました。 |
+| フリークエンシーキャップ | ワークスペースの[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)ルールで許可されたメッセージの最大数をユーザーがすでに受信しているため、送信がキャンセルされました。 |
 | サイレント時間帯による中止 | CampaignまたはキャンバスステップでQuiet Hoursが有効になっており、フォールバックが**Abort message**に設定されていました。ユーザーがQuiet Hours中にCampaignをトリガーしたか、Canvasのメッセージステップに入ったため、メッセージが中止されました。ただし、これによりユーザーがCanvasから退出することはありません。 |
-| 72時間を超えるレート制限 | [配信速度レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting)により、メッセージが72時間以上スロットリングされたため、送信が中止されました。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limiting and timing" }
+| 72時間を超えるレート制限 | [配信速度レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)により、メッセージが72時間以上スロットリングされたため、送信が中止されました。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="レート制限とタイミング" }
 
 #### ユーザーの適格性とプロファイル {#user-eligibility-and-profile}
 
@@ -135,17 +135,17 @@ Brazeがメッセージを「送信」した場合、最終的な配信は外部
 | メッセージステップの事前チェックに失敗 | この事前チェックは配信バリデーションの前に実行されます。この場合、ユーザーはこのメッセージステップの基本的な事前チェックを満たしませんでした（ユーザーが見つからないか、メッセージステップのチャネルに対して不適格）。**注:** マルチチャネルのメッセージステップの場合、これはユーザーが見つからなかったことを意味します。チャネルの適格性は、シングルチャネルのメッセージステップでのみここでチェックされます。 |
 | トリガーメッセージの事前チェックに失敗 | トリガーメッセージの場合、Brazeはこのトリガーから送信するメッセージを作成する前に、オーディエンスの適格性、再適格性、チャネルの適格性に関する基本的な事前チェックの最初のパスを実行します。 |
 | ユーザーが適格でなくなった | ユーザーは当初ターゲットオーディエンスに含まれていましたが、Brazeがメッセージを送信するかユーザーをCanvasに入れる前に、オーディエンス条件に一致しなくなりました。ユーザーが最初にオーディエンス条件を満たしてからオーディエンスから外れるまでの時間は、以下の遅延が原因である可能性があります: {::nomarkdown}<ul><li>インテリジェントタイミング</li><li>Quiet Hours</li><li>ローカルタイム</li><li>配信速度レート制限（Canvasエントリには適用されません）</li><li>メッセージングパイプラインの遅延</li></ul>{:/} |
-| ステップに対してユーザーが不適格 | ユーザーがメッセージステップの設定された[配信バリデーション]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations)を満たさなかったか、[抑制リスト]({{site.baseurl}}/user_guide/audience/suppression_lists/)に含まれていました。**配信バリデーション**の設定に応じて、ユーザーはCanvasを退出したか、次のステップに進んだ可能性があります。 |
+| ステップに対してユーザーが不適格 | ユーザーがメッセージステップの設定された[配信バリデーション]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations)を満たさなかったか、[抑制リスト]({{site.baseurl}}/user_guide/audience/suppression_lists)に含まれていました。**配信バリデーション**の設定に応じて、ユーザーはCanvasを退出したか、次のステップに進んだ可能性があります。 |
 | ユーザーが再適格でない | ユーザーはメッセージを受信するかCanvasに入る資格がありましたが、再適格性または再エントリの設定により送信がキャンセルされました。これは、ユーザーがすでにCampaignを受信しているかCanvasに最近入っている場合、同じCampaignの別の送信がこのユーザーに対してすでに進行中の場合、または再適格性や再エントリがオフになっている場合に発生する可能性があります。 |
 | ユーザープロファイルが見つからない | ユーザーが存在したことがないか、Brazeに存在しなくなりました。一般的なケースには以下が含まれます: {::nomarkdown}<ul><li> APIメッセージングを使用してユーザーをターゲットにしたが、Brazeにユーザーが存在しなかった。 </li><li>メッセージが送信される前またはキャンバスステップが実行される前にユーザーが削除された。 </li><li>メッセージが送信される前にユーザーが別のプロファイルとマージされた。</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="User eligibility and profile" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーの適格性とプロファイル" }
 
 #### チャネルと配信 {#channel-and-delivery}
 
 | 中止の結果 | 説明 |
 | ---- | ---- |
 | パートナー配信タイムアウト | Brazeは24時間にわたってこのメッセージを配信パートナーに送信しようとしましたが、パートナーがその時間枠全体で一時的なエラーを返しました。 |
-| プッシュ認証情報が無効 | このアプリの[プッシュ認証情報]({{site.baseurl}}/user_guide/channels/push/faqs/#valid-push-token)が見つからないか無効なため、送信がキャンセルされました。**アプリ設定**で認証情報を更新してください。 |
+| プッシュ認証情報が無効 | このアプリの[プッシュ認証情報]({{site.baseurl}}/user_guide/channels/push/faqs#valid-push-token)が見つからないか無効なため、送信がキャンセルされました。**アプリ設定**で認証情報を更新してください。 |
 | Androidプッシュ通知、アプリ、またはデバイスに対してユーザーが有効でない | このユーザーにプッシュ通知を送信できません。一般的な理由: {::nomarkdown}<ul><li> ユーザーがアプリをインストールしていない。</li> <li> ユーザーが有効なプッシュトークンを持っていない。 </li> <li>ユーザーがこのプッシュ通知に必要なデバイスを持っていない。 </li> <li> ユーザーがデバイス設定でこのアプリの通知を無効にしている。 </li> <li> ユーザーがプッシュ通知の受信を購読またはオプトインしていない。</li></ul>{:/} |
 | iOSプッシュ通知、アプリ、またはデバイスに対してユーザーが有効でない | 「Androidプッシュ通知、アプリ、またはデバイスに対してユーザーが有効でない」の中止結果と同じです。 |
 | Kindleプッシュ通知、アプリ、またはデバイスに対してユーザーが有効でない | 「Androidプッシュ通知、アプリ、またはデバイスに対してユーザーが有効でない」の中止結果と同じです。 |
@@ -155,8 +155,8 @@ Brazeがメッセージを「送信」した場合、最終的な配信は外部
 | LINEに対してユーザーが有効でない | このユーザーにLINEメッセージを送信できません。一般的な理由: {::nomarkdown}<ul><li> ユーザープロファイルに電話番号がない。 </li><li> 配信失敗によりユーザーの電話番号が無効としてマークされている。 </li><li> ユーザーのサブスクリプション状態により、このメッセージの受信対象から除外されている。 </li><li> ユーザーがLINE IDを持っていない。</li></ul>{:/} |
 | SMS/MMS/RCSに対してユーザーが有効でない | このユーザーにSMSメッセージを送信できません。一般的な理由: {::nomarkdown}<ul><li> ユーザープロファイルに電話番号がない。 </li><li> 配信失敗によりユーザーの電話番号が無効としてマークされている。 </li><li> ユーザーの電話番号が有効なE.164形式ではなく、自動フォーマットの試行も失敗した。 </li><li> ユーザーのサブスクリプション状態により、SMSメッセージの受信対象から除外されている。</li><li>ユーザーの電話番号がブロックされた国にある。</li></ul>{:/} |
 | WhatsAppに対してユーザーが有効でない | このユーザーにWhatsAppメッセージを送信できません。一般的な理由: {::nomarkdown}<ul><li> ユーザープロファイルに電話番号がない。 </li><li> 配信失敗によりユーザーの電話番号が無効としてマークされている。 </li><li> ユーザーのサブスクリプション状態により、このメッセージの受信対象から除外されている。 </li><li> ユーザーがWhatsAppアカウントを持っていない。</li></ul>{:/} |
-| Webhookの失敗 | Webhookが失敗のレスポンスコード（非`2xx`）を受信しました。詳細については[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/#dev-console-troubleshooting)を参照してください。60時間以上経過したログはクリーンアップされ、アクセスできなくなります。Webhookエラーは1時間あたり最大20件のログがサンプリングされます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Channel and delivery" }
+| Webhookの失敗 | Webhookが失敗のレスポンスコード（非`2xx`）を受信しました。詳細については[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#dev-console-troubleshooting)を参照してください。60時間以上経過したログはクリーンアップされ、アクセスできなくなります。Webhookエラーは1時間あたり最大20件のログがサンプリングされます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="チャネルと配信" }
 
 ## よくある質問 {#frequently-asked-questions}
 
@@ -168,16 +168,16 @@ Brazeがメッセージを「送信」した場合、最終的な配信は外部
 
 ### 「その他」の中止結果とは何ですか？ {#what-does-an-other-abort-outcome-mean}
 
-これらは、既存のBrazeカテゴリのいずれにも該当しなかった中止です。この結果の中止が大きな割合を占めている場合は、[Brazeサポート]({{site.baseurl}}/braze_support/)にお問い合わせください。
+これらは、既存のBrazeカテゴリのいずれにも該当しなかった中止です。この結果の中止が大きな割合を占めている場合は、[Brazeサポート]({{site.baseurl}}/braze_support)にお問い合わせください。
 
 ### 「中止の合計」と「メッセージ送信数」の合計が、予想されるオーディエンスサイズよりも少ないのはなぜですか？ {#why-is-the-sum-of-_total-aborts_-and-_message-sends_-lower-than-my-expected-audience-size}
 
 これにはいくつかの理由が考えられます:
 
-- **オーディエンス条件:** CampaignまたはCanvasが起動された時点で、予想よりも少ないユーザーしかオーディエンス条件を満たしていなかった可能性があります（たとえば、セグメントに含まれていなかったか、必要な属性を持っていなかった）。
+- **オーディエンス条件:** CampaignまたはCanvasが起動された時点で、予想よりも少ないユーザーしかオーディエンス条件を満たしていなかった可能性があります（たとえば、Segmentに含まれていなかったか、必要な属性を持っていなかった）。
 - **処理中:** メッセージがまだ処理中の可能性があります。ユーザーがまだCanvasの前のステップにいて、メッセージステップに到達していない場合があります。
 - **データの鮮度:** ダッシュボードのデータは約15分ごとに更新されますが、これは保証されません。このCampaignまたはCanvasの最新データがまだダッシュボードに反映されていない可能性があります。
-- **エッジケース:** 現時点でこのダッシュボードに反映されていないエッジケースに遭遇している可能性がわずかにあります。その疑いがある場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support/)にお問い合わせください。
+- **エッジケース:** 現時点でこのダッシュボードに反映されていないエッジケースに遭遇している可能性がわずかにあります。その疑いがある場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)にお問い合わせください。
 
 ### 「中止の合計」と「メッセージ送信数」の合計が、CampaignやCanvasのオーディエンスよりも多いのはなぜですか？ {#why-is-the-sum-of-_total-aborts_-and-_message-sends_-greater-than-the-audience-for-a-campaign-and-canvas}
 

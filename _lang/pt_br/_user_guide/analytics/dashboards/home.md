@@ -84,12 +84,12 @@ A seguir estão as definições das estatísticas disponíveis, como são calcul
 
 *Usuários* é o número total de usuários criados nesse espaço de trabalho. Isso inclui todos os usuários que usaram seu app ou site em qualquer momento, além daqueles que podem não estar associados a um app ou site específico. Esse número é o percentual de quantos dos seus usuários totais são representados como *Usuários ativos mensais* (MAU), o que é útil para avaliar a retenção de usuários ao longo de um período prolongado.
 
-Uma proporção baixa de MAU em relação ao total de usuários pode indicar que você precisa diversificar seus canais de envio de mensagens ou aumentar seus esforços para alcançar usuários inativos. Consulte nossa dica rápida sobre [captura de usuários inativos]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users/#capture-lapsing-users) para mais informações. De modo geral, a proporção de MAU em relação ao total de usuários tende a diminuir ao longo do tempo devido ao churn, mas as ferramentas da Braze podem ajudar a minimizar esse efeito mantendo os usuários engajados por mais tempo.
+Uma proporção baixa de MAU em relação ao total de usuários pode indicar que você precisa diversificar seus canais de envio de mensagens ou aumentar seus esforços para alcançar usuários inativos. Consulte nossa dica rápida sobre [captura de usuários inativos]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users#capture-lapsing-users) para mais informações. De modo geral, a proporção de MAU em relação ao total de usuários tende a diminuir ao longo do tempo devido ao churn, mas as ferramentas da Braze podem ajudar a minimizar esse efeito mantendo os usuários engajados por mais tempo.
 
 ### Sessões totais {#lifetime-sessions}
 
 *Sessões totais* é a contagem total de sessões que a Braze registrou desde a integração. Uma sessão é cada vez que um usuário usa o app ou visita seu site. Para uma definição mais precisa de como as sessões são definidas por plataforma, consulte os artigos de rastreamento de sessões para desenvolvedores correspondentes:
-[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [Android e FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android) ou [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web).
+[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [Android e FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android) ou [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web).
 
 ### Usuários ativos mensais {#monthly-active-users}
 
@@ -141,7 +141,7 @@ Os snapshots de MAU são calculados uma vez por dia e nunca mudam retroativament
 {% alert note %}
 Quando você integra a Braze pela primeira vez, todos os usuários aparecerão como novos, pois a Braze nunca registrou uma sessão para eles antes.
 
-Diferentemente do MAU, a contagem de *Novos usuários* pode diminuir retroativamente quando a Braze mescla um perfil anônimo em um perfil identificado e torna o perfil anônimo órfão. A Braze remove o perfil órfão dos totais de uso do app, o que pode reduzir a contagem de *Novos usuários* para datas que você já visualizou. Para saber mais sobre o comportamento de vinculação de perfis, consulte [Ciclo de vida do perfil de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
+Diferentemente do MAU, a contagem de *Novos usuários* pode diminuir retroativamente quando a Braze mescla um perfil anônimo em um perfil identificado e torna o perfil anônimo órfão. A Braze remove o perfil órfão dos totais de uso do app, o que pode reduzir a contagem de *Novos usuários* para datas que você já visualizou. Para saber mais sobre o comportamento de vinculação de perfis, consulte [Ciclo de vida do perfil de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 {% endalert %}
 
 {% alert important %}

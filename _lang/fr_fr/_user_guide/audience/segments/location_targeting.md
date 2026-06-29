@@ -51,6 +51,6 @@ Pour les régions polygonales, vous pouvez désigner plus précisément les zone
 
 La combinaison de la prise en charge existante des balises ou du géorepérage avec nos fonctionnalités de ciblage et d'envoi de messages vous fournit davantage d'informations sur les actions physiques de vos utilisateurs, vous permettant ainsi de leur envoyer des messages en conséquence. Vous pouvez tirer parti du suivi de localisation avec certains de nos partenaires :
 
-- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/)
-- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion/)
-- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)
+- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar)
+- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion)
+- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare)

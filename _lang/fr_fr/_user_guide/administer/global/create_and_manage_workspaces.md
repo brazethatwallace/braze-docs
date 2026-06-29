@@ -29,7 +29,7 @@ Tout ce que vous faites dans Braze se déroule au sein d'un espace de travail. L
 
 ### Étape 1 : Avoir un plan {#step-1-have-a-plan}
 
-Avant de commencer, assurez-vous d'avoir travaillé avec votre équipe et votre responsable d'onboarding Braze pour déterminer la meilleure configuration d'espace de travail pour votre cas d'utilisation. Pour en savoir plus sur la planification de vos espaces de travail dans Braze, consultez notre guide [Premiers pas : Espaces de travail]({{site.baseurl}}/user_guide/get_started/workspaces/).
+Avant de commencer, assurez-vous d'avoir travaillé avec votre équipe et votre responsable d'onboarding Braze pour déterminer la meilleure configuration d'espace de travail pour votre cas d'utilisation. Pour en savoir plus sur la planification de vos espaces de travail dans Braze, consultez notre guide [Premiers pas : Espaces de travail]({{site.baseurl}}/user_guide/get_started/workspaces).
 
 ### Étape 2 : Ajouter votre espace de travail {#step-2-add-your-workspace}
 
@@ -87,7 +87,7 @@ Ce champ apparaît après avoir intégré le SDK Braze à votre application ou s
 
 ### Étape 4 : Répéter si nécessaire {#step-4-repeat-as-needed}
 
-Répétez les étapes 2 et 3 pour configurer autant d'espaces de travail que votre plan le nécessite. Nous recommandons de créer un espace de travail de test pour les tests d'intégration et de Campaign.
+Répétez les étapes 2 et 3 pour configurer autant d'espaces de travail que votre plan le nécessite. Nous recommandons de créer un espace de travail de test pour les tests d'intégration et de campagne.
 
 {% alert tip %}
 **Ajouter un espace de travail de test**<br>Vous pouvez effectuer des tests d'application en isolant complètement certains utilisateurs de votre instance de production. Créez un nouvel espace de travail et, lorsque vous publiez votre application, assurez-vous de modifier la clé API utilisée par Braze pour qu'elle corresponde à celle de votre espace de travail de production plutôt qu'à celle de votre espace de travail de test.
@@ -127,7 +127,7 @@ Pour supprimer votre espace de travail ou instance d'application :
 1. Allez dans **Paramètres** > **Paramètres des applications**.
 2. Sélectionnez **Supprimer l'espace de travail** pour supprimer l'espace de travail concerné, ou sélectionnez l'icône de corbeille à côté de l'instance d'application concernée.
 
-Vous ne pouvez pas supprimer des instances d'application ou des espaces de travail qui sont actuellement utilisés pour cibler des utilisateurs ou qui comptent plus de 1 000 utilisateurs. Si vous essayez de le faire, vous recevrez un message d'erreur. Pour procéder à la suppression, [créez un cas d'assistance]({{site.baseurl}}/user_guide/administer/personal/braze_support/) en incluant un lien vers le tableau de bord et le nom de l'instance d'application ou de l'espace de travail à supprimer.
+Vous ne pouvez pas supprimer des instances d'application ou des espaces de travail qui sont actuellement utilisés pour cibler des utilisateurs ou qui comptent plus de 1 000 utilisateurs. Si vous essayez de le faire, vous recevrez un message d'erreur. Pour procéder à la suppression, [créez un cas d'assistance]({{site.baseurl}}/user_guide/administer/personal/braze_support) en incluant un lien vers le tableau de bord et le nom de l'instance d'application ou de l'espace de travail à supprimer.
 
 {% alert warning %}
 Soyez prudent lorsque vous supprimez des espaces de travail ! Une fois un espace de travail supprimé, il ne peut pas être restauré.
@@ -143,7 +143,7 @@ Cela dépend de si vous mettez à jour votre application ou si vous en créez un
 
 #### Mettre à jour votre application {#updating-your-app}
 
-Si vous mettez à jour votre application, vous devez séparer l'ancienne et la nouvelle version en créant une nouvelle instance d'application au sein du même espace de travail. De cette façon, vous pouvez cibler efficacement les utilisateurs de la nouvelle version lorsque vous sélectionnez cette application lors de la segmentation. Si vous souhaitez envoyer des messages aux utilisateurs de l'ancienne version, vous pouvez utiliser des filtres pour [cibler la version précédente de l'application]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions).
+Si vous mettez à jour votre application, vous devez séparer l'ancienne et la nouvelle version en créant une nouvelle instance d'application au sein du même espace de travail. De cette façon, vous pouvez cibler efficacement les utilisateurs de la nouvelle version lorsque vous sélectionnez cette application lors de la segmentation. Si vous souhaitez envoyer des messages aux utilisateurs de l'ancienne version, vous pouvez utiliser des filtres pour [cibler la version précédente de l'application]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 
 Si vous créez un nouvel espace de travail, vos utilisateurs existeront à deux endroits : l'ancien espace de travail et le nouveau. Ils pourraient également avoir le même jeton de notification push. Cela peut amener des utilisateurs à recevoir un message marketing destiné uniquement aux utilisateurs de l'ancien espace de travail, même s'ils ont déjà effectué la mise à jour.
 
@@ -183,5 +183,5 @@ Dans le workflow Canvas d'origine, ajoutez votre segment au niveau du composant 
 
 Après avoir créé votre espace de travail, configurez-le :
 
-- [Paramètres de l'espace de travail]({{site.baseurl}}/user_guide/administer/global/workspace_settings/) pour configurer les clés API, les préférences des e-mails, les paramètres de notifications push, et plus encore.
-- [Gérer les utilisateurs de l'entreprise]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/) pour ajouter des utilisateurs et attribuer des autorisations pour cet espace de travail.
+- [Paramètres de l'espace de travail]({{site.baseurl}}/user_guide/administer/global/workspace_settings) pour configurer les clés API, les préférences des e-mails, les paramètres de notifications push, et plus encore.
+- [Gérer les utilisateurs de l'entreprise]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users) pour ajouter des utilisateurs et attribuer des autorisations pour cet espace de travail.

@@ -24,7 +24,7 @@ tool:
 
 選択したCampaignsやCanvasesの数に関係なく、最大2つのCSVファイルが生成されます。1つはすべてのCampaignデータ用、もう1つはすべてのCanvasデータ用です。これらのCSVファイルには、レポートメール内に埋め込まれたリンクからアクセスできます。エンゲージメントレポートはBrazeダッシュボードには保存されません。
 
-一部のデータは、個々のCampaignバリアントやキャンバスステップレベルではなく、CampaignまたはCanvasレベルで集計されます。[起動後にキャンバスステップを削除]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#canvas-details)すると、エンゲージメントレポートからもデータが削除されます。
+一部のデータは、個々のCampaignバリアントやキャンバスステップレベルではなく、CampaignまたはCanvasレベルで集計されます。[起動後にキャンバスステップを削除]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#canvas-details)すると、エンゲージメントレポートからもデータが削除されます。
 
 {% alert tip %}
 レポートを再実行して、更新された統計を生成できます。
@@ -51,7 +51,7 @@ tool:
 
 #### CampaignsまたはCanvasesを自動的に選択する {#automatically-select-campaigns-or-canvases}
 
-このオプションでは、特定の[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を含むすべてのメッセージを自動的に含めることができます。リストされたタグのいずれか1つまたはすべてを持つメッセージをターゲットにできます。このオプションは、定期的なレポートを設定し、エンゲージメントメッセージに定期的にタグを付けている場合に便利です。
+このオプションでは、特定の[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)を含むすべてのメッセージを自動的に含めることができます。リストされたタグのいずれか1つまたはすべてを持つメッセージをターゲットにできます。このオプションは、定期的なレポートを設定し、エンゲージメントメッセージに定期的にタグを付けている場合に便利です。
 
 {% alert important %}
 レポートを生成するには、タグが少なくとも1つのCampaignまたはCanvasに一致する必要があります。**特定のルールに基づいてCampaignsとCanvasesを自動的に選択**を使用してエラーが表示された場合は、少なくとも1つのCampaignまたはCanvasがタグやその他のフィルターに一致していることを確認してください（例えば、リストされたすべてのタグを必要とする場合、一致するすべてのメッセージがすべてのタグを持っている必要があります）。
@@ -63,7 +63,7 @@ tool:
 
 ![エンゲージメントレポートの統計追加画面]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
-エンゲージメントレポートはCampaignまたはCanvasごとにデータを集計しますが、ワークスペースレベルでは集計しません。すべてのアクティブなCampaignsおよびCanvasesにわたる合計送信数やインプレッション数（ワークスペース全体のチャネルごとの送信数やインプレッション数など）を監視するには、[レポートビルダー]({{site.baseurl}}/report_builder/)を使用してください。
+エンゲージメントレポートはCampaignまたはCanvasごとにデータを集計しますが、ワークスペースレベルでは集計しません。すべてのアクティブなCampaignsおよびCanvasesにわたる合計送信数やインプレッション数（ワークスペース全体のチャネルごとの送信数やインプレッション数など）を監視するには、[レポートビルダー]({{site.baseurl}}/report_builder)を使用してください。
 
 {% alert note %}
 *キャリアへの送信数*は非推奨ですが、すでに使用しているユーザーには引き続きサポートされます。
@@ -145,7 +145,7 @@ tool:
 
 #### HTMLアプリ内メッセージでのボタンクリックの重複 {#duplicate-button-clicks-in-html-in-app-messages}
 
-HTMLアプリ内メッセージを使用していて、エンゲージメントレポートで**本文クリック数**が高く見える場合、クリックログが2回発火している可能性があります。例えば、一般的な本文クリックに対して`brazeBridge.logClick()`を呼び出し、同じインタラクションで`brazeBridge.logClick('body click')`（または別のID）も呼び出している場合です。マークアップで`brazeBridge.logClick(`を検索し、コントロールごとに1つのパターンに統一してください。推奨される使用方法については、[ボタントラッキング]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#button-tracking-improvements)を参照してください。
+HTMLアプリ内メッセージを使用していて、エンゲージメントレポートで**本文クリック数**が高く見える場合、クリックログが2回発火している可能性があります。例えば、一般的な本文クリックに対して`brazeBridge.logClick()`を呼び出し、同じインタラクションで`brazeBridge.logClick('body click')`（または別のID）も呼び出している場合です。マークアップで`brazeBridge.logClick(`を検索し、コントロールごとに1つのパターンに統一してください。推奨される使用方法については、[ボタントラッキング]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#button-tracking-improvements)を参照してください。
 
 #### メールで送信されたエンゲージメントレポートのリンク切れ {#broken-links-in-emailed-engagement-reports}
 

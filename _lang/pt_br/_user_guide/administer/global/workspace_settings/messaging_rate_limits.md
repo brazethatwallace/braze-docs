@@ -59,7 +59,7 @@ Depois de definir o limite de taxa de envio de mensagens do espaço de trabalho,
 
 ## Definindo o limite de taxa de envio de mensagens do espaço de trabalho {#setting-your-workspace-messaging-rate-limit}
 
-1. No dashboard da Braze, acesse **Settings** > **Workspace Settings** > **Messaging Rate Limits**.
+1. No dashboard da Braze, acesse **Configurações** > **Configurações do espaço de trabalho** > **Messaging Rate Limits**.
 2. Selecione **+ Add rate limit** e, em seguida, selecione um canal de envio de mensagens.
 3. Em **Messages per minute**, insira o limite de taxa.
 4. Selecione **Save**.
@@ -76,7 +76,7 @@ Observe que você ainda pode definir limites de taxa individuais nas suas Campai
 
 ### Mensagens não incluídas nos limites de taxa de envio de mensagens do espaço de trabalho {#messages-not-included-in-the-workspace-messaging-rate-limits}
 
-- Mensagens enviadas usando [Campaigns de e-mail de transação]({{site.baseurl}}/user_guide/channels/transactional_email/) não são incluídas nos limites de taxa de envio de mensagens do espaço de trabalho. Isso significa que elas têm limite de taxa próprio e não são contabilizadas nos limites de taxa de envio de mensagens do espaço de trabalho definidos.
-- Mensagens para [Grupos de teste]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups) e [envios de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) não são incluídas nos limites de taxa de envio de mensagens do espaço de trabalho. Isso significa que elas não têm limite de taxa e não são contabilizadas nos limites de taxa de envio de mensagens do espaço de trabalho definidos.
+- Mensagens enviadas usando [Campaigns de e-mail de transação]({{site.baseurl}}/user_guide/channels/transactional_email) não são incluídas nos limites de taxa de envio de mensagens do espaço de trabalho. Isso significa que elas têm limite de taxa próprio e não são contabilizadas nos limites de taxa de envio de mensagens do espaço de trabalho definidos.
+- Mensagens para [Grupos de teste]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) e [envios de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) não são incluídas nos limites de taxa de envio de mensagens do espaço de trabalho. Isso significa que elas não têm limite de taxa e não são contabilizadas nos limites de taxa de envio de mensagens do espaço de trabalho definidos.
 - As respostas automáticas de SMS não são incluídas nos limites de taxa de envio de mensagens do espaço de trabalho. Isso significa que elas não têm limite de taxa e não são contabilizadas nos limites de taxa de envio de mensagens do espaço de trabalho definidos.
 - Os limites de taxa de envio de mensagens do espaço de trabalho não são compatíveis com mensagens no app, Feature Flags e Banners.

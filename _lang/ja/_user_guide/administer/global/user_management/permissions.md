@@ -36,8 +36,8 @@ tool: Dashboard
 
 {% tabs local %}
 {% tab ロールの例 %}
-| ロール名 | ワークスペース | 権限  |
-| ----------- | ----------- | --------- |
+| ロール名 | ワークスペース | 権限
+----------- | ----------- | ---------
 | マーケター - ファッションブランド | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | 「Campaignsを表示」、「Campaignsを編集」、「Campaignsをアーカイブ」、「Canvasesを表示」、「Canvasesを編集」、「Canvasesをアーカイブ」、「Content Blocksを表示」、「Content Blocksを編集」、「Content Blocksをアーカイブ」、「Content Blocksを公開」、「フィーチャーフラグを表示」、「フィーチャーフラグを編集」、「フィーチャーフラグをアーカイブ」、「Segmentsを表示」、「Segmentsを編集」、「バナーテンプレートを表示」、「バナーテンプレートを編集」、「メールテンプレートを表示」、「メールテンプレートを編集」、「メディアライブラリアセットを表示」、「メディアライブラリアセットを編集」、「メディアライブラリアセットを削除」、「ロケーションを表示」、「ロケーションを編集」、「ロケーションをアーカイブ」、「プロモーションコードを表示」、「プロモーションコードを編集」、「プロモーションコードをエクスポート」、「ユーザー設定センターを表示」、「ユーザー設定センターを編集」 |
 | マーケター - スキンケアブランド | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | 「Campaignsを表示」、「Campaignsを編集」、「Campaignsをアーカイブ」、「Canvasesを表示」、「Canvasesを編集」、「Canvasesをアーカイブ」、「Content Blocksを表示」、「Content Blocksを編集」、「Content Blocksをアーカイブ」、「Content Blocksを公開」、「フィーチャーフラグを表示」、「フィーチャーフラグを編集」、「フィーチャーフラグをアーカイブ」、「Segmentsを表示」、「Segmentsを編集」、「バナーテンプレートを表示」、「バナーテンプレートを編集」、「メールテンプレートを表示」、「メールテンプレートを編集」、「メディアライブラリアセットを表示」、「メディアライブラリアセットを編集」、「メディアライブラリアセットを削除」、「ロケーションを表示」、「ロケーションを編集」、「ロケーションをアーカイブ」、「プロモーションコードを表示」、「プロモーションコードを編集」、「プロモーションコードをエクスポート」、「ユーザー設定センターを表示」、「ユーザー設定センターを編集」 |
 | ユーザー管理 - 全ブランド | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | 「ダッシュボードユーザーを編集」、「Teamsを表示」、「Teamsを編集」、「Teamsをアーカイブ」 |
@@ -114,7 +114,7 @@ Teamに同じ権限を維持したままユーザーを追加するには、ワ�
 管理者権限を付与または削除するには、**このユーザーは管理者です**を選択し、**ユーザーを更新**を選択します。
 
 {% alert warning %}
-ユーザーから管理者権限を削除すると、少なくとも1つの[会社レベルまたはワークスペースレベルの権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions)を割り当てるまで、そのユーザーはBrazeにアクセスできなくなります。
+ユーザーから管理者権限を削除すると、少なくとも1つの[会社レベルまたはワークスペースレベルの権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions)を割り当てるまで、そのユーザーはBrazeにアクセスできなくなります。
 {% endalert %}
 
 {% endtab %}
@@ -135,7 +135,7 @@ Teamに同じ権限を維持したままユーザーを追加するには、ワ�
 
 ### ワークスペース {#workspace}
 
-Brazeでユーザーが所属する各ワークスペースに対して、異なる権限を付与できます。ワークスペースレベルの権限を管理するには、**ワークスペースと権限を選択**を選択し、手動で権限を選択するか、以前作成した[権限セットまたはロール]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set)を割り当てます。異なるワークスペースに異なる権限を付与する必要がある場合は、必要な回数だけこのプロセスを繰り返してください。各権限の説明については、[権限の一覧]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions)を参照してください。
+Brazeでユーザーが所属する各ワークスペースに対して、異なる権限を付与できます。ワークスペースレベルの権限を管理するには、**ワークスペースと権限を選択**を選択し、手動で権限を選択するか、以前作成した[権限セットまたはロール]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set)を割り当てます。異なるワークスペースに異なる権限を付与する必要がある場合は、必要な回数だけこのプロセスを繰り返してください。各権限の説明については、[権限の一覧]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_list-of-permissions)を参照してください。
 
 {% subtabs %}
 {% subtab 手動で選択 %}

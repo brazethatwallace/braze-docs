@@ -93,11 +93,11 @@ Consulta la tabla **Product Breakdown** para ver una lista de los productos comp
 Para exportar tus datos de ingresos, selecciona <i class="fas fa-bars" title="Menú contextual del gráfico"></i> **Menú contextual del gráfico** en el gráfico **Performance Over Time** y selecciona tu opción de exportación.
 
 {% alert tip %}
-¿Buscas más formas de obtener datos de ingresos? Intenta añadir comportamiento de compra (así como la compra de un producto) a Campaigns o Canvas como [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/).
+¿Buscas más formas de obtener datos de ingresos? Intenta añadir comportamiento de compra (así como la compra de un producto) a Campaigns o Canvas como [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events).
 {% endalert %}
 
-También puedes ver estadísticas de ingresos caso por caso en las páginas de [análisis de Campaign]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) o [análisis de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/).
+También puedes ver estadísticas de ingresos caso por caso en las páginas de [análisis de Campaign]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) o [análisis de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).
 
 {% alert tip %}
-Los informes de ingresos no se pueden exportar a través de API. Para obtener ayuda con las exportaciones CSV, consulta [solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Los informes de ingresos no se pueden exportar a través de API. Para obtener ayuda con las exportaciones CSV, consulta [solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}

@@ -10,7 +10,7 @@ description: "Cet article donne un aperçu du filtrage des bots pour les e-mails
 
 # Filtrage des bots pour les e-mails {#bot-filtering-for-emails}
 
-> Configurez le filtrage des robots dans vos [Préférences des e-mails]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) pour exclure tous les clics suspectés d'être des machines ou des robots. Un « clic de robot » dans un e-mail fait référence à un clic sur des hyperliens dans un e-mail généré par un programme automatisé. En filtrant ces clics de robots, vous pouvez déclencher et envoyer intentionnellement des messages à des destinataires réellement engagés.
+> Configurez le filtrage des robots dans vos [Préférences des e-mails]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) pour exclure tous les clics suspectés d'être des machines ou des robots. Un « clic de robot » dans un e-mail fait référence à un clic sur des hyperliens dans un e-mail généré par un programme automatisé. En filtrant ces clics de robots, vous pouvez déclencher et envoyer intentionnellement des messages à des destinataires réellement engagés.
 
 {% alert important %}
 À partir du 9 juillet 2025, tous les nouveaux espaces de travail créés auront le paramètre de filtrage des robots activé pour des rapports de clics plus précis dans Braze.
@@ -35,7 +35,7 @@ Les indicateurs Braze suivants peuvent être affectés par les clics de robots :
 - Carte de chaleur
 - Certains filtres de segmentation
 
-Les [fonctionnalités Braze Intelligence]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/) qui exploitent les données de clics en plus de nos systèmes de détection peuvent être impactées. L'activation du paramètre peut perturber temporairement nos systèmes de détection, ce qui peut entraîner une diminution de l'indicateur ou de l'entrée en raison de cette exclusion des clics de robots suspectés :
+Les [fonctionnalités Braze Intelligence]({{site.baseurl}}/user_guide/brazeai/intelligence_suite) qui exploitent les données de clics en plus de nos systèmes de détection peuvent être impactées. L'activation du paramètre peut perturber temporairement nos systèmes de détection, ce qui peut entraîner une diminution de l'indicateur ou de l'entrée en raison de cette exclusion des clics de robots suspectés :
 
 - Sélection intelligente
 - Canal intelligent
@@ -48,19 +48,19 @@ Les [fonctionnalités Braze Intelligence]({{site.baseurl}}/user_guide/brazeai/in
     - Variante personnalisée
 - Taux d'ouverture réel estimé
 
-Les désabonnements résultant de clics de robots suspectés ne seront pas affectés. Braze continuera à traiter toutes les demandes de désabonnement comme d'habitude. Si vous souhaitez que Braze bloque ces désabonnements, soumettez un [retour produit]({{site.baseurl}}/user_guide/administer/personal/product_portal/).
+Les désabonnements résultant de clics de robots suspectés ne seront pas affectés. Braze continuera à traiter toutes les demandes de désabonnement comme d'habitude. Si vous souhaitez que Braze bloque ces désabonnements, soumettez un [retour produit]({{site.baseurl}}/user_guide/administer/personal/product_portal).
 
 ## Filtres de segmentation affectés par le filtrage des robots {#segmentation-filters-affected-by-bot-filtering}
 
-Les [filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) suivants peuvent être affectés par le filtrage des robots pour les e-mails :
+Les [filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) suivants peuvent être affectés par le filtrage des robots pour les e-mails :
 
-- [Clicked/Opened Campaign or Canvas With Tag]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#clicked-opened-campaign-or-canvas-with-tag)
-- [Clicked/Opened Step]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#clicked-opened-step)
-- [Clicked Alias in Campaign]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#clicked-alias-in-campaign)
-- [Clicked Alias in Canvas Step]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#clicked-alias-in-canvas-step)
-- [Clicked Alias in Any Campaign or Canvas Step]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#clicked-alias-in-any-campaign-or-canvas-step)
-- [Last Engaged with Message]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#last-engaged-with-message)
-- [Intelligent Channel]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#intelligent-channel)
+- [Clicked/Opened Campaign or Canvas With Tag]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-opened-campaign-or-canvas-with-tag)
+- [Clicked/Opened Step]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-opened-step)
+- [Clicked Alias in Campaign]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-alias-in-campaign)
+- [Clicked Alias in Canvas Step]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-alias-in-canvas-step)
+- [Clicked Alias in Any Campaign or Canvas Step]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-alias-in-any-campaign-or-canvas-step)
+- [Last Engaged with Message]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#last-engaged-with-message)
+- [Intelligent Channel]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#intelligent-channel)
 
 ## Activer le filtrage des robots {#turning-on-bot-filtering}
 

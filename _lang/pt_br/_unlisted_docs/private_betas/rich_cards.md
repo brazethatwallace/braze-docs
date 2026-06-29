@@ -21,15 +21,15 @@ Não tem certeza se sua mensagem deve ser enviada usando uma campanha ou um Canv
 1. Acesse **Envio de mensagens** > **Campaigns** e selecione **Criar campanha**.
 2. Selecione **SMS/MMS/RCS** ou, para campanhas direcionadas a múltiplos canais, selecione **Multicanal**.
 3. Dê à sua campanha um nome claro e significativo.
-4. Adicione [equipes]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/teams/) e [tags]({{site.baseurl}}/user_guide/administrative/app_settings/tags/) conforme necessário.
-   * Tags facilitam encontrar suas campanhas e criar relatórios a partir delas. Por exemplo, ao usar o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/), você pode filtrar por tags específicas.
+4. Adicione [equipes]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/teams) e [tags]({{site.baseurl}}/user_guide/administrative/app_settings/tags) conforme necessário.
+   * Tags facilitam encontrar suas campanhas e criar relatórios a partir delas. Por exemplo, ao usar o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reporting/report_builder), você pode filtrar por tags específicas.
 
 {: start="5"}
-5. Adicione e nomeie quantas variantes forem necessárias para sua campanha. Você pode escolher diferentes plataformas, tipos de mensagem e layouts para cada uma das variantes adicionadas. Para saber mais sobre este tópico, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/).
+5. Adicione e nomeie quantas variantes forem necessárias para sua campanha. Você pode escolher diferentes plataformas, tipos de mensagem e layouts para cada uma das variantes adicionadas. Para saber mais sobre este tópico, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing).
 - **Teste de variantes SMS e RCS**: a Braze permite incluir variantes de SMS e RCS em uma única campanha, possibilitando comparar o desempenho de cada uma. Você pode adicionar variantes de SMS e RCS durante a primeira etapa da composição da mensagem.
 
 {: start="6"}
-6. Selecione um [grupo de inscrições]({{site.baseurl}}/sms_rcs_subscription_groups/) habilitado para RCS. Ao selecionar um grupo de inscrições, a Braze adicionará automaticamente um filtro de segmentação, garantindo que apenas usuários inscritos recebam a campanha. Somente códigos longos e curtos pertencentes a esse grupo de inscrições serão usados para enviar SMS aos usuários-alvo.
+6. Selecione um [grupo de inscrições]({{site.baseurl}}/sms_rcs_subscription_groups) habilitado para RCS. Ao selecionar um grupo de inscrições, a Braze adicionará automaticamente um filtro de segmentação, garantindo que apenas usuários inscritos recebam a campanha. Somente códigos longos e curtos pertencentes a esse grupo de inscrições serão usados para enviar SMS aos usuários-alvo.
 - **Fallback para SMS**: a Braze recomenda fortemente que todo grupo de inscrições que contenha um remetente RCS também inclua pelo menos um código SMS para fallback. Isso é importante para a entregabilidade nos casos em que as mensagens RCS não conseguem ser entregues. Alguns motivos para isso podem incluir incompatibilidade do dispositivo do usuário e cobertura incompleta da operadora em um determinado país ou região. Ao ativar o fallback para SMS, sua mensagem ainda será entregue ao usuário e você nunca perderá essa oportunidade de se conectar com ele.
 
 {: start="7"}
@@ -43,10 +43,10 @@ Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conte
 
 {% endtab %}
 {% tab Canvas %}
-1. [Crie seu Canvas]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/) usando o criador de Canvas.
+1. [Crie seu Canvas]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas) usando o criador de Canvas.
 2. Depois de configurar seu Canvas, adicione uma etapa de mensagem **SMS/MMS/RCS** no construtor de Canvas.
 3. Dê à sua etapa um nome claro e significativo.
-4. Selecione um [grupo de inscrições]({{site.baseurl}}/sms_rcs_subscription_groups/) habilitado para RCS. Ao selecionar um grupo de inscrições, a Braze adicionará automaticamente um filtro de segmentação, garantindo que apenas usuários inscritos recebam a campanha. Somente códigos longos e curtos pertencentes a esse grupo de inscrições serão usados para direcionar os usuários.
+4. Selecione um [grupo de inscrições]({{site.baseurl}}/sms_rcs_subscription_groups) habilitado para RCS. Ao selecionar um grupo de inscrições, a Braze adicionará automaticamente um filtro de segmentação, garantindo que apenas usuários inscritos recebam a campanha. Somente códigos longos e curtos pertencentes a esse grupo de inscrições serão usados para direcionar os usuários.
 - **Fallback para SMS**: a Braze recomenda fortemente que todo grupo de inscrições que contenha um remetente RCS também inclua pelo menos um código SMS para fallback. Isso é importante para a entregabilidade nos casos em que as mensagens RCS não conseguem ser entregues. Alguns motivos para isso podem incluir incompatibilidade do dispositivo do usuário e cobertura incompleta da operadora em um determinado país ou região. Ao ativar o fallback para SMS, sua mensagem ainda será entregue ao usuário e você nunca perderá essa oportunidade de se conectar com ele.
 
 {: start="5"}
@@ -85,7 +85,7 @@ Como o nome indica, as mensagens RCS de texto focam no texto como meio. Se você
 {% endtab %}
 
 {% tab Mídia %}
-As mensagens RCS de mídia permitem usar formatos de mídia envolventes que não são possíveis com SMS. Isso inclui arquivos de imagem, vídeo e documento. Essas opções de mídia existem para ajudar você a engajar seu público de forma ainda mais profunda e possibilitar casos de uso totalmente novos. No momento, apenas o upload de imagens é suportado pela [Biblioteca de mídia]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/).
+As mensagens RCS de mídia permitem usar formatos de mídia envolventes que não são possíveis com SMS. Isso inclui arquivos de imagem, vídeo e documento. Essas opções de mídia existem para ajudar você a engajar seu público de forma ainda mais profunda e possibilitar casos de uso totalmente novos. No momento, apenas o upload de imagens é suportado pela [Biblioteca de mídia]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library).
 
 #### Recursos
 
@@ -154,10 +154,10 @@ Um Rich Card de mídia é uma mensagem visual contendo uma imagem ou vídeo. Ele
 
 ### Etapa 3: Componha sua mensagem RCS {#step-3-compose-your-rcs-message}
 
-Escreva sua mensagem usando idiomas e personalização ([Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/), [Conteúdo conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) e emojis) conforme necessário. Certifique-se de seguir nossos limites de texto de mensagem para reduzir suas chances de cobranças excedentes.
+Escreva sua mensagem usando idiomas e personalização ([Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid), [Conteúdo conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) e emojis) conforme necessário. Certifique-se de seguir nossos limites de texto de mensagem para reduzir suas chances de cobranças excedentes.
 
 {% alert important %}
-Antes de prosseguir, leia nossas [diretrizes para limites de mensagens RCS](#step-2-select-your-rcs-message-type). As mensagens RCS são [cobradas por mensagem]({{site.baseurl}}/sms_rcs_billing_calculators/), então é uma boa ideia entender as nuances do que pode ser incluído em cada tipo de mensagem RCS.
+Antes de prosseguir, leia nossas [diretrizes para limites de mensagens RCS](#step-2-select-your-rcs-message-type). As mensagens RCS são [cobradas por mensagem]({{site.baseurl}}/sms_rcs_billing_calculators), então é uma boa ideia entender as nuances do que pode ser incluído em cada tipo de mensagem RCS.
 {% endalert %}
 
 ### Etapa 4: Pré-visualize e teste sua mensagem {#step-4-preview-and-test-your-message}
@@ -170,7 +170,7 @@ Em seguida, construa o restante da sua campanha ou Canvas. Consulte as seções 
 
 #### Etapa 5.1: Escolha o cronograma de entrega ou gatilho {#step-51-choose-delivery-schedule-or-trigger}
 
-As mensagens RCS podem ser entregues com base em um horário programado, uma ação ou um gatilho de API. Para saber mais, consulte [Programando sua campanha]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/).
+As mensagens RCS podem ser entregues com base em um horário programado, uma ação ou um gatilho de API. Para saber mais, consulte [Programando sua campanha]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types).
 
 Para entrega baseada em ação, você também pode definir a duração da campanha e o horário de silêncio.
 
@@ -182,10 +182,10 @@ Direcione os usuários escolhendo segmentos ou filtros para restringir seu públ
 
 {% multi_lang_include audience/target_audiences.md %}
 
-Em seguida, você selecionará o público maior dos seus segmentos e restringirá ainda mais esse segmento com [filtros]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/) opcionais. Você receberá automaticamente uma pré-visualização de como é a população aproximada desse segmento no momento. Tenha em mente que a composição exata do segmento é sempre calculada imediatamente antes do envio da mensagem.
+Em seguida, você selecionará o público maior dos seus segmentos e restringirá ainda mais esse segmento com [filtros]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters) opcionais. Você receberá automaticamente uma pré-visualização de como é a população aproximada desse segmento no momento. Tenha em mente que a composição exata do segmento é sempre calculada imediatamente antes do envio da mensagem.
 
 {% alert tip %}
-Tem interesse em usar o redirecionamento RCS para direcionar usuários com base em suas interações de SMS e RCS? Consulte [Redirecionamento]({{site.baseurl}}/sms_mms_rcs_user_retargeting/).
+Tem interesse em usar o redirecionamento RCS para direcionar usuários com base em suas interações de SMS e RCS? Consulte [Redirecionamento]({{site.baseurl}}/sms_mms_rcs_user_retargeting).
 {% endalert %}
 
 #### Etapa 5.3: Escolha os eventos de conversão {#step-53-choose-conversion-events}
@@ -202,7 +202,7 @@ Você também pode definir eventos de conversão personalizados com base no seu 
 
 Depois de terminar de construir sua campanha ou Canvas, revise os detalhes, teste e envie!
 
-Em seguida, consulte [Relatórios para SMS, MMS e RCS]({{site.baseurl}}/sms_mms_rcs_reporting/) para saber como acessar os resultados das suas campanhas de RCS.
+Em seguida, consulte [Relatórios para SMS, MMS e RCS]({{site.baseurl}}/sms_mms_rcs_reporting) para saber como acessar os resultados das suas campanhas de RCS.
 
 ## Análise de dados e relatórios {#analytics-and-reporting}
 
@@ -223,7 +223,7 @@ Se você planeja usar Liquid, certifique-se de incluir um valor padrão para a p
 
 ### Gerando texto com IA {#generating-ai-copy}
 
-Precisa de ajuda para criar textos envolventes? Experimente usar o [Assistente de Copywriting com IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy). Insira o nome ou a descrição de um produto, e a IA gerará textos de marketing semelhantes aos escritos por humanos para uso no seu envio de mensagens.
+Precisa de ajuda para criar textos envolventes? Experimente usar o [Assistente de Copywriting com IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Insira o nome ou a descrição de um produto, e a IA gerará textos de marketing semelhantes aos escritos por humanos para uso no seu envio de mensagens.
 
 ![Criador de mensagens com um ícone para abrir o assistente de copywriting com IA.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_ai_copywriter.png %}){: style="max-width:70%;"}
 

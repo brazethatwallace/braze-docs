@@ -9,13 +9,13 @@ alias: /query_builder/
 
 # Abfrage-Builder {#query-builder}
 
-> Der Abfrage-Builder erstellt Berichte aus Braze-Daten in Snowflake. Der Abfrage-Builder enthält vorgefertigte SQL-[Abfrage-Templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/), die Ihnen den Einstieg erleichtern, oder Sie schreiben eigene SQL-Anfragen, um noch mehr Insights zu gewinnen.
+> Der Abfrage-Builder erstellt Berichte aus Braze-Daten in Snowflake. Der Abfrage-Builder enthält vorgefertigte SQL-[Abfrage-Templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates), die Ihnen den Einstieg erleichtern, oder Sie schreiben eigene SQL-Anfragen, um noch mehr Insights zu gewinnen.
 
-Da der Abfrage-Builder direkten Zugriff auf bestimmte Kundendaten ermöglicht, können Sie ihn nur nutzen, wenn Sie die [Berechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) „PII anzeigen“ besitzen.
+Da der Abfrage-Builder direkten Zugriff auf bestimmte Kundendaten ermöglicht, können Sie ihn nur nutzen, wenn Sie die [Berechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) „PII anzeigen“ besitzen.
 
 ## Verfügbare Datentabellen {#available-data-tables}
 
-Der Abfrage-Builder verwendet dieselben Snowflake-SQL-Tabellen wie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) und die [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/). Eine vollständige Liste der verfügbaren Tabellen und ihrer Spalten finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/).
+Der Abfrage-Builder verwendet dieselben Snowflake-SQL-Tabellen wie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und die [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Eine vollständige Liste der verfügbaren Tabellen und ihrer Spalten finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 
 ## Berichte im Abfrage-Builder ausführen {#running-reports-in-the-query-builder}
 
@@ -37,11 +37,11 @@ Ergebnisse jedes Berichts können einmal pro Tag generiert werden. Wenn Sie dens
 
 Greifen Sie auf Abfrage-Templates zu, indem Sie beim Erstellen eines Berichts **Create SQL Query** > **Query Template** wählen.
 
-Eine Liste der verfügbaren Templates finden Sie unter [Abfrage-Templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/).
+Eine Liste der verfügbaren Templates finden Sie unter [Abfrage-Templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates).
 
 ### Datenzeitraum {#data-timeframe}
 
-Abfragen liefern Daten der letzten 60 Tage. Wenn Sie Currents oder die [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/) nutzen, können Sie möglicherweise Daten von bis zu zwei Jahren abfragen – so lange werden Ihre Daten in Snowflake aufbewahrt. Für weitere Details zur erweiterten Datenaufbewahrung wenden Sie sich an Ihren Customer-Success-Manager.
+Abfragen liefern Daten der letzten 60 Tage. Wenn Sie Currents oder die [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) nutzen, können Sie möglicherweise Daten von bis zu zwei Jahren abfragen – so lange werden Ihre Daten in Snowflake aufbewahrt. Für weitere Details zur erweiterten Datenaufbewahrung wenden Sie sich an Ihren Customer-Success-Manager.
 
 ### Zeitzone des Abfrage-Builders {#query-builder-time-zone}
 
@@ -90,15 +90,15 @@ So generieren Sie SQL mit dem KI-Abfrage-Builder:
 
 ### Tipps {#tips}
 
-- Machen Sie sich mit den verfügbaren Tabellen und Spalten in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/) vertraut. Wenn Sie nach Daten fragen, die in diesen Tabellen nicht existieren, kann ChatGPT eine fiktive Tabelle erfinden.
-- Machen Sie sich mit den [SQL-Schreibregeln]({{site.baseurl}}/user_guide/analytics/reports/query_builder/#custom-sql) für dieses Feature vertraut. Die Nichteinhaltung dieser Regeln führt zu einem Fehler.
+- Machen Sie sich mit den verfügbaren Tabellen und Spalten in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables) vertraut. Wenn Sie nach Daten fragen, die in diesen Tabellen nicht existieren, kann ChatGPT eine fiktive Tabelle erfinden.
+- Machen Sie sich mit den [SQL-Schreibregeln]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql) für dieses Feature vertraut. Die Nichteinhaltung dieser Regeln führt zu einem Fehler.
 - Sie können mit dem KI-Abfrage-Builder bis zu 20 Prompts pro Minute senden.
 
 #{% multi_lang_include brazeai/generative_ai/policy.md %}
 
 ## Eigene SQL-Anfragen schreiben {#custom-sql}
 
-Schreiben Sie Ihre SQL-Abfrage mit der [Snowflake-Syntax](https://docs.snowflake.com/en/sql-reference). In der [Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/) finden Sie eine vollständige Liste der Tabellen und Spalten, die abgefragt werden können.
+Schreiben Sie Ihre SQL-Abfrage mit der [Snowflake-Syntax](https://docs.snowflake.com/en/sql-reference). In der [Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables) finden Sie eine vollständige Liste der Tabellen und Spalten, die abgefragt werden können.
 
 So zeigen Sie Tabellendetails im Abfrage-Builder an:
 

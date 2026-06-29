@@ -84,12 +84,12 @@ Im Folgenden finden Sie die Definitionen der verfügbaren Statistiken, wie sie b
 
 *Nutzer:innen* ist die Gesamtzahl der in diesem Workspace erstellten Nutzer:innen. Dies umfasst alle Nutzer:innen, die Ihre App oder Website zu irgendeinem Zeitpunkt verwendet haben, sowie diejenigen, die möglicherweise keiner bestimmten App oder Website zugeordnet sind. Diese Zahl gibt den Prozentsatz an, wie viele Ihrer Lifetime-Nutzer:innen als *monatlich aktive Nutzer:innen* (MAU) dargestellt werden, was nützlich ist, um die Nutzerbindung über einen langen Zeitraum zu betrachten.
 
-Ein niedriges MAU-zu-Nutzer:innen-Verhältnis kann darauf hindeuten, dass Sie Ihre Messaging-Kanäle diversifizieren oder Ihre Bemühungen verstärken müssen, passive Nutzer:innen zu erreichen. Weitere Informationen finden Sie in unserem Quick Win zum Thema [Passive Nutzer:innen zurückgewinnen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users/#capture-lapsing-users). Im Allgemeinen wird das MAU-zu-Lifetime-Verhältnis aufgrund von Churn im Laufe der Zeit unweigerlich sinken, aber die Tools von Braze können Ihnen helfen, diesen Effekt zu minimieren, indem sie Nutzer:innen länger engagiert halten.
+Ein niedriges MAU-zu-Nutzer:innen-Verhältnis kann darauf hindeuten, dass Sie Ihre Messaging-Kanäle diversifizieren oder Ihre Bemühungen verstärken müssen, passive Nutzer:innen zu erreichen. Weitere Informationen finden Sie in unserem Quick Win zum Thema [Passive Nutzer:innen zurückgewinnen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users#capture-lapsing-users). Im Allgemeinen wird das MAU-zu-Lifetime-Verhältnis aufgrund von Churn im Laufe der Zeit unweigerlich sinken, aber die Tools von Braze können Ihnen helfen, diesen Effekt zu minimieren, indem sie Nutzer:innen länger engagiert halten.
 
 ### Lifetime-Sitzungen {#lifetime-sessions}
 
 *Lifetime-Sitzungen* ist die Gesamtzahl der Sitzungen, die Braze seit der Integration aufgezeichnet hat. Eine Sitzung findet jedes Mal statt, wenn ein:e Nutzer:in die App verwendet oder Ihre Website besucht. Eine genauere Definition, wie Sitzungen pro Plattform definiert werden, finden Sie in den entsprechenden Entwicklerartikeln zum Session-Tracking für
-[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [Android und FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android) oder [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web).
+[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [Android und FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android) oder [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web).
 
 ### Monatlich aktive Nutzer:innen {#monthly-active-users}
 
@@ -141,7 +141,7 @@ MAU-Snapshots werden einmal täglich berechnet und ändern sich nie rückwirkend
 {% alert note %}
 Wenn Sie Braze erstmals integrieren, werden alle Nutzer:innen als neue Nutzer:innen angezeigt, da Braze zuvor noch nie eine Sitzung für sie aufgezeichnet hat.
 
-Anders als bei MAU kann die Zahl der *neuen Nutzer:innen* rückwirkend sinken, wenn Braze ein anonymes Profil mit einem identifizierten Profil zusammenführt und das anonyme Profil verwaist. Braze entfernt das verwaiste Profil aus den App-Nutzungssummen, was die Zahl der *neuen Nutzer:innen* für bereits angezeigte Daten senken kann. Informationen zum Verhalten bei der Profilverknüpfung finden Sie unter [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
+Anders als bei MAU kann die Zahl der *neuen Nutzer:innen* rückwirkend sinken, wenn Braze ein anonymes Profil mit einem identifizierten Profil zusammenführt und das anonyme Profil verwaist. Braze entfernt das verwaiste Profil aus den App-Nutzungssummen, was die Zahl der *neuen Nutzer:innen* für bereits angezeigte Daten senken kann. Informationen zum Verhalten bei der Profilverknüpfung finden Sie unter [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 {% endalert %}
 
 {% alert important %}

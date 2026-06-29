@@ -37,7 +37,7 @@ Wenn Sie das Uninstall-Tracking für eine App aktivieren, sendet Braze jede Nach
 
 ### Konfiguration {#configuration}
 
-Um das Uninstall-Tracking für Ihre iOS-Anwendung zu konfigurieren, verwenden Sie eine [Utility-Methode]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls/?sdktab=swift). Verwenden Sie für Ihre Android-Anwendung [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html). Wenn Braze eine Deinstallation feststellt – sei es durch Uninstall-Tracking oder durch die normale Zustellung von Push-Campaigns – erfassen wir den bestmöglich geschätzten Zeitpunkt der Deinstallation beim Nutzer oder bei der Nutzerin. Dieser Zeitpunkt wird im Nutzerprofil als Standardattribut gespeichert und kann zur Definition eines Segments von Nutzer:innen für Rückgewinnungskampagnen verwendet werden.
+Um das Uninstall-Tracking für Ihre iOS-Anwendung zu konfigurieren, verwenden Sie eine [Utility-Methode]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls?sdktab=swift). Verwenden Sie für Ihre Android-Anwendung [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html). Wenn Braze eine Deinstallation feststellt – sei es durch Uninstall-Tracking oder durch die normale Zustellung von Push-Campaigns – erfassen wir den bestmöglich geschätzten Zeitpunkt der Deinstallation beim Nutzer oder bei der Nutzerin. Dieser Zeitpunkt wird im Nutzerprofil als Standardattribut gespeichert und kann zur Definition eines Segments von Nutzer:innen für Rückgewinnungskampagnen verwendet werden.
 
 ## Segmente nach Deinstallationen filtern {#filtering-segments-by-uninstalls}
 
@@ -87,7 +87,7 @@ Braze markiert eine:n Nutzer:in als deinstalliert, wenn erkannt wird, dass die A
 
 ### Warum sehe ich plötzlich einen Anstieg bei den Deinstallationen? {#why-am-i-suddenly-seeing-a-spike-in-uninstalls}
 
-Wenn die Deinstallationen von Apps sprunghaft ansteigen, kann das daran liegen, dass Firebase Cloud Messaging (FCM) und der Apple Push Notification Service (APNS) alte Token in unterschiedlicher Häufigkeit widerrufen.
+Wenn die Deinstallationen von Apps sprunghaft ansteigen, kann das daran liegen, dass Firebase Cloud Messaging (FCM) und der Apple Push Notification Service (APNs) alte Token in unterschiedlicher Häufigkeit widerrufen.
 
 {% alert note %}
 Aus Datenschutzgründen können die Push-Anbieter von Braze Token in unregelmäßigen Abständen widerrufen, was dazu führen kann, dass die Anzahl der Deinstallationen in einem bestimmten Zeitraum gelegentlich stark ansteigt.<br><br>Um diese Änderungen zu validieren, überwachen Sie das Uninstall-Tracking zusammen mit einer Metrik für Nutzeraktionen, wie beispielsweise der direkten Push-Öffnungsrate. Wenn die Deinstallationen stark zunehmen, die direkten Push-Öffnungen jedoch stabil bleiben, spiegelt der Anstieg wahrscheinlich eher die Aufhebung alter Token durch einen Anbieter wider als das tatsächliche Nutzerverhalten.

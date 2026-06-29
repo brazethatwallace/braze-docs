@@ -10,7 +10,7 @@ description: "削除対象としてマークされたユーザー、テストユ
 
 > デフォルトの動作が適用されない3つのユーザータイプ（削除対象としてマークされたユーザー、テストユーザー、グローバルコントロールグループユーザー）を含め、Brazeがユーザーマージをどのように処理するかについて説明します。
 
-この動作は、[個別マージ]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/#individual-merging)、[一括マージ]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/#bulk-merging)、または[ユーザーマージAPIエンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)のいずれを使用する場合でも、すべてのマージに適用されます。
+この動作は、[個別マージ]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#individual-merging)、[一括マージ]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#bulk-merging)、または[ユーザーマージAPIエンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)のいずれを使用する場合でも、すべてのマージに適用されます。
 
 ## 一般的なマージの動作 {#general-merge-behavior}
 
@@ -45,9 +45,9 @@ description: "削除対象としてマークされたユーザー、テストユ
 
 ## 削除対象としてマークされたユーザー {#users-marked-for-deletion}
 
-[一括ユーザー削除ツール]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)を使用してセグメントを削除すると、Brazeはそれらのユーザープロファイルに7日以内の削除フラグを付けます。Brazeは、保持するプロファイルであってもマージするプロファイルであっても、削除対象としてマークされたプロファイルをマージしません。
+[一括ユーザー削除ツール]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users)を使用してSegmentを削除すると、Brazeはそれらのユーザープロファイルに7日以内の削除フラグを付けます。Brazeは、保持するプロファイルであってもマージするプロファイルであっても、削除対象としてマークされたプロファイルをマージしません。
 
-削除対象としてマークされたプロファイルをマージする必要がある場合は、まず[セグメントの削除をキャンセル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/#cancel)するか、ユーザーを削除対象から除外して、プロファイルのフラグを解除してください。
+削除対象としてマークされたプロファイルをマージする必要がある場合は、まず[Segmentの削除をキャンセル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users#cancel)するか、ユーザーを削除対象から除外して、プロファイルのフラグを解除してください。
 
 ## テストユーザー {#test-users}
 
@@ -63,19 +63,19 @@ Brazeはテストユーザープロファイルのマージを許可し、結果
 | テストユーザーではない | テストユーザー | テストユーザー |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-テストユーザーの詳細については、[内部グループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/)を参照してください。
+テストユーザーの詳細については、[内部グループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups)を参照してください。
 
 ## グローバルコントロールグループユーザー {#global-control-group-users}
 
-Brazeは、保持するプロファイルであってもマージするプロファイルであっても、[グローバルコントロールグループ]({{site.baseurl}}/user_guide/audience/global_control_group/)内のユーザープロファイルをマージしません。
+Brazeは、保持するプロファイルであってもマージするプロファイルであっても、[グローバルコントロールグループ]({{site.baseurl}}/user_guide/audience/global_control_group)内のユーザープロファイルをマージしません。
 
-グローバルコントロールグループのメンバーシップは、ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)によって決定されます。マージすると、グループに属するユーザーが変更され、実験やレポートに影響を与えます。
+グローバルコントロールグループのメンバーシップは、ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers)によって決定されます。マージすると、グループに属するユーザーが変更され、実験やレポートに影響を与えます。
 
 ## 関連記事 {#related-articles}
 
-- [重複ユーザーのマージ]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/)
-- [POST: ユーザーのマージ]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)
-- [ユーザーの削除]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)
-- [グローバルコントロールグループ]({{site.baseurl}}/user_guide/audience/global_control_group/)
-- [ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)
-- [内部グループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/)
+- [重複ユーザーのマージ]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users)
+- [POST: ユーザーのマージ]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)
+- [ユーザーの削除]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users)
+- [グローバルコントロールグループ]({{site.baseurl}}/user_guide/audience/global_control_group)
+- [ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers)
+- [内部グループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups)

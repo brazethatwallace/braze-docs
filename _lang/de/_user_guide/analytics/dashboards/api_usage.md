@@ -78,5 +78,5 @@ Die im Dashboard angezeigten Daten können eine kurze Verzögerung bei der Darst
 
 ## Verwandte Artikel {#related-articles}
 
-- [API-Nutzungswarnungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts/)
-- [Rate-Limits]({{site.baseurl}}/api/api_limits/)
+- [API-Nutzungswarnungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
+- [Rate-Limits]({{site.baseurl}}/api/api_limits)

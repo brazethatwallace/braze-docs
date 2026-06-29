@@ -15,7 +15,7 @@ channel:
 
 La capacidad de entrega del correo electrónico es el núcleo del éxito de una campaña. Usando el Centro de entrega en el dashboard de Braze, puedes ver tus dominios por **IP Reputation** o **Delivery Errors** para descubrir y solucionar cualquier problema potencial con la capacidad de entrega del correo electrónico.
 
-Para acceder al Centro de entrega, necesitas los [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) del siguiente desplegable para tu espacio de trabajo.
+Para acceder al Centro de entrega, necesitas los [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) del siguiente desplegable para tu espacio de trabajo.
 
 {% details Permisos de usuario para el Centro de entrega %}
 
@@ -80,6 +80,13 @@ Si tus subdominios no aparecen en el Centro de entrega de Google Postmaster, est
 {% endalert %}
 
 ## Integrar Google Postmaster {#integrating-google-postmaster}
+
+{% alert important %}
+**Migración a Google Postmaster Tools v2**<br>
+Google está dejando de dar soporte a la versión anterior de Postmaster Tools (v1) y ha lanzado una versión de nueva generación (v2) con una interfaz de usuario moderna y nuevos paneles, incluyendo un panel de cumplimiento para ayudar a monitorear la adherencia a las directrices de remitente de Gmail. Todos los usuarios deben migrar a v2 antes del 31 de octubre de 2026.<br><br>
+Para volver a autorizar tu conexión con Google Postmaster Tools, ve a **Integraciones de socios** > **Socios tecnológicos**, abre **Google Postmaster** y selecciona **Change Account** para volver a autenticarte con los nuevos permisos de v2. Cuando termines, habrás actualizado a v2 y tendrás acceso a los nuevos paneles y datos.<br><br>
+Para más información, consulta el [anuncio de Google sobre las nuevas Postmaster Tools](https://support.google.com/mail/answer/16594218?hl=en).
+{% endalert %}
 
 Antes de configurar tu Centro de entrega, verifica que tus dominios se hayan [agregado a Gmail Postmaster Tools](https://support.google.com/mail/answer/9981691?hl=en).
 
@@ -151,14 +158,14 @@ Consulta esta tabla para comprender qué porcentaje de tu tráfico de entrada y 
 | TLS de salida | Muestra el porcentaje de correo saliente (de Gmail) aceptado a través de TLS en comparación con todo el correo enviado a ese dominio. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cifrado" }
 
-Para más ideas sobre cómo mejorar la capacidad de entrega, lee [Problemas de capacidad de entrega y trampas de correo no deseado]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/#deliverability-pitfalls-and-spam-traps). Asegúrate de consultar nuestras [Mejores prácticas de correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/) para conocer lo que debes verificar antes de enviar una campaña de correo electrónico.
+Para más ideas sobre cómo mejorar la capacidad de entrega, lee [Problemas de capacidad de entrega y trampas de correo no deseado]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps). Asegúrate de consultar nuestras [Mejores prácticas de correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices) para conocer lo que debes verificar antes de enviar una campaña de correo electrónico.
 
 ## Configurar Microsoft Smart Network Data Services (SNDS) {#set-up-microsoft-smart-network-data-services-snds}
 
 Si Microsoft es tu proveedor principal de buzón de entrada, puedes usar esta integración para acceder y ver tus datos de reputación de Microsoft. De esta manera, puedes monitorear el estado de tus IP para ayudar a determinar cómo se están recibiendo tus correos electrónicos.
 
 {% alert important %}
-Si no ves tus datos en el Centro de entrega, ponte en contacto con [Soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support/) con una lista de tus direcciones IP.
+Si no ves tus datos en el Centro de entrega, ponte en contacto con [Soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) con una lista de tus direcciones IP.
 {% endalert %}
 
 ![Un ejemplo de resultados de Microsoft SNDS, incluyendo IP de muestra, destinatarios, comandos RCPT, comandos DATA, resultado del filtro, tasa de quejas, período de inicio y fin de mensajes trampa e impactos de trampas de correo no deseado.]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})

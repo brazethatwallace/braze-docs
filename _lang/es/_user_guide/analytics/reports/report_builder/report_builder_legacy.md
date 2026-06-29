@@ -12,7 +12,7 @@ tool:
 
 # Generador de informes (heredado) {#report-builder-legacy}
 
-> El Generador de informes te permite comparar los resultados de múltiples Campaigns o Canvas en una sola vista, para que puedas determinar fácilmente qué estrategias de interacción tuvieron mayor impacto en tus métricas clave. Tanto para Campaigns como para Canvas, puedes exportar tus datos y guardar tu informe para consultarlo en el futuro.<br><br>Para una lista descriptiva de las métricas que encontrarás en tus informes, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+> El Generador de informes te permite comparar los resultados de múltiples Campaigns o Canvas en una sola vista, para que puedas determinar fácilmente qué estrategias de interacción tuvieron mayor impacto en tus métricas clave. Tanto para Campaigns como para Canvas, puedes exportar tus datos y guardar tu informe para consultarlo en el futuro.<br><br>Para una lista descriptiva de las métricas que encontrarás en tus informes, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 ![Ejemplo de comparación de Campaigns]({% image_buster /assets/img/campaign_comparison/campaign_main.png %}){: style="max-width:80%;"}
 
@@ -64,7 +64,7 @@ Después de crear tu informe, encontrarás una tabla vacía con Campaigns en cad
 
 ![Opciones de Campaign]({% image_buster /assets/img/campaign_comparison/campaign_comparison_columns.png %}){: style="max-width:80%;"}
 
-Tu tabla se completará con las métricas que elijas. Para las definiciones de estas métricas, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary/). Algunas métricas solo están disponibles para informes comparativos de Campaigns.
+Tu tabla se completará con las métricas que elijas. Para las definiciones de estas métricas, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary). Algunas métricas solo están disponibles para informes comparativos de Campaigns.
 
 También puedes alternar los cálculos del **Promedio** de cualquier tasa o métrica numérica y el **Total** de cualquier métrica numérica.
 
@@ -116,7 +116,7 @@ Similar a un desglose a nivel de paso, seleccionar **desglose por mensaje** mues
 
 ![Informe]({% image_buster /assets/img/campaign_comparison/campaign_comparison3.png %}){: style="max-width:90%;"}
 
-Ten en cuenta que dentro del dashboard de Braze, puedes previsualizar las primeras 50 filas de tu informe de Canvas. Puedes acceder al informe completo cuando exportes un CSV.
+Ten en cuenta que dentro del dashboard de Braze puedes previsualizar las primeras 50 filas de tu informe de Canvas. Puedes acceder al informe completo cuando exportes un CSV.
 
 ## Acceder a informes guardados {#accessing-saved-reports}
 
@@ -139,7 +139,7 @@ Si tu informe contiene Campaigns multivariantes, tu exportación incluirá dos a
 - Un archivo que contiene solo las métricas de nivel superior de cada Campaign
 - Un archivo que contiene métricas a nivel de variante
 
-El archivo que contiene métricas de variante tendrá `variant_` añadido al inicio de su nombre. La primera vez que exportes un informe automatizado, recibirás una ventana emergente pidiéndote que concedas permiso para descargar múltiples archivos; haz clic en **Allow**.
+El archivo que contiene métricas de variante tendrá `variant_` añadido al inicio de su nombre. La primera vez que exportes un informe automatizado, recibirás una ventana emergente pidiéndote que concedas permiso para descargar múltiples archivos; haz clic en **Permitir**.
 
 ![Descarga de Campaign]({% image_buster /assets/img/campaign_comparison/download.png %}){: style="max-width:60%;"}
 

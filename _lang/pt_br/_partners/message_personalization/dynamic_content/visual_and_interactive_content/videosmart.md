@@ -60,7 +60,7 @@ A VideoSmart fornecerá as credenciais para a autenticação de Conteúdo conect
 
 Crie uma credencial de Autenticação Básica de Conteúdo conectado na Braze chamada "basic_credentials".
 
-- Siga as instruções em [Usando autenticação básica]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/#using-basic-authentication).
+- Siga as instruções em [Usando autenticação básica]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call#using-basic-authentication).
 - Use o nome de usuário e a senha fornecidos pela VideoSmart.
 
 ### Etapa 3: Adicionar o Content Block ao seu e-mail {#step-3-add-the-content-block-to-your-email}
@@ -94,7 +94,7 @@ Este exemplo usa atributos de usuário da Braze para o nome e o sobrenome:
 
 {% capture vs_record_data %}
 {
-  "FirstName": "{{ ${first_name} | default: 'John' | json_escape }}",
+  "FirstName": "{{ ${first_name} | default: 'Alex' | json_escape }}",
   "LastName": "{{ ${last_name} | default: 'Doe' | json_escape }}"
 }
 {% endcapture %}
@@ -129,7 +129,7 @@ A API da VideoSmart tem um limite de taxa de 10.000 solicitações por minuto. S
 
 Para reduzir esse risco, configure o limite de taxa da Campaign da Braze para que a taxa de envio de mensagens fique abaixo da capacidade da API da VideoSmart.
 
-Para orientações da Braze sobre velocidade de entrega e limite de taxa, consulte [Velocidade de entrega e limite de taxa]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#delivery-speed-rate-limiting).
+Para orientações da Braze sobre velocidade de entrega e limite de taxa, consulte [Velocidade de entrega e limite de taxa]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting#delivery-speed-rate-limiting).
 
 ## Considerações {#considerations}
 

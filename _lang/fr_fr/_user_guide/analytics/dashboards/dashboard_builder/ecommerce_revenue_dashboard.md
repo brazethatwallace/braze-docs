@@ -8,10 +8,10 @@ description: "Cet article présente un aperçu du tableau de bord eCommerce Reve
 
 # Tableau de bord des revenus eCommerce {#ecommerce-revenue-dashboard}
 
-> Le tableau de bord **eCommerce Revenue - Last Touch Attribution** suit le chiffre d'affaires attribué au dernier point de contact pour les campagnes et les Canvas à l'aide des [événements recommandés eCommerce]({{site.baseurl}}/ecommerce_events/). Utilisez ce tableau de bord pour identifier les messages qui génèrent du chiffre d'affaires et suivre les performances globales de votre eCommerce au fil du temps.
+> Le tableau de bord **eCommerce Revenue - Last Touch Attribution** suit le chiffre d'affaires attribué au dernier point de contact pour les campagnes et les Canvas à l'aide des [événements recommandés eCommerce]({{site.baseurl}}/ecommerce_events). Utilisez ce tableau de bord pour identifier les messages qui génèrent du chiffre d'affaires et suivre les performances globales de votre eCommerce au fil du temps.
 
 {% alert note %}
-Si vous utilisez le nouveau [connecteur Shopify]({{site.baseurl}}/partners/ecommerce/shopify/multiple_stores/?tab=shopify%20connector), les événements recommandés eCommerce sont automatiquement disponibles via l'intégration. Dans le cas contraire, ces événements doivent être implémentés avant que les données n'apparaissent dans ce tableau de bord.
+Si vous utilisez le nouveau [connecteur Shopify]({{site.baseurl}}/partners/ecommerce/shopify/multiple_stores?tab=shopify%20connector), les événements recommandés eCommerce sont automatiquement disponibles via l'intégration. Dans le cas contraire, ces événements doivent être implémentés avant que les données n'apparaissent dans ce tableau de bord.
 {% endalert %}
 
 Pour accéder à votre tableau de bord des revenus eCommerce, rendez-vous dans **Analytics** > **Générateur de tableaux de bord**, puis sélectionnez **eCommerce Revenue - Last Touch Attribution**. Ce tableau de bord présente le chiffre d'affaires attribué à la dernière campagne ou au dernier Canvas avec lequel un utilisateur a interagi avant de passer une commande, dans la fenêtre de conversion sélectionnée.
@@ -28,7 +28,7 @@ Pour accéder à votre tableau de bord des revenus eCommerce, rendez-vous dans *
 | Chiffre d'affaires eCommerce au fil du temps | Série temporelle du chiffre d'affaires attribué sur la plage de dates sélectionnée. |
 | Chiffre d'affaires eCommerce par campagne | Chiffre d'affaires attribué ventilé par campagne. |
 | Chiffre d'affaires eCommerce par Canvas | Chiffre d'affaires attribué ventilé par Canvas. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Available metrics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Indicateurs disponibles" }
 
 ![Graphiques du chiffre d'affaires eCommerce par campagne et du chiffre d'affaires eCommerce par Canvas.]({% image_buster /assets/img/ecommerce/ecommerce_revenue_charts.png %})
 
@@ -70,7 +70,7 @@ Le chiffre d'affaires et le nombre de commandes utilisent les calculs standardis
 | --- | --- |
 | Chiffre d'affaires total | Somme des valeurs des commandes passées − Somme des valeurs remboursées |
 | Total des commandes | Commandes distinctes passées − Commandes distinctes annulées |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Included data" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Données incluses" }
 
 ### Données exclues {#excluded-data}
 

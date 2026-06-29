@@ -22,8 +22,8 @@ Selecione **Criar segmento** para começar a construir seu segmento. Nomeie seu 
 
 Opcionalmente, você pode fazer o seguinte:
 - Adicionar uma descrição ao segmento para fornecer mais detalhes sobre a intenção desse público e deixar anotações para outros membros da equipe consultarem.
-- Adicionar uma [equipe]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) ao seu segmento.
-- Adicionar [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) ao seu segmento para melhor organização.
+- Adicionar uma [equipe]({{site.baseurl}}/user_guide/administer/global/user_management/teams) ao seu segmento.
+- Adicionar [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) ao seu segmento para melhor organização.
 
 ![Modal de criação de segmento onde o segmento é nomeado "Lapsed Users" com a descrição "This is our main Lapsed User segment to target non-actives within the past fourteen days." com dois botões: Cancelar e Criar segmento.]({% image_buster /assets/img_archive/segment_app_selection.png %}){: style="max-width:80%;"}
 
@@ -82,7 +82,7 @@ Se `not included`, `is not`, `does not equal` ou `does not match regex` forem us
 
 ### Operadores de filtro {#filter-operators}
 
-Dependendo do filtro específico que você selecionar, haverá diferentes operadores para identificar valores de filtro. Para se aprofundar nos operadores disponíveis para diferentes tipos de atributos personalizados, consulte [Armazenamento de atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#setting-custom-attributes). Observe que, ao usar o operador "is any of", o número máximo de itens que você pode incluir nesse campo é 256.
+Dependendo do filtro específico que você selecionar, haverá diferentes operadores para identificar valores de filtro. Para se aprofundar nos operadores disponíveis para diferentes tipos de atributos personalizados, consulte [Armazenamento de atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#setting-custom-attributes). Observe que, ao usar o operador "is any of", o número máximo de itens que você pode incluir nesse campo é 256.
 
 {% alert note %}
 A Braze não gera perfis para usuários até que eles usem o app pela primeira vez, então você não pode direcionar usuários que ainda não abriram seu app.
@@ -91,7 +91,7 @@ A Braze não gera perfis para usuários até que eles usem o app pela primeira v
 ![Grupos de filtros do segmentador com o operador AND.]({% image_buster /assets/img_archive/segmenter_filter_groups.png %})
 
 {% alert important %}
-Segmentos que já usam o filtro **Segment Membership** não podem ser incluídos ou aninhados em outros segmentos. Isso evita um ciclo em que o Segmento A inclui o Segmento B, que então tenta incluir o Segmento A novamente. Se isso acontecesse, o segmento ficaria referenciando a si mesmo, tornando impossível calcular quem realmente pertence a ele.
+Segments que já usam o filtro **Segment Membership** não podem ser incluídos ou aninhados em outros segmentos. Isso evita um ciclo em que o Segment A inclui o Segment B, que então tenta incluir o Segment A novamente. Se isso acontecesse, o segmento ficaria referenciando a si mesmo, tornando impossível calcular quem realmente pertence a ele.
 
 Além disso, aninhar segmentos dessa forma adiciona complexidade e pode tornar as coisas mais lentas. Em vez disso, recrie o segmento que você está tentando incluir usando os mesmos filtros.
 {% endalert %}
@@ -123,7 +123,7 @@ Ao adicionar filtros que documentam o fluxo dos seus usuários, você pode ver o
 Após adicionar apps e filtros ao seu segmento, você pode testar se o segmento está configurado conforme esperado procurando um usuário para confirmar se ele corresponde aos critérios do segmento. Para isso, pesquise o `external_id` ou `braze_id` de um usuário na seção **Busca de usuário**.
 
 {% alert note %}
-A **Busca de usuário** aceita apenas `external_id` e `braze_id`. Não aceita endereços de e-mail, números de telefone ou outros identificadores. Para encontrar um perfil por e-mail, telefone ou outros campos, use [**Pesquisar usuários**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#access-profiles).
+A **Busca de usuário** aceita apenas `external_id` e `braze_id`. Não aceita endereços de e-mail, números de telefone ou outros identificadores. Para encontrar um perfil por e-mail, telefone ou outros campos, use [**Pesquisar usuários**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles).
 {% endalert %}
 
 ![Seção de busca de usuário com um campo de pesquisa.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%;"}
@@ -155,7 +155,7 @@ Selecione **Salvar**. Agora você está pronto para começar a enviar mensagens 
 
 ## Medindo o tamanho do segmento {#measuring-segment-size}
 
-Para saber mais sobre como monitorar a associação e o tamanho do seu segmento, consulte [Medindo o tamanho do segmento]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
+Para saber mais sobre como monitorar a associação e o tamanho do seu segmento, consulte [Medindo o tamanho do segmento]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
 ## Arquivando segmentos {#archiving-segments}
 
@@ -171,13 +171,13 @@ Você pode desarquivar o segmento navegando até ele na página **Segments** e s
 
 ## Comportamento de direcionamento quando os usuários têm vários dispositivos {#targeting-behavior-when-users-have-multiple-devices}
 
-Os usuários têm mais de um dispositivo se fizerem login na mesma conta em vários dispositivos. Você pode verificar múltiplos dispositivos na seção **Dispositivos recentes** de um [perfil de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/).
+Os usuários têm mais de um dispositivo se fizerem login na mesma conta em vários dispositivos. Você pode verificar múltiplos dispositivos na seção **Dispositivos recentes** de um [perfil de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
 
 Ao segmentar com filtros dependentes de dispositivo (modelo do dispositivo, sistema operacional do dispositivo e versão do app), seu segmento conterá todos os usuários que correspondem aos critérios do filtro. Esses usuários receberão uma mensagem em todos os seus dispositivos, incluindo aqueles que podem não atender aos critérios do filtro. Por exemplo, digamos que o Usuário A tem dois dispositivos: o Dispositivo 1 tem o SO 13.0 e o Dispositivo 2 tem o SO 10.0. Se um segmento direcionar usuários com SO 10.0, esse usuário fará parte desse segmento e receberá mensagens em ambos os dispositivos.
 
 ### Notificações por push {#push-notifications}
 
-Você pode especificar que apenas uma notificação por push seja enviada para cada usuário. Ao [redigir sua mensagem]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#step-4-compose-your-push-message), selecione **Enviar apenas para o último dispositivo usado pelo usuário** em **Configurações adicionais**.
+Você pode especificar que apenas uma notificação por push seja enviada para cada usuário. Ao [redigir sua mensagem]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#step-4-compose-your-push-message), selecione **Enviar apenas para o último dispositivo usado pelo usuário** em **Configurações adicionais**.
 
 !["Configurações adicionais" com uma caixa de seleção para enviar apenas para o último dispositivo usado pelo usuário.]({% image_buster /assets/img_archive/send_to_last_device.png %}){: style="max-width:60%;"}
 

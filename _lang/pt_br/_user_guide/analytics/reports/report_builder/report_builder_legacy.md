@@ -12,7 +12,7 @@ tool:
 
 # Criador de relatórios (legado) {#report-builder-legacy}
 
-> O Criador de relatórios permite comparar os resultados de várias Campaigns ou Canvas em uma única visualização, facilitando a identificação de quais estratégias de engajamento mais impactaram suas métricas principais. Tanto para Campaigns quanto para Canvas, você pode exportar seus dados e salvar seu relatório para consulta futura.<br><br>Para uma lista descritiva das métricas que você encontrará em seus relatórios, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+> O Criador de relatórios permite comparar os resultados de várias Campaigns ou Canvas em uma única visualização, facilitando a identificação de quais estratégias de engajamento mais impactaram suas métricas principais. Tanto para Campaigns quanto para Canvas, você pode exportar seus dados e salvar seu relatório para consulta futura.<br><br>Para uma lista descritiva das métricas que você encontrará em seus relatórios, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 ![Exemplo de comparação de Campaigns]({% image_buster /assets/img/campaign_comparison/campaign_main.png %}){: style="max-width:80%;"}
 
@@ -64,7 +64,7 @@ Depois de criar seu relatório, você encontrará uma tabela em branco com Campa
 
 ![Opções de Campaigns]({% image_buster /assets/img/campaign_comparison/campaign_comparison_columns.png %}){: style="max-width:80%;"}
 
-Sua tabela será preenchida com as métricas escolhidas. Para definições dessas métricas, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary/). Algumas métricas estão disponíveis apenas para relatórios de comparação de Campaigns.
+Sua tabela será preenchida com as métricas escolhidas. Para definições dessas métricas, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary). Algumas métricas estão disponíveis apenas para relatórios de comparação de Campaigns.
 
 Você também pode alternar os cálculos de **Média** para qualquer taxa ou métrica numérica e **Total** para qualquer métrica numérica.
 

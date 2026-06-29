@@ -18,18 +18,18 @@ Para añadir un nuevo usuario:
 
 1. Ve a **Configuración** > **Administrar usuarios** > **Usuarios de la empresa**.
 2. Selecciona **+ Añadir nuevo usuario**.
-3. Introduce su información según se solicite, incluyendo su correo electrónico, departamento y [rol de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#creating-a-role).
-4. Para los usuarios que no son administradores, selecciona los [permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#editing-a-users-permissions) a nivel de empresa y a nivel de espacio de trabajo que deseas que tenga este usuario.
+3. Introduce su información según se solicite, incluyendo su correo electrónico, departamento y [rol de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#creating-a-role).
+4. Para los usuarios que no son administradores, selecciona los [permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#editing-a-users-permissions) a nivel de empresa y a nivel de espacio de trabajo que deseas que tenga este usuario.
 
 ![Permisos a nivel de espacio de trabajo con una sección para campos de permisos personalizados.]({% image_buster /assets/img/add_new_user_3.png %})
 
 ### Requisitos de dirección de correo electrónico {#email-address-requirements}
 
-Cada dirección de correo electrónico utilizada en una [instancia]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) debe ser única. Esto significa que si intentas añadir una dirección de correo electrónico que ya está asociada a un usuario que tuvo o aún tiene acceso a un espacio de trabajo de la empresa en esa instancia, verás un mensaje de error.
+Cada dirección de correo electrónico utilizada en una [instancia]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) debe ser única. Esto significa que si intentas añadir una dirección de correo electrónico que ya está asociada a un usuario que tuvo o aún tiene acceso a un espacio de trabajo de la empresa en esa instancia, verás un mensaje de error.
 
 Si tu equipo utiliza Gmail y tienes problemas para añadir una dirección de correo electrónico, puedes crear un alias añadiendo un signo más (+) como "+1" o "+test" a la dirección de correo electrónico. Por ejemplo, `contractor@braze.com` puede tener un alias de `contractor+1@braze.com`. Los correos electrónicos enviados a `contractor+1@braze.com` seguirán entregándose a `contractor@braze.com`, pero el alias será reconocido como una dirección de correo electrónico única.
 
-Para usar una cuenta en varias empresas sin alias, consulta [Usar desarrolladores multiempresa]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#use-multi-company-developers). Si usas SSO, revisa [Consideraciones para el inicio de sesión único (SSO)]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#considerations-for-single-sign-on-sso) antes de registrarte con varias direcciones de correo electrónico.
+Para usar una cuenta en varias empresas sin alias, consulta [Usar desarrolladores multiempresa]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#use-multi-company-developers). Si usas SSO, revisa [Consideraciones para el inicio de sesión único (SSO)]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#considerations-for-single-sign-on-sso) antes de registrarte con varias direcciones de correo electrónico.
 
 ### ¿Puedo cambiar la dirección de correo electrónico de mi cuenta de Braze? {#can-i-change-my-braze-accounts-email-address}
 
@@ -89,7 +89,7 @@ Si al añadir un usuario del dashboard se produce un error de "No se puede reali
 
 - Elimina los espacios iniciales o finales y los caracteres ocultos de la dirección de correo electrónico.
 - Confirma que la dirección tiene un formato de correo electrónico válido para tu organización. Algunos caracteres especiales son rechazados.
-- El mismo correo electrónico no puede utilizarse para dos usuarios del dashboard en el mismo [clúster]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/). Si la dirección ya está registrada en otro espacio de trabajo en ese clúster, utiliza una dirección diferente o un alias como `user+1@company.com`.
+- El mismo correo electrónico no puede utilizarse para dos usuarios del dashboard en el mismo [clúster]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account). Si la dirección ya está registrada en otro espacio de trabajo en ese clúster, utiliza una dirección diferente o un alias como `user+1@company.com`.
 
 ### "El correo electrónico ya está en uso" al intentar añadir un usuario {#email-is-already-taken-when-trying-to-add-a-user}
 
@@ -106,5 +106,5 @@ Si no recibes el mensaje de activación en tu buzón de entrada al usar `testing
 
 Después de añadir usuarios, administra su acceso:
 
-- [Permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para configurar lo que cada usuario puede hacer en el dashboard.
-- [Equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) para organizar usuarios en grupos con acceso compartido a objetos específicos del dashboard.
+- [Permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para configurar lo que cada usuario puede hacer en el dashboard.
+- [Equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams) para organizar usuarios en grupos con acceso compartido a objetos específicos del dashboard.

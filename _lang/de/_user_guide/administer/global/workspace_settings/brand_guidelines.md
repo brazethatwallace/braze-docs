@@ -26,7 +26,7 @@ Wählen Sie auf der Seite **Brand Guidelines** die Option **Neu erstellen** aus.
 |--------------------------|--------------------------------------------------------------------------------------|--------------------------------------------------------------------|
 | Reputation | Wie Ihre Marke auf dem Markt wahrgenommen werden soll. | Wir sind dafür bekannt, die zuverlässigste und kundenorientierteste Marke in unserer Branche zu sein. |
 | Persönlichkeitsmerkmale | Menschenähnliche Eigenschaften, die den Charakter Ihrer Marke beschreiben. | Unsere Marke ist freundlich, zugänglich und stets positiv. |
-| Werte | Zentrale Werte, die die Handlungen und Entscheidungen Ihrer Marke leiten. | Wir schätzen Nachhaltigkeit, Transparenz und Gemeinschaft. |
+| Werte | Zentrale Werte, die die Aktionen und Entscheidungen Ihrer Marke leiten. | Wir schätzen Nachhaltigkeit, Transparenz und Gemeinschaft. |
 | Differenzierung | Einzigartige Qualitäten, die Ihre Marke von der Konkurrenz abheben. | Wir heben uns durch personalisierten Kundenservice ab, der über das Erwartete hinausgeht. |
 | Markenstimme | Der Ton und Stil der Kommunikation, den Ihre Marke verwendet. | Unsere Stimme ist locker und dennoch informativ – klar, ohne zu förmlich zu sein. |
 | Markenarchetyp | Der Archetyp, der die Persona Ihrer Marke repräsentiert (Der Held, Der Schöpfer usw.). | Wir verkörpern den Archetyp des „Entdeckers“, der stets neue Herausforderungen und Abenteuer sucht. |

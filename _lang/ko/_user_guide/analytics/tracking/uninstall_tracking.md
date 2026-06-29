@@ -37,7 +37,7 @@ Braze가 제거를 감지하면 해당 사용자에게 제거 태그가 지정�
 
 ### 구성 {#configuration}
 
-iOS 애플리케이션의 제거 추적을 구성하려면 [유틸리티 메서드]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls/?sdktab=swift)를 사용하세요. Android 애플리케이션의 경우 [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html)를 사용하세요. 제거 추적 또는 일반 푸시 Campaign 전달을 통해 제거가 감지되면, Braze는 제거의 최적 예상 시간을 기록합니다. 이 시간은 고객 프로필에 표준 속성으로 저장되며, 윈백 Campaigns의 사용자 Segment를 정의하는 데 사용할 수 있습니다.
+iOS 애플리케이션의 제거 추적을 구성하려면 [유틸리티 메서드]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls?sdktab=swift)를 사용하세요. Android 애플리케이션의 경우 [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html)를 사용하세요. 제거 추적 또는 일반 푸시 Campaign 전달을 통해 제거가 감지되면, Braze는 제거의 최적 예상 시간을 사용자 프로필에 기록합니다. 이 시간은 고객 프로필에 표준 속성으로 저장되며, 윈백 Campaigns의 사용자 Segment를 정의하는 데 사용할 수 있습니다.
 
 ## 제거를 기준으로 Segment 필터링 {#filtering-segments-by-uninstalls}
 
@@ -99,7 +99,7 @@ Braze는 기기에 앱이 더 이상 없음을 감지하면 해당 사용자를 
 
 Segment별 제거를 확인하려면:
 1. 대시보드의 **홈** 페이지로 이동합니다.
-2. **Performance Over Time** 섹션에서 **Statistics For**에 **Uninstalls**를, **Breakdown**에 **By Segment**를 선택합니다.
+2. **시간별 성과** 섹션에서 **Statistics For**에 **Uninstalls**를, **Breakdown**에 **By Segment**를 선택합니다.
 
 [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)이 활성화된 이탈 사용자 추적 Segment가 있는 경우, 해당 Segment의 제거 추세를 전체 앱 추세와 비교하세요.
 

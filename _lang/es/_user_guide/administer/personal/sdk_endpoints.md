@@ -21,4 +21,4 @@ Iniciar sesión en [dashboard.braze.com](https://dashboard.braze.com) te enviar�
 Al integrar tu SDK, usa el punto final de SDK. Al realizar llamadas a nuestra REST API, usa el punto de conexión REST.
 {% endalert %}
 
-Para obtener más detalles sobre el acceso a la API, consulta nuestro [artículo de resumen de la API]({{site.baseurl}}/api/basics/).
+Para obtener más detalles sobre el acceso a la API, consulta nuestro [artículo de resumen de la API]({{site.baseurl}}/api/basics).

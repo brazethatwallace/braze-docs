@@ -17,7 +17,7 @@ _Esta integración es desarrollada y mantenida por VideoSmart._
 
 ## Acerca de esta integración {#about-this-integration}
 
-VideoSmart se integra con Braze para generar dinámicamente activos de video personalizados en el momento del envío, que luego se incrustan directamente en el contenido de correo electrónico de tus Campaigns y Canvas de Braze.
+VideoSmart se integra con Braze para generar dinámicamente activos de video personalizados en el momento del envío, que luego se incrustan directamente en el contenido de correo electrónico de tus campañas y Canvas de Braze.
 
 En Braze, seleccionas la campaña de VideoSmart correspondiente y pasas atributos de cliente (a través de plantillas Liquid) a VideoSmart cuando realizas el envío. Estos atributos se utilizan para renderizar una experiencia de video única y personalizada para cada destinatario. Luego puedes usar Contenido conectado de Braze para solicitar URLs de video o activos de la API de VideoSmart en tiempo real, lo que permite personalización a escala.
 
@@ -61,7 +61,7 @@ VideoSmart proporcionará las credenciales para la autenticación de Contenido c
 
 Crea una credencial de autenticación básica de Contenido conectado en Braze llamada "basic_credentials".
 
-- Sigue las instrucciones en [Uso de autenticación básica]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/#using-basic-authentication).
+- Sigue las instrucciones en [Uso de autenticación básica]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call#using-basic-authentication).
 - Usa el nombre de usuario y la contraseña proporcionados por VideoSmart.
 
 ### Paso 3: Agrega el Content Block a tu correo electrónico {#step-3-add-the-content-block-to-your-email}
@@ -95,7 +95,7 @@ Este ejemplo usa atributos de usuario de Braze para el nombre y el apellido:
 
 {% capture vs_record_data %}
 {
-  "FirstName": "{{ ${first_name} | default: 'John' | json_escape }}",
+  "FirstName": "{{ ${first_name} | default: 'Alex' | json_escape }}",
   "LastName": "{{ ${last_name} | default: 'Doe' | json_escape }}"
 }
 {% endcapture %}
@@ -128,9 +128,9 @@ Las variables comunes incluyen:
 
 La API de VideoSmart tiene un límite de velocidad de 10,000 solicitudes por minuto. Si superas este límite, puedes recibir errores o experimentar retrasos en la generación de videos.
 
-Para reducir este riesgo, configura el límite de velocidad de Campaign en Braze para que la tasa de envío de mensajes se mantenga por debajo de la capacidad de la API de VideoSmart.
+Para reducir este riesgo, configura el límite de velocidad de la campaña en Braze para que la tasa de envío de mensajes se mantenga por debajo de la capacidad de la API de VideoSmart.
 
-Para obtener orientación de Braze sobre velocidad de entrega y límites de velocidad, consulta [Velocidad de entrega y límites de velocidad]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#delivery-speed-rate-limiting).
+Para obtener orientación de Braze sobre velocidad de entrega y límites de velocidad, consulta [Velocidad de entrega y límites de velocidad]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting#delivery-speed-rate-limiting).
 
 ## Consideraciones {#considerations}
 

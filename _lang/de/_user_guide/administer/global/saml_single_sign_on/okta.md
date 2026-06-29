@@ -9,7 +9,7 @@ description: "In diesem Artikel erfahren Sie, wie Sie Braze für die Verwendung 
 
 # Okta
 
-> Okta verbindet jede Person mit jeder Anwendung auf jedem Gerät. Es handelt sich um einen Identitätsverwaltungsdienst für Unternehmen, der für die Cloud entwickelt wurde, aber mit vielen lokalen Anwendungen kompatibel ist. Mit Okta kann Ihr IT-Team den Zugriff eines jeden Mitarbeiters auf jede Anwendung oder jedes Gerät verwalten.
+> Okta verbindet jede Person mit jeder Anwendung auf jedem Gerät. Es handelt sich um einen Identitätsverwaltungsdienst für Unternehmen, der für die Cloud entwickelt wurde, aber mit vielen lokalen Anwendungen kompatibel ist. Mit Okta kann Ihr IT-Team den Zugriff jeder Mitarbeiterin und jedes Mitarbeiters auf jede Anwendung oder jedes Gerät verwalten.
 
 ## Anforderungen {#requirements}
 
@@ -33,7 +33,7 @@ Nachdem Ihr Account Manager SAML SSO für Ihr Konto aktiviert hat, gehen Sie zu 
 
 Über Ihr Okta-Admin-Dashboard stellt Ihnen Okta eine Ziel-URL (Anmelde-URL) und ein `x.509`-Zertifikat bereit, die Sie auf der Seite **Sicherheitseinstellungen** Ihres Braze-Kontos eingeben müssen.
 
-![]({% image_buster /assets/img/Okta/okta5.png %}){: style="max-width:75%"}
+![Screenshot zu Schritt 1b: SAML-SSO-Einstellungen bearbeiten.]({% image_buster /assets/img/Okta/okta5.png %}){: style="max-width:75%"}
 
 | Anforderung | Details |
 |---|---|
@@ -55,7 +55,7 @@ Geben Sie anschließend den RelayState-API-Schlüssel mit der Berechtigung `sso.
 Stellen Sie sicher, dass Sie diese neuen Einstellungen speichern.
 
 {% alert tip %}
-Wenn Sie möchten, dass sich Ihre Braze-Kontonutzer:innen nur mit SAML SSO anmelden, können Sie die [Single-Sign-on-Authentifizierung einschränken]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/#restriction) über die Seite **Unternehmenseinstellungen**.
+Wenn Sie möchten, dass sich Ihre Braze-Kontonutzer:innen nur mit SAML SSO anmelden, können Sie die [Single-Sign-on-Authentifizierung einschränken]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) über die Seite **Unternehmenseinstellungen**.
 {% endalert %}
 
 ## 3. Schritt: Anmelden {#step-3-log-in}

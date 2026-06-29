@@ -53,7 +53,7 @@ CampaignまたはCanvasでコンバージョンイベントとして設定され
 
 ユーザーがレポートにカウントされるためには、選択した日付範囲内で以下の条件を満たす必要があります。
 1. CanvasまたはCampaignにエントリする。
-2. [アトリビューション方法]({{site.baseurl}}/user_guide/analytics/dashboards/conversions/#attribution-methods)を記録する。
+2. [アトリビューション方法]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#attribution-methods)を記録する。
 3. コンバージョンイベントを実行する。
 
 たとえば、あるユーザーが以下の行動をとったとします。
@@ -91,7 +91,7 @@ CampaignまたはCanvasでコンバージョンイベントとして設定され
 
 ### コンバージョンファネル {#conversion-funnel}
 
-この棒グラフは、選択したチャネルに基づく各[エンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)の絶対数を表示します。コンバージョン数は、選択したアトリビューション方法に従って定義されます。
+この棒グラフは、選択したチャネルに基づく各[エンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)の絶対数を表示します。コンバージョン数は、選択したアトリビューション方法に従って定義されます。
 
 デフォルトでは、選択したすべてのCampaignsとCanvasesが表示されます。CampaignまたはCanvasの選択を解除するには、除外したいCampaignまたはCanvasの名前を選択します。エンゲージメントイベントの詳細については、各バーにカーソルを合わせてください。
 
@@ -140,10 +140,10 @@ CampaignまたはCanvasでコンバージョンイベントとして設定され
 
 #### イベントトラッキング {#event-tracking}
 
-Campaignがセッション開始またはカスタムイベントをトリガーする場合、このイベントまたはセッションがメッセージをトリガーするのに十分な頻度で発生していることを確認してください。セッションデータについては[ホームダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/home/)を、または[カスタムイベント]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/)レポートを確認してください。
+Campaignがセッション開始またはカスタムイベントをトリガーする場合、このイベントまたはセッションがメッセージをトリガーするのに十分な頻度で発生していることを確認してください。セッションデータについては[ホームダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/home)を、または[カスタムイベント]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting)レポートを確認してください。
 
 #### コンバージョン期限 {#conversion-deadlines}
 
-Campaignごとに選択する各コンバージョンイベントには、[期限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#creating-a-campaign-with-conversion-tracking)を設定します。これは、コンバージョンが各Campaignにカウントされるために発生しなければならない制限時間を設定することを意味します。
+Campaignごとに選択する各コンバージョンイベントには、[期限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#creating-a-campaign-with-conversion-tracking)を設定します。これは、コンバージョンが各Campaignにカウントされるために発生しなければならない制限時間を設定することを意味します。
 
-Campaignの指標を理解するために、[コンバージョントラッキングルール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules)に関する情報を確認してください。Canvasでのユーザーコンバージョンについては、[Canvas FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#how-are-user-conversions-tracked-in-a-canvas)を参照してください。
+Campaignの指標を理解するために、[コンバージョントラッキングルール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules)に関する情報を確認してください。Canvasでのユーザーコンバージョンについては、[Canvas FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs#how-are-user-conversions-tracked-in-a-canvas)を参照してください。

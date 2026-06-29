@@ -15,7 +15,7 @@ channel:
 
 メールの到達性は、Campaignの成功の核心です。Brazeダッシュボードの到達性センターを使用すると、**IPレピュテーション**または**配信エラー**別にドメインを表示し、メールの到達性に関する潜在的な問題を発見してトラブルシューティングできます。
 
-到達性センターにアクセスするには、ワークスペースに対する以下のドロップダウンに記載されている[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)が必要です。
+到達性センターにアクセスするには、ワークスペースに対する以下のドロップダウンに記載されている[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)が必要です。
 
 {% details 到達性センターのユーザー権限 %}
 
@@ -81,6 +81,13 @@ channel:
 
 ## Google Postmasterの統合 {#integrating-google-postmaster}
 
+{% alert important %}
+**Google Postmaster Tools v2への移行**<br>
+Googleは旧Postmaster Tools（v1）を廃止し、モダンなユーザーインターフェイスと新しいダッシュボード（Gmailの送信者ガイドラインへの準拠を監視するためのコンプライアンスダッシュボードを含む）を備えた次世代バージョン（v2）をリリースしました。すべてのユーザーは2026年10月31日までにv2に移行する必要があります。<br><br>
+Google Postmaster Toolの接続を再認証するには、**パートナー連携** > **テクノロジーパートナー**に移動し、**Google Postmaster**を開いて**Change Account**を選択し、新しいv2権限で再認証します。完了すると、v2にアップグレードされ、新しいダッシュボードとデータにアクセスできるようになります。<br><br>
+詳細については、[新しいPostmaster Toolsに関するGoogleの発表](https://support.google.com/mail/answer/16594218?hl=en)を参照してください。
+{% endalert %}
+
 到達性センターをセットアップする前に、ドメインが[Gmail Postmaster Toolsに追加](https://support.google.com/mail/answer/9981691?hl=en)されていることを確認してください。
 
 以下の手順に従ってGoogle Postmasterと統合し、到達性センターをセットアップします。
@@ -116,7 +123,7 @@ IPレピュテーションの評価を理解するには、以下の表を参照
 | 中/普通 | ポジティブなエンゲージメントを生成することで知られていますが、時折スパム苦情を受けることがあります。このドメインからのメールのほとんどは受信トレイに配信されますが、スパム苦情が増加した場合は例外です。 |
 | 低 | 定期的にスパム苦情率が高いことで知られています。この送信者からのメールはスパムフォルダーにフィルタリングされる可能性が高いです。 |
 | 悪い | スパム苦情率が高い履歴があります。このドメインからのメールは、接続時にほぼ常に拒否されるか、スパムフォルダーにフィルタリングされます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="IPレピュテーション" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="IP reputation" }
 
 #### ドメインレピュテーション {#domain-reputation}
 
@@ -128,7 +135,7 @@ IPレピュテーションの評価を理解するには、以下の表を参照
 | 中/普通 | ポジティブなエンゲージメントを生成することで知られていますが、時折少量のスパム苦情を受けることがあります。このドメインからのメールのほとんどは受信トレイに到達します（スパムレベルが著しく増加した場合を除く）。 |
 | 低 | 定期的にスパム苦情を受けることで知られています。この送信者からのメールはスパムフォルダーにフィルタリングされる可能性が高いです。 |
 | 悪い | スパム苦情率が高い履歴があります。このドメインからのメールは、接続時にほぼ常に拒否されるか、スパムフォルダーにフィルタリングされます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ドメインレピュテーション" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Domain reputation" }
 
 #### 認証 {#authentication}
 
@@ -139,7 +146,7 @@ IPレピュテーションの評価を理解するには、以下の表を参照
 | SPF | SPFを試行したドメインからのすべてのメールに対して、SPFに合格したメールの割合を表示します。なりすましメールは除外されます。 |
 | DKIM | DKIMを試行したドメインからのすべてのメールに対して、DKIMに合格したメールの割合を表示します。 |
 | DMARC | SPFまたはDKIMのいずれかに合格したドメインから受信したすべてのメールに対して、DMARCアライメントに合格したメールの割合を表示します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="認証" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Authentication" }
 
 #### 暗号化 {#encryption}
 
@@ -149,16 +156,16 @@ IPレピュテーションの評価を理解するには、以下の表を参照
 | ----- | ---------- |
 | TLS受信 | そのドメインから受信したすべてのメールに対して、TLSに合格した受信メール（Gmail宛）の割合を表示します。 |
 | TLS送信 | そのドメインに送信されたすべてのメールに対して、TLS経由で受け入れられた送信メール（Gmailから）の割合を表示します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="暗号化" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Encryption" }
 
-到達性の改善に関するその他のアイデアについては、[到達性の落とし穴とスパムトラップ]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/#deliverability-pitfalls-and-spam-traps)をお読みください。メールキャンペーンを送信する前に確認すべき事項については、[メールのベストプラクティス]({{site.baseurl}}/user_guide/channels/email/best_practices/)も参照してください。
+到達性の改善に関するその他のアイデアについては、[到達性の落とし穴とスパムトラップ]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps)をお読みください。メールキャンペーンを送信する前に確認すべき事項については、[メールのベストプラクティス]({{site.baseurl}}/user_guide/channels/email/best_practices)も参照してください。
 
 ## Microsoft Smart Network Data Services（SNDS）のセットアップ {#set-up-microsoft-smart-network-data-services-snds}
 
 Microsoftがメインのメールボックスプロバイダーである場合、この統合を使用してMicrosoftのレピュテーションデータにアクセスし、表示できます。これにより、IPの健全性を監視し、メールがどのように受信されているかを判断するのに役立ちます。
 
 {% alert important %}
-到達性センターにデータが表示されない場合は、IPアドレスのリストを添えて[サポート]({{site.baseurl}}/user_guide/administer/personal/braze_support/)にお問い合わせください。
+到達性センターにデータが表示されない場合は、IPアドレスのリストを添えて[サポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)にお問い合わせください。
 {% endalert %}
 
 ![Microsoft SNDSの結果の例。サンプルIP、受信者数、RCPTコマンド、DATAコマンド、フィルター結果、苦情率、トラップメッセージ期間の開始と終了、スパムトラップヒット数が含まれています。]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})
@@ -184,7 +191,7 @@ Microsoftがメインのメールボックスプロバイダーである場合�
 | 緑 | 指定された期間の最大10%がMicrosoftのスパムフィルターによってスパムと判定されました。 |
 | 黄 | 指定された期間の10%から90%がMicrosoftのスパムフィルターによってスパムと判定されました。 |
 | 赤 | 指定された期間の90%以上がMicrosoftのスパムフィルターによってスパムと判定されました。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="フィルター結果" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Filter results" }
 
 #### 苦情率 {#complaint-rate}
 
@@ -197,7 +204,7 @@ Microsoftがメインのメールボックスプロバイダーである場合�
 | 0.3%未満 | 理想的な苦情率です。 |
 | 0.3%超 | サインアッププロセスを見直し、配信停止リンクが機能していることを確認してください。また、メールをオーディエンスに合わせてよりパーソナライズできないか検討してください。 |
 | 100%超 | SNDSは苦情が報告された日に苦情を表示し、苦情対象のメールが配信された日に遡って表示するわけではないことに注意してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="苦情率" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Complaint rate" }
 
 #### スパムトラップヒット {#spam-trap-hits}
 

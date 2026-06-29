@@ -22,8 +22,8 @@ Sélectionnez **Créer un segment** pour commencer à construire votre segment. 
 
 Vous pouvez également effectuer les actions suivantes :
 - Ajouter une description au segment pour fournir plus de détails sur l'intention de cette audience et laisser des notes auxquelles les autres membres de l'équipe pourront se référer.
-- Ajouter une [équipe]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) à votre segment.
-- Ajouter des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) à votre segment pour une meilleure organisation.
+- Ajouter une [équipe]({{site.baseurl}}/user_guide/administer/global/user_management/teams) à votre segment.
+- Ajouter des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) à votre segment pour une meilleure organisation.
 
 ![Fenêtre modale de création de segment où le segment est nommé « Lapsed Users » avec la description du segment « This is our main Lapsed User segment to target non-actives within the past fourteen days. » et deux boutons : Cancel et Create Segment.]({% image_buster /assets/img_archive/segment_app_selection.png %}){: style="max-width:80%;"}
 
@@ -82,7 +82,7 @@ Si `not included`, `is not`, `does not equal` ou `does not match regex` sont uti
 
 ### Opérateurs de filtre {#filter-operators}
 
-Selon le filtre spécifique que vous sélectionnez, vous disposerez de différents opérateurs pour identifier les valeurs de filtre. Pour approfondir les opérateurs disponibles pour les différents types d'attributs personnalisés, consultez [Stockage des attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#setting-custom-attributes). Notez que lorsque vous utilisez l'opérateur « is any of », le nombre maximum d'éléments que vous pouvez inclure dans ce champ est de 256.
+Selon le filtre spécifique que vous sélectionnez, vous disposerez de différents opérateurs pour identifier les valeurs de filtre. Pour approfondir les opérateurs disponibles pour les différents types d'attributs personnalisés, consultez [Stockage des attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#setting-custom-attributes). Notez que lorsque vous utilisez l'opérateur « is any of », le nombre maximum d'éléments que vous pouvez inclure dans ce champ est de 256.
 
 {% alert note %}
 Braze ne génère pas de profils pour les utilisateurs tant qu'ils n'ont pas utilisé l'application pour la première fois, vous ne pouvez donc pas cibler les utilisateurs qui n'ont pas encore ouvert votre application.
@@ -116,14 +116,14 @@ Gardez à l'esprit que si vous utilisez AND entre vos filtres, les statistiques 
 
 ![Deux filtres avec les statistiques de l'entonnoir du segment.]({% image_buster /assets/img_archive/segment_funnel_statistics.png %})
 
-En ajoutant des filtres qui documentent votre flux d'utilisateurs, vous pouvez voir les points où les utilisateurs décrochent. Par exemple, si vous êtes une application de réseau social et que vous souhaitez voir où vous pourriez perdre des utilisateurs pendant votre processus d'onboarding, vous pouvez ajouter des filtres de données personnalisées pour l'inscription, l'ajout d'amis et l'envoi du premier message. Si vous constatez que 85 % des utilisateurs s'inscrivent et ajoutent des amis, mais que seulement 45 % ont envoyé le premier message, alors vous saurez qu'il faut vous concentrer sur l'encouragement à envoyer plus de messages pendant vos campagnes d'onboarding et de marketing.
+En ajoutant des filtres qui documentent votre flux d'utilisateurs, vous pouvez voir les points où les utilisateurs décrochent. Par exemple, si vous êtes une application de réseau social et que vous souhaitez voir où vous pourriez perdre des utilisateurs pendant votre processus d'onboarding, vous pouvez ajouter des filtres de données personnalisées pour l'inscription, l'ajout d'amis et l'envoi du premier message. Si vous constatez que 85 % des utilisateurs s'inscrivent et ajoutent des amis, mais que seulement 45 % ont envoyé le premier message, alors vous saurez qu'il faut vous concentrer sur l'encouragement à envoyer plus de messages pendant vos Campaigns d'onboarding et de marketing.
 
 ### Tester les segments {#testing-segments}
 
 Après avoir ajouté des applications et des filtres à votre segment, vous pouvez vérifier si votre segment est configuré comme prévu en recherchant un utilisateur pour confirmer s'il correspond aux critères du segment. Pour ce faire, recherchez l'`external_id` ou le `braze_id` d'un utilisateur dans la section **User Lookup**.
 
 {% alert note %}
-**User Lookup** n'accepte que les valeurs `external_id` et `braze_id`. Il n'accepte pas les adresses e-mail, les numéros de téléphone ou d'autres identifiants. Pour trouver un profil par e-mail, téléphone ou d'autres champs, utilisez plutôt [**Rechercher des utilisateurs**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#access-profiles).
+**User Lookup** n'accepte que les valeurs `external_id` et `braze_id`. Il n'accepte pas les adresses e-mail, les numéros de téléphone ou d'autres identifiants. Pour trouver un profil par e-mail, téléphone ou d'autres champs, utilisez plutôt [**Rechercher des utilisateurs**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles).
 {% endalert %}
 
 ![Section User Lookup avec un champ de recherche.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%;"}
@@ -155,7 +155,7 @@ Sélectionnez **Save**. Vous êtes maintenant prêt à commencer à envoyer des 
 
 ## Mesurer la taille d'un segment {#measuring-segment-size}
 
-Pour en savoir plus sur le suivi de l'appartenance et de la taille de votre segment, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
+Pour en savoir plus sur le suivi de l'appartenance et de la taille de votre segment, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
 ## Archiver des segments {#archiving-segments}
 
@@ -171,15 +171,15 @@ Vous pouvez désarchiver le segment en y accédant dans la page **Segments**, pu
 
 ## Comportement du ciblage lorsque les utilisateurs ont plusieurs appareils {#targeting-behavior-when-users-have-multiple-devices}
 
-Les utilisateurs ont plus d'un appareil s'ils se connectent au même compte sur plusieurs appareils. Vous pouvez vérifier la présence de plusieurs appareils dans la section **Recent Devices** d'un [profil utilisateur]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/).
+Les utilisateurs ont plus d'un appareil s'ils se connectent au même compte sur plusieurs appareils. Vous pouvez vérifier la présence de plusieurs appareils dans la section **Recent Devices** d'un [profil utilisateur]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
 
 Lors de la segmentation avec des filtres dépendants de l'appareil (modèle d'appareil, système d'exploitation de l'appareil et version de l'application), votre segment contiendra tous les utilisateurs qui correspondent à vos critères de filtre. Ces utilisateurs recevront un message sur tous leurs appareils, y compris ceux qui ne correspondent pas nécessairement à vos critères de filtre. Par exemple, supposons que l'utilisateur A possède deux appareils : l'appareil 1 est sous OS 13.0 et l'appareil 2 est sous OS 10.0. Si un segment cible les utilisateurs avec OS 10.0, cet utilisateur fera partie de ce segment et recevra des messages sur ses deux appareils.
 
 ### Notifications push {#push-notifications}
 
-Vous pouvez spécifier qu'une seule notification push est envoyée à chaque utilisateur. Lors de la [rédaction de votre message]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#step-4-compose-your-push-message), sélectionnez **Only send to the user's last used device** sous **Additional Settings**.
+Vous pouvez spécifier qu'une seule notification push est envoyée à chaque utilisateur. Lors de la [rédaction de votre message]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#step-4-compose-your-push-message), sélectionnez **Only send to the user's last used device** sous **Additional Settings**.
 
-![« Additional settings » avec une case à cocher pour envoyer uniquement au dernier appareil utilisé par l'utilisateur.]({% image_buster /assets/img_archive/send_to_last_device.png %}){: style="max-width:60%;"}
+![« Additional Settings » avec une case à cocher pour envoyer uniquement au dernier appareil utilisé par l'utilisateur.]({% image_buster /assets/img_archive/send_to_last_device.png %}){: style="max-width:60%;"}
 
 ### Considérations {#considerations}
 

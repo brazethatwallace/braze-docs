@@ -29,7 +29,7 @@ Todo lo que haces en Braze ocurre dentro de un espacio de trabajo. Los espacios 
 
 ### Paso 1: Ten un plan {#step-1-have-a-plan}
 
-Antes de empezar, asegúrate de haber trabajado con tu equipo y tu administrador de incorporación de Braze para determinar la mejor configuración de espacio de trabajo para tu caso de uso. Para obtener más información sobre la planificación de tus espacios de trabajo en Braze, consulta nuestra guía [Primeros pasos: Espacios de trabajo]({{site.baseurl}}/user_guide/get_started/workspaces/).
+Antes de empezar, asegúrate de haber trabajado con tu equipo y tu administrador de incorporación de Braze para determinar la mejor configuración de espacio de trabajo para tu caso de uso. Para obtener más información sobre la planificación de tus espacios de trabajo en Braze, consulta nuestra guía [Primeros pasos: Espacios de trabajo]({{site.baseurl}}/user_guide/get_started/workspaces).
 
 ### Paso 2: Añade tu espacio de trabajo {#step-2-add-your-workspace}
 
@@ -127,7 +127,7 @@ Para eliminar tu espacio de trabajo o instancia de la aplicación:
 1. Ve a **Configuración** > **Configuración de la aplicación**.
 2. Selecciona **Eliminar espacio de trabajo** para eliminar el espacio de trabajo correspondiente, o selecciona el icono de papelera junto a la instancia de la aplicación correspondiente.
 
-No puedes eliminar instancias de la aplicación o espacios de trabajo que se estén utilizando actualmente para segmentar usuarios o que tengan más de 1000 usuarios. Si intentas hacerlo, recibirás un mensaje de error. Para proceder y eliminarlos, [crea un caso de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support/) que incluya un enlace al dashboard y el nombre de la instancia de la aplicación o espacio de trabajo que se va a eliminar.
+No puedes eliminar instancias de la aplicación o espacios de trabajo que se estén utilizando actualmente para segmentar usuarios o que tengan más de 1000 usuarios. Si intentas hacerlo, recibirás un mensaje de error. Para proceder y eliminarlos, [crea un caso de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) que incluya un enlace al dashboard y el nombre de la instancia de la aplicación o espacio de trabajo que se va a eliminar.
 
 {% alert warning %}
 ¡Ten cuidado al eliminar espacios de trabajo! Una vez que se elimina un espacio de trabajo, no se puede restaurar.
@@ -143,7 +143,7 @@ Esto depende de si estás actualizando tu aplicación o creando una completament
 
 #### Actualizar tu aplicación {#updating-your-app}
 
-Si estás actualizando tu aplicación, debes separar las versiones antigua y nueva creando una nueva instancia de la aplicación dentro del mismo espacio de trabajo. De esta manera, puedes segmentar eficazmente a los usuarios de la nueva versión cuando selecciones esa aplicación durante la segmentación. Si quieres enviar mensajes a los usuarios que están en la versión anterior, puedes usar filtros para [segmentar por la versión anterior de la aplicación]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions).
+Si estás actualizando tu aplicación, debes separar las versiones antigua y nueva creando una nueva instancia de la aplicación dentro del mismo espacio de trabajo. De esta manera, puedes segmentar eficazmente a los usuarios de la nueva versión cuando selecciones esa aplicación durante la segmentación. Si quieres enviar mensajes a los usuarios que están en la versión anterior, puedes usar filtros para [segmentar por la versión anterior de la aplicación]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 
 Si creas un nuevo espacio de trabajo, tus usuarios existirán en dos lugares: el espacio de trabajo antiguo y el nuevo. También podrían tener el mismo token de notificaciones push. Esto puede llevar a que los usuarios reciban un mensaje de marketing destinado solo a los usuarios del espacio de trabajo antiguo, incluso si ya han actualizado.
 
@@ -183,5 +183,5 @@ En el flujo de trabajo original de Canvas, añade tu segmento a nivel de compone
 
 Después de crear tu espacio de trabajo, configúralo:
 
-- [Configuración del espacio de trabajo]({{site.baseurl}}/user_guide/administer/global/workspace_settings/) para configurar claves de API, preferencias de correo electrónico, configuración de push y más.
-- [Administrar usuarios de la empresa]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/) para añadir usuarios y asignar permisos para este espacio de trabajo.
+- [Configuración del espacio de trabajo]({{site.baseurl}}/user_guide/administer/global/workspace_settings) para configurar claves de API, preferencias de correo electrónico, configuración de push y más.
+- [Administrar usuarios de la empresa]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users) para añadir usuarios y asignar permisos para este espacio de trabajo.

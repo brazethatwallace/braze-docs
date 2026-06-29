@@ -21,15 +21,15 @@ hidden: true
 1. **메시징** > **Campaigns**로 이동하여 **캠페인 생성**을 선택합니다.
 2. **SMS/MMS/RCS**를 선택하거나, 여러 채널을 타겟팅하는 Campaign의 경우 **멀티채널**을 선택합니다.
 3. Campaign에 명확하고 의미 있는 이름을 지정합니다.
-4. 필요에 따라 [Teams]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/teams/) 및 [태그]({{site.baseurl}}/user_guide/administrative/app_settings/tags/)를 추가합니다.
-   * 태그를 사용하면 Campaign을 더 쉽게 찾고 보고서를 작성할 수 있습니다. 예를 들어, [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/)를 사용할 때 특정 태그로 필터링할 수 있습니다.
+4. 필요에 따라 [Teams]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/teams) 및 [태그]({{site.baseurl}}/user_guide/administrative/app_settings/tags)를 추가합니다.
+   * 태그를 사용하면 Campaign을 더 쉽게 찾고 보고서를 작성할 수 있습니다. 예를 들어, [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reporting/report_builder)를 사용할 때 특정 태그로 필터링할 수 있습니다.
 
 {: start="5"}
-5. Campaign에 필요한 만큼 배리언트를 추가하고 이름을 지정합니다. 추가된 각 배리언트에 대해 다른 플랫폼, 메시지 유형 및 레이아웃을 선택할 수 있습니다. 이 주제에 대한 자세한 내용은 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/)를 참조하세요.
+5. Campaign에 필요한 만큼 배리언트를 추가하고 이름을 지정합니다. 추가된 각 배리언트에 대해 다른 플랫폼, 메시지 유형 및 레이아웃을 선택할 수 있습니다. 이 주제에 대한 자세한 내용은 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing)를 참조하세요.
 - **SMS 및 RCS 배리언트 테스트**: Braze에서는 단일 Campaign 내에 SMS와 RCS 배리언트를 모두 포함할 수 있어 각각의 성과를 비교할 수 있습니다. 메시지 작성의 첫 번째 단계에서 SMS 및 RCS 배리언트를 추가할 수 있습니다.
 
 {: start="6"}
-6. RCS가 활성화된 [구독 그룹]({{site.baseurl}}/sms_rcs_subscription_groups/)을 선택합니다. 구독 그룹을 선택하면 Braze가 자동으로 세분화 필터를 추가하여 구독한 사용자만 Campaign을 수신하도록 합니다. 해당 구독 그룹에 속한 긴 코드와 짧은 코드만 타겟 사용자에게 SMS를 보내는 데 사용됩니다.
+6. RCS가 활성화된 [구독 그룹]({{site.baseurl}}/sms_rcs_subscription_groups)을 선택합니다. 구독 그룹을 선택하면 Braze가 자동으로 세분화 필터를 추가하여 구독한 사용자만 Campaign을 수신하도록 합니다. 해당 구독 그룹에 속한 긴 코드와 짧은 코드만 타겟 사용자에게 SMS를 보내는 데 사용됩니다.
 - **SMS 대체**: Braze는 RCS 발신자를 포함하는 모든 구독 그룹에 대체용 SMS 코드를 하나 이상 포함할 것을 강력히 권장합니다. 이는 RCS 메시지 전달에 실패하는 경우 전달 가능성을 위해 중요합니다. 실패 원인으로는 사용자 기기 비호환성, 특정 국가 또는 지역의 불완전한 통신사 커버리지 등이 있을 수 있습니다. SMS 대체를 활성화하면 메시지가 여전히 사용자에게 전달되어 연결 기회를 놓치지 않습니다.
 
 {: start="7"}
@@ -43,10 +43,10 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 
 {% endtab %}
 {% tab Canvas %}
-1. Canvas 작성기를 사용하여 [Canvas를 생성]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/)합니다.
+1. Canvas 작성기를 사용하여 [Canvas를 생성]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas)합니다.
 2. Canvas를 설정한 후 Canvas 빌더에서 **SMS/MMS/RCS** 메시지 단계를 추가합니다.
 3. 단계에 명확하고 의미 있는 이름을 지정합니다.
-4. RCS가 활성화된 [구독 그룹]({{site.baseurl}}/sms_rcs_subscription_groups/)을 선택합니다. 구독 그룹을 선택하면 Braze가 자동으로 세분화 필터를 추가하여 구독한 사용자만 Campaign을 수신하도록 합니다. 해당 구독 그룹에 속한 긴 코드와 짧은 코드만 사용자를 타겟팅하는 데 사용됩니다.
+4. RCS가 활성화된 [구독 그룹]({{site.baseurl}}/sms_rcs_subscription_groups)을 선택합니다. 구독 그룹을 선택하면 Braze가 자동으로 세분화 필터를 추가하여 구독한 사용자만 Campaign을 수신하도록 합니다. 해당 구독 그룹에 속한 긴 코드와 짧은 코드만 사용자를 타겟팅하는 데 사용됩니다.
 - **SMS 대체**: Braze는 RCS 발신자를 포함하는 모든 구독 그룹에 대체용 SMS 코드를 하나 이상 포함할 것을 강력히 권장합니다. 이는 RCS 메시지 전달에 실패하는 경우 전달 가능성을 위해 중요합니다. 실패 원인으로는 사용자 기기 비호환성, 특정 국가 또는 지역의 불완전한 통신사 커버리지 등이 있을 수 있습니다. SMS 대체를 활성화하면 메시지가 여전히 사용자에게 전달되어 연결 기회를 놓치지 않습니다.
 
 {: start="5"}
@@ -85,7 +85,7 @@ Campaign 및 Canvas 생성 시 목표에 가장 적합한 메시지를 구성하
 {% endtab %}
 
 {% tab 미디어 %}
-RCS 미디어 메시지를 사용하면 SMS로는 불가능한 매력적인 미디어 형식을 사용할 수 있습니다. 여기에는 이미지, 동영상 및 문서 파일이 포함됩니다. 이러한 미디어 옵션은 오디언스를 더 깊이 참여시키고 완전히 새로운 사용 사례를 가능하게 합니다. 현재 [미디어 라이브러리]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/)를 통한 이미지 업로드만 지원됩니다.
+RCS 미디어 메시지를 사용하면 SMS로는 불가능한 매력적인 미디어 형식을 사용할 수 있습니다. 여기에는 이미지, 동영상 및 문서 파일이 포함됩니다. 이러한 미디어 옵션은 오디언스를 더 깊이 참여시키고 완전히 새로운 사용 사례를 가능하게 합니다. 현재 [미디어 라이브러리]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library)를 통한 이미지 업로드만 지원됩니다.
 
 #### 기능
 
@@ -154,10 +154,10 @@ RCS 메시지 수신 시 사용자 경험은 대상 국가의 통신사 커버�
 
 ### 3단계: RCS 메시지 작성 {#step-3-compose-your-rcs-message}
 
-언어와 개인화([Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/), [연결된 콘텐츠]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/), 이모지)를 필요에 따라 사용하여 메시지를 작성합니다. 초과 요금 발생 가능성을 줄이기 위해 메시지 문구 제한을 준수하세요.
+언어와 개인화([Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid), [연결된 콘텐츠]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content), 이모지)를 필요에 따라 사용하여 메시지를 작성합니다. 초과 요금 발생 가능성을 줄이기 위해 메시지 문구 제한을 준수하세요.
 
 {% alert important %}
-진행하기 전에 [RCS 메시지 제한 가이드라인](#step-2-select-your-rcs-message-type)을 읽어보세요. RCS 메시지는 [메시지당 과금]({{site.baseurl}}/sms_rcs_billing_calculators/)되므로, 각 RCS 메시지 유형에 포함할 수 있는 내용의 세부 사항을 이해하는 것이 좋습니다.
+진행하기 전에 [RCS 메시지 제한 가이드라인](#step-2-select-your-rcs-message-type)을 읽어보세요. RCS 메시지는 [메시지당 과금]({{site.baseurl}}/sms_rcs_billing_calculators)되므로, 각 RCS 메시지 유형에 포함할 수 있는 내용의 세부 사항을 이해하는 것이 좋습니다.
 {% endalert %}
 
 ### 4단계: 메시지 미리보기 및 테스트 {#step-4-preview-and-test-your-message}
@@ -170,7 +170,7 @@ Braze는 항상 메시지를 보내기 전에 미리보기하고 테스트할 �
 
 #### 5.1단계: 전달 스케줄 또는 트리거 선택 {#step-51-choose-delivery-schedule-or-trigger}
 
-RCS 메시지는 예약된 시간, 동작 또는 API 트리거를 기반으로 전달할 수 있습니다. 자세한 내용은 [Campaign 스케줄링]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/)을 참조하세요.
+RCS 메시지는 예약된 시간, 동작 또는 API 트리거를 기반으로 전달할 수 있습니다. 자세한 내용은 [Campaign 스케줄링]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types)을 참조하세요.
 
 실행 기반 전달의 경우 Campaign의 기간과 방해금지 시간도 설정할 수 있습니다.
 
@@ -182,10 +182,10 @@ Segments 또는 필터를 선택하여 오디언스를 좁혀 사용자를 타�
 
 {% multi_lang_include audience/target_audiences.md %}
 
-다음으로 Segments에서 더 큰 오디언스를 선택하고 선택적 [필터]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/)로 해당 Segment를 더 좁힙니다. 현재 대략적인 Segment 인구가 어떻게 보이는지 자동으로 미리보기가 제공됩니다. 정확한 Segment 멤버십은 항상 메시지가 전송되기 직전에 계산된다는 점을 유의하세요.
+다음으로 Segments에서 더 큰 오디언스를 선택하고 선택적 [필터]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters)로 해당 Segment를 더 좁힙니다. 현재 대략적인 Segment 인구가 어떻게 보이는지 자동으로 미리보기가 제공됩니다. 정확한 Segment 멤버십은 항상 메시지가 전송되기 직전에 계산된다는 점을 유의하세요.
 
 {% alert tip %}
-SMS 및 RCS 상호작용을 기반으로 사용자를 타겟팅하는 RCS 리타겟팅에 관심이 있으신가요? [리타겟팅]({{site.baseurl}}/sms_mms_rcs_user_retargeting/)을 참조하세요.
+SMS 및 RCS 상호작용을 기반으로 사용자를 타겟팅하는 RCS 리타겟팅에 관심이 있으신가요? [리타겟팅]({{site.baseurl}}/sms_mms_rcs_user_retargeting)을 참조하세요.
 {% endalert %}
 
 #### 5.3단계: 전환 이벤트 선택 {#step-53-choose-conversion-events}
@@ -202,7 +202,7 @@ Braze를 사용하면 Campaign을 수신한 후 사용자가 특정 행동(전�
 
 Campaign 또는 Canvas 구축을 완료한 후 세부 사항을 검토하고 테스트한 다음 전송합니다!
 
-다음으로 [SMS, MMS 및 RCS 보고]({{site.baseurl}}/sms_mms_rcs_reporting/)를 참조하여 RCS Campaign 결과에 액세스하는 방법을 알아보세요.
+다음으로 [SMS, MMS 및 RCS 보고]({{site.baseurl}}/sms_mms_rcs_reporting)를 참조하여 RCS Campaign 결과에 액세스하는 방법을 알아보세요.
 
 ## 분석 및 보고 {#analytics-and-reporting}
 
@@ -223,7 +223,7 @@ Liquid를 사용할 계획이라면, 수신자의 사용자 프로필이 불완�
 
 ### AI 문구 생성 {#generating-ai-copy}
 
-매력적인 문구를 작성하는 데 도움이 필요하신가요? [AI 카피라이팅 어시스턴트]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy)를 사용해 보세요. 제품 이름이나 설명을 입력하면 AI가 메시징에 사용할 수 있는 사람이 작성한 것 같은 마케팅 문구를 생성합니다.
+매력적인 문구를 작성하는 데 도움이 필요하신가요? [AI 카피라이팅 어시스턴트]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy)를 사용해 보세요. 제품 이름이나 설명을 입력하면 AI가 메시징에 사용할 수 있는 사람이 작성한 것 같은 마케팅 문구를 생성합니다.
 
 ![AI 카피라이팅 어시스턴트를 여는 아이콘이 있는 메시지 작성기.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_ai_copywriter.png %}){: style="max-width:70%;"}
 
