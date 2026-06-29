@@ -154,7 +154,7 @@ Image deletion batches use the **Image Pruning** PR template. Skill/tooling-only
 
 **Body** — use the create-pr template and include:
 
-```markdown
+````markdown
 ### Why are you making this change? (required)
 
 Remove unreferenced image files to reduce repo size and maintenance burden.
@@ -180,7 +180,7 @@ Reference pass included `_lang/`, `docs/`, and site chrome. Excluded: `logos/`, 
 ### Contributor checklist
 
 <Copy from create-pr Step 2 — redirects and image-replacement rules usually N/A for pure deletions.>
-```
+````
 
 After `--delete`, the script may print a suggested title and body — adapt them into this format when opening the PR.
 
