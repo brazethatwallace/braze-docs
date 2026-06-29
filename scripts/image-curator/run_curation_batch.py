@@ -89,6 +89,21 @@ def strip_image_markup_by_path(line: str, image_path: str) -> tuple[str, bool]:
     return new_line.rstrip(), True
 
 
+def _trim_trailing_break(line: str) -> str:
+    line = re.sub(r"\s*<br\s*/?>\s*$", "", line.rstrip(), flags=re.I)
+    return re.sub(r"\s*<br\s*/?>\s*(?=\s*$)", "", line, flags=re.I).rstrip()
+
+
+def _write_line_after_removal(
+    lines: list[str], idx: int, original_line: str, new_line: str
+) -> str:
+    if not new_line.strip():
+        del lines[idx]
+    else:
+        lines[idx] = new_line + ("\n" if original_line.endswith("\n") else "")
+    return "".join(lines)
+
+
 def find_image_line_index(
     lines: list[str],
     match_line: str,
@@ -143,27 +158,27 @@ def remove_image_line(
         del lines[idx]
         return "".join(lines), True
 
-    if target in line:
-        new_line = line.replace(target, "")
-        new_line = re.sub(r"!\[[^\]]*\]\([^)]+\)", "", new_line)
-        new_line = re.sub(r"\s*<br\s*/?>\s*$", "", new_line.rstrip(), flags=re.I)
-        new_line = re.sub(r"\s*<br\s*/?>\s*(?=\s*$)", "", new_line, flags=re.I)
-        new_line = new_line.rstrip()
-        if not new_line.strip():
-            del lines[idx]
-        else:
-            lines[idx] = new_line + ("\n" if line.endswith("\n") else "")
-        return "".join(lines), True
-
     new_line, removed = strip_image_markup_by_path(line, image_path)
-    if not removed:
-        return content, False
+    if removed:
+        return (
+            _write_line_after_removal(
+                lines, idx, line, _trim_trailing_break(new_line)
+            ),
+            True,
+        )
 
-    if not new_line.strip():
-        del lines[idx]
-    else:
-        lines[idx] = new_line + ("\n" if line.endswith("\n") else "")
-    return "".join(lines), True
+    if target and target in line:
+        new_line = line.replace(target, "", 1)
+        # Empty markdown shell when target was image_buster inside ![alt](...).
+        new_line = re.sub(r"!\[[^\]]*\]\(\s*\)", "", new_line, count=1)
+        return (
+            _write_line_after_removal(
+                lines, idx, line, _trim_trailing_break(new_line)
+            ),
+            True,
+        )
+
+    return content, False
 
 
 def sort_batch_for_processing(batch: list) -> list:
