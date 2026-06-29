@@ -13,11 +13,11 @@ toc_headers: h2
 
 # 従来のエディターでアプリ内メッセージを作成する {#create-an-in-app-message-with-the-traditional-editor}
 
-> Brazeプラットフォームでは、Campaigns、Canvas、またはAPIキャンペーンとしてアプリ内メッセージやブラウザ内メッセージを作成できます。便利な[アプリ内メッセージ準備ガイド]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/)を使用して、事前にメッセージを計画し、すべての素材を準備しておくことを強くお勧めします。
+> Brazeプラットフォームでは、Campaigns、Canvas、またはAPIキャンペーンとしてアプリ内メッセージやブラウザ内メッセージを作成できます。便利な[アプリ内メッセージ準備ガイド]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices)を使用して、事前にメッセージを計画し、すべての素材を準備しておくことを強くお勧めします。
 
 ## ステップ 1:メッセージの作成場所を選択する {#create-new-campaign-in-app}
 
-メッセージをCampaignsとCanvasのどちらで送信すべきかわからない場合は、Campaignsは単一のターゲットメッセージングに適しており、Canvasesはマルチステップのユーザージャーニーに適しています。
+メッセージをCampaignとCanvasのどちらで送信すべきかわからない場合は、Campaignsは単一のターゲットメッセージングに適しており、Canvasesはマルチステップのユーザージャーニーに適しています。
 
 {% tabs %}
 {% tab Campaign %}
@@ -25,9 +25,9 @@ toc_headers: h2
 1. **メッセージング** > **Campaigns**に移動し、**キャンペーンを作成**を選択します。
 2. **アプリ内メッセージ**を選択します。アプリ内メッセージはマルチチャネルCampaignsでは利用できないことに注意してください。
 3. Campaignにわかりやすく意味のある名前を付けます。
-4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
-   * タグを使用すると、Campaignsを見つけやすくなり、レポートを作成しやすくなります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)を使用する場合、特定のタグでフィルタリングできます。
-5. Campaignに必要な数のバリアントを追加して名前を付けます。追加したバリアントごとに、異なるプラットフォーム、メッセージタイプ、レイアウトを選択できます。このトピックの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を参照してください。
+4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)を追加します。
+   * タグを使用すると、Campaignsを見つけやすくなり、レポートを作成しやすくなります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder)を使用する場合、特定のタグでフィルタリングできます。
+5. Campaignに必要な数のバリアントを追加して名前を付けます。追加したバリアントごとに、異なるプラットフォーム、メッセージタイプ、レイアウトを選択できます。このトピックの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)を参照してください。
 
 {% alert tip %}
 Campaign内のすべてのメッセージが類似している場合や同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**バリアントを追加**ドロップダウンから**バリアントからコピー**を選択できます。
@@ -36,18 +36,18 @@ Campaign内のすべてのメッセージが類似している場合や同じコ
 {% endtab %}
 {% tab Canvas %}
 
-1. Canvasコンポーザーを使用して[Canvasを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)します。
+1. Canvasコンポーザーを使用して[Canvasを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)します。
 2. Canvasを設定したら、Canvasビルダーでステップを追加します。ステップにわかりやすく意味のある名前を付けます。
-3. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay)を選択し、必要に応じて遅延を指定します。アプリ内メッセージを含むステップはアクションベースにできないことに注意してください。
+3. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay)を選択し、必要に応じて遅延を指定します。アプリ内メッセージを含むステップはアクションベースにできないことに注意してください。
 4. 必要に応じて、このステップのオーディエンスをフィルタリングします。Segmentsを指定し、追加のフィルターを追加することで、このステップの受信者をさらに絞り込むことができます。オーディエンスオプションは、遅延後のメッセージ送信時にチェックされます。
-5. [進行動作]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/)を選択します。
+5. [進行動作]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases)を選択します。
 6. メッセージと組み合わせたい他のメッセージングチャネルを選択します。
 
 {% alert important %}
 1つのステップに複数のアプリ内メッセージバリアントを含めることはできません。
 {% endalert %}
 
-Canvas固有の詳細情報については、[Canvasのアプリ内メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#messages-in-canvas)を参照してください。
+Canvas固有の詳細情報については、[Canvasのアプリ内メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#messages-in-canvas)を参照してください。
 
 {% endtab %}
 {% endtabs %}
@@ -65,7 +65,7 @@ Canvas固有の詳細情報については、[Canvasのアプリ内メッセー�
 
 ## ステップ 3:メッセージタイプを指定する {#step-3-specify-your-message-types}
 
-送信プラットフォームを選択したら、それに関連するメッセージタイプ、レイアウト、その他のオプションを参照します。これらの各メッセージの期待される動作と外観の詳細については、[メッセージタイプ]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/)ページを参照するか、以下の表のリンクされたメッセージタイプをクリックしてください。
+送信プラットフォームを選択したら、それに関連するメッセージタイプ、レイアウト、その他のオプションを参照します。これらの各メッセージの期待される動作と外観の詳細については、[メッセージタイプ]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types)ページを参照するか、以下の表のリンクされたメッセージタイプをクリックしてください。
 
 使用するメッセージタイプを決定する際は、メッセージが占めるスペースの量と、ユーザーエクスペリエンスにどの程度の中断を与えるかを考慮してください。
 
@@ -189,7 +189,7 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 
 ### 言語 {#language}
 
-**Add Languages**を選択し、提供されたリストから希望の言語を選択します。これにより、メッセージに[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#conditional-logic)が挿入されます。コンテンツを記述する前に言語を選択して、Liquid内の適切な場所にテキストを入力できるようにすることをお勧めします。[利用可能な言語の完全なリスト]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported)を参照してください。
+**Add Languages**を選択し、提供されたリストから希望の言語を選択します。これにより、メッセージに[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic)が挿入されます。コンテンツを記述する前に言語を選択して、Liquid内の適切な場所にテキストを入力できるようにすることをお勧めします。[利用可能な言語の完全なリスト]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported)を参照してください。
 
 ### 画像 {#image}
 
@@ -199,7 +199,7 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 
 ### ヘッダーと本文 {#header-and-body}
 
-好きなことを書きましょう！完全にカスタムなコピー（多くの場合カスタムHTML機能付き）を含め、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/)やその他のパーソナライゼーションタイプのオプションを使用できます。メッセージを素早く伝え、顧客にクリックしてもらえるほど効果的です。明確で簡潔なヘッダーとメッセージコンテンツをお勧めします。
+好きなことを書きましょう！完全にカスタムなコピー（多くの場合カスタムHTML機能付き）を含め、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid)やその他のパーソナライゼーションタイプのオプションを使用できます。メッセージを素早く伝え、顧客にクリックしてもらえるほど効果的です。明確で簡潔なヘッダーとメッセージコンテンツをお勧めします。
 
 一部のメッセージタイプではヘッダーが不要なため、ヘッダーの入力を求められません。
 
@@ -207,13 +207,13 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 
 ##### AIコピーの生成 {#generating-ai-copy}
 
-素晴らしいコピーの作成にお困りですか？[AIコピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy)を使用してみてください。製品名または説明を入力すると、AIがメッセージングに使用できる人間のようなマーケティングコピーを生成します。
+素晴らしいコピーの作成にお困りですか？[AIコピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy)を使用してみてください。製品名または説明を入力すると、AIがメッセージングに使用できる人間のようなマーケティングコピーを生成します。
 
 ![アプリ内メッセージコンポーザーのメッセージフィールドにある「AIコピーライターを起動」ボタン。]({% image_buster /assets/img/ai_copywriter/ai_copywriter_iam.png %}){: style="max-width:60%"}
 
 ##### 右から左のメッセージの作成 {#creating-right-to-left-messages}
 
-アラビア語やヘブライ語などの右から左のメッセージの作成にお困りですか？ベストプラクティスについては、[右から左のメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/)を参照してください。
+アラビア語やヘブライ語などの右から左のメッセージの作成にお困りですか？ベストプラクティスについては、[右から左のメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)を参照してください。
 
 ### ボタンテキスト {#buttons}
 
@@ -236,11 +236,11 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 | アクション | 説明 |
 |---|---|
 | ウェブURLにリダイレクト | ネイティブでないウェブページを開きます。 |
-| [アプリへのディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content) | アプリ内の既存の画面にディープリンクします。 |
+| [アプリへのディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content) | アプリ内の既存の画面にディープリンクします。 |
 | メッセージを閉じる | 現在アクティブなメッセージを閉じます。 |
-| カスタムイベントを記録 | トリガーする[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)を選択します。別のアプリ内メッセージの表示や追加のメッセージングのトリガーに使用できます。 |
-| カスタム属性を記録 | 現在のユーザーに設定する[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)を選択します。 |
-| プッシュ許可をリクエスト | ネイティブのプッシュ許可を表示します。[プッシュプライミング]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)の詳細と、プッシュのためのユーザー準備の[ベストプラクティス]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#best-practices)をお読みください。 |
+| カスタムイベントを記録 | トリガーする[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)を選択します。別のアプリ内メッセージの表示や追加のメッセージングのトリガーに使用できます。 |
+| カスタム属性を記録 | 現在のユーザーに設定する[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)を選択します。 |
+| プッシュ許可をリクエスト | ネイティブのプッシュ許可を表示します。[プッシュプライミング]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)の詳細と、プッシュのためのユーザー準備の[ベストプラクティス]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#best-practices)をお読みください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="クリック時の動作" }
 
 注意：__プッシュ許可をリクエスト__、__カスタムイベントを記録__、__カスタム属性を記録__オプションには、以下のSDK最小バージョンが必要です。
@@ -278,7 +278,7 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 
 | フォーマット | 入力 | 説明 |
 |---|---|---|
-| [カラープロファイル]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/#reusable-color-profiles) | アプリ内メッセージテンプレートギャラリーから適用します。 | **Apply Template**を選択し、ギャラリーから選択します。次に、**Save**を選択します。 |
+| [カラープロファイル]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles) | アプリ内メッセージテンプレートギャラリーから適用します。 | **Apply Template**を選択し、ギャラリーから選択します。次に、**Save**を選択します。 |
 | テキスト配置 | 左、中央、または右。 | 新しいBraze SDKバージョンでのみ利用可能です。 |
 | ヘッダー | 16進数カラーコード。 | 希望の16進数カラーが表示されます。色の不透明度も選択できます。 |
 | テキスト | 16進数カラーコード。 | 希望の16進数カラーが表示されます。色の不透明度も選択できます。 |
@@ -289,17 +289,17 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 | シェブロンまたはその他のメッセージ閉じオプション | 16進数カラーコード。 | 希望の16進数カラーが表示されます。色の不透明度も選択できます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="アプリ内メッセージのスタイル設定" }
 
-送信前に必ずメッセージを[プレビューしてテスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message)してください。
+送信前に必ずメッセージを[プレビューしてテスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message)してください。
 
 {% alert important %}
-一部のアプリ内メッセージタイプには、カスタムHTML（またはCSS、JavaScript）とアセットをZIPファイルでアップロードする以外のスタイル設定オプションがありません。[CSS付きウェブモーダル]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/#web-modal-css)では、カスタムCSSをアップロードまたは記述して、美しく全体的にカスタムスタイルのメッセージングを作成できます。
+一部のアプリ内メッセージタイプには、カスタムHTML（またはCSS、JavaScript）とアセットをZIPファイルでアップロードする以外のスタイル設定オプションがありません。[CSS付きウェブモーダル]({{site.baseurl}}/user_guide/channels/in_app_messages/customize#web-modal-css)では、カスタムCSSをアップロードまたは記述して、美しく全体的にカスタムスタイルのメッセージングを作成できます。
 {% endalert %}
 
 ## ステップ 6:追加設定を構成する（オプション） {#step-6-configure-additional-settings-optional}
 
 ### キーと値のペア {#key-value-pairs}
 
-[キーと値のペア]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/)を追加して、ユーザーデバイスに追加のカスタムフィールドを送信できます。
+[キーと値のペア]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs)を追加して、ユーザーデバイスに追加のカスタムフィールドを送信できます。
 
 ## ステップ 7:CampaignまたはCanvasの残りの部分を構築する {#step-7-build-the-remainder-of-your-campaign-or-canvas}
 
@@ -329,7 +329,7 @@ Campaignの残りの部分を構築します。アプリ内メッセージを構
 
 開始日時を選択する必要がありますが、終了日はオプションです。終了日を設定すると、指定された日時以降にその特定のアプリ内メッセージがデバイスに表示されなくなります。
 
-[サーバーサイドイベントトリガー]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web)と[ローカルアプリ内メッセージ配信]({{site.baseurl}}/developer_guide/platform_integration_guides/web/in-app_messaging/in-app_message_delivery/#local-in-app-messages)については、開発者ドキュメントを参照してください。
+[サーバーサイドイベントトリガー]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages?tab=web)と[ローカルアプリ内メッセージ配信]({{site.baseurl}}/developer_guide/platform_integration_guides/web/in-app_messaging/in-app_message_delivery#local-in-app-messages)については、開発者ドキュメントを参照してください。
 
 #### オンラインとオフラインのトリガー {#online-versus-offline-triggering}
 
@@ -351,8 +351,8 @@ Campaignの残りの部分を構築します。アプリ内メッセージを構
 
 トリガーメッセージの優先度の高、中、低オプションはバケットであるため、複数のメッセージが同じ選択された優先度を持つことがあります。同じ優先度を共有する複数のメッセージがある場合、最も最近作成または割り当てられたメッセージが優先され、最初に表示されます。
 
-- **デフォルト優先度バケット：**2つのCampaignが同じトリガーを共有し、デフォルト（中）優先度を使用している場合、最後に作成されたCampaignがトリガーを受け取ります。
-- **特定の優先度バケット：**複数のCampaignが同じトリガーを共有し、特定の優先度バケットに割り当てられている場合、そのバケットに最も最近割り当てられたCampaignがトリガーを受け取ります。
+- **デフォルト優先度バケット：**2つのCampaignsが同じトリガーを共有し、デフォルト（中）優先度を使用している場合、最後に作成されたCampaignがトリガーを受け取ります。
+- **特定の優先度バケット：**複数のCampaignsが同じトリガーを共有し、特定の優先度バケットに割り当てられている場合、そのバケットに最も最近割り当てられたCampaignがトリガーを受け取ります。
 
 これらのバケット内で優先度を設定するには、**正確な優先度を設定**をクリックし、Campaignsをドラッグ＆ドロップして正しい優先度に並べ替えることができます。
 
@@ -360,7 +360,7 @@ Campaignの残りの部分を構築します。アプリ内メッセージを構
 
 ### ターゲットユーザーを選択する {#choose-users-to-target}
 
-次に、Segmentsまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)する必要があります。おおよそのSegment人口のスナップショットが自動的に表示されます。正確なSegmentメンバーシップは、メッセージが送信される前に常に計算されることに注意してください。
+次に、Segmentsまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)する必要があります。おおよそのSegment人口のスナップショットが自動的に表示されます。正確なSegmentメンバーシップは、メッセージが送信される前に常に計算されることに注意してください。
 
 {% alert note %}
 アプリ内メッセージステップに遅延がある場合、Segmentメンバーシップは遅延後に評価されます。ユーザーが対象の場合、アプリ内メッセージは次の利用可能なセッションで同期されます。
@@ -368,13 +368,13 @@ Campaignの残りの部分を構築します。アプリ内メッセージを構
 
 #### Campaignの適格性とLiquidの再評価 {#re-evaluate-campaign-eligibility-and-liquid}
 
-一部のシナリオでは、アプリ内メッセージの表示をトリガーする際にユーザーの適格性を再評価したい場合があります。例としては、頻繁に変更されるカスタム属性をターゲットにするCampaignや、直前のプロファイル変更を反映すべきメッセージなどがあります。
+一部のシナリオでは、アプリ内メッセージの表示をトリガーする際にユーザーの適格性を再評価したい場合があります。例としては、頻繁に変更されるカスタム属性をターゲットにするCampaignsや、直前のプロファイル変更を反映すべきメッセージなどがあります。
 
 ![「表示前にCampaignの適格性を再評価する」のチェックボックスが選択されている状態。]({% image_buster /assets/img_archive/re-evaluate-iam-membership.png %}){:style="max-width:60%"}
 
-**Re-evaluate campaign eligibility before displaying**を選択すると、送信前にユーザーがこのメッセージの対象であることを確認するために、Brazeへの追加リクエストが行われます。さらに、メッセージが表示される前に、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)変数や[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)がその時点でテンプレート化されます。
+**Re-evaluate campaign eligibility before displaying**を選択すると、送信前にユーザーがこのメッセージの対象であることを確認するために、Brazeへの追加リクエストが行われます。さらに、メッセージが表示される前に、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)変数や[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)がその時点でテンプレート化されます。
 
-これにより、期限切れまたはアーカイブされたCampaign内のユーザーにアプリ内メッセージが送信されることを防ぎます。ユーザーの適格性を再評価しない場合、メッセージはSDK内にあり、ユーザーがトリガーするのを待っているため、Campaignが期限切れまたはアーカイブされた後でもユーザーはアプリ内メッセージを受信します。
+これにより、期限切れまたはアーカイブされたCampaigns内のユーザーにアプリ内メッセージが送信されることを防ぎます。ユーザーの適格性を再評価しない場合、メッセージはSDK内にあり、ユーザーがトリガーするのを待っているため、Campaignが期限切れまたはアーカイブされた後でもユーザーはアプリ内メッセージを受信します。
 
 {% alert note %}
 このオプションを有効にすると、追加の適格性とテンプレートリクエストにより、ユーザーがアプリ内メッセージをトリガーしてからメッセージが表示されるまでにわずかな遅延（100ms未満）が発生します。
@@ -384,29 +384,29 @@ Campaignの残りの部分を構築します。アプリ内メッセージを構
 
 #### REST APIで追加されたデータをメッセージで使用する {#use-data-added-by-rest-api-in-a-message}
 
-同じセッション内で[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)が追加したユーザーデータは、そのユーザーのアプリ内メッセージで使用できる場合があります。たとえば、ユーザーがトリガーを待っているアプリ内メッセージのオーディエンスに含まれており、セッションを開始し、同じセッション内でREST APIがプロファイルを更新した場合、**Re-evaluate campaign eligibility before displaying**が選択されていれば、その新しいデータがアプリ内メッセージに表示される可能性があります。Brazeはレンダリングの時間までアプリ内メッセージをテンプレート化しません。
+同じセッション内で[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)が追加したユーザーデータは、そのユーザーのアプリ内メッセージで使用できる場合があります。たとえば、ユーザーがトリガーを待っているアプリ内メッセージのオーディエンスに含まれており、セッションを開始し、同じセッション内でREST APIがプロファイルを更新した場合、**Re-evaluate campaign eligibility before displaying**が選択されていれば、その新しいデータがアプリ内メッセージに表示される可能性があります。Brazeはレンダリングの時間までアプリ内メッセージをテンプレート化しません。
 
 1つのトリガーがBrazeにデータを送信し、同時にアプリ内メッセージを発火する場合、スケジュールされた遅延があっても、メッセージはその新しく更新されたプロファイルデータを使用できません。代わりに、データを送信するトリガーとアプリ内メッセージをトリガーするトリガーの2つの別々のトリガーを使用してください。
 
 ### コンバージョンイベントを選択する {#choose-conversion-events}
 
-Brazeでは、Campaignを受信した後にユーザーが特定のアクション（[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)）を実行する頻度を追跡できます。ユーザーが指定されたアクションを実行した場合にコンバージョンがカウントされる最大30日間の時間枠を設定するオプションがあります。
+Brazeでは、Campaignを受信した後にユーザーが特定のアクション（[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)）を実行する頻度を追跡できます。ユーザーが指定されたアクションを実行した場合にコンバージョンがカウントされる最大30日間の時間枠を設定するオプションがあります。
 
 {% endtab %}
 {% tab Canvas %}
 
-まだ完了していない場合は、Canvasコンポーネントの残りのセクションを完了してください。Canvasの残りの部分の構築方法、多変量テストとインテリジェントセレクションの実装などの詳細については、Canvasドキュメントの[Canvasを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas)ステップを参照してください。
+まだ完了していない場合は、Canvasコンポーネントの残りのセクションを完了してください。Canvasの残りの部分の構築方法、多変量テストとインテリジェントセレクションの実装などの詳細については、Canvasドキュメントの[Canvasを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas)ステップを参照してください。
 
-Canvas固有のアプリ内メッセージオプションについては、[Canvasのアプリ内メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#messages-in-canvas)を参照してください。
+Canvas固有のアプリ内メッセージオプションについては、[Canvasのアプリ内メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#messages-in-canvas)を参照してください。
 
 {% endtab %}
 {% endtabs %}
 
 ## ステップ 8:確認してデプロイする {#step-8-review-and-deploy}
 
-CampaignまたはCanvasの最後の部分の構築が完了したら、詳細を確認し、[テスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message)してから送信してください！
+CampaignまたはCanvasの最後の部分の構築が完了したら、詳細を確認し、[テスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message)してから送信してください！
 
-次に、[アプリ内メッセージレポート]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting/)を確認して、メッセージングCampaignsの結果にアクセスする方法を学びましょう。
+次に、[アプリ内メッセージレポート]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting)を確認して、メッセージングCampaignsの結果にアクセスする方法を学びましょう。
 
 ## 知っておくべきこと {#things-to-know}
 

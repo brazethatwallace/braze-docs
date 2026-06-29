@@ -15,9 +15,9 @@ toc_headers: h2
 
 ## Consideraciones generales {#general-considerations}
 
-- Si estás creando una Campaign, ¿cuántas variantes de este mensaje te gustaría mostrar? Para ideas sobre pruebas de variantes, consulta [Consejos para diferentes canales]({{site.baseurl}}/user_guide/messaging/ab_testing/#tips-different-channels).
+- Si estás creando una Campaign, ¿cuántas variantes de este mensaje te gustaría mostrar? Para ideas sobre pruebas de variantes, consulta [Consejos para diferentes canales]({{site.baseurl}}/user_guide/messaging/ab_testing#tips-different-channels).
 - Si estás creando un Canvas, ¿este mensaje se combinará con otros canales de mensajería en ese paso?
-- ¿Cuándo te gustaría que [tu mensaje expire]({{site.baseurl}}/canvas_in-app_messages/)?
+- ¿Cuándo te gustaría que [tu mensaje expire]({{site.baseurl}}/canvas_in-app_messages)?
 
 ## Consideraciones de segmentación {#targeting-considerations}
 
@@ -25,7 +25,7 @@ toc_headers: h2
 - ¿Dónde quieres que tus usuarios vean tu mensaje? ¿En tu aplicación Web? ¿En tu aplicación móvil?
 - ¿Qué evento debería desencadenar este mensaje?
 - ¿Alguno de tus usuarios está usando versiones anteriores de tu aplicación? Si es así, es posible que no puedan ver algunos elementos de tu mensaje.
-- ¿Para qué tipo de dispositivo o dispositivos estás creando este mensaje? Recuerda que puedes previsualizar tu mensaje usando el cuadro **Preview** o la pestaña **Test**. Consulta [Enviar mensajes de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) para más información.
+- ¿Para qué tipo de dispositivo o dispositivos estás creando este mensaje? Recuerda que puedes previsualizar tu mensaje usando el cuadro **Preview** o la pestaña **Test**. Consulta [Enviar mensajes de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) para más información.
 
 ## Planificación, demoras e inicios de sesión {#scheduling-delays-and-session-starts}
 
@@ -40,15 +40,16 @@ Por ejemplo, un usuario podría recibir un mensaje dentro de la aplicación con 
 - ¿Qué idiomas usarás en este mensaje?
 - ¿Cuál es el texto de tu encabezado y cuerpo? ¿Son llamativos y relevantes para tu usuario?
 - Los mensajes dentro de la aplicación solo aparecen durante un período de tiempo determinado. ¿Tu texto es conciso y memorable?
-- ¿Usarás [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/) para agregar texto personalizado?
-- Para mensajes dentro de la aplicación de pantalla completa, ¿tu imagen u otro contenido multimedia está dentro de la [zona segura]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/fullscreen/#image-safe-zone)?
+- ¿Usarás [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) para agregar texto personalizado?
+- ¿Los usuarios necesitan copiar el texto del mensaje (como un código de descuento o cupón)? En iOS y Android, los usuarios pueden mantener presionado el texto o los campos de entrada de texto para copiar contenido. Mantener presionado no funciona en imágenes, así que usa texto o campos de entrada de texto en lugar de imágenes que contengan códigos u otro texto que los usuarios puedan necesitar copiar.
+- Para mensajes dentro de la aplicación de pantalla completa, ¿tu imagen u otro contenido multimedia está dentro de la [zona segura]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/fullscreen#image-safe-zone)?
 - Para mensajes dentro de la aplicación tipo cuestionario, ¿quieres registrar atributos o envíos? ¿Has configurado tu página de confirmación?
 
 ## Consideraciones de conversión {#conversion-considerations}
 
 - ¿Cuál es tu objetivo para este mensaje? ¿Cómo puedes representarlo en tu mensaje?
-- ¿Tus botones ofrecen opciones que tienen sentido para tu usuario? ¿Cuál es tu [llamada a la acción principal]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/#buttons)?
-- ¿Estás usando [vínculos profundos a contenido dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content)? ¿Estás usando este mensaje dentro de la aplicación para enviar y aceptar una [solicitud de permiso o preparación push]({{site.baseurl}}/user_guide/channels/push/best_practices/)?
+- ¿Tus botones ofrecen opciones que tienen sentido para tu usuario? ¿Cuál es tu [llamada a la acción principal]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#buttons)?
+- ¿Estás usando [vínculos profundos a contenido dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content)? ¿Estás usando este mensaje dentro de la aplicación para enviar y aceptar una [solicitud de permiso o preparación push]({{site.baseurl}}/user_guide/channels/push/best_practices)?
 - ¿Tienes una opción de salida del mensaje? Si no, siempre puedes copiar y pegar este fragmento de código para crear un botón rápido:
     ```html
     <a href="appboy://close">X</a>

@@ -15,13 +15,13 @@ tool:
 
 # Criar notificações por push avançadas para iOS {#create-rich-push-notifications-for-ios}
 
-> As notificações Rich permitem mais personalização nas suas notificações por push ao adicionar conteúdo além de texto. As notificações do Android já incluem imagens em notificações por push há algum tempo, exibidas como uma "Imagem de notificação expandida". A partir do iOS 10, seus clientes poderão receber notificações por push do iOS que incluem GIFs, imagens, vídeos ou áudio.
+> As notificações Rich permitem mais personalização nas suas notificações por push ao adicionar conteúdo além de texto. As notificações do Android já incluem imagens em notificações por push há algum tempo, exibidas como uma "imagem de notificação expandida". A partir do iOS 10, seus clientes poderão receber notificações por push do iOS que incluem GIFs, imagens, vídeos ou áudio.
 
 ## Pré-requisitos {#prerequisites}
 
 Antes de criar uma notificação Rich por push para iOS, observe os seguintes detalhes:
 
-- Para garantir que seu app possa enviar notificações Rich, siga as instruções de [integração de push para iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#ios-10-rich-notifications), pois seu desenvolvedor precisará adicionar uma extensão de serviço ao seu app.
+- Para garantir que seu app possa enviar notificações Rich, siga as instruções de [integração de push para iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#ios-10-rich-notifications), pois seu desenvolvedor precisará adicionar uma extensão de serviço ao seu app.
 - Os tipos de arquivo que atualmente suportamos para upload direto no nosso dashboard incluem JPEG, PNG ou GIF. Esses arquivos também podem ser inseridos no campo de URL com template, junto com estes tipos de arquivo adicionais: AIF, M4A, MP3, MP4 ou WAV.
 - Consulte a [documentação da Apple](https://developer.apple.com/reference/usernotifications/unnotificationattachment) para limitações e especificações de mídia.
 - O iOS redimensiona as imagens para caber na tela e ajusta as imagens avançadas para a visualização ativa ou bloqueada.
@@ -36,7 +36,7 @@ As imagens de notificação por push podem não ser exibidas conforme esperado s
 
 ### Contagem de caracteres {#character-count}
 
-Embora não possamos fornecer uma regra rígida para o número exato de caracteres a incluir em um push, [oferecemos algumas diretrizes]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/) a considerar ao projetar mensagens para iOS. Pode haver alguma variação dependendo da presença de uma imagem, do estado da notificação e da configuração de exibição do dispositivo do usuário, e do tamanho do dispositivo. Em caso de dúvida, seja breve e direto.
+Embora não possamos fornecer uma regra rígida para o número exato de caracteres a incluir em um push, [oferecemos algumas diretrizes]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats) a considerar ao projetar mensagens para iOS. Pode haver alguma variação dependendo da presença de uma imagem, do estado da notificação e da configuração de exibição do dispositivo do usuário, e do tamanho do dispositivo. Em caso de dúvida, seja breve e direto.
 
 Como prática recomendada, a Braze sugere manter cada linha de texto, tanto para o título opcional quanto para o corpo da mensagem, em aproximadamente 30 a 40 caracteres em uma notificação por push para celular.
 
@@ -48,7 +48,7 @@ Seus usuários podem visualizar notificações por push em diversas situações 
   <caption>Estados da notificação</caption>
 <thead>
   <tr>
-    <th>Tela de bloqueio ou Central de notificações</th>
+    <th>Tela de bloqueio ou central de notificações</th>
     <th>Expandida</th>
     <th>Dispositivo ativo</th>
   </tr>
@@ -125,7 +125,7 @@ Os seguintes detalhes também podem impactar a truncagem de texto:
 
 ### Etapa 1: Crie uma Campaign de push {#step-1-create-a-push-campaign}
 
-Siga as [etapas da Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#creating-a-push-message) para redigir uma notificação por push para iOS. Você usará o mesmo criador que utiliza para configurar notificações por push que não contêm conteúdo avançado.
+Siga as [etapas da Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message) para redigir uma notificação por push para iOS. Você usará o mesmo criador que utiliza para configurar notificações por push que não contêm conteúdo avançado.
 
 ### Etapa 2: Adicione mídia {#step-2-add-media}
 
@@ -139,7 +139,7 @@ Você também pode limitar esta mensagem para enviar apenas a usuários que poss
 
 ### Etapa 3: Continue criando sua Campaign {#step-3-continue-creating-your-campaign}
 
-Depois que o conteúdo da sua notificação Rich for carregado no dashboard, você pode continuar [programando sua Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#schedule-push-campaign).
+Depois que o conteúdo da sua notificação Rich for carregado no dashboard, você pode continuar [programando sua Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#schedule-push-campaign).
 
 Quando um usuário receber a notificação por push, ele pode pressionar com força a mensagem para expandir a imagem.
 

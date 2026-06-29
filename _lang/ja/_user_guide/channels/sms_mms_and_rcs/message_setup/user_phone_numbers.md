@@ -13,7 +13,7 @@ channel:
 
 # ユーザーの電話番号 {#user-phone-numbers}
 
-> この記事では、ユーザーや顧客の電話番号に関するさまざまなトピックについて説明します。自社の番号に関する情報をお探しの場合は、[送信電話番号]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/)の記事をご覧ください。
+> この記事では、ユーザーや顧客の電話番号に関するさまざまなトピックについて説明します。自社の番号に関する情報をお探しの場合は、[送信電話番号]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup)の記事をご覧ください。
 
 ## 推奨フォーマット {#recommended-format}
 
@@ -37,8 +37,8 @@ channel:
 
 電話番号をインポートする際は、[推奨フォーマット](#recommended-format)に従うことが重要です。電話番号をインポートするには、以下のいずれかの方法を使用してください。
 
-- [BrazeにCSVをアップロードする]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv)
-- [`/users/track`エンドポイントを使用する]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)
+- [BrazeにCSVをアップロードする]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv)
+- [`/users/track`エンドポイントを使用する]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
 
 {% alert important %}
 ユーザーの電話番号はBrazeでは数字の文字列として表示されます。先頭の{% raw %}`+`{% endraw %}以外に数字以外の文字（`,`、`-`、`(`など）を含む番号をインポートした場合、Brazeでレンダリングされる際にそれらの数字以外の文字は削除されます。例えば、`+1 (724) 123-4567`をインポートすると、`+17241234567`と表示されます。
@@ -59,13 +59,13 @@ Brazeは電話番号のバリデーションにGoogleの[libphonenumber](https:/
 - **プロバイダーエラー**：SMSおよびRCSプロバイダーから永続的なエラーが返されました。これは、提供された電話番号のフォーマットが正しくないか、SMSまたはRCSメッセージを永続的に受信できないことを示しています。
 - **無効化**：モバイルサブスクライバーがサービスを終了し、キャリアから番号を解放したため、電話番号が無効化されました（最終的にリサイクルされ、新しいユーザーに割り当てられる可能性があります）。無効化された電話番号は、その電話番号にSMSまたはRCSメッセージを送信していなくても無効としてマークされることがあります。
 
-これらの無効な電話番号は、[SMSおよびRCSエンドポイント]({{site.baseurl}}/api/endpoints/sms/)を使用して管理できます。
+これらの無効な電話番号は、[SMSおよびRCSエンドポイント]({{site.baseurl}}/api/endpoints/sms)を使用して管理できます。
 
 {% alert note %}
 複数のユーザープロファイルが同じ電話番号を持ち、その電話番号が無効としてマークされた場合、その番号を持つ既存のすべてのユーザープロファイルが無効として表示されます。新しく作成されたユーザープロファイルは、最初から無効としてマークされることはありません。
 {% endalert %}
 
-[セグメントを作成する]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#step-4-add-filters-to-your-segment)際に、無効な電話番号を持つユーザーを含めたり除外したりすることもできます。
+[Segmentを作成する]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#step-4-add-filters-to-your-segment)際に、無効な電話番号を持つユーザーを含めたり除外したりすることもできます。
 
 ## 拒否されたSMS送信をセグメンテーションから除外する {#exclude-rejected-sms-sends-from-segmentation}
 
@@ -73,17 +73,17 @@ Brazeは電話番号のバリデーションにGoogleの[libphonenumber](https:/
 SMSの拒否はSMS割り当てに対して課金されます。
 {% endalert %}
 
-拒否されたSMS送信を持つユーザーをセグメントから除外するには、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)を使用して以下の手順を実行してください。
+拒否されたSMS送信を持つユーザーをSegmentsから除外するには、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)を使用して以下の手順を実行してください。
 
 1. **オーディエンス** > **セグメントエクステンション**に移動します。
 2. **新規エクステンションを作成** > **フルリフレッシュ**または**インクリメンタルリフレッシュ**を選択します。
 3. SMSの拒否を持つユーザーを特定するSQLクエリを記述します。例えば、`USERS_MESSAGES_SMS_REJECTION_SHARED`イベントをクエリして、SMSの拒否を受けたユーザーを見つけることができます。
 4. セグメントエクステンションを保存します。
-5. SMSのセグメントを作成する際に、このセグメントエクステンションに含まれるユーザーを除外するフィルターを追加します。
+5. SMSのSegmentを作成する際に、このセグメントエクステンションに含まれるユーザーを除外するフィルターを追加します。
 
 ## SMSおよびRCSサブスクリプショングループへのユーザー追加 {#add-users-to-sms-and-rcs-subscription-groups}
 
-ユーザーがSMSまたはRCSメッセージを受信するには、有効な電話番号を持ち、サブスクリプショングループにオプトインしている必要があります。サブスクリプショングループは、実行しているSMSまたはRCSプログラムに紐づいています（[SMS、MMS、およびRCSの法的要件]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/)に従い、各顧客の同意を記録していることを確認してください）。詳細については、[SMSおよびRCSサブスクリプショングループ]({{site.baseurl}}/sms_rcs_subscription_groups/)を参照してください。
+ユーザーがSMSまたはRCSメッセージを受信するには、有効な電話番号を持ち、サブスクリプショングループにオプトインしている必要があります。サブスクリプショングループは、実行しているSMSまたはRCSプログラムに紐づいています（[SMS、MMS、およびRCSの法的要件]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations)に従い、各顧客の同意を記録していることを確認してください）。詳細については、[SMSおよびRCSサブスクリプショングループ]({{site.baseurl}}/sms_rcs_subscription_groups)を参照してください。
 
 ## サードパーティのソーシングと検証 {#third-party-sourcing-and-verification}
 
@@ -91,4 +91,4 @@ Brazeは無効な番号のソーシングにサードパーティツールを利
 
 ## 電話番号のキャプチャ {#phone-number-capture}
 
-アプリ内メッセージを通じて電話番号をキャプチャする方法については、[電話番号のキャプチャ]({{site.baseurl}}/phone_number_capture/)を参照してください。
+アプリ内メッセージを通じて電話番号をキャプチャする方法については、[電話番号のキャプチャ]({{site.baseurl}}/phone_number_capture)を参照してください。

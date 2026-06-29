@@ -63,7 +63,7 @@ Wenn Sie SMS-Fallback mit RCS verwenden, hängt das Ereignisverhalten davon ab, 
 {% endtab %}
 {% tab Segmentierungsverhalten %}
 
-Für SMS und RCS werden [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) für empfangene Nachrichten (wie [Nachricht von Campaign erhalten]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#received-message-from-campaign) und [Nachricht von Canvas-Schritt erhalten]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#received-message-from-canvas-step)) ausgewertet, wenn eine Nachricht gesendet wird, nicht wenn sie das Gerät der Nutzerin oder des Nutzers erreicht. Bei aktiviertem SMS-Fallback können Nutzer:innen diese Filter weiterhin erfüllen, wenn eine RCS-Nachricht abgelehnt wird und auf SMS zurückfällt, oder wenn die Fallback-SMS nicht auf dem Gerät der Nutzerin oder des Nutzers zugestellt wird.
+Für SMS und RCS werden [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) für empfangene Nachrichten (wie [Nachricht von Campaign erhalten]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-campaign) und [Nachricht von Canvas-Schritt erhalten]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step)) ausgewertet, wenn eine Nachricht gesendet wird, nicht wenn sie das Gerät der Nutzerin oder des Nutzers erreicht. Bei aktiviertem SMS-Fallback können Nutzer:innen diese Filter weiterhin erfüllen, wenn eine RCS-Nachricht abgelehnt wird und auf SMS zurückfällt, oder wenn die Fallback-SMS nicht auf dem Gerät der Nutzerin oder des Nutzers zugestellt wird.
 
 {% endtab %}
 {% endtabs %}
@@ -76,7 +76,7 @@ Wenn Ihr RCS-verifizierter Sender genehmigt wurde, aktualisiert unser Operations
 
 ## 3. Schritt: Abo-Gruppen einrichten {#step-3-set-up-subscription-groups}
 
-Abhängig von Ihrer Integration kann Braze RCS-verifizierte Sender zu Ihren bestehenden SMS-Abo-Gruppen hinzufügen oder neue einrichten. Detaillierte Einrichtungsanweisungen finden Sie unter [SMS- und RCS-Abo-Gruppen]({{site.baseurl}}/sms_rcs_subscription_groups/).
+Abhängig von Ihrer Integration kann Braze RCS-verifizierte Sender zu Ihren bestehenden SMS-Abo-Gruppen hinzufügen oder neue einrichten. Detaillierte Einrichtungsanweisungen finden Sie unter [SMS- und RCS-Abo-Gruppen]({{site.baseurl}}/sms_rcs_subscription_groups).
 
 ## SMS-Traffic zu RCS migrieren {#migrating-sms-traffic-to-rcs}
 
@@ -125,7 +125,7 @@ Fügen Sie Ihrem Canvas einen Nutzeraktualisierungs-Schritt hinzu. Öffnen Sie i
 
 ### 4. Schritt: Den Canvas testen {#step-4-test-the-canvas}
 
-Wir empfehlen dringend, [Ihren Canvas zu testen]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases/), um sicherzustellen, dass er wie erwartet funktioniert, bevor Sie ihn an Ihre breitere Zielgruppe senden.
+Wir empfehlen dringend, [Ihren Canvas zu testen]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases), um sicherzustellen, dass er wie erwartet funktioniert, bevor Sie ihn an Ihre breitere Zielgruppe senden.
 
 ### 5. Schritt: Ihren Canvas starten {#step-5-launch-your-canvas}
 

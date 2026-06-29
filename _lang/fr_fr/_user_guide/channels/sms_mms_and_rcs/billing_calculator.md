@@ -28,7 +28,7 @@ Le Short Messaging Service (SMS) est un protocole de communication standardisé 
 
 Lorsque vous créez une campagne SMS ou un Canvas avec Braze, les messages que vous rédigez dans le compositeur sont représentatifs de ce que vos utilisateurs verront lorsque le message sera livré sur leur téléphone, mais **ne reflètent pas la manière dont votre message sera découpé en segments ni, en définitive, la façon dont vous serez facturé**. Il est de votre responsabilité de comprendre combien de segments seront envoyés et d'être conscient des éventuels dépassements qui pourraient survenir, mais nous mettons à votre disposition des ressources pour vous faciliter la tâche. Consultez notre [calculateur de segments](#segment-calculator) intégré.
 
-![]({% image_buster /assets/img/sms_segment_pic.png %}){: style="border:0;"}
+![Lorsque vous créez une campagne SMS ou un Canvas avec Braze, les messages que vous rédigez dans le compositeur sont représentatifs de ce que vos utilisateurs verront, mais ne reflètent pas la manière dont votre message sera découpé en segments ni la façon dont vous serez facturé. Consultez notre calculateur de segments intégré.]({% image_buster /assets/img/sms_segment_pic.png %}){: style="border:0;"}
 
 #### Détail des segments {#segment-breakdown}
 
@@ -40,7 +40,7 @@ Il est important de noter que **dès que vous dépassez la limite de caractères
 - **Encodage UCS-2**
     - Si vous incluez des caractères non-GSM tels que des emojis, des caractères chinois, coréens ou japonais dans les messages SMS, ces messages devront être envoyés via l'encodage UCS-2. Les messages dépassant la limite initiale de 70 caractères par segment entraîneront la concaténation de l'intégralité du message en segments de 67 caractères. Par exemple, un message de 71 caractères sera envoyé en deux messages, l'un de 67 caractères et le second de 4 caractères.
 
-Quel que soit le type d'encodage, chaque message SMS envoyé par Braze est limité à 10 segments maximum et est compatible avec le [templating Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/), le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), les emojis et les liens.
+Quel que soit le type d'encodage, chaque message SMS envoyé par Braze est limité à 10 segments maximum et est compatible avec le [templating Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid), le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), les emojis et les liens.
 
 {% tabs %}
 {% tab Encodage GSM-7 %}
@@ -86,7 +86,7 @@ Quel que soit le type d'encodage, chaque message SMS envoyé par Braze est limit
 - **Compatible avec le templating Liquid, le Contenu connecté, les emojis et les liens**
     - Le templating Liquid et le Contenu connecté peuvent faire dépasser la limite de caractères de votre type d'encodage. Vous pouvez utiliser le [filtre truncate words](https://help.shopify.com/en/themes/liquid/filters/string-filters#truncatewords) pour limiter le nombre de mots que votre Liquid pourrait ajouter au message.
     - Les emojis n'ont pas de nombre de caractères standard d'un emoji à l'autre, alors assurez-vous de tester que vos messages sont correctement segmentés et affichés.
-    - Les liens peuvent utiliser de nombreux caractères, ce qui entraîne plus de segments de message que prévu. Bien que l'utilisation de raccourcisseurs de liens soit possible, ils sont plus adaptés aux codes courts. Consultez notre [FAQ SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/) pour plus d'informations.<br><br>
+    - Les liens peuvent utiliser de nombreux caractères, ce qui entraîne plus de segments de message que prévu. Bien que l'utilisation de raccourcisseurs de liens soit possible, ils sont plus adaptés aux codes courts. Consultez notre [FAQ SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs) pour plus d'informations.<br><br>
 - **Tests**
     - Testez toujours vos messages SMS avant le lancement, en particulier lorsque vous utilisez Liquid et le Contenu connecté, car le dépassement des limites de message ou de texte peut entraîner des frais supplémentaires. Notez que les messages de test sont comptabilisés dans vos limites de messages.
 
@@ -149,4 +149,4 @@ Les messages Rich Media incluent un fichier média (image, vidéo) ou une Rich C
 
 Lorsque vous créez votre message, le compositeur de messages affiche le type de facturation en temps réel via un libellé (Basic RCS, Single RCS, Rich ou Rich Media), vous aidant à suivre les coûts avant l'envoi.
 
-Votre [tableau de bord d'utilisation des crédits]({{site.baseurl}}/credits_usage_dashboard/) reflétera ces types de facturation et indiquera le nombre de segments utilisés pour les messages aux États-Unis, offrant une vue transparente de votre consommation de crédits de messages.
+Votre [tableau de bord d'utilisation des crédits]({{site.baseurl}}/credits_usage_dashboard) reflétera ces types de facturation et indiquera le nombre de segments utilisés pour les messages aux États-Unis, offrant une vue transparente de votre consommation de crédits de messages.

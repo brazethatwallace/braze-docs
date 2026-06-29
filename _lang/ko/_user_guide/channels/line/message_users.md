@@ -27,7 +27,7 @@ LINE 트리거 단어를 사용하는 등 다양한 방법으로 LINE을 통해 
 
 ### Canvas
 
-Canvas의 [행동 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/)에서 트리거 단어를 설정합니다.
+Canvas의 [행동 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)에서 트리거 단어를 설정합니다.
 
 ![행동 경로 트리거: "구독 그룹에 인바운드 LINE을 보낸 사용자에게 이 캠페인을 보내기, 메시지 본문이 다음인 경우"와 빈 필드.]({% image_buster /assets/img/line/trigger_word_canvas.png %})
 

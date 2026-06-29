@@ -7,7 +7,7 @@ page_order: 1
 
 # 인앱 메시지 스타일 설정 {#in-app-message-style-settings}
 
-> 드래그 앤 드롭 편집 환경은 **구축**과 **미리보기 및 테스트** 두 섹션으로 나뉩니다. 이 문서에서는 편집기의 **구축** 탭에서 작업할 때 알아야 할 내용을 다루며, 이미 [인앱 메시지를 생성]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)했다고 가정합니다.
+> 드래그 앤 드롭 편집 환경은 **구축**과 **미리보기 및 테스트** 두 섹션으로 나뉩니다. 이 문서에서는 편집기의 **구축** 탭에서 작업할 때 알아야 할 내용을 다루며, 이미 [인앱 메시지를 생성]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)했다고 가정합니다.
 
 !["메시지 스타일" 탭.]({% image_buster /assets/img_archive/dnd_iam_message_styles.png %}){: style="float:right;max-width:25%;margin-left:15px;max-width:30%"}
 
@@ -15,7 +15,7 @@ page_order: 1
 
 **메시지 스타일** 탭에서 인앱 메시지의 모든 관련 블록에 적용할 특정 스타일을 설정할 수 있습니다. 예를 들어, 메시지 내 모든 텍스트의 글꼴이나 모든 링크의 색상을 커스터마이즈할 수 있습니다.
 
-이 섹션의 스타일은 특정 블록에서 재정의하지 않는 한 메시지 전체에 적용됩니다. 메시지에 [여러 페이지]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/#multi-page)가 있는 경우, 표시 유형과 최대 너비를 제외하고 개별 페이지에 대해 메시지 수준 스타일을 재정의할 수도 있습니다.
+이 섹션의 스타일은 특정 블록에서 재정의하지 않는 한 메시지 전체에 적용됩니다. 메시지에 [여러 페이지]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#multi-page)가 있는 경우, 표시 유형과 최대 너비를 제외하고 개별 페이지에 대해 메시지 수준 스타일을 재정의할 수도 있습니다.
 
 보다 쉬운 디자인 경험을 위해, 블록 수준에서 스타일을 커스터마이즈하기 전에 메시지 수준 스타일을 먼저 설정하는 것을 권장합니다.
 
@@ -26,7 +26,7 @@ page_order: 1
 
 ### 커스텀 글꼴 {#custom-fonts}
 
-글꼴에 대해 다음 파일 유형을 지원합니다: `.ttf`, `.woff`, `.otf`, `.woff2`. 자세한 내용은 [자산 파일]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#asset-files)을 참조하세요.
+글꼴에 대해 다음 파일 유형을 지원합니다: `.ttf`, `.woff`, `.otf`, `.woff2`. 자세한 내용은 [자산 파일]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#asset-files)을 참조하세요.
 
 일부 스타일 옵션은 커스텀 글꼴에서 사용할 수 없을 수 있으므로, 글꼴 패밀리의 여러 변형을 추가할 수 있습니다. 현재 URL을 통한 글꼴 추가는 지원하지 않습니다.
 
@@ -76,7 +76,7 @@ page_order: 1
 
 #### 배경 이미지 {#background-image}
 
-**행 속성** 패널에서 행에 배경 이미지를 추가할 수 있습니다. **배경 이미지**를 토글하여 켠 다음, 이미지 URL을 제공하거나 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)에서 이미지를 선택합니다. 마지막으로, 대체 텍스트, 크기, 위치, 이미지가 행 전체에 패턴을 만들기 위해 반복되는지 여부를 설정합니다.
+**행 속성** 패널에서 행에 배경 이미지를 추가할 수 있습니다. **배경 이미지**를 토글하여 켠 다음, 이미지 URL을 제공하거나 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)에서 이미지를 선택합니다. 마지막으로, 대체 텍스트, 크기, 위치, 이미지가 행 전체에 패턴을 만들기 위해 반복되는지 여부를 설정합니다.
 
 ![수평 반복 패턴이 적용된 피자 배경 이미지가 있는 행.]({% image_buster /assets/img_archive/background_row.png %})
 
@@ -90,7 +90,7 @@ page_order: 1
 
 ![선택할 수 있는 드래그 앤 드롭 상자.]({% image_buster /assets/img_archive/dnd_iam_editor_blocks.png %}){: style="max-width:40%"}
 
-모든 블록에는 패딩에 대한 세밀한 제어와 같은 자체 설정이 있습니다. 오른쪽 패널은 선택한 콘텐츠 요소에 대한 스타일링 패널로 자동 전환됩니다. 자세한 내용은 [편집기 블록 속성]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_properties)을 참조하세요.
+모든 블록에는 패딩에 대한 세밀한 제어와 같은 자체 설정이 있습니다. 오른쪽 패널은 선택한 콘텐츠 요소에 대한 스타일링 패널로 자동 전환됩니다. 자세한 내용은 [편집기 블록 속성]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages#inappmessages_properties)을 참조하세요.
 
 인앱 메시지를 구축하면서 도구 모음에서 모바일, 태블릿 또는 데스크탑 보기를 선택하여 사용자 그룹에게 인앱 메시지가 어떻게 보일지 미리 볼 수 있습니다. 이를 통해 콘텐츠가 반응형인지 확인하고, 진행하면서 필요한 조정을 할 수 있습니다.
 
@@ -106,7 +106,7 @@ page_order: 1
 
 **메시지 스타일** 탭에서 메시지 배경에 이미지를 추가할 수 있습니다.
 
-1. Canvas 영역에서 배경 컨테이너를 선택합니다. 이것은 메시지의 스크롤 가능한 섹션입니다.
+1. 캔버스 영역에서 배경 컨테이너를 선택합니다. 이것은 메시지의 스크롤 가능한 섹션입니다.
 2. **메시지 스타일** 탭에서 **배경 이미지**를 켭니다.
 3. 미디어 라이브러리에서 이미지를 추가하거나, 이미지가 호스팅된 URL을 입력합니다.
 
@@ -118,13 +118,13 @@ page_order: 1
 
 ![Liquid 개인화를 추가하는 아이콘.]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
 
-인앱 메시지에 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)를 추가하려면, 편집기 도구 모음에서 <i class="fa-solid fa-circle-plus"></i> **개인화 추가**를 선택합니다. 여기에서 기본 속성, 기기 속성, 커스텀 속성 등 다양한 개인화 유형을 추가할 수 있습니다.
+인앱 메시지에 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)를 추가하려면, 편집기 도구 모음에서 <i class="fa-solid fa-circle-plus"></i> **개인화 추가**를 선택합니다. 여기에서 기본 속성, 기기 속성, 커스텀 속성 등 다양한 개인화 유형을 추가할 수 있습니다.
 
 다음으로, 생성된 Liquid 스니펫을 메시지에 삽입합니다. 인앱 메시지를 디자인하고 구축한 후, **미리보기 및 테스트**로 이동하여 메시지를 미리 봅니다.
 
 ### AI 카피라이터 사용 {#using-the-ai-copywriter}
 
-인앱 메시지에서 텍스트 블록이 선택된 상태에서, 블록 도구 모음의 <i class="fa-solid fa-wand-magic-sparkles" title="AI 카피라이터"></i> **AI 카피라이터**를 선택하여 [AI 기반 카피라이팅 어시스턴트]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy)를 실행합니다. AI 카피라이팅 어시스턴트는 간략한 제품 이름이나 설명을 OpenAI의 GPT3 카피 생성 도구에 전달하여 메시징에 사용할 사람과 유사한 마케팅 카피를 생성합니다.
+인앱 메시지에서 텍스트 블록이 선택된 상태에서, 블록 도구 모음의 <i class="fa-solid fa-wand-magic-sparkles" title="AI 카피라이터"></i> **AI 카피라이터**를 선택하여 [AI 기반 카피라이팅 어시스턴트]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy)를 실행합니다. AI 카피라이팅 어시스턴트는 간략한 제품 이름이나 설명을 OpenAI의 GPT3 카피 생성 도구에 전달하여 메시징에 사용할 사람과 유사한 마케팅 카피를 생성합니다.
 
 {% alert tip %}
 블록 내의 텍스트를 강조 표시한 후 아이콘을 클릭하면 몇 번의 클릭을 절약할 수 있습니다. 강조 표시된 텍스트가 도구에 추가되고, 카피가 즉시 생성됩니다.

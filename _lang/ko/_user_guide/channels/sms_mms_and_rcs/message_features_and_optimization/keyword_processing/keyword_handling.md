@@ -24,7 +24,7 @@ channel:
 Braze의 SMS, MMS, RCS를 사용하면 키워드 트리거를 생성하고, 커스텀 응답을 정의하며, 여러 언어에 대한 키워드 세트를 정의하고, 커스텀 키워드 카테고리를 설정할 수 있습니다.
 
 {% alert note %}
-Braze는 정확한 옵트아웃 처리 및 [퍼지 옵트아웃]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/)을 위해 전체 옵트아웃 키워드 세트([기본 키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) 및 [커스텀 키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/))를 사용합니다.
+Braze는 정확한 옵트아웃 처리 및 [퍼지 옵트아웃]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out)을 위해 전체 옵트아웃 키워드 세트([기본 키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) 및 [커스텀 키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling))를 사용합니다.
 {% endalert %}
 
 {% tabs %}
@@ -48,7 +48,7 @@ Braze는 정확한 옵트아웃 처리 및 [퍼지 옵트아웃]({{site.baseurl}
 {: .reset-td-br-1 .reset-td-br-2 aria-label="키워드 트리거 추가" }
 
 {% alert tip %}
-이러한 키워드를 Campaigns 및 Canvases에서 메시지를 리타겟팅하고 트리거하는 데 어떻게 사용할 수 있는지 알고 싶으신가요? 자세한 내용은 [사용자 리타겟팅]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/)을 참조하세요.
+이러한 키워드를 Campaigns 및 Canvases에서 메시지를 리타겟팅하고 트리거하는 데 어떻게 사용할 수 있는지 알고 싶으신가요? 자세한 내용은 [사용자 리타겟팅]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting)을 참조하세요.
 {% endalert %}
 {% endtab %}
 
@@ -60,7 +60,7 @@ Braze는 정확한 옵트아웃 처리 및 [퍼지 옵트아웃]({{site.baseurl}
 
 1. Braze 대시보드에서 **오디언스** > **구독 그룹 관리**로 이동하여 **SMS/MMS/RCS** 구독 그룹을 선택합니다. <br><br>
 2. **글로벌 키워드**에서 연필 아이콘을 선택하여 응답을 편집할 키워드 카테고리를 선택합니다. ![연필 아이콘이 표시된 옵트인 키워드.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
-3. 열리는 탭에서 응답을 편집합니다. 응답을 작성할 때 [규정 준수를 위한 6가지 규칙]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/#the-six-rules-to-get-compliance-right)을 유의하고, 키워드 및 키워드 응답에 적용되는 다음 규칙을 읽어보세요.<br><br>
+3. 열리는 탭에서 응답을 편집합니다. 응답을 작성할 때 [규정 준수를 위한 6가지 규칙]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations#the-six-rules-to-get-compliance-right)을 유의하고, 키워드 및 키워드 응답에 적용되는 다음 규칙을 읽어보세요.<br><br>
 4. 응답에서 정적 URL을 자동으로 단축하려면 **링크 단축** 토글을 선택합니다. 문자 카운터가 업데이트되어 단축된 URL의 예상 길이를 표시합니다. !["링크 단축" 토글이 켜져 있을 때 문자 카운터가 업데이트되는 GIF.]({% image_buster /assets/img/sms/link_shortening.gif %}){: style="max-width:60%;"}
 
 #### 고려 사항 {#considerations}
@@ -74,7 +74,7 @@ Braze는 정확한 옵트아웃 처리 및 [퍼지 옵트아웃]({{site.baseurl}
 {% endtabs %}
 
 {% alert tip %}
-실행 기반 Canvas가 인바운드 SMS, MMS 또는 RCS 메시지에 의해 트리거되는 경우, Canvas의 첫 번째 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)에서 SMS, MMS 또는 RCS 등록정보를 참조할 수 있습니다.
+실행 기반 Canvas가 인바운드 SMS, MMS 또는 RCS 메시지에 의해 트리거되는 경우, Canvas의 첫 번째 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)에서 SMS, MMS 또는 RCS 등록정보를 참조할 수 있습니다.
 {% endalert %}
 
 ## 다중 언어 지원 {#multi-language-support}
@@ -110,7 +110,7 @@ Braze는 정확한 옵트아웃 처리 및 [퍼지 옵트아웃]({{site.baseurl}
 2. **커스텀 키워드 추가**를 선택합니다. ![새 키워드를 추가하는 필드.]({% image_buster /assets/img/sms/sms_custom_step.png %}){: style="max-width:90%;"}
 3. 키워드 카테고리 이름을 입력하고 사용자가 응답 메시지를 받기 위해 문자로 보낼 수 있는 키워드를 정의합니다.
 
-이 키워드 카테고리가 생성되면 Campaigns 및 Canvases에서 [필터링 및 트리거]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/)에 사용할 수 있습니다.
+이 키워드 카테고리가 생성되면 Campaigns 및 Canvases에서 [필터링 및 트리거]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting)에 사용할 수 있습니다.
 
 커스텀 키워드 카테고리에서 생성된 키워드는 새 키워드 생성에 대한 모든 규칙과 유효성 검사를 따릅니다.
 
@@ -134,14 +134,14 @@ Braze는 정확한 옵트아웃 처리 및 [퍼지 옵트아웃]({{site.baseurl}
 
 기본 응답(예: "죄송합니다! 해당 키워드를 인식하지 못했습니다.")을 보내려면 다음을 수행합니다:
 
-1. [SMS Campaign]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/)을 생성합니다.
+1. [SMS Campaign]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create)을 생성합니다.
 2. **타겟 오디언스**에서 **모든 사용자**를 선택합니다(트리거가 메시지를 받는 대상을 제한합니다).
 3. **스케줄**에서 **실행 기반 전달**을 선택합니다.
 4. 트리거를 적절한 구독 그룹에 대한 **인바운드 SMS 전송**, **키워드 카테고리 OTHER 내**로 설정합니다.
 5. **메시징** 단계에서 사용자에게 전송할 응답 본문을 입력합니다.
 
-Braze가 **알 수 없는** 전화번호(프로필이 존재하기 전)에서 수신된 메시지를 처리하는 방법에 대해서는 [알 수 없는 전화번호 처리]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/unknown_phone_numbers/)를 참조하세요.
+Braze가 **알 수 없는** 전화번호(프로필이 존재하기 전)에서 수신된 메시지를 처리하는 방법에 대해서는 [알 수 없는 전화번호 처리]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/unknown_phone_numbers)를 참조하세요.
 
 {% alert tip %}
-이러한 키워드와 키워드 카테고리를 Campaigns 및 Canvases에서 메시지를 리타겟팅하고 트리거하는 데 어떻게 사용할 수 있는지 알고 싶으신가요? 자세한 내용은 [사용자 리타겟팅]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/)을 참조하세요.
+이러한 키워드와 키워드 카테고리를 Campaigns 및 Canvases에서 메시지를 리타겟팅하고 트리거하는 데 어떻게 사용할 수 있는지 알고 싶으신가요? 자세한 내용은 [사용자 리타겟팅]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting)을 참조하세요.
 {% endalert %}

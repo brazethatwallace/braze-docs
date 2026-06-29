@@ -33,7 +33,7 @@ Las restricciones descritas en este artículo se aplican solo a los mensajes de 
 
 ## Message Extras {#message-extras}
 
-La [etiqueta de Liquid `message_extras`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/) te permite anotar un mensaje con metadatos de clave-valor en el momento del envío. Estos datos no se renderizan en el cuerpo del mensaje. En su lugar, los datos fluyen hacia Contenido conectado, Currents u otros mecanismos de captura de datos para propósitos como atribución, medición de impacto y enriquecimiento de eventos.
+La [etiqueta de Liquid `message_extras`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras) te permite anotar un mensaje con metadatos de clave-valor en el momento del envío. Estos datos no se renderizan en el cuerpo del mensaje. En su lugar, los datos fluyen hacia Contenido conectado, Currents u otros mecanismos de captura de datos para propósitos como atribución, medición de impacto y enriquecimiento de eventos.
 
 {% raw %}
 ```liquid

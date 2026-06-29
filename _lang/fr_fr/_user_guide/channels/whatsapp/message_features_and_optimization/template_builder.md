@@ -40,7 +40,7 @@ Remplissez les champs suivants :
 Sous **Disposition**, sélectionnez le type de modèle :
 
 - **Par défaut :** Un message WhatsApp standard. C'est la disposition couverte dans cet article.
-- **Carrousel :** Un message avec des cartes défilables horizontalement. Pour en savoir plus, consultez [Modèles carrousel]({{site.baseurl}}/whatsapp_carousel_templates/).
+- **Carrousel :** Un message avec des cartes défilables horizontalement. Pour en savoir plus, consultez [Modèles carrousel]({{site.baseurl}}/whatsapp_carousel_templates).
 
 ### Étape 4 : Construire votre modèle {#step-4-build-your-template}
 
@@ -90,7 +90,7 @@ Avant de soumettre, prévisualisez l'apparence de votre message pour les destina
 
 ### Étape 6 : Soumettre pour vérification {#step-6-submit-for-review}
 
-Sélectionnez **Submit** pour soumettre votre modèle à Meta pour vérification, ce qui prend généralement quelques minutes mais peut aller jusqu'à 24 heures. Le modèle apparaît sur votre page **Modèles WhatsApp** une fois soumis, et l'état se met à jour lorsque vous actualisez la page **Modèles WhatsApp**.
+Sélectionnez **Envoyer** pour soumettre votre modèle à Meta pour vérification. Cette opération prend généralement quelques minutes, mais peut aller jusqu'à 24 heures. Le modèle apparaît sur votre page **Modèles WhatsApp** une fois soumis, et l'état se met à jour lorsque vous actualisez la page **Modèles WhatsApp**.
 
 ## Catégories de modèles prises en charge {#supported-template-categories}
 
@@ -100,13 +100,13 @@ Seuls les modèles Marketing sont actuellement pris en charge dans le générate
 
 Une fois votre modèle approuvé par Meta, vous pouvez l'utiliser dans une campagne ou un Canvas WhatsApp.
 
-1. Accédez à **Campaigns** et sélectionnez **Create Campaign** > **WhatsApp**.
+1. Accédez à **Campaigns** et sélectionnez **Créer une campagne** > **WhatsApp**.
 2. Dans le compositeur de messages, sélectionnez votre modèle approuvé.
 3. Braze renseigne automatiquement le contenu du modèle, y compris les médias et le Liquid que vous avez saisis lors de la création du modèle, afin que vous n'ayez pas à les saisir à nouveau.
 4. Mettez à jour le contenu variable ou la personnalisation selon vos besoins. Les champs verrouillés par Meta (affichés en gris) ne peuvent pas être modifiés. Pour modifier le contenu verrouillé, vous devez éditer et resoumettre le modèle pour approbation.
 5. Utilisez l'onglet **Test** pour prévisualiser le message, mettre à jour les variables du corps et confirmer que le message s'affiche comme prévu avant le lancement.
 
-Pour en savoir plus sur la création de campagnes WhatsApp, consultez [Créer un message WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/).
+Pour en savoir plus sur la création de campagnes WhatsApp, consultez [Créer un message WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message).
 
 ## Questions fréquentes {#frequently-asked-questions}
 

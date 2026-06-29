@@ -12,7 +12,7 @@ channel:
 
 > Bien que nos messages in-app standard puissent être personnalisés de nombreuses façons, vous pouvez obtenir un contrôle encore plus grand sur l'apparence de vos campagnes en utilisant des messages conçus et construits avec HTML, CSS et JavaScript. Avec une composition simple, vous pouvez débloquer des fonctionnalités et un branding personnalisés pour répondre à tous vos besoins.
 
-Ce type de message est disponible dans l'[éditeur traditionnel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+Ce type de message est disponible dans l'[éditeur traditionnel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 ## Comment ça fonctionne {#how-it-works}
 
@@ -42,7 +42,7 @@ En plus du JavaScript personnalisé, les SDK Braze peuvent également envoyer de
 ### Suivi des clics sur les boutons (obsolète) {#button-click-tracking-deprecated}
 
 {% alert warning %}
-L'utilisation de `abButtonID` n'est pas prise en charge dans les types de messages [HTML avec prévisualisation]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#html-upload-with-preview/). Pour plus d'informations, consultez notre [guide de mise à niveau]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#html-upload-with-preview).
+L'utilisation de `abButtonID` n'est pas prise en charge dans les types de messages [HTML avec prévisualisation]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview). Pour plus d'informations, consultez notre [guide de mise à niveau]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview).
 {% endalert %}
 
 Pour enregistrer les clics sur les boutons dans les analyses des messages in-app, vous pouvez ajouter `abButtonId` comme paramètre de requête à tout lien profond, URL de redirection ou élément d'ancrage `<a>`. Utilisez `?abButtonId=0` pour enregistrer un clic sur « Bouton 1 », et `?abButtonId=1` pour enregistrer un clic sur « Bouton 2 ».
@@ -98,16 +98,16 @@ Pour utiliser la prévisualisation HTML pour les messages in-app, vous devez eff
 {% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}
 
 {% alert warning %}
-Étant donné que ce type de message ne peut être reçu que par certaines versions ultérieures du SDK, les utilisateurs disposant de versions du SDK non prises en charge ne recevront pas le message. Envisagez d'adopter ce type de message une fois qu'une partie significative de votre base d'utilisateurs est accessible, ou ciblez uniquement les utilisateurs dont la version de l'application est ultérieure aux exigences. En savoir plus sur le [filtrage par version la plus récente de l'application]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions).
+Étant donné que ce type de message ne peut être reçu que par certaines versions ultérieures du SDK, les utilisateurs disposant de versions du SDK non prises en charge ne recevront pas le message. Envisagez d'adopter ce type de message une fois qu'une partie significative de votre base d'utilisateurs est accessible, ou ciblez uniquement les utilisateurs dont la version de l'application est ultérieure aux exigences. En savoir plus sur le [filtrage par version la plus récente de l'application]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 {% endalert %}
 
 ### Créer une campagne {#instructions}
 
-Les utilisateurs de votre application mobile doivent effectuer la mise à niveau vers les versions du SDK prises en charge pour recevoir un message in-app **Code personnalisé**. Nous vous recommandons d'[encourager les utilisateurs à mettre à niveau]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/) leurs applications mobiles avant de lancer des campagnes qui dépendent de versions plus récentes du SDK Braze.
+Les utilisateurs de votre application mobile doivent effectuer la mise à niveau vers les versions du SDK prises en charge pour recevoir un message in-app **Code personnalisé**. Nous vous recommandons d'[encourager les utilisateurs à mettre à niveau]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features) leurs applications mobiles avant de lancer des campagnes qui dépendent de versions plus récentes du SDK Braze.
 
 #### Fichiers de ressources {#asset-files}
 
-Lors de la création de messages in-app avec code personnalisé et téléchargement HTML, vous pouvez télécharger les ressources de la campagne dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) pour les référencer dans votre message.
+Lors de la création de messages in-app avec code personnalisé et téléchargement HTML, vous pouvez télécharger les ressources de la campagne dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) pour les référencer dans votre message.
 
 Les types de fichiers suivants sont pris en charge pour le téléchargement :
 
@@ -141,12 +141,12 @@ Sinon, survolez une ressource de la liste et sélectionnez <i class="fas fa-copy
 Les modifications que vous apportez dans le HTML sont automatiquement rendues dans le panneau de prévisualisation au fur et à mesure que vous tapez. Les méthodes JavaScript [`brazeBridge`](#bridge) que vous utilisez dans votre HTML ne mettront pas à jour les profils utilisateur lors de la prévisualisation dans le tableau de bord.
 
 {% alert tip %}
-Vous pouvez sélectionner <i class="fa-solid fa-magnifying-glass"></i> **Rechercher** dans l'éditeur HTML pour effectuer une recherche dans votre code !
+Vous pouvez sélectionner <i class="fa-solid fa-magnifying-glass" aria-label="Rechercher"></i> **Rechercher** dans l'éditeur HTML pour effectuer une recherche dans votre code !
 {% endalert %}
 
 ### Suivi des boutons {#button-tracking-improvements}
 
-Vous pouvez suivre les performances au sein de votre message in-app avec code personnalisé en utilisant la méthode JavaScript [`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/). Cela vous permet de suivre programmatiquement « Bouton 1 », « Bouton 2 » et « Clics sur le corps » en utilisant respectivement `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')` ou `brazeBridge.logClick()`.
+Vous pouvez suivre les performances au sein de votre message in-app avec code personnalisé en utilisant la méthode JavaScript [`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types). Cela vous permet de suivre programmatiquement « Bouton 1 », « Bouton 2 » et « Clics sur le corps » en utilisant respectivement `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')` ou `brazeBridge.logClick()`.
 
 | Clics | Méthode |
 | ---------- | ---------------------------- |

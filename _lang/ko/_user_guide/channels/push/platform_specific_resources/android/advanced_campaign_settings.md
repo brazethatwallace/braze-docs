@@ -30,7 +30,7 @@ tool:
 
 Android 푸시의 유지 시간을 편집하려면 작성기로 이동하여 **설정** 탭을 선택합니다. **Time to Live** 필드를 찾아 일, 시간 또는 초 단위로 값을 입력합니다.
 
-유지 시간의 기본값은 관리자가 [푸시 설정]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings/) 페이지에서 정의합니다. 기본적으로 Braze는 각 푸시 메시징 서비스의 최대값으로 푸시 TTL을 설정합니다. 기본 TTL 설정은 전역적으로 적용되지만, Campaign 생성 시 메시지 수준에서 재정의할 수 있습니다. 이는 Campaign마다 긴급도나 전달 기간이 다를 때 유용합니다.
+유지 시간의 기본값은 관리자가 [푸시 설정]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings) 페이지에서 정의합니다. 기본적으로 Braze는 각 푸시 메시징 서비스의 최대값으로 푸시 TTL을 설정합니다. 기본 TTL 설정은 전역적으로 적용되지만, Campaign 생성 시 메시지 수준에서 재정의할 수 있습니다. 이는 Campaign마다 긴급도나 전달 기간이 다를 때 유용합니다.
 
 예를 들어, 앱에서 주간 퀴즈 대회를 진행한다고 가정해 보겠습니다. 대회 시작 1시간 전에 푸시 알림을 전송합니다. TTL을 1시간으로 설정하면 대회가 시작된 후 앱을 여는 사용자에게 이미 시작된 이벤트에 대한 알림이 전달되지 않습니다.
 
@@ -64,7 +64,7 @@ Android 푸시의 유지 시간을 편집하려면 작성기로 이동하여 **�
 
 ### 고려 사항 {#considerations}
 
-- **기본 설정**: [푸시 설정]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings/)에서 모든 Android Campaign에 대한 기본 FCM 우선순위를 설정할 수 있습니다. 이 Campaign 수준 설정은 필요한 경우 기본값을 재정의합니다.
+- **기본 설정**: [푸시 설정]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings)에서 모든 Android Campaign에 대한 기본 FCM 우선순위를 설정할 수 있습니다. 이 Campaign 수준 설정은 필요한 경우 기본값을 재정의합니다.
 - **우선순위 하향 조정**: FCM이 앱에서 사용자에게 표시되는 알림이나 사용자 참여로 이어지지 않는 높은 우선순위 메시지를 자주 전송하는 것을 감지하면, 해당 메시지가 자동으로 일반 우선순위로 하향 조정될 수 있습니다.
 - **배터리 영향**: 높은 우선순위 메시지는 절전 모드의 기기를 더 적극적으로 깨우고 더 많은 배터리를 소모합니다. 이 우선순위는 신중하게 사용하세요.
 
@@ -84,7 +84,7 @@ Android 푸시의 유지 시간을 편집하려면 작성기로 이동하여 **�
 
 ## 커스텀 URI {#custom-uris}
 
-**Custom URI** 기능을 사용하면 알림을 클릭했을 때 이동할 웹 URL 또는 Android 리소스를 지정할 수 있습니다. 커스텀 URI를 지정하지 않으면 알림을 클릭했을 때 사용자가 앱으로 이동합니다. 커스텀 URI를 사용하여 앱 내부로 딥링크하거나 앱 외부에 있는 리소스로 사용자를 안내할 수도 있습니다. 이는 [메시징 API]({{site.baseurl}}/api/endpoints/messaging/) 또는 푸시 작성기의 **작성** 탭에서 지정할 수 있습니다.
+**Custom URI** 기능을 사용하면 알림을 클릭했을 때 이동할 웹 URL 또는 Android 리소스를 지정할 수 있습니다. 커스텀 URI를 지정하지 않으면 알림을 클릭했을 때 사용자가 앱으로 이동합니다. 커스텀 URI를 사용하여 앱 내부로 딥링크하거나 앱 외부에 있는 리소스로 사용자를 안내할 수도 있습니다. 이는 [메시징 API]({{site.baseurl}}/api/endpoints/messaging) 또는 푸시 작성기의 **작성** 탭에서 지정할 수 있습니다.
 
 ![커스텀 URI 필드.]({% image_buster /assets/img_archive/deep_link.png %}){: style="max-width:60%;"}
 
@@ -166,7 +166,7 @@ Android O에서는 알림 사운드가 알림 채널의 속성이 되었습니�
 
 Android O 이전 버전을 실행하는 기기의 경우, Braze를 사용하면 대시보드 작성기를 통해 개별 푸시 메시지의 사운드를 설정할 수 있습니다. 기기의 로컬 사운드 리소스를 지정하여 이를 수행할 수 있습니다(예: `android.resource://com.mycompany.myapp/raw/mysound`).
 
-이 필드에서 **Default**를 선택하면 기기의 기본 알림 사운드가 재생됩니다. 이는 [메시징 API]({{site.baseurl}}/api/endpoints/messaging/) 또는 푸시 작성기의 **설정**에서 지정할 수 있습니다.
+이 필드에서 **Default**를 선택하면 기기의 기본 알림 사운드가 재생됩니다. 이는 [메시징 API]({{site.baseurl}}/api/endpoints/messaging) 또는 푸시 작성기의 **설정**에서 지정할 수 있습니다.
 
 ![사운드 필드.]({% image_buster /assets/img_archive/sound_android.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 

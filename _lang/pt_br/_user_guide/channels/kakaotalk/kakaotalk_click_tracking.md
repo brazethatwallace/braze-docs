@@ -51,7 +51,7 @@ Para configurar o rastreamento de cliques para uma mensagem de itens de lista:
 
 ## Domínios personalizados {#custom-domains}
 
-O rastreamento de cliques do KakaoTalk permite que você use seu próprio domínio para personalizar a aparência das suas URLs encurtadas, ajudando a transmitir uma imagem de marca consistente. Para saber mais, consulte [Domínios personalizados]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains/).
+O rastreamento de cliques do KakaoTalk permite que você use seu próprio domínio para personalizar a aparência das suas URLs encurtadas, ajudando a transmitir uma imagem de marca consistente. Para saber mais, consulte [Domínios personalizados]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains).
 
 ## Personalização com Liquid em URLs {#liquid-personalization-in-urls}
 
@@ -88,7 +88,7 @@ Se um rascunho for criado dentro de um Canvas ativo, uma URL encurtada não ser�
 
 ## Relatórios {#reporting}
 
-A tabela de desempenho do KakaoTalk inclui a coluna **Total Clicks** que mostra uma contagem de eventos de clique por variante e uma taxa de cliques associada. Para mais detalhes sobre métricas do KakaoTalk, consulte [Relatórios do KakaoTalk]({{site.baseurl}}/kakaotalk_reporting/).
+A tabela de desempenho do KakaoTalk inclui a coluna **Total Clicks** que mostra uma contagem de eventos de clique por variante e uma taxa de cliques associada. Para mais detalhes sobre métricas do KakaoTalk, consulte [Relatórios do KakaoTalk]({{site.baseurl}}/kakaotalk_reporting).
 
 Os dados de cliques serão reportados automaticamente no dashboard de análise de dados.
 

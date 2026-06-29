@@ -51,7 +51,7 @@ So richten Sie das Klick-Tracking für eine Listenelementnachricht ein:
 
 ## Benutzerdefinierte Domains {#custom-domains}
 
-Das KakaoTalk-Klick-Tracking ermöglicht es Ihnen, Ihre eigene Domain zu verwenden, um das Erscheinungsbild Ihrer gekürzten URLs zu personalisieren und so ein einheitliches Markenbild zu vermitteln. Weitere Informationen finden Sie unter [Benutzerdefinierte Domains]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains/).
+Das KakaoTalk-Klick-Tracking ermöglicht es Ihnen, Ihre eigene Domain zu verwenden, um das Erscheinungsbild Ihrer gekürzten URLs zu personalisieren und so ein einheitliches Markenbild zu vermitteln. Weitere Informationen finden Sie unter [Benutzerdefinierte Domains]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains).
 
 ## Liquid-Personalisierung in URLs {#liquid-personalization-in-urls}
 
@@ -86,9 +86,9 @@ Die Vorschau wird mit der relevanten Personalisierung und der gekürzten URL akt
 Wenn ein Entwurf innerhalb eines aktiven Canvas erstellt wird, wird keine gekürzte URL generiert. Die tatsächliche gekürzte URL wird generiert, wenn der Canvas-Entwurf aktiviert wird.
 {% endalert %}
 
-## Reporting
+## Reporting {#reporting}
 
-Die KakaoTalk-Performance-Tabelle enthält die Spalte **Total Clicks**, die eine Anzahl der Klick-Ereignisse pro Variante und eine zugehörige Klickrate anzeigt. Weitere Details zu KakaoTalk-Metriken finden Sie unter [KakaoTalk-Reporting]({{site.baseurl}}/kakaotalk_reporting/).
+Die KakaoTalk-Performance-Tabelle enthält die Spalte **Total Clicks**, die eine Anzahl der Klick-Ereignisse pro Variante und eine zugehörige Klickrate anzeigt. Weitere Details zu KakaoTalk-Metriken finden Sie unter [KakaoTalk-Reporting]({{site.baseurl}}/kakaotalk_reporting).
 
 Klickdaten werden automatisch im Analytics-Dashboard angezeigt.
 

@@ -26,9 +26,9 @@ channel:
 
 | 방법 | 설명 |
 |--------|-------------|
-| 세그먼터 | 세그먼터는 특정 [구독 그룹]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#subscription-group)에 속한 사용자 수를 표시합니다. 전화번호 기준으로 중복을 제거하지 않으므로, 여러 사용자가 동일한 전화번호를 공유하는 경우 각 인스턴스가 별도로 집계됩니다. |
+| 세그먼터 | 세그먼터는 특정 [구독 그룹]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#subscription-group)에 속한 사용자 수를 표시합니다. 전화번호 기준으로 중복을 제거하지 않으므로, 여러 사용자가 동일한 전화번호를 공유하는 경우 각 인스턴스가 별도로 집계됩니다. |
 | 구독 그룹 시계열 | 이메일 및 전화번호에 대한 구독의 일별 스냅샷을 제공합니다. 시계열은 구독, 구독 취소, 재구독을 집계합니다. 예를 들어, 사용자가 구독한 후 구독을 취소하고 다시 구독하면 구독 사용자 1명으로 집계됩니다. |
-| Currents | Currents를 사용하여 자체 보고서를 위한 [구독 및 참여 이벤트]({{site.baseurl}}/message_events_glossary/)를 내보낼 수 있습니다. |
+| Currents | Currents를 사용하여 자체 보고서를 위한 [구독 및 참여 이벤트]({{site.baseurl}}/message_events_glossary)를 내보낼 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SMS 옵트인 및 옵트아웃 추적" }
 
 {% alert note %}
@@ -37,7 +37,7 @@ channel:
 
 ### SMS 캠페인 옵트아웃 추적 {#track-sms-campaign-opt-outs}
 
-구독 그룹 상태 변경 테이블 대신 인바운드 수신 테이블을 사용하여 캠페인 수준에서 SMS 옵트아웃을 추적할 수 있습니다. 예를 들어, [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/query_builder/) 또는 데이터 웨어하우스에서 `USERS_MESSAGES_SMS_INBOUNDRECEIVE` 또는 [`USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED`]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED) 테이블을 참조하는 쿼리를 실행할 수 있습니다.
+구독 그룹 상태 변경 테이블 대신 인바운드 수신 테이블을 사용하여 캠페인 수준에서 SMS 옵트아웃을 추적할 수 있습니다. 예를 들어, [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/query_builder)나 데이터 웨어하우스에서 `USERS_MESSAGES_SMS_INBOUNDRECEIVE` 또는 [`USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED`]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED) 테이블을 참조하는 쿼리를 실행할 수 있습니다.
 
 이 예시 쿼리는 `USERS_MESSAGES_SMS_INBOUNDRECEIVE` 테이블을 참조합니다:
 
@@ -54,13 +54,13 @@ AND (campaign_id IS NOT NULL OR canvas_id IS NOT NULL);
 
 ### 옵트아웃 타이밍 {#opt-out-timing}
 
-Currents 또는 데이터 웨어하우스의 키워드 및 인바운드 메시지 이벤트(예: [`users.messages.sms.InboundReceive`]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-inbound-received-events)의 타임스탬프 또는 구독 그룹 상태 변경 이벤트)는 Braze가 옵트아웃을 기록한 시점에 대한 신뢰할 수 있는 소스입니다.
+Currents 또는 데이터 웨어하우스의 키워드 및 인바운드 메시지 이벤트(예: [`users.messages.sms.InboundReceive`]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events)의 타임스탬프 또는 구독 그룹 상태 변경 이벤트)는 Braze가 옵트아웃을 기록한 시점에 대한 신뢰할 수 있는 소스입니다.
 
 {% alert note %}
 이벤트 타임스탬프는 Braze가 인바운드 메시지를 수신하거나 처리한 시점을 반영하며, 사용자가 SMS를 발송한 시점이나 통신사 또는 SMS 제공업체가 수신한 시점과 반드시 일치하지는 않습니다. 분석에서 옵트아웃을 Braze가 인바운드 옵트아웃 경로를 처리한 시점으로 간주하는 경우, 이 타임스탬프가 해당 정의와 일치합니다.
 {% endalert %}
 
-고객 프로필에는 현재 구독 상태가 표시되지만, 옵트아웃 처리 시 [커스텀 속성]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/) 또는 유사한 항목을 설정하지 않는 한 단일 "SMS 구독 취소 시점" 필드가 표시되지 않을 수 있습니다.
+고객 프로필에는 현재 구독 상태가 표시되지만, 옵트아웃 처리 시 [커스텀 속성]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes)이나 유사한 항목을 설정하지 않는 한 단일 "SMS 구독 취소 시점" 필드가 표시되지 않을 수 있습니다.
 
 ## SMS 발송 결과에 적용되는 요금 {#charges-applied-to-sms-sending-outcomes}
 
@@ -77,4 +77,4 @@ Currents 또는 데이터 웨어하우스의 키워드 및 인바운드 메시�
 
 ## Snowflake 또는 Currents와 *거부* 데이터 대조 {#reconcile-rejections-with-snowflake-or-currents}
 
-대시보드의 *거부* 측정기준은 워크스페이스 수준의 집계 수치입니다. 행 수준의 내보내기가 아니므로, 각 거부를 Snowflake의 단일 행이나 Currents의 단일 `users.messages.sms.Rejection` 이벤트와 항상 일치시킬 수 있는 것은 아닙니다. 예를 들어, Braze가 웨어하우스 내보내기를 위한 거부 처리를 완료하기 전에 고객 프로필이 삭제된 경우, 해당 거부는 `USERS_MESSAGES_SMS_REJECTION_SHARED` 테이블이나 Currents 페이로드에 나타나지 않지만, 집계 SMS 보고서에는 해당 결과가 여전히 반영될 수 있습니다. 자세한 내용은 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#sms-message-events-and-deleted-user-profiles) 및 Currents 이벤트 용어집의 [SMS 거부 이벤트]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-rejection-events)를 참조하세요.
+대시보드의 *거부* 측정기준은 워크스페이스 수준의 집계 수치입니다. 행 수준의 내보내기가 아니므로, 각 거부를 Snowflake의 단일 행이나 Currents의 단일 `users.messages.sms.Rejection` 이벤트와 항상 일치시킬 수 있는 것은 아닙니다. 예를 들어, Braze가 웨어하우스 내보내기를 위한 거부 처리를 완료하기 전에 고객 프로필이 삭제된 경우, 해당 거부는 `USERS_MESSAGES_SMS_REJECTION_SHARED` 테이블이나 Currents 페이로드에 나타나지 않지만, 집계 SMS 보고서에는 해당 결과가 여전히 반영될 수 있습니다. 자세한 내용은 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#sms-message-events-and-deleted-user-profiles) 및 Currents 이벤트 용어집의 [SMS 거부 이벤트]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-rejection-events)를 참조하세요.

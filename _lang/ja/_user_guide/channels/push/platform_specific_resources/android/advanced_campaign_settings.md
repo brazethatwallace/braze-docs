@@ -30,7 +30,7 @@ tool:
 
 Androidプッシュの有効期間を編集するには、コンポーザーに移動して**Settings**タブを選択します。**Time to Live**フィールドを見つけ、日、時間、または秒で値を入力します。
 
-有効期間のデフォルト値は、管理者が[プッシュ設定]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings/)ページで定義します。デフォルトでは、Brazeは各プッシュメッセージングサービスの最大値にプッシュTTLを設定します。デフォルトのTTL設定はグローバルに適用されますが、Campaign作成時にメッセージレベルで上書きできます。これは、Campaignごとに緊急度や配信時間枠が異なる場合に便利です。
+有効期間のデフォルト値は、管理者が[プッシュ設定]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings)ページで定義します。デフォルトでは、Brazeは各プッシュメッセージングサービスの最大値にプッシュTTLを設定します。デフォルトのTTL設定はグローバルに適用されますが、Campaign作成時にメッセージレベルで上書きできます。これは、Campaignごとに緊急度や配信時間枠が異なる場合に便利です。
 
 例えば、アプリで毎週トリビアコンテストを開催しているとします。開始1時間前にプッシュ通知を送信します。TTLを1時間に設定すると、コンテスト開始後にアプリを開いたユーザーは、すでに始まっているイベントに関する通知を受け取らなくなります。
 
@@ -64,7 +64,7 @@ Androidプッシュの有効期間を編集するには、コンポーザーに�
 
 ### 考慮事項 {#considerations}
 
-- **デフォルト設定**：[プッシュ設定]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings/)で、すべてのAndroid CampaignsのデフォルトのFCM優先度を設定できます。このCampaignレベルの設定は、必要に応じてデフォルトを上書きします。
+- **デフォルト設定**：[プッシュ設定]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings)で、すべてのAndroid CampaignsのデフォルトのFCM優先度を設定できます。このCampaignレベルの設定は、必要に応じてデフォルトを上書きします。
 - **優先度の引き下げ**：FCMが、アプリがユーザーに表示される通知やユーザーエンゲージメントにつながらない高優先度メッセージを頻繁に送信していることを検出した場合、それらのメッセージは自動的に通常の優先度に引き下げられる可能性があります。
 - **バッテリーへの影響**：高優先度メッセージはスリープ中のデバイスをより積極的に起動し、バッテリーをより多く消費します。この優先度は慎重に使用してください。
 
@@ -84,7 +84,7 @@ Androidプッシュの有効期間を編集するには、コンポーザーに�
 
 ## カスタムURI {#custom-uris}
 
-**Custom URI**機能では、通知がクリックされたときに移動するWeb URLまたはAndroidリソースを指定できます。カスタムURIが指定されていない場合、通知をクリックするとユーザーはアプリに移動します。カスタムURIを使用して、アプリ内へのディープリンクや、アプリ外のリソースへのユーザー誘導も可能です。これは[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging/)またはプッシュコンポーザーの**Compose**タブで指定できます。
+**Custom URI**機能では、通知がクリックされたときに移動するWeb URLまたはAndroidリソースを指定できます。カスタムURIが指定されていない場合、通知をクリックするとユーザーはアプリに移動します。カスタムURIを使用して、アプリ内へのディープリンクや、アプリ外のリソースへのユーザー誘導も可能です。これは[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging)またはプッシュコンポーザーの**Compose**タブで指定できます。
 
 ![カスタムURIフィールド。]({% image_buster /assets/img_archive/deep_link.png %}){: style="max-width:60%;"}
 
@@ -166,7 +166,7 @@ Android Oでは、通知サウンドは通知チャネルのプロパティに�
 
 Android Oより前のバージョンのAndroidを実行しているデバイスの場合、Brazeではダッシュボードコンポーザーを通じて個別のプッシュメッセージのサウンドを設定できます。デバイス上のローカルサウンドリソースを指定することで設定できます（例：`android.resource://com.mycompany.myapp/raw/mysound`）。
 
-このフィールドで**Default**を選択すると、デバイスのデフォルト通知サウンドが再生されます。これは[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging/)またはプッシュコンポーザーの**Settings**で指定できます。
+このフィールドで**Default**を選択すると、デバイスのデフォルト通知サウンドが再生されます。これは[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging)またはプッシュコンポーザーの**Settings**で指定できます。
 
 ![「サウンド」フィールド。]({% image_buster /assets/img_archive/sound_android.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 

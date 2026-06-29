@@ -5,7 +5,7 @@ page_order: 1
 description: "このリファレンス記事では、最適化配信によるWhatsAppメッセージの構築と作成に関するステップについて説明します。"
 page_type: reference
 tool:
-  - キャンペーン
+  - Campaigns
 channel:
   - WhatsApp
 ---
@@ -18,14 +18,14 @@ channel:
 
 ブランドは、Cloud APIと比較して、WhatsApp向けMM APIで同等以上の配信性を期待できます。Metaによると、インドでは高エンゲージメントのマーケティングメッセージがCloud APIと比較して最大9%多く配信されました。なお、WhatsApp向けMM APIでも100%の配信性は保証されません。
 
-### 地域別の利用可能性 {#regional-availability}
+## 地域別の利用可能性 {#regional-availability}
 
 最適化配信の利用可能性と最適化機能は、ビジネス電話番号とユーザーの地域によって異なります。詳しくは、[機能の地理的な利用可能性](https://developers.facebook.com/docs/whatsapp/marketing-messages-lite-api/get-started#geographic-availability-of-features)を参照してください。
 
 ## 最適化配信の設定 {#setting-up-optimized-delivery}
 
 1. Brazeで、**パートナー連携** > **テクノロジーパートナー** > **WhatsApp**に移動します。
-2. **最適化配信で送信を最適化する**セクションで、**設定をアップグレード**を選択して[埋め込みサインアップワークフロー]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/)をトリガーします。
+2. **最適化配信で送信を最適化する**セクションで、**設定をアップグレード**を選択して[埋め込みサインアップワークフロー]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup)をトリガーします。
 
 ![最適化配信で送信を最適化するオプションがあるWhatsAppメッセージ統合セクション。]({% image_buster /assets/img/whatsapp/whatsapp_messaging_integration.png %})
 
@@ -38,16 +38,16 @@ channel:
 
 ### 設定のトラブルシューティング {#troubleshooting-your-setup}
 
-- **一般的なエラー:** アップグレード中に問題が発生した場合、このエラーバナーが表示され、[サポートに連絡する]({{site.baseurl}}/braze_support/)ことを推奨します。
+- **一般的なエラー:** アップグレード中に問題が発生した場合、このエラーバナーが表示され、[サポートに連絡する]({{site.baseurl}}/braze_support)ことを推奨します。
 - **不適格エラー:** Metaによって制限されている場合、次のエラーバナーが表示されます：「少なくとも1つのWhatsAppビジネスアカウントがMetaによって制限されています。アップグレードするには、アカウントが良好な状態である必要があります。」この問題が解決されるまで、このバナーは閉じることができません。
 
-## キャンペーンおよびキャンバスでの最適化配信の使用 {#using-optimized-delivery-in-campaigns-and-canvases}
+## CampaignsおよびCanvasesでの最適化配信の使用 {#using-optimized-delivery-in-campaigns-and-canvases}
 
 最適化配信は**マーケティングメッセージ**に使用してください。Brazeは**ユーティリティ、認証、サービス、および応答メッセージ**の最適化配信オプションを自動的に削除します。これらのメッセージは、デフォルト設定であるCloud APIを通じて引き続き送信されます。
 
 ### 配信方法の選択 {#selecting-the-delivery-method}
 
-1. キャンペーンまたはキャンバスメッセージステップのBraze WhatsApp作成画面で、**設定**タブに移動します。
+1. CampaignまたはCanvasメッセージステップのBraze WhatsApp作成画面で、**設定**タブに移動します。
 2. **配信方法**セクションで、WhatsAppビジネスアカウント（WABA）が有効になっている場合、**最適化配信（推奨）**のチェックボックスがデフォルトでオンになっています。特定のメッセージに最適化配信を使用しない場合は、チェックボックスをオフにしてください。
 - 最適化配信を選択しても利用できない場合、メッセージは自動的にCloud API方式にフォールバックします。
 
@@ -57,7 +57,7 @@ channel:
 
 WhatsApp向けMM APIは100%の配信性を提供しないため、メッセージを受信しなかった可能性のあるユーザーを他のチャネルでリターゲティングする方法を理解することが重要です。
 
-ユーザーをリターゲティングするには、特定のメッセージを受信しなかったユーザーのセグメントを構築することをお勧めします。これを行うには、エラーコード`131049`でフィルタリングします。このコードは、WhatsAppのユーザーごとのマーケティングテンプレート制限の適用により、マーケティングテンプレートメッセージが送信されなかったことを示します。これは、Braze CurrentsまたはSQLセグメントエクステンションを使用して行うことができます：
+ユーザーをリターゲティングするには、特定のメッセージを受信しなかったユーザーのSegmentを構築することをお勧めします。これを行うには、エラーコード`131049`でフィルタリングします。このコードは、WhatsAppのユーザーごとのマーケティングテンプレート制限の適用により、マーケティングテンプレートメッセージが送信されなかったことを示します。これは、Braze CurrentsまたはSQLセグメントエクステンションを使用して行うことができます：
 
-- **Braze Currents:** Braze Currentsを使用してメッセージ失敗イベントをエクスポートします。その後、このデータを使用してユーザープロファイルのカスタム属性（`whatsapp_failed_last_msg: true`など）を更新し、リターゲティングキャンペーンのフィルターとして使用できます。
-- **SQLセグメントエクステンション:** この機能にアクセスできる場合、SQLを使用してメッセージ失敗ログをクエリし、それらのユーザーのセグメントを作成してから、別のチャネルでそのセグメントをターゲットにすることができます。
+- **Braze Currents:** Braze Currentsを使用してメッセージ失敗イベントをエクスポートします。その後、このデータを使用してユーザープロファイルのカスタム属性（`whatsapp_failed_last_msg: true`など）を更新し、リターゲティングCampaignのフィルターとして使用できます。
+- **SQLセグメントエクステンション:** この機能にアクセスできる場合、SQLを使用してメッセージ失敗ログをクエリし、それらのユーザーのSegmentを作成してから、別のチャネルでそのSegmentをターゲットにすることができます。

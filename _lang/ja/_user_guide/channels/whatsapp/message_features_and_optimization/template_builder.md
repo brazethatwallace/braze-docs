@@ -33,14 +33,14 @@ channel:
 | **アカウント** | テンプレートを送信するWhatsApp Business Account（WABA）。WABA内のすべてのサブスクリプショングループと電話番号がテンプレートアクセスを共有します。 |
 | **言語** | このテンプレートの言語。WhatsAppでは言語ごとに個別のテンプレートが必要です。 |
 | **テンプレート名** | テンプレートのユニークな名前。テンプレート名には小文字、数字、アンダースコアのみ使用できます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure template settings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 2:テンプレート設定を構成する" }
 
 ### ステップ 3:レイアウトを選択する {#step-3-choose-a-layout}
 
 **レイアウト**で、テンプレートタイプを選択します。
 
 - **デフォルト:** 標準のWhatsAppメッセージ。この記事で説明するレイアウトです。
-- **カルーセル:** 水平にスクロール可能なカードを含むメッセージ。詳細については、[カルーセルテンプレート]({{site.baseurl}}/whatsapp_carousel_templates/)を参照してください。
+- **カルーセル:** 水平にスクロール可能なカードを含むメッセージ。詳細については、[カルーセルテンプレート]({{site.baseurl}}/whatsapp_carousel_templates)を参照してください。
 
 ### ステップ 4:テンプレートを構築する {#step-4-build-your-template}
 
@@ -77,7 +77,7 @@ channel:
 | 電話番号 | コールトゥアクションボタン | {::nomarkdown}<ul><li><b>最大数:</b> 1</li><li><b>ボタンテキスト:</b> 最大25文字</li><li><b>電話番号:</b> +を含まない国コード付きの有効な電話番号（例:「14155552671」）</li></ul> {:/}|
 | Webサイトにアクセス | コールトゥアクションボタン | {::nomarkdown}<ul><li><b>最大数:</b> 2</li><li><b>ボタンテキスト:</b> 最大25文字</li><li><b>WebサイトURL:</b> 最大2,000文字</li></ul> {:/}|
 | オファーコードをコピー | コールトゥアクションボタン | {::nomarkdown}<ul><li><b>最大数:</b> 1</li><li><b>ボタンテキスト:</b>「Copy offer code」（編集不可）</li><li><b>オファーコード:</b> 最大15文字</li></ul> {:/}|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Buttons (optional)" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ボタン（オプション）" }
 
 ![クイック返信ボタンとコールトゥアクションボタンを含むWhatsAppテンプレート作成画面。]({% image_buster /assets/img/whatsapp/templates/buttons.png %})
 
@@ -106,22 +106,22 @@ Metaがテンプレートを承認した後、WhatsApp CampaignまたはCanvas�
 4. 必要に応じて変数コンテンツやパーソナライゼーションを更新します。Metaによってロックされたフィールド（グレーで表示）は編集できません。ロックされたコンテンツを変更するには、テンプレートを編集して承認のために再送信する必要があります。
 5. **テスト**タブを使用してメッセージをプレビューし、本文変数を更新し、起動前にメッセージが期待どおりに表示されることを確認します。
 
-WhatsApp Campaignの構築の詳細については、[WhatsAppメッセージを作成する]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)を参照してください。
+WhatsApp Campaignの構築の詳細については、[WhatsAppメッセージを作成する]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message)を参照してください。
 
 ## よくある質問 {#frequently-asked-questions}
 
-### Metaのテンプレートレビューにはどのくらい時間がかかりますか？ {#how-long-does-meta-template-review-take}
+### Metaのテンプレートレビューにはどのくらい時間がかかりますか {#how-long-does-meta-template-review-take}
 
 レビューは通常5分以内に完了しますが、最大24時間かかる場合があります。
 
-### 承認後にテンプレートを編集できますか？ {#can-i-edit-a-template-after-its-been-approved}
+### 承認後にテンプレートを編集できますか {#can-i-edit-a-template-after-its-been-approved}
 
 ロックされたコンテンツ（本文コピーやその他のMeta管理フィールド）を変更するには、テンプレートを承認のために再送信する必要があり、WhatsApp Business Managerから行う必要があります。CampaignまたはCanvasを構築する際に、コンテンツとパーソナライゼーションを更新できます。
 
-### テンプレートビルダーが利用可能になる前に送信したテンプレートはどうなりますか？ {#what-happens-to-templates-i-submitted-before-the-template-builder-was-available}
+### テンプレートビルダーが利用可能になる前に送信したテンプレートはどうなりますか {#what-happens-to-templates-i-submitted-before-the-template-builder-was-available}
 
 Meta Business Managerで作成されたテンプレートは、引き続きBrazeで使用できます。テンプレートビルダーは、Brazeダッシュボードを離れることなくテンプレートを作成・管理するための追加の方法です。
 
-### すべてのフィールドにパーソナライゼーションを追加できないのはなぜですか？ {#why-cant-i-add-personalization-to-every-field}
+### すべてのフィールドにパーソナライゼーションを追加できないのはなぜですか {#why-cant-i-add-personalization-to-every-field}
 
 Metaはテンプレートのどの部分をパーソナライズできるかを制限しています。**+** プラスボタンは、変数コンテンツをサポートするフィールドにのみ表示されます。

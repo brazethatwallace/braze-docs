@@ -23,7 +23,7 @@ BrazeでプッシュCampaignまたはCanvasを作成する際、複数のプラ�
 
 複数のプラットフォームとデバイスをターゲットにするCampaignを作成するには：
 
-1. Campaignを作成するか、Canvasに[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)を追加します。
+1. Campaignを作成するか、Canvasに[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)を追加します。
 2. **プッシュ通知**を選択します。
 3. 希望するプラットフォーム（モバイル、Web、Kindle）とモバイルデバイス（iOS、Android）を選択します。複数のデバイスを選択した場合、Campaignで多変量テストは利用できません。
 
@@ -39,7 +39,7 @@ BrazeでプッシュCampaignまたはCanvasを作成する際、複数のプラ�
 
 ## マルチプラットフォーム多変量テストの実行 {#running-a-multi-platform-multivariate-test}
 
-多変量テストはマルチプラットフォームCampaignでサポートされています。単一プラットフォームのCampaignと同様に、バリアント名の横にあるプラスアイコンを選択するだけです。多変量テストの作成については[ガイドをお読みください]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/)。また、[BrazeAI<sup>TM</sup>バリアント選択]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/)を活用して、エンゲージメントを自動化し最大化することをお勧めします。
+多変量テストはマルチプラットフォームCampaignでサポートされています。単一プラットフォームのCampaignと同様に、バリアント名の横にあるプラスアイコンを選択するだけです。多変量テストの作成については[ガイドをお読みください]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests)。また、[BrazeAI<sup>TM</sup>バリアント選択]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection)を活用して、エンゲージメントを自動化し最大化することをお勧めします。
 
 ![簡単なマルチプラットフォーム多変量テスト]({% image_buster /assets/img_archive/push_multiple_platform_message_composer_multivariate.png %})
 
@@ -53,7 +53,7 @@ BrazeでプッシュCampaignまたはCanvasを作成する際、複数のプラ�
 ![iOS、Android、Webの3つのプッシュタイプに対して、1つのタイトル、メッセージ、クリック時の動作フィールドを持つ単一編集ビュー。]({% image_buster /assets/img_archive/push_multiple_platform_message_composer.png %})
 
 ### 個別のアセット {#separate-assets}
-**アセット**セクションでは、各プラットフォームに表示する画像を選択またはアップロードします。デバイスによって画像や文字数の仕様が異なることに注意してください。詳しくは[プッシュメッセージと画像のフォーマット]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/)を参照してください。
+**アセット**セクションでは、各プラットフォームに表示する画像を選択またはアップロードします。デバイスによって画像や文字数の仕様が異なることに注意してください。詳しくは[プッシュメッセージと画像のフォーマット]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats)を参照してください。
 
 ![プッシュアイコン画像、iOS通知画像、Android通知画像、Web通知画像のフィールドを持つ単一編集ビューのアセットセクション。]({% image_buster /assets/img_archive/push_multiple_platform_message_composer_assets.png %}){:style="max-width:50%"}
 
@@ -63,12 +63,12 @@ BrazeでプッシュCampaignまたはCanvasを作成する際、複数のプラ�
 
 ### デバイス固有の設定 {#device-specific-settings}
 
-エディターでプラットフォーム固有の設定を編集できます。これには、[プッシュアクションボタン]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/)、通知チャネルとグループ、TTL、表示優先度、サウンドなどの設定が含まれます。
+エディターでプラットフォーム固有の設定を編集できます。これには、[プッシュアクションボタン]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons)、通知チャネルとグループ、TTL、表示優先度、サウンドなどの設定が含まれます。
 
 デバイス固有の設定の詳細については、以下の記事コレクションを参照してください。
 
-- [iOSオプション]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/)
-- [Androidオプション]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/)
+- [iOSオプション]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios)
+- [Androidオプション]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android)
 
 ### Push Stories
 

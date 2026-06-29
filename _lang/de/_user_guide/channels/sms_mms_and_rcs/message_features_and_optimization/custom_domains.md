@@ -64,7 +64,7 @@ Nachdem Ihre Domain verifiziert wurde, erscheinen Ihre Custom Domains in der Tab
 
 ![Liste von Custom Domains und Status.]({% image_buster /assets/img/custom_domain_statuses.png %}){: style="max-width:60%;"}
 
-Live-Monitoring warnt Sie im Braze-Dashboard, wenn eine Ihrer aktiven Domains ein Problem hat, damit Ihre angepassten Links nutzbar bleiben. Wenn Sie auf Probleme stoßen, lesen Sie die In-App-Fehlerdetails oder kontaktieren Sie den Braze-[Support]({{site.baseurl}}/braze_support/) für Unterstützung.
+Live-Monitoring warnt Sie im Braze-Dashboard, wenn eine Ihrer aktiven Domains ein Problem hat, damit Ihre angepassten Links nutzbar bleiben. Wenn Sie auf Probleme stoßen, lesen Sie die In-App-Fehlerdetails oder kontaktieren Sie den Braze-[Support]({{site.baseurl}}/braze_support) für Unterstützung.
 
 ## Zuweisen von Custom Domains zu Abo-Gruppen {#assigning-custom-domains-to-subscription-groups}
 
@@ -106,4 +106,4 @@ Ja. Nachdem eine Custom Domain verifiziert wurde, kann sie in allen SMS-, RCS- u
 
 ### Was ist, wenn ich Fragen habe oder weiteren Support benötige? {#what-if-i-have-questions-or-need-further-support}
 
-Für detailliertere Anleitungen zur Einrichtung und Verwaltung von Custom Domains, einschließlich Fehlerbehebungsschritten und technischen Anforderungen, [kontaktieren Sie den Support]({{site.baseurl}}/braze_support/).
+Für detailliertere Anleitungen zur Einrichtung und Verwaltung von Custom Domains, einschließlich Fehlerbehebungsschritten und technischen Anforderungen, [kontaktieren Sie den Support]({{site.baseurl}}/braze_support).

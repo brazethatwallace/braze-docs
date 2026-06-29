@@ -14,7 +14,7 @@ channel:
 
 ## プッシュ通知が遅延することがあるのはなぜですか？ {#why-are-push-notifications-sometimes-delayed}
 
-配信は通常、3つの段階を経ます。Brazeの**処理**（セグメンテーション、スケジューリング、プロバイダーへの引き渡し）、Brazeから**APNsまたはFCM**への転送、プロバイダーから**デバイス**への配信です。遅延はどの段階でも発生する可能性があります。Brazeはプロバイダーやデバイスのキューを可視化できません。デバイス側のタイミングを絞り込む必要がある場合は、クライアントで[詳細ログ]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/)を使用してください。
+配信は通常、3つの段階を経ます。Brazeの**処理**（セグメンテーション、スケジューリング、プロバイダーへの引き渡し）、Brazeから**APNsまたはFCM**への転送、プロバイダーから**デバイス**への配信です。遅延はどの段階でも発生する可能性があります。Brazeはプロバイダーやデバイスのキューを可視化できません。デバイス側のタイミングを絞り込む必要がある場合は、クライアントで[詳細ログ]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs)を使用してください。
 
 ## 1つのデバイスに複数のユーザーがログインするとどうなりますか？ {#what-happens-when-multiple-users-log-into-a-single-device}
 
@@ -28,13 +28,13 @@ channel:
 
 はい。テストプッシュは、選択したユーザープロファイルに関連付けられたプッシュ有効なすべてのデバイスに送信されます。同じユーザーで複数のスマートフォンやタブレットにログインしている場合、有効なプッシュトークンを持つ各デバイスが通知を受信します。
 
-テストプッシュを1つのデバイスにのみ送信するには、テスト前にユーザープロファイルから他のデバイスのプッシュトークンを削除します。または、[`/messages/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)で送信する場合は、`apple_push`または`android_push`オブジェクトで`send_to_most_recent_device_only`を`true`に設定すると、最も最近アクティブだったデバイスのみがプッシュを受信します。
+テストプッシュを1つのデバイスにのみ送信するには、テスト前にユーザープロファイルから他のデバイスのプッシュトークンを削除します。または、[`/messages/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)で送信する場合は、`apple_push`または`android_push`オブジェクトで`send_to_most_recent_device_only`を`true`に設定すると、最も最近アクティブだったデバイスのみがプッシュを受信します。
 
 ## 「ペイロードが無効なためプッシュの送信エラー」とはどういう意味ですか？ {#what-does-error-sending-push-because-the-payload-was-invalid-mean}
 
 このメッセージは、無効なペイロード（例：空のペイロードやサイズが大きすぎるペイロード）が原因で、APNsがプッシュリクエストを拒否したことを示しています。
 
-詳細と次のステップについては、[一般的なプッシュエラーメッセージ]({{site.baseurl}}/user_guide/channels/push/push_error_codes/)を参照してください。
+詳細と次のステップについては、[一般的なプッシュエラーメッセージ]({{site.baseurl}}/user_guide/channels/push/push_error_codes)を参照してください。
 
 ## オプトインしたユーザーにプッシュトークンがないのはなぜですか？ {#why-doesnt-an-opted-in-user-have-a-push-token}
 
@@ -72,10 +72,10 @@ BrazeでAppleプッシュ証明書を追加する際、**Send to Production**と
 | フィルター | チェック内容 | ユースケース |
 |--------|---------------|----------|
 | **Foreground Push Enabled** | ユーザーが有効なフォアグラウンドプッシュトークンを持ち、**かつ**プッシュサブスクリプション状態が`Opted-In`または`Subscribed`である。 | 可視プッシュ通知を受信できるユーザーをターゲットにします。 |
-| **Background or Foreground Push Enabled** | ユーザーがいずれかのプッシュトークン（フォアグラウンドまたはバックグラウンド）を持ち、**かつ**プッシュサブスクリプション状態が`Opted-In`または`Subscribed`である。これには、可視プッシュ通知を無効にしているがバックグラウンドプッシュトークンを保持しているユーザーも含まれます。 | [アンインストール追跡]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/)、[サイレントプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/silent/)、およびジオフェンシングに使用されます。 |
+| **Background or Foreground Push Enabled** | ユーザーがいずれかのプッシュトークン（フォアグラウンドまたはバックグラウンド）を持ち、**かつ**プッシュサブスクリプション状態が`Opted-In`または`Subscribed`である。これには、可視プッシュ通知を無効にしているがバックグラウンドプッシュトークンを保持しているユーザーも含まれます。 | [アンインストール追跡]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking)、[サイレントプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/silent)、およびジオフェンシングに使用されます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="「Foreground Push Enabled」フィルターと「Background or Foreground Push Enabled」フィルターの違い" }
 
-ユーザーは`Foreground Push Enabled`でなくても`Background or Foreground Push Enabled`になることがあります。これは、ユーザーがデバイス設定で可視プッシュ通知を無効にしているが、アプリがバックグラウンドプッシュトークンを保持している場合に発生します。詳細については、[プッシュユーザーとサブスクリプション]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#foreground-push-enabled)を参照してください。
+ユーザーは`Foreground Push Enabled`でなくても`Background or Foreground Push Enabled`になることがあります。これは、ユーザーがデバイス設定で可視プッシュ通知を無効にしているが、アプリがバックグラウンドプッシュトークンを保持している場合に発生します。詳細については、[プッシュユーザーとサブスクリプション]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#foreground-push-enabled)を参照してください。
 
 ## Brazeはプッシュメッセージがいつ正常に送信されたかをどのように判断しますか？ {#how-does-braze-determine-when-a-push-message-is-sent-successfully}
 

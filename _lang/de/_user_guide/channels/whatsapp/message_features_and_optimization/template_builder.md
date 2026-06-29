@@ -20,7 +20,7 @@ channel:
 
 ### 1. Schritt: WhatsApp-Templates aufrufen {#step-1-go-to-whatsapp-templates}
 
-Gehen Sie zu **Content** > **WhatsApp** und wählen Sie **Create new template**.
+Gehen Sie zu **Inhalt** > **WhatsApp** und wählen Sie **Neues Template erstellen**.
 
 ![WhatsApp-Templates-Seite mit Button zum Erstellen eines neuen Templates.]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 
@@ -30,17 +30,17 @@ Füllen Sie die folgenden Felder aus:
 
 | Feld | Beschreibung |
 | ----- | ----- |
-| **Account** | Das WhatsApp Business Account (WABA), bei dem Sie das Template einreichen möchten. Alle Abo-Gruppen und Telefonnummern innerhalb eines WABA teilen sich den Template-Zugriff. |
-| **Language** | Die Sprache für dieses Template. WhatsApp erfordert ein separates Template für jede Sprache. |
-| **Template name** | Ein eindeutiger Name für Ihr Template. Template-Namen dürfen nur Kleinbuchstaben, Zahlen und Unterstriche enthalten. |
+| **Konto** | Das WhatsApp Business Account (WABA), bei dem Sie das Template einreichen möchten. Alle Abo-Gruppen und Telefonnummern innerhalb eines WABA teilen sich den Template-Zugriff. |
+| **Sprache** | Die Sprache für dieses Template. WhatsApp erfordert ein separates Template für jede Sprache. |
+| **Template-Name** | Ein eindeutiger Name für Ihr Template. Template-Namen dürfen nur Kleinbuchstaben, Zahlen und Unterstriche enthalten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Template-Einstellungen konfigurieren" }
 
 ### 3. Schritt: Layout auswählen {#step-3-choose-a-layout}
 
 Wählen Sie unter **Layout** den Template-Typ:
 
-- **Default:** Eine Standard-WhatsApp-Nachricht. Dies ist das in diesem Artikel behandelte Layout.
-- **Carousel:** Eine Nachricht mit horizontal scrollbaren Karten. Weitere Informationen finden Sie unter [Karussell-Templates]({{site.baseurl}}/whatsapp_carousel_templates/).
+- **Standard:** Eine Standard-WhatsApp-Nachricht. Dies ist das in diesem Artikel behandelte Layout.
+- **Karussell:** Eine Nachricht mit horizontal scrollbaren Karten. Weitere Informationen finden Sie unter [Karussell-Templates]({{site.baseurl}}/whatsapp_carousel_templates).
 
 ### 4. Schritt: Template erstellen {#step-4-build-your-template}
 
@@ -49,8 +49,8 @@ Wählen Sie unter **Layout** den Template-Typ:
 Fügen Sie einen Header hinzu, der über dem Nachrichtentext erscheint. Sie können wählen:
 
 - **Text:** Ein kurzer Text-Header.
-- **Media:** Ein Bild, Video oder Dokument (nur URL). Braze speichert die Medienreferenz und reicht ein Beispiel bei Meta zur Genehmigung ein.
-- **None:** Kein Header
+- **Medien:** Ein Bild, Video oder Dokument (nur URL). Braze speichert die Medienreferenz und reicht ein Beispiel bei Meta zur Genehmigung ein.
+- **Keiner:** Kein Header
 
 #### Body {#body}
 
@@ -85,12 +85,12 @@ Fügen Sie Ihrem Template bis zu 10 Buttons hinzu. Button-Typen haben unterschie
 
 Sehen Sie sich vor dem Einreichen eine Vorschau an, wie Ihre Nachricht für Empfänger:innen aussehen wird:
 
-- **Preview as a user:** Sehen Sie eine generische Vorschau der Nachricht.
-- **Preview as a specific user:** Wählen Sie ein Nutzerprofil aus, um zu sehen, wie das Template mit den Daten dieser Person dargestellt wird.
+- **Vorschau als Nutzer:in:** Sehen Sie eine generische Vorschau der Nachricht.
+- **Vorschau als bestimmte:r Nutzer:in:** Wählen Sie ein Nutzerprofil aus, um zu sehen, wie das Template mit den Daten dieser Person dargestellt wird.
 
 ### 6. Schritt: Zur Überprüfung einreichen {#step-6-submit-for-review}
 
-Wählen Sie **Submit**, um Ihr Template zur Überprüfung an Meta zu senden. Die Überprüfung dauert in der Regel wenige Minuten, kann aber bis zu 24 Stunden in Anspruch nehmen. Das Template erscheint auf Ihrer **WhatsApp Templates**-Seite, sobald es eingereicht wurde, und der Status wird aktualisiert, wenn Sie die **WhatsApp Templates**-Seite aktualisieren.
+Wählen Sie **Senden**, um Ihr Template zur Überprüfung an Meta zu senden. Die Überprüfung dauert in der Regel wenige Minuten, kann aber bis zu 24 Stunden in Anspruch nehmen. Das Template erscheint auf Ihrer **WhatsApp-Templates**-Seite, sobald es eingereicht wurde, und der Status wird aktualisiert, wenn Sie die **WhatsApp-Templates**-Seite aktualisieren.
 
 ## Unterstützte Template-Kategorien {#supported-template-categories}
 
@@ -106,7 +106,7 @@ Nachdem Meta Ihr Template genehmigt hat, können Sie es in einer WhatsApp-Kampag
 4. Aktualisieren Sie bei Bedarf variable Inhalte oder Personalisierungen. Von Meta gesperrte Felder (grau dargestellt) können nicht bearbeitet werden. Um gesperrte Inhalte zu ändern, müssen Sie das Template bearbeiten und erneut zur Genehmigung einreichen.
 5. Verwenden Sie den Tab **Test**, um eine Vorschau der Nachricht anzuzeigen, Text-Variablen zu aktualisieren und zu bestätigen, dass die Nachricht vor dem Start wie erwartet aussieht.
 
-Weitere Informationen zum Erstellen von WhatsApp-Kampagnen finden Sie unter [WhatsApp-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/).
+Weitere Informationen zum Erstellen von WhatsApp-Kampagnen finden Sie unter [WhatsApp-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message).
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 

@@ -37,7 +37,7 @@ Bien que Braze fournisse des instructions sur la configuration des notifications
 
 ### Étape 1 : Créer une campagne push {#step-1-create-a-push-campaign}
 
-Suivez les étapes pour [créer une campagne]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#creating-a-push-message) afin de composer une notification push pour Android. Vous utiliserez le même composeur pour configurer les notifications push qui ne contiennent pas de contenu enrichi.
+Suivez les étapes pour [créer une campagne]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message) afin de composer une notification push pour Android. Vous utiliserez le même composeur pour configurer les notifications push qui ne contiennent pas de contenu enrichi.
 
 ### Étape 2 : Ajouter un sous-titre {#step-2-add-captioning}
 
@@ -49,10 +49,10 @@ Ajoutez le **Summary Text** que vous souhaitez afficher avant l'image dans la no
 
 Ajoutez votre image dans le champ **Android Notification Image** dans le composeur du message. Les images peuvent être téléchargées directement via le tableau de bord ou en spécifiant une URL de contenu hébergée ailleurs.
 
-Pour plus de détails sur les images prises en charge, consultez les [spécifications d'image]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#push).
+Pour plus de détails sur les images prises en charge, consultez les [spécifications d'image]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#push).
 
 ![La section d'image de notification Android où vous pouvez ajouter une image ou saisir une URL d'image.]({% image_buster /assets/img_archive/android_rich_image.png %})
 
 ### Étape 4 : Continuer la création de votre campagne {#step-4-continue-creating-your-campaign}
 
-Une fois le contenu de votre notification enrichie téléchargé dans le tableau de bord, vous pouvez continuer à [planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
+Une fois le contenu de votre notification enrichie téléchargé dans le tableau de bord, vous pouvez continuer à [planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).

@@ -18,14 +18,14 @@ WhatsApp-Nachrichten mit optimierter Zustellung werden über Metas [Marketing Me
 
 Marken können mit der MM API for WhatsApp eine gleiche oder höhere Zustellbarkeit im Vergleich zur Cloud API erwarten. In Indien wurden bei Marketing-Nachrichten mit hohem Engagement laut Meta bis zu 9 % mehr Nachrichten im Vergleich zur Cloud API zugestellt. Beachten Sie, dass die MM API for WhatsApp dennoch keine 100%ige Zustellbarkeit garantiert.
 
-### Regionale Verfügbarkeit {#regional-availability}
+## Regionale Verfügbarkeit {#regional-availability}
 
 Die Verfügbarkeit und die Optimierungsmöglichkeiten der optimierten Zustellung hängen von der Region der geschäftlichen Telefonnummer und der Nutzer:innen ab. Weitere Informationen finden Sie unter [Geographic availability of features](https://developers.facebook.com/docs/whatsapp/marketing-messages-lite-api/get-started#geographic-availability-of-features).
 
 ## Optimierte Zustellung einrichten {#setting-up-optimized-delivery}
 
-1. Gehen Sie in Braze zu **Partner Integrations** > **Technology Partners** > **WhatsApp**.
-2. Wählen Sie im Abschnitt **Optimize your sending with optimized delivery** die Option **Upgrade setting**, um den [Embedded-Sign-up-Workflow]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/) zu starten.
+1. Gehen Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** > **WhatsApp**.
+2. Wählen Sie im Abschnitt **Optimize your sending with optimized delivery** die Option **Upgrade setting**, um den [Embedded-Sign-up-Workflow]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup) zu starten.
 
 ![Der Abschnitt „WhatsApp Message Integration“ mit einer Option zur Optimierung des Versands mit optimierter Zustellung.]({% image_buster /assets/img/whatsapp/whatsapp_messaging_integration.png %})
 
@@ -38,7 +38,7 @@ Alternativ können Sie die optimierte Zustellung direkt in Ihrem WhatsApp-Manage
 
 ### Fehlerbehebung bei der Einrichtung {#troubleshooting-your-setup}
 
-- **Allgemeiner Fehler:** Wenn während des Upgrades etwas schiefgeht, wird dieses Fehlerbanner angezeigt und empfiehlt Ihnen, den [Support zu kontaktieren]({{site.baseurl}}/braze_support/).
+- **Allgemeiner Fehler:** Wenn während des Upgrades etwas schiefgeht, wird dieses Fehlerbanner angezeigt und empfiehlt Ihnen, den [Support zu kontaktieren]({{site.baseurl}}/braze_support).
 - **Fehler wegen fehlender Berechtigung:** Wenn Sie von Meta eingeschränkt sind, wird dieses Fehlerbanner angezeigt: „At least one WhatsApp Business Account is restricted by Meta. Accounts must be in good standing to upgrade.“ Dieses Banner kann erst geschlossen werden, wenn das Problem behoben ist.
 
 ## Optimierte Zustellung in Campaigns und Canvases verwenden {#using-optimized-delivery-in-campaigns-and-canvases}
@@ -47,7 +47,7 @@ Die optimierte Zustellung sollte für **Marketing-Nachrichten** verwendet werden
 
 ### Zustellmethode auswählen {#selecting-the-delivery-method}
 
-1. Gehen Sie im Braze WhatsApp-Editor für eine Campaign oder einen Canvas-Nachrichtenschritt zum Tab **Settings**.
+1. Gehen Sie im Braze WhatsApp-Editor für eine Campaign oder einen Canvas-Nachrichtenschritt zum Tab **Einstellungen**.
 2. Im Abschnitt **Delivery method** ist das Kontrollkästchen für **Optimized Delivery (Recommended)** standardmäßig aktiviert, wenn Ihr WhatsApp Business Account (WABA) aktiviert ist. Wenn Sie die optimierte Zustellung für diese bestimmte Nachricht nicht verwenden möchten, deaktivieren Sie das Kontrollkästchen.
 - Wenn Sie die optimierte Zustellung auswählen, diese aber nicht verfügbar ist, wird die Nachricht automatisch auf die Cloud-API-Methode zurückgesetzt.
 

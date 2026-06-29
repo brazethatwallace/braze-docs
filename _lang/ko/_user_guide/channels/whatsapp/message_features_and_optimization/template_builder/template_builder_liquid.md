@@ -33,7 +33,7 @@ page_order: 1
 
 ## 메시지 추가 정보 {#message-extras}
 
-[`message_extras` Liquid 태그]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/)를 사용하면 발송 시점에 키-값 메타데이터로 메시지에 주석을 달 수 있습니다. 이 데이터는 메시지 본문에 렌더링되지 않습니다. 대신 기여도, 영향 측정, 이벤트 보강 등의 목적으로 연결된 콘텐츠, Currents 또는 기타 데이터 캡처 메커니즘으로 전달됩니다.
+[`message_extras` Liquid 태그]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras)를 사용하면 발송 시점에 키-값 메타데이터로 메시지에 주석을 달 수 있습니다. 이 데이터는 메시지 본문에 렌더링되지 않습니다. 대신 기여도, 영향 측정, 이벤트 보강 등의 목적으로 연결된 콘텐츠, Currents 또는 기타 데이터 캡처 메커니즘으로 전달됩니다.
 
 {% raw %}
 ```liquid

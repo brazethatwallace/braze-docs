@@ -14,7 +14,7 @@ channel:
 
 ## ¿Por qué las notificaciones push a veces se retrasan? {#why-are-push-notifications-sometimes-delayed}
 
-La entrega generalmente sigue tres etapas: **procesamiento** de Braze (segmentación, planificación y transferencia al proveedor), transporte de Braze a **APNs o FCM**, y entrega del proveedor al **dispositivo**. Los retrasos pueden ocurrir en cualquier etapa. Braze no tiene visibilidad sobre las colas del proveedor o del dispositivo; usa el [registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/) en el cliente cuando necesites identificar los tiempos del lado del dispositivo.
+La entrega generalmente sigue tres etapas: **procesamiento** de Braze (segmentación, planificación y transferencia al proveedor), transporte de Braze a **APNs o FCM**, y entrega del proveedor al **dispositivo**. Los retrasos pueden ocurrir en cualquier etapa. Braze no tiene visibilidad sobre las colas del proveedor o del dispositivo; usa el [registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs) en el cliente cuando necesites identificar los tiempos del lado del dispositivo.
 
 ## ¿Qué ocurre cuando varios usuarios inician sesión en un mismo dispositivo? {#what-happens-when-multiple-users-log-into-a-single-device}
 
@@ -28,13 +28,13 @@ Cuando se reasigna un token de notificaciones push, el cambio se refleja en el *
 
 Sí. El push de prueba se envía a todos los dispositivos con push habilitado asociados al perfil de usuario seleccionado. Si tienes varios teléfonos o tabletas con la sesión iniciada con el mismo usuario, cada dispositivo con un token de notificaciones push válido recibe la notificación.
 
-Para enviar el push de prueba a un solo dispositivo, puedes eliminar los tokens de notificaciones push de los demás dispositivos del perfil de usuario antes de la prueba. Alternativamente, si estás enviando con el [punto de conexión `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/), establece `send_to_most_recent_device_only` en `true` en el objeto `apple_push` o `android_push` para que solo el dispositivo activo más reciente reciba el push.
+Para enviar el push de prueba a un solo dispositivo, puedes eliminar los tokens de notificaciones push de los demás dispositivos del perfil de usuario antes de la prueba. Alternativamente, si estás enviando con el [punto de conexión `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages), establece `send_to_most_recent_device_only` en `true` en el objeto `apple_push` o `android_push` para que solo el dispositivo activo más reciente reciba el push.
 
 ## ¿Qué significa "Error al enviar push porque la carga útil no era válida"? {#what-does-error-sending-push-because-the-payload-was-invalid-mean}
 
 Este mensaje indica que APNs rechazó la solicitud push debido a una carga útil no válida (por ejemplo, una carga útil vacía o demasiado grande).
 
-Para más detalles y próximos pasos, consulta [Mensajes de error push comunes]({{site.baseurl}}/user_guide/channels/push/push_error_codes/).
+Para más detalles y próximos pasos, consulta [Mensajes de error push comunes]({{site.baseurl}}/user_guide/channels/push/push_error_codes).
 
 ## ¿Por qué un usuario con suscripción activa no tiene un token de notificaciones push? {#why-doesnt-an-opted-in-user-have-a-push-token}
 
@@ -72,10 +72,10 @@ Estos filtros de segmentación verifican condiciones diferentes:
 | Filtro | Qué verifica | Caso de uso |
 |--------|-------------|-------------|
 | **Foreground Push Enabled** | El usuario tiene un token de notificaciones push de primer plano válido **y** su estado de suscripción push es `Opted-In` o `Subscribed`. | Dirigirse a usuarios que pueden recibir notificaciones push visibles. |
-| **Background or Foreground Push Enabled** | El usuario tiene cualquier token de notificaciones push (de primer plano o segundo plano) **y** su estado de suscripción push es `Opted-In` o `Subscribed`. Esto incluye a usuarios que han deshabilitado las notificaciones push visibles pero aún tienen un token de notificaciones push en segundo plano. | Se usa para [Uninstall Tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/), [notificaciones push silenciosas]({{site.baseurl}}/developer_guide/push_notifications/silent/) y geovallado. |
+| **Background or Foreground Push Enabled** | El usuario tiene cualquier token de notificaciones push (de primer plano o segundo plano) **y** su estado de suscripción push es `Opted-In` o `Subscribed`. Esto incluye a usuarios que han deshabilitado las notificaciones push visibles pero aún tienen un token de notificaciones push en segundo plano. | Se usa para [Uninstall Tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking), [notificaciones push silenciosas]({{site.baseurl}}/developer_guide/push_notifications/silent) y geovallado. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Diferencia entre los filtros Foreground Push Enabled y Background or Foreground Push Enabled" }
 
-Un usuario puede tener `Background or Foreground Push Enabled` sin tener `Foreground Push Enabled`. Esto ocurre cuando el usuario ha deshabilitado las notificaciones push visibles en la configuración de su dispositivo, pero la aplicación aún conserva un token de notificaciones push en segundo plano. Para más detalles, consulta [Usuarios push y suscripciones]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#foreground-push-enabled).
+Un usuario puede tener `Background or Foreground Push Enabled` sin tener `Foreground Push Enabled`. Esto ocurre cuando el usuario ha deshabilitado las notificaciones push visibles en la configuración de su dispositivo, pero la aplicación aún conserva un token de notificaciones push en segundo plano. Para más detalles, consulta [Usuarios push y suscripciones]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#foreground-push-enabled).
 
 ## ¿Cómo determina Braze cuándo un mensaje push se envió correctamente? {#how-does-braze-determine-when-a-push-message-is-sent-successfully}
 

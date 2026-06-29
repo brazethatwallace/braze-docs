@@ -14,15 +14,15 @@ description: "이 랜딩 페이지에서는 메시지 유형 개요, KakaoTalk �
 guide_featured_title: "문서"
 guide_featured_list:
 - name: KakaoTalk 설정
-  link: /docs/kakaotalk_setup/
+  link: /docs/kakaotalk_setup
   image: /assets/img/braze_icons/settings-01.svg
 - name: KakaoTalk 메시지 만들기
-  link: /docs/create_kakaotalk_message/
+  link: /docs/create_kakaotalk_message
   image: /assets/img/braze_icons/message-chat-square.svg
 - name: KakaoTalk 클릭 추적
-  link: /docs/kakaotalk_click_tracking/
+  link: /docs/kakaotalk_click_tracking
   image: /assets/img/braze_icons/cursor-click-02.svg
 - name: KakaoTalk 보고서
-  link: /docs/kakaotalk_reporting/
+  link: /docs/kakaotalk_reporting
   image: /assets/img/braze_icons/line-chart-up-01.svg
 ---

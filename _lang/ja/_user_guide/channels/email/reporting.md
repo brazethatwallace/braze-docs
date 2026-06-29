@@ -29,8 +29,8 @@ channel:
 
 ### スロットリングされたIP {#throttled-ips}
 
-メールボックスプロバイダーが送信量やレピュテーション、またはその両方を理由にIPからの配信を一時的に遅延またはブロックしている場合、[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)に `Email was deferred due to the following reason(s): [IPs were throttled by recipient server]` というメッセージが表示されることがあります。Brazeは遅延されたメッセージを再試行しますが、この原因による遅延が集中すると、ソフトバウンスの増加も同時に見られることがよくあります。
+メールボックスプロバイダーが送信量やレピュテーション、またはその両方を理由にIPからの配信を一時的に遅延またはブロックしている場合、[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)に `Email was deferred due to the following reason(s): [IPs were throttled by recipient server]` というメッセージが表示されることがあります。Brazeは遅延されたメッセージを再試行しますが、この原因による遅延が集中すると、ソフトバウンスの増加も同時に見られることがよくあります。
 
-このパターンは通常、現在のレピュテーションに対してメールボックスプロバイダーが受け入れる速度よりも速く送信していることを意味します。エンゲージメントとリスト品質の改善に加えて、[配信速度レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting)を使用して、CampaignやCanvasでBrazeからメッセージが送信される速度にキャップを設定してください。これにより、配信到達性チームと長期的な修正に取り組む間、スロットリングを軽減できます。
+このパターンは通常、現在のレピュテーションに対してメールボックスプロバイダーが受け入れる速度よりも速く送信していることを意味します。エンゲージメントとリスト品質の改善に加えて、[配信速度レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)を使用して、CampaignやCanvasからBrazeがメッセージを送信する速度にキャップを設定してください。これにより、配信到達性チームと長期的な修正に取り組む間、スロットリングを軽減できます。
 
 特定のドメインに対してスロットリングが続く場合は、そのドメインへの送信量を減らし、Brazeの配信到達性サポートにガイダンスを依頼してください。

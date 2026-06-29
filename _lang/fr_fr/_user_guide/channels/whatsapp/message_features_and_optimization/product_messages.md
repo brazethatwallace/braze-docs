@@ -32,7 +32,7 @@ Lorsque les utilisateurs ajoutent des articles à leur panier via les messages c
 | Compte WhatsApp Business | Pour utiliser les messages produit WhatsApp, vous devez disposer d'un compte WhatsApp Business connecté à Braze. |
 | Catalogue Meta | Vous devez configurer un catalogue Meta dans votre Commerce Manager. |
 | Conformité aux conditions | Respectez les [conditions et politiques commerciales de Meta](https://www.facebook.com/policies_center/commerce). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions requises" }
 
 ## Types de messages produit {#product-message-types}
 
@@ -90,7 +90,7 @@ Assurez-vous d'utiliser l'ID Braze Business Manager, `332231937299182`, comme ID
 ![Page de paramètres du gestionnaire WhatsApp pour le catalogue « Catalog_products ».]({% image_buster /assets/img/whatsapp/meta_catalog_settings.png %}){: style="max-width:90%;"}
 
 {: start="4"}
-4. Dans Braze, suivez le processus d'[inscription intégrée]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/) pour fournir les autorisations. Assurez-vous de sélectionner **tous** les catalogues pour lesquels vous souhaitez fournir des autorisations. Cela débloquera le sélecteur de produits intégré de Braze.
+4. Dans Braze, suivez le processus d'[inscription intégrée]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup) pour fournir les autorisations. Assurez-vous de sélectionner **tous** les catalogues pour lesquels vous souhaitez fournir des autorisations. Cela débloquera le sélecteur de produits intégré de Braze.
 
 ![Fenêtre avec cinq catalogues sélectionnés pour fournir des autorisations.]({% image_buster /assets/img/whatsapp/select_catalogs.png %}){: style="max-width:50%;"}
 
@@ -159,7 +159,7 @@ Si vous supprimez des produits référencés de votre catalogue, les messages as
 
 ## Réception des questions entrantes sur les produits {#receiving-inbound-product-questions}
 
-Les utilisateurs peuvent répondre à votre message produit ou catalogue avec des questions sur les produits. Celles-ci arrivent sous forme de messages entrants, qui peuvent ensuite être triés avec un [parcours d'action]({{site.baseurl}}/action_paths/).
+Les utilisateurs peuvent répondre à votre message produit ou catalogue avec des questions sur les produits. Celles-ci arrivent sous forme de messages entrants, qui peuvent ensuite être triés avec un [parcours d'action]({{site.baseurl}}/action_paths).
 
 De plus, Braze extrait l'ID du produit et l'ID du catalogue de ces questions. Si vous souhaitez automatiser les réponses ou transmettre les questions à une autre équipe (comme le support client), vous pouvez inclure ces détails. Par exemple, vous pourriez personnaliser les réponses avec les propriétés WhatsApp `inbound_product_id` ou `inbound_catalog_id`.
 
@@ -196,7 +196,7 @@ L'événement de panier inclut :
 - **Source :** marquée comme « whats_app »
 - **Métadonnées :** données supplémentaires comme l'ID du catalogue et le texte du message
 
-Vous pouvez trouver des informations supplémentaires sur les événements de panier Braze dans [Types d'événements eCommerce recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/#types-of-ecommerce-recommended-events).
+Vous pouvez trouver des informations supplémentaires sur les événements de panier Braze dans [Types d'événements eCommerce recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events).
 
 ### Configuration d'une réponse déclenchée {#setting-up-a-triggered-response}
 
@@ -249,7 +249,7 @@ Effectuez un appel API vers votre système eCommerce pour générer une URL de p
 #### Configuration
 
 1. Créez une Campaign webhook ou une étape Canvas déclenchée par l'événement eCommerce [`ecommerce.cart_update`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.cart_updated), qui enverra les données du panier à votre système eCommerce.
-2. Créez une Campaign WhatsApp ou une étape de message Canvas déclenchée par le même événement eCommerce pour envoyer un message de réponse WhatsApp avec l'URL du panier à l'utilisateur. Suivez les instructions du message de réponse suivant pour utiliser le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/).
+2. Créez une Campaign WhatsApp ou une étape de message Canvas déclenchée par le même événement eCommerce pour envoyer un message de réponse WhatsApp avec l'URL du panier à l'utilisateur. Suivez les instructions du message de réponse suivant pour utiliser le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content).
 
 ![Diagramme montrant le workflow de l'expérience de paiement pour un appel de contenu connecté : Meta envoie un message de commande reçue à Braze, qui effectue des appels aller-retour avec une plateforme eCommerce, puis envoie un message WhatsApp.]({% image_buster /assets/img/whatsapp/connected_content_checkout.png %})
 

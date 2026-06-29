@@ -12,7 +12,7 @@ channel: email
 
 # Transaktions-E-Mails tracken {#track-transactional-emails}
 
-> Diese Seite beschreibt, wie Sie Realtime-Tracking für [Transaktions-E-Mail-Campaigns]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/) einrichten. Weitere Informationen zum Endpunkt selbst finden Sie unter [Transaktions-E-Mails über API-getriggerte Zustellung senden]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message/).
+> Diese Seite beschreibt, wie Sie Realtime-Tracking für [Transaktions-E-Mail-Campaigns]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) einrichten. Weitere Informationen zum Endpunkt selbst finden Sie unter [Transaktions-E-Mails über API-getriggerte Zustellung senden]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message).
 
 Wenn Sie Transaktions-E-Mails versenden – wie Bestellbestätigungen oder Passwort-Zurücksetzungen – ist es wichtig zu wissen, ob diese Ihre Kund:innen erreichen. Mit den transaktionalen HTTP-Event-Postbacks von Braze erhalten Sie Realtime-Insights zum Status jeder Transaktions-E-Mail, sodass Sie bei Problemen schnell reagieren können.
 

@@ -13,14 +13,14 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 # 드래그 앤 드롭으로 인앱 메시지 만들기 {#create-an-in-app-message-with-drag-and-drop}
 
-> 드래그 앤 드롭 편집기를 사용하면 Campaigns 또는 Canvas에서 드래그 앤 드롭 편집 환경을 통해 완전히 커스텀되고 개인화된 인앱 메시지를 만들 수 있습니다. 편집기에서 사용할 수 있는 빌딩 블록에 대한 자세한 내용은 [편집기 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)을 참조하세요.
+> 드래그 앤 드롭 편집기를 사용하면 Campaigns 또는 Canvas에서 드래그 앤 드롭 편집 환경을 통해 완전히 커스텀되고 개인화된 인앱 메시지를 만들 수 있습니다. 편집기에서 사용할 수 있는 빌딩 블록에 대한 자세한 내용은 [편집기 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages)을 참조하세요.
 
 
 {% multi_lang_include video.html id="j94omgo73o" align="right" source="wistia" %}
 
 기존 커스텀 HTML 템플릿이나 서드파티에서 만든 템플릿을 사용하려면 드래그 앤 드롭 편집기에서 다시 만들어야 합니다.
 
-인앱 메시지를 Campaign으로 보낼지 [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/)로 보낼지 확실하지 않으신가요? Campaigns는 단일 타겟 메시징에 적합하고, Canvases는 다단계 사용자 여정에 적합합니다. 메시지를 작성할 위치를 선택한 후, 드래그 앤 드롭 인앱 메시지를 만드는 단계를 살펴보겠습니다.
+인앱 메시지를 Campaign으로 보낼지 [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas)로 보낼지 확실하지 않으신가요? Campaigns는 단일 타겟 메시징에 적합하고, Canvases는 다단계 사용자 여정에 적합합니다. 메시지를 작성할 위치를 선택한 후, 드래그 앤 드롭 인앱 메시지를 만드는 단계를 살펴보겠습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -134,9 +134,9 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 여기서 메시지가 브랜드의 시그니처 스타일로 꾸며집니다. 편집기 블록과 스타일 설정의 조합을 사용하여 인앱 메시지를 커스텀하고 디자인할 수 있습니다.
 
-- 사용 가능한 편집기 블록과 해당 속성 목록은 [편집기 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)을 참조하세요.
-- 메시지의 모양과 느낌을 커스텀하는 데 도움이 필요하면 [스타일 설정]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/)을 확인하세요.
-- 오른쪽에서 왼쪽으로 읽는 메시지를 만드는 모범 사례는 [오른쪽에서 왼쪽으로 읽는 메시지 만들기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/)를 참조하세요.
+- 사용 가능한 편집기 블록과 해당 속성 목록은 [편집기 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages)을 참조하세요.
+- 메시지의 모양과 느낌을 커스텀하는 데 도움이 필요하면 [스타일 설정]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings)을 확인하세요.
+- 오른쪽에서 왼쪽으로 읽는 메시지를 만드는 모범 사례는 [오른쪽에서 왼쪽으로 읽는 메시지 만들기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)를 참조하세요.
 
 ## 5단계: 인앱 메시지 테스트 {#step-5-test-your-in-app-message}
 

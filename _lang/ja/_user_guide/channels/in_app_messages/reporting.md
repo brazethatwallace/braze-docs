@@ -18,7 +18,7 @@ tool:
 
 ## アプリ内メッセージの指標 {#in-app-message-metrics}
 
-ここでは、分析で確認できる主要なアプリ内メッセージの指標を紹介します。Brazeで使用されるすべての指標の定義については、[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)を参照してください。
+ここでは、分析で確認できる主要なアプリ内メッセージの指標を紹介します。Brazeで使用されるすべての指標の定義については、[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)を参照してください。
 
 {% alert note %}
 アプリ内メッセージの場合、このページではワークスペースのタイムゾーンにおけるカレンダー日の境界を使用してユニークインプレッションを定義しています。

@@ -51,7 +51,7 @@ KakaoTalkクリックトラッキングの設定は、メッセージ作成画�
 
 ## カスタムドメイン {#custom-domains}
 
-KakaoTalkクリックトラッキングでは、独自のドメインを使用して短縮URLの外観をパーソナライズし、一貫したブランドイメージを表現できます。詳細については、[カスタムドメイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains/)を参照してください。
+KakaoTalkクリックトラッキングでは、独自のドメインを使用して短縮URLの外観をパーソナライズし、一貫したブランドイメージを表現できます。詳細については、[カスタムドメイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains)を参照してください。
 
 ## URL内のLiquidパーソナライゼーション {#liquid-personalization-in-urls}
 
@@ -68,7 +68,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 以下の例に示すように、カスタム定義のLiquid変数を短縮することもできます。
 
 {% raw %}
-`````````liquid
+```liquid
 {% assign url_var = {{event_properties.${url_slug}}} %}
 https://example.com/{{url_var}}
 ```
@@ -78,17 +78,17 @@ BrazeはLiquidによってレンダリングされたURL（APIトリガープロ
 
 ## テスト {#testing}
 
-キャンペーンまたはキャンバスを起動する前に、まずメッセージをプレビューしてテストすることがベストプラクティスです。これを行うには、**Test**タブに移動して、コンテンツテストグループまたは個々のユーザーにKakaoTalkメッセージをプレビューして送信します。
+CampaignまたはCanvasを起動する前に、まずメッセージをプレビューしてテストすることがベストプラクティスです。これを行うには、**Test**タブに移動して、コンテンツテストグループまたは個々のユーザーにKakaoTalkメッセージをプレビューして送信します。
 
 プレビューは、関連するパーソナライゼーションと短縮URLで更新されます。
 
 {% alert important %}
-アクティブなキャンバス内で下書きが作成された場合、短縮URLは生成されません。実際の短縮URLは、キャンバスの下書きがアクティブになったときに生成されます。
+アクティブなCanvas内で下書きが作成された場合、短縮URLは生成されません。実際の短縮URLは、Canvasの下書きがアクティブになったときに生成されます。
 {% endalert %}
 
 ## レポート {#reporting}
 
-KakaoTalkパフォーマンステーブルには、バリアントごとのクリックイベント数と関連するクリック率を示す**Total Clicks**列が含まれています。KakaoTalk指標の詳細については、[KakaoTalkレポート]({{site.baseurl}}/kakaotalk_reporting/)を参照してください。
+KakaoTalkパフォーマンステーブルには、バリアントごとのクリックイベント数と関連するクリック率を示す**Total Clicks**列が含まれています。KakaoTalk指標の詳細については、[KakaoTalkレポート]({{site.baseurl}}/kakaotalk_reporting)を参照してください。
 
 クリックデータは分析ダッシュボードに自動的にレポートされます。
 
@@ -109,7 +109,7 @@ KakaoTalkメッセージ内のURLをクリックしたユーザーを、以下�
 
 ### テスト送信で受け取るリンクは実際のURLですか？ {#are-the-links-i-receive-when-test-sending-real-urls}
 
-はい、テスト送信時に実際のURLが生成されます。ただし、起動されたキャンペーンで送信される正確なURLは、テスト送信で送信されたものとは異なる場合があります。
+はい、テスト送信時に実際のURLが生成されます。ただし、起動されたCampaignで送信される正確なURLは、テスト送信で送信されたものとは異なる場合があります。
 
 ### URLが短縮される前にUTMパラメーターを追加できますか？ {#can-i-add-utm-parameters-to-a-url-before-it-is-shortened}
 

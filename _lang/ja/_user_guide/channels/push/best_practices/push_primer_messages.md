@@ -77,7 +77,7 @@ android.permission.POST_NOTIFICATIONS
 
 ## ステップ 1: アプリ内メッセージを作成する {#step-1-create-an-in-app-message}
 
-まず、[アプリ内メッセージを作成]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)し、メッセージタイプとレイアウトを選択します。
+まず、[アプリ内メッセージを作成]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)し、メッセージタイプとレイアウトを選択します。
 
 メッセージとボタンの両方に十分なスペースを確保するため、フルスクリーンまたはモーダルのメッセージレイアウトを使用してください。フルスクリーンを選択する場合、画像が必要になることにご注意ください。
 
@@ -97,7 +97,7 @@ Breaking news on the go! Enable push notifications to get alerts for major stori
 Get push notifications from Movie Cannon? Notifications may include new movies, TV shows, or other notices and can be turned off at any time.
 ```
 
-ベストプラクティスと追加リソースについては、[カスタムオプトインプロンプトの作成]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)を参照してください。
+ベストプラクティスと追加リソースについては、[カスタムオプトインプロンプトの作成]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)を参照してください。
 
 ## ステップ 3: ボタンの動作を指定する {#button-actions}
 
@@ -148,12 +148,12 @@ Brazeはデバイスレベルではなくプロファイルレベルでユーザ
 - デバイスA: Android、プッシュにオプトイン済み
 - デバイスB: iOS、プッシュにオプトインしていない
 
-**機能しないセグメントフィルター：**
-- `Push enabled = false` - ユーザーはAndroidデバイスでプッシュが有効なため、セグメントに含まれません。セグメントにはiOSデバイスが含まれません。
-- `Push subscription status is not opted in` - ユーザーはAndroidデバイスでプッシュが有効なため、セグメントに含まれません。セグメントにはiOSデバイスが含まれません。
+**機能しないSegmentフィルター：**
+- `Push enabled = false` - ユーザーはAndroidデバイスでプッシュが有効なため、Segmentに含まれません。SegmentにはiOSデバイスが含まれません。
+- `Push subscription status is not opted in` - ユーザーはAndroidデバイスでプッシュが有効なため、Segmentに含まれません。SegmentにはiOSデバイスが含まれません。
 
-**機能するセグメントフィルター：**
-- `Push enabled for iOS = false` - ユーザーはAndroidデバイスでプッシュが有効ですが、iOSデバイスのみをターゲットにしているため、ユーザーはセグメントに含まれます。セグメントにはiOSデバイスが含まれます。
+**機能するSegmentフィルター：**
+- `Push enabled for iOS = false` - ユーザーはAndroidデバイスでプッシュが有効ですが、iOSデバイスのみをターゲットにしているため、ユーザーはSegmentに含まれます。SegmentにはiOSデバイスが含まれます。
 
 {% enddetails %}
 
@@ -163,13 +163,13 @@ Brazeはデバイスレベルではなくプロファイルレベルでユーザ
 - デバイスA: プッシュにオプトイン済み
 - デバイスB: 仮承認済みだがオプトインしていない
 
-**機能しないセグメントフィルター：**
-- `Push enabled = false` - デバイスAはプッシュにオプトイン済みのため、ユーザーはセグメントに含まれません。セグメントにはデバイスBが含まれません。
-- `Provisionally opted in = true` - デバイスAは完全にオプトイン済みのため、仮承認状態ではありません。ユーザーはセグメントに含まれません。セグメントにはデバイスBが含まれません。
-- `Push enabled for app > iOS = false` - デバイスAはiOSでプッシュにオプトイン済みのため、ユーザーはセグメントに含まれません。セグメントにはデバイスBが含まれません。
-- `Push subscription status is not opted in` - デバイスAはプッシュにオプトイン済みのため、ユーザーはセグメントに含まれません。セグメントにはデバイスBが含まれません。
+**機能しないSegmentフィルター：**
+- `Push enabled = false` - デバイスAはプッシュにオプトイン済みのため、ユーザーはSegmentに含まれません。SegmentにはデバイスBが含まれません。
+- `Provisionally opted in = true` - デバイスAは完全にオプトイン済みのため、仮承認状態ではありません。ユーザーはSegmentに含まれません。SegmentにはデバイスBが含まれません。
+- `Push enabled for app > iOS = false` - デバイスAはiOSでプッシュにオプトイン済みのため、ユーザーはSegmentに含まれません。SegmentにはデバイスBが含まれません。
+- `Push subscription status is not opted in` - デバイスAはプッシュにオプトイン済みのため、ユーザーはSegmentに含まれません。SegmentにはデバイスBが含まれません。
 
-**結果：** これらのプッシュフィルターをどのように組み合わせても、セグメントから少なくとも1つのデバイスが除外されます。
+**結果：** これらのプッシュフィルターをどのように組み合わせても、Segmentから少なくとも1つのデバイスが除外されます。
 
 {% enddetails %}
 
@@ -180,10 +180,10 @@ Brazeはデバイスレベルではなくプロファイルレベルでユーザ
 - デバイスB: プッシュにオプトインしていない
 - デバイスC: プッシュにオプトインしていない
 
-**機能しないセグメントフィルター：**
-- `Push enabled = false` - デバイスAはプッシュにオプトイン済みのため、ユーザーはセグメントに含まれません。セグメントにはデバイスBとCが含まれません。
-- `Push enabled for app > X = false` - デバイスAは指定されたアプリでプッシュにオプトイン済みのため、ユーザーはセグメントに含まれません。セグメントにはデバイスBとCが含まれません。
-- `Push subscription status is not opted in` - デバイスAはプッシュにオプトイン済みのため、ユーザーはセグメントに含まれません。セグメントにはデバイスBとCが含まれません。
+**機能しないSegmentフィルター：**
+- `Push enabled = false` - デバイスAはプッシュにオプトイン済みのため、ユーザーはSegmentに含まれません。SegmentにはデバイスBとCが含まれません。
+- `Push enabled for app > X = false` - デバイスAは指定されたアプリでプッシュにオプトイン済みのため、ユーザーはSegmentに含まれません。SegmentにはデバイスBとCが含まれません。
+- `Push subscription status is not opted in` - デバイスAはプッシュにオプトイン済みのため、ユーザーはSegmentに含まれません。SegmentにはデバイスBとCが含まれません。
 
 **結果：** これらのプッシュフィルターをどのように組み合わせても、少なくとも1つのデバイスがターゲットから外れます。
 
@@ -218,4 +218,4 @@ Brazeはデバイスレベルではなくプロファイルレベルでユーザ
 
 ## ステップ 6: コンバージョンイベント {#step-6-conversion-events}
 
-Brazeではコンバージョンのデフォルト設定を推奨していますが、プッシュプライマーに関連する[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)を設定することもできます。
+Brazeではコンバージョンのデフォルト設定を推奨していますが、プッシュプライマーに関連する[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)を設定することもできます。

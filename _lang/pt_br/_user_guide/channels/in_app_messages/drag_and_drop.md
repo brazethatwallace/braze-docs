@@ -13,14 +13,14 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 # Criar uma mensagem no app com arrastar e soltar {#create-an-in-app-message-with-drag-and-drop}
 
-> Com o editor de arrastar e soltar, você pode criar mensagens no app totalmente personalizadas em Campaigns ou Canvas usando a experiência de edição de arrastar e soltar. Para saber mais sobre os blocos de construção disponíveis no editor, consulte [Blocos do editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages).
+> Com o editor de arrastar e soltar, você pode criar mensagens no app totalmente personalizadas em Campaigns ou Canvas usando a experiência de edição de arrastar e soltar. Para saber mais sobre os blocos de construção disponíveis no editor, consulte [Blocos do editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
 
 
 {% multi_lang_include video.html id="j94omgo73o" align="right" source="wistia" %}
 
 Se você quiser usar seus modelos HTML personalizados existentes ou modelos criados por terceiros, eles precisam ser recriados no editor de arrastar e soltar.
 
-Não tem certeza se sua mensagem no app deve ser enviada usando uma campanha ou um [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/)? Campaigns são melhores para campanhas de mensagens únicas e direcionadas, enquanto Canvas é melhor para jornadas de usuário com várias etapas. Depois de selecionar onde construir sua mensagem, vamos mergulhar nas etapas para criar uma mensagem no app com arrastar e soltar.
+Não tem certeza se sua mensagem no app deve ser enviada usando uma campanha ou um [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas)? Campaigns são melhores para campanhas de mensagens únicas e direcionadas, enquanto Canvas é melhor para jornadas de usuário com várias etapas. Depois de selecionar onde construir sua mensagem, vamos mergulhar nas etapas para criar uma mensagem no app com arrastar e soltar.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -134,9 +134,9 @@ Os usuários podem selecionar o botão X de fechar para sair da mensagem a qualq
 
 É aqui que sua mensagem ganha vida, vestida com o estilo exclusivo da sua marca. Usando uma combinação de blocos do editor e configurações de estilo, você pode personalizar e projetar sua mensagem no app.
 
-- Para uma lista de blocos do editor disponíveis e suas propriedades, consulte [Blocos do editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages).
-- Para ajuda na personalização da aparência da sua mensagem, confira [Configurações de estilo]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/).
-- Para práticas recomendadas na criação de mensagens da direita para a esquerda, consulte [Criando mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
+- Para uma lista de blocos do editor disponíveis e suas propriedades, consulte [Blocos do editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
+- Para ajuda na personalização da aparência da sua mensagem, confira [Configurações de estilo]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings).
+- Para práticas recomendadas na criação de mensagens da direita para a esquerda, consulte [Criando mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ## Etapa 5: Testar sua mensagem no app {#step-5-test-your-in-app-message}
 

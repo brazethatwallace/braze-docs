@@ -133,7 +133,7 @@ Flowが完了すると、BrazeはFlow IDに基づいた名前でFlowカスタム
 
 ### ステップ 1: アクションパスの作成 {#step-1-create-an-action-path}
 
-[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/)のCanvasステップまたはアクションベースのCampaignを作成します。**Send a WhatsApp inbound message**トリガーと**Responded to Flow**条件を選択し、該当するFlowまたは**Any Flow**を選択します。
+[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)のCanvasステップまたはアクションベースのCampaignを作成します。**Send a WhatsApp inbound message**トリガーと**Responded to Flow**条件を選択し、該当するFlowまたは**Any Flow**を選択します。
 
 ![WhatsAppインバウンドメッセージを送信し、任意のFlowに応答したユーザーのトリガー。]({% image_buster /assets/img/whatsapp/flows/trigger_responded_flow.png %})
 
@@ -184,11 +184,11 @@ UIエディターで、以下を選択します。
 
 ## Flowパーソナライゼーションタグの追加 {#adding-a-flow-personalization-tag}
 
-[サポートされているパーソナライゼーションタグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)を使用してLiquidでFlowレスポンスを利用するには、以下のステップを完了します。
+[サポートされているパーソナライゼーションタグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)を使用してLiquidでFlowレスポンスを利用するには、以下のステップを完了します。
 
-1. WhatsAppメッセージの作成時に、<i class="fas fa-plus-circle" aria-label="パーソナライゼーションを追加"></i> **Add Personalization**を選択して**Add Personalization**ウィンドウを開きます。
+1. WhatsAppメッセージの作成時に、<i class="fas fa-plus-circle"></i> **Add Personalization**を選択して**Add Personalization**ウィンドウを開きます。
 2. パーソナライゼーションタイプとして**WhatsApp Properties**を選択し、カスタム属性として**inbound_flow_response**を選択します。これを使用して、ユーザープロファイルに情報を保存したり、メッセージに含めたり、webhookなどの他のサービスに転送したりできます。
 
 ![カスタム属性inbound_flow_responseを使用したWhatsAppプロパティのパーソナライゼーションを挿入する「Add Personalization」コンポーネントが表示されたWhatsAppメッセージ作成画面。]({% image_buster /assets/img/whatsapp/flows/inbound_flow_response.png %}){: style="max-width:80%;"}
 
-ご質問やサポートが必要な場合は、[サポート]({{site.baseurl}}/braze_support/)にお問い合わせください。
+ご質問やサポートが必要な場合は、[サポート]({{site.baseurl}}/braze_support)にお問い合わせください。

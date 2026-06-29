@@ -10,7 +10,7 @@ channel:
 
 # KakaoTalk 메시지 만들기 {#create-a-kakaotalk-message}
 
-> [KakaoTalk 메시징 채널]({{site.baseurl}}/kakaotalk/)을 사용하여 KakaoTalk 플랫폼을 통해 사용자에게 직접 도달하세요. Liquid 및 기타 동적 콘텐츠를 활용하여 브랜드와 함께 풍부한 사용자 경험을 촉진하고 향상시키는 개인화된 사용자 경험을 구축하세요.<br><br>KakaoTalk 메시징 채널을 설정하려면 [KakaoTalk 설정]({{site.baseurl}}/kakaotalk_setup/)을 참조하세요.
+> [KakaoTalk 메시징 채널]({{site.baseurl}}/kakaotalk)을 사용하여 KakaoTalk 플랫폼을 통해 사용자에게 직접 도달하세요. Liquid 및 기타 동적 콘텐츠를 활용하여 브랜드와 함께 풍부한 사용자 경험을 촉진하고 향상시키는 개인화된 사용자 경험을 구축하세요.<br><br>KakaoTalk 메시징 채널을 설정하려면 [KakaoTalk 설정]({{site.baseurl}}/kakaotalk_setup)을 참조하세요.
 
 ## 1단계: 메시지를 작성할 위치 선택 {#step-1-choose-where-to-build-your-message}
 
@@ -20,16 +20,16 @@ KakaoTalk은 Campaign과 Canvas 모두에서 지원됩니다. Campaign은 단일
 {% tab Campaign %}
 
 1. **메시징** > **Campaigns**로 이동하여 **캠페인 생성**을 선택합니다.
-2. 단일 채널 캠페인의 경우 **KakaoTalk**을, 다중 채널 캠페인의 경우 **Multichannel Campaign**을 선택합니다.
+2. 단일 채널 캠페인의 경우 **KakaoTalk**을, 다중 채널 캠페인의 경우 **멀티채널 캠페인**을 선택합니다.
 
 ![메시징 채널을 선택하는 옵션이 있는 패널.]({% image_buster /assets/img/kakaotalk/kakaotalk_campaign.png %}){: style="max-width:30%" }
 
-3. 캠페인에 추가 배리언트를 추가하여 다양한 메시지 유형과 레이아웃을 선택할 수 있습니다. 자세한 내용은 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)를 참조하세요.
+3. 캠페인에 추가 배리언트를 추가하여 다양한 메시지 유형과 레이아웃을 선택할 수 있습니다. 자세한 내용은 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing)를 참조하세요.
 
 {% endtab %}
 {% tab Canvas %}
 
-1. [Canvas를 생성]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)합니다.
+1. [Canvas를 생성]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)합니다.
 2. Canvas 빌더에서 메시지 단계를 추가하고 **KakaoTalk**을 선택합니다.
 
 ![Canvas 메시징 채널 선택 화면.]({% image_buster /assets/img/kakaotalk/kakaotalk_canvas.png %})
@@ -167,7 +167,7 @@ KakaoTalk 클릭 추적이 켜져 있으면 Braze가 자동으로 URL을 단축�
 
 클릭 추적을 활성화하려면 작성기의 **링크 옵션** 섹션에서 **클릭 추적**을 체크합니다. URL은 기본 Braze 도메인(`https://brz.ai`) 또는 구독 그룹에 지정된 커스텀 도메인을 사용하여 단축되고 사용자별로 개인화됩니다.
 
-클릭 추적, 커스텀 도메인, URL의 Liquid 개인화, 보고 및 리타겟팅에 대한 자세한 내용은 [KakaoTalk 클릭 추적]({{site.baseurl}}/kakaotalk_click_tracking/)을 참조하세요.
+클릭 추적, 커스텀 도메인, URL의 Liquid 개인화, 보고 및 리타겟팅에 대한 자세한 내용은 [KakaoTalk 클릭 추적]({{site.baseurl}}/kakaotalk_click_tracking)을 참조하세요.
 
 ### 사용자 리타겟팅 {#retargeting-users}
 
@@ -194,7 +194,7 @@ KakaoTalk 메시지를 작성하면 메시지 미리보기가 자동으로 업�
 기존 사용자에게 테스트 메시지를 미리보고 보내려면 "PII 보기" 권한이 필요합니다. 해당 권한 없이도 커스텀 사용자에게 테스트 메시지를 미리보고 보낼 수 있습니다.
 {% endalert %}
 
-발송 결과를 검토하거나 문제를 해결하려면 **설정** > **메시지 활동 로그**로 이동합니다. 자세한 내용은 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)를 참조하세요.
+발송 결과를 검토하거나 문제를 해결하려면 **설정** > **메시지 활동 로그**로 이동합니다. 자세한 내용은 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)를 참조하세요.
 
 ## 5단계: 나머지 캠페인 또는 Canvas 구축 {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
@@ -202,9 +202,9 @@ KakaoTalk 메시지를 작성하기 위해 도구를 가장 잘 활용하는 방
 
 ### 전달 스케줄 또는 트리거 선택 {#choose-delivery-schedule-or-trigger}
 
-KakaoTalk 메시지는 예약된 시간, 실행 또는 API 트리거를 기반으로 전달할 수 있습니다. 스케줄 및 트리거 옵션에 대한 자세한 내용은 [캠페인 스케줄 설정]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/) 또는 [진입 스케줄 유형]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types)(Canvas의 경우)을 참조하세요.
+KakaoTalk 메시지는 예약된 시간, 실행 또는 API 트리거를 기반으로 전달할 수 있습니다. 스케줄 및 트리거 옵션에 대한 자세한 내용은 [캠페인 스케줄 설정]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) 또는 [진입 스케줄 유형]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#entry-schedule-types)(Canvas의 경우)을 참조하세요.
 
-사용자가 캠페인을 다시 받을 수 있도록 허용하거나 최대 게재빈도 설정 규칙을 켜는 등 전달 제어를 지정할 수 있습니다. 실행 기반 전달의 경우 캠페인 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)도 설정할 수 있습니다.
+사용자가 캠페인을 다시 받을 수 있도록 허용하거나 최대 게재빈도 설정 규칙을 켜는 등 전달 제어를 지정할 수 있습니다. 실행 기반 전달의 경우 캠페인 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)도 설정할 수 있습니다.
 
 ### 타겟 사용자 선택 {#choose-users-to-target}
 

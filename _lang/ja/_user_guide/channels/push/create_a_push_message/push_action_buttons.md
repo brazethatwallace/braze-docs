@@ -20,7 +20,7 @@ channel:
 各インタラクティブボタンは、Webページやディープリンクにリンクしたり、アプリを開いたりすることができます。
 
 - 標準のプッシュCampaignの場合、ダッシュボードのプッシュメッセージ作成画面の**On-Click Behavior**セクションでプッシュアクションボタンを指定できます。
-- [マルチプラットフォームプッシュCampaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/)の場合、**設定**タブで各プラットフォームごとにアクションボタンを個別に設定できます。
+- [マルチプラットフォームプッシュCampaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push)の場合、**設定**タブで各プラットフォームごとにアクションボタンを個別に設定できます。
 
 {% tabs %}
 {% tab iOS %}
@@ -39,10 +39,10 @@ iOSプッシュメッセージでアクションボタンを使用するには�
 ![iOS Notification Categoryのドロップダウンメニュー。]({% image_buster /assets/img_archive/push_action_buttons_ios.png %}){: style="max-width:70%"}
 
 {% alert note %}
-iOSのボタン処理の仕様により、プッシュアクションボタンを設定する際には追加の統合ステップが必要です。詳細は[開発者ドキュメント]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_customizing-push-categories)に記載されています。特に、iOSカテゴリを設定するか、特定のデフォルトボタンオプションから選択する必要があります。Androidの統合では、これらのボタンは自動的に動作します。
+iOSのボタン処理の仕様により、プッシュアクションボタンを設定する際には追加の統合ステップが必要です。詳細は[開発者ドキュメント]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=swift#swift_customizing-push-categories)に記載されています。特に、iOSカテゴリを設定するか、特定のデフォルトボタンオプションから選択する必要があります。Androidの統合では、これらのボタンは自動的に動作します。
 {% endalert %}
 
-**Yes** / **No**などのプリセットペアでは、2番目のボタンがデフォルトで却下（**CLOSE**）アクションにマッピングされるため、1番目のボタンと同じようにアプリを開くことはありません。**_直接開封数_**にはこの種のタップは含まれませんが、CurrentsやSnowflakeの**Push Notification Open**データでは、`button_action_type`と`button_string`とともにログに記録される場合があります。詳細については、[プッシュアクションボタンとレポート]({{site.baseurl}}/user_guide/channels/push/reporting/#push-action-buttons-and-reporting)を参照してください。
+**Yes** / **No**などのプリセットペアでは、2番目のボタンがデフォルトで却下（**CLOSE**）アクションにマッピングされるため、1番目のボタンと同じようにアプリを開くことはありません。**_直接開封数_**にはこの種のタップは含まれませんが、CurrentsやSnowflakeの**Push Notification Open**データでは、`button_action_type`と`button_string`とともにログに記録される場合があります。詳細については、[プッシュアクションボタンとレポート]({{site.baseurl}}/user_guide/channels/push/reporting#push-action-buttons-and-reporting)を参照してください。
 {% endtab %}
 {% tab Android %}
 ### Android {#android}
@@ -53,7 +53,7 @@ Androidプッシュメッセージでアクションボタンを使用するに�
 2. <i class="fas fa-plus-circle"></i> **Add Button**を選択し、ボタンテキストと**On-Click Behavior**を指定します。以下の利用可能なアクションから選択できます。
   - Open App
   - Redirect to Web URL
-  - アプリケーションへの[ディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/)
+  - アプリケーションへの[ディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls)
 
 ![通知ボタンのクリック時の動作として「Open App」を選択している画面。]({% image_buster /assets/img_archive/push_action_buttons_android.png %}){: style="max-width:70%"}
 

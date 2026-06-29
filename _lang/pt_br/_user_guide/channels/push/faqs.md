@@ -14,7 +14,7 @@ channel:
 
 ## Por que as notificações por push às vezes atrasam? {#why-are-push-notifications-sometimes-delayed}
 
-A entrega geralmente segue três estágios: **processamento** pela Braze (segmentação, agendamento e envio ao provedor), transporte da Braze para o **APNs ou FCM** e entrega do provedor para o **dispositivo**. Atrasos podem ocorrer em qualquer estágio. A Braze não tem visibilidade sobre as filas do provedor ou do dispositivo; use o [registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/) no cliente quando precisar identificar problemas de tempo no lado do dispositivo.
+A entrega geralmente segue três estágios: **processamento** pela Braze (segmentação, agendamento e envio ao provedor), transporte da Braze para o **APNs ou FCM** e entrega do provedor para o **dispositivo**. Atrasos podem ocorrer em qualquer estágio. A Braze não tem visibilidade sobre as filas do provedor ou do dispositivo; use o [registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs) no cliente quando precisar identificar problemas de tempo no lado do dispositivo.
 
 ## O que acontece quando vários usuários fazem login em um único dispositivo? {#what-happens-when-multiple-users-log-into-a-single-device}
 
@@ -28,13 +28,13 @@ Quando um token por push é reatribuído, a alteração é refletida no **Push C
 
 Sim. O push de teste é enviado para todos os dispositivos com push ativado associados ao perfil de usuário selecionado. Se você tiver vários celulares ou tablets conectados com o mesmo usuário, cada dispositivo com um token por push válido receberá a notificação.
 
-Para enviar o push de teste para apenas um dispositivo, você pode remover os tokens por push dos outros dispositivos no perfil de usuário antes de testar. Alternativamente, se estiver enviando com o [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/), defina `send_to_most_recent_device_only` como `true` no objeto `apple_push` ou `android_push` para que apenas o dispositivo ativo mais recentemente receba o push.
+Para enviar o push de teste para apenas um dispositivo, você pode remover os tokens por push dos outros dispositivos no perfil de usuário antes de testar. Alternativamente, se estiver enviando com o [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages), defina `send_to_most_recent_device_only` como `true` no objeto `apple_push` ou `android_push` para que apenas o dispositivo ativo mais recentemente receba o push.
 
 ## O que significa "Erro ao enviar push porque a carga útil era inválida"? {#what-does-error-sending-push-because-the-payload-was-invalid-mean}
 
 Essa mensagem indica que o APNs rejeitou a solicitação de push devido a uma carga útil inválida (por exemplo, uma carga útil vazia ou grande demais).
 
-Para mais informações e próximas etapas, consulte [Mensagens comuns de erro de push]({{site.baseurl}}/user_guide/channels/push/push_error_codes/).
+Para mais informações e próximas etapas, consulte [Mensagens comuns de erro de push]({{site.baseurl}}/user_guide/channels/push/push_error_codes).
 
 ## Por que um usuário com opt-in não tem um token por push? {#why-doesnt-an-opted-in-user-have-a-push-token}
 
@@ -72,10 +72,10 @@ Esses filtros de segmentação verificam condições diferentes:
 | Filtro | O que verifica | Caso de uso |
 |--------|---------------|----------|
 | **Push em Primeiro Plano Ativado** | O usuário tem um token por push de primeiro plano válido **e** seu estado de inscrição de push é `Opted-In` ou `Subscribed`. | Direcionar usuários que podem receber notificações por push visíveis. |
-| **Push em Segundo Plano ou Primeiro Plano Ativado** | O usuário tem qualquer token por push (primeiro plano ou segundo plano) **e** seu estado de inscrição de push é `Opted-In` ou `Subscribed`. Isso inclui usuários que desativaram notificações por push visíveis, mas ainda possuem um token por push de segundo plano. | Usado para [rastreamento de desinstalação]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/), [notificações por push silenciosas]({{site.baseurl}}/developer_guide/push_notifications/silent/) e geofencing. |
+| **Push em Segundo Plano ou Primeiro Plano Ativado** | O usuário tem qualquer token por push (primeiro plano ou segundo plano) **e** seu estado de inscrição de push é `Opted-In` ou `Subscribed`. Isso inclui usuários que desativaram notificações por push visíveis, mas ainda possuem um token por push de segundo plano. | Usado para [rastreamento de desinstalação]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking), [notificações por push silenciosas]({{site.baseurl}}/developer_guide/push_notifications/silent) e geofencing. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Qual é a diferença entre os filtros Push em Primeiro Plano Ativado e Push em Segundo Plano ou Primeiro Plano Ativado?" }
 
-Um usuário pode ter `Push em Segundo Plano ou Primeiro Plano Ativado` sem ter `Push em Primeiro Plano Ativado`. Isso acontece quando o usuário desativou as notificações por push visíveis nas configurações do dispositivo, mas o app ainda mantém um token por push de segundo plano. Para mais informações, consulte [Usuários de push e inscrições]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#foreground-push-enabled).
+Um usuário pode ter `Push em Segundo Plano ou Primeiro Plano Ativado` sem ter `Push em Primeiro Plano Ativado`. Isso acontece quando o usuário desativou as notificações por push visíveis nas configurações do dispositivo, mas o app ainda mantém um token por push de segundo plano. Para mais informações, consulte [Usuários de push e inscrições]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#foreground-push-enabled).
 
 ## Como a Braze determina quando uma mensagem de push é enviada com sucesso? {#how-does-braze-determine-when-a-push-message-is-sent-successfully}
 

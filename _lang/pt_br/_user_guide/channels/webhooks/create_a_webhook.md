@@ -15,7 +15,7 @@ search_rank: 2
 Você pode usar webhooks para enviar informações a sistemas como Salesforce ou Marketo, ou aos seus sistemas de backend. Por exemplo, você pode querer creditar as contas dos seus clientes com uma promoção depois que eles realizarem um evento personalizado um determinado número de vezes.
 
 {% alert tip %}
-Para saber mais sobre o que são webhooks e como você pode usá-los na Braze, confira [Webhooks]({{site.baseurl}}/user_guide/channels/webhooks/) antes de prosseguir.
+Para saber mais sobre o que são webhooks e como você pode usá-los na Braze, confira [Webhooks]({{site.baseurl}}/user_guide/channels/webhooks) antes de prosseguir.
 {% endalert %}
 
 ## Etapa 1: Escolha onde criar sua mensagem {#step-1-choose-where-to-build-your-message}
@@ -31,9 +31,9 @@ Não tem certeza se sua mensagem deve ser enviada usando uma Campaign ou um Canv
 2. Selecione **Webhook** ou, para campanhas direcionadas a múltiplos canais, selecione **Multichannel**.
 3. Dê à sua campanha um nome claro e significativo.
 4. (Opcional) Adicione uma descrição para descrever como essa campanha será usada.
-4. Adicione [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) e [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) conforme necessário.
-   * Tags facilitam encontrar suas campanhas e criar relatórios a partir delas. Por exemplo, ao usar o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder/), você pode filtrar por tags específicas.
-5. Adicione e nomeie quantas variantes forem necessárias para sua campanha. Você pode escolher diferentes modelos de webhook para cada uma das variantes adicionadas. Para saber mais sobre esse tópico, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+4. Adicione [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) e [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) conforme necessário.
+   * Tags facilitam encontrar suas campanhas e criar relatórios a partir delas. Por exemplo, ao usar o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder), você pode filtrar por tags específicas.
+5. Adicione e nomeie quantas variantes forem necessárias para sua campanha. Você pode escolher diferentes modelos de webhook para cada uma das variantes adicionadas. Para saber mais sobre esse tópico, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
 Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conteúdo, redija sua mensagem antes de adicionar variantes adicionais. Em seguida, escolha **Copy from Variant** no menu suspenso **Add Variant**.
@@ -44,11 +44,11 @@ Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conte
 
 **Etapas:**
 
-1. [Crie seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) usando o criador de Canvas.
+1. [Crie seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando o criador de Canvas.
 2. Depois de configurar seu Canvas, adicione uma etapa no construtor de Canvas. Dê à sua etapa um nome claro e significativo.
-3. Escolha um [agendamento de etapa]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#schedule-your-canvas-step) e especifique uma postergação conforme necessário.
+3. Escolha um [agendamento de etapa]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#schedule-your-canvas-step) e especifique uma postergação conforme necessário.
 4. Filtre seu público para esta etapa conforme necessário. Você pode refinar ainda mais os destinatários desta etapa especificando segmentos e adicionando filtros adicionais. As opções de público serão verificadas após a postergação, no momento em que as mensagens forem enviadas.
-5. Escolha seu [comportamento de avanço]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#advancement-behavior).
+5. Escolha seu [comportamento de avanço]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#advancement-behavior).
 6. Escolha quaisquer outros canais de envio de mensagens que você gostaria de combinar com sua mensagem.
 
 {% endtab %}
@@ -69,11 +69,11 @@ A guia **Compose** consiste nos seguintes campos:
 
 ### Idioma {#internationalization}
 
-A [internacionalização]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/#campaigns-in-multiple-languages) é suportada na URL e no corpo da solicitação. Para internacionalizar sua mensagem, selecione **Add languages** e preencha os campos obrigatórios.
+A [internacionalização]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies#campaigns-in-multiple-languages) é suportada na URL e no corpo da solicitação. Para internacionalizar sua mensagem, selecione **Add languages** e preencha os campos obrigatórios.
 
-Recomendamos selecionar seus idiomas antes de escrever seu conteúdo para que você possa preencher seu texto onde ele pertence no Liquid. Para nossa lista completa de idiomas disponíveis que você pode usar, consulte [Idiomas suportados]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported).
+Recomendamos selecionar seus idiomas antes de escrever seu conteúdo para que você possa preencher seu texto onde ele pertence no Liquid. Para nossa lista completa de idiomas disponíveis que você pode usar, consulte [Idiomas suportados]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported).
 
-Se você estiver adicionando texto em um idioma escrito da direita para a esquerda, observe que a aparência final das mensagens da direita para a esquerda depende em grande parte de como os prestadores de serviço as renderizam. Para práticas recomendadas sobre como criar mensagens da direita para a esquerda que sejam exibidas da forma mais precisa possível, consulte [Criando mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
+Se você estiver adicionando texto em um idioma escrito da direita para a esquerda, observe que a aparência final das mensagens da direita para a esquerda depende em grande parte de como os prestadores de serviço as renderizam. Para práticas recomendadas sobre como criar mensagens da direita para a esquerda que sejam exibidas da forma mais precisa possível, consulte [Criando mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ### URL do webhook {#webhook-url}
 
@@ -85,7 +85,7 @@ A Braze permite apenas URLs que se comunicam por portas padrão `80` (HTTP) e `4
 
 #### Usando Liquid {#using-liquid}
 
-Você pode personalizar suas URLs de webhook usando [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/). Às vezes, certos endpoints podem exigir que você identifique um usuário ou forneça informações específicas do usuário como parte da sua URL. Ao usar Liquid, certifique-se de incluir um [valor padrão]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web) para cada informação específica do usuário que você usar na sua URL.
+Você pode personalizar suas URLs de webhook usando [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid). Às vezes, certos endpoints podem exigir que você identifique um usuário ou forneça informações específicas do usuário como parte da sua URL. Ao usar Liquid, certifique-se de incluir um [valor padrão]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web) para cada informação específica do usuário que você usar na sua URL.
 
 ### Método HTTP {#http-method}
 
@@ -109,13 +109,13 @@ Pares de chave-valor JSON permitem que você escreva facilmente uma solicitaçã
 
 ![Corpo da solicitação definido como pares de chave-valor JSON.]({% image_buster /assets/img/webhook_json_1.png %})
 
-Você pode personalizar seus pares de chave-valor usando Liquid, incluindo qualquer atributo de usuário, [atributo personalizado]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#additional-notes-and-best-practices) ou [propriedade de evento]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) na sua solicitação. Por exemplo, você pode incluir o nome e o e-mail de um cliente na sua solicitação. Certifique-se de incluir um [valor padrão]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web) para cada atributo.
+Você pode personalizar seus pares de chave-valor usando Liquid, incluindo qualquer atributo de usuário, [atributo personalizado]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids#additional-notes-and-best-practices) ou [propriedade de evento]({{site.baseurl}}/user_guide/data/activation/events/custom_events) na sua solicitação. Por exemplo, você pode incluir o nome e o e-mail de um cliente na sua solicitação. Certifique-se de incluir um [valor padrão]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web) para cada atributo.
 
 #### Texto bruto {#raw-text}
 
 A opção de texto bruto oferece a flexibilidade de escrever uma solicitação para um endpoint que espera um corpo de qualquer formato. Por exemplo, você pode usar isso para escrever uma solicitação para um endpoint que espera que sua solicitação esteja em formato XML.
 
-Tanto a [personalização]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) quanto a [internacionalização]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/#campaigns-in-multiple-languages) usando Liquid são suportadas em texto bruto.
+Tanto a [personalização]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) quanto a [internacionalização]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies#campaigns-in-multiple-languages) usando Liquid são suportadas em texto bruto.
 
 ![Um exemplo de corpo de solicitação com texto bruto usando Liquid.]({% image_buster /assets/img_archive/webhook_rawtext.png %})
 
@@ -163,7 +163,7 @@ Após enviar o webhook de teste, uma caixa de diálogo aparecerá com a mensagem
 
 ```
 
-Para mais informações, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=webhook).
+Para mais informações, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=webhook).
 
 ## Etapa 5: Construa o restante da sua campanha ou Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
@@ -174,27 +174,27 @@ Em seguida, construa o restante da sua campanha. Consulte as seções a seguir p
 
 ### Escolha o agendamento de entrega ou gatilho {#choose-delivery-schedule-or-trigger}
 
-Webhooks podem ser entregues com base em um horário agendado, uma ação ou com base em um gatilho de API. Para saber mais, consulte [Agendando sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
+Webhooks podem ser entregues com base em um horário agendado, uma ação ou com base em um gatilho de API. Para saber mais, consulte [Agendando sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-Para entrega baseada em ação, você também pode definir a duração da campanha e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
+Para entrega baseada em ação, você também pode definir a duração da campanha e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
-Nesta etapa, você também pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) para receber a campanha, ou habilitar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
+Nesta etapa, você também pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns) para receber a campanha, ou habilitar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping).
 
 ### Escolha os usuários a serem direcionados {#choose-users-to-target}
 
-Em seguida, você deve [direcionar os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo segmentos ou filtros para restringir seu público. Nesta etapa, você seleciona o público maior dos seus segmentos e restringe ainda mais esse segmento com nossos filtros, se desejar. Você recebe automaticamente uma pré-visualização de como é a população aproximada desse segmento. Tenha em mente que a composição exata do segmento é sempre calculada antes do envio da mensagem.
+Em seguida, você deve [direcionar os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo segmentos ou filtros para restringir seu público. Nesta etapa, você seleciona o público maior dos seus segmentos e restringe ainda mais esse segmento com nossos filtros, se desejar. Você recebe automaticamente uma pré-visualização de como é a população aproximada desse segmento. Tenha em mente que a composição exata do segmento é sempre calculada antes do envio da mensagem.
 
 {% multi_lang_include audience/target_audiences.md %}
 
 ### Escolha eventos de conversão {#choose-conversion-events}
 
-A Braze permite que você acompanhe com que frequência os usuários realizam ações específicas, [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), após receberem uma campanha. Você tem a opção de permitir uma janela de até 30 dias durante a qual uma conversão será contabilizada se o usuário realizar a ação especificada.
+A Braze permite que você acompanhe com que frequência os usuários realizam ações específicas, [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), após receberem uma campanha. Você tem a opção de permitir uma janela de até 30 dias durante a qual uma conversão será contabilizada se o usuário realizar a ação especificada.
 
 {% endtab %}
 
 {% tab Canvas %}
 
-Se ainda não o fez, conclua as seções restantes da sua etapa do Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e Seleção inteligente, e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) da nossa documentação de Canvas.
+Se ainda não o fez, conclua as seções restantes da sua etapa do Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e Seleção inteligente, e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) da nossa documentação de Canvas.
 
 {% endtab %}
 {% endtabs %}
@@ -212,7 +212,7 @@ Webhooks dependem dos servidores da Braze fazendo solicitações a um endpoint e
 - Teste seu webhook para erros de sintaxe
 - Certifique-se de que variáveis personalizadas tenham valores padrão
 
-Se o seu webhook falhar ao enviar, uma mensagem de erro será registrada no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) e incluirá detalhes como o timestamp do erro, nome do app e detalhes sobre o erro.
+Se o seu webhook falhar ao enviar, uma mensagem de erro será registrada no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) e incluirá detalhes como o timestamp do erro, nome do app e detalhes sobre o erro.
 
 ![Erro de webhook com a mensagem "An active access token must be used to query information about the current user".]({% image_buster /assets/img_archive/webhook-error.png %})
 
@@ -240,15 +240,15 @@ Os cabeçalhos de resposta `Retry-After` e de limite de taxa podem afetar quanto
 
 #### Autenticação e credenciais de Conteúdo conectado {#authentication-and-connected-content-credentials}
 
-A solicitação HTTP de webhook de saída não suporta a anexação de [credenciais de Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#authentication-types) (`:basic_auth` ou `:auth_credentials`) para autenticação no seu endpoint. Em vez disso, defina a autenticação usando **Request headers** no webhook. Para buscar um token ou segredo no momento do envio, você pode colocar uma tag {% raw %}`{% connected_content %}`{% endraw %} em um campo de cabeçalho ou corpo para que o Liquid a resolva antes do envio do webhook.
+A solicitação HTTP de webhook de saída não suporta a anexação de [credenciais de Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types) (`:basic_auth` ou `:auth_credentials`) para autenticação no seu endpoint. Em vez disso, defina a autenticação usando **Request headers** no webhook. Para buscar um token ou segredo no momento do envio, você pode colocar uma tag {% raw %}`{% connected_content %}`{% endraw %} em um campo de cabeçalho ou corpo para que o Liquid a resolva antes do envio do webhook.
 
 #### Modelos de webhook salvos e uso em campanhas {#saved-webhook-templates-and-campaign-usage}
 
-A Braze não fornece um relatório integrado que liste todas as campanhas ou etapas do Canvas que fazem referência a um determinado **modelo de webhook salvo**. Para auditar o uso, revise as etapas de webhook que usam a mesma URL e método HTTP, ou entre em contato com o [suporte da Braze]({{site.baseurl}}/support_contact/).
+A Braze não fornece um relatório integrado que liste todas as campanhas ou etapas do Canvas que fazem referência a um determinado **modelo de webhook salvo**. Para auditar o uso, revise as etapas de webhook que usam a mesma URL e método HTTP, ou entre em contato com o [suporte da Braze]({{site.baseurl}}/support_contact).
 
 #### Solução de problemas e detalhes adicionais de erros {#troubleshooting-and-additional-error-details}
 
-Para explicações detalhadas, etapas de solução de problemas e orientações sobre como resolver erros específicos de webhook, consulte [Solução de problemas de solicitações de webhook e Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content/). Você também encontrará mais explicações sobre como nosso sistema de detecção de hosts não saudáveis funciona e como a Braze fornece notificações de erro por meio de e-mails automatizados e registro adicional no Braze Currents.
+Para explicações detalhadas, etapas de solução de problemas e orientações sobre como resolver erros específicos de webhook, consulte [Solução de problemas de solicitações de webhook e Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content). Você também encontrará mais explicações sobre como nosso sistema de detecção de hosts não saudáveis funciona e como a Braze fornece notificações de erro por meio de e-mails automatizados e registro adicional no Braze Currents.
 
 ### Lista de permissões de IP {#ip-allowlisting}
 
@@ -264,6 +264,6 @@ Se você está fazendo um webhook Braze-para-Braze e usando lista de permissões
 
 ### Excluir usuários {#delete-users}
 
-Para excluir um usuário individual ou um segmento de usuários, acesse **Audience** > **Manage Audience** > **Delete Users**. O dashboard suporta exclusão em massa de segmentos (até 10 milhões de perfis), inclui uma janela de cancelamento de 7 dias e não consome os limites de taxa compartilhados da REST API. Para etapas, limites e permissões, consulte [Excluir usuários]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/).
+Para excluir um usuário individual ou um segmento de usuários, acesse **Audience** > **Manage Audience** > **Delete Users**. O dashboard suporta exclusão em massa de segmentos (até 10 milhões de perfis), inclui uma janela de cancelamento de 7 dias e não consome os limites de taxa compartilhados da REST API. Para etapas, limites e permissões, consulte [Excluir usuários]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users).
 
-Para exclusão programática em lotes menores, use o [endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) em vez de uma campanha de webhook.
+Para exclusão programática em lotes menores, use o [endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) em vez de uma campanha de webhook.

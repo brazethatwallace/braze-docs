@@ -23,7 +23,7 @@ Diese Bearbeitungsoberfläche eignet sich am besten für die folgenden Anwendung
 
 So erstellen Sie eine Campaign, die mehrere Plattformen und Geräte anspricht:
 
-1. Erstellen Sie eine Campaign oder fügen Sie einem Canvas einen [Nachrichtenschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) hinzu.
+1. Erstellen Sie eine Campaign oder fügen Sie einem Canvas einen [Nachrichtenschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) hinzu.
 2. Wählen Sie **Push-Benachrichtigung** aus.
 3. Wählen Sie Ihre gewünschten Plattformen (Mobilgerät, Internet, Kindle) und mobilen Geräte (iOS, Android) aus. Wenn Sie mehrere Geräte auswählen, steht für Ihre Campaign kein multivariates Testen zur Verfügung.
 
@@ -39,7 +39,7 @@ So erstellen Sie eine Campaign, die mehrere Plattformen und Geräte anspricht:
 
 ## Einen Multiplattform-Multivarianten-Test durchführen {#running-a-multi-platform-multivariate-test}
 
-Multivariates Testen wird bei Multiplattform-Campaigns unterstützt. Wählen Sie einfach das Plus-Symbol neben dem Variantennamen aus, wie Sie es normalerweise bei Einzelplattform-Campaigns tun würden. Wir empfehlen Ihnen, [unseren Leitfaden]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/) zum Erstellen multivariater Tests zu lesen und die [BrazeAI<sup>TM</sup>-Variantenauswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/) zu nutzen, um Ihr Engagement zu automatisieren und zu maximieren.
+Multivariates Testen wird bei Multiplattform-Campaigns unterstützt. Wählen Sie einfach das Plus-Symbol neben dem Variantennamen aus, wie Sie es normalerweise bei Einzelplattform-Campaigns tun würden. Wir empfehlen Ihnen, [unseren Leitfaden]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) zum Erstellen multivariater Tests zu lesen und die [BrazeAI<sup>TM</sup>-Variantenauswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection) zu nutzen, um Ihr Engagement zu automatisieren und zu maximieren.
 
 ![Einfache Multiplattform-Multivarianten-Tests]({% image_buster /assets/img_archive/push_multiple_platform_message_composer_multivariate.png %})
 
@@ -53,7 +53,7 @@ Der Vorschaubereich zeigt eine Annäherung daran, wie Ihre Nachricht auf jeder P
 ![Einzelne Bearbeitungsansicht mit einem Titel-, Nachrichten- und Klickverhaltensfeld für drei Push-Typen: iOS, Android und Internet.]({% image_buster /assets/img_archive/push_multiple_platform_message_composer.png %})
 
 ### Separate Assets {#separate-assets}
-Im Abschnitt **Assets** wählen oder laden Sie die Bilder hoch, die für jede Plattform angezeigt werden sollen. Beachten Sie, dass verschiedene Geräte unterschiedliche Spezifikationen für Bilder und Zeichenanzahlen haben. Weitere Hilfe finden Sie unter [Push-Nachrichten- und Bildformate]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/).
+Im Abschnitt **Assets** wählen oder laden Sie die Bilder hoch, die für jede Plattform angezeigt werden sollen. Beachten Sie, dass verschiedene Geräte unterschiedliche Spezifikationen für Bilder und Zeichenanzahlen haben. Weitere Hilfe finden Sie unter [Push-Nachrichten- und Bildformate]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats).
 
 ![Assets-Abschnitt der einzelnen Bearbeitungsansicht mit Feldern für Push-Icon-Bild, iOS-Benachrichtigungsbild, Android-Benachrichtigungsbild und Internet-Benachrichtigungsbild.]({% image_buster /assets/img_archive/push_multiple_platform_message_composer_assets.png %}){:style="max-width:50%"}
 
@@ -63,12 +63,12 @@ Der Benachrichtigungstyp ist standardmäßig auf „Standard-Push“ eingestellt
 
 ### Gerätespezifische Einstellungen {#device-specific-settings}
 
-Sie können plattformspezifische Einstellungen im Editor bearbeiten. Dazu gehören Einstellungen wie [Push-Action-Buttons]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/), Benachrichtigungskanäle und -gruppen, TTL, Anzeigepriorität, Töne und mehr.
+Sie können plattformspezifische Einstellungen im Editor bearbeiten. Dazu gehören Einstellungen wie [Push-Action-Buttons]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons), Benachrichtigungskanäle und -gruppen, TTL, Anzeigepriorität, Töne und mehr.
 
 Weitere Informationen zu gerätespezifischen Einstellungen finden Sie in den folgenden Artikelsammlungen:
 
-- [iOS-Optionen]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/)
-- [Android-Optionen]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/)
+- [iOS-Optionen]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios)
+- [Android-Optionen]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android)
 
 ### Push Stories
 

@@ -14,15 +14,15 @@ description: "Esta landing page reúne tudo sobre o KakaoTalk, incluindo uma vis
 guide_featured_title: "Artigos"
 guide_featured_list:
 - name: Configurar o KakaoTalk
-  link: /docs/kakaotalk_setup/
+  link: /docs/kakaotalk_setup
   image: /assets/img/braze_icons/settings-01.svg
 - name: Criar uma mensagem KakaoTalk
-  link: /docs/create_kakaotalk_message/
+  link: /docs/create_kakaotalk_message
   image: /assets/img/braze_icons/message-chat-square.svg
 - name: Rastreamento de cliques do KakaoTalk
-  link: /docs/kakaotalk_click_tracking/
+  link: /docs/kakaotalk_click_tracking
   image: /assets/img/braze_icons/cursor-click-02.svg
 - name: Relatórios do KakaoTalk
-  link: /docs/kakaotalk_reporting/
+  link: /docs/kakaotalk_reporting
   image: /assets/img/braze_icons/line-chart-up-01.svg
 ---

@@ -19,8 +19,8 @@ search_rank: 3
 
 시작하기 전에 다음 사항을 확인하세요:
 
-- **앱 또는 웹사이트에 푸시가 통합되어 있어야 합니다.** 개발자와 협력하여 설정하세요. 자세한 단계는 [iOS]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android), [웹]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web) 통합 가이드를 참조하세요.
-- **푸시 옵트인 전략이 필요합니다.** 사용자는 기기에서 푸시 권한을 허용해야 합니다. 프롬프트를 표시하기 전에 [푸시 프라이머 메시지]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)를 사용하여 가치를 설명하는 것을 고려하세요.
+- **앱 또는 웹사이트에 푸시가 통합되어 있어야 합니다.** 개발자와 협력하여 설정하세요. 자세한 단계는 [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications?tab=android), [웹]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web) 통합 가이드를 참조하세요.
+- **푸시 옵트인 전략이 필요합니다.** 사용자는 기기에서 푸시 권한을 허용해야 합니다. 프롬프트를 표시하기 전에 [푸시 프라이머 메시지]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)를 사용하여 가치를 설명하는 것을 고려하세요.
 
 ## 활용 사례 {#use-cases}
 
@@ -50,5 +50,5 @@ search_rank: 3
 
 ## 다음 단계 {#next-steps}
 
-- [푸시 설정]({{site.baseurl}}/user_guide/channels/push/push_setup/)
-- [푸시 메시지 만들기]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/)
+- [푸시 설정]({{site.baseurl}}/user_guide/channels/push/push_setup)
+- [푸시 메시지 만들기]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)

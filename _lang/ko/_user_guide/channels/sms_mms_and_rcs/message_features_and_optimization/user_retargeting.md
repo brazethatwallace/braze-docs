@@ -19,7 +19,7 @@ channel:
 > Braze는 수신 키워드를 기반으로 사용자의 구독 상태를 변경하고 자동 응답을 보내는 것 외에도, 메시지 필터링 및 트리거를 위해 고객 프로필에 상호작용을 기록합니다.<br><br>이러한 필터와 트리거를 사용하면 SMS, MMS, RCS Campaign을 수신했거나 응답한 사용자를 기준으로 동작을 필터링하거나, 단축 URL을 클릭한 사용자와 추가로 인게이지먼트할 수 있습니다.
 
 {% alert tip %}
-커스텀 키워드와 이러한 리타겟팅 옵션을 활용하기 위한 양방향 메시징 설정 방법에 대해 자세히 알아보려면 [커스텀 키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/) 문서를 참조하세요.
+커스텀 키워드와 이러한 리타겟팅 옵션을 활용하기 위한 양방향 메시징 설정 방법에 대해 자세히 알아보려면 [커스텀 키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling) 문서를 참조하세요.
 {% endalert %}
 
 ## 리타겟팅 옵션 {#retargeting-options}
@@ -50,11 +50,11 @@ channel:
 
 사용자가 특정 Campaign에서 SMS, MMS 또는 RCS 메시지를 수신할 때 메시지를 트리거하려면, 행동 기반 Campaign의 트리거 동작으로 **Interact with Campaign**을 선택합니다. 그런 다음 **Receive SMS**와 사용하려는 SMS, MMS 또는 RCS Campaign을 선택합니다.
 
-![]({% image_buster /assets/img/sms/trigger.png %})
+![사용자가 특정 Campaign에서 SMS, MMS 또는 RCS 메시지를 수신할 때 메시지를 트리거하려면, 행동 기반 Campaign의 트리거 동작으로 Interact with Campaign을 선택합니다. 그런 다음 Receive SMS와 사용하려는 SMS, MMS 또는 RCS Campaign을 선택합니다.]({% image_buster /assets/img/sms/trigger.png %})
 
 ### 고급 추적 링크로 필터링 {#filter-by-advanced-tracking-links}
 
-[고급 추적 링크]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/)가 포함된 Campaign을 클릭한 사용자를 리타겟팅합니다.
+[고급 추적 링크]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening)가 포함된 Campaign을 클릭한 사용자를 리타겟팅합니다.
 고급 추적이 활성화된 Campaign만 다음 드롭다운에 표시됩니다:
 
 #### 특정 SMS, MMS 또는 RCS Campaign을 클릭한 사용자 리타겟팅 {#retarget-users-who-have-clicked-a-specific-sms-mms-or-rcs-campaign}
@@ -63,7 +63,7 @@ channel:
 2. **clicked shortened sms link**를 선택합니다.
 3. 원하는 Campaign을 선택합니다.
 
-![]({% image_buster /assets/img/sms/retargeting5.png %})
+![특정 SMS, MMS 또는 RCS Campaign을 클릭한 사용자를 리타겟팅하는 스크린샷.]({% image_buster /assets/img/sms/retargeting5.png %})
 
 #### 특정 캔버스 단계를 클릭한 사용자 리타겟팅 {#retarget-users-who-have-clicked-a-specific-canvas-step}
 
@@ -71,11 +71,11 @@ channel:
 2. **clicked shortened sms link**를 선택합니다.
 3. 원하는 Canvas와 캔버스 단계를 선택합니다.
 
-![]({% image_buster /assets/img/keyword_example1.jpg %})
+![특정 캔버스 단계를 클릭한 사용자를 리타겟팅하는 스크린샷.]({% image_buster /assets/img/keyword_example1.jpg %})
 
 ## 키워드 카테고리별 리타겟팅 {#keyword-category-specific-retargeting}
 
-세 가지 기본 키워드 카테고리(옵트인, 옵트아웃, 도움말) 외에도 최대 25개의 자체 키워드 카테고리를 생성하여 임의의 키워드와 응답을 식별할 수 있습니다. 이러한 카테고리는 필터링 및 리타겟팅에 사용할 수 있습니다. 글로벌 키워드 카테고리와 설정 방법에 대해 자세히 알아보려면 [키워드 처리]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/)를 참조하세요.
+세 가지 기본 키워드 카테고리(옵트인, 옵트아웃, 도움말) 외에도 최대 25개의 자체 키워드 카테고리를 생성하여 임의의 키워드와 응답을 식별할 수 있습니다. 이러한 카테고리는 필터링 및 리타겟팅에 사용할 수 있습니다. 글로벌 키워드 카테고리와 설정 방법에 대해 자세히 알아보려면 [키워드 처리]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing)를 참조하세요.
 
 ### 최근성 기준 필터링 {#filter-by-recency}
 
@@ -106,7 +106,7 @@ channel:
 인바운드 메시지가 정의된 트리거 이벤트에 해당하는지 평가할 때, 평가가 시작되기 전에 앞뒤 공백이 제거됩니다.
 
 {% alert tip %}
-인바운드 SMS 또는 MMS 메시지에 의해 행동 기반 Canvas가 트리거되는 경우, 다음 행동 경로까지 모든 캔버스 단계에서 [지원되는 SMS Liquid 속성]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)을 참조할 수 있습니다.
+인바운드 SMS 또는 MMS 메시지에 의해 행동 기반 Canvas가 트리거되는 경우, 다음 행동 경로까지 모든 캔버스 단계에서 [지원되는 SMS Liquid 속성]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)을 참조할 수 있습니다.
 {% endalert %}
 
 #### 인바운드 키워드 카테고리로 트리거 {#trigger-by-inbound-keyword-category}

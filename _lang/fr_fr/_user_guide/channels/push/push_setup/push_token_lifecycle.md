@@ -36,7 +36,7 @@ Les jetons de notification push sont utilisés pour envoyer des notifications pu
 Lorsqu'un utilisateur accepte les notifications push pour votre application, il est considéré comme « enregistré pour le push », ce qui signifie qu'il peut désormais être ciblé à l'aide du filtre de segmentation `Foreground Push Enabled for App` dans Braze.
 
 {% alert note %}
-Ceci est différent du filtre de segmentation `Foreground Push Enabled`, qui est utilisé pour identifier les utilisateurs ayant accepté les notifications push pour au moins une de vos applications, et non une application spécifique. Pour plus d'informations, consultez [Filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#foreground-push-enabled).
+Ceci est différent du filtre de segmentation `Foreground Push Enabled`, qui est utilisé pour identifier les utilisateurs ayant accepté les notifications push pour au moins une de vos applications, et non une application spécifique. Pour plus d'informations, consultez [Filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#foreground-push-enabled).
 {% endalert %}
 
 ### Plusieurs utilisateurs sur un même appareil {#multiple-users-on-a-device}
@@ -52,7 +52,7 @@ Une application ou un site web ne peut avoir qu'un seul abonnement push par appa
 Comme il n'existe aucun moyen pour les fournisseurs push (APNs/FCM) de distinguer plusieurs utilisateurs sur un même appareil, nous transmettons le jeton de notification push au dernier utilisateur connecté pour déterminer quel utilisateur cibler sur l'appareil pour le push.
 
 {% alert tip %}
-Si vous voyez un message d'erreur dans **Contact Settings** > **Push Changelog**, consultez [Messages d'erreur push courants]({{site.baseurl}}/user_guide/channels/push/push_error_codes/) pour des explications et les étapes suivantes.
+Si vous voyez un message d'erreur dans **Contact Settings** > **Push Changelog**, consultez [Messages d'erreur push courants]({{site.baseurl}}/user_guide/channels/push/push_error_codes) pour des explications et les étapes suivantes.
 {% endalert %}
 
 ## Enregistrement des jetons de notification push {#push-token-registration}
@@ -79,7 +79,7 @@ iOS ne génère pas automatiquement de jetons de notification push pour une appl
 
 | Version | Autorisation provisoire ? | Détails |
 |------------------------------------|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **iOS 12** | Oui | Lorsqu'un utilisateur accepte les notifications push, vous obtenez une autorisation standard, vous permettant d'envoyer des [notifications push au premier plan](#foreground-vs-background). Cependant, vous pouvez également demander une [autorisation provisoire]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push), qui vous permet d'envoyer silencieusement des [notifications push en arrière-plan](#foreground-vs-background) directement dans le centre de notifications. |
+| **iOS 12** | Oui | Lorsqu'un utilisateur accepte les notifications push, vous obtenez une autorisation standard, vous permettant d'envoyer des [notifications push au premier plan](#foreground-vs-background). Cependant, vous pouvez également demander une [autorisation provisoire]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push), qui vous permet d'envoyer silencieusement des [notifications push en arrière-plan](#foreground-vs-background) directement dans le centre de notifications. |
 | **iOS 11 ou versions antérieures** | Non | Tous les utilisateurs doivent explicitement accepter de recevoir des notifications push. Un jeton de notification push n'est généré qu'après l'octroi de l'autorisation. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Enregistrement des jetons de notification push" }
 {% endtab %}
@@ -91,8 +91,8 @@ iOS ne génère pas automatiquement de jetons de notification push pour une appl
 
 Il existe deux façons de vérifier l'état d'abonnement push d'un utilisateur avec Braze :
 
-- **Profil utilisateur** : vous pouvez accéder aux profils utilisateurs individuels via le tableau de bord de Braze sur la page [Recherche d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/). Après avoir trouvé le profil d'un utilisateur (via l'adresse e-mail, le numéro de téléphone ou l'ID utilisateur externe), vous pouvez sélectionner l'onglet **Engagement** pour consulter et ajuster manuellement l'état d'abonnement d'un utilisateur.
-- **Export via REST API** : vous pouvez exporter les profils utilisateurs individuels au format JSON en utilisant les endpoints d'export [Utilisateurs par Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) ou [Utilisateurs par identifiant]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/). Braze renverra un objet de jetons de notification push contenant les informations d'activation push par appareil.
+- **Profil utilisateur** : vous pouvez accéder aux profils utilisateurs individuels via le tableau de bord de Braze sur la page [Recherche d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles). Après avoir trouvé le profil d'un utilisateur (via l'adresse e-mail, le numéro de téléphone ou l'ID utilisateur externe), vous pouvez sélectionner l'onglet **Engagement** pour consulter et ajuster manuellement l'état d'abonnement d'un utilisateur.
+- **Export via REST API** : vous pouvez exporter les profils utilisateurs individuels au format JSON en utilisant les endpoints d'export [Utilisateurs par Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) ou [Utilisateurs par identifiant]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier). Braze renverra un objet de jetons de notification push contenant les informations d'activation push par appareil.
 
 ### Vérifier l'état d'enregistrement push {#checking-push-registration-status}
 
@@ -102,7 +102,7 @@ Si le nom de l'application de l'entrée de l'appareil est préfixé par `Foregro
 
 ![Journal des modifications push avec un exemple de jeton de notification push.]({% image_buster /assets/img/push_changelog.png %}){: style="float:right;max-width:40%;margin-left:15px;margin-top:10px;"}
 
-En revanche, si le nom de l'application de l'entrée de l'appareil est préfixé par `Background:`, l'application est uniquement autorisée à recevoir des [notifications push en arrière-plan]({{site.baseurl}}/user_guide/channels/push/types/#background-push-notifications) et ne peut pas afficher de notifications visibles par l'utilisateur sur cet appareil. Cela indique généralement que l'utilisateur a désactivé les notifications pour l'application sur cet appareil.
+En revanche, si le nom de l'application de l'entrée de l'appareil est préfixé par `Background:`, l'application est uniquement autorisée à recevoir des [notifications push en arrière-plan]({{site.baseurl}}/user_guide/channels/push/types#background-push-notifications) et ne peut pas afficher de notifications visibles par l'utilisateur sur cet appareil. Cela indique généralement que l'utilisateur a désactivé les notifications pour l'application sur cet appareil.
 
 Si un jeton de notification push est transféré à un autre utilisateur sur le même appareil, le premier utilisateur ne sera plus enregistré pour le push.
 
@@ -113,7 +113,7 @@ Consultez le tableau suivant pour les actions qui entraînent des modifications 
 | Action | Description |
 | ------ | ----------- |
 | Appel de la méthode `changeUser()` | La méthode `changeUser()` de Braze change l'ID utilisateur auquel les SDK attribuent les données de comportement utilisateur. Cette méthode est généralement appelée lorsqu'un utilisateur se connecte à une application. Lorsque `changeUser()` est appelée avec un ID utilisateur différent ou nouveau sur un appareil spécifique, le jeton de notification push de cet appareil sera transféré au profil Braze correspondant avec l'ID utilisateur approprié. |
-| Une erreur push survient | Certaines erreurs push courantes qui entraînent la suppression du jeton incluent `MismatchSenderId`, `InvalidRegistration` et d'autres types de rebonds push. <br><br>Consultez notre liste complète des [erreurs push]({{site.baseurl}}/user_guide/channels/push/push_error_codes/) courantes. |
+| Une erreur push survient | Certaines erreurs push courantes qui entraînent la suppression du jeton incluent `MismatchSenderId`, `InvalidRegistration` et d'autres types de rebonds push. <br><br>Consultez notre liste complète des [erreurs push]({{site.baseurl}}/user_guide/channels/push/push_error_codes) courantes. |
 | L'utilisateur désinstalle l'application | Lorsqu'un utilisateur désinstalle l'application d'un appareil, Braze supprime le jeton de notification push du profil de l'utilisateur. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Gestion des jetons de notification push" }
 

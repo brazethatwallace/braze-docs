@@ -10,7 +10,7 @@ channel:
 
 # Configurar o KakaoTalk {#set-up-kakaotalk}
 
-> Este artigo aborda como configurar o [canal de envio de mensagens KakaoTalk]({{site.baseurl}}/kakaotalk/) na Braze, incluindo como configurar usuários, reconciliar IDs de usuário e criar usuários teste do KakaoTalk.
+> Este artigo aborda como configurar o [canal de envio de mensagens KakaoTalk]({{site.baseurl}}/kakaotalk) na Braze, incluindo como configurar usuários, reconciliar IDs de usuário e criar usuários teste do KakaoTalk.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -29,7 +29,7 @@ Registre os endereços IP da Braze para o seu cluster no dashboard Comm.One.
 
 1. No dashboard Comm.One, acesse **Account Management (계정 관리)**, selecione o ícone de menu e depois selecione **View Details (자세히보기)**.
 2. Selecione **Center & Upload IP Allowlist (센터&업로드 IP 화이트리스트)**.
-3. Adicione os endereços IP do seu cluster da Braze. Para a lista completa de IPs por cluster, consulte [Lista de permissões de IP]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#ip-allowlisting).
+3. Adicione os endereços IP do seu cluster da Braze. Para a lista completa de IPs por cluster, consulte [Lista de permissões de IP]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting).
 
 ![Dashboard Comm.One mostrando onde você pode adicionar endereços IP.]({% image_buster /assets/img/kakaotalk/register_braze_ip.png %})
 
@@ -94,7 +94,7 @@ Acesse seu [dashboard Comm.One](https://ums.cjmplace.com/) e reúna as seguintes
 ![Dashboard Comm.One mostrando um Sender Key censurado.]({% image_buster /assets/img/kakaotalk/sender_key.png %})
 
 {% alert important %}
-Você pode integrar um Sender Key do KakaoTalk em apenas um espaço de trabalho por vez. Para usar o mesmo Sender Key em um espaço de trabalho diferente, primeiro você deve arquivar o grupo de inscrições do KakaoTalk no espaço de trabalho original e depois entrar em contato com o [suporte da Braze]({{site.baseurl}}/braze_support/) para remover a integração. Após a Braze remover a integração, você pode configurar a integração no novo espaço de trabalho.
+Você pode integrar um Sender Key do KakaoTalk em apenas um espaço de trabalho por vez. Para usar o mesmo Sender Key em um espaço de trabalho diferente, primeiro você deve arquivar o grupo de inscrições do KakaoTalk no espaço de trabalho original e depois entrar em contato com o [suporte da Braze]({{site.baseurl}}/braze_support) para remover a integração. Após a Braze remover a integração, você pode configurar a integração no novo espaço de trabalho.
 {% endalert %}
 
 ![Credenciais para um canal KakaoTalk da Braze.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
@@ -137,4 +137,4 @@ Os perfis de usuário devem ter números de telefone no formato E.164 para receb
 
 ### Importar números de telefone {#import-phone-numbers}
 
-Importe números de telefone [fazendo upload de um CSV ou usando a API]({{site.baseurl}}/user_guide/data/unification/user_data/import_users/) para criar um usuário. Certifique-se de que os números de telefone estejam no formato E.164 antes de importar.
+Importe números de telefone [fazendo upload de um CSV ou usando a API]({{site.baseurl}}/user_guide/data/unification/user_data/import_users) para criar um usuário. Certifique-se de que os números de telefone estejam no formato E.164 antes de importar.

@@ -14,13 +14,13 @@ channel:
 
 > ダブルオプトイン機能では、SMS、MMS、またはRCSメッセージを受信する前に、ユーザーがオプトインの意思を明示的に確認する必要があります。これにより、エンゲージメントの高いユーザーにメッセージングを集中させ、コンプライアンスのベストプラクティスをサポートします。
 
-ダブルオプトインが有効になっている場合、キャンペーンやキャンバスからメッセージを送信する前に、ユーザーに明示的な同意を求めるメッセージが送信されます。
+ダブルオプトインが有効になっている場合、CampaignsやCanvasesからメッセージを送信する前に、ユーザーに明示的な同意を求めるメッセージが送信されます。
 
-1991年電話消費者保護法（TCPA）の明示的な要件ではありませんが、Brazeでは、ユーザーがSMS、MMS、またはRCSプログラムに参加することを認識し、同意していることを確認するためにダブルオプトインを設定することを推奨しています。コンプライアンスの詳細については、[SMS、MMS、RCSに関する法律、規制、不正利用防止]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/)をご覧ください。
+1991年電話消費者保護法（TCPA）の明示的な要件ではありませんが、Brazeでは、ユーザーがSMS、MMS、またはRCSプログラムに参加することを認識し、同意していることを確認するためにダブルオプトインを設定することを推奨しています。コンプライアンスの詳細については、[SMS、MMS、RCSに関する法律、規制、不正利用防止]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations)をご覧ください。
 
 ## ダブルオプトインワークフロー {#double-opt-in-workflows}
 
-ダブルオプトインにより、インバウンドおよびアウトバウンドのオプトインキャンペーンを通じて明示的な同意を取得できます。
+ダブルオプトインにより、インバウンドおよびアウトバウンドのオプトインCampaignsを通じて明示的な同意を取得できます。
 
 ### アウトバウンド {#outbound}
 
@@ -48,7 +48,7 @@ channel:
 | | 返信メッセージ | ユーザーがオプトインキーワードをテキストした後に受け取る最初の応答です（例：「この番号からのメッセージ受信を確認するにはYと返信してください。メッセージ＆データ料金が適用される場合があります。」）
 | ダブルオプトイン確認 | キーワード | ユーザーがオプトインの意思を確認するために返信できるキーワードです。少なくとも1つのキーワードが必要です。これらのキーワードは**オプトインプロンプト返信メッセージ**フィールドで指定する必要があります。
 | | 返信メッセージ | ユーザーがオプトインを明示的に確認し、メッセージ送信可能になった後に受け取る確認応答です。ユーザーのサブスクリプショングループステータスは`Subscribed`に設定されます。
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Configurable fields #configurable-fields" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="設定可能なフィールド" }
 
 ユーザーがオプトインプロンプトを受け取った後、オプトインの意思を確認するまでに30日間の猶予があります。30日間の時間枠を過ぎた後にサブスクリプションを希望する場合、ユーザーはオプトインキーワードをテキストしてダブルオプトインワークフローを再度開始する必要があります。
 
@@ -56,9 +56,9 @@ channel:
 
 ## サブスクリプショングループステータス {#subscription-group-status}
 
-ユーザーがダブルオプトインワークフローを完了した後にのみ、[サブスクリプショングループステータス]({{site.baseurl}}/sms_rcs_subscription_groups/)が`Subscribed`に更新されます。ユーザーがワークフローを開始したが完了しなかった場合、`Unsubscribed`のままとなり、そのサブスクリプショングループからメッセージを送信することはできません。
+ユーザーがダブルオプトインワークフローを完了した後にのみ、[サブスクリプショングループステータス]({{site.baseurl}}/sms_rcs_subscription_groups)が`Subscribed`に更新されます。ユーザーがワークフローを開始したが完了しなかった場合、`Unsubscribed`のままとなり、そのサブスクリプショングループからメッセージを送信することはできません。
 
-ユーザーは、[他のソースからサブスクリプション登録]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/)された場合（例：REST API、SDK）にも、ダブルオプトインワークフローに登録されることがあります。
+ユーザーは、[他のソースからサブスクリプション登録]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups)された場合（例：REST API、SDK）にも、ダブルオプトインワークフローに登録されることがあります。
 
 ## サブスクリプションソース {#subscription-sources}
 
@@ -76,9 +76,9 @@ SDK | Braze SDKを通じてサブスクリプション登録されたユーザ�
 REST API | `/subscription/status/set`、`/v2/subscription/status/set`、または`/users/track`を通じてサブスクリプションステータスが設定され、オプションパラメーター`use_double_opt_in_logic`が`true`として渡された場合、ユーザーはワークフローに登録されます（例：[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed", "use_double_opt_in_logic": true}]）。このパラメーターが省略された場合、ユーザーはダブルオプトインワークフローに登録されません。
 Shopify | Shopify連携によってサブスクリプションステータスが設定された場合、ユーザーはダブルオプトインワークフローに登録されません。
 ユーザーインポート | ユーザーインポートによってサブスクリプションステータスが設定された場合、ユーザーはダブルオプトインワークフローに登録されません。
-[ユーザー設定センター]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/) | ユーザー設定センターを通じてサブスクリプション登録されたユーザーは、自動的にダブルオプトインワークフローに入ります。
+[ユーザー設定センター]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) | ユーザー設定センターを通じてサブスクリプション登録されたユーザーは、自動的にダブルオプトインワークフローに入ります。
 ユーザーの更新ステップ | ユーザーの更新ステップを通じてサブスクリプションステータスが設定され、オプションパラメーター`use_double_opt_in_logic`が`true`として渡された場合、ユーザーはダブルオプトインワークフローに登録されます。このパラメーターが省略された場合、ユーザーはダブルオプトインワークフローに登録されません。
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription sources #subscription-sources" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="サブスクリプションソース" }
 
 ## 多言語サポート {#multi-language-support}
 インバウンドメッセージの場合、ダブルオプトインはサブスクリプショングループで定義されたすべての言語でサポートされています。つまり、自動応答を異なる言語で定義でき、一致するキーワードが受信された際にBrazeが特定の言語に関連付けられた自動応答を送信します。

@@ -18,7 +18,7 @@ tool:
 
 ## Indicateurs des messages in-app {#in-app-message-metrics}
 
-Voici les principaux indicateurs des messages in-app que vous pouvez retrouver dans vos analyses. Pour les définitions de tous les indicateurs utilisés dans Braze, consultez le [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+Voici les principaux indicateurs des messages in-app que vous pouvez retrouver dans vos analyses. Pour les définitions de tous les indicateurs utilisés dans Braze, consultez le [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 {% alert note %}
 Pour les messages in-app, cette page définit les impressions uniques en utilisant une limite de jour calendaire dans le fuseau horaire de votre espace de travail.

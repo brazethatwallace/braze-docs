@@ -14,7 +14,7 @@ description: "Dieser Referenzartikel behandelt die Nachrichten- und Designanford
 
 > Modale Nachrichten erscheinen in der Mitte des Gerätebildschirms mit einem Bildschirm-Overlay, das sie vom Hintergrund Ihrer App abhebt. Sie eignen sich perfekt, um Ihre Nutzer:innen auf einen Sale oder ein Gewinnspiel aufmerksam zu machen.
 
-Dieser Nachrichtentyp ist sowohl im [Drag-and-Drop-Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) als auch im [traditionellen Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) verfügbar.
+Dieser Nachrichtentyp ist sowohl im [Drag-and-Drop-Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) als auch im [traditionellen Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) verfügbar.
 
 ![Zwei modale In-App-Nachrichten nebeneinander, die die Bild- und Textempfehlungen veranschaulichen. Weitere Details finden Sie in den folgenden Abschnitten.]({% image_buster /assets/img/modal-spec.png %}){: style="max-width: 801px; border: none;"}
 

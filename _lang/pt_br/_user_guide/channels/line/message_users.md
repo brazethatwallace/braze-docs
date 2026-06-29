@@ -27,7 +27,7 @@ Defina suas palavras-gatilho ao agendar uma Campaign com entrega baseada em aç�
 
 ### Canvas
 
-Defina suas palavras-gatilho dentro das [jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) no seu Canvas.
+Defina suas palavras-gatilho dentro das [jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) no seu Canvas.
 
 ![Jornada de ação com um gatilho de "Enviar esta campanha para usuários que enviaram LINE de entrada para o grupo de inscrições onde o corpo da mensagem é" e um campo em branco.]({% image_buster /assets/img/line/trigger_word_canvas.png %})
 
@@ -43,6 +43,6 @@ Você deve incluir uma opção de gatilho para respostas não reconhecidas em Ca
 
 ### Criando um gatilho para respostas não reconhecidas {#creating-a-trigger-for-unrecognized-responses}
 
-Após criar grupos de ação para as frases de filtro personalizadas, adicione outro grupo de ação à jornada de ação para **Send LINE message** e não marque **Where the message body**. Isso capturará todas as respostas não reconhecidas dos usuários, semelhante a uma cláusula "else".
+Após criar grupos de ação para as frases de filtro personalizadas, adicione outro grupo de ação à jornada de ação para **Enviar mensagem LINE** e não marque **Onde o corpo da mensagem**. Isso capturará todas as respostas não reconhecidas dos usuários, semelhante a uma cláusula "else".
 
 Para essa mensagem, você deve enviar uma mensagem LINE informando o usuário que este canal não é monitorado por uma pessoa e, se necessário, direcioná-lo a um canal de suporte.

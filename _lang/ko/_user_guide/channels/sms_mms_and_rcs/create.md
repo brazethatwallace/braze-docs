@@ -258,7 +258,7 @@ MMS의 경우 자산(이미지 및 메시지 본문)의 순서를 사용자 지�
 RCS 렌더링은 사용자의 운영체제, 기기 제조사, 통신사 및 메시징 앱(예: Google Messages vs. Apple Messages)에 의해 제어되므로 메시지 모양이 달라질 수 있습니다. Braze에 표시되는 미리보기는 최종 사용자가 수신하는 것과 정확히 일치하지 않을 수 있습니다. 가능하면 실제 기기에서 최종 렌더링을 확인하세요. iOS 기기에서의 RCS 렌더링에 대한 자세한 내용은 [iOS 기기에서 RCS 메시지가 정확하게 렌더링되지 않는 이유는 무엇인가요?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-doesnt-my-rcs-message-render-accurately-on-ios-devices)를 참조하세요.
 {% endalert %}
 
-자세한 내용은 [테스트 메시지 보내기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=sms%2Fmms%20and%20rcs)를 참조하세요.
+자세한 내용은 [테스트 메시지 보내기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=sms%2Fmms%20and%20rcs)를 참조하세요.
 
 ## 5단계: 나머지 Campaign 또는 Canvas 구축 {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 

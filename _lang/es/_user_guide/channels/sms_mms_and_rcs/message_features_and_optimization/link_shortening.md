@@ -18,7 +18,7 @@ channel:
 > Esta página explica cómo activar el acortamiento de enlaces en tus mensajes SMS y RCS, probar enlaces acortados, usar tu dominio personalizado en enlaces acortados y más.
 
 {% alert important %}
-Braze está implementando gradualmente el [acortamiento de enlaces unificado]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/?sdktab=unified), que consolida todos los enlaces acortados de SMS y RCS en un único formato de enlace personalizado (por ejemplo, `brz.ai/abcdefgh`).
+Braze está implementando gradualmente el [acortamiento de enlaces unificado]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening?sdktab=unified), que consolida todos los enlaces acortados de SMS y RCS en un único formato de enlace personalizado (por ejemplo, `brz.ai/abcdefgh`).
 {% endalert %}
 
 {% sdktabs %}
