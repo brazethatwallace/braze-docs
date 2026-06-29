@@ -166,14 +166,14 @@ Stage and commit only relevant **`_docs`** (and linked includes if needed) with 
 
 - [BD-1234](https://jira.atl.braze.com/browse/BD-1234) (if applicable)
 
-## Changes
+### Changes
 
 - [Scope for reviewers — no internal repo paths]
 - If verified against product source: **Verified against Braze source code.** — do **not** paste `platform/` or SDK paths.
 
-## Cases
+### Cases
 
-- https://braze.lightning.force.com/lightning/r/Case/<case ID>/view
+- https://braze.lightning.force.com/lightning/r/Case/<case ID>/view (case ID only — no customer names or other PII from ticket prose)
 
 ### Verification
 

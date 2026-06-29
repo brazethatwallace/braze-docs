@@ -29,10 +29,11 @@ Some workflows use a different PR body format while sharing this workflow (Steps
 | [`image-pruner`](../image-pruner/SKILL.md) | Unreferenced image cleanup (`[IP]` title) |
 | [`tam-solutions`](../tam-solutions/SKILL.md) | TAM → example library articles (`[TAM solutions]` title) |
 | [`salesforce-migration`](../salesforce-migration/SKILL.md) | Salesforce KB migration batches (`[BD-####](SF)` title) |
+| [feedback-handler agent](../../../.cursor/agents/feedback-handler.md) | Jira feedback automation (`[BD-1234] - title`, assignee mapping from ticket) |
 
 Team variant skills are **thin wrappers** — they delegate here for shared workflow and only override Step 2 (description format). **Edits to Steps 0–1, 3–4, checklist, or anti-patterns in this file apply to all variants.**
 
-For Jira-driven feedback tickets with assignee mapping, see [`.cursor/agents/feedback-handler.md`](../../../.cursor/agents/feedback-handler.md) (`[BD-1234] - title` format).
+The [feedback-handler](../../../.cursor/agents/feedback-handler.md) agent should also delegate Steps 0–1 and 3–4 here when opening its draft PR.
 
 ## Step 0: Pre-PR gates
 
@@ -41,7 +42,7 @@ Run applicable gates **before** writing the PR description. Skip gates that do n
 | Changed paths | Run first |
 |---------------|-----------|
 | `_docs/**`, root `_includes/**`, `_layouts/**`, `assets/js/**`, `assets/css/**`, `assets/scss/**` | **REQUIRED SUB-SKILL:** [check-accessibility](../check-accessibility/SKILL.md) (`braze-docs:check-accessibility`) |
-| `assets/img/**` | **REQUIRED SUB-SKILL:** [screenshot-pii-audit](../screenshot-pii-audit/SKILL.md) (`braze-docs:screenshot-pii-audit`) |
+| `assets/img/**` (new or updated screenshots) | **REQUIRED SUB-SKILL:** [screenshot-pii-audit](../screenshot-pii-audit/SKILL.md) (`braze-docs:screenshot-pii-audit`). Skip for deletion-only image-pruner batches with no added or replaced images. |
 | Product behavior claims in prose | **REQUIRED SUB-SKILL:** [reference-repos](../reference-repos/SKILL.md) (`braze-docs:reference-repos`) when verifying against source; note verification in the PR body without pasting `platform/` or SDK paths |
 
 If the user invoked a team variant skill, follow that skill's wait gates (for example tam-solutions approval) before continuing.
@@ -61,6 +62,8 @@ git diff "$MERGE_BASE"..HEAD                             # the actual change
 ```
 
 Also confirm the branch tracks `origin` and is pushed (or push before opening the PR).
+
+Confirm the diff does not include credentials, `.env` files, or other secrets before pushing.
 
 From the diff and surrounding code, pin down:
 
@@ -137,7 +140,7 @@ Call these out in **Approach** or **Verification** when relevant — do not leav
 |-------|-----------------|
 | **Locale** | English canonical under `_docs/` and root `_includes/` only; `_lang/` edits only when the user scoped locale work |
 | **Redirects** | `broken_redirect_list.js` and [redirecting URLs](https://github.com/braze-inc/braze-docs/blob/develop/docs/contributing/content_management/redirecting_urls.md) when renaming or moving pages |
-| **Images** | Do not delete replaced originals; screenshot PII audit passed |
+| **Images** | Do not delete replaced originals; run screenshot PII audit when adding or updating screenshots |
 | **Legal** | Paid SKU, third party, SMS, AI, or privacy — written Braze Legal approval |
 | **URLs** | `{{site.baseurl}}` and **no** trailing slashes on internal links (production uses `trailingSlash: false`) |
 | **Revertibility** | Especially for shared `_includes/`, layouts, JS, and CSS |
@@ -160,6 +163,7 @@ Call these out in **Approach** or **Verification** when relevant — do not leav
 | `[IP]` | image-pruner |
 | `[TAM solutions]` | tam-solutions |
 | `[BD-####](SF)` | salesforce-migration |
+| `[BD-1234] - title` | feedback-handler (Jira feedback automation) |
 
 ## Step 4: Open as a draft
 
@@ -217,3 +221,5 @@ After CI passes, the author selects **Ready for review** and adds the [tech writ
 - **Skipping risk signal** — even "low risk, copy-only" helps the reviewer.
 - **Checklisting CI's job** — "run broken links / cspell / accessibility checks" is noise; CI does it. The checklist is for manual verification only.
 - **Editing `_lang/`** in the same PR as English canonical fixes without calling it out.
+- **Customer or account PII in the PR body** — link to Jira or Salesforce cases only; do not paste customer names, emails, or ticket prose that may contain PII.
+- **Marking the contributor checklist complete** (`[x]`) unless the author has confirmed each item.

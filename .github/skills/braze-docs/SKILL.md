@@ -217,3 +217,4 @@ When chaining another skill, use **REQUIRED SUB-SKILL:** `braze-docs:skill-name`
 | [support-analyzer](../support-analyzer/SKILL.md) (`braze-docs:support-analyzer`) | Triage support case CSVs and draft docs updates |
 | [salesforce-migration](../salesforce-migration/SKILL.md) (`braze-docs:salesforce-migration`) | SF Knowledge Base migration tickets (Phase 1/2) |
 | [check-accessibility](../check-accessibility/SKILL.md) (`braze-docs:check-accessibility`) | Pre-PR accessibility gate — run before any PR touching `_docs/`, `_includes/`, layouts, JS, or CSS |
+| [create-pr](../create-pr/SKILL.md) (`braze-docs:create-pr`) | Open a draft PR to `develop` with repo-aligned description, pre-PR gates, and manual verification checklist |

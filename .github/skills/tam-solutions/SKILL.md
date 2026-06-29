@@ -245,19 +245,20 @@ Offer a short summary: target file, sections added, verification status, and any
 
 <What example this adds to the Operator Example library and for whom.>
 
-## Changes
+### Changes
 
 - [What was added or updated — scope for reviewers, no internal repo paths]
 
-## Verification
+### Verification
 
-- [Verified against Braze source code. | Partially verified — … | Not verified — …]
+- Source verification: [Verified against Braze source code. | Partially verified — … | Not verified — …]
+- [Manual checks from create-pr as needed]
 
-## TAM source
+### TAM source
 
 - [Confluence or Google Drive URL for the solution this PR generalizes]
 
-## Jira
+### Jira
 
 - Parent epic: pending
 

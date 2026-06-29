@@ -159,11 +159,11 @@ Image deletion batches use the **Image Pruning** PR template. Skill/tooling-only
 
 Remove unreferenced image files to reduce repo size and maintenance burden.
 
-## Image Pruning
+### Image Pruning
 
 This PR is for **Image Pruning**: removes N unreferenced image files (~X MB).
 
-## Scan
+### Scan
 
 ```bash
 python3 scripts/image-pruner/find_unreferenced_images.py --csv scripts/image-pruner/unreferenced_images.csv

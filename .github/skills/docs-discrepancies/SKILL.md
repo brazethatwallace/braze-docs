@@ -77,7 +77,7 @@ Stage and commit all changes in `_docs` with a meaningful message derived from t
 
 <What was wrong in the doc, how source code was used to verify, and why this target page.>
 
-## Changes
+### Changes
 
 - [List scope for reviewers — no internal repo paths]
 - If this was a docs discrepancy, note to tag the Eng owner in the description.
