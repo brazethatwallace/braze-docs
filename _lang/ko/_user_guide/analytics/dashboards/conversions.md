@@ -53,7 +53,7 @@ Campaign 또는 Canvas에서 전환 이벤트로 설정되지 않은 이벤트�
 
 사용자가 보고서에 집계되려면 선택한 날짜 범위 내에서 다음 기준을 충족해야 합니다.
 1. Canvas 또는 Campaign에 진입합니다.
-2. [기여도 방법]({{site.baseurl}}/user_guide/analytics/dashboards/conversions/#attribution-methods)을 기록합니다.
+2. [기여도 방법]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#attribution-methods)을 기록합니다.
 3. 전환 이벤트를 수행합니다.
 
 예를 들어, 사용자가 다음과 같은 행동을 한다고 가정해 보겠습니다.
@@ -91,7 +91,7 @@ Campaign 또는 Canvas에서 전환 이벤트로 설정되지 않은 이벤트�
 
 ### 전환 퍼널 {#conversion-funnel}
 
-이 막대 그래프는 선택한 채널을 기반으로 각 [참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)의 절대 수를 보여줍니다. 전환 수는 선택한 기여도 방법에 따라 정의됩니다.
+이 막대 그래프는 선택한 채널을 기반으로 각 [참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)의 절대 수를 보여줍니다. 전환 수는 선택한 기여도 방법에 따라 정의됩니다.
 
 기본적으로 선택한 모든 Campaigns와 Canvases가 표시됩니다. Campaign 또는 Canvas를 선택 해제하려면 제외하려는 Campaign 또는 Canvas의 이름을 선택합니다. 참여 이벤트에 대한 추가 세부 정보를 보려면 각 막대 위에 마우스를 올리면 됩니다.
 
@@ -140,10 +140,10 @@ Campaign 또는 Canvas에서 전환 이벤트로 설정되지 않은 이벤트�
 
 #### 이벤트 추적 {#event-tracking}
 
-Campaign이 세션 시작 또는 커스텀 이벤트를 트리거하는 경우, 이 이벤트 또는 세션이 메시지를 트리거할 만큼 충분히 자주 발생하는지 확인해야 합니다. [홈 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/home/)에서 세션 데이터를 확인하거나 [커스텀 이벤트]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/) 보고서를 확인하세요.
+Campaign이 세션 시작 또는 커스텀 이벤트를 트리거하는 경우, 이 이벤트 또는 세션이 메시지를 트리거할 만큼 충분히 자주 발생하는지 확인해야 합니다. [홈 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/home)에서 세션 데이터를 확인하거나 [커스텀 이벤트]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting) 보고서를 확인하세요.
 
 #### 전환 마감 기한 {#conversion-deadlines}
 
-Campaign별로 선택하는 각 전환 이벤트에 대해 [마감 기한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#creating-a-campaign-with-conversion-tracking)을 설정합니다. 이는 각 Campaign에 대해 전환이 집계되기 위해 발생해야 하는 시간 제한을 설정하는 것입니다.
+Campaign별로 선택하는 각 전환 이벤트에 대해 [마감 기한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#creating-a-campaign-with-conversion-tracking)을 설정합니다. 이는 각 Campaign에 대해 전환이 집계되기 위해 발생해야 하는 시간 제한을 설정하는 것입니다.
 
-Campaign 측정기준을 이해하려면 [전환 추적 규칙]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules)에 대한 정보를 검토했는지 확인하세요. Canvas에서의 사용자 전환에 대해서는 [Canvas FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#how-are-user-conversions-tracked-in-a-canvas)를 참조하세요.
+Campaign 측정기준을 이해하려면 [전환 추적 규칙]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules)에 대한 정보를 검토했는지 확인하세요. Canvas에서의 사용자 전환에 대해서는 [Canvas FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs#how-are-user-conversions-tracked-in-a-canvas)를 참조하세요.

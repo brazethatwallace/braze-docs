@@ -21,25 +21,25 @@ channel:
 
 1. **[ユーザープロファイル](#user-profiles-and-push-changelog)**（**Engagement**タブ）
 2. **[セグメンテーション](#segmentation-and-push-filters)**（セグメントビルダー）
-3. **[CampaignおよびCanvasの分析](#campaign-and-canvas-analytics)**（各メッセージの分析ページ）
+3. **[キャンペーンおよびキャンバスの分析](#campaign-and-canvas-analytics)**（各メッセージの分析ページ）
 
 ### ユーザープロファイルとプッシュ変更ログ {#user-profiles-and-push-changelog}
 
-ユーザーのプロファイル（[**ユーザーを検索**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) > ユーザーを選択 > **Engagement**タブ）では、**Contact Settings**にプッシュサブスクリプション状態が表示され、**Push Registered For**（Brazeがそのプロファイルにフォアグラウンドプッシュを送信するために使用できるアプリとプラットフォーム）、およびトークンの移動、エラー、登録更新に関する**Push Changelog**が表示されます。**Push Registered For**とフォアグラウンドおよびバックグラウンドの認可の読み方については、[プッシュ登録ステータスの確認]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#checking-push-registration-status)を参照してください。
+ユーザーのプロファイル（[**ユーザーを検索**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) > ユーザーを選択 > **Engagement**タブ）では、**Contact Settings**にプッシュサブスクリプション状態が表示され、**Push Registered For**（Brazeがそのプロファイルにフォアグラウンドプッシュを送信するために使用できるアプリとプラットフォーム）、およびトークンの移動、エラー、登録更新に関する**Push Changelog**が表示されます。**Push Registered For**とフォアグラウンドおよびバックグラウンドの認可の読み方については、[プッシュ登録ステータスの確認]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#checking-push-registration-status)を参照してください。
 
 iOSおよびAndroidでは、デバイスがフォアグラウンドプッシュ認可からバックグラウンドのみに移行した場合（たとえば、ユーザーがシステム設定で通知をオフにし、SDKがその変更を報告した場合）、プッシュ変更ログに「Push token was updated from foreground push enabled to foreground push disabled」などのエントリが含まれることがあります。
 
 新しいSDKデータを期待している場合（たとえば、テストセッションの直後）、値が古く見える場合はユーザープロファイルで**Refresh**を選択してください。SDKがデータをフラッシュしてからプロファイルに最新のプッシュ登録が反映されるまでに短い遅延が発生する場合があります。
 
-[内部グループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/)に追加したユーザーについては、そのグループの**Internal Group Settings**で**Record User Events for group members**を選択すると、SDKリクエストがログに表示されます。次に、**設定** > **Event User Log**で[イベントユーザーログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/)を開き、ユーザーのSDKリクエストを見つけて、生のペイロードを展開します。デバイスがリモート通知を有効または無効として報告しているかどうかを検証しながら、`remote_notification_enabled`などのフィールドを確認できます。
+[内部グループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups)に追加したユーザーについては、そのグループの**Internal Group Settings**で**Record User Events for group members**を選択すると、SDKリクエストがログに表示されます。次に、**設定** > **Event User Log**で[イベントユーザーログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log)を開き、ユーザーのSDKリクエストを見つけて、生のペイロードを展開します。デバイスがリモート通知を有効または無効として報告しているかどうかを検証しながら、`remote_notification_enabled`などのフィールドを確認できます。
 
 ### セグメンテーションとプッシュフィルター {#segmentation-and-push-filters}
 
 セグメントビルダーでは、**`Foreground Push Enabled`**、**`Foreground Push Enabled for App`**、**`Background or Foreground Push Enabled`**、およびプッシュサブスクリプションフィルターなどのフィルターを使用して、設定やデバイスレベルの認可によってユーザーをターゲティングまたは監査できます。iOSでは、特定のユーザーに対するこれらのフィルターの読み取り方は、OSプロンプトを完了したかどうか、設定を変更したかどうか、または[仮承認](#provisional-push)を使用しているかどうかによって異なります。[iOSユーザーアクションとプッシュステータス](#ios-user-actions-push-status)および[その他のプラットフォーム固有のシナリオ](#foreground-push-enabled)を参照してください。
 
-### CampaignおよびCanvasの分析 {#campaign-and-canvas-analytics}
+### キャンペーンおよびキャンバスの分析 {#campaign-and-canvas-analytics}
 
-プッシュ**Campaign**または**Canvas**の分析ページでは、*送信数*、*バウンス数*、*開封数*などの指標がその送信の配信とエンゲージメントを反映します。これらの数値を個々のプロファイルと照合するには、**Campaign Details**または**Canvas Details**から**User Data**（CSV）を使用して受信者をエクスポートします。手順と権限については、[Campaignデータのエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_campaign_results_data/)および[Canvasデータのエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/)を参照してください。分析とエクスポートの間でカウントが一致しない場合は、エクスポートのトラブルシューティングの[CampaignおよびCanvasの分析]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/#campaign-and-canvas-analytics)を参照してください。
+プッシュ**キャンペーン**または**キャンバス**の分析ページでは、*送信数*、*バウンス数*、*開封数*などの指標がその送信の配信とエンゲージメントを反映します。これらの数値を個々のプロファイルと照合するには、**キャンペーンの詳細**または**キャンバスの詳細**から**User Data**（CSV）を使用して受信者をエクスポートします。手順と権限については、[キャンペーンデータのエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_campaign_results_data)および[キャンバスデータのエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data)を参照してください。分析とエクスポートの間でカウントが一致しない場合は、エクスポートのトラブルシューティングの[キャンペーンおよびキャンバスの分析]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting#campaign-and-canvas-analytics)を参照してください。
 
 ## iOSユーザーアクションとプッシュステータス {#ios-user-actions-push-status}
 
@@ -63,7 +63,7 @@ iOSおよびAndroidでは、デバイスがフォアグラウンドプッシュ�
 
 プッシュ対応のすべてのプラットフォーム（iOS、Web、Android）では、OSレベルのシステムプロンプトによる明示的なオプトインが必要です。以下に若干の違いを説明します。
 
-ユーザーの決定は最終的なものであり、拒否された後に再度尋ねることはできないため、[プッシュプライマー]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)のアプリ内メッセージを使用することは、オプトイン率を向上させるための重要な戦略です。
+ユーザーの決定は最終的なものであり、拒否された後に再度尋ねることはできないため、[プッシュプライマー]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)のアプリ内メッセージを使用することは、オプトイン率を向上させるための重要な戦略です。
 
 **ネイティブOSプッシュ権限プロンプト**
 
@@ -78,7 +78,7 @@ iOSおよびAndroidでは、デバイスがフォアグラウンドプッシュ�
 
 Android 13より前は、プッシュ通知の送信に権限は不要でした。Android 12以前では、Brazeが自動的にプッシュトークンをリクエストする際、最初のセッションですべてのユーザーが`Subscribed`と見なされます。この時点で、ユーザーはそのデバイスの有効なプッシュトークンとデフォルトのサブスクリプション状態`Subscribed`を持つ**プッシュ有効**状態になります。
 
-[Android 13]({{site.baseurl}}/developer_guide/platforms/android/android_13/)以降、プッシュ権限はユーザーに要求し、許可を得る必要があります。アプリは適切なタイミングでユーザーに手動で権限をリクエストできますが、リクエストしない場合は、アプリが[通知チャネル](https://developer.android.com/reference/android/app/NotificationChannel)を作成した際に自動的にプロンプトが表示されます。
+[Android 13]({{site.baseurl}}/developer_guide/platforms/android/android_13)以降、プッシュ権限はユーザーに要求し、許可を得る必要があります。アプリは適切なタイミングでユーザーに手動で権限をリクエストできますが、リクエストしない場合は、アプリが[通知チャネル](https://developer.android.com/reference/android/app/NotificationChannel)を作成した際に自動的にプロンプトが表示されます。
 
 ### iOS
 
@@ -92,7 +92,7 @@ Android 13より前は、プッシュ通知の送信に権限は不要でした�
 
 iOS 12（2018年リリース）より前は、すべてのユーザーがプッシュ通知を受け取るために明示的にオプトインする必要がありました。
 
-iOS 12で、Appleは[仮承認](https://www.braze.com/resources/articles/mastering-provisional-push)を導入しました。これにより、ブランドはユーザーが明示的にオプトインする前に、ユーザーの通知センターにサイレントプッシュ通知を送信でき、メッセージの価値を早期に示す機会が得られます。詳細については、[仮承認]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push-authentication--quiet-notifications)を参照してください。
+iOS 12で、Appleは[仮承認](https://www.braze.com/resources/articles/mastering-provisional-push)を導入しました。これにより、ブランドはユーザーが明示的にオプトインする前に、ユーザーの通知センターにサイレントプッシュ通知を送信でき、メッセージの価値を早期に示す機会が得られます。詳細については、[仮承認]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push-authentication--quiet-notifications)を参照してください。
 
 ### Web {#web}
 
@@ -104,17 +104,17 @@ iOSやAndroidではアプリがいつでも権限プロンプトを表示でき�
 
 ## プッシュトークン {#push-tokens}
 
-[プッシュトークン]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/)は、ユーザーのデバイスによって生成される一意の匿名識別子であり、各受信者の通知をどこに送信するかを識別するためにBrazeに送信されます。
+[プッシュトークン]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle)は、ユーザーのデバイスによって生成される一意の匿名識別子であり、各受信者の通知をどこに送信するかを識別するためにBrazeに送信されます。
 
-[プッシュトークン]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/)の分類には、プッシュ通知をユーザーに送信する方法を理解するために不可欠な2つの方法があります。
+[プッシュトークン]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle)の分類には、プッシュ通知をユーザーに送信する方法を理解するために不可欠な2つの方法があります。
 
 1. **フォアグラウンドプッシュ**は、ユーザーのデバイスのフォアグラウンドに通常の可視プッシュ通知を送信する機能を提供します。
-2. **バックグラウンドプッシュ**は、特定のデバイスがそのブランドからのプッシュ通知の受信をオプトインしているかどうかに関係なく利用できます。バックグラウンドプッシュにより、ブランドはサイレントプッシュ通知（意図的に表示されない通知）をデバイスに送信して、[アンインストール追跡]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/)などの主要な機能をサポートできます。
+2. **バックグラウンドプッシュ**は、特定のデバイスがそのブランドからのプッシュ通知の受信をオプトインしているかどうかに関係なく利用できます。バックグラウンドプッシュにより、ブランドはサイレントプッシュ通知（意図的に表示されない通知）をデバイスに送信して、[アンインストール追跡]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking)などの主要な機能をサポートできます。
 
 ユーザープロファイルにアプリに関連付けられた有効なフォアグラウンドプッシュトークンがある場合、Brazeはそのユーザーを該当アプリの「プッシュ登録済み」と見なします。Brazeは、これらのユーザーを識別するための特定のセグメンテーションフィルター`Foreground Push Enabled for App,`を提供しています。
 
 {% alert note %}
-`Foreground Push Enabled for App`フィルターは、該当アプリの有効なフォアグラウンドおよびバックグラウンドプッシュトークンの存在のみを考慮します。ただし、より汎用的な[`Foreground Push Enabled`](#foreground-push-enabled)フィルターは、ワークスペース内のいずれかのアプリでプッシュ通知を明示的に有効にしたユーザーをセグメント化します。このカウントにはフォアグラウンドプッシュのみが含まれ、配信停止したユーザーは含まれません。これらのフィルターやその他のフィルターの詳細については、[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)を参照してください。
+`Foreground Push Enabled for App`フィルターは、該当アプリの有効なフォアグラウンドおよびバックグラウンドプッシュトークンの存在のみを考慮します。ただし、より汎用的な[`Foreground Push Enabled`](#foreground-push-enabled)フィルターは、ワークスペース内のいずれかのアプリでプッシュ通知を明示的に有効にしたユーザーをセグメント化します。このカウントにはフォアグラウンドプッシュのみが含まれ、配信停止したユーザーは含まれません。これらのフィルターやその他のフィルターの詳細については、[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)を参照してください。
 {% endalert %}
 
 ### 1つのデバイスに複数のユーザー {#multiple-users-on-one-device}
@@ -146,7 +146,7 @@ iOSやAndroidではアプリがいつでも権限プロンプトを表示でき�
 ユーザーは、ワークスペース内のアプリのアクティブなフォアグラウンドプッシュトークンを持っている場合、「プッシュ有効」または「プッシュ登録済み」と見なされます。つまり、プッシュ有効化ステータスはアプリ固有です。
 
 {% alert note %}
-プッシュ登録状態の確認方法については、[プッシュ登録ステータス]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#checking-push-registration-status)を参照してください。
+プッシュ登録状態の確認方法については、[プッシュ登録ステータス]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#checking-push-registration-status)を参照してください。
 {% endalert %}
 
 ## プッシュ登録と変更ログ情報の確認 {#finding-push-registration-and-changelog-information}
@@ -154,7 +154,7 @@ iOSやAndroidではアプリがいつでも権限プロンプトを表示でき�
 ダッシュボードでは、プッシュ登録とプッシュ変更ログに関する情報を以下の場所で確認できます。
 
 - **セグメンテーション** – ユーザーのサブスクリプション状態、有効状態、フォアグラウンドおよびバックグラウンドの有効状態でフィルタリングします。
-- **Campaign分析** – 単一のCampaignまたはCanvasのプッシュ統計とフィードバックを表示します。
+- **キャンペーン分析** – 単一のキャンペーンまたはキャンバスのプッシュ統計とフィードバックを表示します。
 - **ユーザープロファイル（Engagementタブ）** – 特定のユーザーの**Contact Settings**とプッシュ変更ログを表示します。
 
 プッシュ有効状態を確認する際、**Push Registered for**は、Brazeがそのユーザーにフォアグラウンドプッシュを送信できるプラットフォームを示します。iOSおよびAndroidでは、ユーザーがフォアグラウンドプッシュ有効からバックグラウンドプッシュ有効（`remote_notification_enabled`）に移行した場合、プッシュ変更ログに「Push token was updated from foreground push enabled to foreground push disabled.」と記録されます。
@@ -167,7 +167,7 @@ iOSやAndroidではアプリがいつでも権限プロンプトを表示でき�
 - **iOSバックグラウンド有効：** ユーザーにプッシュプロンプトが表示され、拒否したか、許可した後にデバイス設定でプッシュ通知をオフにしました（ユーザーがセッションを持った後に反映されます）。
 - **iOSフォアグラウンド有効：** ユーザーにプッシュプロンプトが表示され、フォアグラウンドプッシュを受信する資格があります。
 
-Campaign分析は、上記の詳細に沿ったプッシュ統計をインラインで反映します。CampaignまたはCanvasに入ったユーザープロファイルをダウンロードして、ユーザープロファイルをクロスリファレンスすることもできます。
+キャンペーン分析は、上記の詳細に沿ったプッシュ統計をインラインで反映します。キャンペーンまたはキャンバスに入ったユーザープロファイルをダウンロードして、ユーザープロファイルをクロスリファレンスすることもできます。
 
 ## その他のプラットフォーム固有のシナリオ {#other-platform-specific-scenarios}
 
@@ -233,4 +233,4 @@ iOSでは、プッシュ通知が表示される前にアプリがプッシュ�
 
 ## ベストプラクティス {#best-practices}
 
-Brazeでのプッシュの使用を最適化するための詳細なガイダンスについては、[プッシュのベストプラクティス]({{site.baseurl}}/user_guide/channels/push/best_practices/)に関する専用記事を参照してください。
+Brazeでのプッシュの使用を最適化するための詳細なガイダンスについては、[プッシュのベストプラクティス]({{site.baseurl}}/user_guide/channels/push/best_practices)に関する専用記事を参照してください。

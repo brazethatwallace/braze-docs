@@ -10,7 +10,7 @@ description: "Cet article de référence explique les différents composants de 
 
 # Objet e-mail {#email-object}
 
-> L'objet `email` vous permet de modifier ou de créer des e-mails par l'intermédiaire de nos [endpoints d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging/).
+> L'objet `email` vous permet de modifier ou de créer des e-mails par l'intermédiaire de nos [endpoints d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging).
 
 ## Objet e-mail
 
@@ -18,8 +18,8 @@ description: "Cet article de référence explique les différents composants de 
 {
   "app_id": (required, string), see App Identifier,
   "subject": (optional, string),
-  "from": (required, valid email address in the format "Display Name <email@address.com>"),
-  "reply_to": (optional, valid email address in the format "email@address.com" - defaults to your workspace's default reply to if not set) - use "NO_REPLY_TO" to set reply-to address to null,
+  "from": (required, valid email address in the format "Display Name <user@example.com>"),
+  "reply_to": (optional, valid email address in the format "user@example.com" - defaults to your workspace's default reply to if not set) - use "NO_REPLY_TO" to set reply-to address to null,
   "bcc": (optional, one of the BCC addresses defined in your workspace's email settings) if provided and the BCC feature is enabled for your account, this address gets added to your outbound message as a BCC address,
   "body": (required unless email_template_id is given, valid HTML),
   "plaintext_body": (optional, valid plaintext, defaults to autogenerating plaintext from "body" when this is not set),
@@ -35,9 +35,9 @@ description: "Cet article de référence explique les différents composants de 
 }
 ```
 
-- [Identifiant de l'application]({{site.baseurl}}/api/identifier_types/)
+- [Identifiant de l'application]({{site.baseurl}}/api/identifier_types)
   - Toute valeur `app_id` valide provenant d'une application configurée dans votre espace de travail fonctionne pour tous les utilisateurs de votre espace de travail, que l'utilisateur ait ou non l'application spécifique sur son profil.
-- Pour plus d'informations et de bonnes pratiques sur les accroches, consultez [Style des e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/).
+- Pour plus d'informations et de bonnes pratiques sur les accroches, consultez [Style des e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling).
 
 {% alert warning %}
 Braze recommande d'éviter d'utiliser les liens Google Drive pour l'`url` de vos pièces jointes, car cela peut bloquer les appels de nos serveurs pour récupérer le fichier et empêcher l'envoi de l'e-mail.
@@ -79,7 +79,7 @@ Un `email_template_id` peut être récupéré en bas de tout modèle d'e-mail cr
     "email":{
       "app_id": "153e8a29-fd6d-4f77-ade7-1a4ca08d457a",
       "subject": "Basis auth attachment test",
-      "from": "mail <mail@e.company.com>",
+      "from": "mail <mail@example.com>",
       "body": "my attachment test",
       "attachments":[
         { "file_name":"checkout_receipt.pdf",
@@ -98,4 +98,4 @@ Lorsque Braze récupère un fichier à partir de l'`url` d'une pièce jointe :
 - **Mise en cache :** Braze peut réutiliser un fichier récemment récupéré pendant environ 24 heures. Si chaque envoi doit récupérer immédiatement une nouvelle version du fichier, utilisez une URL distincte par version (par exemple, un chemin ou un paramètre de requête qui change lorsque le fichier est modifié).
 - **Délais d'expiration :** Les hôtes doivent répondre rapidement. Si l'URL de la pièce jointe est lente ou ne répond pas, l'envoi du message peut échouer — visez des réponses en deux minutes environ.
 - **Sécurité :** Ne placez pas d'informations personnelles identifiables (PII) ni de secrets dans les URL des pièces jointes (y compris les chaînes de requête), car les URL peuvent apparaître dans les journaux ou les systèmes en aval.
-- **Pare-feu :** Si l'URL n'est accessible que depuis des réseaux spécifiques, autorisez le trafic provenant de Braze conformément à la [liste d'autorisation des IP de Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting). Utilisez les [identifiants d'authentification basique](#authentication-for-email-file-attachments) lorsque le fichier nécessite une connexion.
+- **Pare-feu :** Si l'URL n'est accessible que depuis des réseaux spécifiques, autorisez le trafic provenant de Braze conformément à la [liste d'autorisation des IP de Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting). Utilisez les [identifiants d'authentification basique](#authentication-for-email-file-attachments) lorsque le fichier nécessite une connexion.

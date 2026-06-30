@@ -22,7 +22,7 @@ description: "この記事では、「スケジュールされた今後のキャ
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`messages.schedule_broadcasts` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`messages.schedule_broadcasts` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -49,7 +49,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/messages/scheduled_
     {
       "name": (string) the name of the scheduled broadcast,
       "id": (stings) the Canvas or campaign identifier,
-      "type": (string) the broadcast type either キャンバス or キャンペーン,
+      "type": (string) the broadcast type either Canvas or Campaign,
       "tags": (array) an array of tag names formatted as strings,
       "next_send_time": (string) The next send time formatted in ISO 8601, may also include time zone if not local/intelligent delivery,
       "schedule_type": (string) The schedule type, either local_time_zones, intelligent_delivery or the name of your company's time zone

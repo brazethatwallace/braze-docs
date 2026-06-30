@@ -12,7 +12,7 @@ description: "Cet article de référence explique comment personnaliser les URL 
 ## Lien profond vers du contenu in-app {#deep-link-to-in-app-content}
 
 {% alert tip %}
-**Pour les développeurs :** Pour un guide sur le choix entre les schémas personnalisés, les liens universels et d'autres options — y compris quand vous avez besoin d'un fichier AASA, quelles méthodes de délégué d'application implémenter et comment déboguer les problèmes — consultez le [Guide de création de liens profonds iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/) et la [Résolution des problèmes de création de liens profonds]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/).
+**Pour les développeurs :** Pour un guide sur le choix entre les schémas personnalisés, les liens universels et d'autres options — y compris quand vous avez besoin d'un fichier AASA, quelles méthodes de délégué d'application implémenter et comment déboguer les problèmes — consultez le [Guide de création de liens profonds iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide) et la [Résolution des problèmes de création de liens profonds]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting).
 {% endalert %}
 
 ### Qu'est-ce que la création de liens profonds ? {#what-is-deep-linking}
@@ -30,7 +30,7 @@ Les liens profonds sont des URI personnalisés qui renvoient vers une partie sp�
 Tout ce qui suit les deux-points dans un lien profond est du texte libre. C'est à vous de définir sa structure et son interprétation ; cependant, une convention courante consiste à le modéliser d'après les URL `http:`, en incluant un `//` initial et des paramètres de requête (par exemple, `?foo=1&bar=2`). Pour l'exemple précédent, `twitter://user?screen_name=[id]` serait utilisé pour lancer un profil spécifique dans l'application.
 
 {% alert important %}
-Pour les applications créées avec des frameworks wrapper (par exemple, Flutter ou Cordova), Braze ne fournit pas de support de création de liens profonds spécifique au wrapper. Vous devez configurer les liens profonds au niveau des couches natives iOS et Android. Pour Cordova, consultez [Liens profonds dans les notifications push]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=cordova).
+Pour les applications créées avec des frameworks wrapper (par exemple, Flutter ou Cordova), Braze ne fournit pas de support de création de liens profonds spécifique au wrapper. Vous devez configurer les liens profonds au niveau des couches natives iOS et Android. Pour Cordova, consultez [Liens profonds dans les notifications push]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=cordova).
 {% endalert %}
 
 ### Balises UTM et attribution de campagne {#utm-tags-and-campaign-attribution}
@@ -49,15 +49,15 @@ Les balises UTM peuvent être intégrées dans les liens HTTP classiques (web) e
 
 ##### Calculs des balises UTM {#utm-tag-calculations}
 
-Braze rapporte le _Total des clics_ pour tous les liens d'une campagne ou d'une étape du canvas, ce qui peut inclure des liens sans balises UTM. Cela signifie que vous pouvez voir un résultat différent (souvent inférieur) dans vos liens de suivi de campagne Google Analytics par rapport au _Total des clics_ affiché dans les performances de votre campagne ou le Générateur de rapports.
+Braze rapporte le _Total des clics_ pour tous les liens d'une Campaign ou d'une étape du Canvas, ce qui peut inclure des liens sans balises UTM. Cela signifie que vous pouvez voir un résultat différent (souvent inférieur) dans vos liens de suivi de campagne Google Analytics par rapport au _Total des clics_ affiché dans les performances de votre campagne ou le Générateur de rapports.
 
 #### Utiliser les balises UTM avec Braze {#using-utm-tags-with-braze}
 
-Si vous souhaitez utiliser des balises UTM avec des liens HTTP classiques (web) (par exemple, pour l'attribution de campagne de vos campagnes e-mail) et que votre organisation utilise déjà Google Analytics, vous pouvez utiliser le [générateur d'URL de Google](https://ga-dev-tools.google/ga4/campaign-url-builder/) pour générer des liens UTM. Ces liens peuvent être facilement intégrés dans le contenu de vos campagnes Braze comme n'importe quel autre lien.
+Si vous souhaitez utiliser des balises UTM avec des liens HTTP classiques (web) (par exemple, pour l'attribution de campagne de vos campagnes par e-mail) et que votre organisation utilise déjà Google Analytics, vous pouvez utiliser le [générateur d'URL de Google](https://ga-dev-tools.google/ga4/campaign-url-builder/) pour générer des liens UTM. Ces liens peuvent être facilement intégrés dans le contenu de vos Campaigns Braze comme n'importe quel autre lien.
 
 Pour utiliser des balises UTM dans les liens profonds vers votre application, celle-ci doit avoir le [SDK Google Analytics](https://developers.google.com/analytics/devguides/collection/) approprié intégré et correctement configuré pour gérer les liens profonds. Vérifiez auprès de vos développeurs si vous n'êtes pas sûr de cela.
 
-Une fois le SDK Analytics intégré et configuré, les balises UTM peuvent être utilisées avec les liens profonds dans les campagnes Braze. Pour configurer les balises UTM pour votre campagne, incluez les balises UTM nécessaires dans l'URL de destination ou les liens profonds. Les exemples suivants montrent comment utiliser les balises UTM dans les notifications push et les messages in-app.
+Une fois le SDK Analytics intégré et configuré, les balises UTM peuvent être utilisées avec les liens profonds dans les Campaigns Braze. Pour configurer les balises UTM pour votre campagne, incluez les balises UTM nécessaires dans l'URL de destination ou les liens profonds. Les exemples suivants montrent comment utiliser les balises UTM dans les notifications push et les messages in-app.
 
 ##### Attribuer les ouvertures push et les clics sur les messages in-app avec les balises UTM {#attribute-push-opens-and-in-app-message-clicks-with-utm-tags}
 
@@ -70,7 +70,7 @@ Pour inclure des balises UTM dans vos liens profonds pour les notifications push
 myapp://products/20-gift-card?utm_source=my_app&utm_medium=push&utm_campaign=spring2016giftcards&utm_content=ios_deeplink
 ```
 
-![]({% image_buster /assets/img_archive/push_utm_tags.png %})
+![Capture d'écran relative à l'attribution des ouvertures push et des clics sur les messages in-app avec les balises UTM.]({% image_buster /assets/img_archive/push_utm_tags.png %})
 
 {% endtab %}
 {% tab Clics sur les messages in-app %}
@@ -81,7 +81,7 @@ Pour inclure des balises UTM dans les liens profonds de vos messages in-app, uti
 myapp://products/20-gift-card?utm_source=my_app&utm_medium=iam&utm_campaign=spring2021giftcards&utm_content=web_link
 ```
 
-![]({% image_buster /assets/img_archive/iam_utm_tags.png %})
+![Capture d'écran relative à l'attribution des ouvertures push et des clics sur les messages in-app avec les balises UTM.]({% image_buster /assets/img_archive/iam_utm_tags.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -92,7 +92,7 @@ Vous pouvez construire dynamiquement votre URL directement dans le compositeur B
 
 ### Créer une URL avec des balises de personnalisation Liquid prises en charge {#create-a-url-with-supported-liquid-personalization-tags}
 
-Les URL peuvent être générées dynamiquement grâce à n'importe quelle [balise de personnalisation Liquid prise en charge]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
+Les URL peuvent être générées dynamiquement grâce à n'importe quelle [balise de personnalisation Liquid prise en charge]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
 {% raw %}
 ```liquid
@@ -119,9 +119,9 @@ Nous raccourcissons les URL générées par Liquid, y compris celles incluses da
 
 ### Raccourcir les URL dans l'endpoint `/messages/send` {#shorten-urls-in-messagessend-endpoint}
 
-Le raccourcissement de liens est également activé pour les messages API uniquement via l'[endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/). Pour une liste complète des paramètres de requête, consultez les [paramètres de requête]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters).
+Le raccourcissement de liens est également activé pour les messages API uniquement via l'[endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages). Pour une liste complète des paramètres de requête, consultez les [paramètres de requête]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters).
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
 | `link_shortening_enabled` | Oui | Valeur booléenne | Définissez `link_shortening_enabled` sur `true` pour activer le raccourcissement de liens. Pour utiliser le suivi, un `campaign_id` et un `message_variation_id` doivent être présents. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Shorten URLs in /messages/send endpoint" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Raccourcir les URL dans l'endpoint /messages/send" }

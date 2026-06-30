@@ -13,7 +13,7 @@ channel:
 
 # User phone numbers
 
-> This article will discuss different topics around your users' or customers' phone numbers. If you're looking for information about your own numbers, go to our article on [sending phone numbers]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/).
+> This article will discuss different topics around your users' or customers' phone numbers. If you're looking for information about your own numbers, go to our article on [sending phone numbers]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup).
 
 ## Recommended format
 
@@ -59,13 +59,13 @@ A phone number is considered invalid for the following reasons:
 - **Provider Error**: a permanent error was received from the SMS and RCS provider. This indicates that the phone number supplied is incorrectly formatted or permanently unable to receive SMS or RCS messages.
 - **Deactivated**: the phone number has been deactivated due to a mobile subscriber terminating their service and releasing their number from their carrier (and may eventually be recycled and assigned to a new user). A deactivated phone number can be marked invalid even if you have not sent any SMS or RCS messages to that phone number.
 
-These invalid phone numbers can be managed using [SMS and RCS endpoints]({{site.baseurl}}/api/endpoints/sms/). 
+These invalid phone numbers can be managed using [SMS and RCS endpoints]({{site.baseurl}}/api/endpoints/sms). 
 
 {% alert note %}
 If multiple user profiles have the same phone number and that phone number is marked invalid, then all existing User Profiles with that number will display as invalid. Newly created user profiles will never initially be marked as invalid.
 {% endalert %}
 
-You can also include or exclude any users with invalid phone numbers when [creating a segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#step-4-add-filters-to-your-segment).
+You can also include or exclude any users with invalid phone numbers when [creating a segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#step-4-add-filters-to-your-segment).
 
 ## Exclude rejected SMS sends from segmentation
 
@@ -73,7 +73,7 @@ You can also include or exclude any users with invalid phone numbers when [creat
 SMS rejections are charged toward your SMS allotment.
 {% endalert %}
 
-To exclude users with rejected SMS sends from your segments, use [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/), do the following:
+To exclude users with rejected SMS sends from your segments, use [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments), do the following:
 
 1. Go to **Audience** > **Segment Extensions**.
 2. Select **Create New Extension** > **Full refresh** or **Incremental refresh**.
@@ -83,7 +83,7 @@ To exclude users with rejected SMS sends from your segments, use [SQL Segment Ex
 
 ## Add users to SMS and RCS subscription groups
 
-For a user to receive an SMS or RCS message, they must have a valid phone number and be opted-in to a subscription group. Subscription groups are tied to the SMS or RCS program you are running (make sure you follow the [legal requirements for SMS, MMS, and RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/) and have recorded consent for each customer). For more information, refer to [SMS and RCS subscription groups]({{site.baseurl}}/sms_rcs_subscription_groups/).
+For a user to receive an SMS or RCS message, they must have a valid phone number and be opted-in to a subscription group. Subscription groups are tied to the SMS or RCS program you are running (make sure you follow the [legal requirements for SMS, MMS, and RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations) and have recorded consent for each customer). For more information, refer to [SMS and RCS subscription groups]({{site.baseurl}}/sms_rcs_subscription_groups).
 
 ## Third-party sourcing and verification
 
@@ -91,4 +91,4 @@ Braze relies on third-party tools to source invalid numbers. Braze is not respon
 
 ## Phone number capture
 
-To capture phone numbers through in-app messages, refer to [Phone number capture]({{site.baseurl}}/phone_number_capture/).
+To capture phone numbers through in-app messages, refer to [Phone number capture]({{site.baseurl}}/phone_number_capture).

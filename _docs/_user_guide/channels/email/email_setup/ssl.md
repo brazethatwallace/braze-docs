@@ -65,7 +65,7 @@ If you can't or don't want to use the listed CDNs for SSL click and open trackin
 ### Additional resources
 
 {% alert important %}
-For troubleshooting your CDN configuration, contact your CDN provider or see [Troubleshooting]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/) for generic guidance.
+For troubleshooting your CDN configuration, contact your CDN provider or see [Troubleshooting]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting) for generic guidance.
 {% endalert %}
 
 Refer to the following resources by ESP partners on how to configure certain CDNs. While your specific CDN may not be listed, you must make sure your CDN has the ability to apply SSL certificates. 
@@ -103,5 +103,5 @@ When you configure your CDN's click-tracking domain, enable the `X-Forwarded-Hos
 
 ## Troubleshooting
 
-While you should handle CDN configuration, certificates, and proxy issues with your CDN, use these tips to identify common SSL click tracking issues. For troubleshooting guidance, refer to [Troubleshooting]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/).
+While you should handle CDN configuration, certificates, and proxy issues with your CDN, use these tips to identify common SSL click tracking issues. For troubleshooting guidance, refer to [Troubleshooting]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting).
 

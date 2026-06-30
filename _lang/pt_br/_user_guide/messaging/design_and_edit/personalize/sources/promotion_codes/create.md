@@ -5,19 +5,19 @@ page_order: 0.1
 description: "Saiba como criar códigos de promoção nas suas campanhas e Canvas."
 ---
 
-# Criar códigos de promoção
+# Criar códigos de promoção {#create-promotion-codes}
 
 > Saiba como criar códigos de promoção nas suas campanhas e Canvas.
 
 ## Criando uma lista de códigos de promoção {#create}
 
-### Etapa 1: Criar uma nova lista
+### Etapa 1: Criar uma nova lista {#step-1-create-a-new-list}
 
 No dashboard, acesse **Configurações de dados** > **Códigos de promoção** e selecione **Criar lista de códigos de promoção**.
 
 ![Botão para criar um código de promoção.]({% image_buster /assets/img/promocodes/promocode1.png %})
 
-### Etapa 2: Inserir as informações
+### Etapa 2: Inserir as informações {#step-2-enter-the-details}
 
 1. Dê um nome à sua lista de códigos de promoção e adicione uma descrição opcional.
 2. Em seguida, crie um snippet de código para o código de promoção.
@@ -31,7 +31,7 @@ Veja alguns detalhes a considerar ao criar um snippet de código:
 
 ![Uma lista de códigos de promoção chamada "SpringSale2025" com o snippet de código "spring25".]({% image_buster /assets/img/promocodes/promocode3.png %}){: style="max-width:80%"}
 
-### Etapa 3: Escolher as opções do código de promoção
+### Etapa 3: Escolher as opções do código de promoção {#step-3-choose-promotion-code-options}
 
 Cada lista de códigos de promoção tem uma data e hora de expiração correspondentes, definidas no momento da criação. O prazo máximo de expiração é de seis meses a partir do dia em que você criar ou editar a lista.
 
@@ -43,7 +43,7 @@ Você também tem a opção de configurar alertas de limite opcionais e personal
 
 ![Um exemplo de alerta de limite para notificar "marketing@abc.com" quando a lista de códigos de promoção expirar em 5 dias.]({% image_buster /assets/img/promocodes/promocode5.png %}){: style="max-width:80%"}
 
-### Etapa 4: Fazer upload dos códigos de promoção
+### Etapa 4: Fazer upload dos códigos de promoção {#step-4-upload-promotion-codes}
 
 A Braze não gerencia a criação ou o resgate de códigos, o que significa que você deve gerar seus códigos de promoção em um arquivo CSV e fazer upload deles na Braze.
 
@@ -52,7 +52,7 @@ Verifique se o seu arquivo CSV segue estas diretrizes:
 - Inclui uma coluna para códigos de promoção.
 - Tem um código de promoção por linha.
 
-Você pode usar nossa integração nativa com o [Voucherify]({{site.baseurl}}/partners/ecommerce/loyalty/voucherify/) ou o [Talon.One]({{site.baseurl}}/partners/ecommerce/loyalty/talonone/) para criar e exportar códigos de promoção.
+Você pode usar nossa integração nativa com o [Voucherify]({{site.baseurl}}/partners/ecommerce/loyalty/voucherify) ou o [Talon.One]({{site.baseurl}}/partners/ecommerce/loyalty/talonone) para criar e exportar códigos de promoção.
 
 {% alert important %}
 O tamanho máximo do arquivo é 100&nbsp;MB e o tamanho máximo da lista é de 20 milhões de códigos não utilizados. Se você fez upload do arquivo errado, faça upload de um novo para substituir o anterior.
@@ -72,7 +72,7 @@ O tamanho máximo do arquivo é 100&nbsp;MB e o tamanho máximo da lista é de 2
 Arquivos maiores levam alguns minutos para importar. Enquanto espera, você pode sair da página e trabalhar em outra coisa enquanto a importação está em andamento. Quando a importação terminar, o status muda para **Concluir** na tabela.
 {% endalert %}
 
-## Atualizando uma lista de códigos de promoção
+## Atualizando uma lista de códigos de promoção {#updating-a-promotion-code-list}
 
 Para atualizar uma lista, selecione uma das suas listas existentes. Você pode alterar o nome, a descrição, a expiração da lista e os alertas de limite. Também é possível adicionar mais códigos à lista fazendo upload de novos arquivos e selecionando **Atualizar lista**. Todos os códigos na lista têm a mesma expiração, independentemente da data de importação.
 
@@ -80,9 +80,9 @@ Para atualizar uma lista, selecione uma das suas listas existentes. Você pode a
 Códigos de promoção não podem ser excluídos.
 {% endalert %}
 
-### Corrigindo uma lista de códigos de promoção incorreta
+### Corrigindo uma lista de códigos de promoção incorreta {#modifying-an-incorrect-promotion-code-list}
 
 Se você fez upload de um arquivo CSV com os códigos de promoção incorretos e selecionou **Salvar lista**, é possível resolver isso por um dos seguintes métodos:
 
-- Descontinuar a lista inteira: Pare de usar a lista de códigos de promoção atual em quaisquer campanhas, Canvas ou modelos. Em seguida, faça upload do arquivo CSV com os códigos corretos e use-os no seu envio de mensagens.
-- Usar os códigos incorretos: Crie uma campanha que envie códigos de promoção da lista incorreta para um placeholder até que todos os códigos incorretos sejam usados. Em seguida, faça upload dos códigos de promoção corretos na mesma lista.
+- Descontinuar a lista inteira: pare de usar a lista de códigos de promoção atual em quaisquer Campaigns, Canvas ou modelos. Em seguida, faça upload do arquivo CSV com os códigos corretos e use-os no seu envio de mensagens.
+- Usar os códigos incorretos: crie uma Campaign que envie códigos de promoção da lista incorreta para um placeholder até que todos os códigos incorretos sejam usados. Em seguida, faça upload dos códigos de promoção corretos na mesma lista.

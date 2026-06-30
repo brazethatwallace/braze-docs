@@ -24,7 +24,7 @@ La mensajería bidireccional te permite enviar mensajes y procesar las respuesta
 SMS, MMS y RCS con Braze te ofrecen la opción de crear activadores de palabras clave, respuestas personalizadas, definir conjuntos de palabras clave para varios idiomas y establecer categorías de palabras clave personalizadas.
 
 {% alert note %}
-Braze utiliza tu conjunto completo de palabras clave de cancelación de suscripción ([palabras clave predeterminadas]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) y [palabras clave personalizadas]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/)) para la gestión exacta de cancelación de suscripción y la [cancelación de suscripción aproximada]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/).
+Braze utiliza tu conjunto completo de palabras clave de cancelación de suscripción ([palabras clave predeterminadas]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) y [palabras clave personalizadas]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling)) para la gestión exacta de cancelación de suscripción y la [cancelación de suscripción aproximada]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out).
 {% endalert %}
 
 {% tabs %}
@@ -48,7 +48,7 @@ Las siguientes reglas se aplican a las palabras clave y las respuestas de palabr
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Añadir activadores de palabras clave" }
 
 {% alert tip %}
-¿Te interesa ver cómo se pueden usar estas palabras clave en tus Campaigns y Canvas para reorientar y activar mensajes? Visita [Reorientación de usuarios]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) para más información.
+¿Te interesa ver cómo se pueden usar estas palabras clave en tus Campaigns y Canvas para reorientar y activar mensajes? Visita [Reorientación de usuarios]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) para más información.
 {% endalert %}
 {% endtab %}
 
@@ -60,7 +60,7 @@ Puedes administrar tus propias respuestas que se envían a los usuarios después
 
 1. En el panel de Braze, ve a **Audience** > **Subscription Group Management** y selecciona un grupo de suscripción **SMS/MMS/RCS**. <br><br>
 2. En **Global Keywords**, selecciona una categoría de palabras clave para editar una respuesta seleccionando el icono de lápiz. ![Palabras clave de adhesión voluntaria con el icono de lápiz visible.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
-3. En la pestaña que se abre, edita tu respuesta. Ten en cuenta nuestras [seis reglas para cumplir correctamente con la normativa]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/#the-six-rules-to-get-compliance-right) mientras creas tu respuesta, y lee las siguientes reglas que se aplican a las palabras clave y las respuestas de palabras clave.<br><br>
+3. En la pestaña que se abre, edita tu respuesta. Ten en cuenta nuestras [seis reglas para cumplir correctamente con la normativa]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations#the-six-rules-to-get-compliance-right) mientras creas tu respuesta, y lee las siguientes reglas que se aplican a las palabras clave y las respuestas de palabras clave.<br><br>
 4. Para acortar automáticamente las URL estáticas en tu respuesta, selecciona el conmutador **Link Shortening**. El contador de caracteres se actualizará para mostrar la longitud esperada de la URL acortada. ![Un GIF que muestra cómo se actualiza el contador de caracteres cuando el conmutador "Link Shortening" está activado.]({% image_buster /assets/img/sms/link_shortening.gif %}){: style="max-width:60%;"}
 
 #### Consideraciones {#considerations}
@@ -74,7 +74,7 @@ Puedes administrar tus propias respuestas que se envían a los usuarios después
 {% endtabs %}
 
 {% alert tip %}
-Si un Canvas basado en acciones se activa mediante un mensaje SMS, MMS o RCS de entrada, puedes hacer referencia a las propiedades de SMS, MMS o RCS en el primer [paso de mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) del Canvas.
+Si un Canvas basado en acciones se activa mediante un mensaje SMS, MMS o RCS de entrada, puedes hacer referencia a las propiedades de SMS, MMS o RCS en el primer [paso de mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) del Canvas.
 {% endalert %}
 
 ## Asistencia en varios idiomas {#multi-language-support}
@@ -110,7 +110,7 @@ Para crear una categoría de palabras clave personalizada, haz lo siguiente:
 2. Selecciona **Add custom keyword**. ![Campos para añadir nuevas palabras clave.]({% image_buster /assets/img/sms/sms_custom_step.png %}){: style="max-width:90%;"}
 3. Proporciona un nombre para la categoría de palabras clave y define qué palabras clave puede enviar un usuario para recibir el mensaje de respuesta.
 
-Una vez creada esta categoría de palabras clave, estará disponible para [filtrar y activar]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) en tus Campaigns y Canvas.
+Una vez creada esta categoría de palabras clave, estará disponible para [filtrar y activar]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) en tus Campaigns y Canvas.
 
 Las palabras clave creadas en categorías de palabras clave personalizadas se rigen por todas las reglas y validaciones para la creación de nuevas palabras clave.
 
@@ -134,14 +134,14 @@ Recomendamos encarecidamente configurar una respuesta automática cuando los usu
 
 Para enviar una respuesta predeterminada, por ejemplo, "¡Lo sentimos! No reconocimos esa palabra clave.", haz lo siguiente:
 
-1. Crea una [Campaign de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/).
+1. Crea una [campaña de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).
 2. Para **Público objetivo**, elige **Todos los usuarios** (el activador aún limita quién recibe el mensaje).
 3. Para **Planificación**, elige **Entrega basada en acciones**.
 4. Configura el activador como **Send inbound SMS** al grupo de suscripción correspondiente **within keyword category OTHER**.
 5. En el paso **Messaging**, introduce el cuerpo de la respuesta que quieres que reciban los usuarios.
 
-Para saber cómo Braze gestiona los mensajes entrantes de números de teléfono **desconocidos** (antes de que exista un perfil), consulta [Gestión de números de teléfono desconocidos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/unknown_phone_numbers/).
+Para saber cómo Braze gestiona los mensajes entrantes de números de teléfono **desconocidos** (antes de que exista un perfil), consulta [Gestión de números de teléfono desconocidos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/unknown_phone_numbers).
 
 {% alert tip %}
-¿Te interesa ver cómo se pueden usar estas palabras clave y categorías de palabras clave en tus Campaigns y Canvas para reorientar y activar mensajes? Visita [Reorientación de usuarios]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) para más información.
+¿Te interesa ver cómo se pueden usar estas palabras clave y categorías de palabras clave en tus Campaigns y Canvas para reorientar y activar mensajes? Visita [Reorientación de usuarios]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) para más información.
 {% endalert %}

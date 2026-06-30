@@ -36,12 +36,12 @@ braze.initialize(apiKey, {
 ### `connect-src` {#connect-src}
 
 {% alert warning %}
-Your URL must match the [API SDK endpoint]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) of your chosen `baseUrl` initialization option.
+Your URL must match the [API SDK endpoint]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) of your chosen `baseUrl` initialization option.
 {% endalert %}
 
 |URL|Information|
 |---|-----------|
-|`connect-src https://sdk.iad-01.braze.com`|Allows the SDK to communicate with Braze APIs. Change this URL to match the [API SDK endpoint]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) for your chosen `baseUrl` initialization option.|
+|`connect-src https://sdk.iad-01.braze.com`|Allows the SDK to communicate with Braze APIs. Change this URL to match the [API SDK endpoint]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) for your chosen `baseUrl` initialization option.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="connect-src #connect-src" }
 
 ### `script-src` {#script-src}
@@ -49,7 +49,7 @@ Your URL must match the [API SDK endpoint]({{site.baseurl}}/user_guide/administe
 |URL|Information|
 |---|-----------|
 |`script-src https://js.appboycdn.com`|Required when using the CDN-hosted integration.|
-|`script-src 'unsafe-eval'`|Required when using the integration snippet which contains reference to `appboyQueue`. To avoid using this directive, [integrate the SDK using NPM]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/?tab=package%20manager) instead.|
+|`script-src 'unsafe-eval'`|Required when using the integration snippet which contains reference to `appboyQueue`. To avoid using this directive, [integrate the SDK using NPM]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup?tab=package%20manager) instead.|
 |`script-src 'nonce-...'`<br>or<br>`script-src 'unsafe-inline'`|Required for certain in-app messages, such as custom HTML.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="script-src #script-src" }
 

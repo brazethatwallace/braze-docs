@@ -31,7 +31,7 @@ iOS 15アップデートの一部としてAppleがリリースした新しい`Gr
 
 ## 統合 {#integration}
 
-この統合で使用されるアプリ内メッセージは、サブクラス化されたモーダルアプリ内メッセージビューコントローラーです。セットアップのガイドは、iOSアプリ内メッセージの高度なユースケース[実装ガイド]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide/)に記載されています。統合する前に、Xcodeプロジェクトに`GroupActivities`エンタイトルメントを追加してください。
+この統合で使用されるアプリ内メッセージは、サブクラス化されたモーダルアプリ内メッセージビューコントローラーです。セットアップのガイドは、iOSアプリ内メッセージの高度なユースケース[実装ガイド]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide)に記載されています。統合する前に、Xcodeプロジェクトに`GroupActivities`エンタイトルメントを追加してください。
 
 {% alert important %}
 統合を完了するには、このガイドと並行して[Apple SharePlayドキュメント](https://developer.apple.com/documentation/avfoundation/media_playback_and_selection/supporting_coordinated_media_playback)を開くことをお勧めします。
@@ -60,7 +60,7 @@ override func loadView() {
 
 {% tabs %}
 {% tab Swift %}
-`````````swift
+```swift
 func configureVideoPlayer() {
   guard let urlString = inAppMessage.extras?["video_url"] as? String,
         let url = URL(string: urlString) else { return }
@@ -97,7 +97,7 @@ func configureVideoPlayer() {
 
 {% tabs %}
 {% tab Swift %}
-`````````swift
+```swift
 struct MediaItem: Hashable, Codable {
   let title: String
   let url: URL
@@ -138,7 +138,7 @@ struct MediaItemActivity: GroupActivity {
 
 {% tabs %}
 {% tab Swift %}
-`````````swift
+```swift
 private var subscriptions = Set<AnyCancellable>()
 private var selectedMediaItem: MediaItem? {
   didSet {
@@ -168,7 +168,7 @@ private func launchVideoPlayerIfNecessary() {
 
 {% tabs %}
 {% tab Swift %}
-`````````swift
+```swift
 override func viewDidDisappear(_ animated: Bool) {
   super.viewDidDisappear(animated)
   groupSession?.leave()
@@ -198,7 +198,7 @@ SharePlayインジケーターを動的に非表示または表示すること�
 
 {% tabs %}
 {% tab Swift %}
-`````````swift
+```swift
 private var isEligibleForSharePlay: Bool = false {
   didSet {
     sharePlayButton.isHidden = !isEligibleForSharePlay

@@ -42,7 +42,7 @@ end
 
 Nous vous suggérons de versionner Braze afin que les mises à jour du pod récupèrent automatiquement tout ce qui est inférieur à une mise à jour mineure de version. Cela ressemble à `pod 'Appboy-iOS-SDK' ~> Major.Minor.Build`. Si vous souhaitez intégrer automatiquement la dernière version du SDK Braze, même avec des modifications majeures, vous pouvez utiliser `pod 'Appboy-iOS-SDK'` dans votre Podfile.
 
-#### Sous-spécifications {#subspecs}
+### Sous-spécifications {#subspecs}
 
 Nous recommandons aux intégrateurs d'importer notre SDK complet. Cependant, si vous êtes certain de n'intégrer qu'une fonctionnalité Braze spécifique, vous pouvez importer uniquement la sous-spécification d'interface utilisateur souhaitée plutôt que le SDK complet.
 
@@ -51,8 +51,8 @@ Nous recommandons aux intégrateurs d'importer notre SDK complet. Cependant, si 
 | `pod 'Appboy-iOS-SDK/InAppMessage'` | La sous-spécification `InAppMessage` contient l'interface utilisateur des messages in-app de Braze et le SDK Core. |
 | `pod 'Appboy-iOS-SDK/ContentCards'` | La sous-spécification `ContentCards` contient l'interface utilisateur des Content Cards de Braze et le SDK Core. |
 | `pod 'Appboy-iOS-SDK/NewsFeed'` | La sous-spécification `NewsFeed` contient le SDK Core de Braze. |
-| `pod 'Appboy-iOS-SDK/Core'` | La sous-spécification `Core` prend en charge l'analytique, comme les événements personnalisés et les attributs. |
-{: .ws-td-nw-1 aria-label="Subspecs" }
+| `pod 'Appboy-iOS-SDK/Core'` | La sous-spécification `Core` prend en charge l'analyse, comme les événements personnalisés et les attributs. |
+{: .ws-td-nw-1 aria-label="Sous-spécifications" }
 
 ## Étape 3 : Installer le SDK Braze {#step-3-installing-the-braze-sdk}
 
@@ -67,7 +67,7 @@ pod install
 
 ## Étapes suivantes {#next-steps}
 
-Suivez les instructions pour [terminer l'intégration]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/completing_integration/).
+Suivez les instructions pour [terminer l'intégration]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/completing_integration).
 
 ## Mettre à jour le SDK Braze via CocoaPods {#updating-the-braze-sdk-via-cocoapods}
 

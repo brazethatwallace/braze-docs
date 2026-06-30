@@ -12,7 +12,7 @@ channel: email
 > Este artículo describe cómo configurar los enlaces universales de Apple y los Android App Links.
 
 {% alert tip %}
-Para una comparación de tipos de enlaces en todos los canales de mensajería y orientación sobre cuándo necesitas un archivo AASA, consulta la [guía de vinculación en profundidad de iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/).
+Para una comparación de tipos de enlaces en todos los canales de mensajería y orientación sobre cuándo necesitas un archivo AASA, consulta la [guía de vinculación en profundidad de iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide).
 {% endalert %}
 
 Los enlaces universales de Apple y los Android App Links son mecanismos diseñados para proporcionar una transición fluida entre el contenido web y las aplicaciones móviles. Mientras que los enlaces universales son específicos de iOS, los Android App Links cumplen el mismo propósito para las aplicaciones Android.
@@ -439,7 +439,7 @@ Es importante asegurarse de que estos archivos siempre sean accesibles públicam
 
 Asegúrate de que tienes las definiciones correctas para los dominios que tu aplicación tiene permitido abrir.
 
-- **iOS:** Revisa los Associated Domains configurados en Xcode para tu aplicación ([Paso 1c: Activa Associated Domains en tu proyecto Xcode]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Comprueba que el dominio de seguimiento de clics está incluido en esa lista.
+- **iOS:** Revisa los Associated Domains configurados en Xcode para tu aplicación ([Paso 1c: Activa Associated Domains en tu proyecto Xcode]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links?tab=ios#step-1c)). Comprueba que el dominio de seguimiento de clics está incluido en esa lista.
 - **Android:** Abre la página de información de la aplicación (mantén presionado el icono de la aplicación y haz clic en ⓘ). Dentro del menú de información de la aplicación, localiza **Open by default** y tócalo. Esto debería mostrar una pantalla con todos los enlaces verificados que la aplicación tiene permitido abrir. Comprueba que el dominio de seguimiento de clics está incluido en esa lista.
 
 #### El dominio de seguimiento no puede servir archivos .well-known {#tracking-domain-cant-serve-well-known-files}

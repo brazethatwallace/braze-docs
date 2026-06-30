@@ -16,4 +16,4 @@ description: "This reference article covers how to generate images for your medi
 
 {% multi_lang_include brazeai/generative_ai/access_images.md %}
 
-For more information, including prompt tips, example prompts, and usage limits, see [Generate images in Operator capabilities]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-images).
+For more information, including prompt tips, example prompts, and usage limits, see [Generate images in Operator capabilities]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images).

@@ -12,7 +12,7 @@ page_order: 1.3
 
 ## Sobre a análise preditiva de eventos {#about-predictive-event-analytics}
 
-Assim que a previsão terminar de treinar e esta página estiver populada, você pode começar a usar [filtros]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users/#filters) em segmentos ou Campaigns para começar a usar os resultados do modelo. Se você deseja ajuda para decidir quem direcionar e por quê, esta página pode ajudar com base na precisão histórica do modelo e nos seus próprios objetivos de negócios.
+Assim que a previsão terminar de treinar e esta página estiver populada, você pode começar a usar [filtros]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users#filters) em segmentos ou campanhas para começar a usar os resultados do modelo. Se você deseja ajuda para decidir quem direcionar e por quê, esta página pode ajudar com base na precisão histórica do modelo e nos seus próprios objetivos de negócios.
 
 Estes são os componentes que compõem a análise preditiva de eventos:
 
@@ -25,7 +25,7 @@ A distribuição das pontuações de probabilidade para todo o público de previ
 
 À medida que você move os controles deslizantes para diferentes posições, a barra na metade esquerda do painel informará quantos usuários do público total de previsão seriam direcionados usando a parte da população que você selecionou.
 
-![]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"}
+![À medida que você move os controles deslizantes para diferentes posições, a barra na metade esquerda do painel informará quantos usuários do público total de previsão seriam direcionados usando a parte da população que você selecionou.]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"}
 
 ## Pontuação de probabilidade {#purchase_score}
 
@@ -41,10 +41,10 @@ As pontuações e as categorias correspondentes serão atualizadas de acordo com
 
 ### Acessando pontuações de probabilidade no nível do usuário {#accessing-user-level-likelihood-scores}
 
-Para visualizar a pontuação de probabilidade de um único usuário, procure esse usuário no dashboard e acesse **Engajamento** > **Previsões** para ver sua pontuação. Para acessar pontuações e categorias para vários usuários de uma só vez, crie um [segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) usando os filtros [Pontuação de probabilidade de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#event-likelihood-score) ou [Categoria de probabilidade de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#event-likelihood-category) e, em seguida, exporte os usuários desse segmento. Ao exportar, você pode incluir as pontuações de probabilidade nos dados exportados.
+Para visualizar a pontuação de probabilidade de um único usuário, procure esse usuário no dashboard e acesse **Engajamento** > **Previsões** para ver sua pontuação. Para acessar pontuações e categorias para vários usuários de uma só vez, crie um [segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) usando os filtros [Pontuação de probabilidade de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score) ou [Categoria de probabilidade de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-category) e, em seguida, exporte os usuários desse segmento. Ao exportar, você pode incluir as pontuações de probabilidade nos dados exportados.
 
 {% alert note %}
-Embora tanto Predictive Events quanto [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) atribuam pontuações aos usuários, existem diferenças importantes:<br><br>
+Embora tanto Predictive Events quanto [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) atribuam pontuações aos usuários, existem diferenças importantes:<br><br>
 
 - **Predictive Events** (previsões de compra): Consideram todos os usuários na população de previsão, independentemente de já terem realizado o evento-alvo anteriormente. Por exemplo, uma previsão de compra pode identificar usuários propensos a fazer sua primeira compra.
 - **Predictive Churn**: Considera apenas usuários que já realizaram o evento personalizado. As previsões de churn identificam usuários que já realizaram alguma ação anteriormente e que provavelmente deixarão de fazê-la. Um usuário que nunca fez login não pode ser considerado em "churn" se não fizer login.
@@ -78,7 +78,7 @@ Usando essas informações, incentivamos você a decidir quantos dos verdadeiros
 
 ## Tabela de correlação de eventos {#correlation_table}
 
-Esta análise exibe atributos ou comportamentos de usuários que estão correlacionados com eventos na população de previsão. Os atributos avaliados são idade, país, gênero e idioma. Comportamentos analisados incluem sessões, compras, total de dólares gastos, eventos personalizados e Campaigns e etapas do Canvas recebidos nos últimos 30 dias.
+Esta análise exibe atributos ou comportamentos de usuários que estão correlacionados com eventos na população de previsão. Os atributos avaliados são idade, país, gênero e idioma. Comportamentos analisados incluem sessões, compras, total de dólares gastos, eventos personalizados e campanhas e etapas do Canvas recebidos nos últimos 30 dias.
 
 As tabelas são divididas em esquerda e direita para mais e menos propensos a realizar o evento, respectivamente. Para cada linha, a razão pela qual os usuários com o comportamento ou atributo na coluna da esquerda são mais ou menos propensos a realizar o evento é exibida na coluna da direita. Esse número é a razão entre as pontuações de probabilidade de usuários com esse comportamento ou atributo dividida pela probabilidade de realizar o evento de toda a população de previsão.
 

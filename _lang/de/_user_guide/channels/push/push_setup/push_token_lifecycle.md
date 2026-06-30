@@ -36,7 +36,7 @@ Push-Token werden sowohl für Vordergrund- als auch für Hintergrund-Push-Benach
 Wenn Nutzer:innen Push-Benachrichtigungen für Ihre App aktivieren, gelten sie als „push-registriert“, was bedeutet, dass sie mit dem Segmentierungsfilter `Foreground Push Enabled for App` in Braze angesprochen werden können.
 
 {% alert note %}
-Dies unterscheidet sich vom Segmentierungsfilter `Foreground Push Enabled`, der Nutzer:innen identifiziert, die Push für mindestens eine Ihrer Apps aktiviert haben – nicht für eine bestimmte App. Weitere Informationen finden Sie unter [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#foreground-push-enabled).
+Dies unterscheidet sich vom Segmentierungsfilter `Foreground Push Enabled`, der Nutzer:innen identifiziert, die Push für mindestens eine Ihrer Apps aktiviert haben – nicht für eine bestimmte App. Weitere Informationen finden Sie unter [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#foreground-push-enabled).
 {% endalert %}
 
 ### Mehrere Nutzer:innen auf einem Gerät {#multiple-users-on-a-device}
@@ -52,7 +52,7 @@ Eine App oder Website kann nur ein Push-Abo pro Gerät haben. Wenn sich also Nut
 Da es für Push-Anbieter (APNs/FCM) keine Möglichkeit gibt, zwischen mehreren Nutzer:innen auf einem Gerät zu unterscheiden, übergeben wir das Push-Token an die zuletzt angemeldeten Nutzer:innen, um zu bestimmen, welche Nutzer:innen auf dem Gerät für Push angesprochen werden sollen.
 
 {% alert tip %}
-Wenn Sie eine Fehlermeldung unter **Contact Settings** > **Push Changelog** sehen, finden Sie unter [Häufige Push-Fehlermeldungen]({{site.baseurl}}/user_guide/channels/push/push_error_codes/) Erklärungen und nächste Schritte.
+Wenn Sie eine Fehlermeldung unter **Contact Settings** > **Push Changelog** sehen, finden Sie unter [Häufige Push-Fehlermeldungen]({{site.baseurl}}/user_guide/channels/push/push_error_codes) Erklärungen und nächste Schritte.
 {% endalert %}
 
 ## Push-Token-Registrierung {#push-token-registration}
@@ -79,7 +79,7 @@ iOS generiert nicht automatisch Push-Token für eine App bei der Installation. Z
 
 | Version | Vorläufige Autorisierung? | Details |
 |------------------------------------|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **iOS 12** | Ja | Wenn Nutzer:innen Push-Benachrichtigungen aktivieren, erhalten Sie eine Standard-Autorisierung, die es Ihnen ermöglicht, [Vordergrund-Push-Benachrichtigungen](#foreground-vs-background) zu senden. Sie können jedoch auch eine [vorläufige Autorisierung]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push) anfordern, die es Ihnen ermöglicht, stille [Hintergrund-Push-Benachrichtigungen](#foreground-vs-background) direkt an die Mitteilungszentrale zu senden. |
+| **iOS 12** | Ja | Wenn Nutzer:innen Push-Benachrichtigungen aktivieren, erhalten Sie eine Standard-Autorisierung, die es Ihnen ermöglicht, [Vordergrund-Push-Benachrichtigungen](#foreground-vs-background) zu senden. Sie können jedoch auch eine [vorläufige Autorisierung]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push) anfordern, die es Ihnen ermöglicht, stille [Hintergrund-Push-Benachrichtigungen](#foreground-vs-background) direkt an die Mitteilungszentrale zu senden. |
 | **iOS 11 oder früher** | Nein | Alle Nutzer:innen müssen explizit zustimmen, um Push-Benachrichtigungen zu erhalten. Ein Push-Token wird erst nach Erteilung der Berechtigung generiert. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push-Token-Registrierung" }
 {% endtab %}
@@ -91,8 +91,8 @@ iOS generiert nicht automatisch Push-Token für eine App bei der Installation. Z
 
 Es gibt zwei Möglichkeiten, den Push-Abo-Status von Nutzer:innen mit Braze zu prüfen:
 
-- **Nutzerprofil**: Sie können auf einzelne Nutzerprofile über das Braze-Dashboard auf der Seite [Nutzersuche]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) zugreifen. Nachdem Sie ein Nutzerprofil gefunden haben (über E-Mail-Adresse, Telefonnummer oder externe Nutzer-ID), können Sie den Tab **Engagement** auswählen, um den Abo-Status der Nutzer:innen einzusehen und manuell anzupassen.
-- **REST-API-Export**: Sie können einzelne Nutzerprofile im JSON-Format exportieren, indem Sie die Endpunkte [Nutzer:innen nach Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) oder [Nutzer:innen nach Bezeichner]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) verwenden. Braze gibt ein Push-Token-Objekt zurück, das Push-Aktivierungsinformationen pro Gerät enthält.
+- **Nutzerprofil**: Sie können auf einzelne Nutzerprofile über das Braze-Dashboard auf der Seite [Nutzersuche]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) zugreifen. Nachdem Sie ein Nutzerprofil gefunden haben (über E-Mail-Adresse, Telefonnummer oder externe Nutzer-ID), können Sie den Tab **Engagement** auswählen, um den Abo-Status der Nutzer:innen einzusehen und manuell anzupassen.
+- **REST-API-Export**: Sie können einzelne Nutzerprofile im JSON-Format exportieren, indem Sie die Endpunkte [Nutzer:innen nach Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) oder [Nutzer:innen nach Bezeichner]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) verwenden. Braze gibt ein Push-Token-Objekt zurück, das Push-Aktivierungsinformationen pro Gerät enthält.
 
 ### Push-Registrierungsstatus prüfen {#checking-push-registration-status}
 
@@ -102,7 +102,7 @@ Wenn dem App-Namen des Geräteeintrags `Foreground:` vorangestellt ist, ist die 
 
 ![Push-Changelog mit einem Beispiel-Push-Token.]({% image_buster /assets/img/push_changelog.png %}){: style="float:right;max-width:40%;margin-left:15px;margin-top:10px;"}
 
-Wenn dem App-Namen des Geräteeintrags hingegen `Background:` vorangestellt ist, ist die App nur berechtigt, [Hintergrund-Push]({{site.baseurl}}/user_guide/channels/push/types/#background-push-notifications) zu empfangen, und kann keine für Nutzer:innen sichtbaren Benachrichtigungen auf diesem Gerät anzeigen. Dies bedeutet in der Regel, dass die Nutzer:innen Benachrichtigungen für die App auf diesem Gerät deaktiviert haben.
+Wenn dem App-Namen des Geräteeintrags hingegen `Background:` vorangestellt ist, ist die App nur berechtigt, [Hintergrund-Push]({{site.baseurl}}/user_guide/channels/push/types#background-push-notifications) zu empfangen, und kann keine für Nutzer:innen sichtbaren Benachrichtigungen auf diesem Gerät anzeigen. Dies bedeutet in der Regel, dass die Nutzer:innen Benachrichtigungen für die App auf diesem Gerät deaktiviert haben.
 
 Wenn ein Push-Token auf demselben Gerät zu anderen Nutzer:innen verschoben wird, sind die ersten Nutzer:innen nicht mehr push-registriert.
 
@@ -113,7 +113,7 @@ In der folgenden Tabelle finden Sie Aktionen, die zu Änderungen oder zur Entfer
 | Aktion | Beschreibung |
 | ------ | ----------- |
 | Methode `changeUser()` wird aufgerufen | Die Braze-Methode `changeUser()` wechselt die Nutzer-ID, der die SDKs Nutzerverhaltens-Daten zuweisen. Diese Methode wird normalerweise aufgerufen, wenn sich Nutzer:innen in einer Anwendung anmelden. Wenn `changeUser()` mit einer anderen oder neuen Nutzer-ID auf einem bestimmten Gerät aufgerufen wird, wird das Push-Token dieses Geräts zum entsprechenden Braze-Profil mit der zugehörigen Nutzer-ID verschoben. |
-| Push-Fehler tritt auf | Einige häufige Push-Fehler, die zur Token-Entfernung führen, sind `MismatchSenderId`, `InvalidRegistration` und andere Arten von Push-Bounces. <br><br>Sehen Sie sich unsere vollständige Liste häufiger [Push-Fehler]({{site.baseurl}}/user_guide/channels/push/push_error_codes/) an. |
+| Push-Fehler tritt auf | Einige häufige Push-Fehler, die zur Token-Entfernung führen, sind `MismatchSenderId`, `InvalidRegistration` und andere Arten von Push-Bounces. <br><br>Sehen Sie sich unsere vollständige Liste häufiger [Push-Fehler]({{site.baseurl}}/user_guide/channels/push/push_error_codes) an. |
 | Nutzer:in deinstalliert die App | Wenn Nutzer:innen die Anwendung von einem Gerät deinstallieren, entfernt Braze das Push-Token aus dem Profil. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Push-Token-Verwaltung" }
 

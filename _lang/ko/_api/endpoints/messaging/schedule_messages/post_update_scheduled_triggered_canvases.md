@@ -18,7 +18,7 @@ description: "이 문서에서는 예약된 API 트리거 Canvases 업데이트 
 
 이를 통해 메시지 전송을 트리거하는 동작을 결정할 수 있습니다. 메시지 자체에 Braze가 템플릿으로 사용하는 `trigger_properties`를 전달할 수 있습니다.
 
-이 엔드포인트로 메시지를 보내려면 [Canvas]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier)를 구축할 때 생성된 Canvas ID가 있어야 합니다.
+이 엔드포인트로 메시지를 보내려면 [Canvas]({{site.baseurl}}/api/identifier_types#canvas-api-identifier)를 구축할 때 생성된 Canvas ID가 있어야 합니다.
 
 모든 스케줄은 스케줄 생성 요청 또는 이전 스케줄 업데이트 요청에서 제공한 스케줄을 완전히 덮어씁니다.
   - 예를 들어, 원래 `"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}`을 제공한 다음 업데이트에서 `"schedule" : {"time" : "2015-02-20T14:14:47"}`을 제공하면, Braze는 사용자의 현지 시간이 아닌 제공된 시간(UTC)에 메시지를 보냅니다.
@@ -28,7 +28,7 @@ description: "이 문서에서는 예약된 API 트리거 Canvases 업데이트 
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `canvas.trigger.schedule.update` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `canvas.trigger.schedule.update` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -55,9 +55,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id` | 필수 | 문자열 | [Canvas 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요. |
+| `canvas_id` | 필수 | 문자열 | [Canvas 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요. |
 | `schedule_id` | 선택 사항 | 문자열 | 업데이트할 `schedule_id`(스케줄 생성 응답에서 얻은 값)입니다. |
-| `schedule` | 필수 | 오브젝트 | [스케줄 오브젝트]({{site.baseurl}}/api/objects_filters/schedule_object/)를 참조하세요. |
+| `schedule` | 필수 | 오브젝트 | [스케줄 오브젝트]({{site.baseurl}}/api/objects_filters/schedule_object)를 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}

@@ -22,7 +22,7 @@ description: "この記事では、「SDK認証キーを削除」Brazeエンド�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`sdk_authentication.delete` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`sdk_authentication.delete` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -46,11 +46,11 @@ Authorization: Bearer YOUR-REST-API-KEY
 | --------- | -------- | --------- | ----------- |
 | `app_id` | 必須 | 文字列 | アプリのAPI識別子。 |
 | `key_id` | 必須 | 文字列 | 削除するSDK認証キーのID。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 
-`````````bash
+```bash
 curl --location --request DELETE 'https://rest.iad-01.braze.com/app_group/sdk_authentication/delete' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -84,7 +84,7 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/app_group/sdk_au
 | `keys[].rsa_public_key` | 文字列 | RSA公開キーの文字列。 |
 | `keys[].description` | 文字列 | SDK認証キーの説明。 |
 | `keys[].is_primary` | ブール値 | このキーがプライマリSDK認証キーであるかどうか。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="応答パラメーター" }
 
 ### バリデーションルール {#validation-rules}
 

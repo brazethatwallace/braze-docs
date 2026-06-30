@@ -16,11 +16,11 @@ platform:
 
 {% tabs %}
 {% tab Android %}
-### Rebond push : MismatchSenderId {#push-bounced-mismatchsenderid}
+## Rebond push : MismatchSenderId {#push-bounced-mismatchsenderid}
 `MismatchSenderId` indique un échec d'authentification. Firebase Cloud Messaging (FCM) s'authentifie avec deux éléments clés : le senderID et la clé API FCM. Ces deux éléments doivent être validés pour leur exactitude. Pour plus d'informations, consultez la [documentation Android](https://firebase.google.com/docs/cloud-messaging/http-server-ref#error-codes) à ce sujet.
 
 Les échecs courants peuvent inclure :
-- Un [senderID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-1-enable-firebase) incorrect
+- Un [senderID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-1-enable-firebase) incorrect
 - Des enregistrements multiples si l'utilisateur s'enregistre auprès d'un autre service push avec un senderID différent
 
 ### Rebond push : InvalidRegistration {#push-bounced-invalidregistration}
@@ -32,7 +32,7 @@ Les échecs courants peuvent inclure :
 
 `NotRegistered` signifie généralement que l'application a été supprimée de l'appareil (ce qui constitue notre signal de désinstallation). Cela peut également se produire en cas d'enregistrements multiples, lorsqu'un second enregistrement invalide le jeton de notification push que Braze reçoit.
 
-### Erreur DEVICE_UNREGISTERED {#device-unregistered}
+### DEVICE_UNREGISTERED {#device-unregistered}
 
 Cette erreur apparaît dans le journal d'activité des messages sous la forme : `Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
 
@@ -43,7 +43,7 @@ Cela se produit généralement pour l'une des raisons suivantes :
 - Une logique personnalisée désenregistre les utilisateurs des notifications push. C'est rare, mais il est techniquement possible de désenregistrer programmatiquement un appareil des notifications push en utilisant le [SDK Firebase/Android](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging#deleteToken()).
 
 {% alert note %}
-Cette erreur ne signifie pas que l'utilisateur a désactivé les notifications push — seulement qu'un jeton spécifique a été supprimé de son profil. C'est courant pour les utilisateurs qui testent des fonctionnalités et installent et désinstallent fréquemment l'application. Pour vérifier si l'utilisateur dispose encore de jetons valides, accédez à **User Search** et consultez la section **Contact Settings** dans l'onglet **Engagement**.
+Cette erreur ne signifie pas que l'utilisateur a désactivé les notifications push — seulement qu'un jeton spécifique a été supprimé de son profil. C'est courant pour les utilisateurs qui testent des fonctionnalités et installent et désinstallent fréquemment l'application. Pour vérifier si l'utilisateur dispose encore de jetons valides, accédez à **Recherche d'utilisateurs** et consultez la section **Paramètres de contact** dans l'onglet **Engagement**.
 {% endalert %}
 
 ### L'entité demandée est introuvable {#requested-entity-was-not-found}
@@ -61,7 +61,7 @@ Pour plus d'informations, consultez la [documentation de Google](https://firebas
 
 ### Erreur d'envoi push car le payload était invalide {#error-sending-push-because-the-payload-was-invalid}
 
-Ce message peut apparaître dans l'onglet **Engagement** du profil utilisateur sous **Contact Settings** > **Push Changelog** lorsque le service Apple Push Notification (APNs) rejette la requête push en raison d'un payload invalide.
+Ce message peut apparaître dans l'onglet **Engagement** du profil utilisateur sous **Paramètres de contact** > **Push Changelog** lorsque le service Apple Push Notification (APNs) rejette la requête push en raison d'un payload invalide.
 
 Dans Braze, ce message du tableau de bord peut correspondre à l'une des raisons d'erreur APNs suivantes :
 
@@ -82,7 +82,7 @@ Les causes courantes incluent :
 
 L'erreur `BadToken` peut se produire pour plusieurs raisons :
 - Le jeton de notification push n'est pas envoyé correctement à Braze (par exemple, dans `registerDeviceToken:` ou l'équivalent de votre plateforme).
-	- Vérifiez le jeton dans le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/). Il devrait généralement ressembler à une longue chaîne de lettres et de chiffres (comme `6e407a9be8d07f0cdeb9e714733a89445f57a89ec890d63867c482a483506fa6`). Si ce n'est pas le cas, vérifiez le code impliqué dans l'envoi du jeton de notification push à Braze.<br><br>
+	- Vérifiez le jeton dans le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Il devrait généralement ressembler à une longue chaîne de lettres et de chiffres (comme `6e407a9be8d07f0cdeb9e714733a89445f57a89ec890d63867c482a483506fa6`). Si ce n'est pas le cas, vérifiez le code impliqué dans l'envoi du jeton de notification push à Braze.<br><br>
 - Environnement de provisionnement non concordant :
 	- Si vous vous enregistrez avec un certificat de développement et essayez d'envoyer avec un certificat de production, vous pouvez voir cette erreur.
 	- Braze ne prend en charge que les certificats universels pour les environnements de production. Tester les notifications push dans les environnements de développement avec un certificat universel ne fonctionnera pas.
@@ -100,7 +100,7 @@ L'erreur `TopicDisallowed` signifie qu'APNs a rejeté la notification push car l
 2. **Vérifiez votre configuration d'authentification APNs.** Confirmez que votre application est configurée avec la bonne clé APNs `.p8` et que la clé est associée à la même équipe Apple Developer que l'application à laquelle vous envoyez.
 3. **Confirmez l'environnement de l'application.** Si vous avez des ID d'application séparés dans Braze pour les builds de développement et de production, vérifiez que chacun est configuré avec les bons identifiants push et le bon environnement.
 
-### Erreur Unregistered {#ios-unregistered}
+### Unregistered {#ios-unregistered}
 
 Cette erreur apparaît dans le journal d'activité des messages sous la forme :
 
@@ -113,14 +113,14 @@ C'est l'équivalent iOS de l'erreur Android [DEVICE_UNREGISTERED](#device-unregi
 - Une logique personnalisée désenregistre les utilisateurs des notifications push. C'est rare, mais il est techniquement possible de se désenregistrer programmatiquement des notifications à distance en utilisant le SDK iOS.
 
 {% alert note %}
-Cette erreur ne signifie pas que l'utilisateur a désactivé les notifications push — seulement qu'un jeton spécifique a été supprimé de son profil. Pour vérifier si l'utilisateur dispose encore de jetons valides, accédez à **User Search** et consultez la section **Contact Settings** dans l'onglet **Engagement**.
+Cette erreur ne signifie pas que l'utilisateur a désactivé les notifications push — seulement qu'un jeton spécifique a été supprimé de son profil. Pour vérifier si l'utilisateur dispose encore de jetons valides, accédez à **Recherche d'utilisateurs** et consultez la section **Paramètres de contact** dans l'onglet **Engagement**.
 {% endalert %}
 
-### Erreur InvalidProviderToken {#invalidprovidertoken}
+### InvalidProviderToken
 
 L'erreur `InvalidProviderToken` signifie qu'APNs a rejeté la requête car le jeton d'authentification (provenant d'une clé `.p8`) ou le certificat push (`.p12`) ne correspond pas à l'ID de bundle ou au Team ID de l'application. Pour résoudre ce problème :
 
-1. **Vérifiez votre Team ID et Key ID :** si vous utilisez une clé d'authentification `.p8`, confirmez que le **Team ID** et le **Key ID** configurés dans le tableau de bord de Braze (**Settings** > **App Settings** > sélectionnez votre application iOS) correspondent aux valeurs de votre compte Apple Developer.
+1. **Vérifiez votre Team ID et Key ID :** si vous utilisez une clé d'authentification `.p8`, confirmez que le **Team ID** et le **Key ID** configurés dans le tableau de bord de Braze (**Paramètres** > **Paramètres des applications** > sélectionnez votre application iOS) correspondent aux valeurs de votre compte Apple Developer.
 2. **Vérifiez l'ID de bundle :** assurez-vous que l'ID de bundle enregistré dans Braze correspond à l'ID de bundle de votre application. Une discordance, comme une différence de casse ou un suffixe `.debug`, provoque cette erreur.
 3. **Rechargez la clé ou le certificat :** si la clé `.p8` ou le certificat `.p12` a été récemment régénéré ou révoqué, chargez la nouvelle clé dans Braze et supprimez l'ancienne.
 4. **Confirmez l'environnement APNs :** si vous utilisez un certificat `.p12`, vérifiez que vous avez sélectionné le bon environnement (développement versus production) lors du chargement. Pour les clés `.p8`, cela est géré automatiquement.

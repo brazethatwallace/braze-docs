@@ -14,10 +14,10 @@ toc_headers: h2
 ## ユーザーのコンテキストに基づいてパーソナライズされたメッセージを作成する {#write-personalized-messaging-based-on-a-users-context}
 
 {% apitags %}
-Canvas agent
+キャンバス agent
 {% endapitags %}
 
-このユースケースでは、Canvasエージェントがアプリ内で検索したが予約しなかったユーザーに対して、メールの件名、プリヘッダー、プッシュ通知のタイトルと本文を連携して生成する方法を説明します。目標は、各チャネルの文字数制限を守りながら、ローカライズされたブランドセーフなメッセージングでチェックアウトを促進するCanvasジャーニーでユーザーをリターゲティングすることです。
+このユースケースでは、キャンバスエージェントがアプリ内で検索したが予約しなかったユーザーに対して、メールの件名、プリヘッダー、プッシュ通知のタイトルと本文を連携して生成する方法を説明します。目標は、各チャネルの文字数制限を守りながら、ローカライズされたブランドセーフなメッセージングでチェックアウトを促進するキャンバスジャーニーでユーザーをリターゲティングすることです。
 
 ### 前提条件 {#prerequisites}
 
@@ -28,7 +28,7 @@ Canvas agent
 - ユーザーが最後に検索した都市のコンテキスト変数
 - ユーザーの最新のアンケート回答のコンテキスト変数
 - **エージェントコンテキスト**
-    - **すべてのCanvasコンテキスト:** エージェント指示で定義していない追加のコンテキスト変数を、役立つ可能性がある場合にエージェントに渡します
+    - **すべてのキャンバスコンテキスト:** エージェント指示で定義していない追加のコンテキスト変数を、役立つ可能性がある場合にエージェントに渡します
     - **ブランドガイドライン:** `<Brand guidelines name>` — エージェントがこれらの指示で参照されるボイス、トーン、フォーマットルールを適用するために必要です。
 
 ### 指示 {#instructions}
@@ -70,7 +70,7 @@ You must return an object containing exactly five keys: "email_subject_line", "e
 
 Input & Output Example:
 <input_example>
-{{${first_name}}}: John Doe
+{{${first_name}}}: Alex Smith
 {{${language}}}: en
 {{custom_attribute.${loyalty_status}}}: Gold Tier
 {{context.${city_searched}}}: Tokyo
@@ -78,7 +78,7 @@ Input & Output Example:
 The user IS in the segment: “Logged multiple searches in the past 30D”.
 </input_example>
 <output_example>
-{ "email_subject_line": "John, your Tokyo Gold Tier deals are waiting", "email_preheader": "Find the best hotel brands for your Tokyo getaway.", "push_title": "John, Tokyo is calling!", "push_body": "Your Gold Tier deals are ready. Tap to view exclusive hotel offers.", "explanation": "Personalized on Tokyo and Gold Tier; matched survey value props; English per language code; kept within character limits for email and push." }
+{ "email_subject_line": "Alex, your Tokyo Gold Tier deals are waiting", "email_preheader": "Find the best hotel brands for your Tokyo getaway.", "push_title": "Alex, Tokyo is calling!", "push_body": "Your Gold Tier deals are ready. Tap to view exclusive hotel offers.", "explanation": "Personalized on Tokyo and Gold Tier; matched survey value props; English per language code; kept within character limits for email and push." }
 </output_example>
 ```
 {% endraw %}
@@ -89,10 +89,10 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 ## ユーザーフィードバックを分析して次のステップを決定する {#analyze-user-feedback-to-determine-next-steps}
 
 {% apitags %}
-Canvas agent
+キャンバス agent
 {% endapitags %}
 
-このユースケースでは、Canvasエージェントが旅行後のアンケートからユーザーフィードバックを分析し、センチメントとトピックを分類する方法を説明します。このエージェントの目標は、別のCRMプラットフォームの次のステップを決定することです。
+このユースケースでは、キャンバスエージェントが旅行後のアンケートからユーザーフィードバックを分析し、センチメントとトピックを分類する方法を説明します。このエージェントの目標は、別のCRMプラットフォームの次のステップを決定することです。
 
 ### 前提条件
 
@@ -102,7 +102,7 @@ Canvas agent
 - ユーザーの最新の旅行先のコンテキスト変数
 - テキストとしてのユーザーフィードバックのコンテキスト変数
 - **エージェントコンテキスト**
-    - **すべてのCanvasコンテキスト:** エージェント指示で定義していない追加のコンテキスト変数を、役立つ可能性がある場合にエージェントに渡します
+    - **すべてのキャンバスコンテキスト:** エージェント指示で定義していない追加のコンテキスト変数を、役立つ可能性がある場合にエージェントに渡します
 
 ### 指示
 
@@ -135,7 +135,7 @@ You must return an object containing exactly four fields: sentiment, topic, acti
 
 Input & Output Example:
 <input_example>
-{{${first_name}}}: Sarah
+{{${first_name}}}: Alex
 {{custom_attribute.${loyalty_status}}}: Platinum
 {{context.${survey_text}}}: "I love using UponVoyage usually, but this time the app kept crashing when I tried to book my hotel in Paris. It was really frustrating."
 {{context.${trip_destination}}}: Paris
@@ -153,10 +153,10 @@ Input & Output Example:
 ## 受信メッセージをオプトアウト意図で分類する {#classify-inbound-messages-for-opt-out-intent}
 
 {% apitags %}
-Canvas agent
+キャンバス agent
 {% endapitags %}
 
-このユースケースでは、Canvasエージェントが受信した顧客メッセージを1件ずつ評価し、今後のメッセージングのオプトアウトリクエスト（例: STOP、配信停止、同意の撤回）として扱うべきかどうかを返す方法を説明します。目標は、厳密なブール値を出力してジャーニーを保守的に分岐させ、同意撤回後のメッセージ送信リスクを低減しつつ、ユーザーが明らかに質問をしている場合やエンゲージメントを続けている場合の誤検知を回避することです。
+このユースケースでは、キャンバスエージェントが受信した顧客メッセージを1件ずつ評価し、今後のメッセージングのオプトアウトリクエスト（例: STOP、配信停止、同意の撤回）として扱うべきかどうかを返す方法を説明します。目標は、厳密なブール値を出力してジャーニーを保守的に分岐させ、同意撤回後のメッセージ送信リスクを低減しつつ、ユーザーが明らかに質問をしている場合やエンゲージメントを続けている場合の誤検知を回避することです。
 
 ### 前提条件
 
@@ -164,7 +164,7 @@ Canvas agent
 
 - エージェントが利用可能な受信メッセージテキスト（例: ユーザーの最新のSMS返信やその他の受信テキストのコンテキスト変数）
 - **エージェントコンテキスト**
-    - **すべてのCanvasコンテキスト:** エージェント指示で定義していない追加のコンテキスト変数を、役立つ可能性がある場合にエージェントに渡します
+    - **すべてのキャンバスコンテキスト:** エージェント指示で定義していない追加のコンテキスト変数を、役立つ可能性がある場合にエージェントに渡します
 
 ### 指示
 
@@ -240,7 +240,7 @@ Catalog agent
     - **カタログフィールド:**
         - **カタログ:** `<Destination Catalog name>` — 旅行先ごとに1行を含みます（例: アプリ内の旅行先カタログ）。
         - **フィールド:** `<Destination_Name>`、`<Country>`、`<Primary_Vibe>`、`<Price_Tier>` — 指示で使用する旅行先名、国、主要な雰囲気、価格帯にマッピングされるカラム名です。
-    - **ブランドガイドライン:** StyleRydeの[ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)
+    - **ブランドガイドライン:** StyleRydeの[ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)
 
 ### 指示
 

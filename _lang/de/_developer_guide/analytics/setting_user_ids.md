@@ -8,7 +8,7 @@ description: "Erfahren Sie, wie Sie Nutzer-IDs über das Braze SDK festlegen."
 
 # Nutzer-IDs festlegen {#set-user-ids}
 
-> Erfahren Sie, wie Sie Nutzer-IDs über das Braze SDK festlegen. Dabei handelt es sich um eindeutige Bezeichner, mit denen Sie Nutzer:innen geräte- und plattformübergreifend tracken, ihre Daten über die [Nutzerdaten-API]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data) importieren und gezielte Nachrichten über die [Messaging-API]({{site.baseurl}}/api/endpoints/messaging/) versenden können. Wenn Sie einer Nutzer:in keine eindeutige ID zuweisen, weist Braze stattdessen eine anonyme ID zu. Solange Sie dies nicht tun, können Sie diese Features jedoch nicht nutzen.
+> Erfahren Sie, wie Sie Nutzer-IDs über das Braze SDK festlegen. Dabei handelt es sich um eindeutige Bezeichner, mit denen Sie Nutzer:innen geräte- und plattformübergreifend tracken, ihre Daten über die [Nutzerdaten-API]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data) importieren und gezielte Nachrichten über die [Messaging-API]({{site.baseurl}}/api/endpoints/messaging) versenden können. Wenn Sie einer Nutzer:in keine eindeutige ID zuweisen, weist Braze stattdessen eine anonyme ID zu. Solange Sie dies nicht tun, können Sie diese Features jedoch nicht nutzen.
 
 {% alert note %}
 Für Wrapper-SDKs, die nicht aufgeführt sind, verwenden Sie stattdessen die entsprechende native Android- oder Swift-Methode.
@@ -188,22 +188,22 @@ Braze.addAlias("ALIAS_NAME", "ALIAS_LABEL");
 
 Wir empfehlen Ihnen, Nutzer-IDs nach dem [UUID-Standard (Universally Unique Identifier)](https://en.wikipedia.org/wiki/Universally_unique_identifier) zu erstellen, d. h. es handelt sich um 128-Bit-Strings, die zufällig und gut verteilt sind.
 
-Alternativ können Sie einen vorhandenen eindeutigen Bezeichner (z. B. einen Namen oder eine E-Mail-Adresse) hashen, um Ihre Nutzer-IDs zu generieren. Wenn Sie dies tun, stellen Sie sicher, dass Sie eine [SDK-Authentifizierung]({{site.baseurl}}/developer_guide/sdk_integration/authentication/) implementieren, damit Sie einen Identitätswechsel verhindern können.
+Alternativ können Sie einen vorhandenen eindeutigen Bezeichner (z. B. einen Namen oder eine E-Mail-Adresse) hashen, um Ihre Nutzer-IDs zu generieren. Wenn Sie dies tun, stellen Sie sicher, dass Sie eine [SDK-Authentifizierung]({{site.baseurl}}/developer_guide/sdk_integration/authentication) implementieren, damit Sie einen Identitätswechsel verhindern können.
 
 {% alert warning %}
 Verwenden Sie für Ihre Nutzer-ID keine leicht zu erratenden Werte oder fortlaufende Zahlen. Dies könnte Ihr Unternehmen böswilligen Angriffen oder Datenexfiltration aussetzen.
 
-Für zusätzliche Sicherheit verwenden Sie die [SDK-Authentifizierung]({{site.baseurl}}/developer_guide/sdk_integration/authentication/).
+Für zusätzliche Sicherheit verwenden Sie die [SDK-Authentifizierung]({{site.baseurl}}/developer_guide/sdk_integration/authentication).
 {% endalert %}
 
-Es ist zwar wichtig, dass Sie Ihre Nutzer-IDs von Anfang an richtig benennen, aber Sie können sie in Zukunft jederzeit mit dem [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/)-Endpunkt umbenennen.
+Es ist zwar wichtig, dass Sie Ihre Nutzer-IDs von Anfang an richtig benennen, aber Sie können sie in Zukunft jederzeit mit dem [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration)-Endpunkt umbenennen.
 
 | Nicht empfohlene ID-Typen | Nicht empfohlenes Beispiel |
 | ------------ | ----------- |
 | Sichtbare Profil-ID oder Nutzername | JonDoe829525552 |
 | E-Mail-Adresse | Anna@email.com |
 | Automatisch inkrementierende Nutzer-ID | 123 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Best Practices für die ID-Benennung" }
 
 {% alert warning %}
 Vermeiden Sie es, Details darüber preiszugeben, wie Sie Nutzer-IDs erstellen, da dies Ihr Unternehmen böswilligen Angriffen oder Datenexfiltration aussetzen könnte.

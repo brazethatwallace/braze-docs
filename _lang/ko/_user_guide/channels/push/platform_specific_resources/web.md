@@ -18,14 +18,14 @@ channel:
 
 ## 필수 조건 {#prerequisites}
 
-Braze를 사용하여 푸시 메시지를 생성하고 전송하려면 먼저 개발자와 협력하여 웹사이트에 푸시를 통합해야 합니다. 자세한 단계는 [웹 푸시 통합 가이드]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web)를 참조하세요.
+Braze를 사용하여 푸시 메시지를 생성하고 전송하려면 먼저 개발자와 협력하여 웹사이트에 푸시를 통합해야 합니다. 자세한 단계는 [웹 푸시 통합 가이드]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web)를 참조하세요.
 
 ### 푸시 권한 {#push-permission}
 
-모든 브랜드는 자사 웹사이트에 웹 푸시 알림을 통합하고 사용할 수 있습니다. 알림은 웹 브라우저가 열려 있는 한 현재 및 이전 웹 방문자 모두에게 도달할 수 있지만, 기존 모바일 앱 푸시와 마찬가지로 방문자가 [알림 수신에 옵트인]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#push-permission)해야 합니다.
+모든 브랜드는 자사 웹사이트에 웹 푸시 알림을 통합하고 사용할 수 있습니다. 알림은 웹 브라우저가 열려 있는 한 현재 및 이전 웹 방문자 모두에게 도달할 수 있지만, 기존 모바일 앱 푸시와 마찬가지로 방문자가 [알림 수신에 옵트인]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#push-permission)해야 합니다.
 
 {% alert tip %}
-인브라우저 메시지를 사용하여 사용자에게 웹 푸시 옵트인을 유도하는 것을 고려해 보세요. 이를 [푸시 프라이머]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)라고도 합니다.
+인브라우저 메시지를 사용하여 사용자에게 웹 푸시 옵트인을 유도하는 것을 고려해 보세요. 이를 [푸시 프라이머]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)라고도 합니다.
 {% endalert %}
 
 ## 개요 {#overview}
@@ -36,7 +36,7 @@ Braze를 사용하여 푸시 메시지를 생성하고 전송하려면 먼저 �
 - 명확한 행동 유도 버튼으로 사용자를 웹사이트로 다시 유도
 - 제품 및 고객 정보로 푸시를 개인화하여 메시지의 관련성 향상
 
-웹 푸시는 휴대폰의 앱 푸시 알림과 동일한 방식으로 작동합니다. 웹 푸시 작성에 대한 자세한 내용은 [푸시 알림 만들기]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#creating-a-push-message)를 확인하세요.
+웹 푸시는 휴대폰의 앱 푸시 알림과 동일한 방식으로 작동합니다. 웹 푸시 작성에 대한 자세한 내용은 [푸시 알림 만들기]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message)를 확인하세요.
 
 ![노트북과 휴대폰에 동일한 푸시 메시지가 표시된 웹 푸시 예시.]({% image_buster /assets/img_archive/Macbook_Push.png %}){: style="border:none"}
 
@@ -67,7 +67,7 @@ Braze를 사용하여 푸시 메시지를 생성하고 전송하려면 먼저 �
 푸시 프로토콜 표준 및 브라우저 지원에 대한 자세한 내용은 브라우저별 리소스를 참조하세요:
 
 - [Safari(데스크탑)](https://developer.apple.com/notifications/safari-push-notifications/)
-- [Safari(모바일)]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=safari)
+- [Safari(모바일)]({{site.baseurl}}/developer_guide/push_notifications?sdktab=safari)
 - [Mozilla Firefox](https://developer.mozilla.org/en-us/docs/web/api/push_api#browser_compatibility)
 - [Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/push)
 

@@ -21,8 +21,8 @@ Ao integrar a Olo e a Braze, você pode:
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Olo | Uma conta Olo com acesso a webhooks é necessária para aproveitar esta parceria. Configure inscrições de webhook por meio da [ferramenta de webhooks de autoatendimento](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks) no dashboard da Olo. |
-| Transformação de dados da Braze | Uma [URL de Transformação de dados]({{site.baseurl}}/data_transformation/) é necessária para receber dados da Olo. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Transformação de dados da Braze | Uma [URL de Transformação de dados]({{site.baseurl}}/data_transformation) é necessária para receber dados da Olo. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 Um webhook é uma maneira de a Olo enviar informações acionadas por eventos para a Braze sobre os usuários e suas ações, incluindo eventos como Pedido Realizado, Convidado Optou por Participar, Pedido Retirado e mais. O webhook da Olo entrega o evento para a Braze geralmente em segundos após a ação ser realizada.
 
@@ -36,7 +36,7 @@ Para lidar com vários eventos da Olo dentro desta única transformação, procu
 
 ### Etapa 1: Configure a Transformação de dados da Braze para aceitar o evento de teste da Olo {#step-1}
 
-{% multi_lang_include create_transformation.md location="default" %}
+{% multi_lang_include data_activation/create_transformation.md location="default" %}
 
 ### Etapa 2: Configure os webhooks da Olo {#step-2-set-up-olo-webhooks}
 
@@ -246,7 +246,7 @@ Depois de ativar sua Transformação de dados na Braze, use a [ferramenta de web
 
 ## Informações importantes {#things-to-know}
 
-### Tentativas {#retries}
+### Novas tentativas {#retries}
 
 A Olo tentará novamente as chamadas de webhook que resultarem em um código de status de resposta HTTP `429 - Too Many Requests` ou na faixa `5xx` (por exemplo, devido a um tempo limite do gateway ou erro do servidor), até 50 vezes em um período de 24 horas antes de descartar a solicitação.
 

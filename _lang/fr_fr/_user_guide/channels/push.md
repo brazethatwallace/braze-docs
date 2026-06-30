@@ -13,14 +13,14 @@ search_rank: 3
 
 > Les notifications push sont un moyen éprouvé d'envoyer des appels à l'action urgents via mobile ou web, ainsi que de réengager les utilisateurs qui ne se sont pas connectés à l'application depuis un certain temps. Elles dirigent l'utilisateur directement vers le contenu et démontrent la valeur de votre application.
 
-[![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/push-fundamentals){: style="float:right;width:120px;border:0;" class="noimgborder"}
+[![cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/push-fundamentals){: style="float:right;width:120px;border:0;" class="noimgborder"}
 
 ## Conditions préalables {#prerequisites}
 
 Avant de commencer, assurez-vous de disposer des éléments suivants :
 
-- **Push intégré à votre application ou site web.** Collaborez avec vos développeurs pour mettre cela en place. Pour les étapes détaillées, consultez les guides d'intégration pour [iOS]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android) et [Web]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web).
-- **Une stratégie d'abonnement push.** Les utilisateurs doivent accorder l'autorisation push sur leur appareil. Envisagez d'utiliser des [messages in-app de push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) pour expliquer la valeur avant de demander l'autorisation.
+- **Push intégré à votre application ou site web.** Collaborez avec vos développeurs pour mettre cela en place. Pour les étapes détaillées, consultez les guides d'intégration pour [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications?tab=android) et [Web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web).
+- **Une stratégie d'abonnement push.** Les utilisateurs doivent accorder l'autorisation push sur leur appareil. Envisagez d'utiliser des [messages in-app de push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) pour expliquer la valeur avant de demander l'autorisation.
 
 ## Cas d'utilisation {#use-cases}
 
@@ -50,5 +50,5 @@ Vos messages push doivent respecter les [directives de l'App Store d'Apple](http
 
 ## Étapes suivantes {#next-steps}
 
-- [Configuration des notifications push]({{site.baseurl}}/user_guide/channels/push/push_setup/)
-- [Créer un message push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/)
+- [Configuration des notifications push]({{site.baseurl}}/user_guide/channels/push/push_setup)
+- [Créer un message push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)

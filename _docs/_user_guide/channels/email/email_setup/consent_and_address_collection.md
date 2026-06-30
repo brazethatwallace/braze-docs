@@ -14,7 +14,7 @@ channel: email
 
 ## Subscriber states
 
-There are three email subscription states for a user: **opted in**, **subscribed**, and **unsubscribed**. To change a user's subscription state, check out our article on [changing subscriptions]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-subscriptions) or use our [Subscription APIs]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
+There are three email subscription states for a user: **opted in**, **subscribed**, and **unsubscribed**. To change a user's subscription state, check out our article on [changing subscriptions]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-subscriptions) or use our [Subscription APIs]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status).
 
 | Subscriber State | Description |
 |---|---|

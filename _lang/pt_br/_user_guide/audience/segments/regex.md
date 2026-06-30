@@ -11,7 +11,7 @@ tool:
 
 # [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/regular-expression-basics-for-braze){: style="float:right;width:120px;border:0;" class="noimgborder"} Expressões regulares {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomregular-expression-basics-for-braze-stylefloatrightwidth120pxborder0-classnoimgborder-regular-expressions}
 
-> Expressão regular, comumente conhecida como regex, é uma sequência de caracteres que define um padrão de busca. Expressões regulares permitem validar agrupamentos de texto e realizar ações de busca e substituição. Na Braze, utilizamos expressões regulares para oferecer uma solução mais flexível de correspondência de strings na segmentação e filtragem de Campaigns para o seu público-alvo.<br><br>Esta página aborda expressões regulares (regex), como usá-las, perguntas frequentes e fornece um depurador de regex para testar expressões regulares.
+> Expressão regular, comumente conhecida como regex, é uma sequência de caracteres que define um padrão de busca. Expressões regulares permitem validar agrupamentos de texto e realizar ações de busca e substituição. Na Braze, utilizamos expressões regulares para oferecer uma solução mais flexível de correspondência de strings na segmentação e filtragem de campanhas para o seu público-alvo.<br><br>Esta página aborda expressões regulares (regex), como usá-las, perguntas frequentes e fornece um depurador de regex para testar expressões regulares.
 
 <!--{% multi_lang_include video.html id="3h5Xbhl-TxE" align="right" %}-->
 
@@ -20,7 +20,7 @@ No curso do Braze Learning vinculado, mostramos como expressões regulares podem
 ## Recursos {#resources}
 
 - Curso do Braze Learning sobre [noções básicas de expressões regulares](https://learning.braze.com/regular-expression-basics-for-braze)
-- [Folha de referência de regex]({{site.baseurl}}/regex_cheat_sheet/)
+- [Folha de referência de regex]({{site.baseurl}}/regex_cheat_sheet)
 - [Dados de exemplo RTF]({% image_buster /assets/download_file/regex-dummy-data.rtf %})
 
 ## Depurador de regex {#regex-debugger}
@@ -201,7 +201,7 @@ Por exemplo, se você está tentando segmentar usuários que moram em cidades qu
 
 ### Como filtrar números de telefone específicos? {#how-do-i-filter-for-specific-phone-numbers}
 
-Antes de usar regex para filtrar números de telefone, lembre-se de que os números registrados nos perfis de usuário devem estar no formato [E.164](https://en.wikipedia.org/wiki/E.164), conforme especificado em [Números de telefone de usuários]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/).
+Antes de usar regex para filtrar números de telefone, lembre-se de que os números registrados nos perfis de usuário devem estar no formato [E.164](https://en.wikipedia.org/wiki/E.164), conforme especificado em [Números de telefone de usuários]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers).
 
 Supondo que você esteja buscando números de telefone dos EUA, use o formato de regex `1?\d\d\d\d\d\d\d\d\d\d`, onde cada repetição de `\d` é um dígito que você deseja especificar. Os três primeiros dígitos são o código de área.
 

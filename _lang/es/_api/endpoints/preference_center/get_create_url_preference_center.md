@@ -22,7 +22,7 @@ La URL de cada centro de preferencias es única para cada usuario.
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `preference_center.user.get`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `preference_center.user.get`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -34,7 +34,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | --------- | ---------| --------- | ----------- |
 |`preferenceCenterExternalID`| Obligatorio | Cadena | El ID de tu centro de preferencias. |
 |`userID`| Obligatorio | Cadena | El ID de usuario. |
-{: aria-label="Path parameters" }
+{: aria-label="Parámetros de ruta" }
 
 ## Parámetros de la solicitud {#request-parameters}
 
@@ -42,7 +42,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | --------- | ---------| --------- | ----------- |
 | `preference_center_api_id`| Obligatorio | Cadena | El ID de tu centro de preferencias. |
 | `external_id`| Obligatorio | Cadena | El ID externo de un usuario. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 

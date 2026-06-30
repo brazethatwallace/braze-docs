@@ -7,7 +7,7 @@ page_order: 3
 
 # エージェントのリファレンス {#reference-for-agents}
 
-> カスタムエージェントを作成する際、インストラクションや出力スキーマなどの主要な設定の詳細については、この記事を参照してください。ステップバイステップのセットアップについては、[カスタムエージェントの作成]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)を参照してください。概要については、[Brazeエージェント]({{site.baseurl}}/user_guide/brazeai/agents/)および[よくある質問]({{site.baseurl}}/user_guide/brazeai/agents/faq/)を参照してください。
+> カスタムエージェントを作成する際、インストラクションや出力スキーマなどの主要な設定の詳細については、この記事を参照してください。ステップバイステップのセットアップについては、[カスタムエージェントの作成]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)を参照してください。概要については、[Brazeエージェント]({{site.baseurl}}/user_guide/brazeai/agents)および[よくある質問]({{site.baseurl}}/user_guide/brazeai/agents/faq)を参照してください。
 
 ## モデル {#models}
 
@@ -29,7 +29,7 @@ Brazeパワードの**Auto**モデルは、カタログ検索やセグメント�
 
 このオプションでは、OpenAI、Anthropic、Google GeminiなどのプロバイダーにBrazeアカウントを接続できます。LLMプロバイダーから独自のAPIキーを持ち込む場合、トークンコストはBrazeではなくプロバイダーを通じて直接請求されます。
 
-レガシーモデルは数か月後に廃止または非推奨になる可能性があるため、最新のモデルを定期的にテストすることをお勧めします。エージェントをスケールで実行するために、プロバイダーに十分なクレジットがあることを確認してください。また、[通知設定]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/)でエージェントコンソールの通知に登録すると、Brazeがモデルの利用不可を検出した場合やLLMプロバイダーとの課金の問題が発生した場合にアラートを受け取ることができます。
+レガシーモデルは数か月後に廃止または非推奨になる可能性があるため、最新のモデルを定期的にテストすることをお勧めします。エージェントをスケールで実行するために、プロバイダーに十分なクレジットがあることを確認してください。また、[通知設定]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences)でエージェントコンソールの通知に登録すると、Brazeがモデルの利用不可を検出した場合やLLMプロバイダーとの課金の問題が発生した場合にアラートを受け取ることができます。
 
 設定方法:
 
@@ -53,9 +53,9 @@ Braze提供のLLMを使用する場合、そのモデルのプロバイダーは
 | **High** | 複雑な推論、エッジケース、またはモデルにステップを踏んで回答させたい場合。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="思考レベル" }
 
-まず**Minimal**から始めて、エージェントのレスポンスをテストすることをお勧めします。エージェントが正確な回答を提供するのに苦労している場合は、思考レベルを**Low**または**Medium**に調整できます。まれに**High**の思考レベルが必要になることがありますが、このレベルを使用するとトークンコストが高くなり、レスポンス時間が長くなったり、タイムアウトエラーのリスクが高くなったりする可能性があります。エージェントが複数ステップの推論と妥当なレスポンス時間のバランスに苦労している場合は、ユースケースを複数のエージェントに分割し、Canvasやカタログで連携させることを検討してください。
+まず**Minimal**から始めて、エージェントのレスポンスをテストすることをお勧めします。エージェントが正確な回答を提供するのに苦労している場合は、思考レベルを**Low**または**Medium**に調整できます。まれに**High**の思考レベルが必要になることがありますが、このレベルを使用するとトークンコストが高くなり、レスポンス時間が長くなったり、タイムアウトエラーのリスクが高くなったりする可能性があります。エージェントが複数ステップの推論と妥当なレスポンス時間のバランスに苦労している場合は、ユースケースを複数のエージェントに分割し、キャンバスやカタログで連携させることを検討してください。
 
-Brazeは、コネクテッドコンテンツと同じIP範囲をアウトバウンドLLMコールに使用します。範囲は[コネクテッドコンテンツIP許可リスト]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting)に記載されています。プロバイダーがIP許可リストをサポートしている場合、Brazeのみがキーを使用できるようにこれらの範囲に制限できます。
+Brazeは、コネクテッドコンテンツと同じIP範囲をアウトバウンドLLMコールに使用します。範囲は[コネクテッドコンテンツIP許可リスト]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting)に記載されています。プロバイダーがIP許可リストをサポートしている場合、Brazeのみがキーを使用できるようにこれらの範囲に制限できます。
 
 {% alert important %}
 Braze提供のLLMを使用する場合、そのモデルのプロバイダーは、お客様とBraze間のデータ処理補遺（DPA）の条件に従い、Brazeのサブプロセッサーとして機能します。独自のAPIキーを持ち込むことを選択した場合、LLMサブスクリプションのプロバイダーは、お客様とBraze間の契約に基づくサードパーティプロバイダーと見なされます。
@@ -82,9 +82,9 @@ Braze提供のLLMを使用する場合、そのモデルのプロバイダーは
 
 ### レート制限エラー {#rate-limit-errors}
 
-LLMプロバイダーが**Canvasエージェントステップ**でレート制限エラーを返した場合、Brazeはエクスポネンシャルバックオフを使用して、コールが成功するかBrazeが完了不可能と判断するまで継続的にリクエストを再試行します。**カタログエージェント**はレート制限された呼び出しを再試行しません。
+LLMプロバイダーが**キャンバスエージェントステップ**でレート制限エラーを返した場合、Brazeはエクスポネンシャルバックオフを使用して、コールが成功するかBrazeが完了不可能と判断するまで継続的にリクエストを再試行します。**カタログエージェント**はレート制限された呼び出しを再試行しません。
 
-Canvasの再試行が尽きると、**Logs**の詳細パネルに**Error**が表示され、**Output**にプロバイダーメッセージ（`Rate limit exceeded`など）が表示されます。最初の呼び出しの最終的な成功・失敗にかかわらず、再試行はログに表示されます。特定のユーザーについて、成功するまでに4回の再試行が必要だった場合、ユーザーIDで検索すると**Logs**に5件すべて（オリジナルと4回の再試行）が表示され、オリジナルと最初の3回の再試行には`Rate limit exceeded`の**Error**が表示されます。
+キャンバスの再試行が尽きると、**Logs**の詳細パネルに**Error**が表示され、**Output**にプロバイダーメッセージ（`Rate limit exceeded`など）が表示されます。最初の呼び出しの最終的な成功・失敗にかかわらず、再試行はログに表示されます。特定のユーザーについて、成功するまでに4回の再試行が必要だった場合、ユーザーIDで検索すると**Logs**に5件すべて（オリジナルと4回の再試行）が表示され、オリジナルと最初の3回の再試行には`Rate limit exceeded`の**Error**が表示されます。
 
 ![Outputフィールドにレート制限超過エラーが表示されているエージェントコンソールのログ詳細。]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
 
@@ -92,7 +92,7 @@ Canvasの再試行が尽きると、**Logs**の詳細パネルに**Error**が表
 
 インストラクションは、エージェントに与えるルールまたはガイドライン（システムプロンプト）です。エージェントが実行されるたびにどのように動作するかを定義します。システムインストラクションは最大25 KBです。
 
-[BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)を使用して[開始テンプレート]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator)でエージェントを構築した場合は、事前入力されたインストラクションを確認し、必要に応じて編集してください。
+[BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)を使用して[開始テンプレート]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator)でエージェントを構築した場合は、事前入力されたインストラクションを確認し、必要に応じて編集してください。
 
 プロンプト作成を始めるための一般的なベストプラクティスを以下に示します。
 
@@ -109,11 +109,11 @@ Canvasの再試行が尽きると、**Logs**の詳細パネルに**Error**が表
 
 ### 例 {#examples}
 
-エージェントコンソールの開始設定については、[Operatorで構築されたエージェントテンプレート]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator)を参照してください。コピーまたはアレンジできる完全なインストラクション例については、[Brazeエージェントのユースケースライブラリ]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/)を参照してください。
+エージェントコンソールの開始設定については、[Operatorで構築されたエージェントテンプレート]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator)を参照してください。コピーまたはアレンジできる完全なインストラクション例については、[Brazeエージェントのユースケースライブラリ]({{site.baseurl}}/user_guide/brazeai/agents/use_cases)を参照してください。
 
 ### Liquidの使用 {#using-liquid}
 
-エージェントのインストラクションに[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を含めると、レスポンスにパーソナライゼーションのレイヤーを追加できます。エージェントが取得する正確なLiquid変数を指定し、プロンプトのコンテキストに含めることができます。たとえば、「名」を明示的に記述する代わりに、Liquidスニペット{% raw %}`{{${first_name}}}`{% endraw %}を使用できます。
+エージェントのインストラクションに[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)を含めると、レスポンスにパーソナライゼーションのレイヤーを追加できます。エージェントが取得する正確なLiquid変数を指定し、プロンプトのコンテキストに含めることができます。たとえば、「名」を明示的に記述する代わりに、Liquidスニペット{% raw %}`{{${first_name}}}`{% endraw %}を使用できます。
 
 {% raw %}
 ```
@@ -135,7 +135,7 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 
 ## 出力 {#outputs}
 
-[BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)を使用して[開始テンプレート]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator)でエージェントを構築した場合は、事前入力された出力スキーマを確認し、必要に応じて編集してください。
+[BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)を使用して[開始テンプレート]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator)でエージェントを構築した場合は、事前入力された出力スキーマを確認し、必要に応じて編集してください。
 
 ### 基本スキーマ {#basic-schemas}
 
@@ -144,7 +144,7 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 たとえば、製品を受け取った後の顧客満足度を判定するために、シンプルなフィードバック調査からユーザーのセンチメントスコアを収集したい場合、出力フォーマットを構造化するために基本スキーマとして**Number**を選択できます。
 
 {% alert important %}
-配列はCanvasエージェントでのみ使用可能で、カタログエージェントでは使用できません。
+配列はキャンバスエージェントでのみ使用可能で、カタログエージェントでは使用できません。
 {% endalert %}
 
 ![基本スキーマとしてNumberが選択されたエージェントコンソール。]({% image_buster /assets/img/ai_agent/basic_schema.png %}){: style="max-width:85%;"}
@@ -154,17 +154,17 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 高度なスキーマオプションには、フィールドの手動構造化またはJSONの使用が含まれます。
 
 - **Fields:** 一貫して使用できるエージェント出力を強制するノーコードの方法です。
-- **JSON:** 正確な出力フォーマットを作成するコードアプローチで、JSONスキーマ内に変数やオブジェクトをネストできます。Canvasエージェントでのみ使用可能で、カタログエージェントでは使用できません。
+- **JSON:** 正確な出力フォーマットを作成するコードアプローチで、JSONスキーマ内に変数やオブジェクトをネストできます。キャンバスエージェントでのみ使用可能で、カタログエージェントでは使用できません。
 
 エージェントに単一値の出力ではなく、構造化された方法で定義された複数の値を持つデータ構造を返させたい場合は、高度なスキーマの使用をお勧めします。これにより、出力が一貫したコンテキスト変数としてより適切にフォーマットされます。
 
 ### フォールバック出力 {#fallback-output}
 
-フォールバック値は**Canvasステップエージェント**でのみ使用可能です。Canvasエージェントのエージェントコンソールの**Output**セクションで、呼び出しが失敗した場合にBrazeが使用する値を定義できます。
+フォールバック値は**キャンバスステップエージェント**でのみ使用可能です。キャンバスエージェントのエージェントコンソールの**Output**セクションで、呼び出しが失敗した場合にBrazeが使用する値を定義できます。
 
-**JSON**スキーマの場合、Brazeはスキーマを読み取り、各プロパティの入力フィールドを生成するため、キーごとにフォールバック値を設定できます。**Fields**スキーマの場合、各フィールドにフォールバック値を入力します。基本スキーマの場合、単一のフォールバック値を入力します。Canvasエージェントはフォールバック値でLiquidをサポートしています。
+**JSON**スキーマの場合、Brazeはスキーマを読み取り、各プロパティの入力フィールドを生成するため、キーごとにフォールバック値を設定できます。**Fields**スキーマの場合、各フィールドにフォールバック値を入力します。基本スキーマの場合、単一のフォールバック値を入力します。キャンバスエージェントはフォールバック値でLiquidをサポートしています。
 
-セットアップ手順については、[フォールバック値の設定]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values)を参照してください。Canvasでのランタイム動作については、[エラー処理とフォールバック動作]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior)を参照してください。
+セットアップ手順については、[フォールバック値の設定]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values)を参照してください。キャンバスでのランタイム動作については、[エラー処理とフォールバック動作]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior)を参照してください。
 
 たとえば、ユーザーが送信したフォームに基づいてサンプル旅行プランを作成するエージェント内で出力フォーマットを使用できます。出力フォーマットにより、すべてのエージェントレスポンスが`tripStartDate`、`tripEndDate`、`destination`の値を含んで返されるように定義できます。これらの各値はコンテキスト変数から抽出し、Liquidを使用してメッセージステップに配置してパーソナライゼーションに活用できます。
 
@@ -218,21 +218,21 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 
 カタログエージェントは、入力フィールドが互いに依存している場合に列の順序も尊重します。列Dが列BとCから生成される場合、エージェントはBとCにその行の値が含まれるまで列Dを実行しません。
 
-デプロイシナリオと例については、[カタログエージェントの使用]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#use-catalog-agents)および[カタログエージェントのベストプラクティス]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#catalog-agent-best-practices)を参照してください。
+デプロイシナリオと例については、[カタログエージェントの使用]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents)および[カタログエージェントのベストプラクティス]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices)を参照してください。
 
-## Segmentメンバーシップのコンテキスト {#segment-membership-context}
+## セグメントメンバーシップのコンテキスト {#segment-membership-context}
 
-エージェントがCanvasで使用されている場合に、各ユーザーのセグメントメンバーシップを相互参照するためのセグメントを最大5つまで選択できます。たとえば、エージェントが「Loyalty Users」セグメントのメンバーシップを選択しており、そのエージェントがCanvasで使用されているとします。ユーザーがエージェントステップに入ると、エージェントは各ユーザーがエージェントコンソールで指定した各セグメントのメンバーであるかどうかを相互参照し、各ユーザーのメンバーシップ（または非メンバーシップ）をLLMのコンテキストとして使用できます。
+エージェントがキャンバスで使用されている場合に、各ユーザーのセグメントメンバーシップを相互参照するためのセグメントを最大5つまで選択できます。たとえば、エージェントが「Loyalty Users」セグメントのメンバーシップを選択しており、そのエージェントがキャンバスで使用されているとします。ユーザーがエージェントステップに入ると、エージェントは各ユーザーがエージェントコンソールで指定した各セグメントのメンバーであるかどうかを相互参照し、各ユーザーのメンバーシップ（または非メンバーシップ）をLLMのコンテキストとして使用できます。
 
 ![エージェントメンバーシップアクセス用に選択された「Loyalty Users」セグメント。]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
 
 ## ブランドガイドライン {#brand-guidelines}
 
-エージェントがレスポンスで遵守する[ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)を選択できます。たとえば、エージェントがジムのメンバーシップへの登録を促すSMSコピーを生成する場合、このフィールドを使用して、事前定義された大胆でモチベーショナルなガイドラインを参照できます。
+エージェントがレスポンスで遵守する[ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)を選択できます。たとえば、エージェントがジムのメンバーシップへの登録を促すSMSコピーを生成する場合、このフィールドを使用して、事前定義された大胆でモチベーショナルなガイドラインを参照できます。
 
 ## ユーザー固有のインタラクション履歴 {#user-history}
 
-ユーザーのインタラクションデータには、最近のCampaignおよびCanvasの開封、クリック、コンバージョンデータが含まれます。たとえば、Canvasで評価される際にエージェントが参照するコンテキストとしてこのデータを含めることができます。ユーザー固有のインタラクション履歴は、パーソナライズされたメッセージコピーを作成するエージェントに影響を与えるのにも役立ちます。
+ユーザーのインタラクションデータには、最近のキャンペーンおよびキャンバスの開封、クリック、コンバージョンデータが含まれます。たとえば、キャンバスで評価される際にエージェントが参照するコンテキストとしてこのデータを含めることができます。ユーザー固有のインタラクション履歴は、パーソナライズされたメッセージコピーを作成するエージェントに影響を与えるのにも役立ちます。
 
 ## エージェントの複製 {#duplicate-agents}
 

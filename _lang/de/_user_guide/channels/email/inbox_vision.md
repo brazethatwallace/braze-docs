@@ -46,7 +46,7 @@ So testen Sie Ihre E-Mail-Nachricht in Inbox Vision:
 5. Wählen Sie **Run Inbox Vision** aus. Dies kann zwischen zwei und zehn Minuten dauern.
 
 {% alert note %}
-Inbox Vision unterstützt keine E-Mail-Nachrichten, die [Abbruchlogik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) enthalten, da diese E-Mails als statischer Inhalt gerendert werden.
+Inbox Vision unterstützt keine E-Mail-Nachrichten, die [Abbruchlogik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) enthalten, da diese E-Mails als statischer Inhalt gerendert werden.
 {% endalert %}
 
 ### Vorschau als Nutzer:in {#previewing-as-a-user}
@@ -59,7 +59,7 @@ Die Code-Analyse hebt potenzielle HTML-Probleme hervor, zeigt die Anzahl der Vor
 
 ### Informationen zur Code-Analyse anzeigen {#viewing-code-analysis-information}
 
-Diese Informationen finden Sie im Tab **Inbox Vision**, indem Sie <i class="fas fa-list"></i> **List view** auswählen. Die Listenansicht ist nur für HTML-E-Mail-Templates verfügbar. Für Drag-and-Drop-Templates verwenden Sie stattdessen Vorschauen, um Probleme zu beheben.
+Diese Informationen finden Sie im Tab **Inbox Vision**, indem Sie <i class="fas fa-list" aria-label="Listenansicht"></i> **List view** auswählen. Die Listenansicht ist nur für HTML-E-Mail-Templates verfügbar. Für Drag-and-Drop-Templates verwenden Sie stattdessen Vorschauen, um Probleme zu beheben.
 
 ![Beispiel einer Code-Analyse in der Inbox-Vision-Vorschau.]({% image_buster /assets/img_archive/inboxvision2.png %})
 
@@ -128,7 +128,7 @@ Inbox Vision klassifiziert Barrierefreiheitsprobleme nach Schweregrad, um Ihnen 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schweregrade" }
 
 {% alert important %}
-Der Drag-and-Drop-Editor unterstützt nicht das Setzen eines `<title>`-Elements im Dokument, sodass der Barrierefreiheitsscanner diese Prüfung immer als fehlgeschlagen meldet.<br><br>Diese Einschränkung wird für zukünftige Verbesserungen verfolgt. Wenn dies Ihre Workflows oder Ihre Nutzer:innen betrifft, [teilen Sie Ihr Feedback]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/#sharing-feedback), damit wir wirkungsvolle Korrekturen priorisieren können.
+Der Drag-and-Drop-Editor unterstützt nicht das Setzen eines `<title>`-Elements im Dokument, sodass der Barrierefreiheitsscanner diese Prüfung immer als fehlgeschlagen meldet.<br><br>Diese Einschränkung wird für zukünftige Verbesserungen verfolgt. Wenn dies Ihre Workflows oder Ihre Nutzer:innen betrifft, [teilen Sie Ihr Feedback]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard#sharing-feedback), damit wir wirkungsvolle Korrekturen priorisieren können.
 {% endalert %}
 
 ### Automatisierte Barrierefreiheitstests verstehen {#understanding-automated-accessibility-testing}
@@ -139,7 +139,7 @@ Der Drag-and-Drop-Editor unterstützt nicht das Setzen eines `<title>`-Elements 
 
 ### Überprüfen Sie Ihre E-Mail-Abonnent:innenliste {#review-your-email-subscriber-list}
 
-Nutzen Sie das [E-Mail-Insights-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/#email-insights-dashboard), um die beliebtesten Gerätetypen und Anbieter zu ermitteln, bei denen Ihre Abonnent:innen aktiv sind. Wenn Sie mehr Granularität benötigen, z. B. Browser, Gerätemodell und mehr, können Sie Ihre [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)-Daten oder den [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) nutzen, um dieses Detailniveau über das aktuelle E-Mail-Engagement Ihrer Nutzer:innen abzurufen.
+Nutzen Sie das [E-Mail-Insights-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard), um die beliebtesten Gerätetypen und Anbieter zu ermitteln, bei denen Ihre Abonnent:innen aktiv sind. Wenn Sie mehr Granularität benötigen, z. B. Browser, Gerätemodell und mehr, können Sie Ihre [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten oder den [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) nutzen, um dieses Detailniveau über das aktuelle E-Mail-Engagement Ihrer Nutzer:innen abzurufen.
 
 Andernfalls verwendet Braze standardmäßig die 20 wichtigsten Vorschauen basierend auf allgemeinen Branchen- und Expertendaten, die den Großteil der Umgebungen abdecken, in denen Ihre Abonnent:innen mit Ihren E-Mails interagieren. Wenn Ihre Datenanalyse auf andere, beliebtere Vorschauen hinweist, können Sie jedes Mal, wenn Sie Inbox Vision ausführen, einen Standardsatz von Vorschauen definieren.
 
@@ -155,7 +155,7 @@ Wir empfehlen, Inbox Vision auszuführen, wenn die E-Mail-Nachricht produktionsb
 
 Inbox Vision bei jeder einzelnen Bearbeitung oder Änderung auszuführen, kann Vorschauen schnell verbrauchen. Wir empfehlen, zunächst alle notwendigen Änderungen an der E-Mail vorzunehmen und dann Inbox Vision auszuführen, um zu sehen, wie sich alle Ihre Änderungen auf das Rendering Ihrer E-Mail in verschiedenen Umgebungen auswirken.
 
-Braze führt Tests über echte E-Mail-Clients durch und stellt sicher, dass die Darstellungen korrekt sind. Wenn Sie bei einem Client durchgehend ein Problem feststellen, eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/).
+Braze führt Tests über echte E-Mail-Clients durch und stellt sicher, dass die Darstellungen korrekt sind. Wenn Sie bei einem Client durchgehend ein Problem feststellen, eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support).
 
 ### Testgenauigkeit im Vergleich zu Live-Postfächern {#test-accuracy-versus-live-inboxes}
 

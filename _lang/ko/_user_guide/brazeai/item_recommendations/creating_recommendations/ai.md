@@ -11,7 +11,7 @@ page_order: 1
 
 ## AI 항목 추천 정보 {#about-ai-item-recommendations}
 
-AI 항목 추천을 사용하여 가장 인기 있는 제품을 계산하거나 특정 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/)에 대한 개인화된 AI 추천을 생성할 수 있습니다. 추천을 생성한 후 개인화를 사용하여 해당 제품을 메시지에 삽입할 수 있습니다.
+AI 항목 추천을 사용하여 가장 인기 있는 제품을 계산하거나 특정 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs)에 대한 개인화된 AI 추천을 생성할 수 있습니다. 추천을 생성한 후 개인화를 사용하여 해당 제품을 메시지에 삽입할 수 있습니다.
 
 {% alert tip %}
 [AI Personalized 추천](#recommendation-types)은 최소 수백 개의 카탈로그 항목, 최대 100,000개의 카탈로그 항목, 그리고 일반적으로 구매 또는 상호 작용 데이터가 있는 최소 30,000명의 사용자를 대상으로 가장 잘 작동합니다. 이는 대략적인 가이드이며 변동될 수 있습니다. 다른 추천 유형은 더 적은 데이터로도 작동할 수 있으며, **Most Popular**가 대체로 사용되는 경우도 포함됩니다.
@@ -25,7 +25,7 @@ AI 항목 추천을 사용하여 가장 인기 있는 제품을 계산하거나 
 
 시작하기 전에 다음 사항을 준비해야 합니다:
 
-- 아래에 설명된 추천 유형을 사용하려면 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/)가 하나 이상 있어야 합니다.
+- 아래에 설명된 추천 유형을 사용하려면 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs)가 하나 이상 있어야 합니다.
 - Braze에 저장된 구매 또는 이벤트 데이터(커스텀 이벤트, 주문 완료 이벤트 또는 구매 오브젝트)가 있어야 하며, 항목에 대한 참조가 포함되어 있고 카탈로그 항목 ID와 일치해야 합니다.
 
 ### 1단계: 새 추천 만들기 {#step-1-create-a-new-recommendation}
@@ -51,7 +51,7 @@ AI 항목 추천을 사용하여 가장 인기 있는 제품을 계산하거나 
 
 ### 3단계: 추천 정의 {#recommendation-type}
 
-추천 유형을 선택합니다. 각 유형은 구매, 주문 완료 또는 커스텀 이벤트 데이터와 같은 지난 6개월간의 항목 상호 작용 데이터를 사용합니다. 각 유형에 대한 자세한 정보와 사용 사례는 [유형 및 사용 사례]({{site.baseurl}}/user_guide/brazeai/item_recommendations/)를 참조하세요.
+추천 유형을 선택합니다. 각 유형은 구매, 주문 완료 또는 커스텀 이벤트 데이터와 같은 지난 6개월간의 항목 상호 작용 데이터를 사용합니다. 각 유형에 대한 자세한 정보와 사용 사례는 [유형 및 사용 사례]({{site.baseurl}}/user_guide/brazeai/item_recommendations)를 참조하세요.
 
 {% alert tip %}
 **Most Recent** 또는 **AI Personalized**를 사용할 때, 개별화된 추천을 생성하기에 데이터가 충분하지 않은 사용자는 대체로 **Most Popular** 항목을 받게 됩니다. **Most Popular** 대체를 받는 사용자 비율의 근사치는 **Analytics** 페이지에서 확인할 수 있습니다. **Most Popular** 대체는 연결된 카탈로그에 존재하는 항목만 반환합니다.
@@ -69,11 +69,11 @@ AI 항목 추천을 사용하여 가장 인기 있는 제품을 계산하거나 
 
 #### 3.2단계: 카탈로그 선택 {#step-32-select-a-catalog}
 
-아직 채워져 있지 않은 경우 이 추천에서 항목을 가져올 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/)를 선택합니다.
+아직 채워져 있지 않은 경우 이 추천에서 항목을 가져올 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs)를 선택합니다.
 
 #### 3.3단계: 선택 항목 추가(선택 사항) {#step-33-add-a-selection-optional}
 
-추천을 더 세밀하게 제어하려면 [선택]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/)을 선택하여 커스텀 필터를 적용하세요. 선택 항목은 카탈로그의 특정 열(예: 브랜드, 크기 또는 위치)에 따라 추천을 필터링합니다. Liquid이 포함된 선택 항목은 추천에 사용할 수 없습니다.
+추천을 더 세밀하게 제어하려면 [선택]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)을 선택하여 커스텀 필터를 적용하세요. 선택 항목은 카탈로그의 특정 열(예: 브랜드, 크기 또는 위치)에 따라 추천을 필터링합니다. Liquid이 포함된 선택 항목은 추천에 사용할 수 없습니다.
 
 ![추천을 위해 선택된 "in-stock" 선택의 예.]({% image_buster /assets/img/item_recs_2-2.png %})
 
@@ -87,10 +87,10 @@ AI 항목 추천을 사용하여 가장 인기 있는 제품을 계산하거나 
 
 다음을 위해 최적화할 수 있습니다:
 
-- [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object/)를 사용하는 구매 이벤트
+- [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object)를 사용하는 구매 이벤트
 - 구매를 나타내는 커스텀 이벤트
 - 기타 항목 상호작용(예: 제품 조회, 클릭 또는 미디어 재생)을 나타내는 커스텀 이벤트
-- [주문 완료 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/?tab=ecommerce.order_placed)를 사용하는 주문 완료
+- [주문 완료 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.order_placed)를 사용하는 주문 완료
 
 **Custom Event**를 선택하면 목록에서 이벤트를 선택하세요.
 
@@ -115,7 +115,7 @@ AI 항목 추천을 사용하여 가장 인기 있는 제품을 계산하거나 
 속성정보를 선택할 때 몇 가지 요구 사항이 있습니다:
 
 - 선택한 카탈로그의 `id` 필드에 매핑되어야 합니다.
-- **주문 완료 이벤트를 선택했거나 항목 추천을 훈련하기 위해 [eCommerce 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/)를 사용하는 경우:** 제품 ID에 `products.product_id`를 입력하세요.
+- **주문 완료 이벤트를 선택했거나 항목 추천을 훈련하기 위해 [eCommerce 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)를 사용하는 경우:** 제품 ID에 `products.product_id`를 입력하세요.
   - 필드는 제품 배열 안에 있거나 ID 배열로 끝날 수 있습니다. 두 경우 모두 각 제품 ID는 동일한 타임스탬프를 가진 별도의 순차적 이벤트로 취급됩니다.
 - **구매 오브젝트를 선택한 경우:** `product_id` 또는 상호작용 이벤트의 `properties` 필드여야 합니다.
 - **커스텀 이벤트를 선택한 경우:** 커스텀 이벤트의 `properties` 필드여야 합니다.
@@ -130,7 +130,7 @@ AI 항목 추천을 사용하여 가장 인기 있는 제품을 계산하거나 
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table aria-label="Example mappings" class="tg">
+<table aria-label="예시 매핑" class="tg">
   <caption>예시 매핑</caption>
 <thead>
   <tr>

@@ -142,7 +142,7 @@ Die Braze API gibt Ihnen programmatische Kontrolle über Kontodaten im großen M
 Weitere Informationen zu HTTP-Methoden und der Funktionsweise von REST APIs finden Sie in den folgenden Ressourcen:
 - [HTTP-Anfragemethoden](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods) auf MDN Web Docs
 - [REST API Tutorial](https://restapitutorial.com/)
-- [Braze API-Übersicht]({{site.baseurl}}/api/basics/)
+- [Braze API-Übersicht]({{site.baseurl}}/api/basics)
 
 {% alert note %}
 Verwenden Sie einen API-Schlüssel mit Katalog-Berechtigungen, um Anfragen an den Endpunkt `/business/accounts` zu authentifizieren.
@@ -186,7 +186,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
                   "website": "http://www.acme.com",
                   "main_phone": "+1-212-555-1234",
                   "created_date": "2023-01-15T09:30:00Z",
-                  "account_owner_email_address": "owner@acme.com",
+                  "account_owner_email_address": "owner@example.com",
                   "parent_account_id": "",
                   "sic_code": "2011"
               },
@@ -206,7 +206,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
                   "website": "http://www.globalsolutions.com",
                   "main_phone": "+1-650-555-5678",
                   "created_date": "2023-02-20T14:45:00Z",
-                  "account_owner_email_address": "partner@globalsolutions.com",
+                  "account_owner_email_address": "partner@example.com",
                   "parent_account_id": "ACC001",
                   "sic_code": "7372"
               },
@@ -226,7 +226,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
                   "website": "http://www.oceanicventures.com",
                   "main_phone": "+1-305-555-6789",
                   "created_date": "2023-03-05T08:15:00Z",
-                  "account_owner_email_address": "contact@oceanicventures.com",
+                  "account_owner_email_address": "contact@example.com",
                   "parent_account_id": "",
                   "sic_code": "5941"
               }
@@ -265,7 +265,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts/ACC001 \
                 "website": "http://www.acme.com",
                 "main_phone": "+1-212-555-1234",
                 "created_date": "2023-01-15T09:30:00Z",
-                "account_owner_email_address": "owner@acme.com",
+                "account_owner_email_address": "owner@example.com",
                 "parent_account_id": "",
                 "sic_code": "2011"
             }

@@ -36,8 +36,8 @@ Puedes filtrar por el siguiente contenido registrado en el **Registro de activid
 - Errores de WhatsApp
 - Errores de Live Activity
 - Errores de desencadenantes de usuario incorrectos
-- Errores de [límite de invocaciones diarias]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#monitor-your-agent) de Braze Agents
-- Errores de [modelo]({{site.baseurl}}/user_guide/brazeai/agents/reference/#models) no disponible de Braze Agents
+- Errores de [límite de invocaciones diarias]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#monitor-your-agent) de Braze Agents
+- Errores de [modelo]({{site.baseurl}}/user_guide/brazeai/agents/reference#models) no disponible de Braze Agents
 
 Estos mensajes pueden provenir de nuestro propio sistema, de tus aplicaciones o plataformas, o de nuestros socios externos. Esto puede dar lugar a un número infinito de mensajes que pueden aparecer en este registro.
 
@@ -45,7 +45,7 @@ Estos mensajes pueden provenir de nuestro propio sistema, de tus aplicaciones o 
 
 Para determinar qué significan tus mensajes, presta atención a la redacción de cada mensaje y a las columnas que le corresponden, ya que esto puede ayudarte a solucionar problemas usando pistas contextuales.
 
-Por ejemplo, si tienes una entrada de registro cuyo mensaje dice "empty-cart_app" y no estás seguro de lo que significa, mira a la izquierda en la columna **Tipo**. Si ves "Error de mensaje cancelado", puedes asumir con seguridad que el mensaje fue lo que se escribió como [mensaje de cancelación]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/#abort-messages) usando Liquid, y que el mensaje fue cancelado porque el destinatario previsto del mensaje tenía un carrito vacío en tu aplicación.
+Por ejemplo, si tienes una entrada de registro cuyo mensaje dice "empty-cart_app" y no estás seguro de lo que significa, mira a la izquierda en la columna **Tipo**. Si ves "Error de mensaje cancelado", puedes asumir con seguridad que el mensaje fue lo que se escribió como [mensaje de cancelación]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages) usando Liquid, y que el mensaje fue cancelado porque el destinatario previsto del mensaje tenía un carrito vacío en tu aplicación.
 
 ### Mensajes comunes {#common-messages}
 
@@ -57,7 +57,7 @@ Los siguientes mensajes listados son a modo de ejemplo y pueden no coincidir exa
 |---|---|---|
 | Rebote blando | La dirección de correo electrónico same@example.com tuvo un rebote blando. | La dirección de correo electrónico era válida y el mensaje llegó al servidor de correo del destinatario, pero fue rechazado por un problema "temporal". <br><br>Las razones comunes de rebote blando incluyen: {::nomarkdown} <ul> <li> El buzón estaba lleno (el usuario superó su cuota) </li> <li> El servidor estaba caído </li> <li> El mensaje era demasiado grande para el buzón del destinatario </li>  </ul> {:/} Si un correo electrónico ha recibido un rebote blando, normalmente reintentamos en un período de 72 horas, pero el número de reintentos varía de un receptor a otro. |
 | Rebote duro | La cuenta de correo electrónico que intentaste alcanzar no existe. Intenta verificar la dirección de correo electrónico del destinatario en busca de errores tipográficos o espacios innecesarios. | Tu mensaje nunca llegó al buzón de entrada de esta persona porque no había un buzón al que llegar. Si quieres profundizar más, mensajes como este a veces pueden tener enlaces en la columna **Visualizar detalles** que te permiten ver el perfil del destinatario previsto.|
-| Bloqueo | El mensaje de correo no deseado fue rechazado debido a la política antispam. | Tu mensaje fue categorizado como correo no deseado. Este error de correo se registra para un usuario si hemos recibido un evento del ESP indicando que el correo electrónico fue descartado. Podría ser solo para ese destinatario previsto, pero si ves este mensaje con frecuencia, es posible que quieras reevaluar tus hábitos de envío o el contenido de tu mensaje. Además, piensa: ¿[calentaste tu IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/)? Si no, ponte en contacto con Braze para obtener asesoramiento sobre cómo hacerlo.|
+| Bloqueo | El mensaje de correo no deseado fue rechazado debido a la política antispam. | Tu mensaje fue categorizado como correo no deseado. Este error de correo se registra para un usuario si hemos recibido un evento del ESP indicando que el correo electrónico fue descartado. Podría ser solo para ese destinatario previsto, pero si ves este mensaje con frecuencia, es posible que quieras reevaluar tus hábitos de envío o el contenido de tu mensaje. Además, piensa: ¿[calentaste tu IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)? Si no, ponte en contacto con Braze para obtener asesoramiento sobre cómo hacerlo.|
 | Error de mensaje cancelado | empty-cart_web | Si tienes una aplicación con un carrito o creas un envío con un mensaje de cancelación en Liquid, puedes personalizar qué mensaje se te devuelve si el envío se cancela. En este caso, el mensaje devuelto es empty-cart_web.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Mensajes comunes" }
 

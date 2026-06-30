@@ -40,7 +40,7 @@ Ensuite, vous pouvez modifier les paramètres de timing intelligent, de remplace
 
 #### Timing intelligent {#intelligent-timing}
 
-Vous pouvez activer le [timing intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/) avec une option de repli lorsque le profil d'un utilisateur ne dispose pas de suffisamment de données pour calculer un horaire optimal. Nous recommandons d'activer le timing intelligent et la [limite de débit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-frequency-capping/) comme vérification supplémentaire pour tout délai entre le moment où les utilisateurs entrent dans l'étape Message et l'envoi effectif du message.
+Vous pouvez activer le [timing intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) avec une option de repli lorsque le profil d'un utilisateur ne dispose pas de suffisamment de données pour calculer un horaire optimal. Nous recommandons d'activer le timing intelligent et la [limite de débit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-frequency-capping) comme vérification supplémentaire pour tout délai entre le moment où les utilisateurs entrent dans l'étape Message et l'envoi effectif du message.
 
 Sélectionnez **Using Intelligent Timing** dans l'onglet **Delivery Settings**. Vous pouvez choisir l'heure la plus populaire ou une heure de repli spécifique. Si les heures calmes sont activées, l'étape Message vous permet également de remplacer ce paramètre.
 
@@ -54,10 +54,10 @@ Les validations de distribution évaluent les critères du profil utilisateur au
 
 Si votre espace de travail comporte plusieurs applications et qu'une étape Message doit cibler une application spécifique, utilisez plutôt l'une des approches suivantes :
 
-- Lors de la composition du message, [spécifiez vos plateformes de distribution]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/#step-2-specify-delivery-platforms), telles que **Mobile Apps** ou **Web Browsers**.
+- Lors de la composition du message, [spécifiez vos plateformes de distribution]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#step-2-specify-delivery-platforms), telles que **Mobile Apps** ou **Web Browsers**.
 - Utilisez Liquid pour vérifier l'appareil ou l'application ciblé(e) au moment de l'envoi :
-  - {% raw %}`{{targeted_device.${platform}}}`{% endraw %} évalue la plateforme de la session en cours de l'utilisateur. Pour en savoir plus, consultez [Informations sur l'appareil ciblé]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-device-information).
-  - {% raw %}`{{app.${api_id}}}`{% endraw %} évalue quelle application demande le message. Combinez cette balise avec `abort_message()` pour empêcher les envois vers la mauvaise application. Pour en savoir plus, consultez [Informations sur l'application ciblée]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-app-information).
+  - {% raw %}`{{targeted_device.${platform}}}`{% endraw %} évalue la plateforme de la session en cours de l'utilisateur. Pour en savoir plus, consultez [Informations sur l'appareil ciblé]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-device-information).
+  - {% raw %}`{{app.${api_id}}}`{% endraw %} évalue quelle application demande le message. Combinez cette balise avec `abort_message()` pour empêcher les envois vers la mauvaise application. Pour en savoir plus, consultez [Informations sur l'application ciblée]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-app-information).
 
 ![Les validations de distribution sont activées pour valider l'audience à l'envoi du message. Le comportement d'avancement des validations de distribution est configuré pour faire passer l'utilisateur à l'étape suivante du Canvas si les validations de distribution ne sont pas remplies.]({% image_buster /assets/img/canvas_components/message_step5.png %}){: style="max-width:90%;"}
 
@@ -93,13 +93,13 @@ Utilisez le Liquid suivant pour référencer ces propriétés d'entrée : {% raw
 Par exemple, considérez la requête suivante : `"context" : {"product_name" : "shoes", "product_price" : 79.99}`. Vous pouvez ajouter le mot « shoes » à un message avec le Liquid `{{context.${product_name}}}`.
 {% endraw %}
 
-Vous pouvez également tirer parti des [propriétés d'entrée persistantes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties/) dans n'importe quelle étape Message pour guider vos utilisateurs à travers des étapes personnalisées tout au long de votre workflow Canvas.
+Vous pouvez également tirer parti des [propriétés d'entrée persistantes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties) dans n'importe quelle étape Message pour guider vos utilisateurs à travers des étapes personnalisées tout au long de votre workflow Canvas.
 
 ### Propriétés d'événement {#event-properties}
 
-Les propriétés d'événement font référence aux propriétés que vous définissez pour les événements personnalisés et les événements d'achat. Ces propriétés d'événement peuvent être utilisées dans les Campaigns avec livraison par événement ainsi que dans les Canvas.
+Les propriétés d'événement font référence aux propriétés que vous définissez pour les événements personnalisés et les événements d'achat. Ces propriétés d'événement peuvent être utilisées dans les campagnes avec livraison par événement ainsi que dans les Canvas.
 
-Dans Canvas, les propriétés d'événements personnalisés et d'événements d'achat peuvent être utilisées en Liquid dans n'importe quelle étape Message qui suit une étape [Parcours d'actions]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/). Par exemple, pour référencer `event_properties`, utilisez cet extrait Liquid : {% raw %}``{{event_properties.${property_name}}}``{% endraw %}
+Dans Canvas, les propriétés d'événements personnalisés et d'événements d'achat peuvent être utilisées en Liquid dans n'importe quelle étape Message qui suit une étape [Parcours d'actions]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths). Par exemple, pour référencer `event_properties`, utilisez cet extrait Liquid : {% raw %}``{{event_properties.${property_name}}}``{% endraw %}
 
 {% alert important %}
 `event_properties` ne peut pas être utilisé indépendamment des étapes Parcours d'actions.
@@ -131,6 +131,6 @@ Consultez le tableau suivant pour les définitions des indicateurs du composant 
 | _Passé à l'étape suivante_ | Le nombre d'entrées qui sont passées à l'étape suivante du Canvas. |
 | _Envois_ | Le nombre total de messages envoyés par l'étape. Si votre Canvas autorise la rééligibilité et qu'un utilisateur entre deux fois dans une étape Message, deux entrées seront enregistrées. |
 | _Destinataires uniques_ | Le nombre d'utilisateurs ayant reçu des messages de cette étape. |
-| _Événement de conversion principal_ | Le nombre de fois où un événement défini s'est produit après une interaction avec un message reçu d'une Campaign Braze ou après sa consultation. Vous définissez cet événement lors de la création de la Campaign. |
-| _Chiffre d'affaires_ | Le chiffre d'affaires total en dollars provenant des destinataires de la Campaign dans la fenêtre de conversion principale définie. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| _Événement de conversion principal_ | Le nombre de fois où un événement défini s'est produit après une interaction avec un message reçu d'une campagne Braze ou après sa consultation. Vous définissez cet événement lors de la création de la campagne. |
+| _Chiffre d'affaires_ | Le chiffre d'affaires total en dollars provenant des destinataires de la campagne dans la fenêtre de conversion principale définie. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytique" }

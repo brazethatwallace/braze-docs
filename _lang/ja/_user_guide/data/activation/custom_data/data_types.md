@@ -99,18 +99,18 @@ toc_headers: h2
 
 ### 説明の追加 {#adding-descriptions}
 
-`Manage Events, Attributes, Purchases` [ユーザー権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/)を持っている場合、カスタム属性の作成後に説明を追加できます。カスタム属性を編集し、チームへのメモなど任意の内容を入力してください。
+`Manage Events, Attributes, Purchases` [ユーザー権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions)を持っている場合、カスタム属性の作成後に説明を追加できます。カスタム属性を編集し、チームへのメモなど任意の内容を入力してください。
 
 ### タグの追加 {#adding-tags}
 
-「Manage Events, Attributes, Purchases」[ユーザー権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/)を持っている場合、カスタム属性の作成後にタグを追加できます。その後、タグを使用して属性のリストをフィルタリングできます。
+「Manage Events, Attributes, Purchases」[ユーザー権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions)を持っている場合、カスタム属性の作成後にタグを追加できます。その後、タグを使用して属性のリストをフィルタリングできます。
 
 ### カスタム属性の削除 {#removing-custom-attributes}
 
 ユーザープロファイルからカスタム属性を削除するには、2つの方法があります。
 
-* [ユーザーの更新ステップ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes)で、削除するカスタム属性名を選択します。
-* APIリクエストで[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track)に `null` 値を設定します。
+* [ユーザーの更新ステップ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes)で、削除するカスタム属性名を選択します。
+* APIリクエストで[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track)に `null` 値を設定します。
 
 #### `null` 値の設定 {#setting-the-null-value}
 
@@ -145,19 +145,19 @@ toc_headers: h2
 
 {% details プラットフォーム別のドキュメントを展開 %}
 
-- [AndroidおよびFireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=android)
-- [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
-- [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=unity)
-- [.NET MAUI（旧Xamarin）]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
-- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)
+- [AndroidおよびFireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-attributes)
+- [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=unity)
+- [.NET MAUI（旧Xamarin）]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#setting-custom-attributes)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
 
 {% enddetails %}
 
 ## カスタム属性の保存 {#custom-attribute-storage}
 
-**ユーザープロファイル**に保存されたすべてのデータ（カスタム属性データを含む）は、各プロファイルが[アクティブ]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users)である限り、無期限に保持されます。
+**ユーザープロファイル**に保存されたすべてのデータ（カスタム属性データを含む）は、各プロファイルが[アクティブ]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#active-users)である限り、無期限に保持されます。
 
 ## カスタム属性のデータタイプ
 
@@ -170,8 +170,8 @@ toc_headers: h2
 - [文字列](#strings)
 - [配列](#arrays)
 - [時間](#time)
-- [オブジェクト]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)
-- [オブジェクトの配列]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/)
+- [オブジェクト]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)
+- [オブジェクトの配列]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects)
 
 ### ブール値（true/false） {#booleans}
 
@@ -190,7 +190,7 @@ toc_headers: h2
 {% tab 数値 %}
 
 {% alert tip %}
-使用金額はこの方法で記録しないでください。代わりに[購入イベント]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/)を使用して記録してください。
+使用金額はこの方法で記録しないでください。代わりに[購入イベント]({{site.baseurl}}/user_guide/data/activation/events/purchase_events)を使用して記録してください。
 {% endalert %}
 
 **数値**属性では、以下のセグメンテーションオプションが利用可能です。
@@ -240,7 +240,7 @@ toc_headers: h2
 
 配列の最大サイズは100&nbsp;KBです。属性のデフォルトの長さは最大500アイテムです（例えば、「視聴した映画」のような属性を500に設定している場合、ユーザーが501本目の映画を視聴すると、最初の映画が削除され、最新の映画が追加されます）。単語の間、前、または後にスペースを含む値を入力した場合、Brazeは同じスペースもチェックします。
 
-配列型のカスタム属性は[CSVインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/)ではインポートできません。配列値をアップロードするには、[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)または[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/cloud_ingestion/)を使用してください。
+配列型のカスタム属性は[CSVインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)ではインポートできません。配列値をアップロードするには、[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)または[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/cloud_ingestion)を使用してください。
 
 {% alert note %}
 属性がデータタイプを自動検出するように設定されている場合、最大長を増やすオプションは利用できません。データタイプを配列に設定する必要があります。
@@ -266,7 +266,7 @@ toc_headers: h2
 {% alert tip %}
 正規表現（regex）の使用方法について詳しくは、以下のリソースを参照してください。
 - [Perl互換正規表現（PCRE）](https://www.regextester.com/pregsyntax.html)
-- [Brazeでの正規表現]({{site.baseurl}}/user_guide/audience/segments/regex/)
+- [Brazeでの正規表現]({{site.baseurl}}/user_guide/audience/segments/regex)
 - [正規表現デバッガーとテスター](https://www.regex101.com/)
 - [正規表現チュートリアル](https://www.medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -309,12 +309,12 @@ toc_headers: h2
 {% endtab %}
 {% tab オブジェクト %}
 
-階層化カスタム属性を使用して、カスタム属性のデータタイプとしてオブジェクトを送信できます。詳細については、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/)を参照してください。
+階層化カスタム属性を使用して、カスタム属性のデータタイプとしてオブジェクトを送信できます。詳細については、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)を参照してください。
 
 {% endtab %}
 {% tab オブジェクトの配列 %}
 
-オブジェクトの配列を使用して、関連する属性をグループ化します。詳細については、[オブジェクトの配列]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/)を参照してください。
+オブジェクトの配列を使用して、関連する属性をグループ化します。詳細については、[オブジェクトの配列]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)を参照してください。
 
 {% endtab %}
 {% endtabs %}
@@ -345,19 +345,19 @@ toc_headers: h2
 
 - **時間（Datetime）:** [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) または `yyyy-MM-dd'T'HH:mm:ss:SSSZ` 形式を使用します。配列内ではサポートされていません。
 - **配列:** 配列内では日時はサポートされていません。
-- **ネストされたオブジェクト:** [ネストされたオブジェクト]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/)を参照してください。
+- **ネストされたオブジェクト:** [ネストされたオブジェクト]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)を参照してください。
 - **ペイロード:** 配列またはオブジェクトの値を含むイベントプロパティオブジェクトは、最大102,400バイト（100&nbsp;KiB）です。
 
 カスタムイベントプロパティのデータタイプは変更できますが、データ収集後の[データタイプの変更](#changing-custom-attribute-or-event-data-type)の影響に注意してください。
 
-イベントプロパティの完全な動作、予約キー、トリガーやパーソナライゼーションでの使用方法については、[カスタムイベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/)を参照してください。
+イベントプロパティの完全な動作、予約キー、トリガーやパーソナライゼーションでの使用方法については、[カスタムイベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties)を参照してください。
 
 ## 購入イベントと収益 {#purchase-events-and-revenue}
 
-購入および収益データは、[購入イベント]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/)または推奨eコマースイベントを通じて記録されます。
+購入および収益データは、[購入イベント]({{site.baseurl}}/user_guide/data/activation/events/purchase_events)または推奨eコマースイベントを通じて記録されます。
 
 {% alert note %}
-推奨イベントには、データタイプが設定された事前定義のスキーマがあります。詳細については、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/)を参照してください。
+推奨イベントには、データタイプが設定された事前定義のスキーマがあります。詳細については、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)を参照してください。
 {% endalert %}
 
 購入イベントをログに記録すると、各ユーザープロファイルの生涯価値（LTV）が確立され、このデータは収益ページで時系列で表示できます。使用金額、最終購入日、時間枠内の購入回数などでセグメンテーションできます。
@@ -368,7 +368,7 @@ toc_headers: h2
 
 {% include data_activation/purchase_event_property_data_types.md %}
 
-購入オブジェクトの完全なスキーマと例については、[購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object/)を参照してください。購入イベントのログ記録、セグメンテーションフィルター、および完全な詳細については、[購入イベント]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/)を参照してください。
+購入オブジェクトの完全なスキーマと例については、[購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object)を参照してください。購入イベントのログ記録、セグメンテーションフィルター、および完全な詳細については、[購入イベント]({{site.baseurl}}/user_guide/data/activation/events/purchase_events)を参照してください。
 
 ## カスタム属性またはイベントのデータタイプの変更 {#changing-custom-attribute-or-event-data-type}
 
@@ -382,7 +382,7 @@ toc_headers: h2
 カスタム属性またはイベントのデータタイプを変更する場合（例えば、`time` を `string` に変更する場合）、以下の点を考慮してください。
 
 - **フィルターは自動的に更新されません。** 変更された属性またはイベントを使用しているセグメント、キャンペーン、キャンバス、またはその他の場所は更新されません。データタイプを変更する前に、セグメントやフィルターでその属性を使用しているキャンペーンやキャンバスを停止し、それを参照しているフィルターから属性を削除してください。
-- **既存のユーザーデータは遡及的に更新されません。** 変更前にユーザープロファイルに変更された属性があった場合、その値は古いデータタイプのままです。フィルターが新しいデータタイプを検索するため、変更された属性を含むセグメントからユーザーが外れる可能性があります。それらのユーザープロファイルを更新して（例えば、[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を使用して）、新しいタイプに一致させ、必要に応じてセグメントに再度入るようにしてください。
+- **既存のユーザーデータは遡及的に更新されません。** 変更前にユーザープロファイルに変更された属性があった場合、その値は古いデータタイプのままです。フィルターが新しいデータタイプを検索するため、変更された属性を含むセグメントからユーザーが外れる可能性があります。それらのユーザープロファイルを更新して（例えば、[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用して）、新しいタイプに一致させ、必要に応じてセグメントに再度入るようにしてください。
 - **新しいデータは新しいタイプに一致する必要があります。** 変更された属性に対して以前のデータタイプを送信するAPIコールは受け付けられません。新しいデータタイプを送信してください。
 
 {% alert important %}
@@ -415,4 +415,4 @@ toc_headers: h2
 | 配列 | 文字列の配列 | <code>["red", "blue", "green"]</code> |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Format and examples" }
 
-カタログの作成と更新については、[カタログの作成]({{site.baseurl}}/user_guide/data/activation/catalogs/create/)を参照してください。
+カタログの作成と更新については、[カタログの作成]({{site.baseurl}}/user_guide/data/activation/catalogs/create)を参照してください。

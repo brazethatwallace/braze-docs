@@ -9,7 +9,7 @@ description: "Découvrez comment concevoir un agent BrazeAI Decisioning Studio G
 
 > Cet article explique comment concevoir votre agent Decisioning Studio Go, notamment comment définir votre audience, sélectionner des dimensions et comprendre les capacités et les limites spécifiques à Go.
 
-Pour les concepts fondamentaux relatifs aux agents décisionnels, notamment les indicateurs de réussite, les dimensions, les banques d'actions et les contraintes, consultez [Concevoir des agents décisionnels]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents/).
+Pour les concepts fondamentaux relatifs aux agents décisionnels, notamment les indicateurs de réussite, les dimensions, les banques d'actions et les contraintes, consultez [Concevoir des agents décisionnels]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents).
 
 ## Fonctionnalités Go et Pro {#go-versus-pro-capabilities}
 
@@ -23,7 +23,7 @@ Decisioning Studio Go est une plateforme en libre-service dotée de fonctionnali
 | **Données client** | Engagement uniquement | Toutes les données 1P |
 | **Configuration** | Libre-service | Assistance des services AI Decisioning |
 | **Groupes expérimentaux** | Go + Contrôle aléatoire + BAU facultatif | Entièrement personnalisable |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Go versus Pro capabilities" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fonctionnalités Go et Pro" }
 
 ## Concevoir votre agent Go {#design-your-go-agent}
 
@@ -82,7 +82,7 @@ Decisioning Studio Go crée automatiquement des groupes d'expérimentation afin 
 | **Decisioning Studio Go** | Les clients qui reçoivent des recommandations optimisées par l'intelligence artificielle |
 | **Contrôle aléatoire** | Les clients qui reçoivent des options sélectionnées de manière aléatoire (comparaison de référence) |
 | **Activités habituelles (facultatif)** | Les clients qui reçoivent votre campagne actuelle (si l'on compare avec les performances actuelles) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Set up experiment groups" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 4 : Constituer les groupes expérimentaux" }
 
 {% alert important %}
 Pour une comparaison précise, assurez-vous qu'aucun client ne peut appartenir à plus d'un groupe d'expérimentation et que les clients sont répartis de manière aléatoire dans les groupes, sans biais.
@@ -107,4 +107,4 @@ Lors de la conception de votre agent Go, gardez ces contraintes à l'esprit :
 
 Une fois que vous avez conçu votre agent et l'avez configuré dans le portail Decisioning Studio Go, vous êtes prêt à le lancer :
 
-- [Lancer votre agent]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent/)
+- [Lancer votre agent]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent)

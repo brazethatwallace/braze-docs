@@ -29,7 +29,7 @@ Operator 분석은 Operator 대화 패널에서 실행됩니다.
 2. 채널 참여 또는 벤치마크 비교에 대해 질문합니다([질문 예시](#example-questions) 참조).
 3. Operator가 답변을 반환하며, 도움이 되는 경우 차트 또는 테이블과 간단한 인사이트 목록을 함께 제공합니다.
 
-Operator 채팅 패널에 대한 자세한 내용은 [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)를 참조하세요.
+Operator 채팅 패널에 대한 자세한 내용은 [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)를 참조하세요.
 
 ## 질문 예시 {#example-questions}
 
@@ -159,9 +159,9 @@ Operator 분석의 기본값은 **7일**입니다. 질문에 기간을 명시하
 
 ## 데이터 프라이버시 및 보안 {#data-privacy-and-security}
 
-Operator 분석은 BrazeAI Operator<sup>TM</sup>와 동일한 프라이버시 및 보안 모델을 따릅니다. 자세한 내용은 [데이터 프라이버시 및 보안]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/)을 참조하세요.
+Operator 분석은 BrazeAI Operator<sup>TM</sup>와 동일한 프라이버시 및 보안 모델을 따릅니다. 자세한 내용은 [데이터 프라이버시 및 보안]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security)을 참조하세요.
 
 ## 다음 단계 {#next-steps}
 
-* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)
-* [동작 검토]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/)
+* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)
+* [동작 검토]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)

@@ -18,7 +18,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze para lista
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `sdk_authentication.keys`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `sdk_authentication.keys`.
 
 ## Limite de taxa {#rate-limit}
 

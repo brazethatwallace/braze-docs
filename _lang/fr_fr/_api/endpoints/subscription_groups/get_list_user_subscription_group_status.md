@@ -32,7 +32,7 @@ Si vous souhaitez voir des exemples ou tester cet endpoint pour les **groupes Wh
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `subscription.status.get`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `subscription.status.get`.
 
 ## Limite de débit {#rate-limit}
 
@@ -42,11 +42,11 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
-| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types/?tab=subscription%20group%20ids) | Requis | Chaîne de caractères | L'`id` de votre groupe d'abonnement. |
+| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types?tab=subscription%20group%20ids) | Requis | Chaîne de caractères | L'`id` de votre groupe d'abonnement. |
 | `external_id` | Requis* | Chaîne de caractères | L'`external_id` de l'utilisateur (doit inclure au minimum un et au maximum 50 `external_ids`). <br><br>Lorsqu'un `external_id` et un `email`/`phone` sont soumis, seul(s) le(s) `external_id`(s) fourni(s) seront appliqués à la requête. |
 | `email` | Requis* | Chaîne de caractères | L'adresse e-mail de l'utilisateur. Elle peut être transmise sous forme de tableau de chaînes de caractères avec un maximum de 50.<br><br> Soumettre à la fois une adresse e-mail et un numéro de téléphone (sans `external_id`) entraînera une erreur. |
 | `phone` | Requis* | Chaîne de caractères au format [E.164](https://en.wikipedia.org/wiki/E.164) | Le numéro de téléphone de l'utilisateur. Si l'e-mail n'est pas inclus, vous devez fournir au moins un numéro de téléphone (avec un maximum de 50).<br><br> Soumettre à la fois une adresse e-mail et un numéro de téléphone (sans `external_id`) entraînera une erreur. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de requête" }
 
 *Un `external_id`, un `email` ou un `phone` est requis pour chaque utilisateur.
 
@@ -74,7 +74,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/sta
 {% tab Email %}
 {% raw %}
 ```
-curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@braze.com' \
+curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@example.com' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 {% endraw %}

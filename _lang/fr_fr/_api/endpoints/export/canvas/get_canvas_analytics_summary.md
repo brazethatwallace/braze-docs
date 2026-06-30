@@ -20,7 +20,7 @@ description: "Cet article décrit l'endpoint Braze permettant d'exporter le rés
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `canvas.data_summary`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `canvas.data_summary`.
 
 ## Limite de débit {#rate-limit}
 
@@ -30,7 +30,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | Requis | Chaîne de caractères | Voir [Identifiant API Canvas]({{site.baseurl}}/api/identifier_types/). |
+| `canvas_id` | Requis | Chaîne de caractères | Voir [Identifiant API Canvas]({{site.baseurl}}/api/identifier_types). |
 | `ending_at` | Requis | Datetime <br>(chaîne [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Date de fin de l'exportation des données. Par défaut, correspond à l'heure de la requête. |
 | `starting_at` | Facultatif* | Datetime <br>(chaîne [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Date de début de l'exportation des données. <br><br>* `length` ou `starting_at` est requis. |
 | `length` | Facultatif* | Chaîne de caractères | Nombre maximal de jours avant `ending_at` à inclure dans la série renvoyée. Doit être compris entre 1 et 14 (inclus). <br><br>* `length` ou `starting_at` est requis. |
@@ -55,7 +55,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 ## Réponse {#response}
 
 {% alert note %}
-Dans `total_stats`, `variant_stats` et `step_stats`, `conversions` correspond au nombre de conversions pour l'[événement de conversion principal]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) du Canvas. Lorsque vous configurez des événements de conversion supplémentaires, le payload peut également inclure `conversions1`, `conversions2` et des champs indexés supérieurs pour le deuxième, le troisième événement et les suivants. Cela est similaire à la [réponse multivariée]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/#multivariate-response) pour l'endpoint `/campaigns/data_series`. Lorsqu'ils sont présents, les champs se terminant par `_by_entry_time` attribuent ces conversions en fonction de l'heure d'entrée dans le Canvas.
+Dans `total_stats`, `variant_stats` et `step_stats`, `conversions` correspond au nombre de conversions pour l'[événement de conversion principal]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) du Canvas. Lorsque vous configurez des événements de conversion supplémentaires, le payload peut également inclure `conversions1`, `conversions2` et des champs indexés supérieurs pour le deuxième, le troisième événement et les suivants. Cela est similaire à la [réponse multivariée]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics#multivariate-response) pour l'endpoint `/campaigns/data_series`. Lorsqu'ils sont présents, les champs se terminant par `_by_entry_time` attribuent ces conversions en fonction de l'heure d'entrée dans le Canvas.
 {% endalert %}
 
 ```json
@@ -109,7 +109,7 @@ Dans la réponse de l'API, le champ `influenced_opens` représente le nombre tot
 
 ## Articles connexes {#related-articles}
 
-- [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)
+- [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)
 
 
 {% endapi %}

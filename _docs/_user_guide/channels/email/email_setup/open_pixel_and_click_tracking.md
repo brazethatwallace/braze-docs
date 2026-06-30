@@ -9,11 +9,11 @@ description: "This reference article covers how to implement open pixel and clic
 
 # Email open pixel and click tracking
 
-> [Open pixel tracking]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#changing-location-of-tracking-pixel) and click tracking can be turned on or off for each user profile. This flexibility helps you follow regional privacy laws, where an individual user profile might indicate they no longer want to be tracked.
+> [Open pixel tracking]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#changing-location-of-tracking-pixel) and click tracking can be turned on or off for each user profile. This flexibility helps you follow regional privacy laws, where an individual user profile might indicate they no longer want to be tracked.
 
 ## Turning on open pixel or click tracking
 
-When either importing or updating a user profile through [API]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields), [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv), or [Cloud Data Ingestion (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/), two fields are available for you to modify:
+When either importing or updating a user profile through [API]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields), [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv), or [Cloud Data Ingestion (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), two fields are available for you to modify:
 
 - `email_open_tracking_disabled`: Accepts `true` or `false`. Set to `false` to add the open tracking pixel to all future emails sent to this user. Available for SparkPost and SendGrid only.
 - `email_click_tracking_disabled`: Accepts `true` or `false`. Set to `false` to add click tracking to all links within a future email, sent to this user. Available for SparkPost and SendGrid only.

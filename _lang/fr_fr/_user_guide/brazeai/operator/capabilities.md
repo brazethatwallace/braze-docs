@@ -1,7 +1,7 @@
 ---
 nav_title: Fonctionnalités
 article_title: Ce que vous pouvez faire avec Operator
-page_order: 6
+page_order: 1
 page_type: reference
 toc_headers: h2
 description: "Cet article de référence couvre les tâches d'intelligence artificielle disponibles via BrazeAI Operator™, notamment la rédaction, le Liquid, la génération d'images, le code de transformation des données et la vérification de contenu."
@@ -9,13 +9,13 @@ description: "Cet article de référence couvre les tâches d'intelligence artif
 
 # Ce que vous pouvez faire avec Operator {#operator-capabilities}
 
-> Les fonctionnalités d'intelligence artificielle auparavant disponibles en tant qu'assistants autonomes sont désormais accessibles via [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/). Comme Operator est intégré au tableau de bord et comprend votre espace de travail (vos directives de marque, attributs, contenu connecté et la page sur laquelle vous travaillez), les résultats sont plus contextuels que ce que les assistants précédents pouvaient produire.
+> Les fonctionnalités d'intelligence artificielle auparavant disponibles en tant qu'assistants autonomes sont désormais accessibles via [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator). Comme Operator est intégré au tableau de bord et comprend votre espace de travail (vos directives de marque, attributs, contenu connecté et la page sur laquelle vous travaillez), les résultats sont plus contextuels que ce que les assistants précédents pouvaient produire.
 
-Au lieu d'ouvrir un outil différent pour chaque tâche, décrivez ce que vous souhaitez en langage naturel et Operator s'en charge dans le contexte. Vous pouvez également animer la conversation en demandant un ton différent, une version plus courte ou une traduction, sans repartir de zéro. Operator peut aussi proposer et exécuter des modifications directement via des [cartes d'action]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/) que vous vérifiez avant leur application.
+Au lieu d'ouvrir un outil différent pour chaque tâche, décrivez ce que vous souhaitez en langage naturel et Operator s'en charge dans le contexte. Vous pouvez également animer la conversation en demandant un ton différent, une version plus courte ou une traduction, sans repartir de zéro. Operator peut aussi proposer et exécuter des modifications directement via des [cartes d'action]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) que vous vérifiez avant leur application.
 
 ## Conditions préalables {#prerequisites}
 
-Operator dispose des mêmes autorisations que vous, de sorte que certaines actions nécessitent l'autorisation correspondante pour cette surface. Par exemple, la génération d'une image nécessite l'autorisation *Modifier les ressources de la bibliothèque multimédia*. Si vous ne voyez pas de point d'entrée, vérifiez vos autorisations auprès de votre administrateur. Pour en savoir plus, consultez la [Liste des autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
+Operator dispose des mêmes autorisations que vous, de sorte que certaines actions nécessitent l'autorisation correspondante pour cette surface — par exemple, la génération d'une image nécessite l'autorisation *Modifier les ressources de la bibliothèque multimédia*. Si vous ne voyez pas de point d'entrée, vérifiez vos autorisations auprès de votre administrateur. Pour en savoir plus, consultez la [Liste des autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 ## Ce qui est disponible via Operator {#whats-available-through-operator}
 
@@ -32,7 +32,7 @@ Tous les points d'entrée existants restent en place, vos flux de travail ne son
 
 ## Appliquer les directives de marque {#apply-brand-guidelines}
 
-Operator utilise les directives de marque configurées dans votre espace de travail afin que le texte, les modèles et les images générés correspondent à la voix, au ton et au style de votre marque. Pour configurer les directives de marque, accédez à **Contenu** > **Directives de marque**. Pour en savoir plus, consultez [Directives de marque]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/). Pour plus de détails sur l'application des directives de marque avec Operator, consultez [Appliquer les directives de marque]({{site.baseurl}}/user_guide/brazeai/operator/#apply-brand-guidelines).
+Operator utilise les directives de marque configurées dans votre espace de travail afin que le texte, les modèles et les images générés correspondent à la voix, au ton et au style de votre marque. Pour configurer les directives de marque, accédez à **Contenu** > **Directives de marque**. Pour en savoir plus, consultez [Directives de marque]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines). Pour plus de détails sur l'application des directives de marque avec Operator, consultez [Appliquer les directives de marque]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines).
 
 ## Générer du texte {#generate-copy}
 
@@ -41,8 +41,8 @@ Vous pouvez utiliser Operator pour réfléchir ou générer du texte depuis n'im
 Operator améliore le rédacteur autonome de plusieurs façons :
 
 - Il applique automatiquement vos [directives de marque](#apply-brand-guidelines) lorsqu'elles sont configurées.
-- Il utilise le [contexte de la page]({{site.baseurl}}/user_guide/brazeai/operator/#leverage-page-aware-context), vous n'avez donc pas besoin de re-décrire le canal ou le message sur lequel vous travaillez. Grâce à cette connaissance de la page, vous pouvez également l'utiliser pour modifier ou affiner un message existant au lieu d'en générer un de zéro.
-- Il peut consulter vos [attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) et événements, ce qui vous permet de lui demander de personnaliser les recommandations de texte avec du vrai Liquid.
+- Il utilise le [contexte de la page]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context), vous n'avez donc pas besoin de re-décrire le canal ou le message sur lequel vous travaillez. Grâce à cette connaissance de la page, vous pouvez également l'utiliser pour modifier ou affiner un message existant au lieu d'en générer un de zéro.
+- Il peut consulter vos [attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) et événements, ce qui vous permet de lui demander de personnaliser les recommandations de texte avec du vrai Liquid.
 - Vous pouvez animer la conversation et itérer. Par exemple, demandez un ton différent, une version plus courte ou une traduction.
 
 ### Tons {#generate-copy-tones}
@@ -59,7 +59,7 @@ Le ton du texte généré est déterminé par votre prompt. Décrivez le style s
 
 ## Générer du Liquid {#generate-liquid}
 
-Dans n'importe quel éditeur de messages, ouvrez Operator pour générer et affiner du Liquid pour la personnalisation. Operator comprend la [syntaxe Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/), vos attributs standard et [personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/), ainsi que le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), et il peut expliquer ce que fait le code.
+Dans n'importe quel éditeur de messages, ouvrez Operator pour générer et affiner du Liquid pour la personnalisation. Operator comprend la [syntaxe Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), vos attributs standard et [personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), ainsi que le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), et il peut expliquer ce que fait le code.
 
 ### Où générer du Liquid {#generate-liquid-supported-channels}
 
@@ -67,7 +67,7 @@ Comme pour la rédaction, vous pouvez demander à Operator de générer du Liqui
 
 ### Fonctionnalités Liquid {#generate-liquid-attributes}
 
-Operator est très performant avec Liquid. Il peut générer une logique Liquid complexe basée sur les données de votre espace de travail — y compris la consultation des données de [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/) pour trouver des exemples de valeurs — et il peut vérifier et expliquer le Liquid existant dans vos campagnes.
+Operator est très performant avec Liquid. Il peut générer une logique Liquid complexe basée sur les données de votre espace de travail — y compris la consultation des données de [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs) pour trouver des exemples de valeurs — et il peut vérifier et expliquer le Liquid existant dans vos campagnes.
 
 ### Bonnes pratiques {#generate-liquid-best-practices}
 
@@ -142,14 +142,14 @@ Essayez différents prompts pour voir comment Operator peut améliorer vos messa
 
 Operator génère des images à l'aide de [GPT Image 2.0](https://openai.com/index/introducing-chatgpt-images-2-0/), un système d'intelligence artificielle d'OpenAI, fournisseur tiers de Braze. Cela vous permet de créer des images réalistes et des illustrations à partir d'une description en langage naturel.
 
-Dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/), sélectionnez **Générer avec Operator** dans le panneau **Charger des ressources**. Décrivez l'image souhaitée, et Operator la génère et l'enregistre directement dans votre bibliothèque multimédia.
+Dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library), sélectionnez **Générer avec Operator** dans le panneau **Charger des ressources**. Décrivez l'image souhaitée, et Operator la génère et l'enregistre directement dans votre bibliothèque multimédia.
 
 ### Conseils pour les prompts {#generate-images-prompt-tips}
 
 - Décrivez le sujet, le style, l'ambiance et les couleurs de manière précise. Plus vous incluez de détails, meilleur sera le résultat.
 - Saisie de texte uniquement ; le chargement d'une image de référence n'est pas pris en charge.
 - Lorsque vous appliquez les [directives de marque](#apply-brand-guidelines) comme contexte dans votre prompt Operator, celui-ci les applique directement à l'image générée, de sorte que le résultat reflète le style visuel de votre marque.
-- Les générations d'images sont comptabilisées dans votre limite d'utilisation quotidienne d'Operator. Pour en savoir plus, consultez [Limitations]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/#limitations).
+- Les générations d'images sont comptabilisées dans votre limite d'utilisation quotidienne d'Operator. Pour en savoir plus, consultez [Limitations]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting#limitations).
 
 ### Exemples de prompts {#generate-images-example-prompts}
 
@@ -159,9 +159,9 @@ Dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design
 
 ## Générer du code de transformation des données {#generate-data-transformation-code}
 
-Dans l'éditeur de [Transformation des données]({{site.baseurl}}/user_guide/data/unification/data_transformation/), sélectionnez **Insérer le code** pour générer du code de transformation qui convertit un payload webhook entrant en requêtes API Braze valides.
+Dans l'éditeur de [Transformation des données]({{site.baseurl}}/user_guide/data/unification/data_transformation), sélectionnez **Insérer le code** pour générer du code de transformation qui convertit un payload webhook entrant en requêtes API Braze valides.
 
-Pour des instructions étape par étape sur la création d'une transformation, consultez [Créer une transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation/).
+Pour des instructions étape par étape sur la création d'une transformation, consultez [Créer une transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation).
 
 ### Exemples de prompts {#generate-data-transformation-example-prompts}
 
@@ -202,10 +202,10 @@ Tenez compte des éléments suivants pour tirer le meilleur parti de la vérific
 
 ## Confidentialité et sécurité des données {#data-privacy-and-security}
 
-Operator s'intègre à OpenAI pour générer des résultats. Pour en savoir plus sur les informations que Braze envoie à OpenAI, la façon dont ces données sont utilisées et vos droits de propriété intellectuelle, consultez [Comment les données sont utilisées avec OpenAI]({{site.baseurl}}/user_guide/brazeai/operator/#how-data-is-used-with-openai).
+Operator s'intègre à OpenAI pour générer des résultats. Pour en savoir plus sur les informations que Braze envoie à OpenAI, la façon dont ces données sont utilisées et vos droits de propriété intellectuelle, consultez [Comment les données sont utilisées avec OpenAI]({{site.baseurl}}/user_guide/brazeai/operator#how-data-is-used-with-openai).
 
 ## Étapes suivantes {#next-steps}
 
-- [Premiers pas avec Operator]({{site.baseurl}}/user_guide/brazeai/operator/) : accédez à Operator et utilisez-le
-- [Vérifier les actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/) : vérifiez et approuvez les modifications proposées par Operator
-- [Résolution des problèmes]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/) : consultez les problèmes courants et leurs solutions
+- [Premiers pas avec Operator]({{site.baseurl}}/user_guide/brazeai/operator) : accédez à Operator et utilisez-le
+- [Vérifier les actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) : vérifiez et approuvez les modifications proposées par Operator
+- [Résolution des problèmes]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting) : consultez les problèmes courants et leurs solutions

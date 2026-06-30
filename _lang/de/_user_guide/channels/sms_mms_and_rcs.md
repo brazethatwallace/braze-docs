@@ -23,9 +23,9 @@ Die Verfügbarkeit von SMS, MMS und RCS hängt von Ihrem Braze-Paket ab. Kontakt
 
 Stellen Sie vor dem Start sicher, dass Folgendes vorhanden ist:
 
-- Konfigurierte Shortcodes, Langcodes oder alphanumerische Sender-IDs. Weitere Informationen finden Sie unter [Sender-Einrichtung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/).
-- Vertrautheit mit SMS-Gesetzen und -Vorschriften, einschließlich TCPA und Carrier-Anforderungen. Weitere Informationen finden Sie unter [Gesetze und Vorschriften]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/).
-- Ausdrückliche Opt-in-Einwilligung, die von Nutzer:innen eingeholt wurde. Weitere Informationen finden Sie unter [Opt-ins von Nutzer:innen einholen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/collecting_user_opt_ins/).
+- Konfigurierte Shortcodes, Langcodes oder alphanumerische Sender-IDs. Weitere Informationen finden Sie unter [Sender-Einrichtung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup).
+- Vertrautheit mit SMS-Gesetzen und -Vorschriften, einschließlich TCPA und Carrier-Anforderungen. Weitere Informationen finden Sie unter [Gesetze und Vorschriften]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
+- Ausdrückliche Opt-in-Einwilligung, die von Nutzer:innen eingeholt wurde. Weitere Informationen finden Sie unter [Opt-ins von Nutzer:innen einholen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/collecting_user_opt_ins).
 
 ## Anwendungsfälle {#use-cases}
 
@@ -53,9 +53,9 @@ RCS (Rich Communication Services) baut auf SMS auf und bietet ein reichhaltigere
 - Ein verifiziertes Senderprofil mit Branding anzuzeigen, damit Nachrichten leicht als vertrauenswürdig erkennbar sind.
 - Lesebestätigungen und Tipp-Indikatoren zu unterstützen, sofern der Carrier dies erlaubt.
 
-RCS eignet sich für Anwendungsfälle wie transaktionale Updates (Versand, Termine), Aktionen mit ansprechenden Creatives, Kundensupport mit Quick-Reply-Pfaden sowie Onboarding oder Tutorials, die von Medien und strukturierten Aktionen profitieren. Informationen zur Einrichtung und Migration von SMS finden Sie unter [RCS-Einrichtung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup/).
+RCS eignet sich für Anwendungsfälle wie transaktionale Updates (Versand, Termine), Aktionen mit ansprechenden Creatives, Kundensupport mit Quick-Reply-Pfaden sowie Onboarding oder Tutorials, die von Medien und strukturierten Aktionen profitieren. Informationen zur Einrichtung und Migration von SMS finden Sie unter [RCS-Einrichtung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup).
 
 ## Nächste Schritte {#next-steps}
 
-- [Nachrichten-Einrichtung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/)
-- [Nachricht erstellen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/)
+- [Nachrichten-Einrichtung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup)
+- [Nachricht erstellen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create)

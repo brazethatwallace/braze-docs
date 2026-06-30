@@ -7,7 +7,7 @@ page_order: 1
 
 # Stileinstellungen für In-App-Nachrichten {#in-app-message-style-settings}
 
-> Die Drag-and-Drop-Bearbeitungserfahrung ist in zwei Bereiche unterteilt: **Build** und **Preview & Test**. Dieser Artikel behandelt, was Sie für die Arbeit im Tab **Build** des Editors wissen müssen, und setzt voraus, dass Sie bereits [eine In-App-Nachricht erstellt]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) haben.
+> Die Drag-and-Drop-Bearbeitungserfahrung ist in zwei Bereiche unterteilt: **Build** und **Preview & Test**. Dieser Artikel behandelt, was Sie für die Arbeit im Tab **Build** des Editors wissen müssen, und setzt voraus, dass Sie bereits [eine In-App-Nachricht erstellt]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) haben.
 
 ![Tab „Message Styles“.]({% image_buster /assets/img_archive/dnd_iam_message_styles.png %}){: style="float:right;max-width:25%;margin-left:15px;max-width:30%"}
 
@@ -15,7 +15,7 @@ page_order: 1
 
 Sie können bestimmte Stile festlegen, die auf alle relevanten Blöcke in Ihrer In-App-Nachricht angewendet werden, und zwar über den Tab **Message Styles**. Beispielsweise möchten Sie vielleicht die Schriftart des gesamten Textes oder die Farbe aller Links in Ihrer Nachricht anpassen.
 
-Die Stile in diesem Abschnitt werden überall in Ihrer Nachricht verwendet, es sei denn, Sie überschreiben sie für einen bestimmten Block. Wenn Ihre Nachricht [mehrere Seiten]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/#multi-page) hat, können Sie die Stile auf Nachrichtenebene auch für einzelne Seiten überschreiben, mit Ausnahme des Anzeigetyps und der maximalen Breite.
+Die Stile in diesem Abschnitt werden überall in Ihrer Nachricht verwendet, es sei denn, Sie überschreiben sie für einen bestimmten Block. Wenn Ihre Nachricht [mehrere Seiten]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#multi-page) hat, können Sie die Stile auf Nachrichtenebene auch für einzelne Seiten überschreiben, mit Ausnahme des Anzeigetyps und der maximalen Breite.
 
 Für ein einfacheres Design-Erlebnis empfehlen wir, zuerst die Stile auf Nachrichtenebene einzurichten, bevor Sie Stile auf Blockebene anpassen.
 
@@ -26,7 +26,7 @@ Um jederzeit zum Tab **Message Styles** zurückzukehren:
 
 ### Benutzerdefinierte Schriftarten {#custom-fonts}
 
-Wir akzeptieren die folgenden Dateitypen für Schriftarten: `.ttf`, `.woff`, `.otf` und `.woff2`. Weitere Informationen finden Sie unter [Asset-Dateien]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#asset-files).
+Wir akzeptieren die folgenden Dateitypen für Schriftarten: `.ttf`, `.woff`, `.otf` und `.woff2`. Weitere Informationen finden Sie unter [Asset-Dateien]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#asset-files).
 
 Sie können mehrere Varianten einer Schriftfamilie hinzufügen, da einige Stiloptionen für benutzerdefinierte Schriftarten möglicherweise nicht verfügbar sind. Derzeit unterstützen wir das Hinzufügen von Schriftarten über URL nicht.
 
@@ -76,7 +76,7 @@ Als Best Practice empfehlen wir, Ihre Zeilen- und Spalteneigenschaften zu format
 
 #### Hintergrundbild {#background-image}
 
-Sie können ein Hintergrundbild zu einer Zeile im Panel **Row properties** hinzufügen. Aktivieren Sie **Background image** und geben Sie dann eine Bild-URL an oder wählen Sie ein Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) aus. Konfigurieren Sie abschließend Ihren Alternativtext, die Größe, die Position und ob das Bild wiederholt werden soll, um Muster über die Zeile hinweg zu erstellen.
+Sie können ein Hintergrundbild zu einer Zeile im Panel **Row properties** hinzufügen. Aktivieren Sie **Background image** und geben Sie dann eine Bild-URL an oder wählen Sie ein Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) aus. Konfigurieren Sie abschließend Ihren Alternativtext, die Größe, die Position und ob das Bild wiederholt werden soll, um Muster über die Zeile hinweg zu erstellen.
 
 ![Ein Zeilen-Hintergrundbild einer Pizza mit einem horizontalen Wiederholungsmuster.]({% image_buster /assets/img_archive/background_row.png %})
 
@@ -90,7 +90,7 @@ Bevor Sie Blöcke hinzufügen, richten Sie [Stile auf Nachrichtenebene](#set-mes
 
 ![Drag-and-Drop-Boxen zur Auswahl.]({% image_buster /assets/img_archive/dnd_iam_editor_blocks.png %}){: style="max-width:40%"}
 
-Jeder Block hat seine eigenen Einstellungen, wie z. B. eine granulare Steuerung des Paddings. Das rechte Panel wechselt automatisch zu einem Styling-Panel für das ausgewählte Inhaltselement. Weitere Informationen finden Sie unter [Editor-Block-Eigenschaften]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_properties).
+Jeder Block hat seine eigenen Einstellungen, wie z. B. eine granulare Steuerung des Paddings. Das rechte Panel wechselt automatisch zu einem Styling-Panel für das ausgewählte Inhaltselement. Weitere Informationen finden Sie unter [Editor-Block-Eigenschaften]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages#inappmessages_properties).
 
 Während Sie Ihre In-App-Nachricht erstellen, können Sie in der Symbolleiste eine Mobilgeräte-, Tablet- oder Desktop-Ansicht auswählen, um eine Vorschau zu sehen, wie Ihre In-App-Nachricht für Ihre Nutzergruppen aussehen wird. So stellen Sie sicher, dass Ihr Inhalt responsiv ist, und Sie können unterwegs alle notwendigen Anpassungen vornehmen.
 
@@ -118,13 +118,13 @@ Wenn Sie Schwierigkeiten haben, einen bestimmten Block auszuwählen, können Sie
 
 ![Symbol zum Hinzufügen von Liquid-Personalisierung.]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
 
-Um [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) zu Ihrer In-App-Nachricht hinzuzufügen, wählen Sie <i class="fa-solid fa-circle-plus"></i> **Add Personalization** in der Editor-Symbolleiste. Hier können Sie verschiedene Personalisierungstypen hinzufügen, wie z. B. Standardattribute, Geräteattribute, angepasste Attribute und mehr.
+Um [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) zu Ihrer In-App-Nachricht hinzuzufügen, wählen Sie <i class="fa-solid fa-circle-plus"></i> **Add Personalization** in der Editor-Symbolleiste. Hier können Sie verschiedene Personalisierungstypen hinzufügen, wie z. B. Standardattribute, Geräteattribute, angepasste Attribute und mehr.
 
 Nehmen Sie als Nächstes Ihr generiertes Liquid-Snippet und fügen Sie es in Ihre Nachricht ein. Nachdem Sie Ihre In-App-Nachricht entworfen und erstellt haben, gehen Sie zu **Preview & Test**, um eine Vorschau Ihrer Nachricht anzuzeigen.
 
 ### Den KI-Texter verwenden {#using-the-ai-copywriter}
 
-Wenn ein Textblock in Ihrer In-App-Nachricht ausgewählt ist, wählen Sie <i class="fa-solid fa-wand-magic-sparkles" title="KI-Texter"></i> **KI-Texter** in der Block-Symbolleiste, um den [KI-gestützten Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy) zu starten. Der KI-Textassistent übergibt einen kurzen Produktnamen oder eine Beschreibung an das GPT3-Textgenerierungstool von OpenAI, um menschenähnliche Marketingtexte für Ihre Nachrichten zu generieren.
+Wenn ein Textblock in Ihrer In-App-Nachricht ausgewählt ist, wählen Sie <i class="fa-solid fa-wand-magic-sparkles" title="KI-Texter"></i> **KI-Texter** in der Block-Symbolleiste, um den [KI-gestützten Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy) zu starten. Der KI-Textassistent übergibt einen kurzen Produktnamen oder eine Beschreibung an das GPT3-Textgenerierungstool von OpenAI, um menschenähnliche Marketingtexte für Ihre Nachrichten zu generieren.
 
 {% alert tip %}
 Sie können sich einige Klicks sparen, indem Sie Text innerhalb des Blocks markieren, bevor Sie auf das Symbol klicken. Der markierte Text wird dem Tool hinzugefügt, und der Text wird sofort generiert.

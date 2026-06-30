@@ -7,9 +7,40 @@ tool: Currents
 
 # Registro de cambios de Currents {#currents-changelog}
 
-## Cambios en la versión 9 (fecha de lanzamiento: 03-06-2026) {#changes-in-version-9-release-date-2026-06-03}
+## Cambios en la versión 10 (fecha de lanzamiento: 01-07-2026) {#changes-in-version-10-release-date-2026-07-01}
 
 ### Cambios en el almacenamiento: {#changes-for-storage}
+
+* Se añadió un nuevo tipo de evento `users.canvas.costep.Send`.
+
+* Se añadió un nuevo tipo de evento `users.UserDeleteRequest`.
+
+* Se añadió un nuevo tipo de evento `users.UserOrphan`.
+
+* Cambios de campo en el tipo de evento `users.messages.rcs.Abort`:
+    * Se añadió un nuevo campo `string` `canvas_id`: ID de API del Canvas al que pertenece este evento
+
+* Cambios de campo en el tipo de evento `users.messages.rcs.Click`:
+    * Se añadió un nuevo campo `string` `canvas_id`: ID de API del Canvas al que pertenece este evento
+
+* Cambios de campo en el tipo de evento `users.messages.rcs.Delivery`:
+    * Se añadió un nuevo campo `string` `canvas_id`: ID de API del Canvas al que pertenece este evento
+
+* Cambios de campo en el tipo de evento `users.messages.rcs.InboundReceive`:
+    * Se añadió un nuevo campo `string` `canvas_id`: ID de API del Canvas al que pertenece este evento
+
+* Cambios de campo en el tipo de evento `users.messages.rcs.Read`:
+    * Se añadió un nuevo campo `string` `canvas_id`: ID de API del Canvas al que pertenece este evento
+
+* Cambios de campo en el tipo de evento `users.messages.rcs.Rejection`:
+    * Se añadió un nuevo campo `string` `canvas_id`: ID de API del Canvas al que pertenece este evento
+
+* Cambios de campo en el tipo de evento `users.messages.rcs.Send`:
+    * Se añadió un nuevo campo `string` `canvas_id`: ID de API del Canvas al que pertenece este evento
+
+## Cambios en la versión 9 (fecha de lanzamiento: 03-06-2026) {#changes-in-version-9-release-date-2026-06-03}
+
+### Cambios en el almacenamiento:
 
 * Cambios de campo en el tipo de evento `users.messages.email.Send`:
     * Se añadió un nuevo campo `string` `from_domain`: dominio de envío del correo electrónico
@@ -83,7 +114,7 @@ tool: Currents
     * Se añadió un nuevo campo `string` `error`: descripción del error
 
 * Cambios de campo en el tipo de evento `agentconsole.ToolInvocation`:
-    * Se añadió un nuevo campo `string` `request_id`: ID único para esta solicitud LLM global y ejecución completa
+    * Se añadió un nuevo campo `string` `request_id`: ID único para esta solicitud LLM general y ejecución completa
 
 * Cambios de campo en el tipo de evento `users.messages.rcs.InboundReceive`:
     * Se añadió un nuevo campo `string` `canvas_variation_name`: nombre de la variación de Canvas que recibió este usuario
@@ -167,7 +198,7 @@ tool: Currents
     * Se añadió un nuevo campo `boolean` `is_sms_fallback`: indica que se envió un mensaje SMS alternativo debido al rechazo de un mensaje RCS. El mensaje puede resultar en entrega, fallo de entrega o rechazo. Se puede vincular al evento de rechazo RCS mediante un ID de envío y un ID de despacho.
 
 * Cambios de campo en el tipo de evento `users.messages.sms.Rejection`:
-    * Se añadió un nuevo campo `boolean` `is_sms_fallback`: indica que se envió un mensaje SMS alternativo debido al rechazo de un mensaje RCS. El mensaje puede resultar en entrega, fallo de entrega o rechazo. Se puede vincular al evento de rechazo RCS mediante un ID de envío y un ID de despacho. (Propiedad del evento)
+    * Se añadió un nuevo campo `boolean` `is_sms_fallback`: indica que se envió un mensaje SMS alternativo debido al rechazo de un mensaje RCS. El mensaje puede resultar en entrega, fallo de entrega o rechazo. Se puede vincular al evento de rechazo RCS mediante un ID de envío y un ID de despacho.
 
 * Cambios de campo en el tipo de evento `users.messages.whatsapp.Delivery`:
     * Se añadió un nuevo campo `string` `flow_id`: el ID único del flujo en el administrador de WhatsApp. Presente si el mensaje incluye una llamada a la acción para responder a un flujo de WhatsApp.

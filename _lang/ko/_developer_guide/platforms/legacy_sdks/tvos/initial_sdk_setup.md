@@ -16,7 +16,7 @@ noindex: true
 > 이 참조 문서에서는 tvOS용 Braze SDK를 설치하는 방법을 설명합니다. Braze SDK를 설치하면 기본적인 분석 기능을 사용할 수 있습니다.
 
 {% alert note %}
-현재 tvOS SDK는 분석 기능을 지원합니다. 대시보드에 tvOS 앱을 추가하려면 [지원 티켓]({{site.baseurl}}/braze_support/)을 여세요.
+현재 tvOS SDK는 분석 기능을 지원합니다. 대시보드에 tvOS 앱을 추가하려면 [지원 티켓]({{site.baseurl}}/braze_support)을 여세요.
 {% endalert %}
 
 tvOS Braze SDK는 Objective-C 및 Swift 프로젝트의 종속성 매니저인 [CocoaPods](http://cocoapods.org/)를 사용하여 설치하거나 업데이트해야 합니다. CocoaPods를 사용하면 통합과 업데이트가 더욱 간편해집니다.
@@ -25,7 +25,7 @@ tvOS Braze SDK는 Objective-C 및 Swift 프로젝트의 종속성 매니저인 [
 
 ### 1단계: CocoaPods 설치 {#step-1-install-cocoapods}
 
-tvOS [CocoaPods](http://cocoapods.org/)를 통해 SDK를 설치하면 대부분의 설치 과정이 자동으로 수행됩니다. 이 프로세스를 시작하기 전에 [Ruby 버전 2.0.0](https://www.ruby-lang.org/en/installation/) 이상을 사용 중인지 확인합니다.
+tvOS [CocoaPods](http://cocoapods.org/)를 통해 SDK를 설치하면 대부분의 설치 과정이 자동으로 수행됩니다. 이 프로세스를 시작하기 전에 [Ruby 버전 2.0.0](https://www.ruby-lang.org/en/installation/) 이상을 사용 중인지 확인하세요.
 
 시작하려면 다음 명령을 실행하세요:
 
@@ -34,7 +34,7 @@ $ sudo gem install cocoapods
 ```
 
 - `rake` 실행 파일을 덮어쓰라는 프롬프트가 표시되면 자세한 내용은 CocoaPods.org의 [시작하기](http://guides.cocoapods.org/using/getting-started.html)를 참조하세요.
-- CocoaPods에 대한 문제가 있는 경우 [CocoaPods 문제 해결 가이드](http://guides.cocoapods.org/using/troubleshooting.html)를 참조하세요.
+- CocoaPods 관련 문제가 있는 경우 [CocoaPods 문제 해결 가이드](http://guides.cocoapods.org/using/troubleshooting.html)를 참조하세요.
 
 ### 2단계: Podfile 구성 {#step-2-constructing-the-podfile}
 
@@ -59,7 +59,7 @@ pod install
 
 이때 CocoaPods에서 생성한 새 Xcode 프로젝트 워크스페이스를 열 수 있어야 합니다. Xcode 프로젝트 대신 이 Xcode 워크스페이스를 사용해야 합니다.
 
-![]({% image_buster /assets/img_archive/podsworkspace.png %})
+![CocoaPods에서 생성한 새 Xcode 프로젝트 워크스페이스를 열 수 있어야 합니다. Xcode 프로젝트 대신 이 Xcode 워크스페이스를 사용해야 합니다.]({% image_buster /assets/img_archive/podsworkspace.png %})
 
 ### 4단계: 앱 델리게이트 업데이트 {#step-4-updating-your-app-delegate}
 
@@ -113,7 +113,7 @@ Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launc
 ### 5단계: 커스텀 엔드포인트 또는 데이터 클러스터 지정 {#step-5-specify-your-custom-endpoint-or-data-cluster}
 
 {% alert note %}
-2019년 12월부터 커스텀 엔드포인트는 더 이상 제공되지 않으며, 기존 커스텀 엔드포인트가 있는 경우 계속 사용할 수 있습니다. 자세한 내용은 <a href="{{site.baseurl}}/api/basics/#endpoints">사용 가능한 엔드포인트 목록</a> 을 참조하세요.
+2019년 12월부터 커스텀 엔드포인트는 더 이상 제공되지 않으며, 기존 커스텀 엔드포인트가 있는 경우 계속 사용할 수 있습니다. 자세한 내용은 <a href="{{site.baseurl}}/api/basics#endpoints">사용 가능한 엔드포인트 목록</a> 을 참조하세요.
 {% endalert %}
 
 Braze 담당자가 이미 [올바른 엔드포인트]({{ site.baseurl }}/user_guide/administrative/access_braze/sdk_endpoints/)에 대해 안내했을 것입니다.
@@ -193,4 +193,4 @@ Appboy의 `sharedInstance`(표준 구현)에 액세스하기 전에 `didFinishLa
 [퍼블릭 리포지토리](https://github.com/appboy/appboy-ios-sdk)에서 프레임워크를 가져와 이전 섹션에서 설명한 대로 Braze를 초기화하면 tvOS SDK를 수동으로 통합할 수도 있습니다.
 
 ## 사용자 식별 및 분석 보고 {#identifying-users-and-reporting-analytics}
-사용자 ID 설정, 커스텀 이벤트 기록, 사용자 속성 설정에 대한 자세한 내용은 [iOS 설명서]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=swift)를 참조하세요. 또한 [이벤트 이름 지정 규칙]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/)을 숙지하는 것이 좋습니다.
+사용자 ID 설정, 커스텀 이벤트 기록, 사용자 속성 설정에 대한 자세한 내용은 [iOS 설명서]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=swift)를 참조하세요. 또한 [이벤트 이름 지정 규칙]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions)을 숙지하는 것이 좋습니다.

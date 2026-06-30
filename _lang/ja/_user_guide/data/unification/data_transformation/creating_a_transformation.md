@@ -14,7 +14,7 @@ description: "このリファレンス記事では、Brazeデータ変換を使�
 
 | 必要条件 | 説明 |
 | --- | --- |
-| 2要素認証またはSSO | アカウントで[2要素認証]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#two-factor-authentication)（2FA）または[シングルサインオン]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#single-sign-on-sso-authentication)（SSO）を有効にする必要があります。 |
+| 2要素認証またはSSO | アカウントで[2要素認証]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication)（2FA）または[シングルサインオン]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication)（SSO）を有効にする必要があります。 |
 | 正しい権限 | アカウント管理者またはワークスペース管理者であるか、「変換の管理」ユーザー権限を持っている必要があります。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
@@ -28,7 +28,7 @@ Brazeに接続する外部プラットフォームを特定し、そのプラッ
 
 ## ステップ2:変換の作成 {#step-2-create-a-transformation}
 
-{% multi_lang_include create_transformation.md location="default" %}
+{% multi_lang_include data_activation/create_transformation.md location="default" %}
 
 ## ステップ3:テストWebhookの送信（推奨） {#step-3-send-a-test-webhook-recommended}
 
@@ -46,7 +46,7 @@ Typeformの場合は以下のようになります。
 ![WebhookをBrazeユーザープロファイルにマッピングするデータ変換コードの例。]({% image_buster /assets/img/data_transformation/data_transformation11.png %})
 
 {% alert note %}
-Brazeデータ変換は、Webhookに特別な検証や認証を必要とする外部プラットフォームをまだサポートしていない可能性があります。Brazeデータ変換でこのタイプのプラットフォームを使用することに関心がある場合は、[製品フィードバック]({{site.baseurl}}/user_guide/administer/personal/product_portal/)を残すことを検討してください。
+Brazeデータ変換は、Webhookに特別な検証や認証を必要とする外部プラットフォームをまだサポートしていない可能性があります。Brazeデータ変換でこのタイプのプラットフォームを使用することに関心がある場合は、[製品フィードバック]({{site.baseurl}}/user_guide/administer/personal/product_portal)を残すことを検討してください。
 {% endalert %}
 
 ## ステップ4:変換コードの記述 {#step-4-write-transformation-code}
@@ -56,7 +56,7 @@ JavaScriptコードの経験がほとんどないか、より詳しい手順を�
 開発者であるか、JavaScriptコードの経験が豊富な場合は、**上級 - POST:ユーザーの追跡**タブで、変換コードを記述するための大まかな手順を確認できます。
 
 {% alert tip %}
-AIで変換コードを生成するには、変換コードエディターの上にある**Code with Operator**を選択します。これを使用するには、変換にWebhookを送信する必要があります。ビルド済みテンプレートから開始するには、**Insert Template**を選択します。プロンプトの例については、[データ変換コードの生成]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-data-transformation-code)を参照してください。
+AIで変換コードを生成するには、変換コードエディターの上にある**Code with Operator**を選択します。これを使用するには、変換にWebhookを送信する必要があります。ビルド済みテンプレートから開始するには、**Insert Template**を選択します。プロンプトの例については、[データ変換コードの生成]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code)を参照してください。
 
 **Code with Operator**は、アカウントでOperatorが有効になっている場合にのみ使用できます。表示されない場合は、アカウントマネージャーにお問い合わせください。
 {% endalert %}
@@ -189,7 +189,7 @@ return brazecall;
 {:start="2"}
 2. `/catalogs`送信先の変換には、更新する特定のカタログを定義する`catalog_name`が必要です。このフィールドをハードコードするか、ペイロード行を介してWebhookフィールドでテンプレート化することができます。ペイロードオブジェクトのプロパティにアクセスするには、ドット表記を使用します。<br><br>
 3. カタログのどの項目を更新するかを、items配列の`id`フィールドで定義します。これらのフィールドはハードコードするか、ペイロード行を介してWebhookフィールドでテンプレート化することもできます。<br><br>`catalog_column`はプレースホルダーの値であることに留意してください。項目オブジェクトには、カタログに存在するフィールドのみを含めるようにしてください。<br><br>
-4. **Validate**を選択して、コード出力のプレビューを返し、[「複数のカタログ項目の更新」エンドポイント]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/)で受け入れ可能なリクエストであるかどうかを確認します。<br><br>
+4. **Validate**を選択して、コード出力のプレビューを返し、[「複数のカタログ項目の更新」エンドポイント]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items)で受け入れ可能なリクエストであるかどうかを確認します。<br><br>
 5. 変換をアクティブにします。アクティブにする前のコードに関するその他のサポートについては、Brazeアカウントマネージャーにお問い合わせください。<br><br>
 6. ソースプラットフォームにWebhookの送信を開始する設定があるかどうかを確認してください。Webhookが着信するたびに変換コードが実行され、カタログ項目の更新が開始されます。
 
@@ -198,7 +198,7 @@ return brazecall;
 {% endtab %}
 {% tab 上級 - ユーザーの追跡 %}
 
-このステップでは、WebhookペイロードをソースプラットフォームからJavaScriptオブジェクトの戻り値に変換します。この戻り値は、`/users/track`エンドポイントのリクエスト本文の形式に準拠している必要があります。
+このステップでは、Webhookペイロードをソースプラットフォームからのデータに基づいてJavaScriptオブジェクトの戻り値に変換します。この戻り値は、`/users/track`エンドポイントのリクエスト本文の形式に準拠している必要があります。
 
 - 変換コードはJavaScriptプログラミング言語で記述します。if/elseロジックなど、標準的なJavaScript制御フローがすべてサポートされています。
 - 変換コードは、`payload`変数を介してWebhookリクエスト本文にアクセスします。この変数は、リクエスト本文のJSONを解析して読み込まれたオブジェクトです。

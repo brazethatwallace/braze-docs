@@ -18,18 +18,18 @@ channel:
 > このページでは、SMSおよびRCSメッセージでリンク短縮を有効にする方法、短縮リンクのテスト、短縮リンクでのカスタムドメインの使用などについて説明します。
 
 {% alert important %}
-Brazeは[統合リンク短縮]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/?sdktab=unified)を段階的にロールアウトしています。これにより、すべてのSMSおよびRCSの短縮リンクが単一のパーソナライズ済みリンク形式（例：`brz.ai/abcdefgh`）に統合されます。
+Brazeは[統合リンク短縮]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening?sdktab=unified)を段階的にロールアウトしています。これにより、すべてのSMSおよびRCSの短縮リンクが単一のパーソナライズ済みリンク形式（例：`brz.ai/abcdefgh`）に統合されます。
 {% endalert %}
 
 {% sdktabs %}
 {% sdktab Legacy %}
 
-{% multi_lang_include link_shortening_temp/legacy_link_shortening.md %}
+{% multi_lang_include channels/sms/legacy_link_shortening.md %}
 
 {% endsdktab %}
 {% sdktab Unified %}
 
-{% multi_lang_include link_shortening_temp/unified_link_shortening.md %}
+{% multi_lang_include channels/sms/unified_link_shortening.md %}
 
 {% endsdktab %}
 {% endsdktabs %}

@@ -50,7 +50,7 @@ Braze에서 가장 일반적인 경합 조건 중 하나는 새로 생성된 사
 
 예를 들어, 사용자가 앱에 등록한 후 24시간 후에 프로모션 오퍼를 보낼 수 있습니다. 또는 사용자를 생성하거나 커스텀 속성을 기록하는 경우, 이 경합 조건을 방지하기 위해 프로세스를 진행하기 전에 1분의 지연을 추가할 수 있습니다.
 
-새 사용자가 Canvas에 진입하도록 트리거하는 특정 커스텀 이벤트에 대해 [Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/)에서도 이 지연을 추가할 수 있습니다.
+새 사용자가 Canvas에 진입하도록 트리거하는 특정 커스텀 이벤트에 대해 [Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration)에서도 이 지연을 추가할 수 있습니다.
 
 ## 시나리오 2: 여러 API 엔드포인트 사용 {#scenario-2-using-multiple-api-endpoints}
 
@@ -63,7 +63,7 @@ Braze에서 가장 일반적인 경합 조건 중 하나는 새로 생성된 사
 - 별도의 API 엔드포인트를 사용하여 사용자를 생성하고 Canvas 또는 Campaign을 트리거하는 경우
 - `/users/track` 엔드포인트에 여러 개의 별도 호출을 하여 커스텀 속성, 이벤트 또는 구매를 업데이트하는 경우
 
-[`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)를 사용하여 사용자 정보를 Braze에 전송하면, 처리하는 데 몇 초가 걸릴 수 있습니다. 이는 `/users/track`과 `/campaign/trigger/send`와 같은 메시징 엔드포인트에 동시에 요청이 이루어질 때, 메시지가 전송되기 전에 사용자 정보가 업데이트된다는 보장이 없다는 것을 의미합니다.
+[`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하여 사용자 정보를 Braze에 전송하면, 처리하는 데 몇 초가 걸릴 수 있습니다. 이는 `/users/track`과 `/campaign/trigger/send`와 같은 메시징 엔드포인트에 동시에 요청이 이루어질 때, 메시지가 전송되기 전에 사용자 정보가 업데이트된다는 보장이 없다는 것을 의미합니다.
 
 {% alert note %}
 사용자 속성과 이벤트가 동일한 요청으로 전송되는 경우(`/users/track` 또는 SDK에서), Braze는 이벤트를 처리하거나 메시지를 전송하기 전에 속성을 먼저 처리합니다.
@@ -79,15 +79,15 @@ Braze에서 가장 일반적인 경합 조건 중 하나는 새로 생성된 사
 
 #### 트리거와 함께 핵심 데이터 포함 {#include-key-data-with-the-trigger}
 
-여러 엔드포인트를 사용하는 대신, [`campaign/trigger/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)를 사용하여 단일 API 호출에 [사용자 속성]({{site.baseurl}}/api/objects_filters/user_attributes_object/#object-body)과 [트리거 등록정보]({{site.baseurl}}/api/objects_filters/trigger_properties_object/)를 포함할 수 있습니다.
+여러 엔드포인트를 사용하는 대신, [`campaign/trigger/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)를 사용하여 단일 API 호출에 [사용자 속성]({{site.baseurl}}/api/objects_filters/user_attributes_object#object-body)과 [트리거 등록정보]({{site.baseurl}}/api/objects_filters/trigger_properties_object)를 포함할 수 있습니다.
 
 이러한 오브젝트가 트리거와 함께 포함되면, 메시지가 트리거되기 전에 속성이 먼저 처리되어 잠재적인 경합 조건을 제거합니다. 트리거 등록정보는 고객 프로필을 업데이트하지 않으며, 메시지의 컨텍스트에서만 사용된다는 점에 유의하세요.
 
 #### POST: Track users (sync) 엔드포인트 사용 {#use-the-post-track-users-sync-endpoint}
 
-[`/users/track/sync/` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/)를 사용하여 커스텀 이벤트와 구매를 기록하고 고객 프로필 속성을 동기적으로 업데이트할 수 있습니다. 이 엔드포인트를 사용하여 고객 프로필을 동시에 단일 호출로 업데이트하면 잠재적인 경합 조건을 방지하는 데 도움이 됩니다.
+[`/users/track/sync/` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous)를 사용하여 커스텀 이벤트와 구매를 기록하고 고객 프로필 속성을 동기적으로 업데이트할 수 있습니다. 이 엔드포인트를 사용하여 고객 프로필을 동시에 단일 호출로 업데이트하면 잠재적인 경합 조건을 방지하는 데 도움이 됩니다.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This endpoint' type='beta' %}
 
 ## 시나리오 3: 동작 기반 트리거와 오디언스 필터 매칭 {#scenario-3-matching-action-based-triggers-and-audience-filters}
 
@@ -97,7 +97,7 @@ Braze에서 가장 일반적인 경합 조건 중 하나는 새로 생성된 사
 
 #### 지연 후 오디언스 확인 {#check-your-audience-after-a-delay}
 
-트리거 기준을 포함하는 오디언스 필터를 사용하지 않으려면, 전달 전에 오디언스를 확인하는 것을 권장합니다. 예를 들어, Canvas 메시지 단계에서 [전달 유효성 검사를 사용]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#edit-delivery-settings)하여 메시지 전송 시 오디언스가 전달 기준을 충족하는지 추가로 확인할 수 있습니다. 또한 Canvas의 종료 기준을 활용하여 사용자 여정 중 언제든지 기준을 충족하는 사용자를 종료시킬 수 있습니다.
+트리거 기준을 포함하는 오디언스 필터를 사용하지 않으려면, 전달 전에 오디언스를 확인하는 것을 권장합니다. 예를 들어, Canvas 메시지 단계에서 [전달 유효성 검사를 사용]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#edit-delivery-settings)하여 메시지 전송 시 오디언스가 전달 기준을 충족하는지 추가로 확인할 수 있습니다. 또한 Canvas의 종료 기준을 활용하여 사용자 여정 중 언제든지 기준을 충족하는 사용자를 종료시킬 수 있습니다.
 
 Campaign의 경우, 종료 이벤트를 사용하여 트리거 이벤트가 있는 Campaign이 지연 중에 종료 이벤트를 수행하는 사용자에게 메시지를 중단할 수 있습니다.
 

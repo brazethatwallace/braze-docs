@@ -16,7 +16,7 @@ hidden: true
 
 This upgrade path is intended for brands with a Shopify online store. 
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## Upgrade requirements
 

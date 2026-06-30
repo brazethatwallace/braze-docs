@@ -1,14 +1,14 @@
 ---
 nav_title: Prompt-Bibliothek
 article_title: Prompt-Bibliothek für BrazeAI Operator
-page_order: 5
+page_order: 4
 page_type: reference
 description: "Durchsuchen Sie Beispiel-Prompts für BrazeAI Operator, organisiert nach dem, was Sie erreichen möchten."
 ---
 
 # Prompt-Bibliothek für BrazeAI Operator {#prompt-library-for-brazeai-operator}
 
-> Durchsuchen Sie eine kuratierte Sammlung von Beispiel-Prompts für den Operator, zusammengestellt von Braze-Expert:innen. Wählen Sie ein Ziel aus, um relevante Prompts zu finden. Weitere Informationen finden Sie unter [Seitenabhängigen Kontext nutzen]({{site.baseurl}}/user_guide/brazeai/operator/#leverage-page-aware-context).
+> Durchsuchen Sie eine kuratierte Sammlung von Beispiel-Prompts für den Operator, zusammengestellt von Braze-Expert:innen. Wählen Sie ein Ziel aus, um relevante Prompts zu finden. Weitere Informationen finden Sie unter [Seitenabhängigen Kontext nutzen]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context).
 
 
 <div class="prompt-library-tabs">

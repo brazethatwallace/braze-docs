@@ -47,7 +47,7 @@ Os papéis permitem mais estrutura ao agrupar suas permissões personalizadas in
 
 ## Qual a diferença entre conjuntos de permissões, papéis e equipes? {#how-do-permission-sets-and-roles-differ-from-teams}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ### Considerações ao adicionar permissões de usuário a equipes {#considerations-for-adding-user-permissions-to-teams}
 
@@ -114,7 +114,7 @@ Administradores têm acesso a todos os recursos e a capacidade de modificar qual
 Para conceder ou remover privilégios de administrador, selecione **Este usuário é um administrador** e depois selecione **Atualizar usuário**.
 
 {% alert warning %}
-Se você remover os privilégios de administrador de um usuário, ele não poderá acessar a Braze até que você atribua pelo menos uma [permissão no nível da empresa ou do espaço de trabalho]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).
+Se você remover os privilégios de administrador de um usuário, ele não poderá acessar a Braze até que você atribua pelo menos uma [permissão no nível da empresa ou do espaço de trabalho]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).
 {% endalert %}
 
 {% endtab %}
@@ -135,7 +135,7 @@ Para gerenciar as seguintes permissões no nível da empresa para um usuário, m
 
 ### Espaço de trabalho {#workspace}
 
-Você pode conceder a um usuário permissões diferentes para cada espaço de trabalho ao qual ele pertence na Braze. Para gerenciar as permissões no nível do espaço de trabalho, selecione **Selecionar espaços de trabalho e permissões** e escolha as permissões manualmente ou atribua um [conjunto de permissões ou papel]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) que você criou anteriormente. Se precisar conceder a um usuário permissões diferentes para espaços de trabalho diferentes, repita esse processo quantas vezes for necessário. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
+Você pode conceder a um usuário permissões diferentes para cada espaço de trabalho ao qual ele pertence na Braze. Para gerenciar as permissões no nível do espaço de trabalho, selecione **Selecionar espaços de trabalho e permissões** e escolha as permissões manualmente ou atribua um [conjunto de permissões ou papel]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) que você criou anteriormente. Se precisar conceder a um usuário permissões diferentes para espaços de trabalho diferentes, repita esse processo quantas vezes for necessário. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
 
 {% subtabs %}
 {% subtab Selecionar manualmente %}

@@ -26,7 +26,7 @@ L'Optimiseur de contenu est un agent qui s'exécute dans une étape du Canvas. I
 - Tester rapidement de grands volumes de variantes de contenu en tirant parti de l'intelligence artificielle pour l'idéation.
 - Éliminer automatiquement les contenus peu performants et donner plus de visibilité à ceux qui fonctionnent le mieux.
 
-Découvrez comment créer une [étape d'Optimiseur de contenu]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step/).
+Découvrez comment créer une [étape d'Optimiseur de contenu]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step).
 
 ## Cas d'utilisation {#use-cases}
 
@@ -66,7 +66,7 @@ L'algorithme d'optimisation bandit propriétaire de Braze est spécialement con�
 
 Lorsque l'étape est lancée pour la première fois, l'Optimiseur de contenu envoie des variantes de manière aléatoire afin de collecter des données de performance initiales. Après cette période d'exploration initiale, l'algorithme commence à rediriger le trafic vers les combinaisons de contenus les plus performantes, réduisant progressivement l'allocation aux options moins performantes. Pendant la période d'exploration, le trafic est généralement réparti entre les variantes disponibles afin de permettre à l'algorithme d'évaluer leurs performances relatives.
 
-L'Optimiseur de contenu est similaire à l'étape Message dans Canvas, avec des fonctionnalités telles que les heures calmes, le [timing intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/) et la journalisation des événements. Vous pouvez configurer une étape d'Optimiseur de contenu en créant un message de base et en définissant les composants de contenu (tels que la ligne d'objet, le corps du texte ou l'appel à l'action) à optimiser. Les variantes de chaque composant peuvent être générées par l'intelligence artificielle ou saisies manuellement, et des étiquettes Liquid doivent être ajoutées au message de base pour associer les composants au contenu du message.
+L'Optimiseur de contenu est similaire à l'étape Message dans Canvas, avec des fonctionnalités telles que les heures calmes, le [timing intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) et la journalisation des événements. Vous pouvez configurer une étape d'Optimiseur de contenu en créant un message de base et en définissant les composants de contenu (tels que la ligne d'objet, le corps du texte ou l'appel à l'action) à optimiser. Les variantes de chaque composant peuvent être générées par l'intelligence artificielle ou saisies manuellement, et des étiquettes Liquid doivent être ajoutées au message de base pour associer les composants au contenu du message.
 
 Chaque utilisateur reçoit un seul message par entrée dans l'étape d'Optimiseur de contenu. Les réentrées sont traitées comme de nouvelles entrées, sans mémoire des variantes précédentes.
 
@@ -74,7 +74,7 @@ Chaque utilisateur reçoit un seul message par entrée dans l'étape d'Optimiseu
 
 Pour obtenir les meilleurs résultats, utilisez l'Optimiseur de contenu dans des Canvas où les utilisateurs entrent dans l'étape progressivement et régulièrement au fil du temps, par exemple dans des Canvas récurrents ou toujours actifs avec un volume quotidien constant. Si tous les utilisateurs entrent dans l'étape en même temps, l'agent n'aura pas le temps de tirer des enseignements des premiers résultats. L'étape se comportera alors davantage comme un test A/B statique que comme un moteur d'optimisation en temps réel.
 
-L'Optimiseur de contenu est particulièrement adapté aux Canvas à entrée récurrente quotidienne, ainsi qu'aux Canvas déclenchés par événement ou par API avec un volume d'entrées quotidien relativement constant. Si vous utilisez l'Optimiseur de contenu dans des Canvas à envoi unique ou à entrées « en pic » (comme les envois mensuels récurrents), envisagez d'utiliser les [contrôles d'entrée]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls) pour lisser les entrées des utilisateurs sur plusieurs jours.
+L'Optimiseur de contenu est particulièrement adapté aux Canvas à entrée récurrente quotidienne, ainsi qu'aux Canvas déclenchés par événement ou par API avec un volume d'entrées quotidien relativement constant. Si vous utilisez l'Optimiseur de contenu dans des Canvas à envoi unique ou à entrées « en pic » (comme les envois mensuels récurrents), envisagez d'utiliser les [contrôles d'entrée]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) pour lisser les entrées des utilisateurs sur plusieurs jours.
 
 ### Concepts clés {#key-concepts}
 
@@ -107,4 +107,4 @@ L'Optimiseur de contenu est particulièrement adapté aux Canvas à entrée réc
 ## Étapes suivantes {#next-steps}
 
 - Contactez votre gestionnaire de la satisfaction client pour participer à la version bêta ou pour obtenir une assistance à l'onboarding.
-- Découvrez comment créer une [étape d'Optimiseur de contenu]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step/).
+- Découvrez comment créer une [étape d'Optimiseur de contenu]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step).

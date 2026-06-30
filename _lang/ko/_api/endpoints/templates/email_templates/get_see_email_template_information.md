@@ -23,7 +23,7 @@ description: "이 문서에서는 이메일 템플릿 보기 Braze 엔드포인�
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e98d2d5b-62fe-4358-b391-9fe9e460d0ac {% endapiref %}
 
 ## 필수 조건 {#prerequisites}
-이 엔드포인트를 사용하려면 `templates.email.info` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `templates.email.info` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -33,8 +33,8 @@ description: "이 문서에서는 이메일 템플릿 보기 Braze 엔드포인�
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
-| `email_template_id` | 필수 | 문자열 | [이메일 템플릿 API 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `email_template_id` | 필수 | 문자열 | [이메일 템플릿 API 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 {% raw %}

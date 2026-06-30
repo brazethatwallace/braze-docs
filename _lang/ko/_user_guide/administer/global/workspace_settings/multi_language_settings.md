@@ -12,7 +12,7 @@ description: "이 문서에서는 Braze 대시보드의 다중 언어 설정에 
 
 ## 필수 조건 {#prerequisites}
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 ## 로캘 추가 {#add-a-locale}
 

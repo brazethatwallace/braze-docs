@@ -48,3 +48,8 @@ lhci-urls.txt
 # AI planning artifacts (local only, never committed)
 docs/brainstorms/
 docs/plans/
+
+# Claude Code local settings (commit only skill symlinks under .claude/skills/)
+.claude/*
+!.claude/skills/
+!.claude/skills/**

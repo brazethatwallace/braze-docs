@@ -21,9 +21,9 @@ guide_featured_list:
     image: /assets/img/braze_icons/briefcase-01.svg
   - name: オーディエンスパスステップ
     link: /docs/user_guide/messaging/canvas/canvas_components/audience_paths
-    image: /assets/img/braze_icons/users-01.svg 
+    image: /assets/img/braze_icons/users-01.svg
   - name: オーディエンス同期ステップ
-    link: /docs/partners/canvas_audience_sync/
+    link: /docs/partners/canvas_audience_sync
     image: /assets/img/braze_icons/refresh-ccw-02.svg
   - name: コンテンツオプティマイザーステップ
     link: /docs/user_guide/messaging/canvas/canvas_components/content_optimizer_step
@@ -46,7 +46,7 @@ guide_featured_list:
   - name: メッセージステップ
     link: /docs/user_guide/messaging/canvas/canvas_components/message_step
     image: /assets/img/braze_icons/message-square-02.svg
-  - name: 送信先ステップ
+  - name: 指定先に送信ステップ
     link: /docs/user_guide/messaging/canvas/canvas_components/send_to_destination
     image: /assets/img/braze_icons/dataflow-02.svg
   - name: ユーザーの更新ステップ
@@ -54,11 +54,11 @@ guide_featured_list:
     image: /assets/img/braze_icons/user-check-01.svg
 ---
 
-## キャンバスコンポーネントについて
+## キャンバスコンポーネントについて {#about-canvas-components}
 
 キャンバスコンポーネントを使用すると、新しいユーザージャーニーを実現し、プロセスを改善してオーディエンスへのリーチの効果を高めることができます。
 
-### ユーザージャーニーのカスタマイズ
+### ユーザージャーニーのカスタマイズ {#customizing-user-journeys}
 
 ![条件分岐ステップの後に遅延ステップとメッセージステップが続くキャンバスユーザージャーニーの例。]({% image_buster /assets/img/canvas_intro/canvas_intro.gif %}){: style="float:right;max-width:55%;margin-left:15px;"}
 
@@ -68,10 +68,10 @@ guide_featured_list:
 
 [遅延]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step)コンポーネントを使用すると、キャンバス内の単一ステップを遅延させることができます。キャンバス内のこのスタンドアロンの遅延ステップは、特定のタイミングでユーザーにメッセージを送信する場合に最適です。さらに、遅延コンポーネントは、オーディエンスがコンポーネントの条件を満たすための時間を確保することで、オーディエンスリーチを拡大する効果もあります。
 
-### テスト
+### テスト {#testing}
 
 ユーザージャーニーを作成する際に、最も効果的なキャンバスパスをテストしたい場合があります。[実験パス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)を使用すると、任意のステップで複数のキャンバスパスをテストできます。また、ステップ間の接続を高レベルのプレビューとして使用することもできます。オレンジ色の接続は、前のステップがユーザーを次のステップにすぐに進めることを示しています。
 
-### 統合
+### 統合 {#integration}
 
-ブランドのファーストパーティユーザーデータと同期したいですか？[Facebook]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync/) および [Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/) で利用可能なオーディエンス同期オプションを活用しましょう。
+ブランドのファーストパーティユーザーデータと同期したいですか？[Facebook]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync)および[Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync)で利用可能なオーディエンス同期オプションを活用しましょう。

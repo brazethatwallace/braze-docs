@@ -58,11 +58,11 @@ Antes de começar a enviar e-mails, você precisa de alguns itens. Consulte a ta
 O aquecimento de IP é a **etapa mais importante** no processo de configuração de e-mail. Embora não seja sua primeira etapa (na verdade, é a última), estamos destacando aqui para informar que você deve aquecer seu endereço IP. Caso contrário, qualquer e-mail que você enviar será direcionado para spam ou estará sujeito a outras barreiras de envio.
 {% endalert %}
 
-O [aquecimento de IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/) é quando você envia um número relativamente pequeno de e-mails no seu primeiro lote e, ao longo do tempo, aumenta gradualmente o volume nos lotes seguintes até atingir seu volume diário típico. Isso é feito no final do processo de configuração de e-mail.
+O [aquecimento de IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) é quando você envia um número relativamente pequeno de e-mails no seu primeiro lote e, ao longo do tempo, aumenta gradualmente o volume nos lotes seguintes até atingir seu volume diário típico. Isso é feito no final do processo de configuração de e-mail.
 
 Ao começar com volumes menores de e-mail, você estabelece um nível de confiança com seu provedor de e-mail, mostrando que está enviando e-mails apenas para usuários relevantes. Enviar seu primeiro lote de e-mails para seus usuários mais engajados pode ajudar a ganhar confiança mais rapidamente com seu provedor.
 
-Depois de concluir o aquecimento do seu IP, você pode [começar a criar e enviar e-mails]({{site.baseurl}}/user_guide/channels/email/html_editor/)!
+Depois de concluir o aquecimento do seu IP, você pode [começar a criar e enviar e-mails]({{site.baseurl}}/user_guide/channels/email/html_editor)!
 
 ## E-mails de transação legalmente obrigatórios {#legally-required-transactional-emails}
 

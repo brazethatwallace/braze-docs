@@ -13,14 +13,14 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 # Eine In-App-Nachricht mit Drag-and-Drop erstellen {#create-an-in-app-message-with-drag-and-drop}
 
-> Mit dem Drag-and-Drop-Editor können Sie vollständig angepasste und personalisierte In-App-Nachrichten in Campaigns oder Canvases erstellen – ganz mit der Drag-and-Drop-Bearbeitungserfahrung. Weitere Informationen zu den verfügbaren Bausteinen im Editor finden Sie unter [Editor-Blöcke]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages).
+> Mit dem Drag-and-Drop-Editor können Sie vollständig angepasste und personalisierte In-App-Nachrichten in Campaigns oder Canvases erstellen – ganz mit der Drag-and-Drop-Bearbeitungserfahrung. Weitere Informationen zu den verfügbaren Bausteinen im Editor finden Sie unter [Editor-Blöcke]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
 
 
 {% multi_lang_include video.html id="j94omgo73o" align="right" source="wistia" %}
 
 Wenn Sie Ihre vorhandenen benutzerdefinierten HTML-Templates oder von Drittanbietern erstellte Templates verwenden möchten, müssen diese im Drag-and-Drop-Editor neu erstellt werden.
 
-Sie sind sich nicht sicher, ob Ihre In-App-Nachricht über eine Campaign oder einen [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/) gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind. Nachdem Sie ausgewählt haben, wo Sie Ihre Nachricht erstellen möchten, gehen wir die Schritte zum Erstellen einer Drag-and-Drop-In-App-Nachricht durch.
+Sie sind sich nicht sicher, ob Ihre In-App-Nachricht über eine Campaign oder einen [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas) gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind. Nachdem Sie ausgewählt haben, wo Sie Ihre Nachricht erstellen möchten, gehen wir die Schritte zum Erstellen einer Drag-and-Drop-In-App-Nachricht durch.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -134,9 +134,9 @@ Nutzer:innen können jederzeit den Schließen-X-Button auswählen, um die Nachri
 
 Hier kann Ihre Nachricht im Stil Ihrer Marke glänzen. Mit einer Kombination aus Editor-Blöcken und Stileinstellungen können Sie Ihre In-App-Nachricht anpassen und gestalten.
 
-- Eine Liste der verfügbaren Editor-Blöcke und ihrer Eigenschaften finden Sie unter [Editor-Blöcke]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages).
-- Hilfe beim Anpassen des Erscheinungsbilds Ihrer Nachricht finden Sie unter [Stileinstellungen]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/).
-- Best Practices zum Erstellen von Nachrichten mit Rechts-nach-Links-Schrift finden Sie unter [Rechts-nach-Links-Nachrichten erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
+- Eine Liste der verfügbaren Editor-Blöcke und ihrer Eigenschaften finden Sie unter [Editor-Blöcke]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
+- Hilfe beim Anpassen des Erscheinungsbilds Ihrer Nachricht finden Sie unter [Stileinstellungen]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings).
+- Best Practices zum Erstellen von Nachrichten mit Rechts-nach-Links-Schrift finden Sie unter [Rechts-nach-Links-Nachrichten erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ## 5. Schritt: Ihre In-App-Nachricht testen {#step-5-test-your-in-app-message}
 

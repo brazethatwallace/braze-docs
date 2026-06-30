@@ -53,4 +53,4 @@ Quanto mais informação e contexto, melhor! Inclua links para Campaigns, Canvas
 - Você tem algum insight adicional? (Por exemplo, como isso beneficiaria você e suas equipes)
 - Existem soluções alternativas atualmente? (Isso não é para nosso processo de priorização, mas pode ajudar em qualquer trabalho de descoberta de soluções)
 
-Para ver um exemplo de solicitação de produto bem escrita, consulte este [exemplo de solicitação de produto]({{site.baseurl}}/product_request/).
+Para ver um exemplo de solicitação de produto bem escrita, consulte este [exemplo de solicitação de produto]({{site.baseurl}}/product_request).

@@ -40,7 +40,7 @@ optilyzと統合するには、[optilyz API](https://www.optilyz.com/doc/api/) �
 
 ### ステップ 1: BrazeのWebhookテンプレートを作成する {#step-1-create-your-braze-webhook-template}
 
-将来のCampaignsやCanvasesで使用するoptilyz Webhookテンプレートを作成するには、Brazeプラットフォームで**コンテンツ** > **Webhook**に移動します。次に、**Webhookテンプレートを作成**を選択します。
+将来のキャンペーンやキャンバスで使用するoptilyz Webhookテンプレートを作成するには、Brazeプラットフォームで**コンテンツ** > **Webhook**に移動します。次に、**Webhookテンプレートを作成**を選択します。
 
 1回限りのoptilyz Webhookキャンペーンを作成するか、既存のテンプレートを使用する場合は、新しいキャンペーンを作成する際にBrazeで**Webhook**を選択します。
 

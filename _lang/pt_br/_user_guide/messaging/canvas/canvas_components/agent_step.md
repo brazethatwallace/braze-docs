@@ -11,13 +11,13 @@ toc_headers: h2
 
 # Etapa de agente {#agent-step}
 
-> A etapa de agente permite adicionar decisões baseadas em IA e geração de conteúdo diretamente no fluxo de trabalho do seu Canvas. Para informações mais gerais, consulte [Agentes da Braze]({{site.baseurl}}/user_guide/brazeai/agents/).
+> A etapa de agente permite adicionar decisões baseadas em IA e geração de conteúdo diretamente no fluxo de trabalho do seu Canvas. Para informações mais gerais, consulte [Agentes da Braze]({{site.baseurl}}/user_guide/brazeai/agents).
 
 ![Uma etapa de agente na jornada de usuário de um Canvas.]({% image_buster /assets/img/ai_agent/agent_step.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
 ## Pré-requisitos {#prerequisites}
 
-As etapas de agente usam [variáveis de contexto do Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/) para ingerir contexto relevante e gerar uma variável que pode ser utilizada no Canvas.
+As etapas de agente usam [variáveis de contexto do Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) para ingerir contexto relevante e gerar uma variável que pode ser utilizada no Canvas.
 
 ## Como funciona {#how-it-works}
 
@@ -37,23 +37,23 @@ Arraste e solte o componente **Agent** da barra lateral, ou selecione o botão d
 
 ### Etapa 2: Escolher o agente {#step-2-choose-your-agent}
 
-Selecione o agente que processará os dados nesta etapa. Para orientações de configuração, consulte [Criar agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/).
+Selecione o agente que processará os dados nesta etapa. Para orientações de configuração, consulte [Criar agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents).
 
-Na lista de agentes, cada agente é identificado com seu [limite diário de invocações]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#step-3-set-up-details). Passe o cursor sobre o limite para ver o progresso atual em relação a esse limite, incluindo a porcentagem utilizada e o número de invocações usadas hoje em comparação com o limite.
+Na lista de agentes, cada agente é identificado com seu [limite diário de invocações]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#step-3-set-up-details). Passe o cursor sobre o limite para ver o progresso atual em relação a esse limite, incluindo a porcentagem utilizada e o número de invocações usadas hoje em comparação com o limite.
 
 ![O painel Configurar etapa de agente mostrando o menu suspenso de agentes com dois agentes listados. Cada agente é identificado com seu limite diário de invocações. Uma dica de ferramenta no primeiro agente mostra a porcentagem utilizada e as invocações usadas hoje.]({% image_buster /assets/img/ai_agent/configure_agent_step.png %})
 
 ### Etapa 3: Definir a saída do agente {#define-the-output-variable}
 
-As saídas do agente são chamadas de "variáveis de saída" e são armazenadas em uma [variável de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#context-variable-types) para fácil acesso. Para definir a variável de saída, dê um nome à variável.
+As saídas do agente são chamadas de "variáveis de saída" e são armazenadas em uma [variável de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-types) para fácil acesso. Para definir a variável de saída, dê um nome à variável.
 
-O tipo de dado da variável de saída é definido no [Console do agente]({{site.baseurl}}/user_guide/brazeai/agents/). As saídas do agente podem ser salvas como strings, números, booleanos ou objetos. Isso as torna flexíveis tanto para personalização de texto quanto para lógica condicional no seu Canvas. Veja alguns usos comuns para cada tipo:
+O tipo de dado da variável de saída é definido no [Console do agente]({{site.baseurl}}/user_guide/brazeai/agents). As saídas do agente podem ser salvas como strings, números, booleanos ou objetos. Isso as torna flexíveis tanto para personalização de texto quanto para lógica condicional no seu Canvas. Veja alguns usos comuns para cada tipo:
 
 | Tipo de dado | Usos comuns |
 | --- | --- |
 | String | Personalização de mensagens (linhas de assunto, textos, respostas) |
-| Número | Pontuação, limites, roteamento em [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) |
-| Booleano | Ramificação Sim/Não em [Divisões de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) |
+| Número | Pontuação, limites, roteamento em [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) |
+| Booleano | Ramificação Sim/Não em [Divisões de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) |
 | Objeto | Aproveite um ou mais dos tipos de dados acima com uma única chamada de LLM em uma estrutura de dados previsível |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Definir a saída do agente" }
 
@@ -81,14 +81,14 @@ Após configurar sua etapa de agente, você pode testar e pré-visualizar a saí
 
 ## Tratamento de erros {#error-handling}
 
-Para saber como a Braze lida com falhas de agentes, erros de limite de taxa e controles de fluxo de invocação, consulte [Tratamento de erros e comportamento de fallback]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior) em Implantar agentes e [Tratamento de erros]({{site.baseurl}}/user_guide/brazeai/agents/#error-handling) em Agentes da Braze.
+Para saber como a Braze lida com falhas de agentes, erros de limite de taxa e controles de fluxo de invocação, consulte [Tratamento de erros e comportamento de fallback]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior) em Implantar agentes e [Tratamento de erros]({{site.baseurl}}/user_guide/brazeai/agents#error-handling) em Agentes da Braze.
 
-- Se o modelo conectado retornar um [erro de limite de taxa]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) do provedor de LLM, a Braze tenta novamente a solicitação de forma contínua usando backoff exponencial até que a chamada seja bem-sucedida ou a Braze determine que ela não pode ser concluída; os usuários então avançam para a próxima etapa do Canvas.
-- Para outras falhas (como erro de timeout ou chave de API inválida), ou quando um agente atinge seu limite diário de invocações, a variável de saída é definida como `null`, a menos que o agente tenha [valores de fallback configurados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) no Console do agente. Quando valores de fallback estão configurados, a Braze renderiza o fallback com Liquid por usuário e armazena o resultado na variável de saída, inclusive quando o limite diário bloqueia uma invocação.
-- Se você não configurar valores de fallback, use [valores padrão de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) nas etapas de mensagem subsequentes para lidar com saídas nulas. Por exemplo, no modal **Add Personalization**, você pode inserir um valor padrão de Liquid como {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} ou {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}.
+- Se o modelo conectado retornar um [erro de limite de taxa]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) do provedor de LLM, a Braze tenta novamente a solicitação de forma contínua usando backoff exponencial até que a chamada seja bem-sucedida ou a Braze determine que ela não pode ser concluída; os usuários então avançam para a próxima etapa do Canvas.
+- Para outras falhas (como erro de timeout ou chave de API inválida), ou quando um agente atinge seu limite diário de invocações, a variável de saída é definida como `null`, a menos que o agente tenha [valores de fallback configurados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) no Console do agente. Quando valores de fallback estão configurados, a Braze renderiza o fallback com Liquid por usuário e armazena o resultado na variável de saída, inclusive quando o limite diário bloqueia uma invocação.
+- Se você não configurar valores de fallback, use [valores padrão de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) nas etapas de mensagem subsequentes para lidar com saídas nulas. Por exemplo, no modal **Add Personalization**, você pode inserir um valor padrão de Liquid como {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} ou {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}.
 - As respostas são armazenadas em cache para entradas idênticas e podem ser reutilizadas para invocações idênticas repetidas dentro de alguns minutos.
     - Respostas que usam valores em cache ainda contam para o total e as invocações diárias.
-- As etapas de agente podem levar tempo para processar um grande lote de usuários. A Braze enfileira as invocações de acordo com os [controles de fluxo de invocação]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls), então os usuários podem permanecer pendentes durante envios de alto volume. Verifique seus registros para confirmar que as invocações estão acontecendo.
+- As etapas de agente podem levar tempo para processar um grande lote de usuários. A Braze enfileira as invocações de acordo com os [controles de fluxo de invocação]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls), então os usuários podem permanecer pendentes durante envios de alto volume. Verifique seus registros para confirmar que as invocações estão acontecendo.
 
 ## Análise de dados {#analytics}
 
@@ -110,12 +110,12 @@ Se você perceber que um agente está tendo dificuldades com a complexidade das 
 O padrão a seguir usa três agentes para um exemplo de viagens: alguém pesquisou no seu app recentemente, mas não fez a reserva, e você quer um texto de redirecionamento que o incentive a concluir a compra.
 
 - O agente 1 resume o contexto do Canvas. Ele lê campos como nível de fidelidade, última cidade pesquisada e comportamento de pesquisa de alta intenção, e retorna um resumo curto e estruturado como uma variável de saída que as etapas seguintes podem reutilizar.
-- O agente 2 retorna um valor de roteamento que seu Canvas pode usar para ramificação. Use um número, booleano ou objeto estruturado para que a saída corresponda à forma como você faz a ramificação. Mapeie esse valor para uma etapa de [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) ou [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/). Por exemplo, considere jornadas separadas para mensagens baseadas em fidelidade versus mensagens baseadas em ofertas.
+- O agente 2 retorna um valor de roteamento que seu Canvas pode usar para ramificação. Use um número, booleano ou objeto estruturado para que a saída corresponda à forma como você faz a ramificação. Mapeie esse valor para uma etapa de [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) ou [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split). Por exemplo, considere jornadas separadas para mensagens baseadas em fidelidade versus mensagens baseadas em ofertas.
 - O agente 3 redige o texto da mensagem gerada apenas nas ramificações onde você deseja. Passe o resumo do agente 1 (e qualquer contexto específico da ramificação) para que este agente se concentre no tom e nos limites do canal, em vez de normalizar entradas e escolher estratégias no mesmo prompt.
 
 ### Use a etapa Jornadas do experimento para testar jornadas com agentes em pequena escala {#use-the-experiment-paths-step-to-test-agentic-journeys-at-small-scale}
 
-Para testar o desempenho e o consumo de créditos do seu agente em comparação com suas jornadas existentes, adicione uma etapa de [Jornadas do experimento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) para que apenas parte do seu público entre na ramificação que contém sua etapa de agente.
+Para testar o desempenho e o consumo de créditos do seu agente em comparação com suas jornadas existentes, adicione uma etapa de [Jornadas do experimento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que apenas parte do seu público entre na ramificação que contém sua etapa de agente.
 
 Por exemplo, você pode começar enviando alguns milhares de usuários por dia por uma jornada com o agente e enviar o restante para uma jornada de controle ou uma jornada sem o agente. Colete dados por 1 a 2 semanas e compare indicadores-chave de desempenho (KPIs), contra-métricas e consumo de créditos do agente entre as jornadas. Dessa forma, você pode ganhar confiança e comprovar o ROI antes de aumentar o tráfego para a ramificação habilitada com agente, limitando o consumo de invocações ao mesmo tempo.
 
@@ -136,7 +136,7 @@ Uma etapa de agente analisa os dados de contexto que o agente está configurado 
 
 ## Artigos relacionados {#related-articles}
 
-- [Visão geral dos agentes da Braze]({{site.baseurl}}/user_guide/brazeai/agents/)
-- [Criar agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)
-- [Implantar agentes]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/)
-- [Referência para agentes]({{site.baseurl}}/user_guide/brazeai/agents/reference/)
+- [Visão geral dos agentes da Braze]({{site.baseurl}}/user_guide/brazeai/agents)
+- [Criar agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)
+- [Implantar agentes]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents)
+- [Referência para agentes]({{site.baseurl}}/user_guide/brazeai/agents/reference)

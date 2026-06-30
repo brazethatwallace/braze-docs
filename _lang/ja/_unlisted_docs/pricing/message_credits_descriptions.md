@@ -162,7 +162,7 @@ Brazeバナーの詳細については、[バナードキュメント]({{site.ba
 Audience Syncのクレジット比率は、合計ユーザー同期1,000回単位で計算されます。デフォルトでは、契約にはサブスクリプション期間の各期間ごとに500万回のユーザー同期が含まれています。追加のユーザー同期は、注文書に従って課金されます。
 
 {% alert note %}
-Canvas Audience Syncと利用可能なパートナーの詳細については、[Canvasドキュメント]({{site.baseurl}}/partners/canvas_steps/)を参照してください。
+キャンバス Audience Syncと利用可能なパートナーの詳細については、[キャンバスドキュメント]({{site.baseurl}}/partners/canvas_steps/)を参照してください。
 {% endalert %}
 
 ### メッセージのアーカイブ {#message-archiving}

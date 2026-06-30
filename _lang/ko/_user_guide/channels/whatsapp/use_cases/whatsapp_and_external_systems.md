@@ -30,7 +30,7 @@ Braze와 외부 AI 또는 커뮤니케이션 시스템 간의 통합은 양방�
 **인바운드 흐름:** 사용자의 메시지가 Braze에 도착한 후 처리를 위해 외부 시스템으로 전달됩니다.
 **아웃바운드 흐름:** 메시지를 처리한 후 외부 시스템이 Braze에 응답을 보내고, Braze가 최종 사용자에게 메시지를 전달합니다.
 
-이 커뮤니케이션을 효율적으로 자동화하기 위해 이 통합에서는 두 가지 주요 Braze 기능을 사용합니다: [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) 및 [API 트리거 Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/).
+이 커뮤니케이션을 효율적으로 자동화하기 위해 이 통합에서는 두 가지 주요 Braze 기능을 사용합니다: [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) 및 [API 트리거 Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
 
 ![Braze WhatsApp 채널과 외부 시스템 간의 통합 아키텍처.]({% image_buster /assets/img/whatsapp/external_system_architecture.png %})
 ## 통합 구성하기 {#configuring-the-integration}

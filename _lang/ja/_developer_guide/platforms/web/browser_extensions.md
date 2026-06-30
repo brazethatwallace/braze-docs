@@ -36,7 +36,7 @@ Brazeは、拡張機能の以下の領域に含めることができます。
 | ポップアップページ | [ポップアップ](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups)ページは、ブラウザのツールバーで拡張機能のアイコンをクリックするとユーザーに表示されるダイアログです。| 分析、アプリ内メッセージ、およびContent Cards |
 | バックグラウンドスクリプト | [バックグラウンドスクリプト](https://developer.chrome.com/extensions/background_pages)（Manifest v2のみ）は、拡張機能でユーザーナビゲーションの調査および操作や、Webページの変更を行えるようにします（広告ブロッカーがページ上のコンテンツを検出および変更する方法など）。| 分析、アプリ内メッセージ、およびContent Cards。<br><br>バックグラウンドスクリプトはユーザーには表示されないため、メッセージングを行う場合は、メッセージを表示するときにブラウザのタブやポップアップページと通信する必要があります。|
 | オプションページ | [オプションページ](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages)を使用すると、ユーザーは拡張機能内で設定を切り替えることができます。これは、新しいタブを開くスタンドアロンのHTMLページです。| 分析、アプリ内メッセージ、およびContent Cards |
-{: .reset-td-br-1 .reset-td-br-2, .reset-td-br-3 aria-label="Extension types" }
+{: .reset-td-br-1 .reset-td-br-2, .reset-td-br-3 aria-label="拡張機能の種類" }
 
 ## 権限 {#permissions}
 
@@ -47,7 +47,7 @@ Braze SDK（`braze.min.js`）を拡張機能にバンドルされたローカル
 ## はじめに {#getting-started}
 
 {% alert tip %}
-作業を始める前に、Web SDKの[初期SDK設定ガイド]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)を読んで、JavaScriptの統合全般について理解してください。<br><br>また、[JavaScript SDKリファレンス](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html)をブックマークして、さまざまなSDKメソッドと設定オプションの詳細を確認することもできます。
+作業を始める前に、Web SDKの[初期SDK設定ガイド]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)を読んで、JavaScriptの統合全般について理解してください。<br><br>また、[JavaScript SDKリファレンス](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html)をブックマークして、さまざまなSDKメソッドと設定オプションの詳細を確認することもお勧めします。
 {% endalert %}
 
 Braze Web SDKを統合するには、まず最新のJavaScriptライブラリーのコピーをダウンロードする必要があります。これは、NPMを使用するか、[Braze CDN](https://js.appboycdn.com/web-sdk/latest/braze.min.js)から直接ダウンロードすることで実行できます。
@@ -98,7 +98,7 @@ SDKが組み込まれると、通常どおりにライブラリーを初期化�
 
 Cookieはブラウザ拡張機能ではサポートされていないため、`noCookies: true`で初期化することでCookieを無効にできます。
 
-`````````javascript
+```javascript
 braze.initialize("YOUR-API-KEY-HERE", {
     baseUrl: "YOUR-API-ENDPOINT",
     enableLogging: true,

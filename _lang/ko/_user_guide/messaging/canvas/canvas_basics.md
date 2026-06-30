@@ -14,7 +14,7 @@ tool: Canvas
 
 ## Canvas 구조 이해하기 {#understanding-canvas-structure}
 
-[Canvas 설정]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)의 세부 사항을 살펴보기 전에, Canvas를 구성하는 핵심 요소를 파악해 보겠습니다.
+[Canvas 설정]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)의 세부 사항을 살펴보기 전에, Canvas를 구성하는 핵심 요소를 파악해 보겠습니다.
 
 {% tabs %}
   {% tab Canvas %}
@@ -31,7 +31,7 @@ tool: Canvas
   {% endtab %}
 
   {% tab Canvas 빌더 %}
-  Canvas 빌더는 Canvas를 생성할 때 수행할 단계를 매핑합니다. 여기에는 Canvas 이름 지정 및 Teams 추가와 같은 기본 사항이 포함됩니다. 기본적으로 Canvas 빌더는 Canvas 구축을 시작하기 전에 필요한 핵심 설정입니다. 여기에서 [진입 스케줄]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-2b-set-your-canvas-entry-schedule), [타겟 오디언스]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-2c-set-your-target-entry-audience), [발송 설정]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-2d-select-your-send-settings)을 편집하는 옵션을 통해 사용자가 고객 여정을 시작하고 완료하는 방식을 제어할 수 있습니다.<br><br> !["New Canvas"라는 이름의 Canvas에 대한 기본설정 섹션의 Canvas 빌더.]({% image_buster /assets/img_archive/canvas_flow_entry_wizard.png %}){: style="max-width:90%;"}
+  Canvas 빌더는 Canvas를 생성할 때 수행할 단계를 매핑합니다. 여기에는 Canvas 이름 지정 및 Teams 추가와 같은 기본 사항이 포함됩니다. 기본적으로 Canvas 빌더는 Canvas 구축을 시작하기 전에 필요한 핵심 설정입니다. 여기에서 [진입 스케줄]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2b-set-your-canvas-entry-schedule), [타겟 오디언스]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2c-set-your-target-entry-audience), [발송 설정]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2d-select-your-send-settings)을 편집하는 옵션을 통해 사용자가 고객 여정을 시작하고 완료하는 방식을 제어할 수 있습니다.<br><br> !["New Canvas"라는 이름의 Canvas에 대한 기본설정 섹션의 Canvas 빌더.]({% image_buster /assets/img_archive/canvas_flow_entry_wizard.png %}){: style="max-width:90%;"}
 
   {% endtab %}
 
@@ -41,7 +41,7 @@ tool: Canvas
   {% endtab %}
 
   {% tab 단계 %}
-  Canvas의 단계는 마케팅 의사결정 지점입니다: "이것이면, 저것을." [Canvas 구성요소]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/#about-canvas-components)를 활용하여 사용자 여정의 단계를 구축하세요.<br><br> ![Canvas에 지연 단계를 추가하는 예시.]({% image_buster /assets/img/canvas_intro/add_canvas_step.gif %}) <br><br> 사용자가 Canvas에 진입하면 첫 번째 단계부터 시작합니다. 각 단계에는 사용자가 다음 단계로 이동할 수 있는지 결정하는 조건이 있습니다. 단계 내에서 트리거를 설정하거나 전달을 스케줄하고, 필터를 추가하거나 예외 이벤트를 지정하여 타겟팅을 세분화하고, 푸시 알림이나 웹훅 이벤트와 같은 다양한 채널을 지정할 수 있습니다. Canvas에서 단계는 순차적으로 발생하므로, 첫 번째 단계가 완료된 후에 두 번째 단계가 발생합니다. 다음과 같은 단계가 있는 Canvas가 있다고 가정해 보겠습니다: 24시간 지연이 있는 지연 단계 A, 푸시 메시지가 있는 메시지 단계 A, 인앱 메시지가 있는 메시지 단계 B. 사용자 A는 24시간 지연 상태에 놓이고, 24시간 후에 푸시 메시지를 받은 다음 인앱 메시지를 받게 됩니다.
+  Canvas의 단계는 마케팅 의사결정 지점입니다: "이것이면, 저것을." [Canvas 구성요소]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components#about-canvas-components)를 활용하여 사용자 여정의 단계를 구축하세요.<br><br> ![Canvas에 지연 단계를 추가하는 예시.]({% image_buster /assets/img/canvas_intro/add_canvas_step.gif %}) <br><br> 사용자가 Canvas에 진입하면 첫 번째 단계부터 시작합니다. 각 단계에는 사용자가 다음 단계로 이동할 수 있는지 결정하는 조건이 있습니다. 단계 내에서 트리거를 설정하거나 전달을 스케줄하고, 필터를 추가하거나 예외 이벤트를 지정하여 타겟팅을 세분화하고, 푸시 알림이나 웹훅 이벤트와 같은 다양한 채널을 지정할 수 있습니다. Canvas에서 단계는 순차적으로 발생하므로, 첫 번째 단계가 완료된 후에 두 번째 단계가 발생합니다. 다음과 같은 단계가 있는 Canvas가 있다고 가정해 보겠습니다: 24시간 지연이 있는 지연 단계 A, 푸시 메시지가 있는 메시지 단계 A, 인앱 메시지가 있는 메시지 단계 B. 사용자 A는 24시간 지연 상태에 놓이고, 24시간 후에 푸시 메시지를 받은 다음 인앱 메시지를 받게 됩니다.
 
   {% endtab %}
 {% endtabs %}
@@ -64,7 +64,7 @@ Canvas에 태그를 추가하고 단계와 배리언트에 이름을 지정할 �
 
 명확한 목표를 염두에 두는 것은 항상 중요하며, Canvas는 세션 참여, 구매, 커스텀 이벤트와 같은 KPI에 대한 성과를 파악하는 데 도움을 줍니다.
 
-하나 이상의 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)를 선택하면 Canvas 내에서 성과를 최적화하는 방법을 이해할 수 있습니다. Canvas에 여러 배리언트 또는 대조군이 있는 경우, Braze는 전환 이벤트를 사용하여 이 목표를 달성하기 위한 최적의 배리언트를 결정합니다.
+하나 이상의 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)를 선택하면 Canvas 내에서 성과를 최적화하는 방법을 이해할 수 있습니다. Canvas에 여러 배리언트 또는 대조군이 있는 경우, Braze는 전환 이벤트를 사용하여 이 목표를 달성하기 위한 최적의 배리언트를 결정합니다.
 
 * **세션 시작**: 사용자가 다시 돌아와서 앱에 참여하기를 원합니다.
 * **구매하기**: 사용자가 구매하기를 원합니다.
@@ -78,7 +78,7 @@ Canvas에 태그를 추가하고 단계와 배리언트에 이름을 지정할 �
 이 질문에 대한 답변이 Canvas가 고객에게 전달되는 시기와 방법의 세부 사항을 결정합니다. 사용자는 스케줄 기반 또는 동작 기반 트리거의 두 가지 방법 중 하나로 Canvas에 진입할 수 있습니다.
 
 {% alert tip %}
-Canvas의 [시간 기반 기능]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/)에서 더 많은 전략과 자주 묻는 질문에 대한 답변을 확인하세요.
+Canvas의 [시간 기반 기능]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types)에서 더 많은 전략과 자주 묻는 질문에 대한 답변을 확인하세요.
 {% endalert %}
 
 스케줄 전달을 사용하면 타겟 오디언스에게 Canvas를 즉시 발송할 수 있습니다. 정기적으로 발송하거나 미래의 특정 시간에 스케줄할 수도 있습니다. 동작 기반 Canvas는 특정 고객 행동이 발생할 때 이에 반응합니다. 예를 들어, 동작 기반 트리거에는 앱 열기, 구매하기, 다른 Campaign과 상호작용하기, 또는 커스텀 이벤트 트리거가 포함될 수 있습니다. 동작이 발생하는 시점에 사용자에게 Canvas를 발송할 수 있습니다.
@@ -97,19 +97,19 @@ Canvas의 [시간 기반 기능]({{site.baseurl}}/user_guide/messaging/messaging
 | 마케팅 활동 | 마지막 참여와 같은 범용 행동을 기반으로 고객을 세분화합니다. |
 | 사용자 속성 | 고객의 고정 속성과 특성을 기반으로 세분화합니다. |
 | 설치 경로 | 최초 소스, 광고 그룹, Campaign 또는 광고를 기반으로 고객을 세분화합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="The &quot;who&quot;: Select an audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="\"누구에게\": 오디언스 선택하기" }
 
 ### "어디서": 오디언스 찾기 {#the-where-find-my-audience}
 
 *오디언스에게 가장 효과적으로 도달할 수 있는 곳은 어디인가요?*
 
 여기에서 사용자 여정에 가장 적합한 메시징 채널을 결정합니다. 이상적으로는 사용자가 가장 접근하기 쉬운 곳에서 도달하고 싶을 것입니다. 이를 염두에 두고, Canvas에서 다음 채널을 사용할 수 있습니다:
-* [이메일]({{site.baseurl}}/user_guide/channels/email/)
-* [푸시]({{site.baseurl}}/user_guide/channels/push/)
-* [인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/)
-* [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/)
-* [SMS 또는 MMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/)
-* [웹훅]({{site.baseurl}}/user_guide/channels/webhooks/)
+* [이메일]({{site.baseurl}}/user_guide/channels/email)
+* [푸시]({{site.baseurl}}/user_guide/channels/push)
+* [인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages)
+* [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)
+* [SMS 또는 MMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)
+* [웹훅]({{site.baseurl}}/user_guide/channels/webhooks)
 
 ### "어떻게": 완전한 경험 구축하기 {#the-how-build-the-complete-experience}
 

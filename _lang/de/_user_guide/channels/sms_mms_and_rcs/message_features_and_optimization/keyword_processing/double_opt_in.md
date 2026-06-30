@@ -16,11 +16,11 @@ channel:
 
 Wenn Double-Opt-in aktiviert ist, erhalten Nutzer:innen eine Nachricht, die ihre ausdrückliche Zustimmung einholt, bevor sie von Ihren Campaigns oder Canvases angeschrieben werden können.
 
-Obwohl es keine ausdrückliche Anforderung des Telephone Consumer Protection Act von 1991 (TCPA) ist, empfiehlt Braze, Double-Opt-in zu konfigurieren, um sicherzustellen, dass Nutzer:innen sich bewusst sind und zustimmen, Teil Ihres SMS-, MMS- oder RCS-Programms zu sein. Weitere Informationen zur Compliance finden Sie unter [Gesetze, Vorschriften und Missbrauchsprävention für SMS, MMS und RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/).
+Obwohl es keine ausdrückliche Anforderung des Telephone Consumer Protection Act von 1991 (TCPA) ist, empfiehlt Braze, Double-Opt-in zu konfigurieren, um sicherzustellen, dass Nutzer:innen sich bewusst sind und zustimmen, Teil Ihres SMS-, MMS- oder RCS-Programms zu sein. Weitere Informationen zur Compliance finden Sie unter [Gesetze, Vorschriften und Missbrauchsprävention für SMS, MMS und RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
 
 ## Double-Opt-in-Workflows {#double-opt-in-workflows}
 
-Double-Opt-in ermöglicht es Ihnen, eine ausdrückliche Zustimmung durch eingehende und ausgehende Opt-in-Campaigns einzuholen.
+Double-Opt-in ermöglicht es Ihnen, eine ausdrückliche Zustimmung durch eingehende und ausgehende Opt-in-Kampagnen einzuholen.
 
 ### Ausgehend {#outbound}
 
@@ -48,7 +48,7 @@ Um Double-Opt-in zu aktivieren, gehen Sie zur Tabelle **Global Keywords** in der
 | | Antwortnachricht | Dies ist die erste Antwort, die Nutzer:innen erhalten, nachdem sie ein Opt-in-Keyword gesendet haben (zum Beispiel: „Antworten Sie mit Y, um zu bestätigen, dass Sie Nachrichten von dieser Nummer erhalten möchten. Es können Nachrichten- und Datengebühren anfallen.“)
 | Double-Opt-in-Bestätigung | Keywords | Dies sind die Keywords, mit denen Nutzer:innen antworten können, um ihre Opt-in-Absicht zu bestätigen. Mindestens ein Keyword ist erforderlich. Diese Keywords sollten im Feld **Opt-In Prompt Reply Message** angegeben werden.
 | | Antwortnachricht | Dies ist die Bestätigungsantwort, die Nutzer:innen erhalten, nachdem sie ihr Opt-in ausdrücklich bestätigt haben und nun Nachrichten empfangen können. Der Abo-Gruppenstatus der Nutzer:innen wird auf `Subscribed` gesetzt.
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Configurable fields #configurable-fields" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Konfigurierbare Felder" }
 
 Wenn Nutzer:innen eine Opt-in-Anfrage erhalten, haben sie 30 Tage Zeit, ihre Opt-in-Absicht zu bestätigen. Wenn Nutzer:innen sich nach dem 30-Tage-Fenster anmelden möchten, müssen sie ein Opt-in-Keyword senden, um den Double-Opt-in-Workflow erneut zu starten.
 
@@ -56,9 +56,9 @@ Wenn Nutzer:innen eine Opt-in-Anfrage erhalten, haben sie 30 Tage Zeit, ihre Opt
 
 ## Abo-Gruppenstatus {#subscription-group-status}
 
-Erst nachdem Nutzer:innen den Double-Opt-in-Workflow abgeschlossen haben, wird ihr [Abo-Gruppenstatus]({{site.baseurl}}/sms_rcs_subscription_groups/) auf `Subscribed` aktualisiert. Wenn Nutzer:innen den Workflow beginnen, aber nicht abschließen, bleiben sie `Unsubscribed` und können keine Nachrichten von dieser Abo-Gruppe erhalten.
+Erst nachdem Nutzer:innen den Double-Opt-in-Workflow abgeschlossen haben, wird ihr [Abo-Gruppenstatus]({{site.baseurl}}/sms_rcs_subscription_groups) auf `Subscribed` aktualisiert. Wenn Nutzer:innen den Workflow beginnen, aber nicht abschließen, bleiben sie `Unsubscribed` und können keine Nachrichten von dieser Abo-Gruppe erhalten.
 
-Nutzer:innen können auch in den Double-Opt-in-Workflow eingebunden werden, wenn sie [über andere Quellen abonniert werden]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/) (zum Beispiel REST API, SDK).
+Nutzer:innen können auch in den Double-Opt-in-Workflow eingebunden werden, wenn sie [über andere Quellen abonniert werden]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups) (zum Beispiel REST API, SDK).
 
 ## Abo-Quellen {#subscription-sources}
 
@@ -76,9 +76,9 @@ Jede Abo-Quelle hat ein unterschiedliches Registrierungsverhalten, wie in der fo
 | REST API | Nutzer:innen können in den Workflow aufgenommen werden, wenn der Abo-Status über `/subscription/status/set`, `/v2/subscription/status/set` oder `/users/track` gesetzt wird und der optionale Parameter `use_double_opt_in_logic` als `true` übergeben wird (zum Beispiel [{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed", "use_double_opt_in_logic": true}]). Wenn dieser Parameter weggelassen wird, werden Nutzer:innen nicht in den Double-Opt-in-Workflow aufgenommen.
 | Shopify | Nutzer:innen werden nicht in den Double-Opt-in-Workflow aufgenommen, wenn ihr Abo-Status durch unsere Shopify-Integration gesetzt wird.
 | Nutzerimport | Nutzer:innen werden nicht in den Double-Opt-in-Workflow aufgenommen, wenn ihr Abo-Status durch den Nutzerimport gesetzt wird.
-| [Präferenzzentrum]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/) | Nutzer:innen werden automatisch in den Double-Opt-in-Workflow aufgenommen, wenn sie sich über ein Präferenzzentrum anmelden.
+| [Präferenzzentrum]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) | Nutzer:innen werden automatisch in den Double-Opt-in-Workflow aufgenommen, wenn sie sich über ein Präferenzzentrum anmelden.
 | Nutzeraktualisierungsschritt | Nutzer:innen können in den Double-Opt-in-Workflow aufgenommen werden, wenn ihr Abo-Status über den Nutzeraktualisierungsschritt gesetzt wird und der optionale Parameter `use_double_opt_in_logic` als `true` übergeben wird. Wenn dieser Parameter weggelassen wird, werden Nutzer:innen nicht in den Double-Opt-in-Workflow aufgenommen.
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription sources #subscription-sources" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abo-Quellen" }
 
 ## Unterstützung mehrerer Sprachen {#multi-language-support}
 Für eingehende Nachrichten wird Double-Opt-in für alle in der Abo-Gruppe definierten Sprachen unterstützt. Das bedeutet, dass Sie Ihre automatischen Antworten in verschiedenen Sprachen definieren können und Braze die automatische Antwort sendet, die einer bestimmten Sprache zugeordnet ist, wenn ein passendes Keyword empfangen wird.

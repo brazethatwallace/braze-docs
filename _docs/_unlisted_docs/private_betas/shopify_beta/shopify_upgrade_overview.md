@@ -17,7 +17,7 @@ hidden: true
 - **End of February through April:** You will receive notifications regarding when your specific group (cohort) will be ready to upgrade. Keep an eye out for this important information.
 - **Upgrade deadline:** All customers must complete the upgrade by **August 28, 2025**.
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## What’s changing in the Shopify integration?
 

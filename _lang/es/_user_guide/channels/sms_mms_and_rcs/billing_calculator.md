@@ -28,7 +28,7 @@ El servicio de mensajes cortos (SMS) es un protocolo de comunicación estandariz
 
 Al crear una campaña o Canvas de SMS con Braze, los mensajes que construyes en el creador de mensajes son representativos de lo que tus usuarios pueden ver cuando el mensaje se entrega en su teléfono, pero **no son indicativos de cómo se dividirá tu mensaje en segmentos y, en última instancia, de cómo se te cobrará**. Comprender cuántos segmentos se enviarán y ser consciente de los posibles excedentes que podrían ocurrir es tu responsabilidad, pero proporcionamos algunos recursos para facilitarte esto. Consulta nuestra [calculadora de segmentos](#segment-calculator) integrada.
 
-![]({% image_buster /assets/img/sms_segment_pic.png %}){: style="border:0;"}
+![Al crear una campaña o Canvas de SMS con Braze, los mensajes que construyes en el creador de mensajes son representativos de lo que tus usuarios pueden ver cuando el mensaje se entrega en su teléfono, pero no son indicativos de cómo se dividirá tu mensaje en segmentos y, en última instancia, de cómo se te cobrará. Comprender cuántos segmentos se enviarán y ser consciente de los posibles excedentes que podrían ocurrir es tu responsabilidad, pero proporcionamos algunos recursos para facilitarte esto. Consulta nuestra calculadora de segmentos integrada.]({% image_buster /assets/img/sms_segment_pic.png %}){: style="border:0;"}
 
 #### Desglose de segmentos {#segment-breakdown}
 
@@ -40,7 +40,7 @@ Es importante tener en cuenta que **al superar el límite de caracteres de tu pr
 - **Codificación UCS-2**
     - Si incluyes caracteres no GSM como emojis, escritura china, coreana o japonesa en los mensajes SMS, esos mensajes deben enviarse mediante codificación UCS-2. Los mensajes que excedan el límite inicial de segmento de 70 caracteres harán que todo el mensaje se concatene en segmentos de 67 caracteres. Por ejemplo, un mensaje de 71 caracteres se enviará como dos mensajes, uno con 67 caracteres y el segundo con 4 caracteres.
 
-Independientemente del tipo de codificación, cada mensaje SMS enviado por Braze tiene un límite de hasta 10 segmentos y es compatible con [plantillas Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/), [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), emojis y enlaces.
+Independientemente del tipo de codificación, cada mensaje SMS enviado por Braze tiene un límite de hasta 10 segmentos y es compatible con [plantillas Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid), [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), emojis y enlaces.
 
 {% tabs %}
 {% tab Codificación GSM-7 %}
@@ -56,7 +56,7 @@ Independientemente del tipo de codificación, cada mensaje SMS enviado por Braze
 | 1072 - 1224 caracteres | 8 segmentos |
 | 1225 - 1377 caracteres | 9 segmentos |
 | 1378 - 1530 caracteres | 10 segmentos |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment breakdown" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Desglose de segmentos" }
 {% endtab %}
 {% tab Codificación UCS-2 %}
 | Número de caracteres | ¿Cuántos segmentos? |
@@ -71,7 +71,7 @@ Independientemente del tipo de codificación, cada mensaje SMS enviado por Braze
 | 470 - 536 caracteres | 8 segmentos |
 | 537 - 603 caracteres | 9 segmentos |
 | 604 - 670 caracteres | 10 segmentos |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment breakdown" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Desglose de segmentos" }
 {% endtab %}
 {% endtabs %}
 
@@ -86,7 +86,7 @@ Independientemente del tipo de codificación, cada mensaje SMS enviado por Braze
 - **Compatible con plantillas Liquid, Contenido conectado, emojis y enlaces**
     - Las plantillas Liquid y el Contenido conectado pueden poner tu mensaje en riesgo de superar el límite de caracteres para tu tipo de codificación. Puedes usar el [filtro truncate words](https://help.shopify.com/en/themes/liquid/filters/string-filters#truncatewords) para limitar el número de palabras que tu Liquid podría agregar al mensaje.
     - Los emojis no tienen un conteo de caracteres estándar entre todos los emojis, así que asegúrate de probar que tus mensajes se segmenten y muestren correctamente.
-    - Los enlaces pueden usar muchos caracteres, lo que resulta en más segmentos del mensaje de los previstos. Aunque es posible usar acortadores de enlaces, se recomienda usarlos con códigos abreviados. Visita nuestras [preguntas frecuentes sobre SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/) para más información.<br><br>
+    - Los enlaces pueden usar muchos caracteres, lo que resulta en más segmentos del mensaje de los previstos. Aunque es posible usar acortadores de enlaces, se recomienda usarlos con códigos abreviados. Visita nuestras [preguntas frecuentes sobre SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs) para más información.<br><br>
 - **Pruebas**
     - Siempre prueba tus mensajes SMS antes de lanzarlos, especialmente al usar Liquid y Contenido conectado, ya que superar los límites del mensaje o del texto puede resultar en cargos adicionales. Ten en cuenta que los mensajes de prueba contarán para tus límites de mensajes.
 
@@ -149,4 +149,4 @@ Los mensajes Rich Media incluyen un archivo multimedia (imagen, video) o una Ric
 
 Al crear tu mensaje, el creador de mensajes mostrará el tipo de facturación en tiempo real a través de una etiqueta (Basic RCS, Single RCS, Rich o Rich Media), ayudándote a rastrear los costos antes de enviar.
 
-Tu [dashboard de uso de créditos]({{site.baseurl}}/credits_usage_dashboard/) reflejará estos tipos de facturación y proporcionará el número de segmentos utilizados para mensajes de EE. UU., ofreciendo una vista transparente del consumo de créditos de mensajes.
+Tu [dashboard de uso de créditos]({{site.baseurl}}/credits_usage_dashboard) reflejará estos tipos de facturación y proporcionará el número de segmentos utilizados para mensajes de EE. UU., ofreciendo una vista transparente del consumo de créditos de mensajes.

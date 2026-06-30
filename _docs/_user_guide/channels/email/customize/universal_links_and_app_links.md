@@ -25,6 +25,10 @@ When a universal link or App Link is opened, the operating system checks to see 
 
 Plainly, universal links allow a website to associate its web pages with specific app screens, so when a user clicks a link to a web page that corresponds to an app screen, the app can be opened directly (if the app is currently installed).
 
+{% alert important %}
+Firebase Dynamic Links is deprecated. Braze does not have a direct integration with Firebase, and deep linking is managed outside the Braze platform. Migrate to platform-native solutions (Apple universal links and Android App Links, as described in this article) or to alternative deep linking service providers. For migration guidance, see [Firebase's migration FAQ](https://firebase.google.com/support/dynamic-links-faq).
+{% endalert %}
+
 This table outlines the key differences between universal links and traditional deep links:
 
 |                        | Universal Links and App Links                                  | Deep Links                   |
@@ -439,7 +443,7 @@ It's important to ensure that these files are always publicly accessible. If you
 
 Make sure you have the correct definitions for domains your app is allowed to open.
 
-- **iOS:** Review the Associated Domains set up in Xcode for your app ([Step 1c: Turn on Associated Domains in your Xcode project]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Check that the click-tracking domain is included in that list.
+- **iOS:** Review the Associated Domains set up in Xcode for your app ([Step 1c: Turn on Associated Domains in your Xcode project]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links?tab=ios#step-1c)). Check that the click-tracking domain is included in that list.
 - **Android:** Open the app info page (long press the app icon and click ⓘ). Within the app info menu, locate **Open by default** and tap that. This should show a screen with all verified links the app is allowed to open. Check that the click-tracking domain is included in that list.
 
 #### Tracking domain can't serve .well-known files

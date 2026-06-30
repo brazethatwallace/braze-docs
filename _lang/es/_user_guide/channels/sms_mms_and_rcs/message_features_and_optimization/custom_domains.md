@@ -38,7 +38,7 @@ Requerimos que delegues tu dominio personalizado a Braze para que podamos facili
 ## Añadir un dominio personalizado {#adding-a-custom-domain}
 
 1. En Braze, ve a **Configuración de empresa** > **SMS/RCS and Messaging Apps Domains**.
-![Página "SMS/RCS and Messaging Apps Domains" con varios dominios listados.]({% image_buster /assets/img/main_page.png %})
+!["SMS/RCS and Messaging Apps Domains" con varios dominios listados.]({% image_buster /assets/img/main_page.png %})
 
 {: start="2"}
 2. Selecciona **Add Domain** para iniciar la configuración de un nuevo dominio personalizado.
@@ -64,7 +64,7 @@ Una vez verificado tu dominio, tus dominios personalizados aparecerán en la tab
 
 ![Lista de dominios personalizados y estados.]({% image_buster /assets/img/custom_domain_statuses.png %}){: style="max-width:60%;"}
 
-La supervisión en vivo te alertará en el panel de Braze si alguno de tus dominios activos tiene un problema, para que tus enlaces personalizados sigan siendo utilizables. Si encuentras algún problema, consulta los detalles del error en la aplicación o ponte en contacto con el [Soporte]({{site.baseurl}}/braze_support/) de Braze para obtener asistencia.
+La supervisión en vivo te alertará en el panel de Braze si alguno de tus dominios activos tiene un problema, para que tus enlaces personalizados sigan siendo utilizables. Si encuentras algún problema, consulta los detalles del error en la aplicación o ponte en contacto con el [Soporte]({{site.baseurl}}/braze_support) de Braze para obtener asistencia.
 
 ## Asignar dominios personalizados a grupos de suscripción {#assigning-custom-domains-to-subscription-groups}
 
@@ -106,4 +106,4 @@ Sí. Una vez verificado un dominio personalizado, se puede usar en todos los gru
 
 ### ¿Qué pasa si tengo preguntas o necesito más soporte? {#what-if-i-have-questions-or-need-further-support}
 
-Para obtener orientación más detallada sobre la configuración y administración de dominios personalizados, incluidos los pasos de solución de problemas y los requisitos técnicos, [ponte en contacto con Soporte]({{site.baseurl}}/braze_support/).
+Para obtener orientación más detallada sobre la configuración y administración de dominios personalizados, incluidos los pasos de solución de problemas y los requisitos técnicos, [ponte en contacto con Soporte]({{site.baseurl}}/braze_support).

@@ -46,7 +46,7 @@ Para probar tu mensaje de correo electrónico en Inbox Vision:
 5. Selecciona **Run Inbox Vision**. Esto puede tardar entre dos y diez minutos en completarse.
 
 {% alert note %}
-Inbox Vision no es compatible con mensajes de correo electrónico que incluyan [lógica de cancelación]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) porque estos correos electrónicos se renderizan como contenido estático.
+Inbox Vision no es compatible con mensajes de correo electrónico que incluyan [lógica de cancelación]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) porque estos correos electrónicos se renderizan como contenido estático.
 {% endalert %}
 
 ### Previsualizar como un usuario {#previewing-as-a-user}
@@ -128,7 +128,7 @@ Inbox Vision clasifica los problemas de accesibilidad por gravedad para ayudarte
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Niveles de gravedad" }
 
 {% alert important %}
-El editor de arrastrar y soltar no admite la configuración de un elemento `<title>` del documento, por lo que el escáner de accesibilidad siempre falla en esta verificación.<br><br>Esta limitación está registrada para futuras mejoras. Si esto afecta tus flujos de trabajo o tus usuarios, [comparte tus comentarios]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/#sharing-feedback) para que podamos priorizar las correcciones de mayor impacto.
+El editor de arrastrar y soltar no admite la configuración de un elemento `<title>` del documento, por lo que el escáner de accesibilidad siempre falla en esta verificación.<br><br>Esta limitación está registrada para futuras mejoras. Si esto afecta tus flujos de trabajo o tus usuarios, [comparte tus comentarios]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard#sharing-feedback) para que podamos priorizar las correcciones de mayor impacto.
 {% endalert %}
 
 ### Comprender las pruebas de accesibilidad automatizadas {#understanding-automated-accessibility-testing}
@@ -139,7 +139,7 @@ El editor de arrastrar y soltar no admite la configuración de un elemento `<tit
 
 ### Revisa tu lista de suscriptores de correo electrónico {#review-your-email-subscriber-list}
 
-Consulta el [dashboard de información de correo electrónico]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/#email-insights-dashboard) para determinar el tipo de dispositivo y los proveedores más populares donde tus suscriptores interactúan. Si necesitas más granularidad, como el navegador, el modelo de dispositivo y más, puedes aprovechar tus datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) o el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) para obtener este nivel de detalle sobre la interacción reciente de tus usuarios con el correo electrónico.
+Consulta el [dashboard de información de correo electrónico]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard) para determinar el tipo de dispositivo y los proveedores más populares donde tus suscriptores interactúan. Si necesitas más granularidad, como el navegador, el modelo de dispositivo y más, puedes aprovechar tus datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) o el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder) para obtener este nivel de detalle sobre la interacción reciente de tus usuarios con el correo electrónico.
 
 De lo contrario, Braze muestra de forma predeterminada las 20 vistas previas principales basadas en datos generales de la industria y de expertos, lo que cubre la mayoría de los lugares donde tus suscriptores interactúan con tus correos electrónicos. Si tu análisis de datos apunta a otras vistas previas más populares, puedes definir un conjunto predeterminado de vistas previas cada vez que ejecutes Inbox Vision.
 
@@ -155,7 +155,7 @@ Sugerimos ejecutar Inbox Vision cuando el mensaje de correo electrónico esté l
 
 Ejecutar Inbox Vision cada vez que haces una sola edición o cambio puede consumir rápidamente las vistas previas. Sugerimos hacer todos los cambios necesarios en el correo electrónico primero y luego ejecutar Inbox Vision para previsualizar cómo todos tus cambios pueden afectar el renderizado de tu correo electrónico en diferentes entornos.
 
-Braze ejecuta las pruebas a través de clientes de correo electrónico reales y trabaja para garantizar que los renderizados sean precisos. Si ves un problema de forma consistente con un cliente, abre un [ticket de soporte]({{site.baseurl}}/braze_support/).
+Braze ejecuta las pruebas a través de clientes de correo electrónico reales y trabaja para garantizar que los renderizados sean precisos. Si ves un problema de forma consistente con un cliente, abre un [ticket de soporte]({{site.baseurl}}/braze_support).
 
 ### Precisión de las pruebas frente a los buzones de entrada en vivo {#test-accuracy-versus-live-inboxes}
 

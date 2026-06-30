@@ -39,7 +39,7 @@ La validación de correo electrónico ocurre cuando la dirección de correo elec
 
 Las direcciones de correo electrónico dirigidas a través de los servidores de Braze deben validarse según los estándares [RFC 2822](https://datatracker.ietf.org/doc/html/rfc2822). Braze no acepta ciertos caracteres y los reconoce como no válidos. Si un correo electrónico rebota, Braze marca el correo electrónico como no válido y el estado de suscripción no se modifica.
 
-Para obtener información sobre los caracteres no permitidos y las reglas de validación de correo electrónico, consulta [Validación de correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation/#how-it-works).
+Para obtener información sobre los caracteres no permitidos y las reglas de validación de correo electrónico, consulta [Validación de correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation#how-it-works).
 
 ## Direcciones de remitente y responder a {#from-and-reply-to-addresses}
 
@@ -53,8 +53,8 @@ La codificación Unicode no es compatible en las direcciones de remitente.
 
 Cuando añadas archivos adjuntos a los mensajes de correo electrónico, sigue estas prácticas recomendadas de capacidad de entrega:
 
-- Los filtros de correo no deseado analizan los archivos adjuntos y pueden marcar tu mensaje
-- Los proveedores de correo a veces tardan más en aceptar mensajes que incluyen archivos adjuntos
+- Los filtros de correo no deseado analizan los archivos adjuntos y pueden marcar tu mensaje.
+- Los proveedores de correo a veces tardan más en aceptar mensajes que incluyen archivos adjuntos.
 - Fuera de los mensajes individuales, los archivos adjuntos pueden hacer que tu mensaje parezca sospechoso en el buzón de entrada.
 - Mantén cada archivo adjunto por debajo de 2&nbsp;MB.
 - No envíes información confidencial como archivo adjunto. En su lugar, dirige a los usuarios a tu portal seguro para que la consulten allí.
@@ -63,9 +63,9 @@ Cuando añadas archivos adjuntos a los mensajes de correo electrónico, sigue es
 
 El diseño puede romperse cuando el HTML/CSS generado por Braze entra en conflicto con el HTML personalizado. Si esto ocurre, haz lo siguiente:
 
-- Elimina primero el HTML/CSS personalizado
-- Valida que las fuentes personalizadas se carguen correctamente en la vista previa
-- Verifica el relleno de filas y columnas
+- Elimina primero el HTML/CSS personalizado.
+- Valida que las fuentes personalizadas se carguen correctamente en la vista previa.
+- Verifica el relleno de filas y columnas.
 - Prefiere diseños basados en tablas y mantente dentro del ancho del editor.
 
 Los Content Blocks que incorporan HTML externo al editor también pueden romper el diseño.
@@ -89,7 +89,7 @@ Consulta las siguientes listas de etiquetas y atributos HTML que no están permi
 - `<bgsound>`
 - `<embed>`
 - `<frameset>`
-- `<iframe>`
+- `iframe`
 - `<ilayer>`
 - `<layer>`
 - `<link>`

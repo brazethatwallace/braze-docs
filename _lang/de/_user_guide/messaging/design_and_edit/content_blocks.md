@@ -13,7 +13,7 @@ tool:
 
 # Content-Blöcke {#content-blocks}
 
-> Mit Content-Blöcken können Sie wiederverwendbare, kanalübergreifende Inhalte an einem einzigen, zentralen Ort verwalten. Nutzen Sie sie, um ein einheitliches Erscheinungsbild in Ihren Kampagnen zu schaffen, dieselben Angebotscodes über verschiedene Kanäle zu verteilen oder vordefinierte Assets für konsistentes Messaging im großen Maßstab zu erstellen. Sie können Ihre Content-Blöcke auch [über die API]({{site.baseurl}}/api/endpoints/templates/) erstellen und verwalten.
+> Mit Content-Blöcken können Sie wiederverwendbare, kanalübergreifende Inhalte an einem einzigen, zentralen Ort verwalten. Nutzen Sie sie, um ein einheitliches Erscheinungsbild in Ihren Kampagnen zu schaffen, dieselben Angebotscodes über verschiedene Kanäle zu verteilen oder vordefinierte Assets für konsistentes Messaging im großen Maßstab zu erstellen. Sie können Ihre Content-Blöcke auch [über die API]({{site.baseurl}}/api/endpoints/templates) erstellen und verwalten.
 
 ## Einen Content-Block erstellen {#create-a-content-block}
 
@@ -22,7 +22,7 @@ Es gibt zwei Arten von Content-Blöcken: Drag-and-Drop und HTML. Jeder Typ entsp
 {% tabs %}
 {% tab Drag-and-Drop %}
 
-{% multi_lang_include create_content_block.md location="dnd" %}
+{% multi_lang_include messaging/create_content_block.md location="dnd" %}
 
 {% alert important %}
 Jeder Drag-and-Drop-Content-Block ist auf eine Zeile beschränkt. Sie können jedoch Drag-and-Drop-Editor-Blöcke verwenden, um den Content-Block für Ihr E-Mail-Messaging zu erstellen und anzupassen.
@@ -31,7 +31,7 @@ Jeder Drag-and-Drop-Content-Block ist auf eine Zeile beschränkt. Sie können je
 {% endtab %}
 {% tab HTML %}
 
-{% multi_lang_include create_content_block.md location="html" %}
+{% multi_lang_include messaging/create_content_block.md location="html" %}
 
 {% endtab %}
 {% endtabs %}
@@ -146,4 +146,4 @@ Wenn Sie einen Content-Block nicht mehr benötigen, können Sie ihn auf der Seit
 - Wenn Ihr Block in mehr Nachrichten verwendet wird, als Sie mit dem ersten Vorschlag in dieser Liste sinnvoll verwalten können, empfehlen wir, den gesamten Inhalt aus dem Block zu entfernen. Dies verhindert, dass veraltete Informationen in Nachrichten eingebunden werden.
 - Wenn Sie versehentlich einen Content-Block archiviert haben, können Sie die Archivierung aufheben.
 
-![Panel „Gespeicherte Content-Blöcke“, in dem das Einstellungs-Dropdown-Menü für „Test_32“ aufgeklappt ist und drei Optionen zeigt: Archivierung aufheben, Duplizieren und In Workspace kopieren]({% image_buster /assets/img/unarchive-content-block.png %})
+![Panel „Gespeicherte Content-Blöcke“, in dem das Einstellungs-Dropdown-Menü für „Test_32“ aufgeklappt ist und drei Optionen zeigt: Archivierung aufheben, Duplizieren und In Workspace kopieren.]({% image_buster /assets/img/unarchive-content-block.png %})

@@ -42,10 +42,10 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatório | Tipo de dados | Descrição |
+| Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | Obrigatório | String | Consulte [identificador de campaign]({{site.baseurl}}/api/identifier_types/). |
-| `name` | Obrigatório | String | O nome da campaign resultante. |
+| `campaign_id` | Obrigatória | String | Consulte [identificador de campaign]({{site.baseurl}}/api/identifier_types). |
+| `name` | Obrigatória | String | O nome da campaign resultante. |
 | `description` | Opcional | String | O campo de descrição da campaign resultante. |
 | `tag_names` | Opcional | String | As tags da campaign resultante. Elas devem ser tags já existentes. Se você adicionar novas tags na solicitação, elas substituirão quaisquer tags que estavam na campaign original. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }

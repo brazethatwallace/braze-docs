@@ -11,7 +11,7 @@ description: "이 문서에서는 웹훅 및 연결된 콘텐츠 오류 코드�
 
 ## 4XX 오류 {#4xx-errors}
 
-`4XX` 오류는 엔드포인트로 전송된 요청에 문제가 있음을 나타냅니다. 이러한 오류는 일반적으로 잘못된 형식의 매개변수, 누락된 인증 헤더 또는 잘못된 URL을 포함한 잘못된 요청으로 인해 발생합니다. 이러한 오류는 [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)에도 적용됩니다.
+`4XX` 오류는 엔드포인트로 전송된 요청에 문제가 있음을 나타냅니다. 이러한 오류는 일반적으로 잘못된 형식의 매개변수, 누락된 인증 헤더 또는 잘못된 URL을 포함한 잘못된 요청으로 인해 발생합니다. 이러한 오류는 [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder)에도 적용됩니다.
 
 오류 코드 세부 정보 및 해결 단계는 다음 표를 참조하세요:
 
@@ -149,18 +149,18 @@ Braze 웹훅 및 연결된 콘텐츠는 대상 호스트가 상당한 속도 저
 
 다음 오류 코드가 비정상 호스트 감지기 실패 횟수에 기여합니다: `408`, `429`, `502`, `503`, `504`, `529`.
 
-웹훅의 경우 Braze는 비정상 호스트 감지기에 의해 중단된 HTTP 요청을 자동으로 재시도합니다. 이 자동 재시도는 지수 백오프를 사용하며 실패하기 전에 몇 번만 재시도합니다. 웹훅 오류에 대한 자세한 내용은 [오류, 재시도 로직 및 시간 초과]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#errors-retry-logic-and-timeouts)를 참조하세요.
+웹훅의 경우 Braze는 비정상 호스트 감지기에 의해 중단된 HTTP 요청을 자동으로 재시도합니다. 이 자동 재시도는 지수 백오프를 사용하며 실패하기 전에 몇 번만 재시도합니다. 웹훅 오류에 대한 자세한 내용은 [오류, 재시도 로직 및 시간 초과]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#errors-retry-logic-and-timeouts)를 참조하세요.
 
-연결된 콘텐츠의 경우, 대상 호스트에 대한 요청이 비정상 호스트 감지기에 의해 중단되면 Braze는 오류 응답 코드를 받은 것처럼 메시지를 계속 렌더링하고 Liquid 로직을 따릅니다. 이러한 연결된 콘텐츠 요청이 비정상 호스트 감지기에 의해 중단될 때 재시도되도록 하려면 `:retry` 옵션을 사용하세요. `:retry` 옵션에 대한 자세한 내용은 [연결된 콘텐츠 재시도]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/)를 참조하세요.
+연결된 콘텐츠의 경우, 대상 호스트에 대한 요청이 비정상 호스트 감지기에 의해 중단되면 Braze는 오류 응답 코드를 받은 것처럼 메시지를 계속 렌더링하고 Liquid 로직을 따릅니다. 이러한 연결된 콘텐츠 요청이 비정상 호스트 감지기에 의해 중단될 때 재시도되도록 하려면 `:retry` 옵션을 사용하세요. `:retry` 옵션에 대한 자세한 내용은 [연결된 콘텐츠 재시도]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries)를 참조하세요.
 
-비정상 호스트 감지가 문제를 일으키고 있다고 생각되면 [Braze 고객지원]({{site.baseurl}}/support_contact/)에 문의하세요.
+비정상 호스트 감지가 문제를 일으키고 있다고 생각되면 [Braze 고객지원]({{site.baseurl}}/support_contact)에 문의하세요.
 
 ### 연결된 콘텐츠가 응답 본문을 반환하지 않는 경우 {#connected-content-returns-no-response-body}
 
 연결된 콘텐츠 호출이 메시지 미리보기 또는 발송에서 빈 값으로 렌더링되는 경우 다음을 확인하세요:
 
 - **URL의 줄 바꿈 없는 공백:** Braze는 요청을 보내기 전에 연결된 콘텐츠 URL에서 줄 바꿈 없는 공백(`&nbsp;` 또는 유니코드 `U+00A0`)을 제거합니다. 문서나 대시보드 필드에서 복사한 URL에 문자 사이에 줄 바꿈 없는 공백이 삽입된 경우, 요청이 실패하거나 사용 가능한 본문을 반환하지 않을 수 있습니다. URL을 일반 텍스트로 다시 입력하거나 숨겨진 공백을 제거한 후 다시 미리보기하세요.
-- **HTTP 오류 및 빈 본문:** 300 이상의 상태 코드 또는 차단된 호스트의 경우, 연결된 콘텐츠는 빈 문자열을 렌더링할 수 있습니다. [API 호출하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)를 참조하고 **메시지 활동 로그**에서 실패를 확인하세요.
+- **HTTP 오류 및 빈 본문:** 300 이상의 상태 코드 또는 차단된 호스트의 경우, 연결된 콘텐츠는 빈 문자열을 렌더링할 수 있습니다. [API 호출하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)를 참조하고 **메시지 활동 로그**에서 실패를 확인하세요.
 
 ## 자동 이메일 및 메시지 활동 로그 항목 {#automated-emails-and-message-activity-log-entries}
 
@@ -176,7 +176,7 @@ Braze 웹훅 및 연결된 콘텐츠는 대상 호스트가 상당한 속도 저
 - 메시지 활동 로그 및 관련 설명서 링크
 
 {% alert note %}
-워크스페이스별로 오류 임계값을 구성할 수 있습니다. 이 임계값을 조정하려면 [Braze 고객지원]({{site.baseurl}}/support_contact/)에 문의하세요.
+워크스페이스별로 오류 임계값을 구성할 수 있습니다. 이 임계값을 조정하려면 [Braze 고객지원]({{site.baseurl}}/support_contact)에 문의하세요.
 {% endalert %}
 
 엔드포인트 오류는 다음과 같습니다:
@@ -193,7 +193,7 @@ Braze 웹훅 및 연결된 콘텐츠는 대상 호스트가 상당한 속도 저
 
 ### 메시지 활동 로그 항목 {#message-activity-log-entries}
 
-실패가 발생하면 이와 관련된 항목이 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)에 하나 이상 있습니다. 요청이 재시도되어 최종적으로 성공하면 해당 세부 정보는 Currents 및 Snowflake 데이터 공유에서 확인할 수 있습니다. 재시도 후 요청이 최종적으로 성공하더라도 오류는 여전히 자동 이메일을 트리거할 수 있습니다.
+실패가 발생하면 이와 관련된 항목이 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에 하나 이상 있습니다. 요청이 재시도되어 최종적으로 성공하면 해당 세부 정보는 Currents 및 Snowflake 데이터 공유에서 확인할 수 있습니다. 재시도 후 요청이 최종적으로 성공하더라도 오류는 여전히 자동 이메일을 트리거할 수 있습니다.
 
 ### Braze 커런츠의 추가 실패 인사이트 {#additional-failure-insights-in-braze-currents}
 
@@ -203,4 +203,4 @@ Braze 웹훅 및 연결된 콘텐츠는 대상 호스트가 상당한 속도 저
 연결된 콘텐츠 요청은 이러한 웹훅 실패 이벤트에 포함되지 않습니다.
 {% endalert %}
 
-자세한 내용은 [메시지 참여 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)을 참조하세요.
+자세한 내용은 [메시지 참여 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)을 참조하세요.

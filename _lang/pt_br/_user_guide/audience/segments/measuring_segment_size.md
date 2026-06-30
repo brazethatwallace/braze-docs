@@ -98,7 +98,7 @@ Para atualizar as estatísticas de um cálculo que você já executou anteriorme
 A precisão de um cálculo é de apenas 99,999% ou mais. Portanto, para Segments grandes, você pode notar pequenas variações&#8212;mesmo ao calcular estatísticas exatas&#8212;o que é um comportamento normal. Além disso, os resultados de estatísticas exatas ficam em cache por 24 horas, a menos que você faça edições no seu Segment, caso em que você pode recalcular as estatísticas exatas.
 
 {% alert note %}
-Segments divididos igualmente por [números de bucket aleatórios]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) não terão o mesmo tamanho. Por exemplo, se você criar um Segment com o filtro **Random Bucket # less than 5000** e outro Segment com o filtro **Random Bucket # at least 5000**, é possível e esperado que os tamanhos dos Segments variem em até alguns pontos percentuais. Isso ocorre por situações como usuários inativos sendo excluídos e usuários não contatáveis.
+Segments divididos igualmente por [números de bucket aleatórios]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) não terão o mesmo tamanho. Por exemplo, se você criar um Segment com o filtro **Random Bucket # less than 5000** e outro Segment com o filtro **Random Bucket # at least 5000**, é possível e esperado que os tamanhos dos Segments variem em até alguns pontos percentuais. Isso ocorre por situações como usuários inativos sendo excluídos e usuários não contatáveis.
 {% endalert %}
 
 ![Captura de tela do painel Reachable users mostrando estatísticas exatas e um menu de detalhamento expandido.]({% image_buster /assets/img_archive/reachable_users_breakdown.png %})

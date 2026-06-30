@@ -37,7 +37,7 @@ Um Daten festzulegen oder auszuschließen, wählen Sie <i class="fa-solid fa-gea
 
 ## Verfügbare Berichte {#available-reports}
 
-- [Performance]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/performance/): Übergeordnete Agenten-Metriken, die Behandlungsgruppen mit Kontrollgruppen vergleichen, mit den Ansichten **Trending** und **Driver Tree**.
-- [Insights]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/insights/): Wie Empfehlungsoptionen in Ihrer Aktionsbank generiert werden, einschließlich Agentenpräferenzen und SHAPs-Berichten.
-- [Diagnosen]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/diagnostics/): Datenintegrität für ausgehende und eingehende Daten, einschließlich Empfehlungsvolumen und Daten-Feed-Überwachung.
-- [Zeitleiste]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/timeline/): Eine visuelle Aufzeichnung wichtiger Ereignisse (Agent-Ausführungen, Konfigurationsänderungen, Updates der Sicherheitsvorkehrungen) zusammen mit Performance-Metriken.
+- [Performance]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/performance): Übergeordnete Agenten-Metriken, die Behandlungsgruppen mit Kontrollgruppen vergleichen, mit den Ansichten **Trending** und **Driver Tree**.
+- [Insights]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/insights): Wie Empfehlungsoptionen in Ihrer Aktionsbank generiert werden, einschließlich Agentenpräferenzen und SHAPs-Berichten.
+- [Diagnosen]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/diagnostics): Datenintegrität für ausgehende und eingehende Daten, einschließlich Empfehlungsvolumen und Daten-Feed-Überwachung.
+- [Zeitleiste]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/timeline): Eine visuelle Aufzeichnung wichtiger Ereignisse (Agent-Ausführungen, Konfigurationsänderungen, Updates der Sicherheitsvorkehrungen) zusammen mit Performance-Metriken.

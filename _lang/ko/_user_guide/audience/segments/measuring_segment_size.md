@@ -99,7 +99,7 @@ Segment의 정확한 사용자 수를 확인하려면 **Reachable users** 패널
 계산의 정확도는 99.999% 이상입니다. 따라서 대규모 Segment의 경우 정확한 통계를 계산할 때에도 약간의 변동이 있을 수 있으며, 이는 정상적인 동작입니다. 또한 정확한 통계 결과는 Segment를 편집하지 않는 한 24시간 동안 캐시되며, 편집하면 정확한 통계를 다시 계산할 수 있습니다.
 
 {% alert note %}
-[무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)로 균등하게 나눈 Segments는 동일한 크기가 되지 않습니다. 예를 들어, **Random Bucket # less than 5000** 필터로 하나의 Segment를 만들고 **Random Bucket # at least 5000** 필터로 다른 Segment를 만들면, Segment 크기가 몇 퍼센트 포인트까지 차이가 날 수 있습니다. 이는 비활성 사용자 삭제 및 도달 불가능한 사용자 등의 상황 때문입니다.
+[무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers)로 균등하게 나눈 Segments는 동일한 크기가 되지 않습니다. 예를 들어, **Random Bucket # less than 5000** 필터로 하나의 Segment를 만들고 **Random Bucket # at least 5000** 필터로 다른 Segment를 만들면, Segment 크기가 몇 퍼센트 포인트까지 차이가 날 수 있습니다. 이는 비활성 사용자 삭제 및 도달 불가능한 사용자 등의 상황 때문입니다.
 {% endalert %}
 
 ![정확한 통계와 확장된 분류 메뉴가 표시된 Reachable users 패널의 스크린샷.]({% image_buster /assets/img_archive/reachable_users_breakdown.png %})
@@ -108,9 +108,9 @@ Segment의 정확한 사용자 수를 확인하려면 **Reachable users** 패널
 
 Braze는 워크스페이스당 한 번에 하나의 계산을 우선 처리하므로, 여러 계산을 동시에 실행하면 지연이 발생합니다. **View calculation queue**를 선택하면 앞에 있는 Segments, 진행 상황, 시작한 사람을 확인하고 계산이 언제 우선 처리될지 파악할 수 있습니다.
 
-![하나의 계산이 있는 계산 대기열.]({% image_buster /assets/img_archive/calculation_queue.png %})
+![하나의 계산이 있는 계산 대기줄.]({% image_buster /assets/img_archive/calculation_queue.png %})
 
-**Cancel**을 선택하여 정확한 통계 계산을 취소할 수 있습니다. 대기열에 여러 계산이 있고 다른 계산을 먼저 우선 처리하고 싶을 때 유용합니다.
+**Cancel**을 선택하여 정확한 통계 계산을 취소할 수 있습니다. 대기줄에 여러 계산이 있고 다른 계산을 먼저 우선 처리하고 싶을 때 유용합니다.
 
 
 ## 과거 Segment 멤버십 크기 보기 {#viewing-historical-segment-membership-size}

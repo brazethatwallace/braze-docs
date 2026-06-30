@@ -14,7 +14,7 @@ You can use nested objects—objects that are inside of another object—to send
 
 ## Considerations
 
-- Nested data is supported for both [custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) and [purchase events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/), but not other event types.
+- Nested data is supported for both [custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events) and [purchase events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events), but not other event types.
 - Event property objects that contain array or object values can have an event property payload of up to 100 KB.
 - Event property schemas cannot be generated for purchase events.
 - Event property schemas are generated through sampling custom events from the last 24 hours.
@@ -33,7 +33,7 @@ You can access the nested data in your custom event by generating a schema for e
 2. Select **Manage Properties** for the events with nested properties.
 3. Select the <i class="fas fa-arrows-rotate"></i> button to generate the schema. To view the schema, select the <i class="fas fa-plus"></i> plus button.
 
-![]({% image_buster /assets/img_archive/schema_generation_example.png %}){: style="max-width:80%;"}
+![3. Select the button to generate the schema. To view the schema, select the plus button.]({% image_buster /assets/img_archive/schema_generation_example.png %}){: style="max-width:80%;"}
 
 If new properties are sent in the future, they won't be in the schema until it is regenerated. Schemas can be regenerated every 24 hours.
 
@@ -167,9 +167,9 @@ If your event property contains the `[]` or `.` characters, escape them by wrapp
 
 ### Segmentation
 
-To segment users based on nested event properties, you must use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/). After you've generated a schema, the nested objects explorer will display in the segmentation section. 
+To segment users based on nested event properties, you must use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension). After you've generated a schema, the nested objects explorer will display in the segmentation section. 
 
-![]({% image_buster /assets/img_archive/nested_event_properties_segmentation.png %})
+![Screenshot related to segmentation.]({% image_buster /assets/img_archive/nested_event_properties_segmentation.png %})
 
 Segmentation uses the same notation as triggering (see [Message triggering](#message-triggering)).
 
@@ -179,7 +179,7 @@ To edit or create Segment Extensions, you'll need "Edit Segments" permission.
 
 Using the **Add Personalization** modal, select **Advanced Event Properties** as the personalization type. This allows the option to add a nested event properties after a schema has been generated.
 
-![]({% image_buster /assets/img_archive/nested_event_properties_personalization.png %}){: style="max-width:70%;"}
+![Using the Add Personalization modal, select Advanced Event Properties as the personalization type. This allows the option to add a nested event properties after a schema has been generated.]({% image_buster /assets/img_archive/nested_event_properties_personalization.png %}){: style="max-width:70%;"}
 
 ## Testing nested objects in messages
 

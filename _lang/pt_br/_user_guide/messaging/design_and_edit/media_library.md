@@ -22,7 +22,7 @@ tool: Media
 | Permissão "Replace Media Library Assets" | Substituir o arquivo de um ativo existente da Biblioteca de mídia mantendo sua URL e ID de ativo estáveis |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Permissões da Biblioteca de mídia" }
 
-Para saber mais, consulte [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Para saber mais, consulte [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ## Biblioteca de mídia versus CDN {#media-library-versus-cdn}
 
@@ -50,7 +50,7 @@ Depois, ao redigir uma mensagem na Braze, você pode importar suas imagens da Bi
 
 ![Duas formas comuns de acessar a Biblioteca de mídia dependendo do criador de mensagens. Uma mostra o editor de arrastar e soltar de e-mail com o título "Images and GIFs" e um botão "Add from Media Library". A outra mostra os editores padrão, como push e mensagens no app, com o título "Media" e um botão "Add Image".]({% image_buster /assets/img_archive/media_library_composers.png %}){: style="border:none"}
 
-{% alert tip %} Para mais ajuda com a Biblioteca de mídia, confira nossas [Perguntas frequentes sobre a Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/faq/). {% endalert %}
+{% alert tip %} Para mais ajuda com a Biblioteca de mídia, confira nossas [Perguntas frequentes sobre a Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/faq). {% endalert %}
 
 ## Substituir um arquivo {#replace-a-file}
 
@@ -75,11 +75,11 @@ Para substituir um ativo, você precisa ter a permissão "Replace Media Library 
 
 Alguns canais criam uma cópia otimizada da imagem quando a mensagem é configurada, resultando em uma URL separada. Substituir o ativo original da Biblioteca de mídia não atualiza o que os consumidores veem para mensagens criadas usando esses canais, incluindo mensagens no app, Content Cards, notificações por push e banners.
 
-Você também pode substituir um ativo programaticamente usando o endpoint [`PUT /media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file/).
+Você também pode substituir um ativo programaticamente usando o endpoint [`PUT /media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file).
 
 ## Especificações de imagem {#image-specifications}
 
-Todas as imagens enviadas para a Biblioteca de mídia devem ter menos de 5&nbsp;MB. Os tipos de arquivo compatíveis são PNG, JPEG, GIF, SVG e WebP. Para tamanhos e especificações de imagem recomendados por canal de envio de mensagens, consulte [Especificações de imagem]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/).
+Todas as imagens enviadas para a Biblioteca de mídia devem ter menos de 5&nbsp;MB. Os tipos de arquivo compatíveis são PNG, JPEG, GIF, SVG e WebP. Para tamanhos e especificações de imagem recomendados por canal de envio de mensagens, consulte [Especificações de imagem]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications).
 
 {% alert important %}
 GIFs com formatos muito alongados (por exemplo, 3000 x 2 pixels) ou com 300 ou mais quadros podem falhar no upload, mesmo que o tamanho total do arquivo seja pequeno.
@@ -90,7 +90,7 @@ GIFs com formatos muito alongados (por exemplo, 3000 x 2 pixels) ou com 300 ou m
 {% multi_lang_include brazeai/generative_ai/about_images.md %}
 
 {% alert important %}
-Antes de usar esse recurso, revise [como seus dados são usados e enviados para a OpenAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#ai-policy).
+Antes de usar esse recurso, revise [como seus dados são usados e enviados para a OpenAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#ai-policy).
 {% endalert %}
 
-Se você não vir **Gerador de imagens com IA** na página da **Biblioteca de mídia**, confirme que você tem a permissão **Edit Media Library Assets**. Se a opção ainda não aparecer, entre em contato com a equipe da Braze para confirmar que seu espaço de trabalho tem acesso à geração de imagens com BrazeAI. Se a geração falhar, revise a [política de conteúdo da OpenAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#ai-policy).
+Se você não vir **Gerador de imagens com IA** na página da **Biblioteca de mídia**, confirme que você tem a permissão **Edit Media Library Assets**. Se a opção ainda não aparecer, entre em contato com a equipe da Braze para confirmar que seu espaço de trabalho tem acesso à geração de imagens com BrazeAI. Se a geração falhar, revise a [política de conteúdo da OpenAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#ai-policy).

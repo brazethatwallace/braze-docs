@@ -12,10 +12,10 @@ channel:
 
 > Este artigo de referência fornece um passo a passo do fluxo de cadastro integrado do WhatsApp na Braze.
 
-O fluxo de cadastro integrado do WhatsApp é acessado quando você [integra o WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/) ao seu espaço de trabalho da Braze pela primeira vez, e quando você [adiciona uma conta do WhatsApp Business]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/) a uma integração existente do WhatsApp.
+O fluxo de cadastro integrado do WhatsApp é acessado quando você [integra o WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) ao seu espaço de trabalho da Braze pela primeira vez, e quando você [adiciona uma conta do WhatsApp Business]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups) a uma integração existente do WhatsApp.
 
 {% alert note %}
-Você pode adicionar [múltiplas contas do WhatsApp Business]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/) a um espaço de trabalho da Braze. No entanto, cada conta específica do WhatsApp Business pode ser adicionada a apenas um espaço de trabalho da Braze.
+Você pode adicionar [múltiplas contas do WhatsApp Business]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups) a um espaço de trabalho da Braze. No entanto, cada conta específica do WhatsApp Business pode ser adicionada a apenas um espaço de trabalho da Braze.
 {% endalert %}
 
 ## Acessando o fluxo {#accessing-the-workflow}

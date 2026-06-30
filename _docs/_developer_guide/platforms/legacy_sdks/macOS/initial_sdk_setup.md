@@ -21,11 +21,11 @@ As of version [3.32.0](https://github.com/Appboy/appboy-ios-sdk/releases/tag/3.3
 To build your app with Mac Catalyst, reference <a href="https://developer.apple.com/documentation/uikit/mac_catalyst">Apple's documentation</a>.
 {% endalert %}
 
-Once your app supports Catalyst, follow [these instructions to use Swift Package Manager]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration/?tab=swift%20package%20manager/) to import the Braze SDK into your app.
+Once your app supports Catalyst, follow [these instructions to use Swift Package Manager]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration?tab=swift%20package%20manager/) to import the Braze SDK into your app.
 
 ## Supported features
 
-Braze supports [push notifications]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift), [Content Cards]({{site.baseurl}}/developer_guide/platforms/swift/content_cards/#content-cards-data-model), [in-app messages]({{site.baseurl}}/developer_guide/analytics/tracking_location/?sdktab=swift), and [automatic location collection]({{site.baseurl}}/developer_guide/analytics/tracking_location/?sdktab=swift) when running on Mac Catalyst.
+Braze supports [push notifications]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Content Cards]({{site.baseurl}}/developer_guide/platforms/swift/content_cards#content-cards-data-model), [in-app messages]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift), and [automatic location collection]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift) when running on Mac Catalyst.
 
 Note that Push Stories, rich push, and geofences are not supported on macOS.
 

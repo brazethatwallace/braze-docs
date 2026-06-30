@@ -18,7 +18,7 @@ tool:
 
 ## In-app message metrics
 
-Here are the key in-app message metrics you may see in your analytics. For definitions of all metrics used in Braze, refer to the [Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+Here are the key in-app message metrics you may see in your analytics. For definitions of all metrics used in Braze, refer to the [Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 {% alert note %}
 For in-app messages, this page defines unique impressions using a calendar-day boundary in your workspace's time zone.

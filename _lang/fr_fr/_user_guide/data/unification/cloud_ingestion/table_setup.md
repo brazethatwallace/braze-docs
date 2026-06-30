@@ -19,7 +19,7 @@ Pour les synchronisations de données utilisateur CDI, configurez les deux élé
 | --- | --- |
 | Configuration de la table source | Colonnes requises, identifiants utilisateur et comportement de synchronisation `UPDATED_AT` |
 | Formatage du payload | Champs JSON dans `payload`, y compris la structure des objets pour les attributs, les événements et les achats |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Understand table setup compared to payload formatting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comprendre la configuration des tables par rapport au formatage du payload" }
 
 Braze lit d'abord les lignes de votre table source, puis valide le champ `payload` en fonction du type de données sélectionné.
 
@@ -44,10 +44,10 @@ Chaque ligne doit inclure un seul type d'identifiant à la fois, même si votre 
 - Braze synchronise les lignes dont la valeur `UPDATED_AT` est postérieure à la dernière valeur synchronisée.
 - Les lignes situées exactement à l'horodatage limite peuvent être resynchronisées si de nouvelles lignes partagent cet horodatage.
 
-Pour des conseils sur les horodatages en double et les mises à jour incrémentales, consultez les [bonnes pratiques de l'Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps).
+Pour des conseils sur les horodatages en double et les mises à jour incrémentales, consultez les [bonnes pratiques de l'Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
 
 {% alert note %}
-Les sources de stockage de fichiers utilisent des exigences de configuration différentes et ne prennent pas en charge `UPDATED_AT`. Pour plus de détails, consultez [Intégrations de stockage de fichiers]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/#required-file-formats).
+Les sources de stockage de fichiers utilisent des exigences de configuration différentes et ne prennent pas en charge `UPDATED_AT`. Pour plus de détails, consultez [Intégrations de stockage de fichiers]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#required-file-formats).
 {% endalert %}
 
 ## Configurer la colonne `payload` {#set-up-the-payload-column}
@@ -56,12 +56,12 @@ La valeur `payload` suit les mêmes formats d'objets utilisés par l'endpoint Br
 
 | Type de données | Référence de formatage |
 | --- | --- |
-| `attributes` | [Objet d'attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
-| `events` | [Objet d'événements]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | [Objet d'achats]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Set up the payload column" }
+| `attributes` | [Objet d'attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) |
+| `events` | [Objet d'événements]({{site.baseurl}}/api/objects_filters/event_object) |
+| `purchases` | [Objet d'achats]({{site.baseurl}}/api/objects_filters/purchase_object) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configurer la colonne payload" }
 
-Pour les attributs imbriqués, incluez les dates en utilisant le format décrit dans [Capturer des dates en tant que propriétés d'objet]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#capturing-dates-as-object-properties).
+Pour les attributs imbriqués, incluez les dates en utilisant le format décrit dans [Capturer des dates en tant que propriétés d'objet]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#capturing-dates-as-object-properties).
 
 ### Exemples de payloads {#payload-examples}
 
@@ -97,7 +97,7 @@ Vous pouvez synchroniser un événement par ligne.
     "time" : "2013-07-16T19:20:45+01:00",
     "properties": {
         "movie": "The Sad Egg",
-        "director": "Dan Alexander"
+        "director": "Alex Smith"
     }
 }
 ```
@@ -149,6 +149,6 @@ Pour synchroniser les statuts des groupes d'abonnement, incluez une ou plusieurs
 
 ## Documentation connexe sur la configuration CDI {#related-cdi-setup-docs}
 
-- Pour des exemples DDL spécifiques aux sources, consultez [Intégrations d'entrepôts de données]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
-- Pour la configuration basée sur les fichiers, consultez [Intégrations de stockage de fichiers]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/).
-- Pour des conseils sur le comportement de synchronisation et l'optimisation, consultez les [bonnes pratiques de l'Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/).
+- Pour des exemples DDL spécifiques aux sources, consultez [Intégrations d'entrepôts de données]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+- Pour la configuration basée sur les fichiers, consultez [Intégrations de stockage de fichiers]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
+- Pour des conseils sur le comportement de synchronisation et l'optimisation, consultez les [bonnes pratiques de l'Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices).

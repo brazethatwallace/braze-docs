@@ -11,9 +11,9 @@ page_order: 10
 
 ## 一般 {#general}
 
-### Canvasエージェントとカタログエージェントの違いは何ですか？ {#what-is-the-difference-between-canvas-agents-and-catalog-agents}
+### キャンバスエージェントとカタログエージェントの違いは何ですか？ {#what-is-the-difference-between-canvas-agents-and-catalog-agents}
 
-エージェントを作成する際に、Canvasエージェントとカタログエージェントのどちらを作成するかを指定します。これにより、エージェントがサポートできる指示やオプションの種類が決まります。Canvasエージェントはジャーニー内でリアルタイムにユーザーを処理し、カタログエージェントは処理された情報で列を追加または更新することでカタログデータを充実させます。
+エージェントを作成する際に、キャンバスエージェントとカタログエージェントのどちらを作成するかを指定します。これにより、エージェントがサポートできる指示やオプションの種類が決まります。キャンバスエージェントはジャーニー内でリアルタイムにユーザーを処理し、カタログエージェントは処理された情報で列を追加または更新することでカタログデータを充実させます。
 
 ### Autoモデルと独自モデル（BYO）を使用するメリットの違いは何ですか？ {#what-are-the-benefits-of-using-auto-model-versus-bring-your-own-byo-model}
 
@@ -32,13 +32,13 @@ Braze Autoモデルを使用するメリットには以下があります。
 
 ### エージェントは、渡した特定のLiquid属性や値以外のユーザーデータにアクセスできますか？ {#can-agents-access-user-data-beyond-the-specific-liquid-attributes-or-values-that-i-pass-to-them}
 
-いいえ。エージェントは、Liquidを使用して渡された特定のユーザーデータポイントと、エージェントのコンテキストに追加された[リソース]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#add-resources)のみを受け取ります。エージェントは、マーケターが検索するよう設定していない属性をユーザーのプロファイルから検索することはできません。
+いいえ。エージェントは、Liquidを使用して渡された特定のユーザーデータポイントと、エージェントのコンテキストに追加された[リソース]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources)のみを受け取ります。エージェントは、マーケターが検索するよう設定していない属性をユーザーのプロファイルから検索することはできません。
 
 ## トラブルシューティング {#troubleshooting}
 
 ### エージェントが指示やルールに従わないのはなぜですか？ {#why-did-my-agent-not-follow-my-instructions-or-rules}
 
-[オペレーター]({{site.baseurl}}/user_guide/brazeai/operator/)を使用して、エージェントが指示に従わない理由をトラブルシューティングすることを検討してください。オペレーターはステップバイステップの手順と詳細な説明を提供できます。
+[オペレーター]({{site.baseurl}}/user_guide/brazeai/operator)を使用して、エージェントが指示に従わない理由をトラブルシューティングすることを検討してください。オペレーターはステップバイステップの手順と詳細な説明を提供できます。
 
 ### カタログエージェントが一部の行をスキップするのはなぜですか？ {#why-did-my-catalog-agent-skip-some-rows}
 
@@ -46,13 +46,13 @@ Braze Autoモデルを使用するメリットには以下があります。
 
 エージェントは列の依存関係も尊重します。出力列が他の列に依存している場合（たとえば、列Dが列Bと列Cの値を必要とする場合）、エージェントはその行の上流列が入力されるまで実行されません。
 
-詳細については、[カタログエージェントのベストプラクティス]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#catalog-agent-best-practices)を参照してください。
+詳細については、[カタログエージェントのベストプラクティス]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices)を参照してください。
 
 ### エージェントが複雑なタスクに苦戦しています。パフォーマンスを改善するにはどうすればよいですか？ {#subagent-approach}
 
 エージェントが依頼したタスクに苦戦している場合は、サブエージェントアプローチを検討してください。たとえば、3つのエージェントを使用して以下のように処理できます。
 
-- エージェント1：受信した非構造化Canvasコンテキストデータを標準化および変換します。
+- エージェント1：受信した非構造化キャンバスコンテキストデータを標準化および変換します。
 - エージェント2：アイテム詳細のカタログを参照し、関連する可能性のあるアイテムを特定します。
 - エージェント3：各アイテムのさまざまな説明が含まれる別のカタログを参照し、メールに配置するためにユーザーに最も関連性の高いアイテムの説明を特定します。
 
@@ -65,7 +65,7 @@ Braze Autoモデルを使用するメリットには以下があります。
 - エージェントの指示が、**出力**タブで指定された出力形式とは異なる出力形式を要求している（例：エージェントの指示では文字列を要求しているが、**出力**タブでは出力が数値として定義されている）
 - エージェントのタスクが複雑すぎるため、[サブエージェントアプローチ](#subagent-approach)の方が適している
 
-Canvasエージェントの場合、呼び出しが失敗してもユーザーが出力を受け取れるように、エージェントコンソールで[フォールバック値]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values)を設定してください。
+キャンバスエージェントの場合、呼び出しが失敗してもユーザーが出力を受け取れるように、エージェントコンソールで[フォールバック値]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values)を設定してください。
 
 ## コンプライアンス {#compliance}
 

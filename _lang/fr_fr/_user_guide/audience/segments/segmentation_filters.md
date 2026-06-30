@@ -37,7 +37,7 @@ glossary_tags:
 
 glossaries:
   - name: Segment Membership
-    description: "Vous permet de filtrer en fonction de l'appartenance à un segment partout où les filtres sont utilisés (comme les segments, les campagnes, etc.) et de cibler plusieurs segments différents au sein d'une même campagne. <br><br>Pour capturer l'appartenance à un segment à un moment précis, exportez les utilisateurs du segment dans le tableau de bord ou appelez l'endpoint <a href=\"{{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/\"><code>/users/export/segment</code></a> avant d'envoyer une campagne ou un Canvas. Pour plus d'informations, consultez <a href=\"{{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/\">Exporter les données de segment au format CSV</a>.<br><br>Notez que les segments utilisant déjà ce filtre ne peuvent pas être davantage inclus ou imbriqués dans d'autres segments, car cela pourrait créer un cycle où le segment A inclut le segment B, qui tente ensuite d'inclure le segment A. Si cela se produisait, le segment se référencerait en permanence, rendant impossible le calcul des utilisateurs qui en font réellement partie. De plus, l'imbrication de segments ajoute de la complexité et peut ralentir les performances. Recréez plutôt le segment que vous essayez d'inclure en utilisant les mêmes filtres.<br><br>Si un segment n'apparaît pas dans le menu déroulant du filtre <strong>Segment Membership</strong>, recréez-le avec les mêmes filtres et sélectionnez le nouveau segment, ou vérifiez qu'il ne dépend pas déjà de cette audience d'une manière qui créerait un cycle."
+    description: "Vous permet de filtrer en fonction de l'appartenance à un segment partout où les filtres sont utilisés (comme les segments, les campagnes, etc.) et de cibler plusieurs segments différents au sein d'une même campagne. <br><br>Pour capturer l'appartenance à un segment à un moment précis, exportez les utilisateurs du segment dans le tableau de bord ou appelez l'endpoint <a href=\"{{site.baseurl}}/api/endpoints/export/user_data/post_users_segment\"><code>/users/export/segment</code></a> avant d'envoyer une campagne ou un Canvas. Pour plus d'informations, consultez <a href=\"{{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv\">Exporter les données de segment au format CSV</a>.<br><br>Notez que les segments utilisant déjà ce filtre ne peuvent pas être davantage inclus ou imbriqués dans d'autres segments, car cela pourrait créer un cycle où le segment A inclut le segment B, qui tente ensuite d'inclure le segment A. Si cela se produisait, le segment se référencerait en permanence, rendant impossible le calcul des utilisateurs qui en font réellement partie. De plus, l'imbrication de segments ajoute de la complexité et peut ralentir les performances. Recréez plutôt le segment que vous essayez d'inclure en utilisant les mêmes filtres.<br><br>Si un segment n'apparaît pas dans le menu déroulant du filtre <strong>Segment Membership</strong>, recréez-le avec les mêmes filtres et sélectionnez le nouveau segment, ou vérifiez qu'il ne dépend pas déjà de cette audience d'une manière qui créerait un cycle."
     tags:
       - Segment or CSV membership
   - name: Braze Segment Extensions
@@ -81,11 +81,11 @@ glossaries:
     tags:
       - Custom events
   - name: X Custom Event In Y Days
-    description: "Détermine si un utilisateur a effectué un événement spécialement enregistré entre 0 et 50 fois au cours du nombre spécifié de jours calendaires entre 1 et 30. (Jour calendaire = 1 jour calendaire examine 24 à 48 heures d'historique utilisateur)<br> <a href=\"/docs/x-in-y-behavior/\"> En savoir plus sur le comportement X-en-Y ici.</a> <br><br>Exemple :<br>Panier abandonné exactement 0 fois au cours du dernier jour calendaire<br><br>Fuseau horaire :<br>UTC - Pour tenir compte de tous les fuseaux horaires, 1 jour calendaire examine 24 à 48 heures d'historique utilisateur, selon l'heure à laquelle le segment est évalué ; pour 2 jours calendaires, examine 48 à 72 heures d'historique utilisateur, et ainsi de suite."
+    description: "Détermine si un utilisateur a effectué un événement spécialement enregistré entre 0 et 50 fois au cours du nombre spécifié de jours calendaires entre 1 et 30. (Jour calendaire = 1 jour calendaire examine 24 à 48 heures d'historique utilisateur)<br> <a href=\"/docs/x-in-y-behavior\"> En savoir plus sur le comportement X-en-Y ici.</a> <br><br>Exemple :<br>Panier abandonné exactement 0 fois au cours du dernier jour calendaire<br><br>Fuseau horaire :<br>UTC - Pour tenir compte de tous les fuseaux horaires, 1 jour calendaire examine 24 à 48 heures d'historique utilisateur, selon l'heure à laquelle le segment est évalué ; pour 2 jours calendaires, examine 48 à 72 heures d'historique utilisateur, et ainsi de suite."
     tags:
       - Custom events
   - name: X Custom Event Property In Y Days
-    description: "Détermine si un utilisateur a effectué un événement spécialement enregistré en relation avec une propriété spécifique entre 0 et 50 fois au cours du nombre spécifié de jours calendaires entre 1 et 30. (Jour calendaire = 1 jour calendaire examine 24 à 48 heures d'historique utilisateur)<br><a href=\"/docs/x-in-y-behavior/\">En savoir plus sur le comportement X-en-Y ici.</a> <br><br>Exemple :<br> Ajouté aux favoris avec la propriété « event_name » exactement 0 fois au cours du dernier jour calendaire<br><br>Fuseau horaire :<br>UTC - Pour tenir compte de tous les fuseaux horaires, 1 jour calendaire examine 24 à 48 heures d'historique utilisateur, selon l'heure à laquelle le segment est évalué ; pour 2 jours calendaires, examine 48 à 72 heures d'historique utilisateur, et ainsi de suite."
+    description: "Détermine si un utilisateur a effectué un événement spécialement enregistré en relation avec une propriété spécifique entre 0 et 50 fois au cours du nombre spécifié de jours calendaires entre 1 et 30. (Jour calendaire = 1 jour calendaire examine 24 à 48 heures d'historique utilisateur)<br><a href=\"/docs/x-in-y-behavior\">En savoir plus sur le comportement X-en-Y ici.</a> <br><br>Exemple :<br> Ajouté aux favoris avec la propriété « event_name » exactement 0 fois au cours du dernier jour calendaire<br><br>Fuseau horaire :<br>UTC - Pour tenir compte de tous les fuseaux horaires, 1 jour calendaire examine 24 à 48 heures d'historique utilisateur, selon l'heure à laquelle le segment est évalué ; pour 2 jours calendaires, examine 48 à 72 heures d'historique utilisateur, et ainsi de suite."
     tags:
       - Custom events
   - name: Email Address
@@ -109,7 +109,7 @@ glossaries:
     tags:
       - Sessions
   - name: X Sessions In Last Y Days
-    description: "Segmente vos utilisateurs par le nombre de sessions (entre 0 et 50) qu'ils ont eues dans votre application au cours du nombre spécifié de jours calendaires entre 1 et 30. <br> <a href=\"/docs/x-in-y-behavior/\">En savoir plus sur le comportement X-en-Y ici.</a>"
+    description: "Segmente vos utilisateurs par le nombre de sessions (entre 0 et 50) qu'ils ont eues dans votre application au cours du nombre spécifié de jours calendaires entre 1 et 30. <br> <a href=\"/docs/x-in-y-behavior\">En savoir plus sur le comportement X-en-Y ici.</a>"
     tags:
       - Sessions
   - name: First Used App
@@ -217,7 +217,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Hard Bounced
-    description: "Segmente vos utilisateurs selon que leur adresse e-mail a subi un échec d'envoi définitif (par exemple, l'adresse e-mail est invalide). Pour exporter les utilisateurs ayant des e-mails invalides, appelez l'endpoint <a href=\"{{site.baseurl}}/api/endpoints/email/get_list_hard_bounces/\"><code>/email/hard_bounces</code></a> ou créez un segment avec des filtres tels que l'adresse e-mail n'est pas vide, l'e-mail n'est pas disponible et le statut d'abonnement e-mail n'est pas désabonné."
+    description: "Segmente vos utilisateurs selon que leur adresse e-mail a subi un échec d'envoi définitif (par exemple, l'adresse e-mail est invalide). Pour exporter les utilisateurs ayant des e-mails invalides, appelez l'endpoint <a href=\"{{site.baseurl}}/api/endpoints/email/get_list_hard_bounces\"><code>/email/hard_bounces</code></a> ou créez un segment avec des filtres tels que l'adresse e-mail n'est pas vide, l'e-mail n'est pas disponible et le statut d'abonnement e-mail n'est pas désabonné."
     tags:
       - Retargeting
   - name: Soft Bounced
@@ -273,7 +273,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Feature Flags
-    description: "Le segment de vos utilisateurs pour lesquels un <a href=\"/docs/developer_guide/feature_flags/\">indicateur de fonctionnalité</a> particulier est actuellement activé."
+    description: "Le segment de vos utilisateurs pour lesquels un <a href=\"/docs/developer_guide/feature_flags\">indicateur de fonctionnalité</a> particulier est actuellement activé."
     tags:
       - Retargeting
   - name: Subscription Group
@@ -333,11 +333,11 @@ glossaries:
     tags:
       - Purchase behavior
   - name: X Purchases in Last Y Days
-    description: "Segmente vos utilisateurs par le nombre de fois (entre 0 et 50) qu'ils ont effectué un achat au cours du nombre spécifié de jours calendaires entre 1 et 30. <br> <a href=\"/docs/x-in-y-behavior/\">En savoir plus sur le comportement X-en-Y ici.</a>"
+    description: "Segmente vos utilisateurs par le nombre de fois (entre 0 et 50) qu'ils ont effectué un achat au cours du nombre spécifié de jours calendaires entre 1 et 30. <br> <a href=\"/docs/x-in-y-behavior\">En savoir plus sur le comportement X-en-Y ici.</a>"
     tags:
       - Purchase behavior
   - name: X Purchase Property In Y Days
-    description: "Segmente vos utilisateurs par le nombre de fois qu'un achat a été effectué en relation avec une certaine propriété d'achat au cours du nombre spécifié de jours calendaires entre 1 et 30. <br> <a href=\"/docs/x-in-y-behavior/\">En savoir plus sur le comportement X-en-Y ici.</a>"
+    description: "Segmente vos utilisateurs par le nombre de fois qu'un achat a été effectué en relation avec une certaine propriété d'achat au cours du nombre spécifié de jours calendaires entre 1 et 30. <br> <a href=\"/docs/x-in-y-behavior\">En savoir plus sur le comportement X-en-Y ici.</a>"
     tags:
       - Purchase behavior
   - name: First Made Purchase
@@ -361,7 +361,7 @@ glossaries:
     tags:
       - Purchase behavior
   - name: X Money Spent in Y Days
-    description: "Segmente vos utilisateurs par le montant qu'ils ont dépensé dans votre application au cours du nombre spécifié de jours calendaires entre 1 et 30. Ce montant inclut uniquement la somme des 50 derniers achats. <br> <a href=\"/docs/x-in-y-behavior/\">En savoir plus sur le comportement X-en-Y ici.</a>"
+    description: "Segmente vos utilisateurs par le montant qu'ils ont dépensé dans votre application au cours du nombre spécifié de jours calendaires entre 1 et 30. Ce montant inclut uniquement la somme des 50 derniers achats. <br> <a href=\"/docs/x-in-y-behavior\">En savoir plus sur le comportement X-en-Y ici.</a>"
     tags:
       - Purchase behavior
   - name: Last order placed (last 730 days)
@@ -521,7 +521,7 @@ glossaries:
     tags:
       - Location
   - name: Location Available
-    description: "Segmente vos utilisateurs selon qu'ils ont signalé leur emplacement. Pour utiliser ce filtre, votre application doit avoir le <a href=\"/docs/search/?query=location%20tracking\">suivi de localisation intégré.</a>"
+    description: "Segmente vos utilisateurs selon qu'ils ont signalé leur emplacement. Pour utiliser ce filtre, votre application doit avoir le <a href=\"/docs/search?query=location%20tracking\">suivi de localisation intégré.</a>"
     tags:
       - Location
   - name: Amplitude Cohorts

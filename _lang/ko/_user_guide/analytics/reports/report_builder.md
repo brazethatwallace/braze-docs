@@ -143,7 +143,7 @@ page_order: 3
 1. 보고서 테이블 상단의 점선 아이콘을 선택합니다.
 2. **대시보드에 추가**를 선택합니다.
 3. 새 대시보드를 생성할지 기존 대시보드에 추가할지 선택합니다.<br><br>![보고서를 새 대시보드에 추가할지 기존 대시보드에 추가할지 선택하는 옵션이 있는 창.]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
-4. 대시보드 구축에 대해 자세히 알아보려면 [대시보드 빌더]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/)의 단계를 따르세요.
+4. 대시보드 구축에 대해 자세히 알아보려면 [대시보드 빌더]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder)의 단계를 따르세요.
 
 ## 문제 해결 {#troubleshooting}
 
@@ -157,4 +157,4 @@ Campaign 또는 Canvas는 **마지막 발송** 날짜가 구성한 **마지막 �
 
 보고서 다운로드 링크는 1시간 후 만료됩니다. 링크가 만료된 경우 새 보고서를 생성하고 1시간 이내에 다운로드하세요. 만료 시간을 연장하는 방법은 없습니다.
 
-**파트너 통합**에 [Amazon S3 버킷]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3/)이 연결되어 있는 경우, S3 버킷을 직접 탐색하여 이전 보고서의 데이터를 검색할 수 있습니다.
+**파트너 통합**에 [Amazon S3 버킷]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3)이 연결되어 있는 경우, S3 버킷을 직접 탐색하여 이전 보고서의 데이터를 검색할 수 있습니다.

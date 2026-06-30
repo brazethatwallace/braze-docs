@@ -12,7 +12,7 @@ channel:
 
 # SMSおよびRCSボットクリックフィルタリング {#sms-and-rcs-bot-click-filtering}
 
-> SMSおよびRCSボットクリックフィルタリングは、疑わしいボットクリックを除外することで、キャンペーンの分析やワークフローを強化します。「ボットクリック」とは、Webクローラー、AndroidやiOSのリンクプレビュー、CPaaSセキュリティソフトウェアなどによる、SMSおよびRCSメッセージ内の短縮リンクへの自動クリックを指します。この機能により、正確なレポート、セグメンテーション、オーケストレーションが可能になり、実際のユーザーにエンゲージできます。<br><br> メールキャンペーンのボットクリックフィルタリングについては、[メールのボットフィルタリング]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/bot_filtering/)を参照してください。
+> SMSおよびRCSボットクリックフィルタリングは、疑わしいボットクリックを除外することで、キャンペーンの分析やワークフローを強化します。「ボットクリック」とは、Webクローラー、AndroidやiOSのリンクプレビュー、CPaaSセキュリティソフトウェアなどによる、SMSおよびRCSメッセージ内の短縮リンクへの自動クリックを指します。この機能により、正確なレポート、セグメンテーション、オーケストレーションが可能になり、実際のユーザーにエンゲージできます。<br><br> メールキャンペーンのボットクリックフィルタリングについては、[メールのボットフィルタリング]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/bot_filtering)を参照してください。
 
 ## 仕組み {#how-it-works}
 
@@ -31,9 +31,9 @@ Brazeは、複数の入力を使用して疑わしいボットクリック（非
     - **インテリジェントセレクション：** バリアントセレクションの最適化時にボットクリックを除外します。
     - **インテリジェントチャネル：** SMSまたはRCSが選択された場合、正確なチャネルセレクションのためにボットクリックを除外します。
     - **実験ステップ：** 信頼性の高い実験結果のためにボットクリックを除外します。
-    - **Currentsデータエクスポート：** 人間のクリックとボットクリックの分析に役立つ`is_suspected_bot_click`および`suspected_bot_click_reason`フィールドが含まれます。これらのフィールドは、[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)、[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)、および[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)で利用できます。
+    - **Currentsデータエクスポート：** 人間のクリックとボットクリックの分析に役立つ`is_suspected_bot_click`および`suspected_bot_click_reason`フィールドが含まれます。これらのフィールドは、[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)、[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)、および[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)で利用できます。
 
-疑わしいボットクリックによる配信停止は影響を受けません。Brazeはすべての配信停止リクエストを通常どおり処理します。これらの配信停止をブロックするには、[製品フィードバックを送信]({{site.baseurl}}/user_guide/administer/personal/braze_support/)してください。
+疑わしいボットクリックによる配信停止は影響を受けません。Brazeはすべての配信停止リクエストを通常どおり処理します。これらの配信停止をブロックするには、[製品フィードバックを送信]({{site.baseurl}}/user_guide/administer/personal/braze_support)してください。
 
 ## SMSクリックイベントのCurrentsフィールド {#currents-fields-in-sms-click-events}
 
@@ -47,7 +47,7 @@ Brazeは、SMSクリックイベントに対して以下のCurrentsフィール�
 
 ## クエリビルダーテンプレート {#query-builder-template}
 
-データの分析に役立てるために、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/)の事前構築済みモバイルテンプレート**SMS click events by bots**を使用できます。
+データの分析に役立てるために、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates)の事前構築済みモバイルテンプレート**SMS click events by bots**を使用できます。
 
 ## よくある質問 {#frequently-asked-questions}
 
@@ -67,8 +67,8 @@ Brazeは、SMSクリックイベントに対して以下のCurrentsフィール�
 
 早期アクセス期間中にボットクリックフィルタリングを有効にするには、Brazeアカウントチームに連絡する必要があります。ボットクリックフィルタリングが一般提供されると、この機能はすべてのSMSおよびRCSユーザーに対してデフォルトで有効になります。
 
-また、[リンク短縮]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/)の高度なクリックトラッキングが有効になっていることを確認してください。これにより、個々のユーザーレベルでこのデータを追跡するため、ボットクリック分析を受け取ることができます。
+また、[リンク短縮]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening)の高度なクリックトラッキングが有効になっていることを確認してください。これにより、個々のユーザーレベルでこのデータを追跡するため、ボットクリック分析を受け取ることができます。
 
 {% alert note %}
-さらにサポートが必要な場合は、[サポートに連絡]({{site.baseurl}}/braze_support/)してください。
+さらにサポートが必要な場合は、[サポートに連絡]({{site.baseurl}}/braze_support)してください。
 {% endalert %}

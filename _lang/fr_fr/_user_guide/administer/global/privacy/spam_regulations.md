@@ -15,7 +15,7 @@ channel:
 
 > Il existe un certain nombre de lois qui réglementent les expéditeurs de communications électroniques, y compris les e-mails, les notifications push et les SMS. Vous devez toujours être au courant des [réglementations locales](https://en.wikipedia.org/wiki/Email_spam_legislation_by_country) qui peuvent vous concerner ou concerner vos utilisateurs.
 
-Braze fournit des informations pertinentes sur la base de nos propres recherches, mais vous devez également consulter le texte intégral de ces lois pour obtenir des détails complets et actualisés.
+Braze fournit des informations pertinentes sur la base de ses propres recherches, mais vous devez également consulter le texte intégral de ces lois pour obtenir des détails complets et actualisés.
 
 - [CAN-SPAM](#can-spam)
 - [Loi canadienne anti-spam](#casl)
@@ -114,4 +114,4 @@ Sur iOS, vos utilisateurs ont toujours été invités à donner leur consentemen
 
 ### Android {#spam-android}
 
-Sur Android, vos utilisateurs peuvent être considérés comme ayant donné leur consentement par le biais du consentement tacite mentionné dans votre politique de confidentialité ou votre contrat de licence utilisateur final. Vous pouvez envisager de mettre en place un processus de consentement exprès, par exemple sur un écran initial dès que l'utilisateur lance l'application pour la première fois. Consultez l'article sur les [bonnes pratiques pour les notifications push]({{site.baseurl}}/user_guide/channels/push/best_practices/) pour plus de détails. Vous pouvez également informer l'utilisateur des types de notifications push qu'il recevra, augmentant ainsi le taux d'opt-in.
+Sur Android, vos utilisateurs peuvent être considérés comme ayant donné leur consentement par le biais du consentement tacite mentionné dans votre politique de confidentialité ou votre contrat de licence utilisateur final. Vous pouvez envisager de mettre en place un processus de consentement exprès, par exemple sur un écran initial dès que l'utilisateur lance l'application pour la première fois. Consultez l'article sur les [bonnes pratiques pour les notifications push]({{site.baseurl}}/user_guide/channels/push/best_practices) pour plus de détails. Vous pouvez également informer l'utilisateur des types de notifications push qu'il recevra, augmentant ainsi le taux d'opt-in.

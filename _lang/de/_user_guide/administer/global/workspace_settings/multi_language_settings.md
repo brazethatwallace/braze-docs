@@ -12,7 +12,7 @@ description: "Dieser Artikel bietet eine Übersicht über die mehrsprachigen Ein
 
 ## Voraussetzungen {#prerequisites}
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 ## Gebietsschema hinzufügen {#add-a-locale}
 

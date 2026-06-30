@@ -12,7 +12,7 @@ description: "Este artículo ofrece un resumen de la configuración multilingüe
 
 ## Requisitos previos {#prerequisites}
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 ## Añadir una configuración regional {#add-a-locale}
 
@@ -65,7 +65,7 @@ Puedes añadir hasta 200 configuraciones regionales.
 
 ### ¿Dónde se almacenan los archivos de traducción en Braze? {#where-are-the-translation-files-stored-in-braze}
 
-Los archivos de traducción se almacenan a nivel de campaña, lo que significa que cada variante de mensaje debe tener traducciones cargadas. Las traducciones también se pueden almacenar en Content Blocks. Cuando el bloque se añade a un mensaje, sus traducciones se incluyen automáticamente.
+Los archivos de traducción se almacenan a nivel de Campaign, lo que significa que cada variante de mensaje debe tener traducciones cargadas. Las traducciones también se pueden almacenar en Content Blocks. Cuando el bloque se añade a un mensaje, sus traducciones se incluyen automáticamente.
 
 ### ¿El nombre de la configuración regional tiene que seguir un patrón o formato específico? {#does-the-locale-name-have-to-follow-a-specific-pattern-or-format}
 

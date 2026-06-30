@@ -9,7 +9,7 @@ tool: Canvas
 
 # キャンバスをキャンバスフローに複製する {#clone-canvases-to-canvas-flow}
 
-> オリジナルのエディターで作成した既存のキャンバスがある場合、そのキャンバスを複製してキャンバスフローにコピーを作成できます。現在のキャンバスワークフローに切り替えることで、軽量な[キャンバスコンポーネント]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/)、[永続的なエントリプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#canvas-entry-properties)、および[起動後の編集]({{site.baseurl}}/post-launch_edits/)にアクセスできるようになります。オリジナルのキャンバスは変更も削除もされません。
+> オリジナルのエディターで作成した既存のキャンバスがある場合、そのキャンバスを複製してキャンバスフローにコピーを作成できます。現在のキャンバスワークフローに切り替えることで、軽量な[キャンバスコンポーネント]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components)、[永続的なエントリプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#canvas-entry-properties)、および[起動後の編集]({{site.baseurl}}/post-launch_edits)にアクセスできるようになります。オリジナルのキャンバスは変更も削除もされません。
 
 {% alert important %}
 オリジナルのキャンバスエクスペリエンスを使用してキャンバスを作成または複製することはできなくなりました。Brazeでは、オリジナルのキャンバスエクスペリエンスを使用している顧客に、現在のキャンバスエクスペリエンスであるキャンバスフローへの移行を推奨しています。
@@ -21,12 +21,12 @@ tool: Canvas
 2. キャンバスフローワークフローでコピーを作成したいキャンバスを特定します。**下書き**、**アクティブ**、または**停止済み**のステータスのキャンバスを複製できます。
 3. <i class="fas fa-ellipsis-vertical"></i> **More actions** をクリックし、**Clone to キャンバス Flow** を選択します。
 
-![]({% image_buster /assets/img_archive/clone_to_v2_workflow.png %}){: style="max-width:25%;"}
+![説明されたプロセスのフロー図。]({% image_buster /assets/img_archive/clone_to_v2_workflow.png %}){: style="max-width:25%;"}
 
 {: start="4"}
 4. 新しいキャンバスの名前を入力し、**Clone to キャンバス Flow** をクリックします。
 
-![]({% image_buster /assets/img_archive/clone_to_v2_modal.png %}){: style="max-width:70%;"}
+![コンテンツカードのモーダル配置の例。]({% image_buster /assets/img_archive/clone_to_v2_modal.png %}){: style="max-width:70%;"}
 
 これで、キャンバスの2つのバージョンが作成されました。オリジナルのキャンバスとキャンバスフローバージョンです。オリジナルのキャンバスは元のステータスのままで、複製されたキャンバスは**下書き**ステータスになります。引き続きオリジナルのキャンバスにアクセスできますが、Brazeではキャンバスフローワークフローを使用してキャンバスの構築を続けることを推奨しています。
 
@@ -46,8 +46,8 @@ tool: Canvas
 
 再エントリが無効の場合は、「Entered Canvas Variation」フィルターを追加します。再エントリが有効の場合は、ユーザーが同じキャンバスに2回入らないようにするために、以下の方法を検討してください。
 - 既存のキャンバスにユニークなタグを追加するよう更新します。新しいキャンバスには、「Last Received Message from Campaign or Canvas with Tag」フィルターを追加します。これにより、特定のエントリ日以降にユーザーがキャンバスに2回入ることを防ぎます（オリジナルのキャンバスから最後のメッセージが送信されてからの合計日数にコンバージョン時間枠を加えた期間）。
-- **以下の方法ではデータポイントが記録されます。**オリジナルのキャンバスを更新して、エントリ時にカスタム属性の日付タイムスタンプをトリガーするBraze間Webhookを含めます。この属性を使用して、指定された日付以降にユーザーが新しいキャンバスに入ることを防ぐことができます（オリジナルのキャンバスから最後のメッセージが送信されてからの合計日数にコンバージョン時間枠を加えた期間）。
+- **以下の方法ではデータポイントが記録されます。** オリジナルのキャンバスを更新して、エントリ時にカスタム属性の日付タイムスタンプをトリガーするBraze間Webhookを含めます。この属性を使用して、指定された日付以降にユーザーが新しいキャンバスに入ることを防ぐことができます（オリジナルのキャンバスから最後のメッセージが送信されてからの合計日数にコンバージョン時間枠を加えた期間）。
 
 APIトリガーのキャンバスについては、新しいキャンバスの起動準備が整った際に、これらのキャンバスが新しいキャンバス IDを使用するようエンジニアリングチームと調整してください。
 
-オリジナルのキャンバスエディターとキャンバスフローエクスペリエンスの違いについて詳しくは、[キャンバス FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-are-the-main-differences-between-canvas-flow-and-the-original-canvas-editor)をご確認ください。
+オリジナルのキャンバスエディターとキャンバスフローエクスペリエンスの違いについて詳しくは、[キャンバス FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-are-the-main-differences-between-canvas-flow-and-the-original-canvas-editor)をご確認ください。

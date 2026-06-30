@@ -28,10 +28,10 @@ search_rank: 3
 
 더 구체적인 활용 사례는 다음과 같습니다:
 
-- 웹훅과 Canvas를 사용하여 리드를 검증하고 라우팅하는 [리드 스코어링 워크플로]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/)를 만들 수 있습니다.
+- 웹훅과 Canvas를 사용하여 리드를 검증하고 라우팅하는 [리드 스코어링 워크플로]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring)를 만들 수 있습니다.
 - 사용자가 이메일 구독을 취소하면, 웹훅을 통해 분석 데이터베이스나 CRM에 동일한 정보를 업데이트하여 해당 사용자의 동작에 대한 전체적인 뷰를 확보할 수 있습니다.
-- Facebook 메신저 또는 Line을 통해 사용자에게 [트랜잭션 메시지]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign/)를 보낼 수 있습니다.
-- 웹훅을 사용하여 [Lob.com]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/direct_mail/lob/)과 같은 서드파티 서비스와 통신함으로써, 고객의 인앱 및 웹 활동에 대한 응답으로 다이렉트 메일을 보낼 수 있습니다.
+- Facebook 메신저 또는 Line을 통해 사용자에게 [트랜잭션 메시지]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign)를 보낼 수 있습니다.
+- 웹훅을 사용하여 [Lob.com]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/direct_mail/lob)과 같은 서드파티 서비스와 통신함으로써, 고객의 인앱 및 웹 활동에 대한 응답으로 다이렉트 메일을 보낼 수 있습니다.
 - 게이머가 특정 레벨에 도달하거나 일정 포인트를 획득하면, 웹훅과 기존 API 설정을 사용하여 캐릭터 업그레이드나 코인을 해당 계정으로 직접 보낼 수 있습니다. 웹훅을 멀티 채널 메시징 캠페인의 일부로 보내면, 푸시 또는 다른 메시지를 통해 게이머에게 보상을 동시에 알릴 수 있습니다.
 - 항공사라면, 웹훅과 기존 API 설정을 사용하여 고객이 일정 횟수의 항공편을 예약한 후 해당 계정에 할인을 적용할 수 있습니다.
 - 무한한 "If This Then That"([IFTTT](https://ifttt.com/about)) 레시피가 가능합니다. 예를 들어, 고객이 이메일을 통해 앱에 로그인하면 해당 주소가 자동으로 Salesforce에 구성될 수 있습니다.
@@ -40,7 +40,7 @@ search_rank: 3
 
 Braze는 특정 HTTP 응답(예: `408`, `429`, `5XX`)에 대해서만 웹훅 전달을 재시도합니다. `401 Unauthorized` 및 기타 `4XX` 오류를 포함한 대부분의 다른 응답은 재시도되지 않습니다. `Retry-After` 및 `X-Rate-Limit-*`와 같은 응답 헤더는 **응답이 이미 재시도 대상인 경우** 백오프 타이밍에 영향을 줄 수 있지만, 재시도 가능한 범위 밖의 오류에 대해 Braze가 재시도하도록 하지는 않습니다.
 
-전체 응답 코드 표, 재시도 제한 및 타임아웃 동작에 대해서는 [응답 코드 및 재시도 로직]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#response-codes-and-retry-logic)을 참조하세요.
+전체 응답 코드 표, 재시도 제한 및 타임아웃 동작에 대해서는 [응답 코드 및 재시도 로직]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#response-codes-and-retry-logic)을 참조하세요.
 
 특정 호스트에 대한 웹훅 요청의 대부분이 실패하면, Braze는 해당 호스트에 대한 모든 전송 시도를 일시적으로 보류합니다. 정의된 쿨다운 기간이 지나면 전송이 재개되어 시스템이 복구될 수 있습니다.
 
@@ -49,12 +49,12 @@ Braze는 특정 HTTP 응답(예: `408`, `429`, `5XX`)에 대해서만 웹훅 전
 웹훅을 사용하는 방법은 다양하며, 기술 파트너(Alloys)를 통해 웹훅을 활용하여 고객 및 사용자와의 커뮤니케이션을 한 단계 높일 수 있습니다.
 
 확인해 보세요:
-* [메신저]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/instant_chat/messenger/)
-* [Remerge]({{site.baseurl}}/partners/remerge/)
-* [Lob.com]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/direct_mail/lob/)
-* 그리고 더 많은 [기술 파트너]({{site.baseurl}}/partners/home/)를 확인하세요!
+* [메신저]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/instant_chat/messenger)
+* [Remerge]({{site.baseurl}}/partners/remerge)
+* [Lob.com]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/direct_mail/lob)
+* 그리고 더 많은 [기술 파트너]({{site.baseurl}}/partners/home)를 확인하세요!
 
 ## 다음 단계 {#next-steps}
 
-- [웹훅 만들기]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)
-- [Braze-to-Braze 웹훅 만들기]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook/)
+- [웹훅 생성]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)
+- [Braze-to-Braze 웹훅 생성]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook)

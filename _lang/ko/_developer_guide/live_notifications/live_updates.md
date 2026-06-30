@@ -11,7 +11,7 @@ hidden: true
 
 # Android용 라이브 업데이트 {#live-updates-for-android}
 
-> Braze SDK에서 Android 라이브 업데이트를 사용하는 방법을 알아보세요. [진행률 중심 알림](https://developer.android.com/about/versions/16/features/progress-centric-notifications)이라고도 합니다. 이러한 알림은 대화형 잠금 화면 알림을 표시할 수 있는 [Swift Braze SDK의 라이브 활동]({{site.baseurl}}/developer_guide/live_notifications/live_activities/)과 유사합니다. Android 16은 사용자가 시작한 시작부터 끝까지의 여정을 원활하게 추적할 수 있도록 진행률 중심 알림을 도입했습니다.
+> Braze SDK에서 Android 라이브 업데이트를 사용하는 방법을 알아보세요. [진행률 중심 알림](https://developer.android.com/about/versions/16/features/progress-centric-notifications)이라고도 합니다. 이러한 알림은 대화형 잠금 화면 알림을 표시할 수 있는 [Swift Braze SDK의 라이브 활동]({{site.baseurl}}/developer_guide/live_notifications/live_activities)과 유사합니다. Android 16은 사용자가 시작한 시작부터 끝까지의 여정을 원활하게 추적할 수 있도록 진행률 중심 알림을 도입했습니다.
 
 ## 작동 방식 {#how-it-works}
 
@@ -110,7 +110,7 @@ class MyApplication : Application() {
 
 ### 4단계: 활동 보내기 {#step-4-send-the-activity}
 
-[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) REST API 엔드포인트를 사용하여 사용자의 Android 기기로 푸시 알림을 보낼 수 있습니다.
+[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) REST API 엔드포인트를 사용하여 사용자의 Android 기기로 푸시 알림을 보낼 수 있습니다.
 
 #### curl 명령 예시 {#example-curl-command}
 
@@ -142,21 +142,21 @@ curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
 ```
 
 {% alert tip %}
-curl 명령은 테스트에 유용하지만, 이미 [iOS 라이브 활동]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift)을 처리하고 있는 백엔드에서 이 호출을 처리하는 것이 좋습니다.
+curl 명령은 테스트에 유용하지만, 이미 [iOS 라이브 활동]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift)을 처리하고 있는 백엔드에서 이 호출을 처리하는 것이 좋습니다.
 {% endalert %}
 
 #### 요청 매개변수 {#request-parameters}
 
-| 키                          | 설명 |
+| 키 | 설명 |
 |------------------------------|------------|
 | `REST_API_KEY`               | `messages.send` 권한이 있는 Braze REST API 키입니다. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-| `BRAZE_REST_ENDPOINT`         | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/api/basics/#endpoints)에 따라 달라집니다. |
+| `BRAZE_REST_ENDPOINT`         | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/api/basics#endpoints)에 따라 달라집니다. |
 | `USER_ID`                    | 알림을 보낼 사용자의 ID입니다. |
 | `messages.android_push.title` | 메시지 제목입니다. 기본적으로 커스텀 알림 팩토리의 라이브 알림에는 사용되지 않지만, 대체 용도로 사용할 수 있습니다. |
 | `messages.android_push.alert` | 메시지 본문입니다. 기본적으로 커스텀 알림 팩토리의 라이브 알림에는 사용되지 않지만, 대체 용도로 사용할 수 있습니다. |
 | `messages.extra`             | 커스텀 알림 팩토리에서 라이브 알림에 사용하는 키-값 페어입니다. 이 값에는 어떤 문자열이든 할당할 수 있지만, 위의 예시에서는 `live_updates`를 사용하여 기본 푸시 알림인지 라이브 푸시 알림인지를 결정합니다. |
 | `ASSIGNED_NOTIFICATION_ID`   | 선택한 사용자의 라이브 알림에 할당할 알림 ID입니다. 이 ID는 해당 게임에 고유해야 하며, 나중에 [기존 알림을 업데이트](#android_step-4-update-data-with-the-braze-rest-api)할 때 사용해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="요청 매개변수" }
 
 ### 5단계: 활동 업데이트 {#step-5-update-the-activity}
 

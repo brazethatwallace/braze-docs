@@ -7,7 +7,7 @@ description: "Cet article de référence explique comment utiliser les catalogue
 
 # Utilisation des catalogues {#using-catalogs}
 
-> Après avoir créé un catalogue, vous pouvez référencer des données non-utilisateurs dans vos campagnes Braze via [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/). Les catalogues sont utilisables dans tous vos canaux de communication, y compris partout dans l'éditeur par glisser-déposer où Liquid est pris en charge.
+> Après avoir créé un catalogue, vous pouvez référencer des données non-utilisateurs dans vos campagnes Braze via [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid). Les catalogues sont utilisables dans tous vos canaux de communication, y compris partout dans l'éditeur par glisser-déposer où Liquid est pris en charge.
 
 ## Utiliser des catalogues dans un message {#using-catalogs-in-a-message}
 
@@ -80,7 +80,7 @@ Ceci donne le résultat suivant :
 ```Get the ultimate trio Tales, Teslagrad, and Acaratus today!```
 
 {% alert tip %}
-Check out [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) to create groups of data for more personalized messaging!
+Check out [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) to create groups of data for more personalized messaging!
 {% endalert %}
 
 ### Using Liquid `if` statements
@@ -174,7 +174,7 @@ Vous pouvez également utiliser les modèles pour extraire dynamiquement des él
 Les objets JSON dans les catalogues ne sont ingérés que via l'API. Vous ne pouvez pas importer un objet JSON à l'aide d'un fichier CSV.
 {% endalert %}
 
-Grâce au modèle Liquid, vous pouvez extraire dynamiquement les ID de la liste de souhaits, puis les utiliser dans votre message. Pour ce faire, [affectez une variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables) à votre attribut personnalisé, puis utilisez la fenêtre modale **Add Personalization** pour extraire un élément spécifique du tableau. Les variables référencées comme ID d'élément du catalogue doivent être placées entre accolades pour être correctement référencées, comme `{{result}}`.
+Grâce au modèle Liquid, vous pouvez extraire dynamiquement les ID de la liste de souhaits, puis les utiliser dans votre message. Pour ce faire, [affectez une variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables) à votre attribut personnalisé, puis utilisez la fenêtre modale **Add Personalization** pour extraire un élément spécifique du tableau. Les variables référencées comme ID d'élément du catalogue doivent être placées entre accolades pour être correctement référencées, comme `{{result}}`.
 
 {% alert tip %}
 N'oubliez pas que les tableaux commencent à `0` et non à `1`.
@@ -206,7 +206,7 @@ Vous pouvez également composer manuellement des catalogues avec la logique Liqu
 
 #### Modélisation d'éléments de catalogue incluant du Liquid
 
-Tout comme pour le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), vous devez utiliser le drapeau `:rerender` dans une balise Liquid pour afficher le contenu Liquid d'un élément du catalogue. Notez que le drapeau `:rerender` ne s'applique qu'à un seul niveau de profondeur : il ne s'appliquera pas aux appels de balises Liquid imbriquées.
+Tout comme pour le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), vous devez utiliser le drapeau `:rerender` dans une balise Liquid pour afficher le contenu Liquid d'un élément du catalogue. Notez que le drapeau `:rerender` ne s'applique qu'à un seul niveau de profondeur : il ne s'appliquera pas aux appels de balises Liquid imbriquées.
 
 Si un élément du catalogue contient des champs de profil utilisateur (dans une balise de personnalisation Liquid), ces valeurs doivent être définies en Liquid plus tôt dans le message, avant la modélisation, afin de garantir le bon rendu du Liquid. Si le drapeau `:rerender` n'est pas fourni, le contenu Liquid brut sera restitué.
 
@@ -246,12 +246,12 @@ Si le Liquid d'un catalogue ou d'une sélection ne s'affiche pas comme prévu da
 | Symptôme | Ce qu'il faut vérifier |
 | --- | --- |
 | L'aperçu affiche les éléments mais les envois en production sont vides | Confirmez que les **ID d'éléments** du catalogue existent au moment de l'envoi. Si l'ID dans votre Liquid ne correspond à aucune ligne, Braze renvoie un tableau d'éléments vide — voir [Utiliser Liquid](#using-liquid). Vérifiez les fautes de frappe et les sources d'ID (telles que les propriétés d'événement) qui pourraient être absentes du déclencheur ou du profil utilisateur. |
-| L'aperçu de l'éditeur fonctionne dans une Campaign mais pas dans Canvas | Confirmez que vous utilisez le bon contexte Liquid — **propriétés de contexte Canvas** versus **propriétés d'événement** — et que ces champs existent sur le déclencheur. Voir [Propriétés de contexte et d'événement]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/). |
-| Une sélection ne renvoie aucun élément | Vérifiez les [filtres de sélection]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) et les limites ; confirmez que les données du catalogue sont synchronisées et que les noms de colonnes correspondent à vos filtres. |
-| `:rerender` ou la distribution modélisée semble incorrecte | Pour le Liquid imbriqué dans les champs du catalogue, vous avez besoin de `:rerender` et d'un ordonnancement correct des variables — voir [Modélisation d'éléments de catalogue incluant du Liquid](#templating-catalog-items-including-liquid). Les messages in-app modélisés sont résolus au moment du déclenchement ; voir [Que sont les messages in-app modélisés ?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/#what-are-templated-in-app-messages). Certains canaux restreignent les balises de catalogue (par exemple, certaines utilisations de **:rerender** avec les bannières) — voir [Toutes les balises Liquid sont-elles prises en charge ?]({{site.baseurl}}/user_guide/channels/banners/faq/#are-all-liquid-tags-supported) dans la FAQ des bannières. |
+| L'aperçu de l'éditeur fonctionne dans une Campaign mais pas dans Canvas | Confirmez que vous utilisez le bon contexte Liquid — **propriétés de contexte Canvas** versus **propriétés d'événement** — et que ces champs existent sur le déclencheur. Voir [Propriétés de contexte et d'événement]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties). |
+| Une sélection ne renvoie aucun élément | Vérifiez les [filtres de sélection]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) et les limites ; confirmez que les données du catalogue sont synchronisées et que les noms de colonnes correspondent à vos filtres. |
+| `:rerender` ou la distribution modélisée semble incorrecte | Pour le Liquid imbriqué dans les champs du catalogue, vous avez besoin de `:rerender` et d'un ordonnancement correct des variables — voir [Modélisation d'éléments de catalogue incluant du Liquid](#templating-catalog-items-including-liquid). Les messages in-app modélisés sont résolus au moment du déclenchement ; voir [Que sont les messages in-app modélisés ?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages). Certains canaux restreignent les balises de catalogue (par exemple, certaines utilisations de **:rerender** avec les bannières) — voir [Toutes les balises Liquid sont-elles prises en charge ?]({{site.baseurl}}/user_guide/channels/banners/faq#are-all-liquid-tags-supported) dans la FAQ des bannières. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes de personnalisation des catalogues" }
 
-Pour le comportement général de Liquid, voir [Cas d'utilisation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/) et [Utiliser Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/).
+Pour le comportement général de Liquid, voir [Cas d'utilisation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases) et [Utiliser Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid).
 
 ## Structurer les données de votre catalogue
 
@@ -270,7 +270,7 @@ Avec les appels de catalogue standard, vous faites correspondre une valeur à la
 
 ### Quand utiliser les sélections de catalogue
 
-Les [sélections de catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) vous permettent de filtrer sur n'importe quelle colonne de votre catalogue et de renvoyer jusqu'à 50 éléments correspondants. En insérant des attributs personnalisés ou des propriétés d'événement dans les filtres de sélection, les résultats sont personnalisés pour chaque utilisateur. Les cas d'utilisation courants incluent :
+Les [sélections de catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) vous permettent de filtrer sur n'importe quelle colonne de votre catalogue et de renvoyer jusqu'à 50 éléments correspondants. En insérant des attributs personnalisés ou des propriétés d'événement dans les filtres de sélection, les résultats sont personnalisés pour chaque utilisateur. Les cas d'utilisation courants incluent :
 
 - Éléments dont la catégorie correspond aux préférences de l'utilisateur
 - Éléments correspondant à la marque, la cuisine ou la taille préférée de l'utilisateur

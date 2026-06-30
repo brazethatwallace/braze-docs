@@ -26,4 +26,4 @@ As aberturas por influência são adicionadas às aberturas diretas de uma Campa
 
 ![Estatísticas de aberturas por influência na página de detalhes da Campaign]({% image_buster /assets/img_archive/Influenced_Opens2.png %})
 
-Para saber mais sobre o rastreamento de aberturas, confira a seção de rastreamento de conversões de nossas [práticas recomendadas para push]({{site.baseurl}}/user_guide/channels/push/best_practices/).
+Para saber mais sobre o rastreamento de aberturas, confira a seção de rastreamento de conversões de nossas [práticas recomendadas para push]({{site.baseurl}}/user_guide/channels/push/best_practices).

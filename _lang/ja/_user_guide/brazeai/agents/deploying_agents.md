@@ -8,7 +8,7 @@ page_order: 2
 
 # カスタムエージェントをデプロイする {#deploy-custom-agents}
 
-> [エージェントを作成]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)した後、このページを参照して、Brazeでエージェントをデプロイする場所と方法を学びましょう。作成時に選択したエージェントタイプ（Canvasエージェントまたはカタログエージェント）によって、エージェントが実行できる場所が決まります。概要については、[Brazeエージェント]({{site.baseurl}}/user_guide/brazeai/agents/)を参照してください。
+> [エージェントを作成]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)した後、このページを参照して、Brazeでエージェントをデプロイする場所と方法を学びましょう。作成時に選択したエージェントタイプ（キャンバスエージェントまたはカタログエージェント）によって、エージェントが実行できる場所が決まります。概要については、[Brazeエージェント]({{site.baseurl}}/user_guide/brazeai/agents)を参照してください。
 
 ## カスタムエージェントのタイプ {#types-of-custom-agents}
 
@@ -16,41 +16,41 @@ page_order: 2
 
 | エージェントタイプ | デプロイ先 | 実行タイミング | セクション |
 | --- | --- | --- | --- |
-| Canvasステップエージェント | Canvasの[エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/) | ユーザーがステップに入ったとき | [Canvasステップエージェントを使用する](#use-canvas-step-agents) |
+| キャンバスステップエージェント | キャンバスの[エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) | ユーザーがステップに入ったとき | [キャンバスステップエージェントを使用する](#use-canvas-step-agents) |
 | カタログエージェント | カタログフィールド | カタログ行が作成または更新されたとき | [カタログエージェントを使用する](#use-catalog-agents) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="カスタムエージェントのタイプ" }
 
-エージェントタイプは、エージェント作成時に**エージェントコンソール**で選択します。設定手順については、[カスタムエージェントを作成する]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#step-1-choose-an-agent-type)を参照してください。
+エージェントタイプは、エージェント作成時に**エージェントコンソール**で選択します。設定手順については、[カスタムエージェントを作成する]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#step-1-choose-an-agent-type)を参照してください。
 
 ## ベストプラクティス {#best-practices}
 
 エージェントが最大の投資対効果（ROI）をもたらせる高価値のユースケースをターゲットにし、反応する可能性が高いオーディエンスを選択してください。小規模で機会の多いオーディエンスは、機会の少ない大規模なオーディエンスよりも高いパフォーマンスを発揮することが多いです。
 
-Canvasエージェントの場合、最近の検索、高いエンゲージメント、充実したプロファイルデータなど、強いシグナルを持つユーザーから始めて、より広いSegmentsに拡大してください。カタログエージェントの場合、必要な入力列がすでに入力されている行を優先し、各呼び出しが有用な出力を生成するのに十分なコンテキストを持つようにしてください。
+キャンバスエージェントの場合、最近の検索、高いエンゲージメント、充実したプロファイルデータなど、強いシグナルを持つユーザーから始めて、より広いセグメントに拡大してください。カタログエージェントの場合、必要な入力列がすでに入力されている行を優先し、各呼び出しが有用な出力を生成するのに十分なコンテキストを持つようにしてください。
 
-エージェントを広く展開する前に小規模でROIをテストするには、[実験パス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/)ステップを使用して、オーディエンスの一部のみがエージェントステップを含むブランチに入るようにしてください。
+エージェントを広く展開する前に小規模でROIをテストするには、[実験パス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)ステップを使用して、オーディエンスの一部のみがエージェントステップを含むブランチに入るようにしてください。
 
-## Canvasステップエージェントを使用する {#use-canvas-step-agents}
+## キャンバスステップエージェントを使用する {#use-canvas-step-agents}
 
-Canvasエージェントを作成した後、エージェントステップとしてCanvasに追加し、メッセージをパーソナライズしたり、リアルタイムで意思決定を導いたりできます。
+キャンバスエージェントを作成した後、エージェントステップとしてキャンバスに追加し、メッセージをパーソナライズしたり、リアルタイムで意思決定を導いたりできます。
 
 ### 仕組み {#how-it-works}
 
-ユーザーがCanvas内のエージェントステップに到達すると、Brazeは設定した入力データをエージェントに送信します。エージェントはモデルと指示を使用して入力を処理し、ステップで定義した出力変数に格納される出力を返します。この出力を意思決定、パーソナライゼーション、または下流の処理に使用できます。
+ユーザーがキャンバス内のエージェントステップに到達すると、Brazeは設定した入力データをエージェントに送信します。エージェントはモデルと指示を使用して入力を処理し、ステップで定義した出力変数に格納される出力を返します。この出力を意思決定、パーソナライゼーション、または下流の処理に使用できます。
 
-エージェントステップは[Canvasコンテキスト変数]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/)を使用して関連するコンテキストを取り込み、Canvas内で使用できる変数を出力します。前提条件と完全なリファレンスについては、[エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/)を参照してください。
+エージェントステップは[キャンバスコンテキスト変数]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)を使用して関連するコンテキストを取り込み、キャンバス内で使用できる変数を出力します。前提条件と完全なリファレンスについては、[エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)を参照してください。
 
 ### エージェントステップを追加する {#add-an-agent-step}
 
-Canvasにエージェントを追加するには:
+キャンバスにエージェントを追加するには:
 
 1. サイドバーから**エージェント**コンポーネントをドラッグ＆ドロップするか、ステップの下部にある <i class="fas fa-plus-circle"></i> プラスボタンを選択して**エージェント**を選択します。
 2. このステップでデータを処理するエージェントを選択します。
-3. 出力変数名を定義します。出力データタイプは[エージェントコンソール]({{site.baseurl}}/user_guide/brazeai/agents/)で設定します。
-4. （オプション）エージェントが実行時に参照する追加のコンテキスト値を追加します。これには、エージェントのセットアップでまだバインドしていない追加のLiquid変数やCanvasコンテキストを含めることができます。例えば、このステップから送信時にのみ渡したい値などです。
+3. 出力変数名を定義します。出力データタイプは[エージェントコンソール]({{site.baseurl}}/user_guide/brazeai/agents)で設定します。
+4. （オプション）エージェントが実行時に参照する追加のコンテキスト値を追加します。これには、エージェントのセットアップでまだバインドしていない追加のLiquid変数やキャンバスコンテキストを含めることができます。例えば、このステップから送信時にのみ渡したい値などです。
 5. ステッププレビューでエージェントの出力をテストしてプレビューします。
 
-出力データタイプ、Liquidテンプレート、スクリーンショットについては、[エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/)を参照してください。
+出力データタイプ、Liquidテンプレート、スクリーンショットについては、[エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)を参照してください。
 
 ### ユースケース {#use-cases}
 
@@ -59,35 +59,35 @@ Canvasにエージェントを追加するには:
 | リードスコアリングとリードの選別 | エージェントステップを使って、入ってくるリードをスケール（例: 1〜10）で評価します。スコアがしきい値を超えるユーザーをナーチャリングパスに振り分け、適合度の低いリードは除外します。 |
 | ダイナミックなメッセージパーソナライゼーション | エージェントに、ユーザー属性や最近の行動に基づいて件名、商品のおすすめ、メッセージ本文を生成させます。応答はメッセージステップに直接挿入できます。 |
 | 顧客フィードバックの対応 | 顧客のコメントをエージェントに渡し、感情を分析して共感的なフォローアップメッセージを生成させます。高価値ユーザーに対しては、エージェントが対応をエスカレートしたり、特典を含めたりすることもあります。 |
-| インテリジェントルーティング | エージェントの出力（ブール値または数値）を使用して、ユーザーを異なるCanvasパスに振り分けます。例えば、ユーザーを「リスクあり」か「健全」に分類し、それに応じてメッセージングの頻度を調整します。 |
+| インテリジェントルーティング | エージェントの出力（ブール値または数値）を使用して、ユーザーを異なるキャンバスパスに振り分けます。例えば、ユーザーを「リスクあり」か「健全」に分類し、それに応じてメッセージングの頻度を調整します。 |
 | 調査または回答の解釈 | エージェントに自由回答形式の調査回答や自由記述フィールドを解析させ、構造化された値（例: 意図やニーズの分類）を返させることで、下流のパスを駆動します。 |
 | 多段階推論 | エージェントを設定してコンテキストフィールドを組み合わせ、複数のユーザー属性に基づいて次善のアクション（メール、SMS、または人間による対応）を推奨するなど、複雑な判断を行わせます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ユースケース" }
 
 ### エージェントの出力を使用する {#use-the-agent-output}
 
-エージェントの実行後、Canvas内で出力変数を使用します:
+エージェントの実行後、キャンバス内で出力変数を使用します:
 
-- **ジャーニールーティング:** エージェントの応答に基づいて、ユーザーを異なるCanvasパスにルーティングします。数値、ブール値、または構造化された出力で[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)や[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)を使用します。
+- **ジャーニールーティング:** エージェントの応答に基づいて、ユーザーを異なるキャンバスパスにルーティングします。数値、ブール値、または構造化された出力で[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)や[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)を使用します。
 - **パーソナライゼーション:** Liquidを使用して、エージェントの応答をメッセージステップに直接挿入します。
-- **ユーザーデータの処理:** ユーザーデータを分析・標準化し、ユーザープロファイルに保存（例: [ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)ステップを使用）するか、Webhookを使用して送信します。
+- **ユーザーデータの処理:** ユーザーデータを分析・標準化し、ユーザープロファイルに保存（例: [ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)ステップを使用）するか、Webhookを使用して送信します。
 
-例については、エージェントステップの[仕組み]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#how-it-works)を参照してください。
+例については、エージェントステップの[仕組み]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#how-it-works)を参照してください。
 
 ### エラー処理とフォールバック動作 {#fallback-behavior}
 
-以下は、[エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/)における**Canvasステップエージェント**に適用されます。
+以下は、[エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)における**キャンバスステップエージェント**に適用されます。
 
-- 接続されたモデルがLLMプロバイダーから[レート制限エラー]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors)を返した場合、Brazeは呼び出しが成功するか完了できないと判断するまで、エクスポネンシャルバックオフを使用してリクエストを継続的に再試行します。その後、ユーザーは次のCanvasステップに進みます。
-- その他の障害（タイムアウトや無効なAPIキーなど）の場合、エージェントコンソールで[フォールバック値が設定]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values)されていない限り、出力変数は `null` に設定されます。
+- 接続されたモデルがLLMプロバイダーから[レート制限エラー]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors)を返した場合、Brazeは呼び出しが成功するか完了できないと判断するまで、エクスポネンシャルバックオフを使用してリクエストを継続的に再試行します。その後、ユーザーは次のキャンバスステップに進みます。
+- その他の障害（タイムアウトや無効なAPIキーなど）の場合、エージェントコンソールで[フォールバック値が設定]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values)されていない限り、出力変数は `null` に設定されます。
 - エージェントが1日の呼び出し制限に達した場合、Brazeはフォールバック値が設定されていればそれを適用します。設定されていない場合、出力変数は `null` に設定されます。
 
-フォールバック値が設定されている場合、Brazeは再試行不可能なエラーおよび1日の制限による障害に対してフォールバック値を適用します。BrazeはユーザーごとにフォールバックをLiquidでレンダリングし、結果をエージェントステップの出力変数に格納します。フォールバック値がない場合、これらの障害では出力変数が `null` に設定されます。エージェントコンソールのフォールバックの代わりに、メッセージステップでステップ固有のデフォルトを設定したい場合は、下流で[Liquidのデフォルト値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/)を使用できます。そのためには、エージェントセットアップの**出力**セクションでフォールバックを空白のままにして、エージェントがnullを返したときにLiquidのデフォルトが適用されるようにします。
+フォールバック値が設定されている場合、Brazeは再試行不可能なエラーおよび1日の制限による障害に対してフォールバック値を適用します。BrazeはユーザーごとにフォールバックをLiquidでレンダリングし、結果をエージェントステップの出力変数に格納します。フォールバック値がない場合、これらの障害では出力変数が `null` に設定されます。エージェントコンソールのフォールバックの代わりに、メッセージステップでステップ固有のデフォルトを設定したい場合は、下流で[Liquidのデフォルト値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values)を使用できます。そのためには、エージェントセットアップの**出力**セクションでフォールバックを空白のままにして、エージェントがnullを返したときにLiquidのデフォルトが適用されるようにします。
 
 - 同一の入力に対する応答はキャッシュされ、数分以内の同一の呼び出しに再利用される場合があります。キャッシュされた応答も合計および1日の呼び出し回数にカウントされます。
-- エージェントステップは、大量のユーザーバッチの処理に時間がかかる場合があります。Brazeは[呼び出しフロー制御]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls)に従って呼び出しをキューに入れるため、大量送信時にはユーザーが保留中のままになる場合があります。
+- エージェントステップは、大量のユーザーバッチの処理に時間がかかる場合があります。Brazeは[呼び出しフロー制御]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls)に従って呼び出しをキューに入れるため、大量送信時にはユーザーが保留中のままになる場合があります。
 
-エージェントステップのセットアップとランタイムの詳細については、エージェントステップの[エラー処理]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#error-handling)を参照してください。詳細については、Brazeエージェントの[エラー処理]({{site.baseurl}}/user_guide/brazeai/agents/#error-handling)を参照してください。
+エージェントステップのセットアップとランタイムの詳細については、エージェントステップの[エラー処理]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#error-handling)を参照してください。詳細については、Brazeエージェントの[エラー処理]({{site.baseurl}}/user_guide/brazeai/agents#error-handling)を参照してください。
 
 ## カタログエージェントを使用する {#use-catalog-agents}
 
@@ -144,13 +144,13 @@ Canvasにエージェントを追加するには:
 | 製品属性を充実させる | 製品名と詳細に基づいて、色系統、スタイル、季節などの欠落値を補完します。例えば、製品名が「Laguna Polarized Sunglasses」の場合、エージェントはスタイルを「スポーツ」、カラーファミリーを「ブルー」と割り当てることができます。 |
 | 派生フィールドを計算する | 既存のフィールドを使って新しいデータを生成します。例えば、属性に基づく「適合スコア」や、販売数とレビュー数から導き出す「人気タグ」などです。 |
 | アイテムを分類またはタグ付けする | おすすめロジック用にタグを割り当て、パーソナライゼーションモデルが製品をより効果的にセグメント化できるようにします。例えば、商品に「アウトドア」「フェス向き」「プレミアム」といったタグを付けます。 |
-| コンテンツをローカライズする | カタログのテキストを別の言語に翻訳してグローバルなCampaignに活用したり、地域別のチャネルに合わせてトーンや長さを調整したりします。例えば、「Classic Clubmaster Sunglasses」をスペイン語で「Gafas de sol Classic Clubmaster」と翻訳したり、SMS Campaign用に説明文を短くしたりします。 |
+| コンテンツをローカライズする | カタログのテキストを別の言語に翻訳してグローバルなキャンペーンに活用したり、地域別のチャネルに合わせてトーンや長さを調整したりします。例えば、「Classic Clubmaster Sunglasses」をスペイン語で「Gafas de sol Classic Clubmaster」と翻訳したり、SMS キャンペーン用に説明文を短くしたりします。 |
 | レビューやフィードバックを要約する | 感情やフィードバックを新しいフィールドにまとめます。例えば、感情スコアを「肯定的」「中立」「否定的」のように割り当てたり、「多くの顧客がフィット感の良さを挙げていますが、配送が遅いと指摘しています」のような短いテキスト要約を作成したりします。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ユースケース" }
 
 ### 応答フィールドを定義する {#define-response-fields}
 
-エージェントが出力形式として[フィールド]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/?tab=fields#advanced-schemas)を使用する場合、カタログフィールドで使用する**応答フィールド**として、エージェントから対応するフィールドを選択できます。
+エージェントが出力形式として[フィールド]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents?tab=fields#advanced-schemas)を使用する場合、カタログフィールドで使用する**応答フィールド**として、エージェントから対応するフィールドを選択できます。
 
 例えば、以下のフィールドで出力形式を構造化し、製品説明をカタログに追加するエージェントがあるとします:
 
@@ -168,23 +168,23 @@ Canvasにエージェントを追加するには:
 
 ### エラー処理 {#error-handling}
 
-- 失敗したカタログ呼び出しは、LLMプロバイダーからの[レート制限エラー]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors)を含め、再試行されません。
+- 失敗したカタログ呼び出しは、LLMプロバイダーからの[レート制限エラー]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors)を含め、再試行されません。
 - 基盤モデルプロバイダーへのAPI呼び出しが、無効なAPIキーエラーなどのその他のエラーを返した場合、フィールド値は更新されません。カタログエージェントは、エージェントコンソールでのフォールバック値の設定をサポートしていません。
 - 失敗した実行の詳細については、エージェントのログを確認できます。
 - カタログエージェントは、1行あたり最大25 KBまでの入力値の処理に制限されています。
 
 ## エージェントを監視する {#monitor-your-agent}
 
-監視は、エージェントがCanvasで実行されるかカタログで実行されるかに関係なく同じように機能します。
+監視は、エージェントがキャンバスで実行されるかカタログで実行されるかに関係なく同じように機能します。
 
-エージェントの**使用状況**セクションでは、カタログやCanvasでエージェントが実際に使用されている場所を参照し、そこに移動できます。
+エージェントの**使用状況**セクションでは、カタログやキャンバスでエージェントが実際に使用されている場所を参照し、そこに移動できます。
 
-![Canvasのエージェント使用状況セクション。アクティブなエージェントが2つと非アクティブなエージェントが1つ表示されています。]({% image_buster /assets/img/ai_agent/agent_usage.png %})
+![キャンバスのエージェント使用状況セクション。アクティブなエージェントが2つと非アクティブなエージェントが1つ表示されています。]({% image_buster /assets/img/ai_agent/agent_usage.png %})
 
-エージェントの**ログ**セクションでは、Canvasやカタログ内で発生する実際のエージェント呼び出しを監視できます。日付範囲、結果（成功または失敗）、呼び出し元などの情報でフィルタリングできます。現在のページに表示されているログのみをエクスポートするには、**CSVをエクスポート**を選択することもできます。
+エージェントの**ログ**セクションでは、キャンバスやカタログ内で発生する実際のエージェント呼び出しを監視できます。日付範囲、結果（成功または失敗）、呼び出し元などの情報でフィルタリングできます。現在のページに表示されているログのみをエクスポートするには、**CSVをエクスポート**を選択することもできます。
 
 {% alert tip %}
-[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)で、1日あたりの呼び出し制限エラーを監視することもできます。
+[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)で、1日あたりの呼び出し制限エラーを監視することもできます。
 {% endalert %}
 
 ![エージェント「AI Sentiment Score」のログ。]({% image_buster /assets/img/ai_agent/agent_logs.png %})
@@ -200,10 +200,10 @@ Canvasにエージェントを追加するには:
 - エージェント実行イベント
 - ツール呼び出しイベント
 
-詳細については、[メッセージエンゲージメントイベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)を参照してください。
+詳細については、[メッセージエンゲージメントイベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)を参照してください。
 
 ## 関連記事 {#related-articles}
 
-- [エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/)
-- [エージェントのリファレンス]({{site.baseurl}}/user_guide/brazeai/agents/reference/)
-- [よくある質問]({{site.baseurl}}/user_guide/brazeai/agents/faq/)
+- [エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)
+- [エージェントのリファレンス]({{site.baseurl}}/user_guide/brazeai/agents/reference)
+- [よくある質問]({{site.baseurl}}/user_guide/brazeai/agents/faq)

@@ -14,7 +14,7 @@ description: "この記事では、スケジュールされたAPIトリガーキ
 /campaigns/trigger/schedule/delete
 {% endapimethod %}
 
-> このエンドポイントを使用して、以前にAPIトリガーでスケジュールしたCanvasメッセージを送信前にキャンセルできます。
+> このエンドポイントを使用して、以前にAPIトリガーでスケジュールしたキャンバスメッセージを送信前にキャンセルできます。
 
 スケジュールされたメッセージやトリガーが、送信予定時刻の間近またはその最中に削除された場合、ベストエフォートで更新されるため、Brazeはターゲットユーザーの全員、一部、またはゼロ人に対して直前の削除を適用する可能性があります。
 
@@ -22,7 +22,7 @@ description: "この記事では、スケジュールされたAPIトリガーキ
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`campaigns.trigger.schedule.delete` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`campaigns.trigger.schedule.delete` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -46,7 +46,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | 必須 | 文字列 | [Campaign識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
+| `campaign_id` | 必須 | 文字列 | [キャンペーン識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
 | `schedule_id` | 必須 | 文字列 | 削除する `schedule_id`（スケジュール作成の応答から取得）。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 

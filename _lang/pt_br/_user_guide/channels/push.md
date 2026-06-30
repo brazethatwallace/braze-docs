@@ -19,8 +19,8 @@ search_rank: 3
 
 Antes de começar, certifique-se de ter o seguinte:
 
-- **Push integrado ao seu app ou site.** Trabalhe com seus desenvolvedores para configurar isso. Para etapas detalhadas, consulte os guias de integração para [iOS]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android) e [Web]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web).
-- **Uma estratégia de opt-in para push.** Os usuários devem conceder permissão de push em seus dispositivos. Considere usar [mensagens no app de push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) para explicar o valor antes de solicitar a permissão.
+- **Push integrado ao seu app ou site.** Trabalhe com seus desenvolvedores para configurar isso. Para etapas detalhadas, consulte os guias de integração para [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications?tab=android) e [Web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web).
+- **Uma estratégia de opt-in para push.** Os usuários devem conceder permissão de push em seus dispositivos. Considere usar [mensagens no app de push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) para explicar o valor antes de solicitar a permissão.
 
 ## Casos de uso {#use-cases}
 
@@ -50,5 +50,5 @@ Suas mensagens push devem seguir as [Diretrizes de Revisão da Apple App Store](
 
 ## Próximas etapas {#next-steps}
 
-- [Configuração de push]({{site.baseurl}}/user_guide/channels/push/push_setup/)
-- [Criar uma mensagem push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/)
+- [Configuração de push]({{site.baseurl}}/user_guide/channels/push/push_setup)
+- [Criar uma mensagem push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)

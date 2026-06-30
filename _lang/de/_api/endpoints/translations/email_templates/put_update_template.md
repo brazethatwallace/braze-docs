@@ -15,11 +15,11 @@ description: "Dieser Artikel beschreibt die Details des Endpunkts „Übersetzun
 /templates/email/translations/
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um Übersetzungen für ein [E-Mail-Template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/) zu aktualisieren. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
+> Verwenden Sie diesen Endpunkt, um Übersetzungen für ein [E-Mail-Template]({{site.baseurl}}/user_guide/messaging/templates/email_templates) zu aktualisieren. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `templates.translations.update`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `templates.translations.update`.
 
 ## Rate-Limit
 
@@ -36,7 +36,7 @@ Für diesen Endpunkt gibt es keine Pfadparameter.
 | `template_id` | Erforderlich | String | Die ID Ihres E-Mail-Templates. |
 | `locale_id` | Erforderlich | String | Die ID des Gebietsschemas. |
 | `translations_map` | Erforderlich | String | Die Zuordnung der Übersetzungen für Ihr E-Mail-Template. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 {% alert note %}
 Alle Übersetzungs-IDs gelten als universelle eindeutige Bezeichner (UUIDs), die in der Antwort des GET-Endpunkts zu finden sind.

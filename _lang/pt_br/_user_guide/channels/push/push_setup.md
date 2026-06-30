@@ -23,10 +23,10 @@ guide_featured_list:
 
 Antes de criar e enviar qualquer mensagem push usando a Braze, você precisa trabalhar com seus desenvolvedores para integrar o push ao seu site ou app. Para etapas detalhadas, consulte nossos guias de integração para cada plataforma:
 
-- [iOS]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)
-- [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android)
-- [Web]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web)
+- [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)
+- [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications?tab=android)
+- [Web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web)
 
 ## Preparação para push {#push-priming}
 
-Lembre-se de que os usuários precisam fazer opt-in para push para receber suas mensagens, o que significa que é uma boa ideia usar mensagens no app para explicar aos seus clientes por que você deseja enviar notificações por push e como ativar o push será benéfico para eles. Esse processo é chamado de [preparação para push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/).
+Lembre-se de que os usuários precisam fazer opt-in para push para receber suas mensagens, o que significa que é uma boa ideia usar mensagens no app para explicar aos seus clientes por que você deseja enviar notificações por push e como ativar o push será benéfico para eles. Esse processo é chamado de [preparação para push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).

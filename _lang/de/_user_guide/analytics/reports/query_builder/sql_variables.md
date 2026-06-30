@@ -443,7 +443,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 
 ### Segments
 
-Zur Auswahl von Segmenten, bei denen [Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/) aktiviert ist. Wird auf die Segment-Analytics-ID gesetzt, die den in der Spalte `user_segment_membership_ids` gespeicherten IDs in den Tabellen entspricht, in denen diese Spalte verfügbar ist.
+Zur Auswahl von Segmenten, bei denen [Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) aktiviert ist. Wird auf die Segment-Analytics-ID gesetzt, die den in der Spalte `user_segment_membership_ids` gespeicherten IDs in den Tabellen entspricht, in denen diese Spalte verfügbar ist.
 
 {% tabs %}
 {% tab Verwendung %}

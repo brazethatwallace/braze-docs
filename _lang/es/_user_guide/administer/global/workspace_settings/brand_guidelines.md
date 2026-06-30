@@ -58,6 +58,6 @@ Puedes editar las directrices de marca seleccionándolas en la página **Directr
 
 Al redactar un mensaje, abre Operator para [generar texto]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy) y selecciona tu directriz de marca en el menú desplegable **Aplicar directriz de marca**. Si designas una directriz de marca específica como predeterminada, Braze la selecciona automáticamente en el menú desplegable, pero puedes elegir una directriz diferente.
 
-![Operator con «Important Alerts!!» seleccionado como directriz de marca.]({% image_buster /assets/img/guidelines_ai_assistant.png %})
+!["Operator con «Important Alerts!!» seleccionado como directriz de marca.]({% image_buster /assets/img/guidelines_ai_assistant.png %})
 
 {% multi_lang_include brazeai/generative_ai/policy.md %}

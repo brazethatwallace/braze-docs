@@ -10,7 +10,7 @@ description: "Braze가 삭제 예정 사용자, 테스트 사용자, 전역 제�
 
 > Braze가 사용자 병합을 처리하는 방법을 알아보세요. 기본 동작이 적용되지 않는 세 가지 사용자 유형(삭제 예정 사용자, 테스트 사용자, 전역 제어 그룹 사용자)에 대해서도 설명합니다.
 
-이 동작은 [개별 병합]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/#individual-merging), [일괄 병합]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/#bulk-merging), [사용자 병합 API 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) 등 모든 병합에 적용됩니다.
+이 동작은 [개별 병합]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#individual-merging), [일괄 병합]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#bulk-merging), [사용자 병합 API 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) 등 모든 병합에 적용됩니다.
 
 ## 일반 병합 동작 {#general-merge-behavior}
 
@@ -45,9 +45,9 @@ description: "Braze가 삭제 예정 사용자, 테스트 사용자, 전역 제�
 
 ## 삭제 예정 사용자 {#users-marked-for-deletion}
 
-[일괄 사용자 삭제 도구]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)를 사용하여 Segment를 삭제하면, Braze는 해당 고객 프로필을 향후 7일 이내에 삭제 예정으로 표시합니다. Braze는 삭제 예정으로 표시된 프로필은 유지할 프로필이든 병합할 프로필이든 병합하지 않습니다.
+[일괄 사용자 삭제 도구]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users)를 사용하여 Segment를 삭제하면, Braze는 해당 고객 프로필을 향후 7일 이내에 삭제 예정으로 표시합니다. Braze는 삭제 예정으로 표시된 프로필은 유지할 프로필이든 병합할 프로필이든 병합하지 않습니다.
 
-삭제 예정으로 표시된 프로필을 병합해야 하는 경우, 먼저 [Segment 삭제를 취소]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/#cancel)하거나 해당 사용자를 삭제 대상에서 제거하여 프로필의 표시를 해제하세요.
+삭제 예정으로 표시된 프로필을 병합해야 하는 경우, 먼저 [Segment 삭제를 취소]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users#cancel)하거나 해당 사용자를 삭제 대상에서 제거하여 프로필의 표시를 해제하세요.
 
 ## 테스트 사용자 {#test-users}
 
@@ -63,19 +63,19 @@ Braze는 테스트 사용자 프로필의 병합을 허용하며, 결과 프로�
 | 테스트 사용자 아님 | 테스트 사용자 | 테스트 사용자 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-테스트 사용자에 대한 자세한 내용은 [내부 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/)을 참조하세요.
+테스트 사용자에 대한 자세한 내용은 [내부 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups)을 참조하세요.
 
 ## 전역 제어 그룹 사용자 {#global-control-group-users}
 
-Braze는 [전역 제어 그룹]({{site.baseurl}}/user_guide/audience/global_control_group/)에 속한 고객 프로필은 유지할 프로필이든 병합할 프로필이든 병합하지 않습니다.
+Braze는 [전역 제어 그룹]({{site.baseurl}}/user_guide/audience/global_control_group)에 속한 고객 프로필은 유지할 프로필이든 병합할 프로필이든 병합하지 않습니다.
 
-전역 제어 그룹 멤버십은 사용자의 [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)에 의해 결정됩니다. 병합하면 그룹에 속하는 사용자가 변경되어 실험 및 보고에 영향을 줄 수 있습니다.
+전역 제어 그룹 멤버십은 사용자의 [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers)에 의해 결정됩니다. 병합하면 그룹에 속하는 사용자가 변경되어 실험 및 보고에 영향을 줄 수 있습니다.
 
 ## 관련 문서 {#related-articles}
 
-- [중복 사용자 병합]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/)
-- [POST: 사용자 병합]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)
-- [사용자 삭제]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)
-- [전역 제어 그룹]({{site.baseurl}}/user_guide/audience/global_control_group/)
-- [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)
-- [내부 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/)
+- [중복 사용자 병합]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users)
+- [POST: 사용자 병합]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)
+- [사용자 삭제]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users)
+- [전역 제어 그룹]({{site.baseurl}}/user_guide/audience/global_control_group)
+- [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers)
+- [내부 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups)

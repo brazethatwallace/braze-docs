@@ -24,7 +24,7 @@ Braze 대시보드에서 **메시징** > **Canvas**로 이동하여 템플릿으
 
 Canvas 편집기에서 Canvas가 활성 상태인지 임시저장 상태인지에 따라 **Edit Canvas** 또는 **Edit draft**를 선택합니다. 하단의 **Save as draft** 드롭다운을 펼치고 **Save as template**을 선택합니다.
 
-![]({% image_buster /assets/img/save_canvas_as_template.png %})
+![Canvas를 템플릿으로 저장하는 드롭다운 메뉴.]({% image_buster /assets/img/save_canvas_as_template.png %})
 
 ### 3단계: 템플릿 저장 {#step-3-save-your-template}
 
@@ -44,7 +44,7 @@ Braze 대시보드에서 **콘텐츠** > **Canvas**로 이동합니다.
 
 ### 3단계: 템플릿 커스터마이즈 {#step-3-customize-your-template}
 
-다음으로 [Canvas를 설정]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-2-build-your-canvas)하여 템플릿을 커스터마이즈합니다. 사용자가 Canvas에 진입하는 시점, Canvas에 진입할 수 있는 사용자, 발송 설정 조정, 템플릿의 사용자 여정 구축 등을 결정할 수 있습니다.
+다음으로 [Canvas를 설정]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas)하여 템플릿을 커스터마이즈합니다. 사용자가 Canvas에 진입하는 시점, Canvas에 진입할 수 있는 사용자, 발송 설정 조정, 템플릿의 사용자 여정 구축 등을 결정할 수 있습니다.
 
 ### 4단계: 템플릿 저장 {#step-4-save-your-template}
 
@@ -59,7 +59,7 @@ Canvas를 작성할 때 템플릿을 사용하는 두 가지 방법이 있습니
 
 ### 사용 가능한 Braze 템플릿 {#available-braze-templates}
 
-사용 가능한 Canvas 템플릿 목록은 [Braze Canvas 템플릿]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/)을 참조하세요. eCommerce Canvas 템플릿 사용에 대한 자세한 내용은 [eCommerce 추천 이벤트 사용 방법]({{site.baseurl}}/ecommerce_use_cases/)을 참조하세요.
+사용 가능한 Canvas 템플릿 목록은 [Braze Canvas 템플릿]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates)을 참조하세요. eCommerce Canvas 템플릿 사용에 대한 자세한 내용은 [eCommerce 추천 이벤트 사용 방법]({{site.baseurl}}/ecommerce_use_cases)을 참조하세요.
 
 ## 캔버스 템플릿 관리 {#managing-canvas-templates}
 
@@ -69,7 +69,7 @@ Canvas를 작성할 때 템플릿을 사용하는 두 가지 방법이 있습니
 
 ### Teams 및 워크스페이스 권한 {#permissions-for-teams-and-workspaces}
 
-특정 사용자만 특정 캔버스 템플릿에 접근하고 사용할 수 있도록 하려면 템플릿에 [팀을 추가]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)한 다음 팀 수준의 "Access Campaigns, Canvases, Content Cards, Content Blocks, Feature Flags, Segments, Media Library, and Preference Center" 권한을 할당합니다.
+특정 사용자만 특정 캔버스 템플릿에 접근하고 사용할 수 있도록 하려면 템플릿에 [팀을 추가]({{site.baseurl}}/user_guide/administer/global/user_management/teams)한 다음 팀 수준의 "Campaigns, Canvases, Content Cards, Content Blocks, 기능 플래그, Segments, 미디어 라이브러리 및 환경설정 센터 접근" 권한을 할당합니다.
 
 다음 권한 중 하나를 팀 수준에서 할당하되 워크스페이스 수준에서는 할당하지 않으면, 팀에 할당된 항목에 대해서만 다음 작업을 수행할 수 있습니다:
 

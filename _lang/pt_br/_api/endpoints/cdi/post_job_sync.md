@@ -30,7 +30,7 @@ Para usar este endpoint, você deve gerar uma chave de API com a permissão `cdi
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
 | `integration_id` | Obrigatória | String | ID de integração. Isso é encontrado na URL ao visualizar uma integração no dashboard da Braze. O formato da URL é `https://[instance].braze.com/integrations/cloud_data_ingestion/[integration_id]`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de caminho" }
 
 ## Exemplo de solicitação {#example-request}
 
@@ -61,8 +61,8 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | `400 Invalid integration ID` | Verifique se o `integration_id` é válido. |
 | `404 Integration not found` | Não existe integração para o ID de integração fornecido. Certifique-se de que seu ID de integração é válido. |
 | `429 Another job is in progress` | Há uma sincronização em execução para esta integração. Tente novamente após a sincronização ser concluída. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solução de problemas" }
 
-Para códigos de status adicionais e mensagens de erro associadas, consulte [Erros fatais e respostas]({{site.baseurl}}/api/errors/#fatal-errors).
+Para códigos de status adicionais e mensagens de erro associadas, consulte [Erros fatais e respostas]({{site.baseurl}}/api/errors#fatal-errors).
 
 {% endapi %}

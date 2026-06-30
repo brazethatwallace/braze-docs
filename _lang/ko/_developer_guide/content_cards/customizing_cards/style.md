@@ -14,7 +14,7 @@ platform:
 
 # Content Cards 스타일 커스터마이즈 {#customize-the-style-of-content-cards}
 
-> Braze Content Cards에는 기본 모양과 느낌이 제공됩니다. 이 문서에서는 브랜드 아이덴티티에 맞게 Content Cards의 스타일을 지정하는 옵션을 다룹니다. 콘텐츠 카드 유형의 전체 목록은 [Content Cards 정보]({{site.baseurl}}/developer_guide/content_cards/)를 참조하세요.
+> Braze Content Cards에는 기본 모양과 느낌이 제공됩니다. 이 문서에서는 브랜드 아이덴티티에 맞게 Content Cards의 스타일을 지정하는 옵션을 다룹니다. 콘텐츠 카드 유형의 전체 목록은 [Content Cards 정보]({{site.baseurl}}/developer_guide/content_cards)를 참조하세요.
 
 ## 커스텀 스타일 생성 {#creating-a-custom-style}
 
@@ -23,7 +23,7 @@ platform:
 ![기본 글꼴과 사각형 모서리가 있는 콘텐츠 카드와 둥근 모서리와 곡선 글꼴이 있는 콘텐츠 카드 두 개]({% image_buster/assets/img/content_cards/content-card-customization-attributes.png %})
 
 {% alert note %}
-`title`, `cardDescription`, `imageUrl` 등과 같은 Content Cards 속성은 [대시보드]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/)를 통해 직접 편집할 수 있으며, 이러한 세부 정보를 변경할 때 권장되는 방법입니다.
+`title`, `cardDescription`, `imageUrl` 등과 같은 Content Cards 속성은 [대시보드]({{site.baseurl}}/user_guide/channels/content_cards/creative_details)를 통해 직접 편집할 수 있으며, 이러한 세부 정보를 변경할 때 권장되는 방법입니다.
 {% endalert %}
 
 
@@ -62,7 +62,7 @@ body .ab-feed {
 Content Cards 스타일을 커스터마이즈하려면 이 기본 스타일을 재정의합니다. 스타일을 재정의하려면 프로젝트의 `styles.xml` 파일에 전체 스타일을 복사한 후 수정합니다. 모든 속성이 올바르게 설정되려면 전체 스타일을 로컬 `styles.xml` 파일에 복사해야 합니다.
 
 {% subtabs local %}
-{% subtab Correct style override %}
+{% subtab 올바른 스타일 재정의 %}
 
 ```xml
 <style name="Braze.ContentCardsDisplay">
@@ -77,7 +77,7 @@ Content Cards 스타일을 커스터마이즈하려면 이 기본 스타일을 �
 ```
 
 {% endsubtab %}
-{% subtab Incorrect style override %}
+{% subtab 잘못된 스타일 재정의 %}
 
 ```xml
 <style name="Braze.ContentCardsDisplay">
@@ -249,7 +249,7 @@ Content Cards에 사용되는 글꼴을 커스터마이즈하면 브랜드 아�
   </style>
 ```
 
-Android SDK의 글꼴 커스터마이즈에 대한 자세한 내용은 [글꼴 패밀리 가이드]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/font_customization/#font-customization)를 참조하세요.
+Android SDK의 글꼴 커스터마이즈에 대한 자세한 내용은 [글꼴 패밀리 가이드]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/font_customization#font-customization)를 참조하세요.
 {% endtab %}
 {% tab Jetpack Compose %}
 기본 글꼴을 프로그래밍 방식으로 변경하려면 `ContentCardStyling`의 [`titleTextStyle`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-styling/index.html#715371549%2FProperties%2F-1725759721)을 설정할 수 있습니다.
@@ -299,7 +299,7 @@ let viewController = BrazeContentCardUI.ViewController.init(braze: braze, attrib
 
 Content Cards를 만들 때 마케터는 카드를 고정할 수 있습니다. 고정 카드는 사용자의 피드 상단에 표시되며, 사용자가 해제할 수 없습니다. 카드 스타일을 커스터마이즈할 때 고정 아이콘의 모양도 변경할 수 있습니다.
 
-!["이 카드를 피드 상단에 고정" 옵션이 선택된 상태의 모바일 및 웹용 Braze Content Cards 미리보기를 나란히 표시합니다.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
+![모바일 및 웹용 Braze Content Cards 미리보기를 나란히 표시하며, '이 카드를 피드 상단에 고정' 옵션이 선택된 상태입니다.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
 {% tabs %}
 {% tab web %}
@@ -494,7 +494,7 @@ BRZContentCardUIViewController *viewController = [[BRZContentCardUIViewControlle
 
 ### 다크 모드 {#dark-mode}
 
-기기의 다크 모드 또는 라이트 모드에 따라 다른 이미지나 스타일을 표시하려면 Content Cards 메시지에서 [키-값 페어]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/#key-value-pairs)를 사용하세요. 예를 들어, 다크 모드 이미지 자산의 URL과 함께 `dark_mode_image`와 같은 키-값 페어를 추가합니다. 그런 다음 앱에서 기기의 현재 외관 모드를 확인하고 적절한 이미지를 표시하는 커스텀 로직을 추가합니다.
+기기의 다크 모드 또는 라이트 모드에 따라 다른 이미지나 스타일을 표시하려면 Content Cards 메시지에서 [키-값 페어]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details#key-value-pairs)를 사용하세요. 예를 들어, 다크 모드 이미지 자산의 URL과 함께 `dark_mode_image`와 같은 키-값 페어를 추가합니다. 그런 다음 앱에서 기기의 현재 외관 모드를 확인하고 적절한 이미지를 표시하는 커스텀 로직을 추가합니다.
 
 {% tabs %}
 {% tab swift %}
@@ -531,7 +531,7 @@ if (isDarkMode && darkModeImage) {
 {% endtab %}
 {% endtabs %}
 
-이 패턴은 텍스트, 색상, 레이아웃 등 외관에 따라 달라지는 모든 콘텐츠에 적용됩니다. 다크 모드 이미지 자산을 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/)에 업로드한 다음 키-값 페어에서 참조하세요.
+이 패턴은 텍스트, 색상, 레이아웃 등 외관에 따라 달라지는 모든 콘텐츠에 적용됩니다. 다크 모드 이미지 자산을 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications)에 업로드한 다음 키-값 페어에서 참조하세요.
 
 ### 읽지 않음 표시기 비활성화 {#disabling-unread-indicator}
 

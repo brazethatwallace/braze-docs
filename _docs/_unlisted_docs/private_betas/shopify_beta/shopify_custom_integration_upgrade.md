@@ -16,7 +16,7 @@ hidden: true
 
 This upgrade path is intended for brands with a Shopify headless or Shopify Hydrogen store.
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## Upgrade requirements
 

@@ -22,7 +22,7 @@ Les propriétés d'événement sont envoyées avec les données de l'utilisateur
 Suivez ces étapes pour configurer les notifications de retour en stock dans un catalogue spécifique.
 
 1. Accédez à votre catalogue et sélectionnez l'onglet **Settings**.
-2. Activez le toggle **Back in stock**.
+2. Activez le basculeur **Back in stock**.
 3. Si les paramètres globaux de retour en stock n'ont pas été configurés, vous serez invité à définir les événements personnalisés et les propriétés qui seront utilisés pour déclencher les notifications de retour en stock :
     <br> ![Tiroir des paramètres du catalogue.]({% image_buster /assets/img/catalog_settings_drawer.png %}){: style="max-width:70%;"}
     - **Fallback Catalog** : il s'agit du catalogue qui sera utilisé pour l'abonnement aux notifications de retour en stock si aucune propriété `catalog_name` n'est présente dans l'événement personnalisé.
@@ -74,7 +74,7 @@ Après avoir configuré la fonctionnalité de retour en stock dans un catalogue,
 1. Mettez en place un Canvas basé sur l'action.
 2. Sélectionnez **Back in stock** comme déclencheur.
 3. Sélectionnez le nom du catalogue contenant les notifications de retour en stock.
-4. Continuez à [configurer]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) votre Canvas comme vous le feriez habituellement.
+4. Continuez à [configurer]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) votre Canvas comme vous le feriez habituellement.
 
 Vos clients peuvent désormais être avertis lorsqu'un article est de nouveau en stock.
 

@@ -47,7 +47,7 @@ tool: Dashboard
 
 ## 권한 세트와 역할은 Teams와 어떻게 다른가요? {#how-do-permission-sets-and-roles-differ-from-teams}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ### Teams에 사용자 권한을 추가할 때 고려 사항 {#considerations-for-adding-user-permissions-to-teams}
 
@@ -114,7 +114,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 관리자 권한을 부여하거나 제거하려면 **This user is an admin**을 선택한 다음 **Update user**를 선택합니다.
 
 {% alert warning %}
-사용자에게서 관리자 권한을 제거하면, 최소 하나의 [회사 수준 또는 워크스페이스 수준 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions)을 할당하기 전까지 해당 사용자는 Braze에 접근할 수 없습니다.
+사용자에게서 관리자 권한을 제거하면, 최소 하나의 [회사 수준 또는 워크스페이스 수준 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions)을 할당하기 전까지 해당 사용자는 Braze에 접근할 수 없습니다.
 {% endalert %}
 
 {% endtab %}
@@ -135,7 +135,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 
 ### 워크스페이스 {#workspace}
 
-Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 권한을 부여할 수 있습니다. 워크스페이스 수준 권한을 관리하려면 **Select workspaces and permissions**를 선택한 다음 수동으로 권한을 선택하거나 이전에 생성한 [권한 세트 또는 역할]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set)을 할당합니다. 서로 다른 워크스페이스에 대해 다른 권한을 부여해야 하는 경우 필요한 만큼 이 과정을 반복합니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions)을 참조하세요.
+Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 권한을 부여할 수 있습니다. 워크스페이스 수준 권한을 관리하려면 **Select workspaces and permissions**를 선택한 다음 수동으로 권한을 선택하거나 이전에 생성한 [권한 세트 또는 역할]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set)을 할당합니다. 서로 다른 워크스페이스에 대해 다른 권한을 부여해야 하는 경우 필요한 만큼 이 과정을 반복합니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_list-of-permissions)을 참조하세요.
 
 {% subtabs %}
 {% subtab 수동 선택 %}

@@ -59,7 +59,7 @@ O limite máximo de usuários limita o número de usuários despachados, não o 
 
 ##### Limite máximo de usuários com otimizações {#maximum-user-cap-with-optimizations}
 
-Se você está usando uma otimização como Variante Vencedora ou Variante Personalizada, a Campaign consistirá em dois envios: o experimento inicial e o envio final.
+Se você está usando uma otimização como variante vencedora ou variante personalizada, a Campaign consistirá em dois envios: o experimento inicial e o envio final.
 
 Para configurar um limite máximo de usuários nesse cenário, selecione **Limitar o número de pessoas que receberão esta Campaign**, depois selecione **No total, esta Campaign deve** e insira um limite de público. Seu limite de público será dividido pelas porcentagens mostradas no painel de **Testes A/B**.
 

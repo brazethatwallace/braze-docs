@@ -58,14 +58,14 @@ CSVインポートを開くには、**Audiences** > **Import Users** に移動�
 
 | `user_alias_name` | `user_alias_label` | `last_name` | `email` | sample_attribute |
 | :---- | :---- | :---- | :---- | :---- |
-| 182736485 | my_alt_identifier | Smith | smith@user.com | TRUE |
-| 182736486 | my_alt_identifier | Nguyen | nguyen@user.com | FALSE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="ステップ2:識別子を選択する" }
+| 182736485 | my_alt_identifier | Smith | smith@example.com | TRUE |
+| 182736486 | my_alt_identifier | Nguyen | nguyen@example.com | FALSE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="ステップ2:識別子を選択する #choose-an-identifier" }
 
 インポートで`user_alias_name`と`user_alias_label`の両方を指定すると、Brazeは同じ`user_alias_name`と`user_alias_label`を持つ既存のユーザーを更新します。ユーザーが見つからない場合、Brazeはその`user_alias_name`が設定された新しい識別済みユーザーを作成します。
 
 {% alert important %}
-既に`external_id`を持つ既存のユーザーを`user_alias_name`でCSVインポートを使用して更新することはできません。代わりに、関連する`user_alias_name`を持つ新しいユーザープロファイルが作成されます。エイリアスのみのユーザーを`external_id`に関連付けるには、[ユーザー識別エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/)を使用してください。
+既に`external_id`を持つ既存のユーザーを`user_alias_name`でCSVインポートを使用して更新することはできません。代わりに、関連する`user_alias_name`を持つ新しいユーザープロファイルが作成されます。エイリアスのみのユーザーを`external_id`に関連付けるには、[ユーザー識別エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)を使用してください。
 {% endalert %}
 
 ダウンロード：[CSV属性インポートテンプレート：ユーザーエイリアス]({{site.baseurl}}/assets/download_file/braze-user-import-alias-template-csv.xlsx?c0ce6c0aa1e901395161d87c5ba17747)
@@ -97,9 +97,9 @@ external IDやユーザーエイリアスを省略し、メールアドレスま
 CSVファイルにメールアドレスと電話番号の両方が含まれている場合、プロファイルの検索時にメールアドレスが電話番号よりも優先されます。
 {% endalert %}
 
-そのメールアドレスまたは電話番号を持つ既存のプロファイルがある場合、そのプロファイルが更新され、Brazeは新しいプロファイルを作成しません。同じメールアドレスを持つ複数のプロファイルがある場合、Brazeは[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)と同じロジックを使用し、最も最近更新されたプロファイルが更新されます。
+そのメールアドレスまたは電話番号を持つ既存のプロファイルがある場合、そのプロファイルが更新され、Brazeは新しいプロファイルを作成しません。同じメールアドレスを持つ複数のプロファイルがある場合、Brazeは[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)と同じロジックを使用し、最も最近更新されたプロファイルが更新されます。
 
-そのメールアドレスまたは電話番号を持つプロファイルが存在しない場合、Brazeはその識別子を持つ新しいプロファイルを作成します。[`/users/identify`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/)を使用して、後でこのプロファイルを識別できます。ユーザープロファイルを削除するには、[`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/)エンドポイントも使用できます。
+そのメールアドレスまたは電話番号を持つプロファイルが存在しない場合、Brazeはその識別子を持つ新しいプロファイルを作成します。[`/users/identify`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)を使用して、後でこのプロファイルを識別できます。ユーザープロファイルを削除するには、[`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)エンドポイントも使用できます。
 {% endtab %}
 {% endtabs %}
 
@@ -139,7 +139,7 @@ CSVファイルの作成を始める準備ができたら、以下の情報を�
 {: .reset-td-br-1 .reset-td-br-2 aria-label="カスタム属性" }
 
 {% alert important %}
-配列、プッシュトークン、カスタムイベントのデータタイプはユーザーインポートではサポートされていません。CSVファイル内のカンマが列区切りとして解釈され、ファイルの解析時にエラーが発生するためです。<br><br>これらの種類の値をアップロードするには、代わりに[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)または[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)を使用してください。
+配列、プッシュトークン、カスタムイベントのデータタイプはユーザーインポートではサポートされていません。CSVファイル内のカンマが列区切りとして解釈され、ファイルの解析時にエラーが発生するためです。<br><br>これらの種類の値をアップロードするには、代わりに[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)または[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)を使用してください。
 {% endalert %}
 
 #### デフォルト属性 {#default-attributes}
@@ -149,7 +149,7 @@ CSVファイルの作成を始める準備ができたら、以下の情報を�
 {% endalert %}
 
 {% alert tip %}
-Brazeが認識する標準属性の完全なリスト（SDK、API、CSV、クラウドデータ取り込み全体）については、[標準属性]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/)を参照してください。以下の表は、CSVインポートで設定できるサブセットのみを示しています。
+Brazeが認識する標準属性の完全なリスト（SDK、API、CSV、クラウドデータ取り込み全体）については、[標準属性]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes)を参照してください。以下の表は、CSVインポートで設定できるサブセットのみを示しています。
 {% endalert %}
 
 以下のデフォルト属性がユーザーインポートで利用可能です。
@@ -161,13 +161,13 @@ Brazeが認識する標準属性の完全なリスト（SDK、API、CSV、クラ
 | `user_alias_label` | 文字列 | ユーザーエイリアスをグループ化するための共通ラベル。`user_alias_name`と一緒に使用する必要があります。 | 条件付き。[必須の識別子](#required-identifiers-attributes)を参照してください。 |
 | `first_name` | 文字列 | ユーザーが示した名（例：`Jane`）。 | いいえ |
 | `last_name` | 文字列 | ユーザーが示した姓（例：`Doe`）。 | いいえ |
-| `email` | 文字列 | ユーザーが示したメールアドレス（例：`jane.doe@braze.com`）。 | いいえ |
+| `email` | 文字列 | ユーザーが示したメールアドレス（例：`jane.doe@example.com`）。 | いいえ |
 | `country` | 文字列 | 国コードはISO-3166-1 alpha-2規格でBrazeに渡す必要があります（例：`GB`）。 | いいえ |
 | `dob` | 文字列 | 「YYYY-MM-DD」形式で渡す必要があります（例：`1980-12-21`）。ユーザーの生年月日をインポートし、誕生日が「今日」のユーザーをターゲットにできます。 | いいえ |
 | `gender` | 文字列 | 「M」、「F」、「O」（その他）、「N」（該当なし）、「P」（回答しない）、またはnil（不明）。 | いいえ |
 | `home_city` | 文字列 | ユーザーが示した居住都市（例：`London`）。 | いいえ |
-| `language` | 文字列 | 言語はISO-639-1規格でBrazeに渡す必要があります（例：`en`）。[対応言語一覧]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes/)を参照してください。 | いいえ |
-| `phone` | 文字列 | ユーザーが示した電話番号。`E.164`形式（例：`+442071838750`）。フォーマットのガイダンスについては、[ユーザーの電話番号]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/)を参照してください。 | いいえ |
+| `language` | 文字列 | 言語はISO-639-1規格でBrazeに渡す必要があります（例：`en`）。[対応言語一覧]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes)を参照してください。 | いいえ |
+| `phone` | 文字列 | ユーザーが示した電話番号。`E.164`形式（例：`+442071838750`）。フォーマットのガイダンスについては、[ユーザーの電話番号]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers)を参照してください。 | いいえ |
 | `email_open_tracking_disabled` | ブール値 | trueまたはfalseを受け付けます。trueに設定すると、このユーザーに送信される今後のすべてのメールに開封トラッキングピクセルが追加されなくなります。SparkPostとSendGridでのみ利用可能です。 | いいえ |
 | `email_click_tracking_disabled` | ブール値 | trueまたはfalseを受け付けます。trueに設定すると、このユーザーに送信される今後のメール内のすべてのリンクのクリックトラッキングが無効になります。SparkPostとSendGridでのみ利用可能です。 | いいえ |
 | `email_subscribe` | 文字列 | 利用可能な値は`opted_in`（メールメッセージの受信を明示的に登録）、`unsubscribed`（メールメッセージの受信を明示的にオプトアウト）、`subscribed`（オプトインもオプトアウトもしていない）です。 | いいえ |
@@ -180,11 +180,11 @@ Brazeが認識する標準属性の完全なリスト（SDK、API、CSV、クラ
 
 #### サブスクリプショングループのステータスを更新する（オプション） {#updating-subscription-group-status-optional}
 
-さらに、ユーザーインポートを通じてメールまたはSMSのサブスクリプショングループにユーザーを追加できます。これはSMSの場合に特に便利です。SMSチャネルでメッセージを送信するには、ユーザーがSMSサブスクリプショングループに登録されている必要があるためです。詳細については、[SMSサブスクリプショングループ]({{site.baseurl}}/sms_rcs_subscription_groups/#subscription-group-mms-enablement)を参照してください。
+さらに、ユーザーインポートを通じてメールまたはSMSのサブスクリプショングループにユーザーを追加できます。これはSMSの場合に特に便利です。SMSチャネルでメッセージを送信するには、ユーザーがSMSサブスクリプショングループに登録されている必要があるためです。詳細については、[SMSサブスクリプショングループ]({{site.baseurl}}/sms_rcs_subscription_groups#subscription-group-mms-enablement)を参照してください。
 
 サブスクリプショングループのステータスを更新する場合、CSVに以下の2つの列が必要です。
 
-- `subscription_group_id`：[サブスクリプショングループ]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-groups)の`id`。
+- `subscription_group_id`：[サブスクリプショングループ]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups)の`id`。
 - `subscription_state`：利用可能な値は`unsubscribed`（サブスクリプショングループに含まれない）または`subscribed`（サブスクリプショングループに含まれる）です。
 
 | external_id | first_name | subscription_group_id | subscription_state |
@@ -222,8 +222,8 @@ Brazeが認識する標準属性の完全なリスト（SDK、API、CSV、クラ
 | `braze_id` | 文字列 | Brazeが割り当てたユーザーの識別子。 | 条件付き。[必須の識別子](#required-identifiers-custom-events)を参照してください。 |
 | `user_alias_name` | 文字列 | `external_id`の代替となる匿名ユーザーの一意のユーザー識別子。`user_alias_label`と一緒に使用する必要があります。 | 条件付き。[必須の識別子](#required-identifiers-custom-events)を参照してください。 |
 | `user_alias_label` | 文字列 | ユーザーエイリアスをグループ化するための共通ラベル。`user_alias_name`と一緒に使用する必要があります。 | 条件付き。[必須の識別子](#required-identifiers-custom-events)を参照してください。 |
-| `email` | 文字列 | ユーザーが示したメールアドレス（例：`jane.doe@braze.com`）。 | いいえ。他の識別子がない場合にのみ使用できます。以下の注記を参照してください。 |
-| `phone` | 文字列 | ユーザーが示した電話番号。`E.164`形式（例：`+442071838750`）。フォーマットのガイダンスについては、[ユーザーの電話番号]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/)を参照してください。 | いいえ。他の識別子がない場合にのみ使用できます。以下の注記を参照してください。 |
+| `email` | 文字列 | ユーザーが示したメールアドレス（例：`jane.doe@example.com`）。 | いいえ。他の識別子がない場合にのみ使用できます。以下の注記を参照してください。 |
+| `phone` | 文字列 | ユーザーが示した電話番号。`E.164`形式（例：`+442071838750`）。フォーマットのガイダンスについては、[ユーザーの電話番号]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers)を参照してください。 | いいえ。他の識別子がない場合にのみ使用できます。以下の注記を参照してください。 |
 | `name` | 文字列 | ユーザーのカスタムイベント。 | はい |
 | `time` | 文字列 | イベントの時刻。以下のISO-8601形式のいずれかで渡すことができます：「YYYY-MM-DD」「YYYY-MM-DDTHH:MM:SS+00:00」「YYYY-MM-DDTHH:MM:SSZ」「YYYY-MM-DDTHH:MM:SS」（例：2019-11-20T18:38:57） | はい |
 | `<event name>.properties.<property name>` | 複数 | カスタムイベントに関連するイベントプロパティ。例：`trip_booked.properties.destination` | いいえ |
@@ -289,7 +289,7 @@ CSVの各行は、1人のユーザーの1つのカスタムイベントを表し
 
 ファイルをアップロードするには、**Attributes**または**Events**を選択し、**Browse Files**をクリックしてCSVをアップロードします。Brazeは最初の数行のプレビューと検出されたフィールドの概要を表示します。
 
-大きなファイル（デフォルト属性とカスタム属性は最大500 MB、カスタムイベントは最大50 MB）の場合、ファイルのアップロードとBrazeによるインポートの計算中にダッシュボードが一時的に応答しなくなることがあります。これらのアップロードと計算は、小さなファイルよりも完了に時間がかかる場合があります。このステップが完了するまでお待ちください。ファイルの制限とタイミングの詳細については、[CSVの構築]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/#constructing-your-csv)を参照してください。
+大きなファイル（デフォルト属性とカスタム属性は最大500 MB、カスタムイベントは最大50 MB）の場合、ファイルのアップロードとBrazeによるインポートの計算中にダッシュボードが一時的に応答しなくなることがあります。これらのアップロードと計算は、小さなファイルよりも完了に時間がかかる場合があります。このステップが完了するまでお待ちください。ファイルの制限とタイミングの詳細については、[CSVの構築]({{site.baseurl}}/user_guide/data/user_data_collection/user_import#constructing-your-csv)を参照してください。
 
 **Import name**フィールドで、インポートの名前を変更できます。デフォルトではファイル名が使用されます。
 
@@ -330,13 +330,13 @@ CSVの各行は、1人のユーザーの1つのカスタムイベントを表し
 
 ### ステップ6:ターゲティング設定を選択する {#targeting-preferences}
 
-マッピング後、インポート設定ページで以下のターゲティング設定から選択できます。インポートから新しいターゲティングフィルターやSegmentを作成する必要がない場合は、**Do not make this list available as a targeting filter**を選択してください。
+マッピング後、インポート設定ページで以下のターゲティング設定から選択できます。インポートから新しいターゲティングフィルターやセグメントを作成する必要がない場合は、**Do not make this list available as a targeting filter**を選択してください。
 
 | オプション | 説明 |
 |---|---|
-| ターゲティングフィルター | CSVファイルをユーザーSegment作成時のリターゲティングオプションに変換するには、**Updated/Imported from CSV**ドロップダウンからファイルを選択し、**Create targeting filter**を選択します。 |
-| 新しいSegment | 新しいターゲティングフィルターから新しいSegmentも作成するには、**Create targeting filter and add to new segment**を選択します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ6:ターゲティング設定を選択する" }
+| ターゲティングフィルター | CSVファイルをユーザーセグメント作成時のリターゲティングオプションに変換するには、**Updated/Imported from CSV**ドロップダウンからファイルを選択し、**Create targeting filter**を選択します。 |
+| 新しいセグメント | 新しいターゲティングフィルターから新しいセグメントも作成するには、**Create targeting filter and add to new segment**を選択します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ6:ターゲティング設定を選択する #targeting-preferences" }
 
 ![「Halloween season fun」というCSVファイルを含む「Updated/Imported from CSV」フィルターを使用したフィルターグループ。]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
 
@@ -431,20 +431,20 @@ Brazeでは、メールアドレスを`external_id`として使用すること�
 
 `external_id`のセルに二重引用符が含まれている場合、[エスケープされていないまたは不均衡な二重引用符](#missing-row)で説明されているように、文字を二重にしてエスケープしてください（`""`）。CSVインポートではバックスラッシュによるエスケープは使用されません。
 
-### CSVインポートがSegmentフィルターとして利用できない {#csv-import-isnt-available-as-a-segment-filter}
+### CSVインポートがセグメントフィルターとして利用できない {#csv-import-isnt-available-as-a-segment-filter}
 
-CSVインポートをSegmentフィルターとして使用できるのは、アップロード時にターゲティング設定を有効にした場合のみです。
+CSVインポートをセグメントフィルターとして使用できるのは、アップロード時にターゲティング設定を有効にした場合のみです。
 
 既存のインポートでターゲティングの利用可否が有効になっているかどうかを確認するには：
 
 1. **Import Users**ページで、CSVインポートを見つけます。
-2. そのインポートに**Go to Segment**が表示されているかどうかを確認します。
-3. **Go to Segment**が表示されている場合、CSVは`Updated/Imported from CSV`のSegmentフィルターで利用可能です。
-4. **Go to Segment**が表示されていない場合、そのインポートではターゲティングの利用可否が有効になっていません。
+2. そのインポートに**Go to セグメント**が表示されているかどうかを確認します。
+3. **Go to セグメント**が表示されている場合、CSVは`Updated/Imported from CSV`のセグメントフィルターで利用可能です。
+4. **Go to セグメント**が表示されていない場合、そのインポートではターゲティングの利用可否が有効になっていません。
 
-CSVアップロードの完了後にターゲティングの利用可否を有効にすることはできません。そのCSVをSegmentフィルターとして使用するには、ファイルを再アップロードし、[ステップ6:ターゲティング設定を選択する](#step-6-choose-targeting-preferences)で**Create targeting filter**または**Create targeting filter and add to new segment**を選択してください。
+CSVアップロードの完了後にターゲティングの利用可否を有効にすることはできません。そのCSVをセグメントフィルターとして使用するには、ファイルを再アップロードし、[ステップ6:ターゲティング設定を選択する](#step-6-choose-targeting-preferences)で**Create targeting filter**または**Create targeting filter and add to new segment**を選択してください。
 
-プロファイルデータを更新せずにSegmentを作成することが目的の場合は、識別子列のみ（例：`external_id`またはエイリアス識別子列）を含むCSVをアップロードし、**Create targeting filter and add to new segment**を選択してください。
+プロファイルデータを更新せずにセグメントを作成することが目的の場合は、識別子列のみ（例：`external_id`またはエイリアス識別子列）を含むCSVをアップロードし、**Create targeting filter and add to new segment**を選択してください。
 
 ### ファイルフォーマットの問題 {#file-formatting-issues}
 
@@ -487,7 +487,7 @@ CSVファイルに空白行があり、CSVファイルの合計行数よりも�
 
 アップロードがエラーで完了した場合、1つ以上の無効な暗号化メールアドレスがある可能性があります。Brazeにインポートする前に、すべてのメールアドレスが正しく暗号化されていることを確認してください。
 
-- **Brazeで[メールアドレスを更新またはインポート]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/#step-3-import-and-update-users)する場合**、メールが含まれるすべての場所でハッシュ化されたメール値を使用してください。これらのハッシュメール値は社内チームから提供されます。
+- **Brazeで[メールアドレスを更新またはインポート]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption#step-3-import-and-update-users)する場合**、メールが含まれるすべての場所でハッシュ化されたメール値を使用してください。これらのハッシュメール値は社内チームから提供されます。
 - **新しいユーザーを作成する場合**、ユーザーの暗号化メール値を含む`email_encrypted`を追加する必要があります。そうしないと、Brazeはユーザーを作成しません。同様に、メールを持たない既存のユーザーにメールアドレスを追加する場合は、`email_encrypted`を追加する必要があります。そうしないと、Brazeはユーザーを更新しません。
 
 #### カスタム属性としてインポートされたデータ {#data-imported-as-custom-attribute}
@@ -496,7 +496,7 @@ CSVファイルに空白行があり、CSVファイルの合計行数よりも�
 
 #### カスタム属性のデータタイプを変更する {#change-a-custom-attributes-data-type}
 
-既存のカスタム属性のデータタイプを変更する必要がある場合（例：文字列からブール値へ）、CSVをインポートする前にダッシュボードの[**カスタム属性**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/)ページでデータタイプを更新してください。CSVのデータタイプが属性の現在定義されているデータタイプと一致しない場合、インポートはエラーで失敗します。
+既存のカスタム属性のデータタイプを変更する必要がある場合（例：文字列からブール値へ）、CSVをインポートする前にダッシュボードの[**カスタム属性**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data)ページでデータタイプを更新してください。CSVのデータタイプが属性の現在定義されているデータタイプと一致しない場合、インポートはエラーで失敗します。
 
 #### 複数のデータタイプ {#multiple-data-types}
 
@@ -506,14 +506,14 @@ Brazeは列内の各値が同じデータタイプであることを期待して
 
 #### デフォルト属性のタイプ {#default-attribute-types}
 
-一部のデフォルト属性は、ユーザー更新に有効な特定の値のみを受け付ける場合があります。ガイダンスについては、[CSVの構築]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/)を参照してください。
+一部のデフォルト属性は、ユーザー更新に有効な特定の値のみを受け付ける場合があります。ガイダンスについては、[CSVの構築]({{site.baseurl}}/user_guide/audience/manage_audience/import_users)を参照してください。
 
 末尾のスペースや大文字小文字の違いにより、値が無効として解釈される場合があります。例えば、以下のCSVファイルでは、受け付けられる値が`unsubscribed`、`subscribed`、`opted_in`であるため、最初の行のユーザー（`brazetest1`）のみがメールとプッシュのステータスを正常に更新されます。
 
 ```plaintext
 external_id,email,email_subscribe,push_subscribe
-brazetest1,test1@braze.com,unsubscribed,unsubscribed
-brazetest2,test2@braze.com,Unsubscribed,Unsubscribed
+brazetest1,test1@example.com,unsubscribed,unsubscribed
+brazetest2,test2@example.com,Unsubscribed,Unsubscribed
 ```
 
 ### 「Select CSV File」が機能しない {#select-csv-file-is-not-working}

@@ -65,7 +65,7 @@ Braze가 Classic 및 Pro SQL 인스턴스에 연결할 때 2~5분의 워밍업 �
 
 ### 1단계: 테이블 또는 뷰 설정 {#step-1-set-up-tables-or-views}
 
-시작하기 전에 [클라우드 데이터 수집을 위한 테이블 설정]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/)을 검토하여 소스 테이블 요구 사항과 `PAYLOAD` 형식 요구 사항을 비교해 보세요.
+시작하기 전에 [클라우드 데이터 수집을 위한 테이블 설정]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup)을 검토하여 소스 테이블 요구 사항과 `PAYLOAD` 형식 요구 사항을 비교해 보세요.
 
 {% alert note %}
 소스 테이블 또는 뷰에는 아래 탭에서 해당 웨어하우스에 대해 나열되지 않은 열이 포함될 수 있습니다(예: 감사 또는 해싱). Braze는 해당 탭에 설명된 열만 읽으며, 다른 열은 클라우드 데이터 수집 동기화 중에 사용되지 않습니다.
@@ -148,7 +148,7 @@ GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
 
 Snowflake 계정의 구성에 따라 Snowflake 네트워크 정책에서 다음 IP 주소를 허용해야 할 수 있습니다. 이를 활성화하는 방법에 대한 자세한 내용은 [네트워크 정책 수정](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies)에 대한 Snowflake 설명서를 참조하세요.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Redshift %}
@@ -211,7 +211,7 @@ GRANT SELECT ON TABLE USERS_ATTRIBUTES_SYNC TO braze_user;
 
 Braze 대시보드의 지역에 해당하는 다음 IP에서의 액세스를 허용합니다.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab BigQuery %}
@@ -294,7 +294,7 @@ GCP에서 Braze가 테이블에 연결하고 데이터를 읽을 수 있도록 �
 
 네트워크 정책이 있는 경우 Braze 네트워크에 BigQuery 인스턴스에 대한 액세스 권한을 부여해야 합니다. Braze 대시보드의 지역에 해당하는 다음 IP에서의 액세스를 허용합니다.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Databricks %}
@@ -368,7 +368,7 @@ Braze가 Databricks에 액세스하려면 개인 액세스 토큰을 생성해�
 
 네트워크 정책이 있는 경우 Braze 네트워크에 Databricks 인스턴스에 대한 액세스 권한을 부여해야 합니다. Braze 대시보드의 지역에 해당하는 다음 IP에서의 액세스를 허용합니다.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -457,7 +457,7 @@ GO
 
 Microsoft Fabric 계정의 구성에 따라 방화벽에서 다음 IP 주소를 허용하여 Braze의 트래픽을 허용해야 할 수 있습니다. 이를 활성화하는 방법에 대한 자세한 내용은 [Entra 조건부 액세스](https://learn.microsoft.com/en-us/fabric/security/protect-inbound-traffic#entra-conditional-access)에 대한 관련 설명서를 참조하세요.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 

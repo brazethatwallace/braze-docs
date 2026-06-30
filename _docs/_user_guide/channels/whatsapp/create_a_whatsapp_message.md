@@ -17,7 +17,7 @@ search_rank: 1
 
 ## Prerequisites
 
-Before you can create WhatsApp messages, you need to review and complete the following from the [WhatsApp overview]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/):
+Before you can create WhatsApp messages, you need to review and complete the following from the [WhatsApp overview]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup):
   - Acknowledge policies, limits, and content rules
   - Set up your WhatsApp connection
   - Build out initial templates in Meta to use in your messages
@@ -40,9 +40,9 @@ Not sure whether your message should be sent using a campaign or a Canvas? Campa
 1. Go to the **Campaigns** page and click <i class="fas fa-plus"></i> **Create Campaign**.
 2. Select **WhatsApp**, or, for campaigns targeting multiple channels, select **Multichannel Campaign**.
 3. Name your campaign something clear and meaningful.
-4. Add [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) and [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) as needed.
-   * Tags make your campaigns easier to find and build reports out of. For example, when using the [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder/), you can filter by particular tags.
-5. Add and name as many variants as you need for your campaign. You can choose different platforms, message types, and layouts for each of your added variants. For more on this topic, refer to [Multivariate and A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+4. Add [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) and [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) as needed.
+   * Tags make your campaigns easier to find and build reports out of. For example, when using the [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder), you can filter by particular tags.
+5. Add and name as many variants as you need for your campaign. You can choose different platforms, message types, and layouts for each of your added variants. For more on this topic, refer to [Multivariate and A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
 If all of the messages in your campaign are similar or have the same content, compose your message before adding additional variants. You can then choose **Copy from Variant** from the **Add Variant** dropdown.
@@ -53,11 +53,11 @@ If all of the messages in your campaign are similar or have the same content, co
 
 **Steps:**
 
-1. [Create your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) using the Canvas composer.
+1. [Create your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) using the Canvas composer.
 2. After you've set up your Canvas, add a step in the Canvas builder. Name your step something clear and meaningful.
-3. Choose a [step schedule]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay) and specify a delay as needed.
+3. Choose a [step schedule]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) and specify a delay as needed.
 4. Filter your audience for this step as necessary. You can further refine the recipients of this step by specifying segments and adding additional filters. Audience options will be checked after the delay at the time messages are sent.
-5. Choose your [advancement behavior]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/).
+5. Choose your [advancement behavior]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 6. Choose any other messaging channels you want to pair with your message.
 
 {% alert tip %}
@@ -76,7 +76,7 @@ Select if you’d like to create a WhatsApp [template message](#template-message
 {% tabs %}
 {% tab Template messages %}
 
-You can use [approved WhatsApp template messages]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/#step-3-create-whatsapp-templates
+You can use [approved WhatsApp template messages]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates
 ) to initiate conversations with your users on WhatsApp. These messages are submitted in advance to WhatsApp for content approval, which can take up to 24 hours to approve. Any edits you make to copy needs to be edited and resubmitted to WhatsApp.
 
 Disabled text fields (highlighted gray) cannot be edited as they are part of the approved WhatsApp template. To make updates to the disabled text, you must edit your template and get it reapproved.
@@ -87,7 +87,7 @@ Each template has an assigned language, so you need to create a campaign or Canv
 
 ![List of templates including previews of their messages, their assigned languages, and their approved status.]({% image_buster /assets/img/whatsapp/whatsapp_templates.png %}){: style="max-width:80%;"}
 
-If you're adding copy in a language that is written right-to-left, note that the final appearance of right-to-left messages depends largely on how service providers render them. For best practices on crafting right-to-left messages that display as accurately as possible, refer to [Creating right-to-left messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
+If you're adding copy in a language that is written right-to-left, note that the final appearance of right-to-left messages depends largely on how service providers render them. For best practices on crafting right-to-left messages that display as accurately as possible, refer to [Creating right-to-left messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 #### Variables
 
@@ -105,7 +105,7 @@ If you plan to use Liquid, be sure to include a default value for your chosen pe
 
 ### Dynamic links 
 
-Call-to-action URLs may contain variables, though Meta requires them to be at the end of the URL, such as `{% raw %}https://example.com/{{variable}}{% endraw %}`, where the variable can then be replaced in Braze with Liquid. Links can also be included as the body text as part of the template. Both of these links can be shortened and tracked using [click tracking]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking/).
+Call-to-action URLs may contain variables, though Meta requires them to be at the end of the URL, such as `{% raw %}https://example.com/{{variable}}{% endraw %}`, where the variable can then be replaced in Braze with Liquid. Links can also be included as the body text as part of the template. Both of these links can be shortened and tracked using [click tracking]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking).
 
 ### Dynamic images
 
@@ -130,7 +130,7 @@ There are five response message layouts you can use:
 
 ### Step 3: Preview and test your message
 
-Braze always recommends previewing and testing your message before sending it. Switch to the **Test** tab to send a test WhatsApp message to [content test groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) or individual users, or preview the message as a user directly in Braze.
+Braze always recommends previewing and testing your message before sending it. Switch to the **Test** tab to send a test WhatsApp message to [content test groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) or individual users, or preview the message as a user directly in Braze.
 
 ![A preview message for a custom user named Max.]({% image_buster /assets/img/whatsapp/whatsapp8.png %}){: style="max-width:80%;"}
 
@@ -140,7 +140,7 @@ A conversation window is required to send response messages, including test mess
 
 ![An alert that says to open a message window by sending a WhatsApp message, then send a message to the test user.]({% image_buster /assets/img/whatsapp/whatsapp_test_phone_number.png %}){: style="max-width:70%;"}
 
-For more information, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=whatsapp).
+For more information, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=whatsapp).
 
 ### Step 4: View test send results
 
@@ -189,21 +189,21 @@ Next, build the remainder of your campaign. See the following sections for furth
 
 #### Choose a delivery schedule or trigger
 
-WhatsApp messages can be delivered based on a scheduled time, an action, or based on an API trigger. For more, refer to [Scheduling your campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
+WhatsApp messages can be delivered based on a scheduled time, an action, or based on an API trigger. For more, refer to [Scheduling your campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-For action-based delivery, you can also set the campaign's duration and [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
+For action-based delivery, you can also set the campaign's duration and [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
-This step is also where you can specify delivery controls, such as allowing users to become [re-eligible]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) to receive the campaign, or enabling [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) rules.
+This step is also where you can specify delivery controls, such as allowing users to become [re-eligible]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns) to receive the campaign, or enabling [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping) rules.
 
 #### Choose users to target
 
-Next, you must [target users]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) by choosing segments or filters to narrow your audience. You should have already chosen the subscription group, which narrows users by the level or category of communication they want to have with you. In this step, you select the larger audience from your segments and narrow that segment further with our filters. You automatically receive a snapshot of what that approximate segment population looks like. Remember that exact segment membership is always calculated before the message is sent.
+Next, you must [target users]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) by choosing segments or filters to narrow your audience. You should have already chosen the subscription group, which narrows users by the level or category of communication they want to have with you. In this step, you select the larger audience from your segments and narrow that segment further with our filters. You automatically receive a snapshot of what that approximate segment population looks like. Remember that exact segment membership is always calculated before the message is sent.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 #### Choose conversion events
 
-Braze allows you to track how often users perform specific actions, [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), after receiving a campaign. You can allow up to a 30-day window during which a conversion will be counted if the user takes the specified action.
+Braze allows you to track how often users perform specific actions, [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), after receiving a campaign. You can allow up to a 30-day window during which a conversion will be counted if the user takes the specified action.
 
 You can also set custom conversion events based on your specific use case. Get creative and think about how you truly want to measure this campaign's success.
 
@@ -211,7 +211,7 @@ You can also set custom conversion events based on your specific use case. Get c
 
 {% tab Canvas %}
 
-If you haven't done so already, complete the remaining sections of your Canvas component. For further details on how build out the rest of your Canvas, implement multivariate testing and Intelligent Selection, and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/) step of our Canvas documentation.
+If you haven't done so already, complete the remaining sections of your Canvas component. For further details on how build out the rest of your Canvas, implement multivariate testing and Intelligent Selection, and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message) step of our Canvas documentation.
 
 Because conversation windows can only last 24 hours per inbound message, Braze will check to make sure there are no delays exceeding 24 hours between an inbound message and a response message. 
 
@@ -222,7 +222,7 @@ Because conversation windows can only last 24 hours per inbound message, Braze w
 
 After you've finished building the last of your campaign or Canvas, review its details, test it, then send it!
 
-Next, check out [WhatsApp reporting]({{site.baseurl}}/user_guide/channels/whatsapp/reporting/) to learn how you can access the results of your WhatsApp campaigns.
+Next, check out [WhatsApp reporting]({{site.baseurl}}/user_guide/channels/whatsapp/reporting) to learn how you can access the results of your WhatsApp campaigns.
 
 ## Supported WhatsApp features
 
@@ -238,7 +238,7 @@ The following features are supported for outbound WhatsApp messages you send thr
 | CTA links | Various call-to-action (CTA) types are supported. For more details, see [Call-to-action types](#ctas). | — | — |
 | Images | Images can be embedded within the body text. They must be 8-bit and use either an RGB or RGBA color model. | < 5 MB | `.png`, `.jpg`, `.jpeg` |
 | Documents | Documents can embedded within body text. Files must be hosted through URL. | < 100 MB | `.txt`, `.xls`, `.xlsx`, `.doc`, `.docx`, `.ppt`, `.pttx`, `.pdf` |
-| Videos | Videos can be embedded within body text. Files must be hosted through URL or in the [Braze media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). | < 16 MB | `.3gp`, `.mp4` |
+| Videos | Videos can be embedded within body text. Files must be hosted through URL or in the [Braze media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). | < 16 MB | `.3gp`, `.mp4` |
 | Audio | Audio is only supported through response messaging. Files must be hosted through URL. | < 16 MB | `.aac`, `.amr`, `.mp3`, `.mp4`, `.ogg` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Outbound messages" }
 
@@ -267,9 +267,9 @@ The following call-to-action types are supported for WhatsApp messages you send 
 | Visit website | One button maximum (including variable parameters). |
 | Call phone number | Available for message templates only. <br>One button maximum. |
 | Custom quick reply buttons | Three buttons maximum. |
-| Marketing opt-out button | By default, subscription statuses are not automatically updated. For a full walkthrough, see [Opt-ins & Opt-Outs]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs/#marketing-opt-out-selection). |
+| Marketing opt-out button | By default, subscription statuses are not automatically updated. For a full walkthrough, see [Opt-ins & Opt-Outs]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs#marketing-opt-out-selection). |
 | Coupon code message templates | Available for message templates only. <br>These can be opened and edited like other message templates, and are compatible with Liquid and Braze promotion codes. |
 | CTA response messages  | Create a response message that includes a call to action button. |
-| [List response messages]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users/#list-messages) | Create a response message that includes a list of up to 10 options for users to pick from. |
+| [List response messages]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#list-messages) | Create a response message that includes a list of up to 10 options for users to pick from. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Call-to-action types #ctas" }
 

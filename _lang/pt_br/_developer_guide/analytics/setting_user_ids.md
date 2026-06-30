@@ -1,14 +1,14 @@
 ---
-nav_title: Definir IDs de usuários
-article_title: Definir IDs de usuários através do SDK da Braze
+nav_title: Definir IDs de usuário
+article_title: Definir IDs de usuário através do SDK da Braze
 page_order: 1.1
-description: "Aprenda como definir IDs de usuários através do SDK da Braze."
+description: "Aprenda como definir IDs de usuário através do SDK da Braze."
 
 ---
 
-# Definir IDs de usuários {#set-user-ids}
+# Definir IDs de usuário {#set-user-ids}
 
-> Aprenda como definir IDs de usuários através do SDK da Braze. Estes são identificadores únicos que permitem rastrear usuários em dispositivos e plataformas, importar seus dados através da [API de dados de usuários]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data) e enviar mensagens direcionadas através da [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/). Se você não atribuir um ID único a um usuário, a Braze atribuirá a ele um ID anônimo; no entanto, você não poderá usar esses recursos até que o faça.
+> Aprenda como definir IDs de usuário através do SDK da Braze. Estes são identificadores únicos que permitem rastrear usuários em dispositivos e plataformas, importar seus dados através da [API de dados de usuários]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data) e enviar mensagens direcionadas através da [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging). Se você não atribuir um ID único a um usuário, a Braze atribuirá a ele um ID anônimo; no entanto, você não poderá usar esses recursos até que o faça.
 
 {% alert note %}
 Para wrapper SDKs não listados, use o método nativo relevante do Android ou Swift.
@@ -23,7 +23,7 @@ Para wrapper SDKs não listados, use o método nativo relevante do Android ou Sw
 Se o seu caso de uso exige que nenhum dado seja coletado antes de um usuário ser identificado, você pode adiar a inicialização do SDK da Braze até que o usuário faça login e um `external_id` esteja disponível. Defina uma flag no seu código que mude para `true` quando o usuário fizer login e só inicialize o SDK quando essa flag estiver definida.
 
 {% alert warning %}
-Só adie a inicialização na **primeira vez** que um usuário baixar seu app (antes de um `external_id` ser definido). Se você impedir o SDK de inicializar toda vez que um usuário fizer logout ou iniciar uma nova sessão, isso interferirá no pré-carregamento de ativos de mensagens no app e cartões de conteúdo, o que pode causar erros de entregabilidade para essas campanhas.
+Só adie a inicialização na **primeira vez** que um usuário baixar seu app (antes de um `external_id` ser definido). Se você impedir o SDK de inicializar toda vez que um usuário fizer logout ou iniciar uma nova sessão, isso interferirá no pré-carregamento de ativos de mensagens no app e cartões de conteúdo, o que pode causar erros de entregabilidade para essas Campaigns.
 {% endalert %}
 
 ## Definindo um ID de usuário {#setting-a-user-id}
@@ -116,7 +116,7 @@ Chamar `changeUser()` aciona um flush de dados como parte do fechamento da sess�
 {% endalert %}
 
 {% alert warning %}
-Não atribua um único ID de usuário compartilhado (por exemplo, um ID externo padrão estático) nem chame `changeUser()` quando um usuário fizer logout. Fazer isso impedirá que você reengaje qualquer usuário que tenha feito login anteriormente em dispositivos compartilhados e fará com que todos os dados sejam registrados em um único ID de usuário, o que pode causar comportamentos inesperados em outros recursos. Em vez disso, mantenha o controle de todos os IDs de usuários separadamente e garanta que o processo de logout do seu app permita a troca de volta para um usuário que já estava logado. Quando uma nova sessão começa, a Braze atualiza automaticamente os dados do perfil recém-ativo.
+Não atribua um único ID de usuário compartilhado (por exemplo, um ID externo padrão estático) nem chame `changeUser()` quando um usuário fizer logout. Fazer isso impedirá que você reengaje qualquer usuário que tenha feito login anteriormente em dispositivos compartilhados e fará com que todos os dados sejam registrados em um único ID de usuário, o que pode causar comportamentos inesperados em outros recursos. Em vez disso, mantenha o controle de todos os IDs de usuário separadamente e garanta que o processo de logout do seu app permita a troca de volta para um usuário que já estava logado. Quando uma nova sessão começa, a Braze atualiza automaticamente os dados do perfil recém-ativo.
 {% endalert %}
 
 ## Aliases de usuário {#user-aliases}
@@ -184,27 +184,27 @@ Braze.addAlias("ALIAS_NAME", "ALIAS_LABEL");
 {% endtab %}
 {% endtabs %}
 
-## Melhores práticas para nomeação de IDs {#naming-best-practices}
+## Melhores práticas de nomenclatura de IDs {#naming-best-practices}
 
-Recomendamos que você crie IDs de usuários usando o padrão [Identificador Único Universal (UUID)](https://en.wikipedia.org/wiki/Universally_unique_identifier), o que significa que são strings de 128 bits aleatórias e bem distribuídas.
+Recomendamos que você crie IDs de usuário usando o padrão [Identificador Único Universal (UUID)](https://en.wikipedia.org/wiki/Universally_unique_identifier), o que significa que são strings de 128 bits aleatórias e bem distribuídas.
 
-Alternativamente, você pode fazer hash de um identificador único existente (como um nome ou endereço de e-mail) para gerar seus IDs de usuários. Se fizer isso, certifique-se de implementar a [autenticação do SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication/) para evitar a simulação de usuários.
+Alternativamente, você pode fazer hash de um identificador único existente (como um nome ou endereço de e-mail) para gerar seus IDs de usuário. Se fizer isso, certifique-se de implementar a [autenticação do SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication) para evitar a simulação de usuários.
 
 {% alert warning %}
 Não use um valor previsível ou um número incremental para seu ID de usuário. Isso pode expor sua organização a ataques maliciosos ou exfiltração de dados.
 
-Para maior segurança, use a [Autenticação do SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication/).
+Para maior segurança, use a [Autenticação do SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication).
 {% endalert %}
 
-Embora seja essencial que você nomeie corretamente seus IDs de usuários desde o início, você sempre pode renomeá-los no futuro usando o endpoint [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/).
+Embora seja essencial que você nomeie corretamente seus IDs de usuário desde o início, você sempre pode renomeá-los no futuro usando o endpoint [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration).
 
 | Tipos de ID não recomendados | Exemplo não recomendado |
 | ------------ | ----------- |
 | ID de perfil visível do usuário ou nome de usuário | JonDoe829525552 |
 | Endereço de e-mail | Anna@email.com |
 | ID de usuário auto-incremental | 123 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Melhores práticas para nomeação de IDs" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Melhores práticas de nomenclatura de IDs" }
 
 {% alert warning %}
-Evite compartilhar detalhes sobre como você cria IDs de usuários, pois isso pode expor sua organização a ataques maliciosos ou exfiltração de dados.
+Evite compartilhar detalhes sobre como você cria IDs de usuário, pois isso pode expor sua organização a ataques maliciosos ou exfiltração de dados.
 {% endalert %}

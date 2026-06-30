@@ -23,13 +23,13 @@ Esta tabla enumera los operadores admitidos. Ten en cuenta que los paréntesis s
 | or | condición A o condición B |
 | and | condición A y condición B |
 | contains | comprueba si una cadena o un arreglo de cadenas contiene una cadena |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Operators" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Operadores" }
 
 {% alert note %}
-Los operadores se pueden usar en sentencias condicionales (`if`, `elsif`, `unless`) pero no en sentencias `assign`, bucles `for` ni corchetes de acceso a arreglos. En las etiquetas `case` y `when`, cada rama compara la expresión `case` con un valor `when` usando igualdad en lugar de expresiones de operadores arbitrarios. Para ver ejemplos, consulta [Lógica condicional de mensajería]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags). Para un desglose completo, consulta [Dónde usar operadores y filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).
+Los operadores se pueden usar en sentencias condicionales (`if`, `elsif`, `unless`) pero no en sentencias `assign`, bucles `for` ni corchetes de acceso a arreglos. En las etiquetas `case` y `when`, cada rama compara la expresión `case` con un valor `when` usando igualdad en lugar de expresiones de operadores arbitrarios. Para ver ejemplos, consulta [Lógica condicional de mensajería]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags). Para un desglose completo, consulta [Dónde usar operadores y filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
-### Agrupar condiciones sin paréntesis {#grouping-conditions-without-parentheses}
+## Agrupar condiciones sin paréntesis {#grouping-conditions-without-parentheses}
 
 Liquid no admite paréntesis para agrupar expresiones. Para evaluar lógica booleana compleja como `(a and b) or c`, usa sentencias `if` anidadas o variables intermedias.
 
@@ -243,13 +243,13 @@ Stream now!
 
 ![Un compositor de notificaciones push con el código Liquid completo del tutorial.]({% image_buster /assets/img/abort-if.png %})
 
-También puedes [cancelar mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/) basándote en contenido conectado.
+También puedes [cancelar mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content) basándote en contenido conectado.
 
 ## Solución de problemas {#troubleshooting}
 
 ### El envío de prueba no llega al usar `abort_message` {#test-send-doesnt-arrive-when-using-abort_message}
 
-Si usas [`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) y un envío de prueba nunca llega, es posible que al usuario de vista previa le falten atributos que tu Liquid espera. La lógica de cancelación se ejecuta durante el renderizado; cuando se activa, Braze no envía el mensaje. Previsualiza con un usuario que tenga los datos de perfil necesarios, o usa **Preview as user** para probar campos de destinatario que proporcionen los mismos valores que tendría tu audiencia de producción.
+Si usas [`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) y un envío de prueba nunca llega, es posible que al usuario de vista previa le falten atributos que tu Liquid espera. La lógica de cancelación se ejecuta durante el renderizado; cuando se activa, Braze no envía el mensaje. Previsualiza con un usuario que tenga los datos de perfil necesarios, o usa **Previsualizar como usuario** para probar campos de destinatario que proporcionen los mismos valores que tendría tu audiencia de producción.
 
 ### La vista previa puede convertir incorrectamente los tipos de propiedad {#preview-may-incorrectly-coerce-property-types}
 

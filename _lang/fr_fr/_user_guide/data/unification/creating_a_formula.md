@@ -25,7 +25,7 @@ Voici quelques exemples de types de comportements qui peuvent être détectés g
 
 ## Création de formules {#creating-formulas}
 
-Les formules sont accessibles dans les panneaux de statistiques des pages [Accueil]({{site.baseurl}}/user_guide/analytics/dashboards/home/), [Rapport sur les revenus]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/) et [Rapport d'événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) du tableau de bord. Pour afficher ce panneau, allez dans le graphique **Performance Over Time**, changez le menu déroulant **Statistics For** en **KPI Formulas**, puis sélectionnez au moins une formule d'indicateur clé de performance pour remplir le graphique.
+Les formules sont accessibles dans les panneaux de statistiques des pages [Accueil]({{site.baseurl}}/user_guide/analytics/dashboards/home), [Rapport sur les revenus]({{site.baseurl}}/user_guide/analytics/reports/revenue_report) et [Rapport d'événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events) du tableau de bord. Pour afficher ce panneau, allez dans le graphique **Performance Over Time**, changez le menu déroulant **Statistics For** en **KPI Formulas**, puis sélectionnez au moins une formule d'indicateur clé de performance pour remplir le graphique.
 
 ![Afficher les statistiques des formules d'indicateurs clés de performance sur le tableau de bord de Braze]({% image_buster /assets/img_archive/kpi_forms.png %})
 
@@ -68,7 +68,7 @@ table td {
 | DAU | MAU |
 | Sessions | DAU |
 | | Taille du segment |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview dashboard" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tableau de bord d'aperçu" }
 
 ### Tableau de bord des revenus {#revenue-dashboard}
 
@@ -76,7 +76,7 @@ table td {
 | --- | --- |
 | Achats (tous) | DAU |
 | Achats sélectionnés (comme une carte-cadeau ou un ID de produit) | MAU |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Revenue dashboard" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tableau de bord des revenus" }
 
 ### Tableau de bord des événements personnalisés {#custom-event-dashboard}
 
@@ -84,5 +84,5 @@ table td {
 | --- | --- |
 | Nombre d'événements personnalisés | MAU |
 |  | DAU |
-|  | Taille du segment (seuls les segments pour lesquels le [suivi analytique]({{site.baseurl}}/viewing_and_understanding_segment_data/) est activé peuvent être utilisés) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom event dashboard" }
+|  | Taille du segment (seuls les segments pour lesquels le [suivi analytique]({{site.baseurl}}/viewing_and_understanding_segment_data) est activé peuvent être utilisés) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tableau de bord des événements personnalisés" }

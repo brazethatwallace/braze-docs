@@ -21,7 +21,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Excluir
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `catalogs.delete`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `catalogs.delete`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -32,7 +32,7 @@ Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
 | `catalog_name` | Obrigatória | String | Nome do catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de jornada" }
 
 ## Exemplo de solicitação {#example-request}
 
@@ -85,6 +85,6 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | Erro | Solução de problemas |
 | --- | --- |
 | `catalog-not-found` | Verifique se o nome do catálogo é válido. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solução de problemas" }
 
 {% endapi %}

@@ -14,7 +14,7 @@ channel:
 
 ## Pourquoi les notifications push sont-elles parfois retardées ? {#why-are-push-notifications-sometimes-delayed}
 
-La distribution suit généralement trois étapes : le **traitement** par Braze (segmentation, planification et transmission au fournisseur), le transport de Braze vers **APNs ou FCM**, et la distribution du fournisseur vers l'**appareil**. Des retards peuvent survenir à chaque étape. Braze n'a pas de visibilité sur les files d'attente du fournisseur ou de l'appareil ; utilisez la [journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/) côté client lorsque vous devez identifier précisément les délais côté appareil.
+La distribution suit généralement trois étapes : le **traitement** par Braze (segmentation, planification et transmission au fournisseur), le transport de Braze vers **APNs ou FCM**, et la distribution du fournisseur vers l'**appareil**. Des retards peuvent survenir à chaque étape. Braze n'a pas de visibilité sur les files d'attente du fournisseur ou de l'appareil ; utilisez la [journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs) côté client lorsque vous devez identifier précisément les délais côté appareil.
 
 ## Que se passe-t-il lorsque plusieurs utilisateurs se connectent sur un même appareil ? {#what-happens-when-multiple-users-log-into-a-single-device}
 
@@ -28,13 +28,13 @@ Lorsqu'un jeton de notification push est réattribué, la modification est refl�
 
 Oui. Le push de test est envoyé à chaque appareil compatible push associé au profil utilisateur sélectionné. Si vous avez plusieurs téléphones ou tablettes connectés avec le même utilisateur, chaque appareil disposant d'un jeton de notification push valide reçoit la notification.
 
-Pour envoyer le push de test à un seul appareil, vous pouvez supprimer les jetons de notification push des autres appareils depuis le profil utilisateur avant le test. Sinon, si vous envoyez via l'[endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/), définissez `send_to_most_recent_device_only` sur `true` dans l'objet `apple_push` ou `android_push` afin que seul l'appareil le plus récemment actif reçoive le push.
+Pour envoyer le push de test à un seul appareil, vous pouvez supprimer les jetons de notification push des autres appareils depuis le profil utilisateur avant le test. Sinon, si vous envoyez via l'[endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages), définissez `send_to_most_recent_device_only` sur `true` dans l'objet `apple_push` ou `android_push` afin que seul l'appareil le plus récemment actif reçoive le push.
 
 ## Que signifie « Error sending push because the payload was invalid » ? {#what-does-error-sending-push-because-the-payload-was-invalid-mean}
 
 Ce message indique qu'APNs a rejeté la requête push en raison d'un payload invalide (par exemple, un payload vide ou un payload trop volumineux).
 
-Pour plus de détails et les étapes suivantes, consultez [Messages d'erreur push courants]({{site.baseurl}}/user_guide/channels/push/push_error_codes/).
+Pour plus de détails et les étapes suivantes, consultez [Messages d'erreur push courants]({{site.baseurl}}/user_guide/channels/push/push_error_codes).
 
 ## Pourquoi un utilisateur ayant accepté les notifications n'a-t-il pas de jeton de notification push ? {#why-doesnt-an-opted-in-user-have-a-push-token}
 
@@ -72,10 +72,10 @@ Ces filtres de segmentation vérifient des conditions différentes :
 | Filtre | Ce qu'il vérifie | Cas d'utilisation |
 |--------|-----------------|-------------------|
 | **Foreground Push Enabled** | L'utilisateur dispose d'un jeton de notification push de premier plan valide **et** son état d'abonnement push est `Opted-In` ou `Subscribed`. | Cibler les utilisateurs qui peuvent recevoir des notifications push visibles. |
-| **Background or Foreground Push Enabled** | L'utilisateur dispose d'un jeton de notification push (premier plan ou arrière-plan) **et** son état d'abonnement push est `Opted-In` ou `Subscribed`. Cela inclut les utilisateurs qui ont désactivé les notifications push visibles mais qui disposent toujours d'un jeton de notification push en arrière-plan. | Utilisé pour le [suivi des désinstallations]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/), les [notifications push silencieuses]({{site.baseurl}}/developer_guide/push_notifications/silent/) et le géorepérage. |
+| **Background or Foreground Push Enabled** | L'utilisateur dispose d'un jeton de notification push (premier plan ou arrière-plan) **et** son état d'abonnement push est `Opted-In` ou `Subscribed`. Cela inclut les utilisateurs qui ont désactivé les notifications push visibles mais qui disposent toujours d'un jeton de notification push en arrière-plan. | Utilisé pour le [suivi des désinstallations]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking), les [notifications push silencieuses]({{site.baseurl}}/developer_guide/push_notifications/silent) et le géorepérage. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Quelle est la différence entre les filtres « Foreground Push Enabled » et « Background or Foreground Push Enabled » ?" }
 
-Un utilisateur peut être `Background or Foreground Push Enabled` sans être `Foreground Push Enabled`. Cela se produit lorsque l'utilisateur a désactivé les notifications push visibles dans les paramètres de son appareil, mais que l'application détient toujours un jeton de notification push en arrière-plan. Pour plus de détails, consultez [Utilisateurs push et abonnements]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#foreground-push-enabled).
+Un utilisateur peut être `Background or Foreground Push Enabled` sans être `Foreground Push Enabled`. Cela se produit lorsque l'utilisateur a désactivé les notifications push visibles dans les paramètres de son appareil, mais que l'application détient toujours un jeton de notification push en arrière-plan. Pour plus de détails, consultez [Utilisateurs push et abonnements]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#foreground-push-enabled).
 
 ## Comment Braze détermine-t-il qu'un message push a été envoyé avec succès ? {#how-does-braze-determine-when-a-push-message-is-sent-successfully}
 

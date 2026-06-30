@@ -1,7 +1,7 @@
 ---
 nav_title: 메시징 진단 대시보드
 article_title: 메시징 진단 대시보드
-description: "이 참조 문서에서는 Campaign이나 Canvases에서 메시지가 예상대로 발송되지 않은 이유를 파악하는 데 도움이 되는 메시징 진단 대시보드에 대해 설명합니다."
+description: "이 참조 문서에서는 Campaigns이나 Canvases에서 메시지가 예상대로 발송되지 않은 이유를 파악하는 데 도움이 되는 메시징 진단 대시보드에 대해 설명합니다."
 alias: /ccdd/
 page_order: 2
 toc_headers: h2
@@ -9,7 +9,7 @@ toc_headers: h2
 
 # 메시징 진단 대시보드 {#messaging-diagnostics-dashboard}
 
-> **메시징 진단** 대시보드는 메시지 발송 결과에 대한 상위 수준의 분석을 제공하여, 메시징 설정에서 트렌드를 파악하고 잠재적인 문제를 진단할 수 있도록 합니다. 이 대시보드를 통해 Campaign이나 Canvases에서 메시지가 예상대로 발송되지 않은 이유를 파악할 수 있습니다.
+> **메시징 진단** 대시보드는 메시지 발송 결과에 대한 상위 수준의 분석을 제공하여, 메시징 설정에서 트렌드를 파악하고 잠재적인 문제를 진단할 수 있도록 합니다. 이 대시보드를 통해 Campaigns이나 Canvases에서 메시지가 예상대로 발송되지 않은 이유를 파악할 수 있습니다.
 
 {% alert important %}
 **메시징 진단** 대시보드는 현재 얼리 액세스 중입니다. 얼리 액세스에 참여하려면 고객 성공 매니저에게 문의하세요.
@@ -35,7 +35,7 @@ Braze가 메시지를 "발송"하면, 최종 전달은 외부 서비스에 따�
 | SMS/MMS/RCS | Braze가 SMS 게이트웨이(예: Twilio)에 메시지를 전달합니다. 해당 게이트웨이가 이동통신사로의 최종 전달을 담당합니다. |
 | 웹훅 | 웹훅 요청이 성공적으로 이루어졌으며, `2xx` 응답을 반환했습니다. |
 | WhatsApp | 메시지가 발송 파트너에게 성공적으로 전달되었습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Sent and delivered" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="발송됨과 전달됨" }
 
 ### 데이터 최신성 {#data-freshness}
 
@@ -101,31 +101,31 @@ Braze가 메시지를 "발송"하면, 최종 전달은 외부 서비스에 따�
 | 콘텐츠 카드 유효하지 않음 | 콘텐츠 카드에 오류가 있어 사용자에게 발송되지 않았습니다. 일반적인 이유는 다음과 같습니다: {::nomarkdown}<ul><li> 최대 크기 초과(2 KB) </li><li> 만료 날짜가 유효하지 않음 </li><li> 메시지에 유효하지 않은 문자가 포함됨 </li></ul>{:/} |
 | 연결된 콘텐츠 실패 | Braze가 메시지를 발송하려 했지만, 최대 재시도 횟수(기본값 5회) 이후 연결된 콘텐츠가 실패했습니다. **참고:** 이 수치는 최대 재시도 횟수에 도달하여 중단된 메시지 수를 나타내며, 실패한 연결된 콘텐츠 요청의 총 수가 아닙니다. |
 | 인앱 메시지 렌더링 시간 초과 | 여러 번의 재시도 후에도 Liquid를 렌더링할 수 없어 시간이 초과되었습니다. |
-| Liquid 중단 | [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) Liquid 태그가 호출되어 발송이 취소되었습니다. |
+| Liquid 중단 | [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) Liquid 태그가 호출되어 발송이 취소되었습니다. |
 | Liquid 렌더링 시간 초과 | Liquid 템플릿을 렌더링하는 데 너무 오래 걸렸습니다. 배너, 인앱 메시지, 이메일에서 가장 많이 발생합니다. |
 | Liquid 구문 오류 | Liquid 템플릿에 파싱 오류가 있어 메시지가 취소되었습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="콘텐츠 및 렌더링" }
 
 #### Campaign 및 Canvas 상태 {#campaign-and-canvas-state}
 
 | 중단 결과 | 설명 |
 | ---- | ---- |
-| 지연 단계 실패 | [지연 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/#personalized-delays)가 실패하여 사용자가 Canvas를 종료했습니다. 이 실패는 다음과 같은 경우에 발생할 수 있습니다: {::nomarkdown}<ul><li> 개인화된 지연 단계에 제공된 변수가 비어 있거나 유효하지 않은 유형인 경우 </li><li> 지연이 Canvas 내에서 허용되는 최대 기간을 초과한 경우</li></ul>{:/} |
+| 지연 단계 실패 | [지연 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step#personalized-delays)가 실패하여 사용자가 Canvas를 종료했습니다. 이 실패는 다음과 같은 경우에 발생할 수 있습니다: {::nomarkdown}<ul><li> 개인화된 지연 단계에 제공된 변수가 비어 있거나 유효하지 않은 유형인 경우 </li><li> 지연이 Canvas 내에서 허용되는 최대 기간을 초과한 경우</li></ul>{:/} |
 | 예외 또는 종료 이벤트 | 사용자가 이전에 메시지를 받을 자격이 있었지만, {::nomarkdown}<ul><li> 액션 기반 Campaign에 대한 <a href="/docs/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-3-select-exception-events">예외 이벤트</a> 를 수행하여 메시지가 중단되었거나, </li><li> Canvas <a href="/docs/user_guide/messaging/canvas/create_a_canvas#setting-exit-criteria">종료 기준</a> 을 충족하여 여정 중간에 제외되었습니다.</li></ul>{:/} |
 | 비활성 Campaign | 메시지가 전송 중인 상태에서 Campaign이 중지되어 중단되었습니다. |
 | 비활성 Canvas | 사용자가 여정에 진입하기 전에 Canvas가 중지되었습니다. |
 | 비활성 캔버스 단계 | Canvas에서 다음과 같은 경우에 발생할 수 있습니다: {::nomarkdown}<ul><li> 캔버스 단계가 삭제된 경우 </li> <li>Canvas가 중지되어 모든 단계가 비활성화된 경우 </li></ul>{:/} |
 | 볼륨 제한 | Campaign이 설정된 볼륨 제한에 도달하여 발송이 취소되었습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign and Canvas state" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign 및 Canvas 상태" }
 
 #### 사용량 제한 및 타이밍 {#rate-limiting-and-timing}
 
 | 중단 결과 | 설명 |
 | ---- | ---- |
-| 최대 게재빈도 설정 적용됨 | 워크스페이스의 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#about-frequency-capping) 규칙에 따라 사용자가 이미 허용된 최대 메시지 수를 수신하여 발송이 취소되었습니다. |
+| 최대 게재빈도 설정 적용됨 | 워크스페이스의 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) 규칙에 따라 사용자가 이미 허용된 최대 메시지 수를 수신하여 발송이 취소되었습니다. |
 | 방해금지 시간 중단 | Campaign 또는 캔버스 단계에 대해 방해금지 시간이 활성화되어 있으며 대체 옵션이 **Abort message**로 설정되어 있습니다. 사용자가 방해금지 시간 중에 Campaign을 트리거하거나 Canvas 메시지 단계에 진입하여 메시지가 중단되었습니다. 그러나 이로 인해 사용자가 Canvas에서 종료되지는 않습니다. |
-| 72시간 초과 사용량 제한 | [전달 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting)으로 인해 메시지가 72시간 이상 조절되어 발송이 중단되었습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limiting and timing" }
+| 72시간 초과 사용량 제한 | [전달 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)으로 인해 메시지가 72시간 이상 조절되어 발송이 중단되었습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용량 제한 및 타이밍" }
 
 #### 사용자 자격 및 프로필 {#user-eligibility-and-profile}
 
@@ -135,17 +135,17 @@ Braze가 메시지를 "발송"하면, 최종 전달은 외부 서비스에 따�
 | 메시지 단계 사전 검사 실패 | 이 사전 검사는 전달 유효성 검사 전에 실행됩니다. 이 경우 사용자가 이 메시지 단계의 기본 사전 검사를 충족하지 못했습니다(사용자를 찾을 수 없거나 메시지 단계의 채널에 대한 자격이 없음). **참고:** 다중 채널 메시지 단계의 경우, 이는 사용자를 찾을 수 없음을 의미합니다. 채널 자격은 단일 채널 메시지 단계에서만 여기서 확인됩니다. |
 | 트리거된 메시지 사전 검사 실패 | 트리거된 메시지의 경우, Braze는 이 트리거에서 발송할 메시지를 생성하기 전에 오디언스 자격, 재자격, 채널 자격에 대한 기본 사전 검사를 먼저 실행합니다. |
 | 사용자가 더 이상 자격이 없음 | 사용자가 처음에는 타겟 오디언스에 포함되어 있었지만, Braze가 메시지를 발송하거나 사용자를 Canvas에 진입시키기 전에 오디언스 기준에 더 이상 일치하지 않게 되었습니다. 사용자가 처음 오디언스 기준을 충족한 시점과 오디언스에서 벗어난 시점 사이의 시간 차이는 다음과 같은 지연으로 인해 발생할 수 있습니다: {::nomarkdown}<ul><li>Intelligent Timing</li><li>방해금지 시간</li><li>현지 시간</li><li>전달 속도 사용량 제한(Canvas 진입에는 적용되지 않음)</li><li>메시징 파이프라인 지연</li></ul>{:/} |
-| 단계에 대한 사용자 자격 없음 | 사용자가 메시지 단계에 대해 설정된 [전달 유효성 검사]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations)를 충족하지 못했거나 [억제 목록]({{site.baseurl}}/user_guide/audience/suppression_lists/)에 포함되어 있었습니다. **전달 유효성 검사** 설정에 따라 사용자가 Canvas를 종료했거나 다음 단계로 진행했을 수 있습니다. |
+| 단계에 대한 사용자 자격 없음 | 사용자가 메시지 단계에 대해 설정된 [전달 유효성 검사]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations)를 충족하지 못했거나 [억제 목록]({{site.baseurl}}/user_guide/audience/suppression_lists)에 포함되어 있었습니다. **전달 유효성 검사** 설정에 따라 사용자가 Canvas를 종료했거나 다음 단계로 진행했을 수 있습니다. |
 | 사용자 재자격 없음 | 사용자가 메시지를 받거나 Canvas에 진입할 자격이 있었지만, 재자격 또는 재진입 설정으로 인해 발송이 취소되었습니다. 이는 사용자가 이미 Campaign을 수신했거나 Canvas에 최근에 진입한 경우, 동일한 Campaign에 대한 다른 발송이 이미 해당 사용자에 대해 진행 중인 경우, 또는 재자격이나 재진입이 비활성화된 경우에 발생할 수 있습니다. |
 | 고객 프로필을 찾을 수 없음 | 사용자가 존재한 적이 없거나 Braze에 더 이상 존재하지 않습니다. 일반적인 경우는 다음과 같습니다: {::nomarkdown}<ul><li> API 메시징을 사용하여 사용자를 타겟팅했지만, Braze에 존재한 적이 없는 경우. </li><li>메시지가 발송되거나 캔버스 단계가 실행되기 전에 사용자가 삭제된 경우. </li><li>메시지가 발송되기 전에 사용자가 다른 프로필과 병합된 경우.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="User eligibility and profile" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 자격 및 프로필" }
 
 #### 채널 및 전달 {#channel-and-delivery}
 
 | 중단 결과 | 설명 |
 | ---- | ---- |
 | 파트너 전달 시간 초과 | Braze가 24시간 동안 전달 파트너에게 이 메시지를 발송하려 했지만, 파트너가 전체 기간 동안 일시적 오류를 반환했습니다. |
-| 푸시 자격 증명 유효하지 않음 | 이 앱의 [푸시 자격 증명]({{site.baseurl}}/user_guide/channels/push/faqs/#valid-push-token)이 누락되었거나 유효하지 않아 발송이 취소되었습니다. **앱 설정**에서 자격 증명을 업데이트하세요. |
+| 푸시 자격 증명 유효하지 않음 | 이 앱의 [푸시 자격 증명]({{site.baseurl}}/user_guide/channels/push/faqs#valid-push-token)이 누락되었거나 유효하지 않아 발송이 취소되었습니다. **앱 설정**에서 자격 증명을 업데이트하세요. |
 | Android 푸시, 앱 또는 기기에 대해 사용자가 활성화되지 않음 | 이 사용자에게 푸시를 발송할 수 없습니다. 일반적인 이유: {::nomarkdown}<ul><li> 사용자가 앱을 설치하지 않은 경우.</li> <li> 사용자에게 유효한 푸시 토큰이 없는 경우. </li> <li>사용자에게 이 푸시 알림에 필요한 기기가 없는 경우. </li> <li> 사용자가 기기 설정에서 이 앱의 알림을 비활성화한 경우. </li> <li> 사용자가 푸시 알림 수신에 가입하지 않았거나 옵트인하지 않은 경우.</li></ul>{:/} |
 | iOS 푸시, 앱 또는 기기에 대해 사용자가 활성화되지 않음 | "Android 푸시, 앱 또는 기기에 대해 사용자가 활성화되지 않음" 중단 결과와 동일합니다. |
 | Kindle 푸시, 앱 또는 기기에 대해 사용자가 활성화되지 않음 | "Android 푸시, 앱 또는 기기에 대해 사용자가 활성화되지 않음" 중단 결과와 동일합니다. |
@@ -155,8 +155,8 @@ Braze가 메시지를 "발송"하면, 최종 전달은 외부 서비스에 따�
 | LINE에 대해 사용자가 활성화되지 않음 | 이 사용자에게 LINE 메시지를 발송할 수 없습니다. 일반적인 이유: {::nomarkdown}<ul><li> 고객 프로필에 전화번호가 없는 경우. </li><li> 전달 실패로 인해 사용자의 전화번호가 유효하지 않은 것으로 표시된 경우. </li><li> 사용자의 구독 상태로 인해 이 메시지 수신에서 제외된 경우. </li><li> 사용자에게 LINE ID가 없는 경우.</li></ul>{:/} |
 | SMS/MMS/RCS에 대해 사용자가 활성화되지 않음 | 이 사용자에게 SMS 메시지를 발송할 수 없습니다. 일반적인 이유: {::nomarkdown}<ul><li> 고객 프로필에 전화번호가 없는 경우. </li><li> 전달 실패로 인해 사용자의 전화번호가 유효하지 않은 것으로 표시된 경우. </li><li> 사용자의 전화번호가 유효한 E.164 형식이 아니며, 자동 형식 변환 시도가 실패한 경우. </li><li> 사용자의 구독 상태로 인해 SMS 메시지 수신에서 제외된 경우.</li><li>사용자의 전화번호가 차단된 국가에 있는 경우.</li></ul>{:/} |
 | WhatsApp에 대해 사용자가 활성화되지 않음 | 이 사용자에게 WhatsApp 메시지를 발송할 수 없습니다. 일반적인 이유: {::nomarkdown}<ul><li> 고객 프로필에 전화번호가 없는 경우. </li><li> 전달 실패로 인해 사용자의 전화번호가 유효하지 않은 것으로 표시된 경우. </li><li> 사용자의 구독 상태로 인해 이 메시지 수신에서 제외된 경우. </li><li> 사용자에게 WhatsApp 계정이 없는 경우.</li></ul>{:/} |
-| 웹훅 실패 | 웹훅이 실패한 응답 코드(비`2xx`)를 수신했습니다. 자세한 내용은 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/#dev-console-troubleshooting)를 참조하세요. 60시간이 지난 로그는 정리되어 더 이상 접근할 수 없으며, 웹훅 오류는 시간당 최대 20개의 로그까지 샘플링됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Channel and delivery" }
+| 웹훅 실패 | 웹훅이 실패한 응답 코드(비`2xx`)를 수신했습니다. 자세한 내용은 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#dev-console-troubleshooting)를 참조하세요. 60시간이 지난 로그는 정리되어 더 이상 접근할 수 없으며, 웹훅 오류는 시간당 최대 20개의 로그까지 샘플링됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="채널 및 전달" }
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
@@ -164,11 +164,11 @@ Braze가 메시지를 "발송"하면, 최종 전달은 외부 서비스에 따�
 
 "사전 검사"란 파이프라인 단계(예: 메시지 트리거 또는 Canvas 메시지 단계 발송)의 맨 처음에 실행되는 고속 번들 유효성 검사를 의미합니다. 최대 속도를 위해 설계된 조기 종료라고 생각하면 됩니다. 사용자 프로필의 모든 세부 사항을 검증하는 것과 같은 별도의 리소스 집약적 검사를 여러 번 실행하는 대신, Braze는 여러 기본 유효성 검사를 하나의 "첫 번째 패스"로 번들링합니다.
 
-사용자가 이 단일 번들 검사에 실패하면 즉시 제외됩니다. 이 번들 접근 방식을 통해 Braze는 대량의 메시지를 고속으로 처리할 수 있으며, 각 메시지의 처리 지연 시간을 줄여 Campaign과 Canvases의 더 빠르고 안정적인 성능에 기여할 수 있습니다.
+사용자가 이 단일 번들 검사에 실패하면 즉시 제외됩니다. 이 번들 접근 방식을 통해 Braze는 대량의 메시지를 고속으로 처리할 수 있으며, 각 메시지의 처리 지연 시간을 줄여 Campaigns과 Canvases의 더 빠르고 안정적인 성능에 기여할 수 있습니다.
 
 ### "기타" 중단 결과는 무엇을 의미하나요? {#what-does-an-other-abort-outcome-mean}
 
-이는 기존 Braze 카테고리에 해당하지 않는 중단입니다. 이 결과의 중단 비율이 높은 경우, 추가 지원을 위해 [Braze 고객지원]({{site.baseurl}}/braze_support/)에 문의하세요.
+이는 기존 Braze 카테고리에 해당하지 않는 중단입니다. 이 결과의 중단 비율이 높은 경우, 추가 지원을 위해 [Braze 고객지원]({{site.baseurl}}/braze_support)에 문의하세요.
 
 ### _총 중단 수_와 _메시지 발송 수_의 합이 예상 오디언스 크기보다 낮은 이유는 무엇인가요? {#why-is-the-sum-of-_total-aborts_-and-_message-sends_-lower-than-my-expected-audience-size}
 
@@ -177,7 +177,7 @@ Braze가 메시지를 "발송"하면, 최종 전달은 외부 서비스에 따�
 - **오디언스 기준:** Campaign이나 Canvas가 시작되었을 때 예상보다 적은 수의 사용자가 오디언스 기준을 충족했을 수 있습니다(예: Segment에 포함되지 않았거나 필요한 속성이 없는 경우).
 - **처리 진행 중:** 메시지가 아직 활발히 처리 중일 수 있습니다. 사용자가 아직 Canvas의 이전 단계에 있어 메시지 단계에 도달하지 않았을 수 있습니다.
 - **데이터 최신성:** 대시보드 데이터는 약 15분마다 업데이트되지만, 이는 보장되지 않습니다. 이 Campaign이나 Canvas의 최신 데이터가 아직 대시보드에 반영되지 않았을 수 있습니다.
-- **엣지 케이스:** 현재 이 대시보드에서 포착되지 않는 엣지 케이스가 발생했을 가능성이 적지만 있습니다. 이 경우가 의심되면 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support/)에 문의하세요.
+- **엣지 케이스:** 현재 이 대시보드에서 포착되지 않는 엣지 케이스가 발생했을 가능성이 적지만 있습니다. 이 경우가 의심되면 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support)에 문의하세요.
 
 ### _총 중단 수_와 _메시지 발송 수_의 합이 Campaign 및 Canvas의 오디언스보다 큰 이유는 무엇인가요? {#why-is-the-sum-of-_total-aborts_-and-_message-sends_-greater-than-the-audience-for-a-campaign-and-canvas}
 

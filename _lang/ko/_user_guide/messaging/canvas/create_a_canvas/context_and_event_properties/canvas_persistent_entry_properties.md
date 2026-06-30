@@ -13,20 +13,20 @@ page_order: 5
 > Canvas가 커스텀 이벤트, 구매 또는 API 호출에 의해 트리거되면, API 호출, 커스텀 이벤트 또는 구매 이벤트의 메타데이터를 Canvas 워크플로의 각 단계에서 개인화에 사용할 수 있습니다. 이러한 속성을 사용하여 더 정교한 메시지를 보낼 수 있습니다.
 
 {% alert important %}
-영구 진입 속성은 원래 Canvas 편집기의 산물이므로, Canvas 진입 속성과 같은 용어에 대한 더 이상 사용되지 않는 참조가 역사적 참고를 위해 남아 있습니다. 현재 Canvas 편집기에 대해서는 [컨텍스트 및 이벤트 속성정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)를 참조하세요.<br><br>현재 Canvas 편집기에서 영구 진입 속성을 사용하려면 새 Canvas를 생성하거나 기존 Canvas를 현재 편집기로 [복제]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/)해야 합니다.
+영구 진입 속성은 원래 Canvas 편집기의 산물이므로, Canvas 진입 속성과 같은 용어에 대한 더 이상 사용되지 않는 참조가 역사적 참고를 위해 남아 있습니다. 현재 Canvas 편집기에 대해서는 [컨텍스트 및 이벤트 속성정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)를 참조하세요.<br><br>현재 Canvas 편집기에서 영구 진입 속성을 사용하려면 새 Canvas를 생성하거나 기존 Canvas를 현재 편집기로 [복제]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases)해야 합니다.
 {% endalert %}
 
 ## 진입 속성 사용 {#using-entry-properties}
 
 진입 속성은 동작 기반 및 API 트리거 Canvases에서 사용할 수 있습니다. 이러한 진입 속성은 Canvas가 커스텀 이벤트, 구매 또는 API 호출에 의해 트리거될 때 정의됩니다. 자세한 내용은 다음 문서를 참조하세요:
 
-- [Canvas 진입 속성 오브젝트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)
-- [이벤트 속성정보 오브젝트]({{site.baseurl}}/api/objects_filters/event_object/)
-- [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object/#purchase-product_id)
+- [Canvas 진입 속성 오브젝트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)
+- [이벤트 속성정보 오브젝트]({{site.baseurl}}/api/objects_filters/event_object)
+- [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-product_id)
 
 이러한 오브젝트에서 전달된 속성은 `canvas_entry_properties` Liquid 태그를 사용하여 참조할 수 있습니다. 예를 들어, `"canvas_entry_properties": {"product_name": "shoes", "product_price": 79.99}`가 포함된 요청은 Liquid {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}를 추가하여 메시지에 "shoes"라는 단어를 추가할 수 있습니다.
 
-Canvas에 `canvas_entry_properties` Liquid 태그가 포함된 메시지가 있으면, 해당 속성에 연결된 값은 사용자가 Canvas에서 여정을 진행하는 동안 저장되며, 사용자가 Canvas를 종료하면 삭제됩니다. Canvas 진입 속성은 Liquid에서의 참조에만 사용할 수 있습니다. Canvas 내에서 속성을 기준으로 필터링하려면 대신 [이벤트 속성정보 세분화]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/)를 사용하세요.
+Canvas에 `canvas_entry_properties` Liquid 태그가 포함된 메시지가 있으면, 해당 속성에 연결된 값은 사용자가 Canvas에서 여정을 진행하는 동안 저장되며, 사용자가 Canvas를 종료하면 삭제됩니다. Canvas 진입 속성은 Liquid에서의 참조에만 사용할 수 있습니다. Canvas 내에서 속성을 기준으로 필터링하려면 대신 [이벤트 속성정보 세분화]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)를 사용하세요.
 
 {% alert note %}
 Canvas 진입 속성 오브젝트의 최대 크기 제한은 50KB입니다.
@@ -47,7 +47,7 @@ Canvas 진입 속성이 null이거나 비어 있는 경우, 조건문을 사용�
 ```
 {%endraw%}
 
-Liquid를 사용한 메시지 중단에 대해 자세히 알아보려면 [Liquid 설명서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/#abort-messages)를 확인하세요.
+Liquid를 사용한 메시지 중단에 대해 자세히 알아보려면 [Liquid 설명서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages)를 확인하세요.
 
 ## 글로벌 Canvas 진입 속성 {#global-canvas-entry-properties}
 
@@ -85,8 +85,8 @@ curl -X POST \
 
 사용자가 이커머스 사이트에서 상품을 탐색했지만 장바구니에 추가하지 않았을 때 트리거되는 Canvas가 있다면, Canvas의 첫 번째 단계는 해당 상품 구매에 관심이 있는지 묻는 푸시 알림일 수 있습니다. {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}를 사용하여 제품 이름을 참조할 수 있습니다.
 
-![]({% image_buster /assets/img/persistent_entry_properties/PEP1.png %}){: style="border:0;margin-left:15px;"}
+![사용자가 이커머스 사이트에서 상품을 탐색했지만 장바구니에 추가하지 않았을 때 트리거되는 Canvas가 있는 경우, 첫 번째 단계는 해당 상품 구매에 관심이 있는지 묻는 푸시 알림일 수 있습니다. {% raw %}{{canvas_entry_properties.${product_name}}}{% endraw %}을 사용하여 제품 이름을 참조할 수 있습니다.]({% image_buster /assets/img/persistent_entry_properties/PEP1.png %}){: style="border:0;margin-left:15px;"}
 
 두 번째 단계에서는 사용자가 상품을 장바구니에 추가했지만 아직 구매하지 않은 경우 결제를 유도하는 또 다른 푸시 알림을 보낼 수 있습니다. {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}를 사용하여 `product_name` 진입 속성을 계속 참조할 수 있습니다.
 
-![]({% image_buster /assets/img/persistent_entry_properties/PEP12.png %}){: style="border:0;margin-left:15px;"}
+![사용 사례와 관련된 스크린샷.]({% image_buster /assets/img/persistent_entry_properties/PEP12.png %}){: style="border:0;margin-left:15px;"}

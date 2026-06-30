@@ -78,5 +78,5 @@ Os dados exibidos no dashboard podem ter um pequeno atraso para mostrar o tráfe
 
 ## Artigos relacionados {#related-articles}
 
-- [Alertas de uso da API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts/)
-- [Limites de taxa]({{site.baseurl}}/api/api_limits/)
+- [Alertas de uso da API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
+- [Limites de taxa]({{site.baseurl}}/api/api_limits)

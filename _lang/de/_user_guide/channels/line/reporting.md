@@ -14,7 +14,7 @@ alias: /line/reporting/
 > Nach dem Start Ihrer Campaign oder Ihres Canvas können Sie wichtige Metriken auf der Seite mit den Campaign-Details oder in den Canvas-Analytics einsehen. Dieser Artikel beschreibt, wo Sie diese Metriken finden und was sie bedeuten.
 
 {% alert tip %}
-Sie suchen nach Definitionen für die Begriffe und Metriken in Ihrem Bericht? Weitere Informationen finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+Sie suchen nach Definitionen für die Begriffe und Metriken in Ihrem Bericht? Weitere Informationen finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 {% endalert %}
 
 ## Campaign-Analytics {#campaign-analytics}
@@ -33,7 +33,7 @@ Das Panel **Campaign Details** zeigt eine allgemeine Übersicht über die Perfor
 
 #### Kontrollgruppen {#control-groups}
 
-Um die Wirkung einer einzelnen LINE-Nachricht zu messen, können Sie eine [Kontrollgruppe]({{site.baseurl}}/user_guide/messaging/ab_testing/) zu einem A/B-Test hinzufügen. Das übergeordnete Panel **Campaign Details** enthält keine Metriken der Kontrollgruppen-Variante.
+Um die Wirkung einer einzelnen LINE-Nachricht zu messen, können Sie eine [Kontrollgruppe]({{site.baseurl}}/user_guide/messaging/ab_testing) zu einem A/B-Test hinzufügen. Das übergeordnete Panel **Campaign Details** enthält keine Metriken der Kontrollgruppen-Variante.
 
 ### LINE-Performance {#line-performance}
 
@@ -45,7 +45,7 @@ Wenn Sie die Ansicht vereinfachen möchten, wählen Sie **+ Add/Remove Columns**
 
 #### LINE-Metriken {#line-metrics}
 
-Hier sind einige wichtige LINE-Metriken, die Sie in Ihren Analytics sehen können. Die Definitionen aller in Braze verwendeten LINE-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+Hier sind einige wichtige LINE-Metriken, die Sie in Ihren Analytics sehen können. Die Definitionen aller in Braze verwendeten LINE-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 | Begriff | Definition |
 | --- | --- |
@@ -64,8 +64,8 @@ Für eine tageweise Aufschlüsselung wählen Sie das <i class="fas fa-bars"></i>
 
 ### Details zu Konversions-Events {#conversion-event-details}
 
-Das Panel **Conversion Event Details** zeigt Ihnen die Performance Ihrer Konversions-Events für Ihre Campaign. Weitere Informationen finden Sie unter [Konversions-Events]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation/).
+Das Panel **Conversion Event Details** zeigt Ihnen die Performance Ihrer Konversions-Events für Ihre Campaign. Weitere Informationen finden Sie unter [Konversions-Events]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation).
 
 ### Conversion-Korrelation {#conversion-correlation}
 
-Das Panel **Conversion Correlation** gibt Ihnen Einblicke, welche Nutzerattribute und -verhaltensweisen die von Ihnen für Campaigns festgelegten Ergebnisse positiv oder negativ beeinflussen. Weitere Informationen finden Sie unter [Conversion-Korrelation]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation/).
+Das Panel **Conversion Correlation** gibt Ihnen Einblicke, welche Nutzerattribute und -verhaltensweisen die von Ihnen für Campaigns festgelegten Ergebnisse positiv oder negativ beeinflussen. Weitere Informationen finden Sie unter [Conversion-Korrelation]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation).

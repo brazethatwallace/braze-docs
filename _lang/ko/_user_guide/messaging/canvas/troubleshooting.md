@@ -12,7 +12,7 @@ tool: Canvas
 > 이 페이지를 사용하여 Canvas 진입, 발송 및 분석 문제를 진단하세요. 정의 및 심층 분석은 [Canvas FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs)를 참조하세요.
 
 {% alert note %}
-**메시징 기록** 및 **메시징 진단** 로그는 이벤트 발생 후 최대 **30일** 동안 사용할 수 있습니다. 특정 인시던트 조사에 도움이 필요한 경우 해당 기간 내에 [Braze 고객지원]({{site.baseurl}}/braze_support)에 문의하세요.
+**메시징 기록** 및 **메시징 진단** 로그는 이벤트 발생 후 최대 **30일** 동안 사용할 수 있습니다. 특정 인시던트 조사에 도움이 필요한 경우 해당 기간 내에 [Braze 고객지원](#standard-investigation-path)에 문의하세요.
 {% endalert %}
 
 ## 시작하기: 증상 매칭 {#start-here-match-your-symptom}
@@ -63,7 +63,7 @@ tool: Canvas
 - **진입 스케줄 및 시간대:** Canvas가 활성 상태였고 사용자가 [진입 기간]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule) 동안 트리거를 수행했는지 확인합니다.
 - **평가 시점의 타겟 오디언스:** Segment 및 필터 체인지로그를 검토합니다. [User Lookup]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)은 일부 필터 유형(예: 문자열 형식의 날짜 속성)에 대해 거짓 양성을 표시할 수 있습니다.
 - **진입 한도:** [최대 진입 수]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) 또는 오디언스 한도에 도달했을 수 있습니다.
-- **글로벌 컨트롤 그룹:** [글로벌 컨트롤 그룹]({{site.baseurl}}/user_guide/audience/global_control_group)에 속한 사용자는 메시징 Canvases에 진입하지 않습니다.
+- **글로벌 컨트롤 그룹:** [글로벌 컨트롤 그룹]({{site.baseurl}}/user_guide/audience/global_control_group)에 속한 사용자는 메시징 Canvas에 진입하지 않습니다.
 - **Canvas 대조군:** Canvas 진입 시 대조군에 할당된 사용자는 배리언트 메시지를 받지 않습니다. 배리언트 할당은 Segment 필터가 아닌 진입 시 이루어집니다. [Canvas 분석 불일치](#canvas-analytics-mismatches)를 참조하세요.
 - **이탈 기준:** 사용자가 진입 전 또는 진입 중에 [이탈 기준]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria)과 일치했을 수 있습니다. 진입과 이탈이 동일한 이벤트를 사용하는 경우 [진입 및 이탈 기준 매칭]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/matching_entry_and_exit_criteria)을 참조하세요.
 - **API 트리거 진입:** [`/canvas/trigger/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)로 사용자가 추가되었는지 확인합니다. Canvas 진입 필터로 [Segment를 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)하고 [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)로 사용자를 내보낼 수 있습니다.
@@ -126,7 +126,7 @@ Canvas 메시지 단계가 발송을 중단하면 사용자는 여전히 다음 
 - 글로벌 및 Canvas 대조군 비율이 각 경로에 진입하는 사용자와 메시지를 받는 사용자의 비율을 보여주는지 확인합니다.
 - 워크스페이스 사용량 제한 또는 진입 대기줄이 사용자가 자격을 충족하는 시점과 진입하거나 단계로 진행하는 시점 사이에 지연을 추가할 것으로 예상되는지 확인합니다.
 
-단일 사용자의 경우 [표준 조사 경로](#standard-investigation-path)를 따르세요. DST 관련 진입 수 0에 대해서는 [사용자가 Canvas에 진입하지 않음](#user-didnt-enter-the-canvas) 아래의 접을 수 있는 섹션을 참조하세요.
+단일 사용자의 경우 [표준 조사 경로]({{site.baseurl}}/braze_support)를 따르세요. DST 관련 진입 수 0에 대해서는 [사용자가 Canvas에 진입하지 않음](#user-didnt-enter-the-canvas) 아래의 접을 수 있는 섹션을 참조하세요.
 
 ## 예상보다 적은 발송 수 {#lower-sends-than-expected}
 

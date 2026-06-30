@@ -28,7 +28,7 @@ Um eine stille Push-Benachrichtigung zu senden, setzen Sie das Flag `content-ava
 Es wird davon abgeraten, sowohl einen Titel als auch einen Textkörper zusammen mit `content-available=1` anzuhängen, da dies zu undefiniertem Verhalten führen kann. Um sicherzustellen, dass eine Benachrichtigung wirklich still ist, schließen Sie sowohl den Titel als auch den Text aus, wenn Sie das `content-available`-Flag auf `1` setzen. Weitere Einzelheiten finden Sie in der offiziellen [Apple-Dokumentation über Hintergrundaktualisierungen](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app).
 {% endalert %}
 
-Das `content-available`-Flag kann sowohl im Braze-Dashboard als auch in unserem [Apple-Push-Objekt]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) in der [Messaging-API]({{site.baseurl}}/api/endpoints/messaging/) gesetzt werden.
+Das `content-available`-Flag kann sowohl im Braze-Dashboard als auch in unserem [Apple-Push-Objekt]({{site.baseurl}}/api/objects_filters/messaging/apple_object) in der [Messaging-API]({{site.baseurl}}/api/endpoints/messaging) gesetzt werden.
 
 ![Das Braze-Dashboard mit dem Kontrollkästchen „content-available“ im Tab „Einstellungen“ des Push-Composers.]({% image_buster /assets/img_archive/remote_notification.png %} "content available")
 
@@ -40,7 +40,7 @@ Um stille Push-Benachrichtigungen zum Triggern von Hintergrundarbeiten zu verwen
 
 ![Xcode mit dem Kontrollkästchen „remote notifications“ unter „capabilities“.]({% image_buster /assets/img_archive/background_mode.png %} "background mode enabled")
 
-Die Aktivierung des Hintergrundmodus für Remote-Benachrichtigungen ist für das [Uninstall-Tracking]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls/?sdktab=swift) erforderlich.
+Die Aktivierung des Hintergrundmodus für Remote-Benachrichtigungen ist für das [Uninstall-Tracking]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls?sdktab=swift) erforderlich.
 
 Auch wenn der Hintergrundmodus für Remote-Benachrichtigungen aktiviert ist, startet das System Ihre App nicht im Hintergrund, wenn die Nutzer:innen das Beenden der Anwendung erzwungen haben. Die Nutzer:innen müssen die Anwendung explizit starten oder das Gerät neu starten, bevor die App vom System automatisch im Hintergrund gestartet werden kann.
 
@@ -56,7 +56,7 @@ Braze verfügt über mehrere Features, die auf stille Push-Benachrichtigungen un
 |---|---|
 | Uninstall-Tracking | Nutzer:innen erhalten nachts eine stille Uninstall-Tracking-Push-Benachrichtigung. |
 | Geofences | Stille Synchronisierung von Geofences vom Server zum Gerät. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Einschränkungen bei stillen iOS-Benachrichtigungen" }
 
 Weitere Einzelheiten finden Sie in der Dokumentation zu Apples [Instanzmethode](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application) und [nicht empfangenen Benachrichtigungen](https://developer.apple.com/library/content/technotes/tn2265/_index.html#//apple_ref/doc/uid/DTS40010376-CH1-TNTAG23).
 

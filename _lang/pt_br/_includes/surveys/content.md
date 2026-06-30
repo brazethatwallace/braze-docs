@@ -4,7 +4,7 @@
   - channel (obrigatório): "in_app_message" ou "landing_page"
 {% endcomment %}
 
-{% multi_lang_include early_access_beta_alert.md feature='Braze surveys' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Braze surveys' %}
 
 ## Pré-requisitos {#prerequisites}
 
@@ -12,13 +12,13 @@ Antes de criar uma pesquisa, você deve:
 
 {% if include.channel == 'in_app_message' %}
 - Ter acesso a mensagens no app no seu espaço de trabalho da Braze
-- Estar familiarizado com a [criação de mensagens no app no editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)
+- Estar familiarizado com a [criação de mensagens no app no editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
 {% elsif include.channel == 'landing_page' %}
 - Ter acesso a landing pages no seu espaço de trabalho da Braze
-- Estar familiarizado com a [criação de landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)
+- Estar familiarizado com a [criação de landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)
 {% else %}
 - Ter acesso a landing pages, mensagens no app ou ambos no seu espaço de trabalho da Braze
-- Estar familiarizado com a [criação de landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) e a [criação de mensagens no app no editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)
+- Estar familiarizado com a [criação de landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages) e a [criação de mensagens no app no editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
 {% endif %}
 
 ## Criar uma pesquisa {#create-a-survey}
@@ -26,14 +26,14 @@ Antes de criar uma pesquisa, você deve:
 Durante o acesso antecipado, as pesquisas são criadas dentro do fluxo de composição de mensagens existente.
 
 {% if include.channel == 'in_app_message' %}
-1. Crie uma [mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) em uma Campaign ou Canvas.
+1. Crie uma [mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) em uma Campaign ou Canvas.
 2. Selecione **Survey** como tipo de mensagem.
 {% elsif include.channel == 'landing_page' %}
 1. Acesse **Messaging** > **Landing Pages**.
 2. Crie uma nova landing page.
 3. Selecione **Survey** como tipo de mensagem.
 {% else %}
-1. Acesse **Messaging** > **Landing Pages** ou crie uma [mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) em uma Campaign ou Canvas.
+1. Acesse **Messaging** > **Landing Pages** ou crie uma [mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) em uma Campaign ou Canvas.
 2. Crie uma nova mensagem.
 3. Selecione **Survey** como tipo de mensagem.
 {% endif %}
@@ -60,10 +60,10 @@ Para controles compartilhados de estilo e composição, consulte:
 {% if include.channel == 'in_app_message' %}
 - [Blocos do editor de arrastar e soltar de mensagens no app]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
 {% elsif include.channel == 'landing_page' %}
-- [Blocos de formulário de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#form-blocks)
+- [Blocos de formulário de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
 {% else %}
 - [Blocos do editor de arrastar e soltar de mensagens no app]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
-- [Blocos de formulário de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#form-blocks)
+- [Blocos de formulário de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
 {% endif %}
 
 Você pode adicionar os seguintes blocos de formulário às pesquisas:

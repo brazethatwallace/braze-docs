@@ -1,9 +1,9 @@
 ---
-nav_title: Segmente
-article_title: Segmente
+nav_title: Segments
+article_title: Segments
 page_order: 3
 layout: dev_guide
-guide_top_header: "Segmente"
+guide_top_header: "Segments"
 guide_top_text: "Zielgruppensegmentierung ist ein Schlüssel für strategisches Marketing – sie kann Sie davor bewahren, Kund:innen zu häufig anzusprechen, zu belästigen oder eine potenzielle Verbindung zu verpassen. Lesen Sie die folgenden Artikel, um zu erfahren, wie Sie Ihre Zielgruppe zu Ihrem (und deren) größten Vorteil segmentieren und filtern können."
 descriptions: "Zielgruppensegmentierung ist ein Schlüssel für strategisches Marketing – sie kann Sie davor bewahren, Kund:innen zu häufig anzusprechen, zu belästigen oder eine potenzielle Verbindung zu verpassen. Besuchen Sie diese Landing-Page, um zu erfahren, wie Sie Ihre Zielgruppe zu Ihrem (und deren) größten Vorteil segmentieren und filtern können."
 search_rank: 4
@@ -16,7 +16,7 @@ guide_featured_list:
   - name: Ein Segment erstellen
     link: /docs/user_guide/audience/segments/creating_a_segment
     image: /assets/img/braze_icons/pie-chart-01.svg
-  - name: Segmente verwalten
+  - name: Segments verwalten
     link: /docs/user_guide/audience/segments/managing_segments
     image: /assets/img/braze_icons/edit-05.svg
   - name: Segmentierungsfilter
@@ -70,10 +70,10 @@ Sehen Sie sich die folgenden Anwendungsfälle an, um einen kleinen Einblick zu e
 
 #### Anwendungsfälle für Segmenterweiterungen {#segment-extension-use-cases}
 
-Sie können Ihre Segmente weiter verfeinern, indem Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) verwenden, um Nutzer:innen basierend auf angepassten Events oder Kaufverhalten anzusprechen, die für die gesamte Lebensdauer ihres Nutzerprofils gespeichert werden.
+Sie können Ihre Segmente weiter verfeinern, indem Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension) verwenden, um Nutzer:innen basierend auf angepassten Events oder Kaufverhalten anzusprechen, die für die gesamte Lebensdauer ihres Nutzerprofils gespeichert werden.
 
 - **Historische Käufe:** Segmentieren Sie Nutzer:innen danach, ob sie eine bestimmte Farbe eines bestimmten Produkts in den letzten zwei Jahren mindestens zweimal gekauft haben.
 - **Events und Nachrichteninteraktionen:** Segmentieren Sie Nutzer:innen danach, ob sie in den letzten dreißig Tagen einen Kauf getätigt und außerdem mit einer bestimmten In-App-Nachricht interagiert haben.
 - **Daten abfragen:**
-  - **Snowflake abfragen:** Segmentieren Sie Nutzer:innen mit Daten, die aus Braze und externen Quellen wie einem CRM oder einem Data Warehouse kombiniert werden, indem Sie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) verwenden, um Snowflake abzufragen.
-  - **Aus Data Warehouse synchronisieren:** Segmentieren Sie Nutzer:innen mit Daten, die direkt aus Ihrem Data Warehouse oder Dateispeichersystem mit Braze synchronisiert werden, indem Sie [CDI-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/) verwenden.
+  - **Snowflake abfragen:** Segmentieren Sie Nutzer:innen mit Daten, die aus Braze und externen Quellen wie einem CRM oder einem Data Warehouse kombiniert werden, indem Sie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) verwenden, um Snowflake abzufragen.
+  - **Aus Data Warehouse synchronisieren:** Segmentieren Sie Nutzer:innen mit Daten, die direkt aus Ihrem Data Warehouse oder Dateispeichersystem mit Braze synchronisiert werden, indem Sie [CDI-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments) verwenden.

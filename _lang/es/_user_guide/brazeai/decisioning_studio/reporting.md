@@ -31,13 +31,13 @@ Tras [abrir un informe](#view), puedes cambiar el intervalo de fechas selecciona
 
 También puedes establecer una fecha de inicio predeterminada o elegir fechas para excluir siempre. Las fechas excluidas se filtrarán de todos los informes de ese agente.
 
-Para establecer o excluir fechas, selecciona <i class="fa-solid fa-gear" aria-label="Configuración"></i> **Configuración** y, a continuación, cambia la fecha predeterminada o excluye las fechas que necesites.
+Para establecer o excluir fechas, selecciona <i class="fa-solid fa-gear"></i> **Configuración** y, a continuación, cambia la fecha predeterminada o excluye las fechas que necesites.
 
 ![Panel de configuración abierto en BrazeAI Decisioning Studio™ que muestra las opciones para establecer una fecha de inicio predeterminada y excluir fechas específicas de los informes. El panel muestra dos secciones denominadas Fecha de inicio predeterminada y Fechas excluidas. En Excluir fechas, aparecen varias fechas con casillas de verificación junto a cada una.]({% image_buster /assets/img/decisioning_studio/reporting_set_exclude_dates.png %})
 
 ## Informes disponibles {#available-reports}
 
-- [Rendimiento]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/performance/): métricas de alto nivel del agente que comparan los grupos de tratamiento con los grupos de control, con las vistas **Trending** y **Driver Tree**.
-- [Información]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/insights/): cómo se generan las opciones de recomendación en tu banco de acciones, incluyendo las preferencias del agente y los informes SHAP.
-- [Diagnóstico]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/diagnostics/): estado de los datos de entrada y salida, incluyendo el volumen de recomendaciones y la monitorización de fuentes de datos.
-- [Cronología]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/timeline/): un registro visual de eventos clave (ejecuciones de agentes, cambios de configuración, actualizaciones de barreras de seguridad) junto con las métricas de rendimiento.
+- [Rendimiento]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/performance): métricas de alto nivel del agente que comparan los grupos de tratamiento con los grupos de control, con las vistas **Trending** y **Driver Tree**.
+- [Información]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/insights): cómo se generan las opciones de recomendación en tu banco de acciones, incluyendo las preferencias del agente y los informes SHAP.
+- [Diagnóstico]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/diagnostics): estado de los datos de entrada y salida, incluyendo el volumen de recomendaciones y la monitorización de fuentes de datos.
+- [Cronología]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/timeline): un registro visual de eventos clave (ejecuciones de agentes, cambios de configuración, actualizaciones de barreras de seguridad) junto con las métricas de rendimiento.

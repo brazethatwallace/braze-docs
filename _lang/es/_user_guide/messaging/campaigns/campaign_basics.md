@@ -40,7 +40,7 @@ La entrega planificada implica ajustar tus campañas para que se envíen en un m
 
 *¿A quién intentas llegar?*
 
-Puedes usar [Segments]({{site.baseurl}}/user_guide/audience/segments/) predefinidos para dirigirte a los usuarios según sus características y acciones demográficas, de comportamiento o técnicas. Añade más filtros al crear tu campaña para refinar aún más tu segmento. Solo los usuarios que cumplan con estos criterios de audiencia objetivo pueden entrar en el recorrido. Consulta esta tabla para un resumen rápido de los tipos de filtros disponibles.
+Puedes usar [Segments]({{site.baseurl}}/user_guide/audience/segments) predefinidos para dirigirte a los usuarios según sus características y acciones demográficas, de comportamiento o técnicas. Añade más filtros al crear tu campaña para refinar aún más tu segmento. Solo los usuarios que cumplan con estos criterios de audiencia objetivo pueden entrar en el recorrido. Consulta esta tabla para un resumen rápido de los tipos de filtros disponibles.
 
 | Filtro | Descripción |
 |---|---|
@@ -50,13 +50,13 @@ Puedes usar [Segments]({{site.baseurl}}/user_guide/audience/segments/) predefini
 | Actividad de marketing | Segmenta clientes según comportamientos universales como la última interacción o las campañas recibidas. |
 | Atributos del usuario | Segmenta clientes por sus atributos y características constantes. |
 | Atribución de instalación | Segmenta clientes por su primera fuente, grupo de anuncios, campaña o anuncio. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="The "who": Select an entry audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="El "quién": selecciona una audiencia de entrada" }
 
 ### El "por qué": identifica los eventos de conversión {#the-why-identify-conversion-events}
 
 *¿Por qué estás creando esta campaña?*
 
-Siempre es importante tener un objetivo definido en mente, y las campañas te ayudan a entender tu rendimiento frente a KPI como la interacción en sesiones, las compras y los eventos personalizados. Seleccionar al menos un [evento de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) te dará la capacidad de comprender el rendimiento de tu campaña.
+Siempre es importante tener un objetivo definido en mente, y las campañas te ayudan a entender tu rendimiento frente a KPI como la interacción en sesiones, las compras y los eventos personalizados. Seleccionar al menos un [evento de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) te dará la capacidad de comprender el rendimiento de tu campaña.
 
 ### El "dónde": encuentra a mi audiencia {#the-where-find-my-audience}
 

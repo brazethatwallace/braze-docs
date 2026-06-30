@@ -13,7 +13,7 @@ description: "Cet article de référence explique comment construire des fonctio
 Si vous disposez d'équipes internes de data science ou de data engineering, elles sont les mieux placées pour construire et sélectionner les fonctionnalités, car elles ont le plus de contexte sur les signaux significatifs dans vos données.
 
 {% alert note %}
-Pour les clients Braze, les fonctionnalités client sont généralement transmises à Decisioning Studio via des attributs personnalisés sur les profils utilisateur. Pour plus de détails sur les attributs personnalisés par rapport aux événements personnalisés et leurs stratégies de mise à jour respectives, consultez [Instantanés versus flux d'événements]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/).
+Pour les clients Braze, les fonctionnalités client sont généralement transmises à Decisioning Studio via des attributs personnalisés sur les profils utilisateur. Pour plus de détails sur les attributs personnalisés par rapport aux événements personnalisés et leurs stratégies de mise à jour respectives, consultez [Instantanés versus flux d'événements]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams).
 {% endalert %}
 
 ## Types de fonctionnalités client {#types-of-customer-features}
@@ -35,8 +35,8 @@ Ensemble, ces types de fonctionnalités fournissent au modèle les informations 
 Gardez les points suivants à l'esprit lors de la sélection et de la construction de fonctionnalités :
 
 - **Couverture :** les fonctionnalités doivent couvrir tous les clients de votre audience cible. Une fonctionnalité manquante ou nulle pour une grande partie de votre audience donne moins d'informations au modèle pour ces clients.
-- **Granularité :** toutes les fonctionnalités doivent être agrégées au niveau du client. Consultez [Utiliser l'ID externe Braze]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id/) pour comprendre ce que signifie « niveau client » en pratique.
-- **Fraîcheur :** les fonctionnalités doivent être mises à jour selon un calendrier temporel, et non en réaction à des événements. Consultez [Instantanés versus flux d'événements]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/) pour comprendre pourquoi c'est important.
+- **Granularité :** toutes les fonctionnalités doivent être agrégées au niveau du client. Consultez [Utiliser l'ID externe Braze]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id) pour comprendre ce que signifie « niveau client » en pratique.
+- **Fraîcheur :** les fonctionnalités doivent être mises à jour selon un calendrier temporel, et non en réaction à des événements. Consultez [Instantanés versus flux d'événements]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams) pour comprendre pourquoi c'est important.
 - **Validité :** les valeurs des fonctionnalités doivent se situer dans des plages cohérentes avec leur définition. Une fonctionnalité pour « achats au cours des 30 derniers jours » ne devrait jamais être négative.
 - **Parcimonie :** évitez les fonctionnalités qui sont à zéro ou nulles pour la grande majorité des clients, sauf s'il existe une raison métier claire. Les fonctionnalités éparses ajoutent du bruit sans apporter de signal.
 - **Corrélation :** évitez d'inclure des fonctionnalités fortement corrélées entre elles. Les fonctionnalités redondantes peuvent introduire des biais et ralentir l'entraînement sans améliorer les prédictions.

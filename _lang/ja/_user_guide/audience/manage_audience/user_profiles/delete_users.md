@@ -51,7 +51,7 @@ Brazeから個々のユーザーを削除するには、**Audience** > **Search 
 
 ### セグメントの削除 {#delete-segment}
 
-まだ作成していない場合は、削除したいユーザープロファイルを含む[セグメントを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)してください。重複ユーザーを削除する場合は、すべてのユーザープロファイルを含めるようにしてください。
+まだ作成していない場合は、削除したいユーザープロファイルを含む[セグメントを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)してください。重複ユーザーを削除する場合は、すべてのユーザープロファイルを含めるようにしてください。
 
 Brazeで、**Audience** > **Manage Audience**に移動し、**Delete Users**タブを選択します。
 
@@ -68,7 +68,7 @@ Brazeで、**Audience** > **Manage Audience**に移動し、**Delete Users**タ�
 このセグメントのユーザーはすぐには削除されません。代わりに、次の7日間は削除保留としてマークされます。この期間が過ぎると、ユーザーが削除され、メールで通知されます。
 
 {% alert tip %}
-セグメントの変更に関係なくこれらのユーザーが確実に削除されるように、**Pending Deletion**というセグメントフィルターが自動的に作成されます。このフィルターを[使用して]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters)、保留中の削除のステータスを確認できます。
+セグメントの変更に関係なくこれらのユーザーが確実に削除されるように、**Pending Deletion**というセグメントフィルターが自動的に作成されます。このフィルターを[使用して]({{site.baseurl}}/user_guide/audience/segments/managing_segments#filters)、保留中の削除のステータスを確認できます。
 {% endalert %}
 
 ## セグメント削除の確認 {#confirming-segment-deletions}
@@ -103,16 +103,16 @@ Brazeは、削除保留中のプロファイル数を記載した確認メール
 
 ### セグメントフィルター {#segment-filters}
 
-ユーザーのセグメント削除をリクエストすると、**Pending Deletion**という[セグメントフィルター]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters)が自動的に作成されます。このフィルターを使用して以下のことができます。
+ユーザーのセグメント削除をリクエストすると、**Pending Deletion**という[セグメントフィルター]({{site.baseurl}}/user_guide/audience/segments/managing_segments#filters)が自動的に作成されます。このフィルターを使用して以下のことができます。
 
 - 特定の削除実行日に関連付けられた正確なユーザーセットを確認する。
-- それらのユーザーをCampaignsから除外して、削除前にメッセージを受信しないようにする。
+- それらのユーザーをキャンペーンから除外して、削除前にメッセージを受信しないようにする。
 - コンプライアンスや記録保持のためにリストをエクスポートする。
 
 ### オーディエンスの管理 {#manage-audience}
 
 {% alert note %}
-削除される正確なユーザーのリストを取得するには、代わりに[Pending Deletion セグメントフィルター](#segment-filters)を使用してください。
+削除される正確なユーザーのリストを取得するには、代わりに[Pending Deletionセグメントフィルター](#segment-filters)を使用してください。
 {% endalert %}
 
 **Audience** > **Manage Audience**に移動し、**Delete Users**タブを選択します。
@@ -135,13 +135,13 @@ Brazeは、削除保留中のプロファイル数を記載した確認メール
 
 ### セキュリティイベントレポート {#security-event-report}
 
-セキュリティイベントレポートをダウンロードして、過去の削除のステータスを確認することもできます。詳細については、[セキュリティ設定]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report)を参照してください。
+セキュリティイベントレポートをダウンロードして、過去の削除のステータスを確認することもできます。詳細については、[セキュリティ設定]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report)を参照してください。
 
 ## よくある質問 {#faq}
 
 ### 1,000万人以上のユーザーを含むセグメントを削除できますか？ {#can-i-delete-segments-with-more-than-10-million-users}
 
-いいえ。1,000万人以上のユーザーを含むセグメントは削除できません。このサイズのセグメントの削除についてサポートが必要な場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support/)にお問い合わせください。
+いいえ。1,000万人以上のユーザーを含むセグメントは削除できません。このサイズのセグメントの削除についてサポートが必要な場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)にお問い合わせください。
 
 ### 一度に削除できるのは最大1,000万人までです。これはバグですか？ {#i-can-only-delete-up-to-10-million-users-at-a-time-is-this-a-bug}
 
@@ -155,7 +155,7 @@ Brazeは、削除保留中のプロファイル数を記載した確認メール
 
 外部システムやSDKから送信されたデータは引き続き受け入れられますが、ユーザーはアクティビティに関係なくスケジュール通りに削除されます。
 
-### CanvasesやCampaignsは削除保留中のユーザーに対してトリガーされますか？ {#do-canvases-and-campaigns-trigger-for-users-pending-deletion}
+### キャンバスやキャンペーンは削除保留中のユーザーに対してトリガーされますか？ {#do-canvases-and-campaigns-trigger-for-users-pending-deletion}
 
 はい。ただし、**Pending Deletion** [セグメントフィルター](#segment-filters)を使用して、すべての削除保留中のユーザーを除外するセグメント包含フィルターを追加できます。
 
@@ -167,4 +167,4 @@ Brazeは、削除保留中のプロファイル数を記載した確認メール
 
 ### ダッシュボードの代わりにAPIを使用してユーザーを削除できますか？ {#can-i-delete-users-with-the-api-instead-of-the-dashboard}
 
-はい。少量のバッチの場合は、[`/users/delete`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/)を使用できます。このエンドポイントはリクエストごとに最大50件の識別子を受け付け、そのエンドポイントの[レート制限]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#rate-limit)が適用されます。セグメントベースのダッシュボード削除は非常に大規模なオーディエンスに適していますが、[7日間の待機期間](#about-user-deletion)が含まれます。
+はい。少量のバッチの場合は、[`/users/delete`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)を使用できます。このエンドポイントはリクエストごとに最大50件の識別子を受け付け、そのエンドポイントの[レート制限]({{site.baseurl}}/api/endpoints/user_data/post_user_delete#rate-limit)が適用されます。セグメントベースのダッシュボード削除は非常に大規模なオーディエンスに適していますが、[7日間の待機期間](#about-user-deletion)が含まれます。

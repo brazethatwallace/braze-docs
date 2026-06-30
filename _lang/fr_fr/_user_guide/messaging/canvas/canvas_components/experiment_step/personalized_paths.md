@@ -6,48 +6,48 @@ description: "Les Chemins personnalisés vous permettent de personnaliser n'impo
 tool: Canvas
 ---
 
-# Chemins personnalisés dans les Chemins d'expérience
+# Chemins personnalisés dans les Chemins d'expérience {#personalized-paths-in-experiment-paths}
 
-> Les Chemins personnalisés fonctionnent de manière similaire à la [variante personnalisée]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations#personalized-variant) dans les campagnes et vous permettent de personnaliser n'importe quel point d'un parcours Canvas pour chaque utilisateur en fonction de sa probabilité de conversion.
+> Les Chemins personnalisés fonctionnent de manière similaire à la [variante personnalisée]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations#personalized-variant) dans les Campaigns et vous permettent de personnaliser n'importe quel point d'un parcours Canvas pour chaque utilisateur en fonction de sa probabilité de conversion.
 
-## Fonctionnement des Chemins personnalisés
+## Fonctionnement des Chemins personnalisés {#how-personalized-paths-works}
 
 Lorsque les Chemins personnalisés sont activés dans une étape Chemin d'expérience, le comportement diffère légèrement selon que votre Canvas est configuré pour un envoi unique ou récurrent :
 
 - **Canvas à envoi unique :** Un groupe d'utilisateurs est retenu dans un groupe de délai. Les utilisateurs restants passent par un test initial pour entraîner un modèle prédictif pendant une durée que vous configurez — au moins 24 heures pour de meilleurs résultats. Après le test, un modèle est créé pour identifier quels comportements utilisateurs étaient associés à une plus grande probabilité de conversion sur un chemin donné. Enfin, chaque utilisateur du groupe de délai est envoyé sur le chemin le plus susceptible de générer une conversion pour lui, en fonction des comportements qu'il présente et de ce que le modèle prédictif a appris pendant le test initial.
 - **Canvas récurrents, déclenchés par une action et déclenchés par l'API :** Une expérience initiale est réalisée sur tous les utilisateurs qui entrent dans le Chemin d'expérience pendant une fenêtre spécifiée. Pour préserver l'intégrité de l'expérience, si un utilisateur reçoit plusieurs messages avant la fin de la fenêtre, il sera affecté à la même variante à chaque fois. Après la fenêtre d'expérience, chaque utilisateur est envoyé sur le chemin le plus susceptible de générer une conversion pour lui.
 
-## Utiliser les Chemins personnalisés
+## Utiliser les Chemins personnalisés {#using-personalized-paths}
 
-### Étape 1 : Ajouter un Chemin d'expérience
+### Étape 1 : Ajouter un Chemin d'expérience {#step-1-add-an-experiment-path}
 
-Ajoutez un [Chemin d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) à votre Canvas, puis activez **Chemins personnalisés**.
+Ajoutez un [Chemin d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) à votre Canvas, puis activez **Chemins personnalisés**.
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_path.png %})
+![Ajoutez un Chemin d'expérience à votre Canvas, puis activez Chemins personnalisés.]({% image_buster /assets/img/experiment_step/experiment_personalized_path.png %})
 
-### Étape 2 : Configurer les paramètres des Chemins personnalisés
+### Étape 2 : Configurer les paramètres des Chemins personnalisés {#step-2-configure-personalized-paths-settings}
 
-Spécifiez l'événement de conversion qui déterminera le gagnant. Si aucun événement de conversion n'est disponible, revenez à la première étape de la configuration du Canvas et [affectez des événements de conversion]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#choose-conversion-events).
+Spécifiez l'événement de conversion qui déterminera le gagnant. Si aucun événement de conversion n'est disponible, revenez à la première étape de la configuration du Canvas et [affectez des événements de conversion]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#choose-conversion-events).
 
-Si vous choisissez les ouvertures ou les clics comme événement de conversion, assurez-vous que la première étape du chemin est une [étape Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/). Braze ne comptabilise l'engagement qu'à partir de la première étape Message de chaque chemin respectif. Si le chemin commence par une étape différente (comme une étape Délai ou Parcours d'audience) et que le message arrive plus tard, ce message ne sera pas pris en compte lors de l'évaluation des performances.
+Si vous choisissez les ouvertures ou les clics comme événement de conversion, assurez-vous que la première étape du chemin est une [étape Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step). Braze ne comptabilise l'engagement qu'à partir de la première étape Message de chaque chemin respectif. Si le chemin commence par une étape différente (comme une étape Délai ou Parcours d'audience) et que le message arrive plus tard, ce message ne sera pas pris en compte lors de l'évaluation des performances.
 
 Définissez ensuite la **Fenêtre d'expérience**. La **Fenêtre d'expérience** détermine pendant combien de temps les utilisateurs seront envoyés sur tous les chemins avant de choisir le meilleur chemin pour chaque utilisateur du groupe de délai. La fenêtre commence lorsque le premier utilisateur entre dans l'étape.
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_settings.png %})
+![Capture d'écran relative à l'étape 2 : configurer les paramètres des Chemins personnalisés.]({% image_buster /assets/img/experiment_step/experiment_personalized_settings.png %})
 
-### Étape 3 : Déterminer le comportement de repli
+### Étape 3 : Déterminer le comportement de repli {#step-3-determine-fallback}
 
 Par défaut, si les résultats du test ne sont pas suffisants pour déterminer un gagnant statistiquement significatif, tous les futurs utilisateurs seront envoyés sur le chemin le plus performant.
 
 Vous pouvez également sélectionner **Continuer à envoyer tous les futurs utilisateurs sur le mix de chemins**.
 
-![]({% image_buster /assets/img/experiment_step/experiment_winning_statistical.png %})
+![Vous pouvez également sélectionner Continuer à envoyer tous les futurs utilisateurs sur le mix de chemins.]({% image_buster /assets/img/experiment_step/experiment_winning_statistical.png %})
 
 Cette option enverra les futurs utilisateurs sur le mix de chemins selon les pourcentages spécifiés dans la distribution du chemin d'expérience.
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_percentages.png %})
+![Capture d'écran relative à l'étape 3 : déterminer le comportement de repli.]({% image_buster /assets/img/experiment_step/experiment_personalized_percentages.png %})
 
-### Étape 4 : Ajouter vos chemins et lancer le Canvas
+### Étape 4 : Ajouter vos chemins et lancer le Canvas {#step-4-add-your-paths-and-launch-the-canvas}
 
 {% tabs local %}
 {% tab Canvas à envoi unique %}
@@ -56,11 +56,11 @@ Un seul composant Chemin d'expérience peut contenir jusqu'à quatre chemins. Ce
 
 Terminez la configuration de votre Canvas selon vos besoins, puis lancez-le. Lorsque le premier utilisateur est entré dans l'expérience, vous pouvez consulter le Canvas pour voir les analyses au fur et à mesure et [suivre les performances de votre expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#tracking-performance).
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_pending.png %}){: style="max-width:75%;" }
+![Capture d'écran relative à l'étape 4 : ajouter vos chemins et lancer le Canvas.]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_pending.png %}){: style="max-width:75%;" }
 
 Lorsque la fenêtre d'expérience est écoulée et que l'expérience est terminée, Braze envoie les utilisateurs du groupe de délai sur leurs chemins respectifs présentant la plus forte probabilité personnalisée de conversion, selon la recommandation du modèle prédictif.
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_complete.png %}){: style="max-width:75%;" }
+![Capture d'écran relative à l'étape 4 : ajouter vos chemins et lancer le Canvas.]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_complete.png %}){: style="max-width:75%;" }
 
 {% endtab %}
 {% tab Canvas récurrent, déclenché par une action ou déclenché par l'API %}
@@ -71,7 +71,7 @@ Lorsque le premier utilisateur est entré dans l'expérience, vous pouvez consul
 
 Lorsque la fenêtre d'expérience est écoulée et que l'expérience est terminée, tous les utilisateurs suivants qui entrent dans le Canvas seront envoyés sur le chemin le plus susceptible de générer une conversion pour eux.
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_recurring_analytics.png %}){: style="max-width:75%;" }
+![Capture d'écran relative à l'étape 4 : ajouter vos chemins et lancer le Canvas.]({% image_buster /assets/img/experiment_step/experiment_personalized_recurring_analytics.png %}){: style="max-width:75%;" }
 
 {% endtab %}
 {% endtabs %}
@@ -87,13 +87,13 @@ L'onglet **Expérience initiale** affiche les indicateurs de chaque chemin penda
 
 ![Résultats d'une expérience initiale envoyée pour déterminer le chemin le plus performant pour chaque utilisateur. Un tableau montre les performances de chaque chemin en fonction de divers indicateurs pour le canal ciblé.]({% image_buster /assets/img/experiment_step/experiment_personalized_analytics_tab1.png %})
 
-Par défaut, le test recherche des associations entre les Événements personnalisés des utilisateurs et leurs préférences de chemin, c'est-à-dire la variante de message à laquelle un utilisateur répond le mieux. Cette analyse détecte si les Événements personnalisés augmentent ou diminuent la probabilité de répondre à un chemin particulier. Ces relations sont ensuite utilisées pour déterminer quel utilisateur est affecté à quel chemin après la fin de la fenêtre d'expérience.
+Par défaut, le test recherche des associations entre les événements personnalisés des utilisateurs et leurs préférences de chemin, c'est-à-dire la variante de message à laquelle un utilisateur répond le mieux. Cette analyse détecte si les événements personnalisés augmentent ou diminuent la probabilité de répondre à un chemin particulier. Ces relations sont ensuite utilisées pour déterminer quel utilisateur est affecté à quel chemin après la fin de la fenêtre d'expérience.
 
-Les relations entre les Événements personnalisés et les préférences de chemin sont affichées dans le tableau de l'onglet **Expérience initiale**.
+Les relations entre les événements personnalisés et les préférences de chemin sont affichées dans le tableau de l'onglet **Expérience initiale**.
 
-![]({% image_buster /assets/img_archive/experiment_personalized_analytics_custom_data.png %})
+![Capture d'écran relative aux analyses.]({% image_buster /assets/img_archive/experiment_personalized_analytics_custom_data.png %})
 
-Si le test ne parvient pas à trouver de relation significative entre les Événements personnalisés et les préférences de chemin, il se rabat sur une méthode d'analyse basée sur les sessions, et aucun tableau de données d'Événements personnalisés n'est affiché.
+Si le test ne parvient pas à trouver de relation significative entre les événements personnalisés et les préférences de chemin, il se rabat sur une méthode d'analyse basée sur les sessions, et aucun tableau de données d'événements personnalisés n'est affiché.
 
 {% details Méthode d'analyse de repli %}
 
@@ -130,18 +130,18 @@ Chaque compartiment peut avoir une contribution ou une « impulsion » différen
 
 L'onglet **Chemins personnalisés** affiche les résultats de l'expérience finale, où les utilisateurs du groupe de délai ont été envoyés sur le chemin le plus performant pour eux.
 
-Les trois cartes de cette page montrent votre gain projeté, les résultats globaux et les résultats projetés si vous aviez envoyé uniquement le Chemin gagnant. Même s'il n'y a pas de gain, ce qui peut parfois arriver, le résultat est le même que l'envoi uniquement du Chemin gagnant (un test A/B traditionnel).
+Les trois cartes de cette page montrent votre gain projeté, les résultats globaux et les résultats projetés si vous aviez envoyé uniquement le chemin gagnant. Même s'il n'y a pas de gain, ce qui peut parfois arriver, le résultat est le même que l'envoi uniquement du chemin gagnant (un test A/B traditionnel).
 
 - **Gain projeté :** L'amélioration de votre événement de conversion sélectionné grâce à l'utilisation des Chemins personnalisés au lieu d'envoyer tous les utilisateurs sur le chemin globalement le plus performant.
 - **Résultats globaux :** Les résultats du second envoi basés sur votre événement de conversion.
 - **Résultats projetés :** Les résultats projetés du second envoi basés sur votre indicateur d'optimisation choisi si vous aviez envoyé uniquement la variante gagnante.
 
-![Onglet Chemins personnalisés pour un Canvas. Les cartes montrent le Gain projeté, les Conversions globales (avec Chemins personnalisés) et les Ouvertures uniques projetées (avec Chemin gagnant).]({% image_buster /assets/img/experiment_step/experiment_personalized_analytics_tab2.png %})
+![Onglet Chemins personnalisés pour un Canvas. Les cartes montrent le gain projeté, les conversions globales (avec Chemins personnalisés) et les ouvertures uniques projetées (avec chemin gagnant).]({% image_buster /assets/img/experiment_step/experiment_personalized_analytics_tab2.png %})
 
 {% endtab %}
 {% endtabs %}
 
-## Utiliser les Chemins personnalisés avec la diffusion selon l'heure locale
+## Utiliser les Chemins personnalisés avec la diffusion selon l'heure locale {#using-personalized-paths-with-local-time-delivery}
 
 Nous ne recommandons pas d'utiliser la diffusion selon l'heure locale dans les Canvas avec des Chemins personnalisés. En effet, les fenêtres d'expérience commencent lorsque le premier utilisateur passe par l'étape. Les utilisateurs situés dans des fuseaux horaires très en avance peuvent entrer dans l'étape et déclencher le début de la fenêtre d'expérience bien plus tôt que prévu, ce qui peut entraîner la fin de l'expérience avant que la majorité de vos utilisateurs dans des fuseaux horaires plus courants aient eu suffisamment de temps pour entrer dans le Canvas et convertir.
 

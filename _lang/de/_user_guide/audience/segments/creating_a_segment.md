@@ -22,8 +22,8 @@ Wählen Sie **Segment erstellen**, um mit der Erstellung Ihres Segments zu begin
 
 Optional können Sie Folgendes tun:
 - Eine Beschreibung zum Segment hinzufügen, um weitere Details zur Absicht dieser Zielgruppe bereitzustellen und Notizen für andere Teammitglieder zu hinterlassen.
-- Ein [Team]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) zu Ihrem Segment hinzufügen.
-- [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) zu Ihrem Segment hinzufügen, um es besser zu organisieren.
+- Ein [Team]({{site.baseurl}}/user_guide/administer/global/user_management/teams) zu Ihrem Segment hinzufügen.
+- [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) zu Ihrem Segment hinzufügen, um es besser zu organisieren.
 
 ![Modal „Segment erstellen“, in dem das Segment „Lapsed Users“ benannt ist, mit der Segmentbeschreibung „This is our main Lapsed User segment to target non-actives within the past fourteen days.“ und zwei Buttons: „Abbrechen“ und „Segment erstellen“.]({% image_buster /assets/img_archive/segment_app_selection.png %}){: style="max-width:80%;"}
 
@@ -82,7 +82,7 @@ Wenn `not included`, `is not`, `does not equal` oder `does not match regex` mit 
 
 ### Filteroperatoren {#filter-operators}
 
-Je nach dem spezifischen Filter, den Sie auswählen, stehen Ihnen verschiedene Operatoren zur Identifizierung von Filterwerten zur Verfügung. Um tiefer in die verfügbaren Operatoren für verschiedene Typen angepasster Attribute einzutauchen, lesen Sie [Speicherung angepasster Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#setting-custom-attributes). Beachten Sie, dass bei Verwendung des Operators „is any of“ die maximale Anzahl von Elementen, die Sie in dieses Feld aufnehmen können, 256 beträgt.
+Je nach dem spezifischen Filter, den Sie auswählen, stehen Ihnen verschiedene Operatoren zur Identifizierung von Filterwerten zur Verfügung. Um tiefer in die verfügbaren Operatoren für verschiedene Typen angepasster Attribute einzutauchen, lesen Sie [Speicherung angepasster Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#setting-custom-attributes). Beachten Sie, dass bei Verwendung des Operators „is any of“ die maximale Anzahl von Elementen, die Sie in dieses Feld aufnehmen können, 256 beträgt.
 
 {% alert note %}
 Braze erstellt keine Profile für Nutzer:innen, bis diese die App zum ersten Mal verwendet haben. Daher können Sie keine Nutzer:innen ansprechen, die Ihre App noch nicht geöffnet haben.
@@ -123,7 +123,7 @@ Durch das Hinzufügen von Filtern, die Ihren Nutzerfluss dokumentieren, können 
 Nachdem Sie Apps und Filter zu Ihrem Segment hinzugefügt haben, können Sie testen, ob Ihr Segment wie erwartet eingerichtet ist, indem Sie eine:n Nutzer:in nachschlagen, um zu bestätigen, ob er/sie die Segmentkriterien erfüllt. Suchen Sie dazu nach der `external_id` oder `braze_id` eines/einer Nutzer:in im Abschnitt **User Lookup**.
 
 {% alert note %}
-**User Lookup** akzeptiert nur `external_id` und `braze_id`. E-Mail-Adressen, Telefonnummern oder andere Bezeichner werden nicht akzeptiert. Um ein Profil anhand von E-Mail, Telefonnummer oder anderen Feldern zu finden, verwenden Sie stattdessen [**Nutzer:innen suchen**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#access-profiles).
+**User Lookup** akzeptiert nur `external_id` und `braze_id`. E-Mail-Adressen, Telefonnummern oder andere Bezeichner werden nicht akzeptiert. Um ein Profil anhand von E-Mail, Telefonnummer oder anderen Feldern zu finden, verwenden Sie stattdessen [**Nutzer:innen suchen**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles).
 {% endalert %}
 
 ![Abschnitt „User Lookup“ mit einem Suchfeld.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%;"}
@@ -155,7 +155,7 @@ Wählen Sie **Speichern**. Jetzt können Sie damit beginnen, Nachrichten an Ihre
 
 ## Segmentgröße messen {#measuring-segment-size}
 
-Informationen zur Überwachung der Zugehörigkeit und Größe Ihres Segments finden Sie unter [Segmentgröße messen]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
+Informationen zur Überwachung der Zugehörigkeit und Größe Ihres Segments finden Sie unter [Segmentgröße messen]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
 ## Segmente archivieren {#archiving-segments}
 
@@ -171,13 +171,13 @@ Sie können das Segment dearchivieren, indem Sie auf der Seite **Segments** dort
 
 ## Targeting-Verhalten bei Nutzer:innen mit mehreren Geräten {#targeting-behavior-when-users-have-multiple-devices}
 
-Nutzer:innen haben mehr als ein Gerät, wenn sie sich auf mehreren Geräten bei demselben Konto anmelden. Sie können im Abschnitt **Letzte Geräte** eines [Nutzerprofils]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) nach mehreren Geräten suchen.
+Nutzer:innen haben mehr als ein Gerät, wenn sie sich auf mehreren Geräten bei demselben Konto anmelden. Sie können im Abschnitt **Letzte Geräte** eines [Nutzerprofils]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) nach mehreren Geräten suchen.
 
 Bei der Segmentierung mit geräteabhängigen Filtern (Gerätemodell, Geräte-OS und App-Version) enthält Ihr Segment alle Nutzer:innen, die Ihre Filterkriterien erfüllen. Diese Nutzer:innen erhalten eine Nachricht auf allen ihren Geräten, einschließlich solcher, die Ihre Filterkriterien möglicherweise nicht erfüllen. Nehmen wir beispielsweise an, Nutzer:in A hat zwei Geräte: Gerät 1 hat OS 13.0 und Gerät 2 hat OS 10.0. Wenn ein Segment Nutzer:innen mit OS 10.0 anspricht, wird diese:r Nutzer:in Teil dieses Segments sein und Nachrichten auf beiden Geräten erhalten.
 
 ### Push-Benachrichtigungen {#push-notifications}
 
-Sie können festlegen, dass nur eine Push-Benachrichtigung pro Nutzer:in gesendet wird. Wenn Sie [Ihre Nachricht verfassen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#step-4-compose-your-push-message), wählen Sie unter **Zusätzliche Einstellungen** die Option **Nur an das zuletzt verwendete Gerät des/der Nutzer:in senden**.
+Sie können festlegen, dass nur eine Push-Benachrichtigung pro Nutzer:in gesendet wird. Wenn Sie [Ihre Nachricht verfassen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#step-4-compose-your-push-message), wählen Sie unter **Zusätzliche Einstellungen** die Option **Nur an das zuletzt verwendete Gerät des/der Nutzer:in senden**.
 
 ![„Zusätzliche Einstellungen“ mit einem Kontrollkästchen, um nur an das zuletzt verwendete Gerät des/der Nutzer:in zu senden.]({% image_buster /assets/img_archive/send_to_last_device.png %}){: style="max-width:60%;"}
 

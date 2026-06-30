@@ -23,12 +23,12 @@ Indem Sie das Verhalten von Nutzer:innen, die Nachrichten erhalten, mit dem Verh
 Mit der globalen Kontrollgruppe können Sie einen Prozentsatz aller Nutzer:innen als Kontrollgruppe festlegen. Nach dem Speichern erhalten die Nutzer:innen in der Gruppe keine Campaigns oder Canvases.
 
 {% alert important %}
-Ihre globale Kontrollgruppe gilt für alle Kanäle, Campaigns und Canvases, mit Ausnahme von [API-Kampagnen]({{site.baseurl}}/api/api_campaigns/). Das bedeutet, dass Nutzer:innen in Ihrer Kontrollgruppe weiterhin API-Kampagnen erhalten. Diese Ausnahme gilt jedoch nicht für Content Cards. Wenn Sie eine API-getriggerte Content-Card-Kampagne verwenden, erhalten Nutzer:innen in Ihrer Kontrollgruppe diese nicht.
+Ihre globale Kontrollgruppe gilt für alle Kanäle, Campaigns und Canvases, mit Ausnahme von [API-Kampagnen]({{site.baseurl}}/api/api_campaigns). Das bedeutet, dass Nutzer:innen in Ihrer Kontrollgruppe weiterhin API-Kampagnen erhalten. Diese Ausnahme gilt jedoch nicht für Content Cards. Wenn Sie eine API-getriggerte Content-Card-Kampagne verwenden, erhalten Nutzer:innen in Ihrer Kontrollgruppe diese nicht.
 {% endalert %}
 
 ### Nutzer:innen zufällig der globalen Kontrollgruppe zuweisen {#assign-users-randomly-to-the-global-control-group}
 
-Braze wählt zufällig mehrere Bereiche von [zufälligen Bucket-Nummern]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/#step-1-segment-your-users-by-the-random-bucket-attribute) aus und nimmt Nutzer:innen aus diesen ausgewählten Buckets auf. Wenn Sie derzeit zufällige Bucket-Nummern für andere Zwecke verwenden, lesen Sie den Abschnitt [Worauf Sie achten sollten](#things-to-watch-for).
+Braze wählt zufällig mehrere Bereiche von [zufälligen Bucket-Nummern]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers#step-1-segment-your-users-by-the-random-bucket-attribute) aus und nimmt Nutzer:innen aus diesen ausgewählten Buckets auf. Wenn Sie derzeit zufällige Bucket-Nummern für andere Zwecke verwenden, lesen Sie den Abschnitt [Worauf Sie achten sollten](#things-to-watch-for).
 
 Wenn Ihre globale Kontrollgruppe generiert wird, gehören alle Nutzer:innen mit zufälligen Bucket-Nummern zur Gruppe. Darüber hinaus werden auch neue Nutzer:innen, die nach diesem Zeitpunkt hinzukommen (also nach der Generierung der globalen Kontrollgruppe gewonnen wurden) und diese zufälligen Bucket-Nummern haben, ebenfalls der globalen Kontrollgruppe hinzugefügt. Ebenso können Sie erwarten, dass die Größe Ihrer globalen Kontrollgruppe schrumpft, wenn viele Nutzer:innen gelöscht werden, da ein Prozentsatz dieser gelöschten Nutzer:innen in diese Gruppe gefallen ist. Dadurch bleibt die Größe Ihrer Gruppe als konstanter Prozentsatz relativ zu Ihrer gesamten Nutzerbasis erhalten.
 
@@ -40,7 +40,7 @@ Ihre Treatment-Gruppe ist in der Größe ähnlich wie Ihre globale Kontrollgrupp
 
 ### Nutzer:innen von Feature-Flags ausschließen {#exclude-users-from-feature-flags}
 
-Sie können [Feature-Flags]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags/) nicht für Nutzer:innen in Ihrer globalen Kontrollgruppe aktivieren. Das bedeutet, dass Nutzer:innen in Ihrer globalen Kontrollgruppe auch nicht an Feature-Flag-Experimenten teilnehmen können.
+Sie können [Feature-Flags]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags) nicht für Nutzer:innen in Ihrer globalen Kontrollgruppe aktivieren. Das bedeutet, dass Nutzer:innen in Ihrer globalen Kontrollgruppe auch nicht an Feature-Flag-Experimenten teilnehmen können.
 
 ### Nutzer:innen aus der globalen Kontrollgruppe ausschließen {#exclude-users-from-the-global-control-group}
 
@@ -92,7 +92,7 @@ Nach dem Deaktivieren Ihrer Kontrollgruppe können Sie eine neue speichern. Wenn
 
 Wenn Sie sehen möchten, welche Nutzer:innen in Ihrer globalen Kontrollgruppe sind, können Sie die Mitglieder Ihrer Gruppe per CSV oder API exportieren.
 
-Um einen CSV-Export durchzuführen, navigieren Sie zum Tab **Global Control Group Settings** und klicken Sie auf <i class="fas fa-download" aria-label="Exportieren"></i>&nbsp;**Export**. Um per API zu exportieren, verwenden Sie den [`/users/export/global_control_group`-Endpunkt]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/).
+Um einen CSV-Export durchzuführen, navigieren Sie zum Tab **Global Control Group Settings** und klicken Sie auf <i class="fas fa-download" aria-label="Exportieren"></i>&nbsp;**Export**. Um per API zu exportieren, verwenden Sie den [`/users/export/global_control_group`-Endpunkt]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group).
 
 {% alert important %}
 Historische Kontrollgruppen werden nicht aufbewahrt, sodass Sie nur die Mitglieder Ihrer aktuellen Gruppe exportieren können. Stellen Sie sicher, dass Sie alle erforderlichen Informationen exportieren, bevor Sie eine Kontrollgruppe deaktivieren.
@@ -114,7 +114,7 @@ Um einen Bericht für Ihre globale Kontrollgruppe im Dashboard anzuzeigen, gehen
 
 Wählen Sie als Nächstes den Parameter aus, mit dem Sie Ihren Bericht ausführen möchten (Sitzungen oder ein bestimmtes angepasstes Event), und wählen Sie **Run Report**.
 
-![]({% image_buster /assets/img/control_group/control_group6.png %})
+![Wählen Sie den Parameter aus, mit dem Sie Ihren Bericht ausführen möchten (Sitzungen oder ein bestimmtes angepasstes Event), und wählen Sie „Run Report“.]({% image_buster /assets/img/control_group/control_group6.png %})
 
 ### Ihren Bericht konfigurieren {#configuring-your-report}
 
@@ -122,7 +122,7 @@ Wählen Sie beim Generieren Ihres Berichts ein Event – entweder Sitzungen oder
 
 Beachten Sie, dass die prozentualen Metriken in Ihrem Bericht gerundet werden. In Fällen, in denen die Anzahl der Conversions ein sehr geringer Prozentsatz Ihrer gesamten Kontroll- oder Treatment-Gruppe ist, kann die Konversionsrate auf 0 % gerundet werden.
 
-Dieser Bericht zeigt auch einen [Konfidenz]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics/#understanding-confidence)-Prozentsatz für Ihre Metrik „Veränderung gegenüber der Kontrollgruppe“ an. In Fällen, in denen die Konversionsrate zwischen Ihrer Kontroll- und Treatment-Gruppe identisch ist, wird eine Konfidenz von 0 % erwartet – dies zeigt an, dass es eine 0%ige Wahrscheinlichkeit für einen Unterschied in der Performance zwischen den beiden Gruppen gibt.
+Dieser Bericht zeigt auch einen [Konfidenz]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#understanding-confidence)-Prozentsatz für Ihre Metrik „Veränderung gegenüber der Kontrollgruppe“ an. In Fällen, in denen die Konversionsrate zwischen Ihrer Kontroll- und Treatment-Gruppe identisch ist, wird eine Konfidenz von 0 % erwartet – dies zeigt an, dass es eine 0%ige Wahrscheinlichkeit für einen Unterschied in der Performance zwischen den beiden Gruppen gibt.
 
 #### Gruppengrößen {#group-sizes}
 
@@ -143,7 +143,7 @@ Jeder Workspace hat maximal eine globale Kontrollgruppe und eine Treatment-Stich
 | Geschätzte Gruppengröße | Die geschätzte Anzahl der Nutzer:innen in Ihren Kontroll- und Treatment-Gruppen während des ausgewählten Zeitraums. | Die maximale Mitgliedergröße, die Ihre Kontroll- und Treatment-Gruppen während des für den Bericht gewählten Zeitraums erreicht haben. |
 | Gesamtzahl der Ereignisse | Die Gesamtzahl, wie oft das ausgewählte Event während des gewählten Zeitraums aufgetreten ist. Dies ist nicht eindeutig (wenn beispielsweise eine Nutzer:in ein Event zweimal während des Zeitraums auslöst, wird das Event zweimal gezählt). | Summe der Anzahl, wie oft ein Event an jedem Tag während des gewählten Zeitraums aufgetreten ist. |
 | Ereignisse pro Nutzer:in | Die geschätzte durchschnittliche Anzahl, wie oft Nutzer:innen in jeder Gruppe Ihre Konversions-Events während des ausgewählten Zeitraums abgeschlossen haben. | Gesamtereignisse ÷ geschätzte Gruppengröße. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Berichtsmetriken" }
 
 ## Fehlerbehebung {#troubleshooting}
 
@@ -156,7 +156,7 @@ Beim Einrichten Ihrer globalen Kontrollgruppen und beim Anzeigen des Reportings 
 | Der Bericht zur globalen Kontrollgruppe enthält keine Daten. | Wenn Sie auf den Bericht zur globalen Kontrollgruppe zugreifen, ohne eine globale Kontrollgruppe gespeichert zu haben, sehen Sie keine Daten im Bericht. Erstellen und speichern Sie eine globale Kontrollgruppe und versuchen Sie es erneut. |
 | Meine Konversionsrate beträgt 0 % oder die Grafik wird nicht angezeigt, obwohl mehr als null Ereignisse auftreten. | Wenn die Anzahl der Conversions sehr gering und Ihre Kontroll- oder Treatment-Gruppe sehr groß ist, kann die Konversionsrate auf 0 % gerundet werden und wird daher nicht in der Grafik angezeigt. Sie können dies überprüfen, indem Sie die Metrik „Gesamtzahl der Ereignisse“ prüfen. Sie könnten die Effektivität Ihrer beiden Gruppen mithilfe der Metrik „Inkrementeller Uplift in Prozent“ vergleichen. |
 | Meine Konversionsrate (oder andere Metriken) ändern sich drastisch je nach dem Zeitraum, für den ich Daten anzeige. | Wenn Sie Daten über kurze Zeiträume anzeigen, können Ihre Metriken von Tag zu Tag oder von Woche zu Woche schwanken. Betrachten Sie Metriken über einen Zeitraum von mindestens einem Monat. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
 ### Worauf Sie achten sollten {#things-to-watch-for}
 
@@ -180,9 +180,9 @@ Kurz gesagt: Nutzer:innen in der globalen Kontrollgruppe werden vor dem Eintritt
 
 #### Segmente der globalen Kontrollgruppe in der Entwicklungskonsole {#global-control-group-segments-on-the-developer-console}
 
-Möglicherweise sehen Sie mehrere **Global Control**-Segmente im Abschnitt **Additional API Identifiers** auf der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/). Dies liegt daran, dass jedes Mal, wenn die globale Kontrollgruppe aktiviert oder deaktiviert wird, eine neue globale Kontrollgruppe gebildet wird. Dies führt zu mehreren Segmenten mit der Bezeichnung „Global Control Group“.
+Möglicherweise sehen Sie mehrere **Global Control**-Segmente im Abschnitt **Additional API Identifiers** auf der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). Dies liegt daran, dass jedes Mal, wenn die globale Kontrollgruppe aktiviert oder deaktiviert wird, eine neue globale Kontrollgruppe gebildet wird. Dies führt zu mehreren Segmenten mit der Bezeichnung „Global Control Group“.
 
-Nur eines dieser Segmente ist aktiv und kann über den [`/users/export/global_control_group`-Endpunkt]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/) abgefragt oder aus dem Dashboard exportiert werden. Der Export aus dem Dashboard gibt ausdrücklich an, welche Untersegmente diese globale Kontrollgruppe bilden.
+Nur eines dieser Segmente ist aktiv und kann über den [`/users/export/global_control_group`-Endpunkt]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group) abgefragt oder aus dem Dashboard exportiert werden. Der Export aus dem Dashboard gibt ausdrücklich an, welche Untersegmente diese globale Kontrollgruppe bilden.
 
 ## Best Practices für Tests {#testing-best-practices}
 

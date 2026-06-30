@@ -10,7 +10,7 @@ toc_headers: h2
 
 > Dies ist eine Liste der Referenzdokumentationen, GitHub-Repositories und Beispiel-Apps, die zu jedem Braze SDK gehören. In der Referenzdokumentation eines SDKs finden Sie die verfügbaren Klassen, Typen, Funktionen und Variablen. Das GitHub-Repository bietet Insights zu den Funktions- und Attribut-Deklarationen, Code-Änderungen und der Versionierung des SDKs. Jedes Repository enthält außerdem vollständig kompilierbare Beispielanwendungen, mit denen Sie die Features von Braze testen oder neben Ihren eigenen Anwendungen implementieren können.
 
-Gespiegelte Repository-README-Inhalte in der Dokumentation finden Sie unter [Repository-Leitfäden]({{site.baseurl}}/developer_guide/sdk_repository_guides/).
+Gespiegelte Repository-README-Inhalte in der Dokumentation finden Sie unter [Repository-Leitfäden]({{site.baseurl}}/developer_guide/sdk_repository_guides).
 
 ## Liste der Ressourcen {#list-of-resources}
 
@@ -41,7 +41,7 @@ Derzeit haben einige SDKs keine spezielle Referenzdokumentation – aber wir arb
 
 Unsere Testanwendung im [Android SDK GitHub-Repository](https://github.com/braze-inc/braze-android-sdk) heißt Droidboy. Folgen Sie diesen Anweisungen, um eine voll funktionsfähige Kopie davon zusammen mit Ihrem Projekt zu erstellen.
 
-1. Erstellen Sie einen neuen [Workspace]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration/#app-group-configuration) und notieren Sie sich den API-Bezeichnerschlüssel von Braze.<br><br>
+1. Erstellen Sie einen neuen [Workspace]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration#app-group-configuration) und notieren Sie sich den API-Bezeichnerschlüssel von Braze.<br><br>
 2. Kopieren Sie Ihre FCM-Sender-ID und Ihren Braze-API-Bezeichnerschlüssel an die entsprechenden Stellen in `/droidboy/res/values/braze.xml` (zwischen die Tags für die Strings mit den Namen `com_braze_push_fcm_sender_id` bzw. `com_braze_api_key`).<br><br>
 3. Kopieren Sie Ihren FCM-Server-Schlüssel und Ihre Server-ID in die Einstellungen Ihres Workspace unter **Einstellungen verwalten**.<br><br>
 4. Führen Sie zum Assemblieren der Droidboy-APK `./gradlew assemble` im SDK-Verzeichnis aus. Verwenden Sie `gradlew.bat` unter Windows.<br><br>
@@ -52,7 +52,7 @@ Unsere Testanwendung im [Android SDK GitHub-Repository](https://github.com/braze
 Die Testanwendung „Hello Braze“ zeigt einen minimalen Anwendungsfall des Braze SDK und demonstriert außerdem, wie Sie das Braze SDK auf einfache Weise in ein Gradle-Projekt integrieren können.
 
 1. Kopieren Sie Ihren API-Bezeichnerschlüssel von der Seite **Einstellungen verwalten** in Ihre Datei `braze.xml` im Ordner `res/values`.
-![]({% image_buster /assets/img_archive/hello_appboy.png %})<br><br>
+![Screenshot zum Erstellen von „Hello Braze“.]({% image_buster /assets/img_archive/hello_appboy.png %})<br><br>
 2. Um die Beispiel-App auf einem Gerät oder Emulator zu installieren, führen Sie den folgenden Befehl im SDK-Verzeichnis aus:
 ```
 ./gradlew installDebug
@@ -67,12 +67,12 @@ Weitere Informationen zum Build-System des Android SDK finden Sie in der [GitHub
 
 Folgen Sie diesen Anweisungen, um unsere Testanwendungen zu erstellen und auszuführen.
 
-1. Erstellen Sie einen neuen [Workspace]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration/#creating-your-app-group-in-my-apps) und notieren Sie sich den App-Bezeichner, den API-Schlüssel und den Endpunkt.
+1. Erstellen Sie einen neuen [Workspace]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration#creating-your-app-group-in-my-apps) und notieren Sie sich den App-Bezeichner, den API-Schlüssel und den Endpunkt.
 2. Wählen Sie basierend auf Ihrer Integrationsmethode (Swift-Paketmanager, CocoaPods, manuell) die entsprechende `xcodeproj`-Datei aus und öffnen Sie sie.
 3. Tragen Sie Ihren API-Schlüssel und Ihren Endpunkt in das entsprechende Feld in der Datei `Credentials` ein.
 {% endtab %}
 {% endtabs %}
 
 {% alert note %}
-Verwenden Sie bei der QA Ihrer SDK-Integration den [SDK-Debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging/), um Probleme zu beheben, ohne die ausführliche Protokollierung für Ihre App aktivieren zu müssen.
+Verwenden Sie bei der QA Ihrer SDK-Integration den [SDK-Debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging), um Probleme zu beheben, ohne die ausführliche Protokollierung für Ihre App aktivieren zu müssen.
 {% endalert %}

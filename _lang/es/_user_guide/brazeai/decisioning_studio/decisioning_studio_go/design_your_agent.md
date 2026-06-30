@@ -9,7 +9,7 @@ description: "Aprende a diseñar un agente Go de BrazeAI Decisioning Studio, inc
 
 > Este artículo explica cómo diseñar tu agente de Decisioning Studio Go, incluyendo cómo definir tu audiencia, seleccionar dimensiones y comprender las capacidades y limitaciones específicas de Go.
 
-Para conocer los conceptos básicos sobre los agentes de toma de decisiones, incluidas las métricas de éxito, las dimensiones, los bancos de acciones y las restricciones, consulta [Diseño de agentes de toma de decisiones]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents/).
+Para conocer los conceptos básicos sobre los agentes de toma de decisiones, incluidas las métricas de éxito, las dimensiones, los bancos de acciones y las restricciones, consulta [Diseño de agentes de toma de decisiones]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents).
 
 ## Funciones de Go frente a Pro {#go-versus-pro-capabilities}
 
@@ -38,11 +38,11 @@ Tu audiencia es el conjunto de clientes con los que interactuará el agente. En 
 
 **Definición de audiencia en Braze:**
 
-1. Crea un segmento en Braze que defina los clientes a los que quieres que se dirija el agente.
-2. Al configurar tu experimentador en el portal de Decisioning Studio Go, selecciona este segmento como tu audiencia objetivo.
+1. Crea un Segment en Braze que defina los clientes a los que quieres que se dirija el agente.
+2. Al configurar tu experimentador en el portal de Decisioning Studio Go, selecciona este Segment como tu audiencia objetivo.
 
 {% alert tip %}
-Considera la posibilidad de crear un segmento específico para tu experimentador de Decisioning Studio Go con el fin de mantener tus pruebas aisladas y medibles.
+Considera la posibilidad de crear un Segment específico para tu experimentador de Decisioning Studio Go con el fin de mantener tus pruebas aisladas y medibles.
 {% endalert %}
 
 {% endtab %}
@@ -107,4 +107,4 @@ Al diseñar tu agente Go, ten en cuenta estas limitaciones:
 
 Una vez que hayas diseñado tu agente y lo hayas configurado en el portal de Decisioning Studio Go, estarás listo para lanzarlo:
 
-- [Lanza tu agente]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent/)
+- [Lanza tu agente]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent)

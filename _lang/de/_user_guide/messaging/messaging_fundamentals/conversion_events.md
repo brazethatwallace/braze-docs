@@ -54,21 +54,21 @@ Beachten Sie Folgendes dazu, wie Braze mit mehreren Conversions umgeht:
 
 Das primäre Konversions-Event ist das erste Event, das Sie während der Erstellung einer Campaign oder eines Canvas hinzufügen. Dieses Event hat den größten Einfluss auf Ihr Engagement und Ihre Berichterstattung. Braze verwendet Ihr primäres Konversions-Event, um:
 
-- Die Gewinnervariante in [multivariaten]({{site.baseurl}}/user_guide/messaging/ab_testing/#multivariate-and-ab-testing) Campaigns oder Canvases zu berechnen.
+- Die Gewinnervariante in [multivariaten]({{site.baseurl}}/user_guide/messaging/ab_testing#multivariate-and-ab-testing) Campaigns oder Canvases zu berechnen.
 - Das Zeitfenster zu bestimmen, in dem der Umsatz für die Campaign oder den Canvas berechnet wird.
-- Die Nachrichtenverteilung für Campaigns und Canvases mithilfe der [Intelligenten Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/) anzupassen.
+- Die Nachrichtenverteilung für Campaigns und Canvases mithilfe der [Intelligenten Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) anzupassen.
 
 Die Anzahl der primären Konversions-Events ist die Anzahl der aufgetretenen Konversions-Events. Bei Mehrkanal-Campaigns zählt Braze Conversions pro Kanal (wie in den [Regeln für das Conversion-Tracking](#conversion-tracking-rules) beschrieben), was bedeutet, dass die Conversion-Anzahl die Anzahl der eindeutigen Nutzer:innen übersteigen kann und Konversionsraten von über 100 % ergeben kann. Braze berechnet die primäre Konversionsrate, indem diese Anzahl durch die Anzahl der eindeutigen Empfänger:innen geteilt wird. Braze betrachtet eine:n Nutzer:in als Empfänger:in, wenn die Nachricht gesendet oder angezeigt wird, je nach Kanal. Beispielsweise wird bei Push oder E-Mail ein:e Nutzer:in zum/zur Empfänger:in, nachdem Braze die Nachricht gesendet hat. Bei In-App-Nachrichten oder Content Cards muss der/die Nutzer:in die Nachricht angesehen haben, um als Empfänger:in zu gelten.
 
 {% alert note %}
-Wenn Sie Nachrichten mit dem Liquid-Tag `abort` abbrechen, bricht Braze Nachrichten nur für Nutzer:innen ab, die Varianten durchlaufen. Nachrichten an Nutzer:innen in der Kontrollgruppe werden nicht abgebrochen, was zu verzerrten Konversionsprozentsätzen zwischen Varianten und Kontrollgruppen führen kann. Als Workaround verwenden Sie die [Segmentierung]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), um Ihre Nutzer:innen beim Eintritt in die Campaign oder den Canvas zu targeten.
+Wenn Sie Nachrichten mit dem Liquid-Tag `abort` abbrechen, bricht Braze Nachrichten nur für Nutzer:innen ab, die Varianten durchlaufen. Nachrichten an Nutzer:innen in der Kontrollgruppe werden nicht abgebrochen, was zu verzerrten Konversionsprozentsätzen zwischen Varianten und Kontrollgruppen führen kann. Als Workaround verwenden Sie die [Segmentierung]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), um Ihre Nutzer:innen beim Eintritt in die Campaign oder den Canvas zu targeten.
 {% endalert %}
 
 ## Eine Campaign mit Conversion-Tracking erstellen {#creating-a-campaign-with-conversion-tracking}
 
 ### 1. Schritt: Campaign einrichten {#step-1-set-up-your-campaign}
 
-[Erstellen Sie eine Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/) für Ihren gewünschten Messaging-Kanal. Nachdem Sie die Nachrichten und den Zeitplan Ihrer Campaign eingerichtet haben, können Sie bis zu vier Konversions-Events für das Tracking hinzufügen.
+[Erstellen Sie eine Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign) für Ihren gewünschten Messaging-Kanal. Nachdem Sie die Nachrichten und den Zeitplan Ihrer Campaign eingerichtet haben, können Sie bis zu vier Konversions-Events für das Tracking hinzufügen.
 
 Verwenden Sie so viele Konversions-Events wie nötig. Das Hinzufügen eines zweiten oder dritten Konversions-Events bereichert Ihre Berichterstattung erheblich. Wenn Sie beispielsweise eine Campaign haben, die sich an passive Nutzer:innen richtet, kann das Hinzufügen eines sekundären Konversions-Events zusammen mit dem primären Konversions-Event **Sitzung starten** Ihnen helfen zu verstehen, wie effektiv Ihre Campaign darin ist, Nutzer:innen zurück in Ihre Anwendung zu bringen.
 
@@ -79,7 +79,7 @@ Wählen Sie zunächst den allgemeinen Event-Typ aus, den Sie verwenden möchten:
 | Konversions-Event-Typ | Beschreibung |
 |-------------------------|----------------------------|
 | **Sitzung starten** | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie eine der von Ihnen angegebenen Apps öffnet (standardmäßig alle Apps im Workspace). |
-| **Kauf tätigen** | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie ein [Kauf-Event]({{site.baseurl}}/api/objects_filters/purchase_object/) aufzeichnet. Dies erfasst standardmäßig jeden Kauf, oder Sie können ein bestimmtes Produkt angeben. |
+| **Kauf tätigen** | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie ein [Kauf-Event]({{site.baseurl}}/api/objects_filters/purchase_object) aufzeichnet. Dies erfasst standardmäßig jeden Kauf, oder Sie können ein bestimmtes Produkt angeben. |
 | **Bestellung aufgeben** | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie das [empfohlene E-Commerce-Event „Bestellung aufgegeben“]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#ecommerce-recommended-events?tab=ecommerce.order_placed) auslöst. Dies erfasst standardmäßig jede Bestellung, oder Sie können nach einem bestimmten Produkt filtern.<br><br>Das Event „Bestellung aufgeben“ befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Braze Account Manager, wenn Sie an der Teilnahme an diesem Early Access interessiert sind. |
 | **Angepasstes Event ausführen** | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie eines Ihrer vorhandenen angepassten Events ausführt (kein Standard, Sie müssen das Event angeben). |
 | **App upgraden** | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie die App-Version einer der von Ihnen angegebenen Apps aktualisiert (standardmäßig alle Apps im Workspace). Braze führt einen Best-Effort-Zahlenvergleich durch, um festzustellen, ob die Änderung ein Upgrade war. Nicht-numerische Versionen werden als Conversions gezählt, wenn sich die Version ändert. |

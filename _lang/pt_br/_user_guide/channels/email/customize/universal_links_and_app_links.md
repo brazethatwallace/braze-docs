@@ -12,7 +12,7 @@ channel: email
 > Este artigo descreve como configurar links universais da Apple e Android App Links.
 
 {% alert tip %}
-Para uma comparação dos tipos de links em todos os canais de envio de mensagens e orientações sobre quando você precisa de um arquivo AASA, consulte o [Guia de deep linking para iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/).
+Para uma comparação dos tipos de links em todos os canais de envio de mensagens e orientações sobre quando você precisa de um arquivo AASA, consulte o [Guia de deep linking para iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide).
 {% endalert %}
 
 Os links universais da Apple e os Android App Links são mecanismos criados para proporcionar uma transição fluida entre conteúdo web e apps móveis. Enquanto os links universais são específicos do iOS, os Android App Links servem ao mesmo propósito para aplicativos Android.
@@ -439,7 +439,7 @@ Certifique-se de que o arquivo AASA (iOS) ou Digital Asset Links (Android) está
 
 Certifique-se de que você tem as definições corretas para os domínios que seu app pode abrir.
 
-- **iOS:** Revise os Associated Domains configurados no Xcode para o seu app ([Etapa 1c: Ative Associated Domains no seu projeto Xcode]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Verifique se o domínio de rastreamento de cliques está incluído nessa lista.
+- **iOS:** Revise os Associated Domains configurados no Xcode para o seu app ([Etapa 1c: Ative Associated Domains no seu projeto Xcode]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links?tab=ios#step-1c)). Verifique se o domínio de rastreamento de cliques está incluído nessa lista.
 - **Android:** Abra a página de informações do app (pressione e segure o ícone do app e clique em ⓘ). No menu de informações do app, localize **Abrir por padrão** e toque nessa opção. Isso deve mostrar uma tela com todos os links verificados que o app pode abrir. Verifique se o domínio de rastreamento de cliques está incluído nessa lista.
 
 #### O domínio de rastreamento não consegue servir arquivos .well-known {#tracking-domain-cant-serve-well-known-files}

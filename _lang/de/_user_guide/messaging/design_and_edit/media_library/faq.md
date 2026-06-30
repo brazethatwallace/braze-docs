@@ -59,8 +59,8 @@ Das liegt daran, dass die meisten Composer Einschränkungen hinsichtlich des zul
 
 ### Ein Bild mit KI generieren {#generate-an-image-using-ai}
 
-Sie können Bilder unter **Inhalt** > **Medienbibliothek** generieren, indem Sie **KI-Bildgenerator** auswählen. Sie benötigen die Berechtigung **Medienbibliothek-Assets bearbeiten**. Wenn Sie die Option nicht sehen, wenden Sie sich an Ihr Braze-Kundenteam. Weitere Informationen zu den Schritten und Richtlinien finden Sie unter [Bilder mit BrazeAI generieren]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-images) und [Bilder mit BrazeAI generieren]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai).
+Sie können Bilder unter **Inhalt** > **Medienbibliothek** generieren, indem Sie **KI-Bildgenerator** auswählen. Sie benötigen die Berechtigung **Medienbibliothek-Assets bearbeiten**. Wenn Sie die Option nicht sehen, wenden Sie sich an Ihr Braze-Kundenteam. Weitere Informationen zu den Schritten und Richtlinien finden Sie unter [Bilder mit BrazeAI generieren]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images) und [Bilder mit BrazeAI generieren]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#generate-ai).
 
 ### Kann ich Vanity-URLs für Medienbibliothek-Bild-Assets erstellen? {#can-i-create-vanity-urls-for-media-library-image-assets}
 
-Vanity-URLs für Medienbibliothek-Assets werden nicht unterstützt, da benutzerdefinierte URLs die CDN-Zustellung beeinträchtigen würden. Sie können ein Bild unter seiner bestehenden URL ersetzen, wenn Campaigns bereits auf diese URL verweisen. Weitere Informationen finden Sie unter [Eine Datei ersetzen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#replace-a-file).
+Vanity-URLs für Medienbibliothek-Assets werden nicht unterstützt, da benutzerdefinierte URLs die CDN-Zustellung beeinträchtigen würden. Sie können ein Bild unter seiner bestehenden URL ersetzen, wenn Campaigns bereits auf diese URL verweisen. Weitere Informationen finden Sie unter [Eine Datei ersetzen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).

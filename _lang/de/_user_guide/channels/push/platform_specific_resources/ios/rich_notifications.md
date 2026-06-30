@@ -21,7 +21,7 @@ tool:
 
 Bevor Sie eine Rich-Push-Benachrichtigung für iOS erstellen, beachten Sie die folgenden Details:
 
-- Um sicherzustellen, dass Ihre App Rich-Benachrichtigungen senden kann, folgen Sie den Anweisungen zur [iOS-Push-Integration]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#ios-10-rich-notifications), da Ihre Entwickler:innen eine Serviceerweiterung zu Ihrer App hinzufügen müssen.
+- Um sicherzustellen, dass Ihre App Rich-Benachrichtigungen senden kann, folgen Sie den Anweisungen zur [iOS-Push-Integration]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#ios-10-rich-notifications), da Ihre Entwickler:innen eine Serviceerweiterung zu Ihrer App hinzufügen müssen.
 - Dateitypen, die wir derzeit für den direkten Upload in unserem Dashboard unterstützen, sind JPEG, PNG oder GIF. Diese Dateien können auch in das vorlagenbasierte URL-Feld eingegeben werden, zusammen mit diesen zusätzlichen Dateitypen: AIF, M4A, MP3, MP4 oder WAV.
 - Weitere Informationen zu Medienbeschränkungen und -spezifikationen finden Sie in der [Apple-Dokumentation](https://developer.apple.com/reference/usernotifications/unnotificationattachment).
 - iOS skaliert Bilder, um sie an den Bildschirm anzupassen, und skaliert Rich-Bilder für die aktive oder gesperrte Ansicht.
@@ -36,7 +36,7 @@ Push-Benachrichtigungsbilder werden möglicherweise nicht wie erwartet angezeigt
 
 ### Zeichenanzahl {#character-count}
 
-Obwohl wir keine feste Regel für die genaue Anzahl der Zeichen in einer Push-Benachrichtigung angeben können, [bieten wir einige Richtlinien]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/) an, die Sie beim Entwerfen von iOS-Nachrichten berücksichtigen sollten. Es kann Abweichungen geben, abhängig vom Vorhandensein eines Bildes, dem Benachrichtigungsstatus und den Anzeigeeinstellungen des Geräts der Nutzer:innen sowie der Gerätegröße. Im Zweifelsfall halten Sie es kurz und prägnant.
+Obwohl wir keine feste Regel für die genaue Anzahl der Zeichen in einer Push-Benachrichtigung angeben können, [bieten wir einige Richtlinien]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats) an, die Sie beim Entwerfen von iOS-Nachrichten berücksichtigen sollten. Es kann Abweichungen geben, abhängig vom Vorhandensein eines Bildes, dem Benachrichtigungsstatus und den Anzeigeeinstellungen des Geräts der Nutzer:innen sowie der Gerätegröße. Im Zweifelsfall halten Sie es kurz und prägnant.
 
 Als Best Practice empfiehlt Braze, jede Textzeile sowohl für den optionalen Titel als auch für den Nachrichtentext in einer mobilen Push-Benachrichtigung auf etwa 30–40 Zeichen zu beschränken.
 
@@ -125,7 +125,7 @@ Die folgenden Details können ebenfalls die Textkürzung beeinflussen:
 
 ### 1. Schritt: Push-Campaign erstellen {#step-1-create-a-push-campaign}
 
-Folgen Sie den [Campaign-Schritten]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#creating-a-push-message), um eine Push-Benachrichtigung für iOS zu verfassen. Sie verwenden denselben Composer, den Sie auch zum Einrichten von Push-Benachrichtigungen ohne Rich-Inhalte nutzen.
+Folgen Sie den [Campaign-Schritten]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message), um eine Push-Benachrichtigung für iOS zu verfassen. Sie verwenden denselben Composer, den Sie auch zum Einrichten von Push-Benachrichtigungen ohne Rich-Inhalte nutzen.
 
 ### 2. Schritt: Medien hinzufügen {#step-2-add-media}
 
@@ -139,7 +139,7 @@ Sie können diese Nachricht auch so einschränken, dass sie nur an Nutzer:innen 
 
 ### 3. Schritt: Campaign-Erstellung fortsetzen {#step-3-continue-creating-your-campaign}
 
-Sobald Ihre Rich-Benachrichtigungsinhalte in das Dashboard hochgeladen wurden, können Sie mit der [Planung Ihrer Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#schedule-push-campaign) fortfahren.
+Sobald Ihre Rich-Benachrichtigungsinhalte in das Dashboard hochgeladen wurden, können Sie mit der [Planung Ihrer Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#schedule-push-campaign) fortfahren.
 
 Wenn Nutzer:innen die Push-Benachrichtigung erhalten, können sie fest auf die Push-Nachricht drücken, um das Bild zu vergrößern.
 

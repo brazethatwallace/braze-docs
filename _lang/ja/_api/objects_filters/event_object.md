@@ -15,11 +15,11 @@ description: "このリファレンス記事では、イベントオブジェク
 
 イベントオブジェクトは、特定のイベントが発生したときにAPIを通じて渡されるオブジェクトです。イベントオブジェクトはイベント配列に格納されます。イベント配列内の各イベントオブジェクトは、指定された時間値における特定のユーザーによるカスタムイベントの単一の発生を表します。イベントオブジェクトにはさまざまなフィールドがあり、メッセージ、データ収集、パーソナライゼーションにおいてイベントプロパティを設定・使用することでカスタマイズできます。
 
-特定のプラットフォームにカスタムイベントを設定する手順については、[開発者ガイド]({{site.baseurl}}/developer_guide/home/)のプラットフォーム統合ガイドを参照してください。ご使用のプラットフォームに基づいて、関連する記事を参照してください。
+特定のプラットフォームにカスタムイベントを設定する手順については、[開発者ガイド]({{site.baseurl}}/developer_guide/home)のプラットフォーム統合ガイドを参照してください。ご使用のプラットフォームに基づいて、関連する記事を参照してください。
 
-- [Android]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)
-- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)
+- [Android]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)
 
 ### オブジェクト本体 {#object-body}
 
@@ -42,12 +42,12 @@ description: "このリファレンス記事では、イベントオブジェク
 }
 ```
 
-- [外部ユーザー ID]({{site.baseurl}}/api/basics/#user-ids)
-- [アプリ識別子]({{site.baseurl}}/api/identifier_types/)
+- [外部ユーザーID]({{site.baseurl}}/api/basics#user-ids)
+- [アプリ識別子]({{site.baseurl}}/api/identifier_types)
 - [ISO 8601タイムコード](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-一部の識別子ペアは、単一のリクエスト内で同時に使用できません。`email`と`phone`の両方が指定された場合、`email`が`phone`より優先されます。詳細については、[識別子の解決]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution)を参照してください。
+一部の識別子ペアは、単一のリクエスト内で同時に使用できません。`email`と`phone`の両方が指定された場合、`email`が`phone`より優先されます。詳細については、[識別子の解決]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution)を参照してください。
 {% endalert %}
 
 #### 既存のプロファイルのみを更新する {#update-existing-profiles-only}
@@ -72,7 +72,7 @@ Brazeで既存のユーザープロファイルのみを更新するには、リ
 | 文字列 | 255文字以下。 |
 | 配列 | 配列に日時を含めることはできません。 |
 | オブジェクト | オブジェクトは文字列として取り込まれます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Event properties object" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="イベントプロパティオブジェクト" }
 
 配列またはオブジェクト値を含むイベントプロパティオブジェクトには、最大100&nbsp;KBのイベントプロパティペイロードを設定できます。
 
@@ -89,11 +89,11 @@ Brazeで既存のユーザープロファイルのみを更新するには、リ
 
 ### イベントプロパティの永続性 {#event-property-persistence}
 
-イベントプロパティは、親イベントによってトリガーされるメッセージのフィルタリングおよびLiquidパーソナライゼーションのために設計されています。デフォルトでは、Brazeユーザープロファイルでは永続化されません。セグメンテーションでイベントプロパティ値を使用するには、イベントプロパティ値を長期的に保存するためのさまざまなアプローチについて詳述している[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)を参照してください。
+イベントプロパティは、親イベントによってトリガーされるメッセージのフィルタリングおよびLiquidパーソナライゼーションのために設計されています。デフォルトでは、Brazeユーザープロファイルでは永続化されません。セグメンテーションでイベントプロパティ値を使用するには、イベントプロパティ値を長期的に保存するためのさまざまなアプローチについて詳述している[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)を参照してください。
 
 #### イベントリクエストの例 {#event-example-request}
 
-`````````http
+```http
 POST https://YOUR_REST_API_URL/users/track
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -112,7 +112,7 @@ Authorization: Bearer YOUR-REST-API-KEY
       "time" : "2013-07-16T19:20:45+01:00",
       "properties": {
         "movie": "The Sad Egg",
-        "director": "Dan Alexander"
+        "director": "Alex Smith"
       }
     },
     {
@@ -128,4 +128,4 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## イベントオブジェクト {#event-objects}
 
-上記の例を使うと、誰かが最近予告編を見て、映画をレンタルしたことがわかります。キャンペーンに入ってこれらのプロパティに基づいてユーザーをセグメントすることはできませんが、Liquidを使用してチャネル経由でカスタムメッセージを送信するための受領書の形でこれらのプロパティを戦略的に活用できます。例えば、「こんにちは、**Beth**さん。**Dan Alexander**監督の**The Sad Egg**をレンタルしていただきありがとうございます。お客様のレンタル履歴に基づいて、おすすめの映画をご紹介します...」のように使用できます。
+上記の例を使うと、誰かが最近予告編を見て、映画をレンタルしたことがわかります。キャンペーンに入ってこれらのプロパティに基づいてユーザーをセグメントすることはできませんが、Liquidを使用してチャネル経由でカスタムメッセージを送信するための受領書の形でこれらのプロパティを戦略的に活用できます。例えば、「こんにちは、**Alex**さん。**Alex Smith**監督の**The Sad Egg**をレンタルしていただきありがとうございます。お客様のレンタル履歴に基づいて、おすすめの映画をご紹介します...」のように使用できます。

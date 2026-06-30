@@ -1,6 +1,6 @@
 ---
 nav_title: Objetos aninhados
-article_title: Objetos Aninhados em Eventos Personalizados
+article_title: Objetos aninhados em eventos personalizados
 page_order: 1
 page_type: reference
 description: "Este artigo descreve como enviar dados JSON aninhados como propriedades de eventos personalizados e compras, e como usar esses objetos aninhados no seu envio de mensagens."
@@ -14,7 +14,7 @@ Você pode usar objetos aninhados — objetos que estão dentro de outro objeto 
 
 ## Considerações {#considerations}
 
-- Dados aninhados são compatíveis com [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) e [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/), mas não com outros tipos de evento.
+- Dados aninhados são compatíveis com [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) e [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events), mas não com outros tipos de evento.
 - Objetos de propriedades de evento que contêm valores de array ou objeto podem ter uma carga útil de propriedade de evento de até 100 KB.
 - Esquemas de propriedades de evento não podem ser gerados para eventos de compra.
 - Esquemas de propriedades de evento são gerados por amostragem de eventos personalizados das últimas 24 horas.
@@ -33,7 +33,7 @@ Você pode acessar os dados aninhados no seu evento personalizado gerando um esq
 2. Selecione **Gerenciar propriedades** para os eventos com propriedades aninhadas.
 3. Selecione o botão <i class="fas fa-arrows-rotate"></i> para gerar o esquema. Para visualizar o esquema, selecione o botão de mais <i class="fas fa-plus"></i>.
 
-![]({% image_buster /assets/img_archive/schema_generation_example.png %}){: style="max-width:80%;"}
+![Selecione o botão para gerar o esquema. Para visualizar o esquema, selecione o botão de mais.]({% image_buster /assets/img_archive/schema_generation_example.png %}){: style="max-width:80%;"}
 
 Se novas propriedades forem enviadas no futuro, elas não estarão no esquema até que ele seja regenerado. Os esquemas podem ser regenerados a cada 24 horas.
 
@@ -167,9 +167,9 @@ Se a propriedade do seu evento contiver os caracteres `[]` ou `.`, faça o escap
 
 ### Segmentação {#segmentation}
 
-Para segmentar usuários com base em propriedades de evento aninhadas, você deve usar [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/). Depois de gerar um esquema, o explorador de objetos aninhados será exibido na seção de segmentação.
+Para segmentar usuários com base em propriedades de evento aninhadas, você deve usar [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Depois de gerar um esquema, o explorador de objetos aninhados será exibido na seção de segmentação.
 
-![]({% image_buster /assets/img_archive/nested_event_properties_segmentation.png %})
+![Captura de tela relacionada à segmentação.]({% image_buster /assets/img_archive/nested_event_properties_segmentation.png %})
 
 A segmentação usa a mesma notação do disparo (consulte [Disparo de mensagens](#message-triggering)).
 
@@ -179,7 +179,7 @@ Para editar ou criar extensões de segmento, você precisará da permissão "Edi
 
 Usando o modal **Adicionar personalização**, selecione **Propriedades avançadas de evento** como o tipo de personalização. Isso permite adicionar propriedades de evento aninhadas depois que um esquema for gerado.
 
-![]({% image_buster /assets/img_archive/nested_event_properties_personalization.png %}){: style="max-width:70%;"}
+![Usando o modal Adicionar personalização, selecione Propriedades avançadas de evento como o tipo de personalização. Isso permite adicionar propriedades de evento aninhadas depois que um esquema for gerado.]({% image_buster /assets/img_archive/nested_event_properties_personalization.png %}){: style="max-width:70%;"}
 
 ## Testando objetos aninhados em mensagens {#testing-nested-objects-in-messages}
 

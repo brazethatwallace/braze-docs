@@ -12,7 +12,7 @@ channel:
 
 # Solución de problemas de vinculación en profundidad {#deep-linking-troubleshooting}
 
-> Esta página cubre problemas comunes de vinculación en profundidad en iOS y cómo diagnosticarlos. Para obtener ayuda sobre cómo elegir el tipo de enlace adecuado, consulta la [guía de vinculación en profundidad de iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/). Para más detalles de implementación, consulta [Vinculación en profundidad]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift).
+> Esta página cubre problemas comunes de vinculación en profundidad en iOS y cómo diagnosticarlos. Para obtener ayuda sobre cómo elegir el tipo de enlace adecuado, consulta la [guía de vinculación en profundidad de iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide). Para más detalles de implementación, consulta [Vinculación en profundidad]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=swift).
 
 ## El vínculo profundo de esquema personalizado no abre la vista correcta {#custom-scheme-deep-link-doesnt-open-the-correct-view}
 
@@ -100,7 +100,7 @@ Los enlaces de correo electrónico pasan por el sistema de seguimiento de clics 
 2. Aloja el archivo AASA en `https://your-click-tracking-domain/.well-known/apple-app-site-association`.
 3. Asegúrate de que el archivo AASA del dominio de seguimiento de clics incluya el mismo `appID` y patrones de ruta válidos.
 
-Para obtener instrucciones de configuración específicas para cada ESP, consulta [Enlaces universales y App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/).
+Para obtener instrucciones de configuración específicas para cada ESP, consulta [Enlaces universales y App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).
 
 ### Comprueba la cadena de redireccionamiento {#check-the-redirect-chain}
 
@@ -120,7 +120,7 @@ Si implementas `BrazeDelegate.braze(_:shouldOpenURL:)`, verifica que gestiona lo
 
 ### Habilita el registro detallado {#enable-verbose-logging}
 
-[Habilita el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) y reproduce el problema. Busca la entrada de registro `Opening`:
+[Habilita el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) y reproduce el problema. Busca la entrada de registro `Opening`:
 
 ```
 Opening '<URL>':
@@ -146,7 +146,7 @@ Si al seleccionar **Open Web URL Inside App** aparece una WebView en blanco o da
 
 ## Solución de problemas de Branch con Braze {#branch}
 
-Si utilizas [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/) como tu proveedor de enlaces:
+Si utilizas [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) como tu proveedor de enlaces:
 
 ### Verifica que el BrazeDelegate enrute a Branch {#verify-the-brazedelegate-routes-to-branch}
 
@@ -178,9 +178,9 @@ Verifica que el dominio de Branch en tu `BrazeDelegate` coincida con tu dominio 
 
 Para diagnosticar dónde se rompe el enlace en la cadena:
 
-1. Habilita el [registro detallado de Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/): busca entradas `Opening '<URL>':` para verificar que el SDK recibió el enlace.
+1. Habilita el [registro detallado de Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging): busca entradas `Opening '<URL>':` para verificar que el SDK recibió el enlace.
 2. Habilita el [modo de prueba de Branch](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking): comprueba el dashboard de Branch para ver los eventos de clics en los enlaces.
-1. Habilita el [registro detallado de Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/). Busca entradas `Opening '<URL>':` para verificar que el SDK recibió el enlace.
+1. Habilita el [registro detallado de Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Busca entradas `Opening '<URL>':` para verificar que el SDK recibió el enlace.
 2. Habilita el [modo de prueba de Branch](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking). Comprueba el dashboard de Branch para ver los eventos de clics en los enlaces.
 3. Si Braze registra el enlace, pero Branch no detecta un clic, es probable que el problema esté en la lógica de enrutamiento del `BrazeDelegate`.
 
@@ -203,7 +203,7 @@ Prueba el enlace de Branch fuera de Braze para aislar el problema:
 
 ### Usa el registro detallado {#use-verbose-logging}
 
-[Habilita el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) para ver exactamente cómo el SDK procesa los enlaces. Entradas clave que debes buscar:
+[Habilita el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) para ver exactamente cómo el SDK procesa los enlaces. Entradas clave que debes buscar:
 
 | Entrada de registro | Qué significa |
 |---|---|
@@ -214,7 +214,7 @@ Prueba el enlace de Branch fuera de Braze para aislar el problema:
 | `isUniversalLink: true` | El SDK identificó la URL como un enlace universal |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Usa el registro detallado" }
 
-Para más detalles sobre cómo leer estos registros, consulta [Lectura de registros detallados]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/).
+Para más detalles sobre cómo leer estos registros, consulta [Lectura de registros detallados]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging).
 
 ### Prueba los enlaces de forma aislada {#test-links-in-isolation}
 

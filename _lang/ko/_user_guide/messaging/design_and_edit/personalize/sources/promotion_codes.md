@@ -50,9 +50,9 @@ Braze가 프로모션 코드가 포함된 메시지를 발송할 때, 메시지�
 
 다음 단계를 찾고 계신가요? 여기서 시작하세요:
 
-- [프로모션 코드 목록 생성]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/)
-- [프로모션 코드 사용]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#using-promotion-codes)
-- [프로모션 코드 사용량 확인]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#viewing-promotion-code-usage)
+- [프로모션 코드 목록 생성]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create)
+- [프로모션 코드 사용]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes)
+- [프로모션 코드 사용량 확인]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#viewing-promotion-code-usage)
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
@@ -87,7 +87,7 @@ Braze가 프로모션 코드가 포함된 메시지를 발송할 때, 메시지�
 - **전체 목록 폐기:** 현재 목록을 모든 Campaigns, Canvases 또는 템플릿에서 사용 중지합니다. 그런 다음 올바른 코드를 새 목록에 업로드하고 모든 메시지가 새 목록을 사용하도록 전환합니다.
 - **잘못된 코드 소진:** 잘못된 목록의 코드를 플레이스홀더 사용자에게 발송하는 Campaign을 생성하여 잘못된 코드가 모두 사용될 때까지 실행합니다. 그 후, 잘못된 코드를 제외하고 올바른 코드를 동일한 목록에 다시 업로드합니다.
 
-목록 업데이트에 대한 일반적인 안내는 [프로모션 코드 목록 업데이트]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/#updating-a-promotion-code-list)를 참조하세요.
+목록 업데이트에 대한 일반적인 안내는 [프로모션 코드 목록 업데이트]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create#updating-a-promotion-code-list)를 참조하세요.
 
 ### Braze는 어떤 사용자가 어떤 프로모션 코드를 받았거나 사용했는지 추적하나요? {#does-braze-track-which-users-received-or-redeemed-which-promotion-codes}
 
@@ -95,9 +95,9 @@ Braze가 프로모션 코드가 포함된 메시지를 발송할 때, 메시지�
 
 코드를 사용자와 연결하거나 사용 여부를 직접 추적해야 하는 경우 다음 방법을 사용할 수 있습니다:
 
-- 사용자 업데이트 단계를 통해 프로모션 코드를 고객 프로필에 저장합니다. 자세한 내용은 [고객 프로필에 프로모션 코드 저장]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#save-to-profile)을 참조하세요.
-- `message_extras` Liquid 태그를 사용하여 프로모션 코드 값을 Currents로 전송합니다. 자세한 내용은 [프로모션 코드 정보를 Currents로 전송]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/#sending-promotion-code-information-to-currents)을 참조하세요.
+- 사용자 업데이트 단계를 통해 프로모션 코드를 고객 프로필에 저장합니다. 자세한 내용은 [고객 프로필에 프로모션 코드 저장]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#save-to-profile)을 참조하세요.
+- `message_extras` Liquid 태그를 사용하여 프로모션 코드 값을 Currents로 전송합니다. 자세한 내용은 [프로모션 코드 정보를 Currents로 전송]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras#sending-promotion-code-information-to-currents)을 참조하세요.
 
 ### 향후 메시지를 위해 프로모션 코드를 고객 프로필에 저장할 수 있나요? {#can-i-save-a-promotion-code-to-a-users-profile-for-future-messages}
 
-네. 사용자 업데이트 단계를 통해 프로모션 코드를 고객 프로필에 저장할 수 있습니다. 자세한 내용은 [고객 프로필에 프로모션 코드 저장]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#save-to-profile)을 참조하세요.
+네. 사용자 업데이트 단계를 통해 프로모션 코드를 고객 프로필에 저장할 수 있습니다. 자세한 내용은 [고객 프로필에 프로모션 코드 저장]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#save-to-profile)을 참조하세요.

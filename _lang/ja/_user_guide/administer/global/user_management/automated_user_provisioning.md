@@ -23,11 +23,11 @@ alias: /scim/automated_user_provisioning/
 3. **IdP設定**ステップで、選択したプロビジョニング方法に対応するプラットフォーム内のステップに従ってください。
 
 {% tabs %}
-{% tab Okta - Braze app %}
+{% tab Okta - Brazeアプリ %}
 
-{% multi_lang_include early_access_beta_alert.md feature='The Okta integration' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-OktaでBrazeアプリをSAML SSO用に設定した場合は、**Okta - Brazeアプリ**オプションを使用します。SSO用のカスタムアプリを設定した場合は、[Okta - カスタムアプリ統合]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning)タブの手順に従ってください。
+OktaでBrazeアプリをSAML SSO用に設定した場合は、**Okta - Brazeアプリ**オプションを使用します。SSO用のカスタムアプリを設定した場合は、[Okta - カスタムアプリ統合]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning)タブの手順に従ってください。
 
 ## ステップ1:SCIMプロビジョニングを設定する {#step-1-set-up-scim-provisioning}
 
@@ -74,11 +74,11 @@ OktaでBrazeアプリをSAML SSO用に設定した場合は、**Okta - Brazeア�
 4. 割り当てが完了したら**Done**を選択します。
 
 {% endtab %}
-{% tab Okta - Custom app integration %}
+{% tab Okta - カスタムアプリ統合 %}
 
-{% multi_lang_include early_access_beta_alert.md feature='The Okta integration' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-SSO用のカスタムアプリを設定した場合は、**Okta - カスタムアプリ統合**オプションを使用します。OktaでBrazeアプリをSAML SSO用に設定した場合は、[Okta - Brazeアプリ]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning)タブの手順に従ってください。
+SSO用のカスタムアプリを設定した場合は、**Okta - カスタムアプリ統合**オプションを使用します。OktaでBrazeアプリをSAML SSO用に設定した場合は、[Okta - Brazeアプリ]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning)タブの手順に従ってください。
 
 ## ステップ1:SCIMプロビジョニングを設定する
 
@@ -116,7 +116,7 @@ SSO用のカスタムアプリを設定した場合は、**Okta - カスタム�
 {% endtab %}
 {% tab Entra ID %}
 
-{% multi_lang_include early_access_beta_alert.md feature='The Entra ID integration' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The Entra ID integration' %}
 
 ## ステップ1:SCIMプロビジョニングアプリを設定する {#step-1-set-up-scim-provisioning-app}
 

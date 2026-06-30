@@ -146,7 +146,7 @@ In-App Message
 Feature Flags
 {% endapitags %}
 
-Die Performance der Nachricht über verschiedene Kanäle hinweg. Die angezeigten Metriken hängen vom ausgewählten Messaging-Kanal ab und davon, ob das [Feature-Flag-Experiment]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments/#campaign-analytics) ein multivariater Test ist.
+Die Performance der Nachricht über verschiedene Kanäle hinweg. Die angezeigten Metriken hängen vom ausgewählten Messaging-Kanal ab und davon, ob das [Feature-Flag-Experiment]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments#campaign-analytics) ein multivariater Test ist.
 
 {% endapi %}
 
@@ -293,7 +293,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 | Kanal | Zusätzliche Informationen |
 |-------|-----------------------|
-| In-App-Nachrichten | Die Metrik der täglichen <i>eindeutigen Impressionen</i> wird zur Berechnung der <i>Konversionsrate</i> für In-App-Nachrichten verwendet.<br><br><i>Eindeutige Impressionen</i> für In-App-Nachrichten können nur einmal pro Kalendertag in der Zeitzone Ihres Workspace gezählt werden. Die Anzahl der Male, die Nutzer:innen eine gewünschte Aktion ausführen (eine „Conversion“), kann innerhalb desselben Kalendertags steigen. Während Conversions mehr als einmal pro Tag stattfinden können, können <i>eindeutige Impressionen</i> das nicht. Wenn Nutzer:innen daher eine Conversion innerhalb eines Tages mehrfach ausführen, kann die <i>Konversionsrate</i> entsprechend steigen, aber <i>eindeutige Impressionen</i> werden für diesen Kalendertag nur einmal gezählt. Weitere Details finden Sie unter <a href="/docs/user_guide/channels/in_app_messages/reporting/">In-App-Nachrichten-Reporting</a>. |
+| In-App-Nachrichten | Die Metrik der täglichen <i>eindeutigen Impressionen</i> wird zur Berechnung der <i>Konversionsrate</i> für In-App-Nachrichten verwendet.<br><br><i>Eindeutige Impressionen</i> für In-App-Nachrichten können nur einmal pro Kalendertag in der Zeitzone Ihres Workspace gezählt werden. Die Anzahl der Male, die Nutzer:innen eine gewünschte Aktion ausführen (eine „Conversion“), kann innerhalb desselben Kalendertags steigen. Während Conversions mehr als einmal pro Tag stattfinden können, können <i>eindeutige Impressionen</i> das nicht. Wenn Nutzer:innen daher eine Conversion innerhalb eines Tages mehrfach ausführen, kann die <i>Konversionsrate</i> entsprechend steigen, aber <i>eindeutige Impressionen</i> werden für diesen Kalendertag nur einmal gezählt. Weitere Details finden Sie unter <a href="/docs/user_guide/channels/in_app_messages/reporting">In-App-Nachrichten-Reporting</a>. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Konversionsrate" }
 
 {::nomarkdown}
@@ -483,7 +483,7 @@ Email
 
 {% multi_lang_include analytics/metrics.md metric='Hard Bounce' %}
 
-Wenn dies auftritt, markiert Braze die E-Mail-Adresse als ungültig, aktualisiert aber nicht den [Abo-Status]({{site.baseurl}}/user_guide/channels/email/subscriptions/) der Nutzer:innen. Wenn eine E-Mail einen Hard Bounce erhält, stoppt Braze alle zukünftigen Anfragen an diese E-Mail-Adresse.
+Wenn dies auftritt, markiert Braze die E-Mail-Adresse als ungültig, aktualisiert aber nicht den [Abo-Status]({{site.baseurl}}/user_guide/channels/email/subscriptions) der Nutzer:innen. Wenn eine E-Mail einen Hard Bounce erhält, stoppt Braze alle zukünftigen Anfragen an diese E-Mail-Adresse.
 
 {% endapi %}
 
@@ -768,7 +768,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 {% multi_lang_include analytics/metrics.md metric='Sends' %} Diese Metrik wird von Braze bereitgestellt. Beachten Sie, dass beim Start einer geplanten Campaign diese Metrik alle gesendeten Nachrichten umfasst, unabhängig davon, ob sie aufgrund von Rate-Limiting bereits versendet wurden oder nicht.
 
 {% alert tip %}
-Für Content Cards wird diese Metrik je nach Ihrer Auswahl für die [Card-Erstellung]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/) unterschiedlich berechnet:
+Für Content Cards wird diese Metrik je nach Ihrer Auswahl für die [Card-Erstellung]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation) unterschiedlich berechnet:
 
 - **Beim Start oder Schritteintritt:** Die Anzahl der erstellten und verfügbaren Cards. Dies zählt nicht, ob die Nutzer:innen die Card angesehen haben.
 - **Bei der ersten Impression:** Die Anzahl der den Nutzer:innen angezeigten Cards.
@@ -789,7 +789,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 {% multi_lang_include analytics/metrics.md metric='Messages Sent' %}  Diese Metrik wird von Braze bereitgestellt. Beachten Sie, dass beim Start einer geplanten Campaign diese Metrik alle gesendeten Nachrichten umfasst, unabhängig davon, ob sie aufgrund von Rate-Limiting bereits versendet wurden oder nicht.
 
 {% alert tip %}
-Für Content Cards wird diese Metrik je nach Ihrer Auswahl für die [Card-Erstellung]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/) unterschiedlich berechnet:
+Für Content Cards wird diese Metrik je nach Ihrer Auswahl für die [Card-Erstellung]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation) unterschiedlich berechnet:
 
 - **Beim Start oder Schritteintritt:** Die Anzahl der erstellten und verfügbaren Cards. Dies zählt nicht, ob die Nutzer:innen die Card angesehen haben.
 - **Bei der ersten Impression:** Die Anzahl der den Nutzer:innen angezeigten Cards.
@@ -833,7 +833,7 @@ Email
 
 Beachten Sie, dass sich _Soft Bounces_ von _Deferrals_ unterscheiden. Wenn während dieses Wiederholungszeitraums keine E-Mail erfolgreich zugestellt wird, sendet Braze ein Soft-Bounce-Event pro versuchtem Campaign-Versand. Vor dem 25. Februar 2025 wurden diese Wiederholungsversuche als mehrere Soft Bounces für einen Campaign-Versand gezählt.
 
-Obwohl Soft Bounces nicht in Ihren Campaign-Analytics getrackt werden, können Sie die Soft Bounces im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) überwachen. Sie können diese Nutzer:innen auch von Ihrem Versand ausschließen oder die Anzahl der Soft Bounces der letzten 30 Tage mit dem [Soft-Bounced-Segmentfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced) einsehen. Im Nachrichten-Aktivitätsprotokoll können Sie auch den Grund für die Soft Bounces sehen und mögliche Abweichungen zwischen den „Sends“ und „Zustellungen“ für Ihre E-Mail-Campaigns nachvollziehen.
+Obwohl Soft Bounces nicht in Ihren Campaign-Analytics getrackt werden, können Sie die Soft Bounces im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) überwachen. Sie können diese Nutzer:innen auch von Ihrem Versand ausschließen oder die Anzahl der Soft Bounces der letzten 30 Tage mit dem [Soft-Bounced-Segmentfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced) einsehen. Im Nachrichten-Aktivitätsprotokoll können Sie auch den Grund für die Soft Bounces sehen und mögliche Abweichungen zwischen den „Sends“ und „Zustellungen“ für Ihre E-Mail-Campaigns nachvollziehen.
 
 {% endapi %}
 
@@ -951,7 +951,7 @@ In-App Message, Content Cards
 | Kanal | Zusätzliche Informationen |
 |-------|-----------------------|
 | Content Cards | Die Gesamtzahl der für eine bestimmte Content Card protokollierten Impressionen. Diese kann für dieselben Nutzer:innen mehrfach erhöht werden. |
-| In-App-Nachrichten | Wenn es mehrere Geräte gibt und die erneute Berechtigung deaktiviert ist, sollten die Nutzer:innen die In-App-Nachricht nur einmal sehen. Selbst wenn die Nutzer:innen mehrere Geräte verwenden, sehen sie die Nachricht nur auf dem ersten Gerät, das angesprochen wird. Dies setzt voraus, dass das Profil konsolidierte Geräte hat und die Nutzer:innen eine Nutzer-ID haben, mit der sie geräteübergreifend angemeldet sind. Wenn die erneute Berechtigung aktiviert ist, wird eine Impression jedes Mal protokolliert, wenn die Nutzer:innen die In-App-Nachricht sehen. Weitere Details finden Sie unter <a href="/docs/user_guide/channels/in_app_messages/reporting/">In-App-Nachrichten-Reporting</a>. |
+| In-App-Nachrichten | Wenn es mehrere Geräte gibt und die erneute Berechtigung deaktiviert ist, sollten die Nutzer:innen die In-App-Nachricht nur einmal sehen. Selbst wenn die Nutzer:innen mehrere Geräte verwenden, sehen sie die Nachricht nur auf dem ersten Gerät, das angesprochen wird. Dies setzt voraus, dass das Profil konsolidierte Geräte hat und die Nutzer:innen eine Nutzer-ID haben, mit der sie geräteübergreifend angemeldet sind. Wenn die erneute Berechtigung aktiviert ist, wird eine Impression jedes Mal protokolliert, wenn die Nutzer:innen die In-App-Nachricht sehen. Weitere Details finden Sie unter <a href="/docs/user_guide/channels/in_app_messages/reporting">In-App-Nachrichten-Reporting</a>. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Impressionen insgesamt" }
 
 <span class="calculation-line">Berechnung: Anzahl</span>
@@ -1075,7 +1075,7 @@ In-App Message, Content Cards
 
 | Kanal | Zusätzliche Informationen |
 |-------|-----------------------|
-| In-App-Nachrichten | Eindeutige Impressionen können an einem neuen Kalendertag in der Zeitzone Ihres Workspace erneut erhöht werden, wenn die erneute Berechtigung aktiviert ist und die Nutzer:innen die Aktion ausführen. Wenn die erneute Berechtigung aktiviert ist, gilt <i>Eindeutige Impressionen</i> = <i>Eindeutige Empfänger:innen</i>. Weitere Details finden Sie unter <a href="/docs/user_guide/channels/in_app_messages/reporting/">In-App-Nachrichten-Reporting</a>. |
+| In-App-Nachrichten | Eindeutige Impressionen können an einem neuen Kalendertag in der Zeitzone Ihres Workspace erneut erhöht werden, wenn die erneute Berechtigung aktiviert ist und die Nutzer:innen die Aktion ausführen. Wenn die erneute Berechtigung aktiviert ist, gilt <i>Eindeutige Impressionen</i> = <i>Eindeutige Empfänger:innen</i>. Weitere Details finden Sie unter <a href="/docs/user_guide/channels/in_app_messages/reporting">In-App-Nachrichten-Reporting</a>. |
 | Content Cards | Die Zählung sollte sich nicht erhöhen, wenn Nutzer:innen eine Card ein zweites Mal ansehen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Eindeutige Impressionen" }
 

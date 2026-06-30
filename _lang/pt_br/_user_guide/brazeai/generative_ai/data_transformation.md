@@ -16,4 +16,4 @@ description: "Este artigo de referência aborda como gerar código de Transforma
 
 {% multi_lang_include brazeai/generative_ai/access_data_transformation.md %}
 
-Para saber mais, incluindo exemplos de prompts, consulte [Gerar código de transformação de dados nas capacidades do Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-data-transformation-code).
+Para saber mais, incluindo exemplos de prompts, consulte [Gerar código de transformação de dados nas capacidades do Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code).

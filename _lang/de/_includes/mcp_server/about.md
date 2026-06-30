@@ -2,14 +2,10 @@
 
 > Erfahren Sie mehr über den Braze MCP-Server, eine sichere Verbindung, über die KI-Tools wie Claude und Cursor auf nicht PII-bezogene Braze-Daten zugreifen können, um Fragen zu beantworten, Trends zu analysieren und Insights zu gewinnen.
 
-{% multi_lang_include mcp_server/beta_alert.md %}
-
 {% alert important %}
-## Sunsetting des lokal gehosteten Braze MCP-Servers {#sunsetting-the-locally-hosted-braze-mcp-server}
+In diesem Sommer wird Braze einen remote, von Braze gehosteten MCP-Server im Early Access veröffentlichen. Er ersetzt den lokal gehosteten Beta-Server (`braze-mcp-server` auf [PyPI](https://pypi.org/project/braze-mcp-server/) und im Claude Desktop-Erweiterungsverzeichnis).<br><br>
 
-In diesem Sommer wird Braze einen remote, von Braze gehosteten MCP-Server im Early Access veröffentlichen. Er ersetzt den lokal gehosteten Beta-Server (`braze-mcp-server` auf [PyPI](https://pypi.org/project/braze-mcp-server/) und im Claude Desktop-Erweiterungsverzeichnis).
-
-**Was das für Sie bedeutet:**
+**Was das für Sie bedeutet:**<br><br>
 
 - Der lokal gehostete Server funktioniert weiterhin, wird aber nicht mehr unterstützt. Wir werden keine neuen Endpunkte hinzufügen oder Probleme in der Beta beheben.
 - Sobald der Remote-Server im Early Access verfügbar ist, müssen Sie zu diesem wechseln. Der Remote-Server erfordert keine lokale Installation, verwendet OAuth anstelle statischer API-Schlüssel und funktioniert mit MCP-Clients wie Claude, Copilot, Gemini CLI, Codex und Cursor.
@@ -87,10 +83,10 @@ Der derzeit verfügbare Braze MCP-Server wird lokal gehostet. Ein remote, von Br
 
 Überprüfen Sie, ob Sie sich im Abfrage-Modus oder im Agenten-Modus befinden. Um den MCP-Server nutzen zu können, müssen Sie sich im Agenten-Modus befinden.
 
-### Was soll ich tun, wenn der Agent eine Antwort zurückgibt, die mir unkorrekt erscheint? {#what-do-i-do-when-the-agent-returns-an-answer-that-looks-incorrect}
+### Was soll ich tun, wenn der Agent eine Antwort zurückgibt, die mir inkorrekt erscheint? {#what-do-i-do-when-the-agent-returns-an-answer-that-looks-incorrect}
 
 Bei der Arbeit mit Tools wie Cursor empfiehlt es sich, das verwendete Modell zu ändern. Wenn Sie beispielsweise die automatische Einstellung verwenden, versuchen Sie, auf ein bestimmtes Modell umzustellen, und experimentieren Sie, um herauszufinden, welches Modell die beste Performance für Ihren Anwendungsfall bietet. Sie können auch versuchen, einen neuen Chat zu starten und den Prompt erneut auszuführen.
 
-Sollten die Probleme weiterhin bestehen, senden Sie uns bitte eine E-Mail an [mcp-product@braze.com](mailto:mcp-product@braze.com), um uns darüber zu informieren. Wenn möglich, fügen Sie bitte ein Video hinzu und erweitern Sie die Aufruffunktionen, damit wir sehen können, welche Aufrufe der Agent getätigt hat.
+Sollten die Probleme weiterhin bestehen, senden Sie uns bitte eine E-Mail an [mcp-product@braze.com](mailto:mcp-product@braze.com), um uns darüber zu informieren. Wenn möglich, fügen Sie bitte ein Video hinzu und erweitern Sie die Aufruffunktionen, damit wir sehen können, welche Aufrufe der Agent versucht hat.
 
 {% multi_lang_include mcp_server/legal_disclaimer.md %}

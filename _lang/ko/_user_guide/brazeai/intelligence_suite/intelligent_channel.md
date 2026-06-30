@@ -2,11 +2,11 @@
 nav_title: 채널 필터
 article_title: 인텔리전트 채널 필터
 page_order: 1.5
-description: "이 문서는 인텔리전트 채널 필터에 대해 다루고 있으며, 선택된 메시징 채널이 가장 적합한 채널인 오디언스의 일부를 선택하는 필터입니다. 이 경우, 최선은 사용자의 기록을 고려할 때 참여 가능성이 가장 높은 것을 의미합니다."
+description: "이 문서는 인텔리전트 채널 필터에 대해 다루고 있으며, 선택된 메시징 채널이 가장 적합한 채널인 오디언스의 일부를 선택하는 필터입니다. 이 경우, 최적이란 사용자의 기록을 고려할 때 참여 가능성이 가장 높은 것을 의미합니다."
 search_rank: 11
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/most-engaged-channel){: style="float:right;width:120px;border:0;" class="noimgborder"}인텔리전트 채널 필터 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecommost-engaged-channel-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-channel-filter}
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/most-engaged-channel){: style="float:right;width:120px;border:0;" class="noimgborder"}인텔리전트 채널 필터 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecommost-engaged-channel-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-channel-filter}
 
 > `Intelligent Channel` 필터(이전 명칭 `Most Engaged`)는 선택된 메시징 채널이 "최적" 채널인 오디언스의 일부를 선택합니다.
 
@@ -14,7 +14,7 @@ search_rank: 11
 
 ![선택할 수 있는 다양한 채널에 대한 드롭다운이 있는 인텔리전트 채널 필터.]({% image_buster /assets/img/intelligent_channel_filter.png %}){: style="float:right;max-width:40%;margin-left:10px;margin-top:10px;border:0"}
 
-이 경우, 최선은 사용자의 기록을 고려할 때 참여 가능성이 가장 높은 채널을 의미합니다. 이메일, SMS, WhatsApp, 웹 푸시 또는 모바일 푸시(사용 가능한 모든 모바일 OS 또는 기기 포함)를 채널로 선택할 수 있습니다.
+이 경우, 최적이란 사용자의 기록을 고려할 때 참여 가능성이 가장 높은 채널을 의미합니다. 이메일, SMS, WhatsApp, 웹 푸시 또는 모바일 푸시(사용 가능한 모든 모바일 OS 또는 기기 포함)를 채널로 선택할 수 있습니다.
 
 인텔리전트 채널은 지난 6개월 동안의 활동에서 수신한 메시지 수 대비 메시지 상호작용(열기 또는 클릭)의 비율을 계산하여 각 사용자의 각 사용 가능한 채널에 대한 참여율을 산출합니다. 사용 가능한 채널은 각각의 참여 비율에 따라 순위가 매겨지며, 가장 높은 비율을 가진 채널이 해당 사용자의 "가장 많이 참여한 채널"이 됩니다.
 
@@ -23,7 +23,7 @@ search_rank: 11
 인텔리전트 채널 필터를 활성화하려면 이메일, 웹 푸시 또는 모바일 푸시 Campaign을 생성할 때 **타겟 오디언스** 페이지에서 **Intelligent Channel** 필터를 선택합니다.
 
 {% alert important %}
-SMS 채널의 참여율을 계산하려면 고급 추적 및 클릭 추적과 함께 [SMS 링크 단축]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening#overview/)을 켜세요. 이 추적이 없으면 [동점자 결정 동작]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/#tie-breaking)으로 인해 SMS가 0% 참여율로 인텔리전트 채널로 선택될 수 있습니다.
+SMS 채널의 참여율을 계산하려면 고급 추적 및 클릭 추적과 함께 [SMS 링크 단축]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening#overview)을 켜세요. 이 추적이 없으면 [동점자 결정 동작]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking)으로 인해 SMS가 0% 참여율로 인텔리전트 채널로 선택될 수 있습니다.
 {% endalert %}
 
 ## "데이터가 충분하지 않음" 옵션 {#the-not-enough-data-option}
@@ -37,7 +37,7 @@ Braze가 어떤 채널이 "최적"인지 결정하려면 충분한 데이터가 
 ![모바일 푸시 또는 데이터 부족에 대한 인텔리전트 채널 필터.]({% image_buster /assets/img/intelligent_example.png %}){:style="border:none"}
 
 {% alert note %}
-[최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-rules)을 무시하는 Campaigns 및 캔버스 단계는 인텔리전트 채널에 의해 고려되지 않으며 데이터 요구 사항에 기여할 수 없습니다.
+[최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-rules)을 무시하는 Campaigns 및 캔버스 단계는 인텔리전트 채널에 의해 고려되지 않으며 데이터 요구 사항에 기여할 수 없습니다.
 {% endalert %}
 
 ## "모바일 푸시" 옵션 {#the-mobile-push-option}
@@ -48,7 +48,7 @@ Braze가 어떤 채널이 "최적"인지 결정하려면 충분한 데이터가 
 
 ## 개별 채널에 대한 메시지 열기 가능성 필터 {#individual-channels}
 
-Braze가 사용자에게 가장 적합한 단일 채널을 선택하도록 하는 대신, ["메시지 열기 가능성" 세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#message-open-likelihood)를 사용하여 선택한 특정 채널에서 메시지를 열 가능성이 있는지 여부에 따라 사용자를 필터링할 수 있습니다. 이 필터는 채널당 마지막 100개의 수신 메시지 대비 상호작용 비율로 계산됩니다.
+Braze가 사용자에게 가장 적합한 단일 채널을 선택하도록 하는 대신, ["메시지 열기 가능성" 세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#message-open-likelihood)를 사용하여 선택한 특정 채널에서 메시지를 열 가능성이 있는지 여부에 따라 사용자를 필터링할 수 있습니다. 이 필터는 채널당 마지막 100개의 수신 메시지 대비 상호작용 비율로 계산됩니다.
 
 특정 채널에 대한 가능성 점수를 받으려면 사용자가 해당 채널에서 최소 세 개의 메시지를 수신해야 합니다. 채널의 가능성을 측정할 충분한 데이터가 없는 사용자는 "비어 있음"을 사용하여 선택할 수 있습니다.
 

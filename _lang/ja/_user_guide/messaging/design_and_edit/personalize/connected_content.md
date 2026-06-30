@@ -22,7 +22,7 @@ guide_featured_list:
 - name: コネクテッドコンテンツの中止
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content
   image: /assets/img/braze_icons/stop-circle.svg
-- name: ユーザープロファイルデータを取得する
+- name: ユーザープロファイルデータの取得
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/user_profile_fields_connected_content
   image: /assets/img/braze_icons/users-01.svg
 - name: コネクテッドコンテンツのリトライ

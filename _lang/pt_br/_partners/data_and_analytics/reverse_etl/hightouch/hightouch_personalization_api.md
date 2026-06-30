@@ -10,13 +10,13 @@ search_tag: Partner
 
 > A [API de Personalização](https://hightouch.com/docs/destinations/personalization-api) da Hightouch é um serviço gerenciado que permite hospedar uma API de dados de baixa latência baseada em qualquer conjunto de dados no seu data warehouse na nuvem.
 
-![]({% image_buster /assets/img/hightouch/cohort7.png %})
+![Diagrama de arquitetura da API de Personalização Hightouch mostrando o fluxo de dados de um data warehouse através da Hightouch para apps móveis, experiências web e e-mails dinâmicos.]({% image_buster /assets/img/hightouch/cohort7.png %})
 
-A integração da Braze com a Hightouch permite que você use a API com o [Conteúdo conectado da Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) para obter dados atualizados de clientes ou objetos em suas Campaigns ou Canvas no momento do envio.
+A integração da Braze com a Hightouch permite que você use a API com o [Conteúdo conectado da Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) para obter dados atualizados de clientes ou objetos em suas Campaigns ou Canvas no momento do envio.
 
 A API de Personalização da Hightouch fornece um endpoint REST para usar na sua configuração da Braze. Especificamente, você pode usar a oferta de Conteúdo conectado da Braze para fazer uma solicitação GET à API de Personalização e recuperar todas as informações relacionadas a um identificador específico. Os dados expostos por essa API podem representar dados de clientes, produtos ou qualquer outro objeto.
 
-![]({% image_buster /assets/img/hightouch/cohort6.png %})
+![Diagrama mostrando dados do Snowflake, BigQuery e Redshift fluindo pela API de Personalização Hightouch para o Conteúdo conectado da Braze.]({% image_buster /assets/img/hightouch/cohort6.png %})
 
 ## Pré-requisitos {#prerequisites}
 
@@ -26,7 +26,7 @@ A API de Personalização da Hightouch fornece um endpoint REST para usar na sua
 | Casos de uso definidos | Antes de configurar a API, determine seu caso de uso para essa integração. Consulte a lista a seguir para ver os casos de uso comuns. |
 | Dados armazenados em um data warehouse na nuvem ou outra fonte | A Hightouch tem integração com [mais de 25 fontes de dados](https://hightouch.com/integrations) |
 | Chave de API Hightouch | Pode ser criada em **Hightouch > Settings > API keys > Add API key**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 {% tabs %}
 {% tab Casos de uso %}
@@ -67,7 +67,7 @@ Para mais detalhes, consulte a [documentação](https://hightouch.com/docs) rele
 
 Os modelos da Hightouch definem quais dados extrair da sua fonte. Para configurar um novo modelo, siga estas etapas:
 
-1. Na Hightouch, acesse [**Models overview**](https://app.hightouch.com/models) > **Add model** e selecione a fonte que você acabou de conectar.<br><br>
+1. Na Hightouch, acesse [**Models overview**](https://app.hightouch.com/models) > **Add model** e selecione a fonte que você acabou de conectar. <br><br>
 2. Em seguida, escolha um [método de modelagem](https://hightouch.com/docs/models/creating-models). Como todas as suas informações devem ser reunidas em uma única tabela, você pode usar o seletor de tabela visual para defini-la. Alternativamente, você pode escrever SQL para incluir apenas as colunas que deseja ou utilizar seus modelos dbt existentes, Looker Looks ou workbooks da Sigma.<br><br>
 3. Antes de continuar, visualize seu modelo para confirmar se ele está consultando os dados de seu interesse. Por padrão, a Braze limita a pré-visualização aos primeiros 100 registros. Depois de validar seus dados, clique em **Continue**.<br><br>
 4. Dê um nome ao seu modelo, por exemplo, "Recomendações do usuário".<br><br>
@@ -124,7 +124,7 @@ Para a carga útil de exemplo abaixo:
 ```json
 {
     "user_id": 12345,
-    "full_name": "Jane Doe",
+    "full_name": "Alex Smith",
     "lifetime_value": 1492.18,
     "churn_risk": 0.04,
     "90_day_summary": {
@@ -155,7 +155,7 @@ Para a carga útil de exemplo abaixo:
         ],
         "upcoming_album_release": {
             "title": "Universal Language",
-            "artist": "Simon Doty",
+            "artist": "Alex Lee",
             "label": "Anjunadeep",
             "release_date": "2023-04-28"
         }
@@ -170,7 +170,7 @@ As seguintes referências Liquid retornariam estes dados de exemplo:
 | {% raw %}`{{artists.recommendations.concerts[0].artist}}`{% endraw %} | Aphex Twin |
 | {% raw %}`{{artists.recommendations.concerts[0].location}}`{% endraw %} | San Francisco, CA |
 | {% raw %}`{{artists.recommendations.upcoming_album_release.title}}`{% endraw %} | Universal Language |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 4: Chamar a API de Personalização por meio do Conteúdo conectado da Braze" }
 
 ## Solução de problemas {#troubleshooting}
 

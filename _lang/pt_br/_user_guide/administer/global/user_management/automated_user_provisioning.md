@@ -25,9 +25,9 @@ alias: /scim/automated_user_provisioning/
 {% tabs %}
 {% tab Okta - Braze app %}
 
-{% multi_lang_include early_access_beta_alert.md feature='The Okta integration' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-Use a opção **Okta - Braze app** se você configurou o app da Braze para SAML SSO no Okta. Se você configurou um app personalizado para SSO, siga as instruções na guia [Okta - Custom app integration]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning).
+Use a opção **Okta - Braze app** se você configurou o app da Braze para SAML SSO no Okta. Se você configurou um app personalizado para SSO, siga as instruções na guia [Okta - Custom app integration]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning).
 
 ## Etapa 1: Configurar o provisionamento SCIM {#step-1-set-up-scim-provisioning}
 
@@ -76,9 +76,9 @@ Selecione **Test API Credentials**. Uma mensagem de verificação será exibida 
 {% endtab %}
 {% tab Okta - Custom app integration %}
 
-{% multi_lang_include early_access_beta_alert.md feature='The Okta integration' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-Use a opção **Okta - Custom app integration** se você configurou um app personalizado para SSO. Se você configurou o app da Braze para SAML SSO no Okta, siga as instruções na guia [Okta - Braze app]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning).
+Use a opção **Okta - Custom app integration** se você configurou um app personalizado para SSO. Se você configurou o app da Braze para SAML SSO no Okta, siga as instruções na guia [Okta - Braze app]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning).
 
 ## Etapa 1: Configurar o provisionamento SCIM
 
@@ -116,7 +116,7 @@ Use a opção **Okta - Custom app integration** se você configurou um app perso
 {% endtab %}
 {% tab Entra ID %}
 
-{% multi_lang_include early_access_beta_alert.md feature='The Entra ID integration' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The Entra ID integration' %}
 
 ## Etapa 1: Configurar o app de provisionamento SCIM {#step-1-set-up-scim-provisioning-app}
 

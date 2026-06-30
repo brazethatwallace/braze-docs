@@ -20,7 +20,7 @@ Vous pouvez envoyer jusqu'à 50 objets de renommage par requête.
 
 Cet endpoint définit un nouvel `external_id` (principal) pour l'utilisateur et rend son `external_id` existant obsolète. Cela signifie que l'utilisateur peut être identifié par l'un ou l'autre des `external_id` jusqu'à ce que celui qui est obsolète soit supprimé. Le fait de disposer de plusieurs ID externes permet de prévoir une période de migration, de sorte que les versions antérieures de vos applications qui utilisent l'ancien schéma de dénomination des ID externes ne soient pas interrompues.
 
-Une fois que votre ancien schéma de nommage n'est plus utilisé, nous vous recommandons vivement de supprimer les ID externes obsolètes à l'aide de l'[endpoint `/users/external_ids/remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove/).
+Une fois que votre ancien schéma de nommage n'est plus utilisé, nous vous recommandons vivement de supprimer les ID externes obsolètes à l'aide de l'[endpoint `/users/external_ids/remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove).
 
 {% alert warning %}
 Assurez-vous de supprimer les ID externes obsolètes à l'aide de l'endpoint `/users/external_ids/remove` plutôt que `/users/delete`. L'envoi d'une requête à `/users/delete` avec l'ID externe obsolète supprime entièrement le profil utilisateur et cette action ne peut pas être annulée.
@@ -30,7 +30,7 @@ Assurez-vous de supprimer les ID externes obsolètes à l'aide de l'endpoint `/u
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key/) avec l'autorisation `users.external_ids.rename`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `users.external_ids.rename`.
 
 ## Limite de débit {#rate-limit}
 

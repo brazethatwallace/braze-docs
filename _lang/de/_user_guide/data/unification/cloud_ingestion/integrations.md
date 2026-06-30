@@ -65,7 +65,7 @@ Wenn Braze eine Verbindung zu Classic- und Pro SQL-Instanzen herstellt, kann es 
 
 ### 1. Schritt: Tabellen oder Ansichten einrichten {#step-1-set-up-tables-or-views}
 
-Bevor Sie beginnen, lesen Sie [Tabelleneinrichtung für Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/), um die Anforderungen an Quelltabellen im Vergleich zu den Formatierungsanforderungen für `PAYLOAD` zu verstehen.
+Bevor Sie beginnen, lesen Sie [Tabelleneinrichtung für Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup), um die Anforderungen an Quelltabellen im Vergleich zu den Formatierungsanforderungen für `PAYLOAD` zu verstehen.
 
 {% alert note %}
 Ihre Quelltabelle oder Ansicht kann Spalten enthalten, die nicht für Ihr Warehouse in den folgenden Tabs aufgeführt sind (z. B. für Auditing oder Hashing). Braze liest nur die in diesen Tabs beschriebenen Spalten; andere Spalten werden bei Cloud-Datenaufnahme-Synchronisierungen nicht verwendet.
@@ -148,7 +148,7 @@ Wenn Sie verschiedene Workspaces mit demselben Snowflake-Konto verbinden, müsse
 
 Je nach Konfiguration Ihres Snowflake-Kontos müssen Sie möglicherweise die folgenden IP-Adressen in Ihrer Snowflake-Netzwerkrichtlinie zulassen. Weitere Informationen dazu finden Sie in der entsprechenden Snowflake-Dokumentation zum [Ändern einer Netzwerkrichtlinie](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Redshift %}
@@ -211,7 +211,7 @@ Einige wichtige Hinweise:
 
 Erlauben Sie den Zugriff von den folgenden IPs, die der Region Ihres Braze-Dashboards entsprechen.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab BigQuery %}
@@ -294,7 +294,7 @@ Wenn Sie das Dienstkonto erstellt und die Berechtigungen erteilt haben, erzeugen
 
 Wenn Sie Netzwerkrichtlinien eingerichtet haben, müssen Sie Braze Netzwerkzugriff auf Ihre BigQuery-Instanz gewähren. Erlauben Sie den Zugriff von den folgenden IPs, die der Region Ihres Braze-Dashboards entsprechen.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Databricks %}
@@ -368,7 +368,7 @@ Bewahren Sie das Token an einem sicheren Ort auf, bis Sie es im Braze-Dashboard 
 
 Wenn Sie Netzwerkrichtlinien eingerichtet haben, müssen Sie Braze Netzwerkzugriff auf Ihre Databricks-Instanz gewähren. Erlauben Sie den Zugriff von den folgenden IPs, die der Region Ihres Braze-Dashboards entsprechen.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -457,7 +457,7 @@ Um den SQL-Endpunkt für Ihr Warehouse abzurufen, gehen Sie zum **Workspace** in
 
 Je nach Konfiguration Ihres Microsoft Fabric-Kontos müssen Sie möglicherweise die folgenden IP-Adressen in Ihrer Firewall zulassen, um den Datenverkehr von Braze zuzulassen. Weitere Informationen dazu finden Sie in der entsprechenden Dokumentation zu [Entra Conditional Access](https://learn.microsoft.com/en-us/fabric/security/protect-inbound-traffic#entra-conditional-access).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 

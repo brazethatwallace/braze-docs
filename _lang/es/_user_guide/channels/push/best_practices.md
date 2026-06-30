@@ -77,7 +77,7 @@ Puedes crear una página de configuración en tu aplicación que permita a los u
 
 Cuando la aplicación de noticias quiere crear una Campaign dirigida solo a usuarios interesados en política, añade el filtro de atributo `Subscribes to Politics` al Segment. Cuando se establece como verdadero, solo los usuarios que se suscriban a las notificaciones las recibirán.
 
-Para más información sobre cómo establecer atributos personalizados, consulta los siguientes artículos para [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/#setting-custom-attributes) o [REST API]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-attributes-object-specification).
+Para más información sobre cómo establecer atributos personalizados, consulta los siguientes artículos para [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes#setting-custom-attributes) o [REST API]({{site.baseurl}}/developer_guide/rest_api/user_data#user-attributes-object-specification).
 
 ## Aumenta las adhesiones voluntarias y la relevancia {#increase-opt-ins-and-relevance}
 
@@ -89,11 +89,11 @@ Android 13 y versiones posteriores requieren obtener permiso antes de que se pue
 
 ### Prepara a los usuarios para las notificaciones push {#prime-users-for-push}
 
-Solo tienes una oportunidad de pedir permiso de push a un usuario, y después de que lo rechace, es muy difícil convencerlo de volver a habilitar las notificaciones push en la configuración de su dispositivo. Por esta razón, debes preparar a los usuarios para las notificaciones push usando un mensaje dentro de la aplicación antes de mostrar el aviso del sistema. Consulta [Mensajes dentro de la aplicación de preparación para push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) para obtener más información sobre cómo aumentar las adhesiones voluntarias.
+Solo tienes una oportunidad de pedir permiso de push a un usuario, y después de que lo rechace, es muy difícil convencerlo de volver a habilitar las notificaciones push en la configuración de su dispositivo. Por esta razón, debes preparar a los usuarios para las notificaciones push usando un mensaje dentro de la aplicación antes de mostrar el aviso del sistema. Consulta [Mensajes dentro de la aplicación de preparación para push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) para obtener más información sobre cómo aumentar las adhesiones voluntarias.
 
 ### Añade controles de suscripción push {#add-push-subscription-controls}
 
-Para evitar que los usuarios desactiven las notificaciones a nivel de dispositivo, lo que elimina completamente su token de notificaciones push en primer plano, permite que los usuarios controlen su suscripción push directamente dentro de tu aplicación. Consulta [Actualización de los estados de suscripción push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#update-push-subscription-state) para más detalles.
+Para evitar que los usuarios desactiven las notificaciones a nivel de dispositivo, lo que elimina completamente su token de notificaciones push en primer plano, permite que los usuarios controlen su suscripción push directamente dentro de tu aplicación. Consulta [Actualización de los estados de suscripción push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#update-push-subscription-state) para más detalles.
 
 ### Usa la planificación avanzada o añade retrasos {#use-advanced-scheduling-or-add-delays}
 
@@ -115,20 +115,20 @@ Además, si un perfil de usuario no tiene un token de notificaciones push válid
 
 Incluso cuando envías solo notificaciones push relevantes y oportunas, algunos usuarios pueden seguir sin responder a ellas y considerarlas correo no deseado. Supongamos que un usuario muestra un historial de ignorar repetidamente tus notificaciones push. En ese caso, es buena idea dejar de enviarle notificaciones push antes de que se moleste con las comunicaciones de tu aplicación o la desinstale por completo.
 
-Para hacer esto, crea una [política de desactivación]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/) que eventualmente deje de enviar notificaciones push a los usuarios que no hayan tenido una apertura directa o influenciada durante mucho tiempo.
+Para hacer esto, crea una [política de desactivación]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies) que eventualmente deje de enviar notificaciones push a los usuarios que no hayan tenido una apertura directa o influenciada durante mucho tiempo.
 
 1. Identifica a los usuarios que no responden basándote en las aperturas directas o influenciadas.
 2. Deja de enviar gradualmente notificaciones push a esos usuarios.
 3. Antes de eliminar las notificaciones push por completo, envía una última notificación explicando por qué ya no las recibirán. Esto les da a los usuarios la oportunidad de demostrar su interés en seguir recibiendo notificaciones push abriendo esa notificación.
-4. Después de que la política de desactivación entre en vigor, usa un [mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/) para recordar a estos usuarios que, aunque ya no recibirán notificaciones push, los canales de mensajería dentro de la aplicación seguirán entregando información interesante y útil.
+4. Después de que la política de desactivación entre en vigor, usa un [mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages) para recordar a estos usuarios que, aunque ya no recibirán notificaciones push, los canales de mensajería dentro de la aplicación seguirán entregando información interesante y útil.
 
 Aunque puedas ser reticente a dejar de enviar notificaciones push a usuarios que originalmente optaron por recibirlas, recuerda que otros canales de mensajería pueden llegar a estos usuarios de manera más efectiva, especialmente si han ignorado previamente tus notificaciones push. Si el usuario abre tus correos electrónicos, las campañas de correo electrónico son una buena forma de llegar a ellos fuera de tu aplicación. Si no, los mensajes dentro de la aplicación son la mejor manera de entregar contenido sin arriesgarte a que el usuario desinstale tu aplicación.
 
 ## Establece eventos de conversión para aperturas de la aplicación {#set-conversion-events-for-app-opens}
 
-Al asignar [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) a una Campaign push, puedes rastrear las aperturas de la aplicación durante un cierto período después de que se reciba la Campaign. Establecer un evento de conversión para aperturas de la aplicación proporciona una perspectiva diferente de las estadísticas de resultados que normalmente recibes después de una Campaign push.
+Al asignar [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) a una Campaign push, puedes rastrear las aperturas de la aplicación durante un cierto período después de que se reciba la Campaign. Establecer un evento de conversión para aperturas de la aplicación proporciona una perspectiva diferente de las estadísticas de resultados que normalmente recibes después de una Campaign push.
 
-Mientras que todos los resultados de las Campaigns push desglosan las aperturas directas y las aperturas de un mensaje (que incluyen tanto las aperturas directas como las [aperturas influenciadas]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/)), el seguimiento de conversiones rastreará cualquier tipo de apertura, ya sea directa o influenciada.
+Mientras que todos los resultados de las Campaigns push desglosan las aperturas directas y las aperturas de un mensaje (que incluyen tanto las aperturas directas como las [aperturas influenciadas]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)), el seguimiento de conversiones rastreará cualquier tipo de apertura, ya sea directa o influenciada.
 
 Además, al usar el evento de conversión "abre la aplicación", estás rastreando las aperturas de la aplicación que ocurren antes de esa fecha límite de conversión (por ejemplo, tres días). Esto difiere de una apertura influenciada en que el tiempo que tiene un usuario para registrar una apertura influenciada puede variar de persona a persona, dependiendo del comportamiento de interacción pasado de cada usuario.
 
@@ -154,7 +154,7 @@ Dado que los mensajes push son un tipo de mensajería intrusiva que va directame
 
 ¿No encontraste lo que buscabas? Consulta estos artículos adicionales de buenas prácticas:
 
-- [Formatos de mensajes e imágenes push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/)
-- [Mensajes dentro de la aplicación de preparación para push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)
-- [Capacidad de entrega para dispositivos Android chinos]({{site.baseurl}}/user_guide/channels/push/best_practices/chinese_push_deliverability/)
-- [Lo que debes saber antes de enviar: canales]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send/)
+- [Formatos de mensajes e imágenes push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats)
+- [Mensajes dentro de la aplicación de preparación para push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)
+- [Capacidad de entrega para dispositivos Android chinos]({{site.baseurl}}/user_guide/channels/push/best_practices/chinese_push_deliverability)
+- [Lo que debes saber antes de enviar: canales]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send)

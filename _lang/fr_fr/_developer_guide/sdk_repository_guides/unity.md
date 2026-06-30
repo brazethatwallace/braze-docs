@@ -12,8 +12,8 @@ Le SDK Unity Braze vous aide à intégrer les fonctionnalités d'envoi de messag
 
 Pour commencer, consultez les ressources suivantes :
 
-- [Guide de l'utilisateur Braze]({{site.baseurl}}/user_guide/introduction/)
-- [Guide du développeur Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=unity)
+- [Guide de l'utilisateur Braze]({{site.baseurl}}/user_guide/introduction)
+- [Guide du développeur Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=unity)
 
 ## Configuration du plugin {#plugin-setup}
 

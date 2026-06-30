@@ -1,7 +1,7 @@
 ---
 nav_title: Capabilities
 article_title: What you can do with Operator
-page_order: 6
+page_order: 1
 page_type: reference
 toc_headers: h2
 description: "This reference article covers the AI tasks available through BrazeAI Operator™ — including copywriting, Liquid, image generation, data transformation code, and content review."
@@ -9,13 +9,13 @@ description: "This reference article covers the AI tasks available through Braze
 
 # What you can do with Operator {#operator-capabilities}
 
-> The AI capabilities previously available as standalone assistants are now accessible through [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/). Because Operator is built into the dashboard and understands your workspace (your brand guidelines, attributes, Connected Content, and the page you're working on), the output is more context-aware than what the previous assistants could produce.
+> The AI capabilities previously available as standalone assistants are now accessible through [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator). Because Operator is built into the dashboard and understands your workspace (your brand guidelines, attributes, Connected Content, and the page you're working on), the output is more context-aware than what the previous assistants could produce.
 
-Instead of opening a different tool for each task, describe what you want in natural language and Operator handles it in context. You can also keep the conversation going—asking for a different tone, a shorter version, or a translation—without starting over. Operator can also propose and execute changes directly through [action cards]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/) that you review before they take effect.
+Instead of opening a different tool for each task, describe what you want in natural language and Operator handles it in context. You can also keep the conversation going—asking for a different tone, a shorter version, or a translation—without starting over. Operator can also propose and execute changes directly through [action cards]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) that you review before they take effect.
 
 ## Prerequisites
 
-Operator has the same permissions you do, so certain actions require the relevant permission for that surface—for example, generating an image requires *Edit Media Library Assets*. If you don't see an entry point, check your permissions with your admin. For more information, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
+Operator has the same permissions you do, so certain actions require the relevant permission for that surface—for example, generating an image requires *Edit Media Library Assets*. If you don't see an entry point, check your permissions with your admin. For more information, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 ## What's available through Operator {#whats-available-through-operator}
 
@@ -32,7 +32,7 @@ All existing entry points remain in place, so your workflows are unaffected. The
 
 ## Apply brand guidelines {#apply-brand-guidelines}
 
-Operator uses the brand guidelines configured in your workspace so generated copy, templates, and images match your brand's voice, tone, and style. To set up brand guidelines, go to **Content** > **Brand Guidelines**. For more information, see [Brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/). For details on applying brand guidelines for use with Operator, see [Apply brand guidelines]({{site.baseurl}}/user_guide/brazeai/operator/#apply-brand-guidelines).
+Operator uses the brand guidelines configured in your workspace so generated copy, templates, and images match your brand's voice, tone, and style. To set up brand guidelines, go to **Content** > **Brand Guidelines**. For more information, see [Brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines). For details on applying brand guidelines for use with Operator, see [Apply brand guidelines]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines).
 
 ## Generate copy {#generate-copy}
 
@@ -41,8 +41,8 @@ You can use Operator to brainstorm or generate copy from anywhere, but you get t
 Operator improves on the standalone copywriter in a few ways:
 
 - It applies your [brand guidelines](#apply-brand-guidelines) automatically when they're configured.
-- It uses [page-aware context]({{site.baseurl}}/user_guide/brazeai/operator/#leverage-page-aware-context), so you don't have to re-describe the channel or message you're working on. Because it's page-aware, you can also use it to edit or refine an existing message instead of generating one from scratch.
-- It can look up your [custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) and events, so you can ask it to personalize copy recommendations with real Liquid.
+- It uses [page-aware context]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context), so you don't have to re-describe the channel or message you're working on. Because it's page-aware, you can also use it to edit or refine an existing message instead of generating one from scratch.
+- It can look up your [custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) and events, so you can ask it to personalize copy recommendations with real Liquid.
 - You can keep the conversation going and iterate. For example, ask for a different tone, a shorter version, or a translation.
 
 ### Tones {#generate-copy-tones}
@@ -59,7 +59,7 @@ The tone of generated copy is driven by your prompt. Describe the style you want
 
 ## Generate Liquid {#generate-liquid}
 
-In any message composer, open Operator to generate and refine Liquid for personalization. Operator understands [Liquid syntax]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/), your standard and [custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/), and [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), and it can explain what the code does.
+In any message composer, open Operator to generate and refine Liquid for personalization. Operator understands [Liquid syntax]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), your standard and [custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), and [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), and it can explain what the code does.
 
 ### Where you can generate Liquid {#generate-liquid-supported-channels}
 
@@ -67,7 +67,7 @@ As with copywriting, you can ask Operator to generate Liquid from anywhere, and 
 
 ### Liquid capabilities {#generate-liquid-attributes}
 
-Operator is highly capable with Liquid. It can generate complex Liquid logic grounded in the data in your workspace—including looking up [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/) data to find example values—and it can review and explain the existing Liquid in your campaigns.
+Operator is highly capable with Liquid. It can generate complex Liquid logic grounded in the data in your workspace—including looking up [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs) data to find example values—and it can review and explain the existing Liquid in your campaigns.
 
 ### Best practices {#generate-liquid-best-practices}
 
@@ -142,14 +142,14 @@ Try different prompts to see how Operator can enhance your messaging. Experiment
 
 Operator generates images using [GPT Image 2.0](https://openai.com/index/introducing-chatgpt-images-2-0/), an AI system from OpenAI and a Braze third-party provider. This lets you create realistic images and art from a description in natural language.
 
-In the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/), select **Generate with Operator** from the **Upload Assets** panel. Describe the image you want, and Operator generates it and saves it directly to your media library.
+In the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library), select **Generate with Operator** from the **Upload Assets** panel. Describe the image you want, and Operator generates it and saves it directly to your media library.
 
 ### Prompt tips {#generate-images-prompt-tips}
 
 - Describe the subject, style, mood, and colors specifically. The more detail you include, the better the result.
 - Text input only; uploading a reference image is not supported.
 - When you apply [brand guidelines](#apply-brand-guidelines) as context in your Operator prompt, Operator applies them directly to the generated image, so the result reflects your brand's visual style.
-- Image generations count toward your daily Operator usage limit. For more information, see [Limitations]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/#limitations).
+- Image generations count toward your daily Operator usage limit. For more information, see [Limitations]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting#limitations).
 
 ### Example prompts {#generate-images-example-prompts}
 
@@ -159,9 +159,9 @@ In the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/med
 
 ## Generate data transformation code {#generate-data-transformation-code}
 
-In the [Data Transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation/) editor, select **Insert Code** to generate transformation code that turns an incoming webhook payload into valid Braze API requests.
+In the [Data Transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation) editor, select **Insert Code** to generate transformation code that turns an incoming webhook payload into valid Braze API requests.
 
-For step-by-step instructions on creating a transformation, see [Create a transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation/).
+For step-by-step instructions on creating a transformation, see [Create a transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation).
 
 ### Example prompts {#generate-data-transformation-example-prompts}
 
@@ -202,10 +202,10 @@ Consider the following to make the most of content review:
 
 ## Data privacy and security {#data-privacy-and-security}
 
-Operator integrates with OpenAI to generate output. For more information about what information Braze sends to OpenAI, how that data is used, and your intellectual property rights, see [How data is used with OpenAI]({{site.baseurl}}/user_guide/brazeai/operator/#how-data-is-used-with-openai).
+Operator integrates with OpenAI to generate output. For more information about what information Braze sends to OpenAI, how that data is used, and your intellectual property rights, see [How data is used with OpenAI]({{site.baseurl}}/user_guide/brazeai/operator#how-data-is-used-with-openai).
 
 ## Next steps {#next-steps}
 
-- [Get started with Operator]({{site.baseurl}}/user_guide/brazeai/operator/): Access and use Operator
-- [Review actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/): Review and approve Operator's proposed changes
-- [Troubleshooting]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/): Reference common issues and solutions
+- [Get started with Operator]({{site.baseurl}}/user_guide/brazeai/operator): Access and use Operator
+- [Review actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): Review and approve Operator's proposed changes
+- [Troubleshooting]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting): Reference common issues and solutions

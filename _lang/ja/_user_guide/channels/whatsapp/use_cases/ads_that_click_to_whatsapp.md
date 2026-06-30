@@ -52,7 +52,7 @@ WhatsAppへ誘導する広告は、Facebook、Instagram、その他のプラッ�
 {: start="4"}
 4. 以下のいずれかの更新方法でユーザープロファイルのサブスクリプションステータスを更新して、ユーザーをオプトインさせます。
     - REST APIを通じてサブスクリプションステータスを更新するBraze間Webhookを作成します。
-    - 高度なJSONエディターを使用して、[ユーザーのWhatsApp キャンバスへのサブスクリプションステータスを更新する]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/#whatsapp-opt-in-and-opt-out-process)テンプレートでユーザープロファイルを更新します。
+    - 高度なJSONエディターを使用して、[ユーザーのWhatsApp キャンバスへのサブスクリプションステータスを更新する]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process)テンプレートでユーザープロファイルを更新します。
 
 ![高度なJSONエディターを使用してユーザープロファイルを更新するユーザーの更新キャンバスステップ。]({% image_buster /assets/img/whatsapp/user_update_step_json.png %})
 

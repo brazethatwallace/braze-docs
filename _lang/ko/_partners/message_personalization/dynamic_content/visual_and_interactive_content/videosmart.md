@@ -42,44 +42,44 @@ Braze에서 관련 VideoSmart Campaign을 선택하고 발송 시 고객 속성�
 | 요구 사항 | 설명 |
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | Braze 연결된 콘텐츠 자격 증명 | VideoSmart에서 제공한 값으로 구성된 **basic_credentials**라는 이름의 연결된 콘텐츠 기본 인증 자격 증명 |
-| **VideoSmart Content Block** 템플릿 | Braze 대시보드에 추가된 **VideoSmart Content Block** 템플릿(VideoSmart에서 제공) |
-| Braze 이메일 메시지 | **VideoSmart Content Block**을 삽입할 Braze Campaign 이메일 또는 Canvas 이메일 단계 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **VideoSmart 콘텐츠 블록** 템플릿 | Braze 대시보드에 추가된 **VideoSmart 콘텐츠 블록** 템플릿(VideoSmart에서 제공) |
+| Braze 이메일 메시지 | **VideoSmart 콘텐츠 블록**을 삽입할 Braze Campaign 이메일 또는 Canvas 이메일 단계 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
-다음 단계에 따라 **VideoSmart Content Block**을 활성화하고 이메일에서 사용하세요.
+다음 단계에 따라 **VideoSmart 콘텐츠 블록**을 활성화하고 이메일에서 사용하세요.
 
-### 1단계: Braze에서 VideoSmart Content Block 템플릿 설정 {#step-1-set-up-the-videosmart-content-block-template-in-braze}
+### 1단계: Braze에서 VideoSmart 콘텐츠 블록 템플릿 설정 {#step-1-set-up-the-videosmart-content-block-template-in-braze}
 
-VideoSmart 담당자에게 **VideoSmart Content Block** 템플릿을 요청하고 Braze 대시보드에 추가하세요.
+VideoSmart 담당자에게 **VideoSmart 콘텐츠 블록** 템플릿을 요청하고 Braze 대시보드에 추가하세요.
 
-VideoSmart에서 Content Block이 사용하는 연결된 콘텐츠 인증을 위한 자격 증명을 제공합니다.
+VideoSmart에서 콘텐츠 블록이 사용하는 연결된 콘텐츠 인증을 위한 자격 증명을 제공합니다.
 
 ### 2단계: 연결된 콘텐츠 인증 설정 {#step-2-set-up-connected-content-authentication}
 
 Braze에서 "basic_credentials"라는 이름의 연결된 콘텐츠 기본 인증 자격 증명을 생성하세요.
 
-- [기본 인증 사용]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/#using-basic-authentication)의 지침을 따르세요.
+- [기본 인증 사용]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call#using-basic-authentication)의 지침을 따르세요.
 - VideoSmart에서 제공한 사용자 이름과 비밀번호를 사용하세요.
 
-### 3단계: 이메일에 Content Block 추가 {#step-3-add-the-content-block-to-your-email}
+### 3단계: 이메일에 콘텐츠 블록 추가 {#step-3-add-the-content-block-to-your-email}
 
-비디오 콘텐츠를 표시할 위치에 **VideoSmart Content Block**을 이메일에 삽입하세요.
+비디오 콘텐츠를 표시할 위치에 **VideoSmart 콘텐츠 블록**을 이메일에 삽입하세요.
 
-대부분의 Braze 설정에서 Content Blocks는 다음 패턴을 사용하여 참조됩니다("VideoSmart_Campaign"을 계정의 Content Block 이름으로 교체하세요):
+대부분의 Braze 설정에서 콘텐츠 블록은 다음 패턴을 사용하여 참조됩니다("VideoSmart_Campaign"을 계정의 콘텐츠 블록 이름으로 교체하세요):
 
 {% raw %}`{{content_blocks.${VideoSmart_Campaign}}}`{% endraw %}
 
 {% alert important %}
-Content Block 이름은 대소문자를 구분하며 Braze에서 구성한 것과 정확히 일치해야 합니다.
+콘텐츠 블록 이름은 대소문자를 구분하며 Braze에서 구성한 것과 정확히 일치해야 합니다.
 {% endalert %}
 
 ### 4단계: Campaign 및 레코드 데이터 재정의(선택 사항) {#step-4-override-campaign-and-record-data-optional}
 
-Content Block이 기본값을 지원하는 경우 변수를 설정하지 않고도 사용할 수 있습니다.
+콘텐츠 블록이 기본값을 지원하는 경우 변수를 설정하지 않고도 사용할 수 있습니다.
 
-특정 VideoSmart Campaign을 선택하거나, 커스텀 개인화 필드를 전달하거나, 두 가지 모두를 수행해야 하는 경우 Content Block을 렌더링하기 전에 다음 Liquid 변수를 설정하세요:
+특정 VideoSmart Campaign을 선택하거나, 커스텀 개인화 필드를 전달하거나, 두 가지 모두를 수행해야 하는 경우 콘텐츠 블록을 렌더링하기 전에 다음 Liquid 변수를 설정하세요:
 
 - `vs_campaign_id`: VideoSmart Campaign 식별자
 - `vs_record_data`: VideoSmart 템플릿에 전달할 값이 포함된 JSON 문자열
@@ -94,7 +94,7 @@ Content Block이 기본값을 지원하는 경우 변수를 설정하지 않고�
 
 {% capture vs_record_data %}
 {
-  "FirstName": "{{ ${first_name} | default: 'John' | json_escape }}",
+  "FirstName": "{{ ${first_name} | default: 'Alex' | json_escape }}",
   "LastName": "{{ ${last_name} | default: 'Doe' | json_escape }}"
 }
 {% endcapture %}
@@ -107,9 +107,9 @@ Content Block이 기본값을 지원하는 경우 변수를 설정하지 않고�
 - `vs_record_data`는 단일 문자열로 인코딩된 유효한 JSON이어야 합니다(예시에서는 `strip_newlines`를 사용합니다).
 {% endalert %}
 
-### 5단계: VideoSmart Content Block 템플릿에서 생성된 변수 사용 {#step-5-use-the-variables-generated-by-videosmarts-content-block-template}
+### 5단계: VideoSmart 콘텐츠 블록 템플릿에서 생성된 변수 사용 {#step-5-use-the-variables-generated-by-videosmarts-content-block-template}
 
-Content Block이 실행되면 이메일의 다른 곳에서 참조할 수 있는 변수가 생성됩니다.
+콘텐츠 블록이 실행되면 이메일의 다른 곳에서 참조할 수 있는 변수가 생성됩니다.
 
 일반적인 변수는 다음과 같습니다:
 
@@ -118,10 +118,10 @@ Content Block이 실행되면 이메일의 다른 곳에서 참조할 수 있는
 | --------------------------------- | ----------------------------------------------------- |
 | `{{ video_url }}` | 개인화된 비디오의 URL |
 | `{{ poster_url }}` | 비디오의 포스터 이미지 URL |
-| `{{ output_data.VARIABLE_NAME }}` | Content Block에서 노출하는 추가 출력 필드 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `{{ output_data.VARIABLE_NAME }}` | 콘텐츠 블록에서 노출하는 추가 출력 필드 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="5단계: VideoSmart 콘텐츠 블록 템플릿에서 생성된 변수 사용" }
 {% endraw %}
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="5단계: VideoSmart 콘텐츠 블록 템플릿에서 생성된 변수 사용" }
 
 ## 사용량 제한 {#rate-limits}
 
@@ -129,12 +129,12 @@ VideoSmart의 API는 분당 10,000건의 요청으로 사용량이 제한됩니�
 
 이 위험을 줄이려면 메시지 발송 속도가 VideoSmart API 용량 이하로 유지되도록 Braze Campaign 사용량 제한을 구성하세요.
 
-전달 속도 및 사용량 제한에 대한 Braze 가이드는 [전달 속도 및 사용량 제한]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#delivery-speed-rate-limiting)을 참조하세요.
+전달 속도 및 사용량 제한에 대한 Braze 가이드는 [전달 속도 및 사용량 제한]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting#delivery-speed-rate-limiting)을 참조하세요.
 
 ## 고려 사항 {#considerations}
 
 - 연결된 콘텐츠는 메시지가 렌더링될 때 실행되므로, 기본값이나 속성이 다른 경우 미리보기와 발송 시 값이 다를 수 있습니다.
-- `video_url`과 같은 변수를 참조하기 전에 이메일에 Content Block이 포함되어 있는지 확인하세요.
+- `video_url`과 같은 변수를 참조하기 전에 이메일에 콘텐츠 블록이 포함되어 있는지 확인하세요.
 - `vs_record_data`에서 커스텀 필드를 사용하는 경우 VideoSmart에 예상 필드 이름을 확인하세요.
 
 ## 문제 해결 {#troubleshooting}
@@ -144,14 +144,14 @@ VideoSmart의 API는 분당 10,000건의 요청으로 사용량이 제한됩니�
 Braze 미리보기가 실패하는 경우(예: 반복적인 재시도 또는 인증 오류), 다음을 확인하세요:
 
 - 연결된 콘텐츠 자격 증명 "basic_credentials"가 존재하고 올바르게 구성되어 있는지 확인합니다.
-- **VideoSmart Content Block** 템플릿이 Braze 계정에 있는지 확인합니다.
+- **VideoSmart 콘텐츠 블록** 템플릿이 Braze 계정에 있는지 확인합니다.
 - 필수 변수(예: `vs_campaign_id` 또는 `vs_record_data`의 필수 필드)에 미리보기용 기본값이 설정되어 있는지 확인합니다.
 
-### VideoSmart Content Block 템플릿 변수가 예상 출력을 생성하지 않는 경우 {#videosmarts-content-block-template-variables-not-generating-expected-output}
+### VideoSmart 콘텐츠 블록 템플릿 변수가 예상 출력을 생성하지 않는 경우 {#videosmarts-content-block-template-variables-not-generating-expected-output}
 
-VideoSmart Content Block 템플릿에서 생성된 변수가 예상 출력을 생성하지 않는 경우 다음을 확인하세요:
+VideoSmart 콘텐츠 블록 템플릿에서 생성된 변수가 예상 출력을 생성하지 않는 경우 다음을 확인하세요:
 
-- **VideoSmart Content Block** 템플릿이 Braze에서 올바르게 설정되어 있는지 확인합니다.
+- **VideoSmart 콘텐츠 블록** 템플릿이 Braze에서 올바르게 설정되어 있는지 확인합니다.
 - 연결된 콘텐츠 인증이 적절한 자격 증명으로 올바르게 설정되어 있는지 확인합니다.
 - 이메일에서 변수를 출력하여 설정되고 있는지 확인합니다. 예: `{% raw %}{{ video_url }}{% endraw %}`
 

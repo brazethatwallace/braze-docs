@@ -26,13 +26,13 @@ guide_featured_list:
 guide_menu_title2: "Verwandte Artikel"
 guide_menu_list2:
   - name: Braze REST API
-    link: /docs/api/home/
+    link: /docs/api/home
     image: /assets/img/braze_icons/code-02.svg
   - name: Shopify
-    link: /docs/partners/ecommerce/shopify/
+    link: /docs/partners/ecommerce/shopify
     image: /assets/img/braze_icons/shopify.svg
   - name: SDK einbinden
-    link: /docs/developer_guide/sdk_integration/
+    link: /docs/developer_guide/sdk_integration
     image: /assets/img/braze_icons/code-square-01.svg
 ---
 <br><br>

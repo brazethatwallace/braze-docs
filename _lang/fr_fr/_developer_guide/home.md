@@ -3,56 +3,56 @@ page_order: 0
 nav_title: Accueil
 layout: dev_guide
 guide_top_header: "Guide du développeur Braze"
-guide_top_text: "C'est ici que les développeurs trouveront tout ce qu'ils doivent savoir sur le SDK Braze. Chaque SDK est hébergé dans son propre dépôt public GitHub, qui comprend des exemples d'applications entièrement compilables que vous pouvez utiliser pour tester les fonctionnalités de Braze ou les intégrer à vos propres applications. Pour en savoir plus, consultez <a href='/docs/developer_guide/references/'>Références, dépôts et exemples d'applications</a>.<br><br>Vous souhaitez échanger, apprendre et vous inspirer d'autres développeurs qui créent avec Braze ? Rejoignez la <a href='https://www.braze.com/dev-portal'>communauté des développeurs Braze</a> !"
+guide_top_text: "C'est ici que les développeurs trouveront tout ce qu'ils doivent savoir sur le SDK Braze. Chaque SDK est hébergé dans son propre dépôt public GitHub, qui comprend des exemples d'applications entièrement compilables que vous pouvez utiliser pour tester les fonctionnalités de Braze ou les intégrer à vos propres applications. Pour en savoir plus, consultez <a href='/docs/developer_guide/references'>Références, dépôts et exemples d'applications</a>.<br><br>Vous souhaitez échanger, apprendre et vous inspirer d'autres développeurs qui créent avec Braze ? Rejoignez la <a href='https://www.braze.com/dev-portal'>communauté des développeurs Braze</a> !"
 article_title: Guide du développeur Braze
 description: "Cette page d'accueil est l'endroit où les développeurs peuvent trouver toutes les intégrations disponibles avec Braze."
 
 guide_featured_title: "Intégrations disponibles"
 guide_featured_list:
 - name: Web
-  link: /docs/developer_guide/sdk_integration/?sdktab=web
+  link: /docs/developer_guide/sdk_integration?sdktab=web
   image: /assets/img/braze_icons/globe-02.svg
   nav_link: web
 - name: Android
   image: /assets/img/braze_icons/android.svg
-  link: /docs/developer_guide/sdk_integration/?sdktab=android
+  link: /docs/developer_guide/sdk_integration?sdktab=android
   nav_link: android
 - name: Swift
-  link: /docs/developer_guide/sdk_integration/?sdktab=swift
+  link: /docs/developer_guide/sdk_integration?sdktab=swift
   image: /assets/img/braze_icons/swift.svg
 
 guide_menu_title: "Toutes les intégrations"
 guide_menu_list:
   - name: Cordova
-    link: /docs/developer_guide/sdk_integration/?sdktab=cordova
+    link: /docs/developer_guide/sdk_integration?sdktab=cordova
     image: /assets/img/cordova.png
     nav_link: cordova
   - name: FireOS
-    link: /docs/developer_guide/sdk_integration/?sdktab=android
+    link: /docs/developer_guide/sdk_integration?sdktab=android
     image: /assets/img/fire-os-bw.png
     nav_link: fireos
   - name: Flutter
-    link: /docs/developer_guide/sdk_integration/?sdktab=flutter
+    link: /docs/developer_guide/sdk_integration?sdktab=flutter
     image: /assets/img/flutter_icon.png
     nav_link: flutter
   - name: React Native
-    link: /docs/developer_guide/sdk_integration/?sdktab=react%20native
+    link: /docs/developer_guide/sdk_integration?sdktab=react%20native
     image: /assets/img/reactnative_icon.png
     nav_link: reactnative
   - name: Roku
-    link: /docs/developer_guide/sdk_integration/?sdktab=roku
+    link: /docs/developer_guide/sdk_integration?sdktab=roku
     image: /assets/img/roku.png
     nav_link: roku
   - name: Unity
-    link: /docs/developer_guide/sdk_integration/?sdktab=unity
+    link: /docs/developer_guide/sdk_integration?sdktab=unity
     image: /assets/img/unity.png
     nav_link: unity
   - name: .NET MAUI (Xamarin)
-    link: /docs/developer_guide/sdk_integration/?sdktab=.net%20maui%20(xamarin)
+    link: /docs/developer_guide/sdk_integration?sdktab=.net%20maui%20(xamarin)
     image: /assets/img/xamarin.png
     nav_link: xamarin
   - name: TV et OTT
-    link: /docs/developer_guide/platforms/tv_and_ott/
+    link: /docs/developer_guide/platforms/tv_and_ott
     image: /assets/img/braze_icons/tv-03.svg
     nav_link: tv_and_ott
 

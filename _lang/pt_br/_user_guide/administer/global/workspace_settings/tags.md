@@ -67,7 +67,7 @@ table td {
 A seguir estão casos de uso comuns para utilizar tags no gerenciamento do ciclo de vida do envio de mensagens.
 
 {% tabs %}
-{% tab Throttling %}
+{% tab Limitação de frequência %}
 
 ### Limitação de frequência {#throttling}
 
@@ -78,7 +78,7 @@ Limite a frequência com que seus clientes recebem campanhas de um determinado t
 `Has not received campaign` with tag `Promo`
 
 {% endtab %}
-{% tab Reporting %}
+{% tab Relatórios %}
 
 ### Relatórios {#reporting}
 

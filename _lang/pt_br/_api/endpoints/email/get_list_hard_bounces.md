@@ -20,7 +20,7 @@ description: "Este artigo descreve os detalhes sobre o endpoint da Braze para co
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `email.hard_bounces`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `email.hard_bounces`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -35,7 +35,7 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | `limit` | Opcional | Inteiro | Campo opcional para limitar o número de resultados retornados. O padrão é 100, o máximo é 500. |
 | `offset` | Opcional | Inteiro | Ponto inicial opcional na lista a ser recuperado. |
 | `email` | Opcional* | String | *É necessário `start_date` ou `email`. Se fornecido, retornaremos se o usuário sofreu hard bounce ou não. Verifique se as strings de e-mail estão formatadas corretamente. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 {% alert important %}
 Você deve fornecer um `end_date` e um `email` ou um `start_date`. Se você fornecer todos os três — `start_date`, `end_date` e um `email` —, priorizaremos os e-mails fornecidos e desconsideraremos o intervalo de datas.

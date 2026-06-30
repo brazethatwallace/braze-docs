@@ -33,7 +33,7 @@ description: "이 문서에서는 Okta를 사용하여 싱글 사인온을 위�
 
 Okta 관리자 대시보드에서 타겟 URL(로그인 URL)과 `x.509` 인증서를 제공하며, 이를 Braze 계정의 **보안 설정** 페이지에 입력해야 합니다.
 
-![]({% image_buster /assets/img/Okta/okta5.png %}){: style="max-width:75%"}
+![SAML SSO 설정 편집과 관련된 스크린샷.]({% image_buster /assets/img/Okta/okta5.png %}){: style="max-width:75%"}
 
 | 요구 사항 | 세부 정보 |
 |---|---|
@@ -55,7 +55,7 @@ Okta에서 Braze SAML 앱의 **Sign On** 탭을 선택한 다음 **Edit**을 클
 새 설정을 저장하세요.
 
 {% alert tip %}
-Braze 계정 사용자가 SAML SSO로만 로그인하도록 하려면 **회사 설정** 페이지에서 [싱글 사인온 인증을 제한]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/#restriction)할 수 있습니다.
+Braze 계정 사용자가 SAML SSO로만 로그인하도록 하려면 **회사 설정** 페이지에서 [싱글 사인온 인증을 제한]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction)할 수 있습니다.
 {% endalert %}
 
 ## 3단계: 로그인 {#step-3-log-in}

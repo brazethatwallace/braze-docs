@@ -23,7 +23,7 @@ Debes realizar la adhesión voluntaria para Uninstall Tracking en tu panel de Br
 
 ## Cómo funciona {#how-it-works}
 
-Braze recopila automáticamente un nivel básico de información de desinstalación de tus Campaigns push regulares. Sin embargo, debido a que la frecuencia con la que los diferentes usuarios reciben Campaigns push puede variar, ofrecemos Uninstall Tracking para proporcionar una instantánea más precisa de la actividad de desinstalación entre tus usuarios.
+Braze recopila automáticamente un nivel básico de información de desinstalación de tus campañas push regulares. Sin embargo, debido a que la frecuencia con la que los diferentes usuarios reciben campañas push puede variar, ofrecemos Uninstall Tracking para proporcionar una instantánea más precisa de la actividad de desinstalación entre tus usuarios.
 
 Cuando Braze detecta una desinstalación, el usuario se etiqueta como desinstalado. Si utilizas el filtro **No ha desinstalado** en una Campaign, estos usuarios etiquetados se excluyen. Si un usuario reinstala la aplicación pero no la abre, la etiqueta de desinstalación permanece en su perfil. La etiqueta solo se elimina cuando el usuario inicia una nueva sesión en la aplicación reinstalada. Esto significa que un usuario que reinstala pero nunca abre la aplicación sigue apareciendo como desinstalado.
 
@@ -37,7 +37,7 @@ Cuando activas Uninstall Tracking para una aplicación, Braze envía un mensaje 
 
 ### Configuración {#configuration}
 
-Para configurar Uninstall Tracking para tu aplicación iOS, utiliza un [método de utilidad]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls/?sdktab=swift). Para tu aplicación Android, utiliza [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html). Cuando Braze detecta una desinstalación, ya sea a partir de Uninstall Tracking o de la entrega normal de Campaigns push, registraremos la mejor hora estimada de la desinstalación en el usuario. Este tiempo se almacena en el perfil de usuario como un atributo estándar y puede utilizarse para definir un segmento de usuarios para Campaigns de recuperación.
+Para configurar Uninstall Tracking para tu aplicación iOS, utiliza un [método de utilidad]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls?sdktab=swift). Para tu aplicación Android, utiliza [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html). Cuando Braze detecta una desinstalación, ya sea a partir de Uninstall Tracking o de la entrega normal de campañas push, registraremos la mejor hora estimada de la desinstalación en el usuario. Este tiempo se almacena en el perfil de usuario como un atributo estándar y puede utilizarse para definir un segmento de usuarios para campañas de recuperación.
 
 ## Filtrado de segmentos por desinstalaciones {#filtering-segments-by-uninstalls}
 
@@ -59,9 +59,9 @@ Las aplicaciones sin Uninstall Tracking habilitado informarán de las desinstala
 
 ## Uninstall Tracking para Campaigns {#uninstall-tracking-for-campaigns}
 
-El seguimiento de desinstalaciones de Campaigns muestra el número de usuarios que recibieron una Campaign específica y posteriormente desinstalaron tu aplicación en el periodo de tiempo seleccionado. Esta herramienta ofrece información sobre cómo las Campaigns pueden estar fomentando comportamientos negativos no deseados de los usuarios y ayuda a medir la eficacia general de las Campaigns.
+El seguimiento de desinstalaciones de Campaigns muestra el número de usuarios que recibieron una Campaign específica y posteriormente desinstalaron tu aplicación en el periodo de tiempo seleccionado. Esta herramienta ofrece información sobre cómo las campañas pueden estar fomentando comportamientos negativos no deseados de los usuarios y ayuda a medir la eficacia general de las campañas.
 
-Las estadísticas de desinstalación de Campaigns se encuentran en la página **Campaign Analytics** de una Campaign específica. Para las Campaigns multicanal y multivariantes, las desinstalaciones pueden desglosarse por canal y variante, respectivamente.
+Las estadísticas de desinstalación de campañas se encuentran en la página **Campaign Analytics** de una Campaign específica. Para las campañas multicanal y multivariantes, las desinstalaciones pueden desglosarse por canal y variante, respectivamente.
 
 ![Desinstalaciones a nivel de Campaign.]({% image_buster /assets/img_archive/campaign_level_uninstall_tracking.png %})
 
@@ -71,7 +71,7 @@ Braze rastrea las desinstalaciones observando cuándo los mensajes push enviados
 
 * Aumenta en uno el recuento total de desinstalaciones de la aplicación.
 * Incrementa en uno el recuento de desinstalaciones de cada Campaign que el usuario haya recibido correctamente en las últimas 24 horas.
-* Si un usuario recibe tres Campaigns en un periodo de 24 horas y luego desinstala, incrementamos el recuento de «desinstalaciones» de las tres Campaigns.
+* Si un usuario recibe tres campañas en un periodo de 24 horas y luego desinstala, incrementamos el recuento de «desinstalaciones» de las tres campañas.
 
 FCM y APNs imponen restricciones a Uninstall Tracking. Braze solo incrementa el recuento de desinstalaciones cuando FCM o APNs nos informan de que un usuario ha desinstalado la aplicación, pero estos sistemas de terceros pueden notificarnos las desinstalaciones en cualquier momento. Utiliza Uninstall Tracking para detectar tendencias direccionales en lugar de estadísticas precisas.
 
@@ -95,7 +95,7 @@ Por motivos de privacidad, los proveedores de notificaciones push de Braze puede
 
 ### ¿Cómo puedo determinar si una Campaign específica causó desinstalaciones? {#how-do-i-determine-if-a-specific-campaign-caused-uninstalls}
 
-Revisa los análisis de las Campaigns que enviaron mensajes en torno al mismo momento en que se produjo el pico de desinstalaciones. Si un mensaje en particular se correlaciona con un aumento de desinstalaciones, puede estar influyendo en los usuarios para que desinstalen.
+Revisa los análisis de las campañas que enviaron mensajes en torno al mismo momento en que se produjo el pico de desinstalaciones. Si un mensaje en particular se correlaciona con un aumento de desinstalaciones, puede estar influyendo en los usuarios para que desinstalen.
 
 Para ver las desinstalaciones por segmento:
 1. Ve a la página de **inicio** del dashboard.

@@ -88,7 +88,7 @@ Les filtres suivants sont appliqués pour chaque canal lors de la détermination
 | E-mail | **Email Available** est vrai. |
 | Push | **Foreground Push Enabled** est vrai. |
 | SMS | **Subscription Group** est n'importe quel groupe d'abonnement SMS. **Invalid Phone Number** est faux. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Filtres appliqués pour les utilisateurs pouvant être atteints par canal" }
+{: .reset-td-br_1 .reset-td-br_2 aria-label="Filtres appliqués pour les utilisateurs pouvant être atteints par canal" }
 
 ## Calcul des statistiques exactes {#calculating-exact-statistics}
 
@@ -99,7 +99,7 @@ Pour mettre à jour les statistiques d'un calcul que vous avez précédemment ef
 Notez que la précision d'un calcul n'est que de 99,999 % ou plus. Ainsi, pour les grands segments, vous pouvez constater de légères variations&#8212;même lors du calcul des statistiques exactes&#8212;ce qui est un comportement normal. De plus, les résultats des statistiques exactes sont mis en cache pendant 24 heures, sauf si vous apportez des modifications à votre segment, auquel cas vous pouvez recalculer les statistiques exactes.
 
 {% alert note %}
-Les segments divisés de manière égale par des [numéros de compartiment aléatoires]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) n'auront pas la même taille. Par exemple, si vous créez un segment avec le filtre **Random Bucket # less than 5000** et un segment avec le filtre **Random Bucket # at least 5000**, il est possible et attendu que les tailles des segments varient de quelques points de pourcentage. Cela est dû à des situations telles que la suppression d'utilisateurs inactifs et des utilisateurs ne pouvant pas être atteints.
+Les segments divisés de manière égale par des [numéros de compartiment aléatoires]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) n'auront pas la même taille. Par exemple, si vous créez un segment avec le filtre **Random Bucket # less than 5000** et un segment avec le filtre **Random Bucket # at least 5000**, il est possible et attendu que les tailles des segments varient de quelques points de pourcentage. Cela est dû à des situations telles que la suppression d'utilisateurs inactifs et des utilisateurs ne pouvant pas être atteints.
 {% endalert %}
 
 ![Capture d'écran du panneau Reachable users affichant les statistiques exactes et un menu de répartition développé.]({% image_buster /assets/img_archive/reachable_users_breakdown.png %})
@@ -141,4 +141,4 @@ Le décompte d'appartenance peut changer de manière significative pour plusieur
 | Des utilisateurs sont supprimés | Un nombre significatif d'utilisateurs a été supprimé. |
 | Une intégration partenaire s'est synchronisée avec Braze | Un tiers a envoyé des données à Braze qui ont significativement influencé l'appartenance au segment. |
 | Des utilisateurs dormants sont archivés | Un nombre significatif de profils inactifs a été archivé. Par exemple, un grand nombre d'utilisateurs importés par CSV n'enregistrent jamais d'activité et sont archivés en même temps. |
-{: .reset-td-br_1 .reset-td-br-2 aria-label="Raisons des changements significatifs" }
+{: .reset-td-br_1 .reset-td-br_2 aria-label="Raisons des changements significatifs" }

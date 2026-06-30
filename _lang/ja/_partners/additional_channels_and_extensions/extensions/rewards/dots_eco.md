@@ -15,7 +15,7 @@ _この統合はDOTS.ECOによって管理されています。_
 
 ## この統合について {#about-this-integration}
 
-BrazeとDOTS.ECOは、カスタマーエンゲージメントジャーニーを現実世界のインパクト報酬につなげます。BrazeのCanvasまたはCampaignステップから、コネクテッドコンテンツを使用してDOTS.ECO証明書作成リクエストをトリガーできます。DOTS.ECOは証明書メタデータ（`certificate_url`や`certificate_image_url`など）を返し、これをユーザープロファイルにカスタム属性として保存して、アプリ内メッセージ、Content Cards、プッシュ通知などのチャネルで再利用できます。
+BrazeとDOTS.ECOは、カスタマーエンゲージメントジャーニーを現実世界のインパクト報酬につなげます。Brazeのキャンバスまたはキャンペーンステップから、コネクテッドコンテンツを使用してDOTS.ECO証明書作成リクエストをトリガーできます。DOTS.ECOは証明書メタデータ（`certificate_url`や`certificate_image_url`など）を返し、これをユーザープロファイルにカスタム属性として保存して、アプリ内メッセージ、Content Cards、プッシュ通知などのチャネルで再利用できます。
 
 ## ユースケース {#use-cases}
 
@@ -36,14 +36,14 @@ BrazeとDOTS.ECOは、カスタマーエンゲージメントジャーニーを�
 | DOTS.ECOアカウント | DOTS.ECOアカウントへのアクセス。 |
 | DOTS.ECO認証情報 | この記事のリクエストには、DOTS.ECOアプリトークン、APIキー、アロケーションIDが必要です。これらを取得するには、DOTS.ECOのカスタマーサクセスマネージャーにお問い合わせください。 |
 | Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。このキーはBrazeダッシュボードの**設定** > **APIキー**で作成できます。 |
-| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。 |
+| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## DOTS.ECOの統合 {#integrating-dotseco}
 
-### ステップ1：Canvasを作成し、ユーザー更新ステップを追加する {#step-1-create-a-canvas-and-add-a-user-update-step}
+### ステップ1：キャンバスを作成し、ユーザー更新ステップを追加する {#step-1-create-a-canvas-and-add-a-user-update-step}
 
-Brazeダッシュボードで、ユーザーがキーイベント（購入、サブスクリプション、マイルストーンなど）を完了したときにトリガーする新しいCanvasを作成します。
+Brazeダッシュボードで、ユーザーがキーイベント（購入、サブスクリプション、マイルストーンなど）を完了したときにトリガーする新しいキャンバスを作成します。
 
 エントリステップの直後にユーザー更新ステップを追加します。このステップは、コネクテッドコンテンツ経由でDOTS.ECO APIを呼び出し、返された証明書データをユーザープロファイルに保存するために使用します。
 
@@ -60,7 +60,7 @@ Brazeダッシュボードで、ユーザーがキーイベント（購入、サ
 ```
 {% capture post_body %}
 {
-  "remote_user_email": "{{${email_address} | default: 'braze+nadav@dots.eco'}}",
+  "remote_user_email": "{{${email_address} | default: 'braze+user@example.com'}}",
   "app_token": "YOUR_DOTS.ECO_APP_TOKEN",
   "impact_qty": 1,
   "remote_user_id": "{{${user_id} | default: ${braze_id}}}",
@@ -93,12 +93,12 @@ Brazeダッシュボードで、ユーザーがキーイベント（購入、サ
 ![DOTS.ECOユーザー更新ステップ。]({% image_buster /assets/img/dots_eco/dotseco_user_update.png %})
 
 {% alert important %}
-この統合では、Canvasの**ユーザーの更新**ステップ内でコネクテッドコンテンツを使用してDOTS.ECO APIを呼び出します。トークンとペイロードを検証するために、まずAPIクライアント（例：Postman）でリクエストをテストしてください。
+この統合では、キャンバスの**ユーザーの更新**ステップ内でコネクテッドコンテンツを使用してDOTS.ECO APIを呼び出します。トークンとペイロードを検証するために、まずAPIクライアント（例：Postman）でリクエストをテストしてください。
 {% endalert %}
 
 ### ステップ3：メッセージに証明書を表示する {#step-3-display-the-certificate-in-messages}
 
-証明書の属性がユーザープロファイルに保存されると、下流のCanvasメッセージステップで参照できるようになります。
+証明書の属性がユーザープロファイルに保存されると、下流のキャンバスメッセージステップで参照できるようになります。
 
 ![DOTS.ECOフロー。]({% image_buster /assets/img/dots_eco/dots.eco_flow.png %})
 
@@ -122,7 +122,7 @@ Brazeダッシュボードの**設定** > **メッセージアクティビティ
 - **コネクテッドコンテンツが空を返す**：`:save result`が設定されていること、および期待されるレスポンスフィールドを参照していることを確認してください。
 - **属性がメッセージステップに表示されない**：
   - Brazeのカスタム属性名が、ユーザー更新ステップで設定した属性と完全に一致していることを確認してください。
-  - ユーザー更新ステップで、**Preview and test**タブを使用して属性が入力されていることを確認してください。次に、ユーザーにテストを送信し、ユーザープロファイルに属性が保存されていることを確認してください。
+  - ユーザー更新ステップで、**プレビューとテスト**タブを使用して属性が入力されていることを確認してください。次に、ユーザーにテストを送信し、ユーザープロファイルに属性が保存されていることを確認してください。
 - **`422`エラー（処理不能なエンティティ）**：アプリトークンとインパクト数量が有効であることを確認してください。
 - **`401`エラー**：認証トークンが存在し、正しいことを確認してください。
-- **メッセージステップに画像プレビューがない**：ユーザー更新ステップで**Send Test to User**を選択し、同じユーザーを使用してメッセージをプレビューしてください。
+- **メッセージステップに画像プレビューがない**：ユーザー更新ステップで**ユーザーにテスト送信**を選択し、同じユーザーを使用してメッセージをプレビューしてください。

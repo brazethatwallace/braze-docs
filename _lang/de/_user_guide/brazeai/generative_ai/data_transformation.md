@@ -16,4 +16,4 @@ description: "Dieser Referenzartikel beschreibt, wie Sie mit dem Operator Code f
 
 {% multi_lang_include brazeai/generative_ai/access_data_transformation.md %}
 
-Weitere Informationen, einschließlich Beispiel-Prompts, finden Sie unter [Code für die Datentransformation generieren in den Operator-Funktionen]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-data-transformation-code).
+Weitere Informationen, einschließlich Beispiel-Prompts, finden Sie unter [Code für die Datentransformation generieren in den Operator-Funktionen]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code).

@@ -18,11 +18,11 @@ tool:
 Nachdem Sie eine Campaign oder ein Canvas dupliziert haben, wird die neue Nachricht automatisch mit dem Titel `"Copy of [Original Name]"` versehen und Sie werden zur Bearbeitungsseite weitergeleitet. Diese Duplikate bleiben als Entwürfe bestehen, bis Sie sie bearbeiten und starten.
 
 {% alert tip %}
-Sie können auch [Campaigns, Canvases und Landing-Pages über Workspaces hinweg kopieren]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/). Die Kopie bleibt als Entwurf bestehen, bis Sie sie bearbeiten und die Campaign oder das Canvas starten bzw. die Landing-Page veröffentlichen.
+Sie können auch [Campaigns, Canvases und Landing-Pages über Workspaces hinweg kopieren]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces). Die Kopie bleibt als Entwurf bestehen, bis Sie sie bearbeiten und die Campaign oder das Canvas starten bzw. die Landing-Page veröffentlichen.
 {% endalert %}
 
 {% tabs %}
-{% tab campaign %}
+{% tab Campaign %}
 So duplizieren Sie eine Campaign:
 
 1. Gehen Sie zu **Messaging** > **Campaigns**.
@@ -30,7 +30,7 @@ So duplizieren Sie eine Campaign:
 3. Wählen Sie **Duplizieren**.
 {% endtab %}
 
-{% tab canvas %}
+{% tab Canvas %}
 So duplizieren Sie ein Canvas:
 
 1. Gehen Sie zu **Messaging** > **Canvas**.

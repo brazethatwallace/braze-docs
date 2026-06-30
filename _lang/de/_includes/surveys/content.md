@@ -4,7 +4,7 @@
   - channel (erforderlich): "in_app_message" oder "landing_page"
 {% endcomment %}
 
-{% multi_lang_include early_access_beta_alert.md feature='Braze surveys' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Braze surveys' %}
 
 ## Voraussetzungen {#prerequisites}
 
@@ -12,13 +12,13 @@ Bevor Sie eine Umfrage erstellen, müssen Sie:
 
 {% if include.channel == 'in_app_message' %}
 - Zugriff auf In-App Messages in Ihrem Braze Workspace haben
-- Mit dem [Erstellen von In-App-Nachrichten im Drag-and-Drop-Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) vertraut sein
+- Mit dem [Erstellen von In-App-Nachrichten im Drag-and-Drop-Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) vertraut sein
 {% elsif include.channel == 'landing_page' %}
 - Zugriff auf Landing-Pages in Ihrem Braze Workspace haben
-- Mit dem [Erstellen von Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) vertraut sein
+- Mit dem [Erstellen von Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages) vertraut sein
 {% else %}
 - Zugriff auf Landing-Pages, In-App Messages oder beides in Ihrem Braze Workspace haben
-- Mit dem [Erstellen von Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) und dem [Erstellen von In-App-Nachrichten im Drag-and-Drop-Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) vertraut sein
+- Mit dem [Erstellen von Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages) und dem [Erstellen von In-App-Nachrichten im Drag-and-Drop-Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) vertraut sein
 {% endif %}
 
 ## Umfrage erstellen {#create-a-survey}
@@ -26,14 +26,14 @@ Bevor Sie eine Umfrage erstellen, müssen Sie:
 Während des Early Access werden Umfragen innerhalb Ihres bestehenden Nachrichtenkompositions-Flows erstellt.
 
 {% if include.channel == 'in_app_message' %}
-1. Erstellen Sie eine [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) in einer Campaign oder einem Canvas.
+1. Erstellen Sie eine [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) in einer Campaign oder einem Canvas.
 2. Wählen Sie **Survey** als Ihren Nachrichtentyp aus.
 {% elsif include.channel == 'landing_page' %}
 1. Gehen Sie zu **Messaging** > **Landing Pages**.
 2. Erstellen Sie eine neue Landing-Page.
 3. Wählen Sie **Survey** als Ihren Nachrichtentyp aus.
 {% else %}
-1. Gehen Sie zu **Messaging** > **Landing Pages** oder erstellen Sie eine [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) in einer Campaign oder einem Canvas.
+1. Gehen Sie zu **Messaging** > **Landing Pages** oder erstellen Sie eine [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) in einer Campaign oder einem Canvas.
 2. Erstellen Sie eine neue Nachricht.
 3. Wählen Sie **Survey** als Ihren Nachrichtentyp aus.
 {% endif %}
@@ -60,10 +60,10 @@ Informationen zu gemeinsamen Stil- und Kompositionssteuerungen finden Sie unter:
 {% if include.channel == 'in_app_message' %}
 - [Editor-Blöcke des Drag-and-Drop-Editors für In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
 {% elsif include.channel == 'landing_page' %}
-- [Formularblöcke für Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#form-blocks)
+- [Formularblöcke für Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
 {% else %}
 - [Editor-Blöcke des Drag-and-Drop-Editors für In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
-- [Formularblöcke für Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#form-blocks)
+- [Formularblöcke für Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
 {% endif %}
 
 Sie können die folgenden Formularblöcke zu Umfragen hinzufügen:

@@ -17,7 +17,7 @@ Os SDKs da Braze vêm com aplicativos de amostra no repositório para sua conven
 ## Criação de aplicativos de teste {#building-test-applications}
 Vários aplicativos de teste estão disponíveis no [repositório do GitHub do SDK do iOS](https://github.com/appboy/appboy-ios-sdk). Siga estas instruções para criar e executar nossos aplicativos de teste.
 
-1. Crie um novo [espaço de trabalho]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration/#creating-your-app-group-in-my-apps) e note a chave de API do identificador do app.
+1. Crie um novo [espaço de trabalho]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration#creating-your-app-group-in-my-apps) e anote a chave de API do identificador do app.
 2. Coloque sua chave de API no campo apropriado do arquivo `AppDelegate.m`.
 
-As notificações por push para o aplicativo de teste do iOS exigem configuração adicional. Consulte nossa [integração de push do iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration/) para obter detalhes.
+As notificações por push para o aplicativo de teste do iOS exigem configuração adicional. Consulte nossa [integração de push do iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration) para obter detalhes.

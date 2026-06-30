@@ -69,7 +69,7 @@ Você também pode fazer com que a mensagem de cancelamento registre algo no seu
 
 ## Consultar mensagens de cancelamento {#query-for-abort-messages}
 
-Você pode usar o [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) ou seu próprio data warehouse, se estiver conectado à Braze, para consultar mensagens de cancelamento específicas que são disparadas quando a lógica Liquid faz com que uma mensagem seja cancelada.
+Você pode usar o [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder) ou seu próprio data warehouse, se estiver conectado à Braze, para consultar mensagens de cancelamento específicas que são disparadas quando a lógica Liquid faz com que uma mensagem seja cancelada.
 
 ## Quando a lógica de cancelamento é avaliada {#when-abort-logic-is-evaluated}
 
@@ -81,7 +81,7 @@ A lógica de cancelamento é avaliada no momento do envio, quando a Braze proces
 
 ### Mensagens no app {#in-app-messages}
 
-A lógica de cancelamento é avaliada para [mensagens no app com template]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/#templated_iam-templated) apenas no momento em que a mensagem no app é disparada (por exemplo, quando o usuário realiza o evento de gatilho ou inicia uma sessão), e não quando a mensagem é inicialmente enviada ao dispositivo. As mensagens no app são entregues ao SDK no início da sessão e armazenadas em cache localmente; o Liquid — incluindo quaisquer chamadas `abort_message()` — é executado quando a condição de gatilho é atendida.
+A lógica de cancelamento é avaliada para [mensagens no app com template]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated) apenas no momento em que a mensagem no app é disparada (por exemplo, quando o usuário realiza o evento de gatilho ou inicia uma sessão), e não quando a mensagem é inicialmente enviada ao dispositivo. As mensagens no app são entregues ao SDK no início da sessão e armazenadas em cache localmente; o Liquid — incluindo quaisquer chamadas `abort_message()` — é executado quando a condição de gatilho é atendida.
 
 ## Considerações {#considerations}
 

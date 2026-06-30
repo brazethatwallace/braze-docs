@@ -17,7 +17,7 @@ guide_featured_list:
   - name: オーディエンスを管理
     link: /docs/user_guide/audience/manage_audience
     image: /assets/img/braze_icons/users-edit.svg
-  - name: セグメント
+  - name: Segments
     link: /docs/user_guide/audience/segments
     image: /assets/img/braze_icons/pie-chart-01.svg
   - name: ロケーションとジオフェンス

@@ -12,8 +12,8 @@ Braze JavaScript SDKは、Brazeのメッセージング、分析、ユーザー�
 
 開始するには、以下のリソースを参照してください。
 
-- [Brazeユーザーガイド]({{site.baseurl}}/user_guide/introduction/)
-- [Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=javascript)
+- [Brazeユーザーガイド]({{site.baseurl}}/user_guide/introduction)
+- [Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=javascript)
 
 ### アーキテクチャの概要 {#architecture-overview}
 
@@ -28,8 +28,8 @@ Braze JavaScript SDKは、純粋なJavaScript環境で動作するように設�
 <!--
 Effective marketing automation is an essential part of successfully scaling and managing your business. Braze empowers you to build better customer relationships through a seamless, multi-channel approach that addresses all aspects of the user life cycle. Braze helps you engage your users on an ongoing basis. We'll have you up and running in no time!
 
-- [Braze User Guide]({{site.baseurl}}/user_guide/introduction/)
-- [Initial Web SDK Setup]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/)
+- [Braze User Guide]({{site.baseurl}}/user_guide/introduction)
+- [Initial Web SDK Setup]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup)
 - [Braze Web SDK Documentation](https://js.appboycdn.com/web-sdk/{{VERSION}}/doc/modules/braze.html) -->
 
 ## クイックスタート {#quickstart}
@@ -75,8 +75,8 @@ Braze JavaScript SDKを統合する前に、以下が必要です：
 
 ### 認証情報の取得 {#getting-your-credentials}
 
-1. **APIキー**: Brazeダッシュボードの**設定** > **APIキー**にあります
-2. **SDKエンドポイント**: **設定** > **SDK認証** > **エンドポイント**にあります
+1. **APIキー**: Brazeダッシュボードの**Settings** > **API Keys**にあります
+2. **SDKエンドポイント**: **Settings** > **SDK Authentication** > **Endpoints**にあります
 
 ## 統合 {#integration}
 

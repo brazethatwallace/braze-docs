@@ -10,7 +10,7 @@ description: "Braze SDKデバッガーの使用方法について説明します
 > Braze SDKの組み込みデバッガーを使用する方法を説明します。これにより、アプリで詳細ログを有効にする必要なく、SDK対応チャネルの問題をトラブルシューティングできます。
 
 {% alert tip %}
-より詳細な調査のために、[詳細ログを有効にして]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)詳細なSDK出力をキャプチャしたり、特定のチャネルに関する[詳細ログの読み方を学習]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/)したりすることもできます。
+より詳細な調査のために、[詳細ログを有効にして]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)詳細なSDK出力をキャプチャしたり、特定のチャネルに関する[詳細ログの読み方を学習]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs)したりすることもできます。
 {% endalert %}
 
 ## 前提条件 {#prerequisites}
@@ -19,12 +19,12 @@ Braze SDKデバッガーを使用するには、「View PII」および「View U
 
 {% sdk_min_versions swift:10.2.0 android:32.1.0 %}
 
-`Braze.configuration.logger.level`が`.disabled`の場合にデバッガーログを収集するには、Swift SDK 11.9.0以降を使用してください。詳細については、[Swift変更ログ]({{site.baseurl}}/developer_guide/changelogs/#swift_fixed-12)を参照してください。
+`Braze.configuration.logger.level`が`.disabled`の場合にデバッガーログを収集するには、Swift SDK 11.9.0以降を使用してください。詳細については、[Swift変更ログ]({{site.baseurl}}/developer_guide/changelogs#swift_fixed-12)を参照してください。
 
 ## Braze SDKのデバッグ
 
 {% alert tip %}
-Braze Web SDKのデバッグを有効にするには、[URLパラメーターを使用]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/#logging)します。
+Braze Web SDKのデバッグを有効にするには、[URLパラメーターを使用]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#logging)します。
 {% endalert %}
 
 ### ステップ 1: アプリを閉じる {#step-1-close-your-app}
@@ -37,13 +37,13 @@ Brazeで**設定**に移動し、**設定およびテスト**で**SDKデバッ�
 
 ![「SDKデバッガー」がハイライトされた「設定およびテスト」セクション。]({% image_buster /assets/img/sdk_debugger/select_sdk_debugger.png %})
 
-**Create debugging session**を選択します。
+**デバッグセッションを作成**を選択します。
 
 ![「SDKデバッガー」ページ。]({% image_buster /assets/img/sdk_debugger/select_create_debugging_session.png %})
 
 ### ステップ 3: ユーザーを選択する {#step-3-select-a-user}
 
-メールアドレス、`external_id`、ユーザーエイリアス、またはプッシュトークンを使用してユーザーを検索します。セッションを開始する準備ができたら、**Select User**を選択します。
+メールアドレス、`external_id`、ユーザーエイリアス、またはプッシュトークンを使用してユーザーを検索します。セッションを開始する準備ができたら、**ユーザーを選択**を選択します。
 
 ![選択したユーザーのデバッグページ。]({% image_buster /assets/img/sdk_debugger/search_and_select_user.png %}){: style="max-width:85%;"}
 

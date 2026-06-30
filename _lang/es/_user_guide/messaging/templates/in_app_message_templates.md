@@ -4,7 +4,7 @@ article_title: Plantillas de mensajes dentro de la aplicación
 page_order: 4
 layout: dev_guide
 guide_top_header: "Plantillas de mensajes dentro de la aplicación"
-guide_top_text: "Crea y administra plantillas de mensajes dentro de la aplicación desde **Templates** > **In-App Message Templates**. Guarda diseños del editor de arrastrar y soltar, o crea perfiles de color y plantillas CSS para el editor tradicional. También puedes empezar a partir de una plantilla prediseñada de Braze."
+guide_top_text: "Crea y administra plantillas de mensajes dentro de la aplicación desde **Plantillas** > **Plantillas de mensajes dentro de la aplicación**. Guarda diseños del editor de arrastrar y soltar, o crea perfiles de color y plantillas CSS para el editor tradicional. También puedes empezar a partir de una plantilla prediseñada de Braze."
 description: "Aprende sobre las plantillas de mensajes dentro de la aplicación en Braze, incluyendo cómo crear plantillas, plantillas de Braze y perfiles de color y plantillas CSS para el editor tradicional."
 
 guide_featured_title: "Artículos de la sección"
@@ -44,4 +44,4 @@ guide_menu_list:
     image: /assets/img/braze_icons/calendar-check-02.svg
 ---
 
-Para conocer los pasos para guardar plantillas desde el compositor, crear perfiles de color o plantillas CSS y administrar tu biblioteca, consulta [Crear una plantilla de mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/).
+Para conocer los pasos para guardar plantillas desde el compositor, crear perfiles de color o plantillas CSS y administrar tu biblioteca, consulta [Crear una plantilla de mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template).

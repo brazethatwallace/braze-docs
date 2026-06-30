@@ -18,11 +18,11 @@ Os atributos de Campaign e Canvas estão disponíveis como Liquid tags no dashbo
 
 ### REST API
 
-Os atributos de Campaign e Canvas também estão disponíveis no [endpoint Exportar detalhes da campanha]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/) ou no [endpoint Exportar detalhes do Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/). Use a REST API da Braze para criar mapeamentos — ou seja, uma lista de todos os nomes de Canvas e seus IDs correspondentes.
+Os atributos de Campaign e Canvas também estão disponíveis no [endpoint Exportar detalhes da campanha]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) ou no [endpoint Exportar detalhes do Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details). Use a REST API da Braze para criar mapeamentos — ou seja, uma lista de todos os nomes de Canvas e seus IDs correspondentes.
 
 ### Currents
 
-Os atributos de Campaign e Canvas estão vinculados a [eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) do Currents. Observe que apenas etapas de Mensagem têm acesso aos atributos de Campaign, e outras etapas do Canvas têm acesso apenas aos atributos de Canvas. Isso é importante para que você possa determinar a qual Campaign ou componente do Canvas um envio de push ou abertura de e-mail está associado.
+Os atributos de Campaign e Canvas estão vinculados a [eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) do Currents. Observe que apenas etapas de Mensagem têm acesso aos atributos de Campaign, e outras etapas do Canvas têm acesso apenas aos atributos de Canvas. Isso é importante para que você possa determinar a qual Campaign ou componente do Canvas um envio de push ou abertura de e-mail está associado.
 
 ## Atributos de Campaign {#campaign-attributes}
 

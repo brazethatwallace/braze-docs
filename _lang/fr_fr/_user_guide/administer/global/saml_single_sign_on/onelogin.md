@@ -27,9 +27,9 @@ Lors de la configuration, il vous sera demandé de fournir une URL de connexion 
 
 1. Connectez-vous à [OneLogin](https://app.onelogin.com/login). Cliquez sur **Administration**.![Page d'administration OneLogin.]({% image_buster /assets/img/onelogin_1.jpg %})<br><br>
 2. Allez dans **Apps** > **Add Apps** dans la barre de navigation supérieure. Recherchez « Braze » et sélectionnez l'application Braze.![Résultats de recherche pour Braze dans OneLogin.]({% image_buster /assets/img/onelogin_2.jpg %})<br><br>
-3. Enregistrez l'application Braze dans votre société.![]({% image_buster /assets/img/onelogin_3.jpg %})<br><br>
+3. Enregistrez l'application Braze dans votre société.![Enregistrement de l'application Braze dans votre société.]({% image_buster /assets/img/onelogin_3.jpg %})<br><br>
 4. Une fois enregistrée, accédez à **Configuration** et ajoutez votre **Braze Domain** et votre clé API **RelayState**.![Onglet Configuration de OneLogin pour l'application Braze.]({% image_buster /assets/img/onelogin_4.png %})<br><br>
-5. Braze attend les assertions SAML dans un [format spécifique]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/#configure-your-identity-provider). Sous **Parameters**, les attributs pris en charge par Braze devraient être pré-remplis. Vérifiez qu'ils sont corrects.![Paramètres SAML de Braze dans OneLogin.]({% image_buster /assets/img/onelogin_5.jpg %})<br><br>
+5. Braze attend les assertions SAML dans un [format spécifique]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#configure-your-identity-provider). Sous **Parameters**, les attributs pris en charge par Braze devraient être pré-remplis. Vérifiez qu'ils sont corrects.![Paramètres SAML de Braze dans OneLogin.]({% image_buster /assets/img/onelogin_5.jpg %})<br><br>
 6. Copiez le **Certificate** et le **SAML 2.0 Endpoint (HTTP)** nécessaires pour configurer le tableau de bord de Braze depuis l'onglet **SSO**.![Certificats à copier depuis l'onglet SSO de l'application Braze dans OneLogin.]({% image_buster /assets/img/onelogin_6.jpg %})
 
 ### Étape 2 : Configurer OneLogin dans Braze {#step-2-configure-onelogin-within-braze}
@@ -50,5 +50,5 @@ Sur cette page, saisissez les informations suivantes :
 ![Paramètres SSO SAML avec le basculement sélectionné.]({% image_buster /assets/img/samlsso.png %})
 
 {% alert tip %}
-Si vous souhaitez que les utilisateurs de votre compte Braze se connectent uniquement via l'authentification unique (SSO) SAML, vous pouvez [restreindre l'authentification par authentification unique]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/#restriction) depuis la page **Paramètres de l'entreprise**.
+Si vous souhaitez que les utilisateurs de votre compte Braze se connectent uniquement via l'authentification unique (SSO) SAML, vous pouvez [restreindre l'authentification par authentification unique]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) depuis la page **Paramètres de l'entreprise**.
 {% endalert %}

@@ -43,13 +43,13 @@ A purchase object is an object that gets passed through the API when a purchase 
 }
 ```
 
-- [External user ID]({{site.baseurl}}/api/basics/#user-ids)
-- [App identifier]({{site.baseurl}}/api/identifier_types/)
+- [External user ID]({{site.baseurl}}/api/basics#user-ids)
+- [App identifier]({{site.baseurl}}/api/identifier_types)
 - [ISO 4217 Currency Code Wiki](http://en.wikipedia.org/wiki/ISO_4217)
 - [ISO 8601 Time Code Wiki](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-Some identifier pairs cannot be used together, and `email` takes precedence over `phone` when both are provided. For full details, refer to [Identifier resolution]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution).
+Some identifier pairs cannot be used together, and `email` takes precedence over `phone` when both are provided. For full details, refer to [Identifier resolution]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
 {% endalert %}
 
 ## Purchase product ID
@@ -98,11 +98,13 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 {% include data_activation/purchase_event_property_data_types.md %}
 
-For a consolidated reference of data types across custom attributes, event properties, and catalogs, see [Data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#purchase-event-property-data-types).
+For a consolidated reference of data types across custom attributes, event properties, and catalogs, see [Data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#purchase-event-property-data-types).
 
 ### Purchase properties
 
-[Purchase properties]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties) can be used to trigger messages and for personalization using Liquid, also allowing you to segment based on these properties.
+[Purchase properties]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-properties) can be used to trigger messages and for personalization using Liquid, also allowing you to segment based on these properties.
+
+{% include data_activation/segmentable_purchase_properties_keys_note.md %}
 
 #### Naming conventions
 
@@ -166,8 +168,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ### Purchase objects, event objects, and webhooks
 
-Using the example provided, we can see that someone bought a backpack with the properties: color, monogram, checkout duration, size, and brand. We can then create segments with these properties by using [purchase event properties]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties) or send custom messages through a channel using Liquid. For example, "Hello **Ann F.**, Thanks for purchasing that **red, medium backpack** for **$40.00**! Thanks for shopping at **Backpack Locker**!"
+Using the example provided, we can see that someone bought a backpack with the properties: color, monogram, checkout duration, size, and brand. We can then create segments with these properties by using [purchase event properties]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-properties) or send custom messages through a channel using Liquid. For example, "Hello **Ann F.**, Thanks for purchasing that **red, medium backpack** for **$40.00**! Thanks for shopping at **Backpack Locker**!"
 
-If you do want to save, store and track properties to segment with, you need to set them up as custom attributes. This can be done using [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), which allow you to target users based on custom event or purchase behavior stored for the lifetime of that user profile.
+If you do want to save, store and track properties to segment with, you need to set them up as custom attributes. This can be done using [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension), which allow you to target users based on custom event or purchase behavior stored for the lifetime of that user profile.
 
 

@@ -9,11 +9,11 @@ description: "Aprende a leer e interpretar la salida de registros detallados del
 
 > En esta página se explica cómo interpretar la salida de registros detallados del SDK de Braze. Para cada canal de mensajería, encontrarás las entradas clave del registro que debes buscar, su significado y los problemas comunes a los que debes prestar atención.
 
-Antes de empezar, asegúrate de haber [habilitado el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) y de saber cómo recopilar registros en tu plataforma.
+Antes de empezar, asegúrate de haber [habilitado el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) y de saber cómo recopilar registros en tu plataforma.
 
 ## Sesiones {#sessions}
 
-Las sesiones son la base de los análisis y la entrega de mensajes de Braze. Muchas características de mensajería, incluidos los mensajes dentro de la aplicación y las Content Cards, dependen de que se inicie una sesión válida antes de que puedan funcionar. Si las sesiones no se registran correctamente, investiga esto primero. Para obtener más información sobre cómo habilitar el seguimiento de sesiones, consulta [Paso 5: Habilita el seguimiento de sesiones de usuario]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_step-5-enable-user-session-tracking).
+Las sesiones son la base de los análisis y la entrega de mensajes de Braze. Muchas características de mensajería, incluidos los mensajes dentro de la aplicación y las Content Cards, dependen de que se inicie una sesión válida antes de que puedan funcionar. Si las sesiones no se registran correctamente, investiga esto primero. Para obtener más información sobre cómo habilitar el seguimiento de sesiones, consulta [Paso 5: Habilita el seguimiento de sesiones de usuario]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_step-5-enable-user-session-tracking).
 
 ### Entradas clave del registro {#key-log-entries}
 
@@ -50,7 +50,7 @@ Completed the openSession call
 Opened session with activity: <ACTIVITY_NAME>
 ```
 
-Filtra las solicitudes de red para tu punto de conexión Braze configurado (por ejemplo, sdk.iad-01.braze.com) para ver el evento de inicio de sesión (`ss`).
+Filtra las solicitudes de red para tu punto de conexión de Braze configurado (por ejemplo, sdk.iad-01.braze.com) para ver el evento de inicio de sesión (`ss`).
 
 **Fin de la sesión:**
 
@@ -87,7 +87,7 @@ Updated push notification authorization:
 Received remote notifications device token: <PUSH_TOKEN>
 ```
 
-Filtra las solicitudes a tu punto de conexión Braze configurado (por ejemplo, sdk.iad-01.braze.com) y busca `push_token` en los atributos del cuerpo de la solicitud:
+Filtra las solicitudes a tu punto de conexión de Braze configurado (por ejemplo, sdk.iad-01.braze.com) y busca `push_token` en los atributos del cuerpo de la solicitud:
 
 ```
 "attributes": [
@@ -119,7 +119,7 @@ Registering for Firebase Cloud Messaging token using sender id: <SENDER_ID>
 Verifica lo siguiente:
 
 - `com_braze_firebase_cloud_messaging_registration_enabled` es `true`.
-- El ID del remitente FCM coincide con tu proyecto Firebase.
+- El ID del remitente FCM coincide con tu proyecto de Firebase.
 
 Un error común es `SENDER_ID_MISMATCH`, lo que significa que el ID de remitente configurado no coincide con tu proyecto de Firebase.
 
@@ -130,7 +130,7 @@ Un error común es `SENDER_ID_MISMATCH`, lo que significa que el ID de remitente
 
 - Si `push_token` no aparece en el cuerpo de la solicitud, significa que no se ha capturado el token. Verifica la configuración de push en la configuración de tu aplicación.
 - Si `ios_push_auth` muestra `denied` o `provisional`, el usuario no ha concedido permiso push completo.
-- En Android, si ves `SENDER_ID_MISMATCH`, actualiza tu ID de remitente FCM para que coincida con tu proyecto Firebase.
+- En Android, si ves `SENDER_ID_MISMATCH`, actualiza tu ID de remitente FCM para que coincida con tu proyecto de Firebase.
 
 ### Entrega push y clic {#push-delivery-and-click}
 
@@ -202,7 +202,7 @@ Cuando un usuario inicia una sesión y es elegible para recibir un mensaje dentr
 {% tabs %}
 {% tab Swift %}
 
-Filtra las respuestas de tu punto de conexión Braze configurado (por ejemplo, sdk.iad-01.braze.com) que contengan los datos de los mensajes dentro de la aplicación.
+Filtra las respuestas de tu punto de conexión de Braze configurado (por ejemplo, sdk.iad-01.braze.com) que contengan los datos de los mensajes dentro de la aplicación.
 
 El cuerpo de la respuesta contiene la carga útil del mensaje, que incluye:
 
@@ -287,7 +287,7 @@ Este es el comportamiento esperado cuando no se configuran mensajes adicionales 
 {% endtab %}
 {% tab Android %}
 
-Filtra las solicitudes a tu punto de conexión Braze configurado (por ejemplo, sdk.iad-01.braze.com) y busca eventos con el nombre `sbc` (clic en el botón) o `si` (impresión) en el cuerpo de la solicitud.
+Filtra las solicitudes a tu punto de conexión de Braze configurado (por ejemplo, sdk.iad-01.braze.com) y busca eventos con el nombre `sbc` (clic en el botón) o `si` (impresión) en el cuerpo de la solicitud.
 
 {% endtab %}
 {% endtabs %}
@@ -295,7 +295,7 @@ Filtra las solicitudes a tu punto de conexión Braze configurado (por ejemplo, s
 ### Qué hay que comprobar
 
 - Si no se muestra el mensaje dentro de la aplicación, comprueba primero que se haya registrado el inicio de la sesión.
-- Filtra las respuestas de tu punto de conexión Braze configurado para confirmar que se ha entregado la carga útil del mensaje.
+- Filtra las respuestas de tu punto de conexión de Braze configurado para confirmar que se ha entregado la carga útil del mensaje.
 - Si las impresiones no se registran, comprueba que no hayas implementado un delegado `inAppMessageDisplay` personalizado que suprima el registro.
 - Si aparece "No matching trigger for event", es normal e indica que no hay ningún mensaje adicional dentro de la aplicación configurado para ese evento.
 
@@ -310,7 +310,7 @@ Las Content Cards se sincronizan al inicio de la sesión y cuando se solicita un
 {% tabs %}
 {% tab Swift %}
 
-Filtra las respuestas de tu punto de conexión Braze configurado (por ejemplo, sdk.iad-01.braze.com) que contengan los datos de la tarjeta.
+Filtra las respuestas de tu punto de conexión de Braze configurado (por ejemplo, sdk.iad-01.braze.com) que contengan los datos de la tarjeta.
 
 El cuerpo de la respuesta contiene los datos de la tarjeta, incluyendo:
 
@@ -389,7 +389,7 @@ Logged event:
 {% endtab %}
 {% tab Android %}
 
-Filtra las solicitudes a tu punto de conexión Braze configurado (por ejemplo, sdk.iad-01.braze.com) y busca los nombres de los eventos en el cuerpo de la solicitud:
+Filtra las solicitudes a tu punto de conexión de Braze configurado (por ejemplo, sdk.iad-01.braze.com) y busca los nombres de los eventos en el cuerpo de la solicitud:
 - `cci` — Impresión de Content Card
 - `ccc` — Clic en Content Card
 - `ccd` — Content Card descartada
@@ -463,7 +463,7 @@ Aspectos clave que debes saber:
 {% endtab %}
 {% tab Swift %}
 
-Filtra las solicitudes a tu punto de conexión Braze configurado (por ejemplo, sdk.iad-01.braze.com) y busca la identificación del usuario en el cuerpo de la solicitud:
+Filtra las solicitudes a tu punto de conexión de Braze configurado (por ejemplo, sdk.iad-01.braze.com) y busca la identificación del usuario en el cuerpo de la solicitud:
 
 ```
 "user_id": "<EXTERNAL_ID>"
@@ -478,7 +478,7 @@ Los registros detallados incluyen todos los detalles de las solicitudes y respue
 
 ### Estructura de la solicitud {#request-structure}
 
-Filtra las solicitudes a tu punto de conexión Braze configurado (por ejemplo, sdk.iad-01.braze.com). La estructura de la solicitud incluye:
+Filtra las solicitudes a tu punto de conexión de Braze configurado (por ejemplo, sdk.iad-01.braze.com). La estructura de la solicitud incluye:
 
 {% tabs %}
 {% tab Swift %}
@@ -531,12 +531,12 @@ En las cargas útiles de registros detallados, Braze utiliza nombres de eventos 
 
 ### ¿Cuándo puede un usuario tener 0 sesiones registradas en su perfil? {#when-might-a-user-have-0-sessions-recorded-against-their-profile}
 
-Un perfil de usuario puede mostrar 0 sesiones cuando importas al usuario a través de la REST API ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)) o mediante importación CSV sin los campos **First session** o **Last session**. Las sesiones se registran cuando los usuarios interactúan con tu aplicación a través del SDK. Para más detalles, consulta [El perfil de usuario tiene 0 sesiones]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/#user-profile-has-0-sessions).
+Un perfil de usuario puede mostrar 0 sesiones cuando importas al usuario a través de la REST API ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) o mediante importación CSV sin los campos **First session** o **Last session**. Las sesiones se registran cuando los usuarios interactúan con tu aplicación a través del SDK. Para más detalles, consulta [El perfil de usuario tiene 0 sesiones]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#user-profile-has-0-sessions).
 
 ### Discrepancias en los datos de usuario al usar el SDK y la REST API juntos {#user-data-discrepancies-when-using-the-sdk-and-rest-api-together}
 
-Cuando usas el SDK y la REST API al mismo tiempo, las condiciones de carrera pueden causar discrepancias en los datos. Después de llamar a `changeUser()`, permite que el SDK vacíe los datos pendientes antes de realizar llamadas críticas a la REST API, evita agrupar actualizaciones sensibles al tiempo y considera agregar un breve retraso entre las solicitudes del SDK y de la API. Para conocer el comportamiento de `changeUser()`, consulta [Cómo funciona changeUser()]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#how-changeuser-works).
+Cuando usas el SDK y la REST API al mismo tiempo, las condiciones de carrera pueden causar discrepancias en los datos. Después de llamar a `changeUser()`, permite que el SDK vacíe los datos pendientes antes de realizar llamadas críticas a la REST API, evita agrupar actualizaciones sensibles al tiempo y considera agregar un breve retraso entre las solicitudes del SDK y de la API. Para conocer el comportamiento de `changeUser()`, consulta [Cómo funciona changeUser()]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#how-changeuser-works).
 
 ### Los datos no llegan a Braze {#data-not-reaching-braze}
 
-Si los datos no llegan a Braze, confirma que tu firewall permite el tráfico saliente a los puntos de conexión de la API de Braze y a los proveedores de CDN. Ejecuta una prueba MTR y usa [Fastly Debug](https://www.fastly-debug.com/) mientras ocurre el problema. Para la lista de permitidos y la solución de problemas de conectividad, consulta [Problemas de conectividad de red de la API]({{site.baseurl}}/api/network_connectivity_issues/).
+Si los datos no llegan a Braze, confirma que tu firewall permite el tráfico saliente a los puntos de conexión de la API de Braze y a los proveedores de CDN. Ejecuta una prueba MTR y usa [Fastly Debug](https://www.fastly-debug.com/) mientras ocurre el problema. Para la lista de permitidos y la solución de problemas de conectividad, consulta [Problemas de conectividad de red de la API]({{site.baseurl}}/api/network_connectivity_issues).

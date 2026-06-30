@@ -28,10 +28,10 @@ Si vous souhaitez voir des exemples ou tester cet endpoint pour les **groupes d'
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `subscription.status.set`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `subscription.status.set`.
 
 {% alert note %}
-Si vous souhaitez utiliser cet endpoint avec les [groupes d'abonnement LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/), contactez votre gestionnaire de la satisfaction client.
+Si vous souhaitez utiliser cet endpoint avec les [groupes d'abonnement LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups), contactez votre gestionnaire de la satisfaction client.
 {% endalert %}
 
 {% multi_lang_include api/orphaned_subscription_states.md %}
@@ -82,24 +82,24 @@ Authorization: Bearer YOUR-REST-API-KEY
 {% endtab %}
 {% endtabs %}
 
-Cette propriété ne doit pas être utilisée pour mettre à jour les informations de profil d'un utilisateur. Utilisez plutôt la propriété [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track/).
+Cette propriété ne doit pas être utilisée pour mettre à jour les informations de profil d'un utilisateur. Utilisez plutôt la propriété [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 {% alert tip %}
-**Ajouter des utilisateurs existants à un groupe d'abonnement :** cet endpoint est la méthode recommandée pour remplir rétroactivement ou mettre à jour en masse l'appartenance à un groupe d'abonnement pour les utilisateurs existants. Vous pouvez transmettre jusqu'à 50 `external_id`, adresses e-mail ou numéros de téléphone par requête. Les utilisateurs peuvent également mettre à jour leur propre statut d'abonnement via un lien de [centre de préférences e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions/).
+**Ajouter des utilisateurs existants à un groupe d'abonnement :** cet endpoint est la méthode recommandée pour remplir rétroactivement ou mettre à jour en masse l'appartenance à un groupe d'abonnement pour les utilisateurs existants. Vous pouvez transmettre jusqu'à 50 `external_id`, adresses e-mail ou numéros de téléphone par requête. Les utilisateurs peuvent également mettre à jour leur propre statut d'abonnement via un lien de [centre de préférences e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions).
 
-**Créer de nouveaux utilisateurs avec un groupe d'abonnement :** lorsque vous créez de nouveaux utilisateurs à l'aide de l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), vous pouvez définir des groupes d'abonnement dans l'objet des attributs de l'utilisateur, ce qui vous permet de créer un utilisateur et de définir l'état du groupe d'abonnement en un seul appel API.
+**Créer de nouveaux utilisateurs avec un groupe d'abonnement :** lorsque vous créez de nouveaux utilisateurs à l'aide de l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), vous pouvez définir des groupes d'abonnement dans l'objet des attributs de l'utilisateur, ce qui vous permet de créer un utilisateur et de définir l'état du groupe d'abonnement en un seul appel API.
 {% endalert %}
 
 ## Paramètres de la demande {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
-| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types/?tab=subscription%20group%20ids) | Requis | Chaîne de caractères | L'`id` de votre groupe d'abonnement. |
+| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types?tab=subscription%20group%20ids) | Requis | Chaîne de caractères | L'`id` de votre groupe d'abonnement. |
 | `subscription_state` | Requis | Chaîne de caractères | Les valeurs disponibles sont `unsubscribed` (pas dans le groupe d'abonnement) ou `subscribed` (dans le groupe d'abonnement). |
 | `external_id` | Requis* | Tableau de chaînes de caractères | L'`external_id` de l'utilisateur ou des utilisateurs (50 `id`s max). |
 | `email` | Requis* | Chaîne de caractères ou tableau de chaînes de caractères | L'adresse e-mail de l'utilisateur, qui peut être transmise sous forme de tableau de chaînes de caractères. Doit inclure au moins une adresse e-mail (maximum 50). <br><br>Si plusieurs utilisateurs (`external_id`) du même espace de travail partagent la même adresse e-mail, Braze met à jour tous les utilisateurs partageant cette adresse e-mail avec les modifications du groupe d'abonnement. |
 | `phone` | Requis* | Chaîne de caractères au format [E.164](https://en.wikipedia.org/wiki/E.164) | Le numéro de téléphone de l'utilisateur, qui peut être transmis sous forme de tableau de chaînes de caractères. Doit inclure au moins un numéro de téléphone (jusqu'à 50). <br><br>Si plusieurs utilisateurs (`external_id`) du même espace de travail partagent le même numéro de téléphone, Braze met à jour tous les utilisateurs partageant ce numéro de téléphone avec les mêmes modifications du groupe d'abonnement. |
-| `use_double_opt_in_logic` | Facultatif | Valeur booléenne | S'applique uniquement aux groupes d'abonnement SMS ; ignoré pour les e-mails et les autres types de groupes d'abonnement. La valeur par défaut est `false` si omis. Pour les groupes d'abonnement SMS, définissez sur `true` pour faire entrer l'utilisateur dans le workflow de [double abonnement SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) lorsque son statut d'abonnement est défini sur `subscribed`. Les utilisateurs entrant dans le workflow de double abonnement de cette manière reçoivent au maximum une demande d'abonnement par jour, quel que soit le nombre de fois où ils entrent dans le workflow. Si ce paramètre est omis ou défini sur `false`, les utilisateurs sont abonnés sans passer par le workflow de double abonnement. |
+| `use_double_opt_in_logic` | Facultatif | Valeur booléenne | S'applique uniquement aux groupes d'abonnement SMS ; ignoré pour les e-mails et les autres types de groupes d'abonnement. La valeur par défaut est `false` si omis. Pour les groupes d'abonnement SMS, définissez sur `true` pour faire entrer l'utilisateur dans le workflow de [double abonnement SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) lorsque son statut d'abonnement est défini sur `subscribed`. Les utilisateurs entrant dans le workflow de double abonnement de cette manière reçoivent au maximum une demande d'abonnement par jour, quel que soit le nombre de fois où ils entrent dans le workflow. Si ce paramètre est omis ou défini sur `false`, les utilisateurs sont abonnés sans passer par le workflow de double abonnement. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de la demande" }
 
 ## Exemples de requêtes {#example-requests}
@@ -114,7 +114,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/subscription/statu
   "subscription_group_id": "subscription_group_identifier",
   "subscription_state": "unsubscribed",
   "external_id": "external_identifier",
-  "email": ["example1@email.com", "example2@email.com"]
+  "email": ["example1@example.com", "example2@example.com"]
 }
 '
 ```
@@ -146,7 +146,7 @@ Le code de statut `201` peut renvoyer le corps de réponse suivant.
 
 ## Résolution des échecs de mise à jour intermittents {#troubleshooting-intermittent-update-failures}
 
-Si les mises à jour de groupes d'abonnement échouent de manière intermittente ou semblent désynchronisées, attendez plusieurs minutes entre les requêtes de mise à jour ou appelez [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) pour confirmer l'état de l'utilisateur avant d'envoyer une autre mise à jour.
+Si les mises à jour de groupes d'abonnement échouent de manière intermittente ou semblent désynchronisées, attendez plusieurs minutes entre les requêtes de mise à jour ou appelez [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) pour confirmer l'état de l'utilisateur avant d'envoyer une autre mise à jour.
 
 {% alert important %}
 L'endpoint n'accepte que la valeur `email` ou `phone`, pas les deux. Si vous fournissez les deux, vous recevrez cette réponse : `{"message":"Either an email address or a phone number should be provided, but not both."}`

@@ -25,9 +25,9 @@ alias: /scim/automated_user_provisioning/
 {% tabs %}
 {% tab Okta - Braze app %}
 
-{% multi_lang_include early_access_beta_alert.md feature='The Okta integration' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-Okta에서 SAML SSO를 위해 Braze 앱을 설정한 경우 **Okta - Braze app** 옵션을 사용합니다. SSO를 위해 커스텀 앱을 설정한 경우 [Okta - Custom app integration]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning) 탭의 지침을 따릅니다.
+Okta에서 SAML SSO를 위해 Braze 앱을 설정한 경우 **Okta - Braze app** 옵션을 사용합니다. SSO를 위해 커스텀 앱을 설정한 경우 [Okta - Custom app integration]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning) 탭의 지침을 따릅니다.
 
 ## 1단계: SCIM 프로비저닝 설정하기 {#step-1-set-up-scim-provisioning}
 
@@ -76,9 +76,9 @@ Okta에서 SAML SSO를 위해 Braze 앱을 설정한 경우 **Okta - Braze app**
 {% endtab %}
 {% tab Okta - Custom app integration %}
 
-{% multi_lang_include early_access_beta_alert.md feature='The Okta integration' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-SSO를 위해 커스텀 앱을 설정한 경우 **Okta - Custom app integration** 옵션을 사용합니다. Okta에서 SAML SSO를 위해 Braze 앱을 설정한 경우 [Okta - Braze app]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning) 탭의 지침을 따릅니다.
+SSO를 위해 커스텀 앱을 설정한 경우 **Okta - Custom app integration** 옵션을 사용합니다. Okta에서 SAML SSO를 위해 Braze 앱을 설정한 경우 [Okta - Braze app]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning) 탭의 지침을 따릅니다.
 
 ## 1단계: SCIM 프로비저닝 설정하기
 
@@ -116,7 +116,7 @@ SSO를 위해 커스텀 앱을 설정한 경우 **Okta - Custom app integration*
 {% endtab %}
 {% tab Entra ID %}
 
-{% multi_lang_include early_access_beta_alert.md feature='The Entra ID integration' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The Entra ID integration' %}
 
 ## 1단계: SCIM 프로비저닝 앱 설정하기 {#step-1-set-up-scim-provisioning-app}
 

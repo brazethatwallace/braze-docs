@@ -14,7 +14,7 @@ guide_featured_list:
   - name: プッシュトークンのライフサイクル
     link: /docs/user_guide/channels/push/push_setup/push_token_lifecycle
     image: /assets/img/braze_icons/refresh-ccw-02.svg
-  - name: プッシュのサブスクリプション状態
+  - name: プッシュサブスクリプション状態
     link: /docs/user_guide/channels/push/push_setup/push_subscription_states
     image: /assets/img/braze_icons/users-01.svg
 ---
@@ -23,10 +23,10 @@ guide_featured_list:
 
 Brazeを使用してプッシュメッセージを作成・送信するには、まず開発者と協力してWebサイトまたはアプリにプッシュを統合する必要があります。詳細な手順については、各プラットフォームの統合ガイドを参照してください。
 
-- [iOS]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)
-- [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android)
-- [Web]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web)
+- [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)
+- [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications?tab=android)
+- [Web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web)
 
 ## プッシュプライミング {#push-priming}
 
-ユーザーはメッセージを受信するためにプッシュをオプトインする必要があることに留意してください。そのため、アプリ内メッセージを使用して、プッシュ通知を送信したい理由やプッシュを有効にすることでどのようなメリットがあるかを顧客に説明することをお勧めします。このプロセスは[プッシュプライミング]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)と呼ばれます。
+ユーザーはメッセージを受信するためにプッシュをオプトインする必要があることに留意してください。そのため、アプリ内メッセージを使用して、プッシュ通知を送信したい理由やプッシュを有効にすることでどのようなメリットがあるかを顧客に説明することをお勧めします。このプロセスは[プッシュプライミング]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)と呼ばれます。

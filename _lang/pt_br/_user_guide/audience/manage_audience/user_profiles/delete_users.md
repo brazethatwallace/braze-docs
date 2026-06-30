@@ -51,7 +51,7 @@ Na página do perfil, selecione <i class="fa-solid fa-ellipsis-vertical"></i> **
 
 ### Excluindo um segmento {#delete-segment}
 
-Se ainda não fez isso, [crie um segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) contendo os perfis de usuários que você deseja excluir. Certifique-se de incluir todos os perfis de usuários se estiver excluindo usuários duplicados.
+Se ainda não fez isso, [crie um segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) contendo os perfis de usuários que você deseja excluir. Certifique-se de incluir todos os perfis de usuários se estiver excluindo usuários duplicados.
 
 Na Braze, acesse **Audience** > **Manage Audience** e selecione a guia **Delete Users**.
 
@@ -68,7 +68,7 @@ Digite **DELETE** para confirmar sua solicitação e selecione **Delete users**.
 Os usuários neste segmento não serão excluídos imediatamente. Em vez disso, serão marcados como pendentes de exclusão pelos próximos 7 dias. Após esse período, eles serão excluídos e enviaremos um e-mail para informá-lo.
 
 {% alert tip %}
-Para garantir que exatamente esses usuários sejam excluídos independentemente de alterações no segmento, um filtro de segmento chamado **Pending Deletion** é criado automaticamente. Você pode [usar esse filtro]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters) para verificar o status das exclusões pendentes.
+Para garantir que exatamente esses usuários sejam excluídos independentemente de alterações no segmento, um filtro de segmento chamado **Pending Deletion** é criado automaticamente. Você pode [usar esse filtro]({{site.baseurl}}/user_guide/audience/segments/managing_segments#filters) para verificar o status das exclusões pendentes.
 {% endalert %}
 
 ## Confirmando exclusões de segmentos {#confirming-segment-deletions}
@@ -103,7 +103,7 @@ Você pode verificar o status de uma exclusão usando [filtros de segmento](#seg
 
 ### Filtros de segmento {#segment-filters}
 
-Quando você solicita a exclusão de um segmento de usuários, um [filtro de segmento]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters) chamado **Pending Deletion** é criado automaticamente. Você pode usá-lo para:
+Quando você solicita a exclusão de um segmento de usuários, um [filtro de segmento]({{site.baseurl}}/user_guide/audience/segments/managing_segments#filters) chamado **Pending Deletion** é criado automaticamente. Você pode usá-lo para:
 
 - Ver o conjunto exato de usuários vinculados a uma data de execução de exclusão específica.
 - Excluir esses usuários de Campaigns para que não recebam mensagens antes da remoção.
@@ -135,13 +135,13 @@ Para mais detalhes sobre uma solicitação específica, selecione <i class="fa-s
 
 ### Relatório de eventos de segurança {#security-event-report}
 
-Você também pode verificar o status de exclusões anteriores baixando um relatório de eventos de segurança. Para saber mais, consulte [Configurações de segurança]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report).
+Você também pode verificar o status de exclusões anteriores baixando um relatório de eventos de segurança. Para saber mais, consulte [Configurações de segurança]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report).
 
 ## Perguntas frequentes {#faq}
 
 ### Posso excluir segmentos com mais de 10 milhões de usuários? {#can-i-delete-segments-with-more-than-10-million-users}
 
-Não. Você não pode excluir segmentos com mais de 10 milhões de usuários. Se precisar de ajuda para excluir um segmento desse tamanho, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+Não. Você não pode excluir segmentos com mais de 10 milhões de usuários. Se precisar de ajuda para excluir um segmento desse tamanho, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ### Só consigo excluir até 10 milhões de usuários por vez. Isso é um bug? {#i-can-only-delete-up-to-10-million-users-at-a-time-is-this-a-bug}
 
@@ -167,4 +167,4 @@ Você pode [cancelar exclusões de segmentos](#cancel) dentro dos primeiros 7 di
 
 ### Posso excluir usuários pela API em vez do dashboard? {#can-i-delete-users-with-the-api-instead-of-the-dashboard}
 
-Sim. Para lotes menores, você pode usar o [endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/), que aceita até 50 identificadores por solicitação e está sujeito ao [limite de taxa]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#rate-limit) desse endpoint. A exclusão de segmentos pelo dashboard é mais adequada para públicos muito grandes, mas inclui o [período de espera de 7 dias](#about-user-deletion).
+Sim. Para lotes menores, você pode usar o [endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete), que aceita até 50 identificadores por solicitação e está sujeito ao [limite de taxa]({{site.baseurl}}/api/endpoints/user_data/post_user_delete#rate-limit) desse endpoint. A exclusão de segmentos pelo dashboard é mais adequada para públicos muito grandes, mas inclui o [período de espera de 7 dias](#about-user-deletion).

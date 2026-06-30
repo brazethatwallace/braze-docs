@@ -13,7 +13,7 @@ tool:
 
 # 콘텐츠 블록 {#content-blocks}
 
-> 콘텐츠 블록을 사용하면 재사용 가능한 크로스채널 콘텐츠를 하나의 중앙 위치에서 관리할 수 있습니다. Campaigns 전반에 걸쳐 일관된 디자인을 만들거나, 다양한 채널을 통해 동일한 오퍼 코드를 배포하거나, 대규모로 일관된 메시징을 위한 사전 정의된 자산을 구축하는 데 활용하세요. [API를 사용]({{site.baseurl}}/api/endpoints/templates/)하여 콘텐츠 블록을 생성하고 관리할 수도 있습니다.
+> 콘텐츠 블록을 사용하면 재사용 가능한 크로스채널 콘텐츠를 하나의 중앙 위치에서 관리할 수 있습니다. Campaign(캠페인) 전반에 걸쳐 일관된 디자인을 만들거나, 다양한 채널을 통해 동일한 오퍼 코드를 배포하거나, 대규모로 일관된 메시징을 위한 사전 정의된 자산을 구축하는 데 활용하세요. [API를 사용]({{site.baseurl}}/api/endpoints/templates)하여 콘텐츠 블록을 생성하고 관리할 수도 있습니다.
 
 ## 콘텐츠 블록 생성 {#create-a-content-block}
 
@@ -22,7 +22,7 @@ tool:
 {% tabs %}
 {% tab 드래그 앤 드롭 %}
 
-{% multi_lang_include create_content_block.md location="dnd" %}
+{% multi_lang_include messaging/create_content_block.md location="dnd" %}
 
 {% alert important %}
 각 드래그 앤 드롭 콘텐츠 블록은 하나의 행으로 제한됩니다. 그러나 드래그 앤 드롭 편집기 블록을 사용하여 이메일 메시징에 맞게 콘텐츠 블록을 구축하고 커스터마이즈할 수 있습니다.
@@ -31,7 +31,7 @@ tool:
 {% endtab %}
 {% tab HTML %}
 
-{% multi_lang_include create_content_block.md location="html" %}
+{% multi_lang_include messaging/create_content_block.md location="html" %}
 
 {% endtab %}
 {% endtabs %}

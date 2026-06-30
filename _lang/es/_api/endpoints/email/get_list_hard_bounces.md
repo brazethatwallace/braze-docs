@@ -20,7 +20,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `email.hard_bounces`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `email.hard_bounces`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -35,7 +35,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | `limit` | Opcional | Número entero | Campo opcional para limitar el número de resultados devueltos. De forma predeterminada es 100, el máximo es 500. |
 | `offset` | Opcional | Número entero | Punto de inicio opcional de la lista desde el que recuperar. |
 | `email` | Opcional* | Cadena | *Se requiere `start_date` o `email`. Si se proporciona, devolveremos si el usuario ha tenido un rebote duro o no. Comprueba que las cadenas de correo electrónico tienen el formato adecuado. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 {% alert important %}
 Debes proporcionar un `end_date`, y un `email` o un `start_date`. Si proporcionas los tres, `start_date`, `end_date` y un `email`, damos prioridad a los correos electrónicos proporcionados y no tenemos en cuenta el intervalo de fechas.

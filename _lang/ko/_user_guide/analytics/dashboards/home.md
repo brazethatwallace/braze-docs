@@ -84,12 +84,12 @@ Braze 대시보드에서 최근에 편집하거나 생성한 파일에 직접 �
 
 *사용자*는 해당 워크스페이스에서 생성된 총 사용자 수입니다. 여기에는 앱이나 웹사이트를 사용한 적이 있는 모든 사용자와 특정 앱이나 웹사이트와 연결되지 않은 사용자가 포함됩니다. 이 숫자는 전체 사용자 중 *월간 활성 사용자*(MAU)가 차지하는 비율로, 장기간에 걸친 사용자 유지율을 파악하는 데 유용합니다.
 
-MAU 대비 사용자 비율이 낮다면 메시징 채널을 다양화하거나 이탈 중인 사용자에게 다가가는 노력을 강화해야 할 수 있습니다. 자세한 내용은 [이탈 사용자 확보]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users/#capture-lapsing-users)에 대한 빠른 가이드를 참조하세요. 일반적으로 MAU 대비 전체 사용자 비율은 고객이탈로 인해 시간이 지남에 따라 불가피하게 감소하지만, Braze 도구를 활용하면 사용자의 참여를 더 오래 유지하여 이 효과를 최소화할 수 있습니다.
+MAU 대비 사용자 비율이 낮다면 메시징 채널을 다양화하거나 이탈 중인 사용자에게 다가가는 노력을 강화해야 할 수 있습니다. 자세한 내용은 [이탈 사용자 확보]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users#capture-lapsing-users)에 대한 빠른 가이드를 참조하세요. 일반적으로 MAU 대비 전체 사용자 비율은 고객이탈로 인해 시간이 지남에 따라 불가피하게 감소하지만, Braze 도구를 활용하면 사용자의 참여를 더 오래 유지하여 이 효과를 최소화할 수 있습니다.
 
 ### 전체 세션 {#lifetime-sessions}
 
 *전체 세션*은 Braze가 통합 이후 기록한 총 세션 수입니다. 세션은 사용자가 앱을 사용하거나 웹사이트를 방문할 때마다 기록됩니다. 플랫폼별 세션 정의에 대한 자세한 내용은 해당
-[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [Android 및 FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android), 또는 [웹]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web) 세션 추적 개발자 문서를 참조하세요.
+[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [Android 및 FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android), 또는 [웹]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web) 세션 추적 개발자 문서를 참조하세요.
 
 ### 월간 활성 사용자 {#monthly-active-users}
 
@@ -141,7 +141,7 @@ MAU 스냅샷은 하루에 한 번 계산되며 소급하여 변경되지 않습
 {% alert note %}
 Braze를 처음 통합하면 Braze가 이전에 세션을 기록한 적이 없으므로 모든 사용자가 신규 사용자로 표시됩니다.
 
-MAU와 달리, *신규 사용자* 수는 Braze가 익명 프로필을 식별된 프로필에 병합하고 익명 프로필을 고아 프로필로 처리할 때 소급하여 감소할 수 있습니다. Braze는 고아 프로필을 앱 사용 합계에서 제거하므로, 이미 확인한 날짜의 *신규 사용자* 수가 줄어들 수 있습니다. 프로필 연결 동작에 대한 자세한 내용은 [고객 프로필 수명주기]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)를 참조하세요.
+MAU와 달리, *신규 사용자* 수는 Braze가 익명 프로필을 식별된 프로필에 병합하고 익명 프로필을 고아 프로필로 처리할 때 소급하여 감소할 수 있습니다. Braze는 고아 프로필을 앱 사용 합계에서 제거하므로, 이미 확인한 날짜의 *신규 사용자* 수가 줄어들 수 있습니다. 프로필 연결 동작에 대한 자세한 내용은 [고객 프로필 수명주기]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)를 참조하세요.
 {% endalert %}
 
 {% alert important %}

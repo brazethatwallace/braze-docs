@@ -34,13 +34,13 @@ Der `message_extras`-Tag wird für alle Nachrichtentypen mit einem Sendeereignis
 
 ## So verwenden Sie den `message_extras`-Tag {#how-to-use-the-message_extras-tag}
 
-1. Geben Sie im Nachrichtentext für den Kanal den `message_extras`-Liquid-Tag ein. Alternativ können Sie das Modal **Add Personalization** verwenden und **Message Extras** als Personalisierungstyp auswählen.
+1. Geben Sie im Nachrichtentext für den Kanal den `message_extras`-Liquid-Tag ein. Alternativ können Sie das Modal **Personalisierung hinzufügen** verwenden und **Message Extras** als Personalisierungstyp auswählen.
 
-![Das Modal „Add Personalization“ mit „Message Extras“ als ausgewähltem Personalisierungstyp.]({% image_buster /assets/img_archive/message_extras1.png %}){: style="max-width:35%;"}
+![Das Modal „Personalisierung hinzufügen“ mit „Message Extras“ als ausgewähltem Personalisierungstyp.]({% image_buster /assets/img_archive/message_extras1.png %}){: style="max-width:35%;"}
 
 {: start="2"}
 
-2. Geben Sie das [Schlüssel-Wert-Paar]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/) für jeden `message_extras`-Tag ein.
+2. Geben Sie das [Schlüssel-Wert-Paar]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) für jeden `message_extras`-Tag ein.
 
 ![Ein Beispiel für Schlüssel-Wert-Paare für den Message-Extras-Tag. Das Titelfeld lautet „Your New Favorites“. Die Nachricht enthält Schlüssel-Wert-Paare für den Message-Extras-Tag und den folgenden Satz: „We're excited to bring you a side selection of fresh and exciting products that are sure to become your new go-to favorites“]({% image_buster /assets/img_archive/message_extras2.png %}){: style="max-width:70%;"}
 
@@ -60,7 +60,7 @@ Jede andere Eingabe, die nicht dem oben beschriebenen Tag-Standard entspricht, w
 
 ## Aktionscode-Informationen an Currents senden {#sending-promotion-code-information-to-currents}
 
-{% multi_lang_include shopify.md section='Liquid promotion codes with Currents' %}
+{% multi_lang_include partners/shopify.md section='Liquid promotion codes with Currents' %}
 
 ## Hinweise {#considerations}
 
@@ -72,9 +72,9 @@ Jede andere Eingabe, die nicht dem oben beschriebenen Tag-Standard entspricht, w
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
-#### Wie kann ich das message_extras-Feld in den Sendeereignissen mit meinen Engagement-Ereignissen wie Öffnungen und Klicks verknüpfen? {#how-can-i-associate-the-message_extras-field-in-the-send-events-to-my-engagement-events-like-opens-and-clicks}
+### Wie kann ich das message_extras-Feld in den Sendeereignissen mit meinen Engagement-Ereignissen wie Öffnungen und Klicks verknüpfen? {#how-can-i-associate-the-message_extras-field-in-the-send-events-to-my-engagement-events-like-opens-and-clicks}
 
-Eine `dispatch_id` wird generiert und in Ihren Sendeereignissen bereitgestellt. Diese kann als eindeutiger Bezeichner verwendet werden, um sie mit bestimmten Klick-, Öffnungs- oder Zustellungsereignissen zu verknüpfen. Sie können dieses Feld in Currents oder Snowflake abfragen. Weitere Informationen finden Sie unter [Dispatch-ID-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
+Eine `dispatch_id` wird generiert und in Ihren Sendeereignissen bereitgestellt. Diese kann als eindeutiger Bezeichner verwendet werden, um sie mit bestimmten Klick-, Öffnungs- oder Zustellungsereignissen zu verknüpfen. Sie können dieses Feld in Currents oder Snowflake abfragen. Weitere Informationen finden Sie unter [Dispatch-ID-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
 
 #### Kann ich message_extras mit In-App-Nachrichten verwenden? {#iam-sdk}
 

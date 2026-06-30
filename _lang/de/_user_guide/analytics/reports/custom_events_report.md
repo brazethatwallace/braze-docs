@@ -34,7 +34,7 @@ Verwenden Sie die folgenden Optionen, um anzupassen, welche Daten im Diagramm **
 Um Ihre Daten zu angepassten Events zu exportieren, wählen Sie <i class="fas fa-bars" title="Chart-Kontextmenü"></i> **Chart-Kontextmenü** im Diagramm **Performance Over Time** und wählen Sie Ihre Exportoption.
 
 {% alert tip %}
-Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung beim Export]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung beim Export]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 ## Fehlerbehebung {#troubleshooting}

@@ -28,7 +28,7 @@ Para enviar uma notificação por push silenciosa, defina o sinalizador `content
 Anexar tanto um título quanto um corpo de texto com `content-available=1` não é recomendado porque pode levar a um comportamento indefinido. Para garantir que uma notificação seja realmente silenciosa, exclua tanto o título quanto o corpo de texto ao definir o sinalizador `content-available` para `1.` Para mais detalhes, consulte a [documentação oficial da Apple sobre atualizações em segundo plano](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app).
 {% endalert %}
 
-O sinalizador `content-available` pode ser definido no dashboard da Braze, bem como em nosso [objeto Apple push]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) na [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/).
+O sinalizador `content-available` pode ser definido no dashboard da Braze, bem como em nosso [objeto Apple push]({{site.baseurl}}/api/objects_filters/messaging/apple_object) na [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging).
 
 ![O dashboard da Braze mostrando a caixa de seleção "content-available" encontrada na guia "settings" do criador do push.]({% image_buster /assets/img_archive/remote_notification.png %} "content available")
 
@@ -40,7 +40,7 @@ Para usar notificações por push silenciosas para disparar o trabalho em segund
 
 ![Xcode mostrando a caixa de seleção do modo "remote notifications" em "capabilities".]({% image_buster /assets/img_archive/background_mode.png %} "background mode enabled")
 
-A ativação do modo em segundo plano para notificações remotas é necessária para o [rastreamento de desinstalação]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls/?sdktab=swift).
+A ativação do modo em segundo plano para notificações remotas é necessária para o [rastreamento de desinstalação]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls?sdktab=swift).
 
 Mesmo com o modo de segundo plano para notificações remotas ativado, o sistema não iniciará seu app em segundo plano se o usuário tiver forçado o encerramento do aplicativo. O usuário deve iniciar explicitamente o aplicativo ou reiniciar o dispositivo antes que o app possa ser lançado automaticamente em segundo plano pelo sistema.
 
@@ -56,7 +56,7 @@ A Braze tem vários recursos que dependem de notificações por push silenciosas
 |---|---|
 | Rastreamento de desinstalação | O usuário recebe um push silencioso e noturno de rastreamento de desinstalação. |
 | Geofences | Sincronização silenciosa de geofences do servidor para o dispositivo. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limitações de notificações silenciosas do iOS" }
 
 Consulte a documentação sobre o [método de instância](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application) e as [notificações não recebidas](https://developer.apple.com/library/content/technotes/tn2265/_index.html#//apple_ref/doc/uid/DTS40010376-CH1-TNTAG23) da Apple para obter mais detalhes.
 

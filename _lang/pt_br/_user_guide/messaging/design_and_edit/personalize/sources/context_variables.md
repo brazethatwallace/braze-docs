@@ -14,13 +14,13 @@ description: "Este artigo de referência explica as variáveis de contexto nos C
 As variáveis de contexto podem ser definidas de duas formas:
 
 - **Na entrada do Canvas:** quando os usuários entram em um Canvas, os dados do evento ou do gatilho de API podem preencher automaticamente as variáveis de contexto.
-- **Em uma etapa de Contexto:** você pode definir ou atualizar variáveis de contexto manualmente dentro do Canvas adicionando uma [etapa de Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/).
+- **Em uma etapa de Contexto:** você pode definir ou atualizar variáveis de contexto manualmente dentro do Canvas adicionando uma [etapa de Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context).
 
 Cada variável de contexto inclui:
 
 - Um nome (como `flight_time` ou `subscription_renewal_date`)
 - Um tipo de dado (como número, string, horário ou array)
-- Um valor que você atribui usando [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) ou pela ferramenta **Add Personalization**.
+- Um valor que você atribui usando [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) ou pela ferramenta **Add Personalization**.
 
 Depois de definida, você pode usar uma variável de contexto em todo o Canvas referenciando-a neste formato: {% raw %}`{{context.${example_variable_name}}}`{% endraw %}.
 
@@ -32,9 +32,9 @@ Por exemplo, se um cliente tem dois voos próximos, ele terá dois estados de jo
 
 ## Considerações {#considerations}
 
-Você pode definir até 10 variáveis de contexto por [etapa de Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/). Cada nome de variável pode ter até 100 caracteres e deve usar apenas letras, números ou underscores.
+Você pode definir até 10 variáveis de contexto por [etapa de Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context). Cada nome de variável pode ter até 100 caracteres e deve usar apenas letras, números ou underscores.
 
-As definições de variáveis de contexto podem ter até 10.240 caracteres. Se você passar variáveis de contexto para um Canvas disparado por API, elas compartilham o mesmo namespace das variáveis criadas em uma etapa de Contexto. Por exemplo, se você enviar uma variável `purchased_item` no objeto de contexto do [endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/), poderá referenciá-la como {% raw %}`{{context.${purchased_item}}}`{% endraw %}. Se você redefinir essa variável em uma etapa de Contexto, o novo valor substituirá o valor da API para a jornada daquele usuário.
+As definições de variáveis de contexto podem ter até 10.240 caracteres. Se você passar variáveis de contexto para um Canvas disparado por API, elas compartilham o mesmo namespace das variáveis criadas em uma etapa de Contexto. Por exemplo, se você enviar uma variável `purchased_item` no objeto de contexto do [endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases), poderá referenciá-la como {% raw %}`{{context.${purchased_item}}}`{% endraw %}. Se você redefinir essa variável em uma etapa de Contexto, o novo valor substituirá o valor da API para a jornada daquele usuário.
 
 Você pode armazenar até 50 KB por etapa de Contexto, distribuídos em até 10 variáveis. Se o tamanho total de todas as variáveis em uma etapa exceder 50 KB, as variáveis que ultrapassarem o limite não serão avaliadas nem armazenadas. Por exemplo, se você tiver três variáveis em uma etapa de Contexto:
 
@@ -49,7 +49,7 @@ A Variável 3 não será avaliada nem armazenada porque a soma das variáveis an
 As variáveis de contexto criadas ou atualizadas na etapa podem receber os seguintes tipos de dados.
 
 {% alert note %}
-As variáveis de contexto têm os mesmos formatos esperados para tipos de dados que as [propriedades de evento]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#expected-format). <br><br>Ao usar o tipo array, a Braze tenta analisar o valor como JSON, o que permite que arrays de objetos sejam criados com sucesso. Se os objetos dentro dos seus arrays não forem JSON válido, o resultado será um array simples de strings. <br><br>Para objetos aninhados e arrays de objetos, use o [filtro Liquid `as_json_string`](#converting-connected-content-strings-to-json). Se você estiver criando o mesmo objeto em uma etapa de Contexto, precisará renderizar o objeto usando `as_json_string`, como {%raw%}`{{context.${object_array} | as_json_string }}`{%endraw%}
+As variáveis de contexto têm os mesmos formatos esperados para tipos de dados que as [propriedades de evento]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#expected-format). <br><br>Ao usar o tipo array, a Braze tenta analisar o valor como JSON, o que permite que arrays de objetos sejam criados com sucesso. Se os objetos dentro dos seus arrays não forem JSON válido, o resultado será um array simples de strings. <br><br>Para objetos aninhados e arrays de objetos, use o [filtro Liquid `as_json_string`](#converting-connected-content-strings-to-json). Se você estiver criando o mesmo objeto em uma etapa de Contexto, precisará renderizar o objeto usando `as_json_string`, como {%raw%}`{{context.${object_array} | as_json_string }}`{%endraw%}
 {% endalert %}
 
 | Tipo de dado | Exemplo de nome de variável | Exemplo de valor |
@@ -77,13 +77,13 @@ Para tipos de dados de objeto, você pode usar notação de ponto para especific
 }
 ```
 
-Em um filtro de [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) ou [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/), insira o caminho como o nome da variável de contexto usando notação de ponto (por exemplo, `order_summary.shipping.carrier`). Quando o filtro for avaliado, a Braze resolverá esse caminho para o valor `overnight`.
+Em um filtro de [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) ou [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split), insira o caminho como o nome da variável de contexto usando notação de ponto (por exemplo, `order_summary.shipping.carrier`). Quando o filtro for avaliado, a Braze resolverá esse caminho para o valor `overnight`.
 
-Em Liquid (como em uma etapa de [Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)), use {% raw %}`{{context.${order_summary}.shipping.carrier}}`{% endraw %} em vez disso.
+Em Liquid (como em uma etapa de [Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)), use {% raw %}`{{context.${order_summary}.shipping.carrier}}`{% endraw %} em vez disso.
 
 ## Usando variáveis de contexto {#using-context-variables}
 
-Você pode usar variáveis de contexto em qualquer lugar onde usar Liquid em um Canvas, como nas etapas de [Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) e [Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/), selecionando **Add Personalization**. Para mensagens no app e Banners nas etapas de Mensagem, você pode selecionar variáveis de contexto para determinar quando a mensagem deve expirar.
+Você pode usar variáveis de contexto em qualquer lugar onde usar Liquid em um Canvas, como nas etapas de [Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) e [Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update), selecionando **Add Personalization**. Para mensagens no app e Banners nas etapas de Mensagem, você pode selecionar variáveis de contexto para determinar quando a mensagem deve expirar.
 
 Por exemplo, digamos que você queira notificar passageiros sobre o acesso ao lounge VIP antes do próximo voo. Essa mensagem deve ser enviada apenas para passageiros que compraram passagem de primeira classe. Uma variável de contexto é uma forma flexível de rastrear essa informação.
 
@@ -101,7 +101,7 @@ Em seguida, criaremos uma etapa de Mensagem para direcionar usuários onde {% ra
 ![Uma etapa de Mensagem com diferentes mensagens para enviar, dependendo do tipo de passagem de avião comprada.]({% image_buster /assets/img/context_example3.png %}){: style="max-width:90%"}
 
 {% alert tip %}
-Você pode adicionar [opções de postergação personalizadas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/#personalized-delays) com as informações da etapa de Contexto, o que significa que você pode selecionar a variável que posterga os usuários.
+Você pode adicionar [opções de postergação personalizadas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step#personalized-delays) com as informações da etapa de Contexto, o que significa que você pode selecionar a variável que posterga os usuários.
 {% endalert %}
 
 ### Para Jornadas de ação e critérios de saída {#for-action-paths-and-exit-criteria}
@@ -161,17 +161,17 @@ Os critérios de saída determinam que, em qualquer ponto da jornada do usuário
 
 ### Definir uma expiração {#set-an-expiration}
 
-Para [Banners]({{site.baseurl}}/user_guide/channels/banners/) e [mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/) em uma etapa de [Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) do Canvas, selecione **A duration after the step is available** para expiração e, em seguida, ative **Personalize duration** para controlar a janela de disponibilidade a partir de uma variável de contexto — por exemplo, para corresponder a uma promoção ou duração de reserva de uma etapa de Contexto.
+Para [Banners]({{site.baseurl}}/user_guide/channels/banners) e [mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages) em uma etapa de [Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) do Canvas, selecione **A duration after the step is available** para expiração e, em seguida, ative **Personalize duration** para controlar a janela de disponibilidade a partir de uma variável de contexto — por exemplo, para corresponder a uma promoção ou duração de reserva de uma etapa de Contexto.
 
 **Personalize duration** se aplica a essa opção de expiração baseada em duração. Se você escolher **On a specific date and time**, defina a expiração usando os controles de data e hora.
 
 ### Postergações de Jornada de ação {#action-path-delays}
 
-Em uma etapa de [Jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/), em **Evaluation Window**, ative **Personalize delay** para definir por quanto tempo os usuários ficam retidos na etapa a partir de uma variável de contexto. Use isso quando o período de espera deve variar por usuário com base em detalhes como nível ou região.
+Em uma etapa de [Jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths), em **Evaluation Window**, ative **Personalize delay** para definir por quanto tempo os usuários ficam retidos na etapa a partir de uma variável de contexto. Use isso quando o período de espera deve variar por usuário com base em detalhes como nível ou região.
 
 ### Filtros de variáveis de contexto {#context-variable-filters}
 
-Você pode criar filtros que usam variáveis de contexto declaradas anteriormente nas etapas de [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) e [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/).
+Você pode criar filtros que usam variáveis de contexto declaradas anteriormente nas etapas de [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) e [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split).
 
 {% alert note %}
 Os filtros de variáveis de contexto estão disponíveis apenas para as etapas de Jornadas do público e Divisão de decisão.
@@ -181,7 +181,7 @@ As variáveis de contexto são declaradas e acessíveis apenas no escopo de um C
 
 ![Exemplo de etapa de Divisão de decisão com a opção de criar um filtro com uma variável de contexto.]({% image_buster /assets/img/context_decision_split.png %}){: style="max-width:90%;"}
 
-Assim como as variáveis de contexto do Canvas têm tipos pré-definidos, as comparações entre variáveis de contexto e valores estáticos devem ter [tipos de dados correspondentes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#supported-data-types). O filtro de variável de contexto permite comparações entre múltiplos tipos de dados para booleanos, números, strings, horário e dia do ano, semelhante às comparações para [atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/).
+Assim como as variáveis de contexto do Canvas têm tipos pré-definidos, as comparações entre variáveis de contexto e valores estáticos devem ter [tipos de dados correspondentes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#supported-data-types). O filtro de variável de contexto permite comparações entre múltiplos tipos de dados para booleanos, números, strings, horário e dia do ano, semelhante às comparações para [atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
 {% alert note %}
 Use o mesmo tipo de dado para sua variável de contexto e comparação. Por exemplo, se sua variável de contexto for do tipo de dado de horário, use comparações de horário (como "antes" ou "depois"). Usar tipos de dados incompatíveis (como comparações de string com uma variável de contexto de horário) pode causar comportamento inesperado.
@@ -221,10 +221,10 @@ O filtro a seguir compara a variável de contexto `reminder_date` para ser anter
 Embora a maioria das propriedades de evento que usam o tipo timestamp já esteja em UTC no Canvas, existem algumas exceções. Com a adição do Contexto do Canvas, todas as propriedades de evento de timestamp padrão em Canvas baseados em ação serão consistentemente em UTC. Essa mudança faz parte de um esforço mais amplo para garantir uma experiência mais previsível e consistente ao editar etapas e mensagens do Canvas. Note que essa mudança impactará todos os Canvas baseados em ação, independentemente de o Canvas específico estar usando uma etapa de Contexto ou não.
 
 {% alert important %}
-Em todas as circunstâncias, recomendamos fortemente o uso de [filtros Liquid de time_zone]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/#things-to-know) para que os timestamps sejam representados no fuso horário desejado. Você pode consultar esta [pergunta frequente no artigo da etapa de Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#faq-example) para ver um exemplo.
+Em todas as circunstâncias, recomendamos fortemente o uso de [filtros Liquid de time_zone]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties#things-to-know) para que os timestamps sejam representados no fuso horário desejado. Você pode consultar esta [pergunta frequente no artigo da etapa de Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#faq-example) para ver um exemplo.
 {% endalert %}
 
 ## Artigos relacionados {#related-articles}
 
-- [Etapa de Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)
-- [Personalização e conteúdo dinâmico com Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)
+- [Etapa de Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)
+- [Personalização e conteúdo dinâmico com Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)

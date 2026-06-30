@@ -1,4 +1,4 @@
-{% multi_lang_include inapp_message_troubleshooting.md sdk="iOS" %}
+{% multi_lang_include in-app_messages/troubleshooting.md sdk="iOS" %}
 
 ### Solução de problemas de carregamento de ativos (`NSURLError` código `-1008`) {#asset-loading}
 
@@ -6,7 +6,7 @@ Ao integrar a Braze com bibliotecas de registro de rede de terceiros, os desenvo
 
 #### Domínios {#domains}
 
-A lista completa de domínios CDN está listada abaixo:
+A lista completa de domínios CDN está abaixo:
 
 * `"appboy-images.com"`
 * `"braze-images.com"`

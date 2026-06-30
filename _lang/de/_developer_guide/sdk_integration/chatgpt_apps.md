@@ -1,13 +1,13 @@
 ---
 page_order: 2.1
 nav_title: ChatGPT-Apps
-article_title: Integrieren Sie Braze in ChatGPT-Apps
+article_title: Braze in ChatGPT-Apps integrieren
 description: "Erfahren Sie, wie Sie Braze in ChatGPT-Apps integrieren können, um Analytics und Ereignisprotokollierung in KI-gestützten Anwendungen zu ermöglichen."
 platform:
   - ChatGPT Apps
 ---
 
-# Integrieren Sie Braze in ChatGPT-Apps {#integrate-braze-with-chatgpt-apps}
+# Braze in ChatGPT-Apps integrieren {#integrate-braze-with-chatgpt-apps}
 
 > Dieser Leitfaden beschreibt, wie Sie Braze in ChatGPT-Apps integrieren können, um Analytics und Ereignisprotokollierung in KI-gestützten Anwendungen zu ermöglichen.
 
@@ -24,7 +24,7 @@ ChatGPT-Apps bieten eine leistungsstarke Plattform für die Entwicklung von KI-b
 
 - **Übernehmen Sie die Verantwortung für die Customer Journey:** Während die Nutzer:innen über ChatGPT mit Ihrer Marke interagieren, behalten Sie Einblick in ihr Verhalten, ihre Präferenzen und ihr Engagement. Diese Daten werden direkt in die Braze-Nutzerprofile übertragen und nicht nur in die Analytics der KI-Plattform.
 - **Plattformübergreifendes Retargeting:** Verfolgen Sie die Interaktionen der Nutzer:innen in Ihrer ChatGPT-App und sprechen Sie sie über Ihre Owned Channels (E-Mail, SMS, Push-Benachrichtigungen, In-App-Nachrichten) mit personalisierten Campaigns an, die auf ihren KI-Nutzungsmustern basieren.
-- **Geben Sie 1:1-Aktionsinhalte an ChatGPT-Konversationen zurück:** Liefern Sie Braze [In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/), [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/) und mehr direkt innerhalb Ihrer ChatGPT-Erfahrung aus, indem Sie die angepassten Konversations-UI-Komponenten verwenden, die Ihr Team für Ihre App entwickelt hat.
+- **Geben Sie 1:1-Aktionsinhalte an ChatGPT-Konversationen zurück:** Liefern Sie Braze [In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages), [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards) und mehr direkt innerhalb Ihrer ChatGPT-Erfahrung aus, indem Sie die angepassten Konversations-UI-Komponenten verwenden, die Ihr Team für Ihre App entwickelt hat.
 - **Umsatz-Attribution:** Verfolgen Sie Käufe und Conversions, die aus Interaktionen mit der ChatGPT-App stammen.
 
 <!-- ### Practical Use Cases

@@ -16,4 +16,4 @@ page_order: 5
 
 {% multi_lang_include brazeai/generative_ai/access_liquid.md %}
 
-지원 채널, Liquid 속성, 모범 사례, 예시 프롬프트 등 자세한 내용은 [Operator 기능에서 Liquid 생성]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-liquid)을 참조하세요.
+지원 채널, Liquid 속성, 모범 사례, 예시 프롬프트 등 자세한 내용은 [Operator 기능에서 Liquid 생성]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-liquid)을 참조하세요.

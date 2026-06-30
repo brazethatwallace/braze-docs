@@ -24,7 +24,7 @@ Este punto de conexión se encuentra actualmente en **beta limitada**. Aunque no
 
 ## Cuándo usar este punto de conexión {#when-to-use-this-endpoint}
 
-Al igual que el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), puedes usar este punto de conexión para actualizar perfiles de usuario. Este punto de conexión es más adecuado para actualizaciones masivas:
+Al igual que el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), puedes usar este punto de conexión para actualizar perfiles de usuario. Este punto de conexión es más adecuado para actualizaciones masivas:
 
 - **Solicitudes más grandes:** Envía hasta 1000 usuarios por solicitud, de modo que puedas hacer menos solicitudes para grandes rellenos de datos y sincronizaciones.
 - **Priorización:** Durante condiciones de tráfico pico, las solicitudes a `/users/track` tienen prioridad sobre las solicitudes a `/users/track/bulk`.
@@ -37,9 +37,9 @@ Los límites del objeto de solicitud del punto de conexión `/users/track` varí
 
 ## Requisitos previos {#prerequisites}
 
-Para usar este punto de conexión, necesitas una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `users.track.bulk`.
+Para usar este punto de conexión, necesitas una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `users.track.bulk`.
 
-Si estás realizando llamadas de servidor a servidor detrás de un firewall, es posible que necesites incluir en la lista de permitidos tu punto de conexión REST de Braze (por ejemplo, `rest.iad-01.braze.com`). Para más información, consulta [Puntos de conexión de API]({{site.baseurl}}/api/basics/#api-definitions).
+Si estás realizando llamadas de servidor a servidor detrás de un firewall, es posible que necesites incluir en la lista de permitidos tu punto de conexión REST de Braze (por ejemplo, `rest.iad-01.braze.com`). Para más información, consulta [Puntos de conexión de API]({{site.baseurl}}/api/basics#api-definitions).
 
 ## Límite de velocidad {#rate-limit}
 
@@ -76,9 +76,9 @@ Para cada objeto de solicitud, debes incluir uno de los siguientes: `external_id
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --- | --- | --- | --- |
-| `attributes` | Opcional | Array de objetos de atributos | Consulta [objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/) |
-| `events` | Opcional | Array de objetos de eventos | Consulta [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | Opcional | Array de objetos de compras | Consulta [objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object/) |
+| `attributes` | Opcional | Array de objetos de atributos | Consulta [objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
+| `events` | Opcional | Array de objetos de eventos | Consulta [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object) |
+| `purchases` | Opcional | Array de objetos de compras | Consulta [objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplos de solicitudes {#example-requests}
@@ -210,9 +210,9 @@ Si tu solicitud tiene un error fatal, recibirás la siguiente respuesta:
 
 ### Códigos de respuesta de errores fatales {#fatal-error-response-codes}
 
-Para los códigos de estado y los mensajes de error asociados que Braze devuelve cuando tu solicitud tiene un error fatal, consulta [Errores fatales y respuestas]({{site.baseurl}}/api/errors/#fatal-errors).
+Para los códigos de estado y los mensajes de error asociados que Braze devuelve cuando tu solicitud tiene un error fatal, consulta [Errores fatales y respuestas]({{site.baseurl}}/api/errors#fatal-errors).
 
-Si recibes el error "provided external_id is blacklisted and disallowed", tu solicitud puede incluir un "usuario ficticio". Para más información, consulta [Bloqueo de correo no deseado]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking).
+Si recibes el error "provided external_id is blacklisted and disallowed", tu solicitud puede incluir un "usuario ficticio". Para más información, consulta [Bloqueo de correo no deseado]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#spam-blocking).
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 

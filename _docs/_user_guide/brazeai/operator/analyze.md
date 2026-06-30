@@ -29,7 +29,7 @@ Operator Analyze runs in the Operator conversation panel.
 2. Ask about channel engagement or benchmark comparisons (see [Example questions](#example-questions)).
 3. Operator returns the answer and, when helpful, a chart or table and a short list of insights.
 
-For more information about the Operator chat panel, see [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/).
+For more information about the Operator chat panel, see [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator).
 
 ## Example questions
 
@@ -159,9 +159,9 @@ Out-of-scope questions get a direct answer, a suggested alternative where possib
 
 ## Data privacy and security
 
-Operator Analyze follows the same privacy and security model as BrazeAI Operator<sup>TM</sup>. For more information, see [Data privacy and security]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/).
+Operator Analyze follows the same privacy and security model as BrazeAI Operator<sup>TM</sup>. For more information, see [Data privacy and security]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
 
 ## Next steps
 
-* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)
-* [Review actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/)
+* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)
+* [Review actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)

@@ -14,13 +14,13 @@ description: "Dieser Referenzartikel erklärt Kontextvariablen in Braze Canvases
 Kontextvariablen können auf zwei Arten gesetzt werden:
 
 - **Beim Canvas-Eintritt:** Wenn Nutzer:innen ein Canvas betreten, können Daten aus dem Event oder API-Trigger automatisch Kontextvariablen befüllen.
-- **In einem Kontext-Schritt:** Sie können Kontextvariablen manuell innerhalb des Canvas definieren oder aktualisieren, indem Sie einen [Kontext-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) hinzufügen.
+- **In einem Kontext-Schritt:** Sie können Kontextvariablen manuell innerhalb des Canvas definieren oder aktualisieren, indem Sie einen [Kontext-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) hinzufügen.
 
 Jede Kontextvariable umfasst:
 
 - Einen Namen (wie `flight_time` oder `subscription_renewal_date`)
 - Einen Datentyp (wie Zahl, String, Zeit oder Array)
-- Einen Wert, den Sie mit [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) oder über das Tool **Add Personalization** zuweisen.
+- Einen Wert, den Sie mit [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) oder über das Tool **Add Personalization** zuweisen.
 
 Sobald definiert, können Sie eine Kontextvariable im gesamten Canvas verwenden, indem Sie sie in diesem Format referenzieren: {% raw %}`{{context.${example_variable_name}}}`{% endraw %}.
 
@@ -32,9 +32,9 @@ Wenn ein:e Kund:in beispielsweise zwei bevorstehende Flüge hat, werden zwei sep
 
 ## Hinweise {#considerations}
 
-Sie können bis zu 10 Kontextvariablen pro [Kontext-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) definieren. Jeder Variablenname kann bis zu 100 Zeichen lang sein und darf nur Buchstaben, Zahlen oder Unterstriche enthalten.
+Sie können bis zu 10 Kontextvariablen pro [Kontext-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) definieren. Jeder Variablenname kann bis zu 100 Zeichen lang sein und darf nur Buchstaben, Zahlen oder Unterstriche enthalten.
 
-Kontextvariablen-Definitionen können bis zu 10.240 Zeichen umfassen. Wenn Sie Kontextvariablen in ein API-getriggertes Canvas übergeben, teilen sie sich denselben Namespace wie Variablen, die in einem Kontext-Schritt erstellt werden. Wenn Sie beispielsweise eine Variable `purchased_item` im [`/canvas/trigger/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)-Kontextobjekt senden, können Sie sie als {% raw %}`{{context.${purchased_item}}}`{% endraw %} referenzieren. Wenn Sie diese Variable in einem Kontext-Schritt neu definieren, überschreibt der neue Wert den API-Wert für die Journey dieser Nutzer:in.
+Kontextvariablen-Definitionen können bis zu 10.240 Zeichen umfassen. Wenn Sie Kontextvariablen in ein API-getriggertes Canvas übergeben, teilen sie sich denselben Namespace wie Variablen, die in einem Kontext-Schritt erstellt werden. Wenn Sie beispielsweise eine Variable `purchased_item` im [`/canvas/trigger/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)-Kontextobjekt senden, können Sie sie als {% raw %}`{{context.${purchased_item}}}`{% endraw %} referenzieren. Wenn Sie diese Variable in einem Kontext-Schritt neu definieren, überschreibt der neue Wert den API-Wert für die Journey dieser Nutzer:in.
 
 Sie können bis zu 50 KB pro Kontext-Schritt speichern, verteilt auf bis zu 10 Variablen. Wenn die Gesamtgröße aller Variablen in einem Schritt 50 KB überschreitet, werden Variablen, die das Limit überschreiten, nicht ausgewertet oder gespeichert. Wenn Sie beispielsweise drei Variablen in einem Kontext-Schritt haben:
 
@@ -49,7 +49,7 @@ Variable 3 wird nicht ausgewertet oder gespeichert, da die Summe der vorherigen 
 Kontextvariablen, die im Schritt erstellt oder aktualisiert werden, können die folgenden Datentypen zugewiesen bekommen.
 
 {% alert note %}
-Kontextvariablen haben dieselben erwarteten Formate für Datentypen wie [Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#expected-format). <br><br>Bei Verwendung des Array-Typs versucht Braze, den Wert als JSON zu parsen, wodurch Arrays von Objekten erfolgreich erstellt werden können. Wenn die Objekte innerhalb Ihrer Arrays kein gültiges JSON sind, ist das Ergebnis ein einfaches String-Array. <br><br>Für verschachtelte Objekte und Arrays von Objekten verwenden Sie den [`as_json_string`-Liquid-Filter](#converting-connected-content-strings-to-json). Wenn Sie dasselbe Objekt in einem Kontext-Schritt erstellen, müssen Sie das Objekt mit `as_json_string` rendern, wie z. B. {%raw%}`{{context.${object_array} | as_json_string }}`{%endraw%}
+Kontextvariablen haben dieselben erwarteten Formate für Datentypen wie [Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#expected-format). <br><br>Bei Verwendung des Array-Typs versucht Braze, den Wert als JSON zu parsen, wodurch Arrays von Objekten erfolgreich erstellt werden können. Wenn die Objekte innerhalb Ihrer Arrays kein gültiges JSON sind, ist das Ergebnis ein einfaches String-Array. <br><br>Für verschachtelte Objekte und Arrays von Objekten verwenden Sie den [`as_json_string`-Liquid-Filter](#converting-connected-content-strings-to-json). Wenn Sie dasselbe Objekt in einem Kontext-Schritt erstellen, müssen Sie das Objekt mit `as_json_string` rendern, wie z. B. {%raw%}`{{context.${object_array} | as_json_string }}`{%endraw%}
 {% endalert %}
 
 | Datentyp | Beispiel-Variablenname | Beispielwert |
@@ -61,7 +61,7 @@ Kontextvariablen haben dieselben erwarteten Formate für Datentypen wie [Event-E
 | Array (von Objekten) | pet_details |{% raw %}<code>[<br>&emsp;{ "id": 1, "type": "dog", "breed": "beagle", "name": "Gus" }<br>&emsp;,<br>&emsp;{ "id": 2, "type": "cat", "breed": "calico", "name": "Gerald" }<br>]</code>{% endraw %}|
 | Zeit (in UTC) | last_purchase_date |{% raw %}<code>2025-12-25T08:15:30:250-0800</code>{% endraw %}|
 | Objekt (flach) | user_profile |{% raw %}<code>{<br>&emsp;"first_name": "{{user.first_name}}",<br>&emsp;"last_name": "{{user.last_name}}",<br>&emsp;"email": "{{user.email}}",<br>&emsp;"loyalty_points": {{user.loyalty_points}},<br>&emsp;"preferred_categories": {{user.preferred_categories}}<br>}</code>{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Data types" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Datentypen" }
 
 Standardmäßig ist der Zeit-Datentyp in UTC. Wenn Sie einen String-Datentyp verwenden, um einen Zeitwert zu speichern, können Sie die Zeit in einer anderen Zeitzone wie PST definieren.
 
@@ -77,13 +77,13 @@ Für Objekt-Datentypen können Sie die Punkt-Notation verwenden, um einen Pfad d
 }
 ```
 
-In einem [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)- oder [Decision-Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)-Filter geben Sie den Pfad als Kontextvariablennamen in Punkt-Notation ein (z. B. `order_summary.shipping.carrier`). Wenn der Filter ausgewertet wird, löst Braze diesen Pfad zum Wert `overnight` auf.
+In einem [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)- oder [Decision-Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)-Filter geben Sie den Pfad als Kontextvariablennamen in Punkt-Notation ein (z. B. `order_summary.shipping.carrier`). Wenn der Filter ausgewertet wird, löst Braze diesen Pfad zum Wert `overnight` auf.
 
-In Liquid (z. B. in einem [Nachrichten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)-Schritt) verwenden Sie stattdessen {% raw %}`{{context.${order_summary}.shipping.carrier}}`{% endraw %}.
+In Liquid (z. B. in einem [Nachrichten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)-Schritt) verwenden Sie stattdessen {% raw %}`{{context.${order_summary}.shipping.carrier}}`{% endraw %}.
 
 ## Kontextvariablen verwenden {#using-context-variables}
 
-Sie können Kontextvariablen überall dort verwenden, wo Sie Liquid in einem Canvas einsetzen, z. B. in [Nachrichten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)- und [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)-Schritten, indem Sie **Add Personalization** auswählen. Für In-App-Nachrichten und Banner in Nachrichten-Schritten können Sie Kontextvariablen auswählen, um zu bestimmen, wann die Nachricht ablaufen soll.
+Sie können Kontextvariablen überall dort verwenden, wo Sie Liquid in einem Canvas einsetzen, z. B. in [Nachrichten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)- und [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Schritten, indem Sie **Add Personalization** auswählen. Für In-App-Nachrichten und Banner in Nachrichten-Schritten können Sie Kontextvariablen auswählen, um zu bestimmen, wann die Nachricht ablaufen soll.
 
 Nehmen wir beispielsweise an, Sie möchten Passagiere über ihren VIP-Lounge-Zugang vor ihrem bevorstehenden Flug benachrichtigen. Diese Nachricht soll nur an Passagiere gesendet werden, die ein First-Class-Ticket gekauft haben. Eine Kontextvariable ist eine flexible Möglichkeit, diese Information zu verfolgen.
 
@@ -101,7 +101,7 @@ Als Nächstes erstellen wir einen Nachrichten-Schritt, der Nutzer:innen ansprich
 ![Ein Nachrichten-Schritt mit verschiedenen Nachrichten, die je nach Art des gekauften Flugtickets gesendet werden.]({% image_buster /assets/img/context_example3.png %}){: style="max-width:90%"}
 
 {% alert tip %}
-Sie können [personalisierte Verzögerungsoptionen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/#personalized-delays) mit den Informationen aus dem Kontext-Schritt hinzufügen, d. h. Sie können die Variable auswählen, die Nutzer:innen verzögert.
+Sie können [personalisierte Verzögerungsoptionen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step#personalized-delays) mit den Informationen aus dem Kontext-Schritt hinzufügen, d. h. Sie können die Variable auswählen, die Nutzer:innen verzögert.
 {% endalert %}
 
 ### Für Aktionspfade und Ausstiegskriterien {#for-action-paths-and-exit-criteria}
@@ -161,17 +161,17 @@ Die Ausstiegskriterien besagen, dass die Nutzer:in an jedem Punkt ihrer Journey 
 
 ### Ablauf festlegen {#set-an-expiration}
 
-Für [Banner]({{site.baseurl}}/user_guide/channels/banners/) und [In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/) in einem Canvas-[Nachrichten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)-Schritt wählen Sie **A duration after the step is available** für den Ablauf und aktivieren dann **Personalize duration**, um das Verfügbarkeitsfenster über eine Kontextvariable zu steuern – zum Beispiel, um es an eine Aktions- oder Buchungsdauer aus einem Kontext-Schritt anzupassen.
+Für [Banner]({{site.baseurl}}/user_guide/channels/banners) und [In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages) in einem Canvas-[Nachrichten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)-Schritt wählen Sie **A duration after the step is available** für den Ablauf und aktivieren dann **Personalize duration**, um das Verfügbarkeitsfenster über eine Kontextvariable zu steuern – zum Beispiel, um es an eine Aktions- oder Buchungsdauer aus einem Kontext-Schritt anzupassen.
 
 **Personalize duration** gilt für diese dauerbasierte Ablaufoption. Wenn Sie stattdessen **On a specific date and time** wählen, legen Sie den Ablauf über die Datums- und Uhrzeitsteuerungen fest.
 
 ### Aktionspfad-Verzögerungen {#action-path-delays}
 
-In einem [Aktionspfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/)-Schritt aktivieren Sie unter **Evaluation Window** die Option **Personalize delay**, um festzulegen, wie lange Nutzer:innen basierend auf einer Kontextvariable im Schritt gehalten werden. Verwenden Sie dies, wenn die Wartezeit je nach Nutzer:in basierend auf Details wie Stufe oder Region unterschiedlich sein soll.
+In einem [Aktionspfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)-Schritt aktivieren Sie unter **Evaluation Window** die Option **Personalize delay**, um festzulegen, wie lange Nutzer:innen basierend auf einer Kontextvariable im Schritt gehalten werden. Verwenden Sie dies, wenn die Wartezeit je nach Nutzer:in basierend auf Details wie Stufe oder Region unterschiedlich sein soll.
 
 ### Kontextvariablen-Filter {#context-variable-filters}
 
-Sie können Filter erstellen, die zuvor deklarierte Kontextvariablen in [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)- und [Decision-Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)-Schritten verwenden.
+Sie können Filter erstellen, die zuvor deklarierte Kontextvariablen in [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)- und [Decision-Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)-Schritten verwenden.
 
 {% alert note %}
 Kontextvariablen-Filter sind nur für Zielgruppenpfade- und Decision-Split-Schritte verfügbar.
@@ -181,7 +181,7 @@ Kontextvariablen werden deklariert und sind nur im Geltungsbereich eines Canvas 
 
 ![Beispiel eines Decision-Split-Schritts mit der Option, einen Filter mit einer Kontextvariable zu erstellen.]({% image_buster /assets/img/context_decision_split.png %}){: style="max-width:90%;"}
 
-Ähnlich wie Canvas-Kontextvariablen vordefinierte Typen haben, müssen die Vergleiche zwischen Kontextvariablen und statischen Werten [übereinstimmende Datentypen]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#supported-data-types) aufweisen. Der Kontextvariablen-Filter ermöglicht Vergleiche über mehrere Datentypen für boolesche Werte, Zahlen, Strings, Zeit und Tag des Jahres, ähnlich wie die Vergleiche für [verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/).
+Ähnlich wie Canvas-Kontextvariablen vordefinierte Typen haben, müssen die Vergleiche zwischen Kontextvariablen und statischen Werten [übereinstimmende Datentypen]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#supported-data-types) aufweisen. Der Kontextvariablen-Filter ermöglicht Vergleiche über mehrere Datentypen für boolesche Werte, Zahlen, Strings, Zeit und Tag des Jahres, ähnlich wie die Vergleiche für [verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
 {% alert note %}
 Verwenden Sie denselben Datentyp für Ihre Kontextvariable und den Vergleich. Wenn Ihre Kontextvariable beispielsweise ein Zeit-Datentyp ist, verwenden Sie Zeitvergleiche (wie „vor“ oder „nach“). Die Verwendung nicht übereinstimmender Datentypen (wie String-Vergleiche mit einer Zeit-Kontextvariable) kann zu unerwartetem Verhalten führen.
@@ -221,10 +221,10 @@ Der folgende Filter vergleicht die Kontextvariable `reminder_date` darauf, ob si
 Während die meisten Event-Eigenschaften, die den Zeitstempel-Typ verwenden, in Canvas bereits in UTC vorliegen, gibt es einige Ausnahmen. Mit der Einführung von Canvas-Kontext werden alle Standard-Zeitstempel-Event-Eigenschaften in aktionsbasierten Canvases konsistent in UTC sein. Diese Änderung ist Teil einer umfassenderen Maßnahme, um ein vorhersehbareres und konsistenteres Erlebnis beim Bearbeiten von Canvas-Schritten und Nachrichten zu gewährleisten. Beachten Sie, dass diese Änderung alle aktionsbasierten Canvases betrifft, unabhängig davon, ob das jeweilige Canvas einen Kontext-Schritt verwendet oder nicht.
 
 {% alert important %}
-Unter allen Umständen empfehlen wir dringend, [Liquid-time_zone-Filter]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/#things-to-know) zu verwenden, damit Zeitstempel in der gewünschten Zeitzone dargestellt werden. Ein Beispiel finden Sie in dieser [häufig gestellten Frage im Kontext-Schritt-Artikel]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#faq-example).
+Unter allen Umständen empfehlen wir dringend, [Liquid-time_zone-Filter]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties#things-to-know) zu verwenden, damit Zeitstempel in der gewünschten Zeitzone dargestellt werden. Ein Beispiel finden Sie in dieser [häufig gestellten Frage im Kontext-Schritt-Artikel]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#faq-example).
 {% endalert %}
 
 ## Verwandte Artikel {#related-articles}
 
-- [Kontext-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)
-- [Personalisierung und dynamischer Content mit Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)
+- [Kontext-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)
+- [Personalisierung und dynamischer Content mit Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)

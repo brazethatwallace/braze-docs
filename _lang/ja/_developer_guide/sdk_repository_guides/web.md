@@ -90,7 +90,7 @@ braze.changeUser('Jane Doe');
 | `requireExplicitInAppMessageDismissal` | `boolean` | `false` | デフォルトでは、アプリ内メッセージはメッセージの外側をクリックするかEscapeキーを押すことで閉じることができます。ユーザーが明示的に閉じるボタンまたはアクションボタンをクリックしてメッセージを閉じることを要求するには、このオプションをtrueに設定してください。 |
 | `devicePropertyAllowlist` | `string[]` | `undefined` | デフォルトでは、Braze SDKはDevicePropertiesのすべてのデバイスプロパティを自動的に検出して収集します。この動作を上書きするには、DevicePropertiesの配列を指定してください。すべてのプロパティのBrazeサーバーへの送信を無効にするには、空の配列を指定してください。一部のプロパティがないと、すべての機能が正しく動作しない場合があります。例えば、タイムゾーンがないと、ローカルタイムゾーン配信が機能しません。 |
 | `serviceWorkerScope` | `string` | `undefined` | デフォルトでは、Braze Web SDKはデフォルトのスコープ（Service Workerのディレクトリ）でService Workerを登録します。このオプションに値を指定すると、そのデフォルトを上書きし、Service Workerのカスタムスコープを指定できます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Initialization Options" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="初期化オプション" }
 
 ---
 
@@ -771,7 +771,7 @@ AMP統合には、以下が必要です。
 4. **Service Workerの作成**: BrazeのService Workerファイルを追加します
 5. **AMP Webプッシュ要素の設定**: APIキーとベースURLをクエリパラメーターとして`amp-web-push`要素を追加します
 
-AMPの統合手順の詳細については、[Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#amp)を参照してください。
+AMP統合の詳細な手順については、[Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web#amp)を参照してください。
 
 ### Electron
 
@@ -792,7 +792,7 @@ Electronは公式にはWebプッシュ通知をサポートしていません（
 
 #### Tealium iQ
 
-Tealium iQは、基本的なターンキーBraze統合を提供します。統合を設定するには、Tealiumタグ管理インターフェイスでBrazeを検索し、ダッシュボードからWeb SDK APIキーを入力してください。詳細やTealiumの設定サポートについては、[統合ドキュメント]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium)を確認するか、Tealiumのアカウントマネージャーにお問い合わせください。
+Tealium iQは、基本的なターンキーBraze統合を提供します。統合を設定するには、Tealiumタグ管理インターフェイスでBrazeを検索し、ダッシュボードからWeb SDK APIキーを入力してください。詳細やTealiumの設定サポートについては、[統合ドキュメント]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium#about-tealium)を確認するか、Tealiumのアカウントマネージャーにお問い合わせください。
 
 #### その他のタグマネージャー {#other-tag-managers}
 
@@ -807,7 +807,7 @@ Brazeは、カスタムHTMLタグ内の統合手順に従うことで、他の�
 | Full | UIを含む完全なSDKです。npmバージョンを使用する場合、JavaScriptバンドラーはUIを含む未使用のコードを削除します。 | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.8/braze.min.js
 | Core | UIなしのSDKです。このバージョンのSDKを使用する場合、In-App MessagesとContent Cards用に独自のUIを実装する必要があります。UI要素はCSSで完全にカスタマイズ可能なため、一般的にはフルライブラリの統合をお勧めします。 | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.core.min.js
 | No-AMD | AMDサポートなしの完全なSDKです。サイトでRequireJSまたは別のAMDモジュールローダーを使用しているが、CDNを通じてSDKを読み込みたい場合に便利です。 | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.no-amd.min.js
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Libraries" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="ライブラリ" }
 
 ## サポートされているブラウザ {#supported-browsers}
 
@@ -825,7 +825,7 @@ Brazeはアプリ内メッセージのアイコンに[Font Awesome](http://forta
 
 ## その他のリソース {#additional-resources}
 
-- [Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)
+- [Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)
 - [SDKドキュメント](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html)
 - [サンプルビルド](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/)
 

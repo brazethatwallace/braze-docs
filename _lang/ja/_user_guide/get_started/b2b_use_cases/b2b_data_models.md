@@ -22,7 +22,7 @@ B2Bキャンペーンを実行するために必要な主要なB2Bオブジェ�
 | --- | --- |
 | リード | 製品やサービスに興味を示したが、まだ機会として認定されていない潜在的な顧客の記録。 |
 | 連絡先 | 通常、適格と判断され、セールス案件を追求するためにリードから連絡先に変換された個人。 |
-| 機会 | 潜在的な売却または進行中の取引の詳細を追跡するレコード
+| 機会 | 潜在的な売却または進行中の取引の詳細を追跡するレコード |
 | アカウント | 適格な見込み顧客、既存の顧客、パートナー、または類似する重要な関係性を持つ競合他社である組織のレコード。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="B2Bデータモデルを作成する" }
 
@@ -42,8 +42,8 @@ Brazeでビジネスオブジェクトを作成および管理するには、カ
 
 | 方法 | 説明 |
 | --- | --- |
-| [カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/) | Brazeのプライマリユーザープロファイル上の独立したデータオブジェクト（補足データオブジェクト）です。B2Bのコンテキストでは、アカウントと案件のカタログがある可能性があります。 |
-| [接続されたソース]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/) | Brazeがデータウェアハウスに直接クエリを実行できるようにします。すでにリード、連絡先、案件、アカウントの各オブジェクトをデータウェアハウスと定期的に同期している可能性があるため、Brazeセグメンテーションをそのウェアハウスに直接ポイントし、ゼロコピー環境で有効化することができます。 |
+| [カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs) | Brazeのプライマリユーザープロファイル上の独立したデータオブジェクト（補足データオブジェクト）です。B2Bのコンテキストでは、アカウントと案件のカタログがある可能性があります。 |
+| [接続されたソース]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources) | Brazeがデータウェアハウスに直接クエリを実行できるようにします。すでにリード、連絡先、案件、アカウントの各オブジェクトをデータウェアハウスと定期的に同期している可能性があるため、Brazeセグメンテーションをそのウェアハウスに直接ポイントし、ゼロコピー環境で有効化することができます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 1:Brazeでビジネスオブジェクトを作成する" }
 
 {% tabs %}
@@ -53,7 +53,7 @@ Brazeでビジネスオブジェクトを作成および管理するには、カ
 
 カタログは、Brazeでホストおよび管理されるデータテーブルです。アカウントデータと案件データは使用している営業用CRMシステムから作成されますが、Brazeでこれらのデータを複製して、マーケティング目的（アカウントベースのセグメンテーション、アカウントベースのマーケティング、リード管理など）で使用できます。
 
-このオプションでは、アカウント用と商談用にそれぞれ1つずつカタログを作成し、[カタログAPI]({{site.baseurl}}/api/endpoints/catalogs/)または[カタログクラウドデータ取り込み（CDI）]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/)を通じてBrazeに更新を送信することで、頻繁に更新することをお勧めします。これらのカタログを作成するときは、カタログの`id`（最初の列）が営業用CRMシステムの`id`と一致していることを確認してください。
+このオプションでは、アカウント用と商談用にそれぞれ1つずつカタログを作成し、[カタログAPI]({{site.baseurl}}/api/endpoints/catalogs)または[カタログクラウドデータ取り込み（CDI）]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data)を通じてBrazeに更新を送信することで、頻繁に更新することをお勧めします。これらのカタログを作成するときは、カタログの`id`（最初の列）が営業用CRMシステムの`id`と一致していることを確認してください。
 
 #### CRMフィールドにマップする {#map-over-your-crm-fields}
 
@@ -146,16 +146,16 @@ Brazeでビジネスオブジェクトを作成および管理するには、カ
 
 ### オプション 2:アカウントと案件に接続されたソースを使用する {#option-2-use-connected-sources-for-accounts-and-opportunities}
 
-接続されたソースは、自社データウェアハウスにホストされているデータテーブルであり、Braze [CDIセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/)によってクエリが実行されます。カタログとは異なり、Brazeでビジネスオブジェクト（アカウントと案件）を複製する代わりに、データウェアハウスにこれらのオブジェクトを維持し、ウェアハウスを信頼できる情報源として使用します。
+接続されたソースは、自社データウェアハウスにホストされているデータテーブルであり、Braze [CDIセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments)によってクエリが実行されます。カタログとは異なり、Brazeでビジネスオブジェクト（アカウントと案件）を複製する代わりに、データウェアハウスにこれらのオブジェクトを維持し、ウェアハウスを信頼できる情報源として使用します。
 
-接続されたソースを設定するには、[接続されたソースの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/#integrating-connected-sources)を参照してください。
+接続されたソースを設定するには、[接続されたソースの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources#integrating-connected-sources)を参照してください。
 
 {% endtab %}
 {% endtabs %}
 
 ## ステップ 2:ビジネスオブジェクトをユーザープロファイルに関連付ける {#step-2-relate-your-business-objects-to-user-profiles}
 
-ユーザープロファイルは、Brazeの主要なオブジェクトであり、人口統計セグメンテーション、トリガー、パーソナライゼーションの大部分の処理に使用されます。ユーザープロファイルには、SDKやその他のソースによって収集された[デフォルトのユーザーデータ]({{site.baseurl}}/user_guide/data/unification/user_data/)と、[カスタムデータ]({{site.baseurl}}/user_guide/data/activation/)が含まれます。カスタムデータは、属性（人口統計データ）、イベント（行動データ）、購入（トランザクションデータ）のいずれかの形式になります。
+ユーザープロファイルは、Brazeの主要なオブジェクトであり、人口統計セグメンテーション、トリガー、パーソナライゼーションの大部分の処理に使用されます。ユーザープロファイルには、SDKやその他のソースによって収集された[デフォルトのユーザーデータ]({{site.baseurl}}/user_guide/data/unification/user_data)と、[カスタムデータ]({{site.baseurl}}/user_guide/data/activation)が含まれます。カスタムデータは、属性（人口統計データ）、イベント（行動データ）、購入（トランザクションデータ）のいずれかの形式になります。
 
 ### ステップ 2.1:営業用CRMのIDをBrazeにマッピングする {#step-21-map-sales-crm-ids-to-braze}
 
@@ -172,7 +172,7 @@ Brazeでビジネスオブジェクトを作成および管理するには、カ
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Brazeオブジェクト:ユーザー" }
 
 {% alert note %}
-Salesforceのリードと連絡先の識別子をBrazeにマップするには、`external_id`ではなく[エイリアス]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#user-aliases)を使用することをお勧めします。これは、製品主導の成長スタイルのイニシアチブを特定して実行する際に必要なルックアップの量を減らすためです。
+Salesforceのリードと連絡先の識別子をBrazeにマップするには、`external_id`ではなく[エイリアス]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases)を使用することをお勧めします。これは、製品主導の成長スタイルのイニシアチブを特定して実行する際に必要なルックアップの量を減らすためです。
 {% endalert %}
 
 IDを同期したら、Brazeユーザープロファイルをビジネスオブジェクトに関連付ける必要があります。

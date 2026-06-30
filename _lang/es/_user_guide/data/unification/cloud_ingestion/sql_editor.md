@@ -11,7 +11,7 @@ toc_headers: h2
 
 > Esta página explica cómo usar el editor SQL de Ingesta de datos de Cloud (CDI) de Braze para crear y validar sincronizaciones con consultas SQL.
 
-El editor SQL de Ingesta de datos de Cloud te permite crear sincronizaciones escribiendo consultas SQL directamente contra tu almacén de datos. Esto elimina la necesidad de crear o mantener una tabla CDI dedicada, que antes era obligatoria en el [Paso 1.1 de integraciones de almacén de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+El editor SQL de Ingesta de datos de Cloud te permite crear sincronizaciones escribiendo consultas SQL directamente contra tu almacén de datos. Esto elimina la necesidad de crear o mantener una tabla CDI dedicada, que antes era obligatoria en el [Paso 1.1 de integraciones de almacén de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 Usa el editor SQL cuando quieras:
 
@@ -40,7 +40,7 @@ Braze ejecuta solo consultas de solo lectura contra tus datos y no modifica tus 
 Sigue estos pasos para crear primero un origen y luego una sincronización con el editor SQL. Si ya configuraste un origen para CDI, puedes ir directamente al paso 3.
 
 {% alert note %}
-Ten en cuenta que estos pasos usan un origen de Snowflake como ejemplo. El proceso de configuración para otros orígenes de almacén de datos es similar y se puede encontrar en el [Paso 2: Crear un nuevo origen en el panel de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-2-create-a-new-source-in-the-braze-dashboard) de la documentación de [Configuración de integraciones de almacén de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#setting-up-data-warehouse-integrations).
+Ten en cuenta que estos pasos usan un origen de Snowflake como ejemplo. El proceso de configuración para otros orígenes de almacén de datos es similar y se puede encontrar en el [Paso 2: Crear un nuevo origen en el panel de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard) de la documentación de [Configuración de integraciones de almacén de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#setting-up-data-warehouse-integrations).
 {% endalert %}
 
 ### Paso 1: Configura tu rol, permisos, almacén y usuario de Snowflake {#step-1-set-up-your-snowflake-role-permissions-warehouse-and-user}
@@ -253,7 +253,7 @@ Si tu consulta devuelve cero filas:
 
 ## Compatibilidad con `PAYLOAD` (legado) {#payload-support-legacy}
 
-El editor SQL es compatible con [tablas CDI legadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views) donde hay una columna `PAYLOAD` presente.
+El editor SQL es compatible con [tablas CDI legadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-1-set-up-tables-or-views) donde hay una columna `PAYLOAD` presente.
 
 Si tu consulta incluye:
 

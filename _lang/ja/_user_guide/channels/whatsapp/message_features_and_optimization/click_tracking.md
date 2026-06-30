@@ -111,7 +111,7 @@ WhatsApp Business Managerで直接テンプレートを作成する場合は、[
 ![ボタン名、WebサイトURL、クリックトラッキングURLのフィールドを含むボタンセクション。]({% image_buster /assets/img/whatsapp/click_tracking/buttons.png %}){: style="max-width:70%;"}
 
 {% alert important %}
-**API経由でのテンプレートメッセージ送信**：WhatsAppクリックトラッキング（`brz.ai` またはカスタムトラッキングドメインとメッセージ作成画面の**クリックトラッキングURL**フィールドを使用）は、[`/messages/send` エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)を通じてWhatsAppテンプレートメッセージを送信する場合はサポートされていません。
+**API経由でのテンプレートメッセージ送信**：WhatsAppクリックトラッキング（`brz.ai` またはカスタムトラッキングドメインとメッセージ作成画面の**クリックトラッキングURL**フィールドを使用）は、[`/messages/send` エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)を通じてWhatsAppテンプレートメッセージを送信する場合はサポートされていません。
 
 API経由でテンプレートメッセージを送信する場合、CTA URL変数（`button_variables` を使用）を入力できますが、BrazeはAPIリクエストフローでクリックトラッキングURLやリダイレクトリンクを生成しません。クリックトラッキングを使用するには、BrazeダッシュボードからまたはBraze キャンペーントリガー経由でテンプレートを送信してください。
 {% endalert %}
@@ -132,7 +132,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 以下の例のように、カスタム定義のLiquid変数の短縮もサポートしています：
 
 {% raw %}
-`````````liquid
+```liquid
 {% assign url_var = {{event_properties.${url_slug}}} %}
 https://example.com/{{url_var}}
 ```
@@ -154,7 +154,7 @@ BrazeはLiquidでレンダリングされたURL（APIトリガープロパティ
 
 ## レポート {#reporting}
 
-クリックトラッキングが有効になっている場合、またはサポートされているテンプレートで使用されている場合、WhatsAppパフォーマンステーブルには、バリアントごとのクリックイベント数と関連するクリック率を示す**Total Clicks**列が含まれます。WhatsApp指標の詳細については、[WhatsAppメッセージパフォーマンス]({{site.baseurl}}/user_guide/channels/whatsapp/reporting/)を参照してください。
+クリックトラッキングが有効になっている場合、またはサポートされているテンプレートで使用されている場合、WhatsAppパフォーマンステーブルには、バリアントごとのクリックイベント数と関連するクリック率を示す**Total Clicks**列が含まれます。WhatsApp指標の詳細については、[WhatsAppメッセージパフォーマンス]({{site.baseurl}}/user_guide/channels/whatsapp/reporting)を参照してください。
 
 ![WhatsAppメッセージのキャンバスステップ。]({% image_buster /assets/img/whatsapp/click_tracking/canvas_step.png %}){: style="max-width:30%;"}
 

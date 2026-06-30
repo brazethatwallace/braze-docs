@@ -1,37 +1,37 @@
 ---
 nav_title: "GET: Listar catálogos"
 article_title: "GET: Listar catálogos"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 2
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Enumerar catálogos de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Listar catálogos de Braze."
 
 ---
 {% api %}
-# Listar catálogos
+# Listar catálogos {#list-catalogs}
 {% apimethod get %}
 /catalogs
 {% endapimethod %}
 
-> Utiliza este punto final para devolver una lista de catálogos en un espacio de trabajo.
+> Utiliza este punto de conexión para devolver una lista de catálogos en un espacio de trabajo.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#7d65fb86-ccf7-423f-9eb2-f68ab36df824 {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.get`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `catalogs.get`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='synchronous catalog' %}
 
-## Ruta y parámetros de la solicitud
+## Ruta y parámetros de la solicitud {#path-and-request-parameters}
 
-No hay parámetros de ruta o solicitud para este punto final.
+No hay parámetros de ruta o solicitud para este punto de conexión.
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/catalogs' \
@@ -39,9 +39,9 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Respuesta
+## Respuesta {#response}
 
-### Ejemplo de respuesta satisfactoria
+### Ejemplo de respuesta correcta {#example-success-response}
 
 El código de estado `200` podría devolver el siguiente cuerpo de respuesta.
 

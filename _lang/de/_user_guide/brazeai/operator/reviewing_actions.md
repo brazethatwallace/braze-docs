@@ -33,7 +33,7 @@ Aktionskarten werden in den folgenden Editoren und auf den folgenden Seiten unte
     - Push-Benachrichtigungen
     - SMS/MMS/RCS
     - Webhooks
-- Seite [Angepassten Agenten erstellen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)
+- Seite [Angepassten Agenten erstellen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)
 
 Auf anderen Seiten stellt Operator eine Liste von Schritten zur Verfügung, die in der UI ausgeführt werden müssen, anstatt selbst Aktionen auszuführen. Die Funktionalität von Operator wird regelmäßig verbessert, und eine erweiterte Abdeckung für Erstellungswerkzeuge ist geplant.
 
@@ -54,4 +54,4 @@ Der Schalter **Aktionen automatisch genehmigen** befindet sich im Chat-Panel von
 
 Die automatische Genehmigung wird zurückgesetzt, wenn Sie die Seite aktualisieren, einen neuen Tab öffnen oder sich ab- und wieder anmelden. Das Wechseln zwischen Seiten im Dashboard setzt sie nicht zurück. Die automatische Genehmigung kann jederzeit deaktiviert werden.
 
-Informationen zur Einschränkung des Operator-Zugriffs und zur Überwachung der Team-Nutzung finden Sie unter [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/).
+Informationen zur Einschränkung des Operator-Zugriffs und zur Überwachung der Team-Nutzung finden Sie unter [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).

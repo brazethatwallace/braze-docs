@@ -13,7 +13,7 @@ page_order: 2
 기존 드래그 앤 드롭 환경설정 센터는 **오디언스** > **이메일 환경설정 센터**에서 관리할 수 있습니다:
 
 - 환경설정 센터의 이름이나 콘텐츠를 변경하려면 대시보드에서 환경설정 센터를 엽니다.
-- 드래그 앤 드롭 환경설정 센터는 대시보드에서 삭제할 수 없습니다. 제거하려면 먼저 이메일 Campaign 또는 캔버스 단계에서 해당 Liquid 태그를 제거한 다음 [Braze 고객지원]({{site.baseurl}}/support_contact/)에 문의하세요.
+- 드래그 앤 드롭 환경설정 센터는 대시보드에서 삭제할 수 없습니다. 제거하려면 먼저 이메일 Campaign 또는 캔버스 단계에서 해당 Liquid 태그를 제거한 다음 [Braze 고객지원]({{site.baseurl}}/support_contact)에 문의하세요.
 - 제거된 환경설정 센터가 이전에 발송된 메시지에서 사용되었다면, 해당 전달된 이메일에서 더 이상 작동하지 않습니다.
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
@@ -47,7 +47,7 @@ page_order: 2
 - **Unsubscribe from all** 체크박스 추가 또는 제거 - 이 블록에 표시된 모든 구독 그룹에서 사용자의 구독을 취소합니다
 
 
-템플릿 하단의 **Unsubscribe from all** 버튼은 제거할 수 없으며, 사용자가 이메일 메시지 수신을 [글로벌 구독 취소]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-states)하게 됩니다.
+템플릿 하단의 **Unsubscribe from all** 버튼은 제거할 수 없으며, 사용자가 이메일 메시지 수신을 [글로벌 구독 취소]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states)하게 됩니다.
 
 ## 4단계: 드래그 앤 드롭 편집기를 사용하여 환경설정 센터 커스터마이즈 {#step-4-customize-the-preference-center-using-the-drag-and-drop-editor}
 
@@ -85,7 +85,7 @@ page_order: 2
 
 ![제목, 단락, 버튼, 이미지, 스페이서를 포함한 블록 선택 옵션.]({% image_buster /assets/img/preference_center/preference_center8.png %}){: style="max-width:45%;"}
 
-모든 블록에는 패딩에 대한 세밀한 제어와 같은 자체 설정이 있습니다. 오른쪽 패널은 선택한 콘텐츠 요소에 대한 스타일링 패널로 자동 전환됩니다. 자세한 내용은 [편집기 블록(환경설정 센터)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=preference%20center)을 참조하세요.
+모든 블록에는 패딩에 대한 세밀한 제어와 같은 자체 설정이 있습니다. 오른쪽 패널은 선택한 콘텐츠 요소에 대한 스타일링 패널로 자동 전환됩니다. 자세한 내용은 [편집기 블록(환경설정 센터)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=preference%20center)을 참조하세요.
 
 환경설정 센터에서 커스텀 코드 블록을 사용하는 경우, 사용자에게 전달될 때 커스텀 코드에서 인라인 프레임이 생성되지 않을 수 있습니다.
 
@@ -114,10 +114,10 @@ page_order: 2
 
 ![환경설정 센터 행의 문안 Liquid 옵션.]({% image_buster /assets/img/preference_center/preference_center10.png %}){: style="max-width:75%;"}
 
-[구독 취소 URL]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/#adding-a-custom-unsubscribe-link)을 삽입하는 방법과 유사하게 이메일의 원하는 위치에 Liquid 태그를 추가합니다.
+[구독 취소 URL]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer#adding-a-custom-unsubscribe-link)을 삽입하는 방법과 유사하게 이메일의 원하는 위치에 Liquid 태그를 추가합니다.
 
 ## 오류 처리 {#handling-errors}
 
 사용자가 환경설정 센터에서 **저장**을 선택할 때 오류가 발생하면, 다음과 같은 기본 오류 메시지가 표시되며, 이 메시지는 편집기에서 커스터마이즈하거나 스타일을 지정할 수 없습니다. 단, 이 페이지에서는 오류 메시지의 현지화가 지원됩니다.
 
-!["환경설정을 저장하는 중 문제가 발생했습니다. 다시 시도해 주세요."라는 오류 메시지.]({% image_buster /assets/img/preference_center/preference_center11.png %}){: style="max-width:55%;"}
+![환경설정을 저장하는 중 문제가 발생했다는 오류 메시지.]({% image_buster /assets/img/preference_center/preference_center11.png %}){: style="max-width:55%;"}

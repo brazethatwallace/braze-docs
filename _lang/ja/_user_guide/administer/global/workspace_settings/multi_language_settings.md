@@ -12,7 +12,7 @@ description: "この記事では、Brazeダッシュボードの多言語設定�
 
 ## 前提条件 {#prerequisites}
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 ## ロケールを追加する {#add-a-locale}
 
@@ -65,7 +65,7 @@ description: "この記事では、Brazeダッシュボードの多言語設定�
 
 ### 翻訳ファイルはBrazeのどこに保存されますか？ {#where-are-the-translation-files-stored-in-braze}
 
-翻訳ファイルはCampaignレベルで保存されるため、各メッセージバリアントに翻訳をアップロードする必要があります。翻訳はContent Blocksにも保存できます。ブロックがメッセージに追加されると、その翻訳が自動的に含まれます。
+翻訳ファイルはキャンペーンレベルで保存されるため、各メッセージバリアントに翻訳をアップロードする必要があります。翻訳はContent Blocksにも保存できます。ブロックがメッセージに追加されると、その翻訳が自動的に含まれます。
 
 ### ロケール名は特定のパターンやフォーマットに従う必要がありますか？ {#does-the-locale-name-have-to-follow-a-specific-pattern-or-format}
 

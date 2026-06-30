@@ -30,7 +30,7 @@ Si quieres ver ejemplos o probar este punto de conexión para **grupos de WhatsA
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `subscription.groups.get`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `subscription.groups.get`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -45,7 +45,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | `phone` | Obligatorio* | Cadena en formato [E.164](https://en.wikipedia.org/wiki/E.164) | El número de teléfono del usuario. Debe incluir al menos un número de teléfono (con un máximo de 50). |
 | `limit` | Opcional | Entero | El límite del número máximo de resultados devueltos. El `limit` predeterminado (y máximo) es 100. |
 | `offset` | Opcional | Entero | Número de plantillas que saltar antes de devolver el resto de plantillas que se ajustan a los criterios de búsqueda. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 {% alert tip %}
 Si hay varios usuarios (varios `external_ids`) que comparten la misma dirección de correo electrónico, todos los usuarios serán devueltos como usuarios separados (aunque tengan la misma dirección de correo electrónico o grupo de suscripción).
@@ -70,7 +70,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/use
 {% tab Email %}
 {% raw %}
 ```
-curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/user/status?external_id={{external_id}}&email=example@braze.com&limit=100&offset=0' \
+curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/user/status?external_id={{external_id}}&email=example@example.com&limit=100&offset=0' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 {% endraw %}
@@ -86,8 +86,8 @@ Solo se incluirán en una respuesta correcta los grupos de suscripción que haya
     "users": [
         {
             "email": "test@example.com",
-            "phone": "50505050",
-            "external_id": "20500",
+            "phone": "+11112223333",
+            "external_id": "external_identifier",
             "subscription_groups": [
                 {
                   "id": "ec2fcc919fca",

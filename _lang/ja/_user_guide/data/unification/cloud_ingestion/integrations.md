@@ -65,7 +65,7 @@ BrazeがClassicおよびProのSQLインスタンスに接続する際、2〜5分
 
 ### ステップ 1: テーブルまたはビューの設定 {#step-1-set-up-tables-or-views}
 
-開始する前に、[クラウドデータ取り込みのテーブル設定]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/)を確認して、ソーステーブルの要件と`PAYLOAD`のフォーマット要件を理解してください。
+開始する前に、[クラウドデータ取り込みのテーブル設定]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup)を確認して、ソーステーブルの要件と`PAYLOAD`のフォーマット要件を理解してください。
 
 {% alert note %}
 ソーステーブルまたはビューには、以下のタブでお使いのウェアハウス向けにリストされていない列を含めることができます（例: 監査やハッシュ用の列）。Brazeはそれらのタブに記載されている列のみを読み取ります。その他の列はクラウドデータ取り込みの同期中に使用されません。
@@ -148,7 +148,7 @@ GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
 
 Snowflakeアカウントの設定によっては、Snowflakeのネットワークポリシーで以下のIPアドレスを許可する必要がある場合があります。これを有効にする方法の詳細については、[ネットワークポリシーの変更](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies)に関するSnowflakeの関連ドキュメントを参照してください。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Redshift %}
@@ -211,7 +211,7 @@ GRANT SELECT ON TABLE USERS_ATTRIBUTES_SYNC TO braze_user;
 
 Brazeダッシュボードのリージョンに対応する以下のIPからのアクセスを許可してください。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab BigQuery %}
@@ -294,7 +294,7 @@ GCPで、Brazeがテーブルに接続してデータを読み取るために使
 
 ネットワークポリシーを設定している場合は、BigQueryインスタンスへのBrazeネットワークアクセスを許可する必要があります。Brazeダッシュボードのリージョンに対応する以下のIPからのアクセスを許可してください。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Databricks %}
@@ -368,7 +368,7 @@ BrazeがDatabricksにアクセスするには、パーソナルアクセスト�
 
 ネットワークポリシーを設定している場合は、Databricksインスタンスへの Brazeネットワークアクセスを許可する必要があります。Brazeダッシュボードのリージョンに対応する以下のIPからのアクセスを許可してください。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -457,7 +457,7 @@ GO
 
 Microsoft Fabricアカウントの設定によっては、Brazeからのトラフィックを許可するために、ファイアウォールで以下のIPアドレスを許可する必要がある場合があります。これを有効にする方法の詳細については、[Entra Conditional Access](https://learn.microsoft.com/en-us/fabric/security/protect-inbound-traffic#entra-conditional-access)の関連ドキュメントを参照してください。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -469,7 +469,7 @@ Microsoft Fabricアカウントの設定によっては、Brazeからのトラ�
 {% tabs %}
 {% tab Snowflake %}
 
-Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > **Sources**に移動し、**Add data source**を選択して、**Snowflake**を選択します。
+Brazeダッシュボードで、**データ設定** > **クラウドデータ取り込み** > **ソース**に移動し、**データソースを追加**を選択して、**Snowflake**を選択します。
 
 #### ステップ 2.1: Snowflakeの接続情報の追加 {#step-21-add-snowflake-connection-information}
 
@@ -498,7 +498,7 @@ ALTER USER BRAZE_INGESTION_USER SET RSA_PUBLIC_KEY='MIIBIjANBgkqhkiG9w0BA...';
 {% endtab %}
 {% tab Redshift %}
 
-Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > **Sources**に移動し、**Add data source**を選択して、**Amazon Redshift**を選択します。
+Brazeダッシュボードで、**データ設定** > **クラウドデータ取り込み** > **ソース**に移動し、**データソースを追加**を選択して、**Amazon Redshift**を選択します。
 
 #### ステップ 2.1: Redshiftの接続情報とソーステーブルの追加 {#step-21-add-redshift-connection-information-and-source-table}
 
@@ -514,7 +514,7 @@ Brazeダッシュボードの**Database name**フィールドは、Amazon Redshi
 {% endtab %}
 {% tab BigQuery %}
 
-Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > **Sources**に移動し、**Add data source**を選択して、**Google BigQuery**を選択します。
+Brazeダッシュボードで、**データ設定** > **クラウドデータ取り込み** > **ソース**に移動し、**データソースを追加**を選択して、**Google BigQuery**を選択します。
 
 #### ステップ 2.1: BigQueryの接続情報とソーステーブルの追加 {#step-21-add-bigquery-connection-information-and-source-table}
 
@@ -527,7 +527,7 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 {% endtab %}
 {% tab Databricks %}
 
-Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > **Sources**に移動し、**Add data source**を選択して、**Databricks**を選択します。
+Brazeダッシュボードで、**データ設定** > **クラウドデータ取り込み** > **ソース**に移動し、**データソースを追加**を選択して、**Databricks**を選択します。
 
 #### ステップ 2.1: Databricksの接続情報とソーステーブルの追加 {#step-21-add-databricks-connection-information-and-source-table}
 
@@ -544,7 +544,7 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 {% endtab %}
 {% tab Microsoft Fabric %}
 
-Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > **Sources**に移動し、**Add data source**を選択して、**Microsoft Fabric**を選択します。
+Brazeダッシュボードで、**データ設定** > **クラウドデータ取り込み** > **ソース**に移動し、**データソースを追加**を選択して、**Microsoft Fabric**を選択します。
 
 #### ステップ 2.1: クラウドデータ取り込みの同期を設定する {#step-21-set-up-a-cloud-data-ingestion-sync}
 
@@ -565,7 +565,7 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 {% endtabs %}
 
 ### ステップ 3: Brazeダッシュボードで新しい同期を作成する {#step-3-create-a-new-sync-in-the-braze-dashboard}
-**Data Settings** > **Cloud Data Ingestion** > **Syncs**に移動し、**Create data sync**を選択します。
+**データ設定** > **クラウドデータ取り込み** > **同期**に移動し、**データ同期を作成**を選択します。
 
 {% tabs %}
 {% tab Snowflake %}
@@ -576,7 +576,7 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 成功すると、データのプレビューが表示されます。**Next: Notifications**を選択して続行します。接続に失敗した場合は、問題のトラブルシューティングに役立つエラーメッセージが表示されます。
 
 {% alert note %}
-次のステップに進むには、テスト接続に成功する必要があります。同期の作成ページを閉じる必要がある場合は、**Save as draft**をクリックして作業中の内容を保持してください。
+次のステップに進むには、テスト接続に成功する必要があります。同期の作成ページを閉じる必要がある場合は、**下書きとして保存**をクリックして作業中の内容を保持してください。
 {% endalert %}
 
 #### ステップ 3.2: 通知設定の追加 {#step-32-add-notification-preferences}
@@ -608,7 +608,7 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 成功すると、データのプレビューが表示されます。**Next: Notifications**を選択して続行します。接続に失敗した場合は、問題のトラブルシューティングに役立つエラーメッセージが表示されます。
 
 {% alert note %}
-次のステップに進むには、テスト接続に成功する必要があります。同期の作成ページを閉じる必要がある場合は、**Save as draft**をクリックして作業中の内容を保持してください。
+次のステップに進むには、テスト接続に成功する必要があります。同期の作成ページを閉じる必要がある場合は、**下書きとして保存**をクリックして作業中の内容を保持してください。
 {% endalert %}
 
 #### ステップ 3.2: 通知設定の追加
@@ -641,7 +641,7 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 成功すると、データのプレビューが表示されます。**Next: Notifications**を選択して続行します。接続に失敗した場合は、問題のトラブルシューティングに役立つエラーメッセージが表示されます。
 
 {% alert note %}
-次のステップに進むには、テスト接続に成功する必要があります。同期の作成ページを閉じる必要がある場合は、**Save as draft**をクリックして作業中の内容を保持してください。
+次のステップに進むには、テスト接続に成功する必要があります。同期の作成ページを閉じる必要がある場合は、**下書きとして保存**をクリックして作業中の内容を保持してください。
 {% endalert %}
 
 #### ステップ 3.2: 通知設定の追加
@@ -672,7 +672,7 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 成功すると、データのプレビューが表示されます。**Next: Notifications**を選択して続行します。接続に失敗した場合は、問題のトラブルシューティングに役立つエラーメッセージが表示されます。
 
 {% alert note %}
-次のステップに進むには、テスト接続に成功する必要があります。同期の作成ページを閉じる必要がある場合は、**Save as draft**をクリックして作業中の内容を保持してください。
+次のステップに進むには、テスト接続に成功する必要があります。同期の作成ページを閉じる必要がある場合は、**下書きとして保存**をクリックして作業中の内容を保持してください。
 {% endalert %}
 
 #### ステップ 3.2: 通知設定の追加
@@ -704,7 +704,7 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 成功すると、データのプレビューが表示されます。**Next: Notifications**を選択して続行します。接続に失敗した場合は、問題のトラブルシューティングに役立つエラーメッセージが表示されます。
 
 {% alert note %}
-次のステップに進むには、テスト接続に成功する必要があります。同期の作成ページを閉じる必要がある場合は、**Save as draft**をクリックして作業中の内容を保持してください。
+次のステップに進むには、テスト接続に成功する必要があります。同期の作成ページを閉じる必要がある場合は、**下書きとして保存**をクリックして作業中の内容を保持してください。
 {% endalert %}
 
 #### ステップ 3.2: 通知設定の追加

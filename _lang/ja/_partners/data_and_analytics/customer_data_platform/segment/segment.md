@@ -19,7 +19,7 @@ Brazeとセグメントの統合により、ユーザーを追跡し、さまざ
 
 - Brazeのキャンペーンとキャンバスセグメンテーションで使用するために、[セグメント Engage]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment_engage/)をBrazeに同期する。
 - [2つのプラットフォーム間でデータをインポートする](#integration-options)。Android、iOS、およびWebアプリケーション用のサイドバイサイドSDK統合と、BrazeのREST APIにデータを同期するサーバー間統合を提供しています。
-- [Currentsを介してデータをSegmentに接続する]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment_for_currents/)。
+- [Currentsを介してデータをセグメントに接続する]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment_for_currents/)。
 
 ## 前提条件 {#prerequisites}
 

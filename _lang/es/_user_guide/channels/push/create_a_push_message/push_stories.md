@@ -35,7 +35,7 @@ Se requieren las siguientes versiones del SDK para recibir historias push:
 
 Para usar las historias push, haz lo siguiente:
 
-1. Crea una [campaña push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/).
+1. Crea una [campaña push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
 2. Para tu **Notification Type**, selecciona **Push Stories**.
 3. Selecciona **iOS** o **Android**. Ten en cuenta que si seleccionas ambos para un mensaje push, la opción de crear una historia push no aparecerá.
 
@@ -52,12 +52,12 @@ Las vistas previas se reflejarán y son interactivas.
 ![Compositor de historias push]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
 
 {% alert important %}
-Si estás extrayendo imágenes con [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/#about-connected-content), asegúrate de que la URL de tu imagen comience con `https://`. Usar `http://` hará que tu aplicación se bloquee.
+Si estás extrayendo imágenes con [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content#about-connected-content), asegúrate de que la URL de tu imagen comience con `https://`. Usar `http://` hará que tu aplicación se bloquee.
 {% endalert %}
 
 ### Especificaciones de imagen y texto {#image-and-text-specifications}
 
-Las siguientes especificaciones de imagen y texto se aplican a la parte del carrusel de fotos de las historias push. Para obtener información sobre la notificación push básica con la que los usuarios interactúan para activar la historia push, consulta [Formatos de mensajes push e imágenes]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/).
+Las siguientes especificaciones de imagen y texto se aplican a la parte del carrusel de fotos de las historias push. Para obtener información sobre la notificación push básica con la que los usuarios interactúan para activar la historia push, consulta [Formatos de mensajes push e imágenes]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats).
 
 {% tabs %}
 {% tab Imágenes %}

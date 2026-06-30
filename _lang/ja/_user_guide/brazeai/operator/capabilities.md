@@ -1,7 +1,7 @@
 ---
 nav_title: 機能
 article_title: Operatorでできること
-page_order: 6
+page_order: 1
 page_type: reference
 toc_headers: h2
 description: "このリファレンス記事では、BrazeAI Operator™で利用できるAIタスク（コピーライティング、Liquid、画像生成、データ変換コード、コンテンツレビューなど）について説明します。"
@@ -9,13 +9,13 @@ description: "このリファレンス記事では、BrazeAI Operator™で利�
 
 # Operatorでできること {#operator-capabilities}
 
-> 以前はスタンドアロンのアシスタントとして利用できたAI機能が、[BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/)を通じてアクセスできるようになりました。Operatorはダッシュボードに組み込まれており、ワークスペース（ブランドガイドライン、属性、コネクテッドコンテンツ、作業中のページ）を理解しているため、以前のアシスタントよりもコンテキストを考慮した出力が可能です。
+> 以前はスタンドアロンのアシスタントとして利用できたAI機能が、[BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator)を通じてアクセスできるようになりました。Operatorはダッシュボードに組み込まれており、ワークスペース（ブランドガイドライン、属性、コネクテッドコンテンツ、作業中のページ）を理解しているため、以前のアシスタントよりもコンテキストを考慮した出力が可能です。
 
-タスクごとに異なるツールを開く代わりに、自然言語でやりたいことを説明すれば、Operatorがコンテキストに沿って処理します。会話を続けることもでき、異なるトーン、短いバージョン、翻訳などを最初からやり直すことなく依頼できます。Operatorは、適用前に確認できる[アクションカード]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/)を通じて、変更を直接提案・実行することもできます。
+タスクごとに異なるツールを開く代わりに、自然言語でやりたいことを説明すれば、Operatorがコンテキストに沿って処理します。会話を続けることもでき、異なるトーン、短いバージョン、翻訳などを最初からやり直すことなく依頼できます。Operatorは、適用前に確認できる[アクションカード]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)を通じて、変更を直接提案・実行することもできます。
 
 ## 前提条件 {#prerequisites}
 
-Operatorはあなたと同じ権限を持っているため、特定のアクションにはそのサーフェスに関連する権限が必要です。たとえば、画像の生成には*メディアライブラリアセットの編集*権限が必要です。エントリポイントが表示されない場合は、管理者に権限を確認してください。詳細については、[権限一覧]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions)を参照してください。
+Operatorはあなたと同じ権限を持っているため、特定のアクションにはそのサーフェスに関連する権限が必要です。たとえば、画像の生成には*メディアライブラリアセットの編集*権限が必要です。エントリポイントが表示されない場合は、管理者に権限を確認してください。詳細については、[権限一覧]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)を参照してください。
 
 ## Operatorで利用できる機能 {#whats-available-through-operator}
 
@@ -23,8 +23,8 @@ Operatorはあなたと同じ権限を持っているため、特定のアクシ
 
 | 以前のアシスタント | 機能 | 現在の場所 |
 | --- | --- | --- |
-| AIコピーライター | 製品名や説明からマーケティングコピーを生成 | SMS、プッシュ通知、HTMLメール、Canvasコンポーザーの新しい**Ask Operator**アイコン |
-| AI Liquidアシスタント | パーソナライゼーション用のLiquidを生成 | SMS、プッシュ通知、HTMLメール、Canvasコンポーザーの新しい**Ask Operator**アイコン |
+| AIコピーライター | 製品名や説明からマーケティングコピーを生成 | SMS、プッシュ通知、HTMLメール、キャンバスコンポーザーの新しい**Ask Operator**アイコン |
+| AI Liquidアシスタント | パーソナライゼーション用のLiquidを生成 | SMS、プッシュ通知、HTMLメール、キャンバスコンポーザーの新しい**Ask Operator**アイコン |
 | AI画像ジェネレーター | テキストプロンプトからメディアライブラリ用の画像を生成 | メディアライブラリの新しい**Operatorで生成**ボタン |
 | データ変換AI Copilot | 変換コードを生成 | データ変換ページの**コードを挿入**ボタン |
 | コンテンツレビュー | スペル、文法、トーン、不適切な言語、不要なコードをチェック | **テスト**タブの**Operatorでレビュー**ボタン |
@@ -32,17 +32,17 @@ Operatorはあなたと同じ権限を持っているため、特定のアクシ
 
 ## ブランドガイドラインの適用 {#apply-brand-guidelines}
 
-Operatorは、ワークスペースで設定されたブランドガイドラインを使用して、生成されたコピー、テンプレート、画像がブランドのボイス、トーン、スタイルに一致するようにします。ブランドガイドラインを設定するには、**コンテンツ** > **ブランドガイドライン**に移動します。詳細については、[ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)を参照してください。Operatorでブランドガイドラインを適用する方法の詳細については、[ブランドガイドラインの適用]({{site.baseurl}}/user_guide/brazeai/operator/#apply-brand-guidelines)を参照してください。
+Operatorは、ワークスペースで設定されたブランドガイドラインを使用して、生成されたコピー、テンプレート、画像がブランドのボイス、トーン、スタイルに一致するようにします。ブランドガイドラインを設定するには、**コンテンツ** > **ブランドガイドライン**に移動します。詳細については、[ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)を参照してください。Operatorでブランドガイドラインを適用する方法の詳細については、[ブランドガイドラインの適用]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines)を参照してください。
 
 ## コピーの生成 {#generate-copy}
 
-Operatorを使用して、どこからでもコピーのブレインストーミングや生成ができますが、メッセージコンポーザー内で直接使用すると、作成中のメッセージと一緒に作業できるため、最良のエクスペリエンスが得られます。製品やCampaignを説明すると、Operatorがレビューして挿入できるコピーを返します。
+Operatorを使用して、どこからでもコピーのブレインストーミングや生成ができますが、メッセージコンポーザー内で直接使用すると、作成中のメッセージと一緒に作業できるため、最良のエクスペリエンスが得られます。製品やキャンペーンを説明すると、Operatorがレビューして挿入できるコピーを返します。
 
 Operatorは、スタンドアロンのコピーライターからいくつかの点で改善されています：
 
 - 設定されている場合、[ブランドガイドライン](#apply-brand-guidelines)を自動的に適用します。
-- [ページ対応コンテキスト]({{site.baseurl}}/user_guide/brazeai/operator/#leverage-page-aware-context)を使用するため、作業中のチャネルやメッセージを再度説明する必要がありません。ページ対応であるため、ゼロから生成する代わりに、既存のメッセージの編集や改善にも使用できます。
-- [カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)やイベントを検索できるため、実際のLiquidを使用したパーソナライズされたコピーの推奨を依頼できます。
+- [ページ対応コンテキスト]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context)を使用するため、作業中のチャネルやメッセージを再度説明する必要がありません。ページ対応であるため、ゼロから生成する代わりに、既存のメッセージの編集や改善にも使用できます。
+- [カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)やイベントを検索できるため、実際のLiquidを使用したパーソナライズされたコピーの推奨を依頼できます。
 - 会話を続けてイテレーションできます。たとえば、異なるトーン、短いバージョン、翻訳を依頼できます。
 
 ### トーン {#generate-copy-tones}
@@ -59,7 +59,7 @@ Operatorは、スタンドアロンのコピーライターからいくつかの
 
 ## Liquidの生成 {#generate-liquid}
 
-任意のメッセージコンポーザーでOperatorを開き、パーソナライゼーション用のLiquidを生成・改善できます。Operatorは[Liquid構文]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)、標準および[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)を理解しており、コードの内容を説明することもできます。
+任意のメッセージコンポーザーでOperatorを開き、パーソナライゼーション用のLiquidを生成・改善できます。Operatorは[Liquid構文]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)、標準および[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)を理解しており、コードの内容を説明することもできます。
 
 ### Liquidを生成できる場所 {#generate-liquid-supported-channels}
 
@@ -67,7 +67,7 @@ Operatorは、スタンドアロンのコピーライターからいくつかの
 
 ### Liquidの機能 {#generate-liquid-attributes}
 
-OperatorはLiquidに非常に優れています。ワークスペース内のデータに基づいた複雑なLiquidロジックを生成でき、[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)データを検索してサンプル値を見つけることも含まれます。また、Campaignsの既存のLiquidをレビューして説明することもできます。
+OperatorはLiquidに非常に優れています。ワークスペース内のデータに基づいた複雑なLiquidロジックを生成でき、[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)データを検索してサンプル値を見つけることも含まれます。また、キャンペーンの既存のLiquidをレビューして説明することもできます。
 
 ### ベストプラクティス {#generate-liquid-best-practices}
 
@@ -80,11 +80,11 @@ Operatorは自然言語を理解するようにトレーニングされていま
 コンテキストを提供することで、Operatorがプロジェクトの全体像を理解しやすくなります。以下のようなコンテキストを含めると効果的です：
 
 - 会社名と業界
-- ブラックフライデーやホリデーセールなど、取り組んでいるCampaign
+- ブラックフライデーやホリデーセールなど、取り組んでいるキャンペーン
 - クリックスルー率の向上など、目標
 - メッセージに含めたい特定のカスタム属性
 
-プロンプトにコンテキストを含めることで、Operatorがニーズに合わせた応答を提供できます。Campaign、メッセージブリーフ、ブレインストーミングドキュメントの詳細を含めて、Operatorに状況を把握させることもできます。
+プロンプトにコンテキストを含めることで、Operatorがニーズに合わせた応答を提供できます。キャンペーン、メッセージブリーフ、ブレインストーミングドキュメントの詳細を含めて、Operatorに状況を把握させることもできます。
 
 #### 具体的にする {#generate-liquid-be-specific}
 
@@ -142,14 +142,14 @@ Operatorはフォローアップの質問をすることができますが、事
 
 Operatorは、OpenAIのAIシステムであり、Brazeのサードパーティプロバイダーである[GPT Image 2.0](https://openai.com/index/introducing-chatgpt-images-2-0/)を使用して画像を生成します。これにより、自然言語の説明からリアルな画像やアートを作成できます。
 
-[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)で、**アセットをアップロード**パネルから**Operatorで生成**を選択します。希望する画像を説明すると、Operatorがそれを生成し、メディアライブラリに直接保存します。
+[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)で、**アセットをアップロード**パネルから**Operatorで生成**を選択します。希望する画像を説明すると、Operatorがそれを生成し、メディアライブラリに直接保存します。
 
 ### プロンプトのヒント {#generate-images-prompt-tips}
 
 - 被写体、スタイル、ムード、色を具体的に説明してください。詳細を含めるほど、より良い結果が得られます。
 - テキスト入力のみ対応しています。参照画像のアップロードはサポートされていません。
 - Operatorのプロンプトでコンテキストとして[ブランドガイドライン](#apply-brand-guidelines)を適用すると、Operatorがそれを生成画像に直接適用するため、ブランドのビジュアルスタイルが反映された結果になります。
-- 画像生成は、1日のOperator使用制限にカウントされます。詳細については、[制限事項]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/#limitations)を参照してください。
+- 画像生成は、1日のOperator使用制限にカウントされます。詳細については、[制限事項]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting#limitations)を参照してください。
 
 ### プロンプトの例 {#generate-images-example-prompts}
 
@@ -159,9 +159,9 @@ Operatorは、OpenAIのAIシステムであり、Brazeのサードパーティ�
 
 ## データ変換コードの生成 {#generate-data-transformation-code}
 
-[データ変換]({{site.baseurl}}/user_guide/data/unification/data_transformation/)エディターで、**コードを挿入**を選択して、受信Webhookペイロードを有効なBraze APIリクエストに変換する変換コードを生成します。
+[データ変換]({{site.baseurl}}/user_guide/data/unification/data_transformation)エディターで、**コードを挿入**を選択して、受信Webhookペイロードを有効なBraze APIリクエストに変換する変換コードを生成します。
 
-変換の作成手順については、[変換の作成]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation/)を参照してください。
+変換の作成手順については、[変換の作成]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation)を参照してください。
 
 ### プロンプトの例 {#generate-data-transformation-example-prompts}
 
@@ -171,7 +171,7 @@ Operatorは、OpenAIのAIシステムであり、Brazeのサードパーティ�
 
 ## コンテンツ品質のレビュー {#review-content-quality}
 
-SMS、Androidプッシュ通知、iOSプッシュ通知、従来のアプリ内メッセージの**テスト**タブで、**Operatorでレビュー**を選択して、送信前にコンテンツをレビューします。デフォルトでは、Operatorはスペルと文法のエラー、ブランドに合わないまたは不適切なトーン、不適切な言語、不要なコード、テストコンテンツ、レンダリングされていないLiquidについてCampaignをレビューし、見つかった問題の修正方法を推奨します。プロンプトで直接、Operatorにコンテンツのレビュー方法をカスタマイズするよう依頼することもできます。
+SMS、Androidプッシュ通知、iOSプッシュ通知、従来のアプリ内メッセージの**テスト**タブで、**Operatorでレビュー**を選択して、送信前にコンテンツをレビューします。デフォルトでは、Operatorはスペルと文法のエラー、ブランドに合わないまたは不適切なトーン、不適切な言語、不要なコード、テストコンテンツ、レンダリングされていないLiquidについてキャンペーンをレビューし、見つかった問題の修正方法を推奨します。プロンプトで直接、Operatorにコンテンツのレビュー方法をカスタマイズするよう依頼することもできます。
 
 ### Operatorに確認を依頼できる内容 {#review-content-quality-supported-features}
 
@@ -202,10 +202,10 @@ SMS、Androidプッシュ通知、iOSプッシュ通知、従来のアプリ内�
 
 ## データプライバシーとセキュリティ {#data-privacy-and-security}
 
-Operatorは出力を生成するためにOpenAIと統合しています。BrazeがOpenAIに送信する情報、そのデータの使用方法、知的財産権の詳細については、[OpenAIでのデータの使用方法]({{site.baseurl}}/user_guide/brazeai/operator/#how-data-is-used-with-openai)を参照してください。
+Operatorは出力を生成するためにOpenAIと統合しています。BrazeがOpenAIに送信する情報、そのデータの使用方法、知的財産権の詳細については、[OpenAIでのデータの使用方法]({{site.baseurl}}/user_guide/brazeai/operator#how-data-is-used-with-openai)を参照してください。
 
 ## 次のステップ {#next-steps}
 
-- [Operatorを始める]({{site.baseurl}}/user_guide/brazeai/operator/)：Operatorへのアクセスと使用方法
-- [アクションのレビュー]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/)：Operatorが提案した変更のレビューと承認
-- [トラブルシューティング]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/)：一般的な問題と解決策のリファレンス
+- [Operatorを始める]({{site.baseurl}}/user_guide/brazeai/operator)：Operatorへのアクセスと使用方法
+- [アクションのレビュー]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)：Operatorが提案した変更のレビューと承認
+- [トラブルシューティング]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting)：一般的な問題と解決策のリファレンス

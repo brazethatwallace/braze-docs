@@ -23,7 +23,7 @@ Para crear una división de decisiones en tu flujo de trabajo, añade un paso a 
 
 ### Define tu división {#define-your-split}
 
-¿Cómo quieres dividir a tus usuarios? Puedes usar [Segments]({{site.baseurl}}/user_guide/audience/segments/) y filtros para trazar la línea. Básicamente, estás creando una consulta de `true` o `false` que evaluará a tus usuarios y luego los dirigirá a un paso u otro. Debes usar al menos un segmento o un filtro. No necesitas usar tanto un segmento como un filtro.
+¿Cómo quieres dividir a tus usuarios? Puedes usar [Segments]({{site.baseurl}}/user_guide/audience/segments) y filtros para trazar la línea. Básicamente, estás creando una consulta de `true` o `false` que evaluará a tus usuarios y luego los dirigirá a un paso u otro. Debes usar al menos un segmento o un filtro. No necesitas usar tanto un segmento como un filtro.
 
 ![Un paso de división de decisiones con el filtro "Foreground Push Enabled is true" seleccionado.]({% image_buster /assets/img/define-split-2.png %})
 
@@ -50,4 +50,4 @@ Consulta la siguiente tabla para ver las descripciones de los análisis de este 
 | _Ingresaron_ | El número total de veces que se ingresó al paso. Si tu Canvas tiene reelegibilidad y un usuario ingresa a un paso de división de decisiones dos veces, se registrarán dos entradas. |
 | _Sí_ | El número de entradas que cumplieron los criterios especificados y continuaron por el camino "sí". |
 | _No_ | El número de entradas que no cumplieron los criterios especificados y continuaron por el camino "no". |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Análisis" }

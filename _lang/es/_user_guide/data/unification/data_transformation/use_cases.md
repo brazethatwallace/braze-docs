@@ -1,46 +1,46 @@
 ---
-nav_title: Ejemplos
-article_title: Casos de uso de la transformación de datos Braze
+nav_title: Casos de uso
+article_title: Casos de uso de Transformación de datos de Braze
 page_order: 2
 page_type: reference
-description: "Este artículo de referencia proporciona algunos casos de uso de la transformación de datos Braze."
+description: "Este artículo de referencia proporciona algunos casos de uso de Transformación de datos de Braze."
 ---
 
-# Casos prácticos de transformación de datos
+# Casos de uso de Transformación de datos {#data-transformation-use-cases}
 
-> Considere los siguientes casos de uso posibles con Braze Data Transformation y una combinación de webhooks de las plataformas externas de ejemplo.
+> Considera los siguientes casos de uso posibles con Transformación de datos de Braze y una combinación de webhooks de las plataformas externas de ejemplo.
 
-## Generación de clientes potenciales
+## Generación de clientes potenciales {#generating-leads}
 
-Usted aloja un formulario Typeform de generación de clientes potenciales en su sitio web. Cuando los nuevos usuarios rellenan este formulario, usted puede:
+Alojas un formulario Typeform de generación de clientes potenciales en tu sitio web. Cuando los nuevos usuarios rellenan este formulario, puedes:
 - Crear nuevos usuarios en Braze.
-- Añádelos a una de tus listas de correo electrónico Braze.
-- Sincroniza algunas de sus respuestas como atributos personalizados en Braze, ya que sus respuestas son valiosos datos de primera mano que pueden impulsar experiencias de mensajería personalizada para su uso futuro.
+- Añadirlos a una de tus listas de correo electrónico de Braze.
+- Sincronizar algunas de sus respuestas como atributos personalizados en Braze, ya que sus respuestas son valiosos datos propios que pueden impulsar experiencias de mensajería personalizada en el futuro.
 
-## Abrir tickets de servicio
+## Apertura de tickets de servicio {#opening-service-tickets}
 
 Cuando los clientes abren tickets de servicio al cliente en una plataforma como Zendesk, puedes:
-- Escribe un evento personalizado en Braze cuando se crea un ticket de Zendesk.
-- Escriba un evento personalizado con propiedades de evento en Braze cuando se proporcione una calificación CSAT negativa a Zendesk.
+- Escribir un evento personalizado en Braze cuando se crea un ticket de Zendesk.
+- Escribir un evento personalizado con propiedades del evento en Braze cuando se proporciona una calificación CSAT negativa en Zendesk.
 
-## Integración con Braze
+## Integración con Braze {#integrating-with-braze}
 
-Braze tiene una integración con [Iterate]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/iterate/), una plataforma de información y cuestionarios para clientes. Con Transformación de datos, puede guardar varias respuestas de encuesta en un atributo personalizado anidado, en lugar de en la integración existente que guarda varios atributos personalizados.
+Braze tiene una integración con [Iterate]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/iterate), una plataforma de información y cuestionarios para clientes. Con Transformación de datos, puedes guardar varias respuestas de cuestionario en un atributo personalizado anidado, en lugar de usar la integración existente que guarda varios atributos personalizados.
 
-## Ejemplo de código de transformación
+## Ejemplo de código de transformación {#example-transformation-code}
 
-Considere esta carga útil de muestra de Typeform, una plataforma de encuestas, que se envía cada vez que se recibe una respuesta a una encuesta.
+Considera esta carga útil de muestra de Typeform, una plataforma de cuestionarios, que se envía cada vez que se recibe una respuesta a un cuestionario.
 
-![]({% image_buster /assets/img/data_transformation/data_transformation2.png %})
+![Captura de pantalla relacionada con el ejemplo de código de transformación.]({% image_buster /assets/img/data_transformation/data_transformation2.png %})
 
 {% tabs local %}
-{% tab Basic transformation %}
+{% tab Transformación básica %}
 
 Este ejemplo toma las respuestas del cuestionario como atributos y escribe un evento para indicar que se ha completado el cuestionario:
 
 ```
 return {
-  "attributes": [ 
+  "attributes": [
     {
       "email": payload.form_response.hidden.email_address,
       "_update_existing_only": true,
@@ -48,7 +48,7 @@ return {
       "home_weather_rating": payload.form_response.answers[1].number
     }
   ],
-  "events": [ 
+  "events": [
     {
       "email": payload.form_response.hidden.email_address,
       "_update_existing_only": true,
@@ -63,9 +63,9 @@ return {
 ```
 
 {% endtab %}
-{% tab Advanced transformation %}
+{% tab Transformación avanzada %}
 
-Desarrollemos aún más el ejemplo básico de transformación e introduzcamos una declaración `if` para clasificar al usuario en una de las respuestas.
+Desarrollemos aún más el ejemplo de transformación básica e introduzcamos una declaración `if` para categorizar al usuario en una de las respuestas.
 
 ```
 let nps_category;
@@ -79,7 +79,7 @@ if (nps_number < 7) {
 }
 
 return {
-  "attributes": [ 
+  "attributes": [
     {
       "email": payload.form_response.hidden.email_address,
       "_update_existing_only": true,

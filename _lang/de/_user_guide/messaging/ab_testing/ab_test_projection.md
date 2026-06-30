@@ -28,7 +28,7 @@ Es öffnet sich ein Modal mit den Betreffzeilen aller Nachrichtenvarianten, die 
 Die Betreffzeile, die unsere KI als beste vorhersagt, wird mit dem Label **Projected Winner** hervorgehoben.
 
 {% alert note %}
-Für [Push-Campaigns für mehrere Plattformen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/) werden A/B-Tests unterstützt, wenn Sie mehrere Plattformen auswählen.
+Für [Push-Campaigns für mehrere Plattformen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push) werden A/B-Tests unterstützt, wenn Sie mehrere Plattformen auswählen.
 {% endalert %}
 
 ### Wie genau sind die Projektionen? {#how-accurate-are-the-projections}

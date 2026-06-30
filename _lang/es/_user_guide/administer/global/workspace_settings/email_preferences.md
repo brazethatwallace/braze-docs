@@ -33,7 +33,7 @@ En esta sección, puedes agregar los nombres y direcciones de correo electrónic
 
 #### Personalizar con Liquid {#personalize-with-liquid}
 
-También puedes usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) en los campos **From Display Name**, **Local Part** y **Domain** para crear dinámicamente la plantilla del nombre del remitente y la dirección de correo electrónico basándote en atributos personalizados. Ten en cuenta que para usar Liquid en el campo **Domain**, debes ir a las opciones de **Sending Info** de una campaña de correo electrónico y seleccionar la casilla **Customize from display name + address**.
+También puedes usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) en los campos **From Display Name**, **Local Part** y **Domain** para crear dinámicamente la plantilla del nombre del remitente y la dirección de correo electrónico basándote en atributos personalizados. Ten en cuenta que para usar Liquid en el campo **Domain**, debes ir a las opciones de **Sending Info** de una campaña de correo electrónico y seleccionar la casilla **Customize from display name + address**.
 
 ![Ajustes de envío con campos para personalizar el nombre para mostrar del remitente, la dirección y el dominio.]({% image_buster /assets/img/email_settings/email_campaign_domain.png %})
 
@@ -64,16 +64,16 @@ Los dominios de envío de Braze no aceptan correo electrónico entrante. Si un d
 
 #### Personalizar con Liquid
 
-También puedes usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) en el campo **Reply-To Address** para crear dinámicamente la plantilla de la dirección de respuesta basándote en atributos personalizados. Por ejemplo, puedes usar lógica condicional para enviar respuestas a diferentes regiones o departamentos:
+También puedes usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) en el campo **Reply-To Address** para crear dinámicamente la plantilla de la dirección de respuesta basándote en atributos personalizados. Por ejemplo, puedes usar lógica condicional para enviar respuestas a diferentes regiones o departamentos:
 
 {% raw %}
 ```liquid
 {% if {{custom_attribute.${region}}} == 'US' %}
-{% assign address = "us-support@company.com" %}
+{% assign address = "us-support@example.com" %}
 {% elsif {{custom_attribute.${region}}} == 'EU' %}
-{% assign address = "eu-support@company.com" %}
+{% assign address = "eu-support@example.com" %}
 {% else %}
-{% assign address = "global-support@company.com" %}{% endif %}{{address}}
+{% assign address = "global-support@example.com" %}{% endif %}{{address}}
 ```
 {% endraw %}
 
@@ -82,7 +82,7 @@ También puedes usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_e
 
 Esta sección te permite administrar las direcciones de CCO que puedes agregar a los mensajes de correo electrónico salientes enviados desde Braze. Agregar una dirección de CCO a un mensaje de correo electrónico envía una copia idéntica del mensaje que tu usuario recibe a tu buzón de CCO. Esta es una herramienta útil para conservar copias de los mensajes que enviaste a tus usuarios para requisitos de cumplimiento o problemas de soporte al cliente. Los correos electrónicos de CCO no se incluyen en los informes y análisis de correo electrónico.
 
-Las direcciones de CCO están disponibles para Amazon SES, SendGrid y SparkPost. Como alternativa a las direcciones de CCO, recomendamos usar el [archivado de mensajes]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving/) para guardar una copia de los mensajes enviados a los usuarios con fines de archivo o cumplimiento.
+Las direcciones de CCO están disponibles para Amazon SES, SendGrid y SparkPost. Como alternativa a las direcciones de CCO, recomendamos usar el [archivado de mensajes]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving) para guardar una copia de los mensajes enviados a los usuarios con fines de archivo o cumplimiento.
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
@@ -113,7 +113,7 @@ El comportamiento predeterminado en Braze es agregar el píxel de seguimiento al
 
 Aunque el píxel ya está diseñado para causar la menor cantidad posible de cambios visuales, cualquier cambio visual no intencionado sería menos visible en la parte inferior de un correo electrónico. Este también es el comportamiento predeterminado para proveedores de correo electrónico como SendGrid y SparkPost.
 
-Para reducir comportamientos inesperados, mantén Liquid dentro de las etiquetas `<html>`. Las etiquetas anidadas o duplicadas a nivel de documento pueden cambiar cómo se analiza el correo electrónico y dónde se ubica el píxel, lo que puede afectar el seguimiento de apertura y el diseño. Para más información, consulta [Uso de Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/).
+Para reducir comportamientos inesperados, mantén Liquid dentro de las etiquetas `<html>`. Las etiquetas anidadas o duplicadas a nivel de documento pueden cambiar cómo se analiza el correo electrónico y dónde se ubica el píxel, lo que puede afectar el seguimiento de apertura y el diseño. Para más información, consulta [Uso de Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid).
 
 ### Actualizar la ubicación {#update-the-placement}
 
@@ -235,7 +235,7 @@ En tu editor de correo electrónico, ve a **Sending Settings** > **Sending Info*
     - Al seleccionar un grupo de suscripción, agrega el filtro **Subscription Group** en **Target Audiences** para dirigirte solo a los usuarios que están suscritos a este grupo específico. El grupo de suscripción seleccionado para la cancelación de suscripción con un clic debe coincidir con el grupo de suscripción al que te estás dirigiendo. Si hay una discrepancia en el grupo de suscripción, puedes correr el riesgo de enviar a un usuario que está intentando cancelar la suscripción de un grupo de suscripción del que ya está cancelado.
 
 {% alert important %}
-La configuración **Unsubscribe from specific subscription group** solo se aplica al encabezado list-unsubscribe con un clic. El encabezado mailto list-unsubscribe no se ve afectado al seleccionar esta opción. Esto significa que un destinatario que cancela la suscripción usando este método registra una cancelación de suscripción global, no una cancelación del grupo de suscripción específico. Para excluir el encabezado mailto list-unsubscribe de cancelar globalmente la suscripción de los usuarios, al seleccionar esta configuración, ponte en contacto con [Soporte]({{site.baseurl}}/support_contact/).
+La configuración **Unsubscribe from specific subscription group** solo se aplica al encabezado list-unsubscribe con un clic. El encabezado mailto list-unsubscribe no se ve afectado al seleccionar esta opción. Esto significa que un destinatario que cancela la suscripción usando este método registra una cancelación de suscripción global, no una cancelación del grupo de suscripción específico. Para excluir el encabezado mailto list-unsubscribe de cancelar globalmente la suscripción de los usuarios, al seleccionar esta configuración, ponte en contacto con [Soporte]({{site.baseurl}}/support_contact).
 {% endalert %}
 
 - **Custom**: Agrega tu URL personalizada de cancelación de suscripción con un clic para que proceses las cancelaciones de suscripción directamente.
@@ -272,7 +272,7 @@ Usa la opción para incluir "[TEST]" y "[SEED]" en las líneas de asunto de tus 
 
 El CSS en línea es una técnica que automáticamente incorpora estilos CSS en línea para tus correos electrónicos y nuevos correos electrónicos. Para algunos clientes de correo electrónico, esto puede mejorar la forma en que se renderizan tus correos electrónicos.
 
-Cambiar esta configuración no afecta ninguno de tus mensajes de correo electrónico o plantillas existentes. Puedes anular este valor predeterminado en cualquier momento mientras redactas mensajes o plantillas. Para más información, consulta [CSS en línea]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline/).
+Cambiar esta configuración no afecta ninguno de tus mensajes de correo electrónico o plantillas existentes. Puedes anular este valor predeterminado en cualquier momento mientras redactas mensajes o plantillas. Para más información, consulta [CSS en línea]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline).
 
 ## Resuscribir usuarios cuando cambia su correo electrónico {#resubscribe-users-when-their-email-changes}
 
@@ -293,7 +293,7 @@ Ten en cuenta los siguientes requisitos al crear un pie de página personalizado
 
 ![Editor de pie de página personalizado de correo electrónico con campos de enlace de cancelación de suscripción y dirección postal para cumplimiento de CAN-SPAM.]({% image_buster /assets/img/email_settings/custom_footer.png %})
 
-Para obtener más información sobre las plantillas Liquid de pie de página personalizado, consulta [Pies de página personalizados]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions).
+Para obtener más información sobre las plantillas Liquid de pie de página personalizado, consulta [Pies de página personalizados]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
 
 {% endtab %}
 {% tab Página personalizada para cancelar la suscripción %}
@@ -302,7 +302,7 @@ Braze te permite configurar una **Página personalizada para cancelar la suscrip
 
 ![Editor HTML de página personalizada para cancelar la suscripción y vista previa de la página que se muestra después de que un usuario cancela la suscripción del correo electrónico.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
-Para conocer las mejores prácticas de administración de listas de correo electrónico, consulta [Administrar suscripciones de correo electrónico]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses).
+Para conocer las mejores prácticas de administración de listas de correo electrónico, consulta [Administrar suscripciones de correo electrónico]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses).
 
 {% endtab %}
 {% tab Página personalizada de adhesión voluntaria %}
@@ -311,7 +311,7 @@ Puedes crear una página personalizada de adhesión voluntaria usando tu propio 
 
 ![Editor HTML de página personalizada de adhesión voluntaria y vista previa para la confirmación de suscripción de correo electrónico con marca.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
-Para conocer las mejores prácticas de administración de listas de correo electrónico, consulta [Administrar suscripciones de correo electrónico]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses).
+Para conocer las mejores prácticas de administración de listas de correo electrónico, consulta [Administrar suscripciones de correo electrónico]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses).
 
 {% endtab %}
 {% endtabs %}
@@ -367,7 +367,7 @@ Si un grupo de suscripción referenciado en **Sending Info** para cancelación c
 {% enddetails %}
 
 {% details ¿La configuración de cancelación de suscripción con un clic está disponible para plantillas de correo electrónico? %}
-No, actualmente no tenemos planes de agregar esto para plantillas de correo electrónico, ya que estas plantillas no están asignadas a un dominio de envío. Si estás interesado en esta característica para plantillas de correo electrónico, envía [comentarios sobre el producto]({{site.baseurl}}/user_guide/administer/personal/product_portal/).
+No, actualmente no tenemos planes de agregar esto para plantillas de correo electrónico, ya que estas plantillas no están asignadas a un dominio de envío. Si estás interesado en esta característica para plantillas de correo electrónico, envía [comentarios sobre el producto]({{site.baseurl}}/user_guide/administer/personal/product_portal).
 {% enddetails %}
 
 {% details ¿Esta característica verifica que la URL de cancelación de suscripción con un clic agregada a la opción personalizada sea válida? %}

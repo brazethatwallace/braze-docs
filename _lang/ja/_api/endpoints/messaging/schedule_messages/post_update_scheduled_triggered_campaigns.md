@@ -17,7 +17,7 @@ description: "この記事では、「スケジュールされた API トリガ�
 
 Brazeがメッセージ自体にテンプレート化する`trigger_properties`を渡すことができます。
 
-このエンドポイントでメッセージを送信するには、[API トリガーキャンペーン]({{site.baseurl}}/api/api_campaigns/)を作成する際に生成されるキャンペーン ID が必要です。
+このエンドポイントでメッセージを送信するには、[API トリガーキャンペーン]({{site.baseurl}}/api/api_campaigns)を作成する際に生成されるキャンペーン ID が必要です。
 
 スケジュールは、スケジュール作成リクエストまたは以前のスケジュール更新リクエストで指定したものを完全に上書きします。たとえば、最初にスケジュールを`"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}`に設定し、後で`"schedule" : {"time" : "2015-02-20T14:14:47"}`に更新した場合、Brazeはユーザーのローカル時間ではなく、UTC で指定された時間にメッセージを送信します。
 
@@ -27,7 +27,7 @@ Brazeがメッセージ自体にテンプレート化する`trigger_properties`�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`campaigns.trigger.schedule.update`権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`campaigns.trigger.schedule.update`権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -54,9 +54,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | 必須 | 文字列 | [キャンペーン識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
-| `schedule_id` | 必須 | 文字列 | 更新する`schedule_id`（スケジュール作成のレスポンスから取得）。 |
-| `schedule` | 必須 | オブジェクト | [スケジュールオブジェクト]({{site.baseurl}}/api/objects_filters/schedule_object/)を参照してください。 |
+| `campaign_id` | 必須 | 文字列 | [キャンペーン識別子]({{site.baseurl}}/api/identifier_types)を参照してください。|
+| `schedule_id` | 必須 | 文字列 | 更新する`schedule_id`（スケジュール作成のレスポンスから取得）。|
+| `schedule` | 必須 | オブジェクト | [スケジュールオブジェクト]({{site.baseurl}}/api/objects_filters/schedule_object)を参照してください。|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}

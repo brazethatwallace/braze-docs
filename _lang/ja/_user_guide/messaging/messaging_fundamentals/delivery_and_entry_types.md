@@ -3,10 +3,10 @@ nav_title: 配信とエントリタイプ
 article_title: 配信とエントリタイプ
 page_order: 5
 page_type: reference
-description: "このリファレンス記事では、キャンペーンの配信タイプ、キャンバスのエントリタイプ、およびキャンペーンやキャンバスを設定する際の時間ベースの機能について説明します。"
+description: "このリファレンス記事では、Campaignsの配信タイプ、Canvasesのエントリタイプ、およびCampaignやCanvasを設定する際の時間ベースの機能について説明します。"
 tool:
-    - キャンペーン
-    - キャンバス
+    - Campaigns
+    - Canvas
 ---
 
 # 配信とエントリタイプ {#delivery-and-entry-types}
@@ -20,20 +20,20 @@ tool:
 | **スケジュール配信**       | このスケジュールタイプは、現在のイベントに関するキャンペーンなど、すぐに送信したい1回限りのメッセージ向けに設計されています。<br><br>自分自身やチームだけを対象としたテストメッセージを送信する場合、このオプションを使用するとすぐに配信できます。                                                                                   |
 | **アクションベース**    | アクションベースの配信メッセージ、つまりイベントトリガーのキャンペーンやキャンバスは、トランザクションメッセージや達成ベースのメッセージに非常に効果的です。特定の日にメッセージを送信する代わりに、ユーザーが特定のイベントを完了した後に送信をトリガーできます。                                                                                           |
 | **APIトリガー**   | APIトリガーメッセージを使用すると、メッセージのコピー、多変量テスト、再適格性ルールをBrazeダッシュボードで管理しながら、独自のサーバーやシステムからコンテンツの配信をトリガーできます。<br><br>メッセージをトリガーするAPIリクエストには、リアルタイムでメッセージにテンプレート化される追加データを含めることもできます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Delivery and entry types" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="配信とエントリタイプ" }
 
 ## 時間ベースのオプション {#time-based-options}
 
 {% tabs %}
-{% tab campaign %}
+{% tab キャンペーン %}
 スケジュール配信を使用する場合、以下のオプションから選択できます。
 
 - キャンペーンの起動後すぐに送信
 - 指定した時間に送信
-- [インテリジェントタイミング]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)
+- [インテリジェントタイミング]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)
 {% endtab %}
 
-{% tab canvas %}
+{% tab キャンバス %}
 スケジュール配信では、キャンペーンをスケジュールする場合と同様に、ユーザーはタイムスケジュールに基づいてエントリします。キャンバスの起動後すぐに、または指定した時間にユーザーを登録できます。
 
 ### 指定時間 {#designated-times}
@@ -45,11 +45,11 @@ tool:
 ## アクションベースのオプション {#action-based-options}
 
 {% tabs %}
-{% tab campaign %}
+{% tab キャンペーン %}
 アクションベースの配信は、特定のアクションを実行したユーザーにキャンペーンを送信します。このアクションが発生した後、キャンペーンの送信タイミングを決定できます。すぐに送信、特定の時間後に送信、特定の時間に送信、または将来の時間に送信のいずれかを選択できます。
 {% endtab %}
 
-{% tab canvas %}
+{% tab キャンバス %}
 アクションベースのオプションは、ユーザーがキャンバスにエントリするために実行する必要があるアクション（またはトリガー）と、エントリが許可される特定の時間を決定します。たとえば、以下のアクションでユーザーを評価できます。
 
 - アプリを開く
@@ -65,11 +65,11 @@ tool:
 ## APIトリガーのオプション {#api-trigger-options}
 
 {% tabs %}
-{% tab campaign %}
-配信オプションとしてAPIトリガーを選択すると、[`/campaigns/trigger/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/#prerequisites)で送信するキャンペーンを識別するためのキャンペーン IDが提供されます。
+{% tab キャンペーン %}
+配信オプションとしてAPIトリガーを選択すると、[`/campaigns/trigger/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns#prerequisites)で送信するキャンペーンを識別するためのキャンペーン IDが提供されます。
 {% endtab %}
 
-{% tab canvas %}
-エントリタイプとしてAPIトリガーを選択すると、[`/canvas/trigger/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)で送信するキャンバスを識別するためのキャンバス IDが提供されます。
+{% tab キャンバス %}
+エントリタイプとしてAPIトリガーを選択すると、[`/canvas/trigger/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)で送信するキャンバスを識別するためのキャンバス IDが提供されます。
 {% endtab %}
 {% endtabs %}

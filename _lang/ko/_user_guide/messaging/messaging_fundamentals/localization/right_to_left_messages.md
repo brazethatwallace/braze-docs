@@ -48,7 +48,7 @@ Braze에서 오른쪽에서 왼쪽으로 읽는 메시지를 만들려면:
 푸시 알림의 경우, 제목 정렬은 일반적으로 기기 언어 설정을 따르며, 본문 정렬은 각 줄의 첫 번째 강한 방향 문자를 따를 수 있습니다(줄 바꿈 이후의 각 줄을 별도로 처리합니다). 즉, 하나의 푸시 알림에서 줄마다 정렬이 혼합될 수 있습니다. 예를 들어, 오른쪽에서 왼쪽으로 읽는 본문 줄 다음에 왼쪽에서 오른쪽으로 읽는 줄이 올 수 있습니다. 예측 가능한 레이아웃이 필요한 경우, 방향 일관성을 유지하고 혼합 언어 구간 사이에 줄 바꿈을 사용하세요.
 
 {% alert note %}
-렌더링은 여전히 기기 운영체제와 푸시 클라이언트에 따라 달라집니다. 라이브 전에 정렬을 확인하려면 자신의 기기로 [테스트 메시지]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/)를 발송하세요.
+렌더링은 여전히 기기 운영체제와 푸시 클라이언트에 따라 달라집니다. 라이브 전에 정렬을 확인하려면 자신의 기기로 [테스트 메시지]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages)를 발송하세요.
 {% endalert %}
 
 ### 양방향 텍스트 {#bi-directional-text}

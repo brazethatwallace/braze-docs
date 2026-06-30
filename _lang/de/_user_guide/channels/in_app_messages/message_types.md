@@ -4,7 +4,7 @@ article_title: In-App-Nachrichtentypen
 page_order: 3
 layout: dev_guide
 guide_top_header: "In-App-Nachrichtentypen"
-guide_top_text: "Braze bietet mehrere In-App-Nachrichtentypen, die jeweils für unterschiedliche Anwendungsfälle konzipiert sind. Bevor Sie kreativ werden, lesen Sie die Richtlinien für jeden Typ durch, um sicherzustellen, dass Ihre Nachricht auf Telefonen, Tablets und Computern gut angezeigt wird. <a href='/docs/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message'>Testen Sie Ihre Nachrichten</a> immer vor dem Starten."
+guide_top_text: "Braze bietet mehrere In-App-Nachrichtentypen, die jeweils für unterschiedliche Anwendungsfälle konzipiert sind. Bevor Sie kreativ werden, lesen Sie die Richtlinien für jeden Typ durch, um sicherzustellen, dass Ihre Nachricht auf Telefonen, Tablets und Computern gut angezeigt wird. <a href='/docs/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message'>Testen Sie Ihre Nachrichten</a> immer vor dem Starten."
 description: "Diese Landing-Page behandelt die verschiedenen Typen von In-App-Nachrichten, die in Braze verfügbar sind, darunter Vollbild, Modal, Slideup, angepasstes HTML, E-Mail-Erfassungsformulare und einfache Umfragen."
 
 channel:

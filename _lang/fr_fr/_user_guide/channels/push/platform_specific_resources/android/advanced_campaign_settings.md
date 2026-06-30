@@ -30,7 +30,7 @@ Le champ **Time to Live** vous permet de définir une durée personnalisée de s
 
 Pour modifier la durée de vie de votre notification push Android, accédez au composeur et sélectionnez l'onglet **Settings**. Trouvez le champ **Time to Live** et saisissez une valeur en jours, heures ou secondes.
 
-Les valeurs par défaut de la durée de vie sont définies par votre administrateur sur la page [Paramètres de notifications push]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings/). Par défaut, Braze définit le TTL des notifications push à la valeur maximale pour chaque service d'envoi de messages push. Bien que les paramètres TTL par défaut s'appliquent globalement, vous pouvez les remplacer au niveau du message lors de la création d'une campagne. Cela est utile lorsque différentes campagnes nécessitent des niveaux d'urgence ou des fenêtres de distribution différents.
+Les valeurs par défaut de la durée de vie sont définies par votre administrateur sur la page [Paramètres de notifications push]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings). Par défaut, Braze définit le TTL des notifications push à la valeur maximale pour chaque service d'envoi de messages push. Bien que les paramètres TTL par défaut s'appliquent globalement, vous pouvez les remplacer au niveau du message lors de la création d'une campagne. Cela est utile lorsque différentes campagnes nécessitent des niveaux d'urgence ou des fenêtres de distribution différents.
 
 Par exemple, imaginons que votre application héberge un concours de quiz hebdomadaire. Vous envoyez une notification push une heure avant le début. En définissant le TTL à 1 heure, vous vous assurez que les utilisateurs qui ouvrent l'application après le début du concours ne recevront pas de notification concernant un événement déjà commencé.
 
@@ -64,7 +64,7 @@ Le champ **Firebase Messaging Delivery Priority** vous permet de contrôler si u
 
 ### Considérations {#considerations}
 
-- **Paramètre par défaut** : vous pouvez définir une priorité FCM par défaut pour toutes les campagnes Android dans vos [Paramètres de notifications push]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings/). Ce paramètre au niveau de la campagne remplacera la valeur par défaut si nécessaire.
+- **Paramètre par défaut** : vous pouvez définir une priorité FCM par défaut pour toutes les campagnes Android dans vos [Paramètres de notifications push]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings). Ce paramètre au niveau de la campagne remplacera la valeur par défaut si nécessaire.
 - **Dépriorisation** : si FCM détecte que votre application envoie fréquemment des messages à haute priorité qui ne génèrent pas de notifications visibles par l'utilisateur ou d'engagement, ces messages peuvent être automatiquement dépriorisés en priorité normale.
 - **Impact sur la batterie** : les messages à haute priorité réveillent les appareils en veille de manière plus agressive et consomment davantage de batterie. Utilisez cette priorité avec discernement.
 
@@ -84,7 +84,7 @@ Pour les notifications push contenant des images, le texte du message s'affiche 
 
 ## URI personnalisées {#custom-uris}
 
-La fonctionnalité **Custom URI** vous permet de spécifier une URL Web ou une ressource Android vers laquelle naviguer lorsque la notification est cliquée. Si aucune URI personnalisée n'est spécifiée, cliquer sur la notification amène les utilisateurs dans votre application. Vous pouvez utiliser l'URI personnalisée pour créer des liens profonds à l'intérieur de votre application ainsi que pour diriger les utilisateurs vers des ressources extérieures à votre application. Cela peut être spécifié via notre [API d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging/) ou dans l'onglet **Compose** du composeur push.
+La fonctionnalité **Custom URI** vous permet de spécifier une URL Web ou une ressource Android vers laquelle naviguer lorsque la notification est cliquée. Si aucune URI personnalisée n'est spécifiée, cliquer sur la notification amène les utilisateurs dans votre application. Vous pouvez utiliser l'URI personnalisée pour créer des liens profonds à l'intérieur de votre application ainsi que pour diriger les utilisateurs vers des ressources extérieures à votre application. Cela peut être spécifié via notre [API d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging) ou dans l'onglet **Compose** du composeur push.
 
 ![Champ Custom URI.]({% image_buster /assets/img_archive/deep_link.png %}){: style="max-width:60%;"}
 
@@ -166,7 +166,7 @@ Sous Android O, les sons de notification sont devenus une propriété des canaux
 
 Pour les appareils exécutant des versions d'Android antérieures à Android O, Braze vous permet de définir le son d'un message push individuel via le composeur du tableau de bord. Vous pouvez le faire en spécifiant une ressource sonore locale sur l'appareil (par exemple, `android.resource://com.mycompany.myapp/raw/mysound`).
 
-Sélectionner **Default** dans ce champ jouera le son de notification par défaut de l'appareil. Cela peut être spécifié via notre [API d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging/) ou dans les **Settings** du composeur push.
+Sélectionner **Default** dans ce champ jouera le son de notification par défaut de l'appareil. Cela peut être spécifié via notre [API d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging) ou dans les **Settings** du composeur push.
 
 ![Le champ « Sound ».]({% image_buster /assets/img_archive/sound_android.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 

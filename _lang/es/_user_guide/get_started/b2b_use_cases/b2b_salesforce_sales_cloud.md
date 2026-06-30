@@ -23,7 +23,7 @@ Braze ofrece actualmente dos integraciones con Salesforce Sales Cloud para los s
 2. [Actualizar un cliente potencial en Salesforce Sales Cloud](#updating-lead)
 
 {% alert note %}
-Esta integración es exclusivamente para actualizar Salesforce desde Braze como parte de tus esfuerzos de captación y nutrición de clientes potenciales. Para sincronizar datos de Salesforce de vuelta a Braze, consulta el [modelo de datos B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models/) o ponte en contacto con uno de nuestros [socios tecnológicos]({{site.baseurl}}/partners/home/).
+Esta integración es exclusivamente para actualizar Salesforce desde Braze como parte de tus esfuerzos de captación y nutrición de clientes potenciales. Para sincronizar datos de Salesforce de vuelta a Braze, consulta el [modelo de datos B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models) o ponte en contacto con uno de nuestros [socios tecnológicos]({{site.baseurl}}/partners/home).
 {% endalert %}
 
 ## Requisitos previos {#prerequisites}
@@ -94,9 +94,9 @@ Selecciona **+ Add New Header** para cada uno de los siguientes encabezados de s
 
 ## Actualizar un cliente potencial en Salesforce Sales Cloud {#updating-lead}
 
-Para configurar un webhook de Braze para Salesforce Sales Cloud que actualice clientes potenciales en Salesforce, necesitas un identificador común entre Salesforce Sales Cloud y Braze. El ejemplo siguiente utiliza el `lead_id` de Salesforce como el `external_id` de Braze, pero también puedes lograrlo utilizando un `user_alias`. Para más detalles, consulta [Datos B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models/).
+Para configurar un webhook de Braze para Salesforce Sales Cloud que actualice clientes potenciales en Salesforce, necesitas un identificador común entre Salesforce Sales Cloud y Braze. El ejemplo siguiente utiliza el `lead_id` de Salesforce como el `external_id` de Braze, pero también puedes lograrlo utilizando un `user_alias`. Para más detalles, consulta [Datos B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models).
 
-Este ejemplo muestra específicamente cómo actualizar la etapa de un cliente potencial a "MQL" (Marketing Qualified Lead) después de que un cliente potencial supere un determinado umbral. Esta es una parte fundamental de nuestro caso de uso del [flujo de trabajo de puntuación de clientes potenciales B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/).
+Este ejemplo muestra específicamente cómo actualizar la etapa de un cliente potencial a "MQL" (Marketing Qualified Lead) después de que un cliente potencial supere un determinado umbral. Esta es una parte fundamental de nuestro caso de uso del [flujo de trabajo de puntuación de clientes potenciales B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring).
 
 ### Paso 1: Recopila tu `client_id` y `client_secret`
 
@@ -160,7 +160,7 @@ Para crear un cliente potencial en Salesforce cuando un usuario proporcione su d
 
 ### Canvas de puntuación de clientes potenciales para superar el umbral de Marketing Qualified Lead (MQL) {#lead-scoring}
 
-Este webhook se trata en el caso de uso de [puntuación de clientes potenciales]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/#lead-handoff), pero también puedes comprobar los MQL y actualizar directamente Salesforce dentro del Canvas de puntuación de clientes potenciales (en lugar de crear una campaña de webhook independiente):
+Este webhook se trata en el caso de uso de [puntuación de clientes potenciales]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring#lead-handoff), pero también puedes comprobar los MQL y actualizar directamente Salesforce dentro del Canvas de puntuación de clientes potenciales (en lugar de crear una campaña de webhook independiente):
 
 Añade un paso posterior a tu actualización de usuario para comprobar si un usuario ha superado el umbral de MQL que hayas definido. Si lo ha superado, actualiza el estado del usuario a "MQL" y luego actualiza Salesforce con el mismo estado "MQL" utilizando esta plantilla de webhook. Salesforce se encarga del resto, enrutando este cliente potencial a los equipos de ventas adecuados mediante las reglas de enrutamiento de clientes potenciales que hayas definido.
 
@@ -187,7 +187,7 @@ Añade un paso posterior a tu actualización de usuario para comprobar si un usu
 
 ## Solución de problemas {#troubleshooting}
 
-Estos flujos de trabajo tienen una capacidad de depuración limitada dentro de Salesforce, por lo que recomendamos consultar el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/#message-activity-log) de Braze para averiguar por qué falló un webhook y si se produjo algún error.
+Estos flujos de trabajo tienen una capacidad de depuración limitada dentro de Salesforce, por lo que recomendamos consultar el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#message-activity-log) de Braze para averiguar por qué falló un webhook y si se produjo algún error.
 
 Por ejemplo, un error causado por una URL no válida utilizada para la recuperación del token OAuth se mostraría como `https://[insert_instance_name].my.salesforce.com/services/oauth2/token is not a valid URL`.
 

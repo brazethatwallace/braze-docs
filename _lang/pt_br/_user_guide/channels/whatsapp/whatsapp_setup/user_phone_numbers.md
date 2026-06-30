@@ -7,6 +7,7 @@ page_type: reference
 channel:
   - WhatsApp
 
+
 ---
 
 # Números de telefone dos usuários {#user-phone-numbers}
@@ -17,7 +18,7 @@ Os números de telefone são exibidos no perfil de usuário em formatos locais, 
 
 ## Importando números de telefone {#importing-phone-numbers}
 
-Você pode importar números de telefone [fazendo upload de um CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv) ou [via API]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint) para criar um usuário.
+Você pode importar números de telefone [fazendo upload de um CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv) ou [via API]({{site.baseurl}}/api/endpoints/user_data#user-track-endpoint) para criar um usuário.
 
 ### Formatação {#formatting}
 
@@ -29,7 +30,7 @@ Todos os números dos EUA devem ser números de telefone válidos de 10 dígitos
 
 Todos os números internacionais devem começar com `+`, seguido do código do país e do número de telefone. (ex.: `+442071838750`)
 
-![Exemplo de um número de telefone internacional válido no formato E.164.]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
+![Captura de tela relacionada à formatação.]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
 
 No entanto, para garantir a precisão caso você esteja enviando para várias regiões com diferentes códigos de país ou área, é recomendável usar o formato `E.164`, mesmo para números de telefone dos EUA.
 
@@ -44,7 +45,7 @@ Você pode ver as diferenças entre a formatação de número local e a formata�
 
 ### Adicionando usuários a um grupo de inscrições do WhatsApp {#adding-users-to-whatsapp-a-subscription-group}
 
-Para que um cliente receba uma mensagem do WhatsApp, ele deve ter um número de telefone válido e ter feito opt-in em um grupo de inscrições. Para saber mais, consulte [Grupos de inscrições do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/).
+Para que um cliente receba uma mensagem do WhatsApp, ele deve ter um número de telefone válido e ter feito opt-in em um grupo de inscrições. Para saber mais, consulte [Grupos de inscrições do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups).
 
 
 ### Múltiplos usuários com o mesmo número de telefone {#multiple-users-with-the-same-phone-number}

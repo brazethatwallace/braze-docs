@@ -15,17 +15,17 @@ description: "En este artículo se describen los detalles del punto de conexión
 /scim/v2/Users/{id}
 {% endapimethod %}
 
-> Utiliza este punto de conexión para actualizar una cuenta de usuario existente del dashboard especificando el recurso `id` devuelto por el método SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account/).
+> Utiliza este punto de conexión para actualizar una cuenta de usuario existente del dashboard especificando el recurso `id` devuelto por el método SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account).
 
 Te permite actualizar los nombres y apellidos, los permisos (para establecer permisos a nivel de empresa, espacio de trabajo y equipo) y el departamento.
 
-Por razones de seguridad, `userName` (dirección de correo electrónico) no se puede actualizar a través de este punto de conexión. Si deseas cambiar el `userName` (dirección de correo electrónico) de un usuario, ponte en contacto con [Soporte]({{site.baseurl}}/support_contact/).
+Por razones de seguridad, `userName` (dirección de correo electrónico) no se puede actualizar a través de este punto de conexión. Si deseas cambiar el `userName` (dirección de correo electrónico) de un usuario, ponte en contacto con [Soporte]({{site.baseurl}}/support_contact).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5f9a1642-988e-4011-8fb8-db4340ea1ac7 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás un token SCIM. Utilizarás el origen de tu servicio como encabezado `X-Request-Origin`. Para más información, consulta [Aprovisionamiento automatizado de usuarios]({{site.baseurl}}/scim/automated_user_provisioning/).
+Para utilizar este punto de conexión, necesitarás un token SCIM. Utilizarás el origen de tu servicio como encabezado `X-Request-Origin`. Para más información, consulta [Aprovisionamiento automatizado de usuarios]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Límite de velocidad {#rate-limit}
 
@@ -35,8 +35,8 @@ Para utilizar este punto de conexión, necesitarás un token SCIM. Utilizarás e
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `id` | Obligatorio | Cadena | El ID del recurso del usuario. Este parámetro es devuelto por los métodos `POST` `/scim/v2/Users/` o `GET` `/scim/v2/Users?filter=userName eq "user@test.com"`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+| `id` | Obligatorio | Cadena | El ID del recurso del usuario. Este parámetro es devuelto por los métodos `POST` `/scim/v2/Users/` o `GET`  `/scim/v2/Users?filter=userName eq "user@example.com"`. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la ruta" }
 
 ## Cuerpo de la solicitud {#request-body}
 ```
@@ -92,9 +92,9 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | --------- | -------- | --------- | ----------- |
 | `schemas` | Obligatorio | Matriz de cadenas | Nombre de esquema SCIM 2.0 esperado para el objeto de usuario. |
 | `name` | Obligatorio | Objeto JSON | Este objeto contiene el nombre y los apellidos del usuario. |
-| `department` | Obligatorio | Cadena | Cadena de departamento válida de la [documentación de cadenas de departamento]({{site.baseurl}}/scim_api_appendix/#department-strings). |
-| `permissions` | Obligatorio | Objeto JSON | Objeto de permisos tal y como se describe en la [documentación del objeto de permisos]({{site.baseurl}}/scim_api_appendix/#permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `department` | Obligatorio | Cadena | Cadena de departamento válida de la [documentación de cadenas de departamento]({{site.baseurl}}/scim_api_appendix#department-strings). |
+| `permissions` | Obligatorio | Objeto JSON | Objeto de permisos tal y como se describe en la [documentación del objeto de permisos]({{site.baseurl}}/scim_api_appendix#permissions-object). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 
 ## Ejemplo de solicitud {#example-request}
@@ -141,7 +141,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "id": "dfa245b7-24195aec-887bb3ad-602b3340",
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"

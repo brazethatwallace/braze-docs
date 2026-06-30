@@ -10,7 +10,7 @@ page_type: reference
 
 # Content Optimizer agent step
 
-> The Content Optimizer agent step lets you configure and test multiple versions of content components within a single step. It helps you experiment with content variations and automatically optimizes toward the best-performing combinations over time. For an introduction, see [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer/).
+> The Content Optimizer agent step lets you configure and test multiple versions of content components within a single step. It helps you experiment with content variations and automatically optimizes toward the best-performing combinations over time. For an introduction, see [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer).
 
 {% alert important %}
 Content Optimizer is currently in beta. For help getting started, contact your customer success manager.
@@ -76,7 +76,7 @@ Supported components to optimize include:
 
 ### Step 3: Specify delivery settings
 
-In the **Delivery Settings** tab, you can specify if the step should use Intelligent Timing or delivery validations. For more details, refer to [Edit delivery settings]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#step-2-edit-delivery-settings) in Message step.
+In the **Delivery Settings** tab, you can specify if the step should use Intelligent Timing or delivery validations. For more details, refer to [Edit delivery settings]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#step-2-edit-delivery-settings) in Message step.
 
 ### Step 4: Add content components and variants {#step-4}
 
@@ -229,7 +229,7 @@ For SMS/MMS/RCS steps, the subscription group and message type also cannot be ch
 - Test at least 10 total combinations for best results.
 - If you’re optimizing for clicks, include subject lines in your tests, as stronger subject lines can contribute to increased opens and create more opportunities for clicks.
 - If you’re optimizing for opens, keep your testing focused on the subject line.
-- If this is your first time using Content Optimizer, consider using an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) step so only part of your audience enters the branch that contains the Content Optimizer step. For example, you could send half your users down a path with the Content Optimizer step and send the other half of your users down a control path that sends the Message Step with your current business-as-usual content. Then, gather data for 2-3 weeks and compare any key performance indicators (KPIs) or counter-metrics before you increase traffic to the paths with Content Optimizer steps. 
+- If this is your first time using Content Optimizer, consider using an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) step so only part of your audience enters the branch that contains the Content Optimizer step. For example, you could send half your users down a path with the Content Optimizer step and send the other half of your users down a control path that sends the Message Step with your current business-as-usual content. Then, gather data for 2-3 weeks and compare any key performance indicators (KPIs) or counter-metrics before you increase traffic to the paths with Content Optimizer steps. 
   - For an effective one-to-one comparison, we recommend that your Content Optimizer step contains your business-as-usual content as one of the variants for each component.
 - Before updating a running step, wait for the performance rankings across all component variants to stabilize—meaning the same variants are consistently winning and losing for three to four days in a row. This typically takes about seven days, and a higher number of optimization events produces stronger, more accurate signal.
 - Avoid updating too early. Each time you publish changes, the optimizer resets. If you update before the step has time to identify what is working, you prevent it from capitalizing on its findings—and the step never gets the opportunity to shift meaningful traffic toward the best-performing combinations.
@@ -243,7 +243,7 @@ For SMS/MMS/RCS steps, the subscription group and message type also cannot be ch
 
 ## Analytics
 
-To review performance, open the step-level analytics panel to see metrics by content variant and overall combination performance. The Content Optimizer step uses the [same analytics as the Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#analytics).
+To review performance, open the step-level analytics panel to see metrics by content variant and overall combination performance. The Content Optimizer step uses the [same analytics as the Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#analytics).
 
 If you've updated the step after launch, the send allocation chart marks when each content edit occurred. Data from deactivated variants is retained and remains viewable in the analytics panel, so you can compare performance across the full lifetime of the step.
 
@@ -257,13 +257,13 @@ The unique opens and clicks are captured within seven days of sending a message.
 
 | Metric | Description |
 | --- | --- |
-| Sends | The number of sends attributed to this variant for that component in this step, using the same step-level send counting as [*Sends*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#sends) in the [Performance by combination](#performance-by-combination) table. |
-| Opens | When this column appears for your channel, the number of **unique** opens for this variant within seven days of send. See [*Unique Opens*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-opens). |
+| Sends | The number of sends attributed to this variant for that component in this step, using the same step-level send counting as [*Sends*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#sends) in the [Performance by combination](#performance-by-combination) table. |
+| Opens | When this column appears for your channel, the number of **unique** opens for this variant within seven days of send. See [*Unique Opens*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-opens). |
 | Open rate | When this column appears, the percentage of sends for this variant that logged at least one qualifying unique open within seven days. |
-| Clicks | The number of **unique** clicks for this variant within seven days of send. See [*Total Clicks*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#total-clicks), [*Unique Clicks*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-clicks), and [Step 5: Select optimization event](#step-5-select-optimization-event). |
+| Clicks | The number of **unique** clicks for this variant within seven days of send. See [*Total Clicks*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#total-clicks), [*Unique Clicks*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-clicks), and [Step 5: Select optimization event](#step-5-select-optimization-event). |
 | Click rate | The percentage of sends for this variant that logged at least one qualifying unique click within seven days, using the same step window as the [Performance by combination](#performance-by-combination) table. For more information, see [Why step analytics differ from general analytics](#why-step-analytics-differ-from-general-analytics). |
-| Reads | When this column appears (for example, for RCS when you optimize for reads), counts when a consumer reads the message with read receipts enabled. See [*Reads*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#reads). |
-| Read rate | The percentage of sends for this variant that resulted in a read among users with read receipts on. See [*Read Rate*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#read-rate). |
+| Reads | When this column appears (for example, for RCS when you optimize for reads), counts when a consumer reads the message with read receipts enabled. See [*Reads*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#reads). |
+| Read rate | The percentage of sends for this variant that resulted in a read among users with read receipts on. See [*Read Rate*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#read-rate). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Performance by component metrics" }
 
 ![Content Optimizer Performance by component analytics with separate tables per component, listing sends, clicks, and click rate for each variant.]({% image_buster /assets/img/content_optimizer/analytics_performance_by_component.png %})
@@ -276,13 +276,13 @@ The unique opens and clicks are captured within seven days of sending a message.
 
 | Metric | Description |
 | --- | --- |
-| Sends | The total number of messages sent from this step using this combination. Counts follow the same general meaning as [*Sends*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#sends), scoped to each combination. |
-| Opens | The number of unique opens for this combination within seven days of send. For how unique opens are defined for email, see [*Unique Opens*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-opens). |
+| Sends | The total number of messages sent from this step using this combination. Counts follow the same general meaning as [*Sends*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#sends), scoped to each combination. |
+| Opens | The number of unique opens for this combination within seven days of send. For how unique opens are defined for email, see [*Unique Opens*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-opens). |
 | Open rate | The percentage of sends for this combination that logged at least one qualifying unique open within seven days. |
-| Clicks | The number of unique clicks for this combination within seven days of send. For how Braze defines clicks by channel, see [*Total Clicks*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#total-clicks) and [*Unique Clicks*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-clicks). |
+| Clicks | The number of unique clicks for this combination within seven days of send. For how Braze defines clicks by channel, see [*Total Clicks*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#total-clicks) and [*Unique Clicks*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-clicks). |
 | Click rate | The percentage of sends for this combination that logged at least one qualifying unique click within seven days. Because Content Optimizer uses the step’s seven-day, de-duplicated counts, this rate may not match click rates in general campaign analytics. For more information, see [Why step analytics differ from general analytics](#why-step-analytics-differ-from-general-analytics). |
-| [Reads]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#reads) | When this column appears (for example, for RCS when you optimize for reads), counts when a consumer reads the message with read receipts enabled. |
-| [Read rate]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#read-rate) | When this column appears, the percentage of sends for this combination that resulted in a read among users with read receipts on. |
+| [Reads]({{site.baseurl}}/user_guide/analytics/metrics_glossary#reads) | When this column appears (for example, for RCS when you optimize for reads), counts when a consumer reads the message with read receipts enabled. |
+| [Read rate]({{site.baseurl}}/user_guide/analytics/metrics_glossary#read-rate) | When this column appears, the percentage of sends for this combination that resulted in a read among users with read receipts on. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Performance by combination metrics" }
 
 ![Content Optimizer Performance by combination analytics table with sends, clicks, and click rate for each content combination.]({% image_buster /assets/img/content_optimizer/analytics_performance_by_combination.png %})

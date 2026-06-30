@@ -9,7 +9,7 @@ description: "오디언스 정의, 차원, Go 관련 제한 사항을 포함하�
 
 > 이 문서에서는 오디언스 정의, 차원 선택, Go 관련 기능 및 제한 사항 이해를 포함하여 Decisioning Studio Go 에이전트를 설계하는 방법을 다룹니다.
 
-의사결정 에이전트에 대한 기본 개념(성공 측정기준, 차원, 액션 뱅크, 제약 조건 등)은 [의사결정 에이전트 설계]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents/)를 참조하세요.
+의사결정 에이전트에 대한 기본 개념(성공 측정기준, 차원, 액션 뱅크, 제약 조건 등)은 [의사결정 에이전트 설계]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents)를 참조하세요.
 
 ## Go와 Pro 기능 비교 {#go-versus-pro-capabilities}
 
@@ -23,7 +23,7 @@ Decisioning Studio Go는 Decisioning Studio Pro에 비해 간소화된 기능을
 | **고객 데이터** | 참여만 | 모든 1P 데이터 |
 | **설정** | 셀프 서비스 | 인공지능 의사 결정 서비스 지원 |
 | **실험 그룹** | Go + 랜덤 제어 + 선택적 BAU | 완전 맞춤형 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Go versus Pro capabilities" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Go와 Pro 기능 비교" }
 
 ## Go 에이전트 설계 {#design-your-go-agent}
 
@@ -82,7 +82,7 @@ Decisioning Studio Go는 성과를 측정하기 위해 자동으로 실험 그�
 | **Decisioning Studio Go** | AI 최적화 추천을 받는 고객 |
 | **랜덤 제어** | 무작위로 선택된 옵션을 받는 고객(기준 비교) |
 | **일상적인 비즈니스(선택 사항)** | 현재 성과와 비교하는 경우 기존 Campaign을 받는 고객 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Set up experiment groups" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="4단계: 실험 그룹 설정" }
 
 {% alert important %}
 정확한 비교를 위해 고객이 하나의 실험 그룹에만 속할 수 있도록 하고, 고객이 편향 없이 무작위로 그룹에 배정되도록 하세요.
@@ -107,4 +107,4 @@ Go 에이전트를 설계할 때 다음 제한 사항을 염두에 두세요.
 
 에이전트를 설계하고 Decisioning Studio Go 포털에서 구성한 후 시작할 준비가 되었습니다.
 
-- [에이전트 시작]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent/)
+- [에이전트 시작]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent)

@@ -34,4 +34,4 @@ channel:
 
 ## プッシュ通知の改行 {#push-linebreaks}
 
-Liquidタグを使用してプッシュ通知を作成する場合、Liquidタグに隣接する改行はメッセージ送信前に自動的に削除されます。[プッシュ通知コンポーザー]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message/)では、編集中にメッセージが読みやすいようにこれらの改行が再追加されます。メッセージを保存する際にLiquidタグの前後に改行が表示される場合、これは想定どおりの動作です。
+Liquidタグを使用してプッシュ通知を作成する場合、Liquidタグに隣接する改行はメッセージ送信前に自動的に削除されます。[プッシュ通知コンポーザー]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message)では、編集中にメッセージが読みやすいようにこれらの改行が再追加されます。メッセージを保存する際にLiquidタグの前後に改行が表示される場合、これは想定どおりの動作です。

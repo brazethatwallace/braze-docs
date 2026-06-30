@@ -18,14 +18,14 @@ Web push is another great way to engage with users of your web application. Cust
 
 ## Prerequisites
 
-Before you can create and send any push messages using Braze, you need to work with your developers to integrate push into your website. For detailed steps, refer to our [Web push integration guide]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web).
+Before you can create and send any push messages using Braze, you need to work with your developers to integrate push into your website. For detailed steps, refer to our [Web push integration guide]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web).
 
 ### Push permission
 
-Any brand can integrate and use web push notifications on their website. The notifications can reach both current and previous web visitors as long as they have a web browser open, but visitors must [opt in to receive notifications]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#push-permission)—just like with traditional mobile app push.
+Any brand can integrate and use web push notifications on their website. The notifications can reach both current and previous web visitors as long as they have a web browser open, but visitors must [opt in to receive notifications]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#push-permission)—just like with traditional mobile app push.
 
 {% alert tip %}
-Consider using an in-browser message to prime users to opt in for web push, also known as a [push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/).
+Consider using an in-browser message to prime users to opt in for web push, also known as a [push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
 {% endalert %}
 
 ## Overview
@@ -36,7 +36,7 @@ Web push notifications deliver urgent, actionable updates that drive quick conve
 - Drive people back to your website with clear call-to-action buttons
 - Personalize your push with product and customer information to make your message relevant
 
-Web push works the same way app push notifications operate on your phone. For more information on composing a web push, check out [Create a push notification]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#creating-a-push-message).
+Web push works the same way app push notifications operate on your phone. For more information on composing a web push, check out [Create a push notification]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message).
 
 ![Web push example with the same push message displayed on a laptop and phone.]({% image_buster /assets/img_archive/Macbook_Push.png %}){: style="border:none"}
 
@@ -67,7 +67,7 @@ The following browsers support web push notifications.
 For more information on the push protocol standards and browser support, you can review resources based on your browser:
 
 - [Safari (desktop)](https://developer.apple.com/notifications/safari-push-notifications/)
-- [Safari (mobile)]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=safari)
+- [Safari (mobile)]({{site.baseurl}}/developer_guide/push_notifications?sdktab=safari)
 - [Mozilla Firefox](https://developer.mozilla.org/en-us/docs/web/api/push_api#browser_compatibility)
 - [Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/push)
 

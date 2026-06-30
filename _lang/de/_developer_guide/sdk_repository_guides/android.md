@@ -12,8 +12,8 @@ Das Braze Android SDK hilft Ihnen, Braze-Messaging, Analytics und Funktionen zur
 
 Für den Einstieg stehen Ihnen die folgenden Ressourcen zur Verfügung:
 
-- [Braze-Benutzerhandbuch]({{site.baseurl}}/user_guide/introduction/)
-- [Braze-Entwicklerhandbuch]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android)
+- [Braze-Benutzerhandbuch]({{site.baseurl}}/user_guide/introduction)
+- [Braze-Entwicklerhandbuch]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android)
 
 ## Schnellstart {#quickstart}
 
@@ -47,7 +47,7 @@ dependencies {
 Braze.getInstance(context).changeUser("Jane Doe");
 ```
 
-Weitere Informationen zu erweiterten Integrationsoptionen finden Sie im [Braze-Entwicklerhandbuch]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
+Weitere Informationen zu erweiterten Integrationsoptionen finden Sie im [Braze-Entwicklerhandbuch]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android).
 
 ## Versionsunterstützung {#version-support}
 
@@ -75,13 +75,13 @@ Die folgende Tabelle beschreibt jedes Modul im Braze Android SDK.
 
 Modul | Beschreibung
 :----|:----
-`android-sdk-base` | Die Braze SDK Basis-Analytics-Bibliothek.
-`android-sdk-ui` | Die Braze SDK Benutzeroberflächen-Bibliothek für In-App-Nachrichten, Push, Content Cards und Banner.
-`android-sdk-location` | Die Braze SDK Standort-Bibliothek für Standort und Geofences.
-`android-sdk-jetpack-compose` | Die Braze SDK Bibliothek für Jetpack Compose-Unterstützung.
-`droidboy` | Eine Beispiel-App, die zeigt, wie Sie Braze umfassend nutzen können.
-`android-sdk-unity` | Eine Bibliothek, die Braze SDK-Integrationen auf Unity ermöglicht.
-`samples` | Ein Ordner mit Beispiel-Apps für verschiedene Integrationsoptionen.
+`android-sdk-base`|Die Braze SDK Basis-Analytics-Bibliothek.
+`android-sdk-ui`|Die Braze SDK Benutzeroberflächen-Bibliothek für In-App-Nachrichten, Push, Content Cards und Banner.
+`android-sdk-location`|Die Braze SDK Standort-Bibliothek für Standort und Geofences.
+`android-sdk-jetpack-compose`|Die Braze SDK Bibliothek für Jetpack Compose-Unterstützung.
+`droidboy`|Eine Beispiel-App, die zeigt, wie Sie Braze umfassend nutzen können.
+`android-sdk-unity`|Eine Bibliothek, die Braze SDK-Integrationen auf Unity ermöglicht.
+`samples`|Ein Ordner mit Beispiel-Apps für verschiedene Integrationsoptionen.
 
 ## Kontakt {#contact}
 

@@ -59,8 +59,8 @@ description: "이 문서에서는 Braze의 미디어 라이브러리에 대해 �
 
 ### AI를 사용하여 이미지 생성 {#generate-an-image-using-ai}
 
-**콘텐츠** > **미디어 라이브러리**에서 **AI Image Generator**를 선택하여 이미지를 생성할 수 있습니다. **미디어 라이브러리 자산 편집** 권한이 필요합니다. 해당 옵션이 보이지 않으면 Braze 고객지원 팀에 문의하세요. 단계 및 정책 세부 정보는 [BrazeAI로 이미지 생성]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-images) 및 [BrazeAI로 이미지 생성하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai)를 참조하세요.
+**콘텐츠** > **미디어 라이브러리**에서 **AI Image Generator**를 선택하여 이미지를 생성할 수 있습니다. **미디어 라이브러리 자산 편집** 권한이 필요합니다. 해당 옵션이 보이지 않으면 Braze 고객지원 팀에 문의하세요. 단계 및 정책 세부 정보는 [BrazeAI로 이미지 생성]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images) 및 [BrazeAI로 이미지 생성하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#generate-ai)를 참조하세요.
 
 ### 미디어 라이브러리 이미지 자산에 대해 커스텀 URL을 만들 수 있나요? {#can-i-create-vanity-urls-for-media-library-image-assets}
 
-미디어 라이브러리 자산에 대한 커스텀 URL은 지원되지 않습니다. 커스텀 URL을 사용하면 CDN 전달이 중단되기 때문입니다. Campaign에서 이미 해당 URL을 참조하고 있는 경우 기존 URL에서 이미지를 교체할 수 있습니다. 자세한 내용은 [파일 교체]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#replace-a-file)를 참조하세요.
+미디어 라이브러리 자산에 대한 커스텀 URL은 지원되지 않습니다. 커스텀 URL을 사용하면 CDN 전달이 중단되기 때문입니다. Campaign에서 이미 해당 URL을 참조하고 있는 경우 기존 URL에서 이미지를 교체할 수 있습니다. 자세한 내용은 [파일 교체]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file)를 참조하세요.

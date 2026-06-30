@@ -16,11 +16,11 @@ alias: /geographic_permissions/
 
 > 地理的権限は、メッセージを送信できる国に対するコントロールを適用することで、セキュリティを強化し、不正なSMS、MMS、RCSトラフィックから保護します。国の許可リストを指定して、SMS、MMS、RCSメッセージが承認された地域にのみ送信されるようにできます。メッセージは、それらの国のダイヤルコードを持つ電話番号にのみ送信されます。<br><br> 国の許可リストを変更できるのは管理者のみです。管理者以外のユーザーは、サブスクリプショングループがどの国に送信できるかを示す読み取り専用バージョンの許可リストにアクセスできます。
 
-管理者の場合、許可リストに含める国を設定できます。国の許可リストは[サブスクリプショングループ]({{site.baseurl}}/sms_rcs_subscription_groups/)レベルで設定されます。**オーディエンス** > **購読グループ管理**に移動し、SMS、MMS、またはRCSサブスクリプショングループを選択してアクセスできます。許可リストは**Geographic Permissions**の下にあります。
+管理者の場合、許可リストに含める国を設定できます。国の許可リストは[サブスクリプショングループ]({{site.baseurl}}/sms_rcs_subscription_groups)レベルで設定されます。**オーディエンス** > **購読グループ管理**に移動し、SMS、MMS、またはRCSサブスクリプショングループを選択してアクセスできます。許可リストは**Geographic Permissions**の下にあります。
 
 ![管理者向けの編集可能な地理的権限セクション。「Country allowlist」にいくつかの国が選択されている。]({% image_buster /assets/img/sms/sms_geographic_permissions.png %}){: style="max-width:80%;"}
 
-### 国の選択 {#selecting-countries}
+## 国の選択 {#selecting-countries}
 
 ドロップダウンを使用して許可リストに国を追加します。最も一般的なSMS、MMS、RCSの国が上部に表示され、その他の国はその下に表示されます。テキストフィールドに入力して国を検索することもできます。
 
@@ -43,12 +43,12 @@ alias: /geographic_permissions/
 これらの国への送信を許可する場合、その国が許可リストに追加される前に、まずリスクを承認する必要があります。
 
 {% alert note %}
-許可リストの国は、ビジネスニーズをサポートするために必要な国のみに制限してください。これにより、不正トラフィックの可能性を最小限に抑えることができます。SMS、MMS、RCSトラフィックポンピングの防止に関する詳細なガイダンスについては、[SMSトラフィックポンピング詐欺に関するFAQ]({{site.baseurl}}/sms_traffic_pumping_fraud/)をご覧ください。
+許可リストの国は、ビジネスニーズをサポートするために必要な国のみに制限してください。これにより、不正トラフィックの可能性を最小限に抑えることができます。SMS、MMS、RCSトラフィックポンピングの防止に関する詳細なガイダンスについては、[SMSトラフィックポンピング詐欺に関するFAQ]({{site.baseurl}}/sms_traffic_pumping_fraud)をご覧ください。
 {% endalert %}
 
 ## 許可リスト外への送信の可視性 {#visibility-of-sends-outside-the-allowlist}
 
-国の許可リストに含まれていない国への送信試行は中止されます。中止されたメッセージは[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)および[SMS中止メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)に記録されます。
+国の許可リストに含まれていない国への送信試行は中止されます。中止されたメッセージは[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)および[SMS中止メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)に記録されます。
 
 許可リストに含まれていない国の受信者に対する中止メッセージは、**Aborted Message Errors**として表示され、「The recipient's phone number is in a blocked country」というメッセージが表示されます。
 
@@ -72,4 +72,4 @@ SMS、MMS、RCSトラフィックポンピング（人為的に膨張された�
 
 ### トラフィックポンピングを防止する方法 {#how-to-prevent-traffic-pumping}
 
-実際の顧客が居住する地理的地域にメッセージ配信を厳密に制限しないと、詐欺や深刻な財務的損害に対する脆弱性が即座に生じます。会社を保護するために、国の許可リストを使用して配信地域を積極的に制限する必要があります。さらに、最も重要なこととして、[SMS、MMS、RCSトラフィックポンピング詐欺の理解と防止]({{site.baseurl}}/sms_traffic_pumping_fraud/)に記載されている業界のベストプラクティスに従って、SMS、MMS、RCS送信をトリガーするオンラインの電話番号リクエストフォームまたはAPIエンドポイントを保護する必要があります。
+実際の顧客が居住する地理的地域にメッセージ配信を厳密に制限しないと、詐欺や深刻な財務的損害に対する脆弱性が即座に生じます。会社を保護するために、国の許可リストを使用して配信地域を積極的に制限する必要があります。さらに、最も重要なこととして、[SMS、MMS、RCSトラフィックポンピング詐欺の理解と防止]({{site.baseurl}}/sms_traffic_pumping_fraud)に記載されている業界のベストプラクティスに従って、SMS、MMS、RCS送信をトリガーするオンラインの電話番号リクエストフォームまたはAPIエンドポイントを保護する必要があります。

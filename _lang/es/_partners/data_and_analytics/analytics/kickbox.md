@@ -20,9 +20,9 @@ El Canvas o la Campaign enviará un webhook a Kickbox, compartiendo la direcció
 | Requisito | Descripción |
 | --------------------------------------|-------------------------------------------------------------------------------|
 | Cuenta Kickbox | Se requiere una cuenta activa de Kickbox para utilizar esta integración. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br>Se puede crear en el panel de Braze yendo a **Configuración** > **API e identificadores** > **Claves de API** |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br>Se puede crear en el dashboard de Braze yendo a **Configuración** > **API e identificadores** > **Claves de API** |
 | Solicita acceso a la integración. | Pide al equipo de soporte de Kickbox que te conceda acceso a la integración de Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -34,7 +34,7 @@ Para la integración con Kickbox, sigue los pasos de [Integración con Braze](ht
 
 También puedes optar por verificar toda tu lista cada pocos meses o trimestralmente, para protegerte de los correos electrónicos que se abandonan o de las listas que se degradan con el tiempo y hacen caer lentamente tu capacidad de entrega.
 
-Para ello, tendrás que cambiar la configuración de **Entry Settings** del flujo de trabajo, tal y como indica Kickbox. En lugar de seleccionar **Entrega basada en acciones**, selecciona **Planificada**. A continuación, elige una hora programada para que tu lista se verifique toda a la vez.
+Para ello, tendrás que cambiar la configuración de **Configuración de entrada** del flujo de trabajo, tal y como indica Kickbox. En lugar de seleccionar **Entrega basada en acciones**, selecciona **Planificada**. A continuación, elige una hora programada para que tu lista se verifique toda a la vez.
 
 ### Crear segmentos verificados {#create-verified-segments}
 
@@ -45,7 +45,7 @@ Los atributos personalizados de Kickbox tienen un esquema coherente, que coincid
    {
   "attributes": [
     {
-      "email": "example1@kickbox.com",
+      "email": "example1@example.com",
       "_update_existing_only": true,
       "success": true,
       "code": null,
@@ -59,10 +59,10 @@ Los atributos personalizados de Kickbox tienen un esquema coherente, que coincid
       "did_you_mean": null,
       "sendex": 1,
       "user": "example1",
-      "domain": "kickbox.com"
+      "domain": "example.com"
     },
     {
-      "email": "example2@gamil.com",
+      "email": "example2@exampl.com",
       "_update_existing_only": true,
       "success": true,
       "code": "44312",
@@ -73,10 +73,10 @@ Los atributos personalizados de Kickbox tienen un esquema coherente, que coincid
       "free": false,
       "disposable": false,
       "accept_all": false,
-      "did_you_mean": "example2@gmail.com",
+      "did_you_mean": "example2@example.com",
       "sendex": 0.23,
       "user": "example2",
-      "domain": "gamil.com"
+      "domain": "exampl.com"
     }
   ]
 }

@@ -63,7 +63,7 @@ Lorsque vous utilisez la solution de repli SMS avec le RCS, le comportement des 
 {% endtab %}
 {% tab Comportement de la segmentation %}
 
-Pour le SMS et le RCS, les [filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) de messages reçus (tels que [Message reçu d'une campagne]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#received-message-from-campaign) et [Message reçu d'une étape Canvas]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#received-message-from-canvas-step)) sont évalués au moment de l'envoi du message, et non lorsqu'il atteint l'appareil de l'utilisateur. Avec la solution de repli SMS activée, les utilisateurs peuvent toujours correspondre à ces filtres si un message RCS est rejeté et bascule vers le SMS, ou si le SMS de repli n'est pas distribué sur l'appareil de l'utilisateur.
+Pour le SMS et le RCS, les [filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) de messages reçus (tels que [Message reçu d'une campagne]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-campaign) et [Message reçu d'une étape Canvas]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step)) sont évalués au moment de l'envoi du message, et non lorsqu'il atteint l'appareil de l'utilisateur. Avec la solution de repli SMS activée, les utilisateurs peuvent toujours correspondre à ces filtres si un message RCS est rejeté et bascule vers le SMS, ou si le SMS de repli n'est pas distribué sur l'appareil de l'utilisateur.
 
 {% endtab %}
 {% endtabs %}
@@ -76,7 +76,7 @@ Lorsque votre expéditeur vérifié RCS sera approuvé, notre équipe opération
 
 ## Étape 3 : Configurer les groupes d'abonnement {#step-3-set-up-subscription-groups}
 
-Selon votre intégration, Braze peut ajouter des expéditeurs vérifiés RCS à vos groupes d'abonnement SMS existants ou en créer de nouveaux. Pour des instructions de configuration détaillées, consultez [Groupes d'abonnement SMS et RCS]({{site.baseurl}}/sms_rcs_subscription_groups/).
+Selon votre intégration, Braze peut ajouter des expéditeurs vérifiés RCS à vos groupes d'abonnement SMS existants ou en créer de nouveaux. Pour des instructions de configuration détaillées, consultez [Groupes d'abonnement SMS et RCS]({{site.baseurl}}/sms_rcs_subscription_groups).
 
 ## Migrer le trafic SMS vers le RCS {#migrating-sms-traffic-to-rcs}
 
@@ -125,7 +125,7 @@ Ajoutez une étape de mise à jour utilisateur à votre Canvas. Dans cette étap
 
 ### Étape 4 : Tester le Canvas {#step-4-test-the-canvas}
 
-Nous vous recommandons vivement de [tester votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases/) pour confirmer qu'il fonctionne comme prévu avant de l'envoyer à votre audience plus large.
+Nous vous recommandons vivement de [tester votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases) pour confirmer qu'il fonctionne comme prévu avant de l'envoyer à votre audience plus large.
 
 ### Étape 5 : Lancer votre Canvas {#step-5-launch-your-canvas}
 

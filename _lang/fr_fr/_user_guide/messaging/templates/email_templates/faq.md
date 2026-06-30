@@ -32,7 +32,7 @@ Vous pouvez modifier le lien de désabonnement dans le pied de page personnalis�
 > https://www.braze.com/unsubscribe?user_id={{${user_id}}}
 {% endraw %}
 
-Ensuite, vous pouvez appeler l'[endpoint `/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status/) pour mettre à jour le statut d'abonnement de l'utilisateur. Pour plus de détails, consultez notre documentation sur la [modification du statut d'abonnement aux e-mails]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions).
+Ensuite, vous pouvez appeler l'[endpoint `/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status) pour mettre à jour le statut d'abonnement de l'utilisateur. Pour plus de détails, consultez notre documentation sur la [modification du statut d'abonnement aux e-mails]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
 
 Pour enregistrer ce nouveau lien, la balise de désabonnement par défaut de Braze {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} doit figurer dans le pied de page. Cela signifie que vous devrez inclure le lien par défaut en le « masquant », soit en plaçant la balise dans un commentaire, soit dans une balise `<div>` masquée.
 
@@ -51,7 +51,7 @@ Oui, vous pouvez insérer autant de modèles que vous le souhaitez dans vos e-ma
 
 ### Comment prévisualiser mes liens avec toutes les balises appliquées ? {#how-do-i-preview-my-links-with-all-of-the-tags-applied}
 
-Il existe plusieurs façons de prévisualiser vos liens. Après avoir appliqué le [modèle de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/), vous pouvez vous envoyer un [e-mail de test]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages/) pour visualiser tous les liens.
+Il existe plusieurs façons de prévisualiser vos liens. Après avoir appliqué le [modèle de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template), vous pouvez vous envoyer un [e-mail de test]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages) pour visualiser tous les liens.
 
 Depuis le volet de prévisualisation dans un nouvel onglet, vous pouvez également ouvrir les liens pour les consulter. Vous pouvez aussi survoler les liens dans le volet de prévisualisation et les voir en bas de votre navigateur.
 
@@ -67,7 +67,7 @@ Les modèles de lien sont développés et ajoutés à chaque URL avant toute exp
 
 Pour tous les nouveaux Content Blocks créés, l'aliasage de lien est appliqué à l'ensemble des espaces de travail, car il s'agit d'une fonctionnalité au niveau de la société.
 
-Les Content Blocks existants ne seront pas modifiés lorsque l'aliasage de lien est activé. Bien que les modèles de lien existants ne soient pas modifiés, la section de modèle de lien existante dans un message sera supprimée. Consultez [Aliasage de lien dans les Content Blocks]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/#link-aliasing-in-content-blocks) pour plus d'informations.
+Les Content Blocks existants ne seront pas modifiés lorsque l'aliasage de lien est activé. Bien que les modèles de lien existants ne soient pas modifiés, la section de modèle de lien existante dans un message sera supprimée. Consultez [Aliasage de lien dans les Content Blocks]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing#link-aliasing-in-content-blocks) pour plus d'informations.
 
 ### Puis-je utiliser une logique conditionnelle Liquid entièrement à l'intérieur d'une balise d'ancrage HTML ? {#can-i-use-liquid-conditional-logic-entirely-within-an-html-anchor-tag}
 

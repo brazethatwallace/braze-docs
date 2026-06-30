@@ -51,7 +51,7 @@ KakaoTalkクリックトラッキングの設定は、メッセージ作成画�
 
 ## カスタムドメイン {#custom-domains}
 
-KakaoTalkクリックトラッキングでは、独自のドメインを使用して短縮URLの外観をパーソナライズし、一貫したブランドイメージを表現できます。詳細については、[カスタムドメイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains/)を参照してください。
+KakaoTalkクリックトラッキングでは、独自のドメインを使用して短縮URLの外観をパーソナライズし、一貫したブランドイメージを表現できます。詳細については、[カスタムドメイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains)を参照してください。
 
 ## URL内のLiquidパーソナライゼーション {#liquid-personalization-in-urls}
 
@@ -68,7 +68,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 以下の例に示すように、カスタム定義のLiquid変数を短縮することもできます。
 
 {% raw %}
-`````````liquid
+```liquid
 {% assign url_var = {{event_properties.${url_slug}}} %}
 https://example.com/{{url_var}}
 ```
@@ -88,7 +88,7 @@ BrazeはLiquidによってレンダリングされたURL（APIトリガープロ
 
 ## レポート {#reporting}
 
-KakaoTalkパフォーマンステーブルには、バリアントごとのクリックイベント数と関連するクリック率を示す**Total Clicks**列が含まれています。KakaoTalk指標の詳細については、[KakaoTalkレポート]({{site.baseurl}}/kakaotalk_reporting/)を参照してください。
+KakaoTalkパフォーマンステーブルには、バリアントごとのクリックイベント数と関連するクリック率を示す**Total Clicks**列が含まれています。KakaoTalk指標の詳細については、[KakaoTalkレポート]({{site.baseurl}}/kakaotalk_reporting)を参照してください。
 
 クリックデータは分析ダッシュボードに自動的にレポートされます。
 

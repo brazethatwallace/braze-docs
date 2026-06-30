@@ -31,7 +31,7 @@ Nachdem Sie Ihr Segment erstellt haben, fügen Sie einen Filter **Most Recent Lo
 
 ### Kreisförmige Regionen {#circular-regions}
 
-Bei kreisförmigen Regionen können Sie die Herkunft verschieben und den Standortradius für Ihre Segmentierung anpassen.
+Bei kreisförmigen Regionen können Sie den Ursprung verschieben und den Standortradius für Ihre Segmentierung anpassen.
 
 ![Ein kreisförmiger Umriss von Städten zwischen New Jersey und New York.]({% image_buster /assets/img_archive/location_circle.png %}){: style="max-width:70%;"}
 
@@ -51,6 +51,6 @@ Bei polygonalen Regionen können Sie genauer festlegen, welche Bereiche in Ihr S
 
 Die Kombination bestehender Beacon- oder Geofence-Unterstützung mit unseren Targeting- und Messaging-Features liefert Ihnen mehr Informationen über die physischen Aktionen Ihrer Nutzer:innen, sodass Sie ihnen entsprechende Nachrichten senden können. Sie können Standort-Tracking mit einigen unserer Partner nutzen:
 
-- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/)
-- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion/)
-- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)
+- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar)
+- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion)
+- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare)

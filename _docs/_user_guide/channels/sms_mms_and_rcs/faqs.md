@@ -58,7 +58,7 @@ Some downsides to this approach include:
 
 ### How will I be billed for SMS?
 
-Besides the charges for short and long codes, Braze provides an allotment of SMS messages for different countries. That is, we work with you to set a certain number of message segments for different countries, which you'll use to send SMS campaigns. Billing is done by the number of message segments sent per country. To read more about how message segments are calculated see our [Message Segments and Copy Limits]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/) guide. Your account manager will contact you to let you know if you are close to reaching your maximum, providing relevant reports to help keep you informed. For further questions regarding overages, contact your Braze representative.
+Besides the charges for short and long codes, Braze provides an allotment of SMS messages for different countries. That is, we work with you to set a certain number of message segments for different countries, which you'll use to send SMS campaigns. Billing is done by the number of message segments sent per country. To read more about how message segments are calculated see our [Message Segments and Copy Limits]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator) guide. Your account manager will contact you to let you know if you are close to reaching your maximum, providing relevant reports to help keep you informed. For further questions regarding overages, contact your Braze representative.
 
 ### Does MMS and SMS pricing differ?
 
@@ -68,7 +68,7 @@ MMS and SMS have different costs and are charged separately based on volume. Con
 
 While we can't promise that you won't occasionally have an overage, you could follow these precautions to decrease the chances of going over your allotted limits:
 
-- Pay attention to the number of characters in your SMS. Unintentionally sending more than one segment could cause overages. For more details, refer to our [segment breakdown]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/).
+- Pay attention to the number of characters in your SMS. Unintentionally sending more than one segment could cause overages. For more details, refer to our [segment breakdown]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 - Carefully calculate your SMS characters to account for Liquid or Connected Content. The Braze SMS composer in your dashboard does not estimate or factor in the usage of either of these features.
 - Consider the type of encoding your message uses - if your message uses GSM-7 encoding, you can usually estimate that you can send a message with 128 characters per message segment. If your message uses [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set) encoding, you can usually estimate that you can send a message with 67 characters per message segment.
 - Test, test, and test! Always test your SMS messages before launch, especially when using Liquid and Connected Content.
@@ -94,9 +94,9 @@ You can include any link in any SMS campaign you would like. However, there are 
 
 - Links may take up much of the 160 character limit for SMS. If you include a link and text, it may result in two SMS messages instead of just one.
 - Companies often use link shorteners to limit the character count impact of a link. However, if sending a shortened link through a long code, carriers may block or deny the message, as they may be suspicious of the link redirect.
-- Using a [short code]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/) would be the most reliable number type for including links.
+- Using a [short code]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup) would be the most reliable number type for including links.
 
-Braze also has its own link-shortening feature that will shorten links and provide click-through analytics automatically. Refer to [Link Shortening]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) for more information.
+Braze also has its own link-shortening feature that will shorten links and provide click-through analytics automatically. Refer to [Link Shortening]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) for more information.
 
 ### Do you need to rate-limit how fast you send SMS messages?
 
@@ -112,11 +112,11 @@ Before sending SMS messages containing URLs to users in certain countries (for e
 2. Ensure you (the brand) have a relationship with the customer.
 3. Make sure the content is relevant to the relationship and what the user has opted-in to receive.
 
-For more guidelines on avoiding spam detection, visit [SMS laws and regulations guidelines]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/).
+For more guidelines on avoiding spam detection, visit [SMS laws and regulations guidelines]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
 
 ### How many characters does an emoji use?
 
-Emojis can be tricky, as there is no standard character count across all emojis. There is the risk the emoji will exceed the character limit and break the SMS into multiple messages, despite it showing as one message in the Braze composer. When testing your messages, you can better verify if a message will be split using our [segment calculator]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/#segment-calculator).
+Emojis can be tricky, as there is no standard character count across all emojis. There is the risk the emoji will exceed the character limit and break the SMS into multiple messages, despite it showing as one message in the Braze composer. When testing your messages, you can better verify if a message will be split using our [segment calculator]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator#segment-calculator).
 
 ## Subscription groups and opt-in/opt-out
 
@@ -130,7 +130,7 @@ What does that look like on the user profile? The subscription group will revert
 
 ### If a user is opted out and sends a keyword to our short and long code, do they receive the response we configured for that keyword in Braze?
 
-If a user is opted out and sends a keyword from one of the [default keyword categories]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/), they will receive the response for that keyword. If a user is opted out and sends a [custom keyword]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/), they will not receive the response for that keyword.
+If a user is opted out and sends a keyword from one of the [default keyword categories]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout), they will receive the response for that keyword. If a user is opted out and sends a [custom keyword]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling), they will not receive the response for that keyword.
 
 ### Will SMS event properties capture keywords in a sentence?
 
@@ -148,7 +148,7 @@ Yes, they do. Users must have a valid phone number, be part of the SMS subscript
 
 ### Is there a way to see if an alias exists on a user profile?
 
-Aliases are not visible on the user profile. You would need to use the [Export User Data]({{site.baseurl}}/api/endpoints/export/) endpoints to confirm aliases being set.
+Aliases are not visible on the user profile. You would need to use the [Export User Data]({{site.baseurl}}/api/endpoints/export) endpoints to confirm aliases being set.
 
 ## MMS
 
@@ -198,6 +198,6 @@ Yes, you can use media messages to support audio files.
 
 ### Why do REST API SMS opt-ins not match **Total Opt-Ins** on SMS/MMS/RCS Performance?
 
-**Total Opt-Ins** and **Total Opt-Outs** on the [SMS/MMS/RCS Performance]({{site.baseurl}}/user_guide/analytics/dashboards/) dashboard count subscription changes driven by inbound SMS keyword handling (for example, a user texting an opt-in keyword to your short code). They do not include every subscription update made through the REST API, the dashboard, or other sources.
+**Total Opt-Ins** and **Total Opt-Outs** on the [SMS/MMS/RCS Performance]({{site.baseurl}}/user_guide/analytics/dashboards) dashboard count subscription changes driven by inbound SMS keyword handling (for example, a user texting an opt-in keyword to your short code). They do not include every subscription update made through the REST API, the dashboard, or other sources.
 
-To analyze opt-ins and opt-outs by source, use [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) on `USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED` and filter on `STATE_CHANGE_SOURCE` (for example, **Rest API** versus **Inbound Message**).
+To analyze opt-ins and opt-outs by source, use [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) on `USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED` and filter on `STATE_CHANGE_SOURCE` (for example, **Rest API** versus **Inbound Message**).

@@ -31,7 +31,7 @@ Con la reproducción multimedia sincronizada, si una persona pausa el video de S
 
 ## Integración {#integration}
 
-El mensaje dentro de la aplicación utilizado en esta integración es un controlador de vista de mensaje modal dentro de la aplicación subclaseado. Encontrarás una guía de configuración en la [guía de implementación]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide/) de casos de uso avanzados de mensajes dentro de la aplicación de iOS. Antes de la integración, asegúrate de añadir el derecho `GroupActivities` a tu proyecto de Xcode.
+El mensaje dentro de la aplicación utilizado en esta integración es un controlador de vista de mensaje modal dentro de la aplicación subclaseado. Encontrarás una guía de configuración en la [guía de implementación]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide) de casos de uso avanzados de mensajes dentro de la aplicación de iOS. Antes de la integración, asegúrate de añadir el derecho `GroupActivities` a tu proyecto de Xcode.
 
 {% alert important %}
 Recomendamos abrir la [documentación de Apple SharePlay](https://developer.apple.com/documentation/avfoundation/media_playback_and_selection/supporting_coordinated_media_playback) junto a esta guía para completar la integración.

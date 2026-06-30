@@ -50,9 +50,9 @@ Les codes de promotion sont disponibles dans les campagnes de messages in-app en
 
 Vous cherchez les prochaines étapes ? Commencez ici :
 
-- [Créer une liste de codes de promotion]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/)
-- [Utiliser des codes de promotion]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#using-promotion-codes)
-- [Consulter l'utilisation des codes de promotion]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#viewing-promotion-code-usage)
+- [Créer une liste de codes de promotion]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create)
+- [Utiliser des codes de promotion]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes)
+- [Consulter l'utilisation des codes de promotion]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#viewing-promotion-code-usage)
 
 ## Questions fréquentes {#frequently-asked-questions}
 
@@ -87,7 +87,7 @@ Si vous avez importé des codes incorrects, vous avez deux options pour résoudr
 - **Rendre la liste obsolète :** Cessez d'utiliser la liste actuelle dans toutes les campagnes, Canvas ou modèles. Importez ensuite les codes corrects dans une nouvelle liste et mettez à jour tous vos messages pour utiliser la nouvelle liste.
 - **Épuiser les codes incorrects :** Créez une campagne qui envoie les codes de la liste incorrecte à un utilisateur fictif jusqu'à ce que tous les mauvais codes soient utilisés. Ensuite, réimportez les codes corrects dans la même liste, en excluant les codes incorrects.
 
-Pour des conseils généraux sur la mise à jour d'une liste, consultez [Mettre à jour une liste de codes de promotion]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/#updating-a-promotion-code-list).
+Pour des conseils généraux sur la mise à jour d'une liste, consultez [Mettre à jour une liste de codes de promotion]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create#updating-a-promotion-code-list).
 
 ### Braze suit-il quels utilisateurs ont reçu ou utilisé quels codes de promotion ? {#does-braze-track-which-users-received-or-redeemed-which-promotion-codes}
 
@@ -95,9 +95,9 @@ Lorsqu'un message utilise un code de promotion, Braze marque ce code comme conso
 
 Si vous avez besoin d'associer des codes à des utilisateurs ou de suivre l'utilisation vous-même, vous pouvez :
 
-- Enregistrer les codes de promotion dans les profils utilisateur via une étape de mise à jour utilisateur. Pour en savoir plus, consultez [Enregistrer des codes de promotion dans les profils utilisateur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#save-to-profile).
-- Envoyer les valeurs des codes de promotion vers Currents à l'aide de l'étiquette Liquid `message_extras`. Pour en savoir plus, consultez [Envoyer des informations de codes de promotion vers Currents]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/#sending-promotion-code-information-to-currents).
+- Enregistrer les codes de promotion dans les profils utilisateur via une étape de Mise à jour utilisateur. Pour en savoir plus, consultez [Enregistrer des codes de promotion dans les profils utilisateur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#save-to-profile).
+- Envoyer les valeurs des codes de promotion vers Currents à l'aide de l'étiquette Liquid `message_extras`. Pour en savoir plus, consultez [Envoyer des informations de codes de promotion vers Currents]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras#sending-promotion-code-information-to-currents).
 
 ### Puis-je enregistrer un code de promotion dans le profil d'un utilisateur pour de futurs messages ? {#can-i-save-a-promotion-code-to-a-users-profile-for-future-messages}
 
-Oui. Vous pouvez enregistrer des codes de promotion dans le profil d'un utilisateur via une étape de mise à jour utilisateur. Pour en savoir plus, consultez [Enregistrer des codes de promotion dans les profils utilisateur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#save-to-profile).
+Oui. Vous pouvez enregistrer des codes de promotion dans le profil d'un utilisateur via une étape de Mise à jour utilisateur. Pour en savoir plus, consultez [Enregistrer des codes de promotion dans les profils utilisateur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#save-to-profile).

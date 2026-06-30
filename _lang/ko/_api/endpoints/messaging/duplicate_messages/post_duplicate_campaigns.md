@@ -44,7 +44,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | 필수 | 문자열 | [Campaign 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요. |
+| `campaign_id` | 필수 | 문자열 | [Campaign 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요. |
 | `name` | 필수 | 문자열 | 결과 Campaign의 이름입니다. |
 | `description` | 선택 사항 | 문자열 | 결과 Campaign의 설명 필드입니다. |
 | `tag_names` | 선택 사항 | 문자열 | 결과 Campaign의 태그입니다. 기존 태그여야 합니다. 요청에 새 태그를 추가하면 원래 Campaign에 있던 태그를 덮어씁니다. |

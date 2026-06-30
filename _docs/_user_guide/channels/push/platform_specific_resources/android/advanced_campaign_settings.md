@@ -30,7 +30,7 @@ The **Time to Live** field allows you to set a custom length of time to store me
 
 To edit the time to live for your Android push, go to the composer and select the **Settings** tab. Find the **Time to Live** field and enter a value in days, hours, or seconds.
 
-The default values for time to live are defined by your admin on the [Push Settings]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings/) page. By default, Braze sets Push TTL to the maximum value for each push messaging service. While default TTL settings apply globally, you can override them at the message level during campaign creation. This is helpful when different campaigns require varying urgency or delivery windows.
+The default values for time to live are defined by your admin on the [Push Settings]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings) page. By default, Braze sets Push TTL to the maximum value for each push messaging service. While default TTL settings apply globally, you can override them at the message level during campaign creation. This is helpful when different campaigns require varying urgency or delivery windows.
 
 For example, let's say your app hosts a weekly trivia contest. You send a push notification an hour before it starts. By setting the TTL to 1 hour, you make sure that users who open the app after the contest starts won’t receive a notification about an event that has already begun.
 
@@ -64,7 +64,7 @@ The **Firebase Messaging Delivery Priority** field lets you control whether a pu
 
 ### Considerations
 
-- **Default setting**: You can set a default FCM priority for all Android campaigns in your [Push Settings]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings/). This campaign-level setting overrides the default if needed.
+- **Default setting**: You can set a default FCM priority for all Android campaigns in your [Push Settings]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings). This campaign-level setting overrides the default if needed.
 - **Deprioritization**: If FCM detects that your app frequently sends high-priority messages that don't result in user-visible notifications or user engagement, those messages may be automatically deprioritized to normal priority.
 - **Battery impact**: High-priority messages wake sleeping devices more aggressively and consume more battery. Use this priority judiciously.
 
@@ -84,7 +84,7 @@ For push notifications that include images, the message text will be shown in th
 
 ## Custom URIs
 
-The **Custom URI** feature allows you to specify a Web URL or an Android resource to navigate to when the notification is clicked. If no custom URI is specified, clicking on the notification brings users into your app. You can use the custom URI to deep-link inside your app as well as direct users to resources that exist outside of your app as well. This can be specified in our [Messaging API]({{site.baseurl}}/api/endpoints/messaging/) or in the **Compose** tab of the push composer.
+The **Custom URI** feature allows you to specify a Web URL or an Android resource to navigate to when the notification is clicked. If no custom URI is specified, clicking on the notification brings users into your app. You can use the custom URI to deep-link inside your app as well as direct users to resources that exist outside of your app as well. This can be specified in our [Messaging API]({{site.baseurl}}/api/endpoints/messaging) or in the **Compose** tab of the push composer.
 
 ![Custom URI field.]({% image_buster /assets/img_archive/deep_link.png %}){: style="max-width:60%;"}
 
@@ -166,7 +166,7 @@ In Android O, notification sounds became a property of notification channels. Yo
 
 For devices running versions of Android before Android O, Braze allows you to set the sound of an individual push message through the dashboard composer. You can do so by specifying a local sound resource on the device (for example, `android.resource://com.mycompany.myapp/raw/mysound`). 
 
-Selecting **Default** in this field will play the default notification sound on the device. This can be specified in our [Messaging API]({{site.baseurl}}/api/endpoints/messaging/) or in the **Settings** in the push composer.
+Selecting **Default** in this field will play the default notification sound on the device. This can be specified in our [Messaging API]({{site.baseurl}}/api/endpoints/messaging) or in the **Settings** in the push composer.
 
 ![The "Sound" field.]({% image_buster /assets/img_archive/sound_android.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 

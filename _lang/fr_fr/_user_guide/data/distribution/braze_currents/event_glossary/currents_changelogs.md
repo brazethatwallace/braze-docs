@@ -7,9 +7,40 @@ tool: Currents
 
 # Journal des modifications de Currents {#currents-changelog}
 
-## Modifications de la version 9 (date de publication : 03/06/2026) {#changes-in-version-9-release-date-2026-06-03}
+## Modifications de la version 10 (date de publication : 01/07/2026) {#changes-in-version-10-release-date-2026-07-01}
 
 ### Modifications relatives au stockage : {#changes-for-storage}
+
+* Ajout d'un nouveau type d'événement `users.canvas.costep.Send`.
+
+* Ajout d'un nouveau type d'événement `users.UserDeleteRequest`.
+
+* Ajout d'un nouveau type d'événement `users.UserOrphan`.
+
+* Modifications de champs pour le type d'événement `users.messages.rcs.Abort` :
+    * Ajout d'un nouveau champ `string` `canvas_id` : ID de l'API du Canvas auquel cet événement appartient
+
+* Modifications de champs pour le type d'événement `users.messages.rcs.Click` :
+    * Ajout d'un nouveau champ `string` `canvas_id` : ID de l'API du Canvas auquel cet événement appartient
+
+* Modifications de champs pour le type d'événement `users.messages.rcs.Delivery` :
+    * Ajout d'un nouveau champ `string` `canvas_id` : ID de l'API du Canvas auquel cet événement appartient
+
+* Modifications de champs pour le type d'événement `users.messages.rcs.InboundReceive` :
+    * Ajout d'un nouveau champ `string` `canvas_id` : ID de l'API du Canvas auquel cet événement appartient
+
+* Modifications de champs pour le type d'événement `users.messages.rcs.Read` :
+    * Ajout d'un nouveau champ `string` `canvas_id` : ID de l'API du Canvas auquel cet événement appartient
+
+* Modifications de champs pour le type d'événement `users.messages.rcs.Rejection` :
+    * Ajout d'un nouveau champ `string` `canvas_id` : ID de l'API du Canvas auquel cet événement appartient
+
+* Modifications de champs pour le type d'événement `users.messages.rcs.Send` :
+    * Ajout d'un nouveau champ `string` `canvas_id` : ID de l'API du Canvas auquel cet événement appartient
+
+## Modifications de la version 9 (date de publication : 03/06/2026) {#changes-in-version-9-release-date-2026-06-03}
+
+### Modifications relatives au stockage :
 
 * Modifications de champs pour le type d'événement `users.messages.email.Send` :
     * Ajout d'un nouveau champ `string` `from_domain` : Domaine d'envoi de l'e-mail
@@ -167,7 +198,7 @@ tool: Currents
     * Ajout d'un nouveau champ `boolean` `is_sms_fallback` : Indique qu'un SMS de secours a été envoyé suite au rejet d'un message RCS. Ce message peut aboutir à une distribution réussie, à un échec de distribution ou à un rejet. Il peut être associé à l'événement de rejet RCS via un ID d'envoi et un ID d'expédition.
 
 * Modifications de champs pour le type d'événement `users.messages.sms.Rejection` :
-    * Ajout d'un nouveau champ `boolean` `is_sms_fallback` : Indique qu'un SMS de secours a été envoyé suite au rejet d'un message RCS. Ce message peut aboutir à une distribution réussie, à un échec de distribution ou à un rejet. Il peut être associé à l'événement de rejet RCS via un ID d'envoi et un ID d'expédition. (Propriété d'événement)
+    * Ajout d'un nouveau champ `boolean` `is_sms_fallback` : Indique qu'un SMS de secours a été envoyé suite au rejet d'un message RCS. Ce message peut aboutir à une distribution réussie, à un échec de distribution ou à un rejet. Il peut être associé à l'événement de rejet RCS via un ID d'envoi et un ID d'expédition.
 
 * Modifications de champs pour le type d'événement `users.messages.whatsapp.Delivery` :
     * Ajout d'un nouveau champ `string` `flow_id` : ID unique du Flow dans le gestionnaire WhatsApp. Présent si le message comprend un CTA pour répondre à un Flow WhatsApp.

@@ -122,7 +122,7 @@ struct SportsActivityAttributes: ActivityAttributes {
 
 Primeiro, escolha como deseja registrar sua atividade:
 
-- **Remoto:** Use o método [`registerPushToStart`](<http://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/registerpushtostart(fortype:name:)>) no início do ciclo de vida do usuário e antes que o token de push-to-start seja necessário, e então inicie uma atividade usando o endpoint [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start/).
+- **Remoto:** Use o método [`registerPushToStart`](<http://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/registerpushtostart(fortype:name:)>) no início do ciclo de vida do usuário e antes que o token de push-to-start seja necessário, e então inicie uma atividade usando o endpoint [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start).
 - **Local:** Crie uma instância da sua Atividade ao Vivo e, em seguida, use o método [`launchActivity`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/launchactivity(pushtokentag:activity:fileid:line:)>) para criar tokens push para a Braze gerenciar.
 
 {% tabs local %}
@@ -176,7 +176,7 @@ Em seguida, registre o tipo de Atividade ao Vivo para que a Braze possa rastrear
 O sistema operacional iOS gera tokens push-to-start somente durante a primeira instalação do app após a reinicialização do dispositivo. Para garantir que seus tokens sejam registrados de forma confiável, chame `registerPushToStart` no seu método `didFinishLaunchingWithOptions`.
 {% endalert %}
 
-###### Exemplo
+##### Exemplo
 
 No exemplo a seguir, a classe `LiveActivityManager` manipula objetos de Atividade ao Vivo. Em seguida, o método `registerPushToStart` registra `SportsActivityAttributes`:
 
@@ -204,7 +204,7 @@ class LiveActivityManager {
 
 #### Etapa 2.4: Envie uma notificação push-to-start {#step-24-send-a-push-to-start-notification}
 
-Envie uma notificação push-to-start remota usando o endpoint [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start/).
+Envie uma notificação push-to-start remota usando o endpoint [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start).
 {% endtab %}
 
 {% tab local %}
@@ -266,7 +266,7 @@ Para garantir que a Braze rastreie sua Atividade ao Vivo na inicialização do a
 
 Isso permite que a Braze retome as tarefas para rastrear atualizações de tokens push para todas as Atividades ao Vivo ativas. Observe que, se um usuário tiver descartado explicitamente a Atividade ao Vivo no dispositivo, ela será considerada removida e a Braze não a rastreará mais.
 
-###### Exemplo
+#### Exemplo
 
 ```swift
 import UIKit
@@ -301,20 +301,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ![Uma atividade ao vivo em uma tela de bloqueio do iPhone com as pontuações de duas equipes. O Wild Bird Fund tem 2 pontos e o Owl Rehab tem 4 pontos.]({% image_buster /assets/img/swift/live_activities/example_1_2.png %}){: style="max-width:40%;float:right;margin-left:15px;"}
 
-O endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/) permite que você atualize uma Atividade ao Vivo por meio de notificações por push enviadas pela REST API da Braze. Use esse endpoint para atualizar o `ContentState` da sua Atividade ao Vivo.
+O endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) permite que você atualize uma Atividade ao Vivo por meio de notificações por push enviadas pela REST API da Braze. Use esse endpoint para atualizar o `ContentState` da sua Atividade ao Vivo.
 
 Ao atualizar o `ContentState`, o widget da Atividade ao Vivo exibirá as novas informações. Veja como seria o show Superb Owl no final do primeiro tempo.
 
-Consulte nosso artigo sobre o [endpoint `/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/) para obter todos os detalhes.
+Consulte nosso artigo sobre o [endpoint `/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) para obter todos os detalhes.
 
 ### Etapa 5: Encerre a atividade {#end-the-activity}
 
-Quando uma Atividade ao Vivo está ativa, ela é exibida na tela de bloqueio do usuário e no Dynamic Island. Para encerrá-la pela Braze, use o endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/) com `end_activity` definido como `true`.
+Quando uma Atividade ao Vivo está ativa, ela é exibida na tela de bloqueio do usuário e no Dynamic Island. Para encerrá-la pela Braze, use o endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) com `end_activity` definido como `true`.
 
 Para melhorar a confiabilidade ao encerrar uma Atividade ao Vivo, siga estas etapas opcionais:
 
 1. Opcionalmente, inclua `dismissal_date` na mesma solicitação de `update` para sugerir quando o iOS deve remover a interface da Atividade ao Vivo.
-2. Verifique os resultados de entrega no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab/).
+2. Verifique os resultados de entrega no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab).
 
 #### Organizando o descarte automático {#arranging-automatic-dismissal}
 
@@ -323,7 +323,7 @@ Para organizar o descarte automático, agende uma solicitação de acompanhament
 1. Envie uma solicitação `/messages/live_activity/start` com um `activity_id` que você possa rastrear.
 2. Armazene esse `activity_id` e o horário de encerramento desejado no agendador do seu backend.
 3. No horário de encerramento desejado, envie uma solicitação `/messages/live_activity/update` com `end_activity` definido como `true`.
-4. Configure a data de descarte na mesma solicitação de atualização. Para saber mais, consulte o endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/).
+4. Configure a data de descarte na mesma solicitação de atualização. Para saber mais, consulte o endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update).
 
 Observe que o momento do descarte é controlado pelo iOS. Mesmo após enviar uma solicitação de encerramento válida, a remoção da tela de bloqueio ou do Dynamic Island pode ser atrasada ou se comportar de forma diferente com base em condições do sistema operacional.
 
@@ -332,16 +332,39 @@ Uma Atividade ao Vivo também pode ser encerrada fora da Braze:
 * **Descarte pelo usuário**: Um usuário pode descartar manualmente uma Atividade ao Vivo.
 * **Tempo limite**: Após um tempo padrão de oito horas, o iOS removerá a Atividade ao Vivo do Dynamic Island do usuário. Após um tempo padrão de 12 horas, o iOS removerá a Atividade ao Vivo da tela de bloqueio do usuário.
 
-Consulte nosso artigo sobre o [endpoint `/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/) para obter todos os detalhes.
+Consulte nosso artigo sobre o [endpoint `/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) para obter todos os detalhes.
 
 ## Rastreamento de Atividades ao Vivo {#tracking-live-activities}
 
 Os eventos de Atividade ao Vivo estão disponíveis em Currents, Compartilhamento de dados Snowflake e Criador de consultas. Os eventos a seguir podem ajudar você a entender e monitorar o ciclo de vida das suas Atividades ao Vivo, rastrear a disponibilidade de tokens e diagnosticar problemas ou verificar status de entrega de forma independente.
 
-- [Mudança de token push-to-start de Atividade ao Vivo]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events/#live-activity-push-to-start-token-change-events): Captura quando um token push-to-start (PTS) é adicionado ou atualizado na Braze, permitindo que você rastreie registros e disponibilidade de tokens por usuário.
-- [Mudança de token de atualização de Atividade ao Vivo]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events/#live-activity-update-token-change-events): Rastreia a adição, atualização ou remoção de tokens de atualização de Atividade ao Vivo (LAU).
-- [Envio de Atividade ao Vivo]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/#live-activity-send-events): Registra cada vez que uma Atividade ao Vivo é iniciada, atualizada ou encerrada pela Braze.
-- [Resultado de Atividade ao Vivo]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/#live-activity-outcome-events): Indica o status final de entrega ao serviço de Notificações por Push da Apple (APNs) para cada Atividade ao Vivo enviada pela Braze.
+- [Mudança de token push-to-start de Atividade ao Vivo]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events#live-activity-push-to-start-token-change-events): Captura quando um token push-to-start (PTS) é adicionado ou atualizado na Braze, permitindo que você rastreie registros e disponibilidade de tokens por usuário.
+- [Mudança de token de atualização de Atividade ao Vivo]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events#live-activity-update-token-change-events): Rastreia a adição, atualização ou remoção de tokens de atualização de Atividade ao Vivo (LAU).
+- [Envio de Atividade ao Vivo]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events#live-activity-send-events): Registra cada vez que uma Atividade ao Vivo é iniciada, atualizada ou encerrada pela Braze.
+- [Resultado de Atividade ao Vivo]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events#live-activity-outcome-events): Indica o status final de entrega ao serviço de Notificações por Push da Apple (APNs) para cada Atividade ao Vivo enviada pela Braze.
+
+## Verificar envios de Atividade ao Vivo {#verify-live-activity-sends}
+
+Se você precisar confirmar se um espaço de trabalho está enviando Atividades ao Vivo do iOS, pode usar os seguintes métodos:
+
+### Registro de atividades de envio de mensagem {#message-activity-log}
+
+Acesse **Configurações** > **Registro de atividades de envio de mensagem** e filtre por erros de Atividade ao Vivo para ver quaisquer resultados de entrega relacionados a Atividades ao Vivo durante o período esperado. Para saber mais, consulte [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log).
+
+### Criador de consultas, Currents ou Compartilhamento de dados Snowflake {#query-builder-currents-or-snowflake-data-sharing}
+
+Verifique os seguintes eventos de Atividade ao Vivo para confirmar o ciclo de vida e a entrega:
+
+- **Envio de Atividade ao Vivo:** Registrado cada vez que uma Atividade ao Vivo é iniciada, atualizada ou encerrada pela Braze
+- **Resultado de Atividade ao Vivo:** Status final de entrega aos APNs para cada Atividade ao Vivo enviada
+
+Opcionalmente, você também pode verificar sinais de disponibilidade de tokens:
+- **Mudança de token push-to-start de Atividade ao Vivo**
+- **Mudança de token de atualização de Atividade ao Vivo**
+
+### Dashboard de uso da API {#api-usage-dashboard}
+
+Acesse **Configurações** > **APIs e identificadores** > **Dashboard**, selecione **Filtros** e filtre por **Endpoint** para ver as respostas da API. Por exemplo, selecione `/messages/live_activity/update` (ou `/messages/live_activity/start`) e visualize o volume de solicitações nos últimos 30 dias. As respostas da API indicam que a API está sendo chamada e que as notificações de Atividade ao Vivo do iOS estão sendo usadas nesse espaço de trabalho. Para saber mais, consulte [Dashboard de uso da API]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage).
 
 ## Observar eventos de Atividade ao Vivo (opcional) {#observe-live-activity-events}
 
@@ -438,7 +461,7 @@ Múltiplos assinantes são suportados — cada inscrição ativa recebe cada emi
 | `.pushTokenUpdated(activityId:activityType:)` | O ActivityKit rotacionou o token de push da atividade. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Eventos com escopo de instância" }
 
-###### Exemplo
+##### Exemplo
 
 ```swift
 func handleStateUpdate(_ event: Braze.LiveActivities.UpdateEvent) {
@@ -501,7 +524,7 @@ Use a flag `isTransient` para determinar se uma nova tentativa é apropriada. O 
 | `.invalidPushTokenTag(activityId:activityType:tag:)` | `launchActivity(pushTokenTag:activity:)` foi chamado com uma tag inválida. As tags devem ser não vazias e ter menos de 256 bytes. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Erros com escopo de instância" }
 
-###### Exemplo
+##### Exemplo
 
 ```swift
 func handleLiveActivityError(_ error: Braze.LiveActivities.ErrorEvent) {
@@ -622,7 +645,7 @@ Atualmente, as Atividades ao Vivo são um recurso específico do iOS e iPadOS. P
 
 ![Uma captura de tela de uma barra de menu do macOS exibindo uma Atividade ao Vivo como um alerta.]({% image_buster /assets/img/live-activity-macos.png %}){: style="max-width:60%;"}
 
-O artigo sobre Atividades ao Vivo aborda os [pré-requisitos]({{site.baseurl}}/developer_guide/platforms/swift/live_activities/#prerequisites) para o gerenciamento de Atividades ao Vivo por meio do SDK Swift da Braze.
+O artigo sobre Atividades ao Vivo aborda os [pré-requisitos]({{site.baseurl}}/developer_guide/platforms/swift/live_activities#prerequisites) para o gerenciamento de Atividades ao Vivo por meio do SDK Swift da Braze.
 
 #### Os apps React Native são compatíveis com Atividades ao Vivo? {#do-react-native-apps-support-live-activities}
 
@@ -650,17 +673,17 @@ Os tokens de atualização de Atividade ao Vivo expiram após oito horas.
 
 #### As Atividades ao Vivo requerem push primers? {#do-live-activities-require-push-primers}
 
-Os [push primers]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) são uma prática recomendada para solicitar que os usuários aceitem notificações por push do seu app. No entanto, não há nenhum prompt do sistema para aceitar Atividades ao Vivo. Por padrão, os usuários aceitam Atividades ao Vivo para um app individual quando instalam esse app no iOS 16.1 ou posterior. Essa permissão pode ser desativada ou reativada nas configurações do dispositivo por app.
+Os [push primers]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) são uma prática recomendada para solicitar que os usuários aceitem notificações por push do seu app. No entanto, não há nenhum prompt do sistema para aceitar Atividades ao Vivo. Por padrão, os usuários aceitam Atividades ao Vivo para um app individual quando instalam esse app no iOS 16.1 ou posterior. Essa permissão pode ser desativada ou reativada nas configurações do dispositivo por app.
 
 ### Tópicos técnicos e solução de problemas {#technical-topics-and-troubleshooting}
 
 #### Como posso saber se as Atividades ao Vivo têm erros? {#how-do-i-know-if-live-activities-has-errors}
 
-Todos os erros de Atividades ao Vivo são registrados no dashboard da Braze no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/), onde é possível filtrar por "LiveActivity Errors".
+Todos os erros de Atividades ao Vivo são registrados no dashboard da Braze no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), onde é possível filtrar por "LiveActivity Errors".
 
 #### Depois de enviar uma notificação push-to-start, por que não recebi minha Atividade ao Vivo? {#after-sending-a-push-to-start-notification-why-havent-i-received-my-live-activity}
 
-Primeiro, verifique se sua carga útil inclui todos os campos obrigatórios descritos no endpoint [`messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start/). Os campos `activity_attributes` e `content_state` devem corresponder às propriedades definidas no código do seu projeto. Se tiver certeza de que a carga útil está correta, é possível que você esteja sendo limitado pelos APNs. Esse limite é imposto pela Apple e não pela Braze.
+Primeiro, verifique se sua carga útil inclui todos os campos obrigatórios descritos no endpoint [`messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start). Os campos `activity_attributes` e `content_state` devem corresponder às propriedades definidas no código do seu projeto. Se tiver certeza de que a carga útil está correta, é possível que você esteja sendo limitado pelos APNs. Esse limite é imposto pela Apple e não pela Braze.
 
 Para verificar se a notificação push-to-start chegou com sucesso ao dispositivo, mas não foi exibida devido a limites de taxa, você pode depurar o projeto usando o app Console no Mac. Anexe o processo de gravação do dispositivo desejado e, em seguida, filtre os registros por `process:liveactivitiesd` na barra de pesquisa.
 
@@ -674,8 +697,8 @@ Por fim, certifique-se de que o tipo de atributo da Atividade ao Vivo na sua car
 
 #### Estou recebendo uma resposta de acesso negado quando tento usar o endpoint `live_activity/update`. Por quê? {#i-am-receiving-an-access-denied-response-when-i-try-to-use-the-live_activityupdate-endpoint-why}
 
-As chaves de API que você usa precisam ter as permissões corretas para acessar os diferentes endpoints da API da Braze. Se estiver usando uma chave de API criada anteriormente, é possível que tenha se esquecido de atualizar as permissões. Leia nossa [visão geral da segurança da chave de API]({{site.baseurl}}/api/basics/#rest-api-key-security) para relembrar.
+As chaves de API que você usa precisam ter as permissões corretas para acessar os diferentes endpoints da API da Braze. Se estiver usando uma chave de API criada anteriormente, é possível que tenha se esquecido de atualizar as permissões. Leia nossa [visão geral da segurança da chave de API]({{site.baseurl}}/api/basics#rest-api-key-security) para relembrar.
 
 #### O endpoint `messages/send` compartilha os limites de taxa com o endpoint `messages/live_activity/update`? {#does-the-messagessend-endpoint-share-rate-limits-with-the-messageslive_activityupdate-endpoint}
 
-Por padrão, o limite de taxa do endpoint `messages/live_activity/update` é de 250.000 solicitações por hora, por espaço de trabalho e em vários endpoints. Consulte os [limites de taxa da API]({{site.baseurl}}/api/api_limits/) para obter mais informações.
+Por padrão, o limite de taxa do endpoint `messages/live_activity/update` é de 250.000 solicitações por hora, por espaço de trabalho e em vários endpoints. Consulte os [limites de taxa da API]({{site.baseurl}}/api/api_limits) para obter mais informações.

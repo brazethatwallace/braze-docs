@@ -1,5 +1,5 @@
 ---
-nav_title: "GET: Canvasのリンクエイリアス一覧"
+nav_title: "GET: キャンバスのリンクエイリアス一覧"
 layout: api_page
 page_type: reference
 hidden: true
@@ -9,18 +9,18 @@ platform: API
 channel:
   - Email
 tool:
-  - Canvas
-  - Campaigns
+  - キャンバス
+  - キャンペーン
 
-description: "この記事では、Canvasのリンクエイリアス一覧エンドポイントについて詳しく説明します。"
+description: "この記事では、キャンバスのリンクエイリアス一覧エンドポイントについて詳しく説明します。"
 ---
 {% api %}
-# Canvasのリンクエイリアス一覧 {#list-link-alias-for-canvas}
+# キャンバスのリンクエイリアス一覧 {#list-link-alias-for-canvas}
 {% apimethod get %}
 /canvas/url_info/details
 {% endapimethod %}
 
-> このエンドポイントを使用して、特定のメールCanvasステップに設定されたリンクエイリアスを一覧表示します。
+> このエンドポイントを使用して、特定のメールキャンバスステップに設定されたリンクエイリアスを一覧表示します。
 
 {% apiref postman %}  {% endapiref %}
 
@@ -29,7 +29,7 @@ description: "この記事では、Canvasのリンクエイリアス一覧エン
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `canvas_step_id` | 必須 | 文字列 | [キャンバスステップAPI識別子]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier)を参照してください。 |
-| `message_variation_id ` | 必須 | 文字列 | メッセージバリアントAPI識別子（そのステップのメールメッセージバリアント用）。これは、**Canvas詳細**ページで**Analyze Variants**をクリックすると確認できます。 |
+| `message_variation_id ` | 必須 | 文字列 | メッセージバリアントAPI識別子（そのステップのメールメッセージバリアント用）。これは、**キャンバス詳細**ページで**Analyze Variants**をクリックすると確認できます。 |
 | `includes_link_id` | オプション | 文字列 | 特定のリンク識別子（Brazeによって割り当てられたもの）または`null`。これは結果を特定の`link_id`でフィルタリングするために使用されます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -66,8 +66,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | エラー | トラブルシューティング |
 | --- | --- |
-| `Missing/Invalid Canvas ID` | Canvas API IDはAPI識別子である必要があります。これは[Canvas一覧エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/)を使用するか、ダッシュボードにログインして確認できます。 |
-| `Missing/Invalid Message Variant ID` | メッセージバリアントAPI IDはAPI識別子である必要があります。これは[Canvas詳細エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)を使用するか、ダッシュボードにログインして確認できます。 |
+| `Missing/Invalid キャンバス ID` | キャンバス API IDはAPI識別子である必要があります。これは[キャンバス一覧エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/)を使用するか、ダッシュボードにログインして確認できます。 |
+| `Missing/Invalid Message Variant ID` | メッセージバリアントAPI IDはAPI識別子である必要があります。これは[キャンバス詳細エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)を使用するか、ダッシュボードにログインして確認できます。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endapi %}

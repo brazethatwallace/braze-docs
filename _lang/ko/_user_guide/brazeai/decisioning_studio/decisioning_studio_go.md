@@ -20,13 +20,13 @@ Decisioning Studio Go는 제한된 액션 뱅크를 갖춘 셀프 서비스 크�
 * Braze
 * Salesforce Marketing Cloud
 
-Decisioning Studio Go와 Decisioning Studio Pro의 차이점에 대해 자세히 알아보려면 [Decisioning Studio Go와 Decisioning Studio Pro 비교]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/#decisioning-studio-go-vs-decisioning-studio-pro)를 참조하세요.
+Decisioning Studio Go와 Decisioning Studio Pro의 차이점에 대해 자세히 알아보려면 [Decisioning Studio Go와 Decisioning Studio Pro 비교]({{site.baseurl}}/user_guide/brazeai/decisioning_studio#decisioning-studio-go-vs-decisioning-studio-pro)를 참조하세요.
 
 ## 다음 단계 {#next-steps}
 
 Decisioning Studio Go를 설정하려면 다음 단계를 따르세요:
 
-1. [데이터 소스 연결]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources/)
-2. [오케스트레이션 설정]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration/)
-3. [에이전트 설계]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)
-4. [에이전트를 시작하세요]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent/)
+1. [데이터 소스 연결]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources)
+2. [오케스트레이션 설정]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration)
+3. [에이전트 설계]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent)
+4. [에이전트 시작하기]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent)

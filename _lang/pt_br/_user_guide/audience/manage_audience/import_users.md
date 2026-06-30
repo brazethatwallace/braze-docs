@@ -15,7 +15,7 @@ Você pode fazer upload de atributos e eventos de usuários por meio de uma impo
 
 ### Importação por CSV da Braze {#braze-csv-import}
 
-Você pode usar a importação por CSV para registrar e atualizar os seguintes atributos de usuários e eventos personalizados. Para começar, consulte [Importação por CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/).
+Você pode usar a importação por CSV para registrar e atualizar os seguintes atributos de usuários e eventos personalizados. Para começar, consulte [Importação por CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import).
 
 | Tipo | Definição | Exemplo | Tamanho máximo do arquivo |
 |---|---|---|---|
@@ -26,27 +26,27 @@ Você pode usar a importação por CSV para registrar e atualizar os seguintes a
 
 #### Construindo seu CSV {#constructing-your-csv}
 
-A Braze aceita dados de usuários no formato CSV padrão. Importações de atributos padrão e personalizados suportam arquivos de até 500 MB; importações de eventos personalizados suportam arquivos de até 50 MB. Para identificadores, cabeçalhos de coluna, regras de validação e exemplos, consulte [Importação por CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/csv_import/).
+A Braze aceita dados de usuários no formato CSV padrão. Importações de atributos padrão e personalizados suportam arquivos de até 500 MB; importações de eventos personalizados suportam arquivos de até 50 MB. Para identificadores, cabeçalhos de coluna, regras de validação e exemplos, consulte [Importação por CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/csv_import).
 
 Quando você faz upload de um CSV grande por meio de **Import Users** no dashboard, a página pode parecer não responder ou ficar lenta enquanto a Braze recebe o arquivo e executa a etapa de cálculo. Deixe o upload e o cálculo terminarem — o tempo total varia de alguns minutos a algumas horas, dependendo do tamanho do arquivo, e arquivos maiores levam mais tempo para calcular.
 
 {% alert note %}
-Ao importar eventos personalizados com propriedades, você deve usar notação de ponto nos cabeçalhos de coluna do seu CSV. Para saber mais sobre a formatação de eventos personalizados, consulte [Entendendo a formatação de eventos personalizados]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/?tab=custom%20events#understanding-custom-event-formatting).
+Ao importar eventos personalizados com propriedades, você deve usar notação de ponto nos cabeçalhos de coluna do seu CSV. Para saber mais sobre a formatação de eventos personalizados, consulte [Entendendo a formatação de eventos personalizados]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import?tab=custom%20events#understanding-custom-event-formatting).
 {% endalert %}
 
 ### Importação de CSV de usuários via Lambda {#lambda-user-csv-import}
 
 Use nosso script serverless de importação de CSV via S3 Lambda para fazer upload de atributos de usuários para a Braze. Essa solução funciona como um uploader de CSV: você coloca seus CSVs em um bucket S3 e os scripts fazem o upload por meio da nossa API.
 
-O tempo estimado de execução para um arquivo com 1.000.000 de linhas é de aproximadamente cinco minutos. Consulte [Importação de CSV de atributos de usuários para a Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) para saber mais.
+O tempo estimado de execução para um arquivo com 1.000.000 de linhas é de aproximadamente cinco minutos. Consulte [Importação de CSV de atributos de usuários para a Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) para saber mais.
 
 ### REST API
 
-Use o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) para registrar eventos personalizados, atributos de usuários e compras.
+Use o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para registrar eventos personalizados, atributos de usuários e compras.
 
 ### Ingestão de dados na nuvem {#cloud-data-ingestion}
 
-Use a [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) da Braze para importar e manter atributos de usuários.
+Use a [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) da Braze para importar e manter atributos de usuários.
 
 ## Validação de HTML {#html-validation}
 

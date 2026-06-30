@@ -23,7 +23,7 @@ description: "この記事では、「複数のカタログ項目を置き換え
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.replace_items` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`catalogs.replace_items` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -34,14 +34,14 @@ description: "この記事では、「複数のカタログ項目を置き換え
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `catalog_name` | 必須 | 文字列 | カタログ名。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="パスパラメーター" }
 
 ## リクエストパラメーター {#request-parameters}
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `items` | 必須 | 配列 | 項目オブジェクトを含む配列。各オブジェクトにはIDが必要です。項目オブジェクトには、カタログに存在するフィールドが含まれている必要があります。リクエストごとに最大50個の項目オブジェクトが許可されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 
@@ -88,7 +88,7 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
 このエンドポイントには、`202`、`400`、`404` の3つのステータスコード応答があります。
 
 {% alert note %}
-カタログのストレージ上限に達した場合にも、`400` 応答が返されることがあります。カタログの無料版は100&nbsp;MBが上限です。ストレージ階層とアップグレード方法の詳細については、[データストレージの制限]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations)を参照してください。
+カタログのストレージ上限に達した場合にも、`400` 応答が返されることがあります。カタログの無料版は100&nbsp;MBが上限です。ストレージ階層とアップグレード方法の詳細については、[データストレージの制限]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations)を参照してください。
 {% endalert %}
 
 ### 成功応答の例 {#example-success-response}
@@ -130,8 +130,8 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
 | エラー | トラブルシューティング |
 | --- | --- |
 | `catalog-not-found` | カタログ名が有効であることを確認してください。 |
-| `company-size-limit-already-reached` | カタログのストレージサイズ上限に達しています。ストレージ階層の詳細については、[データストレージの制限]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations)を参照してください。 |
-| `company-size-limit-surge` | リクエストが会社の残りのカタログストレージを超えています。より小さい更新で再試行してください。ストレージ階層の詳細については、[データストレージの制限]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations)を参照してください。 |
+| `company-size-limit-already-reached` | カタログのストレージサイズ上限に達しています。ストレージ階層の詳細については、[データストレージの制限]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations)を参照してください。 |
+| `company-size-limit-surge` | リクエストが会社の残りのカタログストレージを超えています。より小さい更新で再試行してください。ストレージ階層の詳細については、[データストレージの制限]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations)を参照してください。 |
 | `ids-not-string` | 各項目IDが文字列であることを確認してください。 |
 | `ids-not-unique` | 各項目IDが一意であることを確認してください。 |
 | `ids-too-large` | 各項目IDの文字数制限は250文字です。 |
@@ -144,6 +144,6 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
 | `too-deep-nesting-in-value-object` | 項目オブジェクトは50レベルを超えるネストを持つことはできません。 |
 | `request-includes-too-many-items` | リクエストの項目数が多すぎます。リクエストごとの項目の上限は50個です。 |
 | `unable-to-coerce-value` | 項目タイプは変換できません。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 {% endapi %}

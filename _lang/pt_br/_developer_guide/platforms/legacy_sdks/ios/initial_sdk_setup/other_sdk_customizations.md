@@ -27,7 +27,7 @@ Consulte a seguinte lista de níveis de registro disponíveis:
 | 2        | Aviso. As informações de aviso e de nível superior serão registradas no console do iOS.  |
 | 4        | Erro. As informações de erro e de nível superior serão registradas no console do iOS.  |
 | 8        | Mínimo. O mínimo de informações será registrado no console do iOS. A configuração padrão do SDK. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Log levels" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Níveis de registro" }
 
 ### Registro detalhado {#verbose-logging}
 
@@ -97,11 +97,11 @@ O nível de registro só pode ser definido em tempo de execução com o Braze iO
 
 Nas versões anteriores do Braze iOS Swift SDK, o campo IDFV (Identifier for Vendor) era coletado automaticamente como o ID do dispositivo do usuário.
 
-A partir do Swift SDK v5.7.0, o campo IDFV pode ser desativado opcionalmente e, em vez disso, a Braze definirá um UUID aleatório como o ID do dispositivo. Para saber mais, consulte [Coleta de IDFV]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift).
+A partir do Swift SDK v5.7.0, o campo IDFV pode ser desativado opcionalmente e, em vez disso, a Braze definirá um UUID aleatório como o ID do dispositivo. Para saber mais, consulte [Coleta de IDFV]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift).
 
 ## Coleta opcional de IDFA {#optional-idfa-collection}
 
-A coleta de IDFA é opcional no SDK da Braze e fica desativada por padrão. A coleta de IDFA só é necessária na Braze se você pretender usar nossas [integrações de atribuição da instalação]({{site.baseurl}}/partners/message_orchestration/attribution/adjust/). Se você optar por armazenar seu IDFA, nós o armazenaremos gratuitamente, para que você possa aproveitar essas opções imediatamente após o lançamento, sem trabalho de desenvolvimento adicional.
+A coleta de IDFA é opcional no SDK da Braze e fica desativada por padrão. A coleta de IDFA só é necessária na Braze se você pretender usar nossas [integrações de atribuição da instalação]({{site.baseurl}}/partners/message_orchestration/attribution/adjust). Se você optar por armazenar seu IDFA, nós o armazenaremos gratuitamente, para que você possa aproveitar essas opções imediatamente após o lançamento, sem trabalho de desenvolvimento adicional.
 
 Por isso, recomendamos que você continue coletando o IDFA se atender a qualquer um dos critérios a seguir:
 
@@ -125,7 +125,7 @@ A solicitação de autorização de transparência de rastreamento do app requer
 
 Siga estas etapas para implementar a coleta de IDFA:
 
-##### Etapa 1: Implementar o ABKIDFADelegate {#step-1-implement-abkidfadelegate}
+#### Etapa 1: Implementar o ABKIDFADelegate {#step-1-implement-abkidfadelegate}
 
 Crie uma classe que esteja em conformidade com o protocolo [`ABKIDFADelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKIDFADelegate.h):
 

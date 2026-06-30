@@ -10,11 +10,11 @@ platform:
   - Web
 ---
 
-# Questions fréquemment posées
+# Questions fréquemment posées {#frequently-asked-questions}
 
 > Cet article fournit des réponses aux questions fréquemment posées sur les indicateurs de fonctionnalité.
 
-## Fonctionnalités et assistance
+## Fonctionnalités et assistance {#functionality-and-support}
 
 ### Sur quelles plateformes les indicateurs de fonctionnalité Braze sont-ils pris en charge ? {#platforms}
 
@@ -79,7 +79,7 @@ Par exemple, avec les indicateurs de fonctionnalité de Braze, vous pouvez dépl
 
 Les équipes produit peuvent utiliser les indicateurs de fonctionnalité pour effectuer des déploiements progressifs ou des lancements en douceur de nouvelles fonctionnalités, afin de surveiller les KPI et les retours clients avant de les rendre disponibles à tous les utilisateurs.
 
-Les équipes produit peuvent utiliser les [propriétés des indicateurs de fonctionnalité]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create/#properties) pour alimenter à distance le contenu d'une application, comme des liens profonds, du texte, des images ou tout autre contenu dynamique.
+Les équipes produit peuvent utiliser les [propriétés des indicateurs de fonctionnalité]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#properties) pour alimenter à distance le contenu d'une application, comme des liens profonds, du texte, des images ou tout autre contenu dynamique.
 
 Grâce à l'étape Indicateur de fonctionnalité de Canvas, les équipes produit peuvent également réaliser un test A/B pour mesurer l'impact d'une nouvelle fonctionnalité sur les taux de conversion par rapport aux utilisateurs pour lesquels la fonctionnalité est désactivée.
 
@@ -89,7 +89,7 @@ Les équipes d'ingénierie peuvent utiliser les indicateurs de fonctionnalité p
 
 En publiant du nouveau code masqué derrière un indicateur de fonctionnalité, votre équipe peut activer ou désactiver la fonctionnalité à distance depuis le tableau de bord de Braze, sans avoir à attendre la publication d'une nouvelle version du code ou l'approbation d'une mise à jour sur l'app store.
 
-## Déploiement de fonctionnalités et ciblage
+## Déploiement de fonctionnalités et ciblage {#feature-rollouts-and-targeting}
 
 ### Un indicateur de fonctionnalité peut-il être déployé uniquement auprès d'un groupe spécifique d'utilisateurs ? {#target-users}
 
@@ -105,7 +105,7 @@ Les déploiements d'indicateurs de fonctionnalité restent cohérents pour les u
 
 Cette stratégie garantit que les utilisateurs bénéficient d'une expérience cohérente dans votre application et ne voient pas la fonctionnalité apparaître et disparaître d'une session à l'autre. Bien entendu, désactiver une fonctionnalité à 0 % supprimera tous les utilisateurs de l'indicateur de fonctionnalité, ce qui est utile si vous découvrez un bug ou si vous devez désactiver complètement la fonctionnalité.
 
-## Sujets techniques
+## Sujets techniques {#technical-topics}
 
 ### Les indicateurs de fonctionnalité peuvent-ils être utilisés pour contrôler le moment où le SDK Braze est initialisé ? {#initialization}
 
@@ -113,7 +113,7 @@ Non, le SDK doit être initialisé pour télécharger et synchroniser les indica
 
 ### À quelle fréquence le SDK actualise-t-il les indicateurs de fonctionnalité ? {#refresh-frequency}
 
-Les indicateurs de fonctionnalité sont actualisés au démarrage de la session et lors du changement d'utilisateur actif. Ils peuvent également être actualisés manuellement à l'aide de la [méthode d'actualisation]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create/#refreshing) du SDK. L'actualisation des indicateurs de fonctionnalité est soumise à une limite de débit d'une fois toutes les cinq minutes (susceptible de changer).
+Les indicateurs de fonctionnalité sont actualisés au démarrage de la session et lors du changement d'utilisateur actif. Ils peuvent également être actualisés manuellement à l'aide de la [méthode d'actualisation]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#refreshing) du SDK. L'actualisation des indicateurs de fonctionnalité est soumise à une limite de débit d'une fois toutes les cinq minutes (susceptible de changer).
 
 Gardez à l'esprit que les bonnes pratiques en matière de données recommandent de ne pas actualiser les indicateurs de fonctionnalité trop fréquemment (avec un risque de limitation de débit le cas échéant). Il est donc préférable de n'actualiser qu'avant qu'un utilisateur interagisse avec de nouvelles fonctionnalités, ou périodiquement dans l'application si nécessaire.
 
@@ -125,12 +125,12 @@ Oui, une fois les indicateurs de fonctionnalité actualisés, ils sont stockés 
 
 Les indicateurs de fonctionnalité peuvent être actualisés en cours de session. Dans certains cas, vous souhaiterez mettre à jour votre application si certaines variables ou votre configuration changent. Dans d'autres cas, vous préférerez ne pas la mettre à jour, afin d'éviter un changement brusque dans le rendu de votre interface utilisateur.
 
-Pour contrôler ce comportement, [écoutez les mises à jour]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create/#updates) des indicateurs de fonctionnalité et déterminez s'il faut effectuer un nouveau rendu de votre application en fonction des indicateurs de fonctionnalité qui ont changé.
+Pour contrôler ce comportement, [écoutez les mises à jour]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#updates) des indicateurs de fonctionnalité et déterminez s'il faut effectuer un nouveau rendu de votre application en fonction des indicateurs de fonctionnalité qui ont changé.
 
-### Pourquoi les utilisateurs de mon Groupe de contrôle global ne reçoivent-ils pas les expériences d'indicateurs de fonctionnalité ?
+### Pourquoi les utilisateurs de mon Groupe de contrôle global ne reçoivent-ils pas les expériences d'indicateurs de fonctionnalité ? {#why-arent-users-in-my-global-control-group-receiving-feature-flags-experiments}
 
-Vous ne pouvez pas activer les indicateurs de fonctionnalité pour les utilisateurs de votre [Groupe de contrôle global]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/). Cela signifie que les utilisateurs de votre Groupe de contrôle global ne peuvent pas non plus participer aux expériences d'indicateurs de fonctionnalité.
+Vous ne pouvez pas activer les indicateurs de fonctionnalité pour les utilisateurs de votre [Groupe de contrôle global]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts). Cela signifie que les utilisateurs de votre Groupe de contrôle global ne peuvent pas non plus participer aux expériences d'indicateurs de fonctionnalité.
 
-## D'autres questions ?
+## D'autres questions ? {#additional-questions}
 
 Vous avez des questions ou des commentaires ? Contactez notre équipe par e-mail : [feature-flags-feedback@braze.com](mailto:feature-flags-feedback@braze.com).

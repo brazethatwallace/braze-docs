@@ -12,18 +12,18 @@ description: "Découvrez les moteurs de recommandation d'articles dans Braze."
 
 ## Conditions préalables {#prerequisites}
 
-Avant de pouvoir créer ou utiliser des recommandations d'articles dans Braze, vous devez [créer au moins un catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/create/)&#8212;seuls les articles de ce catalogue seront recommandés aux utilisateurs.
+Avant de pouvoir créer ou utiliser des recommandations d'articles dans Braze, vous devez [créer au moins un catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/create)&#8212;seuls les articles de ce catalogue seront recommandés aux utilisateurs.
 
 ## Types et cas d'utilisation {#types-and-use-cases}
 
 ### IA personnalisée {#ai}
 
-Dans le cadre de la fonctionnalité de [recommandations d'articles par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/), les recommandations IA personnalisées exploitent l'apprentissage profond pour prédire ce qui est susceptible d'intéresser vos utilisateurs ensuite, en fonction de ce qui les a intéressés par le passé. Cette méthode fournit un système de recommandation dynamique et sur mesure qui s'adapte au comportement de l'utilisateur.
+Dans le cadre de la fonctionnalité de [recommandations d'articles par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai), les recommandations IA personnalisées exploitent l'apprentissage profond pour prédire ce qui est susceptible d'intéresser vos utilisateurs ensuite, en fonction de ce qui les a intéressés par le passé. Cette méthode fournit un système de recommandation dynamique et sur mesure qui s'adapte au comportement de l'utilisateur.
 
 Les recommandations IA personnalisées utilisent les 6 derniers mois de données d'interaction avec les articles, comme les achats ou les événements personnalisés, pour construire le modèle de recommandation. Pour les utilisateurs ne disposant pas de suffisamment de données pour une liste personnalisée, les articles les plus populaires servent de solution de repli, afin que vos utilisateurs continuent de recevoir des suggestions pertinentes.
 
 Grâce aux recommandations d'articles par intelligence artificielle, vous pouvez également affiner les articles disponibles avec les
-[sélections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/). Cependant, les sélections utilisant Liquid ne peuvent pas être employées dans les recommandations IA — gardez cela à l'esprit lorsque vous créez vos sélections de catalogue.
+[sélections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections). Cependant, les sélections utilisant Liquid ne peuvent pas être employées dans les recommandations IA — gardez cela à l'esprit lorsque vous créez vos sélections de catalogue.
 
 {% alert tip %}
 Les recommandations IA personnalisées fonctionnent au mieux avec des centaines ou des milliers d'articles et généralement au moins 30 000 utilisateurs disposant de données d'achat ou d'interaction. Il s'agit d'une indication approximative qui peut varier. Les autres types de recommandations peuvent fonctionner avec moins de données.
@@ -43,17 +43,17 @@ Prédire et recommander les articles qu'un utilisateur est le plus susceptible d
 {% details Conditions requises %}
 - Recommandations d'articles par intelligence artificielle
 - Catalogue d'articles pertinents
-- Une méthode de suivi des achats : un objet d'achat, un événement personnalisé ou un [événement de commande passée]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/?tab=ecommerce.order_placed)
+- Une méthode de suivi des achats : un objet d'achat, un événement personnalisé ou un [événement de commande passée]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.order_placed)
 {% enddetails %}
 
 {% details Mise en place %}
-1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Définissez le **Type** sur **AI Personalized**.
 3. Sélectionnez votre catalogue.
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents.
 5. Choisissez la manière dont vous suivez actuellement les événements d'achat et la propriété d'événement correspondante.
 6. Entraînez la recommandation.
-7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)
+7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -77,13 +77,13 @@ Encouragez les utilisateurs à explorer les articles populaires de votre catalog
 {% enddetails %}
 
 {% details Mise en place %}
-1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Définissez le **Type** sur **Most popular**.
 3. Sélectionnez votre catalogue.
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents. Par exemple, le service de livraison de repas pourrait proposer une sélection pour filtrer par emplacement du restaurant ou type de plat.
 5. Choisissez la manière dont vous suivez actuellement les événements et la propriété d'événement correspondante.
 6. Entraînez la recommandation.
-7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)
+7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
 {% enddetails %}
 {% endtab %}
 
@@ -97,13 +97,13 @@ Encouragez les utilisateurs à explorer les articles qu'ils ont récemment aimé
 {% enddetails %}
 
 {% details Mise en place %}
-1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Définissez le **Type** sur **Most recent**.
 3. Sélectionnez votre catalogue.
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents.
 5. Choisissez **Custom Event** et sélectionnez votre événement personnalisé pour les likes dans la liste.
 6. Entraînez la recommandation.
-7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)
+7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
 {% enddetails %}
 {% endtab %}
 
@@ -117,13 +117,13 @@ Mettez en avant les articles qui ont attiré l'attention de votre base d'utilisa
 {% enddetails %}
 
 {% details Mise en place %}
-1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Définissez le **Type** sur **Most popular**.
 3. Sélectionnez votre catalogue.
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents.
 5. Choisissez **Custom Event** et sélectionnez votre événement personnalisé pour les vues dans la liste.
 6. Entraînez la recommandation.
-7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)
+7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
 {% enddetails %}
 {% endtab %}
 
@@ -139,13 +139,13 @@ Par exemple, un détaillant de mode pourrait promouvoir des vêtements et des ac
 {% enddetails %}
 
 {% details Mise en place %}
-1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Définissez le **Type** sur **Most popular**.
 3. Sélectionnez votre catalogue.
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents.
 5. Choisissez **Custom Event** et sélectionnez votre événement personnalisé pour l'ajout au panier dans la liste.
 6. Entraînez la recommandation.
-7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)
+7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -169,13 +169,13 @@ Encouragez les utilisateurs à revenir sur les articles sur lesquels ils ont ré
 {% enddetails %}
 
 {% details Mise en place %}
-1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Définissez le **Type** sur **Most recent**.
 3. Sélectionnez votre catalogue.
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents.
 5. Choisissez **Custom Event** et sélectionnez votre événement personnalisé pour les clics dans la liste.
 6. Entraînez la recommandation.
-7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)
+7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
 {% enddetails %}
 
 {% endtab %}
@@ -189,13 +189,13 @@ Encouragez les utilisateurs à explorer les articles qu'ils ont récemment aimé
 {% enddetails %}
 
 {% details Mise en place %}
-1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Définissez le **Type** sur **Most recent**.
 3. Sélectionnez votre catalogue.
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents.
 5. Choisissez **Custom Event** et sélectionnez votre événement personnalisé pour les likes dans la liste.
 6. Entraînez la recommandation.
-7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)
+7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
 {% enddetails %}
 {% endtab %}
 
@@ -213,13 +213,13 @@ Mettez en avant les articles avec lesquels les utilisateurs ont récemment inter
 {% enddetails %}
 
 {% details Mise en place %}
-1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Définissez le **Type** sur **Most recent**.
 3. Sélectionnez votre catalogue.
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents.
 5. Choisissez **Custom Event** et sélectionnez votre événement personnalisé pour les clics dans la liste.
 6. Entraînez la recommandation.
-7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)
+7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
 {% enddetails %}
 {% endtab %}
 
@@ -233,13 +233,13 @@ Rappelez aux utilisateurs leur intérêt pour les articles qu'ils ont récemment
 {% enddetails %}
 
 {% details Mise en place %}
-1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Définissez le **Type** sur **Most recent**.
 3. Sélectionnez votre catalogue.
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents.
 5. Choisissez **Custom Event** et sélectionnez votre événement personnalisé pour l'ajout au panier dans la liste.
 6. Entraînez la recommandation.
-7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)
+7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -265,13 +265,13 @@ Mettez en évidence les articles que vos utilisateurs ont récemment achetés av
 {% enddetails %}
 
 {% details Mise en place %}
-1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/ai_item_recommendations/).
+1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/ai_item_recommendations).
 2. Définissez le **Type** sur **Trending**.
 3. Sélectionnez votre catalogue.
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents.
 5. Choisissez un événement d'achat ou un événement personnalisé qui suit les achats, ainsi que la propriété correspondante.
 6. Entraînez la recommandation.
-7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)
+7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
 {% enddetails %}
 {% endtab %}
 
@@ -285,20 +285,20 @@ Mettez en évidence les articles que vos utilisateurs ont récemment aimés de m
 {% enddetails %}
 
 {% details Mise en place %}
-1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/ai_item_recommendations/).
+1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/ai_item_recommendations).
 2. Définissez le **Type** sur **Trending**.
 3. Sélectionnez votre catalogue.
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents.
 5. Choisissez votre événement personnalisé pour le suivi des likes, ainsi que la propriété correspondante.
 6. Entraînez la recommandation.
-7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)
+7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
 
 ### Basé sur des sélections {#selections-based}
 
-Les [sélections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) sont des groupes spécifiques de données du catalogue. Lorsque vous utilisez une sélection, vous configurez essentiellement des filtres personnalisés basés sur des colonnes spécifiques de votre catalogue. Il peut s'agir de filtres pour la marque, la taille, l'emplacement, la date d'ajout, etc. Cela vous donne le contrôle sur ce que vous recommandez en vous permettant de définir les critères auxquels les articles doivent répondre pour être présentés aux utilisateurs.
+Les [sélections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) sont des groupes spécifiques de données du catalogue. Lorsque vous utilisez une sélection, vous configurez essentiellement des filtres personnalisés basés sur des colonnes spécifiques de votre catalogue. Il peut s'agir de filtres pour la marque, la taille, l'emplacement, la date d'ajout, etc. Cela vous donne le contrôle sur ce que vous recommandez en vous permettant de définir les critères auxquels les articles doivent répondre pour être présentés aux utilisateurs.
 
 Les trois types précédents impliquent tous la configuration et l'entraînement d'un modèle de recommandation dans Braze. Bien que vous puissiez également utiliser des sélections dans ces modèles, vous pouvez aussi réaliser certains cas d'utilisation de recommandation avec uniquement des sélections de catalogue et la personnalisation Liquid.
 
@@ -326,7 +326,7 @@ Par exemple, une plateforme d'e-commerce technologique pourrait alerter les pass
 3. Assurez-vous que l'option **Randomize Sort Order** est désactivée.
 4. Pour **Sort Field**, sélectionnez votre champ de date d'ajout.
 5. Définissez **Sort Order** sur décroissant.
-6. [Utilisez la sélection dans vos messages.]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/#using-selections-in-messaging)
+6. [Utilisez la sélection dans vos messages.]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#using-selections-in-messaging)
 {% enddetails %}
 {% endtab %}
 
@@ -341,17 +341,17 @@ Par exemple, une librairie en ligne pourrait proposer une fonctionnalité « Sur
 {% enddetails %}
 
 {% details Mise en place %}
-1. [Créez une sélection]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/#creating-a-selection) à partir de votre catalogue.
+1. [Créez une sélection]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#creating-a-selection) à partir de votre catalogue.
 2. (Facultatif) Ajoutez des filtres si vous le souhaitez.
 3. Activez l'option **Randomize Sort Order**.
-4. [Utilisez la sélection dans vos messages.]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/#using-selections-in-messaging)
+4. [Utilisez la sélection dans vos messages.]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#using-selections-in-messaging)
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
 
 ### Basé sur des règles {#rules-based}
 
-Un moteur de [recommandation basé sur des règles]({{site.baseurl}}/rules_based_recommendations/) utilise les données des utilisateurs et les informations sur les produits pour suggérer des articles pertinents aux utilisateurs dans les messages. Il utilise Liquid et les catalogues Braze ou le contenu connecté pour personnaliser dynamiquement le contenu en fonction du comportement et des attributs de l'utilisateur.
+Un moteur de [recommandation basé sur des règles]({{site.baseurl}}/rules_based_recommendations) utilise les données des utilisateurs et les informations sur les produits pour suggérer des articles pertinents aux utilisateurs dans les messages. Il utilise Liquid et les catalogues Braze ou le contenu connecté pour personnaliser dynamiquement le contenu en fonction du comportement et des attributs de l'utilisateur.
 
 Les recommandations basées sur des règles reposent sur une logique fixe que vous devez définir manuellement. Cela signifie que vos recommandations ne s'adapteront pas à l'historique d'achat et aux goûts individuels d'un utilisateur, à moins que vous ne mettiez à jour la logique. Cette méthode est donc idéale pour les recommandations qui ne nécessitent pas de mises à jour fréquentes.
 

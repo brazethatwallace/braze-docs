@@ -146,7 +146,7 @@ In-App Message
 Feature Flags
 {% endapitags %}
 
-El rendimiento del mensaje a través de varios canales. Las métricas mostradas dependen del canal de mensajería seleccionado y de si el [experimento de conmutador de características]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments/#campaign-analytics) es una prueba multivariante.
+El rendimiento del mensaje a través de varios canales. Las métricas mostradas dependen del canal de mensajería seleccionado y de si el [experimento de conmutador de características]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments#campaign-analytics) es una prueba multivariante.
 
 {% endapi %}
 
@@ -293,7 +293,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 | Canal | Información adicional |
 |-------|-----------------------|
-| Mensajes dentro de la aplicación | La métrica de <i>Unique Impressions</i> diarias totales se utiliza para calcular la <i>Conversion Rate</i> para mensajes dentro de la aplicación.<br><br>Las <i>Unique Impressions</i> para mensajes dentro de la aplicación solo se pueden contar una vez por día calendario en la zona horaria de tu espacio de trabajo. El número de veces que un usuario completa una acción deseada (una "conversión") puede aumentar dentro de ese mismo día calendario. Aunque las conversiones pueden ocurrir más de una vez al día, las <i>Unique Impressions</i> no. Por lo tanto, si un usuario completa una conversión varias veces en un día, la <i>Conversion Rate</i> puede aumentar en consecuencia, pero las <i>Unique Impressions</i> solo se cuentan una vez para ese día calendario. Para más detalles, consulta <a href="/docs/user_guide/channels/in_app_messages/reporting/">Informes de mensajes dentro de la aplicación</a>.|
+| Mensajes dentro de la aplicación | La métrica de <i>Unique Impressions</i> diarias totales se utiliza para calcular la <i>Conversion Rate</i> para mensajes dentro de la aplicación.<br><br>Las <i>Unique Impressions</i> para mensajes dentro de la aplicación solo se pueden contar una vez por día calendario en la zona horaria de tu espacio de trabajo. El número de veces que un usuario completa una acción deseada (una "conversión") puede aumentar dentro de ese mismo día calendario. Aunque las conversiones pueden ocurrir más de una vez al día, las <i>Unique Impressions</i> no. Por lo tanto, si un usuario completa una conversión varias veces en un día, la <i>Conversion Rate</i> puede aumentar en consecuencia, pero las <i>Unique Impressions</i> solo se cuentan una vez para ese día calendario. Para más detalles, consulta <a href="/docs/user_guide/channels/in_app_messages/reporting">Informes de mensajes dentro de la aplicación</a>.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tasa de conversión" }
 
 {::nomarkdown}
@@ -357,7 +357,7 @@ SMS/MMS
 
 {% multi_lang_include analytics/metrics.md metric='Delivery Failures' %}
 
-Ponte en contacto con <a href="/docs/braze_support/">soporte de Braze</a> para obtener ayuda para comprender las razones de los fallos de entrega.
+Ponte en contacto con <a href="/docs/braze_support">soporte de Braze</a> para obtener ayuda para comprender las razones de los fallos de entrega.
 
 <span class="calculation-line">Cálculo: (Sends) - (Sends to Carrier)</span>
 
@@ -373,7 +373,7 @@ RCS
 
 {% multi_lang_include analytics/metrics.md metric='Delivery Failures RCS' %}
 
-Ponte en contacto con <a href="/docs/braze_support/">soporte de Braze</a> para obtener ayuda para comprender las razones de los fallos de entrega.
+Ponte en contacto con <a href="/docs/braze_support">soporte de Braze</a> para obtener ayuda para comprender las razones de los fallos de entrega.
 
 <span class="calculation-line">Cálculo: (Sends) - (Sends to Carrier)</span>
 
@@ -389,7 +389,7 @@ SMS/MMS
 
 {% multi_lang_include analytics/metrics.md metric='Failed Delivery Rate' %}
 
-Ponte en contacto con <a href="/docs/braze_support/">soporte de Braze</a> para obtener ayuda para comprender las razones de los fallos de entrega.
+Ponte en contacto con <a href="/docs/braze_support">soporte de Braze</a> para obtener ayuda para comprender las razones de los fallos de entrega.
 
 <span class="calculation-line">Cálculo: (Delivery Failures) / (Sends)</span>
 
@@ -483,7 +483,7 @@ Email
 
 {% multi_lang_include analytics/metrics.md metric='Hard Bounce' %}
 
-Cuando esto ocurre, Braze marca la dirección de correo electrónico como no válida, pero no actualiza el [estado de suscripción]({{site.baseurl}}/user_guide/channels/email/subscriptions/) del usuario. Si un correo electrónico recibe un rebote duro, Braze deja de realizar cualquier solicitud futura a esta dirección de correo electrónico.
+Cuando esto ocurre, Braze marca la dirección de correo electrónico como no válida, pero no actualiza el [estado de suscripción]({{site.baseurl}}/user_guide/channels/email/subscriptions) del usuario. Si un correo electrónico recibe un rebote duro, Braze deja de realizar cualquier solicitud futura a esta dirección de correo electrónico.
 
 {% endapi %}
 
@@ -768,7 +768,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 {% multi_lang_include analytics/metrics.md metric='Sends' %} Esta métrica es proporcionada por Braze. Ten en cuenta que al lanzar una campaña planificada, esta métrica incluirá todos los mensajes enviados, independientemente de si ya se han enviado debido al límite de velocidad.
 
 {% alert tip %}
-Para Content Cards, esta métrica se calcula de forma diferente según lo que hayas seleccionado para [Creación de tarjeta]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/):
+Para Content Cards, esta métrica se calcula de forma diferente según lo que hayas seleccionado para [Creación de tarjeta]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation):
 
 - **Al lanzamiento o entrada al paso:** El número de tarjetas creadas y disponibles para ser vistas. Esto no cuenta si los usuarios vieron la tarjeta.
 - **En la primera impresión:** El número de tarjetas mostradas a los usuarios.
@@ -786,10 +786,10 @@ Para Content Cards, esta métrica se calcula de forma diferente según lo que ha
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp, LINE
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Messages Sent' %} Esta métrica es proporcionada por Braze. Ten en cuenta que al lanzar una campaña planificada, esta métrica incluirá todos los mensajes enviados, independientemente de si ya se han enviado debido al límite de velocidad.
+{% multi_lang_include analytics/metrics.md metric='Messages Sent' %}  Esta métrica es proporcionada por Braze. Ten en cuenta que al lanzar una campaña planificada, esta métrica incluirá todos los mensajes enviados, independientemente de si ya se han enviado debido al límite de velocidad.
 
 {% alert tip %}
-Para Content Cards, esta métrica se calcula de forma diferente según lo que hayas seleccionado para [Creación de tarjeta]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/):
+Para Content Cards, esta métrica se calcula de forma diferente según lo que hayas seleccionado para [Creación de tarjeta]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation):
 
 - **Al lanzamiento o entrada al paso:** El número de tarjetas creadas y disponibles para ser vistas. Esto no cuenta si los usuarios vieron la tarjeta.
 - **En la primera impresión:** El número de tarjetas mostradas a los usuarios.
@@ -833,7 +833,7 @@ Email
 
 Ten en cuenta que los *Soft Bounces* difieren de los *Deferrals*. Si no se entrega correctamente ningún correo electrónico durante este período de reintento, Braze envía un evento de rebote blando por cada intento de envío de campaña. Antes del 25 de febrero de 2025, estos reintentos se contaban como múltiples rebotes blandos para un envío de campaña.
 
-Aunque los rebotes blandos no se rastrean en los análisis de tu campaña, puedes monitorear los rebotes blandos en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/). También puedes excluir a estos usuarios de tu envío o consultar la cantidad de rebotes blandos de los últimos 30 días con el [filtro de segmento de rebote blando]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced). En el Registro de actividad de mensajes, también puedes ver la razón de los rebotes blandos y comprender posibles discrepancias entre los "envíos" y las "entregas" de tus campañas de correo electrónico.
+Aunque los rebotes blandos no se rastrean en los análisis de tu campaña, puedes monitorear los rebotes blandos en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). También puedes excluir a estos usuarios de tu envío o consultar la cantidad de rebotes blandos de los últimos 30 días con el [filtro de segmento de rebote blando]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). En el Registro de actividad de mensajes, también puedes ver la razón de los rebotes blandos y comprender posibles discrepancias entre los "envíos" y las "entregas" de tus campañas de correo electrónico.
 
 {% endapi %}
 
@@ -951,7 +951,7 @@ In-App Message, Content Cards
 | Canal | Información adicional |
 |-------|-----------------------|
 | Content Cards | El recuento total de impresiones registradas para una Content Card determinada. Esto puede incrementarse varias veces para el mismo usuario.|
-| Mensajes dentro de la aplicación | Si hay varios dispositivos y la reelegibilidad está desactivada, el usuario solo debería ver el mensaje dentro de la aplicación una vez. Incluso si el usuario usa varios dispositivos, solo lo verá en el primer dispositivo objetivo. Esto supone que el perfil tiene dispositivos consolidados y un usuario tiene un ID de usuario con el que ha iniciado sesión en todos los dispositivos. Si la reelegibilidad está activada, se registra una impresión cada vez que el usuario ve el mensaje dentro de la aplicación. Para más detalles, consulta <a href="/docs/user_guide/channels/in_app_messages/reporting/">Informes de mensajes dentro de la aplicación</a>.|
+| Mensajes dentro de la aplicación | Si hay varios dispositivos y la reelegibilidad está desactivada, el usuario solo debería ver el mensaje dentro de la aplicación una vez. Incluso si el usuario usa varios dispositivos, solo lo verá en el primer dispositivo objetivo. Esto supone que el perfil tiene dispositivos consolidados y un usuario tiene un ID de usuario con el que ha iniciado sesión en todos los dispositivos. Si la reelegibilidad está activada, se registra una impresión cada vez que el usuario ve el mensaje dentro de la aplicación. Para más detalles, consulta <a href="/docs/user_guide/channels/in_app_messages/reporting">Informes de mensajes dentro de la aplicación</a>.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Impresiones totales" }
 
 <span class="calculation-line">Cálculo: Recuento</span>
@@ -1075,7 +1075,7 @@ In-App Message, Content Cards
 
 | Canal | Información adicional |
 |-------|-----------------------|
-| Mensajes dentro de la aplicación | Las impresiones únicas pueden incrementarse de nuevo en un nuevo día calendario en la zona horaria de tu espacio de trabajo si la reelegibilidad está activada y un usuario realiza la acción desencadenante. Si la reelegibilidad está activada, <i>Unique Impressions</i> = <i>Unique Recipients</i>. Para más detalles, consulta <a href="/docs/user_guide/channels/in_app_messages/reporting/">Informes de mensajes dentro de la aplicación</a>.|
+| Mensajes dentro de la aplicación | Las impresiones únicas pueden incrementarse de nuevo en un nuevo día calendario en la zona horaria de tu espacio de trabajo si la reelegibilidad está activada y un usuario realiza la acción desencadenante. Si la reelegibilidad está activada, <i>Unique Impressions</i> = <i>Unique Recipients</i>. Para más detalles, consulta <a href="/docs/user_guide/channels/in_app_messages/reporting">Informes de mensajes dentro de la aplicación</a>.|
 | Content Cards | El recuento no debería incrementarse la segunda vez que un usuario ve una tarjeta.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Impresiones únicas" }
 

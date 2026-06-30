@@ -43,7 +43,7 @@ SDKの初期化に必要なすべての詳細情報を含むQRコードをスキ
 
 ### 方法2: セットアップウィザード {#method-2-setup-wizard}
 
-Brazeダッシュボードの**App Settings**ページから、ダッシュボードワークスペースとの接続を初期化するためのステップバイステップガイドに従います。
+Brazeダッシュボードの**アプリ設定**ページから、ダッシュボードワークスペースとの接続を初期化するためのステップバイステップガイドに従います。
 
 ![Braze Pilotセットアップウィザードのステップ1。]({% image_buster /assets/img/braze_pilot/setup_wizard.png %}){:style="max-width:40%"}
 
@@ -77,7 +77,7 @@ Brazeダッシュボードの**App Settings**ページから、ダッシュボ�
 {% endtab %}
 {% tab プッシュプライマーメッセージを送信する %}
 
-Brazeのアプリ内メッセージを使用して、アプリのプッシュ通知権限をリクエストできます。これは自社の消費者向けに行う場合と同じです。このタイプのメッセージをBrazeで作成する方法については、[プッシュプライマーアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/#push-primer-in-app-messages)を参照してください。
+Brazeのアプリ内メッセージを使用して、アプリのプッシュ通知権限をリクエストできます。これは自社の消費者向けに行う場合と同じです。このタイプのメッセージをBrazeで作成する方法については、[プッシュプライマーアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages#push-primer-in-app-messages)を参照してください。
 
 <div class="imgDiv">
 <img src="{% image_buster /assets/img/braze_pilot/push_primer1.png %}" style="max-width:40%">
@@ -91,4 +91,4 @@ Brazeのアプリ内メッセージを使用して、アプリのプッシュ通
 
 これで、Braze Pilotのユーザーとして、Brazeダッシュボードからキャンペーンやキャンバスを受け取る準備が整いました！デモワークスペースで公開済みのキャンペーンにアクセスして、Brazeのユースケースを簡単に確認してから、ライブワークスペースに移動して自身のメッセージ配信を開始しましょう。
 
-Brazeでのキャンペーンとキャンバスの設定方法の詳細については、[はじめに: キャンペーンとキャンバス]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/)を参照してください。
+Brazeでのキャンペーンとキャンバスの設定方法の詳細については、[はじめに: キャンペーンとキャンバス]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases)を参照してください。

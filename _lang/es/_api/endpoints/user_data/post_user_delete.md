@@ -18,7 +18,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 Se pueden incluir hasta 50 `external_ids`, `user_aliases`, `braze_ids`, `email_addresses` o `phone_numbers` en una sola solicitud. Solo se puede incluir una de las siguientes opciones en una misma solicitud: `external_ids`, `user_aliases`, `braze_ids`, `email_addresses` o `phone_numbers`.
 
-Si tienes un caso de uso que no puede resolverse con la eliminación masiva de usuarios a través de la API, ponte en contacto con el [equipo de soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) para obtener ayuda.
+Si tienes un caso de uso que no puede resolverse con la eliminación masiva de usuarios a través de la API, ponte en contacto con el [equipo de soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) para obtener ayuda.
 
 {% alert warning %}
 La eliminación de perfiles de usuario no se puede deshacer. La acción de eliminación borra permanentemente a los usuarios, lo que puede causar discrepancias en tus datos. Para más detalles, consulta [Efectos de eliminar perfiles de usuario](#effects-of-deleting-user-profiles).
@@ -28,7 +28,7 @@ La eliminación de perfiles de usuario no se puede deshacer. La acción de elimi
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `users.delete`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `users.delete`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -55,7 +55,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |-------------------|----------|----------------------------|--------------------------------------------------------------------------------------------------|
 | `external_ids` | Opcional | Matriz de cadenas | Identificadores externos que hay que eliminar. |
-| `user_aliases` | Opcional | Matriz de objetos de alias de usuario | [Alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object/) a eliminar. |
+| `user_aliases` | Opcional | Matriz de objetos de alias de usuario | [Alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object) a eliminar. |
 | `braze_ids` | Opcional | Matriz de cadenas | Identificadores de usuario de Braze a eliminar. |
 | `email_addresses` | Opcional | Matriz de cadenas | Correos electrónicos de usuarios que deben eliminarse. Consulta [Eliminar usuarios por correo electrónico](#deleting-users-by-email) para más información. |
 | `phone_numbers` | Opcional | Matriz de cadenas | Números de teléfono de usuario que hay que eliminar. |
@@ -95,7 +95,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
   ],
   "email_addresses": [
     {
-      "email": "john.smith@braze.com",
+      "email": "john.smith@example.com",
       "prioritization": ["unidentified", "most_recently_updated"]
     }
   ]
@@ -115,12 +115,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
 Cuando eliminas un usuario con este punto de conexión, ocurre lo siguiente:
 
 - El perfil de usuario se elimina (se anula).
-- Los recuentos de usuarios del espacio de trabajo (como el total de usuarios en la [página de inicio de análisis]({{site.baseurl}}/user_guide/analytics/dashboards/home/)) se actualizan para reflejar los usuarios eliminados.
+- Los recuentos de usuarios del espacio de trabajo (como el total de usuarios en la [página de inicio de análisis]({{site.baseurl}}/user_guide/analytics/dashboards/home)) se actualizan para reflejar los usuarios eliminados.
 - El usuario eliminado sigue contando para el porcentaje de conversión agregado. Los recuentos de eventos personalizados y de compras no se actualizan para los usuarios eliminados.
 
 ### Múltiples perfiles con una dirección de correo electrónico compartida {#multiple-profiles-with-a-shared-email-address}
 
-Para fusionar perfiles de usuario que comparten la misma dirección de correo electrónico, llama al [punto de conexión `/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/).
+Para fusionar perfiles de usuario que comparten la misma dirección de correo electrónico, llama al [punto de conexión `/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge).
 
 ## Solución de problemas {#troubleshooting}
 
@@ -131,9 +131,9 @@ Una respuesta correcta confirma que la solicitud se puso en cola, no que la elim
 Si el usuario sigue existiendo después de varios minutos, verifica que el identificador de tu solicitud coincida con el perfil real del usuario:
 
 - **Matriz `external_ids`:** Confirma que cada valor coincide exactamente con el ID externo de un usuario.
-- **`braze_id`:** Puedes encontrar el `braze_id` de un usuario exportando sus datos con el [punto de conexión `/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) o exportando un segmento a CSV (donde el `braze_id` aparece como "Appboy ID").
+- **`braze_id`:** Puedes encontrar el `braze_id` de un usuario exportando sus datos con el [punto de conexión `/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) o exportando un segmento a CSV (donde el `braze_id` aparece como "Appboy ID").
 - **Perfiles solo con alias o solo con correo electrónico:** Si el perfil no tiene `external_id`, crea un segmento filtrando por **External User ID is blank** combinado con el correo electrónico o número de teléfono conocido, y luego exporta a CSV para obtener el `braze_id`.
 
-Para confirmar si un usuario ha sido eliminado, llama al [punto de conexión `/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) utilizando el mismo tipo de identificador que usaste en la solicitud de eliminación (por ejemplo, incluyendo el valor en `external_ids`, `braze_id` o `user_aliases`). Si el usuario ya no existe, la respuesta contiene `"users": []` y puede incluir `"invalid_user_ids"` con ese identificador.
+Para confirmar si un usuario ha sido eliminado, llama al [punto de conexión `/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) utilizando el mismo tipo de identificador que usaste en la solicitud de eliminación (por ejemplo, incluyendo el valor en `external_ids`, `braze_id` o `user_aliases`). Si el usuario ya no existe, la respuesta contiene `"users": []` y puede incluir `"invalid_user_ids"` con ese identificador.
 
 {% endapi %}

@@ -33,7 +33,7 @@ Die in diesem Artikel beschriebenen Einschränkungen gelten nur für Template-Na
 
 ## Message Extras {#message-extras}
 
-Der [`message_extras`-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/) ermöglicht es Ihnen, eine Nachricht zum Sendezeitpunkt mit Schlüssel-Wert-Metadaten zu versehen. Diese Daten werden nicht im Nachrichtentext gerendert. Stattdessen fließen die Daten an Connected-Content, Currents oder andere Datenerfassungsmechanismen für Zwecke wie Attribution, Wirkungsmessung und Event-Anreicherung.
+Der [`message_extras`-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras) ermöglicht es Ihnen, eine Nachricht zum Sendezeitpunkt mit Schlüssel-Wert-Metadaten zu versehen. Diese Daten werden nicht im Nachrichtentext gerendert. Stattdessen fließen die Daten an Connected-Content, Currents oder andere Datenerfassungsmechanismen für Zwecke wie Attribution, Wirkungsmessung und Event-Anreicherung.
 
 {% raw %}
 ```liquid

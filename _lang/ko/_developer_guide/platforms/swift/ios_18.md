@@ -17,7 +17,7 @@ Apple의 [WWDC](https://developer.apple.com/wwdc24/)는 2024년 6월 9일부터 
 
 ### Apple Watch의 라이브 활동 {#live-activities-on-apple-watch}
 
-[라이브 활동]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift)은 watchOS 11에서 지원됩니다. 추가 설정은 필요하지 않습니다. 다만 Apple은 시계 인터페이스를 커스텀할 수 있는 옵션을 제공합니다.
+[라이브 활동]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift)은 watchOS 11에서 지원됩니다. 추가 설정은 필요하지 않습니다. 다만 Apple은 시계 인터페이스를 커스텀할 수 있는 옵션을 제공합니다.
 
 ### Apple Vision Pro
 
@@ -35,4 +35,4 @@ Braze 사용자로서 가장 중요하게 알아야 할 새로운 기능은 [알
 
 이러한 요약이 생성되는 방식 때문에 특정 동작이나 생성된 텍스트를 제어할 수는 없습니다. 그러나 이는 푸시 클릭 추적과 같은 분석 또는 보고 기능에 영향을 미치지 않습니다.
 
-![푸시 알림 미리보기 요약의 샘플 스크린샷.]({% image_buster /assets/img/apple/apple_intelligence/notification_preview_summary.png %})
+![푸시 알림 미리보기 요약의 샘플 스크린샷]({% image_buster /assets/img/apple/apple_intelligence/notification_preview_summary.png %})

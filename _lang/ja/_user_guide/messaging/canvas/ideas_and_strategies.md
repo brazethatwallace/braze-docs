@@ -30,7 +30,7 @@ guide_menu_list:
   - name: ローカライゼーション
     link: /docs/user_guide/messaging/messaging_fundamentals/localization
     image: /assets/img/braze_icons/globe-02.svg
-  - name: Braze キャンバステンプレートを使用する
+  - name: Brazeキャンバステンプレートを使用する
     link: /docs/user_guide/messaging/templates/canvas_templates/braze_templates
     image: /assets/img/braze_icons/target-04.svg
   - name: テストキャンバスを送信する
@@ -43,7 +43,7 @@ guide_menu_list:
     link: /docs/user_guide/messaging/canvas/ideas_and_strategies/booking_use_case
     image: /assets/img/braze_icons/channel-email.svg
   - name: eコマースのユースケース
-    link: /docs/ecommerce_use_cases/
+    link: /docs/ecommerce_use_cases
     image: /assets/img/braze_icons/users-01.svg
 
 ---

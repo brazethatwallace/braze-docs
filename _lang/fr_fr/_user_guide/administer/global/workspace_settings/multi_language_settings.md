@@ -12,7 +12,7 @@ description: "Cet article donne un aperçu des paramètres multilingues du table
 
 ## Conditions préalables {#prerequisites}
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 ## Ajouter un paramètre régional {#add-a-locale}
 

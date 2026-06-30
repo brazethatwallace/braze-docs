@@ -24,18 +24,18 @@ Brazeのデータを使用して、AIエージェントが何を話すか、ど�
 | ----------- | ----------- |
 | Regalアカウント | このパートナーシップを活用するには、Regalアカウントが必要です。 |
 | Regal APIキー | Regal APIキーを使用すると、BrazeからRegalにイベントを送信できます。<br><br>このキーを取得するには、[support@regal.io](mailto:support@regal.io)までメールでご連絡ください。 |
-| Brazeデータ変換 | Regalからデータを受信するには、[データ変換]({{site.baseurl}}/data_transformation/)が必要です。 |
+| Brazeデータ変換 | Regalからデータを受信するには、[データ変換]({{site.baseurl}}/data_transformation)が必要です。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合：BrazeからRegalにデータを送信する {#integration-sending-data-from-braze-to-regal}
 
-BrazeのCanvasまたはCampaignのWebhookを使用して、顧客プロファイルとイベントデータをBrazeからRegalに送信します。
+BrazeのキャンバスまたはキャンペーンのWebhookを使用して、顧客プロファイルとイベントデータをBrazeからRegalに送信します。
 
 ### ステップ1：Regalで新しい連絡先を作成する {#step-1-create-new-contacts-in-regal}
 
-Regalでの通話やテキストに利用できるようにすべき新しいBrazeプロファイルが作成されるたびに、WebhookをRegalに送信するCanvasまたはCampaignを作成します。
+Regalでの通話やテキストに利用できるようにすべき新しいBrazeプロファイルが作成されるたびに、WebhookをRegalに送信するキャンバスまたはキャンペーンを作成します。
 
-1. 「Create New Contact for Regal」というタイトルのCanvasまたはCampaignを作成し、エントリタイプとして**アクションベース**を選択します。
+1. 「Create New Contact for Regal」というタイトルのキャンバスまたはキャンペーンを作成し、エントリタイプとして**アクションベース**を選択します。
 
 2. トリガーロジックを**カスタムイベント**に設定し、電話番号を持つプロファイルが作成されたときに発生するイベントを選択します。Regalでは、電話番号フィールドが設定されていることを確認するフィルターを追加することも推奨しています。
 
@@ -109,7 +109,7 @@ Regalには、認証用のHTTPヘッダーとHTTPメソッドも必要です。�
 }
 ```
 
-上記のペイロード例は、記載された電話番号に現在の音声およびSMSの同意ステータスが含まれていることを前提としています。該当しない場合は、連絡先作成時に`voiceOptIn`と`smsOptIn`を省略し、オプトインが収集された際に該当する電話番号の同意を更新する別のCanvasまたはCampaignを設定できます。
+上記のペイロード例は、記載された電話番号に現在の音声およびSMSの同意ステータスが含まれていることを前提としています。該当しない場合は、連絡先作成時に`voiceOptIn`と`smsOptIn`を省略し、オプトインが収集された際に該当する電話番号の同意を更新する別のキャンバスまたはキャンペーンを設定できます。
 
 ### ステップ2：オプトイン情報を更新する {#step-2-update-opt-in-information}
 
@@ -117,9 +117,9 @@ Regalには、認証用のHTTPヘッダーとHTTPメソッドも必要です。�
 
 Regalでは、連絡先レベルではなく電話番号ごとにオプトインとオプトアウトを管理できるよう、`traits.phones`スキーマの使用を推奨しています。
 
-以下のCanvasセットアップを使用して、最新のオプトイン情報をRegalに送信します。
+以下のキャンバスセットアップを使用して、最新のオプトイン情報をRegalに送信します。
 
-1. 「Send Opt In or Out to Regal」というタイトルの新しいCanvasまたはCampaignを作成します。
+1. 「Send Opt In or Out to Regal」というタイトルの新しいキャンバスまたはキャンペーンを作成します。
 
 2. 次のトリガーオプションのいずれかを選択し、ユーザーのオプトインステータスを表すフィールドを選択します：
     - **ユーザープロファイルフィールドの更新**
@@ -173,7 +173,7 @@ Regalには、認証用のHTTPヘッダーとHTTPメソッドも必要です。�
 
 ### ステップ3：カスタムイベントを送信する {#step-3-send-custom-events}
 
-Regalに送信するキーイベントごとに、CanvasまたはCampaignを設定します。
+Regalに送信するキーイベントごとに、キャンバスまたはキャンペーンを設定します。
 
 これらのイベントは、アウトリーチのトリガー（例：リードがサインアップを完了した際の確認テキスト）以上の役割を果たします。Regal AIエージェントがカスタマージャーニー全体を通じてどのように話し、意思決定し、会話をルーティングするかを支えるリアルタイムのコンテキストを提供します。Brazeからイベントデータと属性を送信することで、AIエージェントが各ユーザーの行動、好み、ライフサイクルステージに基づいて会話を適応させることが可能になります。
 
@@ -185,10 +185,10 @@ Regalに送信するキーイベントごとに、CanvasまたはCampaignを設�
   - 例：`contact.brazeAge`が65歳を超える場合はMedicare補償を優先し、それ以外の場合はACAプランと現在の保険ステータスに焦点を当てます。
 - **インテリジェントなルーティングとエスカレーションを実現**：価値やインテントに基づいて会話をルーティングします。
   - 例：`contact.brazeLeadTier`が「High Value」の場合、資格確認後にシニアエージェントに転送し、それ以外の場合はAIエージェントで続行します。
-- **メッセージングとオファーを調整**：Campaignのコンテキストに基づいてエージェントが提示する内容をカスタマイズします。
+- **メッセージングとオファーを調整**：キャンペーンのコンテキストに基づいてエージェントが提示する内容をカスタマイズします。
   - 例：`contact.brazeCampaignName`が「Spring Mortgage Promo」の場合、会話中にプロモーションオファーを強調します。
 
-「Send Product Interest Event to Regal」というタイトルの新しいCanvasまたはCampaignを作成します。
+「Send Product Interest Event to Regal」というタイトルの新しいキャンバスまたはキャンペーンを作成します。
 
 ```json
 {
@@ -257,12 +257,12 @@ Regalに送信するキーイベントごとに、CanvasまたはCampaignを設�
 Regalでは、キーイベント発生時にRegalが最新の連絡先属性を保持できるよう、イベントペイロードに主要なユーザープロファイル属性も送信することを推奨しています。
 
 {% alert note %}
-Regalに送信するイベントやこれらのCanvasおよびCampaignの設定方法についてご質問がある場合は、[support@regal.io](mailto:support@regal.io)までメールでお問い合わせください。
+Regalに送信するイベントやこれらのキャンバスおよびキャンペーンの設定方法についてご質問がある場合は、[support@regal.io](mailto:support@regal.io)までメールでお問い合わせください。
 {% endalert %}
 
 ## 統合：RegalからBrazeにデータを送信する {#integration-sending-data-from-regal-to-braze}
 
-Regal Reporting WebhookとBrazeデータ変換を使用して、Regalのレポートイベント（`SMS.sent`や`call.completed`など）をBrazeに送信します。これらのイベントをマッピングすると、ユーザープロファイルに表示され、セグメンテーション、Canvas、Campaignsで利用できるようになります。
+Regal Reporting WebhookとBrazeデータ変換を使用して、Regalのレポートイベント（`SMS.sent`や`call.completed`など）をBrazeに送信します。これらのイベントをマッピングすると、ユーザープロファイルに表示され、セグメンテーション、キャンバス、キャンペーンで利用できるようになります。
 
 ### ステップ1：Brazeでデータ変換を作成する {#step-1-create-a-data-transformation-in-braze}
 
@@ -273,8 +273,6 @@ Brazeに送信する予定のRegal Webhookごとに、1つのデータ変換を�
 2. 変換に名前を付けて、**Create transformation**をクリックします。
 3. 変換のリストから、<i class="fa-solid fa-ellipsis-vertical" title="アクションを表示"></i> **View actions**を選択し、**Copy webhook URL**を選択します。
 
-![]({% image_buster /assets/img/regal/copy_webhook_url.png %})
-
 ### ステップ2：Regalでレポートwebhookを有効にする {#step-2-enable-reporting-webhooks-in-regal}
 
 レポートwebhookを設定するには：
@@ -283,8 +281,6 @@ Brazeに送信する予定のRegal Webhookごとに、1つのデータ変換を�
 2. **Reporting Webhooks**セクションで、**Create Webhooks**をクリックします。
 
 3. Webhookエンドポイント入力で、関連するデータ変換のBrazeデータ変換Webhook URLを追加します。
-
-![]({% image_buster /assets/img/regal/edit_webhook.png %}){: style="max-width:60%;"}
 
 #### エンドポイントの更新 {#updating-an-endpoint}
 
@@ -299,7 +295,7 @@ Brazeに送信する予定のRegal Webhookごとに、1つのデータ変換を�
 
 ### ステップ3：RegalイベントをBrazeイベントに変換する {#step-3-transform-regal-events-into-braze-events}
 
-Brazeの[データ変換]({{site.baseurl}}/data_transformation/)機能を使用すると、受信したRegalイベントを、Brazeで属性、イベント、または購入として追加するために必要な形式にマッピングできます。
+Brazeの[データ変換]({{site.baseurl}}/data_transformation)機能を使用すると、受信したRegalイベントを、Brazeで属性、イベント、または購入として追加するために必要な形式にマッピングできます。
 
 1. データ変換に名前を付けます。イベントwebhookごとにデータ変換を設定することを推奨します。
 
@@ -313,7 +309,7 @@ Brazeの[データ変換]({{site.baseurl}}/data_transformation/)機能を使用�
 BrazeからRegalへのイベントペイロードでは、複数の電話番号と電話番号レベルの同意をサポートするために`traits.phones`の使用を推奨しています。Brazeに送り返されるRegalレポートイベントでは、イベントペイロードの識別子として`traits.phone`が引き続き表示される場合があります。
 
 #### Braze対応の識別子 {#braze-supported-identifiers}
-- Brazeは識別子として電話番号をサポートしていません。これを識別子として使用するには、Brazeで電話番号を[ユーザーエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)として設定できます。
+- Brazeは識別子として電話番号をサポートしていません。これを識別子として使用するには、Brazeで電話番号を[ユーザーエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)として設定できます。
 - Brazeデータ変換を使用する場合、メールアドレスを識別子として使用できます。メールアドレスがBraze内のプロファイルとして存在する場合、既存のプロファイルが更新されます。メールアドレスがBraze内にまだ存在しない場合、メール専用のプロファイルが作成されます。
 
 ## ユースケース {#use-cases}
@@ -329,18 +325,18 @@ BrazeからRegalへのイベントペイロードでは、複数の電話番号�
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "call.completed",
   "properties": {
-    "agent_firstname": "Rebecca",
-    "agent_fullname": "Rebecca Greene",
-    "agent_id": "xxxx@yourbrand.com",
+    "agent_firstname": "Alex",
+    "agent_fullname": "Alex Lee",
+    "agent_id": "xxxx@example.com",
     "direction": "OUTBOUND",
-    "regal_voice_phone": "+19545558563",
+    "regal_voice_phone": "+15555550200",
     "regal_voice_phone_internal_name": "Sales Line",
-    "contact_phone": "+17625555555",
+    "contact_phone": "+15555550123",
     "call_id": "WTxxxxx9",
     "type": "Outbound Call",
     "disposition": "Converted During Convo",
@@ -427,13 +423,13 @@ return brazecall;
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "contact.attribute.edited",
   "properties": {
-    "agent_email": "xxxx@yourbrand.com",
-    "contact_phone": "+17625555555",
+    "agent_email": "xxxx@example.com",
+    "contact_phone": "+15555550123",
     "changes": {
       "custom_properties": {
         "annual_income": {
@@ -491,8 +487,8 @@ return brazecall;
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "contact.experiment.assigned",
   "properties": {
@@ -554,8 +550,8 @@ return brazecall;
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com",
+    "phone": "+15555550123",
+    "email": "xxx@example.com",
     "ip": "78.97.213.166"
   },
   "name": "contact.unsubscribed",
@@ -617,11 +613,11 @@ Regalの`call.analysis.available`イベントを使用して、顧客がコン�
 {
   "traits": {
     "phone": "+1XXXXXXXXXX",
-    "email": "xxx@gmail.com"
+    "email": "xxx@example.com"
   },
   "name": "call.analysis.available",
   "brand": "circle-bank",
-  "contact_email": "xxx@gmail.com",
+  "contact_email": "xxx@example.com",
   "contact_phone": "+1XXXXXXXXXX",
   "created_at": "1754079836",
   "entity_type": "event",
@@ -631,7 +627,7 @@ Regalの`call.analysis.available`イベントを使用して、顧客がコン�
   "original_timestamp": "1754079835",
   "profile_id": "62653af1111111173af128291e92",
   "properties": {
-    "agent_email": "xxx@yourbrand.com",
+    "agent_email": "xxx@example.com",
     "call_analysis": {
       "purchase_intent": "medium",
       "primary_objection": "price",
@@ -652,7 +648,7 @@ Regalの`call.analysis.available`イベントを使用して、顧客がコン�
     "is_ai_agent": true,
     "outgoing_sip_headers": {
       "Via": "SIP/2.0/TCP srv2.example.com;branch=z9hG4bKgsdh7723",
-      "To": "<sip:agent@yourbrand.com>",
+      "To": "<sip:agent@example.com>",
       "User-Agent": "RegalVoiceAI/1.0"
     },
     "task_id": "WT7f3ea47fa6e6055aa847f0a62111111"
@@ -662,7 +658,7 @@ Regalの`call.analysis.available`イベントを使用して、顧客がコン�
 }
 ```
 
-データ変換を使用して、`call_analysis`フィールド（`primary_objection`や`needs_human_agent`など）をBrazeのカスタムイベントまたはプロファイル属性にマッピングします。その後、Brazeでそれらの値に基づいて分岐するCanvasまたはCampaignのロジックを構築します。
+データ変換を使用して、`call_analysis`フィールド（`primary_objection`や`needs_human_agent`など）をBrazeのカスタムイベントまたはプロファイル属性にマッピングします。その後、Brazeでそれらの値に基づいて分岐するキャンバスまたはキャンペーンのロジックを構築します。
 
 {% endtab %}
 {% tab 通話トランスクリプトリンクを保存する %}
@@ -677,16 +673,16 @@ Regalの`call.analysis.available`イベントを使用して、顧客がコン�
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625551796",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "call.transcript.available",
   "properties": {
-    "agent_email": "xxx@yourbrand.com",
+    "agent_email": "xxx@example.com",
     "task_id": "WT953358e8822dd9333fc38dfbac25e1e1",
-    "call_summary": "The agent Zoe explained insurance options to Joe and he said he'll need to think about it before moving forward Agent politely ended the call.",
-    "contact_name": "Joe Smith",
-    "contact_phone": "+13523182825",
+    "call_summary": "The agent Yuri explained insurance options to Alex and he said he'll need to think about it before moving forward Agent politely ended the call.",
+    "contact_name": "Alex Smith",
+    "contact_phone": "+15555550123",
     "is_voicemail": false,
     "moments_count": 18,
     "recording_id": "RE0118052841b7299d0630d1dff610c1fb",
@@ -697,8 +693,8 @@ Regalの`call.analysis.available`イベントを使用して、顧客がコン�
     "sentiments": {
       "contact_sentiment": 70,
       "agent_sentiment": 75,
-      "agent_sentiment_reason": "Zoe was polite and attentive, effectively gathering information and providing a resource, which contributed to a positive interaction.",
-      "contact_sentiment_reason": "Joe was satisfied with the information provided but may have wanted more assistance regarding insurance options."
+      "agent_sentiment_reason": "Yuri was polite and attentive, effectively gathering information and providing a resource, which contributed to a positive interaction.",
+      "contact_sentiment_reason": "Alex was satisfied with the information provided but may have wanted more assistance regarding insurance options."
     },
     "trackers": [
       {
@@ -710,7 +706,7 @@ Regalの`call.analysis.available`イベントを使用して、顧客がコン�
         "tracker_name": "High Intent"
       }
     ],
-    "transcript": "[handling agent]: Hi Joe, this is Zoe with BrightCover Insurance. I'll be going over some insurance options with you today. [contact]: Sounds good. [handling agent]: Before we start, I'm going to transfer you to a specialist for a moment. One sec. [transfer agent]: Hi Joe, this is Mark. Just verifying a few details before sending you back to Zoe. [contact]: Okay. [handling agent]: Thanks, Joe. Based on what you shared, here are some plan options... [contact]: I'll need to think about it. [handling agent]: Totally understandable. Feel free to reach out anytime. Have a great day! END OF TRANSCRIPT",
+    "transcript": "[handling agent]: Hi Alex, this is Yuri with BrightCover Insurance. I'll be going over some insurance options with you today. [contact]: Sounds good. [handling agent]: Before we start, I'm going to transfer you to a specialist for a moment. One sec. [transfer agent]: Hi Alex, this is Lee. Just verifying a few details before sending you back to Yuri. [contact]: Okay. [handling agent]: Thanks, Alex. Based on what you shared, here are some plan options... [contact]: I'll need to think about it. [handling agent]: Totally understandable. Feel free to reach out anytime. Have a great day! END OF TRANSCRIPT",
     "transcript_is_truncated": false,
     "transcript_url": "https://app.regalvoice.com/transcripts/WT953358e8822dd9333fc38dfbac25e1e1"
   },

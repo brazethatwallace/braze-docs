@@ -76,7 +76,7 @@ VS Codeの`settings.json`または`.vscode/mcp.json`ファイルに以下を追�
 {% endtabs %}
 
 {% alert note %}
-Context7は[Braze MCPサーバー]({{site.baseurl}}/developer_guide/mcp_server/)とは異なります。Context7はAIアシスタントに**Brazeドキュメント**へのアクセスを提供し、Braze MCPサーバーは**Brazeワークスペースデータ**（Campaigns、Segments、分析など）への読み取り専用アクセスを提供します。両方を併用することで、より充実したAI支援開発体験を得られます。
+Context7は[Braze MCPサーバー]({{site.baseurl}}/developer_guide/mcp_server)とは異なります。Context7はAIアシスタントに**Brazeドキュメント**へのアクセスを提供し、Braze MCPサーバーは**Brazeワークスペースデータ**（キャンペーン、セグメント、分析など）への読み取り専用アクセスを提供します。両方を併用することで、より充実したAI支援開発体験を得られます。
 {% endalert %}
 
 ## Braze SDK開発向けのプロンプト作成 {#writing-prompts-for-braze-sdk-development}
@@ -85,7 +85,7 @@ Context7を設定した後、プロンプトに`use context7`を含めること�
 
 ### React Native SDK {#react-native-sdk}
 
-これらのプロンプトは、[Braze React Native SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=react%20native)の一般的な統合タスクを示しています。
+これらのプロンプトは、[Braze React Native SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native)の一般的な統合タスクを示しています。
 
 #### SDKの初期化 {#initializing-the-sdk}
 
@@ -122,7 +122,7 @@ programmatically. Use context7.
 
 ### Web SDK {#web-sdk}
 
-これらのプロンプトは、[Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)の一般的な統合タスクを示しています。
+これらのプロンプトは、[Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)の一般的な統合タスクを示しています。
 
 #### SDKの初期化
 

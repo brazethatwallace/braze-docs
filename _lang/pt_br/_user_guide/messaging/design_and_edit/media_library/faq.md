@@ -59,8 +59,8 @@ Isso acontece porque a maioria dos criadores possui restrições quanto à propo
 
 ### Gerar uma imagem usando IA {#generate-an-image-using-ai}
 
-Você pode gerar imagens em **Conteúdo** > **Biblioteca de mídia** selecionando **Gerador de imagens com IA**. Você precisa da permissão **Editar ativos da Biblioteca de mídia**. Se você não vir essa opção, entre em contato com a equipe da Braze. Para etapas e detalhes de política, consulte [Gerar imagens com BrazeAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-images) e [Gerando imagens com BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai).
+Você pode gerar imagens em **Conteúdo** > **Biblioteca de mídia** selecionando **Gerador de imagens com IA**. Você precisa da permissão **Editar ativos da Biblioteca de mídia**. Se você não vir essa opção, entre em contato com a equipe da Braze. Para etapas e detalhes de política, consulte [Gerar imagens com BrazeAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images) e [Gerando imagens com BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#generate-ai).
 
 ### Posso criar URLs personalizadas para ativos de imagem da Biblioteca de mídia? {#can-i-create-vanity-urls-for-media-library-image-assets}
 
-URLs personalizadas para ativos da Biblioteca de mídia não são suportadas porque URLs customizadas quebrariam a entrega via CDN. Você pode substituir uma imagem na URL existente quando Campaigns já fazem referência a essa URL. Para saber mais, consulte [Substituir um arquivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#replace-a-file).
+URLs personalizadas para ativos da Biblioteca de mídia não são suportadas porque URLs customizadas quebrariam a entrega via CDN. Você pode substituir uma imagem na URL existente quando Campaigns já fazem referência a essa URL. Para saber mais, consulte [Substituir um arquivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).

@@ -27,7 +27,7 @@ A página principal de **Sync Log** fornece uma visão geral de alto nível de t
 Os registros de sincronização também fornecem os seguintes detalhes para cada sincronização:
 
 * **Nome da sincronização:** O nome da configuração de sincronização.
-* **ID da execução:** Um identificador único para uma execução específica da sincronização. Selecione este ID para ver mais detalhes. Isso também pode ser usado nos [endpoints da API CDI]({{site.baseurl}}/api/endpoints/cdi/), ou para referenciar uma execução de sincronização com o suporte da Braze.
+* **ID da execução:** Um identificador único para uma execução específica da sincronização. Selecione este ID para ver mais detalhes. Isso também pode ser usado nos [endpoints da API CDI]({{site.baseurl}}/api/endpoints/cdi), ou para referenciar uma execução de sincronização com o suporte da Braze.
 * **Status:** O status da execução (success, partial success, error, running).
 * **Novas linhas lidas da origem:** O número de novas linhas extraídas do seu data warehouse para esta execução.
 * **Resultados:** Uma análise de quantas linhas foram bem-sucedidas ou falharam durante a execução.
@@ -78,7 +78,7 @@ Selecione **Export rows** para exportar os registros em nível de linha para uma
 * **Linhas com erros:** Baixa um arquivo contendo apenas as linhas que tiveram um status de **Error**.
 * **Todas as linhas:** Baixa um arquivo contendo todas as linhas processadas na execução.
 
-{% multi_lang_include early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
 
 Os registros não podem ser exportados diretamente do dashboard. Após a exportação ser gerada, você receberá um e-mail com um link para baixar o arquivo de exportação do registro.
 

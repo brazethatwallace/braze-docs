@@ -8,7 +8,7 @@ description: "Este artigo aborda como criar uma previsão de evento no dashboard
 
 # Criar uma previsão de evento {#create-an-event-prediction}
 
-> Uma previsão é uma instância de um modelo de machine learning treinado e todos os parâmetros e dados que ele usa. Para saber mais sobre Predictive Events, consulte a [visão geral de Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/).
+> Uma previsão é uma instância de um modelo de machine learning treinado e todos os parâmetros e dados que ele usa. Para saber mais sobre Predictive Events, consulte a [visão geral de Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events).
 
 Na Braze, acesse **Analytics** > **Predictive Events**.
 
@@ -25,18 +25,18 @@ Há um limite de cinco previsões ativas ao mesmo tempo. Antes de comprar Predic
 {: start="2"}
 2. Dê um nome exclusivo à sua previsão. Você também pode fornecer uma descrição para salvar quaisquer notas relevantes.
 
-![]({% image_buster /assets/img/purchasePrediction/purchases_step1.png %})
+![Captura de tela relacionada à etapa 1: criar uma nova previsão.]({% image_buster /assets/img/purchasePrediction/purchases_step1.png %})
 
 {: start="3"}
 3. Clique em **Avançar** para passar para a próxima etapa. <br><br>Opcionalmente, você pode clicar em **Compilar agora** para usar todas as configurações padrão e pular para a última etapa da criação. Você terá a chance de revisar as configurações antes de iniciar o processo de compilação. Além disso, você pode retornar a qualquer etapa posteriormente clicando nela na barra superior.
 
 ## Etapa 2: Especificar o rastreamento de eventos {#event-tracking}
 
-Especifique se os eventos dos seus usuários são armazenados na Braze como [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/), [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) ou o [evento de pedido realizado]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/?tab=ecommerce.order_placed).
+Especifique se os eventos dos seus usuários são armazenados na Braze como [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events), [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) ou o [evento de pedido realizado]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.order_placed).
 
 Aqui, você verá se o método selecionado fornece dados suficientes para que a Braze crie um modelo de machine learning. Se o requisito não for atendido, tente selecionar o outro método de registro, caso ele também seja usado pelo seu aplicativo. Infelizmente, se não for, a Braze não conseguirá criar uma previsão com a quantidade de dados disponíveis. Se achar que está vendo esse erro incorretamente, entre em contato com seu gerente de sucesso do cliente.
 
-#### Janela de eventos {#event-window}
+### Janela de eventos {#event-window}
 
 A janela de eventos é o período de tempo em que se deseja prever se um usuário realizará o evento. Ela pode ser configurada para até 60 dias. Essa janela é usada para consultar dados históricos para treinar a previsão. Além disso, depois que a previsão é criada e os usuários recebem pontuações, a pontuação de probabilidade indica a probabilidade de um usuário realizar o evento dentro do número de dias especificado pela janela de eventos.
 

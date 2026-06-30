@@ -12,7 +12,7 @@ channel:
 
 # Ein HTML-E-Mail-Template hochladen {#upload-an-html-email-template}
 
-> Das Braze-Dashboard ermöglicht es Ihnen, Ihre eigenen HTML-E-Mail-Templates hochzuladen und für die spätere Verwendung in Kampagnen zu speichern. Sie können auch [ein E-Mail-Template erstellen]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/), indem Sie unseren Editor verwenden.
+> Das Braze-Dashboard ermöglicht es Ihnen, Ihre eigenen HTML-E-Mail-Templates hochzuladen und für die spätere Verwendung in Kampagnen zu speichern. Sie können auch [ein E-Mail-Template erstellen]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template), indem Sie unseren Editor verwenden.
 
 ## Voraussetzungen {#upload-requirements}
 
@@ -27,7 +27,7 @@ Zunächst müssen Sie Ihr HTML-E-Mail-Template erstellen. Es muss sich um eine Z
 
 ### 1. Schritt: Zum E-Mail-Template-Editor navigieren {#step-1-go-to-the-email-template-editor}
 
-Gehen Sie zu **Content** > **Email**. Wählen Sie **Create email template**.
+Gehen Sie zu **Inhalt** > **E-Mail**. Wählen Sie **E-Mail-Template erstellen**.
 
 ### 2. Schritt: Template-Details hinzufügen {#step-2-add-template-details}
 
@@ -35,11 +35,11 @@ Geben Sie einen Template-Namen ein. Optional können Sie eine Beschreibung, Team
 
 ### 3. Schritt: Ihr Template hochladen {#step-3-upload-your-template}
 
-Wählen Sie im Abschnitt **Template content** unter der Kachel **HTML code editor** die Option **Upload file**. Wählen Sie Ihr Template von Ihrem Computer aus. Lesen Sie den Abschnitt [Voraussetzungen](#upload-requirements), um sicherzustellen, dass Ihr Template die Upload-Anforderungen erfüllt.
+Wählen Sie im Abschnitt **Template-Inhalt** unter der Kachel **HTML-Code-Editor** die Option **Datei hochladen**. Wählen Sie Ihr Template von Ihrem Computer aus. Lesen Sie den Abschnitt [Voraussetzungen](#upload-requirements), um sicherzustellen, dass Ihr Template die Upload-Anforderungen erfüllt.
 
 ### 4. Schritt: Ihr Template fertigstellen und speichern {#step-4-finish-and-save-your-template}
 
-Stellen Sie sicher, dass Sie Ihr Template speichern, indem Sie **Save template** auswählen. Sie können dieses Template jetzt in jeder Kampagne oder jedem Canvas verwenden!
+Stellen Sie sicher, dass Sie Ihr Template speichern, indem Sie **Template speichern** auswählen. Sie können dieses Template jetzt in jeder Kampagne oder jedem Canvas verwenden.
 
 {% alert note %}
 Wenn Sie Änderungen an einem bestehenden Template vornehmen, werden diese Änderungen nicht in Kampagnen übernommen, die mit früheren Versionen dieses Templates erstellt wurden.
@@ -53,7 +53,7 @@ Um Ihre E-Mail für eine API-Kampagne zu verwenden, benötigen Sie die `email_te
 
 ## E-Mail-Templates verwalten {#managing-email-templates}
 
-Sie können E-Mail-Templates [duplizieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) und [archivieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/)! Erfahren Sie mehr über das Erstellen und Verwalten von Templates und kreativen Inhalten unter [Templates]({{site.baseurl}}/user_guide/messaging/templates/).
+Sie können E-Mail-Templates [duplizieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) und [archivieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates)! Erfahren Sie mehr über das Erstellen und Verwalten von Templates und kreativen Inhalten unter [Templates]({{site.baseurl}}/user_guide/messaging/templates).
 
 ## Fehlerbehebung {#troubleshooting}
 
@@ -74,4 +74,4 @@ Beachten Sie, dass beim Herunterladen der Dateien für HTML-Kampagnen, Canvas-Sc
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
-Antworten auf häufig gestellte Fragen zu E-Mail-Templates finden Sie auf unserer Seite [FAQ zu E-Mail- und Link-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq/).
+Antworten auf häufig gestellte Fragen zu E-Mail-Templates finden Sie auf unserer Seite [FAQ zu E-Mail- und Link-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq).

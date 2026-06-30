@@ -24,12 +24,12 @@ channel:
 
 ワークスペースごとに最大10個のWhatsAppビジネスアカウントを追加できます。ビジネスアカウントは異なるMeta Business Managerにネストできます。アカウントを追加するには：
 
-1. **Technology Partners** > **WhatsApp**に移動し、**Add WhatsApp Business Account**を選択します。
+1. **テクノロジーパートナー** > **WhatsApp**に移動し、**Add WhatsApp Business Account**を選択します。
 
 ![WhatsAppメッセージング統合セクション。ビジネスアカウントの追加、またはサブスクリプショングループと番号の追加オプションが表示されています。]({% image_buster /assets/img/whatsapp/multiple_wabas.png %})
 
 {: start="2"}
-2. サインアップワークフローを進めます。詳細なステップバイステップのウォークスルーについては、[WhatsApp埋め込みサインアップ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/)を参照してください。
+2. サインアップワークフローを進めます。詳細なステップバイステップのウォークスルーについては、[WhatsApp埋め込みサインアップ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup)を参照してください。
 
 {% alert important %}
 電話番号は、他のWhatsAppアカウントに登録されていないことを含め、WhatsApp電話番号のすべての要件を満たす必要があります。
@@ -37,7 +37,7 @@ channel:
 
 ## 複数のサブスクリプショングループと電話番号 {#multiple-subscription-groups-and-phone-numbers}
 
-メッセージテンプレートは、同じWhatsAppビジネスアカウント内のすべての電話番号間で共有されます。WhatsAppサブスクリプショングループの詳細については、[サブスクリプショングループ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/)を参照してください。
+メッセージテンプレートは、同じWhatsAppビジネスアカウント内のすべての電話番号間で共有されます。WhatsAppサブスクリプショングループの詳細については、[サブスクリプショングループ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)を参照してください。
 
 各WhatsApp電話番号は、ユーザーに個別のWhatsAppチャットとして表示されます。WhatsAppビジネスアカウント内の各電話番号は互いに独立して動作するため、以下の項目について同じ値または異なる値を持つことができます：
 - 表示名
@@ -49,14 +49,14 @@ channel:
 
 WhatsAppビジネスアカウントごとに最大20個のサブスクリプショングループ（および送信用電話番号）を追加できます。サブスクリプショングループと電話番号を追加するには：
 
-1. **Technology Partners** > **WhatsApp**に移動し、**Add Subscription Group and Number**を選択します。
+1. **テクノロジーパートナー** > **WhatsApp**に移動し、**Add Subscription Group and Number**を選択します。
 
 ![WhatsAppメッセージング統合セクション。ビジネスアカウントの追加、またはサブスクリプショングループと番号の追加オプションが表示されています。]({% image_buster /assets/img/whatsapp/multiple_wabas.png %})
 
 {: start="2"}
-2. サインアップワークフローを進めます。<br><br> **Select your WhatsApp Business Account**ステップで、既存のWhatsAppビジネスアカウントを選択し、新しい電話番号を追加します。この番号は、他のWhatsAppアカウントに登録されていないことを含め、WhatsApp電話番号のすべての要件を満たす必要があります。
+2. サインアップワークフローを進めます。<br><br>**Select your WhatsApp Business Account**ステップで、既存のWhatsAppビジネスアカウントを選択し、新しい電話番号を追加します。この番号は、他のWhatsAppアカウントに登録されていないことを含め、WhatsApp電話番号のすべての要件を満たす必要があります。
 
 ### サブスクリプショングループと電話番号の削除 {#removing-a-subscription-group-and-phone-number}
 
-1. **Audience** > **Subscriptions**に移動し、サブスクリプショングループをアーカイブします。
+1. **オーディエンス** > **サブスクリプション**に移動し、サブスクリプショングループをアーカイブします。
 2. Meta Business Managerに移動し、電話番号を削除します。

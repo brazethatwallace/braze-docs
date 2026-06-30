@@ -10,6 +10,6 @@ description: "Learn how to send persistent, dynamic notifications directly to yo
 guide_featured_title: "Section articles"
 guide_featured_list:
 - name: Implementing Live Activities for Swift
-  link: /docs/developer_guide/live_notifications/live_activities/
+  link: /docs/developer_guide/live_notifications/live_activities
   image: /assets/img/braze_icons/swift.svg
 ---

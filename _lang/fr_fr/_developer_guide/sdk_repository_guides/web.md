@@ -70,7 +70,7 @@ La fonction `initialize` accepte un objet d'options avec les propriétés suivan
 | `enableLogging` | `boolean` | `false` | Définissez sur true pour activer la journalisation par défaut. Notez que cela amènera Braze à écrire dans la console JavaScript, visible par tous les utilisateurs ! Vous devriez probablement supprimer cette option ou fournir un logger alternatif avec setLogger avant de mettre votre page en production. |
 | `allowUserSuppliedJavascript` | `boolean` | `false` | Par défaut, le SDK Web de Braze n'autorise pas les actions de clic JavaScript fournies par l'utilisateur, ni les messages in-app HTML et les bannières, car ils permettent aux utilisateurs du tableau de bord de Braze d'exécuter du JavaScript sur votre site. Pour indiquer que vous faites confiance aux utilisateurs du tableau de bord de Braze pour écrire des actions de clic JavaScript non malveillantes, définissez cette propriété sur true. |
 | `doNotLoadFontAwesome` | `boolean` | `false` | Braze utilise Font Awesome pour les icônes des messages in-app. Par défaut, Braze charge automatiquement FontAwesome 4.7.0 depuis le CDN FontAwesome. Pour désactiver ce comportement (par exemple, parce que votre site utilise une version personnalisée de FontAwesome), définissez cette option sur `true`. Notez que si vous faites cela, vous êtes responsable de vous assurer que FontAwesome est chargé sur votre site — sinon les messages in-app pourraient ne pas s'afficher correctement. |
-| `inAppMessageZIndex` | `number` | `999999` | Par défaut, le SDK Braze affiche les messages in-app avec un z-index de 999999. Fournissez une valeur pour cette option afin de remplacer cette valeur par défaut. |
+| `inAppMessageZIndex` | `number` | `999999` | Par défaut, le SDK Braze affiche les In-App Messages avec un z-index de 999999. Fournissez une valeur pour cette option afin de remplacer cette valeur par défaut. |
 | `sessionTimeoutInSeconds` | `number` | `30` | Par défaut, une session expire après 30 secondes d'inactivité. Fournissez une valeur pour cette option afin de remplacer cette valeur par défaut. |
 | `deviceId` | `string` | Généré automatiquement | Par défaut, Braze attribue un GUID aléatoire comme identifiant d'appareil. Fournissez une valeur pour cette option de configuration afin de remplacer cette valeur par défaut par une valeur de votre choix. |
 | `appVersion` | `string` | `undefined` | Si vous fournissez une valeur pour cette option, les événements utilisateur envoyés à Braze seront associés à la version donnée, qui peut être utilisée pour la segmentation des utilisateurs. |
@@ -771,7 +771,7 @@ Pour l'intégration AMP, vous devrez :
 4. **Créer un service worker** : ajoutez le fichier de service worker de Braze
 5. **Configurer l'élément de notification push Web AMP** : ajoutez l'élément `amp-web-push` avec votre clé API et l'URL de base comme paramètres de requête
 
-Pour des instructions détaillées sur l'intégration AMP, consultez le [guide développeur de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#amp).
+Pour des instructions détaillées sur l'intégration AMP, consultez le [guide développeur de Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web#amp).
 
 ### Electron
 
@@ -792,7 +792,7 @@ Electron ne prend pas officiellement en charge les notifications push Web (voir 
 
 #### Tealium iQ
 
-Tealium iQ offre une intégration Braze clé en main de base. Pour configurer l'intégration, recherchez Braze dans l'interface de gestion des balises Tealium, et fournissez la clé API du SDK Web depuis votre tableau de bord. Pour plus de détails ou une assistance approfondie sur la configuration Tealium, consultez notre [documentation d'intégration]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium) ou contactez votre gestionnaire de compte Tealium.
+Tealium iQ offre une intégration Braze clé en main de base. Pour configurer l'intégration, recherchez Braze dans l'interface de gestion des balises Tealium, et fournissez la clé API du SDK Web depuis votre tableau de bord. Pour plus de détails ou une assistance approfondie sur la configuration Tealium, consultez notre [documentation d'intégration]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium#about-tealium) ou contactez votre gestionnaire de compte Tealium.
 
 #### Autres gestionnaires de balises {#other-tag-managers}
 
@@ -825,7 +825,7 @@ Braze utilise [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 4.7.0 p
 
 ## Ressources supplémentaires {#additional-resources}
 
-- [Guide développeur de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)
+- [Guide développeur de Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)
 - [Documentation du SDK](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html)
 - [Exemples de builds](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/)
 

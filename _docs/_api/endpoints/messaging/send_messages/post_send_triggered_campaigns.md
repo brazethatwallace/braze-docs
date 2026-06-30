@@ -18,7 +18,7 @@ description: "This article outlines details about the Send campaigns using API-t
 
 API-triggered delivery allows you to house message content inside of the Braze dashboard while dictating when a message is sent, and to whom using your API.
 
-If you're targeting a segment, a record of your request is stored in the [Developer Console](https://dashboard.braze.com/app_settings/developer_console/activitylog/). To send messages with this endpoint, you must have a [campaign ID]({{site.baseurl}}/api/identifier_types/) created when you build an [API-triggered campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
+If you're targeting a segment, a record of your request is stored in the [Developer Console](https://dashboard.braze.com/app_settings/developer_console/activitylog/). To send messages with this endpoint, you must have a [campaign ID]({{site.baseurl}}/api/identifier_types) created when you build an [API-triggered campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aef185ae-f591-452a-93a9-61d4bc023b05 {% endapiref %}
 
@@ -72,12 +72,12 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parameter | Required | Data Type | Description |
 | --------- | ---------| --------- | ----------- |
-|`campaign_id`|Required|String|See [campaign identifier]({{site.baseurl}}/api/identifier_types/). |
-|`send_id`| Optional | String | See [send identifier]({{site.baseurl}}/api/identifier_types/). |
-|`trigger_properties`| Optional | Object | See [trigger properties]({{site.baseurl}}/api/objects_filters/trigger_properties_object/). Personalization key-value pairs apply to all users in this request. |
+|`campaign_id`|Required|String|See [campaign identifier]({{site.baseurl}}/api/identifier_types). |
+|`send_id`| Optional | String | See [send identifier]({{site.baseurl}}/api/identifier_types). |
+|`trigger_properties`| Optional | Object | See [trigger properties]({{site.baseurl}}/api/objects_filters/trigger_properties_object). Personalization key-value pairs apply to all users in this request. |
 |`broadcast`| Optional | Boolean | You must set `broadcast` to true when sending a message to the entire segment configured as the campaign's target audience in the Braze dashboard. This parameter defaults to false (as of August 31, 2017). <br><br> If `broadcast` is set to true, a `recipients` list cannot be included. However, use caution when setting `broadcast: true`, as unintentionally setting this flag may cause you to send your message to a larger-than-expected audience. |
-|`audience`| Optional | Connected audience object| See [connected audience]({{site.baseurl}}/api/objects_filters/connected_audience/). When you include `audience`, the message is sent only to users who match the defined filters, such as custom attributes and subscription statuses. |
-|`recipients`| Optional | Array | See [recipients object]({{site.baseurl}}/api/objects_filters/recipient_object/).<br><br>If `send_to_existing_only` is `false`, an `attributes` object must be included.<br><br>You can update a user's subscription group status by including `subscription_groups` in the nested `attributes` object. For more details, refer to [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object).<br><br>If `recipients` is not provided and `broadcast` is set to true, the message is sent to the entire segment configured as the campaign's target audience in the Braze dashboard.<br><br>If `email` is the identifier, you must include [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email) in the recipients object. |
+|`audience`| Optional | Connected audience object| See [connected audience]({{site.baseurl}}/api/objects_filters/connected_audience). When you include `audience`, the message is sent only to users who match the defined filters, such as custom attributes and subscription statuses. |
+|`recipients`| Optional | Array | See [recipients object]({{site.baseurl}}/api/objects_filters/recipient_object).<br><br>If `send_to_existing_only` is `false`, an `attributes` object must be included.<br><br>You can update a user's subscription group status by including `subscription_groups` in the nested `attributes` object. For more details, refer to [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object).<br><br>If `recipients` is not provided and `broadcast` is set to true, the message is sent to the entire segment configured as the campaign's target audience in the Braze dashboard.<br><br>If `email` is the identifier, you must include [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email) in the recipients object. |
 |`attachments`| Optional | Array | If `broadcast` is set to true, then the `attachments` list cannot be included. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
@@ -85,7 +85,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 This section discusses how Braze picks a user profile for sending and what happens when one profile is not selected.
 
-A user's subscription group status can be updated using the inclusion of a `subscription_groups` parameter within the `attributes` object. For more details, refer to [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
+A user's subscription group status can be updated using the inclusion of a `subscription_groups` parameter within the `attributes` object. For more details, refer to [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
 
 #### Recipient limits and profile creation
 
@@ -118,7 +118,7 @@ Learn what happens when `prioritization` does not return exactly one profile.
 If you trigger an email-only campaign for a recipient identified by `external_user_id` or `user_alias`, and that user profile has no email address at the time of the call, Braze retries the send for up to approximately 2 hours. This covers the common pattern of creating a user and setting their email address in close succession. To send without delay, include the `email` attribute inside `recipients[].attributes` so the address is set in the same call as the trigger.
 
 {% alert note %}
-The `segment_id` parameter is not supported for this endpoint. To target a segment, configure the segment in the campaign's target audience settings in the Braze dashboard and use `"broadcast": true`, or use the `audience` parameter with [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/) filters.
+The `segment_id` parameter is not supported for this endpoint. To target a segment, configure the segment in the campaign's target audience settings in the Braze dashboard and use `"broadcast": true`, or use the `audience` parameter with [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience) filters.
 {% endalert %}
 
 ## Example request
@@ -203,16 +203,20 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
 
 ## Response details
 
-Message-sending endpoint responses include the message's `dispatch_id` for reference back to the dispatch of the message. The `dispatch_id` is the ID of the message dispatch, a unique ID for each transmission sent from Braze. When using this endpoint, you receive a single `dispatch_id` for an entire batched set of users. For more information on `dispatch_id` check out our documentation on [Dispatch ID behavior]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
+Message-sending endpoint responses include the message's `dispatch_id` for reference back to the dispatch of the message. The `dispatch_id` is the ID of the message dispatch, a unique ID for each transmission sent from Braze. When using this endpoint, you receive a single `dispatch_id` for an entire batched set of users. For more information on `dispatch_id` check out our documentation on [Dispatch ID behavior]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
 
-If your request encounters a fatal error, refer to [Errors and responses]({{site.baseurl}}/api/errors/#fatal-errors) for the error code and description.
+If your request encounters a fatal error, refer to [Errors and responses]({{site.baseurl}}/api/errors#fatal-errors) for the error code and description.
 
 ## Attributes object for campaigns
 
-Braze has a messaging object called `attributes` that lets you add, create, or update attributes and values for a user before you send them an API-triggered campaign. Using the `campaign/trigger/send` endpoint as this API call processes the user attributes object before it processes and sends the campaign. This helps minimize the risk of there being issues caused by [race conditions]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/).
+Braze has a messaging object called `attributes` that lets you add, create, or update attributes and values for a user before you send them an API-triggered campaign. Using the `campaign/trigger/send` endpoint as this API call processes the user attributes object before it processes and sends the campaign. This helps minimize the risk of there being issues caused by [race conditions]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions).
 
 {% alert tip %}
-Looking for the Canvas version of this endpoint? Check out [Sending Canvas messages using API-triggered delivery]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#create-send-endpoint).
+Looking for the Canvas version of this endpoint? Check out [Sending Canvas messages using API-triggered delivery]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#create-send-endpoint).
 {% endalert %}
+
+### Why doesn't Liquid render when I put it directly in my JSON body?
+
+When your request body is valid JSON, Braze evaluates any Liquid in the payload on the server. If you embed Liquid as raw strings, quote and escape those strings so the body stays valid JSON—for example, escape double quotes inside strings. If the body fails JSON parsing, Braze returns a `400` before it evaluates any Liquid. When supported, pass dynamic values through [`trigger_properties`]({{site.baseurl}}/api/objects_filters/trigger_properties_object/) instead of embedding Liquid directly in the payload.
 
 {% endapi %}

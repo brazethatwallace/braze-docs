@@ -16,7 +16,7 @@ tool: Segments
 
 ## カタログセグメントの作成 {#creating-a-catalog-segment}
 
-1. **セグメントエクステンション** > **新規エクステンションを作成** > **テンプレートから開始**に移動し、テンプレートを選択します。<br>![イベント、購入、またはRFM セグメントのカタログセグメントを作成するオプションを含むモーダル。]({% image_buster /assets/img/catalog-segments-template.png %}){: style="max-width:80%" }
+1. **セグメントエクステンション** > **新規エクステンションを作成** > **テンプレートから開始**に移動し、テンプレートを選択します。<br>![イベント、購入、またはRFMセグメントのカタログセグメントを作成するオプションを含むモーダル。]({% image_buster /assets/img/catalog-segments-template.png %}){: style="max-width:80%" }
 
 {: start="2"}
 2. SQLエディターにテンプレートが自動的に入力されます。<br>![事前生成されたテンプレートを含むSQLエディター。]({% image_buster /assets/img/catalog-segments-editor.png %}){: style="max-width:80%" }<br>このテンプレートは、ユーザーイベントデータとカタログデータを結合し、特定のカタログアイテムに関与したユーザーをセグメント化します。
@@ -31,14 +31,14 @@ tool: Segments
 | `Catalog field`| `Custom event property`と同じ値を含むカタログ内のフィールド。多くの場合、IDの一種です。eコマースのユースケースでは、`shopify_id`になります。 |
 | `Custom event` | カスタムイベントの名前。`Catalog field`と一致する値を持つプロパティを含む同じイベントです。eコマースのユースケースでは、`Made Order`になります。 |
 | `Custom event property` | `Catalog field`と値が一致するカスタムイベントプロパティの名前。eコマースのユースケースでは、`Shopify_ID`になります。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Creating a catalog segment" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="カタログセグメントの作成" }
 
 {: start="4"}
 4. 必要に応じて、カタログ内の特定のフィールド値でセグメント化するために、ユースケースに合わせた追加のオプションフィールドを入力します：
 - `Catalog field`：このカタログ内の特定のフィールド（列名）
 - `Value`：そのフィールドまたは列内の特定の値 <br><br> ヘルスアプリを例にすると、予約可能な各医師のカタログ内に`specialty`というフィールドがあり、`vision`や`dental`などの値が含まれているとします。`dental`の値を持つ医師を訪問したユーザーをセグメント化するには、`Catalog field`として`specialty`を選択し、`Value`として`dental`を選択します。
 
-5. SQLセグメントを作成した後、**プレビューを実行**をクリックして、クエリがユーザーを返すか、エラーがないかを確認することをお勧めします。[クエリ結果のプレビュー]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#previewing-results)、[SQLセグメントエクステンションの管理]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#managing-sql-segment-extensions)などの詳細については、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)をご確認ください。
+5. SQLセグメントを作成した後、**プレビューを実行**をクリックして、クエリがユーザーを返すか、エラーがないかを確認することをお勧めします。[クエリ結果のプレビュー]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#previewing-results)、[SQLセグメントエクステンションの管理]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#managing-sql-segment-extensions)などの詳細については、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)をご確認ください。
 
 {% alert note %}
 `CATALOGS_ITEMS_SHARED`テーブルを使用するSQLセグメントを作成する場合は、カタログIDを指定する必要があります。例：
@@ -72,7 +72,7 @@ LIMIT 10
 
 ### 更新設定の指定 {#designating-refresh-settings}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ## ユースケース {#use-cases}
 
@@ -97,7 +97,7 @@ LIMIT 10
 | `Custom event property` | doctor ID |
 | `(Under Filter SQL Results) Catalog field` | Specialty |
 | `(Under Filter SQL Results) Value`| Dental |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Health app" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ヘルスアプリ" }
 
 {% endtab %}
 {% tab SaaS %}
@@ -120,7 +120,7 @@ B2B SaaSプラットフォームがあり、既存顧客の従業員であるユ
 | `Custom event property` | account ID |
 | `(Under Filter SQL Results) Catalog field` | Classification |
 | `(Under Filter SQL Results) Value` | Enterprise |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="SaaS platform" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SaaSプラットフォーム" }
 
 {% endtab %}
 {% endtabs %}
@@ -129,7 +129,7 @@ B2B SaaSプラットフォームがあり、既存顧客の従業員であるユ
 
 ### カタログセグメントの実行はSQLセグメントエクステンションのクレジットを消費しますか？ {#does-running-a-catalog-segment-consume-sql-segment-extension-credits}
 
-はい、カタログセグメントはSQLを利用しており、SQLセグメントエクステンションのクレジットを消費します。詳細については、[SQLセグメントの使用状況]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#monitoring-your-sql-segments-usage)をご確認ください。
+はい、カタログセグメントはSQLを利用しており、SQLセグメントエクステンションのクレジットを消費します。詳細については、[SQLセグメントの使用状況]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#monitoring-your-sql-segments-usage)をご確認ください。
 
 ### カタログセグメントの作成はSQLセグメントエクステンションの割り当てを消費しますか？ {#does-creating-a-catalog-segment-consume-sql-segment-extension-allotments}
 
@@ -137,4 +137,4 @@ B2B SaaSプラットフォームがあり、既存顧客の従業員であるユ
 
 ### 現在のテンプレートでは対応できないカタログセグメントのユースケースがあります。どのように設定すればよいですか？ {#i-have-a-catalog-segment-use-case-that-the-current-template-doesnt-serve-how-should-i-set-that-up}
 
-カスタマーサポートマネージャーまたは[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support/)にお問い合わせください。
+カスタマーサポートマネージャーまたは[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)にお問い合わせください。

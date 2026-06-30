@@ -28,11 +28,11 @@ Ao criar uma mensagem no app de arrastar e soltar, selecione **Onboarding flow**
 
 Para começar a criar seu fluxo de integração, use a seção **Pages** para adicionar ou excluir mensagens do seu fluxo. Depois de definir o número desejado de mensagens, selecione os botões em cada página. Em seguida, use o menu lateral para selecionar para onde os usuários vão ao selecionar o botão — se saem do fluxo ou avançam para a próxima mensagem.
 
-Verifique se suas mensagens estão conectadas em ordem sequencial para que os usuários percorram o fluxo corretamente. Para saber como fazer isso, confira [Conectar páginas entre si]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/?tab=adding%20pages#step-3a-connect-pages-together).
+Verifique se suas mensagens estão conectadas em ordem sequencial para que os usuários percorram o fluxo corretamente. Para saber como fazer isso, confira [Conectar páginas entre si]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop?tab=adding%20pages#step-3a-connect-pages-together).
 
 ### Etapa 4: Estilize sua mensagem {#step-4-style-your-message}
 
-Personalize a aparência do seu fluxo de integração usando os [componentes de mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) de arrastar e soltar.
+Personalize a aparência do seu fluxo de integração usando os [componentes de mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) de arrastar e soltar.
 
 ## Analisando os resultados {#analyzing-the-results}
 

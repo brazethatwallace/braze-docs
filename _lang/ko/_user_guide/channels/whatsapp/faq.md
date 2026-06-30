@@ -28,7 +28,7 @@ channel:
 Braze 대시보드의 임베디드 가입 플로우를 통해 WhatsApp 비즈니스 계정(WABA)을 만드는 것을 권장합니다.
 
 #### 이미 Meta 비즈니스 계정이 있습니다. WhatsApp 비즈니스 계정도 필요한가요? {#i-already-have-a-meta-business-account-do-i-still-need-a-whatsapp-business-account}
-네, WhatsApp 비즈니스 계정을 별도로 만들어야 합니다. [기본 Meta 비즈니스 계정 아래에 WABA를 중첩]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)하는 것을 권장합니다.
+네, WhatsApp 비즈니스 계정을 별도로 만들어야 합니다. [기본 Meta 비즈니스 계정 아래에 WABA를 중첩]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)하는 것을 권장합니다.
 
 #### WhatsApp 비즈니스 계정에 어떻게 접근하나요? {#how-do-i-access-my-whatsapp-business-account}
 임베디드 가입 플로우를 완료한 후 business.facebook.com에서 [WhatsApp 섹션](https://business.facebook.com/wa/manage/home)으로 이동하여 계정에 접근할 수 있습니다.
@@ -39,7 +39,7 @@ Braze 대시보드의 임베디드 가입 플로우를 통해 WhatsApp 비즈니
 ![Braze와 WhatsApp 에코시스템의 다이어그램으로, 워크스페이스와 WhatsApp 비즈니스 계정이 서로 어떻게 연결되는지 보여줍니다: 하나의 구독 그룹을 하나의 전화번호에, 여러 WhatsApp 비즈니스 계정을 하나의 워크스페이스에, 하나의 워크스페이스를 여러 Meta Business Portfolio에 연결할 수 있습니다.]({% image_buster /assets/img/whatsapp/whatsapp_braze_ecosystem.png %})
 
 #### WhatsApp 비즈니스 계정의 통화를 변경할 수 있나요? {#can-i-change-my-whatsapp-business-account-currency}
-아니요. Meta가 WhatsApp 비즈니스 계정의 통화를 관리하며, Braze는 이를 변경하거나 전환할 수 없습니다. 다른 통화를 사용하려면 해당 통화로 [별도의 WhatsApp 비즈니스 계정을 생성]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)하거나, Meta 지원팀에 연락하여 기존 계정의 통화를 업데이트할 수 있는지 문의하세요.
+아니요. Meta가 WhatsApp 비즈니스 계정의 통화를 관리하며, Braze는 이를 변경하거나 전환할 수 없습니다. 다른 통화를 사용하려면 해당 통화로 [별도의 WhatsApp 비즈니스 계정을 생성]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)하거나, Meta 지원팀에 연락하여 기존 계정의 통화를 업데이트할 수 있는지 문의하세요.
 
 ### WhatsApp 비즈니스 계정 전화번호 {#whatsapp-business-account-phone-numbers}
 
@@ -72,10 +72,10 @@ Braze 대시보드의 임베디드 가입 플로우를 통해 WhatsApp 비즈니
 - 최종 사용자의 번호가 없다면 옵트인 방법에 전화번호 수집이 포함되어야 합니다.
 
 #### 옵트인한 최종 사용자의 구독 상태는 어떻게 업데이트하나요? {#how-do-i-update-the-subscription-status-of-end-users-who-opt-in}
-WhatsApp 채널의 구독 관리는 다른 Braze 채널과 유사하게 작동합니다. 자세한 내용은 [사용자 구독 관리]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/)를 참조하세요.
+WhatsApp 채널의 구독 관리는 다른 Braze 채널과 유사하게 작동합니다. 자세한 내용은 [사용자 구독 관리]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)를 참조하세요.
 
 #### WhatsApp에서 마케팅 메시지 수신에 옵트인한 사용자 목록이 이미 있는 경우, Braze에서 구독 상태를 어떻게 업데이트하나요? {#if-i-already-have-a-list-of-users-who-have-opted-in-to-receive-marketing-messages-on-whatsapp-how-do-i-update-their-subscription-status-in-braze}
-[사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#importing-custom-data)를 통해 구독 상태를 업데이트할 수 있습니다.
+[사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#importing-custom-data)를 통해 구독 상태를 업데이트할 수 있습니다.
 
 #### 옵트인을 수집하려면 어떤 방법을 사용해야 하나요? {#what-methods-should-i-use-to-collect-opt-ins}
 Braze는 규정 준수를 유지하기 위해 [Meta의 옵트인 방법 가이드라인](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/)을 참조할 것을 권장합니다. Braze [채널 및 옵트인 아이디어와 제안](https://docs.google.com/document/d/1rNKnKN2oIn-e9bXdYEvnwdlzlCsEOKs-xREcdVvPBE8/edit)에 대한 다음 리소스를 참조하세요.
@@ -131,13 +131,13 @@ WhatsApp Manager에서 직접 템플릿을 생성, 편집, 관리하고 승인�
 메시지 템플릿 한도는 비즈니스 인증 상태에 따라 다릅니다. **WhatsApp Manager > Message Templates** 페이지에서 한도를 확인할 수 있습니다.
 
 #### Braze에서 템플릿 문구와 리치 미디어를 어떻게 개인화하나요? {#how-do-i-personalize-template-copy-and-rich-media-in-braze}
-WhatsApp은 메시지 템플릿에 변수 매개변수를 삽입할 수 있도록 허용합니다. 메시지는 변수 매개변수로 시작하거나 끝날 수 없습니다. 변수 매개변수는 Braze 플랫폼에서 Liquid 로직으로 채울 수 있습니다. 변수 매개변수에 대해 자세히 알아보려면 [Braze에서 WhatsApp 메시지 작성]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#step-2-compose-your-whatsapp-message)을 참조하세요.
+WhatsApp은 메시지 템플릿에 변수 매개변수를 삽입할 수 있도록 허용합니다. 메시지는 변수 매개변수로 시작하거나 끝날 수 없습니다. 변수 매개변수는 Braze 플랫폼에서 Liquid 로직으로 채울 수 있습니다. 변수 매개변수에 대해 자세히 알아보려면 [Braze에서 WhatsApp 메시지 작성]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#step-2-compose-your-whatsapp-message)을 참조하세요.
 
 #### 템플릿이 거부되었습니다. Braze가 승인받는 데 도움을 줄 수 있나요? {#my-template-got-rejected-can-braze-help-me-get-it-approved}
 Braze 팀은 템플릿 거부에 대한 가시성이 없습니다. WhatsApp Business Manager에서 직접 작업하여 템플릿을 편집하고 다시 제출해야 합니다. 필요한 경우 샘플 템플릿을 제공해야 합니다. 템플릿이 Meta의 [비즈니스](https://www.whatsapp.com/legal/business-policy/?fbclid=IwAR2qWg6yFKdyjDMxJkbNSM38FLGsxXxffC1qStY2gaHOyp-gl_8g72rZNIw) 또는 [커머스](https://www.whatsapp.com/legal/commerce-policy/?fbclid=IwAR3bzN3LTZ-7kO-wnO7X3smtPKGy0asxaFod-U1Ub8B9JUpnrfy1_y7LpAQ) 정책을 준수하는지 다시 확인하세요.
 
 #### Braze에서 리치 미디어를 타겟팅하거나 개인화할 수 있나요? {#can-the-rich-media-be-targeted-or-personalized-in-braze}
-이미지는 미디어 라이브러리에서 업로드할 수 있지만 동적으로 타겟팅할 수는 없습니다. URL의 경우 링크의 마지막 부분을 [Liquid를 사용하여 동적으로 채울]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#use-liquid-personalization-in-urls) 수 있습니다.
+이미지는 미디어 라이브러리에서 업로드할 수 있지만 동적으로 타겟팅할 수는 없습니다. URL의 경우 링크의 마지막 부분을 [Liquid를 사용하여 동적으로 채울]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#use-liquid-personalization-in-urls) 수 있습니다.
 
 ### 전달 가능성 {#deliverability}
 
@@ -164,7 +164,7 @@ Braze 내에서 또는 직접 통합을 통한 챗봇이나 상담원 지원 채
 이미 WhatsApp을 고객 지원 채널로 사용하고 있다면 현재 설정을 유지하고 마케팅 메시징을 위해 Braze를 통해 새 WABA를 만드는 것을 권장합니다. 이 WABA에는 새 전화번호가 필요합니다.
 
 #### 고객 지원 메시징과 Braze를 통한 마케팅 메시징 간의 "격차를 해소"하려면 어떻게 하나요? {#how-can-i-bridge-the-gap-between-my-customer-support-messaging-and-my-marketing-messaging-via-braze}
-WhatsApp Liquid 속성을 사용하여 인바운드 WhatsApp 메시지 콘텐츠(메시지 본문 및 미디어 URL 포함)를 Braze에서 고객 지원 도구를 포함한 다른 플랫폼으로 전달할 수 있습니다. 자세한 내용은 [지원되는 개인화 태그]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)를 참조하세요.
+WhatsApp Liquid 속성을 사용하여 인바운드 WhatsApp 메시지 콘텐츠(메시지 본문 및 미디어 URL 포함)를 Braze에서 고객 지원 도구를 포함한 다른 플랫폼으로 전달할 수 있습니다. 자세한 내용은 [지원되는 개인화 태그]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)를 참조하세요.
 
 Braze로 정보를 보내려면, 예를 들어 사용자가 활성 지원 대화 중임을 나타내기 위해 커스텀 속성(예: 부울 "has existing support chat = true/false")을 기록하고 마케팅 Campaign에서 세분화 기준으로 사용할 수 있습니다. 또한 두 채팅 스레드 간에 딥링크를 설정하여 마케팅 스레드에서 지원 스레드로, 그리고 반대로 사용자를 안내할 수 있습니다.
 
@@ -172,13 +172,13 @@ Braze로 정보를 보내려면, 예를 들어 사용자가 활성 지원 대화
 메시지는 처리하는 데 필요한 시간 동안만 저장됩니다. 사용자 메시지에 접근하려면 Currents를 사용하세요.
 
 #### 사용자 전화번호는 Braze에 어떤 형식으로 저장해야 하나요? {#how-do-user-phone-numbers-need-to-be-stored-in-braze}
-사용자 전화번호는 [E.164 형식]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers/#formatting)으로 저장해야 합니다.
+사용자 전화번호는 [E.164 형식]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers#formatting)으로 저장해야 합니다.
 
 #### WhatsApp 템플릿에서 지원되는 리치 미디어 유형은 무엇인가요? {#what-kind-of-rich-media-is-supported-in-whatsapp-templates}
 WhatsApp 템플릿에 이미지, 행동 유도(URL 또는 전화번호), 빠른 응답 버튼을 추가할 수 있습니다. WhatsApp에서 직접 템플릿을 만들 때 이러한 요소를 추가할 수 있습니다.
 
 #### 사용자 전화번호를 가져올 수 있나요? {#can-i-import-user-phone-numbers}
-네. [사용자 전화번호를 가져올]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers/) 수 있습니다.
+네. [사용자 전화번호를 가져올]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers) 수 있습니다.
 
 #### 비즈니스 인증이란 무엇인가요? {#what-is-business-verification}
 비즈니스 인증은 브랜드가 합법적인 비즈니스임을 확인하는 데 사용되는 WhatsApp 개념입니다. WhatsApp Manager에서 완료할 수 있습니다. 비즈니스 인증은 메시징을 확장하는 데에도 필요합니다. 비즈니스 인증 없이는 고객이 24시간 롤링 기간 동안 최대 250명의 고유 최종 사용자에게만 발송할 수 있습니다.

@@ -16,7 +16,7 @@ Ao [criar um teste A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/create_
 
 ## E-mail, webhook, SMS e WhatsApp {#email-webhook-sms-and-whatsapp}
 
-Ao [criar um teste A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) para Campaigns de e-mail, webhook, SMS e WhatsApp programadas para envio único, você pode selecionar entre duas opções de otimização: **Variante Vencedora** e **Variante Personalizada**.
+Ao [criar um teste A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) para campanhas de e-mail, webhook, SMS e WhatsApp programadas para envio único, você pode selecionar entre duas opções de otimização: **Variante Vencedora** e **Variante Personalizada**.
 
 ![Opções de otimização listadas na seção de testes A/B ao escolher seu público-alvo. Três opções estão listadas: sem otimização, Variante Vencedora e Variante Personalizada. A Variante Personalizada está selecionada.]({% image_buster /assets/img_archive/ab_personalized_variant.png %})
 

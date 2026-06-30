@@ -10,7 +10,7 @@ description: "Cette page fournit des réponses aux questions fréquemment posée
 
 > Cet article fournit des réponses à certaines questions fréquemment posées concernant Decisioning Studio.
 
-### Qu'est-ce qu'un agent décisionnel ? {#what-is-a-decisioning-agent}
+## Qu'est-ce qu'un agent décisionnel ? {#what-is-a-decisioning-agent}
 
 Un agent décisionnel est une configuration personnalisée pour BrazeAI Decisioning Studio™, conçue sur mesure pour répondre à un objectif métier spécifique. Il est défini par l'indicateur de réussite, les dimensions et les options que vous sélectionnez. L'agent décisionnel identifie automatiquement l'action optimale pour chaque client afin de maximiser l'indicateur métier que vous avez choisi.
 
@@ -36,4 +36,4 @@ Les contraintes limitent les actions de l'agent décisionnel afin de respecter l
 
 ### Quelle est la différence entre Decisioning Studio Go et Decisioning Studio Pro ? {#what-is-the-difference-between-decisioning-studio-go-and-decisioning-studio-pro}
 
-Decisioning Studio Pro inclut l'assistance AI Decisioning Services fournie par l'équipe de science des données déployée en amont de Braze, qui vous aidera à concevoir et à configurer votre agent afin d'optimiser vos résultats métier. Pour plus d'informations, consultez [la comparaison entre Decisioning Studio Go et Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/#decisioning-studio-go-vs-decisioning-studio-pro).
+Decisioning Studio Pro inclut l'assistance AI Decisioning Services fournie par l'équipe de data science déployée en amont de Braze, qui vous aidera à concevoir et à configurer votre agent afin d'optimiser vos résultats métier. Pour plus d'informations, consultez [la comparaison entre Decisioning Studio Go et Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio#decisioning-studio-go-vs-decisioning-studio-pro).

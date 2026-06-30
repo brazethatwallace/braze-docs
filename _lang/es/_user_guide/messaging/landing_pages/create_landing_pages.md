@@ -11,13 +11,13 @@ page_order: 0
 
 ## Requisitos previos {#prerequisites}
 
-Para acceder al creador de páginas de inicio, necesitas [ciertos permisos]({{site.baseurl}}/user_guide/messaging/landing_pages/#prerequisites). Si no tienes acceso, pide ayuda a tu administrador de Braze.
+Para acceder al creador de páginas de inicio, necesitas [ciertos permisos]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites). Si no tienes acceso, pide ayuda a tu administrador de Braze.
 
 ## Crear una página de inicio {#creating-a-landing-page}
 
 ### Paso 1: Crear un nuevo borrador {#step-1-create-a-new-draft}
 
-Ve a **Messaging** > **Landing Pages** y selecciona **Create landing page**. También puedes seleccionar el nombre de una página de inicio existente para duplicarla o hacerle cambios.
+Ve a **Mensajería** > **Páginas de inicio** y selecciona **Crear página de inicio**. También puedes seleccionar el nombre de una página de inicio existente para duplicarla o hacerle cambios.
 
 ### Paso 2: Introducir los detalles de la página {#step-2-enter-the-page-details}
 
@@ -38,18 +38,18 @@ Te sugerimos seguir estas buenas prácticas:
 | Título del sitio | El título que se muestra en la pestaña del navegador. | Usa hasta 60 caracteres. |
 | Meta descripción | Un fragmento de texto que se muestra en los resultados de búsqueda. | Usa entre 140 y 160 caracteres. |
 | Favicon | El icono que aparece junto al título del sitio en la pestaña del navegador. | Usa una relación de aspecto de 1:1 y un tipo de archivo compatible: PNG, JPEG o ICO. |
-| URL de la página | Esta es la ruta URL de tu página de inicio. Este valor también se utiliza como referencia al usar [etiquetas de Liquid de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) que puedes incrustar en un mensaje para identificar automáticamente cuándo envían tu formulario. | Este valor debe ser único en tu espacio de trabajo. |
+| URL de la página | Esta es la ruta URL de tu página de inicio. Este valor también se utiliza como referencia al usar [etiquetas de Liquid de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) que puedes incrustar en un mensaje para identificar automáticamente cuándo envían tu formulario. | Este valor debe ser único en tu espacio de trabajo. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Detalles del sitio" }
 
 ### Paso 3: Personalizar la página {#step-3-customize-the-page}
 
-Si aún no lo has hecho, selecciona **Guardar como borrador**. Para empezar a personalizar tu página, selecciona **Edit landing page**. El editor de arrastrar y soltar precargará una plantilla predeterminada que puedes personalizar para adaptarla a tu caso de uso.
+Si aún no lo has hecho, selecciona **Guardar como borrador**. Para empezar a personalizar tu página, selecciona **Editar página de inicio**. El editor de arrastrar y soltar precargará una plantilla predeterminada que puedes personalizar para adaptarla a tu caso de uso.
 
 ![Un ejemplo de página de inicio creada en el editor de arrastrar y soltar.]({% image_buster /assets/img/landing_pages/template.png %})
 
-El editor utiliza dos tipos de componentes para la composición de páginas de inicio: bloques básicos y bloques de formulario. Todos los bloques deben colocarse en una fila. Para una referencia detallada de cada bloque y sus propiedades, consulta [Bloques del editor (páginas de inicio)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages).
+El editor utiliza dos tipos de componentes para la composición de páginas de inicio: bloques básicos y bloques de formulario. Todos los bloques deben colocarse en una fila. Para una referencia detallada de cada bloque y sus propiedades, consulta [Bloques del editor (páginas de inicio)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
-![La sección "Build" que contiene "Rows" y "Form Blocks".]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
+![La sección "Construir" que contiene "Filas" y "Bloques de formulario".]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
 
 {% tabs %}
 {% tab Bloques básicos %}
@@ -70,7 +70,7 @@ Puedes usar estos bloques para añadir contenido y personalizar el diseño de tu
 
 #### Texto con span {#span-text}
 
-{% multi_lang_include span_text.md %}
+{% multi_lang_include drag_and_drop/span_text.md %}
 
 {% endtab %}
 {% tab Bloques de formulario %}
@@ -90,7 +90,7 @@ Puedes usar estos bloques para crear un formulario que vincule los datos enviado
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Bloques de formulario" }
 
 {% alert important %}
-Después de crear una página de inicio con un formulario, asegúrate de incrustar su [etiqueta de Liquid de página de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) en tu mensaje. Con esta etiqueta, Braze puede identificar y actualizar automáticamente los perfiles de usuario existentes cuando envían el formulario.
+Después de crear una página de inicio con un formulario, asegúrate de incrustar su [etiqueta de Liquid de página de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) en tu mensaje. Con esta etiqueta, Braze puede identificar y actualizar automáticamente los perfiles de usuario existentes cuando envían el formulario.
 {% endalert %}
 
 {% endtab %}
@@ -98,27 +98,27 @@ Después de crear una página de inicio con un formulario, asegúrate de incrust
 
 #### Estilos del contenedor de página {#page-container-styles}
 
-Puedes establecer estilos que se apliquen a todos los bloques de componentes relevantes en tu página de inicio desde la pestaña **Page container**. Estos estilos se usarán en toda tu página, excepto donde los anules con un bloque específico.
+Puedes establecer estilos que se apliquen a todos los bloques de componentes relevantes en tu página de inicio desde la pestaña **Contenedor de página**. Estos estilos se usarán en toda tu página, excepto donde los anules con un bloque específico.
 
 Te recomendamos configurar los estilos a nivel de contenedor de página antes de personalizar los estilos a nivel de bloque. También puedes añadir una imagen de fondo para toda la página.
 
-![La sección "Page container" con opciones para personalizar imágenes de fondo, colores, detalles de borde y estilo de contenido.]({% image_buster /assets/img/landing_pages/page_container.png %}){: style="max-width:40%;"}
+![La sección "Contenedor de página" con opciones para personalizar imágenes de fondo, colores, detalles de borde y estilo de contenido.]({% image_buster /assets/img/landing_pages/page_container.png %}){: style="max-width:40%;"}
 
 #### Adaptación a los dispositivos del usuario {#responsive-to-user-devices}
 
-Puedes hacer que tu página de inicio sea adaptable al tamaño del dispositivo del usuario apilando verticalmente las columnas en pantallas más pequeñas. Para habilitar esto, añade una columna a la fila que quieras hacer adaptable y luego activa **Vertically stack on smaller screens** en la sección **Customize columns**.
+Puedes hacer que tu página de inicio sea adaptable al tamaño del dispositivo del usuario apilando verticalmente las columnas en pantallas más pequeñas. Para habilitar esto, añade una columna a la fila que quieras hacer adaptable y luego activa **Apilar verticalmente en pantallas más pequeñas** en la sección **Personalizar columnas**.
 
 Cuando está habilitado, también puedes invertir el apilamiento de columnas para controlar el orden vertical del contenido multicolumna en pantallas más pequeñas. Esto hace que las páginas se vean y se sientan mejor en dispositivos móviles sin necesidad de código personalizado.
 
-![El interruptor "Vertically stack on smaller screens" en la sección "Customize columns".]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
+![El interruptor "Apilar verticalmente en pantallas más pequeñas" en la sección "Personalizar columnas".]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
 
 #### Campos opcionales y obligatorios {#optional-and-required-fields}
 
 Puedes elegir si un campo de formulario es obligatorio u opcional. Los campos obligatorios deben completarse antes de que se pueda enviar el formulario. Los campos opcionales pueden dejarse en blanco o sin seleccionar por el usuario.
 
-Por ejemplo, para exigir la captura de consentimiento antes del envío del formulario, puedes activar **Required field input** para establecer una casilla de verificación como obligatoria con el texto de descargo de responsabilidad correspondiente.
+Por ejemplo, para exigir la captura de consentimiento antes del envío del formulario, puedes activar **Campo de entrada obligatorio** para establecer una casilla de verificación como obligatoria con el texto de descargo de responsabilidad correspondiente.
 
-![Un campo de formulario de casilla de verificación con el interruptor "Required input field" seleccionado.]({% image_buster /assets/img/landing_pages/lp-optional-required.png %}){: style="max-width:50%;"}
+![Un campo de formulario de casilla de verificación con el interruptor "Campo de entrada obligatorio" seleccionado.]({% image_buster /assets/img/landing_pages/lp-optional-required.png %}){: style="max-width:50%;"}
 
 ### Paso 4: Crear una página de confirmación (opcional) {#step-4-create-a-confirmation-page-optional}
 
@@ -127,8 +127,8 @@ Si tu página de inicio no incluye un formulario, continúa con el siguiente pas
 Si tu página de inicio incluye un [formulario](#form-blocks), crea una segunda página de inicio que sirva como experiencia de confirmación. Esta página debe agradecer a los usuarios o proporcionar un siguiente paso después del envío del formulario.
 
 Para vincular la página de confirmación:
-- Selecciona el botón **Submit** en tu formulario
-- Usa la acción **Open web URL** para vincular a tu página de confirmación
+- Selecciona el botón **Enviar** en tu formulario
+- Usa la acción **Abrir URL web** para vincular a tu página de confirmación
 
 Si no incluyes una página de confirmación, es posible que los usuarios no sepan que su formulario se envió correctamente. Siempre incluye una experiencia de confirmación para completar el recorrido.
 
@@ -138,35 +138,35 @@ Si tu página de confirmación se abre en una nueva pestaña, un usuario que reg
 
 ### Paso 5: Previsualizar la página {#step-5-preview-the-page}
 
-Puedes previsualizar tu página de inicio en la pestaña **Preview** del editor. Después de guardar tu página de inicio como borrador, puedes visitar la URL yendo a **Landing Pages** y seleccionando **Copy URL** junto a tu página de inicio. También puedes compartir la URL con colaboradores.
+Puedes previsualizar tu página de inicio en la pestaña **Vista previa** del editor. Después de guardar tu página de inicio como borrador, puedes visitar la URL yendo a **Páginas de inicio** y seleccionando **Copiar URL** junto a tu página de inicio. También puedes compartir la URL con colaboradores.
 
-![Una página de inicio con el menú abierto mostrando la opción "Copy URL".]({% image_buster /assets/img/landing_pages/copy-url.png %})
+![Una página de inicio con el menú abierto mostrando la opción "Copiar URL".]({% image_buster /assets/img/landing_pages/copy-url.png %})
 
 Antes de publicar, asegúrate de que:
 
 - No has excedido el límite de páginas de inicio publicadas de tu plan
-- Cada página basada en formulario enlaza a una [página de confirmación](#step-4-create-a-confirmation-page) usando la acción **Open web URL**
+- Cada página basada en formulario enlaza a una [página de confirmación](#step-4-create-a-confirmation-page) usando la acción **Abrir URL web**
 - Todos los campos obligatorios de la página (como la ruta URL y el título) están completos
 
-Cuando estés listo, selecciona **Publish Landing Page**.
+Cuando estés listo, selecciona **Publicar página de inicio**.
 
 {% alert note %}
-Los bloqueadores de ventanas emergentes agresivos y los bloqueadores de anuncios en iOS y en Safari (incluidos los controles integrados de Safari y las extensiones de terceros) pueden afectar negativamente el comportamiento de las páginas de inicio cuando un botón **Submit** del formulario también abre otra URL, ya sea que esa URL se abra en la misma pestaña o en una nueva.
+Los bloqueadores de ventanas emergentes agresivos y los bloqueadores de anuncios en iOS y en Safari (incluidos los controles integrados de Safari y las extensiones de terceros) pueden afectar negativamente el comportamiento de las páginas de inicio cuando un botón **Enviar** del formulario también abre otra URL, ya sea que esa URL se abra en la misma pestaña o en una nueva.
 {% endalert %}
 
 ## Usar plantillas {#using-templates}
 
-Usa plantillas de páginas de inicio para crear plantillas para tus próximas campañas. Se puede acceder a estas plantillas y gestionarlas tanto en el editor de páginas de inicio como desde la página **Landing Page Templates** (**Content** > **Landing Page**). Las plantillas de páginas de inicio requieren un nombre y opcionalmente una descripción.
+Usa plantillas de páginas de inicio para crear plantillas para tus próximas campañas. Se puede acceder a estas plantillas y gestionarlas tanto en el editor de páginas de inicio como desde la página **Plantillas de páginas de inicio** (**Contenido** > **Página de inicio**). Las plantillas de páginas de inicio requieren un nombre y opcionalmente una descripción.
 
 ## Gestionar plantillas {#managing-templates}
 
-Puedes previsualizar, archivar o editar plantillas de páginas de inicio. Puedes duplicar tus propias plantillas de páginas de inicio (ubicadas en **Your Templates**), pero no las plantillas de Braze. Al editar una página de inicio, puedes guardar tu página de inicio como plantilla, hacer cambios en la plantilla o eliminar el contenido de la página de inicio.
+Puedes previsualizar, archivar o editar plantillas de páginas de inicio. Puedes duplicar tus propias plantillas de páginas de inicio (ubicadas en **Tus plantillas**), pero no las plantillas de Braze. Al editar una página de inicio, puedes guardar tu página de inicio como plantilla, hacer cambios en la plantilla o eliminar el contenido de la página de inicio.
 
 ![Un menú desplegable con opciones para guardar, cambiar y eliminar una página de inicio.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 
 ## Ver análisis {#viewing-analytics}
 
-Para analizar la efectividad de tu página de inicio, ve a **Messaging** > **Landing Pages** y selecciona una página de inicio que hayas publicado. Aquí puedes hacer seguimiento del número de vistas de página, clics en la página, envíos de formulario y las tasas de envío de tu página de inicio.
+Para analizar la efectividad de tu página de inicio, ve a **Mensajería** > **Páginas de inicio** y selecciona una página de inicio que hayas publicado. Aquí puedes hacer seguimiento del número de vistas de página, clics en la página, envíos de formulario y las tasas de envío de tu página de inicio.
 
 ![La sección de análisis de una página de inicio.]({% image_buster /assets/img/landing_pages/analytics.png %})
 

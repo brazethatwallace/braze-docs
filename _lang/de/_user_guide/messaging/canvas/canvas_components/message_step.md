@@ -40,7 +40,7 @@ Als Nächstes können Sie die Einstellungen für intelligentes Timing, Ruhezeite
 
 #### Intelligentes Timing {#intelligent-timing}
 
-Sie können [intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/) mit einer Fallback-Option aktivieren, wenn das Profil einer Nutzerin oder eines Nutzers nicht genügend Daten enthält, um eine optimale Zeit zu berechnen. Wir empfehlen, intelligentes Timing und [Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-frequency-capping/) als zusätzliche Prüfung für eventuelle Verzögerungen zwischen dem Eintritt der Nutzer:innen in den Nachrichten-Schritt und dem tatsächlichen Nachrichtenversand zu aktivieren.
+Sie können [intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) mit einer Fallback-Option aktivieren, wenn das Profil einer Nutzerin oder eines Nutzers nicht genügend Daten enthält, um eine optimale Zeit zu berechnen. Wir empfehlen, intelligentes Timing und [Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-frequency-capping) als zusätzliche Prüfung für eventuelle Verzögerungen zwischen dem Eintritt der Nutzer:innen in den Nachrichten-Schritt und dem tatsächlichen Nachrichtenversand zu aktivieren.
 
 Wählen Sie **Using Intelligent Timing** im Tab **Delivery Settings**. Hier können Sie entweder die beliebteste Zeit oder eine bestimmte Fallback-Zeit auswählen. Wenn Ruhezeiten aktiviert sind, ermöglicht der Nachrichten-Schritt auch die Überschreibung dieser Einstellung.
 
@@ -54,10 +54,10 @@ Zustellungsvalidierungen bewerten die Nutzerprofil-Kriterien zum Zeitpunkt des V
 
 Wenn Ihr Workspace mehrere Apps enthält und ein Nachrichten-Schritt auf eine bestimmte App abzielen soll, verwenden Sie stattdessen einen der folgenden Ansätze:
 
-- Beim Erstellen der Nachricht [geben Sie Ihre Zustellungsplattformen an]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/#step-2-specify-delivery-platforms), wie z. B. **Mobile Apps** oder **Web Browsers**.
+- Beim Erstellen der Nachricht [geben Sie Ihre Zustellungsplattformen an]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#step-2-specify-delivery-platforms), wie z. B. **Mobile Apps** oder **Web Browsers**.
 - Verwenden Sie Liquid, um das Zielgerät oder die App zum Zeitpunkt des Versands zu prüfen:
-  - {% raw %}`{{targeted_device.${platform}}}`{% endraw %} wertet die Plattform für die aktuelle Sitzung der Nutzer:innen aus. Weitere Informationen finden Sie unter [Informationen zum Zielgerät]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-device-information).
-  - {% raw %}`{{app.${api_id}}}`{% endraw %} wertet aus, welche App die Nachricht anfordert. Kombinieren Sie diesen Tag mit `abort_message()`, um Sendungen an die falsche App zu verhindern. Weitere Informationen finden Sie unter [Informationen zur Ziel-App]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-app-information).
+  - {% raw %}`{{targeted_device.${platform}}}`{% endraw %} wertet die Plattform für die aktuelle Sitzung der Nutzer:innen aus. Weitere Informationen finden Sie unter [Informationen zum Zielgerät]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-device-information).
+  - {% raw %}`{{app.${api_id}}}`{% endraw %} wertet aus, welche App die Nachricht anfordert. Kombinieren Sie diesen Tag mit `abort_message()`, um Sendungen an die falsche App zu verhindern. Weitere Informationen finden Sie unter [Informationen zur Ziel-App]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-app-information).
 
 ![Zustellungsvalidierungen sind aktiviert, um die Zielgruppe beim Nachrichtenversand zu validieren. Das Fortschrittsverhalten der Zustellungsvalidierungen ist so eingestellt, dass Nutzer:innen zum nächsten Schritt im Canvas weitergeleitet werden, wenn die Zustellungsvalidierungen nicht erfüllt sind.]({% image_buster /assets/img/canvas_components/message_step5.png %}){: style="max-width:90%;"}
 
@@ -93,13 +93,13 @@ Verwenden Sie das folgende Liquid, wenn Sie diese Eingangs-Eigenschaften referen
 Betrachten Sie zum Beispiel die folgende Anfrage: `"context" : {"product_name" : "shoes", "product_price" : 79.99}`. Sie könnten das Wort „shoes“ mit dem Liquid `{{context.${product_name}}}` zu einer Nachricht hinzufügen.
 {% endraw %}
 
-Sie können auch [persistente Eingangs-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties/) in jedem Nachrichten-Schritt nutzen, um Ihre Nutzer:innen durch personalisierte Schritte in Ihrem Canvas-Workflow zu führen.
+Sie können auch [persistente Eingangs-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties) in jedem Nachrichten-Schritt nutzen, um Ihre Nutzer:innen durch personalisierte Schritte in Ihrem Canvas-Workflow zu führen.
 
 ### Event-Eigenschaften {#event-properties}
 
 Event-Eigenschaften beziehen sich auf die Eigenschaften, die Sie für angepasste Events und Kauf-Events festlegen. Diese Event-Eigenschaften können in Campaigns mit aktionsbasierter Zustellung sowie in Canvases verwendet werden.
 
-In Canvas können Event-Eigenschaften von angepassten Events und Kauf-Events in Liquid in jedem Nachrichten-Schritt verwendet werden, der auf einen [Aktionspfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/)-Schritt folgt. Verwenden Sie zum Beispiel beim Referenzieren von `event_properties` dieses Liquid-Snippet: {% raw %}``{{event_properties.${property_name}}}``{% endraw %}
+In Canvas können Event-Eigenschaften von angepassten Events und Kauf-Events in Liquid in jedem Nachrichten-Schritt verwendet werden, der auf einen [Aktionspfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)-Schritt folgt. Verwenden Sie zum Beispiel beim Referenzieren von `event_properties` dieses Liquid-Snippet: {% raw %}``{{event_properties.${property_name}}}``{% endraw %}
 
 {% alert important %}
 `event_properties` können nicht unabhängig von Aktionspfade-Schritten verwendet werden.
@@ -133,4 +133,4 @@ In der folgenden Tabelle finden Sie Definitionen der Metriken der Nachrichten-Ko
 | *Eindeutige Empfänger:innen* | Die Anzahl der Nutzer:innen, die Nachrichten von diesem Schritt erhalten haben. |
 | *Primäres Konversions-Event* | Die Anzahl der Male, die ein definiertes Event nach der Interaktion mit oder dem Anzeigen einer empfangenen Nachricht aus einer Braze-Campaign aufgetreten ist. Sie definieren dieses Event beim Erstellen der Campaign. |
 | *Umsatz* | Der Gesamtumsatz in Dollar von Campaign-Empfänger:innen innerhalb des festgelegten primären Conversion-Fensters. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics" }

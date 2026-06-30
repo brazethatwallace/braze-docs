@@ -29,7 +29,7 @@ Ahora, sigue los pasos correspondientes a tu origen de datos:
 {% tab Reports %}
 
 {: start="4"}
-4. Selecciona **+ Add Tile** y luego elige uno de los informes que creaste en el [Generador de informes (nuevo)]({{site.baseurl}}/user_guide/analytics/reports/report_builder/).
+4. Selecciona **+ Add Tile** y luego elige uno de los informes que creaste en el [Generador de informes (nuevo)]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
 {% alert important %}
 Después de añadir un informe del Generador de informes a un mosaico del Generador de dashboards, el mosaico no está conectado al informe original. Si editas el informe original en el Generador de informes, debes eliminar el mosaico existente del dashboard y crear uno nuevo usando el informe actualizado como origen de datos.
@@ -50,7 +50,7 @@ Después de añadir un informe del Generador de informes a un mosaico del Genera
         - Si eliges una de las opciones de gráfico, usa el menú desplegable **X-axis** para seleccionar una sola columna de los resultados de tu consulta para usarla como eje X.
         - Usa el menú desplegable **Y-axis** para seleccionar qué métricas incluir en tu visualización. De forma predeterminada, se mostrarán todas las columnas de los resultados de tu consulta, así que deselecciona las columnas que no te interese ver.<br><br>![Opciones para alternar entre diferentes tipos de gráficos.]({% image_buster /assets/img/query_builder_axis.png %})<br><br>
         - (Opcional) Puedes usar el menú desplegable **Grouping** para agrupar los resultados de tu consulta. Por ejemplo, si tienes el ID de Campaign como resultado de columna y quieres sumar todas las filas con ese valor, usa el menú desplegable **Grouping**.
-        - (Opcional) Para editar los datos que se muestran, selecciona la consulta que está vinculada al visual y haz tus ediciones en el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/).
+        - (Opcional) Para editar los datos que se muestran, selecciona la consulta que está vinculada al visual y haz tus ediciones en el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder).
 6. Selecciona **Save** después de haber cambiado la visualización a tu gusto.
 7. Añade un nombre, una descripción y una etiqueta para que tu dashboard sea más fácil de encontrar después.
 {% endtab %}
@@ -111,7 +111,7 @@ Los toques incluyen _clic en correo electrónico_ (clic en enlace), _clic en tar
 | Compras por producto | Recuento de todas las compras agrupadas por producto. |
 | Ingresos por canal | Suma de todos los eventos de ingresos de Campaigns y Canvas con un evento de último toque que cumple los requisitos, agrupados por canal. |
 | Serie temporal de ingresos | Suma de todos los eventos de ingresos de Campaigns y Canvas con un evento de último toque que cumple los requisitos, agrupados por día en UTC. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Revenue - Last Touch Attribution" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ingresos - Atribución de último toque" }
 
 #### Dispositivos y operadores {#devices-and-carriers}
 
@@ -121,38 +121,38 @@ Los toques incluyen _clic en correo electrónico_ (clic en enlace), _clic en tar
 | Modelo de dispositivo | Recuento de usuarios en el rango de fechas seleccionado que abrieron una notificación push, agrupados por modelo de dispositivo. |
 | Sistema operativo del dispositivo | Recuento de usuarios en el rango de fechas seleccionado que abrieron una notificación push, agrupados por sistema operativo del dispositivo. |
 | Tamaño de pantalla del dispositivo | Recuento de usuarios en el rango de fechas seleccionado que abrieron una notificación push, agrupados por resolución de pantalla (tamaño) del dispositivo. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Devices and carriers" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dispositivos y operadores" }
 
 #### Información del segmento - Correo electrónico {#segment-insights-email}
 
-| Métrica  | Definición  |
+| Métrica | Definición |
 |---|---|
-| Métricas semanales de correo electrónico (tasas) | Tasas de interacción de correo electrónico (entrega, rebote, apertura, clic, tasas de cancelación de suscripción) agrupadas por segmento y mostradas como serie temporal semanal.|
-| Métricas semanales de correo electrónico (recuentos) | Recuentos de interacción de correo electrónico (enviados, entregados, rebotes, aperturas, clics, cancelaciones de suscripción) agrupados por segmento y mostrados como serie temporal semanal.|
-| Métricas semanales de compras (tasas) | Tasas de conversión de compras (ingresos por destinatario) a partir de aperturas y clics de correo electrónico, agrupadas por segmento y mostradas como serie temporal semanal.|
-| Métricas semanales de compras (recuentos) | Recuentos de compras y totales de ingresos a partir de aperturas y clics de correo electrónico, agrupados por segmento y mostrados como serie temporal semanal.|
-| Interacción de correo electrónico por segmento | Tabla resumen que muestra las métricas totales de interacción de correo electrónico (enviados, entregados, rebotes, aperturas, clics, cancelaciones de suscripción y sus tasas) agregadas por segmento.|
-| Compras e ingresos por segmento | Tabla resumen que muestra las métricas totales de compras (compras, ingresos e ingresos por destinatario) a partir de aperturas y clics de correo electrónico, agregadas por segmento.|
-| Top 10 de Campaigns por métricas de interacción | Lista clasificada de las Campaigns con las métricas de interacción de correo electrónico más altas (métrica configurable para la clasificación).|
-| 10 Campaigns con menor interacción | Lista clasificada de las Campaigns con las métricas de interacción de correo electrónico más bajas (métrica configurable para la clasificación).|
-| Top 10 de Canvas por métricas de interacción | Lista clasificada de los Canvas con las métricas de interacción de correo electrónico más altas (métrica configurable para la clasificación).|
-| 10 Canvas con menor interacción | Lista clasificada de los Canvas con las métricas de interacción de correo electrónico más bajas (métrica configurable para la clasificación).|
-| Top 10 de Campaigns por métricas de compras | Lista clasificada de las Campaigns con las métricas de conversión de compras más altas a partir de la interacción de correo electrónico (métrica configurable para la clasificación).|
-| 10 Campaigns con menores métricas de compras | Lista clasificada de las Campaigns con las métricas de conversión de compras más bajas a partir de la interacción de correo electrónico (métrica configurable para la clasificación).|
-| Top 10 de Canvas por métricas de compras | Lista clasificada de los Canvas con las métricas de conversión de compras más altas a partir de la interacción de correo electrónico (métrica configurable para la clasificación).|
-| 10 Canvas con menores métricas de compras | Lista clasificada de los Canvas con las métricas de conversión de compras más bajas a partir de la interacción de correo electrónico (métrica configurable para la clasificación).|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment Insights - Email" }
+| Métricas semanales de correo electrónico (tasas) | Tasas de interacción de correo electrónico (entrega, rebote, apertura, clic, tasas de cancelación de suscripción) agrupadas por segmento y mostradas como serie temporal semanal. |
+| Métricas semanales de correo electrónico (recuentos) | Recuentos de interacción de correo electrónico (enviados, entregados, rebotes, aperturas, clics, cancelaciones de suscripción) agrupados por segmento y mostrados como serie temporal semanal. |
+| Métricas semanales de compras (tasas) | Tasas de conversión de compras (ingresos por destinatario) a partir de aperturas y clics de correo electrónico, agrupadas por segmento y mostradas como serie temporal semanal. |
+| Métricas semanales de compras (recuentos) | Recuentos de compras y totales de ingresos a partir de aperturas y clics de correo electrónico, agrupados por segmento y mostrados como serie temporal semanal. |
+| Interacción de correo electrónico por segmento | Tabla resumen que muestra las métricas totales de interacción de correo electrónico (enviados, entregados, rebotes, aperturas, clics, cancelaciones de suscripción y sus tasas) agregadas por segmento. |
+| Compras e ingresos por segmento | Tabla resumen que muestra las métricas totales de compras (compras, ingresos e ingresos por destinatario) a partir de aperturas y clics de correo electrónico, agregadas por segmento. |
+| Top 10 de Campaigns por métricas de interacción | Lista clasificada de las Campaigns con las métricas de interacción de correo electrónico más altas (métrica configurable para la clasificación). |
+| 10 Campaigns con menor interacción | Lista clasificada de las Campaigns con las métricas de interacción de correo electrónico más bajas (métrica configurable para la clasificación). |
+| Top 10 de Canvas por métricas de interacción | Lista clasificada de los Canvas con las métricas de interacción de correo electrónico más altas (métrica configurable para la clasificación). |
+| 10 Canvas con menor interacción | Lista clasificada de los Canvas con las métricas de interacción de correo electrónico más bajas (métrica configurable para la clasificación). |
+| Top 10 de Campaigns por métricas de compras | Lista clasificada de las Campaigns con las métricas de conversión de compras más altas a partir de la interacción de correo electrónico (métrica configurable para la clasificación). |
+| 10 Campaigns con menores métricas de compras | Lista clasificada de las Campaigns con las métricas de conversión de compras más bajas a partir de la interacción de correo electrónico (métrica configurable para la clasificación). |
+| Top 10 de Canvas por métricas de compras | Lista clasificada de los Canvas con las métricas de conversión de compras más altas a partir de la interacción de correo electrónico (métrica configurable para la clasificación). |
+| 10 Canvas con menores métricas de compras | Lista clasificada de los Canvas con las métricas de conversión de compras más bajas a partir de la interacción de correo electrónico (métrica configurable para la clasificación). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Información del segmento - Correo electrónico" }
 
 #### Análisis de sesiones {#session-analytics}
 
-| Métrica | Definición  |
+| Métrica | Definición |
 |---|---|
-| N.º de sesiones por día (serie temporal) | Recuento de sesiones únicas agrupadas por día dentro del rango de fechas seleccionado, mostrado como serie temporal.|
-| Promedio de sesiones por usuario | Número promedio de sesiones por usuario calculado como el total de sesiones dividido por usuarios únicos dentro del rango de fechas seleccionado.|
-| Campaigns que convierten a sesiones | Recuento de sesiones únicas que ocurrieron al mismo tiempo que las conversiones de Campaigns, agrupadas por ID de Campaign y clasificadas por recuento de sesiones.|
-| Canvas que convierten a sesiones | Recuento de sesiones únicas que ocurrieron al mismo tiempo que las conversiones de Canvas, agrupadas por ID de Canvas y clasificadas por recuento de sesiones.|
-| N.º total de sesiones por usuario | Lista de los 1000 usuarios principales por su recuento total de sesiones dentro del rango de fechas seleccionado.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Session Analytics" }
+| N.º de sesiones por día (serie temporal) | Recuento de sesiones únicas agrupadas por día dentro del rango de fechas seleccionado, mostrado como serie temporal. |
+| Promedio de sesiones por usuario | Número promedio de sesiones por usuario calculado como el total de sesiones dividido por usuarios únicos dentro del rango de fechas seleccionado. |
+| Campaigns que convierten a sesiones | Recuento de sesiones únicas que ocurrieron al mismo tiempo que las conversiones de Campaigns, agrupadas por ID de Campaign y clasificadas por recuento de sesiones. |
+| Canvas que convierten a sesiones | Recuento de sesiones únicas que ocurrieron al mismo tiempo que las conversiones de Canvas, agrupadas por ID de Canvas y clasificadas por recuento de sesiones. |
+| N.º total de sesiones por usuario | Lista de los 1000 usuarios principales por su recuento total de sesiones dentro del rango de fechas seleccionado. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Análisis de sesiones" }
 
 ## Comparte tus comentarios con nosotros {#share-your-feedback-with-us}
 

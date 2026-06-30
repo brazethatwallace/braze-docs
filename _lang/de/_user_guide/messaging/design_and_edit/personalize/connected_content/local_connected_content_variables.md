@@ -26,9 +26,9 @@ Metaweather ist eine kostenlose Wetter-API, die eine „Where-on-Earth ID“ ver
 
 Auf die gespeicherte Variable kann nur innerhalb des Feldes zugegriffen werden, das die `connected_content`-Anfrage enthält. Wenn Sie beispielsweise die Variable `localweather` sowohl im Nachrichtenfeld als auch im Titelfeld verwenden möchten, sollten Sie die `connected_content`-Anfrage in beiden Feldern durchführen.
 
-GET-Anfragen werden in der Regel standardmäßig zwischengespeichert, mit einigen Ausnahmen (z. B. URLs, die hochkardinalige Nutzer:innen-Attribute enthalten, `:no_cache` oder Antwort-Bodys größer als 1 MB). Wenn identische GET-Anfragen in mehr als einem Feld vorkommen, verwendet Braze die zwischengespeicherte Antwort, anstatt den Endpunkt erneut aufzurufen. Einzelheiten zum Cache-Verhalten finden Sie unter [Antworten zwischenspeichern]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/).
+GET-Anfragen werden in der Regel standardmäßig zwischengespeichert, mit einigen Ausnahmen (z. B. URLs, die hochkardinalige Nutzer:innen-Attribute enthalten, `:no_cache` oder Antwort-Bodys größer als 1 MB). Wenn identische GET-Anfragen in mehr als einem Feld vorkommen, verwendet Braze die zwischengespeicherte Antwort, anstatt den Endpunkt erneut aufzurufen. Einzelheiten zum Cache-Verhalten finden Sie unter [Antworten zwischenspeichern]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses).
 
-Connected-Content-Aufrufe über HTTP POST werden standardmäßig nicht zwischengespeichert. Um POST-Antworten zwischenzuspeichern, fügen Sie `:cache_max_age` zum Tag hinzu. Siehe [Standard-Cache-Einstellungen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/#default-cache-settings).
+Connected-Content-Aufrufe über HTTP POST werden standardmäßig nicht zwischengespeichert. Um POST-Antworten zwischenzuspeichern, fügen Sie `:cache_max_age` zum Tag hinzu. Siehe [Standard-Cache-Einstellungen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses#default-cache-settings).
 
 ## JSON-Parsing {#json-parsing}
 
@@ -90,11 +90,11 @@ Wenn die API mit {%raw%}`{{localweather.consolidated_weather[0].weather_state_na
 
 ![Push-Benachrichtigung mit der Nachricht „It's raining! Grab an umbrella!“]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){:style="max-width:50%" }
 
-{% multi_lang_include connected_content.md section='default behavior' %}
+{% multi_lang_include connected_content/sections.md section='default behavior' %}
 
 ## HTTP POST
 
-{% multi_lang_include connected_content.md section='http post' %}
+{% multi_lang_include connected_content/sections.md section='http post' %}
 
 ### Bereitstellung eines JSON-Bodys {#providing-json-body}
 

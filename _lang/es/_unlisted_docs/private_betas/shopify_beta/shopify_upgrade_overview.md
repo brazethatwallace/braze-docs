@@ -10,14 +10,14 @@ hidden: true
 
 # Resumen de la actualización de Shopify {#shopify-upgrade-overview}
 
-> Como parte de nuestro compromiso de ofrecerte la mejor experiencia posible, estamos requiriendo que todas las integraciones de Shopify se [actualicen]({{site.baseurl}}/shopify/) a la última versión antes del 28 de agosto de 2025. Esta actualización es esencial porque cambios significativos en la tecnología de Shopify afectarán el funcionamiento de nuestra integración.
+> Como parte de nuestro compromiso de ofrecerte la mejor experiencia posible, estamos requiriendo que todas las integraciones de Shopify se [actualicen]({{site.baseurl}}/shopify) a la última versión antes del 28 de agosto de 2025. Esta actualización es esencial porque cambios significativos en la tecnología de Shopify afectarán el funcionamiento de nuestra integración.
 
 ## Fechas clave {#key-dates}
 
 - **De finales de febrero a abril:** Recibirás notificaciones sobre cuándo tu grupo específico (cohorte) estará listo para la actualización. Mantente atento a esta información importante.
 - **Fecha límite de actualización:** Todos los clientes deben completar la actualización antes del **28 de agosto de 2025**.
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## ¿Qué cambia en la integración de Shopify? {#whats-changing-in-the-shopify-integration}
 
@@ -26,7 +26,7 @@ Como parte de los planes de Shopify para mejorar la extensibilidad del checkout,
 - **Deprecación de Script Tags y `checkout.liquid`:** Shopify está eliminando gradualmente los Script Tags y `checkout.liquid`. Después de agosto de 2025, el SDK web de Braze ya no se cargará en las páginas de checkout a través de Script Tags a menos que migres a la última versión de la integración.
 - **Mejoras generales en la integración:**
     - **Introducción de eventos recomendados:** Estamos añadiendo eventos de comercio electrónico recomendados a la integración, lo que simplifica los casos de uso comunes de comercio electrónico a través de plantillas prediseñadas en Braze.
-    - **Gestión de identidades optimizada:** Estamos mejorando nuestro enfoque para gestionar las identidades de los usuarios, lo que mejorará el seguimiento y la atribución de datos de usuarios anónimos. Para más información sobre cómo se procesará la gestión de identidades, consulta [Sincronización de usuarios y datos]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#user-and-data-syncing).
+    - **Gestión de identidades optimizada:** Estamos mejorando nuestro enfoque para gestionar las identidades de los usuarios, lo que mejorará el seguimiento y la atribución de datos de usuarios anónimos. Para más información sobre cómo se procesará la gestión de identidades, consulta [Sincronización de usuarios y datos]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#user-and-data-syncing).
     - **Listas de suscriptores de correo electrónico y SMS:** Si actualmente estás recopilando suscriptores de correo electrónico y SMS, se crearán automáticamente grupos de suscripción predeterminados para cada canal como parte de la actualización. Cuando Braze sincronice las adhesiones voluntarias de correo electrónico y SMS, Braze ya no sobrescribirá el estado de suscripción global en el perfil de usuario y solo actualizará la adhesión voluntaria del grupo de suscripción.
     - Para conocer todos los detalles sobre los cambios de la versión actual a la nueva versión, consulta el [registro de cambios](#full-changelog).
 
@@ -44,9 +44,9 @@ Antes de iniciar el proceso de actualización en la página de integración de S
 Si tienes una tienda en línea de Shopify y tus desarrolladores implementaron los SDK de Braze directamente en tu sitio de Shopify, o a través de Google Tag Manager o una plataforma de datos de los clientes, debes planificar dejar de usarlos a medida que actualices al nuevo conector de Shopify.
 {% endalert %}
 
-- **Revisa la gestión de identidades:** Si estás usando un ID externo de Braze, trabaja con tu equipo de desarrollo para asegurarte de que sea compatible con la nueva integración. Si configuras el ID externo dentro de la experiencia de tu tienda Shopify, haz que tus desarrolladores lo ajusten para evitar conflictos con el [nuevo proceso de gestión de identidades]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_overview/#user-and-data-syncing).
+- **Revisa la gestión de identidades:** Si estás usando un ID externo de Braze, trabaja con tu equipo de desarrollo para asegurarte de que sea compatible con la nueva integración. Si configuras el ID externo dentro de la experiencia de tu tienda Shopify, haz que tus desarrolladores lo ajusten para evitar conflictos con el [nuevo proceso de gestión de identidades]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_overview#user-and-data-syncing).
 - **Prepara las Campaigns, Canvas y Segments afectados:** Durante el proceso de actualización guiada, puedes ver y exportar cualquier Campaign, Canvas y Segment que dependa de datos de Shopify. Te recomendamos añadir los nuevos eventos y atributos de Shopify requeridos usando un operador "OR" para facilitar una actualización fluida de tus mensajes activos.
-- **Crea recorridos de usuario de carrito abandonado y checkout abandonado:** El recorrido de usuario de carrito abandonado ahora debe usar el desencadenante "Performed Cart Updated" como parte de los criterios de entrada en tu Canvas. Además, necesitas usar la nueva etiqueta de Liquid del carrito de compras tanto para los recorridos de usuario de carrito abandonado como de checkout abandonado. Puedes usar nuestras nuevas [plantillas de Canvas]({{site.baseurl}}/using_shopify_with_braze/#create-your-canvas-user-journeys) para ayudarte a comenzar.
+- **Crea recorridos de usuario de carrito abandonado y checkout abandonado:** El recorrido de usuario de carrito abandonado ahora debe usar el desencadenante "Performed Cart Updated" como parte de los criterios de entrada en tu Canvas. Además, necesitas usar la nueva etiqueta de Liquid del carrito de compras tanto para los recorridos de usuario de carrito abandonado como de checkout abandonado. Puedes usar nuestras nuevas [plantillas de Canvas]({{site.baseurl}}/using_shopify_with_braze#create-your-canvas-user-journeys) para ayudarte a comenzar.
 
 Completar estos pasos te ayudará a facilitar una actualización exitosa a la última versión de la integración de Shopify.
 
@@ -58,13 +58,13 @@ Braze ofrece dos opciones de integración para comerciantes de Shopify diseñada
 {% tab Estándar %}
 La integración estándar está diseñada para tiendas en línea de Shopify, proporcionando un proceso de configuración fluido y sencillo. Esta opción te permite conectar rápidamente tu tienda Shopify a Braze, permitiéndote aprovechar potentes herramientas de interacción con los clientes sin necesidad de amplios conocimientos técnicos. Con esta opción de integración, puedes sincronizar datos de clientes, automatizar mensajes personalizados y mejorar tus esfuerzos de marketing a través de las funciones integrales de Braze.
 
-Para actualizar tu integración de Shopify existente a través de la ruta de actualización estándar, consulta [Actualización de tu integración de Shopify (estándar)]({{site.baseurl}}/shopify_standard_upgrade/).
+Para actualizar tu integración de Shopify existente a través de la ruta de actualización estándar, consulta [Actualización de tu integración de Shopify (estándar)]({{site.baseurl}}/shopify_standard_upgrade).
 {% endtab %}
 
 {% tab Personalizada %}
 La integración personalizada ofrece una solución más flexible y componible si usas Shopify Hydrogen o tienes una tienda headless. Esta opción te permite implementar los SDK de Braze directamente en tu entorno de Shopify, habilitando una integración más profunda y funcionalidades a medida. Ya sea que busques crear experiencias de cliente únicas u optimizar flujos de trabajo específicos, la integración personalizada proporciona las herramientas necesarias para aprovechar al máximo las capacidades de Braze en una configuración headless.
 
-Para actualizar tu integración de Shopify existente a través de la ruta de actualización personalizada, consulta [Actualización de tu integración de Shopify (personalizada)]({{site.baseurl}}/shopify_custom_upgrade/).
+Para actualizar tu integración de Shopify existente a través de la ruta de actualización personalizada, consulta [Actualización de tu integración de Shopify (personalizada)]({{site.baseurl}}/shopify_custom_upgrade).
 {% endtab %}
 {% endtabs %}
 
@@ -90,7 +90,7 @@ Esta integración utiliza Shopify como la fuente de verdad para los atributos y 
 | ID externo de Braze | {::nomarkdown}<ul><li>N/A</li></ul>{:/}| {::nomarkdown}<ul><li>Shopify customer ID</li><li>Email</li><li>Hashed email (SHA-256, SHA-1, MD5)</li><li>Custom external ID</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identificadores de usuario compatibles con la integración" }
 
-Para más detalles sobre la sincronización de usuarios y la gestión de ID, consulta [Datos de usuario y sincronización]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_overview/#user-and-data-syncing).
+Para más detalles sobre la sincronización de usuarios y la gestión de ID, consulta [Datos de usuario y sincronización]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_overview#user-and-data-syncing).
 
 {% alert note %}
 De forma predeterminada, Braze convierte automáticamente los correos electrónicos de Shopify a minúsculas antes de usarlos como ID externo. Si estás usando el correo electrónico o el correo electrónico con hash como tu ID externo, confirma que tus direcciones de correo electrónico también se conviertan a minúsculas antes de asignarlas como tu ID externo o antes de aplicarles hash desde otros orígenes de datos. Esto ayudará a prevenir discrepancias en los ID externos y evitará la creación de perfiles de usuario duplicados en Braze.

@@ -26,7 +26,7 @@ description: "この記事では、外部IDの削除エンドポイントにつ�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.external_ids.remove` 権限を持つ [APIキー]({{site.baseurl}}/api/api_key/)が必要です。
+このエンドポイントを使用するには、`users.external_ids.remove` 権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -50,7 +50,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
 | `external_ids` | 必須 | 文字列の配列 | 削除するユーザーの外部識別子。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#request-example}
 
@@ -72,7 +72,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/external_ids
 
 ## 応答 {#response}
 
-応答では、成功したすべての削除と、関連するエラーを伴う失敗した削除が確認されます。`removal_errors` フィールドのエラーメッセージは、元のリクエストの配列内のインデックスを参照します。
+応答では、成功したすべての削除と、関連するエラーを伴う失敗した削除が確認されます。`removal_errors`フィールドのエラーメッセージは、元のリクエストの配列内のインデックスを参照します。
 
 ```
 {
@@ -82,10 +82,10 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/external_ids
 }
 ```
 
-`message` フィールドは、有効なリクエストに対して `success` を返します。より具体的なエラーは `removal_errors` 配列に格納されます。`message` フィールドは、以下の場合にエラーを返します：
+`message`フィールドは、有効なリクエストに対して`success`を返します。より具体的なエラーは`removal_errors`配列に格納されます。`message`フィールドは、以下の場合にエラーを返します：
 - 無効なAPIキー
-- 空の `external_ids` 配列
-- 50を超える項目を持つ `external_ids` 配列
+- 空の`external_ids`配列
+- 50を超える項目を持つ`external_ids`配列
 - レート制限超過（1,000リクエスト/分超）
 
 {% endapi %}

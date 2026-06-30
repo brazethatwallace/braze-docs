@@ -1,7 +1,7 @@
 ---
 nav_title: 기능
 article_title: Operator로 할 수 있는 것
-page_order: 6
+page_order: 1
 page_type: reference
 toc_headers: h2
 description: "이 참조 문서에서는 BrazeAI Operator™를 통해 사용할 수 있는 AI 작업(카피라이팅, Liquid, 이미지 생성, 데이터 변환 코드, 콘텐츠 검토 등)을 다룹니다."
@@ -9,13 +9,13 @@ description: "이 참조 문서에서는 BrazeAI Operator™를 통해 사용할
 
 # Operator로 할 수 있는 것 {#operator-capabilities}
 
-> 이전에 독립형 어시스턴트로 제공되던 AI 기능은 이제 [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/)를 통해 이용할 수 있습니다. Operator는 대시보드에 내장되어 있으며 워크스페이스(브랜드 가이드라인, 속성, 연결된 콘텐츠, 현재 작업 중인 페이지)를 이해하므로, 이전 어시스턴트보다 더 맥락을 인식한 결과물을 생성합니다.
+> 이전에 독립형 어시스턴트로 제공되던 AI 기능은 이제 [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator)를 통해 이용할 수 있습니다. Operator는 대시보드에 내장되어 있으며 워크스페이스(브랜드 가이드라인, 속성, 연결된 콘텐츠, 현재 작업 중인 페이지)를 이해하므로, 이전 어시스턴트보다 더 맥락을 인식한 결과물을 생성합니다.
 
-각 작업마다 다른 도구를 열 필요 없이, 원하는 내용을 자연어로 설명하면 Operator가 맥락에 맞게 처리합니다. 대화를 이어가며 다른 톤, 더 짧은 버전, 번역 등을 요청할 수도 있으며 처음부터 다시 시작할 필요가 없습니다. Operator는 또한 [액션 카드]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/)를 통해 변경 사항을 제안하고 실행할 수 있으며, 적용 전에 사용자가 검토할 수 있습니다.
+각 작업마다 다른 도구를 열 필요 없이, 원하는 내용을 자연어로 설명하면 Operator가 맥락에 맞게 처리합니다. 대화를 이어가며 다른 톤, 더 짧은 버전, 번역 등을 요청할 수도 있으며 처음부터 다시 시작할 필요가 없습니다. Operator는 또한 [액션 카드]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)를 통해 변경 사항을 제안하고 실행할 수 있으며, 적용 전에 사용자가 검토할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
-Operator는 사용자와 동일한 권한을 가지므로, 특정 동작에는 해당 영역에 대한 관련 권한이 필요합니다. 예를 들어, 이미지를 생성하려면 *미디어 라이브러리 자산 편집* 권한이 필요합니다. 진입점이 보이지 않는 경우 관리자에게 권한을 확인하세요. 자세한 내용은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions)을 참조하세요.
+Operator는 사용자와 동일한 권한을 가지므로, 특정 동작에는 해당 영역에 대한 관련 권한이 필요합니다. 예를 들어, 이미지를 생성하려면 *미디어 라이브러리 자산 편집* 권한이 필요합니다. 진입점이 보이지 않는 경우 관리자에게 권한을 확인하세요. 자세한 내용은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)을 참조하세요.
 
 ## Operator를 통해 사용할 수 있는 기능 {#whats-available-through-operator}
 
@@ -32,7 +32,7 @@ Operator는 사용자와 동일한 권한을 가지므로, 특정 동작에는 �
 
 ## 브랜드 가이드라인 적용 {#apply-brand-guidelines}
 
-Operator는 워크스페이스에 구성된 브랜드 가이드라인을 사용하여 생성된 카피, 템플릿, 이미지가 브랜드의 보이스, 톤, 스타일과 일치하도록 합니다. 브랜드 가이드라인을 설정하려면 **콘텐츠** > **브랜드 가이드라인**으로 이동하세요. 자세한 내용은 [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)을 참조하세요. Operator와 함께 브랜드 가이드라인을 적용하는 방법에 대한 자세한 내용은 [브랜드 가이드라인 적용]({{site.baseurl}}/user_guide/brazeai/operator/#apply-brand-guidelines)을 참조하세요.
+Operator는 워크스페이스에 구성된 브랜드 가이드라인을 사용하여 생성된 카피, 템플릿, 이미지가 브랜드의 보이스, 톤, 스타일과 일치하도록 합니다. 브랜드 가이드라인을 설정하려면 **콘텐츠** > **브랜드 가이드라인**으로 이동하세요. 자세한 내용은 [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)을 참조하세요. Operator와 함께 브랜드 가이드라인을 적용하는 방법에 대한 자세한 내용은 [브랜드 가이드라인 적용]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines)을 참조하세요.
 
 ## 카피 생성 {#generate-copy}
 
@@ -41,8 +41,8 @@ Operator를 사용하여 어디서든 카피를 브레인스토밍하거나 생�
 Operator는 독립형 카피라이터보다 몇 가지 면에서 개선되었습니다:
 
 - [브랜드 가이드라인](#apply-brand-guidelines)이 구성되어 있으면 자동으로 적용합니다.
-- [페이지 인식 컨텍스트]({{site.baseurl}}/user_guide/brazeai/operator/#leverage-page-aware-context)를 사용하므로 작업 중인 채널이나 메시지를 다시 설명할 필요가 없습니다. 페이지를 인식하기 때문에 처음부터 생성하는 대신 기존 메시지를 편집하거나 다듬는 데에도 사용할 수 있습니다.
-- [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)과 이벤트를 조회할 수 있으므로, 실제 Liquid를 사용한 개인화된 카피 추천을 요청할 수 있습니다.
+- [페이지 인식 컨텍스트]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context)를 사용하므로 작업 중인 채널이나 메시지를 다시 설명할 필요가 없습니다. 페이지를 인식하기 때문에 처음부터 생성하는 대신 기존 메시지를 편집하거나 다듬는 데에도 사용할 수 있습니다.
+- [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)과 이벤트를 조회할 수 있으므로, 실제 Liquid를 사용한 개인화된 카피 추천을 요청할 수 있습니다.
 - 대화를 이어가며 반복할 수 있습니다. 예를 들어, 다른 톤, 더 짧은 버전, 번역을 요청할 수 있습니다.
 
 ### 톤 {#generate-copy-tones}
@@ -59,7 +59,7 @@ Operator는 독립형 카피라이터보다 몇 가지 면에서 개선되었습
 
 ## Liquid 생성 {#generate-liquid}
 
-모든 메시지 작성기에서 Operator를 열어 개인화를 위한 Liquid를 생성하고 다듬을 수 있습니다. Operator는 [Liquid 구문]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/), 표준 및 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/), [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)를 이해하며, 코드가 무엇을 하는지 설명할 수 있습니다.
+모든 메시지 작성기에서 Operator를 열어 개인화를 위한 Liquid를 생성하고 다듬을 수 있습니다. Operator는 [Liquid 구문]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), 표준 및 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)를 이해하며, 코드가 무엇을 하는지 설명할 수 있습니다.
 
 ### Liquid를 생성할 수 있는 위치 {#generate-liquid-supported-channels}
 
@@ -67,7 +67,7 @@ Operator는 독립형 카피라이터보다 몇 가지 면에서 개선되었습
 
 ### Liquid 기능 {#generate-liquid-attributes}
 
-Operator는 Liquid에 매우 능숙합니다. 워크스페이스의 데이터를 기반으로 복잡한 Liquid 로직을 생성할 수 있으며, 여기에는 예시 값을 찾기 위한 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/) 데이터 조회도 포함됩니다. 또한 Campaign에 있는 기존 Liquid를 검토하고 설명할 수 있습니다.
+Operator는 Liquid에 매우 능숙합니다. 워크스페이스의 데이터를 기반으로 복잡한 Liquid 로직을 생성할 수 있으며, 여기에는 예시 값을 찾기 위한 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs) 데이터 조회도 포함됩니다. 또한 Campaign의 기존 Liquid를 검토하고 설명할 수 있습니다.
 
 ### 모범 사례 {#generate-liquid-best-practices}
 
@@ -142,14 +142,14 @@ Operator는 후속 질문을 할 수 있지만, 세부 정보를 미리 제공�
 
 Operator는 OpenAI의 AI 시스템이자 Braze 서드파티 제공업체인 [GPT Image 2.0](https://openai.com/index/introducing-chatgpt-images-2-0/)을 사용하여 이미지를 생성합니다. 이를 통해 자연어 설명에서 사실적인 이미지와 아트를 만들 수 있습니다.
 
-[미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)에서 **자산 업로드** 패널의 **Generate with Operator**를 선택하세요. 원하는 이미지를 설명하면 Operator가 이미지를 생성하고 미디어 라이브러리에 직접 저장합니다.
+[미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)에서 **자산 업로드** 패널의 **Generate with Operator**를 선택하세요. 원하는 이미지를 설명하면 Operator가 이미지를 생성하고 미디어 라이브러리에 직접 저장합니다.
 
 ### 프롬프트 팁 {#generate-images-prompt-tips}
 
 - 주제, 스타일, 분위기, 색상을 구체적으로 설명하세요. 세부 정보를 많이 포함할수록 더 좋은 결과를 얻을 수 있습니다.
 - 텍스트 입력만 가능하며, 참조 이미지 업로드는 지원되지 않습니다.
 - Operator 프롬프트에서 [브랜드 가이드라인](#apply-brand-guidelines)을 컨텍스트로 적용하면, Operator가 생성된 이미지에 직접 적용하여 결과물이 브랜드의 시각적 스타일을 반영합니다.
-- 이미지 생성은 일일 Operator 사용 한도에 포함됩니다. 자세한 내용은 [제한 사항]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/#limitations)을 참조하세요.
+- 이미지 생성은 일일 Operator 사용 한도에 포함됩니다. 자세한 내용은 [제한 사항]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting#limitations)을 참조하세요.
 
 ### 프롬프트 예시 {#generate-images-example-prompts}
 
@@ -159,9 +159,9 @@ Operator는 OpenAI의 AI 시스템이자 Braze 서드파티 제공업체인 [GPT
 
 ## 데이터 변환 코드 생성 {#generate-data-transformation-code}
 
-[데이터 변환]({{site.baseurl}}/user_guide/data/unification/data_transformation/) 편집기에서 **Insert Code**를 선택하여 수신 웹훅 페이로드를 유효한 Braze API 요청으로 변환하는 변환 코드를 생성합니다.
+[데이터 변환]({{site.baseurl}}/user_guide/data/unification/data_transformation) 편집기에서 **Insert Code**를 선택하여 수신 웹훅 페이로드를 유효한 Braze API 요청으로 변환하는 변환 코드를 생성합니다.
 
-변환을 만드는 단계별 지침은 [변환 만들기]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation/)를 참조하세요.
+변환을 만드는 단계별 지침은 [변환 만들기]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation)를 참조하세요.
 
 ### 프롬프트 예시 {#generate-data-transformation-example-prompts}
 
@@ -202,10 +202,10 @@ SMS, Android 푸시, iOS 푸시, 전통적인 인앱 메시지의 **테스트** 
 
 ## 데이터 프라이버시 및 보안 {#data-privacy-and-security}
 
-Operator는 OpenAI와 통합하여 출력을 생성합니다. Braze가 OpenAI에 보내는 정보, 해당 데이터의 사용 방식, 지적 재산권에 대한 자세한 내용은 [OpenAI와의 데이터 사용 방식]({{site.baseurl}}/user_guide/brazeai/operator/#how-data-is-used-with-openai)을 참조하세요.
+Operator는 OpenAI와 통합하여 출력을 생성합니다. Braze가 OpenAI에 보내는 정보, 해당 데이터의 사용 방식, 지적 재산권에 대한 자세한 내용은 [OpenAI와의 데이터 사용 방식]({{site.baseurl}}/user_guide/brazeai/operator#how-data-is-used-with-openai)을 참조하세요.
 
 ## 다음 단계 {#next-steps}
 
-- [Operator 시작하기]({{site.baseurl}}/user_guide/brazeai/operator/): Operator에 접근하고 사용하기
-- [액션 검토]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/): Operator가 제안한 변경 사항을 검토하고 승인하기
-- [문제 해결]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/): 일반적인 문제와 해결 방법 참조
+- [Operator 시작하기]({{site.baseurl}}/user_guide/brazeai/operator): Operator에 접근하고 사용하기
+- [액션 검토]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): Operator가 제안한 변경 사항을 검토하고 승인하기
+- [문제 해결]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting): 일반적인 문제와 해결 방법 참조

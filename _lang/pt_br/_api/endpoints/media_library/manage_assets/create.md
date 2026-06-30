@@ -15,15 +15,15 @@ description: "Este artigo descreve detalhes sobre o endpoint `POST /media_librar
 /media_library/create
 {% endapimethod %}
 
-> Use este endpoint para adicionar um ativo à [Biblioteca de mídia da Braze]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/) usando uma URL hospedada externamente (`asset_url`) ou dados de arquivo binário enviados no corpo da solicitação (`asset_file`). Este endpoint suporta imagens e arquivos ZIP que contêm imagens.
+> Use este endpoint para adicionar um ativo à [Biblioteca de mídia da Braze]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) usando uma URL hospedada externamente (`asset_url`) ou dados de arquivo binário enviados no corpo da solicitação (`asset_file`). Este endpoint suporta imagens e arquivos ZIP que contêm imagens.
 
 {% alert tip %}
-Você também pode chamar este endpoint por meio do [servidor MCP da Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server/) usando a função [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#media-library). Isso permite que ferramentas de IA como Claude e Cursor façam upload de ativos para sua biblioteca de mídia por meio de prompts em linguagem natural.
+Você também pode chamar este endpoint por meio do [servidor MCP da Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) usando a função [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library). Isso permite que ferramentas de IA como Claude e Cursor façam upload de ativos para sua biblioteca de mídia por meio de prompts em linguagem natural.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `media_library.create`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `media_library.create`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -154,7 +154,7 @@ Esta tabela lista possíveis erros de processamento.
 | `ZIP_FILE_TOO_LARGE` | 400 | O tamanho total descompactado do arquivo ZIP excede o limite de 5 MB. O objeto `meta` inclui o `zip_file_name` e `zip_file_size`. |
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | Uma entrada de arquivo dentro do ZIP não tem nome. Certifique-se de que o arquivo ZIP não está corrompido e adicione um nome para quaisquer entradas de arquivo sem nome. |
 | `ZIPPED_ENTITY_CANNOT_HAVE_NESTED_DIRECTORY` | 400 | O arquivo ZIP contém diretórios aninhados, que não são suportados. Todos os arquivos devem estar no nível raiz do ZIP. |
-| `GENERIC_ERROR` | 500 | Ocorreu um erro inesperado durante o upload. O objeto `meta` inclui a mensagem `original_error` para depuração. Tente novamente ou entre em contato com o [Suporte]({{site.baseurl}}/support_contact/). |
+| `GENERIC_ERROR` | 500 | Ocorreu um erro inesperado durante o upload. O objeto `meta` inclui a mensagem `original_error` para depuração. Tente novamente ou entre em contato com o [Suporte]({{site.baseurl}}/support_contact). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Erros de processamento" }
 
 

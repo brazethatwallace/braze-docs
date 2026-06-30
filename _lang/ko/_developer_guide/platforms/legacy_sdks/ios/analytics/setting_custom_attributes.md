@@ -14,7 +14,7 @@ noindex: true
 
 Braze는 사용자에게 속성을 할당하는 방법을 제공합니다. 대시보드에서 이러한 속성에 따라 사용자를 필터링하고 세분화할 수 있습니다.
 
-구현하기 전에 [모범 사례]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection)에서 커스텀 이벤트, 커스텀 속성 및 구매 이벤트가 제공하는 세분화 옵션 예제와 [이벤트 명명 규칙]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/)에 대한 참고 사항을 검토하세요.
+구현하기 전에 [모범 사례]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#user-data-collection)에서 커스텀 이벤트, 커스텀 속성 및 구매 이벤트가 제공하는 세분화 옵션 예제와 [이벤트 명명 규칙]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions)에 대한 참고 사항을 검토하세요.
 
 ## 기본 사용자 속성 할당하기 {#assigning-default-user-attributes}
 
@@ -54,7 +54,7 @@ Appboy.sharedInstance()?.user.firstName = "first_name"
 
 ## 커스텀 사용자 속성 할당하기 {#assigning-custom-user-attributes}
 
-기본 사용자 속성 외에도 Braze에서는 여러 가지 데이터 유형을 사용하여 커스텀 속성을 정의할 수 있습니다. 이러한 각 속성에서 지원하는 세분화 옵션에 대한 자세한 내용은 [사용자 데이터 수집]({{site.baseurl}}/developer_guide/analytics/)을 참조하세요.
+기본 사용자 속성 외에도 Braze에서는 여러 가지 데이터 유형을 사용하여 커스텀 속성을 정의할 수 있습니다. 이러한 각 속성에서 지원하는 세분화 옵션에 대한 자세한 내용은 [사용자 데이터 수집]({{site.baseurl}}/developer_guide/analytics)을 참조하세요.
 
 ### 문자열 값이 있는 커스텀 속성 {#custom-attribute-with-a-string-value}
 
@@ -233,7 +233,7 @@ Appboy.sharedInstance()?.user.incrementCustomUserAttribute("your_attribute_key",
 
 ### REST API를 통해 커스텀 속성 설정하기 {#setting-a-custom-attribute-via-the-rest-api}
 
-REST API를 사용하여 사용자 속성을 설정할 수도 있습니다. 자세한 내용은 [사용자 API 설명서]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)를 참조하세요.
+REST API를 사용하여 사용자 속성을 설정할 수도 있습니다. 자세한 내용은 [사용자 API 설명서]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data)를 참조하세요.
 
 ### 커스텀 속성 값 제한 {#custom-attribute-value-limits}
 
@@ -257,7 +257,7 @@ REST API를 사용하여 사용자 속성을 설정할 수도 있습니다. 자�
 
 앱에서 푸시 알림을 보낼 수 있도록 권한을 부여한 사용자의 기본 상태는 `ABKOptedin`입니다. iOS에서는 명시적인 옵트인이 필요하기 때문입니다.
 
-유효한 이메일 주소가 수신되면 자동으로 `ABKSubscribed`로 설정되지만, 명시적인 옵트인 프로세스를 설정하고 사용자의 명시적인 동의를 받은 후 이 값을 `OptedIn`으로 설정하는 것이 좋습니다. 자세한 내용은 [사용자 구독 관리하기]({{site.baseurl}}/user_guide/channels/email/subscriptions/)를 참조하세요.
+유효한 이메일 주소가 수신되면 자동으로 `ABKSubscribed`로 설정되지만, 명시적인 옵트인 프로세스를 설정하고 사용자의 명시적인 동의를 받은 후 이 값을 `OptedIn`으로 설정하는 것이 좋습니다. 자세한 내용은 [사용자 구독 관리하기]({{site.baseurl}}/user_guide/channels/email/subscriptions)를 참조하세요.
 
 ### 이메일 구독 설정하기 {#setting-email-subscriptions}
 
@@ -297,4 +297,4 @@ Appboy.sharedInstance()?.user.setPushNotificationSubscriptionType(ABKNotificatio
 {% endtab %}
 {% endtabs %}
 
-자세한 내용은 [사용자 구독 관리하기]({{site.baseurl}}/user_guide/channels/email/subscriptions/)를 참조하세요.
+자세한 내용은 [사용자 구독 관리하기]({{site.baseurl}}/user_guide/channels/email/subscriptions)를 참조하세요.

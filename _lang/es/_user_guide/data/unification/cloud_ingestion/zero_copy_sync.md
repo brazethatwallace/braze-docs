@@ -14,7 +14,7 @@ description: "Esta página ofrece un resumen sobre cómo desencadenar Canvas de 
 
 ### Pasos para una puesta en marcha rápida {#quick-start-steps}
 
-Si ya estás familiarizado con Braze CDI, ten en cuenta que la configuración de la sincronización de desencadenantes de Canvas sigue muy de cerca el proceso de [las integraciones de CDI de datos de usuario]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/), con las siguientes salvedades:
+Si ya estás familiarizado con Braze CDI, ten en cuenta que la configuración de la sincronización de desencadenantes de Canvas sigue muy de cerca el proceso de [las integraciones de CDI de datos de usuario]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations), con las siguientes salvedades:
 
 - Solo se admiten identificadores de ID externo o alias de usuario. Los correos electrónicos y los números de teléfono no son identificadores válidos.
 - Solo se pueden sincronizar los usuarios existentes de Braze. No se pueden crear nuevos usuarios.
@@ -81,7 +81,7 @@ GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
 
 ##### Paso 1.3: Configurar políticas de red {#step-13-configure-network-policies}
 
-Si tu cuenta tiene políticas de red, incluye las direcciones IP de Braze en la lista de permitidos para habilitar la conexión del servicio CDI. Para ver la lista de direcciones IP, consulta [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-15-allow-braze-ips-in-snowflake-network-policy-optional).
+Si tu cuenta tiene políticas de red, incluye las direcciones IP de Braze en la lista de permitidos para habilitar la conexión del servicio CDI. Para ver la lista de direcciones IP, consulta [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-15-allow-braze-ips-in-snowflake-network-policy-optional).
 
 {% endtab %}
 {% tab Redshift %}
@@ -128,7 +128,7 @@ GRANT SELECT ON TABLE CANVAS_TRIGGERS_SYNC TO braze_user;
 
 ##### Paso 1.3: Configurar políticas de red
 
-Si tu cuenta tiene políticas de red, incluye las direcciones IP de Braze en la lista de permitidos para habilitar la conexión del servicio CDI. Para ver la lista de direcciones IP, consulta [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=redshift#step-13-allow-access-to-braze-ips).
+Si tu cuenta tiene políticas de red, incluye las direcciones IP de Braze en la lista de permitidos para habilitar la conexión del servicio CDI. Para ver la lista de direcciones IP, consulta [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=redshift#step-13-allow-access-to-braze-ips).
 
 {% endtab %}
 {% tab BigQuery %}
@@ -183,7 +183,7 @@ Crea un usuario y concédele permisos. Si ya tienes credenciales de otra sincron
 Después de conceder los permisos, genera una clave JSON. Consulta [Crear y eliminar claves](https://cloud.google.com/iam/docs/keys-create-delete) para obtener instrucciones. La subirás más tarde al panel de Braze.
 
 ##### Paso 1.4: Configurar políticas de red {#step-14-configure-network-policies}
-Si tu cuenta tiene políticas de red, incluye las direcciones IP de Braze en la lista de permitidos para habilitar la conexión del servicio CDI. Para ver la lista de direcciones IP, consulta [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=bigquery#step-13-allow-access-to-braze-ips).
+Si tu cuenta tiene políticas de red, incluye las direcciones IP de Braze en la lista de permitidos para habilitar la conexión del servicio CDI. Para ver la lista de direcciones IP, consulta [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=bigquery#step-13-allow-access-to-braze-ips).
 
 {% endtab %}
 {% tab Databricks %}
@@ -244,7 +244,7 @@ Crea un token de acceso personal en Databricks:
 
 ##### Paso 1.4: Configurar políticas de red
 
-Si tu cuenta tiene políticas de red, incluye las direcciones IP de Braze en la lista de permitidos para habilitar la conexión del servicio CDI. Para ver la lista de direcciones IP, consulta [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=databricks#step-13-allow-access-to-braze-ips).
+Si tu cuenta tiene políticas de red, incluye las direcciones IP de Braze en la lista de permitidos para habilitar la conexión del servicio CDI. Para ver la lista de direcciones IP, consulta [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=databricks#step-13-allow-access-to-braze-ips).
 
 {% endtab %}
 {% tab Fabric %}
@@ -271,7 +271,7 @@ Crea una entidad de servicio y concede permisos. Si ya tienes credenciales de ot
 
 ##### Paso 1.3: Configurar políticas de red
 
-Si tu cuenta tiene políticas de red, incluye las direcciones IP de Braze en la lista de permitidos para habilitar la conexión del servicio CDI. Para ver la lista de direcciones IP, consulta [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=microsoft%20fabric#step-15-allow-braze-ips-in-firewall-optional).
+Si tu cuenta tiene políticas de red, incluye las direcciones IP de Braze en la lista de permitidos para habilitar la conexión del servicio CDI. Para ver la lista de direcciones IP, consulta [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=microsoft%20fabric#step-15-allow-braze-ips-in-firewall-optional).
 
 {% endtab %}
 {% tab Almacenamiento de archivos %}
@@ -286,7 +286,7 @@ Para sincronizar los desencadenantes de Canvas desde el almacenamiento de archiv
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 1.3: Configurar políticas de red" }
 
 {% alert tip %}
-Los nombres de los archivos deben seguir las reglas de AWS y ser únicos. Añade marcas de tiempo para garantizar la unicidad. Para obtener más información sobre la sincronización con Amazon S3, consulta [Integraciones de almacenamiento de archivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/).
+Los nombres de los archivos deben seguir las reglas de AWS y ser únicos. Añade marcas de tiempo para garantizar la unicidad. Para obtener más información sobre la sincronización con Amazon S3, consulta [Integraciones de almacenamiento de archivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
 {% endalert %}
 
 {% endtab %}
@@ -294,9 +294,9 @@ Los nombres de los archivos deben seguir las reglas de AWS y ser únicos. Añade
 
 #### Paso 2: Configura tu Canvas de destino {#step-2-configure-your-destination-canvas}
 
-1. Configura tu Canvas de destino para los desencadenantes de Canvas. Crea un Canvas nuevo o selecciona uno existente que se desencadene por API. Consulta [Tipos de programación de entradas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types) para obtener instrucciones sobre cómo crear un Canvas con un tipo de programación de entrega desencadenado por API.
+1. Configura tu Canvas de destino para los desencadenantes de Canvas. Crea un Canvas nuevo o selecciona uno existente que se desencadene por API. Consulta [Tipos de programación de entradas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#entry-schedule-types) para obtener instrucciones sobre cómo crear un Canvas con un tipo de programación de entrega desencadenado por API.
 2. Después de seleccionar el tipo de programación de entrega desencadenada por API, continúa con la configuración y crea tu Canvas. Los Canvas pueden variar desde simples envíos de un solo mensaje hasta complejos flujos de trabajo para clientes con múltiples pasos.
-3. Dentro de tus pasos en Canvas, utiliza [las propiedades de entrada de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) para personalizar los mensajes con los campos de propiedades que planeas sincronizar desde tu tabla de origen.
+3. Dentro de tus pasos en Canvas, utiliza [las propiedades de entrada de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) para personalizar los mensajes con los campos de propiedades que planeas sincronizar desde tu tabla de origen.
   * Por ejemplo, si en el paso 1 instrumentaste un campo de propiedades para `account_balance`, utilizarías la siguiente plantilla Liquid para personalizar tu mensaje: `\{\{canvas_entry_properties.\$\{account_balance\}\}\}`.
 5. Después de crear tu Canvas, lánzalo y continúa con el [paso 3](#step-3-create-your-zero-copy-sync).
 
@@ -327,7 +327,7 @@ Los desencadenantes de CDI Canvas utilizan tu límite de velocidad de la REST AP
 Cada ejecución de sincronización introduce a los usuarios en su Canvas de destino respectivo a una tasa máxima de aproximadamente 3,75 millones de usuarios por hora. Prepárate para tiempos de entrada más largos desde el origen hasta el Canvas cuando:
 
 * Sincronices más de 3,75 millones de usuarios por cada ejecución de sincronización.
-* Uses los desencadenantes de CDI Canvas cuando ya hayas saturado el [límite de velocidad de tu REST API para `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit).
+* Uses los desencadenantes de CDI Canvas cuando ya hayas saturado el [límite de velocidad de tu REST API para `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#rate-limit).
 
 Ten en cuenta lo siguiente sobre la CDI sin copia cuando el Archivado de mensajes está habilitado:
 

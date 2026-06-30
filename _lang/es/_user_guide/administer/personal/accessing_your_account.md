@@ -13,7 +13,7 @@ description: "Este artículo explica cómo obtener tu cuenta de Braze, cómo ini
 
 Si eres el primer usuario de Braze de tu empresa e inicias sesión por primera vez, recibirás un correo electrónico de bienvenida de `@alerts.braze.com` pidiéndote que confirmes tu correo electrónico e inicies sesión el primer día de tu contrato.
 
-Después de confirmar tu cuenta, puedes añadir usuarios adicionales desde la página [Usuarios de la empresa]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/) de tu dashboard. Todos los usuarios recibirán un correo electrónico pidiéndoles que confirmen su cuenta después de haber sido añadidos.
+Después de confirmar tu cuenta, puedes añadir usuarios adicionales desde la página [Usuarios de la empresa]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users) de tu dashboard. Todos los usuarios recibirán un correo electrónico pidiéndoles que confirmen su cuenta después de haber sido añadidos.
 
 Si no eres el primer usuario en la cuenta de Braze de tu empresa, ponte en contacto con el administrador de la cuenta de Braze de tu empresa y pídele que cree tu cuenta. Entonces recibirás un correo electrónico de bienvenida de `@alerts.braze.com` pidiéndote que confirmes tu correo electrónico e inicies sesión.
 
@@ -21,13 +21,13 @@ Si no eres el primer usuario en la cuenta de Braze de tu empresa, ponte en conta
 
 Ya sea tu primera vez iniciando sesión o la centésima, así es como accedes a tu dashboard. Si eres el primer usuario de tu empresa, sigue las indicaciones de la sección anterior. De lo contrario, puedes iniciar sesión después de que el administrador de Braze de tu empresa cree tu cuenta.
 
-Puedes iniciar sesión desde el sitio principal de [Braze.com](https://www.braze.com), o usar la URL de tu dashboard que corresponde a tu [instancia de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) específica. Para tu comodidad, Braze ofrece varias opciones de inicio de sesión único (SSO), como:
+Puedes iniciar sesión desde el sitio principal de [Braze.com](https://www.braze.com), o usar la URL de tu dashboard que corresponde a tu [instancia de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) específica. Para tu comodidad, Braze ofrece varias opciones de inicio de sesión único (SSO), como:
 
-* [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/)
-    * [Aprovisionamiento justo a tiempo de SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning/)
-* [Microsoft Entra SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso/)
-* [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta/)
-* [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin/)
+* [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup)
+    * [Aprovisionamiento justo a tiempo de SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning)
+* [Microsoft Entra SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso)
+* [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta)
+* [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin)
 
 Después de iniciar sesión en Braze con SSO, ya no podrás usar tu contraseña para iniciar sesión en el dashboard. Ambas direcciones de correo electrónico dirigirán los correos al mismo buzón de entrada, pero Braze las reconocerá como cuentas separadas cuando inicies sesión. Borrar las cookies cerrará tu sesión, por lo que se perderá el trabajo no guardado.
 
@@ -61,7 +61,7 @@ Si tu proveedor de correo electrónico no admite alias con `+`, puedes crear ali
 
 La característica de desarrolladores multiempresa permite compartir una única cuenta de usuario entre múltiples empresas. Los usuarios pueden alternar entre diferentes dashboards de empresa desde su menú de perfil de usuario.
 
-Si tienes SSO y quieres configurar desarrolladores multiempresa, necesitas habilitar un ID de entidad SAML personalizado configurando una integración SAML SSO personalizada. Sigue los pasos en [Inicio de sesión iniciado por el proveedor de servicios (SP)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/), pero aplica estos cambios:
+Si tienes SSO y quieres configurar desarrolladores multiempresa, necesitas habilitar un ID de entidad SAML personalizado configurando una integración SAML SSO personalizada. Sigue los pasos en [Inicio de sesión iniciado por el proveedor de servicios (SP)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), pero aplica estos cambios:
 - Cambia el **Entity ID** a `braze_dashboard_<companyID>` para cada integración de dashboard.
 - Ponte en contacto con tu administrador del éxito del cliente o director de cuentas para habilitar el feature flipper `saml_sso_custom_entity_id` para cada dashboard.
 
@@ -90,7 +90,7 @@ Borrar las cookies cierra tu sesión, por lo que se perderá el trabajo no guard
 - [Borrar cookies y datos de sitios en Firefox](https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox)
 - [Eliminar todas las cookies en Microsoft Edge](https://support.microsoft.com/en-us/windows/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use-168dab11-0753-043d-7c16-ede5947fc64d#bkmk_deleteallcookies)
 
-Si borrar la caché y las cookies de tu navegador no resuelve tus problemas, ponte en contacto con [Soporte]({{site.baseurl}}/support_contact/).
+Si borrar la caché y las cookies de tu navegador no resuelve tus problemas, ponte en contacto con [Soporte]({{site.baseurl}}/support_contact).
 
 ### Error "Aw, Snap!" en Google Chrome {#aw-snap-error-in-google-chrome}
 
@@ -100,11 +100,11 @@ Si Google Chrome muestra un error "Aw, Snap!", Chrome tiene problemas para carga
 
 Este error puede aparecer cuando un usuario de la empresa no pertenece a ningún espacio de trabajo. Para solucionarlo:
 
-1. Ve a la página [Usuarios de la empresa]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/).
+1. Ve a la página [Usuarios de la empresa]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users).
 2. Comprueba si el usuario ha sido añadido a un espacio de trabajo.
 3. Si no forma parte de ningún espacio de trabajo, añádelo y asigna los permisos correspondientes.
 4. Pide al usuario que actualice su dashboard.
-5. Si el problema persiste, ponte en contacto con [Soporte]({{site.baseurl}}/support_contact/).
+5. Si el problema persiste, ponte en contacto con [Soporte]({{site.baseurl}}/support_contact).
 
 ### Acceder al editor de arrastrar y soltar {#accessing-the-drag-and-drop-editor}
 
@@ -116,7 +116,7 @@ El editor puede experimentar problemas de carga debido a lo siguiente:
 - **Error grave:** Puede involucrar un problema subyacente de infraestructura o producto. Puedes consultar nuestra [página de estado del sistema de Braze](https://braze.statuspage.io/) ya que probablemente estemos al tanto de la situación y trabajando activamente para resolverla.
 
 {% alert important %}
-Si sigues experimentando problemas, [abre un ticket de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support/). Antes de hacerlo, verifica que tu administrador de TI haya confirmado que `*.bz-rndr.com` esté en la lista de permitidos de tu lado.
+Si sigues experimentando problemas, [abre un ticket de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support). Antes de hacerlo, verifica que tu administrador de TI haya confirmado que `*.bz-rndr.com` esté en la lista de permitidos de tu lado.
 {% endalert %}
 
 ### Acceder a Braze Learning {#accessing-braze-learning}
@@ -125,9 +125,9 @@ Si tienes problemas para iniciar sesión en Braze Learning y te encuentras atrap
 
 1. Si tienes múltiples cuentas de Braze, iniciar sesión con la cuenta incorrecta dos veces te envía al dashboard de Braze. Confirma que estás iniciando sesión en la cuenta correcta.
 2. Si tienes un bloqueador de anuncios, confirma que esté desactivado. Puede bloquear las cookies necesarias para la funcionalidad de inicio de sesión único.
-3. Ve a **Company Settings** > **Security Settings** y verifica que el inicio de sesión único (SSO) esté activado.
+3. Ve a **Configuración de empresa** > **Configuración de seguridad** y verifica que el inicio de sesión único (SSO) esté activado.
 4. Confirma que tu perfil de usuario del dashboard incluya tanto un nombre como un apellido. No tener un apellido puede interrumpir el proceso de inicio de sesión.
-5. Accede a Braze Learning desde tu dashboard yendo a **Support** > **Braze Learning**.
+5. Accede a Braze Learning desde tu dashboard yendo a **Soporte** > **Braze Learning**.
 6. Si sigues experimentando problemas, considera volver a crear tu cuenta. Los usuarios que accedieron a Braze Learning durante la fase de prueba gratuita pueden tener dificultades para acceder ahora.
 
 ### Problemas con la autenticación de dos factores (2FA) {#two-factor-authentication-2fa-issues}
@@ -136,8 +136,8 @@ Si un usuario tiene problemas con la autenticación de dos factores (2FA) y no p
 
 Un administrador debe restablecer la 2FA para el usuario afectado haciendo lo siguiente:
 
-1. Ve a **Manage Users**.
-2. Selecciona **Edit User** para el usuario que tiene problemas con la 2FA.
+1. Ve a **Administrar usuarios**.
+2. Selecciona **Editar usuario** para el usuario que tiene problemas con la 2FA.
 3. Elige la opción para restablecer la 2FA.
 4. Confirma el restablecimiento de la 2FA cuando se te solicite.
 5. Si el restablecimiento no resuelve el problema de inmediato, borra tus cookies y caché.
@@ -166,9 +166,9 @@ Puedes identificar qué tipo de bloqueo estás experimentando por el mensaje de 
 #### Error de contraseña {#password-error}
 
 La seguridad de tu cuenta es importante para nosotros, por lo que se requieren contraseñas para iniciar sesión en tu cuenta de Braze.
-- Verifica que estás iniciando sesión en la [instancia correcta del dashboard de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/). Consulta con tu administrador de cuenta o director de cuentas de Braze para asegurarte.
+- Verifica que estás iniciando sesión en la [instancia correcta del dashboard de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Consulta con tu administrador de cuenta o director de cuentas de Braze para asegurarte.
 - Tu contraseña puede haber expirado, por lo que necesitas [restablecerla](#resetting-your-password).
-- Si usas un servicio de [inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/), consulta con tu administrador de cuenta que la configuración se haya completado correctamente.
+- Si usas un servicio de [inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), consulta con tu administrador de cuenta que la configuración se haya completado correctamente.
 - Si tu empresa está en varias instancias de Braze, es posible que estés usando el correo electrónico incorrecto para iniciar sesión.
 
 En caso de duda, siempre puedes [restablecer tu contraseña](#resetting-your-password).
@@ -177,7 +177,7 @@ En caso de duda, siempre puedes [restablecer tu contraseña](#resetting-your-pas
 
 Si estás usando la misma máquina que usas habitualmente para iniciar sesión, Braze debería detectar automáticamente la instancia correcta. Sin embargo, si no lo hace o estás iniciando sesión por primera vez, considera lo siguiente:
 
-- Verifica que estás iniciando sesión en la [instancia correcta del dashboard de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/). Consulta con tu administrador de cuenta o director de cuentas de Braze para asegurarte.
+- Verifica que estás iniciando sesión en la [instancia correcta del dashboard de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Consulta con tu administrador de cuenta o director de cuentas de Braze para asegurarte.
 - Si tu empresa está en varias instancias de Braze, es posible que estés usando el correo electrónico incorrecto para iniciar sesión.
 
 #### Suspensión de cuenta {#account-suspension}
@@ -201,11 +201,11 @@ Si el problema ocurre en todos los navegadores, intenta lo siguiente:
 - **Verifica tu conexión de red:** Intenta desactivar tu VPN, si es posible, o desactiva y vuelve a activar tu conexión de red.
 - **Reinicia tu dispositivo:** Intenta iniciar sesión en tu dashboard de Braze después de reiniciar tu dispositivo.
 
-Si has resuelto los problemas anteriores y tu dashboard aún no carga o no funciona como se espera, ponte en contacto con [Soporte]({{site.baseurl}}/braze_support/).
+Si has resuelto los problemas anteriores y tu dashboard aún no carga o no funciona como se espera, ponte en contacto con [Soporte]({{site.baseurl}}/braze_support).
 
 ### El usuario no pertenece a ningún espacio de trabajo {#the-user-belongs-to-no-workspace}
 
-Verifica esto yendo a **Settings** > **Company Users** y comprobando los permisos a nivel de espacio de trabajo del usuario. Añade los espacios de trabajo necesarios a **Workspaces**.
+Verifica esto yendo a **Configuración** > **Usuarios de la empresa** y comprobando los permisos a nivel de espacio de trabajo del usuario. Añade los espacios de trabajo necesarios a **Espacios de trabajo**.
 
 ### Solución de problemas como usuario nuevo {#troubleshooting-as-a-new-user}
 
@@ -222,11 +222,11 @@ Si eres un nuevo usuario de Braze y tienes problemas para iniciar sesión o acce
 - Restablecer la 2FA: si tienes problemas para configurar la 2FA, tu administrador puede restablecer la 2FA para tu cuenta de usuario en la configuración.
 - Volver a añadir al usuario: si los problemas persisten, el administrador puede eliminar tu cuenta de usuario del dashboard y volver a añadirte. Esto permite la creación del usuario con los mismos datos.
 
-Si los problemas continúan después de estos pasos, ponte en contacto con [Soporte]({{site.baseurl}}/braze_support/) para obtener más ayuda.
+Si los problemas continúan después de estos pasos, ponte en contacto con [Soporte]({{site.baseurl}}/braze_support) para obtener más ayuda.
 
 ## Próximos pasos {#next-steps}
 
 Después de acceder a tu cuenta, explora estos recursos:
 
-- [El dashboard de Braze]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/) para aprender a navegar por las características y herramientas clave.
-- [Configuración de idioma]({{site.baseurl}}/user_guide/administer/personal/language_settings/) para establecer tu idioma preferido del dashboard.
+- [El dashboard de Braze]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard) para aprender a navegar por las características y herramientas clave.
+- [Configuración de idioma]({{site.baseurl}}/user_guide/administer/personal/language_settings) para establecer tu idioma preferido del dashboard.

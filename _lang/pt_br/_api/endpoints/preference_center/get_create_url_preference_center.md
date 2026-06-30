@@ -22,7 +22,7 @@ Cada URL da Central de Preferências é exclusiva para cada usuário.
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `preference_center.user.get`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `preference_center.user.get`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -30,19 +30,19 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 ## Parâmetros de caminho {#path-parameters}
 
-| Parâmetro | Obrigatório | Tipo de dados | Descrição |
+| Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `preferenceCenterExternalID` | Obrigatório | String | O ID da sua Central de Preferências. |
-| `userID` | Obrigatório | String | O ID do usuário. |
-{: aria-label="Path parameters" }
+|`preferenceCenterExternalID`| Obrigatória | String | O ID da sua Central de Preferências. |
+|`userID`| Obrigatória | String | O ID do usuário. |
+{: aria-label="Parâmetros de caminho" }
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatório | Tipo de dados | Descrição |
+| Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `preference_center_api_id` | Obrigatório | String | O ID da sua Central de Preferências. |
-| `external_id` | Obrigatório | String | O ID externo de um usuário. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `preference_center_api_id`| Obrigatória | String | O ID da sua Central de Preferências. |
+| `external_id`| Obrigatória | String | O ID externo de um usuário. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 

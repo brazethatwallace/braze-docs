@@ -19,8 +19,8 @@ search_rank: 5
 Antes de enviar mensagens no app, você precisa integrar o [SDK da Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) ao seu app ou site. Nenhuma configuração adicional é necessária.
 
 Para versões mínimas do SDK e requisitos específicos de funcionalidades, consulte:
-- [Editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)
-- [Tipos de mensagem]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/)
+- [Editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
+- [Tipos de mensagem]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types)
 
 ## Casos de uso {#use-cases}
 
@@ -28,10 +28,10 @@ Com o rico nível de conteúdo oferecido pelas mensagens no app, você pode apro
 
 | Caso de uso | Explicação |
 | --- | --- |
-| Preparação para push | Execute uma Campaign de [preparação para push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) usando uma mensagem no app rica para mostrar aos seus clientes o benefício de aceitar notificações por push do seu app ou site, e apresente a eles uma solicitação para conceder permissão de push.
+| Preparação para push | Execute uma Campaign de [preparação para push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) usando uma mensagem no app rica para mostrar aos seus clientes o benefício de aceitar notificações por push do seu app ou site, e apresente a eles uma solicitação para conceder permissão de push.
 | Vendas e promoções | Use mensagens no app modais para receber os clientes com mídia visualmente atraente contendo códigos de promoção estáticos ou ofertas. Incentive-os a fazer compras ou conversões quando, de outra forma, não fariam. |
 | Incentivar a adoção de funcionalidades | Incentive os clientes a usar outras partes do seu app ou aproveitar um serviço. |
-| Campaigns altamente personalizadas | Posicione mensagens no app como a primeira coisa que seus clientes veem ao entrar no seu app ou site. Adicione alguns recursos de personalização da Braze, como [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), para motivar os usuários a agir e, assim, tornar sua comunicação mais eficaz.
+| Campaigns altamente personalizadas | Posicione mensagens no app como a primeira coisa que seus clientes veem ao entrar no seu app ou site. Adicione alguns recursos de personalização da Braze, como [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), para motivar os usuários a agir e, assim, tornar sua comunicação mais eficaz.
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 Outros casos de uso a considerar incluem:
@@ -70,13 +70,13 @@ As mensagens em tela cheia são exatamente o que você espera — elas ocupam to
 {% endtab %}
 {% endtabs %}
 
-Além desses modelos de mensagem padrão, você também pode personalizar ainda mais suas mensagens usando mensagens no app com HTML personalizado, modais web com CSS ou formulários de captura de e-mail web. Para saber mais, consulte [Personalizar]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/).
+Além desses modelos de mensagem padrão, você também pode personalizar ainda mais suas mensagens usando mensagens no app com HTML personalizado, modais web com CSS ou formulários de captura de e-mail web. Para saber mais, consulte [Personalizar]({{site.baseurl}}/user_guide/channels/in_app_messages/customize).
 
-Para saber como a entrega com modelo no momento da exibição afeta o registro de **abort**, consulte [FAQ sobre mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/).
+Para saber como a entrega com modelo no momento da exibição afeta o registro de **abort**, consulte [FAQ sobre mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/faq).
 
 ## Próximos passos {#next-steps}
 
-- [Crie uma mensagem no app com o editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)
-- [Crie uma mensagem no app com o editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)
+- [Crie uma mensagem no app com o editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
+- [Crie uma mensagem no app com o editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}

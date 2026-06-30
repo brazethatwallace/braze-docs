@@ -69,7 +69,7 @@ SMS、MMS、またはRCSのキャンペーンを構築する際に参照が必�
 
 顧客のプライバシーは、有意義で敬意のある関係の鍵です。顧客のプライバシーと情報を尊重することは、顧客とブランドの間に絆を築くもう1つの機会です。マーケティングツールを使用すると、データとプライバシーが後回しになることがあります。
 
-幸いなことに、Brazeは[GDPR]({{site.baseurl}}/dp-technical-assistance/)を含む多くの[セキュリティ規制]({{site.baseurl}}/developer_guide/disclosures/security_qualifications/#security-qualifications)のガイドラインに従っています。
+幸いなことに、Brazeは[GDPR]({{site.baseurl}}/developer_guide/disclosures/security_qualifications#security-qualifications)を含む多くの[セキュリティ規制]({{site.baseurl}}/dp-technical-assistance)のガイドラインに従っています。
 
 [CTIA](https://www.ctia.org/)（米国のワイヤレス通信業界を代表する業界団体）は、明確でわかりやすいプライバシーポリシーを維持し、目立つように表示することを推奨しています。
 
@@ -81,13 +81,13 @@ SMS、MMS、またはRCSのキャンペーンを構築する際に参照が必�
 
 [全国電話勧誘拒否登録簿](https://www.donotcall.gov/)に準拠することを忘れないでください。
 
-Brazeは[購読グループ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/)を使用して、同意レベルに基づいてユーザーのグループを管理します。
+Brazeは[購読グループ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing)を使用して、同意レベルに基づいてユーザーのグループを管理します。
 
 #### ファジーオプトアウトによるコンプライアンス {#compliance-through-fuzzy-opt-out}
 
 非標準のオプトアウトリクエストの認識を自動化するために、米国の顧客の場合はサブスクリプショングループ設定でファジーオプトアウトを有効にすることができます。
 
-- **即時設定：** デフォルトでは、ファジーオプトアウトは確認メッセージを送信します。確認の代わりに即時オプトアウトを実行するには、[ファジーオプトアウトセクション]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/#configure-fuzzy-opt-out)の手順に従ってワークスペースを設定できます。
+- **即時設定：** デフォルトでは、ファジーオプトアウトは確認メッセージを送信します。確認の代わりに即時オプトアウトを実行するには、[ファジーオプトアウトセクション]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out#configure-fuzzy-opt-out)の手順に従ってワークスペースを設定できます。
 - **手動キーワード追加：** デフォルトで提供されているキーワードに加えて、「REMOVE」「END」「HALT」「CEASE」「DISCONTINUE」「UNSUBSCRIBE」などのリスクの高い単語を**オプトアウト**キーワードカテゴリに手動で追加することをお勧めします。
 
 ### スパムと送信頻度 {#spam-and-cadence}

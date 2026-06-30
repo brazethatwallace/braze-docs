@@ -1,15 +1,15 @@
 ---
-nav_title: Test A/B projection
-article_title: Projection des tests A/B
+nav_title: Projection de test A/B
+article_title: Projection de test A/B
 page_order: 20
 hidden: true
 page_type: reference
-description: "Cet article explique comment fonctionne la projection des tests A/B, comment exécuter une projection et comment Braze utilise vos données."
+description: "Cet article explique comment fonctionne la projection de test A/B, comment exécuter une projection et comment Braze utilise vos données."
 ---
 
-# Projection des tests A/B {#ab-test-projection}
+# Projection de test A/B {#ab-test-projection}
 
-> La projection de tests A/B utilise des réseaux neuronaux pour prédire les lignes d'objet les plus performantes. Notre modèle extrait les caractéristiques linguistiques des tests A/B gagnants réalisés sur Braze et utilise ces schémas linguistiques statistiques pour apprendre à notre intelligence artificielle ce qui fait de meilleures lignes d'objet.
+> La projection de test A/B utilise des réseaux neuronaux pour prédire les lignes d'objet les plus performantes. Notre modèle extrait les caractéristiques linguistiques des tests A/B gagnants réalisés sur Braze et utilise ces schémas linguistiques statistiques pour apprendre à notre intelligence artificielle ce qui fait de meilleures lignes d'objet.
 
 {% alert important %}
 Cette fonctionnalité est actuellement disponible en accès anticipé. Si vous souhaitez participer à l'accès anticipé, contactez votre gestionnaire de satisfaction client ou votre gestionnaire de compte Braze.
@@ -28,7 +28,7 @@ Une fenêtre modale s'ouvre avec les lignes d'objet des variantes de messages qu
 La ligne d'objet que notre intelligence artificielle prédit comme étant la meilleure sera mise en évidence avec le libellé **Projected Winner**.
 
 {% alert note %}
-Pour les [campagnes push multiplateformes]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/), le test A/B est pris en charge lorsque vous sélectionnez plusieurs plateformes.
+Pour les [campagnes push multiplateformes]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push), le test A/B est pris en charge lorsque vous sélectionnez plusieurs plateformes.
 {% endalert %}
 
 ### Quelle est la précision des projections ? {#how-accurate-are-the-projections}

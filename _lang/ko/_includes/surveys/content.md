@@ -4,7 +4,7 @@
   - channel (필수): "in_app_message" 또는 "landing_page"
 {% endcomment %}
 
-{% multi_lang_include early_access_beta_alert.md feature='Braze surveys' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Braze surveys' %}
 
 ## 필수 조건 {#prerequisites}
 
@@ -12,13 +12,13 @@
 
 {% if include.channel == 'in_app_message' %}
 - Braze 워크스페이스에서 인앱 메시지에 대한 액세스 권한이 있어야 합니다
-- [드래그 앤 드롭 편집기에서 인앱 메시지 생성]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)에 익숙해야 합니다
+- [드래그 앤 드롭 편집기에서 인앱 메시지 생성]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)에 익숙해야 합니다
 {% elsif include.channel == 'landing_page' %}
 - Braze 워크스페이스에서 랜딩 페이지에 대한 액세스 권한이 있어야 합니다
-- [랜딩 페이지 생성]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)에 익숙해야 합니다
+- [랜딩 페이지 생성]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)에 익숙해야 합니다
 {% else %}
 - Braze 워크스페이스에서 랜딩 페이지, 인앱 메시지 또는 둘 다에 대한 액세스 권한이 있어야 합니다
-- [랜딩 페이지 생성]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) 및 [드래그 앤 드롭 편집기에서 인앱 메시지 생성]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)에 익숙해야 합니다
+- [랜딩 페이지 생성]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages) 및 [드래그 앤 드롭 편집기에서 인앱 메시지 생성]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)에 익숙해야 합니다
 {% endif %}
 
 ## 설문조사 생성 {#create-a-survey}
@@ -26,14 +26,14 @@
 얼리 액세스 기간 동안 설문조사는 기존 메시지 작성 플로우 내에서 구축됩니다.
 
 {% if include.channel == 'in_app_message' %}
-1. Campaign 또는 Canvas에서 [인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)를 생성합니다.
+1. Campaign 또는 Canvas에서 [인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)를 생성합니다.
 2. 메시지 유형으로 **Survey**를 선택합니다.
 {% elsif include.channel == 'landing_page' %}
 1. **메시징** > **랜딩 페이지**로 이동합니다.
 2. 새 랜딩 페이지를 생성합니다.
 3. 메시지 유형으로 **Survey**를 선택합니다.
 {% else %}
-1. **메시징** > **랜딩 페이지**로 이동하거나, Campaign 또는 Canvas에서 [인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)를 생성합니다.
+1. **메시징** > **랜딩 페이지**로 이동하거나, Campaign 또는 Canvas에서 [인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)를 생성합니다.
 2. 새 메시지를 생성합니다.
 3. 메시지 유형으로 **Survey**를 선택합니다.
 {% endif %}
@@ -47,7 +47,7 @@
 - **페이지 1**: 사용자가 질문에 답변하는 페이지
 - **확인 페이지**: 설문조사가 제출되는 페이지
 
-기본적으로 버튼은 **Next page**에 연결되어 있습니다. 이 동작을 변경하려면 **Actions** 패널에서 각 버튼을 업데이트합니다.
+기본적으로 버튼은 **Next page**에 연결되어 있습니다. 이 동작을 변경하려면 **Actions** 패널에서 각 버튼을 업데이트하세요.
 
 ![인앱 메시지 설문조사 페이지 플로우 및 동작 설정.]({% image_buster /assets/img/surveys/iam-survey-nav.png %}){: style="max-width:40%;"}
 
@@ -60,10 +60,10 @@
 {% if include.channel == 'in_app_message' %}
 - [인앱 메시지 드래그 앤 드롭 편집기 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
 {% elsif include.channel == 'landing_page' %}
-- [랜딩 페이지 양식 블록]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#form-blocks)
+- [랜딩 페이지 양식 블록]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
 {% else %}
 - [인앱 메시지 드래그 앤 드롭 편집기 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
-- [랜딩 페이지 양식 블록]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#form-blocks)
+- [랜딩 페이지 양식 블록]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
 {% endif %}
 
 설문조사에 다음 양식 블록을 추가할 수 있습니다:
@@ -112,7 +112,7 @@
 
 ## 보고서 및 분석 보기 {#view-reporting-and-analytics}
 
-시작 후 다음에서 결과를 확인합니다:
+시작 후 다음에서 결과를 확인하세요:
 
 {% if include.channel == 'in_app_message' %}
 - 인앱 메시지 설문조사의 **Responses** 탭

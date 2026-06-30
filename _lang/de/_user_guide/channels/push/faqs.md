@@ -14,7 +14,7 @@ channel:
 
 ## Warum werden Push-Benachrichtigungen manchmal verzögert zugestellt? {#why-are-push-notifications-sometimes-delayed}
 
-Die Zustellung durchläuft in der Regel drei Phasen: die **Verarbeitung** durch Braze (Segmentierung, Zeitplanung und Übergabe an den Anbieter), den Transport von Braze zu **APNs oder FCM** und die Zustellung vom Anbieter an das **Gerät**. Verzögerungen können in jeder Phase auftreten. Braze hat keinen Einblick in die Warteschlangen des Anbieters oder des Geräts. Verwenden Sie [Verbose Logging]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/) auf dem Client, wenn Sie geräteseitige Timing-Probleme eingrenzen müssen.
+Die Zustellung durchläuft in der Regel drei Phasen: die **Verarbeitung** durch Braze (Segmentierung, Zeitplanung und Übergabe an den Anbieter), den Transport von Braze zu **APNs oder FCM** und die Zustellung vom Anbieter an das **Gerät**. Verzögerungen können in jeder Phase auftreten. Braze hat keinen Einblick in die Warteschlangen des Anbieters oder des Geräts. Verwenden Sie [Verbose Logging]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs) auf dem Client, wenn Sie geräteseitige Timing-Probleme eingrenzen müssen.
 
 ## Was passiert, wenn sich mehrere Nutzer:innen auf einem einzigen Gerät anmelden? {#what-happens-when-multiple-users-log-into-a-single-device}
 
@@ -28,13 +28,13 @@ Wenn ein Push-Token neu zugewiesen wird, wird die Änderung im **Push Changelog*
 
 Ja. Der Test-Push wird an jedes Push-fähige Gerät gesendet, das mit dem ausgewählten Nutzerprofil verknüpft ist. Wenn Sie mehrere Telefone oder Tablets mit demselben/derselben Nutzer:in angemeldet haben, erhält jedes Gerät mit einem gültigen Push-Token die Benachrichtigung.
 
-Um den Test-Push nur an ein Gerät zu senden, können Sie vor dem Testen die Push-Token für die anderen Geräte aus dem Nutzerprofil entfernen. Alternativ können Sie beim Senden über den [`/messages/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) `send_to_most_recent_device_only` im `apple_push`- oder `android_push`-Objekt auf `true` setzen, sodass nur das zuletzt aktive Gerät den Push erhält.
+Um den Test-Push nur an ein Gerät zu senden, können Sie vor dem Testen die Push-Token für die anderen Geräte aus dem Nutzerprofil entfernen. Alternativ können Sie beim Senden über den [`/messages/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) im `apple_push`- oder `android_push`-Objekt `send_to_most_recent_device_only` auf `true` setzen, sodass nur das zuletzt aktive Gerät den Push erhält.
 
 ## Was bedeutet „Error sending push because the payload was invalid“? {#what-does-error-sending-push-because-the-payload-was-invalid-mean}
 
 Diese Meldung zeigt an, dass APNs die Push-Anfrage aufgrund eines ungültigen Payloads abgelehnt haben (zum Beispiel ein leerer Payload oder ein Payload, der zu groß ist).
 
-Weitere Details und nächste Schritte finden Sie unter [Häufige Push-Fehlermeldungen]({{site.baseurl}}/user_guide/channels/push/push_error_codes/).
+Weitere Details und nächste Schritte finden Sie unter [Häufige Push-Fehlermeldungen]({{site.baseurl}}/user_guide/channels/push/push_error_codes).
 
 ## Warum hat ein:e Nutzer:in mit Opt-in kein Push-Token? {#why-doesnt-an-opted-in-user-have-a-push-token}
 
@@ -72,10 +72,10 @@ Diese Segmentierungsfilter prüfen unterschiedliche Bedingungen:
 | Filter | Was geprüft wird | Anwendungsfall |
 |--------|------------------|----------------|
 | **Foreground Push Enabled** | Der/die Nutzer:in hat ein gültiges Vordergrund-Push-Token **und** der Push-Abo-Status ist `Opted-In` oder `Subscribed`. | Nutzer:innen ansprechen, die sichtbare Push-Benachrichtigungen empfangen können. |
-| **Background or Foreground Push Enabled** | Der/die Nutzer:in hat ein beliebiges Push-Token (Vordergrund oder Hintergrund) **und** der Push-Abo-Status ist `Opted-In` oder `Subscribed`. Dies schließt Nutzer:innen ein, die sichtbare Push-Benachrichtigungen deaktiviert haben, aber noch ein Hintergrund-Push-Token besitzen. | Wird für [Uninstall-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/), [stille Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/silent/) und Geofencing verwendet. |
+| **Background or Foreground Push Enabled** | Der/die Nutzer:in hat ein beliebiges Push-Token (Vordergrund oder Hintergrund) **und** der Push-Abo-Status ist `Opted-In` oder `Subscribed`. Dies schließt Nutzer:innen ein, die sichtbare Push-Benachrichtigungen deaktiviert haben, aber noch ein Hintergrund-Push-Token besitzen. | Wird für [Uninstall-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking), [stille Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/silent) und Geofencing verwendet. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Was ist der Unterschied zwischen den Filtern „Foreground Push Enabled“ und „Background or Foreground Push Enabled“?" }
 
-Ein:e Nutzer:in kann `Background or Foreground Push Enabled` sein, ohne `Foreground Push Enabled` zu sein. Das passiert, wenn der/die Nutzer:in sichtbare Push-Benachrichtigungen in den Geräteeinstellungen deaktiviert hat, die App aber noch ein Hintergrund-Push-Token besitzt. Weitere Details finden Sie unter [Push-Nutzer:innen und Abos]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#foreground-push-enabled).
+Ein:e Nutzer:in kann `Background or Foreground Push Enabled` sein, ohne `Foreground Push Enabled` zu sein. Das passiert, wenn der/die Nutzer:in sichtbare Push-Benachrichtigungen in den Geräteeinstellungen deaktiviert hat, die App aber noch ein Hintergrund-Push-Token besitzt. Weitere Details finden Sie unter [Push-Nutzer:innen und Abos]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#foreground-push-enabled).
 
 ## Wie bestimmt Braze, wann eine Push-Nachricht erfolgreich gesendet wurde? {#how-does-braze-determine-when-a-push-message-is-sent-successfully}
 

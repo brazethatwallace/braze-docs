@@ -11,7 +11,7 @@ platform:
 
 # 현지화 {#localization}
 
-> 전 세계 사용자와 소통할 수 있도록 Braze SDK의 현지화 및 지원 언어에 대해 알아보세요. 현지화된 메시지를 설정하는 방법에 대한 안내는 메시징 기본 사항 섹션의 [현지화]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/)를 참조하세요.
+> 전 세계 사용자와 소통할 수 있도록 Braze SDK의 현지화 및 지원 언어에 대해 알아보세요. 현지화된 메시지를 설정하는 방법에 대한 안내는 메시징 기본 사항 섹션의 [현지화]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization)를 참조하세요.
 
 ## 현지화 정보 {#about-localization}
 
@@ -19,4 +19,4 @@ platform:
 
 사용자의 휴대폰 언어가 지원되는 언어 중 하나로 설정되면, 메시징 채널에 기본적으로 포함된 SDK 메시지가 해당 언어로 번역됩니다. 예를 들어, 앱이 연결 문제에 대한 메시지를 표시하면 사용자가 선택한 언어로 번역됩니다.
 
-{% multi_lang_include supported_language_codes.md %}
+{% multi_lang_include messaging/localization/supported_language_codes.md %}

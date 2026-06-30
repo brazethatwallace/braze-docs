@@ -32,7 +32,7 @@ Die Identifizierung von Nutzer:innen erfordert eine `external_id` in den folgend
 Wenn keine Nutzer:in mit dieser `external_id` vorhanden ist, wird die `external_id` zum Datensatz der Alias-Nutzer:in hinzugefügt, und die Nutzer:in gilt als identifiziert. Nutzer:innen können nur einen Alias für ein bestimmtes Label haben. Wenn bereits eine Nutzer:in mit der `external_id` existiert und einen bestehenden Alias mit dem gleichen Label wie das Nur-Alias-Profil hat, werden die Nutzerprofile nicht zusammengeführt.
 
 {% alert tip %}
-Um unerwartete Datenverluste bei der Identifizierung von Nutzer:innen zu vermeiden, empfehlen wir Ihnen dringend, zunächst die [Best Practices für die Datenerfassung]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/best_practices/#capturing-user-data-when-alias-only-user-info-is-already-present) zu lesen, um zu erfahren, wie Sie Nutzerdaten erfassen können, wenn bereits Nur-Alias-Nutzerinformationen vorhanden sind.
+Um unerwartete Datenverluste bei der Identifizierung von Nutzer:innen zu vermeiden, empfehlen wir Ihnen dringend, zunächst die [Best Practices für die Datenerfassung]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/best_practices#capturing-user-data-when-alias-only-user-info-is-already-present) zu lesen, um zu erfahren, wie Sie Nutzerdaten erfassen können, wenn bereits Nur-Alias-Nutzerinformationen vorhanden sind.
 {% endalert %}
 
 ### Verhalten bei der Zusammenführung {#merging-behavior}
@@ -77,7 +77,7 @@ Standardmäßig führt dieser Endpunkt die folgenden Felder, die **ausschließli
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key/) mit der Berechtigung `users.identify`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `users.identify`.
 
 ## Rate-Limit
 
@@ -108,10 +108,10 @@ Eine der folgenden Angaben ist pro Anfrage erforderlich: `aliases_to_identify`, 
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |-----------------------------|----------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `aliases_to_identify` | Erforderlich | Array von Alias-zu-identifizieren-Objekten | Siehe [Alias-zu-identifizieren-Objekt]({{site.baseurl}}/api/objects_filters/aliases_to_identify/) und [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object/). |
+| `aliases_to_identify` | Erforderlich | Array von Alias-zu-identifizieren-Objekten | Siehe [Alias-zu-identifizieren-Objekt]({{site.baseurl}}/api/objects_filters/aliases_to_identify) und [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object). |
 | `emails_to_identify` | Erforderlich | Array von Alias-zu-identifizieren-Objekten | Erforderlich, wenn `email` als Bezeichner angegeben ist. E-Mail-Adressen zur Identifizierung von Nutzer:innen. Siehe [Identifizierung von Nutzer:innen per E-Mail](#identifying-users-by-email). |
 | `phone_numbers_to_identify` | Erforderlich | Array von Alias-zu-identifizieren-Objekten | Telefonnummern zur Identifizierung von Nutzer:innen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ### Identifizierung von Nutzer:innen anhand von E-Mail-Adressen und Telefonnummern {#identifying-users-by-email-addresses-and-phone-numbers}
 
@@ -154,7 +154,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
   "emails_to_identify": [
     {
       "external_id": "external_identifier_2",
-      "email": "john.smith@braze.com",
+      "email": "john.smith@example.com",
       "prioritization": ["unidentified", "most_recently_updated"]
     }
   ]
@@ -166,7 +166,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
 Das Feld `alias_name` unterscheidet zwischen Groß- und Kleinschreibung. Eine Anfrage, die einen `201`-Statuscode zurückgibt, bestätigt nur, dass die Anfrage-Syntax gültig war – sie bestätigt nicht, dass der Alias zugeordnet wurde. Wenn die Groß-/Kleinschreibung von `alias_name` in Ihrer Anfrage nicht exakt mit dem im Nutzerprofil gespeicherten Alias übereinstimmt, schlägt der Vorgang stillschweigend fehl und die `external_id` wird nicht zugewiesen. Wenn der gespeicherte Alias beispielsweise `JimJones@example.com` lautet, gibt eine Anfrage mit `jimjones@example.com` zwar Erfolg zurück, erzeugt aber kein Ergebnis.
 
 {% alert tip %}
-Weitere Informationen zu `alias_name` und `alias_label` finden Sie in unserer Dokumentation zu [Nutzer-Aliase]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases).
+Weitere Informationen zu `alias_name` und `alias_label` finden Sie in unserer Dokumentation zu [Nutzer-Aliase]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).
 {% endalert %}
 
 ## Antwort {#response}

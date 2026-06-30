@@ -32,7 +32,7 @@ description: "この記事では、「セグメント別ユーザーのエクス
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.export.segment`権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`users.export.segment`権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -90,7 +90,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | ----------------------------- | --------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `segment_id` | 必須 | 文字列 | エクスポートするセグメントの識別子。[セグメント識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。<br><br>特定のセグメントの`segment_id`は、Brazeアカウントの[APIキー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/)ページから確認できます。または、[セグメント一覧エンドポイント]({{site.baseurl}}/api/endpoints/export/segments/get_segment/)を使用することもできます。 |
+| `segment_id` | 必須 | 文字列 | エクスポートするセグメントの識別子。[セグメント識別子]({{site.baseurl}}/api/identifier_types)を参照してください。<br><br>特定のセグメントの`segment_id`は、Brazeアカウントの[APIキー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers)ページから確認できます。または、[セグメント一覧エンドポイント]({{site.baseurl}}/api/endpoints/export/segments/get_segment)を使用することもできます。 |
 | `callback_endpoint` | オプション | 文字列 | エクスポートが利用可能になったときにダウンロードURLをPOSTするエンドポイント。 |
 | `fields_to_export` | 必須* | 文字列の配列 | エクスポートするユーザーデータフィールドの名前。このパラメーターに`custom_attributes`を含めることで、すべてのカスタム属性をエクスポートすることもできます。エクスポートできるフィールドの完全なリストについては、[エクスポートするフィールド](#fields-to-export)を参照してください。 |
 | `custom_attributes_to_export` | オプション | 文字列の配列 | エクスポートする特定のカスタム属性の名前（最大500個）。このパラメーターを使用する場合は、`fields_to_export`から`custom_attributes`を省略してください。省略しないと、Brazeはこのリストに関係なくすべてのカスタム属性をエクスポートします。ダッシュボードでカスタム属性を作成および管理するには、**データ設定** > **カスタム属性**に移動してください。 |
@@ -135,10 +135,10 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 | エクスポートするフィールド | データタイプ | 説明 |
 | --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `apps` | 配列 | このユーザーがセッションを記録したアプリ。次のフィールドが含まれます。<br><br>- `name`: アプリ名<br>- `platform`: アプリのプラットフォーム（iOS、Android、Webなど）<br>- `version`: アプリのバージョン番号または名前<br>- `sessions`: このアプリの総セッション数<br>- `first_used`: 初回セッションの日付<br>- `last_used`: 最終セッションの日付<br><br>すべてのフィールドは文字列です。 |
-| `attributed_campaign` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。特定の広告キャンペーンの識別子。 |
-| `attributed_source` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。広告が掲載されたプラットフォームの識別子。 |
-| `attributed_adgroup` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。Campaignの下のオプションのサブグループの識別子。 |
-| `attributed_ad` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。Campaignと広告グループの下のオプションのサブグループの識別子。 |
+| `attributed_campaign` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。特定の広告キャンペーンの識別子。 |
+| `attributed_source` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。広告が掲載されたプラットフォームの識別子。 |
+| `attributed_adgroup` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。キャンペーンの下のオプションのサブグループの識別子。 |
+| `attributed_ad` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。キャンペーンと広告グループの下のオプションのサブグループの識別子。 |
 | `push_subscribe` | 文字列 | ユーザーのプッシュ通知のサブスクリプションステータス。 |
 | `email_subscribe` | 文字列 | ユーザーのメールサブスクリプションステータス。 |
 | `braze_id` | 文字列 | このユーザーに対してBrazeが設定したデバイス固有の一意のユーザー識別子。 |
@@ -160,11 +160,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 | `phone` | 文字列 | Brazeにインポートされた形式のユーザーの電話番号。たとえば、電話番号を追加するリクエストが`1234567890`として送信された場合、同じ形式でエクスポートされます。 |
 | `purchases` | 配列 | このユーザーが過去90日間に行った購入。 |
 | `push_tokens` | 配列 | ユーザーのプッシュトークンに関する情報。 |
-| `random_bucket` | 整数 | ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event)。ランダムユーザーの均一分布セグメントを作成するために使用されます。 |
+| `random_bucket` | 整数 | ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event)。ランダムユーザーの均一分布セグメントを作成するために使用されます。 |
 | `time_zone` | 文字列 | IANAタイムゾーンデータベースと同じ形式のユーザーのタイムゾーン。 |
-| `total_revenue` | 浮動小数点 | このユーザーに帰属する総収益。総収益は、受信したCampaignおよびCanvasesのコンバージョン期間中にユーザーが行った購入に基づいて計算されます。 |
+| `total_revenue` | 浮動小数点 | このユーザーに帰属する総収益。総収益は、受信したキャンペーンおよびキャンバスのコンバージョン期間中にユーザーが行った購入に基づいて計算されます。 |
 | `uninstalled_at` | タイムスタンプ | ユーザーがアプリをアンインストールした日時。アプリがアンインストールされていない場合は省略されます。 |
-| `user_aliases` | オブジェクト | `alias_name`および`alias_label`を含む[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification)（存在する場合）。 |
+| `user_aliases` | オブジェクト | `alias_name`および`alias_label`を含む[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification)（存在する場合）。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="エクスポートするフィールド" }
 
 ## 重要な注意事項 {#important-reminders}
@@ -173,7 +173,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 - `custom_events`と`purchases`の両方に、`first`と`count`のフィールドが含まれています。これらのフィールドは両方とも全期間の情報を反映しており、過去90日間のデータに限定されません。たとえば、特定のユーザーが90日以上前にイベントを最初に実行した場合、これは`first`フィールドに正確に反映され、`count`フィールドは過去90日より前に発生したイベントも考慮します。
 - 企業がエンドポイントレベルで実行できる同時セグメントエクスポートの数は100に制限されています。この制限を超えると、エラーが発生します。
 - 最初のエクスポートジョブの実行中にセグメントを2回目にエクスポートしようとすると、429エラーが発生します。
-- [`403 Forbidden`レスポンス]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/?sdktab=cloud%20storage%20connected#segment-export-api-downloads)は、多くの場合、エクスポートファイルがまだ準備できていないことを意味します。
+- [`403 Forbidden`レスポンス]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting?sdktab=cloud%20storage%20connected#segment-export-api-downloads)は、多くの場合、エクスポートファイルがまだ準備できていないことを意味します。
 - サブスクリプショングループのデータは、セグメントエクスポートでは利用できません。サブスクリプションステータスでユーザーを特定するには、サブスクリプショングループのメンバーシップに基づいて別のセグメントを作成し、そのセグメントをエクスポートしてください。
 
 ## 応答 {#response}
@@ -188,7 +188,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 
 ### `null` URL
 
-レスポンスに`"url": null`が含まれている（またはダウンロードURLが省略されている）場合で、Amazon S3バケットやAzure Blob Storageコンテナなどの[クラウドストレージ統合]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)を設定している場合、BrazeはAPIレスポンスで一時的なダウンロードURLを返す代わりに、接続されたバケットまたはコンテナにエクスポートを書き込みます。接続されたクラウドストレージのバケットまたはコンテナからファイルを取得してください。
+レスポンスに`"url": null`が含まれている（またはダウンロードURLが省略されている）場合で、Amazon S3バケットやAzure Blob Storageコンテナなどの[クラウドストレージ統合]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)を設定している場合、BrazeはAPIレスポンスで一時的なダウンロードURLを返す代わりに、接続されたバケットまたはコンテナにエクスポートを書き込みます。接続されたクラウドストレージのバケットまたはコンテナからファイルを取得してください。
 
 ダウンロードURLが返された場合、有効期間は数時間のみです。そのため、独自のS3認証情報をBrazeに追加することを強くお勧めします。
 
@@ -356,13 +356,13 @@ APIレスポンスに`object_prefix`が表示され、データをダウンロ�
     ],
     "braze_id": "5fbd99bac125ca40511f2cb1",
     "random_bucket" : 2365,
-    "first_name" : "Jane",
-    "last_name" : "Doe",
-    "email" : "example@braze.com",
+    "first_name" : "Alex",
+    "last_name" : "Smith",
+    "email" : "example@example.com",
     "dob" : "1980-12-21",
     "home_city" : "Chicago",
     "country" : "US",
-    "phone" : "+442071838750",
+    "phone" : "+15555550123",
     "language" : "en",
     "time_zone" : "Eastern Time (US & Canada)",
     "last_coordinates" : [41.84157636433568, -87.83520818508256],
@@ -485,7 +485,7 @@ APIレスポンスに`object_prefix`が表示され、データをダウンロ�
 {% endtabs %}
 
 {% alert tip %}
-CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。
+CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)」を参照してください。
 {% endalert %}
 
 [1]: {{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3

@@ -13,7 +13,7 @@ platform:
 
 # Bannerplatzierungen verwalten {#manage-banner-placements}
 
-> Erfahren Sie, wie Sie Bannerplatzierungen im Braze SDK erstellen und verwalten, einschließlich des Zugriffs auf deren eindeutige Eigenschaften und der Protokollierung von Impressionen. Weitere allgemeine Informationen finden Sie unter [Über Banner]({{site.baseurl}}/developer_guide/banners/).
+> Erfahren Sie, wie Sie Bannerplatzierungen im Braze SDK erstellen und verwalten, einschließlich des Zugriffs auf deren eindeutige Eigenschaften und der Protokollierung von Impressionen. Weitere allgemeine Informationen finden Sie unter [Über Banner]({{site.baseurl}}/developer_guide/banners).
 
 ## Über Platzierungsanfragen {#requests}
 
@@ -25,7 +25,7 @@ platform:
 
 Dies sind die erforderlichen Mindestversionen des SDK, um Bannerplatzierungen zu erstellen:
 
-{% multi_lang_include sdk_versions.md feature='banners' %}
+{% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
 {% multi_lang_include banners/creating_placements.md section="developer" %}
 
@@ -268,7 +268,7 @@ This feature is not currently supported on Roku.
 ### 4. Schritt: Einfügen unter Verwendung der Platzierungs-ID {#insertBanner}
 
 {% alert tip %}
-Eine vollständige Schritt-für-Schritt-Anleitung finden Sie unter [Anzeigen eines Banners nach Platzierungs-ID]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/).
+Eine vollständige Schritt-für-Schritt-Anleitung finden Sie unter [Anzeigen eines Banners nach Platzierungs-ID]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners).
 {% endalert %}
 
 {% tabs %}
@@ -555,7 +555,7 @@ This feature is not currently supported on Roku.
 
 ### 5. Schritt: Testbanner senden (optional) {#handling-test-cards}
 
-Bevor Sie eine Banner-Campaign starten, können Sie [ein Testbanner senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=banners), um Ihre Integration zu überprüfen. Testbanner werden in einem separaten In-Memory-Cache gespeichert und bleiben bei Neustarts der App nicht erhalten. Es ist zwar keine zusätzliche Einrichtung erforderlich, aber Ihr Testgerät muss in der Lage sein, Push-Benachrichtigungen im Vordergrund zu empfangen, damit der Test angezeigt werden kann.
+Bevor Sie eine Banner-Campaign starten, können Sie [ein Testbanner senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=banners), um Ihre Integration zu überprüfen. Testbanner werden in einem separaten In-Memory-Cache gespeichert und bleiben bei Neustarts der App nicht erhalten. Es ist zwar keine zusätzliche Einrichtung erforderlich, aber Ihr Testgerät muss in der Lage sein, Push-Benachrichtigungen im Vordergrund zu empfangen, damit der Test angezeigt werden kann.
 
 {% alert note %}
 Testbanner sind wie alle anderen Banner, nur dass sie bei der nächsten App-Sitzung entfernt werden.
@@ -583,13 +583,13 @@ Wenn Ihr Banner den **Custom Code**-Editor-Block im Braze-Dashboard verwendet, m
 </button>
 ```
 
-Die vollständige Referenz finden Sie unter [Benutzerdefinierter Code und JavaScript-Brücke für Banner]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-code). `brazeBridge` stellt eine Kommunikationsschicht zwischen dem internen HTML des Banners und dem übergeordneten Braze SDK bereit.
+Die vollständige Referenz finden Sie unter [Benutzerdefinierter Code und JavaScript-Bridge für Banner]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-code). `brazeBridge` stellt eine Kommunikationsschicht zwischen dem internen HTML des Banners und dem übergeordneten Braze SDK bereit.
 
 ### Angepasste UI-Implementierungen (Headless) {#custom-ui-implementations-headless}
 
 Wenn Sie eine vollständig angepasste UI unter Verwendung der [angepassten Eigenschaften](#custom-properties) des Banners erstellen, anstatt den Banner-HTML-Code zu rendern, müssen Sie Klicks und Impressionen manuell aus Ihrem Anwendungscode protokollieren. Da das SDK das Banner nicht rendert, kann es Interaktionen mit Ihren angepassten UI-Elementen nicht automatisch verfolgen.
 
-Vollständige Methodensignaturen und Details finden Sie in der [Braze SDK-Referenzdokumentation]({{site.baseurl}}/developer_guide/references/).
+Vollständige Methodensignaturen und Details finden Sie in der [Braze SDK-Referenzdokumentation]({{site.baseurl}}/developer_guide/references).
 
 #### Impressionen protokollieren {#logging-impressions}
 
@@ -867,7 +867,7 @@ Sie können benutzerdefinierte Eigenschaften aus Ihrer Banner-Campaign verwenden
 
 ### Voraussetzungen
 
-Sie müssen Ihrer Banner-Campaign [benutzerdefinierte Eigenschaften hinzufügen]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-properties). Darüber hinaus sind dies die erforderlichen Mindestversionen des SDK, um auf benutzerdefinierte Eigenschaften zugreifen zu können:
+Sie müssen Ihrer Banner-Campaign [benutzerdefinierte Eigenschaften hinzufügen]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-properties). Darüber hinaus sind dies die erforderlichen Mindestversionen des SDK, um auf benutzerdefinierte Eigenschaften zugreifen zu können:
 
 {% sdk_min_versions swift:13.1.0 android:38.0.0 web:6.1.0 reactnative:17.0.0 flutter:15.1.0 %}
 

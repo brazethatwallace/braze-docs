@@ -9,7 +9,7 @@ search_rank: 2
 
 # [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"} Eventos personalizados {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
-> Este artículo describe los eventos personalizados y sus propiedades, el historial de eventos del perfil de usuario, los filtros de segmentación relacionados, las propiedades de entrada en Canvas, los análisis relevantes y mucho más. Para conocer los eventos de Braze en general, consulta [Eventos]({{site.baseurl}}/user_guide/data/activation/events/).
+> Este artículo describe los eventos personalizados y sus propiedades, el historial de eventos del perfil de usuario, los filtros de segmentación relacionados, las propiedades de entrada en Canvas, los análisis relevantes y mucho más. Para conocer los eventos de Braze en general, consulta [Eventos]({{site.baseurl}}/user_guide/data/activation/events).
 
 Los eventos personalizados son acciones realizadas por tus usuarios o actualizaciones sobre ellos. Cuando se registran eventos personalizados, pueden desencadenar cualquier número y tipo de campañas de seguimiento. A continuación, puedes utilizar [filtros de segmentación](#segmentation-filters) para segmentar a los usuarios en función de lo recientes y frecuentes que hayan sido esos eventos personalizados. Esto hace que los eventos personalizados sean los más adecuados para el seguimiento de interacciones de usuario de alto valor dentro de tu aplicación.
 
@@ -17,13 +17,13 @@ Los eventos personalizados son acciones realizadas por tus usuarios o actualizac
 
 Algunos casos habituales de uso de eventos personalizados son:
 
-- Desencadenar una campaña o Canvas basándose en un evento personalizado utilizando [la entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)
+- Desencadenar una campaña o Canvas basándose en un evento personalizado utilizando [la entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)
 - Segmentar usuarios por cuántas veces realizaron un evento personalizado, cuándo fue la última vez que ocurrió el evento, y similares
 - Usar los [análisis de eventos personalizados](#analytics) del dashboard para ver un agregado de la frecuencia con la que ocurrió cada evento
-- Encontrar análisis adicionales usando informes de [embudo]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/#step-2-select-events-for-funnel-steps) y [retención]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/)
-- Aprovechar las [propiedades de entrada persistentes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties/) para usar metadatos de tu evento personalizado para la personalización en tus pasos en Canvas
-- Generar análisis más sofisticados con [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)
-- Configurar [criterios de salida]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/) para definir cuándo los usuarios deben salir de tu Canvas
+- Encontrar análisis adicionales usando informes de [embudo]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports#step-2-select-events-for-funnel-steps) y [retención]({{site.baseurl}}/user_guide/analytics/reports/retention_reports)
+- Aprovechar las [propiedades de entrada persistentes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties) para usar metadatos de tu evento personalizado para la personalización en tus pasos en Canvas
+- Generar análisis más sofisticados con [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)
+- Configurar [criterios de salida]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria) para definir cuándo los usuarios deben salir de tu Canvas
 
 ## Administrar eventos personalizados {#managing-custom-events}
 
@@ -43,22 +43,22 @@ Cuando bloqueas un evento personalizado:
 
 Además, si un evento personalizado bloqueado está actualmente referenciado por filtros o desencadenadores en otras áreas de Braze, aparecerá un modal de advertencia explicando que todas las instancias de los filtros o desencadenadores que lo referencian serán eliminadas y archivadas.
 
-Para más detalles sobre el bloqueo y la eliminación de datos personalizados, consulta [Bloquear datos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
+Para más detalles sobre el bloqueo y la eliminación de datos personalizados, consulta [Bloquear datos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data).
 
 ### Añadir descripciones {#adding-descriptions}
 
-Puedes añadir una descripción a un evento personalizado después de crearlo si tienes el [permiso de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) `Manage Events, Attributes, Purchases`. Selecciona **Editar descripción** para el evento personalizado e introduce lo que desees, como una nota para tu equipo.
+Puedes añadir una descripción a un evento personalizado después de crearlo si tienes el [permiso de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) `Manage Events, Attributes, Purchases`. Selecciona **Editar descripción** para el evento personalizado e introduce lo que desees, como una nota para tu equipo.
 
 ### Añadir etiquetas {#adding-tags}
 
-Puedes añadir etiquetas a un evento personalizado después de crearlo si tienes el [permiso de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) "Manage Events, Attributes, Purchases". Las etiquetas se pueden usar para filtrar la lista de eventos.
+Puedes añadir etiquetas a un evento personalizado después de crearlo si tienes el [permiso de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) "Manage Events, Attributes, Purchases". Las etiquetas se pueden usar para filtrar la lista de eventos.
 
 ### Exportar datos {#exporting-data}
 
 Para exportar la lista de eventos personalizados como un archivo CSV, selecciona **Exportar todo** en la parte superior de la página. Se generará el archivo CSV y se te enviará un enlace de descarga por correo electrónico.
 
 {% alert note %}
-No existe un límite fijo en el dashboard sobre cuántos **eventos personalizados** o **atributos personalizados** distintos puedes definir o almacenar en un perfil; los límites prácticos dependen de la forma de los datos, el volumen de ingesta y el rendimiento del espacio de trabajo. Si planeas hacer seguimiento de un catálogo muy grande de eventos o atributos, trabaja con tu equipo de cuenta de Braze en el modelado y la higiene de datos (por ejemplo, [bloquear]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/) datos no utilizados).
+No existe un límite fijo en el dashboard sobre cuántos **eventos personalizados** o **atributos personalizados** distintos puedes definir o almacenar en un perfil; los límites prácticos dependen de la forma de los datos, el volumen de ingesta y el rendimiento del espacio de trabajo. Si planeas hacer seguimiento de un catálogo muy grande de eventos o atributos, trabaja con tu equipo de cuenta de Braze en el modelado y la higiene de datos (por ejemplo, [bloquear]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data) datos no utilizados).
 {% endalert %}
 
 ## Ver informes de uso {#viewing-usage-reports}
@@ -73,19 +73,19 @@ Los eventos personalizados requieren configuración adicional. Consulta la lista
 
 {% details Expande para ver la documentación por plataforma %}
 
-- [Android y FireOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)
-- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-events)
-- [Unity]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=unity)
-- [.NET MAUI (anteriormente Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#tracking-custom-events)
-- [Roku]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=roku)
+- [Android y FireOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-events)
+- [Unity]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=unity)
+- [.NET MAUI (anteriormente Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#tracking-custom-events)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=roku)
 
 {% enddetails %}
 
 ## Almacenamiento de eventos personalizados {#custom-event-storage}
 
-Todos los datos almacenados en el **perfil de usuario**, incluidos los metadatos de eventos personalizados (primera o última ocurrencia, recuento total y X en Y durante 30 días), se conservan indefinidamente mientras cada perfil esté [activo]({{site.baseurl}}/user_archival/#active-users).
+Todos los datos almacenados en el **perfil de usuario**, incluidos los metadatos de eventos personalizados (primera o última ocurrencia, recuento total y X en Y durante 30 días), se conservan indefinidamente mientras cada perfil esté [activo]({{site.baseurl}}/user_archival#active-users).
 
 ## Ver el historial de eventos de un usuario {#view-a-users-event-history}
 
@@ -112,11 +112,11 @@ Cada evento incluye:
 Los casos de uso habituales incluyen:
 
 - Verificar que tu integración de SDK o API está enviando eventos como se espera durante el desarrollo o después de un lanzamiento.
-- Solucionar problemas sobre por qué un usuario entró o no entró en una Campaign o Canvas desencadenados por eventos.
+- Solucionar problemas sobre por qué un usuario entró o no entró en una campaña o Canvas desencadenados por eventos.
 - Investigar un problema de soporte para un usuario específico sin necesidad de configurar una exportación de datos.
 
 {% alert note %}
-Ver la pestaña **Historial de eventos** requiere los permisos de usuario **Buscar usuarios** y **Ver PII**, ya que las propiedades de eventos pueden contener datos personales. Para más información, consulta [Permisos de usuario de la empresa]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Ver la pestaña **Historial de eventos** requiere los permisos de usuario **Buscar usuarios** y **Ver PII**, ya que las propiedades de eventos pueden contener datos personales. Para más información, consulta [Permisos de usuario de la empresa]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 {% endalert %}
 
 ## Filtros de segmentación {#segmentation-filters}
@@ -150,7 +150,7 @@ También puedes usar **Filtros** para desglosar tus eventos personalizados por h
 ![Filtros del gráfico de eventos personalizados]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
 {% alert tip %}
-[Incrementa atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#integers) para mantener un contador de una acción del usuario similar a un evento personalizado. Sin embargo, no puedes ver datos de atributos personalizados en una serie temporal. Las acciones de usuario que no necesitan ser analizadas en una serie temporal deben registrarse usando este método.
+[Incrementa atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#integers) para mantener un contador de una acción del usuario similar a un evento personalizado. Sin embargo, no puedes ver datos de atributos personalizados en una serie temporal. Las acciones de usuario que no necesitan ser analizadas en una serie temporal deben registrarse usando este método.
 {% endalert %}
 
 ### Por qué no se muestran los análisis de eventos personalizados {#why-custom-events-analytics-arent-showing}
@@ -161,4 +161,4 @@ Los segmentos creados con datos de eventos personalizados no pueden mostrar dato
 
 Las propiedades de eventos personalizados son metadatos o atributos de eventos personalizados que describen una ocurrencia específica de un evento. Estas propiedades pueden utilizarse para cualificar aún más las condiciones de desencadenamiento, aumentar la personalización en la mensajería, hacer seguimiento de conversiones y generar análisis más sofisticados a través de la exportación de datos en bruto.
 
-Para obtener más información, consulta [Propiedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/).
+Para obtener más información, consulta [Propiedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties).

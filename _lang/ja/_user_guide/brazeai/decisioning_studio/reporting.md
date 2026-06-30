@@ -1,13 +1,13 @@
 ---
 nav_title: レポートとインサイト
 article_title: レポートとインサイト
-description: "BrazeでBrazeAI Decisioning Studio™レポートを表示する方法について説明します。これにより、AIを活用した意思決定がCampaignsにどのような影響を与えるかを理解できます。"
+description: "BrazeでBrazeAI Decisioning Studio™レポートを表示する方法について説明します。これにより、AIを活用した意思決定がキャンペーンにどのような影響を与えるかを理解できます。"
 page_order: 6
 ---
 
 # レポートとインサイト {#reports-and-insights}
 
-> BrazeでBrazeAI Decisioning Studio™レポートを表示する方法について説明します。これにより、AIを活用した意思決定がCampaignsにどのような影響を与えるかを理解できます。パフォーマンス指標からデータの健全性やシステムの変更まで、これらのレポートは結果の理解、問題のトラブルシューティング、そして確信を持った意思決定に役立ちます。
+> BrazeでBrazeAI Decisioning Studio™レポートを表示する方法について説明します。これにより、AIを活用した意思決定がキャンペーンにどのような影響を与えるかを理解できます。パフォーマンス指標からデータの健全性やシステムの変更まで、これらのレポートは結果の理解、問題のトラブルシューティング、そして確信を持った意思決定に役立ちます。
 
 ## 前提条件 {#prerequisites}
 
@@ -37,7 +37,7 @@ BrazeでDecisioning Studioエージェントの指標を表示するには、**A
 
 ## 利用可能なレポート {#available-reports}
 
-- [パフォーマンス]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/performance/): トリートメントグループとコントロールグループを比較するハイレベルなエージェント指標です。**Trending**と**Driver Tree**のビューがあります。
-- [インサイト]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/insights/): アクションバンク内のおすすめオプションがどのように生成されるかを示します。エージェントの設定やSHAPsレポートを含みます。
-- [診断]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/diagnostics/): アウトバウンドおよびインバウンドのデータ健全性です。おすすめのボリュームやデータフィードの監視を含みます。
-- [タイムライン]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/timeline/): 主要なイベント（エージェントの実行、設定変更、ガードレールの更新）をパフォーマンス指標と共に表示する視覚的な記録です。
+- [パフォーマンス]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/performance): トリートメントグループとコントロールグループを比較するハイレベルなエージェント指標です。**Trending**と**Driver Tree**のビューがあります。
+- [インサイト]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/insights): アクションバンク内のおすすめオプションがどのように生成されるかを示します。エージェントの設定やSHAPsレポートを含みます。
+- [診断]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/diagnostics): アウトバウンドおよびインバウンドのデータ健全性です。おすすめのボリュームやデータフィードの監視を含みます。
+- [タイムライン]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/timeline): 主要なイベント（エージェントの実行、設定変更、ガードレールの更新）をパフォーマンス指標と共に表示する視覚的な記録です。

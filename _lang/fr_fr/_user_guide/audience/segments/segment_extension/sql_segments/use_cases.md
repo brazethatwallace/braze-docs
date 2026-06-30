@@ -67,7 +67,7 @@ HAVING COUNT(DISTINCT id) > 3
 Event, Time range
 {% endapitags %}
 
-Sélectionnez les utilisateurs ayant effectué un achat au cours de chacun des quatre derniers trimestres. Ce segment d'utilisateurs peut être utilisé avec la [synchronisation d'audience]({{site.baseurl}}/partners/canvas_audience_sync/) pour identifier des clients similaires à forte valeur à des fins d'acquisition.
+Sélectionnez les utilisateurs ayant effectué un achat au cours de chacun des quatre derniers trimestres. Ce segment d'utilisateurs peut être utilisé avec la [synchronisation d'audience]({{site.baseurl}}/partners/canvas_audience_sync) pour identifier des clients similaires à forte valeur à des fins d'acquisition.
 
 ```sql
 ELECT DISTINCT user_id

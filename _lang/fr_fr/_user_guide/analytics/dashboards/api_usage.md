@@ -35,7 +35,7 @@ Le tableau de bord d'utilisation de l'API comprend les statistiques suivantes :
 
 ### Filtres {#filters}
 
-Sélectionnez **Filters** pour affiner la vue du trafic de l'API REST pour votre espace de travail. Les filtres disponibles sont :
+Sélectionnez **Filtres** pour affiner la vue du trafic de l'API REST pour votre espace de travail. Les filtres disponibles sont :
 
 - Clé API
 - Endpoint
@@ -78,5 +78,5 @@ Les données affichées peuvent présenter un léger délai pour le trafic réce
 
 ## Articles connexes {#related-articles}
 
-- [Alertes d'utilisation de l'API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts/)
-- [Limites de débit]({{site.baseurl}}/api/api_limits/)
+- [Alertes d'utilisation de l'API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
+- [Limites de débit]({{site.baseurl}}/api/api_limits)

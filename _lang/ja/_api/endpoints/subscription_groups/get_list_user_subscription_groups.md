@@ -30,7 +30,7 @@ description: "この記事では、ユーザーのサブスクリプショング
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`subscription.groups.get` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`subscription.groups.get` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -40,12 +40,12 @@ description: "この記事では、ユーザーのサブスクリプショング
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
-| `external_id`  | 必須 | 文字列 | ユーザーの `external_id`（少なくとも1つ、最大50の `external_ids` を含める必要があります）。 |
-| `email`  |  必須* | 文字列 | ユーザーのメールアドレス。文字列の配列として渡すことができます。少なくとも1件のメールアドレス（最大50件）を含める必要があります。 |
+| `external_id` | 必須 | 文字列 | ユーザーの `external_id`（少なくとも1つ、最大50の `external_ids` を含める必要があります）。 |
+| `email` | 必須* | 文字列 | ユーザーのメールアドレス。文字列の配列として渡すことができます。少なくとも1件のメールアドレス（最大50件）を含める必要があります。 |
 | `phone` | 必須* | [E.164](https://en.wikipedia.org/wiki/E.164) 形式の文字列 | ユーザーの電話番号。少なくとも1つの電話番号（最大50）を含める必要があります。 |
 | `limit` | オプション | 整数 | 返される結果の最大数の制限。デフォルト（および最大）の `limit` は100です。 |
-| `offset`  |  オプション | 整数 | 検索条件に一致する残りのテンプレートを返す前にスキップするテンプレートの数。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `offset` | オプション | 整数 | 検索条件に一致する残りのテンプレートを返す前にスキップするテンプレートの数。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 {% alert tip %}
 同じメールアドレスを共有する複数のユーザー（複数の `external_ids`）がいる場合、すべてのユーザーは別々のユーザーとして返されます（同じメールアドレスやサブスクリプショングループを持っていても同様です）。
@@ -70,7 +70,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/use
 {% tab Email %}
 {% raw %}
 ```
-curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/user/status?external_id={{external_id}}&email=example@braze.com&limit=100&offset=0' \
+curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/user/status?external_id={{external_id}}&email=example@example.com&limit=100&offset=0' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 {% endraw %}
@@ -86,8 +86,8 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/use
     "users": [
         {
             "email": "test@example.com",
-            "phone": "50505050",
-            "external_id": "20500",
+            "phone": "+11112223333",
+            "external_id": "external_identifier",
             "subscription_groups": [
                 {
                   "id": "ec2fcc919fca",

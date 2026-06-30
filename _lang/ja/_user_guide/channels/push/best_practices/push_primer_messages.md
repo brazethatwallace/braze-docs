@@ -77,7 +77,7 @@ android.permission.POST_NOTIFICATIONS
 
 ## ステップ 1: アプリ内メッセージを作成する {#step-1-create-an-in-app-message}
 
-まず、[アプリ内メッセージを作成]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)し、メッセージタイプとレイアウトを選択します。
+まず、[アプリ内メッセージを作成]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)し、メッセージタイプとレイアウトを選択します。
 
 メッセージとボタンの両方に十分なスペースを確保するため、フルスクリーンまたはモーダルのメッセージレイアウトを使用してください。フルスクリーンを選択する場合、画像が必要になることにご注意ください。
 
@@ -97,7 +97,7 @@ Breaking news on the go! Enable push notifications to get alerts for major stori
 Get push notifications from Movie Cannon? Notifications may include new movies, TV shows, or other notices and can be turned off at any time.
 ```
 
-ベストプラクティスと追加リソースについては、[カスタムオプトインプロンプトの作成]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)を参照してください。
+ベストプラクティスと追加リソースについては、[カスタムオプトインプロンプトの作成]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)を参照してください。
 
 ## ステップ 3: ボタンの動作を指定する {#button-actions}
 
@@ -120,7 +120,7 @@ Get push notifications from Movie Cannon? Notifications may include new movies, 
 
 ## ステップ 5: ユーザーをターゲットにする {#step-5-target-users}
 
-プッシュプライマーCampaignの目標は、プッシュ許可をまだ付与していないデバイスを持つユーザーに促すことです。これには、初回ユーザーや、新しいデバイスを取得したりアプリケーションを再インストールした既存ユーザーが含まれます。
+プッシュプライマーキャンペーンの目標は、プッシュ許可をまだ付与していないデバイスを持つユーザーに促すことです。これには、初回ユーザーや、新しいデバイスを取得したりアプリケーションを再インストールした既存ユーザーが含まれます。
 
 {% alert important %}
 **ノーコードプッシュプライマーによる自動抑制**: ノーコードプッシュプライマー（「プッシュ許可をリクエスト」ボタンアクション）を使用する場合、セグメンテーションにプッシュサブスクリプションフィルターを追加する必要はありません。SDKは、ユーザーの他のデバイスでのプッシュステータスに関係なく、すでにアクティブなプッシュトークンを持つデバイスでアプリ内メッセージを自動的に抑制します。複数のデバイスを持つユーザーのターゲティングの詳細については、[複数のデバイスを持つユーザーのターゲティング](#targeting-users-with-multiple-devices)を参照してください。
@@ -132,7 +132,7 @@ Get push notifications from Movie Cannon? Notifications may include new movies, 
 `Push Subscription Status is not Opted In`のようなユーザーレベルのフィルターを使用すると、別のデバイスですでにオプトインしているユーザーが除外され、新しいデバイスでプロンプトを受け取れなくなります。
 {% endalert %}
 
-それ以外にも、最も適切と思われる追加のSegmentsを決定できます。たとえば、2回目の購入を完了したユーザー、会員になるためにアカウントを作成したばかりのユーザー、または週に2回以上アプリを訪問するユーザーをターゲットにすることができます。これらの重要なSegmentsのユーザーをターゲットにすることで、ユーザーがオプトインしてプッシュが有効になる可能性が高まります。
+それ以外にも、最も適切と思われる追加のセグメントを決定できます。たとえば、2回目の購入を完了したユーザー、会員になるためにアカウントを作成したばかりのユーザー、または週に2回以上アプリを訪問するユーザーをターゲットにすることができます。これらの重要なセグメントのユーザーをターゲットにすることで、ユーザーがオプトインしてプッシュが有効になる可能性が高まります。
 
 ### 複数のデバイスを持つユーザーのターゲティング {#targeting-users-with-multiple-devices}
 
@@ -203,7 +203,7 @@ Brazeはデバイスレベルではなくプロファイルレベルでユーザ
 
 **ノーコードプッシュプライマーが必要**: 自動抑制が機能するには、ノーコードプッシュプライマーを使用する必要があります。「プッシュ許可をリクエスト」ボタンアクションの代わりにカスタムロジックやディープリンクを設定した場合、SDKはプッシュプライマーを表示しようとしていることを識別できません。その結果、そのデバイスのサブスクリプション状態に関係なくメッセージが表示されます。
 
-**オプトアウトしたユーザーの抑制**: プッシュを明示的にオプトアウトしたユーザー（ネイティブリクエストやデバイス設定から）に対してアプリ内メッセージを抑制し、それらのユーザーを別のナーチャリングCampaignでリターゲティングしたい場合があります。これを行うには、ノーコードプライマーと組み合わせて以下のLiquidロジックを使用します。
+**オプトアウトしたユーザーの抑制**: プッシュを明示的にオプトアウトしたユーザー（ネイティブリクエストやデバイス設定から）に対してアプリ内メッセージを抑制し、それらのユーザーを別のナーチャリングキャンペーンでリターゲティングしたい場合があります。これを行うには、ノーコードプライマーと組み合わせて以下のLiquidロジックを使用します。
 
 {% raw %}
 ```liquid
@@ -218,4 +218,4 @@ Brazeはデバイスレベルではなくプロファイルレベルでユーザ
 
 ## ステップ 6: コンバージョンイベント {#step-6-conversion-events}
 
-Brazeではコンバージョンのデフォルト設定を推奨していますが、プッシュプライマーに関連する[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)を設定することもできます。
+Brazeではコンバージョンのデフォルト設定を推奨していますが、プッシュプライマーに関連する[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)を設定することもできます。

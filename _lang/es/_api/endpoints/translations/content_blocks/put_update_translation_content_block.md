@@ -15,11 +15,11 @@ description: "Este artículo describe los detalles sobre el punto de conexión A
 /content_blocks/translations
 {% endapimethod %}
 
-> Utiliza este punto de conexión para actualizar múltiples traducciones de un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para obtener más información sobre las características de traducción.
+> Utiliza este punto de conexión para actualizar múltiples traducciones de un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para obtener más información sobre las características de traducción.
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `content_blocks.translations.update`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `content_blocks.translations.update`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -36,7 +36,7 @@ No hay parámetros de ruta para este punto de conexión.
 | `content_block_id` | Obligatorio | Cadena | El ID de tu bloque de contenido. |
 | `locale_id` | Obligatorio | Cadena | El ID (UUID) de la configuración regional. |
 | `translation_map` | Obligatorio | Objeto | Objeto que contiene las nuevas traducciones. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de solicitud" }
 
 {% alert note %}
 Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto de conexión GET.

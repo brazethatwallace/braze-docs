@@ -16,11 +16,11 @@ platform:
 
 {% tabs %}
 {% tab Android %}
-### Push-Bounce: MismatchSenderId {#push-bounced-mismatchsenderid}
+## Push-Bounce: MismatchSenderId {#push-bounced-mismatchsenderid}
 `MismatchSenderId` weist auf einen Authentifizierungsfehler hin. Firebase Cloud Messaging (FCM) authentifiziert sich mit einigen wichtigen Daten: senderID und FCM-API-Schlüssel. Beide sollten auf Richtigkeit überprüft werden. Weitere Informationen finden Sie in der [Android-Dokumentation](https://firebase.google.com/docs/cloud-messaging/http-server-ref#error-codes) zu diesem Thema.
 
 Häufige Fehlerursachen können sein:
-- Falsche [senderID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-1-enable-firebase)
+- Falsche [senderID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-1-enable-firebase)
 - Mehrfachregistrierung, wenn sich Nutzer:innen bei einem anderen Push-Dienst mit einer anderen senderID registrieren
 
 ### Push-Bounce: InvalidRegistration {#push-bounced-invalidregistration}
@@ -32,7 +32,7 @@ Häufige Fehlerursachen können sein:
 
 `NotRegistered` bedeutet in der Regel, dass die App vom Gerät gelöscht wurde (z. B. unser Signal für eine Deinstallation). Dies kann auch auftreten, wenn eine Mehrfachregistrierung stattfindet und eine zweite Registrierung das Push-Token ungültig macht, das Braze erhalten hat.
 
-### Fehler DEVICE_UNREGISTERED {#device-unregistered}
+### DEVICE_UNREGISTERED {#device-unregistered}
 
 Dieser Fehler erscheint im Nachrichten-Aktivitätsprotokoll als: `Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
 
@@ -82,7 +82,7 @@ Nächste Schritte:
 
 Der `BadToken`-Fehler kann aus verschiedenen Gründen auftreten:
 - Das Push-Token wird nicht korrekt an Braze gesendet (z. B. in `registerDeviceToken:` oder dem Äquivalent Ihrer Plattform).
-	- Überprüfen Sie das Token im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/). Es sollte in der Regel wie ein langer String aus Buchstaben und Zahlen aussehen (z. B. `6e407a9be8d07f0cdeb9e714733a89445f57a89ec890d63867c482a483506fa6`). Wenn nicht, überprüfen Sie den Code, der das Push-Token an Braze sendet.<br><br>
+	- Überprüfen Sie das Token im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Es sollte in der Regel wie ein langer String aus Buchstaben und Zahlen aussehen (z. B. `6e407a9be8d07f0cdeb9e714733a89445f57a89ec890d63867c482a483506fa6`). Wenn nicht, überprüfen Sie den Code, der das Push-Token an Braze sendet.<br><br>
 - Nicht übereinstimmende Bereitstellungsumgebung:
 	- Wenn Sie sich mit einem Entwicklungszertifikat registrieren und versuchen, mit einem Produktionszertifikat zu senden, kann dieser Fehler auftreten.
 	- Braze unterstützt nur universelle Zertifikate für Produktionsumgebungen. Das Testen von Push in Entwicklungsumgebungen mit einem universellen Zertifikat funktioniert nicht.
@@ -100,7 +100,7 @@ Der `TopicDisallowed`-Fehler bedeutet, dass APNs den Push abgelehnt hat, weil da
 2. **Überprüfen Sie Ihre APNs-Authentifizierungseinrichtung.** Bestätigen Sie, dass Ihre App mit dem richtigen APNs-`.p8`-Schlüssel konfiguriert ist und dass der Schlüssel mit demselben Apple Developer Team verknüpft ist wie die App, an die Sie senden.
 3. **Bestätigen Sie die App-Umgebung.** Wenn Sie separate App-IDs in Braze für Entwicklungs- und Produktions-Builds haben, überprüfen Sie, ob jede mit den richtigen Push-Zugangsdaten und der richtigen Umgebung konfiguriert ist.
 
-### Fehler Unregistered {#ios-unregistered}
+### Unregistered {#ios-unregistered}
 
 Dieser Fehler erscheint im Nachrichten-Aktivitätsprotokoll als:
 
@@ -116,11 +116,11 @@ Dies ist das iOS-Äquivalent des Android-Fehlers [DEVICE_UNREGISTERED](#device-u
 Dieser Fehler bedeutet nicht, dass Push für die Nutzer:innen deaktiviert ist – nur, dass ein bestimmtes Token aus ihrem Profil entfernt wurde. Um zu prüfen, ob die Nutzer:innen noch gültige Token haben, gehen Sie zur **Nutzersuche** und überprüfen Sie den Abschnitt **Kontakteinstellungen** auf dem Tab **Engagement**.
 {% endalert %}
 
-### Fehler InvalidProviderToken {#invalidprovidertoken}
+### InvalidProviderToken
 
 Der `InvalidProviderToken`-Fehler bedeutet, dass APNs die Anfrage abgelehnt hat, weil das Authentifizierungstoken (von einem `.p8`-Schlüssel) oder das Push-Zertifikat (`.p12`) nicht mit der Bundle-ID oder Team-ID der App übereinstimmt. Um dies zu beheben:
 
-1. **Überprüfen Sie Ihre Team-ID und Key-ID:** Wenn Sie einen `.p8`-Authentifizierungsschlüssel verwenden, bestätigen Sie, dass die im Braze-Dashboard konfigurierte **Team-ID** und **Key-ID** (**Einstellungen** > **App-Einstellungen** > wählen Sie Ihre iOS-App) mit den Werten in Ihrem Apple Developer Account übereinstimmen.
+1. **Überprüfen Sie Ihre Team-ID und Key-ID:** Wenn Sie einen `.p8`-Authentifizierungsschlüssel verwenden, bestätigen Sie, dass die im Braze-Dashboard konfigurierte **Team-ID** und **Key-ID** (**Einstellungen** > **App Settings** > wählen Sie Ihre iOS-App) mit den Werten in Ihrem Apple Developer Account übereinstimmen.
 2. **Überprüfen Sie die Bundle-ID:** Stellen Sie sicher, dass die in Braze registrierte Bundle-ID mit der Bundle-ID Ihrer App übereinstimmt. Eine Abweichung, wie z. B. eine andere Groß-/Kleinschreibung oder ein `.debug`-Suffix, verursacht diesen Fehler.
 3. **Laden Sie den Schlüssel oder das Zertifikat erneut hoch:** Wenn der `.p8`-Schlüssel oder das `.p12`-Zertifikat kürzlich neu generiert oder widerrufen wurde, laden Sie den neuen Schlüssel in Braze hoch und entfernen Sie den alten.
 4. **Bestätigen Sie die APNs-Umgebung:** Wenn Sie ein `.p12`-Zertifikat verwenden, überprüfen Sie, ob Sie beim Hochladen die richtige Umgebung (Entwicklung versus Produktion) ausgewählt haben. Für `.p8`-Schlüssel wird dies automatisch gehandhabt.

@@ -77,7 +77,7 @@ You can create a settings page in your app that lets users tell you which notifi
 
 When the news app wants to create a campaign targeting only users interested in Politics, they add the `Subscribes to Politics` attribute filter to the segment. When set to true, only users who subscribe to notifications will receive them.
 
-For more information on setting custom attributes, refer to the following articles for [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/#setting-custom-attributes), or [REST API]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-attributes-object-specification).
+For more information on setting custom attributes, refer to the following articles for [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes#setting-custom-attributes), or [REST API]({{site.baseurl}}/developer_guide/rest_api/user_data#user-attributes-object-specification).
 
 ## Increase opt-ins and relevance
 
@@ -89,7 +89,7 @@ Android 13 and up requires obtaining permission before push notifications can be
 
 ### Prime users for push
 
-You only get one chance to ask a user for push permission, and after they decline, it's very hard to convince them to re-enable push in their device settings. For this reason, you should prime users for push using an in-app message before showing the system prompt. See [Push primer in-app messages]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) to learn more about increasing opt-ins.
+You only get one chance to ask a user for push permission, and after they decline, it's very hard to convince them to re-enable push in their device settings. For this reason, you should prime users for push using an in-app message before showing the system prompt. See [Push primer in-app messages]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) to learn more about increasing opt-ins.
 
 ### Add push subscription controls
 
@@ -120,15 +120,15 @@ To do this, create a [sunset policy]({{site.baseurl}}/user_guide/channels/email/
 1. Identify unresponsive users based on direct or influenced opens.
 2. Gradually stop sending push notifications to those users.
 3. Before removing push notifications entirely, deliver one final notification explaining why they will no longer receive them. This gives users a chance to demonstrate their interest in continued pushes by opening that notification.
-4. After the sunset policy goes into effect, use an [in-app message]({{site.baseurl}}/user_guide/channels/in_app_messages/) to remind these users that while they will no longer receive pushes, in-app messaging channels will continue to deliver interesting, helpful information.
+4. After the sunset policy goes into effect, use an [in-app message]({{site.baseurl}}/user_guide/channels/in_app_messages) to remind these users that while they will no longer receive pushes, in-app messaging channels will continue to deliver interesting, helpful information.
 
 Although you may be reluctant to stop sending pushes to users who originally opted into them, remember that other messaging channels can more effectively reach these users, especially if they have previously ignored your pushes. If the user opens your emails, email campaigns are a good way to reach them outside your app. If not, then in-app messages are the best way to deliver content without risking the user uninstalling your app.
 
 ## Set conversion events for app opens
 
-When assigning [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) to a push campaign, you can track app opens for a certain period after the campaign is received. Setting a conversion event for app opens provides different insight from the results statistics you normally receive after a push campaign.
+When assigning [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) to a push campaign, you can track app opens for a certain period after the campaign is received. Setting a conversion event for app opens provides different insight from the results statistics you normally receive after a push campaign.
 
-While all push campaign results break down a message's direct opens and opens (which includes both direct and [influenced opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/)), conversion tracking will track any type of open, whether direct or influenced.
+While all push campaign results break down a message's direct opens and opens (which includes both direct and [influenced opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)), conversion tracking will track any type of open, whether direct or influenced.
 
 In addition, by using the conversion event "opens app," you are tracking app opens that occur before that conversion deadline (for instance, three days). This differs from an influenced open in that the time a user has to register an influenced open can vary from person to person, depending on each user's past engagement behavior.
 
@@ -154,7 +154,7 @@ Because push messages are an intrusive type of messaging that goes directly to y
 
 Didn't find what you were looking for? Check out these additional best practices articles:
 
-- [Push message and image formats]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/)
-- [Push primer in-app messages]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)
-- [Deliverability for Chinese Android devices]({{site.baseurl}}/user_guide/channels/push/best_practices/chinese_push_deliverability/)
-- [Know before you send: channels]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send/)
+- [Push message and image formats]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats)
+- [Push primer in-app messages]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)
+- [Deliverability for Chinese Android devices]({{site.baseurl}}/user_guide/channels/push/best_practices/chinese_push_deliverability)
+- [Know before you send: channels]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send)

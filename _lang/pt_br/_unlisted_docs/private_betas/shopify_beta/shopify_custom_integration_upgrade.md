@@ -10,13 +10,13 @@ hidden: true
 
 # Fazendo upgrade da sua integração com o Shopify (personalizado) {#upgrading-your-shopify-integration-custom}
 
-> Saiba como fazer upgrade da sua integração com o Shopify usando a jornada personalizada para a Braze. Como parte do nosso compromisso em oferecer a melhor experiência possível, estamos exigindo que todas as integrações com o Shopify façam [upgrade]({{site.baseurl}}/shopify/) para a versão mais recente até 28 de agosto de 2025. Esse upgrade é essencial porque mudanças significativas na tecnologia do Shopify vão impactar o funcionamento da nossa integração.
+> Saiba como fazer upgrade da sua integração com o Shopify usando a jornada personalizada para a Braze. Como parte do nosso compromisso em oferecer a melhor experiência possível, estamos exigindo que todas as integrações com o Shopify façam [upgrade]({{site.baseurl}}/shopify) para a versão mais recente até 28 de agosto de 2025. Esse upgrade é essencial porque mudanças significativas na tecnologia do Shopify vão impactar o funcionamento da nossa integração.
 
 ## Quem é elegível? {#whos-eligible}
 
 Essa jornada de upgrade é destinada a marcas com uma loja Shopify headless ou Shopify Hydrogen.
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## Requisitos de upgrade {#upgrade-requirements}
 
@@ -24,10 +24,10 @@ Antes de começar, revise o seguinte:
 
 | Requisito | Descrição |
 |-----------------------|-------------|
-| **Mudanças críticas** | Certifique-se de que você revisou todas as mudanças importantes do conector legado para o novo conector em [Visão geral do upgrade do Shopify]({{site.baseurl}}/shopify_upgrade_overview/#subscriber-collection). |
-| **Pré-requisitos de upgrade** | Certifique-se de que você concluiu todos os [pré-requisitos de upgrade]({{site.baseurl}}/shopify_upgrade_overview/#upgrade-prerequisites) necessários com suas equipes de engenharia e marketing. Para fazer upgrade da sua loja Shopify headless com a Braze, você precisa concluir duas etapas críticas:<br><br>- Inicializar e carregar o Braze Web SDK para ativar o rastreamento no site<br>- Fazer upgrade da sua loja existente por meio da experiência de upgrade no produto |
+| **Mudanças críticas** | Certifique-se de que você revisou todas as mudanças importantes do conector legado para o novo conector em [Visão geral do upgrade do Shopify]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection). |
+| **Pré-requisitos de upgrade** | Certifique-se de que você concluiu todos os [pré-requisitos de upgrade]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites) necessários com suas equipes de engenharia e marketing. Para fazer upgrade da sua loja Shopify headless com a Braze, você precisa concluir duas etapas críticas:<br><br>- Inicializar e carregar o Braze Web SDK para ativar o rastreamento no site<br>- Fazer upgrade da sua loja existente por meio da experiência de upgrade no produto |
 | **Mudanças que causam quebra** | Revise e corrija todas as mudanças que causam quebra sinalizadas na Braze. Para um passo a passo completo, continue em [Corrigindo mudanças que causam quebra](#fixing-breaking-changes-fixing-breaking-changes). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2  role="presentation"}
 
 ## Corrigindo mudanças que causam quebra {#fixing-breaking-changes}
 
@@ -63,13 +63,13 @@ Para uma lista completa dos novos modelos de Canvas de eCommerce e blocos HTML p
 Se você não considerar as mensagens ativas que usam eventos descontinuados na integração com o Shopify, as mensagens impactadas não serão mais enviadas aos seus clientes.
 {% endalert %}
 
-Para saber mais, revise [Eventos do Shopify suportados]({{site.baseurl}}/shopify_upgrade_overview/#supported-shopify-events).
+Para saber mais, revise [Eventos do Shopify suportados]({{site.baseurl}}/shopify_upgrade_overview#supported-shopify-events).
 {% endtab %}
 
 {% tab Listas de inscritos %}
 Se você está coletando inscritos de e-mail ou SMS do Shopify pela integração, confirme que suas mensagens ativas incluem as listas de inscritos correspondentes para sua loja Shopify.
 
-Quando o upgrade for concluído, novos grupos de inscrições padrão serão criados para sua integração, e você precisará utilizá-los como parte do seu envio de mensagens ativo. Para mais informações sobre as mudanças, consulte [Coleta de inscritos]({{site.baseurl}}/shopify_upgrade_overview/#subscriber-collection).
+Quando o upgrade for concluído, novos grupos de inscrições padrão serão criados para sua integração, e você precisará utilizá-los como parte do seu envio de mensagens ativo. Para mais informações sobre as mudanças, consulte [Coleta de inscritos]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection).
 {% endtab %}
 {% endtabs %}
 
@@ -81,7 +81,7 @@ Quando o upgrade for concluído, novos grupos de inscrições padrão serão cri
 
 ### Etapa 1: Inicializar e carregar o Braze Web SDK para ativar o rastreamento no site {#step-1}
 
-Se você ainda não fez isso, inicialize e carregue o Braze Web SDK para ativar o rastreamento no site. Para um passo a passo completo, consulte [Configuração da integração personalizada com o Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-1):
+Se você ainda não fez isso, inicialize e carregue o Braze Web SDK para ativar o rastreamento no site. Para um passo a passo completo, consulte [Configuração da integração personalizada com o Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration#step-1):
 - Crie um app web da Braze
 - Adicione subdomínio e variáveis de ambiente
 - Ative o rastreamento no site
@@ -169,7 +169,7 @@ Você precisa criar um endpoint público que a Braze possa chamar para recuperar
 
 ```
 GET
-https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
+https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@example.com&shopify_storefront=dev-store.myshopify.com
 ```
 
 ##### Resposta esperada {#expected-response}
@@ -219,4 +219,4 @@ Para verificar que seu novo conector do Shopify está ativo, teste o seguinte:
 - **Personalizações do SDK (opcional):** Se você fez personalizações na sua integração da Braze com o Shopify (como registrar eventos personalizados ou atributos), verifique se estão funcionando corretamente após o upgrade.
 - **Coleta de inscritos de e-mail ou SMS (opcional):** Se você ativou anteriormente a coleta de inscritos de e-mail ou SMS, novos grupos de inscrições padrão serão criados para refletir o status mais recente dos seus inscritos durante o upgrade. Os grupos de inscrições padrão terão o nome da sua storefront do Shopify. Esses novos grupos de inscrições padrão estarão disponíveis aproximadamente 5 horas após o upgrade, e você precisará adicioná-los às suas mensagens ativas.
 
-Se você tiver alguma dúvida, [fale com o Suporte]({{site.baseurl}}/user_guide/administrative/access_braze/support/).
+Se você tiver alguma dúvida, [fale com o Suporte]({{site.baseurl}}/user_guide/administrative/access_braze/support).

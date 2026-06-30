@@ -1,46 +1,46 @@
 ---
 nav_title: ユースケース
-article_title: Braze Data Transformation のユースケース
+article_title: Braze データ変換のユースケース
 page_order: 2
 page_type: reference
-description: "このリファレンス記事では、Braze Data Transformation のユースケースをいくつか紹介します。"
+description: "このリファレンス記事では、Braze データ変換のユースケースをいくつか紹介します。"
 ---
 
-# データ変換のユースケース
+# データ変換のユースケース {#data-transformation-use-cases}
 
-> Braze Data Transformation と外部プラットフォーム例の Webhook の組み合わせを持つ、次のようなユースケースを考えてみましょう。
+> Braze データ変換と外部プラットフォーム例からのwebhookの組み合わせによる、以下のようなユースケースを検討してみましょう。
 
-## リード創出
+## リード創出 {#generating-leads}
 
-自社の Web サイトで、リードを創出する Typeform フォームをホストしています。新規ユーザーがこのフォームに入力すると、次のことができます。
+自社のWebサイトで、リードを創出する Typeform フォームをホストしています。新規ユーザーがこのフォームに入力すると、次のことができます。
 - Brazeで新規ユーザーを作成する。
-- BrazeのEメールリストに追加する。
-- 回答のいくつかを Braze のカスタム属性として同期します。回答は、将来に向けてパーソナライズされたメッセージングエクスペリエンスを強化できる貴重なファーストパーティデータであるためです。
+- Brazeのメールリストに追加する。
+- 回答のいくつかをBrazeのカスタム属性として同期する。回答は、将来に向けてパーソナライズされたメッセージングエクスペリエンスを強化できる貴重なファーストパーティデータであるためです。
 
-## サービスチケットを開く
+## サービスチケットのオープン {#opening-service-tickets}
 
 顧客が Zendesk などのプラットフォームでカスタマーサービスチケットを開く場合には、次のことができます。
 - Zendeskチケットが作成されたときに、Brazeにカスタムイベントを書き込む。
-- Zendeskに否定的なCSATレーティングが提供されたときに、Brazeのイベントプロパティでカスタムイベントを記述する。
+- Zendeskに否定的なCSATレーティングが提供されたときに、イベントプロパティ付きのカスタムイベントをBrazeに書き込む。
 
-## Brazeとの連携
+## Brazeとの連携 {#integrating-with-braze}
 
-Braze は、顧客インサイトおよび調査のプラットフォームである [Iterate]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/iterate/) と連携しています。Data Transformation では、複数のカスタム属性を保存する既存の統合ではなく、1 つの階層化カスタム属性の下に調査の回答を複数保存できます。
+Brazeは、顧客インサイトおよびアンケートのプラットフォームである[Iterate]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/iterate)と連携しています。データ変換では、複数のカスタム属性を保存する既存の連携ではなく、1つの階層化カスタム属性の下にアンケートの回答を複数保存できます。
 
-## 変換コードの例
+## 変換コードの例 {#example-transformation-code}
 
-調査プラットフォームである Typeform から調査の回答を受信するたびに、次のサンプルペイロードが送信されるとします。
+アンケートプラットフォームである Typeform から、アンケートの回答を受信するたびに送信される以下のサンプルペイロードを考えてみましょう。
 
-![]({% image_buster /assets/img/data_transformation/data_transformation2.png %})
+![変換コードの例に関連するスクリーンショット。]({% image_buster /assets/img/data_transformation/data_transformation2.png %})
 
 {% tabs local %}
-{% tab Basic transformation %}
+{% tab 基本的な変換 %}
 
-この例では、調査の回答を属性として取り、調査が完了したことを示すイベントを書き込みます。
+この例では、アンケートの回答を属性として取得し、アンケートが完了したことを示すイベントを書き込みます。
 
 ```
 return {
-  "attributes": [ 
+  "attributes": [
     {
       "email": payload.form_response.hidden.email_address,
       "_update_existing_only": true,
@@ -48,7 +48,7 @@ return {
       "home_weather_rating": payload.form_response.answers[1].number
     }
   ],
-  "events": [ 
+  "events": [
     {
       "email": payload.form_response.hidden.email_address,
       "_update_existing_only": true,
@@ -63,9 +63,9 @@ return {
 ```
 
 {% endtab %}
-{% tab Advanced transformation %}
+{% tab 高度な変換 %}
 
-基本的なトランスフォーメーションの例をさらに踏まえ、`if` ステートメントを導入して、いずれかの回答でユーザーを分類します。
+基本的な変換の例をさらに発展させ、`if` ステートメントを導入して、いずれかの回答に基づいてユーザーを分類します。
 
 ```
 let nps_category;
@@ -79,7 +79,7 @@ if (nps_number < 7) {
 }
 
 return {
-  "attributes": [ 
+  "attributes": [
     {
       "email": payload.form_response.hidden.email_address,
       "_update_existing_only": true,

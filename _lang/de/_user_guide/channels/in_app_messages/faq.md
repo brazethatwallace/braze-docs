@@ -43,7 +43,7 @@ MESSAGE HERE
 
 ### Campaigns
 
-Bei In-App-Nachricht-Campaigns können Sie Nutzer:innen erlauben, erneut für den Empfang der Campaign berechtigt zu werden, indem Sie die erneute Berechtigung in den **Zustellungs-Kontrollgruppen** aktivieren (**Nutzer:innen erlauben, erneut für den Empfang der Campaign berechtigt zu werden**). Wie schnell sie die Nachricht erneut erhalten können, hängt vom eingestellten Zeitfenster für die erneute Berechtigung ab und davon, wie Braze den vorherigen Versand erfasst hat. Weitere Informationen finden Sie unter [Erneute Berechtigung für Campaigns und Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) zum Campaign-Verhalten, einschließlich der Beziehung zwischen erneuter Berechtigung und Nachrichtenempfang.
+Bei In-App-Nachricht-Campaigns können Sie Nutzer:innen erlauben, erneut für den Empfang der Campaign berechtigt zu werden, indem Sie die erneute Berechtigung in den **Zustellungs-Kontrollgruppen** aktivieren (**Nutzer:innen erlauben, erneut für den Empfang der Campaign berechtigt zu werden**). Wie schnell sie die Nachricht erneut erhalten können, hängt vom eingestellten Zeitfenster für die erneute Berechtigung ab und davon, wie Braze den vorherigen Versand erfasst hat. Weitere Informationen finden Sie unter [Erneute Berechtigung für Campaigns und Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) zum Campaign-Verhalten, einschließlich der Beziehung zwischen erneuter Berechtigung und Nachrichtenempfang.
 
 Wenn die erneute Berechtigung deaktiviert ist, erhalten Nutzer:innen dieselbe Campaign in der Regel nicht erneut allein basierend auf den Qualifizierungskriterien, nachdem sie sie bereits erhalten haben.
 
@@ -65,11 +65,11 @@ Um dies zu verhindern, wählen Sie während der Campaign-Einrichtung **Campaign-
 
 ## Können mehrere In-App-Nachrichten in derselben Sitzung angezeigt werden? {#can-multiple-in-app-messages-display-in-the-same-session}
 
-Ja, aber pro Auftreten eines [Trigger-Events]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-trigger) kann nur eine In-App-Nachricht angezeigt werden. Wenn mehrere In-App-Nachricht-Campaigns denselben Trigger teilen (z. B. Sitzungsstart), wird jedes Mal, wenn dieser Trigger auftritt, nur die Nachricht mit der höchsten Priorität angezeigt. Bei Sitzungsstart-Triggern bedeutet dies, dass pro Sitzung nur eine Nachricht angezeigt werden kann und die nächste Gelegenheit, eine weitere berechtigte Nachricht anzuzeigen, die nächste Sitzung ist.
+Ja, aber pro Auftreten eines [Trigger-Events]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-trigger) kann nur eine In-App-Nachricht angezeigt werden. Wenn mehrere In-App-Nachricht-Campaigns denselben Trigger teilen (z. B. Sitzungsstart), wird jedes Mal, wenn dieser Trigger auftritt, nur die Nachricht mit der höchsten Priorität angezeigt. Bei Sitzungsstart-Triggern bedeutet dies, dass pro Sitzung nur eine Nachricht angezeigt werden kann und die nächste Gelegenheit, eine weitere berechtigte Nachricht anzuzeigen, die nächste Sitzung ist.
 
 Wenn mehrere Nachrichten dieselbe Prioritätsstufe teilen, wird die zuletzt erstellte Nachricht zuerst angezeigt. Bei Sitzungsstart-Triggern wird die nächstaktuellste Nachricht in einer nachfolgenden Sitzung angezeigt; bei anderen Trigger-Typen wird die nächstaktuellste Nachricht beim nächsten Auftreten dieses Trigger-Events angezeigt, was innerhalb derselben Sitzung oder in einer späteren Sitzung sein kann.
 
-Um die Anzeigereihenfolge innerhalb einer Prioritätsstufe zu steuern, gehen Sie zu den Zustellungseinstellungen einer der Campaigns und wählen Sie **Genaue Priorität festlegen**. Ziehen Sie die Campaigns dann per Drag-and-Drop in die gewünschte Reihenfolge. Weitere Details finden Sie unter [Priorität wählen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority).
+Um die Anzeigereihenfolge innerhalb einer Prioritätsstufe zu steuern, gehen Sie zu den Zustellungseinstellungen einer der Campaigns und wählen Sie **Genaue Priorität festlegen**. Ziehen Sie die Campaigns dann per Drag-and-Drop in die gewünschte Reihenfolge. Weitere Details finden Sie unter [Priorität wählen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-priority).
 
 ## Wie berechnet Braze ein In-App-Nachricht-Ablaufdatum von „nach 1 Tag(en)“? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 
@@ -149,7 +149,7 @@ Wenn Ihr HTML auf REST-Daten verweist, die von Connected Content zurückgegeben 
 
 Standard-In-App-Nachrichten werden angezeigt, sobald die zwischengespeicherte Payload nach dem Trigger-Event bereit ist. Auf Android und iOS können große Bilder oder andere CDN-gehostete Assets, auf die in der Nachricht verwiesen wird, eine kurze Verzögerung verursachen, während diese Ressourcen heruntergeladen werden, bevor die In-App-Nachricht erscheint.
 
-[Vorlagenbasierte In-App-Nachrichten](#what-are-templated-in-app-messages) und Campaigns mit aktivierter Option **Campaign-Berechtigung vor der Anzeige erneut prüfen** erfordern nach dem Trigger eine zusätzliche Netzwerkanfrage, bevor die Nachricht erscheint. Dies kann eine kurze Verzögerung verursachen (in der Regel unter 100 ms bei einer stabilen Verbindung). Weitere Informationen finden Sie unter [Zielnutzer:innen auswählen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-users-to-target).
+[Vorlagenbasierte In-App-Nachrichten](#what-are-templated-in-app-messages) und Campaigns mit aktivierter Option **Campaign-Berechtigung vor der Anzeige erneut prüfen** erfordern nach dem Trigger eine zusätzliche Netzwerkanfrage, bevor die Nachricht erscheint. Dies kann eine kurze Verzögerung verursachen (in der Regel unter 100 ms bei einer stabilen Verbindung). Weitere Informationen finden Sie unter [Zielnutzer:innen auswählen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-users-to-target).
 
 ### Warum sieht meine In-App-Nachricht anders aus als die Dashboard-Vorschau? {#why-does-my-in-app-message-look-different-from-the-dashboard-preview}
 
@@ -159,7 +159,7 @@ Zugestellte In-App-Nachrichten können von der Dashboard-Vorschau abweichen, wen
 - Die Vorschau ein Testnutzerprofil mit anderen Attributen als der/die Empfänger:in verwendet
 - Vorlagenbasierte Inhalte zum Sendezeitpunkt anders aufgelöst werden als im Vorschaumodus
 
-Verwenden Sie [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) mit einem/einer Testnutzer:in, dessen/deren Profil Ihrer Zielgruppe entspricht, um das Erscheinungsbild zu überprüfen.
+Verwenden Sie [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) mit einem/einer Testnutzer:in, dessen/deren Profil Ihrer Zielgruppe entspricht, um das Erscheinungsbild zu überprüfen.
 
 ### Warum verwendet eine mehrseitige In-App-Nachricht auf jeder Seite denselben Hintergrund? {#why-does-a-multi-page-in-app-message-use-the-same-background-on-every-page}
 
@@ -167,7 +167,7 @@ Wenn **Hintergrundbild** auf einer Seite einer mehrseitigen In-App-Nachricht akt
 
 ### Wie teste ich Web-In-App-Nachrichten? {#how-do-i-test-web-in-app-messages}
 
-Für den Testversand von Web-In-App-Nachrichten muss Push auf dem Testgerät aktiviert sein, da der Testablauf eine Push-Benachrichtigung sendet, die die App oder Website öffnet, auf der die In-App-Nachricht angezeigt wird. Derselbe Push-basierte Testpfad gilt auf jeder Plattform, auf der Push nicht mit Braze konfiguriert ist, obwohl fehlendes Push am häufigsten im Web auftritt, da viele mobile Integrationen Push bereits aktiviert haben. Verwenden Sie stattdessen eine Live-Campaign an ein internes Testsegment. Die Schritte finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message).
+Für den Testversand von Web-In-App-Nachrichten muss Push auf dem Testgerät aktiviert sein, da der Testablauf eine Push-Benachrichtigung sendet, die die App oder Website öffnet, auf der die In-App-Nachricht angezeigt wird. Derselbe Push-basierte Testpfad gilt auf jeder Plattform, auf der Push nicht mit Braze konfiguriert ist, obwohl fehlendes Push am häufigsten im Web auftritt, da viele mobile Integrationen Push bereits aktiviert haben. Verwenden Sie stattdessen eine Live-Campaign an ein internes Testsegment. Die Schritte finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message).
 
 ## Warum ist der Schließen-Button bei Vollbild-HTML-In-App-Nachrichten auf Android ausgeblendet? {#why-is-the-close-button-hidden-on-full-screen-html-in-app-messages-on-android}
 
@@ -179,7 +179,7 @@ Bei älteren SDK-Versionen konnten Entwickler:innen `BrazeConfig.setIsHtmlInAppM
 
 ## Was sollte ich beim Anpassen von Drag-and-Drop-In-App-Nachrichten beachten? {#what-should-i-know-when-customizing-drag-and-drop-in-app-messages}
 
-Der [Drag-and-Drop-Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) unterstützt modale und Vollbild-Anzeigetypen. Sie erstellen Inhalte innerhalb dieser Container mit Editor-Blöcken.
+Der [Drag-and-Drop-Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) unterstützt modale und Vollbild-Anzeigetypen. Sie erstellen Inhalte innerhalb dieser Container mit Editor-Blöcken.
 
 Beachten Sie Folgendes:
 
@@ -191,7 +191,7 @@ Beachten Sie Folgendes:
 - **Stile auf Nachrichtenebene:** Stile auf Nachrichtenebene gelten für die gesamte Nachricht.
 - **Hintergrundbilder:** Hintergrundbilder werden gestreckt, um in das Modal zu passen.
 
-Weitere Hinweise zum Editor finden Sie im [Vorbereitungsleitfaden für In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/prep_guide/#drag-and-drop-editor-considerations).
+Weitere Hinweise zum Editor finden Sie im [Vorbereitungsleitfaden für In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/prep_guide#drag-and-drop-editor-considerations).
 
 ## Was bedeutet „Event was published, but no subscribers were found“ in den Android-SDK-Logs? {#what-does-event-was-published-but-no-subscribers-were-found-mean-in-android-sdk-logs}
 

@@ -37,7 +37,7 @@ Braze는 추가 변경이나 업그레이드 없이 이 새로운 iOS 및 iPadOS
 
 ## iOS 16 준비 {#next-steps}
 
-iOS 16에서 Braze iOS SDK를 업그레이드할 필요는 없지만, 두 가지 흥미로운 업데이트가 있습니다.
+iOS 16을 위해 Braze iOS SDK를 업그레이드할 필요는 없지만, 두 가지 흥미로운 업데이트가 있습니다.
 
 1. Braze에서 [새로운 Swift SDK](https://github.com/braze-inc/braze-swift-sdk)를 출시했습니다. 향상된 성능, 새로운 기능 및 다양한 개선 사항을 제공합니다.
-2. Braze Swift SDK는 새로운 ["노코드" 푸시 프라이머 기능]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)을 지원합니다!
+2. Braze Swift SDK는 새로운 ["노코드" 푸시 프라이머 기능]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)을 지원합니다!

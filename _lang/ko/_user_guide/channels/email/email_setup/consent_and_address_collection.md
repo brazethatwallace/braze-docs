@@ -14,14 +14,14 @@ channel: email
 
 ## 구독자 상태 {#subscriber-states}
 
-사용자의 이메일 구독 상태는 **옵트인함**, **가입됨**, **탈퇴됨** 세 가지가 있습니다. 사용자의 구독 상태를 변경하려면 [구독 변경]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-subscriptions) 문서를 확인하거나 [구독 API]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)를 사용하세요.
+사용자의 이메일 구독 상태는 **옵트인함**, **가입됨**, **탈퇴됨** 세 가지가 있습니다. 사용자의 구독 상태를 변경하려면 [구독 변경]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-subscriptions) 문서를 확인하거나 [구독 API]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)를 사용하세요.
 
 | 구독자 상태 | 설명 |
 |---|---|
 | 옵트인함 | 이러한 고객은 확인 이메일의 링크를 클릭하고 메시지 수신에 적극적으로 동의한 것입니다. |
 | 가입됨 | 기본적으로 사용자는 프로필에 유효한 이메일 주소가 저장되어 있는 한 이메일을 구독하게 됩니다. 사용자는 구독을 취소하거나 옵트인할 때까지 구독 상태를 유지합니다. |
 | 탈퇴됨 | 수신 거부로 표시되려면 고객이 명시적으로 이메일 수신을 거부했거나 이메일을 스팸으로 표시한 경우입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscriber states" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="구독자 상태" }
 
 ## 주소 수집 방법 {#address-collection-methods}
 

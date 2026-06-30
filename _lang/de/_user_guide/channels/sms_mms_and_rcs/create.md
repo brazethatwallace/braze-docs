@@ -20,7 +20,7 @@ search_rank: 1
 
 ## 1. Schritt: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#step-1-choose-where-to-build-your-message}
 
-Sind Sie unsicher, ob Ihre Nachricht über eine Campaign oder ein Canvas gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind.
+Sind Sie unsicher, ob Ihre Nachricht über eine Kampagne oder ein Canvas gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind.
 
 {% tabs %}
 {% tab Campaign %}
@@ -62,7 +62,7 @@ Die von Ihnen gewählte Abo-Gruppe bestimmt, welche Nachrichtentypen im Composer
 | Nur SMS | SMS |
 | SMS mit MMS-fähigen Nummern | SMS und MMS |
 | RCS-fähig (mit RCS-verifiziertem Sender) | SMS, MMS (falls aktiviert) und RCS |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Wählen Sie eine Abo-Gruppe" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abo-Gruppe auswählen" }
 
 {% alert tip %}
 Braze empfiehlt dringend, dass jede Abo-Gruppe, die einen RCS-Sender enthält, auch mindestens einen SMS-Code als Fallback umfasst. So wird sichergestellt, dass die Nachricht Ihre Nutzer:innen auch dann per SMS erreicht, wenn eine RCS-Nachricht nicht zugestellt werden kann (z. B. aufgrund von Geräteinkompatibilität oder unvollständiger Carrier-Abdeckung).
@@ -258,7 +258,7 @@ Bei MMS kann die Reihenfolge der Assets (Bild und Nachrichtentext) nicht angepas
 Da das RCS-Rendering vom Betriebssystem, Gerätehersteller, Carrier und der Messaging-App der Nutzer:innen gesteuert wird (z. B. Google Messages vs. Apple Messages), kann das Erscheinungsbild der Nachricht variieren. Die in Braze angezeigte Vorschau stimmt möglicherweise nicht genau mit dem überein, was Endnutzer:innen erhalten. Validieren Sie das endgültige Rendering nach Möglichkeit auf echten Geräten. Weitere Informationen zum RCS-Rendering auf iOS-Geräten finden Sie unter [Warum wird meine RCS-Nachricht auf iOS-Geräten nicht korrekt dargestellt?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-doesnt-my-rcs-message-render-accurately-on-ios-devices).
 {% endalert %}
 
-Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=sms%2Fmms%20and%20rcs).
+Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=sms%2Fmms%20and%20rcs).
 
 ## 5. Schritt: Erstellen Sie den Rest Ihrer Campaign oder Ihres Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
@@ -279,7 +279,7 @@ In diesem Schritt können Sie auch Zustellungskontrollen festlegen, z. B. ob Nut
 
 Als Nächstes [stellen Sie Ihre Zielgruppe zusammen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), indem Sie Segmente oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Sie sollten bereits die Abo-Gruppe gewählt haben, die Nutzer:innen nach dem Grad oder der Kategorie der Kommunikation eingrenzt, die sie mit Ihnen wünschen.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 Wählen Sie die größere Zielgruppe aus Ihren Segmenten und grenzen Sie dieses Segment mit optionalen Filtern weiter ein. Sie erhalten automatisch eine Vorschau der ungefähren Segmentpopulation. Beachten Sie, dass die genaue Segmentzugehörigkeit immer vor dem Versand der Nachricht berechnet wird.
 

@@ -43,7 +43,7 @@ Para ver más detalles sobre los criterios de entrada, selecciona **See more**. 
 
 ### Liquid
 
-Braze procesa la lógica de Liquid durante una ejecución de prueba, incluso si no estás enviando un mensaje de prueba real. Esto significa que la [lógica de cancelación de mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/#abort-messages) y otra lógica de Liquid se reflejan y podrían afectar el recorrido del usuario en Canvas.
+Braze procesa la lógica de Liquid durante una ejecución de prueba, incluso si no estás enviando un mensaje de prueba real. Esto significa que la [lógica de cancelación de mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages) y otra lógica de Liquid se reflejan y podrían afectar el recorrido del usuario en Canvas.
 
 Si tu vista previa envía el último paso del recorrido de tu usuario en lugar de cancelar, es posible que la vista previa esté usando la hora actual como la hora evaluada para Liquid, no la hora real en la que el usuario estaría en el paso según la hora de entrada al Canvas.
 
@@ -87,7 +87,7 @@ Los pasos en Canvas responden a los tiempos al previsualizar los recorridos de u
 
 De manera similar, los filtros reconocen las acciones que ocurrieron como resultado de la interacción del usuario de prueba con otros pasos en el Canvas. Por ejemplo, este modo de vista previa reconoce que un usuario encontró un paso de mensaje que fue "enviado" anteriormente en el Canvas, y reconoce que el usuario de prueba "realizó una acción" para avanzar a través de una ruta de acción.
 
-Consulta [Criterios de salida]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/) para más detalles sobre el comportamiento de respuesta.
+Consulta [Criterios de salida]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria) para más detalles sobre el comportamiento de respuesta.
 
 ## Contenido conectado {#connected-content}
 
@@ -95,13 +95,13 @@ El contenido conectado se ejecuta si está incluido en el Canvas. Esto significa
 
 Al previsualizar los recorridos de usuario, considera eliminar el contenido conectado que altera los perfiles de usuario o los datos referenciados en otros Canvas o Campaigns.
 
-## Webhooks
+## Webhooks {#webhooks}
 
 Los webhooks se ejecutan cuando se envían mensajes de prueba, pero no durante la ejecución de prueba. De manera similar al contenido conectado, considera eliminar los webhooks que alteran los perfiles de usuario o los datos referenciados en otros Canvas o Campaigns.
 
 ## Variables de contexto y grupos semilla {#context-variables-and-seed-groups}
 
-Para un paso de mensaje con correo electrónico como canal de mensajería, los grupos semilla envían copias semilla de los correos electrónicos cuando un usuario llega a este paso en el Canvas. Estas copias semilla no se envían como parte de los recorridos propios en Canvas de los destinatarios del grupo semilla, por lo que Braze no ejecuta [pasos de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) ni evalúa las variables de contexto para esos destinatarios. Si el contenido de tu correo electrónico hace referencia a variables de contexto, los destinatarios del grupo semilla reciben una copia semilla sin esos datos completados. Para probar mensajes que dependen de datos de variables de contexto, usa la vista previa de **Test Canvas** con envíos de prueba en lugar de grupos semilla.
+Para un paso de mensaje con correo electrónico como canal de mensajería, los grupos semilla envían copias semilla de los correos electrónicos cuando un usuario llega a este paso en el Canvas. Estas copias semilla no se envían como parte de los recorridos propios en Canvas de los destinatarios del grupo semilla, por lo que Braze no ejecuta [pasos de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) ni evalúa las variables de contexto para esos destinatarios. Si el contenido de tu correo electrónico hace referencia a variables de contexto, los destinatarios del grupo semilla reciben una copia semilla sin esos datos completados. Para probar mensajes que dependen de datos de variables de contexto, usa la vista previa de **Test Canvas** con envíos de prueba en lugar de grupos semilla.
 
 ## Caso de uso {#use-case}
 

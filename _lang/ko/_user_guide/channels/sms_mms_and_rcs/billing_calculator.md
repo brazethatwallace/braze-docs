@@ -28,7 +28,7 @@ SMS 메시지는 메시지 세그먼트 단위로 요금이 부과됩니다. SMS
 
 Braze를 사용하여 SMS Campaign 또는 Canvas를 생성할 때, 작성기에서 작성하는 메시지는 사용자의 휴대폰에 전달될 때 보이는 내용을 나타내지만, **메시지가 세그먼트로 분할되는 방식이나 최종적으로 요금이 청구되는 방식을 나타내는 것은 아닙니다**. 전송될 세그먼트 수를 파악하고 발생할 수 있는 잠재적 초과 요금을 인지하는 것은 사용자의 책임이지만, 이를 더 쉽게 할 수 있는 리소스를 제공합니다. 내장 [세그먼트 계산기](#segment-calculator)를 확인해 보세요.
 
-![]({% image_buster /assets/img/sms_segment_pic.png %}){: style="border:0;"}
+![Braze를 사용하여 SMS Campaign 또는 Canvas를 생성할 때, 작성기에서 작성하는 메시지는 사용자의 휴대폰에 전달될 때 보이는 내용을 나타내지만, 메시지가 세그먼트로 분할되는 방식이나 최종적으로 요금이 청구되는 방식을 나타내는 것은 아닙니다. 전송될 세그먼트 수를 파악하고 발생할 수 있는 잠재적 초과 요금을 인지하는 것은 사용자의 책임이지만, 이를 더 쉽게 할 수 있는 리소스를 제공합니다. 내장 세그먼트 계산기를 확인해 보세요.]({% image_buster /assets/img/sms_segment_pic.png %}){: style="border:0;"}
 
 #### 세그먼트 분할 방식 {#segment-breakdown}
 
@@ -40,7 +40,7 @@ Braze를 사용하여 SMS Campaign 또는 Canvas를 생성할 때, 작성기에�
 - **UCS-2 인코딩**
     - SMS 메시지에 이모지, 중국어, 한국어 또는 일본어 스크립트와 같은 비GSM 문자를 포함하면 해당 메시지는 UCS-2 인코딩으로 전송되어야 합니다. 초기 세그먼트 제한인 70자를 초과하는 메시지는 전체 메시지가 67자 메시지 세그먼트로 연결됩니다. 예를 들어, 71자 메시지는 67자 메시지 하나와 4자 메시지 하나, 총 두 개의 메시지로 전송됩니다.
 
-인코딩 유형에 관계없이 Braze에서 전송하는 각 SMS 메시지는 최대 10개 세그먼트로 제한되며, [Liquid 템플릿]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/), [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), 이모지 및 링크와 호환됩니다.
+인코딩 유형에 관계없이 Braze에서 전송하는 각 SMS 메시지는 최대 10개 세그먼트로 제한되며, [Liquid 템플릿]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid), [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), 이모지 및 링크와 호환됩니다.
 
 {% tabs %}
 {% tab GSM-7 인코딩 %}
@@ -56,7 +56,7 @@ Braze를 사용하여 SMS Campaign 또는 Canvas를 생성할 때, 작성기에�
 | 1072 - 1224자 | 8 세그먼트 |
 | 1225 - 1377자 | 9 세그먼트 |
 | 1378 - 1530자 | 10 세그먼트 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment breakdown" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="세그먼트 분할 방식" }
 {% endtab %}
 {% tab UCS-2 인코딩 %}
 | 문자 수 | 세그먼트 수 |
@@ -71,7 +71,7 @@ Braze를 사용하여 SMS Campaign 또는 Canvas를 생성할 때, 작성기에�
 | 470 - 536자 | 8 세그먼트 |
 | 537 - 603자 | 9 세그먼트 |
 | 604 - 670자 | 10 세그먼트 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment breakdown" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="세그먼트 분할 방식" }
 {% endtab %}
 {% endtabs %}
 
@@ -86,7 +86,7 @@ Braze를 사용하여 SMS Campaign 또는 Canvas를 생성할 때, 작성기에�
 - **Liquid 템플릿, 연결된 콘텐츠, 이모지 및 링크와 호환**
     - Liquid 템플릿과 연결된 콘텐츠는 인코딩 유형의 문자 제한을 초과할 위험이 있습니다. [truncate words 필터](https://help.shopify.com/en/themes/liquid/filters/string-filters#truncatewords)를 사용하여 Liquid가 메시지에 가져올 수 있는 단어 수를 제한할 수 있습니다.
     - 이모지는 모든 이모지에 걸쳐 표준 문자 수가 없으므로, 메시지가 올바르게 세그먼트화되고 표시되는지 반드시 테스트하세요.
-    - 링크는 많은 문자를 사용할 수 있어 의도한 것보다 더 많은 메시지 세그먼트가 발생할 수 있습니다. 링크 단축기를 사용할 수 있지만, 짧은 코드와 함께 사용하는 것이 가장 좋습니다. 자세한 내용은 [SMS FAQ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/)를 참조하세요.<br><br>
+    - 링크는 많은 문자를 사용할 수 있어 의도한 것보다 더 많은 메시지 세그먼트가 발생할 수 있습니다. 링크 단축기를 사용할 수 있지만, 짧은 코드와 함께 사용하는 것이 가장 좋습니다. 자세한 내용은 [SMS FAQ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs)를 참조하세요.<br><br>
 - **테스트**
     - SMS 메시지를 발송하기 전에 항상 테스트하세요. 특히 Liquid와 연결된 콘텐츠를 사용할 때 메시지 또는 문구 제한을 초과하면 추가 요금이 발생할 수 있습니다. 테스트 메시지도 메시지 한도에 포함된다는 점에 유의하세요.
 
@@ -149,4 +149,4 @@ Rich Media 메시지는 미디어 파일(이미지, 동영상) 또는 Rich Card�
 
 메시지를 작성할 때 메시지 작성기는 레이블(Basic RCS, Single RCS, Rich 또는 Rich Media)을 통해 실시간으로 요금 유형을 표시하여 발송 전에 비용을 추적할 수 있도록 도와줍니다.
 
-[크레딧 사용량 대시보드]({{site.baseurl}}/credits_usage_dashboard/)에는 이러한 요금 유형이 반영되며, 미국 메시지에 사용된 세그먼트 수를 제공하여 메시지 크레딧 소비를 투명하게 확인할 수 있습니다.
+[크레딧 사용량 대시보드]({{site.baseurl}}/credits_usage_dashboard)에는 이러한 요금 유형이 반영되며, 미국 메시지에 사용된 세그먼트 수를 제공하여 메시지 크레딧 소비를 투명하게 확인할 수 있습니다.

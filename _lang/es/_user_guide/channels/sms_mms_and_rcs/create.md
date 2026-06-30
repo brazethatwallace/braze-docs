@@ -258,7 +258,7 @@ Para MMS, el orden de los activos (imagen y cuerpo del mensaje) no se puede pers
 Dado que la renderización de RCS está controlada por el sistema operativo del usuario, el fabricante del dispositivo, el operador y la aplicación de mensajería (por ejemplo, Google Messages frente a Apple Messages), la apariencia del mensaje puede variar. La vista previa mostrada en Braze puede no coincidir exactamente con lo que recibe un usuario final. Valida la renderización final en dispositivos reales siempre que sea posible. Para más detalles sobre la renderización de RCS en dispositivos iOS, consulta [¿Por qué mi mensaje RCS no se renderiza correctamente en dispositivos iOS?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-doesnt-my-rcs-message-render-accurately-on-ios-devices).
 {% endalert %}
 
-Para más información, consulta [Enviar mensajes de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=sms%2Fmms%20and%20rcs).
+Para más información, consulta [Enviar mensajes de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=sms%2Fmms%20and%20rcs).
 
 ## Paso 5: Construye el resto de tu campaña o Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
@@ -279,7 +279,7 @@ En este paso también puedes especificar controles de entrega, como permitir que
 
 A continuación, [dirige a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) eligiendo segmentos o filtros para acotar tu audiencia. Ya deberías haber elegido el grupo de suscripción, que filtra a los usuarios por el nivel o categoría de comunicación que desean tener contigo.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 Selecciona la audiencia más amplia de tus segmentos y acota ese segmento aún más con filtros opcionales. Recibirás automáticamente una vista previa de la población aproximada de ese segmento. Ten en cuenta que la pertenencia exacta al segmento siempre se calcula antes de enviar el mensaje.
 

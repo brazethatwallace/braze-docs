@@ -42,26 +42,26 @@ tool:
 
 ## 承認ワークフローの有効化 {#turning-on-the-approval-workflow}
 
-デフォルトでは、キャンペーンとキャンバスの承認ワークフロー設定はオフになっています。この機能を有効にするには、**設定** > **承認ワークフロー**に移動し、該当するトグルを選択します。
+デフォルトでは、キャンペーンとキャンバスの承認ワークフロー設定はオフになっています。この機能を有効にするには、**Settings** > **Approval Workflow**に移動し、該当するトグルを選択します。
 
 - **Use approval workflow for all キャンペーン in [ワークスペース名]**
 - **Use approval workflow for all キャンバス in [ワークスペース名]**
 
 {% alert important %}
-キャンペーンの承認は、[APIキャンペーン]({{site.baseurl}}/api/api_campaigns/)および[トランザクションメールキャンペーン]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)ではサポートされていません。
+キャンペーンの承認は、[API キャンペーン]({{site.baseurl}}/api/api_campaigns)および[トランザクションメールキャンペーン]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)ではサポートされていません。
 {% endalert %}
 
 ## ユーザー権限の設定 {#setting-user-permissions}
 
-承認ワークフローを有効にした後、会社ユーザーがキャンペーンやキャンバスを承認または拒否できるようにユーザー権限を設定する必要があります。両方の権限は、ワークスペースまたは[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)に適用したり、[権限セット]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#permission-sets)に追加したりすることもできます。
+承認ワークフローを有効にした後、会社ユーザーがキャンペーンやキャンバスを承認または拒否できるようにユーザー権限を設定する必要があります。両方の権限は、ワークスペースまたは[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams)に適用したり、[権限セット]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#permission-sets)に追加したりすることもできます。
 
 {% tabs %}
 {% tab campaign %}
-[「Approve and Deny キャンペーン」権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#managing-limited-and-team-role-permissions)が必要です。この権限は、キャンペーンの承認ステータスを更新できるユーザーを制御します。この権限があると、以下のことが可能です。
+[「Approve and Deny キャンペーン」権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#managing-limited-and-team-role-permissions)が必要です。この権限は、キャンペーンの承認ステータスを更新できるユーザーを制御します。この権限があると、以下のことが可能です。
 
 - キャンペーンを自己承認する
 - キャンペーンを承認して起動する
-- キャンペーンを承認するが起動しない（「Send キャンペーン, キャンバス」権限を持つ別のユーザーがキャンペーンを起動できます）
+- キャンペーンを承認するが起動しない（「キャンペーン、キャンバスを送信」権限を持つ別のユーザーがキャンペーンを起動できます）
 - キャンペーンを承認も起動もしない
 
 **Summary**ステップで承認ステータスが設定された後、キャンペーンに対するその後の変更は、保存時にすべての承認ステータスをリセットします。これは、下書きのキャンペーンまたは起動後のキャンペーンのいずれかで行われた変更に適用されます。たとえば、ターゲットオーディエンスのみを変更した場合でも、**Summary**ステップはすべてのセクションの承認ステータスをデフォルトの状態である**Pending Approval**に戻します。
@@ -69,11 +69,11 @@ tool:
 {% endtab %}
 
 {% tab canvas %}
-[「Approve and Deny キャンバス」権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#managing-limited-and-team-role-permissions)が必要です。この権限は、キャンバスの承認ステータスを更新できるユーザーを制御します。この権限があると、以下のことが可能です。
+[「Approve and Deny キャンバス」権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#managing-limited-and-team-role-permissions)が必要です。この権限は、キャンバスの承認ステータスを更新できるユーザーを制御します。この権限があると、以下のことが可能です。
 
 - キャンバスを自己承認する
 - キャンバスを承認して起動する
-- キャンバスを承認するが起動しない（「Send キャンペーン, キャンバス」権限を持つ別のユーザーがキャンバスを起動できます）
+- キャンバスを承認するが起動しない（「キャンペーン、キャンバスを送信」権限を持つ別のユーザーがキャンバスを起動できます）
 - キャンバスを承認も起動もしない
 
 **Summary**ステップで承認ステータスが設定された後、キャンバスに対するその後の変更は、保存時にすべての承認ステータスをリセットします。これは、下書きのキャンバスまたは起動後のキャンバスのいずれかで行われた変更に適用されます。たとえば、ターゲットオーディエンスのみを変更した場合でも、**Summary**ステップはすべてのセクションの承認ステータスをデフォルトの状態である**Pending Approval**に戻します。

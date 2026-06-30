@@ -12,8 +12,8 @@ Braze Swift SDKは、Brazeのメッセージング、分析、ユーザーエン
 
 開始するには、以下のリソースを参照してください。
 
-- [Brazeユーザーガイド]({{site.baseurl}}/user_guide/introduction/)
-- [Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift)
+- [Brazeユーザーガイド]({{site.baseurl}}/user_guide/introduction)
+- [Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift)
 
 ## クイックスタート {#quickstart}
 
@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 AppDelegate.braze?.changeUser(userId: "Jane Doe")
 ```
 
-高度な統合オプションについては、[Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift)を参照してください。
+高度な統合オプションについては、[Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift)を参照してください。
 
 ## バージョンサポート {#version-support}
 

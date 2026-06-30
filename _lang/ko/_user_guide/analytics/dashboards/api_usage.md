@@ -27,7 +27,7 @@ API 사용량 대시보드에는 다음 통계가 포함됩니다:
 | 총 요청 수 | 대시보드에 적용된 필터 및 컨트롤 기준으로, 현재 워크스페이스에서 Braze로 전송된 총 요청 수입니다. |
 | 성공률 | Braze가 `2XX` 성공 응답을 반환한 총 요청의 비율입니다. |
 | 오류율 | Braze가 `4XX` 또는 `5XX` 오류 응답을 반환한 총 요청의 비율입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Available metrics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용 가능한 측정기준" }
 
 ## 대시보드 사용하기 {#using-the-dashboard}
 
@@ -78,5 +78,5 @@ API 사용량 대시보드에는 Braze가 수신하여 `2XX`, `4XX` 또는 `5XX`
 
 ## 관련 문서 {#related-articles}
 
-- [API 사용량 알림]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts/)
-- [사용량 제한]({{site.baseurl}}/api/api_limits/)
+- [API 사용량 알림]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
+- [사용량 제한]({{site.baseurl}}/api/api_limits)

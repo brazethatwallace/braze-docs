@@ -43,13 +43,13 @@ description: "このリファレンス記事では、購入オブジェクトの
 }
 ```
 
-- [外部ユーザー ID]({{site.baseurl}}/api/basics/#user-ids)
-- [アプリ識別子]({{site.baseurl}}/api/identifier_types/)
+- [外部ユーザー ID]({{site.baseurl}}/api/basics#user-ids)
+- [アプリ識別子]({{site.baseurl}}/api/identifier_types)
 - [ISO 4217 通貨コード Wiki](http://en.wikipedia.org/wiki/ISO_4217)
 - [ISO 8601 時間コード Wiki](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-一部の識別子ペアは一緒に使用できません。また、両方が指定された場合は`email`が`phone`よりも優先されます。詳しくは、[識別子の解決]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution)を参照してください。
+一部の識別子ペアは一緒に使用できません。また、両方が指定された場合は`email`が`phone`よりも優先されます。詳しくは、[識別子の解決]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution)を参照してください。
 {% endalert %}
 
 ## 購入製品 ID {#purchase-product-id}
@@ -71,7 +71,7 @@ Brazeでは、購入オブジェクトの`product_id`に関する一般的な命
 
 たとえば、Web SDKで注文レベルの購入を記録するには以下のようにします。
 
-`````````html
+```html
 POST https://YOUR_REST_API_URL/users/track
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -98,13 +98,13 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 {% include data_activation/purchase_event_property_data_types.md %}
 
-カスタム属性、イベントプロパティ、カタログにわたるデータタイプの統合リファレンスについては、[データタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#purchase-event-property-data-types)を参照してください。
+カスタム属性、イベントプロパティ、カタログにわたるデータタイプの統合リファレンスについては、[データタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#purchase-event-property-data-types)を参照してください。
 
 ### 購入プロパティ {#purchase-properties}
 
-[購入プロパティ]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties)は、Liquidを使用したメッセージのトリガーやパーソナライゼーションに使用でき、これらのプロパティに基づいてセグメント化することもできます。
+[購入プロパティ]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-properties)は、Liquidを使用したメッセージのトリガーやパーソナライゼーションに使用でき、これらのプロパティに基づいてセグメント化することもできます。
 
-#### 命名規則 {#naming-conventions}
+#### 命名規則
 
 この機能は購入ごとではなく、**製品ごとに**有効であることに注意してください。たとえば、個別の製品が大量にあっても、それぞれのプロパティが同じである場合、セグメンテーションは不要になる可能性があります。
 
@@ -116,7 +116,7 @@ Braze REST APIを使用して製品を追加できます。たとえば、`/user
 
 ### 購入オブジェクトの例 {#example-purchase-object}
 
-`````````html
+```html
 POST https://YOUR_REST_API_URL/users/track
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -166,6 +166,6 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ### 購入オブジェクト、イベントオブジェクト、およびWebhook {#purchase-objects-event-objects-and-webhooks}
 
-提供された例を使用すると、誰かが色、モノグラム、チェックアウト時間、サイズ、ブランドのプロパティを持つバックパックを購入したことがわかります。次に、[購入イベントプロパティ]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties)を使用してこれらのプロパティでセグメントを作成したり、Liquidを使用してチャネル経由でカスタムメッセージを送信したりできます。たとえば、「こんにちは **Ann F.** さん、**赤のミディアムバックパック**を **$40.00** でご購入いただきありがとうございます！**Backpack Locker** でのお買い物ありがとうございました！」
+提供された例を使用すると、誰かが色、モノグラム、チェックアウト時間、サイズ、ブランドのプロパティを持つバックパックを購入したことがわかります。次に、[購入イベントプロパティ]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-properties)を使用してこれらのプロパティでセグメントを作成したり、Liquidを使用してチャネル経由でカスタムメッセージを送信したりできます。たとえば、「こんにちは **Ann F.** さん、**赤のミディアムバックパック**を **$40.00** でご購入いただきありがとうございます！**Backpack Locker** でのお買い物ありがとうございました！」
 
-プロパティを保存、保管、追跡してセグメント化に使用する場合は、それらをカスタム属性として設定する必要があります。これは[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して行うことができ、カスタムイベントやそのユーザープロファイルの生涯にわたって保存される購入行動に基づいてユーザーをターゲットにすることができます。
+プロパティを保存、保管、追跡してセグメント化に使用する場合は、それらをカスタム属性として設定する必要があります。これは[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension)を使用して行うことができ、カスタムイベントやそのユーザープロファイルの生涯にわたって保存される購入行動に基づいてユーザーをターゲットにすることができます。

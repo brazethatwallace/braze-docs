@@ -22,8 +22,8 @@ guide_featured_list:
 ---
 <br><br>
 
-## Partage de données Snowflake
+## Partage de données Snowflake {#snowflake-data-sharing}
 
 Le Partage de données Snowflake fait partie de la distribution des données de Braze. Utilisez-le pour interroger les données d'engagement et de campagne de Braze directement dans votre instance Snowflake.
 
-Pour les détails de configuration et d'implémentation, consultez [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/). Pour d'autres options de distribution des données, consultez [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) et [Exporter les données de Braze]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/).
+Pour les détails de configuration et d'implémentation, consultez [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing). Pour d'autres options de distribution des données, consultez [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) et [Exporter les données de Braze]({{site.baseurl}}/user_guide/data/distribution/export_braze_data).

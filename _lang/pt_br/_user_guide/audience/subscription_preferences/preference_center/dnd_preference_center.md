@@ -13,7 +13,7 @@ page_order: 2
 Você pode gerenciar as Centrais de Preferências de arrastar e soltar existentes em **Público** > **Central de Preferências de e-mail**:
 
 - Para alterar o nome ou o conteúdo de uma Central de Preferências, abra-a no dashboard.
-- As Centrais de Preferências de arrastar e soltar não podem ser excluídas pelo dashboard. Para remover uma, primeiro remova a Liquid tag dela de quaisquer Campaigns de e-mail ou etapas do Canvas e, em seguida, entre em contato com o [suporte da Braze]({{site.baseurl}}/support_contact/).
+- As Centrais de Preferências de arrastar e soltar não podem ser excluídas pelo dashboard. Para remover uma, primeiro remova a Liquid tag dela de quaisquer Campaigns de e-mail ou etapas do Canvas e, em seguida, entre em contato com o [suporte da Braze]({{site.baseurl}}/support_contact).
 - Se uma Central de Preferências removida foi usada em mensagens enviadas anteriormente, ela deixará de funcionar nesses e-mails entregues.
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
@@ -47,7 +47,7 @@ Você pode configurar ainda mais os grupos de inscrições selecionados clicando
 - Adicionar ou remover uma caixa de seleção **Unsubscribe from all**, que cancelará a inscrição do usuário de todos os grupos de inscrições exibidos neste bloco
 
 
-O botão **Unsubscribe from all** na parte inferior do modelo não pode ser removido e fará o [cancelamento global da inscrição]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-states) do usuário, impedindo-o de receber qualquer mensagem de e-mail.
+O botão **Unsubscribe from all** na parte inferior do modelo não pode ser removido e fará o [cancelamento global da inscrição]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states) do usuário, impedindo-o de receber qualquer mensagem de e-mail.
 
 ## Etapa 4: Personalizar a Central de Preferências usando o editor de arrastar e soltar {#step-4-customize-the-preference-center-using-the-drag-and-drop-editor}
 
@@ -85,7 +85,7 @@ Blocos representam diferentes tipos de conteúdo que você pode usar na sua mens
 
 ![Opção para selecionar blocos, incluindo título, parágrafo, botão, imagem e espaçador.]({% image_buster /assets/img/preference_center/preference_center8.png %}){: style="max-width:45%;"}
 
-Cada bloco tem suas próprias configurações, como controle granular de preenchimento. O painel do lado direito alterna automaticamente para um painel de estilo do elemento de conteúdo selecionado. Para saber mais, consulte [Blocos do editor (Central de Preferências)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=preference%20center).
+Cada bloco tem suas próprias configurações, como controle granular de preenchimento. O painel do lado direito alterna automaticamente para um painel de estilo do elemento de conteúdo selecionado. Para saber mais, consulte [Blocos do editor (Central de Preferências)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=preference%20center).
 
 Se você estiver usando o bloco de código personalizado na sua Central de Preferências, os iframes podem não ser gerados no código personalizado quando entregues aos seus usuários.
 
@@ -114,7 +114,7 @@ Para inserir um link para a Central de Preferências nos seus e-mails, copie a L
 
 ![A opção Copiar Liquid na linha de uma Central de Preferências.]({% image_buster /assets/img/preference_center/preference_center10.png %}){: style="max-width:75%;"}
 
-Adicione a Liquid tag no local desejado do seu e-mail, de forma semelhante a como as [URLs de cancelamento de inscrição]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/#adding-a-custom-unsubscribe-link) são inseridas.
+Adicione a Liquid tag no local desejado do seu e-mail, de forma semelhante a como as [URLs de cancelamento de inscrição]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer#adding-a-custom-unsubscribe-link) são inseridas.
 
 ## Tratamento de erros {#handling-errors}
 

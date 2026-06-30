@@ -143,7 +143,7 @@ Vous pouvez partager un lien vers le rapport en sélectionnant **Share** et l'un
 1. Sélectionnez l'icône en pointillés en haut du tableau du rapport.
 2. Sélectionnez **Add to dashboard**.
 3. Choisissez si vous souhaitez créer un nouveau tableau de bord ou l'ajouter à un tableau de bord existant.<br><br>![Fenêtre avec des options pour choisir si vous souhaitez ajouter le rapport à un nouveau tableau de bord ou à un tableau de bord existant.]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
-4. Suivez les étapes dans [Générateur de tableaux de bord]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/) pour en savoir plus sur la création d'un tableau de bord.
+4. Suivez les étapes dans [Générateur de tableaux de bord]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder) pour en savoir plus sur la création d'un tableau de bord.
 
 ## Résolution des problèmes {#troubleshooting}
 
@@ -157,4 +157,4 @@ Par exemple, supposons que **Last sent** est du 1er janvier 2025 au 14 avril 202
 
 Les liens de téléchargement de rapport expirent après une heure. Si votre lien a expiré, générez un nouveau rapport et téléchargez-le dans l'heure. Il n'est pas possible de prolonger le délai d'expiration.
 
-Si vous avez un [compartiment Amazon S3]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3/) connecté dans **Partner Integrations**, vous pouvez éventuellement récupérer les données de rapports plus anciens en parcourant directement votre compartiment S3.
+Si vous avez un [compartiment Amazon S3]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3) connecté dans **Partner Integrations**, vous pouvez éventuellement récupérer les données de rapports plus anciens en parcourant directement votre compartiment S3.

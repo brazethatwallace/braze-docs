@@ -79,7 +79,7 @@ Las páginas de inicio se copian como borradores. Antes de publicar una página 
 | Descripción | Territorios |
 | Tipo | Etiquetas |
 | Acciones (anidadas) | Segments y filtros |
-| Comportamientos de conversión (anidados) | [Aprobaciones]({{site.baseurl}}/user_guide/messaging/governance/approvals/) |
+| Comportamientos de conversión (anidados) | [Aprobaciones]({{site.baseurl}}/user_guide/messaging/governance/approvals) |
 | Configuraciones de tiempo en silencio | Planificación de desencadenamiento |
 | Configuraciones de limitación de frecuencia | Resúmenes de campaña |
 | Estado de suscripción del destinatario |  |
@@ -95,7 +95,7 @@ Las páginas de inicio se copian como borradores. Antes de publicar una página 
 | Descripción | Territorios |
 | Tipo | Etiquetas |
 | Acciones (anidadas) | Segments y filtros |
-| Comportamientos de conversión (anidados) | [Aprobaciones]({{site.baseurl}}/user_guide/messaging/governance/approvals/) |
+| Comportamientos de conversión (anidados) | [Aprobaciones]({{site.baseurl}}/user_guide/messaging/governance/approvals) |
 | Configuraciones de tiempo en silencio | Planificación de desencadenamiento |
 | Configuraciones de limitación de frecuencia | Resúmenes de Canvas |
 | Estado de suscripción del destinatario |  |
@@ -103,7 +103,7 @@ Las páginas de inicio se copian como borradores. Antes de publicar una página 
 | Es transaccional |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Detalles" }
 
-Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [División de decisiones]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)) no se copian al espacio de trabajo de destino. Reconfigura esos filtros después de copiar.
+Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [División de decisiones]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)) no se copian al espacio de trabajo de destino. Reconfigura esos filtros después de copiar.
 
 {% endtab %}
 {% endtabs %}
@@ -335,7 +335,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [Divis
 
 ## Copiar mensajes que contienen Liquid {#copying-messages-that-contain-liquid}
 
-Las referencias de Liquid dentro de los cuerpos de los mensajes se copian al espacio de trabajo de destino, pero es posible que no funcionen como se espera. Esto significa que si un Canvas del espacio de trabajo A se copia al espacio de trabajo B, el espacio de trabajo B no puede hacer referencia a los detalles del espacio de trabajo A, incluidas las referencias de Liquid. Por ejemplo, campos como las acciones desencadenantes, los filtros de audiencia y los criterios de filtro de [División de decisiones]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) no se copian.
+Las referencias de Liquid dentro de los cuerpos de los mensajes se copian al espacio de trabajo de destino, pero es posible que no funcionen como se espera. Esto significa que si un Canvas del espacio de trabajo A se copia al espacio de trabajo B, el espacio de trabajo B no puede hacer referencia a los detalles del espacio de trabajo A, incluidas las referencias de Liquid. Por ejemplo, campos como las acciones desencadenantes, los filtros de audiencia y los criterios de filtro de [División de decisiones]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) no se copian.
 
 Ten en cuenta las siguientes referencias de Liquid con dependencias al copiar campañas, Canvas y páginas de inicio entre espacios de trabajo:
 
@@ -350,7 +350,7 @@ Ten en cuenta las siguientes referencias de Liquid con dependencias al copiar ca
 
 ## Copiar mensajes con conmutadores de características {#copying-messages-with-feature-flags}
 
-Para copiar una campaña de conmutador de características y un Canvas con un paso de conmutador de características entre espacios de trabajo, asegúrate de que el espacio de trabajo de destino tenga un [experimento de conmutador de características]({{site.baseurl}}/developer_guide/feature_flags/experiments/) configurado con un ID que coincida con el conmutador de características referenciado en la campaña original o el paso de conmutador de características referenciado en el Canvas original.
+Para copiar una campaña de conmutador de características y un Canvas con un paso de conmutador de características entre espacios de trabajo, asegúrate de que el espacio de trabajo de destino tenga un [experimento de conmutador de características]({{site.baseurl}}/developer_guide/feature_flags/experiments) configurado con un ID que coincida con el conmutador de características referenciado en la campaña original o el paso de conmutador de características referenciado en el Canvas original.
 
 Si copias una campaña o un Canvas que tiene un paso de conmutador de características con un ID de conmutador de características que no existe en el espacio de trabajo de destino, el paso de conmutador de características se copiará pero su contenido no.
 

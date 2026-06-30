@@ -69,7 +69,7 @@ Após lançar uma etapa de Content Cards no Canvas, você pode começar a analis
 
 ![Análise de dados de uma etapa de Mensagem com o desempenho de mensagens do cartão de conteúdo.]({% image_buster /assets/img_archive/content-cards-in-canvas-analytics.png %})
 
-Para saber mais sobre as métricas disponíveis e suas definições, consulte nosso [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+Para saber mais sobre as métricas disponíveis e suas definições, consulte nosso [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 ## Casos de uso {#use-cases}
 
@@ -85,4 +85,4 @@ Usando o Canvas, você pode adicionar um componente que envia tanto um Content C
 
 ### Múltiplos feeds baseados em categorias {#multiple-feeds-based-on-categories}
 
-Você pode separar seus Content Cards em múltiplos feeds com base em categorias, como diferentes tópicos que os usuários podem explorar, ou feeds transacionais e de marketing. Para saber mais sobre como criar múltiplos feeds usando pares chave-valor, confira nosso guia para [Personalizar feeds de Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds).
+Você pode separar seus Content Cards em múltiplos feeds com base em categorias, como diferentes tópicos que os usuários podem explorar, ou feeds transacionais e de marketing. Para saber mais sobre como criar múltiplos feeds usando pares chave-valor, confira nosso guia para [Personalizar feeds de Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds).

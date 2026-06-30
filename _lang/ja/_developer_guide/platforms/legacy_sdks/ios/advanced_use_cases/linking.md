@@ -12,7 +12,7 @@ noindex: true
 
 # iOS のディープリンク {#deep-linking-for-ios}
 
-ディープリンクの基本情報については、[ユーザーガイドの記事]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)を参照してください。Braze アプリにディープリンクを初めて実装する場合は、以下の手順で開始できます。
+ディープリンクの基本情報については、[ユーザーガイドの記事]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking)を参照してください。Braze アプリにディープリンクを初めて実装する場合は、以下の手順で開始できます。
 
 ## ステップ 1:スキームを登録する {#step-1-register-a-scheme}
 
@@ -53,7 +53,7 @@ iOS 9 以降では、アプリが開くことを許可されているカスタ�
 
 アプリがディープリンクする必要があるすべてのスキームを、キー `LSApplicationQueriesSchemes` を使用してアプリの `Info.plist` の許可リストに追加する必要があります。以下に例を示します。
 
-`````````html
+```html
 <key>LSApplicationQueriesSchemes</key>
 <array>
     <string>myapp</string>
@@ -71,7 +71,7 @@ iOS 9 以降では、アプリが開くことを許可されているカスタ�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
   NSString *path  = [url path];
   NSString *query = [url query];
@@ -83,7 +83,7 @@ iOS 9 以降では、アプリが開くことを許可されているカスタ�
 {% endtab %}
 {% tab swift %}
 
-`````````swift
+```swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
   let path = url.path
   let query = url.query
@@ -95,7 +95,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 {% endtab %}
 {% endtabs %}
 
-![]({% image_buster /assets/img_archive/deep_link.png %})
+![Brazeダッシュボードでのディープリンク設定の例。]({% image_buster /assets/img_archive/deep_link.png %})
 
 # ユニバーサルリンク {#universal-links}
 
@@ -104,7 +104,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 - (BOOL)application:(UIApplication *)application
 continueUserActivity:(NSUserActivity *)userActivity
   restorationHandler:(void (^)(NSArray *restorableObjects))restorationHandler {
@@ -119,7 +119,7 @@ continueUserActivity:(NSUserActivity *)userActivity
 {% endtab %}
 {% tab swift %}
 
-`````````swift
+```swift
 func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
   if (userActivity.activityType == NSUserActivityTypeBrowsingWeb) {
     let url = userActivity.webpageURL
@@ -135,13 +135,13 @@ func application(_ application: UIApplication, continue userActivity: NSUserActi
 詳細については、[Apple](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) を参照してください。
 
 {% alert note %}
-デフォルトのユニバーサルリンク統合は、Braze プッシュ通知やアプリ内メッセージとは互換性がありません。アプリケーション内のユニバーサルリンクを処理するには、[リンクのカスタマイズ](#linking-handling-customization)を参照してください。または、プッシュ通知やアプリ内メッセージでは[スキームベースのディープリンク](#step-1-registering-a-scheme)を使用することをお勧めします。
+デフォルトのユニバーサルリンク統合は、Brazeプッシュ通知やアプリ内メッセージとは互換性がありません。アプリケーション内のユニバーサルリンクを処理するには、[リンクのカスタマイズ](#linking-handling-customization)を参照してください。または、プッシュ通知やアプリ内メッセージでは[スキームベースのディープリンク](#step-1-registering-a-scheme)を使用することをお勧めします。
 {% endalert%}
 
 ## アプリトランスポートセキュリティ (ATS) {#app-transport-security-ats}
 iOS 9 では、アプリ内メッセージやプッシュ通知に埋め込まれた Web URL に影響を与える破壊的変更が導入されました。
 
-### ATS の要件 {#ats-requirements}
+### ATSの要件 {#ats-requirements}
 [Apple のドキュメント](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-SW14)から:「アプリトランスポートセキュリティは、アプリと Web サービス間の接続のセキュリティを向上させる機能です。この機能は、安全な接続のベストプラクティスに準拠したデフォルトの接続要件で構成されています。アプリでこのデフォルトの動作をオーバーライドして、トランスポートセキュリティを無効にできます。」
 
 ATS は iOS 9 以降にデフォルトで適用されます。すべての接続が HTTPS を使用し、前方秘匿性を備えた TLS 1.2 で暗号化される必要があります。詳細については、[ATS を使用して接続するための要件](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35)を参照してください。Brazeによりエンドデバイスに提供されるすべての画像は、TLS 1.2 をサポートし、ATS と互換性のあるコンテンツ配信ネットワーク (「CDN」) によって処理されます。
@@ -173,7 +173,7 @@ SSL ツールにより、Web サーバーのセキュリティの問題を正確
 
 ATS の例外としてドメインを追加するには、アプリの `Info.plist` ファイルに以下を追加します。
 
-`````````html
+```html
 <key>NSAppTransportSecurity</key>
 <dict>
     <key>NSAllowsArbitraryLoads</key>
@@ -197,7 +197,7 @@ ATS の例外としてドメインを追加するには、アプリの `Info.pli
 
 ATS を完全に無効にできます。ただし、セキュリティ保護が失われることと、将来の iOS との互換性の両方を考慮して、この方法は推奨されないことに注意してください。ATS を無効にするには、アプリの `Info.plist` ファイルに以下を挿入します。
 
-`````````html
+```html
 <key>NSAppTransportSecurity</key>
 <dict>
     <key>NSAllowsArbitraryLoads</key>
@@ -216,7 +216,7 @@ Braze iOS SDK v2.21.0 以降、SDKはリンクをパーセントエンコード�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<NSString *, id> *)options {
   NSString *urlString = url.absoluteString.stringByRemovingPercentEncoding;
   // Handle urlString
@@ -227,7 +227,7 @@ Braze iOS SDK v2.21.0 以降、SDKはリンクをパーセントエンコード�
 {% endtab %}
 {% tab swift %}
 
-`````````swift
+```swift
   func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
     let urlString = url.absoluteString.removingPercentEncoding
     // Handle urlString
@@ -255,7 +255,7 @@ Braze iOS SDK v2.21.0 以降、SDKはリンクをパーセントエンコード�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 - (BOOL)handleAppboyURL:(NSURL *)url fromChannel:(ABKChannel)channel withExtras:(NSDictionary *)extras {
   if ([[url.host lowercaseString] isEqualToString:@"MY-DOMAIN.com"]) {
     // Custom handle link here
@@ -269,7 +269,7 @@ Braze iOS SDK v2.21.0 以降、SDKはリンクをパーセントエンコード�
 {% endtab %}
 {% tab swift %}
 
-`````````swift
+```swift
 func handleAppboyURL(_ url: URL?, from channel: ABKChannel, withExtras extras: [AnyHashable : Any]?) -> Bool {
   if (url.host == "MY-DOMAIN.com") {
     // Custom handle link here
@@ -304,7 +304,7 @@ iOS は、アプリから iOS 設定アプリケーションのページにユ�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
@@ -320,7 +320,7 @@ iOS は、アプリから iOS 設定アプリケーションのページにユ�
 {% endtab %}
 {% tab swift %}
 
-`````````swift
+```swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
   let path = url.path
   if (path == "settings") {

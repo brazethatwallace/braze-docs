@@ -13,7 +13,7 @@ channel:
 
 # Numéros de téléphone des utilisateurs {#user-phone-numbers}
 
-> Cet article aborde différents sujets relatifs aux numéros de téléphone de vos utilisateurs ou clients. Si vous recherchez des informations sur vos propres numéros, consultez notre article sur les [numéros de téléphone d'envoi]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/).
+> Cet article aborde différents sujets relatifs aux numéros de téléphone de vos utilisateurs ou clients. Si vous recherchez des informations sur vos propres numéros, consultez notre article sur les [numéros de téléphone d'envoi]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup).
 
 ## Format recommandé {#recommended-format}
 
@@ -37,8 +37,8 @@ Voici quelques exemples illustrant les différences entre le formatage local et 
 
 Lors de l'importation de numéros de téléphone, il est important de suivre le [format recommandé](#recommended-format). Pour importer des numéros de téléphone, utilisez l'une des méthodes suivantes :
 
-- [Charger un fichier CSV vers Braze]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv)
-- [Utiliser l'endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)
+- [Charger un fichier CSV vers Braze]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv)
+- [Utiliser l'endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
 
 {% alert important %}
 Les numéros de téléphone des utilisateurs apparaissent dans Braze sous forme de chaîne de chiffres. Si vous importez un numéro contenant des caractères non numériques (tels que `,`, `-` ou `(`) autres que le {% raw %}`+`{% endraw %} initial, ces caractères non numériques sont supprimés lors de l'affichage dans Braze. Par exemple, l'importation de `+1 (724) 123-4567` s'affiche sous la forme `+17241234567`.
@@ -59,13 +59,13 @@ Un numéro de téléphone est considéré comme invalide pour les raisons suivan
 - **Erreur du fournisseur** : une erreur permanente a été reçue du fournisseur SMS et RCS. Cela indique que le numéro de téléphone fourni est mal formaté ou qu'il est définitivement incapable de recevoir des messages SMS ou RCS.
 - **Désactivé** : le numéro de téléphone a été désactivé parce qu'un abonné mobile a résilié son service et libéré son numéro auprès de son opérateur (et il pourrait éventuellement être recyclé et attribué à un nouvel utilisateur). Un numéro de téléphone désactivé peut être marqué comme invalide même si vous n'avez envoyé aucun message SMS ou RCS à ce numéro.
 
-Ces numéros de téléphone invalides peuvent être gérés à l'aide des [endpoints SMS et RCS]({{site.baseurl}}/api/endpoints/sms/).
+Ces numéros de téléphone invalides peuvent être gérés à l'aide des [endpoints SMS et RCS]({{site.baseurl}}/api/endpoints/sms).
 
 {% alert note %}
 Si plusieurs profils utilisateur possèdent le même numéro de téléphone et que ce numéro est marqué comme invalide, alors tous les profils utilisateur existants avec ce numéro s'afficheront comme invalides. Les profils utilisateur nouvellement créés ne seront jamais initialement marqués comme invalides.
 {% endalert %}
 
-Vous pouvez également inclure ou exclure les utilisateurs ayant des numéros de téléphone invalides lors de la [création d'un segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#step-4-add-filters-to-your-segment).
+Vous pouvez également inclure ou exclure les utilisateurs ayant des numéros de téléphone invalides lors de la [création d'un segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#step-4-add-filters-to-your-segment).
 
 ## Exclure les envois SMS rejetés de la segmentation {#exclude-rejected-sms-sends-from-segmentation}
 
@@ -73,7 +73,7 @@ Vous pouvez également inclure ou exclure les utilisateurs ayant des numéros de
 Les rejets SMS sont décomptés de votre allocation SMS.
 {% endalert %}
 
-Pour exclure de vos segments les utilisateurs dont les envois SMS ont été rejetés, utilisez les [Extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) en procédant comme suit :
+Pour exclure de vos segments les utilisateurs dont les envois SMS ont été rejetés, utilisez les [extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) en procédant comme suit :
 
 1. Accédez à **Audience** > **Extensions de segments**.
 2. Sélectionnez **Créer** > **Actualisation complète** ou **Actualisation incrémentale**.
@@ -83,7 +83,7 @@ Pour exclure de vos segments les utilisateurs dont les envois SMS ont été reje
 
 ## Ajout d'utilisateurs aux groupes d'abonnement SMS et RCS {#add-users-to-sms-and-rcs-subscription-groups}
 
-Pour qu'un utilisateur puisse recevoir un message SMS ou RCS, il doit disposer d'un numéro de téléphone valide et avoir donné son consentement à un groupe d'abonnement. Les groupes d'abonnement sont liés au programme SMS ou RCS que vous exploitez (assurez-vous de respecter les [exigences légales pour les SMS, MMS et RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/) et d'avoir enregistré le consentement de chaque client). Pour en savoir plus, consultez [Groupes d'abonnement SMS et RCS]({{site.baseurl}}/sms_rcs_subscription_groups/).
+Pour qu'un utilisateur puisse recevoir un message SMS ou RCS, il doit disposer d'un numéro de téléphone valide et avoir donné son consentement à un groupe d'abonnement. Les groupes d'abonnement sont liés au programme SMS ou RCS que vous exploitez (assurez-vous de respecter les [exigences légales pour les SMS, MMS et RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations) et d'avoir enregistré le consentement de chaque client). Pour en savoir plus, consultez [Groupes d'abonnement SMS et RCS]({{site.baseurl}}/sms_rcs_subscription_groups).
 
 ## Sourcing et vérification par des tiers {#third-party-sourcing-and-verification}
 
@@ -91,4 +91,4 @@ Braze s'appuie sur des outils tiers pour identifier les numéros invalides. Braz
 
 ## Capture de numéro de téléphone {#phone-number-capture}
 
-Pour capturer des numéros de téléphone via des messages in-app, consultez [Capture de numéro de téléphone]({{site.baseurl}}/phone_number_capture/).
+Pour capturer des numéros de téléphone via des messages in-app, consultez [Capture de numéro de téléphone]({{site.baseurl}}/phone_number_capture).

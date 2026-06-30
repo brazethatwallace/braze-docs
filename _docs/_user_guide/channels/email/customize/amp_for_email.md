@@ -39,6 +39,10 @@ Before you can send AMP emails to users, you must register with our email client
 
 For a full list of supported email clients, refer to [AMP documentation](https://amp.dev/support/faq/email-support).
 
+#### Send to unregistered providers
+
+If you send an AMP email to providers like Yahoo or Mail.ru before completing their registration process, those providers ignore the AMP portion of the email and display the HTML or plaintext fallback version instead. The AMP portion itself does not cause deliverability issues for unregistered senders.
+
 ### Enable Gmail account {#enabling-gmail-account}
 
 Go to your Gmail settings, and select **Enable dynamic email** in the **General** tab.
@@ -47,7 +51,7 @@ Go to your Gmail settings, and select **Enable dynamic email** in the **General*
 
 ## API usage
 
-You can also use AMP for email with our API. If you use any of the Braze [Messaging endpoints]({{site.baseurl}}/api/endpoints/messaging/) to send an email, add `amp_body` as an object specification as shown below.
+You can also use AMP for email with our API. If you use any of the Braze [Messaging endpoints]({{site.baseurl}}/api/endpoints/messaging) to send an email, add `amp_body` as an object specification as shown below.
 
 ### Email object specification
 
@@ -250,7 +254,7 @@ For your AMP email to be delivered to any Gmail account, the email must meet the
 
 Note that total clicks and unique clicks don't account for any clicks that occur from an AMP message (HTML and plaintext only). AMP-specific clicks are attributed to the *amp_click* metric.
 
-If none of these conditions are causing the error, contact [Support]({{site.baseurl}}/support_contact/).
+If none of these conditions are causing the error, contact [Support]({{site.baseurl}}/support_contact).
 
 ### Configure Gmail inbox to render AMP emails
 

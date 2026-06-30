@@ -24,13 +24,13 @@ En el panel de Braze, ve a **Contenido** > **Webhook**.
 
 Desde aquí, puedes elegir crear una nueva plantilla, usar una de las plantillas de webhook prediseñadas o editar una plantilla existente.
 
-Por ejemplo, si estás usando [LINE]({{site.baseurl}}/user_guide/channels/line/) como canal de mensajería, puedes configurar varios webhooks usando las plantillas prediseñadas para **LINE Carousel** o **LINE Image**.
+Por ejemplo, si estás usando [LINE]({{site.baseurl}}/user_guide/channels/line) como canal de mensajería, puedes configurar varios webhooks usando las plantillas prediseñadas para **LINE Carousel** o **LINE Image**.
 
 ## Paso 3: Completa los detalles de la plantilla {#step-3-fill-out-template-details}
 
 1. Dale a tu plantilla de webhook un nombre único.
 2. (Opcional) Añade una descripción de la plantilla para explicar cómo se pretende usar esta plantilla.
-3. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) según sea necesario para ayudar a encontrar y filtrar tu plantilla.
+3. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) según sea necesario para ayudar a encontrar y filtrar tu plantilla.
 
 ## Paso 4: Construye tu plantilla {#step-4-build-your-template}
 
@@ -55,4 +55,4 @@ Las ediciones realizadas a una plantilla existente no se reflejan en las Campaig
 
 ## Administrar tus plantillas {#managing-your-templates}
 
-Puedes [duplicar y archivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) plantillas de webhook para ayudar a organizar y administrar mejor tu lista de plantillas.
+Puedes [duplicar y archivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) plantillas de webhook para ayudar a organizar y administrar mejor tu lista de plantillas.

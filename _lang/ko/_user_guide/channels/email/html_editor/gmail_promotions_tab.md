@@ -22,13 +22,13 @@ toc_headers: h2
 
 ### 1단계: 이메일 캠페인 만들기 {#step-1-create-an-email-campaign}
 
-먼저, [이메일 캠페인을 만들고]({{site.baseurl}}/user_guide/channels/email/html_editor/) 편집 환경으로 **HTML 코드 편집기**를 선택하세요.
+먼저, [이메일 캠페인을 만들고]({{site.baseurl}}/user_guide/channels/email/html_editor) 편집 환경으로 **HTML 코드 편집기**를 선택하세요.
 
 ### 2단계: Gmail 프로모션 카드에 세부 정보 추가 {#step-2-add-details-to-gmail-promotion-card}
 
 다음으로, HTML 편집기의 **콘텐츠** 섹션으로 이동하여 **Gmail 프로모션** 탭을 선택하세요. **기본 정보** 아래의 필드를 작성한 후 **HTML 코드 생성**을 선택하세요. 이렇게 하면 **HTML 코드를 `<Head>`에 복사하여 붙여넣기** 섹션 아래에 Gmail 프로모 탭 카드의 스크립트가 생성됩니다.
 
-![카드를 구축하는 방법의 예.]({% image_buster /assets/img/create-gmail-promo.png %})
+![카드를 구축하는 방법의 예시.]({% image_buster /assets/img/create-gmail-promo.png %})
 
 ### 3단계: Gmail 프로모션 카드 커스터마이즈 {#step-3-customize-your-gmail-promotion-card}
 
@@ -86,7 +86,7 @@ Gmail 프로모션 카드에 할인 제안, 딜 카드, 프로모션 카드 또�
 | 통화 | (선택 사항) 가격의 통화입니다. |
 | 가격 | 프로모션의 가격입니다. |
 | 할인 값 | 원래 가격에서 할인된 금액입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: Gmail 프로모션 카드 커스터마이즈" }
 
 ![Motto라는 회사의 제품 캐러셀 예시로, 이메일 제목이 "베스트셀러 양말 세일 중"이며 양말 이미지 3개와 할인 가격이 표시되어 있습니다.]({% image_buster /assets/img_archive/product_carousel.png %}){: style="max-width:40%;"}
 
@@ -98,7 +98,7 @@ Gmail 프로모션 카드에 할인 제안, 딜 카드, 프로모션 카드 또�
 Gmail 프로모션 카드를 구축한 후 **Generate HTML code**를 선택하세요. 스크립트를 복사하여 이메일 HTML의 `<head>` 요소에 붙여넣으세요.
 
 {% alert tip %}
-드래그 앤 드롭 편집기의 경우, 생성된 HTML 코드를 **Sending Settings** 아래의 [커스텀 헤드 태그]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#custom-head-tags) 섹션에 복사하여 붙여넣으세요.
+드래그 앤 드롭 편집기의 경우, 생성된 HTML 코드를 **Sending Settings** 아래의 [커스텀 헤드 태그]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#custom-head-tags) 섹션에 복사하여 붙여넣으세요.
 {% endalert %}
 
 {% alert warning %}

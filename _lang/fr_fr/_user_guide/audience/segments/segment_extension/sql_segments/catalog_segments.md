@@ -38,7 +38,7 @@ Voici les directives pour sélectionner les variables :
 - `Catalog field` : un champ particulier (nom de colonne) dans ce catalogue
 - `Value` : une valeur spécifique dans ce champ ou cette colonne <br><br> En prenant l'exemple d'une application de santé, supposons que dans le catalogue de chaque médecin que vous pouvez réserver, il existe un champ appelé `specialty` contenant une valeur telle que `vision` ou `dental`. Pour segmenter les utilisateurs ayant consulté des médecins avec la valeur `dental`, vous pouvez sélectionner `specialty` comme `Catalog field` et `dental` comme `Value`.
 
-5. Après avoir créé une extension de segment SQL, nous vous recommandons de cliquer sur **Exécuter l'aperçu** pour vérifier si votre requête renvoie des utilisateurs ou s'il y a des erreurs. Pour plus d'informations sur la [prévisualisation des résultats de requête]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#previewing-results), la gestion des [extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#managing-sql-segment-extensions), et plus encore, consultez [Extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/).
+5. Après avoir créé une extension de segment SQL, nous vous recommandons de cliquer sur **Exécuter l'aperçu** pour vérifier si votre requête renvoie des utilisateurs ou s'il y a des erreurs. Pour plus d'informations sur la [prévisualisation des résultats de requête]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#previewing-results), la gestion des [extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#managing-sql-segment-extensions), et plus encore, consultez [Extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments).
 
 {% alert note %}
 Si vous créez un segment SQL qui utilise la table `CATALOGS_ITEMS_SHARED`, vous devez spécifier un ID de catalogue. Par exemple :
@@ -72,7 +72,7 @@ Si vous avez créé un segment dans lequel vous vous attendez à ce que des util
 
 ### Définir les paramètres d'actualisation {#designating-refresh-settings}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ## Cas d'utilisation {#use-cases}
 
@@ -129,7 +129,7 @@ Vous configureriez un segment de catalogue en utilisant les variables suivantes 
 
 ### L'exécution d'un segment de catalogue consomme-t-elle des crédits d'extension de segment SQL ? {#does-running-a-catalog-segment-consume-sql-segment-extension-credits}
 
-Oui, les segments de catalogue sont alimentés par SQL et consomment des crédits d'extension de segment SQL. Pour en savoir plus, consultez [Utilisation des segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#monitoring-your-sql-segments-usage).
+Oui, les segments de catalogue sont alimentés par SQL et consomment des crédits d'extension de segment SQL. Pour en savoir plus, consultez [Utilisation des segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#monitoring-your-sql-segments-usage).
 
 ### La création d'un segment de catalogue consomme-t-elle des allocations d'extensions de segments SQL ? {#does-creating-a-catalog-segment-consume-sql-segment-extension-allotments}
 
@@ -137,4 +137,4 @@ Oui. De la même manière que les extensions de segments SQL comptent dans votre
 
 ### J'ai un cas d'utilisation de segment de catalogue que le modèle actuel ne couvre pas. Comment dois-je le configurer ? {#i-have-a-catalog-segment-use-case-that-the-current-template-doesnt-serve-how-should-i-set-that-up}
 
-Contactez votre gestionnaire de support client ou l'[assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) pour obtenir des conseils supplémentaires.
+Contactez votre gestionnaire de support client ou l'[assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) pour obtenir des conseils supplémentaires.

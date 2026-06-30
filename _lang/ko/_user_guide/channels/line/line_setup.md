@@ -28,7 +28,7 @@ LINE을 Braze와 통합하려면 다음이 필요합니다:
 Braze에서 LINE 메시지를 발송하면 계정의 메시지 또는 액션 크레딧이 차감됩니다.
 
 {% alert note %}
-**`native_line_id` 설정**: Braze에 사용자 업데이트를 전송하여 `native_line_id`를 설정할 수 있습니다(예: [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 엔드포인트, [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import) 또는 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) 사용). 클라이언트 측 SDK에 `native_line_id` 전용 필드가 없는 경우, 이러한 방법 중 하나를 사용하여 서버 측 사용자 업데이트로 전송하세요.
+**`native_line_id` 설정**: Braze에 사용자 업데이트를 전송하여 `native_line_id`를 설정할 수 있습니다(예: [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 엔드포인트, [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) 또는 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) 사용). 클라이언트 측 SDK에 `native_line_id` 전용 필드가 없는 경우, 이러한 방법 중 하나를 사용하여 서버 측 사용자 업데이트로 전송하세요.
 {% endalert %}
 
 ## LINE 계정 유형 {#types-of-line-accounts}
@@ -38,7 +38,7 @@ Braze에서 LINE 메시지를 발송하면 계정의 메시지 또는 액션 크
 | 미인증 계정 | 누구나(개인 또는 법인) 취득할 수 있는 미심사 계정입니다. 이 계정은 회색 배지로 표시되며 LINE 앱 내 검색 결과에 나타나지 않습니다. |
 | 인증 계정 | LINE Yahoo 심사를 통과한 계정입니다. 이 계정은 파란색 배지로 표시되며 LINE 앱 내 검색 결과에 나타납니다.<br><br>이 계정은 일본, 대만, 태국, 인도네시아에 기반한 계정에서만 사용할 수 있습니다. |
 | 프리미엄 계정 | LINE Yahoo 심사를 통과한 계정입니다. 이 계정은 녹색 배지로 표시되며 LINE 앱 내 검색 결과에 나타납니다. 이 계정 유형은 LINE의 재량에 따라 심사 중 자동으로 부여됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Types of LINE accounts" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="LINE 계정 유형" }
 
 ### 필수 계정 유형 {#required-account-type}
 
@@ -73,7 +73,7 @@ Braze에서 LINE 메시지를 발송하면 계정의 메시지 또는 액션 크
 
 기존에 식별된 LINE 사용자가 있는 경우 이 단계가 필요합니다. Braze가 나중에 자동으로 구독 상태를 가져와 올바른 고객 프로필을 업데이트하기 때문입니다. 이전에 사용자를 LINE ID와 조정한 적이 없다면 이 단계를 건너뛰세요.
 
-Braze가 지원하는 모든 방법을 사용하여 사용자를 가져오거나 업데이트할 수 있습니다. [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 엔드포인트, [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import) 또는 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)을 사용할 수 있습니다.
+Braze가 지원하는 모든 방법을 사용하여 사용자를 가져오거나 업데이트할 수 있습니다. [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 엔드포인트, [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) 또는 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)을 사용할 수 있습니다.
 
 어떤 방법을 사용하든 `native_line_id`를 업데이트하여 사용자의 LINE ID를 제공하세요. `native_line_id`에 대해 자세히 알아보려면 [사용자 설정](#user-setup)을 참조하세요.
 
@@ -99,10 +99,10 @@ Braze가 지원하는 모든 방법을 사용하여 사용자를 가져오거나
 | Channel ID | 공급자를 선택한 다음 **Channels** > 해당 채널 > **Basic settings**로 이동 |
 | Channel secret | 공급자를 선택한 다음 **Channels** > 해당 채널 > **Basic settings**로 이동 |
 | Channel access token | 공급자를 선택한 다음 **Channels** > 해당 채널 > **Messaging API**로 이동. 채널 액세스 토큰이 없으면 **Issue**를 선택합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Edit webhook settings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2.1단계: 웹훅 설정 편집" }
 
 {% alert note %}
-이미 통합된 LINE 채널의 채널 시크릿을 업데이트하거나 교체해야 하는 경우, [Braze 고객지원]({{site.baseurl}}/braze_support/)에 연락하여 업데이트를 요청하세요.
+이미 통합된 LINE 채널의 채널 시크릿을 업데이트하거나 교체해야 하는 경우, [Braze 고객지원]({{site.baseurl}}/braze_support)에 연락하여 업데이트를 요청하세요.
 {% endalert %}
 
 {: start="3"}
@@ -123,7 +123,7 @@ Braze가 지원하는 모든 방법을 사용하여 사용자를 가져오거나
    - Channel secret
    - Channel access token
 
-LINE 계정에 IP 화이트리스트를 추가하려면 [IP 허용 목록]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#ip-allowlisting)에 나열된 클러스터의 모든 IP 주소를 허용 목록에 추가하세요.
+LINE 계정에 IP 화이트리스트를 추가하려면 [IP 허용 목록]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting)에 나열된 클러스터의 모든 IP 주소를 허용 목록에 추가하세요.
 
 {% alert important %}
 통합 중에 채널 시크릿이 올바른지 확인하세요. 올바르지 않으면 구독 상태에 불일치가 발생할 수 있습니다.
@@ -146,7 +146,7 @@ LINE 계정에 IP 화이트리스트를 추가하려면 [IP 허용 목록]({{sit
 
 구독 상태 동기화 프로세스의 일부로 또는 새 팔로워가 채널을 팔로우할 때 생성된 `native_line_id`가 있는 미식별 고객 프로필이 Braze에 존재할 수 있습니다.
 
-LINE 사용자가 [사용자 조정](#user-id-reconciliation) 또는 기타 수단을 통해 애플리케이션에서 식별되면, [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) 엔드포인트를 사용하여 Braze에서 잠재적인 미식별 고객 프로필을 타겟팅할 수 있습니다. `native_line_id`가 있는 모든 미식별 고객 프로필에는 고객 프로필을 식별하기 위해 타겟팅할 수 있는 사용자 별칭 `line_id`도 있습니다.
+LINE 사용자가 [사용자 조정](#user-id-reconciliation) 또는 기타 수단을 통해 애플리케이션에서 식별되면, [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) 엔드포인트를 사용하여 Braze에서 잠재적인 미식별 고객 프로필을 타겟팅할 수 있습니다. `native_line_id`가 있는 모든 미식별 고객 프로필에는 고객 프로필을 식별하기 위해 타겟팅할 수 있는 사용자 별칭 `line_id`도 있습니다.
 
 다음은 사용자 별칭 `line_id`로 미식별 고객 프로필을 타겟팅하는 `/users/identify` 페이로드 예시입니다:
 
@@ -168,7 +168,7 @@ LINE 사용자가 [사용자 조정](#user-id-reconciliation) 또는 기타 수�
 
 제공한 `external_id`에 대한 기존 고객 프로필이 없으면 미식별 고객 프로필에 추가되어 식별됩니다. `external_id`에 대한 고객 프로필이 이미 존재하면 미식별 고객 프로필에만 있는 모든 속성이 `native_line_id` 및 사용자의 구독 상태를 포함하여 알려진 고객 프로필로 복사됩니다.
 
-[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 엔드포인트를 통해 외부 식별자와 `native_line_id`를 전달하여 애플리케이션에서 알려진 LINE 사용자를 업데이트할 수 있습니다. 사용자에 대한 미식별 고객 프로필이 이미 존재하고 동일한 `native_line_id`가 `/users/track`을 통해 다른 고객 프로필에 추가되면, 미식별 고객 프로필의 모든 구독 상태를 상속합니다. 그러나 동일한 `native_line_id`를 가진 중복 고객 프로필이 존재하게 됩니다. 이후 이벤트 업데이트에 의한 구독 업데이트는 모든 프로필을 그에 맞게 업데이트합니다.
+[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 엔드포인트를 통해 외부 식별자와 `native_line_id`를 전달하여 애플리케이션에서 알려진 LINE 사용자를 업데이트할 수 있습니다. 사용자에 대한 미식별 고객 프로필이 이미 존재하고 동일한 `native_line_id`가 `/users/track`을 통해 다른 고객 프로필에 추가되면, 미식별 고객 프로필의 모든 구독 상태를 상속합니다. 그러나 동일한 `native_line_id`를 가진 중복 고객 프로필이 존재하게 됩니다. 이후 이벤트 업데이트에 의한 구독 업데이트는 모든 프로필을 그에 맞게 업데이트합니다.
 
 {% alert note %}
 LINE 구독 상태는 `external_id`가 아닌 `native_line_id`로 추적됩니다. 예를 들어, 사용자 B의 고객 프로필이 사용자 A와 동일한 `native_line_id`로 생성되었지만 동일한 `external_id`가 아닌 경우, 사용자 B는 사용자 A의 LINE 구독 상태를 상속합니다.
@@ -217,7 +217,7 @@ LINE 구독 상태는 `external_id`가 아닌 `native_line_id`로 추적됩니�
 {% endraw %}
 
 {% alert tip %}
-Braze에서 중복 사용자를 관리하는 방법에 대해 자세히 알아보려면 [중복 사용자]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/)를 참조하세요.
+Braze에서 중복 사용자를 관리하는 방법에 대해 자세히 알아보려면 [중복 사용자]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users)를 참조하세요.
 {% endalert %}
 
 ## 사용자 설정 {#user-setup}
@@ -231,19 +231,19 @@ LINE은 사용자 구독 상태의 정보 소스입니다. 사용자의 LINE ID(
 1. **구독 동기화 도구:** 이 도구는 LINE 채널 통합이 성공한 후 자동으로 배포됩니다. 기존 프로필을 업데이트하고 새 프로필을 생성하는 데 사용합니다.<br><br>LINE 채널을 팔로우하는 `native_line_id`가 있는 모든 Braze 고객 프로필은 구독 그룹 상태가 `subscribed`로 업데이트됩니다. `native_line_id`가 있는 Braze 고객 프로필이 없는 LINE 채널 팔로워의 경우:<br><br>- 채널을 팔로우하는 사용자 LINE ID로 `native_line_id`가 설정된 익명 고객 프로필이 생성됩니다 <br>- 채널을 팔로우하는 사용자 LINE ID로 사용자 별칭 `line_id`가 설정됩니다 <br>- 구독 그룹 상태가 `subscribed`로 설정됩니다
 
 {: start="2"}
-2. **이벤트 업데이트:** 사용자의 구독 상태를 업데이트하는 데 사용됩니다. Braze가 통합된 LINE 채널에 대한 사용자 이벤트 업데이트를 수신하고 이벤트가 팔로우인 경우, 고객 프로필의 구독 그룹 상태가 `subscribed`로 설정됩니다. 이벤트가 언팔로우인 경우, 고객 프로필의 구독 그룹 상태가 `unsubscribed`로 설정됩니다.<br><br>- 일치하는 `native_line_id`가 있는 모든 Braze 고객 프로필이 자동으로 업데이트됩니다. <br>- 이벤트에 대해 일치하는 고객 프로필이 없으면 Braze가 [익명 사용자를 생성]({{site.baseurl}}/line/user_management/)합니다.
+2. **이벤트 업데이트:** 사용자의 구독 상태를 업데이트하는 데 사용됩니다. Braze가 통합된 LINE 채널에 대한 사용자 이벤트 업데이트를 수신하고 이벤트가 팔로우인 경우, 고객 프로필의 구독 그룹 상태가 `subscribed`로 설정됩니다. 이벤트가 언팔로우인 경우, 고객 프로필의 구독 그룹 상태가 `unsubscribed`로 설정됩니다.<br><br>- 일치하는 `native_line_id`가 있는 모든 Braze 고객 프로필이 자동으로 업데이트됩니다. <br>- 이벤트에 대해 일치하는 고객 프로필이 없으면 Braze가 [익명 사용자를 생성]({{site.baseurl}}/line/user_management)합니다.
 
 ## 활용 사례 {#use-cases}
 
 위의 설정 단계를 따른 후 사용자가 업데이트될 수 있는 활용 사례입니다.
 
-##### 기존 Braze 고객 프로필이 이미 LINE 채널을 팔로우하는 경우 {#existing-braze-user-profile-already-follows-line-channel}
+### 기존 Braze 고객 프로필이 이미 LINE 채널을 팔로우하는 경우 {#existing-braze-user-profile-already-follows-line-channel}
 
 1. Braze 고객 프로필이 `native_line_id` 속성으로 업데이트됩니다. 기본 구독 상태는 `unsubscribed`입니다.
 2. 구독 동기화 도구가 실행되어 사용자가 LINE 채널을 팔로우하고 있음을 확인하고, 고객 프로필을 구독 상태 `subscribed`로 업데이트합니다.
 3. 구독 상태 변경이 발생하면(예: 사용자가 차단, 친구 삭제 또는 재팔로우하는 경우) Braze가 LINE에서 업데이트를 수신하고 `native_line_id`에 따라 고객 프로필을 업데이트합니다.
 
-##### 기존 고객 프로필이 LINE 채널을 차단, 친구 삭제 또는 언팔로우한 경우 {#existing-user-profile-has-blocked-unfriended-or-unfollowed-line-channel}
+#### 기존 고객 프로필이 LINE 채널을 차단, 친구 삭제 또는 언팔로우한 경우 {#existing-user-profile-has-blocked-unfriended-or-unfollowed-line-channel}
 
 1. Braze 고객 프로필이 `native_line_id` 속성으로 업데이트됩니다. 기본 구독 상태는 `unsubscribed`입니다.
 2. 구독 동기화 도구가 사용자가 LINE 채널을 팔로우하고 있지 않음을 확인하고 사용자의 구독 상태는 `unsubscribed`로 유지됩니다.
@@ -254,7 +254,7 @@ LINE은 사용자 구독 상태의 정보 소스입니다. 사용자의 LINE ID(
 1. 채널에 새 LINE 팔로워가 생깁니다.
 2. Braze가 팔로워의 LINE ID로 `native_line_id` 속성이 설정되고, 팔로워의 LINE ID로 사용자 별칭 `line_id`가 설정된 익명 고객 프로필을 생성합니다. 프로필의 구독 상태는 `subscribed`입니다.
 3. [사용자 ID 조정](#user-id-reconciliation)을 통해 사용자가 해당 LINE ID를 가진 것으로 식별됩니다.
-  - [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) 엔드포인트를 사용하여 익명 고객 프로필을 식별할 수 있습니다. 이 고객 프로필에 대한 이후 업데이트([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 엔드포인트, [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import) 또는 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) 사용)는 이 알려진 `external_id`로 사용자를 타겟팅할 수 있습니다.
+  - [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) 엔드포인트를 사용하여 익명 고객 프로필을 식별할 수 있습니다. 이 고객 프로필에 대한 이후 업데이트([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 엔드포인트, [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) 또는 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) 사용)는 이 알려진 `external_id`로 사용자를 타겟팅할 수 있습니다.
 
 {% raw %}
 ```json
@@ -272,7 +272,7 @@ LINE은 사용자 구독 상태의 정보 소스입니다. 사용자의 LINE ID(
 ```
 {% endraw %}
 
-  - `native_line_id`를 설정하여 새 고객 프로필을 생성할 수 있습니다([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 엔드포인트, [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import) 또는 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) 사용). 이 새 프로필은 기존 익명 고객 프로필의 구독 상태를 상속합니다. 이로 인해 동일한 `native_line_id`를 공유하는 여러 프로필이 생길 수 있습니다. 이는 [5단계](#step-5-merge-profiles-optional)에 설명된 프로세스에서 `/users/merge` 엔드포인트를 사용하여 언제든지 병합할 수 있습니다.
+  - `native_line_id`를 설정하여 새 고객 프로필을 생성할 수 있습니다([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 엔드포인트, [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) 또는 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) 사용). 이 새 프로필은 기존 익명 고객 프로필의 구독 상태를 상속합니다. 이로 인해 동일한 `native_line_id`를 공유하는 여러 프로필이 생길 수 있습니다. 이는 [5단계](#step-5-merge-profiles-optional)에 설명된 프로세스에서 `/users/merge` 엔드포인트를 사용하여 언제든지 병합할 수 있습니다.
 
 ##### LINE 팔로우 전에 고객 프로필이 생성되는 경우 {#user-profile-creation-occurs-before-line-follow}
 
@@ -311,7 +311,7 @@ LINE ID를 기존 Braze 고객 프로필과 결합하는 두 가지 방법이 �
 
 4. 사용자의 LINE ID(`native_line_id`)를 데이터베이스에서 일치하는 이메일이 있는 사용자 프로필에 저장하거나, 사용자의 이메일과 LINE ID로 새 고객 프로필을 생성합니다.
 
-5. [`/user/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users/), [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import) 또는 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)을 사용하여 새로운 또는 업데이트된 사용자 정보를 Braze에 전송합니다.
+5. [`/user/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users), [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) 또는 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)을 사용하여 새로운 또는 업데이트된 사용자 정보를 Braze에 전송합니다.
 
 #### 워크플로 {#workflows}
 
@@ -386,7 +386,7 @@ if (user && isLoggedIn && lineUserId) {
 1. LINE이 Braze에 팔로우 이벤트를 전송합니다.
 2. Braze가 LINE ID, `line_id` 사용자 별칭, LINE 구독 그룹 상태 `subscribed`로 익명 고객 프로필을 생성합니다.
 3. 사용자가 웹사이트와 앱 링크가 포함된 LINE 메시지를 수신하고 로그인합니다. 이제 고객 프로필이 알려진 상태가 됩니다.
-4. 생성된 익명 고객 프로필이 식별되어 [/users/identify 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/)를 통해 사용자의 알려진 고객 프로필로 병합됩니다. 알려진 고객 프로필에는 이제 LINE ID가 포함되고 구독 상태가 `subscribed`입니다.
+4. 생성된 익명 고객 프로필이 식별되어 [/users/identify 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)를 통해 사용자의 알려진 고객 프로필로 병합됩니다. 알려진 고객 프로필에는 이제 LINE ID가 포함되고 구독 상태가 `subscribed`입니다.
 5. (선택 사항) 사용자가 쿠폰 코드가 포함된 LINE 메시지를 수신하고 Braze가 Braze 고객 프로필에 발송을 기록합니다.
 
 ## Braze에서 LINE 테스트 사용자 생성 {#creating-line-test-users-in-braze}
