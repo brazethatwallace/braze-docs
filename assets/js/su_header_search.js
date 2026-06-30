@@ -1,11 +1,7 @@
 // search-form-handler.js
 
 document.addEventListener("DOMContentLoaded", function () {
-  function searchI18n(key, fallback) {
-    return typeof site_i18n !== "undefined" && site_i18n[key]
-      ? site_i18n[key]
-      : fallback;
-  }
+  const { applyDefaultSearchInputLabel } = window.SuSearchA11y;
 
   const buttonLabels = {
     en:     { form: "Site search", search: "Search", clear: "Clear search" },
@@ -108,43 +104,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /**
-   * Ensure sr-only label + aria-labelledby; placeholder is a short hint only.
-   * @param {HTMLInputElement} input
-   * @param {string} labelText
-   * @param {string} placeholderHint
-   */
-  function applySearchInputLabel(input, labelText, placeholderHint) {
-    const scope = input.closest("#auto, #su_main_search");
-    const labelId = `${scope?.id || "search"}-search-label`;
-    let label = document.getElementById(labelId);
-    if (!label) {
-      label = document.createElement("label");
-      label.id = labelId;
-      label.className = "sr-only";
-      label.setAttribute("for", "search-box-autocomplete");
-      input.parentNode?.insertBefore(label, input);
-    }
-    label.textContent = labelText;
-    input.setAttribute("aria-labelledby", labelId);
-    input.removeAttribute("aria-label");
-    input.setAttribute("placeholder", placeholderHint);
-    if (input.getAttribute("type") === "input") {
-      input.setAttribute("type", "search");
-    }
-  }
-
-  /**
    * Set up placeholder, ARIA combobox attributes, key events & has-text logic.
    */
   function setupInputWatcher() {
     const input = document.getElementById("search-box-autocomplete");
     if (!input || input.dataset.a11yLabelApplied) return;
 
-    applySearchInputLabel(
-      input,
-      searchI18n("site_search_input_aria", "Search everything"),
-      searchI18n("site_search_input_placeholder_hint", "Search…")
-    );
+    applyDefaultSearchInputLabel(input);
     input.dataset.a11yLabelApplied = "true";
 
     // Combobox ARIA — tells assistive technology this input controls a listbox
