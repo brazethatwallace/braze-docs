@@ -245,7 +245,8 @@ $(document).ready(function() {
     {% multi_lang_include layouts/onboarding_faq_intro.html %}
 
     <div id="api_filter">
-        <input id="api_search" type="search" placeholder="Search" aria-label="Search" />
+        <label for="api_search" id="onboarding-faq-search-label" class="sr-only">Search FAQ</label>
+        <input id="api_search" type="search" placeholder="Search" aria-labelledby="onboarding-faq-search-label" />
         <div id="api_filter_list"></div>
     </div>
 

@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      const translations = {
+      const labelText = {
         en: "Search everything",
         "pt-br": "Buscar tudo",
         ko: "전체 검색",
@@ -82,9 +82,36 @@ document.addEventListener("DOMContentLoaded", function () {
         ja: "すべて検索",
       };
 
-      const placeholderText = translations[lang] || translations.en;
-      queryInput.setAttribute("placeholder", `${placeholderText}...`);
-      queryInput.setAttribute("aria-label", placeholderText);
+      const placeholderHints = {
+        en: "Search…",
+        "pt-br": "Buscar…",
+        ko: "검색…",
+        fr: "Rechercher…",
+        es: "Buscar…",
+        de: "Suchen…",
+        ja: "検索…",
+      };
+
+      const scope = queryInput.closest("#auto, #su_main_search");
+      const labelId = `${scope?.id || "search"}-search-label`;
+      let label = document.getElementById(labelId);
+      if (!label) {
+        label = document.createElement("label");
+        label.id = labelId;
+        label.className = "sr-only";
+        label.setAttribute("for", "search-box-autocomplete");
+        queryInput.parentNode?.insertBefore(label, queryInput);
+      }
+      label.textContent = labelText[lang] || labelText.en;
+      queryInput.setAttribute("aria-labelledby", labelId);
+      queryInput.removeAttribute("aria-label");
+      queryInput.setAttribute(
+        "placeholder",
+        placeholderHints[lang] || placeholderHints.en
+      );
+      if (queryInput.getAttribute("type") === "input") {
+        queryInput.setAttribute("type", "search");
+      }
 
       // Combobox ARIA — tells assistive technology this input controls a listbox
       queryInput.setAttribute("role", "combobox");

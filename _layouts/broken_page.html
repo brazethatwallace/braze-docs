@@ -202,7 +202,8 @@ $(document).ready(function(k){
           </div>
           <form id="help-search-form"  action="{{site.baseurl}}/search/" method="get" class="form-inline">
             <div class="input-group ">
-              <input type="text" class="form-control" id="help-menu_search"  name="q" placeholder="Search Braze Documentation" aria-label="Search">
+              <label for="help-menu_search" id="broken-page-search-label" class="sr-only">Search Braze Documentation</label>
+              <input type="text" class="form-control" id="help-menu_search"  name="q" placeholder="Search Braze Documentation" aria-labelledby="broken-page-search-label">
               <button class="btn">
                   <i class="fa fa-search" aria-hidden="true"></i>
               </button>

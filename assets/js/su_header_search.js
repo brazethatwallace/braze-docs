@@ -102,13 +102,39 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /**
+   * Ensure sr-only label + aria-labelledby; placeholder is a short hint only.
+   * @param {HTMLInputElement} input
+   * @param {string} labelText
+   * @param {string} placeholderHint
+   */
+  function applySearchInputLabel(input, labelText, placeholderHint) {
+    const scope = input.closest("#auto, #su_main_search");
+    const labelId = `${scope?.id || "search"}-search-label`;
+    let label = document.getElementById(labelId);
+    if (!label) {
+      label = document.createElement("label");
+      label.id = labelId;
+      label.className = "sr-only";
+      label.setAttribute("for", "search-box-autocomplete");
+      input.parentNode?.insertBefore(label, input);
+    }
+    label.textContent = labelText;
+    input.setAttribute("aria-labelledby", labelId);
+    input.removeAttribute("aria-label");
+    input.setAttribute("placeholder", placeholderHint);
+    if (input.getAttribute("type") === "input") {
+      input.setAttribute("type", "search");
+    }
+  }
+
+  /**
    * Set up placeholder, ARIA combobox attributes, key events & has-text logic.
    */
   function setupInputWatcher() {
     const input = document.getElementById("search-box-autocomplete");
-    if (!input) return;
+    if (!input || input.dataset.a11yLabelApplied) return;
 
-    const translations = {
+    const labelText = {
       en: "Search everything",
       "pt-br": "Buscar tudo",
       ko: "전체 검색",
@@ -118,10 +144,23 @@ document.addEventListener("DOMContentLoaded", function () {
       ja: "すべて検索",
     };
 
+    const placeholderHints = {
+      en: "Search…",
+      "pt-br": "Buscar…",
+      ko: "검색…",
+      fr: "Rechercher…",
+      es: "Buscar…",
+      de: "Suchen…",
+      ja: "検索…",
+    };
+
     const lang = document.documentElement.lang;
-    const placeholderText = translations[lang] || translations.en;
-    input.setAttribute("placeholder", placeholderText);
-    input.setAttribute("aria-label", placeholderText);
+    applySearchInputLabel(
+      input,
+      labelText[lang] || labelText.en,
+      placeholderHints[lang] || placeholderHints.en
+    );
+    input.dataset.a11yLabelApplied = "true";
 
     // Combobox ARIA — tells assistive technology this input controls a listbox
     input.setAttribute("role", "combobox");
