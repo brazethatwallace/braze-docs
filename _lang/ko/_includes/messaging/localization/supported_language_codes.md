@@ -174,4 +174,4 @@ Braze는 몇 가지 예외를 제외하고 [ISO-639-1](http://en.wikipedia.org/w
 | 요루바어 | `yo` |
 | 자르마어 | `dje` |
 | 줄루어 | `zu` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported language codes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="지원되는 언어 코드" }

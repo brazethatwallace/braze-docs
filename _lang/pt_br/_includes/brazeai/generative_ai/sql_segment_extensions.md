@@ -1,6 +1,6 @@
 # Extensões de segmento do SQL {#sql-segment-extensions}
 
-> Você pode gerar uma extensão de segmento usando consultas de SQL do Snowflake de dados do [Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/). O SQL pode ajudar a desbloquear novos casos de uso de segmentos porque oferece a flexibilidade de descrever as relações entre os dados de maneiras que não são possíveis por meio de outros recursos de segmentação.
+> Você pode gerar uma extensão de segmento usando consultas de SQL do Snowflake de dados do [Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). O SQL pode ajudar a desbloquear novos casos de uso de segmentos porque oferece a flexibilidade de descrever as relações entre os dados de maneiras que não são possíveis por meio de outros recursos de segmentação.
 >
 > Assim como as extensões de segmento padrão, você pode consultar eventos dos últimos dois anos (730 dias) na sua extensão de segmento SQL. Diferentemente das extensões de segmento padrão, as extensões de segmento SQL [consomem créditos](#credits).
 
@@ -29,7 +29,7 @@ Para criar uma extensão de segmento SQL com atualização completa:
 
 1. Acesse **Público** > **Extensões de segmento**.
 2. Selecione **Criar nova extensão** e depois selecione **Atualização completa**.<br><br>
-   ![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
+   ![Modal de criação de nova extensão com opções de atualização completa e atualização incremental.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
 3. Adicione um nome para sua extensão de segmento e insira seu SQL. Consulte a [Etapa 2](#step-2-write-your-sql) para requisitos e recursos.<br><br>
    ![Editor SQL mostrando um exemplo de extensão de segmento SQL.]({% image_buster /assets/img_archive/sql_segments_editor.png %}){: style="max-width:60%" }<br><br>
 4. Salve sua extensão de segmento.
@@ -41,7 +41,7 @@ Para criar uma extensão de segmento SQL com atualização incremental:
 
 1. Acesse **Público** > **Extensões de segmento**.
 2. Selecione **Criar nova extensão** e selecione **Atualização incremental**.<br><br>
-   ![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
+   ![Modal de criação de nova extensão com opções de atualização completa e atualização incremental.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
 3. Adicione um nome para sua extensão de segmento e insira seu SQL. Consulte a seção [Escrevendo SQL](#writing-sql) para requisitos e recursos.<br><br>
    ![Editor SQL mostrando um exemplo de extensão de segmento SQL incremental.]({% image_buster /assets/img_archive/sql_segments_editor_incremental.png %}){: style="max-width:60%" }<br><br>
 4. Se desejar, selecione **Regenerate Extension Daily**.<br><br>
@@ -63,7 +63,7 @@ O gerador de SQL com IA utiliza o [GPT](https://openai.com/gpt-4), desenvolvido 
 
 Para usar o gerador de SQL com IA, faça o seguinte:
 
-1. Selecione **Launch AI SQL Generator** após criar um [segmento SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/) usando atualização completa ou incremental.
+1. Selecione **Launch AI SQL Generator** após criar um [segmento SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments) usando atualização completa ou incremental.
 2. Digite seu prompt e selecione **Gerar** para transformar seu prompt em SQL.
 3. Revise o SQL gerado para ter certeza de que está correto e, em seguida, salve o segmento.
 
@@ -74,7 +74,7 @@ Para usar o gerador de SQL com IA, faça o seguinte:
 
 #### Dicas {#tips}
 
-- Familiarize-se com as [tabelas de dados do Snowflake]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/) disponíveis. Solicitar dados que não existem nessas tabelas pode fazer com que o ChatGPT crie uma tabela falsa.
+- Familiarize-se com as [tabelas de dados do Snowflake]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables) disponíveis. Solicitar dados que não existem nessas tabelas pode fazer com que o ChatGPT crie uma tabela falsa.
 - Familiarize-se com as [regras de escrita SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments?tab=sql%20editor#writing-sql) para esse recurso. O não cumprimento dessas regras causará um erro. Por exemplo, seu código SQL deve selecionar a coluna `user_id`. Iniciar seu prompt com "users who" pode ajudar.
 - Você pode enviar até 20 prompts por minuto com o gerador de SQL com IA.
 
@@ -87,14 +87,14 @@ Para usar o gerador de SQL com IA, faça o seguinte:
 Consultas de SQL que demorarem mais de 20 minutos para serem executadas serão encerradas por tempo limite.
 {% endalert %}
 
-Quando a extensão terminar de processar, você pode [criar um segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/#step-5-use-your-extension-in-a-segment) usando sua extensão de segmento e direcionar esse novo segmento com suas Campaigns e Canvas.
+Quando a extensão terminar de processar, você pode [criar um segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension#step-5-use-your-extension-in-a-segment) usando sua extensão de segmento e direcionar esse novo segmento com suas Campaigns e Canvas.
 
 ### Etapa 2: Escreva seu SQL {#step-2-write-your-sql}
 
-Sua consulta de SQL deve ser escrita usando a [sintaxe do Snowflake](https://docs.snowflake.com/en/sql-reference.html). Consulte a [referência de tabelas]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/) para obter uma lista completa das tabelas e colunas disponíveis para consulta.
+Sua consulta de SQL deve ser escrita usando a [sintaxe do Snowflake](https://docs.snowflake.com/en/sql-reference.html). Consulte a [referência de tabelas]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables) para obter uma lista completa das tabelas e colunas disponíveis para consulta.
 
 {% alert important %}
-As tabelas disponíveis para consulta contêm apenas dados de eventos. Se desejar consultar atributos de usuário, você deve combinar seu segmento SQL com filtros de atributos personalizados do [segmentador clássico]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
+As tabelas disponíveis para consulta contêm apenas dados de eventos. Se desejar consultar atributos de usuário, você deve combinar seu segmento SQL com filtros de atributos personalizados do [segmentador clássico]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment).
 {% endalert %}
 
 {% tabs %}
@@ -128,7 +128,7 @@ Todas as consultas de atualização incremental consistem em duas partes: uma co
    - **Operator:** Indique se o evento ocorreu mais do que, menos do que ou igual a um número de ocorrências.<br>
    ![Campo do operador com "More than" selecionado.]({% image_buster /assets/img_archive/sql_segments_operator.png %})<br><br>
    - **Number of times:** Quantas vezes você gostaria de avaliar o evento em relação ao operador.<br>
-   ![Number of times com "5" inserido.]({% image_buster /assets/img_archive/sql_segments_times.png %})<br><br>
+   ![Campo de número de vezes com "5" inserido.]({% image_buster /assets/img_archive/sql_segments_times.png %})<br><br>
    - **Time period:** Número de dias, de 1 a 730, em que você deseja verificar as instâncias do evento. Esse período se refere a dias passados em relação ao dia atual. O exemplo a seguir mostra a consulta de usuários que realizaram o evento mais de 5 vezes nos últimos 365 dias.<br>
    ![Campo de período de tempo com "365" inserido.]({% image_buster /assets/img_archive/sql_segments_period.png %})
 
@@ -195,7 +195,7 @@ Se você criou um segmento no qual espera que os usuários entrem e saiam regula
 
 ## Gerenciando suas extensões de segmento {#managing-your-segment-extensions}
 
-Na página **Segment Extensions**, os segmentos gerados usando SQL são indicados com <i class="fas fa-code" alt="SQL Segment Extension"></i> ao lado do nome.
+Na página **Extensões de segmento**, os segmentos gerados usando SQL são indicados com <i class="fas fa-code" alt="Extensão de segmento SQL"></i> ao lado do nome.
 
 Selecione uma extensão de segmento SQL para visualizar onde a extensão está sendo usada, arquivar a extensão ou [atualizar manualmente a associação do segmento](#refreshing-segment-membership).
 
@@ -217,7 +217,7 @@ O uso de créditos está correlacionado ao tempo de execução da sua consulta d
 
 Para economizar créditos, faça uma pré-visualização da sua consulta para garantir que ela esteja correta antes de salvar a extensão de segmento SQL.
 
-Seus créditos serão redefinidos para 5 no primeiro dia de cada mês, às 12h UTC. Você pode monitorar o uso dos seus créditos durante o mês no painel de uso de créditos. Na página **Segment Extensions**, clique em <i class="fa-solid fa-chart-column"></i> **View SQL Credit Usage**.
+Seus créditos serão redefinidos para 5 no primeiro dia de cada mês, às 12h UTC. Você pode monitorar o uso dos seus créditos durante o mês no painel de uso de créditos. Na página **Extensões de segmento**, clique em <i class="fa-solid fa-chart-column"></i> **View SQL Credit Usage**.
 
 ![Painel de uso de créditos SQL na página de extensões de segmento SQL]({% image_buster /assets/img_archive/sql_segments_credits.png %}){: style="max-width:60%"}
 

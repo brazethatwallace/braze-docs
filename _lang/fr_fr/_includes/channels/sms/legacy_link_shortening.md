@@ -1,17 +1,17 @@
 Le raccourcissement de liens et le suivi des clics vous permettent de raccourcir automatiquement les URL contenues dans les messages SMS ou RCS et de collecter des données analytiques sur le taux de clics, fournissant ainsi des indicateurs d'engagement supplémentaires pour mieux comprendre comment les utilisateurs interagissent avec vos campagnes.
 
-Le raccourcissement de liens et le suivi des clics peuvent être activés au [niveau de la variante du message]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#step-1-create-your-campaign) dans les Campaigns comme dans les Canvas.
+Le raccourcissement de liens et le suivi des clics peuvent être activés au [niveau de la variante du message]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign) dans les Campaigns comme dans les Canvas.
 
 La longueur de l'URL dépend du type de suivi activé :
 - **Le suivi basique** permet le suivi des clics au niveau de la campagne. Les URL statiques auront une longueur de 20 caractères, et les URL personnalisées auront une longueur de 25 caractères.
-- **Le suivi avancé** permet le suivi des clics au niveau de la campagne et de l'utilisateur, et active les fonctionnalités de segmentation et de reciblage basées sur les clics. Les clics génèrent également un [événement de clic SMS]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) envoyé via Currents. Les URL statiques avec suivi avancé auront une longueur de 27 à 28 caractères, vous permettant de créer des segments d'utilisateurs ayant cliqué sur des URL. Les URL personnalisées auront une longueur de 32 à 33 caractères.
+- **Le suivi avancé** permet le suivi des clics au niveau de la campagne et de l'utilisateur, et active les fonctionnalités de segmentation et de reciblage basées sur les clics. Les clics génèrent également un [événement de clic SMS]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) envoyé via Currents. Les URL statiques avec suivi avancé auront une longueur de 27 à 28 caractères, vous permettant de créer des segments d'utilisateurs ayant cliqué sur des URL. Les URL personnalisées auront une longueur de 32 à 33 caractères.
 
 Les liens sont raccourcis à l'aide de notre domaine court partagé (`brz.ai`) ou de votre domaine de raccourcissement de liens personnalisé. Voici un exemple d'URL raccourcie : `https://brz.ai/8jshX` (basique, statique) ou `https://brz.ai/p/8jshX/2dj8d` (avancé, personnalisé). Consultez la section [Tests](#testing) pour en savoir plus.
 
 Toutes les URL statiques commençant par `http://` ou `https://` sont raccourcies. Les URL raccourcies statiques sont valides pendant un an à compter de leur date de création. Les URL raccourcies contenant une personnalisation Liquid sont valides pendant deux mois.
 
 {% alert note %}
-Si vous prévoyez d'utiliser le [filtre de canal intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/) BrazeAI<sup>TM</sup> et souhaitez que les canaux SMS et RCS soient sélectionnables, activez le raccourcissement de liens avec le suivi avancé.
+Les liens raccourcis Braze incluent toujours le protocole `https://` et ne peuvent pas être configurés pour utiliser un protocole différent.
 {% endalert %}
 
 ## Utiliser le raccourcissement de liens {#using-link-shortening}
@@ -24,6 +24,10 @@ Braze ne reconnaît que les URL commençant par `http://` ou `https://`. Lorsqu'
 
 ![Composeur de messages avec une longue URL dans le champ « Message » et un lien raccourci généré dans la prévisualisation.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening3.png %})
 
+{% alert note %}
+Si vous prévoyez d'utiliser le [filtre de canal intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) BrazeAI<sup>TM</sup> et souhaitez que les canaux SMS et RCS soient sélectionnables, activez le raccourcissement de liens avec le suivi avancé.
+{% endalert %}
+
 ### Ajouter des paramètres UTM {#adding-utm-parameters}
 
 {% multi_lang_include analytics/click_tracking.md section='UTM parameters' %}
@@ -34,7 +38,7 @@ Vous pouvez construire dynamiquement votre URL directement dans le composeur Bra
 
 ### Créer une URL avec des balises de personnalisation Liquid prises en charge {#create-a-url-with-supported-liquid-personalization-tags}
 
-Les URL peuvent être générées dynamiquement grâce à l'utilisation de n'importe quelle [balise de personnalisation Liquid prise en charge]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
+Les URL peuvent être générées dynamiquement grâce à l'utilisation de n'importe quelle [balise de personnalisation Liquid prise en charge]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
 {% raw %}
 ```liquid
@@ -61,21 +65,21 @@ Nous raccourcissons les URL générées par Liquid, y compris celles incluses da
 
 ### Raccourcir les URL dans l'endpoint `/messages/send` {#shorten-urls-in-messagessend-endpoint}
 
-Le raccourcissement de liens est également activé pour les messages API uniquement via l'[endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/). Pour activer également le suivi basique ou avancé, utilisez les paramètres de requête `link_shortening_enabled` ou `user_click_tracking_enabled`.
+Le raccourcissement de liens est également activé pour les messages API uniquement via l'[endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages). Pour activer également le suivi basique ou avancé, utilisez les paramètres de requête `link_shortening_enabled` ou `user_click_tracking_enabled`.
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
 | `link_shortening_enabled` | Facultatif | Valeur booléenne | Définissez `link_shortening_enabled` sur `true` pour activer le raccourcissement de liens et le suivi des clics au niveau de la campagne. Pour utiliser le suivi, un `campaign_id` et un `message_variation_id` doivent être présents. |
 | `user_click_tracking_enabled` | Facultatif | Valeur booléenne | Définissez `user_click_tracking_enabled` sur `true` pour activer le raccourcissement de liens, ainsi que le suivi des clics au niveau de la campagne et de l'utilisateur. Vous pouvez utiliser les données suivies pour créer des segments d'utilisateurs ayant cliqué sur des URL.<br><br> Pour utiliser ce paramètre, `link_shortening_enabled` doit être défini sur `true`, et un `campaign_id` et un `message_variation_id` doivent être présents. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Shorten URLs in /messages/send endpoint" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Raccourcir les URL dans l'endpoint /messages/send" }
 
-Pour une liste complète des paramètres de requête, consultez les [paramètres de requête]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters).
+Pour une liste complète des paramètres de requête, consultez les [paramètres de requête]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters).
 
 ## Tests {#testing}
 
-Avant de lancer votre campagne ou Canvas, il est recommandé de prévisualiser et de tester votre message au préalable. Pour ce faire, accédez à l'onglet **Test** pour prévisualiser et envoyer un message SMS ou RCS à des [groupes de test de contenu]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) ou à un utilisateur individuel.
+Avant de lancer votre campagne ou Canvas, il est recommandé de prévisualiser et de tester votre message au préalable. Pour ce faire, accédez à l'onglet **Test** pour prévisualiser et envoyer un message SMS ou RCS à des [groupes de test de contenu]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) ou à un utilisateur individuel.
 
-Cet aperçu se met à jour avec la personnalisation pertinente et l'URL raccourcie. Le nombre de caractères et les [segments facturables]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/) sont également mis à jour pour refléter la personnalisation rendue et l'URL raccourcie.
+Cet aperçu se met à jour avec la personnalisation pertinente et l'URL raccourcie. Le nombre de caractères et les [segments facturables]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator) sont également mis à jour pour refléter la personnalisation rendue et l'URL raccourcie.
 
 Assurez-vous d'enregistrer la campagne ou le Canvas avant d'envoyer un message test afin d'obtenir une représentation de l'URL raccourcie telle qu'elle sera envoyée dans votre message. Si la campagne ou le Canvas n'est pas enregistré avant l'envoi test, celui-ci contiendra une URL de marque substitutive.
 
@@ -93,7 +97,7 @@ La personnalisation Liquid et les URL raccourcies sont générées dans l'onglet
 
 ## Suivi des clics {#click-tracking}
 
-Lorsque le raccourcissement de liens est activé, le tableau **SMS/MMS/RCS Performance** inclut une colonne intitulée **Total Clicks** qui affiche le nombre d'événements de clic par variante ainsi que le taux de clics associé. Pour plus de détails sur les indicateurs, consultez [Performances des messages]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting/).
+Lorsque le raccourcissement de liens est activé, le tableau **SMS/MMS/RCS Performance** inclut une colonne intitulée **Total Clicks** qui affiche le nombre d'événements de clic par variante ainsi que le taux de clics associé. Pour plus de détails sur les indicateurs, consultez [Performances des messages]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting).
 
 ![Tableau des indicateurs de performance SMS et MMS.]({% image_buster /assets/img/link_shortening/shortening4.png %})
 
@@ -101,7 +105,7 @@ Les tableaux **Historical Performance** et **SMS/MMS/RCS Performance** incluent 
 
 ## Recibler les utilisateurs {#retargeting-users}
 
-Pour des conseils sur le reciblage, consultez [Reciblage]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/#filter-by-advanced-tracking-links).
+Pour des conseils sur le reciblage, consultez [Reciblage]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting#filter-by-advanced-tracking-links).
 
 {% multi_lang_include analytics/click_tracking.md section='Custom Domains' %}
 
@@ -109,7 +113,7 @@ Pour des conseils sur le reciblage, consultez [Reciblage]({{site.baseurl}}/user_
 
 ### Puis-je savoir quels utilisateurs individuels cliquent sur une URL ? {#do-i-know-which-individual-users-are-clicking-on-a-url}
 
-Oui. Lorsque le **suivi avancé** est activé, vous pouvez recibler les utilisateurs ayant cliqué sur des URL en utilisant les [filtres de reciblage SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) ou les événements de clic SMS (`users.messages.sms.ShortLinkClick`) envoyés par Currents.
+Oui. Lorsque le **suivi avancé** est activé, vous pouvez recibler les utilisateurs ayant cliqué sur des URL en utilisant les [filtres de reciblage SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) ou les événements de clic SMS (`users.messages.sms.ShortLinkClick`) envoyés par Currents.
 
 ### Le raccourcissement de liens fonctionne-t-il avec les liens profonds ou les liens universels ? {#does-link-shortening-work-with-deep-links-or-universal-links}
 
@@ -121,7 +125,7 @@ Testez l'expérience utilisateur avant d'implémenter le raccourcissement de lie
 
 ### Les `send_ids` sont-ils associés aux événements de clic SMS ? {#are-send_ids-associated-with-sms-click-events}
 
-Non. Cependant, si le suivi avancé est activé, vous pouvez généralement attribuer les `send_ids` aux événements de clic en utilisant le [Générateur de requêtes]({{site.baseurl}}/query_builder/) pour interroger les données Currents avec cette requête :
+Non. Cependant, si le suivi avancé est activé, vous pouvez généralement attribuer les `send_ids` aux événements de clic en utilisant le [Générateur de requêtes]({{site.baseurl}}/query_builder) pour interroger les données Currents avec cette requête :
 
 ```sql
 SELECT c.*, s.send_id

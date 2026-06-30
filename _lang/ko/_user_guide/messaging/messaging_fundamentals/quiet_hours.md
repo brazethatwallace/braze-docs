@@ -29,10 +29,10 @@ description: "이 참조 문서에서는 방해금지 시간이 무엇인지, Br
 - **Intelligent Timing 미사용 시:** 방해금지 시간은 스케줄된 발송 시간에 대한 발송 금지 기간으로 작동합니다. 스케줄된 시간이 방해금지 시간 내에 해당하면, 메시지는 보류되었다가 해당 기간이 종료될 때 발송됩니다.
 - **Intelligent Timing 사용 시:** Braze는 여전히 각 사용자의 최적 발송 시간을 계산합니다. 해당 시간이 방해금지 시간 내에 해당하면, 메시지는 보류되었다가 방해금지 기간의 가장 가까운 경계 시점에 전달됩니다.
 
-Intelligent Timing Campaign 내에서 방해금지 시간을 설정하는 방법에 대한 자세한 내용은 [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)을 참조하세요.
+Intelligent Timing Campaign 내에서 방해금지 시간을 설정하는 방법에 대한 자세한 내용은 [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)을 참조하세요.
 
 ## 고려 사항 {#things-to-consider}
 
 - **방해금지 시간이 종료되면 메시지가 동시에 발송됩니다.** 방해금지 시간 동안 대규모 오디언스의 메시지가 보류된 경우, 해당 기간이 종료되면 모든 메시지가 한꺼번에 발송됩니다. 시간에 민감한 Campaign의 경우, 이것이 전달 타이밍에 어떤 영향을 미치는지 고려하세요.
 - **방해금지 시간은 메시지 중단과 다릅니다.** 메시지를 중단하면 메시지가 완전히 폐기됩니다. 방해금지 시간은 메시지를 보류했다가 나중에 전달합니다.
-- **방해금지 시간은 최대 게재빈도 설정 및 사용량 제한과 별개입니다.** 이러한 전달 제어는 각각 독립적으로 적용됩니다. 최대 게재빈도 설정과 사용량 제한을 통과한 메시지도 방해금지 시간에 의해 보류될 수 있으며, 방해금지 시간에 의해 보류된 메시지는 최종 발송 시 사용량 제한에 대해 다시 평가됩니다. 자세한 내용은 [사용량 제한 및 최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)을 참조하세요.
+- **방해금지 시간은 최대 게재빈도 설정 및 사용량 제한과 별개입니다.** 이러한 전달 제어는 각각 독립적으로 적용됩니다. 최대 게재빈도 설정과 사용량 제한을 통과한 메시지도 방해금지 시간에 의해 보류될 수 있으며, 방해금지 시간에 의해 보류된 메시지는 최종 발송 시 사용량 제한에 대해 다시 평가됩니다. 자세한 내용은 [사용량 제한 및 최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)을 참조하세요.

@@ -21,7 +21,7 @@ channel: email
 
 いいえ、Brazeではこの機能を提供していません。これは、メールの大多数がモバイルデバイスや最新のメールクライアントで開封されるようになっており、画像やコンテンツが問題なくレンダリングされるためです。
 
-**回避策：**同じ結果を実現するには、メールのコンテンツを外部のランディングページ（自社のWebサイトなど）にホストし、メール本文の編集時に**リンク**ツールを使用してメールキャンペーンからリンクすることができます。
+**回避策：** 同じ結果を実現するには、メールのコンテンツを外部のランディングページ（自社のWebサイトなど）にホストし、メール本文の編集時に**リンク**ツールを使用してメールキャンペーンからリンクすることができます。
 
 ### メールテンプレートにカスタム配信停止リンクを作成するにはどうすればよいですか？ {#how-do-i-create-a-custom-unsubscribe-link-for-my-email-templates}
 
@@ -32,16 +32,16 @@ channel: email
 > https://www.braze.com/unsubscribe?user_id={{${user_id}}}
 {% endraw %}
 
-次に、[`/email/status` エンドポイント]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status/)を呼び出して、ユーザーのサブスクリプションステータスを更新できます。詳細については、[メールサブスクリプションの変更]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions)に関するドキュメントを参照してください。
+次に、[`/email/status` エンドポイント]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status)を呼び出して、ユーザーのサブスクリプションステータスを更新できます。詳細については、[メールサブスクリプションの変更]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions)に関するドキュメントを参照してください。
 
 この新しいリンクを保存するには、デフォルトのBraze配信停止タグ {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} がフッターに含まれている必要があります。つまり、タグをコメント内または非表示の `<div>` タグ内に配置して「隠す」ことで、デフォルトリンクを含める必要があります。
 
 - **コメント内のタグの例：** `<!-- ${set_user_to_unsubscribed_url} -->`
 - **非表示の `<div>` タグ内のコメントの例：** {%raw%}`<div style="display:none;max-height:0px;overflow:hidden;">${set_user_to_unsubscribed_url}</div>`{%endraw%}
 
-### 現在キャンペーンで使用されているメールテンプレートを編集するとどうなりますか？ {#what-happens-if-i-edit-an-email-template-that-is-currently-being-used-in-a-campaign}
+### 現在Campaignで使用されているメールテンプレートを編集するとどうなりますか？ {#what-happens-if-i-edit-an-email-template-that-is-currently-being-used-in-a-campaign}
 
-既存のテンプレートに加えた編集は、そのテンプレートの以前のバージョンを使用して作成されたキャンペーンには反映されません。REST API本文でテンプレートを使用するAPIキャンペーンの場合、Brazeは送信時にテンプレートの最新バージョンを使用します。
+既存のテンプレートに加えた編集は、そのテンプレートの以前のバージョンを使用して作成されたCampaignには反映されません。REST API本文でテンプレートを使用するAPIキャンペーンの場合、Brazeは送信時にテンプレートの最新バージョンを使用します。
 
 ## リンクテンプレート {#link-templates}
 
@@ -51,7 +51,7 @@ channel: email
 
 ### すべてのタグが適用された状態でリンクをプレビューするにはどうすればよいですか？ {#how-do-i-preview-my-links-with-all-of-the-tags-applied}
 
-リンクをプレビューする方法はいくつかあります。[リンクテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/)を適用した後、自分宛てに[テストメール]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages/)を送信して、すべてのリンクを確認できます。
+リンクをプレビューする方法はいくつかあります。[リンクテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template)を適用した後、自分宛てに[テストメール]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages)を送信して、すべてのリンクを確認できます。
 
 新しいタブのプレビューペインからリンクを開いて確認することもできます。また、プレビューペインでリンクにカーソルを合わせると、ブラウザの下部にリンクが表示されます。
 
@@ -67,7 +67,7 @@ Liquidにクエスチョンマーク（?）を追加しないでください。�
 
 新しく作成されるすべてのContent Blocksには、会社レベルの機能であるため、ワークスペース全体でリンクエイリアスが適用されます。
 
-既存のContent Blocksは、リンクエイリアスが有効になっても変更されません。既存のリンクテンプレートも変更されませんが、メッセージ内の既存のリンクテンプレートセクションは削除されます。詳細については、[Content Blocksでのリンクエイリアス]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/#link-aliasing-in-content-blocks)を参照してください。
+既存のContent Blocksは、リンクエイリアスが有効になっても変更されません。既存のリンクテンプレートも変更されませんが、メッセージ内の既存のリンクテンプレートセクションは削除されます。詳細については、[Content Blocksでのリンクエイリアス]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing#link-aliasing-in-content-blocks)を参照してください。
 
 ### HTMLアンカータグ内でLiquidの条件ロジックを完全に使用できますか？ {#can-i-use-liquid-conditional-logic-entirely-within-an-html-anchor-tag}
 

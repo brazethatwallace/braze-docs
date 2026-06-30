@@ -13,14 +13,14 @@ page_order: 1
 
 Lorsque vous [connectez votre domaine à Braze](#connect-your-domain-to-braze), il sera utilisé comme domaine par défaut pour toutes les pages d'accueil. Par exemple, si vous connectez le sous-domaine `forms.example.com`, les URL de vos pages d'accueil seront désormais `forms.example.com/holiday-sale`.
 
-Le nombre de domaines personnalisés que vous pouvez connecter à votre compte Braze dépend de votre [niveau de forfait]({{site.baseurl}}/user_guide/messaging/landing_pages/#plan-tiers). Pour augmenter votre limite, contactez votre gestionnaire de compte Braze.
+Le nombre de domaines personnalisés que vous pouvez connecter à votre compte Braze dépend de votre [niveau de forfait]({{site.baseurl}}/user_guide/messaging/landing_pages#plan-tiers). Pour augmenter votre limite, contactez votre gestionnaire de compte Braze.
 
 ## Connecter votre domaine à Braze {#connect-your-domain-to-braze}
 
 Pour connecter un domaine à votre compte Braze, demandez à un administrateur de suivre les étapes ci-dessous.
 
-1. Accédez à **Settings** > **Landing Page Settings**.
-2. Saisissez le domaine que vous souhaitez connecter et sélectionnez **Submit**. Par exemple, `forms.example.com`.
+1. Accédez à **Paramètres** > **Paramètres de la page d'accueil**.
+2. Saisissez le domaine que vous souhaitez connecter et sélectionnez **Envoyer**. Par exemple, `forms.example.com`.
 3. Copiez et collez les enregistrements **TXT** et **CNAME** dans les paramètres DNS de votre fournisseur de domaine.
 4. Retournez au tableau de bord de Braze pour vérifier la connexion.
 
@@ -38,8 +38,8 @@ Braze utilise Cloudflare pour provisionner automatiquement des certificats SSL p
 
 Si vous êtes administrateur Braze, vous pouvez supprimer un domaine précédemment configuré en suivant les étapes suivantes :
 
-1. Accédez à **Settings** > **Landing Page Settings**.
-2. Sélectionnez **Remove Custom Domain**.
+1. Accédez à **Paramètres** > **Paramètres de la page d'accueil**.
+2. Sélectionnez **Supprimer le domaine personnalisé**.
 3. Confirmez la suppression du domaine.
 4. Supprimez les enregistrements DNS répertoriés de vos paramètres de domaine.
 

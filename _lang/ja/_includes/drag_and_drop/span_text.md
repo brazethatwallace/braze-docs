@@ -1,13 +1,13 @@
-カスタムコードを使わずに特定のスタイルをテキスト・ブロックに適用するには、スタイルを設定したいテキストをハイライトし、**スタイルに「Wrap with span**」を選択する。 
+カスタムコードを使わずに特定のスタイルをテキストブロックに適用するには、スタイルを設定したいテキストをハイライトし、**Wrap with span for style** を選択します。
 
-![テキストボックスには、異なるフォントサイズや色など、さまざまなスタイルが設定されたテキストセクションと、「スタイルをスパンで折り返す」オプションのあるツールバーが表示されるハイライトセクションがある。]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
+![フォントサイズや色が異なるさまざまなスタイルのテキストセクションがあるテキストボックスと、「Wrap with span for style」オプションのあるツールバーが表示されたハイライトセクション]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
 
-スパンのプロパティを調整して、テキストのスタイルを更新する：
+スパンのプロパティを調整して、テキストのスタイルを更新します。以下の項目が含まれます:
 
 - フォントファミリー、ウェイト、サイズ
-- ライン高さ 
+- 行の高さ
 - 文字間隔
 - テキストの配置と色
-- ブロック・パディング
+- ブロックのパディング
 
-![スパンのプロパティパネルには、更新のためのさまざまなオプションが用意されている。]({% image_buster /assets/img/landing_pages/span_properties.png %}){: style="max-width:35%;"}
+![更新するためのさまざまなオプションが表示されたスパンのプロパティパネル]({% image_buster /assets/img/landing_pages/span_properties.png %}){: style="max-width:35%;"}

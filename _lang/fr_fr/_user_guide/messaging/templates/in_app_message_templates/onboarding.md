@@ -28,11 +28,11 @@ Lors de la création d'un message in-app par glisser-déposer, sélectionnez **O
 
 Pour commencer à créer votre flux d'onboarding, utilisez la section **Pages** pour ajouter ou supprimer des messages dans votre flux. Une fois que vous avez le nombre de messages souhaité, sélectionnez les boutons sur chaque page. Ensuite, utilisez le menu latéral pour choisir où les utilisateurs sont dirigés lorsqu'ils sélectionnent le bouton — que ce soit pour quitter le flux ou passer au message suivant.
 
-Vérifiez que vos messages sont connectés dans un ordre séquentiel afin que les utilisateurs progressent correctement dans le flux. Pour savoir comment procéder, consultez [Connecter les pages entre elles]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/?tab=adding%20pages#step-3a-connect-pages-together).
+Vérifiez que vos messages sont connectés dans un ordre séquentiel afin que les utilisateurs progressent correctement dans le flux. Pour savoir comment procéder, consultez [Connecter les pages entre elles]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop?tab=adding%20pages#step-3a-connect-pages-together).
 
 ### Étape 4 : Styliser votre message {#step-4-style-your-message}
 
-Personnalisez l'apparence de votre flux d'onboarding à l'aide des [composants de messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) par glisser-déposer.
+Personnalisez l'apparence de votre flux d'onboarding à l'aide des [composants de messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) par glisser-déposer.
 
 ## Analyser les résultats {#analyzing-the-results}
 

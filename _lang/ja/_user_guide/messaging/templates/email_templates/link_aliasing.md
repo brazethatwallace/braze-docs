@@ -40,7 +40,7 @@ Brazeは、すべてのリンクURLに`lid`（リンク識別子とも呼ばれ�
 ### ドラッグ＆ドロップエディター {#drag-and-drop-editor}
 
 1. **メール本文を編集**を選択して、ドラッグ＆ドロップコンポーザーを開きます。
-2. コンポーザーのサイドバーで、**コンテンツ**（**送信設定**および**プレビューとテスト**の横）を選択します。このレイアウトの詳細については、[ドラッグ＆ドロップでメールを作成する]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/)を参照してください。
+2. コンポーザーのサイドバーで、**コンテンツ**（**送信設定**および**プレビューとテスト**の横）を選択します。このレイアウトの詳細については、[ドラッグ＆ドロップでメールを作成する]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)を参照してください。
 3. **コンテンツ**サブメニューで、**リンク管理**（**デザインとビルド**の下に表示）を選択します。サブメニューが折りたたまれている場合は、サイドバーの矢印コントロールを使用して展開します。
 
 ### HTMLエディター {#html-editor}
@@ -74,7 +74,7 @@ Brazeは、すべてのリンクURLに`lid`（リンク識別子とも呼ばれ�
 ![さまざまなCampaignに関連付けられたアクティブおよび非アクティブなリンクエイリアスが表示された追跡リンクエイリアスページ。]({% image_buster /assets/img/tracked_aliases.png %})
 
 {% alert tip %}
-[Campaignのリンクエイリアス一覧]({{site.baseurl}}/get_campaign_link_alias/)および[Canvasのリンクエイリアス一覧]({{site.baseurl}}/get_canvas_link_alias/)エンドポイントを使用して、CampaignまたはメールのCanvasコンポーネントの各メッセージバリアントに設定された`alias`を抽出できます。
+[Campaignのリンクエイリアス一覧]({{site.baseurl}}/get_campaign_link_alias)および[Canvasのリンクエイリアス一覧]({{site.baseurl}}/get_canvas_link_alias)エンドポイントを使用して、CampaignまたはメールのCanvasコンポーネントの各メッセージバリアントに設定された`alias`を抽出できます。
 {% endalert %}
 
 Brazeでは、メール内のリンクを評価し、リンクテンプレートを追加し、セグメンテーションやレポートに適した命名規則を設定することを推奨しています。これにより、すべてのリンクを把握しやすくなります。
@@ -127,7 +127,7 @@ Brazeでは、メール内のリンクを評価し、リンクテンプレート
 
 | メール本文内のリンク | エイリアス付きリンク |
 |-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%} | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
+| {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%}  | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="アンカーとキャプチャタグ付きリンク" }
 
 ## リンクエイリアスのトラッキング {#tracking-link-aliases}
@@ -135,7 +135,7 @@ Brazeでは、メール内のリンクを評価し、リンクテンプレート
 コンポーザーのサイドバーで、**コンテンツ** > **リンク管理**（**デザインとビルド**の下）を選択し、**追跡**するエイリアスを選択します。追跡されたエイリアスは、リンクエイリアスを参照するセグメンテーションフィルターで利用できます（[セグメンテーションフィルター](#segmentation-filters)を参照）。また、ユーザーがメール内のリンクエイリアスをクリックしたときに、アクションベースのメッセージを送信したり、Canvas内でユーザーを移動させたりすることもできます（[アクションベースのフィルター](#action-based-filters)を参照）。**追跡**設定は、そのリンクのクリックがメールパフォーマンスレポートでカウントされるかどうかには影響しません。
 
 {% alert tip %}
-リンクのエンゲージメント指標を追跡するには、リンクがHTTPまたはHTTPSで始まることを確認してください。特定のリンクのクリックトラッキングをオフにするには、[ユニバーサルリンクとアプリリンク]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis)を参照してください。
+リンクのエンゲージメント指標を追跡するには、リンクがHTTPまたはHTTPSで始まることを確認してください。特定のリンクのクリックトラッキングをオフにするには、[ユニバーサルリンクとアプリリンク]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)を参照してください。
 {% endalert %}
 
 Brazeでは無制限のリンクを追跡できますが、リターゲティングできるのはユーザーが最近開いたリンクのみです。ユーザープロファイルには、最近クリックされた100件のリンクが含まれます。たとえば、500件のリンクを追跡し、ユーザーがそのすべてをクリックした場合、最近クリックされた100件のリンクに基づいてリターゲティングまたはセグメントを作成できます。
@@ -160,7 +160,7 @@ Brazeでは、メールにリンクエイリアスがあり、ユーザーがそ
 
 「Campaignでエイリアスをクリック」または「Canvasでエイリアスをクリック」セグメンテーションフィルターを使用すると、特定のCampaignまたはCanvasで特定のエイリアスをクリックしたかどうかでユーザーをフィルタリングします。複数のユーザーが同じメールアドレスを共有しており、リンクエイリアスがクリックされた場合、そのメールアドレスを共有する他のすべてのユーザーのプロファイルも更新されます。これらのプロファイルは、クリックイベントだけでなく、配信イベントや開封イベントによっても更新されます。
 
-以下のセグメンテーションフィルターは、イベントが処理された時点で追跡されるクリックイベントに適用されます。つまり、未追跡のリンクは既存のデータを削除せず、リンクの追跡はデータをバックフィルしません。詳細については、[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)を参照してください。
+以下のセグメンテーションフィルターは、イベントが処理された時点で追跡されるクリックイベントに適用されます。つまり、未追跡のリンクは既存のデータを削除せず、リンクの追跡はデータをバックフィルしません。詳細については、[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)を参照してください。
 
 #### リンクの追跡解除 {#untracking-links}
 
@@ -174,7 +174,7 @@ Brazeでは、メールにリンクエイリアスがあり、ユーザーがそ
 
 ### メールクリックイベント {#email-clicks-event}
 
-エンゲージメントデータをCurrentsでエクスポートする場合、リンクエイリアスが有効になっていると、メールクリックイベントは若干異なります。リンクエイリアスがオンの場合、[メールクリックイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-clicks-events/)に`link_id`と`link_alias`の2つの追加フィールドがあります。
+エンゲージメントデータをCurrentsでエクスポートする場合、リンクエイリアスが有効になっていると、メールクリックイベントは若干異なります。リンクエイリアスがオンの場合、[メールクリックイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-clicks-events)に`link_id`と`link_alias`の2つの追加フィールドがあります。
 
 ```json
 // Email Click: users.messages.email.Click
@@ -206,7 +206,7 @@ Brazeでは、メールにリンクエイリアスがあり、ユーザーがそ
 ```
 
 {% alert update %}
-`dispatch_id`の動作は、CanvasとCampaignで異なります。Brazeは、キャンバスステップ（エントリステップを除く。エントリステップはスケジュール可能）を、「スケジュール済み」であってもトリガーイベントとして扱います。CanvasおよびCampaignにおける[`dispatch_id`の動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)の詳細をご覧ください。
+`dispatch_id`の動作は、CanvasとCampaignで異なります。Brazeは、キャンバスステップ（エントリステップを除く。エントリステップはスケジュール可能）を、「スケジュール済み」であってもトリガーイベントとして扱います。CanvasおよびCampaignにおける[`dispatch_id`の動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)の詳細をご覧ください。
 
 _2019年8月に更新。_
 {% endalert %}
@@ -233,7 +233,7 @@ HTMLの`assign`ステートメント、Content Blocksから取得した値、カ
 - URLに**すでに**`?`とクエリパラメーターが含まれている場合は、Liquidの後に`&`を追加します（例: `{{my_url}}&`）。
 
 {% alert note %}
-Liquidで生成されたURLで[リンクテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/)を使用する場合、Brazeは、Liquid実行後にレンダリングされたURLがクエリセパレーターとして使用される`?`を正確に2つ含む場合、保守的にURLを正規化することがあります。2つ目の`?`は`&`に書き換えられ、BrazeはURLをできるだけ変更しないようにします。<br><br>Brazeはすべての重複`?`パターンを修正しようとするわけではなく、より複雑なURLの処理は意図的に制限されています。まずマークアップで正しい`?`または`&`を追加し、正規化は限定的なセーフガードとして扱ってください。整形されたURLの代替や、デリミタがない場合に**リンク管理**でリンクを認識させるための代替手段ではありません。
+Liquidで生成されたURLで[リンクテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template)を使用する場合、Brazeは、Liquid実行後にレンダリングされたURLがクエリセパレーターとして使用される`?`を正確に2つ含む場合、保守的にURLを正規化することがあります。2つ目の`?`は`&`に書き換えられ、BrazeはURLをできるだけ変更しないようにします。<br><br>Brazeはすべての重複`?`パターンを修正しようとするわけではなく、より複雑なURLの処理は意図的に制限されています。まずマークアップで正しい`?`または`&`を追加し、正規化は限定的なセーフガードとして扱ってください。整形されたURLの代替や、デリミタがない場合に**リンク管理**でリンクを認識させるための代替手段ではありません。
 {% endalert %}
 
 末尾に`?`または`&`（またはその他のサポートされている挿入ポイント）がない場合、リンクエイリアスはURLを認識せず、**リンク管理**にリストされず、リンクテンプレートも適用されません。
@@ -271,7 +271,7 @@ Content Blocksに`https://www.braze.com/{{custom_attribute.${offer_id}}}`のよ�
 まず、Brazeで以下のアプローチを使用してください。
 
 - **CampaignおよびCanvasのメール分析:** [リンクの追跡解除](#untracking-links)で説明されているように、**メッセージ分析** > **メールのパフォーマンス** > **プレビューとヒートマップ**で**ヒートマップを表示**をオンにして、リンクごとの集計クリック数を確認します。
-- **クエリビルダーでの受信者ごとのクリック:** CampaignまたはCanvasの**メールURLクリック**[クエリビルダーテンプレート]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/#email-templates)を実行します。テンプレートは、サマリーカウント用に非パーソナライズされたリンクを表示します。CSVエクスポートには、クリックしたユーザーのユーザーID、クリックしたリンク、およびタイムスタンプが含まれます。（非パーソナライズされたURLは、サマリービュー用にLiquidタグを除去します。詳細はテンプレートの説明を参照してください。）
+- **クエリビルダーでの受信者ごとのクリック:** CampaignまたはCanvasの**メールURLクリック**[クエリビルダーテンプレート]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates#email-templates)を実行します。テンプレートは、サマリーカウント用に非パーソナライズされたリンクを表示します。CSVエクスポートには、クリックしたユーザーのユーザーID、クリックしたリンク、およびタイムスタンプが含まれます。（非パーソナライズされたURLは、サマリービュー用にLiquidタグを除去します。詳細はテンプレートの説明を参照してください。）
 - **コンポーザーでのエイリアスレベルの内訳:** 各送信先（たとえば、各`offer_id`）を**リンク管理**およびエイリアスベースのレポートで個別の行として表示する必要がある場合は、ユーザーごとにパスが変わる1つのリンクではなく、個別の`href`値（したがって個別のエイリアス）を使用してください。たとえば、ブランチごとに異なるリンクを使用します。
 
 ストリーミングエンゲージメントエクスポートも使用している場合、メールクリックイベントには**`url`**フィールドが含まれます。そのペイロードとリンクエイリアスの関係については、このページの[メールクリックイベント](#email-clicks-event)を参照してください。
@@ -348,10 +348,10 @@ Content Blocksに`https://www.braze.com/{{custom_attribute.${offer_id}}}`のよ�
 
 または、バックエンドの変更を計画している間、ダッシュボードでリンクエイリアスをオフにすることもできます。**設定** > **メール設定** > **リンクエイリアス設定**に移動してください。
 
-送信先のシステムを変更できない場合は、[Brazeサポート]({{site.baseurl}}/braze_support/)に連絡して、ワークスペースのリンクエイリアスを無効にしてください。ワークスペースでリンクエイリアスがオフになった場合、以下の点に注意してください。
+送信先のシステムを変更できない場合は、[Brazeサポート]({{site.baseurl}}/braze_support)に連絡して、ワークスペースのリンクエイリアスを無効にしてください。ワークスペースでリンクエイリアスがオフになった場合、以下の点に注意してください。
 
 - 新しいメールメッセージやContent Blocksには、通常、新しいリンクエイリアスマークアップ（`lid`クエリパラメーターなど）が付与されません。
 - リンクエイリアスがオンの状態で作成された既存のメッセージには、HTML内にリンクエイリアスマークアップが残っている場合があります。不要な場所の残存する`lid`パラメーターを手動で削除する必要がある場合があります。
 - 既存のCampaign、Canvasのメールステップ、またはContent Blocksを編集する場合、テンプレート化されたリンクが正しく表示されるように、リンクテンプレートを再度追加する必要がある場合があります。
 - リンクエイリアスがオンの状態で送信されたクリックレポートは、機能がオフになった後のレポートときれいに一致しない場合があります。
-- リンクエイリアスベースのフィルター（たとえば、**エイリアスをクリック**フィルター）を使用するセグメントは、期待するオーディエンスを返さなくなる可能性があります。
+- リンクエイリアスベースのフィルター（たとえば、**エイリアスをクリック**フィルター）を使用するSegmentsは、期待するオーディエンスを返さなくなる可能性があります。

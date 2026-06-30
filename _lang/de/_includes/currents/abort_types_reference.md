@@ -12,9 +12,9 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
-| `liquid_abort_message` | Der Liquid-Tag [abort_message]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages/) wurde aufgerufen, daher wurde der Versand abgebrochen. |
+| `liquid_abort_message` | Der Liquid-Tag [abort_message]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages) wurde aufgerufen, daher wurde der Versand abgebrochen. |
 | `template_parse_error` | Das Nachrichten-Template konnte aufgrund eines Syntax- oder Rendering-Fehlers nicht geparst werden, daher wurde der Versand abgebrochen. |
-| `rate_limit` | Die Nachricht wurde abgebrochen, weil die konfigurierten [Rate-Limits]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/) überschritten wurden. |
+| `rate_limit` | Die Nachricht wurde abgebrochen, weil die konfigurierten [Rate-Limits]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting) überschritten wurden. |
 | `campaign_disabled` | Die Campaign wurde deaktiviert, bevor die Nachricht gesendet werden konnte. |
 | `campaign_does_not_exist` | Die mit dieser Nachricht verknüpfte Campaign existiert nicht mehr. |
 | `campaign_action_does_not_exist` | Die mit dieser Nachricht verknüpfte Campaign-Aktion existiert nicht mehr. |
@@ -22,8 +22,8 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 | `user_not_in_segment` | Der/die Nutzer:in befindet sich nicht im Zielsegment, daher wurde die Nachricht nicht gesendet. |
 | `trigger_event_blacklisted` | Das Trigger-Ereignis ist auf der Sperrliste, daher wurde die Nachricht nicht gesendet. |
 | `exhausted_retries` | Die Nachricht konnte nach der maximalen Anzahl von Wiederholungsversuchen nicht gesendet werden. |
-| `frequency_capped` | Der/die Nutzer:in hat bereits die maximale Anzahl an Nachrichten erhalten, die durch die [Frequency-Capping]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#about-frequency-capping)-Regeln Ihres Workspace erlaubt sind. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="General" }
+| `frequency_capped` | Der/die Nutzer:in hat bereits die maximale Anzahl an Nachrichten erhalten, die durch die [Frequency-Capping]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting#about-frequency-capping)-Regeln Ihres Workspace erlaubt sind. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Allgemein" }
 
 {% unless ch == "newsfeedcard" or ch == "rcs" %}
 
@@ -34,7 +34,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
 | `exhausted_cc_retries` | Connected-Content ist nach der maximalen Anzahl von Wiederholungsversuchen fehlgeschlagen, daher wurde die Nachricht abgebrochen. |
-| `connected_content_not_supported` | [Connected-Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
+| `connected_content_not_supported` | [Connected-Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `promo_codes_not_supported` | Aktionscodes werden in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `catalog_items_rerender_not_supported` | Das erneute Rendern von Katalogartikeln wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `blacklisted_media_url` | Die Medien-URL ist auf der Sperrliste und kann nicht in Nachrichten verwendet werden. |
@@ -44,17 +44,17 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 | `invalid_http_status` | Eine HTTP-Anfrage hat einen nicht erfolgreichen Statuscode zurückgegeben. |
 | `http_timeout` | Bei einer HTTP-Anfrage wurde das Zeitlimit überschritten, bevor eine Antwort empfangen wurde. |
 | `missing_hostname` | In der Anfrage-URL fehlt ein Hostname. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Inhalt und Rendering" }
 
 {% else %}
 
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
 | `exhausted_cc_retries` | Connected-Content ist nach der maximalen Anzahl von Wiederholungsversuchen fehlgeschlagen, daher wurde die Nachricht abgebrochen. |
-| `connected_content_not_supported` | [Connected-Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
+| `connected_content_not_supported` | [Connected-Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `promo_codes_not_supported` | Aktionscodes werden in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `catalog_items_rerender_not_supported` | Das erneute Rendern von Katalogartikeln wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Inhalt und Rendering" }
 
 {% endif %}
 
@@ -64,13 +64,13 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
 | `exhausted_cc_retries` | Connected-Content ist nach der maximalen Anzahl von Wiederholungsversuchen fehlgeschlagen, daher wurde die Nachricht abgebrochen. |
-| `connected_content_not_supported` | [Connected-Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
+| `connected_content_not_supported` | [Connected-Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `promo_codes_not_supported` | Aktionscodes werden in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `catalog_items_rerender_not_supported` | Das erneute Rendern von Katalogartikeln wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `blacklisted_media_url` | Die Medien-URL ist auf der Sperrliste und kann nicht in Nachrichten verwendet werden. |
 | `blocked_media_url` | Die Medien-URL wurde durch Sicherheitsrichtlinien blockiert. |
 | `invalid_media_url` | Die Medien-URL ist ungültig oder konnte nicht aufgelöst werden. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering media URLs" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Inhalt und Rendering – Medien-URLs" }
 
 {% endunless %}
 {% endif %}
@@ -81,14 +81,14 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 | `abort_type`-Wert | Beschreibung |
 | --- | --- |
 | `exhausted_cc_retries` | Connected-Content ist nach der maximalen Anzahl von Wiederholungsversuchen fehlgeschlagen, daher wurde die Nachricht abgebrochen. |
-| `connected_content_not_supported` | [Connected-Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
+| `connected_content_not_supported` | [Connected-Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `promo_codes_not_supported` | Aktionscodes werden in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `catalog_items_rerender_not_supported` | Das erneute Rendern von Katalogartikeln wird in diesem Kontext nicht unterstützt, daher wurde die Nachricht abgebrochen. |
 | `ssl_error` | Bei einer Anfrage ist ein SSL-Fehler aufgetreten. |
 | `invalid_http_status` | Eine HTTP-Anfrage hat einen nicht erfolgreichen Statuscode zurückgegeben. |
 | `http_timeout` | Bei einer HTTP-Anfrage wurde das Zeitlimit überschritten, bevor eine Antwort empfangen wurde. |
 | `missing_hostname` | In der Anfrage-URL fehlt ein Hostname. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering HTTP and SSL" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Inhalt und Rendering – HTTP und SSL" }
 
 {% endunless %}
 {% endif %}
@@ -104,7 +104,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 | `exhausted_link_shortening_retries` | Die Linkverkürzung ist nach der maximalen Anzahl von Wiederholungsversuchen fehlgeschlagen. |
 | `missing_email` | Der/die Nutzer:in hat keine E-Mail-Adresse in seinem/ihrem Profil. |
 | `invalid_domain` | Die E-Mail-Adresse hat eine ungültige Domain. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Email" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="E-Mail" }
 
 {% endif %}
 
@@ -131,7 +131,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 | `sms_no_sending_numbers` | Für diese Abo-Gruppe sind keine Absender-Telefonnummern verfügbar. |
 | `sms_fatal_provider_error` | Beim SMS-Anbieter ist ein schwerwiegender Fehler aufgetreten, der die Nachrichtenzustellung verhindert hat. |
 | `sms_gateway_domain_not_allowed` | Die SMS-Gateway-Domain befindet sich nicht auf der Zulassungsliste. |
-| `blocked_recipient_country` | Die Telefonnummer des/der Empfänger:in befindet sich in einem Land, das durch Ihre [geografischen Berechtigungen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/) blockiert ist. |
+| `blocked_recipient_country` | Die Telefonnummer des/der Empfänger:in befindet sich in einem Land, das durch Ihre [geografischen Berechtigungen]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions) blockiert ist. |
 | `mms_not_supported` | MMS wird für diese/n Empfänger:in oder diese Absendernummer nicht unterstützt. |
 | `no_current_messaging_service` | Für diese Abo-Gruppe ist kein aktiver Messaging-Dienst konfiguriert. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SMS/MMS" }
@@ -196,7 +196,7 @@ Diese Abbruchtypen können auf jedem Messaging-Kanal auftreten.
 | --- | --- |
 | `no_longer_in_availability_window` | Die Nachricht konnte nicht innerhalb des konfigurierten Verfügbarkeitsfensters gesendet werden und wurde daher abgebrochen. |
 | `maximum_impressions_reached` | Die In-App-Nachricht hat bereits die maximale Anzahl an Impressionen erreicht. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="In-app messages" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="In-App-Nachrichten" }
 
 {% endif %}
 

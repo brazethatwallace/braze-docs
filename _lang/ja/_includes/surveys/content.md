@@ -1,5 +1,5 @@
 {% comment %}
-  Braze アンケート共通ドキュメント。
+  Brazeアンケート共通ドキュメント。
   パラメーター:
   - channel (必須): "in_app_message" または "landing_page"
 {% endcomment %}
@@ -12,13 +12,13 @@
 
 {% if include.channel == 'in_app_message' %}
 - Brazeワークスペースでアプリ内メッセージにアクセスできること
-- [ドラッグ＆ドロップエディターでのアプリ内メッセージ作成]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)に精通していること
+- [ドラッグ＆ドロップエディターでのアプリ内メッセージ作成]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)に精通していること
 {% elsif include.channel == 'landing_page' %}
 - Brazeワークスペースでランディングページにアクセスできること
-- [ランディングページの作成]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)に精通していること
+- [ランディングページの作成]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)に精通していること
 {% else %}
 - Brazeワークスペースでランディングページ、アプリ内メッセージ、またはその両方にアクセスできること
-- [ランディングページの作成]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)および[ドラッグ＆ドロップエディターでのアプリ内メッセージ作成]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)に精通していること
+- [ランディングページの作成]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)および[ドラッグ＆ドロップエディターでのアプリ内メッセージ作成]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)に精通していること
 {% endif %}
 
 ## アンケートを作成する {#create-a-survey}
@@ -26,14 +26,14 @@
 早期アクセス期間中、アンケートは既存のメッセージ作成フロー内で構築します。
 
 {% if include.channel == 'in_app_message' %}
-1. CampaignまたはCanvasで[アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)を作成します。
+1. CampaignまたはCanvasで[アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)を作成します。
 2. メッセージタイプとして**Survey**を選択します。
 {% elsif include.channel == 'landing_page' %}
 1. **メッセージング** > **ランディングページ**に移動します。
 2. 新しいランディングページを作成します。
 3. メッセージタイプとして**Survey**を選択します。
 {% else %}
-1. **メッセージング** > **ランディングページ**に移動するか、CampaignまたはCanvasで[アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)を作成します。
+1. **メッセージング** > **ランディングページ**に移動するか、CampaignまたはCanvasで[アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)を作成します。
 2. 新しいメッセージを作成します。
 3. メッセージタイプとして**Survey**を選択します。
 {% endif %}
@@ -60,10 +60,10 @@
 {% if include.channel == 'in_app_message' %}
 - [アプリ内メッセージのドラッグ＆ドロップエディターブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
 {% elsif include.channel == 'landing_page' %}
-- [ランディングページのフォームブロック]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#form-blocks)
+- [ランディングページのフォームブロック]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
 {% else %}
 - [アプリ内メッセージのドラッグ＆ドロップエディターブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
-- [ランディングページのフォームブロック]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#form-blocks)
+- [ランディングページのフォームブロック]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
 {% endif %}
 
 アンケートには以下のフォームブロックを追加できます。

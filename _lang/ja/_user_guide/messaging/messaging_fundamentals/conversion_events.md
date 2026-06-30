@@ -54,21 +54,21 @@ Brazeが複数のコンバージョンを処理する方法について、以下
 
 1次コンバージョンイベントは、CampaignまたはCanvasの作成中に追加する最初のイベントです。このイベントは、エンゲージメントとレポートに最も大きな影響を与えます。Brazeは1次コンバージョンイベントを以下の目的で使用します。
 
-- [多変量]({{site.baseurl}}/user_guide/messaging/ab_testing/#multivariate-and-ab-testing)CampaignまたはCanvasで勝利メッセージバリアントを計算する。
+- [多変量]({{site.baseurl}}/user_guide/messaging/ab_testing#multivariate-and-ab-testing)CampaignまたはCanvasで勝利メッセージバリアントを計算する。
 - CampaignまたはCanvasの収益が計算される時間枠を決定する。
-- [インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/)を使用して、CampaignおよびCanvasのメッセージ配信を調整する。
+- [インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)を使用して、CampaignおよびCanvasのメッセージ配信を調整する。
 
 1次コンバージョンイベント数は、発生したコンバージョンイベントの数です。マルチチャネルCampaignの場合、Brazeはチャネルごとにコンバージョンをカウントするため（[コンバージョントラッキングルール](#conversion-tracking-rules)で説明）、コンバージョン数がユニークユーザー数を超え、コンバージョン率が100%を超える場合があります。Brazeは、このカウントをユニーク受信者数で割ることで1次コンバージョンイベント率を計算します。Brazeは、チャネルに応じて、メッセージが送信または表示された時点でユーザーを受信者とみなします。例えば、プッシュやメールの場合、Brazeがメッセージを送信した後にユーザーは受信者になります。アプリ内メッセージやContent Cardsの場合、ユーザーはメッセージを閲覧して初めて受信者とみなされます。
 
 {% alert note %}
-Liquidの`abort`タグを使用してメッセージを中止した場合、Brazeはバリアントを通過するユーザーのメッセージのみを中止します。コントロールグループのユーザーへのメッセージは中止されないため、バリアントとコントロールグループ間でコンバージョン率に偏りが生じる可能性があります。回避策として、[セグメンテーション]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)を使用して、CampaignおよびCanvasのエントリ時にユーザーをターゲットにしてください。
+Liquidの`abort`タグを使用してメッセージを中止した場合、Brazeはバリアントを通過するユーザーのメッセージのみを中止します。コントロールグループのユーザーへのメッセージは中止されないため、バリアントとコントロールグループ間でコンバージョン率に偏りが生じる可能性があります。回避策として、[セグメンテーション]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)を使用して、CampaignおよびCanvasのエントリ時にユーザーをターゲットにしてください。
 {% endalert %}
 
 ## コンバージョントラッキング付きCampaignの作成 {#creating-a-campaign-with-conversion-tracking}
 
 ### ステップ 1: Campaignを設定する {#step-1-set-up-your-campaign}
 
-目的のメッセージングチャネルで[Campaignを作成]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/)します。Campaignのメッセージとスケジュールを設定した後、トラッキング用に最大4つのコンバージョンイベントを追加できます。
+目的のメッセージングチャネルで[Campaignを作成]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign)します。Campaignのメッセージとスケジュールを設定した後、トラッキング用に最大4つのコンバージョンイベントを追加できます。
 
 必要に応じて、できるだけ多くのコンバージョンイベントを使用してください。2つ目または3つ目のコンバージョンイベントを追加すると、レポートが大幅に充実します。例えば、離脱ユーザーをターゲットにしたCampaignの場合、1次の**セッションを開始する**コンバージョンイベントに加えて2次コンバージョンイベントを追加すると、Campaignがユーザーをアプリに呼び戻す効果をより深く理解できます。
 
@@ -79,7 +79,7 @@ Liquidの`abort`タグを使用してメッセージを中止した場合、Braz
 | コンバージョンイベントタイプ | 説明 |
 |-------------------------|----------------------------|
 | **セッションを開始する** | 指定したアプリのいずれかを開いた時点で、ユーザーはコンバージョンしたとカウントされます（デフォルトではワークスペース内のすべてのアプリ）。|
-| **購入する** | [購入イベント]({{site.baseurl}}/api/objects_filters/purchase_object/)を記録した時点で、ユーザーはコンバージョンしたとカウントされます。デフォルトでは任意の購入を追跡しますが、特定の製品を指定することもできます。|
+| **購入する** | [購入イベント]({{site.baseurl}}/api/objects_filters/purchase_object)を記録した時点で、ユーザーはコンバージョンしたとカウントされます。デフォルトでは任意の購入を追跡しますが、特定の製品を指定することもできます。|
 | **注文する** | [注文完了eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#ecommerce-recommended-events?tab=ecommerce.order_placed)をトリガーした時点で、ユーザーはコンバージョンしたとカウントされます。デフォルトでは任意の注文を追跡しますが、特定の製品でフィルタリングすることもできます。<br><br>「注文する」イベントは現在早期アクセス中です。この早期アクセスへの参加にご興味がある場合は、Brazeアカウントマネージャーにお問い合わせください。|
 | **カスタムイベントを実行する** | 既存のカスタムイベントのいずれかを実行した時点で、ユーザーはコンバージョンしたとカウントされます（デフォルトはなく、イベントを指定する必要があります）。|
 | **アプリをアップグレードする** | 指定したアプリのいずれかでアプリバージョンをアップグレードした時点で、ユーザーはコンバージョンしたとカウントされます（デフォルトではワークスペース内のすべてのアプリ）。Brazeは、変更がアップグレードであるかどうかをベストエフォートの数値比較で判定します。数値以外のバージョンは、バージョンが変更された場合にコンバージョンとしてカウントされます。|

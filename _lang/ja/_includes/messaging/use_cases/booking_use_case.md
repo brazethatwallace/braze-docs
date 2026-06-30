@@ -7,7 +7,7 @@
 このサービスを作成するその他の利点は次のとおりです。
 - 送信されたメッセージは完全にトラッキングされ、レポートに含まれます。
 - 技術的な知識を持たない会社ユーザーでもメッセージのコンテンツを更新できます。
-- メッセージは、キャンペーンの設定に基づくユーザープロファイルのオプトインおよびオプトアウトステータスに従います。
+- メッセージは、Campaignの設定に基づくユーザープロファイルのオプトインおよびオプトアウトステータスに従います。
 - 予約データとメッセージのインタラクションデータの両方を使用して、ユーザーをセグメンテーションし、追加のメッセージングのターゲットにできます。例えば、最初のリマインダーメッセージを開封しなかったユーザーに対して、予約前に追加のリマインダーを送信してリターゲティングすることができます。
 
 このユースケースを実現するには、次のステップに従ってください。
@@ -17,7 +17,7 @@
 
 ## ステップ 1: 次の予約データをBrazeユーザープロファイルに書き込む {#step-1}
 
-予約が行われるたびに、Brazeの[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)エンドポイントを使用して、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)をユーザープロファイルに書き込みます。階層化カスタム属性には、リマインダーメッセージの送信とパーソナライズに必要な情報がすべて含まれていることを確認してください。このユースケースでは、階層化カスタム属性に「trips」という名前を付けます。
+予約が行われるたびに、Brazeの[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)エンドポイントを使用して、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)をユーザープロファイルに書き込みます。階層化カスタム属性には、リマインダーメッセージの送信とパーソナライズに必要な情報がすべて含まれていることを確認してください。このユースケースでは、階層化カスタム属性に「trips」という名前を付けます。
 
 ### 予約の追加 {#add-booking}
 
@@ -136,10 +136,10 @@ Brazeはユーザープロファイルの階層化カスタム属性から指定
 
 ### ステップ 2b: メッセージを作成する {#step-2b-create-your-message}
 
-[カスタムHTMLを使用したメールの作成]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor/)のステップに従って、リマインダーメールメッセージを作成します。この例のように、Liquidを使用して、作成したカスタム顧客属性（「trips」）のデータでメッセージをパーソナライズします。
+[カスタムHTMLを使用したメールの作成]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor)のステップに従って、リマインダーメールメッセージを作成します。この例のように、Liquidを使用して、作成したカスタム顧客属性（「trips」）のデータでメッセージをパーソナライズします。
 
 {% raw %}
-`````````liquid
+```liquid
 {% assign dates = {{custom_attribute.${trips}}} %}
 {% assign today = "now" | date: "%s" %}
 {% assign two_days = today | plus: 172800 | date: "%F" %}
@@ -153,9 +153,9 @@ You have the following booked in 2 days! Check the information below:
 ```
 {% endraw %}
 
-### ステップ 2c: キャンペーンを起動する {#step-2c-launch-your-campaign}
+### ステップ 2c: Campaignを起動する {#step-2c-launch-your-campaign}
 
-リマインダーメールメッセージのキャンペーンを起動します。Brazeが「trips」カスタム属性を受信するたびに、該当する予約オブジェクトに含まれるデータに基づいてメッセージをスケジュールします。
+リマインダーメールメッセージのCampaignを起動します。Brazeが「trips」カスタム属性を受信するたびに、該当する予約オブジェクトに含まれるデータに基づいてメッセージをスケジュールします。
 
 ## ステップ 3: 更新された予約とキャンセルを処理する {#step-3}
 
@@ -166,8 +166,8 @@ You have the following booked in 2 days! Check the information below:
 {% tabs %}
 {% tab /users/track %}
 
-#### `/users/track`エンドポイント経由でデータを送信する {#send-data-through-the-userstrack-endpoint}
-ユーザーが予約を更新またはキャンセルしたときにカスタムイベントを送信するには、Brazeの[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)エンドポイントを使用します。このイベントでは、変更を確認するために必要なデータをイベントプロパティに含めます。
+#### `/users/track`エンドポイント経由でデータを送信する
+ユーザーが予約を更新またはキャンセルしたときにカスタムイベントを送信するには、Brazeの[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)エンドポイントを使用します。このイベントでは、変更を確認するために必要なデータをイベントプロパティに含めます。
 
 このユースケースでは、ユーザーがシドニー旅行の日付を更新したとします。イベントは次のようになります。
 
@@ -193,7 +193,7 @@ You have the following booked in 2 days! Check the information below:
 {% endtab %}
 {% tab SDK %}
 
-#### SDK経由でカスタムイベントをユーザープロファイルに送信する {#write-nested-attributes-to-user-profiles-through-the-sdk}
+#### SDK経由でカスタムイベントをユーザープロファイルに送信する
 
 SDK経由でカスタムイベントをユーザープロファイルに送信します。例えば、Web SDKを使用している場合は、次のように送信できます。
 
@@ -212,12 +212,12 @@ braze.logCustomEvent("trip_updated", {
 
 ### ステップ 3b: 更新を確認するメッセージを作成する {#step-3b-create-a-message-to-confirm-the-update}
 
-[アクションベースのキャンペーン]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/)を作成して、更新された予約の確認をユーザーに送信します。[Liquidを使用してイベントプロパティをテンプレート化]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)し、予約の名前、以前の時刻、新しい時刻（キャンセルの場合は名前のみ）をメッセージ自体に反映できます。
+[アクションベースのCampaign]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery)を作成して、更新された予約の確認をユーザーに送信します。[Liquidを使用してイベントプロパティをテンプレート化]({{site.baseurl}}/user_guide/data/custom_data/custom_events)し、予約の名前、以前の時刻、新しい時刻（キャンセルの場合は名前のみ）をメッセージ自体に反映できます。
 
 例えば、次のようなメッセージを作成できます。
 
 {% raw %}
-`````````liquid
+```liquid
 Hi {{${first_name}}}, you have successfully updated the date of your trip, {{event_properties.${name}}}, from {{event_properties.${old_time}}} to {{event_properties.${new_time}}}
 ```
 {% endraw %}

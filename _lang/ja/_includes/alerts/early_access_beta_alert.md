@@ -1,15 +1,15 @@
 {% comment %}
-  早期アクセスまたはベータ版のお知らせだ。早期アクセスまたはベータ版の機能／エンドポイントに使用する。
-  パラメータ：
-  - 機能（必須）：特徴や主題、e.gこのエンドポイントSCIMプロビジョニングOktaの統合
-  - タイプ（任意）："early_access"（デフォルト）または「ベータ」
+  早期アクセスまたはベータ版のアラートです。早期アクセスまたはベータ版の機能やエンドポイントに使用します。
+  パラメーター:
+  - feature（必須）：機能や対象。例：「This endpoint」、「SCIM provisioning」、「The Okta integration」
+  - type（オプション）："early_access"（デフォルト）または "beta"
 {% endcomment %}
 {% if include.type == "beta" %}
 {% alert important %}
-{{ include.feature }} 現在はベータ版である。ベータ版への参加に興味がある場合は、Brazeのアカウント・マネージャーに連絡を。
+{{ include.feature }}は現在ベータ版です。ベータ版への参加にご興味がある場合は、Brazeアカウントマネージャーまでお問い合わせください。
 {% endalert %}
 {% else %}
 {% alert important %}
-{{ include.feature }} 現在は早期アクセス中だ。早期アクセスへの参加に興味がある方は、Brazeのアカウントマネージャーに連絡を。
+{{ include.feature }}は現在早期アクセス中です。早期アクセスへの参加にご興味がある場合は、Brazeアカウントマネージャーまでお問い合わせください。
 {% endalert %}
 {% endif %}

@@ -1,6 +1,6 @@
 ### Solución de problemas de visualización {#troubleshooting-in-app-message-display}
 
-Si tu aplicación solicita y recibe correctamente mensajes dentro de la aplicación, pero no se muestran, es posible que la lógica del dispositivo esté impidiendo la visualización:
+Si tu aplicación solicita y recibe mensajes dentro de la aplicación, pero no se muestran, es posible que la lógica del dispositivo esté impidiendo la visualización:
 
 1. ¿Se desencadena el evento como se espera? Para comprobarlo, configura el mensaje para que se desencadene mediante una acción diferente (como el inicio de sesión) y verifica si se muestra.
 {% if include.sdk == "iOS" %}
@@ -25,7 +25,7 @@ Si tu aplicación solicita y recibe correctamente mensajes dentro de la aplicaci
 {% endcase %}
 {% case include.sdk %}
   {% when "iOS", "Android" %}
-6. Dependiendo de las condiciones de la red, es posible que las imágenes tarden en descargarse antes de mostrarse. En conexiones lentas o dispositivos de bajo rendimiento, permite tiempo adicional u optimiza el tamaño de los activos.
+6. Dependiendo de las condiciones de la red, es posible que las imágenes se descarguen antes de mostrarse. En conexiones lentas o dispositivos de bajo rendimiento, permite tiempo adicional u optimiza el tamaño de los activos.
 {% endcase %}
 
 {% if include.sdk == "iOS" %}

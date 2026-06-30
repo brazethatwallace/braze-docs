@@ -11,11 +11,11 @@ Por ejemplo, si incluyes `external_send_id: 1234` en la solicitud al enviar un c
 
 En tu panel de Braze:
 
-1. Ve a **Settings** > **Email Preferences**.
+1. Ve a **Configuración** > **Preferencias de correo electrónico**.
 2. En **Transactional Event Status Postback**, introduce la URL a la que Braze debe enviar las actualizaciones de estado de tus correos electrónicos transaccionales.
 3. Prueba el postback.
 
-![]({% image_buster /assets/img/transactional_webhook_url.png %})
+![Campo de URL de Transactional Event Status Postback en Preferencias de correo electrónico.]({% image_buster /assets/img/transactional_webhook_url.png %})
 
 ### Cuerpo del postback {#postback-body}
 
@@ -49,7 +49,7 @@ En tu panel de Braze:
 | `aborted` | Braze no pudo enviar correctamente el mensaje porque el usuario no tenía una dirección de correo electrónico válida, o se invocó la lógica de cancelación de Liquid en el cuerpo del mensaje. Todos los eventos cancelados incluyen un campo `reason` dentro del objeto de metadatos que indica por qué se canceló el mensaje |
 | `delivered` | El mensaje fue aceptado por el proveedor de buzón de entrada de correo electrónico del usuario |
 | `bounced` | El mensaje fue rechazado por el proveedor de buzón de entrada de correo electrónico del usuario. Todos los eventos rebotados incluyen un campo `reason` dentro del objeto de metadatos que refleja el código de error de rebote proporcionado por el proveedor del buzón de entrada |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Message status" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estado del mensaje" }
 
 ### Ejemplo de postback {#example-postback}
 ```json

@@ -18,7 +18,7 @@ tool:
 Después de duplicar una Campaign o un Canvas, el nuevo mensaje se titulará automáticamente `"Copy of [Original Name]"` y se te dirigirá a su página de edición. Estos duplicados permanecerán como borradores hasta que los edites y los lances.
 
 {% alert tip %}
-También puedes [copiar Campaigns, Canvas y páginas de inicio]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/) entre espacios de trabajo. La copia permanecerá como borrador hasta que la edites y lances la Campaign o el Canvas, o publiques la página de inicio.
+También puedes [copiar Campaigns, Canvas y páginas de inicio]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces) entre espacios de trabajo. La copia permanecerá como borrador hasta que la edites y lances la Campaign o el Canvas, o publiques la página de inicio.
 {% endalert %}
 
 {% tabs %}

@@ -11,18 +11,18 @@ page_order: 3
 
 ## Pré-requisitos {#prerequisites}
 
-Antes de começar, você precisará criar uma [landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/).
+Antes de começar, você precisará criar uma [landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages).
 
 ## Redirecionamento de usuários {#retargeting-users}
 
-A Braze rastreia automaticamente quando um usuário envia um formulário de landing page. Você pode visualizar o número total de envios de um formulário em [análise de dados de landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#viewing-analytics). No entanto, para redirecionamento específico por usuário, você precisará redirecionar os usuários por meio do formulário da sua landing page usando um dos seguintes métodos:
+A Braze rastreia automaticamente quando um usuário envia um formulário de landing page. Você pode visualizar o número total de envios de um formulário em [análise de dados de landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#viewing-analytics). No entanto, para redirecionamento específico por usuário, você precisará redirecionar os usuários por meio do formulário da sua landing page usando um dos seguintes métodos:
 
 - **Usando um segmento:** Você pode criar um novo segmento para identificar automaticamente os usuários que enviaram ou não um formulário de landing page.
 - **Usando um gatilho de mensagem:** Você pode configurar um gatilho de mensagem para enviar mensagens automaticamente aos usuários ou inseri-los em um Canvas após o envio do formulário.
 
 {% tabs local %}
 {% tab Usando um segmento %}
-Ao [criar um segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), no grupo "Redirecionamento", escolha **Submitted form on Landing Page**.
+Ao [criar um segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), no grupo "Redirecionamento", escolha **Submitted form on Landing Page**.
 
 ![Criação de segmento com o grupo de filtros selecionado como "Submitted Form on Landing Page".]({% image_buster /assets/img/landing_pages/segmentation_selected.png %})
 
@@ -30,7 +30,7 @@ A partir daqui, você pode segmentar os usuários com base em terem ou não envi
 {% endtab %}
 
 {% tab Usando um gatilho de mensagem %}
-Ao escolher a opção de entrega para a sua [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/) ou [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/), selecione **Action Based Delivery** e, em seguida, **Submitted Landing Page form**.
+Ao escolher a opção de entrega para a sua [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns) ou [Canvas]({{site.baseurl}}/user_guide/messaging/canvas), selecione **Action Based Delivery** e, em seguida, **Submitted Landing Page form**.
 
 Todos os usuários que enviarem um formulário por meio dessa landing page receberão uma mensagem pelo canal de envio de mensagens escolhido ou serão inseridos no Canvas escolhido.
 

@@ -24,7 +24,7 @@ toc_headers: h2
 {% tab campaign %}
 Campaignの再エントリ資格をオンにするには、**配信コントロール**セクションの**ユーザーがCampaignを再度受信できるようにする**チェックボックスを選択します。Campaignの再エントリ資格の最大期間は720日です。
 
-再エントリ資格がオンになっているトリガーCampaignでは、（トリガーイベントを完了したにもかかわらず）[実際にはCampaignメッセージを受信しなかった]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/#why-did-a-user-not-receive-my-triggered-campaign)ユーザーは、次にトリガーイベントを完了した際に自動的にメッセージの対象となります。これは、再エントリ資格がCampaignエントリではなくメッセージの受信に基づいているためです。トリガーCampaignでユーザーに再エントリ資格を付与することで、ユーザーは（単にトリガーするだけでなく）実際にメッセージを複数回受信できるようになります。
+再エントリ資格がオンになっているトリガーCampaignでは、（トリガーイベントを完了したにもかかわらず）[実際にはCampaignメッセージを受信しなかった]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#why-did-a-user-not-receive-my-triggered-campaign)ユーザーは、次にトリガーイベントを完了した際に自動的にメッセージの対象となります。これは、再エントリ資格がCampaignエントリではなくメッセージの受信に基づいているためです。トリガーCampaignでユーザーに再エントリ資格を付与することで、ユーザーは（単にトリガーするだけでなく）実際にメッセージを複数回受信できるようになります。
 
 {% alert note %}
 「受信」には、共有チャネル識別子を通じたアトリビューションが含まれます。メッセージが配信、開封、またはクリックされると、Brazeは同じメールアドレスまたは電話番号を共有するすべてのプロファイルのデータを更新します。そのため、直接メッセージが送信されていないユーザーでも受信済みとしてマークされ、再エントリ資格を得られない場合があります。
@@ -49,7 +49,7 @@ Canvasバリアントの再エントリ資格は、メッセージの受信で�
 
 追加のフィルターを設定して、ユーザーが同じステップやメッセージを複数回受信することを防ぐことができます。ただし、ユーザーが2回目にCanvasに再エントリした場合、1回目のCanvas内で以前受信したステップはユーザーに表示されません。つまり、ユーザーは同じメッセージを再度受信する可能性があります。これを防ぐには、Canvasの再エントリを防止するか、再エントリ資格をCanvasの最大期間に設定します。
 
-また、[ユーザーの更新ステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)を使用して、ステップを受信したユーザーにカスタム属性としてログを記録させ、Canvasジャーニー中にそのステップを受信済みのユーザーをフィルタリングすることもできます。
+また、[ユーザーの更新ステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)を使用して、ステップを受信したユーザーにカスタム属性としてログを記録させ、Canvasジャーニー中にそのステップを受信済みのユーザーをフィルタリングすることもできます。
 
 ### 例 {#example}
 
@@ -76,11 +76,11 @@ CampaignとCanvasの両方の再エントリ資格は、カレンダー日では
 
 ## Content Cardsの再エントリ資格 {#re-eligibility-for-content-cards}
 
-Content Cards CampaignまたはCanvasステップで再エントリ資格が有効になっている場合、同じCampaignからの以前のカードがまだフィードに残っている状態で、ユーザーが別のカードを受信する可能性があり、重複カードのように見えることがあります。重複を減らすには、再エントリ資格をオフにするか、最初のカードがユーザーが次の送信対象となる前に[フィードから期限切れになる]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#the-30-day-expiration-and-re-eligibility)よう、再エントリ資格の期間を長くしてください。
+Content Cards CampaignまたはCanvasステップで再エントリ資格が有効になっている場合、同じCampaignからの以前のカードがまだフィードに残っている状態で、ユーザーが別のカードを受信する可能性があり、重複カードのように見えることがあります。重複を減らすには、再エントリ資格をオフにするか、最初のカードがユーザーが次の送信対象となる前に[フィードから期限切れになる]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#the-30-day-expiration-and-re-eligibility)よう、再エントリ資格の期間を長くしてください。
 
 ## バナーの再エントリ資格 {#re-eligibility-for-banners}
 
-バナーCampaignで再エントリ資格が有効になっている場合、バナーを閉じたユーザーは、閉じた時点から始まる設定可能なクールダウン期間の後に再度対象となることができます。再エントリ資格がオンになっていない場合、閉じたユーザーは対象外のままです。再エントリ資格を設定するには、[再エントリ資格の設定]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility)を参照してください。Canvasのバナーステップでは、代わりにCanvasの再エントリ設定が使用されます。
+バナーCampaignで再エントリ資格が有効になっている場合、バナーを閉じたユーザーは、閉じた時点から始まる設定可能なクールダウン期間の後に再度対象となることができます。再エントリ資格がオンになっていない場合、閉じたユーザーは対象外のままです。再エントリ資格を設定するには、[再エントリ資格の設定]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#re-eligibility)を参照してください。Canvasのバナーステップでは、代わりにCanvasの再エントリ設定が使用されます。
 
 ## 多変量テスト {#multivariate-testing}
 

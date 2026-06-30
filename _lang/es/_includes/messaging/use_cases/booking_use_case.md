@@ -17,7 +17,7 @@ Sigue estos pasos para lograr este caso de uso:
 
 ## Paso 1: Escribe los datos de la próxima reserva en un perfil de usuario de Braze {#step-1}
 
-Utiliza el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) de Braze para escribir un [atributo personalizado anidado]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/) en un perfil de usuario cada vez que se realice una reserva. Asegúrate de que el atributo personalizado anidado contenga toda la información que necesitas para enviar y personalizar el mensaje recordatorio. En este caso de uso, llamaremos al atributo personalizado anidado "trips".
+Utiliza el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) de Braze para escribir un [atributo personalizado anidado]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support) en un perfil de usuario cada vez que se realice una reserva. Asegúrate de que el atributo personalizado anidado contenga toda la información que necesitas para enviar y personalizar el mensaje recordatorio. En este caso de uso, llamaremos al atributo personalizado anidado "trips".
 
 ### Añadir reserva {#add-booking}
 
@@ -72,7 +72,7 @@ Cuando un usuario actualiza una reserva, utiliza la siguiente estructura para la
 ### Eliminar reserva {#remove-booking}
 
 {% tabs %}
-{% tab /users/track endpoint %}
+{% tab Punto de conexión /users/track %}
 #### Enviar datos a través del punto de conexión `/users/track` {#send-data-through-the-userstrack-endpoint}
 Cuando un usuario elimina una reserva, utiliza la siguiente estructura para la matriz de objetos con el fin de enviar los datos a Braze a través del punto de conexión `/users/track`.
 
@@ -136,7 +136,7 @@ Crea un público objetivo para recibir recordatorios utilizando la segmentación
 
 ### Paso 2b: Crea tu mensaje {#step-2b-create-your-message}
 
-Crea el mensaje de correo electrónico de recordatorio siguiendo los pasos descritos en [Crear un correo electrónico con HTML personalizado]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor/). Utiliza Liquid para personalizar el mensaje con datos del atributo personalizado de cliente que creaste ("trips"), como en este ejemplo.
+Crea el mensaje de correo electrónico de recordatorio siguiendo los pasos descritos en [Crear un correo electrónico con HTML personalizado]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor). Utiliza Liquid para personalizar el mensaje con datos del atributo personalizado de cliente que creaste ("trips"), como en este ejemplo.
 
 {% raw %}
 ```liquid
@@ -166,8 +166,8 @@ Ahora que estás enviando mensajes recordatorios, puedes configurar mensajes de 
 {% tabs %}
 {% tab /users/track %}
 
-#### Enviar datos a través del punto de conexión `/users/track` {#send-data-through-the-userstrack-endpoint}
-Utiliza el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) de Braze para enviar un evento personalizado cuando un usuario actualice o cancele una reserva. En ese evento, introduce los datos necesarios en las propiedades del evento que confirmarán el cambio.
+#### Enviar datos a través del punto de conexión `/users/track`
+Utiliza el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) de Braze para enviar un evento personalizado cuando un usuario actualice o cancele una reserva. En ese evento, introduce los datos necesarios en las propiedades del evento que confirmarán el cambio.
 
 Supongamos que, en este caso de uso, un usuario ha actualizado la fecha de su viaje a Sídney. El evento sería así:
 
@@ -193,7 +193,7 @@ Supongamos que, en este caso de uso, un usuario ha actualizado la fecha de su vi
 {% endtab %}
 {% tab SDK %}
 
-#### Escribir atributos anidados en los perfiles de usuario a través del SDK {#write-nested-attributes-to-user-profiles-through-the-sdk}
+#### Escribir atributos anidados en los perfiles de usuario a través del SDK
 
 Envía eventos personalizados al perfil de usuario a través del SDK. Por ejemplo, si utilizas el Web SDK, podrías enviar:
 
@@ -212,7 +212,7 @@ braze.logCustomEvent("trip_updated", {
 
 ### Paso 3b: Crea un mensaje para confirmar la actualización {#step-3b-create-a-message-to-confirm-the-update}
 
-Crea una [campaña basada en acciones]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/) para enviar al usuario una confirmación de su reserva actualizada. Puedes [utilizar Liquid para crear plantillas con las propiedades del evento]({{site.baseurl}}/user_guide/data/custom_data/custom_events/) que reflejen el nombre, la hora anterior y la nueva hora de la reserva (o solo el nombre si se trata de una cancelación) en el propio mensaje.
+Crea una [campaña basada en acciones]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery) para enviar al usuario una confirmación de su reserva actualizada. Puedes [utilizar Liquid para crear plantillas con las propiedades del evento]({{site.baseurl}}/user_guide/data/custom_data/custom_events) que reflejen el nombre, la hora anterior y la nueva hora de la reserva (o solo el nombre si se trata de una cancelación) en el propio mensaje.
 
 Por ejemplo, podrías redactar el siguiente mensaje:
 

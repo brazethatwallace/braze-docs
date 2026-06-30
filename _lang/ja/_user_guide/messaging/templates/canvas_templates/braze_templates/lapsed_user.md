@@ -15,13 +15,13 @@ tool: Canvas
 
 ## 前提条件 {#prerequisites}
 
-離脱ユーザーテンプレートを正しく使用するには、使用するパートナーとオーディエンスで[Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/)を設定する必要があります。
+離脱ユーザーテンプレートを正しく使用するには、使用するパートナーとオーディエンスで[Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync)を設定する必要があります。
 
 ## テンプレートをニーズに合わせてカスタマイズする {#tailoring-the-template-to-your-needs}
 
 ここでは、映画やドラマの独占コンテンツを提供するストリーミングサービス「MovieCanon」で作業しているとしましょう。離脱ユーザーテンプレートを使用して、30日間アプリを訪問していないユーザーに特典やプレミアムコンテンツをプロモーションできます。
 
-Canvasを作成する前に、[Braze Audience Sync to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/)インテグレーションを設定し、BrazeのユーザーデータをGoogle Audiencesに追加して、行動トリガーやセグメンテーションなどに基づいた広告を配信できるようにします。
+Canvasを作成する前に、[Braze Audience Sync to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync)インテグレーションを設定し、BrazeのユーザーデータをGoogle Audiencesに追加して、行動トリガーやセグメンテーションなどに基づいた広告を配信できるようにします。
 
 離脱ユーザーテンプレートにアクセスするには、新しいCanvasを作成する際に、**Canvasテンプレートを使用** > **Brazeテンプレート**を選択します。次に、**離脱ユーザー**の横にある**テンプレートを適用**を選択します。これで、テンプレートをニーズに合わせてカスタマイズできます。
 
@@ -58,7 +58,7 @@ Canvasを作成する前に、[Braze Audience Sync to Google]({{site.baseurl}}/p
 デフォルトのサブスクリプション設定のほとんどを維持します：
 
 - メッセージや通知の受信を購読またはオプトインしたユーザーにのみ送信します。
-- オーディエンスが受信するメッセージ数で圧倒されないように、[フリークエンシーキャップルール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)を適用します。この場合、「Lapsing/Retention」タグが付いたCampaignsまたはキャンバスステップをユーザーが受信できる数を、週2回に制限するフリークエンシーキャップを設定します。
+- オーディエンスが受信するメッセージ数で圧倒されないように、[フリークエンシーキャップルール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)を適用します。この場合、「Lapsing/Retention」タグが付いたCampaignsまたはキャンバスステップをユーザーが受信できる数を、週2回に制限するフリークエンシーキャップを設定します。
 - ユーザーのローカルタイムのサイレント時間帯（午前0時〜午前8時）にはメッセージを送信しません。
 
 変更する唯一の設定は、サイレント時間帯にメッセージがトリガーされた場合の対応です。メッセージをキャンセルする代わりに、**次に利用可能な時間に送信**を選択して、ユーザーがプロモーションを見逃さないようにします。
@@ -76,7 +76,7 @@ Canvasを作成する前に、[Braze Audience Sync to Google]({{site.baseurl}}/p
 3. 「Sessions?」という条件分岐ステップのデフォルトを維持します。これは、「>1 Session」グループを、過去1暦日にアプリを1回以上使用したユーザーとして定義します。
 4. 「>1 Session」グループに該当するユーザー向けのメッセージステップをカスタマイズします。このユースケースでは、アプリを訪問してくれたことに感謝し、アンロックされた特典をハイライトします。
 5. 最初のメールを受信した後に複数のセッションを行ったユーザーのユーザーデータを更新・同期するために、Ad Audience UpdateステップでGoogle Audience Syncが設定されていることを確認します。
-6. 「A/B Test」という[実験パス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/#experiment-paths)コンポーネントのデフォルトを維持します。これにより、2回未満のセッションを行ったユーザーに、2つのプロモーション（次のステップでカスタマイズします）のいずれかがランダムに送信されます。
+6. 「A/B Test」という[実験パス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#experiment-paths)コンポーネントのデフォルトを維持します。これにより、2回未満のセッションを行ったユーザーに、2つのプロモーション（次のステップでカスタマイズします）のいずれかがランダムに送信されます。
 7. 実験パスの一部としてユーザーに送信される2つのプロモーションをカスタマイズします。このユースケースでは、1つを3か月サブスクリプションの20%割引プロモーション、もう1つを1か月サブスクリプションの10%割引プロモーションにします。
 
 ![ユーザーのセッション数に基づいて分岐するパスを持つキャンバスステップ。]({% image_buster /assets/img/canvas_templates/lapsing_user_8.png %}){: style="max-width:70%;"}
@@ -86,5 +86,5 @@ Canvasを作成する前に、[Braze Audience Sync to Google]({{site.baseurl}}/p
 Canvasをテストおよび確認して期待どおりに動作することを確認した後、**Canvasを起動**を選択して起動します。これで、30日以上アプリを訪問しておらず、メッセージングチャネルを購読しているユーザーに、復帰を促すメールが送信されます！
 
 {% alert tip %}
-Canvasの起動前後に考慮すべき事項については、[起動前後のチェックリスト]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch)をご確認ください。
+Canvasの起動前後に考慮すべき事項については、[起動前後のチェックリスト]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch)をご確認ください。
 {% endalert %}

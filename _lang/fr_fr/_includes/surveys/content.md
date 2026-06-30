@@ -12,13 +12,13 @@ Avant de créer une enquête, vous devez :
 
 {% if include.channel == 'in_app_message' %}
 - Avoir accès aux messages in-app dans votre espace de travail Braze
-- Être familiarisé avec la [création de messages in-app dans l'éditeur par glisser-déposer]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)
+- Être familiarisé avec la [création de messages in-app dans l'éditeur par glisser-déposer]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
 {% elsif include.channel == 'landing_page' %}
 - Avoir accès aux pages d'accueil dans votre espace de travail Braze
-- Être familiarisé avec la [création de pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)
+- Être familiarisé avec la [création de pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)
 {% else %}
 - Avoir accès aux pages d'accueil, aux messages in-app, ou aux deux dans votre espace de travail Braze
-- Être familiarisé avec la [création de pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) et la [création de messages in-app dans l'éditeur par glisser-déposer]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)
+- Être familiarisé avec la [création de pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages) et la [création de messages in-app dans l'éditeur par glisser-déposer]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
 {% endif %}
 
 ## Créer une enquête {#create-a-survey}
@@ -26,14 +26,14 @@ Avant de créer une enquête, vous devez :
 Pendant l'accès anticipé, les enquêtes sont créées dans votre flux de composition de messages existant.
 
 {% if include.channel == 'in_app_message' %}
-1. Créez un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) dans une campagne ou un Canvas.
+1. Créez un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) dans une campagne ou un Canvas.
 2. Sélectionnez **Survey** comme type de message.
 {% elsif include.channel == 'landing_page' %}
 1. Accédez à **Messaging** > **Landing Pages**.
 2. Créez une nouvelle page d'accueil.
 3. Sélectionnez **Survey** comme type de message.
 {% else %}
-1. Accédez à **Messaging** > **Landing Pages**, ou créez un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) dans une campagne ou un Canvas.
+1. Accédez à **Messaging** > **Landing Pages**, ou créez un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) dans une campagne ou un Canvas.
 2. Créez un nouveau message.
 3. Sélectionnez **Survey** comme type de message.
 {% endif %}
@@ -60,10 +60,10 @@ Pour les contrôles de style et de composition partagés, consultez :
 {% if include.channel == 'in_app_message' %}
 - [Blocs de l'éditeur par glisser-déposer pour les messages in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
 {% elsif include.channel == 'landing_page' %}
-- [Blocs de formulaire pour les pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#form-blocks)
+- [Blocs de formulaire pour les pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
 {% else %}
 - [Blocs de l'éditeur par glisser-déposer pour les messages in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
-- [Blocs de formulaire pour les pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#form-blocks)
+- [Blocs de formulaire pour les pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
 {% endif %}
 
 Vous pouvez ajouter les blocs de formulaire suivants aux enquêtes :

@@ -1,10 +1,10 @@
 {% alert important %}
-Brazeは、ユーザーアクセスをより柔軟に管理する手段として、[きめ細かい権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions)を導入しています。移行プロセスについては[きめ細かい権限への移行]({{site.baseurl}}/granular_permissions_migration/)を参照してください。また、きめ細かいSCIM APIオブジェクトと付録については[きめ細かいSCIM API]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api/)タブを参照してください。
+Brazeは、ユーザーアクセスをより柔軟に管理する手段として、[きめ細かい権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions)を導入しています。移行プロセスについては[きめ細かい権限への移行]({{site.baseurl}}/granular_permissions_migration)を参照してください。また、きめ細かいSCIM APIオブジェクトと付録については[きめ細かいSCIM API]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api/)タブを参照してください。
 {% endalert %}
 
 ## 権限オブジェクト {#permissions-object}
 
-権限オブジェクトは、SCIM ID権限を通じてユーザーリソースとやり取りする際に、一部のリクエストとレスポンスに含まれるフィールドです。
+権限オブジェクトは、SCIM IDの権限を通じてユーザーリソースとやり取りする際に、一部のリクエストとレスポンスに含まれるフィールドです。
 
 {% alert note %}
 Brazeではアプリグループはワークスペースに改名されましたが、このページのキーはまだ古い用語を参照しています（例: `appGroup`、`appGroupName`）。
@@ -88,11 +88,11 @@ Brazeではアプリグループはワークスペースに改名されました
 | 権限名 | SCIM API文字列 |
 | --- | --- |
 | Admin | `admin` |
-| Access キャンペーン, キャンバス, Cards, セグメント, Media Library | `basic_access` |
-| Approve and Deny キャンバス | `approve_deny_campaigns` |
-| Send キャンペーン, キャンバス | `send_campaigns_canvases` |
+| Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
+| Approve and Deny Canvases | `approve_deny_campaigns` |
+| Send Campaigns, Canvases | `send_campaigns_canvases` |
 | Publish Cards | `publish_cards` |
-| Edit セグメント | `edit_segments` |
+| Edit Segments | `edit_segments` |
 | Export User Data | `export_user_data` |
 | View PII | `view_pii` |
 | View User Profiles PII Compliant | `view_user_profile` |
@@ -119,11 +119,11 @@ Brazeではアプリグループはワークスペースに改名されました
 | 権限名 | SCIM API文字列 |
 | --- | --- |
 | Admin | `admin` |
-| Access キャンペーン, キャンバス, Cards, セグメント, Media Library | `basic_access` |
-| Approve and Deny キャンバス | `approve_deny_campaigns` |
-| Send キャンペーン, キャンバス | `send_campaigns_canvases` |
+| Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
+| Approve and Deny Canvases | `approve_deny_campaigns` |
+| Send Campaigns, Canvases | `send_campaigns_canvases` |
 | Publish Cards | `publish_cards` |
-| Edit セグメント | `edit_segments` |
+| Edit Segments | `edit_segments` |
 | Export User Data | `export_user_data` |
 | View User Profile | `view_user_profile` |
 | Manage Dashboard Users | `manage_dashboard_users` |

@@ -31,7 +31,7 @@ Para direcionar usuários que se enquadram em múltiplos segmentos criados anter
 {% tab múltiplos filtros %}
 Para direcionar usuários sem adicionar um segmento, você pode usar uma série de filtros. Esse é um público improvisado durante a criação da mensagem e permite que você pule a criação de segmentos ao enviar para públicos pontuais.
 
-![Filtros adicionais para uma mensagem que direciona usuários que abriram o app pela última vez no dia, nunca receberam uma Campaign ou etapa do Canvas, e fizeram uma compra há menos de 30 dias.]({% image_buster /assets/img_archive/additional_filters.png %}){: style="max-width:90%;"}
+![Filtros adicionais para uma mensagem que direciona usuários que abriram o app pela última vez no dia, nunca receberam uma Campaign ou etapa do Canvas e fizeram uma compra há menos de 30 dias.]({% image_buster /assets/img_archive/additional_filters.png %}){: style="max-width:90%;"}
 {% endtab %}
 
 {% tab segmentos e filtros %}
@@ -67,18 +67,18 @@ Isso não funcionará se você adicionar seu segmento na seção **Filtros adici
 {% endtabs %}
 
 {% alert tip %}
-Para Campaigns de e-mail, você pode direcionar grupos de teste na seção **Grupos de teste**. Os grupos de teste não estão disponíveis para Campaigns de API, embora você possa incluir grupos de teste por meio de uma entrada acionada por API em uma Campaign. Para saber mais, consulte [Grupos de teste]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups).
+Para Campaigns de e-mail, você pode direcionar grupos de teste na seção **Grupos de teste**. Os grupos de teste não estão disponíveis para Campaigns de API, embora você possa incluir grupos de teste por meio de uma entrada acionada por API em uma Campaign. Para saber mais, consulte [Grupos de teste]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups).
 {% endalert %}
 
 ### Etapa 2: Testar seu público {#step-2-test-your-audience}
 
-Após adicionar segmentos e filtros ao seu público, você pode testar se o público está configurado conforme esperado [pesquisando um usuário]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) para confirmar se ele corresponde aos critérios do público.
+Após adicionar segmentos e filtros ao seu público, você pode testar se o público está configurado conforme esperado [pesquisando um usuário]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) para confirmar se ele corresponde aos critérios do público.
 
 ![A seção "Pesquisa de usuário" com um botão "Pesquisar usuário".]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%"}
 
 #### Resumo do público {#audience-summary}
 
-O **Resumo do público** mostrará uma visão geral de quem está no seu público-alvo. Aqui, você pode limitar ainda mais seu público definindo um limite máximo de usuários ou [limitando a taxa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) de velocidade de entrega.
+O **Resumo do público** mostrará uma visão geral de quem está no seu público-alvo. Aqui, você pode limitar ainda mais seu público definindo um limite máximo de usuários ou [limitando a taxa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) de velocidade de entrega.
 
 ![A seção "Resumo do público" com opções para definir um limite máximo de usuários ou limitar a taxa de velocidade de entrega.]({% image_buster /assets/img_archive/audience_summary.png %})
 
@@ -86,13 +86,13 @@ O **Resumo do público** mostrará uma visão geral de quem está no seu públic
 
 Na seção **Testes A/B**, você pode configurar um teste para comparar as respostas dos usuários a múltiplas versões da mesma Campaign de marketing. Essas versões compartilham objetivos de marketing semelhantes, mas diferem na redação e no estilo. O objetivo é identificar a versão da Campaign que melhor atinge seus objetivos de marketing.
 
-Para saber mais e conhecer as práticas recomendadas, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+Para saber mais e conhecer as práticas recomendadas, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 #### Estatísticas do público {#audience-statistics}
 
-A Braze fornece estatísticas detalhadas do público dos canais direcionados no rodapé. Quanto maior for sua base de usuários, mais provável é que a quantidade de **Usuários contatáveis** seja uma estimativa aproximada. O número de usuários contatáveis pode diminuir se você usar um [Grupo de controle global]({{site.baseurl}}/user_guide/audience/global_control_group/) ou configurar a elegibilidade de mensagens.
+A Braze fornece estatísticas detalhadas do público dos canais direcionados no rodapé. Quanto maior for sua base de usuários, mais provável é que a quantidade de **Usuários contatáveis** seja uma estimativa aproximada. O número de usuários contatáveis pode diminuir se você usar um [Grupo de controle global]({{site.baseurl}}/user_guide/audience/global_control_group) ou configurar a elegibilidade de mensagens.
 
-- Para determinar um número preciso de usuários contatáveis, selecione [Calcular estatísticas exatas]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#calculating-exact-statistics), pois isso pesquisará cada usuário na sua base de usuários.
+- Para determinar um número preciso de usuários contatáveis, selecione [Calcular estatísticas exatas]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#calculating-exact-statistics), pois isso pesquisará cada usuário na sua base de usuários.
 - Para ver qual porcentagem da sua base de usuários está sendo direcionada ou o Lifetime Value (LTV) desse segmento, selecione **Mostrar estatísticas adicionais**.
 
 ##### Por que a contagem do público-alvo pode diferir da contagem de usuários contatáveis {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}

@@ -28,7 +28,7 @@
 | `companyPermissions` | 선택 사항 | 배열 | [회사 수준 권한 문자열]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_company)의 배열로, 문자열이 존재하면 사용자가 해당 권한을 가지고 있음을 나타냅니다. |
 | `roles` | 선택 사항 | 배열 | [역할 오브젝트]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_role-object)의 배열입니다. |
 | `appGroup` | 필수 | 배열 | [워크스페이스 권한 오브젝트]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-object)의 배열입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Permissions object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="권한 오브젝트" }
 
 ### 워크스페이스 권한 오브젝트 {#workspace-permissions-object}
 
@@ -41,7 +41,7 @@
 | `appGroupPermissionSets` | 선택 사항 | 배열 | 단일 [워크스페이스 권한 세트 오브젝트]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object)를 포함하는 배열입니다. |
 | `appGroupPermissions` | 필수 | 배열 | [워크스페이스 권한 문자열]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings) 테이블의 워크스페이스 수준 권한 문자열 배열로, 문자열이 존재하면 사용자가 지정된 워크스페이스에 대한 해당 권한을 가지고 있음을 나타냅니다. |
 | `team` | 선택 사항 | 배열 | [Teams 권한 오브젝트]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team-permissions-object)의 배열입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="워크스페이스 권한 오브젝트" }
 
 ### 워크스페이스 권한 세트 오브젝트 {#workspace-permissions-set-object}
 
@@ -51,7 +51,7 @@
 | --- | --- | --- | --- |
 | `appGroupPermissionSetName` | 선택 사항 | 문자열 | 이 워크스페이스에 대해 사용자에게 할당되는 워크스페이스 권한 세트의 이름입니다. |
 | `appGroupPermissionSetID` | `appGroupPermissionSetName`이 없으면 필수 | 문자열 | 워크스페이스의 ID로, 이 워크스페이스에 대해 사용자에게 할당된 워크스페이스 권한 세트를 지정하는 대체 방법입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions set object #workspace-permissions-set-object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="워크스페이스 권한 세트 오브젝트 #workspace-permissions-set-object" }
 
 ### Teams 권한 오브젝트 {#team-permissions-object}
 
@@ -62,7 +62,7 @@
 | `teamName` | 선택 사항 | 문자열 | 팀의 이름으로, 이 오브젝트 내의 권한이 어떤 팀에 적용되는지 지정하는 데 사용할 수 있습니다. |
 | `teamId` | `teamName`이 없으면 필수 | 문자열 | 팀의 ID로, 팀을 지정하는 대체 방법입니다. |
 | `teamPermissions` | 필수 | 배열 | [Teams 권한 문자열]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team) 테이블의 팀 수준 권한 문자열 배열로, 문자열이 존재하면 사용자가 지정된 팀에 대한 해당 권한을 가지고 있음을 나타냅니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Team permissions object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Teams 권한 오브젝트" }
 
 ## 역할 오브젝트 {#role-object}
 
@@ -72,7 +72,7 @@
 | --- | --- | --- | --- |
 | `roleName` | 선택 사항 | 문자열 | 사용자에게 할당되는 역할의 이름입니다. |
 | `roleId` | `roleName`이 없으면 필수 | 문자열 | 역할의 ID로, 역할을 지정하는 대체 방법입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Role object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="역할 오브젝트" }
 
 ## 부록 {#appendix}
 
@@ -83,7 +83,7 @@
 | Administrator | `admin` |
 | Manage Company Settings | `manage_company_settings` |
 | Create and delete workspaces| `add_remove_app_groups` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Company permission strings #company" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="회사 권한 문자열 #company" }
 
 ### 워크스페이스 권한 문자열 {#workspace-strings}
 
@@ -200,7 +200,7 @@
 | Delete Catalogs | `delete_catalogs` |
 | View Whatsapp Settings | `view_whatsapp_settings` |
 | Edit Technology Partners | `edit_technology_partners` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Workspace permission strings #workspace-strings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="워크스페이스 권한 문자열 #workspace-strings" }
 
 ### Teams 권한 문자열 {#team}
 
@@ -253,7 +253,7 @@
 | Launch Campaigns | `launch_campaigns` |
 | Launch Canvases | `launch_canvases` |
 | Edit Dashboard Users | `edit_dashboard_users` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Team permission strings #team" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Teams 권한 문자열 #team" }
 
 ### 부서 문자열 {#department-strings}
 
@@ -266,4 +266,4 @@
 | Finance | `finance` |
 | Marketing / Editorial | `marketing` |
 | Product Management | `pm` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Department strings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="부서 문자열" }

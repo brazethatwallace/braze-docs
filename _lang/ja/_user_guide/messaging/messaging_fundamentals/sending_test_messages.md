@@ -23,7 +23,7 @@ description: "このリファレンス記事では、さまざまなBrazeチャ�
 
 ### オプション: コンテンツテストグループを作成する {#optional-create-a-content-test-group}
 
-テストユーザーを整理する便利な方法として、[コンテンツテストグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/)を作成する方法があります。これは、Campaignからテストメッセージを受信するユーザーのグループです。Campaignの**テスト受信者**の下にある**コンテンツテストグループを追加**フィールドにこのテストグループを追加し、個別のテストユーザーを作成・追加することなくテストを開始できます。
+テストユーザーを整理する便利な方法として、[コンテンツテストグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups)を作成する方法があります。これは、Campaignからテストメッセージを受信するユーザーのグループです。Campaignの**テスト受信者**の下にある**コンテンツテストグループを追加**フィールドにこのテストグループを追加し、個別のテストユーザーを作成・追加することなくテストを開始できます。
 
 ## ステップ 2: チャネル別のテストメッセージを送信する {#step-2-send-channel-specific-test-messages}
 
@@ -33,7 +33,7 @@ description: "このリファレンス記事では、さまざまなBrazeチャ�
 {% tab バナー %}
 
 {% alert important %}
-Brazeでバナーメッセージをテストする前に、Brazeでバナーキャンペーンを作成する必要があります。また、テストしたいプレースメントがすでに[アプリまたはWebサイトに配置されている]({{site.baseurl}}/developer_guide/banners/placements/)ことを確認してください。
+Brazeでバナーメッセージをテストする前に、Brazeでバナーキャンペーンを作成する必要があります。また、テストしたいプレースメントがすでに[アプリまたはWebサイトに配置されている]({{site.baseurl}}/developer_guide/banners/placements)ことを確認してください。
 {% endalert %}
 
 バナーメッセージを作成した後、バナーをプレビューするか、テストメッセージを送信できます。
@@ -62,7 +62,7 @@ Brazeでバナーメッセージをテストする前に、Brazeでバナーキ�
 {% tab コンテンツカード %}
 
 {% alert important %}
-[コンテンツテストグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups)または個別ユーザーにテストを送信するには、テスト送信前にテストデバイスでプッシュが有効になっており、テストユーザーに有効なプッシュトークンが登録されている必要があります。iOSユーザーの場合、テストContent Cardを表示するには、Brazeから送信されたプッシュ通知をタップする必要があります。この動作はテストContent Cardにのみ適用されます。
+[コンテンツテストグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups)または個別ユーザーにテストを送信するには、テスト送信前にテストデバイスでプッシュが有効になっており、テストユーザーに有効なプッシュトークンが登録されている必要があります。iOSユーザーの場合、テストContent Cardを表示するには、Brazeから送信されたプッシュ通知をタップする必要があります。この動作はテストContent Cardにのみ適用されます。
 {% endalert %}
 
 テストContent Cardはプッシュ通知を通じて配信されます。カードはプッシュペイロードにパッケージ化され、プッシュを受信するとSDKがローカルに抽出してキャッシュします。
@@ -91,7 +91,7 @@ Content Cardを作成した後、テストContent Cardをアプリに送信し�
 
 - テストユーザーは有効なプッシュトークンでプッシュにオプトインしていますか？
 - 画像やメディアは期待通りに表示・動作しますか？
-- Liquidは期待通りに機能しますか？Liquidが情報を返さない場合の[デフォルト属性値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#accounting-for-null-attribute-values)を設定していますか？
+- Liquidは期待通りに機能しますか？Liquidが情報を返さない場合の[デフォルト属性値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values)を設定していますか？
 - コピーは明確で、簡潔で、正確ですか？
 - リンクはユーザーを正しい場所に誘導しますか？
 - テストユーザーは有効なプッシュトークンでプッシュにオプトインしていますか？
@@ -107,7 +107,7 @@ Content Cardの画像がレンダリングされない、または壊れて表�
 
 ### デバッグ {#debug}
 
-Content Cardが送信された後、開発者コンソールの[イベントユーザーログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/)から問題を分析またはデバッグできます。
+Content Cardが送信された後、開発者コンソールの[イベントユーザーログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log)から問題を分析またはデバッグできます。
 
 一般的なユースケースは、ユーザーが特定のContent Cardを表示できない理由をデバッグすることです。これを行うには、**イベントユーザーログ**でセッション開始時にSDKに配信されたContent Card（インプレッション前）を確認し、特定のCampaignまで遡ることができます。
 
@@ -162,7 +162,7 @@ Content Cardが送信された後、開発者コンソールの[イベントユ�
 {% tab アプリ内メッセージ %}
 
 {% alert warning %}
-[コンテンツテストグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups)または個別ユーザーにテストを送信するには、送信前にテストデバイスでプッシュが有効になっている必要があります。例えば、テストメッセージが表示される前に通知をタップするには、iOSデバイスでプッシュが有効になっている必要があります。{% endalert %}
+[コンテンツテストグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups)または個別ユーザーにテストを送信するには、送信前にテストデバイスでプッシュが有効になっている必要があります。例えば、テストメッセージが表示される前に通知をタップするには、iOSデバイスでプッシュが有効になっている必要があります。{% endalert %}
 
 アプリとテストデバイスでプッシュ通知が設定されている場合、テストアプリ内メッセージをアプリに送信して、リアルタイムでどのように表示されるかを確認できます。
 
@@ -197,7 +197,7 @@ Brazeには3世代のアプリ内メッセージがあります。サポート�
 ### テストチェックリスト
 
 - 画像やメディアは期待通りに表示・動作しますか？
-- Liquidは期待通りに機能しますか？Liquidが情報を返さない場合の[デフォルト属性値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#accounting-for-null-attribute-values)を設定していますか？
+- Liquidは期待通りに機能しますか？Liquidが情報を返さない場合の[デフォルト属性値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values)を設定していますか？
 - コピーは明確で、簡潔で、正確ですか？
 - ボタンはユーザーを正しい場所に誘導しますか？
 
@@ -243,7 +243,7 @@ Brazeには3世代のアプリ内メッセージがあります。サポート�
 
 ![テストプッシュ]({% image_buster /assets/img_archive/testpush.png %})
 
-選択したユーザーに一致するプッシュトークンがないというエラーが表示された場合、テストユーザーが選択したプラットフォームに有効なプッシュトークンを持っていません。ユーザーはアプリでセッションを開始し、そのデバイスでプッシュを有効にしている必要があります。詳細については、[プッシュの有効化とプッシュサブスクリプション]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/)を参照してください。
+選択したユーザーに一致するプッシュトークンがないというエラーが表示された場合、テストユーザーが選択したプラットフォームに有効なプッシュトークンを持っていません。ユーザーはアプリでセッションを開始し、そのデバイスでプッシュを有効にしている必要があります。詳細については、[プッシュの有効化とプッシュサブスクリプション]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states)を参照してください。
 
 #### Webプッシュ {#web-push}
 
@@ -256,7 +256,7 @@ Brazeには3世代のアプリ内メッセージがあります。サポート�
 
 Brazeダッシュボードからのプッシュメッセージをすでに許可している場合、メッセージは画面の隅に表示されます。そうでない場合は、プロンプトが表示されたら**許可**を選択すると、メッセージが表示されます。
 
-選択したユーザーにWebプッシュに一致するプッシュトークンがないというエラーが表示された場合は、テストユーザーが選択したプラットフォームに有効なプッシュトークンを登録していることを確認してください。プッシュトークンを受信するには、ユーザーがデバイス上のアプリでプッシュ通知を受信するように設定されている必要があります。詳細については、[プッシュの有効化とプッシュサブスクリプション]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/)を参照してください。
+選択したユーザーにWebプッシュに一致するプッシュトークンがないというエラーが表示された場合は、テストユーザーが選択したプラットフォームに有効なプッシュトークンを登録していることを確認してください。プッシュトークンを受信するには、ユーザーがデバイス上のアプリでプッシュ通知を受信するように設定されている必要があります。詳細については、[プッシュの有効化とプッシュサブスクリプション]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states)を参照してください。
 
 {% endtab %}
 {% tab SMS/MMSおよびRCS %}
@@ -293,7 +293,7 @@ Webhookを作成した後、テスト送信を行ってWebhookのレスポンス
 
 ### ユーザー属性でパーソナライズされたCampaignのテスト {#testing-campaigns-personalized-with-user-attributes}
 
-メッセージで[パーソナライゼーション]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/overview/)を使用している場合、Campaignを適切にプレビューし、ユーザーデータがコンテンツに正しく反映されていることを確認するために、追加の手順が必要です。
+メッセージで[パーソナライゼーション]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/overview)を使用している場合、Campaignを適切にプレビューし、ユーザーデータがコンテンツに正しく反映されていることを確認するために、追加の手順が必要です。
 
 テストメッセージを送信する際は、**既存のユーザーを選択**するか、**カスタムユーザー**としてプレビューするオプションを選択してください。
 
@@ -319,7 +319,7 @@ Webhookを作成した後、テスト送信を行ってWebhookのレスポンス
 
 ### カスタムイベントプロパティでパーソナライズされたCampaignのテスト {#testing-campaigns-personalized-with-custom-event-properties}
 
-[カスタムイベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/)でパーソナライズされたCampaignのテストは、他のタイプのCampaignのテストとは若干異なります。
+[カスタムイベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties)でパーソナライズされたCampaignのテストは、他のタイプのCampaignのテストとは若干異なります。
 
 {% tabs local %}
 {% tab 手動トリガー %}
@@ -333,7 +333,7 @@ Webhookを作成した後、テスト送信を行ってWebhookのレスポンス
 ![プロパティを使用したテストメッセージの作成]({% image_buster /assets/img_archive/testeventproperties-compose.png %})
 
 {: start="2"}
-2. [アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)を使用して、イベント発生時にCampaignを配信します。
+2. [アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)を使用して、イベント発生時にCampaignを配信します。
 
 {% alert note %}
 iOSプッシュCampaignをテストする場合は、iOSは現在開いているアプリのプッシュ通知を配信しないため、アプリを終了する時間を確保するために遅延を1分に設定する必要があります。他のタイプのCampaignは即時配信に設定できます。
@@ -393,10 +393,10 @@ Liquidを使用して値を手動で入力することで、カスタムイベ�
 
 ### アプリ内メッセージ {#in-app-messages}
 
-アプリ内メッセージCampaignがプッシュCampaignによってトリガーされない場合は、アプリ内Campaignのセグメントを確認して、プッシュメッセージを受信する**前に**ユーザーがターゲットオーディエンスの条件を満たしていることを確認してください。
+アプリ内メッセージCampaignがプッシュCampaignによってトリガーされない場合は、アプリ内Campaignのセグメンテーションを確認して、プッシュメッセージを受信する**前に**ユーザーがターゲットオーディエンスの条件を満たしていることを確認してください。
 
 AndroidおよびiOSでのテスト送信では、**プッシュ許可をリクエスト**のオンクリック動作を使用するアプリ内メッセージが一部のデバイスで表示されない場合があります。回避策として：
 - **Android：** デバイスはAndroid 13以上で、Android SDKバージョン21.0.0が必要です。もう1つの理由として、アプリ内メッセージが表示されるデバイスにすでにシステムレベルのプロンプトがある場合があります。**今後表示しない**を選択した可能性があるため、再テスト前にアプリを再インストールして通知権限をリセットする必要がある場合があります。
-- **iOS：** 開発者チームにアプリのプッシュ通知の実装を確認し、プッシュ許可をリクエストするコードを手動で削除することをお勧めします。詳細については、[プッシュプライマーアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/push/best_practices/)を参照してください。
+- **iOS：** 開発者チームにアプリのプッシュ通知の実装を確認し、プッシュ許可をリクエストするコードを手動で削除することをお勧めします。詳細については、[プッシュプライマーアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/push/best_practices)を参照してください。
 
 アクションベースのアプリ内メッセージCampaignを配信するには、REST APIではなくBraze SDKを通じてカスタムイベントをログに記録する必要があります。これにより、ユーザーはデバイスに直接対象のアプリ内メッセージを受信できます。ユーザーはセッション中にイベントを実行した場合にアプリ内メッセージを受信します。

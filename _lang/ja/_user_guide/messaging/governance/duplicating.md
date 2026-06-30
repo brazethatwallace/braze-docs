@@ -11,14 +11,14 @@ tool:
 
 # CampaignとCanvasの複製 {#duplicate-campaigns-and-canvases}
 
-> 既存のCampaignやCanvasを複製して、成功した戦略を継続的にIterateし、発展させることができます。CampaignやCanvasを複製することで、配信の詳細やオーディエンスセグメントの再設定にかかる時間を最小限に抑えることができます。
+> 既存のCampaignやCanvasを複製して、成功した戦略を継続的にIterateし、発展させることができます。CampaignやCanvasを複製することで、配信の詳細やオーディエンスSegmentの再設定にかかる時間を最小限に抑えることができます。
 
 ## 複製する {#duplicating}
 
 CampaignまたはCanvasを複製すると、新しいメッセージには自動的に`"Copy of [Original Name]"`というタイトルが付けられ、その編集ページに移動します。これらの複製は、編集して起動するまで下書きのままになります。
 
 {% alert tip %}
-ワークスペース間で[Campaigns、Canvases、ランディングページをコピー]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/)することもできます。コピーは、編集してCampaignやCanvasを起動するか、ランディングページを公開するまで下書きのままになります。
+ワークスペース間で[Campaigns、Canvases、ランディングページをコピー]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces)することもできます。コピーは、編集してCampaignやCanvasを起動するか、ランディングページを公開するまで下書きのままになります。
 {% endalert %}
 
 {% tabs %}

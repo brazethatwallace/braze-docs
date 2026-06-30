@@ -8,7 +8,7 @@ description: "このページでは、新規ユーザーを歓迎し、メリッ
 
 # オンボーディングフロー {#onboarding-flow}
 
-> **オンボーディングフロー**のアプリ内メッセージテンプレートを使用して、キャンペーンの戦略を強化するユーザー属性、インサイト、プリファレンスを収集できます。
+> **オンボーディングフロー**のアプリ内メッセージテンプレートを使用して、Campaignの戦略を強化するユーザー属性、インサイト、プリファレンスを収集できます。
 
 {% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
 
@@ -28,11 +28,11 @@ description: "このページでは、新規ユーザーを歓迎し、メリッ
 
 オンボーディングフローの構築を開始するには、**Pages**セクションを使用してフローにメッセージを追加または削除します。必要な数のメッセージを用意したら、各ページのボタンを選択します。次に、サイドメニューを使用して、ユーザーがボタンを選択したときの遷移先（フローを終了するか、次のメッセージに進むか）を設定します。
 
-メッセージが順番に接続されていることを確認し、ユーザーがフローを正しく進められるようにしてください。手順については、[ページを接続する]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/?tab=adding%20pages#step-3a-connect-pages-together)を参照してください。
+メッセージが順番に接続されていることを確認し、ユーザーがフローを正しく進められるようにしてください。手順については、[ページを接続する]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop?tab=adding%20pages#step-3a-connect-pages-together)を参照してください。
 
 ### ステップ 4:メッセージをスタイリングする {#step-4-style-your-message}
 
-ドラッグ＆ドロップの[アプリ内メッセージコンポーネント]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components)を使用して、オンボーディングフローの外観をカスタマイズします。
+ドラッグ＆ドロップの[アプリ内メッセージコンポーネント]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components)を使用して、オンボーディングフローの外観をカスタマイズします。
 
 ## 結果の分析 {#analyzing-the-results}
 

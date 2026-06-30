@@ -17,7 +17,7 @@
 
 ## 1단계: Braze 고객 프로필에 다가오는 예약 데이터 기록하기 {#step-1}
 
-예약이 발생할 때마다 Braze [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 엔드포인트를 사용하여 고객 프로필에 [중첩 고객 속성]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)을 기록합니다. 중첩 고객 속성에 알림 메시지를 전송하고 개인화하는 데 필요한 모든 정보가 포함되어 있는지 확인하세요. 이 활용 사례에서는 중첩 고객 속성의 이름을 "trips"로 지정합니다.
+예약이 발생할 때마다 Braze [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 엔드포인트를 사용하여 고객 프로필에 [중첩 고객 속성]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)을 기록합니다. 중첩 고객 속성에 알림 메시지를 전송하고 개인화하는 데 필요한 모든 정보가 포함되어 있는지 확인하세요. 이 활용 사례에서는 중첩 고객 속성의 이름을 "trips"로 지정합니다.
 
 ### 예약 추가 {#add-booking}
 
@@ -136,7 +136,7 @@ Braze는 고객 프로필의 중첩 고객 속성에서 지정된 예약을 제�
 
 ### 2b단계: 메시지 작성하기 {#step-2b-create-your-message}
 
-[커스텀 HTML로 이메일 만들기]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor/)의 단계를 따라 알림 이메일 메시지를 작성합니다. Liquid를 사용하여 생성한 커스텀 고객 속성("trips")의 데이터로 메시지를 개인화합니다. 다음 예시를 참고하세요.
+[커스텀 HTML로 이메일 만들기]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor)의 단계를 따라 알림 이메일 메시지를 작성합니다. Liquid를 사용하여 생성한 커스텀 고객 속성("trips")의 데이터로 메시지를 개인화합니다. 다음 예시를 참고하세요.
 
 {% raw %}
 ```liquid
@@ -166,8 +166,8 @@ You have the following booked in 2 days! Check the information below:
 {% tabs %}
 {% tab /users/track %}
 
-#### `/users/track` 엔드포인트를 통해 데이터 전송 {#send-data-through-the-userstrack-endpoint}
-사용자가 예약을 업데이트하거나 취소할 때 커스텀 이벤트를 전송하기 위해 Braze [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 엔드포인트를 사용합니다. 해당 이벤트에서 변경 사항을 확인하는 데 필요한 데이터를 이벤트 등록정보에 포함합니다.
+#### `/users/track` 엔드포인트를 통해 데이터 전송
+사용자가 예약을 업데이트하거나 취소할 때 커스텀 이벤트를 전송하기 위해 Braze [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 엔드포인트를 사용합니다. 해당 이벤트에서 변경 사항을 확인하는 데 필요한 데이터를 이벤트 등록정보에 포함합니다.
 
 이 활용 사례에서 사용자가 시드니 여행 날짜를 업데이트했다고 가정해 보겠습니다. 이벤트는 다음과 같습니다:
 
@@ -193,7 +193,7 @@ You have the following booked in 2 days! Check the information below:
 {% endtab %}
 {% tab SDK %}
 
-#### SDK를 통해 고객 프로필에 커스텀 이벤트 전송하기 {#write-nested-attributes-to-user-profiles-through-the-sdk}
+#### SDK를 통해 고객 프로필에 커스텀 이벤트 전송하기
 
 SDK를 통해 고객 프로필에 커스텀 이벤트를 전송합니다. 예를 들어, 웹 SDK를 사용하고 있다면 다음과 같이 전송할 수 있습니다:
 
@@ -212,7 +212,7 @@ braze.logCustomEvent("trip_updated", {
 
 ### 3b단계: 업데이트 확인 메시지 작성하기 {#step-3b-create-a-message-to-confirm-the-update}
 
-사용자에게 업데이트된 예약 확인을 보내기 위해 [행동 기반 Campaign]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/)을 생성합니다. [Liquid를 사용하여 이벤트 등록정보를 템플릿화]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)하면 예약의 이름, 이전 시간, 새로운 시간(취소인 경우 이름만)을 메시지에 반영할 수 있습니다.
+사용자에게 업데이트된 예약 확인을 보내기 위해 [행동 기반 Campaign]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery)을 생성합니다. [Liquid를 사용하여 이벤트 등록정보를 템플릿화]({{site.baseurl}}/user_guide/data/custom_data/custom_events)하면 예약의 이름, 이전 시간, 새로운 시간(취소인 경우 이름만)을 메시지에 반영할 수 있습니다.
 
 예를 들어, 다음과 같은 메시지를 작성할 수 있습니다:
 

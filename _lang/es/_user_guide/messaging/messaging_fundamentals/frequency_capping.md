@@ -139,7 +139,7 @@ Algunas notas a tener en cuenta al configurar límites de velocidad y qué compo
 - Los siguientes mensajes no serán limitados ni contarán para el límite de velocidad:
     - Envíos de prueba
     - Grupos semilla
-    - Content Cards configuradas para crearse "en la primera impresión" (esto será controlado por la tasa de impresiones de la aplicación. Consulta [Creación de tarjetas]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences) para más información sobre las diferencias entre las opciones de creación de tarjetas).
+    - Content Cards configuradas para crearse "en la primera impresión" (esto será controlado por la tasa de impresiones de la aplicación. Consulta [Creación de tarjetas]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences) para más información sobre las diferencias entre las opciones de creación de tarjetas.)
 - Los límites de velocidad de entrega no son compatibles con lo siguiente:
     - Respuestas automáticas de SMS
     - Mensajes respaldados por SLA (como [correo electrónico transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email))
@@ -164,7 +164,7 @@ En lugar de intentar compensar el retraso y enviar los 6000 mensajes restantes e
 | 7      | 10 000     | 10 000                    |
 | 8      | 5000      | 10 000                    |
 | 9      | 0          | 6000                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Rate limiting and Connected Content retries" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Límite de velocidad y reintentos de contenido conectado" }
 
 Las solicitudes de contenido conectado no tienen un límite de velocidad independiente y seguirán el límite de velocidad del webhook. Esto significa que si hay una llamada de contenido conectado a un punto de conexión único por webhook, esperarías 5000 webhooks y también 5000 llamadas de contenido conectado por minuto. Ten en cuenta que el almacenamiento en caché puede afectar esto y reducir el número de llamadas de contenido conectado. Además, los reintentos pueden aumentar las llamadas de contenido conectado, por lo que recomendamos verificar que el punto de conexión de contenido conectado pueda manejar cierta fluctuación aquí.
 

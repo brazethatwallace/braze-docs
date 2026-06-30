@@ -44,7 +44,7 @@ Par défaut, nous collectons les numéros à l'échelle mondiale, mais vous pouv
 
 #### Numéros de téléphone invalides {#invalid-phone-numbers}
 
-Si vos utilisateurs saisissent un numéro de téléphone contenant des caractères spéciaux non acceptés, ils verront un indicateur d'erreur générique qui n'est pas personnalisable et ne pourront pas soumettre le formulaire. Vous pouvez visualiser le comportement d'erreur dans l'onglet **Preview & Test** et sur votre appareil de test. Consultez cet article pour découvrir [comment Braze formate les numéros de téléphone]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#importing-phone-numbers).
+Si vos utilisateurs saisissent un numéro de téléphone contenant des caractères spéciaux non acceptés, ils verront un indicateur d'erreur générique qui n'est pas personnalisable et ne pourront pas soumettre le formulaire. Vous pouvez visualiser le comportement d'erreur dans l'onglet **Preview & Test** et sur votre appareil de test. Consultez cet article pour découvrir [comment Braze formate les numéros de téléphone]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers).
 
 ### Étape 4 : Ajouter une clause de non-responsabilité (pour les formulaires d'inscription SMS et RCS) {#step-4-add-disclaimer-language-for-sms-and-rcs-sign-up-forms}
 
@@ -62,11 +62,11 @@ Nous avons fourni une clause de non-responsabilité à titre d'exemple dans le m
 Cette documentation n'est pas destinée à fournir, et ne peut pas être considérée comme fournissant, des conseils juridiques.
 {% endalert %}
 
-Pour plus d'informations sur la conformité SMS et RCS, consultez [Lois et réglementations pour les SMS, MMS et RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/).
+Pour plus d'informations sur la conformité SMS et RCS, consultez [Lois et réglementations pour les SMS, MMS et RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
 
 ### Étape 5 : Styliser votre message {#step-5-style-your-message}
 
-Personnalisez l'apparence de votre message à l'aide des [composants de messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) par glisser-déposer.
+Personnalisez l'apparence de votre message à l'aide des [composants de messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) par glisser-déposer.
 
 ## Analyser les résultats {#analyzing-the-results}
 

@@ -26,7 +26,7 @@ Wenn Sie eine Drag-and-Drop-In-App-Nachricht erstellen, wählen Sie **Email sign
 
 ### 3. Schritt: E-Mail-Registrierungskomponente anpassen {#step-3-customize-your-email-sign-up-component}
 
-Um mit der Erstellung Ihres E-Mail-Registrierungsformulars zu beginnen, wählen Sie das E-Mail-Erfassungselement im Editor aus. Standardmäßig erhalten erfasste E-Mail-Adressen den globalen Abo-Gruppen-Status **Abonniert**. Um Nutzer:innen für bestimmte Abo-Gruppen anzumelden, lesen Sie [E-Mail-Abo-Status aktualisieren]({{site.baseurl}}/user_guide/channels/email/subscriptions/#updating-email-subscription-states).
+Um mit der Erstellung Ihres E-Mail-Registrierungsformulars zu beginnen, wählen Sie das E-Mail-Erfassungselement im Editor aus. Standardmäßig erhalten erfasste E-Mail-Adressen den globalen Abo-Gruppen-Status **Abonniert**. Um Nutzer:innen für bestimmte Abo-Gruppen anzumelden, lesen Sie [E-Mail-Abo-Status aktualisieren]({{site.baseurl}}/user_guide/channels/email/subscriptions#updating-email-subscription-states).
 
 Sie können den Platzhaltertext und den Beschriftungstext des E-Mail-Erfassungselements anpassen.
 
@@ -34,7 +34,7 @@ Sie können den Platzhaltertext und den Beschriftungstext des E-Mail-Erfassungse
 
 #### E-Mail-Validierung {#email-validation}
 
-Wenn Nutzer:innen eine E-Mail-Adresse eingeben, die nicht akzeptierte Sonderzeichen enthält, wird ein allgemeiner Fehlerindikator angezeigt und das Formular kann nicht gesendet werden. Diese Fehlermeldung ist nicht anpassbar. Sie können das Fehlerverhalten im Tab **Preview & Test** und auf Ihrem Testgerät überprüfen. Erfahren Sie mehr darüber, wie Braze E-Mail-Adressen formatiert, unter [E-Mail-Validierung]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation/).
+Wenn Nutzer:innen eine E-Mail-Adresse eingeben, die nicht akzeptierte Sonderzeichen enthält, wird ein allgemeiner Fehlerindikator angezeigt und das Formular kann nicht gesendet werden. Diese Fehlermeldung ist nicht anpassbar. Sie können das Fehlerverhalten im Tab **Preview & Test** und auf Ihrem Testgerät überprüfen. Erfahren Sie mehr darüber, wie Braze E-Mail-Adressen formatiert, unter [E-Mail-Validierung]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation).
 
 ### 4. Schritt: Haftungsausschluss hinzufügen (optional) {#step-4-add-disclaimer-language-optional}
 
@@ -42,7 +42,7 @@ Wenn Nutzer:innen eine E-Mail-Adresse eingeben, die nicht akzeptierte Sonderzeic
 
 ### 5. Schritt: Nachricht gestalten {#step-5-style-your-message}
 
-Passen Sie das Erscheinungsbild Ihres Registrierungsformulars mithilfe der Drag-and-Drop-[In-App-Nachrichten-Komponenten]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) an.
+Passen Sie das Erscheinungsbild Ihres Registrierungsformulars mithilfe der Drag-and-Drop-[In-App-Nachrichten-Komponenten]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) an.
 
 ## Ergebnisse analysieren {#analyzing-the-results}
 

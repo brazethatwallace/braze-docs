@@ -43,7 +43,7 @@ Brazeダッシュボードで、**コンテンツ** > **Canvas**に移動しま�
 
 ### ステップ3: テンプレートをカスタマイズする {#step-3-customize-your-template}
 
-次に、[Canvasを設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-2-build-your-canvas)してテンプレートをカスタマイズします。ユーザーがCanvasに入るタイミングの決定、このCanvasに入れるユーザーの指定、送信設定の調整、テンプレートのユーザージャーニーの構築を行うことができます。
+次に、[Canvasを設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas)してテンプレートをカスタマイズします。ユーザーがCanvasに入るタイミングの決定、このCanvasに入れるユーザーの指定、送信設定の調整、テンプレートのユーザージャーニーの構築を行うことができます。
 
 ### ステップ4: テンプレートを保存する {#step-4-save-your-template}
 
@@ -58,7 +58,7 @@ Canvasを作成する際にテンプレートを使用する方法は2つあり�
 
 ### 利用可能なBrazeテンプレート {#available-braze-templates}
 
-利用可能なキャンバステンプレートの一覧については、[Brazeキャンバステンプレート]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/)を参照してください。eコマースキャンバステンプレートの使用方法については、[eコマース推奨イベントの使い方]({{site.baseurl}}/ecommerce_use_cases/)を参照してください。
+利用可能なキャンバステンプレートの一覧については、[Brazeキャンバステンプレート]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates)を参照してください。eコマースキャンバステンプレートの使用方法については、[eコマース推奨イベントの使い方]({{site.baseurl}}/ecommerce_use_cases)を参照してください。
 
 ## キャンバステンプレートの管理 {#managing-canvas-templates}
 
@@ -68,7 +68,7 @@ Canvasを作成する際にテンプレートを使用する方法は2つあり�
 
 ### チームとワークスペースの権限 {#permissions-for-teams-and-workspaces}
 
-特定のユーザーのみが特定のキャンバステンプレートにアクセスして使用できるようにするには、テンプレートに[チームを追加]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)し、チームレベルの「Access Campaigns, Canvases, Content Cards, Content Blocks, Feature Flags, Segments, Media Library, and Preference Center」権限を割り当てます。
+特定のユーザーのみが特定のキャンバステンプレートにアクセスして使用できるようにするには、テンプレートに[チームを追加]({{site.baseurl}}/user_guide/administer/global/user_management/teams)し、チームレベルの「Access Campaigns, Canvases, Content Cards, Content Blocks, Feature Flags, Segments, Media Library, and Preference Center」権限を割り当てます。
 
 以下の権限をチームレベルで割り当て、ワークスペースレベルでは割り当てない場合、自分のチームに割り当てられた範囲でのみ以下の操作が可能です。
 

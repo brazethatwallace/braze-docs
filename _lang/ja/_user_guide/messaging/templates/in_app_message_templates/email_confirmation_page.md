@@ -26,7 +26,7 @@ description: "このページでは、アプリ内メッセージのドラッグ
 
 ### ステップ 3:メールサインアップコンポーネントをカスタマイズする {#step-3-customize-your-email-sign-up-component}
 
-メールサインアップフォームの作成を開始するには、エディターでメールキャプチャ要素を選択します。デフォルトでは、収集されたメールアドレスにはグローバルサブスクリプショングループ**Subscribed**が設定されます。特定のサブスクリプショングループにユーザーをオプトインさせるには、[メールサブスクリプション状態の更新]({{site.baseurl}}/user_guide/channels/email/subscriptions/#updating-email-subscription-states)を参照してください。
+メールサインアップフォームの作成を開始するには、エディターでメールキャプチャ要素を選択します。デフォルトでは、収集されたメールアドレスにはグローバルサブスクリプショングループ**Subscribed**が設定されます。特定のサブスクリプショングループにユーザーをオプトインさせるには、[メールサブスクリプション状態の更新]({{site.baseurl}}/user_guide/channels/email/subscriptions#updating-email-subscription-states)を参照してください。
 
 メールキャプチャ要素のプレースホルダーテキストとラベルテキストをカスタマイズできます。
 
@@ -42,7 +42,7 @@ description: "このページでは、アプリ内メッセージのドラッグ
 
 ### ステップ 5:メッセージのスタイルを設定する {#step-5-style-your-message}
 
-ドラッグ＆ドロップの[アプリ内メッセージコンポーネント]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components)を使用して、メールサインアップフォームと確認ページの外観をカスタマイズします。
+ドラッグ＆ドロップの[アプリ内メッセージコンポーネント]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components)を使用して、メールサインアップフォームと確認ページの外観をカスタマイズします。
 
 ## 結果の分析 {#analyzing-the-results}
 

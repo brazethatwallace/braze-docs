@@ -45,7 +45,7 @@ Regardez la vidéo suivante pour un aperçu facultatif de la configuration et de
 
 ### Étape 1 : Configurer les paramètres régionaux {#step-1-set-up-locales}
 
-Avant de pouvoir ajouter des traductions à un message, vous devez d'abord [créer les paramètres régionaux que vous souhaitez prendre en charge]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings/). Les paramètres régionaux définissent les variantes de langue (et éventuellement de région) disponibles pour l'envoi de messages.
+Avant de pouvoir ajouter des traductions à un message, vous devez d'abord [créer les paramètres régionaux que vous souhaitez prendre en charge]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings). Les paramètres régionaux définissent les variantes de langue (et éventuellement de région) disponibles pour l'envoi de messages.
 
 ### Étape 2 : Marquer le contenu pour la traduction {#step-2-mark-content-for-translation}
 
@@ -197,7 +197,7 @@ Lorsque vous dupliquez une étape Canvas, une Campaign ou une variante, les trad
 
 ### Enregistrer les traductions dans les Content Blocks {#save-translations-in-content-blocks}
 
-Les Content Blocks prennent en charge le multilingue de la même manière que les messages. Lors de la création ou de la modification de Content Blocks, vous pouvez marquer le contenu pour la traduction, ajouter des paramètres régionaux et télécharger des traductions à l'aide d'un CSV ou de l'[API de traduction]({{site.baseurl}}/api/endpoints/translations/).
+Les Content Blocks prennent en charge le multilingue de la même manière que les messages. Lors de la création ou de la modification de Content Blocks, vous pouvez marquer le contenu pour la traduction, ajouter des paramètres régionaux et télécharger des traductions à l'aide d'un CSV ou de l'[API de traduction]({{site.baseurl}}/api/endpoints/translations).
 
 Les traductions enregistrées restent associées au Content Block. Lorsque le bloc est ajouté à un message, ses traductions sont automatiquement incluses.
 
@@ -213,7 +213,7 @@ Lorsque vous remplissez le fichier de traduction pour les langues écrites de dr
 
 ### Suivi des liens e-mail {#email-link-tracking}
 
-Dans les Campaigns par e-mail, Braze suit les liens en ajoutant des informations de suivi (paramètres de requête) à chaque URL. Ce comportement prend en charge à la fois l'[aliasage de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/) et les [modèles de liens]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/).
+Dans les Campaigns par e-mail, Braze suit les liens en ajoutant des informations de suivi (paramètres de requête) à chaque URL. Ce comportement prend en charge à la fois l'[aliasage de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) et les [modèles de liens]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template).
 
 Lorsqu'une URL est encadrée par des balises de traduction, Braze peut ne pas être en mesure de déterminer où ajouter ces informations de suivi. Pour garantir le bon fonctionnement, vous devez inclure un caractère spécial à la fin de l'URL pour indiquer où le suivi doit être ajouté.
 
@@ -231,7 +231,7 @@ Les URL utilisent deux caractères spéciaux pour contrôler ce fonctionnement :
 
 ### Paramètres de langue et accessibilité {#language-settings-and-accessibility}
 
-Commencez par [Langue d'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language) dans [Accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/) pour le contexte WCAG, le comportement par canal et éditeur (y compris les pages d'accueil), et les paramètres d'**accessibilité** au niveau du message.
+Commencez par [Langue d'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language) dans [Accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) pour le contexte WCAG, le comportement par canal et éditeur (y compris les pages d'accueil), et les paramètres d'**accessibilité** au niveau du message.
 
 Lorsque vous utilisez des **messages multilingues**, alignez la langue d'accessibilité avec chaque paramètre régional afin que les envois localisés déclarent la langue appropriée.
 
@@ -241,17 +241,17 @@ Vous pouvez définir la langue d'accessibilité à deux niveaux :
 
 ##### Au niveau du message {#message-level}
 
-Au niveau du message, définissez la langue d'accessibilité dans la section **Accessibilité** des paramètres de votre message. Pour sélectionner une langue, utiliser Liquid et connaître les limitations par canal, consultez [Langue d'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language).
+Au niveau du message, définissez la langue d'accessibilité dans la section **Accessibilité** des paramètres de votre message. Pour sélectionner une langue, utiliser Liquid et connaître les limitations par canal, consultez [Langue d'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language).
 
 ##### Au niveau du paramètre régional {#locale-level}
 
 Pour les messages multilingues, définissez la langue d'accessibilité pour chaque paramètre régional dans les **Paramètres de localisation**. Vous pouvez utiliser {% raw %}`{{accessibility_language}}`{% endraw %} dans la section **Accessibilité** afin que la langue du document ou de la carte corresponde aux valeurs de ces paramètres régionaux.
 
-Le fait que ce jeton apparaisse par défaut pour les nouveaux messages dépend du canal et de l'éditeur. Par exemple, les messages in-app et les bannières se comportent différemment des pages d'accueil et des e-mails par glisser-déposer. Consultez [Langue d'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language) pour plus de détails.
+Le fait que ce jeton apparaisse par défaut pour les nouveaux messages dépend du canal et de l'éditeur. Par exemple, les messages in-app et les bannières se comportent différemment des pages d'accueil et des e-mails par glisser-déposer. Consultez [Langue d'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language) pour plus de détails.
 
 ## Questions fréquemment posées {#frequently-asked-questions}
 
-#### Quelles sont les limites pour les balises de traduction ? {#what-are-the-limits-for-translation-tags}
+### Quelles sont les limites pour les balises de traduction ? {#what-are-the-limits-for-translation-tags}
 
 Lorsque vous utilisez des balises de traduction, les limites suivantes s'appliquent :
 
@@ -279,7 +279,7 @@ De plus, envisagez d'encadrer des morceaux de texte plus petits et sémantiqueme
 
 #### Puis-je modifier le texte traduit dans l'un de mes paramètres régionaux ?
 
-Oui. Si vous utilisez un CSV, commencez par effectuer la modification dans le fichier, puis téléchargez-le à nouveau pour mettre à jour le texte traduit. Si vous utilisez l'[API de traduction]({{site.baseurl}}/api/endpoints/translations/), utilisez les endpoints de mise à jour pour effectuer des modifications.
+Oui. Si vous utilisez un CSV, commencez par effectuer la modification dans le fichier, puis téléchargez-le à nouveau pour mettre à jour le texte traduit. Si vous utilisez l'[API de traduction]({{site.baseurl}}/api/endpoints/translations), utilisez les endpoints de mise à jour pour effectuer des modifications.
 
 #### Quelles validations ou vérifications supplémentaires Braze effectue-t-il ? {#what-validations-or-extra-checks-does-braze-do}
 

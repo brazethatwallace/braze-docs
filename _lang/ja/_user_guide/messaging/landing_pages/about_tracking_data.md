@@ -12,7 +12,7 @@ alias: /landing_pages/data_tracking/
 
 ## トラッキング方法 {#tracking-methods}
 
-### Web SDK
+### Web SDK {#web-sdk}
 
 Braze Web SDKは、ユーザーがランディングページでフォームを送信した際に初期化されます。フォーム送信前には、個人データは収集されず、SDKはユーザーを能動的に追跡しません。初期化が完了した後も、SDKはブラウザにデータを保存しません（Cookie、ローカルストレージなどを含む）。
 
@@ -38,5 +38,5 @@ Brazeは、ランディングページフォームが送信された際に、メ
 
 重複ユーザープロファイルを統合するには、以下の方法があります。
 
-- ランディングページフォームが送信された際に[`/users/merge`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)をトリガーして、新しいプロファイルを既存のプロファイルと統合します。
-- [一括統合]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/#bulk-merging)をスケジュールして、一致する識別子に基づいて重複プロファイルを定期的に統合します。
+- ランディングページフォームが送信された際に[`/users/merge`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)をトリガーして、新しいプロファイルを既存のプロファイルと統合します。
+- [一括統合]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#bulk-merging)をスケジュールして、一致する識別子に基づいて重複プロファイルを定期的に統合します。

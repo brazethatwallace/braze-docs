@@ -1,6 +1,6 @@
 {% if include.section == "default behavior" %}
 
-Par défaut, le contenu connecté définit un `Content-Type` en-tête d’une demande GET HTTP que cela rend `application/json` avec `Accept: */*`. Si vous avez besoin d’un autre type de contenu, spécifiez-le explicitement en ajoutant `:content_type your/content-type` à la balise. Braze définira alors l’en-tête Type de contenu et Accepter au type que vous spécifiez.
+Par défaut, le Contenu connecté définit un en-tête `Content-Type` sur la requête HTTP GET qu'il effectue à `application/json` avec `Accept: */*`. Si vous avez besoin d'un autre type de contenu, spécifiez-le explicitement en ajoutant `:content_type your/content-type` à la balise. Braze définira alors l'en-tête Content-Type et l'en-tête Accept selon le type que vous spécifiez.
 
 {% raw %}
 ```js
@@ -12,11 +12,11 @@ Par défaut, le contenu connecté définit un `Content-Type` en-tête d’une de
 
 {% if include.section == "http post" %}
 
-Par défaut, le contenu connecté fait une demande HTTP GET à l’URL spécifiée. Pour effectuer une demande POST, précisez `:method post`.
+Par défaut, le Contenu connecté effectue une requête HTTP GET vers l'URL spécifiée. Pour effectuer une requête POST à la place, spécifiez `:method post`.
 
-Vous pouvez éventuellement fournir un corps POST en spécifiant `:body` suivi d’une chaîne de caractères de requête du format `key1=value1&key2=value2&...` ou une référence à des valeurs capturées. Type de contenu par défaut `application/x-www-form-urlencoded`. Si vous spécifiez `:content_type application/json` et fournir un corps sous forme de code-urétroté, comme `key1=value1&key2=value2`, Braze jSON automatiquement le code de l’organisme avant d’envoyer.
+Vous pouvez également fournir un corps POST en spécifiant `:body` suivi d'une chaîne de caractères de requête au format `key1=value1&key2=value2&...` ou d'une référence à des valeurs capturées. Le Content-Type par défaut est `application/x-www-form-urlencoded`. Si vous spécifiez `:content_type application/json` et fournissez un corps encodé en URL tel que `key1=value1&key2=value2`, Braze encodera automatiquement le corps en JSON avant l'envoi.
 
-Par défaut, le contenu connecté ne met pas non plus en cache les appels POST. Vous pouvez modifier ce comportement en ajoutant `:cache_max_age` à l'appel POST du contenu connecté.
+Par défaut, le Contenu connecté ne met pas non plus en cache les appels POST. Vous pouvez modifier ce comportement en ajoutant `:cache_max_age` à l'appel POST du Contenu connecté.
 
 {% tabs %}
 {% tab Default content-type %}

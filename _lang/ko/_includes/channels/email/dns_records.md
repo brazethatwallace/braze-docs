@@ -9,4 +9,4 @@
 | Squarespace | [커스텀 DNS 설정 추가하기](https://support.squarespace.com/hc/en-us/articles/360002101888-Adding-custom-DNS-records-to-your-Squarespace-managed-domain) |
 | Amazon Route 53 | [Amazon Route 53 콘솔을 사용하여 레코드 생성하기](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-creating.html) |
 | Google Cloud DNS | [빠른 시작: Cloud DNS를 사용하여 도메인 이름의 DNS 레코드 설정하기](https://docs.cloud.google.com/dns/docs/set-up-dns-records-domain-name) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="표" }

@@ -44,7 +44,7 @@ description: "このページでは、アプリ内メッセージのドラッグ
 
 #### 無効な電話番号 {#invalid-phone-numbers}
 
-ユーザーが許可されていない特殊文字を含む電話番号を入力した場合、カスタマイズ不可の汎用エラーインジケーターが表示され、フォームを送信できません。**Preview & Test**タブおよびテストデバイスでエラーの動作を確認できます。Brazeが電話番号をどのようにフォーマットするかについては、[こちらの記事]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#importing-phone-numbers)を参照してください。
+ユーザーが許可されていない特殊文字を含む電話番号を入力した場合、カスタマイズ不可の汎用エラーインジケーターが表示され、フォームを送信できません。**Preview & Test**タブおよびテストデバイスでエラーの動作を確認できます。Brazeが電話番号をどのようにフォーマットするかについては、[こちらの記事]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers)を参照してください。
 
 ### ステップ 4:免責事項の文言を追加する（SMSおよびRCS登録フォームの場合） {#step-4-add-disclaimer-language-for-sms-and-rcs-sign-up-forms}
 
@@ -62,11 +62,11 @@ SMSおよびRCS登録フォームでは、送信するSMSまたはRCSの種類�
 このドキュメントは法的助言を提供することを意図しておらず、法的助言として完全に依拠することはできません。
 {% endalert %}
 
-SMSおよびRCSのコンプライアンスの詳細については、[SMS、MMS、RCSに関する法律と規制]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/)を参照してください。
+SMSおよびRCSのコンプライアンスの詳細については、[SMS、MMS、RCSに関する法律と規制]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations)を参照してください。
 
 ### ステップ 5:メッセージのスタイルを設定する {#step-5-style-your-message}
 
-ドラッグ＆ドロップの[アプリ内メッセージコンポーネント]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components)を使用して、メッセージの外観をカスタマイズします。
+ドラッグ＆ドロップの[アプリ内メッセージコンポーネント]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components)を使用して、メッセージの外観をカスタマイズします。
 
 ## 結果の分析 {#analyzing-the-results}
 

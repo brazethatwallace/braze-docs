@@ -1,6 +1,6 @@
 {% if include.section == "Differing audience size" %}
 
-La taille de la population cible affichée dans une campagne ou un Canvas peut différer de la [taille de l'audience atteignable pour un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size/#segment-membership-calculation), même si vous ajoutez directement ce segment dans votre campagne ou votre Canvas sans filtre supplémentaire.
+La taille de la population cible affichée dans une campagne ou un Canvas peut différer de la [taille de l'audience atteignable pour un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size#segment-membership-calculation), même si vous ajoutez directement ce segment dans votre campagne ou votre Canvas sans filtre supplémentaire.
 Cela peut se produire pour plusieurs raisons :
 
 - Lorsqu'un Groupe de contrôle global s'applique à une campagne ou à un Canvas, les utilisateurs de ce Groupe de contrôle global sont exclus du décompte des utilisateurs pouvant être atteints.
@@ -58,7 +58,7 @@ Les actualisations planifiées sont automatiquement désactivées lorsqu'une ext
 
 - Non utilisée dans des campagnes ou des Canvas actifs
 - Non utilisée dans un segment faisant partie d'une campagne ou d'un Canvas actif
-- Non utilisée dans un segment où le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking) est activé
+- Non utilisée dans un segment où le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking) est activé
 - Non modifiée depuis plus de sept jours
 - Non ajoutée à une campagne, un Canvas (y compris les brouillons) ou un segment depuis plus de sept jours
 

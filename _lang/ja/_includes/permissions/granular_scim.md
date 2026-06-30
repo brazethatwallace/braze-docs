@@ -80,190 +80,190 @@ Brazeではアプリグループはワークスペースに改名されました
 
 | UIでの表示 | SCIM API文字列 |
 | --- | --- |
-| 管理者 | `admin` |
-| 会社の設定を管理 | `manage_company_settings` |
-| ワークスペースの作成と削除 | `add_remove_app_groups` |
+| Administrator | `admin` |
+| Manage Company Settings | `manage_company_settings` |
+| Create and delete workspaces | `add_remove_app_groups` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Company permission strings #company" }
 
 ### ワークスペース権限文字列 {#workspace-strings}
 
 | 権限名 | SCIM API文字列 |
 | --- | --- |
-| キャンペーンを表示 | `view_campaigns` |
-| キャンペーンを編集 | `edit_campaigns` |
-| キャンペーンをアーカイブ | `archive_campaigns` |
-| キャンバスを表示 | `view_canvases` |
-| キャンバスを編集 | `edit_canvases` |
-| キャンバスをアーカイブ | `archive_canvases` |
-| フリークエンシーキャップルールを表示 | `view_frequency_caps` |
-| フリークエンシーキャップルールを編集 | `edit_frequency_caps` |
-| メッセージの優先順位付けを表示 | `view_message_prioritization` |
-| メッセージの優先順位付けを編集 | `edit_message_prioritization` |
-| Content Blocksを表示 | `view_content_blocks` |
-| Content Blocksを編集 | `edit_content_blocks` |
-| Content Blocksをアーカイブ | `archive_content_blocks` |
-| フィーチャーフラグを表示 | `view_feature_flags` |
-| フィーチャーフラグを編集 | `edit_feature_flags` |
-| フィーチャーフラグをアーカイブ | `archive_feature_flags` |
-| セグメントを表示 | `view_segments` |
-| セグメントを編集 | `edit_segments` |
-| セグメントをアーカイブ | `archive_segments` |
-| グローバルコントロールグループを表示 | `view_global_control_group` |
-| グローバルコントロールグループを編集 | `edit_global_control_group` |
-| IAMテンプレートを表示 | `view_iam_templates` |
-| IAMテンプレートを編集 | `edit_iam_templates` |
-| IAMテンプレートをアーカイブ | `archive_iam_templates` |
-| メールテンプレートを表示 | `view_email_templates` |
-| メールテンプレートを編集 | `edit_email_templates` |
-| メールテンプレートをアーカイブ | `archive_email_templates` |
-| Webhookテンプレートを表示 | `view_webhook_templates` |
-| Webhookテンプレートを編集 | `edit_webhook_templates` |
-| Webhookテンプレートをアーカイブ | `archive_webhook_templates` |
-| メールリンクテンプレートを表示 | `view_link_templates` |
-| メールリンクテンプレートを編集 | `edit_link_templates` |
-| メディアライブラリアセットを表示 | `view_media_library_assets` |
-| ロケーションを表示 | `view_locations` |
-| ロケーションを編集 | `edit_locations` |
-| ロケーションをアーカイブ | `archive_locations` |
-| プロモーションコードを表示 | `view_promotion_codes` |
-| プロモーションコードを編集 | `edit_promotion_codes` |
-| プロモーションコードをエクスポート | `export_promotion_codes` |
-| ユーザー設定センターを表示 | `view_preference_centers` |
-| ユーザー設定センターを編集 | `edit_preference_centers` |
-| レポートを編集 | `edit_reports` |
-| プレースメントを表示 | `view_placements` |
-| プレースメントを編集 | `edit_placements` |
-| プレースメントをアーカイブ | `archive_placements` |
-| バナーテンプレートを表示 | `view_banner_templates` |
-| 多言語設定を表示 | `view_multi_language_settings` |
-| BrazeAI Operator<sup>TM</sup>を使用 | `use_operator` |
-| Decisioning Studioエージェントを表示 | `view_decisioning_studio_agents` |
-| Decisioning Studioオーディエンスを表示 | `view_decisioning_studio_audience` |
-| Decisioning Studioコンバージョンイベントを表示 | `view_decisioning_studio_conversion_event` |
-| Decisioning Studioガードレールを表示 | `view_decisioning_studio_guardrails` |
-| キャンペーンを起動 | `launch_campaigns` |
-| キャンバスを起動 | `launch_canvases` |
-| ダッシュボードユーザーを編集 | `edit_dashboard_users` |
-| メディアライブラリアセットを編集 | `edit_media_library_assets` |
-| メディアライブラリアセットを削除 | `delete_media_library_assets` |
-| ユーザーインポートを表示 | `view_import_users` |
-| ユーザーをインポート | `import_users` |
-| ユーザーデータを編集 | `edit_user_data` |
-| ユーザーマージ記録を表示 | `view_user_merge_records` |
-| 重複ユーザーをマージ | `merge_duplicate_users` |
-| APIキーを表示 | `view_api_keys` |
-| APIキーを編集 | `edit_api_keys` |
-| 内部グループを表示 | `view_internal_user_groups` |
-| 内部グループを編集 | `edit_internal_user_groups` |
-| 内部グループを削除 | `delete_internal_user_groups` |
-| メッセージアクティビティログを表示 | `view_message_activity_log` |
-| イベントユーザーログを表示 | `view_event_user_log` |
-| API識別子を表示 | `view_api_identifiers` |
-| API使用状況ダッシュボードを表示 | `view_api_usage_dashboard` |
-| API制限を表示 | `view_api_limits` |
-| API使用アラートを表示 | `view_api_usage_alerts` |
-| API使用アラートを編集 | `edit_api_usage_alerts` |
-| SDKデバッガーを表示 | `view_sdk_debugger` |
-| SDKデバッガーを編集 | `edit_sdk_debugger` |
-| Content Blocksを起動 | `launch_content_blocks` |
-| クラウドデータ取り込みを編集 | `edit_cloud_data_ingestion` |
-| アプリ設定を表示 | `view_app_settings` |
-| アプリ設定を編集 | `edit_app_settings` |
-| プッシュ設定を表示 | `view_push_settings` |
-| プッシュ設定を編集 | `edit_push_settings` |
-| チームを表示 | `view_teams` |
-| チームを編集 | `edit_teams` |
-| チームをアーカイブ | `archive_teams` |
-| カスタム属性を表示 | `view_custom_attributes` |
-| カスタム属性を編集 | `edit_custom_attributes` |
-| カスタム属性をブロックリストに追加 | `blocklist_custom_attributes` |
-| カスタム属性を削除 | `delete_custom_attributes` |
-| カスタム属性をエクスポート | `export_custom_attributes` |
-| カスタムイベントを表示 | `view_custom_events` |
-| カスタムイベントを編集 | `edit_custom_events` |
-| カスタムイベントをブロックリストに追加 | `blocklist_custom_events` |
-| カスタムイベントを削除 | `delete_custom_events` |
-| カスタムイベントをエクスポート | `export_custom_events` |
-| カスタムイベントプロパティのセグメンテーションを編集 | `edit_custom_event_property_segmentation` |
-| 製品を表示 | `view_products` |
-| 製品を編集 | `edit_products` |
-| 製品をブロックリストに追加 | `blocklist_products` |
-| 購入プロパティのセグメンテーションを編集 | `edit_purchase_property_segmentation` |
-| タグを表示 | `view_tags` |
-| タグを編集 | `edit_tags` |
-| タグを削除 | `delete_tags` |
-| メール設定を表示 | `view_email_settings` |
-| メール設定を編集 | `edit_email_settings` |
-| カタログを表示 | `view_catalogs` |
-| カタログを編集 | `edit_catalogs` |
-| カタログをエクスポート | `export_catalogs` |
-| カタログを削除 | `delete_catalogs` |
-| WhatsApp設定を表示 | `view_whatsapp_settings` |
-| テクノロジーパートナーを編集 | `edit_technology_partners` |
+| View Campaigns | `view_campaigns` |
+| Edit Campaigns | `edit_campaigns` |
+| Archive Campaigns | `archive_campaigns` |
+| View Canvases | `view_canvases` |
+| Edit Canvases | `edit_canvases` |
+| Archive Canvases | `archive_canvases` |
+| View Frequency Capping Rules | `view_frequency_caps` |
+| Edit Frequency Capping Rules | `edit_frequency_caps` |
+| View Message Prioritization | `view_message_prioritization` |
+| Edit Message Prioritization | `edit_message_prioritization` |
+| View Content Blocks | `view_content_blocks` |
+| Edit Content Blocks | `edit_content_blocks` |
+| Archive Content Blocks | `archive_content_blocks` |
+| View Feature Flags | `view_feature_flags` |
+| Edit Feature Flags | `edit_feature_flags` |
+| Archive Feature Flags | `archive_feature_flags` |
+| View Segments | `view_segments` |
+| Edit Segments | `edit_segments` |
+| Archive Segments | `archive_segments` |
+| View Global Control Group | `view_global_control_group` |
+| Edit Global Control Group | `edit_global_control_group` |
+| View IAM Templates | `view_iam_templates` |
+| Edit IAM Templates | `edit_iam_templates` |
+| Archive IAM Templates | `archive_iam_templates` |
+| View Email Templates | `view_email_templates` |
+| Edit Email Templates | `edit_email_templates` |
+| Archive Email Templates | `archive_email_templates` |
+| View Webhook Templates | `view_webhook_templates` |
+| Edit Webhook Templates | `edit_webhook_templates` |
+| Archive Webhook Templates | `archive_webhook_templates` |
+| View Email Link Templates | `view_link_templates` |
+| Edit Email Link Templates | `edit_link_templates` |
+| View Media Library Assets | `view_media_library_assets` |
+| View Locations | `view_locations` |
+| Edit Locations | `edit_locations` |
+| Archive Locations | `archive_locations` |
+| View Promotion Codes | `view_promotion_codes` |
+| Edit Promotion Codes | `edit_promotion_codes` |
+| Export Promotion Codes | `export_promotion_codes` |
+| View Preference Centers | `view_preference_centers` |
+| Edit Preference Centers | `edit_preference_centers` |
+| Edit Reports | `edit_reports` |
+| View Placements | `view_placements` |
+| Edit Placements | `edit_placements` |
+| Archive Placements | `archive_placements` |
+| View Banner Templates | `view_banner_templates` |
+| View Multi Language Settings | `view_multi_language_settings` |
+| Use BrazeAI Operator<sup>TM</sup> | `use_operator` |
+| View Decisioning Studio Agents | `view_decisioning_studio_agents` |
+| View Decisioning Studio Audience | `view_decisioning_studio_audience` |
+| View Decisioning Studio Conversion Event | `view_decisioning_studio_conversion_event` |
+| View Decisioning Studio Guardrails | `view_decisioning_studio_guardrails` |
+| Launch Campaigns | `launch_campaigns` |
+| Launch Canvases | `launch_canvases` |
+| Edit Dashboard Users | `edit_dashboard_users` |
+| Edit Media Library Assets | `edit_media_library_assets` |
+| Delete Media Library Assets | `delete_media_library_assets` |
+| View Import Users | `view_import_users` |
+| Import Users | `import_users` |
+| Edit User Data | `edit_user_data` |
+| View User Merge Records | `view_user_merge_records` |
+| Merge Duplicate Users | `merge_duplicate_users` |
+| View API Keys | `view_api_keys` |
+| Edit API Keys | `edit_api_keys` |
+| View Internal Groups | `view_internal_user_groups` |
+| Edit Internal Groups | `edit_internal_user_groups` |
+| Delete Internal Groups | `delete_internal_user_groups` |
+| View Message Activity Log | `view_message_activity_log` |
+| View Event User Log | `view_event_user_log` |
+| View API Identifiers | `view_api_identifiers` |
+| View API Usage Dashboard | `view_api_usage_dashboard` |
+| View API Limits | `view_api_limits` |
+| View API Usage Alerts | `view_api_usage_alerts` |
+| Edit API Usage Alerts | `edit_api_usage_alerts` |
+| View SDK Debugger | `view_sdk_debugger` |
+| Edit SDK Debugger | `edit_sdk_debugger` |
+| Launch Content Blocks | `launch_content_blocks` |
+| Edit Cloud Data Ingestion | `edit_cloud_data_ingestion` |
+| View App Settings | `view_app_settings` |
+| Edit App Settings | `edit_app_settings` |
+| View Push Settings | `view_push_settings` |
+| Edit Push Settings | `edit_push_settings` |
+| View Teams | `view_teams` |
+| Edit Teams | `edit_teams` |
+| Archive Teams | `archive_teams` |
+| View Custom Attributes | `view_custom_attributes` |
+| Edit Custom Attributes | `edit_custom_attributes` |
+| Blocklist Custom Attributes | `blocklist_custom_attributes` |
+| Delete Custom Attributes | `delete_custom_attributes` |
+| Export Custom Attributes | `export_custom_attributes` |
+| View Custom Events | `view_custom_events` |
+| Edit Custom Events | `edit_custom_events` |
+| Blocklist Custom Events | `blocklist_custom_events` |
+| Delete Custom Events | `delete_custom_events` |
+| Export Custom Events | `export_custom_events` |
+| Edit Custom Event Property Segmentation | `edit_custom_event_property_segmentation` |
+| View Products | `view_products` |
+| Edit Products | `edit_products` |
+| Blocklist Products | `blocklist_products` |
+| Edit Purchase Property Segmentation | `edit_purchase_property_segmentation` |
+| View Tags | `view_tags` |
+| Edit Tags | `edit_tags` |
+| Delete Tags | `delete_tags` |
+| View Email Settings | `view_email_settings` |
+| Edit Email Settings | `edit_email_settings` |
+| View Catalogs | `view_catalogs` |
+| Edit Catalogs | `edit_catalogs` |
+| Export Catalogs | `export_catalogs` |
+| Delete Catalogs | `delete_catalogs` |
+| View Whatsapp Settings | `view_whatsapp_settings` |
+| Edit Technology Partners | `edit_technology_partners` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Workspace permission strings #workspace-strings" }
 
 ### チーム権限文字列 {#team}
 
 | 権限名 | SCIM API文字列 |
 | --- | --- |
-| キャンペーンを表示 | `view_campaigns` |
-| キャンペーンを編集 | `edit_campaigns` |
-| キャンペーンをアーカイブ | `archive_campaigns` |
-| キャンバスを表示 | `view_canvases` |
-| キャンバスを編集 | `edit_canvases` |
-| キャンバスをアーカイブ | `archive_canvases` |
-| フリークエンシーキャップルールを表示 | `view_frequency_caps` |
-| フリークエンシーキャップルールを編集 | `edit_frequency_caps` |
-| メッセージの優先順位付けを表示 | `view_message_prioritization` |
-| メッセージの優先順位付けを編集 | `edit_message_prioritization` |
-| Content Blocksを表示 | `view_content_blocks` |
-| フィーチャーフラグを表示 | `view_feature_flags` |
-| フィーチャーフラグを編集 | `edit_feature_flags` |
-| フィーチャーフラグをアーカイブ | `archive_feature_flags` |
-| セグメントを表示 | `view_segments` |
-| セグメントを編集 | `edit_segments` |
-| グローバルコントロールグループを編集 | `edit_global_control_group` |
-| IAMテンプレートを表示 | `view_iam_templates` |
-| IAMテンプレートを編集 | `edit_iam_templates` |
-| IAMテンプレートをアーカイブ | `archive_iam_templates` |
-| メールテンプレートを表示 | `view_email_templates` |
-| メールテンプレートを編集 | `edit_email_templates` |
-| メールテンプレートをアーカイブ | `archive_email_templates` |
-| Webhookテンプレートを表示 | `view_webhook_templates` |
-| Webhookテンプレートを編集 | `edit_webhook_templates` |
-| Webhookテンプレートをアーカイブ | `archive_webhook_templates` |
-| メールリンクテンプレートを表示 | `view_link_templates` |
-| メールリンクテンプレートを編集 | `edit_link_templates` |
-| メディアライブラリアセットを表示 | `view_media_library_assets` |
-| ロケーションを表示 | `view_locations` |
-| ロケーションを編集 | `edit_locations` |
-| ロケーションをアーカイブ | `archive_locations` |
-| プロモーションコードを表示 | `view_promotion_codes` |
-| プロモーションコードを編集 | `edit_promotion_codes` |
-| プロモーションコードをエクスポート | `export_promotion_codes` |
-| ユーザー設定センターを表示 | `view_preference_centers` |
-| ユーザー設定センターを編集 | `edit_preference_centers` |
-| レポートを表示 | `view_reports` |
-| レポートを作成 | `create_reports` |
-| レポートを編集 | `edit_reports` |
-| バナーテンプレートを表示 | `view_banner_templates` |
-| 多言語設定を表示 | `view_multi_language_settings` |
-| BrazeAI Operator<sup>TM</sup>を使用 | `use_operator` |
-| Decisioning Studioエージェントを表示 | `view_decisioning_studio_agents` |
-| キャンペーンを起動 | `launch_campaigns` |
-| キャンバスを起動 | `launch_canvases` |
-| ダッシュボードユーザーを編集 | `edit_dashboard_users` |
+| View Campaigns | `view_campaigns` |
+| Edit Campaigns | `edit_campaigns` |
+| Archive Campaigns | `archive_campaigns` |
+| View Canvases | `view_canvases` |
+| Edit Canvases | `edit_canvases` |
+| Archive Canvases | `archive_canvases` |
+| View Frequency Capping Rules | `view_frequency_caps` |
+| Edit Frequency Capping Rules | `edit_frequency_caps` |
+| View Message Prioritization | `view_message_prioritization` |
+| Edit Message Prioritization | `edit_message_prioritization` |
+| View Content Blocks | `view_content_blocks` |
+| View Feature Flags | `view_feature_flags` |
+| Edit Feature Flags | `edit_feature_flags` |
+| Archive Feature Flags | `archive_feature_flags` |
+| View Segments | `view_segments` |
+| Edit Segments | `edit_segments` |
+| Edit Global Control Group | `edit_global_control_group` |
+| View IAM Templates | `view_iam_templates` |
+| Edit IAM Templates | `edit_iam_templates` |
+| Archive IAM Templates | `archive_iam_templates` |
+| View Email Templates | `view_email_templates` |
+| Edit Email Templates | `edit_email_templates` |
+| Archive Email Templates | `archive_email_templates` |
+| View Webhook Templates | `view_webhook_templates` |
+| Edit Webhook Templates | `edit_webhook_templates` |
+| Archive Webhook Templates | `archive_webhook_templates` |
+| View Email Link Templates | `view_link_templates` |
+| Edit Email Link Templates | `edit_link_templates` |
+| View Media Library Assets | `view_media_library_assets` |
+| View Locations | `view_locations` |
+| Edit Locations | `edit_locations` |
+| Archive Locations | `archive_locations` |
+| View Promotion Codes | `view_promotion_codes` |
+| Edit Promotion Codes | `edit_promotion_codes` |
+| Export Promotion Codes | `export_promotion_codes` |
+| View Preference Centers | `view_preference_centers` |
+| Edit Preference Centers | `edit_preference_centers` |
+| View Reports | `view_reports` |
+| Create Reports | `create_reports` |
+| Edit Reports | `edit_reports` |
+| View Banner Templates | `view_banner_templates` |
+| View Multi Language Settings | `view_multi_language_settings` |
+| Use BrazeAI Operator<sup>TM</sup> | `use_operator` |
+| View Decisioning Studio Agents | `view_decisioning_studio_agents` |
+| Launch Campaigns | `launch_campaigns` |
+| Launch Canvases | `launch_canvases` |
+| Edit Dashboard Users | `edit_dashboard_users` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Team permission strings #team" }
 
 ### 部門の文字列 {#department-strings}
 
 | UIでの表示 | SCIM API文字列 |
 | --- | --- |
-| 代理店 / サードパーティ | `agency` |
-| BI / 分析 | `bi` |
-| 経営幹部 | `c_suite` |
-| エンジニアリング | `engineering` |
-| ファイナンス | `finance` |
-| マーケティング / 編集 | `marketing` |
-| 製品管理 | `pm` |
+| Agency / Third Party | `agency` |
+| BI / Analytics | `bi` |
+| C-Suite | `c_suite` |
+| Engineering | `engineering` |
+| Finance | `finance` |
+| Marketing / Editorial | `marketing` |
+| Product Management | `pm` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Department strings" }

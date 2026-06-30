@@ -1,6 +1,6 @@
 ### Solução de problemas de exibição {#troubleshooting-in-app-message-display}
 
-Se o seu app estiver solicitando e recebendo mensagens no app com êxito, mas elas não estiverem sendo exibidas, a lógica do lado do dispositivo pode estar impedindo a exibição:
+Se o seu app estiver solicitando e recebendo mensagens no app, mas elas não estiverem sendo exibidas, a lógica do lado do dispositivo pode estar impedindo a exibição:
 
 1. O evento de gatilho está disparando conforme o esperado? Para testar, configure a mensagem para disparar usando uma ação diferente (como o início da sessão) e verifique se ela é exibida.
 {% if include.sdk == "iOS" %}

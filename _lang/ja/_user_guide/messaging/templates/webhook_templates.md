@@ -24,13 +24,13 @@ Brazeダッシュボードで、**コンテンツ** > **Webhook**に移動しま
 
 ここから、新しいテンプレートを作成するか、事前にデザインされたWebhookテンプレートを使用するか、既存のテンプレートを編集するかを選択できます。
 
-たとえば、メッセージングチャネルとして[LINE]({{site.baseurl}}/user_guide/channels/line/)を使用している場合、**LINE Carousel**や**LINE Image**の事前デザインテンプレートを使用して複数のwebhookを設定できます。
+たとえば、メッセージングチャネルとして[LINE]({{site.baseurl}}/user_guide/channels/line)を使用している場合、**LINE Carousel**や**LINE Image**の事前デザインテンプレートを使用して複数のwebhookを設定できます。
 
 ## ステップ 3:テンプレートの詳細を入力する {#step-3-fill-out-template-details}
 
 1. Webhookテンプレートにユニークな名前を付けます。
 2. （オプション）テンプレートの使用目的を説明するテンプレートの説明を追加します。
-3. テンプレートの検索やフィルタリングに役立つよう、必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)や[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
+3. テンプレートの検索やフィルタリングに役立つよう、必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams)や[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)を追加します。
 
 ## ステップ 4:テンプレートを構築する {#step-4-build-your-template}
 
@@ -55,4 +55,4 @@ Brazeダッシュボードで、**コンテンツ** > **Webhook**に移動しま
 
 ## テンプレートを管理する {#managing-your-templates}
 
-Webhookテンプレートを[複製およびアーカイブ]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/)して、テンプレートのリストをより適切に整理・管理できます。
+Webhookテンプレートを[複製およびアーカイブ]({{site.baseurl}}/user_guide/messaging/templates/managing_templates)して、テンプレートのリストをより適切に整理・管理できます。

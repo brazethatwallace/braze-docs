@@ -44,4 +44,4 @@ guide_menu_list:
     image: /assets/img/braze_icons/calendar-check-02.svg
 ---
 
-コンポーザーからテンプレートを保存する手順、カラープロファイルやCSSテンプレートの作成、ライブラリーの管理については、[アプリ内メッセージテンプレートの作成]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/)を参照してください。
+コンポーザーからテンプレートを保存する手順、カラープロファイルやCSSテンプレートの作成、ライブラリーの管理については、[アプリ内メッセージテンプレートの作成]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template)を参照してください。

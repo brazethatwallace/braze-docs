@@ -26,7 +26,7 @@ Para duplicar una plantilla individual, selecciona <i class="fas fa-ellipsis-v">
 <br><br>
 
 {% alert note %}
-Para las plantillas de [bloques de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/), se crea una copia en borrador. Para todas las demás plantillas, se crea automáticamente una nueva copia duplicada.
+Para las plantillas de [bloques de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks), se crea una copia en borrador. Para todas las demás plantillas, se crea automáticamente una nueva copia duplicada.
 {% endalert %}
 
 {% endtab %}
@@ -51,14 +51,14 @@ Las plantillas duplicadas se pueden encontrar ordenando la columna **Fecha últ.
 
 Para archivar una plantilla individual, selecciona <i class="fas fa-ellipsis-v"></i> **Más opciones** en la pantalla de la cuadrícula de plantillas y selecciona **Archivar**. Cuando se archiva una plantilla, ten en cuenta los siguientes escenarios:
 
-- Las Campaigns activas continúan usando la plantilla archivada sin ninguna interrupción.
-- Los borradores de Campaigns conservan el contenido de la plantilla archivada y se pueden editar y lanzar.
-- Para editar una plantilla archivada, primero debes desarchivarla. De igual forma, para usar una plantilla archivada en una Campaign, primero debes desarchivar la plantilla.
+- Las campañas activas continúan usando la plantilla archivada sin ninguna interrupción.
+- Los borradores de campañas conservan el contenido de la plantilla archivada y se pueden editar y lanzar.
+- Para editar una plantilla archivada, primero debes desarchivarla. De igual forma, para usar una plantilla archivada en una campaña, primero debes desarchivar la plantilla.
 
 Para archivar varias plantillas, selecciona la casilla de verificación junto a cada plantilla que desees archivar. Después de seleccionar varias plantillas, selecciona **Archivar**. Puedes encontrar tus plantillas archivadas seleccionando **Archivadas** en **Mostrar** en la cuadrícula de plantillas.
 
 ![Sección de plantillas de correo electrónico de arrastrar y soltar guardadas que muestra dos plantillas seleccionadas y una barra de herramientas con la opción de archivar.]({% image_buster /assets/img/archive_multiple_template.png %}){: style="max-width:60%;"}
 
 {% alert important %}
-Archivar no está disponible actualmente para las [plantillas de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/#link-templates).
+Archivar no está disponible actualmente para las [plantillas de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing#link-templates).
 {% endalert %}

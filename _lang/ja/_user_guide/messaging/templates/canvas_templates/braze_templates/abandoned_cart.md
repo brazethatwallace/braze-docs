@@ -14,7 +14,7 @@ tool: Canvas
 この記事では、ユーザーライフサイクルの検討段階を対象とした**Abandoned Intent**テンプレートのユースケースについて説明します。この記事を読み終えると、カートにアイテムを追加した後に購入を完了していないユーザーに購入を促すユーザージャーニーをカスタマイズできるようになります。
 
 {% alert tip %}
-[BrazeAI Operator<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/operator/)を使用して、このテンプレートの設定とカスタマイズを行いましょう。Canvasの作成または編集中に、ユーザープロファイルの横にある**BrazeAI Operator<sup>TM</sup>**を選択します。次に、「カートを放棄したユーザーに再エンゲージするためにAbandoned Intentテンプレートを設定するのを手伝ってください」などの目標を記述します。
+[BrazeAI Operator<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/operator)を使用して、このテンプレートの設定とカスタマイズを行いましょう。Canvasの作成または編集中に、ユーザープロファイルの横にある**BrazeAI Operator<sup>TM</sup>**を選択します。次に、「カートを放棄したユーザーに再エンゲージするためにAbandoned Intentテンプレートを設定するのを手伝ってください」などの目標を記述します。
 {% endalert %}
 
 ## 前提条件 {#prerequisites}
@@ -22,13 +22,13 @@ tool: Canvas
 このテンプレートを正しく使用するには、以下が必要です。
 
 - このCanvasで購入するとユーザーがCanvasを退出するため、購入後のユーザージャーニー用の別のCanvas。
-- 使用するパートナーとオーディエンスで設定済みの[Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/)。
+- 使用するパートナーとオーディエンスで設定済みの[Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync)。
 
 ## テンプレートをニーズに合わせてカスタマイズする {#tailoring-the-template-to-your-needs}
 
 キッチン用品を専門とする小売ブランド「Kitchenerie」で働いていて、最新製品「Enormous Paper Plate」をカートに追加したが購入を完了していないユーザーに再エンゲージすることが目標だとしましょう。
 
-Canvasを作成する前に、[Braze Audience Sync to Facebook]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync/)インテグレーションを設定し、BrazeのユーザーデータをFacebookオーディエンスに追加して、行動トリガーやセグメンテーションなどに基づいた広告を配信できるようにします。
+Canvasを作成する前に、[Braze Audience Sync to Facebook]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync)インテグレーションを設定し、BrazeのユーザーデータをFacebookオーディエンスに追加して、行動トリガーやセグメンテーションなどに基づいた広告を配信できるようにします。
 
 **Abandoned Intent**テンプレートは次のフローに従います：購入確認、即時リマインダー送信、待機、最適チャネルへのルーティング、フォローアップ、再確認、非コンバージョンユーザーのリターゲティング。以下のステップが含まれます。
 
@@ -37,7 +37,7 @@ Canvasを作成する前に、[Braze Audience Sync to Facebook]({{site.baseurl}}
 | アクションパス | Made purchase? | 最初の完了確認。すでに購入したユーザーはCanvasを退出します。 |
 | メッセージ | Itemized Reminder | エントリ直後に送信される即時カートリマインダー。 |
 | 遅延 | Delay | 製品がまだ記憶に新しいうちにフォローアップが届くよう、30分間の待機。 |
-| オーディエンスパス | Intelligent Channel split | [インテリジェントチャネル]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/)ランキングに基づいて、ユーザーをメールまたはSMSにルーティングします。 |
+| オーディエンスパス | Intelligent Channel split | [インテリジェントチャネル]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel)ランキングに基づいて、ユーザーをメールまたはSMSにルーティングします。 |
 | メッセージ | Abandoned Cart Email、Abandoned Cart SMS、Abandoned Cart In-App Message | チャネル別のフォローアップ。インテリジェントチャネルがメールとSMSを選択し、アプリ内メッセージはテンプレート内の別のパスで送信されます。 |
 | アクションパス | Made purchase? (2) | リターゲティング前の2回目の完了確認。 |
 | Audience Sync | Ad Retargeting | 非コンバージョンユーザーをオフチャネルリターゲティング用の広告オーディエンス（Facebookなど）に同期します。 |
@@ -73,8 +73,8 @@ Canvasテンプレートを適用し、目標に合わせて詳細を更新し�
 **Abandoned Intent**テンプレートは**API-Triggered**エントリスケジュールを使用しているため、ユーザーがカートを放棄した直後にCanvasにエントリさせることができます。製品がまだ記憶に新しいうちに対応したいため、このユースケースに適しています。
 
 1. エントリスケジュールタイプとして**API-Triggered**をそのまま使用します。
-2. Canvas IDを確認し、[`/canvas/trigger/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)を使用して、アプリまたはWebサイトがカート放棄を検出した際にユーザーを追加します。
-3. オプションで、[コンテキスト変数]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/)（製品名やカートの詳細など）を渡して、下流のメッセージをパーソナライズできます。
+2. Canvas IDを確認し、[`/canvas/trigger/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)を使用して、アプリまたはWebサイトがカート放棄を検出した際にユーザーを追加します。
+3. オプションで、[コンテキスト変数]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)（製品名やカートの詳細など）を渡して、下流のメッセージをパーソナライズできます。
 
 アクションベースのエントリを希望する場合は、**Action-Based**を選択し、ブランドがカート放棄を追跡する方法に合ったトリガーを選択します。たとえば、ログに記録された`abandoned_cart`イベントに対して**Perform Custom Event**を選択します。
 
@@ -86,7 +86,7 @@ Canvasテンプレートを適用し、目標に合わせて詳細を更新し�
 
 エントリコントロールはそのままにしておきます。ユーザーがこのCanvasに再エントリすることは許可されず、このCanvasにエントリできる人数に制限はありません。
 
-テンプレートではデフォルトでグローバル退出条件は設定されていません。代わりに、ユーザーは**Made purchase?**アクションパスステップで購入した際に退出します。これはステップ 6でカスタマイズします。
+テンプレートではデフォルトでグローバル退出条件は設定されていません。代わりに、ユーザーは**Made purchase?**アクションパスステップで購入した際に退出します。これはステップ6でカスタマイズします。
 
 ### ステップ 5: 送信設定を選択する {#step-5-select-your-send-settings}
 
@@ -94,7 +94,7 @@ Canvasテンプレートを適用し、目標に合わせて詳細を更新し�
 
 ### ステップ 6: Canvasをカスタマイズする {#step-6-customize-your-canvas}
 
-ユーザーが体験する順序でCanvasステップをカスタマイズします。
+ユーザーが体験する順序でキャンバスステップをカスタマイズします。
 
 #### エントリ時の購入確認 {#check-for-purchase-at-entry}
 
@@ -107,12 +107,12 @@ Canvasテンプレートを適用し、目標に合わせて詳細を更新し�
 2. **Delay**ステップはそのままにしておきます。テンプレートでは、フォローアップメッセージの送信前に30分の遅延を使用しており、製品がまだ記憶に新しいうちにユーザーがチェックアウトを完了する時間を確保します。
 
 {% alert tip %}
-[Canvasコンテキストプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)を使用して、参照している製品に基づいてCanvas内のメッセージをカスタマイズできます。
+[Canvasコンテキストプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)を使用して、参照している製品に基づいてCanvas内のメッセージをカスタマイズできます。
 {% endalert %}
 
 #### 最適チャネルへのルーティング {#route-to-the-optimal-channel}
 
-1. **Intelligent Channel split**オーディエンスパスステップを確認します。これにより、[インテリジェントチャネル]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/)ランキングに基づいて、ユーザーを**Abandoned Cart Email**または**Abandoned Cart SMS**にルーティングします。必要に応じてパスを調整します。
+1. **Intelligent Channel split**オーディエンスパスステップを確認します。これにより、[インテリジェントチャネル]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel)ランキングに基づいて、ユーザーを**Abandoned Cart Email**または**Abandoned Cart SMS**にルーティングします。必要に応じてパスを調整します。
 2. **Abandoned Cart Email**、**Abandoned Cart SMS**、**Abandoned Cart In-App Message**ステップをカスタマイズします。各ステップで**Edit message**を選択して、そのチャネルのコピーとメッセージを更新します。アプリ内メッセージはインテリジェントチャネル分割とは別のパスで実行され、インテリジェントチャネルランキングでは選択されません。
 
 #### 非コンバージョンユーザーのリターゲティング {#retarget-non-converters}
@@ -126,5 +126,5 @@ Canvasテンプレートを適用し、目標に合わせて詳細を更新し�
 Canvasをテストして確認し、期待どおりに動作することを確認したら、**Launch Canvas**を選択してCanvasを起動します。これで、パーソナライズされたユーザージャーニーでユーザーに的確にターゲティングし、カートに追加した製品のチェックアウトを促すことができます！
 
 {% alert tip %}
-Canvasの起動前後に考慮すべき事項については、[起動前後のチェックリスト]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch)をご確認ください。
+Canvasの起動前後に考慮すべき事項については、[起動前後のチェックリスト]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch)をご確認ください。
 {% endalert %}
