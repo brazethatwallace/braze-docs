@@ -25,7 +25,7 @@ guide_featured_list:
   - name: Decisioning Studio
     link: /docs/user_guide/brazeai/decisioning_studio
     image: /assets/img/braze_icons/stars-03.svg
-  - name: 生成 AI
+  - name: 生成AI
     link: /docs/user_guide/brazeai/generative_ai
     image: /assets/img/braze_icons/lightbulb-02.svg
   - name: インテリジェントスイート
@@ -57,11 +57,11 @@ guide_featured_list:
 
 | 目標 | おすすめの機能 |
 | --- | --- |
-| ユーザーのコンテキストを使用してメッセージコピーをユーザーごとにパーソナライズする | Brazeエージェント（キャンバスまたはカタログ）、単発の下書きコピーには生成 AI |
-| どのメッセージコンテンツ（件名、CTAなど）が時間の経過とともに最もパフォーマンスが高いかを最適化する | コンテンツオプティマイザー（メール、プッシュ通知、またはSMS/MMS/RCS）または勝者バリアント |
-| オファー、チャネル、タイミングにわたる1:1の意思決定でビジネス指標（収益、コンバージョン）を最大化する | Decisioning Studio |
-| チャーンする可能性が高いユーザーやイベントを実行する可能性が高いユーザーを見つける | Predictive ChurnまたはPredictive Events |
-| メッセージ内でカタログから特定の製品をおすすめする | アイテムのおすすめ |
-| ユーザーごとに最適な時間や最適なチャネルで送信する | インテリジェントタイミング、インテリジェントチャネル |
-| ダッシュボードで直接コピーやクリエイティブを作成・改善する | 生成 AI（コピーライティング、画像、QA）、サポートにはオペレーター |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| ユーザーのコンテキストを使用してメッセージコピーをユーザーごとにパーソナライズする | [Brazeエージェント]({{site.baseurl}}/user_guide/brazeai/agents)（[Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)または[カタログ]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents)）、単発の下書きコピーには[生成AI]({{site.baseurl}}/user_guide/brazeai/generative_ai) |
+| どのメッセージコンテンツ（件名、CTAなど）が時間の経過とともに最もパフォーマンスが高いかを最適化する | [コンテンツオプティマイザー]({{site.baseurl}}/user_guide/brazeai/content_optimizer)（メール、プッシュ通知、またはSMS/MMS/RCS）または[勝者バリアント]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) |
+| オファー、チャネル、タイミングにわたる1:1の意思決定でビジネス指標（収益、コンバージョン）を最大化する | [Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio) |
+| 解約する可能性が高いユーザーやイベントを実行する可能性が高いユーザーを見つける | [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn)または[Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events) |
+| メッセージ内でカタログから特定の製品をおすすめする | [アイテムのおすすめ]({{site.baseurl}}/user_guide/brazeai/item_recommendations) |
+| ユーザーごとに最適な時間や最適なチャネルで送信する | [インテリジェントタイミング]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)、[インテリジェントチャネル]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) |
+| ダッシュボードで直接コピーやクリエイティブを作成・改善する | [オペレーター]({{site.baseurl}}/user_guide/brazeai/operator) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="機能の概要" }
