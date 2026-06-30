@@ -1,5 +1,5 @@
 ---
-nav_title: Currents イベント変更ログ
+nav_title: Currentsイベント変更ログ
 page_order: 6
 description: "このページには、Currentsの各リリースにおけるイベントの変更点が記載されています。"
 tool: Currents
@@ -7,42 +7,73 @@ tool: Currents
 
 # Currents変更ログ {#currents-changelog}
 
-## バージョン 9 の変更点（リリース日：2026年6月3日） {#changes-in-version-9-release-date-2026-06-03}
+## バージョン10の変更点（リリース日：2026年7月1日） {#changes-in-version-10-release-date-2026-07-01}
 
 ### ストレージに関する変更: {#changes-for-storage}
+
+* 新しいイベントタイプ `users.canvas.costep.Send` を追加しました。
+
+* 新しいイベントタイプ `users.UserDeleteRequest` を追加しました。
+
+* 新しいイベントタイプ `users.UserOrphan` を追加しました。
+
+* イベントタイプ `users.messages.rcs.Abort` のフィールド変更:
+    * 新しい `string` フィールド `canvas_id` を追加しました: このイベントが属するCanvasのAPI ID
+
+* イベントタイプ `users.messages.rcs.Click` のフィールド変更:
+    * 新しい `string` フィールド `canvas_id` を追加しました: このイベントが属するCanvasのAPI ID
+
+* イベントタイプ `users.messages.rcs.Delivery` のフィールド変更:
+    * 新しい `string` フィールド `canvas_id` を追加しました: このイベントが属するCanvasのAPI ID
+
+* イベントタイプ `users.messages.rcs.InboundReceive` のフィールド変更:
+    * 新しい `string` フィールド `canvas_id` を追加しました: このイベントが属するCanvasのAPI ID
+
+* イベントタイプ `users.messages.rcs.Read` のフィールド変更:
+    * 新しい `string` フィールド `canvas_id` を追加しました: このイベントが属するCanvasのAPI ID
+
+* イベントタイプ `users.messages.rcs.Rejection` のフィールド変更:
+    * 新しい `string` フィールド `canvas_id` を追加しました: このイベントが属するCanvasのAPI ID
+
+* イベントタイプ `users.messages.rcs.Send` のフィールド変更:
+    * 新しい `string` フィールド `canvas_id` を追加しました: このイベントが属するCanvasのAPI ID
+
+## バージョン9の変更点（リリース日：2026年6月3日） {#changes-in-version-9-release-date-2026-06-03}
+
+### ストレージに関する変更:
 
 * イベントタイプ `users.messages.email.Send` のフィールド変更:
     * 新しい `string` フィールド `from_domain` を追加しました: メールの送信ドメイン
 
-## バージョン 8 の変更点（リリース日：2026年5月6日） {#changes-in-version-8-release-date-2026-05-06}
+## バージョン8の変更点（リリース日：2026年5月6日） {#changes-in-version-8-release-date-2026-05-06}
 
 ### ストレージに関する変更:
 
 * 新しいイベントタイプ `users.messages.banner.Dismiss` を追加しました。
 
 * イベントタイプ `users.messages.whatsapp.Abort` のフィールド変更:
-    * 新しい `string` フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者のWhatsApp Business-Scoped User IDです。
+    * 新しい `string` フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者のWhatsApp Business-Scoped User ID
 
 * イベントタイプ `users.messages.whatsapp.Delivery` のフィールド変更:
-    * 新しい `string` フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者のWhatsApp Business-Scoped User IDです。
+    * 新しい `string` フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者のWhatsApp Business-Scoped User ID
 
 * イベントタイプ `users.messages.whatsapp.Failure` のフィールド変更:
-    * 新しい `string` フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者のWhatsApp Business-Scoped User IDです。
+    * 新しい `string` フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者のWhatsApp Business-Scoped User ID
 
 * イベントタイプ `users.messages.whatsapp.InboundReceive` のフィールド変更:
-    * 新しい `string` フィールド `bsuid` を追加しました: メッセージの送信元ユーザーのWhatsApp Business-Scoped User IDです。
+    * 新しい `string` フィールド `bsuid` を追加しました: メッセージの送信元ユーザーのWhatsApp Business-Scoped User ID
     * フィールド `user_phone_number` が*オプション*になりました。
 
 * イベントタイプ `users.messages.whatsapp.Read` のフィールド変更:
-    * 新しい `string` フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者のWhatsApp Business-Scoped User IDです。
+    * 新しい `string` フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者のWhatsApp Business-Scoped User ID
 
 * イベントタイプ `users.messages.whatsapp.Retry` のフィールド変更:
-    * 新しい `string` フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者のWhatsApp Business-Scoped User IDです。
+    * 新しい `string` フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者のWhatsApp Business-Scoped User ID
 
 * イベントタイプ `users.messages.whatsapp.Send` のフィールド変更:
-    * 新しい `string` フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者のWhatsApp Business-Scoped User IDです。
+    * 新しい `string` フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者のWhatsApp Business-Scoped User ID
 
-## バージョン 7 の変更点（リリース日：2026年4月1日） {#changes-in-version-7-release-date-2026-04-01}
+## バージョン7の変更点（リリース日：2026年4月1日） {#changes-in-version-7-release-date-2026-04-01}
 
 ### ストレージに関する変更:
 
@@ -75,7 +106,7 @@ tool: Currents
     * 新しい `string` フィールド `canvas_variation_id` を追加しました: このイベントが属するCanvasバリエーションのAPI ID
     * 新しい `string` フィールド `canvas_variation_name` を追加しました: このユーザーが受け取ったCanvasバリエーションの名前
 
-## バージョン 6 の変更点（リリース日：2026年3月4日） {#changes-in-version-6-release-date-2026-03-04}
+## バージョン6の変更点（リリース日：2026年3月4日） {#changes-in-version-6-release-date-2026-03-04}
 
 ### ストレージに関する変更:
 
@@ -88,7 +119,7 @@ tool: Currents
 * イベントタイプ `users.messages.rcs.InboundReceive` のフィールド変更:
     * 新しい `string` フィールド `canvas_variation_name` を追加しました: このユーザーが受け取ったCanvasバリエーションの名前
 
-## バージョン 5 の変更点（リリース日：2026年2月4日） {#changes-in-version-5-release-date-2026-02-04}
+## バージョン5の変更点（リリース日：2026年2月4日） {#changes-in-version-5-release-date-2026-02-04}
 
 ### ストレージに関する変更:
 
@@ -111,7 +142,7 @@ tool: Currents
 * イベントタイプ `users.behaviors.pushnotification.TokenStateChange` のフィールド変更:
     * 新しい `long` フィールド `time_ms` を追加しました: イベントが発生した時刻（ミリ秒単位）
 
-## バージョン 4 の変更点（リリース日：2026年1月7日） {#changes-in-version-4-release-date-2026-01-07}
+## バージョン4の変更点（リリース日：2026年1月7日） {#changes-in-version-4-release-date-2026-01-07}
 
 ### ストレージに関する変更:
 
@@ -134,7 +165,7 @@ tool: Currents
 * イベントタイプ `users.messages.rcs.Rejection` のフィールド変更:
     * 新しい `string` フィールド `canvas_step_message_variation_id` を追加しました: このユーザーが受け取ったCanvasステップメッセージバリエーションのAPI ID
 
-## バージョン 3 の変更点（リリース日：2025年10月8日） {#changes-in-version-3-release-date-2025-10-08}
+## バージョン3の変更点（リリース日：2025年10月8日） {#changes-in-version-3-release-date-2025-10-08}
 
 ### ストレージに関する変更:
 
@@ -167,7 +198,7 @@ tool: Currents
     * 新しい `boolean` フィールド `is_sms_fallback` を追加しました: RCSメッセージが拒否されたため、SMSフォールバックメッセージが送信されたことを示します。このメッセージは配信、配信失敗、または拒否になる可能性があります。送信IDとディスパッチIDを使用してRCS Rejectionイベントにリンクできます。
 
 * イベントタイプ `users.messages.sms.Rejection` のフィールド変更:
-    * 新しい `boolean` フィールド `is_sms_fallback` を追加しました: RCSメッセージが拒否されたため、SMSフォールバックメッセージが送信されたことを示します。このメッセージは配信、配信失敗、または拒否になる可能性があります。送信IDとディスパッチIDを使用してRCS Rejectionイベントにリンクできます。（イベントプロパティ）
+    * 新しい `boolean` フィールド `is_sms_fallback` を追加しました: RCSメッセージが拒否されたため、SMSフォールバックメッセージが送信されたことを示します。このメッセージは配信、配信失敗、または拒否になる可能性があります。送信IDとディスパッチIDを使用してRCS Rejectionイベントにリンクできます。
 
 * イベントタイプ `users.messages.whatsapp.Delivery` のフィールド変更:
     * 新しい `string` フィールド `flow_id` を追加しました: WhatsApp ManagerにおけるフローのユニークID。メッセージにWhatsApp Flowへの応答を求めるCTAが含まれている場合に存在します。
@@ -197,7 +228,7 @@ tool: Currents
     * 新しい `string` フィールド `template_name` を追加しました: [PII] WhatsApp Manager内のテンプレートの名前。テンプレートメッセージを送信する場合に存在します。
     * 新しい `string` フィールド `message_id` を追加しました: このメッセージに対してMetaが生成したユニークID
 
-## バージョン 2 の変更点（リリース日なし） {#changes-in-version-2-release-date-null}
+## バージョン2の変更点（リリース日なし） {#changes-in-version-2-release-date-null}
 
 ### ストレージに関する変更:
 

@@ -11,7 +11,7 @@ toc_headers: h2
 
 > 이 페이지에서는 Braze 클라우드 데이터 수집(CDI) SQL 편집기를 사용하여 SQL 쿼리로 동기화를 생성하고 검증하는 방법을 다룹니다.
 
-클라우드 데이터 수집의 SQL 편집기를 사용하면 데이터 웨어하우스에 대해 SQL 쿼리를 직접 작성하여 동기화를 생성할 수 있습니다. 이를 통해 전용 CDI 테이블을 생성하거나 유지 관리할 필요가 없어지며, 이전에는 [데이터 웨어하우스 통합의 1.1단계]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)에서 이 작업이 필요했습니다.
+클라우드 데이터 수집의 SQL 편집기를 사용하면 데이터 웨어하우스에 대해 SQL 쿼리를 직접 작성하여 동기화를 생성할 수 있습니다. 이를 통해 전용 CDI 테이블을 생성하거나 유지 관리할 필요가 없어지며, 이전에는 [데이터 웨어하우스 통합의 1.1단계]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)에서 이 작업이 필요했습니다.
 
 SQL 편집기는 다음과 같은 경우에 사용합니다:
 
@@ -40,7 +40,7 @@ Braze는 데이터에 대해 읽기 전용 쿼리만 실행하며 기본 테이�
 먼저 소스를 생성한 다음 SQL 편집기로 동기화를 생성하려면 다음 단계를 따르세요. CDI용 소스를 이미 설정한 경우 3단계로 건너뛸 수 있습니다.
 
 {% alert note %}
-이 단계에서는 Snowflake 소스를 예시로 사용합니다. 다른 데이터 웨어하우스 소스의 설정 프로세스도 유사하며, [데이터 웨어하우스 통합 설정]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#setting-up-data-warehouse-integrations) 설명서의 [2단계: Braze 대시보드에서 새 소스 생성]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-2-create-a-new-source-in-the-braze-dashboard)에서 확인할 수 있습니다.
+이 단계에서는 Snowflake 소스를 예시로 사용합니다. 다른 데이터 웨어하우스 소스의 설정 프로세스도 유사하며, [데이터 웨어하우스 통합 설정]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#setting-up-data-warehouse-integrations) 설명서의 [2단계: Braze 대시보드에서 새 소스 생성]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard)에서 확인할 수 있습니다.
 {% endalert %}
 
 ### 1단계: Snowflake 역할, 권한, 데이터 웨어하우스 및 사용자 설정 {#step-1-set-up-your-snowflake-role-permissions-warehouse-and-user}
@@ -253,7 +253,7 @@ Braze가 데이터 웨어하우스에 연결할 수 없는 경우:
 
 ## `PAYLOAD` 지원 (레거시) {#payload-support-legacy}
 
-SQL 편집기는 `PAYLOAD` 열이 있는 [레거시 CDI 테이블]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views)을 지원합니다.
+SQL 편집기는 `PAYLOAD` 열이 있는 [레거시 CDI 테이블]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-1-set-up-tables-or-views)을 지원합니다.
 
 쿼리에 다음이 포함된 경우:
 

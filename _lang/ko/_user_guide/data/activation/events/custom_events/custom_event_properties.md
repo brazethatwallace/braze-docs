@@ -20,9 +20,9 @@ description: "이 문서에서는 커스텀 이벤트 속성정보, 예상 형�
 
 ## 예상 형식 {#expected-format}
 
-속성정보 값은 오브젝트여야 합니다. 키는 속성정보 이름(비어 있지 않은 문자열, 255자 이하, 선행 `$` 없음)이고, 값은 속성정보 값입니다. 지원되는 데이터 유형, 형식 요구 사항 및 페이로드 제한에 대해서는 [데이터 유형]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#event-property-data-types)을 참조하세요.
+속성정보 값은 오브젝트여야 합니다. 키는 속성정보 이름(비어 있지 않은 문자열, 255자 이하, 선행 `$` 없음)이고, 값은 속성정보 값입니다. 지원되는 데이터 유형, 형식 요구 사항 및 페이로드 제한에 대해서는 [데이터 유형]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#event-property-data-types)을 참조하세요.
 
-커스텀 이벤트 속성정보의 데이터 유형을 변경할 수 있지만, 데이터가 수집된 후 [데이터 유형을 변경]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#changing-custom-attribute-or-event-data-type)할 때의 영향에 유의하세요.
+커스텀 이벤트 속성정보의 데이터 유형을 변경할 수 있지만, 데이터가 수집된 후 [데이터 유형을 변경]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#changing-custom-attribute-or-event-data-type)할 때의 영향에 유의하세요.
 
 ### 예약 키 {#reserved-keys}
 
@@ -32,7 +32,7 @@ description: "이 문서에서는 커스텀 이벤트 속성정보, 예상 형�
 | --- | --- |
 | 커스텀 이벤트 | `time` 및 `event_name` |
 | 구매 이벤트 | `time`, `product_id`, `quantity`, `event_name`, `price`, `currency` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="예약 키" }
 
 ## 커스텀 이벤트 속성정보 사용 {#using-custom-event-properties}
 
@@ -44,15 +44,15 @@ description: "이 문서에서는 커스텀 이벤트 속성정보, 예상 형�
 
 ![유기한 장바구니에 대한 커스텀 이벤트 속성정보 필터. 두 개의 필터가 AND 연산자로 결합되어 100달러에서 200달러 사이의 가격으로 장바구니를 유기한 사용자에게 이 Campaign을 전송합니다]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png"){: style="max-width:70%;"}
 
-중첩된 커스텀 이벤트 속성정보도 [실행 기반 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)에서 지원됩니다.
+중첩된 커스텀 이벤트 속성정보도 [실행 기반 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)에서 지원됩니다.
 
 ![유기한 장바구니에 대한 커스텀 이벤트 속성정보 필터. 장바구니에 있는 항목 중 가격이 100달러 이상인 항목이 있으면 하나의 필터가 선택됩니다.]({% image_buster /assets/img_archive/customEventPropertiesNested.png %} "customEventPropertiesNested.png"){: style="max-width:70%;"}
 
 ### 메시지 개인화 {#personalize-messages}
 
-메시징 템플릿 내에서 개인화를 위해 커스텀 이벤트 속성정보를 사용할 수도 있습니다. 트리거 이벤트와 함께 [실행 기반 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)을 사용하는 모든 Campaign은 해당 이벤트의 커스텀 이벤트 속성정보를 메시징 개인화에 활용할 수 있습니다.
+메시징 템플릿 내에서 개인화를 위해 커스텀 이벤트 속성정보를 사용할 수도 있습니다. 트리거 이벤트와 함께 [실행 기반 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)을 사용하는 모든 Campaign은 해당 이벤트의 커스텀 이벤트 속성정보를 메시징 개인화에 활용할 수 있습니다.
 
-예를 들어, 게임 앱에서 레벨을 완료한 사용자에게 메시지를 보내려면 해당 레벨을 완료하는 데 걸린 시간에 대한 속성정보로 메시지를 더욱 개인화할 수 있습니다. 이 예시에서는 [조건 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/)을 사용하여 세 가지 다른 세그먼트에 대해 메시지를 개인화합니다. `time_spent`라는 커스텀 이벤트 속성정보는 ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``를 호출하여 메시지에 포함할 수 있습니다.
+예를 들어, 게임 앱에서 레벨을 완료한 사용자에게 메시지를 보내려면 해당 레벨을 완료하는 데 걸린 시간에 대한 속성정보로 메시지를 더욱 개인화할 수 있습니다. 이 예시에서는 [조건 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic)을 사용하여 세 가지 다른 세그먼트에 대해 메시지를 개인화합니다. `time_spent`라는 커스텀 이벤트 속성정보는 ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``를 호출하여 메시지에 포함할 수 있습니다.
 
 {% raw %}
 ```liquid
@@ -70,7 +70,7 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 사용자에게 인터넷 연결이 없는 경우, 템플릿화된 커스텀 이벤트 속성정보(예: {% raw %}``{{event_properties.${time_spent}}}``{% endraw %})가 포함된 트리거된 인앱 메시지는 실패하여 표시되지 않습니다.
 {% endalert %}
 
-인앱 메시지를 템플릿화된 인앱 메시지로 전달하게 하는 Liquid 태그의 전체 목록은 [자주 묻는 질문]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages/)을 참조하세요.
+인앱 메시지를 템플릿화된 인앱 메시지로 전달하게 하는 Liquid 태그의 전체 목록은 [자주 묻는 질문]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages)을 참조하세요.
 
 #### 필터 관련 고려 사항 {#considerations-with-filters}
 
@@ -85,7 +85,7 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 
 #### 세분화를 위한 이벤트 속성정보 추가 {#adding-event-properties-for-segmentation}
 
-이벤트 속성정보 빈도 및 최근성을 기반으로 Segment를 생성하려면 "Edit Custom Event Property Segmentation" [사용자 권한]({{site.baseurl}}/user_guide/data/infrastructure/data_points/#viewing-data-point-usage)이 필요합니다.
+이벤트 속성정보 빈도 및 최근성을 기반으로 Segment를 생성하려면 "Edit Custom Event Property Segmentation" [사용자 권한]({{site.baseurl}}/user_guide/data/infrastructure/data_points#viewing-data-point-usage)이 필요합니다.
 
 기본적으로 워크스페이스당 20개의 세분화 가능한 이벤트 속성정보를 사용할 수 있습니다. 이 제한을 늘리려면 Braze 계정 매니저에게 문의하세요.
 
@@ -119,7 +119,7 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 
 중첩 오브젝트(다른 오브젝트 내부의 오브젝트)를 사용하여 커스텀 이벤트 및 구매의 속성정보로 중첩된 JSON 데이터를 전송할 수 있습니다. 이 중첩 데이터는 메시지에서 개인화된 정보를 템플릿화하고, 메시지 전송을 트리거하며, 사용자를 세분화하는 데 사용할 수 있습니다.
 
-자세한 내용은 [중첩 오브젝트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/) 전용 페이지를 참조하세요.
+자세한 내용은 [중첩 오브젝트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects) 전용 페이지를 참조하세요.
 
 ## 커스텀 이벤트 속성정보 저장 {#custom-event-property-storage}
 
@@ -128,6 +128,6 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 이벤트 속성정보 값을 기반으로 세분화하는 방법은 두 가지가 있습니다:
 
 1. **30일 이내:** Braze Segments 내에서 특정 이벤트 속성정보 값의 빈도 및 최근성을 기반으로 이벤트 속성정보 세분화를 사용할 수 있습니다. 이 옵션은 데이터 사용량에 영향을 미칩니다.<br><br>
-2. **30일 이내 및 이후:** 단기 및 장기 이벤트 속성정보 세분화를 모두 다루려면 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 사용할 수 있습니다. 이 기능은 지난 2년 동안 추적된 커스텀 이벤트 및 이벤트 속성정보를 기반으로 사용자를 세분화합니다. 이 옵션은 데이터 사용량에 영향을 미치지 않습니다.
+2. **30일 이내 및 이후:** 단기 및 장기 이벤트 속성정보 세분화를 모두 다루려면 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension)을 사용할 수 있습니다. 이 기능은 지난 2년 동안 추적된 커스텀 이벤트 및 이벤트 속성정보를 기반으로 사용자를 세분화합니다. 이 옵션은 데이터 사용량에 영향을 미치지 않습니다.
 
 특정 요구 사항에 따른 최적의 접근 방식에 대한 권장 사항은 Braze 고객 성공 매니저에게 문의하세요.

@@ -19,7 +19,7 @@ channel:
 | - | - |
 | Sistema externo | Un sistema de IA o comunicación de terceros capaz de crear y administrar chatbots, sistemas automatizados de servicio al cliente mediante API, o ambos. |
 | Integración de Braze y WhatsApp | Un número de WhatsApp administrado por Braze |
-| Clave de API REST de Braze | Una clave de API REST con permisos de `campaigns.trigger.send`. Se puede crear en el panel de Braze yendo a **Configuración** > **Claves de API**. |
+| Clave de API REST de Braze | Una clave de API REST con permisos de `campaigns.trigger.send`. Se puede crear en el dashboard de Braze yendo a **Configuración** > **Claves de API**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Cómo funciona {#how-it-works}
@@ -30,7 +30,7 @@ El flujo de trabajo de la integración se puede dividir en dos flujos clave:
 **Flujo de entrada:** El mensaje de un usuario llega a Braze y luego se reenvía a tu sistema externo para su procesamiento.
 **Flujo de salida:** Después de procesar el mensaje, tu sistema externo envía una respuesta a Braze, que luego entrega el mensaje al usuario final.
 
-Para automatizar eficientemente esta comunicación, esta integración utiliza dos características clave de Braze: [Campaigns de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) y [Campaigns activadas por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/).
+Para automatizar eficientemente esta comunicación, esta integración utiliza dos características clave de Braze: [Campaigns de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) y [Campaigns activadas por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
 
 ![Arquitectura de la integración entre el canal de WhatsApp de Braze y un sistema externo.]({% image_buster /assets/img/whatsapp/external_system_architecture.png %})
 ## Configurar la integración {#configuring-the-integration}

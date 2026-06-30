@@ -12,10 +12,10 @@ tool: Currents
 
 > Cette page décrit et définit la manière dont Currents gère les données d'événements sous forme de fichiers plats que nous envoyons aux partenaires de stockage de l'entrepôt de données.
 
-Currents for Data Storage permet un flux continu de données de notre plateforme vers un compartiment de stockage de l'un de nos [partenaires d'entrepôt de données]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/). Currents écrit les fichiers Avro dans votre compartiment de stockage à des seuils réguliers, ce qui vous permet de traiter et d'analyser les données d'événements en utilisant vos propres outils d'aide à la décision.
+Currents for Data Storage permet un flux continu de données de notre plateforme vers un compartiment de stockage de l'un de nos [partenaires d'entrepôt de données]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners). Currents écrit les fichiers Avro dans votre compartiment de stockage à des seuils réguliers, ce qui vous permet de traiter et d'analyser les données d'événements en utilisant vos propres outils d'aide à la décision.
 
 {% alert important %}
-Ce contenu **s'applique uniquement aux données d'événements de fichiers plats que nous envoyons aux partenaires de stockage de l'entrepôt de données (Google Cloud Storage, Amazon S3 et Microsoft Azure Blob Storage)**. <br><br>Pour le contenu qui s'applique aux autres partenaires, reportez-vous à notre liste de [partenaires disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) et consultez leurs pages respectives.
+Ce contenu **s'applique uniquement aux données d'événements de fichiers plats que nous envoyons aux partenaires de stockage de l'entrepôt de données (Google Cloud Storage, Amazon S3 et Microsoft Azure Blob Storage)**. <br><br>Pour le contenu qui s'applique aux autres partenaires, reportez-vous à notre liste de [partenaires disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) et consultez leurs pages respectives.
 {% endalert %}
 
 ## Événements de test {#test-events}
@@ -57,7 +57,7 @@ Currents crée un fichier pour chaque type d'événement en utilisant le format 
 ```
 
 {% alert tip %}
-Vous ne voyez pas le code à cause de la barre de défilement ? Découvrez comment résoudre ce problème [ici]({{site.baseurl}}/user_guide/).
+Vous ne voyez pas le code à cause de la barre de défilement ? Découvrez comment résoudre ce problème sur la [page d'accueil du guide utilisateur de Braze]({{site.baseurl}}/user_guide).
 {% endalert %}
 
 Par exemple, le chemin d'un événement d'envoi de notification push peut ressembler à ceci :
@@ -116,4 +116,4 @@ Lorsqu'un champ est supprimé ou modifié dans le schéma Avro, nous considéron
 
 Toutes les modifications avec rupture seront communiquées avant la publication de la version.
 
-Pour un historique complet des modifications par version, consultez le [journal des modifications de Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/).
+Pour un historique complet des modifications par version, consultez le [journal des modifications de Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs).

@@ -22,9 +22,9 @@ description: "Este artículo de referencia cubre el uso de atributos personaliza
 - Los nombres de las claves y los valores de cadena tienen un límite de tamaño de 255 caracteres.
 - Los nombres de las claves no pueden contener espacios.
 - Los puntos (`.`) y los signos de dólar (`$`) no son caracteres compatibles en una carga útil de API si intentas enviar un atributo personalizado anidado a un perfil de usuario.
-- No todos los socios de Braze admiten atributos personalizados anidados. Consulta la [documentación del socio]({{site.baseurl}}/partners/home/) para confirmar si determinadas integraciones de socios admiten esta característica.
+- No todos los socios de Braze admiten atributos personalizados anidados. Consulta la [documentación del socio]({{site.baseurl}}/partners/home) para confirmar si determinadas integraciones de socios admiten esta característica.
 - Los atributos personalizados anidados no se pueden utilizar como filtro al realizar una llamada a la API de Connected Audience.
-- De forma predeterminada, el filtro de segmento **Nested Custom Attributes** incluye atributos personalizados de tipo objeto, atributos de matriz de objetos y atributos personalizados de tipo matriz. Cuando seleccionas un atributo, el selector de esquema de propiedades incluye rutas de matriz (usando la notación `[]`) para campos de matriz anidados. Para ocultar los atributos personalizados de matriz de nivel superior de ese filtro, ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support/).
+- De forma predeterminada, el filtro de segmento **Nested Custom Attributes** incluye atributos personalizados de tipo objeto, atributos de matriz de objetos y atributos personalizados de tipo matriz. Cuando seleccionas un atributo, el selector de esquema de propiedades incluye rutas de matriz (usando la notación `[]`) para campos de matriz anidados. Para ocultar los atributos personalizados de matriz de nivel superior de ese filtro, ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support).
 - Al previsualizar mensajes en el dashboard usando **Preview as a Custom User**, solo puedes introducir datos simulados como cadena o matriz de cadenas; los objetos anidados no son compatibles. Para previsualizar un mensaje que hace referencia a atributos personalizados anidados, selecciona un usuario existente que ya tenga el atributo anidado en su perfil. Para propiedades de eventos personalizados anidados, debes lanzar una campaña en vivo dirigida a un usuario de prueba para verificar la representación.
 
 ## Ejemplo de API {#api-example}
@@ -107,7 +107,7 @@ Para eliminar un objeto de atributo personalizado, envía un POST a `users/track
 ```
 
 {% alert note %}
-Este enfoque no se puede usar para eliminar una clave anidada dentro de una [matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/).
+Este enfoque no se puede usar para eliminar una clave anidada dentro de una [matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects).
 {% endalert %}
 
 {% endtab %}
@@ -297,7 +297,7 @@ Verifica que se haya generado un esquema si no ves la opción de insertar atribu
 
 ## Regenerar esquemas {#regenerate-schema}
 
-Después de que se haya generado un esquema, puedes regenerarlo **una vez por día calendario** (según la zona horaria de tu empresa). Esta sección describe cómo regenerar tu esquema. Para información más detallada sobre esquemas, consulta [Generar un esquema usando el explorador de objetos anidados]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
+Después de que se haya generado un esquema, puedes regenerarlo **una vez por día calendario** (según la zona horaria de tu empresa). Esta sección describe cómo regenerar tu esquema. Para información más detallada sobre esquemas, consulta [Generar un esquema usando el explorador de objetos anidados]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#generate-schema).
 
 Para regenerar el esquema de tu atributo personalizado anidado:
 
@@ -351,7 +351,7 @@ Un segmento con los siguientes filtros AND:
 
 Este usuario calificaría porque el primer filtro coincide con el elemento "Shoes" (80 > 50) y el segundo filtro coincide con el elemento "Hat" (25 < 30). Aunque ningún elemento individual satisface ambas condiciones, el usuario aún entra en el segmento.
 
-Si necesitas que todas las condiciones coincidan con el mismo elemento dentro de una matriz, usa [segmentación multicriterio]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#use-multi-criteria-segmentation) en la misma ruta, o reestructura tus datos para evitar la coincidencia entre elementos.
+Si necesitas que todas las condiciones coincidan con el mismo elemento dentro de una matriz, usa [segmentación multicriterio]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation) en la misma ruta, o reestructura tus datos para evitar la coincidencia entre elementos.
 
 ## Puntos de datos {#data-points}
 

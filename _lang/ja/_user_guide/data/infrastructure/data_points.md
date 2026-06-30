@@ -9,7 +9,7 @@ search_rank: 6
 
 # データポイント {#data-points}
 
-> Brazeでのデータはアクションを意味します。Brazeに届いた個々のデータはセグメントのメンバーシップを更新し、メッセージングのトリガーやキャンセル、メッセージングのパーソナライゼーションなどにすぐに利用できます。データポイントは、ビジネスにとって最も影響力のある情報の定義に役立ちます。追跡する情報を慎重に検討することで、ユーザーエクスペリエンスにとって最も影響の大きいデータを確実にターゲットにすることができます。
+> Brazeでのデータはアクションを意味します。Brazeに届いた個々のデータはSegmentのメンバーシップを更新し、メッセージングのトリガーやキャンセル、メッセージングのパーソナライゼーションなどにすぐに利用できます。データポイントは、ビジネスにとって最も影響力のある情報の定義に役立ちます。追跡する情報を慎重に検討することで、ユーザーエクスペリエンスにとって最も影響の大きいデータを確実にターゲットにすることができます。
 
 データポイントは、ユーザープロファイルに対してログに記録された情報に基づいています。この定義の詳細な内容は、Brazeの契約書に記載されています。当社のカスタマーサクセスチームは、お客様のニーズに合わせてデータのベストプラクティスを提案できます。
 
@@ -27,9 +27,9 @@ search_rank: 6
 
 ### データポイントの更新スケジュール {#data-point-refresh-schedule}
 
-データポイント使用量はキャッシュされており（リアルタイムではありません）、24時間ごとに更新されます。キャッシュが更新されるまで、異なるダッシュボードユーザーが同じ日の異なる時間にタブを開いても、同じ合計値が表示される場合があります。他の請求ビューでの同じキャッシュ動作については、「[データポイント使用量の合計ダッシュボード]({{site.baseurl}}/user_guide/administer/global/billing/#total-data-points-dashboard)」を参照してください。
+データポイント使用量はキャッシュされており（リアルタイムではありません）、24時間ごとに東部標準時の午前2時頃に更新されます。キャッシュが更新されるまで、異なるダッシュボードユーザーが同じ日の異なる時間にタブを開いても、同じ合計値が表示される場合があります。他の請求ビューでの同じキャッシュ動作については、「[データポイント使用量の合計ダッシュボード]({{site.baseurl}}/user_guide/administer/global/billing#total-data-points-dashboard)」を参照してください。
 
-データポイントダッシュボードのコンポーネントの詳細については、「[請求]({{site.baseurl}}/user_guide/administer/global/billing/)」を参照してください。
+データポイントダッシュボードのコンポーネントの詳細については、「[請求]({{site.baseurl}}/user_guide/administer/global/billing)」を参照してください。
 
 {% alert tip %}
 **データポイントを無駄にしないでください。変更があるデータのみを更新してください。**<br><br>
@@ -42,13 +42,13 @@ search_rank: 6
 
 以下のセクションに、Brazeがデータポイントを蓄積する仕組みの内訳を記載しています。Brazeのデータポイントの細かな違いについてご質問がある場合は、Brazeアカウントマネージャーがお答えします。
 
-APIの取り込みについては、[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を介した各請求対象の更新は、他のプロファイル更新と同じルールに従います。例えば、ログに記録された各**カスタムイベント**は1データポイントとしてカウントされ、**カスタム属性**は通常、そのリクエストで更新された属性ごとにカウントされます（以下の請求対象テーブルと[特別な状況](#special-circumstances)を参照してください）。
+APIの取り込みについては、[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を介した各請求対象の更新は、他のプロファイル更新と同じルールに従います。例えば、ログに記録された各**カスタムイベント**は1データポイントとしてカウントされ、**カスタム属性**は通常、そのリクエストで更新された属性ごとにカウントされます（以下の請求対象テーブルと[特別な状況](#special-circumstances)を参照してください）。
 
 次のアクションはデータポイントを記録しません。
 - Brazeからユーザーを削除する
 - メッセージングでコネクテッドコンテンツを使用する
 - サブスクリプションステートがグローバルに、またはサブスクリプショングループ全体で変化する
-- [API呼び出し]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename/)を使用して、ユーザーのexternal IDの名前を変更する
+- [API呼び出し]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename)を使用して、ユーザーのexternal IDの名前を変更する
 - イベント、属性、またはイベントプロパティをブロックする
 
 ### 特別な状況 {#special-circumstances}
@@ -84,7 +84,7 @@ CSV経由でアップロードされたカスタム属性は、データポイ�
 {% tabs %}
 {% tab 請求対象外 %}
 
-#### 請求対象外のデータポイント（デフォルト） {#non-billable-data-points-default}
+### 請求対象外のデータポイント（デフォルト） {#non-billable-data-points-default}
 
 <div class="small_table"></div>
 
@@ -115,12 +115,12 @@ CSV経由でアップロードされたカスタム属性は、データポイ�
 | Twitter | フォロイー |
 | Twitter | ツイート数 |
 | Facebook | いいね |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Non-billable data points (default)" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="請求対象外のデータポイント（デフォルト）" }
 
 {% endtab %}
 {% tab 請求対象 %}
 
-#### 請求対象データポイント {#billable-data-points}
+### 請求対象データポイント {#billable-data-points}
 
 {% alert important %}
 次のデータタイプを追加、削除、または更新すると、請求対象のデータポイントが発生します。
@@ -169,7 +169,7 @@ table td {
 | AppsFlyerコホート割り当て | すべての割り当て | |
 | 最新のロケーション | すべての最新ロケーション | ジオフェンスへの入退出ではデータポイントは記録されません。これは、ジオフェンスデータがユーザープロファイルに対して保存されないためです。ジオフェンスはAppleとGoogleの位置情報サービスによって監視されています。Brazeは、ユーザーがジオフェンスをトリガーしたときにのみ通知を受け取ります。 |
 | Twitter | ユーザー名 | |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Billable data points" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="請求対象データポイント" }
 
 {% endtab %}
 {% endtabs %}

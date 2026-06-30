@@ -60,7 +60,7 @@ Ocasionalmente, faremos alterações não disruptivas nos esquemas do Braze Curr
 Normalmente, avisamos com duas semanas de antecedência sobre essas mudanças, mas às vezes isso não é possível. É essencial que você projete sua integração para lidar com campos ou tipos de evento não reconhecidos, caso contrário, isso provavelmente levará à perda de dados.
 
 {% alert tip %}
-Para a lista completa dos esquemas de eventos do Currents, consulte [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) e [Eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
+Para a lista completa dos esquemas de eventos do Currents, consulte [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) e [Eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).
 {% endalert %}
 
 ## Agrupamento em lotes e serialização {#batching-and-serialization}

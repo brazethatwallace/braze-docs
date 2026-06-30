@@ -65,7 +65,7 @@ Wenn Braze eine Verbindung zu Classic- und Pro SQL-Instanzen herstellt, kann es 
 
 ### 1. Schritt: Tabellen oder Ansichten einrichten {#step-1-set-up-tables-or-views}
 
-Bevor Sie beginnen, lesen Sie [Tabelleneinrichtung für Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/), um die Anforderungen an Quelltabellen im Vergleich zu den Formatierungsanforderungen für `PAYLOAD` zu verstehen.
+Bevor Sie beginnen, lesen Sie [Tabelleneinrichtung für Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup), um die Anforderungen an Quelltabellen im Vergleich zu den Formatierungsanforderungen für `PAYLOAD` zu verstehen.
 
 {% alert note %}
 Ihre Quelltabelle oder Ansicht kann Spalten enthalten, die nicht für Ihr Warehouse in den folgenden Tabs aufgeführt sind (z. B. für Auditing oder Hashing). Braze liest nur die in diesen Tabs beschriebenen Spalten; andere Spalten werden bei Cloud-Datenaufnahme-Synchronisierungen nicht verwendet.

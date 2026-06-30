@@ -17,25 +17,25 @@ Les événements d'achat sont des actions d'achat effectuées par vos utilisateu
 
 ## Enregistrer les événements d'achat {#log-purchase-events}
 
-Vous pouvez enregistrer vos achats en transmettant un [objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object/) via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), ou en utilisant l'une de nos bibliothèques SDK répertoriées ci-dessous.
+Vous pouvez enregistrer vos achats en transmettant un [objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object) via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), ou en utilisant l'une de nos bibliothèques SDK répertoriées ci-dessous.
 
 {% alert note %}
-Les propriétés d'événement d'achat utilisent les mêmes types de données que les [propriétés d'événement personnalisé]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_events/#expected-format).
+Les propriétés d'événement d'achat utilisent les mêmes types de données que les [propriétés d'événement personnalisé]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_events#expected-format).
 {% endalert %}
 
 La liste suivante énumère les méthodes utilisées pour enregistrer les achats sur les différentes plateformes. Dans ces pages, vous trouverez également la documentation sur la façon d'ajouter des propriétés et des quantités à votre événement d'achat. Vous pouvez cibler davantage vos utilisateurs en fonction de ces propriétés.
 
-- [Android et FireOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=android)
-- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-purchases)
-- [Unity]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=unity)
-- [.NET MAUI (anciennement Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#logging-purchases)
-- [Roku]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=roku)
+- [Android et FireOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-purchases)
+- [Unity]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=unity)
+- [.NET MAUI (anciennement Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#logging-purchases)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=roku)
 
 ## Consulter les données d'achat {#view-purchase-data}
 
-Une fois que vous avez configuré et commencé à enregistrer les événements d'achat, vous pouvez consulter ces données d'achat sur le profil d'un utilisateur dans l'[onglet Aperçu]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#overview-tab).
+Une fois que vous avez configuré et commencé à enregistrer les événements d'achat, vous pouvez consulter ces données d'achat sur le profil d'un utilisateur dans l'[onglet Aperçu]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab).
 
 ## Utiliser les données d'achat {#use-purchase-data}
 
@@ -63,12 +63,12 @@ Les filtres de segmentation suivants sont disponibles pour cibler les utilisateu
 - Propriété d'achat X en Y jours
 - X achats au cours des Y derniers jours
 
-Pour plus de détails sur chaque filtre, consultez le glossaire des [filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) et filtrez par « Purchase behavior ».
+Pour plus de détails sur chaque filtre, consultez le glossaire des [filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) et filtrez par « Purchase behavior ».
 
 ![Filtrage des utilisateurs ayant effectué exactement trois achats]({% image_buster /assets/img/purchase_filter_example.gif %}){: style="max-width:80%;"}
 
 {% alert tip %}
-Pour segmenter sur le nombre de fois qu'un achat spécifique a été effectué, enregistrez cet achat individuellement en tant qu'[attribut personnalisé incrémentiel]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#custom-attribute-storage).
+Pour segmenter sur le nombre de fois qu'un achat spécifique a été effectué, enregistrez cet achat individuellement en tant qu'[attribut personnalisé incrémentiel]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#custom-attribute-storage).
 {% endalert %}
 
 ### Personnalisation {#personalization}
@@ -113,7 +113,7 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
 
 En plus du suivi des indicateurs d'achat pour la segmentation, Braze enregistre également le nombre d'achats pour chaque produit et le chiffre d'affaires généré au fil du temps. Cela peut être utile pour identifier les produits les plus populaires ou mesurer l'impact d'une campagne promotionnelle sur les ventes.
 
-Vous pouvez trouver ces données sur la page [Rapport sur les revenus]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/#revenue-data).
+Vous pouvez trouver ces données sur la page [Rapport sur les revenus]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#revenue-data).
 
 ### Calculs du chiffre d'affaires {#revenue-calculations}
 
@@ -167,8 +167,8 @@ $$\text{Valeur moyenne d'achat} = \frac{\text{Dépenses totales en dollars}}{\te
 
 Il existe deux endroits principaux dans Braze où vous pouvez consulter la LTV de vos utilisateurs :
 
-- Pour des indicateurs globaux comme le *chiffre d'affaires sur la durée de vie* et la *valeur vie par utilisateur* pour chaque application et site, consultez votre [Rapport sur les revenus]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/#revenue-data).
-- Pour comprendre le chiffre d'affaires sur la durée de vie d'un utilisateur spécifique, consultez son [profil utilisateur]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#overview-tab).
+- Pour des indicateurs globaux comme le *chiffre d'affaires sur la durée de vie* et la *valeur vie par utilisateur* pour chaque application et site, consultez votre [Rapport sur les revenus]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#revenue-data).
+- Pour comprendre le chiffre d'affaires sur la durée de vie d'un utilisateur spécifique, consultez son [profil utilisateur]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab).
 
 ##### Impact des remboursements sur le chiffre d'affaires sur la durée de vie {#impact-of-refunds-on-lifetime-revenue}
 
@@ -196,7 +196,7 @@ Par exemple, si vous avez une application e-commerce et souhaitez envoyer un mes
 
 ![Paramètres de livraison par événement pour envoyer une campagne aux utilisateurs qui achètent des écouteurs avec un nom de marque égal à HeadphoneMart]({% image_buster /assets/img/purchase2.png %}){: style="max-width:80%;margin-left:15px;"}
 
-Consultez l'[objet de propriétés d'achat]({{site.baseurl}}/api/objects_filters/purchase_object/#purchase-properties-object) pour en savoir plus.
+Consultez l'[objet de propriétés d'achat]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-properties-object) pour en savoir plus.
 
 ### Segmentation par propriété d'événement {#event-property-segmentation}
 
@@ -209,7 +209,7 @@ Ces filtres de segmentation incluent :
 - A effectué des achats avec la propriété Y ayant la valeur V, X fois au cours des Y derniers jours
 - Ajoute une segmentation de 1 à 30 jours sur tous les achats, événements et propriétés au sein des achats et événements
 
-Contrairement aux [extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), les segments utilisés sont mis à jour en temps réel, prennent en charge un nombre illimité de segments, offrent un historique de consultation de 30 jours maximum et consomment des points de donnée. En raison du coût supplémentaire en points de donnée, vous devez contacter votre gestionnaire de la satisfaction client Braze pour activer les propriétés d'événement sur vos événements personnalisés.
+Contrairement aux [extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension), les segments utilisés sont mis à jour en temps réel, prennent en charge un nombre illimité de segments, offrent un historique de consultation de 30 jours maximum et consomment des points de donnée. En raison du coût supplémentaire en points de donnée, vous devez contacter votre gestionnaire de la satisfaction client Braze pour activer les propriétés d'événement sur vos événements personnalisés.
 
 Une fois approuvées, des propriétés supplémentaires peuvent être ajoutées dans le tableau de bord sous **Paramètres des données** > **Événements personnalisés** en sélectionnant **Gérer les propriétés**. Vous pouvez ensuite utiliser ces propriétés d'événement dans l'étape de ciblage du générateur de campagne ou de Canvas.
 
@@ -219,7 +219,7 @@ Une fois approuvées, des propriétés supplémentaires peuvent être ajoutées 
 
 ### Enregistrer les achats au niveau de la commande {#log-purchases-at-the-order-level}
 
-Pour enregistrer les achats au niveau de la commande plutôt qu'au niveau du produit, utilisez le nom de la commande ou la catégorie de commande comme `product_id`. Consultez notre [spécification de l'objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object/#product-id-naming-conventions) pour en savoir plus.
+Pour enregistrer les achats au niveau de la commande plutôt qu'au niveau du produit, utilisez le nom de la commande ou la catégorie de commande comme `product_id`. Consultez notre [spécification de l'objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions) pour en savoir plus.
 
 ### Conventions de nommage des identifiants de produit {#product-id-naming-conventions}
 
@@ -231,4 +231,4 @@ Cela rend les produits faciles à identifier pour la segmentation et le déclenc
 
 Il peut arriver que vous identifiiez des événements d'achat qui consomment trop de points de donnée, ne sont plus utiles à votre stratégie marketing ou ont été enregistrés par erreur. Pour empêcher l'envoi de ces données à Braze, vous pouvez bloquer l'objet de données personnalisées pendant que votre équipe technique travaille à le supprimer du backend de votre application ou site web.
 
-Dans le tableau de bord de Braze, vous pouvez gérer le blocage depuis **Paramètres des données** > **Produits**. Consultez [Gestion des données personnalisées]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/) pour en savoir plus.
+Dans le tableau de bord de Braze, vous pouvez gérer le blocage depuis **Paramètres des données** > **Produits**. Consultez [Gestion des données personnalisées]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) pour en savoir plus.

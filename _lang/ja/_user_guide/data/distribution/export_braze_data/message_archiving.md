@@ -8,7 +8,7 @@ description: "このリファレンス記事では、ユーザーに送信する
 
 ---
 
-# メッセージのアーカイブ
+# メッセージのアーカイブ {#message-archiving}
 
 > メッセージのアーカイブ機能により、ユーザーに送信されたメッセージのコピーを、保存やコンプライアンス目的で AWS S3 バケット、Azure Blob Storage コンテナ、または Google Cloud Storage バケットに保存できます。<br><br> この記事では、メッセージのアーカイブの設定、JSON ペイロード参照、およびよくある質問について説明します。
 
@@ -16,9 +16,9 @@ description: "このリファレンス記事では、ユーザーに送信する
 
 ## 仕組み {#how-it-works}
 
-この機能をオンにすると、Braze は選択したチャネル（メール、SMS/MMS、またはプッシュ）を通じてユーザーに送信された各メッセージについて、gzip 圧縮された JSON ファイルを書き込みます。Braze はこれらのファイルをデフォルトのデータエクスポート先に書き込みます。これには、[トランザクションメール API]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/) を通じて送信されるトランザクションメール キャンペーン など、各チャネルのすべての キャンペーン タイプが含まれます。
+この機能をオンにすると、Braze は選択したチャネル（メール、SMS/MMS、またはプッシュ）を通じてユーザーに送信された各メッセージについて、gzip 圧縮された JSON ファイルを書き込みます。Braze はこれらのファイルをデフォルトのデータエクスポート先に書き込みます。これには、[トランザクションメール API]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) を通じて送信されるトランザクションメールCampaignなど、各チャネルのすべてのCampaignタイプが含まれます。
 
-このファイルには、[ファイル参照](#file-references)で定義されたフィールドが含まれており、ユーザーに送信されるテンプレート化された最終的なメッセージが反映されます。キャンペーン で定義されたテンプレートの値（{% raw %}`{{${first_name}}}`{% endraw %} など）には、プロファイル情報に基づいてユーザーが受け取った最終的な値が表示されます。これにより、送信したメッセージのコピーを保持して、コンプライアンス、監査、またはカスタマーサポートの要件を満たすことができます。
+このファイルには、[ファイル参照](#file-references)で定義されたフィールドが含まれており、ユーザーに送信されるテンプレート化された最終的なメッセージが反映されます。Campaignで定義されたテンプレートの値（{% raw %}`{{${first_name}}}`{% endraw %} など）には、プロファイル情報に基づいてユーザーが受け取った最終的な値が表示されます。これにより、送信したメッセージのコピーを保持して、コンプライアンス、監査、またはカスタマーサポートの要件を満たすことができます。
 
 複数のクラウドストレージプロバイダーの認証情報を設定した場合、メッセージのアーカイブ機能では、デフォルトのデータエクスポート先としてマークされたプロバイダーにのみエクスポートされます。明示的なデフォルトが設定されておらず、AWS S3 バケットが接続されている場合、メッセージのアーカイブはそのバケットにアップロードされます。
 
@@ -28,7 +28,7 @@ description: "このリファレンス記事では、ユーザーに送信する
 
 JSON は、次のキー構造を使用してストレージバケットに保存されます。
 
-`sent_messages/{channel, one of: email, push, sms}/{MD5 digest of downcased: email address, push token, or E.164 phone number}/{campaign or キャンバス step API ID}/{dispatch ID}.json.gz`
+`sent_messages/{channel, one of: email, push, sms}/{MD5 digest of downcased: email address, push token, or E.164 phone number}/{campaign or Canvas step API ID}/{dispatch ID}.json.gz`
 
 ファイルの例を以下に示します。
 
@@ -43,16 +43,16 @@ MD5 ダイジェストは、既知の小文字化されたメールアドレス�
 Braze は、プッシュトークンをハッシュする前に小文字に変換します。これにより、プッシュトークン `Test_Push_Token12345` はキーパス内で `test_push_token12345` に小文字化され、ハッシュは `32b802170652af2b5624b695f34de089` になります。
 {% endalert %}
 
-## メッセージのアーカイブの設定
+## メッセージのアーカイブの設定 {#setting-up-message-archiving}
 
 このセクションでは、ワークスペースのメッセージのアーカイブの設定について説明します。先に進む前に、会社でメッセージのアーカイブを購入し、有効にしていることを確認してください。
 
 ### ステップ 1: クラウドストレージバケットの接続 {#step-1-connect-a-cloud-storage-bucket}
 
-まだクラウドストレージバケットを接続していない場合は、Braze に接続します。手順については、[Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/)、[Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/)、または [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents/) に関するパートナーのドキュメントを参照してください。
+まだクラウドストレージバケットを接続していない場合は、Brazeに接続します。手順については、[Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3)、[Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents)、または [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents) に関するパートナーのドキュメントを参照してください。
 
 {% alert note %}
-メッセージのアーカイブには Currents の設定は不要です。パートナー向けドキュメントに記載されているその前提条件はスキップして構いません。
+メッセージのアーカイブにはCurrentsの設定は不要です。パートナー向けドキュメントに記載されているその前提条件はスキップして構いません。
 {% endalert %}
 
 ### ステップ 2: メッセージをアーカイブするチャネルの選択 {#step-2-select-channels-for-message-archiving}
@@ -76,7 +76,7 @@ Braze は、プッシュトークンをハッシュする前に小文字に変�
 以下は、メッセージが送信されるたびにクラウドストレージバケットに配信される JSON ペイロードへの参照です。[メッセージのアーカイブのサンプルファイル](https://github.com/braze-inc/braze-examples/tree/main/message-archiving)については、コード例リポジトリを参照してください。
 
 {% tabs %}
-{% tab Email %}
+{% tab メール %}
 
 ```json
 {
@@ -84,7 +84,7 @@ Braze は、プッシュトークンをハッシュする前に小文字に変�
   "to": ToAddress, ("customer@example.com")
   "subject": SubjectLine ("20% off coupon inside!"),
   "from_name": DisplayName ("Braze"),
-  "from_address": FromAddress ("no-reply@braze.com"),
+  "from_address": FromAddress ("no-reply@example.com"),
   "html_body": HtmlBody,
   "plaintext_body": PlainTextBody,
   "amp_body": AMPEmailBody,
@@ -106,9 +106,9 @@ Braze は、プッシュトークンをハッシュする前に小文字に変�
 }
 ```
 
-`extras` フィールドには、HTML エディターでメールを作成する際に**メールの追加情報**フィールドで設定したキーと値のペアが含まれます。メールの追加情報機能はすべてのメールサービスプロバイダー（SendGrid や SparkPost を含む）で動作し、どのプロバイダーを使用しているかに関わらず、アーカイブされたメッセージにも含まれます。メールの追加情報の設定に関する詳細は、[メール キャンペーン の作成]({{site.baseurl}}/user_guide/channels/email/html_editor/#adding-email-extras)を参照してください。Currents にデータを送り返す方法については、[メッセージエクストラ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/)を参照してください。
+`extras` フィールドには、HTML エディターでメールを作成する際に**メールの追加情報**フィールドで設定したキーと値のペアが含まれます。メールの追加情報機能はすべてのメールサービスプロバイダー（SendGrid や SparkPost を含む）で動作し、どのプロバイダーを使用しているかに関わらず、アーカイブされたメッセージにも含まれます。メールの追加情報の設定に関する詳細は、[メールキャンペーンの作成]({{site.baseurl}}/user_guide/channels/email/html_editor#adding-email-extras)を参照してください。Currentsにデータを送り返す方法については、[メッセージエクストラ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras)を参照してください。
 
-![]({% image_buster /assets/img_archive/email_extras.png %}){: style="max-width:60%" }
+![メールコンポーザーのメール追加情報セクション。キーと値のフィールド、および新しい追加情報を追加するオプションが表示されています。]({% image_buster /assets/img_archive/email_extras.png %}){: style="max-width:60%" }
 
 {% endtab %}
 {% tab SMS/MMS %}
@@ -137,7 +137,7 @@ Braze は、プッシュトークンをハッシュする前に小文字に変�
 ```
 
 {% endtab %}
-{% tab Push %}
+{% tab プッシュ %}
 
 ```json
 {
@@ -161,13 +161,13 @@ Braze は、プッシュトークンをハッシュする前に小文字に変�
 }
 ```
 
-### プッシュペイロード構造のバリエーション
+### プッシュペイロード構造のバリエーション {#push-payload-structure-variations}
 
 {% alert important %}
-プッシュ通知アーカイブの最上位 `payload` フィールドには、デバイスに送信されたプロバイダーのペイロード全体が含まれます。この JSON 内では、APNs 用の `aps` や、FCM 用の `notification` および `data` といったキーは、メッセージの種類、プラットフォーム、設定によって大きく異なる場合があります。
+プッシュ通知アーカイブの最上位 `payload` フィールドには、デバイスに送信されたプロバイダーのペイロード全体が含まれます。この JSON 内では、APNsの `aps` や、FCMの `notification` および `data` といったキーは、メッセージの種類、プラットフォーム、設定によって大きく異なる場合があります。
 {% endalert %}
 
-メッセージのアーカイブはメッセージペイロード自体をキャプチャしますが、FCM や APNs に送信される配信メタデータは含まれません。配信メタデータには以下が含まれます。
+メッセージのアーカイブはメッセージペイロード自体をキャプチャしますが、FCM や APNsに送信される配信メタデータは含まれません。配信メタデータには以下が含まれます。
 
 - デバイストークン
 - 優先度設定
@@ -191,40 +191,40 @@ JSON ペイロードの形式はメッセージごとに異なり、時間の経
 {% endtab %}
 {% endtabs %}
 
-## よくある質問
+## よくある質問 {#frequently-asked-questions}
 
-### ペイロードに含まれないテンプレートは何ですか？
+### ペイロードに含まれないテンプレートは何ですか？ {#what-templating-is-not-included-in-the-payload}
 
-メッセージが Braze を離れた後に行われた変更は、クラウドストレージバケットに保存されたファイルには反映されません。これには、クリックトラッキングのためのリンクのラッピングやトラッキングピクセルの挿入など、メール配信パートナーが行う変更も含まれます。
+メッセージがBrazeを離れた後に行われた変更は、クラウドストレージバケットに保存されたファイルには反映されません。これには、クリックトラッキングのためのリンクのラッピングやトラッキングピクセルの挿入など、メール配信パートナーが行う変更も含まれます。
 
-### キャンペーン パスの「unassociated」の値の下にあるメッセージは何ですか？
+### Campaignパスの「unassociated」の値の下にあるメッセージは何ですか？ {#what-are-messages-under-the-unassociated-value-in-the-campaign-path}
 
-メッセージが キャンペーン または キャンバス 以外で送信される場合、ファイル名の キャンペーン ID は「unassociated」になります。これは、ダッシュボードからテストメッセージを送信した場合、Braze が SMS/MMS 自動レスポンスを送信した場合、または API 経由で送信したメッセージに キャンペーン ID が指定されていない場合に発生します。
+メッセージがCampaignまたはCanvas以外で送信される場合、ファイル名のCampaign ID は「unassociated」になります。これは、ダッシュボードからテストメッセージを送信した場合、Braze が SMS/MMS 自動レスポンスを送信した場合、または API 経由で送信したメッセージにCampaign ID が指定されていない場合に発生します。
 
-### この送信に関する詳細情報を見つけるにはどうすればよいですか？
+### この送信に関する詳細情報を見つけるにはどうすればよいですか？ {#how-do-i-find-more-information-about-this-send}
 
-`external_id` または `dispatch_id` を `user_id` と組み合わせて使用することで、テンプレート化されたメッセージを Currents データと照合し、配信時刻やユーザーが開封・クリックしたかといった詳細情報を確認できます。
+`external_id` または `dispatch_id` を `user_id` と組み合わせて使用することで、テンプレート化されたメッセージをCurrentsデータと照合し、配信時刻やユーザーが開封・クリックしたかといった詳細情報を確認できます。
 
-### 再試行はどのように処理されますか？
+### 再試行はどのように処理されますか？ {#how-are-retries-handled}
 
-クラウドストレージバケットに到達できない場合、Braze は[バックオフジッター](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/#Jitter)を使用して最大 3 回再試行します。AWS S3 のレート制限の再試行は Braze によって自動的に処理されます。
+クラウドストレージバケットに到達できない場合、Brazeは[バックオフジッター](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/#Jitter)を使用して最大 3 回再試行します。AWS S3 のレート制限の再試行はBrazeによって自動的に処理されます。
 
-### 認証情報が無効の場合、どうなりますか？
+### 認証情報が無効の場合、どうなりますか？ {#what-happens-if-my-credentials-are-invalid}
 
-クラウドストレージの認証情報がいずれかの時点で無効になった場合、Braze はクラウドストレージバケットにメッセージを保存できなくなり、それらのメッセージは失われます。Amazon Web Services、Google Cloud Services、または Azure（Microsoft Cloud Services）の[通知設定]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/)を構成することを推奨します。これにより、認証情報の問題が発生した場合にアラートを受け取れるようになります。
+クラウドストレージの認証情報がいずれかの時点で無効になった場合、Brazeはクラウドストレージバケットにメッセージを保存できなくなり、それらのメッセージは失われます。Amazon Web Services、Google Cloud Services、または Azure（Microsoft Cloud Services）の[通知設定]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences)を構成することを推奨します。これにより、認証情報の問題が発生した場合にアラートを受け取れるようになります。
 
-### アーカイブファイルの `sent_at` タイムスタンプが Currents の送信タイムスタンプと若干異なるのはなぜですか？
+### アーカイブファイルの `sent_at` タイムスタンプがCurrentsの送信タイムスタンプと若干異なるのはなぜですか？ {#why-does-my-archive-files-sent_at-timestamp-differ-slightly-from-the-sent-timestamp-in-currents}
 
 レンダリングされたコピーは、ユーザーにメッセージを送信する直前にアップロードされます。クラウドストレージのアップロード時間により、レンダリングされたコピーの `sent_at` タイムスタンプと実際の送信時刻との間に、数秒の遅延が発生する可能性があります。
 
-### 現在の Currents データ用バケットはそのまま使用して、メッセージのアーカイブ専用に新しいバケットを作成できますか？
+### 現在のCurrentsデータ用バケットはそのまま使用して、メッセージのアーカイブ専用に新しいバケットを作成できますか？ {#can-i-create-a-new-bucket-specifically-for-message-archiving-while-keeping-the-current-bucket-used-for-currents-data}
 
-いいえ、できません。このような専用バケットの作成に関心がある場合は、[製品フィードバック]({{site.baseurl}}/user_guide/administer/personal/product_portal/)をお送りください。
+いいえ、できません。このような専用バケットの作成に関心がある場合は、[製品フィードバック]({{site.baseurl}}/user_guide/administer/personal/product_portal)をお送りください。
 
-### Currents データエクスポートの仕組みと同様に、アーカイブされたデータは既存のバケット内の専用フォルダーに書き込まれますか？
+### Currentsデータエクスポートの仕組みと同様に、アーカイブされたデータは既存のバケット内の専用フォルダーに書き込まれますか？ {#is-archived-data-written-to-a-dedicated-folder-in-an-existing-bucket-similar-to-how-currents-data-exports-are-structured}
 
 データはバケットの `sent_messages` セクションに書き込まれます。詳しくは[仕組み](#how-it-works)を参照してください。
 
-### メッセージのアーカイブを使って、ファイルを異なるワークスペースにグループ分けできますか？
+### メッセージのアーカイブを使って、ファイルを異なるワークスペースにグループ分けできますか？ {#can-i-use-message-archiving-to-group-files-into-different-workspaces}
 
-いいえ、できません。メッセージのアーカイブ機能は、ワークスペースに基づくファイルのグループ化をサポートしていません。代わりに、キャンペーン やキャンバスステップの API ID がどのワークスペースに属するかを特定し、その情報に基づいてグループ化できます。
+いいえ、できません。メッセージのアーカイブ機能は、ワークスペースに基づくファイルのグループ化をサポートしていません。代わりに、CampaignやキャンバスステップのAPI ID がどのワークスペースに属するかを特定し、その情報に基づいてグループ化できます。

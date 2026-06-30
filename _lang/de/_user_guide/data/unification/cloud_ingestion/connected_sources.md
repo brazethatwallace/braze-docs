@@ -13,7 +13,7 @@ page_type: reference
 
 Nachdem Sie eine verbundene Quelle zu Ihrem Braze-Workspace hinzugefügt haben, können Sie innerhalb der Segmenterweiterungen ein CDI-Segment erstellen. CDI-Segmenterweiterungen ermöglichen es Ihnen, SQL-Befehle zu schreiben, die direkt Ihr Data Warehouse abfragen (unter Verwendung der Daten, die über Ihre verbundene CDI-Quelle verfügbar sind), und eine Gruppe von Nutzer:innen zu erstellen und zu pflegen, die innerhalb von Braze angesprochen werden können.
 
-Weitere Informationen zum Erstellen eines Segments mit dieser Quelle finden Sie unter [CDI-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/).
+Weitere Informationen zum Erstellen eines Segments mit dieser Quelle finden Sie unter [CDI-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments).
 
 {% alert warning %}
 Da verbundene Quellen direkt auf Ihrem Data Warehouse laufen, entstehen Ihnen alle Kosten, die mit der Ausführung dieser Abfragen in Ihrem Data Warehouse verbunden sind. Verbundene Quellen protokollieren keine Datenpunkte, und CDI-Segmenterweiterungen verbrauchen keine SQL-Segment-Credits.
@@ -23,7 +23,7 @@ Da verbundene Quellen direkt auf Ihrem Data Warehouse laufen, entstehen Ihnen al
 
 ### 1. Schritt: Verbinden Sie Ihre Ressourcen {#step-1-connect-your-resources}
 
-Verbundene Quellen für die Cloud-Datenaufnahme erfordern einige Einstellungen in Braze und in Ihrer Instanz. Folgen Sie diesen Schritten, um die Integration einzurichten – einige Schritte werden in Ihrem Data Warehouse und einige im Braze-Dashboard durchgeführt.
+Verbundene Quellen für die Cloud-Datenaufnahme erfordern einige Einstellungen in Braze und in Ihrer Instanz. Folgen Sie diesen Schritten, um die Integration einzurichten&#8722;einige Schritte werden in Ihrem Data Warehouse und einige im Braze-Dashboard durchgeführt.
 
 {% tabs %}
 {% tab Snowflake %}
@@ -277,13 +277,13 @@ Je nach Konfiguration Ihres Microsoft-Fabric-Kontos müssen Sie möglicherweise 
 {% tab Snowflake %}
 #### Schritt 3.1: Snowflake-Verbindungsinformationen und Quelltabelle hinzufügen {#step-31-add-snowflake-connection-information-and-source-table}
 
-Erstellen Sie eine verbundene Quelle im Braze-Dashboard. Gehen Sie zu **Data Settings** > **Cloud Data Ingestion** > **Connected Sources** und wählen Sie dann **Create new data sync** > **Snowflake Import**.
+Erstellen Sie eine verbundene Quelle im Braze-Dashboard. Gehen Sie zu **Dateneinstellungen** > **Cloud-Datenaufnahme** > **Connected Sources** und wählen Sie dann **Create new data sync** > **Snowflake Import**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![Seite „Connected Sources“ mit Optionen zum Erstellen einer neuen Datensynchronisierung.]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Geben Sie die Informationen für Ihr Snowflake-Data-Warehouse und das Quellschema ein und fahren Sie dann mit dem nächsten Schritt fort.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_1.png %})
+![Snowflake-Verbindungsfelder für Warehouse und Quellschema.]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_1.png %})
 
 #### Schritt 3.2: Synchronisierungsdetails konfigurieren {#step-32-configure-sync-details}
 
@@ -295,25 +295,25 @@ Legen Sie eine maximale Laufzeit für diese Quelle fest. Braze bricht automatisc
 Wenn Abfragen regelmäßig das Zeitlimit überschreiten und Sie eine maximale Laufzeit von 60 Minuten festgelegt haben, sollten Sie versuchen, die Ausführungszeit Ihrer Abfragen zu optimieren oder der Braze-Nutzer:in ein größeres Warehouse zuzuweisen.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_2.png %})
+![Konfiguration von Snowflake-Synchronisierungsname und maximaler Laufzeit.]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_2.png %})
 
 #### Schritt 3.3: Public Key notieren {#step-33-note-the-public-key}
 
 Notieren Sie sich im Schritt **Test connection** den öffentlichen RSA-Schlüssel. Sie benötigen ihn, um die Integration in Snowflake abzuschließen.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_3.png %})
+![Snowflake-Schritt „Test connection“ mit dem öffentlichen RSA-Schlüssel.]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_3.png %})
 
 {% endtab %}
 {% tab Redshift %}
 #### Schritt 3.1: Redshift-Verbindungsinformationen und Quelltabelle hinzufügen {#step-31-add-redshift-connection-information-and-source-table}
 
-Erstellen Sie eine verbundene Quelle im Braze-Dashboard. Gehen Sie zu **Data Settings** > **Cloud Data Ingestion** > **Connected Sources** und wählen Sie dann **Create data connection** > **Amazon Redshift Import**.
+Erstellen Sie eine verbundene Quelle im Braze-Dashboard. Gehen Sie zu **Dateneinstellungen** > **Cloud-Datenaufnahme** > **Connected Sources** und wählen Sie dann **Create data connection** > **Amazon Redshift Import**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![Seite „Connected Sources“ mit Optionen zum Erstellen einer neuen Datensynchronisierung.]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Geben Sie die Informationen für Ihr Redshift-Data-Warehouse und das Quellschema ein und fahren Sie dann mit dem nächsten Schritt fort.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_1.png %})
+![Redshift-Verbindungsfelder für Warehouse und Quellschema.]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_1.png %})
 
 #### Schritt 3.2: Synchronisierungsdetails konfigurieren
 
@@ -325,25 +325,25 @@ Legen Sie eine maximale Laufzeit für diese Quelle fest. Braze bricht automatisc
 Wenn Abfragen regelmäßig das Zeitlimit überschreiten und Sie eine maximale Laufzeit von 60 Minuten festgelegt haben, sollten Sie versuchen, die Ausführungszeit Ihrer Abfragen zu optimieren oder der Braze-Nutzer:in ein größeres Warehouse zuzuweisen.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_2.png %})
+![Konfiguration von Redshift-Synchronisierungsname und maximaler Laufzeit.]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_2.png %})
 
 #### Schritt 3.3: Public Key notieren (optional) {#step-33-note-the-public-key-optional}
 
 Wenn in Ihren Zugangsdaten die Option **Connect with SSH Tunnel** ausgewählt ist, notieren Sie sich den öffentlichen RSA-Schlüssel im Schritt **Test connection**. Sie benötigen ihn, um die Integration in Redshift abzuschließen.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_3.png %})
+![Redshift-Schritt „Test connection“ mit dem öffentlichen RSA-Schlüssel.]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_3.png %})
 
 {% endtab %}
 {% tab BigQuery %}
 #### Schritt 3.1: BigQuery-Verbindungsinformationen und Quelltabelle hinzufügen {#step-31-add-bigquery-connection-information-and-source-table}
 
-Erstellen Sie eine verbundene Quelle im Braze-Dashboard. Gehen Sie zu **Data Settings** > **Cloud Data Ingestion** > **Connected Sources** und wählen Sie dann **Create new data sync** > **Google BigQuery Import**.
+Erstellen Sie eine verbundene Quelle im Braze-Dashboard. Gehen Sie zu **Dateneinstellungen** > **Cloud-Datenaufnahme** > **Connected Sources** und wählen Sie dann **Create new data sync** > **Google BigQuery Import**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![Seite „Connected Sources“ mit Optionen zum Erstellen einer neuen Datensynchronisierung.]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Geben Sie die Informationen für Ihr BigQuery-Projekt und Ihren Datensatz ein und fahren Sie dann mit dem nächsten Schritt fort.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_1.png %})
+![Screenshot zu Schritt 3.1: BigQuery-Verbindungsinformationen und Quelltabelle hinzufügen.]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_1.png %})
 
 #### Schritt 3.2: Synchronisierungsdetails konfigurieren
 
@@ -355,25 +355,25 @@ Legen Sie eine maximale Laufzeit für diese Quelle fest. Braze bricht automatisc
 Wenn Abfragen regelmäßig das Zeitlimit überschreiten und Sie eine maximale Laufzeit von 60 Minuten festgelegt haben, sollten Sie versuchen, die Ausführungszeit Ihrer Abfragen zu optimieren oder der Braze-Nutzer:in ein größeres Warehouse zuzuweisen.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_2.png %})
+![Screenshot zu Schritt 3.2: Synchronisierungsdetails konfigurieren.]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_2.png %})
 
 #### Schritt 3.3: Verbindung testen {#step-33-test-the-connection}
 
 Wählen Sie **Test Connection**, um zu überprüfen, ob die Liste der für die Nutzer:in sichtbaren Tabellen Ihren Erwartungen entspricht, und wählen Sie dann **Done**. Ihre verbundene Quelle ist nun erstellt und kann in CDI-Segmenterweiterungen verwendet werden.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
+![Schritt „Test Connection“ mit den für die verbundene Quelle verfügbaren Tabellen.]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% tab Databricks %}
 #### Schritt 3.1: Databricks-Verbindungsinformationen und Quelltabelle hinzufügen {#step-31-add-databricks-connection-information-and-source-table}
 
-Erstellen Sie eine verbundene Quelle im Braze-Dashboard. Gehen Sie zu **Data Settings** > **Cloud Data Ingestion** > **Connected Sources** und wählen Sie dann **Create new data sync** > **Databricks Import**.
+Erstellen Sie eine verbundene Quelle im Braze-Dashboard. Gehen Sie zu **Dateneinstellungen** > **Cloud-Datenaufnahme** > **Connected Sources** und wählen Sie dann **Create new data sync** > **Databricks Import**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![Seite „Connected Sources“ mit Optionen zum Erstellen einer neuen Datensynchronisierung.]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Geben Sie die Informationen für Ihre Databricks-Zugangsdaten und optional den Katalog und das Quellschema ein und fahren Sie dann mit dem nächsten Schritt fort.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_databricks_1.png %})
+![Databricks-Verbindungsfelder für Zugangsdaten und Quellschema.]({% image_buster /assets/img/cloud_ingestion/connected_source_databricks_1.png %})
 
 #### Schritt 3.2: Synchronisierungsdetails konfigurieren
 
@@ -385,25 +385,25 @@ Legen Sie eine maximale Laufzeit für diese Quelle fest. Braze bricht automatisc
 Wenn Abfragen regelmäßig das Zeitlimit überschreiten und Sie eine maximale Laufzeit von 60 Minuten festgelegt haben, sollten Sie versuchen, die Ausführungszeit Ihrer Abfragen zu optimieren oder der Braze-Nutzer:in ein größeres Warehouse zuzuweisen.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_db_2.png %})
+![Konfiguration von Databricks-Synchronisierungsname und maximaler Laufzeit.]({% image_buster /assets/img/cloud_ingestion/connected_source_db_2.png %})
 
 #### Schritt 3.3: Verbindung testen
 
 Wählen Sie **Test Connection**, um zu überprüfen, ob die Liste der für die Nutzer:in sichtbaren Tabellen Ihren Erwartungen entspricht, und wählen Sie dann **Done**. Ihre verbundene Quelle ist nun erstellt und kann in CDI-Segmenterweiterungen verwendet werden.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
+![Schritt „Test Connection“ mit den für die verbundene Quelle verfügbaren Tabellen.]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% tab Microsoft Fabric %}
 #### Schritt 3.1: Microsoft-Fabric-Verbindungsinformationen und Quelltabelle hinzufügen {#step-31-add-microsoft-fabric-connection-information-and-source-table}
 
-Erstellen Sie eine verbundene Quelle im Braze-Dashboard. Gehen Sie zu **Data Settings** > **Cloud Data Ingestion** > **Connected Sources** und wählen Sie dann **Create new data sync** > **Microsoft Fabric Import**.
+Erstellen Sie eine verbundene Quelle im Braze-Dashboard. Gehen Sie zu **Dateneinstellungen** > **Cloud-Datenaufnahme** > **Connected Sources** und wählen Sie dann **Create new data sync** > **Microsoft Fabric Import**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![Seite „Connected Sources“ mit Optionen zum Erstellen einer neuen Datensynchronisierung.]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Geben Sie die Informationen für Ihre Microsoft-Fabric-Zugangsdaten sowie das Quell-Warehouse und das Schema ein und fahren Sie dann mit dem nächsten Schritt fort.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_1.png %})
+![Microsoft-Fabric-Verbindungsfelder für Zugangsdaten und Quellschema.]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_1.png %})
 
 #### Schritt 3.2: Synchronisierungsdetails konfigurieren
 
@@ -415,13 +415,13 @@ Legen Sie eine maximale Laufzeit für diese Quelle fest. Braze bricht automatisc
 Wenn Abfragen regelmäßig das Zeitlimit überschreiten und Sie eine maximale Laufzeit von 60 Minuten festgelegt haben, sollten Sie versuchen, die Ausführungszeit der Abfrage zu optimieren oder die Fabric-Kapazität zu skalieren.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_2.png %})
+![Konfiguration von Microsoft-Fabric-Synchronisierungsname und maximaler Laufzeit.]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_2.png %})
 
 #### Schritt 3.3: Verbindung testen
 
 Wählen Sie **Test Connection**, um zu überprüfen, ob die Liste der für die Nutzer:in sichtbaren Tabellen Ihren Erwartungen entspricht, und wählen Sie dann **Done**. Ihre verbundene Quelle ist nun erstellt und kann in CDI-Segmenterweiterungen verwendet werden.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
+![Schritt „Test Connection“ mit den für die verbundene Quelle verfügbaren Tabellen.]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -432,7 +432,7 @@ Wählen Sie **Test Connection**, um zu überprüfen, ob die Liste der für die N
 {% tab Snowflake %}
 Fügen Sie den Public Key, den Sie im letzten Schritt notiert haben, zu Ihrer Nutzer:in in Snowflake hinzu. Dadurch kann Braze eine Verbindung zu Snowflake herstellen. Einzelheiten dazu finden Sie in der [Snowflake-Dokumentation](https://docs.snowflake.com/en/user-guide/key-pair-auth.html).
 
-Wenn Sie die Schlüssel irgendwann rotieren möchten, können Sie einen neuen Public Key erstellen, indem Sie unter **Data Access Management** in **Cloud Data Ingestion** die Option **Generate New Key** für das jeweilige Konto wählen.
+Wenn Sie die Schlüssel irgendwann rotieren möchten, können Sie einen neuen Public Key erstellen, indem Sie unter **Data Access Management** in **Cloud-Datenaufnahme** die Option **Generate New Key** für das jeweilige Konto wählen.
 
 ![Datenzugriffsverwaltung für Snowflake-Zugangsdaten mit einem Button zum Generieren eines neuen Schlüssels.]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_4.png %})
 
@@ -495,7 +495,7 @@ Sie können mit Braze mehrere Quellen einrichten, aber jede Quelle sollte so kon
 
 ## Verwendung der verbundenen Quelle {#using-the-connected-source}
 
-Nachdem die Quelle erstellt wurde, können Sie damit eine oder mehrere CDI-Segmenterweiterungen erstellen. Weitere Informationen zum Erstellen eines Segments mit dieser Quelle finden Sie in der [Dokumentation zu CDI-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/).
+Nachdem die Quelle erstellt wurde, können Sie damit eine oder mehrere CDI-Segmenterweiterungen erstellen. Weitere Informationen zum Erstellen eines Segments mit dieser Quelle finden Sie in der [Dokumentation zu CDI-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments).
 
 {% alert note %}
 Wenn Abfragen regelmäßig das Zeitlimit überschreiten und Sie eine maximale Laufzeit von 60 Minuten festgelegt haben, sollten Sie versuchen, die Ausführungszeit Ihrer Abfragen zu optimieren oder der Braze-Nutzer:in mehr Rechenressourcen (z. B. ein größeres Warehouse) zuzuweisen.

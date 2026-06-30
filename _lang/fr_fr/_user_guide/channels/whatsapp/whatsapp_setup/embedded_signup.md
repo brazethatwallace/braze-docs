@@ -12,10 +12,10 @@ channel:
 
 > Cet article de référence fournit un guide étape par étape du processus d'inscription intégrée WhatsApp dans Braze.
 
-Le processus d'inscription intégrée WhatsApp est accessible lorsque vous [intégrez WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/) pour la première fois dans votre espace de travail Braze, et lorsque vous [ajoutez un compte WhatsApp Business]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/) à une intégration WhatsApp existante.
+Le processus d'inscription intégrée WhatsApp est accessible lorsque vous [intégrez WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) pour la première fois dans votre espace de travail Braze, et lorsque vous [ajoutez un compte WhatsApp Business]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups) à une intégration WhatsApp existante.
 
 {% alert note %}
-Vous pouvez ajouter [plusieurs comptes WhatsApp Business]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/) à un espace de travail Braze. Cependant, chaque compte WhatsApp Business spécifique ne peut être ajouté qu'à un seul espace de travail Braze.
+Vous pouvez ajouter [plusieurs comptes WhatsApp Business]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups) à un espace de travail Braze. Cependant, chaque compte WhatsApp Business spécifique ne peut être ajouté qu'à un seul espace de travail Braze.
 {% endalert %}
 
 ## Accéder au processus {#accessing-the-workflow}

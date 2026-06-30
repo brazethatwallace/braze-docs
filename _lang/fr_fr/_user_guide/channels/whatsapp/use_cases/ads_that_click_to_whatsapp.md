@@ -52,7 +52,7 @@ N'oubliez pas de fournir également tout code de réduction, offre ou autre info
 {: start="4"}
 4. Abonnez les utilisateurs en mettant à jour le statut d'abonnement des profils utilisateur avec l'une des méthodes de mise à jour suivantes :
     - Créez un webhook Braze-to-Braze qui met à jour le statut d'abonnement via la REST API.
-    - Utilisez l'éditeur JSON avancé pour mettre à jour le profil utilisateur avec le modèle permettant de [mettre à jour le statut d'abonnement d'un utilisateur vers un Canvas WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/#whatsapp-opt-in-and-opt-out-process).
+    - Utilisez l'éditeur JSON avancé pour mettre à jour le profil utilisateur avec le modèle permettant de [mettre à jour le statut d'abonnement d'un utilisateur vers un Canvas WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
 
 ![Étape Mise à jour utilisateur du Canvas qui utilise l'éditeur JSON avancé pour mettre à jour le profil utilisateur.]({% image_buster /assets/img/whatsapp/user_update_step_json.png %})
 

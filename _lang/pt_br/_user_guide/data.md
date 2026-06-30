@@ -9,7 +9,7 @@ description: "Saiba mais sobre a Plataforma de Dados da Braze, incluindo como un
 
 > Saiba mais sobre a Plataforma de Dados da Braze, incluindo como unificar, ativar e distribuir seus dados.
 
-A Plataforma de Dados da Braze (BDP) é um conjunto abrangente e componível de recursos de dados e integrações de parceiros que permite criar experiências personalizadas para seus clientes. Na Braze, pensamos em dados em termos de três tarefas relacionadas a dados: [Unificação]({{site.baseurl}}/user_guide/data/unification/), [Ativação]({{site.baseurl}}/user_guide/data/activation/) e [Distribuição]({{site.baseurl}}/user_guide/data/distribution/).
+A Plataforma de Dados da Braze (BDP) é um conjunto abrangente e componível de recursos de dados e integrações de parceiros que permite criar experiências personalizadas para seus clientes. Na Braze, pensamos em dados em termos de três tarefas relacionadas a dados: [Unificação]({{site.baseurl}}/user_guide/data/unification), [Ativação]({{site.baseurl}}/user_guide/data/activation) e [Distribuição]({{site.baseurl}}/user_guide/data/distribution).
 
 Ao usar uma combinação de recursos da Plataforma de Dados da Braze, você pode aproveitar seus dados para criar mensagens significativas e direcionadas que respondem ao que seus clientes fazem em tempo real.
 
@@ -17,19 +17,19 @@ Ao usar uma combinação de recursos da Plataforma de Dados da Braze, você pode
 
 ### Unifique seus dados {#unify-your-data}
 
-Os dados de usuários fluem para a Braze por muitos pontos de entrada. Colete e consolide dados primários de qualquer origem usando [APIs]({{site.baseurl}}/api/home/) e [SDKs]({{site.baseurl}}/developer_guide/sdk_integration/). Você também pode usar ferramentas de ingestão integradas, como a [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/), para criar uma integração direta do seu data warehouse ou solução de armazenamento de arquivos com a Braze, ou usar a [Transformação de dados]({{site.baseurl}}/user_guide/data/unification/data_transformation/) para criar e gerenciar integrações de webhook para transferir dados para a Braze.
+Os dados de usuários fluem para a Braze por muitos pontos de entrada. Colete e consolide dados primários de qualquer origem usando [APIs]({{site.baseurl}}/api/home) e [SDKs]({{site.baseurl}}/developer_guide/sdk_integration). Você também pode usar ferramentas de ingestão integradas, como a [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), para criar uma integração direta do seu data warehouse ou solução de armazenamento de arquivos com a Braze, ou usar a [Transformação de dados]({{site.baseurl}}/user_guide/data/unification/data_transformation) para criar e gerenciar integrações de webhook para transferir dados para a Braze.
 
 ### Ative seus dados {#activate-your-data}
 
-Limpe, organize e prepare seus dados para uso. Isso envolve entender os comportamentos e preferências dos seus clientes em tempo real com perfis de usuário e segmentos. Consulte o [Glossário de métricas de relatórios]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) ao criar mensagens direcionadas e use [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/) para enriquecer suas mensagens com dados de produtos ou conteúdo. Identifique como seus clientes estão respondendo a essas experiências personalizadas.
+Limpe, organize e prepare seus dados para uso. Isso envolve entender os comportamentos e preferências dos seus clientes em tempo real com perfis de usuário e segmentos. Consulte o [Glossário de métricas de relatórios]({{site.baseurl}}/user_guide/analytics/metrics_glossary) ao criar mensagens direcionadas e use [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs) para enriquecer suas mensagens com dados de produtos ou conteúdo. Identifique como seus clientes estão respondendo a essas experiências personalizadas.
 
 ### Distribua seus dados {#distribute-your-data}
 
-Transmita e [exporte seus dados]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/) para sistemas externos para obter insights e tomar decisões. Use o [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) para transmitir dados de eventos da Braze para um data warehouse e alimentar ferramentas de business intelligence. Você também pode estender seus recursos de dados com [integrações de parceiros de tecnologia]({{site.baseurl}}/partners/data_and_analytics/).
+Transmita e [exporte seus dados]({{site.baseurl}}/user_guide/data/distribution/export_braze_data) para sistemas externos para obter insights e tomar decisões. Use o [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) para transmitir dados de eventos da Braze para um data warehouse e alimentar ferramentas de business intelligence. Você também pode estender seus recursos de dados com [integrações de parceiros de tecnologia]({{site.baseurl}}/partners/data_and_analytics).
 
 ## Infraestrutura de dados {#data-infrastructure}
 
-A infraestrutura de dados da Braze inclui [centros de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_centers/) que ajudam a minimizar a latência — o tempo que os dados levam para trafegar entre o servidor e o usuário. Essa distribuição geográfica permite que nossos serviços sejam confiáveis e escaláveis. Também oferecemos [criptografia em nível de campo]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/) para ajudar a proteger dados sensíveis e minimizar informações pessoais identificáveis (IPI) compartilhadas na Braze. Para mais informações sobre uso e faturamento, consulte [Pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
+A infraestrutura de dados da Braze inclui [centros de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_centers) que ajudam a minimizar a latência — o tempo que os dados levam para trafegar entre o servidor e o usuário. Essa distribuição geográfica permite que nossos serviços sejam confiáveis e escaláveis. Também oferecemos [criptografia em nível de campo]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption) para ajudar a proteger dados sensíveis e minimizar informações pessoais identificáveis (IPI) compartilhadas na Braze. Para mais informações sobre uso e faturamento, consulte [Pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points).
 
 ## Princípios fundamentais {#core-principles}
 

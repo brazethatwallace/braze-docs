@@ -15,46 +15,46 @@ channel:
 
 Les abonnements peuvent provenir de sources externes ou de méthodes Braze, telles que les SMS ou les messages in-app et dans le navigateur. Les désabonnements peuvent être gérés à l'aide de mots-clés définis dans Braze et de boutons marketing WhatsApp. Consultez les méthodes suivantes pour obtenir des conseils sur la configuration des abonnements et désabonnements.
 
-#### Méthodes d'abonnement {#opt-in-methods}
+## Méthodes d'abonnement {#opt-in-methods}
 - [Méthodes d'abonnement externes à Braze](#external-to-braze-opt-in-methods)
   - [Liste d'abonnement créée en externe](#externally-built-opt-in-list)
   - [Message sortant dans le canal de support client WhatsApp](#outbound-message-in-customer-support-whatsapp-channel)
   - [Message WhatsApp entrant](#inbound-whatsapp-message)
 - [Méthodes d'abonnement via Braze](#braze-powered-opt-in-methods)
 
-#### Méthodes de désabonnement {#opt-out-methods}
+### Méthodes de désabonnement {#opt-out-methods}
 - [Mots-clés de désabonnement généraux](#general-opt-out-keywords)
 - [Sélection de désabonnement marketing](#marketing-opt-out-selection)
 
 ## Configurer les abonnements pour votre canal WhatsApp Braze {#set-up-opt-ins-for-your-braze-whatsapp-channel}
 
 Pour les abonnements WhatsApp, vous devez respecter les [exigences de WhatsApp](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/). Vous devrez également fournir à Braze les informations suivantes :
-- Un `external_id`, un [numéro de téléphone]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers/) et un statut d'abonnement mis à jour pour chaque utilisateur. Cela peut être fait en utilisant le [SDK](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)/) ou via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) pour mettre à jour le numéro de téléphone et le statut d'abonnement.
+- Un `external_id`, un [numéro de téléphone]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers) et un statut d'abonnement mis à jour pour chaque utilisateur. Cela peut être fait en utilisant le [SDK](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)/) ou via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) pour mettre à jour le numéro de téléphone et le statut d'abonnement.
 
 {% alert note %}
-Braze a publié une amélioration de l'endpoint `/users/track` qui permet de mettre à jour le statut d'abonnement. Vous pouvez en savoir plus dans [Groupes d'abonnement]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/#update-subscription-status). Cependant, si vous avez déjà créé des protocoles d'abonnement en utilisant l'[endpoint `/v2/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2/), vous pouvez continuer à les utiliser.
+Braze a publié une amélioration de l'endpoint `/users/track` qui permet de mettre à jour le statut d'abonnement. Vous pouvez en savoir plus dans [Groupes d'abonnement]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#update-subscription-status). Cependant, si vous avez déjà créé des protocoles d'abonnement en utilisant l'[endpoint `/v2/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2), vous pouvez continuer à les utiliser.
 {% endalert %}
 
 ### Méthodes d'abonnement externes à Braze {#external-to-braze-opt-in-methods}
 
 Votre application ou site web (inscription de compte, page de paiement, paramètres du compte, terminal de carte bancaire) vers Braze.
 
-Partout où vous disposez déjà du consentement marketing pour l'e-mail ou les SMS, incluez une section supplémentaire pour WhatsApp. Après qu'un utilisateur s'est abonné, il a besoin d'un `external_id`, d'un [numéro de téléphone]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers/) et d'un statut d'abonnement mis à jour. Pour ce faire, selon la configuration de votre installation Braze, utilisez soit l'[endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/), soit le [SDK](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)/).
+Partout où vous disposez déjà du consentement marketing pour l'e-mail ou les SMS, incluez une section supplémentaire pour WhatsApp. Après qu'un utilisateur s'est abonné, il a besoin d'un `external_id`, d'un [numéro de téléphone]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers) et d'un statut d'abonnement mis à jour. Pour ce faire, selon la configuration de votre installation Braze, utilisez soit l'[endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status), soit le [SDK](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)/).
 
 #### Liste d'abonnement créée en externe {#externally-built-opt-in-list}
 
-Si vous avez déjà utilisé WhatsApp, vous avez peut-être déjà constitué une liste d'utilisateurs avec des abonnements conformes aux exigences de WhatsApp. Dans ce cas, importez un CSV ou utilisez l'API avec les [informations suivantes]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv) dans Braze.
+Si vous avez déjà utilisé WhatsApp, vous avez peut-être déjà constitué une liste d'utilisateurs avec des abonnements conformes aux exigences de WhatsApp. Dans ce cas, importez un CSV ou utilisez l'API avec les [informations suivantes]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv) dans Braze.
 
 #### Message sortant dans le canal de support client WhatsApp {#outbound-message-in-customer-support-whatsapp-channel}
 
 Dans votre canal de support client, faites un suivi des problèmes résolus avec un message automatique demandant s'ils souhaitent s'abonner aux messages marketing. La fonctionnalité ici dépend des fonctionnalités disponibles dans l'outil de support client de votre choix et de l'endroit où vous conservez les informations utilisateur.
 
 1. Fournissez un [lien de message](https://business.facebook.com/business/help/890732351439459?ref=search_new_0) depuis votre numéro de téléphone WhatsApp Business.
-2. Fournissez des [actions de réponse rapide]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users/#quick-replies) où le client répond « Oui » pour indiquer son abonnement.
+2. Fournissez des [actions de réponse rapide]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies) où le client répond « Oui » pour indiquer son abonnement.
 3. Configurez un déclencheur de mot-clé personnalisé.
 4. Pour l'une ou l'autre de ces idées, vous devrez probablement terminer le parcours avec les éléments suivants :
-	- Appeler l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) pour mettre à jour ou créer un utilisateur
-	- Utiliser l'[endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) ou le [SDK](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)/)
+	- Appeler l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) pour mettre à jour ou créer un utilisateur
+	- Utiliser l'[endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) ou le [SDK](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)/)
 
 #### Message WhatsApp entrant {#inbound-whatsapp-message}
 
@@ -63,7 +63,7 @@ Demandez aux clients d'envoyer un message entrant au numéro WhatsApp.
 Cela peut être configuré comme un Canvas ou une campagne, selon que vous souhaitez que l'utilisateur reçoive un message de confirmation sur le nouveau canal.
 
 1. Créez une campagne avec le déclencheur de livraison par événement d'un message entrant.
-2. Créez une campagne webhook. Pour un exemple de webhook, consultez [Groupes d'abonnement]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs/#update-subscription-status).
+2. Créez une campagne webhook. Pour un exemple de webhook, consultez [Groupes d'abonnement]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs#update-subscription-status).
 
 {% alert tip %}
 Notez que vous pouvez créer une URL ou un code QR pour rejoindre un canal WhatsApp depuis le [gestionnaire WhatsApp](https://business.facebook.com/wa/manage/phone-numbers/) sous **Phone Number** > **Message Links**.<br>![Compositeur de code QR WhatsApp.]({% image_buster /assets/img/whatsapp/whatsapp115.png %}){: style="max-width:55%;"}
@@ -77,17 +77,17 @@ Dans Canvas, configurez une campagne qui demande aux clients s'ils souhaitent s'
 - Segment de clients : groupe marketing abonné en dehors des États-Unis
 - Configuration de déclencheur de mot-clé personnalisé
 
-Découvrez comment mettre à jour le statut d'abonnement des profils utilisateur en consultant [Groupes d'abonnement]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/#update-subscription-status).
+Découvrez comment mettre à jour le statut d'abonnement des profils utilisateur en consultant [Groupes d'abonnement]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#update-subscription-status).
 
 #### Message in-app ou dans le navigateur {#in-app-or-in-browser-message}
 
 Créez un message in-app ou une fenêtre pop-up dans le navigateur invitant les clients à s'abonner à WhatsApp.
 
-Utilisez un [message in-app HTML](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/4-sms-capture-modal) avec le [pont JavaScript]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#javascript-bridge) pour interagir avec le SDK Braze. Assurez-vous d'utiliser l'ID du groupe d'abonnement WhatsApp.
+Utilisez un [message in-app HTML](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/4-sms-capture-modal) avec le [pont JavaScript]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#javascript-bridge) pour interagir avec le SDK Braze. Assurez-vous d'utiliser l'ID du groupe d'abonnement WhatsApp.
 
 #### Formulaire de capture de numéro de téléphone {#phone-number-capture-form}
 
-Utilisez le modèle de [formulaire de capture de numéro de téléphone]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/phone_number_capture/) dans l'éditeur par glisser-déposer pour les messages in-app afin de collecter les numéros de téléphone des utilisateurs et développer vos groupes d'abonnement WhatsApp.
+Utilisez le modèle de [formulaire de capture de numéro de téléphone]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/phone_number_capture) dans l'éditeur par glisser-déposer pour les messages in-app afin de collecter les numéros de téléphone des utilisateurs et développer vos groupes d'abonnement WhatsApp.
 
 ## Configurer les désabonnements pour votre canal WhatsApp Braze {#set-up-opt-outs-for-your-braze-whatsapp-channel}
 
@@ -118,7 +118,7 @@ Lors de la sélection des déclencheurs de mots-clés, incluez des mots comme «
 
 #### Étape 2 : Mettre à jour le profil de l'utilisateur {#step-2-update-the-users-profile}
 
-Mettez à jour le profil de l'utilisateur en utilisant l'une des méthodes décrites dans [Groupes d'abonnement]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/#update-subscription-status).
+Mettez à jour le profil de l'utilisateur en utilisant l'une des méthodes décrites dans [Groupes d'abonnement]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#update-subscription-status).
 
 ### Sélection de désabonnement marketing {#marketing-opt-out-selection}
 
@@ -127,7 +127,7 @@ Dans le créateur de modèles de messages WhatsApp, vous pouvez inclure l'option
 1. Créez un modèle de message avec la réponse rapide « désabonnement marketing ».<br>![Modèle de message avec une option de pied de page « Désabonnement marketing ».]({% image_buster /assets/img/whatsapp/whatsapp121.png %})<br><br>![Section pour configurer un bouton de désabonnement marketing.]({% image_buster /assets/img/whatsapp/whatsapp122.png %})<br><br>
 2. Créez un Canvas qui utilise ce modèle de message.<br><br>
 3. Suivez les étapes de l'exemple précédent mais avec le texte déclencheur « STOP PROMOTIONS ».<br><br>
-4. Mettez à jour le statut d'abonnement de l'utilisateur en utilisant l'une des méthodes décrites dans [Groupes d'abonnement]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/#update-subscription-status).
+4. Mettez à jour le statut d'abonnement de l'utilisateur en utilisant l'une des méthodes décrites dans [Groupes d'abonnement]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#update-subscription-status).
 
 ## Configurer les workflows d'abonnement et de désabonnement {#set-up-opt-in-and-opt-out-workflows}
 
@@ -138,7 +138,7 @@ Vous pouvez configurer des workflows de réponse aux mots-clés « START » et �
 
 ### Étape Mise à jour utilisateur {#user-update-step}
 
-L'[étape Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) peut ajouter le numéro de téléphone de l'utilisateur au groupe d'abonnement WhatsApp lorsque l'utilisateur envoie un mot-clé au numéro de téléphone du groupe d'abonnement.
+L'[étape Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) peut ajouter le numéro de téléphone de l'utilisateur au groupe d'abonnement WhatsApp lorsque l'utilisateur envoie un mot-clé au numéro de téléphone du groupe d'abonnement.
 
 L'étape Mise à jour utilisateur évite les conditions de concurrence car l'utilisateur ne passera pas à l'étape suivante du Canvas avant que son numéro de téléphone ne soit ajouté au groupe d'abonnement. Elle nécessite également moins d'étapes de configuration que les autres méthodes, c'est pourquoi Braze recommande généralement cette méthode.
 
@@ -176,7 +176,7 @@ Pour les messages « STOP », inversez l'étape de message confirmant le désabo
 
 #### Considérations {#considerations}
 
-La mise à jour peut s'effectuer à des vitesses variables car Braze regroupe les requêtes de l'[étape Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) par lots.
+La mise à jour peut s'effectuer à des vitesses variables car Braze regroupe les requêtes de l'[étape Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) par lots.
 
 ### Campaign webhook pour déclencher une seconde campagne WhatsApp {#webhook-campaign-to-trigger-a-second-whatsapp-campaign}
 
@@ -196,7 +196,7 @@ Vous n'avez pas besoin d'utiliser cette méthode pour les messages STOP. Le mess
 ![Étape de message pour un webhook.]({% image_buster /assets/img/whatsapp/webhook_step.png %}){: style="max-width:85%;"}
 
 {: start="3"}
-3. Saisissez l'[URL de l'endpoint]({{site.baseurl}}/api/basics/) du client dans l'**URL du webhook**, suivie du lien de l'endpoint `campaigns/trigger/send`. Par exemple, `https://dashboard-02.braze.eu/campaigns/trigger/send`.
+3. Saisissez l'[URL de l'endpoint]({{site.baseurl}}/api/basics) du client dans l'**URL du webhook**, suivie du lien de l'endpoint `campaigns/trigger/send`. Par exemple, `https://dashboard-02.braze.eu/campaigns/trigger/send`.
 
 ![Champ URL du webhook sous la section « Rédiger le webhook ».]({% image_buster /assets/img/whatsapp/campaigns_webhook_url.png %}){: style="max-width:70%;"}
 

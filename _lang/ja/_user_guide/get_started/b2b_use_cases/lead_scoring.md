@@ -32,18 +32,18 @@ Brazeでリードスコアリングワークフローを作成するには、次
 1. **エントリスケジュール**ステップに進み、**アクションベース**のエントリスケジュールを選択します。これにより、ユーザーが特定のアクションを実行したときにCanvasに入ります。
 
 2. **アクションベースのオプション**で、次の2つのアクションを追加します。
-    - **カスタム属性値の変更**: リードスコアリング属性の名前（`lead score` など）を指定します。リードスコアリング属性をまだ作成していない場合は、[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)のステップに従ってください。これにより、ユーザーのリードスコアが変化するたびにCanvasに入ります。
+    - **カスタム属性値の変更**: リードスコアリング属性の名前（`lead score` など）を指定します。リードスコアリング属性をまだ作成していない場合は、[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)のステップに従ってください。これにより、ユーザーのリードスコアが変化するたびにCanvasに入ります。
     - **メールアドレスの追加**
 
 ![「アクションベース」のエントリスケジュールで、カスタム属性「lead score」の変更とメールアドレスの追加をアクションベースのオプションとしてCanvasを作成するステップ2。]({% image_buster /assets/img/b2b/step_2_simple.png %}){: style="max-width:80%;"}
 
 ### ステップ 3: ターゲットオーディエンスを特定する {#step-3-identify-your-target-audience}
 
-#### ステップ 3a: セグメントを選択する {#step-3a-select-segments}
+#### ステップ 3a: Segmentを選択する {#step-3a-select-segments}
 
-すべてのユーザーがリードスコアリングの対象であるため、どのユーザー[セグメント]({{site.baseurl}}/user_guide/audience/segments/)をターゲットにするかを選択し、追加の[フィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)を適用することで、スコアリング対象に関する会社固有のルールを追加できます。たとえば、従業員、すでに顧客であるユーザーなどを除外できます。
+すべてのユーザーがリードスコアリングの対象であるため、どのユーザー[Segment]({{site.baseurl}}/user_guide/audience/segments)をターゲットにするかを選択し、追加の[フィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)を適用することで、スコアリング対象に関する会社固有のルールを追加できます。たとえば、従業員、すでに顧客であるユーザーなどを除外できます。
 
-![セグメントとフィルターを選択してエントリオーディエンスを絞り込むオプションがあるCanvasの作成ステップ3。]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
+![Segmentとフィルターを選択してエントリオーディエンスを絞り込むオプションがあるCanvasの作成ステップ3。]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
 
 #### ステップ 3b: Canvasの再適格性を設定する {#step-3b-set-canvas-re-eligibility}
 
@@ -68,7 +68,7 @@ Brazeでリードスコアリングワークフローを作成するには、次
 
 #### ステップ 4a: アクションパスを追加する {#step-4a-add-an-action-path}
 
-バリアントの下で<i class="fas fa-plus"></i> **追加**を選択し、**アクションパス**を選択します。
+バリアントの下で<i class="fas fa-plus" aria-label="追加"></i> **追加**を選択し、**アクションパス**を選択します。
 
 ![プラスアイコンで開いたメニューに「アクションパス」が表示されているCanvas。]({% image_buster /assets/img/b2b/action_paths_simple.png %}){: style="max-width:60%;"}
 
@@ -113,11 +113,11 @@ Brazeでリードスコアリングワークフローを作成するには、次
 
 ## 外部リードスコアリング {#external-lead-scoring}
 
-当社の[テクノロジーパートナー]({{site.baseurl}}/partners/home/)の1社を使用する場合でも、独自の内部リードスコアリングモデル、機械学習、または別のリードスコアリングツールを使用する場合でも、複数の選択肢を用意しています。
+当社の[テクノロジーパートナー]({{site.baseurl}}/partners/home)の1社を使用する場合でも、独自の内部リードスコアリングモデル、機械学習、または別のリードスコアリングツールを使用する場合でも、複数の選択肢を用意しています。
 
 ### 外部パートナー {#external-partners}
 
-リードスコアリング機能を提供するB2Bパートナーについては、[テクノロジーパートナー]({{site.baseurl}}/partners/home/)をご覧ください。お使いのツールが見つからない場合は、[`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#track-users) APIエンドポイントを呼び出すことで連携できます。
+リードスコアリング機能を提供するB2Bパートナーについては、[テクノロジーパートナー]({{site.baseurl}}/partners/home)をご覧ください。お使いのツールが見つからない場合は、[`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users) APIエンドポイントを呼び出すことで連携できます。
 
 ### 内部リードスコアリングデータモデル {#internal-lead-scoring-data-models}
 
@@ -132,13 +132,13 @@ Brazeは、リードスコアリングモデルを含む内部データモデル
 
 たとえば、メッセージングエンゲージメントデータ（メールの開封やクリック、ランディングページのエンゲージメントなど）でリードのエンゲージメントレベルを判定できます。このデータをクラウドデータウェアハウスに渡し、Brazeのストリーミングエクスポートデータソリューションを使用してリードスコアリングモデルの入力として利用できるようにすることができます。
 
-- [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)
-- [Snowflakeセキュアデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)
+- [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)
+- [Snowflakeセキュアデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)
 
 {% endtab %}
 {% tab Brazeを送信先として使用 %}
 
-内部チームがリードスコアリングモデルを作成して実行したら、そのデータをBrazeに取り込み、関連するメッセージングのためにリードをより適切にセグメントしてターゲティングできます。これは[Brazeクラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)で実行できます。
+内部チームがリードスコアリングモデルを作成して実行したら、そのデータをBrazeに取り込み、関連するメッセージングのためにリードをより適切にセグメントしてターゲティングできます。これは[Brazeクラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)で実行できます。
 
 クラウドデータ取り込みでは、内部チームがユーザー識別子、最新のリードスコア、およびスコアが更新されたタイムスタンプを含む新しいテーブルまたはビューを作成します。Brazeがそのテーブルまたはビューを取得し、リードスコアをユーザープロファイルに追加します。
 

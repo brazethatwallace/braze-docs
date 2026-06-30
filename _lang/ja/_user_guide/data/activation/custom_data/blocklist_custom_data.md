@@ -8,7 +8,7 @@ description: "このリファレンス記事では、Brazeでカスタムイベ�
 
 # カスタムデータのブロックリスト {#blocklist-custom-data}
 
-> ブロックリストを使用して、不要になったカスタムデータのトラッキングを停止できます。削除を使用して、ブロックリスト登録後にカスタムイベントやカスタム属性をユーザープロファイルから完全に削除できます。事前入力、プロパティの管理、データタイプの設定については、[カスタムデータの管理]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/)を参照してください。
+> ブロックリストを使用して、不要になったカスタムデータのトラッキングを停止できます。削除を使用して、ブロックリスト登録後にカスタムイベントやカスタム属性をユーザープロファイルから完全に削除できます。事前入力、プロパティの管理、データタイプの設定については、[カスタムデータの管理]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data)を参照してください。
 
 ## カスタムデータのブロックリスト登録 {#blocklisting-custom-data}
 
@@ -25,7 +25,7 @@ description: "このリファレンス記事では、Brazeでカスタムイベ�
 
 ブロックリスト登録または削除のいずれの場合でも、それらのカスタム属性、イベント、購入は**ワークスペースの管理**ページに表示されなくなり、セグメントフィルターからも削除されます。カスタムデータを削除した場合、Brazeは[削除の仕組み](#how-deletion-works)に従って、プロファイルからそのユーザーレベルのデータを削除します。
 
-カスタムデータをブロックリストに登録するには、ワークスペースに対して以下のドロップダウンに記載されている[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)が必要です。
+カスタムデータをブロックリストに登録するには、ワークスペースに対して以下のドロップダウンに記載されている[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)が必要です。
 
 {% details カスタムデータのブロックリスト登録に必要なユーザー権限 %}
 
@@ -76,7 +76,7 @@ description: "このリファレンス記事では、Brazeでカスタムイベ�
 ### カスタム属性、カスタムイベント、製品のブロックリスト登録 {#blocklisting-custom-attributes-custom-events-and-products}
 
 {% alert important %}
-イベントまたは属性がブロックリストに登録されると、そのイベントまたは属性を使用しているセグメント、Campaign、またはCanvasはアーカイブされます。
+イベントまたは属性がブロックリストに登録されると、そのイベントまたは属性を使用しているSegment、Campaign、またはCanvasはアーカイブされます。
 {% endalert %}
 
 特定のカスタム属性、イベント、または製品のトラッキングを停止するには、以下の手順に従います。
@@ -87,7 +87,7 @@ description: "このリファレンス記事では、Brazeでカスタムイベ�
 
 ![カスタム属性ページでブロックリストに登録された複数の選択済みカスタム属性。]({% image_buster /assets/img_archive/blocklist_custom_attr.png %})
 
-カスタム属性は最大300件、カスタムイベントは最大300件までブロックリストに登録できます。特定のデバイス属性の収集を防止するには、[SDKガイド]({{site.baseurl}}/developer_guide/platform_integration_guides/sdk_primer/#blocking-data-collection)を参照してください。
+カスタム属性は最大300件、カスタムイベントは最大300件までブロックリストに登録できます。特定のデバイス属性の収集を防止するには、[SDKガイド]({{site.baseurl}}/developer_guide/platform_integration_guides/sdk_primer#blocking-data-collection)を参照してください。
 
 {% alert important %}
 **ゴミ箱**ステータスのカスタム属性またはカスタムイベントは、削除されるまでブロックリストの上限にカウントされます。
@@ -114,14 +114,14 @@ SDKにはブロックリスト用として最大300件のアイテムが送信�
 ターゲットCampaignsやSegmentsを構築する中で、カスタムイベントやカスタム属性が不要になる場合があります。たとえば、特定のカスタム属性を一度限りのCampaignの一部として使用した場合、[ブロックリストに登録](#blocklisting-custom-attributes-custom-events-and-products)してアプリからの参照を削除した後に、このデータを削除できます。文字列、数値、階層化カスタム属性など、あらゆるデータタイプを削除できます。
 
 {% alert important %}
-カスタムデータを削除するには、[Braze管理者]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#admin)である必要があります。
+カスタムデータを削除するには、[Braze管理者]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#admin)である必要があります。
 {% endalert %}
 
 カスタムイベントまたはカスタム属性を削除するには、以下の手順に従います。
 
 1. 削除するデータタイプに応じて、**データ設定** > **カスタム属性**または**カスタムイベント**に移動します。
-2. カスタムデータに移動し、<i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Actions** > **Blocklist**を選択します。
-3. カスタムデータがブロックリストに登録されてから7日後に、<i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Actions** > **Delete**を選択します。
+2. カスタムデータに移動し、<i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**アクション** > **Blocklist**を選択します。
+3. カスタムデータがブロックリストに登録されてから7日後に、<i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**アクション** > **Delete**を選択します。
 
 ### 削除の仕組み {#how-deletion-works}
 
@@ -142,4 +142,4 @@ SDKにはブロックリスト用として最大300件のアイテムが送信�
 * データはBrazeプラットフォームおよびユーザープロファイルから削除されます。
 * 削除後にカスタム属性名またはカスタムイベント名を「再利用」できます。つまり、削除後にカスタムデータがBrazeに「再出現」した場合、停止されていないインテグレーションが同じカスタムデータ名でデータを送信していることが原因である可能性があります。
 * 削除の結果カスタムデータが再出現した場合、再度ブロックリストに登録する必要がある場合があります。カスタムデータが削除されるため、ブロックリスト登録ステータスは保持されません。
-* カスタムデータの削除は[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)を記録せず、新しいデータポイントも生成しません。
+* カスタムデータの削除は[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points)を記録せず、新しいデータポイントも生成しません。

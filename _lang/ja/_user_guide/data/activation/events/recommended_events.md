@@ -13,9 +13,9 @@ description: "このリファレンス記事では、Brazeがeコマースイベ
 
 ## eコマース推奨イベント {#ecommerce-recommended-events}
 
-[eコマース推奨イベント]({{site.baseurl}}/ecommerce_events/)は、購入ジャーニーの6つのステップをカバーします: `product_viewed`、`cart_updated`、`checkout_started`、`order_placed`、`order_cancelled`、`order_refunded`。これらのイベントを正常に送信すると、Brazeはデータをバリデーションし、拡大し続けるプラットフォーム機能で利用可能にします。
+[eコマース推奨イベント]({{site.baseurl}}/ecommerce_events)は、購入ジャーニーの6つのステップをカバーします: `product_viewed`、`cart_updated`、`checkout_started`、`order_placed`、`order_cancelled`、`order_refunded`。これらのイベントを正常に送信すると、Brazeはデータをバリデーションし、拡大し続けるプラットフォーム機能で利用可能にします。
 
-これらの機能には、閲覧放棄、カート放棄、チェックアウト放棄、注文確認フロー向けのCanvasテンプレート、eコマースレポート、_合計収益_、_合計注文数_、_合計返金額_の計算済みユーザープロファイルフィールドが含まれます。また、[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用したネストされた製品プロパティフィルタリングによるセグメントの構築、{% raw %}`{% shopping_cart %}`{% endraw %} Liquidタグを使用したカート放棄メッセージのパーソナライゼーション、[Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/)、[Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/)、[アイテムのおすすめ]({{site.baseurl}}/user_guide/brazeai/item_recommendations/)などのBrazeAI<sup>TM</sup>機能への活用、およびその他の機能も利用可能です。
+これらの機能には、閲覧放棄、カート放棄、チェックアウト放棄、注文確認フロー向けのCanvasテンプレート、eコマースレポート、_合計収益_、_合計注文数_、_合計返金額_の計算済みユーザープロファイルフィールドが含まれます。また、[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension)を使用したネストされた製品プロパティフィルタリングによるSegmentの構築、{% raw %}`{% shopping_cart %}`{% endraw %} Liquidタグを使用したカート放棄メッセージのパーソナライゼーション、[予測イベント]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events)、[解約予測]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn)、[アイテムのおすすめ]({{site.baseurl}}/user_guide/brazeai/item_recommendations)などのBrazeAI<sup>TM</sup>機能への活用、およびその他の機能も利用可能です。
 
 これらのイベントは定義済みスキーマに従うため、サポートされる各機能は、カスタムプロパティマッピングや機能ごとの設定なしに構造化データを読み取ることができます。
 
@@ -23,16 +23,16 @@ description: "このリファレンス記事では、Brazeがeコマースイベ
 
 ### eコマースイベントの仕組み {#how-ecommerce-events-work}
 
-eコマースイベントは、事前定義された名前とプロパティスキーマを持つカスタムイベントです。[Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)または[`/users/track` REST APIエンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を使用して送信し、Brazeは取り込み時に各イベントをスキーマに対してバリデーションします。バリデーションに合格すると、Brazeは収益フィールドの計算やユーザープロファイルのカート状態管理など、そのイベントタイプに固有の後処理を自動的に適用します。
+eコマースイベントは、事前定義された名前とプロパティスキーマを持つカスタムイベントです。[Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)または[`/users/track` REST APIエンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用して送信し、Brazeは取り込み時に各イベントをスキーマに対してバリデーションします。バリデーションに合格すると、Brazeは収益フィールドの計算やユーザープロファイルのカート状態管理など、そのイベントタイプに固有の後処理を自動的に適用します。
 
 eコマースイベントは、他のカスタムイベントが機能するすべての場所で機能します: 実行済みカスタムイベントのトリガーとフィルター、カスタムイベントレポートなど。ただし、スキーマバリデーションにより、以下の追加機能が利用可能になります:
 
 - Campaigns、Canvases、アクションパス、アプリ内メッセージトリガー、コンテンツカードの削除における「注文する」トリガーアクション
 - 計算済みeコマースユーザープロファイルフィールド（**合計収益**、**合計注文数**、**合計返金額**）
 - カート放棄フロー向けのカート状態管理
-- Predictive Events、Predictive Churn、アイテムのおすすめなどのBrazeAI<sup>TM</sup>機能向けのリッチデータ
+- 予測イベント、解約予測、アイテムのおすすめなどのBrazeAI<sup>TM</sup>機能向けのリッチデータ
 
-また、プラットフォームがカスタムイベントをサポートする場所であれば、eコマースイベントを名前で参照することもできます。例えば、`ecommerce.product_viewed`イベントでアクションベースのCampaignをトリガーしたり、`ecommerce.checkout_started`イベントでフィルタリングするセグメントを構築したり、Currentsを通じて`ecommerce.order_placed`イベントをエクスポートしたりできます。
+また、プラットフォームがカスタムイベントをサポートする場所であれば、eコマースイベントを名前で参照することもできます。例えば、`ecommerce.product_viewed`イベントでアクションベースのCampaignをトリガーしたり、`ecommerce.checkout_started`イベントでフィルタリングするSegmentを構築したり、Currentsを通じて`ecommerce.order_placed`イベントをエクスポートしたりできます。
 
 #### イベント命名 {#event-naming}
 
@@ -51,17 +51,17 @@ eコマースイベントは、他のカスタムイベントが機能するす�
 
 {% alert tip %}
 以下の例は、各イベントのREST APIペイロードを示しています。
-クライアントサイドのロギングでは、`ecommerce.product_viewed`、`ecommerce.cart_updated`、`ecommerce.checkout_started`、`ecommerce.order_placed`は利用可能な場合SDK eコマースイベントAPIを使用し、`ecommerce.order_cancelled`と`ecommerce.order_refunded`は`logCustomEvent`を使用します。プラットフォーム固有の実装例については、[Braze SDKを通じたeコマースイベントのロギング]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)を参照してください。
+クライアントサイドのロギングでは、`ecommerce.product_viewed`、`ecommerce.cart_updated`、`ecommerce.checkout_started`、`ecommerce.order_placed`は利用可能な場合SDK eコマースイベントAPIを使用し、`ecommerce.order_cancelled`と`ecommerce.order_refunded`は`logCustomEvent`を使用します。プラットフォーム固有の実装例については、[Braze SDKを通じたeコマースイベントのロギング]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)を参照してください。
 {% endalert %}
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}
 
-ユーザーが商品詳細ページを閲覧した時点でトリガーします。このイベントは、Brazeカタログの[在庫復活通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/)および[値下げ通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/)と互換性があります。
+ユーザーが商品詳細ページを閲覧した時点でトリガーします。このイベントは、Brazeカタログの[在庫復活通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)および[値下げ通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications)と互換性があります。
 
 #### クライアントサイドの実装 {#client-side-implementation}
 
-利用可能な場合はSDK eコマースイベントAPIを使用してください。プラットフォーム固有の実装例については、[Braze SDKを通じたeコマースイベントのロギング]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)を参照してください。
+利用可能な場合はSDK eコマースイベントAPIを使用してください。プラットフォーム固有の実装例については、[Braze SDKを通じたeコマースイベントのロギング]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)を参照してください。
 
 #### イベントプロパティ {#event-properties}
 
@@ -116,7 +116,7 @@ eコマースイベントは、他のカスタムイベントが機能するす�
 
 #### クライアントサイドの実装
 
-利用可能な場合はSDK eコマースイベントAPIを使用してください。プラットフォーム固有の実装例については、[Braze SDKを通じたeコマースイベントのロギング]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)を参照してください。
+利用可能な場合はSDK eコマースイベントAPIを使用してください。プラットフォーム固有の実装例については、[Braze SDKを通じたeコマースイベントのロギング]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)を参照してください。
 
 このイベントは以下の2つの方法で送信できます:
 
@@ -704,7 +704,7 @@ Objective-C
 
 #### クライアントサイドの実装
 
-利用可能な場合はSDK eコマースイベントAPIを使用してください。プラットフォーム固有の実装例については、[Braze SDKを通じたeコマースイベントのロギング]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)を参照してください。
+利用可能な場合はSDK eコマースイベントAPIを使用してください。プラットフォーム固有の実装例については、[Braze SDKを通じたeコマースイベントのロギング]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)を参照してください。
 
 #### イベントプロパティ
 
@@ -799,7 +799,7 @@ Objective-C
 
 #### クライアントサイドの実装
 
-利用可能な場合はSDK eコマースイベントAPIを使用してください。プラットフォーム固有の実装例については、[Braze SDKを通じたeコマースイベントのロギング]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)を参照してください。
+利用可能な場合はSDK eコマースイベントAPIを使用してください。プラットフォーム固有の実装例については、[Braze SDKを通じたeコマースイベントのロギング]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)を参照してください。
 
 {% alert important %}
 このイベントは主要な収益ドライバーです。ユーザープロファイル上で`total_revenue`を`total_value`の値だけ増加させ、`total_orders`を1増加させます。
@@ -907,7 +907,7 @@ Objective-C
 
 #### クライアントサイドの実装
 
-`logCustomEvent`を使用します。プラットフォーム固有の実装例については、[Braze SDKを通じたeコマースイベントのロギング]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)を参照してください。
+`logCustomEvent`を使用します。プラットフォーム固有の実装例については、[Braze SDKを通じたeコマースイベントのロギング]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)を参照してください。
 
 {% alert important %}
 このイベントはユーザープロファイル上の`total_orders`を1減少させます。`total_revenue`には影響しません。収益を調整するには`order_refunded`を使用してください。
@@ -1004,7 +1004,7 @@ Objective-C
 
 #### クライアントサイドの実装
 
-`logCustomEvent`を使用します。プラットフォーム固有の実装例については、[Braze SDKを通じたeコマースイベントのロギング]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)を参照してください。
+`logCustomEvent`を使用します。プラットフォーム固有の実装例については、[Braze SDKを通じたeコマースイベントのロギング]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)を参照してください。
 
 {% alert important %}
 このイベントはユーザープロファイル上の`total_revenue`を`total_value`の値だけ減少させ、`total_refunds`を増加させます。一部返金の場合、`total_value`には元の注文合計ではなく、返金額のみを設定してください。
@@ -1144,7 +1144,7 @@ eコマースイベントを送信すると、Brazeはそのイベント名に�
 
 ## eコマースイベントの実装 {#implement-ecommerce-events}
 
-eコマースイベントは、[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)（サーバーサイド）またはBraze SDK（クライアントサイド）を通じて送信できます。SDKの実装例については、[Braze SDKを通じたeコマースイベントのロギング]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)を参照してください。
+eコマースイベントは、[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)（サーバーサイド）またはBraze SDK（クライアントサイド）を通じて送信できます。SDKの実装例については、[Braze SDKを通じたeコマースイベントのロギング]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)を参照してください。
 
 ### サーバーサイドでイベントを送信する {#send-events-server-side}
 
@@ -1190,11 +1190,11 @@ POST /users/track
 
 ### データポイントと課金 {#data-points-and-billing}
 
-eコマースイベントは[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)を消費しません。データポイント使用量に影響を与えることなく記録できます。
+eコマースイベントは[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points)を消費しません。データポイント使用量に影響を与えることなく記録できます。
 
 ### イベントサイズの制限 {#event-size-limit}
 
-`/users/track`に送信されるイベントプロパティは、イベントあたり102,400バイト（100 KB）が上限です。トリガーされたCampaignおよびCanvasメッセージの場合、[`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)および[`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)に送信される`trigger_properties`のデフォルト上限は51,200バイト（50 KB）とより厳しくなっています。
+`/users/track`に送信されるイベントプロパティは、イベントあたり102,400バイト（100 KB）が上限です。トリガーされたCampaignおよびCanvasメッセージの場合、[`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)および[`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)に送信される`trigger_properties`のデフォルト上限は51,200バイト（50 KB）とより厳しくなっています。
 
 ベストプラクティスとして、トリガー、パーソナライゼーション、またはイベントのアトリビューションに必要な製品情報のみを送信してください。説明、完全なバリアントリスト、在庫、代替画像などのリッチな製品詳細はBrazeカタログに保存してください。メッセージ送信時に`product_id`または`variant_id`でこれらの詳細を参照します。`metadata`オブジェクトは、メッセージングで使用する注文または製品固有のコンテキストに対して選択的に使用してください。
 
@@ -1212,7 +1212,7 @@ Brazeは米ドル以外の通貨値を、イベントが報告された日の為
 
 ### メタデータの柔軟性 {#metadata-flexibility}
 
-イベントレベルおよび製品レベルのmetadataオブジェクトは任意のキーと値のペアを受け入れるため、コアスキーマを変更せずにカスタムディメンションを付加できます。一般的な例としては、`order_status_url`、`gift_wrapped`、`loyalty_points_earned`、`warehouse_id`などがあります。これらのプロパティは、Liquidパーソナライゼーション、Currentsエクスポート、および[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を通じたセグメンテーションで利用可能です。
+イベントレベルおよび製品レベルのmetadataオブジェクトは任意のキーと値のペアを受け入れるため、コアスキーマを変更せずにカスタムディメンションを付加できます。一般的な例としては、`order_status_url`、`gift_wrapped`、`loyalty_points_earned`、`warehouse_id`などがあります。これらのプロパティは、Liquidパーソナライゼーション、Currentsエクスポート、および[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension)を通じたセグメンテーションで利用可能です。
 
 {% alert important %}
 推奨イベントは厳密なスキーマを使用します。そのため、プロパティのトップレベルにカスタムプロパティを追加するとバリデーションに失敗します。すべてのカスタムプロパティは、イベントレベルの`metadata`オブジェクトまたは`products[]`内の製品レベルの`metadata`オブジェクトに配置してください。これらはトップレベルフィールドと同様に、Liquid、Currents、セグメンテーションで利用可能です。
@@ -1248,8 +1248,8 @@ eコマースイベントは、収益トラッキング、{% raw %}`{% shopping_
 
 イベントを送信した後、以下のいずれかを使用して、イベントが受け入れられ正しく処理されたことを確認できます:
 
-- [イベントユーザーログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/): ダッシュボードでユーザーのプロファイルを開き、アクティビティを確認します。推奨イベントは完全なプロパティペイロードとともに表示されるため、イベントが到達し、送信した値と一致していることを確認できます。
-- [カスタムイベントレポート]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report/): **Analytics** > **Custom Events**に移動して、各推奨イベントの経時的な集計カウントを確認します。これは、インテグレーションが本番稼働している際に、本番トラフィックが期待どおりに流れていることを確認するのに役立ちます。
+- [イベントユーザーログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log): ダッシュボードでユーザーのプロファイルを開き、アクティビティを確認します。推奨イベントは完全なプロパティペイロードとともに表示されるため、イベントが到達し、送信した値と一致していることを確認できます。
+- [カスタムイベントレポート]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report): **Analytics** > **Custom Events**に移動して、各推奨イベントの経時的な集計カウントを確認します。これは、インテグレーションが本番稼働している際に、本番トラフィックが期待どおりに流れていることを確認するのに役立ちます。
 - [テストユーザー]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups?utm_source=operator_user&utm_medium=dashboard#adding-test-users): 開発ワークスペースでユーザーをテストユーザーとしてマークし、そのユーザーに対してインテグレーションからイベントをトリガーします。テストユーザーはダッシュボードでフラグが付けられるため、エンドツーエンドの動作を簡単に分離して検査できます。
 
 ### バリデーションに失敗した場合 {#when-validation-fails}

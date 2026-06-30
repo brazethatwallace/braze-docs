@@ -68,7 +68,7 @@ Antes de cargar tu archivo CSV, asegúrate de que cumple los siguientes requisit
 
 Arrastra y suelta tu archivo en la zona de carga, o selecciona **Upload CSV** y elige tu archivo.
 
-![]({% image_buster /assets/img_archive/catalog_CSV_upload.png %}){: style="max-width:80%;"}
+![Arrastra y suelta tu archivo en la zona de carga, o selecciona Upload CSV y elige tu archivo.]({% image_buster /assets/img_archive/catalog_CSV_upload.png %}){: style="max-width:80%;"}
 
 Selecciona un tipo de datos para cada columna.
 
@@ -76,7 +76,7 @@ Selecciona un tipo de datos para cada columna.
 Este tipo de datos no se puede editar una vez configurado el catálogo. Además, un valor `NULL` no es compatible con la carga de CSV y se tratará como una cadena.
 {% endalert %}
 
-![]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
+![Este tipo de datos no se puede editar una vez configurado el catálogo. Además, un valor NULL no es compatible con la carga de CSV y se tratará como una cadena.]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
 
 Introduce un nombre y una descripción opcional para tu catálogo. Ten en cuenta los siguientes requisitos al nombrar tu catálogo:
 
@@ -105,7 +105,7 @@ Para este tutorial, vamos a utilizar un catálogo que enumera dos juegos, su cos
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg" aria-label="Tutorial: Creating a catalog from a CSV file">
+<table class="tg" aria-label="Tutorial: Creación de un catálogo a partir de un archivo CSV">
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -144,18 +144,18 @@ A continuación, daremos a este catálogo el nombre "games_catalog" y selecciona
 
 Ten en cuenta que no podrás editar este nombre una vez creado el catálogo. Puedes eliminar un catálogo y volver a cargar una versión actualizada utilizando el mismo nombre de catálogo.
 
-Una vez creado el catálogo, puedes empezar a hacer referencia al [catálogo en una campaña]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/).
+Una vez creado el catálogo, puedes empezar a hacer referencia al [catálogo en una campaña]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs).
 {% endtab %}
 
 {% tab Crear en el navegador %}
 ### Requisitos previos {#prerequisites}
 
-Antes de poder editar o crear catálogos en el navegador, necesitas los siguientes [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para tu espacio de trabajo:
+Antes de poder editar o crear catálogos en el navegador, necesitas los siguientes [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para tu espacio de trabajo:
 
-- View Catalogs
-- Edit Catalogs
-- Export Catalogs
-- Delete Catalogs
+- Ver catálogos
+- Editar catálogos
+- Exportar catálogos
+- Eliminar catálogos
 
 ### Paso 1: Introduce los detalles del catálogo {#step-1-enter-catalog-details}
 
@@ -223,19 +223,19 @@ Para actualizar tu catálogo después de cargar un archivo CSV o crear un catál
 
 ### Uso de la REST API {#using-the-rest-api}
 
-A medida que crees más catálogos, también puedes utilizar el [punto de conexión Listar catálogos]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) para obtener una lista de los catálogos de un espacio de trabajo.
+A medida que crees más catálogos, también puedes utilizar el [punto de conexión Listar catálogos]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) para obtener una lista de los catálogos de un espacio de trabajo.
 
 La REST API admite todos los [tipos de datos de catálogo](#supported-data-types), incluidos los objetos JSON y las matrices de cadenas. Los objetos JSON y las matrices de cadenas solo se pueden crear o actualizar a través de la REST API.
 
 ### Uso de la Ingesta de datos de Cloud {#using-cloud-data-ingestion}
 
-Puedes mantener catálogos a través de la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) sincronizando los datos del catálogo directamente desde tu almacén de datos (como Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric o S3) de forma programada.
+Puedes mantener catálogos a través de la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) sincronizando los datos del catálogo directamente desde tu almacén de datos (como Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric o S3) de forma programada.
 
 ## Gestión de los elementos del catálogo {#managing-catalog-items}
 
 Además de gestionar tus catálogos, también puedes utilizar puntos finales asíncronos y síncronos para gestionar los elementos del catálogo. Esto incluye la posibilidad de editar y eliminar elementos del catálogo, y de listar los detalles de los elementos del catálogo.
 
-Por ejemplo, si quieres editar un elemento individual del catálogo, puedes utilizar el [punto de conexión `/catalogs/catalog_name/items/item_id`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item/).
+Por ejemplo, si quieres editar un elemento individual del catálogo, puedes utilizar el [punto de conexión `/catalogs/catalog_name/items/item_id`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item).
 
 ## Almacenamiento de catálogos {#tiers}
 
@@ -245,7 +245,7 @@ La versión gratuita de catálogos admite tamaños de archivo CSV de hasta 100 M
 El derecho a paquete que se muestra en el panel de Braze se redondea a la unidad más próxima por motivos visuales; sin embargo, sigues teniendo derecho a la totalidad del derecho adquirido. Para solicitar una actualización del almacenamiento de catálogos, ponte en contacto con tu director de cuentas de Braze.
 {% endalert %}
 
-#### Versión gratuita {#free-version}
+### Versión gratuita {#free-version}
 
 El tamaño de almacenamiento para la versión gratuita de los catálogos es de hasta 100&nbsp;MB. Puedes tener un número ilimitado de elementos, siempre que no superen los 100&nbsp;MB.
 

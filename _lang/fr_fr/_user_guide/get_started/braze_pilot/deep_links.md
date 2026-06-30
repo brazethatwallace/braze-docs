@@ -8,7 +8,7 @@ description: "Cet article de référence présente brièvement les étapes d'int
 
 # Liens profonds de navigation dans Braze Pilot {#navigation-deep-links-in-braze-pilot}
 
-> Braze Pilot prend en charge la création de liens profonds depuis l'envoi de messages Braze vers des sections spécifiques de l'application Pilot. Cela vous permet de créer des cas d'utilisation engageants, incitant les utilisateurs à explorer différentes parties de l'application Pilot. Vous pouvez également utiliser des paramètres de lien profond facultatifs pour personnaliser le contenu de certaines pages de l'application pour l'utilisateur. Pour en savoir plus sur la création de liens profonds, consultez [Création de liens profonds vers du contenu in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
+> Braze Pilot prend en charge la création de liens profonds depuis l'envoi de messages Braze vers des sections spécifiques de l'application Pilot. Cela vous permet de créer des cas d'utilisation engageants, incitant les utilisateurs à explorer différentes parties de l'application Pilot. Vous pouvez également utiliser des paramètres de lien profond facultatifs pour personnaliser le contenu de certaines pages de l'application pour l'utilisateur. Pour en savoir plus sur la création de liens profonds, consultez [Création de liens profonds vers du contenu in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
 
 ## Général {#general}
 

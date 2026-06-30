@@ -27,7 +27,7 @@ A página principal de **Sync Log** fornece uma visão geral de alto nível de t
 Os registros de sincronização também fornecem os seguintes detalhes para cada sincronização:
 
 * **Nome da sincronização:** O nome da configuração de sincronização.
-* **ID da execução:** Um identificador único para uma execução específica da sincronização. Selecione este ID para ver mais detalhes. Isso também pode ser usado nos [endpoints da API CDI]({{site.baseurl}}/api/endpoints/cdi/), ou para referenciar uma execução de sincronização com o suporte da Braze.
+* **ID da execução:** Um identificador único para uma execução específica da sincronização. Selecione este ID para ver mais detalhes. Isso também pode ser usado nos [endpoints da API CDI]({{site.baseurl}}/api/endpoints/cdi), ou para referenciar uma execução de sincronização com o suporte da Braze.
 * **Status:** O status da execução (success, partial success, error, running).
 * **Novas linhas lidas da origem:** O número de novas linhas extraídas do seu data warehouse para esta execução.
 * **Resultados:** Uma análise de quantas linhas foram bem-sucedidas ou falharam durante a execução.

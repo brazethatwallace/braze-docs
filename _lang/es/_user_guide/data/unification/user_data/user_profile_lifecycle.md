@@ -23,9 +23,9 @@ Estos parámetros incluyen:
 
 ## Perfiles de usuario anónimos {#anonymous-user-profiles}
 
-Cualquier usuario sin un `external_id` designado se denomina [usuario anónimo]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users/). Por ejemplo, podrían ser usuarios que visitaron tu sitio web pero no se registraron, o usuarios que descargaron tu aplicación móvil pero no crearon un perfil.
+Cualquier usuario sin un `external_id` designado se denomina [usuario anónimo]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users). Por ejemplo, podrían ser usuarios que visitaron tu sitio web pero no se registraron, o usuarios que descargaron tu aplicación móvil pero no crearon un perfil.
 
-Inicialmente, cuando el SDK reconoce a un usuario, se crea un perfil de usuario anónimo con un `braze_id` asociado: un identificador único que Braze asigna automáticamente, que no se puede editar y que es específico del dispositivo. Este identificador puede utilizarse para actualizar el perfil del usuario a través de la [API]({{site.baseurl}}/api/endpoints/user_data/).
+Inicialmente, cuando el SDK reconoce a un usuario, se crea un perfil de usuario anónimo con un `braze_id` asociado: un identificador único que Braze asigna automáticamente, que no se puede editar y que es específico del dispositivo. Este identificador puede utilizarse para actualizar el perfil del usuario a través de la [API]({{site.baseurl}}/api/endpoints/user_data).
 
 ## Perfiles de usuario identificados {#identified-user-profiles}
 
@@ -35,8 +35,8 @@ Otras ventajas de utilizar un `external_id` son las siguientes:
 
 - Proporcionar una experiencia de usuario coherente en múltiples dispositivos y plataformas (por ejemplo, no enviar notificaciones de usuario inactivo a la tableta Android de un usuario cuando es un usuario fiel de la aplicación para iPhone).
 - Mejorar la precisión de tus análisis confirmando que los usuarios no están creando un nuevo perfil de usuario cada vez que desinstalan y vuelven a instalar, o instalan la aplicación en un dispositivo diferente.
-- Habilitar la importación de datos de usuario desde fuentes externas a la aplicación utilizando los [puntos finales de datos de usuario]({{site.baseurl}}/api/endpoints/user_data/) y dirigirte a los usuarios con mensajes transaccionales utilizando nuestros [puntos finales de mensajería]({{site.baseurl}}/api/endpoints/messaging/).
-- Buscar usuarios individuales utilizando nuestros [filtros]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) de "Pruebas" dentro del segmentador, y en la página [**Buscar usuarios**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/).
+- Habilitar la importación de datos de usuario desde fuentes externas a la aplicación utilizando los [puntos finales de datos de usuario]({{site.baseurl}}/api/endpoints/user_data) y dirigirte a los usuarios con mensajes transaccionales utilizando nuestros [puntos finales de mensajería]({{site.baseurl}}/api/endpoints/messaging).
+- Buscar usuarios individuales utilizando nuestros [filtros]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) de "Pruebas" dentro del segmentador, y en la página [**Buscar usuarios**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
 
 ### Consideraciones sobre los ID externos {#considerations-for-external-ids}
 
@@ -59,16 +59,16 @@ Cuando identificas a usuarios anónimos, pueden darse dos situaciones:
 
 En otras palabras, ya tienes un perfil de usuario para este usuario. En este caso, Braze hará lo siguiente:
 1. Dejar huérfano al usuario anónimo
-2. Fusionar [campos específicos del perfil de usuario]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior) que no existan ya en el perfil de usuario identificado desde el perfil anónimo
+2. Fusionar [campos específicos del perfil de usuario]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior) que no existan ya en el perfil de usuario identificado desde el perfil anónimo
 3. Eliminar el perfil anónimo de tu base de usuarios para que los recuentos de usuarios no se inflen
 
-Si tanto el usuario anónimo como el usuario conocido tienen nombre, se mantiene el nombre del usuario conocido. Si el usuario conocido tiene un valor nulo y el usuario anónimo tiene un valor, el valor del usuario anónimo se fusiona en el perfil del usuario conocido si el valor entra dentro de estos [campos específicos del perfil de usuario]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior).
+Si tanto el usuario anónimo como el usuario conocido tienen nombre, se mantiene el nombre del usuario conocido. Si el usuario conocido tiene un valor nulo y el usuario anónimo tiene un valor, el valor del usuario anónimo se fusiona en el perfil del usuario conocido si el valor entra dentro de estos [campos específicos del perfil de usuario]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior).
 
 {% alert important %}
-No todos los datos se fusionan desde el perfil anónimo. Los tokens de notificaciones push y el historial de mensajes se transfieren, y los atributos personalizados, eventos personalizados e historial de compras del perfil anónimo se fusionan en el usuario identificado solo cuando esos campos no existen ya en el perfil del usuario identificado. Cuando hay datos en conflicto, se mantienen los valores del usuario identificado. Consulta el [comportamiento de fusión]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior) para ver la lista completa de campos que se transfieren y los que no.
+No todos los datos se fusionan desde el perfil anónimo. Los tokens de notificaciones push y el historial de mensajes se transfieren, y los atributos personalizados, eventos personalizados e historial de compras del perfil anónimo se fusionan en el usuario identificado solo cuando esos campos no existen ya en el perfil del usuario identificado. Cuando hay datos en conflicto, se mantienen los valores del usuario identificado. Consulta el [comportamiento de fusión]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior) para ver la lista completa de campos que se transfieren y los que no.
 {% endalert %}
 
-Para obtener información sobre cómo configurar un `external_id` en un perfil de usuario, consulta nuestra documentación ([iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web)).
+Para obtener información sobre cómo configurar un `external_id` en un perfil de usuario, consulta nuestra documentación ([iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web)).
 
 {% alert note %}
 Los usuarios huérfanos no son elegibles para recibir mensajes.
@@ -76,7 +76,7 @@ Los usuarios huérfanos no son elegibles para recibir mensajes.
 
 ### Fusionar usuarios duplicados {#merging-duplicate-users}
 
-Cuando identifiques perfiles de usuario duplicados en tu espacio de trabajo, puedes fusionarlos utilizando la REST API. Para obtener más información sobre la fusión de usuarios y los métodos disponibles, consulta [Fusionar usuarios duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/).
+Cuando identifiques perfiles de usuario duplicados en tu espacio de trabajo, puedes fusionarlos utilizando la REST API. Para obtener más información sobre la fusión de usuarios y los métodos disponibles, consulta [Fusionar usuarios duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users).
 
 ## Alias de usuario {#user-aliases}
 
@@ -86,7 +86,7 @@ Cada alias funciona como un par clave-valor que consta de dos partes: un `alias_
 
 ### Actualización de alias de usuario {#updating-user-aliases}
 
-Un alias se puede actualizar con un nuevo nombre para una etiqueta determinada después de haberlo establecido, ya sea utilizando nuestros [puntos finales de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data/#new-user-alias-endpoint) o pasando un nuevo nombre a través del SDK. El alias de usuario será entonces visible al exportar los datos de ese usuario.
+Un alias se puede actualizar con un nuevo nombre para una etiqueta determinada después de haberlo establecido, ya sea utilizando nuestros [puntos finales de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data#new-user-alias-endpoint) o pasando un nuevo nombre a través del SDK. El alias de usuario será entonces visible al exportar los datos de ese usuario.
 
 ![Dos perfiles de usuario diferentes para usuarios distintos con la misma etiqueta de alias de usuario pero diferentes nombres de alias]({% image_buster /assets/img_archive/Braze_User_aliases.png %})
 
@@ -102,23 +102,23 @@ Si un perfil de usuario anónimo con un alias es reconocido posteriormente con u
 
 Si conoces el nombre y la etiqueta de alias de un usuario, puedes encontrarlo en **Buscar usuarios** con el formato `alias_label:alias_name`. Por ejemplo, si tienes un perfil solo con alias con el nombre `alias_name: bobby_alias` y la etiqueta `alias_label: m4pzOndtA-CnO0u`, puedes encontrar a este usuario ingresando `m4pzOndtA-CnO0u:bobby_alias`.
 
-Si no conoces esta información, puedes llamar al [punto de conexión `Export user profile by identifier`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) y encontrar el alias de usuario en la respuesta de la API.
+Si no conoces esta información, puedes llamar al [punto de conexión `Export user profile by identifier`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) y encontrar el alias de usuario en la respuesta de la API.
 
 ### Configuración de alias en perfiles de usuario conocidos {#setting-aliases-on-known-user-profiles}
 
 También se puede establecer un alias de usuario en un perfil de usuario conocido para hacer referencia a un usuario conocido mediante otro ID conocido externamente. Por ejemplo, un usuario puede tener un ID de herramienta de inteligencia empresarial (como un ID de Amplitude) al que deseas hacer referencia en Braze.
 
-Para obtener información sobre cómo configurar un alias de usuario, consulta nuestra documentación para cada plataforma ([iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#aliasing-users), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_user_ids/#aliasing-users), [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/#aliasing-users)).
+Para obtener información sobre cómo configurar un alias de usuario, consulta nuestra documentación para cada plataforma ([iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids#aliasing-users), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_user_ids#aliasing-users), [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids#aliasing-users)).
 
 ![Diagrama del ciclo de vida de un perfil de usuario en Braze. Cuando se llama a changeUser() para un usuario anónimo, ese usuario se convierte en un usuario identificado y los datos se migran a su perfil de usuario identificado. El usuario identificado tiene un Braze ID y un ID externo. En este punto, si se llama a changeUser() para un segundo usuario anónimo, se fusionarán los campos de datos de usuario que no existan ya en el usuario identificado. Si el usuario identificado tiene un alias añadido a su perfil de usuario existente, no se verá afectado ningún dato, pero se convertirá en un usuario identificado con alias. Si se llama a changeUser() para un tercer usuario anónimo con la misma etiqueta de alias que el usuario identificado pero un nombre de alias diferente, se fusionarán todos los campos que no existan en el usuario identificado y se mantendrá la etiqueta de alias en el perfil del usuario identificado.]({% image_buster /assets/img_archive/Braze_User_flowchart.png %})
 
 {% alert tip %}
-¿Te cuesta imaginar cómo puede ser el ciclo de vida del perfil de usuario de tus clientes? Visita [Mejores prácticas]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices/) para ver las mejores prácticas de recopilación de datos de usuario.
+¿Te cuesta imaginar cómo puede ser el ciclo de vida del perfil de usuario de tus clientes? Visita [Mejores prácticas]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices) para ver las mejores prácticas de recopilación de datos de usuario.
 {% endalert %}
 
 ## Caso de uso avanzado {#advanced-use-case}
 
-Puedes establecer un nuevo alias de usuario para los perfiles de usuario identificados existentes a través de nuestro SDK y nuestra API utilizando los [puntos finales de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data/#new-user-alias-endpoint). Sin embargo, los alias de usuario no pueden configurarse a través de la API para un perfil de usuario desconocido existente.
+Puedes establecer un nuevo alias de usuario para los perfiles de usuario identificados existentes a través de nuestro SDK y nuestra API utilizando los [puntos finales de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data#new-user-alias-endpoint). Sin embargo, los alias de usuario no pueden configurarse a través de la API para un perfil de usuario desconocido existente.
 
 Los alias de usuario también se fusionan en el proceso. Sin embargo, si tanto el usuario que va a quedar huérfano como el usuario de destino tienen un alias con la misma etiqueta, solo se mantiene el alias del usuario de destino.
 
@@ -126,7 +126,7 @@ Desinstalar y volver a instalar una aplicación generará un nuevo `braze_id` an
 
 ### Solución de problemas con ID de usuario {#troubleshooting-with-user-ids}
 
-Todos los ID de usuario se pueden utilizar para encontrar e identificar usuarios dentro de tu dashboard para realizar pruebas. Para encontrar tu usuario en el panel de Braze, consulta [Añadir usuarios de prueba]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#adding-test-users).
+Todos los ID de usuario se pueden utilizar para encontrar e identificar usuarios dentro de tu dashboard para realizar pruebas. Para encontrar tu usuario en el panel de Braze, consulta [Añadir usuarios de prueba]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#adding-test-users).
 
 {% alert important %}
 Braze prohibirá o bloqueará a los usuarios con más de 5.000.000 de sesiones ("usuarios ficticios") y dejará de ingerir sus eventos de SDK, ya que estos usuarios son generalmente el resultado de una mala integración. Si descubres que esto le ha sucedido a un usuario legítimo, ponte en contacto con tu director de cuentas de Braze.

@@ -65,7 +65,7 @@ Braze가 Classic 및 Pro SQL 인스턴스에 연결할 때 2~5분의 워밍업 �
 
 ### 1단계: 테이블 또는 뷰 설정 {#step-1-set-up-tables-or-views}
 
-시작하기 전에 [클라우드 데이터 수집을 위한 테이블 설정]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/)을 검토하여 소스 테이블 요구 사항과 `PAYLOAD` 형식 요구 사항을 비교해 보세요.
+시작하기 전에 [클라우드 데이터 수집을 위한 테이블 설정]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup)을 검토하여 소스 테이블 요구 사항과 `PAYLOAD` 형식 요구 사항을 비교해 보세요.
 
 {% alert note %}
 소스 테이블 또는 뷰에는 아래 탭에서 해당 웨어하우스에 대해 나열되지 않은 열이 포함될 수 있습니다(예: 감사 또는 해싱). Braze는 해당 탭에 설명된 열만 읽으며, 다른 열은 클라우드 데이터 수집 동기화 중에 사용되지 않습니다.

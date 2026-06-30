@@ -9,7 +9,7 @@ description: "Cet article donne un aperçu des utilisateurs anonymes et des alia
 
 # Utilisateurs anonymes {#anonymous-users}
 
-> Les utilisateurs qui visitent votre site web ou votre application sans se connecter, comme un visiteur invité, sont reconnus comme des utilisateurs anonymes. Ces utilisateurs n'ont pas d'`external_ids`, qui sont utilisés pour mettre à jour les profils utilisateurs avec l'API Braze, mais des [points de données]({{site.baseurl}}/user_guide/data/infrastructure/data_points/) leur sont toujours attribués et ils peuvent être ciblés dans vos segments.
+> Les utilisateurs qui visitent votre site web ou votre application sans se connecter, comme un visiteur invité, sont reconnus comme des utilisateurs anonymes. Ces utilisateurs n'ont pas d'`external_ids`, qui sont utilisés pour mettre à jour les profils utilisateurs avec l'API Braze, mais des [points de données]({{site.baseurl}}/user_guide/data/infrastructure/data_points) leur sont toujours attribués et ils peuvent être ciblés dans vos segments.
 
 Lorsqu'un utilisateur anonyme visite votre site web ou votre application, le SDK de Braze crée et lui affecte un profil utilisateur « anonyme ». Pendant que l'utilisateur navigue, le SDK capture automatiquement des données pour son profil utilisateur anonyme, telles que des informations d'utilisation, des informations sur l'appareil, et plus encore si vous avez configuré des attributs personnalisés et des événements personnalisés.
 
@@ -31,7 +31,7 @@ Vous pouvez effectuer les opérations suivantes avec les utilisateurs anonymes c
 
 ## Fusionner des utilisateurs anonymes {#merging-anonymous-users}
 
-Parfois, les profils utilisateurs anonymes sont des doublons qui ont le même numéro de téléphone ou la même adresse e-mail que d'autres profils utilisateurs. L'un des doublons peut même être un profil utilisateur identifié. Ces doublons peuvent être fusionnés en un seul profil utilisateur en utilisant l'[endpoint POST : Fusionner des utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) ou l'un des outils de fusion de la plateforme Braze, comme la [fusion basée sur des règles]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/#rules-based-merging).
+Parfois, les profils utilisateurs anonymes sont des doublons qui ont le même numéro de téléphone ou la même adresse e-mail que d'autres profils utilisateurs. L'un des doublons peut même être un profil utilisateur identifié. Ces doublons peuvent être fusionnés en un seul profil utilisateur en utilisant l'[endpoint POST : Fusionner des utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) ou l'un des outils de fusion de la plateforme Braze, comme la [fusion basée sur des règles]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#rules-based-merging).
 
 ## Rechercher un utilisateur anonyme {#looking-up-an-anonymous-user}
 
@@ -45,7 +45,7 @@ console.log(braze.getDeviceId());
 ```
 
 {:start="3"}
-3. Dans le tableau de bord de Braze, utilisez la [Recherche d'utilisateurs]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search/) pour rechercher l'identifiant d'appareil renvoyé.
+3. Dans le tableau de bord de Braze, utilisez la [Recherche d'utilisateurs]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search) pour rechercher l'identifiant d'appareil renvoyé.
 
 ## Cas d'utilisation {#use-cases}
 

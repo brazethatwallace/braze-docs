@@ -8,7 +8,7 @@ description: "この参照記事では、エンジニアや開発者に必要な
 
 # Braze Pilotのナビゲーションディープリンク {#navigation-deep-links-in-braze-pilot}
 
-> Braze Pilotは、BrazeメッセージングからPilotアプリの特定の部分へのディープリンクをサポートしています。これにより、エンゲージメントのユースケースを作成し、ユーザーをPilotアプリケーションのさまざまな部分に誘導できます。また、オプションのディープリンクパラメーターを使用して、アプリ内の特定のページのコンテンツをユーザーに合わせてカスタマイズすることもできます。ディープリンクの詳細については、[アプリ内コンテンツへのディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)を参照してください。
+> Braze Pilotは、BrazeメッセージングからPilotアプリの特定の部分へのディープリンクをサポートしています。これにより、エンゲージメントのユースケースを作成し、ユーザーをPilotアプリケーションのさまざまな部分に誘導できます。また、オプションのディープリンクパラメーターを使用して、アプリ内の特定のページのコンテンツをユーザーに合わせてカスタマイズすることもできます。ディープリンクの詳細については、[アプリ内コンテンツへのディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking)を参照してください。
 
 ## 全般 {#general}
 
@@ -21,7 +21,7 @@ description: "この参照記事では、エンジニアや開発者に必要な
 | 設定 | `braze-pilot://navigation/setup` |
 | 言語の変更 | `braze-pilot://navigation/selectlanguage` |
 | カメラ | `braze-pilot://navigation/camera` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="General" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="全般" }
 
 ## Steppington
 これらは、PilotにおけるSteppington架空ブランドアプリのディープリンクです。
@@ -39,7 +39,7 @@ description: "この参照記事では、エンジニアや開発者に必要な
 | Steppington+ページ | `braze-pilot://navigation/steppington/plus` |
 | 目標画面 | `braze-pilot://navigation/steppington/goals` |
 | 目標変更画面 | `braze-pilot://navigation/steppington/changegoals` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links without parameters" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="パラメーターなしのディープリンク" }
 
 ### パラメーター付きのディープリンク {#steppington-deep-links-with-parameters}
 
@@ -47,7 +47,7 @@ description: "この参照記事では、エンジニアや開発者に必要な
 | --- | --- |
 | ワークアウト | `braze-pilot://navigation/steppington/workout` |
 | アクティブワークアウト | `braze-pilot://navigation/steppington/activeworkout` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links with parameters" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="パラメーター付きのディープリンク" }
 
 #### 使用可能なパラメーター {#steppington-accepted-parameters}
 
@@ -75,7 +75,7 @@ th:nth-child(6), td:nth-child(6) {
 }
 </style>
 
-<table aria-label="Accepted parameters">
+<table aria-label="使用可能なパラメーター">
   <caption>使用可能なパラメーター</caption>
     <thead>
         <tr>
@@ -205,7 +205,7 @@ th:nth-child(6), td:nth-child(6) {
 | `YOGA_HOME` | ![ヨガポーズをとる人のアイコン。]({% image_buster /assets/img/braze_pilot/yoga_home_icon.png %}){:style="max-width:30%"} |
 | `BICYCLE_HOME` | ![自転車のアイコン。]({% image_buster /assets/img/braze_pilot/bicycle_home_icon.png %}){:style="max-width:30%"} |
 | `DUMBBELL_HOME` | ![ダンベルのアイコン。]({% image_buster /assets/img/braze_pilot/dumbbell_home_icon.png %}){:style="max-width:30%"} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Icon options" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="アイコンオプション" }
 
 ## PantsLabyrinth
 これらは、PilotにおけるPantsLabyrinth架空ブランドアプリのディープリンクです。
@@ -223,14 +223,14 @@ th:nth-child(6), td:nth-child(6) {
 | リスト画面 | `braze-pilot://navigation/pantslabyrinth/listing` |
 | カートページ | `braze-pilot://navigation/pantslabyrinth/cart` |
 | ウィッシュリストページ | `braze-pilot://navigation/pantslabyrinth/wishlist` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links without parameters" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="パラメーターなしのディープリンク" }
 
 ### パラメーター付きのディープリンク {#pantslabyrinth-deep-links-with-parameters}
 
 | 画面 | ディープリンク |
 | --- | --- |
 | アイテム詳細ページ | `braze-pilot://navigation/pantslabyrinth/itemdetails` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links with parameters" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="パラメーター付きのディープリンク" }
 
 #### 使用可能なパラメーター {#pantslabyrinth-accepted-parameters}
 
@@ -258,7 +258,7 @@ th:nth-child(6), td:nth-child(6) {
 }
 </style>
 
-<table aria-label="Accepted parameters">
+<table aria-label="使用可能なパラメーター">
   <caption>使用可能なパラメーター</caption>
     <thead>
         <tr>
@@ -360,14 +360,14 @@ th:nth-child(6), td:nth-child(6) {
 | スプラッシュスクリーン | `braze-pilot://navigation/moviecannon/splash` |
 | ウェルカム画面 | `braze-pilot://navigation/moviecannon/welcome` |
 | 映画一覧ページ | `braze-pilot://navigation/moviecannon/moviecannon` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links without parameters" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="パラメーターなしのディープリンク" }
 
 ### パラメーター付きのディープリンク {#moviecanon-deep-links-with-parameters}
 
 | 画面 | ディープリンク |
 | --- | --- |
 | 映画詳細ページ | `braze-pilot://navigation/moviecannon/moviedetails` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links with parameters" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="パラメーター付きのディープリンク" }
 
 #### 使用可能なパラメーター {#moviecanon-accepted-parameters}
 
@@ -378,4 +378,4 @@ th:nth-child(6), td:nth-child(6) {
 | `thumbnail` | 映画の再生前に表示されるサムネイルのWeb URLです。 | はい | 文字列 | `https://picsum.photos/400` |
 | `video` | 表示する動画リスト内のインデックスです。 | いいえ | 数値 | 0 |
 | `description` | 動画の説明です。 | はい | 文字列 | `This%20video%20is%20awesome%21` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Accepted parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="使用可能なパラメーター" }

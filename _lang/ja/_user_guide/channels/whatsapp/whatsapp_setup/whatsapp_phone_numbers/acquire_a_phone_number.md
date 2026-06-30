@@ -50,7 +50,7 @@ Twilioコンソールで電話番号をWhatsAppにリンクしないでくださ
 
 ### ステップ 3:埋め込みサインアップワークフローを完了する {#step-3-complete-the-embedded-sign-up-workflow}
 
-1. Twilioの設定が完了したら、Brazeダッシュボード > **テクノロジーパートナー** > **WhatsApp** に移動し、**Begin integration** または **Add WhatsApp Business Account**（表示されている方）を選択して、[埋め込みサインアップワークフロー]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/)をトリガーします。<br><br>**Add a phone number for WhatsApp** ステップで、電話番号の認証方法として **Phone call** を選択します。<br><br>![テキストメッセージまたは電話で電話番号を認証するオプションが表示されたセクション。]({% image_buster /assets/img/whatsapp/verify.png %}){: style="max-width:50%;"}<br><br>
+1. Twilioの設定が完了したら、Brazeダッシュボード > **テクノロジーパートナー** > **WhatsApp** に移動し、**Begin integration** または **Add WhatsApp Business Account**（表示されている方）を選択して、[埋め込みサインアップワークフロー]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup)をトリガーします。<br><br>**Add a phone number for WhatsApp** ステップで、電話番号の認証方法として **Phone call** を選択します。<br><br>![テキストメッセージまたは電話で電話番号を認証するオプションが表示されたセクション。]({% image_buster /assets/img/whatsapp/verify.png %}){: style="max-width:50%;"}<br><br>
 
 2. 認証コードがメールの受信トレイに届くまで数分待ち、認証コードを入力してセットアップを完了します。
 
@@ -66,6 +66,6 @@ Twilioコンソールで電話番号をWhatsAppにリンクしないでくださ
 
 5. 選択した国によっては、Infobipチームから登録の詳細について連絡が来るのを待ちます（米国の10DLCなど）。<br><br>
 
-6. Infobipで電話番号の準備ができたら、Brazeダッシュボード > **テクノロジーパートナー** > **WhatsApp** に移動し、**Begin integration** または **Add WhatsApp Business Account**（表示されている方）を選択して、[埋め込みサインアップワークフロー]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/)をトリガーします。<br><br>**Add a phone number for WhatsApp** ステップで、電話番号の認証方法として **Text message** を選択します。<br><br>![テキストメッセージまたは電話で電話番号を認証するオプションが表示されたセクション。]({% image_buster /assets/img/whatsapp/infoblip_verify.png %})<br><br>
+6. Infobipで電話番号の準備ができたら、Brazeダッシュボード > **テクノロジーパートナー** > **WhatsApp** に移動し、**Begin integration** または **Add WhatsApp Business Account**（表示されている方）を選択して、[埋め込みサインアップワークフロー]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup)をトリガーします。<br><br>**Add a phone number for WhatsApp** ステップで、電話番号の認証方法として **Text message** を選択します。<br><br>![テキストメッセージまたは電話で電話番号を認証するオプションが表示されたセクション。]({% image_buster /assets/img/whatsapp/infoblip_verify.png %})<br><br>
 
 7. Infobipのカスタマーポータルで[analyze logs](https://www.infobip.com/docs/analyze/analyze-logs)を確認して認証コードを取得します。表示されるまで数分かかる場合があります。認証コードを入力してセットアップを完了します。

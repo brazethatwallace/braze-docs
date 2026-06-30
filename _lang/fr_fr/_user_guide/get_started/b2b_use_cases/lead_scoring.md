@@ -32,7 +32,7 @@ La création d'un workflow d'évaluation des prospects dans Braze repose sur deu
 1. Passez à l'étape **Planification d'entrée** et sélectionnez une planification d'entrée **par événement**. Les utilisateurs entreront ainsi dans le Canvas lorsqu'ils effectueront des actions spécifiques.
 
 2. Dans **Options basées sur l'action**, ajoutez ces deux actions :
-    - **Modifier la valeur de l'attribut personnalisé** avec le nom de votre attribut d'évaluation des prospects (par exemple `lead score`). Si vous n'avez pas encore créé d'attribut d'évaluation des prospects, suivez les étapes décrites dans [Attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/). Les utilisateurs entreront ainsi dans le Canvas chaque fois que leur score de prospect change.
+    - **Modifier la valeur de l'attribut personnalisé** avec le nom de votre attribut d'évaluation des prospects (par exemple `lead score`). Si vous n'avez pas encore créé d'attribut d'évaluation des prospects, suivez les étapes décrites dans [Attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes). Les utilisateurs entreront ainsi dans le Canvas chaque fois que leur score de prospect change.
     - **Ajouter une adresse e-mail**
 
 ![Étape 2 de la création d'un Canvas avec la planification d'entrée « Par événement » et les options basées sur l'action de modification d'un attribut personnalisé « lead score » et d'ajout d'une adresse e-mail.]({% image_buster /assets/img/b2b/step_2_simple.png %}){: style="max-width:80%;"}
@@ -41,7 +41,7 @@ La création d'un workflow d'évaluation des prospects dans Braze repose sur deu
 
 #### Étape 3a : Sélectionner des segments {#step-3a-select-segments}
 
-Tous les utilisateurs sont éligibles à l'évaluation des prospects. Vous pouvez donc ajouter des règles spécifiques à votre entreprise pour déterminer qui évaluer en sélectionnant les [segments]({{site.baseurl}}/user_guide/audience/segments/) d'utilisateurs à cibler et en appliquant des [filtres]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) supplémentaires. Par exemple, vous pouvez exclure les employés, les utilisateurs déjà clients, etc.
+Tous les utilisateurs sont éligibles à l'évaluation des prospects. Vous pouvez donc ajouter des règles spécifiques à votre entreprise pour déterminer qui évaluer en sélectionnant les [segments]({{site.baseurl}}/user_guide/audience/segments) d'utilisateurs à cibler et en appliquant des [filtres]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) supplémentaires. Par exemple, vous pouvez exclure les employés, les utilisateurs déjà clients, etc.
 
 ![Étape 3 de la création d'un Canvas avec des options de sélection de segments et de filtres pour affiner l'audience d'entrée.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
 
@@ -113,11 +113,11 @@ C'est tout ! Votre Canvas d'évaluation des prospects est prêt à être lancé.
 
 ## Évaluation externe des prospects {#external-lead-scoring}
 
-Que vous utilisiez l'un de nos [partenaires technologiques]({{site.baseurl}}/partners/home/), votre propre modèle interne d'évaluation des prospects, le machine learning ou un autre outil d'évaluation, nous avons plusieurs options à votre disposition.
+Que vous utilisiez l'un de nos [partenaires technologiques]({{site.baseurl}}/partners/home), votre propre modèle interne d'évaluation des prospects, le machine learning ou un autre outil d'évaluation, nous avons plusieurs options à votre disposition.
 
 ### Partenaires externes {#external-partners}
 
-Consultez la page [Partenaires technologiques]({{site.baseurl}}/partners/home/) pour en savoir plus sur nos partenaires B2B proposant des fonctionnalités d'évaluation des prospects. Votre outil n'y figure pas ? Vous pouvez l'intégrer en appelant notre endpoint d'API [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#track-users).
+Consultez la page [Partenaires technologiques]({{site.baseurl}}/partners/home) pour en savoir plus sur nos partenaires B2B proposant des fonctionnalités d'évaluation des prospects. Votre outil n'y figure pas ? Vous pouvez l'intégrer en appelant notre endpoint d'API [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users).
 
 ### Modèles de données internes pour l'évaluation des prospects {#internal-lead-scoring-data-models}
 
@@ -132,13 +132,13 @@ En tant qu'outil marketing, Braze contient des données extrêmement pertinentes
 
 Par exemple, les données d'engagement des messages (ouvertures et clics d'e-mails, engagement sur les pages d'accueil, etc.) peuvent déterminer le niveau d'engagement d'un prospect. Vous pouvez transmettre ces données à votre entrepôt de données cloud et les rendre disponibles en entrée de vos modèles d'évaluation des prospects grâce aux solutions d'export de données en continu de Braze :
 
-- [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)
-- [Partage sécurisé des données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)
+- [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)
+- [Partage sécurisé des données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)
 
 {% endtab %}
 {% tab Braze comme destination %}
 
-Une fois que vos équipes internes ont créé et exécuté votre modèle d'évaluation des prospects, vous pouvez réintégrer ces données dans Braze afin de mieux segmenter et cibler les prospects avec des messages pertinents. Pour cela, utilisez l'[Ingestion de données cloud de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/).
+Une fois que vos équipes internes ont créé et exécuté votre modèle d'évaluation des prospects, vous pouvez réintégrer ces données dans Braze afin de mieux segmenter et cibler les prospects avec des messages pertinents. Pour cela, utilisez l'[Ingestion de données cloud de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 
 Avec l'Ingestion de données cloud, vos équipes internes créeront une nouvelle table ou vue contenant vos identifiants utilisateur, les derniers scores des prospects et les horodatages de mise à jour des scores. Braze récupérera la table ou la vue et ajoutera les scores des prospects aux profils utilisateurs.
 

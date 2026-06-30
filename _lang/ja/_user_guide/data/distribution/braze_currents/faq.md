@@ -16,8 +16,8 @@ tool: Currents
 特定の日付範囲のCampaignまたはCanvasの指標を取得するには、以下のいずれかの方法を使用してください。
 
 - 標準APIの時間枠外でダッシュボードスタイルのレポートが必要な場合は、日付に合わせたエクスポートの[製品リクエスト](https://portal.braze.com/)を送信してください。
-- `ending_at` と `length` パラメーターを指定して[Campaign分析]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/)または[Canvas分析]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/)エンドポイントを呼び出すか、時系列データには[`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/)および[`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/)を使用してください。
-- Amazon S3、Azure Blob Storage、またはその他のサポートされている送信先で、継続的にクエリ可能なメッセージエンゲージメントデータが必要な場合は、[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)を使用してイベントをウェアハウスにストリーミングしてください。
+- `ending_at` と `length` パラメーターを指定して[Campaign分析]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics)または[Canvas分析]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics)エンドポイントを呼び出すか、時系列データには[`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics)および[`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics)を使用してください。
+- Amazon S3、Azure Blob Storage、またはその他のサポートされている送信先で、継続的にクエリ可能なメッセージエンゲージメントデータが必要な場合は、[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)を使用してイベントをウェアハウスにストリーミングしてください。
 
 ## ライブのCurrents統合を編集するにはどうすればよいですか？ {#how-do-i-edit-a-live-currents-integration}
 
@@ -25,11 +25,11 @@ tool: Currents
 
 ## BrazeはAzure Blob StorageのAvroファイルをアップロード後にどのように処理しますか？ {#how-does-braze-handle-azure-blob-storage-avro-files-after-upload}
 
-Brazeは、アップロード完了後に[Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/)のAvroファイルを変更しません。Azureは、アップロードがまだ進行中の場合、Blobの削除をブロックすることがあります。
+Brazeは、アップロード完了後に[Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents)のAvroファイルを変更しません。Azureは、アップロードがまだ進行中の場合、Blobの削除をブロックすることがあります。
 
 ## 履歴データを取得するにはどうすればよいですか？ {#how-do-i-get-historical-data}
 
-Currentsはリアルタイムのライブデータストリームです。つまり、イベントを再生することはできません。ただし、[Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/)や[Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/)などのデータウェアハウスにCurrentsデータを保存できるため、過去のイベントを必要に応じて処理できます。データは30日間保持されますが、さらに過去の履歴データについては、[Snowflake]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/s3_to_snowflake/)をクエリできます。
+Currentsはリアルタイムのライブデータストリームです。つまり、イベントを再生することはできません。ただし、[Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3)や[Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents)などのデータウェアハウスにCurrentsデータを保存できるため、過去のイベントを必要に応じて処理できます。データは30日間保持されますが、さらに過去の履歴データについては、[Snowflake]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/s3_to_snowflake)をクエリできます。
 
 ## CurrentsがJSONではなくAvro形式でデータを出力するのはなぜですか？ {#why-does-currents-output-data-in-the-avro-format-not-json}
 
@@ -42,17 +42,17 @@ Extract, Transform, Load（ETL）プロセスを構築しています。この�
 ## クエリのためにこのデータをどこに保存すればよいですか？ {#where-should-i-store-this-data-for-querying}
 
 Brazeは、クエリ用にデータを保存できる複数のデータウェアハウスと提携しています。以下を使用することをお勧めします。
-- [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/)
-- [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/)
-- [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents/)
+- [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3)
+- [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents)
+- [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents)
 
 ## Currentsデータの信頼性はどの程度ですか？ {#how-reliable-is-currents-data}
 
-Currentsは「at-least-once（少なくとも1回）」の配信を保証しています。つまり、重複イベントがストレージバケットに書き込まれることがあります。ユースケースで厳密に1回の配信が必要な場合は、すべてのイベントに付与されるユニーク識別子フィールド（`id`）を使用してイベントの重複を排除できます。詳細については、[イベント配信セマンティクス]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics/)を参照してください。
+Currentsは「at-least-once（少なくとも1回）」の配信を保証しています。つまり、重複イベントがストレージバケットに書き込まれることがあります。ユースケースで厳密に1回の配信が必要な場合は、すべてのイベントに付与されるユニーク識別子フィールド（`id`）を使用してイベントの重複を排除できます。詳細については、[イベント配信セマンティクス]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics)を参照してください。
 
 ## データはどのくらいの頻度でCurrentsに同期されますか？ {#how-often-is-data-synced-to-currents}
 
-データは継続的にストリーミングされます。Brazeは、送信するバッチがいっぱいになるたびに、または5分ごとに（いずれか早い方で）イベントのバッチを送信します。大量のコネクターの場合、データはほぼリアルタイムで届きます。少量のコネクターの場合、データの到着には5〜30分かかることがあります。詳細については、[Avro書き込みしきい値]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics/#avro-write-threshold)を参照してください。
+データは継続的にストリーミングされます。Brazeは、送信するバッチがいっぱいになるたびに、または5分ごとに（いずれか早い方で）イベントのバッチを送信します。大量のコネクターの場合、データはほぼリアルタイムで届きます。少量のコネクターの場合、データの到着には5〜30分かかることがあります。詳細については、[Avro書き込みしきい値]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics#avro-write-threshold)を参照してください。
 
 {% alert note %}
 デバイスがインターネットに接続されていない場合、イベントの作成に遅延が生じることがあります。これはアプリ内メッセージイベントで最もよく見られます。アプリ内メッセージはオフラインでもトリガーされることがあるためです。
@@ -60,7 +60,7 @@ Currentsは「at-least-once（少なくとも1回）」の配信を保証して�
 
 ## Currentsで利用可能なイベントを確認するにはどうすればよいですか？ {#how-do-i-find-which-events-are-available-for-currents}
 
-Currentsがログに記録するイベントの完全なリストについては、[顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)および[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)の用語集を参照してください。これらの用語集はイベントタイプ（送信、配信、開封など）でフィルターできます。
+Currentsがログに記録するイベントの完全なリストについては、[顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)および[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)の用語集を参照してください。これらの用語集はイベントタイプ（送信、配信、開封など）でフィルターできます。
 
 ## Currentsのイベント数がダッシュボードやエンゲージメントレポートの指標と一致しないのはなぜですか？ {#why-do-my-currents-event-counts-not-match-my-dashboard-or-engagement-report-metrics}
 
@@ -76,7 +76,7 @@ CurrentsとBrazeダッシュボードでは特定の指標の計算方法が異�
 
 ## Currentsのメール開封またはクリックイベントの `external_user_id`（Brazeスキーマ: `external_id`）がBrazeダッシュボードのユーザープロファイルと異なるのはなぜですか？ {#why-does-the-external_user_id-braze-schema-external_id-in-my-currents-email-open-or-click-event-differ-from-the-user-profile-in-the-braze-dashboard}
 
-- **Brazeダッシュボードの場合：** あるメールアドレスに関連付けられたユーザーがメールを開封またはクリックすると、そのメールアドレスを共有するすべてのユーザープロファイルが、そのメールを開封またはクリックしたとしてマークされます。詳細については、[メールが送信されたとき、複数のプロファイルが同じメールアドレスを持っている場合はどうなりますか？]({{site.baseurl}}/user_guide/channels/email/faq/#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)を参照してください。
+- **Brazeダッシュボードの場合：** あるメールアドレスに関連付けられたユーザーがメールを開封またはクリックすると、そのメールアドレスを共有するすべてのユーザープロファイルが、そのメールを開封またはクリックしたとしてマークされます。詳細については、[メールが送信されたとき、複数のプロファイルが同じメールアドレスを持っている場合はどうなりますか？]({{site.baseurl}}/user_guide/channels/email/faq#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)を参照してください。
 - **Currentsの場合：** 同じ開封またはクリックは1つのプロファイルに保存されます。Brazeは、送信時に元々ターゲットとされたプロファイルがまだそのメールアドレスを共有している場合、そのプロファイルに帰属させます。そうでない場合、Brazeはそのメールアドレスを共有するプロファイルの中からランダムに選択された1つのプロファイルに帰属させます。
 
 このため、Currentsのメール開封またはクリックイベントの `external_user_id` 値（Brazeスキーママッピングテーブルでは `external_id` と表記）は、CurrentsとBrazeダッシュボードを比較したときに期待するユーザープロファイルと一致しない場合があります。
@@ -101,15 +101,15 @@ CurrentsデータをウェアハウスやCRMにルーティングし、プロフ
 
 ## Currentsの送信イベントにカスタム属性を含めることはできますか？ {#can-i-include-custom-attributes-in-currents-send-events}
 
-いいえ。Currentsは送信イベントにカスタム属性を含めません。Currentsはカスタムイベントとメッセージエンゲージメントイベントをログ記録します。利用可能なフィールドの完全なリストについては、[イベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/)を参照してください。
+いいえ。Currentsは送信イベントにカスタム属性を含めません。Currentsはカスタムイベントとメッセージエンゲージメントイベントをログ記録します。利用可能なフィールドの完全なリストについては、[イベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary)を参照してください。
 
 ## CurrentsにはCampaignやCanvasのタグやキーと値のペアが含まれますか？ {#does-currents-include-campaign-or-canvas-tags-or-key-value-pairs}
 
-いいえ。CurrentsにはCampaignやCanvasのタグ、またはメッセージレベルのキーと値のペアは含まれません。タグデータを取得するには、[エクスポートREST API]({{site.baseurl}}/api/endpoints/export/)を使用してください。別の回避策として、Campaign内のWebhookチャネルを使用し、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)で値をテンプレート化して、タグやキーと値のペアのデータを独自のエンドポイントに送信できます。
+いいえ。CurrentsにはCampaignやCanvasのタグ、またはメッセージレベルのキーと値のペアは含まれません。タグデータを取得するには、[エクスポートREST API]({{site.baseurl}}/api/endpoints/export)を使用してください。別の回避策として、Campaign内のWebhookチャネルを使用し、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)で値をテンプレート化して、タグやキーと値のペアのデータを独自のエンドポイントに送信できます。
 
 ## BrazeはCurrentsの変更をどのように顧客に通知しますか？ {#how-does-braze-notify-customers-of-changes-to-currents}
 
-Currentsの変更（新しいイベントフィールドやイベントタイプなど）が発生した場合、Brazeは過去30日以内にダッシュボードを使用したアクティブなCurrents統合を持つすべての顧客にメールを送信します。最新の変更については、[Currents変更ログ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/)も参照できます。
+Currentsの変更（新しいイベントフィールドやイベントタイプなど）が発生した場合、Brazeは過去30日以内にダッシュボードを使用したアクティブなCurrents統合を持つすべての顧客にメールを送信します。最新の変更については、[Currents変更ログ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs)も参照できます。
 
 ## Currentsデータにはどのくらいのストレージが必要ですか？ {#how-much-storage-do-i-need-for-currents-data}
 
@@ -125,7 +125,7 @@ Currentsの変更（新しいイベントフィールドやイベントタイプ
 
 ユーザーが次のフラッシュの前にアプリを強制終了したりオフラインになったりした場合、セッション終了イベントが遅延するか、まったく届かないことがあります。iOSでは、SDKがバックグラウンドでデータを送信できないため、セッション終了イベントはアプリが再度開かれるまでフラッシュされないことがよくあります。
 
-Currentsでよりタイムリーなセッション境界が必要な場合は、アプリがバックグラウンドに移行するときやフォアグラウンドに戻るときなどのライフサイクルポイントで `requestImmediateDataFlush()` を呼び出してください。詳細については、[データのアップロードとダウンロード]({{site.baseurl}}/developer_guide/getting_started/sdk_overview/#data-upload-and-download)および[セッション終了とセッション開始のタイムスタンプが類似している（iOS）]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/#session-end-and-session-start-have-similar-timestamps-ios)を参照してください。
+Currentsでよりタイムリーなセッション境界が必要な場合は、アプリがバックグラウンドに移行するときやフォアグラウンドに戻るときなどのライフサイクルポイントで `requestImmediateDataFlush()` を呼び出してください。詳細については、[データのアップロードとダウンロード]({{site.baseurl}}/developer_guide/getting_started/sdk_overview#data-upload-and-download)および[セッション終了とセッション開始のタイムスタンプが類似している（iOS）]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log#session-end-and-session-start-have-similar-timestamps-ios)を参照してください。
 
 ## Currentsがデータを書き込もうとしたときにストレージバケットが利用できない場合はどうなりますか？ {#what-happens-if-my-storage-bucket-is-unavailable-when-currents-tries-to-write-data}
 
@@ -137,7 +137,7 @@ Currentsでよりタイムリーなセッション境界が必要な場合は、
 
 ## ストレージパスのCurrentsバージョンはどのくらいの頻度で変更されますか？ {#how-often-does-the-currents-version-in-the-storage-path-change}
 
-ストレージパスの `version=<currents_version>` セグメントは、Currentsのリリースごとに月次のペースで更新されます（たとえば、`version=6` から `version=7`）。特定のバージョンセグメントをハードコーディングするのではなく、ルートパスからファイルを再帰的に読み取ることをお勧めします。これにより、バージョン変更後もパイプラインが自動的にデータを取得できます。パス形式の詳細については、[イベント配信セマンティクス]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics/)を参照してください。バージョンごとの変更履歴については、[Currents変更ログ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/)を参照してください。
+ストレージパスの `version=<currents_version>` セグメントは、Currentsのリリースごとに月次のペースで更新されます（たとえば、`version=6` から `version=7`）。特定のバージョンセグメントをハードコーディングするのではなく、ルートパスからファイルを再帰的に読み取ることをお勧めします。これにより、バージョン変更後もパイプラインが自動的にデータを取得できます。パス形式の詳細については、[イベント配信セマンティクス]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics)を参照してください。バージョンごとの変更履歴については、[Currents変更ログ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs)を参照してください。
 
 ## メッセージエンゲージメントイベントで `campaign_id` や `canvas_id` が欠落しているのはなぜですか？ {#why-are-campaign_id-or-canvas_id-missing-from-a-message-engagement-event}
 
@@ -145,7 +145,7 @@ Currentsでよりタイムリーなセッション境界が必要な場合は、
 
 ## Currentsのタイムスタンプが秒精度に制限されているのはなぜですか？ {#why-are-currents-timestamps-limited-to-second-precision}
 
-Currentsイベントの `time` フィールドは32ビット整数として保存されるため、秒精度に制限されています。一部のイベントには、別途64ビットのミリ秒精度タイムスタンプフィールドも含まれています。各イベントタイプで利用可能なフィールドについては、[イベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/)を確認してください。
+Currentsイベントの `time` フィールドは32ビット整数として保存されるため、秒精度に制限されています。一部のイベントには、別途64ビットのミリ秒精度タイムスタンプフィールドも含まれています。各イベントタイプで利用可能なフィールドについては、[イベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary)を確認してください。
 
 ## Currentsの `users.canvas.Conversion` イベントの時刻がCanvasと異なるのはなぜですか？ {#why-does-the-userscanvasconversion-event-from-currents-have-a-different-time-than-the-canvas}
 

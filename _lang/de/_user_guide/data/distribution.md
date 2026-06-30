@@ -22,8 +22,8 @@ guide_featured_list:
 ---
 <br><br>
 
-## Snowflake-Datenfreigabe
+## Snowflake-Datenfreigabe {#snowflake-data-sharing}
 
 Die Snowflake-Datenfreigabe ist Teil der Braze-Datenverteilung. Nutzen Sie sie, um Braze-Engagement- und Kampagnendaten direkt in Ihrer Snowflake-Instanz abzufragen.
 
-Informationen zur Einrichtung und Implementierung finden Sie unter [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/). Weitere Optionen zur Datenverteilung finden Sie unter [Braze-Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) und [Exportieren von Braze-Daten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/).
+Informationen zur Einrichtung und Implementierung finden Sie unter [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing). Weitere Optionen zur Datenverteilung finden Sie unter [Braze-Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) und [Braze-Daten exportieren]({{site.baseurl}}/user_guide/data/distribution/export_braze_data).

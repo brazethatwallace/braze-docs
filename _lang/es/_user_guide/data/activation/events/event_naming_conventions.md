@@ -1,6 +1,6 @@
 ---
 nav_title: Convenciones de nomenclatura de eventos
-article_title: Convenciones para nombrar eventos
+article_title: Convenciones de nomenclatura de eventos
 page_order: 4
 page_type: reference
 description: "Este artículo de referencia cubre las convenciones de nomenclatura de eventos adecuadas y las mejores prácticas."
@@ -9,7 +9,7 @@ description: "Este artículo de referencia cubre las convenciones de nomenclatur
 
 # Convenciones de nomenclatura de eventos {#event-naming-conventions}
 
-> Esta página trata de las convenciones adecuadas para nombrar los eventos y de las mejores prácticas. Al mantener la coherencia en tu taxonomía de eventos y atributos, mantendrás tus datos limpios y utilizables para los usuarios nuevos y existentes de la plataforma Braze. Esto ayuda a evitar problemas posteriores, como desencadenar una campaña a la audiencia equivocada o generar resultados erróneos tras utilizar el evento equivocado.
+> Esta página trata de las convenciones adecuadas para nombrar los eventos y de las mejores prácticas. Al mantener la coherencia en tu taxonomía de eventos y atributos, mantendrás tus datos limpios y utilizables para los usuarios nuevos y existentes de la plataforma Braze. Esto ayuda a evitar problemas posteriores, como desencadenar una Campaign a la audiencia equivocada o generar resultados erróneos tras utilizar el evento equivocado.
 
 ## Buenas prácticas {#best-practices}
 
@@ -18,7 +18,7 @@ description: "Este artículo de referencia cubre las convenciones de nomenclatur
 - Evita dar nombres similares a los eventos.
 - Evita las cadenas largas de atributos de eventos, que se truncarán o cortarán en el dashboard de Braze.
 
-## Convenciones de denominación {#naming-conventions}
+## Convenciones de nomenclatura {#naming-conventions}
 
 ### Utiliza grupos de eventos {#use-event-groups}
 
@@ -30,7 +30,7 @@ La estructura de nombres más común es `group_noun_action`. Los eventos deben i
 
 ### Propiedades {#properties}
 
-Etiqueta un evento y luego identifica las diferencias mediante el uso de propiedades. Esto es útil para eventos que son inherentemente iguales pero tienen diferencias menores, como los canales de una campaña. También podemos ver fácilmente cómo los usuarios fluyen a través de los eventos. Consulta el [objeto de propiedades del evento]({{site.baseurl}}/api/objects_filters/event_object/#event-properties-object) para ver un ejemplo y contexto adicional.
+Etiqueta un evento y luego identifica las diferencias mediante el uso de propiedades. Esto es útil para eventos que son inherentemente iguales pero tienen diferencias menores, como los canales de una Campaign. También podemos ver fácilmente cómo los usuarios fluyen a través de los eventos. Consulta el [objeto de propiedades del evento]({{site.baseurl}}/api/objects_filters/event_object#event-properties-object) para ver un ejemplo y contexto adicional.
 
 ## Ejemplos {#examples}
 

@@ -11,7 +11,7 @@ toc_headers: h2
 
 > このページでは、Brazeクラウドデータ取り込み（CDI）SQLエディターを使用して、SQLクエリで同期を作成および検証する方法について説明します。
 
-クラウドデータ取り込みのSQLエディターを使用すると、データウェアハウスに対してSQLクエリを直接記述して同期を作成できます。これにより、以前[データウェアハウス統合のステップ1.1]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)で必要だった専用のCDIテーブルの作成やメンテナンスが不要になります。
+クラウドデータ取り込みのSQLエディターを使用すると、データウェアハウスに対してSQLクエリを直接記述して同期を作成できます。これにより、以前[データウェアハウス統合のステップ1.1]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)で必要だった専用のCDIテーブルの作成やメンテナンスが不要になります。
 
 SQLエディターは、以下のような場合に使用します。
 
@@ -40,7 +40,7 @@ Brazeはデータに対して読み取り専用クエリのみを実行し、基
 以下の手順に従って、まずソースを作成し、次にSQLエディターで同期を作成します。CDI用のソースをすでに設定している場合は、ステップ3に進んでください。
 
 {% alert note %}
-これらの手順では、例としてSnowflakeソースを使用しています。他のデータウェアハウスソースの設定プロセスも同様であり、[データウェアハウス統合の設定]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#setting-up-data-warehouse-integrations)ドキュメントの[ステップ2：Brazeダッシュボードで新しいソースを作成する]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-2-create-a-new-source-in-the-braze-dashboard)を参照してください。
+これらの手順では、例としてSnowflakeソースを使用しています。他のデータウェアハウスソースの設定プロセスも同様であり、[データウェアハウス統合の設定]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#setting-up-data-warehouse-integrations)ドキュメントの[ステップ2：Brazeダッシュボードで新しいソースを作成する]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard)を参照してください。
 {% endalert %}
 
 ### ステップ1：Snowflakeのロール、権限、ウェアハウス、ユーザーの設定 {#step-1-set-up-your-snowflake-role-permissions-warehouse-and-user}
@@ -253,7 +253,7 @@ Brazeがデータウェアハウスに接続できない場合：
 
 ## `PAYLOAD`サポート（レガシー） {#payload-support-legacy}
 
-SQLエディターは、`PAYLOAD`カラムが存在する[レガシーCDIテーブル]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views)をサポートしています。
+SQLエディターは、`PAYLOAD`カラムが存在する[レガシーCDIテーブル]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-1-set-up-tables-or-views)をサポートしています。
 
 クエリに以下が含まれている場合：
 
@@ -301,7 +301,7 @@ SQLエディターは、`PAYLOAD`カラムが存在する[レガシーCDIテー�
 
 増分同期用のタイムスタンプカラムを追加してください。
 
-### 「同期する属性/カタログフィールド/アカウントフィールドがありません」 {#add-more-columns-there-are-no-attributescatalog-fieldsaccount-fields-to-sync}
+### 「カラムを追加してください...同期する属性/カタログフィールド/アカウントフィールドがありません」 {#add-more-columns-there-are-no-attributescatalog-fieldsaccount-fields-to-sync}
 
 識別子と`UPDATED_AT`以外に、少なくとも1つの追加カラムを追加してください。
 

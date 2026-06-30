@@ -23,7 +23,7 @@ Brazeは現在、以下のユースケース向けにSalesforce Sales Cloudと�
 2. [Salesforce Sales Cloudでリードを更新する](#updating-lead)
 
 {% alert note %}
-この統合は、リード獲得と育成の取り組みの一環としてBrazeからSalesforceを更新することのみを目的としています。SalesforceからBrazeにデータを同期するには、[B2Bデータモデル]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models/)を確認するか、[テクノロジーパートナー]({{site.baseurl}}/partners/home/)にお問い合わせください。
+この統合は、リード獲得と育成の取り組みの一環としてBrazeからSalesforceを更新することのみを目的としています。SalesforceからBrazeにデータを同期するには、[B2Bデータモデル]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models)を確認するか、[テクノロジーパートナー]({{site.baseurl}}/partners/home)にお問い合わせください。
 {% endalert %}
 
 ## 前提条件 {#prerequisites}
@@ -94,9 +94,9 @@ BrazeからSalesforceにマッピングするキーと値のペアごとに、**
 
 ## Salesforce Sales Cloudでリードを更新する {#updating-lead}
 
-Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設定するには、Salesforce Sales CloudとBrazeの間に共通の識別子が必要です。以下の例では、Salesforceの`lead_id`をBrazeの`external_id`として使用していますが、`user_alias`を使用して実現することもできます。詳細については、[B2Bデータ]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models/)を参照してください。
+Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設定するには、Salesforce Sales CloudとBrazeの間に共通の識別子が必要です。以下の例では、Salesforceの`lead_id`をBrazeの`external_id`として使用していますが、`user_alias`を使用して実現することもできます。詳細については、[B2Bデータ]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models)を参照してください。
 
-この例では、リードが一定のリードしきい値を超えた後に、リードのリードステージを「MQL」（Marketing Qualified Lead）に更新する方法を具体的に示しています。これは、[B2Bリードスコアリングワークフロー]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/)ユースケースの核となる部分です。
+この例では、リードが一定のリードしきい値を超えた後に、リードのリードステージを「MQL」（Marketing Qualified Lead）に更新する方法を具体的に示しています。これは、[B2Bリードスコアリングワークフロー]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring)ユースケースの核となる部分です。
 
 ### ステップ1:`client_id`と`client_secret`を収集する
 
@@ -160,7 +160,7 @@ Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設�
 
 ### マーケティング適格リード（MQL）しきい値を超えた場合のリードスコアリングCanvas {#lead-scoring}
 
-このWebhookは[リードスコアリング]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/#lead-handoff)のユースケースで取り上げていますが、リードスコアリングCanvas内でMQLをチェックし、Salesforceを直接更新することもできます（別途Webhook Campaignを作成する代わりに）。
+このWebhookは[リードスコアリング]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring#lead-handoff)のユースケースで取り上げていますが、リードスコアリングCanvas内でMQLをチェックし、Salesforceを直接更新することもできます（別途Webhook Campaignを作成する代わりに）。
 
 ユーザーの更新に後続ステップを追加し、ユーザーが定義したMQLしきい値を超えたかどうかをチェックします。超えた場合、そのユーザーのステータスを「MQL」に更新し、このWebhookテンプレートを使用して同じ「MQL」ステータスでSalesforceを更新します。Salesforceは、定義されたリードルーティングルールを使用して、このリードを適切な営業チームにルーティングすることで残りの処理を行います。
 
@@ -187,7 +187,7 @@ Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設�
 
 ## トラブルシューティング {#troubleshooting}
 
-これらのワークフローはSalesforce内でのデバッグ機能が限られているため、Webhookが失敗した理由やエラーが発生したかどうかを調べるには、Brazeの[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/#message-activity-log)を参照することをおすすめします。
+これらのワークフローはSalesforce内でのデバッグ機能が限られているため、Webhookが失敗した理由やエラーが発生したかどうかを調べるには、Brazeの[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#message-activity-log)を参照することをおすすめします。
 
 例えば、OAuthトークンの取得に使用された無効なURLによるエラーは、`https://[insert_instance_name].my.salesforce.com/services/oauth2/token is not a valid URL` と表示されます。
 

@@ -14,7 +14,7 @@ description: "このページでは、CDI を使用して Braze Canvasをトリ�
 
 ### クイックスタートのステップ {#quick-start-steps}
 
-Braze CDI に既に慣れている場合、Canvasトリガーの同期設定は[ユーザーデータ CDI 統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/)のプロセスとほぼ同様ですが、以下の注意点があります。
+Braze CDI に既に慣れている場合、Canvasトリガーの同期設定は[ユーザーデータ CDI 統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations)のプロセスとほぼ同様ですが、以下の注意点があります。
 
 - external ID またはユーザーエイリアス識別子のみがサポートされています。メールと電話番号はサポートされていない識別子です。
 - 既存の Braze ユーザーのみ同期できます。新規ユーザーは作成できません。
@@ -81,7 +81,7 @@ GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
 
 ##### ステップ 1.3: ネットワークポリシーを設定する {#step-13-configure-network-policies}
 
-アカウントにネットワークポリシーが設定されている場合、CDI サービス接続を有効にするために Braze の IP アドレスを許可リストに追加してください。IP アドレスの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-15-allow-braze-ips-in-snowflake-network-policy-optional)を参照してください。
+アカウントにネットワークポリシーが設定されている場合、CDI サービス接続を有効にするために Braze の IP アドレスを許可リストに追加してください。IP アドレスの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-15-allow-braze-ips-in-snowflake-network-policy-optional)を参照してください。
 
 {% endtab %}
 {% tab Redshift %}
@@ -128,7 +128,7 @@ GRANT SELECT ON TABLE CANVAS_TRIGGERS_SYNC TO braze_user;
 
 ##### ステップ 1.3: ネットワークポリシーを設定する
 
-アカウントにネットワークポリシーが設定されている場合、CDI サービス接続を有効にするために Braze の IP アドレスを許可リストに追加してください。IP アドレスの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=redshift#step-13-allow-access-to-braze-ips)を参照してください。
+アカウントにネットワークポリシーが設定されている場合、CDI サービス接続を有効にするために Braze の IP アドレスを許可リストに追加してください。IP アドレスの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=redshift#step-13-allow-access-to-braze-ips)を参照してください。
 
 {% endtab %}
 {% tab BigQuery %}
@@ -183,7 +183,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CANVAS_TRIGGERS_SYNC`
 権限を付与した後、JSON キーを生成します。手順については [Keys create and delete](https://cloud.google.com/iam/docs/keys-create-delete) を参照してください。後で Braze のダッシュボードにアップロードします。
 
 ##### ステップ 1.4: ネットワークポリシーを設定する {#step-14-configure-network-policies}
-アカウントにネットワークポリシーが設定されている場合、CDI サービス接続を有効にするために Braze の IP アドレスを許可リストに追加してください。IP アドレスの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=bigquery#step-13-allow-access-to-braze-ips)を参照してください。
+アカウントにネットワークポリシーが設定されている場合、CDI サービス接続を有効にするために Braze の IP アドレスを許可リストに追加してください。IP アドレスの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=bigquery#step-13-allow-access-to-braze-ips)を参照してください。
 
 {% endtab %}
 {% tab Databricks %}
@@ -244,7 +244,7 @@ Databricks で個人用アクセストークンを作成します。
 
 ##### ステップ 1.4: ネットワークポリシーを設定する
 
-アカウントにネットワークポリシーが設定されている場合、CDI サービス接続を有効にするために Braze の IP アドレスを許可リストに追加してください。IP アドレスの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=databricks#step-13-allow-access-to-braze-ips)を参照してください。
+アカウントにネットワークポリシーが設定されている場合、CDI サービス接続を有効にするために Braze の IP アドレスを許可リストに追加してください。IP アドレスの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=databricks#step-13-allow-access-to-braze-ips)を参照してください。
 
 {% endtab %}
 {% tab Fabric %}
@@ -271,7 +271,7 @@ GO
 
 ##### ステップ 1.3: ネットワークポリシーを設定する
 
-アカウントにネットワークポリシーが設定されている場合、CDI サービス接続を有効にするために Braze の IP アドレスを許可リストに追加してください。IP アドレスの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=microsoft%20fabric#step-15-allow-braze-ips-in-firewall-optional)を参照してください。
+アカウントにネットワークポリシーが設定されている場合、CDI サービス接続を有効にするために Braze の IP アドレスを許可リストに追加してください。IP アドレスの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=microsoft%20fabric#step-15-allow-braze-ips-in-firewall-optional)を参照してください。
 
 {% endtab %}
 {% tab ファイルストレージ %}
@@ -286,7 +286,7 @@ GO
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ 1.3: ネットワークポリシーを設定する" }
 
 {% alert tip %}
-ファイル名は AWS の規則に従い、一意でなければなりません。一意性を確保するためにタイムスタンプを追加してください。Amazon S3 の同期に関する詳細は、[ファイルストレージの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/)を参照してください。
+ファイル名は AWS の規則に従い、一意でなければなりません。一意性を確保するためにタイムスタンプを追加してください。Amazon S3 の同期に関する詳細は、[ファイルストレージの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations)を参照してください。
 {% endalert %}
 
 {% endtab %}
@@ -294,9 +294,9 @@ GO
 
 #### ステップ 2: 送信先のCanvasを設定する {#step-2-configure-your-destination-canvas}
 
-1. Canvasトリガー用の送信先Canvasを設定します。新しい API トリガー付きCanvasを作成するか、既存のものを選択します。API トリガーによる配信スケジュールタイプでCanvasを作成する方法については、[エントリスケジュールタイプ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types)を参照してください。
+1. Canvasトリガー用の送信先Canvasを設定します。新しい API トリガー付きCanvasを作成するか、既存のものを選択します。API トリガーによる配信スケジュールタイプでCanvasを作成する方法については、[エントリスケジュールタイプ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#entry-schedule-types)を参照してください。
 2. API トリガーによる配信スケジュールタイプを選択した後、Canvasの設定を続けてCanvasを構築します。Canvasは、単純な単一メッセージ送信から、複数のステップを含む複雑な顧客ワークフローまでさまざまです。
-3. キャンバスステップ内で、ソーステーブルから同期する予定のプロパティフィールドを使って、[Canvasエントリプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)でメッセージをパーソナライズします。
+3. キャンバスステップ内で、ソーステーブルから同期する予定のプロパティフィールドを使って、[Canvasエントリプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)でメッセージをパーソナライズします。
   * 例えば、ステップ 1 でプロパティフィールドに `account_balance` を設定した場合、メッセージをパーソナライズするには以下の Liquid テンプレートを使用します: `\{\{canvas_entry_properties.\$\{account_balance\}\}\}`
 5. Canvasを構築したら、起動して[ステップ 3](#step-3-create-your-zero-copy-sync)に進みます。
 
@@ -327,7 +327,7 @@ CDI Canvasトリガーは、`/canvas/trigger/send` の REST API レート制限�
 各同期実行では、最大で1時間あたり約 375 万人のユーザーを、それぞれの送信先Canvasにエントリさせます。以下の場合には、ソースからCanvasへのエントリ時間が長くなることを想定してください。
 
 * 1回の同期実行で 375 万人以上のユーザーを同期する場合。
-* REST APIの [`/canvas/trigger/send` のレート制限]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit)が既に飽和状態にある場合に CDI Canvasトリガーを使用する場合。
+* REST APIの [`/canvas/trigger/send` のレート制限]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#rate-limit)が既に飽和状態にある場合に CDI Canvasトリガーを使用する場合。
 
 メッセージのアーカイブが有効な場合のゼロコピー CDI について、以下の点を考慮してください。
 

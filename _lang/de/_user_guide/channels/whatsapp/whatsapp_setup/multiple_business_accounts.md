@@ -29,7 +29,7 @@ Sie können bis zu 10 WhatsApp-Geschäftskonten pro Workspace hinzufügen. Die G
 ![Abschnitt „WhatsApp Messaging Integration“ mit Optionen zum Hinzufügen eines Geschäftskontos oder einer Abo-Gruppe und Nummer.]({% image_buster /assets/img/whatsapp/multiple_wabas.png %})
 
 {: start="2"}
-2. Durchlaufen Sie den Registrierungs-Workflow. Eine detaillierte Schritt-für-Schritt-Anleitung finden Sie unter [WhatsApp Embedded Signup]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/).
+2. Durchlaufen Sie den Registrierungs-Workflow. Eine detaillierte Schritt-für-Schritt-Anleitung finden Sie unter [WhatsApp Embedded Signup]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup).
 
 {% alert important %}
 Ihre Telefonnummer muss alle Anforderungen einer WhatsApp-Telefonnummer erfüllen, einschließlich der Bedingung, dass sie nicht bei anderen WhatsApp-Konten registriert sein darf.
@@ -37,7 +37,7 @@ Ihre Telefonnummer muss alle Anforderungen einer WhatsApp-Telefonnummer erfülle
 
 ## Mehrere Abo-Gruppen und Telefonnummern {#multiple-subscription-groups-and-phone-numbers}
 
-Nachrichtentemplates werden von allen Telefonnummern innerhalb desselben WhatsApp-Geschäftskontos gemeinsam genutzt. Weitere Informationen zu WhatsApp-Abo-Gruppen finden Sie unter [Abo-Gruppen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/).
+Nachrichtentemplates werden von allen Telefonnummern innerhalb desselben WhatsApp-Geschäftskontos gemeinsam genutzt. Weitere Informationen zu WhatsApp-Abo-Gruppen finden Sie unter [Abo-Gruppen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups).
 
 Jede WhatsApp-Telefonnummer wird den Nutzer:innen als separater WhatsApp-Chat angezeigt. Jede Telefonnummer innerhalb eines WhatsApp-Geschäftskontos arbeitet unabhängig voneinander, sodass sie für Folgendes dieselben oder unterschiedliche Werte haben können:
 - Anzeigename

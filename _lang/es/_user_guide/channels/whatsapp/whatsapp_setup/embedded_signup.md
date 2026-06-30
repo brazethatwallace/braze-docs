@@ -12,10 +12,10 @@ channel:
 
 > Este artículo de referencia ofrece un recorrido paso a paso del flujo de trabajo de registro integrado de WhatsApp en Braze.
 
-Se accede al flujo de trabajo de registro integrado de WhatsApp cuando [integras WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/) por primera vez en tu espacio de trabajo de Braze, y cuando [añades una cuenta de WhatsApp Business]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/) a una integración de WhatsApp existente.
+Se accede al flujo de trabajo de registro integrado de WhatsApp cuando [integras WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) por primera vez en tu espacio de trabajo de Braze, y cuando [añades una cuenta de WhatsApp Business]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups) a una integración de WhatsApp existente.
 
 {% alert note %}
-Puedes añadir [múltiples cuentas de WhatsApp Business]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/) a un espacio de trabajo de Braze. Sin embargo, cada cuenta de WhatsApp Business específica solo puede añadirse a un único espacio de trabajo de Braze.
+Puedes añadir [múltiples cuentas de WhatsApp Business]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups) a un espacio de trabajo de Braze. Sin embargo, cada cuenta de WhatsApp Business específica solo puede añadirse a un único espacio de trabajo de Braze.
 {% endalert %}
 
 ## Acceder al flujo de trabajo {#accessing-the-workflow}
@@ -23,7 +23,7 @@ Puedes añadir [múltiples cuentas de WhatsApp Business]({{site.baseurl}}/user_g
 Ve a **Integraciones de socios** > **Socios tecnológicos**, luego busca y selecciona **WhatsApp**. Tu siguiente selección depende de tu caso de uso:
 
 - Si estás integrando WhatsApp en tu espacio de trabajo, selecciona **Begin Integration**. <br><br>![Página del socio WhatsApp con un botón para iniciar la integración.]({% image_buster /assets/img/whatsapp/whatsapp1.png %}){: style="max-width:80%;"}<br><br>
-- Si estás añadiendo una cuenta de WhatsApp Business a una integración de WhatsApp existente, selecciona **Add WhatsApp Business Account**. <br><br>![«WhatsApp Messaging Integration» con opciones para añadir una cuenta de WhatsApp Business o un grupo de suscripción y número.]({% image_buster /assets/img/whatsapp/multiple_wabas.png %}){: style="max-width:80%;"}
+- Si estás añadiendo una cuenta de WhatsApp Business a una integración de WhatsApp existente, selecciona **Add WhatsApp Business Account**. <br><br>!["WhatsApp Messaging Integration" con opciones para añadir una cuenta de WhatsApp Business o un grupo de suscripción y número.]({% image_buster /assets/img/whatsapp/multiple_wabas.png %}){: style="max-width:80%;"}
 
 El flujo de trabajo a partir de aquí es el mismo para ambos casos de uso.
 

@@ -224,7 +224,7 @@ A Ingestão de Dados na Nuvem aceita arquivos JSON, CSV e Parquet. As colunas ob
 - Dados de usuários (atributos, eventos personalizados, eventos de compra) usam identificadores de usuário e uma carga útil
 - Dados de catálogo usam identificadores de catálogo
 
-Se você estiver usando o S3 para dados de catálogo, use esta página junto com [Sincronizar e excluir dados do catálogo]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) para requisitos e comportamentos específicos de catálogo.
+Se você estiver usando o S3 para dados de catálogo, use esta página junto com [Sincronizar e excluir dados do catálogo]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) para requisitos e comportamentos específicos de catálogo.
 
 A Braze não impõe requisitos adicionais de nome de arquivo além do que é imposto pela AWS. Os nomes dos arquivos devem ser únicos. Adicionar um timestamp ajuda a garantir a exclusividade.
 
@@ -310,7 +310,7 @@ ID,PAYLOAD,DELETED
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}",false
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
 ```
-Inclua uma coluna opcional `DELETED`. Quando `DELETED` é `true`, esse item de catálogo é removido do catálogo na Braze. Para a lista completa de colunas obrigatórias, consulte [Identificadores de catálogo](#catalog-identifiers). Para o comportamento de exclusão, consulte [Excluindo itens do catálogo](#deleting-catalog-items). Para um fluxo de configuração de catálogo de ponta a ponta (incluindo a criação do catálogo de destino e o comportamento de sincronização), consulte [Sincronizar e excluir dados do catálogo]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/).
+Inclua uma coluna opcional `DELETED`. Quando `DELETED` é `true`, esse item de catálogo é removido do catálogo na Braze. Para a lista completa de colunas obrigatórias, consulte [Identificadores de catálogo](#catalog-identifiers). Para o comportamento de exclusão, consulte [Excluindo itens do catálogo](#deleting-catalog-items). Para um fluxo de configuração de catálogo de ponta a ponta (incluindo a criação do catálogo de destino e o comportamento de sincronização), consulte [Sincronizar e excluir dados do catálogo]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data).
 {% endtab %}
 
 {% endtabs %}
@@ -340,7 +340,7 @@ Cada linha no arquivo deve identificar exatamente um usuário usando um dos segu
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Excluindo usuários" }
 
 {% alert important %}
-A exclusão de usuários é permanente e não pode ser desfeita. Inclua apenas usuários que você realmente pretende remover. Para mais detalhes, consulte [Excluir usuários com Ingestão de Dados na Nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users/).
+A exclusão de usuários é permanente e não pode ser desfeita. Inclua apenas usuários que você realmente pretende remover. Para mais detalhes, consulte [Excluir usuários com Ingestão de Dados na Nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users).
 {% endalert %}
 
 **Exemplo – JSON (exclusão de usuários):**
@@ -363,7 +363,7 @@ Quando a sincronização é executada, a Braze processa novos arquivos no bucket
 
 Para remover itens de um catálogo usando armazenamento de arquivos:
 
-1. Use a mesma sincronização S3 que você usa para [sincronizar dados do catálogo]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) (tipo de dado **Catalogs**).
+1. Use a mesma sincronização S3 que você usa para [sincronizar dados do catálogo]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) (tipo de dado **Catalogs**).
 2. Nos seus arquivos CSV ou JSON, adicione uma coluna opcional **`deleted`** (ou **`DELETED`**).
 3. Defina `deleted` como `true` para qualquer item do catálogo que você deseja remover do catálogo na Braze.
 
@@ -382,7 +382,7 @@ ID,PAYLOAD,DELETED
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
 ```
 
-Quando a sincronização é executada, linhas com `deleted: true` fazem com que o item do catálogo correspondente seja excluído na Braze. Para o comportamento completo de sincronização e exclusão do catálogo, consulte [Sincronizar e excluir dados do catálogo]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/).
+Quando a sincronização é executada, linhas com `deleted: true` fazem com que o item do catálogo correspondente seja excluído na Braze. Para o comportamento completo de sincronização e exclusão do catálogo, consulte [Sincronizar e excluir dados do catálogo]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data).
 
 ## Informações importantes {#things-to-know}
 

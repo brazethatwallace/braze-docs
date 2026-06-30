@@ -22,10 +22,10 @@ description: "Dieser Referenzartikel behandelt die Verwendung verschachtelter an
 - Schlüsselnamen und String-Werte dürfen maximal 255 Zeichen lang sein.
 - Schlüsselnamen dürfen keine Leerzeichen enthalten.
 - Punkte (`.`) und Dollarzeichen (`$`) sind keine unterstützten Zeichen in einer API-Nutzlast, wenn Sie versuchen, ein verschachteltes angepasstes Attribut an ein Nutzerprofil zu senden.
-- Nicht alle Braze-Partner unterstützen verschachtelte angepasste Attribute. Schauen Sie in der [Dokumentation des Partners]({{site.baseurl}}/partners/home/) nach, ob bestimmte Partnerintegrationen dieses Feature unterstützen.
+- Nicht alle Braze-Partner unterstützen verschachtelte angepasste Attribute. Schauen Sie in der [Dokumentation des Partners]({{site.baseurl}}/partners/home) nach, ob bestimmte Partnerintegrationen dieses Feature unterstützen.
 - Verschachtelte angepasste Attribute können nicht als Filter verwendet werden, wenn Sie einen Connected Audience API-Aufruf durchführen.
-- Standardmäßig enthält der Segmentfilter **Verschachtelte angepasste Attribute** angepasste Attribute vom Typ Objekt, Array-of-Object-Attribute und angepasste Attribute vom Typ Array. Wenn Sie ein Attribut auswählen, enthält der Eigenschafts-Schema-Selektor Array-Pfade (mit `[]`-Notation) für verschachtelte Array-Felder. Um angepasste Attribute auf oberster Ebene vom Typ Array aus diesem Filter auszublenden, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/braze_support/).
-- Wenn Sie Nachrichten im Dashboard mit **Als angepasste Nutzer:in anzeigen** in der Vorschau betrachten, können Sie Testdaten nur als String oder String-Array eingeben – verschachtelte Objekte werden nicht unterstützt. Um eine Nachricht in der Vorschau anzuzeigen, die auf verschachtelte angepasste Attribute verweist, wählen Sie eine vorhandene Nutzer:in aus, die das verschachtelte Attribut bereits in ihrem Profil hat. Für verschachtelte angepasste Event-Eigenschaften müssen Sie eine Live-Kampagne starten, die auf eine Testnutzer:in ausgerichtet ist, um das Rendering zu überprüfen.
+- Standardmäßig enthält der Segmentfilter **Verschachtelte angepasste Attribute** angepasste Attribute vom Typ Objekt, Array-of-Object-Attribute und angepasste Attribute vom Typ Array. Wenn Sie ein Attribut auswählen, enthält der Eigenschafts-Schema-Selektor Array-Pfade (mit `[]`-Notation) für verschachtelte Array-Felder. Um angepasste Attribute auf oberster Ebene vom Typ Array aus diesem Filter auszublenden, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/braze_support).
+- Wenn Sie Nachrichten im Dashboard mit **Als angepasste Nutzer:in anzeigen** in der Vorschau betrachten, können Sie Testdaten nur als String oder String-Array eingeben – verschachtelte Objekte werden nicht unterstützt. Um eine Nachricht in der Vorschau anzuzeigen, die auf verschachtelte angepasste Attribute verweist, wählen Sie eine vorhandene Nutzer:in aus, die das verschachtelte Attribut bereits in ihrem Profil hat. Für verschachtelte angepasste Event-Eigenschaften müssen Sie eine Live-Campaign starten, die auf eine Testnutzer:in ausgerichtet ist, um das Rendering zu überprüfen.
 
 ## API-Beispiel {#api-example}
 
@@ -107,7 +107,7 @@ Um ein angepasstes Attribut-Objekt zu löschen, senden Sie einen POST an `users/
 ```
 
 {% alert note %}
-Dieser Ansatz kann nicht verwendet werden, um einen verschachtelten Schlüssel innerhalb eines [Objekt-Arrays]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/) zu löschen.
+Dieser Ansatz kann nicht verwendet werden, um einen verschachtelten Schlüssel innerhalb eines [Objekt-Arrays]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects) zu löschen.
 {% endalert %}
 
 {% endtab %}
@@ -267,7 +267,7 @@ Verwenden Sie den Personalisierungs-Tag `custom_attribute` und die Punkt-Notatio
 
 Um verschachtelte angepasste Attribute als Liquid in Ihrer Nachricht zu verwenden:
 
-1. Gehen Sie zu einer Kampagne oder einem Canvas und öffnen Sie den Nachrichtenschritt, in dem Sie Personalisierung hinzufügen möchten.
+1. Gehen Sie zu einer Campaign oder einem Canvas und öffnen Sie den Nachrichtenschritt, in dem Sie Personalisierung hinzufügen möchten.
 2. Fügen Sie im Nachrichten-Editor das Liquid-Snippet an der Stelle ein, an der der Wert erscheinen soll.
 3. Verwenden Sie **Vorschau und Test** mit einer vorhandenen Nutzer:in, die das verschachtelte angepasste Attribut bereits in ihrem Profil hat, um zu bestätigen, dass der Wert wie erwartet gerendert wird.
 
@@ -277,7 +277,7 @@ Sie können **Personalisierung hinzufügen** verwenden, um ein verschachteltes a
 
 So öffnen Sie **Personalisierung hinzufügen**:
 
-1. Gehen Sie zu einer Kampagne oder einem Canvas und öffnen Sie den Nachrichtenschritt, in dem Sie Personalisierung hinzufügen möchten.
+1. Gehen Sie zu einer Campaign oder einem Canvas und öffnen Sie den Nachrichtenschritt, in dem Sie Personalisierung hinzufügen möchten.
 2. Wählen Sie im Nachrichten-Editor **Personalisierung** aus, um die Seitenleiste **Personalisierung hinzufügen** zu öffnen, in der Sie Personalisierungsoptionen auswählen können.
 
 So konfigurieren Sie die Personalisierung mit verschachtelten angepassten Attributen:
@@ -297,7 +297,7 @@ In diesem Beispiel fügt Braze den verschachtelten Wert für `preferences.neighb
 
 ## Schemas neu generieren {#regenerate-schema}
 
-Nachdem ein Schema generiert wurde, können Sie es **einmal pro Kalendertag** (basierend auf der Zeitzone Ihres Unternehmens) neu generieren. Dieser Abschnitt beschreibt, wie Sie Ihr Schema neu generieren. Ausführlichere Informationen zu Schemas finden Sie unter [Schema mit dem Nested-Object-Explorer generieren]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
+Nachdem ein Schema generiert wurde, können Sie es **einmal pro Kalendertag** (basierend auf der Zeitzone Ihres Unternehmens) neu generieren. Dieser Abschnitt beschreibt, wie Sie Ihr Schema neu generieren. Ausführlichere Informationen zu Schemas finden Sie unter [Schema mit dem Nested-Object-Explorer generieren]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#generate-schema).
 
 So generieren Sie das Schema für Ihr verschachteltes angepasstes Attribut neu:
 
@@ -318,16 +318,16 @@ Wenn Daten nach der Schema-Neugenerierung nicht wie erwartet angezeigt werden, w
 
 Sie können triggern, wenn sich ein verschachteltes angepasstes Attribut-Objekt ändert. Diese Option ist für Änderungen an Objekt-Arrays nicht verfügbar. Wenn Sie keine Option zum Anzeigen des Pfad-Explorers sehen, überprüfen Sie, ob Sie ein Schema generiert haben.
 
-In einer aktionsbasierten Kampagne können Sie beispielsweise eine neue Aktion triggern für **Change Custom Attribute Value**, um Nutzer:innen anzusprechen, die ihre Nachbarschaftsbüro-Präferenzen geändert haben.
+In einer aktionsbasierten Campaign können Sie beispielsweise eine neue Aktion triggern für **Change Custom Attribute Value**, um Nutzer:innen anzusprechen, die ihre Nachbarschaftsbüro-Präferenzen geändert haben.
 
-So konfigurieren Sie diesen Trigger in einer aktionsbasierten Kampagne:
+So konfigurieren Sie diesen Trigger in einer aktionsbasierten Campaign:
 
-1. Erstellen oder bearbeiten Sie eine Kampagne und setzen Sie den Zustellungstyp auf **Aktionsbasierte Zustellung**.
+1. Erstellen oder bearbeiten Sie eine Campaign und setzen Sie den Zustellungstyp auf **Aktionsbasierte Zustellung**.
 2. Wählen Sie in den Trigger-Einstellungen **Change Custom Attribute Value** aus.
 3. Wählen Sie den Pfad des verschachtelten angepassten Attributs aus, den Sie überwachen möchten.
    Wählen Sie beispielsweise `preferences.neighborhood_office` aus.
 4. Wählen Sie die gewünschte Trigger-Bedingung aus, z. B. **any new value**.
-5. Konfigurieren Sie Ihre Kampagnennachricht und Zielgruppe fertig und starten Sie dann die Kampagne.
+5. Konfigurieren Sie Ihre Campaign-Nachricht und Zielgruppe fertig und starten Sie dann die Campaign.
 
 ## Segmentierungsverhalten bei Objekt-Arrays {#segmentation-behavior-with-arrays-of-objects}
 
@@ -351,7 +351,7 @@ Ein Segment mit den folgenden UND-Filtern:
 
 Diese Nutzer:in würde sich qualifizieren, da der erste Filter auf das „Shoes“-Element zutrifft (80 > 50) und der zweite Filter auf das „Hat“-Element zutrifft (25 < 30). Obwohl kein einzelnes Element beide Bedingungen erfüllt, wird die Nutzer:in dennoch in das Segment aufgenommen.
 
-Wenn alle Bedingungen auf dasselbe Element innerhalb eines Arrays zutreffen müssen, verwenden Sie die [Multi-Kriterien-Segmentierung]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#use-multi-criteria-segmentation) auf demselben Pfad oder strukturieren Sie Ihre Daten um, um elementübergreifendes Matching zu vermeiden.
+Wenn alle Bedingungen auf dasselbe Element innerhalb eines Arrays zutreffen müssen, verwenden Sie die [Multi-Kriterien-Segmentierung]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation) auf demselben Pfad oder strukturieren Sie Ihre Daten um, um elementübergreifendes Matching zu vermeiden.
 
 ## Datenpunkte {#data-points}
 

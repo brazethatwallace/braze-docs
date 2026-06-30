@@ -14,7 +14,7 @@ channel:
 
 ## Múltiples cuentas de empresa de WhatsApp {#multiple-whatsapp-business-accounts}
 
-Tener múltiples cuentas de empresa de WhatsApp es útil si deseas enviar mensajes de WhatsApp a usuarios en un espacio de trabajo de Braze que tiene múltiples marcas. Esto se debe a que cada cuenta de empresa opera de forma independiente dentro de WhatsApp y tiene su propio número de teléfono, plantilla de mensaje y calificación de calidad.
+Tener múltiples cuentas de empresa de WhatsApp es útil si quieres enviar mensajes de WhatsApp a usuarios en un espacio de trabajo de Braze que tiene múltiples marcas. Esto se debe a que cada cuenta de empresa opera de forma independiente dentro de WhatsApp y tiene su propio número de teléfono, plantilla de mensaje y calificación de calidad.
 
 Las cuentas de empresa que están anidadas dentro del mismo Meta Business Manager también compartirán la gestión de permisos de acceso de usuarios y catálogos (aún no compatible en Braze).
 
@@ -29,7 +29,7 @@ Puedes añadir hasta 10 cuentas de empresa de WhatsApp por espacio de trabajo. L
 ![Sección de integración de mensajería de WhatsApp con opciones para añadir una cuenta de empresa o añadir un grupo de suscripción y número.]({% image_buster /assets/img/whatsapp/multiple_wabas.png %})
 
 {: start="2"}
-2. Sigue el flujo de trabajo de registro. Para un recorrido detallado paso a paso, consulta [Registro integrado de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/).
+2. Sigue el flujo de trabajo de registro. Para un recorrido detallado paso a paso, consulta [Registro integrado de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup).
 
 {% alert important %}
 Tu número de teléfono debe cumplir con todos los requisitos de cualquier número de teléfono de WhatsApp, incluyendo no estar registrado en ninguna otra cuenta de WhatsApp.
@@ -37,7 +37,7 @@ Tu número de teléfono debe cumplir con todos los requisitos de cualquier núme
 
 ## Múltiples grupos de suscripción y números de teléfono {#multiple-subscription-groups-and-phone-numbers}
 
-Las plantillas de mensaje se comparten entre todos los números de teléfono de la misma cuenta de empresa de WhatsApp. Para más detalles sobre los grupos de suscripción de WhatsApp, consulta [Grupos de suscripción]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/).
+Las plantillas de mensaje se comparten entre todos los números de teléfono de la misma cuenta de empresa de WhatsApp. Para más detalles sobre los grupos de suscripción de WhatsApp, consulta [Grupos de suscripción]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups).
 
 Cada número de teléfono de WhatsApp aparecerá como un chat de WhatsApp separado para los usuarios. Cada número de teléfono dentro de una cuenta de empresa de WhatsApp opera de forma independiente de los demás, por lo que pueden tener los mismos o diferentes valores para lo siguiente:
 - Nombre para mostrar

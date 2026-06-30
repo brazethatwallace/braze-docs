@@ -17,7 +17,7 @@ description: "この記事では、AB テスト予測の仕組み、予測の実
 
 ## 予測を実行する {#running-a-projection}
 
-Campaignの作成画面で、メッセージバリアントとその件名をエディターに入力します。準備ができたら、Campaign作成フローの**ターゲットオーディエンス**ステップに進みます。**ABテスト**パネルで、**予測を実行**を選択します。
+Campaignの作成画面で、メッセージバリアントとその件名をエディターに入力します。準備ができたら、Campaign作成フローの**ターゲットオーディエンス**ステップに進みます。**A/B Testing**パネルで、**予測を実行**を選択します。
 
 <img width="518" alt="ABテストパネルで予測を実行するオプションを表示している画像" src="https://github.com/braze-inc/braze-docs/assets/17167198/8e74835c-76e4-4241-9763-c4f86a622c75">
 
@@ -25,10 +25,10 @@ Campaignの作成画面で、メッセージバリアントとその件名をエ
 
 <img width="722" alt="件名を入力して予測を実行するモーダルの画像" src="https://github.com/braze-inc/braze-docs/assets/17167198/f9ad45a3-6565-467b-a7f6-35277bef7699">
 
-AIが最も効果的と予測した件名には、**Projected Winner** ラベルがハイライト表示されます。
+AIが最も効果的と予測した件名には、**Projected Winner**ラベルがハイライト表示されます。
 
 {% alert note %}
-[複数プラットフォームのプッシュCampaigns]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/)では、複数のプラットフォームを選択した場合にABテストがサポートされます。
+[複数プラットフォームのプッシュCampaigns]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push)では、複数のプラットフォームを選択した場合にABテストがサポートされます。
 {% endalert %}
 
 ### 予測の精度はどの程度ですか {#how-accurate-are-the-projections}

@@ -11,7 +11,7 @@ toc_headers: h2
 
 > Esta página explica como usar o Editor SQL da Ingestão de dados na nuvem (CDI) da Braze para criar e validar sincronizações com consultas de SQL.
 
-O Editor SQL da Ingestão de dados na nuvem permite criar sincronizações escrevendo consultas de SQL diretamente no seu data warehouse. Isso elimina a necessidade de criar ou manter uma tabela CDI dedicada, que antes era obrigatória na [Etapa 1.1 das Integrações de Data Warehouse]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+O Editor SQL da Ingestão de dados na nuvem permite criar sincronizações escrevendo consultas de SQL diretamente no seu data warehouse. Isso elimina a necessidade de criar ou manter uma tabela CDI dedicada, que antes era obrigatória na [Etapa 1.1 das Integrações de Data Warehouse]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 Use o Editor SQL quando quiser:
 
@@ -40,7 +40,7 @@ A Braze executa apenas consultas de leitura nos seus dados e não modifica suas 
 Siga estas etapas para criar primeiro uma fonte e depois uma sincronização com o Editor SQL. Se você já configurou uma fonte para CDI, pule para a Etapa 3.
 
 {% alert note %}
-Essas etapas usam uma fonte Snowflake como exemplo. O processo de configuração para outras fontes de data warehouse é semelhante e pode ser encontrado na [Etapa 2: Criar uma nova fonte no dashboard da Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-2-create-a-new-source-in-the-braze-dashboard) da documentação [Configurando integrações de data warehouse]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#setting-up-data-warehouse-integrations).
+Essas etapas usam uma fonte Snowflake como exemplo. O processo de configuração para outras fontes de data warehouse é semelhante e pode ser encontrado na [Etapa 2: Criar uma nova fonte no dashboard da Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard) da documentação [Configurando integrações de data warehouse]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#setting-up-data-warehouse-integrations).
 {% endalert %}
 
 ### Etapa 1: Configurar sua role, permissões, warehouse e usuário no Snowflake {#step-1-set-up-your-snowflake-role-permissions-warehouse-and-user}
@@ -253,7 +253,7 @@ Se sua consulta retornar zero linhas:
 
 ## Suporte a `PAYLOAD` (legado) {#payload-support-legacy}
 
-O Editor SQL suporta [tabelas CDI legadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views) onde uma coluna `PAYLOAD` está presente.
+O Editor SQL suporta [tabelas CDI legadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-1-set-up-tables-or-views) onde uma coluna `PAYLOAD` está presente.
 
 Se sua consulta incluir:
 

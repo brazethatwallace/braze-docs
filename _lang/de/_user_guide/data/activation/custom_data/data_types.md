@@ -99,18 +99,18 @@ Administrator:innen können auch angepasste Attribute erstellen und sie auf dies
 
 ### Beschreibungen hinzufügen {#adding-descriptions}
 
-Sie können einem angepassten Attribut nach der Erstellung eine Beschreibung hinzufügen, wenn Sie die [Nutzerberechtigung]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) `Manage Events, Attributes, Purchases` haben. Bearbeiten Sie das angepasste Attribut und geben Sie ein, was Sie möchten, z. B. eine Notiz für Ihr Team.
+Sie können einem angepassten Attribut nach der Erstellung eine Beschreibung hinzufügen, wenn Sie die [Nutzerberechtigung]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions) `Manage Events, Attributes, Purchases` haben. Bearbeiten Sie das angepasste Attribut und geben Sie ein, was Sie möchten, z. B. eine Notiz für Ihr Team.
 
 ### Tags hinzufügen {#adding-tags}
 
-Sie können einem angepassten Attribut nach der Erstellung Tags hinzufügen, wenn Sie die [Nutzerberechtigung]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) „Manage Events, Attributes, Purchases“ haben. Sie können die Tags dann verwenden, um die Liste der Attribute zu filtern.
+Sie können einem angepassten Attribut nach der Erstellung Tags hinzufügen, wenn Sie die [Nutzerberechtigung]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions) „Manage Events, Attributes, Purchases“ haben. Sie können die Tags dann verwenden, um die Liste der Attribute zu filtern.
 
 ### Angepasste Attribute entfernen {#removing-custom-attributes}
 
 Es gibt zwei Möglichkeiten, angepasste Attribute aus Nutzerprofilen zu entfernen:
 
-* Wählen Sie den Namen des zu entfernenden angepassten Attributs in einem [Nutzeraktualisierungs-Schritt]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes) aus.
-* Setzen Sie den Wert `null` in Ihrer API-Anfrage an den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track).
+* Wählen Sie den Namen des zu entfernenden angepassten Attributs in einem [Nutzeraktualisierungs-Schritt]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes) aus.
+* Setzen Sie den Wert `null` in Ihrer API-Anfrage an den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track).
 
 #### Den Wert `null` setzen {#setting-the-null-value}
 
@@ -129,7 +129,7 @@ Um die Liste der angepassten Attribute als CSV-Datei zu exportieren, wählen Sie
 
 ## Nutzungsberichte anzeigen {#viewing-usage-reports}
 
-Der Nutzungsbericht listet alle Canvases, Campaigns und Segments auf, die ein bestimmtes angepasstes Attribut verwenden. Diese Liste enthält keine Verwendungen von Liquid.
+Der Nutzungsbericht listet alle Canvases, Campaigns und Segmente auf, die ein bestimmtes angepasstes Attribut verwenden. Diese Liste enthält keine Verwendungen von Liquid.
 
 Sie können bis zu 100 Nutzungsberichte gleichzeitig anzeigen, indem Sie die Kontrollkästchen neben den jeweiligen angepassten Attributen aktivieren und dann **View usage report** auswählen.
 
@@ -145,19 +145,19 @@ Im Folgenden finden Sie Methoden für verschiedene Plattformen, die zum Setzen a
 
 {% details Für plattformspezifische Dokumentation aufklappen %}
 
-- [Android und FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=android)
-- [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
-- [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=unity)
-- [.NET MAUI (ehemals Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
-- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)
+- [Android und FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-attributes)
+- [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=unity)
+- [.NET MAUI (ehemals Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#setting-custom-attributes)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
 
 {% enddetails %}
 
 ## Speicherung angepasster Attribute {#custom-attribute-storage}
 
-Alle im **Nutzerprofil** gespeicherten Daten, einschließlich angepasster Attributdaten, werden unbegrenzt aufbewahrt, solange jedes Profil [aktiv]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users) ist.
+Alle im **Nutzerprofil** gespeicherten Daten, einschließlich angepasster Attributdaten, werden unbegrenzt aufbewahrt, solange jedes Profil [aktiv]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#active-users) ist.
 
 ## Datentypen für angepasste Attribute
 
@@ -170,8 +170,8 @@ Die folgenden Datentypen können als angepasste Attribute gespeichert werden:
 - [Strings](#strings)
 - [Arrays](#arrays)
 - [Zeit](#time)
-- [Objekte]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)
-- [Arrays von Objekten]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/)
+- [Objekte]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)
+- [Arrays von Objekten]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects)
 
 ### Boolesche Werte (true/false) {#booleans}
 
@@ -190,7 +190,7 @@ Für **boolesche** Attribute stehen die folgenden Segmentierungsoptionen zur Ver
 {% tab Zahlen %}
 
 {% alert tip %}
-Ausgegebene Beträge sollten nicht über diese Methode erfasst werden. Verwenden Sie stattdessen [Kauf-Events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/).
+Ausgegebene Beträge sollten nicht über diese Methode erfasst werden. Verwenden Sie stattdessen [Kauf-Events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events).
 {% endalert %}
 
 Für **Zahlen**-Attribute stehen die folgenden Segmentierungsoptionen zur Verfügung.
@@ -240,7 +240,7 @@ Bei der Segmentierung mit dem Filter **DOES NOT MATCH REGEX** muss bereits ein a
 
 Arrays haben eine maximale Größe von 100&nbsp;KB. Die Standardlänge für ein Attribut beträgt bis zu 500 Elemente (wenn Sie beispielsweise ein Attribut wie „Angesehene Filme“ mit 500 Einträgen senden und ein:e Nutzer:in einen 501. Film ansieht, wird der erste Film entfernt und der neueste hinzugefügt). Beachten Sie, dass Braze bei der Eingabe von Werten mit Leerzeichen zwischen, vor oder nach Wörtern auch nach denselben Leerzeichen sucht.
 
-Angepasste Attribute vom Typ Array können nicht über [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/) importiert werden. Um Array-Werte hochzuladen, verwenden Sie den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) oder die [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/cloud_ingestion/).
+Angepasste Attribute vom Typ Array können nicht über [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) importiert werden. Um Array-Werte hochzuladen, verwenden Sie den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) oder die [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/cloud_ingestion).
 
 {% alert note %}
 Die Option zur Erhöhung der maximalen Länge ist nicht verfügbar, wenn das Attribut auf automatische Erkennung des Datentyps eingestellt ist; der Datentyp muss auf Array gesetzt sein.
@@ -266,7 +266,7 @@ Für **Array**-Attribute stehen die folgenden Segmentierungsoptionen zur Verfüg
 {% alert tip %}
 Weitere Informationen zur Verwendung regulärer Ausdrücke (Regex) finden Sie in diesen Ressourcen:
 - [Perl-kompatible reguläre Ausdrücke (PCRE)](https://www.regextester.com/pregsyntax.html)
-- [Regex mit Braze]({{site.baseurl}}/user_guide/audience/segments/regex/)
+- [Regex mit Braze]({{site.baseurl}}/user_guide/audience/segments/regex)
 - [Regex-Debugger und -Tester](https://www.regex101.com/)
 - [Regex-Tutorial](https://www.medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -309,12 +309,12 @@ Für **Zeit**-Attribute stehen die folgenden Segmentierungsoptionen zur Verfügu
 {% endtab %}
 {% tab Objekte %}
 
-Sie können verschachtelte angepasste Attribute verwenden, um Objekte als Datentyp für angepasste Attribute zu senden. Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/).
+Sie können verschachtelte angepasste Attribute verwenden, um Objekte als Datentyp für angepasste Attribute zu senden. Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
 {% endtab %}
 {% tab Arrays von Objekten %}
 
-Verwenden Sie ein Array von Objekten, um zusammengehörige Attribute zu gruppieren. Weitere Details finden Sie unter [Array von Objekten]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/).
+Verwenden Sie ein Array von Objekten, um zusammengehörige Attribute zu gruppieren. Weitere Details finden Sie unter [Array von Objekten]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects).
 
 {% endtab %}
 {% endtabs %}
@@ -345,19 +345,19 @@ Spezifische Regeln für Event-Eigenschaften:
 
 - **Zeit (Datetime):** Verwenden Sie das Format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) oder `yyyy-MM-dd'T'HH:mm:ss:SSSZ`. Wird innerhalb von Arrays nicht unterstützt.
 - **Array:** Datetimes werden innerhalb von Arrays nicht unterstützt.
-- **Verschachteltes Objekt:** Siehe [Verschachtelte Objekte]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
+- **Verschachteltes Objekt:** Siehe [Verschachtelte Objekte]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 - **Payload:** Event-Eigenschaftsobjekte, die Array- oder Objektwerte enthalten, können bis zu 102.400 Bytes (100&nbsp;KiB) groß sein.
 
 Sie können den Datentyp Ihrer angepassten Event-Eigenschaft ändern, sollten sich aber der Auswirkungen einer [Änderung des Datentyps](#changing-custom-attribute-or-event-data-type) bewusst sein, nachdem Daten erfasst wurden.
 
-Für das vollständige Verhalten von Event-Eigenschaften, reservierte Schlüssel und die Verwendung in Triggern und Personalisierung siehe [Angepasste Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/).
+Für das vollständige Verhalten von Event-Eigenschaften, reservierte Schlüssel und die Verwendung in Triggern und Personalisierung siehe [Angepasste Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties).
 
 ## Kauf-Events und Umsatz {#purchase-events-and-revenue}
 
-Kauf- und Umsatzdaten werden über [Kauf-Events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/) oder empfohlene E-Commerce-Events erfasst.
+Kauf- und Umsatzdaten werden über [Kauf-Events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events) oder empfohlene E-Commerce-Events erfasst.
 
 {% alert note %}
-Empfohlene Events haben vordefinierte Schemas mit festgelegten Datentypen. Weitere Details finden Sie unter [Empfohlene E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/).
+Empfohlene Events haben vordefinierte Schemas mit festgelegten Datentypen. Weitere Details finden Sie unter [Empfohlene E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 {% endalert %}
 
 Das Protokollieren von Kauf-Events legt den Lifetime-Value (LTV) für jedes Nutzerprofil fest, und diese Daten sind auf der Umsatzseite als Zeitreihe einsehbar. Sie können nach ausgegebenem Betrag, letztem Kaufdatum, Anzahl der Käufe in einem Zeitfenster und mehr segmentieren.
@@ -368,7 +368,7 @@ Kauf-Event-Eigenschaftswerte (das `properties`-Objekt bei einem Kauf) unterstüt
 
 {% include data_activation/purchase_event_property_data_types.md %}
 
-Für das vollständige Schema des Kauf-Objekts und Beispiele siehe [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object/). Für das Protokollieren von Kauf-Events, Segmentierungsfilter und vollständige Details siehe [Kauf-Events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/).
+Für das vollständige Schema des Kauf-Objekts und Beispiele siehe [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object). Für das Protokollieren von Kauf-Events, Segmentierungsfilter und vollständige Details siehe [Kauf-Events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events).
 
 ## Datentyp eines angepassten Attributs oder Events ändern {#changing-custom-attribute-or-event-data-type}
 
@@ -381,8 +381,8 @@ So ändern Sie den Datentyp eines angepassten Attributs oder Events:
 
 Wenn Sie den Datentyp eines angepassten Attributs oder Events ändern (z. B. von `time` zu `string`), beachten Sie Folgendes:
 
-- **Filter werden nicht automatisch aktualisiert.** Segments, Campaigns, Canvases oder andere Stellen, die das geänderte Attribut oder Event verwenden, werden nicht aktualisiert. Bevor Sie den Datentyp ändern, stoppen Sie alle Campaigns oder Canvases, die das Attribut in Segments oder Filtern verwenden, und entfernen Sie das Attribut aus Filtern, die darauf verweisen.
-- **Bestehende Nutzerdaten werden nicht rückwirkend aktualisiert.** Wenn das geänderte Attribut vor der Änderung in einem Nutzerprofil vorhanden war, behält dieser Wert den alten Datentyp. Nutzer:innen können aus Segments herausfallen, die das geänderte Attribut enthalten, da der Filter nach dem neuen Datentyp sucht. Aktualisieren Sie diese Nutzerprofile (z. B. mit dem [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)), damit sie dem neuen Typ entsprechen und bei Bedarf wieder in das Segment aufgenommen werden.
+- **Filter werden nicht automatisch aktualisiert.** Segmente, Campaigns, Canvases oder andere Stellen, die das geänderte Attribut oder Event verwenden, werden nicht aktualisiert. Bevor Sie den Datentyp ändern, stoppen Sie alle Campaigns oder Canvases, die das Attribut in Segmenten oder Filtern verwenden, und entfernen Sie das Attribut aus Filtern, die darauf verweisen.
+- **Bestehende Nutzerdaten werden nicht rückwirkend aktualisiert.** Wenn das geänderte Attribut vor der Änderung in einem Nutzerprofil vorhanden war, behält dieser Wert den alten Datentyp. Nutzer:innen können aus Segmenten herausfallen, die das geänderte Attribut enthalten, da der Filter nach dem neuen Datentyp sucht. Aktualisieren Sie diese Nutzerprofile (z. B. mit dem [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track)), damit sie dem neuen Typ entsprechen und bei Bedarf wieder in das Segment aufgenommen werden.
 - **Neue Daten müssen dem neuen Typ entsprechen.** API-Aufrufe, die den vorherigen Datentyp für das geänderte Attribut senden, werden nicht akzeptiert. Senden Sie den neuen Datentyp.
 
 {% alert important %}
@@ -401,7 +401,7 @@ Kataloge unterstützen die in der Tabelle [Definitionen](#definitions) aufgefüh
 | Zeit | Datum und Uhrzeit im [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-Format oder als Unix-Zeitstempel in Sekunden. | ✅ Ja | ✅ Ja |
 | JSON-Objekt (Objekt) | Verschachteltes Objekt mit Schlüssel-Wert-Paaren. Wird in der Plattform angezeigt, kann aber nur über die API oder CDI erstellt oder aktualisiert werden. | ❌ Nein | ✅ Ja |
 | String-Array (Array) | Eine Liste von Strings. Wird in der Plattform angezeigt, kann aber nur über die API oder CDI erstellt oder aktualisiert werden. Maximal 100 Elemente. | ❌ Nein | ✅ Ja |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog data types #catalog-data-types" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Katalog-Datentypen" }
 
 ### Format und Beispiele {#format-and-examples}
 
@@ -413,6 +413,6 @@ Kataloge unterstützen die in der Tabelle [Definitionen](#definitions) aufgefüh
 | Zahl | Ganzzahl oder Dezimalzahl | <code>42</code> oder <code>19.99</code> |
 | Objekt | JSON-Objekt | <code>{"key": "value", "price": 10}</code> |
 | Array | String-Array | <code>["red", "blue", "green"]</code> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Format and examples" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Format und Beispiele" }
 
-Informationen zum Erstellen und Aktualisieren von Katalogen finden Sie unter [Katalog erstellen]({{site.baseurl}}/user_guide/data/activation/catalogs/create/).
+Informationen zum Erstellen und Aktualisieren von Katalogen finden Sie unter [Katalog erstellen]({{site.baseurl}}/user_guide/data/activation/catalogs/create).

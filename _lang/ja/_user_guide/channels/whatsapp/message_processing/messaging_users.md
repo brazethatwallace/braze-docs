@@ -121,7 +121,7 @@ WhatsApp[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canv
 
 ![リストセクションを新しい位置にドラッグしている様子。]({% image_buster /assets/img/whatsapp/drag_list_order.png %}){: style="max-width:60%;"}
 
-Canvasコンポーザーに戻り、メッセージステップの後に各リスト応答のグループを持つ[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)を追加します。各グループで:
+Canvasコンポーザーに戻り、メッセージステップの後に各リスト応答のグループを持つ[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)を追加します。各グループで以下を行います。
 
 1. **受信WhatsAppサブスクリプショングループを送信**のトリガーを追加し、該当するWhatsAppサブスクリプショングループを選択します。
 2. **メッセージ本文の条件**チェックボックスをオンにします。
@@ -143,7 +143,7 @@ Canvasの構築を続けてください。
 
 応答メッセージは、ユーザーのメッセージを受信してから24時間以内に送信する必要があります。成功するエクスペリエンスの構築を支援するために、Brazeはメッセージロジックをチェックして、応答メッセージのブロックを解除する上流の受信ユーザーメッセージがあることを確認します。
 
-以下のイベントが応答メッセージのブロックを解除します:
+以下のイベントが応答メッセージのブロックを解除します。
 
 - 受信メッセージ
   - トリガー**WhatsApp受信メッセージを送信**を持つ[アクションパス]({{site.baseurl}}/action_paths)または[アクションベースのエントリ]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)。

@@ -8,7 +8,7 @@ tool: Currents
 search_rank: 8
 ---
 
-# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/currents-the-basics-2/){: style="float:right;width:120px;border:0;" class="noimgborder"} Configurer Currents {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcurrents-the-basics-2-stylefloatrightwidth120pxborder0-classnoimgborderset-up-currents}
+# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/currents-the-basics-2/){: style="float:right;width:120px;border:0;" class="noimgborder"}Configurer Currents {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcurrents-the-basics-2-stylefloatrightwidth120pxborder0-classnoimgborderset-up-currents}
 
 > Cette page décrit le processus générique d'intégration et de configuration de Braze Currents.
 
@@ -29,7 +29,7 @@ L'utilisation de Currents avec l'un de nos partenaires nécessite les mêmes par
 
 Chaque partenaire exige que Braze ait l'autorisation de lui écrire et de lui envoyer des fichiers de données, et Braze demande l'emplacement où ces fichiers doivent être écrits, en particulier les noms de compartiments ou les clés.
 
-Les conditions suivantes sont les exigences élémentaires et minimales pour s'intégrer avec la plupart de nos partenaires. Certains partenaires exigeront des paramètres supplémentaires, qui sont énumérés dans la [documentation du partenaire]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) concerné, ainsi que toutes les nuances associées à ces exigences de base.
+Les conditions suivantes sont les exigences élémentaires et minimales pour s'intégrer avec la plupart de nos partenaires. Certains partenaires exigeront des paramètres supplémentaires, qui sont énumérés dans la [documentation du partenaire]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) concerné, ainsi que toutes les nuances associées à ces exigences de base.
 
 | Condition | Origine | Accès | Description
 |---|---|---|---|
@@ -49,7 +49,7 @@ Il est important de garder vos clés/jetons de partenaire et vos informations d'
 
 Braze Currents vous permet de vous intégrer via Data Storage à l'aide de fichiers plats, ou avec nos partenaires d'analyse comportementale et de données clients en utilisant des payloads JSON en batch vers un endpoint désigné.
 
-Avant de commencer votre intégration, il est préférable de décider quelle option vous convient le mieux. Par exemple, si vous utilisez déjà mParticle et Segment et que vous souhaitez y diffuser les données de Braze, il vaut mieux utiliser un payload JSON en batch. Si vous préférez manipuler les données par vous-même ou si vous disposez d'un système d'analyse des données plus complexe, il est préférable d'utiliser Data Storage ([Braze utilise cette méthode]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/) !)
+Avant de commencer votre intégration, il est préférable de décider quelle option vous convient le mieux. Par exemple, si vous utilisez déjà mParticle et Segment et que vous souhaitez y diffuser les données de Braze, il vaut mieux utiliser un payload JSON en batch. Si vous préférez manipuler les données par vous-même ou si vous disposez d'un système d'analyse des données plus complexe, il est préférable d'utiliser Data Storage ([Braze utilise cette méthode]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents) !)
 
 ### Étape 2 : Ouvrez Currents {#step-2-open-currents}
 
@@ -61,15 +61,15 @@ Pour commencer, rendez-vous dans **Intégrations partenaires** > **Currents**. V
 
 Ajoutez un partenaire, parfois appelé « connecteur Currents », en sélectionnant le menu déroulant en haut de l'écran.
 
-Les étapes de configuration varient selon les partenaires. Pour activer chaque intégration, consultez notre liste de [partenaires disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) et suivez les instructions sur leurs pages respectives.
+Les étapes de configuration varient selon les partenaires. Pour activer chaque intégration, consultez notre liste de [partenaires disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) et suivez les instructions sur leurs pages respectives.
 
 ### Étape 4 : Configurez vos événements {#step-4-configure-your-events}
 
-Choisissez les événements que vous souhaitez transmettre à ce partenaire en cochant les options disponibles. Vous trouverez la liste de ces événements dans nos bibliothèques [Événements de comportement client]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) et [Événements d'engagement lié aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/).
+Choisissez les événements que vous souhaitez transmettre à ce partenaire en cochant les options disponibles. Vous trouverez la liste de ces événements dans nos bibliothèques [Événements de comportement client]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) et [Événements d'engagement lié aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
 
-![]({% image_buster /assets/img/current4.png %})
+![Page de configuration Currents avec les événements du partenaire sélectionnés pour l'exportation.]({% image_buster /assets/img/current4.png %})
 
-Si nécessaire, vous pouvez en savoir plus sur nos événements dans notre article sur la [sémantique de livraison des événements]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics/).
+Si nécessaire, vous pouvez en savoir plus sur nos événements dans notre article sur la [sémantique de livraison des événements]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics).
 
 ### Étape 5 : Configurez les transformations de champs {#step-5-set-up-field-transformations}
 
@@ -92,7 +92,7 @@ Avant de tester, pensez à consulter notre [échantillon de données Currents su
 
 #### Envoi d'événements de test {#sending-test-events}
 
-Pour tester votre intégration, vous pouvez sélectionner **Send Test Events** pour envoyer un événement de chacun des types d'événements sélectionnés à ce Current. Pour obtenir des informations détaillées sur chaque type d'événement, consultez nos bibliothèques [Événements de comportement client]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) et [Événements d'engagement lié aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/).
+Pour tester votre intégration, vous pouvez sélectionner **Send Test Events** pour envoyer un événement de chacun des types d'événements sélectionnés à ce Current. Pour obtenir des informations détaillées sur chaque type d'événement, consultez nos bibliothèques [Événements de comportement client]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) et [Événements d'engagement lié aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
 
 ![La page « Currents Test » dans le tableau de bord de Braze.]({% image_buster /assets/img/currents/current_test_events.png %}){: style="max-width:70%;"}
 

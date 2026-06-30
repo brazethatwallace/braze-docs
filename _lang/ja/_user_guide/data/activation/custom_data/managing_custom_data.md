@@ -8,9 +8,9 @@ description: "このリファレンス記事では、カスタムイベントと
 
 # カスタムデータを管理する {#manage-custom-data}
 
-> このページでは、CampaignsやSegmentsにカスタムデータを事前入力する方法、カスタムイベントと属性およびそのプロパティを管理する方法、データタイプを設定する方法について説明します。カスタムデータのブロックリスト登録と削除については、[カスタムデータのブロックリスト登録]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/)を参照してください。
+> このページでは、CampaignsやSegmentsにカスタムデータを事前入力する方法、カスタムイベントと属性およびそのプロパティを管理する方法、データタイプを設定する方法について説明します。カスタムデータのブロックリスト登録と削除については、[カスタムデータのブロックリスト登録]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data)を参照してください。
 
-特にカスタム属性の管理方法（説明の追加、タグの追加、属性のPIIマーキングなど）については、[カスタム属性の管理]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes)を参照してください。
+特にカスタム属性の管理方法（説明の追加、タグの追加、属性のPIIマーキングなど）については、[カスタム属性の管理]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes)を参照してください。
 
 ## カスタムデータの事前入力 {#pre-populate-custom-data}
 
@@ -23,7 +23,7 @@ description: "このリファレンス記事では、カスタムイベントと
 ![カスタム属性、カスタムイベント、または製品に移動します。]({% image_buster /assets/img_archive/prepopulate_page.png %}){: style="max-width:90%;" }
 
 {: start="2"}
-2. カスタム属性、カスタムイベント、または製品を追加するには、それぞれのページに移動して、**カスタム属性を追加**、**カスタムイベントを追加**、または**製品を追加**を選択します。<br><br>カスタム属性の場合は、この属性の[データタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types)（ブール値、文字列など）を選択します。属性のデータタイプによって、その属性に使用できるセグメンテーションフィルターが決まります。<br><br>![新しい属性またはイベントの追加]({% image_buster /assets/img_archive/prepopulate_add.png %}){: style="max-width:80%;" }
+2. カスタム属性、カスタムイベント、または製品を追加するには、それぞれのページに移動して、**カスタム属性を追加**、**カスタムイベントを追加**、または**製品を追加**を選択します。<br><br>カスタム属性の場合は、この属性の[データタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)（ブール値、文字列など）を選択します。属性のデータタイプによって、その属性に使用できるセグメンテーションフィルターが決まります。<br><br>![新しい属性またはイベントの追加]({% image_buster /assets/img_archive/prepopulate_add.png %}){: style="max-width:80%;" }
 3. **保存**を選択します。
 
 ### カスタムイベントとカスタム属性の命名 {#naming-custom-events-and-custom-attributes}
@@ -32,13 +32,13 @@ description: "このリファレンス記事では、カスタムイベントと
 
 ## プロパティの管理 {#managing-properties}
 
-カスタムイベントまたは製品を作成した後、そのイベントまたは製品の**プロパティの管理**を選択して、新しいプロパティの追加、既存のプロパティのブロックリストへの登録、および[トリガーイベント]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)でこのプロパティを使用するCampaignsまたはCanvasesの表示ができます。
+カスタムイベントまたは製品を作成した後、そのイベントまたは製品の**プロパティの管理**を選択して、新しいプロパティの追加、既存のプロパティのブロックリストへの登録、および[トリガーイベント]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)でこのプロパティを使用するCampaignsまたはCanvasesの表示ができます。
 
 ![カスタムイベントのカスタムプロパティ。]({% image_buster /assets/img_archive/manageproperties1.png %}){: style="max-width:80%"}
 
-イベントプロパティまたは製品プロパティをブロックリストに登録するには、プロパティページのアクションメニューを使用します。カスタム属性、イベント、または製品全体をブロックリストに登録する方法については、[カスタムデータのブロックリスト登録]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/)を参照してください。
+イベントプロパティまたは製品プロパティをブロックリストに登録するには、プロパティページのアクションメニューを使用します。カスタム属性、イベント、または製品全体をブロックリストに登録する方法については、[カスタムデータのブロックリスト登録]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data)を参照してください。
 
-これらの追加されたカスタム属性、カスタムイベント、製品、またはイベントプロパティを追跡可能にするには、以前の追加時に使用した正確な名前を使用してSDKでそれらを作成するように、開発チームに依頼する必要があります。または、Braze [API]({{site.baseurl}}/api/basics/)を使用してその属性のデータをインポートすることもできます。その後、カスタム属性、カスタムイベントなどがアクション可能になり、ユーザーに適用されます。
+これらの追加されたカスタム属性、カスタムイベント、製品、またはイベントプロパティを追跡可能にするには、以前の追加時に使用した正確な名前を使用してSDKでそれらを作成するように、開発チームに依頼する必要があります。または、Braze [API]({{site.baseurl}}/api/basics)を使用してその属性のデータをインポートすることもできます。その後、カスタム属性、カスタムイベントなどがアクション可能になり、ユーザーに適用されます。
 
 {% include alerts/note_alerts.md alert='Manage custom data storage' %}
 
@@ -81,10 +81,10 @@ Brazeは、受信した属性データのデータタイプを自動的に認識
 | 数値 | 整数または浮動小数点数（`1`、`1.5`など）は数値として保存されます |
 | 数値 | 数値文字列（`"100"`や`"3.14"`など）は、属性が**数値**に強制されている場合、数値に変換できます |
 | 文字列 | 数値は、属性が**文字列**に強制されている場合、文字列形式に変換できます |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Data type coercion" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="データタイプの強制変換" }
 
-異なるデータタイプの比較によって表示される特定のフィルターオプションの詳細については、[レポートの設定]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/)を参照してください。また、利用可能なデータタイプの詳細については、[データタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types)を参照してください。
+異なるデータタイプの比較によって表示される特定のフィルターオプションの詳細については、[レポートの設定]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting)を参照してください。また、利用可能なデータタイプの詳細については、[データタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)を参照してください。
 
 {% alert note %}
-Brazeに送信されたデータは不変であり、Brazeが受信した後に削除または変更することはできません。ただし、ダッシュボードでトラッキングしている内容をコントロールするために、前のセクションに挙げたステップのいずれかを使用できます。カスタムデータのブロックリスト登録や削除については、[カスタムデータのブロックリスト登録]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/)を参照してください。
+Brazeに送信されたデータは不変であり、Brazeが受信した後に削除または変更することはできません。ただし、ダッシュボードでトラッキングしている内容をコントロールするために、前のセクションに挙げたステップのいずれかを使用できます。カスタムデータのブロックリスト登録や削除については、[カスタムデータのブロックリスト登録]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data)を参照してください。
 {% endalert %}

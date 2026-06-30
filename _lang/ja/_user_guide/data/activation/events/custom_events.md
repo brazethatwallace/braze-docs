@@ -9,7 +9,7 @@ search_rank: 2
 
 # [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}カスタムイベント {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
-> この記事では、カスタムイベントとプロパティ、ユーザープロファイルのイベント履歴、関連するセグメンテーションフィルター、Canvasエントリプロパティ、関連する分析などについて説明します。Brazeのイベント全般については、[イベント]({{site.baseurl}}/user_guide/data/activation/events/)を参照してください。
+> この記事では、カスタムイベントとプロパティ、ユーザープロファイルのイベント履歴、関連するセグメンテーションフィルター、Canvasエントリプロパティ、関連する分析などについて説明します。Brazeのイベント全般については、[イベント]({{site.baseurl}}/user_guide/data/activation/events)を参照してください。
 
 カスタムイベントとは、ユーザーによって実行されたアクションまたはユーザーに関する更新です。カスタムイベントがログに記録されると、任意の数とタイプのフォローアップCampaignsをトリガーできます。その後、[セグメンテーションフィルター](#segmentation-filters)を使用して、カスタムイベントの発生頻度や最終発生日時に基づいてユーザーをセグメント化できます。これにより、カスタムイベントは、アプリケーション内の高価値のユーザーインタラクションの追跡に最適です。
 
@@ -17,13 +17,13 @@ search_rank: 2
 
 一般的なカスタムイベントのユースケースをいくつか示します。
 
-- [アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)を使用したカスタムイベントに基づくCampaignまたはCanvasのトリガー
+- [アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)を使用したカスタムイベントに基づくCampaignまたはCanvasのトリガー
 - ユーザーがカスタムイベントを実行した回数、イベントが最後に発生した時刻などに基づくユーザーのセグメント化
 - ダッシュボードの[カスタムイベント分析](#analytics)を使用した、各イベントの発生頻度の集計表示
-- [ファネル]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/#step-2-select-events-for-funnel-steps)および[リテンション]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/)レポートを使用した追加の分析
-- [永続的なエントリプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties/)を活用し、キャンバスステップで顧客イベントのメタデータをパーソナライゼーションに使用
-- [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)を使用したより高度な分析の生成
-- [離脱条件]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/)を設定して、ユーザーがCanvasから離脱するタイミングを定義
+- [ファネル]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports#step-2-select-events-for-funnel-steps)および[リテンション]({{site.baseurl}}/user_guide/analytics/reports/retention_reports)レポートを使用した追加の分析
+- [永続的なエントリプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties)を活用し、キャンバスステップで顧客イベントのメタデータをパーソナライゼーションに使用
+- [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)を使用したより高度な分析の生成
+- [離脱条件]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria)を設定して、ユーザーがCanvasから離脱するタイミングを定義
 
 ## カスタムイベントの管理 {#managing-custom-events}
 
@@ -43,22 +43,22 @@ search_rank: 2
 
 さらに、ブロックされたカスタムイベントがBrazeの他の領域でフィルターやトリガーによって現在参照されている場合、そのイベントを参照しているフィルターやトリガーのすべてのインスタンスが削除およびアーカイブされることを説明する警告モーダルが表示されます。
 
-カスタムデータのブロックリスト登録と削除の詳細については、[カスタムデータのブロックリスト登録]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/)を参照してください。
+カスタムデータのブロックリスト登録と削除の詳細については、[カスタムデータのブロックリスト登録]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data)を参照してください。
 
 ### 説明の追加 {#adding-descriptions}
 
-`Manage Events, Attributes, Purchases`の[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)がある場合、カスタムイベントの作成後に説明を追加できます。カスタムイベントの**説明を編集**を選択し、チームへのメモなど任意の内容を入力してください。
+`Manage Events, Attributes, Purchases`の[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)がある場合、カスタムイベントの作成後に説明を追加できます。カスタムイベントの**説明を編集**を選択し、チームへのメモなど任意の内容を入力してください。
 
 ### タグの追加 {#adding-tags}
 
-「Manage Events, Attributes, Purchases」の[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)がある場合、カスタムイベントの作成後にタグを追加できます。タグはイベントリストのフィルタリングに使用できます。
+「Manage Events, Attributes, Purchases」の[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)がある場合、カスタムイベントの作成後にタグを追加できます。タグはイベントリストのフィルタリングに使用できます。
 
 ### データのエクスポート {#exporting-data}
 
 カスタムイベントのリストをCSVファイルとしてエクスポートするには、ページ上部の**すべてエクスポート**を選択します。CSVファイルが生成され、ダウンロードリンクがメールで送信されます。
 
 {% alert note %}
-ダッシュボードには、プロファイルに定義または保存できる**カスタムイベント**や**カスタム属性**の数に固定の上限はありません。実際の制限は、データの形状、取り込み量、ワークスペースのパフォーマンスに依存します。非常に多くのイベントや属性を追跡する予定がある場合は、Brazeアカウントチームにモデリングとデータ管理（例えば、未使用データの[ブロックリスト登録]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/)）についてご相談ください。
+ダッシュボードには、プロファイルに定義または保存できる**カスタムイベント**や**カスタム属性**の数に固定の上限はありません。実際の制限は、データの形状、取り込み量、ワークスペースのパフォーマンスに依存します。非常に多くのイベントや属性を追跡する予定がある場合は、Brazeアカウントチームにモデリングとデータ管理（例えば、未使用データの[ブロックリスト登録]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data)）についてご相談ください。
 {% endalert %}
 
 ## 使用状況レポートの表示 {#viewing-usage-reports}
@@ -73,19 +73,19 @@ search_rank: 2
 
 {% details プラットフォーム別のドキュメントを展開 %}
 
-- [Android and FireOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)
-- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-events)
-- [Unity]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=unity)
-- [.NET MAUI (formerly Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#tracking-custom-events)
-- [Roku]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=roku)
+- [Android and FireOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-events)
+- [Unity]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=unity)
+- [.NET MAUI (formerly Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#tracking-custom-events)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=roku)
 
 {% enddetails %}
 
 ## カスタムイベントの保存 {#custom-event-storage}
 
-**ユーザープロファイル**に保存されるすべてのデータ（カスタムイベントのメタデータ（初回または最終発生日時、合計回数、30日間のX in Y）を含む）は、各プロファイルが[アクティブ]({{site.baseurl}}/user_archival/#active-users)である限り無期限に保持されます。
+**ユーザープロファイル**に保存されるすべてのデータ（カスタムイベントのメタデータ（初回または最終発生日時、合計回数、30日間のX in Y）を含む）は、各プロファイルが[アクティブ]({{site.baseurl}}/user_archival#active-users)である限り無期限に保持されます。
 
 ## ユーザーのイベント履歴の表示 {#view-a-users-event-history}
 
@@ -116,7 +116,7 @@ search_rank: 2
 - データエクスポートを設定せずに、特定のユーザーのサポート問題を調査する。
 
 {% alert note %}
-**イベント履歴**タブの表示には、イベントプロパティに個人データが含まれる可能性があるため、**ユーザーを検索**と**PIIの表示**の両方のユーザー権限が必要です。詳しくは、[会社のユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)を参照してください。
+**イベント履歴**タブの表示には、イベントプロパティに個人データが含まれる可能性があるため、**ユーザーを検索**と**PIIの表示**の両方のユーザー権限が必要です。詳しくは、[会社のユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)を参照してください。
 {% endalert %}
 
 ## セグメンテーションフィルター {#segmentation-filters}
@@ -150,7 +150,7 @@ Brazeは、各ユーザーについてカスタムイベントの発生回数と
 ![カスタムイベントグラフのフィルター]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
 {% alert tip %}
-[カスタム属性のインクリメント]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#integers)を使用すると、カスタムイベントと同様にユーザーアクションのカウンターを保持できます。ただし、カスタム属性データを時系列で表示することはできません。時系列で分析する必要のないユーザーアクションは、この方法で記録してください。
+[カスタム属性のインクリメント]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#integers)を使用すると、カスタムイベントと同様にユーザーアクションのカウンターを保持できます。ただし、カスタム属性データを時系列で表示することはできません。時系列で分析する必要のないユーザーアクションは、この方法で記録してください。
 {% endalert %}
 
 ### カスタムイベント分析が表示されない理由 {#why-custom-events-analytics-arent-showing}
@@ -161,4 +161,4 @@ Brazeは、各ユーザーについてカスタムイベントの発生回数と
 
 カスタムイベントプロパティは、イベントの特定の発生を記述するカスタムイベントのメタデータまたは属性です。これらのプロパティは、トリガー条件のさらなる絞り込み、メッセージングにおけるパーソナライゼーションの向上、コンバージョンのトラッキング、および生データエクスポートによるより高度な分析の生成に使用できます。
 
-詳しくは、[カスタムイベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/)を参照してください。
+詳しくは、[カスタムイベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties)を参照してください。

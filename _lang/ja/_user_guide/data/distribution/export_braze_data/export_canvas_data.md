@@ -1,36 +1,37 @@
 ---
-nav_title: キャンバス データ
-article_title: キャンバス データのエクスポート
+nav_title: Canvas データ
+article_title: Canvas データのエクスポート
 page_order: 3
 page_type: reference
-description: "この参照記事では、キャンバス の分析データのエクスポート方法について説明します。"
+description: "このリファレンス記事では、Canvasの分析データをエクスポートする方法について説明します。"
 tool:
-  - キャンバス
+  - Canvas
   - Reports
 
 ---
-# キャンバス データのエクスポート
 
-> ユーザーデータを CSV にエクスポートできます。このページでは、キャンバス 全体または特定の キャンバス コンポーネントのデータをエクスポートする方法について説明します。
+# Canvas データのエクスポート {#export-canvas-data}
 
-## キャンバス のデータをエクスポートする
+> ユーザーデータをCSVにエクスポートできます。このページでは、Canvas全体または特定のCanvasコンポーネントのデータをエクスポートする方法について説明します。
 
-キャンバス のデータをエクスポートするには、次の手順に従います。
+## Canvasのデータをエクスポートする {#exporting-data-for-a-canvas}
 
-1. **メッセージング** > **キャンバス** に移動し、キャンバス を選択します。
-2. **キャンバス Details** セクションで **ユーザーデータ** ドロップダウンを選択します。
+Canvasのデータをエクスポートするには、次の手順に従います。
+
+1. **メッセージング** > **Canvas** に移動し、Canvasを選択します。
+2. **Canvas Details** セクションで**ユーザーデータ**ドロップダウンを選択します。
 3. 次のいずれかのエクスポートオプションを選択します。
   - **ユーザーデータを CSV 形式でエクスポート**、または
-  - **CSV Export Email Address**
+  - **メールアドレスを CSV 形式でエクスポート**
 
-キャンバス に入った全ユーザーのデータをCSVファイルとしてエクスポートすることもできます。
+Canvasに入った全ユーザーのデータをCSVファイルとしてエクスポートすることもできます。
 
-## コンポーネントのデータをエクスポートする（元のワークフローのみ）
+## コンポーネントのデータをエクスポートする（元のワークフローのみ） {#exporting-data-for-a-component-original-workflow-only}
 
-キャンバス の結果は、元の キャンバス ワークフローのコンポーネント単位でエクスポートできます。これを行うには、特定のコンポーネントを選択し、**キャンバスステップ詳細**ページで**ユーザーデータ**ドロップダウンを選択します。
+Canvasの結果は、元のCanvasワークフローのコンポーネント単位でエクスポートできます。これを行うには、特定のコンポーネントを選択し、**Canvas Step Details** ページで**ユーザーデータ**ドロップダウンを選択します。
 
-![キャンバス Details ページのユーザーデータドロップダウン。]({% image_buster /assets/img/canvas_csv_export.png %})
+![Canvas Details ページのユーザーデータドロップダウン。]({% image_buster /assets/img/canvas_csv_export.png %})
 
 {% alert tip %}
-CSV および API のエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」の記事を参照してください。
+CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)」の記事を参照してください。
 {% endalert %}

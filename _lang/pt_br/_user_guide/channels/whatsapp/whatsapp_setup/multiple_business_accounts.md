@@ -29,7 +29,7 @@ Você pode adicionar até 10 contas do WhatsApp Business por espaço de trabalho
 ![Seção de integração de mensagens do WhatsApp com opções para adicionar uma conta comercial ou adicionar um grupo de inscrições e número.]({% image_buster /assets/img/whatsapp/multiple_wabas.png %})
 
 {: start="2"}
-2. Siga o fluxo de cadastro. Para um passo a passo detalhado, consulte [Cadastro integrado do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/).
+2. Siga o fluxo de cadastro. Para um passo a passo detalhado, consulte [Cadastro integrado do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup).
 
 {% alert important %}
 Seu número de telefone deve seguir todos os requisitos de qualquer número de telefone do WhatsApp, incluindo não estar registrado em nenhuma outra conta do WhatsApp.
@@ -37,7 +37,7 @@ Seu número de telefone deve seguir todos os requisitos de qualquer número de t
 
 ## Múltiplos grupos de inscrições e números de telefone {#multiple-subscription-groups-and-phone-numbers}
 
-Os modelos de mensagem são compartilhados entre todos os números de telefone na mesma conta do WhatsApp Business. Para mais detalhes sobre grupos de inscrições do WhatsApp, consulte [Grupos de inscrições]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/).
+Os modelos de mensagem são compartilhados entre todos os números de telefone na mesma conta do WhatsApp Business. Para mais detalhes sobre grupos de inscrições do WhatsApp, consulte [Grupos de inscrições]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups).
 
 Cada número de telefone do WhatsApp aparecerá como um chat separado do WhatsApp para os usuários. Cada número de telefone dentro de uma conta do WhatsApp Business opera independentemente dos demais, então eles podem ter os mesmos ou diferentes valores para o seguinte:
 - Nome de exibição
@@ -58,5 +58,5 @@ Você pode adicionar até 20 grupos de inscrições (e números de telefone de e
 
 ### Removendo um grupo de inscrições e número de telefone {#removing-a-subscription-group-and-phone-number}
 
-1. Acesse **Audience** > **Subscriptions** e arquive o grupo de inscrições.
+1. Acesse **Público** > **Inscrições** e arquive o grupo de inscrições.
 2. Acesse seu Meta Business Manager e exclua o número de telefone.
