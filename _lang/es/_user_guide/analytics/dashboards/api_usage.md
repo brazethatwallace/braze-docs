@@ -76,7 +76,14 @@ El dashboard de uso de la API incluye todas las solicitudes de la REST API que B
 
 Los datos mostrados en el dashboard pueden tener un breve retraso a la hora de reflejar el tráfico reciente. Durante períodos de alto uso, puedes actualizar el dashboard hasta 4 veces por minuto. Es posible que debas esperar unos minutos antes de volver a actualizar el dashboard.
 
+### Claves de API en el cuerpo de la solicitud {#api-keys-in-request-body}
+
+Cuando las claves de API se envían en el cuerpo de la solicitud en lugar del encabezado de solicitud, es posible que algunas solicitudes no aparezcan en el dashboard de uso de la API. Esto puede generar datos incompletos en el dashboard y dificultar la monitorización precisa del uso de la API.
+
+Para obtener los informes más precisos en el dashboard de uso de la API, [incluye las claves de API en el encabezado de solicitud]({{site.baseurl}}/api/basics#bearer-token-authentication) en lugar de en el cuerpo de la solicitud.
+
 ## Artículos relacionados {#related-articles}
 
 - [Alertas de uso de la API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
 - [Límites de velocidad]({{site.baseurl}}/api/api_limits)
+- [Autenticación con token Bearer]({{site.baseurl}}/api/basics#bearer-token-authentication)

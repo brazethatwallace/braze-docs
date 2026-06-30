@@ -30,6 +30,10 @@ No, la biblioteca de medios no admite archivos de video. Te recomendamos alojarl
 
 No, la biblioteca de medios no admite el recorte de imágenes GIF.
 
+### ¿Puedo usar imágenes SVG en correo electrónico? {#can-i-use-svg-images-in-email}
+
+No se recomiendan las imágenes SVG para correo electrónico debido a la compatibilidad limitada entre los clientes de correo electrónico. Gmail y varios otros proveedores de correo electrónico importantes no renderizan imágenes SVG, lo que puede provocar imágenes rotas o faltantes para los destinatarios. Para una renderización fiable del correo electrónico, usa los formatos PNG, JPEG o GIF en su lugar.
+
 ### ¿Cómo recorto una imagen existente? {#how-do-i-crop-an-existing-image}
 
 Puedes recortar una imagen existente seleccionándola en la biblioteca de medios y haciendo clic en **Crop & Save New Image**.
@@ -63,4 +67,4 @@ Puedes generar imágenes desde **Contenido** > **Biblioteca de medios** seleccio
 
 ### ¿Puedo crear URL personalizadas para los activos de imagen de la biblioteca de medios? {#can-i-create-vanity-urls-for-media-library-image-assets}
 
-Las URL personalizadas para los activos de la biblioteca de medios no son compatibles porque las URL personalizadas interrumpirían la entrega del CDN. Puedes reemplazar una imagen en su URL existente cuando las campañas ya hacen referencia a esa URL. Para más información, consulta [Reemplazar un archivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).
+Las URL personalizadas para los activos de la biblioteca de medios no son compatibles porque interrumpirían la entrega del CDN. Puedes reemplazar una imagen en su URL existente cuando las campañas ya hacen referencia a esa URL. Para más información, consulta [Reemplazar un archivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).

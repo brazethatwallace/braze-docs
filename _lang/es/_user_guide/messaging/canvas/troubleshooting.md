@@ -24,6 +24,7 @@ Los registros de **Messaging History** y **Messaging Diagnostics** están dispon
 | Nadie o menos usuarios de los esperados entraron | [Entradas bajas o nulas en Canvas](#low-or-zero-canvas-entries) |
 | Los envíos o entregas son menores que la audiencia estimada | [Menos envíos de los esperados](#lower-sends-than-expected) |
 | Los análisis de Canvas parecen incorrectos (grupo de control, conversiones, cero envíos) | [Discrepancias en los análisis de Canvas](#canvas-analytics-mismatches) |
+| Los análisis muestran muchos más envíos que entradas o más salidas que entradas | [El filtrado por rango de fechas puede mostrar números inesperados](#date-range-filtering-can-show-unexpected-numbers) |
 | El Canvas no se guarda o el editor se congela | [Problemas con el editor y el guardado](#editor-and-save-issues) |
 | Detuve el Canvas pero los mensajes siguieron enviándose | [Comportamiento de Canvas detenido](#stopped-canvas-behavior) |
 | Error «Demasiadas ramas en Canvas» al lanzar | [Error «Demasiadas ramas en Canvas»](#too-many-canvas-branches-error) |
@@ -165,6 +166,18 @@ Si revisamos el Segment de usuarios activos, podemos ver que aunque contiene 29,
 Esto significa que, aunque especificaste que el 90 % de los usuarios entraran en la variante, no todos esos usuarios pueden recibir una notificación push. Los usuarios que no pueden recibir push aún entran en la variante de todos modos; el recuento de envíos refleja la elegibilidad del canal en el paso, no la asignación de variante en la entrada.
 
 {% enddetails %}
+
+### El filtrado por rango de fechas puede mostrar números inesperados {#date-range-filtering-can-show-unexpected-numbers}
+
+**Síntoma:** Los análisis de Canvas o de un paso muestran números inesperados o improbables, como muchos más envíos que entradas, o más usuarios saliendo de un paso de los que entraron.
+
+Esto puede ocurrir cuando usas el filtro de calendario de rango de fechas en la parte superior de la página de análisis del Canvas. Si seleccionas un rango de fechas que excluye algunas acciones de los usuarios, las métricas mostradas pueden reflejar solo una parte del recorrido de cada usuario.
+
+Por ejemplo:
+- Puedes ver 100 entradas con 8.000 envíos si tu rango de fechas comienza después de que la mayoría de los usuarios entraron pero incluye el momento en que recibieron los mensajes.
+- Puedes ver más usuarios avanzando al siguiente paso de los que entraron en el paso anterior si tu rango solo captura las salidas pero no las entradas anteriores.
+
+Para resolverlo, ajusta el rango de fechas para incluir todas las fechas desde que se lanzó el Canvas hasta el presente, o selecciona un rango que cubra el período completo relevante para las métricas que necesitas.
 
 Para definiciones de tasa de conversión y análisis a nivel de paso, consulta [Análisis y conversiones]({{site.baseurl}}/user_guide/messaging/canvas/faqs#analytics-and-conversions) en las preguntas frecuentes de Canvas.
 

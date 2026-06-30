@@ -250,9 +250,11 @@ Outlook은 종종 Microsoft Word 스타일 렌더링을 사용하여 이미지 �
 <!--<![endif]-->
 ```
 
-### 이메일 메시지에 SVG 또는 WEBP 이미지를 사용할 수 있나요? {#can-i-use-svg-or-webp-images-in-my-email-messages}
+### 이메일 메시지에 SVG 또는 WebP 이미지를 사용할 수 있나요? {#can-i-use-svg-or-webp-images-in-my-email-messages}
 
-SVG 이미지는 Gmail 웹 또는 Gmail iOS에서 렌더링되지 않습니다. WEBP는 클라이언트 간에 일관되게 지원되지 않습니다. 대신 PNG 또는 JPEG와 같이 널리 지원되는 형식을 사용하여 이미지가 안정적으로 렌더링되도록 하세요.
+SVG 이미지는 이메일 클라이언트 간 지원이 제한되어 있어 이메일에 권장되지 않습니다. Gmail 및 기타 주요 이메일 공급자는 SVG 이미지를 렌더링하지 않으므로, 수신자에게 이미지가 깨지거나 누락될 수 있습니다. WebP는 클라이언트 간에 일관되게 지원되지 않습니다.
+
+대신 PNG 또는 JPEG와 같이 널리 지원되는 형식을 사용하여 이미지가 안정적으로 렌더링되도록 하세요.
 
 ### 메시지 작성기의 한 부분에서 할당된 Liquid 변수를 다른 부분에서 사용할 수 있나요? {#can-liquid-variables-assigned-in-one-part-of-the-message-composer-be-used-in-another}
 

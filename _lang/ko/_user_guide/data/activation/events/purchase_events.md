@@ -213,6 +213,8 @@ Sam의 프로필에는 두 건의 구매 이벤트가 있지만, 실제로는 �
 
 승인되면 **데이터 설정** > **커스텀 이벤트**에서 **등록정보 관리**를 선택하여 대시보드에서 추가 속성정보를 추가할 수 있습니다. 그런 다음 Campaign 또는 Canvas 빌더의 타겟 단계에서 이러한 이벤트 속성정보를 사용할 수 있습니다.
 
+{% include data_activation/segmentable_purchase_properties_keys_note.md %}
+
 ### Canvas 진입 속성정보 및 이벤트 속성정보 {#canvas-entry-properties-and-event-properties}
 
 {% multi_lang_include canvas/entry_event_properties.md %}

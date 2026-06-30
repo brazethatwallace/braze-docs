@@ -21,15 +21,36 @@ description: "이 참조 문서에서는 Braze 데이터 변환의 몇 가지 �
 
 고객이 Zendesk와 같은 플랫폼에서 고객 서비스 티켓을 열면 다음을 수행할 수 있습니다:
 - Zendesk 티켓이 생성될 때 Braze에서 커스텀 이벤트를 작성합니다.
-- Zendesk에 부정적인 CSAT 등급이 제공되면 Braze에서 이벤트 등록정보를 포함한 커스텀 이벤트를 작성합니다.
+- Zendesk에 부정적인 CSAT 등급이 제공되면 Braze에서 이벤트 등록정보가 포함된 커스텀 이벤트를 작성합니다.
 
 ## Braze와 통합 {#integrating-with-braze}
 
 Braze는 고객 인사이트 및 설문조사 플랫폼인 [Iterate]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/iterate)와 통합되어 있습니다. 데이터 변환을 사용하면 여러 커스텀 속성을 저장하는 기존 통합 대신 하나의 중첩 커스텀 속성 아래에 여러 설문조사 응답을 저장할 수 있습니다.
 
+## HubSpot 연락처 속성 동기화 {#sync-hubspot-contact-attributes}
+
+HubSpot을 CRM으로, Braze를 메시징에 사용하는 경우, 데이터 변환을 사용하여 HubSpot 웹훅 페이로드를 Braze `/users/track` 업데이트로 변환할 수 있습니다.
+
+이 예시에서는 `external_id`를 확인하고, 수신된 사용자 오브젝트를 복사한 다음, 포함된 모든 필드를 커스텀 속성으로 Braze에 전송합니다.
+
+```
+function toBrazeTrackPayload(userObject) {
+  if (!userObject.external_id) {
+    throw new Error("Braze requires an 'external_id' field.");
+  }
+
+  return {
+    attributes: [userObject]
+  };
+}
+
+const brazePayload = toBrazeTrackPayload(payload);
+return brazePayload;
+```
+
 ## 변환 코드 예시 {#example-transformation-code}
 
-설문조사 응답이 수신될 때마다 전송되는 설문조사 플랫폼 Typeform의 샘플 페이로드를 살펴보세요.
+설문조사 응답이 수신될 때마다 전송하는 설문조사 플랫폼인 Typeform의 페이로드 샘플을 살펴보세요.
 
 ![변환 코드 예시와 관련된 스크린샷입니다.]({% image_buster /assets/img/data_transformation/data_transformation2.png %})
 

@@ -213,6 +213,8 @@ Diferentemente das [Extensões de segmento]({{site.baseurl}}/user_guide/audience
 
 Quando aprovadas, propriedades adicionais podem ser adicionadas no dashboard em **Configurações de dados** > **Eventos personalizados** selecionando **Manage Properties**. Você pode então usar essas propriedades de eventos na etapa de direcionamento do construtor de Campaigns ou Canvas.
 
+{% include data_activation/segmentable_purchase_properties_keys_note.md %}
+
 ### Propriedades de entrada do Canvas e propriedades de eventos {#canvas-entry-properties-and-event-properties}
 
 {% multi_lang_include canvas/entry_event_properties.md %}

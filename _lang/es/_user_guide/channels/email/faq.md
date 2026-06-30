@@ -17,11 +17,11 @@ Si varios usuarios con direcciones de correo electrónico coincidentes están en
 
 **Direcciones de correo electrónico únicas:** Braze no exige que las direcciones de correo electrónico sean únicas entre perfiles. Si dependes de una relación uno a uno entre una dirección de correo electrónico y un perfil, monitorea internamente los duplicados al crear usuarios.
 
-**Deduplicación antes de Liquid:** Para envíos en los que Braze deduplica por dirección de correo electrónico dentro de un mismo despacho (por ejemplo, campañas planificadas donde varios miembros del segmento con la misma dirección se procesan juntos), esa deduplicación ocurre antes de que Liquid se ejecute para el perfil elegido para representar esa dirección. Si Liquid aborta para ese perfil (por ejemplo, con [`abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)), esa dirección no recibe el mensaje en ese despacho, incluidos los perfiles que ya fueron omitidos por la deduplicación. Los envíos desencadenados no aplican esa misma deduplicación de direcciones dentro del despacho; varios perfiles que comparten una dirección pueden seguir siendo elegibles en un mismo lote, por lo que este comportamiento de aborto no se aplica de la misma manera (consulta el siguiente párrafo).
+**Deduplicación antes de Liquid:** Para envíos en los que Braze deduplica por dirección de correo electrónico dentro de un mismo despacho (por ejemplo, Campaigns planificadas donde varios miembros del segmento con la misma dirección se procesan juntos), esa deduplicación ocurre antes de que Liquid se ejecute para el perfil elegido para representar esa dirección. Si Liquid aborta para ese perfil (por ejemplo, con [`abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)), esa dirección no recibe el mensaje en ese despacho, incluidos los perfiles que ya fueron omitidos por la deduplicación. Los envíos desencadenados no aplican esa misma deduplicación de direcciones dentro del despacho; varios perfiles que comparten una dirección pueden seguir siendo elegibles en un mismo lote, por lo que este comportamiento de aborto no se aplica de la misma manera (consulta el siguiente párrafo).
 
 Si varios perfiles comparten una dirección de correo electrónico y uno de ellos cancela la suscripción, Braze actualiza otros perfiles (hasta 100) con esa dirección al mismo estado de suscripción. Esto se aplica a las cancelaciones de suscripción y a otros cambios, como el estado de suscripción global y los estados individuales de los grupos de suscripción.
 
-**Grupos semilla:** Para campañas con [Grupos semilla]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups), Braze selecciona un perfil para la entrega principal cuando varios perfiles comparten una dirección. Ese destinatario principal podría no estar en tu grupo semilla, incluso cuando otro perfil con la misma dirección sí lo está.
+**Grupos semilla:** Para Campaigns con [Grupos semilla]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups), Braze selecciona un perfil para la entrega principal cuando varios perfiles comparten una dirección. Ese destinatario principal podría no estar en tu grupo semilla, incluso cuando otro perfil con la misma dirección sí lo está.
 
 Los siguientes escenarios pueden hacer que parezca que un usuario recibió un correo electrónico dos veces:
 
@@ -50,7 +50,7 @@ Si envías una Campaign de API a través de una llamada a la API (excluyendo las
 
 #### Pruebas A/B con direcciones de correo electrónico duplicadas {#ab-testing-with-duplicate-email-addresses}
 
-Evita las [pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing) en correo electrónico cuando varios perfiles pueden compartir la misma dirección de correo electrónico. Las variantes se asignan por perfil, lo que puede producir más de un mensaje al mismo buzón de entrada. Si debes realizar pruebas en esa situación, no combines un paso de **variante ganadora** con la [entrega en zona horaria local]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery#local-time-zone-campaigns) de una manera que retrase la selección del ganador; esas opciones juntas pueden aumentar la probabilidad de envíos duplicados.
+Evita las [pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing) en correo electrónico cuando varios perfiles pueden compartir la misma dirección de correo electrónico. Las variantes se asignan por perfil, lo que puede producir más de un mensaje al mismo buzón de entrada. Si debes realizar pruebas en esa situación, no combines un paso de **variante ganadora** con la [entrega en zona horaria local]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery#local-time-zone-campaigns) de una manera que retrase la selección de la ganadora; esas opciones juntas pueden aumentar la probabilidad de envíos duplicados.
 
 #### Canvas y direcciones de correo electrónico duplicadas {#canvas-and-duplicate-email-addresses}
 
@@ -250,9 +250,11 @@ Outlook a menudo usa un renderizado al estilo de Microsoft Word, que puede añad
 <!--<![endif]-->
 ```
 
-### ¿Puedo usar imágenes SVG o WEBP en mis mensajes de correo electrónico? {#can-i-use-svg-or-webp-images-in-my-email-messages}
+### ¿Puedo usar imágenes SVG o WebP en mis mensajes de correo electrónico? {#can-i-use-svg-or-webp-images-in-my-email-messages}
 
-Las imágenes SVG no se renderizan en Gmail web ni en Gmail iOS. WEBP no tiene soporte consistente en todos los clientes. En su lugar, usa formatos ampliamente compatibles como PNG o JPEG para que las imágenes se rendericen de forma fiable.
+Las imágenes SVG no se recomiendan para correo electrónico debido al soporte limitado en los clientes de correo electrónico. Gmail y varios otros proveedores importantes de correo electrónico no renderizan imágenes SVG, lo que puede resultar en imágenes rotas o faltantes para los destinatarios. WebP no tiene soporte consistente en todos los clientes.
+
+En su lugar, usa formatos ampliamente compatibles como PNG o JPEG para que las imágenes se rendericen de forma fiable.
 
 ### ¿Se pueden usar variables Liquid asignadas en una parte del creador de mensajes en otra? {#can-liquid-variables-assigned-in-one-part-of-the-message-composer-be-used-in-another}
 

@@ -16,7 +16,7 @@ page_order: 3
 
 Shopify 헤드리스 스토어를 Braze와 통합하려면 다음 두 가지 목표를 완료해야 합니다:
 
-1. **Braze Web SDK를 초기화하고 로드하여 온사이트 추적 활성화**<br><br> Shopify 웹사이트에 코드를 수동으로 추가하여 Braze 온사이트 추적을 활성화합니다. Shopify 헤드리스 스토어에 Braze SDK를 구현하면 세션, 익명 사용자 행동, 결제 전 쇼핑객 동작, 그리고 개발팀과 함께 포함하기로 선택한 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events) 또는 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)을 포함한 온사이트 활동을 추적할 수 있습니다. 인앱 메시지나 Content Cards와 같이 SDK에서 지원하는 채널도 추가할 수 있습니다.
+1. **Braze Web SDK를 초기화하고 로드하여 온사이트 추적 활성화**<br><br> Shopify 웹사이트에 코드를 수동으로 추가하여 Braze 온사이트 추적을 활성화합니다. Shopify 헤드리스 스토어에 Braze SDK를 구현하면 세션, 익명 사용자 행동, 결제 전 쇼핑객 동작, 그리고 개발팀과 함께 포함하기로 선택한 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events) 또는 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)을 포함한 온사이트 활동을 추적할 수 있습니다. In-App Messages나 Content Cards와 같이 SDK에서 지원하는 채널도 추가할 수 있습니다.
 
 {: start="2"}
 2. **Braze Shopify 통합 설치**<br><br> Shopify 스토어를 Braze에 연결하면 Shopify 웹훅을 통해 고객, 결제, 주문 및 제품 데이터에 접근할 수 있습니다.
@@ -57,7 +57,7 @@ npm install --save @braze/web-sdk@5.4.0
 ```
 
 {% alert important %}
-Braze Web SDK 버전은 5.4.0이어야 합니다.
+Braze Web SDK 버전은 5.4.0 이상이어야 합니다.
 {% endalert %}
 
 그런 다음 `vite.config.js` 파일에 최상위 키로 [이 설정을 포함]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)합니다:

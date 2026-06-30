@@ -39,6 +39,10 @@ Antes de poder enviar correos electrónicos AMP a los usuarios, debes registrart
 
 Para obtener una lista completa de clientes de correo electrónico compatibles, consulta la [documentación de AMP](https://amp.dev/support/faq/email-support).
 
+#### Envío a proveedores no registrados {#send-to-unregistered-providers}
+
+Si envías un correo electrónico AMP a proveedores como Yahoo o Mail.ru antes de completar su proceso de registro, esos proveedores ignoran la parte AMP del correo electrónico y muestran la versión alternativa en HTML o texto plano. La parte AMP en sí no causa problemas de capacidad de entrega para remitentes no registrados.
+
 ### Habilitar cuenta de Gmail {#enabling-gmail-account}
 
 Ve a la configuración de Gmail y selecciona **Enable dynamic email** en la pestaña **General**.

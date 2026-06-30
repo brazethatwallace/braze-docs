@@ -24,6 +24,7 @@ tool: Canvas
 | Niemand oder weniger Nutzer:innen als erwartet sind eingetreten | [Niedrige oder keine Canvas-Eintritte](#low-or-zero-canvas-entries) |
 | Sendungen oder Zustellungen sind niedriger als die geschätzte Zielgruppe | [Weniger Sendungen als erwartet](#lower-sends-than-expected) |
 | Canvas-Analytics sehen falsch aus (Kontrollgruppe, Conversions, null Sendungen) | [Canvas-Analytics-Abweichungen](#canvas-analytics-mismatches) |
+| Analytics zeigen weit mehr Sendungen als Eintritte oder mehr Austritte als Eintritte | [Datumsbereichsfilterung kann unerwartete Zahlen anzeigen](#date-range-filtering-can-show-unexpected-numbers) |
 | Canvas lässt sich nicht speichern oder der Editor friert ein | [Editor- und Speicherprobleme](#editor-and-save-issues) |
 | Ich habe den Canvas gestoppt, aber es wurden trotzdem Nachrichten gesendet | [Verhalten bei gestopptem Canvas](#stopped-canvas-behavior) |
 | Fehler „Zu viele Canvas-Branches“ beim Starten | [Fehler „Zu viele Canvas-Branches“](#too-many-canvas-branches-error) |
@@ -166,6 +167,18 @@ Das bedeutet, dass obwohl Sie festgelegt haben, dass 90 % der Nutzer:innen in di
 
 {% enddetails %}
 
+### Datumsbereichsfilterung kann unerwartete Zahlen anzeigen {#date-range-filtering-can-show-unexpected-numbers}
+
+**Symptom:** Canvas- oder Schritt-Analytics zeigen unerwartete oder unplausible Zahlen, wie z. B. weit mehr Sendungen als Eintritte oder mehr Nutzer:innen, die einen Schritt verlassen, als eingetreten sind.
+
+Dies kann passieren, wenn Sie den Datumsbereichs-Kalenderfilter oben auf der Canvas-Analytics-Seite verwenden. Wenn Sie einen Datumsbereich auswählen, der einige Nutzeraktionen ausschließt, zeigen die angezeigten Metriken möglicherweise nur einen Teil der Journey jeder Nutzerin oder jedes Nutzers.
+
+Zum Beispiel:
+- Sie sehen möglicherweise 100 Eintritte mit 8.000 Sendungen, wenn Ihr Datumsbereich nach dem Eintritt der meisten Nutzer:innen beginnt, aber den Zeitraum umfasst, in dem sie Nachrichten erhalten haben.
+- Sie sehen möglicherweise mehr Nutzer:innen, die zum nächsten Schritt wechseln, als den vorherigen Schritt betreten haben, wenn Ihr Bereich nur Austritte, aber nicht die früheren Eintritte erfasst.
+
+Um dies zu beheben, passen Sie den Datumsbereich so an, dass er entweder alle Daten vom Start des Canvas bis zur Gegenwart umfasst, oder wählen Sie einen Bereich, der den gesamten für die benötigten Metriken relevanten Zeitraum abdeckt.
+
 Informationen zu Konversionsraten-Definitionen und Analytics auf Schrittebene finden Sie unter [Analytics und Conversions]({{site.baseurl}}/user_guide/messaging/canvas/faqs#analytics-and-conversions) in den Canvas-FAQ.
 
 ## Editor- und Speicherprobleme {#editor-and-save-issues}
@@ -223,4 +236,4 @@ Geben Sie Folgendes an:
 - Canvas-ID und betroffene Nutzer-IDs (externe ID oder Braze-ID)
 - Zeitstempel mit Zeitzone
 - Screenshots oder Exporte aus **Messaging-Verlauf** oder **Messaging-Diagnostics**
-- Für „Request Timed Out“-Fehler im Editor die unter [Editor- und Speicherprobleme](#editor-and-save-issues) aufgeführten Details
+- Für Editor-Fehler „Request Timed Out“ die unter [Editor- und Speicherprobleme](#editor-and-save-issues) aufgeführten Details

@@ -6,7 +6,7 @@ page_type: reference
 description: "Dieser Referenzartikel enthält einige Anwendungsfälle für die Braze-Datentransformation."
 ---
 
-# Anwendungsfälle der Datentransformation {#data-transformation-use-cases}
+# Anwendungsfälle für die Datentransformation {#data-transformation-use-cases}
 
 > Betrachten Sie die folgenden möglichen Anwendungsfälle mit der Braze-Datentransformation und einer Kombination aus Webhooks von den beispielhaften externen Plattformen.
 
@@ -27,11 +27,32 @@ Wenn Kund:innen Service-Tickets auf einer Plattform wie Zendesk eröffnen, könn
 
 Braze verfügt über eine Integration mit [Iterate]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/iterate), einer Plattform für Insights und Umfragen. Mit der Datentransformation können Sie mehrere Umfrageantworten unter einem verschachtelten angepassten Attribut speichern, anstatt wie bei der bestehenden Integration mehrere angepasste Attribute zu speichern.
 
-## Beispiel für Transformations-Code {#example-transformation-code}
+## HubSpot-Kontaktattribute synchronisieren {#sync-hubspot-contact-attributes}
 
-Sehen Sie sich diese Beispiel-Payload von Typeform an, einer Umfrageplattform, die immer dann gesendet wird, wenn eine Umfrageantwort eingegangen ist.
+Wenn Sie HubSpot als Ihr CRM und Braze für Messaging verwenden, können Sie die Datentransformation nutzen, um HubSpot-Webhook-Payloads in Braze-`/users/track`-Updates umzuwandeln.
 
-![Screenshot zum Beispiel für Transformations-Code.]({% image_buster /assets/img/data_transformation/data_transformation2.png %})
+Dieses Beispiel prüft auf eine `external_id`, kopiert das eingehende Nutzerobjekt und sendet alle enthaltenen Felder als angepasste Attribute an Braze.
+
+```
+function toBrazeTrackPayload(userObject) {
+  if (!userObject.external_id) {
+    throw new Error("Braze requires an 'external_id' field.");
+  }
+
+  return {
+    attributes: [userObject]
+  };
+}
+
+const brazePayload = toBrazeTrackPayload(payload);
+return brazePayload;
+```
+
+## Beispiel für Transformationscode {#example-transformation-code}
+
+Sehen Sie sich diese Beispiel-Payload von Typeform an, einer Umfrageplattform, die immer dann gesendet wird, wenn eine Umfrageantwort eingeht.
+
+![Screenshot zum Beispiel für Transformationscode.]({% image_buster /assets/img/data_transformation/data_transformation2.png %})
 
 {% tabs local %}
 {% tab Einfache Transformation %}
@@ -65,7 +86,7 @@ return {
 {% endtab %}
 {% tab Erweiterte Transformation %}
 
-Lassen Sie uns das Beispiel der einfachen Transformation weiter ausbauen und eine `if`-Anweisung einführen, um die Nutzer:innen anhand einer der Antworten zu kategorisieren.
+Bauen wir das Beispiel für die einfache Transformation weiter aus und führen eine `if`-Anweisung ein, um die Nutzer:innen anhand einer der Antworten zu kategorisieren.
 
 ```
 let nps_category;

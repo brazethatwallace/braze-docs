@@ -205,6 +205,8 @@ Avec cette configuration, n'incluez aucun filtre dans l'étape **Audience cible*
 
 Si vous le souhaitez, spécifiez des [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) (la période pendant laquelle vos messages ne seront pas envoyés) pour votre Canvas. Cochez **Activer les heures calmes** dans vos **Paramètres d'envoi**. Sélectionnez ensuite vos heures calmes dans le fuseau horaire local de l'utilisateur et l'action qui suivra si le message se déclenche pendant ces heures calmes.
 
+Lorsque l'option **Envoyer au prochain horaire disponible** est sélectionnée, les heures calmes suppriment le message et l'envoient au prochain horaire disponible en dehors des heures calmes. Par exemple, supposons que les heures calmes soient configurées pour empêcher l'envoi de messages entre 11 h 30 et 14 h 30 dans le fuseau horaire local de l'utilisateur, et qu'un utilisateur entre dans une étape de message à 11 h 35. Comme cette heure se situe dans les heures calmes, le message n'est pas encore envoyé, et l'utilisateur reçoit l'étape de message à 14 h 30, soit après les heures calmes.
+
 ![La page « Heures calmes » affichant une case à cocher pour activer les heures calmes. Si activé, l'heure de début, l'heure de fin et le comportement de repli peuvent être définis.]({% image_buster /assets/img/quiet_hours.png %})
 
 ## Étape 2 : Construire votre Canvas {#step-2-build-your-canvas}

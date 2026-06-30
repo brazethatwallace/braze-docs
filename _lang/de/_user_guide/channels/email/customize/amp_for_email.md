@@ -39,6 +39,10 @@ Bevor Sie AMP-E-Mails an Nutzer:innen senden können, müssen Sie sich bei unser
 
 Eine vollständige Liste der unterstützten E-Mail-Clients finden Sie in der [AMP-Dokumentation](https://amp.dev/support/faq/email-support).
 
+#### An nicht registrierte Anbieter senden {#send-to-unregistered-providers}
+
+Wenn Sie eine AMP-E-Mail an Anbieter wie Yahoo oder Mail.ru senden, bevor Sie deren Registrierungsprozess abgeschlossen haben, ignorieren diese Anbieter den AMP-Teil der E-Mail und zeigen stattdessen die HTML- oder Klartext-Fallback-Version an. Der AMP-Teil selbst verursacht keine Zustellbarkeitsprobleme für nicht registrierte Absender.
+
 ### Gmail-Konto aktivieren {#enabling-gmail-account}
 
 Gehen Sie zu Ihren Gmail-Einstellungen und wählen Sie unter **Allgemein** die Option **Dynamische E-Mails aktivieren** aus.

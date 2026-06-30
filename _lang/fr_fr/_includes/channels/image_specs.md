@@ -152,7 +152,7 @@ table td {
 | --- | --- |
 | Taille | 5 Mo |
 | Largeur | En-tête : 600 px<br>Corps : 480 px |
-| Types de fichier | PNG, JPEG, GIF<br><br> La prise en charge des images WebP varie selon les clients de messagerie. Pour garantir un rendu fiable, convertissez les images WebP au format PNG ou JPEG avant de les ajouter à vos e-mails. |
+| Types de fichier | PNG, JPEG, GIF<br><br> La prise en charge des images WebP varie selon les clients de messagerie. Pour garantir un rendu fiable, convertissez les images WebP au format PNG ou JPEG avant de les ajouter à vos e-mails.<br><br>Les images SVG ne sont pas recommandées pour les e-mails en raison de problèmes de compatibilité avec Gmail et d'autres clients de messagerie majeurs. Utilisez plutôt les formats PNG, JPEG ou GIF. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tableau" }
 
 | Spécifications du texte | Propriétés maximales recommandées |
@@ -188,7 +188,7 @@ Ces spécifications s'appliquent aux en-têtes de modèles, aux messages média 
 | Mode couleur | 8 bits, RVB ou RVBA | |
 | Légende (messages image uniquement) | Facultatif ; 1 024 caractères maximum | |
 | Dimensions recommandées | 1 125 × 600 px | Nous recommandons d'utiliser des images JPEG ou PNG de 1 125 × 600 px (1.91:1) pour un rendu homogène sur tous les appareils et en conformité avec les exigences de Meta. |
-| Rapport hauteur/largeur recommandé | 1.91:1 (large) | Les formats carré (1:1) et large (16:9) sont acceptés, mais les images peuvent être rognées ou agrandies selon l'appareil de l'utilisateur.<br><br> Pour les cartes de carrousel, les images d'en-tête sont automatiquement rognées au format large par WhatsApp, sauf en l'absence de corps de texte, auquel cas elles s'affichent au format carré.|
+| Rapport hauteur/largeur recommandé | 1.91:1 (large) | Les formats carré (1:1) et large (16:9) sont acceptés, mais les images peuvent être rognées ou agrandies selon l'appareil de l'utilisateur.<br><br> Pour les cartes de carrousel, les images d'en-tête sont automatiquement rognées au format large par WhatsApp, sauf en l'absence de corps de texte, auquel cas elles s'affichent au format carré. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tableau" }
 
 {% endif %}

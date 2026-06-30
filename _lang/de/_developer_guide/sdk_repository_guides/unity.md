@@ -12,8 +12,8 @@ Das Braze Unity SDK hilft Ihnen, Braze-Messaging, Analytics und Funktionen zum N
 
 Für den Einstieg stehen Ihnen die folgenden Ressourcen zur Verfügung:
 
-- [Braze-Benutzerhandbuch]({{site.baseurl}}/user_guide/introduction)
-- [Braze-Entwicklerhandbuch]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=unity)
+- [Braze-Benutzerhandbuch](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze-Entwicklerhandbuch](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=unity)
 
 ## Plugin-Einrichtung {#plugin-setup}
 
@@ -31,7 +31,7 @@ Bevor Sie Braze in Unity-Skripten verwenden können, müssen Sie die Plugin-Date
 Um Braze in Ihre Unity-Anwendung zu integrieren, folgen Sie unserer Anleitung zur [Integration des Braze Unity SDK][2].
 
 [1]: https://github.com/braze-inc/braze-unity-sdk/releases
-[2]: {{site.baseurl}}/developer_guide/sdk_integration?sdktab=unity
+[2]: https://www.braze.com/docs/developer_guide/sdk_integration?sdktab=unity
 
 ## Kontakt {#contact}
 

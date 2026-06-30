@@ -152,7 +152,7 @@ table td {
 | --- | --- |
 | Tamanho | 5 MB |
 | Largura | Cabeçalho: 600 px<br>Corpo: 480 px |
-| Tipos de arquivo | PNG, JPEG, GIF<br><br> O suporte a imagens WebP varia entre os clientes de e-mail. Para uma renderização confiável, converta imagens WebP para PNG ou JPEG antes de adicioná-las às mensagens de e-mail. |
+| Tipos de arquivo | PNG, JPEG, GIF<br><br> O suporte a imagens WebP varia entre os clientes de e-mail. Para uma renderização confiável, converta imagens WebP para PNG ou JPEG antes de adicioná-las às mensagens de e-mail.<br><br>Imagens SVG não são recomendadas para mensagens de e-mail devido a problemas de compatibilidade com o Gmail e outros grandes clientes de e-mail. Use PNG, JPEG ou GIF. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tabela" }
 
 | Especificações de texto | Propriedades máximas recomendadas |

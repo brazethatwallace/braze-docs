@@ -6,26 +6,47 @@ page_type: reference
 description: "Este artigo de referência fornece alguns casos de uso da Transformação de Dados da Braze."
 ---
 
-# Casos de uso de Transformação de Dados {#data-transformation-use-cases}
+# Casos de uso da Transformação de Dados {#data-transformation-use-cases}
 
 > Considere os seguintes casos de uso possíveis com a Transformação de Dados da Braze e uma combinação de webhooks das plataformas externas de exemplo.
 
 ## Geração de leads {#generating-leads}
 
-Você hospeda um formulário Typeform de geração de leads em seu site. Quando novos usuários preenchem esse formulário, você pode:
+Você hospeda um formulário Typeform de geração de leads no seu site. Quando novos usuários preenchem esse formulário, você pode:
 - Criar novos usuários na Braze.
-- Adicioná-los a uma de suas listas de e-mail da Braze.
-- Sincronizar algumas de suas respostas como atributos personalizados na Braze, pois suas respostas são dados primários valiosos que podem alimentar experiências de mensagens personalizadas para uso futuro.
+- Adicioná-los a uma das suas listas de e-mail da Braze.
+- Sincronizar algumas das respostas como atributos personalizados na Braze, já que as respostas são dados primários valiosos que podem alimentar experiências de mensagens personalizadas para uso futuro.
 
 ## Abertura de tickets de atendimento {#opening-service-tickets}
 
-Quando os clientes abrem tickets de atendimento ao cliente em uma plataforma como o Zendesk, você pode:
+Quando os clientes abrem tickets de atendimento ao cliente em uma plataforma como a Zendesk, você pode:
 - Registrar um evento personalizado na Braze quando um ticket do Zendesk for criado.
 - Registrar um evento personalizado com propriedades de evento na Braze quando uma classificação CSAT negativa for fornecida ao Zendesk.
 
 ## Integração com a Braze {#integrating-with-braze}
 
 A Braze tem uma integração com a [Iterate]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/iterate), uma plataforma de insights e pesquisas com clientes. Com a Transformação de Dados, é possível salvar várias respostas de pesquisa em um atributo personalizado aninhado, em vez de usar a integração existente que salva vários atributos personalizados.
+
+## Sincronizar atributos de contato do HubSpot {#sync-hubspot-contact-attributes}
+
+Se você usa o HubSpot como seu CRM e a Braze para envio de mensagens, pode usar a Transformação de Dados para converter cargas úteis de webhook do HubSpot em atualizações `/users/track` da Braze.
+
+Este exemplo verifica a existência de um `external_id`, copia o objeto de usuário recebido e envia todos os campos incluídos para a Braze como atributos personalizados.
+
+```
+function toBrazeTrackPayload(userObject) {
+  if (!userObject.external_id) {
+    throw new Error("Braze requires an 'external_id' field.");
+  }
+
+  return {
+    attributes: [userObject]
+  };
+}
+
+const brazePayload = toBrazeTrackPayload(payload);
+return brazePayload;
+```
 
 ## Exemplo de código de transformação {#example-transformation-code}
 
@@ -65,7 +86,7 @@ return {
 {% endtab %}
 {% tab Transformação avançada %}
 
-Vamos expandir o exemplo de transformação básica e introduzir uma declaração `if` para categorizar o usuário em uma das respostas.
+Vamos continuar com o exemplo de transformação básica e introduzir uma declaração `if` para categorizar o usuário em uma das respostas.
 
 ```
 let nps_category;

@@ -213,6 +213,8 @@ Contrairement aux [extensions de segments]({{site.baseurl}}/user_guide/audience/
 
 Une fois approuvées, des propriétés supplémentaires peuvent être ajoutées dans le tableau de bord sous **Paramètres des données** > **Événements personnalisés** en sélectionnant **Gérer les propriétés**. Vous pouvez ensuite utiliser ces propriétés d'événement dans l'étape de ciblage du générateur de campagne ou de Canvas.
 
+{% include data_activation/segmentable_purchase_properties_keys_note.md %}
+
 ### Propriétés d'entrée Canvas et propriétés d'événement {#canvas-entry-properties-and-event-properties}
 
 {% multi_lang_include canvas/entry_event_properties.md %}

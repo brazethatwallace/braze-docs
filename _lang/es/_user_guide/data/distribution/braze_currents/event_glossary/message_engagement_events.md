@@ -8297,7 +8297,7 @@ Este evento se produce cuando se cancela un mensaje dentro de la aplicación pro
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
-  "version" : "(required, string) Which version of in-app message, legacy or triggered"
+  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
 }
 ```
 {% endtab %}
@@ -8583,7 +8583,8 @@ Para los mensajes dentro de la aplicación, `dispatch_id` devuelve `null`.
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
 }
 ```
 {% endtab %}
@@ -8865,7 +8866,8 @@ Para los mensajes dentro de la aplicación, `dispatch_id` devuelve `null`.
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
 }
 ```
 {% endtab %}
@@ -11386,7 +11388,7 @@ Este evento no es compatible con nuestro [SDK Swift](https://github.com/braze-in
 Push, Opens
 {% endapitags %}
 
-Este evento se produce cuando un usuario hace clic directamente en la notificación push para abrir la aplicación. Actualmente, los eventos de apertura push se refieren específicamente a "Direct Opens" y no a "aperturas totales". Esto no incluye las estadísticas mostradas a nivel de Campaign de "Influenced Opens", ya que no se atribuyen a nivel de usuario.
+Este evento se produce cuando un usuario hace clic directamente en la notificación push para abrir la aplicación. Actualmente, los eventos de apertura push se refieren específicamente a "Direct Opens" y no a "aperturas totales". Esto no incluye las estadísticas mostradas a nivel de campaña de "Influenced Opens", ya que no se atribuyen a nivel de usuario.
 
 {% alert note %}
 En casos excepcionales, puede aparecer una apertura push antes del evento de envío push correspondiente en los datos de Currents debido a lo siguiente:
@@ -14524,7 +14526,7 @@ Este evento se produce cuando se ha entregado correctamente un SMS al teléfono 
 SMS, Delivery, Failure
 {% endapitags %}
 
-Este evento se produce cuando un SMS experimenta un fallo de entrega. Utiliza este evento y los códigos de error proporcionados para solucionar problemas con la entrega de SMS.
+Este evento se produce cuando un SMS experimenta un fallo en la entrega. Utiliza este evento y los códigos de error proporcionados para solucionar problemas con la entrega de SMS.
 
 {% tabs %}
 {% tab Cloud Storage %}

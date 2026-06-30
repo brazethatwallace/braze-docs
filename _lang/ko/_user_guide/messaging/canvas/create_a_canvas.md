@@ -98,7 +98,7 @@ Canvas에 여러 배리언트 또는 대조군이 있는 경우, Braze는 이 �
 
 이 예시에서는 시간 기반 옵션에 따라 사용자가 2025년 11월 14일부터 2025년 12월 31일까지 매주 화요일 현지 시간대 오후 12시에 이 Canvas에 진입합니다.
 
-![유형이 "스케줄"로 설정된 "진입 스케줄" 페이지. 선택에 따라 빈도, 시작 시간, 반복, 요일 등을 포함한 시간 기반 옵션이 표시됩니다.]({% image_buster /assets/img_archive/Canvas_Scheduled_Delivery.png %})
+![유형이 '스케줄'로 설정된 '진입 스케줄' 페이지. 선택에 따라 빈도, 시작 시간, 반복, 요일 등을 포함한 시간 기반 옵션이 표시됩니다.]({% image_buster /assets/img_archive/Canvas_Scheduled_Delivery.png %})
 
 현지 시간대 전달을 사용할 때 Braze는 진입 자격을 두 번 평가합니다. 먼저 스케줄된 날의 사모아 시간(UTC+13)에 평가하고, 다시 사용자의 현지 시간에 평가합니다. 사용자가 Canvas에 진입하려면 두 번의 확인을 모두 통과해야 합니다. 진입 필터가 상대적 시간 범위를 사용하는 경우(예: "2일 이상 전"), 첫 번째 확인 시점에 24시간이 경과하지 않아 사용자가 하루 늦게 진입할 수 있습니다. 이를 방지하려면 최소 2일 이상의 더 넓은 시간 범위를 사용하세요. 자세한 내용은 [Braze는 현지 시간대 전달을 위해 언제 사용자를 평가하나요?]({{site.baseurl}}/user_guide/messaging/campaigns/faq#when-does-braze-evaluate-users-for-local-time-zone-delivery)를 참조하세요.
 {% endtab %}
@@ -145,7 +145,7 @@ API 트리거 전달에 다음 엔드포인트를 사용할 수 있습니다:
 
 타겟 오디언스에 Segments와 필터를 추가한 후 [사용자 조회]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)를 통해 오디언스 기준에 맞는지 확인하여 오디언스가 예상대로 설정되었는지 테스트할 수 있습니다.
 
-![외부 사용자 ID 또는 Braze ID로 검색할 수 있는 "사용자 조회" 필드.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
+![외부 사용자 ID 또는 Braze ID로 검색할 수 있는 '사용자 조회' 필드.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
 #### 진입 제어 선택 {#selecting-entry-controls}
 
@@ -157,7 +157,7 @@ API 트리거 전달에 다음 엔드포인트를 사용할 수 있습니다:
 
 예를 들어 실행 기반 Canvas가 있고 **진입량 제한**을 선택하고 **최대 진입** 필드를 5,000명으로 설정하고 제한 주기를 **일별**로 설정하면 Canvas는 하루에 5,000명의 사용자에게만 발송합니다.
 
-!["Canvas에 사용자 재진입 허용" 및 "진입량 제한" 체크박스가 표시된 "진입 제어" 페이지. 후자를 사용하면 최대 진입 수를 설정하고 진입 스케줄 유형에 따라 달라지는 주기를 선택할 수 있습니다(예: 스케줄 진입의 경우 Canvas의 수명 동안 또는 Canvas가 스케줄될 때마다, 실행 기반 및 API 트리거 진입의 경우 시간별, 일별 또는 Canvas의 수명 동안).]({% image_buster /assets/img_archive/entry_controls.png %})
+!['Canvas에 사용자 재진입 허용' 및 '진입량 제한' 체크박스가 표시된 '진입 제어' 페이지. 후자를 사용하면 최대 진입 수를 설정하고 진입 스케줄 유형에 따라 달라지는 주기를 선택할 수 있습니다(예: 스케줄 진입의 경우 Canvas의 수명 동안 또는 Canvas가 스케줄될 때마다, 실행 기반 및 API 트리거 진입의 경우 시간별, 일별 또는 Canvas의 수명 동안).]({% image_buster /assets/img_archive/entry_controls.png %})
 
 {% alert tip %}
 Braze는 IP 워밍에서는 **Canvas가 스케줄될 때마다** 옵션을 선택하지 않길 권장합니다. 발송량이 늘어날 수 있기 때문입니다.
@@ -203,9 +203,11 @@ Braze는 IP 워밍에서는 **Canvas가 스케줄될 때마다** 옵션을 선�
 이 구성에서는 **타겟 오디언스** 단계에 오디언스를 단일 채널로 제한하는 필터(예: `Foreground Push Enabled = True` 또는 `Email Subscription = Opted-In`)를 포함하지 마세요.
 {% endalert %}
 
-원하는 경우 Canvas에 대한 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)(메시지가 발송되지 않는 시간)을 지정합니다. **발송 설정**에서 **방해금지 시간 활성화**를 체크합니다. 그런 다음 사용자의 현지 시간으로 방해금지 시간을 선택하고 해당 방해금지 시간 내에 메시지가 트리거되면 어떤 동작을 수행할지 선택합니다.
+원하는 경우 Canvas에 대한 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)(메시지가 발송되지 않는 시간)을 지정할 수 있습니다. **발송 설정**에서 **방해금지 시간 활성화**를 체크합니다. 그런 다음 사용자의 현지 시간으로 방해금지 시간을 선택하고 메시지를 중단할지 또는 다음 가능한 시간에 발송할지 선택합니다.
 
-![방해금지 시간 활성화 체크박스가 표시된 "방해금지 시간" 페이지. 활성화하면 시작 시간, 종료 시간 및 대체 동작을 설정할 수 있습니다.]({% image_buster /assets/img/quiet_hours.png %})
+**다음 가능한 시간에 발송**을 선택하면 방해금지 시간 동안 메시지가 억제되고 방해금지 시간 이후 다음 가능한 시간에 발송됩니다. 예를 들어 방해금지 시간이 사용자의 현지 시간으로 오전 11:30부터 오후 2:30까지 메시지 발송을 방지하도록 설정되어 있고, 사용자가 오전 11:35에 메시지 단계에 진입한다고 가정해 보겠습니다. 이 시간은 방해금지 시간 내이므로 메시지가 아직 발송되지 않으며, 사용자는 방해금지 시간이 끝난 오후 2:30에 메시지 단계를 받게 됩니다.
+
+![방해금지 시간 활성화 체크박스가 표시된 '방해금지 시간' 페이지. 활성화하면 시작 시간, 종료 시간 및 대체 동작을 설정할 수 있습니다.]({% image_buster /assets/img/quiet_hours.png %})
 
 ## 2단계: Canvas 구축 {#step-2-build-your-canvas}
 
@@ -215,7 +217,7 @@ Braze는 IP 워밍에서는 **Canvas가 스케줄될 때마다** 옵션을 선�
 
 ### 2.1단계: 배리언트 추가 {#step-21-add-a-variant}
 
-!["배리언트 추가" 옵션이 있는 컨텍스트 메뉴를 표시하기 위해 선택된 "배리언트 추가" 버튼.]({% image_buster /assets/img_archive/canvas_add_variant.gif %}){: style="float:right;max-width:40%;margin-left:15px;"}
+!['배리언트 추가' 옵션이 있는 컨텍스트 메뉴를 표시하기 위해 선택된 '배리언트 추가' 버튼.]({% image_buster /assets/img_archive/canvas_add_variant.gif %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
 **배리언트 추가**를 선택한 다음 Canvas에 새 배리언트를 추가합니다. 배리언트는 사용자가 이동할 여정을 나타내며 여러 단계와 분기를 포함할 수 있습니다.
 
@@ -277,11 +279,11 @@ Canvas 여정의 단계가 증가함에 따라 최대 기간은 사용자가 이
 
 Canvas 워크플로우에서 구성요소를 선택하여 모든 단계를 편집할 수 있습니다. 예를 들어 워크플로우의 첫 번째 단계인 [지연]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) 구성요소를 특정 날짜로 편집하고 싶다고 가정해 보겠습니다. 단계를 선택하여 설정을 확인하고 지연을 3월 1일로 조정합니다. 이는 3월 1일에 사용자가 Canvas의 다음 단계로 이동한다는 것을 의미합니다.
 
-![지연이 "특정 날짜까지"로 설정된 "지연" 단계 예시.]({% image_buster /assets/img_archive/edit_delay_flow.png %})
+![지연이 '특정 날짜까지'로 설정된 '지연' 단계 예시.]({% image_buster /assets/img_archive/edit_delay_flow.png %})
 
 또는 [행동 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) 단계의 **행동 설정**을 빠르게 편집하고 조정하여 일정 기간 동안 사용자를 유지할 수 있습니다. 이는 이 평가 기간 동안의 행동에 따라 다음 경로의 우선순위를 지정합니다.
 
-![평가 기간이 1일로 설정된 Canvas의 두 번째 단계 "행동 설정".]({% image_buster /assets/img_archive/action_paths_flow.png %})
+![평가 기간이 1일로 설정된 Canvas의 두 번째 단계 '행동 설정'.]({% image_buster /assets/img_archive/action_paths_flow.png %})
 
 Canvas의 경량 구성요소는 간단한 편집 경험을 제공하므로 Canvas의 세부 사항을 더 쉽게 조정할 수 있습니다.
 
@@ -296,7 +298,7 @@ Canvas에서 `campaign.${name}` Liquid 태그를 사용하여 현재 Canvas 구�
 
 메시지 구성요소는 사용자에게 보내는 메시지를 관리합니다. **메시징 채널**을 선택하고 **전달 설정**을 조정하여 Canvas 메시징을 최적화할 수 있습니다. 이 구성요소에 대한 자세한 내용은 [메시지]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)를 확인하세요.
 
-![Android 푸시, Content Cards, 이메일 등 사용 가능한 메시징 채널 목록을 표시하는 "메시징 채널"이 선택된 "메시지 설정" 단계.]({% image_buster /assets/img_archive/message_setup_settings_flow.png %})
+![Android 푸시, Content Cards, 이메일 등 사용 가능한 메시징 채널 목록을 표시하는 '메시징 채널'이 선택된 '메시지 설정' 단계.]({% image_buster /assets/img_archive/message_setup_settings_flow.png %})
 
 Canvas 구성요소 구성을 완료한 후 **완료**를 선택합니다.
 
@@ -339,7 +341,7 @@ Braze는 대조군에 배치된 사용자의 전환을 추적하지만 메시지
 
 이 예시에서는 Canvas가 두 개의 배리언트로 나뉘어 있습니다. 배리언트 1에는 사용자의 70%가 포함됩니다. 두 번째 배리언트는 나머지 30%의 사용자가 포함된 대조군입니다.
 
-![Braze Canvas의 배리언트 예시. 70%는 첫 번째 단계에서 1일 지연 후 두 번째 단계에서 메시지를 보내는 "배리언트 1"로 이동합니다. 나머지 30%는 후속 단계가 없는 "대조군"으로 이동합니다.]({% image_buster /assets/img_archive/Canvas_Multivariate_Flow.png %})
+![Braze Canvas의 배리언트 예시. 70%는 첫 번째 단계에서 1일 지연 후 두 번째 단계에서 메시지를 보내는 '배리언트 1'로 이동합니다. 나머지 30%는 후속 단계가 없는 '대조군'으로 이동합니다.]({% image_buster /assets/img_archive/Canvas_Multivariate_Flow.png %})
 
 ### Canvas를 위한 지능형 선택 {#intelligent-selection-for-canvas}
 
@@ -347,7 +349,7 @@ Braze는 대조군에 배치된 사용자의 전환을 추적하지만 메시지
 
 다변량 Canvases를 사용하면 문구뿐만 아니라 타이밍과 채널도 테스트할 수 있다는 점을 기억하세요. 지능형 선택을 통해 Canvases를 더 효율적으로 테스트하고 사용자가 최적의 Canvas 여정으로 보내질 것이라는 확신을 가질 수 있습니다.
 
-!["배리언트 분배 편집" 페이지에서 "지능형 선택" 옵션이 활성화되어 있습니다. Canvas를 분석하고 최적화하면서 페이지 전체에 걸쳐 여러 섹션으로 나뉜 수평 막대가 표시되며, 각 섹션은 색상과 크기가 다릅니다. 이는 시각적 표현일 뿐이며 특정 분석과 상관관계가 없습니다.]({% image_buster /assets/img_archive/canvas_intelligent_selection.png %})
+!['배리언트 분배 편집' 페이지에서 '지능형 선택' 옵션이 활성화되어 있습니다. Canvas를 분석하고 최적화하면서 페이지 전체에 걸쳐 여러 섹션으로 나뉜 수평 막대가 표시되며, 각 섹션은 색상과 크기가 다릅니다. 이는 시각적 표현일 뿐이며 특정 분석과 상관관계가 없습니다.]({% image_buster /assets/img_archive/canvas_intelligent_selection.png %})
 
 Canvas의 지능형 선택은 각 배리언트에 분류된 사용자의 분배를 점진적으로 실시간 조정하여 Canvas 결과를 최적화합니다. 통계 알고리즘이 배리언트 중 결정적인 승자를 결정하면 성과가 낮은 배리언트를 제외하고 Canvas의 향후 모든 적격 수신자를 승리 배리언트에 배치합니다.
 

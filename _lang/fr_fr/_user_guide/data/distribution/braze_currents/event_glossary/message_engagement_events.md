@@ -4019,7 +4019,7 @@ Cet événement se produit si un message Content Card a été interrompu en rais
 {% endtab %}
 {% endtabs %}
 
-### Détails de la propriété
+### Détails des propriétés
 
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, comme l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des notifications push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
 - Le champ `abort_type` décrit la raison pour laquelle le message a été interrompu. Pour consulter la liste complète des valeurs, voir [Types d'interruption]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
@@ -6177,7 +6177,7 @@ Cet événement se produit lorsqu'un fournisseur de services Internet ne délivr
 ### Détails de la propriété
 
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, tel qu'un envoi de Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (comme envoi, rebond et ouverture).
-  - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées. Pour en savoir plus, consultez [Comportement de l'ID de répartition]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
+  - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées.
 
 {% endapi %}
 
@@ -8297,7 +8297,7 @@ Cet événement se produit lorsqu'un message in-app initialement planifié a ét
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
-  "version" : "(required, string) Which version of in-app message, legacy or triggered"
+  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
 }
 ```
 {% endtab %}
@@ -8583,7 +8583,8 @@ Pour les messages in-app, `dispatch_id` renvoie `null`.
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
 }
 ```
 {% endtab %}
@@ -8865,7 +8866,8 @@ Pour les messages in-app, `dispatch_id` renvoie `null`.
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
 }
 ```
 {% endtab %}
@@ -12168,12 +12170,12 @@ Cet événement survient lorsque Braze traite un message de notification push po
 {% endtab %}
 {% endtabs %}
 
-### Détails des propriétés
+### Détails de la propriété
 
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA iOS et l'identifiant publicitaire Google Android via les SDK natifs. En savoir plus sur cette configuration pour [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) et [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer les données [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), contactez votre gestionnaire de la satisfaction client pour activer l'envoi de `ad_id`.
 - `message_extras` vous permet d'annoter vos événements d'envoi avec des données dynamiques provenant du contenu connecté, des attributs personnalisés (tels que la langue ou le pays) et des propriétés d'entrée Canvas. Pour en savoir plus, consultez la section [Suppléments de messages]({{site.baseurl}}/message_extras_tag).
-- `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple envoi, rebond et ouverture).
+- `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une campagne. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple envoi, rebond et ouverture).
 
 {% endapi %}
 
@@ -12382,7 +12384,7 @@ Cet événement est généré lorsqu'un envoi RCS est interrompu en raison d'une
 {% endtab %}
 {% endtabs %}
 
-### Détails des propriétés
+### Détails de la propriété
 
 - Le champ `abort_type` décrit la raison pour laquelle le message a été interrompu. Pour consulter la liste complète des valeurs, voir [Types d'interruption]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` aura la valeur `frequency_capped` si le message a été interrompu en raison d'une règle de limite de fréquence globale.

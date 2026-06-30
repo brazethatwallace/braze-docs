@@ -25,7 +25,28 @@ Lorsque les clients ouvrent des tickets de service client sur une plateforme com
 
 ## Intégration avec Braze {#integrating-with-braze}
 
-Braze dispose d'une intégration avec [Iterate]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/iterate), une plateforme d'informations et d'enquêtes sur les clients. Grâce à la Transformation des données, vous pouvez enregistrer plusieurs réponses d'enquête sous un seul attribut personnalisé imbriqué, au lieu de recourir à l'intégration existante qui enregistre plusieurs attributs personnalisés.
+Braze dispose d'une intégration avec [Iterate]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/iterate), une plateforme d'informations et d'enquêtes clients. Grâce à la Transformation des données, vous pouvez enregistrer plusieurs réponses d'enquête sous un seul attribut personnalisé imbriqué, au lieu de recourir à l'intégration existante qui enregistre plusieurs attributs personnalisés.
+
+## Synchroniser les attributs de contacts HubSpot {#sync-hubspot-contact-attributes}
+
+Si vous utilisez HubSpot comme CRM et Braze pour l'envoi de messages, vous pouvez utiliser la Transformation des données pour convertir les payloads de webhooks HubSpot en mises à jour Braze `/users/track`.
+
+Cet exemple vérifie la présence d'un `external_id`, copie l'objet utilisateur entrant et envoie tous les champs inclus à Braze en tant qu'attributs personnalisés.
+
+```
+function toBrazeTrackPayload(userObject) {
+  if (!userObject.external_id) {
+    throw new Error("Braze requires an 'external_id' field.");
+  }
+
+  return {
+    attributes: [userObject]
+  };
+}
+
+const brazePayload = toBrazeTrackPayload(payload);
+return brazePayload;
+```
 
 ## Exemple de code de transformation {#example-transformation-code}
 
@@ -36,7 +57,7 @@ Voici un exemple de payload provenant de Typeform, une plateforme d'enquête, qu
 {% tabs local %}
 {% tab Transformation basique %}
 
-Cet exemple utilise les réponses à l'enquête comme attributs et écrit un événement pour indiquer que l'enquête a été complétée :
+Cet exemple prend les réponses à l'enquête comme attributs et écrit un événement pour indiquer que l'enquête a été complétée :
 
 ```
 return {

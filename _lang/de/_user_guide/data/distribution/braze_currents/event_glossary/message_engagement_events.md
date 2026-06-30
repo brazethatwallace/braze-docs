@@ -8297,7 +8297,7 @@ Dieses Ereignis tritt ein, wenn eine ursprünglich geplante In-App-Nachricht abg
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
-  "version" : "(required, string) Which version of in-app message, legacy or triggered"
+  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
 }
 ```
 {% endtab %}
@@ -8583,7 +8583,8 @@ Bei In-App-Nachrichten gibt `dispatch_id` den Wert `null` zurück.
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
 }
 ```
 {% endtab %}
@@ -8865,7 +8866,8 @@ Bei In-App-Nachrichten gibt `dispatch_id` den Wert `null` zurück.
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
 }
 ```
 {% endtab %}
@@ -18549,7 +18551,7 @@ Dieses Ereignis tritt ein, wenn eine WhatsApp-Nachricht von Nutzer:innen gelesen
 
 ### Eigenschaftsdetails
 
-- `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, z. B. den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zum selben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
+- `dispatch_id` ist eine ID für eine bestimmte Nachrichtenübermittlung, beispielsweise den Versand einer Campaign. Alle Push-Ereignisse, die aus derselben Übermittlung stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zu derselben Versandaktion gehören. So können Sie den Lebenszyklus der Push-Nachricht für diese Versandaktion (z. B. Senden, Bounce und Öffnung) gruppieren und miteinander in Beziehung setzen.
 
 {% endapi %}
 

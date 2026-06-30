@@ -357,7 +357,7 @@ Braze.configure(this, brazeConfig)
 {% endtabs %}
 
 {% alert tip %}
-Wenn Sie FCM-Token stattdessen manuell registrieren möchten, setzen Sie die Eigenschaft [`registeredPushToken`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/registered-push-token.html) auf der Braze-Instanz in der [`onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate())-Methode Ihrer App.
+Wenn Sie FCM-Token stattdessen manuell registrieren möchten, setzen Sie die Eigenschaft [`registeredPushToken`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/registered-push-token.html) auf der Braze-Instanz innerhalb der [`onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate())-Methode Ihrer App.
 
 ```kotlin
 // Kotlin

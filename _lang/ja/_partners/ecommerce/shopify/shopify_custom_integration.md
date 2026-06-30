@@ -57,7 +57,7 @@ npm install --save @braze/web-sdk@5.4.0
 ```
 
 {% alert important %}
-Braze Web SDKバージョンは5.4.0である必要があります。
+Braze Web SDKバージョンは5.4.0以降である必要があります。
 {% endalert %}
 
 次に、最上位キーとして[この設定]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)を `vite.config.js` ファイルに含めます。
@@ -752,8 +752,8 @@ Shopifyストアの全商品をBrazeカタログに同期し、より詳細な�
 
 Shopify直接統合を使用してIn-App Messages、Content Cards、およびフィーチャーフラグを有効にするには、各チャネルをSDKに追加します。以下の各チャネルのドキュメントリンクに従ってください。
 
-- **In-App Messages:** リード獲得フォームのユースケースでアプリ内メッセージを有効にするには、[In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages) を参照してください。
-- **Content Cards:** 受信トレイやWebサイトバナーのユースケースでContent Cardsを有効にするには、[Content Cards]({{site.baseurl}}/developer_guide/content_cards) を参照してください。
+- **In-App Messages:** リード獲得フォームのユースケースでアプリ内メッセージを有効にするには、[In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages)を参照してください。
+- **Content Cards:** 受信トレイやWebサイトバナーのユースケースでContent Cardsを有効にするには、[Content Cards]({{site.baseurl}}/developer_guide/content_cards)を参照してください。
 - **フィーチャーフラグ:** サイト実験のユースケースでフィーチャーフラグを有効にするには、[フィーチャーフラグ]({{site.baseurl}}/developer_guide/feature_flags)を参照してください。
 
 ### ステップ9: 設定を完了する {#step-9-finish-setup}

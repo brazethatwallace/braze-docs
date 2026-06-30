@@ -213,6 +213,8 @@ Im Gegensatz zu [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segm
 
 Nach der Genehmigung können zusätzliche Eigenschaften im Dashboard unter **Dateneinstellungen** > **Angepasste Events** hinzugefügt werden, indem Sie **Eigenschaften verwalten** auswählen. Sie können diese Event-Eigenschaften dann im Zielgruppen-Schritt des Campaign- oder Canvas-Builders verwenden.
 
+{% include data_activation/segmentable_purchase_properties_keys_note.md %}
+
 ### Canvas-Eingangs-Eigenschaften und Event-Eigenschaften {#canvas-entry-properties-and-event-properties}
 
 {% multi_lang_include canvas/entry_event_properties.md %}

@@ -12,8 +12,8 @@ Braze Roku SDKは、Brazeのメッセージング、分析、ユーザーエン�
 
 開始するには、以下のリソースを参照してください。
 
-- [Brazeユーザーガイド]({{site.baseurl}}/user_guide/introduction)
-- [Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=roku)
+- [Brazeユーザーガイド](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=roku)
 
 ## 初期SDK統合 {#initial-sdk-integration}
 

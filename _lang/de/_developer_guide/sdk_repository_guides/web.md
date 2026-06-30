@@ -771,7 +771,7 @@ Für die AMP-Integration müssen Sie:
 4. **Service Worker erstellen**: Fügen Sie die Braze-Service-Worker-Datei hinzu
 5. **AMP-Web-Push-Element konfigurieren**: Fügen Sie das `amp-web-push`-Element mit Ihrem API-Schlüssel und Ihrer Basis-URL als Abfrageparameter hinzu
 
-Detaillierte Anweisungen zur AMP-Integration finden Sie im [Braze Developer Guide]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web#amp).
+Detaillierte Anweisungen zur AMP-Integration finden Sie im [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web#amp).
 
 ### Electron
 
@@ -792,7 +792,7 @@ Electron unterstützt Web-Push-Benachrichtigungen nicht offiziell (siehe: dieses
 
 #### Tealium iQ
 
-Tealium iQ bietet eine grundlegende schlüsselfertige Braze-Integration. Um die Integration zu konfigurieren, suchen Sie in der Tealium Tag-Management-Oberfläche nach Braze und geben Sie den Web SDK API-Schlüssel aus Ihrem Dashboard an. Weitere Details oder ausführliche Unterstützung bei der Tealium-Konfiguration finden Sie in unserer [Integrationsdokumentation]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium#about-tealium) oder wenden Sie sich an Ihren Tealium Account Manager.
+Tealium iQ bietet eine grundlegende schlüsselfertige Braze-Integration. Um die Integration zu konfigurieren, suchen Sie in der Tealium Tag-Management-Oberfläche nach Braze und geben Sie den Web SDK API-Schlüssel aus Ihrem Dashboard an. Weitere Details oder ausführliche Unterstützung bei der Tealium-Konfiguration finden Sie in unserer [Integrationsdokumentation](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium) oder wenden Sie sich an Ihren Tealium Account Manager.
 
 #### Andere Tag-Manager {#other-tag-managers}
 
@@ -802,11 +802,11 @@ Braze kann auch mit anderen Tag-Management-Lösungen kompatibel sein, indem Sie 
 
 ## Bibliotheken {#libraries}
 
-| Name | Beschreibung | npm | CDN-URL
-| ---- | ------------ | --- | -------
-| Full | Vollständiges SDK mit UI. Bei Verwendung der npm-Version entfernen JavaScript-Bundler ungenutzten Code einschließlich der UI. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.8/braze.min.js
-| Core | Enthält das SDK ohne UI. Sie müssen Ihre eigene UI für In-App Messages und Content Cards implementieren, wenn Sie diese Version des SDK verwenden. Unsere UI-Elemente sind vollständig über CSS anpassbar, daher empfehlen wir generell die Integration der vollständigen Bibliothek. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.core.min.js
-| No-AMD | Enthält das vollständige SDK ohne AMD-Unterstützung. Dies ist nützlich, wenn Ihre Website RequireJS oder einen anderen AMD-Modul-Loader verwendet, Sie das SDK aber lieber über das CDN laden möchten. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.no-amd.min.js
+| Name | Beschreibung | npm | CDN-URL |
+| ---- | ------------ | --- | ------- |
+| Full | Vollständiges SDK mit UI. Bei Verwendung der npm-Version entfernen JavaScript-Bundler ungenutzten Code einschließlich der UI. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.8/braze.min.js |
+| Core | Enthält das SDK ohne UI. Sie müssen Ihre eigene UI für In-App Messages und Content Cards implementieren, wenn Sie diese Version des SDK verwenden. Unsere UI-Elemente sind vollständig über CSS anpassbar, daher empfehlen wir generell die Integration der vollständigen Bibliothek. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.core.min.js |
+| No-AMD | Enthält das vollständige SDK ohne AMD-Unterstützung. Dies ist nützlich, wenn Ihre Website RequireJS oder einen anderen AMD-Modul-Loader verwendet, Sie das SDK aber lieber über das CDN laden möchten. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.no-amd.min.js |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Bibliotheken" }
 
 ## Unterstützte Browser {#supported-browsers}
@@ -825,7 +825,7 @@ Braze verwendet [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 4.7.0
 
 ## Zusätzliche Ressourcen {#additional-resources}
 
-- [Braze Developer Guide]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)
+- [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web)
 - [SDK-Dokumentation](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html)
 - [Beispiel-Builds](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/)
 

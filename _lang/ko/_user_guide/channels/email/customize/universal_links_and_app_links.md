@@ -25,6 +25,10 @@ Apple 유니버설 링크와 Android 앱 링크는 웹 콘텐츠와 모바일 �
 
 간단히 말해, 유니버설 링크를 사용하면 웹사이트가 자체 웹 페이지를 특정 앱 화면과 연결할 수 있으므로, 사용자가 앱 화면에 해당하는 웹 페이지 링크를 클릭하면 앱이 직접 열릴 수 있습니다(앱이 현재 설치되어 있는 경우).
 
+{% alert important %}
+Firebase Dynamic Links는 지원이 중단되었습니다. Braze는 Firebase와 직접 통합되어 있지 않으며, 딥링킹은 Braze 플랫폼 외부에서 관리됩니다. 플랫폼 네이티브 솔루션(이 문서에서 설명하는 Apple 유니버설 링크 및 Android 앱 링크) 또는 대체 딥링킹 서비스 제공업체로 마이그레이션하세요. 마이그레이션 안내는 [Firebase 마이그레이션 FAQ](https://firebase.google.com/support/dynamic-links-faq)를 참조하세요.
+{% endalert %}
+
 다음 표는 유니버설 링크와 기존 딥링크 간의 주요 차이점을 보여줍니다:
 
 |                        | 유니버설 링크 및 앱 링크                                  | 딥링크                   |

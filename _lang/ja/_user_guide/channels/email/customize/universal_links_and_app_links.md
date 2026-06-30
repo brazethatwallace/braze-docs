@@ -25,6 +25,10 @@ Appleユニバーサルリンクと Android App Linksは、Webコンテンツと
 
 簡単に言えば、ユニバーサルリンクにより、WebサイトはそのWebページを特定のアプリ画面に関連付けることができます。そのため、ユーザーがアプリ画面に対応するWebページへのリンクをクリックすると、アプリを直接開くことができます（アプリが現在インストールされている場合）。
 
+{% alert important %}
+Firebase Dynamic Linksは非推奨になりました。BrazeはFirebaseとの直接的な統合を持っておらず、ディープリンクはBrazeプラットフォームの外部で管理されます。プラットフォームネイティブのソリューション（この記事で説明するAppleユニバーサルリンクとAndroid App Links）または代替のディープリンクサービスプロバイダーに移行してください。移行のガイダンスについては、[Firebaseの移行FAQ](https://firebase.google.com/support/dynamic-links-faq)を参照してください。
+{% endalert %}
+
 次の表は、ユニバーサルリンクと従来のディープリンクの主な違いをまとめたものです。
 
 |                        | ユニバーサルリンクとApp Links                                  | ディープリンク                   |

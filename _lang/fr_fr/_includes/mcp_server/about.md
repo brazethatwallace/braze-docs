@@ -21,7 +21,7 @@ Cet été, Braze lance un serveur MCP distant, hébergé par Braze, en accès an
 
 ## À propos du serveur MCP Braze {#about-the-braze-mcp-server}
 
-Après avoir [configuré le serveur MCP Braze]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}, vous pouvez connecter des outils d'intelligence artificielle tels que des agents, des assistants et des chatbots directement à Braze, leur permettant ainsi de lire des données agrégées telles que les analyses Canvas et Campaign, les attributs personnalisés, les Segments, et bien plus encore. Le serveur MCP Braze est particulièrement adapté pour :
+Après avoir [configuré le serveur MCP Braze]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}, vous pouvez connecter des outils d'intelligence artificielle tels que des agents, des assistants et des chatbots directement à Braze, leur permettant ainsi de lire des données agrégées telles que les analyses Canvas et Campaign, les attributs personnalisés, les segments, et bien plus encore. Le serveur MCP Braze est particulièrement adapté pour :
 
 - Créer des outils basés sur l'intelligence artificielle nécessitant le contexte Braze.
 - Les ingénieurs CRM élaborant des workflows en plusieurs étapes pour les agents.

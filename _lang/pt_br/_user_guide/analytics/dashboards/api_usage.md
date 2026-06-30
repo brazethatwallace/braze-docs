@@ -76,7 +76,14 @@ O dashboard de uso da API inclui todas as solicitações da REST API que a Braze
 
 Os dados exibidos no dashboard podem ter um pequeno atraso para mostrar o tráfego recente. Durante períodos de alto uso, você pode atualizar o dashboard até 4 vezes por minuto. Pode ser necessário aguardar alguns minutos antes de atualizar o dashboard novamente.
 
+### Chaves de API no corpo da solicitação {#api-keys-in-request-body}
+
+Quando as chaves de API são enviadas no corpo da solicitação em vez do cabeçalho, algumas solicitações podem não aparecer no dashboard de uso da API. Isso pode levar a dados incompletos no dashboard e dificultar o monitoramento preciso do uso da API.
+
+Para obter relatórios mais precisos no dashboard de uso da API, [inclua as chaves de API no cabeçalho da solicitação]({{site.baseurl}}/api/basics#bearer-token-authentication) em vez de no corpo da solicitação.
+
 ## Artigos relacionados {#related-articles}
 
 - [Alertas de uso da API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
 - [Limites de taxa]({{site.baseurl}}/api/api_limits)
+- [Autenticação por token Bearer]({{site.baseurl}}/api/basics#bearer-token-authentication)

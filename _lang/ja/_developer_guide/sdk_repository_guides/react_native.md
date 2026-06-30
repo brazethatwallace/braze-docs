@@ -29,9 +29,9 @@ Braze React Native SDKは、iOSおよびAndroidアプリをBrazeに接続しま�
 - **React Native**開発環境（[React Native環境セットアップ](https://reactnative.dev/docs/set-up-your-environment)）
 - **iOS**：Xcode、CocoaPods（`cd ios && pod install`）
 - **Android**：Android Studio / Gradle、React Nativeテンプレートで必要なKotlin Gradleプラグイン
-- **プッシュ**（使用する場合）：[プッシュ通知ドキュメント]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/push_notifications)に従ったFCM（Android）およびAPNs（iOS）のセットアップ
+- **プッシュ**（使用する場合）：[プッシュ通知ドキュメント](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/push_notifications/)に従ったFCM（Android）およびAPNs（iOS）のセットアップ
 
-ダッシュボードでの認証情報の場所については、[統合の概要]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native)を参照してください。
+ダッシュボードでの認証情報の場所については、[統合の概要](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native)を参照してください。
 
 ## インストール {#installation}
 
@@ -71,7 +71,7 @@ TypeScript型定義はパッケージに同梱されています（GitHubの`src
 
 ## ネイティブセットアップ {#native-setup}
 
-> **正式なリファレンス：** ステップバイステップの画面、Gradle/CocoaPodsの変更、Android XMLキーの完全なリストは[Braze React Native開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native)にあります。以下のスニペットは最小限の例です。
+> **正式なリファレンス：** ステップバイステップの画面、Gradle/CocoaPodsの変更、Android XMLキーの完全なリストは[Braze React Native開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native)にあります。以下のスニペットは最小限の例です。
 
 ### Android
 
@@ -144,7 +144,7 @@ React Nativeでは、**設定はネイティブ**で行います。Androidは`re
 
 ### Android（`braze.xml`） {#android-brazexml}
 
-デフォルト値はXMLに定義されています。[`BrazeConfig.Builder`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/index.html)で起動時にオーバーライドできます。キーと型の正式なリストは[Android SDK統合ガイド]({{site.baseurl}}/developer_guide/platforms/android/sdk_integration)と[`BrazeConfigurationProvider`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/index.html)にあります（各Kotlinプロパティはドキュメント化された`com_braze_*`リソースに対応しています）。
+デフォルト値はXMLに定義されています。[`BrazeConfig.Builder`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/index.html)で起動時にオーバーライドできます。キーと型の正式なリストは[Android SDK統合ガイド](https://www.braze.com/docs/developer_guide/platforms/android/sdk_integration/)と[`BrazeConfigurationProvider`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/index.html)にあります（各Kotlinプロパティはドキュメント化された`com_braze_*`リソースに対応しています）。
 
 よく使用されるエントリ：
 
@@ -158,7 +158,7 @@ React Nativeでは、**設定はネイティブ**で行います。Androidは`re
 | `com_braze_firebase_cloud_messaging_sender_id` | `string` | 自動登録が有効な場合のFCM送信者ID。 |
 | `com_braze_handle_push_deep_links_automatically` | `bool` | Brazeがプッシュディープリンクを自動的に開くようにします。 |
 | `com_braze_trigger_action_minimum_time_interval_seconds` | `integer` | アプリ内メッセージのトリガーアクション間の最小秒数。 |
-| **その他** | *各種* | ここに表示されていない追加キー（セッションタイムアウト、ジオフェンス、ロケーション、通知のデフォルト、デバイス許可リスト、遅延初期化、SDK認証など）。[`BrazeConfigurationProvider`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/index.html)と[Android SDK統合ガイド]({{site.baseurl}}/developer_guide/platforms/android/sdk_integration)を参照してください。 |
+| **その他** | *各種* | ここに表示されていない追加キー（セッションタイムアウト、ジオフェンス、ロケーション、通知のデフォルト、デバイス許可リスト、遅延初期化、SDK認証など）。[`BrazeConfigurationProvider`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/index.html)と[Android SDK統合ガイド](https://www.braze.com/docs/developer_guide/platforms/android/sdk_integration/)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Android (braze.xml)" }
 
 ### iOS（`Braze.Configuration`） {#ios-brazeconfiguration}
@@ -172,7 +172,7 @@ React Nativeでは、**設定はネイティブ**で行います。Androidは`re
 | **プッシュ** | `push.automation`、`push.appGroup`、… | オートメーションにより登録が簡素化されます。Push Stories/エクステンションを使用する場合は`appGroup`が必要です。 |
 | **アプリ内メッセージ** | `triggerMinimumTimeInterval` | トリガー間のデフォルトは**30**秒です。 |
 | **セッション** | `sessionTimeout` | 新しいセッションが開始されるまでの非アクティブ時間（Brazeセッションドキュメントを参照）。 |
-| **プライバシー/データ** | `api.trackingPropertyAllowList`、`devicePropertyAllowList`、`api.sdkAuthentication` | [プライバシーマニフェスト]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/privacy_manifest)とSDK認証の製品設定に合わせてください。 |
+| **プライバシー/データ** | `api.trackingPropertyAllowList`、`devicePropertyAllowList`、`api.sdkAuthentication` | [プライバシーマニフェスト](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/)とSDK認証の製品設定に合わせてください。 |
 | **ネットワーク** | `api.requestPolicy`、`api.flushInterval` | リクエストリトライポリシーとフラッシュ間隔。 |
 | **プッシュサブスクリプション** | `optInWhenPushAuthorized` | `true`の場合、ユーザーが通知を許可した後にサブスクリプションがオプトイン状態に移行できます。 |
 | **IAMとユーザー変更** | `preventInAppMessageDisplayForDifferentUser` | ユーザーIDが変更された場合のIAMの不一致を軽減します。 |
@@ -207,7 +207,7 @@ Braze.addToSubscriptionGroup("NEWSLETTER_GROUP_UUID");
 
 ### アプリ内メッセージ {#in-app-messages}
 
-- **デフォルトのBraze UI**を使用する場合は、[アプリ内メッセージドキュメント]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=react%20native)に従ってください。デフォルトUIを表示するだけであれば、通常`subscribeToInAppMessage`を呼び出す必要は**ありません**。
+- **デフォルトのBraze UI**を使用する場合は、[アプリ内メッセージドキュメント](https://www.braze.com/docs/developer_guide/in_app_messages?sdktab=react%20native)に従ってください。デフォルトUIを表示するだけであれば、通常`subscribeToInAppMessage`を呼び出す必要は**ありません**。
 - **カスタム**ハンドリングの場合は、`useBrazeUI: false`でサブスクライブし、必要に応じてインプレッション/クリックを記録します：
 
 ``` typescript
@@ -347,8 +347,8 @@ useEffect(() => {
 
 - **Expo**：可能な限り手動のネイティブ配線を避けるために、[Braze Expoプラグイン](https://github.com/braze-inc/braze-expo-plugin)を使用してください。
 - **New Architecture / Turbo Modules**：最新のプラグインバージョンでサポートされています。移行する場合は、開発者ガイドとサンプルの`AppDelegate`/Gradle設定に従ってください。
-- **プライバシー（iOS）**：`updateTrackingPropertyAllowList`などのメソッドはプライバシーマニフェスト関連の設定をサポートしています。[Swiftプライバシーマニフェスト]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/privacy_manifest)を参照してください。
-## - **Jest**：`react-native`ネイティブモジュールまたはBraze Turboモジュールをモックしてください（パターンについてはこのリポジトリの`__tests__/jest.setup.js`を参照）。 {#jest-mock-react-native-native-modules-or-the-braze-turbo-module-see-__tests__jestsetupjs-in-this-repo-for-patterns}
+- **プライバシー（iOS）**：`updateTrackingPropertyAllowList`などのメソッドはプライバシーマニフェスト関連の設定をサポートしています。[Swiftプライバシーマニフェスト](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/)を参照してください。
+- **Jest**：`react-native`ネイティブモジュールまたはBraze Turboモジュールをモックしてください（パターンについてはこのリポジトリの`__tests__/jest.setup.js`を参照）。
 
 ## バージョンサポート {#version-support}
 
@@ -412,20 +412,20 @@ npx react-native run-android
 - **iOS** — `BrazeReactInitializer.configure`に渡す`configure`クロージャで、`config.logger.level = .debug`（または`.info`）を設定します。本番環境ではログがユーザーに表示されないように、レベルを下げるか無効にしてください。
 - **Android** — `braze.xml`の`com_braze_logger_initial_log_level`リソースを使用するか、`BrazeConfig.Builder`で同等の設定を行います（[BrazeConfigurationProvider](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/logger-initial-log-level.html)を参照）。リリース前に冗長でないレベルを使用するか、オーバーライドを削除してください。
 
-より詳細なトラブルシューティング（ネットワーク、セッション、またはキャンペーンの動作）については、[Braze React Native開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native)とネイティブSDKドキュメント（[Swift](https://github.com/braze-inc/braze-swift-sdk) · [Android](https://github.com/braze-inc/braze-android-sdk)）を参照してください。
+より詳細なトラブルシューティング（ネットワーク、セッション、またはCampaignの動作）については、[Braze React Native開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native)とネイティブSDKドキュメント（[Swift](https://github.com/braze-inc/braze-swift-sdk) · [Android](https://github.com/braze-inc/braze-android-sdk)）を参照してください。
 
 ---
 
 ## その他のリソース {#additional-resources}
 
-- [Braze開発者ガイド — React Native]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native)
-- [プッシュ通知 — React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/push_notifications)
+- [Braze開発者ガイド — React Native](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native)
+- [プッシュ通知 — React Native](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/push_notifications/)
 - [GitHubリポジトリ](https://github.com/braze-inc/braze-react-native-sdk)
 - [npmパッケージ](https://www.npmjs.com/package/@braze/react-native-sdk)
 
 ## お問い合わせ {#contact}
 
-ご質問がある場合は、[support@braze.com](mailto:support@braze.com)までお問い合わせください。
+ご質問がある場合は、Brazeテクニカルサポートまでお問い合わせください。
 <!-- END GENERATED README CONTENT -->
 
 リポジトリの詳細とサンプルプロジェクトについては、[https://github.com/braze-inc/braze-react-native-sdk](https://github.com/braze-inc/braze-react-native-sdk)を参照してください。

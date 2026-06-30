@@ -177,6 +177,30 @@ In der Praxis kann die nachhaltige Senderate (abgeschlossene Nachrichten pro Min
 
 Wenn Ihre Nutzerbasis weiter wächst und Ihr Messaging auf Lifecycle-, getriggerte, transaktionale und Conversion-Campaigns skaliert, ist es wichtig zu verhindern, dass Ihre Benachrichtigungen als „Spam“ oder störend empfunden werden. Durch größere Kontrolle über die Erfahrung Ihrer Nutzer:innen ermöglicht Ihnen Frequency-Capping, die gewünschten Campaigns zu erstellen, ohne Ihre Zielgruppe zu überfordern.
 
+### Rate-Limiting und Frequency-Capping gemeinsam verwenden {#use-rate-limiting-and-frequency-capping-together}
+
+Wenn Sie sowohl Rate-Limiting als auch Frequency-Capping für eine Campaign aktivieren, wendet Braze diese in der folgenden Reihenfolge an:
+
+1. **Rate-Limit** wird zuerst angewendet, um den anfänglichen Pool von Nutzer:innen auszuwählen, die Nachrichten erhalten können.
+2. **Frequency-Cap** wird als Zweites angewendet, um Nutzer:innen aus diesem Pool zu filtern.
+3. **Nachrichten werden** an die verbleibenden Nutzer:innen gesendet.
+
+{% alert important %}
+Wenn viele Nutzer:innen in Ihrem Rate-limitierten Pool Frequency-gekappt sind, senden Sie möglicherweise weniger Nachrichten als Ihr Rate-Limit-Wert. Braze füllt keine zusätzlichen Nutzer:innen aus dem Rate-Limit nach, sobald Frequency-Capping Nutzer:innen aus dem Sendepool entfernt hat.
+{% endalert %}
+
+#### Beispiel
+
+Mit einem Rate-Limit von 500 Nutzer:innen und aktiviertem Frequency-Capping: Wenn 200 dieser 500 Rate-limitierten Nutzer:innen Frequency-gekappt sind, werden nur 300 Nachrichten gesendet – nicht 500.
+
+#### Empfehlungen {#recommendations}
+
+Wenn Sie bei gleichzeitiger Verwendung beider Features eine bestimmte Anzahl von Nutzer:innen erreichen müssen, ziehen Sie die folgenden Ansätze in Betracht:
+
+- **Erhöhen Sie Ihr Rate-Limit:** Um Nutzer:innen zu berücksichtigen, die Frequency-gekappt sind. Wenn Sie beispielsweise 500 Nutzer:innen erreichen möchten, aber erwarten, dass einige Frequency-gekappt werden, setzen Sie Ihr Rate-Limit höher (z. B. 1.000 Nutzer:innen).
+- **Verwenden Sie Rate-Limiting allein:** Wenn Ihr Ziel darin besteht, das Volumen der pro Campaign gesendeten Nachrichten zu steuern.
+- **Wenden Sie sich an Ihren Customer-Success-Manager:** Für Hilfe bei der Gestaltung einer robusten Messaging-Strategie, die sowohl geschäftliche Anforderungen als auch technische Überlegungen berücksichtigt.
+
 ### Feature-Übersicht {#freq-cap-feat-over}
 
 Frequency-Capping wird auf der Sende-Ebene der Campaign oder Canvas-Komponente angewendet und kann für jeden Workspace unter **Einstellungen** > **Frequency-Capping-Regeln** eingerichtet werden.

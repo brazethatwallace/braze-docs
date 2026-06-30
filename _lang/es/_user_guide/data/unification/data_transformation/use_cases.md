@@ -21,11 +21,32 @@ Alojas un formulario Typeform de generación de clientes potenciales en tu sitio
 
 Cuando los clientes abren tickets de servicio al cliente en una plataforma como Zendesk, puedes:
 - Escribir un evento personalizado en Braze cuando se crea un ticket de Zendesk.
-- Escribir un evento personalizado con propiedades del evento en Braze cuando se proporciona una calificación CSAT negativa en Zendesk.
+- Escribir un evento personalizado con propiedades del evento en Braze cuando se proporciona una calificación CSAT negativa a Zendesk.
 
 ## Integración con Braze {#integrating-with-braze}
 
 Braze tiene una integración con [Iterate]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/iterate), una plataforma de información y cuestionarios para clientes. Con Transformación de datos, puedes guardar varias respuestas de cuestionario en un atributo personalizado anidado, en lugar de usar la integración existente que guarda varios atributos personalizados.
+
+## Sincronizar atributos de contacto de HubSpot {#sync-hubspot-contact-attributes}
+
+Si usas HubSpot como tu CRM y Braze para mensajería, puedes usar Transformación de datos para convertir las cargas útiles de webhooks de HubSpot en actualizaciones de `/users/track` de Braze.
+
+Este ejemplo comprueba si existe un `external_id`, copia el objeto de usuario entrante y envía todos los campos incluidos a Braze como atributos personalizados.
+
+```
+function toBrazeTrackPayload(userObject) {
+  if (!userObject.external_id) {
+    throw new Error("Braze requires an 'external_id' field.");
+  }
+
+  return {
+    attributes: [userObject]
+  };
+}
+
+const brazePayload = toBrazeTrackPayload(payload);
+return brazePayload;
+```
 
 ## Ejemplo de código de transformación {#example-transformation-code}
 

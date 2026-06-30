@@ -205,6 +205,8 @@ Con esta configuración, no incluyas ningún filtro en el paso **Público objeti
 
 Si lo deseas, especifica las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) (el tiempo durante el cual tus mensajes no se enviarán) para tu Canvas. Marca **Enable Quiet Hours** en tus **Send Settings**. Luego, selecciona tus horas tranquilas en la zona horaria local de tu usuario y qué acción seguirá si el mensaje se desencadena dentro de esas horas tranquilas.
 
+Cuando se selecciona **Enviar en el siguiente horario disponible**, las horas tranquilas suprimen el mensaje y lo envían en el siguiente horario disponible fuera de las horas tranquilas. Por ejemplo, supongamos que las horas tranquilas están configuradas para evitar que se envíen mensajes entre las 11:30 am y las 2:30 pm en la zona horaria local del usuario, y un usuario entra en un paso de mensaje a las 11:35 am. Como esta hora está dentro de las horas tranquilas, el mensaje no se envía todavía, y el usuario recibe el paso de mensaje a las 2:30 pm, que es después de las horas tranquilas.
+
 ![La página "Horas tranquilas" que muestra una casilla de verificación para habilitar las horas tranquilas. Si se habilita, se pueden configurar la hora de inicio, la hora de fin y el comportamiento alternativo.]({% image_buster /assets/img/quiet_hours.png %})
 
 ## Paso 2: Construye tu Canvas {#step-2-build-your-canvas}

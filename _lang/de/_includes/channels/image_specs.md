@@ -152,7 +152,7 @@ table td {
 | --- | --- |
 | Größe | 5 MB |
 | Breite | Header: 600 px<br>Textkörper: 480 px |
-| Dateitypen | PNG, JPEG, GIF<br><br> Die Unterstützung für WebP-Bilder variiert je nach E-Mail-Client. Um eine zuverlässige Darstellung zu gewährleisten, konvertieren Sie WebP-Bilder in das PNG- oder JPEG-Format, bevor Sie sie zu E-Mail-Nachrichten hinzufügen. |
+| Dateitypen | PNG, JPEG, GIF<br><br> Die Unterstützung für WebP-Bilder variiert je nach E-Mail-Client. Um eine zuverlässige Darstellung zu gewährleisten, konvertieren Sie WebP-Bilder in das PNG- oder JPEG-Format, bevor Sie sie zu E-Mail-Nachrichten hinzufügen.<br><br>SVG-Bilder werden für E-Mail-Nachrichten aufgrund von Kompatibilitätsproblemen mit Gmail und anderen großen E-Mail-Clients nicht empfohlen. Verwenden Sie stattdessen PNG, JPEG oder GIF. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tabelle" }
 
 | Textspezifikationen | Empfohlene Maximalwerte |

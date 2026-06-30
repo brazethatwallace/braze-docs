@@ -8297,7 +8297,7 @@ In-App Messages, Abort
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
-  "version" : "(required, string) Which version of in-app message, legacy or triggered"
+  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
 }
 ```
 {% endtab %}
@@ -8583,7 +8583,8 @@ In-App Messages, Clicks
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
 }
 ```
 {% endtab %}
@@ -8865,7 +8866,8 @@ In-App Messages, Impressions
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
 }
 ```
 {% endtab %}
@@ -18003,7 +18005,7 @@ WhatsApp, Failure
 WhatsApp, Inbound Received
 {% endapitags %}
 
-이 이벤트는 사용자 중 한 명이 Braze WhatsApp 구독 그룹 중 하나에 있는 전화번호로 WhatsApp 메시지를 보낼 때 발생합니다.
+이 이벤트는 사용자 중 한 명이 Braze WhatsApp 구독 그룹의 전화번호로 WhatsApp 메시지를 보낼 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}

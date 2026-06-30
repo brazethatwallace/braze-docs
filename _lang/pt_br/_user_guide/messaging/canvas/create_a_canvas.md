@@ -205,6 +205,8 @@ Com essa configuração, não inclua nenhum filtro na etapa **Público-alvo** qu
 
 Se desejar, especifique o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) (o período durante o qual suas mensagens não serão enviadas) para o Canvas. Marque **Ativar horário de silêncio** nas **Configurações de envio**. Em seguida, selecione o horário de silêncio no fuso horário local do usuário e qual ação será tomada se a mensagem for disparada durante esse período.
 
+Quando **Enviar no próximo horário disponível** estiver selecionado, o horário de silêncio suprime a mensagem e a envia no próximo horário disponível fora do horário de silêncio. Por exemplo, digamos que o horário de silêncio esteja configurado para impedir o envio de mensagens entre 11h30 e 14h30 no fuso horário local do usuário, e um usuário entre em uma etapa de mensagem às 11h35. Como esse horário está dentro do horário de silêncio, a mensagem não é enviada ainda, e o usuário recebe a etapa de mensagem às 14h30, que é após o horário de silêncio.
+
 ![A página "Horário de silêncio" exibindo uma caixa de seleção para ativar o horário de silêncio. Se ativado, o horário de início, horário de término e comportamento de fallback podem ser definidos.]({% image_buster /assets/img/quiet_hours.png %})
 
 ## Etapa 2: Monte seu Canvas {#step-2-build-your-canvas}

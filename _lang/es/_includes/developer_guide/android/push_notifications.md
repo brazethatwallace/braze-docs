@@ -7,7 +7,7 @@ Las siguientes características están integradas en el SDK de Braze para Androi
 | Característica | Descripción |
 |-------|-----------|
 | Push Stories | Las Push Stories de Android están integradas de forma predeterminada en el SDK de Braze para Android. Para obtener más información, consulta [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories). |
-| Push primers | Las campañas push primer animan a tus usuarios a habilitar las notificaciones push de tu aplicación en sus dispositivos. Esto puede hacerse sin necesidad de personalizar el SDK utilizando nuestro [primer push sin código]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages). |
+| Push primers | Las Campaigns de push primer animan a tus usuarios a habilitar las notificaciones push de tu aplicación en sus dispositivos. Esto puede hacerse sin necesidad de personalizar el SDK utilizando nuestro [primer push sin código]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Características integradas" }
 
 ## Acerca del ciclo de vida de las notificaciones push {#push-notification-lifecycle}
@@ -691,7 +691,7 @@ Para configurar el nombre visible para el usuario del canal de notificación pre
 
 Para configurar la descripción visible para el usuario del canal de notificación predeterminado de Braze, utiliza [`BrazeConfig.setDefaultNotificationChannelDescription()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-default-notification-channel-description.html).
 
-Actualiza las Campaigns de API con el parámetro del [objeto push de Android]({{site.baseurl}}/api/objects_filters/messaging/android_object) para incluir el campo `notification_channel`. Si no se especifica este campo, Braze enviará la carga útil de la notificación con el ID del canal [alternativo del dashboard]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels#dashboard-fallback-channel).
+Actualiza cualquier campaña de API con el parámetro del [objeto push de Android]({{site.baseurl}}/api/objects_filters/messaging/android_object) para incluir el campo `notification_channel`. Si no se especifica este campo, Braze enviará la carga útil de la notificación con el ID del canal [alternativo del dashboard]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels#dashboard-fallback-channel).
 
 Aparte del canal de notificación predeterminado, Braze no creará ningún canal. Todos los demás canales deben ser definidos mediante programación por la aplicación anfitriona y luego introducidos en el panel de Braze.
 

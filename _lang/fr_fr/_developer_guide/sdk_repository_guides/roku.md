@@ -12,8 +12,8 @@ Le SDK Roku de Braze vous aide à intégrer les fonctionnalités d'envoi de mess
 
 Pour commencer, consultez les ressources suivantes :
 
-- [Guide utilisateur de Braze]({{site.baseurl}}/user_guide/introduction)
-- [Guide développeur de Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=roku)
+- [Guide utilisateur de Braze](https://www.braze.com/docs/user_guide/introduction/)
+- [Guide développeur de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=roku)
 
 ## Intégration initiale du SDK {#initial-sdk-integration}
 

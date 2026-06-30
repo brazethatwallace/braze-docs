@@ -31,7 +31,7 @@ Para concluir essas metas, siga estas etapas:
 
 ### Etapa 1: Criar um app para o site da Braze {#step-1}
 
-Na Braze, acesse **Settings** > **App Settings** e selecione **Add app**. Nomeie o app como "Shopify".
+Na Braze, acesse **Configurações** > **Configurações do app** e selecione **Add app**. Nomeie o app como "Shopify".
 
 {% alert warning %}
 A loja precisa ter o nome "Shopify" ou a integração poderá não funcionar corretamente.
@@ -57,7 +57,7 @@ npm install --save @braze/web-sdk@5.4.0
 ```
 
 {% alert important %}
-A versão do Braze Web SDK deve ser 5.4.0.
+A versão do Braze Web SDK deve ser 5.4.0 ou posterior.
 {% endalert %}
 
 Em seguida, [inclua essa configuração]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) como uma chave de nível superior em seu arquivo `vite.config.js`:

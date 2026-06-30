@@ -213,6 +213,8 @@ A diferencia de las [Extensiones de segmento]({{site.baseurl}}/user_guide/audien
 
 Una vez aprobado, se pueden añadir propiedades adicionales en el dashboard en **Configuración de datos** > **Eventos personalizados** seleccionando **Administrar propiedades**. Luego puedes usar estas propiedades de eventos en el paso de segmentación del constructor de campañas o Canvas.
 
+{% include data_activation/segmentable_purchase_properties_keys_note.md %}
+
 ### Propiedades de entrada de Canvas y propiedades de eventos {#canvas-entry-properties-and-event-properties}
 
 {% multi_lang_include canvas/entry_event_properties.md %}

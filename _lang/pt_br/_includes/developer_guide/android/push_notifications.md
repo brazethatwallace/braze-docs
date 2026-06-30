@@ -235,7 +235,7 @@ Selecione **Firebase Cloud Messaging _API_ Admin**, não **Firebase Cloud Messag
 
 ### Etapa 5: Gere credenciais JSON {#json}
 
-Em seguida, gere credenciais JSON para sua conta de serviço FCM. No Google Cloud IAM & Admin, acesse **Service Accounts** e escolha seu projeto. Localize a conta de serviço FCM [que você criou anteriormente](#android_service-account) e selecione <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Actions** > **Manage Keys**.
+Em seguida, gere credenciais JSON para sua conta de serviço FCM. No Google Cloud IAM & Admin, acesse **Service Accounts** e escolha seu projeto. Localize a conta de serviço FCM [que você criou anteriormente](#android_service-account) e selecione <i class="fa-solid fa-ellipsis-vertical" aria-label="Ações"></i>&nbsp;**Actions** > **Manage Keys**.
 
 ![A página inicial da conta de serviço do projeto com o menu "Actions" aberto.]({% image_buster /assets/img/android/push_integration/generate_json_credentials/select-manage-keys.png %})
 
@@ -255,7 +255,7 @@ As chaves privadas podem representar um risco de segurança se forem comprometid
 
 ### Etapa 6: Faça upload das suas credenciais JSON na Braze {#step-6-upload-your-json-credentials-to-braze}
 
-Em seguida, faça upload das suas credenciais JSON no dashboard da Braze. Na Braze, selecione <i class="fa-solid fa-gear"></i>&nbsp;**Settings** > **App Settings**.
+Em seguida, faça upload das suas credenciais JSON no dashboard da Braze. Na Braze, selecione <i class="fa-solid fa-gear" aria-label="Configurações"></i>&nbsp;**Settings** > **App Settings**.
 
 ![O menu "Settings" aberto na Braze com "App Settings" destacado.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/select-app-settings.png %})
 
@@ -271,7 +271,7 @@ As chaves privadas podem representar um risco de segurança se forem comprometid
 
 Quando um dos seus usuários aceita notificações por push, seu app precisa gerar um token FCM no dispositivo dele antes de poder enviar notificações por push. Com o SDK da Braze, é possível ativar o registro automático do token FCM para cada dispositivo do usuário nos arquivos de configuração da Braze do seu projeto.
 
-Primeiro, acesse o Firebase Console, abra seu projeto e selecione <i class="fa-solid fa-gear"></i>&nbsp;**Settings** > **Project settings**.
+Primeiro, acesse o Firebase Console, abra seu projeto e selecione <i class="fa-solid fa-gear" aria-label="Configurações"></i>&nbsp;**Settings** > **Project settings**.
 
 ![O projeto Firebase com o menu "Settings" aberto.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
 

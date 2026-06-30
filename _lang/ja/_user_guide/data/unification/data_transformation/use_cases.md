@@ -17,7 +17,7 @@ description: "このリファレンス記事では、Braze データ変換のユ
 - Brazeのメールリストに追加する。
 - 回答のいくつかをBrazeのカスタム属性として同期する。回答は、将来に向けてパーソナライズされたメッセージングエクスペリエンスを強化できる貴重なファーストパーティデータであるためです。
 
-## サービスチケットのオープン {#opening-service-tickets}
+## サービスチケットを開く {#opening-service-tickets}
 
 顧客が Zendesk などのプラットフォームでカスタマーサービスチケットを開く場合には、次のことができます。
 - Zendeskチケットが作成されたときに、Brazeにカスタムイベントを書き込む。
@@ -25,7 +25,28 @@ description: "このリファレンス記事では、Braze データ変換のユ
 
 ## Brazeとの連携 {#integrating-with-braze}
 
-Brazeは、顧客インサイトおよびアンケートのプラットフォームである[Iterate]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/iterate)と連携しています。データ変換では、複数のカスタム属性を保存する既存の連携ではなく、1つの階層化カスタム属性の下にアンケートの回答を複数保存できます。
+Brazeは、顧客インサイトおよびアンケートのプラットフォームである [Iterate]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/iterate) と連携しています。データ変換では、複数のカスタム属性を保存する既存の連携ではなく、1つの階層化カスタム属性の下にアンケートの回答を複数保存できます。
+
+## HubSpotの連絡先属性を同期する {#sync-hubspot-contact-attributes}
+
+HubSpotをCRMとして、Brazeをメッセージングに使用している場合、データ変換を使用してHubSpotのwebhookペイロードをBrazeの `/users/track` 更新に変換できます。
+
+この例では、`external_id` の有無を確認し、受信したユーザーオブジェクトをコピーして、含まれるすべてのフィールドをカスタム属性としてBrazeに送信します。
+
+```
+function toBrazeTrackPayload(userObject) {
+  if (!userObject.external_id) {
+    throw new Error("Braze requires an 'external_id' field.");
+  }
+
+  return {
+    attributes: [userObject]
+  };
+}
+
+const brazePayload = toBrazeTrackPayload(payload);
+return brazePayload;
+```
 
 ## 変換コードの例 {#example-transformation-code}
 

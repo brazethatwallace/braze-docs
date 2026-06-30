@@ -177,6 +177,30 @@ En la práctica, la tasa de envío sostenida (mensajes completados por minuto) p
 
 A medida que tu base de usuarios continúa creciendo y tu mensajería se escala para incluir campañas de ciclo de vida, activadas, transaccionales y de conversión, es importante evitar que tus notificaciones parezcan correo no deseado o disruptivas. Al proporcionar un mayor control sobre la experiencia de tus usuarios, la limitación de frecuencia te permite crear las campañas que desees sin abrumar a tu audiencia.
 
+### Usar el límite de velocidad y la limitación de frecuencia juntos {#use-rate-limiting-and-frequency-capping-together}
+
+Cuando habilitas tanto el límite de velocidad como la limitación de frecuencia en una campaña, Braze los aplica en el siguiente orden:
+
+1. **El límite de velocidad** se aplica primero para seleccionar el grupo inicial de usuarios que pueden recibir mensajes.
+2. **La limitación de frecuencia** se aplica después para filtrar usuarios de ese grupo.
+3. **Los mensajes se envían** a los usuarios restantes.
+
+{% alert important %}
+Si muchos usuarios en tu grupo con límite de velocidad tienen limitación de frecuencia, es posible que envíes menos mensajes que el valor de tu límite de velocidad. Braze no rellena con usuarios adicionales del límite de velocidad una vez que la limitación de frecuencia elimina usuarios del grupo de envío.
+{% endalert %}
+
+#### Ejemplo
+
+Con un límite de velocidad de 500 usuarios y la limitación de frecuencia habilitada, si 200 de esos 500 usuarios con límite de velocidad tienen limitación de frecuencia, solo se enviarán 300 mensajes, no 500.
+
+#### Recomendaciones {#recommendations}
+
+Si necesitas llegar a un número específico de usuarios al usar ambas características juntas, considera los siguientes enfoques:
+
+- **Aumenta tu límite de velocidad:** para tener en cuenta a los usuarios que tienen limitación de frecuencia. Por ejemplo, si quieres llegar a 500 usuarios pero esperas que algunos tengan limitación de frecuencia, establece tu límite de velocidad más alto (como 1000 usuarios).
+- **Usa solo el límite de velocidad:** si tu objetivo es controlar el volumen de mensajes enviados por campaña.
+- **Contacta a tu administrador del éxito del cliente:** para obtener ayuda en el diseño de una estrategia de mensajería sólida que equilibre tanto las necesidades del negocio como las consideraciones técnicas.
+
 ### Resumen de la característica {#freq-cap-feat-over}
 
 La limitación de frecuencia se aplica a nivel de envío de campaña o componente de Canvas, y se puede configurar para cada espacio de trabajo desde **Settings** > **Frequency Capping Rules**.

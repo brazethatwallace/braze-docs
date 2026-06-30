@@ -205,6 +205,8 @@ Mit dieser Konfiguration sollten Sie im Schritt **Zielgruppe** keine Filter eins
 
 Falls gewünscht, legen Sie [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) fest (die Zeit, in der Ihre Nachrichten nicht gesendet werden) für Ihr Canvas. Aktivieren Sie **Enable Quiet Hours** in Ihren **Sendeeinstellungen**. Wählen Sie dann Ihre Ruhezeiten in der Ortszeit Ihrer Nutzer:innen und welche Aktion folgen soll, wenn die Nachricht innerhalb dieser Ruhezeiten getriggert wird.
 
+Wenn **Zur nächsten verfügbaren Zeit senden** ausgewählt ist, unterdrücken die Ruhezeiten die Nachricht und senden sie zur nächsten verfügbaren Zeit außerhalb der Ruhezeiten. Angenommen, die Ruhezeiten sind so eingerichtet, dass Nachrichten zwischen 11:30 Uhr und 14:30 Uhr in der Ortszeit der Nutzer:innen nicht gesendet werden, und ein:e Nutzer:in erreicht einen Nachrichtenschritt um 11:35 Uhr. Da diese Zeit innerhalb der Ruhezeiten liegt, wird die Nachricht noch nicht gesendet, und die Person erhält den Nachrichtenschritt um 14:30 Uhr, also nach den Ruhezeiten.
+
 ![Die Seite „Ruhezeiten“ mit einem Kontrollkästchen zum Aktivieren der Ruhezeiten. Wenn aktiviert, können Startzeit, Endzeit und Fallback-Verhalten festgelegt werden.]({% image_buster /assets/img/quiet_hours.png %})
 
 ## Schritt 2: Bauen Sie Ihr Canvas auf {#step-2-build-your-canvas}
@@ -303,7 +305,7 @@ Wählen Sie **Fertig**, nachdem Sie die Konfiguration Ihrer Canvas-Komponente ab
 {% tabs local %}
 {% tab Canvas-Eingangs-Eigenschaften %}
 
-Das [`context`-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) wird im Schritt **Entry-Zeitplan** bei der Erstellung eines Canvas konfiguriert und gibt den Trigger an, der Nutzer:innen in ein Canvas eintreten lässt. Diese Eigenschaften können auch auf die Eigenschaften von Eingangs-Payloads in API-getriggerten Canvases zugreifen. Beachten Sie, dass das `context`-Objekt bis zu 50 KB groß sein kann.
+Das [`context`-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) wird im Schritt **Entry Schedule** bei der Erstellung eines Canvas konfiguriert und gibt den Trigger an, der Nutzer:innen in ein Canvas eintreten lässt. Diese Eigenschaften können auch auf die Eigenschaften von Eingangs-Payloads in API-getriggerten Canvases zugreifen. Beachten Sie, dass das `context`-Objekt bis zu 50 KB groß sein kann.
 
 Verwenden Sie das folgende Liquid, wenn Sie auf diese beim Eintritt in das Canvas erstellten Eigenschaften verweisen: {% raw %} ``context.${property_name}`` {% endraw %}. Beachten Sie, dass die Events angepasste Events oder Kauf-Events sein müssen, um auf diese Weise verwendet zu werden.
 

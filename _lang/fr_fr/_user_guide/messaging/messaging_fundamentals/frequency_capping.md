@@ -177,6 +177,30 @@ En pratique, le taux d'envoi soutenu (messages terminés par minute) peut être 
 
 Au fur et à mesure que votre base d'utilisateurs continue de croître et que vos messages s'étendent pour inclure des campagnes de cycle de vie, déclenchées, transactionnelles et de conversion, il est important d'empêcher vos notifications de paraître « spammy » ou intrusives. En offrant un meilleur contrôle sur l'expérience de vos utilisateurs, la limite de fréquence vous permet de créer les campagnes que vous souhaitez sans submerger votre audience.
 
+### Utiliser la limite de débit et la limite de fréquence ensemble {#use-rate-limiting-and-frequency-capping-together}
+
+Lorsque vous activez à la fois la limite de débit et la limite de fréquence sur une campagne, Braze les applique dans l'ordre suivant :
+
+1. **La limite de débit** est appliquée en premier pour sélectionner le groupe initial d'utilisateurs pouvant recevoir des messages.
+2. **La limite de fréquence** est appliquée ensuite pour filtrer les utilisateurs de ce groupe.
+3. **Les messages sont envoyés** aux utilisateurs restants.
+
+{% alert important %}
+Si de nombreux utilisateurs dans votre groupe limité en débit sont plafonnés en fréquence, vous pouvez envoyer moins de messages que la valeur de votre limite de débit. Braze ne complète pas avec des utilisateurs supplémentaires à partir de la limite de débit une fois que la limite de fréquence a retiré des utilisateurs du groupe d'envoi.
+{% endalert %}
+
+#### Exemple
+
+Avec une limite de débit de 500 utilisateurs et la limite de fréquence activée, si 200 de ces 500 utilisateurs limités en débit sont plafonnés en fréquence, seuls 300 messages sont envoyés — pas 500.
+
+#### Recommandations {#recommendations}
+
+Si vous devez atteindre un nombre spécifique d'utilisateurs lorsque vous utilisez les deux fonctionnalités ensemble, envisagez les approches suivantes :
+
+- **Augmentez votre limite de débit :** pour tenir compte des utilisateurs qui sont plafonnés en fréquence. Par exemple, si vous souhaitez atteindre 500 utilisateurs mais que vous vous attendez à ce que certains soient plafonnés en fréquence, définissez votre limite de débit plus haut (par exemple, 1 000 utilisateurs).
+- **Utilisez la limite de débit seule :** si votre objectif est de contrôler le volume de messages envoyés par campagne.
+- **Contactez votre gestionnaire de la satisfaction client :** pour obtenir de l'aide dans la conception d'une stratégie de messagerie robuste qui équilibre les besoins métier et les considérations techniques.
+
 ### Aperçu de la fonctionnalité {#freq-cap-feat-over}
 
 La limite de fréquence est appliquée au niveau de l'envoi de la campagne ou du composant Canvas et peut être configurée pour chaque espace de travail depuis **Paramètres** > **Règles de limite de fréquence**.

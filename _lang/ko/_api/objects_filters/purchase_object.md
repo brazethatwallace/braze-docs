@@ -104,6 +104,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 [구매 등록정보]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-properties)를 사용하여 메시지를 트리거하고 Liquid를 사용하여 개인화할 수 있으며, 이러한 등록정보를 기반으로 세분화할 수도 있습니다.
 
+{% include data_activation/segmentable_purchase_properties_keys_note.md %}
+
 #### 명명 규칙
 
 이 기능은 구매 단위가 아닌 **제품 단위로** 설정된다는 점에 유의하세요. 예를 들어, 고유한 제품 수가 많지만 각각의 등록정보가 동일한 경우 세분화가 불필요할 수 있습니다.

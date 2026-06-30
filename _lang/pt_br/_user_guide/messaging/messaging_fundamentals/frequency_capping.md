@@ -177,6 +177,30 @@ Na prática, a taxa de envio sustentada (mensagens concluídas por minuto) pode 
 
 À medida que sua base de usuários continua a crescer e seu envio de mensagens se expande para incluir Campaigns de ciclo de vida, acionadas, transacionais e de conversão, é importante evitar que suas notificações pareçam "spam" ou disruptivas. Ao fornecer maior controle sobre a experiência dos seus usuários, o limite de frequência permite que você crie as Campaigns que deseja sem sobrecarregar seu público.
 
+### Use o limite de taxa e o limite de frequência juntos {#use-rate-limiting-and-frequency-capping-together}
+
+Quando você ativa tanto o limite de taxa quanto o limite de frequência em uma Campaign, a Braze os aplica na seguinte ordem:
+
+1. **O limite de taxa** é aplicado primeiro para selecionar o grupo inicial de usuários que podem receber mensagens.
+2. **O limite de frequência** é aplicado em seguida para filtrar usuários desse grupo.
+3. **As mensagens são enviadas** para os usuários restantes.
+
+{% alert important %}
+Se muitos usuários no seu grupo com limite de taxa estiverem com limite de frequência, você pode enviar menos mensagens do que o valor do seu limite de taxa. A Braze não preenche usuários adicionais do limite de taxa depois que o limite de frequência remove usuários do grupo de envio.
+{% endalert %}
+
+#### Exemplo
+
+Com um limite de taxa de 500 usuários e o limite de frequência ativado, se 200 desses 500 usuários com limite de taxa estiverem com limite de frequência, apenas 300 mensagens serão enviadas — não 500.
+
+#### Recomendações {#recommendations}
+
+Se você precisa alcançar um número específico de usuários ao usar ambos os recursos juntos, considere as seguintes abordagens:
+
+- **Aumente seu limite de taxa:** Para compensar os usuários que estão com limite de frequência. Por exemplo, se você deseja alcançar 500 usuários, mas espera que alguns estejam com limite de frequência, defina seu limite de taxa mais alto (como 1.000 usuários).
+- **Use apenas o limite de taxa:** Se seu objetivo é controlar o volume de mensagens enviadas por Campaign.
+- **Fale com seu gerente de sucesso do cliente:** Para obter ajuda no design de uma estratégia de envio de mensagens robusta que equilibre necessidades de negócios e considerações técnicas.
+
 ### Visão geral do recurso {#freq-cap-feat-over}
 
 O limite de frequência é aplicado no nível de envio da Campaign ou componente do Canvas e pode ser configurado para cada espaço de trabalho em **Configurações** > **Regras do limite de frequência**.

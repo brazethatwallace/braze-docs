@@ -8297,7 +8297,7 @@ Esse evento ocorre quando uma mensagem no app originalmente programada foi abort
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
-  "version" : "(required, string) Which version of in-app message, legacy or triggered"
+  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
 }
 ```
 {% endtab %}
@@ -8583,7 +8583,8 @@ Para mensagens no app, `dispatch_id` retorna `null`.
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
 }
 ```
 {% endtab %}
@@ -8865,7 +8866,8 @@ Para mensagens no app, `dispatch_id` retorna `null`.
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
 }
 ```
 {% endtab %}
@@ -11374,7 +11376,7 @@ Esse evento não é compatível com nosso [Swift SDK](https://github.com/braze-i
 ### Detalhes da propriedade
 
 - Para `ad_id`, `ad_id_type` e `ad_tracking_enabled`, você precisa coletar explicitamente o IDFA do iOS e o ID de publicidade do Google do Android por meio dos SDKs nativos. Saiba mais sobre essa configuração para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) e [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Se você estiver usando Kafka para ingerir dados do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), entre em contato com seu gerente de sucesso do cliente para ativar o envio de `ad_id`.
+- Se você estiver usando Kafka para ingerir dados do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) , entre em contato com seu gerente de sucesso do cliente para ativar o envio de `ad_id`.
 - `dispatch_id` é um ID para um envio de mensagem específico, como um envio de Campaign. Todos os eventos de push que se originam do mesmo envio incluem o mesmo `dispatch_id`. Use `dispatch_id` para agrupar eventos que pertencem ao mesmo envio, permitindo que você agrupe e correlacione o ciclo de vida da mensagem push para esse envio (como Envio, Bounce e Abertura).
 
 {% endapi %}
@@ -14030,7 +14032,7 @@ Este evento ocorre se uma mensagem SMS foi abortada com base em abortos do Liqui
 
 {% api %}
 
-## Eventos de envio de operadora SMS {#sms-carrier-send-events}
+## Eventos de envio pela operadora de SMS {#sms-carrier-send-events}
 
 {% apitags %}
 SMS, Sends

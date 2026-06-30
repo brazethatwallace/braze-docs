@@ -16,7 +16,7 @@ Dieser Leitfaden verwendet das Hydrogen-Framework von Shopify als Beispiel. Sie 
 
 Um Ihren Shopify Headless Shop mit Braze zu integrieren, müssen Sie diese beiden Ziele erreichen:
 
-1. **Initialisieren und laden Sie das Braze Web SDK, um das Onsite-Tracking zu ermöglichen**<br><br> Fügen Sie manuell Code in Ihre Shopify-Website ein, um das Braze Onsite-Tracking zu aktivieren. Durch die Implementierung des Braze SDK in Ihrem Shopify Headless Shop können Sie Onsite-Aktivitäten nachverfolgen, einschließlich Sitzungen, anonymes Nutzerverhalten, Aktionen vor dem Checkout und alle [angepassten Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events) oder [angepassten Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), die Sie zusammen mit Ihrem Entwicklungsteam einbeziehen möchten. Sie können auch alle Kanäle hinzufügen, die von den SDKs unterstützt werden, wie In-App-Nachrichten oder Content Cards.
+1. **Initialisieren und laden Sie das Braze Web SDK, um das Onsite-Tracking zu ermöglichen**<br><br> Fügen Sie manuell Code in Ihre Shopify-Website ein, um das Braze Onsite-Tracking zu aktivieren. Durch die Implementierung des Braze SDK in Ihrem Shopify Headless Shop können Sie Onsite-Aktivitäten nachverfolgen, einschließlich Sitzungen, anonymes Nutzer:innenverhalten, Aktionen vor dem Checkout und alle [angepassten Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events) oder [angepassten Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), die Sie zusammen mit Ihrem Entwicklungsteam einbeziehen möchten. Sie können auch alle Kanäle hinzufügen, die von den SDKs unterstützt werden, wie In-App-Nachrichten oder Content Cards.
 
 {: start="2"}
 2. **Installieren Sie die Braze Shopify-Integration**<br><br> Nachdem Sie Ihren Shopify-Shop mit Braze verbunden haben, erhalten Sie über Shopify-Webhooks Zugriff auf Kundendaten, Checkout-, Bestell- und Produktdaten.
@@ -57,7 +57,7 @@ npm install --save @braze/web-sdk@5.4.0
 ```
 
 {% alert important %}
-Die Version des Braze Web SDK muss 5.4.0 sein.
+Die Version des Braze Web SDK muss 5.4.0 oder höher sein.
 {% endalert %}
 
 [Nehmen Sie dann diese Einstellung]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) als Top-Level-Schlüssel in Ihre `vite.config.js`-Datei auf:
@@ -687,7 +687,7 @@ Braze sendet die folgenden Parameter an Ihren Endpunkt:
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |----------------------|----------|-----------|------------------------------------------------------------------|
-| shopify_customer_id  | Ja      | String    | Die Shopify-Kunden-ID.                                         |
+| shopify_customer_id  | Ja      | String    | Die Shopify-Kunden-ID. |
 | shopify_storefront   | Ja      | String    | Der Storefront-Name für die Anfrage. Beispiel: `<storefront_name>.myshopify.com` |
 | email_address        | Nein       | String    | Die E-Mail-Adresse der angemeldeten Nutzer:innen. <br><br>Dieses Feld kann in bestimmten Webhook-Szenarien fehlen. Ihre Endpunkt-Logik sollte hier Null-Werte berücksichtigen (z. B. die E-Mail über die shopify_customer_id abrufen, wenn Ihre interne Logik dies erfordert). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Endpunkt-Spezifikationen" }

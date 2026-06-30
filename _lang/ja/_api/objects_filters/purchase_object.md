@@ -104,6 +104,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 [購入プロパティ]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-properties)は、Liquidを使用したメッセージのトリガーやパーソナライゼーションに使用でき、これらのプロパティに基づいてセグメント化することもできます。
 
+{% include data_activation/segmentable_purchase_properties_keys_note.md %}
+
 #### 命名規則
 
 この機能は購入ごとではなく、**製品ごとに**有効であることに注意してください。たとえば、個別の製品が大量にあっても、それぞれのプロパティが同じである場合、セグメンテーションは不要になる可能性があります。

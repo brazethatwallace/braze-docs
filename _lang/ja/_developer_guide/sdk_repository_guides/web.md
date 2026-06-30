@@ -70,7 +70,7 @@ braze.changeUser('Jane Doe');
 | `enableLogging` | `boolean` | `false` | デフォルトでログを有効にするにはtrueに設定します。これによりBrazeがJavaScriptコンソールにログを出力するようになり、すべてのユーザーに表示されます。本番環境にリリースする前に、このオプションを削除するか、setLoggerで代替ロガーを提供してください。 |
 | `allowUserSuppliedJavascript` | `boolean` | `false` | デフォルトでは、Braze Web SDKはユーザー提供のJavaScriptクリックアクションを許可せず、HTMLアプリ内メッセージやバナーも有効にしません。これらはBrazeダッシュボードのユーザーがサイト上でJavaScriptを実行できるようにするためです。Brazeダッシュボードのユーザーが悪意のないJavaScriptクリックアクションを記述することを信頼する場合は、このプロパティをtrueに設定してください。 |
 | `doNotLoadFontAwesome` | `boolean` | `false` | Brazeはアプリ内メッセージのアイコンにFont Awesomeを使用しています。デフォルトでは、BrazeはFontAwesome CDNからFontAwesome 4.7.0を自動的に読み込みます。この動作を無効にするには（例えば、サイトでカスタマイズされたバージョンのFontAwesomeを使用している場合）、このオプションを`true`に設定してください。この場合、サイトでFontAwesomeが読み込まれていることを確認する責任はお客様にあります。そうしないと、アプリ内メッセージが正しくレンダリングされない場合があります。 |
-| `inAppMessageZIndex` | `number` | `999999` | デフォルトでは、Braze SDKはIn-App Messagesをz-index 999999で表示します。このオプションに値を指定すると、そのデフォルトを上書きできます。 |
+| `inAppMessageZIndex` | `number` | `999999` | デフォルトでは、Braze SDKはアプリ内メッセージをz-index 999999で表示します。このオプションに値を指定すると、そのデフォルトを上書きできます。 |
 | `sessionTimeoutInSeconds` | `number` | `30` | デフォルトでは、セッションは30秒間操作がないとタイムアウトします。このオプションに値を指定すると、そのデフォルトを上書きできます。 |
 | `deviceId` | `string` | 自動生成 | デフォルトでは、BrazeはデバイスIDとしてランダムなGUIDを割り当てます。この設定オプションに値を指定すると、そのデフォルトを独自の値で上書きできます。 |
 | `appVersion` | `string` | `undefined` | このオプションに値を指定すると、Brazeに送信されるユーザーイベントが指定されたバージョンに関連付けられ、ユーザーセグメンテーションに使用できます。 |
@@ -771,7 +771,7 @@ AMP統合には、以下が必要です。
 4. **Service Workerの作成**: BrazeのService Workerファイルを追加します
 5. **AMP Webプッシュ要素の設定**: APIキーとベースURLをクエリパラメーターとして`amp-web-push`要素を追加します
 
-AMP統合の詳細な手順については、[Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web#amp)を参照してください。
+AMP統合の詳細な手順については、[Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web#amp)を参照してください。
 
 ### Electron
 
@@ -792,7 +792,7 @@ Electronは公式にはWebプッシュ通知をサポートしていません（
 
 #### Tealium iQ
 
-Tealium iQは、基本的なターンキーBraze統合を提供します。統合を設定するには、Tealiumタグ管理インターフェイスでBrazeを検索し、ダッシュボードからWeb SDK APIキーを入力してください。詳細やTealiumの設定サポートについては、[統合ドキュメント]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium#about-tealium)を確認するか、Tealiumのアカウントマネージャーにお問い合わせください。
+Tealium iQは、基本的なターンキーBraze統合を提供します。統合を設定するには、Tealiumタグ管理インターフェイスでBrazeを検索し、ダッシュボードからWeb SDK APIキーを入力してください。詳細やTealiumの設定サポートについては、[統合ドキュメント](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium)を確認するか、Tealiumのアカウントマネージャーにお問い合わせください。
 
 #### その他のタグマネージャー {#other-tag-managers}
 
@@ -825,7 +825,7 @@ Brazeはアプリ内メッセージのアイコンに[Font Awesome](http://forta
 
 ## その他のリソース {#additional-resources}
 
-- [Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)
+- [Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web)
 - [SDKドキュメント](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html)
 - [サンプルビルド](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/)
 
