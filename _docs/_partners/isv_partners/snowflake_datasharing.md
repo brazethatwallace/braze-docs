@@ -5,7 +5,7 @@ hidden: true
 
 # Snowflake data sharing integration
 
-> When Snowflake Data Share is used as an integration method, Braze will provision a share to your Snowflake instance on behalf of the customer. This share will automatically include all message engagement and user behavior events.
+> When Snowflake Data Share is used as an integration method, Braze provisions a share to your Snowflake instance on behalf of the customer. This share automatically includes all message engagement and user behavior events.
 
 Shares are provisioned on a per-customer basis after the customer has purchased a Snowflake Data Share entitlement. When a customer requests a data share, Braze adds a share to the customer's workspace, and the customer can use the self-service UI to add the relevant partner Snowflake account data.
 
