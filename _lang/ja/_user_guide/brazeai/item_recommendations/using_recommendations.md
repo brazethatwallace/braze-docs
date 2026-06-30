@@ -15,7 +15,7 @@ page_order: 1.2
 
 ## 前提条件 {#prerequisites}
 
-メッセージングでおすすめを使用する前に、[レコメンデーションエンジンを作成してトレーニングする]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/)必要があります。トレーニングには10分から36時間かかります&#8212;完了時またはエラー発生時にメールが届きます。
+メッセージングでおすすめを使用する前に、[レコメンデーションエンジンを作成してトレーニングする]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations)必要があります。トレーニングには10分から36時間かかります&#8212;完了時またはエラー発生時にメールが届きます。
 
 ## メッセージングでのおすすめの使用 {#using-recommendations-in-your-messaging}
 
@@ -43,7 +43,7 @@ page_order: 1.2
 | 仕様 | 詳細 |
 |-------------|-------|
 | **構造** | 各アイテムは`items[index]`としてアクセスされます。インデックスは0（最初のアイテム）から始まり、後続のアイテムごとにインクリメントされます。|
-| **カタログフィールド** | 配列内の各アイテムには、カタログ内のフィールド（列）に対応するキーと値のペアが含まれます。たとえば、製品レコメンデーションの一般的なカタログフィールドには次のようなものがあります：<br>- `name`または`title`<br>- `price`<br>- `image_url`|
+| **カタログフィールド** | 配列内の各アイテムには、カタログ内のフィールド（列）に対応するキーと値のペアが含まれます。たとえば、製品レコメンデーションの一般的なカタログフィールドには次のようなものがあります：<br>- `name`または`title`<br>- `price`<br>- `image_url` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 1:Liquidコードの追加" }
 
 `assign`タグを使用して`product_recommendation`データをフェッチし、変数に割り当てます。

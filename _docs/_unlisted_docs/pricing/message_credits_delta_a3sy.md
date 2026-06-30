@@ -15,8 +15,8 @@ Different products will have different units of measure in reporting.<br><br>
 <b>Agent Console:</b> Invocations<br>
 <b>SMS:</b> Segments<br>
 <b>MMS:</b> Sends<br>
-<b>WhatsApp:</b> Messages<br>
-<b>RCS:</b> Segments, Sends<br>
+<b>WhatsApp:</b> Messages delivered <br>
+<b>RCS:</b> Segments delivered, Sends delivered <br>
 <b>LINE:</b> Sends<br>
 <b>KakaoTalk:</b> Sends<br>
 

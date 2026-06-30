@@ -10,12 +10,12 @@ page_order: 4
 > ランディングページでLiquidパーソナライゼーションを使用すると、ユーザープロファイルデータに基づいてコンテンツを動的にカスタマイズできます。たとえば、複数の静的ランディングページを管理することなく、さまざまなユーザー属性に基づいて見出しをパーソナライズできます。
 
 {% alert important %}
-ランディングページのLiquidパーソナライゼーションは、ランディングページのProティアでのみ利用可能です。現在、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)、[多言語]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings/)、および[プロモーションコード]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/)は、ランディングページのLiquidパーソナライゼーションではサポートされていません。
+ランディングページのLiquidパーソナライゼーションは、ランディングページのProティアでのみ利用可能です。現在、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)、[多言語]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings)、および[プロモーションコード]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes)は、ランディングページのLiquidパーソナライゼーションではサポートされていません。
 {% endalert %}
 
 ## Liquidの挿入 {#inserting-liquid}
 
-ドラッグ＆ドロップエディターでは、エディター内および右側パネルのページまたはブロック設定の両方でLiquidパーソナライゼーションを挿入できます。Liquidの実装手順については、専用の[Liquidドキュメント]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#using-liquid)をご確認ください。
+ドラッグ＆ドロップエディターでは、エディター内および右側パネルのページまたはブロック設定の両方でLiquidパーソナライゼーションを挿入できます。Liquidの実装手順については、専用の[Liquidドキュメント]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#using-liquid)をご確認ください。
 
 ![Liquidパーソナライゼーションが追加されたランディングページエディター。]({% image_buster /assets/img/landing_pages/lp_liquid_.png %})
 
@@ -41,13 +41,13 @@ page_order: 4
 - 大規模なデータセットを継続的にループしたり参照したりしないこと。
 - Liquidブロック内で広範な数学的処理や条件ロジックに依存しないこと。
 
-さらに、大きなスクリプト、スタイルシート、base64エンコードされたアセットをランディングページのコードに直接埋め込むことは避けてください。これらのインラインアセットはページサイズ制限にカウントされ、レンダリングを遅くする可能性があります。代わりに、フォント、画像、スタイルシート、スクリプトを[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)にアップロードしてください。メディアライブラリから配信されるアセットはBrazeのCDNでホストされるため、Liquidレンダリングの処理対象にならず、ページサイズ制限にカウントされません。
+さらに、大きなスクリプト、スタイルシート、base64エンコードされたアセットをランディングページのコードに直接埋め込むことは避けてください。これらのインラインアセットはページサイズ制限にカウントされ、レンダリングを遅くする可能性があります。代わりに、フォント、画像、スタイルシート、スクリプトを[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)にアップロードしてください。メディアライブラリから配信されるアセットはBrazeのCDNでホストされるため、Liquidレンダリングの処理対象にならず、ページサイズ制限にカウントされません。
 
 ### 識別済みユーザーと匿名ユーザーに対するLiquidの使用 {#use-liquid-for-identified-and-anonymous-users}
 
 Liquidは、識別済みの訪問者と匿名の訪問者の両方に対してランディングページの体験をカスタマイズできます。
 
-- **識別済みユーザー：** Brazeメッセージからランディングページにリンクし、[ランディングページのLiquidタグ]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/#using-landing-page-liquid-tags)を含めます。これにより、ユーザーがBrazeプロファイルに関連付けられ、ページ体験がパーソナライズされます。
+- **識別済みユーザー：** Brazeメッセージからランディングページにリンクし、[ランディングページのLiquidタグ]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users#using-landing-page-liquid-tags)を含めます。これにより、ユーザーがBrazeプロファイルに関連付けられ、ページ体験がパーソナライズされます。
 - **匿名の訪問者：** ランダムな数値や時間帯に応じた挨拶など、文脈に応じたプロファイルに基づかないコンテンツにLiquidを使用します。
 
 ### フォームフィールドの事前入力 {#pre-fill-form-fields}
@@ -72,7 +72,7 @@ Liquidは、識別済みの訪問者と匿名の訪問者の両方に対して�
 **Custom Code**ブロックを使用して、外部エンドポイントからデータを取得し、ランディングページに表示できます。このアプローチではクライアント側（ユーザーのブラウザ）でリクエストを行うため、サーバー側のレンダリング遅延なしにページが素早く読み込まれます。
 
 {% alert warning %}
-外部データを取得する場合、実装のセキュリティはお客様の責任となります。API呼び出しで使用される外部識別子はUUIDであるか、同等に安全な命名スキームを使用する必要があります。[ユーザーIDの命名に関するベストプラクティス]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices)を参照してください。
+外部データを取得する場合、実装のセキュリティはお客様の責任となります。API呼び出しで使用される外部識別子はUUIDであるか、同等に安全な命名スキームを使用する必要があります。[ユーザーIDの命名に関するベストプラクティス]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices)を参照してください。
 {% endalert %}
 
 ### ユースケース {#use-case}
@@ -127,7 +127,7 @@ window.onload = () => {
 - **読み込み状態：** エンドポイントが応答するまで、ユーザーにはプレースホルダーテキストが表示されます。ローディングインジケーターやスケルトンスクリーンの追加を検討してください。
 - **エラーハンドリング：** エンドポイントが失敗したり応答が遅い場合、ページが壊れて見える可能性があります。適切なエラーメッセージとフォールバックを実装してください。
 - **パフォーマンス：** ページはすぐに読み込まれますが、データは外部リクエストの完了後に表示されます。最適なユーザー体験のために、APIレスポンスを高速に保ってください。
-- **セキュリティ：** APIエンドポイントが識別子を検証し、ユーザーが閲覧を許可されたデータのみを返すようにしてください。不正利用を防ぐためにレート制限を実装してください。安全な識別子の選択に関するガイダンスについては、[ユーザーIDの命名に関するベストプラクティス]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices)を参照してください。
+- **セキュリティ：** APIエンドポイントが識別子を検証し、ユーザーが閲覧を許可されたデータのみを返すようにしてください。不正利用を防ぐためにレート制限を実装してください。安全な識別子の選択に関するガイダンスについては、[ユーザーIDの命名に関するベストプラクティス]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices)を参照してください。
 
 ## フォールバックページ {#fallback-pages}
 

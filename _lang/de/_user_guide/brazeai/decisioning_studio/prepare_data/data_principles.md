@@ -16,10 +16,10 @@ Jeder Datenbestand (Kundenprofile, Aktivierungen, Engagements, Conversions) muss
 
 | Anforderung | Auswirkung bei Verstoß |
 |-------------|------------------------|
-| Ein einzelner, eindeutiger Kundenbezeichner muss in jedem Datenbestand vorhanden sein | Wenn verschiedene Datenbestände unterschiedliche ID-Systeme verwenden (zum Beispiel eine Warehouse-ID für Features, aber eine Plattform-ID für Aktivierungen), kann die Decisioning Studio Engine diese nicht zuverlässig verknüpfen. Dies unterbricht die Feedback-Schleife und verschlechtert sowohl das Modelltraining als auch die Berichtsgenauigkeit. Wenn sich die Zuordnung zwischen den beiden ID-Systemen als Many-to-Many statt One-to-Many herausstellt, können die daraus resultierenden Datenintegritätsprobleme schwerwiegend sein. |
+| Ein einzelner, eindeutiger Kundenbezeichner muss in jedem Datenbestand vorhanden sein | Wenn verschiedene Datenbestände unterschiedliche ID-Systeme verwenden (zum Beispiel eine Warehouse-ID für Features, aber eine Plattform-ID für Aktivierungen), kann die Decisioning Studio Engine diese nicht zuverlässig verknüpfen. Dies unterbricht die Feedback-Schleife und verschlechtert sowohl das Modelltraining als auch die Berichtsgenauigkeit. Wenn sich die Abbildung zwischen den beiden ID-Systemen als Many-to-Many statt One-to-Many herausstellt, können die daraus resultierenden Datenintegritätsprobleme schwerwiegend sein. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ein einheitlicher Kundenbezeichner über alle Datenbestände hinweg" }
 
-Siehe [Externe Braze-ID verwenden]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id/) für Hinweise dazu, welchen Bezeichner Sie verwenden sollten.
+Siehe [Externe Braze-ID verwenden]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id) für Hinweise dazu, welchen Bezeichner Sie verwenden sollten.
 
 ## Event-Daten müssen als inkrementeller Stream übergeben werden, nicht als Snapshot {#event-data-must-be-passed-as-an-incremental-stream-not-as-a-snapshot}
 
@@ -30,7 +30,7 @@ Events wie Conversions, Engagements und Aktivierungen stellen diskrete Ereigniss
 | Event-Daten müssen als einzelne, mit Zeitstempel versehene Datensätze strukturiert und inkrementell übermittelt werden | Wenn Event-Daten in einem Snapshot aggregiert werden (zum Beispiel durch Speicherung eines Attributs „Letzter Sendezeitpunkt“ anstelle einzelner Sendedatensätze), geht die genaue zeitliche Zuordnung jedes Events verloren. Dadurch wird es unmöglich, Ergebnisse präzise bestimmten Entscheidungen zuzuordnen, was die Feedback-Schleife unterbricht, die das Modell zum Lernen benötigt. Ohne präzise Event-Zeitstempel können Sie nicht genau wissen, wann eine Conversion stattgefunden hat oder welche Empfehlung sie ausgelöst hat. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Event-Daten müssen als inkrementeller Stream übergeben werden, nicht als Snapshot" }
 
-Siehe [Snapshots versus Event-Streams]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/) für eine vollständige Erklärung der Unterscheidung sowie Beispiele für korrekte und inkorrekte Muster.
+Siehe [Snapshots versus Event-Streams]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams) für eine vollständige Erklärung der Unterscheidung sowie Beispiele für korrekte und inkorrekte Muster.
 
 ## Snapshot-Daten müssen nach einem regelmäßigen, zeitgesteuerten Zeitplan aktualisiert werden {#snapshot-data-must-be-updated-on-a-regular-time-driven-schedule}
 
@@ -47,14 +47,14 @@ Snapshot-Daten (wie Kundenprofile und Features) repräsentieren den aktuellen Zu
 
 | Anforderung | Auswirkung bei Verstoß |
 |-------------|------------------------|
-| Jeder Datenbestand muss die Felder enthalten, die zur Festlegung eines Primärschlüssels und, wo zutreffend, von Verknüpfungsschlüsseln zu anderen Datenbeständen erforderlich sind. Doppelte Datensätze müssen vor der Aufnahme entfernt oder dedupliziert werden. | Doppelte oder nicht zuordenbare Datensätze fügen dem Modelltraining Rauschen hinzu und können zu fehlerhafter Attribution führen. Fehlende Schlüssel verhindern, dass die Engine Events über die gesamte Customer Journey hinweg verknüpfen kann – von der Empfehlung bis zur Conversion. |
+| Jeder Datenbestand muss die Felder enthalten, die zur Festlegung eines Primärschlüssels und, wo zutreffend, von Verknüpfungsschlüsseln zu anderen Datenbeständen erforderlich sind. Doppelte Datensätze müssen vor der Aufnahme entfernt oder dedupliziert werden. | Doppelte oder nicht zuordenbare Datensätze fügen dem Modelltraining Rauschen hinzu und können zu fehlerhafter Attribution führen. Fehlende Schlüssel verhindern, dass die Engine Ereignisse über die gesamte Customer Journey hinweg verknüpfen kann – von der Empfehlung bis zur Conversion. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Alle Datenbestände müssen Mindestanforderungen an Datenqualität und -integrität erfüllen" }
 
 Speziell für Event-Stream-Daten muss jeder Datensatz mindestens Folgendes enthalten:
 
 **Erforderliche Felder:**
 - Kundenbezeichner
-- Zeitstempel, wann das Event stattgefunden hat (nicht wann der Datensatz in Ihrem System erstellt wurde; dies sind unterschiedliche Werte; siehe [Snapshots versus Event-Streams]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/) für eine Erklärung, warum dies wichtig ist)
+- Zeitstempel, wann das Event stattgefunden hat (nicht wann der Datensatz in Ihrem System erstellt wurde; dies sind unterschiedliche Werte; siehe [Snapshots versus Event-Streams]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams) für eine Erklärung, warum dies wichtig ist)
 - Zeitstempel, wann der Datensatz in Ihrem System erstellt wurde (wird für zuverlässiges Aufteilen inkrementeller Exporte verwendet)
 - Event-Typ
 - Felder, die ausreichen, um auf die spezifischen Events zu filtern, die für Sie relevant sind

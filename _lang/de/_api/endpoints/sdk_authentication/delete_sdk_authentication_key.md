@@ -22,7 +22,7 @@ Der Primärschlüssel kann nicht gelöscht werden. Wenn Sie versuchen, den Prim�
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `sdk_authentication.delete`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `sdk_authentication.delete`.
 
 ## Rate-Limit
 

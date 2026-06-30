@@ -10,19 +10,19 @@ channel:
 
 # Enviar mensajes de correo electrónico usando la API REST {#sending-email-messages-using-the-rest-api}
 
-> Usa la API REST de Braze para enviar correos electrónicos transaccionales desde tu backend en tiempo real. Este enfoque te permite crear un servicio que envía correos electrónicos de forma programática mientras realizas el seguimiento de los análisis de entrega junto con tus otras Campaigns y Canvas en el dashboard de Braze.
+> Usa la API REST de Braze para enviar correos electrónicos transaccionales desde tu backend en tiempo real. Este enfoque te permite crear un servicio que envía correos electrónicos de forma programática mientras realizas el seguimiento de los análisis de entrega junto con tus otras campañas y Canvas en el dashboard de Braze.
 
 Esto puede ser especialmente útil para la mensajería transaccional en la que el contenido se define en tus sistemas de backend. Por ejemplo, puedes notificar a los consumidores cuando reciben un mensaje de otro usuario, invitándolos a visitar tu sitio web y revisar su buzón de entrada.
 
 Con este enfoque, puedes:
 
 - Desencadenar correos electrónicos desde tu backend en tiempo real.
-- Realizar el seguimiento de los análisis junto con todas tus Campaigns y Canvas gestionados por marketing, incluyendo aperturas, clics y rebotes.
+- Realizar el seguimiento de los análisis junto con todas tus campañas y Canvas gestionados por marketing, incluyendo aperturas, clics y rebotes.
 - Usar los datos de interacción con los mensajes para desencadenar mensajes posteriores, como seguimientos de reorientación.
 - Ampliar el caso de uso con características adicionales de Braze, como retrasos en los mensajes y pruebas A/B.
-- Opcionalmente, cambiar a la [entrega desencadenada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) para definir tus plantillas de correo electrónico en el dashboard de Braze y seguir desencadenando los envíos desde tu backend.
+- Opcionalmente, cambiar a la [entrega desencadenada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) para definir tus plantillas de correo electrónico en el dashboard de Braze y seguir desencadenando los envíos desde tu backend.
 
-Para enviar un correo electrónico a través de la API REST, necesitas configurar una Campaña de API en el dashboard de Braze y luego usar el punto de conexión [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) para enviar el mensaje.
+Para enviar un correo electrónico a través de la API REST, necesitas configurar una Campaña de API en el dashboard de Braze y luego usar el punto de conexión [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) para enviar el mensaje.
 
 ## Requisitos previos {#prerequisites}
 
@@ -31,7 +31,7 @@ Para completar esta guía, necesitas:
 | Requisito | Descripción |
 | --- | --- |
 | Clave de API REST de Braze | Una clave con el permiso `messages.send`. Para crear una, ve a **Configuración** > **API e identificadores** > **Claves de API**. |
-| ID de aplicación de Braze | El identificador de tu aplicación dentro de tu espacio de trabajo. Para encontrarlo, ve a **Configuración** > **API e identificadores** y consulta la sección **Identificadores de aplicación**. Este valor es obligatorio en el campo `app_id` del objeto de mensajería de correo electrónico. Para más información, consulta [Identificador de aplicación]({{site.baseurl}}/api/identifier_types/). |
+| ID de aplicación de Braze | El identificador de tu aplicación dentro de tu espacio de trabajo. Para encontrarlo, ve a **Configuración** > **API e identificadores** y consulta la sección **Identificadores de aplicación**. Este valor es obligatorio en el campo `app_id` del objeto de mensajería de correo electrónico. Para más información, consulta [Identificador de aplicación]({{site.baseurl}}/api/identifier_types). |
 | Contenido HTML del correo electrónico | El cuerpo HTML de tu mensaje de correo electrónico, preparado con antelación. |
 | Servicio de backend | Un servicio de backend o entorno de scripting capaz de realizar solicitudes HTTP POST a la API REST de Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
@@ -47,10 +47,10 @@ Para completar esta guía, necesitas:
 
 ## Paso 2: Enviar un correo electrónico usando la API {#step-2-send-an-email-using-the-api}
 
-Construye una solicitud POST al punto de conexión [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/). Incluye el ID de Campaign, el ID de usuario externo del destinatario y el contenido del correo electrónico en la carga útil de la solicitud.
+Construye una solicitud POST al punto de conexión [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages). Incluye el ID de Campaign, el ID de usuario externo del destinatario y el contenido del correo electrónico en la carga útil de la solicitud.
 
 {% alert important %}
-Cada destinatario referenciado en `external_user_ids` debe existir previamente en Braze. Los envíos exclusivos por API no crean nuevos perfiles de usuario. Si necesitas crear usuarios como parte de un envío, usa primero [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), o usa una [Campaign desencadenada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) en su lugar.
+Cada destinatario referenciado en `external_user_ids` debe existir previamente en Braze. Los envíos exclusivos por API no crean nuevos perfiles de usuario. Si necesitas crear usuarios como parte de un envío, usa primero [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), o usa una [Campaign desencadenada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) en su lugar.
 {% endalert %}
 
 ### Ejemplo de solicitud {#example-request}
@@ -61,7 +61,7 @@ Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
 ```
 
-Reemplaza `YOUR_REST_ENDPOINT` con la [URL del punto de conexión REST]({{site.baseurl}}/api/basics/#endpoints) de tu espacio de trabajo.
+Reemplaza `YOUR_REST_ENDPOINT` con la [URL del punto de conexión REST]({{site.baseurl}}/api/basics#endpoints) de tu espacio de trabajo.
 
 {% raw %}
 ```json
@@ -73,7 +73,7 @@ Reemplaza `YOUR_REST_ENDPOINT` con la [URL del punto de conexión REST]({{site.b
       "app_id": "YOUR_APP_ID",
       "message_variation_id": "YOUR_MESSAGE_VARIATION_ID",
       "subject": "You have a new message!",
-      "from": "Notifications <notifications@yourcompany.com>",
+      "from": "Notifications <notifications@example.com>",
       "body": "<html><body><h1>You have a new message!</h1><p>Hi {{${first_name}}},</p><p>You received a new message in your inbox. Click the link below to read it:</p><a href='https://yourwebsite.com/messages'>View message</a><p>Thank you for using our service!</p></body></html>"
     }
   }
@@ -81,7 +81,7 @@ Reemplaza `YOUR_REST_ENDPOINT` con la [URL del punto de conexión REST]({{site.b
 ```
 {% endraw %}
 
-Reemplaza los valores de marcador de posición con tus ID reales. El campo `from` debe usar el formato `"Nombre para mostrar <email@address.com>"`. El campo `body` acepta HTML válido y admite [personalización con Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/), por lo que puedes adaptar el contenido del correo electrónico a cada destinatario. Para ver la lista completa de parámetros admitidos por el objeto de mensajería de correo electrónico, consulta [Objeto de correo electrónico]({{site.baseurl}}/api/objects_filters/messaging/email_object/).
+Reemplaza los valores de marcador de posición con tus ID reales. El campo `from` debe usar el formato `"Nombre para mostrar <usuario@ejemplo.com>"`. El campo `body` acepta HTML válido y admite [personalización con Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), por lo que puedes adaptar el contenido del correo electrónico a cada destinatario. Para ver la lista completa de parámetros admitidos por el objeto de mensajería de correo electrónico, consulta [Objeto de correo electrónico]({{site.baseurl}}/api/objects_filters/messaging/email_object).
 
 Después de construir la solicitud, envía la solicitud POST desde tu servicio de backend a la API REST de Braze.
 
@@ -96,6 +96,6 @@ Después de completar la configuración, verifica tu integración:
 
 ## Consideraciones {#considerations}
 
-- Confirma que tus campañas de correo electrónico cumplen con las regulaciones pertinentes, como el RGPD y CAN-SPAM, incluyendo las opciones de cancelación de suscripción y los avisos de privacidad necesarios. Para más información, consulta [Gestión de suscripciones de usuarios]({{site.baseurl}}/user_guide/channels/email/subscriptions/) y [Mejores prácticas de correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/).
-- Usa las [características de personalización]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/) de Braze para adaptar el contenido del correo electrónico a consumidores individuales, incluyendo contenido dinámico y datos específicos del usuario.
-- La API REST de Braze ofrece [puntos de conexión de mensajería]({{site.baseurl}}/api/endpoints/messaging/) adicionales para programar mensajes, desencadenar Campaigns y más.
+- Confirma que tus campañas de correo electrónico cumplen con las regulaciones pertinentes, como el RGPD y CAN-SPAM, incluyendo las opciones de cancelación de suscripción y los avisos de privacidad necesarios. Para más información, consulta [Gestión de suscripciones de usuarios]({{site.baseurl}}/user_guide/channels/email/subscriptions) y [Mejores prácticas de correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices).
+- Usa las [características de personalización]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) de Braze para adaptar el contenido del correo electrónico a consumidores individuales, incluyendo contenido dinámico y datos específicos del usuario.
+- La API REST de Braze ofrece [puntos de conexión de mensajería]({{site.baseurl}}/api/endpoints/messaging) adicionales para programar mensajes, desencadenar campañas y más.

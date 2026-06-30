@@ -20,13 +20,13 @@ O Decisioning Studio Go inclui configuração criativa self-service com um banco
 * Braze
 * Salesforce Marketing Cloud
 
-Para saber mais sobre as diferenças entre o Decisioning Studio Go e o Decisioning Studio Pro, consulte [Decisioning Studio Go versus Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/#decisioning-studio-go-vs-decisioning-studio-pro).
+Para saber mais sobre as diferenças entre o Decisioning Studio Go e o Decisioning Studio Pro, consulte [Decisioning Studio Go versus Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio#decisioning-studio-go-vs-decisioning-studio-pro).
 
 ## Próximas etapas {#next-steps}
 
 Siga estas etapas para configurar o Decisioning Studio Go:
 
-1. [Conectar fontes de dados]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources/)
-2. [Configurar orquestração]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration/)
-3. [Crie seu agente]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)
-4. [Lance seu agente]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent/)
+1. [Conectar fontes de dados]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources)
+2. [Configurar orquestração]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration)
+3. [Crie seu agente]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent)
+4. [Lance seu agente]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent)

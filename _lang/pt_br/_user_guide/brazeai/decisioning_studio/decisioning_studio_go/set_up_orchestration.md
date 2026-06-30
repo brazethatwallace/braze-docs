@@ -105,7 +105,7 @@ A Braze oferece IDs de app (chamados de chaves de API no dashboard da Braze) que
 
 Para testar sua integração, você precisará de um ID de usuário:
 
-Se o seu espaço de trabalho usa [criptografia em nível de campo de identificador]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/), qualquer novo usuário teste criado com o endpoint `/users/track` deve seguir os requisitos de e-mail para espaços de trabalho criptografados. Envie o campo `email` como o hash HMAC-SHA256 codificado em Base64 do valor do e-mail em letras minúsculas, e envie `email_encrypted` como o valor de e-mail criptografado gerado com suas chaves de criptografia de IPI configuradas.
+Se o seu espaço de trabalho usa [criptografia em nível de campo de identificador]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption), qualquer novo usuário teste criado com o endpoint `/users/track` deve seguir os requisitos de e-mail para espaços de trabalho criptografados. Envie o campo `email` como o hash HMAC-SHA256 codificado em Base64 do valor do e-mail em letras minúsculas, e envie `email_encrypted` como o valor de e-mail criptografado gerado com suas chaves de criptografia de IPI configuradas.
 
 1. No dashboard da Braze, acesse **Público** > **Pesquisar usuários**.
 2. Pesquise o usuário pelo ID de usuário externo, alias, e-mail, número de telefone ou token por push.
@@ -377,4 +377,4 @@ Tudo pronto! Agora você pode começar a disparar envios pelo BrazeAI Decisionin
 
 Agora que você configurou a orquestração, prossiga para projetar seu agente:
 
-- [Projetar seu agente]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)
+- [Projetar seu agente]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent)

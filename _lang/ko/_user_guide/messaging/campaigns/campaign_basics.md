@@ -40,7 +40,7 @@ tool: Campaigns
 
 *누구에게 도달하려고 하나요?*
 
-사전 정의된 [Segments]({{site.baseurl}}/user_guide/audience/segments/)를 사용하여 인구통계학적, 행동적 또는 기술적 특성과 동작을 기반으로 사용자를 타겟팅할 수 있습니다. 캠페인을 구축할 때 필터를 추가하여 Segment를 더 세밀하게 조정하세요. 이러한 타겟 오디언스 기준에 부합하는 사용자만 여정에 진입할 수 있습니다. 사용 가능한 필터 유형에 대한 간략한 요약은 아래 표를 확인하세요.
+사전 정의된 [Segments]({{site.baseurl}}/user_guide/audience/segments)를 사용하여 인구통계학적, 행동적 또는 기술적 특성과 동작을 기반으로 사용자를 타겟팅할 수 있습니다. 캠페인을 구축할 때 필터를 추가하여 Segment를 더 세밀하게 조정하세요. 이러한 타겟 오디언스 기준에 부합하는 사용자만 여정에 진입할 수 있습니다. 사용 가능한 필터 유형에 대한 간략한 요약은 아래 표를 확인하세요.
 
 | 필터 | 설명 |
 |---|---|
@@ -50,13 +50,13 @@ tool: Campaigns
 | 마케팅 활동 | 마지막 참여 또는 수신한 캠페인과 같은 범용 행동을 기반으로 고객을 세그먼트합니다. |
 | 사용자 속성 | 고정적인 속성과 특성을 기반으로 고객을 세그먼트합니다. |
 | 설치 경로 | 최초 소스, 광고 그룹, 캠페인 또는 광고를 기반으로 고객을 세그먼트합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="\"누구에게\": 진입 오디언스 선택하기" }
 
 ### "왜": 전환 이벤트 식별하기 {#the-why-identify-conversion-events}
 
 *이 캠페인을 왜 구축하나요?*
 
-명확한 목표를 염두에 두는 것은 항상 중요하며, 캠페인은 세션 참여, 구매, 커스텀 이벤트와 같은 KPI에 대한 성과를 파악하는 데 도움이 됩니다. 하나 이상의 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)를 선택하면 캠페인 성과를 이해할 수 있습니다.
+명확한 목표를 염두에 두는 것은 항상 중요하며, 캠페인은 세션 참여, 구매, 커스텀 이벤트와 같은 KPI에 대한 성과를 파악하는 데 도움이 됩니다. 하나 이상의 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)를 선택하면 캠페인 성과를 이해할 수 있습니다.
 
 ### "어디서": 오디언스 찾기 {#the-where-find-my-audience}
 

@@ -56,10 +56,6 @@ window.addEventListener("ab.BridgeReady", function(){
 
 カスタムHTML内のクリックをトラッキングするには、`brazeBridge.logClick(button_id)`メソッドを使用します。
 
-{% alert note %}
-**バナー：**引数なしの`brazeBridge.logClick()`のみがサポートされています。ボタンIDとカスタムボタントラッキングは、アプリ内メッセージでのみサポートされています。
-{% endalert %}
-
 アプリ内メッセージでは、`brazeBridge.logClick('0')`、`brazeBridge.logClick('1')`、`brazeBridge.logClick()`を使用して、それぞれ「ボタン1」、「ボタン2」、「本文クリック」をプログラムでトラッキングできます。
 
 | クリック | メソッド | サポート |
@@ -67,7 +63,7 @@ window.addEventListener("ab.BridgeReady", function(){
 | 本文クリック | `brazeBridge.logClick()` | アプリ内メッセージとバナー |
 | ボタン1 | `brazeBridge.logClick('0')` | アプリ内メッセージのみ |
 | ボタン2 | `brazeBridge.logClick('1')` | アプリ内メッセージのみ |
-| カスタムボタントラッキング | `brazeBridge.logClick('your custom name here')` | アプリ内メッセージのみ |
+| カスタムボタントラッキング | `brazeBridge.logClick('your custom name here')` | アプリ内メッセージとバナー |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ボタンクリックのトラッキング" }
 
 アプリ内メッセージでは、1回のインプレッションごとに複数のボタンクリックイベントをトラッキングできます。例えば、メッセージを閉じてボタン2のクリックを記録するには：
@@ -76,7 +72,7 @@ window.addEventListener("ab.BridgeReady", function(){
 <a href="#" onclick="brazeBridge.logClick('1');brazeBridge.closeMessage()">✖</a>
 ```
 
-また、新しいカスタムボタン名をトラッキングすることもできます（Campaignあたり最大100個のユニークな名前）。例えば、`brazeBridge.logClick('blue button')`や`brazeBridge.logClick('viewed carousel page 3')`などです。
+また、新しいカスタムボタン名をトラッキングすることもできます（キャンペーンあたり最大100個のユニークな名前）。例えば、`brazeBridge.logClick('blue button')`や`brazeBridge.logClick('viewed carousel page 3')`などです。
 
 {% alert tip %}
 `onclick`属性内でJavaScriptメソッドを使用する場合、ダブルクォートで囲まれたHTML属性との衝突を避けるため、文字列値はシングルクォートで囲んでください。
@@ -84,6 +80,6 @@ window.addEventListener("ab.BridgeReady", function(){
 
 #### 制限事項（アプリ内メッセージのみ） {#limitations-in-app-messages-only}
 
-- Campaignあたり最大100個のユニークなボタンIDを設定できます。
+- キャンペーンあたり最大100個のユニークなボタンIDを設定できます。
 - ボタンIDはそれぞれ最大255文字です。
 - ボタンIDには、英字、数字、スペース、ダッシュ、およびアンダースコアのみを使用できます。

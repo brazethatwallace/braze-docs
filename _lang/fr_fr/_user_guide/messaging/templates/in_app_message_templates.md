@@ -4,7 +4,7 @@ article_title: Modèles de messages in-app
 page_order: 4
 layout: dev_guide
 guide_top_header: "Modèles de messages in-app"
-guide_top_text: "Créez et gérez des modèles de messages in-app depuis **Templates** > **In-App Message Templates**. Enregistrez des dispositions depuis l'éditeur par glisser-déposer, ou créez des profils de couleurs et des modèles CSS pour l'éditeur traditionnel. Vous pouvez également partir d'un modèle Braze prédéfini."
+guide_top_text: "Créez et gérez des modèles de messages in-app depuis **Modèles** > **Modèles de messages in-app**. Enregistrez des dispositions depuis l'éditeur par glisser-déposer, ou créez des profils de couleurs et des modèles CSS pour l'éditeur traditionnel. Vous pouvez également partir d'un modèle Braze prédéfini."
 description: "Découvrez les modèles de messages in-app dans Braze, y compris comment créer des modèles, les modèles Braze, ainsi que les profils de couleurs et les modèles CSS pour l'éditeur traditionnel."
 
 guide_featured_title: "Articles de la section"
@@ -44,4 +44,4 @@ guide_menu_list:
     image: /assets/img/braze_icons/calendar-check-02.svg
 ---
 
-Pour savoir comment enregistrer des modèles depuis le compositeur, créer des profils de couleurs ou des modèles CSS, et gérer votre bibliothèque, consultez [Créer un modèle de message in-app]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/).
+Pour savoir comment enregistrer des modèles depuis le compositeur, créer des profils de couleurs ou des modèles CSS, et gérer votre bibliothèque, consultez [Créer un modèle de message in-app]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template).

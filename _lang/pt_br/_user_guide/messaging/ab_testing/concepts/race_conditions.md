@@ -50,7 +50,7 @@ Depois que um novo usuário é criado, você pode adicionar uma postergação an
 
 Por exemplo, depois que um usuário se registra no seu app, você pode enviar uma oferta promocional após 24 horas. Ou, se você está criando um usuário ou registrando um atributo personalizado, pode adicionar uma postergação de um minuto antes de prosseguir no seu processo para evitar essa condição de corrida.
 
-Você também pode adicionar essa postergação no [SDK da Braze]({{site.baseurl}}/developer_guide/sdk_integration/) para o evento personalizado específico que faz um novo usuário entrar em um Canvas.
+Você também pode adicionar essa postergação no [SDK da Braze]({{site.baseurl}}/developer_guide/sdk_integration) para o evento personalizado específico que faz um novo usuário entrar em um Canvas.
 
 ## Cenário 2: Usando múltiplos endpoints de API {#scenario-2-using-multiple-api-endpoints}
 
@@ -63,7 +63,7 @@ Existem alguns cenários em que múltiplos endpoints de API também podem result
 - Endpoints de API separados são usados para criar usuários e disparar Canvas ou Campaigns
 - Múltiplas chamadas separadas são feitas ao endpoint `/users/track` para atualizar atributos personalizados, eventos ou compras
 
-Quando informações de usuários são enviadas à Braze usando o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), pode levar alguns segundos para o processamento. Isso significa que, quando solicitações são feitas simultaneamente aos endpoints `/users/track` e de envio de mensagens como `/campaign/trigger/send`, não há garantia de que as informações do usuário sejam atualizadas antes de uma mensagem ser enviada.
+Quando informações de usuários são enviadas à Braze usando o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), pode levar alguns segundos para o processamento. Isso significa que, quando solicitações são feitas simultaneamente aos endpoints `/users/track` e de envio de mensagens como `/campaign/trigger/send`, não há garantia de que as informações do usuário sejam atualizadas antes de uma mensagem ser enviada.
 
 {% alert note %}
 Se atributos e eventos de usuários são enviados na mesma solicitação (seja pelo `/users/track` ou pelo SDK), a Braze processa os atributos antes dos eventos ou de tentar enviar qualquer mensagem.
@@ -79,15 +79,15 @@ Se você está enviando uma solicitação de API de mensagem agendada, essas sol
 
 #### Inclua dados essenciais junto com o gatilho {#include-key-data-with-the-trigger}
 
-Em vez de usar múltiplos endpoints, você pode incluir os [atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/#object-body) e as [propriedades de gatilho]({{site.baseurl}}/api/objects_filters/trigger_properties_object/) em uma única chamada de API usando o [endpoint `campaign/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/).
+Em vez de usar múltiplos endpoints, você pode incluir os [atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#object-body) e as [propriedades de gatilho]({{site.baseurl}}/api/objects_filters/trigger_properties_object) em uma única chamada de API usando o [endpoint `campaign/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).
 
 Quando esses objetos são incluídos com o gatilho, os atributos são processados primeiro, antes de a mensagem ser disparada, eliminando possíveis condições de corrida. As propriedades de gatilho não atualizam o perfil do usuário, mas são usadas apenas no contexto da mensagem.
 
 #### Use o endpoint POST: Rastrear usuários (síncrono) {#use-the-post-track-users-sync-endpoint}
 
-Use o [endpoint `/users/track/sync/`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/) para registrar eventos personalizados e compras e atualizar atributos do perfil de usuário de forma síncrona. Usar esse endpoint para atualizar perfis de usuários ao mesmo tempo e em uma única chamada pode ajudar a evitar possíveis condições de corrida.
+Use o [endpoint `/users/track/sync/`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous) para registrar eventos personalizados e compras e atualizar atributos do perfil de usuário de forma síncrona. Usar esse endpoint para atualizar perfis de usuários ao mesmo tempo e em uma única chamada pode ajudar a evitar possíveis condições de corrida.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This endpoint' type='beta' %}
 
 ## Cenário 3: Correspondência entre gatilhos baseados em ação e filtros de público {#scenario-3-matching-action-based-triggers-and-audience-filters}
 
@@ -97,7 +97,7 @@ Outra condição de corrida comum pode ocorrer se você configurar uma Campaign 
 
 #### Verifique seu público após uma postergação {#check-your-audience-after-a-delay}
 
-Para evitar o uso de filtros de público que contenham os critérios de gatilho, recomendamos verificar seu público antes da entrega. Por exemplo, você pode [usar validações de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#edit-delivery-settings) nas etapas de Mensagem do Canvas como uma verificação adicional para confirmar que seu público atende aos critérios de entrega no momento do envio da mensagem. Você também pode aproveitar os critérios de saída do Canvas para remover qualquer usuário em qualquer ponto da jornada se ele atender aos seus critérios.
+Para evitar o uso de filtros de público que contenham os critérios de gatilho, recomendamos verificar seu público antes da entrega. Por exemplo, você pode [usar validações de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#edit-delivery-settings) nas etapas de Mensagem do Canvas como uma verificação adicional para confirmar que seu público atende aos critérios de entrega no momento do envio da mensagem. Você também pode aproveitar os critérios de saída do Canvas para remover qualquer usuário em qualquer ponto da jornada se ele atender aos seus critérios.
 
 Para Campaigns, você pode usar eventos de saída para permitir que Campaigns com um evento de gatilho cancelem mensagens para usuários que realizem o evento de saída enquanto estiverem na postergação.
 

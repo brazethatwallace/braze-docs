@@ -1,7 +1,7 @@
 ---
 nav_title: Alpaco
 article_title: Alpaco
-alias: /partners/Alpaco
+alias: /partners/alpaco/
 description: "L'intégration entre Braze et Alpaco vous permet d'exporter vers Braze des modèles d'e-mail et des blocs de contenu conformes à la marque et compatibles avec Liquid, prêts à être utilisés dans les e-mails et les messages in-app."
 page_type: partner
 search_tag: Partner

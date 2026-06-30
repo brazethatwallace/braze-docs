@@ -24,7 +24,7 @@ channel: email
 
 추적 리디렉션 링크가 **403 Forbidden**을 반환하는 경우, 이 오류는 콘텐츠 전송 네트워크(CDN) 또는 웹 애플리케이션 방화벽(WAF)에서 발생하는 경우가 많습니다. 예를 들어, 특정 사용자 에이전트, 쿼리 문자열 또는 리디렉션 패턴을 차단하는 AWS WAF 또는 Amazon CloudFront 규칙이 원인일 수 있습니다. CDN 또는 클라우드 공급자와 함께 차단된 요청 로그 및 측정기준을 검토하세요. AWS의 경우 [CloudFront 문제 해결](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html)을 참조하세요.
 
-문제가 클릭 추적에 한정된 것인지 확인하려면 테스트 링크 하나에 대해 클릭 추적을 끄세요([링크별 클릭 추적 끄기]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis) 참조). 클릭 추적이 꺼져 있을 때 대상 URL이 로드되지만 추적이 켜져 있을 때 403을 반환하면, 클릭 추적 도메인, CDN 및 WAF 구성에 집중하세요.
+문제가 클릭 추적에 한정된 것인지 확인하려면 테스트 링크 하나에 대해 클릭 추적을 끄세요([링크별 클릭 추적 끄기]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis) 참조). 클릭 추적이 꺼져 있을 때 대상 URL이 로드되지만 추적이 켜져 있을 때 403을 반환하면, 클릭 추적 도메인, CDN 및 WAF 구성에 집중하세요.
 
 ## 도메인 레지스트리 문제 {#domain-registry-issues}
 
@@ -235,7 +235,7 @@ SSL 설정을 완료했는데도 링크가 여전히 HTTP로 표시되는 경우
                             <li><strong>Tracked URL Fails / Untracked Works:</strong> This indicates a CDN or SSL certificate issue. Verify that your SSL certificate is valid and correctly bound to your tracking domain.</li>
                             <li><strong>Privacy Error (HTTPS):</strong> Ensure your CDN is configured to handle port 443 traffic and that the certificate matches your tracking CNAME.</li>
                             <li><strong>Both URLs Fail:</strong> Check the destination URL or your internal network firewall settings.</li>
-                            <li>For more information, visit: <a href="https://www.braze.com/docs/user_guide/channels/email/email_setup/ssl">SSL at Braze</a></li>
+                            <li>For more information, visit: <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/channels/email/email_setup/ssl">SSL at Braze</a></li>
                         </ul>
                     </div>
                 </td>
@@ -256,7 +256,7 @@ SSL 설정을 완료했는데도 링크가 여전히 HTTP로 표시되는 경우
 3. 자신에게 테스트 이메일을 보내고 두 버튼을 모두 선택하세요.
 4. 예상 동작과 성공 기준이 템플릿에 설명된 대로인지 확인하세요.
 
-비추적 URL은 작동하지만 추적 URL이 실패하는 경우, 구성 차이가 있을 수 있습니다. 문제를 해결하려면 사용 중인 이메일 서비스 공급자 및 CDN 공급자의 설명서를 참조하세요. 인증서 프로비저닝에 대한 자세한 요구 사항은 [Braze의 SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/)을 검토할 수도 있습니다.
+비추적 URL은 작동하지만 추적 URL이 실패하는 경우, 구성 차이가 있을 수 있습니다. 문제를 해결하려면 사용 중인 이메일 서비스 공급자 및 CDN 공급자의 설명서를 참조하세요. 인증서 프로비저닝에 대한 자세한 요구 사항은 [Braze의 SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl)을 검토할 수도 있습니다.
 
 다음 표를 사용하여 클릭 추적 테스트 시 일반적인 오류를 진단하세요.
 

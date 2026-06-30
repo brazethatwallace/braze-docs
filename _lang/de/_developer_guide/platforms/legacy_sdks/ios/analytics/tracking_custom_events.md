@@ -3,7 +3,7 @@ nav_title: Angepasste Events verfolgen
 article_title: Angepasste Events für iOS verfolgen
 platform: iOS
 page_order: 2
-description: "Dieser referenzierende Artikel beschreibt, wie Sie angepasste Events für Ihre iOS-Anwendung hinzufügen und tracken können."
+description: "Dieser Referenzartikel beschreibt, wie Sie angepasste Events für Ihre iOS-Anwendung hinzufügen und verfolgen können."
 
 noindex: true
 ---
@@ -14,7 +14,7 @@ noindex: true
 
 Sie können angepasste Events in Braze aufzeichnen, um mehr über das Nutzungsverhalten Ihrer App zu erfahren und Ihre Nutzer:innen nach ihren Aktionen auf dem Dashboard zu segmentieren.
 
-Lesen Sie vor der Implementierung unbedingt die Beispiele für die Segmentierungsmöglichkeiten durch angepasste Events, angepasste Attribute und Kauf-Events in unseren [Best Practices]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection) sowie unsere Hinweise zu den [Namenskonventionen für Events]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/).
+Lesen Sie vor der Implementierung unbedingt die Beispiele für die Segmentierungsmöglichkeiten durch angepasste Events, angepasste Attribute und Kauf-Events in unseren [Best Practices]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#user-data-collection) sowie unsere Hinweise zu den [Namenskonventionen für Events]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
 
 ## Hinzufügen eines angepassten Events {#adding-a-custom-event}
 
@@ -78,7 +78,7 @@ Appboy.sharedInstance()?.logCustomEvent(
 {% endtab %}
 {% endtabs %}
 
-Weitere Informationen finden Sie in unserer [Dokumentation zu den Klassen](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#a4f0051d73d85cb37f63c232248124c79).
+Weitere Informationen finden Sie in unserer [Klassendokumentation](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#a4f0051d73d85cb37f63c232248124c79).
 
 ### Reservierte Schlüssel {#event-reserved-keys}
 

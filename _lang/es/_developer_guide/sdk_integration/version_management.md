@@ -32,10 +32,10 @@ Para recibir notificaciones automáticas cuando se publique una nueva versión d
 2. Haz clic en **Watch** en la esquina superior derecha.
 3. Haz clic en **Custom**, selecciona **Releases** y haz clic en **Apply**.
 
-Recibirás una notificación de GitHub (y un correo electrónico, dependiendo de tu [configuración de notificaciones](https://github.com/settings/notifications)) cada vez que se publique una nueva versión. Para consultar la lista completa de repositorios del SDK, visita [Referencias, repositorios y aplicaciones de ejemplo]({{site.baseurl}}/developer_guide/references/).
+Recibirás una notificación de GitHub (y un correo electrónico, dependiendo de tu [configuración de notificaciones](https://github.com/settings/notifications)) cada vez que se publique una nueva versión. Para consultar la lista completa de repositorios del SDK, visita [Referencias, repositorios y aplicaciones de ejemplo]({{site.baseurl}}/developer_guide/references).
 
 ## Acerca de los problemas conocidos {#about-known-issues}
 
 Para garantizar que nuestros cambios no afecten a tus procesos de compilación, **nunca modificaremos ni eliminaremos una versión después de que se haya publicado en un sistema de distribución**&#8212;incluso si esa versión en concreto tiene problemas conocidos.
 
-En estos casos, documentaremos el problema en el [registro de cambios del SDK de Braze]({{site.baseurl}}/developer_guide/changelogs/) y, a continuación, lanzaremos un nuevo parche para las versiones principales o secundarias afectadas lo antes posible.
+En estos casos, documentaremos el problema en el [registro de cambios del SDK de Braze]({{site.baseurl}}/developer_guide/changelogs) y, a continuación, lanzaremos un nuevo parche para las versiones principales o secundarias afectadas lo antes posible.

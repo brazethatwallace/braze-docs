@@ -24,7 +24,7 @@ Braze 데이터를 사용하여 AI 에이전트가 무엇을 말하고, 어떻�
 | ----------- | ----------- |
 | Regal 계정 | 이 파트너십을 활용하려면 Regal 계정이 필요합니다. |
 | Regal API 키 | Regal API 키를 사용하면 Braze에서 Regal로 이벤트를 전송할 수 있습니다.<br><br>이 키를 받으려면 [support@regal.io](mailto:support@regal.io)로 이메일을 보내세요. |
-| Braze 데이터 변환 | Regal에서 데이터를 수신하려면 [데이터 변환]({{site.baseurl}}/data_transformation/)이 필요합니다. |
+| Braze 데이터 변환 | Regal에서 데이터를 수신하려면 [데이터 변환]({{site.baseurl}}/data_transformation)이 필요합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합: Braze에서 Regal로 데이터 전송 {#integration-sending-data-from-braze-to-regal}
@@ -33,7 +33,7 @@ Braze Canvas 또는 Campaign 웹훅을 사용하여 고객 프로필 및 이벤�
 
 ### 1단계: Regal에서 새 연락처 생성 {#step-1-create-new-contacts-in-regal}
 
-Regal에서 전화 및 문자를 사용할 수 있도록, 새 Braze 프로필이 생성될 때마다 Regal로 웹훅을 전송하는 Canvas 또는 Campaign을 구축합니다.
+Regal에서 전화 및 문자를 사용할 수 있도록, 새 Braze 프로필이 생성될 때마다 Regal로 웹훅을 전송하는 Canvas 또는 Campaign을 생성합니다.
 
 1. "Create New Contact for Regal"이라는 제목의 Canvas 또는 Campaign을 생성하고 진입 유형으로 **액션 기반**을 선택합니다.
 
@@ -273,8 +273,6 @@ Braze로 전송할 각 Regal 웹훅에 대해 하나의 데이터 변환을 생�
 2. 변환에 이름을 지정하고 **Create transformation**을 클릭합니다.
 3. 변환 목록에서 <i class="fa-solid fa-ellipsis-vertical" title="작업 보기"></i> **View actions**를 선택하고 **Copy webhook URL**을 선택합니다.
 
-![]({% image_buster /assets/img/regal/copy_webhook_url.png %})
-
 ### 2단계: Regal에서 리포팅 웹훅 활성화 {#step-2-enable-reporting-webhooks-in-regal}
 
 리포팅 웹훅을 설정하려면:
@@ -283,8 +281,6 @@ Braze로 전송할 각 Regal 웹훅에 대해 하나의 데이터 변환을 생�
 2. **Reporting Webhooks** 섹션에서 **Create Webhooks**를 클릭합니다.
 
 3. 웹훅 엔드포인트 입력란에 해당 데이터 변환에 대한 Braze 데이터 변환 웹훅 URL을 추가합니다.
-
-![]({% image_buster /assets/img/regal/edit_webhook.png %}){: style="max-width:60%;"}
 
 #### 엔드포인트 업데이트 {#updating-an-endpoint}
 
@@ -299,7 +295,7 @@ Braze로 전송할 각 Regal 웹훅에 대해 하나의 데이터 변환을 생�
 
 ### 3단계: Regal 이벤트를 Braze 이벤트로 변환 {#step-3-transform-regal-events-into-braze-events}
 
-Braze [데이터 변환]({{site.baseurl}}/data_transformation/) 기능을 사용하면 수신되는 Regal 이벤트를 Braze에서 속성, 이벤트 또는 구매로 추가하는 데 필요한 형식으로 매핑할 수 있습니다.
+Braze [데이터 변환]({{site.baseurl}}/data_transformation) 기능을 사용하면 수신되는 Regal 이벤트를 Braze에서 속성, 이벤트 또는 구매로 추가하는 데 필요한 형식으로 매핑할 수 있습니다.
 
 1. 데이터 변환에 이름을 지정합니다. 이벤트 웹훅별로 데이터 변환을 설정하는 것이 권장됩니다.
 
@@ -313,7 +309,7 @@ Braze [데이터 변환]({{site.baseurl}}/data_transformation/) 기능을 사용
 Braze에서 Regal로 전송하는 이벤트 페이로드에서 Regal은 여러 전화번호와 전화번호별 동의를 지원하기 위해 `traits.phones`를 사용하는 것을 권장합니다. Regal에서 Braze로 다시 전송되는 리포팅 이벤트에서는 `traits.phone`이 이벤트 페이로드의 식별자로 여전히 나타날 수 있습니다.
 
 #### Braze 지원 식별자 {#braze-supported-identifiers}
-- Braze는 전화번호를 식별자로 지원하지 않습니다. 이를 식별자로 사용하려면 전화번호를 Braze에서 [사용자 별칭]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)으로 설정할 수 있습니다.
+- Braze는 전화번호를 식별자로 지원하지 않습니다. 이를 식별자로 사용하려면 전화번호를 Braze에서 [사용자 별칭]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)으로 설정할 수 있습니다.
 - Braze 데이터 변환을 사용할 때 이메일 주소를 식별자로 사용할 수 있습니다. 이메일 주소가 Braze 내에 프로필로 존재하는 경우 기존 프로필이 업데이트됩니다. 이메일 주소가 Braze 내에 아직 존재하지 않는 경우 이메일 전용 프로필이 생성됩니다.
 
 ## 활용 사례 {#use-cases}
@@ -329,18 +325,18 @@ Braze에서 Regal로 전송하는 이벤트 페이로드에서 Regal은 여러 �
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "call.completed",
   "properties": {
-    "agent_firstname": "Rebecca",
-    "agent_fullname": "Rebecca Greene",
-    "agent_id": "xxxx@yourbrand.com",
+    "agent_firstname": "Alex",
+    "agent_fullname": "Alex Lee",
+    "agent_id": "xxxx@example.com",
     "direction": "OUTBOUND",
-    "regal_voice_phone": "+19545558563",
+    "regal_voice_phone": "+15555550200",
     "regal_voice_phone_internal_name": "Sales Line",
-    "contact_phone": "+17625555555",
+    "contact_phone": "+15555550123",
     "call_id": "WTxxxxx9",
     "type": "Outbound Call",
     "disposition": "Converted During Convo",
@@ -427,13 +423,13 @@ return brazecall;
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "contact.attribute.edited",
   "properties": {
-    "agent_email": "xxxx@yourbrand.com",
-    "contact_phone": "+17625555555",
+    "agent_email": "xxxx@example.com",
+    "contact_phone": "+15555550123",
     "changes": {
       "custom_properties": {
         "annual_income": {
@@ -491,8 +487,8 @@ return brazecall;
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "contact.experiment.assigned",
   "properties": {
@@ -554,8 +550,8 @@ return brazecall;
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com",
+    "phone": "+15555550123",
+    "email": "xxx@example.com",
     "ip": "78.97.213.166"
   },
   "name": "contact.unsubscribed",
@@ -617,11 +613,11 @@ Regal의 `call.analysis.available` 이벤트를 사용하여 고객이 전환하
 {
   "traits": {
     "phone": "+1XXXXXXXXXX",
-    "email": "xxx@gmail.com"
+    "email": "xxx@example.com"
   },
   "name": "call.analysis.available",
   "brand": "circle-bank",
-  "contact_email": "xxx@gmail.com",
+  "contact_email": "xxx@example.com",
   "contact_phone": "+1XXXXXXXXXX",
   "created_at": "1754079836",
   "entity_type": "event",
@@ -631,7 +627,7 @@ Regal의 `call.analysis.available` 이벤트를 사용하여 고객이 전환하
   "original_timestamp": "1754079835",
   "profile_id": "62653af1111111173af128291e92",
   "properties": {
-    "agent_email": "xxx@yourbrand.com",
+    "agent_email": "xxx@example.com",
     "call_analysis": {
       "purchase_intent": "medium",
       "primary_objection": "price",
@@ -652,7 +648,7 @@ Regal의 `call.analysis.available` 이벤트를 사용하여 고객이 전환하
     "is_ai_agent": true,
     "outgoing_sip_headers": {
       "Via": "SIP/2.0/TCP srv2.example.com;branch=z9hG4bKgsdh7723",
-      "To": "<sip:agent@yourbrand.com>",
+      "To": "<sip:agent@example.com>",
       "User-Agent": "RegalVoiceAI/1.0"
     },
     "task_id": "WT7f3ea47fa6e6055aa847f0a62111111"
@@ -677,16 +673,16 @@ Regal의 `call.analysis.available` 이벤트를 사용하여 고객이 전환하
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625551796",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "call.transcript.available",
   "properties": {
-    "agent_email": "xxx@yourbrand.com",
+    "agent_email": "xxx@example.com",
     "task_id": "WT953358e8822dd9333fc38dfbac25e1e1",
-    "call_summary": "The agent Zoe explained insurance options to Joe and he said he'll need to think about it before moving forward Agent politely ended the call.",
-    "contact_name": "Joe Smith",
-    "contact_phone": "+13523182825",
+    "call_summary": "The agent Yuri explained insurance options to Alex and he said he'll need to think about it before moving forward Agent politely ended the call.",
+    "contact_name": "Alex Smith",
+    "contact_phone": "+15555550123",
     "is_voicemail": false,
     "moments_count": 18,
     "recording_id": "RE0118052841b7299d0630d1dff610c1fb",
@@ -697,8 +693,8 @@ Regal의 `call.analysis.available` 이벤트를 사용하여 고객이 전환하
     "sentiments": {
       "contact_sentiment": 70,
       "agent_sentiment": 75,
-      "agent_sentiment_reason": "Zoe was polite and attentive, effectively gathering information and providing a resource, which contributed to a positive interaction.",
-      "contact_sentiment_reason": "Joe was satisfied with the information provided but may have wanted more assistance regarding insurance options."
+      "agent_sentiment_reason": "Yuri was polite and attentive, effectively gathering information and providing a resource, which contributed to a positive interaction.",
+      "contact_sentiment_reason": "Alex was satisfied with the information provided but may have wanted more assistance regarding insurance options."
     },
     "trackers": [
       {
@@ -710,7 +706,7 @@ Regal의 `call.analysis.available` 이벤트를 사용하여 고객이 전환하
         "tracker_name": "High Intent"
       }
     ],
-    "transcript": "[handling agent]: Hi Joe, this is Zoe with BrightCover Insurance. I'll be going over some insurance options with you today. [contact]: Sounds good. [handling agent]: Before we start, I'm going to transfer you to a specialist for a moment. One sec. [transfer agent]: Hi Joe, this is Mark. Just verifying a few details before sending you back to Zoe. [contact]: Okay. [handling agent]: Thanks, Joe. Based on what you shared, here are some plan options... [contact]: I'll need to think about it. [handling agent]: Totally understandable. Feel free to reach out anytime. Have a great day! END OF TRANSCRIPT",
+    "transcript": "[handling agent]: Hi Alex, this is Yuri with BrightCover Insurance. I'll be going over some insurance options with you today. [contact]: Sounds good. [handling agent]: Before we start, I'm going to transfer you to a specialist for a moment. One sec. [transfer agent]: Hi Alex, this is Lee. Just verifying a few details before sending you back to Yuri. [contact]: Okay. [handling agent]: Thanks, Alex. Based on what you shared, here are some plan options... [contact]: I'll need to think about it. [handling agent]: Totally understandable. Feel free to reach out anytime. Have a great day! END OF TRANSCRIPT",
     "transcript_is_truncated": false,
     "transcript_url": "https://app.regalvoice.com/transcripts/WT953358e8822dd9333fc38dfbac25e1e1"
   },

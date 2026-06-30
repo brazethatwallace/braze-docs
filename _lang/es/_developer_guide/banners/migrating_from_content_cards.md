@@ -64,7 +64,11 @@ Sigue utilizando Content Cards si necesitas:
 
 Antes de la migración, asegúrate de que tu SDK de Braze cumple los requisitos mínimos de versión:
 
-{% multi_lang_include sdk_versions.md feature='banners' %}
+{% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
+
+Los descartes y la reelegibilidad requieren las siguientes versiones mínimas del SDK:
+
+{% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### Suscribirse a las actualizaciones {#subscribe-to-updates}
 
@@ -782,9 +786,10 @@ Los banners solo admiten campañas de entrega planificada. Para realizar la migr
 | **Visualización y segmentación** |
 | Interfaz de usuario de fuente | ✅ Fuente predeterminada disponible | ❌ Solo basado en la ubicación |
 | Colocación específica según el contexto | ❌ Basado en fuente | ✅ Compatibilidad con la ubicación nativa |
-| Priorización nativa | ❌ Requiere lógica personalizada | ✅ Priorización integrada |
+| Priorización | ❌ Requiere lógica personalizada | ✅ Priorización nativa |
 | **Interacción del usuario** |
-| Descarte manual | ✅ Compatible | ❌ No compatible |
+| Descarte manual | ✅ Compatible | ✅ Compatible |
+| Reelegibilidad tras el descarte | ❌ Requiere filtros personalizados o lógica de Campaign | ✅ Periodo de espera predeterminado |
 | Tarjetas ancladas | ✅ Compatible | N/A |
 | **Análisis** |
 | Análisis automático (interfaz de usuario predeterminada) | ✅ Compatible | ✅ Compatible |
@@ -792,7 +797,7 @@ Los banners solo admiten campañas de entrega planificada. Para realizar la migr
 | **Actualizaciones de contenido** |
 | Actualización de plantillas Liquid | ❌ Una vez por tarjeta al enviar/lanzar | ✅ Se actualiza cada vez que se refresca |
 | Actualización de los requisitos de elegibilidad | ❌ Una vez por tarjeta al enviar/lanzar | ✅ Se actualiza en cada sesión |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Feature differences" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Diferencias entre características" }
 
 ### Limitaciones del producto {#product-limitations}
 
@@ -806,7 +811,7 @@ Los banners solo admiten campañas de entrega planificada. Para realizar la migr
 
 ## Artículos relacionados {#related-articles}
 
-- [Ubicaciones de banners]({{site.baseurl}}/developer_guide/banners/placements/)
-- [Tutorial: Mostrar un banner por ID de ubicación]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/)
-- [Análisis de banners]({{site.baseurl}}/developer_guide/banners/analytics/)
-- [Preguntas frecuentes sobre banners]({{site.baseurl}}/developer_guide/banners/faq/)
+- [Ubicaciones de banners]({{site.baseurl}}/developer_guide/banners/placements)
+- [Tutorial: Mostrar un banner por ID de ubicación]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
+- [Análisis de banners]({{site.baseurl}}/developer_guide/banners/analytics)
+- [Preguntas frecuentes sobre banners]({{site.baseurl}}/developer_guide/banners/faq)

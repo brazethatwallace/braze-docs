@@ -107,7 +107,7 @@ interface StorageManager {
   clearData(storageKeys: string[]): Promise<void>;
 }
 ```
-- O parâmetro `isId` indica **armazenamento persistente de ID**: quando `true`, o SDK está armazenando um identificador persistente (ID do dispositivo, ID do usuário) ou a flag de opt-out. As implementações devem persistir esses dados entre reinicializações do app para que o SDK possa reconhecer o mesmo dispositivo/usuário. Quando `false`, o valor é dado de sessão/cache (eventos, atributos, etc.) e pode ficar apenas em memória. Para ambientes web, considere usar cookies para chaves armazenadas com `isId: true` para garantir persistência entre sessões.
+- O parâmetro `isId` indica **armazenamento persistente de ID**: quando `true`, o SDK está armazenando um identificador persistente (ID do dispositivo, ID do usuário) ou a flag de descadastramento. As implementações devem persistir esses dados entre reinicializações do app para que o SDK possa reconhecer o mesmo dispositivo/usuário. Quando `false`, o valor é dado de sessão/cache (eventos, atributos, etc.) e pode ficar apenas em memória. Para ambientes web, considere usar cookies para chaves armazenadas com `isId: true` para garantir persistência entre sessões.
 - Deve lidar com operações assíncronas para todas as operações de armazenamento
 
 **2. NetworkManager** (opcional) - Interface de requisição HTTP POST
@@ -664,7 +664,7 @@ subscribeToInAppMessage(async (inAppMessage) => {
 
 **Envio de dados:**
 - Envio automático a cada 10 segundos (configurável, mínimo: 3 segundos)
-- O envio pode falhar silenciosamente - use o retorno de chamada de `requestImmediateDataFlush()`
+- O envio pode falhar silenciosamente — use o retorno de chamada de `requestImmediateDataFlush()`
 - Os dados são enfileirados se a rede estiver indisponível e enviados quando a rede for restaurada
 
 ### Notas importantes de implementação {#important-implementation-notes}

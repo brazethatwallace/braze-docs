@@ -20,7 +20,7 @@ description: "이 문서에서는 Canvas 데이터 요약 분석 내보내기 Br
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `canvas.data_summary` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `canvas.data_summary` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -30,7 +30,7 @@ description: "이 문서에서는 Canvas 데이터 요약 분석 내보내기 Br
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | 필수 | 문자열 | [Canvas API 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요. |
+| `canvas_id` | 필수 | 문자열 | [Canvas API 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요. |
 | `ending_at` | 필수 | 날짜/시간 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 문자열) | 데이터 내보내기의 종료 날짜입니다. 요청 시점으로 기본 설정됩니다. |
 | `starting_at` | 선택 사항* | 날짜/시간 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 문자열) | 데이터 내보내기의 시작 날짜입니다. <br><br>* `length` 또는 `starting_at` 중 하나가 필요합니다. |
 | `length` | 선택 사항* | 문자열 | 반환된 시리즈에 포함된 `ending_at` 이전의 최대 일수입니다. 1에서 14 사이여야 합니다(포함). <br><br>* `length` 또는 `starting_at` 중 하나가 필요합니다. |
@@ -55,7 +55,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 ## 응답 {#response}
 
 {% alert note %}
-`total_stats`, `variant_stats`, `step_stats`에서 `conversions`는 Canvas의 [주요 전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) 횟수입니다. 추가 전환 이벤트를 구성하면 페이로드에 두 번째, 세 번째 및 이후 이벤트에 대한 `conversions1`, `conversions2` 및 더 높은 인덱스의 필드가 포함될 수 있습니다. 이는 `/campaigns/data_series` 엔드포인트의 [다변량 응답]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/#multivariate-response)과 유사합니다. `_by_entry_time`으로 끝나는 필드가 있는 경우, 해당 전환은 Canvas 진입 시간을 기준으로 귀속됩니다.
+`total_stats`, `variant_stats`, `step_stats`에서 `conversions`는 Canvas의 [주요 전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) 횟수입니다. 추가 전환 이벤트를 구성하면 페이로드에 두 번째, 세 번째 및 이후 이벤트에 대한 `conversions1`, `conversions2` 및 더 높은 인덱스의 필드가 포함될 수 있습니다. 이는 `/campaigns/data_series` 엔드포인트의 [다변량 응답]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics#multivariate-response)과 유사합니다. `_by_entry_time`으로 끝나는 필드가 있는 경우, 해당 전환은 Canvas 진입 시간을 기준으로 귀속됩니다.
 {% endalert %}
 
 ```json
@@ -109,7 +109,7 @@ API 응답에서 `influenced_opens` 필드는 총 열람 수(직접 열람과 �
 
 ## 관련 문서 {#related-articles}
 
-- [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)
+- [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)
 
 
 {% endapi %}

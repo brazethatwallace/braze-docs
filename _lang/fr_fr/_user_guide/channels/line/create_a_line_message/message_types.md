@@ -32,7 +32,7 @@ Les cas d'utilisation incluent :
 
 ## Image {#image}
 
-Un message image LINE peut être ajouté via la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/), une URL ou Liquid. Ces images sont autonomes et ne contiennent pas de liens cliquables.
+Un message image LINE peut être ajouté via la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library), une URL ou Liquid. Ces images sont autonomes et ne contiennent pas de liens cliquables.
 
 Les cas d'utilisation incluent :
 - Mettre en valeur une destination de vacances pour inciter les utilisateurs à envisager l'achat de billets d'avion
@@ -45,8 +45,8 @@ Les cas d'utilisation incluent :
 
 Utilisez les images par URL pour les cas d'utilisation qui intègrent :
 - Des images dynamiques Liquid en incluant le Liquid dans votre attribut source d'image. Par exemple, vous pouvez insérer {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} comme URL d'image pour inclure le prénom d'un utilisateur dans l'image
-- Du [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) en récupérant des images directement depuis votre serveur web ou des API accessibles publiquement
-- Des [catalogues Braze]({{site.baseurl}}/user_guide/data/activation/catalogs/) en accédant aux images depuis des fichiers CSV importés et des endpoints d'API
+- Du [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) en récupérant des images directement depuis votre serveur web ou des API accessibles publiquement
+- Des [catalogues Braze]({{site.baseurl}}/user_guide/data/activation/catalogs) en accédant aux images depuis des fichiers CSV importés et des endpoints d'API
 
 | **Spécifications** | **Propriétés recommandées** |
 |--------------------------|----------------------------|

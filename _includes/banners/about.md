@@ -84,11 +84,6 @@ Additionally, Banner messages do not support the following features:
 - Connected Content
 - Promotional codes
 - `catalog_items` using the [`:rerender` tag]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)
-- User-controlled dismissals (early access only)
-
-{% alert important %}
-Allowing users to manually dismiss a Banner is in early access. See [Configure dismissal behavior]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) for more details. If you're interested in participating in the early access, contact your customer success manager.
-{% endalert %}
 
 ## Next steps
 

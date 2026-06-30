@@ -22,7 +22,7 @@ Chaque URL de centre de préférences est unique pour chaque utilisateur.
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `preference_center.user.get`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `preference_center.user.get`.
 
 ## Limite de débit {#rate-limit}
 
@@ -34,7 +34,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | --------- | ---------| --------- | ----------- |
 | `preferenceCenterExternalID` | Requis | Chaîne de caractères | L'ID de votre centre de préférences. |
 | `userID` | Requis | Chaîne de caractères | L'ID utilisateur. |
-{: aria-label="Path parameters" }
+{: aria-label="Paramètres de chemin" }
 
 ## Paramètres de requête {#request-parameters}
 
@@ -42,7 +42,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | --------- | ---------| --------- | ----------- |
 | `preference_center_api_id` | Requis | Chaîne de caractères | L'ID de votre centre de préférences. |
 | `external_id` | Requis | Chaîne de caractères | L'ID externe d'un utilisateur. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}
 

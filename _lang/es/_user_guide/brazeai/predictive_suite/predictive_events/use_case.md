@@ -16,14 +16,14 @@ Para mejorar la segmentación y reducir la fatiga de la mensajería, Jordan util
 Este tutorial explica cómo Jordan creó:
 
 - Un modelo de predicción para `upgraded_to_pro` en un plazo de 7 días
-- Segments que ayudan a aumentar las conversiones y a enviar menos mensajes en total
+- Segmentos que ayudan a aumentar las conversiones y a enviar menos mensajes en total
 
 ## Paso 1: Crear un modelo de predicción para las actualizaciones {#step-1-create-a-predictive-model-for-upgrades}
 
 Jordan comienza definiendo el resultado más importante para su estrategia de actualización: que un usuario pase del nivel gratuito al Pro. En lugar de basarse en desencadenantes genéricos como «tiempo desde el registro», quiere pronosticar qué usuarios son realmente propensos a convertirse. De esta manera, su equipo puede actuar basándose en señales reales, no solo en suposiciones.
 
 1. En el panel de Braze, Jordan va a **Analytics** > **Predictive Events**.
-2. [Crea una nueva predicción de evento]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/creating_an_event_prediction/) y la llama «Actualización a Pro en 7 días».
+2. [Crea una nueva predicción de evento]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/creating_an_event_prediction) y la llama «Actualización a Pro en 7 días».
 3. Como evento de destino, selecciona su evento personalizado: `upgraded_to_pro`.
 4. Jordan establece el periodo de predicción en 7 días, configura un calendario de actualizaciones y crea la predicción.
 
@@ -31,26 +31,26 @@ Jordan comienza definiendo el resultado más importante para su estrategia de ac
 
 ## Paso 2: Segmentar a los usuarios en función de la probabilidad de actualización {#step-2-segment-users-based-on-upgrade-probability}
 
-Una vez completado el entrenamiento, Braze asigna una [puntuación de probabilidad de evento]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/analytics/#purchase_score) (0-100) a cada usuario elegible. Jordan utiliza esta puntuación para crear Segments procesables: uno para usuarios con alta intención que quizá no necesiten un descuento, y otro para usuarios que probablemente no se conviertan sin ayuda.
+Una vez completado el entrenamiento, Braze asigna una [puntuación de probabilidad de evento]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/analytics#purchase_score) (0-100) a cada usuario elegible. Jordan utiliza esta puntuación para crear segmentos procesables: uno para usuarios con alta intención que quizá no necesiten un descuento, y otro para usuarios que probablemente no se conviertan sin ayuda.
 
 1. Jordan navega hasta Segments en Braze.
-2. Crea dos [Segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) utilizando el [filtro de puntuación de probabilidad de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#event-likelihood-score) y selecciona la predicción que ha creado. Los dos Segments son:
+2. Crea dos [segmentos]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) utilizando el [filtro de puntuación de probabilidad de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score) y selecciona la predicción que ha creado. Los dos segmentos son:
   - **Probabilidad de actualización:** Puntuación superior a 70
   - **Necesita un empujón para actualizarse:** Puntuación superior a 40 e inferior a 70
 
 {% alert tip %}
-Los filtros predictivos se pueden combinar con cualquier otro atributo o comportamiento de los usuarios. Jordan tiene previsto perfeccionar aún más estos Segments en función de los intereses de los usuarios, por ejemplo, dando prioridad a los usuarios que utilizan con frecuencia las características de seguimiento de la actividad física. Esto le permite segmentar con mayor precisión cuatro subgrupos, adaptando el contenido y la mensajería a las necesidades de cada usuario.
+Los filtros predictivos se pueden combinar con cualquier otro atributo o comportamiento de los usuarios. Jordan tiene previsto perfeccionar aún más estos segmentos en función de los intereses de los usuarios, por ejemplo, dando prioridad a los usuarios que utilizan con frecuencia las características de seguimiento de la actividad física. Esto le permite segmentar con mayor precisión cuatro subgrupos, adaptando el contenido y la mensajería a las necesidades de cada usuario.
 {% endalert %}
 
-![Generador de Segments con dos filtros para la puntuación de probabilidad de evento.]({% image_buster /assets/img/ai_use_cases/event_likelihood_score.png %})
+![Generador de segmentos con dos filtros para la puntuación de probabilidad de evento.]({% image_buster /assets/img/ai_use_cases/event_likelihood_score.png %})
 
 ## Paso 3: Personalizar la mensajería según el nivel de intención {#step-3-personalize-messaging-by-intent-level}
 
 Ahora que Jordan tiene señales claras de intención de actualización, y subgrupos refinados basados en el comportamiento de los usuarios, crea una estrategia de mensajería que se adapta a las necesidades de cada usuario. Se acabaron los mensajes genéricos para todos.
 
-Elige el correo electrónico como canal principal para esta Campaign. ¿Por qué? Porque Jordan quiere explicar el valor de Pro a los usuarios con alta intención y presentar argumentos convincentes a los usuarios más indecisos, lo que requiere espacio, elementos visuales y una llamada a la acción contundente. El correo electrónico le ofrece la flexibilidad necesaria para hacerlo bien sin presionar a los usuarios y le permite realizar el seguimiento del rendimiento a través del comportamiento de los clics.
+Elige el correo electrónico como canal principal para esta campaña. ¿Por qué? Porque Jordan quiere explicar el valor de Pro a los usuarios con alta intención y presentar argumentos convincentes a los usuarios más indecisos, lo que requiere espacio, elementos visuales y una llamada a la acción contundente. El correo electrónico le ofrece la flexibilidad necesaria para hacerlo bien sin presionar a los usuarios y le permite realizar el seguimiento del rendimiento a través del comportamiento de los clics.
 
-Jordan [crea un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) que divide la experiencia en función de los Segments que acaba de crear. Añade un paso de rutas de audiencia para dirigirse a:
+Jordan [crea un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) que divide la experiencia en función de los segmentos que acaba de crear. Añade un paso de rutas de audiencia para dirigirse a:
 
 - Usuarios con alta intención, centrados en el fitness
 - Alta intención, otros usuarios
@@ -64,7 +64,7 @@ También configura el evento de conversión de Canvas como el evento personaliza
 ### Ejemplos de mensajes por ruta {#example-messages-per-path}
 
 {% tabs %}
-{% tab High intent, fitness %}
+{% tab Alta intención, fitness %}
 
 Estos usuarios ya son activos y tienen una gran interacción con las características de seguimiento de la actividad física. Es probable que actualicen sin incentivos adicionales, por lo que el mensaje se centra en ofrecer información más detallada y herramientas avanzadas que se basan en sus hábitos actuales.
 
@@ -74,7 +74,7 @@ Estos usuarios ya son activos y tienen una gran interacción con las caracterís
 - **CTA:** Comienza tu prueba gratuita de Pro
 
 {% endtab %}
-{% tab High intent, other %}
+{% tab Alta intención, otros %}
 Estos usuarios muestran fuertes indicios de interacción, como navegar por las características Pro o utilizar la aplicación con frecuencia, pero no se centran específicamente en el seguimiento de la actividad física. El mensaje destaca las ventajas generales de Pro, como el coaching y la personalización, para animarlos a dar el paso.
 
 - **Línea del asunto:** Ya casi lo tienes: Pro estará listo cuando tú lo estés
@@ -83,7 +83,7 @@ Estos usuarios muestran fuertes indicios de interacción, como navegar por las c
 - **CTA:** Comienza tu prueba gratuita de Pro
 
 {% endtab %}
-{% tab Low intent, fitness %}
+{% tab Baja intención, fitness %}
 Estos usuarios prueban las características de fitness, pero no han dado pasos para actualizarse. El mensaje se centra en sus intereses en materia de fitness y reduce la fricción con una oferta por tiempo limitado, lo que les ayuda a ver Pro como una forma de bajo riesgo de mejorar su rutina.
 
 - **Línea del asunto:** ¿Listo para entrenar de forma más inteligente? Prueba Pro con un 50 % de descuento
@@ -92,7 +92,7 @@ Estos usuarios prueban las características de fitness, pero no han dado pasos p
 - **CTA:** Consigue un 50 % de descuento en Pro
 
 {% endtab %}
-{% tab Low intent, other %}
+{% tab Baja intención, otros %}
 
 Estos usuarios muestran una interacción mínima en general. Es poco probable que se actualicen sin un incentivo convincente, por lo que el mensaje adopta un enfoque sencillo que prioriza las ventajas, con un descuento y un lenguaje suave para invitar a explorar sin presiones.
 
@@ -106,7 +106,7 @@ Estos usuarios muestran una interacción mínima en general. Es poco probable qu
 
 ## Paso 4: Medir los resultados y optimizar tu estrategia {#step-4-measure-results-and-optimize-your-strategy}
 
-Una vez finalizada la Campaign, Jordan revisa el rendimiento en [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/) para comprender qué tan bien funcionaron las rutas personalizadas y si la combinación de la intención predictiva con las señales de comportamiento mejoró las tasas de actualización.
+Una vez finalizada la campaña, Jordan revisa el rendimiento en [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics) para comprender qué tan bien funcionaron las rutas personalizadas y si la combinación de la intención predictiva con las señales de comportamiento mejoró las tasas de actualización.
 
 Rendimiento del correo electrónico por ruta:
 
@@ -131,14 +131,14 @@ Rendimiento del correo electrónico por ruta:
    - *Tasa de conversión:* 6 %
    - Oferta del 50 % de descuento incluida
 
-En comparación con la Campaign anterior del equipo, que era igual para todos (en la que un descuento general después de 7 días solo generó un 5 % de conversiones y un exceso de mensajes), el enfoque segmentado muestra un aumento significativo en todos los grupos, con una mayor eficiencia y menos descuentos innecesarios.
+En comparación con la campaña anterior del equipo, que era igual para todos (en la que un descuento general después de 7 días solo generó un 5 % de conversiones y un exceso de mensajes), el enfoque segmentado muestra un aumento significativo en todos los grupos, con una mayor eficiencia y menos descuentos innecesarios.
 
-El [informe de embudo]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/) también muestra una clara reducción en el abandono en los pasos clave, especialmente en el caso de los usuarios con baja intención que recibieron mensajes personalizados. Cada vez más usuarios abren, hacen clic y actualizan, lo que demuestra el valor de la segmentación basada en la intención.
+El [informe de embudo]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) también muestra una clara reducción en el abandono en los pasos clave, especialmente en el caso de los usuarios con baja intención que recibieron mensajes personalizados. Cada vez más usuarios abren, hacen clic y actualizan, lo que demuestra el valor de la segmentación basada en la intención.
 
 Jordan utiliza esta información para:
 
 - Explorar pruebas A/B en las líneas del asunto y la redacción de las llamadas a la acción (CTA)
 - Reevaluar el umbral de descuento para los usuarios con intención media
-- Continuar perfeccionando los Segments basándose en comportamientos adicionales, como las visualizaciones de contenido o el uso de las características de la aplicación
+- Continuar perfeccionando los segmentos basándose en comportamientos adicionales, como las visualizaciones de contenido o el uso de las características de la aplicación
 
 Gracias a Predictive Events y a la segmentación por capas, su equipo cuenta ahora con una estrategia escalable que adapta la mensajería en función de la intención y el comportamiento de los usuarios, lo que impulsa más actualizaciones y preserva la confianza en la marca.

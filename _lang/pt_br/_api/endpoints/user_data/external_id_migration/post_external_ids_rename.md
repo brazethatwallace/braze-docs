@@ -20,7 +20,7 @@ Você pode enviar até 50 objetos de renomeação por solicitação.
 
 Esse endpoint define um novo `external_id` (primário) para o usuário e torna obsoleto o `external_id` existente. Isso significa que o usuário pode ser identificado por qualquer um dos `external_id` até que o obsoleto seja removido. Ter vários IDs externos permite um período de migração para que as versões legadas dos seus apps que usam o esquema de nomenclatura de ID externo anterior não sejam interrompidas.
 
-Depois que o esquema de nomenclatura antigo não estiver mais em uso, é altamente recomendável remover IDs externos obsoletos usando o [endpoint `/users/external_ids/remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove/).
+Depois que o esquema de nomenclatura antigo não estiver mais em uso, é altamente recomendável remover IDs externos obsoletos usando o [endpoint `/users/external_ids/remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove).
 
 {% alert warning %}
 Remova os IDs externos obsoletos com o endpoint `/users/external_ids/remove` em vez de `/users/delete`. O envio de uma solicitação para `/users/delete` com o ID externo obsoleto exclui totalmente o perfil do usuário e não pode ser desfeito.
@@ -30,7 +30,7 @@ Remova os IDs externos obsoletos com o endpoint `/users/external_ids/remove` em 
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `users.external_ids.rename`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `users.external_ids.rename`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -54,7 +54,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
 | `external_id_renames` | Obrigatória | Array de objetos de renomeação de identificador externo | Veja o exemplo de solicitação e as limitações a seguir para a estrutura do objeto de renomeação do identificador externo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 Observe o seguinte:
 

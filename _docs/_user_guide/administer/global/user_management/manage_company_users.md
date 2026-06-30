@@ -18,8 +18,8 @@ To add a new user:
 
 1. Go to **Settings** > **User Management** > **Company Users**.
 2. Select **+ Add New User**.
-3. Enter their information as prompted, including their email, department, and [user role]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#creating-a-role).
-4. For users that aren't administrators, select the company-level and workspace-level [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#editing-a-users-permissions) you want this user to have.
+3. Enter their information as prompted, including their email, department, and [user role]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#creating-a-role).
+4. For users that aren't administrators, select the company-level and workspace-level [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#editing-a-users-permissions) you want this user to have.
 
 ![Workspace-level permissions with a section for custom permissions fields.]({% image_buster /assets/img/add_new_user_3.png %})
 
@@ -29,7 +29,7 @@ Every email address used in an [instance]({{site.baseurl}}/user_guide/administer
 
 If your team uses Gmail and you're experiencing issues adding an email address, you can create an alias by adding a plus sign (+) like "+1" or "+test" to the email address. For example, `contractor@braze.com` can have an alias of `contractor+1@braze.com`. Emails to `contractor+1@braze.com` will still be delivered to `contractor@braze.com`, but the alias will be recognized as a unique email address.
 
-To use one account across multiple companies without aliases, see [Use multi-company developers]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#use-multi-company-developers). If you use SSO, review [Considerations for Single Sign-On (SSO)]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#considerations-for-single-sign-on-sso) before registering with multiple email addresses.
+To use one account across multiple companies without aliases, see [Use multi-company developers]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#use-multi-company-developers). If you use SSO, review [Considerations for Single Sign-On (SSO)]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#considerations-for-single-sign-on-sso) before registering with multiple email addresses.
 
 ### Can I change my Braze account's email address?
 
@@ -37,7 +37,7 @@ For security reasons, users cannot change the email address associated with thei
 
 ## Assigning user access and responsibilities
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Suspending company users
 
@@ -89,7 +89,7 @@ If adding a dashboard user fails with an "Unable to perform action" (or similar)
 
 - Remove leading or trailing spaces and hidden characters from the email address.
 - Confirm the address is a valid email format for your organization. Some special characters are rejected.
-- The same email cannot be used for two dashboard users in the same [cluster]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/). If the address is already registered in another workspace on that cluster, use a distinct address or an alias such as `user+1@company.com`.
+- The same email cannot be used for two dashboard users in the same [cluster]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account). If the address is already registered in another workspace on that cluster, use a distinct address or an alias such as `user+1@company.com`.
 
 ### "Email is already taken" when trying to add a user
 
@@ -106,5 +106,5 @@ If you don't receive the message activation in your inbox when using `testing+01
 
 After adding users, manage their access:
 
-- [Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) to configure what each user can do in the dashboard.
-- [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) to organize users into groups with shared access to specific dashboard objects.
+- [Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) to configure what each user can do in the dashboard.
+- [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) to organize users into groups with shared access to specific dashboard objects.

@@ -109,7 +109,7 @@ Erkunden Sie unser [Beispielprojekt](https://github.com/braze-inc/braze-swift-sd
 
 ## Kontakt {#contact}
 
-Bei Fragen wenden Sie sich bitte an [support@braze.com](mailto:support@braze.com).
+Bei Fragen wenden Sie sich bitte an den technischen Support von Braze.
 
 [braze-inc/braze-swift-sdk]: https://github.com/braze-inc/braze-swift-sdk
 [braze-inc/braze-swift-sdk-prebuilt-static]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-static

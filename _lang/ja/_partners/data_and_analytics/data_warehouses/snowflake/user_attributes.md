@@ -59,7 +59,7 @@ toc_headers: h2
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available views" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="利用可能なビュー" }
 
 ## ユーザープロファイルスナップショット {#user-profile-snapshots}
 
@@ -95,7 +95,7 @@ toc_headers: h2
 | `GENDER` | VARCHAR |
 | `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
+| `TIME_ZONE` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
@@ -159,7 +159,7 @@ toc_headers: h2
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
+| `TIME_ZONE` | VARCHAR |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED schema" }
 
 ### `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`スキーマ {#user_latest_state_custom_attribute_view_shared-schema}
@@ -211,7 +211,7 @@ toc_headers: h2
 | `GENDER` | VARCHAR |
 | `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
+| `TIME_ZONE` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
@@ -246,7 +246,7 @@ toc_headers: h2
 | 最近の更新を必要としない**一般的なクエリ** | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`と`USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`               | 高速な実行。データは最大12時間前のものです。                          |
 | **最新のユーザー属性**を必要とするクエリ       | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`と`USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | ほぼリアルタイムの更新を提供しますが、大規模なデータセットでは低速になる場合があります。 |
 | 属性変更の**履歴追跡**           | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`と`USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`      | 属性の変更を12時間の粒度で保存します。                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Recommended query usage" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="推奨されるクエリの使用方法" }
 
 ### パフォーマンスに関する考慮事項 {#performance-considerations}
 

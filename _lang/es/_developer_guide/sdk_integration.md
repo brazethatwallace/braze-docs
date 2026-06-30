@@ -7,12 +7,12 @@ page_order: 2.0
 
 # ![Logotipo de Braze]({% image_buster /assets/Braze_Primary_Icon_BLACK.svg %}){: style="float:right;width:120px;border:0;" class="noimgborder"}Integra el SDK de Braze {#braze-logo-image_buster-assetsbraze_primary_icon_blacksvg-stylefloatrightwidth120pxborder0-classnoimgborderintegrate-the-braze-sdk}
 
-> Aprende a integrar el SDK de Braze. Cada SDK está alojado en su propio repositorio público de GitHub, que incluye aplicaciones de muestra totalmente compilables que puedes utilizar para probar las características de Braze o implementar junto con tus propias aplicaciones. Para obtener más información, consulta [Referencias, repositorios y aplicaciones de ejemplo]({{site.baseurl}}/developer_guide/references/). Para obtener información más general sobre el SDK, consulta [Introducción: Resumen de la integración]({{site.baseurl}}/developer_guide/getting_started/integration_overview/).
+> Aprende a integrar el SDK de Braze. Cada SDK está alojado en su propio repositorio público de GitHub, que incluye aplicaciones de muestra totalmente compilables que puedes utilizar para probar las características de Braze o implementar junto con tus propias aplicaciones. Para obtener más información, consulta [Referencias, repositorios y aplicaciones de ejemplo]({{site.baseurl}}/developer_guide/references). Para obtener información más general sobre el SDK, consulta [Introducción: Resumen de la integración]({{site.baseurl}}/developer_guide/getting_started/integration_overview).
 
-Para ver el contenido del README del SDK reflejado en la documentación, consulta [Guías de repositorios]({{site.baseurl}}/developer_guide/sdk_repository_guides/).
+Para ver el contenido del README del SDK reflejado en la documentación, consulta [Guías de repositorios]({{site.baseurl}}/developer_guide/sdk_repository_guides).
 
 {% alert tip %}
-Después de integrar el SDK, puedes habilitar la [Autenticación SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication/) para añadir una capa adicional de seguridad evitando las solicitudes no autorizadas al SDK. La Autenticación SDK está disponible para Web, Android, Swift, React Native, Flutter, Unity, Cordova, .NET MAUI (Xamarin) y Expo.
+Después de integrar el SDK, puedes habilitar la [Autenticación SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication) para añadir una capa adicional de seguridad evitando las solicitudes no autorizadas al SDK. La Autenticación SDK está disponible para Web, Android, Swift, React Native, Flutter, Unity, Cordova, .NET MAUI (Xamarin) y Expo.
 {% endalert %}
 
 {% sdktabs %}
@@ -62,5 +62,5 @@ Después de integrar el SDK, puedes habilitar la [Autenticación SDK]({{site.bas
 {% endsdktabs %}
 
 {% alert note %}
-Mientras realizas el control de calidad de tu integración de SDK, utiliza el [Depurador de SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging/) para solucionar problemas sin activar el registro detallado de tu aplicación.
+Mientras realizas el control de calidad de tu integración de SDK, utiliza el [Depurador de SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging) para solucionar problemas sin necesidad de activar el registro detallado en tu aplicación.
 {% endalert %}

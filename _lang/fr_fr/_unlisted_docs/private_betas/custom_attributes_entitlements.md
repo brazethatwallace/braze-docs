@@ -42,18 +42,18 @@ Les administrateurs peuvent également créer des attributs personnalisés et le
 
 ### Ajouter des descriptions {#adding-descriptions}
 
-Vous pouvez ajouter une description à un attribut personnalisé après sa création si vous disposez de l'[autorisation utilisateur](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) `Manage Events, Attributes, Purchases`. Modifiez l'attribut personnalisé et saisissez ce que vous souhaitez, comme une note pour votre équipe.
+Vous pouvez ajouter une description à un attribut personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) `Manage Events, Attributes, Purchases`. Modifiez l'attribut personnalisé et saisissez ce que vous souhaitez, comme une note pour votre équipe.
 
 ### Ajouter des étiquettes {#adding-tags}
 
-Vous pouvez ajouter des étiquettes à un attribut personnalisé après sa création si vous disposez de l'[autorisation utilisateur](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) « Manage Events, Attributes, Purchases ». Les étiquettes peuvent ensuite être utilisées pour filtrer la liste des attributs.
+Vous pouvez ajouter des étiquettes à un attribut personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) « Manage Events, Attributes, Purchases ». Les étiquettes peuvent ensuite être utilisées pour filtrer la liste des attributs.
 
 ### Supprimer des attributs personnalisés {#removing-custom-attributes}
 
 Il existe deux façons de supprimer des attributs personnalisés des profils utilisateur :
 
-* Sélectionnez le nom de l'attribut personnalisé à supprimer dans une [étape Mise à jour utilisateur](https://www.braze.com/docs/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes).
-* Définissez la valeur `null` dans votre requête API vers l'[endpoint `/users/track`](https://www.braze.com/docs/api/endpoints/user_data/post_user_track#user-track).
+* Sélectionnez le nom de l'attribut personnalisé à supprimer dans une [étape Mise à jour utilisateur]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes).
+* Définissez la valeur `null` dans votre requête API vers l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track).
 
 ### Afficher les rapports d'utilisation {#viewing-usage-reports}
 
@@ -71,19 +71,19 @@ La liste suivante présente les méthodes utilisées sur différentes plateforme
 
 {% details Développer pour la documentation par plateforme %}
 
-- [Android et FireOS](https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/?sdktab=android)
-- [iOS](https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
-- [Web](https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/?sdktab=web)
-- [React Native](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
-- [Unity](https://www.braze.com/docs/developer_guide/platform_integration_guides/unity/Analytics/setting_custom_attributes/)
-- [Xamarin](https://www.braze.com/docs/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
-- [Roku](https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/)
+- [Android et FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
+- [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=unity)
+- [Xamarin]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)
 
 {% enddetails %}
 
 ## Stockage des attributs personnalisés {#custom-attribute-storage}
 
-Toutes les données stockées dans le **profil utilisateur**, y compris les données d'attributs personnalisés, sont conservées indéfiniment tant que chaque profil est [actif](https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users).
+Toutes les données stockées dans le **profil utilisateur**, y compris les données d'attributs personnalisés, sont conservées indéfiniment tant que chaque profil est [actif]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users).
 
 ## Types de données des attributs personnalisés {#custom-attribute-data-types}
 
@@ -96,8 +96,8 @@ Les types de données suivants peuvent être stockés en tant qu'attributs perso
 - [Chaînes de caractères](#strings)
 - [Tableaux](#arrays)
 - [Horodatage](#time)
-- [Objets](https://www.braze.com/docs/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)
-- [Tableaux d'objets](https://www.braze.com/docs/user_guide/data/custom_data/custom_attributes/array_of_objects/)
+- [Objets]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)
+- [Tableaux d'objets]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/)
 
 ### Booléens (vrai/faux) {#booleans}
 
@@ -158,7 +158,7 @@ Notez que si vous saisissez des valeurs avec des espaces entre, avant ou après 
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert note %}
-Une chaîne de date telle que « 12-1-2021 » ou « 12/1/2021 » sera convertie en objet datetime et traitée comme un [attribut de type horodatage](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_attributes/#time).
+Une chaîne de date telle que « 12-1-2021 » ou « 12/1/2021 » sera convertie en objet datetime et traitée comme un [attribut de type horodatage]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#time).
 {% endalert %}
 
 {% alert important %}
@@ -197,7 +197,7 @@ L'option d'augmenter la longueur maximale ne sera pas disponible si l'attribut e
 {% alert tip %}
 Pour en savoir plus sur l'utilisation des expressions régulières (regex), consultez ces ressources :
 - [Expressions régulières compatibles Perl (PCRE)](https://www.regextester.com/pregsyntax.html)
-- [Regex avec Braze](https://www.braze.com/docs/user_guide/engagement_tools/segments/regex/)
+- [Regex avec Braze]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/)
 - [Débogueur et testeur de regex](https://www.regex101.com/)
 - [Tutoriel regex](https://www.medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -208,7 +208,7 @@ Les attributs de type horodatage sont utiles pour stocker la dernière fois qu'u
 
 Les filtres temporels utilisant des dates relatives (par exemple, il y a plus d'un jour, il y a moins de 2 jours) mesurent 1 jour comme 24 heures. Toute Campaign que vous exécutez avec ces filtres inclura tous les utilisateurs par tranches de 24 heures. Par exemple, `last used app more than 1 day ago` capturera tous les utilisateurs qui « ont utilisé l'application pour la dernière fois il y a plus de 24 heures » à partir du moment exact où la Campaign est exécutée. Il en sera de même pour les Campaigns définies avec des plages de dates plus longues — cinq jours à partir de l'activation signifieront les 120 heures précédentes.
 
-Par exemple, pour créer un segment qui cible les utilisateurs avec un attribut de type horodatage entre 24 et 48 heures dans le futur, appliquez les filtres `in more than 1 day in the future` et `in less than 2 days in the future`.
+Par exemple, pour créer un Segment qui cible les utilisateurs avec un attribut de type horodatage entre 24 et 48 heures dans le futur, appliquez les filtres `in more than 1 day in the future` et `in less than 2 days in the future`.
 
 {% alert warning %}
 La dernière date à laquelle un événement personnalisé ou un événement d'achat s'est produit est automatiquement enregistrée et ne doit pas être enregistrée à nouveau via un attribut personnalisé de type horodatage.
@@ -236,11 +236,11 @@ La dernière date à laquelle un événement personnalisé ou un événement d'a
 
 ### Objets {#objects}
 
-Vous pouvez utiliser des attributs personnalisés imbriqués pour envoyer des objets comme type de données pour les attributs personnalisés. Pour plus d'informations, consultez [Attributs personnalisés imbriqués](https://www.braze.com/docs/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
+Vous pouvez utiliser des attributs personnalisés imbriqués pour envoyer des objets comme type de données pour les attributs personnalisés. Pour plus d'informations, consultez [Attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
 
 ### Tableaux d'objets {#arrays-of-objects}
 
-Utilisez un tableau d'objets pour regrouper des attributs liés. Pour plus de détails, consultez notre article sur les [tableaux d'objets](https://www.braze.com/docs/user_guide/data/custom_data/custom_attributes/array_of_objects/).
+Utilisez un tableau d'objets pour regrouper des attributs liés. Pour plus de détails, consultez notre article sur les [tableaux d'objets]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/).
 
 ### Opérateurs consolidés {#consolidated-operators}
 
@@ -273,7 +273,7 @@ L'utilisation de nos méthodes d'achat pour enregistrer les achats in-app établ
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert tip %}
-Si vous souhaitez segmenter sur le nombre de fois qu'un achat spécifique a eu lieu, vous devez également enregistrer cet achat individuellement en tant qu'[attribut personnalisé incrémental](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes/#incrementingdecrementing-custom-attributes).
+Si vous souhaitez segmenter sur le nombre de fois qu'un achat spécifique a eu lieu, vous devez également enregistrer cet achat individuellement en tant qu'[attribut personnalisé incrémental]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes/#incrementingdecrementing-custom-attributes).
 {% endalert %}
 
-Vous pouvez modifier le type de données de votre attribut personnalisé, mais vous devez être conscient des impacts du [changement de type de données](https://www.braze.com/docs/help/help_articles/data/change_custom_data_type/).
+Vous pouvez modifier le type de données de votre attribut personnalisé, mais vous devez être conscient des impacts du [changement de type de données]({{site.baseurl}}/help/help_articles/data/change_custom_data_type/).

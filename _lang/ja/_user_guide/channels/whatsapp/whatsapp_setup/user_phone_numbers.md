@@ -17,7 +17,7 @@ channel:
 
 ## 電話番号のインポート {#importing-phone-numbers}
 
-電話番号は、[CSVをアップロード]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv)するか、[API経由]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint)でユーザーを作成することでインポートできます。
+電話番号は、[CSVをアップロード]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv)するか、[API経由]({{site.baseurl}}/api/endpoints/user_data#user-track-endpoint)でユーザーを作成することでインポートできます。
 
 ### フォーマット {#formatting}
 
@@ -29,7 +29,7 @@ channel:
 
 すべての国際番号は`+`で始まり、その後に国コード、電話番号が続く必要があります。（例：`+442071838750`）
 
-![]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
+![フォーマットに関するスクリーンショット。]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
 
 ただし、異なる国コードや市外局番を持つ複数の地域に送信する場合の正確性を確保するために、米国ベースの電話番号であっても`E.164`形式を使用することをお勧めします。
 
@@ -40,11 +40,11 @@ channel:
 | 米国 | `4155552671` | 1 | `+14155552671` |
 | 英国 | `02071838750` | 44 | `+442071838750` |
 | ブラジル | `1155256325` | 55 | `+551155256325` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Formatting" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="フォーマット" }
 
 ### WhatsAppサブスクリプショングループへのユーザーの追加 {#adding-users-to-whatsapp-a-subscription-group}
 
-顧客がWhatsAppメッセージを受信するには、有効な電話番号を持ち、サブスクリプショングループにオプトインしている必要があります。詳細については、[WhatsAppサブスクリプショングループ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/)を参照してください。
+顧客がWhatsAppメッセージを受信するには、有効な電話番号を持ち、サブスクリプショングループにオプトインしている必要があります。詳細については、[WhatsAppサブスクリプショングループ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)を参照してください。
 
 
 ### 同じ電話番号を持つ複数のユーザー {#multiple-users-with-the-same-phone-number}

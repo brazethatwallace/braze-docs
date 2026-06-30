@@ -16,17 +16,17 @@ channel: in-app messages
 
 ## 작동 방식 {#how-it-works}
 
-Canvas에서 인앱 메시지를 사용하기 전에, 지연 및 오디언스 옵션이 설정된 [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)가 준비되어 있는지 확인하세요.
+Canvas에서 인앱 메시지를 사용하기 전에, 지연 및 오디언스 옵션이 설정된 [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)가 준비되어 있는지 확인하세요.
 
-Canvas 빌더에서 [메시지]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) 단계를 추가하고 **메시징 채널**로 **인앱 메시지**를 선택합니다. [메시지 만료 시점](#in-app-message-expiration)과 [진행 동작](#advancement-behavior)을 커스텀할 수 있습니다.
+Canvas 빌더에서 [메시지]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) 단계를 추가하고 **메시징 채널**로 **인앱 메시지**를 선택합니다. [메시지 만료 시점](#in-app-message-expiration)과 [진행 동작](#advancement-behavior)을 커스텀할 수 있습니다.
 
-워크스페이스에 여러 앱이 있는 경우, 전달 유효성 검사가 아닌 **전달 플랫폼**, {% raw %}`{{targeted_device.${platform}}}`{% endraw %} 또는 {% raw %}`{{app.${api_id}}}`{% endraw %} Liquid 태그를 사용하여 올바른 앱을 타겟팅하세요. 인앱 메시지는 사용자가 타겟팅된 앱을 열고 단계의 트리거 기준을 충족할 때만 표시됩니다. 자세한 내용은 [전달 유효성 검사]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations)를 참조하세요.
+워크스페이스에 여러 앱이 있는 경우, 전달 유효성 검사가 아닌 **전달 플랫폼**, {% raw %}`{{targeted_device.${platform}}}`{% endraw %} 또는 {% raw %}`{{app.${api_id}}}`{% endraw %} Liquid 태그를 사용하여 올바른 앱을 타겟팅하세요. 인앱 메시지는 사용자가 타겟팅된 앱을 열고 단계의 트리거 기준을 충족할 때만 표시됩니다. 자세한 내용은 [전달 유효성 검사]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations)를 참조하세요.
 
 ## 사용자 여정에 인앱 메시지 추가하기 {#adding-an-in-app-message-to-your-user-journey}
 
 Canvas에 인앱 메시지를 추가하려면 다음을 수행하세요:
 
-1. 사용자 여정에 [메시지]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) 단계를 추가합니다.
+1. 사용자 여정에 [메시지]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) 단계를 추가합니다.
 2. **메시징 채널**로 **인앱 메시지**를 선택합니다.
 3. [메시지 만료 시점](#in-app-message-expiration)과 [진행 동작](#advancement-behavior-options)을 결정합니다.
 
@@ -54,7 +54,7 @@ Canvas에 인앱 메시지를 추가하려면 다음을 수행하세요:
 
 인앱 메시지가 사용자가 메시지 단계에 도달할 때 이미 지난 특정 날짜와 시간에 만료되도록 설정된 경우, 해당 사용자는 인앱 메시지를 받지 않습니다. 해당 단계의 [진행 동작](#advancement-behavior)에 따라 Canvas를 계속 진행합니다.
 
-이는 [지연]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/) 단계와 같은 이전 단계가 사용자를 더 긴 경로에 머물게 할 때 자주 발생합니다. 예를 들어, 5월 22일에 Canvas를 시작하고 72시간 지연 후 5월 23일 자정에 만료되는 인앱 메시지가 있는 경우, 사용자는 만료 시간 이후에 메시지 단계에 도달하므로 인앱 메시지를 보지 못합니다.
+이는 [지연]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) 단계와 같은 이전 단계가 사용자를 더 긴 경로에 머물게 할 때 자주 발생합니다. 예를 들어, 5월 22일에 Canvas를 시작하고 72시간 지연 후 5월 23일 자정에 만료되는 인앱 메시지가 있는 경우, 사용자는 만료 시간 이후에 메시지 단계에 도달하므로 인앱 메시지를 보지 못합니다.
 
 ## 활용 사례 {#use-cases}
 
@@ -189,7 +189,7 @@ Braze는 프로모션 및 온보딩 Canvases에서 이 기능을 사용하는 �
 
 사용자가 인앱 메시지 단계에 진입하면, 만료 기간 동안 대기하지 않고 즉시 다음으로 진행합니다. 이 경우 사용자 여정에 지연 단계를 두는 것이 도움이 될 수 있습니다.
 
-**메시지 발송 시 진행** 옵션을 사용하려면, 이전 단계를 받지 못한 사용자를 필터링하기 위해 별도의 [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)를 추가하세요.
+**메시지 발송 시 진행** 옵션을 사용하려면, 이전 단계를 받지 못한 사용자를 필터링하기 위해 별도의 [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)를 추가하세요.
 
 {% details 기존 Canvas 에디터 %}
 
@@ -205,7 +205,7 @@ Braze는 프로모션 및 온보딩 Canvases에서 이 기능을 사용하는 �
 **인앱 메시지 라이브 시 진행**이 선택된 경우, 사용자가 후속 단계로 이동했더라도 인앱 메시지는 만료될 때까지 사용 가능합니다. Canvas의 다음 단계가 전달될 때 인앱 메시지가 라이브 상태가 아니길 원한다면, 만료 기간이 후속 단계의 지연보다 짧은지 확인하세요.
 {% endalert %}
 
-#### 여러 채널이 있는 단계 {#steps-multiple-channels}
+### 여러 채널이 있는 단계 {#steps-multiple-channels}
 
 인앱 메시지와 다른 채널이 포함된 단계에는 다음과 같은 진행 옵션이 있습니다:
 
@@ -213,7 +213,7 @@ Braze는 프로모션 및 온보딩 Canvases에서 이 기능을 사용하는 �
 |---|---|
 | 메시지 발송 시 진행 | 사용자가 이메일, 웹훅 또는 푸시 알림을 받거나 인앱 메시지를 조회해야 Canvas의 후속 단계로 진행할 수 있습니다.  <br> <br>  인앱 메시지가 만료되고 사용자가 이메일, 웹훅 또는 푸시를 받지 않았거나 인앱 메시지를 조회하지 않은 경우, Canvas를 종료하며 후속 단계로 진행하지 않습니다. |
 | 즉시 오디언스 진행 | 단계의 오디언스에 속한 모든 사용자는 지연이 경과한 후 해당 메시지를 보았는지 여부에 관계없이 다음 단계로 진행합니다. <br> <br> 사용자는 다음 단계로 진행하기 위해 단계의 Segment 및 필터 기준을 충족해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Steps with multiple channels #steps-multiple-channels" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="여러 채널이 있는 단계" }
 
 {% alert important %}
 **전체 오디언스**가 선택된 경우, 사용자가 후속 단계로 이동했더라도 인앱 메시지는 만료될 때까지 사용 가능합니다. Canvas의 다음 단계가 전달될 때 인앱 메시지가 라이브 상태가 아니길 원한다면, 만료 기간이 후속 단계의 지연보다 짧은지 확인하세요.

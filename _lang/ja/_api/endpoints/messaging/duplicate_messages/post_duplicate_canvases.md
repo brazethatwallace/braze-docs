@@ -10,7 +10,7 @@ description: "この記事では、「キャンバスの複製」エンドポイ
 
 {% api %}
 # APIを使用したキャンバスの複製 {#duplicate-canvases-using-the-api}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/duplicate
 {% endapimethod %}
 
@@ -34,9 +34,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 ```json
 {
   "canvas_id": (required, string) The Canvas identifier,
-  "name": (required, string) The name of the resulting キャンバス,
-  "description": (optional, string) The description of the resulting キャンバス,
-  "tag_names": (optional, string) The tags of the resulting キャンバス,
+  "name": (required, string) The name of the resulting Canvas,
+  "description": (optional, string) The description of the resulting Canvas,
+  "tag_names": (optional, string) The tags of the resulting Canvas,
 }
 ```
 
@@ -44,11 +44,11 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id` | 必須 | 文字列 | [Canvas識別子](https://www.braze.com/docs/api/identifier_types/)を参照してください。 |
+| `canvas_id` | 必須 | 文字列 | [キャンバス識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
 | `name` | 必須 | 文字列 | 作成されるキャンバスの名前。 |
 | `description` | オプション | 文字列 | 作成されるキャンバスの説明フィールド。 |
 | `tag_names` | オプション | 文字列 | 作成されるキャンバスのタグ。これらは既存のタグである必要があります。リクエストに新しいタグを追加すると、元のキャンバスにあったすべてのタグが上書きされます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## 応答 {#response}
 

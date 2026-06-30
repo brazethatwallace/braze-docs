@@ -40,8 +40,8 @@ Predictive Churn이 회사 수준에서 활성화되어 있더라도 일부 워�
 
 ### 예측 품질이 좋지 않음 {#prediction-has-poor-quality}
 
-![]({% image_buster /assets/img/churn/churn3.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
-모델의 [예측 품질]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics/)이 40% 이상이면 좋은 결과입니다! 하지만 예측 품질이 39% 이하로 떨어지면, 고객이탈 및 예측 오디언스 정의를 보다 구체적으로 수정하거나 다른 시간 기간을 설정해야 할 수 있습니다.
+![예측 품질이 좋지 않은 경우의 스크린샷.]({% image_buster /assets/img/churn/churn3.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
+모델의 [예측 품질]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics)이 40% 이상이면 좋은 결과입니다! 하지만 예측 품질이 39% 이하로 떨어지면, 고객이탈 및 예측 오디언스 정의를 보다 구체적으로 수정하거나 다른 시간 기간을 설정해야 할 수 있습니다.
 
 예측 정의를 구축하면서 오디언스 크기 요구 사항을 충족하는 동시에 40% 이상의 예측 품질을 달성할 수 없다면, 이는 Braze로 전송되는 데이터가 이 사용 사례에 적합하지 않거나, 모델을 구축할 사용자가 충분하지 않거나, 제품 수명 주기가 현재의 60일 조회 기간보다 길다는 것을 의미할 수 있습니다.
 

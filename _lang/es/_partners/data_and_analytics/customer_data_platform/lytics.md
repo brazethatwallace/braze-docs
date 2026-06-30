@@ -34,7 +34,7 @@ Conecta Braze a Lytics para [importar](#importing-data-from-braze-to-lytics) cor
 | Número de cuenta Lytics | Es necesario un número de cuenta de Lytics para configurar la URL del punto de conexión del webhook. |
 | Token de la API de Lytics | Un token de REST API de Lytics con permisos de administrador de datos. <br><br> Se puede crear dentro del panel de Lytics desde **Account Settings Console** > **Access Tokens** > **Create New Token**. |
 | Clave de API REST de Braze | Una clave de API REST de Braze con permiso `users.track`. <br><br> Puede crearse en el dashboard de Braze desde **Configuración** > **Claves de API**. |
-| Instancia de Braze | Tu [instancia de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/). Ponte en contacto con tu administrador de incorporación de Braze para obtener esta información si no estás seguro. |
+| Instancia de Braze | Tu [instancia de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Ponte en contacto con tu administrador de incorporación de Braze para obtener esta información si no estás seguro. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
@@ -61,7 +61,7 @@ A continuación, elige una autorización dentro de las opciones de **Select Auth
 
 ### Paso 3: Configurar el trabajo {#step-3-configure-the-job}
 
-Dentro del mensaje **Configure Job**, proporciona una etiqueta y una descripción opcional. A continuación, en la entrada **Braze External User ID Field**, selecciona el campo de Lytics que contiene el ID externo de usuario de Braze (`braze_id`). El siguiente paso es el más importante: en el mismo cuadro de diálogo, selecciona las audiencias que vas a exportar a Braze.
+Dentro del mensaje **Configure Job**, proporciona una etiqueta y una descripción opcional. A continuación, en la entrada **Braze External User ID Field**, selecciona el campo de Lytics que contiene el ID externo de usuario de Braze (`braze_id`). El siguiente paso es el más importante: en el mismo cuadro de diálogo, selecciona las audiencias que vas a exportar a Braze mediante el selector de audiencias.
 
 Por último, elige la opción preferida para la casilla **Existing Users**. Si dejas marcada esta casilla, se añadirán los usuarios que ya existan en la audiencia de Lytics seleccionada. Si no está marcada, los usuarios solo se exportarán a Braze cuando entren o salgan de la audiencia una vez iniciado el flujo de trabajo.
 
@@ -139,7 +139,7 @@ Sustituye `<ACCOUNT-NUMBER>` por tu número de cuenta y `<LYTICS-API-TOKEN>` por
 
 #### Paso 3: Crear un webhook en Braze {#step-3-create-a-webhook-on-braze}
 
-En Braze, crea una nueva [campaña webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/). Añade la URL del webhook de Lytics en el campo **Webhook URL**.
+En Braze, crea una nueva [campaña webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook). Añade la URL del webhook de Lytics en el campo **Webhook URL**.
 
 Tras definir el tipo de solicitud (método HTTP `POST`) y configurar el resto de detalles del webhook, tu webhook está listo para ser probado y desplegado. Aquí tienes un cuerpo de muestra de la solicitud POST después de configurar el webhook en Braze:
 
@@ -147,7 +147,7 @@ Tras definir el tipo de solicitud (método HTTP `POST`) y configurar el resto de
 {
   "city": "AnyTown",
   "country": "United States",
-  "first_name": "John",
+  "first_name": "Alex",
   "gender": "male",
   "language": "English",
   "last_name": "Smith",
@@ -155,7 +155,7 @@ Tras definir el tipo de solicitud (método HTTP `POST`) y configurar el resto de
   "phone_number": "5551231234",
   "time_zone": "GMT+7",
   "twitter_handle": "johnsmith",
-  "email": "john.smith@email.com",
+  "email": "john.smith@example.com",
   "braze_id": "xxxxxx"
 }
 ```
@@ -182,7 +182,7 @@ En el mensaje **Configure Authorization** que aparece, proporciona una etiqueta 
 
 #### Paso 2: Exportar los datos de tu segmento a CSV {#step-2-export-your-segment-data-to-csv}
 
-En Braze, ve a **Audiencia** > **Segments**. Localiza el segmento que deseas exportar y, a continuación, selecciona <i class="fas fa-gear" aria-label="Configuración"></i> y luego **Exportación de datos de usuario a CSV**. Puedes exportar hasta 500.000 usuarios en un segmento. Para más detalles, consulta [Exportar datos de segmento a CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/).
+En Braze, ve a **Audiencia** > **Segments**. Localiza el segmento que deseas exportar y, a continuación, selecciona <i class="fas fa-gear" aria-label="Configuración"></i> y luego **Exportación de datos de usuario a CSV**. Puedes exportar hasta 500.000 usuarios en un segmento. Para más detalles, consulta [Exportar datos de segmento a CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv).
 
 #### Paso 3: Configurar un trabajo de importación CSV {#step-3-configure-a-csv-import-job}
 

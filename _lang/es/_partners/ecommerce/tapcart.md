@@ -18,7 +18,7 @@ _Esta integración está mantenida por Tapcart._
 | Requisito              | Descripción                                                                                                                                         |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Cuenta Tapcart Enterprise | La integración solo está disponible para **clientes de Tapcart Enterprise**.                                                                              |
-| Clave de API de la aplicación Braze         | Se requiere la [clave de API del identificador de la aplicación Braze](https://www.braze.com/docs/api/identifier_types). Cada plataforma (como iOS o Android) tiene su propio identificador de aplicación. En el panel de Braze, ve a **Settings** > **APIs and Identifiers** > **App Identifiers**. |
+| Clave de API de la aplicación Braze         | Se requiere la [clave de API del identificador de la aplicación Braze]({{site.baseurl}}/api/identifier_types/). Cada plataforma (como iOS o Android) tiene su propio identificador de aplicación. En el panel de Braze, ve a **Configuración** > **API e identificadores** > **Identificadores de aplicación**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Sobre la integración {#about-the-integration}

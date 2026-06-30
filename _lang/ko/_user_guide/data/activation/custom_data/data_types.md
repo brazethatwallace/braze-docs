@@ -99,18 +99,18 @@ toc_headers: h2
 
 ### 설명 추가 {#adding-descriptions}
 
-`Manage Events, Attributes, Purchases` [사용자 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/)이 있는 경우 커스텀 속성을 생성한 후 설명을 추가할 수 있습니다. 커스텀 속성을 편집하고 팀을 위한 메모 등 원하는 내용을 입력하세요.
+`Manage Events, Attributes, Purchases` [사용자 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions)이 있는 경우 커스텀 속성을 생성한 후 설명을 추가할 수 있습니다. 커스텀 속성을 편집하고 팀을 위한 메모 등 원하는 내용을 입력하세요.
 
 ### 태그 추가 {#adding-tags}
 
-"Manage Events, Attributes, Purchases" [사용자 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/)이 있는 경우 커스텀 속성을 생성한 후 태그를 추가할 수 있습니다. 그런 다음 태그를 사용하여 속성 목록을 필터링할 수 있습니다.
+"Manage Events, Attributes, Purchases" [사용자 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions)이 있는 경우 커스텀 속성을 생성한 후 태그를 추가할 수 있습니다. 그런 다음 태그를 사용하여 속성 목록을 필터링할 수 있습니다.
 
 ### 커스텀 속성 제거 {#removing-custom-attributes}
 
 고객 프로필에서 커스텀 속성을 제거하는 방법은 두 가지입니다:
 
-* [사용자 업데이트 단계]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes)에서 제거할 커스텀 속성 이름을 선택합니다.
-* [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track)에 대한 API 요청에서 `null` 값을 설정합니다.
+* [사용자 업데이트 단계]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes)에서 제거할 커스텀 속성 이름을 선택합니다.
+* [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track)에 대한 API 요청에서 `null` 값을 설정합니다.
 
 #### `null` 값 설정 {#setting-the-null-value}
 
@@ -145,19 +145,19 @@ toc_headers: h2
 
 {% details 플랫폼별 설명서 펼치기 %}
 
-- [Android 및 FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=android)
-- [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
-- [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=unity)
-- [.NET MAUI (이전 Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
-- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)
+- [Android 및 FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-attributes)
+- [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=unity)
+- [.NET MAUI (이전 Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#setting-custom-attributes)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
 
 {% enddetails %}
 
 ## 커스텀 속성 저장 {#custom-attribute-storage}
 
-**고객 프로필**에 저장된 모든 데이터(커스텀 속성 데이터 포함)는 각 프로필이 [활성]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users) 상태인 한 무기한 보존됩니다.
+**고객 프로필**에 저장된 모든 데이터(커스텀 속성 데이터 포함)는 각 프로필이 [활성]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#active-users) 상태인 한 무기한 보존됩니다.
 
 ## 커스텀 속성 데이터 유형
 
@@ -170,8 +170,8 @@ toc_headers: h2
 - [문자열](#strings)
 - [배열](#arrays)
 - [시간](#time)
-- [오브젝트]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)
-- [오브젝트 배열]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/)
+- [오브젝트]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)
+- [오브젝트 배열]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects)
 
 ### 부울 (참/거짓) {#booleans}
 
@@ -190,7 +190,7 @@ toc_headers: h2
 {% tab 숫자 %}
 
 {% alert tip %}
-지출 금액은 이 방법으로 기록하면 안 됩니다. 대신 [구매 이벤트]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/)를 통해 기록해야 합니다.
+지출 금액은 이 방법으로 기록하면 안 됩니다. 대신 [구매 이벤트]({{site.baseurl}}/user_guide/data/activation/events/purchase_events)를 통해 기록해야 합니다.
 {% endalert %}
 
 **숫자** 속성에 대해 다음과 같은 세분화 옵션을 사용할 수 있습니다.
@@ -240,7 +240,7 @@ toc_headers: h2
 
 배열의 최대 크기는 100&nbsp;KB입니다. 속성의 기본 길이는 최대 500개 항목입니다(예: "시청한 영화"와 같은 속성을 500으로 설정한 경우, 사용자가 501번째 영화를 시청하면 첫 번째 영화가 제거되고 가장 최근 영화가 추가됩니다). 단어 사이, 앞 또는 뒤에 공백이 포함된 값을 입력하면 Braze도 동일한 공백을 확인합니다.
 
-배열 유형 커스텀 속성은 [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/)를 통해 가져올 수 없습니다. 배열 값을 업로드하려면 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 또는 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/cloud_ingestion/)을 사용하세요.
+배열 유형 커스텀 속성은 [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)를 통해 가져올 수 없습니다. 배열 값을 업로드하려면 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 또는 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/cloud_ingestion)을 사용하세요.
 
 {% alert note %}
 속성이 데이터 유형을 자동으로 감지하도록 설정된 경우 최대 길이를 늘리는 옵션을 사용할 수 없습니다. 데이터 유형을 배열로 설정해야 합니다.
@@ -266,7 +266,7 @@ toc_headers: h2
 {% alert tip %}
 정규표현식(regex) 사용 방법에 대한 자세한 내용은 다음 리소스를 참조하세요:
 - [Perl 호환 정규표현식(PCRE)](https://www.regextester.com/pregsyntax.html)
-- [Braze에서의 정규식]({{site.baseurl}}/user_guide/audience/segments/regex/)
+- [Braze에서의 정규식]({{site.baseurl}}/user_guide/audience/segments/regex)
 - [정규식 디버거 및 테스터](https://www.regex101.com/)
 - [정규식 튜토리얼](https://www.medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -309,12 +309,12 @@ toc_headers: h2
 {% endtab %}
 {% tab 오브젝트 %}
 
-중첩 커스텀 속성을 사용하여 오브젝트를 커스텀 속성의 데이터 유형으로 전송할 수 있습니다. 자세한 내용은 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/)을 참조하세요.
+중첩 커스텀 속성을 사용하여 오브젝트를 커스텀 속성의 데이터 유형으로 전송할 수 있습니다. 자세한 내용은 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)을 참조하세요.
 
 {% endtab %}
 {% tab 오브젝트 배열 %}
 
-오브젝트 배열을 사용하여 관련 속성을 그룹화할 수 있습니다. 자세한 내용은 [오브젝트 배열]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/)을 참조하세요.
+오브젝트 배열을 사용하여 관련 속성을 그룹화할 수 있습니다. 자세한 내용은 [오브젝트 배열]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)을 참조하세요.
 
 {% endtab %}
 {% endtabs %}
@@ -345,19 +345,19 @@ toc_headers: h2
 
 - **시간 (Datetime):** [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 또는 `yyyy-MM-dd'T'HH:mm:ss:SSSZ` 형식을 사용합니다. 배열 내에서는 지원되지 않습니다.
 - **배열:** 배열 내에서는 날짜/시간이 지원되지 않습니다.
-- **중첩 오브젝트:** [중첩 오브젝트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/)를 참조하세요.
+- **중첩 오브젝트:** [중첩 오브젝트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)를 참조하세요.
 - **페이로드:** 배열 또는 오브젝트 값을 포함하는 이벤트 속성정보 오브젝트는 최대 102,400바이트(100&nbsp;KiB)까지 가능합니다.
 
 커스텀 이벤트 속성정보의 데이터 유형을 변경할 수 있지만, 데이터가 수집된 후 [데이터 유형을 변경](#changing-custom-attribute-or-event-data-type)하는 것의 영향을 인지해야 합니다.
 
-이벤트 속성정보의 전체 동작, 예약 키, 트리거 및 개인화에서의 사용에 대해서는 [커스텀 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/)를 참조하세요.
+이벤트 속성정보의 전체 동작, 예약 키, 트리거 및 개인화에서의 사용에 대해서는 [커스텀 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties)를 참조하세요.
 
 ## 구매 이벤트 및 매출 {#purchase-events-and-revenue}
 
-구매 및 매출 데이터는 [구매 이벤트]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/) 또는 권장 이커머스 이벤트를 통해 기록됩니다.
+구매 및 매출 데이터는 [구매 이벤트]({{site.baseurl}}/user_guide/data/activation/events/purchase_events) 또는 권장 이커머스 이벤트를 통해 기록됩니다.
 
 {% alert note %}
-권장 이벤트에는 설정된 데이터 유형이 포함된 사전 정의된 스키마가 있습니다. 자세한 내용은 [이커머스 권장 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/)를 참조하세요.
+권장 이벤트에는 설정된 데이터 유형이 포함된 사전 정의된 스키마가 있습니다. 자세한 내용은 [이커머스 권장 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)를 참조하세요.
 {% endalert %}
 
 구매 이벤트를 기록하면 각 고객 프로필에 대한 생애주기 가치(LTV)가 설정되며, 이 데이터는 매출 페이지에서 시계열로 확인할 수 있습니다. 지출 금액, 마지막 구매 날짜, 기간 내 구매 횟수 등으로 세분화할 수 있습니다.
@@ -368,7 +368,7 @@ toc_headers: h2
 
 {% include data_activation/purchase_event_property_data_types.md %}
 
-전체 구매 오브젝트 스키마 및 예시는 [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object/)를 참조하세요. 구매 이벤트 기록, 세분화 필터 및 전체 세부 정보는 [구매 이벤트]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/)를 참조하세요.
+전체 구매 오브젝트 스키마 및 예시는 [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object)를 참조하세요. 구매 이벤트 기록, 세분화 필터 및 전체 세부 정보는 [구매 이벤트]({{site.baseurl}}/user_guide/data/activation/events/purchase_events)를 참조하세요.
 
 ## 커스텀 속성 또는 이벤트 데이터 유형 변경 {#changing-custom-attribute-or-event-data-type}
 
@@ -382,7 +382,7 @@ toc_headers: h2
 커스텀 속성 또는 이벤트의 데이터 유형을 변경하는 경우(예: `time`을 `string`으로 변경), 다음 사항을 고려하세요:
 
 - **필터가 자동으로 업데이트되지 않습니다.** 변경된 속성 또는 이벤트를 사용하는 Segments, Campaigns, Canvases 또는 기타 위치는 업데이트되지 않습니다. 데이터 유형을 변경하기 전에 Segments 또는 필터에서 해당 속성을 사용하는 Campaigns이나 Canvases를 중지하고, 해당 속성을 참조하는 필터에서 속성을 제거하세요.
-- **기존 사용자 데이터는 소급 업데이트되지 않습니다.** 변경 전에 고객 프로필에 변경된 속성이 있었다면, 해당 값은 이전 데이터 유형으로 유지됩니다. 필터가 새 데이터 유형을 찾기 때문에 사용자가 변경된 속성을 포함하는 Segment에서 빠질 수 있습니다. 해당 고객 프로필을 업데이트하여(예: [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 사용) 새 유형과 일치하도록 하고 필요한 경우 Segment에 다시 포함되도록 하세요.
+- **기존 사용자 데이터는 소급 업데이트되지 않습니다.** 변경 전에 고객 프로필에 변경된 속성이 있었다면, 해당 값은 이전 데이터 유형으로 유지됩니다. 필터가 새 데이터 유형을 찾기 때문에 사용자가 변경된 속성을 포함하는 Segment에서 빠질 수 있습니다. 해당 고객 프로필을 업데이트하여(예: [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 사용) 새 유형과 일치하도록 하고 필요한 경우 Segment에 다시 포함되도록 하세요.
 - **새 데이터는 새 유형과 일치해야 합니다.** 변경된 속성에 대해 이전 데이터 유형을 전송하는 API 호출은 수락되지 않습니다. 새 데이터 유형을 전송하세요.
 
 {% alert important %}
@@ -413,6 +413,6 @@ toc_headers: h2
 | 숫자 | 정수 또는 소수 | <code>42</code> 또는 <code>19.99</code> |
 | 오브젝트 | JSON 오브젝트 | <code>{"key": "value", "price": 10}</code> |
 | 배열 | 문자열 배열 | <code>["red", "blue", "green"]</code> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Format and examples" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="형식 및 예시" }
 
-카탈로그 생성 및 업데이트에 대해서는 [카탈로그 생성]({{site.baseurl}}/user_guide/data/activation/catalogs/create/)을 참조하세요.
+카탈로그 생성 및 업데이트에 대해서는 [카탈로그 생성]({{site.baseurl}}/user_guide/data/activation/catalogs/create)을 참조하세요.

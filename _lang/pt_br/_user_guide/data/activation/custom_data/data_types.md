@@ -99,18 +99,18 @@ Administradores também podem criar atributos personalizados e marcá-los como I
 
 ### Adicionando descrições {#adding-descriptions}
 
-Você pode adicionar uma descrição a um atributo personalizado após sua criação, se tiver a [permissão de usuário]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) `Manage Events, Attributes, Purchases`. Edite o atributo personalizado e insira o que desejar, como uma nota para sua equipe.
+Você pode adicionar uma descrição a um atributo personalizado após sua criação, se tiver a [permissão de usuário]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions) `Manage Events, Attributes, Purchases`. Edite o atributo personalizado e insira o que desejar, como uma nota para sua equipe.
 
 ### Adicionando tags {#adding-tags}
 
-Você pode adicionar tags a um atributo personalizado após sua criação, se tiver a [permissão de usuário]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) "Manage Events, Attributes, Purchases". Depois, você pode usar as tags para filtrar a lista de atributos.
+Você pode adicionar tags a um atributo personalizado após sua criação, se tiver a [permissão de usuário]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions) "Manage Events, Attributes, Purchases". Depois, você pode usar as tags para filtrar a lista de atributos.
 
 ### Removendo atributos personalizados {#removing-custom-attributes}
 
 Existem duas formas de remover atributos personalizados dos perfis de usuário:
 
-* Selecione o nome do atributo personalizado a ser removido em uma [etapa de Atualização de usuário]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes).
-* Defina o valor `null` na sua solicitação de API para o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track).
+* Selecione o nome do atributo personalizado a ser removido em uma [etapa de Atualização de usuário]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes).
+* Defina o valor `null` na sua solicitação de API para o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track).
 
 #### Definindo o valor `null` {#setting-the-null-value}
 
@@ -145,19 +145,19 @@ A seguir estão os métodos em várias plataformas usados para definir atributos
 
 {% details Expandir para documentação por plataforma %}
 
-- [Android e FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=android)
-- [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
-- [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=unity)
-- [.NET MAUI (anteriormente Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
-- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)
+- [Android e FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-attributes)
+- [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=unity)
+- [.NET MAUI (anteriormente Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#setting-custom-attributes)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
 
 {% enddetails %}
 
 ## Armazenamento de atributos personalizados {#custom-attribute-storage}
 
-Todos os dados armazenados no **Perfil de usuário**, incluindo dados de atributos personalizados, são retidos indefinidamente enquanto cada perfil estiver [ativo]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users).
+Todos os dados armazenados no **Perfil de usuário**, incluindo dados de atributos personalizados, são retidos indefinidamente enquanto cada perfil estiver [ativo]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#active-users).
 
 ## Tipos de dados de atributos personalizados
 
@@ -170,8 +170,8 @@ Os seguintes tipos de dados podem ser armazenados como atributos personalizados:
 - [Strings](#strings)
 - [Arrays](#arrays)
 - [Hora](#time)
-- [Objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)
-- [Arrays de objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/)
+- [Objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)
+- [Arrays de objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects)
 
 ### Booleanos (verdadeiro/falso) {#booleans}
 
@@ -190,7 +190,7 @@ Para atributos **booleanos**, as seguintes opções de segmentação estão disp
 {% tab Números %}
 
 {% alert tip %}
-Valores monetários gastos não devem ser registrados por este método. Em vez disso, devem ser registrados por meio de [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/).
+Valores monetários gastos não devem ser registrados por este método. Em vez disso, devem ser registrados por meio de [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events).
 {% endalert %}
 
 Para atributos **numéricos**, as seguintes opções de segmentação estão disponíveis.
@@ -240,7 +240,7 @@ Ao segmentar usando o filtro **DOES NOT MATCH REGEX**, o perfil do usuário já 
 
 Arrays têm um tamanho máximo de 100&nbsp;KB. O comprimento padrão de um atributo é de até 500 itens (por exemplo, se você estiver enviando um atributo como "Filmes Assistidos" definido como 500, quando o usuário assistir ao 501º filme, o primeiro filme será removido e o mais recente será adicionado). Se você inserir valores com espaços entre, antes ou depois das palavras, a Braze também verificará esses mesmos espaços.
 
-Atributos personalizados do tipo array não podem ser importados via [importação CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/). Para fazer upload de valores de array, use o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) ou a [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/cloud_ingestion/).
+Atributos personalizados do tipo array não podem ser importados via [importação CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). Para fazer upload de valores de array, use o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ou a [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/cloud_ingestion).
 
 {% alert note %}
 A opção de aumentar o comprimento máximo não estará disponível se o atributo estiver configurado para detectar automaticamente o tipo de dado; o tipo de dado deve ser definido como array.
@@ -266,7 +266,7 @@ Para atributos de **array**, as seguintes opções de segmentação estão dispo
 {% alert tip %}
 Para saber mais sobre como usar expressões regulares (regex), confira estes recursos:
 - [Expressões regulares compatíveis com Perl (PCRE)](https://www.regextester.com/pregsyntax.html)
-- [Regex com a Braze]({{site.baseurl}}/user_guide/audience/segments/regex/)
+- [Regex com a Braze]({{site.baseurl}}/user_guide/audience/segments/regex)
 - [Depurador e testador de regex](https://www.regex101.com/)
 - [Tutorial de regex](https://www.medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -309,12 +309,12 @@ Para atributos de **hora**, as seguintes opções de segmentação estão dispon
 {% endtab %}
 {% tab Objetos %}
 
-Você pode usar atributos personalizados aninhados para enviar objetos como tipo de dado para atributos personalizados. Para saber mais, consulte [Atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/).
+Você pode usar atributos personalizados aninhados para enviar objetos como tipo de dado para atributos personalizados. Para saber mais, consulte [Atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
 {% endtab %}
 {% tab Arrays de objetos %}
 
-Use um array de objetos para agrupar atributos relacionados. Para mais detalhes, consulte [Array de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/).
+Use um array de objetos para agrupar atributos relacionados. Para mais detalhes, consulte [Array de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects).
 
 {% endtab %}
 {% endtabs %}
@@ -345,19 +345,19 @@ Regras específicas de propriedades de eventos:
 
 - **Hora (Datetime):** Use o formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ou `yyyy-MM-dd'T'HH:mm:ss:SSSZ`. Não é compatível dentro de arrays.
 - **Array:** Datas e horas não são compatíveis dentro de arrays.
-- **Objeto aninhado:** Consulte [Objetos aninhados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
+- **Objeto aninhado:** Consulte [Objetos aninhados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 - **Carga útil:** Objetos de propriedades de eventos que contêm valores de array ou objeto podem ter até 102.400 bytes (100&nbsp;KiB).
 
 Você pode alterar o tipo de dado da propriedade do seu evento personalizado, mas esteja ciente dos impactos de [alterar tipos de dados](#changing-custom-attribute-or-event-data-type) após os dados terem sido coletados.
 
-Para o comportamento completo de propriedades de eventos, chaves reservadas e uso em gatilhos e personalização, consulte [Propriedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/).
+Para o comportamento completo de propriedades de eventos, chaves reservadas e uso em gatilhos e personalização, consulte [Propriedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties).
 
 ## Eventos de compra e receita {#purchase-events-and-revenue}
 
-Dados de compra e receita são registrados por meio de [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/) ou eventos recomendados de eCommerce.
+Dados de compra e receita são registrados por meio de [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events) ou eventos recomendados de eCommerce.
 
 {% alert note %}
-Eventos recomendados têm esquemas pré-definidos com tipos de dados definidos. Para mais detalhes, consulte [Eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/).
+Eventos recomendados têm esquemas pré-definidos com tipos de dados definidos. Para mais detalhes, consulte [Eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 {% endalert %}
 
 O registro de eventos de compra estabelece o Lifetime Value (LTV) para cada perfil de usuário, e esses dados podem ser visualizados na página de receita em séries temporais. Você pode segmentar por valor gasto, data da última compra, número de compras em um período e muito mais.
@@ -368,13 +368,13 @@ Os valores de propriedades de eventos de compra (o objeto `properties` em uma co
 
 {% include data_activation/purchase_event_property_data_types.md %}
 
-Para o esquema completo do objeto de compra e exemplos, consulte [Objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object/). Para registro de eventos de compra, filtros de segmentação e detalhes completos, consulte [Eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/).
+Para o esquema completo do objeto de compra e exemplos, consulte [Objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object). Para registro de eventos de compra, filtros de segmentação e detalhes completos, consulte [Eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events).
 
 ## Alterando o tipo de dado de atributo personalizado ou evento {#changing-custom-attribute-or-event-data-type}
 
 Para alterar o tipo de dado de um atributo personalizado ou evento:
 
-1. Acesse **Data Settings** e selecione **Custom Attributes** ou **Custom Events**.
+1. Acesse **Configurações de dados** e selecione **Custom Attributes** ou **Custom Events**.
 2. Encontre seu atributo ou evento na lista e selecione <i class="fa fa-ellipsis-v" aria-hidden="true"></i> **More actions**.
 3. Selecione um novo **Data type** no dropdown.
 4. Selecione **Save**.
@@ -382,7 +382,7 @@ Para alterar o tipo de dado de um atributo personalizado ou evento:
 Se você alterar o tipo de dado de um atributo personalizado ou evento (por exemplo, alterando `time` para `string`), considere o seguinte:
 
 - **Os filtros não são atualizados automaticamente.** Segments, Campaigns, Canvas ou outros locais que usam o atributo ou evento alterado não são atualizados. Antes de alterar o tipo de dado, pare quaisquer Campaigns ou Canvas que usem o atributo em Segments ou filtros, e remova o atributo dos filtros que o referenciam.
-- **Os dados existentes dos usuários não são atualizados retroativamente.** Se o atributo alterado estava no perfil de um usuário antes da alteração, esse valor permanece com o tipo de dado antigo. Os usuários podem sair de Segments que contêm o atributo alterado porque o filtro procura o novo tipo de dado. Atualize esses perfis de usuário (por exemplo, com o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)) para que correspondam ao novo tipo e reentrem no Segment, se necessário.
+- **Os dados existentes dos usuários não são atualizados retroativamente.** Se o atributo alterado estava no perfil de um usuário antes da alteração, esse valor permanece com o tipo de dado antigo. Os usuários podem sair de Segments que contêm o atributo alterado porque o filtro procura o novo tipo de dado. Atualize esses perfis de usuário (por exemplo, com o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) para que correspondam ao novo tipo e reentrem no Segment, se necessário.
 - **Os novos dados devem corresponder ao novo tipo.** Chamadas de API que enviam o tipo de dado anterior para o atributo alterado não são aceitas. Envie o novo tipo de dado.
 
 {% alert important %}
@@ -401,7 +401,7 @@ Os catálogos são compatíveis com os tipos listados na tabela de [Definições
 | Hora | Data e hora no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ou timestamp Unix em segundos. | ✅ Sim | ✅ Sim |
 | Objeto JSON (Objeto) | Objeto aninhado com pares chave-valor. Exibido na plataforma, mas só pode ser criado ou atualizado por meio da API ou CDI. | ❌ Não | ✅ Sim |
 | Array de strings (Array) | Uma lista de strings. Exibido na plataforma, mas só pode ser criado ou atualizado por meio da API ou CDI. Máximo de 100 elementos. | ❌ Não | ✅ Sim |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog data types #catalog-data-types" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tipos de dados de catálogos" }
 
 ### Formato e exemplos {#format-and-examples}
 
@@ -413,6 +413,6 @@ Os catálogos são compatíveis com os tipos listados na tabela de [Definições
 | Número | Inteiro ou decimal | <code>42</code> ou <code>19.99</code> |
 | Objeto | Objeto JSON | <code>{"key": "value", "price": 10}</code> |
 | Array | Array de strings | <code>["red", "blue", "green"]</code> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Format and examples" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Formato e exemplos" }
 
-Para criar e atualizar catálogos, consulte [Criar um catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create/).
+Para criar e atualizar catálogos, consulte [Criar um catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create).

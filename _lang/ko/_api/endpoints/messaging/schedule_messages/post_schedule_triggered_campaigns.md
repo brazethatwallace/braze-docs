@@ -10,7 +10,7 @@ description: "이 문서에서는 API 트리거 Campaign 예약 Braze 엔드포�
 ---
 {% api %}
 # API 트리거 Campaign 예약하기 {#schedule-api-triggered-campaigns}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/schedule/create
 {% endapimethod %}
 
@@ -18,13 +18,13 @@ description: "이 문서에서는 API 트리거 Campaign 예약 Braze 엔드포�
 
 메시지 자체에 템플릿으로 적용될 `trigger_properties`를 전달할 수 있습니다.
 
-이 엔드포인트로 메시지를 보내려면 [API 트리거 Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)을 구축할 때 생성한 [Campaign ID]({{site.baseurl}}/api/identifier_types/)가 있어야 합니다.
+이 엔드포인트로 메시지를 보내려면 [API 트리거 Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)을 구축할 때 생성한 [Campaign ID]({{site.baseurl}}/api/identifier_types)가 있어야 합니다.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#b7e61de7-f2c2-49c9-9e46-b85a0aa01bba {% endapiref %}
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `campaigns.trigger.schedule.create` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `campaigns.trigger.schedule.create` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -61,14 +61,14 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | 필수 | 문자열 | [Campaign 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요. |
-| `send_id` | 선택 사항 | 문자열 | [전송 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요. |
-| `recipients` | 선택 사항 | 수신자 오브젝트 배열 | [수신자 오브젝트]({{site.baseurl}}/api/objects_filters/recipient_object/)를 참조하세요. |
-| `audience` | 선택 사항 | 연결된 오디언스 오브젝트 | [연결된 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience/)를 참조하세요. |
+| `campaign_id` | 필수 | 문자열 | [Campaign 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요. |
+| `send_id` | 선택 사항 | 문자열 | [전송 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요. |
+| `recipients` | 선택 사항 | 수신자 오브젝트 배열 | [수신자 오브젝트]({{site.baseurl}}/api/objects_filters/recipient_object)를 참조하세요. |
+| `audience` | 선택 사항 | 연결된 오디언스 오브젝트 | [연결된 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience)를 참조하세요. |
 | `broadcast` | 선택 사항 | 부울 | Campaign 또는 Canvas가 타겟팅하는 전체 Segment에 메시지를 보낼 때 `broadcast`를 true로 설정해야 합니다. 이 매개변수는 기본적으로 false로 설정됩니다(2017년 8월 31일 기준). <br><br> `broadcast`가 true로 설정되면 `recipients` 목록을 포함할 수 없습니다. 그러나 `broadcast: true`를 설정할 때 주의하세요. 이 플래그를 의도치 않게 설정하면 예상보다 더 많은 오디언스에게 메시지를 보낼 수 있습니다. |
-| `trigger_properties` | 선택 사항 | 오브젝트 | 이 전송의 모든 사용자에 대한 개인화 키-값 페어입니다. [트리거 등록정보]({{site.baseurl}}/api/objects_filters/trigger_properties_object/)를 참조하세요. |
-| `schedule` | 필수 | 스케줄 오브젝트 | [스케줄 오브젝트]({{site.baseurl}}/api/objects_filters/schedule_object/)를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `trigger_properties` | 선택 사항 | 오브젝트 | 이 전송의 모든 사용자에 대한 개인화 키-값 페어입니다. [트리거 등록정보]({{site.baseurl}}/api/objects_filters/trigger_properties_object)를 참조하세요. |
+| `schedule` | 필수 | 스케줄 오브젝트 | [스케줄 오브젝트]({{site.baseurl}}/api/objects_filters/schedule_object)를 참조하세요. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 ```

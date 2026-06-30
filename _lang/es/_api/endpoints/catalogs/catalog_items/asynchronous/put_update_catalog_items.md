@@ -23,7 +23,7 @@ Si un elemento del catálogo no existe, este punto de conexión creará el eleme
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.replace_items`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `catalogs.replace_items`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -34,14 +34,14 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `catalog_name` | Obligatorio | Cadena | Nombre del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la ruta" }
 
 ## Parámetros de la solicitud {#request-parameters}
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `items` | Obligatorio | Matriz | Una matriz que contiene objetos de elementos. Cada objeto debe tener un ID. Los objetos de elementos deben contener campos que existan en el catálogo. Se permiten hasta 50 objetos de elementos por solicitud. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 
@@ -88,7 +88,7 @@ El campo `Location` utiliza el tipo de datos `geo`, que espera una matriz con el
 Existen tres respuestas de código de estado para este punto de conexión: `202`, `400` y `404`.
 
 {% alert note %}
-El sistema también puede devolver una respuesta `400` si tu empresa ha alcanzado su límite de almacenamiento del catálogo. La versión gratuita de los catálogos tiene un límite de 100&nbsp;MB. Para más información sobre los niveles de almacenamiento y cómo actualizar, consulta [Limitaciones de almacenamiento de datos]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations).
+El sistema también puede devolver una respuesta `400` si tu empresa ha alcanzado su límite de almacenamiento del catálogo. La versión gratuita de los catálogos tiene un límite de 100&nbsp;MB. Para más información sobre los niveles de almacenamiento y cómo actualizar, consulta [Limitaciones de almacenamiento de datos]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations).
 {% endalert %}
 
 ### Ejemplo de respuesta correcta {#example-success-response}
@@ -130,8 +130,8 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | Error | Solución de problemas |
 | --- | --- |
 | `catalog-not-found` | Comprueba que el nombre del catálogo es válido. |
-| `company-size-limit-already-reached` | Se ha alcanzado el límite de almacenamiento del catálogo. Para obtener más información sobre los niveles de almacenamiento, consulta [Limitaciones de almacenamiento de datos]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations). |
-| `company-size-limit-surge` | La solicitud supera el almacenamiento restante del catálogo de tu empresa. Inténtalo de nuevo con una actualización más pequeña. Para obtener más información sobre los niveles de almacenamiento, consulta [Limitaciones de almacenamiento de datos]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations). |
+| `company-size-limit-already-reached` | Se ha alcanzado el límite de almacenamiento del catálogo. Para obtener más información sobre los niveles de almacenamiento, consulta [Limitaciones de almacenamiento de datos]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations). |
+| `company-size-limit-surge` | La solicitud supera el almacenamiento restante del catálogo de tu empresa. Inténtalo de nuevo con una actualización más pequeña. Para obtener más información sobre los niveles de almacenamiento, consulta [Limitaciones de almacenamiento de datos]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations). |
 | `ids-not-string` | Confirma que el ID de cada elemento es una cadena. |
 | `ids-not-unique` | Comprueba que el ID de cada elemento es único. |
 | `ids-too-large` | El límite de caracteres para cada ID de elemento es de 250 caracteres. |
@@ -144,6 +144,6 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | `too-deep-nesting-in-value-object` | Los objetos de elemento no pueden tener más de 50 niveles de anidamiento. |
 | `request-includes-too-many-items` | Tu solicitud tiene demasiados elementos. El límite de elementos por solicitud es de 50. |
 | `unable-to-coerce-value` | Los tipos de elemento no se pueden convertir. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 {% endapi %}

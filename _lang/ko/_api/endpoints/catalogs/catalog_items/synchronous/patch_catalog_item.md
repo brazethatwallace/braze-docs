@@ -21,7 +21,7 @@ description: "이 문서에서는 카탈로그 항목 편집 Braze 엔드포인�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `catalogs.update_item` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `catalogs.update_item` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -33,14 +33,14 @@ description: "이 문서에서는 카탈로그 항목 편집 Braze 엔드포인�
 |---|---|---|---|
 | `catalog_name` | 필수 | 문자열 | 카탈로그의 이름입니다. |
 | `item_id` | 필수 | 문자열 | 카탈로그 항목의 ID입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="경로 매개변수" }
 
 ## 요청 매개변수 {#request-parameters}
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | `items` | 필수 | 배열 | 항목 오브젝트가 포함된 배열입니다. 항목 오브젝트에는 `id` 필드를 제외하고 카탈로그에 있는 필드가 포함되어야 합니다. 요청당 하나의 항목 오브젝트만 허용됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 
@@ -120,7 +120,7 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 
 | 오류 | 문제 해결 |
 | --- | --- |
-| `arbitrary-error` | 임의의 오류가 발생했습니다. 다시 시도하거나 [고객지원팀]({{site.baseurl}}/support_contact/)에 문의하세요. |
+| `arbitrary-error` | 임의의 오류가 발생했습니다. 다시 시도하거나 [고객지원]({{site.baseurl}}/support_contact)에 문의하세요. |
 | `catalog-not-found` | 카탈로그 이름이 유효한지 확인하세요. |
 | `filtered-set-field-too-long` | 필드 값이 항목의 글자 수 제한을 초과하는 필터링된 집합에서 사용되고 있습니다. |
 | `id-in-body` | 카탈로그에 항목 ID가 이미 존재합니다. |
@@ -134,6 +134,6 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 | `request-includes-too-many-items` | 요청당 하나의 카탈로그 항목만 편집할 수 있습니다. |
 | `too-deep-nesting-in-value-object` | 항목 오브젝트는 50개 이상의 중첩 레벨을 가질 수 없습니다. |
 | `unable-to-coerce-value` | 항목 유형은 변환할 수 없습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }
 
 {% endapi %}

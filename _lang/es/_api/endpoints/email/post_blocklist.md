@@ -10,7 +10,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 ---
 {% api %}
 # Añadir correos electrónicos a la lista de bloqueo {#blocklist-emails}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/blocklist
 {% endapimethod %}
 
@@ -20,7 +20,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `email.blacklist`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `email.blacklist`.
 
 ## Límite de velocidad {#rate-limit}
 

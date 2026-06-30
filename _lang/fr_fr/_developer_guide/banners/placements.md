@@ -13,7 +13,7 @@ platform:
 
 # Gérer les emplacements de bannières {#manage-banner-placements}
 
-> Découvrez comment créer et gérer les emplacements de bannières dans le SDK Braze, notamment comment accéder à leurs propriétés uniques et enregistrer les impressions. Pour plus d'informations générales, consultez [À propos des bannières]({{site.baseurl}}/developer_guide/banners/).
+> Découvrez comment créer et gérer les emplacements de bannières dans le SDK Braze, notamment comment accéder à leurs propriétés uniques et enregistrer les impressions. Pour plus d'informations générales, consultez [À propos des bannières]({{site.baseurl}}/developer_guide/banners).
 
 ## À propos des demandes de placement {#requests}
 
@@ -25,7 +25,7 @@ platform:
 
 Voici les versions minimales du SDK requises pour créer des emplacements de bannières :
 
-{% multi_lang_include sdk_versions.md feature='banners' %}
+{% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
 {% multi_lang_include banners/creating_placements.md section="developer" %}
 
@@ -268,7 +268,7 @@ This feature is not currently supported on Roku.
 ### Étape 4 : Insérer à l'aide de l'ID de placement {#insertBanner}
 
 {% alert tip %}
-Pour un tutoriel complet étape par étape, consultez [Afficher une bannière par ID de placement]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/).
+Pour un tutoriel complet étape par étape, consultez [Afficher une bannière par ID de placement]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners).
 {% endalert %}
 
 {% tabs %}
@@ -555,7 +555,7 @@ This feature is not currently supported on Roku.
 
 ### Étape 5 : Envoyer une bannière de test (facultatif) {#handling-test-cards}
 
-Avant de lancer une campagne de bannières, vous pouvez [envoyer une bannière de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=banners) pour vérifier votre intégration. Les bannières de test sont stockées dans un cache en mémoire distinct et ne persistent pas lors des redémarrages de l'application. Bien qu'aucune configuration supplémentaire ne soit nécessaire, votre appareil de test doit être capable de recevoir des notifications push au premier plan pour pouvoir afficher le test.
+Avant de lancer une campagne de bannières, vous pouvez [envoyer une bannière de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=banners) pour vérifier votre intégration. Les bannières de test sont stockées dans un cache en mémoire distinct et ne persistent pas lors des redémarrages de l'application. Bien qu'aucune configuration supplémentaire ne soit nécessaire, votre appareil de test doit être capable de recevoir des notifications push au premier plan pour pouvoir afficher le test.
 
 {% alert note %}
 Les bannières de test fonctionnent comme toutes les autres bannières, sauf qu'elles sont supprimées lors de la session d'application suivante.
@@ -583,13 +583,13 @@ Si votre bannière utilise le bloc éditeur **Code personnalisé** dans le table
 </button>
 ```
 
-Pour la référence complète, consultez [Code personnalisé et pont JavaScript pour les bannières]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-code). Le `brazeBridge` fournit une couche de communication entre le HTML interne de la bannière et le SDK Braze parent.
+Pour la référence complète, consultez [Code personnalisé et pont JavaScript pour les bannières]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-code). Le `brazeBridge` fournit une couche de communication entre le HTML interne de la bannière et le SDK Braze parent.
 
 ### Implémentations d'interface utilisateur personnalisées (headless) {#custom-ui-implementations-headless}
 
 Si vous créez une interface utilisateur entièrement personnalisée à l'aide des [propriétés personnalisées](#custom-properties) de la bannière plutôt que d'afficher le HTML de la bannière, vous devez enregistrer manuellement les clics et les impressions depuis le code de votre application. Étant donné que le SDK n'effectue pas le rendu de la bannière, il n'a aucun moyen de suivre automatiquement les interactions avec vos éléments d'interface utilisateur personnalisés.
 
-Pour les signatures de méthodes et tous les détails, consultez la [documentation de référence du SDK Braze]({{site.baseurl}}/developer_guide/references/).
+Pour les signatures de méthodes et tous les détails, consultez la [documentation de référence du SDK Braze]({{site.baseurl}}/developer_guide/references).
 
 #### Enregistrer les impressions {#logging-impressions}
 
@@ -717,6 +717,7 @@ Voici les versions minimales du SDK requises pour enregistrer les fermetures de 
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### Intégrations {#integrations}
+
 #### Intégrations de bannières standard (éditeur par glisser-déposer) {#standard-banner-integrations-drag-and-drop-editor}
 
 Si votre bannière utilise l'éditeur par glisser-déposer et inclut un composant de bouton de fermeture, aucun code supplémentaire n'est nécessaire. Lorsqu'un utilisateur clique sur le bouton de fermeture, le message est masqué, déclenche une fermeture, puis enregistre un événement de fermeture pour les analyses.
@@ -866,7 +867,7 @@ Vous pouvez utiliser les propriétés personnalisées de votre campagne de banni
 
 ### Conditions préalables
 
-Vous devez [ajouter des propriétés personnalisées]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-properties) à votre campagne de bannières. De plus, voici les versions minimales du SDK requises pour accéder aux propriétés personnalisées :
+Vous devez [ajouter des propriétés personnalisées]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-properties) à votre campagne de bannières. De plus, voici les versions minimales du SDK requises pour accéder aux propriétés personnalisées :
 
 {% sdk_min_versions swift:13.1.0 android:38.0.0 web:6.1.0 reactnative:17.0.0 flutter:15.1.0 %}
 

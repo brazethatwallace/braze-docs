@@ -22,11 +22,11 @@ Consultez le tableau suivant pour plus de détails sur ce rapport :
 | Dimension | L'attribut utilisé pour organiser les résultats, comme le canal, la campagne ou la plateforme. |
 | Groupe de comparaison | Les groupes que vous souhaitez comparer dans votre rapport. Vous pouvez sélectionner plusieurs groupes de comparaison. |
 | Paramètre | L'indicateur appliqué à cet attribut, comme les ouvertures, les clics ou le taux de conversion. |
-| Segment | Le [segment d'audience]({{site.baseurl}}/user_guide/audience/segments/) que vous avez créé dans Braze. |
+| Segment | Le [segment d'audience]({{site.baseurl}}/user_guide/audience/segments) que vous avez créé dans Braze. |
 | Option             | L'option de recommandation spécifique sélectionnée dans la banque d'actions. |
 | Description        | Une courte explication de ce que représente l'option.            |
 | Nombre de sélections  | Le nombre total de fois où l'option a été sélectionnée.         |
-| % de sélection   | Le pourcentage de sélections totales où cette option a été choisie. |
+| % de sélection   | Le pourcentage de l'ensemble des sélections où cette option a été choisie. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Rapport d'informations" }
 {% endtab %}
 

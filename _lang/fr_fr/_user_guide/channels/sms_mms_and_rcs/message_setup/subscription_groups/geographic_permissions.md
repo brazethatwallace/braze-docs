@@ -16,11 +16,11 @@ alias: /geographic_permissions/
 
 > Les autorisations géographiques renforcent la sécurité et protègent contre le trafic frauduleux de SMS, MMS et RCS en appliquant des contrôles sur les pays vers lesquels vous pouvez envoyer des messages. Vous pouvez spécifier une liste de pays autorisés pour vous assurer que les messages SMS, MMS et RCS ne sont envoyés que vers des régions approuvées. Les messages ne sont envoyés qu'aux numéros de téléphone correspondant aux indicatifs téléphoniques de ces pays.<br><br> Seuls les administrateurs peuvent modifier la liste de pays autorisés. Les utilisateurs non administrateurs ont accès à une version en lecture seule de la liste qui indique vers quels pays un groupe d'abonnement peut envoyer des messages.
 
-Si vous êtes administrateur, vous pouvez configurer les pays figurant sur la liste autorisée. La liste de pays autorisés est configurée au niveau du [groupe d'abonnement]({{site.baseurl}}/sms_rcs_subscription_groups/). Vous pouvez y accéder en allant dans **Audience** > **Subscription Group Management** et en sélectionnant un groupe d'abonnement SMS, MMS ou RCS. La liste autorisée se trouve sous **Geographic Permissions**.
+Si vous êtes administrateur, vous pouvez configurer les pays figurant sur la liste autorisée. La liste de pays autorisés est configurée au niveau du [groupe d'abonnement]({{site.baseurl}}/sms_rcs_subscription_groups). Vous pouvez y accéder en allant dans **Audience** > **Gestion des groupes d'abonnement** et en sélectionnant un groupe d'abonnement SMS, MMS ou RCS. La liste autorisée se trouve sous **Autorisations géographiques**.
 
 ![La section modifiable des autorisations géographiques pour un administrateur, avec plusieurs pays sélectionnés dans la « liste de pays autorisés ».]({% image_buster /assets/img/sms/sms_geographic_permissions.png %}){: style="max-width:80%;"}
 
-### Sélection des pays {#selecting-countries}
+## Sélection des pays {#selecting-countries}
 
 Ajoutez des pays à la liste autorisée à l'aide du menu déroulant. Les pays les plus courants pour les SMS, MMS et RCS sont affichés en haut, les autres apparaissant en dessous. Vous pouvez également rechercher des pays en saisissant du texte dans le champ de recherche.
 
@@ -43,12 +43,12 @@ Certains pays présentent un risque plus élevé de trafic frauduleux de SMS, MM
 Si vous autorisez l'envoi vers ces pays, vous devez d'abord reconnaître le risque associé avant que le pays ne soit ajouté à votre liste autorisée.
 
 {% alert note %}
-Limitez les pays de votre liste autorisée à ceux strictement nécessaires pour répondre à vos besoins commerciaux. Cela réduira votre exposition potentielle au trafic frauduleux. Pour plus de conseils sur la prévention du trafic frauduleux de SMS, MMS et RCS, consultez la [FAQ sur la fraude par trafic artificiel de SMS]({{site.baseurl}}/sms_traffic_pumping_fraud/).
+Limitez les pays de votre liste autorisée à ceux strictement nécessaires pour répondre à vos besoins commerciaux. Cela réduira votre exposition potentielle au trafic frauduleux. Pour plus de conseils sur la prévention du trafic frauduleux de SMS, MMS et RCS, consultez la [FAQ sur la fraude par trafic artificiel de SMS]({{site.baseurl}}/sms_traffic_pumping_fraud).
 {% endalert %}
 
 ## Visibilité des envois hors de la liste autorisée {#visibility-of-sends-outside-the-allowlist}
 
-Les tentatives d'envoi vers des pays qui ne figurent pas dans votre liste de pays autorisés seront abandonnées. Les messages abandonnés sont consignés dans le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) et dans l'[événement d'engagement lié aux messages d'abandon SMS]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/).
+Les tentatives d'envoi vers des pays qui ne figurent pas dans votre liste de pays autorisés seront abandonnées. Les messages abandonnés sont consignés dans le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) et dans l'[événement d'engagement lié aux messages d'abandon SMS]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
 
 Les messages abandonnés pour les destinataires situés dans des pays ne figurant pas sur votre liste autorisée apparaissent comme **Aborted Message Errors** et portent le message « The recipient's phone number is in a blocked country ».
 
@@ -72,4 +72,4 @@ Le client est responsable de tous les messages mobiles envoyés via les services
 
 ### Comment prévenir la fraude par trafic artificiel {#how-to-prevent-traffic-pumping}
 
-Ne pas limiter la distribution de vos messages strictement aux régions géographiques où résident vos clients réels crée une vulnérabilité immédiate à la fraude et à des dommages financiers graves. Pour protéger votre entreprise, vous devez restreindre de manière proactive vos régions de distribution à l'aide de la liste de pays autorisés. De plus, et surtout, vous devez sécuriser tout formulaire en ligne de demande de numéro de téléphone ou endpoint d'API qui déclenche des envois SMS, MMS et RCS conformément aux bonnes pratiques du secteur, comme décrit dans [Comprendre et prévenir la fraude par trafic artificiel de SMS, MMS et RCS]({{site.baseurl}}/sms_traffic_pumping_fraud/).
+Ne pas limiter la distribution de vos messages strictement aux régions géographiques où résident vos clients réels crée une vulnérabilité immédiate à la fraude et à des dommages financiers graves. Pour protéger votre entreprise, vous devez restreindre de manière proactive vos régions de distribution à l'aide de la liste de pays autorisés. De plus, et surtout, vous devez sécuriser tout formulaire en ligne de demande de numéro de téléphone ou endpoint d'API qui déclenche des envois SMS, MMS et RCS conformément aux bonnes pratiques du secteur, comme décrit dans [Comprendre et prévenir la fraude par trafic artificiel de SMS, MMS et RCS]({{site.baseurl}}/sms_traffic_pumping_fraud).

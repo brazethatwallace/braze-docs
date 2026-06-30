@@ -91,7 +91,7 @@ If you selected breakdown-level details for campaigns or Canvases when [setting 
 
 ### Conversion funnel
 
-This bar graph shows the absolute counts for each [engagement event]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) based on the selected channel. The conversions count will be defined as per the selected attribution method.
+This bar graph shows the absolute counts for each [engagement event]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) based on the selected channel. The conversions count will be defined as per the selected attribution method.
 
 By default, all selected campaigns and Canvases are shown. To deselect a campaign or Canvas, select the name of the campaign or Canvas that you'd like to exclude. For additional details on the engagement event, you can hover over each bar.
 
@@ -140,7 +140,7 @@ To troubleshoot, check your event tracking and conversion deadlines.
 
 #### Event tracking
 
-When a campaign triggers a session start or custom event, you want to ensure that this event, or session, is happening frequently enough to trigger the message. Check the [home dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/home/) for session data, or your [custom events]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/) report.
+When a campaign triggers a session start or custom event, you want to ensure that this event, or session, is happening frequently enough to trigger the message. Check the [home dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/home) for session data, or your [custom events]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting) report.
 
 #### Conversion deadlines
 

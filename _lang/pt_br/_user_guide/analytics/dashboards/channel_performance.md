@@ -63,12 +63,12 @@ A categoria "Other" inclui qualquer string de user agent que não pode ser ident
 
 Para entender melhor o que está nessa categoria "Other", você pode extrair os user agents usando uma destas opções:
 
-1. O [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) enviará a string exata de user agent que foi obtida dos dispositivos dos seus usuários.
-2. Use nosso [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) com SQL ou nosso [Criador de consultas com IA]({{site.baseurl}}/user_guide/analytics/reports/query_builder/#generating-sql-with-the-ai-query-builder) para visualizar os user agents.
+1. O [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) enviará a string exata de user agent que foi obtida dos dispositivos dos seus usuários.
+2. Use nosso [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder) com SQL ou nosso [Criador de consultas com IA]({{site.baseurl}}/user_guide/analytics/reports/query_builder#generating-sql-with-the-ai-query-builder) para visualizar os user agents.
 
 ![Relatório de engajamento por dispositivo que mostra o número de cliques para celular, desktop, tablet e outros dispositivos. O maior número de cliques ocorre em dispositivos móveis.]({% image_buster /assets/img/engagement_by_device_type.png %}){: style="max-width:70%;"}
 
-Para aberturas de e-mail, a Braze separa o Google Image Proxy, o Apple Image Proxy e o Yahoo Mail Proxy. Esses serviços armazenam em cache e carregam todas as imagens incorporadas em um e-mail antes de ele ser entregue ao destinatário. Como resultado, isso aciona uma abertura de e-mail a partir dos servidores do provedor de caixa de e-mail, e não do servidor do destinatário, o que pode levar a aberturas de e-mail inflacionadas. Esses serviços têm como objetivo melhorar a privacidade, segurança, performance e eficiência ao carregar imagens. Isso também pode conter aberturas reais de destinatários, pois esses serviços de proxy mascaram o user agent, e a Braze categoriza os dados de proxy usando o user agent.
+Para aberturas de e-mail, a Braze separa o Google Image Proxy, o Apple Image Proxy e o Yahoo Mail Proxy. Esses serviços armazenam em cache e carregam todas as imagens incorporadas em um e-mail antes de ele ser entregue ao destinatário. Como resultado, isso aciona uma abertura de e-mail a partir dos servidores do provedor de caixa de e-mail, e não do servidor do destinatário, o que pode levar a aberturas de e-mail inflacionadas. Esses serviços têm como objetivo melhorar a privacidade, segurança, desempenho e eficiência ao carregar imagens. Isso também pode conter aberturas reais de destinatários, pois esses serviços de proxy mascaram o user agent, e a Braze categoriza os dados de proxy usando o user agent.
 
 ![Relatório de engajamento por dispositivo que mostra o número de cliques para celular, desktop, tablet, Apple Privacy Proxy, Google Image Proxy, Yahoo Mail Proxy e outros. O maior número de aberturas ocorre em dispositivos móveis.]({% image_buster /assets/img/engagement_by_device_type_proxy.png %}){: style="max-width:70%;"}
 
@@ -90,7 +90,7 @@ O relatório de engajamento por **Time of the day** detalha aberturas ou cliques
 
 ![Um exemplo de relatório de engajamento por horário do dia com aberturas ou cliques das 0h às 23h.]({% image_buster /assets/img_archive/time_engagement_day.png %})
 
-Para saber mais sobre a análise de dados dos seus e-mails, confira [Relatórios de e-mail]({{site.baseurl}}/user_guide/channels/email/reporting/).
+Para saber mais sobre a análise de dados dos seus e-mails, confira [Relatórios de e-mail]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 {% endtab %}
 {% tab SMS performance %}
@@ -185,18 +185,18 @@ Para a métrica _Aberturas Únicas_, a Braze deduplica quaisquer aberturas repet
 
 <!---Temporarily hidden until functionality is added
 
-## Empty values in your data
+## Empty values in your data {#empty-values-in-your-data}
 
-#### If a metric displays "0%" or "0"
+### If a metric displays "0%" or "0" {#if-a-metric-displays-0-or-0}
 
 This means Braze recorded zero for that particular metric during the time frame you've selected.
 
-#### If a metric displays "N/A"
+#### If a metric displays "N/A" {#if-a-metric-displays-na}
 
 This means that while Braze recorded positive counts for a particular metric for the time frame you've selected, the denominator for the rate calculation (either sends or deliveries in most cases) was zero. This can occur when emails are sent out on one day and opens and clicks are recorded the following days if your selected time frame does not include the date the messages were sent.
 
-#### If a metric displays "--"
+#### If a metric displays "--" {#if-a-metric-displays}
 
-This means Braze hasn't recorded any data for that metric during the time you selected. If you haven't set up or sent any emails yet, learn more about how to do so in our dedicated [Email]({{site.baseurl}}/user_guide/channels/email/) section.
+This means Braze hasn't recorded any data for that metric during the time you selected. If you haven't set up or sent any emails yet, learn more about how to do so in our dedicated [Email]({{site.baseurl}}/user_guide/channels/email) section.
 
 --->

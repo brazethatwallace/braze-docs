@@ -44,7 +44,7 @@ Verwenden Sie dieses Feld, um festzulegen, wie lange Braze Ihre Sitzung aufrecht
 
 Sie können Ihre Nutzer:innen darauf beschränken, sich entweder mit einem Passwort oder per SSO anzumelden.
 
-Für [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/) müssen Kund:innen ihre SAML-Einstellungen konfigurieren, bevor sie die Erzwingung aktivieren. Wenn Kund:innen Google SSO verwenden, müssen sie lediglich die Sicherheitseinstellungen-Seite erzwingen, ohne zusätzlichen Aufwand.
+Für [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) müssen Kund:innen ihre SAML-Einstellungen konfigurieren, bevor sie die Erzwingung aktivieren. Wenn Kund:innen Google SSO verwenden, müssen sie lediglich die Sicherheitseinstellungen-Seite erzwingen, ohne zusätzlichen Aufwand.
 
 ## Dashboard-IP-Zulassungsliste {#dashboard-ip-allowlisting}
 
@@ -115,8 +115,6 @@ Elevated Access fügt eine zusätzliche Sicherheitsebene für sensible Aktionen 
 
 Wenn ein:e Nutzer:in die erneute Verifizierung nicht durchführen kann, wird er/sie dorthin zurückgeleitet, wo er/sie aufgehört hat, und kann die sensible Aktion nicht fortsetzen. Nach einer erfolgreichen erneuten Verifizierung muss dies für die nächste Stunde nicht erneut durchgeführt werden – es sei denn, der/die Nutzer:in meldet sich vorher ab.
 
-![Elevated-Access-Schalter.]({% image_buster /assets/img/elevated_access.png %})
-
 ## Herunterladen eines Sicherheitsereignisberichts {#security-event-report}
 
 Der Sicherheitsereignisbericht ist ein CSV-Bericht über Sicherheitsereignisse wie Kontoeinladungen, Kontoentfernungen, fehlgeschlagene und erfolgreiche Anmeldeversuche und andere Aktivitäten. Sie können ihn für interne Audits verwenden.
@@ -129,7 +127,23 @@ Um diesen Bericht herunterzuladen, gehen Sie wie folgt vor:
 
 Dieser manuelle Berichtsdownload enthält nur die letzten 10.000 Sicherheitsereignisse für Ihr Konto.
 
-Um Sicherheitsereignisse ohne diese Zeilenbegrenzung nach Amazon S3 zu exportieren, siehe [Export von Sicherheitsereignissen mit Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/).
+Um Sicherheitsereignisse ohne diese Zeilenbegrenzung nach Amazon S3 zu exportieren, siehe [Export von Sicherheitsereignissen mit Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3).
+
+### Spaltendefinitionen der CSV-Datei {#csv-column-definitions}
+
+Die CSV-Datei des Sicherheitsereignisberichts enthält die folgenden Spalten:
+
+| Spalte | Beschreibung |
+|--------|-------------|
+| CreatedAt | Zeitstempel, wann das Ereignis aufgezeichnet wurde, in UTC. |
+| EmailAtTimeOfEvent | E-Mail-Adresse des/der Dashboard-Nutzer:in, der/die das Ereignis ausgelöst hat, wie zum Zeitpunkt des Ereignisses erfasst. |
+| CurrentEmail | Aktuelle E-Mail-Adresse des/der Dashboard-Nutzer:in, der/die das Ereignis ausgelöst hat. Wenn der/die Nutzer:in nicht mehr existiert, wird stattdessen die Entwickler-ID verwendet. |
+| EventName | Art des Sicherheitsereignisses. Siehe die Liste der gemeldeten Sicherheitsereignisse unten. |
+| OtherAccount | E-Mail-Adresse eines/einer anderen Dashboard-Nutzer:in, der/die von dem Ereignis betroffen ist, sofern zutreffend (z. B. wenn ein Konto hinzugefügt oder entfernt wird). |
+| JsonProperties | Ereignisspezifische Eigenschaften im JSON-Format. Die enthaltenen Felder variieren je nach Ereignistyp. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spaltendefinitionen der CSV-Datei" }
+
+[S3-Exporte]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3) enthalten diese Spalten plus `Version`, die Schemaversion für das Exportformat (derzeit `1`).
 
 {% details Gemeldete Sicherheitsereignisse %}
 ### Anmeldung und Konto {#login-and-account}
@@ -161,8 +175,8 @@ Campaign
 - Edited Campaign
 
 Canvas
-- Added Journey
-- Edited Journey
+- Added Canvas
+- Edited Canvas
 
 ### Segment
 - Added Segment
@@ -249,15 +263,15 @@ Canvas
 Die Berechtigung **View PII** ist nur für einige ausgewählte Unternehmensnutzer:innen zugänglich. Standardmäßig ist bei allen Administratoren die Berechtigung **View PII** in den Nutzerberechtigungen aktiviert. Das bedeutet, dass sie alle Standard- und angepassten Attribute sehen können, die Ihr Unternehmen als PII im gesamten Dashboard definiert hat. Wenn diese Berechtigung für Nutzer:innen deaktiviert ist, können diese Nutzer:innen keines dieser Attribute sehen.
 
 {% alert note %}
-Sie benötigen die Berechtigung **View PII**, um den [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries/) zu verwenden, da dieser direkten Zugriff auf einige Kundendaten ermöglicht.
+Sie benötigen die Berechtigung **View PII**, um den [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries) zu verwenden, da dieser direkten Zugriff auf einige Kundendaten ermöglicht.
 {% endalert %}
 
-Informationen zu den bestehenden Team-Berechtigungsfunktionen finden Sie unter [Nutzerberechtigungen festlegen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#available-limited-and-team-role-permissions).
+Informationen zu den bestehenden Team-Berechtigungsfunktionen finden Sie unter [Nutzerberechtigungen festlegen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions).
 
 ### PII definieren {#defining-pii}
 
 {% alert important %}
-Das Auswählen und Definieren bestimmter Felder als PII-Felder wirkt sich nur darauf aus, was Nutzer:innen im Braze-Dashboard sehen können, und hat keinen Einfluss darauf, wie die Endnutzerdaten in solchen PII-Feldern verarbeitet werden.<br><br>Wenden Sie sich an Ihr Rechtsteam, um die Einstellungen Ihres Dashboards mit allen für Ihr Unternehmen geltenden Datenschutzvorschriften und -richtlinien abzustimmen, einschließlich derjenigen im Zusammenhang mit der [Datenaufbewahrung]({{site.baseurl}}/data_retention/).
+Das Auswählen und Definieren bestimmter Felder als PII-Felder wirkt sich nur darauf aus, was Nutzer:innen im Braze-Dashboard sehen können, und hat keinen Einfluss darauf, wie die Endnutzerdaten in solchen PII-Feldern verarbeitet werden.<br><br>Wenden Sie sich an Ihr Rechtsteam, um die Einstellungen Ihres Dashboards mit allen für Ihr Unternehmen geltenden Datenschutzvorschriften und -richtlinien abzustimmen, einschließlich derjenigen im Zusammenhang mit der [Datenaufbewahrung]({{site.baseurl}}/data_retention).
 {% endalert %}
 
 Sie können die Felder auswählen, die Ihr Unternehmen als PII im Dashboard kennzeichnet. Gehen Sie dazu zu **Unternehmenseinstellungen** > **Admin-Einstellungen** > **Sicherheitseinstellungen**.
@@ -328,7 +342,7 @@ Wenn Sie nach erfolgreicher Eingabe Ihrer Telefonnummer für 2FA in einer Schlei
 3. Starten Sie Ihren PC oder Laptop neu.
 4. Versuchen Sie erneut, 2FA einzurichten.
 
-Wenn das Problem nach diesen Schritten weiterhin besteht, wenden Sie sich an den [Support]({{site.baseurl}}/braze_support/) für Unterstützung.
+Wenn das Problem nach diesen Schritten weiterhin besteht, wenden Sie sich an den [Support]({{site.baseurl}}/braze_support) für Unterstützung.
 
 ### Zwei-Faktor-Authentifizierung (2FA) kann nicht aktiviert werden {#cant-enable-two-factor-authentication-2fa}
 
@@ -352,5 +366,5 @@ Wenn die Probleme weiterhin bestehen, löschen Sie das alte Profil in der Authy-
 
 Weitere Informationen zu Authentifizierung und Zugriff finden Sie unter:
 
-- [SAML und Single Sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/) zur Einrichtung von SSO mit Ihrem Identitätsanbieter.
-- [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) zur Steuerung, welche Aktionen Nutzer:innen im Dashboard ausführen können.
+- [SAML und Single Sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) zur Einrichtung von SSO mit Ihrem Identitätsanbieter.
+- [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) zur Steuerung, welche Aktionen Nutzer:innen im Dashboard ausführen können.

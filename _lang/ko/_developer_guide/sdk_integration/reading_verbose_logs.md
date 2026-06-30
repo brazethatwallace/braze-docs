@@ -9,11 +9,11 @@ description: "푸시 알림, 인앱 메시지, Content Cards, 딥링크에 대�
 
 > 이 페이지에서는 Braze SDK의 상세 로그 출력을 해석하는 방법을 설명합니다. 각 메시징 채널에 대해 찾아야 할 주요 로그 항목, 그 의미, 주의해야 할 일반적인 문제를 확인할 수 있습니다.
 
-시작하기 전에 [상세 로깅을 활성화]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)했는지, 그리고 플랫폼에서 로그를 수집하는 방법을 알고 있는지 확인하세요.
+시작하기 전에 [상세 로깅을 활성화]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)했는지, 그리고 플랫폼에서 로그를 수집하는 방법을 알고 있는지 확인하세요.
 
 ## 세션 {#sessions}
 
-세션은 Braze 분석 및 메시지 전달의 기초입니다. 인앱 메시지 및 Content Cards를 포함한 많은 메시징 기능은 유효한 세션이 시작되어야 작동할 수 있습니다. 세션이 올바르게 기록되지 않으면 먼저 이를 조사하세요. 세션 추적 활성화에 대한 자세한 내용은 [5단계: 사용자 세션 추적 활성화]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_step-5-enable-user-session-tracking)를 참조하세요.
+세션은 Braze 분석 및 메시지 전달의 기초입니다. 인앱 메시지 및 Content Cards를 포함한 많은 메시징 기능은 유효한 세션이 시작되어야 작동할 수 있습니다. 세션이 올바르게 기록되지 않으면 먼저 이를 조사하세요. 세션 추적 활성화에 대한 자세한 내용은 [5단계: 사용자 세션 추적 활성화]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_step-5-enable-user-session-tracking)를 참조하세요.
 
 ### 주요 로그 항목 {#key-log-entries}
 
@@ -346,7 +346,7 @@ Requesting content cards sync.
 {% endtab %}
 {% endtabs %}
 
-### 노출 횟수, 클릭, 해제 {#impressions-clicks-and-dismissals}
+### 노출 횟수, 클릭 및 해제 {#impressions-clicks-and-dismissals}
 
 {% tabs %}
 {% tab Swift %}
@@ -525,4 +525,18 @@ Making request(id = <REQUEST_ID>) to <YOUR_BRAZE_ENDPOINT>
 | `ccc` | Content Cards 클릭 |
 | `ccd` | Content Cards 해제됨 |
 | `lr` | 위치 기록됨 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="일반 이벤트 약어" }
+
+## 문제 해결 {#troubleshooting}
+
+### 사용자 프로필에 세션이 0으로 기록되는 경우는 언제인가요? {#when-might-a-user-have-0-sessions-recorded-against-their-profile}
+
+REST API([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) 또는 CSV 가져오기를 통해 **첫 번째 세션** 또는 **마지막 세션** 필드 없이 사용자를 가져오면 사용자 프로필에 세션이 0으로 표시될 수 있습니다. 세션은 사용자가 SDK를 통해 앱과 상호작용할 때 기록됩니다. 자세한 내용은 [사용자 프로필에 세션이 0인 경우]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#user-profile-has-0-sessions)를 참조하세요.
+
+### SDK와 REST API를 함께 사용할 때 사용자 데이터 불일치 {#user-data-discrepancies-when-using-the-sdk-and-rest-api-together}
+
+SDK와 REST API를 동시에 사용하면 경합 조건으로 인해 데이터 불일치가 발생할 수 있습니다. `changeUser()`를 호출한 후 중요한 REST API 호출을 하기 전에 SDK가 대기 중인 데이터를 플러시할 수 있도록 하고, 시간에 민감한 업데이트를 일괄 처리하지 않으며, SDK와 API 요청 사이에 짧은 지연을 추가하는 것을 고려하세요. `changeUser()` 동작에 대한 자세한 내용은 [changeUser() 작동 방식]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#how-changeuser-works)을 참조하세요.
+
+### 데이터가 Braze에 도달하지 않는 경우 {#data-not-reaching-braze}
+
+데이터가 Braze에 도달하지 않는 경우 방화벽이 Braze API 엔드포인트 및 CDN 공급자에 대한 아웃바운드 트래픽을 허용하는지 확인하세요. 문제가 발생하는 동안 MTR 테스트를 실행하고 [Fastly Debug](https://www.fastly-debug.com/)를 사용하세요. 허용 목록 및 연결 문제 해결에 대한 자세한 내용은 [API 네트워크 연결 문제]({{site.baseurl}}/api/network_connectivity_issues)를 참조하세요.

@@ -8,7 +8,7 @@ tool: Currents
 
 ---
 
-# Transferir dados do Amazon S3 para o Snowflake
+# Transferir dados do Amazon S3 para o Snowflake {#transfer-data-from-amazon-s3-to-snowflake}
 
 > Se seus dados estiverem atualmente no Amazon S3, você poderá transferi-los para o Snowflake ou outro data warehouse relacional usando o processo ELT (Extract, Load, Transform). Esta página explica como fazer isso.
 
@@ -16,20 +16,20 @@ tool: Currents
 Se tiver casos de uso mais específicos e quiser que a Braze faça a manutenção da sua instância do Currents, entre em contato com o gerente da sua conta Braze e pergunte sobre o Braze Data Professional Services.
 {% endalert %}
 
-## Como funciona?
+## Como funciona {#how-it-works}
 
-O processo Extract, Load, Transform (ELT) é um processo automatizado que move os dados para o [Snowflake](https://www.snowflake.com/), o que lhe permitirá usar os [blocos do Looker da Braze](https://marketplace.looker.com/marketplace/directory) para visualizar esses dados no Looker e ajudar a gerar insights e feedback em suas campanhas, Canvas e segmentos.
+O processo Extract, Load, Transform (ELT) é um processo automatizado que move os dados para o [Snowflake](https://www.snowflake.com/), o que permitirá que você use os [blocos do Looker da Braze](https://marketplace.looker.com/marketplace/directory) para visualizar esses dados no Looker e ajudar a gerar insights e feedback em suas Campaigns, Canvas e segmentos.
 
 Depois de configurar uma exportação do Currents para o S3 e de receber dados de eventos ao vivo, você poderá configurar seu pipeline ELT ao vivo no Snowflake configurando os seguintes componentes:
 
 -   [Filas SQS da AWS](#aws-sqs-queues)
 -   [Snowpipes de ingestão automática](#auto-ingest-snowpipes)
 
-## Configuração das filas do AWS SQS {#aws-sqs-queues}
+## Configuração das filas do AWS SQS {#configuring-aws-sqs-queues}
 
 Os **Snowpipes de ingestão automática** dependem de filas SQS para enviar notificações do S3 para o Snowpipe. Esse processo é gerenciado pelo Snowflake após a configuração do SQS.
 
-### Etapa 1: Configurar o stage externo do S3
+### Etapa 1: Configurar o stage externo do S3 {#step-1-configure-the-external-s3-stage}
 
 {% alert note %}
 As tabelas no seu banco de dados são criadas nesta etapa.
@@ -105,14 +105,14 @@ COPY INTO
 {: start="4"}
 4. Por fim, use o comando `show pipes;` para exibir as informações do SQS. O nome da fila SQS ficará visível em uma nova coluna chamada `NOTIFICATION_CHANNEL`, pois esse pipe foi criado como um pipe de ingestão automática.
 
-### Etapa 2: Criar eventos de bucket
+### Etapa 2: Criar eventos de bucket {#step-2-create-bucket-events}
 
 1. Na AWS, navegue até o bucket correspondente ao novo stage do Snowflake. Em seguida, na guia **Properties**, acesse **Events**.
 
 ![Guia Properties da AWS]({% image_buster /assets/img/aws-properties.png %}){: height="50%" width="50%"}
 
 {: start="2"}
-2. Crie novos eventos para cada conjunto de dados do Currents, conforme necessário ([Envio de mensagens]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/), [Comportamento do usuário]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)), ou ambos.
+2. Crie novos eventos para cada conjunto de dados do Currents, conforme necessário ([Envio de mensagens]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), [Comportamento do usuário]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)), ou ambos.
 
 ![Criando um novo evento na AWS]({% image_buster /assets/img/aws-events.png %}){: height="50%" width="50%"}
 
@@ -121,12 +121,12 @@ COPY INTO
 
 ## Configuração dos Snowpipes de ingestão automática {#auto-ingest-snowpipes}
 
-Para que a configuração do AWS SQS produza as tabelas corretas, você deve definir a estrutura dos dados recebidos corretamente usando os exemplos e esquemas a seguir, determinados em nossa documentação do Currents para [Eventos de engajamento com mensagem ou eventos de envio de mensagens]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/), [Eventos de comportamento do usuário ou cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/), ou ambos.
+Para que a configuração do AWS SQS produza as tabelas corretas, você deve definir a estrutura dos dados recebidos corretamente usando os exemplos e esquemas a seguir, determinados em nossa documentação do Currents para [Eventos de engajamento com mensagem ou eventos de envio de mensagens]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), [Eventos de comportamento do usuário ou cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events), ou ambos.
 
 É fundamental estruturar suas tabelas de acordo com os esquemas do Braze Currents, pois o Braze Currents carregará dados continuamente nelas por meio de campos específicos com tipos de dados específicos. Por exemplo, um `user_id` será carregado como uma string e chamado de `user_id` nos dados do Currents.
 
 {% alert note %}
-  Dependendo da sua integração com o Currents, você pode ter diferentes eventos que precisam ser configurados (como [Eventos de engajamento com mensagem ou eventos de envio de mensagens]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) e [Eventos de comportamento do usuário ou cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)). Você também pode escrever um script para parte ou todo esse processo.
+  Dependendo da sua integração com o Currents, você pode ter diferentes eventos que precisam ser configurados (como [Eventos de engajamento com mensagem ou eventos de envio de mensagens]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) e [Eventos de comportamento do usuário ou cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)). Você também pode escrever um script para parte ou todo esse processo.
 {% endalert %}
 
 {% tabs %}

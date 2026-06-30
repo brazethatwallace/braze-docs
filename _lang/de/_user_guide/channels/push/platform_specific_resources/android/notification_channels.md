@@ -16,7 +16,7 @@ channel:
 
 Benachrichtigungskanäle können nur im Code Ihrer Anwendung erstellt werden und nicht programmatisch im Braze-Dashboard. Wir empfehlen, dass Ihr Entwicklerteam mit Ihren Marketern zusammenarbeitet, um sicherzustellen, dass die gewünschten Benachrichtigungskanäle ordnungsgemäß zum Dashboard hinzugefügt werden.
 
-Ab API-Level 26 (Android O) benötigen Push-Benachrichtigungen einen gültigen Kanal zur Anzeige. Wenn Ihre App auf Android O oder höher abzielt, müssen Sie Braze SDK Version 2.1.0 oder höher verwenden. Ihr Entwicklerteam sollte die Kanäle definieren, die Sie verwenden möchten, sowie empfohlene Benachrichtigungseinstellungen (zum Beispiel Wichtigkeit, Ton, Lichter) für jeden Kanal in Ihrem Anwendungscode. Weitere Informationen finden Sie in der [Android-Entwicklerdokumentation](https://developer.android.com/preview/features/notification-channels.html) und der [Braze-Entwicklerdokumentation]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-5-define-notification-channels).
+Ab API-Level 26 (Android O) benötigen Push-Benachrichtigungen einen gültigen Kanal zur Anzeige. Wenn Ihre App auf Android O oder höher abzielt, müssen Sie Braze SDK Version 2.1.0 oder höher verwenden. Ihr Entwicklerteam sollte die Kanäle definieren, die Sie verwenden möchten, sowie empfohlene Benachrichtigungseinstellungen (zum Beispiel Wichtigkeit, Ton, Lichter) für jeden Kanal in Ihrem Anwendungscode. Weitere Informationen finden Sie in der [Android-Entwicklerdokumentation](https://developer.android.com/preview/features/notification-channels.html) und der [Braze-Entwicklerdokumentation]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-5-define-notification-channels).
 
 {% alert note %}
 Android unterstützt die Lokalisierung von Kanalnamen, sodass Sie im Code Ihrer Anwendung eine Kanal-ID mit mehreren Übersetzungen eines Kanalnamens verknüpfen können.
@@ -24,14 +24,14 @@ Android unterstützt die Lokalisierung von Kanalnamen, sodass Sie im Code Ihrer 
 
 Sobald diese Kanäle erstellt sind, müssen Ihre Entwickler:innen die zugehörigen Kanal-IDs an Ihr Marketing-Team weitergeben. Ihr Team sollte Ihre Kanalnamen und Kanal-IDs im Braze-Dashboard eingeben, um sie in Ihren Kampagnen und Canvases zu verwenden.
 
-Um einen Kanal zum Braze-Dashboard hinzuzufügen, navigieren Sie zum Android-Push-Editor, wählen Sie das Feld für Benachrichtigungskanäle aus und wählen Sie dann „Kanäle verwalten“.
+Um einen Kanal zum Braze-Dashboard hinzuzufügen, navigieren Sie zum Android-Push-Editor, wählen Sie das Feld für Benachrichtigungskanäle aus und wählen Sie dann **Kanäle verwalten**.
 {% alert important %}
 Nur Nutzer:innen mit Berechtigungen, die „Apps verwalten“ umfassen, können Kanäle verwalten.
 {% endalert %}
 
 ## SDK-Standardkanal {#sdk-default-channel}
 
-Android erfordert einen gültigen Kanal, um Push-Benachrichtigungen auf API-Level 26 (Android O) oder höher anzuzeigen. Braze Android SDK 2.1.0 enthält einen Standardkanal namens „General“, der erstellt und verwendet wird, wenn Sie keine zusätzlichen Kanäle im Dashboard angeben oder wenn Sie versuchen, an einen ungültigen Kanal zu senden. Sie können diese Bezeichnung im SDK umbenennen und eine Beschreibung des Kanals angeben. Wir empfehlen, dies in Betracht zu ziehen, um eine bessere Nutzererfahrung zu bieten.
+Android erfordert einen gültigen Kanal, um Push-Benachrichtigungen auf API-Level 26 (Android O) oder höher anzuzeigen. Das Braze Android SDK 2.1.0 enthält einen Standardkanal namens „General“, der erstellt und verwendet wird, wenn Sie keine zusätzlichen Kanäle im Dashboard angeben oder wenn Sie versuchen, an einen ungültigen Kanal zu senden. Sie können diese Bezeichnung im SDK umbenennen und eine Beschreibung des Kanals angeben. Wir empfehlen, dies in Betracht zu ziehen, um eine bessere Nutzererfahrung zu bieten.
 
 Sobald ein Kanal zu Ihrer Anwendung hinzugefügt wurde, können Sie ihn entfernen. Verbraucher:innen können jedoch immer die Anzahl der Kanäle sehen, die Sie [entfernt][3] haben. Das Braze-Dashboard unterstützt nicht die programmatische Erstellung von Kanälen – Kanäle müssen im Code Ihrer Anwendung erstellt und definiert werden, um ein nahtloses Erlebnis zu gewährleisten.
 
@@ -69,17 +69,17 @@ Um das erwartete Verhalten für Kanäle besser zu verstehen, beziehen Sie sich a
 
 1. Öffnen oder erstellen Sie eine beliebige Campaign oder ein Canvas, das einen Android-Push enthält.
 2. Navigieren Sie zum Android-Push-Nachrichten-Editor.
-3. Wählen Sie **Benachrichtigungskanäle verwalten** aus. Alle hier hinzugefügten Kanäle sind global für alle Campaigns und Canvases verfügbar. Sie müssen über die [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#limited-and-team-role-permissions) „Apps verwalten“ für Ihren Workspace verfügen, um Kanäle zu verwalten.
+3. Wählen Sie **Benachrichtigungskanäle verwalten** aus. Alle hier hinzugefügten Kanäle sind global für alle Campaigns und Canvases verfügbar. Sie müssen über die [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#limited-and-team-role-permissions) „Apps verwalten“ für Ihren Workspace verfügen, um Kanäle zu verwalten.
 
 Wenn Sie einen Benachrichtigungskanal auf eine bestimmte Campaign oder einen Canvas-Schritt anwenden, scheint sich Ihre Zählung der **erreichbaren Nutzer:innen** (im Schritt „Zielgruppe“) für Android-Push nicht zu ändern. Allerdings sehen nur Nutzer:innen, die den ausgewählten Benachrichtigungskanal abonniert haben, die Nachricht, und Ihre Campaign-Analytics (wie Klicks) werden basierend auf dieser Zielgruppe gemessen.
 
-![]({% image_buster /assets/img_archive/push_notification_channels.png %})
+![Android-Push-Editor mit „Benachrichtigungskanäle verwalten“ und einer Liste konfigurierter Kanäle.]({% image_buster /assets/img_archive/push_notification_channels.png %})
 
 {:start="4"}
-4. Klicken Sie auf **Benachrichtigungskanal hinzufügen**.
-5. Geben Sie den Namen und die ID des Benachrichtigungskanals ein, den Sie hinzufügen möchten.<br><br>![]({% image_buster /assets/img_archive/push_notifications_channels_manage.png %})<br><br>
+4. Wählen Sie **Benachrichtigungskanal hinzufügen** aus.
+5. Geben Sie den Namen und die ID des Benachrichtigungskanals ein, den Sie hinzufügen möchten.<br><br>![Dialog „Benachrichtigungskanal hinzufügen“ mit Feldern für Kanalname und Kanal-ID.]({% image_buster /assets/img_archive/push_notifications_channels_manage.png %})<br><br>
 6. Wiederholen Sie die Schritte 4 und 5 für jeden Benachrichtigungskanal, den Sie hinzufügen möchten.
-7. Klicken Sie auf **Speichern**, um Ihre Änderungen zu speichern.
+7. Wählen Sie **Speichern** aus, um Ihre Änderungen zu speichern.
 
 ## Ihren Fallback-Kanal festlegen {#specifying-your-fallback-channel}
 

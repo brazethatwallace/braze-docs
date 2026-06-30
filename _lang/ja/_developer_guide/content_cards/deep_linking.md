@@ -14,7 +14,7 @@ platform:
 
 # Content Cardsのディープリンク {#deep-linking-in-content-cards}
 
-> Braze SDKを使用して、Content Cards内でディープリンクを行う方法について説明します。ディープリンクの詳細については、[ディープリンクとは]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)を参照してください。
+> Braze SDKを使用して、Content Cards内でディープリンクを行う方法について説明します。ディープリンクの詳細については、[ディープリンクとは]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking)を参照してください。
 
 {% sdktabs %}
 {% sdktab web %}

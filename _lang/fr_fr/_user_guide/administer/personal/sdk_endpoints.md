@@ -15,10 +15,10 @@ Braze gère un certain nombre d'instances différentes pour notre tableau de bor
 
 Se connecter sur [dashboard.braze.com](https://dashboard.braze.com) vous redirigera automatiquement vers la bonne adresse de cluster.
 
-{% multi_lang_include data_centers.md datacenters='instances' %}
+{% multi_lang_include administer/data_centers.md datacenters='instances' %}
 
 {% alert important %}
 Lors de l'intégration de votre SDK, utilisez l'endpoint SDK. Lors d'appels à notre REST API, utilisez l'endpoint REST.
 {% endalert %}
 
-Pour plus de détails sur l'accès à l'API, consultez notre [article d'aperçu de l'API]({{site.baseurl}}/api/basics/).
+Pour plus de détails sur l'accès à l'API, consultez notre [article d'aperçu de l'API]({{site.baseurl}}/api/basics).

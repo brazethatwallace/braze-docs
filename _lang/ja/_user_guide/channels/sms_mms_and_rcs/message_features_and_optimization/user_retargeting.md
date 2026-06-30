@@ -19,13 +19,13 @@ channel:
 > Brazeは、ユーザーのサブスクリプション状態の変更や受信キーワードに基づく自動応答の送信に加えて、ユーザープロファイルにインタラクションを記録し、メッセージのフィルタリングやトリガーに活用できるようにします。<br><br>これらのフィルターとトリガーにより、SMS、MMS、RCSのキャンペーンを送信されたユーザーや応答したユーザーに基づいてアクションをフィルタリングしたり、短縮URLをクリックしたユーザーにさらにエンゲージしたりすることができます。
 
 {% alert tip %}
-カスタムキーワードの詳細や、これらのリターゲティングオプションを活用するための双方向メッセージングの設定方法については、[カスタムキーワード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/)の記事をご覧ください。
+カスタムキーワードの詳細や、これらのリターゲティングオプションを活用するための双方向メッセージングの設定方法については、[カスタムキーワード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling)の記事をご覧ください。
 {% endalert %}
 
 ## リターゲティングオプション {#retargeting-options}
 
 {% alert note %}
-ユーザーリターゲティングでオーディエンスを構築する際、ユーザーの設定に基づいて特定のユーザーを含めたり除外したりすることや、CUPAに基づく「販売または共有の禁止」権利などのプライバシー法に準拠することが必要になる場合があります。マーケターは、キャンバスやキャンペーンのエントリ条件内で、ユーザーの適格性に関する関連フィルターを実装する必要があります。
+ユーザーリターゲティングでオーディエンスを構築する際、ユーザーの設定に基づいて特定のユーザーを含めたり除外したりすることや、CUPに基づく「販売または共有の禁止」権利などのプライバシー法に準拠することが必要になる場合があります。マーケターは、キャンバスやキャンペーンのエントリ条件内で、ユーザーの適格性に関する関連フィルターを実装する必要があります。
 {% endalert %}
 
 ### SMS、MMS、RCSでユーザーをフィルタリングする {#filter-users-by-sms-mms-and-rcs}
@@ -40,7 +40,7 @@ channel:
 
 ![セグメンテーションフィルター「最後にSMSを受信」が2020年12月8日以降。]({% image_buster /assets/img/sms/filter2.png %})
 
-#### SMS/MMS/RCS キャンペーンからの受信メッセージでフィルタリング {#filter-by-received-messages-from-smsmmsrcs-campaign}
+#### SMS/MMS/RCSキャンペーンからの受信メッセージでフィルタリング {#filter-by-received-messages-from-smsmmsrcs-campaign}
 
 特定のキャンペーンからメッセージを受信したユーザーをフィルタリングします。このフィルターでは、キャンペーンからメッセージを受信していないユーザーを除外するオプションもあります。
 
@@ -50,20 +50,20 @@ channel:
 
 ユーザーが特定のキャンペーンからSMS、MMS、RCSメッセージを受信した際にメッセージをトリガーするには、アクションベースのキャンペーンのトリガーアクションとして**キャンペーンとのインタラクション**を選択します。次に、**SMSを受信**と使用したいSMS、MMS、RCSのキャンペーンを選択します。
 
-![]({% image_buster /assets/img/sms/trigger.png %})
+![ユーザーが特定のキャンペーンからSMS、MMS、RCSメッセージを受信した際にメッセージをトリガーするには、アクションベースのキャンペーンのトリガーアクションとして「キャンペーンとのインタラクション」を選択します。次に、「SMSを受信」と使用したいSMS、MMS、RCSのキャンペーンを選択します。]({% image_buster /assets/img/sms/trigger.png %})
 
 ### 高度なトラッキングリンクでフィルタリング {#filter-by-advanced-tracking-links}
 
-[高度なトラッキングリンク]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/)を含むキャンペーンをクリックしたユーザーをリターゲティングします。
+[高度なトラッキングリンク]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening)を含むキャンペーンをクリックしたユーザーをリターゲティングします。
 高度なトラッキングが有効になっているキャンペーンのみが、以下のドロップダウンに表示されます。
 
-#### 特定のSMS、MMS、RCS キャンペーンをクリックしたユーザーをリターゲティング {#retarget-users-who-have-clicked-a-specific-sms-mms-or-rcs-campaign}
+#### 特定のSMS、MMS、RCSキャンペーンをクリックしたユーザーをリターゲティング {#retarget-users-who-have-clicked-a-specific-sms-mms-or-rcs-campaign}
 
 1. **クリック/開封したキャンペーン**フィルターを使用してセグメントを作成します。
 2. **短縮SMSリンクをクリック**を選択します。
 3. 目的のキャンペーンを選択します。
 
-![]({% image_buster /assets/img/sms/retargeting5.png %})
+![特定のSMS、MMS、RCSキャンペーンをクリックしたユーザーのリターゲティングに関するスクリーンショット。]({% image_buster /assets/img/sms/retargeting5.png %})
 
 #### 特定のキャンバスステップをクリックしたユーザーをリターゲティング {#retarget-users-who-have-clicked-a-specific-canvas-step}
 
@@ -71,11 +71,11 @@ channel:
 2. **短縮SMSリンクをクリック**を選択します。
 3. 目的のキャンバスとキャンバスステップを選択します。
 
-![]({% image_buster /assets/img/keyword_example1.jpg %})
+![特定のキャンバスステップをクリックしたユーザーのリターゲティングに関するスクリーンショット。]({% image_buster /assets/img/keyword_example1.jpg %})
 
 ## キーワードカテゴリ別リターゲティング {#keyword-category-specific-retargeting}
 
-3つのデフォルトキーワードカテゴリ（オプトイン、オプトアウト、ヘルプ）に加えて、最大25個の独自キーワードカテゴリを作成でき、任意のキーワードと応答を識別できます。これらのカテゴリは、フィルタリングとリターゲティングに使用できます。グローバルキーワードカテゴリとその設定方法の詳細については、[キーワード処理]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/)を参照してください。
+3つのデフォルトキーワードカテゴリ（オプトイン、オプトアウト、ヘルプ）に加えて、最大25個の独自キーワードカテゴリを作成でき、任意のキーワードと応答を識別できます。これらのカテゴリは、フィルタリングとリターゲティングに使用できます。グローバルキーワードカテゴリとその設定方法の詳細については、[キーワード処理]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing)を参照してください。
 
 ### 最新性でフィルタリング {#filter-by-recency}
 
@@ -106,18 +106,18 @@ channel:
 受信メッセージが定義されたトリガーイベントに一致するかどうかを評価する際、先頭と末尾のスペースは評価開始前に削除されます。
 
 {% alert tip %}
-受信SMSまたはMMSメッセージによってアクションベースのキャンバスがトリガーされた場合、次のアクションパスまでの任意のキャンバスステップで[サポートされているSMS Liquidプロパティ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)を参照できます。
+受信SMSまたはMMSメッセージによってアクションベースのキャンバスがトリガーされた場合、次のアクションパスまでの任意のキャンバスステップで[サポートされているSMS Liquidプロパティ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)を参照できます。
 {% endalert %}
 
 #### 受信キーワードカテゴリによるトリガー {#trigger-by-inbound-keyword-category}
 
-![アクションベースのSMS キャンペーンでセグメンテーションフィルター「キーワードを送信」で「オプトイン」をサブスクリプショングループ「マーケティングSMS」に送信。]({% image_buster /assets/img/sms/retargeting2.png %}){: style="margin-top:10px;"}
+![アクションベースのSMSキャンペーンでセグメンテーションフィルター「キーワードを送信」で「オプトイン」をサブスクリプショングループ「マーケティングSMS」に送信。]({% image_buster /assets/img/sms/retargeting2.png %}){: style="margin-top:10px;"}
 
 #### 任意のキーワードによるトリガー {#trigger-by-arbitrary-keywords}
 
-「その他」のキーワード応答でメッセージをトリガーする場合、キーワード本文を完全一致テキストで評価する機会があります。この一致は前述と同じルールに従います。**正確な単一単語のメッセージ**のみが処理されます（大文字小文字は*区別しません*）。`Hello Braze!` というキーワードを送信しても、以下の例に示す条件には一致しません。
+「その他」のキーワード応答でメッセージをトリガーする場合、キーワード本文を完全一致テキストで評価できます。この一致は前述と同じルールに従います。**正確な単一単語のメッセージ**のみが処理されます（大文字小文字は*区別しません*）。`Hello Braze!` というキーワードを送信しても、以下の例に示す条件には一致しません。
 
-![アクションベースのSMS キャンペーンでキーワードカテゴリが「その他」、メッセージ本文が正確に「Hello」または「Hey」。]({% image_buster /assets/img/sms/retargeting3.png %}){: style="margin-top:10px;"}
+![アクションベースのSMSキャンペーンでキーワードカテゴリが「その他」、メッセージ本文が正確に「Hello」または「Hey」。]({% image_buster /assets/img/sms/retargeting3.png %}){: style="margin-top:10px;"}
 
 #### テンプレートキーワード {#template-keywords}
 
@@ -129,7 +129,7 @@ channel:
 Sorry, we didn't recognize {{sms.${inbound_message_body}}}. Text HELP for help or STOP to stop.
 ```
 
-`````````liquid
+```liquid
 {% if {{sms.${inbound_message_body}}} == "SNEAKERS" %}
 OK, you're subscribed to updates on all our sneaker deals!
 {% elsif {{sms.${inbound_message_body}}} == "SHIRTS" %}

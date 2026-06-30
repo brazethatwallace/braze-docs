@@ -11,20 +11,20 @@ search_rank: 2
 
 # Correo electrónico {#email}
 
-> Con el correo electrónico en Braze, puedes crear mensajes de correo electrónico completamente personalizados, ya sea en Campaigns o en Canvas, que capten la atención de tus usuarios fuera de tu aplicación o sitio web. Personaliza tus mensajes de correo electrónico desde la gestión de tu audiencia hasta la inclusión de contenido multimedia llamativo. Para ver ejemplos de Campaigns de correo electrónico, consulta los [casos de estudio](https://www.braze.com/customers/) de Braze.
+> Con el correo electrónico en Braze, puedes crear mensajes de correo electrónico completamente personalizados, ya sea en Campaigns o en Canvas, que capten la atención de tus usuarios fuera de tu aplicación o sitio web. Personaliza tus mensajes de correo electrónico desde la gestión de tu audiencia hasta la inclusión de contenido multimedia llamativo. Para ver ejemplos de campañas de correo electrónico, consulta los [casos de estudio](https://www.braze.com/customers/) de Braze.
 
 ## Requisitos previos {#prerequisites}
 
-Antes de poder enviar correo electrónico con Braze, necesitas configurar tus IP dedicadas, dominios, autenticación de correo electrónico y calentamiento de IP. Para un recorrido completo, consulta [Configuración del correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/).
+Antes de poder enviar correo electrónico con Braze, necesitas configurar tus IP dedicadas, dominios, autenticación de correo electrónico y calentamiento de IP. Para un recorrido completo, consulta [Configuración del correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup).
 
 ## Personaliza tus correos electrónicos {#customize-your-emails}
 
 Puedes personalizar tus mensajes de correo electrónico de varias maneras, entre ellas:
 
-- [Plantillas de correo electrónico de Braze]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)
-- [Plantillas HTML personalizadas]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)
-- [Bloques de editor (correo electrónico)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email)
-- [Suscripciones de usuarios]({{site.baseurl}}/user_guide/channels/email/subscriptions/)
+- [Plantillas de correo electrónico de Braze]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)
+- [Plantillas HTML personalizadas]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)
+- [Bloques de editor (correo electrónico)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)
+- [Suscripciones de usuarios]({{site.baseurl}}/user_guide/channels/email/subscriptions)
 
 ## Casos de uso {#use-cases}
 
@@ -35,7 +35,7 @@ Puedes personalizar tus mensajes de correo electrónico de varias maneras, entre
 | Mensajes enriquecidos | Permite mensajes HTML enriquecidos y dinámicos. |
 | Contenido multimedia | Facilidad para incluir contenido multimedia que atraiga a los usuarios, como videos e imágenes. |
 | Boletines informativos | Envía cómodamente boletines mensuales o semanales para mantener la interacción de los usuarios. |
-| Transacciones | Notifica a los usuarios sobre compras recientes y entrega información importante sobre productos y envíos con [correos electrónicos transaccionales]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/).
+| Transacciones | Notifica a los usuarios sobre compras recientes y entrega información importante sobre productos y envíos con [correos electrónicos transaccionales]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 ## Servicios de correo electrónico {#email-services}
@@ -60,6 +60,6 @@ Estos servicios pueden incluir:
 
 ## Próximos pasos {#next-steps}
 
-- [Configuración del correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/)
-- [Crear un correo electrónico con el editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/)
-- [Crear un correo electrónico con el editor HTML]({{site.baseurl}}/user_guide/channels/email/html_editor/)
+- [Configuración del correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup)
+- [Crear un correo electrónico con el editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)
+- [Crear un correo electrónico con el editor HTML]({{site.baseurl}}/user_guide/channels/email/html_editor)

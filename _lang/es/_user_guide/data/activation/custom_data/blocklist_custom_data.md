@@ -8,7 +8,7 @@ description: "Este artículo de referencia explica cómo bloquear y eliminar eve
 
 # Bloquear datos personalizados {#blocklist-custom-data}
 
-> Usa el bloqueo para dejar de rastrear datos personalizados que ya no son útiles. Usa la eliminación para quitar permanentemente eventos personalizados y atributos de los perfiles de usuario después de bloquearlos. Para prepoblar, administrar propiedades y configurar tipos de datos, consulta [Administrar datos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/).
+> Usa el bloqueo para dejar de rastrear datos personalizados que ya no son útiles. Usa la eliminación para quitar permanentemente eventos personalizados y atributos de los perfiles de usuario después de bloquearlos. Para prepoblar, administrar propiedades y configurar tipos de datos, consulta [Administrar datos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data).
 
 ## Bloquear datos personalizados {#blocklisting-custom-data}
 
@@ -25,7 +25,7 @@ El bloqueo envía la información de bloqueo al dispositivo de cada usuario y pu
 
 Independientemente de si bloqueas o eliminas, esos atributos personalizados, eventos y compras ya no aparecen en la página **Manage Workspace** y se quitan como filtros de Segments. Si eliminas datos personalizados, Braze quita esos datos a nivel de usuario de los perfiles según [Cómo funciona la eliminación](#how-deletion-works).
 
-Para bloquear datos personalizados, necesitas los [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) del siguiente desplegable para tu espacio de trabajo.
+Para bloquear datos personalizados, necesitas los [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) del siguiente desplegable para tu espacio de trabajo.
 
 {% details Permisos de usuario para bloquear datos personalizados %}
 
@@ -87,7 +87,7 @@ Para dejar de rastrear un atributo personalizado, evento o producto específico,
 
 ![Múltiples atributos personalizados seleccionados que están bloqueados en la página de atributos personalizados.]({% image_buster /assets/img_archive/blocklist_custom_attr.png %})
 
-Puedes bloquear hasta 300 atributos personalizados y 300 eventos personalizados. Para evitar la recopilación de ciertos atributos de dispositivo, consulta nuestra [guía del SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/sdk_primer/#blocking-data-collection).
+Puedes bloquear hasta 300 atributos personalizados y 300 eventos personalizados. Para evitar la recopilación de ciertos atributos de dispositivo, consulta nuestra [guía del SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/sdk_primer#blocking-data-collection).
 
 {% alert important %}
 Los atributos personalizados o eventos personalizados con estado **Trashed** cuentan para el límite de bloqueo hasta que se eliminen.
@@ -101,7 +101,7 @@ Cuando un evento personalizado o atributo se bloquea, se aplica lo siguiente:
 - Las referencias a datos bloqueados dentro de borradores de Canvas activos se cargan como valores no válidos, lo que puede causar errores
 - Todo lo que use el evento o atributo bloqueado se archiva
 
-Para lograr esto, Braze envía la información de bloqueo a cada dispositivo. Esto es importante al considerar bloquear una gran cantidad de eventos y atributos (cientos de miles o millones), ya que sería una operación intensiva en datos.
+Para lograr esto, Braze envía la información de bloqueo a cada dispositivo. Esto es importante al considerar bloquear una gran cantidad de eventos y atributos (cientos de miles o millones), ya que es una operación intensiva en datos.
 
 ### Consideraciones para el bloqueo {#considerations-for-blocklisting}
 
@@ -114,14 +114,14 @@ Se envían hasta 300 elementos al SDK para el bloqueo. Si bloqueas más de 300 e
 A medida que construyes Campaigns y Segments dirigidos, es posible que descubras que ya no necesitas un evento personalizado o un atributo personalizado. Por ejemplo, si usaste un atributo personalizado específico como parte de una Campaign única, puedes eliminar estos datos después de [bloquearlos](#blocklisting-custom-attributes-custom-events-and-products) y quitar sus referencias de tu aplicación. Puedes eliminar cualquier tipo de datos (como cadenas, números y atributos personalizados anidados).
 
 {% alert important %}
-Debes ser [administrador de Braze]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#admin) para eliminar datos personalizados.
+Debes ser [administrador de Braze]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#admin) para eliminar datos personalizados.
 {% endalert %}
 
 Para eliminar un evento personalizado o un atributo personalizado, haz lo siguiente:
 
-1. Ve a **Data Settings** > **Custom Attributes** o **Custom Events**, según el tipo de datos que quieras eliminar.
-2. Ve al dato personalizado y selecciona <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Actions** > **Blocklist**.
-3. Después de que tus datos personalizados hayan estado bloqueados durante 7 días, selecciona <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Actions** > **Delete**.
+1. Ve a **Configuración de datos** > **Custom Attributes** o **Custom Events**, según el tipo de datos que quieras eliminar.
+2. Ve al dato personalizado y selecciona <i class="fa-solid fa-ellipsis-vertical" aria-label="Más opciones"></i>&nbsp;**Acciones** > **Blocklist**.
+3. Después de que tus datos personalizados hayan estado bloqueados durante 7 días, selecciona <i class="fa-solid fa-ellipsis-vertical" aria-label="Más opciones"></i>&nbsp;**Acciones** > **Delete**.
 
 ### Cómo funciona la eliminación {#how-deletion-works}
 
@@ -142,4 +142,4 @@ Al eliminar datos personalizados, ten en cuenta los siguientes detalles:
 * Los datos se eliminan de la plataforma Braze y de los perfiles de usuario.
 * Puedes "reutilizar" el nombre del atributo personalizado o del evento personalizado después de la eliminación. Esto significa que si notas que los datos personalizados "reaparecen" en Braze después de la eliminación, puede deberse a una integración que no se ha detenido y está enviando datos con el mismo nombre de datos personalizados.
 * Es posible que necesites bloquear un elemento nuevamente si tu eliminación resulta en la reaparición de datos personalizados. El estado de bloqueo no se conserva porque los datos personalizados se eliminan.
-* Eliminar datos personalizados no registra ningún [punto de datos]({{site.baseurl}}/user_guide/data/infrastructure/data_points/) y tampoco genera nuevos puntos de datos para usar.
+* Eliminar datos personalizados no registra ningún [punto de datos]({{site.baseurl}}/user_guide/data/infrastructure/data_points) y tampoco genera nuevos puntos de datos para usar.

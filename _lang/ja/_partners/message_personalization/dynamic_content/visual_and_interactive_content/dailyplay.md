@@ -1,7 +1,7 @@
 ---
 nav_title: DailyPlay
 article_title: DailyPlay
-description: "DailyPlayのブランドゲームと報酬をBrazeに接続し、ゲームプレイデータの同期、オーディエンスのセグメンテーション、パーソナライズされたCampaignsのトリガーを行う方法を説明します。"
+description: "DailyPlayのブランドゲームと報酬をBrazeに接続し、ゲームプレイデータの同期、オーディエンスのセグメンテーション、パーソナライズされたキャンペーンのトリガーを行う方法を説明します。"
 alias: /partners/dailyplay/
 page_type: partner
 search_tag: Partner
@@ -15,13 +15,13 @@ search_tag: Partner
 
 ## このインテグレーションについて {#about-this-integration}
 
-BrazeとDailyPlayのインテグレーションにより、オーディエンスSegments全体でゲームと報酬のパフォーマンスをデプロイおよびトラッキングできます。DailyPlayのゲームと報酬システムはBrazeのオーケストレーションエンジンと連携し、受動的なオーディエンスをアクティブな参加者に変えることができます。
+BrazeとDailyPlayのインテグレーションにより、オーディエンスセグメント全体でゲームと報酬のパフォーマンスをデプロイおよびトラッキングできます。DailyPlayのゲームと報酬システムはBrazeのオーケストレーションエンジンと連携し、受動的なオーディエンスをアクティブな参加者に変えることができます。
 
-ゲームプレイのマイルストーン、報酬の引き換え、エンゲージメント指標をBrazeに送信して、オーディエンスSegmentsを構築し、ゲーム内の行動に基づいた自動クロスチャネルメッセージングをトリガーできます。このインテグレーションにより、以下のことが可能になります。
+ゲームプレイのマイルストーン、報酬の引き換え、エンゲージメント指標をBrazeに送信して、オーディエンスセグメントを構築し、ゲーム内の行動に基づいた自動クロスチャネルメッセージングをトリガーできます。このインテグレーションにより、以下のことが可能になります。
 
 - **ユーザープロファイルの強化:** ゲームプレイ指標、スコア、報酬ステータスをBrazeのユーザープロファイルに渡します。
-- **高度なセグメンテーションの実現:** トップスコアラー、最近の勝者、報酬のアンロックに近いユーザーなど、ゲーム内の行動に基づいたオーディエンスSegmentsを作成します。
-- **リアルタイムCampaignsの自動化:** ゲームインタラクションに基づいてパーソナライズされたクロスチャネルメッセージ（プッシュ、メール、アプリ内）をトリガーし、リピートプレイ、ブランドロイヤルティ、ライフタイムバリューの向上を促進します。
+- **高度なセグメンテーションの実現:** トップスコアラー、最近の勝者、報酬のアンロックに近いユーザーなど、ゲーム内の行動に基づいたオーディエンスセグメントを作成します。
+- **リアルタイムキャンペーンの自動化:** ゲームインタラクションに基づいてパーソナライズされたクロスチャネルメッセージ（プッシュ、メール、アプリ内）をトリガーし、リピートプレイ、ブランドロイヤルティ、ライフタイムバリューの向上を促進します。
 
 ## ユースケース {#use-cases}
 
@@ -66,9 +66,9 @@ BrazeとDailyPlayのインテグレーションにより、オーディエンス
 
 ![Brazeのトリガーイベントとメールテンプレート用の埋め込みコードが表示されたDailyPlayのManage Connectionsモーダル。]({% image_buster /assets/img/dailyplay/manage_connections.png %}){: style="max-width:70%;"}
 
-### ステップ 3: BrazeでCampaignを作成する {#step-3-create-a-campaign-in-braze}
+### ステップ 3: Brazeでキャンペーンを作成する {#step-3-create-a-campaign-in-braze}
 
-ステップ2のコードをBrazeのCampaignに貼り付けます。
+ステップ2のコードをBrazeのキャンペーンに貼り付けます。
 
 ユーザーがストリーム内のゲームをプレイすると、DailyPlayはイベントをトリガーし、Braze RESTエンドポイントを通じてBrazeに送信します。
 
@@ -76,19 +76,19 @@ BrazeとDailyPlayのインテグレーションにより、オーディエンス
 
 DailyPlayストリームでアクションを完了したユーザーは、Brazeプロファイルにカスタム属性とカスタムイベントを受け取ります。
 
-ユースケースに必要なDailyPlayカスタムイベントまたはカスタム属性を使用する[アクションベース]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)トリガーで[Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/)または[Canvas]({{site.baseurl}}/user_guide/messaging/canvas/)を作成します。
+ユースケースに必要なDailyPlayカスタムイベントまたはカスタム属性を使用する[アクションベース]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)トリガーで[キャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/)または[キャンバス]({{site.baseurl}}/user_guide/messaging/canvas/)を作成します。
 
 ## DailyPlayをBrazeで使用する {#use-dailyplay-with-braze}
 
-特定の顧客Segmentをエンゲージするには、インテグレーションのセットアップ完了後に以下のステップに従ってください。
+特定の顧客セグメントをエンゲージするには、インテグレーションのセットアップ完了後に以下のステップに従ってください。
 
 ### ステップ 1: DailyPlayの設定をセットアップする {#step-1-set-up-your-dailyplay-configuration}
 
 上記のインテグレーションステップに従って、Braze接続とDailyPlayストリームをセットアップします。インテグレーションコードをコピーします。
 
-### ステップ 2: BrazeのCampaignまたはCanvasを作成する {#step-2-create-a-braze-campaign-or-canvas}
+### ステップ 2: Brazeのキャンペーンまたはキャンバスを作成する {#step-2-create-a-braze-campaign-or-canvas}
 
-アクションベーストリガーを使用してCampaignまたはCanvasを作成します。ユースケースに必要なDailyPlayカスタムイベントまたはカスタム属性を選択します。
+アクションベーストリガーを使用してキャンペーンまたはキャンバスを作成します。ユースケースに必要なDailyPlayカスタムイベントまたはカスタム属性を選択します。
 
 [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/)を使用して、DailyPlayが送信するプロパティをメッセージコピーで参照できます。
 

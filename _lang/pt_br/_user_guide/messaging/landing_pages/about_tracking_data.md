@@ -38,5 +38,5 @@ A Braze não mescla automaticamente usuários com base em atributos, como e-mail
 
 Para mesclar perfis de usuário duplicados, você pode:
 
-- Acionar o [endpoint `/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) quando um formulário de landing page for enviado para mesclar o novo perfil com um perfil existente.
-- Programar a [mesclagem em massa]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/#bulk-merging) para mesclar periodicamente perfis duplicados com base em identificadores correspondentes.
+- Acionar o [endpoint `/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) quando um formulário de landing page for enviado para mesclar o novo perfil com um perfil existente.
+- Programar a [mesclagem em massa]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#bulk-merging) para mesclar periodicamente perfis duplicados com base em identificadores correspondentes.

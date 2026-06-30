@@ -10,7 +10,7 @@ description: "Erfahren Sie, wie Sie den Braze SDK-Debugger verwenden, damit Sie 
 > Erfahren Sie, wie Sie den integrierten Debugger des Braze SDK verwenden, damit Sie Probleme in Ihren SDK-gestützten Kanälen beheben können, ohne die ausführliche Protokollierung in Ihrer App aktivieren zu müssen.
 
 {% alert tip %}
-Für eine eingehendere Untersuchung können Sie auch [die ausführliche Protokollierung aktivieren]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), um detaillierte SDK-Ausgaben zu erfassen, und [erfahren, wie Sie ausführliche Protokolle lesen]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/) – für bestimmte Kanäle.
+Für eine eingehendere Untersuchung können Sie auch [die ausführliche Protokollierung aktivieren]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), um detaillierte SDK-Ausgaben zu erfassen, und [erfahren, wie Sie ausführliche Protokolle lesen]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs) – für bestimmte Kanäle.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -19,12 +19,12 @@ Um den Braze SDK-Debugger nutzen zu können, benötigen Sie die Berechtigungen �
 
 {% sdk_min_versions swift:10.2.0 android:32.1.0 %}
 
-Um Debugger-Protokolle zu erfassen, wenn `Braze.configuration.logger.level` auf `.disabled` gesetzt ist, verwenden Sie Swift SDK 11.9.0 oder höher. Weitere Informationen finden Sie in den [Swift-Changelogs]({{site.baseurl}}/developer_guide/changelogs/#swift_fixed-12).
+Um Debugger-Protokolle zu erfassen, wenn `Braze.configuration.logger.level` auf `.disabled` gesetzt ist, verwenden Sie Swift SDK 11.9.0 oder höher. Weitere Informationen finden Sie in den [Swift-Changelogs]({{site.baseurl}}/developer_guide/changelogs#swift_fixed-12).
 
 ## Fehlersuche im Braze SDK
 
 {% alert tip %}
-Um das Debugging für das Braze Web SDK zu aktivieren, können Sie [einen URL-Parameter verwenden]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/#logging).
+Um das Debugging für das Braze Web SDK zu aktivieren, können Sie [einen URL-Parameter verwenden]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#logging).
 {% endalert %}
 
 ### 1. Schritt: Schließen Sie Ihre App {#step-1-close-your-app}

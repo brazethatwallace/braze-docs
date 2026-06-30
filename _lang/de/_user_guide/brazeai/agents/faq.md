@@ -32,13 +32,21 @@ Nein. Der Versuch, Liquid-Blöcke wie {% raw %}`{% if %}`{% endraw %}-Anweisunge
 
 ### Können Agents auf Nutzerdaten zugreifen, die über die spezifischen Liquid-Attribute oder -Werte hinausgehen, die ich ihnen übergebe? {#can-agents-access-user-data-beyond-the-specific-liquid-attributes-or-values-that-i-pass-to-them}
 
-Nein. Agents erhalten nur die spezifischen Datenpunkte, die ihnen über Liquid übergeben werden, sowie [Ressourcen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#add-resources), die dem Agent-Kontext hinzugefügt wurden. Agents können nicht in Nutzerprofilen nach Attributen suchen, für deren Abfrage sie vom Marketer nicht konfiguriert wurden.
+Nein. Agents erhalten nur die spezifischen Datenpunkte, die ihnen über Liquid übergeben werden, sowie [Ressourcen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources), die dem Agent-Kontext hinzugefügt wurden. Agents können nicht in Nutzerprofilen nach Attributen suchen, für deren Abfrage sie vom Marketer nicht konfiguriert wurden.
 
 ## Fehlerbehebung {#troubleshooting}
 
 ### Warum hat mein Agent meine Anweisungen oder Regeln nicht befolgt? {#why-did-my-agent-not-follow-my-instructions-or-rules}
 
-Verwenden Sie [Operator]({{site.baseurl}}/user_guide/brazeai/operator/), um herauszufinden, warum Ihr Agent Ihre Anweisungen nicht befolgt. Operator kann Schritt-für-Schritt-Anleitungen und detaillierte Erklärungen liefern.
+Verwenden Sie [Operator]({{site.baseurl}}/user_guide/brazeai/operator), um herauszufinden, warum Ihr Agent Ihre Anweisungen nicht befolgt. Operator kann Schritt-für-Schritt-Anleitungen und detaillierte Erklärungen liefern.
+
+### Warum hat mein Katalog-Agent einige Zeilen übersprungen? {#why-did-my-catalog-agent-skip-some-rows}
+
+Katalog-Agents überspringen eine Zeile, wenn eine Spalte, die Sie als **zum Ausführen erforderlich** markiert haben, leer ist oder fehlt – beispielsweise ein `gender`-Feld, das noch nicht ausgefüllt wurde. Nachdem Sie Eingabespalten ausgewählt haben, aktivieren Sie die Pflichtfeld-Kontrolle für das Katalogfeld und legen fest, welche Spalten Werte enthalten müssen, bevor der Agent ausgeführt wird. Ausgewählte Spalten sind standardmäßig als erforderlich markiert, aber Sie können Spalten entfernen, die leer sein dürfen, ohne den Aufruf zu blockieren. So werden keine Token für unvollständige Daten verschwendet.
+
+Der Agent berücksichtigt auch Spaltenabhängigkeiten. Wenn eine Ausgabespalte von anderen Spalten abhängt (z. B. Spalte D Werte in den Spalten B und C erfordert), wird der Agent für diese Zeile erst ausgeführt, wenn die vorgelagerten Spalten befüllt sind.
+
+Weitere Informationen finden Sie unter [Best Practices für Katalog-Agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices).
 
 ### Mein Agent hat Schwierigkeiten mit einer komplexen Aufgabe. Wie kann ich seine Performance verbessern? {#subagent-approach}
 
@@ -56,6 +64,8 @@ Ein angepasster Agent kann ein Timeout haben, wenn:
 - Die Agent-Anweisungen nicht alle Szenarien abdecken oder keine Fallback-Bedingung enthalten (z. B. „Wenn alle Eingaben leer sind, gib ‚Konnte nicht personalisieren' aus“)
 - Die Agent-Anweisungen ein anderes Ausgabeformat verlangen als das im Tab **Ausgabe** festgelegte (z. B. wenn die Agent-Anweisungen einen String verlangen, aber im Tab **Ausgabe** die Ausgabe als Zahl definiert ist)
 - Die Aufgabe des Agents zu komplex ist und von einem [Sub-Agent-Ansatz](#subagent-approach) profitieren würde
+
+Konfigurieren Sie für Canvas-Agents [Fallback-Werte]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) in der Agentenkonsole, damit Nutzer:innen auch dann eine Ausgabe erhalten, wenn ein Aufruf fehlschlägt.
 
 ## Compliance {#compliance}
 

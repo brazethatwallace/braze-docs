@@ -44,4 +44,4 @@ guide_menu_list:
     image: /assets/img/braze_icons/calendar-check-02.svg
 ---
 
-작성기에서 템플릿을 저장하거나, 색상 프로필 또는 CSS 템플릿을 만들거나, 라이브러리를 관리하는 방법은 [인앱 메시지 템플릿 만들기]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/)를 참조하세요.
+작성기에서 템플릿을 저장하거나, 색상 프로필 또는 CSS 템플릿을 만들거나, 라이브러리를 관리하는 방법은 [인앱 메시지 템플릿 만들기]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template)를 참조하세요.

@@ -4,14 +4,14 @@ article_title: Aktionscodes
 page_order: 5
 toc_headers: h2
 alias: "/promotion_codes/"
-description: "Erfahren Sie mehr über Aktionscode-Listen, damit Sie diese zu Ihren Kampagnen und Canvases hinzufügen können."
+description: "Erfahren Sie mehr über Aktionscode-Listen, damit Sie diese zu Ihren Campaigns und Canvases hinzufügen können."
 ---
 
-# Aktionscodes
+# Aktionscodes {#promotion-codes}
 
-> Erfahren Sie mehr über Aktionscode-Listen, damit Sie diese zu Ihren Kampagnen und Canvases hinzufügen können.
+> Erfahren Sie mehr über Aktionscode-Listen, damit Sie diese zu Ihren Campaigns und Canvases hinzufügen können.
 
-## Über Aktionscodes
+## Über Aktionscodes {#about-promotion-codes}
 
 Mit Aktionscodes können Sie eindeutige, zeitlich begrenzte Werte in Nachrichten einfügen, um Conversions zu fördern. Jede Liste kann bis zu 20 Millionen Codes enthalten, und jeder Code kann bis zu sechs Monate gültig sein, bevor er abläuft.
 
@@ -26,9 +26,9 @@ Wenn Sie mehrere Snippets aus derselben Liste in einer Nachricht platzieren, wen
 
 {% tabs local %}
 {% tab Beispiel %}
-Stellen Sie sich Aktionscodes wie Gutscheine bei der Post vor. Sobald der Mitarbeiter einen Gutschein vom Stack für Ihren Brief nimmt, ist er weg – auch wenn der Brief nie ankommt.
+Stellen Sie sich Aktionscodes wie Gutscheine bei der Post vor. Sobald der Mitarbeiter einen Gutschein vom Stapel für Ihren Brief nimmt, ist er weg – auch wenn der Brief nie ankommt.
 
-Im folgenden bedingten Liquid-Beispiel werden Codes aus beiden Listen (`vip-deal` und `regular-deal`) abgezogen, obwohl jeder Nutzer nur einen Branch sieht:
+Im folgenden bedingten Liquid-Beispiel werden Codes aus beiden Listen (`vip-deal` und `regular-deal`) abgezogen, obwohl jede:r Nutzer:in nur einen Branch sieht:
 
 {% raw %}
 ```liquid
@@ -43,36 +43,36 @@ Im folgenden bedingten Liquid-Beispiel werden Codes aus beiden Listen (`vip-deal
 {% endtabs %}
 
 {% alert important %}
-Aktionscodes können nicht in In-App-Nachrichten in Canvas gesendet werden.
+Aktionscodes sind in In-App-Nachrichten-Campaigns als Early-Access-Feature verfügbar, können jedoch nicht in In-App-Nachrichten in Canvas gesendet werden.
 {% endalert %}
 
-## Nächste Schritte
+## Nächste Schritte {#next-steps}
 
 Sie suchen nach den nächsten Schritten? Starten Sie hier:
 
-- [Eine Aktionscode-Liste erstellen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/)
-- [Aktionscodes verwenden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#using-promotion-codes)
-- [Aktionscode-Nutzung anzeigen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#viewing-promotion-code-usage)
+- [Eine Aktionscode-Liste erstellen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create)
+- [Aktionscodes verwenden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes)
+- [Aktionscode-Nutzung anzeigen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#viewing-promotion-code-usage)
 
-## Häufig gestellte Fragen
+## Häufig gestellte Fragen {#frequently-asked-questions}
 
-### Welche Messaging-Kanäle kann ich mit Aktionscodes verwenden?
+### Welche Messaging-Kanäle kann ich mit Aktionscodes verwenden? {#which-messaging-channels-can-i-use-with-promotion-codes}
 
-Aktionscodes werden derzeit für E-Mail, mobilen Push, Web-Push, Content-Cards, Webhook, SMS und WhatsApp unterstützt. Braze-Transaktions-E-Mail-Kampagnen und In-App-Nachrichten unterstützen derzeit keine Aktionscodes.
+Aktionscodes werden für E-Mail, mobilen Push, Web-Push, Content Cards, Webhook, SMS und WhatsApp unterstützt. In-App-Nachrichten-Campaigns unterstützen Aktionscodes als Early-Access-Feature. Braze-Transaktions-E-Mail-Campaigns und In-App-Nachrichten in Canvas unterstützen keine Aktionscodes.
 
-### Zählen Test- und Seed-Sendungen zur Nutzung?
+### Zählen Test- und Seed-Sendungen zur Nutzung? {#do-test-and-seed-sends-count-towards-usage}
 
 Standardmäßig verwenden Testsendungen und Seed-Gruppen-E-Mail-Sendungen Aktionscodes pro Nutzer:in und pro Testsendung. Sie können jedoch Ihren Braze Account Manager kontaktieren, um dieses Verhalten so zu ändern, dass während des Testens keine Aktionscodes verwendet werden.
 
-### Was passiert, wenn mehrere Messaging-Kanäle dasselbe Aktionscode-Snippet verwenden?
+### Was passiert, wenn mehrere Messaging-Kanäle dasselbe Aktionscode-Snippet verwenden? {#what-happens-when-multiple-messaging-channels-use-the-same-promotion-code-snippet}
 
-Wenn ein bestimmter Nutzer berechtigt ist, einen Code über mehrere Kanäle zu erhalten, erhält er denselben Code über jeden Kanal. Es wird nur ein Aktionscode verwendet, unabhängig von den empfangenen Kanälen.
+Wenn ein:e bestimmte:r Nutzer:in berechtigt ist, einen Code über mehrere Kanäle zu erhalten, erhält diese Person denselben Code über jeden Kanal. Es wird nur ein Aktionscode verwendet, unabhängig von den empfangenen Kanälen.
 
-### Kann ich mehrere Liquid-Snippets verwenden, um dieselbe Aktionscode-Liste in einer Nachricht zu referenzieren?
+### Kann ich mehrere Liquid-Snippets verwenden, um dieselbe Aktionscode-Liste in einer Nachricht zu referenzieren? {#can-i-use-multiple-liquid-snippets-to-reference-the-same-promotion-code-list-in-one-message}
 
-Ja. Braze wendet denselben Aktionscode auf alle Instanzen dieses Snippets in der Nachricht an und stellt so sicher, dass der Nutzer nur einen eindeutigen Code erhält.
+Ja. Braze wendet denselben Aktionscode auf alle Instanzen dieses Snippets in der Nachricht an und stellt so sicher, dass die Nutzer:innen nur einen eindeutigen Code erhalten.
 
-### Was passiert, wenn eine Aktionscode-Liste abgelaufen oder leer ist?
+### Was passiert, wenn eine Aktionscode-Liste abgelaufen oder leer ist? {#what-happens-when-a-promotion-code-list-is-expired-or-empty}
 
 Abgelaufene Codes werden nach sechs Monaten gelöscht.
 
@@ -80,10 +80,24 @@ Wenn die Nachricht einen Aktionscode aus einer leeren oder abgelaufenen Liste h�
 
 Wenn die Nachricht Liquid-Logik enthält, die bedingt einen Aktionscode einfügt, wird die Nachricht nur abgebrochen, wenn sie einen Aktionscode hätte enthalten sollen. Wenn die Nachricht keinen Aktionscode hätte enthalten sollen, wird die Nachricht normal gesendet.
 
-### Wenn ich die falschen Aktionscodes hochgeladen habe, kann ich sie aktualisieren?
+### Wenn ich die falschen Aktionscodes hochgeladen habe, kann ich sie aktualisieren? {#if-i-uploaded-the-wrong-promotion-codes-can-i-update-them}
 
-Ja. Sie können dies lösen, indem Sie die gesamte Liste als veraltet markieren oder einen Platzhalter verwenden, um die Liste zu löschen. Weitere Informationen finden Sie unter [Eine Aktionscode-Liste aktualisieren]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/#updating-a-promotion-code-list).
+Wenn Sie falsche Codes hochgeladen haben, haben Sie zwei Möglichkeiten, das Problem zu beheben:
 
-### Kann ich einen Aktionscode im Nutzerprofil für zukünftige Nachrichten speichern?
+- **Die gesamte Liste als veraltet markieren:** Verwenden Sie die aktuelle Liste nicht mehr in Campaigns, Canvases oder Templates. Laden Sie dann die korrekten Codes in eine neue Liste hoch und stellen Sie alle Ihre Nachrichten auf die neue Liste um.
+- **Die falschen Codes aufbrauchen:** Erstellen Sie eine Campaign, die Codes aus der fehlerhaften Liste an eine:n Platzhalter-Nutzer:in sendet, bis alle falschen Codes verbraucht sind. Laden Sie danach die korrekten Codes in dieselbe Liste hoch, wobei Sie die fehlerhaften ausschließen.
 
-Ja. Sie können Aktionscodes über einen Nutzeraktualisierung-Schritt im Nutzerprofil speichern. Weitere Informationen finden Sie unter [Aktionscodes in Nutzerprofilen speichern]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#save-to-profile).
+Allgemeine Hinweise zum Aktualisieren einer Liste finden Sie unter [Eine Aktionscode-Liste aktualisieren]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create#updating-a-promotion-code-list).
+
+### Verfolgt Braze, welche Nutzer:innen welche Aktionscodes erhalten oder eingelöst haben? {#does-braze-track-which-users-received-or-redeemed-which-promotion-codes}
+
+Wenn eine Nachricht einen Aktionscode verwendet, markiert Braze diesen Code als verbraucht, damit er nicht erneut gesendet werden kann, und aktualisiert die verbleibende Anzahl der Liste. Braze führt keinen Bericht über gesendete Codes, verfolgt nicht, welche Nutzer:innen welchen Code erhalten haben, und verfolgt nicht, ob Codes eingelöst wurden.
+
+Wenn Sie Codes mit Nutzer:innen verknüpfen oder die Einlösung selbst nachverfolgen möchten, können Sie:
+
+- Aktionscodes über einen Nutzeraktualisierung-Schritt in Nutzerprofilen speichern. Weitere Informationen finden Sie unter [Aktionscodes in Nutzerprofilen speichern]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#save-to-profile).
+- Aktionscode-Werte über den `message_extras`-Liquid-Tag an Currents senden. Weitere Informationen finden Sie unter [Aktionscode-Informationen an Currents senden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras#sending-promotion-code-information-to-currents).
+
+### Kann ich einen Aktionscode im Nutzerprofil für zukünftige Nachrichten speichern? {#can-i-save-a-promotion-code-to-a-users-profile-for-future-messages}
+
+Ja. Sie können Aktionscodes über einen Nutzeraktualisierung-Schritt im Nutzerprofil speichern. Weitere Informationen finden Sie unter [Aktionscodes in Nutzerprofilen speichern]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#save-to-profile).

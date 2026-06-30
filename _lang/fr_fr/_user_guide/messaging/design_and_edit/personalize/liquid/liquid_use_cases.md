@@ -569,7 +569,7 @@ There is a shovel here.
 
 ### Formater une devise selon les conventions numériques européennes {#european-currency-format}
 
-Pour les locales qui utilisent une virgule comme séparateur décimal et un point comme séparateur de milliers (par exemple, l'Allemagne ou l'Italie), utilisez les filtres [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#money-filter) et [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#number-formatting-filters) avec `replace` pour intervertir les séparateurs. Utilisez `#` comme marque substitutive temporaire afin que les points et les virgules ne soient pas intervertis lors de la même passe.
+Pour les locales qui utilisent une virgule comme séparateur décimal et un point comme séparateur de milliers (par exemple, l'Allemagne ou l'Italie), utilisez les filtres [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filter) et [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) avec `replace` pour intervertir les séparateurs. Utilisez `#` comme marque substitutive temporaire afin que les points et les virgules ne soient pas intervertis lors de la même passe.
 
 {% raw %}
 ```liquid
@@ -952,7 +952,7 @@ Today's offer from {{store}}
 
 Ce cas d'utilisation permet aux utilisateurs de configurer des rappels à venir basés sur des événements personnalisés. Le scénario d'exemple permet à un utilisateur de définir un rappel pour une date de renouvellement de police à 26 jours ou plus, les rappels étant envoyés 26, 13, 7 ou 2 jours avant la date de renouvellement.
 
-Avec ce cas d'utilisation, le contenu suivant doit être placé dans le corps d'une [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) ou d'une étape du Canvas.
+Avec ce cas d'utilisation, le contenu suivant doit être placé dans le corps d'une [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) ou d'une étape du Canvas.
 
 {% raw %}
 ```liquid
@@ -1539,7 +1539,7 @@ Check out this new bar after work today. HH specials!
 ```
 {% endraw %}
 
-{% alert note %} C'est l'opposé des [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options). {% endalert %}
+{% alert note %} C'est l'opposé des [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#time-based-options). {% endalert %}
 
 ### Annuler un message en dehors d'une plage horaire au moment de l'envoi {#abort-send-time-hour-range}
 
@@ -1816,4 +1816,4 @@ Ce cas d'utilisation annule le message lorsque Liquid s'exécute un jour de la s
 
 {% endapi %}
 
-De nombreux exemples de cette bibliothèque utilisent la balise `abort_message` pour ignorer un envoi lorsque les conditions ne sont pas remplies. Pour une référence complète sur l'annulation d'envois avec Liquid, y compris les modèles basés sur la date et l'heure, consultez [Annuler les messages Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).
+De nombreux exemples de cette bibliothèque utilisent la balise `abort_message` pour ignorer un envoi lorsque les conditions ne sont pas remplies. Pour une référence complète sur l'annulation d'envois avec Liquid, y compris les modèles basés sur la date et l'heure, consultez [Annuler les messages Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).

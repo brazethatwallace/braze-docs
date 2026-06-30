@@ -1,9 +1,9 @@
 ---
-nav_title: Segmentos
-article_title: Segmentos
+nav_title: Segments
+article_title: Segments
 page_order: 3
 layout: dev_guide
-guide_top_header: "Segmentos"
+guide_top_header: "Segments"
 guide_top_text: "La segmentación de audiencia es clave para el marketing estratégico: puede evitar que te excedas en la segmentación, molestes o pierdas una conexión potencial con un cliente. Consulta los siguientes artículos para aprender a segmentar y filtrar tu audiencia para tu (y su) mayor beneficio."
 descriptions: "La segmentación de audiencia es clave para el marketing estratégico: puede evitar que te excedas en la segmentación, molestes o pierdas una conexión potencial con un cliente. Consulta esta página de inicio para aprender a segmentar y filtrar tu audiencia para tu (y su) mayor beneficio."
 search_rank: 4
@@ -70,10 +70,10 @@ Consulta los casos de uso a continuación para una pequeña vista previa de cóm
 
 #### Casos de uso de extensiones de segmento {#segment-extension-use-cases}
 
-Puedes refinar aún más tus segmentos utilizando [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) para dirigirte a los usuarios según el comportamiento de eventos personalizados o compras almacenado durante toda la vida de su perfil de usuario.
+Puedes refinar aún más tus segmentos utilizando [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para dirigirte a los usuarios según el comportamiento de eventos personalizados o compras almacenado durante toda la vida de su perfil de usuario.
 
 - **Compras históricas:** Segmenta a los usuarios según si compraron un color específico de un producto específico al menos dos veces en los últimos dos años.
 - **Eventos e interacciones con mensajes:** Segmenta a los usuarios según si realizaron una compra en los últimos treinta días y también interactuaron con un mensaje específico dentro de la aplicación.
 - **Consultar datos:**
-  - **Consultar Snowflake:** Segmenta a los usuarios con datos combinados de Braze y fuentes externas, como un CRM o un almacén de datos, utilizando [extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) para consultar Snowflake.
-  - **Sincronizar desde el almacén de datos:** Segmenta a los usuarios con datos sincronizados directamente desde tu almacén de datos o sistema de almacenamiento de archivos a Braze utilizando [extensiones de segmento CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/).
+  - **Consultar Snowflake:** Segmenta a los usuarios con datos combinados de Braze y fuentes externas, como un CRM o un almacén de datos, utilizando [extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) para consultar Snowflake.
+  - **Sincronizar desde el almacén de datos:** Segmenta a los usuarios con datos sincronizados directamente desde tu almacén de datos o sistema de almacenamiento de archivos a Braze utilizando [extensiones de segmento CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments).

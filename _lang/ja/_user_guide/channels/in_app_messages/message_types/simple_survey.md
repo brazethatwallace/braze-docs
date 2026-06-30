@@ -14,7 +14,7 @@ tool:
 
 > **シンプルなアンケート**のアプリ内メッセージテンプレートを使用して、ユーザー属性、インサイト、好みを収集し、キャンペーン戦略を強化しましょう。
 
-このメッセージタイプは[従来のエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)で利用できます。
+このメッセージタイプは[従来のエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)で利用できます。
 
 一般的なアンケートのユースケースには、ユーザーにアプリの使い方の希望を尋ねたり、個人的な好みについて詳しく知ったり、特定の機能に対する満足度を尋ねたりすることが含まれます。
 
@@ -22,7 +22,7 @@ tool:
 
 ## SDKの要件 {#supported-sdk-versions}
 
-このアプリ内メッセージは、[Flex CSS](https://caniuse.com/flexbox)をサポートするデバイスにのみ配信され、少なくとも以下の[SDKバージョン]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions)が必要です。
+このアプリ内メッセージは、[Flex CSS](https://caniuse.com/flexbox)をサポートするデバイスにのみ配信され、少なくとも以下の[SDKバージョン]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions)が必要です。
 
 {% sdk_min_versions ios:3.23.0 android:8.0.0 web:2.5.0 %}
 
@@ -32,7 +32,7 @@ Web SDKでHTMLアプリ内メッセージを有効にするには、Brazeに`all
 
 ## アンケートの作成 {#create}
 
-[アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)を作成する際、**メッセージタイプ**として**シンプルなアンケート**を選択します。
+[アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)を作成する際、**メッセージタイプ**として**シンプルなアンケート**を選択します。
 
 このアンケートテンプレートは、モバイルアプリとWebブラウザの両方でサポートされています。SDKがこの機能に必要な[最小SDKバージョン](#supported-sdk-versions)であることを確認してください。
 
@@ -60,7 +60,7 @@ Web SDKでHTMLアプリ内メッセージを有効にするには、Brazeに`all
 
 **送信時に属性を記録**を選択すると、ユーザーの送信に基づいて属性を収集できます。このオプションを使用して、新しいセグメントやリターゲティングキャンペーンを作成できます。たとえば、[満足度調査](#user-satisfaction)では、満足していなかったすべてのユーザーにフォローアップメールを送信できます。
 
-各選択肢にカスタム属性を追加するには、ドロップダウンメニューからカスタム属性名を選択し（または新しいものを作成し）、この選択肢が送信されたときに設定する値を入力します。[設定ページ]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/)で新しいカスタム属性を作成することもできます。
+各選択肢にカスタム属性を追加するには、ドロップダウンメニューからカスタム属性名を選択し（または新しいものを作成し）、この選択肢が送信されたときに設定する値を入力します。[設定ページ]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data)で新しいカスタム属性を作成することもできます。
 
 カスタム属性のデータタイプは、アンケートの設定方法によって重要になります。
 
@@ -73,7 +73,7 @@ Web SDKでHTMLアプリ内メッセージを有効にするには、Brazeに`all
 
 ##### 例 {#example}
 
-たとえば、[通知設定アンケート](#notification-preferences)では、各選択肢をブール値（true/false）属性にして、ユーザーが興味のあるトピックを選択できるようにすることができます。ユーザーが「プロモーション」の選択肢にチェックを入れると、[ユーザープロファイル]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)のカスタム属性`Promotions Topic`が`true`に更新されます。チェックを入れなかった場合、同じ属性は変更されません。
+たとえば、[通知設定アンケート](#notification-preferences)では、各選択肢をブール値（true/false）属性にして、ユーザーが興味のあるトピックを選択できるようにすることができます。ユーザーが「プロモーション」の選択肢にチェックを入れると、[ユーザープロファイル]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)のカスタム属性`Promotions Topic`が`true`に更新されます。チェックを入れなかった場合、同じ属性は変更されません。
 
 次に、`Custom Attribute`フィルターを使用して、カスタム属性`Promotions Topic`が`true`であるユーザーのセグメントを作成し、プロモーションに興味のあるユーザーのみが関連するキャンペーンを受け取るようにできます。
 
@@ -119,13 +119,13 @@ Web SDKでHTMLアプリ内メッセージを有効にするには、Brazeに`all
 - **アンケートの結果**は、各回答オプションを選択したユーザー数と、各選択肢が送信総数に占める割合の内訳を表示します。
 - **確認ページの指標**（有効な場合）には、確認画面を表示したユーザー数、ボタンをクリックしたユーザー数、操作せずに却下したユーザー数が含まれます。
 
-アンケート指標の定義については、[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)を参照し、「In-App Message」でフィルタリングしてください。
+アンケート指標の定義については、[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)を参照し、「In-App Message」でフィルタリングしてください。
 
-キャンペーン指標の内訳については、[アプリ内メッセージレポート]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting/)をご覧ください。
+キャンペーン指標の内訳については、[アプリ内メッセージレポート]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting)をご覧ください。
 
 ### Currents {#currents}
 
-選択された選択肢は、[**アプリ内メッセージクリックイベント**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#api_fzzdoylmrtwe)の`button_id`フィールドを通じて、自動的にCurrentsに流れます。各選択肢は、そのユニバーサル一意識別子（UUID）とともに送信されます。
+選択された選択肢は、[**アプリ内メッセージクリックイベント**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#api_fzzdoylmrtwe)の`button_id`フィールドを通じて、自動的にCurrentsに流れます。各選択肢は、そのユニバーサル一意識別子（UUID）とともに送信されます。
 
 ## ユースケース {#use-cases}
 
@@ -145,7 +145,7 @@ Web SDKでHTMLアプリ内メッセージを有効にするには、Brazeに`all
 | 🙂 どちらでもない | `customer_satisfaction` | 3     |
 | 😊 満足 | `customer_satisfaction` | 4     |
 | 😍 非常に満足 | `customer_satisfaction` | 5     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User satisfaction" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ユーザー満足度" }
 
 ユーザーがアンケートを送信すると、選択した値がカスタム属性として記録されます。その後、オーディエンスフィルターを使用してフォローアップキャンペーンを作成できます。たとえば、`customer_satisfaction`属性が「1」または「2」のユーザーにウィンバックメッセージをターゲティングできます。
 
@@ -165,7 +165,7 @@ Web SDKでHTMLアプリ内メッセージを有効にするには、Brazeに`all
 | イベント招待 | `wants_event_invites`  | `true` |
 | アンケートとフィードバック | `wants_surveys`        | `true` |
 | ヒントとチュートリアル | `wants_tips`           | `true` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification preferences" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="通知設定" }
 
 {% endtab %}
 {% tab 顧客の目標を特定する %}
@@ -183,7 +183,7 @@ Web SDKでHTMLアプリ内メッセージを有効にするには、Brazeに`all
 | 予約のスケジュール | `product_goal`   | `schedule`|
 | カスタマーサポート | `product_goal`   | `support` |
 | 閲覧のみ | `product_goal`   | `browse`  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identify customer goals" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="顧客の目標を特定する" }
 
 ユーザーがアンケートを送信すると、選択した値がプロファイルにカスタム属性として記録されます。このデータを使用して、将来のエクスペリエンスをパーソナライズしたり、主な目標に基づいてユーザーをセグメント化したりできます。
 
@@ -203,7 +203,7 @@ Web SDKでHTMLアプリ内メッセージを有効にするには、Brazeに`all
 | 使いにくい | `upgrade_reason` | `difficult` |
 | 競合他社を使用中 | `upgrade_reason` | `competitor`|
 | その他の理由 | `upgrade_reason` | `other`     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Improve conversion rates" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="コンバージョン率を改善する" }
 
 ユーザーがアンケートを送信すると、選択した値がプロファイルに保存されます。その後、割引オファーやユーザビリティの改善など、特定の反対理由に合わせたキャンペーンでこれらのユーザーをターゲティングできます。
 
@@ -225,7 +225,7 @@ Web SDKでHTMLアプリ内メッセージを有効にするには、Brazeに`all
 | カスタマイズ | `favorite_features`| `custom`     |
 | 価格／価値 | `favorite_features`| `value`      |
 | コミュニティ | `favorite_features`| `community`  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Favorite features" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="お気に入りの機能" }
 
 このアンケートは複数選択を使用しているため、ユーザーのプロファイルは選択されたすべての機能値のリストで更新されます。
 

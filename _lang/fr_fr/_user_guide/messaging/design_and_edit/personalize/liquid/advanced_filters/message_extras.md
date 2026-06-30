@@ -40,9 +40,9 @@ L'étiquette `message_extras` est prise en charge pour tous les types de message
 
 {: start="2"}
 
-2. Saisissez la [paire clé-valeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/) pour chaque étiquette `message_extras`.
+2. Saisissez la [paire clé-valeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) pour chaque étiquette `message_extras`.
 
-![Un exemple de paires clé-valeur pour l'étiquette message extras. Le champ de titre indique « Your New Favorites ». Le message contient des paires clé-valeur pour l'étiquette message extras et la phrase suivante : « We're excited to bring you a side selection of fresh and exciting products that are sure to become your new go-to favorites »]({% image_buster /assets/img_archive/message_extras2.png %}){: style="max-width:70%;"}
+![Un exemple de paires clé-valeur pour l'étiquette message extras. Le champ de titre indique « Your New Favorites ». Le message contient des paires clé-valeur pour l'étiquette message extras et la phrase suivante : « We're excited to bring you a side selection of fresh and exciting products that are sure to become your new go-to favorites ».]({% image_buster /assets/img_archive/message_extras2.png %}){: style="max-width:70%;"}
 
 {: start="3"}
 
@@ -60,7 +60,7 @@ Toute autre saisie qui ne correspond pas au standard d'étiquette décrit ci-des
 
 ## Envoi d'informations de codes de promotion à Currents {#sending-promotion-code-information-to-currents}
 
-{% multi_lang_include shopify.md section='Liquid promotion codes with Currents' %}
+{% multi_lang_include partners/shopify.md section='Liquid promotion codes with Currents' %}
 
 ## Considérations {#considerations}
 
@@ -72,9 +72,9 @@ Toute autre saisie qui ne correspond pas au standard d'étiquette décrit ci-des
 
 ## Questions fréquemment posées {#frequently-asked-questions}
 
-#### Comment puis-je associer le champ message_extras dans les événements d'envoi à mes événements d'engagement comme les ouvertures et les clics ? {#how-can-i-associate-the-message_extras-field-in-the-send-events-to-my-engagement-events-like-opens-and-clicks}
+### Comment puis-je associer le champ message_extras dans les événements d'envoi à mes événements d'engagement comme les ouvertures et les clics ? {#how-can-i-associate-the-message_extras-field-in-the-send-events-to-my-engagement-events-like-opens-and-clicks}
 
-Un `dispatch_id` est généré et fourni dans vos événements d'envoi. Il peut être utilisé comme identifiant unique pour relier des événements spécifiques de clic, d'ouverture ou de livraison. Vous pouvez interroger ce champ dans Currents ou Snowflake. Pour en savoir plus, consultez le [comportement du Dispatch ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
+Un `dispatch_id` est généré et fourni dans vos événements d'envoi. Il peut être utilisé comme identifiant unique pour relier des événements spécifiques de clic, d'ouverture ou de livraison. Vous pouvez interroger ce champ dans Currents ou Snowflake. Pour en savoir plus, consultez le [comportement du Dispatch ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
 
 #### Puis-je utiliser message_extras avec les messages in-app ? {#iam-sdk}
 

@@ -15,13 +15,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /campaigns/translations
 {% endapimethod %}
 
-> Usa este punto de conexión para actualizar múltiples traducciones de una campaña. Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para obtener más información sobre las características de localización.
+> Usa este punto de conexión para actualizar múltiples traducciones de una campaña. Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para obtener más información sobre las características de localización.
 
-Si deseas actualizar las traducciones después de que se haya lanzado una campaña, primero deberás [guardar tu mensaje como borrador]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch/).
+Si deseas actualizar las traducciones después de que se haya lanzado una campaña, primero deberás [guardar tu mensaje como borrador]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch).
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `campaigns.translations.update`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `campaigns.translations.update`.
 
 ## Límite de velocidad {#rate-limit}
 

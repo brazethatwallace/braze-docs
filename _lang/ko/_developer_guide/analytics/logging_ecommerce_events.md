@@ -11,7 +11,7 @@ platform:
 
 # eCommerce 이벤트 기록 {#log-ecommerce-events}
 
-> 타입이 지정된 이벤트 클래스와 `logEcommerceEvent`를 사용하여 Braze Android, Swift 및 Web SDK를 통해 [eCommerce 권장 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/)를 기록하는 방법을 알아봅니다. 이벤트 속성정보 스키마, 플랫폼 기능 및 수집 유효성 검사에 대한 자세한 내용은 [권장 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/) 및 [이벤트 유효성 검사 및 문제 해결]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-validation-and-troubleshooting)을 참조하세요.
+> 타입이 지정된 이벤트 클래스와 `logEcommerceEvent`를 사용하여 Braze Android, Swift 및 Web SDK를 통해 [eCommerce 권장 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)를 기록하는 방법을 알아봅니다. 이벤트 속성정보 스키마, 플랫폼 기능 및 수집 유효성 검사에 대한 자세한 내용은 [권장 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events) 및 [이벤트 유효성 검사 및 문제 해결]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-validation-and-troubleshooting)을 참조하세요.
 
 {% alert note %}
 목록에 없는 래퍼 SDK의 경우, 관련 네이티브 Android 또는 Swift 메서드를 대신 사용하세요.
@@ -19,7 +19,7 @@ platform:
 
 ## 이벤트 스키마 {#event-schemas}
 
-6가지 eCommerce 권장 이벤트는 모든 플랫폼에서 주문 수준 스키마를 공유합니다. 각 이벤트 페이로드를 구축할 때 다음 속성정보 테이블을 사용하세요. 전체 유효성 검사 동작 및 REST API 예제가 포함된 정식 스키마는 [권장 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-schemas)를 참조하세요. 세분화, 캔버스 템플릿, 보고서 등 플랫폼 기능에 대한 자세한 내용은 [eCommerce 이벤트 사용 방법]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/)을 참조하세요.
+6가지 eCommerce 권장 이벤트는 모든 플랫폼에서 주문 수준 스키마를 공유합니다. 각 이벤트 페이로드를 구축할 때 다음 속성정보 테이블을 사용하세요. 전체 유효성 검사 동작 및 REST API 예제가 포함된 정식 스키마는 [권장 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-schemas)를 참조하세요. 세분화, 캔버스 템플릿, 보고서 등 플랫폼 기능에 대한 자세한 내용은 [eCommerce 이벤트 사용 방법]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)을 참조하세요.
 
 {% tabs local %}
 {% tab product_viewed %}
@@ -1273,6 +1273,6 @@ braze.logCustomEvent("ecommerce.order_refunded", {
 권장 이벤트를 수동으로 기록하려면 정확한 이벤트 이름(예: `ecommerce.product_viewed`)과 수동으로 구성한 `BrazeProperties` 또는 `JSONObject` 페이로드를 사용하여 `logCustomEvent`를 호출합니다. SDK는 수동 호출에 대해 권장 이벤트 스키마를 유효성 검사하지 않습니다. Braze는 수집 중에 이러한 페이로드를 유효성 검사합니다:
 
 - 유효한 페이로드는 전체 후처리가 적용된 권장 이벤트로 처리됩니다.
-- 잘못된 페이로드(필수 필드 누락, 잘못된 유형, 추가 최상위 등록정보)는 수집 후 삭제됩니다. 실패 내역은 워크스페이스 SDK 처리 로그와 [실패 요약 이메일]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#find-failures)에 표시됩니다.
+- 잘못된 페이로드(필수 필드 누락, 잘못된 유형, 추가 최상위 등록정보)는 수집 후 삭제됩니다. 실패 내역은 워크스페이스 SDK 처리 로그와 [실패 요약 이메일]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#find-failures)에 표시됩니다.
 
-앱에서 잘못된 데이터가 전송되기 전에 포착할 수 있도록 가능하면 `logEcommerceEvent`를 사용하세요. 일반적인 `logCustomEvent` 사용법은 [커스텀 이벤트 기록]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)을 참조하세요.
+앱에서 잘못된 데이터가 전송되기 전에 포착할 수 있도록 가능하면 `logEcommerceEvent`를 사용하세요. 일반적인 `logCustomEvent` 사용법은 [커스텀 이벤트 기록]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)을 참조하세요.

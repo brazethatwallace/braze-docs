@@ -21,7 +21,7 @@ description: "この記事では、「複数のカタログ項目の詳細をリ
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.get_items` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`catalogs.get_items` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -32,7 +32,7 @@ description: "この記事では、「複数のカタログ項目の詳細をリ
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `catalog_name` | 必須 | 文字列 | カタログ名。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="パスパラメーター" }
 
 ## クエリパラメーター {#query-parameters}
 
@@ -41,7 +41,7 @@ description: "この記事では、「複数のカタログ項目の詳細をリ
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `cursor` | オプション | 文字列 | カタログ項目のページネーションを決定します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="クエリパラメーター" }
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -146,6 +146,6 @@ Link: </catalogs/all_restaurants/items?cursor=c2tpcDow>; rel="prev",</catalogs/a
 | --- | --- |
 | `catalog-not-found` | カタログ名が有効であることを確認してください。 |
 | `invalid-cursor` | `cursor` が有効であることを確認してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 {% endapi %}

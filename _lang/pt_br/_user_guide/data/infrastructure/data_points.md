@@ -27,9 +27,9 @@ Para visualizar o uso de seus pontos de dados, acesse **Configurações** > **Fa
 
 ### Programação de atualização dos pontos de dados {#data-point-refresh-schedule}
 
-O uso de pontos de dados é armazenado em cache (não em tempo real) a cada 24 horas. Até que o cache seja atualizado, diferentes usuários do dashboard podem ver os mesmos totais, mesmo que abram a guia em horários diferentes no mesmo dia. Para o mesmo comportamento de cache em outras visualizações de faturamento, consulte [Dashboard de pontos de dados totais]({{site.baseurl}}/user_guide/administer/global/billing/#total-data-points-dashboard).
+O uso de pontos de dados é armazenado em cache (não em tempo real) a cada 24 horas, por volta das 2h ET. Até que o cache seja atualizado, diferentes usuários do dashboard podem ver os mesmos totais, mesmo que abram a guia em horários diferentes no mesmo dia. Para o mesmo comportamento de cache em outras visualizações de faturamento, consulte [Dashboard de pontos de dados totais]({{site.baseurl}}/user_guide/administer/global/billing#total-data-points-dashboard).
 
-Para saber mais sobre os componentes do dashboard de pontos de dados, consulte [Faturamento]({{site.baseurl}}/user_guide/administer/global/billing/).
+Para saber mais sobre os componentes do dashboard de pontos de dados, consulte [Faturamento]({{site.baseurl}}/user_guide/administer/global/billing).
 
 {% alert tip %}
 **Não desperdice pontos de dados. Atualize apenas os dados que estão mudando!**<br><br>
@@ -42,13 +42,13 @@ Em suma, os pontos de dados são acumulados quando os dados de perfil de um usu�
 
 Você pode encontrar um detalhamento de como a Braze acumula pontos de dados nas seções a seguir. Se você tiver alguma dúvida sobre as nuances dos pontos de dados da Braze, seu gerente de conta da Braze poderá respondê-la.
 
-Para ingestão via API, cada atualização faturável por meio de [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) segue as mesmas regras de outras atualizações de perfil: por exemplo, cada **evento personalizado** registrado conta como um ponto de dados, e **atributos personalizados** geralmente contam por atributo atualizado naquela solicitação (consulte as tabelas de faturamento abaixo e [Circunstâncias especiais](#special-circumstances)).
+Para ingestão via API, cada atualização faturável por meio de [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) segue as mesmas regras de outras atualizações de perfil: por exemplo, cada **evento personalizado** registrado conta como um ponto de dados, e **atributos personalizados** geralmente contam por atributo atualizado naquela solicitação (consulte as tabelas de faturamento abaixo e [Circunstâncias especiais](#special-circumstances)).
 
 As seguintes ações não registram pontos de dados:
 - Exclusão de usuários da Braze
 - Uso de Conteúdo conectado no envio de mensagens
 - Alterações no estado da inscrição globalmente e em torno dos grupos de inscrições
-- Renomear os IDs externos de seus usuários por meio de [chamadas de API]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename/)
+- Renomear os IDs externos de seus usuários por meio de [chamadas de API]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename)
 - Bloqueio de eventos, atributos ou propriedades de eventos
 
 ### Circunstâncias especiais {#special-circumstances}
@@ -84,7 +84,7 @@ As tabelas a seguir têm caráter ilustrativo. Para conhecer as convenções exa
 {% tabs %}
 {% tab Non-billable %}
 
-#### Pontos de dados não faturáveis (padrão) {#non-billable-data-points-default}
+### Pontos de dados não faturáveis (padrão) {#non-billable-data-points-default}
 
 <div class="small_table"></div>
 
@@ -115,12 +115,12 @@ As tabelas a seguir têm caráter ilustrativo. Para conhecer as convenções exa
 | Twitter | Seguindo |
 | Twitter | Número de tweets |
 | Facebook | Curtidas |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Non-billable data points (default)" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pontos de dados não faturáveis (padrão)" }
 
 {% endtab %}
 {% tab Billable %}
 
-#### Pontos de dados faturáveis {#billable-data-points}
+### Pontos de dados faturáveis {#billable-data-points}
 
 {% alert important %}
 Adicionar, remover ou atualizar os seguintes tipos de dados implicará em um ponto de dados faturável.
@@ -169,7 +169,7 @@ table td {
 | Atribuição de coorte do Appsflyer | Todas as atribuições | |
 | Local mais recente | Todos os locais mais recentes | Entrar ou sair de geofences não registra pontos de dados porque os dados de geofences não são armazenados no perfil do usuário. As geofences são monitoradas pelos serviços de localização da Apple e do Google; a Braze só é notificada quando um usuário dispara uma geofence. |
 | Twitter | Nome de usuário | |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Billable data points" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pontos de dados faturáveis" }
 
 {% endtab %}
 {% endtabs %}

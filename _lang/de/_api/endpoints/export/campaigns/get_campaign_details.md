@@ -16,13 +16,13 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Kampa
 
 > Verwenden Sie diesen Endpunkt, um relevante Informationen zu einer bestimmten Kampagne abzurufen, die durch die `campaign_id` identifiziert werden kann.
 
-Wenn Sie Canvas-Daten abrufen möchten, lesen Sie den Endpunkt [Canvas-Details exportieren]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/).
+Wenn Sie Canvas-Daten abrufen möchten, lesen Sie den Endpunkt [Canvas-Details exportieren]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aad2a811-7237-43b1-9d64-32042eabecd9 {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `campaigns.details`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `campaigns.details`.
 
 ## Rate-Limit
 
@@ -32,7 +32,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | Erforderlich | String | Siehe [API-Bezeichner der Kampagne]({{site.baseurl}}/api/identifier_types/).<br><br> Die `campaign_id` für API-Kampagnen finden Sie auf der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) und auf der Seite **Campaign Details** in Ihrem Dashboard; alternativ können Sie den [Endpunkt „Liste der Kampagnen exportieren“](#campaign-list-endpoint) verwenden. |
+| `campaign_id` | Erforderlich | String | Siehe [API-Bezeichner der Kampagne]({{site.baseurl}}/api/identifier_types).<br><br> Die `campaign_id` für API-Kampagnen finden Sie auf der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) und auf der Seite **Campaign Details** in Ihrem Dashboard; alternativ können Sie den [Endpunkt „Liste der Kampagnen exportieren“](#campaign-list-endpoint) verwenden. |
 | `post_launch_draft_version` | Optional | Boolescher Wert | Bei Nachrichten, die einen Entwurf nach dem Start haben, werden durch die Einstellung `true` alle verfügbaren Entwurfsänderungen angezeigt. Standardmäßig `false`. |
 | `include_has_translatable_content` | Optional | Boolescher Wert | Wenn auf `true` gesetzt, enthält die API-Antwort ein Feld `has_translatable_content` für jede Nachricht. Standardmäßig `false`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
@@ -329,7 +329,7 @@ Das Array `conversion_behaviors` enthält Informationen zu jedem für die Kampag
 {% endtabs %}
 
 {% alert tip %}
-Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

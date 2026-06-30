@@ -73,7 +73,7 @@ Braze ofrece ID de aplicaciones (denominados claves de API en el dashboard de Br
 
 1. En el dashboard de Braze, ve a **Mensajería** > **Campaigns**.
 2. Selecciona **Crear campaña**.
-3. Para el tipo de campaña, selecciona **API Campaign**.
+3. Para el tipo de campaña, selecciona **API campaign**.
 4. Introduce un nombre para tu campaña. Un ejemplo es "Decisioning Studio Go Email".
 
 ![Una Campaign de API denominada "Decisioning Studio Go Email".]({% image_buster /assets/img/decisioning_studio_go/api_campaign_name.png %})
@@ -90,7 +90,7 @@ Braze ofrece ID de aplicaciones (denominados claves de API en el dashboard de Br
 ![Reelegibilidad para la Campaign de API seleccionada.]({% image_buster /assets/img/decisioning_studio_go/additional_options.png %})
 
 {: start="8"}
-8. Selecciona **Guardar Campaign**.
+8. Selecciona **Save Campaign**.
 
 ### Paso 5: Copia los ID de tu Campaign y mensaje {#step-5-copy-your-campaign-and-message-ids}
 
@@ -105,7 +105,7 @@ Braze ofrece ID de aplicaciones (denominados claves de API en el dashboard de Br
 
 Para probar tu integración, necesitarás un ID de usuario:
 
-Si tu espacio de trabajo utiliza [cifrado a nivel de campo de identificadores]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/), cualquier nuevo usuario de prueba que crees con el punto de conexión `/users/track` debe cumplir los requisitos de correo electrónico para espacios de trabajo cifrados. Envía el campo `email` como el hash HMAC-SHA256 codificado en Base64 del valor de correo electrónico en minúsculas, y envía `email_encrypted` como el valor de correo electrónico cifrado generado con tus claves de cifrado PII configuradas.
+Si tu espacio de trabajo utiliza [cifrado a nivel de campo de identificadores]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption), cualquier nuevo usuario de prueba que crees con el punto de conexión `/users/track` debe cumplir los requisitos de correo electrónico para espacios de trabajo cifrados. Envía el campo `email` como el hash HMAC-SHA256 codificado en Base64 del valor de correo electrónico en minúsculas, y envía `email_encrypted` como el valor de correo electrónico cifrado generado con tus claves de cifrado PII configuradas.
 
 1. En el dashboard de Braze, ve a **Audiencia** > **Buscar usuarios**.
 2. Busca al usuario por su ID de usuario externo, alias de usuario, correo electrónico, número de teléfono o token de notificaciones push.
@@ -377,4 +377,4 @@ El portal BrazeAI Decisioning Studio™ Go te muestra la automatización de SFMC
 
 Ahora que has configurado la orquestación, continúa con el diseño de tu agente:
 
-- [Diseña tu agente]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)
+- [Diseña tu agente]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent)

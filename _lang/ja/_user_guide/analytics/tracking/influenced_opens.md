@@ -26,4 +26,4 @@ channel: push
 
 ![キャンペーンの「キャンペーンの詳細」ページに表示される誘発された開封数の統計情報]({% image_buster /assets/img_archive/Influenced_Opens2.png %})
 
-開封数の追跡の詳細については、[プッシュ通知のベストプラクティス]({{site.baseurl}}/user_guide/channels/push/best_practices/)のコンバージョン追跡セクションを参照してください。
+開封数の追跡の詳細については、[プッシュ通知のベストプラクティス]({{site.baseurl}}/user_guide/channels/push/best_practices)のコンバージョン追跡セクションを参照してください。

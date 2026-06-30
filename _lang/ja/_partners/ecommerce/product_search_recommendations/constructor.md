@@ -58,7 +58,7 @@ Constructor の Offsite Discovery API URL を使用して、商品の画像を�
 | `pod_id` | レコメンデーションの戦略とサーチアンダイジングルールを含むポッドの識別子です（たとえば、ベストセラー戦略を持つポッドは、パーソナライズされたベストセラーを生成します）。 |
 | `key` | 当該顧客の Constructor でのインデックスキーです。 |
 | `style_id` | 商品カードに表示される画像を決定します。たとえば、異なる `style_ids` はそれぞれ異なる商品カード画像を表示します。 |
-| `campaign_id` | メールCampaignの一意の ID です。 |
+| `campaign_id` | メールキャンペーンの一意の ID です。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Parameters" }
 
 ### オプション入力 {#optional-inputs}

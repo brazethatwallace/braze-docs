@@ -27,7 +27,7 @@ Mit iOS 15 wurden neue Features für Benachrichtigungen eingeführt, die Nutzer:
 
 Nutzer:innen von iOS 15 können jetzt „Fokus-Modi“ erstellen – angepasste Profile, mit denen sie festlegen, welche Benachrichtigungen ihren Fokus durchbrechen und prominent angezeigt werden sollen.
 
-![]({% image_buster /assets/img/ios/ios15-notification-settings.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
+![Nutzer:innen von iOS 15 können „Fokus-Modi“ erstellen – angepasste Profile, mit denen sie festlegen, welche Benachrichtigungen ihren Fokus durchbrechen und prominent angezeigt werden sollen.]({% image_buster /assets/img/ios/ios15-notification-settings.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
 
 ### Unterbrechungsstufen {#interruption-levels}
 
@@ -38,17 +38,17 @@ In iOS 15 können Push-Benachrichtigungen mit einer von vier Unterbrechungsstufe
 * **Zeitsensitiv** (neu) – Erlaubt Ton, Vibration, Aufwachen des Bildschirms, kann die Systemsteuerung durchbrechen, falls zulässig.
 * **Kritisch** – Erlaubt Ton, Vibration, Aufwachen des Bildschirms, kann die Systemsteuerung durchbrechen und den Ruftonschalter umgehen.
 
-Unter [iOS-Benachrichtigungsoptionen]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/#interruption-level) erfahren Sie mehr darüber, wie Sie diese Option in iOS Push einstellen können.
+Unter [iOS-Benachrichtigungsoptionen]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#interruption-level) erfahren Sie mehr darüber, wie Sie diese Option in iOS Push einstellen können.
 
 ### Zusammenfassung der Benachrichtigungen {#notification-summary}
 
-![]({% image_buster /assets/img/ios/ios15-notification-summary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
+![Screenshot zur Zusammenfassung der Benachrichtigungen.]({% image_buster /assets/img/ios/ios15-notification-summary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
 
 In iOS 15 können Nutzer:innen (optional) bestimmte Zeiten am Tag auswählen, um eine Zusammenfassung der Benachrichtigungen zu erhalten. Benachrichtigungen, die keine unmittelbare Aufmerksamkeit erfordern (z. B. wenn sie als „passiv“ gesendet werden oder während sich die Nutzer:innen im Fokusmodus befinden), werden gruppiert, um ständige Unterbrechungen während des Tages zu vermeiden.
 
 Für jede Benachrichtigung, die Sie versenden, können Sie bald einen „Relevanzwert“ angeben, um zu steuern, welche Benachrichtigung oben in der Zusammenfassung erscheinen soll.
 
-Unter [iOS-Benachrichtigungsoptionen]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/#relevance-score) erfahren Sie mehr darüber, wie Sie den „Relevanzwert“ einer Benachrichtigung festlegen.
+Unter [iOS-Benachrichtigungsoptionen]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#relevance-score) erfahren Sie mehr darüber, wie Sie den „Relevanzwert“ einer Benachrichtigung festlegen.
 
 ## Standort-Buttons {#location-buttons}
 

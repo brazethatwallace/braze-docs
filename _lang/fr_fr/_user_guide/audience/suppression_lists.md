@@ -18,17 +18,17 @@ Les listes de suppression sont dynamiques et s'appliquent automatiquement à tou
 
 ### Types de messages et canaux concernés par les listes de suppression {#message-types-and-channels-affected-by-suppression-lists}
 
-Les listes de suppression s'appliquent à tous les types de messages et canaux, à l'exception des [indicateurs de fonctionnalité]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags/). Cela signifie que les listes de suppression s'appliquent par défaut à tous les canaux, Campaigns et Canvas, y compris :
-- [Campaigns API]({{site.baseurl}}/api/api_campaigns/)
+Les listes de suppression s'appliquent à tous les types de messages et canaux, à l'exception des [indicateurs de fonctionnalité]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags). Cela signifie que les listes de suppression s'appliquent par défaut à tous les canaux, Campaigns et Canvas, y compris :
+- [Campaigns API]({{site.baseurl}}/api/api_campaigns)
 - Campaigns et Canvas déclenchés par API
-- [E-mails transactionnels]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)
+- [E-mails transactionnels]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)
 
 Le seul type de message auquel les listes de suppression ne s'appliquent pas est celui des indicateurs de fonctionnalité. Les utilisateurs figurant dans une liste de suppression ne seront pas exclus des indicateurs de fonctionnalité, mais seront exclus de tous les autres canaux.
 
 Vous pouvez utiliser des étiquettes d'exception afin que les utilisateurs de la liste de suppression soient toujours ciblés par des Campaigns et Canvas particuliers. Pour plus de détails, consultez l'étape 4 dans [Configuration des listes de suppression](#setup). Si vous n'ajoutez pas d'étiquettes d'exception à une liste de suppression, les utilisateurs de cette liste de suppression ne seront ciblés par aucun envoi de messages en dehors des indicateurs de fonctionnalité.
 
 {% alert note %}
-Les listes de suppression s'appliquent aux Campaigns API créées dans le tableau de bord de Braze avec un `campaign_id`. Les listes de suppression ne s'appliquent pas aux messages envoyés via les [endpoints d'envoi de messages Braze]({{site.baseurl}}/api/endpoints/messaging/) sans `campaign_id` associé.
+Les listes de suppression s'appliquent aux Campaigns API créées dans le tableau de bord de Braze avec un `campaign_id`. Les listes de suppression ne s'appliquent pas aux messages envoyés via les [endpoints d'envoi de messages Braze]({{site.baseurl}}/api/endpoints/messaging) sans `campaign_id` associé.
 {% endalert %}
 
 ![La section « Paramètres d'exception » avec une case à cocher pour ne pas appliquer la liste de suppression aux Campaigns et Canvas déclenchés par API.]({% image_buster /assets/img/suppression_list_checkbox.png %}){: style="max-width:70%;"}
@@ -44,7 +44,7 @@ Tous les utilisateurs peuvent consulter les listes de suppression, mais seuls le
 3. Utilisez les filtres de segment pour identifier les utilisateurs de vos listes de suppression. Vous devez en sélectionner au moins un.
 
 {% alert important %}
-Bien que le processus de configuration semble similaire à la [création de segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), une liste de suppression est un groupe d'utilisateurs auxquels vous ne souhaitez **pas** envoyer de messages, indépendamment de leur appartenance à un segment.
+Bien que le processus de configuration semble similaire à la [création de segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), une liste de suppression est un groupe d'utilisateurs auxquels vous ne souhaitez **pas** envoyer de messages, indépendamment de leur appartenance à un segment.
 {% endalert %}
 
 ![Un générateur de liste de suppression avec un filtre pour les utilisateurs ayant ouvert un e-mail pour la dernière fois il y a plus de 90 jours.]({% image_buster /assets/img/suppression_list_filters.png %})

@@ -53,7 +53,7 @@ Si vous sélectionnez un événement personnalisé, le menu déroulant **Convers
 
 Pour qu'un utilisateur soit comptabilisé dans le rapport, il doit remplir les critères suivants au cours de la plage de dates sélectionnée :
 1. Entrer dans le Canvas ou la campagne.
-2. Enregistrer une [méthode d'attribution]({{site.baseurl}}/user_guide/analytics/dashboards/conversions/#attribution-methods).
+2. Enregistrer une [méthode d'attribution]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#attribution-methods).
 3. Réaliser l'événement de conversion.
 
 Par exemple, imaginons qu'un utilisateur effectue les actions suivantes :
@@ -91,7 +91,7 @@ Si vous avez sélectionné un niveau de ventilation pour les campagnes ou Canvas
 
 ### Tunnel de conversion {#conversion-funnel}
 
-Ce graphique à barres affiche les valeurs absolues pour chaque [événement d'engagement]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) en fonction du canal sélectionné. Le nombre de conversions sera défini selon la méthode d'attribution sélectionnée.
+Ce graphique à barres affiche les valeurs absolues pour chaque [événement d'engagement]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) en fonction du canal sélectionné. Le nombre de conversions sera défini selon la méthode d'attribution sélectionnée.
 
 Par défaut, toutes les campagnes et tous les Canvas sélectionnés sont affichés. Pour désélectionner une campagne ou un Canvas, sélectionnez le nom de la campagne ou du Canvas que vous souhaitez exclure. Pour obtenir des détails supplémentaires sur un événement d'engagement, survolez la barre correspondante.
 
@@ -140,10 +140,10 @@ Pour résoudre le problème, vérifiez votre suivi des événements et vos déla
 
 #### Suivi des événements {#event-tracking}
 
-Lorsqu'une campagne déclenche un début de session ou un événement personnalisé, vous devez vous assurer que cet événement ou cette session se produit suffisamment fréquemment pour déclencher le message. Consultez le [tableau de bord d'accueil]({{site.baseurl}}/user_guide/analytics/dashboards/home/) pour les données de session, ou votre rapport sur les [événements personnalisés]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/).
+Lorsqu'une campagne déclenche un début de session ou un événement personnalisé, vous devez vous assurer que cet événement ou cette session se produit suffisamment fréquemment pour déclencher le message. Consultez le [tableau de bord d'accueil]({{site.baseurl}}/user_guide/analytics/dashboards/home) pour les données de session, ou votre rapport sur les [événements personnalisés]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting).
 
 #### Délais de conversion {#conversion-deadlines}
 
-Pour chaque événement de conversion que vous sélectionnez par campagne, vous définissez un [délai]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#creating-a-campaign-with-conversion-tracking). Cela signifie que vous fixez une limite de temps au cours de laquelle une conversion doit avoir lieu pour être comptabilisée dans la campagne concernée.
+Pour chaque événement de conversion que vous sélectionnez par campagne, vous définissez un [délai]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#creating-a-campaign-with-conversion-tracking). Cela signifie que vous fixez une limite de temps au cours de laquelle une conversion doit avoir lieu pour être comptabilisée dans la campagne concernée.
 
-Vérifiez que vous avez bien consulté les informations sur les [règles de suivi des conversions]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules) pour comprendre les indicateurs de votre campagne. Pour les conversions des utilisateurs dans un Canvas, consultez la [FAQ Canvas]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#how-are-user-conversions-tracked-in-a-canvas).
+Vérifiez que vous avez bien consulté les informations sur les [règles de suivi des conversions]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules) pour comprendre les indicateurs de votre campagne. Pour les conversions des utilisateurs dans un Canvas, consultez la [FAQ Canvas]({{site.baseurl}}/user_guide/messaging/canvas/faqs#how-are-user-conversions-tracked-in-a-canvas).

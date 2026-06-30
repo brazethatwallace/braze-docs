@@ -12,17 +12,17 @@ tool: Campaigns
 
 > Cet article répond à certaines questions fréquemment posées sur les campagnes.
 
-### Comment créer une campagne multicanale ? {#how-do-i-create-a-multichannel-campaign}
+## Comment créer une campagne multicanale ? {#how-do-i-create-a-multichannel-campaign}
 
-Consultez [Campagnes multicanales]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns) dans **Créer une campagne** pour les étapes de configuration et les canaux pris en charge.
+Consultez [Campagnes multicanales]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) dans **Créer une campagne** pour les étapes de configuration et les canaux pris en charge.
 
 ### Puis-je ajouter un groupe de contrôle à ma campagne multicanale ? {#can-i-add-a-control-group-to-my-multichannel-campaign}
 
-Consultez [Groupes de contrôle]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-control-groups) dans **Créer une campagne**. Pour les tests cross-canal, utilisez [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/).
+Consultez [Groupes de contrôle]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-control-groups) dans **Créer une campagne**. Pour les tests cross-canal, utilisez [Canvas]({{site.baseurl}}/user_guide/messaging/canvas).
 
 ### Quels sont les moyens de commencer à tester et optimiser les campagnes ? {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
 
-Les campagnes multivariées et l'exécution de Canvas avec plusieurs variantes sont un excellent point de départ ! Par exemple, vous pouvez lancer une [campagne multivariée]({{site.baseurl}}/user_guide/messaging/ab_testing/) pour tester un message avec différentes rédactions ou lignes d'objet. Les Canvas avec plusieurs variantes permettent de tester des workflows entiers.
+Les campagnes multivariées et l'exécution de Canvas avec plusieurs variantes sont un excellent point de départ ! Par exemple, vous pouvez lancer une [campagne multivariée]({{site.baseurl}}/user_guide/messaging/ab_testing) pour tester un message avec différentes rédactions ou lignes d'objet. Les Canvas avec plusieurs variantes permettent de tester des workflows entiers.
 
 ### Pourquoi le taux d'ouverture de ma campagne a-t-il diminué ? {#why-did-the-open-rate-for-my-campaign-decrease}
 
@@ -48,11 +48,11 @@ Le même schéma s'applique aux campagnes récurrentes et à la rééligibilité
 
 ### Pourquoi le nombre de conversions peut-il dépasser le nombre d'utilisateurs uniques pour les campagnes multicanales ? {#why-can-the-number-of-conversions-exceed-the-number-of-unique-users-for-multichannel-campaigns}
 
-Consultez [Conversions et reporting]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-conversions) dans **Créer une campagne** et [Règles de suivi des conversions]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules) dans **Événements de conversion**.
+Consultez [Conversions et reporting]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-conversions) dans **Créer une campagne** et [Règles de suivi des conversions]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules) dans **Événements de conversion**.
 
 ### Pourquoi ma campagne a-t-elle une base d'utilisateurs atteignables plus petite que le segment que j'utilise pour la campagne ? {#why-does-my-campaign-have-a-smaller-reachable-user-base-than-the-segment-that-im-using-for-the-campaign}
 
-Si vous avez configuré un [Groupe de contrôle global]({{site.baseurl}}/user_guide/audience/global_control_group/), cela empêchera un pourcentage de votre audience atteignable de recevoir des campagnes. Cela signifie que le nombre d'utilisateurs atteignables pour votre segment peut parfois être supérieur au nombre d'utilisateurs atteignables pour votre campagne, même si la campagne utilise ce même segment.
+Si vous avez configuré un [Groupe de contrôle global]({{site.baseurl}}/user_guide/audience/global_control_group), cela empêchera un pourcentage de votre audience atteignable de recevoir des campagnes. Cela signifie que le nombre d'utilisateurs atteignables pour votre segment peut parfois être supérieur au nombre d'utilisateurs atteignables pour votre campagne, même si la campagne utilise ce même segment.
 
 ### Qu'offre la livraison en fuseau horaire local ? {#what-does-local-time-zone-delivery-offer}
 
@@ -64,7 +64,7 @@ Par exemple, une entreprise basée à Londres qui envoie une campagne à 12 h at
 
 Braze détermine automatiquement le fuseau horaire d'un utilisateur à partir de son appareil. Cela garantit la précision du fuseau horaire et une couverture complète de vos utilisateurs. Les utilisateurs créés via l'API utilisateur ou sans fuseau horaire défini auront le fuseau horaire de votre entreprise comme fuseau horaire par défaut jusqu'à ce qu'ils soient reconnus dans votre application par le SDK.
 
-Vous pouvez vérifier le fuseau horaire de votre entreprise dans les [paramètres de l'entreprise]({{site.baseurl}}/user_guide/administer/global/admin_settings/) sur le tableau de bord.
+Vous pouvez vérifier le fuseau horaire de votre entreprise dans les [paramètres de l'entreprise]({{site.baseurl}}/user_guide/administer/global/admin_settings) sur le tableau de bord.
 
 ### Quand Braze évalue-t-il les utilisateurs pour la livraison en fuseau horaire local ? {#when-does-braze-evaluate-users-for-local-time-zone-delivery}
 
@@ -162,7 +162,7 @@ Pour éviter cela, assurez-vous que vos mises à jour d'attributs personnalisés
 
 ### Pourquoi le nombre d'utilisateurs entrant dans une campagne ne correspond-il pas au nombre attendu ? {#why-does-the-number-of-users-entering-a-campaign-not-match-the-expected-number}
 
-Le nombre d'utilisateurs entrant dans une campagne peut différer du nombre attendu en raison de la façon dont les audiences et les déclencheurs sont évalués. Dans Braze, une audience est évaluée avant le déclencheur (sauf lors de l'utilisation d'un déclencheur de [changement d'attribut]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Cela entraîne l'exclusion des utilisateurs de la campagne s'ils ne font pas initialement partie de votre audience sélectionnée avant l'évaluation des actions de déclenchement.
+Le nombre d'utilisateurs entrant dans une campagne peut différer du nombre attendu en raison de la façon dont les audiences et les déclencheurs sont évalués. Dans Braze, une audience est évaluée avant le déclencheur (sauf lors de l'utilisation d'un déclencheur de [changement d'attribut]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)). Cela entraîne l'exclusion des utilisateurs de la campagne s'ils ne font pas initialement partie de votre audience sélectionnée avant l'évaluation des actions de déclenchement.
 
 {% alert tip %}
 Pour obtenir une assistance supplémentaire sur la résolution des problèmes de campagne, assurez-vous de contacter l'assistance Braze dans les 30 jours suivant la survenue de votre problème, car nous ne disposons que des 30 derniers jours de journaux de diagnostic.
@@ -170,7 +170,7 @@ Pour obtenir une assistance supplémentaire sur la résolution des problèmes de
 
 ### Pourquoi les utilisateurs ont-ils reçu ma campagne deux fois après que je l'ai modifiée ? {#why-did-users-receive-my-campaign-twice-after-i-edited-it}
 
-Si vous modifiez une campagne active sans l'arrêter au préalable, les utilisateurs peuvent recevoir le message deux fois. Cela se produit parce que la modification d'une campagne active remet les utilisateurs en file d'attente pour la version mise à jour alors que la file d'attente originale est encore en cours de traitement. Les utilisateurs qui n'ont pas encore reçu le message original peuvent se retrouver dans les deux files d'attente. Pour éviter cela, [arrêtez toujours la campagne]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch/#stopping-your-campaign) avant d'apporter des modifications.
+Si vous modifiez une campagne active sans l'arrêter au préalable, les utilisateurs peuvent recevoir le message deux fois. Cela se produit parce que la modification d'une campagne active remet les utilisateurs en file d'attente pour la version mise à jour alors que la file d'attente originale est encore en cours de traitement. Les utilisateurs qui n'ont pas encore reçu le message original peuvent se retrouver dans les deux files d'attente. Pour éviter cela, [arrêtez toujours la campagne]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch#stopping-your-campaign) avant d'apporter des modifications.
 
 ### Quelle est la différence entre les options Exporter les données utilisateur en CSV et Exporter les adresses e-mail en CSV sur ma page d'analyse de campagne ? {#what-is-the-difference-between-the-csv-export-user-data-and-csv-export-email-address-options-on-my-campaign-analytics-page}
 
@@ -178,7 +178,7 @@ L'option **Exporter les adresses e-mail en CSV** télécharge uniquement les don
 
 ### Puis-je rechercher une campagne par son identifiant API ? {#can-i-search-for-a-campaign-by-its-api-identifier}
 
-Oui, utilisez le filtre `api_id:YOUR_API_ID` sur la page **Campaigns** pour rechercher une campagne par son identifiant API. Consultez [rechercher des campagnes]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/search_campaigns/) pour en savoir plus.
+Oui, utilisez le filtre `api_id:YOUR_API_ID` sur la page **Campaigns** pour rechercher une campagne par son identifiant API. Consultez [rechercher des campagnes]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/search_campaigns) pour en savoir plus.
 
 ### Pourquoi les espaces s'affichent-ils différemment dans les champs de saisie et dans le texte affiché ? {#why-does-whitespace-appear-differently-in-input-fields-versus-displayed-text}
 
@@ -196,11 +196,11 @@ Les campagnes API sont utilisées pour suivre les messages envoyés via l'API. C
 
 ### Comment puis-je confirmer que mes utilisateurs ont reçu une campagne déclenchée par API ? {#how-can-i-confirm-if-my-users-received-an-api-triggered-campaign}
 
-Vous pouvez [créer un segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) en utilisant le filtre **Received Campaign**, puis sélectionner la campagne déclenchée par API que vous souhaitez vérifier. Après avoir enregistré le segment, utilisez l'[endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) pour exporter les utilisateurs de ce segment.
+Vous pouvez [créer un segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) en utilisant le filtre **Received Campaign**, puis sélectionner la campagne déclenchée par API que vous souhaitez vérifier. Après avoir enregistré le segment, utilisez l'[endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) pour exporter les utilisateurs de ce segment.
 
 ### Puis-je supprimer une campagne ? {#can-i-delete-a-campaign}
 
-Non, mais vous pouvez [archiver une campagne]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
+Non, mais vous pouvez [archiver une campagne]({{site.baseurl}}/user_guide/messaging/governance/archiving).
 
 ### Quelle est la différence entre les campagnes à livraison par événement et les campagnes déclenchées par API ? {#what-is-the-difference-between-action-based-and-api-triggered-campaigns}
 
@@ -233,7 +233,7 @@ Les campagnes déclenchées par API et par serveur sont idéales pour gérer des
 
 ### Que dois-je inclure lors de la soumission d'un ticket d'assistance pour une erreur « Request Timed Out » ? {#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error}
 
-Si vous rencontrez une erreur « Request Timed Out » lors de la création ou de la modification d'une campagne ou d'un Canvas et que vous devez contacter l'[assistance Braze]({{site.baseurl}}/braze_support/), incluez les informations suivantes pour accélérer la résolution :
+Si vous rencontrez une erreur « Request Timed Out » lors de la création ou de la modification d'une campagne ou d'un Canvas et que vous devez contacter l'[assistance Braze]({{site.baseurl}}/braze_support), incluez les informations suivantes pour accélérer la résolution :
 
 - **Enregistrement d'écran :** un enregistrement des étapes que vous avez suivies avant de voir l'erreur, y compris les transitions de page.
 - **Horodatage et fuseau horaire :** l'heure exacte à laquelle l'erreur s'est produite et votre fuseau horaire.
@@ -257,8 +257,8 @@ Plusieurs facteurs peuvent expliquer que le nombre d'envois soit inférieur à l
 
 - **Livraison par événement :** les utilisateurs ne génèrent des envois qu'après avoir effectué le déclencheur, de sorte que les envois s'accumulent au fil du temps et peuvent être en retard par rapport à l'estimation initiale affichée lors de la création de la campagne.
 - **Modifications de l'audience après le lancement :** modifier les filtres d'entrée ou de ciblage après le lancement peut désynchroniser l'**audience estimée** par rapport aux utilisateurs qui sont encore éligibles lors des envois ultérieurs (par exemple, lorsque les utilisateurs ne sont pas éligibles pour réentrer).
-- **Étape Parcours d'audience :** pour Canvas, une étape [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) n'envoie de messages qu'aux utilisateurs correspondant à la branche de priorité la plus élevée pour laquelle ils sont éligibles, ce qui peut réduire les envois par rapport à un comptage de segment simple.
-- **Groupes de contrôle :** si un [Groupe de contrôle global]({{site.baseurl}}/user_guide/audience/global_control_group/) ou un groupe de contrôle au niveau de la campagne est utilisé, une partie de l'audience est exclue de la livraison.
+- **Étape Parcours d'audience :** pour Canvas, une étape [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) n'envoie de messages qu'aux utilisateurs correspondant à la branche de priorité la plus élevée pour laquelle ils sont éligibles, ce qui peut réduire les envois par rapport à un comptage de segment simple.
+- **Groupes de contrôle :** si un [Groupe de contrôle global]({{site.baseurl}}/user_guide/audience/global_control_group) ou un groupe de contrôle au niveau de la campagne est utilisé, une partie de l'audience est exclue de la livraison.
 - **Délais et fenêtres de livraison :** pour les campagnes en fuseau horaire local ou planifiées, les utilisateurs doivent être éligibles à la fois à l'entrée et au moment de l'envoi ; les utilisateurs dans certains fuseaux horaires peuvent se trouver en dehors de la fenêtre de livraison.
 - **Déduplication des e-mails :** votre campagne ou Canvas cible plusieurs utilisateurs avec des adresses e-mail identiques, de sorte qu'un utilisateur aléatoire avec cette adresse e-mail est choisi au moment de l'envoi. Le message n'est envoyé qu'une seule fois et est dédupliqué afin de ne pas être envoyé plusieurs fois à la même adresse e-mail, mais votre taille d'audience estimée inclut tous les utilisateurs.
 - **Filtres de livrabilité des e-mails :** pour les campagnes e-mail, Braze exclut les utilisateurs qui ont subi un hard bounce, se sont désabonnés des e-mails, ont été signalés comme spam, n'ont pas d'adresse e-mail dans leur profil ou ne sont pas abonnés à un groupe d'abonnement requis. Ces vérifications sont effectuées au moment de l'envoi, de sorte qu'un utilisateur présent dans votre segment peut tout de même être exclu du comptage réel des envois.
@@ -274,7 +274,7 @@ Plusieurs facteurs peuvent expliquer que le nombre d'envois soit inférieur à l
 
 ### Où trouver les questions fréquemment posées sur la limite de fréquence globale ? {#where-are-frequently-asked-questions-about-global-frequency-capping}
 
-Pour les questions sur les jours calendaires, les notifications push silencieuses, les webhooks, le comportement de Canvas et les sujets connexes, consultez les [questions fréquemment posées]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/) pour [Limite de débit et limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+Pour les questions sur les jours calendaires, les notifications push silencieuses, les webhooks, le comportement de Canvas et les sujets connexes, consultez les [questions fréquemment posées]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq) pour [Limite de débit et limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).
 
 ### Pourquoi les destinataires uniques peuvent-ils dépasser les envois pour les e-mails et les SMS ? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
 
@@ -286,6 +286,6 @@ Pour une campagne avec un seul envoi planifié, le **dernier envoi** correspond 
 
 ### Pourquoi une campagne historique arrêtée n'affiche-t-elle plus d'indicateurs sur la page **Analytics** ? {#why-does-a-stopped-historical-campaign-no-longer-show-metrics-on-the-analytics-page}
 
-L'onglet **Analytics** affiche par défaut les 90 derniers jours. Si la campagne a été envoyée pour la dernière fois en dehors de cette fenêtre, les indicateurs peuvent apparaître à zéro jusqu'à ce que vous ajustiez la plage de dates sur la page **Analytics** pour inclure la période d'envoi de la campagne. Pour en savoir plus, consultez [Analyse de campagne]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/).
+L'onglet **Analytics** affiche par défaut les 90 derniers jours. Si la campagne a été envoyée pour la dernière fois en dehors de cette fenêtre, les indicateurs peuvent apparaître à zéro jusqu'à ce que vous ajustiez la plage de dates sur la page **Analytics** pour inclure la période d'envoi de la campagne. Pour en savoir plus, consultez [Analyse de campagne]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics).
 
-**Restaurer les données d'interaction** ne restaure pas les analyses de campagne. Cette fonctionnalité s'applique uniquement aux filtres de reciblage et à l'historique d'interaction des utilisateurs. Pour en savoir plus, consultez [Données d'interaction de messagerie]({{site.baseurl}}/messaging_interaction_data/).
+**Restaurer les données d'interaction** ne restaure pas les analyses de campagne. Cette fonctionnalité s'applique uniquement aux filtres de reciblage et à l'historique d'interaction des utilisateurs. Pour en savoir plus, consultez [Données d'interaction de messagerie]({{site.baseurl}}/messaging_interaction_data).

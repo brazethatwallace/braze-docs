@@ -15,11 +15,11 @@ description: "Este artigo descreve detalhes sobre o endpoint de origem de tradu�
 /content_blocks/translations/source
 {% endapimethod %}
 
-> Use este endpoint para ver todas as origens de tradução padrão para as tags de tradução de um bloco de conteúdo. Esses são os valores dentro de {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Consulte [Locais em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para saber mais sobre os recursos de tradução.
+> Use este endpoint para ver todas as origens de tradução padrão para as tags de tradução de um bloco de conteúdo. Esses são os valores dentro de {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Consulte [Locais em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para saber mais sobre os recursos de tradução.
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `content_blocks.translations.get`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `content_blocks.translations.get`.
 
 ## Limite de taxa {#rate-limit}
 

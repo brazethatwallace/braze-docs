@@ -22,7 +22,7 @@ tool: Media
 | 「Replace Media Library Assets」権限 | 既存のメディアライブラリアセットのURLとアセットIDを維持したままファイルを置換 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="メディアライブラリの権限" }
 
-詳細については、[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)を参照してください。
+詳細については、[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)を参照してください。
 
 ## メディアライブラリとCDNの比較 {#media-library-versus-cdn}
 
@@ -50,11 +50,11 @@ CDN（コンテンツデリバリーネットワーク）の代わりにメデ�
 
 ![メッセージ作成画面に応じたメディアライブラリへの2つの一般的なアクセス方法。1つはメールのドラッグ＆ドロップエディターで、「画像とGIF」というタイトルと「メディアライブラリから追加」ボタンが表示されています。もう1つはプッシュやアプリ内メッセージなどの標準エディターで、「メディア」というタイトルと「画像を追加」ボタンが表示されています。]({% image_buster /assets/img_archive/media_library_composers.png %}){: style="border:none"}
 
-{% alert tip %} メディアライブラリの詳細については、[メディアライブラリFAQ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/faq/)をご覧ください。{% endalert %}
+{% alert tip %} メディアライブラリの詳細については、[メディアライブラリFAQ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/faq)をご覧ください。{% endalert %}
 
 ## ファイルの置換 {#replace-a-file}
 
-メディアライブラリ内の既存アセットのURLとアセットIDを維持したまま、ファイルを置換できます。URLが変わらないため、そのアセットを参照しているメッセージやCampaign（すでに送信済みのメールを含む）は、自動的に更新されたファイルを反映します。これは、ロゴなどの共有アセットを各Campaignを個別に更新するのではなく、一か所で更新したい場合に便利です。
+メディアライブラリ内の既存アセットのURLとアセットIDを維持したまま、ファイルを置換できます。URLが変わらないため、そのアセットを参照しているメッセージやキャンペーン（すでに送信済みのメールを含む）は、自動的に更新されたファイルを反映します。これは、ロゴなどの共有アセットを各キャンペーンを個別に更新するのではなく、一か所で更新したい場合に便利です。
 
 アセットを置換するには、「Replace Media Library Assets」権限が必要です。
 
@@ -75,11 +75,11 @@ CDN（コンテンツデリバリーネットワーク）の代わりにメデ�
 
 一部のチャネルでは、メッセージの設定時に画像の最適化コピーが作成され、別のURLが生成されます。元のメディアライブラリアセットを置換しても、これらのチャネルを使用して作成されたメッセージで消費者に表示される内容は更新されません。対象チャネルには、アプリ内メッセージ、Content Cards、プッシュ通知、バナーが含まれます。
 
-[`PUT /media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file/)エンドポイントを使用して、プログラムでアセットを置換することもできます。
+[`PUT /media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file)エンドポイントを使用して、プログラムでアセットを置換することもできます。
 
 ## 画像の仕様 {#image-specifications}
 
-メディアライブラリにアップロードするすべての画像は5&nbsp;MB未満である必要があります。サポートされているファイル形式は、PNG、JPEG、GIF、SVG、WebPです。メッセージングチャネル別の推奨画像サイズと仕様については、[画像の仕様]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/)を参照してください。
+メディアライブラリにアップロードするすべての画像は5&nbsp;MB未満である必要があります。サポートされているファイル形式は、PNG、JPEG、GIF、SVG、WebPです。メッセージングチャネル別の推奨画像サイズと仕様については、[画像の仕様]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications)を参照してください。
 
 {% alert important %}
 非常に細長い形状のGIF（例：3000 x 2ピクセル）や300フレーム以上のGIFは、合計ファイルサイズが小さくてもアップロードに失敗する場合があります。
@@ -90,7 +90,7 @@ CDN（コンテンツデリバリーネットワーク）の代わりにメデ�
 {% multi_lang_include brazeai/generative_ai/about_images.md %}
 
 {% alert important %}
-この機能を使用する前に、[データがどのように使用され、OpenAIに送信されるか]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy)を確認してください。
+この機能を使用する前に、[データがどのように使用され、OpenAIに送信されるか]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#ai-policy)を確認してください。
 {% endalert %}
 
-**Media Library**ページに**AI Image Generator**が表示されない場合は、**Edit Media Library Assets**権限があることを確認してください。それでもオプションが表示されない場合は、Brazeカスタマーチームに連絡して、ワークスペースがBrazeAI画像生成にアクセスできることを確認してください。生成に失敗した場合は、[OpenAIコンテンツポリシー]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy)を確認してください。
+**Media Library**ページに**AI Image Generator**が表示されない場合は、**Edit Media Library Assets**権限があることを確認してください。それでもオプションが表示されない場合は、Brazeカスタマーチームに連絡して、ワークスペースがBrazeAI画像生成にアクセスできることを確認してください。生成に失敗した場合は、[OpenAIコンテンツポリシー]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#ai-policy)を確認してください。

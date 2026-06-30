@@ -18,14 +18,14 @@ channel:
 
 ブランドは、Cloud APIと比較して、WhatsApp向けMM APIで同等以上の配信性を期待できます。Metaによると、インドでは高エンゲージメントのマーケティングメッセージがCloud APIと比較して最大9%多く配信されました。なお、WhatsApp向けMM APIでも100%の配信性は保証されません。
 
-### 地域別の利用可能性 {#regional-availability}
+## 地域別の利用可能性 {#regional-availability}
 
 最適化配信の利用可能性と最適化機能は、ビジネス電話番号とユーザーの地域によって異なります。詳しくは、[機能の地理的な利用可能性](https://developers.facebook.com/docs/whatsapp/marketing-messages-lite-api/get-started#geographic-availability-of-features)を参照してください。
 
 ## 最適化配信の設定 {#setting-up-optimized-delivery}
 
 1. Brazeで、**パートナー連携** > **テクノロジーパートナー** > **WhatsApp**に移動します。
-2. **最適化配信で送信を最適化する**セクションで、**設定をアップグレード**を選択して[埋め込みサインアップワークフロー]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/)をトリガーします。
+2. **最適化配信で送信を最適化する**セクションで、**設定をアップグレード**を選択して[埋め込みサインアップワークフロー]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup)をトリガーします。
 
 ![最適化配信で送信を最適化するオプションがあるWhatsAppメッセージ統合セクション。]({% image_buster /assets/img/whatsapp/whatsapp_messaging_integration.png %})
 
@@ -38,7 +38,7 @@ channel:
 
 ### 設定のトラブルシューティング {#troubleshooting-your-setup}
 
-- **一般的なエラー:** アップグレード中に問題が発生した場合、このエラーバナーが表示され、[サポートに連絡する]({{site.baseurl}}/braze_support/)ことを推奨します。
+- **一般的なエラー:** アップグレード中に問題が発生した場合、このエラーバナーが表示され、[サポートに連絡する]({{site.baseurl}}/braze_support)ことを推奨します。
 - **不適格エラー:** Metaによって制限されている場合、次のエラーバナーが表示されます：「少なくとも1つのWhatsAppビジネスアカウントがMetaによって制限されています。アップグレードするには、アカウントが良好な状態である必要があります。」この問題が解決されるまで、このバナーは閉じることができません。
 
 ## キャンペーンおよびキャンバスでの最適化配信の使用 {#using-optimized-delivery-in-campaigns-and-canvases}

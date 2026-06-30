@@ -20,7 +20,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Remover
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `email.spam.remove`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `email.spam.remove`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -34,15 +34,15 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ```json
 {
-  "email": "example@braze.com"
+  "email": "example@example.com"
 }
 ```
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatório | Tipo de dados | Descrição |
+| Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | ----------|-----------| --------|------- |
-| `email` | Obrigatório | String ou matriz | Endereço de e-mail em string para modificar ou uma matriz de até 50 endereços de e-mail para modificar. |
+| `email` | Obrigatória | String ou matriz | Endereço de e-mail em string para modificar ou uma matriz de até 50 endereços de e-mail para modificar. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
@@ -51,7 +51,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/email/spam/remove'
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
 --data-raw '{
-  "email": "example@braze.com"
+  "email": "example@example.com"
 }'
 ```
 {% endapi %}

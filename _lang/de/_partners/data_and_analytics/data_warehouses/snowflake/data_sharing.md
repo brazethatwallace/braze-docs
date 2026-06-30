@@ -44,10 +44,10 @@ Bei Snowflake erfolgt Data Sharing zwischen einem [Datenanbieter](https://docs.s
 
 ### 1. Schritt: Datashare von Braze senden {#step-1-send-the-datashare-from-braze}
 
-1. Gehen Sie in Braze zu **Partner Integrations** > **Data Sharing**.
+1. Gehen Sie in Braze zu **Partnerintegrationen** > **Datenfreigabe**.
 2. Geben Sie Ihre Snowflake-Kontodetails und den Locator ein. Um Ihren Account-Locator zu erhalten, führen Sie `SELECT CURRENT_ACCOUNT()` im Zielkonto aus.
 3. Wenn Sie einen CRR-Share verwenden, geben Sie den Cloud-Anbieter und die Region an.
-4. Wenn Sie fertig sind, wählen Sie **Create Datashare**. Dadurch wird der Datashare an Ihr Snowflake-Konto gesendet.
+4. Wenn Sie fertig sind, wählen Sie **Datashare erstellen**. Dadurch wird der Datashare an Ihr Snowflake-Konto gesendet.
 
 ### 2. Schritt: Datenbank in Snowflake erstellen {#step-2-create-the-database-in-snowflake}
 
@@ -77,7 +77,7 @@ Nachdem der Data Share bereitgestellt wurde, erstellen Sie eine Datenbank aus de
 - Rohe Ereignis- oder Nutzerdaten einem CRM (wie Salesforce) zuzuordnen
 - Und vieles mehr
 
-[Laden Sie hier die Rohtabellen-Schemas herunter.]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %})
+[Laden Sie die Rohtabellen-Schemas herunter.](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)
 
 ### Nutzer-ID-Schema {#user-id-schema}
 

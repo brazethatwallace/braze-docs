@@ -174,7 +174,7 @@ Um die Einrichtung in AWS abzuschließen, erstellen Sie eine IAM-Rolle und häng
 ![Die S3-Seite „Create Role“. Diese Seite enthält Felder für den Rollennamen, die Rollenbeschreibung, vertrauenswürdige Entitäten, Richtlinien und die Berechtigungsgrenze.]({% image_buster /assets/img/create_role_2_another.png %})<br><br>
 
 {: start="7"}
-6. Hängen Sie die in Schritt 4 erstellte Richtlinie an die Rolle an. Suchen Sie die Richtlinie in der Suchleiste und setzen Sie ein Häkchen neben der Richtlinie, um sie anzuhängen. Wählen Sie anschließend **Next**.
+6. Hängen Sie die in Schritt 5 erstellte Richtlinie an die Rolle an. Suchen Sie die Richtlinie in der Suchleiste und setzen Sie ein Häkchen neben der Richtlinie, um sie anzuhängen. Wählen Sie anschließend **Next**.
 
 ![Rollen-ARN mit der ausgewählten Richtlinie „new-policy-name“.]({% image_buster /assets/img/create_role_3_attach.png %})
 
@@ -224,7 +224,7 @@ Cloud Data Ingestion unterstützt JSON-, CSV- und Parquet-Dateien. Die erforderl
 - Nutzerdaten (Attribute, angepasste Events, Kauf-Events) verwenden Nutzer:innen-Bezeichner und eine Nutzlast
 - Katalogdaten verwenden Katalog-Bezeichner
 
-Wenn Sie S3 für Katalogdaten verwenden, nutzen Sie diese Seite zusammen mit [Katalogdaten synchronisieren und löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) für katalogspezifische Anforderungen und Verhaltensweisen.
+Wenn Sie S3 für Katalogdaten verwenden, nutzen Sie diese Seite zusammen mit [Katalogdaten synchronisieren und löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) für katalogspezifische Anforderungen und Verhaltensweisen.
 
 Braze erzwingt keine zusätzlichen Anforderungen an Dateinamen über die von AWS vorgegebenen hinaus. Dateinamen sollten eindeutig sein. Das Anhängen eines Zeitstempels hilft, die Eindeutigkeit sicherzustellen.
 
@@ -310,7 +310,7 @@ ID,PAYLOAD,DELETED
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}",false
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
 ```
-Fügen Sie eine optionale `DELETED`-Spalte hinzu. Wenn `DELETED` den Wert `true` hat, wird dieser Katalogartikel aus dem Katalog in Braze entfernt. Die vollständige Liste der erforderlichen Spalten finden Sie unter [Katalog-Bezeichner](#catalog-identifiers). Informationen zum Löschverhalten finden Sie unter [Katalogartikel löschen](#deleting-catalog-items). Einen End-to-End-Ablauf für die Katalogeinrichtung (einschließlich Erstellung des Zielkatalogs und Synchronisierungsverhalten) finden Sie unter [Katalogdaten synchronisieren und löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/).
+Fügen Sie eine optionale `DELETED`-Spalte hinzu. Wenn `DELETED` den Wert `true` hat, wird dieser Katalogartikel aus dem Katalog in Braze entfernt. Die vollständige Liste der erforderlichen Spalten finden Sie unter [Katalog-Bezeichner](#catalog-identifiers). Informationen zum Löschverhalten finden Sie unter [Katalogartikel löschen](#deleting-catalog-items). Einen End-to-End-Ablauf für die Katalogeinrichtung (einschließlich Erstellung des Zielkatalogs und Synchronisierungsverhalten) finden Sie unter [Katalogdaten synchronisieren und löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data).
 {% endtab %}
 
 {% endtabs %}
@@ -340,7 +340,7 @@ Jede Zeile in der Datei muss genau eine Nutzer:in identifizieren, und zwar mit e
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzer:innen löschen" }
 
 {% alert important %}
-Das Löschen von Nutzer:innen ist endgültig und kann nicht rückgängig gemacht werden. Schließen Sie nur Nutzer:innen ein, die Sie tatsächlich entfernen möchten. Weitere Informationen finden Sie unter [Nutzer:innen mit Cloud-Datenaufnahme löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users/).
+Das Löschen von Nutzer:innen ist endgültig und kann nicht rückgängig gemacht werden. Schließen Sie nur Nutzer:innen ein, die Sie tatsächlich entfernen möchten. Weitere Informationen finden Sie unter [Nutzer:innen mit Cloud-Datenaufnahme löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users).
 {% endalert %}
 
 **Beispiel – JSON (Nutzer:innen löschen):**
@@ -363,7 +363,7 @@ Wenn die Synchronisierung ausgeführt wird, verarbeitet Braze neue Dateien im Bu
 
 So entfernen Sie Artikel aus einem Katalog mithilfe von Dateispeicher:
 
-1. Verwenden Sie dieselbe S3-Synchronisierung, die Sie zur [Synchronisierung von Katalogdaten]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) (Datentyp **Catalogs**) verwenden.
+1. Verwenden Sie dieselbe S3-Synchronisierung, die Sie zur [Synchronisierung von Katalogdaten]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) (Datentyp **Catalogs**) verwenden.
 2. Fügen Sie in Ihren CSV- oder JSON-Dateien eine optionale Spalte **`deleted`** (oder **`DELETED`**) hinzu.
 3. Setzen Sie `deleted` auf `true` für jeden Katalogartikel, den Sie aus dem Katalog in Braze entfernen möchten.
 
@@ -382,7 +382,7 @@ ID,PAYLOAD,DELETED
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
 ```
 
-Wenn die Synchronisierung ausgeführt wird, führen Zeilen mit `deleted: true` dazu, dass der entsprechende Katalogartikel in Braze gelöscht wird. Informationen zum vollständigen Synchronisierungs- und Löschverhalten von Katalogdaten finden Sie unter [Katalogdaten synchronisieren und löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/).
+Wenn die Synchronisierung ausgeführt wird, führen Zeilen mit `deleted: true` dazu, dass der entsprechende Katalogartikel in Braze gelöscht wird. Informationen zum vollständigen Synchronisierungs- und Löschverhalten von Katalogdaten finden Sie unter [Katalogdaten synchronisieren und löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data).
 
 ## Wissenswertes {#things-to-know}
 

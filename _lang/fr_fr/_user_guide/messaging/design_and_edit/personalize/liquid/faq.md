@@ -22,17 +22,17 @@ Dans de nombreux cas, vous pouvez intégrer des extraits de code Liquid en accé
 
 #### Où puis-je en savoir plus ? {#where-can-i-learn-more}
 
-Pour en savoir plus sur Liquid, consultez notre parcours guidé [Personnalisation dynamique avec Liquid](https://learning.braze.com/path/dynamic-personalization-with-liquid) sur Braze Learning. Vous pouvez également consulter la [bibliothèque de cas d'utilisation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/) pour trouver de l'inspiration et une variété d'exemples de personnalisation utilisant Liquid.
+Pour en savoir plus sur Liquid, consultez notre parcours guidé [Personnalisation dynamique avec Liquid](https://learning.braze.com/path/dynamic-personalization-with-liquid) sur Braze Learning. Vous pouvez également consulter la [bibliothèque de cas d'utilisation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases) pour trouver de l'inspiration et une variété d'exemples de personnalisation utilisant Liquid.
 
-### Quelle est la différence entre l'utilisation de Liquid et du contenu connecté pour la personnalisation ? {#whats-the-difference-between-using-liquid-and-connected-content-for-personalization}
+### Quelle est la différence entre l'utilisation de Liquid et du Contenu connecté pour la personnalisation ? {#whats-the-difference-between-using-liquid-and-connected-content-for-personalization}
 
-Le Contenu connecté de Braze est un exemple d'étiquette Liquid. Il est également utilisé pour la personnalisation, mais les données proviennent d'un endpoint externe plutôt que de données stockées dans Braze. Consultez notre section dédiée au [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) pour en savoir plus sur les possibilités de personnalisation de vos messages.
+Le Contenu connecté de Braze est un exemple d'étiquette Liquid. Il est également utilisé pour la personnalisation, mais les données proviennent d'un endpoint externe plutôt que de données stockées dans Braze. Consultez notre section dédiée au [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) pour en savoir plus sur les possibilités de personnalisation de vos messages.
 
 ### Qu'est-ce que le templating Liquid ? {#what-is-liquid-templating}
 
 C'est la manière la plus courante d'utiliser Liquid dans Braze. Le templating Liquid consiste à extraire des données du profil d'un utilisateur pour les insérer dans un message. Ces données peuvent aller du prénom de l'utilisateur aux événements personnalisés issus d'un message déclenché par un événement.
 
-Consultez les [Étiquettes de personnalisation prises en charge]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) pour obtenir la liste complète des étiquettes Liquid prises en charge.
+Consultez les [Étiquettes de personnalisation prises en charge]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) pour obtenir la liste complète des étiquettes Liquid prises en charge.
 
 ### L'utilisation de Liquid consomme-t-elle des points de donnée ? {#does-using-liquid-log-data-points}
 
@@ -44,7 +44,7 @@ Non.
 
 Pour un message d'accueil personnalisé utilisant le prénom de l'utilisateur, vous pouvez extraire les attributs standard du profil utilisateur tels que {% raw %}`{{${first_name}}}` et `{{${last_name}}}`{% endraw %}.
 
-Vous pouvez également utiliser une instruction Liquid {% raw %}`{% if X %}`{% endraw %} pour effectuer un rendu conditionnel basé sur n'importe quel critère, comme le jour de la semaine ou des attributs personnalisés. Pour plus d'informations sur les opérateurs Liquid pris en charge dans les instructions conditionnelles, consultez [Opérateurs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/operators/).
+Vous pouvez également utiliser une instruction Liquid {% raw %}`{% if X %}`{% endraw %} pour effectuer un rendu conditionnel basé sur n'importe quel critère, comme le jour de la semaine ou des attributs personnalisés. Pour plus d'informations sur les opérateurs Liquid pris en charge dans les instructions conditionnelles, consultez [Opérateurs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/operators).
 
 ### Comment personnaliser un message en fonction de la localisation d'un utilisateur ? {#how-can-i-personalize-a-message-based-on-a-users-location}
 
@@ -58,13 +58,13 @@ Il existe un attribut par défaut pour la localisation de l'utilisateur : `{{${m
 `{{campaign.${name}}}` et `{{campaign.${message_name}}}` sont toutes deux des étiquettes de personnalisation Liquid prises en charge. Ces deux étiquettes font référence aux attributs de la Campaign. `{{campaign.${name}}}` désigne le nom de votre Campaign, et `{{campaign.${message_name}}}` est le nom de votre variante de message.
 {% endraw %}
 
-Pour l'utilisation dans les URL et les chaînes de requête (par exemple, lorsqu'un nom contient `%` ou des espaces), consultez [Noms de Campaign dans les URL]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#campaign-names-in-urls).
+Pour l'utilisation dans les URL et les chaînes de requête (par exemple, lorsqu'un nom contient `%` ou des espaces), consultez [Noms de Campaign dans les URL]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#campaign-names-in-urls).
 
 ### Comment utiliser Liquid avec des objets imbriqués ? {#how-do-i-use-liquid-with-nested-objects}
 
 Braze dispose d'une fonctionnalité intégrée qui génère du code Liquid pour les Segments pouvant être utilisés dans un message. Plus précisément, vous pouvez créer un Segment correspondant à plusieurs critères au sein d'un objet.
 
-Pour plus d'informations, consultez [Segmentation multicritères]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#multi-criteria-segmentation).
+Pour plus d'informations, consultez [Segmentation multicritères]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#multi-criteria-segmentation).
 
 ### Comment utiliser les propriétés d'événement pour personnaliser un message déclenché par un événement ? {#how-do-i-use-event-attributes-to-personalize-a-message-that-an-event-is-triggering}
 
@@ -126,7 +126,7 @@ Non. Braze effectue le rendu de chaque composant du message séparément (ligne 
 
 Les boucles for sont également connues sous le nom d'[étiquettes d'itération](https://shopify.github.io/liquid/tags/iteration/). L'utilisation de la logique de boucle for dans vos extraits de code Liquid vous permet de parcourir des blocs Liquid jusqu'à ce qu'une condition soit remplie.
 
-Dans Braze, cela peut être utilisé pour vérifier des éléments dans un attribut personnalisé de type tableau, ou une liste de valeurs et d'objets renvoyés par un appel de [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/), de [sélection]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) ou de [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/). Plus précisément, vous pouvez utiliser la logique de boucle for dans vos messages pour vérifier si un produit est en stock ou s'il a une note minimale.
+Dans Braze, cela peut être utilisé pour vérifier des éléments dans un attribut personnalisé de type tableau, ou une liste de valeurs et d'objets renvoyés par un appel de [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs), de [sélection]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) ou de [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Plus précisément, vous pouvez utiliser la logique de boucle for dans vos messages pour vérifier si un produit est en stock ou s'il a une note minimale.
 
 Par exemple, supposons que vous ayez un catalogue appelé « Games » avec une sélection appelée « cheap_games ». Pour extraire les titres des jeux dans « cheap_games », vous pouvez utiliser cet extrait de code Liquid :
 
@@ -143,7 +143,7 @@ Une fois les conditions définies remplies, votre message peut être envoyé. Ce
 
 ### Qu'est-ce que la logique d'abandon et comment l'utiliser ? {#what-is-abort-logic-and-how-can-i-use-it}
 
-La logique d'abandon vous permet d'empêcher l'envoi d'un message si les conditions sont remplies. Cela est particulièrement utile pour éviter d'envoyer des messages incomplets à vos utilisateurs. Pour des exemples de logique d'abandon dans vos campagnes marketing, consultez [Abandon de messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).
+La logique d'abandon vous permet d'empêcher l'envoi d'un message si les conditions sont remplies. Cela est particulièrement utile pour éviter d'envoyer des messages incomplets à vos utilisateurs. Pour des exemples de logique d'abandon dans vos campagnes marketing, consultez [Abandon de messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).
 
 ### Puis-je utiliser Liquid à l'intérieur de l'étiquette `abort_message` ? {#can-i-use-liquid-inside-the-abort_message-tag}
 
@@ -159,11 +159,11 @@ Une paire d'accolades supplémentaire est une cause fréquente. Par exemple, `{{
 
 ### Existe-t-il des limites de taille pour les propriétés de contexte Canvas ? {#are-there-size-limits-for-canvas-context-properties}
 
-Braze n'impose pas de limite stricte sur les [propriétés de contexte Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), mais maintenez les payloads en dessous d'environ 1 Ko (~1 000 caractères). Des objets plus volumineux peuvent augmenter l'utilisation de la mémoire et retarder le rendu des messages lors d'envois à fort volume.
+Braze n'impose pas de limite stricte sur les [propriétés de contexte Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties), mais maintenez les payloads en dessous d'environ 1 Ko (~1 000 caractères). Des objets plus volumineux peuvent augmenter l'utilisation de la mémoire et retarder le rendu des messages lors d'envois à fort volume.
 
 ### Pourquoi est-ce que j'obtiens une erreur Liquid lors de la prévisualisation de certains types de données dans le tableau de bord ? {#why-do-i-get-a-liquid-error-when-previewing-certain-data-types-in-the-dashboard}
 
-Certains types de [propriétés de contexte Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) nécessitent une conversion en Liquid avant de les utiliser dans des comparaisons ou des calculs. Par exemple, lorsque vous avez besoin d'un comportement numérique :
+Certains types de [propriétés de contexte Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) nécessitent une conversion en Liquid avant de les utiliser dans des comparaisons ou des calculs. Par exemple, lorsque vous avez besoin d'un comportement numérique :
 
 {% raw %}
 ```liquid
@@ -173,7 +173,7 @@ Certains types de [propriétés de contexte Canvas]({{site.baseurl}}/user_guide/
 
 ### Pourquoi mon extrait de code Liquid de catalogue renvoie-t-il un message d'abandon ? {#why-does-my-catalog-liquid-snippet-return-an-abort-message}
 
-Si un extrait de code Liquid de catalogue s'interrompt lors de l'envoi, recréez l'extrait depuis le menu de personnalisation en sélectionnant des éléments de catalogue individuels au lieu d'utiliser une sélection en masse ou entièrement dynamique. Consultez [Catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs/) et [Sélections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/).
+Si un extrait de code Liquid de catalogue s'interrompt lors de l'envoi, recréez l'extrait depuis le menu de personnalisation en sélectionnant des éléments de catalogue individuels au lieu d'utiliser une sélection en masse ou entièrement dynamique. Consultez [Catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs) et [Sélections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections).
 
 ## Content Blocks et le composeur de messages {#content-blocks-and-the-message-composer}
 
@@ -209,7 +209,7 @@ Cet abandon se produit lorsque le Liquid dans l'adresse **De** produit une synta
 
 ### Comment créer une adresse de réponse dynamique ? {#how-do-i-create-a-dynamic-reply-to-address}
 
-Utilisez Liquid dans le champ **Reply-To** lorsque votre espace de travail prend en charge la configuration dynamique de l'adresse de réponse. Associez-le à vos paramètres de nom d'affichage **De** selon vos besoins. Consultez [Paramètres des e-mails]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) pour les options spécifiques à l'espace de travail.
+Utilisez Liquid dans le champ **Reply-To** lorsque votre espace de travail prend en charge la configuration dynamique de l'adresse de réponse. Associez-le à vos paramètres de nom d'affichage **De** selon vos besoins. Consultez [Paramètres des e-mails]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) pour les options spécifiques à l'espace de travail.
 
 ## Résolution des erreurs Liquid {#troubleshooting-liquid-errors}
 

@@ -15,11 +15,11 @@ description: "Envoyez des e-mails transactionnels pour des notifications critiqu
 
 ## Conditions préalables {#prerequisites}
 
-L'e-mail transactionnel n'est disponible que dans le cadre de certains forfaits Braze. Contactez votre gestionnaire de la satisfaction client Braze ou ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support/) pour plus de détails.
+L'e-mail transactionnel n'est disponible que dans le cadre de certains forfaits Braze. Contactez votre gestionnaire de la satisfaction client Braze ou ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support) pour plus de détails.
 
 Avant de commencer, assurez-vous de disposer des éléments suivants :
 
-- La [configuration de l'e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/) terminée, y compris la configuration des adresses IP et du domaine, l'authentification et le réchauffement d'adresses IP
+- La [configuration de l'e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup) terminée, y compris la configuration des adresses IP et du domaine, l'authentification et le réchauffement d'adresses IP
 - Une **clé REST API Braze** avec la permission `transactional.send`
 
 ## Cas d'utilisation {#use-cases}
@@ -36,7 +36,7 @@ L'e-mail transactionnel est conçu pour envoyer des messages non promotionnels d
 
 ## Différences entre l'e-mail transactionnel et l'e-mail marketing {#how-transactional-email-differs-from-marketing-email}
 
-Les e-mails transactionnels sont envoyés via une [API HTTP transactionnelle]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign/) Braze dédiée, optimisée pour la rapidité et la fiabilité. Contrairement aux e-mails marketing, les e-mails transactionnels :
+Les e-mails transactionnels sont envoyés via une [API HTTP transactionnelle]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign) Braze dédiée, optimisée pour la rapidité et la fiabilité. Contrairement aux e-mails marketing, les e-mails transactionnels :
 
 - Ne nécessitent pas que l'utilisateur ait donné son consentement aux communications marketing
 - Sont déclenchés par des appels API plutôt que par des planifications ou des déclencheurs basés sur des actions
@@ -44,5 +44,5 @@ Les e-mails transactionnels sont envoyés via une [API HTTP transactionnelle]({{
 
 ## Étapes suivantes {#next-steps}
 
-- [Créer un e-mail transactionnel]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)
-- [Configurer le suivi]({{site.baseurl}}/user_guide/channels/transactional_email/tracking/)
+- [Créer un e-mail transactionnel]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)
+- [Configurer le suivi]({{site.baseurl}}/user_guide/channels/transactional_email/tracking)

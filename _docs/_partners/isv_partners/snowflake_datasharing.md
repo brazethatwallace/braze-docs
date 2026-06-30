@@ -9,11 +9,11 @@ hidden: true
 
 Shares are provisioned on a per-customer basis after the customer has purchased a Snowflake Data Share entitlement. When a customer requests a data share, Braze will add a share to the customer's workspace, and the customer can use the self-service UI to add the relevant partner Snowflake account data.
 
-![]({% image_buster /assets/img/snowflake.png %})
+![Snowflake data share provisioning in the Braze dashboard]({% image_buster /assets/img/snowflake.png %})
 
 Once the share is provisioned, all data is immediately accessible from within the Snowflake instance as an incoming data share.
 
-![]({% image_buster /assets/img/snowflake2.png %})
+![Snowflake incoming data share in the customer Snowflake instance]({% image_buster /assets/img/snowflake2.png %})
 
 Within your Snowflake instance, you will see one share per region. Each table has a column, `app_group_id`, which is effectively a tenant key for Braze. As new customers are added to a share within the same region, it will appear as different `app_group_ids` within the existing tables.
 
@@ -22,7 +22,7 @@ Braze currently hosts all user-level data in the Snowflake AWS US East-1 and EU-
 {% endalert %}
 
 {% alert tip %}
-Download the [raw table schemas]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ffbc5f5ca7092bc9ae26268aa0e711df) here or use this set of [sample event data](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset) available in the Snowflake marketplace to familiarize yourself with the events shared.
+Download the [raw table schemas](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) or use this set of [sample event data](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset) available in the Snowflake marketplace to familiarize yourself with the events shared.
 {% endalert %}
 
 ## Handling duplicate events

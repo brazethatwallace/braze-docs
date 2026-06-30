@@ -9,13 +9,13 @@ alias: /query_builder/
 
 # Générateur de requêtes {#query-builder}
 
-> Le Générateur de requêtes génère des rapports à partir des données de Braze dans Snowflake. Il est fourni avec des [modèles de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/) SQL prédéfinis pour vous aider à démarrer, ou vous pouvez écrire vos propres requêtes SQL personnalisées pour obtenir encore plus d'informations.
+> Le Générateur de requêtes génère des rapports à partir des données de Braze dans Snowflake. Il est fourni avec des [modèles de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) SQL prédéfinis pour vous aider à démarrer, ou vous pouvez écrire vos propres requêtes SQL personnalisées pour obtenir encore plus d'informations.
 
-Étant donné que le Générateur de requêtes permet un accès direct à certaines données client, vous ne pouvez y accéder que si vous disposez de l'[autorisation]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) « View PII ».
+Étant donné que le Générateur de requêtes permet un accès direct à certaines données client, vous ne pouvez y accéder que si vous disposez de l'[autorisation]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) « View PII ».
 
 ## Tables de données disponibles {#available-data-tables}
 
-Le Générateur de requêtes utilise les mêmes tables SQL Snowflake que les [Extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) et le [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/). Pour une liste complète des tables disponibles et de leurs colonnes, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/).
+Le Générateur de requêtes utilise les mêmes tables SQL Snowflake que les [Extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) et le [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Pour une liste complète des tables disponibles et de leurs colonnes, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 
 ## Exécuter des rapports dans le Générateur de requêtes {#running-reports-in-the-query-builder}
 
@@ -37,11 +37,11 @@ Les résultats de chaque rapport peuvent être générés une fois par jour. Si 
 
 Accédez aux modèles de requêtes en sélectionnant **Create SQL Query** > **Query Template** lors de la création initiale d'un rapport.
 
-Consultez [Modèles de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/) pour une liste des modèles disponibles.
+Consultez [Modèles de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) pour une liste des modèles disponibles.
 
 ### Période des données {#data-timeframe}
 
-Les requêtes renvoient les données des 60 derniers jours. Si vous utilisez Currents ou le [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/), vous pourrez peut-être interroger jusqu'à deux ans de données, ce qui correspond à la durée de conservation de vos données dans Snowflake. Pour plus de détails sur la conservation étendue des données, contactez votre gestionnaire de la satisfaction client.
+Les requêtes renvoient les données des 60 derniers jours. Si vous utilisez Currents ou le [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake), vous pourrez peut-être interroger jusqu'à deux ans de données, ce qui correspond à la durée de conservation de vos données dans Snowflake. Pour plus de détails sur la conservation étendue des données, contactez votre gestionnaire de la satisfaction client.
 
 ### Fuseau horaire du Générateur de requêtes {#query-builder-time-zone}
 
@@ -90,15 +90,15 @@ Pour générer du SQL avec l'AI Query Builder :
 
 ### Conseils {#tips}
 
-- Familiarisez-vous avec les tables et colonnes disponibles dans la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/). Demander des données qui n'existent pas dans ces tables peut amener ChatGPT à inventer une fausse table.
-- Familiarisez-vous avec les [règles d'écriture SQL]({{site.baseurl}}/user_guide/analytics/reports/query_builder/#custom-sql) pour cette fonctionnalité. Le non-respect de ces règles entraînera une erreur.
+- Familiarisez-vous avec les tables et colonnes disponibles dans la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables). Demander des données qui n'existent pas dans ces tables peut amener ChatGPT à inventer une fausse table.
+- Familiarisez-vous avec les [règles d'écriture SQL]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql) pour cette fonctionnalité. Le non-respect de ces règles entraînera une erreur.
 - Vous pouvez envoyer jusqu'à 20 prompts par minute avec l'AI Query Builder.
 
 #{% multi_lang_include brazeai/generative_ai/policy.md %}
 
 ## Écrire des requêtes SQL personnalisées {#custom-sql}
 
-Écrivez votre requête SQL en utilisant la [syntaxe Snowflake](https://docs.snowflake.com/en/sql-reference). Consultez la [référence des tables]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/) pour une liste complète des tables et colonnes disponibles pour les requêtes.
+Écrivez votre requête SQL en utilisant la [syntaxe Snowflake](https://docs.snowflake.com/en/sql-reference). Consultez la [référence des tables]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables) pour une liste complète des tables et colonnes disponibles pour les requêtes.
 
 Pour afficher les détails des tables dans le Générateur de requêtes :
 

@@ -75,7 +75,7 @@ Wenn DMARC für über Braze gesendete Nachrichten **FAIL** anzeigt:
 
 1. Öffnen Sie die Roh-Header oder Authentifizierungsergebnisse einer kürzlich gesendeten Nachricht und prüfen Sie, ob **SPF** und **DKIM** jeweils bestanden werden oder fehlschlagen.
 2. **Alignment:** DMARC wird bestanden, wenn *entweder* SPF *oder* DKIM mit der **From**-Domain übereinstimmt. Alignment bedeutet, dass die **From**-Domain mit der Domain übereinstimmt, die SPF bestanden hat (häufig die **Return-Path**- / Envelope-Domain) *oder* mit der Domain in der DKIM-**d=**-Signatur.
-3. Wenn SPF bestanden wird, DMARC aber fehlschlägt, stimmt die Return-Path-Domain möglicherweise nicht mit Ihrer **From**-Domain überein – überprüfen Sie, ob Ihre [Whitelabel-Versand- und Tracking-Domains]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/) mit den Domains übereinstimmen, für die Sie SPF und DKIM veröffentlichen.
+3. Wenn SPF bestanden wird, DMARC aber fehlschlägt, stimmt die Return-Path-Domain möglicherweise nicht mit Ihrer **From**-Domain überein – überprüfen Sie, ob Ihre [Whitelabel-Versand- und Tracking-Domains]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains) mit den Domains übereinstimmen, für die Sie SPF und DKIM veröffentlichen.
 4. Wenn DKIM fehlschlägt, überprüfen Sie, ob die von Braze bereitgestellten DKIM-DNS-Einträge vorhanden und unverändert sind.
 
 Drittanbieter-Checker (z. B. [MXToolbox](https://mxtoolbox.com/dmarc.aspx)) helfen bei der Überprüfung veröffentlichter Einträge. Validieren Sie jedoch immer auch mit einer Live-Nachricht von Braze.

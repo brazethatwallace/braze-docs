@@ -36,7 +36,7 @@ guide_menu_list:
 guide_menu_title2: "Verwandte Artikel"
 guide_menu_list2:
   - name: API-Endpunkte
-    link: /docs/api/endpoints/subscription_groups/
+    link: /docs/api/endpoints/subscription_groups
     image: /assets/img/braze_icons/brackets.svg
 ---
 

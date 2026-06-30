@@ -20,7 +20,7 @@
     <span id="sidebar_toggle_flyout_hint" class="sr-only" hidden>{{ _flyout_hint }}</span>
   </div>
   <div id="doc_nav_flyout" class="doc-nav-flyout">
-    <nav class="bd-links left-nav-doc navbar-light" id="left_navmenu" aria-label="{{ site.data.i18n[site.language]['documentation_nav'] | default: 'Documentation' }}">
+    <nav class="bd-links left-nav-doc navbar-light" id="left_navmenu" aria-label="{{ site.data.i18n[site.language]['documentation_nav'] | default: 'Documentation menu' }}">
       {%- assign collection = page.collection -%}
       {%- if page.custom_collection -%}
         {%- assign collection = page.custom_collection -%}
@@ -35,10 +35,10 @@
 <div id="nav_bottom">
   <!-- a href="https://www.braze.com/terms/" target="_blank"><div class="nav_bottom_item"><i class="fa fa-balance-scale"></i> LEGAL</div></a>
   <a href="https://learning.braze.com" target="_blank"><div class="nav_bottom_item"><i class="fa fa-flask"></i> Braze Learning </div></a -->
-  <a id="status-indicator" href="https://braze.statuspage.io" target="_blank" rel="noopener noreferrer">
+  <a id="status-indicator-sidebar" class="status-indicator" href="https://braze.statuspage.io" target="_blank" rel="noopener noreferrer">
     <div class="nav_bottom_item">
 
-      <div class="status-title">{{ site.data.i18n[site.language]['braze_status'] | default: "BRAZE SYSTEM STATUS"}}</div>
+      <p class="status-title">{{ site.data.i18n[site.language]['braze_status'] | default: "BRAZE SYSTEM STATUS"}}</p>
       <div class="color-dot"></div><div class="color-description">{{ site.data.i18n[site.language]['braze_status_check'] | default: "Checking Status" }}</div>
   </div></a>
 </div>
@@ -54,7 +54,7 @@
         var sp = new StatusPage.page({page: '{{site.status_io_key}}'});
         sp.status({
           success: function (data) {
-            var sd = document.getElementById('status-indicator');
+            var sd = document.getElementById('status-indicator-sidebar');
             sd.getElementsByClassName('color-description')[0].textContent = data.status.description;
             sd.getElementsByClassName('color-dot')[0].className = "color-dot " + data.status.indicator;
           }

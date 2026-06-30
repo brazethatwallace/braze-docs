@@ -20,7 +20,6 @@ If you purchased WhatsApp but aren't on a credits contract, you'll still see cre
 
 Credits usage overview data is limited to the contract period, which is displayed in the **Credits contract overview**. You can't filter on a date range outside of the **Credits period**.
 
-![Credit usage overview tab with panels for credits usage and an overview of credits contract.]({% image_buster /assets/img/app_settings/credits_usage_overview.png %})
 
 ### Credits usage over contract
 

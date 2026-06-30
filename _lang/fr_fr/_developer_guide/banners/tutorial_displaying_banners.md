@@ -1,14 +1,14 @@
 ---
-nav_title: "Tutoriel : Affichage de bannières"
-article_title: "Tutoriel : Affichage d'une bannière par ID de placement"
+nav_title: "Tutoriel : Affichage de bannières"
+article_title: "Tutoriel : Affichage d'une bannière par ID de placement"
 description: "Vous ne connaissez pas encore les bannières dans le SDK de Braze ? Commencez par ce tutoriel sur l'affichage des bannières par ID de placement."
 page_order: 10
 layout: scrolly
 ---
 
-# Tutoriel : Affichage d'une bannière par ID de placement
+# Tutoriel : Affichage d'une bannière par ID de placement {#tutorial-displaying-a-banner-by-placement-id}
 
-> Suivez l'exemple de code de ce tutoriel pour afficher les bannières à l'aide de leur ID de placement. Pour plus d'informations générales, voir [Bannières]({{site.baseurl}}/developer_guide/banners/).
+> Suivez l'exemple de code de ce tutoriel pour afficher les bannières à l'aide de leur ID de placement. Pour plus d'informations générales, voir [Bannières]({{site.baseurl}}/developer_guide/banners).
 
 {% sdktabs %}
 {% sdktab web %}

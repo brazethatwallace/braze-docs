@@ -24,7 +24,7 @@ description: "이 문서에서는 새 사용자 별칭 만들기 Braze 엔드포
 
 ## `alias_label`과 `alias_name`이 이미 존재하는 경우 {#when-alias_label-and-alias_name-already-exist}
 
-`alias_label`과 `alias_name`의 조합은 사용자 기반 전체에서 고유해야 합니다. 자세한 내용은 [사용자 별칭]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)을 참조하세요.
+`alias_label`과 `alias_name`의 조합은 사용자 기반 전체에서 고유해야 합니다. 자세한 내용은 [사용자 별칭]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)을 참조하세요.
 
 `alias_label`과 `alias_name` 쌍이 이미 어떤 사용자에게 존재하는 경우(동일한 사용자이든 다른 사용자이든) 요청을 보내면 엔드포인트는 여전히 성공 응답을 반환합니다(예: `"aliases_processed": 1`, `"message": "success"`). 이 경우 요청의 사용자에게 새 별칭이 추가되지 않습니다. `alias_label`과 `alias_name` 쌍이 이미 사용 중이므로 요청은 어떤 변경도 수행하지 않으며, 해당 사용자에게 별칭이 추가되지 않은 것처럼 보일 수 있습니다.
 
@@ -32,7 +32,7 @@ description: "이 문서에서는 새 사용자 별칭 만들기 Braze 엔드포
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.alias.new` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.alias.new` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -55,8 +55,8 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
-| `user_aliases` | 필수 | 새 사용자 별칭 오브젝트 배열 | [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object/)를 참조하세요.<br><br> `alias_name` 및 `alias_label`에 대한 자세한 내용은 [사용자 별칭]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases) 설명서를 참조하세요.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `user_aliases` | 필수 | 새 사용자 별칭 오브젝트 배열 | [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object)를 참조하세요.<br><br> `alias_name` 및 `alias_label`에 대한 자세한 내용은 [사용자 별칭]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases) 설명서를 참조하세요.|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ### 새 사용자 별칭 오브젝트 사양이 포함된 엔드포인트 요청 본문 {#endpoint-request-body-with-new-user-alias-object-specification}
 

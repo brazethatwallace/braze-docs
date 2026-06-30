@@ -16,7 +16,7 @@ channel:
 
 Quando o opt-in duplo está ativado, os usuários recebem uma mensagem que solicita seu consentimento explícito antes de poderem receber mensagens de suas Campaigns ou Canvas.
 
-Embora não seja um requisito explícito do Telephone Consumer Protection Act de 1991 (TCPA), a Braze recomenda que você configure o opt-in duplo para confirmar que os usuários estão cientes e consentem em fazer parte do seu programa de SMS, MMS ou RCS. Para saber mais sobre conformidade, consulte [Leis, regulamentos e prevenção de abuso para SMS, MMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/).
+Embora não seja um requisito explícito do Telephone Consumer Protection Act de 1991 (TCPA), a Braze recomenda que você configure o opt-in duplo para confirmar que os usuários estão cientes e consentem em fazer parte do seu programa de SMS, MMS ou RCS. Para saber mais sobre conformidade, consulte [Leis, regulamentos e prevenção de abuso para SMS, MMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
 
 ## Fluxos de trabalho de opt-in duplo {#double-opt-in-workflows}
 
@@ -48,7 +48,7 @@ Para ativar o opt-in duplo, acesse a tabela **Global Keywords** no grupo de insc
 | | Mensagem de resposta | É a resposta inicial que um usuário receberá após enviar uma palavra-chave de opt-in (por exemplo, "Responda S para confirmar que deseja receber mensagens deste número. Taxas de Msg e Dados podem ser aplicadas.")
 | Confirmação de opt-in duplo | Palavras-chave | São as palavras-chave com as quais um usuário pode responder para confirmar sua intenção de opt-in. Pelo menos uma palavra-chave é obrigatória. Essas palavras-chave devem ser especificadas no campo **Opt-In Prompt Reply Message**.
 | | Mensagem de resposta | É a resposta de confirmação que um usuário receberá após confirmar explicitamente seu opt-in e estar apto a receber mensagens. O status do grupo de inscrições do usuário será definido como `Subscribed`.
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Configurable fields #configurable-fields" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos configuráveis" }
 
 Quando um usuário recebe um pedido de aceitação, ele tem 30 dias para confirmar sua intenção de opt-in. Se um usuário quiser se inscrever após o período de 30 dias, ele precisará enviar uma palavra-chave de opt-in para iniciar o fluxo de trabalho de opt-in duplo novamente.
 
@@ -56,9 +56,9 @@ Quando um usuário recebe um pedido de aceitação, ele tem 30 dias para confirm
 
 ## Status do grupo de inscrições {#subscription-group-status}
 
-Somente após o usuário concluir o fluxo de trabalho de opt-in duplo é que o [status do grupo de inscrições]({{site.baseurl}}/sms_rcs_subscription_groups/) é atualizado para `Subscribed`. Se o usuário iniciar o fluxo de trabalho mas não concluí-lo, ele permanecerá como `Unsubscribed` e não poderá receber mensagens desse grupo de inscrições.
+Somente após o usuário concluir o fluxo de trabalho de opt-in duplo é que o [status do grupo de inscrições]({{site.baseurl}}/sms_rcs_subscription_groups) é atualizado para `Subscribed`. Se o usuário iniciar o fluxo de trabalho mas não concluí-lo, ele permanecerá como `Unsubscribed` e não poderá receber mensagens desse grupo de inscrições.
 
-Os usuários também podem ser inseridos no fluxo de trabalho de opt-in duplo se forem [inscritos por outras fontes]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/) (por exemplo, REST API, SDK).
+Os usuários também podem ser inseridos no fluxo de trabalho de opt-in duplo se forem [inscritos por outras fontes]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups) (por exemplo, REST API, SDK).
 
 ## Fontes de inscrição {#subscription-sources}
 
@@ -76,9 +76,9 @@ Cada fonte de inscrição tem um comportamento de inscrição diferente, conform
 | REST API | Os usuários podem ser inseridos no fluxo de trabalho quando o status de inscrição é definido por meio de `/subscription/status/set`, `/v2/subscription/status/set` ou `/users/track` e o parâmetro opcional `use_double_opt_in_logic` é passado como `true` (por exemplo, [{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed", "use_double_opt_in_logic": true}]). Se esse parâmetro for omitido, os usuários não serão inseridos no fluxo de trabalho de opt-in duplo. |
 | Shopify | Os usuários não serão inseridos no fluxo de trabalho de opt-in duplo quando o status de inscrição for definido pela nossa integração com o Shopify. |
 | Importação de usuários | Os usuários não serão inseridos no fluxo de trabalho de opt-in duplo quando o status de inscrição for definido pela importação de usuários. |
-| [Central de Preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/) | Os usuários entrarão automaticamente no fluxo de trabalho de opt-in duplo quando inscritos por meio de uma Central de Preferências. |
+| [Central de Preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) | Os usuários entrarão automaticamente no fluxo de trabalho de opt-in duplo quando inscritos por meio de uma Central de Preferências. |
 | Etapa de Atualização de usuário | Os usuários podem ser inseridos no fluxo de trabalho de opt-in duplo quando o status de inscrição é definido por meio da etapa de Atualização de usuário e o parâmetro opcional `use_double_opt_in_logic` é passado como `true`. Se esse parâmetro for omitido, os usuários não serão inseridos no fluxo de trabalho de opt-in duplo. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription sources #subscription-sources" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fontes de inscrição" }
 
 ## Suporte multilíngue {#multi-language-support}
 Para mensagens de entrada, o opt-in duplo é compatível com todos os idiomas definidos no grupo de inscrições. Isso significa que você pode definir suas respostas automáticas em diferentes idiomas e a Braze enviará a resposta automática associada a um idioma específico quando uma palavra-chave correspondente for recebida.

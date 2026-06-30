@@ -17,7 +17,6 @@ Die **Home**-Seite besteht aus zwei Hauptbereichen:
 - [Dort weitermachen, wo Sie aufgehört haben](#pick-up-where-you-left-off)
 - [Performance-Übersicht](#performance-overview)
 
-![Home-Dashboard in Braze.]({% image_buster /assets/img_archive/home_dashboard.png %})
 
 ## Dort weitermachen, wo Sie aufgehört haben {#pick-up-where-you-left-off}
 
@@ -35,19 +34,15 @@ Der Abschnitt **Dort weitermachen, wo Sie aufgehört haben** erscheint, nachdem 
 
 Standardmäßig zeigt der Abschnitt **Performance-Übersicht** die Daten der letzten 30 Tage für alle Apps und Websites an. Alle Metriken werden basierend auf dem ausgewählten Zeitraum berechnet.
 
-![Felder für Zeitraum und App im Home-Dashboard.]({% image_buster /assets/img_archive/home_dashboard_select_date.png %}){: style="max-width:60%;"}
-
 Prozentsätze werden auf Basis des aktuellen Zeitraums im Vergleich zum vorherigen Zeitraum berechnet, mit Ausnahme der *monatlich aktiven Nutzer:innen* (MAU), bei denen der letzte Tag des vorherigen Zeitraums anstelle eines Bereichs verwendet wird.
 
 Wenn Sie beispielsweise Ihren Zeitraum auf **Letzte 7 Tage** setzen und Ihre *täglich aktiven Nutzer:innen* einen prozentualen Anstieg von 1,8 % anzeigen, bedeutet das, dass Sie diese Woche 1,8 % mehr täglich aktive Nutzer:innen hatten als in der Vorwoche.
 
-![Eine Metrik-Kachel der Performance-Übersicht mit Metrikwert und prozentualer Veränderung.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![Eine Metrik-Kachel für täglich aktive Nutzer:innen mit einem Durchschnitt von 22,2 Tausend, einem Anstieg von 7,1 % und einer Trendlinie.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### Aufschlüsselung anzeigen {#show-breakdown}
 
 Wählen Sie **Show Breakdown** für jede Zeile der Performance-Übersicht, um den Wert jeder Statistik pro Tag für den angegebenen Zeitraum anzuzeigen.
-
-![Aufklappen]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
 
 ### Performance im Zeitverlauf {#performance-over-time}
 
@@ -89,12 +84,12 @@ Im Folgenden finden Sie die Definitionen der verfügbaren Statistiken, wie sie b
 
 *Nutzer:innen* ist die Gesamtzahl der in diesem Workspace erstellten Nutzer:innen. Dies umfasst alle Nutzer:innen, die Ihre App oder Website zu irgendeinem Zeitpunkt verwendet haben, sowie diejenigen, die möglicherweise keiner bestimmten App oder Website zugeordnet sind. Diese Zahl gibt den Prozentsatz an, wie viele Ihrer Lifetime-Nutzer:innen als *monatlich aktive Nutzer:innen* (MAU) dargestellt werden, was nützlich ist, um die Nutzerbindung über einen langen Zeitraum zu betrachten.
 
-Ein niedriges MAU-zu-Nutzer:innen-Verhältnis kann darauf hindeuten, dass Sie Ihre Messaging-Kanäle diversifizieren oder Ihre Bemühungen verstärken müssen, passive Nutzer:innen zu erreichen. Weitere Informationen finden Sie in unserem Quick Win zum Thema [Passive Nutzer:innen zurückgewinnen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users/#capture-lapsing-users). Im Allgemeinen wird das MAU-zu-Lifetime-Verhältnis aufgrund von Churn im Laufe der Zeit unweigerlich sinken, aber die Tools von Braze können Ihnen helfen, diesen Effekt zu minimieren, indem sie Nutzer:innen länger engagiert halten.
+Ein niedriges MAU-zu-Nutzer:innen-Verhältnis kann darauf hindeuten, dass Sie Ihre Messaging-Kanäle diversifizieren oder Ihre Bemühungen verstärken müssen, passive Nutzer:innen zu erreichen. Weitere Informationen finden Sie in unserem Quick Win zum Thema [Passive Nutzer:innen zurückgewinnen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users#capture-lapsing-users). Im Allgemeinen wird das MAU-zu-Lifetime-Verhältnis aufgrund von Churn im Laufe der Zeit unweigerlich sinken, aber die Tools von Braze können Ihnen helfen, diesen Effekt zu minimieren, indem sie Nutzer:innen länger engagiert halten.
 
 ### Lifetime-Sitzungen {#lifetime-sessions}
 
 *Lifetime-Sitzungen* ist die Gesamtzahl der Sitzungen, die Braze seit der Integration aufgezeichnet hat. Eine Sitzung findet jedes Mal statt, wenn ein:e Nutzer:in die App verwendet oder Ihre Website besucht. Eine genauere Definition, wie Sitzungen pro Plattform definiert werden, finden Sie in den entsprechenden Entwicklerartikeln zum Session-Tracking für
-[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [Android und FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android) oder [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web).
+[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [Android und FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android) oder [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web).
 
 ### Monatlich aktive Nutzer:innen {#monthly-active-users}
 
@@ -146,7 +141,7 @@ MAU-Snapshots werden einmal täglich berechnet und ändern sich nie rückwirkend
 {% alert note %}
 Wenn Sie Braze erstmals integrieren, werden alle Nutzer:innen als neue Nutzer:innen angezeigt, da Braze zuvor noch nie eine Sitzung für sie aufgezeichnet hat.
 
-Anders als bei MAU kann die Zahl der *neuen Nutzer:innen* rückwirkend sinken, wenn Braze ein anonymes Profil mit einem identifizierten Profil zusammenführt und das anonyme Profil verwaist. Braze entfernt das verwaiste Profil aus den App-Nutzungssummen, was die Zahl der *neuen Nutzer:innen* für bereits angezeigte Daten senken kann. Informationen zum Verhalten bei der Profilverknüpfung finden Sie unter [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
+Anders als bei MAU kann die Zahl der *neuen Nutzer:innen* rückwirkend sinken, wenn Braze ein anonymes Profil mit einem identifizierten Profil zusammenführt und das anonyme Profil verwaist. Braze entfernt das verwaiste Profil aus den App-Nutzungssummen, was die Zahl der *neuen Nutzer:innen* für bereits angezeigte Daten senken kann. Informationen zum Verhalten bei der Profilverknüpfung finden Sie unter [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 {% endalert %}
 
 {% alert important %}

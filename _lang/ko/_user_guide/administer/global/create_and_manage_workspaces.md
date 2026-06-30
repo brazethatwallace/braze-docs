@@ -29,7 +29,7 @@ Braze에서 하는 모든 작업은 워크스페이스 내에서 이루어집니
 
 ### 1단계: 계획 수립 {#step-1-have-a-plan}
 
-시작하기 전에 팀 및 Braze 온보딩 매니저와 함께 사용 사례에 가장 적합한 워크스페이스 구성을 결정하세요. Braze에서 워크스페이스를 계획하는 방법에 대해 자세히 알아보려면 [시작하기: 워크스페이스]({{site.baseurl}}/user_guide/get_started/workspaces/) 가이드를 확인하세요.
+시작하기 전에 팀 및 Braze 온보딩 매니저와 함께 사용 사례에 가장 적합한 워크스페이스 구성을 결정하세요. Braze에서 워크스페이스를 계획하는 방법에 대해 자세히 알아보려면 [시작하기: 워크스페이스]({{site.baseurl}}/user_guide/get_started/workspaces) 가이드를 확인하세요.
 
 ### 2단계: 워크스페이스 추가 {#step-2-add-your-workspace}
 
@@ -127,7 +127,7 @@ Braze에서 하는 모든 작업은 워크스페이스 내에서 이루어집니
 1. **설정** > **앱 설정**으로 이동합니다.
 2. 해당 워크스페이스를 삭제하려면 **워크스페이스 삭제**를 선택하거나, 해당 앱 인스턴스 옆의 휴지통 아이콘을 선택합니다.
 
-현재 사용자 타겟팅에 사용 중이거나 1,000명 이상의 사용자가 있는 앱 인스턴스 또는 워크스페이스는 삭제할 수 없습니다. 삭제를 시도하면 오류 메시지가 표시됩니다. 삭제를 진행하려면 대시보드 링크와 삭제할 앱 인스턴스 또는 워크스페이스 이름을 포함하여 [고객지원 케이스를 생성]({{site.baseurl}}/user_guide/administer/personal/braze_support/)하세요.
+현재 사용자 타겟팅에 사용 중이거나 1,000명 이상의 사용자가 있는 앱 인스턴스 또는 워크스페이스는 삭제할 수 없습니다. 삭제를 시도하면 오류 메시지가 표시됩니다. 삭제를 진행하려면 대시보드 링크와 삭제할 앱 인스턴스 또는 워크스페이스 이름을 포함하여 [고객지원 케이스를 생성]({{site.baseurl}}/user_guide/administer/personal/braze_support)하세요.
 
 {% alert warning %}
 워크스페이스를 삭제할 때 주의하세요! 워크스페이스가 삭제되면 복원할 수 없습니다.
@@ -143,7 +143,7 @@ Braze에서 하는 모든 작업은 워크스페이스 내에서 이루어집니
 
 #### 앱 업데이트 {#updating-your-app}
 
-앱을 업데이트하는 경우, 동일한 워크스페이스 내에 새 앱 인스턴스를 생성하여 이전 버전과 새 버전을 분리해야 합니다. 이렇게 하면 세분화 시 해당 앱을 선택하여 새 버전의 사용자를 효과적으로 타겟팅할 수 있습니다. 이전 버전의 사용자에게 메시지를 보내려면 필터를 사용하여 [이전 앱 버전을 타겟팅]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions)할 수 있습니다.
+앱을 업데이트하는 경우, 동일한 워크스페이스 내에 새 앱 인스턴스를 생성하여 이전 버전과 새 버전을 분리해야 합니다. 이렇게 하면 세분화 시 해당 앱을 선택하여 새 버전의 사용자를 효과적으로 타겟팅할 수 있습니다. 이전 버전의 사용자에게 메시지를 보내려면 필터를 사용하여 [이전 앱 버전을 타겟팅]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions)할 수 있습니다.
 
 새 워크스페이스를 생성하면 사용자가 이전 워크스페이스와 새 워크스페이스 두 곳에 존재하게 됩니다. 또한 동일한 푸시 토큰을 가질 수도 있습니다. 이로 인해 이미 업그레이드한 사용자가 이전 워크스페이스 사용자만을 대상으로 한 마케팅 메시지를 받을 수 있습니다.
 
@@ -183,5 +183,5 @@ Canvas에서는 메시지 단계의 **전달 유효성 검사** 섹션에서 Seg
 
 워크스페이스를 생성한 후 다음을 구성하세요:
 
-- [워크스페이스 설정]({{site.baseurl}}/user_guide/administer/global/workspace_settings/)에서 API 키, 이메일 환경설정, 푸시 설정 등을 설정합니다.
-- [회사 사용자 관리]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/)에서 이 워크스페이스에 사용자를 추가하고 권한을 할당합니다.
+- [워크스페이스 설정]({{site.baseurl}}/user_guide/administer/global/workspace_settings)에서 API 키, 이메일 환경설정, 푸시 설정 등을 설정합니다.
+- [회사 사용자 관리]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users)에서 이 워크스페이스에 사용자를 추가하고 권한을 할당합니다.

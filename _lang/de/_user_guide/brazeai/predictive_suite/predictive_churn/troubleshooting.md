@@ -40,8 +40,8 @@ Die Definition einer Prognose-Zielgruppe darf 100 Millionen Nutzer:innen nicht �
 
 ### Prognose hat schlechte Qualität {#prediction-has-poor-quality}
 
-![]({% image_buster /assets/img/churn/churn3.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
-Wenn Ihr Modell eine [Prognosequalität]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics/) von 40 % oder mehr hat, sind Sie auf einem guten Weg! Wenn Ihre Prognosequalität jedoch auf 39 % oder weniger sinkt, müssen Sie Ihre Churn- und Prognose-Zielgruppen-Definitionen möglicherweise so ändern, dass sie spezifischer sind oder andere Zeitfenster haben.
+![Screenshot zur schlechten Prognosequalität.]({% image_buster /assets/img/churn/churn3.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
+Wenn Ihr Modell eine [Prognosequalität]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics) von 40 % oder mehr hat, sind Sie auf einem guten Weg! Wenn Ihre Prognosequalität jedoch auf 39 % oder weniger sinkt, müssen Sie Ihre Churn- und Prognose-Zielgruppen-Definitionen möglicherweise so ändern, dass sie spezifischer sind oder andere Zeitfenster haben.
 
 Wenn Sie bei der Erstellung Ihrer Prognose-Definitionen nicht in der Lage sind, sowohl die Anforderungen an die Größe der Zielgruppe zu erfüllen als auch eine Prognosequalität von mehr als 40 % zu erreichen, bedeutet dies wahrscheinlich, dass die an Braze gesendeten Daten für diesen Anwendungsfall nicht ideal sind, dass es nicht genügend Nutzer:innen gibt, anhand derer ein Modell erstellt werden kann, oder dass Ihr Produktlebenszyklus länger ist, als unser aktuelles 60-Tage-Rückblickfenster unterstützt.
 

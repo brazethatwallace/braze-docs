@@ -28,8 +28,8 @@ BrazeとStackAdaptの統合により、ユーザープロファイルデータ�
 | ----------- | ------------------- |
 | **StackAdaptアカウント** | Data Hub統合を管理する権限を持つアクティブなStackAdaptアカウントが必要です。 |
 | **Braze REST APIキー** | 以下の権限を持つBraze REST APIキー：<br>- users.export.ids<br>- users.export.segment<br>- email.unsubscribe<br>- email.hard_bounces<br>- messages.schedule_broadcasts<br>- campaigns.list<br>- campaigns.details<br>- canvas.list<br>- canvas.details<br>- segments.list<br>- segments.details<br>- purchases.product_list<br>- events.list<br>- feed.list<br>- feed.details<br>- templates.email.info<br>- templates.email.list<br>- subscription.status.get<br>- subscription.groups.get<br><br>これはBrazeダッシュボードの**設定** > **APIキー**から作成できます。 |
-| **Braze RESTエンドポイント** | [RESTエンドポイントURL](https://www.braze.com/docs/api/basics/#endpoints)。エンドポイントはインスタンスのBraze URLに応じて異なります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| **Braze RESTエンドポイント** | [RESTエンドポイントURL]({{site.baseurl}}/api/basics/#endpoints)。エンドポイントはインスタンスのBraze URLに応じて異なります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 仕組み {#how-it-works}
 
@@ -92,7 +92,7 @@ StackAdaptは、以下を含む（ただしこれらに限定されない）さ�
 4. プロンプトが表示されたら、Braze API認証情報を入力します。
 - **Braze REST APIキー：** Brazeの**設定** > **APIキー**にあります。セキュリティのベストプラクティスとして、StackAdapt統合用に専用のAPIキーを作成することを推奨します。
 - **Brazeアプリキー：** Brazeの**設定** > **APIキー**または**Manage Apps**にあります。
-- **Braze RESTエンドポイントURL：** Brazeインスタンスのベース URL（例：`https://rest.iad-01.braze.com`）。
+- **Braze RESTエンドポイントURL：** BrazeインスタンスのベースURL（例：`https://rest.iad-01.braze.com`）。
 5. **Connect**を選択して認証情報を確認します。
 
 ![StackAdaptでのBraze接続設定。]({% image_buster /assets/img/stackadapt/stackadapt_braze_connection_settings.png %})

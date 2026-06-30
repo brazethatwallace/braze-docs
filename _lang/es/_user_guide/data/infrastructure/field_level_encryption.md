@@ -11,7 +11,7 @@ page_type: reference
 
 > Cifra direcciones de correo electrónico para minimizar la información de identificación personal (PII) compartida en Braze.
 
-{% multi_lang_include field_level_encryption_pii_description.md %}
+{% multi_lang_include data_activation/field_level_encryption_pii_description.md %}
 
 {% alert important %}
 El cifrado a nivel de campo del identificador está disponible como característica adicional. Para empezar a utilizar el cifrado a nivel de campo del identificador, ponte en contacto con tu director de cuentas de Braze.
@@ -87,7 +87,7 @@ Estas características no son compatibles con el cifrado a nivel de campo del id
 
 ### Objeto de atributos del usuario {#user-attributes-object}
 
-Cuando utilices el cifrado a nivel de campo del identificador con el punto de conexión `/users/track`, toma nota de estos detalles de campo para el [objeto de atributos del usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens):
+Cuando utilices el cifrado a nivel de campo del identificador con el punto de conexión `/users/track`, toma nota de estos detalles de campo para el [objeto de atributos del usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens):
 
 - El campo `email` debe ser el valor con hash del correo electrónico.
 - El campo `email_encrypted` debe ser el valor cifrado del correo electrónico.

@@ -123,7 +123,6 @@ func didReceive(_ notification: UNNotification) {
 3. 情報が提供され、期待される形式であれば、登録ボタンが表示されます。
 3. 確認ビューが表示され、プッシュが閉じられます。
 
-![]({% image_buster /assets/img/push_implementation_guide/push8.png %}){: style="border:0;"}
 
 ### ダッシュボードの設定 {#dashboard-configuration}
 

@@ -53,4 +53,4 @@ Las prioridades y los plazos pueden cambiar (y cambian) en función de la inform
 - ¿Tienes alguna información adicional? (Por ejemplo, cómo esto te beneficiaría a ti y a tus equipos)
 - ¿Existen soluciones alternativas actualmente? (Esto no es para nuestro proceso de priorización, pero puede ayudar con cualquier trabajo de descubrimiento de soluciones)
 
-Para ver un ejemplo de una solicitud de producto bien redactada, consulta este [ejemplo de solicitud de producto]({{site.baseurl}}/product_request/).
+Para ver un ejemplo de una solicitud de producto bien redactada, consulta este [ejemplo de solicitud de producto]({{site.baseurl}}/product_request).

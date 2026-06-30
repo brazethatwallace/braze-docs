@@ -38,5 +38,5 @@ Braze ne fusionne pas automatiquement les utilisateurs en fonction d'attributs, 
 
 Pour fusionner les profils utilisateur en double, vous pouvez :
 
-- Déclencher l'[endpoint `/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) lorsqu'un formulaire de page d'accueil est soumis afin de fusionner le nouveau profil avec un profil existant.
-- Planifier une [fusion en masse]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/#bulk-merging) pour fusionner périodiquement les profils en double en fonction d'identifiants correspondants.
+- Déclencher l'[endpoint `/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) lorsqu'un formulaire de page d'accueil est soumis afin de fusionner le nouveau profil avec un profil existant.
+- Planifier une [fusion en masse]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#bulk-merging) pour fusionner périodiquement les profils en double en fonction d'identifiants correspondants.

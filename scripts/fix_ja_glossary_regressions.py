@@ -9,6 +9,13 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 JA_ROOT = REPO / "_lang" / "ja"
 
+# ``{% tab %}`` labels in ``_api/`` stay English to match sibling tabs (User Data, etc.).
+API_LIQUID_TAB_FIXES = [
+    ("{% tab キャンペーン %}", "{% tab Campaigns %}"),
+    ("{% tab キャンバス %}", "{% tab Canvas %}"),
+    ("{% tab セグメント %}", "{% tab Segments %}"),
+]
+
 TOOL_REVERT = {
     "tool: キャンペーン": "tool: Campaigns",
     "tool: キャンバス": "tool: Canvas",
@@ -44,7 +51,38 @@ UI_IDENTIFIER_FIXES = [
     ("In キャンバス Control Group", "In Canvas Control Group"),
     ("In キャンペーン Control Group", "In Campaign Control Group"),
     ("**キャンバス Messages Received**", "**Canvas Messages Received**"),
+    ("**Save キャンペーン**", "**キャンペーンを保存**"),
+    ("Save キャンペーン", "キャンペーンを保存"),
     ("**キャンペーン Received**", "**Campaign Received**"),
+    ("Clicked Alias in キャンバスステップ", "Clicked Alias in Canvas Step"),
+    ("Received Message from キャンバスステップ", "Received Message from Canvas Step"),
+    ("Last Received Message from Specific キャンバスステップ", "Last Received Message from Specific Canvas Step"),
+    ("Has Never Received a Message from キャンペーン or キャンバスステップ", "Has Never Received a Message from Campaign or Canvas Step"),
+    ("Clicked Alias in Any キャンペーン or キャンバスステップ", "Clicked Alias in Any Campaign or Canvas Step"),
+    ("- name: キャンペーン\n", "- name: Campaigns\n"),
+    ("- name: キャンバス\n", "- name: Canvas\n"),
+    ("- name: セグメント\n", "- name: Segments\n"),
+    ("      - キャンペーン\n", "      - Campaigns\n"),
+    ("      - キャンバス\n", "      - Canvas\n"),
+    ("      - セグメント\n", "      - Segments\n"),
+    ("`400 Invalid キャンペーン ID`", "`400 Invalid Campaign ID`"),
+    ("`キャンペーン does not exist`", "`Campaign does not exist`"),
+    ("`Missing/Invalid キャンペーン ID`", "`Missing/Invalid Campaign ID`"),
+    ("「The キャンバス is archived. Unarchive the キャンバス to ensure trigger requests will take effect.」", "「The Canvas is archived. Unarchive the Canvas to ensure trigger requests will take effect.」"),
+    ("「The キャンバス is paused. Resume the キャンバス to ensure trigger requests will take effect.」", "「The Canvas is paused. Resume the Canvas to ensure trigger requests will take effect.」"),
+    ("**キャンペーン Details**", "**キャンペーンの詳細**"),
+    ("**キャンバス Details**", "**キャンバスの詳細**"),
+    ("キャンペーン Details**", "キャンペーンの詳細**"),
+    ("キャンバス Details**", "キャンバスの詳細**"),
+    ("**Campaign Details**", "**キャンペーンの詳細**"),
+    ("**Canvas Details**", "**キャンバスの詳細**"),
+    ("Campaign Details**", "キャンペーンの詳細**"),
+    ("Canvas Details**", "キャンバスの詳細**"),
+    ("Campaign Details", "キャンペーンの詳細"),
+    ("Canvas Details", "キャンバスの詳細"),
+    ("キャンペーン Details", "キャンペーンの詳細"),
+    ("キャンバス Details", "キャンバスの詳細"),
+    ("Set Up Canvas Details", "キャンバスの詳細を設定"),
     ("Comments within キャンバス", "Comments within Canvas"),
     ('feature="Control over card creation in キャンバス steps"', 'feature="Control over card creation in Canvas steps"'),
     ("The キャンバス is paused", "The Canvas is paused"),
@@ -56,6 +94,7 @@ UI_IDENTIFIER_FIXES = [
 # Inside fenced code / schema comments (English API docs).
 FENCE_REVERT = [
     ("see キャンペーン Details", "see Campaign Details"),
+    ("see キャンペーンの詳細 endpoint", "see Campaign Details endpoint"),
     ("targeted by the キャンバス", "targeted by the Canvas"),
     ("triggered a キャンバス", "triggered a Canvas"),
     ("the キャンバス or campaign", "the Canvas or campaign"),
@@ -174,6 +213,14 @@ def fix_tool_lines_anywhere(text: str) -> str:
     return "".join(out)
 
 
+def fix_api_liquid_tabs(path: Path, text: str) -> str:
+    if "/_api/" not in path.as_posix():
+        return text
+    for src, dst in API_LIQUID_TAB_FIXES:
+        text = text.replace(src, dst)
+    return text
+
+
 def fix_prose(text: str) -> str:
     for src, dst in UI_IDENTIFIER_FIXES:
         text = text.replace(src, dst)
@@ -192,8 +239,9 @@ def process_file(path: Path) -> bool:
         else:
             parts.append(fix_prose(part))
     merged = fm + "".join(parts)
-    merged = fix_fence_content(merged)
     updated = fix_prose(fix_tool_lines_anywhere(merged))
+    updated = fix_fence_content(updated)
+    updated = fix_api_liquid_tabs(path, updated)
     if updated != original:
         path.write_text(updated, encoding="utf-8")
         return True

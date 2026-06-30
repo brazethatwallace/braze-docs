@@ -22,14 +22,14 @@ Braze와 Stripe를 통합하면 다음을 수행할 수 있습니다.
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
 | Stripe 계정 | 이 파트너십을 활용하려면 웹훅에 접근할 수 있는 Stripe 계정이 필요합니다. |
-| Braze 데이터 변환 | Stripe에서 데이터를 수신하려면 [데이터 변환 URL]({{site.baseurl}}/data_transformation/)이 필요합니다. |
+| Braze 데이터 변환 | Stripe에서 데이터를 수신하려면 [데이터 변환 URL]({{site.baseurl}}/data_transformation)이 필요합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
 ### 1단계: Stripe 웹훅을 수신하기 위한 Braze 데이터 변환 설정 {#step-1}
 
-{% multi_lang_include create_transformation.md %}
+{% multi_lang_include data_activation/create_transformation.md %}
 
 ### 2단계: Stripe 웹훅 설정 {#step-2-set-up-stripe-webhooks}
 
@@ -239,7 +239,7 @@ Braze와 Stripe를 통합하면 다음을 수행할 수 있습니다.
 
 이 예시 템플릿에서는 Braze 프로필에 커스텀 이벤트를 기록합니다. 이벤트 유형은 커스텀 이벤트 이름으로 전송되고, 데이터 오브젝트는 이벤트 등록정보로 전달됩니다.
 
-### 활용 사례: 고객을 식별자로 사용 {#use-case-customer-as-an-identifier}
+### 활용 사례: customer를 식별자로 사용 {#use-case-customer-as-an-identifier}
 
 이 예시 템플릿에서는 customer 필드를 식별자로 사용합니다.
 
@@ -307,4 +307,4 @@ return brazecall;
 
 ## 모니터링 및 문제 해결 {#monitoring-and-troubleshooting}
 
-변환 모니터링 및 문제 해결에 대한 자세한 내용은 [변환 모니터링]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation/#step-5-monitor-your-transformation)을 참조하세요.
+변환 모니터링 및 문제 해결에 대한 자세한 내용은 [변환 모니터링]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation)을 참조하세요.

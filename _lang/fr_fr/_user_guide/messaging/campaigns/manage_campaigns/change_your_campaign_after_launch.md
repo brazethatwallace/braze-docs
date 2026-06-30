@@ -66,8 +66,8 @@ Si vous modifiez l'heure d'envoi planifiée ou l'audience de votre campagne, ces
 
 Si votre campagne utilise le timing intelligent ou la distribution selon le fuseau horaire local, les modifications de l'heure d'envoi planifiée ne seront pas prises en compte si la modification est effectuée moins de 24 heures avant l'heure d'envoi initiale. Voici pourquoi :
 
-- **Timing intelligent :** Braze commence à calculer l'heure d'envoi optimale à minuit, heure de Samoa. Si cette heure est déjà passée, le traitement du message aura déjà commencé. Pour en savoir plus, consultez la section [Timing intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/).
-- **Distribution selon le fuseau horaire local :** La modification d'une campagne en fuseau horaire local planifiée moins de 24 heures à l'avance ne modifiera pas la planification du message. Pour en savoir plus, consultez la section [Comment planifier une campagne en fuseau horaire local ?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign).
+- **Timing intelligent :** Braze commence à calculer l'heure d'envoi optimale à minuit, heure de Samoa. Si cette heure est déjà passée, le traitement du message aura déjà commencé. Pour en savoir plus, consultez la section [Timing intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing).
+- **Distribution selon le fuseau horaire local :** La modification d'une campagne en fuseau horaire local planifiée moins de 24 heures à l'avance ne modifiera pas la planification du message. Pour en savoir plus, consultez la section [Comment planifier une campagne en fuseau horaire local ?]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign).
 
 ### Débit d'envoi {#send-rate}
 
@@ -75,7 +75,7 @@ Lorsque vous utilisez une limite de débit, Braze « planifie » vos messages pa
 
 #### Mettre en pause des campagnes avec limitation du débit de distribution {#pausing-campaigns-with-delivery-speed-rate-limiting}
 
-Lorsque vous mettez en pause une campagne qui utilise la [limitation du débit de distribution]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting), Braze répartit les envois sur des créneaux d'une minute. **Reprendre** ne renvoie pas les messages des créneaux qui ont été annulés pendant la pause de la campagne, et tous les messages ne sont pas nécessairement envoyés lorsque la campagne est reprise.
+Lorsque vous mettez en pause une campagne qui utilise la [limitation du débit de distribution]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting), Braze répartit les envois sur des créneaux d'une minute. **Reprendre** ne renvoie pas les messages des créneaux qui ont été annulés pendant la pause de la campagne, et tous les messages ne sont pas nécessairement envoyés lorsque la campagne est reprise.
 
 Si certains utilisateurs n'ont pas reçu de messages parce que la campagne était en pause, dupliquez la campagne et ciblez uniquement ces utilisateurs plutôt que de compter sur **Reprendre** pour distribuer les messages manqués.
 

@@ -13,8 +13,6 @@ description: "Este artículo de referencia cubre las opciones disponibles para s
 
 La página **Preferencias de notificación** es donde puedes configurar quién (si alguien) recibe notificaciones sobre tu empresa. Puedes configurar quién debe recibir notificaciones sobre la entrega de campañas o errores técnicos. También puedes especificar destinatarios para el informe de análisis semanal. Para la mayoría de las notificaciones, Braze admite canales de correo electrónico y webhook.
 
-![Página de preferencias de notificación en el panel de Braze]({% image_buster /assets/img_archive/notification_preferences.png %})
-
 Para acceder a esta página, ve a **Configuración** > **Configuración de administrador** > **Preferencias de notificación**.
 
 {% alert tip %}
@@ -31,7 +29,7 @@ Dependiendo del tipo de notificación, **All Dashboard Users** y **All Admins** 
 
 | Notificación | Descripción | Canales de notificación disponibles |
 |--------------|-------------|-----------------|
-| Alertas de uso de API | Al seleccionar esta opción, accedes al **dashboard de uso de API**, donde puedes ir a la pestaña [**Alertas de uso de API**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts/) y configurar alertas para rastrear los volúmenes clave de solicitudes de API. | Correo electrónico, Webhook |
+| Alertas de uso de API | Al seleccionar esta opción, accedes al **dashboard de uso de API**, donde puedes ir a la pestaña [**Alertas de uso de API**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts) y configurar alertas para rastrear los volúmenes clave de solicitudes de API. | Correo electrónico, Webhook |
 | Errores de credenciales de AWS | Notifica a los destinatarios cuando Braze recibe un error al intentar usar tus credenciales de Amazon Web Services para una exportación de datos. Esto incluye notificaciones de errores de credenciales para Google Cloud Storage y Azure (Microsoft Cloud Services). | Correo electrónico, Webhook |
 | Campaign detenida automáticamente | Notifica a los destinatarios cuando Braze ha detenido una Campaign. | Correo electrónico |
 | Canvas detenido automáticamente | Notifica a los destinatarios cuando Braze ha detenido un Canvas. | Correo electrónico |
@@ -47,11 +45,11 @@ Dependiendo del tipo de notificación, **All Dashboard Users** y **All Admins** 
 | Errores de webhook | Notifica a los destinatarios cuando un punto de conexión de webhook tiene errores. | Correo electrónico |
 | Informe de análisis semanal | Envía un resumen de la actividad del espacio de trabajo de la semana anterior a los destinatarios cada lunes. Los destinatarios reciben un resumen de cada espacio de trabajo al que pertenecen. | Correo electrónico |
 | Límites de volumen de entrada diaria de Canvas/Campaign | Envía notificaciones cada vez que se alcanza un límite de envío. | Correo electrónico |
-| Error de la Consola de Agente | Notifica a los destinatarios cuando un agente de la [Consola de Agente]({{site.baseurl}}/user_guide/brazeai/agents/) ha alcanzado su límite de ejecución, utiliza un modelo que ya no está disponible o encuentra un error de facturación con su proveedor de LLM (solo con clave de API propia). | Correo electrónico |
+| Error de la Consola de Agente | Notifica a los destinatarios cuando un agente de la [Consola de Agente]({{site.baseurl}}/user_guide/brazeai/agents) ha alcanzado su límite de invocación, utiliza un modelo que ya no está disponible o encuentra un error de facturación con su proveedor de LLM (solo con clave de API propia). | Correo electrónico |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notificaciones disponibles" }
 
 {% alert note %}
-Los [usuarios suspendidos]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users) aún pueden recibir notificaciones de Braze.
+Los [usuarios suspendidos]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users) aún pueden recibir notificaciones de Braze.
 {% endalert %}
 
 ## Informe de análisis semanal {#weekly-analytics-reporting}

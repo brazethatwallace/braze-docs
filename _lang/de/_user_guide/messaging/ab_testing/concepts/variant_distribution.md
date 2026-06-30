@@ -20,7 +20,7 @@ Die Verteilung zwischen Varianten ist nicht immer gleichmäßig. Jedes Mal, wenn
 Wenn Sie mehrere Varianten gleichmäßig aufteilen möchten und dabei ganzzahlige Prozentsätze verwenden, stellen Sie sicher, dass die Anzahl der Varianten 100 gleichmäßig teilt. Andernfalls werden einigen Varianten prozentual mehr Nutzer:innen zugewiesen als anderen. Wenn Ihre Campaign beispielsweise sieben Varianten hat, kann es keine gleichmäßige Variantenverteilung geben, da sieben nicht als ganze Zahl gleichmäßig durch 100 teilbar ist. In diesem Fall hätten Sie zwei Varianten mit 15 % und fünf Varianten mit 14 %.
 
 {% alert tip %}
-Um Nutzer:innen in einem Canvas zu verteilen, können Sie einen [Decision-Split-Schritt]({{site.baseurl}}/decision_split/) hinzufügen und Nutzer:innen anhand ihrer [zufälligen Bucket-Nummern]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) aufteilen.
+Um Nutzer:innen in einem Canvas zu verteilen, können Sie einen [Decision-Split-Schritt]({{site.baseurl}}/decision_split) hinzufügen und Nutzer:innen anhand ihrer [zufälligen Bucket-Nummern]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) aufteilen.
 {% endalert %}
 
 ## Verteilung bei In-App-Nachrichten {#in-app-message-distribution}

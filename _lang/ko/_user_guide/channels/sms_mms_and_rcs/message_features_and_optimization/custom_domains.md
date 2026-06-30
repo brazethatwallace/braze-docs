@@ -64,7 +64,7 @@ Braze는 약 30분마다 DNS 구성을 폴링하여 업데이트를 확인합니
 
 ![커스텀 도메인 및 상태 목록.]({% image_buster /assets/img/custom_domain_statuses.png %}){: style="max-width:60%;"}
 
-실시간 모니터링을 통해 활성 도메인에 문제가 발생하면 Braze 대시보드에서 알림을 받아 커스텀 링크를 계속 사용할 수 있습니다. 문제가 발생하면 인앱 오류 세부 정보를 참조하거나 Braze [고객지원]({{site.baseurl}}/braze_support/)에 문의하세요.
+실시간 모니터링을 통해 활성 도메인에 문제가 발생하면 Braze 대시보드에서 알림을 받아 커스텀 링크를 계속 사용할 수 있습니다. 문제가 발생하면 인앱 오류 세부 정보를 참조하거나 Braze [고객지원]({{site.baseurl}}/braze_support)에 문의하세요.
 
 ## 구독 그룹에 커스텀 도메인 할당 {#assigning-custom-domains-to-subscription-groups}
 
@@ -106,4 +106,4 @@ Cloudflare DNS 레코드 세부 정보는 45일 후에 만료되지만, 동일�
 
 ### 질문이 있거나 추가 지원이 필요하면 어떻게 하나요? {#what-if-i-have-questions-or-need-further-support}
 
-커스텀 도메인 설정 및 관리에 대한 자세한 안내(문제 해결 단계 및 기술 요구 사항 포함)는 [고객지원에 문의]({{site.baseurl}}/braze_support/)하세요.
+커스텀 도메인 설정 및 관리에 대한 자세한 안내(문제 해결 단계 및 기술 요구 사항 포함)는 [고객지원에 문의]({{site.baseurl}}/braze_support)하세요.

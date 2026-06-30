@@ -3,7 +3,7 @@ nav_title: Testen
 article_title: Push-Benachrichtigungstests für iOS
 platform: iOS
 page_order: 29
-description: "Dieser referenzierte Artikel behandelt das Testen von Push-Benachrichtigungen auf der Kommandozeile für iOS."
+description: "Dieser Referenzartikel behandelt das Testen von Push-Benachrichtigungen über die Befehlszeile für Ihre iOS-Push-Benachrichtigungen."
 channel:
   - push
 
@@ -14,13 +14,16 @@ noindex: true
 
 # Testen {#push-testing}
 
-Wenn Sie In-App- und Push-Benachrichtigungen über die Befehlszeile testen möchten, können Sie über CURL und die [Messaging API]({{site.baseurl}}/api/endpoints/messaging/) eine einzelne Nachricht über das Terminal senden. Sie müssen die folgenden Felder durch die richtigen Werte für Ihren Testfall ersetzen:
+Wenn Sie In-App- und Push-Benachrichtigungen über die Befehlszeile testen möchten, können Sie über CURL und die [Messaging API]({{site.baseurl}}/api/endpoints/messaging) eine einzelne Benachrichtigung über das Terminal senden. Sie müssen die folgenden Felder durch die richtigen Werte für Ihren Testfall ersetzen:
 
 Erforderliche Felder:
 
-- `YOUR-API-KEY-HERE` - verfügbar unter **Einstellungen** > **API-Schlüssel**. Stellen Sie sicher, dass der Schlüssel berechtigt ist, Nachrichten über den REST API-Endpunkt `/messages/send` zu versenden. 
-- `EXTERNAL_USER_ID` - verfügbar auf der Seite **Benutzer suchen**.
-- `REST_API_ENDPOINT_URL` - die auf der Braze [Instanzen]({{site.baseurl}}/api/basics/#endpoints. Stellen Sie sicher, dass der Endpunkt der Braze-Instanz entspricht, auf der sich Ihr Workspace befindet.
+- `YOUR-API-KEY-HERE` – verfügbar unter **Einstellungen** > **API-Schlüssel**. Stellen Sie sicher, dass der Schlüssel berechtigt ist, Nachrichten über den REST-API-Endpunkt `/messages/send` zu versenden.
+- `EXTERNAL_USER_ID` – verfügbar auf der Seite **Nutzer:innen suchen**.
+- `REST_API_ENDPOINT_URL` – aufgeführt auf der Braze-Seite [Instanzen]({{site.baseurl}}/api/basics#endpoints. Ensure using the endpoint corresponds to the Braze instance your workspace is on.
+
+Optional fields:
+- `YOUR_KEY1` (optional). Stellen Sie sicher, dass der verwendete Endpunkt der Braze-Instanz entspricht, auf der sich Ihr Workspace befindet.
 
 Optionale Felder:
 - `YOUR_KEY1` (optional)
@@ -37,5 +40,5 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer YOUR-
       }
     }
   }
-}' https://{REST_API_ENDPOINT_URL}/messages/send 
+}' https://{REST_API_ENDPOINT_URL}/messages/send
 ```

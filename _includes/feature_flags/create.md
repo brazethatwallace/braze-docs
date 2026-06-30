@@ -63,7 +63,7 @@ In the following example, the feature flag shows an out-of-stock banner for an e
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2a: Create custom properties" }
 
 {% alert tip %}
-There is no limit to the number of properties you can add. However, a feature flag's properties are limited to a total of 10 KB. Both property values and keys are limited to 255 characters in length.
+There is no limit to the number of properties you can add. However, a feature flag's properties are limited to a total of 10,000 characters.
 {% endalert %}
 {% endtab %}
 {% endtabs %}

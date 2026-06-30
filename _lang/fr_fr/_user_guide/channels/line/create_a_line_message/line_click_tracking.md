@@ -20,7 +20,7 @@ Le suivi des clics LINE peut être utilisé pour les messages texte, les message
 
 ## Fonctionnement {#how-it-works}
 
-Vous pouvez gérer les paramètres de suivi des clics LINE dans l'onglet **Settings** lors de la rédaction d'un message. Lorsque le suivi est activé, les URL sont raccourcies à l'aide du domaine Braze par défaut (`https://brz.ai`) ou du domaine personnalisé spécifié pour le groupe d'abonnement, et personnalisées pour l'utilisateur.
+Vous pouvez gérer les paramètres de suivi des clics LINE dans l'onglet **Paramètres** lors de la rédaction d'un message. Lorsque le suivi est activé, les URL sont raccourcies à l'aide du domaine Braze par défaut (`https://brz.ai`) ou du domaine personnalisé spécifié pour le groupe d'abonnement, et personnalisées pour l'utilisateur.
 
 Toutes les URL commençant par `http://` ou `https://` seront raccourcies. Vous pouvez inclure jusqu'à 25 URL dans un message. Les URL raccourcies contenant une personnalisation Liquid (comme le suivi au niveau de l'utilisateur ou les paramètres UTM) seront valides pendant deux mois.
 
@@ -32,41 +32,41 @@ Pour configurer le suivi des clics pour un message texte :
 
 1. Faites glisser un message **Text** dans le compositeur et ajoutez une URL dans le champ de texte.
 
-![Compositeur de messages LINE avec un message texte contenant une longue URL : https://braze.com/docs/user_guide/channels/line/create/]({% image_buster /assets/img/line/click_tracking_text_message.png %})
+![Compositeur de messages LINE avec un message texte contenant une longue URL : {{site.baseurl}}/user_guide/channels/line/create/]({% image_buster /assets/img/line/click_tracking_text_message.png %})
 
 {: start="2"}
-2. Accédez à l'onglet **Settings** et confirmez que le **Click Tracking** est activé. Le suivi des clics est activé par défaut pour tous les nouveaux messages.
+2. Accédez à l'onglet **Paramètres** et confirmez que le **suivi des clics** est activé. Le suivi des clics est activé par défaut pour tous les nouveaux messages.
 
 {% alert note %}
-Vous pouvez prévisualiser le lien raccourci dans l'onglet **Settings** ou **Preview & Test**. Le lien complet s'affichera dans le compositeur pendant la création de votre message.
+Vous pouvez prévisualiser le lien raccourci dans l'onglet **Paramètres** ou **Prévisualisation et test**. Le lien complet s'affichera dans le compositeur pendant la création de votre message.
 {% endalert %}
 
-![Onglet « Settings » du compositeur de messages LINE avec le « Click Tracking » activé et un aperçu du message texte contenant une URL raccourcie : https://olaf.brz.ai/p/9rcfdqdD]({% image_buster /assets/img/line/click_tracking_settings.png %})
+![Onglet « Paramètres » du compositeur de messages LINE avec le « Suivi des clics » activé et un aperçu du message texte contenant une URL raccourcie : https://olaf.brz.ai/p/9rcfdqdD]({% image_buster /assets/img/line/click_tracking_settings.png %})
 
 ### Messages enrichis {#rich-messages}
 
 Pour configurer le suivi des clics pour un message enrichi :
 
 1. Faites glisser un **Rich message** dans le compositeur et sélectionnez un modèle.
-2. Sélectionnez **URI** pour le **On-click behavior** de la zone cliquable concernée.
+2. Sélectionnez **URI** pour le **comportement au clic** de la zone cliquable concernée.
 3. Saisissez une URL dans le champ **Open URL**.
 
 ![Compositeur de messages LINE avec un message enrichi comportant deux zones cliquables ayant chacune une URL.]({% image_buster /assets/img/line/rich_message_click_tracking.png %})
 
 {: start="4"}
-4. Accédez à l'onglet **Settings** et confirmez que le **Click Tracking** est activé. Le suivi des clics est activé par défaut pour tous les nouveaux messages.
+4. Accédez à l'onglet **Paramètres** et confirmez que le **suivi des clics** est activé. Le suivi des clics est activé par défaut pour tous les nouveaux messages.
 
 ### Messages à base de cartes {#card-based-messages}
 
 Pour configurer le suivi des clics pour un message à base de cartes :
 
 1. Faites glisser un **Card-based message** dans le compositeur.
-2. Sélectionnez **URI** pour le **On-click behavior** des zones de carte ou de bouton concernées.
+2. Sélectionnez **URI** pour le **comportement au clic** des zones de carte ou de bouton concernées.
 
 ![Compositeur de messages LINE avec un message à base de cartes comportant deux boutons ayant chacun une URL.]({% image_buster /assets/img/line/card_based_message_click_tracking.png %})
 
 {: start="3"}
-3. Accédez à l'onglet **Settings** et confirmez que le **Click Tracking** est activé. Le suivi des clics est activé par défaut pour tous les nouveaux messages.
+3. Accédez à l'onglet **Paramètres** et confirmez que le **suivi des clics** est activé. Le suivi des clics est activé par défaut pour tous les nouveaux messages.
 
 {% alert note %}
 Les URL dans les champs **Title** ou **Description** ne seront pas raccourcies car ces champs ne sont pas cliquables dans LINE.

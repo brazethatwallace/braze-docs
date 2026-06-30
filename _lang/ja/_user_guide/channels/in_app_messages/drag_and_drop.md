@@ -13,14 +13,14 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 # ドラッグ＆ドロップでアプリ内メッセージを作成する {#create-an-in-app-message-with-drag-and-drop}
 
-> ドラッグ＆ドロップエディターを使用すると、CampaignまたはCanvasのいずれかで、ドラッグ＆ドロップの編集体験を使って完全にカスタムでパーソナライズされたアプリ内メッセージを作成できます。エディターで使用できるビルディングブロックの詳細については、[エディターブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)を参照してください。
+> ドラッグ＆ドロップエディターを使用すると、キャンペーンまたはキャンバスのいずれかで、ドラッグ＆ドロップの編集体験を使って完全にカスタムでパーソナライズされたアプリ内メッセージを作成できます。エディターで使用できるビルディングブロックの詳細については、[エディターブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages)を参照してください。
 
 
 {% multi_lang_include video.html id="j94omgo73o" align="right" source="wistia" %}
 
 既存のカスタムHTMLテンプレートやサードパーティが作成したテンプレートを使用する場合は、ドラッグ＆ドロップエディターで再作成する必要があります。
 
-アプリ内メッセージをCampaignで送信するか[Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/)で送信するか迷っていますか？Campaignは単一のターゲットメッセージングに適しており、Canvasはマルチステップのユーザージャーニーに適しています。メッセージの作成場所を選択したら、ドラッグ＆ドロップのアプリ内メッセージを作成する手順を見ていきましょう。
+アプリ内メッセージをキャンペーンで送信するか[キャンバス]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas)で送信するか迷っていますか？キャンペーンは単一のターゲットメッセージングに適しており、キャンバスはマルチステップのユーザージャーニーに適しています。メッセージの作成場所を選択したら、ドラッグ＆ドロップのアプリ内メッセージを作成する手順を見ていきましょう。
 
 ## 前提条件 {#prerequisites}
 
@@ -95,7 +95,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 既存のページを複製するには：
 
-1. リスト内のページにカーソルを合わせ、<i class="fas fa-ellipsis-vertical" aria-label="その他のオプション"></i>**その他のオプション**を選択します。
+1. リスト内のページにカーソルを合わせ、<i class="fas fa-ellipsis-vertical" aria-label="その他のオプション"></i> **その他のオプション**を選択します。
 2. **複製**を選択します。
 3. ページにわかりやすい名前を付けます。これはページ同士を接続する際に役立ちます。
 
@@ -104,7 +104,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 ページを削除または名前変更するには：
 
-1. リスト内のページにカーソルを合わせ、<i class="fas fa-ellipsis-vertical" aria-label="その他のオプション"></i>**その他のオプション**を選択します。
+1. リスト内のページにカーソルを合わせ、<i class="fas fa-ellipsis-vertical" aria-label="その他のオプション"></i> **その他のオプション**を選択します。
 2. **名前変更**または**削除**を選択します。
 
 {% endtab %}
@@ -134,15 +134,15 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 ここでは、ブランド独自のスタイルでメッセージを仕上げます。エディターブロックとスタイル設定を組み合わせて、アプリ内メッセージをカスタマイズおよびデザインできます。
 
-- 利用可能なエディターブロックとそのプロパティの一覧については、[エディターブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)を参照してください。
-- メッセージの外観と操作感のカスタマイズについては、[スタイル設定]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/)をご確認ください。
-- 右から左へのメッセージ作成のベストプラクティスについては、[右から左へのメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/)を参照してください。
+- 利用可能なエディターブロックとそのプロパティの一覧については、[エディターブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages)を参照してください。
+- メッセージの外観と操作感のカスタマイズについては、[スタイル設定]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings)をご確認ください。
+- 右から左へのメッセージ作成のベストプラクティスについては、[右から左へのメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)を参照してください。
 
 ## ステップ 5: アプリ内メッセージをテストする {#step-5-test-your-in-app-message}
 
-**プレビューとテスト**セクションでは、さまざまなデバイスでアプリ内メッセージをプレビューし、デバイスにテストメッセージを送信できます。ここで、ドラッグ＆ドロップのアプリ内メッセージCampaignのすべてのプラットフォームで詳細が揃っていることを確認できます。
+**プレビューとテスト**セクションでは、さまざまなデバイスでアプリ内メッセージをプレビューし、デバイスにテストメッセージを送信できます。ここで、ドラッグ＆ドロップのアプリ内メッセージキャンペーンのすべてのプラットフォームで詳細が揃っていることを確認できます。
 
-Campaignを送信する前に、アプリ内メッセージを必ずテストすることが重要です。これにより、ユーザーの視点から最終的なメッセージがどのように見えるかを確認できます。
+キャンペーンを送信する前に、アプリ内メッセージを必ずテストすることが重要です。これにより、ユーザーの視点から最終的なメッセージがどのように見えるかを確認できます。
 
 ### ユーザーとしてメッセージをプレビューする {#preview-message-as-a-user}
 
@@ -168,27 +168,27 @@ Campaignを送信する前に、アプリ内メッセージを必ずテストす
 
 ## よくある質問 {#frequently-asked-questions}
 
-#### 分析ページにボディクリックが表示されないのはなぜですか？ {#why-are-body-clicks-not-appearing-on-my-analytics-page}
+### 分析ページにボディクリックが表示されないのはなぜですか？ {#why-are-body-clicks-not-appearing-on-my-analytics-page}
 
 ドラッグ＆ドロップエディターで作成されたアプリ内メッセージでは、ボディクリックは自動的に収集されません。詳細については、[iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog#3310)および[Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog#1100)のSDK変更ログを参照してください。
 
-#### ボタンクリックに基づいてセグメンテーションできますか？ {#can-i-segment-based-on-button-clicks}
+### ボタンクリックに基づいてセグメンテーションできますか？ {#can-i-segment-based-on-button-clicks}
 
 はい、メッセージ内の最大2つのボタンのボタンクリックに基づいてセグメンテーションできます。これを行うには、ボタンの**Identifier for Reporting**を「0」と「1」に設定します。これはそれぞれ、セグメンテーションフィルター「Clicked in-app message button 1」と「Clicked in-app message button 2」に対応します。
 
 ![値が「0」の「Identifier for Reporting」フィールド。]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 
-#### カスタムHTMLやJavaScriptを使用してアプリ内メッセージをカスタマイズしたり、既存のHTMLメッセージをエディターに移行したりできますか？ {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
+### カスタムHTMLやJavaScriptを使用してアプリ内メッセージをカスタマイズしたり、既存のHTMLメッセージをエディターに移行したりできますか？ {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
 既存のHTMLメッセージをエディターに直接移行することはできませんが、カスタムコードブロックに生のHTML、CSS、JavaScriptを挿入できます。カスタムコードブロックを使用して、サードパーティの動画や、コネクテッドコンテンツや条件文などの高度なLiquidを埋め込むことができます。
 
-#### スライドアップのアプリ内メッセージを作成するにはどうすればよいですか？ {#how-can-i-create-a-slideup-in-app-message}
+### スライドアップのアプリ内メッセージを作成するにはどうすればよいですか？ {#how-can-i-create-a-slideup-in-app-message}
 
 現在、エディターはモーダルとフルスクリーンメッセージのみに対応しています。**Message styles**パネルの**Message container**セクションで表示タイプを切り替えることができます。
 
-#### CampaignまたはCanvas内で作成したアプリ内メッセージをテンプレートとして保存できますか？ {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+### キャンペーンまたはキャンバス内で作成したアプリ内メッセージをテンプレートとして保存できますか？ {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-はい。今後のCampaignまたはキャンバスステップで再利用したいアプリ内メッセージは、エディターを終了した後に表示される**テンプレートとして保存**ボタンを使用して、カスタムテンプレートとして保存できます。テンプレートとして保存する前に、まずCampaignを起動するか、下書きとして保存する必要があります。
+はい。今後のキャンペーンまたはキャンバスステップで再利用したいアプリ内メッセージは、エディターを終了した後に表示される**テンプレートとして保存**ボタンを使用して、カスタムテンプレートとして保存できます。テンプレートとして保存する前に、まずキャンペーンを起動するか、下書きとして保存する必要があります。
 
 ![製品ツアーのアプリ内メッセージのプレビュー。]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 

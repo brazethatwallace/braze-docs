@@ -97,11 +97,11 @@ Zur Laufzeit kann die Protokollstufe nur mit Braze iOS SDK v4.4.0 oder neuer ein
 
 In früheren Versionen des Braze iOS Swift SDK wurde das Feld IDFV (Identifier for Vendors) automatisch als Geräte-ID der Nutzer:innen erfasst.
 
-Ab Swift SDK v5.7.0 kann das IDFV-Feld optional deaktiviert werden. Stattdessen setzt Braze eine zufällige UUID als Geräte-ID. Weitere Informationen finden Sie unter [IDFV-Erhebung]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift).
+Ab Swift SDK v5.7.0 kann das IDFV-Feld optional deaktiviert werden. Stattdessen setzt Braze eine zufällige UUID als Geräte-ID. Weitere Informationen finden Sie unter [IDFV-Erhebung]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift).
 
 ## Optionale IDFA-Erfassung {#optional-idfa-collection}
 
-Die IDFA-Erfassung ist im Braze SDK optional und standardmäßig deaktiviert. Die IDFA-Erfassung ist in Braze nur erforderlich, wenn Sie unsere [Install-Attribution-Integrationen]({{site.baseurl}}/partners/message_orchestration/attribution/adjust/) verwenden möchten. Wenn Sie sich für die Speicherung Ihres IDFA entscheiden, speichern wir ihn kostenlos, sodass Sie die Vorteile dieser Optionen sofort nach der Veröffentlichung ohne zusätzliche Entwicklungsarbeit nutzen können.
+Die IDFA-Erfassung ist im Braze SDK optional und standardmäßig deaktiviert. Die IDFA-Erfassung ist in Braze nur erforderlich, wenn Sie unsere [Install-Attribution-Integrationen]({{site.baseurl}}/partners/message_orchestration/attribution/adjust) verwenden möchten. Wenn Sie sich für die Speicherung Ihres IDFA entscheiden, speichern wir ihn kostenlos, sodass Sie die Vorteile dieser Optionen sofort nach der Veröffentlichung ohne zusätzliche Entwicklungsarbeit nutzen können.
 
 Wir empfehlen daher, den IDFA weiterhin zu erfassen, wenn Sie eines der folgenden Kriterien erfüllen:
 
@@ -125,7 +125,7 @@ Die Genehmigungsabfrage im Rahmen der App-Tracking-Transparenz erfordert einen `
 
 Gehen Sie zur Implementierung der IDFA-Erfassung wie folgt vor:
 
-##### 1. Schritt: ABKIDFADelegate implementieren {#step-1-implement-abkidfadelegate}
+#### 1. Schritt: ABKIDFADelegate implementieren {#step-1-implement-abkidfadelegate}
 
 Erstellen Sie eine Klasse, die dem Protokoll [`ABKIDFADelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKIDFADelegate.h) entspricht:
 

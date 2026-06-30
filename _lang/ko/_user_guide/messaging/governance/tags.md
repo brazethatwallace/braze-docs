@@ -47,10 +47,10 @@ Campaign, Canvas 또는 Segment에 설정된 태그는 참여 이름 근처의 �
 
 ## 커스텀 데이터 태그 {#custom-data-tags}
 
-[커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes) 및 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/#adding-tags)를 관리할 때 커스텀 데이터에도 태그를 추가할 수 있습니다.
+[커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes) 및 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events#adding-tags)를 관리할 때 커스텀 데이터에도 태그를 추가할 수 있습니다.
 
 {% alert important %}
 이 기능은 현재 얼리 액세스 중입니다. 이 얼리 액세스에 참여하려면 고객 성공 매니저에게 문의하세요.
 {% endalert %}
 
-대시보드 전반에서 태그의 이름을 변경하거나, 제거하거나, 중첩하는 방법에 대한 자세한 내용은 [태그 관리]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/#managing-tags)를 참조하세요.
+대시보드 전반에서 태그의 이름을 변경하거나, 제거하거나, 중첩하는 방법에 대한 자세한 내용은 [태그 관리]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags)를 참조하세요.

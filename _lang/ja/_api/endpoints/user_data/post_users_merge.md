@@ -22,7 +22,7 @@ description: "この記事では、「ユーザーのマージ」Brazeエンド�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.merge` 権限を持つ[APIキー]({{site.baseurl}}/api/api_key/)が必要です。
+このエンドポイントを使用するには、`users.merge` 権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -46,7 +46,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `merge_updates` | 必須 | 配列 | オブジェクトの配列。各オブジェクトには `identifier_to_merge` オブジェクトと `identifier_to_keep` オブジェクトが含まれている必要があり、それぞれが `external_id`、`user_alias`、`phone`、または `email` のいずれかでユーザーを参照する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ### マージ動作 {#merge-behavior}
 
@@ -60,7 +60,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 - 名
 - 姓
-- メールアドレス（[暗号化]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/)されていない場合）
+- メールアドレス（[暗号化]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption)されていない場合）
 - 性別
 - 生年月日
 - 電話番号
@@ -94,7 +94,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 ユーザーをマージする場合、`/users/merge` エンドポイントの使用は、[`changeUser()` メソッド](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)の使用と同じように機能します。
 {% endalert %}
 
-Brazeは、マージ時に3つのユーザータイプを異なる方法で処理します。削除対象としてマークされたユーザー、テストユーザー、およびグローバルコントロールグループのユーザーです。詳細については、[ユーザーマージの動作]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)を参照してください。
+Brazeは、マージ時に3つのユーザータイプを異なる方法で処理します。削除対象としてマークされたユーザー、テストユーザー、およびグローバルコントロールグループのユーザーです。詳細については、[ユーザーマージの動作]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior)を参照してください。
 
 #### カスタムイベント日と購入イベント日の動作 {#custom-event-date-and-purchase-event-date-behavior}
 
@@ -126,7 +126,7 @@ Brazeは、マージ時に3つのユーザータイプを異なる方法で処�
 
 これはリクエストのパターンを示す基本的なリクエスト本文です。
 
-`````````bash
+```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -142,11 +142,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
     },
     {
       "identifier_to_merge": {
-        "email": "user1@braze.com",
+        "email": "user1@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep":  {
-        "email": "user2@braze.com",
+        "email": "user2@example.com",
         "prioritization": ["identified", "most_recently_updated"]
       }
     },
@@ -170,9 +170,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### 未識別ユーザーをマージする {#merging-unidentified-user}
 
-以下のリクエストは、メールアドレス `john.smith@braze.com` を持つ最も最近更新された未識別ユーザーを、external ID `john` を持つユーザーにマージします。この例では、`most_recently_updated` を使用することでクエリを未識別ユーザー1件に絞り込みます。つまり、このメールアドレスを持つ未識別ユーザーが2人いた場合、external ID `john` を持つユーザーにマージされるのは1人だけです。
+以下のリクエストは、メールアドレス `john.smith@example.com` を持つ最も最近更新された未識別ユーザーを、external ID `john` を持つユーザーにマージします。この例では、`most_recently_updated` を使用することでクエリを未識別ユーザー1件に絞り込みます。つまり、このメールアドレスを持つ未識別ユーザーが2人いた場合、external ID `john` を持つユーザーにマージされるのは1人だけです。
 
-`````````bash
+```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -180,7 +180,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep": {
@@ -193,11 +193,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### 未識別ユーザーを識別済みユーザーにマージする {#merging-unidentified-user-into-identified-user}
 
-次の例では、メールアドレス `john.smith@braze.com` を持つ最も最近更新された未識別ユーザーを、メールアドレス `john.smith@braze.com` を持つ最も最近更新された識別済みユーザーにマージします。
+次の例では、メールアドレス `john.smith@example.com` を持つ最も最近更新された未識別ユーザーを、メールアドレス `john.smith@example.com` を持つ最も最近更新された識別済みユーザーにマージします。
 
 `most_recently_updated` を使用して、クエリを1人のユーザーに絞り込みます（`identifier_to_merge` では未識別ユーザー1人、`identifier_to_keep` では識別済みユーザー1人）。
 
-`````````bash
+```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -205,11 +205,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["identified", "most_recently_updated"]
       }
     }
@@ -219,9 +219,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### most_recently_updatedの優先順位付けを含めずに未識別ユーザーをマージする {#merging-an-unidentified-user-without-including-the-most_recently_updated-prioritization}
 
-メールアドレス `john.smith@braze.com` を持つ未識別ユーザーが2人いる場合、このリクエスト例ではユーザーはマージされません。そのメールアドレスを持つ未識別ユーザーが2人存在するためです。このリクエストは、メールアドレス `john.smith@braze.com` を持つ未識別ユーザーが1人だけの場合にのみ機能します。
+メールアドレス `john.smith@example.com` を持つ未識別ユーザーが2人いる場合、このリクエスト例ではユーザーはマージされません。そのメールアドレスを持つ未識別ユーザーが2人存在するためです。このリクエストは、メールアドレス `john.smith@example.com` を持つ未識別ユーザーが1人だけの場合にのみ機能します。
 
-`````````bash
+```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -229,7 +229,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified"]
       },
       "identifier_to_keep": {
@@ -266,6 +266,14 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ## トラブルシューティング {#troubleshooting}
 
+### 成功応答が返されたがマージされたユーザーがまだ検索可能である {#a-success-response-was-returned-but-the-merged-user-is-still-searchable}
+
+成功応答はリクエストが受け付けられたことを確認するものですが、マージ操作にはプロファイルのマージとソースプロファイルの削除という2つのステップが含まれます。このため、成功応答の後しばらくの間、`identifier_to_merge` プロファイルがダッシュボードで検索可能な状態のままになることがあります。これは想定される動作です。数分待ってからマージが完了したことを確認してください。
+
+マージされたユーザーが数分経っても存在する場合は、リクエスト内の識別子が正しく、リクエストに使用したAPIキーと同じワークスペースのユーザーに属していることを確認してください。
+
+### エラーリファレンス {#error-reference}
+
 以下の表は、発生する可能性のあるエラーメッセージの一覧です。
 
 | エラー | トラブルシューティング |
@@ -274,6 +282,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 | `a single request may not contain more than 50 merge updates` | 1回のリクエストで指定できるマージ更新は50件までです。 |
 | `identifiers must be objects with an 'external_id' property that is a string, 'user_alias' property that is an object, 'email' property that is a string, or 'phone' property that is a string` | リクエストの識別子を確認してください。 |
 | `'merge_updates' must only have 'identifier_to_merge' and 'identifier_to_keep'` | `merge_updates` に `identifier_to_merge` と `identifier_to_keep` の2つのオブジェクトのみが含まれていることを確認してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 {% endapi %}

@@ -9,7 +9,7 @@ description: "この記事では、匿名ユーザーとユーザーエイリア
 
 # 匿名ユーザー {#anonymous-users}
 
-> ゲスト訪問者のように、ログインせずにWebサイトやアプリケーションにアクセスするユーザーは、匿名ユーザーとして認識されます。これらのユーザーには`external_ids`はありません。`external_ids`はBraze APIを使用してユーザープロファイルを更新するために使用されますが、匿名ユーザーにも[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)が割り当てられており、セグメントでターゲットにすることができます。
+> ゲスト訪問者のように、ログインせずにWebサイトやアプリケーションにアクセスするユーザーは、匿名ユーザーとして認識されます。これらのユーザーには`external_ids`はありません。`external_ids`はBraze APIを使用してユーザープロファイルを更新するために使用されますが、匿名ユーザーにも[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points)が割り当てられており、セグメントでターゲットにすることができます。
 
 匿名ユーザーがWebサイトまたはアプリケーションにアクセスすると、Braze SDKはそれらを作成し、「匿名」ユーザープロファイルに割り当てます。ユーザーがブラウズする間、SDKは使用状況情報やデバイス情報など、匿名ユーザープロファイルのデータを自動的にキャプチャします（カスタム属性やカスタムイベントを設定している場合はそれらも含みます）。
 
@@ -31,7 +31,7 @@ description: "この記事では、匿名ユーザーとユーザーエイリア
 
 ## 匿名ユーザーのマージ {#merging-anonymous-users}
 
-匿名ユーザープロファイルは、他のユーザープロファイルと同じ電話番号またはメールアドレスを持つ重複である場合があります。重複の1つが識別済みのユーザープロファイルである可能性もあります。これらの重複は、[POST: Merge Usersエンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)を使用するか、Brazeプラットフォームのマージツール（[ルールベースのマージ]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/#rules-based-merging)など）を使用して、1つのユーザープロファイルに統合できます。
+匿名ユーザープロファイルは、他のユーザープロファイルと同じ電話番号またはメールアドレスを持つ重複である場合があります。重複の1つが識別済みのユーザープロファイルである可能性もあります。これらの重複は、[POST: Merge Usersエンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)を使用するか、Brazeプラットフォームのマージツール（[ルールベースのマージ]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#rules-based-merging)など）を使用して、1つのユーザープロファイルに統合できます。
 
 ## 匿名ユーザーの検索 {#looking-up-an-anonymous-user}
 
@@ -45,7 +45,7 @@ console.log(braze.getDeviceId());
 ```
 
 {:start="3"}
-3. Brazeダッシュボードで、[ユーザー検索]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search/)を使用して、返されたデバイスIDを検索します。
+3. Brazeダッシュボードで、[ユーザー検索]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search)を使用して、返されたデバイスIDを検索します。
 
 ## ユースケース {#use-cases}
 

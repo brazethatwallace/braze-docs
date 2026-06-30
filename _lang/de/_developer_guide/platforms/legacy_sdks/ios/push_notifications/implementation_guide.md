@@ -13,26 +13,26 @@ noindex: true
 
 <br>
 {% alert important %}
-Suchen Sie nach dem grundlegenden Leitfaden zur Integration von Push-Benachrichtigungen für Entwickler:innen? Finden Sie ihn [hier]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration/).
+Suchen Sie nach dem grundlegenden Leitfaden zur Integration von Push-Benachrichtigungen für Entwickler:innen? Finden Sie ihn [hier]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration).
 {% endalert %}
 
-# Leitfaden zur Implementierung von Push-Benachrichtigungen {#push-notification-implementation-guide}
+# Implementierungsleitfaden für Push-Benachrichtigungen {#push-notification-implementation-guide}
 
-> Dieser Leitfaden für die optionale erweiterte Implementierung beschreibt, wie Sie die App-Erweiterungen für Push-Benachrichtigungsinhalte nutzen können, um den größtmöglichen Erfolg mit Ihren Push-Nachrichten zu erzielen. Er enthält drei von unserem Team erstellte angepasste Anwendungsfälle, begleitende Code-Snippets und eine Anleitung zur Protokollierung von Analytics. Besuchen Sie unser Braze Demo Repository [hier](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! Beachten Sie, dass sich dieser Implementierungsleitfaden auf eine Swift-Implementierung konzentriert. Für Interessierte werden jedoch Objective-C-Snippets bereitgestellt.
+> Dieser Leitfaden für die optionale erweiterte Implementierung beschreibt, wie Sie die App-Erweiterungen für Push-Benachrichtigungsinhalte nutzen können, um den größtmöglichen Erfolg mit Ihren Push-Nachrichten zu erzielen. Er enthält drei von unserem Team erstellte angepasste Anwendungsfälle, begleitende Code-Snippets und eine Anleitung zur Protokollierung von Analytics. Besuchen Sie das [Braze Demo Repository](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! Beachten Sie, dass sich dieser Implementierungsleitfaden auf eine Swift-Implementierung konzentriert. Für Interessierte werden jedoch Objective-C-Snippets bereitgestellt.
 
 ## App-Erweiterungen für Benachrichtigungsinhalte {#notification-content-app-extensions}
 
-![Zwei nebeneinander angezeigte Push-Nachrichten. Die Nachricht auf der linken Seite zeigt, wie ein Push mit der Standard-Benutzeroberfläche aussieht. Die Nachricht auf der rechten Seite zeigt einen Kaffee-Stempelkarten-Push, der durch die Implementierung einer angepassten Push-UI erstellt wurde.]({% image_buster /assets/img/push_implementation_guide/push1.png %}){: style="max-width:65%;border:0;margin-top:10px"}
+![Zwei nebeneinander angezeigte Push-Nachrichten. Die Nachricht auf der rechten Seite zeigt, wie ein Push mit der Standard-Benutzeroberfläche aussieht. Die Nachricht auf der rechten Seite zeigt einen Kaffee-Stempelkarten-Push, der durch die Implementierung einer angepassten Push-UI erstellt wurde.]({% image_buster /assets/img/push_implementation_guide/push1.png %}){: style="max-width:65%;border:0;margin-top:10px"}
 
 Push-Benachrichtigungen scheinen zwar auf verschiedenen Plattformen Standard zu sein, bieten jedoch immense Anpassungsmöglichkeiten, die über das hinausgehen, was normalerweise in der Standard-Benutzeroberfläche implementiert ist. Wenn eine Push-Benachrichtigung erweitert wird, ermöglichen Inhaltsbenachrichtigungserweiterungen eine angepasste Ansicht der erweiterten Push-Benachrichtigung.
 
 Push-Benachrichtigungen können auf drei verschiedene Arten erweitert werden: <br>- Langes Drücken auf das Push-Banner<br>- Wischen auf dem Push-Banner nach unten<br>- Wischen des Banners nach links und Auswählen von „Anzeigen“
 
-Diese angepassten Ansichten bieten intelligente Möglichkeiten, Kund:innen einzubinden. Sie können viele verschiedene Arten von Inhalten anzeigen, darunter interaktive Benachrichtigungen, mit Nutzerdaten gefüllte Benachrichtigungen und sogar Push-Nachrichten, die Informationen wie Telefonnummern und E-Mail-Adressen erfassen können. Auch wenn die Implementierung von Push auf diese Weise für einige ungewohnt sein mag, ist eine unserer bekannten Funktionen bei Braze, [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/), ein Paradebeispiel dafür, wie eine angepasste Ansicht für eine App-Erweiterung für Benachrichtigungsinhalte aussehen kann!
+Diese angepassten Ansichten bieten intelligente Möglichkeiten, Kund:innen einzubinden. Sie können viele verschiedene Arten von Inhalten anzeigen, darunter interaktive Benachrichtigungen, mit Nutzerdaten gefüllte Benachrichtigungen und sogar Push-Nachrichten, die Informationen wie Telefonnummern und E-Mail-Adressen erfassen können. Auch wenn die Implementierung von Push auf diese Weise für einige ungewohnt sein mag, ist eine unserer bekannten Funktionen bei Braze, [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories), ein Paradebeispiel dafür, wie eine angepasste Ansicht für eine App-Erweiterung für Benachrichtigungsinhalte aussehen kann!
 
-#### Anforderungen {#requirements}
-![]({% image_buster /assets/img/push_implementation_guide/push15.png %}){: style="float:right;max-width:50%;margin-left:10px; border:0;margin-top:10px"}
-- [Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration/) erfolgreich in Ihre App integriert
+### Anforderungen {#requirements}
+![Xcodes Bildschirm „Vorlage für neues Ziel auswählen“ mit ausgewählter „Notification Content Extension“ unter „Application Extension“.]({% image_buster /assets/img/push_implementation_guide/push15.png %}){: style="float:right;max-width:50%;margin-left:10px; border:0;margin-top:10px"}
+- [Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration) erfolgreich in Ihre App integriert
 - iOS 10 oder höher
 - Die folgenden Dateien, die von Xcode basierend auf Ihrer Programmiersprache generiert werden:
 
@@ -49,7 +49,7 @@ Objective-C<br>
 Um eine angepasste Ansicht im Dashboard einzurichten, müssen Sie die Benachrichtigungs-Buttons aktivieren und Ihre angepasste Kategorie eingeben. Die von Ihnen angegebene vorregistrierte angepasste iOS-Kategorie wird dann mit der `UNNotificationExtensionCategory` in der `.plist` Ihres Notification Content Extension Targets abgeglichen. Der hier angegebene Wert muss mit den Einstellungen im Braze-Dashboard übereinstimmen.
 
 ![Die Optionen für den Benachrichtigungs-Button in den Einstellungen des Push-Nachrichten-Editors.]({% image_buster /assets/img/push_implementation_guide/push16.png %}){: style="max-width:75%;border:0;margin-top:10px"}
-![]({% image_buster /assets/img/push_implementation_guide/push17.png %}){: style="max-width:75%;border:0;margin-top:10px"}
+![Eine plist mit NSExtension, wobei UNNotificationExtensionCategory auf „your_custom_category“, UNNotificationExtensionDefaultContentHidden auf 1 und UNNotificationExtensionInitialContentSizeRatio auf 1 gesetzt ist.]({% image_buster /assets/img/push_implementation_guide/push17.png %}){: style="max-width:75%;border:0;margin-top:10px"}
 
 {% alert tip %}
 Da Push-Benachrichtigungen mit Inhaltserweiterungen nicht immer offensichtlich sind, empfiehlt es sich, eine Handlungsaufforderung einzufügen, um Ihre Nutzer:innen dazu zu bewegen, ihre Push-Benachrichtigungen zu erweitern.
@@ -72,7 +72,7 @@ Push-Benachrichtigungen können auf Nutzeraktionen innerhalb einer Inhaltserweit
 
 Um eine angepasste Ansicht im Dashboard einzurichten, geben Sie in den Einstellungen der Benachrichtigungs-Buttons die spezifische Kategorie ein, die Sie anzeigen möchten. Als Nächstes müssen Sie in der `.plist` Ihrer Notification Content Extension auch die angepasste Kategorie auf das Attribut `UNNotificationExtensionCategory` setzen. Der hier angegebene Wert muss mit den Einstellungen im Braze-Dashboard übereinstimmen. Um Nutzerinteraktionen in einer Push-Benachrichtigung zu aktivieren, setzen Sie den Schlüssel `UNNotificationExtensionInteractionEnabled` auf true.
 
-![]({% image_buster /assets/img/push_implementation_guide/push3.png %}){: style="float:right;max-width:45%;"}
+![Der Abschnitt „Benachrichtigungs-Buttons“ im Braze-Dashboard mit dem Feld „iOS Notification Category“, das auf „match_game“ gesetzt ist.]({% image_buster /assets/img/push_implementation_guide/push3.png %}){: style="float:right;max-width:45%;"}
 
 ![Die Optionen für den Benachrichtigungs-Button in den Einstellungen des Push-Nachrichten-Editors.]({% image_buster /assets/img/push_implementation_guide/push14.png %}){: style="max-width:50%;"}
 
@@ -83,11 +83,11 @@ Push-Inhaltserweiterungen sind eine spannende Option, um Interaktivität in Ihre
 Im [folgenden Abschnitt](#logging-analytics) wird näher beschrieben, wie der Datenfluss aussehen sollte.
 
 ### Personalisierte Push-Benachrichtigungen {#personalized-push-notifications}
-![Zwei iPhones werden nebeneinander angezeigt. Das erste iPhone zeigt die nicht erweiterte Ansicht der Push-Nachricht. Das zweite iPhone zeigt die erweiterte Version der Push-Nachricht mit einer „Fortschrittsanzeige“, die angibt, wie weit sie in einem Kurs fortgeschritten sind, wann die nächste Sitzung stattfindet und wann die nächste Sitzung fällig ist.]({% image_buster /assets/img/push_implementation_guide/push6.png %}){: style="float:right;max-width:40%;margin-left:15px;border:0"}
+![Zwei iPhones werden nebeneinander angezeigt. Das erste iPhone zeigt die nicht erweiterte Ansicht der Push-Nachricht. Das zweite iPhone zeigt die erweiterte Version der Push-Nachricht mit einer Fortschrittsanzeige, die angibt, wie weit sie in einem Kurs fortgeschritten sind, wann die nächste Sitzung stattfindet und wann die nächste Sitzung fällig ist.]({% image_buster /assets/img/push_implementation_guide/push6.png %}){: style="float:right;max-width:40%;margin-left:15px;border:0"}
 
 Push-Benachrichtigungen können nutzerspezifische Informationen innerhalb einer Inhaltserweiterung anzeigen. Das Beispiel auf der rechten Seite zeigt eine Push-Benachrichtigung, nachdem Nutzer:innen eine bestimmte Aufgabe (Braze-Lernkurs) abgeschlossen haben und nun aufgefordert werden, diese Benachrichtigung zu erweitern, um ihren Fortschritt zu überprüfen. Die hier bereitgestellten Informationen sind nutzerspezifisch und können über einen API-Trigger ausgelöst werden, wenn eine Sitzung abgeschlossen ist oder eine bestimmte Nutzeraktion durchgeführt wird.
 
-#### Dashboard-Konfiguration {#dashboard-configuration}
+#### Dashboard-Konfiguration
 
 Um einen personalisierten Push im Dashboard einzurichten, müssen Sie die spezifische Kategorie registrieren, die angezeigt werden soll, und dann innerhalb der Schlüssel-Wert-Paare mit Hilfe von Standard-Liquid die entsprechenden Nutzerattribute einstellen, die in der Nachricht angezeigt werden sollen. Diese Ansichten können auf der Grundlage bestimmter Nutzerattribute eines bestimmten Nutzerprofils personalisiert werden.
 
@@ -130,11 +130,11 @@ func didReceive(_ notification: UNNotification) {
 {% endtab %}
 {% endtabs %}
 
-#### Andere Anwendungsfälle {#other-use-cases}
+#### Andere Anwendungsfälle
 
 Es gibt unendlich viele Möglichkeiten für fortschrittsbasierte und nutzerorientierte Push-Inhaltserweiterungen. Einige Beispiele: eine Option zum Teilen des Fortschritts auf verschiedenen Plattformen, freigeschaltete Errungenschaften, Bonuskarten oder sogar Onboarding-Checklisten.
 
-##### Sind Sie bereit für die Protokollierung von Analytics? {#ready-to-log-analytics}
+##### Sind Sie bereit für die Protokollierung von Analytics?
 Im [folgenden Abschnitt](#logging-analytics) wird näher beschrieben, wie der Datenfluss aussehen sollte.
 
 ### Push-Benachrichtigung zur Informationserfassung {#information-capture-push-notification}
@@ -146,13 +146,12 @@ Push-Benachrichtigungen können Nutzerinformationen innerhalb einer Inhaltserwei
 3. Die Informationen werden eingegeben und wenn sie gültig sind, wird der Button „Anmelden“ angezeigt.
 3. Die Bestätigungsansicht wird angezeigt und der Push wird geschlossen.
 
-![]({% image_buster /assets/img/push_implementation_guide/push8.png %}){: style="border:0;"}
 
 Beachten Sie, dass es sich bei den hier angeforderten Informationen um eine Vielzahl von Dingen handeln kann, wie z. B. die Erfassung von SMS-Nummern – sie müssen nicht unbedingt auf E-Mails bezogen sein.
 
-#### Dashboard-Konfiguration {#dashboard-configuration}
+#### Dashboard-Konfiguration
 
-Um einen Push für die Informationserfassung im Dashboard einzurichten, müssen Sie Ihre angepasste Kategorie registrieren und einstellen und die benötigten Schlüssel-Wert-Paare bereitstellen. Wie im Beispiel gezeigt, können Sie auch ein Bild in Ihren Push einfügen. Dazu müssen Sie [Rich-Benachrichtigungen]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications/) integrieren, den Benachrichtigungsstil in Ihrer Campaign auf Rich Notification einstellen und ein Rich-Push-Bild einfügen.
+Um einen Push für die Informationserfassung im Dashboard einzurichten, müssen Sie Ihre angepasste Kategorie registrieren und einstellen und die benötigten Schlüssel-Wert-Paare bereitstellen. Wie im Beispiel gezeigt, können Sie auch ein Bild in Ihren Push einfügen. Dazu müssen Sie [Rich-Benachrichtigungen]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications) integrieren, den Benachrichtigungsstil in Ihrer Campaign auf Rich Notification einstellen und ein Rich-Push-Bild einfügen.
 
 ![Eine Push-Nachricht mit drei Gruppen von Schlüssel-Wert-Paaren. 1. „Braze_id“ als Liquid-Aufruf zum Abrufen der Braze-ID festgelegt. 2. „cert_title“ als „Braze Marketer Certification“ festgelegt. 3. „Cert_description“ als „Certified Braze marketers drive...“ festgelegt.]({% image_buster /assets/img/push_implementation_guide/push9.png %})
 
@@ -195,18 +194,18 @@ Push-Benachrichtigungen können durch Drücken eines Aktions-Buttons automatisch
 2. `completion(.doNotDismiss)` – Benachrichtigung bleibt offen
 3. `completion(.dismissAndForward)` – Push wird ausgeblendet und Nutzer:innen werden in die Anwendung weitergeleitet.
 
-#### Andere Anwendungsfälle {#other-use-cases}
+#### Andere Anwendungsfälle
 
 Das Anfordern von Nutzereingaben über Push-Benachrichtigungen ist eine spannende Möglichkeit, die viele Unternehmen nicht nutzen. In diesen Push-Nachrichten können Sie nicht nur grundlegende Informationen wie Name, E-Mail oder Telefonnummer abfragen, sondern Nutzer:innen auch auffordern, ein Nutzerprofil zu vervollständigen, falls es noch nicht abgeschlossen ist, oder sogar Feedback zu übermitteln.
 
-##### Sind Sie bereit für die Protokollierung von Analytics? {#ready-to-log-analytics}
+##### Sind Sie bereit für die Protokollierung von Analytics?
 Im [folgenden Abschnitt](#logging-analytics) wird näher beschrieben, wie der Datenfluss aussehen sollte.
 
 ## Protokollieren von Analytics {#logging-analytics}
 
-### Protokollierung mit der Braze API (empfohlen) {#logging-with-the-braze-api-recommended}
+### Protokollierung mit der Braze-API (empfohlen) {#logging-with-the-braze-api-recommended}
 
-Das Protokollieren von Analytics kann nur in Realtime erfolgen, wenn der Server der Kund:innen unseren [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) aufruft. Zum Protokollieren von Analytics übermitteln Sie den Wert `braze_id` im Feld für Schlüssel-Wert-Paare (wie im folgenden Screenshot gezeigt), um das zu aktualisierende Nutzerprofil zu identifizieren.
+Das Protokollieren von Analytics kann nur in Realtime erfolgen, wenn der Server der Kund:innen unseren [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) aufruft. Zum Protokollieren von Analytics übermitteln Sie den Wert `braze_id` im Feld für Schlüssel-Wert-Paare (wie im folgenden Screenshot gezeigt), um das zu aktualisierende Nutzerprofil zu identifizieren.
 
 ![Eine Push-Nachricht mit drei Gruppen von Schlüssel-Wert-Paaren. 1. „Braze_id“ als Liquid-Aufruf zum Abrufen der Braze-ID festgelegt. 2. „cert_title“ als „Braze Marketer Certification“ festgelegt. 3. „Cert_description“ als „Certified Braze marketers drive...“ festgelegt.]({% image_buster /assets/img/push_implementation_guide/push18.png %}){: style="max-width:80%;"}
 
@@ -221,13 +220,13 @@ Ein weiterer wichtiger Punkt ist, dass Analytics erst dann an Braze gesendet wer
 #### 1. Schritt: App-Gruppen in Xcode konfigurieren {#step-1-configure-app-groups-within-xcode}
 Fügen Sie die Fähigkeit `App Groups` hinzu. Wenn Sie noch keine App-Gruppe in Ihrer App hatten, navigieren Sie zur Fähigkeit des Hauptziels Ihrer App, aktivieren Sie `App Groups` und klicken Sie auf das Pluszeichen (+). Verwenden Sie die Bundle-ID Ihrer App, um die App-Gruppe zu erstellen. Wenn die Bundle-ID Ihrer App beispielsweise `com.company.appname` lautet, können Sie die App-Gruppe `group.com.company.appname.xyz` nennen. Vergewissern Sie sich, dass `App Groups` sowohl für das Hauptziel Ihrer App als auch für das Ziel der Inhaltserweiterung aktiviert ist.
 
-![]({% image_buster /assets/img/ios/push_story/add_app_groups.png %})
+![Der Dialog „Neuen Container hinzufügen“ in Xcode zur Konfiguration einer App-Gruppe mit einem Textfeld, das mit „group.“ vorausgefüllt ist.]({% image_buster /assets/img/ios/push_story/add_app_groups.png %})
 
 #### 2. Schritt: Code-Snippets integrieren {#step-2-integrate-code-snippets}
 Die folgenden Code-Snippets sind eine hilfreiche Referenz, wie Sie angepasste Events, angepasste Attribute und Nutzerattribute speichern und senden können. In dieser Anleitung wird von UserDefaults gesprochen. Die Code-Darstellung erfolgt jedoch in Form der Hilfsdatei `RemoteStorage`. Darüber hinaus gibt es die Hilfsdateien `UserAttributes` und `EventName Dictionary`, die beim Senden und Speichern von Nutzerattributen verwendet werden. Alle Hilfsdateien sind am Ende dieser Anleitung aufgeführt.
 
 {% tabs local %}
-{% tab Custom Events %}
+{% tab Angepasste Events %}
 
 ##### Speichern von angepassten Events {#saving-custom-events}
 
@@ -368,7 +367,7 @@ func logPendingCustomEventsIfNecessary() {
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab Custom Attributes %}
+{% tab Angepasste Attribute %}
 
 ##### Speichern von angepassten Attributen {#saving-custom-attributes}
 
@@ -485,7 +484,7 @@ func setCustomAttributesWith(keysAndValues: [String: Any]) {
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab User Attributes %}
+{% tab Nutzerattribute %}
 
 ##### Speichern von Nutzerattributen {#saving-user-attributes}
 
@@ -611,11 +610,11 @@ func logPendingUserAttributesIfNecessary() {
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab Helper Files %}
+{% tab Hilfsdateien %}
 
 ##### Hilfsdateien {#helper-files}
 
-{% details RemoteStorage Helper File %}
+{% details RemoteStorage-Hilfsdatei %}
 {% subtabs global %}
 {% subtab Swift %}
 ```swift
@@ -733,7 +732,7 @@ class RemoteStorage: NSObject {
 {% endsubtab %}
 {% endsubtabs %}
 {% enddetails %}
-{% details UserAttribute Helper File %}
+{% details UserAttribute-Hilfsdatei %}
 {% subtabs global %}
 {% subtab Swift %}
 ```swift
@@ -797,7 +796,7 @@ extension UserAttribute: Codable {
 {% endsubtab %}
 {% endsubtabs %}
 {% enddetails %}
-{% details EventName Dictionary Helper File %}
+{% details EventName Dictionary-Hilfsdatei %}
 {% subtabs global %}
 {% subtab Swift %}
 ```swift

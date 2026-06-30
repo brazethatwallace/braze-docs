@@ -18,7 +18,7 @@ description: "Este artículo describe los detalles sobre el punto de conexión d
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `sdk_authentication.create`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `sdk_authentication.create`.
 
 ## Límite de velocidad {#rate-limit}
 

@@ -15,13 +15,13 @@ description: "この記事では、「キャンペーンの翻訳を更新」エ
 /campaigns/translations
 {% endapimethod %}
 
-> このエンドポイントを使用して、Campaignの複数の翻訳を更新できます。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
+> このエンドポイントを使用して、キャンペーンの複数の翻訳を更新できます。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)を参照してください。
 
-Campaignを起動した後に翻訳を更新したい場合は、まず[メッセージを下書きとして保存]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch/)する必要があります。
+キャンペーンを起動した後に翻訳を更新したい場合は、まず[メッセージを下書きとして保存]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch)する必要があります。
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`campaigns.translations.update` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`campaigns.translations.update` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -35,11 +35,11 @@ Campaignを起動した後に翻訳を更新したい場合は、まず[メッ�
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | 必須 | 文字列 | CampaignのID。 |
+| `campaign_id` | 必須 | 文字列 | キャンペーンのID。 |
 | `message_variation_id` | 必須 | 文字列 | メッセージバリエーションのID。 |
 | `locale_id` | 必須 | 文字列 | ロケールのID（UUID）。 |
 | `translation_map` | 必須 | オブジェクト | 新しい翻訳を含むオブジェクト。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 {% alert note %}
 すべての翻訳IDはユニバーサル一意識別子（UUID）と見なされ、GETエンドポイントの応答で確認できます。

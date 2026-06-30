@@ -16,14 +16,14 @@ Hay dos pasos clave para crear un flujo de trabajo de puntuación de clientes po
 - [Puntuación sencilla de clientes potenciales](#simple-lead-scoring)
 - [Puntuación externa de clientes potenciales](#external-lead-scoring)
 
-2. Crea una Campaign de webhook para enviar clientes potenciales cualificados a tu equipo de ventas:
+2. Crea una campaña de webhook para enviar clientes potenciales cualificados a tu equipo de ventas:
 - [Traspaso de clientes potenciales: cliente potencial cualificado por marketing (MQL) a ventas](#lead-handoff)
 
 ## Puntuación sencilla de clientes potenciales {#simple-lead-scoring}
 
 ### Paso 1: Crear un Canvas {#step-1-create-a-canvas}
 
-1. Ve a **Messaging** > **Canvas** y selecciona **Create Canvas**, y luego rellena los datos básicos de tu Canvas.
+1. Ve a **Mensajería** > **Canvas** y selecciona **Crear Canvas**, y luego rellena los datos básicos de tu Canvas.
 
 2. Dale a tu Canvas un nombre relevante como "Lead Scoring Canvas" y, para encontrarlo más fácilmente, etiquétalo con algo como "Lead Management".<br><br>![Paso 1 de la creación de un Canvas con el nombre "Lead Scoring Canvas" y la etiqueta "Lead Management".]({% image_buster /assets/img/b2b/step_1_simple.png %}){: style="max-width:80%;"}
 
@@ -32,7 +32,7 @@ Hay dos pasos clave para crear un flujo de trabajo de puntuación de clientes po
 1. Ve al paso **Horario de entrada** y selecciona un horario de entrada **basado en acciones**. Esto introducirá a los usuarios en el Canvas cuando realicen acciones específicas.
 
 2. En **Opciones basadas en acciones**, añade estas dos acciones:
-    - **Cambiar el valor del atributo personalizado** con el nombre de tu atributo de puntuación de clientes potenciales (como `lead score`). Si aún no has creado un atributo de puntuación de clientes potenciales, sigue los pasos de [Atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/). Esto introducirá a los usuarios en el Canvas cada vez que cambie su puntuación de cliente potencial.
+    - **Cambiar el valor del atributo personalizado** con el nombre de tu atributo de puntuación de clientes potenciales (como `lead score`). Si aún no has creado un atributo de puntuación de clientes potenciales, sigue los pasos de [Atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes). Esto introducirá a los usuarios en el Canvas cada vez que cambie su puntuación de cliente potencial.
     - **Agregar una dirección de correo electrónico**
 
 ![Paso 2 de la creación de un Canvas con el horario de entrada "Basado en acciones" y las opciones basadas en acciones de cambiar un atributo personalizado "lead score" y añadir una dirección de correo electrónico.]({% image_buster /assets/img/b2b/step_2_simple.png %}){: style="max-width:80%;"}
@@ -41,7 +41,7 @@ Hay dos pasos clave para crear un flujo de trabajo de puntuación de clientes po
 
 #### Paso 3a: Seleccionar segmentos {#step-3a-select-segments}
 
-Todos los usuarios son elegibles para la puntuación de clientes potenciales, por lo que puedes añadir reglas específicas de la empresa sobre a quién puntuar seleccionando a qué [segmentos]({{site.baseurl}}/user_guide/audience/segments/) de usuarios dirigirte y aplicando [filtros]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) adicionales. Por ejemplo, puedes excluir a empleados, usuarios que ya son clientes y similares.
+Todos los usuarios son elegibles para la puntuación de clientes potenciales, por lo que puedes añadir reglas específicas de la empresa sobre a quién puntuar seleccionando a qué [segmentos]({{site.baseurl}}/user_guide/audience/segments) de usuarios dirigirte y aplicando [filtros]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) adicionales. Por ejemplo, puedes excluir a empleados, usuarios que ya son clientes y similares.
 
 ![Paso 3 de la creación de un Canvas con opciones para seleccionar segmentos y filtros para acotar la audiencia de entrada.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
 
@@ -113,11 +113,11 @@ En la pestaña **Redactar** de cada paso de actualización de usuario, haz lo si
 
 ## Puntuación externa de clientes potenciales {#external-lead-scoring}
 
-Ya sea utilizando uno de nuestros [socios tecnológicos]({{site.baseurl}}/partners/home/), tu propio modelo interno de puntuación de clientes potenciales, aprendizaje automático u otra herramienta de puntuación de clientes potenciales, tenemos múltiples opciones para ti.
+Ya sea utilizando uno de nuestros [socios tecnológicos]({{site.baseurl}}/partners/home), tu propio modelo interno de puntuación de clientes potenciales, aprendizaje automático u otra herramienta de puntuación de clientes potenciales, tenemos múltiples opciones para ti.
 
 ### Socios externos {#external-partners}
 
-Consulta [Socios tecnológicos]({{site.baseurl}}/partners/home/) para conocer a nuestros socios B2B que ofrecen funciones de puntuación de clientes potenciales. ¿No ves tu herramienta? Puedes realizar la integración llamando a nuestro punto de conexión de la API [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#track-users).
+Consulta [Socios tecnológicos]({{site.baseurl}}/partners/home) para conocer a nuestros socios B2B que ofrecen funciones de puntuación de clientes potenciales. ¿No ves tu herramienta? Puedes realizar la integración llamando a nuestro punto de conexión de la API [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users).
 
 ### Modelos de datos internos de puntuación de clientes potenciales {#internal-lead-scoring-data-models}
 
@@ -132,13 +132,13 @@ Como herramienta de marketing, Braze contiene datos extremadamente relevantes qu
 
 Por ejemplo, los datos de interacción con la mensajería (como aperturas y clics de correos electrónicos, interacción en la página de inicio y otros) pueden determinar el nivel de interacción de un cliente potencial. Puedes devolver estos datos a tu almacén de datos en la nube y hacer que estén disponibles como entrada para tus modelos de puntuación de clientes potenciales utilizando las soluciones de exportación de datos en streaming de Braze:
 
-- [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)
-- [Snowflake Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)
+- [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)
+- [Snowflake Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)
 
 {% endtab %}
 {% tab Braze como destino %}
 
-Después de que tus equipos internos hayan creado y ejecutado tu modelo de puntuación de clientes potenciales, puedes volver a introducir esos datos en Braze para poder segmentar y dirigir mejor a los clientes potenciales con mensajes relevantes. Puedes hacerlo con [Ingesta de datos de Cloud de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/).
+Después de que tus equipos internos hayan creado y ejecutado tu modelo de puntuación de clientes potenciales, puedes volver a introducir esos datos en Braze para poder segmentar y dirigir mejor a los clientes potenciales con mensajes relevantes. Puedes hacerlo con [Ingesta de datos de Cloud de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 
 Con la Ingesta de datos de Cloud, tus equipos internos crearán una nueva tabla o vista con tus identificadores de usuario, las últimas puntuaciones de clientes potenciales y las marcas de tiempo en las que se actualizaron las puntuaciones. Braze recogerá la tabla o vista y añadirá las puntuaciones de los clientes potenciales a los perfiles de usuario.
 
@@ -151,13 +151,13 @@ Nuestro enfoque recomendado para los traspasos de clientes potenciales es tener 
 
 Para actualizar el registro de clientes potenciales en Salesforce con el estado del cliente potencial desde Braze, recomendamos utilizar una plantilla de webhook activada.
 
-### Paso 1: Crear una Campaign de webhook {#step-1-create-a-webhook-campaign}
+### Paso 1: Crear una campaña de webhook {#step-1-create-a-webhook-campaign}
 
 ### Paso 2: Configura tu webhook {#step-2-configure-your-webhook}
 
 #### Paso 2a: Redactar webhook {#step-2a-compose-webhook}
 
-1. Dale un nombre a tu Campaign de webhook, como "Salesforce > Actualizar cliente potencial a MQL".
+1. Dale un nombre a tu campaña de webhook, como "Salesforce > Actualizar cliente potencial a MQL".
 
 2. Introduce la URL de tu webhook en el formato {% raw %}`https://YOUR_SALESFORCE_INSTANCE.my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %}. El ID de usuario de Braze {% raw %}`{{${user_id}}}`{% endraw %} debe coincidir con tu ID de contacto de Salesforce. Si no es así, utiliza un alias en lugar de {% raw %}`{{${user_id}}}`{% endraw %}.
 
@@ -190,7 +190,7 @@ Para actualizar el registro de clientes potenciales en Salesforce con el estado 
 
 #### Paso 2b: Programar envíos de webhooks {#step-2b-schedule-webhook-sends}
 
-La Campaign debe activarse cada vez que cambie la puntuación del usuario. Esta Campaign se activará para cualquier usuario cuya puntuación cambie, pero solo afectará a los usuarios que no sean actualmente un MQL y que hayan superado el umbral establecido en el paso anterior.
+La campaña debe activarse cada vez que cambie la puntuación del usuario. Esta campaña se activará para cualquier usuario cuya puntuación cambie, pero solo afectará a los usuarios que no sean actualmente un MQL y que hayan superado el umbral establecido en el paso anterior.
 
 En el paso **Programar entrega**, selecciona lo siguiente:
 - Un tipo de entrega **basado en acciones**
@@ -198,10 +198,10 @@ En el paso **Programar entrega**, selecciona lo siguiente:
 
 #### Paso 2c: Identificar la audiencia objetivo {#step-2c-identify-target-audience}
 
-En el paso **Target Audiences**, incluye un filtro que excluya a los usuarios cuyo estado de cliente potencial ya esté en MQL o más allá, como "`lead_status` `is none of` `MQL`".
+En el paso **Público objetivo**, incluye un filtro que excluya a los usuarios cuyo estado de cliente potencial ya esté en MQL o más allá, como "`lead_status` `is none of` `MQL`".
 
 ![Opciones de segmentación de webhooks con el filtro de "lead_status" is none of "MQL".]({% image_buster /assets/img/b2b/step_3_webhook.png %}){: style="max-width:80%;"}
 
-### Paso 3: Lanzar la Campaign {#step-3-launch-campaign}
+### Paso 3: Lanzar la campaña {#step-3-launch-campaign}
 
-Selecciona **Launch** y observa cómo cambia el estado de tus clientes potenciales en Salesforce a medida que tus clientes cruzan el umbral de puntuación de clientes potenciales MQL.
+Selecciona **Lanzar** y observa cómo cambia el estado de tus clientes potenciales en Salesforce a medida que tus clientes cruzan el umbral de puntuación de clientes potenciales MQL.

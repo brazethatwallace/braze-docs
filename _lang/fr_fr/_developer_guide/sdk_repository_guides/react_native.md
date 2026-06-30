@@ -291,7 +291,7 @@ Braze.enableSDK();
 
 **`wipeData()`** — Efface les données **locales** de Braze pour cette installation (état utilisateur/session/carte mis en cache, association de jeton push, etc.). À utiliser pour un comportement de type **déconnexion** lorsque vous ne devez pas laisser l'état Braze de l'utilisateur précédent sur l'appareil, ainsi que pour les demandes **« supprimer mes données sur cet appareil »**, les réinitialisations **QA** sans réinstallation, ou les flux de **confidentialité** stricts. **`changeUser`** seul n'effectue pas ce nettoyage — il définit uniquement quel ID utilisateur reçoit les **nouveaux** événements. Sur **iOS**, le comportement peut différer d'Android (par ex. interaction avec l'état SDK désactivé) ; consultez la documentation native de Braze si vous utilisez cela en production.
 
-**`disableSDK()`** — Arrête le fonctionnement du SDK (aucune collecte/transmission telle que configurée). À utiliser pour les bascules d'**opt-out utilisateur**, les **modes restreints** (conformité, paramètres enfants), ou le **débogage** sans supprimer la dépendance.
+**`disableSDK()`** — Arrête le fonctionnement du SDK (aucune collecte ni transmission telle que configurée). À utiliser pour les bascules d'**opt-out utilisateur**, les **modes restreints** (conformité, paramètres enfants), ou le **débogage** sans supprimer la dépendance.
 
 **`enableSDK()`** — Réactive le SDK après **`disableSDK()`**. Sur **iOS**, la réactivation peut **ne pas s'appliquer** avant le **prochain lancement de l'application** ; vérifiez dans la documentation Braze Swift/iOS avant de compter sur une réactivation immédiate.
 
@@ -425,7 +425,7 @@ Pour une résolution des problèmes plus approfondie (réseau, session ou compor
 
 ## Contact
 
-Si vous avez des questions, veuillez contacter [support@braze.com](mailto:support@braze.com).
+Si vous avez des questions, contactez l'assistance technique de Braze pour obtenir de l'aide.
 <!-- END GENERATED README CONTENT -->
 
 Pour les détails du dépôt et les projets exemples, consultez [https://github.com/braze-inc/braze-react-native-sdk](https://github.com/braze-inc/braze-react-native-sdk).

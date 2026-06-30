@@ -1,7 +1,7 @@
 ---
 nav_title: Alpaco
 article_title: Alpaco
-alias: /partners/Alpaco
+alias: /partners/alpaco/
 description: "BrazeとAlpacoの統合により、ブランドに準拠したLiquid互換のメールテンプレートとコンテンツブロックをBrazeにエクスポートし、メールやアプリ内メッセージで使用できるようになります。"
 page_type: partner
 search_tag: Partner
@@ -24,7 +24,7 @@ Alpacoは[完全なLiquid](https://shopify.github.io/liquid/)変数をサポー�
 | Alpacoアカウント | このパートナーシップを活用するには、Alpacoアカウントが必要です。 |
 | Braze REST APIキー | 完全な**テンプレート**権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | クラスターインスタンス | Brazeの[クラスターインスタンス]({{site.baseurl}}/api/basics/#endpoints)は、BrazeダッシュボードとRESTエンドポイントに対応しています。<br><br> たとえば、ダッシュボードのURLが`https://dashboard-03.braze.com`の場合、エンドポイントは`dashboard-03`になります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユースケース {#use-cases}
 
@@ -44,19 +44,19 @@ Braze REST APIキーとクラスターインスタンスをAlpacoカスタマー
 
 ## AlpacoメッセージをBrazeにエクスポートする {#exporting-alpaco-messages-to-braze}
 
-### ステップ 1:Alpacoでテンプレートを作成する {#step-1-create-a-template-in-alpaco}
+### ステップ 1: Alpacoでテンプレートを作成する {#step-1-create-a-template-in-alpaco}
 
 Alpacoで、ブランドアイデンティティを表現するテンプレートを作成します。準備ができたら、**Save**を選択します。
 
 ![Alpacoのテンプレート作成画面]({% image_buster /assets/img/alpaco/alpaco_1.png %})
 
-### ステップ 2:テンプレートを使用してメッセージを作成する {#step-2-draft-a-message-using-the-template}
+### ステップ 2: テンプレートを使用してメッセージを作成する {#step-2-draft-a-message-using-the-template}
 
 次に、Alpacoロビーに移動し、テンプレートを使用してメール、アプリ内メッセージ、またはコンテンツブロックを作成します。エクスポート前にメッセージを確認するには、**Review**を選択します。
 
 ![Alpacoのメール作成画面]({% image_buster /assets/img/alpaco/alpaco_2.png %})
 
-### ステップ 3:メッセージをBrazeにエクスポートする {#step-3-export-your-message-to-braze}
+### ステップ 3: メッセージをBrazeにエクスポートする {#step-3-export-your-message-to-braze}
 
 **Export**を選択し、Braze統合を選択して、メールテンプレートまたはコンテンツブロックのどちらをエクスポートするかを指定します。
 

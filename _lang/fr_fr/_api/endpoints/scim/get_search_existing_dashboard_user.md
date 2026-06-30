@@ -1,16 +1,16 @@
 ---
-nav_title: "GET : Effectuer une recherche par e-mail d'un compte utilisateur de tableau de bord existant"
-article_title: "GET : Effectuer une recherche par e-mail d'un compte utilisateur de tableau de bord existant"
+nav_title: "GET : Rechercher un compte utilisateur de tableau de bord existant par e-mail"
+article_title: "GET : Rechercher un compte utilisateur de tableau de bord existant par e-mail"
 alias: /get_search_existing_dashboard_user_email/
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Cet article présente en détail l'endpoint Braze permettant d'effectuer une recherche par e-mail d'un compte utilisateur du tableau de bord existant."
+description: "Cet article présente en détail l'endpoint Braze permettant de rechercher un compte utilisateur du tableau de bord existant par e-mail."
 ---
 
 {% api %}
-# Effectuer une recherche par e-mail d'un compte utilisateur de tableau de bord existant {#search-existing-dashboard-user-account-by-email}
+# Rechercher un compte utilisateur de tableau de bord existant par e-mail {#search-existing-dashboard-user-account-by-email}
 {% apimethod get %}
 scim/v2/Users?filter=userName%20eq%20"user%40test.com"
 {% endapimethod %}
@@ -19,13 +19,13 @@ scim/v2/Users?filter=userName%20eq%20"user%40test.com"
 
 Veuillez noter que, lorsque le paramètre de requête est encodé par URL, il s'affichera ainsi :
 
-`/scim/v2/Users?filter=userName%20eq%20%22user@test.com%22`
+`/scim/v2/Users?filter=userName%20eq%20%22user@example.com%22`
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5037d810-b822-4c54-bb51-f30470a42a95 {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'un jeton SCIM. Vous utiliserez l'origine de votre service comme en-tête `X-Request-Origin`. Pour plus d'informations, consultez la section [Provisionnement automatisé des utilisateurs]({{site.baseurl}}/scim/automated_user_provisioning/).
+Pour utiliser cet endpoint, vous aurez besoin d'un jeton SCIM. Vous utiliserez l'origine de votre service comme en-tête `X-Request-Origin`. Pour plus d'informations, consultez la section [Provisionnement automatisé des utilisateurs]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Limite de débit {#rate-limit}
 
@@ -36,7 +36,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'un jeton SCIM. Vous utiliserez l
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
 | `userName@example.com` | Requis | Chaîne de caractères | L'adresse e-mail de l'utilisateur. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de chemin" }
 
 ## Paramètres de requête {#request-parameters}
 
@@ -48,7 +48,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Exemple de requête {#example-request}
 ```bash
-curl --location --request GET \ 'https://rest.iad-01.braze.com/scim/v2/Users?filter=userName%20eq%20%22user@test.com%22' \
+curl --location --request GET \ 'https://rest.iad-01.braze.com/scim/v2/Users?filter=userName%20eq%20%22user@example.com%22' \
 --header 'Content-Type: application/json' \
 --header 'X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
@@ -61,7 +61,7 @@ curl --location --request GET \ 'https://rest.iad-01.braze.com/scim/v2/Users?fil
     "totalResults": 1,
     "Resources": [
         {
-            "userName": "user@test.com",
+            "userName": "user@example.com",
             "id": "dfa245b7-24195aec-887bb3ad-602b3340",
             "name": {
                 "givenName": "Test",

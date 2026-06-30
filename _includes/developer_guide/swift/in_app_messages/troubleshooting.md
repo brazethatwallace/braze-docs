@@ -1,8 +1,8 @@
-{% multi_lang_include inapp_message_troubleshooting.md sdk="iOS" %}
+{% multi_lang_include in-app_messages/troubleshooting.md sdk="iOS" %}
 
-### Troubleshooting asset loading (`NSURLError` code `-1008`)
+### Troubleshooting asset loading (`NSURLError` code `-1008`) {#asset-loading}
 
-When integrating Braze alongside third-party network logging libraries, developers can commonly run into an `NSURLError` with the domain code `-1008`. This error indicates that assets like images and fonts could not be retrieved or failed to cache. To work around such cases, you will need to register Braze CDN URLs to the list of domains that should be ignored by these libraries.
+When integrating Braze alongside third-party network logging libraries, developers can commonly run into an `NSURLError` with the domain code `-1008`. This error indicates that assets like images and fonts could not be retrieved or failed to cache. To work around such cases, you must register Braze CDN URLs to the list of domains that should be ignored by these libraries.
 
 #### Domains
 

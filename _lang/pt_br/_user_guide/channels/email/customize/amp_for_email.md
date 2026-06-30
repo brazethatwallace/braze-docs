@@ -39,6 +39,10 @@ Antes de enviar e-mails AMP para os usuários, você precisa se registrar nos no
 
 Para uma lista completa de clientes de e-mail compatíveis, consulte a [documentação do AMP](https://amp.dev/support/faq/email-support).
 
+#### Enviar para provedores não registrados {#send-to-unregistered-providers}
+
+Se você enviar um e-mail AMP para provedores como Yahoo ou Mail.ru antes de concluir o processo de registro, esses provedores ignoram a parte AMP do e-mail e exibem a versão de fallback em HTML ou texto simples. A parte AMP em si não causa problemas de entregabilidade para remetentes não registrados.
+
 ### Ativando a conta do Gmail {#enabling-gmail-account}
 
 Acesse as configurações do Gmail e selecione **Ativar e-mail dinâmico** na guia **Geral**.
@@ -47,7 +51,7 @@ Acesse as configurações do Gmail e selecione **Ativar e-mail dinâmico** na gu
 
 ## Uso da API {#api-usage}
 
-Você também pode usar o AMP para e-mail com a nossa API. Se você usar qualquer um dos [endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/) da Braze para enviar um e-mail, adicione `amp_body` como uma especificação de objeto, conforme mostrado abaixo.
+Você também pode usar o AMP para e-mail com a nossa API. Se você usar qualquer um dos [endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging) da Braze para enviar um e-mail, adicione `amp_body` como uma especificação de objeto, conforme mostrado abaixo.
 
 ### Especificação do objeto de e-mail {#email-object-specification}
 
@@ -55,8 +59,8 @@ Você também pode usar o AMP para e-mail com a nossa API. Se você usar qualque
 {
   "app_id": (required, string) see app identifier above,
   "subject": (optional, string),
-  "from": (required, valid email address in the format "Display Name <email@address.com>"),
-  "reply_to": (optional, valid email address in the format "email@address.com" - defaults to your workspace's default reply to if not set),
+  "from": (required, valid email address in the format "Display Name <user@example.com>"),
+  "reply_to": (optional, valid email address in the format "user@example.com" - defaults to your workspace's default reply to if not set),
   "plaintext_body": (optional, valid plaintext, defaults to autogenerating plaintext from "body" when this is not set),
   "amp_body": (optional, updates the text-amp-html MIME type) the email body in AMP HTML. The MIME (Multipurpose Internet Mail Extensions) type to be referenced is "text/x-amp-html",
   "body": (required unless email_template_id is given, valid HTML),
@@ -250,7 +254,7 @@ Para que seu e-mail AMP seja entregue a qualquer conta do Gmail, o e-mail deve a
 
 Observe que o total de cliques e os cliques únicos não contabilizam cliques que ocorrem em uma mensagem AMP (apenas HTML e texto simples). Os cliques específicos do AMP são atribuídos à métrica *amp_click*.
 
-Se nenhuma dessas condições estiver causando o erro, entre em contato com o [Suporte]({{site.baseurl}}/support_contact/).
+Se nenhuma dessas condições estiver causando o erro, entre em contato com o [Suporte]({{site.baseurl}}/support_contact).
 
 ### Configurar a caixa de entrada do Gmail para renderizar e-mails AMP {#configure-gmail-inbox-to-render-amp-emails}
 

@@ -55,7 +55,7 @@ qualify row_number() over (partition by event.id ORDER BY ccs.time DESC) = 1;
 いくつかの重要な注意点があります。
 - ここではSnowflakeの[window](https://docs.snowflake.com/en/sql-reference/functions-analytic.html)関数を使用しています。
 - 左結合により、キャンペーンに関連しないイベントも含まれます。
-- `campaign_id` があるにもかかわらずCampaign名が表示されないイベントがある場合、そのCampaignはデータ共有が製品として存在する前に作成された可能性があります。
+- `campaign_id` があるにもかかわらずキャンペーン名が表示されないイベントがある場合、そのキャンペーンはデータ共有が製品として存在する前に作成された可能性があります。
 - `CHANGELOGS_CANVAS_SHARED` テーブルと結合する同様のクエリを使用して、キャンバス名を確認することもできます。
 
 キャンペーンとキャンバスの両方の名前を表示したい場合は、次のサブクエリを使用する必要があります。

@@ -11,15 +11,15 @@ guide_top_text: "Braze 予測スイートは機械学習ツールを直接手元
 
 guide_featured_title: "トピック"
 guide_featured_list:
-- name: Predictive Churn
+- name: 解約予測
   link: /docs/user_guide/brazeai/predictive_suite/predictive_churn
   image: /assets/img/braze_icons/stars-01.svg
-- name: Predictive Events
+- name: 予測イベント
   link: /docs/user_guide/brazeai/predictive_suite/predictive_events
   image: /assets/img/braze_icons/calendar-check-01.svg
 
 ---
 
 {% alert tip %}
-Predictive ChurnとPredictive Eventsの詳細については、[Brazeラーニングコース](https://learning.braze.com/)を参照してください。
+解約予測と予測イベントの詳細については、[Brazeラーニングコース](https://learning.braze.com/)を参照してください。
 {% endalert %}

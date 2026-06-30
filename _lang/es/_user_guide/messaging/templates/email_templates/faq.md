@@ -21,7 +21,7 @@ channel: email
 
 No, Braze no ofrece esta funcionalidad. Esto se debe a que una mayoría creciente de correos electrónicos se abren en dispositivos móviles y clientes de correo electrónico modernos, que renderizan imágenes y contenido sin ningún problema.
 
-**Solución alternativa:** Para lograr este mismo resultado, puedes alojar el contenido de tu correo electrónico en una página de destino externa (como tu sitio web), a la que luego puedes enlazar desde la campaña de correo electrónico que estás creando utilizando la herramienta **Link** al editar el cuerpo del correo electrónico.
+**Solución alternativa:** Para lograr este mismo resultado, puedes alojar el contenido de tu correo electrónico en una página de destino externa (como tu sitio web), a la que luego puedes enlazar desde la Campaign de correo electrónico que estás creando utilizando la herramienta **Link** al editar el cuerpo del correo electrónico.
 
 ### ¿Cómo creo un enlace de cancelación de suscripción personalizado para mis plantillas de correo electrónico? {#how-do-i-create-a-custom-unsubscribe-link-for-my-email-templates}
 
@@ -32,16 +32,16 @@ Podrías cambiar el enlace de cancelación de suscripción en el pie de página 
 > https://www.braze.com/unsubscribe?user_id={{${user_id}}}
 {% endraw %}
 
-A continuación, podrías llamar al [punto de conexión `/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status/) para actualizar el estado de suscripción del usuario. Para más detalles, consulta nuestra documentación sobre [cambiar el estado de suscripción de correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions).
+A continuación, podrías llamar al [punto de conexión `/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status) para actualizar el estado de suscripción del usuario. Para más detalles, consulta nuestra documentación sobre [cambiar el estado de suscripción de correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
 
 Para guardar este nuevo enlace, la etiqueta predeterminada de cancelación de suscripción de Braze {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} debe estar en el pie de página. Esto significa que tendrás que incluir el enlace predeterminado "ocultándolo", ya sea colocando la etiqueta en un comentario o en una etiqueta `<div>` oculta.
 
 - **Ejemplo de etiqueta en comentario:** ejemplo de colocar la etiqueta en un comentario: `<!-- ${set_user_to_unsubscribed_url} -->`
 - **Ejemplo de comentario en etiqueta `<div>` oculta:** {%raw%}`<div style="display:none;max-height:0px;overflow:hidden;">${set_user_to_unsubscribed_url}</div>`{%endraw%}
 
-### ¿Qué sucede si edito una plantilla de correo electrónico que se está utilizando actualmente en una campaña? {#what-happens-if-i-edit-an-email-template-that-is-currently-being-used-in-a-campaign}
+### ¿Qué sucede si edito una plantilla de correo electrónico que se está utilizando actualmente en una Campaign? {#what-happens-if-i-edit-an-email-template-that-is-currently-being-used-in-a-campaign}
 
-Las ediciones realizadas en una plantilla existente no se reflejarán en las campañas que se crearon utilizando versiones anteriores de esa plantilla. Para las campañas de API que utilizan una plantilla en el cuerpo de la REST API, Braze utilizará la última versión de la plantilla en el momento del envío.
+Las ediciones realizadas en una plantilla existente no se reflejarán en las Campaigns que se crearon utilizando versiones anteriores de esa plantilla. Para las Campaigns de API que utilizan una plantilla en el cuerpo de la REST API, Braze utilizará la última versión de la plantilla en el momento del envío.
 
 ## Plantillas de enlaces {#link-templates}
 
@@ -51,7 +51,7 @@ Sí, puedes insertar tantas plantillas como desees en tus mensajes de correo ele
 
 ### ¿Cómo previsualizo mis enlaces con todas las etiquetas aplicadas? {#how-do-i-preview-my-links-with-all-of-the-tags-applied}
 
-Hay varias formas de previsualizar tus enlaces. Después de haber aplicado la [plantilla de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/), puedes enviarte un [correo electrónico de prueba]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages/) para ver todos los enlaces.
+Hay varias formas de previsualizar tus enlaces. Después de haber aplicado la [plantilla de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template), puedes enviarte un [correo electrónico de prueba]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages) para ver todos los enlaces.
 
 Desde el panel de vista previa en una nueva pestaña, también puedes abrir los enlaces para verlos. También puedes pasar el cursor sobre los enlaces en el panel de vista previa y verlos en la parte inferior de tu navegador.
 
@@ -67,7 +67,7 @@ Evita añadir el signo de interrogación (?) a tu Liquid, ya que esto hará que 
 
 Para todos los nuevos Content Blocks que se creen, el aliasing de enlaces se aplica en todos los espacios de trabajo, ya que es una característica a nivel de empresa.
 
-Los Content Blocks existentes no se modificarán cuando se habilite el aliasing de enlaces. Aunque las plantillas de enlaces existentes no se modificarán, la sección de plantilla de enlaces existente en un mensaje se eliminará. Consulta [Aliasing de enlaces en Content Blocks]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/#link-aliasing-in-content-blocks) para más información.
+Los Content Blocks existentes no se modificarán cuando se habilite el aliasing de enlaces. Aunque las plantillas de enlaces existentes no se modificarán, la sección de plantilla de enlaces existente en un mensaje se eliminará. Consulta [Aliasing de enlaces en Content Blocks]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing#link-aliasing-in-content-blocks) para más información.
 
 ### ¿Puedo usar lógica condicional de Liquid completamente dentro de una etiqueta de anclaje HTML? {#can-i-use-liquid-conditional-logic-entirely-within-an-html-anchor-tag}
 

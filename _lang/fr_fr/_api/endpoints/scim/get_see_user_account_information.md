@@ -15,13 +15,13 @@ description: "Cet article présente les détails de l'endpoint Braze Rechercher 
 /scim/v2/Users/{id}
 {% endapimethod %}
 
-> Utilisez cet endpoint pour rechercher un compte utilisateur du tableau de bord existant en spécifiant la ressource `id` renvoyée par la méthode SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account/).
+> Utilisez cet endpoint pour rechercher un compte utilisateur du tableau de bord existant en spécifiant la ressource `id` renvoyée par la méthode SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#3df40764-8f74-4532-aed3-ab8a6cb92122 {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'un jeton SCIM. Vous utiliserez l'origine de votre service comme en-tête `X-Request-Origin`. Pour plus d'informations, consultez la section [Provisionnement automatisé des utilisateurs]({{site.baseurl}}/scim/automated_user_provisioning/).
+Pour utiliser cet endpoint, vous aurez besoin d'un jeton SCIM. Vous utiliserez l'origine de votre service comme en-tête `X-Request-Origin`. Pour plus d'informations, consultez la section [Provisionnement automatisé des utilisateurs]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Limite de débit {#rate-limit}
 
@@ -31,8 +31,8 @@ Pour utiliser cet endpoint, vous aurez besoin d'un jeton SCIM. Vous utiliserez l
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
-| `id` | Requis | Chaîne de caractères | L'ID de ressource de l'utilisateur. Ce paramètre est renvoyé par les méthodes `POST` `/scim/v2/Users/` ou `GET` `/scim/v2/Users?filter=userName eq "user@test.com"`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+| `id` | Requis | Chaîne de caractères | L'ID de ressource de l'utilisateur. Ce paramètre est renvoyé par les méthodes `POST` `/scim/v2/Users/` ou `GET`  `/scim/v2/Users?filter=userName eq "user@example.com"`. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de chemin" }
 
 ## Corps de la requête {#request-body}
 ```http
@@ -54,7 +54,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "id": "dfa245b7-24195aec-887bb3ad-602b3340",
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"

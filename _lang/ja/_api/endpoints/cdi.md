@@ -15,13 +15,13 @@ guide_top_text: "Brazeクラウドデータ取り込みエンドポイントを�
 guide_featured_title: ""
 guide_featured_list:
   - name: "GET: 統合一覧の取得"
-    link: /docs/api/cdi/get_integration_list/
+    link: /docs/api/cdi/get_integration_list
     image: /assets/img/braze_icons/list.svg
   - name: "GET: ジョブ同期ステータスの一覧取得"
     link: /docs/api/cdi/get_job_sync
     image: /assets/img/braze_icons/list.svg
   - name: "POST: 同期のトリガー"
-    link: /docs/api/cdi/post_trigger_sync/
+    link: /docs/api/cdi/post_trigger_sync
     image: /assets/img/braze_icons/play.svg
 
 ---

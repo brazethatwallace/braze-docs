@@ -46,7 +46,7 @@ Inbox Vision에서 이메일 메시지를 테스트하려면:
 5. **Run Inbox Vision**을 선택합니다. 완료까지 2~10분이 소요될 수 있습니다.
 
 {% alert note %}
-Inbox Vision은 [중단 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)을 포함하는 이메일 메시지를 지원하지 않습니다. 이러한 이메일은 정적 콘텐츠로 렌더링되기 때문입니다.
+Inbox Vision은 [중단 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)을 포함하는 이메일 메시지를 지원하지 않습니다. 이러한 이메일은 정적 콘텐츠로 렌더링되기 때문입니다.
 {% endalert %}
 
 ### 사용자로 미리보기 {#previewing-as-a-user}
@@ -111,7 +111,7 @@ Inbox Vision은 네 가지 기본 [POUR 원칙](https://www.w3.org/WAI/WCAG22/Un
 | 운용 가능(Operable) | 사용자 인터페이스 구성요소와 내비게이션은 운용 가능해야 합니다.<br><br>사용자는 인터페이스를 조작할 수 있어야 합니다(사용자가 수행할 수 없는 상호작용을 인터페이스가 요구해서는 안 됩니다). |
 | 이해 가능(Understandable) | 정보와 사용자 인터페이스의 운용은 이해할 수 있어야 합니다.<br><br>사용자는 정보와 사용자 인터페이스의 운용을 이해할 수 있어야 합니다(콘텐츠나 운용이 사용자의 이해 범위를 넘어서는 안 됩니다). |
 | 견고함(Robust) | 콘텐츠는 보조 기술을 포함한 다양한 사용자 에이전트에서 안정적으로 해석될 수 있을 만큼 견고해야 합니다.<br><br>기술이 발전함에 따라 사용자는 콘텐츠에 접근할 수 있어야 합니다(기술과 사용자 에이전트가 진화해도 콘텐츠는 접근 가능한 상태를 유지해야 합니다). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="POUR categories" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="POUR 카테고리" }
 
 #### 심각도 수준 {#severity-levels}
 
@@ -125,10 +125,10 @@ Inbox Vision은 수정 우선순위를 정하는 데 도움이 되도록 접근�
 | 경미(Minor) | 접근성에 비교적 낮은 영향을 미치며 약간의 불편만 초래할 수 있는 문제입니다. |
 | 검토 필요(Needs review) | 문제가 있는지 여부를 감지할 수 없습니다. 텍스트가 배경 이미지 위에 배치되어 대비율을 판단할 수 없는 경우에 발생할 수 있습니다. 자동으로 판단할 수 없으므로 수동으로 검토해야 합니다. |
 | 통과(Passed) | WCAG A, AA 또는 접근성 모범 사례를 통과했습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Severity levels" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="심각도 수준" }
 
 {% alert important %}
-드래그 앤 드롭 편집기는 문서 `<title>` 요소 설정을 지원하지 않으므로 접근성 스캐너는 항상 이 검사에서 실패합니다.<br><br>이 제한 사항은 향후 개선을 위해 추적되고 있습니다. 이것이 워크플로우나 사용자에게 영향을 미치는 경우 [피드백을 공유]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/#sharing-feedback)하여 영향력 있는 수정의 우선순위를 정하는 데 도움을 주세요.
+드래그 앤 드롭 편집기는 문서 `<title>` 요소 설정을 지원하지 않으므로 접근성 스캐너는 항상 이 검사에서 실패합니다.<br><br>이 제한 사항은 향후 개선을 위해 추적되고 있습니다. 이것이 워크플로우나 사용자에게 영향을 미치는 경우 [피드백을 공유]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard#sharing-feedback)하여 영향력 있는 수정의 우선순위를 정하는 데 도움을 주세요.
 {% endalert %}
 
 ### 자동화된 접근성 테스트 이해하기 {#understanding-automated-accessibility-testing}
@@ -139,7 +139,7 @@ Inbox Vision은 수정 우선순위를 정하는 데 도움이 되도록 접근�
 
 ### 이메일 가입자 목록 검토 {#review-your-email-subscriber-list}
 
-[이메일 인사이트 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/#email-insights-dashboard)를 참조하여 가입자가 참여하는 가장 인기 있는 기기 유형과 제공업체를 확인하세요. 브라우저, 기기 모델 등 더 세부적인 정보가 필요한 경우 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) 데이터 또는 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)를 활용하여 사용자의 최근 이메일 참여에 대한 세부 정보를 가져올 수 있습니다.
+[이메일 인사이트 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard)를 참조하여 가입자가 참여하는 가장 인기 있는 기기 유형과 제공업체를 확인하세요. 브라우저, 기기 모델 등 더 세부적인 정보가 필요한 경우 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) 데이터 또는 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder)를 활용하여 사용자의 최근 이메일 참여에 대한 세부 정보를 가져올 수 있습니다.
 
 그렇지 않으면 Braze는 일반적인 업계 및 전문가 데이터를 기반으로 상위 20개 미리보기를 기본값으로 제공하며, 이는 가입자가 이메일에 참여하는 대부분의 환경을 포함합니다. 데이터 분석 결과 다른 더 인기 있는 미리보기가 있는 경우 Inbox Vision을 실행할 때마다 기본 미리보기 세트를 정의할 수 있습니다.
 
@@ -155,7 +155,7 @@ Inbox Vision은 수정 우선순위를 정하는 데 도움이 되도록 접근�
 
 단일 편집이나 변경을 할 때마다 Inbox Vision을 실행하면 미리보기가 빠르게 소진될 수 있습니다. 먼저 이메일에 필요한 모든 변경을 한 다음 Inbox Vision을 실행하여 모든 변경 사항이 다양한 환경에서 이메일 렌더링에 어떤 영향을 미치는지 미리보는 것을 권장합니다.
 
-Braze는 실제 이메일 클라이언트를 통해 테스트를 실행하며 렌더링이 정확하도록 노력합니다. 특정 클라이언트에서 지속적으로 문제가 발생하는 경우 [고객지원 티켓]({{site.baseurl}}/braze_support/)을 열어주세요.
+Braze는 실제 이메일 클라이언트를 통해 테스트를 실행하며 렌더링이 정확하도록 노력합니다. 특정 클라이언트에서 지속적으로 문제가 발생하는 경우 [고객지원 티켓]({{site.baseurl}}/braze_support)을 열어주세요.
 
 ### 테스트 정확도 대 실제 받은편지함 {#test-accuracy-versus-live-inboxes}
 

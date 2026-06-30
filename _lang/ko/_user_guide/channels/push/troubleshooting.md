@@ -24,15 +24,15 @@ channel: push
 - [푸시 알림 유형](#push-notification-type)
 - [현재 앱](#current-app)
 
-#### 푸시 구독 상태 {#push-subscription-status}
+### 푸시 구독 상태 {#push-subscription-status}
 
-푸시는 가입됨 또는 옵트인한 사용자에게만 발송할 수 있습니다. **고객 프로필** 섹션의 [참여]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#engagement-tab) 탭에서 고객 프로필을 확인하여 테스트 중인 워크스페이스에 대해 푸시에 활성 등록되어 있는지 확인하세요. 여러 앱에 등록되어 있는 경우 **Push Registered For** 필드에 목록이 표시됩니다:
+푸시는 가입됨 또는 옵트인한 사용자에게만 발송할 수 있습니다. **고객 프로필** 섹션의 [참여]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab) 탭에서 고객 프로필을 확인하여 테스트 중인 워크스페이스에 대해 푸시에 활성 등록되어 있는지 확인하세요. 여러 앱에 등록되어 있는 경우 **Push Registered For** 필드에 목록이 표시됩니다:
 
 ![푸시 등록 대상]({% image_buster /assets/img_archive/trouble1.png %})
 
 Braze 내보내기 엔드포인트를 사용하여 고객 프로필을 내보낼 수도 있습니다:
-- [식별자별 사용자]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)
-- [Segment별 사용자]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)
+- [식별자별 사용자]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)
+- [Segment별 사용자]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)
 
 두 엔드포인트 모두 기기별 푸시 활성화 정보를 포함하는 푸시 토큰 오브젝트를 반환합니다.
 
@@ -42,7 +42,7 @@ Braze 내보내기 엔드포인트를 사용하여 고객 프로필을 내보낼
 
 ![Segment 목록]({% image_buster /assets/img_archive/trouble2.png %})
 
-Segment를 생성할 때 **User Lookup**을 사용하여 사용자가 해당 Segment에 포함되어 있는지 확인할 수도 있습니다. **User Lookup**은 `external_id` 또는 `braze_id`만 허용하며, 이메일 주소나 전화번호는 사용할 수 없습니다. 이메일, 전화번호, 푸시 토큰 또는 사용자 별칭으로 검색하려면 [**사용자 검색**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)을 사용하세요.
+Segment를 생성할 때 **User Lookup**을 사용하여 사용자가 해당 Segment에 포함되어 있는지 확인할 수도 있습니다. **User Lookup**은 `external_id` 또는 `braze_id`만 허용하며, 이메일 주소나 전화번호는 사용할 수 없습니다. 이메일, 전화번호, 푸시 토큰 또는 사용자 별칭으로 검색하려면 [**사용자 검색**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)을 사용하세요.
 
 ![검색 필드가 있는 User Lookup 섹션.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -50,20 +50,20 @@ Segment를 생성할 때 **User Lookup**을 사용하여 사용자가 해당 Seg
 
 글로벌 최대 게재빈도 설정을 확인하세요. 워크스페이스에 글로벌 최대 게재빈도 설정이 적용되어 있고 지정된 기간 동안 푸시 알림 한도에 이미 도달했기 때문에 푸시 알림을 받지 못했을 수 있습니다.
 
-대시보드에서 [글로벌 최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#freq-cap-feat-over)을 확인하여 이를 수행할 수 있습니다. Campaign이 최대 게재빈도 설정 규칙을 따르도록 설정된 경우, 이 설정의 영향을 받는 사용자 수가 표시됩니다.
+대시보드에서 [글로벌 최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#freq-cap-feat-over)을 확인하여 이를 수행할 수 있습니다. Campaign이 최대 게재빈도 설정 규칙을 따르도록 설정된 경우, 이 설정의 영향을 받는 사용자 수가 표시됩니다.
 
 ![Campaign 세부 정보]({% image_buster /assets/img_archive/trouble3.png %})
 
 #### 사용량 제한 {#rate-limits}
 
-Campaign 또는 Canvas에 사용량 제한이 설정되어 있는 경우, 이 한도를 초과하여 메시지를 받지 못할 수 있습니다. 자세한 내용은 [사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting)을 참조하세요.
+Campaign 또는 Canvas에 사용량 제한이 설정되어 있는 경우, 이 한도를 초과하여 메시지를 받지 못할 수 있습니다. 자세한 내용은 [사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting)을 참조하세요.
 
 #### 대조군 상태 {#control-group-status}
 
 단일 채널 Campaign이거나 대조군이 있는 Canvas인 경우, 대조군에 포함되었을 수 있습니다.
 
-  1. [배리언트 분배]({{site.baseurl}}/user_guide/messaging/ab_testing/#step-5-distribute-users-among-your-variants)를 확인하여 대조군이 있는지 확인하세요.
-  2. 대조군이 있는 경우, [Campaign 대조군 포함]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/#in-campaign-control-group-filter) 필터로 Segment를 생성한 다음 [Segment를 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#exporting-to-csv)하여 사용자 ID가 이 목록에 있는지 확인하세요.
+  1. [배리언트 분배]({{site.baseurl}}/user_guide/messaging/ab_testing#step-5-distribute-users-among-your-variants)를 확인하여 대조군이 있는지 확인하세요.
+  2. 대조군이 있는 경우, [Campaign 대조군 포함]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group-filter) 필터로 Segment를 생성한 다음 [Segment를 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-to-csv)하여 사용자 ID가 이 목록에 있는지 확인하세요.
 
 #### 유효한 푸시 토큰 {#valid-push-token}
 푸시 토큰은 발신자가 푸시 알림으로 특정 기기를 타겟팅하는 데 사용하는 식별자입니다. 따라서 기기에 유효한 푸시 토큰이 없으면 푸시 알림을 보낼 방법이 없습니다.
@@ -71,8 +71,8 @@ Campaign 또는 Canvas에 사용량 제한이 설정되어 있는 경우, 이 �
 #### 푸시 알림 유형 {#push-notification-type}
 
 올바른 유형의 푸시 알림을 사용하고 있는지 확인하세요. 예를 들어, FireTV를 타겟팅하려면 Android 푸시 Campaign이 아닌 Kindle 푸시 알림을 사용해야 합니다. 마찬가지로 Android를 타겟팅하려면 iOS 푸시 Campaign이 아닌 Android 푸시 알림을 사용하세요. 다음 문서에서 Braze 워크플로우에 대한 자세한 내용을 확인하세요:
-- [Apple 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=swift)
-- [Firebase Cloud Messaging]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android)
+- [Apple 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting?sdktab=swift)
+- [Firebase Cloud Messaging]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting?sdktab=android)
 
 #### 현재 앱 {#current-app}
 
@@ -132,13 +132,13 @@ Braze 대시보드에서 발신자 ID를 변경하지 마세요. 변경하면 �
 2. **딥링크 처리 확인:** `braze.xml` 파일에서 `com_braze_handle_push_deep_links_automatically`가 `true`로 설정되어 있는지 `false`로 설정되어 있는지 확인하세요.
    - `true`로 설정된 경우, Braze SDK가 딥링크를 직접 처리하며 앱이 정상적으로 열려야 합니다.
    - `false`로 설정된 경우, 앱에서 푸시 수신 및 열기 의도를 수신하고 처리할 방송 수신기가 필요합니다. 이 수신기가 올바르게 구현되어 있는지 확인하세요.
-3. **상세 로그 수집:** [상세 로깅을 활성화]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)하고, 문제를 재현한 다음, `braze.xml` 및 `AndroidManifest.xml`과 함께 로그를 Braze 고객지원에 제공하세요.
+3. **상세 로그 수집:** [상세 로깅을 활성화]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)하고, 문제를 재현한 다음, `braze.xml` 및 `AndroidManifest.xml`과 함께 로그를 Braze 고객지원에 제공하세요.
 
 ### iOS
 
 1. **클릭 시 동작 확인:** Campaign이 클릭 시 앱을 열도록 구성되어 있는지 확인하세요.
-2. **푸시 통합 확인:** 푸시에서 앱으로의 딥링킹은 Braze [표준 푸시 통합]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)에 의해 자동으로 처리됩니다. 커스텀 델리게이트 처리를 포함하여 통합이 올바르게 구현되어 있는지 확인하세요.
-3. **상세 로그 수집:** [상세 로깅을 활성화]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)하고, 문제를 재현한 다음, 로그를 Braze 고객지원에 제공하세요.
+2. **푸시 통합 확인:** 푸시에서 앱으로의 딥링킹은 Braze [표준 푸시 통합]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)에 의해 자동으로 처리됩니다. 커스텀 델리게이트 처리를 포함하여 통합이 올바르게 구현되어 있는지 확인하세요.
+3. **상세 로그 수집:** [상세 로깅을 활성화]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)하고, 문제를 재현한 다음, 로그를 Braze 고객지원에 제공하세요.
 
 ## 푸시 클릭 시 예기치 않게 앱에서 열림 {#push-clicks-unexpectedly-open-in-app}
 
@@ -158,9 +158,9 @@ Campaign 또는 캔버스 단계에서 **Open web URL inside mobile app**이 선
 
 푸시 알림의 링크가 예기치 않게 앱에서 열리는 경우, 푸시 알림 통합 또는 커스터마이징 설정에 문제가 있을 수 있습니다. 다음 단계에 따라 문제를 해결하세요:
 
-1. **푸시 델리게이트 구현 검토:** Braze 푸시 델리게이트가 올바르게 구현되어 있는지 확인하세요. 자세한 지침은 해당 [플랫폼]({{site.baseurl}}/developer_guide/home/)의 푸시 알림 통합 가이드를 참조하세요.
+1. **푸시 델리게이트 구현 검토:** Braze 푸시 델리게이트가 올바르게 구현되어 있는지 확인하세요. 자세한 지침은 해당 [플랫폼]({{site.baseurl}}/developer_guide/home)의 푸시 알림 통합 가이드를 참조하세요.
 2. **커스텀 링크 처리 검사:** 앱에 모든 `https://` 링크에 대한 커스텀 처리가 포함되어 있는지 확인하세요. 커스텀 구성이 기본 동작을 재정의할 수 있습니다. 개발팀과 협력하여 필요한 경우 이러한 설정을 검토하고 조정하세요.
-3. **iOS 푸시 등록 확인:** iOS의 경우, [APNs에 푸시 알림 등록]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-1-register-for-push-notifications-with-apns)에 대한 푸시 통합 가이드의 1단계를 다시 확인하세요. 앱이 실행을 완료하기 전에 델리게이트 오브젝트가 동기적으로 할당되어야 합니다. 이 단계는 `application:didFinishLaunchingWithOptions:` 메서드에서 완료해야 합니다.
+3. **iOS 푸시 등록 확인:** iOS의 경우, [APNs에 푸시 알림 등록]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-1-register-for-push-notifications-with-apns)에 대한 푸시 통합 가이드의 1단계를 다시 확인하세요. 앱이 실행을 완료하기 전에 델리게이트 오브젝트가 동기적으로 할당되어야 합니다. 이 단계는 `application:didFinishLaunchingWithOptions:` 메서드에서 완료해야 합니다.
 4. **통합 테스트:** 조정을 완료한 후, iOS 및 Android 기기 모두에서 푸시 알림 동작을 테스트하여 문제가 해결되었는지 확인하세요.
 
 ### 앱이 백그라운드에서 실행 중일 때 딥링크가 작동하지 않는 경우(iOS) {#deep-links-with-app-still-running-in-the-background-ios}
@@ -171,7 +171,7 @@ Campaign 또는 캔버스 단계에서 **Open web URL inside mobile app**이 선
 
 Apple `.p8` 인증 키는 Braze에서 APNs 푸시에 필요한 방식입니다. 레거시 인증서 파일 유형과 달리 `.p8` 키는 만료되지 않으며 단일 키로 모든 앱을 지원하므로, 연간 인증서 갱신이 필요 없고 푸시 전달 실패 위험이 줄어듭니다.
 
-현재 `.p12` 또는 `.pem` 인증서를 사용 중이라면 가능한 한 빨리 `.p8` 키로 마이그레이션하세요. `.p8` 키 생성 및 업로드 방법은 [APNs 푸시 인증서 업로드]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)를 참조하세요. 개발자 계정에서 `.p8` 키를 생성하는 방법에 대한 Apple의 안내는 [인증 토큰을 사용하여 APNs와 통신](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/)을 참조하세요.
+현재 `.p12` 또는 `.pem` 인증서를 사용 중이라면 가능한 한 빨리 `.p8` 키로 마이그레이션하세요. `.p8` 키 생성 및 업로드 방법은 [APNs 푸시 인증서 업로드]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)를 참조하세요. 개발자 계정에서 `.p8` 키를 생성하는 방법에 대한 Apple의 안내는 [인증 토큰을 사용하여 APNs와 통신](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/)을 참조하세요.
 
 ### .p8 키와 .p12 인증서 비교 {#p8-keys-versus-p12-certificates}
 
@@ -185,7 +185,7 @@ Apple `.p8` 인증 키는 Braze에서 APNs 푸시에 필요한 방식입니다. 
 
 **설정** > **앱 설정** > **푸시 알림 설정**에서 **App Bundle ID**, **Team ID**, **Key ID**(`.p8` 키의 경우)가 Apple Developer 계정의 값과 일치하는지 확인하세요. iOS 앱 **번들 ID**가 동일한 경우 여러 Braze 워크스페이스에서 동일한 Apple 푸시 자격 증명을 사용할 수 있습니다. 자격 증명 환경(개발 대 프로덕션)은 앱이 빌드된 방식과 일치해야 합니다.
 
-[Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) 이상의 앱은 [동적 APNs 게이트웨이 관리]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#dynamic-apns-gateway-management)를 사용하여 토큰을 올바른 APNs 환경으로 자동 라우팅할 수 있습니다.
+[Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) 이상의 앱은 [동적 APNs 게이트웨이 관리]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift#dynamic-apns-gateway-management)를 사용하여 토큰을 올바른 APNs 환경으로 자동 라우팅할 수 있습니다.
 
 ## 웹 푸시 알림이 예상대로 작동하지 않음 {#web-push-notifications-arent-behaving-as-expected}
 
@@ -279,6 +279,6 @@ Android에서 푸시 권한을 재설정하려면 이 [Mozilla 지원 문서](ht
 
 ## 푸시 오류 메시지 {#push-error-messages}
 
-일반적인 푸시 오류 메시지(`DEVICE_UNREGISTERED`, `Unregistered`, `NotRegistered` 등)에 대한 자세한 내용은 [일반적인 푸시 오류 메시지]({{site.baseurl}}/user_guide/channels/push/push_error_codes/)를 참조하세요.
+일반적인 푸시 오류 메시지(`DEVICE_UNREGISTERED`, `Unregistered`, `NotRegistered` 등)에 대한 자세한 내용은 [일반적인 푸시 오류 메시지]({{site.baseurl}}/user_guide/channels/push/push_error_codes)를 참조하세요.
 
-추가 도움이 필요하신가요? [지원 티켓]({{site.baseurl}}/braze_support/)을 열어주세요.
+추가 도움이 필요하신가요? [지원 티켓]({{site.baseurl}}/braze_support)을 열어주세요.

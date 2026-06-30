@@ -1,7 +1,7 @@
 ---
 nav_title: Smartling
 article_title: Smartling
-description: "このリファレンス記事では、BrazeとSmartlingのパートナーシップについて説明します。Smartlingはクラウドベースのローカライゼーションソフトウェアです。Braze Connectorは、HTMLメールテンプレート、Content Blocks、Canvases、Campaignメールメッセージの翻訳をサポートします。"
+description: "このリファレンス記事では、BrazeとSmartlingのパートナーシップについて説明します。Smartlingはクラウドベースのローカライゼーションソフトウェアです。Braze Connectorは、HTMLメールテンプレート、Content Blocks、キャンバス、キャンペーンメールメッセージの翻訳をサポートします。"
 alias: /partners/smartling/
 page_type: partner
 search_tag: Partner
@@ -15,7 +15,7 @@ _この統合はSmartlingによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-Braze Connectorは、CampaignsおよびCanvases（メール、プッシュ、アプリ内メッセージ、バナー）、メールテンプレート、およびContent Blocksのメッセージの翻訳をサポートします。各チャネルまたは機能でサポートされているエディタータイプについては、以下の表を参照してください。
+Braze Connectorは、キャンペーンおよびキャンバス（メール、プッシュ、アプリ内メッセージ、バナー）、メールテンプレート、およびContent Blocksのメッセージの翻訳をサポートします。各チャネルまたは機能でサポートされているエディタータイプについては、以下の表を参照してください。
 
 | チャネル/機能 | 従来のエディター（例：HTML） | ドラッグ＆ドロップエディター |
 | --------------- | ----------------------------- | -------------------- |
@@ -99,7 +99,7 @@ Smartlingは、以下の方法でコンテンツを検索および選択する�
 ![翻訳タグ付きのBrazeメール。]({% image_buster /assets/img/smartling/image6_ny_promotion.png %})
 
 {: start="2"}
-2. 翻訳するCampaignを見つけたら、フォルダーを選択し、バリアントを選択して、**Request Translation**を選択します。
+2. 翻訳するキャンペーンを見つけたら、フォルダーを選択し、バリアントを選択して、**Request Translation**を選択します。
 
 ![翻訳のリクエスト。]({% image_buster /assets/img/smartling/image7_request_translation.png %})
 
@@ -120,7 +120,7 @@ Smartlingは、以下の方法でコンテンツを検索および選択する�
 
 ### ステップ 5：Brazeで多言語ユーザーとしてメッセージをプレビューする {#step-5-preview-the-message-as-a-multi-language-user-in-braze}
 
-Brazeで、多言語ユーザーとしてCampaignをプレビューし、翻訳が正しく適用されていることを確認します。
+Brazeで、多言語ユーザーとしてキャンペーンをプレビューし、翻訳が正しく適用されていることを確認します。
 
 ![多言語ユーザープレビュー。]({% image_buster /assets/img/smartling/image11_preview.png %})
 

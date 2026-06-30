@@ -14,22 +14,22 @@ guide_top_text: "Using this set of endpoints, you can update a user's email subs
 guide_featured_title: ""
 guide_featured_list:
   - name: "GET: List Hard Bounces"
-    link: /docs/api/endpoints/email/get_list_hard_bounces/
+    link: /docs/api/endpoints/email/get_list_hard_bounces
     image: /assets/img/braze_icons/message-plus-square.svg
   - name: "GET: Query Unsubscribed Email Addresses"
-    link: /docs/api/endpoints/email/get_query_unsubscribed_email_addresses/
+    link: /docs/api/endpoints/email/get_query_unsubscribed_email_addresses
     image: /assets/img/braze_icons/mail-01.svg
   - name: "POST: Change Email Subscription Status"
-    link: /docs/api/endpoints/email/post_email_subscription_status/
+    link: /docs/api/endpoints/email/post_email_subscription_status
     image: /assets/img/braze_icons/at-sign.svg
   - name: "POST: Remove Hard Bounces"
-    link: /docs/api/endpoints/email/post_remove_hard_bounces/
+    link: /docs/api/endpoints/email/post_remove_hard_bounces
     image: /assets/img/braze_icons/message-plus-square.svg
   - name: "POST: Remove Spam"
-    link: /docs/api/endpoints/email/post_remove_spam/
+    link: /docs/api/endpoints/email/post_remove_spam
     image: /assets/img/braze_icons/mail-04.svg
   - name: "POST: Blocklist Email"
-    link: /docs/api/endpoints/email/post_blocklist/
+    link: /docs/api/endpoints/email/post_blocklist
     image: /assets/img/braze_icons/mail-04.svg
 ---
 {% comment %}

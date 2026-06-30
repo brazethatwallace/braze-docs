@@ -2,7 +2,7 @@
 nav_title: バリアント選択
 article_title: バリアント選択
 page_order: 1.6
-description: "この記事では、A/B Campaignsが最適なエンゲージメントに向けて自動的に最適化できる機能であるBrazeAI<sup>TM</sup>バリアント選択について説明します。"
+description: "この記事では、A/B キャンペーンが最適なエンゲージメントに向けて自動的に最適化できる機能であるBrazeAI<sup>TM</sup>バリアント選択について説明します。"
 search_rank: 10
 toc_headers: h2
 ---
@@ -17,15 +17,15 @@ BrazeAI<sup>TM</sup>バリアント選択は現在、プッシュでのみ利用
 
 ## 前提条件 {#prerequisites}
 
-BrazeAI<sup>TM</sup>バリアント選択を使用するには、CampaignまたはCanvasで以下が必要です。
+BrazeAI<sup>TM</sup>バリアント選択を使用するには、キャンペーンまたはキャンバスで以下が必要です。
 
 {% tabs %}
-{% tab Campaign %}
+{% tab キャンペーン %}
 - 少なくとも2つのメッセージバリアントを追加します。
 - 単一送信を使用しない場合は、少なくとも1つのコンバージョンイベントを定義し、再適格性の時間枠を24時間以上に設定します。短い時間枠はサポートされていません。コントロールバリアントの整合性に影響を与える可能性があるためです。
 {% endtab %}
 
-{% tab Canvas %}
+{% tab キャンバス %}
 - メッセージステップに少なくとも2つのメッセージバリアントを含めます。
 - 単一送信を使用しない場合は、少なくとも1つのコンバージョンイベントが必要です。
 {% endtab %}
@@ -107,23 +107,23 @@ Brazeは調整を行う際に定期的に結果を分析し、各期間の向上
 
 ## よくある質問 {#faq}
 
-### 繰り返しCampaignsまたはCanvasesでバリアント選択と組み合わせた場合、24時間未満の再適格性が利用できないのはなぜですか？ {#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-variant-selection-for-recurring-campaigns-or-canvases}
+### 繰り返しキャンペーンまたはキャンバスでバリアント選択と組み合わせた場合、24時間未満の再適格性が利用できないのはなぜですか？ {#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-variant-selection-for-recurring-campaigns-or-canvases}
 
-バリアント選択のCampaignsで再適格性の時間枠が短すぎることを許可していません。テストにより、コントロールバリアントの整合性に影響を与え、望ましくない配分につながる可能性があることが示されているためです。
+バリアント選択のキャンペーンで再適格性の時間枠が短すぎることを許可していません。テストにより、コントロールバリアントの整合性に影響を与え、望ましくない配分につながる可能性があることが示されているためです。
 
-### 繰り返しCampaignの初期段階でバリアントが均等な送信を示しているのはなぜですか？ {#why-are-my-variants-showing-equal-sends-during-the-early-stages-of-my-recurring-campaign}
+### 繰り返しキャンペーンの初期段階でバリアントが均等な送信を示しているのはなぜですか？ {#why-are-my-variants-showing-equal-sends-during-the-early-stages-of-my-recurring-campaign}
 
-バリアント選択は、バリアント間で均等に送信されるトレーニング期間の後にのみ、最終的なバリアント割り当てを決定します。パフォーマンスの傾向に気づくにつれて、時間の経過とともに調整されます。Campaignの初期段階で均等に送信したくない場合は、従来のA/Bテスト用の固定バリアントを使用してください。
+バリアント選択は、バリアント間で均等に送信されるトレーニング期間の後にのみ、最終的なバリアント割り当てを決定します。パフォーマンスの傾向に気づくにつれて、時間の経過とともに調整されます。キャンペーンの初期段階で均等に送信したくない場合は、従来のA/Bテスト用の固定バリアントを使用してください。
 
 ### 繰り返しバリアント選択は、明確な勝者を選ばずに最適化を停止しますか？ {#does-recurring-variant-selection-stop-optimizing-without-picking-a-clear-winner}
 
 はい、実験を続けてもコンバージョン率が現在の率の1%以上改善されないと95%の信頼度で判断した場合、最適化を停止します。
 
-### CanvasまたはCampaignでバリアント選択を有効にできないのはなぜですか？ {#why-cant-i-enable-variant-selection-in-my-canvas-or-campaign}
+### キャンバスまたはキャンペーンでバリアント選択を有効にできないのはなぜですか？ {#why-cant-i-enable-variant-selection-in-my-canvas-or-campaign}
 
-単一送信の場合、CanvasまたはCampaignが単一のバリアントで構成されている場合、バリアント選択を有効にできません。
+単一送信の場合、キャンバスまたはキャンペーンが単一のバリアントで構成されている場合、バリアント選択を有効にできません。
 
 繰り返しの場合、以下の条件ではバリアント選択を有効にできません：
-- CampaignまたはCanvasにコンバージョンイベントを追加していない場合。
+- キャンペーンまたはキャンバスにコンバージョンイベントを追加していない場合。
 - 24時間未満の時間枠で再適格性が有効になっている場合。
-- CanvasまたはCampaignが単一のバリアントで構成されている場合。
+- キャンバスまたはキャンペーンが単一のバリアントで構成されている場合。

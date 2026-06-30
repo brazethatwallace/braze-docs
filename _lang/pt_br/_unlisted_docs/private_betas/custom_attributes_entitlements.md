@@ -42,18 +42,18 @@ Administradores também podem criar atributos personalizados e marcá-los como I
 
 ### Adicionando descrições {#adding-descriptions}
 
-Você pode adicionar uma descrição a um atributo personalizado após ele ser criado, se tiver a [permissão de usuário](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) `Manage Events, Attributes, Purchases`. Edite o atributo personalizado e insira o que desejar, como uma nota para sua equipe.
+Você pode adicionar uma descrição a um atributo personalizado após ele ser criado, se tiver a [permissão de usuário]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) `Manage Events, Attributes, Purchases`. Edite o atributo personalizado e insira o que desejar, como uma nota para sua equipe.
 
 ### Adicionando tags {#adding-tags}
 
-Você pode adicionar tags a um atributo personalizado após ele ser criado, se tiver a [permissão de usuário](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) "Manage Events, Attributes, Purchases". As tags podem então ser usadas para filtrar a lista de atributos.
+Você pode adicionar tags a um atributo personalizado após ele ser criado, se tiver a [permissão de usuário]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) "Manage Events, Attributes, Purchases". As tags podem então ser usadas para filtrar a lista de atributos.
 
 ### Removendo atributos personalizados {#removing-custom-attributes}
 
 Existem duas maneiras de remover atributos personalizados dos perfis de usuário:
 
-* Selecione o nome do atributo personalizado a ser removido em uma [etapa de Atualização de usuário](https://www.braze.com/docs/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes).
-* Defina o valor `null` na sua solicitação de API para o [endpoint `/users/track`](https://www.braze.com/docs/api/endpoints/user_data/post_user_track#user-track).
+* Selecione o nome do atributo personalizado a ser removido em uma [etapa de Atualização de usuário]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes).
+* Defina o valor `null` na sua solicitação de API para o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track).
 
 ### Visualizando relatórios de uso {#viewing-usage-reports}
 
@@ -71,19 +71,19 @@ A seguir estão listados os métodos em várias plataformas usados para definir 
 
 {% details Expandir para documentação por plataforma %}
 
-- [Android e FireOS](https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/?sdktab=android)
-- [iOS](https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
-- [Web](https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/?sdktab=web)
-- [React Native](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
-- [Unity](https://www.braze.com/docs/developer_guide/platform_integration_guides/unity/Analytics/setting_custom_attributes/)
-- [Xamarin](https://www.braze.com/docs/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
-- [Roku](https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/)
+- [Android e FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
+- [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=unity)
+- [Xamarin]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)
 
 {% enddetails %}
 
 ## Armazenamento de atributos personalizados {#custom-attribute-storage}
 
-Todos os dados armazenados no **Perfil de usuário**, incluindo dados de atributos personalizados, são retidos indefinidamente enquanto cada perfil estiver [ativo](https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users).
+Todos os dados armazenados no **Perfil de usuário**, incluindo dados de atributos personalizados, são retidos indefinidamente enquanto cada perfil estiver [ativo]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users).
 
 ## Tipos de dados de atributos personalizados {#custom-attribute-data-types}
 
@@ -96,8 +96,8 @@ Os seguintes tipos de dados podem ser armazenados como atributos personalizados:
 - [Strings](#strings)
 - [Arrays](#arrays)
 - [Tempo](#time)
-- [Objetos](https://www.braze.com/docs/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)
-- [Arrays de objetos](https://www.braze.com/docs/user_guide/data/custom_data/custom_attributes/array_of_objects/)
+- [Objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)
+- [Arrays de objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/)
 
 ### Booleanos (verdadeiro/falso) {#booleans}
 
@@ -158,7 +158,7 @@ Observe que se você inserir valores com espaços entre, antes ou depois das pal
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert note %}
-Uma string de data como "12-1-2021" ou "12/1/2021" será convertida em um objeto datetime e tratada como um [atributo de tempo](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_attributes/#time).
+Uma string de data como "12-1-2021" ou "12/1/2021" será convertida em um objeto datetime e tratada como um [atributo de tempo]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#time).
 {% endalert %}
 
 {% alert important %}
@@ -197,7 +197,7 @@ A opção de aumentar o comprimento máximo não estará disponível se o atribu
 {% alert tip %}
 Para saber mais sobre como usar expressões regulares (regex), confira estes recursos:
 - [Expressões regulares compatíveis com Perl (PCRE)](https://www.regextester.com/pregsyntax.html)
-- [Regex com a Braze](https://www.braze.com/docs/user_guide/engagement_tools/segments/regex/)
+- [Regex com a Braze]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/)
 - [Depurador e testador de regex](https://www.regex101.com/)
 - [Tutorial de regex](https://www.medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -236,11 +236,11 @@ A última data em que um evento personalizado ou evento de compra ocorreu é reg
 
 ### Objetos {#objects}
 
-Você pode usar atributos personalizados aninhados para enviar objetos como um tipo de dados para atributos personalizados. Para saber mais, consulte [Atributos personalizados aninhados](https://www.braze.com/docs/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
+Você pode usar atributos personalizados aninhados para enviar objetos como um tipo de dados para atributos personalizados. Para saber mais, consulte [Atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
 
 ### Arrays de objetos {#arrays-of-objects}
 
-Use um array de objetos para agrupar atributos relacionados. Para mais detalhes, consulte nosso artigo sobre [Array de objetos](https://www.braze.com/docs/user_guide/data/custom_data/custom_attributes/array_of_objects/).
+Use um array de objetos para agrupar atributos relacionados. Para mais detalhes, consulte nosso artigo sobre [Array de objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/).
 
 ### Operadores consolidados {#consolidated-operators}
 
@@ -273,7 +273,7 @@ Usar nossos métodos de compra para registrar compras no app estabelece o Lifeti
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert tip %}
-Se você quiser segmentar pelo número de vezes que uma compra específica ocorreu, também deve registrar essa compra individualmente como um [atributo personalizado incremental](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes/#incrementingdecrementing-custom-attributes).
+Se você quiser segmentar pelo número de vezes que uma compra específica ocorreu, também deve registrar essa compra individualmente como um [atributo personalizado incremental]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes/#incrementingdecrementing-custom-attributes).
 {% endalert %}
 
-Você pode alterar o tipo de dados do seu atributo personalizado, mas deve estar ciente dos impactos da [alteração de tipos de dados](https://www.braze.com/docs/help/help_articles/data/change_custom_data_type/).
+Você pode alterar o tipo de dados do seu atributo personalizado, mas deve estar ciente dos impactos da [alteração de tipos de dados]({{site.baseurl}}/help/help_articles/data/change_custom_data_type/).

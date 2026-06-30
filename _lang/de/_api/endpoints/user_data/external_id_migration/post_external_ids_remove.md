@@ -26,7 +26,7 @@ Dieser Endpunkt löscht die veraltete ID vollständig und kann nicht rückgängi
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key/) mit der Berechtigung `users.external_ids.remove`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `users.external_ids.remove`.
 
 ## Rate-Limit
 

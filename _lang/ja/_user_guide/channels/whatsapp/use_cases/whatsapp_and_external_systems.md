@@ -30,7 +30,7 @@ Brazeと外部AIまたはコミュニケーションシステム間の統合は�
 **インバウンドフロー：** ユーザーのメッセージがBrazeに届き、処理のために外部システムに転送されます。
 **アウトバウンドフロー：** メッセージを処理した後、外部システムがBrazeに応答を送信し、Brazeがエンドユーザーにメッセージを配信します。
 
-このコミュニケーションを効率的に自動化するために、この統合では2つの主要なBraze機能を使用します：[webhookキャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)と[APIトリガーキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)です。
+このコミュニケーションを効率的に自動化するために、この統合では2つの主要なBraze機能を使用します：[webhookキャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)と[APIトリガーキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)です。
 
 ![BrazeのWhatsAppチャネルと外部システム間の統合アーキテクチャ。]({% image_buster /assets/img/whatsapp/external_system_architecture.png %})
 ## 統合の設定 {#configuring-the-integration}
@@ -115,4 +115,4 @@ curl -X POST \
 統合ロジックを拡張して以下のことが可能です：
 - 異なるキーワードを使用して、個別のwebhookキャンペーンをトリガーする。
 - マルチステップのAPIトリガーキャンペーンを使用して、より複雑な会話フローを作成する。
-- チャット情報をBrazeにカスタム属性として記録し、ユーザープロファイルを充実させ、将来のCampaignsのセグメンテーションに活用する。
+- チャット情報をBrazeにカスタム属性として記録し、ユーザープロファイルを充実させ、将来のキャンペーンのセグメンテーションに活用する。

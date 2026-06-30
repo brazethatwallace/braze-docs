@@ -21,7 +21,7 @@ description: "この記事では、「カタログアイテムを作成」Braze�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.create_item` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`catalogs.create_item` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -117,7 +117,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 
 | エラー | トラブルシューティング |
 | --- | --- |
-| `arbitrary-error` | 任意のエラーが発生しました。もう一度試すか、[サポート]({{site.baseurl}}/support_contact/)に連絡してください。 |
+| `arbitrary-error` | 任意のエラーが発生しました。もう一度試すか、[サポート]({{site.baseurl}}/support_contact)に連絡してください。 |
 | `catalog-not-found` | カタログ名が有効であることを確認してください。 |
 | `filtered-set-field-too-long` | フィールド値が、アイテムの文字数制限を超えるフィルターセットで使用されています。 |
 | `id-in-body` | リクエスト本文のアイテムIDを削除してください。 |

@@ -13,7 +13,7 @@ platform:
 
 # Administrar ubicaciones de banners {#manage-banner-placements}
 
-> Aprende a crear y administrar ubicaciones de banners en el SDK de Braze, incluido el acceso a sus propiedades únicas y el registro de impresiones. Para obtener información más general, consulta [Acerca de los banners]({{site.baseurl}}/developer_guide/banners/).
+> Aprende a crear y administrar ubicaciones de banners en el SDK de Braze, incluido el acceso a sus propiedades únicas y el registro de impresiones. Para obtener información más general, consulta [Acerca de los banners]({{site.baseurl}}/developer_guide/banners).
 
 ## Acerca de las solicitudes de ubicación {#requests}
 
@@ -25,7 +25,7 @@ platform:
 
 Estas son las versiones mínimas del SDK necesarias para crear ubicaciones de banners:
 
-{% multi_lang_include sdk_versions.md feature='banners' %}
+{% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
 {% multi_lang_include banners/creating_placements.md section="developer" %}
 
@@ -268,7 +268,7 @@ This feature is not currently supported on Roku.
 ### Paso 4: Inserta utilizando el ID de ubicación {#insertBanner}
 
 {% alert tip %}
-Para obtener un tutorial completo paso a paso, consulta [Mostrar un banner por ID de ubicación]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/).
+Para obtener un tutorial completo paso a paso, consulta [Mostrar un banner por ID de ubicación]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners).
 {% endalert %}
 
 {% tabs %}
@@ -555,7 +555,7 @@ This feature is not currently supported on Roku.
 
 ### Paso 5: Enviar un banner de prueba (opcional) {#handling-test-cards}
 
-Antes de lanzar una campaña de banners, puedes [enviar un banner de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=banners) para verificar tu integración. Los banners de prueba se almacenan en una caché independiente en memoria y no se conservan tras reiniciar la aplicación. Aunque no se necesita ninguna configuración adicional, tu dispositivo de prueba debe ser capaz de recibir notificaciones push en primer plano para poder mostrar la prueba.
+Antes de lanzar una Campaign de banners, puedes [enviar un banner de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=banners) para verificar tu integración. Los banners de prueba se almacenan en una caché independiente en memoria y no se conservan tras reiniciar la aplicación. Aunque no se necesita ninguna configuración adicional, tu dispositivo de prueba debe ser capaz de recibir notificaciones push en primer plano para poder mostrar la prueba.
 
 {% alert note %}
 Los banners de prueba son como cualquier otro banner, salvo que se eliminan en la siguiente sesión de la aplicación.
@@ -583,13 +583,13 @@ Si tu banner utiliza el bloque de editor **Custom Code** en el panel de Braze, d
 </button>
 ```
 
-Para obtener la referencia completa, consulta [Código personalizado y puente JavaScript para banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-code). `brazeBridge` proporciona una capa de comunicación entre el HTML interno del banner y el SDK principal de Braze.
+Para obtener la referencia completa, consulta [Código personalizado y puente JavaScript para banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-code). `brazeBridge` proporciona una capa de comunicación entre el HTML interno del banner y el SDK principal de Braze.
 
 ### Implementaciones de interfaz de usuario personalizadas (headless) {#custom-ui-implementations-headless}
 
 Si estás creando una interfaz de usuario totalmente personalizada utilizando las [propiedades personalizadas](#custom-properties) del banner en lugar de renderizar el HTML del banner, debes registrar manualmente los clics y las impresiones desde el código de tu aplicación. Dado que el SDK no muestra el banner, no tiene forma de realizar un seguimiento automático de las interacciones con tus elementos de interfaz de usuario personalizados.
 
-Para las firmas de los métodos y todos los detalles, consulta la [documentación de referencia del SDK de Braze]({{site.baseurl}}/developer_guide/references/).
+Para las firmas de los métodos y todos los detalles, consulta la [documentación de referencia del SDK de Braze]({{site.baseurl}}/developer_guide/references).
 
 #### Registrar impresiones {#logging-impressions}
 
@@ -717,6 +717,7 @@ Estas son las versiones mínimas del SDK necesarias para registrar descartes de 
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### Integraciones {#integrations}
+
 #### Integraciones estándar de banners (editor de arrastrar y soltar) {#standard-banner-integrations-drag-and-drop-editor}
 
 Si tu banner utiliza el editor de arrastrar y soltar e incluye un componente de botón de descarte, no se necesita código adicional. Cuando un usuario hace clic en el botón de descarte, el mensaje se oculta, se activa un descarte y luego se registra un evento de descarte para los análisis.
@@ -858,7 +859,7 @@ Esto es lo que debes saber sobre las dimensiones y el tamaño de los banners:
 
 ## Propiedades personalizadas {#custom-properties}
 
-Puedes utilizar propiedades personalizadas de tu campaña de banners para recuperar datos clave-valor a través del SDK y modificar el comportamiento o la apariencia de tu aplicación. Por ejemplo, podrías:
+Puedes utilizar propiedades personalizadas de tu Campaign de banners para recuperar datos clave-valor a través del SDK y modificar el comportamiento o la apariencia de tu aplicación. Por ejemplo, podrías:
 
 - Enviar metadatos para tus análisis o integraciones de terceros.
 - Utilizar metadatos como un `timestamp` o un objeto JSON para desencadenar lógica condicional.
@@ -866,7 +867,7 @@ Puedes utilizar propiedades personalizadas de tu campaña de banners para recupe
 
 ### Requisitos previos
 
-Debes [añadir propiedades personalizadas]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-properties) a tu campaña de banners. Además, estas son las versiones mínimas del SDK necesarias para acceder a las propiedades personalizadas:
+Debes [añadir propiedades personalizadas]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-properties) a tu Campaign de banners. Además, estas son las versiones mínimas del SDK necesarias para acceder a las propiedades personalizadas:
 
 {% sdk_min_versions swift:13.1.0 android:38.0.0 web:6.1.0 reactnative:17.0.0 flutter:15.1.0 %}
 

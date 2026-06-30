@@ -20,7 +20,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `purchases.product_list`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `purchases.product_list`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -55,5 +55,5 @@ https://rest.iad-01.braze.com/purchases/product_list?page=1
 {% endapi %}
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}

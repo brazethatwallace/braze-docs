@@ -7,7 +7,7 @@ page_order: 3
 
 # Referenz für Agenten {#reference-for-agents}
 
-> Wenn Sie angepasste Agenten erstellen, lesen Sie diesen Artikel für weitere Informationen zu wichtigen Einstellungen wie Anweisungen und Ausgabeschemata. Eine schrittweise Einrichtungsanleitung finden Sie unter [Angepasste Agenten erstellen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/). Eine Einführung finden Sie unter [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) und [Häufig gestellte Fragen]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
+> Wenn Sie angepasste Agenten erstellen, lesen Sie diesen Artikel für weitere Informationen zu wichtigen Einstellungen wie Anweisungen und Ausgabeschemata. Eine schrittweise Einrichtungsanleitung finden Sie unter [Angepasste Agenten erstellen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents). Eine Einführung finden Sie unter [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) und [Häufig gestellte Fragen]({{site.baseurl}}/user_guide/brazeai/agents/faq).
 
 ## Modelle {#models}
 
@@ -29,7 +29,7 @@ Sollten Sie beim Erstellen eines Agenten die Option **Braze Auto** nicht in der 
 
 Mit dieser Option können Sie Ihr Braze-Konto mit Anbietern wie OpenAI, Anthropic oder Google Gemini verbinden. Wenn Sie Ihren eigenen API-Schlüssel von einem LLM-Anbieter verwenden, werden die Token-Kosten direkt über Ihren Anbieter und nicht über Braze abgerechnet.
 
-Wir empfehlen, regelmäßig die neuesten Modelle zu testen, da ältere Modelle nach einigen Monaten möglicherweise eingestellt oder als veraltet markiert werden. Sie können sich auch für Benachrichtigungen der Agentenkonsole unter [Präferenzen für Benachrichtigungen]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) anmelden, um benachrichtigt zu werden, wenn Braze erkennt, dass ein Modell nicht mehr verfügbar ist oder Abrechnungsprobleme mit Ihrem LLM-Anbieter auftreten.
+Wir empfehlen, regelmäßig die neuesten Modelle zu testen, da ältere Modelle nach einigen Monaten möglicherweise eingestellt oder als veraltet markiert werden. Sie können sich auch für Benachrichtigungen der Agentenkonsole unter [Präferenzen für Benachrichtigungen]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) anmelden, um benachrichtigt zu werden, wenn Braze erkennt, dass ein Modell nicht mehr verfügbar ist oder Abrechnungsprobleme mit Ihrem LLM-Anbieter auftreten.
 
 So richten Sie dies ein:
 
@@ -55,7 +55,7 @@ Einige LLM-Anbieter ermöglichen es Ihnen, die Denkstufe eines ausgewählten Mod
 
 Wir empfehlen, mit **Minimal** zu beginnen und die Antworten Ihres Agenten zu testen. Anschließend können Sie die Denkstufe auf **Niedrig** oder **Mittel** anpassen, wenn der Agent Schwierigkeiten hat, genaue Antworten zu liefern. In seltenen Fällen kann eine **hohe** Denkstufe erforderlich sein, wobei diese Stufe zu hohen Token-Kosten und längeren Antwortzeiten oder einem höheren Risiko von Timeout-Fehlern führen kann. Wenn Ihr Agent Schwierigkeiten hat, mehrstufiges Denken mit angemessenen Antwortzeiten in Einklang zu bringen, sollten Sie Ihren Anwendungsfall in mehrere Agenten aufteilen, die in einem Canvas oder Katalog zusammenarbeiten können.
 
-Braze verwendet für ausgehende LLM-Aufrufe dieselben IP-Bereiche wie für Connected-Content. Die Bereiche sind in der [Connected-Content-IP-Zulassungsliste]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting) aufgeführt. Wenn Ihr Anbieter IP-Zulassungslisten unterstützt, können Sie den Schlüssel auf diese Bereiche beschränken, sodass nur Braze ihn verwenden kann.
+Braze verwendet für ausgehende LLM-Aufrufe dieselben IP-Bereiche wie für Connected-Content. Die Bereiche sind in der [Connected-Content-IP-Zulassungsliste]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting) aufgeführt. Wenn Ihr Anbieter IP-Zulassungslisten unterstützt, können Sie den Schlüssel auf diese Bereiche beschränken, sodass nur Braze ihn verwenden kann.
 
 {% alert important %}
 Wenn Sie ein von Braze bereitgestelltes LLM verwenden, agieren die Anbieter eines solchen Modells als Unterauftragsverarbeiter von Braze, vorbehaltlich der Bestimmungen des Datenverarbeitungszusatzes (DPA) zwischen Ihnen und Braze. Wenn Sie sich dafür entscheiden, Ihren eigenen API-Schlüssel einzubinden, gilt der Anbieter Ihres LLM-Abos gemäß dem Vertrag zwischen Ihnen und Braze als Drittanbieter.
@@ -75,16 +75,16 @@ Jeder LLM-Anbieter bietet eine leicht unterschiedliche Mischung aus Modellfähig
 
 Die folgenden Aufruf-Rate-Limits gelten pro Workspace:
 
-- **Von Braze bereitgestelltes Modell:** 1.000 Aufrufe pro Minute
-- **Eigener API-Schlüssel:** 2.500 Aufrufe pro Minute
+- **Von Braze bereitgestelltes Modell:** 5.000 Aufrufe pro Minute
+- **Eigener API-Schlüssel:** 5.000 Aufrufe pro Minute
 
 Wenn viele Nutzer:innen gleichzeitig einen Agenten-Schritt aufrufen, reiht Braze die Aufrufe gemäß diesen Limits in eine Warteschlange ein, sodass die Verarbeitung bei Sendungen mit hohem Volumen länger dauern kann.
 
 ### Rate-Limit-Fehler {#rate-limit-errors}
 
-Wenn der LLM-Anbieter einen Rate-Limit-Fehler zurückgibt, wiederholt Braze die Anfrage mit exponentiellem Backoff. Dieses Wiederholungsverhalten gilt für Canvas-Agenten-Schritte. Katalog-Agenten wiederholen fehlgeschlagene Aufrufe nicht, einschließlich Rate-Limit-Fehlern des LLM-Anbieters.
+Wenn der LLM-Anbieter während eines **Canvas-Agenten-Schritts** einen Rate-Limit-Fehler zurückgibt, wiederholt Braze die Anfrage kontinuierlich mit exponentiellem Backoff, bis der Aufruf erfolgreich ist oder Braze feststellt, dass er nicht abgeschlossen werden kann. **Katalog-Agenten** wiederholen Rate-Limit-begrenzte Aufrufe nicht.
 
-Wenn alle Wiederholungsversuche fehlschlagen, zeigt das Detailpanel **Logs** den Status **Error** und die Anbieternachricht (z. B. `Rate limit exceeded`) unter **Ausgabe** an. Jeder Wiederholungsversuch ist in den Logs sichtbar, einschließlich des allerersten Aufrufs unabhängig von seinem endgültigen Erfolg oder Misserfolg. Wenn es bei einer bestimmten Nutzerin bzw. einem bestimmten Nutzer vier Wiederholungsversuche braucht, um schließlich einen Erfolg zu erzielen, können Sie die Nutzer-ID suchen und alle fünf Einträge (Original plus vier Wiederholungen) in den **Logs** sehen. Das Original und die ersten drei Wiederholungen zeigen dabei **Error** mit `Rate limit exceeded` an.
+Wenn alle Canvas-Wiederholungsversuche erschöpft sind, zeigt das Detailpanel **Logs** den Status **Error** und die Anbieternachricht (z. B. `Rate limit exceeded`) unter **Ausgabe** an. Wiederholungsversuche sind in den Logs sichtbar, einschließlich des allerersten Aufrufs unabhängig von seinem endgültigen Erfolg oder Misserfolg. Wenn es bei einer bestimmten Nutzerin bzw. einem bestimmten Nutzer vier Wiederholungsversuche braucht, um schließlich einen Erfolg zu erzielen, können Sie die Nutzer-ID suchen und alle fünf Einträge (Original plus vier Wiederholungen) in den **Logs** sehen. Das Original und die ersten drei Wiederholungen zeigen dabei **Error** mit `Rate limit exceeded` an.
 
 ![Agentenkonsole-Logdetails mit einem „Rate limit exceeded“-Fehler im Ausgabefeld.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
 
@@ -92,7 +92,7 @@ Wenn alle Wiederholungsversuche fehlschlagen, zeigt das Detailpanel **Logs** den
 
 Anweisungen sind die Regeln oder Richtlinien, die Sie dem Agenten geben (System-Prompt). Sie legen fest, wie sich der Agent bei jeder Ausführung verhalten soll. Systemanweisungen können bis zu 25 KB groß sein.
 
-Wenn Sie Ihren Agenten mit [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) unter Verwendung einer [Startvorlage]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator) erstellt haben, überprüfen Sie die vorausgefüllten Anweisungen und bearbeiten Sie diese nach Bedarf.
+Wenn Sie Ihren Agenten mit [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator) unter Verwendung einer [Startvorlage]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator) erstellt haben, überprüfen Sie die vorausgefüllten Anweisungen und bearbeiten Sie diese nach Bedarf.
 
 Hier sind einige allgemeine Best Practices für den Einstieg in das Prompting:
 
@@ -109,11 +109,11 @@ Hier sind einige allgemeine Best Practices für den Einstieg in das Prompting:
 
 ### Beispiele {#examples}
 
-Für Startkonfigurationen in der Agentenkonsole siehe [Agentenvorlagen, erstellt mit Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator). Für vollständige Anweisungsbeispiele, die Sie kopieren oder anpassen können, besuchen Sie die [Anwendungsfallbibliothek für Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/).
+Für Startkonfigurationen in der Agentenkonsole siehe [Agentenvorlagen, erstellt mit Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator). Für vollständige Anweisungsbeispiele, die Sie kopieren oder anpassen können, besuchen Sie die [Anwendungsfallbibliothek für Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/use_cases).
 
 ### Liquid verwenden {#using-liquid}
 
-Die Einbindung von [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) in die Anweisungen Ihres Agenten kann dessen Antworten eine zusätzliche Ebene der Personalisierung verleihen. Sie können die genaue Liquid-Variable angeben, die der Agent erhält, und diese in den Kontext Ihres Prompts einfügen. Anstatt beispielsweise explizit „Vorname“ zu schreiben, können Sie das Liquid-Snippet {% raw %}`{{${first_name}}}`{% endraw %} verwenden:
+Die Einbindung von [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) in die Anweisungen Ihres Agenten kann dessen Antworten eine zusätzliche Ebene der Personalisierung verleihen. Sie können die genaue Liquid-Variable angeben, die der Agent erhält, und diese in den Kontext Ihres Prompts einfügen. Anstatt beispielsweise explizit „Vorname“ zu schreiben, können Sie das Liquid-Snippet {% raw %}`{{${first_name}}}`{% endraw %} verwenden:
 
 {% raw %}
 ```
@@ -135,7 +135,7 @@ Weitere Informationen zu Best Practices für Prompting finden Sie in den Leitfä
 
 ## Ausgaben {#outputs}
 
-Wenn Sie Ihren Agenten mit [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) unter Verwendung einer [Startvorlage]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator) erstellt haben, überprüfen Sie das vorausgefüllte Ausgabeschema und bearbeiten Sie es nach Bedarf.
+Wenn Sie Ihren Agenten mit [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator) unter Verwendung einer [Startvorlage]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator) erstellt haben, überprüfen Sie das vorausgefüllte Ausgabeschema und bearbeiten Sie es nach Bedarf.
 
 ### Einfache Schemata {#basic-schemas}
 
@@ -157,6 +157,14 @@ Erweiterte Schema-Optionen umfassen die manuelle Strukturierung von Feldern oder
 - **JSON:** Ein Code-Ansatz zur Erstellung eines präzisen Ausgabeformats, bei dem Sie Variablen und Objekte innerhalb des JSON-Schemas verschachteln können. Nur für Canvas-Agenten verfügbar, nicht für Katalog-Agenten.
 
 Wir empfehlen die Verwendung erweiterter Schemata, wenn der Agent eine Datenstruktur mit mehreren strukturiert definierten Werten zurückgeben soll, anstatt einer einzelnen Ausgabe. Dadurch kann die Ausgabe besser als konsistente Kontextvariable formatiert werden.
+
+### Fallback-Ausgabe {#fallback-output}
+
+Fallback-Werte sind nur für **Canvas-Schritt-Agenten** verfügbar. Im Abschnitt **Ausgabe** der Agentenkonsole für einen Canvas-Agenten können Sie Werte definieren, die Braze verwendet, wenn ein Aufruf fehlschlägt.
+
+Für **JSON**-Schemata liest Braze das Schema und generiert ein Eingabefeld für jede Eigenschaft, sodass Sie einen Fallback-Wert pro Schlüssel festlegen können. Für **Felder**-Schemata geben Sie einen Fallback-Wert für jedes Feld ein. Für einfache Schemata geben Sie einen einzelnen Fallback-Wert ein. Canvas-Agenten unterstützen Liquid in Fallback-Werten.
+
+Informationen zu den Einrichtungsschritten finden Sie unter [Fallback-Werte konfigurieren]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values). Informationen zum Laufzeitverhalten in Canvas finden Sie unter [Fehlerbehandlung und Fallback-Verhalten]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior).
 
 Beispielsweise können Sie ein Ausgabeformat innerhalb eines Agenten verwenden, der eine Beispiel-Reiseroute für Nutzer:innen basierend auf einem eingereichten Formular erstellen soll. Das Ausgabeformat ermöglicht es Ihnen festzulegen, dass jede Agentenantwort Werte für `tripStartDate`, `tripEndDate` und `destination` enthalten soll. Jeder dieser Werte kann aus Kontextvariablen extrahiert und in einem Nachrichtenschritt zur Personalisierung mit Liquid eingefügt werden.
 
@@ -206,6 +214,12 @@ Wählen Sie bestimmte Kataloge aus, die ein Agent referenzieren soll, und geben 
 
 ![Der Katalog „restaurants“ und die Spalte „Loyalty_Program“, die für die Suche durch den Agenten ausgewählt wurden.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
 
+Wenn Sie einen Katalog-Agenten in einem Katalogfeld bereitstellen, aktivieren Sie die Pflichtfeld-Steuerung und wählen Sie aus, welche ausgewählten Spalten **für die Ausführung erforderlich** sind, bevor der Agent aufgerufen wird. Der Agent überspringt eine Zeile nur dann, wenn eine dieser Pflichtspalten leer ist oder fehlt – beispielsweise ein `gender`-Feld, das noch nicht ausgefüllt wurde. Ausgewählte Spalten sind standardmäßig als Pflichtfelder markiert, aber Sie können Spalten entfernen, die leer sein dürfen, ohne die Ausführung zu blockieren. Dies verhindert verschwendete Token bei unvollständigen Daten.
+
+Katalog-Agenten berücksichtigen auch die Spaltenreihenfolge, wenn Eingabefelder voneinander abhängen. Wenn Spalte D aus den Spalten B und C generiert werden soll, führt der Agent Spalte D erst aus, wenn B und C Werte für diese Zeile enthalten.
+
+Informationen zu Bereitstellungsszenarien und Beispielen finden Sie unter [Katalog-Agenten verwenden]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents) und [Best Practices für Katalog-Agenten]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices).
+
 ## Segmentzugehörigkeitskontext {#segment-membership-context}
 
 Sie können bis zu fünf Segmente auswählen, anhand derer der Agent die Segmentzugehörigkeit jedes Nutzers bzw. jeder Nutzerin abgleichen kann, wenn der Agent in einem Canvas verwendet wird. Angenommen, Ihr Agent hat die Segmentzugehörigkeit für ein Segment „Treue-Nutzer:innen“ ausgewählt und wird in einem Canvas eingesetzt. Wenn Nutzer:innen einen Agenten-Schritt aufrufen, kann der Agent prüfen, ob jede Nutzerin bzw. jeder Nutzer Mitglied der in der Agentenkonsole angegebenen Segmente ist, und die Zugehörigkeit (oder Nicht-Zugehörigkeit) als Kontext für das LLM verwenden.
@@ -214,7 +228,7 @@ Sie können bis zu fünf Segmente auswählen, anhand derer der Agent die Segment
 
 ## Markenrichtlinien {#brand-guidelines}
 
-Sie können [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) auswählen, an die sich Ihr Agent bei seinen Antworten halten soll. Wenn Sie beispielsweise möchten, dass Ihr Agent SMS-Texte erstellt, um Nutzer:innen zur Anmeldung für eine Fitnessstudio-Mitgliedschaft zu motivieren, können Sie dieses Feld verwenden, um Ihre vordefinierte, motivierende Richtlinie zu referenzieren.
+Sie können [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) auswählen, an die sich Ihr Agent bei seinen Antworten halten soll. Wenn Sie beispielsweise möchten, dass Ihr Agent SMS-Texte erstellt, um Nutzer:innen zur Anmeldung für eine Fitnessstudio-Mitgliedschaft zu motivieren, können Sie dieses Feld verwenden, um Ihre vordefinierte, motivierende Richtlinie zu referenzieren.
 
 ## Nutzerspezifischer Interaktionsverlauf {#user-history}
 
@@ -233,5 +247,3 @@ Wenn Sie weitere angepasste Agenten erstellen, können Sie die Seite **Agentenma
 
 1. Bewegen Sie den Mauszeiger über die Zeile des Agenten und wählen Sie das <i class="fas fa-ellipsis-vertical"></i>-Menü aus.
 2. Wählen Sie **Archivieren**.
-
-![Seite „Agentenmanagement“ mit archivierten Agenten.]({% image_buster /assets/img/ai_agent/archived_agents.png %})

@@ -58,14 +58,14 @@ Si estás cargando o actualizando perfiles de usuario que solo tienen alias, deb
 
 | `user_alias_name` | `user_alias_label` | `last_name` | `email` | sample_attribute |
 | :---- | :---- | :---- | :---- | :---- |
-| 182736485 | my_alt_identifier | Smith | smith@user.com | TRUE |
-| 182736486 | my_alt_identifier | Nguyen | nguyen@user.com | FALSE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Paso 2: Elige un identificador" }
+| 182736485 | my_alt_identifier | Smith | smith@example.com | TRUE |
+| 182736486 | my_alt_identifier | Nguyen | nguyen@example.com | FALSE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Paso 2: Elige un identificador #choose-an-identifier" }
 
 Cuando proporcionas tanto un `user_alias_name` como un `user_alias_label` en tu importación, Braze actualiza cualquier usuario existente con el mismo `user_alias_name` y `user_alias_label`. Si no se encuentra un usuario, Braze crea un nuevo usuario identificado con ese `user_alias_name` establecido.
 
 {% alert important %}
-No puedes usar una importación CSV para actualizar un usuario existente con un `user_alias_name` si ya tiene un `external_id`. En su lugar, esto crea un nuevo perfil de usuario con el `user_alias_name` asociado. Para asociar un usuario que solo tiene alias con un `external_id`, utiliza el [punto de conexión Identificar usuarios]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/).
+No puedes usar una importación CSV para actualizar un usuario existente con un `user_alias_name` si ya tiene un `external_id`. En su lugar, esto crea un nuevo perfil de usuario con el `user_alias_name` asociado. Para asociar un usuario que solo tiene alias con un `external_id`, utiliza el [punto de conexión Identificar usuarios]({{site.baseurl}}/api/endpoints/user_data/post_user_identify).
 {% endalert %}
 
 Descargar: [Plantilla de importación de atributos CSV: Alias de usuario]({{site.baseurl}}/assets/download_file/braze-user-import-alias-template-csv.xlsx?c0ce6c0aa1e901395161d87c5ba17747)
@@ -97,9 +97,9 @@ Puedes omitir un ID externo o alias de usuario y utilizar una dirección de corr
 Si incluyes tanto direcciones de correo electrónico como números de teléfono en tu archivo CSV, la dirección de correo electrónico tiene prioridad sobre el número de teléfono al buscar perfiles.
 {% endalert %}
 
-Si un perfil existente tiene esa dirección de correo electrónico o número de teléfono, ese perfil se actualiza y Braze no crea un nuevo perfil. Si hay múltiples perfiles con la misma dirección de correo electrónico, Braze utilizará la misma lógica que el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), donde se actualizará el perfil actualizado más recientemente.
+Si un perfil existente tiene esa dirección de correo electrónico o número de teléfono, ese perfil se actualiza y Braze no crea un nuevo perfil. Si hay múltiples perfiles con la misma dirección de correo electrónico, Braze utilizará la misma lógica que el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), donde se actualizará el perfil actualizado más recientemente.
 
-Si no existe un perfil con esa dirección de correo electrónico o número de teléfono, Braze crea un nuevo perfil con ese identificador. Puedes utilizar el [punto de conexión `/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) para identificar este perfil más adelante. Para eliminar un perfil de usuario, también puedes utilizar el [punto de conexión `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/).
+Si no existe un perfil con esa dirección de correo electrónico o número de teléfono, Braze crea un nuevo perfil con ese identificador. Puedes utilizar el [punto de conexión `/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) para identificar este perfil más adelante. Para eliminar un perfil de usuario, también puedes utilizar el [punto de conexión `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete).
 {% endtab %}
 {% endtabs %}
 
@@ -139,7 +139,7 @@ Los siguientes tipos de datos pueden utilizarse como atributos personalizados pa
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Atributos personalizados" }
 
 {% alert important %}
-Los arrays, tokens de notificaciones push y tipos de datos de eventos personalizados no son compatibles con la importación de usuarios, ya que las comas en tu archivo CSV se interpretarán como separadores de columna y causarán errores al analizar tu archivo.<br><br>Para cargar este tipo de valores, utiliza el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) o la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) en su lugar.
+Los arrays, tokens de notificaciones push y tipos de datos de eventos personalizados no son compatibles con la importación de usuarios, ya que las comas en tu archivo CSV se interpretarán como separadores de columna y causarán errores al analizar tu archivo.<br><br>Para cargar este tipo de valores, utiliza el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) o la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) en su lugar.
 {% endalert %}
 
 #### Atributos predeterminados {#default-attributes}
@@ -149,7 +149,7 @@ Al importar atributos predeterminados, los encabezados de columna que utilices d
 {% endalert %}
 
 {% alert tip %}
-Para la lista completa de atributos estándar que Braze reconoce (a través de SDK, API, CSV e Ingesta de datos de Cloud), consulta [Atributos estándar]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/). La siguiente tabla cubre solo el subconjunto que puede establecerse a través de la importación CSV.
+Para la lista completa de atributos estándar que Braze reconoce (a través de SDK, API, CSV e Ingesta de datos de Cloud), consulta [Atributos estándar]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes). La siguiente tabla cubre solo el subconjunto que puede establecerse a través de la importación CSV.
 {% endalert %}
 
 Los siguientes atributos predeterminados están disponibles para la importación de usuarios.
@@ -161,13 +161,13 @@ Los siguientes atributos predeterminados están disponibles para la importación
 | `user_alias_label` | Cadena | Una etiqueta común para agrupar alias de usuario. Debe usarse con `user_alias_name`. | Condicional. Consulta [Identificadores obligatorios](#required-identifiers-attributes). |
 | `first_name` | Cadena | El nombre de tus usuarios tal como lo han indicado (por ejemplo, `Jane`). | No |
 | `last_name` | Cadena | El apellido de tus usuarios tal como lo han indicado (por ejemplo, `Doe`). | No |
-| `email` | Cadena | El correo electrónico de tus usuarios tal como lo han indicado (por ejemplo, `jane.doe@braze.com`). | No |
+| `email` | Cadena | El correo electrónico de tus usuarios tal como lo han indicado (por ejemplo, `jane.doe@example.com`). | No |
 | `country` | Cadena | Los códigos de país deben pasarse a Braze en el estándar ISO-3166-1 alfa-2 (por ejemplo, `GB`). | No |
 | `dob` | Cadena | Debe pasarse en el formato "AAAA-MM-DD" (por ejemplo, `1980-12-21`). Esto importa la fecha de nacimiento de tu usuario y te permite dirigirte a usuarios cuyo cumpleaños sea "hoy". | No |
 | `gender` | Cadena | "M", "F", "O" (otro), "N" (no aplica), "P" (prefiere no decir) o nil (desconocido). | No |
 | `home_city` | Cadena | La ciudad de residencia de tus usuarios tal como la han indicado (por ejemplo, `London`). | No |
-| `language` | Cadena | El idioma debe pasarse a Braze en el estándar ISO-639-1 (por ejemplo, `en`). Consulta nuestra [lista de idiomas aceptados]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes/). | No |
-| `phone` | Cadena | Un número de teléfono indicado por tus usuarios, en formato `E.164` (por ejemplo, `+442071838750`). Consulta [Números de teléfono de usuario]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/) para orientación sobre el formato. | No |
+| `language` | Cadena | El idioma debe pasarse a Braze en el estándar ISO-639-1 (por ejemplo, `en`). Consulta nuestra [lista de idiomas aceptados]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes). | No |
+| `phone` | Cadena | Un número de teléfono indicado por tus usuarios, en formato `E.164` (por ejemplo, `+442071838750`). Consulta [Números de teléfono de usuario]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers) para orientación sobre el formato. | No |
 | `email_open_tracking_disabled` | Booleano | Se acepta true o false. Establécelo en true para desactivar el píxel de seguimiento de apertura en todos los correos electrónicos futuros enviados a este usuario. Disponible solo para SparkPost y SendGrid. | No |
 | `email_click_tracking_disabled` | Booleano | Se acepta true o false. Establécelo en true para desactivar el seguimiento de clics en todos los enlaces dentro de un correo electrónico futuro enviado a este usuario. Disponible solo para SparkPost y SendGrid. | No |
 | `email_subscribe` | Cadena | Los valores disponibles son `opted_in` (registrado explícitamente para recibir mensajes de correo electrónico), `unsubscribed` (optó explícitamente por no recibir mensajes de correo electrónico) y `subscribed` (ni optó por recibir ni por no recibir). | No |
@@ -180,11 +180,11 @@ Los siguientes atributos predeterminados están disponibles para la importación
 
 #### Actualización del estado del grupo de suscripción (opcional) {#updating-subscription-group-status-optional}
 
-Además, puedes añadir usuarios a grupos de suscripción de correo electrónico o SMS a través de la importación de usuarios. Esto es particularmente útil para SMS, ya que un usuario debe estar inscrito en un grupo de suscripción SMS para recibir mensajes a través del canal SMS. Para más información, consulta [Grupos de suscripción SMS](https://www.braze.com/docs/sms_rcs_subscription_groups#subscription-group-mms-enablement).
+Además, puedes añadir usuarios a grupos de suscripción de correo electrónico o SMS a través de la importación de usuarios. Esto es particularmente útil para SMS, ya que un usuario debe estar inscrito en un grupo de suscripción SMS para recibir mensajes a través del canal SMS. Para más información, consulta [Grupos de suscripción SMS]({{site.baseurl}}/sms_rcs_subscription_groups#subscription-group-mms-enablement).
 
 Si estás actualizando estados de grupos de suscripción, debes tener las siguientes dos columnas en tu CSV:
 
-- `subscription_group_id`: El `id` del [grupo de suscripción](https://www.braze.com/docs/user_guide/channels/email/subscriptions#subscription-groups).
+- `subscription_group_id`: El `id` del [grupo de suscripción]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups).
 - `subscription_state`: Los valores disponibles son `unsubscribed` (no está en el grupo de suscripción) o `subscribed` (está en el grupo de suscripción).
 
 | external_id | first_name | subscription_group_id | subscription_state |
@@ -222,8 +222,8 @@ Por ejemplo, el evento personalizado `trip_booked` puede tener las propiedades `
 | `braze_id` | Cadena | Un identificador asignado por Braze para tu usuario. | Condicional. Consulta [Identificadores obligatorios](#required-identifiers-custom-events). |
 | `user_alias_name` | Cadena | Un identificador único de usuario para usuarios anónimos, que es una alternativa a `external_id`. Debe usarse con `user_alias_label`. | Condicional. Consulta [Identificadores obligatorios](#required-identifiers-custom-events). |
 | `user_alias_label` | Cadena | Una etiqueta común para agrupar alias de usuario. Debe usarse con `user_alias_name`. | Condicional. Consulta [Identificadores obligatorios](#required-identifiers-custom-events). |
-| `email` | Cadena | El correo electrónico de tus usuarios tal como lo han indicado (por ejemplo, `jane.doe@braze.com`). | No, y solo puede usarse en ausencia de otros identificadores. Consulta la siguiente nota. |
-| `phone` | Cadena | Un número de teléfono indicado por tus usuarios, en formato `E.164` (por ejemplo, `+442071838750`). Consulta [Números de teléfono de usuario]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/) para orientación sobre el formato. | No, y solo puede usarse en ausencia de otros identificadores. Consulta la siguiente nota. |
+| `email` | Cadena | El correo electrónico de tus usuarios tal como lo han indicado (por ejemplo, `jane.doe@example.com`). | No, y solo puede usarse en ausencia de otros identificadores. Consulta la siguiente nota. |
+| `phone` | Cadena | Un número de teléfono indicado por tus usuarios, en formato `E.164` (por ejemplo, `+442071838750`). Consulta [Números de teléfono de usuario]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers) para orientación sobre el formato. | No, y solo puede usarse en ausencia de otros identificadores. Consulta la siguiente nota. |
 | `name` | Cadena | Un evento personalizado de tus usuarios. | Sí |
 | `time` | Cadena | La hora del evento. Puede pasarse en uno de los siguientes formatos ISO-8601: "AAAA-MM-DD" "AAAA-MM-DDTHH:MM:SS+00:00" "AAAA-MM-DDTHH:MM:SSZ" "AAAA-MM-DDTHH:MM:SS" (por ejemplo, 2019-11-20T18:38:57) | Sí |
 | `<event name>.properties.<property name>` | Múltiples | Una propiedad del evento asociada a un evento personalizado. Un ejemplo es `trip_booked.properties.destination` | No |
@@ -289,7 +289,7 @@ En este ejemplo:
 
 Para cargar tu archivo, selecciona **Attributes** o **Events**, haz clic en **Browse Files** y carga tu CSV. Braze muestra una vista previa de las primeras filas y un resumen de los campos detectados.
 
-Para archivos grandes (hasta 500 MB para atributos predeterminados y atributos personalizados, o 50 MB para eventos personalizados), el dashboard puede parecer temporalmente sin respuesta mientras el archivo se carga y Braze calcula la importación. Estas cargas y cálculos pueden tardar más en completarse que para archivos más pequeños. Deja que este paso se complete. Para más contexto sobre los límites de archivo y los tiempos, consulta [Construir tu CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/#constructing-your-csv).
+Para archivos grandes (hasta 500 MB para atributos predeterminados y atributos personalizados, o 50 MB para eventos personalizados), el dashboard puede parecer temporalmente sin respuesta mientras el archivo se carga y Braze calcula la importación. Estas cargas y cálculos pueden tardar más en completarse que para archivos más pequeños. Deja que este paso se complete. Para más contexto sobre los límites de archivo y los tiempos, consulta [Construir tu CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import#constructing-your-csv).
 
 En el campo **Import name**, puedes renombrar tu importación. De forma predeterminada, se utiliza el nombre del archivo.
 
@@ -336,7 +336,7 @@ Después del mapeado, puedes elegir entre las siguientes preferencias de segment
 |---|---|
 | Filtro de segmentación | Para convertir tu archivo CSV en una opción de reorientación al construir segmentos de usuarios, elige tu archivo del menú desplegable **Updated/Imported from CSV** y luego selecciona **Create targeting filter**. |
 | Nuevos segmentos | Para crear también un nuevo segmento a partir de tu nuevo filtro de segmentación, selecciona **Create targeting filter and add to new segment**. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 6: Elige las preferencias de segmentación" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 6: Elige las preferencias de segmentación #targeting-preferences" }
 
 ![Un grupo de filtros con el filtro "Updated/Imported from CSV" que incluye un archivo CSV titulado "Halloween season fun".]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
 
@@ -394,7 +394,7 @@ Después de iniciar tu importación, puedes verificar su estado en la página **
 | **En progreso** | La importación se está ejecutando actualmente. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de importación" }
 
-![La página Import Users mostrando un estado de éxito parcial con el menú contextual abierto, mostrando las opciones Download error report y Download uploaded CSV.]({% image_buster /assets/img/csv_import/partial_success_menu.png %})
+![La página Import Users mostrando un estado de éxito parcial con el menú contextual abierto, mostrando las opciones Descargar informe de errores y Descargar CSV cargado.]({% image_buster /assets/img/csv_import/partial_success_menu.png %})
 
 El informe de errores posterior a la importación incluye filas que fallaron por razones que la validación no cubre, como cuando un usuario no existe en Braze.
 
@@ -487,7 +487,7 @@ Las fechas que no estén en formato [ISO-8601](https://en.wikipedia.org/wiki/ISO
 
 Si tu carga se completó con errores, puede haber una o más direcciones de correo electrónico cifradas no válidas. Confirma que todas las direcciones de correo electrónico estén cifradas correctamente antes de importarlas a Braze.
 
-- **Al [actualizar o importar direcciones de correo electrónico]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/#step-3-import-and-update-users)** en Braze, utiliza el valor de correo electrónico con hash dondequiera que se incluya un correo electrónico. Estos valores de correo electrónico con hash son proporcionados por tu equipo interno.
+- **Al [actualizar o importar direcciones de correo electrónico]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption#step-3-import-and-update-users)** en Braze, utiliza el valor de correo electrónico con hash dondequiera que se incluya un correo electrónico. Estos valores de correo electrónico con hash son proporcionados por tu equipo interno.
 - **Al crear un nuevo usuario**, debes añadir `email_encrypted` con el valor de correo electrónico cifrado del usuario. De lo contrario, Braze no creará al usuario. De manera similar, si estás añadiendo una dirección de correo electrónico a un usuario existente que no tiene correo electrónico, debes añadir `email_encrypted`. De lo contrario, Braze no actualizará al usuario.
 
 #### Datos importados como atributo personalizado {#data-imported-as-custom-attribute}
@@ -496,7 +496,7 @@ Si un dato de usuario predeterminado (como `email` o `first_name`) se importa co
 
 #### Cambiar el tipo de datos de un atributo personalizado {#change-a-custom-attributes-data-type}
 
-Si necesitas cambiar el tipo de datos de un atributo personalizado existente (por ejemplo, de cadena a booleano), actualiza el tipo de datos en la página [**Custom Attributes**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/) del dashboard antes de importar tu CSV. Si el tipo de datos en tu CSV no coincide con el tipo de datos actualmente definido del atributo, la importación falla con un error.
+Si necesitas cambiar el tipo de datos de un atributo personalizado existente (por ejemplo, de cadena a booleano), actualiza el tipo de datos en la página [**Custom Attributes**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) del dashboard antes de importar tu CSV. Si el tipo de datos en tu CSV no coincide con el tipo de datos actualmente definido del atributo, la importación falla con un error.
 
 #### Múltiples tipos de datos {#multiple-data-types}
 
@@ -506,14 +506,14 @@ Además, comenzar un atributo numérico con cero causará problemas porque los n
 
 #### Tipos de atributos predeterminados {#default-attribute-types}
 
-Algunos atributos predeterminados solo pueden aceptar ciertos valores como válidos para las actualizaciones de usuario. Para orientación, consulta [Construir tu CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/).
+Algunos atributos predeterminados solo pueden aceptar ciertos valores como válidos para las actualizaciones de usuario. Para orientación, consulta [Construir tu CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users).
 
 Los espacios finales y las diferencias en las mayúsculas pueden hacer que un valor se interprete como no válido. Por ejemplo, en el siguiente archivo CSV, solo el usuario de la primera fila (`brazetest1`) tiene sus estados de correo electrónico y push actualizados correctamente porque los valores aceptados son `unsubscribed`, `subscribed` y `opted_in`.
 
 ```plaintext
 external_id,email,email_subscribe,push_subscribe
-brazetest1,test1@braze.com,unsubscribed,unsubscribed
-brazetest2,test2@braze.com,Unsubscribed,Unsubscribed
+brazetest1,test1@example.com,unsubscribed,unsubscribed
+brazetest2,test2@example.com,Unsubscribed,Unsubscribed
 ```
 
 ### "Select CSV File" no funciona {#select-csv-file-is-not-working}

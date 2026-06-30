@@ -47,7 +47,7 @@ L'ajout de ce filtre à tous les segments ciblés par des campagnes ferait en so
 
 #### Définir un plafond maximum d'utilisateurs {#setting-a-maximum-user-cap}
 
-À l'étape **Target Audiences** du compositeur de votre campagne, vous pouvez également limiter le nombre total d'utilisateurs qui recevront votre message. Cela sert de vérification indépendante de vos filtres de campagne.
+À l'étape **Audience cible** du compositeur de votre campagne, vous pouvez également limiter le nombre total d'utilisateurs qui recevront votre message. Cela sert de vérification indépendante de vos filtres de campagne.
 
 ![Résumé de l'audience avec une case cochée pour limiter le nombre de personnes qui reçoivent la campagne.]({% image_buster /assets/img_archive/total_limit.png %}){: style="max-width:50%;"}
 
@@ -61,9 +61,9 @@ Le plafond maximum d'utilisateurs limite le nombre d'utilisateurs ciblés, pas l
 
 Si vous utilisez une optimisation comme la variante gagnante ou la variante personnalisée, la campagne sera composée de deux envois : l'expérience initiale et l'envoi final.
 
-Pour configurer un plafond maximum d'utilisateurs dans ce scénario, sélectionnez **Limit the number of people who will receive this campaign**, puis sélectionnez **In total this campaign should**, et saisissez une limite d'audience. Votre limite d'audience sera répartie selon les pourcentages affichés dans le panneau **A/B Testing**.
+Pour configurer un plafond maximum d'utilisateurs dans ce scénario, sélectionnez **Limiter le nombre de personnes qui recevront cette campagne**, puis sélectionnez **Au total, cette campagne doit**, et saisissez une limite d'audience. Votre limite d'audience sera répartie selon les pourcentages affichés dans le panneau **A/B Testing**.
 
-Si vous sélectionnez **Every time the campaign is scheduled**, ces deux phases seront limitées séparément au nombre défini. Ce n'est généralement pas souhaitable.
+Si vous sélectionnez **À chaque planification de la campagne**, ces deux phases seront limitées séparément au nombre défini. Ce n'est généralement pas souhaitable.
 
 #### Définir un plafond maximum d'impressions sur les campagnes {#setting-a-maximum-impression-cap-on-campaigns}
 
@@ -81,12 +81,12 @@ Lors de l'utilisation de la limite de débit avec un test A/B, la limite de déb
 
 Si vous anticipez que de grandes campagnes provoqueront un pic d'activité utilisateur et surchargeront vos serveurs, vous pouvez spécifier une limite de débit par minute pour l'envoi de messages, ce qui signifie que Braze n'envoie pas plus que votre paramètre de limite de débit dans une minute.
 
-Lors du ciblage des utilisateurs pendant la création de la campagne, vous pouvez naviguer vers **Target Audiences** (pour les campagnes) ou **Send Settings** (pour Canvas) pour sélectionner une limite de débit (par incréments variés allant de 10 à 500 000 messages par minute).
+Lors du ciblage des utilisateurs pendant la création de la campagne, vous pouvez naviguer vers **Audience cible** (pour les campagnes) ou **Paramètres d'envoi** (pour Canvas) pour sélectionner une limite de débit (par incréments variés allant de 10 à 500 000 messages par minute).
 
 Notez que les campagnes sans limite de débit peuvent dépasser ces limites d'envoi. Cependant, sachez que les messages seront abandonnés s'ils sont retardés de 72 heures ou plus en raison d'une limite de débit trop basse. Si la limite de débit est trop basse, le créateur de la campagne recevra des alertes dans le tableau de bord et par e-mail.
 
 {% alert tip %}
-Définissez une [limite de débit de messagerie de l'espace de travail]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/) pour appliquer une limite de débit à l'ensemble d'un espace de travail.
+Définissez une [limite de débit de messagerie de l'espace de travail]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits) pour appliquer une limite de débit à l'ensemble d'un espace de travail.
 {% endalert %}
 
 #### Exemple {#example}
@@ -117,7 +117,7 @@ Lorsqu'une campagne multicanal ou un Canvas utilise une limite de débit par can
 
 ##### Notifications push {#push-notifications}
 
-Pour les campagnes ou Canvas avec des plateformes push (comme Android, iOS, notification push Web ou Kindle), vous pouvez sélectionner **Push notifications** pour appliquer une limite de débit partagée entre toutes les plateformes push de votre campagne ou Canvas.
+Pour les campagnes ou Canvas avec des plateformes push (comme Android, iOS, notification push Web ou Kindle), vous pouvez sélectionner **Notifications push** pour appliquer une limite de débit partagée entre toutes les plateformes push de votre campagne ou Canvas.
 
 ![Le menu déroulant des canaux avec les options pour les plateformes push et les notifications push.]({% image_buster /assets/img_archive/push_notifications_rate_limit.png %}){: style="max-width:30%;"}
 
@@ -139,17 +139,17 @@ Quelques points à garder à l'esprit lors de la configuration des limites de d�
 - Les messages suivants ne seront pas limités par la limite de débit et ne seront pas comptabilisés dans celle-ci :
     - Envois de test
     - Groupes initiateurs
-    - Content Cards configurées pour être créées « à la première impression » (cela sera contrôlé par le taux d'impressions de l'application. Consultez [Création de carte]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences) pour plus d'informations sur les différences entre les options de création de carte.)
+    - Content Cards configurées pour être créées « à la première impression » (cela sera contrôlé par le taux d'impressions de l'application. Consultez [Création de carte]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences) pour plus d'informations sur les différences entre les options de création de carte.)
 - Les limites de débit de vitesse d'envoi ne sont pas prises en charge pour les éléments suivants :
     - Réponses automatiques SMS
-    - Messages avec SLA garanti (comme les [e-mails transactionnels]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/))
+    - Messages avec SLA garanti (comme les [e-mails transactionnels]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email))
     - Messages in-app
     - Indicateurs de fonctionnalité
     - Bannières
 
 #### Limite de débit et nouvelles tentatives de contenu connecté {#rate-limiting-and-connected-content-retries}
 
-Lorsque la [nouvelle tentative de contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/) est activée, Braze réessaiera les appels échoués tout en respectant la limite de débit que vous avez définie pour chaque renvoi. Considérons le scénario d'envoi de 75 000 messages avec une limite de débit de 10 000 par minute. Imaginons que dans la première minute, l'appel échoue ou est lent et n'envoie que 4 000 messages.
+Lorsque la [nouvelle tentative de contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries) est activée, Braze réessaiera les appels échoués tout en respectant la limite de débit que vous avez définie pour chaque renvoi. Considérons le scénario d'envoi de 75 000 messages avec une limite de débit de 10 000 par minute. Imaginons que dans la première minute, l'appel échoue ou est lent et n'envoie que 4 000 messages.
 
 Au lieu d'essayer de rattraper le retard et d'envoyer les 6 000 messages restants dans la deuxième minute ou de les ajouter aux 10 000 déjà prévus pour l'envoi, Braze déplacera ces 6 000 messages à la « fin de la file d'attente » et ajoutera une minute, si nécessaire, au nombre total de minutes nécessaires pour envoyer votre message.
 
@@ -177,9 +177,33 @@ En pratique, le taux d'envoi soutenu (messages terminés par minute) peut être 
 
 Au fur et à mesure que votre base d'utilisateurs continue de croître et que vos messages s'étendent pour inclure des campagnes de cycle de vie, déclenchées, transactionnelles et de conversion, il est important d'empêcher vos notifications de paraître « spammy » ou intrusives. En offrant un meilleur contrôle sur l'expérience de vos utilisateurs, la limite de fréquence vous permet de créer les campagnes que vous souhaitez sans submerger votre audience.
 
+### Utiliser la limite de débit et la limite de fréquence ensemble {#use-rate-limiting-and-frequency-capping-together}
+
+Lorsque vous activez à la fois la limite de débit et la limite de fréquence sur une campagne, Braze les applique dans l'ordre suivant :
+
+1. **La limite de débit** est appliquée en premier pour sélectionner le groupe initial d'utilisateurs pouvant recevoir des messages.
+2. **La limite de fréquence** est appliquée ensuite pour filtrer les utilisateurs de ce groupe.
+3. **Les messages sont envoyés** aux utilisateurs restants.
+
+{% alert important %}
+Si de nombreux utilisateurs dans votre groupe limité en débit sont plafonnés en fréquence, vous pouvez envoyer moins de messages que la valeur de votre limite de débit. Braze ne complète pas avec des utilisateurs supplémentaires à partir de la limite de débit une fois que la limite de fréquence a retiré des utilisateurs du groupe d'envoi.
+{% endalert %}
+
+#### Exemple
+
+Avec une limite de débit de 500 utilisateurs et la limite de fréquence activée, si 200 de ces 500 utilisateurs limités en débit sont plafonnés en fréquence, seuls 300 messages sont envoyés — pas 500.
+
+#### Recommandations {#recommendations}
+
+Si vous devez atteindre un nombre spécifique d'utilisateurs lorsque vous utilisez les deux fonctionnalités ensemble, envisagez les approches suivantes :
+
+- **Augmentez votre limite de débit :** pour tenir compte des utilisateurs qui sont plafonnés en fréquence. Par exemple, si vous souhaitez atteindre 500 utilisateurs mais que vous vous attendez à ce que certains soient plafonnés en fréquence, définissez votre limite de débit plus haut (par exemple, 1 000 utilisateurs).
+- **Utilisez la limite de débit seule :** si votre objectif est de contrôler le volume de messages envoyés par campagne.
+- **Contactez votre gestionnaire de la satisfaction client :** pour obtenir de l'aide dans la conception d'une stratégie de messagerie robuste qui équilibre les besoins métier et les considérations techniques.
+
 ### Aperçu de la fonctionnalité {#freq-cap-feat-over}
 
-La limite de fréquence est appliquée au niveau de l'envoi de la campagne ou du composant Canvas et peut être configurée pour chaque espace de travail depuis **Settings** > **Frequency Capping Rules**.
+La limite de fréquence est appliquée au niveau de l'envoi de la campagne ou du composant Canvas et peut être configurée pour chaque espace de travail depuis **Paramètres** > **Règles de limite de fréquence**.
 
 Par défaut, la limite de fréquence est activée lors de la création de nouvelles campagnes. À partir de là, vous pouvez choisir les éléments suivants :
 
@@ -193,9 +217,9 @@ Chaque ligne de limites de fréquence est connectée à l'aide de l'opérateur `
 
 ![Section de limite de fréquence avec des listes de campagnes et de Canvas auxquels les règles s'appliqueront et ne s'appliqueront pas.]({% image_buster /assets/img_archive/rate_limiting_overview_2.png %}){: style="max-width:90%;"}
 
-#### Comportement lorsque les utilisateurs sont plafonnés en fréquence sur une étape Canvas {#behavior-when-users-are-frequency-capped-on-a-canvas-step}
+#### Comportement lorsque les utilisateurs sont plafonnés en fréquence ou qu'un message est abandonné sur une étape Canvas {#behavior-when-users-are-frequency-capped-or-a-message-is-aborted-on-a-canvas-step}
 
-La limite de fréquence globale seule ne fait pas sortir les utilisateurs d'un Canvas. Sur les [étapes de message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/), les utilisateurs continuent d'avancer lorsqu'un message n'est pas envoyé en raison de la limite de fréquence globale, conformément à la [façon dont les utilisateurs avancent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance) dans l'étape.
+La limite de fréquence globale seule ne fait pas sortir les utilisateurs d'un Canvas. Sur les [étapes de message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step), les utilisateurs continuent d'avancer lorsqu'un message n'est pas envoyé en raison de la limite de fréquence globale, conformément à la [façon dont les utilisateurs avancent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#how-users-advance) dans l'étape. Il en va de même lorsqu'un message est abandonné (par exemple, par une condition d'abandon Liquid) : l'utilisateur continue à travers le Canvas comme si le message avait été envoyé.
 
 Cela est distinct des **validations d'envoi** sur une étape de message. Si un utilisateur ne remplit pas vos critères de validation d'envoi au moment de l'envoi, il peut sortir du Canvas à cette étape.
 
@@ -203,11 +227,11 @@ Cela est distinct des **validations d'envoi** sur une étape de message. Si un u
 
 Il peut y avoir certaines campagnes, comme les messages transactionnels, que vous souhaitez toujours faire parvenir à l'utilisateur, même s'il a déjà atteint sa limite de fréquence. Par exemple, une application de livraison peut souhaiter envoyer un e-mail ou une notification push lorsqu'un article est livré, quel que soit le nombre de campagnes que l'utilisateur a reçues.
 
-Si vous souhaitez qu'une campagne particulière ignore les règles de limite de fréquence, vous pouvez configurer cela dans le tableau de bord de Braze lors de la planification de l'envoi de cette campagne en basculant **Frequency Capping** sur **OFF**.
+Si vous souhaitez qu'une campagne particulière ignore les règles de limite de fréquence, vous pouvez configurer cela dans le tableau de bord de Braze lors de la planification de l'envoi de cette campagne en basculant **Limite de fréquence** sur **OFF**.
 
 Après cela, il vous sera demandé si vous souhaitez toujours que cette campagne soit comptabilisée dans votre limite de fréquence. Les messages qui comptent dans la limite de fréquence sont inclus dans les calculs du filtre de canal intelligent.
 
-Lors de l'envoi de [campagnes API]({{site.baseurl}}/developer_guide/rest_api/messaging/#messaging), qui sont souvent transactionnelles, vous aurez la possibilité de spécifier qu'une campagne doit ignorer les règles de limite de fréquence en définissant `override_frequency_capping` sur `true` dans la requête API.
+Lors de l'envoi de [campagnes API]({{site.baseurl}}/developer_guide/rest_api/messaging#messaging), qui sont souvent transactionnelles, vous aurez la possibilité de spécifier qu'une campagne doit ignorer les règles de limite de fréquence en définissant `override_frequency_capping` sur `true` dans la requête API.
 
 Par défaut, les nouvelles campagnes et les nouveaux Canvas qui n'obéissent pas aux limites de fréquence ne seront pas non plus comptabilisés dans celles-ci. Ceci est configurable pour chaque campagne et Canvas.
 
@@ -343,13 +367,13 @@ Non. Si un utilisateur Canvas est plafonné en fréquence en raison des paramèt
 
 ### Comment puis-je identifier les utilisateurs qui ont été plafonnés en fréquence dans un Canvas ? {#how-can-i-identify-users-who-were-frequency-capped-in-a-canvas}
 
-Les utilisateurs plafonnés en fréquence ne génèrent pas d'événement d'envoi pour cette étape. Pour identifier ces utilisateurs, vous pouvez utiliser [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) pour suivre les événements de plafonnement de fréquence des messages. Vous pouvez également créer une [extension de segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) pour analyser les utilisateurs qui sont entrés dans le Canvas mais n'ont pas reçu le message attendu.
+Les utilisateurs plafonnés en fréquence ne génèrent pas d'événement d'envoi pour cette étape. Pour identifier ces utilisateurs, vous pouvez utiliser [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) pour suivre les événements de plafonnement de fréquence des messages. Vous pouvez également créer une [extension de segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension) pour analyser les utilisateurs qui sont entrés dans le Canvas mais n'ont pas reçu le message attendu.
 
 ### Pourquoi le tableau de bord affiche-t-il une erreur de limite de débit pour ma campagne ? {#why-does-the-dashboard-show-a-rate-limit-error-for-my-campaign}
 
-Cela signifie généralement que la [limite de débit de vitesse d'envoi](#delivery-speed-rate-limiting) de la campagne est définie à un niveau trop bas pour la taille de l'audience, de sorte que terminer l'envoi prendrait plus de temps que la fenêtre autorisée et Braze affiche un avertissement. Augmentez la limite de débit de vitesse d'envoi, réduisez l'audience, ou utilisez **Limit the number of people who will receive this campaign** pour que chaque occurrence planifiée se termine dans la fenêtre d'envoi autorisée. Vous pouvez également définir une [limite de débit de messagerie de l'espace de travail]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/) pour appliquer un plafond à l'ensemble des campagnes.
+Cela signifie généralement que la [limite de débit de vitesse d'envoi](#delivery-speed-rate-limiting) de la campagne est définie à un niveau trop bas pour la taille de l'audience, de sorte que terminer l'envoi prendrait plus de temps que la fenêtre autorisée et Braze affiche un avertissement. Augmentez la limite de débit de vitesse d'envoi, réduisez l'audience, ou utilisez **Limiter le volume d'envoi** pour que chaque occurrence planifiée se termine dans la fenêtre d'envoi autorisée. Vous pouvez également définir une [limite de débit de messagerie de l'espace de travail]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits) pour appliquer un plafond à l'ensemble des campagnes.
 
-**Limit the number of people who will receive this campaign** contrôle le nombre d'utilisateurs éligibles pour un envoi, pas le nombre de messages que Braze envoie par minute. Seule une limite de débit de vitesse d'envoi définit le débit par minute.
+**Limiter le volume d'envoi** contrôle le nombre d'utilisateurs éligibles pour un envoi, pas le nombre de messages que Braze envoie par minute. Seule une limite de débit de vitesse d'envoi définit le débit par minute.
 
 ### Que signifie « Envoyé » pour la limite de fréquence ? {#what-does-sent-mean-for-frequency-capping}
 
@@ -359,6 +383,6 @@ Dans les analyses et la limite de fréquence, _Envoyé_ fait référence au mome
 
 Les messages de rebond et de report d'e-mails utilisent de nombreux codes différents et des textes spécifiques aux fournisseurs. Ne considérez pas un code particulier comme le signe d'un problème de limite de débit, car la cause dépend de votre contexte d'envoi et des retours du fournisseur de boîtes aux lettres.
 
-Si les messages sont temporairement reportés, envoyer moins peut aider à court terme. Utilisez une [limite de débit de vitesse d'envoi](#delivery-speed-rate-limiting), **Limit the number of people who will receive this campaign**, ou les deux.
+Si les messages sont temporairement reportés, envoyer moins peut aider à court terme. Utilisez une [limite de débit de vitesse d'envoi](#delivery-speed-rate-limiting), **Limiter le volume d'envoi**, ou les deux.
 
 Pour une solution à long terme, travaillez avec un expert en livrabilité pour examiner vos données de rebonds et de reports.

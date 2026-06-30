@@ -16,13 +16,13 @@ description: "This article outlines details about the Export campaign details Br
 
 > Use this endpoint to retrieve relevant information on a specified campaign, which can be identified by the `campaign_id`.
 
-If you want to retrieve Canvas data, refer to the [Export Canvas details]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) endpoint.
+If you want to retrieve Canvas data, refer to the [Export Canvas details]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) endpoint.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aad2a811-7237-43b1-9d64-32042eabecd9 {% endapiref %}
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `campaigns.details` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `campaigns.details` permission.
 
 ## Rate limit
 
@@ -32,7 +32,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 
 | Parameter | Required | Data Type | Description |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | Required | String | See [campaign API identifier]({{site.baseurl}}/api/identifier_types/).<br><br> The `campaign_id` for API campaigns can be found on the [API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) page and the **Campaign Details** page within your dashboard; or you can use the [Export campaigns list endpoint](#campaign-list-endpoint). |
+| `campaign_id` | Required | String | See [campaign API identifier]({{site.baseurl}}/api/identifier_types).<br><br> The `campaign_id` for API campaigns can be found on the [API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) page and the **Campaign Details** page within your dashboard; or you can use the [Export campaigns list endpoint](#campaign-list-endpoint). |
 | `post_launch_draft_version` | Optional | Boolean | For messages that have a post-launch draft, setting this to `true` shows any draft changes available. Defaults to `false`. |
 | `include_has_translatable_content` | Optional | Boolean | When set to `true`, the API response includes a `has_translatable_content` field for each message. Defaults to `false`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
@@ -329,7 +329,7 @@ The `conversion_behaviors` array contains information about each conversion even
 {% endtabs %}
 
 {% alert tip %}
-For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

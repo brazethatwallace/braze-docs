@@ -26,7 +26,7 @@ Pour dupliquer un modèle individuel, sélectionnez <i class="fas fa-ellipsis-v"
 <br><br>
 
 {% alert note %}
-Pour les modèles de [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/), un brouillon est créé. Pour tous les autres modèles, une nouvelle copie dupliquée est automatiquement créée.
+Pour les modèles de [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks), un brouillon est créé. Pour tous les autres modèles, une nouvelle copie dupliquée est automatiquement créée.
 {% endalert %}
 
 {% endtab %}
@@ -60,5 +60,5 @@ Pour archiver plusieurs modèles, cochez la case à côté de chaque modèle que
 ![Section des modèles d'e-mail par glisser-déposer enregistrés montrant deux modèles sélectionnés et une barre d'outils avec l'option d'archivage.]({% image_buster /assets/img/archive_multiple_template.png %}){: style="max-width:60%;"}
 
 {% alert important %}
-L'archivage n'est actuellement pas disponible pour les [modèles de liens]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/#link-templates).
+L'archivage n'est actuellement pas disponible pour les [modèles de liens]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing#link-templates).
 {% endalert %}

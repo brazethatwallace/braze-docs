@@ -76,14 +76,14 @@ A Apple permite que as marcas enviem notificações por push silenciosas para as
 Diferentemente de um token de push tradicional do iOS, um token de push provisório funciona como um "passe de teste" que permite que as marcas alcancem novos usuários antes que eles tenham visto e clicado no prompt nativo de opt-in de push da Apple. Com esse recurso, sua notificação por push será entregue diretamente na bandeja de notificações do novo usuário com a opção de "Manter" ou "Desativar" notificações futuras. Em vez de experimentar uma jornada de "opt-in", os usuários experimentarão algo mais parecido com uma jornada de "descadastramento".
 
 {% alert tip %}
-A autorização provisória tem o potencial de aumentar drasticamente sua taxa de opt-in, mas apenas se os usuários perceberem valor em suas mensagens. Certifique-se de usar nossos recursos de [segmentação de usuários]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), [direcionamento por local]({{site.baseurl}}/user_guide/audience/locations_and_geofences/) e [personalização]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) para garantir que os usuários apropriados recebam essas notificações de "teste" no momento certo. Então, você pode incentivar os usuários a fazer opt-in completo nas suas notificações por push, sabendo que elas agregam valor à experiência dos usuários com o seu app.
+A autorização provisória tem o potencial de aumentar drasticamente sua taxa de opt-in, mas apenas se os usuários perceberem valor em suas mensagens. Certifique-se de usar nossos recursos de [segmentação de usuários]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), [direcionamento por local]({{site.baseurl}}/user_guide/audience/locations_and_geofences) e [personalização]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) para garantir que os usuários apropriados recebam essas notificações de "teste" no momento certo. Então, você pode incentivar os usuários a fazer opt-in completo nas suas notificações por push, sabendo que elas agregam valor à experiência dos usuários com o seu app.
 {% endalert %}
 
-Qualquer que seja a opção escolhida pelo usuário, o token ou [status de inscrição]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/) apropriado será adicionado às [Configurações de contato]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#engagement-tab) na guia **Engajamento** do perfil de usuário.
+Qualquer que seja a opção escolhida pelo usuário, o token ou [status de inscrição]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states) apropriado será adicionado às [Configurações de contato]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab) na guia **Engajamento** do perfil de usuário.
 
 ![Configurações de contato com um status de inscrição de push.]({% image_buster /assets/img/profile-push-prov-auth.png %}){: width="50%"}
 
-Você poderá direcionar seus usuários com base em se eles estão provisoriamente autorizados ou não usando nossos [filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+Você poderá direcionar seus usuários com base em se eles estão provisoriamente autorizados ou não usando nossos [filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
 
 ![Painel de detalhes do Segment com o filtro de exemplo "Provisionally Authorized on iOS Stopwatch (iOS) is true" para direcionar usuários.]({% image_buster /assets/img/segment-push-prov-auth.png %})
 
@@ -97,10 +97,10 @@ Se você usar prompts de push adicionais ou [primers de push no app](https://www
 
 #### Configurar notificações por push provisórias {#set-up-provisional-push-notifications}
 
-A Braze permite que você se registre para autenticação provisória atualizando seu código no trecho de registro de token dentro da implementação do SDK da Braze para iOS usando os seguintes trechos como exemplo (envie-os para seus desenvolvedores ou certifique-se de que eles [implementem a autenticação provisória de push durante o processo de integração]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#using-usernotification-framework-ios-10)).
+A Braze permite que você se registre para autenticação provisória atualizando seu código no trecho de registro de token dentro da implementação do SDK da Braze para iOS usando os seguintes trechos como exemplo (envie-os para seus desenvolvedores ou certifique-se de que eles [implementem a autenticação provisória de push durante o processo de integração]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#using-usernotification-framework-ios-10)).
 
 {% alert warning %}
-A implementação da autenticação provisória de push suporta apenas iOS 12+ e apresentará erro se o alvo de implantação for anterior a isso. Você pode saber mais sobre isso [em nossa documentação de implementação mais detalhada aqui]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#using-usernotification-framework-ios-10).
+A implementação da autenticação provisória de push suporta apenas iOS 12+ e apresentará erro se o alvo de implantação for anterior a isso. Você pode saber mais sobre isso [em nossa documentação de implementação mais detalhada aqui]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#using-usernotification-framework-ios-10).
 {% endalert %}
 
 {% tabs local %}
@@ -153,7 +153,7 @@ Consulte a tabela a seguir para os níveis de interrupção e suas descrições.
 | [Active](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/active) (padrão) | Só emitirá som, vibração e ativará a tela se o usuário não estiver no Modo de Foco. | Notificações que exigem atenção imediata, a menos que o usuário tenha o Modo de Foco ativado. | Não |
 | [Time Sensitive](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/timesensitive) | Emitirá som, vibrará e ativará a tela mesmo durante o Modo de Foco. Isso requer que a capacidade **Time Sensitive Notifications** seja adicionada ao seu app no Xcode. | Notificações oportunas que devem interromper os usuários independentemente do Modo de Foco, como uma notificação de carona ou entrega. | Sim |
 | [Critical](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/critical) | Emitirá som, vibrará e ativará a tela mesmo se o botão **Não Perturbe** do telefone estiver ativado. Isso [requer aprovação explícita da Apple](https://developer.apple.com/contact/request/notifications-critical-alerts-entitlement/). | Emergências como alertas de clima severo ou segurança. | Sim |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Interruption level (iOS 15+) #interruption-level" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Nível de interrupção (iOS 15+)" }
 
 ### Pontuação de relevância (iOS 15+) {#relevance-score}
 
@@ -173,5 +173,5 @@ Esse recurso não tem requisitos mínimos de versão do SDK, mas é aplicado ape
 
 Para saber mais sobre os comprimentos máximos de mensagem para diferentes tipos de mensagem, consulte os seguintes recursos:
 
-- [Especificações de imagem e texto]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/)
-- [Diretrizes de contagem de caracteres do iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count)
+- [Especificações de imagem e texto]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats)
+- [Diretrizes de contagem de caracteres do iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications#character-count)

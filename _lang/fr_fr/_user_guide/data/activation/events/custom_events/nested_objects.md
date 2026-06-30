@@ -10,11 +10,11 @@ description: "Cet article décrit comment envoyer des données JSON imbriquées 
 
 > Cette page explique comment envoyer des données JSON imbriquées en tant que propriétés d'événements personnalisés et d'achats, et comment utiliser ces objets imbriqués dans votre envoi de messages.
 
-Vous pouvez utiliser des objets imbriqués (c.-à-d. des objets qui se trouvent à l'intérieur d'un autre objet) pour envoyer des données JSON imbriquées en tant que propriétés d'événements personnalisés et d'achats. Ces données imbriquées peuvent être utilisées pour créer des modèles d'informations personnalisées dans les messages, déclencher l'envoi de messages et segmenter les utilisateurs.
+Vous pouvez utiliser des objets imbriqués (c'est-à-dire des objets qui se trouvent à l'intérieur d'un autre objet) pour envoyer des données JSON imbriquées en tant que propriétés d'événements personnalisés et d'achats. Ces données imbriquées peuvent être utilisées pour créer des modèles d'informations personnalisées dans les messages, déclencher l'envoi de messages et segmenter les utilisateurs.
 
 ## Restrictions {#considerations}
 
-- Les données imbriquées sont prises en charge pour les [événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) et les [événements d'achat]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/), mais pas pour les autres types d'événements.
+- Les données imbriquées sont prises en charge pour les [événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events) et les [événements d'achat]({{site.baseurl}}/user_guide/data/activation/events/purchase_events), mais pas pour les autres types d'événements.
 - Les objets de propriétés d'événement contenant des valeurs de type tableau ou objet peuvent avoir une charge utile de propriétés d'événement allant jusqu'à 100 Ko.
 - Les schémas de propriétés d'événement ne peuvent pas être générés pour les événements d'achat.
 - Les schémas de propriétés d'événement sont générés par échantillonnage des événements personnalisés des dernières 24 heures.
@@ -33,7 +33,7 @@ Vous pouvez accéder aux données imbriquées de votre événement personnalisé
 2. Sélectionnez **Gérer les propriétés** pour les événements comportant des propriétés imbriquées.
 3. Sélectionnez le bouton <i class="fas fa-arrows-rotate"></i> pour générer le schéma. Pour afficher le schéma, sélectionnez le bouton <i class="fas fa-plus"></i> plus.
 
-![]({% image_buster /assets/img_archive/schema_generation_example.png %}){: style="max-width:80%;"}
+![Sélectionnez le bouton pour générer le schéma. Pour afficher le schéma, sélectionnez le bouton plus.]({% image_buster /assets/img_archive/schema_generation_example.png %}){: style="max-width:80%;"}
 
 Si de nouvelles propriétés sont envoyées ultérieurement, elles ne figureront pas dans le schéma tant que celui-ci n'aura pas été régénéré. Les schémas peuvent être régénérés toutes les 24 heures.
 
@@ -167,9 +167,9 @@ Si votre propriété d'événement contient les caractères `[]` ou `.`, échapp
 
 ### Segmentation {#segmentation}
 
-Pour segmenter les utilisateurs en fonction de propriétés d'événement imbriquées, vous devez utiliser les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension/). Après avoir généré un schéma, l'explorateur d'objets imbriqués s'affichera dans la section de segmentation.
+Pour segmenter les utilisateurs en fonction de propriétés d'événement imbriquées, vous devez utiliser les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Après avoir généré un schéma, l'explorateur d'objets imbriqués s'affichera dans la section de segmentation.
 
-![]({% image_buster /assets/img_archive/nested_event_properties_segmentation.png %})
+![Capture d'écran liée à la segmentation.]({% image_buster /assets/img_archive/nested_event_properties_segmentation.png %})
 
 La segmentation utilise la même notation que le déclenchement (voir [Déclenchement de messages](#message-triggering)).
 
@@ -179,7 +179,7 @@ Pour modifier ou créer des Extensions de segments, vous devez disposer de la pe
 
 À l'aide de la fenêtre modale **Ajouter une personnalisation**, sélectionnez **Propriétés d'événement avancées** comme type de personnalisation. Cela permet d'ajouter des propriétés d'événement imbriquées après la génération d'un schéma.
 
-![]({% image_buster /assets/img_archive/nested_event_properties_personalization.png %}){: style="max-width:70%;"}
+![À l'aide de la fenêtre modale Ajouter une personnalisation, sélectionnez Propriétés d'événement avancées comme type de personnalisation. Cela permet d'ajouter des propriétés d'événement imbriquées après la génération d'un schéma.]({% image_buster /assets/img_archive/nested_event_properties_personalization.png %}){: style="max-width:70%;"}
 
 ## Tester les objets imbriqués dans les messages {#testing-nested-objects-in-messages}
 

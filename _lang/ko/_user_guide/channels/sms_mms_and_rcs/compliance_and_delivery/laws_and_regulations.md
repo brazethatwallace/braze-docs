@@ -69,7 +69,7 @@ SMS, MMS 또는 RCS Campaign을 구축할 때 참고할 수 있는 링크입니�
 
 고객의 개인정보 보호는 의미 있고 존중하는 관계의 핵심입니다. 고객의 개인정보와 정보를 존중하는 것은 고객과 브랜드 사이의 유대를 형성할 수 있는 또 다른 기회입니다. 때때로 마케팅 도구를 사용하면 데이터와 개인정보 보호가 후순위로 밀릴 수 있습니다.
 
-다행히 Braze는 [GDPR]({{site.baseurl}}/dp-technical-assistance/)을 포함한 많은 [보안 규정]({{site.baseurl}}/developer_guide/disclosures/security_qualifications/#security-qualifications)의 가이드라인을 따르고 있습니다.
+다행히 Braze는 [GDPR]({{site.baseurl}}/developer_guide/disclosures/security_qualifications#security-qualifications)을 포함한 많은 [보안 규정]({{site.baseurl}}/dp-technical-assistance)의 가이드라인을 따르고 있습니다.
 
 [CTIA](https://www.ctia.org/)(미국 무선 통신 산업을 대표하는 무역 협회)는 명확하고 이해하기 쉬운 개인정보 보호정책을 유지하고 눈에 잘 띄게 표시할 것을 권장합니다.
 
@@ -81,13 +81,13 @@ SMS, MMS 또는 RCS Campaign을 구축할 때 참고할 수 있는 링크입니�
 
 [전국 수신 거부 등록부](https://www.donotcall.gov/)를 준수하는 것도 잊지 마세요.
 
-Braze는 [구독 그룹]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/)을 사용하여 동의 수준에 따라 사용자 그룹을 관리합니다.
+Braze는 [구독 그룹]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing)을 사용하여 동의 수준에 따라 사용자 그룹을 관리합니다.
 
 #### 퍼지 옵트아웃을 통한 규정 준수 {#compliance-through-fuzzy-opt-out}
 
 비표준 옵트아웃 요청의 인식을 자동화하려면, 미국 고객인 경우 구독 그룹 설정에서 퍼지 옵트아웃을 활성화할 수 있습니다.
 
-- **즉시 구성:** 기본적으로 퍼지 옵트아웃은 확인 메시지를 발송합니다. 확인 대신 즉시 옵트아웃을 적용하려면 [퍼지 옵트아웃 섹션]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/#configure-fuzzy-opt-out)의 지침에 따라 워크스페이스를 구성할 수 있습니다.
+- **즉시 구성:** 기본적으로 퍼지 옵트아웃은 확인 메시지를 발송합니다. 확인 대신 즉시 옵트아웃을 적용하려면 [퍼지 옵트아웃 섹션]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out#configure-fuzzy-opt-out)의 지침에 따라 워크스페이스를 구성할 수 있습니다.
 - **수동 키워드 추가:** 기본 제공되는 키워드 외에 "REMOVE", "END", "HALT", "CEASE", "DISCONTINUE", "UNSUBSCRIBE"와 같은 고위험 단어를 **옵트아웃** 키워드 카테고리에 수동으로 추가하는 것을 권장합니다.
 
 ### 스팸 및 발송 빈도 {#spam-and-cadence}

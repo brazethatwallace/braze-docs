@@ -10,11 +10,11 @@ description: "이 문서에서는 동기식 사용자 추적 Braze 엔드포인�
 ---
 {% api %}
 # 사용자 생성 및 업데이트 (동기) {#create-and-update-users-synchronous}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/sync
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 커스텀 이벤트와 구매를 기록하고 사용자 프로필 속성을 동기식으로 업데이트할 수 있습니다. 이 엔드포인트는 비동기식으로 사용자 프로필을 업데이트하는 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)와 유사하게 작동합니다.
+> 이 엔드포인트를 사용하여 커스텀 이벤트와 구매를 기록하고 사용자 프로필 속성을 동기식으로 업데이트할 수 있습니다. 이 엔드포인트는 비동기식으로 사용자 프로필을 업데이트하는 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)와 유사하게 작동합니다.
 
 {% alert important %}
 이 엔드포인트는 현재 **제한된 베타** 상태입니다. 현재 베타에 새로운 고객을 추가하고 있지 않지만, 이 기능이 Braze 통합에 유용할 것 같다면 Braze 계정 매니저에게 알려주세요.
@@ -32,7 +32,7 @@ description: "이 문서에서는 동기식 사용자 추적 Braze 엔드포인�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.track.sync` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.track.sync` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
 
 서버 간 호출에 API를 사용하는 고객이 방화벽 뒤에 있는 경우 `rest.iad-01.braze.com`을 허용 목록에 추가해야 할 수 있습니다.
 
@@ -65,9 +65,9 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | 선택 사항 | 하나의 속성 오브젝트 | [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) 보기 |
-| `events` | 선택 사항 | 하나의 이벤트 오브젝트 | [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object/) 보기 |
-| `purchases` | 선택 사항 | 하나의 구매 오브젝트 | [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object/) 보기 |
+| `attributes` | 선택 사항 | 하나의 속성 오브젝트 | [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) 보기 |
+| `events` | 선택 사항 | 하나의 이벤트 오브젝트 | [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object) 보기 |
+| `purchases` | 선택 사항 | 하나의 구매 오브젝트 | [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object) 보기 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 응답 {#responses}
@@ -162,7 +162,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 --data-raw '{
     "events": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "app_id": "your_app_identifier",
             "name": "rented_movie",
             "time": "2022-12-06T19:20:45+01:00",
@@ -191,7 +191,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 {
     "users": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "custom_events": [
                 {
                 "name": "rented_movie",

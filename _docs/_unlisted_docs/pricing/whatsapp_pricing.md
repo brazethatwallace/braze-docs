@@ -45,7 +45,7 @@ Here’s a quick summary of the previously announced changes:
 Additional July 1 changes (announced by Meta on May 15th): 
 - Meta is updating utility and authentication rates across several markets as part of continued efforts to ensure pricing is on-par with alternative channels.
     - Pricing for utility and authentication messaging is dropping in all markets except Indonesia. In Indonesia, utility pricing is increasing and authentication pricing is decreasing. 
-- Meta is refining their definition of utility, based on user engagement and sentiment, thus shifting specific use cases to and from the utility category. See their new definition for utility templates [here](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing#updates-to-template-category-guidelines).
+- Meta is refining their definition of utility, based on user engagement and sentiment, thus shifting specific use cases to and from the utility category. See Meta's new [utility template definition](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing#updates-to-template-category-guidelines).
 
 For most customers, these updates will take effect automatically on July 1.
 
@@ -92,7 +92,7 @@ Utility templates sent outside of a 24-hour customer service window (for example
 We recommend the following best practices to account for these changes and maximize your WhatsApp marketing budget: 
 
 - Limit sending of multiple message templates of the same type (without a user response) in the 24-hour period. You won't be charged more than you previously were under the "per conversation" model. This is also a best practice to provide quality experiences for your customers and limit message fatigue. 
-- Use [response messaging](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages/) when responding to end-user messages. Response messaging is free of charge. 
+- Use [response messaging]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages/) when responding to end-user messages. Response messaging is free of charge. 
 
 | Example scenario | Pricing before April 2025 | Pricing after April 2025|
 | --- | --- | --- |
@@ -103,7 +103,7 @@ We recommend the following best practices to account for these changes and maxim
 We recommend the following best practices to account for these changes and maximize your WhatsApp marketing budget: 
 
 - Limit sending multiple message templates of the same type (without a user response) in the 24-hour period. This prevents you from being charged more than you previously were under the "per conversation" model. This is also a best practice to provide quality experiences for your customers and limit message fatigue. 
-- Use [response messaging](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages) when responding to end-user messages. Response messaging is free of charge. 
+- Use [response messaging]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages) when responding to end-user messages. Response messaging is free of charge. 
 
 *Note: This update was originally slated for April 1 and **now July 1**.* 
 
@@ -137,14 +137,14 @@ On November 1, 2024, all service conversations are free of charge. Service conve
 
 #### What are service conversations? 
 
-Service conversations enable you to respond to customer inquiries. This includes conversations started by an end-user where the brand replies with a [response message](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages) instead of a template message.
+Service conversations enable you to respond to customer inquiries. This includes conversations started by an end-user where the brand replies with a [response message]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages) instead of a template message.
 
 #### How can you benefit from this update? 
 
 Some conversations that were previously charged as "service" will now be free. These include: 
 
-- [Unrecognized response campaigns](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages) where an end-user sends a message that is unrecognized and the brand replies with a generic message using [response messaging](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages). For example, an end-user sends a message without a keyword and the brand responds with “We don’t recognize your message, please reach out to customer support."
-- Conversations that start when an end-user messages the brand a promoted keyword and the brand replies using a [response message](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages). Common examples are opting into WhatsApp messaging or participating in a specific promotion.
+- [Unrecognized response campaigns]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages) where an end-user sends a message that is unrecognized and the brand replies with a generic message using [response messaging]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages). For example, an end-user sends a message without a keyword and the brand responds with “We don’t recognize your message, please reach out to customer support."
+- Conversations that start when an end-user messages the brand a promoted keyword and the brand replies using a [response message]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages). Common examples are opting into WhatsApp messaging or participating in a specific promotion.
 
 <br>
 

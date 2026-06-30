@@ -65,7 +65,7 @@ Il peut y avoir un temps de préchauffage de deux à cinq minutes lorsque Braze 
 
 ### Étape 1 : Configurer les tables ou les vues {#step-1-set-up-tables-or-views}
 
-Avant de commencer, consultez [Configuration des tables pour l'Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/) pour comprendre les exigences des tables sources par rapport aux exigences de formatage de `payload`.
+Avant de commencer, consultez [Configuration des tables pour l'Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup) pour comprendre les exigences des tables sources par rapport aux exigences de formatage de `payload`.
 
 {% alert note %}
 Votre table ou vue source peut inclure des colonnes qui ne sont pas répertoriées pour votre entrepôt dans les onglets ci-dessous (par exemple, des colonnes d'audit ou de hachage). Braze ne lit que les colonnes décrites dans ces onglets ; les autres colonnes ne sont pas utilisées lors des synchronisations d'Ingestion de données cloud.
@@ -148,7 +148,7 @@ Lorsque vous connectez différents espaces de travail au même compte Snowflake,
 
 Selon la configuration de votre compte Snowflake, vous devrez peut-être autoriser les adresses IP suivantes dans votre politique réseau Snowflake. Pour plus d'informations, consultez la documentation Snowflake sur la [modification d'une politique réseau](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Redshift %}
@@ -211,7 +211,7 @@ Points importants à connaître :
 
 Autorisez l'accès à partir des IP suivantes correspondant à la région de votre tableau de bord de Braze.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab BigQuery %}
@@ -254,7 +254,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 1.1 : Configurer la table" }
 
 Vous pouvez nommer le projet, le jeu de données et la table comme vous le souhaitez, mais les noms de colonnes doivent correspondre à la définition ci-dessus.
 
@@ -294,7 +294,7 @@ Après avoir créé le compte de service et accordé les autorisations, génére
 
 Si vous avez des politiques réseau en place, vous devez donner à Braze un accès réseau à votre instance BigQuery. Autorisez l'accès à partir des IP suivantes correspondant à la région de votre tableau de bord de Braze.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Databricks %}
@@ -339,7 +339,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 1.1 : Configurer la table" }
 
 Vous pouvez nommer le schéma et la table comme vous le souhaitez, mais les noms de colonnes doivent correspondre à la définition ci-dessus.
 
@@ -368,7 +368,7 @@ Conservez le jeton en lieu sûr jusqu'à ce que vous ayez besoin de le saisir da
 
 Si vous avez des politiques réseau en place, vous devez donner à Braze un accès réseau à votre instance Databricks. Autorisez l'accès à partir des IP suivantes correspondant à la région de votre tableau de bord de Braze.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -457,7 +457,7 @@ Pour récupérer l'endpoint SQL de votre entrepôt, accédez à l'**espace de tr
 
 Selon la configuration de votre compte Microsoft Fabric, vous devrez peut-être autoriser les adresses IP suivantes dans votre pare-feu pour permettre le trafic en provenance de Braze. Pour plus d'informations, consultez la documentation sur l'[accès conditionnel Entra](https://learn.microsoft.com/en-us/fabric/security/protect-inbound-traffic#entra-conditional-access).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -469,7 +469,7 @@ Selon la configuration de votre compte Microsoft Fabric, vous devrez peut-être 
 {% tabs %}
 {% tab Snowflake %}
 
-Dans le tableau de bord de Braze, accédez à **Data Settings** > **Cloud Data Ingestion** > **Sources**, sélectionnez **Add data source**, puis sélectionnez **Snowflake**.
+Dans le tableau de bord de Braze, accédez à **Paramètres des données** > **Ingestion de données cloud** > **Sources**, sélectionnez **Add data source**, puis sélectionnez **Snowflake**.
 
 #### Étape 2.1 : Ajouter les informations de connexion Snowflake {#step-21-add-snowflake-connection-information}
 
@@ -498,7 +498,7 @@ ALTER USER BRAZE_INGESTION_USER SET RSA_PUBLIC_KEY='MIIBIjANBgkqhkiG9w0BA...';
 {% endtab %}
 {% tab Redshift %}
 
-Dans le tableau de bord de Braze, accédez à **Data Settings** > **Cloud Data Ingestion** > **Sources**, sélectionnez **Add data source**, puis sélectionnez **Amazon Redshift**.
+Dans le tableau de bord de Braze, accédez à **Paramètres des données** > **Ingestion de données cloud** > **Sources**, sélectionnez **Add data source**, puis sélectionnez **Amazon Redshift**.
 
 #### Étape 2.1 : Ajouter les informations de connexion Redshift et la table source {#step-21-add-redshift-connection-information-and-source-table}
 
@@ -514,7 +514,7 @@ Sélectionnez ensuite **Test connection**. En cas de succès, finalisez les para
 {% endtab %}
 {% tab BigQuery %}
 
-Dans le tableau de bord de Braze, accédez à **Data Settings** > **Cloud Data Ingestion** > **Sources**, sélectionnez **Add data source**, puis sélectionnez **Google BigQuery**.
+Dans le tableau de bord de Braze, accédez à **Paramètres des données** > **Ingestion de données cloud** > **Sources**, sélectionnez **Add data source**, puis sélectionnez **Google BigQuery**.
 
 #### Étape 2.1 : Ajouter les informations de connexion BigQuery et la table source {#step-21-add-bigquery-connection-information-and-source-table}
 
@@ -527,7 +527,7 @@ Sélectionnez ensuite **Test connection**. En cas de succès, finalisez les para
 {% endtab %}
 {% tab Databricks %}
 
-Dans le tableau de bord de Braze, accédez à **Data Settings** > **Cloud Data Ingestion** > **Sources**, sélectionnez **Add data source**, puis sélectionnez **Databricks**.
+Dans le tableau de bord de Braze, accédez à **Paramètres des données** > **Ingestion de données cloud** > **Sources**, sélectionnez **Add data source**, puis sélectionnez **Databricks**.
 
 #### Étape 2.1 : Ajouter les informations de connexion Databricks et la table source {#step-21-add-databricks-connection-information-and-source-table}
 
@@ -544,7 +544,7 @@ Vous devez tester une source avec succès avant de pouvoir la créer. Si vous fe
 {% endtab %}
 {% tab Microsoft Fabric %}
 
-Dans le tableau de bord de Braze, accédez à **Data Settings** > **Cloud Data Ingestion** > **Sources**, sélectionnez **Add data source**, puis sélectionnez **Microsoft Fabric**.
+Dans le tableau de bord de Braze, accédez à **Paramètres des données** > **Ingestion de données cloud** > **Sources**, sélectionnez **Add data source**, puis sélectionnez **Microsoft Fabric**.
 
 #### Étape 2.1 : Configurer une synchronisation d'Ingestion de données cloud {#step-21-set-up-a-cloud-data-ingestion-sync}
 
@@ -565,7 +565,7 @@ Vous devez tester une source avec succès avant de pouvoir la créer. Si vous fe
 {% endtabs %}
 
 ### Étape 3 : Créer une nouvelle synchronisation dans le tableau de bord de Braze {#step-3-create-a-new-sync-in-the-braze-dashboard}
-Accédez à **Data Settings** > **Cloud Data Ingestion** > **Syncs**, et sélectionnez **Create data sync**.
+Accédez à **Paramètres des données** > **Ingestion de données cloud** > **Syncs**, et sélectionnez **Create data sync**.
 
 {% tabs %}
 {% tab Snowflake %}
@@ -576,7 +576,7 @@ Choisissez un nom pour votre synchronisation. Sélectionnez ensuite une source a
 En cas de succès, un aperçu des données s'affiche. Sélectionnez **Next: Notifications** pour continuer. Si la connexion échoue, un message d'erreur s'affiche pour vous aider à résoudre le problème.
 
 {% alert note %}
-Vous devez tester une synchronisation avec succès avant de passer aux étapes suivantes. Si vous devez fermer la page de création de la synchronisation, cliquez sur **Save as draft** pour conserver votre travail en cours.
+Vous devez tester une synchronisation avec succès avant de passer aux étapes suivantes. Si vous devez fermer la page de création de la synchronisation, cliquez sur **Enregistrer en tant que brouillon** pour conserver votre travail en cours.
 {% endalert %}
 
 #### Étape 3.2 : Ajouter les préférences de notification {#step-32-add-notification-preferences}
@@ -596,7 +596,7 @@ Enfin, configurez votre synchronisation comme non récurrente ou récurrente.
 
 Les synchronisations non récurrentes peuvent être déclenchées manuellement ou via l'API.
 
-Les synchronisations récurrentes peuvent avoir une fréquence allant de toutes les 15 minutes à une fois par mois. Braze utilise le fuseau horaire configuré dans votre tableau de bord de Braze pour planifier la synchronisation récurrente.
+Les synchronisations récurrentes peuvent avoir une fréquence allant de toutes les 15 minutes à une fois par mois. Braze planifie la synchronisation récurrente dans le fuseau horaire UTC.
 
 {% endtab %}
 
@@ -608,7 +608,7 @@ Choisissez un nom pour votre synchronisation. Sélectionnez ensuite une source a
 En cas de succès, un aperçu des données s'affiche. Sélectionnez **Next: Notifications** pour continuer. Si la connexion échoue, un message d'erreur s'affiche pour vous aider à résoudre le problème.
 
 {% alert note %}
-Vous devez tester une synchronisation avec succès avant de passer aux étapes suivantes. Si vous devez fermer la page de création de la synchronisation, cliquez sur **Save as draft** pour conserver votre travail en cours.
+Vous devez tester une synchronisation avec succès avant de passer aux étapes suivantes. Si vous devez fermer la page de création de la synchronisation, cliquez sur **Enregistrer en tant que brouillon** pour conserver votre travail en cours.
 {% endalert %}
 
 #### Étape 3.2 : Ajouter les préférences de notification
@@ -629,7 +629,7 @@ Enfin, configurez votre synchronisation comme non récurrente ou récurrente.
 
 Les synchronisations non récurrentes peuvent être déclenchées manuellement ou via l'API.
 
-Les synchronisations récurrentes peuvent avoir une fréquence allant de toutes les 15 minutes à une fois par mois. Braze utilise le fuseau horaire configuré dans votre tableau de bord de Braze pour planifier la synchronisation récurrente.
+Les synchronisations récurrentes peuvent avoir une fréquence allant de toutes les 15 minutes à une fois par mois. Braze planifie la synchronisation récurrente dans le fuseau horaire UTC.
 
 {% endtab %}
 
@@ -641,7 +641,7 @@ Choisissez un nom pour votre synchronisation. Sélectionnez ensuite une source a
 En cas de succès, un aperçu des données s'affiche. Sélectionnez **Next: Notifications** pour continuer. Si la connexion échoue, un message d'erreur s'affiche pour vous aider à résoudre le problème.
 
 {% alert note %}
-Vous devez tester une synchronisation avec succès avant de passer aux étapes suivantes. Si vous devez fermer la page de création de la synchronisation, cliquez sur **Save as draft** pour conserver votre travail en cours.
+Vous devez tester une synchronisation avec succès avant de passer aux étapes suivantes. Si vous devez fermer la page de création de la synchronisation, cliquez sur **Enregistrer en tant que brouillon** pour conserver votre travail en cours.
 {% endalert %}
 
 #### Étape 3.2 : Ajouter les préférences de notification
@@ -660,7 +660,7 @@ Enfin, configurez votre synchronisation comme non récurrente ou récurrente.
 
 Les synchronisations non récurrentes peuvent être déclenchées manuellement ou via l'API.
 
-Les synchronisations récurrentes peuvent avoir une fréquence allant de toutes les 15 minutes à une fois par mois. Braze utilise le fuseau horaire configuré dans votre tableau de bord de Braze pour planifier la synchronisation récurrente.
+Les synchronisations récurrentes peuvent avoir une fréquence allant de toutes les 15 minutes à une fois par mois. Braze planifie la synchronisation récurrente dans le fuseau horaire UTC.
 
 {% endtab %}
 
@@ -672,7 +672,7 @@ Choisissez un nom pour votre synchronisation. Sélectionnez ensuite une source a
 En cas de succès, un aperçu des données s'affiche. Sélectionnez **Next: Notifications** pour continuer. Si la connexion échoue, un message d'erreur s'affiche pour vous aider à résoudre le problème.
 
 {% alert note %}
-Vous devez tester une synchronisation avec succès avant de passer aux étapes suivantes. Si vous devez fermer la page de création de la synchronisation, cliquez sur **Save as draft** pour conserver votre travail en cours.
+Vous devez tester une synchronisation avec succès avant de passer aux étapes suivantes. Si vous devez fermer la page de création de la synchronisation, cliquez sur **Enregistrer en tant que brouillon** pour conserver votre travail en cours.
 {% endalert %}
 
 #### Étape 3.2 : Ajouter les préférences de notification
@@ -692,7 +692,7 @@ Enfin, configurez votre synchronisation comme non récurrente ou récurrente.
 
 Les synchronisations non récurrentes peuvent être déclenchées manuellement ou via l'API.
 
-Les synchronisations récurrentes peuvent avoir une fréquence allant de toutes les 15 minutes à une fois par mois. Braze utilise le fuseau horaire configuré dans votre tableau de bord de Braze pour planifier la synchronisation récurrente.
+Les synchronisations récurrentes peuvent avoir une fréquence allant de toutes les 15 minutes à une fois par mois. Braze planifie la synchronisation récurrente dans le fuseau horaire UTC.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -704,7 +704,7 @@ Choisissez un nom pour votre synchronisation. Sélectionnez ensuite une source a
 En cas de succès, un aperçu des données s'affiche. Sélectionnez **Next: Notifications** pour continuer. Si la connexion échoue, un message d'erreur s'affiche pour vous aider à résoudre le problème.
 
 {% alert note %}
-Vous devez tester une synchronisation avec succès avant de passer aux étapes suivantes. Si vous devez fermer la page de création de la synchronisation, cliquez sur **Save as draft** pour conserver votre travail en cours.
+Vous devez tester une synchronisation avec succès avant de passer aux étapes suivantes. Si vous devez fermer la page de création de la synchronisation, cliquez sur **Enregistrer en tant que brouillon** pour conserver votre travail en cours.
 {% endalert %}
 
 #### Étape 3.2 : Ajouter les préférences de notification
@@ -725,7 +725,7 @@ Enfin, configurez votre synchronisation comme non récurrente ou récurrente.
 
 Les synchronisations non récurrentes peuvent être déclenchées manuellement ou via l'API.
 
-Les synchronisations récurrentes peuvent avoir une fréquence allant de toutes les 15 minutes à une fois par mois. Braze utilise le fuseau horaire configuré dans votre tableau de bord de Braze pour planifier la synchronisation récurrente.
+Les synchronisations récurrentes peuvent avoir une fréquence allant de toutes les 15 minutes à une fois par mois. Braze planifie la synchronisation récurrente dans le fuseau horaire UTC.
 
 {% endtab %}
 {% endtabs %}

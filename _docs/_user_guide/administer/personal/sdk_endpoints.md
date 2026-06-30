@@ -15,10 +15,10 @@ Braze manages a number of different instances for our dashboard, SDK, and REST e
 
 Logging in at [dashboard.braze.com](https://dashboard.braze.com) will automatically send you to the right cluster address.
 
-{% multi_lang_include data_centers.md datacenters='instances' %}
+{% multi_lang_include administer/data_centers.md datacenters='instances' %}
 
 {% alert important %}
 When integrating your SDK, use the SDK endpoint. When making calls to our REST API, use the REST endpoint.
 {% endalert %}
 
-For details about accessing the API, see our [API overview article]({{site.baseurl}}/api/basics/). 
+For details about accessing the API, see our [API overview article]({{site.baseurl}}/api/basics). 

@@ -15,12 +15,12 @@ page_order: 4
 
 ![受信されたファジーオプトアウト「Please stopppp」に対するアウトバウンドオプトアウトメッセージを表示するiOSメッセージチャット。]({% image_buster /assets/img/sms/fuzzy1.jpg %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
-> BrazeでSMS、MMS、RCSを送信するユーザーは、定められた適用法令、規制、および業界標準を遵守する必要があります。オプトアウトに関しては、TCPAなどの法律により、ユーザーが同意の合理的な撤回を構成するメッセージ（「STOP」、「STOPALL」、「UNSUBSCRIBE」、「CANCEL」、「END」、「QUIT」などの認識されたオプトアウトキーワードを含む）を送信した場合、そのメッセージングプログラムに関連するすべての後続メッセージを停止する必要があると定められています。Brazeは認識されたオプトアウトキーワードを自動的に処理し、ユーザーの配信停止を行います。<br><br>ファジーオプトアウトは、サブスクリプショングループの**オプトアウト**カテゴリに設定された**オプトアウトキーワード**（つまり、[デフォルトのオプトアウトキーワード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/)または[カスタムオプトアウトキーワード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/)）のいずれにも一致しないものの、オプトアウトの意図を示している受信メッセージ（たとえば「goodbye」や「leave me alone」など）を認識しようとすることで、この機能を拡張します。
+> BrazeでSMS、MMS、RCSを送信するユーザーは、定められた適用法令、規制、および業界標準を遵守する必要があります。オプトアウトに関しては、TCPAなどの法律により、ユーザーが同意の合理的な撤回を構成するメッセージ（「STOP」、「STOPALL」、「UNSUBSCRIBE」、「CANCEL」、「END」、「QUIT」などの認識されたオプトアウトキーワードを含む）を送信した場合、そのメッセージングプログラムに関連するすべての後続メッセージを停止する必要があると定められています。Brazeは認識されたオプトアウトキーワードを自動的に処理し、ユーザーの配信停止を行います。<br><br>ファジーオプトアウトは、サブスクリプショングループの**オプトアウト**カテゴリに設定された**オプトアウトキーワード**（つまり、[デフォルトのオプトアウトキーワード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout)または[カスタムオプトアウトキーワード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling)）のいずれにも一致しないものの、オプトアウトの意図を示している受信メッセージ（たとえば「goodbye」や「leave me alone」など）を認識しようとすることで、この機能を拡張します。
 
 ファジーオプトアウトはデフォルトで無効になっています。ファジーオプトアウトが有効で、受信メッセージが「ファジー」と判定された場合、Brazeがユーザーを自動的に配信停止にするか、手動でオプトアウトする方法を案内するメッセージを送信するかを設定できます。米国のブランドの場合、TCPAの要件に準拠するため、ユーザーを自動的に配信停止にすることを強く推奨します。
 
 {% alert note %}
-現在、[ローカル言語]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/#multi-language-support)として英語を使用して作成されたオプトアウトキーワード（デフォルトおよびカスタム）のみがサポートされています。
+現在、[ローカル言語]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling#multi-language-support)として英語を使用して作成されたオプトアウトキーワード（デフォルトおよびカスタム）のみがサポートされています。
 {% endalert %}
 
 ## ファジーと判定される条件 {#what-is-deemed-as-fuzzy}

@@ -27,7 +27,7 @@ Você deve estar logado no dashboard da Braze para usar o link, e o arquivo fica
 - Se você vir um erro `AccessDenied`, o arquivo pode já ter expirado ou você pode ter tentado abri-lo antes de estar pronto. Relatórios maiores demoram mais para serem gerados, então aguarde alguns minutos e tente novamente.
 - Um erro `ExpiredToken` significa que o período de quatro horas passou. Reexecute a exportação para gerar um novo link.
 - A mensagem `Looks like the file doesn't exist anymore` geralmente aparece quando o e-mail é enviado, mas o arquivo ainda não terminou de ser enviado para o S3. Aguardar alguns minutos geralmente resolve o problema.
-- Apóstrofos adicionados no início de certos campos (como `-`, `=`, `+` ou `@`) são esperados. Por exemplo, `-1943` se torna `'-1943` no CSV. A Braze faz isso para evitar que programas de planilhas interpretem os dados incorretamente. Isso não se aplica a exportações JSON, como as retornadas pelo [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/).
+- Apóstrofos adicionados no início de certos campos (como `-`, `=`, `+` ou `@`) são esperados. Por exemplo, `-1943` se torna `'-1943` no CSV. A Braze faz isso para evitar que programas de planilhas interpretem os dados incorretamente. Isso não se aplica a exportações JSON, como as retornadas pelo [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment).
 
 ## Exportações de API {#api-exports}
 Quando você exporta através das APIs de exportação sem armazenamento em nuvem, a Braze grava os arquivos no seu bucket S3. Você não receberá um e-mail — em vez disso, a resposta da API inclui uma URL de download temporária. A exportação vem como um ZIP contendo vários arquivos JSON, cada um com um usuário por linha.
@@ -55,7 +55,7 @@ No armazenamento em nuvem, as exportações CSV são agrupadas em um arquivo ZIP
 - `AccessDenied` significa que a Braze não conseguiu gravar no seu bucket. Verifique se suas credenciais e permissões ainda são válidas.
 - `ExpiredToken` aparece se a Braze perdeu o acesso ao seu bucket. Atualize suas credenciais no dashboard da Braze.
 - Se alguns arquivos parecerem menores do que o esperado, isso é um comportamento normal. O processo de exportação divide intencionalmente os arquivos para garantir estabilidade.
-- Apóstrofos adicionados no início de certos campos (como `-`, `=`, `+` ou `@`) são esperados. Por exemplo, `-1943` se torna `'-1943` no CSV. A Braze faz isso para evitar que programas de planilhas interpretem os dados incorretamente. Isso não se aplica a exportações JSON, como as retornadas pelo [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/).
+- Apóstrofos adicionados no início de certos campos (como `-`, `=`, `+` ou `@`) são esperados. Por exemplo, `-1943` se torna `'-1943` no CSV. A Braze faz isso para evitar que programas de planilhas interpretem os dados incorretamente. Isso não se aplica a exportações JSON, como as retornadas pelo [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment).
 
 ## Exportações de API
 Quando você exporta dados através das APIs com um parceiro de armazenamento conectado, os arquivos de exportação são gravados no seu bucket. Nenhum e-mail é enviado. Os objetos subjacentes ficam no seu armazenamento e seguem suas configurações de retenção, mesmo que as URLs de download retornadas pela Braze possam ainda ter limite de tempo.
@@ -89,33 +89,33 @@ A exportação CSV fornece um snapshot dos usuários existentes que receberam um
 
 ### "Segment é muito grande" ou a exportação falha quando meu segmento parece ter menos de 500.000 usuários {#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users}
 
-O **tamanho do segmento no dashboard é uma estimativa**. A exportação CSV usa essa estimativa para aplicar o [limite de exportação de 500.000 usuários]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#segment-csv-export-details); o pipeline de exportação também pode avaliar o tamanho de forma diferente da interface do criador de segmentos. Se as exportações falharem para um segmento próximo desse limite, use [números de bucket aleatórios]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) ou divida o público em segmentos menores, ou use o [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) conforme descrito em [Exportando segmentos grandes]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#exporting-large-segments).
+O **tamanho do segmento no dashboard é uma estimativa**. A exportação CSV usa essa estimativa para aplicar o [limite de exportação de 500.000 usuários]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details); o pipeline de exportação também pode avaliar o tamanho de forma diferente da interface do criador de segmentos. Se as exportações falharem para um segmento próximo desse limite, use [números de bucket aleatórios]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) ou divida o público em segmentos menores, ou use o [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) conforme descrito em [Exportando segmentos grandes]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-large-segments).
 
 ### Por que não estou recebendo e-mails de exportação de segmentos? {#why-arent-i-receiving-segment-export-emails}
 
 Primeiro, verifique sua pasta de spam em busca de um e-mail de `no-reply@alerts.braze.com`. Se o e-mail estiver lá, adicione esse endereço à sua lista de remetentes confiáveis para que futuras mensagens de exportação não sejam filtradas.
 
-Se o e-mail não estiver na sua pasta de spam, verifique se outra pessoa da sua equipe consegue receber a exportação. Se ninguém conseguir, considere o tamanho da sua exportação. O tempo de entrega varia conforme o tamanho da exportação, mas se o e-mail não chegar após uma hora, entre em contato com o [Suporte]({{site.baseurl}}/braze_support/).
+Se o e-mail não estiver na sua pasta de spam, verifique se outra pessoa da sua equipe consegue receber a exportação. Se ninguém conseguir, considere o tamanho da sua exportação. O tempo de entrega varia conforme o tamanho da exportação, mas se o e-mail não chegar após uma hora, entre em contato com o [Suporte]({{site.baseurl}}/braze_support).
 
 ## Downloads da API de exportação de segmentos {#segment-export-api-downloads}
 
 ### Não consigo baixar um arquivo ZIP de segmento exportado a partir de uma URL da Braze {#cant-download-an-exported-segment-zip-file-from-a-braze-url}
 
-Se você receber um erro `403 Forbidden` ao usar o [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/), o arquivo pode ainda não estar pronto. Exportações grandes podem demorar para serem processadas. Aguarde até uma hora antes de tentar baixar novamente.
+Se você receber um erro `403 Forbidden` ao usar o [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment), o arquivo pode ainda não estar pronto. Exportações grandes podem demorar para serem processadas. Aguarde até uma hora antes de tentar baixar novamente.
 
 Se você usa um script automatizado para recuperar o arquivo, também pode receber um erro `403 Forbidden` ao solicitar a URL cedo demais. Se você exporta dados de segmentos regularmente, considere conectar sua própria integração de bucket S3 e encaminhar os arquivos para seu próprio pipeline de extração, transformação e carregamento (ETL).
 
 As exportações levam tempo para serem concluídas, então o acesso imediato a partir de um script frequentemente falha. Você pode:
 
 - Consultar a URL de download com backoff exponencial, ou
-- Usar o [parâmetro `callback_endpoint`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#request-parameters) e apontá-lo para um serviço que execute seu script quando a exportação estiver pronta.
+- Usar o [parâmetro `callback_endpoint`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#request-parameters) e apontá-lo para um serviço que execute seu script quando a exportação estiver pronta.
 
 ## Campos da API de exportação de segmentos e usuários {#segment-and-user-export-api-fields}
 
 ### Colunas esperadas estão ausentes em um arquivo de exportação de segmento {#expected-columns-are-missing-from-a-segment-export-file}
 
-A opção **Exportar dados de usuários em CSV** do dashboard para um segmento usa um conjunto fixo de colunas (consulte [Exportar dados de segmento para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#data-included-in-export)). Ela não inclui uma coluna ou parâmetro `fields_to_export`.
+A opção **Exportar dados de usuários em CSV** do dashboard para um segmento usa um conjunto fixo de colunas (consulte [Exportar dados de segmento para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#data-included-in-export)). Ela não inclui uma coluna ou parâmetro `fields_to_export`.
 
-Para exportações de segmentos via API, você deve passar `fields_to_export` no corpo da solicitação. Alguns campos puxam dados relacionados automaticamente — por exemplo, solicitar `canvases_received` também requer dados de resumo de jornada no perfil do usuário. Consulte a referência do [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) para nomes de campos válidos e requisitos.
+Para exportações de segmentos via API, você deve passar `fields_to_export` no corpo da solicitação. Alguns campos puxam dados relacionados automaticamente — por exemplo, solicitar `canvases_received` também requer dados de resumo de jornada no perfil do usuário. Consulte a referência do [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) para nomes de campos válidos e requisitos.
 
 Se colunas estiverem ausentes em um ZIP de exportação via API, confirme que o array `fields_to_export` na sua solicitação inclui todos os campos necessários e que seu espaço de trabalho possui as permissões de exportação exigidas.

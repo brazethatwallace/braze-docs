@@ -13,9 +13,9 @@ description: "Este artículo de referencia describe los eventos recomendados, qu
 
 ## Eventos recomendados de comercio electrónico {#ecommerce-recommended-events}
 
-Los [eventos recomendados de comercio electrónico]({{site.baseurl}}/ecommerce_events/) cubren seis pasos en el recorrido de compra: `product_viewed`, `cart_updated`, `checkout_started`, `order_placed`, `order_cancelled` y `order_refunded`. Cuando envías estos eventos correctamente, Braze valida los datos y los pone a disposición de un conjunto creciente de características de la plataforma.
+Los [eventos recomendados de comercio electrónico]({{site.baseurl}}/ecommerce_events) cubren seis pasos en el recorrido de compra: `product_viewed`, `cart_updated`, `checkout_started`, `order_placed`, `order_cancelled` y `order_refunded`. Cuando envías estos eventos correctamente, Braze valida los datos y los pone a disposición de un conjunto creciente de características de la plataforma.
 
-Estas características incluyen plantillas de Canvas para flujos de navegación abandonada, carrito abandonado, pago abandonado y confirmación de pedido; informes de comercio electrónico; y campos calculados del perfil de usuario para _Total Revenue_, _Total Orders_ y _Total Refunds_. También puedes crear segmentos usando filtrado de propiedades de producto anidadas a través de [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), personalizar mensajes de carrito abandonado con la etiqueta de Liquid {% raw %}`{% shopping_cart %}`{% endraw %}, y alimentar las capacidades de BrazeAI<sup>TM</sup> como [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) y [recomendaciones de artículos]({{site.baseurl}}/user_guide/brazeai/item_recommendations/), junto con otras capacidades.
+Estas características incluyen plantillas de Canvas para flujos de navegación abandonada, carrito abandonado, pago abandonado y confirmación de pedido; informes de comercio electrónico; y campos calculados del perfil de usuario para _Total Revenue_, _Total Orders_ y _Total Refunds_. También puedes crear segmentos usando filtrado de propiedades de producto anidadas a través de [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension), personalizar mensajes de carrito abandonado con la etiqueta de Liquid {% raw %}`{% shopping_cart %}`{% endraw %}, y alimentar las capacidades de BrazeAI<sup>TM</sup> como [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) y [recomendaciones de artículos]({{site.baseurl}}/user_guide/brazeai/item_recommendations), junto con otras capacidades.
 
 Dado que estos eventos siguen un esquema definido, cada característica compatible puede leer los datos estructurados sin necesidad de mapeado personalizado de propiedades ni configuración por característica de tu parte.
 
@@ -23,7 +23,7 @@ Dado que estos eventos siguen un esquema definido, cada característica compatib
 
 ### Cómo funcionan los eventos de comercio electrónico {#how-ecommerce-events-work}
 
-Los eventos de comercio electrónico son eventos personalizados con nombres y esquemas de propiedades predefinidos. Los envías usando el [SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/) o el [punto de conexión REST API `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), y Braze valida cada evento contra su esquema en la ingesta. Cuando la validación es exitosa, Braze aplica automáticamente el posprocesamiento específico de ese tipo de evento, como calcular campos de ingresos y gestionar el estado del carrito en los perfiles de usuario.
+Los eventos de comercio electrónico son eventos personalizados con nombres y esquemas de propiedades predefinidos. Los envías usando el [SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events) o el [punto de conexión REST API `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), y Braze valida cada evento contra su esquema en la ingesta. Cuando la validación es exitosa, Braze aplica automáticamente el posprocesamiento específico de ese tipo de evento, como calcular campos de ingresos y gestionar el estado del carrito en los perfiles de usuario.
 
 Los eventos de comercio electrónico funcionan en todos los lugares donde funcionan otros eventos personalizados: desencadenantes y filtros para eventos personalizados realizados, informes de eventos personalizados y más. Sin embargo, su validación de esquema desbloquea capacidades adicionales, incluyendo:
 
@@ -51,17 +51,17 @@ Los seis eventos recomendados de comercio electrónico se corresponden con etapa
 
 {% alert tip %}
 Los siguientes ejemplos muestran la carga útil de REST API para cada evento.
-Para el registro del lado del cliente, `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started` y `ecommerce.order_placed` usan las API de eventos de comercio electrónico del SDK donde estén disponibles, mientras que `ecommerce.order_cancelled` y `ecommerce.order_refunded` usan `logCustomEvent`. Para ejemplos de implementación específicos de cada plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+Para el registro del lado del cliente, `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started` y `ecommerce.order_placed` usan las API de eventos de comercio electrónico del SDK donde estén disponibles, mientras que `ecommerce.order_cancelled` y `ecommerce.order_refunded` usan `logCustomEvent`. Para ejemplos de implementación específicos de cada plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 {% endalert %}
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}
 
-Se desencadena cuando un usuario ve una página de detalle de producto. Este evento es compatible con las [notificaciones de vuelta en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) y las [notificaciones de bajada de precio]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/) del Catálogo de Braze.
+Se desencadena cuando un usuario ve una página de detalle de producto. Este evento es compatible con las [notificaciones de vuelta en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) y las [notificaciones de bajada de precio]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) del Catálogo de Braze.
 
 #### Implementación del lado del cliente {#client-side-implementation}
 
-Usa las API de eventos de comercio electrónico del SDK donde estén disponibles. Para ejemplos de implementación específicos de cada plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+Usa las API de eventos de comercio electrónico del SDK donde estén disponibles. Para ejemplos de implementación específicos de cada plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 #### Propiedades del evento {#event-properties}
 
@@ -116,7 +116,7 @@ Se desencadena cada vez que cambia el contenido del carrito de un usuario.
 
 #### Implementación del lado del cliente
 
-Usa las API de eventos de comercio electrónico del SDK donde estén disponibles. Para ejemplos de implementación específicos de cada plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+Usa las API de eventos de comercio electrónico del SDK donde estén disponibles. Para ejemplos de implementación específicos de cada plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 Puedes enviar este evento de dos maneras:
 
@@ -704,7 +704,7 @@ Se desencadena cuando el usuario inicia el flujo de pago (por ejemplo, seleccion
 
 #### Implementación del lado del cliente
 
-Usa las API de eventos de comercio electrónico del SDK donde estén disponibles. Para ejemplos de implementación específicos de cada plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+Usa las API de eventos de comercio electrónico del SDK donde estén disponibles. Para ejemplos de implementación específicos de cada plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 #### Propiedades del evento
 
@@ -799,7 +799,7 @@ Se desencadena cuando un pedido se completa correctamente o se confirma el pago.
 
 #### Implementación del lado del cliente
 
-Usa las API de eventos de comercio electrónico del SDK donde estén disponibles. Para ejemplos de implementación específicos de cada plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+Usa las API de eventos de comercio electrónico del SDK donde estén disponibles. Para ejemplos de implementación específicos de cada plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 {% alert important %}
 Este evento es el principal impulsor de ingresos. Incrementa `total_revenue` en el valor de `total_value` e incrementa `total_orders` en 1 en el perfil de usuario.
@@ -907,7 +907,7 @@ Se desencadena cuando se cancela un pedido.
 
 #### Implementación del lado del cliente
 
-Usa `logCustomEvent`. Para ejemplos de implementación específicos de cada plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+Usa `logCustomEvent`. Para ejemplos de implementación específicos de cada plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 {% alert important %}
 Este evento decrementa `total_orders` en 1 en el perfil de usuario. No afecta a `total_revenue`; usa `order_refunded` para ajustar los ingresos.
@@ -1004,7 +1004,7 @@ Se desencadena cuando se emite un reembolso total o parcial.
 
 #### Implementación del lado del cliente
 
-Usa `logCustomEvent`. Para ejemplos de implementación específicos de cada plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+Usa `logCustomEvent`. Para ejemplos de implementación específicos de cada plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 {% alert important %}
 Este evento decrementa `total_revenue` en el valor de `total_value` e incrementa `total_refunds` en el perfil de usuario. Para reembolsos parciales, establece `total_value` solo en el monto reembolsado, no en el total original del pedido.
@@ -1144,7 +1144,7 @@ Los valores de moneda que no sean USD se convierten automáticamente a USD usand
 
 ## Implementar eventos de comercio electrónico {#implement-ecommerce-events}
 
-Puedes enviar eventos de comercio electrónico a través del [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) (del lado del servidor) o a través de los SDK de Braze (del lado del cliente). Para ejemplos de implementación del SDK, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+Puedes enviar eventos de comercio electrónico a través del [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) (del lado del servidor) o a través de los SDK de Braze (del lado del cliente). Para ejemplos de implementación del SDK, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 ### Enviar eventos del lado del servidor {#send-events-server-side}
 
@@ -1190,11 +1190,11 @@ POST /users/track
 
 ### Puntos de datos y facturación {#data-points-and-billing}
 
-Los eventos de comercio electrónico no consumen [puntos de datos]({{site.baseurl}}/user_guide/data/infrastructure/data_points/). Puedes registrarlos sin ningún impacto en tu uso de puntos de datos.
+Los eventos de comercio electrónico no consumen [puntos de datos]({{site.baseurl}}/user_guide/data/infrastructure/data_points). Puedes registrarlos sin ningún impacto en tu uso de puntos de datos.
 
 ### Límite de tamaño de eventos {#event-size-limit}
 
-Las propiedades de eventos enviadas a `/users/track` tienen un límite de 102 400 bytes (100 KB) por evento. Para mensajes desencadenados de Campaigns y Canvas, las `trigger_properties` enviadas a [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) y [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) tienen un límite predeterminado más estricto de 51 200 bytes (50 KB).
+Las propiedades de eventos enviadas a `/users/track` tienen un límite de 102 400 bytes (100 KB) por evento. Para mensajes desencadenados de Campaigns y Canvas, las `trigger_properties` enviadas a [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) y [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) tienen un límite predeterminado más estricto de 51 200 bytes (50 KB).
 
 Como práctica recomendada, envía solo la información de producto que necesitas para desencadenar, personalizar o atribuir el evento. Almacena detalles de producto más ricos, como descripciones, listas completas de variantes, inventario o imágenes alternativas, en los Catálogos de Braze. Haz referencia a estos detalles por `product_id` o `variant_id` al enviar mensajes. Usa el objeto `metadata` de forma selectiva para el contexto específico del pedido o producto que la mensajería utilizará.
 
@@ -1212,7 +1212,7 @@ La propiedad de fuente es una cadena obligatoria que identifica de dónde se ori
 
 ### Flexibilidad de metadatos {#metadata-flexibility}
 
-Tanto los objetos de metadatos a nivel de evento como a nivel de producto aceptan pares clave-valor arbitrarios, por lo que puedes adjuntar dimensiones personalizadas sin modificar el esquema principal. Ejemplos comunes incluyen `order_status_url`, `gift_wrapped`, `loyalty_points_earned` o `warehouse_id`. Estas propiedades están disponibles en la personalización con Liquid, las exportaciones de Currents y la segmentación a través de [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/).
+Tanto los objetos de metadatos a nivel de evento como a nivel de producto aceptan pares clave-valor arbitrarios, por lo que puedes adjuntar dimensiones personalizadas sin modificar el esquema principal. Ejemplos comunes incluyen `order_status_url`, `gift_wrapped`, `loyalty_points_earned` o `warehouse_id`. Estas propiedades están disponibles en la personalización con Liquid, las exportaciones de Currents y la segmentación a través de [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension).
 
 {% alert important %}
 Los eventos recomendados usan un esquema estricto. Como resultado, agregar propiedades personalizadas en el nivel superior de las propiedades hará que la validación falle. Coloca todas las propiedades personalizadas dentro del objeto `metadata` a nivel de evento o del objeto `metadata` a nivel de producto dentro de `products[]`. Estas permanecen disponibles para Liquid, Currents y segmentación igual que los campos de nivel superior.
@@ -1248,8 +1248,8 @@ El evento se procesa como un evento recomendado de comercio electrónico con tod
 
 Después de enviar un evento, puedes confirmar que fue aceptado y procesado correctamente usando cualquiera de los siguientes métodos:
 
-- [Registro de eventos de usuario]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/): Abre el perfil del usuario en el dashboard y revisa su actividad. Los eventos recomendados aparecen con su carga útil completa de propiedades, para que puedas confirmar que el evento llegó y que los valores coinciden con lo que enviaste.
-- [Informe de eventos personalizados]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report/): Ve a **Analytics** > **Custom Events** para ver los conteos agregados de cada evento recomendado a lo largo del tiempo. Esto es útil para confirmar que el tráfico de producción fluye como se espera cuando tu integración está en vivo.
+- [Registro de eventos de usuario]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log): Abre el perfil del usuario en el dashboard y revisa su actividad. Los eventos recomendados aparecen con su carga útil completa de propiedades, para que puedas confirmar que el evento llegó y que los valores coinciden con lo que enviaste.
+- [Informe de eventos personalizados]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report): Ve a **Analytics** > **Custom Events** para ver los conteos agregados de cada evento recomendado a lo largo del tiempo. Esto es útil para confirmar que el tráfico de producción fluye como se espera cuando tu integración está en vivo.
 - [Usuarios de prueba]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups?utm_source=operator_user&utm_medium=dashboard#adding-test-users): Marca a un usuario en tu espacio de trabajo de desarrollo como usuario de prueba, luego desencadena eventos desde tu integración contra ese usuario. Los usuarios de prueba están marcados en el dashboard, lo que facilita aislar e inspeccionar el comportamiento de extremo a extremo.
 
 ### Cuando la validación falla {#when-validation-fails}

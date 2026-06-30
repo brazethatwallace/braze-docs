@@ -11,7 +11,7 @@ platform:
 
 # eコマースイベントの記録 {#log-ecommerce-events}
 
-> Braze Android、Swift、Web SDKで型付きイベントクラスと`logEcommerceEvent`を使用して、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/)を記録する方法を説明します。イベントプロパティスキーマ、プラットフォーム機能、取り込みバリデーションについては、[推奨イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/)および[イベントのバリデーションとトラブルシューティング]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-validation-and-troubleshooting)を参照してください。
+> Braze Android、Swift、Web SDKで型付きイベントクラスと`logEcommerceEvent`を使用して、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)を記録する方法を説明します。イベントプロパティスキーマ、プラットフォーム機能、取り込みバリデーションについては、[推奨イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events)および[イベントのバリデーションとトラブルシューティング]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-validation-and-troubleshooting)を参照してください。
 
 {% alert note %}
 一覧にないラッパーSDKの場合は、代わりに該当するネイティブAndroidまたはSwiftメソッドを使用してください。
@@ -19,7 +19,7 @@ platform:
 
 ## イベントスキーマ {#event-schemas}
 
-6つのeコマース推奨イベントは、すべてのプラットフォームで共通の注文レベルスキーマを共有しています。各イベントペイロードを構築する際は、以下のプロパティテーブルを使用してください。完全なバリデーション動作とREST APIの例を含む正規スキーマについては、[推奨イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-schemas)を参照してください。セグメンテーション、キャンバステンプレート、レポートなどのプラットフォーム機能については、[eコマースイベントの使用方法]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/)を参照してください。
+6つのeコマース推奨イベントは、すべてのプラットフォームで共通の注文レベルスキーマを共有しています。各イベントペイロードを構築する際は、以下のプロパティテーブルを使用してください。完全なバリデーション動作とREST APIの例を含む正規スキーマについては、[推奨イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-schemas)を参照してください。セグメンテーション、キャンバステンプレート、レポートなどのプラットフォーム機能については、[eコマースイベントの使用方法]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)を参照してください。
 
 {% tabs local %}
 {% tab product_viewed %}
@@ -40,7 +40,7 @@ platform:
 | `source` | 文字列 | はい | イベントの発生元ソース（例: `web`、`ios`、または`android`）。 |
 | `type` | 文字列の配列 | いいえ | 在庫復活や値下げアラートのBrazeカタログトリガー機能を使用するために必須です。許容される値: `"price_drop"`、`"back_in_stock"`。 |
 | `metadata` | オブジェクト | いいえ | 柔軟なキーと値のペア。認識されるサブプロパティ: `sku`（文字列）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="商品閲覧イベントのプロパティ" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product viewed event properties" }
 
 {% endtab %}
 {% tab cart_updated %}
@@ -61,7 +61,7 @@ platform:
 | `products` | 配列 | はい | この更新のラインアイテム。製品プロパティテーブルを参照してください。 |
 | `source` | 文字列 | はい | イベントの発生元ソース。 |
 | `metadata` | オブジェクト | いいえ | 追加のイベントレベルデータ用の柔軟なキーと値のペア。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="カート更新イベントのプロパティ" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Cart updated event properties" }
 
 **製品プロパティ（`products[]`）**
 
@@ -75,7 +75,7 @@ platform:
 | `quantity` | Integer | はい | カート全体の置き換えの場合、このラインのカート内数量。`add`または`remove`の場合、追加または削除する数量。 |
 | `price` | Float | はい | バリアント単価。 |
 | `metadata` | オブジェクト | いいえ | 柔軟なキーと値のペア（例: `color`や`size`）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="カート更新の製品プロパティ" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Cart updated product properties" }
 
 {% endtab %}
 {% tab checkout_started %}
@@ -96,7 +96,7 @@ platform:
 | `products` | 配列 | はい | チェックアウト対象のアイテム。製品プロパティテーブルを参照してください。 |
 | `source` | 文字列 | はい | イベントの発生元ソース。 |
 | `metadata` | オブジェクト | いいえ | 柔軟なキーと値のペア。認識されるサブプロパティ: `checkout_url`（文字列）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="チェックアウト開始イベントのプロパティ" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Checkout started event properties" }
 
 **製品プロパティ（`products[]`）**
 
@@ -110,7 +110,7 @@ platform:
 | `quantity` | Integer | はい | カート内の数量。 |
 | `price` | Float | はい | バリアント単価。 |
 | `metadata` | オブジェクト | いいえ | 柔軟なキーと値のペア（例: `color`や`size`）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="チェックアウト開始の製品プロパティ" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Checkout started product properties" }
 
 {% endtab %}
 {% tab order_placed %}
@@ -133,7 +133,7 @@ platform:
 | `products` | 配列 | はい | 注文内のアイテム。製品プロパティテーブルを参照してください。 |
 | `source` | 文字列 | はい | イベントの発生元ソース。 |
 | `metadata` | オブジェクト | いいえ | 柔軟なキーと値のペア。認識されるサブプロパティ: `order_status_url`（文字列）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="注文確定イベントのプロパティ" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Order placed event properties" }
 
 **製品プロパティ（`products[]`）**
 
@@ -147,7 +147,7 @@ platform:
 | `quantity` | Integer | はい | 注文内の数量。 |
 | `price` | Float | はい | バリアント単価。 |
 | `metadata` | オブジェクト | いいえ | 柔軟なキーと値のペア（例: `color`や`size`）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="注文確定の製品プロパティ" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Order placed product properties" }
 
 {% endtab %}
 {% tab order_cancelled %}
@@ -170,7 +170,7 @@ platform:
 | `products` | 配列 | はい | キャンセルされた注文内のアイテム。製品プロパティテーブルを参照してください。 |
 | `source` | 文字列 | はい | イベントの発生元ソース。 |
 | `metadata` | オブジェクト | いいえ | 柔軟なキーと値のペア。認識されるサブプロパティ: `order_status_url`（文字列）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="注文キャンセルイベントのプロパティ" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Order cancelled event properties" }
 
 **製品プロパティ（`products[]`）**
 
@@ -184,7 +184,7 @@ platform:
 | `quantity` | Integer | はい | 注文内の数量。 |
 | `price` | Float | はい | バリアント単価。 |
 | `metadata` | オブジェクト | いいえ | 柔軟なキーと値のペア（例: `color`や`size`）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="注文キャンセルの製品プロパティ" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Order cancelled product properties" }
 
 {% endtab %}
 {% tab order_refunded %}
@@ -203,7 +203,7 @@ platform:
 | `products` | 配列 | はい | 返金対象のアイテム。製品プロパティテーブルを参照してください。 |
 | `source` | 文字列 | はい | イベントの発生元ソース。 |
 | `metadata` | オブジェクト | いいえ | 柔軟なキーと値のペア。認識されるサブプロパティ: `order_status_url`（文字列）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="注文返金イベントのプロパティ" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Order refunded event properties" }
 
 **製品プロパティ（`products[]`）**
 
@@ -217,7 +217,7 @@ platform:
 | `quantity` | Integer | はい | 返金された数量。 |
 | `price` | Float | はい | バリアント単価。 |
 | `metadata` | オブジェクト | いいえ | 柔軟なキーと値のペア（例: `color`や`size`）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="注文返金の製品プロパティ" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Order refunded product properties" }
 
 {% endtab %}
 {% endtabs %}
@@ -232,7 +232,7 @@ Android SDK [42.3.0以降](https://github.com/braze-inc/braze-android-sdk/releas
 | `CartUpdatedEvent` | `ecommerce.cart_updated` | `action`プロパティには`CartUpdatedAction`（`ADD`、`REMOVE`、`REPLACE`）を使用します。 |
 | `CheckoutStartedEvent` | `ecommerce.checkout_started` | |
 | `OrderPlacedEvent` | `ecommerce.order_placed` | オプションの`cartId`、`totalDiscounts`、`discounts`をサポートしています。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Android SDK eコマースイベントクラス" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Android SDK eCommerce event classes" }
 
 {% alert important %}
 `ecommerce.order_cancelled`と`ecommerce.order_refunded`は、型付きAndroid SDKクラスとして利用できません。[`logCustomEvent`](#manual-logging-with-logcustomevent)またはREST APIを使用して記録してください。
@@ -256,7 +256,7 @@ Android SDK [42.3.0以降](https://github.com/braze-inc/braze-android-sdk/releas
 | `currency` | 有効なISO 4217コード（SDKによりトリムされ大文字に変換されます） |
 | `products`（カート、チェックアウト、注文イベント） | 1つ以上の`EcommerceProduct` |
 | `quantity`（製品ごと） | 非負の整数 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Android eコマースイベントのクライアントサイドバリデーションルール" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Android client-side validation rules for eCommerce events" }
 
 ディスパッチ時に、シリアライズされたプロパティがSDKのサイズ制限を超えた場合、`logEcommerceEvent`はエラーをログに記録し、イベントを送信しません。
 
@@ -302,7 +302,7 @@ Braze.getInstance(context).logEcommerceEvent(productViewedEvent)
 | `CartUpdatedAction.ADD` | `add` | 数量を増やすか、ラインを追加します。 |
 | `CartUpdatedAction.REMOVE` | `remove` | 数量を減らします。`0`でラインを削除します。 |
 | `CartUpdatedAction.REPLACE` | `replace` | カート全体を置き換えます（デフォルト）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ecommerce.cart_updatedのCartUpdatedAction値" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CartUpdatedAction values for ecommerce.cart_updated" }
 
 ```kotlin
 import com.braze.Braze
@@ -508,7 +508,7 @@ Braze.getInstance(context).logEcommerceEvent(productViewedEvent);
 | `CartUpdatedAction.ADD` | `add` | 数量を増やすか、ラインを追加します。 |
 | `CartUpdatedAction.REMOVE` | `remove` | 数量を減らします。`0`でラインを削除します。 |
 | `CartUpdatedAction.REPLACE` | `replace` | カート全体を置き換えます（デフォルト）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ecommerce.cart_updatedのCartUpdatedAction値" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CartUpdatedAction values for ecommerce.cart_updated" }
 
 ```java
 import com.braze.Braze;
@@ -1273,6 +1273,6 @@ braze.logCustomEvent("ecommerce.order_refunded", {
 推奨イベントを手動で記録するには、正確なイベント名（例: `ecommerce.product_viewed`）と、手動で構築した`BrazeProperties`または`JSONObject`ペイロードを指定して`logCustomEvent`を呼び出します。SDKは手動呼び出しに対して推奨イベントスキーマのバリデーションを行いません。Brazeは取り込み時にこれらのペイロードをバリデーションします:
 
 - 有効なペイロードは、完全な後処理を伴う推奨イベントとして処理されます。
-- 無効なペイロード（必須フィールドの欠落、型の不一致、余分なトップレベルプロパティ）は取り込み後に破棄されます。失敗はワークスペースのSDK処理ログおよび[失敗サマリーメール]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#find-failures)に表示されます。
+- 無効なペイロード（必須フィールドの欠落、型の不一致、余分なトップレベルプロパティ）は取り込み後に破棄されます。失敗はワークスペースのSDK処理ログおよび[失敗サマリーメール]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#find-failures)に表示されます。
 
-無効なデータがアプリから送信される前にキャッチできるよう、可能な限り`logEcommerceEvent`を使用してください。一般的な`logCustomEvent`の使用方法については、[カスタムイベントの記録]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)を参照してください。
+無効なデータがアプリから送信される前にキャッチできるよう、可能な限り`logEcommerceEvent`を使用してください。一般的な`logCustomEvent`の使用方法については、[カスタムイベントの記録]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)を参照してください。

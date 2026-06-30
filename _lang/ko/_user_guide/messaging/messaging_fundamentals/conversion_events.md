@@ -54,21 +54,21 @@ Braze가 여러 전환을 처리하는 방식에 대해 다음 사항을 참고�
 
 주요 전환 이벤트는 Campaign 또는 Canvas 생성 중에 추가하는 첫 번째 이벤트입니다. 이 이벤트는 참여도와 보고에 가장 큰 영향을 미칩니다. Braze는 주요 전환 이벤트를 다음과 같이 사용합니다:
 
-- [다변량]({{site.baseurl}}/user_guide/messaging/ab_testing/#multivariate-and-ab-testing) Campaign 또는 Canvases에서 우승 메시지 배리언트를 계산합니다.
+- [다변량]({{site.baseurl}}/user_guide/messaging/ab_testing#multivariate-and-ab-testing) Campaign 또는 Canvases에서 우승 메시지 배리언트를 계산합니다.
 - Campaign 또는 Canvas의 매출이 계산되는 기간을 결정합니다.
-- [지능형 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/)을 사용하는 Campaign 및 Canvases의 메시지 배포를 조정합니다.
+- [지능형 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)을 사용하는 Campaign 및 Canvases의 메시지 배포를 조정합니다.
 
 주요 전환 이벤트 수는 발생한 전환 이벤트의 횟수입니다. 멀티채널 Campaign의 경우, Braze는 채널별로 전환을 집계하므로([전환 추적 규칙](#conversion-tracking-rules) 참조), 전환 수가 고유 사용자 수를 초과하여 전환율이 100%를 넘을 수 있습니다. Braze는 이 수를 고유 수신자 수로 나누어 주요 전환 이벤트 비율을 계산합니다. Braze는 채널에 따라 메시지가 전송되거나 표시될 때 사용자를 수신자로 간주합니다. 예를 들어, 푸시나 이메일의 경우 Braze가 메시지를 전송한 후 사용자가 수신자가 됩니다. 인앱 메시지나 Content Cards의 경우, 사용자가 메시지를 확인해야 수신자로 간주됩니다.
 
 {% alert note %}
-Liquid `abort` 태그를 사용하여 메시지를 중단하면, Braze는 배리언트를 거치는 사용자에 대해서만 메시지를 중단합니다. 대조군의 사용자에게 보내는 메시지는 중단되지 않으므로, 배리언트와 대조군 간에 전환 비율이 왜곡될 수 있습니다. 해결 방법으로, Campaign 및 Canvas 진입 시 [세분화]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)를 사용하여 사용자를 타겟팅하세요.
+Liquid `abort` 태그를 사용하여 메시지를 중단하면, Braze는 배리언트를 거치는 사용자에 대해서만 메시지를 중단합니다. 대조군의 사용자에게 보내는 메시지는 중단되지 않으므로, 배리언트와 대조군 간에 전환 비율이 왜곡될 수 있습니다. 해결 방법으로, Campaign 및 Canvas 진입 시 [세분화]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)를 사용하여 사용자를 타겟팅하세요.
 {% endalert %}
 
 ## 전환 추적이 포함된 Campaign 만들기 {#creating-a-campaign-with-conversion-tracking}
 
 ### 1단계: Campaign 설정하기 {#step-1-set-up-your-campaign}
 
-원하는 메시징 채널에 대해 [Campaign을 생성]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/)하세요. Campaign의 메시지와 스케줄을 설정한 후, 추적을 위해 최대 4개의 전환 이벤트를 추가할 수 있습니다.
+원하는 메시징 채널에 대해 [Campaign을 생성]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign)하세요. Campaign의 메시지와 스케줄을 설정한 후, 추적을 위해 최대 4개의 전환 이벤트를 추가할 수 있습니다.
 
 필요한 만큼 전환 이벤트를 사용하세요. 두 번째 또는 세 번째 전환 이벤트를 추가하면 보고가 크게 풍부해집니다. 예를 들어, 이탈 위험 사용자를 타겟팅하는 Campaign의 경우, 주요 **세션 시작** 전환 이벤트와 함께 보조 전환 이벤트를 추가하면 Campaign이 사용자를 앱으로 다시 유도하는 데 얼마나 효과적인지 파악하는 데 도움이 됩니다.
 
@@ -79,7 +79,7 @@ Liquid `abort` 태그를 사용하여 메시지를 중단하면, Braze는 배리
 | 전환 이벤트 유형 | 설명 |
 |-------------------------|----------------------------|
 | **세션 시작** | 사용자가 지정한 앱 중 하나를 열면 전환된 것으로 집계됩니다(기본값은 워크스페이스의 모든 앱). |
-| **구매 수행** | 사용자가 [구매 이벤트]({{site.baseurl}}/api/objects_filters/purchase_object/)를 기록하면 전환된 것으로 집계됩니다. 기본적으로 모든 구매를 추적하며, 특정 제품을 지정할 수도 있습니다. |
+| **구매 수행** | 사용자가 [구매 이벤트]({{site.baseurl}}/api/objects_filters/purchase_object)를 기록하면 전환된 것으로 집계됩니다. 기본적으로 모든 구매를 추적하며, 특정 제품을 지정할 수도 있습니다. |
 | **주문하기** | 사용자가 [주문 완료 이커머스 권장 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#ecommerce-recommended-events?tab=ecommerce.order_placed)를 트리거하면 전환된 것으로 집계됩니다. 기본적으로 모든 주문을 추적하며, 특정 제품으로 필터링할 수도 있습니다.<br><br>"주문하기" 이벤트는 현재 얼리 액세스 중입니다. 이 얼리 액세스에 참여하려면 Braze 계정 매니저에게 문의하세요. |
 | **커스텀 이벤트 수행** | 사용자가 기존 커스텀 이벤트 중 하나를 수행하면 전환된 것으로 집계됩니다(기본값 없음, 이벤트를 지정해야 합니다). |
 | **앱 업그레이드** | 사용자가 지정한 앱 중 하나에서 앱 버전을 업그레이드하면 전환된 것으로 집계됩니다(기본값은 워크스페이스의 모든 앱). Braze는 변경이 업그레이드인지 판단하기 위해 최선의 수치 비교를 수행합니다. 숫자가 아닌 버전은 버전이 변경되면 전환으로 집계됩니다. |

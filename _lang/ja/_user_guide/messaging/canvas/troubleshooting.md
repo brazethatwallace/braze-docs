@@ -9,7 +9,7 @@ tool: Canvas
 
 # Canvasのトラブルシューティング {#troubleshoot-canvases}
 
-> このページでは、Canvasのエントリ、送信、分析の問題を診断します。定義や詳細については、[Canvas FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs/)を参照してください。
+> このページでは、Canvasのエントリ、送信、分析の問題を診断します。定義や詳細については、[Canvas FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs)を参照してください。
 
 {% alert note %}
 **メッセージング履歴**と**メッセージング診断**のログは、イベントから最大**30日間**利用可能です。特定のインシデントの調査にサポートが必要な場合は、その期間内に[Brazeサポート](#standard-investigation-path)にお問い合わせください。
@@ -24,6 +24,7 @@ tool: Canvas
 | 誰も入らなかった、または予想より少ないユーザーしか入らなかった | [Canvasエントリが少ない、またはゼロ](#low-or-zero-canvas-entries) |
 | 送信数や配信数が推定オーディエンスより少ない | [予想より送信数が少ない](#lower-sends-than-expected) |
 | Canvas分析が正しくない（コントロールグループ、コンバージョン、送信数ゼロ） | [Canvas分析の不一致](#canvas-analytics-mismatches) |
+| 分析でエントリよりはるかに多い送信数、またはエントリより多い退出数が表示される | [日付範囲フィルタリングにより予期しない数値が表示されることがある](#date-range-filtering-can-show-unexpected-numbers) |
 | Canvasが保存できない、またはエディターがフリーズする | [エディターと保存の問題](#editor-and-save-issues) |
 | Canvasを停止したがメッセージが送信された | [停止したCanvasの動作](#stopped-canvas-behavior) |
 | 起動時に「Canvasのブランチが多すぎます」エラーが表示される | [「Canvasのブランチが多すぎます」エラー](#too-many-canvas-branches-error) |
@@ -38,20 +39,20 @@ tool: Canvas
 3. **オーディエンス** > **ユーザーを検索**に移動し、プロファイルを開いて**メッセージング履歴**（過去30日間）を選択して、ユーザーのメッセージング記録を確認します。
    - 予想される送信時刻のレコードが存在しない場合、問題はメッセージではなくエントリにあります。[ユーザーがCanvasに入らなかった](#user-didnt-enter-the-canvas)に進んでください。
 4. Canvasの**変更ログ**と、ターゲティングに使用されているSegmentsの変更ログを確認します。インシデント中にオーディエンス、ステップ、または送信設定が変更されていないことを確認してください。
-5. Canvas分析ページで集計結果を確認するには、[メッセージング診断ダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/)を開き、中止およびドロップの理由を確認します。
-   - 認識できない結果が表示された場合は、診断ドキュメントの[中止の結果]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/#abort-outcomes)を参照してください。
-   - ステップでエントリがゼロ（送信数ゼロではなく）の場合は、前のステップタイプ（[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/)、[遅延]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/)、[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)、または[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)）を確認してください。
-6. それでも解決しない場合は、Canvas ID、影響を受けたユーザーID、タイムスタンプ（タイムゾーン付き）、メッセージング履歴またはメッセージング診断のスクリーンショットを添えて、30日以内に[Brazeサポート]({{site.baseurl}}/braze_support/)にお問い合わせください。
+5. Canvas分析ページで集計結果を確認するには、[メッセージング診断ダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard)を開き、中止およびドロップの理由を確認します。
+   - 認識できない結果が表示された場合は、診断ドキュメントの[中止の結果]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard#abort-outcomes)を参照してください。
+   - ステップでエントリがゼロ（送信数ゼロではなく）の場合は、前のステップタイプ（[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)、[遅延]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step)、[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)、または[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)）を確認してください。
+6. それでも解決しない場合は、Canvas ID、影響を受けたユーザーID、タイムスタンプ（タイムゾーン付き）、メッセージング履歴またはメッセージング診断のスクリーンショットを添えて、30日以内に[Brazeサポート]({{site.baseurl}}/braze_support)にお問い合わせください。
 
-起動前に、[テストCanvasの送信]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases/)と[ユーザーパスのプレビュー]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths/)を使用してセットアップを検証してください。
+起動前に、[テストCanvasの送信]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases)と[ユーザーパスのプレビュー]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths)を使用してセットアップを検証してください。
 
 ## ユーザーがCanvasに入らなかった {#user-didnt-enter-the-canvas}
 
 **症状：** ユーザーが予想したタイミングでCanvasに入らなかった、またはトリガーイベントが示すよりも少ないユーザーしか入らなかった。
 
-ユーザーは、Brazeがエントリトリガーを評価する前に**ターゲットオーディエンス**に一致している必要があります（[属性の変更]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)トリガーを除く）。トリガーだけでは、評価時にユーザーがオーディエンスに含まれていなければエントリは保証されません。
+ユーザーは、Brazeがエントリトリガーを評価する前に**ターゲットオーディエンス**に一致している必要があります（[属性の変更]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)トリガーを除く）。トリガーだけでは、評価時にユーザーがオーディエンスに含まれていなければエントリは保証されません。
 
-再適格性と再エントリは、[エントリコントロールの選択]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls)で別々のコントロールです。
+再適格性と再エントリは、[エントリコントロールの選択]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls)で別々のコントロールです。
 
 - **再適格性：** ユーザーがCanvasを退出した後に再度入ることが許可されるかどうかを決定します（時間枠と**ユーザーのCanvas再エントリを許可**設定）。
 - **再エントリ：** 現在Canvas内にいるユーザーが同時に別のパスに入ることができるかどうかを決定します。
@@ -60,13 +61,13 @@ tool: Canvas
 
 以下を確認してください。
 
-- **エントリスケジュールとタイムゾーン：** Canvasがライブであり、ユーザーが[エントリ時間枠]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-12-determine-your-canvas-entry-schedule)中にトリガーを実行したことを確認します。
-- **評価時のターゲットオーディエンス：** Segmentとフィルターの変更ログを確認します。[ユーザー検索]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)は、一部のフィルタータイプ（文字列形式の日付属性など）で偽陽性を示すことがあります。
-- **エントリキャップ：** [最大エントリ数]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls)またはオーディエンスキャップに達している可能性があります。
-- **グローバルコントロールグループ：** [グローバルコントロールグループ]({{site.baseurl}}/user_guide/audience/global_control_group/)のユーザーはメッセージングCanvasesに入りません。
+- **エントリスケジュールとタイムゾーン：** Canvasがライブであり、ユーザーが[エントリ時間枠]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule)中にトリガーを実行したことを確認します。
+- **評価時のターゲットオーディエンス：** Segmentとフィルターの変更ログを確認します。[ユーザー検索]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)は、一部のフィルタータイプ（文字列形式の日付属性など）で偽陽性を示すことがあります。
+- **エントリキャップ：** [最大エントリ数]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls)またはオーディエンスキャップに達している可能性があります。
+- **グローバルコントロールグループ：** [グローバルコントロールグループ]({{site.baseurl}}/user_guide/audience/global_control_group)のユーザーはメッセージングCanvasesに入りません。
 - **Canvasコントロールグループ：** エントリ時にCanvasコントロールグループに割り当てられたユーザーは、バリアントメッセージを受信しません。バリアントの割り当てはエントリ時に行われ、Segmentフィルターを通じて行われるわけではありません。[Canvas分析の不一致](#canvas-analytics-mismatches)を参照してください。
-- **退出条件：** ユーザーがエントリ前またはエントリ中に[退出条件]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/)に一致した可能性があります。エントリと退出が同じイベントを使用する場合は、[エントリ条件と退出条件の一致]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/matching_entry_and_exit_criteria/)を参照してください。
-- **APIトリガーのエントリ：** ユーザーが[`/canvas/trigger/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)で追加されたことを確認します。Canvasエントリフィルターで[Segmentを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)し、[`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)でユーザーをエクスポートできます。
+- **退出条件：** ユーザーがエントリ前またはエントリ中に[退出条件]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria)に一致した可能性があります。エントリと退出が同じイベントを使用する場合は、[エントリ条件と退出条件の一致]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/matching_entry_and_exit_criteria)を参照してください。
+- **APIトリガーのエントリ：** ユーザーが[`/canvas/trigger/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)で追加されたことを確認します。Canvasエントリフィルターで[Segmentを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)し、[`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)でユーザーをエクスポートできます。
 
 ### トリガーイベント数がCanvasエントリより多い {#trigger-event-count-is-higher-than-canvas-entries}
 
@@ -90,43 +91,43 @@ Brazeは同じ瞬間に発生した複数のエントリ試行を重複排除す
 
 **症状：** ユーザーがCanvasに入ったが、予想されるメッセージやステップを受信しなかった。
 
-ユーザーの[**メッセージング履歴**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#messaging-history-tab)でCanvasステップとタイムスタンプを確認してください。レコードが存在しない場合は、[ユーザーがCanvasに入らなかった](#user-didnt-enter-the-canvas)に戻ってください。
+ユーザーの[**メッセージング履歴**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab)でCanvasステップとタイムスタンプを確認してください。レコードが存在しない場合は、[ユーザーがCanvasに入らなかった](#user-didnt-enter-the-canvas)に戻ってください。
 
 次に、トリガーまたはステップタイプ別に以下を確認してください。
 
 - **カスタムイベントまたは購入トリガー：** イベントが**Analytics** > **カスタムイベントレポート**（購入の場合は**収益**）に表示されることを確認します。イベントのタイムスタンプを、Canvasがライブになった時刻およびステップのスケジュールされた遅延と比較してください。
 - **APIトリガーのエントリ：** [ユーザーがCanvasに入らなかった](#user-didnt-enter-the-canvas)で説明されているように、CanvasのSegmentフィルターとエクスポートでエントリを確認します。
-- **アクションパスまたはメッセージステップのトリガー：** ユーザーが前提条件のイベントを実行し、[イベントプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#event-properties)がステップで利用可能であることを確認します。
-- **アプリ内メッセージステップ：** アプリ内メッセージは、ユーザーがステップに入った後の次のセッション開始時に送信され、SDKイベントからのみ送信されます（REST APIからは送信されません）。Canvas FAQの[Canvasのアプリ内メッセージはいつ送信されますか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#when-are-in-app-messages-in-canvas-sent)を参照してください。
+- **アクションパスまたはメッセージステップのトリガー：** ユーザーが前提条件のイベントを実行し、[イベントプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#event-properties)がステップで利用可能であることを確認します。
+- **アプリ内メッセージステップ：** アプリ内メッセージは、ユーザーがステップに入った後の次のセッション開始時に送信され、SDKイベントからのみ送信されます（REST APIからは送信されません）。Canvas FAQの[Canvasのアプリ内メッセージはいつ送信されますか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs#when-are-in-app-messages-in-canvas-sent)を参照してください。
 - **Canvasコントロールグループ：** ユーザーがエントリ時にCanvasコントロールグループに割り当てられていないことを確認します。
-- **チャネルの適格性と送信設定：** サブスクリプションステータス、プッシュ有効状態、およびステップごとの[送信設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-14-select-your-send-settings)（たとえば、**サブスクリプション設定**がオプトインユーザーのみに設定されている場合）を確認します。マルチチャネルCanvasesの**ターゲットオーディエンス**に単一チャネルのフィルターを追加しないでください。
-- **配信バリデーション：** メッセージステップで**メッセージ送信時にオーディエンスを検証**を有効にしている場合、送信時にフィルターに一致しなくなったユーザーはメッセージを受信しません。[配信バリデーション]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations)を参照してください。
+- **チャネルの適格性と送信設定：** サブスクリプションステータス、プッシュ有効状態、およびステップごとの[送信設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-14-select-your-send-settings)（たとえば、**サブスクリプション設定**がオプトインユーザーのみに設定されている場合）を確認します。マルチチャネルCanvasesの**ターゲットオーディエンス**に単一チャネルのフィルターを追加しないでください。
+- **配信バリデーション：** メッセージステップで**メッセージ送信時にオーディエンスを検証**を有効にしている場合、送信時にフィルターに一致しなくなったユーザーはメッセージを受信しません。[配信バリデーション]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations)を参照してください。
 - **サイレント時間帯、インテリジェントタイミング、フリークエンシーキャップ、レート制限：** これらにより、送信が延期、抑制、または中止されることがあります。サイレント時間帯による中止後も、ユーザーはCanvas内に残ることがあります。
-- **競合：** ユーザーが複数のアクションを同時にトリガーした場合は、[競合]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/)を参照してください。
+- **競合：** ユーザーが複数のアクションを同時にトリガーした場合は、[競合]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions)を参照してください。
 
 {% alert important %}
-Canvasのメッセージステップが送信を中止した場合でも、ユーザーは次のステップに進みます。Canvasは中止時に進行するため、後続の遅延やアクションパスのステップが永久にブロックされることはありません。[ユーザーの進行方法]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance)と[中止の結果]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/#abort-outcomes)を参照してください。
+Canvasのメッセージステップが送信を中止した場合でも、ユーザーは次のステップに進みます。Canvasは中止時に進行するため、後続の遅延やアクションパスのステップが永久にブロックされることはありません。[ユーザーの進行方法]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#how-users-advance)と[中止の結果]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard#abort-outcomes)を参照してください。
 {% endalert %}
 
-ステップレベルのフィルター、ブランチ間の競合、IAMの分岐動作については、[キャンバスフローでの起動 — トラブルシューティング]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/launching_canvas_flow/#troubleshooting)と[Canvas FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#messages-and-delivery)を参照してください。
+ステップレベルのフィルター、ブランチ間の競合、IAMの分岐動作については、[キャンバスフローでの起動 — トラブルシューティング]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/launching_canvas_flow#troubleshooting)と[Canvas FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs#messages-and-delivery)を参照してください。
 
 {% alert important %}
-アクションベースのCanvasが予想より早くメッセージを送信する場合は、カスタムイベントのタイムスタンプが現在の時刻を使用しており、過去の日時ではないことを確認してください。Brazeはイベントとともに送信されたタイムスタンプから遅延を評価します。[アクションベースの配信]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-12-determine-your-canvas-entry-schedule)を参照してください。
+アクションベースのCanvasが予想より早くメッセージを送信する場合は、カスタムイベントのタイムスタンプが現在の時刻を使用しており、過去の日時ではないことを確認してください。Brazeはイベントとともに送信されたタイムスタンプから遅延を評価します。[アクションベースの配信]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule)を参照してください。
 {% endalert %}
 
 ## Canvasエントリが少ない、またはゼロ {#low-or-zero-canvas-entries}
 
 **症状：** 誰も入らなかった、または予想より少ないユーザーしかCanvasに入らなかった。
 
-[キャンバスフローでの起動チェックリスト]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/launching_canvas_flow/#launch-checklist)から始めて、以下を確認してください。
+[キャンバスフローでの起動チェックリスト]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/launching_canvas_flow#launch-checklist)から始めて、以下を確認してください。
 
 - Canvasがアクティブであり、現在の時刻がスケジュールされたエントリ時間枠内であること。
-- [エントリ設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls)（再適格性、最大エントリ数、エントリキャップ）が、予想するユーザーのエントリを許可していること。
+- [エントリ設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls)（再適格性、最大エントリ数、エントリキャップ）が、予想するユーザーのエントリを許可していること。
 - ターゲットオーディエンスとSegmentフィルターが、起動後も予想するユーザーに一致していること。
 - グローバルおよびCanvasコントロールグループの割合が、各パスに入るユーザーとメッセージを受信するユーザーの割合を示していること。
 - ワークスペースのレート制限またはエントリキューにより、ユーザーが資格を満たしてからエントリまたはステップに進むまでの間に遅延が発生する可能性があること。
 
-単一のユーザーについては、[標準的な調査パス]({{site.baseurl}}/braze_support/)に従ってください。DSTに関連するエントリゼロについては、[ユーザーがCanvasに入らなかった](#user-didnt-enter-the-canvas)の折りたたみセクションを参照してください。
+単一のユーザーについては、[標準的な調査パス]({{site.baseurl}}/braze_support)に従ってください。DSTに関連するエントリゼロについては、[ユーザーがCanvasに入らなかった](#user-didnt-enter-the-canvas)の折りたたみセクションを参照してください。
 
 ## 予想より送信数が少ない {#lower-sends-than-expected}
 
@@ -134,17 +135,17 @@ Canvasのメッセージステップが送信を中止した場合でも、ユ�
 
 一般的な原因には、送信時のオーディエンス再評価、チャネルの適格性、コントロールグループ、サイレント時間帯、インテリジェントタイミング、レート制限、アプリ内メッセージの配信動作（アプリ内メッセージではインプレッションがあっても*送信数*がゼロになるのは想定どおりの動作です）が含まれます。
 
-詳細なリストについては、Canvas FAQの[推定オーディエンスサイズより送信数が少ないのはなぜですか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-are-sends-lower-than-the-estimated-audience-size)と、Campaignsの[推定オーディエンスサイズより送信数が少ないのはなぜですか？]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size)を参照してください。
+詳細なリストについては、Canvas FAQの[推定オーディエンスサイズより送信数が少ないのはなぜですか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs#why-are-sends-lower-than-the-estimated-audience-size)と、Campaignsの[推定オーディエンスサイズより送信数が少ないのはなぜですか？]({{site.baseurl}}/user_guide/messaging/campaigns/faq#why-are-sends-lower-than-the-estimated-audience-size)を参照してください。
 
-[メッセージング診断ダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/)を使用して、ステップレベルの中止およびドロップの理由を確認してください。
+[メッセージング診断ダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard)を使用して、ステップレベルの中止およびドロップの理由を確認してください。
 
 ## Canvas分析の不一致 {#canvas-analytics-mismatches}
 
 **症状：** Canvas分析が正しくない（コントロールグループの分割、コンバージョン、または送信数ゼロ）。
 
-コントロールグループとバリアントの割り当ては、Segmentフィルターではなく、ビルダーで設定した割合に基づいてCanvasのエントリ時に行われます。特定のチャネルを受信できないユーザーでもバリアントに入ることがあります。各メッセージタイプの受信者を制限するには、**ターゲットオーディエンス**をチャネルフィルターで絞り込むのではなく、ステップごとの[送信設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-14-select-your-send-settings)を使用してください。
+コントロールグループとバリアントの割り当ては、Segmentフィルターではなく、ビルダーで設定した割合に基づいてCanvasのエントリ時に行われます。特定のチャネルを受信できないユーザーでもバリアントに入ることがあります。各メッセージタイプの受信者を制限するには、**ターゲットオーディエンス**をチャネルフィルターで絞り込むのではなく、ステップごとの[送信設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-14-select-your-send-settings)を使用してください。
 
-Canvasコントロールグループと[グローバルコントロールグループ]({{site.baseurl}}/user_guide/audience/global_control_group/)を区別してください。フィルターの定義については、Canvas FAQの[「Canvasバリアントに入っていない」と「Canvasコントロールグループに含まれていない」の違いは何ですか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-is-the-difference-between-has-not-entered-canvas-variation-and-is-not-in-canvas-control-group)を参照してください。
+Canvasコントロールグループと[グローバルコントロールグループ]({{site.baseurl}}/user_guide/audience/global_control_group)を区別してください。フィルターの定義については、Canvas FAQの[「Canvasバリアントに入っていない」と「Canvasコントロールグループに含まれていない」の違いは何ですか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-is-the-difference-between-has-not-entered-canvas-variation-and-is-not-in-canvas-control-group)を参照してください。
 
 {% details バリアントの送信数がバリアントの割合より少なくなる理由 %}
 
@@ -166,7 +167,19 @@ Canvasコントロールグループと[グローバルコントロールグル�
 
 {% enddetails %}
 
-コンバージョン率の定義とステップレベルの分析については、Canvas FAQの[分析とコンバージョン]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#analytics-and-conversions)を参照してください。
+### 日付範囲フィルタリングにより予期しない数値が表示されることがある {#date-range-filtering-can-show-unexpected-numbers}
+
+**症状：** Canvasまたはステップの分析で、エントリよりはるかに多い送信数や、入ったユーザーより多い退出数など、予期しないまたはあり得ない数値が表示される。
+
+これは、Canvas分析ページの上部にある日付範囲カレンダーフィルターを使用した場合に発生することがあります。一部のユーザーアクションを除外する日付範囲を選択すると、表示される指標は各ユーザーのジャーニーの一部のみを示す場合があります。
+
+例：
+- 日付範囲がほとんどのユーザーが入った後から始まり、メッセージを受信した期間を含む場合、100件のエントリに対して8,000件の送信が表示されることがあります。
+- 日付範囲が退出のみをキャプチャし、それ以前のエントリを含まない場合、前のステップに入ったユーザーより多くのユーザーが次のステップに移動しているように表示されることがあります。
+
+これを解決するには、Canvasが起動した日から現在までのすべての日付を含むように日付範囲を調整するか、必要な指標に関連する全期間をカバーする範囲を選択してください。
+
+コンバージョン率の定義とステップレベルの分析については、Canvas FAQの[分析とコンバージョン]({{site.baseurl}}/user_guide/messaging/canvas/faqs#analytics-and-conversions)を参照してください。
 
 ## エディターと保存の問題 {#editor-and-save-issues}
 
@@ -185,9 +198,9 @@ Canvasコントロールグループと[グローバルコントロールグル�
 - Canvasのズームコントロールを使用して、表示を25%または10%に縮小し、ブラウザがレンダリングするUIの量を減らしてください。
 - 別のWebブラウザを試してください。
 
-Canvasが読み込まれず進行しない場合、以前のバージョンが正しく保存されておらず、無効なステップが含まれている可能性があります。ダッシュボードからCanvasを複製してください。問題が解決しない場合は、[サポートチケット]({{site.baseurl}}/braze_support/)を開いてください。
+Canvasが読み込まれず進行しない場合、以前のバージョンが正しく保存されておらず、無効なステップが含まれている可能性があります。ダッシュボードからCanvasを複製してください。問題が解決しない場合は、[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。
 
-「リクエストタイムアウト」のサポートチケットには、画面録画、タイムスタンプとタイムゾーン、ブラウザとバージョン、再現手順、およびオプションでブラウザの開発者ツールからのHARログを含めてください。Canvas FAQの[「リクエストタイムアウト」エラーのサポートチケットを送信する際に何を含めるべきですか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error)を参照してください。
+「リクエストタイムアウト」のサポートチケットには、画面録画、タイムスタンプとタイムゾーン、ブラウザとバージョン、再現手順、およびオプションでブラウザの開発者ツールからのHARログを含めてください。Canvas FAQの[「リクエストタイムアウト」エラーのサポートチケットを送信する際に何を含めるべきですか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error)を参照してください。
 
 ## 停止したCanvasの動作 {#stopped-canvas-behavior}
 
@@ -197,7 +210,7 @@ Canvasを停止すると、ユーザーはエントリできなくなり、Canva
 
 遅延またはアクションパスのステップで待機しているユーザーは、Canvasを停止しても自動的にジャーニーから削除されません。スケジュールされた送信時刻が経過する前にCanvasを再有効化すると、保留中のステップを受信する可能性があります。
 
-詳細については、Canvas FAQの[Canvasを停止するとどうなりますか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-when-you-stop-a-canvas)を参照してください。
+詳細については、Canvas FAQの[Canvasを停止するとどうなりますか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-happens-when-you-stop-a-canvas)を参照してください。
 
 ## 「Canvasのブランチが多すぎます」エラー {#too-many-canvas-branches-error}
 
@@ -209,14 +222,14 @@ Canvasを停止すると、ユーザーはエントリできなくなり、Canva
 
 - Canvas内のステップの分岐を減らします。
 - エントリオーディエンスのサイズを縮小します。
-- 多数の並列パスの代わりに、[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)を使用して分岐を統合します。
-- Canvasがオリジナルエディターを使用している場合は、[キャンバスフローに複製]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/)して、Canvasコンポーネントで再構築します。
+- 多数の並列パスの代わりに、[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)を使用して分岐を統合します。
+- Canvasがオリジナルエディターを使用している場合は、[キャンバスフローに複製]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases)して、Canvasコンポーネントで再構築します。
 
-変更せずにCanvasを起動する必要があり、キャンバスフローに移行できない場合は、[サポート]({{site.baseurl}}/support_contact/)にお問い合わせください。
+変更せずにCanvasを起動する必要があり、キャンバスフローに移行できない場合は、[サポート]({{site.baseurl}}/support_contact)にお問い合わせください。
 
 ## サポートに問い合わせるタイミング {#when-to-contact-support}
 
-[標準的な調査パス](#standard-investigation-path)を完了してもまだサポートが必要な場合は、問題発生から30日以内に[Brazeサポート]({{site.baseurl}}/braze_support/)にお問い合わせください。
+[標準的な調査パス](#standard-investigation-path)を完了してもまだサポートが必要な場合は、問題発生から30日以内に[Brazeサポート]({{site.baseurl}}/braze_support)にお問い合わせください。
 
 以下を含めてください。
 

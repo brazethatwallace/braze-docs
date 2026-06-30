@@ -40,7 +40,7 @@ Um einen Link-Alias zu erstellen, öffnen Sie Ihren E-Mail-Body in der Campaign 
 ### Drag-and-Drop-Editor {#drag-and-drop-editor}
 
 1. Wählen Sie **Edit Email Body** aus, um den Drag-and-Drop-Composer zu öffnen.
-2. Wählen Sie in der Composer-Seitenleiste **Content** aus (neben **Sending Settings** und **Preview & Test**). Weitere Informationen zu diesem Layout finden Sie unter [Eine E-Mail mit Drag-and-Drop erstellen]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/).
+2. Wählen Sie in der Composer-Seitenleiste **Content** aus (neben **Sending Settings** und **Preview & Test**). Weitere Informationen zu diesem Layout finden Sie unter [Eine E-Mail mit Drag-and-Drop erstellen]({{site.baseurl}}/user_guide/channels/email/drag_and_drop).
 3. Wählen Sie im Untermenü **Content** die Option **Link Management** aus (unter **Design and Build**). Wenn das Untermenü eingeklappt ist, erweitern Sie es mit dem Pfeil-Steuerelement in der Seitenleiste.
 
 ### HTML-Editor {#html-editor}
@@ -74,7 +74,7 @@ Hier können Sie Link-Aliase sortieren, suchen und das Tracking deaktivieren.
 ![Seite „Tracked Link Aliases“ mit aktiven und inaktiven Link-Aliasen, die verschiedenen Campaigns zugeordnet sind.]({% image_buster /assets/img/tracked_aliases.png %})
 
 {% alert tip %}
-Verwenden Sie die Endpunkte [Link-Aliase für Campaign auflisten]({{site.baseurl}}/get_campaign_link_alias/) und [Link-Aliase für Canvas auflisten]({{site.baseurl}}/get_canvas_link_alias/), um den `alias` zu extrahieren, der in jeder Nachrichtenvariante einer Campaign oder einer E-Mail-spezifischen Canvas-Komponente festgelegt ist.
+Verwenden Sie die Endpunkte [Link-Aliase für Campaign auflisten]({{site.baseurl}}/get_campaign_link_alias) und [Link-Aliase für Canvas auflisten]({{site.baseurl}}/get_canvas_link_alias), um den `alias` zu extrahieren, der in jeder Nachrichtenvariante einer Campaign oder einer E-Mail-spezifischen Canvas-Komponente festgelegt ist.
 {% endalert %}
 
 Braze empfiehlt, die Links innerhalb der E-Mail zu evaluieren, Link-Templates hinzuzufügen und eine Namenskonvention bereitzustellen, die für Segmentierungs- und Reporting-Zwecke geeignet ist. Dies hilft Ihnen, den Überblick über alle Links zu behalten.
@@ -135,7 +135,7 @@ Die folgenden Tabellen zeigen Beispiele für Links in einem E-Mail-Body, Link-Al
 Wählen Sie in der Composer-Seitenleiste **Content** > **Link Management** (unter **Design and Build**) aus und wählen Sie dann aus, welche Aliase **verfolgt** werden sollen. Verfolgte Aliase sind in Segmentierungsfiltern verfügbar, die auf Link-Aliase verweisen (siehe [Segmentierungsfilter](#segmentation-filters)). Sie können auch aktionsbasierte Nachrichten senden oder Nutzer:innen durch einen Canvas bewegen, wenn sie auf einen Link-Alias in einer E-Mail klicken – siehe [Aktionsbasierte Filter](#action-based-filters). Die Einstellung **Verfolgt** hat keinen Einfluss darauf, ob Klicks auf diesen Link im E-Mail-Performance-Reporting gezählt werden.
 
 {% alert tip %}
-Um Link-Engagement-Metriken zu verfolgen, stellen Sie sicher, dass Ihr Link mit HTTP oder HTTPS beginnt. Um das Klick-Tracking für bestimmte Links zu deaktivieren, lesen Sie [Universal Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis).
+Um Link-Engagement-Metriken zu verfolgen, stellen Sie sicher, dass Ihr Link mit HTTP oder HTTPS beginnt. Um das Klick-Tracking für bestimmte Links zu deaktivieren, lesen Sie [Universal Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis).
 {% endalert %}
 
 Braze ermöglicht es Ihnen, eine unbegrenzte Anzahl von Links zu verfolgen, wobei Sie Nutzer:innen jedoch nur auf Basis der zuletzt geöffneten Links retargeten können. Nutzerprofile enthalten die 100 zuletzt angeklickten Links. Wenn Sie beispielsweise 500 Links verfolgen und ein:e Nutzer:in auf alle 500 klickt, können Sie auf Basis der 100 zuletzt angeklickten Links retargeten oder Segmente erstellen.
@@ -160,7 +160,7 @@ Wenn Sie den Segmentierungsfilter „Alias in einer beliebigen Campaign oder ein
 
 Wenn Sie den Segmentierungsfilter „Alias in Campaign angeklickt“ oder „Alias in Canvas angeklickt“ verwenden, filtert dieser Ihre Nutzer:innen danach, ob sie auf einen bestimmten Alias in einer bestimmten Campaign oder einem Canvas geklickt haben. Wenn mehrere Nutzer:innen dieselbe E-Mail-Adresse teilen und der Link-Alias angeklickt wird, werden die Nutzerprofile aller anderen Nutzer:innen, die dieselbe E-Mail-Adresse teilen, aktualisiert. Diese Profile werden auch durch Zustellungs- und Öffnungsereignisse aktualisiert, nicht nur durch Klickereignisse.
 
-Die folgenden Segmentierungsfilter gelten für Klickereignisse, die zum Zeitpunkt der Verarbeitung des Ereignisses verfolgt werden. Das bedeutet, dass nicht verfolgte Links keine bestehenden Daten entfernen und das Verfolgen eines Links keine Daten rückwirkend auffüllt. Weitere Details finden Sie unter [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+Die folgenden Segmentierungsfilter gelten für Klickereignisse, die zum Zeitpunkt der Verarbeitung des Ereignisses verfolgt werden. Das bedeutet, dass nicht verfolgte Links keine bestehenden Daten entfernen und das Verfolgen eines Links keine Daten rückwirkend auffüllt. Weitere Details finden Sie unter [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
 
 #### Tracking von Links aufheben {#untracking-links}
 
@@ -174,7 +174,7 @@ Um alle Links in Ihrer E-Mail-Campaign und deren jeweilige Gesamtklicks anzuzeig
 
 ### E-Mail-Klick-Ereignis {#email-clicks-event}
 
-Wenn Sie Ihre Engagement-Daten mit Currents exportieren, sieht ein E-Mail-Klick-Ereignis etwas anders aus, wenn Link Aliasing aktiviert ist. Es enthält zwei zusätzliche Felder für das [E-Mail-Klick-Ereignis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-clicks-events/), wenn Link Aliasing aktiviert ist: `link_id` und `link_alias`.
+Wenn Sie Ihre Engagement-Daten mit Currents exportieren, sieht ein E-Mail-Klick-Ereignis etwas anders aus, wenn Link Aliasing aktiviert ist. Es enthält zwei zusätzliche Felder für das [E-Mail-Klick-Ereignis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-clicks-events), wenn Link Aliasing aktiviert ist: `link_id` und `link_alias`.
 
 ```json
 // Email Click: users.messages.email.Click
@@ -206,7 +206,7 @@ Wenn Sie Ihre Engagement-Daten mit Currents exportieren, sieht ein E-Mail-Klick-
 ```
 
 {% alert update %}
-Das Verhalten von `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns, da Braze Canvas-Schritte (mit Ausnahme von Eingangsschritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) in Canvas und Campaigns.
+Das Verhalten von `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns, da Braze Canvas-Schritte (mit Ausnahme von Eingangsschritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id) in Canvas und Campaigns.
 
 _Update vermerkt im August 2019._
 {% endalert %}
@@ -233,7 +233,7 @@ Gehen Sie wie folgt vor:
 - Wenn die URL **bereits** `?` und Query-Parameter enthält, hängen Sie `&` nach dem Liquid an (z. B. `{{my_url}}&`).
 
 {% alert note %}
-Wenn Sie [Link-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/) mit durch Liquid generierten URLs verwenden, kann Braze die gerenderte URL nach der Liquid-Ausführung konservativ normalisieren, wenn sie genau zwei `?`-Zeichen als Query-Trennzeichen enthält. Das zweite `?` kann in `&` umgeschrieben werden, damit Braze so wenig wie möglich an der URL ändert. <br><br>Braze versucht nicht, jedes doppelte `?`-Muster zu korrigieren, und die Behandlung komplexerer URLs bleibt absichtlich begrenzt. Fügen Sie zuerst das korrekte `?` oder `&` in Ihrem Markup hinzu und betrachten Sie jede Normalisierung als begrenzte Absicherung – nicht als Ersatz für wohlgeformte URLs oder dafür, dass Links in **Link Management** erkannt werden, wenn kein Trennzeichen vorhanden ist.
+Wenn Sie [Link-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template) mit durch Liquid generierten URLs verwenden, kann Braze die gerenderte URL nach der Liquid-Ausführung konservativ normalisieren, wenn sie genau zwei `?`-Zeichen als Query-Trennzeichen enthält. Das zweite `?` kann in `&` umgeschrieben werden, damit Braze so wenig wie möglich an der URL ändert. <br><br>Braze versucht nicht, jedes doppelte `?`-Muster zu korrigieren, und die Behandlung komplexerer URLs bleibt absichtlich begrenzt. Fügen Sie zuerst das korrekte `?` oder `&` in Ihrem Markup hinzu und betrachten Sie jede Normalisierung als begrenzte Absicherung – nicht als Ersatz für wohlgeformte URLs oder dafür, dass Links in **Link Management** erkannt werden, wenn kein Trennzeichen vorhanden ist.
 {% endalert %}
 
 Ohne ein abschließendes `?` oder `&` (oder einen anderen unterstützten Einfügepunkt) erkennt Link Aliasing die URL nicht, **Link Management** listet sie nicht auf und Link-Templates werden nicht angewendet.
@@ -271,7 +271,7 @@ Jedes eindeutige `href` in der Nachricht wird **einer** Link-ID und einem Link-A
 Verwenden Sie zunächst die folgenden Ansätze in Braze:
 
 - **Campaign- und Canvas-E-Mail-Analytics:** Überprüfen Sie aggregierte Klicks nach Link unter **Message Analytics** > **Email Performance** > **Preview & Heatmap** mit aktiviertem **Show Heatmap**, wie unter [Tracking von Links aufheben](#untracking-links) beschrieben.
-- **Klicks pro Empfänger:in im Abfrage-Builder:** Führen Sie das **Email URLs clicked**-[Abfrage-Builder-Template]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/#email-templates) für eine Campaign oder einen Canvas aus. Das Template zeigt depersonalisierte Links für zusammenfassende Zählungen an; der CSV-Export enthält die Nutzer-IDs der Klickenden, den angeklickten Link und einen Zeitstempel. (Depersonalisierte URLs entfernen Liquid-Tags für die Zusammenfassungsansicht; Details finden Sie in der Template-Beschreibung.)
+- **Klicks pro Empfänger:in im Abfrage-Builder:** Führen Sie das **Email URLs clicked**-[Abfrage-Builder-Template]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates#email-templates) für eine Campaign oder einen Canvas aus. Das Template zeigt depersonalisierte Links für zusammenfassende Zählungen an; der CSV-Export enthält die Nutzer-IDs der Klickenden, den angeklickten Link und einen Zeitstempel. (Depersonalisierte URLs entfernen Liquid-Tags für die Zusammenfassungsansicht; Details finden Sie in der Template-Beschreibung.)
 - **Aufschlüsselungen auf Alias-Ebene im Composer:** Wenn jedes Ziel (z. B. jede `offer_id`) als eigene Zeile in **Link Management** und im Alias-basierten Reporting erscheinen soll, verwenden Sie separate `href`-Werte (und damit separate Aliase) – z. B. unterschiedliche Links pro Branch – anstatt eines Links, dessen Pfad sich pro Nutzer:in ändert.
 
 Wenn Sie auch Streaming-Engagement-Exporte verwenden, enthalten E-Mail-Klick-Ereignisse ein **`url`**-Feld; siehe [E-Mail-Klick-Ereignis](#email-clicks-event) auf dieser Seite für die Beziehung dieses Payloads zu Link Aliasing.
@@ -348,7 +348,7 @@ Ohne den `lid`-Wert behandelt Braze die URL nicht als Link-Alias für Tracking u
 
 Alternativ können Sie Link Aliasing im Dashboard deaktivieren, während Sie eine Backend-Änderung planen. Gehen Sie zu **Einstellungen** > **E-Mail-Präferenzen** > **Link Aliasing Settings**.
 
-Wenn Sie Ihre Zielsysteme nicht ändern können, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/braze_support/), um Link Aliasing für Ihren Workspace zu deaktivieren. Beachten Sie die folgenden Hinweise, wenn Link Aliasing für Ihren Workspace deaktiviert wird:
+Wenn Sie Ihre Zielsysteme nicht ändern können, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/braze_support), um Link Aliasing für Ihren Workspace zu deaktivieren. Beachten Sie die folgenden Hinweise, wenn Link Aliasing für Ihren Workspace deaktiviert wird:
 
 - Neue E-Mail-Nachrichten und Content Blocks erhalten in der Regel kein neues Link-Alias-Markup (wie den `lid`-Query-Parameter).
 - Bestehende Nachrichten, die erstellt wurden, als Link Aliasing aktiviert war, können weiterhin Link-Alias-Markup im HTML enthalten. Möglicherweise müssen Sie verbleibende `lid`-Parameter manuell entfernen, wo Sie sie nicht mehr benötigen.

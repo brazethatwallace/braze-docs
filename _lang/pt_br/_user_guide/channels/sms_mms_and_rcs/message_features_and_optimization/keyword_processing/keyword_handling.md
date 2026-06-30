@@ -24,19 +24,19 @@ As mensagens bidirecionais permitem que você envie mensagens e processe as resp
 SMS, MMS e RCS com a Braze oferecem a opção de criar gatilhos de palavras-chave, respostas personalizadas, definir conjuntos de palavras-chave para vários idiomas e estabelecer categorias de palavras-chave personalizadas.
 
 {% alert note %}
-A Braze usa seu conjunto completo de palavras-chave de descadastramento ([palavras-chave padrão]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) e [palavras-chave personalizadas]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/)) para tratamento exato de descadastramento e [descadastramento aproximado]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/).
+A Braze usa seu conjunto completo de palavras-chave de descadastramento ([palavras-chave padrão]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) e [palavras-chave personalizadas]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling)) para tratamento exato de descadastramento e [descadastramento aproximado]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out).
 {% endalert %}
 
 {% tabs %}
 {% tab Adicionar gatilhos de palavras-chave %}
 
-#### Adicionar gatilhos de palavras-chave {#add-keyword-triggers}
+### Adicionar gatilhos de palavras-chave {#add-keyword-triggers}
 
 Além das palavras-chave padrão de opt-in e descadastramento, você também pode definir suas próprias palavras-chave para acionar respostas de Opt-In, Descadastramento e Ajuda.
 
 Para definir suas próprias palavras-chave, faça o seguinte:
 
-1. No dashboard da Braze, acesse **Audience** > **Subscription Group Management** e selecione um grupo de inscrições **SMS/MMS/RCS**.<br><br>
+1. No dashboard da Braze, acesse **Audience** > **Subscription Group Management** e selecione um grupo de inscrições **SMS/MMS/RCS**.
 2. Em **Global Keywords**, selecione o ícone de lápis ao lado da categoria de palavra-chave à qual deseja adicionar uma palavra-chave. ![Palavras-chave de opt-in com o ícone de lápis exibido.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
 3. Na guia que se abre, adicione uma palavra-chave que deseja acionar essa categoria de palavra-chave. As palavras-chave não diferenciam maiúsculas de minúsculas, e palavras-chave universais como `START`, `YES` e `UNSTOP` não podem ser alteradas. ![Editando palavras-chave para a categoria "Opt-In". As palavras-chave adicionadas são "START", "UNSTOP" e "YES". O campo de mensagem de resposta diz "Sua inscrição para receber mensagens deste número foi cancelada. Responda HELP para ajuda. Responda STOP para cancelar a inscrição. Taxas de mensagem e dados podem ser aplicadas."]({% image_buster /assets/img/sms/keyword_edit2.png %})
 
@@ -48,22 +48,22 @@ As seguintes regras se aplicam a palavras-chave e respostas de palavras-chave:
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Adicionar gatilhos de palavras-chave" }
 
 {% alert tip %}
-Quer saber como essas palavras-chave podem ser usadas em suas Campaigns e Canvas para redirecionar e acionar mensagens? Acesse [Redirecionamento de usuários]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) para saber mais.
+Quer saber como essas palavras-chave podem ser usadas em suas Campaigns e Canvas para redirecionar e acionar mensagens? Acesse [Redirecionamento de usuários]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) para saber mais.
 {% endalert %}
 {% endtab %}
 
 {% tab Gerenciar respostas %}
 
-#### Gerenciar respostas {#manage-responses}
+### Gerenciar respostas {#manage-responses}
 
 Você pode gerenciar suas próprias respostas que são enviadas aos usuários depois que eles enviam uma palavra-chave para uma categoria de palavra-chave específica.
 
 1. No dashboard da Braze, acesse **Audience** > **Subscription Group Management** e selecione um grupo de inscrições **SMS/MMS/RCS**. <br><br>
 2. Em **Global Keywords**, selecione uma categoria de palavra-chave para editar uma resposta selecionando o ícone de lápis. ![Palavras-chave de opt-in com o ícone de lápis exibido.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
-3. Na guia que se abre, edite sua resposta. Tenha em mente nossas [seis regras para garantir a conformidade]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/#the-six-rules-to-get-compliance-right) ao criar sua resposta, e leia as regras a seguir que se aplicam a palavras-chave e respostas de palavras-chave. ![Respostas]({% image_buster /assets/img/sms/keyword_home.png %}){: style="max-width:70%;"}<br><br>
+3. Na guia que se abre, edite sua resposta. Tenha em mente nossas [seis regras para garantir a conformidade]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations#the-six-rules-to-get-compliance-right) ao criar sua resposta, e leia as regras a seguir que se aplicam a palavras-chave e respostas de palavras-chave.<br><br>
 4. Para encurtar automaticamente URLs estáticas em sua resposta, selecione o botão **Link Shortening**. O contador de caracteres será atualizado para mostrar o comprimento esperado da URL encurtada. ![Um GIF mostrando o contador de caracteres sendo atualizado quando o botão "Link Shortening" está ativado.]({% image_buster /assets/img/sms/link_shortening.gif %}){: style="max-width:60%;"}
 
-##### Considerações {#considerations}
+#### Considerações {#considerations}
 
 | Palavras-chave | Respostas de palavras-chave |
 | -------- | ----------------- |
@@ -74,7 +74,7 @@ Você pode gerenciar suas próprias respostas que são enviadas aos usuários de
 {% endtabs %}
 
 {% alert tip %}
-Se um Canvas baseado em ação for acionado por uma mensagem SMS, MMS ou RCS recebida, você pode referenciar propriedades de SMS, MMS ou RCS na primeira [etapa de mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) do Canvas.
+Se um Canvas baseado em ação for acionado por uma mensagem SMS, MMS ou RCS recebida, você pode referenciar propriedades de SMS, MMS ou RCS na primeira [etapa de mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) do Canvas.
 {% endalert %}
 
 ## Suporte multilíngue {#multi-language-support}
@@ -110,7 +110,7 @@ Para criar uma categoria de palavra-chave personalizada, faça o seguinte:
 2. Selecione **Add custom keyword**. ![Campos para adicionar novas palavras-chave.]({% image_buster /assets/img/sms/sms_custom_step.png %}){: style="max-width:90%;"}
 3. Forneça um nome para a categoria de palavra-chave e defina quais palavras-chave um usuário pode enviar para receber a mensagem de resposta.
 
-Depois que essa categoria de palavra-chave for criada, ela estará disponível para [filtrar e acionar]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) em suas Campaigns e Canvas.
+Depois que essa categoria de palavra-chave for criada, ela estará disponível para [filtrar e acionar]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) em suas Campaigns e Canvas.
 
 As palavras-chave criadas em categorias de palavras-chave personalizadas seguem todas as regras e validações para a criação de novas palavras-chave.
 
@@ -134,14 +134,14 @@ Recomendamos fortemente configurar uma resposta automática quando usuários ins
 
 Para enviar uma resposta padrão — por exemplo, "Desculpe! Não reconhecemos essa palavra-chave." — faça o seguinte:
 
-1. Crie uma [Campaign de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/).
-2. Para **Target audience**, escolha **All users** (o gatilho ainda limita quem recebe a mensagem).
-3. Para **Schedule**, escolha **Action-based delivery**.
+1. Crie uma [Campaign de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).
+2. Para **Público-alvo**, escolha **Todos os usuários** (o gatilho ainda limita quem recebe a mensagem).
+3. Para **Programar**, escolha **Entrega baseada em ação**.
 4. Defina o gatilho como **Send inbound SMS** para o grupo de inscrições apropriado **within keyword category OTHER**.
 5. Na etapa **Messaging**, insira o corpo da resposta que deseja que os usuários recebam.
 
-Para saber como a Braze lida com mensagens recebidas de números de telefone **desconhecidos** (antes de um perfil existir), consulte [Lidar com números de telefone desconhecidos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/unknown_phone_numbers/).
+Para saber como a Braze lida com mensagens recebidas de números de telefone **desconhecidos** (antes de um perfil existir), consulte [Lidar com números de telefone desconhecidos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/unknown_phone_numbers).
 
 {% alert tip %}
-Quer saber como essas palavras-chave e categorias de palavras-chave podem ser usadas em suas Campaigns e Canvas para redirecionar e acionar mensagens? Acesse [Redirecionamento de usuários]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) para saber mais.
+Quer saber como essas palavras-chave e categorias de palavras-chave podem ser usadas em suas Campaigns e Canvas para redirecionar e acionar mensagens? Acesse [Redirecionamento de usuários]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) para saber mais.
 {% endalert %}

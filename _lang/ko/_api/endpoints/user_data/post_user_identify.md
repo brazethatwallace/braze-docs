@@ -32,7 +32,7 @@ description: "이 문서에서는 사용자 식별 Braze 엔드포인트에 대�
 해당 `external_id`를 가진 사용자가 없으면, `external_id`가 별칭 사용자의 기록에 추가되고 사용자는 식별된 것으로 간주됩니다. 사용자는 특정 레이블에 대해 하나의 별칭만 가질 수 있습니다. 사용자가 이미 `external_id`와 함께 존재하고 별칭 전용 프로필과 동일한 레이블로 기존 별칭이 있는 경우, 고객 프로필은 결합되지 않습니다.
 
 {% alert tip %}
-사용자 식별 시 예기치 않은 데이터 손실을 방지하려면 먼저 [데이터 수집 모범 사례]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/best_practices/#capturing-user-data-when-alias-only-user-info-is-already-present)를 참조하여 별칭 전용 사용자 정보가 이미 존재하는 경우 사용자 데이터를 캡처하는 방법에 대해 알아보는 것이 좋습니다.
+사용자 식별 시 예기치 않은 데이터 손실을 방지하려면 먼저 [데이터 수집 모범 사례]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/best_practices#capturing-user-data-when-alias-only-user-info-is-already-present)를 참조하여 별칭 전용 사용자 정보가 이미 존재하는 경우 사용자 데이터를 캡처하는 방법에 대해 알아보는 것이 좋습니다.
 {% endalert %}
 
 ### 병합 동작 {#merging-behavior}
@@ -77,7 +77,7 @@ description: "이 문서에서는 사용자 식별 Braze 엔드포인트에 대�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.identify` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.identify` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -108,10 +108,10 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |-----------------------------|----------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `aliases_to_identify` | 필수 | 식별할 별칭 오브젝트 배열 | [식별할 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/aliases_to_identify/) 및 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object/)를 참조하세요. |
+| `aliases_to_identify` | 필수 | 식별할 별칭 오브젝트 배열 | [식별할 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/aliases_to_identify) 및 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object)를 참조하세요. |
 | `emails_to_identify` | 필수 | 식별할 별칭 오브젝트 배열 | `email`이 식별자로 지정된 경우 필수입니다. 사용자를 식별하기 위한 이메일 주소입니다. [이메일로 사용자 식별하기](#identifying-users-by-email)를 참조하세요. |
 | `phone_numbers_to_identify` | 필수 | 식별할 별칭 오브젝트 배열 | 사용자를 식별하기 위한 전화번호입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ### 이메일 주소 및 전화번호로 사용자 식별 {#identifying-users-by-email}
 
@@ -154,7 +154,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
   "emails_to_identify": [
     {
       "external_id": "external_identifier_2",
-      "email": "john.smith@braze.com",
+      "email": "john.smith@example.com",
       "prioritization": ["unidentified", "most_recently_updated"]
     }
   ]
@@ -166,7 +166,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
 `alias_name` 필드는 대소문자를 구분합니다. `201` 상태 코드를 반환하는 요청은 요청 구문이 유효했음을 확인할 뿐, 별칭이 일치했음을 확인하는 것은 아닙니다. 요청의 `alias_name` 대소문자가 고객 프로필에 저장된 별칭과 정확히 일치하지 않으면 작업이 자동으로 실패하고 `external_id`가 할당되지 않습니다. 예를 들어, 저장된 별칭이 `JimJones@example.com`인 경우 `jimjones@example.com`으로 요청하면 성공을 반환하지만 결과가 생성되지 않습니다.
 
 {% alert tip %}
-`alias_name` 및 `alias_label`에 대한 자세한 내용은 [사용자 별칭]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases) 설명서를 참조하세요.
+`alias_name` 및 `alias_label`에 대한 자세한 내용은 [사용자 별칭]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases) 설명서를 참조하세요.
 {% endalert %}
 
 ## 응답 {#response}

@@ -21,7 +21,7 @@ description: "この記事では、「カタログ項目の詳細をリストア
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.get_item` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`catalogs.get_item` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -33,7 +33,7 @@ description: "この記事では、「カタログ項目の詳細をリストア
 |---|---|---|---|
 | `catalog_name` | 必須 | 文字列 | カタログの名前。 |
 | `item_id` | 必須 | 文字列 | カタログ項目のID。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="パスパラメーター" }
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -102,6 +102,6 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurant
 | --- | --- |
 | `catalog-not-found` | カタログ名が有効であることを確認してください。 |
 | `item-not-found` | その項目がカタログに存在することを確認してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 {% endapi %}

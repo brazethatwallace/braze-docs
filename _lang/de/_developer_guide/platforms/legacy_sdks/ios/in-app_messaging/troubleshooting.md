@@ -1,9 +1,9 @@
 ---
-nav_title: Fehlersuche
+nav_title: Fehlerbehebung
 article_title: Fehlerbehebung bei In-App-Nachrichten für iOS
 platform: iOS
 page_order: 7
-description: "Dieser Referenzartikel befasst sich mit der möglichen Fehlerbehebung bei iOS In-App-Nachrichten."
+description: "Dieser Referenzartikel behandelt mögliche Themen zur Fehlerbehebung bei iOS In-App-Nachrichten."
 channel:
   - in-app messages
 
@@ -16,7 +16,7 @@ noindex: true
 
 ## Impressionen {#impressions}
 
-#### Impressions- oder Klick-Analytics werden nicht protokolliert {#impression-or-click-analytics-arent-being-logged}
+### Impressions- oder Klick-Analytics werden nicht protokolliert {#impression-or-click-analytics-arent-being-logged}
 
 Wenn Sie einen Delegaten für In-App-Nachrichten so festgelegt haben, dass die Anzeige von Nachrichten oder Klickaktionen manuell gesteuert wird, müssen Sie Klicks und Impressionen für die In-App-Nachricht manuell protokollieren.
 
@@ -40,7 +40,7 @@ Das SDK fordert beim Start der Sitzung In-App-Nachrichten von den Braze-Servern 
 4. Überprüfen Sie anhand der [Event-Nutzerprotokolle]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab), ob Ihr Gerät zu Beginn der Sitzung In-App-Nachrichten anfordert. Suchen Sie die SDK-Anfrage, die mit dem Sitzungsstart-Event Ihrer Testnutzer:in verknüpft ist.
   - Wenn Ihre App getriggerte In-App-Nachrichten anfordern sollte, sollten Sie `trigger` im Feld **Requested Responses** unter **Response Data** sehen.
   - Wenn Ihre App originale In-App-Nachrichten anfordern sollte, sollten Sie `in_app` im Feld **Requested Responses** unter **Response Data** sehen.
-5. Überprüfen Sie anhand der [Event-Nutzerprotokolle]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab), ob die korrekten In-App-Nachrichten in den Antwortdaten zurückgegeben werden.<br>![]({% image_buster /assets/img_archive/event_user_log_iams.png %})
+5. Überprüfen Sie anhand der [Event-Nutzerprotokolle]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab), ob die korrekten In-App-Nachrichten in den Antwortdaten zurückgegeben werden.<br>![Event-Nutzerprotokolleinträge für In-App-Nachrichtenanfragen.]({% image_buster /assets/img_archive/event_user_log_iams.png %})
 
 #### Fehlerbehebung bei nicht angeforderten Nachrichten {#troubleshoot-messages-not-being-requested}
 
@@ -66,7 +66,7 @@ Wenn Ihre In-App-Nachrichten nicht zurückgegeben werden, liegt wahrscheinlich e
 
 Wenn Ihre App erfolgreich In-App-Nachrichten anfordert und empfängt, diese aber nicht angezeigt werden, verhindert möglicherweise eine geräteseitige Logik die Anzeige:
 
-- Getriggerte In-App-Nachrichten werden auf Grundlage des [minimalen Zeitintervalls zwischen Triggern]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/in-app_message_delivery/#minimum-time-interval-between-triggers) begrenzt, das standardmäßig 30 Sekunden beträgt.
+- Getriggerte In-App-Nachrichten werden auf Grundlage des [minimalen Zeitintervalls zwischen Triggern]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/in-app_message_delivery#minimum-time-interval-between-triggers) begrenzt, das standardmäßig 30 Sekunden beträgt.
 - Wenn Sie einen Delegaten zum Anpassen der Handhabung von In-App-Nachrichten festgelegt haben, überprüfen Sie Ihren Delegaten, um sicherzustellen, dass er die Anzeige der In-App-Nachrichten nicht beeinträchtigt.
 - Fehlgeschlagene Bild-Downloads verhindern die Anzeige von In-App-Nachrichten mit Bildern. Bild-Downloads schlagen immer fehl, wenn das `SDWebImage`-Framework nicht korrekt integriert ist. Überprüfen Sie Ihre Geräteprotokolle, um sicherzustellen, dass Bild-Downloads nicht fehlschlagen.
 - Wenn die Ausrichtung des Geräts nicht mit der in der In-App-Nachricht angegebenen Ausrichtung übereinstimmt, wird die In-App-Nachricht nicht angezeigt. Vergewissern Sie sich, dass Ihr Gerät die korrekte Ausrichtung hat.

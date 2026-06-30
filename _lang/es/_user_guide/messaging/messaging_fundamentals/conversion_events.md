@@ -54,21 +54,21 @@ Ten en cuenta lo siguiente sobre cómo Braze maneja múltiples conversiones:
 
 El evento de conversión primaria es el primer evento que agregas durante la creación de una campaña o Canvas. Este evento tiene la mayor influencia en tu interacción e informes. Braze usa tu evento de conversión primaria para:
 
-- Calcular la variante de mensaje ganadora en campañas o Canvas [multivariantes]({{site.baseurl}}/user_guide/messaging/ab_testing/#multivariate-and-ab-testing).
+- Calcular la variante de mensaje ganadora en campañas o Canvas [multivariantes]({{site.baseurl}}/user_guide/messaging/ab_testing#multivariate-and-ab-testing).
 - Determinar la ventana en la que se calculan los ingresos para la campaña o Canvas.
-- Ajustar las distribuciones de mensajes para campañas y Canvas usando [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/).
+- Ajustar las distribuciones de mensajes para campañas y Canvas usando [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection).
 
 El recuento del evento de conversión primaria es el número de eventos de conversión que ocurrieron. Para campañas multicanal, Braze cuenta las conversiones por canal (como se describe en [Reglas de seguimiento de conversiones](#conversion-tracking-rules)), lo que significa que el recuento de conversiones puede superar el número de usuarios únicos y resultar en tasas de conversión superiores al 100 %. Braze calcula la tasa del evento de conversión primaria dividiendo este recuento entre el número de destinatarios únicos. Braze considera a un usuario como destinatario cuando el mensaje se envía o se muestra, dependiendo del canal. Por ejemplo, en push o correo electrónico, un usuario se convierte en destinatario después de que Braze envía el mensaje. Para mensajes dentro de la aplicación o Content Cards, el usuario debe ver el mensaje para ser considerado destinatario.
 
 {% alert note %}
-Si cancelas mensajes usando la etiqueta Liquid `abort`, Braze cancela los mensajes solo para los usuarios que pasan por las variantes. Los mensajes para los usuarios en el grupo de control no se cancelan, lo que puede llevar a porcentajes de conversión sesgados entre variantes y grupos de control. Como solución alternativa, usa la [segmentación]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) para dirigirte a tus usuarios en la entrada de la campaña y Canvas.
+Si cancelas mensajes usando la etiqueta Liquid `abort`, Braze cancela los mensajes solo para los usuarios que pasan por las variantes. Los mensajes para los usuarios en el grupo de control no se cancelan, lo que puede llevar a porcentajes de conversión sesgados entre variantes y grupos de control. Como solución alternativa, usa la [segmentación]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) para dirigirte a tus usuarios en la entrada de la campaña y Canvas.
 {% endalert %}
 
 ## Crear una campaña con seguimiento de conversiones {#creating-a-campaign-with-conversion-tracking}
 
 ### Paso 1: Configura tu campaña {#step-1-set-up-your-campaign}
 
-[Crea una campaña]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/) para el canal de mensajería que desees. Después de configurar los mensajes y la planificación de tu campaña, puedes agregar hasta cuatro eventos de conversión para el seguimiento.
+[Crea una campaña]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign) para el canal de mensajería que desees. Después de configurar los mensajes y la planificación de tu campaña, puedes agregar hasta cuatro eventos de conversión para el seguimiento.
 
 Usa tantos eventos de conversión como sea necesario. Agregar un segundo o tercer evento de conversión enriquece significativamente tus informes. Por ejemplo, para una campaña dirigida a usuarios inactivos, agregar un evento de conversión secundario junto con el evento de conversión primaria **Inicia sesión** te ayuda a entender qué tan efectiva es tu campaña para traer a los usuarios de vuelta a tu aplicación.
 
@@ -79,7 +79,7 @@ Primero, selecciona el tipo general de evento que te gustaría usar:
 | Tipo de evento de conversión | Descripción |
 |-------------------------|----------------------------|
 | **Inicia sesión** | Un usuario se cuenta como convertido cuando abre cualquiera de las aplicaciones que especifiques (por defecto, todas las aplicaciones en el espacio de trabajo). |
-| **Realiza una compra** | Un usuario se cuenta como convertido cuando registra un [evento de compra]({{site.baseurl}}/api/objects_filters/purchase_object/). Esto rastrea cualquier compra por defecto, o puedes especificar un producto en particular. |
+| **Realiza una compra** | Un usuario se cuenta como convertido cuando registra un [evento de compra]({{site.baseurl}}/api/objects_filters/purchase_object). Esto rastrea cualquier compra por defecto, o puedes especificar un producto en particular. |
 | **Realiza un pedido** | Un usuario se cuenta como convertido cuando desencadena el [evento recomendado de comercio electrónico Pedido realizado]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#ecommerce-recommended-events?tab=ecommerce.order_placed). Esto rastrea cualquier pedido por defecto, o puedes filtrar por un producto específico.<br><br>El evento "Realiza un pedido" se encuentra actualmente en acceso anticipado. Ponte en contacto con tu director de cuentas de Braze si estás interesado en participar en este acceso anticipado. |
 | **Realiza un evento personalizado** | Un usuario se cuenta como convertido cuando realiza uno de tus eventos personalizados existentes (no hay valor predeterminado, debes especificar el evento). |
 | **Actualiza la aplicación** | Un usuario se cuenta como convertido cuando actualiza la versión de la aplicación en cualquiera de las aplicaciones que especifiques (por defecto, todas las aplicaciones en el espacio de trabajo). Braze realiza una comparación numérica de mejor esfuerzo para determinar si el cambio fue una actualización. Las versiones no numéricas se cuentan como conversiones si la versión cambia. |

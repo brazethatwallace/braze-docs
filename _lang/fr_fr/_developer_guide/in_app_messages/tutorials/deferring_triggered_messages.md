@@ -1,12 +1,12 @@
 ---
 nav_title: Report des messages déclenchés
-article_title: "Tutoriel : Report et restauration des messages déclenchés"
+article_title: "Tutoriel : Report et restauration des messages déclenchés"
 description: ""
 page_order: 1
 layout: scrolly
 ---
 
-# Tutoriel : Report et restauration des messages déclenchés
+# Tutoriel : Report et restauration des messages déclenchés {#tutorial-deferring-and-restoring-triggered-messages}
 
 > Suivez l'exemple de code de ce tutoriel pour différer et restaurer les messages in-app déclenchés à l'aide du SDK de Braze.
 
@@ -14,7 +14,7 @@ layout: scrolly
 {% sdktab web %}
 {% multi_lang_include developer_guide/prerequisites/web.md %} Cependant, aucune configuration supplémentaire n'est nécessaire.
 
-## Report et restauration des messages déclenchés pour le Web
+## Report et restauration des messages déclenchés pour le Web {#deferring-and-restoring-triggered-messages-for-web}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Deferring Triggered Messages Web" %}
 
@@ -47,60 +47,60 @@ document.getElementById("button").onclick = function () {
 };
 ```
 
-!étape
-lignes-index.js=2
+!!step
+lines-index.js=2
 
-#### 1\. Supprimer les appels à `automaticallyShowInAppMessages()`
+### 1. Supprimer les appels à `automaticallyShowInAppMessages()` {#1-remove-calls-to-automaticallyshowinappmessages}
 
-Supprimez tous les appels à [`automaticallyShowInAppMessages()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#automaticallyshowinappmessages) car ils remplaceront toute logique personnalisée que vous mettrez en œuvre ultérieurement.
+Supprimez tous les appels à [`automaticallyShowInAppMessages()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#automaticallyshowinappmessages), car ils remplaceront toute logique personnalisée que vous implémenterez ultérieurement.
 
-!étape
-lignes-index.js=6
+!!step
+lines-index.js=6
 
-#### 2\. Activer le débogage (facultatif)
+#### 2. Activer le débogage (facultatif) {#2-enable-debugging-optional}
 
 Pour faciliter la résolution des problèmes lors du développement, pensez à activer le débogage.
 
-!étape
-lignes-index.js=9-16
+!!step
+lines-index.js=9-16
 
-#### 3\. S'abonner au gestionnaire de rappel des messages in-app.
+#### 3. S'abonner au gestionnaire de rappel des messages in-app {#3-subscribe-to-the-in-app-message-callback-handler}
 
 Enregistrez un rappel avec [`subscribeToInAppMessage(callback)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage) pour recevoir un message chaque fois qu'un message in-app est déclenché.
 
-!étape
-lignes-index.js=11-12
+!!step
+lines-index.js=11-12
 
-#### 4\. Report de l'instance `message` 
+#### 4. Différer l'instance `message` {#4-defer-the-message-instance}
 
-Pour différer l'envoi du message, appelez le [`deferInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#deferinappmessage). Braze sérialise et enregistre cet envoi de messages afin que vous puissiez l'afficher lors d'un prochain chargement de page.
+Pour différer le message, appelez [`deferInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#deferinappmessage). Braze sérialise et enregistre ce message afin que vous puissiez l'afficher lors d'un prochain chargement de page.
 
-!étape
-lignes-index.js=18-24
+!!step
+lines-index.js=18-24
 
-#### 5\. Récupérer un message précédemment différé
+#### 5. Récupérer un message précédemment différé {#5-retrieve-a-previously-deferred-message}
 
-Pour récupérer tout envoi de messages précédemment différés, appelez [`getDeferredInAppMessage()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#getdeferredinappmessage). 
+Pour récupérer les messages précédemment différés, appelez [`getDeferredInAppMessage()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#getdeferredinappmessage).
 
-!étape
-lignes-index.js=21-23
+!!step
+lines-index.js=21-23
 
-#### 6\. Afficher l'envoi de messages différés
+#### 6. Afficher le message différé {#6-display-the-deferred-message}
 
 Après avoir récupéré un message différé, affichez-le en le passant à [`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage).
 
-!étape
-lignes-index.js=13-15
+!!step
+lines-index.js=13-15
 
-#### 7\. Affichage immédiat d'un message
+#### 7. Afficher un message immédiatement {#7-display-a-message-immediately}
 
 Pour afficher un message au lieu de le différer, appelez [`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage) directement dans votre rappel `subscribeToInAppMessage`.
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab android %}
-{% multi_lang_include developer_guide/prerequisites/android.md %} Il vous sera également nécessaire d'[activer les messages in-app pour Android]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=android#android_enabling-in-app-messages).
+{% multi_lang_include developer_guide/prerequisites/android.md %} Vous devrez également [activer les messages in-app pour Android]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=android#android_enabling-in-app-messages).
 
-## Report et restauration des messages déclenchés pour Android
+## Report et restauration des messages déclenchés pour Android {#deferring-and-restoring-triggered-messages-for-android}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Deferring Triggered Messages Android" %}
 
@@ -202,61 +202,61 @@ fun ContentView() {
 }
 ```
 
-!étape
-lignes-MainApplication.kt=13-16
+!!step
+lines-MainApplication.kt=13-16
 
-#### 1\. Créer une instance unique de `Application` 
+### 1. Créer une instance singleton de `Application` {#1-create-a-singleton-application-instance}
 
 Utilisez un objet compagnon pour exposer votre classe `Application` en tant que singleton afin qu'elle soit accessible ultérieurement dans votre code.
 
-!étape
-lignes-MainApplication.kt=25
+!!step
+lines-MainApplication.kt=25
 
-#### 2\. Activer le débogage (facultatif)
+#### 2. Activer le débogage (facultatif)
 
 Pour faciliter la résolution des problèmes lors du développement, pensez à activer le débogage.
 
-!étape
-lignes-MainApplication.kt=34-36
+!!step
+lines-MainApplication.kt=34-36
 
-#### 3\. Enregistrer les fonctions de rappel du cycle de vie des activités
+#### 3. Enregistrer les rappels du cycle de vie des activités {#3-register-activity-lifecycle-callbacks}
 
-Enregistrez l'auditeur par défaut de Braze pour gérer le cycle de vie des messages in-app.
+Enregistrez l'écouteur par défaut de Braze pour gérer le cycle de vie des messages in-app.
 
-!étape
-lignes-MainApplication.kt=39-49
+!!step
+lines-MainApplication.kt=39-49
 
-#### 4\. Configurer un récepteur de messages in-app
+#### 4. Configurer un écouteur de messages in-app {#4-set-up-an-in-app-message-listener}
 
-Utilisez `BrazeInAppMessageManager` pour définir un récepteur personnalisé qui intercepte les messages avant qu'ils ne soient affichés.
+Utilisez `BrazeInAppMessageManager` pour définir un écouteur personnalisé qui intercepte les messages avant qu'ils ne soient affichés.
 
-!étape
-lignes-MainApplication.kt=43,46
+!!step
+lines-MainApplication.kt=43,46
 
-#### 5\. Créer une logique conditionnelle
+#### 5. Créer une logique conditionnelle {#5-create-conditional-logic}
 
-Utilisez le drapeau `showMessage` pour contrôler le délai : renvoyez `DISPLAY_NOW` pour afficher le message maintenant ou `DISPLAY_LATER` pour le différer.
+Utilisez le drapeau `showMessage` pour contrôler le moment d'affichage — renvoyez `DISPLAY_NOW` pour afficher le message immédiatement ou `DISPLAY_LATER` pour le différer.
 
-!étape
-lignes-MainApplication.kt=52-55
+!!step
+lines-MainApplication.kt=52-55
 
-#### 6\. Créer une méthode d'envoi de messages différés
+#### 6. Créer une méthode pour afficher les messages différés {#6-create-a-method-for-displaying-deferred-messages}
 
-Utilisez `showDeferredMessage` pour déclencher le message in-app suivant. Lorsque `showMessage` est `true`, l'auditeur renvoie `DISPLAY_NOW`.
+Utilisez `showDeferredMessage` pour déclencher le message in-app suivant. Lorsque `showMessage` est `true`, l'écouteur renvoie `DISPLAY_NOW`.
 
-!étape
-lignes-MainActivity.kt=29
+!!step
+lines-MainActivity.kt=29
 
-#### 7\. Déclencher la méthode à partir de votre interface utilisateur
+#### 7. Déclencher la méthode depuis votre interface utilisateur {#7-trigger-the-method-from-your-ui}
 
-Pour afficher l'envoi de messages précédemment différé, appelez `showDeferredMessage(true)` à partir de votre interface utilisateur, par exemple en appuyant sur un bouton ou en tapotant.
+Pour afficher le message précédemment différé, appelez `showDeferredMessage(true)` depuis votre interface utilisateur, par exemple via un bouton ou un appui.
 
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab swift %}
-{% multi_lang_include developer_guide/prerequisites/swift.md %} Il vous sera également nécessaire d'[activer les messages in-app pour Swift]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=swift#swift_enabling-in-app-messages).
+{% multi_lang_include developer_guide/prerequisites/swift.md %} Vous devrez également [activer les messages in-app pour Swift]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=swift#swift_enabling-in-app-messages).
 
-## Report et restauration des messages déclenchés pour Swift
+## Report et restauration des messages déclenchés pour Swift {#deferring-and-restoring-triggered-messages-for-swift}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Deferring Triggered Messages Swift" %}
 
@@ -344,47 +344,47 @@ struct ContentView: View {
 }
 ```
 
-!étape
-lignes-AppDelegate.swift=5
+!!step
+lines-AppDelegate.swift=5
 
-#### 1\. Mettre en œuvre le `BrazeInAppMessageUIDelegate`
+### 1. Implémenter le `BrazeInAppMessageUIDelegate` {#1-implement-the-brazeinappmessageuidelegate}
 
-Dans votre classe `AppDelegate`, implémentez la méthode [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate) afin que vous puissiez remplacer sa méthode `inAppMessage` ultérieurement.
+Dans votre classe `AppDelegate`, implémentez le protocole [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate) afin de pouvoir redéfinir sa méthode `inAppMessage` ultérieurement.
 
-!étape
-lignes-AppDelegate.swift=19
+!!step
+lines-AppDelegate.swift=19
 
-#### 2\. Activer le débogage (facultatif)
+#### 2. Activer le débogage (facultatif)
 
 Pour faciliter la résolution des problèmes lors du développement, pensez à activer le débogage.
 
-!étape
-lignes-AppDelegate.swift=25-27
+!!step
+lines-AppDelegate.swift=25-27
 
-#### 3\. Configurez votre interface utilisateur Braze et déléguez.
+#### 3. Configurer l'interface utilisateur de Braze et le délégué {#3-set-up-your-braze-ui-and-delegate}
 
-`BrazeInAppMessageUI()` rend les messages in-app par défaut. En attribuant à `self` le statut de délégué, vous pouvez intercepter et traiter les messages avant qu'ils ne soient affichés. Veillez à enregistrer l'instance, car vous en aurez besoin ultérieurement pour restaurer les messages différés.
+`BrazeInAppMessageUI()` affiche les messages in-app par défaut. En assignant `self` comme délégué, vous pouvez intercepter et traiter les messages avant qu'ils ne soient affichés. Veillez à enregistrer l'instance, car vous en aurez besoin ultérieurement pour restaurer les messages différés.
 
-!étape
-lignes-AppDelegate.swift=32-41
+!!step
+lines-AppDelegate.swift=32-41
 
-#### 4\. Remplacer `DisplayChoice` par une logique conditionnelle
+#### 4. Redéfinir `DisplayChoice` avec une logique conditionnelle {#4-override-displaychoice-with-conditional-logic}
 
-Ignorer [`inAppMessage(_:displayChoiceForMessage:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb) pour déterminer quand un message doit être affiché. Retournez `.now` pour l'afficher immédiatement, ou `.reenqueue` pour le reporter à plus tard.
+Redéfinissez [`inAppMessage(_:displayChoiceForMessage:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb) pour déterminer quand un message doit être affiché. Renvoyez `.now` pour l'afficher immédiatement, ou `.reenqueue` pour le reporter à plus tard.
 
-!étape
-lignes-AppDelegate.swift=43-46
+!!step
+lines-AppDelegate.swift=43-46
 
-#### 5\. Créer une méthode pour afficher les messages différés
+#### 5. Créer une méthode pour afficher les messages différés {#5-create-a-method-to-show-deferred-messages}
 
-Créez une méthode qui appelle `showDeferredMessage(true)` pour afficher le message différé suivant dans la pile. Lorsqu'il est appelé, `showMessage` est défini comme `true`, ce qui fait que le délégué renvoie `.now`.
+Créez une méthode qui appelle `showDeferredMessage(true)` pour afficher le message différé suivant dans la pile. Lorsqu'elle est appelée, `showMessage` est défini sur `true`, ce qui fait que le délégué renvoie `.now`.
 
-!étape
-lignes-ContentView.swift=1-14
+!!step
+lines-ContentView.swift=1-14
 
-#### 5\. Déclencher la méthode à partir de votre interface utilisateur
+#### 6. Déclencher la méthode depuis votre interface utilisateur {#5-trigger-the-method-from-your-ui}
 
-Pour afficher l'envoi de messages précédemment différé, appelez `showDeferredMessage(true)` à partir de votre interface utilisateur, par exemple en appuyant sur un bouton ou en tapotant.
+Pour afficher le message précédemment différé, appelez `showDeferredMessage(true)` depuis votre interface utilisateur, par exemple via un bouton ou un appui.
 
 {% endscrolly %}
 {% endsdktab %}

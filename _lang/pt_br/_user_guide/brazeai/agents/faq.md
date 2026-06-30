@@ -32,13 +32,21 @@ Não. Tentar escrever blocos Liquid como instruções {% raw %}`{% if %}`{% endr
 
 ### Os agentes podem acessar dados de usuários além dos atributos ou valores Liquid específicos que eu passo para eles? {#can-agents-access-user-data-beyond-the-specific-liquid-attributes-or-values-that-i-pass-to-them}
 
-Não. Os agentes recebem apenas os pontos de dados de usuários específicos que são passados usando Liquid, bem como os [recursos]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#add-resources) adicionados ao contexto do agente. Os agentes não podem pesquisar perfis de usuários em busca de atributos que o profissional de marketing não os configurou para procurar.
+Não. Os agentes recebem apenas os pontos de dados de usuários específicos que são passados usando Liquid, bem como os [recursos]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources) adicionados ao contexto do agente. Os agentes não podem pesquisar perfis de usuários em busca de atributos que o profissional de marketing não os configurou para procurar.
 
 ## Solução de problemas {#troubleshooting}
 
 ### Por que meu agente não seguiu minhas instruções ou regras? {#why-did-my-agent-not-follow-my-instructions-or-rules}
 
-Considere usar o [Operator]({{site.baseurl}}/user_guide/brazeai/operator/) para investigar por que seu agente não está seguindo suas instruções. O Operator pode fornecer instruções passo a passo e explicações detalhadas.
+Considere usar o [Operator]({{site.baseurl}}/user_guide/brazeai/operator) para investigar por que seu agente não está seguindo suas instruções. O Operator pode fornecer instruções passo a passo e explicações detalhadas.
+
+### Por que meu agente de catálogo pulou algumas linhas? {#why-did-my-catalog-agent-skip-some-rows}
+
+Os agentes de catálogo pulam uma linha quando uma coluna marcada como **obrigatória para execução** está em branco ou ausente — por exemplo, um campo `gender` que não foi preenchido. Depois de selecionar as colunas de entrada, ative o controle de entrada obrigatória para o campo do catálogo e escolha quais colunas devem conter valores antes que o agente seja executado; as colunas selecionadas começam como obrigatórias por padrão, mas você pode remover colunas que podem ficar vazias sem bloquear a invocação. Isso evita o desperdício de tokens com dados incompletos.
+
+O agente também respeita dependências entre colunas. Se uma coluna de saída depende de outras colunas (por exemplo, a coluna D requer valores nas colunas B e C), o agente não é executado até que essas colunas anteriores estejam preenchidas para aquela linha.
+
+Para mais detalhes, consulte [Práticas recomendadas para agentes de catálogo]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices).
 
 ### Meu agente está tendo dificuldades com uma tarefa complexa. Como posso melhorar o desempenho dele? {#subagent-approach}
 
@@ -56,6 +64,8 @@ Um agente personalizado pode expirar por tempo limite se:
 - As instruções do agente não cobrirem todos os cenários ou não incluírem uma condição de fallback (como "Se todas as entradas estiverem em branco, retorne 'Não foi possível personalizar'")
 - As instruções do agente pedirem que ele produza um formato de saída diferente do especificado na guia **Output** (por exemplo, se as instruções pedem uma string, mas na guia **Output** a saída está definida como um número)
 - A tarefa do agente for complexa demais e se beneficiaria de uma [abordagem com subagentes](#subagent-approach)
+
+Para agentes de Canvas, configure [valores de fallback]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) no Console do agente para que os usuários ainda recebam uma saída quando uma invocação falhar.
 
 ## Conformidade {#compliance}
 

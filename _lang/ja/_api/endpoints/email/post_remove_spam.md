@@ -20,7 +20,7 @@ description: "この記事では、スパムリストからメールアドレス
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`email.spam.remove` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`email.spam.remove` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -34,7 +34,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ```json
 {
-  "email": "example@braze.com"
+  "email": "example@example.com"
 }
 ```
 
@@ -51,7 +51,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/email/spam/remove'
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
 --data-raw '{
-  "email": "example@braze.com"
+  "email": "example@example.com"
 }'
 ```
 {% endapi %}

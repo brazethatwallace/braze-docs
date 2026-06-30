@@ -64,7 +64,11 @@ Verwenden Sie weiterhin Content Cards, wenn Sie Folgendes benötigen:
 
 Stellen Sie vor der Migration sicher, dass das Braze SDK die Mindestversionsanforderungen erfüllt:
 
-{% multi_lang_include sdk_versions.md feature='banners' %}
+{% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
+
+Für das Schließen und die erneute Berechtigung sind die folgenden Mindestversionen des SDK erforderlich:
+
+{% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### Updates abonnieren {#subscribe-to-updates}
 
@@ -782,9 +786,10 @@ Banner unterstützen ausschließlich geplante Zustellungs-Campaigns. Um eine Nac
 | **Anzeige und Targeting** |
 | Feed-UI | ✅ Standard-Feed verfügbar | ❌ Nur platzierungsbasiert |
 | Kontextspezifische Platzierung | ❌ Feed-basiert | ✅ Native Platzierungsunterstützung |
-| Native Priorisierung | ❌ Erfordert angepasste Logik | ✅ Integrierte Priorisierung |
+| Priorisierung | ❌ Erfordert angepasste Logik | ✅ Native Priorisierung |
 | **Nutzer:innen-Interaktion** |
-| Manuelles Schließen | ✅ Unterstützt | ❌ Nicht unterstützt |
+| Manuelles Schließen | ✅ Unterstützt | ✅ Unterstützt |
+| Erneute Berechtigung nach dem Schließen | ❌ Erfordert angepasste Filter oder Campaign-Logik | ✅ Standard-Wartezeit |
 | Gepinnte Karten | ✅ Unterstützt | N/A |
 | **Analytics** |
 | Automatische Analytics (Standard-UI) | ✅ Unterstützt | ✅ Unterstützt |
@@ -806,7 +811,7 @@ Banner unterstützen ausschließlich geplante Zustellungs-Campaigns. Um eine Nac
 
 ## Verwandte Artikel {#related-articles}
 
-- [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements/)
-- [Anleitung: Anzeige eines Banners anhand der Platzierungs-ID]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/)
-- [Banner-Analytics]({{site.baseurl}}/developer_guide/banners/analytics/)
-- [Häufig gestellte Fragen zu Bannern]({{site.baseurl}}/developer_guide/banners/faq/)
+- [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements)
+- [Anleitung: Anzeige eines Banners anhand der Platzierungs-ID]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
+- [Banner-Analytics]({{site.baseurl}}/developer_guide/banners/analytics)
+- [Häufig gestellte Fragen zu Bannern]({{site.baseurl}}/developer_guide/banners/faq)

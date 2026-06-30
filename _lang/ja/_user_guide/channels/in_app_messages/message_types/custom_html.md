@@ -12,7 +12,7 @@ channel:
 
 > 標準のアプリ内メッセージはさまざまな方法でカスタマイズできますが、HTML、CSS、JavaScriptを使用してデザイン・構築されたメッセージを使用することで、キャンペーンの外観と操作感をさらに細かくコントロールできます。シンプルな構成で、あらゆるニーズに合わせたカスタム機能やブランディングを実現できます。
 
-このメッセージタイプは[従来のエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)で利用できます。
+このメッセージタイプは[従来のエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)で利用できます。
 
 ## 仕組み {#how-it-works}
 
@@ -42,7 +42,7 @@ Web SDKでHTMLアプリ内メッセージを有効にするには、Brazeに`all
 ### ボタンクリックトラッキング（非推奨） {#button-click-tracking-deprecated}
 
 {% alert warning %}
-`abButtonID`の使用は、[プレビュー付きHTML]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#html-upload-with-preview/)メッセージタイプではサポートされていません。詳細については、[アップグレードガイド]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#html-upload-with-preview)をご覧ください。
+`abButtonID`の使用は、[プレビュー付きHTML]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview)メッセージタイプではサポートされていません。詳細については、[アップグレードガイド]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview)をご覧ください。
 {% endalert %}
 
 アプリ内メッセージ分析のボタンクリックを記録するには、任意のディープリンク、リダイレクトURL、またはアンカー要素`<a>`にクエリパラメーターとして`abButtonId`を追加します。「ボタン1」のクリックを記録するには`?abButtonId=0`を、「ボタン2」のクリックを記録するには`?abButtonId=1`を使用します。
@@ -98,16 +98,16 @@ BrazeにHTTPまたはHTTPSリンクをディープリンクとして処理させ
 {% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}
 
 {% alert warning %}
-このメッセージタイプは特定の新しいSDKバージョンでのみ受信できるため、サポートされていないSDKバージョンのユーザーにはメッセージが表示されません。ユーザー群の大部分がリーチ可能になった後にこのメッセージタイプを採用するか、アプリバージョンが要件を満たすユーザーのみをターゲットにすることを検討してください。[最新のアプリバージョンによるフィルタリング]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions)の詳細をご覧ください。
+このメッセージタイプは特定の新しいSDKバージョンでのみ受信できるため、サポートされていないSDKバージョンのユーザーにはメッセージが表示されません。ユーザー群の大部分がリーチ可能になった後にこのメッセージタイプを採用するか、アプリバージョンが要件を満たすユーザーのみをターゲットにすることを検討してください。[最新のアプリバージョンによるフィルタリング]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions)の詳細をご覧ください。
 {% endalert %}
 
 ### キャンペーンの作成 {#instructions}
 
-モバイルアプリのユーザーが**カスタムコード**のアプリ内メッセージを受信するには、サポートされているSDKバージョンにアップグレードする必要があります。新しいBraze SDKバージョンに依存するキャンペーンを開始する前に、[ユーザーにモバイルアプリのアップグレードを促す]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/)ことをお勧めします。
+モバイルアプリのユーザーが**カスタムコード**のアプリ内メッセージを受信するには、サポートされているSDKバージョンにアップグレードする必要があります。新しいBraze SDKバージョンに依存するキャンペーンを開始する前に、[ユーザーにモバイルアプリのアップグレードを促す]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features)ことをお勧めします。
 
 #### アセットファイル {#asset-files}
 
-HTMLアップロードでカスタムコードのアプリ内メッセージを作成する際、キャンペーンアセットを[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)にアップロードして、メッセージ内で参照できます。
+HTMLアップロードでカスタムコードのアプリ内メッセージを作成する際、キャンペーンアセットを[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)にアップロードして、メッセージ内で参照できます。
 
 以下のファイルタイプがアップロードに対応しています。
 
@@ -146,19 +146,31 @@ HTMLエディター内で<i class="fa-solid fa-magnifying-glass"></i> **Search**
 
 ### ボタントラッキング {#button-tracking-improvements}
 
-[`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/) JavaScriptメソッドを使用して、カスタムコードのアプリ内メッセージ内のパフォーマンスをトラッキングできます。これにより、`brazeBridge.logClick('0')`、`brazeBridge.logClick('1')`、または`brazeBridge.logClick()`を使用して、それぞれ「ボタン1」、「ボタン2」、「ボディクリック」をプログラムでトラッキングできます。
+[`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types) JavaScriptメソッドを使用して、カスタムコードのアプリ内メッセージ内のパフォーマンスをトラッキングできます。これにより、`brazeBridge.logClick('0')`、`brazeBridge.logClick('1')`、または`brazeBridge.logClick()`を使用して、それぞれ「ボタン1」、「ボタン2」、「ボディクリック」をプログラムでトラッキングできます。
 
 | クリック | メソッド |
 | ---------- | ---------------------------- |
 | Button 1   | `brazeBridge.logClick('0')` |
 | Button 2   | `brazeBridge.logClick('1')` |
-| Body click | `brazeBridge.logClick()` |
+| Body click | `brazeBridge.logClick()`    |
 | カスタムボタントラッキング | `brazeBridge.logClick('your custom name here')` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Button tracking #button-tracking-improvements" }
 
 {% alert note %}
 このボタントラッキング方法は、以前の自動クリックトラッキング方法（`?abButtonId=0`など）に代わるもので、それらは削除されました。
 {% endalert %}
+
+トラッキング対象のボタンが3つ以上必要な場合は、プレビュー付きHTMLメッセージで[`brazeBridge.logClick(button_id)`](#button-tracking-improvements)を使用します。ボタン1とボタン2はそれぞれ`'0'`と`'1'`にマッピングされ、追加のボタンにはカスタムIDを使用します（キャンペーンあたり最大100個のユニークID）。ボタンIDの文字制限については、[ボタントラッキング](#button-tracking-improvements)を参照してください。
+
+### カスタムHTMLリンクと閉じる動作のトラブルシューティング {#troubleshoot-custom-html-links-and-close-behavior}
+
+#### ボタンクリックでリンクが開かない {#button-clicks-do-not-open-the-link}
+
+カスタムHTMLアプリ内メッセージのボタンがクリックしても読み込まれない場合は、リンクが有効なURLまたはサポートされているディープリンクスキームを使用しているか確認してください。不正なURLやサポートされていないカスタムスキームは、クリックアクションの完了を妨げる可能性があります。
+
+#### メッセージを閉じる際のボディクリック {#body-clicks-when-closing-the-message}
+
+`brazeBridge.closeMessage()`を呼び出すとメッセージは閉じられますが、それ自体では分析を記録しません。ユーザーがメッセージを閉じる際にボディクリックを記録するには、`brazeBridge.closeMessage()`の前に`brazeBridge.logClick()`を呼び出して、プラットフォーム間でクリックログの一貫性を保ちます。
 
 ### 後方互換性のない変更 {#backward-incompatible-changes}
 

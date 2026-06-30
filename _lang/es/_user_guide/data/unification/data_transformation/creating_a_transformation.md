@@ -14,7 +14,7 @@ description: "Este artículo de referencia proporciona los pasos para crear una 
 
 | Requisito | Descripción |
 | --- | --- |
-| Autenticación de dos factores o SSO | Debes tener habilitada la [autenticación de dos factores]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#two-factor-authentication) (2FA) o el [inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#single-sign-on-sso-authentication) (SSO) para tu cuenta. |
+| Autenticación de dos factores o SSO | Debes tener habilitada la [autenticación de dos factores]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication) (2FA) o el [inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) (SSO) para tu cuenta. |
 | Permisos correctos | Debes ser administrador de la cuenta o del espacio de trabajo, o tener permisos de usuario para "Gestionar transformaciones". |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -24,11 +24,11 @@ Identifica una plataforma externa que quieras conectar a Braze y comprueba que l
 
 A continuación se muestra un ejemplo de [webhook de Typeform](https://www.typeform.com/help/a/webhooks-360029573471/), que se puede configurar iniciando sesión en su plataforma:
 
-![]({% image_buster /assets/img/data_transformation/data_transformation8.png %})
+![Un ejemplo de carga útil de webhook de Typeform en la configuración de la plataforma Typeform.]({% image_buster /assets/img/data_transformation/data_transformation8.png %})
 
 ## Paso 2: Crear una transformación {#step-2-create-a-transformation}
 
-{% multi_lang_include create_transformation.md location="default" %}
+{% multi_lang_include data_activation/create_transformation.md location="default" %}
 
 ## Paso 3: Enviar un webhook de prueba (recomendado) {#step-3-send-a-test-webhook-recommended}
 
@@ -39,14 +39,14 @@ Este paso es opcional, pero recomendamos enviar un webhook de prueba desde tu pl
 - Si tu plataforma de origen solicita un tipo de solicitud, selecciona **POST**.
 - Si tu plataforma de origen proporciona opciones de autenticación, selecciona **No authentication**.
 - Si tu plataforma de origen te pide secretos, selecciona **No secrets**.
-3. Actualiza tu página en el panel de Braze para ver si se ha recibido el webhook. Si se ha recibido, deberías ver la carga útil del webhook en **Most recent webhook**.
+3. Actualiza tu página en el dashboard de Braze para ver si se ha recibido el webhook. Si se ha recibido, deberías ver la carga útil del webhook en **Most recent webhook**.
 
 Esto es lo que se ve para Typeform:
 
 ![Ejemplo de código de Transformación de datos que asigna el webhook a perfiles de usuario de Braze.]({% image_buster /assets/img/data_transformation/data_transformation11.png %})
 
 {% alert note %}
-Es posible que Transformación de datos de Braze aún no admita plataformas externas que requieran una verificación o autenticación especial para los webhooks. Considera dejar [comentarios sobre el producto]({{site.baseurl}}/user_guide/administer/personal/product_portal/) si te interesa utilizar este tipo de plataforma con Transformación de datos de Braze.
+Es posible que Transformación de datos de Braze aún no admita plataformas externas que requieran una verificación o autenticación especial para los webhooks. Considera dejar [comentarios sobre el producto]({{site.baseurl}}/user_guide/administer/personal/product_portal) si te interesa utilizar este tipo de plataforma con Transformación de datos de Braze.
 {% endalert %}
 
 ## Paso 4: Escribir código de transformación {#step-4-write-transformation-code}
@@ -56,9 +56,9 @@ Si tienes poca o ninguna experiencia con código JavaScript o prefieres instrucc
 Si eres desarrollador o tienes mucha experiencia con código JavaScript, sigue la pestaña **Advanced - POST: Track users** para obtener instrucciones de alto nivel sobre cómo escribir tu código de transformación.
 
 {% alert tip %}
-Transformación de datos de Braze tiene un copiloto de IA que pide a ChatGPT que te ayude a escribir tu código. Para acceder al copiloto de IA, selecciona <i class="fa-solid fa-wand-magic-sparkles"></i> **Generate transformation code**. Para utilizarlo, debe enviarse un webhook a tu transformación. También puedes acceder a la biblioteca de plantillas seleccionando **Insert code** > **Insert template**.
+Para generar código de transformación con IA, elige **Code with Operator** encima del editor de código de transformación. Para usarlo, se debe enviar un webhook a tu transformación. Para empezar con una plantilla prediseñada, elige **Insert Template**. Para ver ejemplos de prompts, consulta [Generar código de transformación de datos]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code).
 
-![]({% image_buster /assets/img/data_transformation/data_transformation3.png %})
+**Code with Operator** solo está disponible si Operator está habilitado para tu cuenta. Si no lo ves, ponte en contacto con tu director de cuentas.
 {% endalert %}
 
 {% tabs %}
@@ -144,7 +144,7 @@ let brazecall = {
   "catalog_name": "catalog_name",
 
   // After defining "catalog name", construct the Update Multiple Catalog Items request as usual below
-  // Documentation for the destination endpoint: https://www.braze.com/docs/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/
+  // Documentation for the destination endpoint: {{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/
   "items": [
     {
       "id": payload.item_id_1,
@@ -189,7 +189,7 @@ return brazecall;
 {:start="2"}
 2. Las transformaciones para destinos `/catalogs` requieren un `catalog_name` para definir el catálogo específico que se va a actualizar. Puedes codificar este campo directamente o usar como plantilla un campo del webhook a través de una línea de carga útil. Utiliza la notación de puntos para acceder a las propiedades del objeto de carga útil.<br><br>
 3. Define qué elementos quieres actualizar en el catálogo con los campos `id` de la matriz de elementos. Puedes codificar estos campos directamente o usar como plantilla un campo del webhook a través de una línea de carga útil. <br><br> Ten en cuenta que `catalog_column` es un valor de marcador de posición. Asegúrate de que los objetos de elementos solo contengan campos que existan en el catálogo.<br><br>
-4. Selecciona **Validate** para obtener una vista previa de la salida de tu código y comprobar si es una solicitud aceptable para el [punto de conexión Actualizar varios elementos del catálogo]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/).<br><br>
+4. Selecciona **Validate** para obtener una vista previa de la salida de tu código y comprobar si es una solicitud aceptable para el [punto de conexión Actualizar varios elementos del catálogo]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items).<br><br>
 5. Activa tu transformación. Para obtener ayuda adicional con tu código antes de activarlo, ponte en contacto con tu director de cuentas de Braze.<br><br>
 6. Asegúrate de comprobar si tu plataforma de origen tiene una configuración para iniciar el envío de webhooks. Tu código de transformación se ejecutará para cada webhook entrante, y los elementos del catálogo comenzarán a actualizarse.
 
@@ -232,4 +232,4 @@ Para una supervisión y solución de problemas más detalladas, consulta la pág
 
 Si no hay entregas, comprueba que tu código de transformación no contenga errores de sintaxis y confirma que el código se compila. A continuación, comprueba si la salida es una solicitud de destino válida.
 
-Las entregas inferiores al número de solicitudes entrantes indican que al menos algunos webhooks se entregan correctamente. Consulta los registros de transformación para ver ejemplos de errores y comprueba si la salida de la transformación es la esperada. Es posible que tu código de transformación no tenga en cuenta todas las variaciones de los webhooks recibidos.
+Si el número de entregas es inferior al de solicitudes entrantes, esto indica que al menos algunos webhooks se entregan correctamente. Consulta los registros de transformación para ver ejemplos de errores y comprueba si la salida de la transformación es la esperada. Es posible que tu código de transformación no tenga en cuenta todas las variaciones de los webhooks recibidos.

@@ -24,7 +24,7 @@ channel: push
 (iOS) 2:1 *권장* | 500&nbsp;KB | 5&nbsp;MB | PNG, JPEG, GIF
 (Android) 푸시 아이콘 | 500&nbsp;KB | 5&nbsp;MB | PNG, JPEG
 (Android) 확장 알림 | 500&nbsp;KB | 5&nbsp;MB | PNG, JPEG
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="iOS and Android push" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="iOS 및 Android 푸시" }
 
 {% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
@@ -38,9 +38,9 @@ channel: push
 (iOS) 배너 알림 | 80자 | 65자
 (Android) 잠금 화면 | 49자 | N/A
 (Android) 알림 서랍 | 597자 | N/A
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="iOS and Android push" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="iOS 및 Android 푸시" }
 
-iOS 푸시 알림에서 잘리지 않고 사용할 수 있는 글자 수가 궁금하신가요? [iOS 글자 수 가이드라인]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count)을 확인하세요.
+iOS 푸시 알림에서 잘리지 않고 사용할 수 있는 글자 수가 궁금하신가요? [iOS 글자 수 가이드라인]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications#character-count)을 확인하세요.
 
 {% endtab %}
 {% tab 페이로드 크기 %}
@@ -50,7 +50,7 @@ iOS 푸시 알림에서 잘리지 않고 사용할 수 있는 글자 수가 궁�
 iOS 8 이전 | 0.256 KB
 iOS 8 이후 | 2 KB
 Android (FCM) | 4 KB
-{: .reset-td-br-1 .reset-td-br-2 aria-label="iOS and Android push" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="iOS 및 Android 푸시" }
 
 {% endtab %}
 {% tab 이미지 예시 %}
@@ -93,16 +93,16 @@ Android (FCM) | 4 KB
 
 | **브라우저** | **권장 아이콘 크기**
 | --- | ---
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Web push" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="웹 푸시" }
 Chrome | 192 x 192 이상
 Firefox | 192 x 192 이상
-Safari | 192 x 192 이상 (macOS 13 이상의 Safari 16 이상에서 Campaign별로 아이콘 구성 가능)
+Safari | 192 x 192 이상 (macOS 13 이상의 Safari 16 이상에서 캠페인별로 아이콘 구성 가능)
 Opera | 192x192 이상
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Web push" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="웹 푸시" }
 
 | **브라우저** | **플랫폼** | **큰 이미지 크기**
 | --- | --- | ---
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Web push" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="웹 푸시" }
 Chrome | Android | 2:1 종횡비
 Firefox | Android | N/A
 Chrome | Windows | 2:1 종횡비
@@ -113,14 +113,14 @@ Safari | macOS | N/A
 Chrome | macOS | N/A
 Firefox | macOS | N/A
 Opera | macOS | N/A
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Web push" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="웹 푸시" }
 
 {% endtab %}
 {% tab 텍스트 %}
 
 | **브라우저** | **플랫폼** | **최대 제목 길이**  | **최대 메시지 본문 길이**
 | --- | --- | --- | ---
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Web push" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="웹 푸시" }
 Chrome | Android | 35 | 50
 Firefox | Android | 35 | 50
 Chrome | Windows | 50 | 120
@@ -131,7 +131,7 @@ Chrome | macOS | 35 | 50
 Safari | macOS | 38 | 84
 Firefox | macOS | 38 | 42
 Opera | macOS | 38 | 42
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Web push" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="웹 푸시" }
 
 {% endtab %}
 {% endtabs %}

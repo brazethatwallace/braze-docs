@@ -7,7 +7,7 @@ description: "この参照記事では、Liquidを通してBrazeのCampaignで�
 
 # カタログの使用 {#using-catalogs}
 
-> カタログを作成した後、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を使用して、BrazeのCampaignで非ユーザーデータを参照できます。Liquidがサポートされているドラッグ＆ドロップエディター内の任意の場所を含む、すべてのメッセージングチャネルでカタログを使用できます。
+> カタログを作成した後、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)を使用して、Brazeのキャンペーンで非ユーザーデータを参照できます。Liquidがサポートされているドラッグ＆ドロップエディター内の任意の場所を含む、すべてのメッセージングチャネルでカタログを使用できます。
 
 ## メッセージでカタログを使う {#using-catalogs-in-a-message}
 
@@ -80,7 +80,7 @@ Get the ultimate trio {% catalog_items Games 1234 1235 1236 %}
 ```Get the ultimate trio Tales, Teslagrad, and Acaratus today!```
 
 {% alert tip %}
-Check out [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) to create groups of data for more personalized messaging!
+Check out [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) to create groups of data for more personalized messaging!
 {% endalert %}
 
 ### Using Liquid `if` statements
@@ -174,7 +174,7 @@ Liquidがレンダリングされると、次のように表示されます。
 カタログ内のJSONオブジェクトは、APIを介してのみ取り込まれます。CSVファイルを使用してJSONオブジェクトをアップロードすることはできません。
 {% endalert %}
 
-Liquidテンプレートを使用することで、ウィッシュリストのIDをダイナミックに取り出し、メッセージで使用できます。そのためには、カスタム属性に[変数を割り当て]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables)、**Add Personalization**モーダルを使用して、配列から特定のアイテムを取り出します。カタログアイテムIDとして参照する変数は、`{{result}}`のように中かっこで囲む必要があります。
+Liquidテンプレートを使用することで、ウィッシュリストのIDをダイナミックに取り出し、メッセージで使用できます。そのためには、カスタム属性に[変数を割り当て]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables)、**Add Personalization**モーダルを使用して、配列から特定のアイテムを取り出します。カタログアイテムIDとして参照する変数は、`{{result}}`のように中かっこで囲む必要があります。
 
 {% alert tip %}
 配列は`1`ではなく`0`から始まることを忘れないでください。
@@ -206,7 +206,7 @@ Liquidロジックを使用してカタログを手動で組み立てること�
 
 #### Liquidを含むカタログアイテムのテンプレート化
 
-[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)と同様に、Liquidタグで`:rerender`フラグを使用してカタログアイテムのLiquidコンテンツをレンダリングする必要があります。`:rerender`フラグは1レベルの深さまでしか適用されないことに注意してください。つまり、ネストされたLiquidタグ呼び出しには適用されません。
+[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)と同様に、Liquidタグで`:rerender`フラグを使用してカタログアイテムのLiquidコンテンツをレンダリングする必要があります。`:rerender`フラグは1レベルの深さまでしか適用されないことに注意してください。つまり、ネストされたLiquidタグ呼び出しには適用されません。
 
 カタログアイテムにユーザープロファイルフィールド（Liquidパーソナライゼーションタグ内）が含まれている場合は、Liquidを適切にレンダリングするために、テンプレート化の前にメッセージ内でこれらの値をLiquidで事前に定義する必要があります。`:rerender`フラグが指定されていない場合、生のLiquidコンテンツがそのままレンダリングされます。
 
@@ -241,17 +241,17 @@ Welcome to our store, Peter!
 
 ## カタログパーソナライゼーションのトラブルシューティング
 
-カタログまたはセレクションのLiquidがメッセージやCanvasステップで期待どおりに表示されない場合は、以下を確認してください。
+カタログまたはセレクションのLiquidがメッセージやキャンバスステップで期待どおりに表示されない場合は、以下を確認してください。
 
 | 症状 | 確認事項 |
 | --- | --- |
 | プレビューではアイテムが表示されるが、ライブ送信では空になる | 送信時にカタログの**アイテムID**が存在することを確認してください。Liquid内のIDが行と一致しない場合、Brazeは空のitems配列を返します。[Liquidの使用](#using-liquid)を参照してください。タイプミスや、トリガーまたはユーザープロファイルに存在しないIDソース（イベントプロパティなど）がないか確認してください。 |
-| 作成画面のプレビューはCampaignでは動作するがCanvasでは動作しない | 正しいLiquidコンテキスト（**Canvasコンテキストプロパティ**と**イベントプロパティ**）を使用していること、およびそれらのフィールドがトリガーに存在することを確認してください。[コンテキストプロパティとイベントプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)を参照してください。 |
-| セレクションがアイテムを返さない | [セレクションフィルター]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/)と制限を確認してください。カタログデータが同期されていること、および列名がフィルターと一致していることを確認してください。 |
-| `:rerender`またはテンプレート化された配信が正しく表示されない | カタログフィールド内のネストされたLiquidには、`:rerender`と変数の正しい順序が必要です。[Liquidを含むカタログアイテムのテンプレート化](#templating-catalog-items-including-liquid)を参照してください。テンプレート化されたアプリ内メッセージはトリガー時に解決されます。[テンプレート化されたアプリ内メッセージとは？]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/#what-are-templated-in-app-messages)を参照してください。一部のチャネルではカタログタグが制限されています（例えば、バナーでの特定の**:rerender**の使用）。バナーFAQの[すべてのLiquidタグがサポートされていますか？]({{site.baseurl}}/user_guide/channels/banners/faq/#are-all-liquid-tags-supported)を参照してください。 |
+| 作成画面のプレビューはキャンペーンでは動作するがキャンバスでは動作しない | 正しいLiquidコンテキスト（**キャンバスコンテキストプロパティ**と**イベントプロパティ**）を使用していること、およびそれらのフィールドがトリガーに存在することを確認してください。[コンテキストプロパティとイベントプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)を参照してください。 |
+| セレクションがアイテムを返さない | [セレクションフィルター]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)と制限を確認してください。カタログデータが同期されていること、および列名がフィルターと一致していることを確認してください。 |
+| `:rerender`またはテンプレート化された配信が正しく表示されない | カタログフィールド内のネストされたLiquidには、`:rerender`と変数の正しい順序が必要です。[Liquidを含むカタログアイテムのテンプレート化](#templating-catalog-items-including-liquid)を参照してください。テンプレート化されたアプリ内メッセージはトリガー時に解決されます。[テンプレート化されたアプリ内メッセージとは？]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages)を参照してください。一部のチャネルではカタログタグが制限されています（例えば、バナーでの特定の**:rerender**の使用）。バナーFAQの[すべてのLiquidタグがサポートされていますか？]({{site.baseurl}}/user_guide/channels/banners/faq#are-all-liquid-tags-supported)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="カタログパーソナライゼーションのトラブルシューティング" }
 
-一般的なLiquidの動作については、[Liquidユースケース]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/)および[Liquidの使用]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/)を参照してください。
+一般的なLiquidの動作については、[Liquidユースケース]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases)および[Liquidの使用]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid)を参照してください。
 
 ## カタログデータの構造化
 
@@ -270,7 +270,7 @@ Welcome to our store, Peter!
 
 ### カタログセレクションを使用する場合
 
-[カタログセレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/)を使用すると、カタログの任意の列でフィルタリングし、最大50件の一致するアイテムを返すことができます。カスタム属性やイベントプロパティをセレクションフィルターに挿入することで、結果がユーザーごとにパーソナライズされます。一般的なユースケースには以下が含まれます。
+[カタログセレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)を使用すると、カタログの任意の列でフィルタリングし、最大50件の一致するアイテムを返すことができます。カスタム属性やイベントプロパティをセレクションフィルターに挿入することで、結果がユーザーごとにパーソナライズされます。一般的なユースケースには以下が含まれます。
 
 - カテゴリがユーザーの好みと一致するアイテム
 - ユーザーの好みのブランド、料理、サイズに一致するアイテム

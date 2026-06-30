@@ -11,7 +11,7 @@ page_type: reference
 
 > メールアドレスを暗号化して、Brazeで共有される個人を特定できる情報（PII）を最小限に抑えます。
 
-{% multi_lang_include field_level_encryption_pii_description.md %}
+{% multi_lang_include data_activation/field_level_encryption_pii_description.md %}
 
 {% alert important %}
 識別子フィールドレベルの暗号化は、アドオン機能として利用できます。識別子フィールドレベルの暗号化を始めるには、Brazeアカウントマネージャーにお問い合わせください。
@@ -53,7 +53,7 @@ Brazeダッシュボードで、**データ設定** > **フィールドレベル
 
 次に、**Email address**を選択してフィールドを暗号化します。
 
-フィールドの暗号化がオンになっている場合、復号化されたフィールドに戻すことはできません。これは暗号化が永続的な設定であることを意味します。メールアドレスの暗号化を設定する際、ワークスペースにメールアドレスを持つユーザーがいないことを確認してください。これにより、ワークスペースの機能を有効にするときに、プレーンテキストのメールアドレスがBrazeに保存されないようになります。
+フィールドの暗号化がオンになっている場合、復号化されたフィールドに戻すことはできません。これは暗号化が永続的な設定であることを意味します。メールアドレスの暗号化を設定する際、ワークスペースにメールアドレスを持つユーザーがいないことを確認してください。これにより、ワークスペースで機能を有効にするときに、プレーンテキストのメールアドレスがBrazeに保存されないようになります。
 
 ![フィールドレベルの暗号化設定。]({% image_buster /assets/img/field_level_encryption.png %})
 
@@ -87,7 +87,7 @@ Brazeでメールアドレスを更新する際は、`email`が含まれるす�
 
 ### ユーザー属性オブジェクト {#user-attributes-object}
 
-`/users/track`エンドポイントで識別子フィールドレベルの暗号化を使用する場合、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)のフィールドの詳細に注意してください:
+`/users/track`エンドポイントで識別子フィールドレベルの暗号化を使用する場合、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)のフィールドの詳細に注意してください:
 
 - `email`フィールドはメールのハッシュ値でなければなりません。
 - `email_encrypted`フィールドはメールの暗号化された値でなければなりません。

@@ -10,11 +10,11 @@ platform:
   - Web
 ---
 
-# Preguntas frecuentes
+# Preguntas frecuentes {#frequently-asked-questions}
 
 > Este artículo ofrece respuestas a algunas preguntas frecuentes sobre los conmutadores de características.
 
-## Funcionalidad y soporte
+## Funcionalidad y soporte {#functionality-and-support}
 
 ### ¿En qué plataformas se admiten los conmutadores de características de Braze? {#platforms}
 
@@ -79,7 +79,7 @@ Por ejemplo, con los conmutadores de características de Braze, puedes lanzar un
 
 Los equipos de producto pueden usar conmutadores de características para realizar lanzamientos graduales o lanzamientos suaves de nuevas características con el fin de monitorear indicadores clave de rendimiento y la retroalimentación de los clientes antes de ponerlas a disposición de todos los usuarios.
 
-Los equipos de producto pueden usar las [propiedades de los conmutadores de características]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create/#properties) para rellenar contenido de forma remota en una aplicación, como vínculos profundos, texto, imágenes u otro contenido dinámico.
+Los equipos de producto pueden usar las [propiedades de los conmutadores de características]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#properties) para rellenar contenido de forma remota en una aplicación, como vínculos profundos, texto, imágenes u otro contenido dinámico.
 
 Usando el paso de conmutador de características de Canvas, los equipos de producto también pueden ejecutar una prueba A/B dividida para medir cómo una nueva característica afecta las tasas de conversión en comparación con los usuarios que tienen la característica deshabilitada.
 
@@ -89,7 +89,7 @@ Los equipos de ingeniería pueden usar conmutadores de características para red
 
 Al publicar código nuevo oculto detrás de un conmutador de características, tu equipo puede activar o desactivar la característica de forma remota desde el panel de Braze, evitando la demora de publicar código nuevo o esperar la aprobación de una actualización en la tienda de aplicaciones.
 
-## Lanzamientos de características y segmentación
+## Lanzamientos de características y segmentación {#feature-rollouts-and-targeting}
 
 ### ¿Se puede lanzar un conmutador de características solo a un grupo selecto de usuarios? {#target-users}
 
@@ -105,7 +105,7 @@ Los lanzamientos de conmutadores de características se mantienen consistentes p
 
 Esta estrategia ayuda a garantizar que los usuarios vean una experiencia consistente en tu aplicación y no alternen de un lado a otro entre sesiones. Por supuesto, deshabilitar una característica al 0 % eliminará a todos los usuarios del conmutador de características, lo cual es útil si descubres un error o necesitas deshabilitar la característica por completo.
 
-## Temas técnicos
+## Temas técnicos {#technical-topics}
 
 ### ¿Se pueden usar los conmutadores de características para controlar cuándo se inicializa el SDK de Braze? {#initialization}
 
@@ -113,7 +113,7 @@ No, el SDK debe inicializarse para descargar y sincronizar los conmutadores de c
 
 ### ¿Con qué frecuencia actualiza el SDK los conmutadores de características? {#refresh-frequency}
 
-Los conmutadores de características se actualizan al inicio de la sesión y al cambiar de usuario activo. Los conmutadores de características también se pueden actualizar manualmente usando el [método de actualización]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create/#refreshing) del SDK. Las actualizaciones de conmutadores de características tienen un límite de velocidad de una vez cada cinco minutos (sujeto a cambios).
+Los conmutadores de características se actualizan al inicio de la sesión y al cambiar de usuario activo. Los conmutadores de características también se pueden actualizar manualmente usando el [método de actualización]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#refreshing) del SDK. Las actualizaciones de conmutadores de características tienen un límite de velocidad de una vez cada cinco minutos (sujeto a cambios).
 
 Ten en cuenta que las buenas prácticas de datos recomiendan no actualizar los conmutadores de características con demasiada frecuencia (con posible limitación de velocidad si se hace así), por lo que es mejor actualizarlos solo antes de que un usuario interactúe con nuevas características o periódicamente en la aplicación si es necesario.
 
@@ -125,12 +125,12 @@ Sí, después de que los conmutadores de características se actualizan, se alma
 
 Los conmutadores de características pueden actualizarse a mitad de sesión. Hay escenarios en los que puedes querer actualizar tu aplicación si ciertas variables o tu configuración deben cambiar. Hay otros escenarios en los que puedes no querer actualizar tu aplicación, para evitar un cambio brusco en cómo se renderiza tu interfaz de usuario.
 
-Para controlar esto, [escucha las actualizaciones]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create/#updates) de los conmutadores de características y determina si volver a renderizar tu aplicación en función de qué conmutadores de características han cambiado.
+Para controlar esto, [escucha las actualizaciones]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#updates) de los conmutadores de características y determina si volver a renderizar tu aplicación en función de qué conmutadores de características han cambiado.
 
-### ¿Por qué los usuarios de mi grupo de control global no reciben experimentos de conmutadores de características?
+### ¿Por qué los usuarios de mi grupo de control global no reciben experimentos de conmutadores de características? {#why-arent-users-in-my-global-control-group-receiving-feature-flags-experiments}
 
-No puedes habilitar conmutadores de características para usuarios en tu [grupo de control global]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/). Esto significa que los usuarios en tu grupo de control global tampoco pueden formar parte de experimentos de conmutadores de características.
+No puedes habilitar conmutadores de características para usuarios en tu [grupo de control global]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts). Esto significa que los usuarios en tu grupo de control global tampoco pueden formar parte de experimentos de conmutadores de características.
 
-## ¿Tienes preguntas adicionales?
+## ¿Tienes preguntas adicionales? {#additional-questions}
 
 ¿Tienes preguntas o comentarios? Envía un correo electrónico a nuestro equipo: [feature-flags-feedback@braze.com](mailto:feature-flags-feedback@braze.com).

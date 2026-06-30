@@ -49,7 +49,7 @@ Wenn Sie Schlüssel-Wert-Paare im Nachrichten-Editor hinzufügen, werden die Wer
 
 Der Apple Push Notification Service (APNs) unterstützt das Festlegen von Alarmeinstellungen und das Senden benutzerdefinierter Daten mithilfe von Schlüssel-Wert-Paaren. APNs nutzt die von Apple reservierte `aps`-Bibliothek, die vordefinierte Schlüssel und Werte enthält, die Alarmeigenschaften steuern.
 
-##### APS-Bibliothek {#aps-library}
+#### APS-Bibliothek {#aps-library}
 
 | Schlüssel         | Werttyp                     | Wertbeschreibung |
 |-------------------|-----------------------------|----------------------------------|
@@ -78,7 +78,7 @@ Der Braze-Nachrichten-Editor übernimmt automatisch die Erstellung der folgenden
 
 Diese Werte können im Tab **Settings** beim Erstellen einer Push-Nachricht eingegeben werden. Wählen Sie **Alert Options** und wählen Sie einen Alarm-Dictionary-Schlüssel, damit der Schlüssel automatisch in einem neuen Schlüssel-Wert-Eintrag ausgefüllt wird.
 
-![]({% image_buster /assets/img_archive/keyvalue_automatickeys.png %})
+![Diese Werte können im Tab „Settings“ beim Erstellen einer Push-Nachricht eingegeben werden. Wählen Sie „Alert Options“ und wählen Sie einen Alarm-Dictionary-Schlüssel, damit der Schlüssel automatisch in einem neuen Schlüssel-Wert-Eintrag ausgefüllt wird.]({% image_buster /assets/img_archive/keyvalue_automatickeys.png %})
 {% raw %}
 Wenn Braze eine Push-Benachrichtigung an APNs sendet, wird der Payload als JSON formatiert.
 
@@ -113,9 +113,9 @@ Wenn Braze eine Push-Benachrichtigung an APNs sendet, wird der Payload als JSON 
 
 Zusätzlich zu den `aps`-Bibliotheks-Payload-Werten können Sie benutzerdefinierte Schlüssel-Wert-Paare an das Gerät einer Nutzerin oder eines Nutzers senden. Die Werte in diesen Paaren sind auf primitive Typen beschränkt: Dictionary (Objekt), Array, String, Zahl und Boolescher Wert.
 
-![]({% image_buster /assets/img_archive/keyvalue_enterpairs.png %})
+![Screenshot zu benutzerdefinierten Schlüssel-Wert-Paaren.]({% image_buster /assets/img_archive/keyvalue_enterpairs.png %})
 
-Anwendungsfälle für benutzerdefinierte Schlüssel-Wert-Paare umfassen unter anderem die interne Metrik-Erfassung und das Festlegen des Kontexts für die Benutzeroberfläche. Braze ermöglicht es Ihnen, zusätzliche Schlüssel-Wert-Paare zusammen mit einer Push-Benachrichtigung zu senden, die über den [Extras-Schlüssel]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/customization/advanced_settings/#extracting-data-from-push-key-value-pairs) in Ihrer Anwendung verwendet werden können. Wenn Sie einen anderen Schlüssel bevorzugen, stellen Sie sicher, dass Ihre App diesen benutzerdefinierten Schlüssel verarbeiten kann.
+Anwendungsfälle für benutzerdefinierte Schlüssel-Wert-Paare umfassen unter anderem die interne Metrik-Erfassung und das Festlegen des Kontexts für die Benutzeroberfläche. Braze ermöglicht es Ihnen, zusätzliche Schlüssel-Wert-Paare zusammen mit einer Push-Benachrichtigung zu senden, die über den [Extras-Schlüssel]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/customization/advanced_settings#extracting-data-from-push-key-value-pairs) in Ihrer Anwendung verwendet werden können. Wenn Sie einen anderen Schlüssel bevorzugen, stellen Sie sicher, dass Ihre App diesen benutzerdefinierten Schlüssel verarbeiten kann.
 
 {% alert warning %}
 Sie sollten es vermeiden, in Ihrer Anwendung einen Top-Level-Schlüssel oder ein Dictionary namens „ab“ zu verarbeiten.
@@ -135,7 +135,7 @@ Braze ermöglicht es Ihnen, benutzerdefinierte String-Schlüssel-Wert-Paare zu s
 
 Braze ermöglicht es Ihnen, zusätzliche Daten-Payloads in Push-Benachrichtigungen mithilfe von Schlüssel-Wert-Paaren zu senden.
 
-##### Daten-Payload {#data-payload}
+#### Daten-Payload {#data-payload}
 
 Ähnlich wie bei iOS-Push können Sie benutzerdefinierte Schlüssel-Wert-Paare an das Gerät einer Nutzerin oder eines Nutzers senden.
 
@@ -145,21 +145,21 @@ Einige Anwendungsfälle für benutzerdefinierte Schlüssel-Wert-Paare umfassen d
 Das Backend Ihrer App muss in der Lage sein, benutzerdefinierte Schlüssel-Wert-Paare zu verarbeiten, damit der Daten-Payload ordnungsgemäß funktioniert.
 {% endalert %}
 
-###### API-getriggerte Kampagnen
+##### API-getriggerte Kampagnen
 
 Braze ermöglicht es Ihnen, benutzerdefinierte String-Schlüssel-Wert-Paare zu senden, die als `extras` bekannt sind. Um auf Ihre Extras in API-getriggerten und geplanten API-getriggerten Kampagnen zuzugreifen, setzen Sie im Dashboard einen Schlüssel als „example_key“ und einen Wert als {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. Dies führt zu einer Entwicklungskonsolen-Ausgabe von `"extras": { "test": { "foo": 1, "bar": 1 }`.
 
 ##### FCM-Messaging-Optionen {#fcm-messaging-options}
 
-Android-Push-Benachrichtigungen können mit FCM-Nachrichtenoptionen weiter angepasst werden. Dazu gehören [Benachrichtigungspriorität]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings/#notification-priority), [Sound]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings/#sounds), Verzögerung, Lebensdauer und Zusammenfassbarkeit. Diese Werte können im Tab **Settings** beim Erstellen einer Push-Nachricht angegeben werden. Weitere Anweisungen zum Festlegen dieser Optionen im Braze-Nachrichten-Editor finden Sie unter [Erweiterte Einstellungen für Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=android#android_settings).
+Android-Push-Benachrichtigungen können mit FCM-Nachrichtenoptionen weiter angepasst werden. Dazu gehören [Benachrichtigungspriorität]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings#notification-priority), [Sound]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings#sounds), Verzögerung, Lebensdauer und Zusammenfassbarkeit. Diese Werte können im Tab **Settings** beim Erstellen einer Push-Nachricht angegeben werden. Weitere Anweisungen zum Festlegen dieser Optionen im Braze-Nachrichten-Editor finden Sie unter [Erweiterte Einstellungen für Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_settings).
 
-![]({% image_buster /assets/img_archive/keyvalue_androidkeys.png %})
+![Screenshot zu FCM-Messaging-Optionen.]({% image_buster /assets/img_archive/keyvalue_androidkeys.png %})
 
 ### Stille Push-Benachrichtigungen {#silent-push-notifications}
 
-Eine stille Push-Benachrichtigung ist eine Push-Benachrichtigung ohne Alarmnachricht oder Sound, die verwendet wird, um die Oberfläche oder den Inhalt Ihrer App im Hintergrund zu aktualisieren. Diese Benachrichtigungen nutzen Schlüssel-Wert-Paare, um diese Hintergrund-App-Aktionen zu triggern. Stille Push-Benachrichtigungen unterstützen auch unser [Uninstall-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/).
+Eine stille Push-Benachrichtigung ist eine Push-Benachrichtigung ohne Alarmnachricht oder Sound, die verwendet wird, um die Oberfläche oder den Inhalt Ihrer App im Hintergrund zu aktualisieren. Diese Benachrichtigungen nutzen Schlüssel-Wert-Paare, um diese Hintergrund-App-Aktionen zu triggern. Stille Push-Benachrichtigungen unterstützen auch unser [Uninstall-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking).
 
-Marketer sollten testen, ob stille Push-Benachrichtigungen das erwartete Verhalten auslösen, bevor sie diese an die Nutzer:innen ihrer App senden. Nachdem Sie Ihre stille Push-Benachrichtigung für [iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift) oder [Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android) erstellt haben, stellen Sie sicher, dass Sie nur eine Testnutzerin oder einen Testnutzer ansprechen, indem Sie nach [externer Nutzer-ID]({{site.baseurl}}/developer_guide/rest_api/messaging/#external-user-id) oder [E-Mail-Adresse]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) filtern.
+Marketer sollten testen, ob stille Push-Benachrichtigungen das erwartete Verhalten auslösen, bevor sie diese an die Nutzer:innen ihrer App senden. Nachdem Sie Ihre stille Push-Benachrichtigung für [iOS]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift) oder [Android]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=android) erstellt haben, stellen Sie sicher, dass Sie nur eine Testnutzerin oder einen Testnutzer ansprechen, indem Sie nach [externer Nutzer-ID]({{site.baseurl}}/developer_guide/rest_api/messaging#external-user-id) oder [E-Mail-Adresse]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) filtern.
 
 Nach dem Start der Campaign sollten Sie überprüfen, dass Sie keine sichtbare Push-Benachrichtigung auf Ihrem Testgerät erhalten haben.
 
@@ -168,22 +168,22 @@ Die Drosselung stiller Benachrichtigungen durch iOS kann folgende Symptome verur
 
 - Niedrigere Uninstall-Tracking-Metriken als erwartet für iOS-Nutzer:innen
 - Inkonsistente oder verzögerte Zustellung stiller Push-Benachrichtigungen
-- [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/), die nicht angezeigt werden
+- [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories), die nicht angezeigt werden
 - Push Stories, die ohne die erwarteten Bilder, Videos oder Seiten ankommen
 
-Dies ist eine Einschränkung der Apple-Plattform und kein Braze-Problem. iOS kann Hintergrundbenachrichtigungen für einige Braze-Features verzögern oder verwerfen, einschließlich Uninstall-Tracking und Push Stories. Weitere Informationen darüber, was iOS drosselt und wann, finden Sie unter [iOS-Einschränkungen]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift#ios-limitations).
+Dies ist eine Einschränkung der Apple-Plattform und kein Braze-Problem. iOS kann Hintergrundbenachrichtigungen für einige Braze-Features verzögern oder verwerfen, einschließlich Uninstall-Tracking und Push Stories. Weitere Informationen darüber, was iOS drosselt und wann, finden Sie unter [iOS-Einschränkungen]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift#ios-limitations).
 {% endalert %}
 
 ## In-App-Nachrichten {#in-app-messages}
 
-Sie können ein Schlüssel-Wert-Paar zu einer In-App-Nachricht im [traditionellen Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) hinzufügen, indem Sie den Tab **Settings** auswählen, **Add New Pair** wählen und dann Ihre Schlüssel-Wert-Paare angeben.
+Sie können ein Schlüssel-Wert-Paar zu einer In-App-Nachricht im [traditionellen Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) hinzufügen, indem Sie den Tab **Settings** auswählen, **Add New Pair** wählen und dann Ihre Schlüssel-Wert-Paare angeben.
 
 {% alert note %}
 Schlüssel-Wert-Paare können nicht über den Drag-and-Drop-Editor für In-App-Nachrichten festgelegt werden.
 {% endalert %}
-![]({% image_buster /assets/img_archive/keyvalue_iam.png %})
+![Screenshot zu In-App-Nachrichten.]({% image_buster /assets/img_archive/keyvalue_iam.png %})
 
-#### API-getriggerte Kampagnen
+### API-getriggerte Kampagnen
 
 Braze ermöglicht es Ihnen, benutzerdefinierte String-Schlüssel-Wert-Paare zu senden, die als `extras` bekannt sind. Um auf Ihre Extras in API-getriggerten und geplanten API-getriggerten Kampagnen zuzugreifen, setzen Sie im Dashboard einen Schlüssel als „example_key“ und einen Wert als {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. Dies führt zu einer Entwicklungskonsolen-Ausgabe von `"extras": { "test": { "foo": 1, "bar": 1 }`.
 

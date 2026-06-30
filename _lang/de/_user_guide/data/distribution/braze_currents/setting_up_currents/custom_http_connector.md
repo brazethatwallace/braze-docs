@@ -34,7 +34,7 @@ Navigieren Sie in Braze zu **Partnerintegrationen** > **Datenexport**, klicken S
 
 Geben Sie Ihrem Export einen Namen und eine Kontakt-E-Mail-Adresse und fahren Sie dann mit der Seite **Current Details** fort. Geben Sie auf dieser Seite Ihre Endpunkt-URL und das optionale Bearer-Token ein.
 
-Nachdem Sie Ihre Zugangsdaten konfiguriert haben, aktivieren Sie alle Nachrichten-Engagement-, Kundenverhalten- und Nutzer:innen-Events, die Sie exportieren möchten, und klicken Sie auf **Launch Current**.
+Nachdem Sie Ihre Zugangsdaten konfiguriert haben, aktivieren Sie alle Nachrichten-Engagement-, Kundenverhalten- und Nutzer:innen-Events, die Sie exportieren möchten, und klicken Sie auf **Current starten**.
 
 ## Unterstützte Currents-Events {#supported-currents-events}
 
@@ -60,7 +60,7 @@ Gelegentlich nehmen wir nicht-brechende Änderungen an Braze-Currents-Schemas vo
 In der Regel geben wir eine zweiwöchige Vorankündigung für diese Änderungen, aber manchmal ist dies nicht möglich. Es ist unerlässlich, dass Sie Ihre Integration so gestalten, dass sie unbekannte Felder oder Event-Typen verarbeiten kann, da es andernfalls wahrscheinlich zu Datenverlust kommt.
 
 {% alert tip %}
-Die vollständige Liste der Currents-Event-Schemas finden Sie unter [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) und [Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
+Die vollständige Liste der Currents-Event-Schemas finden Sie unter [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) und [Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).
 {% endalert %}
 
 ## Batching und Serialisierung {#batching-and-serialization}

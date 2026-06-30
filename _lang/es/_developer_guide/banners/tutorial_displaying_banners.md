@@ -6,9 +6,9 @@ page_order: 10
 layout: scrolly
 ---
 
-# Tutorial: Mostrar un banner por ID de ubicación
+# Tutorial: Mostrar un banner por ID de ubicación {#tutorial-displaying-a-banner-by-placement-id}
 
-> Sigue el código de ejemplo de este tutorial para mostrar banners utilizando su ID de ubicación. Para obtener información más general, consulta [Banners]({{site.baseurl}}/developer_guide/banners/).
+> Sigue el código de ejemplo de este tutorial para mostrar banners utilizando su ID de ubicación. Para obtener información más general, consulta [Banners]({{site.baseurl}}/developer_guide/banners).
 
 {% sdktabs %}
 {% sdktab web %}

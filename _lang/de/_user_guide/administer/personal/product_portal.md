@@ -53,4 +53,4 @@ Je mehr Informationen und Kontext, desto besser! Fügen Sie Links zu Campaigns, 
 - Haben Sie zusätzliche Insights? (Zum Beispiel, wie dies Ihnen und Ihren Teams zugutekommen würde)
 - Gibt es aktuelle Workarounds? (Dies dient nicht unserem Priorisierungsprozess, kann aber bei der Lösungsfindung helfen)
 
-Ein Beispiel für eine gut formulierte Produktanfrage finden Sie in diesem [Beispiel für eine Produktanfrage]({{site.baseurl}}/product_request/).
+Ein Beispiel für eine gut formulierte Produktanfrage finden Sie in diesem [Beispiel für eine Produktanfrage]({{site.baseurl}}/product_request).

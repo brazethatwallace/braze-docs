@@ -24,7 +24,7 @@ Los Canvas archivados no se incluirán en la respuesta de la API a menos que se 
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `canvas.list`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `canvas.list`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -38,7 +38,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | `include_archived` | Opcional | Booleano | Incluir o no los Canvas archivados, de forma predeterminada es `false`. |
 | `sort_direction` | Opcional | Cadena | - Ordenar la hora de creación de más reciente a más antigua: introduce el valor `desc`.<br> - Ordenar la hora de creación de más antigua a más reciente: introduce el valor `asc`. <br><br>Si no se incluye `sort_direction`, el orden predeterminado es de más antiguo a más reciente. |
 | `last_edit.time[gt]` | Opcional | Tiempo | Filtra los resultados y solo devuelve los Canvas que se hayan editado después del tiempo indicado hasta ahora. El formato es `yyyy-MM-DDTHH:mm:ss`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 
@@ -65,7 +65,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/list?page
 ```
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

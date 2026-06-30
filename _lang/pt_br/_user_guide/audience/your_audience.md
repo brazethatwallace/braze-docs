@@ -15,7 +15,7 @@ Na Braze, um usuário (e seu perfil de usuário) representa uma pessoa individua
 
 ## Perfis de usuário {#user-profiles}
 
-Um [perfil de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) funciona como uma fonte única de verdade para tudo que a Braze sabe sobre essa pessoa, incluindo:
+Um [perfil de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) funciona como uma fonte única de verdade para tudo que a Braze sabe sobre essa pessoa, incluindo:
 
 - Identificadores (como IDs de usuário ou IDs externos)
 - Dispositivos e canais de envio de mensagens
@@ -31,7 +31,7 @@ Os usuários na Braze geralmente se enquadram em um de dois estados.
 
 ### Usuários anônimos {#anonymous-users}
 
-Um [usuário anônimo]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users/) é alguém que interagiu com seu app ou site, mas ainda não recebeu um identificador do seu sistema (como um `external_id`).
+Um [usuário anônimo]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users) é alguém que interagiu com seu app ou site, mas ainda não recebeu um identificador do seu sistema (como um `external_id`).
 
 - Usuários anônimos são criados automaticamente quando o SDK da Braze é inicializado
 - Você ainda pode rastrear eventos, atributos e engajamento com mensagens
@@ -39,7 +39,7 @@ Um [usuário anônimo]({{site.baseurl}}/user_guide/data/unification/user_data/us
 
 ### Usuários identificados {#identified-users}
 
-Um [usuário identificado]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#identified-user-profiles) é aquele que foi associado a um `external_id` fornecido por você (por exemplo, um ID de cliente ou ID de conta).
+Um [usuário identificado]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles) é aquele que foi associado a um `external_id` fornecido por você (por exemplo, um ID de cliente ou ID de conta).
 
 Identificar um usuário permite que você:
 
@@ -48,21 +48,21 @@ Identificar um usuário permite que você:
 - Segmente e personalize usando dados de usuário de longo prazo
 - Gerencie perfis por meio de APIs e integrações
 
-Quando um usuário anônimo é identificado posteriormente, a Braze mescla os dados elegíveis no perfil identificado de acordo com [este comportamento de mesclagem]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior). Por exemplo, tokens por push e histórico de mensagens são transferidos, e muitos campos do perfil anônimo são mesclados apenas quando ainda não estão definidos no perfil identificado; quando há conflito de valores, o perfil identificado é mantido.
+Quando um usuário anônimo é identificado posteriormente, a Braze mescla os dados elegíveis no perfil identificado de acordo com [este comportamento de mesclagem]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior). Por exemplo, tokens por push e histórico de mensagens são transferidos, e muitos campos do perfil anônimo são mesclados apenas quando ainda não estão definidos no perfil identificado; quando há conflito de valores, o perfil identificado é mantido.
 
 ## Envie mensagens aos usuários por meio de canais {#message-users-through-channels}
 
-Um [canal]({{site.baseurl}}/user_guide/channels/) é uma forma específica pela qual a Braze pode entregar uma mensagem a um usuário. Os canais mais comuns incluem:
+Um [canal]({{site.baseurl}}/user_guide/channels) é uma forma específica pela qual a Braze pode entregar uma mensagem a um usuário. Os canais mais comuns incluem:
 
-- [Push (web ou celular)]({{site.baseurl}}/user_guide/channels/push/)
-- [E-mail]({{site.baseurl}}/user_guide/channels/email/)
-- [SMS, MMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/)
-- [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/)
-- [Mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/)
-- [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/)
-- [Banners]({{site.baseurl}}/user_guide/channels/banners/)
-- [LINE]({{site.baseurl}}/user_guide/channels/line/)
-- [Webhooks]({{site.baseurl}}/user_guide/channels/webhooks/)
+- [Push (web ou celular)]({{site.baseurl}}/user_guide/channels/push)
+- [E-mail]({{site.baseurl}}/user_guide/channels/email)
+- [SMS, MMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)
+- [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp)
+- [Mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages)
+- [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)
+- [Banners]({{site.baseurl}}/user_guide/channels/banners)
+- [LINE]({{site.baseurl}}/user_guide/channels/line)
+- [Webhooks]({{site.baseurl}}/user_guide/channels/webhooks)
 
 Um único perfil de usuário pode ter vários canais associados, como um endereço de e-mail e um dispositivo móvel. A Braze usa esse modelo para coordenar o envio de mensagens entre canais, mantendo uma visão unificada do usuário.
 
@@ -91,7 +91,7 @@ Os usuários são criados na Braze sempre que alguém interage com sua marca por
 {% endtab %}
 
 {% tab APIs e integrações %}
-- Você pode criar ou atualizar usuários diretamente por meio de [REST APIs]({{site.baseurl}}/api/endpoints/user_data/) ou [importando um CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/).
+- Você pode criar ou atualizar usuários diretamente por meio de [REST APIs]({{site.baseurl}}/api/endpoints/user_data) ou [importando um CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import).
 - Ferramentas externas (como CDPs, CRMs ou data warehouses) podem sincronizar usuários na Braze automaticamente.
 {% endtab %}
 {% endtabs %}
@@ -112,7 +112,7 @@ Os SDKs da Braze coletam automaticamente dados contextuais como:
 {% tab Comportamento do usuário %}
 Quando os usuários interagem com seu app ou mensagens, a Braze registra:
 
-- [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) (por exemplo, compras ou uso de funcionalidades)
+- [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) (por exemplo, compras ou uso de funcionalidades)
 - Aberturas de mensagens, cliques e conversões
 - Atividade de sessão e tendências de engajamento
 {% endtab %}
@@ -120,8 +120,8 @@ Quando os usuários interagem com seu app ou mensagens, a Braze registra:
 {% tab Seus sistemas %}
 Você pode enviar dados das suas próprias ferramentas para a Braze usando:
 
-- [REST APIs]({{site.baseurl}}/api/endpoints/user_data/)
-- [Uploads de CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/)
+- [REST APIs]({{site.baseurl}}/api/endpoints/user_data)
+- [Uploads de CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)
 - Sincronizações de dados programadas
 
 Isso geralmente inclui identificadores, dados de conta ou contexto histórico.
@@ -132,13 +132,13 @@ Isso geralmente inclui identificadores, dados de conta ou contexto histórico.
 
 Os usuários podem fornecer dados diretamente por meio de:
 
-- [Centrais de Preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/)
+- [Centrais de Preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center)
 - Formulários ou pesquisas (SDKs ou integrações)
 - Experiências no app
 
 ### Integrações {#integrations}
 
-A Braze se integra com plataformas como [Segment]({{site.baseurl}}/partners/segment/), data warehouses e parceiros de tecnologia de análise de dados por meio de integrações, permitindo que os dados de usuários fluam automaticamente para os perfis de usuário.
+A Braze se integra com plataformas como [Segment]({{site.baseurl}}/partners/segment), data warehouses e parceiros de tecnologia de análise de dados por meio de integrações, permitindo que os dados de usuários fluam automaticamente para os perfis de usuário.
 
 ## Gerenciar dados de usuários {#manage-user-data}
 
@@ -162,9 +162,9 @@ Uma vez que os dados de usuários estão na Braze, eles alimentam praticamente t
 
 | Funcionalidade | Descrição |
 | ---- | ---- |
-| [Segmentação]({{site.baseurl}}/user_guide/audience/segments/) | Crie públicos com base em: {::nomarkdown}<ul><li>Atributos e campos personalizados</li> <li>Eventos e comportamentos</li> <li>Engajamento com mensagens</li> <li>Propriedades de dispositivo e canal</li></ul>{:/} <br>Os segmentos podem ser reutilizados em Campaigns e Canvas. |
-| [Personalização]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/) | Use dados de usuários para personalizar o conteúdo, como: {::nomarkdown}<ul><li>Nomes e preferências no texto da mensagem</li> <li>Recomendações dinâmicas</li> <li>Conteúdo específico por local ou idioma</li></ul>{:/} |
+| [Segmentação]({{site.baseurl}}/user_guide/audience/segments) | Crie públicos com base em: {::nomarkdown}<ul><li>Atributos e campos personalizados</li> <li>Eventos e comportamentos</li> <li>Engajamento com mensagens</li> <li>Propriedades de dispositivo e canal</li></ul>{:/} <br>Os segmentos podem ser reutilizados em Campaigns e Canvas. |
+| [Personalização]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) | Use dados de usuários para personalizar o conteúdo, como: {::nomarkdown}<ul><li>Nomes e preferências no texto da mensagem</li> <li>Recomendações dinâmicas</li> <li>Conteúdo específico por local ou idioma</li></ul>{:/} |
 | Automação e orquestração  | Acione mensagens e jornadas com base em: {::nomarkdown}<ul><li>Ações do usuário</li> <li>Mudanças de atributos</li> <li>Condições baseadas em tempo</li></ul>{:/} |
 | Coordenação entre canais | Alcance os usuários no canal mais apropriado, respeitando: {::nomarkdown}<ul><li>Status de opt-in</li> <li>Limites de frequência</li> <li>Preferências de canal</li></ul>{:/} |
-| [Análise de dados e insights]({{site.baseurl}}/user_guide/analytics/) | Entenda como diferentes públicos se comportam analisando: {::nomarkdown}<ul><li>Taxas de engajamento</li> <li>Jornadas de conversão</li> <li>Desempenho de segmentos ao longo do tempo</li></ul>{:/} |
+| [Análise de dados e insights]({{site.baseurl}}/user_guide/analytics) | Entenda como diferentes públicos se comportam analisando: {::nomarkdown}<ul><li>Taxas de engajamento</li> <li>Jornadas de conversão</li> <li>Desempenho de segmentos ao longo do tempo</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Funcionalidades de dados do público" }

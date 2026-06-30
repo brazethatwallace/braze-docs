@@ -32,7 +32,7 @@ Wenn Sie Beispiele sehen oder diesen Endpunkt für **WhatsApp-Gruppen** testen m
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `subscription.status.get`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `subscription.status.get`.
 
 ## Rate-Limit
 
@@ -42,11 +42,11 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types/?tab=subscription%20group%20ids) | Erforderlich | String | Die `id` Ihrer Abo-Gruppe. |
+| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types?tab=subscription%20group%20ids) | Erforderlich | String | Die `id` Ihrer Abo-Gruppe. |
 | `external_id` | Erforderlich* | String | Die `external_id` der Nutzer:in (muss mindestens eine und höchstens 50 `external_ids` enthalten). <br><br>Wenn sowohl eine `external_id` als auch `email`/`phone` übermittelt werden, werden nur die angegebenen `external_id`(s) auf die Ergebnisabfrage angewendet. |
 | `email` | Erforderlich* | String | Die E-Mail-Adresse der Nutzer:in. Kann als String-Array mit maximal 50 Einträgen übergeben werden.<br><br> Die gleichzeitige Übermittlung einer E-Mail-Adresse und einer Telefonnummer (ohne `external_id`) führt zu einem Fehler. |
 | `phone` | Erforderlich* | String im [E.164](https://en.wikipedia.org/wiki/E.164)-Format | Die Telefonnummer der Nutzer:in. Wenn keine E-Mail angegeben wird, müssen Sie mindestens eine Telefonnummer angeben (maximal 50).<br><br> Die gleichzeitige Übermittlung einer E-Mail-Adresse und einer Telefonnummer (ohne `external_id`) führt zu einem Fehler. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfrageparameter" }
 
 *Für jede Nutzer:in ist entweder `external_id`, `email` oder `phone` erforderlich.
 
@@ -56,14 +56,14 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 ## Beispielanfrage {#example-request}
 
 {% tabs %}
-{% tab Multiple Users %}
+{% tab Mehrere Nutzer:innen %}
 {% raw %}
 ```
 https://rest.iad-03.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&external_id[]=1&external_id[]=2
 ```
 {% endraw %}
 {% endtab %}
-{% tab SMS and WhatsApp %}
+{% tab SMS und WhatsApp %}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&phone=+11112223333' \
@@ -71,10 +71,10 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/sta
 ```
 {% endraw %}
 {% endtab %}
-{% tab Email %}
+{% tab E-Mail %}
 {% raw %}
 ```
-curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@braze.com' \
+curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@example.com' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 {% endraw %}

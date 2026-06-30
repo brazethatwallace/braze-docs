@@ -57,7 +57,7 @@ Dans le générateur de modèles, accédez à l'onglet **Paramètres**. Dans **L
 
 Sous **Custom domain**, sélectionnez le domaine que vous souhaitez utiliser pour les liens raccourcis. Le menu déroulant affiche tous les domaines de suivi personnalisés configurés pour votre espace de travail. Si vous n'en sélectionnez pas, Braze utilise le domaine par défaut `brz.ai`.
 
-Pour ajouter ou modifier des domaines, sélectionnez **Subscription Group Management**.
+Pour ajouter ou modifier des domaines, sélectionnez **Gestion des groupes d'abonnement**.
 
 {% alert important %}
 Une fois qu'un modèle est soumis à Meta pour approbation, le domaine de suivi ne peut plus être modifié. Confirmez que vous avez sélectionné le bon domaine avant de soumettre.
@@ -65,7 +65,7 @@ Une fois qu'un modèle est soumis à Meta pour approbation, le domaine de suivi 
 
 ##### Étape 3 : Ajouter vos URL de destination {#step-3-add-your-destination-urls}
 
-Revenez à l'onglet **Compose** et ajoutez le contenu de votre message.
+Revenez à l'onglet **Rédiger** et ajoutez le contenu de votre message.
 
 - **Pour les boutons CTA de site web :** saisissez l'URL de destination dans le champ **Click tracking URL**. Braze stocke votre URL de destination et formate automatiquement l'URL du site web du bouton avec le domaine de suivi et une marque substitutive de variable {% raw %}(par exemple, `https://brz.ai/{{1}}`){% endraw %}. Cette marque substitutive est ce qui est soumis à Meta. Au moment de l'envoi, Braze génère l'URL de suivi complète pour chaque utilisateur et renseigne la variable.
 - **Pour les liens dans le corps du texte :** saisissez les URL directement dans le corps.
@@ -111,7 +111,7 @@ L'URL de destination doit être fournie pour tout lien dont l'URL de base corres
 ![Section Boutons avec des champs pour un nom de bouton, une URL de site web et une URL de suivi des clics.]({% image_buster /assets/img/whatsapp/click_tracking/buttons.png %}){: style="max-width:70%;"}
 
 {% alert important %}
-**Envoi de messages de modèle via l'API** : le suivi des clics WhatsApp (utilisant `brz.ai` ou un domaine de suivi personnalisé et le champ **Click tracking URL** dans le compositeur de messages) n'est pas pris en charge lors de l'envoi de messages de modèle WhatsApp via l'[endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/).
+**Envoi de messages de modèle via l'API** : le suivi des clics WhatsApp (utilisant `brz.ai` ou un domaine de suivi personnalisé et le champ **Click tracking URL** dans le compositeur de messages) n'est pas pris en charge lors de l'envoi de messages de modèle WhatsApp via l'[endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages).
 
 Si vous envoyez un message de modèle via l'API, vous pouvez renseigner les variables d'URL CTA (en utilisant `button_variables`), mais Braze ne génère pas d'URL de suivi des clics ni de lien de redirection dans le flux de requête API. Pour utiliser le suivi des clics, envoyez le modèle depuis le tableau de bord de Braze ou via un déclencheur de campagne Braze.
 {% endalert %}
@@ -154,7 +154,7 @@ Si un brouillon est créé au sein d'un Canvas actif, une URL raccourcie ne sera
 
 ## Rapports {#reporting}
 
-Lorsque le suivi des clics est activé ou utilisé avec des modèles compatibles, le tableau de performance WhatsApp inclut la colonne **Total Clicks** qui affiche un décompte des événements de clic par variante et un taux de clics associé. Pour plus de détails sur les indicateurs WhatsApp, consultez [Performance des messages WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/reporting/).
+Lorsque le suivi des clics est activé ou utilisé avec des modèles compatibles, le tableau de performance WhatsApp inclut la colonne **Total Clicks** qui affiche un décompte des événements de clic par variante et un taux de clics associé. Pour plus de détails sur les indicateurs WhatsApp, consultez [Performance des messages WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/reporting).
 
 ![Étape Canvas de message WhatsApp.]({% image_buster /assets/img/whatsapp/click_tracking/canvas_step.png %}){: style="max-width:30%;"}
 

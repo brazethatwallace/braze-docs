@@ -10,13 +10,13 @@ hidden: true
 
 # Shopify連携のアップグレード（カスタム） {#upgrading-your-shopify-integration-custom}
 
-> BrazeのカスタムパスでShopify連携をアップグレードする方法を説明します。最高のエクスペリエンスを提供するため、すべてのShopify連携は2025年8月28日までに最新バージョンへの[アップグレード]({{site.baseurl}}/shopify/)が必要です。このアップグレードは、Shopifyの技術における重要な変更が連携の機能に影響を与えるため、不可欠です。
+> BrazeのカスタムパスでShopify連携をアップグレードする方法を説明します。最高のエクスペリエンスを提供するため、すべてのShopify連携は2025年8月28日までに最新バージョンへの[アップグレード]({{site.baseurl}}/shopify)が必要です。このアップグレードは、Shopifyの技術における重要な変更が連携の機能に影響を与えるため、不可欠です。
 
 ## 対象者 {#whos-eligible}
 
 このアップグレードパスは、Shopifyヘッドレスストアまたは Shopify Hydrogenストアを使用しているブランドを対象としています。
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## アップグレード要件 {#upgrade-requirements}
 
@@ -24,18 +24,18 @@ hidden: true
 
 | 要件 | 説明 |
 |-----------------------|-------------|
-| **重要な変更** | レガシーコネクターから新しいコネクターへの重要な変更をすべて[Shopifyアップグレードの概要]({{site.baseurl}}/shopify_upgrade_overview/#subscriber-collection)で確認してください。 |
-| **アップグレードの前提条件** | エンジニアリングチームとマーケティングチームで必要な[アップグレードの前提条件]({{site.baseurl}}/shopify_upgrade_overview/#upgrade-prerequisites)をすべて完了してください。ShopifyヘッドレスストアをBrazeでアップグレードするには、2つの重要なステップを完了する必要があります。<br><br>- Braze Web SDKを初期化して読み込み、オンサイトトラッキングを有効にする<br>- 製品内アップグレードエクスペリエンスを通じて既存のストアをアップグレードする |
+| **重要な変更** | レガシーコネクターから新しいコネクターへの重要な変更をすべて[Shopifyアップグレードの概要]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection)で確認してください。 |
+| **アップグレードの前提条件** | エンジニアリングチームとマーケティングチームで必要な[アップグレードの前提条件]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites)をすべて完了してください。ShopifyヘッドレスストアをBrazeでアップグレードするには、2つの重要なステップを完了する必要があります。<br><br>- Braze Web SDKを初期化して読み込み、オンサイトトラッキングを有効にする<br>- 製品内アップグレードエクスペリエンスを通じて既存のストアをアップグレードする |
 | **破壊的変更** | Brazeでフラグが立てられたすべての破壊的変更を確認し、修正してください。詳細なウォークスルーについては、[破壊的変更の修正](#fixing-breaking-changes-fixing-breaking-changes)に進んでください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2  role="presentation"}
 
 ## 破壊的変更の修正 {#fixing-breaking-changes}
 
-Brazeで、**パートナー連携** > **Shopify** に移動し、**アップグレードを開始**を選択します。
+Brazeで、**パートナー連携** > **Shopify**に移動し、**アップグレードを開始**を選択します。
 
 ![アップグレードを開始するオプションがあるパネル。]({% image_buster /assets/unlisted_docs/img/shopify/start_shopify_custom_upgrade.png %}){: style="max-width:35%;"}
 
-Shopifyデータを使用している影響を受けるCanvases、Campaigns、Segmentsにフラグが立てられます。
+Shopifyデータを使用している影響を受けるキャンバス、キャンペーン、セグメントにフラグが立てられます。
 
 ![破壊的変更の影響を確認するためのモーダル。]({% image_buster /assets/unlisted_docs/img/shopify/review_breaking_changes.png %})
 
@@ -53,23 +53,23 @@ Shopifyデータを使用している影響を受けるCanvases、Campaigns、Se
 {% tab 放棄チェックアウト %}
 放棄チェックアウトメッセージングでは、以下を含む新しい放棄チェックアウトキャンバステンプレートを使用する必要があります。
 
-- エントリ条件に事前定義されたecommerce.checkout_startedイベント
+- エントリ条件に事前定義された ecommerce.checkout_started イベント
 - 購入プロセスを進めた顧客を除外するための事前定義された終了条件
 - 製品パーソナライゼーションをサポートする新しいショッピングカートLiquidタグ
 
-連携を通じて利用可能な新しいeコマースキャンバステンプレートと製品パーソナライゼーション用の事前定義されたHTMLブロックの完全なリストについては、[Canvasユーザージャーニーの作成]({{site.baseurl}}using_shopify_with_braze#create-your-canvas-user-journeys)を参照してください。
+連携を通じて利用可能な新しいeコマースキャンバステンプレートと製品パーソナライゼーション用の事前定義されたHTMLブロックの完全なリストについては、[キャンバスユーザージャーニーの作成]({{site.baseurl}}using_shopify_with_braze#create-your-canvas-user-journeys)を参照してください。
 
 {% alert important %}
 Shopify連携で廃止されたイベントを使用するアクティブなメッセージを考慮しない場合、影響を受けるメッセージは顧客に送信されなくなります。
 {% endalert %}
 
-詳細については、[サポートされているShopifyイベント]({{site.baseurl}}/shopify_upgrade_overview/#supported-shopify-events)を確認してください。
+詳細については、[サポートされているShopifyイベント]({{site.baseurl}}/shopify_upgrade_overview#supported-shopify-events)を確認してください。
 {% endtab %}
 
 {% tab サブスクライバーリスト %}
 連携を通じてShopifyからメールまたはSMSサブスクライバーを収集している場合、アクティブなメッセージにShopifyストアの対応するサブスクライバーリストが含まれていることを確認してください。
 
-アップグレードが完了すると、連携用の新しいデフォルトサブスクリプショングループが作成されます。これらをアクティブなメッセージングの一部として活用する必要があります。変更の詳細については、[サブスクライバーの収集]({{site.baseurl}}/shopify_upgrade_overview/#subscriber-collection)を参照してください。
+アップグレードが完了すると、連携用の新しいデフォルトサブスクリプショングループが作成されます。これらをアクティブなメッセージングの一部として活用する必要があります。変更の詳細については、[サブスクライバーの収集]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection)を参照してください。
 {% endtab %}
 {% endtabs %}
 
@@ -81,7 +81,7 @@ Shopify連携で廃止されたイベントを使用するアクティブなメ�
 
 ### ステップ1: Braze Web SDKを初期化して読み込み、オンサイトトラッキングを有効にする {#step-1}
 
-まだ行っていない場合は、Braze Web SDKを初期化して読み込み、オンサイトトラッキングを有効にしてください。詳細なウォークスルーについては、[Shopifyカスタム連携のセットアップ](https://www.braze.com/docs/partners/ecommerce/shopify/shopify_custom_integration/#step-1)を参照してください。
+まだ行っていない場合は、Braze Web SDKを初期化して読み込み、オンサイトトラッキングを有効にしてください。詳細なウォークスルーについては、[Shopifyカスタム連携のセットアップ]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration#step-1)を参照してください。
 - Braze Webアプリを作成する
 - サブドメインと環境変数を追加する
 - オンサイトトラッキングを有効にする
@@ -90,7 +90,7 @@ Shopify連携で廃止されたイベントを使用するアクティブなメ�
 
 ### ステップ2: アップグレードを開始する {#step-2-start-the-upgrade}
 
-Brazeで、**パートナー連携** > **Shopify** に移動し、**アップグレードを開始**を選択します。
+Brazeで、**パートナー連携** > **Shopify**に移動し、**アップグレードを開始**を選択します。
 
 ![アップグレードを開始するオプションがあるパネル。]({% image_buster /assets/unlisted_docs/img/shopify/start_shopify_custom_upgrade.png %}){: style="max-width:35%;"}
 
@@ -169,7 +169,7 @@ Brazeがexternal IDを取得するために呼び出せるパブリックエン�
 
 ```
 GET
-https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
+https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@example.com&shopify_storefront=dev-store.myshopify.com
 ```
 
 ##### 期待されるレスポンス {#expected-response}
@@ -214,9 +214,9 @@ Brazeに戻ると、Shopify連携のインストールが完了した際に通�
 
 新しいShopifyコネクターが稼働していることを確認するには、以下をテストしてください。
 
-- **アクティブなCanvases、Campaigns、Segments:** 正しく機能していることを確認します。
+- **アクティブなキャンバス、キャンペーン、セグメント:** 正しく機能していることを確認します。
 - **ID管理プロセス:** これらのプロセスが期待どおりに動作していることを確認します。
 - **SDKカスタマイズ（オプション）:** BrazeとShopifyの連携にカスタマイズ（カスタムイベントや属性のログ記録など）を行った場合、アップグレード後にそれらが正しく動作していることを確認します。
 - **メールまたはSMSサブスクライバーの収集（オプション）:** 以前にメールまたはSMSサブスクライバーの収集を有効にしていた場合、アップグレード中にサブスクライバーの最新ステータスを反映する新しいデフォルトサブスクリプショングループが作成されます。デフォルトサブスクリプショングループの名前はShopifyストアフロントの名前になります。これらの新しいデフォルトサブスクリプショングループはアップグレード後約5時間で利用可能になり、アクティブなメッセージに追加する必要があります。
 
-ご質問がある場合は、[サポートにお問い合わせ](https://www.braze.com/docs/user_guide/administrative/access_braze/support/)ください。
+ご質問がある場合は、[サポートにお問い合わせ]({{site.baseurl}}/user_guide/administrative/access_braze/support)ください。

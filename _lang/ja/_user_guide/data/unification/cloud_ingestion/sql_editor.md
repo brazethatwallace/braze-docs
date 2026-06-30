@@ -11,7 +11,7 @@ toc_headers: h2
 
 > このページでは、Brazeクラウドデータ取り込み（CDI）SQLエディターを使用して、SQLクエリで同期を作成および検証する方法について説明します。
 
-クラウドデータ取り込みのSQLエディターを使用すると、データウェアハウスに対してSQLクエリを直接記述して同期を作成できます。これにより、以前[データウェアハウス統合のステップ1.1]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)で必要だった専用のCDIテーブルの作成やメンテナンスが不要になります。
+クラウドデータ取り込みのSQLエディターを使用すると、データウェアハウスに対してSQLクエリを直接記述して同期を作成できます。これにより、以前[データウェアハウス統合のステップ1.1]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)で必要だった専用のCDIテーブルの作成やメンテナンスが不要になります。
 
 SQLエディターは、以下のような場合に使用します。
 
@@ -28,7 +28,7 @@ SQLエディターは、以下のような場合に使用します。
 
 SQLエディターには以下の制限事項があります。
 
-- データウェアハウスソースのみで利用可能: Snowflake、Redshift、BigQuery、Databricks、Fabric。
+- データウェアハウスソースのみで利用可能：Snowflake、Redshift、BigQuery、Databricks、Fabric。
 - 単一ステートメントの読み取り専用クエリのみがサポートされています。
 
 {% alert note %}
@@ -40,14 +40,14 @@ Brazeはデータに対して読み取り専用クエリのみを実行し、基
 以下の手順に従って、まずソースを作成し、次にSQLエディターで同期を作成します。CDI用のソースをすでに設定している場合は、ステップ3に進んでください。
 
 {% alert note %}
-これらの手順では、例としてSnowflakeソースを使用しています。他のデータウェアハウスソースの設定プロセスも同様であり、[データウェアハウス統合の設定](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/integrations/#setting-up-data-warehouse-integrations)ドキュメントの[ステップ2: Brazeダッシュボードで新しいソースを作成する](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard)を参照してください。
+これらの手順では、例としてSnowflakeソースを使用しています。他のデータウェアハウスソースの設定プロセスも同様であり、[データウェアハウス統合の設定]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#setting-up-data-warehouse-integrations)ドキュメントの[ステップ2：Brazeダッシュボードで新しいソースを作成する]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard)を参照してください。
 {% endalert %}
 
-### ステップ1: Snowflakeのロール、権限、ウェアハウス、ユーザーの設定 {#step-1-set-up-your-snowflake-role-permissions-warehouse-and-user}
+### ステップ1：Snowflakeのロール、権限、ウェアハウス、ユーザーの設定 {#step-1-set-up-your-snowflake-role-permissions-warehouse-and-user}
 
 CDIでSnowflakeソースを作成する前に、Brazeが使用するSnowflakeユーザーがクエリ対象のデータにアクセスでき、クエリを実行するためのウェアハウスを持っていることを確認してください。
 
-#### ステップ1.1:（オプション）データベースとスキーマの作成 {#step-11-optional-create-a-database-and-schema}
+#### ステップ1.1：（オプション）データベースとスキーマの作成 {#step-11-optional-create-a-database-and-schema}
 
 必要に応じて、CDIデータ用の専用データベースとスキーマを作成します。
 
@@ -56,7 +56,7 @@ CREATE DATABASE BRAZE_CLOUD_PRODUCTION;
 CREATE SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION;
 ```
 
-#### ステップ1.2: ロールとデータベース権限の設定 {#step-12-set-up-role-and-database-permissions}
+#### ステップ1.2：ロールとデータベース権限の設定 {#step-12-set-up-role-and-database-permissions}
 
 同期するテーブルへのアクセスを付与します。
 
@@ -74,7 +74,7 @@ GRANT SELECT ON TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.MY_USER_TABLE TO ROLE BRA
 GRANT SELECT ON FUTURE TABLES IN SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION TO ROLE BRAZE_INGESTION_ROLE;
 ```
 
-#### ステップ1.3: ウェアハウスの設定とBrazeロールへのアクセス付与 {#step-13-set-up-the-warehouse-and-grant-access-to-the-braze-role}
+#### ステップ1.3：ウェアハウスの設定とBrazeロールへのアクセス付与 {#step-13-set-up-the-warehouse-and-grant-access-to-the-braze-role}
 
 Brazeがクエリを実行するためのウェアハウスを作成します。
 
@@ -87,7 +87,7 @@ GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
 ウェアハウスでは自動再開フラグが有効になっている必要があります。有効になっていない場合は、クエリ実行時にBrazeがウェアハウスをオンにできるよう、ウェアハウスに対する追加の`OPERATE`権限をBrazeに付与してください。
 {% endalert %}
 
-#### ステップ1.4: Snowflakeユーザーの作成 {#step-14-create-a-snowflake-user}
+#### ステップ1.4：Snowflakeユーザーの作成 {#step-14-create-a-snowflake-user}
 
 Braze用のユーザーを作成し、ロールを割り当てます。
 
@@ -98,17 +98,17 @@ GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
 
 このユーザーは、BrazeでSnowflakeソースを設定する際に使用します。
 
-### ステップ2: Brazeダッシュボードでの新しいソースの作成 {#step-2-create-a-new-source-in-the-braze-dashboard}
+### ステップ2：Brazeダッシュボードでの新しいソースの作成 {#step-2-create-a-new-source-in-the-braze-dashboard}
 
 このステップでは、BrazeでSnowflakeソースを作成し、接続を検証します。
 
-#### ステップ2.1: Snowflakeソースの追加 {#step-21-add-a-snowflake-source}
+#### ステップ2.1：Snowflakeソースの追加 {#step-21-add-a-snowflake-source}
 
 1. Brazeダッシュボードで、**データ設定** > **クラウドデータ取り込み** > **ソース**に移動します。
 2. **データソースを追加**を選択します。
 3. **Snowflake**を選択します。
 
-#### ステップ2.2: 接続情報の入力 {#step-22-enter-connection-details}
+#### ステップ2.2：接続情報の入力 {#step-22-enter-connection-details}
 
 ソースの名前を選択し、Snowflakeの認証情報と設定を入力します。
 
@@ -116,7 +116,7 @@ GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
 **Snowflakeアカウントロケーター**フィールドには、Snowflakeの[アカウント識別子](https://docs.snowflake.com/en/user-guide/admin-account-identifier)を入力します。通常、`xy12345.us-east-1.aws`のような形式です。これはデータベース名やウェアハウス名とは異なります。
 {% endalert %}
 
-#### ステップ2.3: RSAキーの設定完了 {#step-23-complete-rsa-key-setup}
+#### ステップ2.3：RSAキーの設定完了 {#step-23-complete-rsa-key-setup}
 
 認証情報と設定を入力した後、**認証情報を保存**を選択してRSAキーを生成します。次に、Snowflakeに戻って設定を完了します。ダッシュボードに表示される公開キーを、BrazeがSnowflakeに接続するために作成したユーザーに追加します。
 
@@ -128,7 +128,7 @@ ALTER USER BRAZE_INGESTION_USER SET RSA_PUBLIC_KEY='MIIBIjANBgkqhkiG9w0BA...';
 
 Brazeに戻り、**接続をテスト**を選択してソースへのアクセスを確認し、ソースを作成します。
 
-### ステップ3: 新しい同期の作成とSQLクエリの記述 {#step-3-create-a-new-sync-and-write-your-sql-query}
+### ステップ3：新しい同期の作成とSQLクエリの記述 {#step-3-create-a-new-sync-and-write-your-sql-query}
 
 1. **データ設定** > **クラウドデータ取り込み** > **同期**に移動します。
 2. **データ同期を作成**を選択します。
@@ -142,7 +142,7 @@ Brazeに戻り、**接続をテスト**を選択してソースへのアクセ�
 `JOIN`句を含む読み取り専用クエリのみがサポートされています。詳細については、[SQLの制約](#sql-constraints)を参照してください。
 {% endalert %}
 
-### ステップ4: クエリのプレビューと検証 {#step-4-preview-and-validate-your-query}
+### ステップ4：クエリのプレビューと検証 {#step-4-preview-and-validate-your-query}
 
 **プレビューと検証**を選択してクエリを実行します。
 
@@ -158,18 +158,18 @@ Brazeに戻り、**接続をテスト**を選択してソースへのアクセ�
 |---|---|
 | 属性 | - ユーザー識別子（`external_id`、`braze_id`、`alias_name`と`alias_label`、メールまたは電話番号のいずれか）。<br>- `UPDATED_AT`。<br>- 同期する少なくとも1つの追加カラム（属性）。 |
 | ユーザー削除 | - ユーザー識別子（`external_id`、`braze_id`、`alias_name`と`alias_label`、メールまたは電話番号のいずれか）。<br>- `UPDATED_AT`。 |
-| Canvasトリガー | - ユーザー識別子（`external_id`、`braze_id`、`alias_name`と`alias_label`、メールまたは電話番号のいずれか）。<br>- `UPDATED_AT`。 |
+| キャンバストリガー | - ユーザー識別子（`external_id`、`braze_id`、`alias_name`と`alias_label`、メールまたは電話番号のいずれか）。<br>- `UPDATED_AT`。 |
 | カスタムイベント | - ユーザー識別子（`external_id`、`braze_id`、`alias_name`と`alias_label`、メールまたは電話番号のいずれか）。<br>- `UPDATED_AT`。<br>- イベント名を表す`NAME`。<br>- イベント時刻を表す`TIME`。利用できない場合、CDIは代わりに`UPDATED_AT`を使用します。 |
 | 購入イベント | - ユーザー識別子（`external_id`、`braze_id`、`alias_name`と`alias_label`、メールまたは電話番号のいずれか）。<br>- `UPDATED_AT`。<br>- `PRODUCT_ID`。<br>- `CURRENCY`。<br>- `PRICE`。<br>- 購入イベント時刻を表す`TIME`。利用できない場合、CDIは代わりに`UPDATED_AT`を使用します。 |
 | カタログ | - カタログアイテム識別子を表す`ID`。<br>- `UPDATED_AT`。<br>- 同期する少なくとも1つの追加カラム（カタログフィールド）。 |
 | アカウント | - アカウント識別子を表す`ID`。<br>- アカウント名を表す`NAME`。<br>- `UPDATED_AT`。<br>- 同期する少なくとも1つの追加カラム（アカウントフィールド）。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ4: クエリのプレビューと検証" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ4：クエリのプレビューと検証" }
 
-必須カラム以外の追加カラムは、それぞれ属性、Canvasコンテキストプロパティ、イベントプロパティ、カタログフィールド、アカウントフィールドとして同期されます。プレビューと検証のエラーおよびその修正方法に関する役立つヒントについては、[検証の動作](#validation-behavior)と[トラブルシューティング](#troubleshooting)を参照してください。
+必須カラム以外の追加カラムは、それぞれ属性、キャンバスコンテキストプロパティ、イベントプロパティ、カタログフィールド、アカウントフィールドとして同期されます。プレビューと検証のエラーおよびその修正方法に関する役立つヒントについては、[検証の動作](#validation-behavior)と[トラブルシューティング](#troubleshooting)を参照してください。
 
-### ステップ5: 属性マッピングの確認と同期の作成 {#step-5-review-attribute-mapping-and-create-sync}
+### ステップ5：属性マッピングの確認と同期の作成 {#step-5-review-attribute-mapping-and-create-sync}
 
-検証が成功したら、**次へ: 通知**に進み、同期を作成します。
+検証が成功したら、**次へ：通知**に進み、同期を作成します。
 
 {% alert important %}
 不正確なSQL設定は、データポイントの過剰消費やより広範な運用リスクを含む、意図しない結果につながる可能性があります。クエリロジックが正しいことを確認する責任はお客様にあり、同期を有効化する前にすべての結果を慎重にプレビューしてください。
@@ -181,13 +181,13 @@ Brazeに戻り、**接続をテスト**を選択してソースへのアクセ�
 
 読み取り専用クエリのみがサポートされています。
 
-使用できるもの:
+使用できるもの：
 
 - `SELECT`
 - `WITH`（CTE）
 - `JOIN`
 
-使用できないもの:
+使用できないもの：
 
 - `INSERT`、`UPDATE`、または`DELETE`
 - `CREATE`または`DROP`
@@ -203,7 +203,7 @@ SQLエディターは、続行を許可する前にクエリを検証します�
 
 ### SQLエラー {#sql-errors}
 
-クエリに構文エラーが含まれている場合:
+クエリに構文エラーが含まれている場合：
 
 - 検証が失敗します
 - プレビューは表示されません
@@ -211,7 +211,7 @@ SQLエディターは、続行を許可する前にクエリを検証します�
 
 ### コンパイルエラー {#compilation-errors}
 
-クエリが無効なテーブル、カラム、または権限のないオブジェクトを参照している場合:
+クエリが無効なテーブル、カラム、または権限のないオブジェクトを参照している場合：
 
 - 検証が失敗します
 - プレビューは表示されません
@@ -219,7 +219,7 @@ SQLエディターは、続行を許可する前にクエリを検証します�
 
 ### 接続エラー {#connection-errors}
 
-Brazeがデータウェアハウスに接続できない場合:
+Brazeがデータウェアハウスに接続できない場合：
 
 - 検証が失敗します
 - プレビューは表示されません
@@ -227,7 +227,7 @@ Brazeがデータウェアハウスに接続できない場合:
 
 ### クエリタイムアウト {#query-timeout}
 
-クエリの実行時間が長すぎる場合:
+クエリの実行時間が長すぎる場合：
 
 - Brazeがクエリを終了します
 - 検証が失敗します
@@ -245,7 +245,7 @@ Brazeがデータウェアハウスに接続できない場合:
 
 ### ゼロ行の結果 {#zero-row-results}
 
-クエリがゼロ行を返す場合:
+クエリがゼロ行を返す場合：
 
 - 検証は**合格**します
 - 同期を作成できます
@@ -253,23 +253,23 @@ Brazeがデータウェアハウスに接続できない場合:
 
 ## `PAYLOAD`サポート（レガシー） {#payload-support-legacy}
 
-SQLエディターは、`PAYLOAD`カラムが存在する[レガシーCDIテーブル]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views)をサポートしています。
+SQLエディターは、`PAYLOAD`カラムが存在する[レガシーCDIテーブル]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-1-set-up-tables-or-views)をサポートしています。
 
-クエリに以下が含まれている場合:
+クエリに以下が含まれている場合：
 
 - 有効な識別子
 - `UPDATED_AT`
 - `PAYLOAD`カラム
 - 追加カラム
 
-その場合:
+その場合：
 
 - Brazeは`PAYLOAD`カラムのみを同期します
 - Brazeは追加カラムを無視します
 
 ## SQL同期の編集 {#edit-a-sql-sync}
 
-既存の同期を編集する場合:
+既存の同期を編集する場合：
 
 - SQLの変更には再検証が必要です
 - 無効な変更は保存できません
@@ -301,7 +301,7 @@ SQLエディターは、`PAYLOAD`カラムが存在する[レガシーCDIテー�
 
 増分同期用のタイムスタンプカラムを追加してください。
 
-### 「同期する属性/カタログフィールド/アカウントフィールドがありません」 {#add-more-columns-there-are-no-attributescatalog-fieldsaccount-fields-to-sync}
+### 「カラムを追加してください...同期する属性/カタログフィールド/アカウントフィールドがありません」 {#add-more-columns-there-are-no-attributescatalog-fieldsaccount-fields-to-sync}
 
 識別子と`UPDATED_AT`以外に、少なくとも1つの追加カラムを追加してください。
 

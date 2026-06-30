@@ -15,16 +15,16 @@ search_rank: 2
 
 ## Pré-requisitos {#prerequisites}
 
-Antes de enviar e-mails com a Braze, você precisa configurar seus IPs dedicados, domínios, autenticação de e-mail e aquecimento de IP. Para um passo a passo completo, consulte [Configuração de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/).
+Antes de enviar e-mails com a Braze, você precisa configurar seus IPs dedicados, domínios, autenticação de e-mail e aquecimento de IP. Para um passo a passo completo, consulte [Configuração de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup).
 
 ## Personalize seus e-mails {#customize-your-emails}
 
 Você pode personalizar suas mensagens de e-mail de várias formas, incluindo:
 
-- [Modelos de e-mail da Braze]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)
-- [Modelos de HTML personalizados]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)
-- [Blocos do editor (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email)
-- [Inscrições de usuários]({{site.baseurl}}/user_guide/channels/email/subscriptions/)
+- [Modelos de e-mail da Braze]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)
+- [Modelos de HTML personalizados]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)
+- [Blocos do editor (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)
+- [Inscrições de usuários]({{site.baseurl}}/user_guide/channels/email/subscriptions)
 
 ## Casos de uso {#use-cases}
 
@@ -35,7 +35,7 @@ Você pode personalizar suas mensagens de e-mail de várias formas, incluindo:
 | Mensagens rich | Permita o envio de mensagens HTML ricas e dinâmicas. |
 | Conteúdo multimídia | Facilidade na inserção de conteúdo multimídia que engaja os usuários, como vídeos e imagens. |
 | Boletins informativos | Envie boletins informativos mensais ou semanais de forma prática para manter o engajamento dos usuários. |
-| Transações | Notifique os usuários sobre compras recentes e entregue informações importantes sobre produtos e envios com [e-mails de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/).
+| Transações | Notifique os usuários sobre compras recentes e entregue informações importantes sobre produtos e envios com [e-mails de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 ## Serviços de e-mail {#email-services}
@@ -60,6 +60,6 @@ Esses serviços podem incluir:
 
 ## Próximas etapas {#next-steps}
 
-- [Configuração de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/)
-- [Criar um e-mail com o editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/)
-- [Criar um e-mail com o editor de HTML]({{site.baseurl}}/user_guide/channels/email/html_editor/)
+- [Configuração de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup)
+- [Criar um e-mail com o editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)
+- [Criar um e-mail com o editor de HTML]({{site.baseurl}}/user_guide/channels/email/html_editor)

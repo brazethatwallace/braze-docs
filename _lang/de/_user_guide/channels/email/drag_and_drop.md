@@ -70,7 +70,7 @@ Obwohl der Drag-and-Drop-Editor Ihren Workflow mit diesen Blöcken vereinfacht, 
 
 ### Zeilen {#rows}
 
-**Zeilen** sind strukturelle Einheiten, die die horizontale Zusammensetzung eines Abschnitts der Nachricht mithilfe von Spalten definieren. Sie können entweder leere Zeilen oder [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) verwenden. Durch die Verwendung von mehr als einer Spalte können Sie verschiedene Inhaltselemente nebeneinander platzieren. So können Sie alle strukturellen Elemente, die Sie benötigen, zu Ihrer Nachricht hinzufügen – unabhängig davon, welches Template Sie zu Beginn ausgewählt haben.
+**Zeilen** sind strukturelle Einheiten, die die horizontale Zusammensetzung eines Abschnitts der Nachricht mithilfe von Spalten definieren. Sie können entweder leere Zeilen oder [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) verwenden. Durch die Verwendung von mehr als einer Spalte können Sie verschiedene Inhaltselemente nebeneinander platzieren. So können Sie alle strukturellen Elemente, die Sie benötigen, zu Ihrer Nachricht hinzufügen – unabhängig davon, welches Template Sie zu Beginn ausgewählt haben.
 
 #### Bilder in Textblöcken verschachteln {#nesting-images-inside-text-blocks}
 
@@ -85,7 +85,7 @@ Sie können im Drag-and-Drop-Editor kein Bild innerhalb eines Absatzes oder eine
 Sind Sie unsicher, ob Ihre E-Mail-Nachricht über eine Campaign oder ein Canvas gesendet werden sollte? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind.
 
 {% alert note %}
-Sie können eine Drag-and-Drop-E-Mail aus einer Campaign oder einem Canvas nicht direkt unter **Templates** > **E-Mail-Templates** als E-Mail-Template speichern. Erstellen Sie das Template zuerst unter **Templates**, oder lesen Sie [Kann ich meine Drag-and-Drop-E-Mail als Template speichern, nachdem ich sie in meiner Campaign oder meinem Canvas erstellt habe?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas), um ein Drag-and-Drop-Template neu zu erstellen oder HTML mit **Download file** zu exportieren.
+Sie können eine Drag-and-Drop-E-Mail aus einer Campaign oder einem Canvas nicht direkt unter **Templates** > **E-Mail-Templates** als E-Mail-Template speichern. Erstellen Sie das Template zuerst unter **Templates**, oder lesen Sie [Kann ich meine Drag-and-Drop-E-Mail als Template speichern, nachdem ich sie in meiner Campaign oder meinem Canvas erstellt habe?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas), um ein Drag-and-Drop-Template neu zu erstellen oder HTML mit **Download file** zu exportieren.
 {% endalert %}
 
 Nachdem Sie ausgewählt haben, wo Sie Ihre Nachricht erstellen möchten, gehen wir die Schritte zum Erstellen einer Drag-and-Drop-E-Mail durch.
@@ -128,7 +128,7 @@ Weitere Möglichkeiten zur Anpassung Ihrer Drag-and-Drop-E-Mail finden Sie unter
 Während Sie Ihre E-Mail erstellen, können Sie zwischen einer Desktop- und einer Mobilansicht wechseln, um eine Vorschau zu sehen, wie Ihre E-Mail-Nachricht für Ihre Nutzergruppen aussehen wird. So können Sie überprüfen, ob Ihr Inhalt responsiv ist, und unterwegs alle notwendigen Anpassungen vornehmen.
 
 {% alert tip %}
-Brauchen Sie Hilfe beim Verfassen überzeugender Texte? Probieren Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnliche Marketingtexte zur Verwendung in Ihren Nachrichten.
+Brauchen Sie Hilfe beim Verfassen überzeugender Texte? Probieren Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnliche Marketingtexte zur Verwendung in Ihren Nachrichten.
 
 ![Button „Textassistent“ im Content-Panel neben den Stileinstellungen im Drag-and-Drop-Editor.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
 {% endalert %}
@@ -151,10 +151,10 @@ Im rechten Panel wird eine Vorschau mit den von Ihnen hinzugefügten Sendeinform
 Unter **Sending Settings** > **Advanced** können Sie E-Mail-Anhänge mit den folgenden Methoden hinzufügen:
 
 - **Datei hochladen:** Ziehen Sie eine Datei per Drag-and-Drop oder durchsuchen Sie Ihren Computer, um eine Datei direkt hochzuladen. Braze validiert den Dateityp und die Größe (standardmäßig bis zu 2&nbsp;MB) vor dem Hochladen, und die Dateien werden dann in die Medienbibliothek hochgeladen. Dateien, die das Limit von 2&nbsp;MB überschreiten, können nicht hochgeladen werden.
-- **Medienbibliothek verwenden:** Durchsuchen und wählen Sie aus bereits in der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) gespeicherten Assets. PDFs, Word-Dokumente, Excel-Dateien und PowerPoint-Präsentationen werden unterstützt.
+- **Medienbibliothek verwenden:** Durchsuchen und wählen Sie aus bereits in der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) gespeicherten Assets. PDFs, Word-Dokumente, Excel-Dateien und PowerPoint-Präsentationen werden unterstützt.
 - **Von URL hinzufügen:** Geben Sie eine URL ein, die auf die Datei verweist, und geben Sie einen Anzeige-Dateinamen an. Da Braze beliebige URLs während der E-Mail-Erstellung nicht auf ihre Größe prüfen kann, wird die Dateigröße zum Sendezeitpunkt überprüft. Beachten Sie, dass Liquid in diesem Feld nicht unterstützt wird.
 
-Spezifische Best Practices finden Sie unter [E-Mail-Richtlinien]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/).
+Spezifische Best Practices finden Sie unter [E-Mail-Richtlinien]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines).
 
 #### E-Mail-Header personalisieren (erweitert) {#personalize-your-email-header-advanced}
 
@@ -172,7 +172,7 @@ Nachdem Sie Ihre Sendeinformationen hinzugefügt haben, ist es an der Zeit, Ihre
 Wenn die E-Mail im Editor anders aussieht als in der Vorschau oder beim Testversand, überprüfen Sie, ob alle Tags geschlossen sind, Bildattribute Werte haben und Hintergrundbilder an den Rändern nicht unscharf sind.
 {% endalert %}
 
-Gehen Sie zum Abschnitt **Preview and Test**. Hier haben Sie die Möglichkeit, eine Vorschau Ihrer E-Mail als Nutzer:in anzuzeigen oder eine Testnachricht zu senden. Dieser Abschnitt enthält auch [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision/), mit dem Sie überprüfen können, ob Ihre E-Mail in verschiedenen mobilen und Web-Clients korrekt dargestellt wird.
+Gehen Sie zum Abschnitt **Preview and Test**. Hier haben Sie die Möglichkeit, eine Vorschau Ihrer E-Mail als Nutzer:in anzuzeigen oder eine Testnachricht zu senden. Dieser Abschnitt enthält auch [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision), mit dem Sie überprüfen können, ob Ihre E-Mail in verschiedenen mobilen und Web-Clients korrekt dargestellt wird.
 
 {% alert tip %}
 Sie können auch den Schalter **Dark Mode Preview** im Vorschau-Panel verwenden, um Ihren E-Mail-Body im Dark Mode anzuzeigen und Ihre E-Mail bei Bedarf anzupassen.
@@ -204,9 +204,9 @@ Inbox Vision ermöglicht es Ihnen, Ihre E-Mail-Campaigns aus der Perspektive von
 
 Es ist wichtig, die feinen Details Ihrer E-Mail-Nachricht zu testen und zu überprüfen. Beispielsweise können Hintergrundbilder in E-Mail-Nachrichten manchmal weiße Linien oder Unterbrechungen zwischen Bildern verursachen, oder Clients wie Windows Outlook zeigen Hintergrundbilder möglicherweise nicht an. Die Verwendung von Inbox Vision kann helfen, diese Diskrepanzen zwischen Clients zu identifizieren. In diesem Szenario legen Sie eine Fallback-Hintergrundfarbe fest, damit diese Bilder wie erwartet dargestellt werden können.
 
-Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=email).
+Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=email).
 
-Nachdem Sie den Drag-and-Drop-Editor zum Entwerfen und Erstellen Ihrer E-Mail-Nachricht verwendet haben, fahren Sie mit dem [Aufbau]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas) des restlichen Teils Ihrer Campaign oder Ihres Canvas fort.
+Nachdem Sie den Drag-and-Drop-Editor zum Entwerfen und Erstellen Ihrer E-Mail-Nachricht verwendet haben, fahren Sie mit dem [Aufbau]({{site.baseurl}}/user_guide/channels/email/html_editor#step-4-build-the-remainder-of-your-campaign-or-canvas) des restlichen Teils Ihrer Campaign oder Ihres Canvas fort.
 
 {% details Über die aktualisierte HTML-Engine %}
 Die zugrunde liegende Engine, die HTML aus dem Drag-and-Drop-Editor erzeugt, wurde optimiert und aktualisiert, was zu Vorteilen bei der HTML-Dateikomprimierung und dem Rendering führt.
@@ -216,7 +216,7 @@ Unser durchschnittlicher exportierter HTML-Daten-Footprint wurde reduziert, was 
 Das HTML-Rendering wurde durch die folgenden Updates verbessert, die die Anzahl der bedingten Kommentare und CSS-Media-Queries minimieren. Dadurch sind HTML-Dateien kleiner und effizienter codiert.
 - Migration von einem `<div>`-Element-basierten Design zu einer standardmäßigen `<table aria-label="Inbox Vision verwenden">`-formatierten Codebasis
   <caption>Inbox Vision verwenden</caption>
-- [Editor-Blöcke (E-Mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) wurden für Kompaktheit neu codiert
+- [Editor-Blöcke (E-Mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email) wurden für Kompaktheit neu codiert
 - Der finale HTML-Code wird komprimiert, um Leerzeichen zwischen Tags zu entfernen
 - Transparente Trennlinien werden automatisch in Inhalts-Padding umgewandelt
 {% enddetails %}
@@ -226,7 +226,7 @@ Das HTML-Rendering wurde durch die folgenden Updates verbessert, die die Anzahl 
 Während Sie Ihre Drag-and-Drop-E-Mails weiter erstellen, können Sie jeden E-Mail-Body mithilfe einer Kombination dieser kreativen Details weiter anpassen, um die Aufmerksamkeit und das Interesse Ihrer Zielgruppe an Ihrer Nachricht zu wecken.
 
 {% alert tip %}
-Sie können ein benutzerdefiniertes Theme für Ihren Drag-and-Drop-Editor mithilfe der [globalen Stileinstellungen]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) erstellen.
+Sie können ein benutzerdefiniertes Theme für Ihren Drag-and-Drop-Editor mithilfe der [globalen Stileinstellungen]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings) erstellen.
 {% endalert %}
 
 ### Automatische Breite für Bilder {#auto-width-images}
@@ -272,7 +272,7 @@ Liquid-Personalisierung wird für Bildblöcke und Button-Link-Typ-Felder nicht u
 
 #### Dynamische Bilder {#dynamic-images}
 
-Sie können dynamische Bilder in Ihre E-Mail-Nachrichten einbinden, indem Sie [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/#about-connected-content) oder [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) in Ihrem Bildquellattribut verwenden. Anstelle eines statischen Bildes können Sie beispielsweise {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} als Bild-URL einfügen, um den Vornamen einer Person im Bild einzubinden. Dies hilft, Ihre E-Mails für jede:n Nutzer:in zu personalisieren.
+Sie können dynamische Bilder in Ihre E-Mail-Nachrichten einbinden, indem Sie [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content#about-connected-content) oder [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) in Ihrem Bildquellattribut verwenden. Anstelle eines statischen Bildes können Sie beispielsweise {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} als Bild-URL einfügen, um den Vornamen einer Person im Bild einzubinden. Dies hilft, Ihre E-Mails für jede:n Nutzer:in zu personalisieren.
 
 {% alert important %}
 Ihre Bild-URL muss mit `https://` beginnen. Die Verwendung von `http://` führt zum Absturz Ihrer App.
@@ -284,7 +284,7 @@ Beim Verfassen Ihrer Nachricht können Sie die Textrichtung zwischen links-nach-
 
 ![Menü des E-Mail-Drag-and-Drop-Editors mit Button zum Umschalten der Textausrichtung zwischen rechts-nach-links und links-nach-rechts.]({% image_buster /assets/img/dnd/dnd_template1.png %}){: style="max-width:50%;"}
 
-Das endgültige Erscheinungsbild von Rechts-nach-links-Nachrichten hängt weitgehend davon ab, wie die Dienstanbieter sie darstellen. Best Practices für die Erstellung von Rechts-nach-links-Nachrichten, die so genau wie möglich angezeigt werden, finden Sie unter [Rechts-nach-links-Nachrichten erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
+Das endgültige Erscheinungsbild von Rechts-nach-links-Nachrichten hängt weitgehend davon ab, wie die Dienstanbieter sie darstellen. Best Practices für die Erstellung von Rechts-nach-links-Nachrichten, die so genau wie möglich angezeigt werden, finden Sie unter [Rechts-nach-links-Nachrichten erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ### HTML
 
@@ -304,11 +304,11 @@ Ein weiterer häufiger Anwendungsfall ist die Kennzeichnung bestimmter Links als
 * **SendGrid:** `universal = "true"`
 * **SparkPost:** `data-msys-sublink = "open-in-app"` (ein [benutzerdefinierter Sub-Pfad](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#custom-link-sub-paths) muss konfiguriert werden)
 
-Informationen zur Einrichtung von Universal Links finden Sie unter [Universal Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/).
+Informationen zur Einrichtung von Universal Links finden Sie unter [Universal Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).
 
-Alternativ können Sie eine Integration mit einem unserer Attribution-Partner wie [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/) oder [AppsFlyer]({{site.baseurl}}/partners/message_orchestration/attribution/appsflyer/appsflyer/#email-deep-linking-and-click-tracking) nutzen, um Universal Links zu verwalten.
+Alternativ können Sie eine Integration mit einem unserer Attribution-Partner wie [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) oder [AppsFlyer]({{site.baseurl}}/partners/message_orchestration/attribution/appsflyer/appsflyer#email-deep-linking-and-click-tracking) nutzen, um Universal Links zu verwalten.
 
-Schließlich stehen vordefinierte Attribute zur Verfügung, die Ihre Nachricht barrierefreier machen. Mehr erfahren Sie in unserem Artikel [Barrierefreie Nachrichten in Braze erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/).
+Schließlich stehen vordefinierte Attribute zur Verfügung, die Ihre Nachricht barrierefreier machen. Mehr erfahren Sie in unserem Artikel [Barrierefreie Nachrichten in Braze erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility).
 
 #### Benutzerdefinierte Head-Tags {#custom-head-tags}
 

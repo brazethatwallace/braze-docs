@@ -22,8 +22,8 @@ Select **Create Segment** to begin building your segment. Name your segment by d
 
 Optionally, you can do the following:
 - Add a description to the segment to provide more details about the intention of this audience and leave notes for other team members to refer back to.
-- Add a [team]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) to your segment.
-- Add [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) to your segment for further organization.
+- Add a [team]({{site.baseurl}}/user_guide/administer/global/user_management/teams) to your segment.
+- Add [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) to your segment for further organization.
 
 ![Create Segment modal where the segment is named "Lapsed Users" with the Segment Description as "This is our main Lapsed User segment to target non-actives within the past fourteen days." with two buttons: Cancel and Create Segment.]({% image_buster /assets/img_archive/segment_app_selection.png %}){: style="max-width:80%;"}
 
@@ -41,7 +41,7 @@ Add at least one filter to your segment. You can combine as many filters as you 
 
 {% multi_lang_include alerts/note_alerts.md alert='Segment profiles first app use' %}
 
-#### Filter groups
+### Filter groups
 
 Filters are organized into filter groups. Every filter must be part of a filter group that has a minimum of one filter. A segment can have multiple filter groups. To add one, select **Add filter group**. Edit the filter group name by selecting the icon that appears when you hover next to it.
 
@@ -49,7 +49,7 @@ Filters are organized into filter groups. Every filter must be part of a filter 
 
 Select the icons next to each filter to collapse the filter editor or duplicate individual filters. After duplicating a filter, you can adjust its values within each dropdown.
 
-#### Segmentation logic using AND and OR
+### Segmentation logic using AND and OR
 
 Within a filter group, filters can be joined by either "AND" or "OR". Between filter groups, groups can be joined by either "AND" or "OR". When using filter groups, you can create segmentation logic such as:
 - (A AND B AND C) OR (C AND E AND F)
@@ -80,7 +80,7 @@ If `not included`, `is not`, `does not equal`, or `does not match regex` are use
 
 {% enddetails %}
 
-#### Filter operators
+### Filter operators
 
 Depending on the specific filter you select, you will have different operators for identifying filter values. To dive deeper into the operators available for different types of custom attributes, see [Custom attribute storage]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#setting-custom-attributes). Note that when using the “is any of” operator, the maximum number of items you can include in that field is 256.
 
@@ -96,7 +96,7 @@ Segments already using the **Segment Membership** filter cannot be further inclu
 Also, nesting segments like this adds complexity and can slow things down. Instead, recreate the segment you're trying to include using the same filters.
 {% endalert %}
 
-#### Exclusion groups (optional) {#exclusion}
+### Exclusion groups (optional) {#exclusion}
 
 When building a segment, you can apply one or multiple exclusion groups. Exclusion groups contain criteria that identify users to exclude from your segment, and will always be connected to your filter groups with an "AND NOT" operator.
 
@@ -108,7 +108,7 @@ Excluded users will not be counted as part of your segment’s _Total reachable 
 
 ![An exclusion group with two filters.]({% image_buster /assets/img_archive/segmenter_exclusion_groups.png %})
 
-#### Viewing funnel statistics
+### View funnel statistics {#viewing-funnel-statistics}
 
 Select **View funnel statistics** to display the statistics for that filter group and see how each added filter impacts your segment statistics. You'll see an estimated count and percentage for users who are targeted by all filters up to that point. Once the statistics are displayed for a filter group, they will update automatically whenever you change the filters. These statistics are estimated and may take a moment to generate.
 
@@ -118,9 +118,13 @@ Keep in mind that if you use AND in between your filters, the funnel statistics 
 
 By adding filters that document your user flow, you can see the points where users fall off. For example, if you're a social networking app and you want to see where you might be losing users during your onboarding process, you may want to add custom data filters for signing up, adding friends, and sending the first message. If you find that 85% of users are signing up and adding friends, but only 45% sent the first message, then you'll know to focus on encouraging more message sends during your onboarding and marketing campaigns.
 
-#### Testing segments
+### Test segments {#testing-segments}
 
-After adding apps and filters to your segment, you can test if your segment is set up as expected by looking up a user to confirm if they match the segment criteria. To do so, search for a user’s `external_id` or `braze_id` in the **User Lookup** section. Note that you cannot search by email address in **User Lookup**.
+After adding apps and filters to your segment, you can test if your segment is set up as expected by looking up a user to confirm if they match the segment criteria. To do so, search for a user’s `external_id` or `braze_id` in the **User Lookup** section. 
+
+{% alert note %}
+**User Lookup** accepts only `external_id` and `braze_id`. It does not accept email addresses, phone numbers, or other identifiers. To find a profile by email, phone, or other fields, use [**Search Users**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles) instead.
+{% endalert %}
 
 ![User Lookup section with a search field.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%;"}
 
@@ -137,7 +141,7 @@ When a user doesn’t match part or all of the segment, filter, or app criteria,
 
 ![A user lookup with an alert stating, "test1 does not match the following targeting criteria:" and displays missing criteria.]({% image_buster /assets/img_archive/user_lookup_nomatch.png %})
 
-#### Single-user segments
+### Single-user segments
 
 You can create single user segments (or segments of a handful of users) using unique attributes that identify users, like a user name or a user ID.
 
@@ -151,7 +155,7 @@ Select **Save**. Now you're ready to start sending messages to your users!
 
 ## Measuring segment size
 
-To learn about monitoring your segment’s membership and size, refer to [Measuring segment size]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
+To learn about monitoring your segment’s membership and size, refer to [Measuring segment size]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
 ## Archiving segments
 
@@ -167,7 +171,7 @@ You can unarchive the segment by navigating to it within the **Segments** page, 
 
 ## Targeting behavior when users have multiple devices
 
-Users have more than one device if they log into the same account on multiple devices. You can check for multiple devices in the **Recent Devices** section of a [user profile]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/).
+Users have more than one device if they log into the same account on multiple devices. You can check for multiple devices in the **Recent Devices** section of a [user profile]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
 
 When segmenting with device-dependent filters (device model, device OS, and app version), your segment will contain all users that match your filter criteria. These users will be sent a message on all their devices, including ones that may not meet your filter criteria. For example, let's say User A has two devices: Device 1 is OS 13.0, and Device 2 is OS 10.0. If a segment targets users with OS 10.0, this user will be part of that segment and receive messages on both of their devices.
 

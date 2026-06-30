@@ -31,8 +31,6 @@ Designated support contacts can access all support cases for your company, regar
 3. In the menu, select **Edit** to be redirected to the **Edit user** page.
 4. Check the checkbox for **Set this user as a Designated Support Contact for Braze Support Portal**.
 
-![The checkbox for setting a user as a designated support contact.]({% image_buster /assets/img_archive/designated_support_contact.png %}){: style="max-width:70%;"}
-
 ### Gaining access
 
 After a user is designated as a support contact, the Braze Support Portal sends that user a welcome email with instructions to set up their access.
@@ -102,7 +100,7 @@ Marking an issue as "Critical" means your production instance is down, and all w
 If the Braze dashboard isn't loading correctly, try the following before you contact Support:
 
 1. Open the dashboard in a different browser or an incognito or private window.
-2. [Clear your browser cache and cookies]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#clearing-your-browser-cache-and-cookies).
+2. [Clear your browser cache and cookies]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#clearing-your-browser-cache-and-cookies).
 3. Disable ad blockers and browser extensions, then reload the dashboard.
 4. If you use a VPN, disconnect and try again.
 

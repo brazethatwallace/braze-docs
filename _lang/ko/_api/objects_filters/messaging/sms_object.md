@@ -1,15 +1,15 @@
 ---
-nav_title: "SMS 개체"
-article_title: SMS 메시징 개체
+nav_title: "SMS 오브젝트"
+article_title: SMS 메시징 오브젝트
 page_order: 10
 page_type: reference
 channel: SMS
-description: "이 참고 문서에서는 Braze SMS 객체의 다양한 구성 요소에 대해 설명합니다."
+description: "이 참조 문서에서는 Braze SMS 오브젝트의 다양한 구성요소에 대해 설명합니다."
 
 ---
-# SMS 개체
+# SMS 오브젝트 {#sms-object}
 
-> `sms` 개체를 사용하면 [메시징 엔드포인트를]({{site.baseurl}}/api/endpoints/messaging) 통해 SMS 메시지를 수정하거나 생성할 수 있습니다.
+> `sms` 오브젝트를 사용하면 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging)를 통해 SMS 메시지를 수정하거나 생성할 수 있습니다.
 
 ```json
 {
@@ -23,5 +23,5 @@ description: "이 참고 문서에서는 Braze SMS 객체의 다양한 구성 �
 }
 ```
 
-- [App identifier]({{site.baseurl}}/api/identifier_types/)
-  - 워크스페이스에 구성된 앱의 유효한 `app_id` 은 사용자의 프로필에 특정 앱이 있는지 여부와 관계없이 워크스페이스의 모든 사용자에게 적용됩니다.
+- [앱 식별자]({{site.baseurl}}/api/identifier_types)
+  - 워크스페이스에 구성된 앱의 유효한 `app_id`는 사용자의 프로필에 특정 앱이 있는지 여부와 관계없이 워크스페이스의 모든 사용자에게 적용됩니다.

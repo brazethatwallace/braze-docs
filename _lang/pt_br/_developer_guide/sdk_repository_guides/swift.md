@@ -107,9 +107,9 @@ Explore nosso [projeto de exemplos](https://github.com/braze-inc/braze-swift-sdk
 | XCFrameworks combináveis (acesso antecipado) | [braze-inc/braze-swift-sdk-prebuilt-mergeable] |                                 ✗ |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Repositórios alternativos" }
 
-## Contato {#contact}
+## Fale conosco {#contact}
 
-Se você tiver dúvidas, entre em contato pelo e-mail [support@braze.com](mailto:support@braze.com).
+Se você tiver dúvidas, entre em contato com o Suporte Técnico da Braze para obter assistência.
 
 [braze-inc/braze-swift-sdk]: https://github.com/braze-inc/braze-swift-sdk
 [braze-inc/braze-swift-sdk-prebuilt-static]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-static

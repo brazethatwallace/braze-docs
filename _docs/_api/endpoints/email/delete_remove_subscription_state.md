@@ -33,7 +33,7 @@ Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
 {
   {phone: "+12125551212"},
-  {email: "dont.spam@me.com"},
+  {email: "dont.spam@example.com"},
   {phone: "+17185551212"}
 }
 ```

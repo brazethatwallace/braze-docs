@@ -15,17 +15,17 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Atualiz
 /scim/v2/Users/{id}
 {% endapimethod %}
 
-> Use esse endpoint para atualizar uma conta de usuário do dashboard existente, especificando o recurso `id` retornado pelo método SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account/).
+> Use esse endpoint para atualizar uma conta de usuário do dashboard existente, especificando o recurso `id` retornado pelo método SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account).
 
 Ele permite a atualização de nomes e sobrenomes, permissões (para definir permissões no nível da empresa, do espaço de trabalho e da equipe) e departamento.
 
-Por motivos de segurança, `userName` (endereço de e-mail) não pode ser atualizado por meio desse endpoint. Se quiser alterar o `userName` (endereço de e-mail) de um usuário, entre em contato com o [Suporte]({{site.baseurl}}/support_contact/).
+Por motivos de segurança, `userName` (endereço de e-mail) não pode ser atualizado por meio desse endpoint. Se quiser alterar o `userName` (endereço de e-mail) de um usuário, entre em contato com o [Suporte]({{site.baseurl}}/support_contact).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5f9a1642-988e-4011-8fb8-db4340ea1ac7 {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de um token SCIM. Você usará a origem de seu serviço como o cabeçalho `X-Request-Origin`. Para saber mais, consulte [Provisionamento automatizado de usuários]({{site.baseurl}}/scim/automated_user_provisioning/).
+Para usar esse endpoint, você precisará de um token SCIM. Você usará a origem de seu serviço como o cabeçalho `X-Request-Origin`. Para saber mais, consulte [Provisionamento automatizado de usuários]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Limite de taxa {#rate-limit}
 
@@ -35,8 +35,8 @@ Para usar esse endpoint, você precisará de um token SCIM. Você usará a orige
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
-| `id` | Obrigatória | String | A ID do recurso do usuário. Este parâmetro é retornado pelos métodos `POST` `/scim/v2/Users/` ou `GET` `/scim/v2/Users?filter=userName eq "user@test.com"`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+| `id` | Obrigatória | String | A ID do recurso do usuário. Este parâmetro é retornado pelos métodos `POST` `/scim/v2/Users/` ou `GET` `/scim/v2/Users?filter=userName eq "user@example.com"`. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de caminho" }
 
 ## Corpo da solicitação {#request-body}
 ```
@@ -92,9 +92,9 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | --------- | -------- | --------- | ----------- |
 | `schemas` | Obrigatória | Matriz de strings | Nome do esquema SCIM 2.0 esperado para o objeto do usuário. |
 | `name` | Obrigatória | Objeto JSON | Esse objeto contém o nome e o sobrenome do usuário. |
-| `department` | Obrigatória | String | String de departamento válida da [documentação de string de departamento]({{site.baseurl}}/scim_api_appendix/#department-strings). |
-| `permissions` | Obrigatória | Objeto JSON | Objeto de permissões, conforme descrito na [documentação do objeto de permissões]({{site.baseurl}}/scim_api_appendix/#permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `department` | Obrigatória | String | String de departamento válida da [documentação de string de departamento]({{site.baseurl}}/scim_api_appendix#department-strings). |
+| `permissions` | Obrigatória | Objeto JSON | Objeto de permissões, conforme descrito na [documentação do objeto de permissões]({{site.baseurl}}/scim_api_appendix#permissions-object). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 
 ## Exemplo de solicitação {#example-request}
@@ -141,7 +141,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "id": "dfa245b7-24195aec-887bb3ad-602b3340",
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"

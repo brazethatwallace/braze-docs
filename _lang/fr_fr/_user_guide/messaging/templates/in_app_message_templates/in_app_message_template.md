@@ -12,7 +12,7 @@ search_rank: 1
 
 # Créer un modèle de message in-app {#create-an-in-app-message-template}
 
-> Utilisez **Contenu** > **In-App Message** pour créer une bibliothèque réutilisable de mises en page de messages in-app et dans le navigateur. Vous pouvez enregistrer des conceptions depuis l'éditeur par glisser-déposer ou créer des ressources **Color Profile** et **CSS Template** pour l'[éditeur traditionnel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+> Utilisez **Contenu** > **In-App Message** pour créer une bibliothèque réutilisable de mises en page de messages in-app et dans le navigateur. Vous pouvez enregistrer des conceptions depuis l'éditeur par glisser-déposer ou créer des ressources **Color Profile** et **CSS Template** pour l'[éditeur traditionnel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 ## Étape 1 : Ouvrir les modèles de messages in-app {#step-1-open-in-app-message-templates}
 
@@ -24,28 +24,28 @@ La manière d'ajouter un modèle dépend de votre objectif :
 
 | Objectif | Marche à suivre |
 |----------|-----------------|
-| Enregistrer une mise en page par glisser-déposer pour la réutiliser | Dans le [compositeur de messages in-app par glisser-déposer]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/), sélectionnez **Save as template** après avoir quitté l'éditeur (vous devez d'abord lancer la Campaign OU l'enregistrer en tant que brouillon). Le modèle apparaît dans **Templates** > **In-App Message Templates** pour votre prochain message. |
-| Créer un profil de couleurs ou un modèle CSS (éditeur traditionnel) | Sur la page **In-App Message Templates**, sélectionnez **+ Create**, puis choisissez **Color Profile** ou **CSS Template**. Pour plus de détails, consultez [Profils de couleurs et modèles CSS](#reusable-color-profiles). |
-| Personnaliser un modèle Braze | [Créez un message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) dans l'éditeur par glisser-déposer, choisissez un modèle Braze, effectuez vos personnalisations, puis sélectionnez **Save as template**. Pour les descriptions de chaque modèle Braze, consultez [Modèles de messages in-app]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Choose how to create a template" }
+| Enregistrer une mise en page par glisser-déposer pour la réutiliser | Dans le [compositeur de messages in-app par glisser-déposer]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop), sélectionnez **Enregistrer en tant que modèle** après avoir quitté l'éditeur (vous devez d'abord lancer la campagne OU l'enregistrer en tant que brouillon). Le modèle apparaît dans **Modèles** > **Modèles de messages in-app** pour votre prochain message. |
+| Créer un profil de couleurs ou un modèle CSS (éditeur traditionnel) | Sur la page **Modèles de messages in-app**, sélectionnez **+ Créer**, puis choisissez **Color Profile** ou **CSS Template**. Pour plus de détails, consultez [Profils de couleurs et modèles CSS](#reusable-color-profiles). |
+| Personnaliser un modèle Braze | [Créez un message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) dans l'éditeur par glisser-déposer, choisissez un modèle Braze, effectuez vos personnalisations, puis sélectionnez **Enregistrer en tant que modèle**. Pour les descriptions de chaque modèle Braze, consultez [Modèles de messages in-app]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Choisir comment créer un modèle" }
 
 {% alert note %}
-Les profils de couleurs et les modèles CSS s'appliquent à l'éditeur traditionnel. Si vous utilisez l'éditeur par glisser-déposer, utilisez les [paramètres de style]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/) pour la mise en forme au niveau du message.
+Les profils de couleurs et les modèles CSS s'appliquent à l'éditeur traditionnel. Si vous utilisez l'éditeur par glisser-déposer, utilisez les [paramètres de style]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings) pour la mise en forme au niveau du message.
 {% endalert %}
 
 ## Étape 3 : Gérer vos modèles {#step-3-manage-your-templates}
 
-Dans **Contenu** > **In-App Message**, filtrez, recherchez ou ouvrez un modèle pour le modifier. Vous pouvez [dupliquer]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates) et [archiver]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates) des modèles comme pour les autres types de modèles. Pour un aperçu des flux de travail liés aux modèles et aux médias, consultez [Modèles]({{site.baseurl}}/user_guide/messaging/templates/).
+Dans **Contenu** > **In-App Message**, filtrez, recherchez ou ouvrez un modèle pour le modifier. Vous pouvez [dupliquer]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicate-templates) et [archiver]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archive-templates) des modèles comme pour les autres types de modèles. Pour un aperçu des flux de travail liés aux modèles et aux médias, consultez [Modèles]({{site.baseurl}}/user_guide/messaging/templates).
 
-Pour accéder aux modèles de messages in-app, vous devez disposer des [autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) permettant de consulter ou de modifier les modèles de messages in-app.
+Pour accéder aux modèles de messages in-app, vous devez disposer des [autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) permettant de consulter ou de modifier les modèles de messages in-app.
 
 ### Créer des profils de couleurs et des modèles CSS {#reusable-color-profiles}
 
 {% alert note %}
-Les options suivantes s'appliquent à l'[éditeur traditionnel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/). Si vous utilisez l'éditeur par glisser-déposer, utilisez les [paramètres de style]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/) à la place.
+Les options suivantes s'appliquent à l'[éditeur traditionnel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional). Si vous utilisez l'éditeur par glisser-déposer, utilisez les [paramètres de style]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings) à la place.
 {% endalert %}
 
-Vous pouvez modifier des modèles existants ou sélectionner **+ Create** et choisir **Color Profile** ou **CSS Template** pour créer de nouveaux modèles pour vos messages in-app.
+Vous pouvez modifier des modèles existants ou sélectionner **+ Créer** et choisir **Color Profile** ou **CSS Template** pour créer de nouveaux modèles pour vos messages in-app.
 
 #### Profil de couleurs {#color-profile}
 
@@ -115,4 +115,4 @@ Vous pouvez tout modifier, de la couleur d'arrière-plan à la taille et à l'é
 
 Si vous choisissez d'utiliser un message de type fenêtre modale web avec CSS (web uniquement), vous pouvez appliquer votre propre modèle ou écrire votre propre CSS dans l'espace prévu. Cet espace est déjà prérempli avec le CSS affiché dans l'aperçu de votre message, mais vous pouvez l'ajuster selon vos besoins.
 
-Si vous choisissez d'appliquer votre propre modèle, sélectionnez **Apply Template** et choisissez dans la galerie de modèles de messages in-app. Si vous n'avez aucune option, vous pouvez ajouter un [modèle CSS](#in-app-message-templates) à l'aide du générateur de modèles CSS dans **Templates** > **In-App Message Templates**.
+Si vous choisissez d'appliquer votre propre modèle, sélectionnez **Apply Template** et choisissez dans la galerie de modèles de messages in-app. Si vous n'avez aucune option, vous pouvez ajouter un [modèle CSS](#in-app-message-templates) à l'aide du générateur de modèles CSS dans **Modèles** > **Modèles de messages in-app**.

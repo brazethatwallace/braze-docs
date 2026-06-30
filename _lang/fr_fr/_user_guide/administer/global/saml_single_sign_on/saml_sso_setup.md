@@ -35,7 +35,7 @@ Si vous prévoyez d'utiliser Okta comme fournisseur d'identité, assurez-vous d'
 
 | Attribut SAML | Requis ? | Attributs SAML acceptés |
 |---|---|---|
-|`email` | Requis | `email` <br> `mail` <br> `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` |
+| `email` | Requis | `email` <br> `mail` <br> `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` |
 | `first_name` | Facultatif | `first_name` <br> `firstname` <br> `firstName`<br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/first_name` |
 | `last_name` | Facultatif | `last_name` <br> `lastname` <br> `lastName` <br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/last_name` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 1 : Configurer votre fournisseur d'identité" }
@@ -73,14 +73,12 @@ Assurez-vous que votre certificat `x.509` respecte ce format lorsque vous l'ajou
 
 Enregistrez vos paramètres de sécurité et déconnectez-vous. Ensuite, reconnectez-vous avec votre fournisseur d'identité.
 
-![Écran de connexion au tableau de bord avec l'authentification unique activée]({% image_buster /assets/img/sso1.png %}){: style="max-width:60%;"}
-
 ## Configuration de votre RelayState {#setting-up-your-relaystate}
 
 1. Dans Braze, accédez à **Paramètres** > **Clés API**.
 2. Dans l'onglet **Clés API**, sélectionnez le bouton **Créer une clé API**.
 3. Dans le champ **Nom de la clé API**, saisissez un nom pour votre clé.
-4. Développez le menu déroulant **SSO** sous **Autorisations** et cochez **sso.saml.login**.<br><br>![La section « Autorisations » avec sso.saml.login coché.]({% image_buster /assets/img/relaystate_troubleshoot.png %}){: style="max-width:70%;"}<br><br>
+4. Développez le menu déroulant **SSO** sous **Autorisations** et cochez **sso.saml.login**.
 5. Sélectionnez **Créer une clé API**.
 6. Dans l'onglet **Clés API**, copiez l'identifiant à côté de la clé API que vous avez créée.
 7. Collez la clé API RelayState dans le champ RelayState de votre IdP (il peut également apparaître sous le nom « Relay State » ou « Default Relay State » selon votre IdP).
@@ -171,11 +169,11 @@ Si vous obtenez l'erreur `ERROR_CODE_SSO_INVALID_RELAY_STATE`, votre RelayState 
 
 Cela peut se produire lorsque le RelayState n'est pas correctement configuré. Vérifiez que vous avez créé une clé API (dans **Paramètres** > **Clés API**) pour la connexion IdP et que vous avez défini cette clé API comme paramètre `RelayState` dans votre IdP. Le RelayState identifie le compte d'entreprise auquel vous vous connectez. Pour des instructions détaillées, consultez [Configuration de votre RelayState](#setting-up-your-relaystate).
 
-Si vous ne parvenez toujours pas à vous connecter, [contactez l'assistance Braze]({{site.baseurl}}/braze_support/) avec une trace SAML si possible. Pour obtenir de l'aide sur la capture d'une trace, consultez [Obtenir une trace SAML](#obtaining-a-saml-trace).
+Si vous ne parvenez toujours pas à vous connecter, [contactez l'assistance Braze]({{site.baseurl}}/braze_support) avec une trace SAML si possible. Pour obtenir de l'aide sur la capture d'une trace, consultez [Obtenir une trace SAML](#obtaining-a-saml-trace).
 
 ### L'utilisateur est-il bloqué dans une boucle de connexion entre Okta et Braze ? {#is-the-user-stuck-in-a-sign-in-loop-between-okta-and-braze}
 
-Si un utilisateur ne peut pas se connecter parce qu'il est bloqué dans un cycle entre l'authentification unique Okta et le tableau de bord de Braze, vous devez accéder à Okta et définir la destination de l'URL SSO sur votre [instance Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) (par exemple, `https://dashboard-07.braze.com`).
+Si un utilisateur ne peut pas se connecter parce qu'il est bloqué dans un cycle entre l'authentification unique Okta et le tableau de bord de Braze, vous devez accéder à Okta et définir la destination de l'URL SSO sur votre [instance Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) (par exemple, `https://dashboard-07.braze.com`).
 
 Si vous utilisez un autre IdP, vérifiez si votre entreprise a téléchargé le bon certificat SAML ou x.509 dans Braze.
 
@@ -201,5 +199,5 @@ Si certains utilisateurs ne parviennent pas à se connecter avec Google SSO, vé
 
 Après avoir configuré l'authentification unique (SSO) SAML, vous pouvez :
 
-- [Imposer la connexion SSO uniquement]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#restriction) dans vos paramètres de sécurité pour empêcher les utilisateurs de se connecter avec un mot de passe.
-- [Configurer le provisionnement juste-à-temps SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning/) afin que les nouveaux utilisateurs créent automatiquement des comptes Braze lors de leur première connexion SSO.
+- [Imposer la connexion SSO uniquement]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#restriction) dans vos paramètres de sécurité pour empêcher les utilisateurs de se connecter avec un mot de passe.
+- [Configurer le provisionnement juste-à-temps SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning) afin que les nouveaux utilisateurs créent automatiquement des comptes Braze lors de leur première connexion SSO.

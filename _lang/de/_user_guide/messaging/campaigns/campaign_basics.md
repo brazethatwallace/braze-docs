@@ -40,7 +40,7 @@ Geplante Zustellung bedeutet, dass Sie Ihre Kampagnen so einstellen, dass sie zu
 
 *Wen möchten Sie erreichen?*
 
-Sie können vordefinierte [Segmente]({{site.baseurl}}/user_guide/audience/segments/) verwenden, um Nutzer:innen anhand ihrer demografischen, verhaltensbezogenen oder technischen Merkmale und Aktionen anzusprechen. Fügen Sie beim Erstellen Ihrer Kampagne weitere Filter hinzu, um Ihr Segment weiter anzupassen. Nur Nutzer:innen, die diesen Zielgruppenkriterien entsprechen, können die Journey betreten. In der folgenden Tabelle finden Sie eine kurze Übersicht der verfügbaren Filtertypen.
+Sie können vordefinierte [Segmente]({{site.baseurl}}/user_guide/audience/segments) verwenden, um Nutzer:innen anhand ihrer demografischen, verhaltensbezogenen oder technischen Merkmale und Aktionen anzusprechen. Fügen Sie beim Erstellen Ihrer Kampagne weitere Filter hinzu, um Ihr Segment weiter anzupassen. Nur Nutzer:innen, die diesen Zielgruppenkriterien entsprechen, können die Journey betreten. In der folgenden Tabelle finden Sie eine kurze Übersicht der verfügbaren Filtertypen.
 
 | Filter | Beschreibung |
 |---|---|
@@ -56,7 +56,7 @@ Sie können vordefinierte [Segmente]({{site.baseurl}}/user_guide/audience/segmen
 
 *Warum erstellen Sie diese Kampagne?*
 
-Es ist immer wichtig, ein klar definiertes Ziel vor Augen zu haben, und Kampagnen helfen Ihnen zu verstehen, wie Sie bei KPIs wie Session-Engagement, Käufen und angepassten Events abschneiden. Die Auswahl mindestens eines [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) gibt Ihnen die Möglichkeit, die Performance Ihrer Kampagne zu verstehen.
+Es ist immer wichtig, ein klar definiertes Ziel vor Augen zu haben, und Kampagnen helfen Ihnen zu verstehen, wie Sie bei KPIs wie Session-Engagement, Käufen und angepassten Events abschneiden. Die Auswahl mindestens eines [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) gibt Ihnen die Möglichkeit, die Performance Ihrer Kampagne zu verstehen.
 
 ### Das „Wo“: Meine Zielgruppe finden {#the-where-find-my-audience}
 

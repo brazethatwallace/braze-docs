@@ -20,7 +20,7 @@ description: "이 문서에서는 하드바운스된 이메일 주소를 쿼리�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `email.hard_bounces` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `email.hard_bounces` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -35,7 +35,7 @@ description: "이 문서에서는 하드바운스된 이메일 주소를 쿼리�
 | `limit` | 선택 사항 | 정수 | 반환되는 결과 수를 제한하는 선택적 필드입니다. 기본값은 100이며, 최대값은 500입니다. |
 | `offset` | 선택 사항 | 정수 | 검색을 시작할 목록의 시작점입니다(선택 사항). |
 | `email` | 선택 사항* | 문자열 | *`start_date` 또는 `email` 중 하나가 필요합니다. 제공된 경우 해당 사용자가 하드바운스되었는지 여부를 반환합니다. 이메일 문자열이 올바른 형식인지 확인하세요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 {% alert important %}
 `end_date`와 함께 `email` 또는 `start_date` 중 하나를 반드시 제공해야 합니다. `start_date`, `end_date`, `email` 세 가지를 모두 제공하면 제공된 이메일이 우선 적용되고 날짜 범위는 무시됩니다.

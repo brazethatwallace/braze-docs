@@ -64,7 +64,7 @@ Une fois votre domaine vérifié, vos domaines personnalisés apparaîtront dans
 
 ![Liste des domaines personnalisés et de leurs états.]({% image_buster /assets/img/custom_domain_statuses.png %}){: style="max-width:60%;"}
 
-La surveillance en temps réel vous alertera dans le tableau de bord de Braze si l'un de vos domaines actifs rencontre un problème, afin que vos liens personnalisés restent utilisables. Si vous rencontrez des problèmes, consultez les détails de l'erreur dans l'application ou contactez l'[assistance]({{site.baseurl}}/braze_support/) Braze pour obtenir de l'aide.
+La surveillance en temps réel vous alertera dans le tableau de bord de Braze si l'un de vos domaines actifs rencontre un problème, afin que vos liens personnalisés restent utilisables. Si vous rencontrez des problèmes, consultez les détails de l'erreur dans l'application ou contactez l'[assistance]({{site.baseurl}}/braze_support) Braze pour obtenir de l'aide.
 
 ## Attribution de domaines personnalisés aux groupes d'abonnement {#assigning-custom-domains-to-subscription-groups}
 
@@ -106,4 +106,4 @@ Oui. Une fois qu'un domaine personnalisé est vérifié, il peut être utilisé 
 
 ### Et si j'ai des questions ou besoin d'une assistance supplémentaire ? {#what-if-i-have-questions-or-need-further-support}
 
-Pour des conseils plus détaillés sur la configuration et la gestion des domaines personnalisés, y compris les étapes de résolution des problèmes et les exigences techniques, [contactez l'assistance]({{site.baseurl}}/braze_support/).
+Pour des conseils plus détaillés sur la configuration et la gestion des domaines personnalisés, y compris les étapes de résolution des problèmes et les exigences techniques, [contactez l'assistance]({{site.baseurl}}/braze_support).

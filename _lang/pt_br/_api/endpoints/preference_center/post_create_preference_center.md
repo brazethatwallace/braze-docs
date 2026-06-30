@@ -14,13 +14,13 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Criar C
 /preference_center/v1
 {% endapimethod %}
 
-> Use esse endpoint para criar uma Central de Preferências que permita aos usuários gerenciar suas preferências de notificação para suas campanhas de e-mail. Consulte [Criar uma Central de Preferências com API]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview/#creating-a-preference-center-with-api) para ver as etapas de como criar uma Central de Preferências gerada por API.
+> Use esse endpoint para criar uma Central de Preferências que permita aos usuários gerenciar suas preferências de notificação para suas campanhas de e-mail. Consulte [Criar uma Central de Preferências com API]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview#creating-a-preference-center-with-api) para ver as etapas de como criar uma Central de Preferências gerada por API.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e15d7065-2cbc-4eb3-ae16-32efe43357a6 {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `preference_center.update`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `preference_center.update`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -65,7 +65,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `confirmation_page_html` | Obrigatória | String | O HTML da página de confirmação. |
 | `state` | Opcional | String | Escolha `active` ou `draft`. O padrão é `active` se não for especificado. |
 | `options` | Opcional | Objeto | Atributos: <br>`meta-viewport-content`: Quando presente, uma meta tag `viewport` será adicionada à página com `content= <value of attribute>`.<br><br> `link-tags`: Defina um favicon para a página. Quando definido, uma tag `<link>` com um atributo rel é adicionada à página. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros da solicitação" }
 
 {% alert note %}
 O nome da Central de Preferências não pode ser editado depois de criado.
@@ -83,7 +83,7 @@ Consulte as seguintes Liquid tags que podem ser incluídas no HTML para gerar o 
 | --------- | ---------|
 | `{{subscribed_state.${email_global}}}` | Obtém o estado global de inscrição de e-mail do usuário (como "opted_in", "subscribed" ou "unsubscribed"). |
 | `{{subscribed_state.${<subscription_group_id>}}}` | Obtém o estado de inscrição do grupo de inscrições especificado para o usuário (como "subscribed" ou "unsubscribed"). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estado da inscrição do usuário" }
 
 #### Entradas e ações do formulário {#form-inputs-and-action}
 
@@ -92,7 +92,7 @@ Consulte as seguintes Liquid tags que podem ser incluídas no HTML para gerar o 
 | `{% form_field_name :email_global_state %}` | Indica que um elemento de entrada de formulário específico corresponde ao estado global de inscrição de e-mail do usuário. O estado de seleção do usuário deve ser "opted_in", "subscribed" ou "unsubscribed" quando o formulário for enviado com dados de seleção para o estado global de inscrição de e-mail. Se for uma caixa de seleção, o usuário será "opted_in" ou "unsubscribed". Para uma entrada oculta, o estado "subscribed" também será válido. |
 | `{% form_field_name :subscription_group <subscription_group_id> %}` | Indica que um elemento de entrada de formulário específico corresponde a um determinado grupo de inscrições. O estado de seleção do usuário deve ser "subscribed" ou "unsubscribed" quando o formulário for enviado com dados de seleção para um grupo de inscrições específico. |
 | `{{preference_center_submit_url}}` | Gera a URL para envio do formulário. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Entradas e ações do formulário" }
 
 {% endraw %}
 

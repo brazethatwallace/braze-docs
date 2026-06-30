@@ -16,7 +16,7 @@ page_order: 50
 
 Braze tente d'abord de trouver un utilisateur avec un numéro correspondant. Si aucun n'est trouvé, Braze traite automatiquement un numéro inconnu de l'une des deux manières suivantes :
 
-1. **Si un mot déclencheur avec un [Canvas d'abonnement]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs/) est configuré :**
+1. **Si un mot déclencheur avec un [Canvas d'abonnement]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs) est configuré :**
 - Braze crée un profil anonyme
 - Un alias d'utilisateur est affecté au profil avec les détails suivants :
   - Un `alias_name` dont la valeur est le numéro de téléphone fourni par l'utilisateur

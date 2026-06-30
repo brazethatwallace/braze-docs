@@ -10,7 +10,7 @@ description: "Saiba como usar o Depurador do SDK da Braze para solucionar proble
 > Saiba como usar o depurador integrado do SDK da Braze para solucionar problemas em seus canais com SDK, sem precisar ativar o registro detalhado em seu app.
 
 {% alert tip %}
-Para uma investigação mais aprofundada, você também pode [ativar o registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) para capturar a saída detalhada do SDK e [aprender a ler logs detalhados]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/) para canais específicos.
+Para uma investigação mais aprofundada, você também pode [ativar o registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) para capturar a saída detalhada do SDK e [aprender a ler logs detalhados]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs) para canais específicos.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
@@ -19,12 +19,12 @@ Para usar o Depurador do SDK da Braze, você precisará das permissões "Ver IPI
 
 {% sdk_min_versions swift:10.2.0 android:32.1.0 %}
 
-Para coletar registros do depurador quando `Braze.configuration.logger.level` estiver como `.disabled`, use o Swift SDK 11.9.0 ou posterior. Para saber mais, consulte os [changelogs do Swift]({{site.baseurl}}/developer_guide/changelogs/#swift_fixed-12).
+Para coletar registros do depurador quando `Braze.configuration.logger.level` estiver como `.disabled`, use o Swift SDK 11.9.0 ou posterior. Para saber mais, consulte os [changelogs do Swift]({{site.baseurl}}/developer_guide/changelogs#swift_fixed-12).
 
 ## Depuração do SDK da Braze
 
 {% alert tip %}
-Para ativar a depuração do Braze Web SDK, você pode [usar um parâmetro de URL]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/#logging).
+Para ativar a depuração do Braze Web SDK, você pode [usar um parâmetro de URL]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#logging).
 {% endalert %}
 
 ### Etapa 1: Feche seu app {#step-1-close-your-app}

@@ -12,7 +12,7 @@ description: "Dieser Referenzartikel beschreibt, wie Sie Aktions- und Medien-URL
 ## Deeplinking zu In-App-Inhalten {#deep-link-to-in-app-content}
 
 {% alert tip %}
-**Für Entwickler:innen:** Einen Leitfaden zur Auswahl zwischen benutzerdefinierten Schemata, Universal Links und anderen Optionen – einschließlich der Frage, wann Sie eine AASA-Datei benötigen, welche App-Delegate-Methoden zu implementieren sind und wie Sie Probleme debuggen – finden Sie unter [iOS-Deeplinking-Leitfaden]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/) und [Fehlerbehebung bei Deeplinking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/).
+**Für Entwickler:innen:** Einen Leitfaden zur Auswahl zwischen benutzerdefinierten Schemata, Universal Links und anderen Optionen – einschließlich der Frage, wann Sie eine AASA-Datei benötigen, welche App-Delegate-Methoden zu implementieren sind und wie Sie Probleme debuggen – finden Sie unter [iOS-Deeplinking-Leitfaden]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide) und [Fehlerbehebung bei Deeplinking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting).
 {% endalert %}
 
 ### Was ist Deeplinking? {#what-is-deep-linking}
@@ -30,7 +30,7 @@ Deeplinks sind benutzerdefinierte URIs, die auf einen bestimmten Teil der App ve
 Alles nach dem Doppelpunkt innerhalb eines Deeplinks ist Freitext. Es liegt an Ihnen, dessen Struktur und Interpretation zu definieren; eine gängige Konvention ist jedoch, ihn nach dem Vorbild von `http:`-URLs zu modellieren, einschließlich eines führenden `//` und Abfrageparametern (zum Beispiel `?foo=1&bar=2`). Für das vorherige Beispiel würde `twitter://user?screen_name=[id]` verwendet, um ein bestimmtes Profil in der App zu starten.
 
 {% alert important %}
-Für Apps, die mit Wrapper-Frameworks erstellt wurden (zum Beispiel Flutter oder Cordova), bietet Braze keine Wrapper-spezifische Deeplinking-Unterstützung. Sie müssen Deeplinks auf den nativen iOS- und Android-Ebenen konfigurieren. Für Cordova siehe [Deeplinking in Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=cordova).
+Für Apps, die mit Wrapper-Frameworks erstellt wurden (zum Beispiel Flutter oder Cordova), bietet Braze keine Wrapper-spezifische Deeplinking-Unterstützung. Sie müssen Deeplinks auf den nativen iOS- und Android-Ebenen konfigurieren. Für Cordova siehe [Deeplinking in Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=cordova).
 {% endalert %}
 
 ### UTM Tags und Kampagnen-Attribution {#utm-tags-and-campaign-attribution}
@@ -70,7 +70,7 @@ Um UTM Tags in Ihre Deeplinks für Push-Benachrichtigungen einzufügen, setzen S
 myapp://products/20-gift-card?utm_source=my_app&utm_medium=push&utm_campaign=spring2016giftcards&utm_content=ios_deeplink
 ```
 
-![]({% image_buster /assets/img_archive/push_utm_tags.png %})
+![Screenshot zur Zuordnung von Push-Öffnungen und In-App-Nachrichten-Klicks mit UTM Tags.]({% image_buster /assets/img_archive/push_utm_tags.png %})
 
 {% endtab %}
 {% tab In-App-Nachrichten-Klicks %}
@@ -81,7 +81,7 @@ Um UTM Tags in die Deeplinks Ihrer In-App-Nachrichten einzufügen, verwenden Sie
 myapp://products/20-gift-card?utm_source=my_app&utm_medium=iam&utm_campaign=spring2021giftcards&utm_content=web_link
 ```
 
-![]({% image_buster /assets/img_archive/iam_utm_tags.png %})
+![Screenshot zur Zuordnung von Push-Öffnungen und In-App-Nachrichten-Klicks mit UTM Tags.]({% image_buster /assets/img_archive/iam_utm_tags.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -92,7 +92,7 @@ Sie können Ihre URL direkt im Braze-Composer dynamisch erstellen, sodass Sie dy
 
 ### Eine URL mit unterstützten Liquid-Personalisierungs-Tags erstellen {#create-a-url-with-supported-liquid-personalization-tags}
 
-URLs können durch die Verwendung beliebiger [unterstützter Liquid-Personalisierungs-Tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) dynamisch generiert werden.
+URLs können durch die Verwendung beliebiger [unterstützter Liquid-Personalisierungs-Tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) dynamisch generiert werden.
 
 {% raw %}
 ```liquid
@@ -119,7 +119,7 @@ Wir verkürzen URLs, die von Liquid gerendert werden, auch solche, die in API-Tr
 
 ### URLs im `/messages/send`-Endpunkt verkürzen {#shorten-urls-in-messagessend-endpoint}
 
-Die Linkverkürzung ist auch für reine API-Nachrichten über den [`/messages/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) aktiviert. Eine vollständige Liste der Anfrageparameter finden Sie unter [Anfrageparameter]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters).
+Die Linkverkürzung ist auch für reine API-Nachrichten über den [`/messages/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) aktiviert. Eine vollständige Liste der Anfrageparameter finden Sie unter [Anfrageparameter]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters).
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |

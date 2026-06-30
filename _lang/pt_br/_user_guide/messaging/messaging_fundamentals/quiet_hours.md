@@ -29,10 +29,10 @@ O horário de silêncio e o Intelligent Timing operam de forma independente. Ati
 - **Sem Intelligent Timing:** o horário de silêncio funciona como uma janela de bloqueio de envio para o horário agendado. Se o horário agendado cair dentro do horário de silêncio, a mensagem é retida e enviada quando o período terminar.
 - **Com Intelligent Timing:** a Braze ainda calcula o horário ideal de envio para cada usuário. Se esse horário cair dentro do horário de silêncio, a mensagem é retida e entregue na borda mais próxima do período de silêncio.
 
-Para saber mais sobre como configurar o horário de silêncio em uma Campaign com Intelligent Timing, consulte [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/).
+Para saber mais sobre como configurar o horário de silêncio em uma Campaign com Intelligent Timing, consulte [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing).
 
 ## Pontos a considerar {#things-to-consider}
 
 - **As mensagens são enviadas ao mesmo tempo quando o horário de silêncio termina.** Se um grande público tiver mensagens retidas durante o horário de silêncio, todas essas mensagens serão enviadas de uma vez quando o período terminar. Para Campaigns sensíveis ao tempo, considere como isso afeta o momento da entrega.
 - **O horário de silêncio não é o mesmo que cancelar uma mensagem.** Cancelar uma mensagem a descarta completamente. O horário de silêncio retém a mensagem e a entrega posteriormente.
-- **O horário de silêncio é separado do limite de frequência e do limite de taxa.** Cada um desses controles de entrega é aplicado de forma independente. Uma mensagem que passa pelos limites de frequência e de taxa ainda pode ser retida pelo horário de silêncio, e uma mensagem retida pelo horário de silêncio é avaliada em relação aos limites de taxa quando é finalmente enviada. Para saber mais, consulte [Limite de taxa e limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+- **O horário de silêncio é separado do limite de frequência e do limite de taxa.** Cada um desses controles de entrega é aplicado de forma independente. Uma mensagem que passa pelos limites de frequência e de taxa ainda pode ser retida pelo horário de silêncio, e uma mensagem retida pelo horário de silêncio é avaliada em relação aos limites de taxa quando é finalmente enviada. Para saber mais, consulte [Limite de taxa e limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).

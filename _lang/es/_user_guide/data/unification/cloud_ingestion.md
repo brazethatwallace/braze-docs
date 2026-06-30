@@ -16,14 +16,14 @@ toc_headers: h2
 Con la Ingesta de datos de Cloud (CDI) de Braze, configuras una integración entre tu instancia de almacén de datos y tu espacio de trabajo de Braze para sincronizar datos de forma periódica. Esta sincronización se ejecuta según la planificación que establezcas, y cada integración puede tener una planificación diferente. Las sincronizaciones pueden ejecutarse con una frecuencia de hasta cada 15 minutos o tan infrecuentemente como una vez al mes. Si necesitas que las sincronizaciones se produzcan con una frecuencia superior a 15 minutos, ponte en contacto con tu administrador del éxito del cliente o considera la posibilidad de utilizar llamadas a la REST API para la ingesta de datos en tiempo real.
 
 {% alert note %}
-La frecuencia de sincronización en el dashboard controla la frecuencia con la que Braze ejecuta una sincronización (por ejemplo, opciones como ejecuciones cada hora o más frecuentes dentro de una hora). No establece un intervalo personalizado superior a una hora entre ejecuciones. Para ejecutar una sincronización fuera de la cadencia planificada —como bajo demanda después de que se complete la carga de tu almacén de datos— utiliza el punto de conexión [Trigger a sync]({{site.baseurl}}/api/endpoints/cdi/post_job_sync/) con tu ID de integración.
+La frecuencia de sincronización en el dashboard controla la frecuencia con la que Braze ejecuta una sincronización (por ejemplo, opciones como ejecuciones cada hora o más frecuentes dentro de una hora). No establece un intervalo personalizado superior a una hora entre ejecuciones. Para ejecutar una sincronización fuera de la cadencia planificada —como bajo demanda después de que se complete la carga de tu almacén de datos— utiliza el punto de conexión [Trigger a sync]({{site.baseurl}}/api/endpoints/cdi/post_job_sync) con tu ID de integración.
 {% endalert %}
 
 Cuando se ejecuta una sincronización, Braze se conecta directamente a tu instancia de almacén de datos, recupera todos los datos nuevos de la tabla especificada y actualiza los datos correspondientes en tu panel de Braze. Cada vez que se ejecuta la sincronización, los datos actualizados se reflejan en Braze.
 
 ### Encontrar tu ID de integración {#finding-your-integration-id}
 
-Puedes encontrar tu ID de integración en la URL cuando visualizas una integración en el panel de Braze. Ve a **Data Settings** > **Cloud Data Ingestion** y selecciona una integración. El ID de integración aparece en la URL con el formato `https://[instance].braze.com/integrations/cloud_data_ingestion/[integration_id]`. Por ejemplo, si tu URL es `https://dashboard-01.braze.com/integrations/cloud_data_ingestion/abc123xyz`, tu ID de integración es `abc123xyz`. Puedes utilizar este ID al realizar llamadas a la API para desencadenar sincronizaciones o comprobar el estado de la sincronización.
+Puedes encontrar tu ID de integración en la URL cuando visualizas una integración en el panel de Braze. Ve a **Configuración de datos** > **Ingesta de datos de Cloud** y selecciona una integración. El ID de integración aparece en la URL con el formato `https://[instance].braze.com/integrations/cloud_data_ingestion/[integration_id]`. Por ejemplo, si tu URL es `https://dashboard-01.braze.com/integrations/cloud_data_ingestion/abc123xyz`, tu ID de integración es `abc123xyz`. Puedes utilizar este ID al realizar llamadas a la API para desencadenar sincronizaciones o comprobar el estado de la sincronización.
 
 ## Casos de uso {#use-cases}
 
@@ -33,7 +33,7 @@ Con las capacidades de Ingesta de datos de Cloud de Braze, puedes:
 - Sincronizar de forma segura los datos de usuario, incluidos los atributos, los eventos y las compras, desde tu almacén de datos a Braze.
 - Cerrar el ciclo de datos con Braze combinando la Ingesta de datos de Cloud con Currents o Snowflake Data Sharing.
 
-Además, las [fuentes conectadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/) son una alternativa de copia cero. Puedes hacer que Braze realice una consulta directa en tu almacén de datos o en tu solución de almacenamiento de archivos para construir Segments CDI, todo ello sin copiar los datos subyacentes a Braze.
+Además, las [fuentes conectadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources) son una alternativa de copia cero. Puedes hacer que Braze realice una consulta directa en tu almacén de datos o en tu solución de almacenamiento de archivos para construir Segments CDI, todo ello sin copiar los datos subyacentes a Braze.
 
 ## Fuentes de datos compatibles {#supported-data-sources}
 
@@ -76,15 +76,15 @@ Al sincronizar los datos de usuario a través de la Ingesta de datos de Cloud, p
 | `BRAZE_ID` | El identificador de usuario de Braze generado por el SDK de Braze. No se pueden crear nuevos usuarios utilizando un ID de Braze a través de la Ingesta de datos de Cloud. Para crear nuevos usuarios, especifica un ID de usuario externo o un alias de usuario. |
 | `EMAIL` | La dirección de correo electrónico del usuario. Si existen varios perfiles con la misma dirección de correo electrónico, se dará prioridad al perfil actualizado más recientemente. Si incluyes tanto el correo electrónico como el teléfono, el correo electrónico se utilizará como identificador principal. |
 | `PHONE` | El número de teléfono del usuario. Si existen varios perfiles con el mismo número de teléfono, se dará prioridad al perfil actualizado más recientemente. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="User identifiers for data ingestion" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Identificadores de usuario para la ingesta de datos" }
 
-Para obtener información detallada sobre la configuración de las columnas de la tabla y los requisitos de formato de la carga útil, consulta [Configuración de tablas para la Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/).
+Para obtener información detallada sobre la configuración de las columnas de la tabla y los requisitos de formato de la carga útil, consulta [Configuración de tablas para la Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
 
-Para instrucciones de configuración específicas de cada fuente y ejemplos de SQL, consulta [Integraciones de almacenes de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
+Para instrucciones de configuración específicas de cada fuente y ejemplos de SQL, consulta [Integraciones de almacenes de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 ## Uso de puntos de datos {#data-point-usage}
 
-Para los clientes con facturación basada en puntos de datos, la facturación por puntos de datos para la Ingesta de datos de Cloud es equivalente a la facturación por actualizaciones a través del [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track). Consulta [Puntos de datos]({{site.baseurl}}/user_guide/data/infrastructure/data_points/) para obtener más información.
+Para los clientes con facturación basada en puntos de datos, la facturación por puntos de datos para la Ingesta de datos de Cloud es equivalente a la facturación por actualizaciones a través del [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track). Consulta [Puntos de datos]({{site.baseurl}}/user_guide/data/infrastructure/data_points) para obtener más información.
 
 {% alert important %}
 La Ingesta de datos de Cloud de Braze cuenta para el límite de velocidad disponible, por lo que si envías datos utilizando otro método, el límite de velocidad se combina entre la API de Braze y la Ingesta de datos de Cloud.
@@ -101,4 +101,4 @@ La Ingesta de datos de Cloud de Braze cuenta para el límite de velocidad dispon
 | Tipo de datos | Puedes sincronizar atributos de usuario, eventos y compras a través de la Ingesta de datos de Cloud. |
 | Región de Braze | Este producto está disponible en todas las regiones de Braze. Cualquier región de Braze puede conectarse a cualquier región de datos de origen. |
 | Región de origen | Braze se conecta a tu almacén de datos o entorno en la nube en cualquier región o proveedor de servicios en la nube. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Product limitations" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limitaciones del producto" }

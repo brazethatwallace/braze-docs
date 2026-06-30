@@ -17,7 +17,7 @@ The all-encompassing push message. These appear on your user's device with a not
 
 **Supported on:** Web, Android, iOS
 
-For more information, see [Create a push message]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/).
+For more information, see [Create a push message]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
 
 ## Web push
 
@@ -25,7 +25,7 @@ These push messages appear in web apps or browsers. They require permission to r
 
 **Supported on:** Web
 
-For more information, see [Web push notifications]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web/).
+For more information, see [Web push notifications]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web).
 
 ## Push primer campaigns
 
@@ -33,7 +33,7 @@ In-app message campaigns used to gain explicit push opt-in or opt-out signal fro
 
 **Supported on:** Web, Android, iOS
 
-For more information, see [Push primer in-app messages]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/).
+For more information, see [Push primer in-app messages]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
 
 ## Push Stories
 
@@ -41,7 +41,7 @@ Push Stories are immersive messages that take your user through a visual journey
 
 **Supported on:** iOS, Android
 
-For more information, see [Push stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/).
+For more information, see [Push stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories).
 
 ## Push with action buttons
 
@@ -49,7 +49,7 @@ Push with action buttons are messages that let you provide options to your users
 
 **Supported on:** Web, Android, iOS
 
-For more information, see [Push action buttons]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/).
+For more information, see [Push action buttons]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons).
 
 ## Rich push notifications
 
@@ -57,7 +57,7 @@ Rich push notifications are notifications with immersive images and creative con
 
 **Supported on:** iOS, Android
 
-For more information, see [Create rich notifications for iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/) or [Create rich notifications for Android]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/rich_notifications/).
+For more information, see [Create rich notifications for iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications) or [Create rich notifications for Android]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/rich_notifications).
 
 ## Provisional push notifications for iOS
 
@@ -65,7 +65,7 @@ Introduced by Apple in iOS 12, provisional authorization automatically occurs on
 
 **Supported on:** iOS
 
-For more information, see [iOS notification options]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push).
+For more information, see [iOS notification options]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push).
 
 ## HTML push notifications
 
@@ -79,7 +79,7 @@ Notification IDs and channel IDs let you replace or update push notifications al
 
 **Supported on:** iOS, Android
 
-For more information, see [Notification channels]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels/) and [Advanced push campaign settings]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings/).
+For more information, see [Notification channels]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels) and [Advanced push campaign settings]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings).
 
 ## Background or silent push notifications {#background-push-notifications}
 
@@ -87,7 +87,7 @@ Push notifications that are not rendered on the device. Usually used to send pac
 
 **Supported on:** Web, Android, iOS
 
-For more information, see [Silent push notifications]({{site.baseurl}}/developer_guide/push_notifications/silent/).
+For more information, see [Silent push notifications]({{site.baseurl}}/developer_guide/push_notifications/silent).
 
 ## Wearable push notifications
 

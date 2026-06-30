@@ -8,7 +8,7 @@ description: "Este artículo de referencia explica cómo usar la REST API de Bra
 
 # Recomendar productos a los usuarios {#recommending-products-to-users}
 
-> Usa la REST API de Braze junto con los [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/create/) o el [contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) para mostrar recomendaciones de productos personalizadas en tus mensajes. Este enfoque te permite conectar tu propia herramienta de recomendaciones al ecosistema de mensajería de Braze, para que los usuarios no técnicos puedan gestionar el contenido y la mensajería en torno a cada recomendación.
+> Usa la REST API de Braze junto con los [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/create) o el [contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) para mostrar recomendaciones de productos personalizadas en tus mensajes. Este enfoque te permite conectar tu propia herramienta de recomendaciones al ecosistema de mensajería de Braze, para que los usuarios no técnicos puedan gestionar el contenido y la mensajería en torno a cada recomendación.
 
 Con este enfoque, puedes:
 
@@ -22,17 +22,17 @@ Para completar esta guía, necesitas:
 
 | Requisito | Descripción |
 | --- | --- |
-| Clave de REST API de Braze | Una clave con el permiso `users.track` y, si gestionas catálogos a través de la API, los permisos de catálogos correspondientes. Para crear una, ve a **Settings** > **API Keys**. |
-| Catálogo de Braze | Un catálogo que contenga los metadatos de tus productos (como nombre, categoría, precio y URL de imagen). Para crear uno, consulta [Crear un catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create/). |
-| Conocimiento de Liquid | Familiaridad intermedia con [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/) para crear plantillas con variables personalizadas y usar contenido conectado. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Clave de REST API de Braze | Una clave con el permiso `users.track` y, si gestionas catálogos a través de la API, los permisos de catálogos correspondientes. Para crear una, ve a **Configuración** > **Claves de API**. |
+| Catálogo de Braze | Un catálogo que contenga los metadatos de tus productos (como nombre, categoría, precio y URL de imagen). Para crear uno, consulta [Crear un catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create). |
+| Conocimiento de Liquid | Familiaridad intermedia con [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid) para crear plantillas con variables personalizadas y usar contenido conectado. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Paso 1: Almacenar recomendaciones en los perfiles de usuario {#step-1-store-recommendations-on-user-profiles}
 
 Para empezar, almacena las recomendaciones de productos generadas por tu herramienta de recomendaciones en los perfiles de usuario de Braze como atributos personalizados. Esto te permite hacer referencia a los productos recomendados de cada usuario en el momento del envío del mensaje.
 
 1. Determina qué datos de recomendación almacenar, como IDs de productos o categorías preferidas.
-2. Usa el punto de conexión [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) para escribir la recomendación como un atributo personalizado en el perfil de usuario.
+2. Usa el punto de conexión [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para escribir la recomendación como un atributo personalizado en el perfil de usuario.
 
 ### Ejemplo de solicitud {#example-request}
 
@@ -42,7 +42,7 @@ Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
 ```
 
-Reemplaza `YOUR_REST_ENDPOINT` con la [URL del punto de conexión REST]({{site.baseurl}}/api/basics/#endpoints) de tu espacio de trabajo.
+Reemplaza `YOUR_REST_ENDPOINT` con la [URL del punto de conexión REST]({{site.baseurl}}/api/basics#endpoints) de tu espacio de trabajo.
 
 ```json
 {
@@ -66,7 +66,7 @@ Después de almacenar un identificador de recomendación en cada perfil de usuar
 
 ### Opción A: Catálogos de Braze {#option-a-braze-catalogs}
 
-Si has creado un [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create/) con tu inventario de productos, puedes buscar artículos directamente en tu mensaje usando Liquid. Para una guía completa, consulta [Uso de catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
+Si has creado un [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create) con tu inventario de productos, puedes buscar artículos directamente en tu mensaje usando Liquid. Para una guía completa, consulta [Uso de catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/use).
 
 #### Recomendar un artículo específico del catálogo {#recommend-a-specific-catalog-item}
 
@@ -115,7 +115,7 @@ Hi {{${first_name}}}, check out our pick for you:
 
 ### Opción B: Contenido conectado {#option-b-connected-content}
 
-Si los metadatos de tus productos se encuentran en un servicio externo en lugar de un catálogo de Braze, usa el [contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/) para obtenerlos en el momento del envío.
+Si los metadatos de tus productos se encuentran en un servicio externo en lugar de un catálogo de Braze, usa el [contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call) para obtenerlos en el momento del envío.
 
 {% raw %}
 Por ejemplo, si tu API interna devuelve detalles del producto por ID:
@@ -128,7 +128,7 @@ Hi {{${first_name}}}, we think you'll love:
 ```
 {% endraw %}
 
-Para más detalles sobre cómo hacer llamadas a la API desde tus mensajes, consulta [Hacer una llamada a la API]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/).
+Para más detalles sobre cómo hacer llamadas a la API desde tus mensajes, consulta [Hacer una llamada a la API]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call).
 
 {% alert warning %}
 Evita usar contenido conectado para obtener una lista grande de productos y luego iterar a través de esa lista en Liquid en el momento del envío. Las cargas útiles de respuesta grandes aumentan la latencia del envío y pueden causar tiempos de espera en los mensajes o fallos en la entrega a gran escala. En su lugar, almacena solo los IDs de productos específicos que un usuario necesita en su perfil (consulta el [Paso 1](#step-1-store-recommendations-on-user-profiles)), y obtén los metadatos de esos artículos individuales o usa [catálogos](#option-a-braze-catalogs), que están optimizados para consultas rápidas.
@@ -138,7 +138,7 @@ Evita usar contenido conectado para obtener una lista grande de productos y lueg
 
 Después de completar la configuración, verifica tu integración:
 
-1. Usa el punto de conexión [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) para escribir una recomendación de prueba en tu propio perfil de usuario.
+1. Usa el punto de conexión [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para escribir una recomendación de prueba en tu propio perfil de usuario.
 2. Envía un mensaje de prueba que haga referencia al producto recomendado usando catálogos o contenido conectado.
 3. Confirma que los detalles del producto se muestran correctamente en el mensaje entregado.
 4. En el dashboard de Braze, ve a la página de resultados de la campaña o Canvas y confirma que el envío se ha registrado.
@@ -146,5 +146,5 @@ Después de completar la configuración, verifica tu integración:
 ## Consideraciones {#considerations}
 
 - Mantén los datos de recomendación precisos actualizando los atributos personalizados regularmente a medida que tu herramienta de recomendaciones produce nuevos resultados.
-- Usa las [características de personalización]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/) de Braze para adaptar aún más los mensajes, como incorporar datos específicos del usuario junto con los detalles del producto.
-- Considera usar la [entrega activada por API]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/api_triggered_delivery/) para desencadenar mensajes desde tu backend usando plantillas definidas en el dashboard de Braze.
+- Usa las [características de personalización]({{site.baseurl}}/user_guide/personalization_and_dynamic_content) de Braze para adaptar aún más los mensajes, como incorporar datos específicos del usuario junto con los detalles del producto.
+- Considera usar la [entrega activada por API]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/api_triggered_delivery) para desencadenar mensajes desde tu backend usando plantillas definidas en el dashboard de Braze.

@@ -14,8 +14,8 @@ channel:
 
 ## Voraussetzungen {#prerequisites}
 
-- Stellen Sie sicher, dass Sie die [Nutzerberechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions) „Abo-Gruppen verwalten“ sowohl im ursprünglichen als auch im neuen Workspace besitzen.
-- Der WABA kann nicht über mehrere [Braze-Cluster]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) hinweg verwendet werden. Dies ist unwahrscheinlich, wenn Sie innerhalb eines Unternehmens arbeiten.
+- Stellen Sie sicher, dass Sie die [Nutzerberechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) „Abo-Gruppen verwalten“ sowohl im ursprünglichen als auch im neuen Workspace besitzen.
+- Der WABA kann nicht über mehrere [Braze-Cluster]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) hinweg verwendet werden. Dies ist unwahrscheinlich, wenn Sie innerhalb eines Unternehmens arbeiten.
 
 ## Telefonnummer und Abo-Gruppe übertragen {#transferring-a-phone-number-and-subscription-group}
 
@@ -24,16 +24,16 @@ channel:
 Um eine WhatsApp-Abo-Gruppe zu archivieren, gehen Sie wie folgt vor:
 
 1. Wechseln Sie zum Workspace, in dem die Abo-Gruppe derzeit existiert.
-2. Gehen Sie zu **Audience** > **Subscription Group Management** und suchen Sie die Abo-Gruppe, die mit der WhatsApp-Telefonnummer verknüpft ist, die Sie verschieben möchten.
-3. Fahren Sie mit dem Mauszeiger über den Status der Abo-Gruppe und wählen Sie <i class="fa-solid fa-box-archive"></i> **Archive** aus. Dadurch wird die Abo-Gruppe als inaktiv markiert, aber nicht gelöscht.
+2. Gehen Sie zu **Zielgruppe** > **Abo-Gruppen-Verwaltung** und suchen Sie die Abo-Gruppe, die mit der WhatsApp-Telefonnummer verknüpft ist, die Sie verschieben möchten.
+3. Fahren Sie mit dem Mauszeiger über den Status der Abo-Gruppe und wählen Sie <i class="fa-solid fa-box-archive"></i> **Archivieren** aus. Dadurch wird die Abo-Gruppe als inaktiv markiert, aber nicht gelöscht.
 
-![Der Button „Archive“ erscheint beim Überfahren des Status „Active“ einer Abo-Gruppe mit dem Mauszeiger.]({% image_buster /assets/img/whatsapp/archive_subscription_group.png %}){: style="max-width:70%;"}
+![Der Button „Archivieren“ erscheint beim Überfahren des Status „Aktiv“ einer Abo-Gruppe mit dem Mauszeiger.]({% image_buster /assets/img/whatsapp/archive_subscription_group.png %}){: style="max-width:70%;"}
 
 ### 2. Schritt: WhatsApp-Telefonnummer in den neuen Workspace integrieren {#step-2-integrate-the-whatsapp-phone-number-into-the-new-workspace}
 
 1. Wechseln Sie zum Workspace, in den Sie die WhatsApp-Telefonnummer verschieben möchten.
-2. Gehen Sie zu **Partner Integrations** > **Technology Partners** > **WhatsApp** und scrollen Sie zum Abschnitt **WhatsApp Messaging Integration**.
-3. Wählen Sie die Option **Create new subscription group and phone number** aus.
+2. Gehen Sie zu **Partnerintegrationen** > **Technologie-Partner** > **WhatsApp** und scrollen Sie zum Abschnitt **WhatsApp Messaging Integration**.
+3. Wählen Sie die Option **Neue Abo-Gruppe und Telefonnummer erstellen** aus.
 4. Starten Sie den Integrationsprozess. Dabei können Sie die Telefonnummer aus der archivierten Abo-Gruppe auswählen.
 
 ### 3. Schritt: Integration überprüfen {#step-3-verify-the-integration}

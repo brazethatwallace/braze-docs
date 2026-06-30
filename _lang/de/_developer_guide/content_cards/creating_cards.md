@@ -14,7 +14,7 @@ platform:
 
 # Content Cards erstellen {#create-content-cards}
 
-> Dieser Artikel beschreibt den grundlegenden Ansatz, den Sie bei der Implementierung angepasster Content Cards verwenden, sowie drei häufige Anwendungsfälle. Es wird davon ausgegangen, dass Sie bereits die anderen Artikel der Anleitung zur Anpassung von Content Cards gelesen haben, um zu verstehen, was standardmäßig möglich ist und was angepassten Code erfordert. Es ist besonders hilfreich zu verstehen, wie Sie [Analytics protokollieren]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/) für Ihre angepassten Content Cards.
+> Dieser Artikel beschreibt den grundlegenden Ansatz, den Sie bei der Implementierung angepasster Content Cards verwenden, sowie drei häufige Anwendungsfälle. Es wird davon ausgegangen, dass Sie bereits die anderen Artikel der Anleitung zur Anpassung von Content Cards gelesen haben, um zu verstehen, was standardmäßig möglich ist und was angepassten Code erfordert. Es ist besonders hilfreich zu verstehen, wie Sie [Analytics protokollieren]({{site.baseurl}}/developer_guide/content_cards/logging_analytics) für Ihre angepassten Content Cards.
 
 {% multi_lang_include banners/content_card_alert.md %}
 
@@ -49,7 +49,7 @@ Um die Content-Card-Datenmodelle zu erhalten, abonnieren Sie Content-Card-Update
 * **`id`:** Repräsentiert den Content-Card-ID-String. Dies ist der eindeutige Bezeichner, der zum Protokollieren von Analytics aus angepassten Content Cards verwendet wird.
 * **`extras`:** Umfasst alle Schlüssel-Wert-Paare aus dem Braze-Dashboard.
 
-Alle Eigenschaften außer `id` und `extras` sind für angepasste Content Cards optional zu parsen. Weitere Informationen zum Datenmodell finden Sie im Integrationsartikel der jeweiligen Plattform: [Android]({{site.baseurl}}/developer_guide/content_cards/?sdktab=android), [iOS]({{site.baseurl}}/developer_guide/content_cards/?sdktab=swift), [Web]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web).
+Alle Eigenschaften außer `id` und `extras` sind für angepasste Content Cards optional zu parsen. Weitere Informationen zum Datenmodell finden Sie im Integrationsartikel der jeweiligen Plattform: [Android]({{site.baseurl}}/developer_guide/content_cards?sdktab=android), [iOS]({{site.baseurl}}/developer_guide/content_cards?sdktab=swift), [Web]({{site.baseurl}}/developer_guide/content_cards?sdktab=web).
 
 {% tabs local %}
 {% tab web %}
@@ -77,7 +77,7 @@ braze.openSession();
 ```
 
 {% alert note %}
-Content Cards werden nur beim Sitzungsstart aktualisiert, wenn `subscribeToContentCardsUpdates()` vor `openSession()` aufgerufen wird. Sie können den [Feed auch jederzeit manuell aktualisieren]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/).
+Content Cards werden nur beim Sitzungsstart aktualisiert, wenn `subscribeToContentCardsUpdates()` vor `openSession()` aufgerufen wird. Sie können den [Feed auch jederzeit manuell aktualisieren]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed).
 {% endalert %}
 
 {% endtab %}
@@ -217,27 +217,27 @@ BRZCancellable *cancellable = [self.braze.contentCards subscribeToUpdates:^(NSAr
 
 ### 3. Schritt: Analytics implementieren {#step-3-implement-analytics}
 
-Impressionen, Klicks und Schließungen von Content Cards werden in Ihrer angepassten Ansicht nicht automatisch protokolliert. Sie müssen [die jeweilige Methode implementieren]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/), um alle Metriken ordnungsgemäß in die Analytics des Braze-Dashboards zu protokollieren.
+Impressionen, Klicks und Schließungen von Content Cards werden in Ihrer angepassten Ansicht nicht automatisch protokolliert. Sie müssen [die jeweilige Methode implementieren]({{site.baseurl}}/developer_guide/content_cards/logging_analytics), um alle Metriken ordnungsgemäß in die Analytics des Braze-Dashboards zu protokollieren.
 
 ### 4. Schritt: Testen Sie Ihre Karte (optional) {#step-4-test-your-card-optional}
 
 So testen Sie Ihre Content Card:
 
 1. Legen Sie eine:n aktive:n Nutzer:in in Ihrer Anwendung fest, indem Sie die [`changeUser()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)-Methode aufrufen.
-2. Gehen Sie in Braze zu **Campaigns** und [erstellen Sie eine neue Content-Card-Kampagne]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/).
+2. Gehen Sie in Braze zu **Campaigns** und [erstellen Sie eine neue Content-Card-Kampagne]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card).
 3. Wählen Sie in Ihrer Kampagne **Test** aus und geben Sie die `user-id` der Testnutzer:in ein. Wenn Sie bereit sind, wählen Sie **Send Test**. Sie können dann in Kürze eine Content Card auf Ihrem Gerät starten.
 
 ![Eine Braze Content-Card-Kampagne, die zeigt, wie Sie Ihre eigene Nutzer-ID als Testempfänger:in hinzufügen können, um Ihre Content Card zu testen.]({% image_buster /assets/img/react-native/content-card-test.png %} "Content Card Campaign Test")
 
 ## Platzierung von Content Cards {#content-card-placements}
 
-Content Cards können auf viele verschiedene Arten verwendet werden. Drei gängige Implementierungen sind die Verwendung als Nachrichtenzentrale, als dynamische Bildanzeige oder als Bildkarussell. Für jede dieser Platzierungen weisen Sie Ihren Content Cards [Schlüssel-Wert-Paare]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior/#key-value-pairs) (die Eigenschaft `extras` im Datenmodell) zu und passen auf der Grundlage der Werte das Verhalten, das Aussehen oder die Funktionalität der Karte während der Laufzeit dynamisch an.
+Content Cards können auf viele verschiedene Arten verwendet werden. Drei gängige Implementierungen sind die Verwendung als Nachrichtenzentrale, als dynamische Bildanzeige oder als Bildkarussell. Für jede dieser Platzierungen weisen Sie Ihren Content Cards [Schlüssel-Wert-Paare]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior#key-value-pairs) (die Eigenschaft `extras` im Datenmodell) zu und passen auf der Grundlage der Werte das Verhalten, das Aussehen oder die Funktionalität der Karte während der Laufzeit dynamisch an.
 
-![]({% image_buster /assets/img_archive/cc_placements.png %}){: style="border:0px;"}
+![Diagramm mit drei Beispielen für die Platzierung von Content Cards: Posteingang für Nachrichten, dynamische Bildanzeige und Bildkarussell.]({% image_buster /assets/img_archive/cc_placements.png %}){: style="border:0px;"}
 
 ### Posteingang für Nachrichten {#message-inbox}
 
-Content Cards können verwendet werden, um eine Nachrichtenzentrale zu simulieren. In diesem Format ist jede Nachricht eine eigene Karte, die [Schlüssel-Wert-Paare]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior/#key-value-pairs) enthält, die Events beim Klicken triggern. Diese Schlüssel-Wert-Paare sind die Bezeichner, anhand derer die Anwendung entscheidet, wohin navigiert wird, wenn Nutzer:innen auf eine Nachricht im Posteingang klicken. Die Werte der Schlüssel-Wert-Paare sind frei wählbar.
+Content Cards können verwendet werden, um eine Nachrichtenzentrale zu simulieren. In diesem Format ist jede Nachricht eine eigene Karte, die [Schlüssel-Wert-Paare]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior#key-value-pairs) enthält, die Events beim Klicken triggern. Diese Schlüssel-Wert-Paare sind die Bezeichner, anhand derer die Anwendung entscheidet, wohin navigiert wird, wenn Nutzer:innen auf eine Nachricht im Posteingang klicken. Die Werte der Schlüssel-Wert-Paare sind frei wählbar.
 
 #### Beispiel {#example}
 
@@ -276,7 +276,7 @@ Schlüssel-Wert-Paare für einen neuen Abonnent:innen-Gutschein:
 
 {% details Zusätzliche Informationen für Android %}
 
-Im Android- und FireOS-SDK wird die Logik der Nachrichtenzentrale durch den Wert `class_type` gesteuert, der durch die Schlüssel-Wert-Paare von Braze bereitgestellt wird. Mit der Methode [`createContentCardable`]({{site.baseurl}}/developer_guide/content_cards/) können Sie diese Klassentypen filtern und identifizieren.
+Im Android- und FireOS-SDK wird die Logik der Nachrichtenzentrale durch den Wert `class_type` gesteuert, der durch die Schlüssel-Wert-Paare von Braze bereitgestellt wird. Mit der Methode [`createContentCardable`]({{site.baseurl}}/developer_guide/content_cards) können Sie diese Klassentypen filtern und identifizieren.
 
 {% tabs local %}
 {% tab Kotlin %}
@@ -403,15 +403,15 @@ Sie können Content Cards in Ihrem vollständig angepassten Karussell-Feed einri
 
 So implementieren Sie ein Content-Card-Karussell:
 
-1. Erstellen Sie eine angepasste Logik, die auf [Änderungen in Ihren Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#refreshing-the-feed) achtet und die Ankunft der Content Cards behandelt.
+1. Erstellen Sie eine angepasste Logik, die auf [Änderungen in Ihren Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#refreshing-the-feed) achtet und die Ankunft der Content Cards behandelt.
 2. Erstellen Sie eine angepasste clientseitige Logik, um eine bestimmte Anzahl von Karten gleichzeitig im Karussell anzuzeigen. Sie könnten zum Beispiel die ersten fünf Content-Card-Objekte aus dem Array auswählen oder Schlüssel-Wert-Paare einführen, um bedingte Logik aufzubauen.
 
 {% alert tip %}
-Wenn Sie ein Karussell als sekundären Content-Cards-Feed implementieren, stellen Sie sicher, dass Sie [die Karten mithilfe von Schlüssel-Wert-Paaren in den richtigen Feed einsortieren]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds).
+Wenn Sie ein Karussell als sekundären Content-Cards-Feed implementieren, stellen Sie sicher, dass Sie [die Karten mithilfe von Schlüssel-Wert-Paaren in den richtigen Feed einsortieren]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds).
 {% endalert %}
 
 ### Nur Bild {#image-only}
 
 Content Cards müssen nicht wie „Karten“ aussehen. Content Cards können zum Beispiel als dynamisches Bild erscheinen, das persistent auf Ihrer Homepage oder am Anfang bestimmter Seiten angezeigt wird.
 
-Um dies zu erreichen, erstellen Ihre Marketer eine Kampagne oder einen Canvas-Schritt mit einer Content Card vom Typ **Nur Bild**. Legen Sie dann Schlüssel-Wert-Paare fest, die für die Verwendung von [Content Cards als ergänzende Inhalte]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior/#content-cards-as-supplemental-content) geeignet sind.
+Um dies zu erreichen, erstellen Ihre Marketer eine Kampagne oder einen Canvas-Schritt mit einer Content Card vom Typ **Nur Bild**. Legen Sie dann Schlüssel-Wert-Paare fest, die für die Verwendung von [Content Cards als ergänzende Inhalte]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior#content-cards-as-supplemental-content) geeignet sind.

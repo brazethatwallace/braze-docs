@@ -20,7 +20,7 @@ tool:
 마찬가지로, 여러 배리언트를 정수 비율로 균등하게 나누려면, 배리언트 수가 100을 균등하게 나눌 수 있는지 확인하세요. 그렇지 않으면 일부 배리언트에 다른 배리언트보다 더 높은 비율의 사용자가 분배됩니다. 예를 들어, Campaign에 7개의 배리언트가 있는 경우, 7은 100을 정수로 나눌 수 없으므로 균등한 배리언트 분배가 불가능합니다. 이 경우 2개의 배리언트는 15%, 5개의 배리언트는 14%가 됩니다.
 
 {% alert tip %}
-Canvas에서 사용자를 분배하려면, [결정 분할 단계]({{site.baseurl}}/decision_split/)를 추가하고 [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)를 기준으로 사용자를 분리할 수 있습니다.
+Canvas에서 사용자를 분배하려면, [결정 분할 단계]({{site.baseurl}}/decision_split)를 추가하고 [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers)를 기준으로 사용자를 분리할 수 있습니다.
 {% endalert %}
 
 ## 인앱 메시지 분배 {#in-app-message-distribution}

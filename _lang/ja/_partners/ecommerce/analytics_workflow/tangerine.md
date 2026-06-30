@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Tangerine Store360
 
-> Tangerineは、Store360というオムニチャネルプラットフォームを設計、構築、運営しています。Store360は、消費者と店舗従業員の店内体験を向上させるために、実店舗とオンラインストアを接続するオムニチャネル対応のプラットフォームです。Store360は、小売業者のモバイルアプリユーザーとそのストア内エンゲージメントを含む、実店舗訪問トラフィックを追跡および分析します。
+> Tangerineは、Store360というオムニチャネルプラットフォームを設計、構築、運営しています。Store360は、消費者と店舗従業員の店内体験を向上させるために、実店舗とオンラインストアを接続するオムニチャネル対応のプラットフォームです。Store360は、小売業者のモバイルアプリユーザーとその店内エンゲージメントを含む、実店舗訪問トラフィックを追跡および分析します。
 
 BrazeとTangerineの統合により、BrazeからSnowflakeセキュアデータシェアリングを介してStore360に生のキャンペーンデータとインプレッションデータを統合できます。ブランドは、これらのキャンペーンが実店舗への訪問や店内エンゲージメントに与える影響を測定できるようになります。
 
@@ -19,9 +19,9 @@ BrazeとTangerineの統合により、BrazeからSnowflakeセキュアデータ�
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | Store360アカウント | このパートナーシップを利用するには、Store360アカウントが必要です。 |
-| BrazeアカウントID | Brazeアプリグループ IDです。 |
+| BrazeアカウントID | BrazeアプリグループIDです。 |
 | ユーザーIDの一致 | Store360とBrazeの顧客データは、両方のプラットフォームで一致するユーザーIDを持っている必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユースケース {#use-cases}
 
@@ -43,13 +43,13 @@ Store360管理マネージャーWebコンソールを使用して、Brazeアプ�
 
 ### ステップ3: モバイルアプリにStore360 SDKを統合する {#step-3-integrate-store360-sdks-to-mobile-app}
 
-モバイルアプリユーザーのストア訪問とストア内アクティビティを、Brazeのキャンペーンデータおよびインプレッションデータとともに追跡・分析するには、Store360 SDKインストールドキュメントに記載されている手順に従って、Store360 SDKをモバイルアプリに統合する必要があります。このドキュメントは、Tangerine Store 360とのクライアント契約を締結した後に提供されます。
+モバイルアプリユーザーのストア訪問と店内アクティビティを、Brazeのキャンペーンデータおよびインプレッションデータとともに追跡・分析するには、Store360 SDKインストールドキュメントに記載されている手順に従って、Store360 SDKをモバイルアプリに統合する必要があります。このドキュメントは、Tangerine Store 360とのクライアント契約を締結した後に提供されます。
 
 ## Store360でBrazeデータを分析する {#analyze-braze-data-in-store360}
 
 Snowflakeのセキュアデータシェアリングを利用して、Brazeの生のキャンペーンおよびインプレッションデータをStore360のインサイト分析と共有し、オンラインからオフラインまでのユーザーのライフサイクルと活動の全体像を把握できます。
 
-参考までに、Store360分析に組み込むことができるすべての[Brazeフィールド]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ffbc5f5ca7092bc9ae26268aa0e711df)を以下に示します。このステップの詳細は顧客によって大きく異なり、特別な設定が必要です。詳細については、Store360のアカウントマネージャーまたは support@tangerine.io までお問い合わせください。
+参考までに、Store360分析に組み込むことができるすべての[Brazeフィールド](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)を以下に示します。このステップの詳細は顧客によって大きく異なり、特別な設定が必要です。詳細については、Store360のアカウントマネージャーまたは support@tangerine.io までお問い合わせください。
 
 ## 重要な情報と制限 {#important-information-and-limitations}
 

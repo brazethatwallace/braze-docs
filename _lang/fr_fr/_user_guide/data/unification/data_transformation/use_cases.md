@@ -1,46 +1,67 @@
 ---
-nav_title: Cas d’utilisation
-article_title: "Cas d'utilisation de la transformation des données de Braze"
+nav_title: Cas d'utilisation
+article_title: Cas d'utilisation de la Transformation des données Braze
 page_order: 2
 page_type: reference
-description: "Cet article de référence présente quelques cas d'utilisation de la transformation des données Braze."
+description: "Cet article de référence présente quelques cas d'utilisation de la Transformation des données Braze."
 ---
 
-# Cas d'utilisation de la transformation des données
+# Cas d'utilisation de la Transformation des données {#data-transformation-use-cases}
 
-> Considérez les cas d'utilisation possibles suivants avec Braze Data Transformation et une combinaison de webhooks provenant des plateformes externes données en exemple.
+> Découvrez les cas d'utilisation possibles avec la Transformation des données Braze et une combinaison de webhooks provenant des plateformes externes données en exemple.
 
-## Générer des prospects
+## Générer des prospects {#generating-leads}
 
-Vous hébergez un formulaire Typeform de génération de leads sur votre site web. Lorsque de nouveaux utilisateurs remplissent ce formulaire, vous pouvez.. :
-- Créez de nouveaux utilisateurs dans Braze.
-- Ajoutez-les à l'une de vos listes d'e-mails de Braze.
-- Synchronisez certaines de leurs réponses en tant qu'attributs personnalisés dans Braze, car leurs réponses sont des données first-party précieuses qui peuvent alimenter des expériences d'envoi de messages personnalisés pour une utilisation future.
+Vous hébergez un formulaire Typeform de génération de prospects sur votre site web. Lorsque de nouveaux utilisateurs remplissent ce formulaire, vous pouvez :
+- Créer de nouveaux utilisateurs dans Braze.
+- Les ajouter à l'une de vos listes d'e-mails Braze.
+- Synchroniser certaines de leurs réponses en tant qu'attributs personnalisés dans Braze, car leurs réponses sont des données first-party précieuses qui peuvent alimenter des expériences de communication personnalisées pour une utilisation future.
 
-## Ouverture des tickets de service
+## Ouverture de tickets de service {#opening-service-tickets}
 
-Lorsque les clients ouvrent des tickets de service client sur une plateforme comme Zendesk, vous pouvez :
+Lorsque les clients ouvrent des tickets de service client sur une plateforme comme Zendesk, vous pouvez :
 - Écrire un événement personnalisé dans Braze lorsqu'un ticket Zendesk est créé.
 - Écrire un événement personnalisé avec des propriétés d'événement dans Braze lorsqu'une note CSAT négative est fournie à Zendesk.
 
-## Intégration avec Braze
+## Intégration avec Braze {#integrating-with-braze}
 
-Braze dispose d'une intégration avec [Iterate]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/iterate/), une plateforme d'informations et d'enquêtes sur les clients. Grâce à la transformation des données, vous pouvez enregistrer plusieurs réponses d'enquête sous un seul attribut personnalisé imbriqué, au lieu de l'intégration existante qui enregistre plusieurs attributs personnalisés.
+Braze dispose d'une intégration avec [Iterate]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/iterate), une plateforme d'informations et d'enquêtes clients. Grâce à la Transformation des données, vous pouvez enregistrer plusieurs réponses d'enquête sous un seul attribut personnalisé imbriqué, au lieu de recourir à l'intégration existante qui enregistre plusieurs attributs personnalisés.
 
-## Exemple de code de transformation
+## Synchroniser les attributs de contacts HubSpot {#sync-hubspot-contact-attributes}
 
-Considérez cet exemple de charge utile provenant de Typeform, une plateforme d'enquête, qui est envoyée chaque fois qu'une réponse à l'enquête est reçue.
+Si vous utilisez HubSpot comme CRM et Braze pour l'envoi de messages, vous pouvez utiliser la Transformation des données pour convertir les payloads de webhooks HubSpot en mises à jour Braze `/users/track`.
 
-![]({% image_buster /assets/img/data_transformation/data_transformation2.png %})
+Cet exemple vérifie la présence d'un `external_id`, copie l'objet utilisateur entrant et envoie tous les champs inclus à Braze en tant qu'attributs personnalisés.
+
+```
+function toBrazeTrackPayload(userObject) {
+  if (!userObject.external_id) {
+    throw new Error("Braze requires an 'external_id' field.");
+  }
+
+  return {
+    attributes: [userObject]
+  };
+}
+
+const brazePayload = toBrazeTrackPayload(payload);
+return brazePayload;
+```
+
+## Exemple de code de transformation {#example-transformation-code}
+
+Voici un exemple de payload provenant de Typeform, une plateforme d'enquête, qui est envoyé chaque fois qu'une réponse à l'enquête est reçue.
+
+![Capture d'écran liée à l'exemple de code de transformation.]({% image_buster /assets/img/data_transformation/data_transformation2.png %})
 
 {% tabs local %}
-{% tab Basic transformation %}
+{% tab Transformation basique %}
 
 Cet exemple prend les réponses à l'enquête comme attributs et écrit un événement pour indiquer que l'enquête a été complétée :
 
 ```
 return {
-  "attributes": [ 
+  "attributes": [
     {
       "email": payload.form_response.hidden.email_address,
       "_update_existing_only": true,
@@ -48,7 +69,7 @@ return {
       "home_weather_rating": payload.form_response.answers[1].number
     }
   ],
-  "events": [ 
+  "events": [
     {
       "email": payload.form_response.hidden.email_address,
       "_update_existing_only": true,
@@ -63,9 +84,9 @@ return {
 ```
 
 {% endtab %}
-{% tab Advanced transformation %}
+{% tab Transformation avancée %}
 
-Créons un nouvel exemple de transformation de base et introduisons une déclaration `if` pour classer l'utilisateur dans l'une des réponses.
+Poursuivons avec l'exemple de transformation basique et introduisons une instruction `if` pour catégoriser l'utilisateur en fonction de l'une des réponses.
 
 ```
 let nps_category;
@@ -79,7 +100,7 @@ if (nps_number < 7) {
 }
 
 return {
-  "attributes": [ 
+  "attributes": [
     {
       "email": payload.form_response.hidden.email_address,
       "_update_existing_only": true,
@@ -103,4 +124,4 @@ return {
 {% endtab %}
 {% endtabs %}
 
-[1] : {% image_buster /assets/img/data_transformation/data_transformation2.png %}
+[1]: {% image_buster /assets/img/data_transformation/data_transformation2.png %}

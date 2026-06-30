@@ -10,7 +10,7 @@ page_type: reference
 
 # コンテンツオプティマイザーエージェントステップ {#content-optimizer-agent-step}
 
-> コンテンツオプティマイザーエージェントステップでは、単一のステップ内でコンテンツコンポーネントの複数バージョンを設定してテストできます。コンテンツのバリエーションを実験し、時間の経過とともに最もパフォーマンスの高い組み合わせに向けて自動的に最適化します。概要については、[コンテンツオプティマイザー]({{site.baseurl}}/user_guide/brazeai/content_optimizer/)を参照してください。
+> コンテンツオプティマイザーエージェントステップでは、単一のステップ内でコンテンツコンポーネントの複数バージョンを設定してテストできます。コンテンツのバリエーションを実験し、時間の経過とともに最もパフォーマンスの高い組み合わせに向けて自動的に最適化します。概要については、[コンテンツオプティマイザー]({{site.baseurl}}/user_guide/brazeai/content_optimizer)を参照してください。
 
 {% alert important %}
 コンテンツオプティマイザーは現在ベータ版です。ご利用を開始するには、カスタマーサクセスマネージャーにお問い合わせください。
@@ -18,7 +18,7 @@ page_type: reference
 
 ## コンテンツオプティマイザーステップの作成 {#create-a-content-optimizer-step}
 
-最良の結果を得るには、ユーザーが時間をかけて徐々にステップに入るCanvasでコンテンツオプティマイザーエージェントを使用してください。すべてのユーザーが一度にステップに入ると、エージェントは初期の結果から学習する時間がありません。
+最良の結果を得るには、ユーザーが時間をかけて徐々にステップに入るキャンバスでコンテンツオプティマイザーエージェントを使用してください。すべてのユーザーが一度にステップに入ると、エージェントは初期の結果から学習する時間がありません。
 
 ### ステップ 1: ステップを追加する {#step-1-add-a-step}
 
@@ -35,7 +35,7 @@ page_type: reference
 {% tabs local %}
 {% tab メール %}
 
-**Messaging Channels**タブから**Email**を選択し、ベースメールメッセージを作成します。詳しくは、専用の[メール]({{site.baseurl}}/user_guide/channels/email/)セクションを参照してください。
+**Messaging Channels**タブから**Email**を選択し、ベースメールメッセージを作成します。詳しくは、専用の[メール]({{site.baseurl}}/user_guide/channels/email)セクションを参照してください。
 
 コンテンツオプティマイザーエージェントは、このバリアントで指定された送信設定（メールドメインや返信先アドレスなど）を使用してすべてのメッセージを送信します。新しいデザインから始めることも、このメッセージ用に既存のテンプレートを選択することもできます。このステップでは、メッセージのどのコンポーネントを最適化したいかを検討してください。これらは[ステップ 4](#step-4)で定義します。
 
@@ -49,7 +49,7 @@ page_type: reference
 {% endtab %}
 {% tab プッシュ通知 %}
 
-**Messaging Channels**タブから**Push notifications**を選択し、ベースプッシュ通知を作成します。詳しくは、専用の[プッシュ]({{site.baseurl}}/user_guide/channels/push/)セクションを参照してください。
+**Messaging Channels**タブから**Push notifications**を選択し、ベースプッシュ通知を作成します。詳しくは、専用の[プッシュ]({{site.baseurl}}/user_guide/channels/push)セクションを参照してください。
 
 コンテンツオプティマイザーエージェントは、このバリアントで指定された選択済みのプッシュプラットフォームを使用してすべてのメッセージを送信します。新しいデザインから始めることも、このメッセージ用に既存のテンプレートを選択することもできます。このステップでは、メッセージのどのコンポーネントを最適化したいかを検討してください。これらは[ステップ 4](#step-4)で定義します。
 
@@ -61,7 +61,7 @@ page_type: reference
 {% endtab %}
 {% tab SMS/MMS/RCS %}
 
-**Messaging Channels**タブから**SMS/MMS/RCS**を選択し、ベースメッセージを作成します。詳しくは、専用の[SMS/MMS/RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/)セクションを参照してください。
+**Messaging Channels**タブから**SMS/MMS/RCS**を選択し、ベースメッセージを作成します。詳しくは、専用の[SMS/MMS/RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)セクションを参照してください。
 
 コンテンツオプティマイザーエージェントは、このバリアントで指定された**Content**と**Message**の詳細を使用してすべてのメッセージを送信します。新しいデザインから始めることも、このメッセージ用に既存のテンプレートを選択することもできます。このステップでは、メッセージのどのコンポーネントを最適化したいかを検討してください。これらは[ステップ 4](#step-4)で定義します。
 
@@ -76,7 +76,7 @@ page_type: reference
 
 ### ステップ 3: 配信設定を指定する {#step-3-specify-delivery-settings}
 
-**Delivery Settings**タブでは、ステップでインテリジェントタイミングまたは配信バリデーションを使用するかどうかを指定できます。詳しくは、メッセージステップの[配信設定の編集]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#step-2-edit-delivery-settings)を参照してください。
+**Delivery Settings**タブでは、ステップでインテリジェントタイミングまたは配信バリデーションを使用するかどうかを指定できます。詳しくは、メッセージステップの[配信設定の編集]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#step-2-edit-delivery-settings)を参照してください。
 
 ### ステップ 4: コンテンツコンポーネントとバリアントを追加する {#step-4}
 
@@ -149,9 +149,9 @@ SMS/MMS/RCSコンテンツオプティマイザーステップが起動された
 
 ![Subject、Body Header、Body Content、Primary CTAなどのコンテンツコンポーネントを追加・設定するオプション。各コンポーネントには異なるバリアントを入力するフィールドがあります。]({% image_buster /assets/img/content_optimizer/optimization_liquid_in_use.png %})
 
-選択したコンテンツコンポーネントにLiquidタグを追加しない場合、**Content Optimizer Settings**タブに警告が表示され、**Messaging Channels**タブにエラーが表示されます。選択したすべてのコンポーネントがベースメッセージに適切に追加されるまで、Canvasを起動することはできません。
+選択したコンテンツコンポーネントにLiquidタグを追加しない場合、**Content Optimizer Settings**タブに警告が表示され、**Messaging Channels**タブにエラーが表示されます。選択したすべてのコンポーネントがベースメッセージに適切に追加されるまで、キャンバスを起動することはできません。
 
-Canvasの実行中、エージェントはコンポーネント間でバリアントを組み合わせて異なるコンテンツの組み合わせを生成します。時間の経過とともに、パフォーマンスの高い組み合わせが配信で優先され、手動の介入なしにパフォーマンスを向上させることができます。
+キャンバスの実行中、エージェントはコンポーネント間でバリアントを組み合わせて異なるコンテンツの組み合わせを生成します。時間の経過とともに、パフォーマンスの高い組み合わせが配信で優先され、手動の介入なしにパフォーマンスを向上させることができます。
 
 #### Liquidリファレンス {#liquid-references}
 
@@ -207,7 +207,7 @@ SMSおよびMMSメッセージの場合、**クリック**に対して最適化�
 
 ## 起動済みステップの編集 {#edit-a-launched-step}
 
-Canvasが起動された後、Canvasエディターで実行中のコンテンツオプティマイザーステップを開いて更新できます。以下のことが可能です：
+キャンバスが起動された後、キャンバスエディターで実行中のコンテンツオプティマイザーステップを開いて更新できます。以下のことが可能です：
 
 - 既存のコンポーネントに新しいバリアントを追加する（手動またはAI生成の提案を使用して、コンポーネントあたり5バリアントの上限まで）。
 - バリアントを無効化して、ユーザーへの送信を停止する。
@@ -229,7 +229,7 @@ SMS/MMS/RCSステップの場合、サブスクリプショングループとメ
 - 最良の結果を得るには、合計10以上の組み合わせをテストしてください。
 - クリックに対して最適化する場合は、テストに件名を含めてください。より強力な件名は開封の増加に貢献し、クリックの機会を増やすことができます。
 - 開封に対して最適化する場合は、テストを件名に集中させてください。
-- コンテンツオプティマイザーを初めて使用する場合は、[実験パス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/)ステップを使用して、オーディエンスの一部のみがコンテンツオプティマイザーステップを含むブランチに入るようにすることを検討してください。たとえば、ユーザーの半分をコンテンツオプティマイザーステップのあるパスに送り、残りの半分を現在の通常コンテンツを送信するメッセージステップのあるコントロールパスに送ることができます。その後、2〜3週間データを収集し、コンテンツオプティマイザーステップへのトラフィックを増やす前にKPIやカウンター指標を比較してください。
+- コンテンツオプティマイザーを初めて使用する場合は、[実験パス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)ステップを使用して、オーディエンスの一部のみがコンテンツオプティマイザーステップを含むブランチに入るようにすることを検討してください。たとえば、ユーザーの半分をコンテンツオプティマイザーステップのあるパスに送り、残りの半分を現在の通常コンテンツを送信するメッセージステップのあるコントロールパスに送ることができます。その後、2〜3週間データを収集し、コンテンツオプティマイザーステップへのトラフィックを増やす前にKPIやカウンター指標を比較してください。
   - 効果的な1対1の比較のために、コンテンツオプティマイザーステップの各コンポーネントのバリアントの1つとして通常のコンテンツを含めることをお勧めします。
 - 実行中のステップを更新する前に、すべてのコンポーネントバリアントのパフォーマンスランキングが安定するまで待ってください。つまり、同じバリアントが3〜4日間連続して一貫して勝ち負けしている状態です。これには通常約7日かかり、最適化イベントの数が多いほど、より強力で正確なシグナルが得られます。
 - 早すぎる更新は避けてください。変更を公開するたびにオプティマイザーはリセットされます。ステップが何が効果的かを特定する前に更新すると、その発見を活用することができなくなり、最もパフォーマンスの高い組み合わせに意味のあるトラフィックをシフトする機会が失われます。
@@ -243,7 +243,7 @@ SMS/MMS/RCSステップの場合、サブスクリプショングループとメ
 
 ## 分析 {#analytics}
 
-パフォーマンスを確認するには、ステップレベルの分析パネルを開いて、コンテンツバリアントごとの指標と全体的な組み合わせのパフォーマンスを確認します。コンテンツオプティマイザーステップは、[メッセージステップと同じ分析]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#analytics)を使用します。
+パフォーマンスを確認するには、ステップレベルの分析パネルを開いて、コンテンツバリアントごとの指標と全体的な組み合わせのパフォーマンスを確認します。コンテンツオプティマイザーステップは、[メッセージステップと同じ分析]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#analytics)を使用します。
 
 起動後にステップを更新した場合、送信割り当てチャートには各コンテンツ編集が行われた時点がマークされます。無効化されたバリアントのデータは保持され、分析パネルで引き続き確認できるため、ステップの全期間にわたるパフォーマンスを比較できます。
 
@@ -257,13 +257,13 @@ SMS/MMS/RCSステップの場合、サブスクリプショングループとメ
 
 | 指標 | 説明 |
 | --- | --- |
-| 送信数 | このステップでこのコンポーネントのこのバリアントに帰属する送信数です。[*送信数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#sends)と同じステップレベルの送信カウントを使用します（[組み合わせ別パフォーマンス](#performance-by-combination)テーブル内）。 |
-| 開封数 | このチャネルでこの列が表示される場合、送信後7日以内のこのバリアントの**ユニーク**開封数です。[*ユニーク開封数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-opens)を参照してください。 |
+| 送信数 | このステップでこのコンポーネントのこのバリアントに帰属する送信数です。[*送信数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#sends)と同じステップレベルの送信カウントを使用します（[組み合わせ別パフォーマンス](#performance-by-combination)テーブル内）。 |
+| 開封数 | このチャネルでこの列が表示される場合、送信後7日以内のこのバリアントの**ユニーク**開封数です。[*ユニーク開封数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-opens)を参照してください。 |
 | 開封率 | この列が表示される場合、7日以内に少なくとも1回の適格なユニーク開封を記録したこのバリアントの送信の割合です。 |
-| クリック数 | 送信後7日以内のこのバリアントの**ユニーク**クリック数です。[*合計クリック数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#total-clicks)、[*ユニーククリック数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-clicks)、および[ステップ 5: 最適化イベントを選択する](#step-5-select-optimization-event)を参照してください。 |
+| クリック数 | 送信後7日以内のこのバリアントの**ユニーク**クリック数です。[*合計クリック数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#total-clicks)、[*ユニーククリック数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-clicks)、および[ステップ 5: 最適化イベントを選択する](#step-5-select-optimization-event)を参照してください。 |
 | クリック率 | 7日以内に少なくとも1回の適格なユニーククリックを記録したこのバリアントの送信の割合です。[組み合わせ別パフォーマンス](#performance-by-combination)テーブルと同じステップウィンドウを使用します。詳しくは、[ステップ分析が一般的な分析と異なる理由](#why-step-analytics-differ-from-general-analytics)を参照してください。 |
-| 既読数 | この列が表示される場合（たとえば、既読に対して最適化するRCSの場合）、既読確認が有効な消費者がメッセージを読んだ回数をカウントします。[*既読数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#reads)を参照してください。 |
-| 既読率 | 既読確認が有効なユーザーの中で、このバリアントの送信が既読になった割合です。[*既読率*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#read-rate)を参照してください。 |
+| 既読数 | この列が表示される場合（たとえば、既読に対して最適化するRCSの場合）、既読確認が有効な消費者がメッセージを読んだ回数をカウントします。[*既読数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#reads)を参照してください。 |
+| 既読率 | 既読確認が有効なユーザーの中で、このバリアントの送信が既読になった割合です。[*既読率*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#read-rate)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="コンポーネント別パフォーマンス指標" }
 
 ![コンポーネント別のコンテンツオプティマイザーパフォーマンス分析。コンポーネントごとに個別のテーブルがあり、各バリアントの送信数、クリック数、クリック率が表示されています。]({% image_buster /assets/img/content_optimizer/analytics_performance_by_component.png %})
@@ -276,13 +276,13 @@ SMS/MMS/RCSステップの場合、サブスクリプショングループとメ
 
 | 指標 | 説明 |
 | --- | --- |
-| 送信数 | この組み合わせを使用してこのステップから送信されたメッセージの合計数です。カウントは[*送信数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#sends)と同じ一般的な意味に従い、各組み合わせにスコープされます。 |
-| 開封数 | 送信後7日以内のこの組み合わせのユニーク開封数です。メールのユニーク開封の定義については、[*ユニーク開封数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-opens)を参照してください。 |
+| 送信数 | この組み合わせを使用してこのステップから送信されたメッセージの合計数です。カウントは[*送信数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#sends)と同じ一般的な意味に従い、各組み合わせにスコープされます。 |
+| 開封数 | 送信後7日以内のこの組み合わせのユニーク開封数です。メールのユニーク開封の定義については、[*ユニーク開封数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-opens)を参照してください。 |
 | 開封率 | 7日以内に少なくとも1回の適格なユニーク開封を記録したこの組み合わせの送信の割合です。 |
-| クリック数 | 送信後7日以内のこの組み合わせのユニーククリック数です。Brazeがチャネルごとにクリックを定義する方法については、[*合計クリック数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#total-clicks)および[*ユニーククリック数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-clicks)を参照してください。 |
-| クリック率 | 7日以内に少なくとも1回の適格なユニーククリックを記録したこの組み合わせの送信の割合です。コンテンツオプティマイザーはステップの7日間の重複排除カウントを使用するため、この率は一般的なCampaign分析のクリック率と一致しない場合があります。詳しくは、[ステップ分析が一般的な分析と異なる理由](#why-step-analytics-differ-from-general-analytics)を参照してください。 |
-| [既読数]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#reads) | この列が表示される場合（たとえば、既読に対して最適化するRCSの場合）、既読確認が有効な消費者がメッセージを読んだ回数をカウントします。 |
-| [既読率]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#read-rate) | この列が表示される場合、既読確認が有効なユーザーの中で、この組み合わせの送信が既読になった割合です。 |
+| クリック数 | 送信後7日以内のこの組み合わせのユニーククリック数です。Brazeがチャネルごとにクリックを定義する方法については、[*合計クリック数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#total-clicks)および[*ユニーククリック数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-clicks)を参照してください。 |
+| クリック率 | 7日以内に少なくとも1回の適格なユニーククリックを記録したこの組み合わせの送信の割合です。コンテンツオプティマイザーはステップの7日間の重複排除カウントを使用するため、この率は一般的なキャンペーン分析のクリック率と一致しない場合があります。詳しくは、[ステップ分析が一般的な分析と異なる理由](#why-step-analytics-differ-from-general-analytics)を参照してください。 |
+| [既読数]({{site.baseurl}}/user_guide/analytics/metrics_glossary#reads) | この列が表示される場合（たとえば、既読に対して最適化するRCSの場合）、既読確認が有効な消費者がメッセージを読んだ回数をカウントします。 |
+| [既読率]({{site.baseurl}}/user_guide/analytics/metrics_glossary#read-rate) | この列が表示される場合、既読確認が有効なユーザーの中で、この組み合わせの送信が既読になった割合です。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="組み合わせ別パフォーマンス指標" }
 
 ![組み合わせ別のコンテンツオプティマイザーパフォーマンス分析テーブル。各コンテンツの組み合わせの送信数、クリック数、クリック率が表示されています。]({% image_buster /assets/img/content_optimizer/analytics_performance_by_combination.png %})
@@ -300,5 +300,5 @@ SMS/MMS/RCSステップの場合、サブスクリプショングループとメ
 | 問題 | 説明 | 修正方法 |
 | --- | --- | --- |
 | Liquidタグの欠落 | コンテンツコンポーネント（SubjectやCTAなど）を追加したが、対応するLiquidタグをベースメッセージに挿入していない場合、以下が表示されます：<br>- **Content Optimizer Settings**タブに警告<br>- **Messaging Channels**タブにエラー | **Content Optimizer Settings**タブの各コンポーネントの下に表示されるLiquidスニペットをコピーし、メッセージの適切な部分に貼り付けてください。 |
-| 孤立したLiquidタグ | コンテンツコンポーネントを削除したが、そのLiquidタグがベースメッセージに残っている場合、送信時にメッセージが期待どおりにレンダリングされない可能性があります。 | 起動前に、ベースメッセージから未使用の`message_component`タグを削除してください。 |
+| 孤立したLiquidタグ | コンテンツコンポーネントを削除したが、そのLiquidタグがベースメッセージに残っている場合、送信時にメッセージが期待どおりにレンダリングされない可能性があります。 | 起動前に、ベースメッセージから未使用の `message_component` タグを削除してください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="トラブルシューティング" }

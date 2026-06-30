@@ -14,15 +14,15 @@ tool:
 
 > En général, les images plus petites et de haute qualité se chargent plus rapidement. Nous vous recommandons donc d'utiliser la ressource la plus légère possible pour obtenir le résultat souhaité. Pour optimiser l'utilisation de vos images dans des canaux spécifiques, consultez les détails de cet article.
 
-Vous devriez toujours [prévisualiser et tester vos messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) sur différents appareils pour vérifier que les zones les plus importantes de votre image et de votre message s'affichent comme prévu.
+Vous devriez toujours [prévisualiser et tester vos messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) sur différents appareils pour vérifier que les zones les plus importantes de votre image et de votre message s'affichent comme prévu.
 
 ## Comportement des images {#image-behavior}
 
-{% multi_lang_include image_specs.md variable_name='image behavior' %}
+{% multi_lang_include channels/image_specs.md variable_name='image behavior' %}
 
 ## Vidéo {#video}
 
-Les vidéos téléchargées dans la bibliothèque multimédia ne peuvent être utilisées que dans les messages WhatsApp. Pour en savoir plus, consultez [Créer un message WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#outbound-messages).
+Les vidéos téléchargées dans la bibliothèque multimédia ne peuvent être utilisées que dans les messages WhatsApp. Pour en savoir plus, consultez [Créer un message WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#outbound-messages).
 
 ## GIF {#gifs}
 
@@ -34,19 +34,19 @@ Les GIF sont pris en charge dans les notifications push iOS, les messages in-app
 
 ### Content Cards
 
-{% multi_lang_include image_specs.md variable_name='content cards' %}
+{% multi_lang_include channels/image_specs.md variable_name='content cards' %}
 
 ### E-mail {#email}
 
-{% multi_lang_include image_specs.md variable_name='email' %}
+{% multi_lang_include channels/image_specs.md variable_name='email' %}
 
 ### Messages in-app {#in-app-messages}
 
-{% multi_lang_include image_specs.md variable_name='in-app messages' %}
+{% multi_lang_include channels/image_specs.md variable_name='in-app messages' %}
 
 {% alert tip %} Créez vos ressources en toute confiance ! Nos modèles d'images pour messages in-app et nos superpositions de zones sûres sont conçus pour s'adapter parfaitement aux appareils de toutes tailles. [Télécharger le ZIP des modèles de conception]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}). {% endalert %}
 
-Pour en savoir plus, consultez [Détails créatifs des messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/).
+Pour en savoir plus, consultez [Détails créatifs des messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize).
 
 #### Font Awesome
 
@@ -54,9 +54,9 @@ Braze prend en charge l'utilisation de [Font Awesome v4.3.0](https://fontawesome
 
 ### Notifications push {#push-notifications}
 
-{% multi_lang_include image_specs.md variable_name='payload size' %}
+{% multi_lang_include channels/image_specs.md variable_name='payload size' %}
 
-{% multi_lang_include image_specs.md variable_name='push notifications' %}
+{% multi_lang_include channels/image_specs.md variable_name='push notifications' %}
 
 #### Longueurs de message recommandées {#recommended-message-lengths}
 
@@ -71,7 +71,7 @@ Pour de meilleurs résultats, consultez les recommandations de longueur de messa
 | Tiroir de notifications Android | 597 caractères | N/A |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Longueurs de message recommandées" }
 
-Pour en savoir plus sur le nombre de caractères iOS, consultez les [recommandations de nombre de caractères iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count).
+Pour en savoir plus sur le nombre de caractères iOS, consultez les [recommandations de nombre de caractères iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications#character-count).
 
 #### Notification push Web {#web-push}
 
@@ -140,4 +140,4 @@ Les notifications avec grande image s'affichent de manière optimale avec une im
 {% endtab %}
 {% endtabs %}
 
-Pour des ressources supplémentaires, consultez [Spécifications des images et du texte pour les notifications push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/).
+Pour des ressources supplémentaires, consultez [Spécifications des images et du texte pour les notifications push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats).

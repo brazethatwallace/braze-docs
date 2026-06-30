@@ -18,7 +18,7 @@ Los tres activos de eventos obligatorios (activaciones, interacciones y conversi
 - **Las interacciones** indican al modelo cómo respondieron los clientes al mensaje
 - **Las conversiones** indican al modelo si se logró el resultado de negocio final
 
-Cada uno de estos debe estar estructurado como un flujo de eventos incremental (no una instantánea). Consulta [Instantáneas frente a flujos de eventos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/) para más detalles.
+Cada uno de estos debe estar estructurado como un flujo de eventos incremental (no una instantánea). Consulta [Instantáneas frente a flujos de eventos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams) para más detalles.
 
 {% alert note %}
 Si Decisioning Studio está integrado de forma nativa con tu plataforma de interacción con los clientes (como Braze o Salesforce Marketing Cloud), los datos de activación e interacción pueden recopilarse automáticamente sin configuración adicional. Consulta la documentación de configuración para confirmarlo.

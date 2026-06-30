@@ -30,7 +30,7 @@ Eagle Eye Connect est une intégration bidirectionnelle entre Braze et AIR qui p
 |--------------------------|-------------|
 | Compte AIR Eagle Eye | Vous devez disposer d'un compte AIR Eagle Eye actif pour bénéficier de ce partenariat. Pour commencer, contactez l'équipe des partenariats d'Eagle Eye à [partnerships@eagleeye.com](mailto:partnerships@eagleeye.com). |
 | Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track`. <br><br>Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres > Clés API**. |
-| Endpoint REST Braze | [L'URL de votre endpoint REST](https://www.braze.com/docs/api/basics/#endpoints). Votre endpoint dépend de l'URL Braze de votre instance. |
+| Endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/api/basics/#endpoints). Votre endpoint dépend de l'URL Braze de votre instance. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Sortant et entrant {#outbound-vs-inbound}

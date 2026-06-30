@@ -77,7 +77,7 @@ android.permission.POST_NOTIFICATIONS
 
 ## Paso 1: Crea un mensaje dentro de la aplicación {#step-1-create-an-in-app-message}
 
-Primero, [crea un mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) y luego selecciona tu tipo de mensaje y diseño.
+Primero, [crea un mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) y luego selecciona tu tipo de mensaje y diseño.
 
 Para asegurarte de que tienes suficiente espacio tanto para tu mensaje como para los botones, usa un diseño de mensaje de pantalla completa o modal. Si eliges pantalla completa, ten en cuenta que se requiere una imagen.
 
@@ -97,7 +97,7 @@ Mientras que una aplicación de streaming podría usar lo siguiente:
 Get push notifications from Movie Cannon? Notifications may include new movies, TV shows, or other notices and can be turned off at any time.
 ```
 
-Para mejores prácticas y recursos adicionales, consulta [Crear avisos personalizados de adhesión voluntaria]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/).
+Para mejores prácticas y recursos adicionales, consulta [Crear avisos personalizados de adhesión voluntaria]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
 
 ## Paso 3: Especifica el comportamiento de los botones {#button-actions}
 
@@ -108,7 +108,7 @@ Después de haber añadido el texto de los botones, especifica el comportamiento
 - **Botón 1:** Configúralo como "Close Message". Este es tu botón secundario, o la opción "Ahora no".
 - **Botón 2:** Configúralo como "Request Push Permission". Este es tu botón primario, o la opción "Permitir notificaciones".
 
-![Creador de mensajes dentro de la aplicación con dos botones: "Allow notifications" y "Not now".]({% image_buster /assets/img_archive/push_primer_button_behavior.png %})
+![Creador de mensajes dentro de la aplicación con dos botones: "Permitir notificaciones" y "Ahora no".]({% image_buster /assets/img_archive/push_primer_button_behavior.png %})
 
 ## Paso 4: Planifica la entrega {#step-4-schedule-delivery}
 
@@ -218,4 +218,4 @@ El filtro Liquid `targeted_device` solo mira el dispositivo donde se está mostr
 
 ## Paso 6: Eventos de conversión {#step-6-conversion-events}
 
-Braze sugiere configuraciones predeterminadas para conversiones, pero es posible que quieras configurar [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) relacionados con push primers.
+Braze sugiere configuraciones predeterminadas para conversiones, pero es posible que quieras configurar [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) relacionados con push primers.

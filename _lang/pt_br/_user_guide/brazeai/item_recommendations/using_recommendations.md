@@ -15,7 +15,7 @@ Para um guia passo a passo, confira nosso curso do Braze Learning: [Elaborando e
 
 ## Pré-requisitos {#prerequisites}
 
-Antes de usar recomendações no seu envio de mensagens, você precisará [criar e treinar um motor de recomendações]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/). O treinamento pode levar entre 10 minutos e 36 horas&#8212;você receberá um e-mail quando estiver concluído ou se ocorrer um erro.
+Antes de usar recomendações no seu envio de mensagens, você precisará [criar e treinar um motor de recomendações]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations). O treinamento pode levar entre 10 minutos e 36 horas&#8212;você receberá um e-mail quando estiver concluído ou se ocorrer um erro.
 
 ## Usando recomendações no seu envio de mensagens {#using-recommendations-in-your-messaging}
 

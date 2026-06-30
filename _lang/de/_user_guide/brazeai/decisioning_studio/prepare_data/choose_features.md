@@ -13,7 +13,7 @@ description: "Dieser Referenzartikel behandelt, wie Sie effektive Kund:innen-Fea
 Wenn Sie interne Data-Science- oder Data-Engineering-Teams haben, sind diese am besten geeignet, Features zu konstruieren und zu kuratieren, da sie den meisten Kontext darüber haben, welche Signale in Ihren Daten aussagekräftig sind.
 
 {% alert note %}
-Für Braze-Kund:innen werden Kund:innen-Features typischerweise über angepasste Attribute in Nutzerprofilen an Decisioning Studio übergeben. Details zu angepassten Attributen im Vergleich zu angepassten Events und deren jeweiligen Update-Strategien finden Sie unter [Snapshots versus Event-Streams]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/).
+Für Braze-Kund:innen werden Kund:innen-Features typischerweise über angepasste Attribute in Nutzerprofilen an Decisioning Studio übergeben. Details zu angepassten Attributen im Vergleich zu angepassten Events und deren jeweiligen Update-Strategien finden Sie unter [Snapshots versus Event-Streams]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams).
 {% endalert %}
 
 ## Typen von Kund:innen-Features {#types-of-customer-features}
@@ -35,8 +35,8 @@ Zusammen geben diese Feature-Typen dem Modell die Informationen, die es benötig
 Beachten Sie Folgendes bei der Auswahl und Konstruktion von Features:
 
 - **Abdeckung:** Features sollten alle Kund:innen in Ihrer Zielgruppe abdecken. Ein Feature, das für einen großen Teil Ihrer Zielgruppe fehlt oder null ist, gibt dem Modell für diese Kund:innen weniger Informationen.
-- **Granularität:** Alle Features sollten auf Kund:innenebene aggregiert sein. Siehe [Externe Braze-ID verwenden]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id/) für Hinweise, was „Kund:innenebene“ in der Praxis bedeutet.
-- **Aktualität:** Features sollten nach einem zeitgesteuerten Zeitplan aktualisiert werden, nicht nach einem eventgesteuerten. Siehe [Snapshots versus Event-Streams]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/) für die Gründe.
+- **Granularität:** Alle Features sollten auf Kund:innenebene aggregiert sein. Siehe [Externe Braze-ID verwenden]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id) für Hinweise, was „Kund:innenebene“ in der Praxis bedeutet.
+- **Aktualität:** Features sollten nach einem zeitgesteuerten Zeitplan aktualisiert werden, nicht nach einem eventgesteuerten. Siehe [Snapshots versus Event-Streams]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams) für die Gründe.
 - **Gültigkeit:** Feature-Werte sollten in Bereichen liegen, die angesichts der Definition sinnvoll sind. Ein Feature für „Käufe in den letzten 30 Tagen“ sollte niemals negativ sein.
 - **Spärlichkeit:** Vermeiden Sie Features, die für die überwiegende Mehrheit der Kund:innen null oder leer sind, es sei denn, es gibt einen klaren geschäftlichen Grund. Spärliche Features fügen Rauschen hinzu, ohne Signal beizutragen.
 - **Korrelation:** Vermeiden Sie Features, die stark miteinander korreliert sind. Redundante Features können Verzerrungen einführen und das Training verlangsamen, ohne die Prognosen zu verbessern.

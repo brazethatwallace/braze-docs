@@ -15,11 +15,11 @@ description: "この記事では、メールテンプレートの特定の翻訳
 /templates/translations/email
 {% endapimethod %}
 
-> このエンドポイントを使用して、[メールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/)の特定の翻訳とロケールを表示します。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
+> このエンドポイントを使用して、[メールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates)の特定の翻訳とロケールを表示します。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)を参照してください。
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`templates.translations.get` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`templates.translations.get` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -31,7 +31,7 @@ description: "この記事では、メールテンプレートの特定の翻訳
 |---------------|----------|-----------|---------------------------------|
 | `template_id` | 必須 | 文字列 | メールテンプレートのID。 |
 | `locale_id` | オプション | 文字列 | ロケールのID（UUID）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="クエリパラメーター" }
 
 {% alert note %}
 すべての翻訳IDはユニバーサル一意識別子（UUID）とみなされ、GETエンドポイントの応答で確認できます。

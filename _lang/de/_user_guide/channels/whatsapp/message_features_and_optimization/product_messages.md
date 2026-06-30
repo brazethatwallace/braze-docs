@@ -32,7 +32,7 @@ Wenn Nutzer:innen über Katalognachrichten Artikel zu ihrem Warenkorb hinzufüge
 | WhatsApp Business-Konto | Um WhatsApp-Produktnachrichten zu verwenden, müssen Sie ein WhatsApp Business-Konto haben, das mit Braze verbunden ist. |
 | Meta-Katalog | Sie müssen einen Meta-Katalog in Ihrem Commerce Manager einrichten. |
 | Einhaltung der Nutzungsbedingungen | Halten Sie die [Meta Commerce-Nutzungsbedingungen und -Richtlinien](https://www.facebook.com/policies_center/commerce) ein. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Produktnachrichtentypen {#product-message-types}
 
@@ -90,7 +90,7 @@ Stellen Sie sicher, dass Sie die Braze Business Manager ID `332231937299182` als
 ![WhatsApp Manager-Einstellungsseite für den Katalog „Catalog_products“.]({% image_buster /assets/img/whatsapp/meta_catalog_settings.png %}){: style="max-width:90%;"}
 
 {: start="4"}
-4. Durchlaufen Sie in Braze den [Embedded-Signup]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/)-Prozess, um Berechtigungen zu erteilen. Stellen Sie sicher, dass Sie **alle** Kataloge auswählen, für die Sie Berechtigungen erteilen möchten. Dadurch wird der in Braze integrierte Produktselektor freigeschaltet.
+4. Durchlaufen Sie in Braze den [Embedded-Signup]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup)-Prozess, um Berechtigungen zu erteilen. Stellen Sie sicher, dass Sie **alle** Kataloge auswählen, für die Sie Berechtigungen erteilen möchten. Dadurch wird der in Braze integrierte Produktselektor freigeschaltet.
 
 ![Fenster mit fünf ausgewählten Katalogen zur Erteilung von Berechtigungen.]({% image_buster /assets/img/whatsapp/select_catalogs.png %}){: style="max-width:50%;"}
 
@@ -159,7 +159,7 @@ Wenn Sie referenzierte Produkte aus Ihrem Katalog entfernen, können die zugehö
 
 ## Eingehende Produktanfragen empfangen {#receiving-inbound-product-questions}
 
-Nutzer:innen können auf Ihre Produkt- oder Katalognachricht mit Produktanfragen antworten. Diese kommen als eingehende Nachrichten an, die dann mit einem [Aktions-Pfad]({{site.baseurl}}/action_paths/) sortiert werden können.
+Nutzer:innen können auf Ihre Produkt- oder Katalognachricht mit Produktanfragen antworten. Diese kommen als eingehende Nachrichten an, die dann mit einem [Aktions-Pfad]({{site.baseurl}}/action_paths) sortiert werden können.
 
 Darüber hinaus extrahiert Braze die Produkt-ID und Katalog-ID aus diesen Anfragen. Wenn Sie also Antworten automatisieren oder Anfragen an ein anderes Team (z. B. den Support) weiterleiten möchten, können Sie diese Details einbeziehen. Sie könnten beispielsweise Antworten mit den WhatsApp-Eigenschaften `inbound_product_id` oder `inbound_catalog_id` personalisieren.
 
@@ -196,7 +196,7 @@ Das Warenkorb-Event enthält:
 - **Quelle:** Gekennzeichnet als „whats_app“
 - **Metadaten:** Zusätzliche Daten wie Katalog-ID und Nachrichtentext
 
-Weitere Informationen zu Braze-Warenkorb-Events finden Sie unter [Typen empfohlener E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/#types-of-ecommerce-recommended-events).
+Weitere Informationen zu Braze-Warenkorb-Events finden Sie unter [Typen empfohlener E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events).
 
 ### Eine getriggerte Antwort einrichten {#setting-up-a-triggered-response}
 
@@ -249,7 +249,7 @@ Führen Sie einen API-Aufruf an Ihr E-Commerce-System durch, um eine personalisi
 #### Einrichtung
 
 1. Erstellen Sie eine Webhook-Campaign oder einen Canvas-Schritt, der durch das [`ecommerce.cart_update`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.cart_updated) E-Commerce-Event getriggert wird und die Warenkorbdaten an Ihr E-Commerce-System sendet.
-2. Erstellen Sie eine WhatsApp-Campaign oder einen Canvas-Nachrichtenschritt, der durch dasselbe E-Commerce-Event getriggert wird, um eine WhatsApp-Antwortnachricht mit der Warenkorb-URL an die Nutzer:innen zu senden. Folgen Sie den Anweisungen in der nachfolgenden Antwortnachricht zur Verwendung von [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/).
+2. Erstellen Sie eine WhatsApp-Campaign oder einen Canvas-Nachrichtenschritt, der durch dasselbe E-Commerce-Event getriggert wird, um eine WhatsApp-Antwortnachricht mit der Warenkorb-URL an die Nutzer:innen zu senden. Folgen Sie den Anweisungen in der nachfolgenden Antwortnachricht zur Verwendung von [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content).
 
 ![Diagramm, das den Checkout-Workflow für einen Connected-Content-Aufruf zeigt: Meta sendet eine Bestellungsempfangsnachricht an Braze, das Hin-und-Her-Aufrufe mit einer E-Commerce-Plattform durchführt und dann eine WhatsApp-Nachricht sendet.]({% image_buster /assets/img/whatsapp/connected_content_checkout.png %})
 

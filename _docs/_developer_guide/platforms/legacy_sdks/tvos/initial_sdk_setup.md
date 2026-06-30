@@ -16,7 +16,7 @@ noindex: true
 > This reference article covers how to install the Braze SDK for tvOS. Installing the Braze SDK will provide you with basic analytics functionality.
 
 {% alert note %}
-Our tvOS SDK currently supports analytics functionality. To add a tvOS app in your dashboard, open a [support ticket]({{site.baseurl}}/braze_support/).
+Our tvOS SDK currently supports analytics functionality. To add a tvOS app in your dashboard, open a [support ticket]({{site.baseurl}}/braze_support).
 {% endalert %}
 
 The tvOS Braze SDK should be installed or updated using [CocoaPods](http://cocoapods.org/), a dependency manager for Objective-C and Swift projects. CocoaPods provides added simplicity for integration and updating.
@@ -59,7 +59,7 @@ pod install
 
 At this point, you should be able to open the new Xcode project workspace created by CocoaPods. Make sure to use this Xcode workspace instead of your Xcode project. 
 
-![]({% image_buster /assets/img_archive/podsworkspace.png %})
+![At this point, you should be able to open the new Xcode project workspace created by CocoaPods. Make sure to use this Xcode workspace instead of your Xcode project.]({% image_buster /assets/img_archive/podsworkspace.png %})
 
 ### Step 4: Updating your app delegate
 
@@ -113,7 +113,7 @@ Be sure to initialize Braze in your application's main thread. Initializing asyn
 ### Step 5: Specify your custom endpoint or data cluster
 
 {% alert note %}
-As of December 2019, custom endpoints are no longer given out, if you have a pre-existing custom endpoint, you may continue to use it. For more details, refer to our <a href="{{site.baseurl}}/api/basics/#endpoints">list of available endpoints</a>.
+As of December 2019, custom endpoints are no longer given out, if you have a pre-existing custom endpoint, you may continue to use it. For more details, refer to our <a href="{{site.baseurl}}/api/basics#endpoints">list of available endpoints</a>.
 {% endalert %}
 
 Your Braze representative should have already advised you of the [correct endpoint]({{ site.baseurl }}/user_guide/administrative/access_braze/sdk_endpoints/).
@@ -193,5 +193,5 @@ If you call `startWithApiKey:` in your `didFinishLaunchingWithOptions:` delegate
 You can also integrate our tvOS SDK manually - simply grab the Framework from our [Public Repository](https://github.com/appboy/appboy-ios-sdk) and initialize Braze as outlined in the preceding sections.
 
 ## Identifying users and reporting analytics
-See our [iOS documentation]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=swift) for information about setting user ids, logging custom events, setting user attributes. We also recommend familiarizing yourself with our [event naming conventions]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/).
+See our [iOS documentation]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=swift) for information about setting user ids, logging custom events, setting user attributes. We also recommend familiarizing yourself with our [event naming conventions]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
 

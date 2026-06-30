@@ -24,17 +24,17 @@ tvOS is not currently available via Swift Package Manager.
 
 Open your project and navigate to your project's settings. Select the **Swift Packages** tab and click on the <i class="fas fa-plus"></i> add button below the packages list.
 
-![]({% image_buster /assets/img/ios/spm/swiftpackages.png %})
+![Xcode project settings with the Swift Packages tab selected.]({% image_buster /assets/img/ios/spm/swiftpackages.png %})
 
 When importing SDK version `3.33.1` or later, enter the URL of our iOS SDK repository (`https://github.com/braze-inc/braze-ios-sdk`) in the text field and click **Next**. 
 
 For versions `3.29.0` through `3.32.0`, use the URL `https://github.com/Appboy/Appboy-ios-sdk`.
 
-![]({% image_buster /assets/img/ios/spm/importsdk_example.png %})
+![Xcode Add Package dependency dialog for the Braze iOS SDK repository URL.]({% image_buster /assets/img/ios/spm/importsdk_example.png %})
 
 On the next screen, select the SDK version and click **Next**. Versions `3.29.0` and later are compatible with Swift Package Manager.
 
-![]({% image_buster /assets/img/ios/spm/select_version.png %})
+![Xcode package version selection for the Braze iOS SDK.]({% image_buster /assets/img/ios/spm/select_version.png %})
 
 ### Select packages
 
@@ -49,13 +49,13 @@ Select the package that best suits your needs and click **Finish**. Make sure yo
   - Include this package if you have integrated Push Stories in your app. This is supported as of version `3.31.0`.
   - In the dropdown under `Add to Target`, select your `ContentExtension` target instead of your main app's target. 
 
-![]({% image_buster /assets/img/ios/spm/add_package.png %})
+![Xcode Add Package screen selecting Braze SDK library targets.]({% image_buster /assets/img/ios/spm/add_package.png %})
 
 ## Step 2: Configuring your project
 
 Next, navigate to your project **build settings** and add the `-ObjC` flag to the **Other Linker Flags** setting. This flag must be added and any [errors](https://developer.apple.com/library/archive/qa/qa1490/_index.html) resolved in order to further integrate the SDK.
 
-![]({% image_buster /assets/img/ios/spm/buildsettings.png %})
+![Xcode build settings showing the Other Linker Flags field.]({% image_buster /assets/img/ios/spm/buildsettings.png %})
 
 {% alert note %}
 If you do not add the `-ObjC` flag, parts of the API may become missing and behavior will be undefined. You may encounter unexpected errors such as "unrecognized selector sent to class", application crashes, and other issues.
@@ -77,9 +77,9 @@ bash "$BUILT_PRODUCTS_DIR/Appboy_iOS_SDK_AppboyKit.bundle/Appboy.bundle/appboy-s
 bash "$BUILT_PRODUCTS_DIR/Appboy_iOS_SDK_AppboyKit.bundle/Contents/Resources/Appboy.bundle/appboy-spm-cleanup.sh"
 ```
 
-![]({% image_buster /assets/img/ios/spm/swiftmanager_buildmenu.png %})
+![Xcode Build Phases menu for adding a run script build phase.]({% image_buster /assets/img/ios/spm/swiftmanager_buildmenu.png %})
 
 ## Next steps
 
-Follow the instructions for [completing the integration]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/completing_integration/).
+Follow the instructions for [completing the integration]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/completing_integration).
 

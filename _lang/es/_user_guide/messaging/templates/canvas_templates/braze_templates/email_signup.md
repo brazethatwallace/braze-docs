@@ -17,13 +17,13 @@ Este artículo te guiará a través de un caso de uso de la plantilla **Registro
 
 Para usar esta plantilla con éxito, necesitas lo siguiente:
 
-- Un [mensaje dentro de la aplicación de varias páginas]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/#multi-page) con una página para capturar los correos electrónicos de tus usuarios y otra para comunicar un mensaje de éxito.
+- Un [mensaje dentro de la aplicación de varias páginas]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#multi-page) con una página para capturar los correos electrónicos de tus usuarios y otra para comunicar un mensaje de éxito.
 - Un correo electrónico de confirmación para que los usuarios verifiquen su dirección de correo electrónico.
 - Un correo electrónico de bienvenida con un código promocional exclusivo para los usuarios que completen la doble adhesión voluntaria.
 
 ## Adaptar la plantilla a tus necesidades {#tailoring-the-template-to-your-needs}
 
-Supongamos que trabajas para Steppington, una aplicación de salud conocida por sus características como el seguimiento de calorías, clases de ejercicio digitales y maratones flash mob. Antes de crear el Canvas, [configuras mensajes dentro de la aplicación y en el explorador de varias páginas]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/#multi-page) que incluyen una serie de preguntas atractivas para determinar la experiencia e impresión de la primera interacción de un usuario con la aplicación.
+Supongamos que trabajas para Steppington, una aplicación de salud conocida por sus características como el seguimiento de calorías, clases de ejercicio digitales y maratones flash mob. Antes de crear el Canvas, [configuras mensajes dentro de la aplicación y en el explorador de varias páginas]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#multi-page) que incluyen una serie de preguntas atractivas para determinar la experiencia e impresión de la primera interacción de un usuario con la aplicación.
 
 Para acceder a la plantilla, al crear un nuevo Canvas, selecciona **Use a Canvas template** > **Braze templates**. Luego, junto a **Email sign-up with double opt-in**, selecciona **Apply Template**. Ahora podemos recorrer la plantilla para adaptarla a nuestras necesidades.
 
@@ -64,7 +64,7 @@ Para la **Entry Window**, actualiza la **Started Time (Required)** a la fecha y 
 
 ### Paso 4: Seleccionar la audiencia objetivo {#step-4-select-the-target-audience}
 
-Define tu audiencia objetivo como usuarios de Steppington que no tienen una dirección de correo electrónico en su perfil de usuario manteniendo el [filtro de segmentación]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) predeterminado de la plantilla `Email Available is false`.
+Define tu audiencia objetivo como usuarios de Steppington que no tienen una dirección de correo electrónico en su perfil de usuario manteniendo el [filtro de segmentación]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) predeterminado de la plantilla `Email Available is false`.
 
 ![Audiencia de entrada con el filtro "Email Available is false".]({% image_buster /assets/img/canvas_templates/email_signup6.png %}){: style="max-width:90%;"}
 
@@ -76,7 +76,7 @@ Mantén los ajustes de suscripción predeterminados para enviar solo a usuarios 
 
 ### Paso 6: Personalizar tu Canvas {#step-6-customize-your-canvas}
 
-A continuación, construye el Canvas personalizando los canales y el contenido que quieres enviar a los usuarios. Como te estás enfocando en verificar los registros de correo electrónico, no necesitas añadir ni eliminar ninguno de los pasos ni canales de Canvas de la plantilla.
+A continuación, construye el Canvas personalizando los canales y el contenido que quieres enviar a los usuarios. Como te estás enfocando en verificar los registros de correo electrónico, no necesitas añadir ni eliminar ninguno de los pasos en Canvas ni canales de la plantilla.
 
 1. Selecciona el primer paso de mensaje llamado **Email Sign-up**. Aquí es donde actualizas la plantilla para usar nuestro mensaje dentro de la aplicación (y en el explorador) de varias páginas.
 
@@ -105,5 +105,5 @@ El paso de mensaje **Verify Email** se desencadena en la segunda sesión del usu
 Después de probar y revisar tu Canvas para asegurarte de que funciona como se espera, lánzalo seleccionando **Launch Canvas**.
 
 {% alert tip %}
-Consulta nuestra [lista de verificación previa y posterior al lanzamiento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) para conocer las cosas a considerar antes y después de lanzar un Canvas.
+Consulta nuestra [lista de verificación previa y posterior al lanzamiento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) para conocer las cosas a considerar antes y después de lanzar un Canvas.
 {% endalert %}

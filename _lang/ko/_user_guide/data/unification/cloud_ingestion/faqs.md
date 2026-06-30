@@ -17,7 +17,7 @@ toc_headers: h2
 
 ### CDI가 자격 증명을 사용하여 데이터 웨어하우스 또는 테이블에 액세스할 수 없습니다 {#cdi-cant-access-the-data-warehouse-or-table-using-your-credentials}
 
-이는 CDI의 자격 증명이 잘못되었거나 데이터 웨어하우스에서 잘못 구성되었음을 의미할 수 있습니다. 자세한 내용은 [데이터 웨어하우스 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/)을 참조하세요.
+이는 CDI의 자격 증명이 잘못되었거나 데이터 웨어하우스에서 잘못 구성되었음을 의미할 수 있습니다. 자세한 내용은 [데이터 웨어하우스 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations)을 참조하세요.
 
 ### 테이블을 찾을 수 없습니다 {#the-table-cannot-be-found}
 
@@ -41,9 +41,9 @@ toc_headers: h2
 
 ### Snowflake 인스턴스에 연결하는 중 오류 발생: 해당 IP의 수신 요청은 Snowflake에 액세스할 수 없습니다 {#error-connecting-to-snowflake-instance-incoming-request-with-ip-is-not-allowed-to-access-snowflake}
 
-공식 Braze IP를 IP 허용 목록에 추가해 보세요. 자세한 내용은 [데이터 웨어하우스 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/)을 참조하거나 관련 IP를 허용하세요:
+공식 Braze IP를 IP 허용 목록에 추가해 보세요. 자세한 내용은 [데이터 웨어하우스 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations)을 참조하거나 관련 IP를 허용하세요:
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### 고객 구성으로 인해 SQL 실행 중 오류 발생: 002003 (42S02): SQL 컴파일 오류: 존재하지 않거나 권한이 없습니다 {#error-executing-sql-due-to-customer-config-002003-42s02-sql-compilation-error-does-not-exist-or-not-authorized}
 
@@ -71,7 +71,7 @@ toc_headers: h2
 
 테스트 연결은 데이터 웨어하우스에서 실행되므로 웨어하우스 용량을 늘리면 속도가 향상될 수 있습니다. 서버리스 SQL 인스턴스를 사용하면 워밍업 시간을 최소화하고 쿼리 처리량을 향상시킬 수 있지만, 통합 비용이 약간 증가할 수 있습니다.
 
-### 관계 {table_name}에 대한 권한이 거부되었습니다 {#permission-denied-for-relation-tablename}
+### 관계 {table_name}에 대한 권한이 거부되었습니다 {#permission-denied-for-relation-table_name}
 
 이 오류가 발생하는 경우:
 
@@ -132,7 +132,7 @@ toc_headers: h2
 
 각 통합에는 고유한 알림 기본 설정이 있습니다. CDI 페이지로 이동하여 업데이트할 통합 이름을 선택하세요. **알림 환경설정** 섹션에서 선택한 통합에 관한 알림 수신 방법을 업데이트할 수 있습니다.
 
-## 미래의 UPDATED_AT이 통합과 동기화되면 어떻게 되나요? {#what-happens-if-a-future-updatedat-gets-synced-with-an-integration}
+## 미래의 UPDATED_AT이 통합과 동기화되면 어떻게 되나요? {#what-happens-if-a-future-updated_at-gets-synced-with-an-integration}
 
 CDI는 `UPDATED_AT`을 사용하여 어떤 데이터가 새로운 데이터인지 결정합니다. 미래의 `UPDATED_AT`이 동기화되면 해당 미래 날짜 및 시간 이전의 모든 데이터는 처리되지 않습니다. 이 문제를 해결하려면:
 
@@ -142,7 +142,7 @@ CDI는 `UPDATED_AT`을 사용하여 어떤 데이터가 새로운 데이터인�
 
 ## "동기화된 행 수"가 웨어하우스의 숫자와 일치하지 않는 이유는 무엇인가요? {#why-doesnt-rows-synced-match-the-number-in-my-warehouse}
 
-CDI는 `UPDATED_AT`을 사용하여 동기화 중에 어떤 레코드를 가져올지 결정합니다. [이 그림]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/#what-gets-synced)을 통해 작동 방식을 확인하세요. 동기화 실행 시작 시, CDI는 웨어하우스에 쿼리하여 이전에 처리된 `UPDATED_AT` 값보다 이후의 모든 레코드를 가져옵니다. 정확한 경계 타임스탬프에 있는 레코드도 새 행이 해당 타임스탬프를 공유하는 경우 다시 동기화될 수 있습니다. 쿼리가 실행되는 시점에 수집된 모든 레코드는 Braze에 동기화됩니다. 다음은 레코드가 동기화되지 않을 수 있는 일반적인 경우입니다:
+CDI는 `UPDATED_AT`을 사용하여 동기화 중에 어떤 레코드를 가져올지 결정합니다. [이 그림]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion#what-gets-synced)을 통해 작동 방식을 확인하세요. 동기화 실행 시작 시, CDI는 웨어하우스에 쿼리하여 이전에 처리된 `UPDATED_AT` 값보다 이후의 모든 레코드를 가져옵니다. 정확한 경계 타임스탬프에 있는 레코드도 새 행이 해당 타임스탬프를 공유하는 경우 다시 동기화될 수 있습니다. 쿼리가 실행되는 시점에 수집된 모든 레코드는 Braze에 동기화됩니다. 다음은 레코드가 동기화되지 않을 수 있는 일반적인 경우입니다:
 
 - 이미 처리된 `UPDATED_AT` 값으로 테이블에 레코드를 추가하고 있습니다.
 - 동기화를 통해 레코드 값이 처리된 후 업데이트하면서 `UPDATED_AT`은 변경하지 않고 그대로 두고 있습니다.
@@ -152,11 +152,11 @@ CDI는 `UPDATED_AT`을 사용하여 동기화 중에 어떤 레코드를 가져�
 앞으로 이러한 동작을 방지하려면 단조롭게 증가하는 `UPDATED_AT` 값을 사용하고 스케줄된 동기화 실행 중에 테이블을 업데이트하지 않는 것이 좋습니다.
 {% endalert %}
 
-## 대규모 CDI 가져오기에 대부분 고유한 `UPDATED_AT` 값이 필요한가요? {#do-i-need-mostly-distinct-updatedat-values-for-large-cdi-imports}
+## 대규모 CDI 가져오기에 대부분 고유한 `UPDATED_AT` 값이 필요한가요? {#do-i-need-mostly-distinct-updated_at-values-for-large-cdi-imports}
 
 네. 대용량 실행(예: 약 1,000만 행 이상)의 경우 소스 데이터에 대부분 고유한 `UPDATED_AT` 값이 있는지 확인하세요. 너무 많은 행이 동일한 타임스탬프를 공유하면 CDI가 이후 실행에서 경계 타임스탬프의 행을 다시 선택할 가능성이 높아집니다. 이로 인해 중복 동기화 및 데이터 포인트 소비가 증가할 수 있습니다.
 
-CDI 경계 동작에 대한 자세한 내용은 [중복 타임스탬프가 있는 행의 재동기화 방지]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps)를 참조하세요.
+CDI 경계 동작에 대한 자세한 내용은 [중복 타임스탬프가 있는 행의 재동기화 방지]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps)를 참조하세요.
 
 ### 이러한 SQL 검사는 어디에서 실행하나요? {#where-do-i-run-these-sql-checks}
 
@@ -206,7 +206,7 @@ LIMIT 20;
 
 ## 적은 수의 행으로도 CDI 동기화에 여전히 몇 분이 걸리는 이유는 무엇인가요? {#why-can-a-cdi-sync-with-a-small-number-of-rows-still-take-several-minutes}
 
-CDI 동기화에는 행 처리가 시작되기 전에 고정된 시작 시간이 포함됩니다. 이 시작 시간은 동기화 크기에 관계없이 유사하기 때문에, 적은 수의 동기화도 여전히 몇 분이 걸릴 수 있으며 분당 행 수 기준으로 더 느리게 보일 수 있습니다. 전체 동기화 시간은 소스 쿼리 복잡성, 데이터 형태 및 데이터 웨어하우스의 가용 용량에 따라 달라집니다. 자세한 내용은 [데이터 웨어하우스 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/)을 참조하세요.
+CDI 동기화에는 행 처리가 시작되기 전에 고정된 시작 시간이 포함됩니다. 이 시작 시간은 동기화 크기에 관계없이 유사하기 때문에, 적은 수의 동기화도 여전히 몇 분이 걸릴 수 있으며 분당 행 수 기준으로 더 느리게 보일 수 있습니다. 전체 동기화 시간은 소스 쿼리 복잡성, 데이터 형태 및 데이터 웨어하우스의 가용 용량에 따라 달라집니다. 자세한 내용은 [데이터 웨어하우스 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations)을 참조하세요.
 
 ## 동기화 중에 여러 레코드가 동일한 ID를 공유하는 경우 순서가 유지되나요? {#during-a-sync-is-the-order-preserved-if-multiple-records-share-the-same-id}
 
@@ -234,4 +234,4 @@ Braze는 CDI에 대해 다음과 같은 조치를 취하고 있습니다:
 사용자와 팀에서 다음과 같은 보안 조치를 설정하는 것이 좋습니다:
 
 - 자격 증명 액세스를 CDI 작동에 필요한 최소한으로 제한하세요. 특정 테이블 및 뷰에서 select(및 count)를 실행할 수 있어야 하기 때문입니다.
-- 테이블에 액세스할 수 있는 IP를 공식적으로 게시된 [Braze IP]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)로 제한하세요.
+- 테이블에 액세스할 수 있는 IP를 공식적으로 게시된 [Braze IP]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)로 제한하세요.

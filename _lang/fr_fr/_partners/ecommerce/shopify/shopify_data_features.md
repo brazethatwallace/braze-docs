@@ -14,7 +14,7 @@ page_order: 4
 
 ## Événements Shopify suivis {#tracked-shopify-events}
 
-L'intégration Shopify utilise les [événements recommandés pour l'eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/) pour capturer les principaux comportements d'achat. Pour des exemples de mise en œuvre et des stratégies marketing utilisant ces événements, consultez les [cas d'utilisation eCommerce]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/).
+L'intégration Shopify utilise les [événements recommandés pour l'eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) pour capturer les principaux comportements d'achat. Pour des exemples de mise en œuvre et des stratégies marketing utilisant ces événements, consultez les [cas d'utilisation eCommerce]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases).
 
 {% multi_lang_include alerts/important_alerts.md alert='Shopify customer create' %}
 
@@ -473,7 +473,7 @@ Vous pouvez ensuite ajouter les étiquettes Liquid de panier d'achat suivantes d
 {% endraw %}
 
 {% alert tip %}
-Pour en savoir plus sur la création d'une boucle Liquid `for` permettant d'ajouter dynamiquement tous les produits dans votre e-mail, consultez la section [Personnalisation des produits du panier abandonné pour les e-mails]({{site.baseurl}}/ecommerce_use_cases/#abandoned-cart).
+Pour en savoir plus sur la création d'une boucle Liquid `for` permettant d'ajouter dynamiquement tous les produits dans votre e-mail, consultez la section [Personnalisation des produits du panier abandonné pour les e-mails]({{site.baseurl}}/ecommerce_use_cases#abandoned-cart).
 {% endalert %}
 
 {% endsubtab %}
@@ -482,7 +482,7 @@ Pour en savoir plus sur la création d'une boucle Liquid `for` permettant d'ajou
 **Type** : Événement recommandé<br>
 **Déclenché** : Lorsqu'un utilisateur accède à la page de paiement<br>
 **Source de données** : REST API Braze<br>
-**Cas d'utilisation** : Abandon du paiement
+**Cas d'utilisation** : Abandon de paiement
 
 {% alert important %}
 Si un client utilise Shop Pay comme option de paiement accéléré, Shopify peut contourner certains événements de paiement standard (comme le webhook Shopify checkout started). Braze risque alors de ne pas recevoir les données nécessaires pour ajouter l'alias du jeton de paiement, ce qui peut impacter le suivi de l'abandon de paiement et la réconciliation des profils utilisateurs.
@@ -548,13 +548,13 @@ Vous pouvez ensuite ajouter les étiquettes Liquid suivantes dans votre message 
 {% endraw %}
 
 {% alert tip %}
-Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'URL d'images. Vous devez donc utiliser la personnalisation Liquid via les Catalogues, comme décrit dans la section [Personnalisation des produits du panier abandonné pour les e-mails]({{site.baseurl}}/ecommerce_use_cases/#order-confirmation-and-feedback-survey).
+Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'URL d'images. Vous devez donc utiliser la personnalisation Liquid via les Catalogues, comme décrit dans la section [Personnalisation des produits du panier abandonné pour les e-mails]({{site.baseurl}}/ecommerce_use_cases#order-confirmation-and-feedback-survey).
 {% endalert %}
 
 {% endsubtab %}
 {% subtab Fulfilled order %}
 **Événement** : `shopify_fulfilled_order`<br>
-**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Déclenché** : Lorsque la commande d'un utilisateur est exécutée et prête à être expédiée<br>
 **Source de données** : REST API Braze<br>
 **Cas d'utilisation** : (Transactionnel) Mise à jour de l'exécution
@@ -605,7 +605,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 {% endsubtab %}
 {% subtab Partially fulfilled order %}
 **Événement** : `shopify_partially_fulfilled_order`<br>
-**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Déclenché** : Lorsqu'une partie de la commande d'un utilisateur est exécutée et prête à être expédiée<br>
 **Source de données** : REST API Braze<br>
 **Cas d'utilisation** : (Transactionnel) Mise à jour de l'exécution
@@ -656,7 +656,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 {% endsubtab %}
 {% subtab Paid order %}
 **Événement** : `shopify_paid_order`<br>
-**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Déclenché** : Lorsque la commande d'un utilisateur est marquée comme payée dans Shopify<br>
 **Source de données** : REST API Braze<br>
 **Cas d'utilisation** : (Transactionnel) Confirmation de paiement
@@ -753,7 +753,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 {% subtab Account login %}
 
 **Événement** : `shopify_account_login`<br>
-**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Déclenché** : Lorsqu'un utilisateur se connecte à son compte<br>
 **Source de données** : REST API Braze<br>
 **Cas d'utilisation** : Série de bienvenue
@@ -766,7 +766,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 {% endraw %}
 
 {% alert note %}
-L'intégration Shopify ne prend actuellement pas en charge le remplissage de l'[événement d'achat]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-events) Braze. Par conséquent, les filtres d'achat, les étiquettes Liquid, les déclencheurs basés sur l'action et les analyses doivent utiliser l'événement `ecommerce.order_placed`.
+L'intégration Shopify ne prend actuellement pas en charge le remplissage de l'[événement d'achat]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-events) Braze. Par conséquent, les filtres d'achat, les étiquettes Liquid, les déclencheurs basés sur l'action et les analyses doivent utiliser l'événement `ecommerce.order_placed`.
 {% endalert %}
 
 {% endsubtab %}
@@ -849,13 +849,13 @@ Braze ne met à jour les attributs personnalisés Shopify et les attributs stand
 
 ## Collecte de données SDK {#sdk-data-collection}
 
-Pour plus d'informations sur les données collectées par les SDK Braze, consultez la section [Collecte de données SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
+Pour plus d'informations sur les données collectées par les SDK Braze, consultez la section [Collecte de données SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
 
 ## Backfill historique {#historical-backfill}
 
 > Les données historiques Shopify sont importées avant la connexion de Braze : les événements de commande des 90 derniers jours et les données clients de l'année écoulée. Les deux périodes sont calculées à partir de la date à laquelle vous finalisez votre intégration.
 
-Via la [configuration de l'intégration standard Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/) ou la [configuration de l'intégration personnalisée Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/), vous pouvez activer le backfill historique pour cibler vos anciens clients. Cette fonctionnalité importe vos commandes Shopify (événements liés aux commandes) des 90 derniers jours et les profils utilisateurs de l'année écoulée. Les deux périodes sont calculées à partir de la date à laquelle vous finalisez votre intégration.
+Via la [configuration de l'intégration standard Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration) ou la [configuration de l'intégration personnalisée Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration), vous pouvez activer le backfill historique pour cibler vos anciens clients. Cette fonctionnalité importe vos commandes Shopify (événements liés aux commandes) des 90 derniers jours et les profils utilisateurs de l'année écoulée. Les deux périodes sont calculées à partir de la date à laquelle vous finalisez votre intégration.
 
 Lorsque Braze importe vos clients Shopify, le type d'`external_id` que vous avez choisi dans vos paramètres de configuration leur est attribué.
 
@@ -863,7 +863,7 @@ Lorsque Braze importe vos clients Shopify, le type d'`external_id` que vous avez
 Si vous êtes déjà client Braze avec des Campaigns ou des Canvas actifs, vérifiez l'impact des clients et événements de commande importés sur vos Segments et parcours avant d'activer le backfill historique.
 {% endalert %}
 
-{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
+{% multi_lang_include partners/shopify.md section='Custom external ID historical backfill' %}
 
 ### Mise en place du backfill historique Shopify {#setting-up-shopify-historical-backfill}
 

@@ -39,12 +39,12 @@ hide_toc: true
 이메일 크레딧 비율은 Braze 플랫폼에서 발송된 이메일 1,000건(CPM) 단위로 산정됩니다.
 
 {% alert note %}
-이메일 채널에 대해 자세히 알아보려면 [이메일 설명서](https://www.braze.com/docs/user_guide/message_building_by_channel/email)를 참조하세요.
+이메일 채널에 대해 자세히 알아보려면 [이메일 설명서]({{site.baseurl}}/user_guide/message_building_by_channel/email/)를 참조하세요.
 {% endalert %}
 
 ## SMS, MMS 및 RCS 채널 세부 정보 {#sms-mms-and-rcs-channel-details}
 
-SMS 및 MMS 크레딧 비율은 Braze 플랫폼에서 발송된 인바운드 또는 아웃바운드 메시지 세그먼트 단위로 산정됩니다. RCS 크레딧 비율은 Braze 플랫폼에서 발송된 Basic 또는 Single 유형 단위로 산정됩니다.
+SMS 및 MMS 크레딧 비율은 Braze 플랫폼에서 발송된 세그먼트 단위로 산정됩니다. RCS 크레딧 비율은 Braze 플랫폼에서 전달된 Basic 및 Rich Media 유형 또는 Single 및 Rich Media 유형 단위로 산정됩니다. 인바운드 및 아웃바운드 유형 모두 청구 대상입니다.
 
 {% alert note %}
 해당 채널에 적용되는 경우, 통신사 수수료는 별도로 후불 청구되며 액션 크레딧의 일부로 간주되지 않습니다.
@@ -69,7 +69,7 @@ RCS는 SMS와 MMS의 차세대 기술입니다. SMS와 같은 직접적이고 �
     - **Rich Media RCS(미국 전용):** 모든 미디어 또는 더 풍부한 제안/버튼(웹뷰, 위치, 캘린더 등)이 포함된 텍스트, 하나의 메시지로 계산
 
 {% alert note %}
-SMS 제품군에 대해 자세히 알아보려면 [SMS 및 MMS 설명서](https://www.braze.com/docs/user_guide/message_building_by_channel/sms)를 참조하세요.
+SMS 제품군에 대해 자세히 알아보려면 [SMS 및 MMS 설명서]({{site.baseurl}}/user_guide/message_building_by_channel/sms/)를 참조하세요.
 {% endalert %}
 
 ## WhatsApp 채널 세부 정보 {#whatsapp-channel-details}
@@ -107,7 +107,7 @@ SMS 제품군에 대해 자세히 알아보려면 [SMS 및 MMS 설명서](https:
 오스트리아, 벨기에, 덴마크, 핀란드, 아일랜드, 노르웨이, 포르투갈, 스웨덴, 스위스
 
 {% alert note %}
-WhatsApp 제품에 대해 자세히 알아보려면 [WhatsApp 설명서](https://www.braze.com/docs/user_guide/message_building_by_channel/whatsapp)를 참조하세요.
+WhatsApp 제품에 대해 자세히 알아보려면 [WhatsApp 설명서]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/)를 참조하세요.
 {% endalert %}
 
 ## 에이전트 콘솔 세부 정보 {#agent-console-details}
@@ -115,7 +115,7 @@ WhatsApp 제품에 대해 자세히 알아보려면 [WhatsApp 설명서](https:/
 에이전트 콘솔 크레딧 비율은 Braze 플랫폼에서 수행된 1,000건의 호출(Invocation) 단위로 산정됩니다. 호출은 에이전트가 LLM에 대한 호출을 시작할 때 기록됩니다. 기본적으로 계약에는 구독 기간의 각 기간별로 플랫폼 에디션에 명시된 호출 할당량이 포함됩니다. 추가 호출은 주문서에 따라 청구됩니다.
 
 {% alert note %}
-에이전트 콘솔에 대해 자세히 알아보려면 [Braze 에이전트 설명서](https://www.braze.com/docs/user_guide/brazeai/agents)를 참조하세요.
+에이전트 콘솔에 대해 자세히 알아보려면 [Braze 에이전트 설명서]({{site.baseurl}}/user_guide/brazeai/agents/)를 참조하세요.
 {% endalert %}
 
 ## 추가 채널 세부 정보 {#additional-channel-details}
@@ -125,7 +125,7 @@ WhatsApp 제품에 대해 자세히 알아보려면 [WhatsApp 설명서](https:/
 LINE 크레딧 비율은 Braze 플랫폼에서 발송된 LINE 메시지 단위로 산정됩니다.
 
 {% alert note %}
-Braze에서 LINE을 사용하는 방법에 대해 자세히 알아보려면 [LINE 설명서](https://www.braze.com/docs/user_guide/message_building_by_channel/line)를 참조하세요.
+Braze에서 LINE을 사용하는 방법에 대해 자세히 알아보려면 [LINE 설명서]({{site.baseurl}}/user_guide/message_building_by_channel/line/)를 참조하세요.
 {% endalert %}
 
 ### KakaoTalk {#kakaotalk}
@@ -133,7 +133,7 @@ Braze에서 LINE을 사용하는 방법에 대해 자세히 알아보려면 [LIN
 KakaoTalk 크레딧 비율은 Braze 플랫폼에서 발송된 KakaoTalk 메시지 단위로 산정됩니다.
 
 {% alert note %}
-Braze에서 KakaoTalk을 사용하는 방법에 대해 자세히 알아보려면 [KakaoTalk 설명서](https://braze.com/docs/kakaotalk/)를 참조하세요.
+Braze에서 KakaoTalk을 사용하는 방법에 대해 자세히 알아보려면 [KakaoTalk 설명서]({{site.baseurl}}/kakaotalk/)를 참조하세요.
 {% endalert %}
 
 ### Content Cards {#content-cards}
@@ -146,7 +146,7 @@ Braze는 고객이 Braze의 안내에 따라 고유 노출 횟수를 기록하�
     - 발송 대비 일일 고유 노출 횟수 비율이 100을 초과
 
 {% alert note %}
-Braze Content Cards에 대해 자세히 알아보려면 [Content Cards 설명서](https://www.braze.com/docs/user_guide/message_building_by_channel/content_cards)를 참조하세요.
+Braze Content Cards에 대해 자세히 알아보려면 [Content Cards 설명서]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/)를 참조하세요.
 {% endalert %}
 
 ### 배너 {#banners}
@@ -154,7 +154,7 @@ Braze Content Cards에 대해 자세히 알아보려면 [Content Cards 설명서
 배너 크레딧 비율은 일일 고유 노출 횟수 1,000건 단위로 산정됩니다.
 
 {% alert note %}
-Braze 배너에 대해 자세히 알아보려면 [배너 설명서](https://braze.com/docs/developer_guide/banner_cards)를 참조하세요.
+Braze 배너에 대해 자세히 알아보려면 [배너 설명서]({{site.baseurl}}/developer_guide/banner_cards/)를 참조하세요.
 {% endalert %}
 
 ### 오디언스 싱크 {#audience-sync}
@@ -162,7 +162,7 @@ Braze 배너에 대해 자세히 알아보려면 [배너 설명서](https://braz
 오디언스 싱크 크레딧 비율은 총 사용자 동기화 1,000건 단위로 산정됩니다. 기본적으로 계약에는 구독 기간의 각 기간별로 5,000,000건의 사용자 동기화가 포함됩니다. 추가 사용자 동기화는 주문서에 따라 청구됩니다.
 
 {% alert note %}
-Canvas 오디언스 싱크 및 사용 가능한 파트너에 대해 자세히 알아보려면 [Canvas 설명서](https://www.braze.com/docs/partners/canvas_steps)를 참조하세요.
+Canvas 오디언스 싱크 및 사용 가능한 파트너에 대해 자세히 알아보려면 [Canvas 설명서]({{site.baseurl}}/partners/canvas_steps/)를 참조하세요.
 {% endalert %}
 
 ### 메시지 아카이브 {#message-archiving}
@@ -170,7 +170,7 @@ Canvas 오디언스 싱크 및 사용 가능한 파트너에 대해 자세히 �
 메시지 아카이브 크레딧 비율은 푸시, 이메일, SMS/MMS 채널에 걸쳐 아카이브된 메시지 1,000건 단위로 산정됩니다.
 
 {% alert note %}
-메시지 아카이브에 대해 자세히 알아보려면 [메시지 아카이브 설명서](https://www.braze.com/docs/user_guide/data/export_braze_data/message_archiving#message-archiving)를 참조하세요.
+메시지 아카이브에 대해 자세히 알아보려면 [메시지 아카이브 설명서]({{site.baseurl}}/user_guide/data/export_braze_data/message_archiving/#message-archiving)를 참조하세요.
 {% endalert %}
 
 ### 웹훅 {#webhooks}
@@ -178,5 +178,5 @@ Canvas 오디언스 싱크 및 사용 가능한 파트너에 대해 자세히 �
 웹훅 크레딧 비율은 Braze 플랫폼에서 발송된 웹훅 1,000건 단위로 산정됩니다. 기본적으로 계약에는 구독 기간의 각 기간별로 100,000건의 웹훅이 포함됩니다. 추가 웹훅은 주문서에 따라 청구됩니다.
 
 {% alert note %}
-Braze 웹훅에 대해 자세히 알아보려면 [웹훅 설명서](https://www.braze.com/docs/user_guide/message_building_by_channel/webhooks)를 참조하세요.
+Braze 웹훅에 대해 자세히 알아보려면 [웹훅 설명서]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/)를 참조하세요.
 {% endalert %}

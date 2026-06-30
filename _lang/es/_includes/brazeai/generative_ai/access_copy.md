@@ -1,0 +1,1 @@
+En cualquier creador de mensajes, abre Operator para redactar y perfeccionar textos de marketing. Describe tu producto o campaña, y Operator devuelve un texto que puedes revisar e insertar.

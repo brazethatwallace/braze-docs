@@ -57,7 +57,7 @@ Gehen Sie im Template Builder zum Tab **Settings**. Aktivieren Sie unter **Link 
 
 Wählen Sie unter **Custom domain** die Domain aus, die Sie für gekürzte Links verwenden möchten. Das Dropdown zeigt alle benutzerdefinierten Tracking-Domains an, die für Ihren Workspace konfiguriert sind. Wenn Sie keine auswählen, verwendet Braze die Standard-Domain `brz.ai`.
 
-Um Domains hinzuzufügen oder zu ändern, wählen Sie **Subscription Group Management**.
+Um Domains hinzuzufügen oder zu ändern, wählen Sie **Abo-Gruppen-Verwaltung**.
 
 {% alert important %}
 Nachdem ein Template zur Genehmigung an Meta übermittelt wurde, kann die Tracking-Domain nicht mehr geändert werden. Vergewissern Sie sich, dass Sie die richtige Domain ausgewählt haben, bevor Sie das Template einreichen.
@@ -111,7 +111,7 @@ Die Ziel-URL muss für jeden Link angegeben werden, dessen Basis-URL entweder `b
 ![Abschnitt „Buttons“ mit Feldern für einen Button-Namen, eine Website-URL und eine Klick-Tracking-URL.]({% image_buster /assets/img/whatsapp/click_tracking/buttons.png %}){: style="max-width:70%;"}
 
 {% alert important %}
-**Senden von Template-Nachrichten über die API**: WhatsApp-Klick-Tracking (mit `brz.ai` oder einer benutzerdefinierten Tracking-Domain und dem Feld **Click tracking URL** im Nachrichten-Editor) wird beim Senden von WhatsApp-Template-Nachrichten über den [`/messages/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) nicht unterstützt.
+**Senden von Template-Nachrichten über die API**: WhatsApp-Klick-Tracking (mit `brz.ai` oder einer benutzerdefinierten Tracking-Domain und dem Feld **Click tracking URL** im Nachrichten-Editor) wird beim Senden von WhatsApp-Template-Nachrichten über den [`/messages/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) nicht unterstützt.
 
 Wenn Sie eine Template-Nachricht über die API senden, können Sie CTA-URL-Variablen (mit `button_variables`) befüllen, aber Braze generiert im API-Anfrage-Flow keine Klick-Tracking-URL und keinen Weiterleitungslink. Um Klick-Tracking zu nutzen, senden Sie das Template über das Braze-Dashboard oder über einen Braze-Campaign-Trigger.
 {% endalert %}
@@ -154,7 +154,7 @@ Wenn ein Entwurf innerhalb eines aktiven Canvas erstellt wird, wird keine gekür
 
 ## Berichterstattung {#reporting}
 
-Wenn Klick-Tracking aktiviert ist oder mit unterstützten Templates verwendet wird, enthält die WhatsApp-Performance-Tabelle die Spalte **Total Clicks**, die eine Anzahl der Klick-Ereignisse pro Variante und eine zugehörige Klickrate anzeigt. Weitere Details zu WhatsApp-Metriken finden Sie unter [WhatsApp-Nachrichten-Performance]({{site.baseurl}}/user_guide/channels/whatsapp/reporting/).
+Wenn Klick-Tracking aktiviert ist oder mit unterstützten Templates verwendet wird, enthält die WhatsApp-Performance-Tabelle die Spalte **Total Clicks**, die eine Anzahl der Klick-Ereignisse pro Variante und eine zugehörige Klickrate anzeigt. Weitere Details zu WhatsApp-Metriken finden Sie unter [WhatsApp-Nachrichten-Performance]({{site.baseurl}}/user_guide/channels/whatsapp/reporting).
 
 ![WhatsApp-Nachrichten-Canvas-Schritt.]({% image_buster /assets/img/whatsapp/click_tracking/canvas_step.png %}){: style="max-width:30%;"}
 

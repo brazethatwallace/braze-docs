@@ -5,12 +5,14 @@ description: >
   documentation articles (_docs/, _includes/, _lang/), contributing guides (docs/),
   or site chrome (layouts, CSS, plugins). Never touches logos/, braze_icons/, or icons/.
   Use when cleaning up unused screenshots, reducing repo size, image pruning, or when
-  the user mentions unreferenced images or @image-pruner.
+  the user mentions unreferenced images or image-pruner.
 ---
 
 # Image pruning
 
 Remove image files under `assets/img/` that no documentation article, contributing guide, or site layout references anymore. This reduces repository size and can improve docs site build and deploy times.
+
+**Related:** [`image-curator`](../image-curator/SKILL.md) removes **referenced but redundant** images from English docs (Save buttons, home pages, full dashboards) using delete-image-only by default; optional prose edits require the alt merge gate. Run image-curator before or between image-pruner batches when cleaning screenshot debt.
 
 **Canonical scanner:** [`scripts/image-pruner/find_unreferenced_images.py`](../../../scripts/image-pruner/find_unreferenced_images.py)
 
@@ -39,12 +41,12 @@ Each run always executes a delete batch (up to 100 files). CI opens a **draft PR
 
 CI skips opening a new batch when another open `[IP] Remove …` PR already exists (merge or close it first, then re-run).
 
-**Maintenance phase** (after bulk cleanup): expect few or no deletable files per run. Known primary-scan false positives (for example `assets/img/Braze Komo Images v2/`) are skipped by secondary verification and never appear in the PR diff. If more than 100 files remain after a PR merges, re-run the workflow or use `@image-pruner` for the next batch.
+**Maintenance phase** (after bulk cleanup): expect few or no deletable files per run. Known primary-scan false positives (for example `assets/img/Braze Komo Images v2/`) are skipped by secondary verification and never appear in the PR diff. If more than 100 files remain after a PR merges, re-run the workflow or invoke this skill (`braze-docs:image-pruner`) for the next batch.
 
 ### Manual runs
 
 - **GitHub Actions:** *Actions → Image pruner (maintenance) → Run workflow* (`workflow_dispatch`).
-- **Cursor / agents:** `@image-pruner` for ad-hoc scans and extra `[IP]` batch PRs any time.
+- **Cursor / agents:** Invoke `braze-docs:image-pruner` for ad-hoc scans and extra `[IP]` batch PRs any time.
 
 ### Division of labor
 
@@ -52,7 +54,7 @@ CI skips opening a new batch when another open `[IP] Remove …` PR already exis
 |---------|----------|
 | Scheduled run (Jun/Dec) | CI runs batch and opens a draft `[IP]` PR when deletions exist |
 | Draft PR opened by CI | Docs team reviews diff and merges (or closes without merging) |
-| Spike after a large IA move | Run workflow manually or `@image-pruner`; do not wait for the next scheduled run |
+| Spike after a large IA move | Run workflow manually or invoke this skill (`braze-docs:image-pruner`); do not wait for the next scheduled run |
 | More than 100 files remain | Merge current PR, then re-run workflow for the next batch |
 
 ---
@@ -142,22 +144,28 @@ Re-run the scan until `Unreferenced` count stops decreasing or you have reviewed
 
 Image deletion batches use the **Image Pruning** PR template. Skill/tooling-only changes (script, skill doc) belong on a separate branch—do not mix with image binaries in one PR.
 
-- **Title:** `[IP] Remove N unreferenced images from assets/img` (prefix is required)
-- **Body:** Must include an **Image Pruning** section stating this PR is for Image Pruning; list bytes reclaimed, scan commands, and note that `_lang/`, `docs/`, and site chrome were included in the reference pass and `logos/` / `braze_icons/` / `icons/` were excluded from deletion.
-- **Label:** `image pruning` (required)
-- Assign per `CODEOWNERS`; if none, `@braze-inc/docs-team`.
+**REQUIRED SUB-SKILL:** Use [create-pr](../create-pr/SKILL.md) (`braze-docs:create-pr`) for Steps 0–1, 3–4, quality checklist, and anti-patterns. **Override Step 2 only** as follows.
 
-After `--delete`, the script prints a suggested `gh pr create` command with title, label, and body.
+#### Step 2 override (image-pruner)
 
-```bash
-gh pr create --title "[IP] Remove 100 unreferenced images from assets/img" \
-  --label "image pruning" \
-  --body "$(cat <<'EOF'
-## Image Pruning
+| Field | Value |
+|-------|--------|
+| **Title** | `[IP] Remove N unreferenced images from assets/img` (prefix is required) |
+| **Label** | `image pruning` — `gh pr edit --add-label "image pruning"` after create |
+| **Reviewers** | Per `CODEOWNERS`; if none, `braze-inc/docs-team` |
 
-This PR is for **Image Pruning**: removes 100 unreferenced image files (~X MB).
+**Body** — use the create-pr template and include:
 
-## Scan
+````markdown
+### Why are you making this change? (required)
+
+Remove unreferenced image files to reduce repo size and maintenance burden.
+
+### Image Pruning
+
+This PR is for **Image Pruning**: removes N unreferenced image files (~X MB).
+
+### Scan
 
 ```bash
 python3 scripts/image-pruner/find_unreferenced_images.py --csv scripts/image-pruner/unreferenced_images.csv
@@ -165,9 +173,18 @@ UNREFERENCED_IMAGE_DELETE_FORCE=1 python3 scripts/image-pruner/find_unreferenced
 ```
 
 Reference pass included `_lang/`, `docs/`, and site chrome. Excluded: `logos/`, `braze_icons/`, `icons/`.
-EOF
-)"
-```
+
+### Verification
+
+- [ ] Spot-check pages that previously referenced removed images (if any edge cases)
+- [ ] Confirm scan commands above reproduce the deletion set
+
+### Contributor checklist
+
+<Copy from create-pr Step 2 — redirects and image-replacement rules usually N/A for pure deletions.>
+````
+
+After `--delete`, the script may print a suggested title and body — adapt them into this format when opening the PR.
 
 ---
 
@@ -279,14 +296,16 @@ Be skeptical when the CSV shows:
 
 ## Example prompts
 
+Natural-language example requests:
+
 ```
-@image-pruner Run a scan and summarize how many MB we can reclaim.
+Run a scan and summarize how many MB we can reclaim.
 ```
 
 ```
-@image-pruner Delete unreferenced images after I approve the CSV.
+Delete unreferenced images after I approve the CSV.
 ```
 
 ```
-@image-pruner The maintenance workflow opened a draft PR — help review the deletion batch.
+The maintenance workflow opened a draft PR — help review the deletion batch.
 ```

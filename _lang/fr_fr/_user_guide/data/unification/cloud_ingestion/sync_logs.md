@@ -27,7 +27,7 @@ La page principale du **Sync Log** fournit un aperçu de haut niveau de toutes v
 Les journaux de synchronisation fournissent également les détails suivants pour chaque synchronisation :
 
 * **Nom de la synchronisation :** le nom de la configuration de synchronisation.
-* **ID d'exécution :** un identifiant unique pour une exécution spécifique de la synchronisation. Sélectionnez cet ID pour afficher plus de détails. Il peut également être utilisé dans les [endpoints de l'API CDI]({{site.baseurl}}/api/endpoints/cdi/) ou pour référencer une exécution de synchronisation auprès de l'assistance Braze.
+* **ID d'exécution :** un identifiant unique pour une exécution spécifique de la synchronisation. Sélectionnez cet ID pour afficher plus de détails. Il peut également être utilisé dans les [endpoints de l'API CDI]({{site.baseurl}}/api/endpoints/cdi) ou pour référencer une exécution de synchronisation auprès de l'assistance Braze.
 * **État :** le statut de l'exécution (réussi, succès partiel, erreur, en cours).
 * **Nouvelles lignes lues depuis la source :** le nombre de nouvelles lignes extraites de votre entrepôt de données pour cette exécution.
 * **Résultats :** une ventilation du nombre de lignes ayant réussi ou échoué au cours de l'exécution.
@@ -78,7 +78,7 @@ Sélectionnez **Export rows** pour exporter les journaux au niveau des lignes po
 * **Lignes contenant des erreurs :** télécharge un fichier contenant uniquement les lignes ayant un statut **Error**.
 * **Toutes les lignes :** télécharge un fichier contenant toutes les lignes traitées lors de l'exécution.
 
-{% multi_lang_include early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
 
 Les journaux ne peuvent pas être exportés directement depuis le tableau de bord. Une fois l'exportation générée, vous recevrez un e-mail contenant un lien pour télécharger le fichier d'exportation du journal.
 

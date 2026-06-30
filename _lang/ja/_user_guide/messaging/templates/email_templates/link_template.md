@@ -12,7 +12,7 @@ channel:
 
 # リンクテンプレート {#link-templates}
 
-> リンクテンプレートを使用すると、パラメーターの追加やURLの前置によって、メールキャンペーン用のダイナミックで再利用可能なリンクを作成できます。これにより、Campaignsやメッセージ全体でURLの一貫性を確保できます。
+> リンクテンプレートを使用すると、パラメーターの追加やURLの前置によって、メールキャンペーン用のダイナミックで再利用可能なリンクを作成できます。これにより、キャンペーンやメッセージ全体でURLの一貫性を確保できます。
 
 {% alert note %}
 リンクテンプレートはオプション機能です。**テンプレート**セクションに**メールリンクテンプレート**が表示されない場合は、アカウントマネージャーに連絡して機能を有効にしてください。
@@ -35,61 +35,61 @@ channel:
 2. **メールリンクテンプレートを作成**を選択します。
 3. リンクテンプレートに名前を付けます。
 4. （オプション）リンクテンプレートの詳細を追加するために、説明、チーム、またはタグを追加します。
-5. （オプション）トグルを選択して、メールCampaignsやCanvasesのリンクにリンクテンプレートを自動的に追加します。これは、新規または既存のメールに新しいリンクを追加する際に適用されます。
+5. （オプション）トグルを選択して、メールキャンペーンやキャンバスのリンクにリンクテンプレートを自動的に追加します。これは、新規または既存のメールに新しいリンクを追加する際に適用されます。
 
 作成できるリンクテンプレートには2つのタイプがあります。
 
 - [URLの前に挿入するリンクテンプレート](#prepend-link-template)
 - [URLの後に挿入するリンクテンプレート](#append-link-template)
 
-リンクテンプレートと[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を使用する場合、一貫したレンダリングを確保するために、Liquidはbodyタグ内にのみ追加する必要があります。
+リンクテンプレートと[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)を使用する場合、一貫したレンダリングを確保するために、Liquidはbodyタグ内にのみ追加する必要があります。
 
 ### 前置：URLの前に挿入するリンクテンプレートの作成 {#prepend-link-template}
 
 メールメッセージ内のリンクの前に文字列やURLを追加するには、以下の手順に従います。
 
 1. 新しいリンクテンプレートを作成します。
-2. **Template Position**を**Before URL**に設定します。
+2. **テンプレートの位置**を**URLの前**に設定します。
 3. URLの前に常に前置される文字列を入力します。
 
-**Template preview**では、リンクテンプレートがURLの前にどのように挿入されるかの例が表示されます。
+**テンプレートプレビュー**では、リンクテンプレートがURLの前にどのように挿入されるかの例が表示されます。
 
-![URLの前にリンクテンプレートを挿入するプロセスのTemplate Position、Prepend URL、Template Previewのフィールド。]({% image_buster /assets/img_archive/link_template_preappend.png %}){: style="max-width:90%;"}
+![URLの前にリンクテンプレートを挿入するプロセスのテンプレートの位置、前置URL、テンプレートプレビューのフィールド。]({% image_buster /assets/img_archive/link_template_preappend.png %}){: style="max-width:90%;"}
 
 ### 追加：URLの後に挿入するリンクテンプレートの作成 {#append-link-template}
 
 メールメッセージ内のURLの後にクエリパラメーターを追加する場合は、以下の手順に従います。
 
 1. 新しいリンクテンプレートを作成します。
-2. **Template Position**を**After URL**に設定します。
+2. **テンプレートの位置**を**URLの後**に設定します。
 3. 各URLの末尾にクエリパラメーター（`value=example`）を入力します。URLの末尾に複数のパラメーターを追加できます。
 
-![URLの後にリンクテンプレートを挿入するプロセスのTemplate Position、Query Parameters、Template Previewのフィールド。]({% image_buster /assets/img_archive/link_template_postappend.png %}){: style="max-width:90%;"}
+![URLの後にリンクテンプレートを挿入するプロセスのテンプレートの位置、クエリパラメーター、テンプレートプレビューのフィールド。]({% image_buster /assets/img_archive/link_template_postappend.png %}){: style="max-width:90%;"}
 
-## メールCampaignsでのリンクテンプレートの使用 {#using-link-templates-in-email-campaigns}
+## メールキャンペーンでのリンクテンプレートの使用 {#using-link-templates-in-email-campaigns}
 
 リンクテンプレートを設定したら、メールに適用できます。
 
 HTMLエディターまたはドラッグ＆ドロップエディターでリンクテンプレートを適用するには、以下の手順に従います。
 
 {% alert important %}
-更新されたHTMLエディターまたはドラッグ＆ドロップエディターで**Link Management**タブにアクセスするには、リンクエイリアスを有効にする必要があります。リンクエイリアスを有効にするには、アカウントマネージャーに連絡してください。詳細については、[リンクエイリアス]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/)を参照してください。
+更新されたHTMLエディターまたはドラッグ＆ドロップエディターで**リンク管理**タブにアクセスするには、リンクエイリアスを有効にする必要があります。リンクエイリアスを有効にするには、アカウントマネージャーに連絡してください。詳細については、[リンクエイリアス]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing)を参照してください。
 {% endalert %}
 
-- **更新されたHTMLエディター：** **Content**タブで**Link Management**を選択し、**Add a Link Template**を選択してリンクテンプレートを選び、**Add**を選択します。
-- **ドラッグ＆ドロップエディター：** **Content**タブで**Link Management**を選択し、**Add a Link Template**を選択してリンクテンプレートを選び、**Add**を選択します。
+- **更新されたHTMLエディター：** **コンテンツ**タブで**リンク管理**を選択し、**リンクテンプレートを追加**を選択してリンクテンプレートを選び、**追加**を選択します。
+- **ドラッグ＆ドロップエディター：** **コンテンツ**タブで**リンク管理**を選択し、**リンクテンプレートを追加**を選択してリンクテンプレートを選び、**追加**を選択します。
 
-![ドラッグ＆ドロップエディターのLink Managementタブとリンクテンプレートのサンプルリスト。]({% image_buster /assets/img_archive/link_template_messagecomposer2.png %})
+![ドラッグ＆ドロップエディターのリンク管理タブとリンクテンプレートのサンプルリスト。]({% image_buster /assets/img_archive/link_template_messagecomposer2.png %})
 
 {% alert note %}
 リンクテンプレートはプレーンテキストには適用されません。つまり、Currentsではリンクテンプレートのパラメーターが含まれていないクリックが表示される場合があります。これは、それらのクリックがメールのプレーンテキストバージョンからのものである可能性があるためです。
 {% endalert %}
 
-**Link Management**タブでリンクテンプレートを追加する際は、右にスクロールして追加したテンプレートを確認できます。メール内の既存のリンクにすでにリンクテンプレートが追加されている場合、新しく追加されたリンクにもデフォルトでリンクテンプレートが追加されます。
+**リンク管理**タブでリンクテンプレートを追加する際は、右にスクロールして追加したテンプレートを確認できます。メール内の既存のリンクにすでにリンクテンプレートが追加されている場合、新しく追加されたリンクにもデフォルトでリンクテンプレートが追加されます。
 
 ## リンクテンプレートの管理 {#managing-link-templates}
 
-リンクテンプレートを[複製]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/)することもできます。テンプレートとクリエイティブコンテンツの作成と管理の詳細については、[テンプレートとメディア]({{site.baseurl}}/user_guide/messaging/templates/)を参照してください。
+リンクテンプレートを[複製]({{site.baseurl}}/user_guide/messaging/templates/managing_templates)することもできます。テンプレートとクリエイティブコンテンツの作成と管理の詳細については、[テンプレートとメディア]({{site.baseurl}}/user_guide/messaging/templates)を参照してください。
 
 {% alert important %}
 リンクテンプレートでは、テンプレートのアーカイブは現在利用できません。
@@ -97,4 +97,4 @@ HTMLエディターまたはドラッグ＆ドロップエディターでリン�
 
 ## よくある質問 {#frequently-asked-questions}
 
-リンクテンプレートに関するよくある質問への回答については、[テンプレートFAQ]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq/)ページをご確認ください。
+リンクテンプレートに関するよくある質問への回答については、[テンプレートFAQ]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq)ページをご確認ください。

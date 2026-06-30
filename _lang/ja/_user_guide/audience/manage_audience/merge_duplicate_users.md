@@ -7,20 +7,20 @@ page_order: 4
 
 # 重複ユーザーの統合 {#merge-duplicate-users}
 
-> 重複ユーザーを見つけて統合し、CampaignsやCanvasesの効果を最大化する方法を説明します。
+> 重複ユーザーを見つけて統合し、キャンペーンやキャンバスの効果を最大化する方法を説明します。
 
 ## REST API: ユーザーの識別と統合 {#rest-api-identify-and-merge-users}
 
-このページのツールは、ダッシュボードで重複プロファイルを統合します。Brazeの[ユーザーデータエンドポイント]({{site.baseurl}}/api/endpoints/user_data/)を使用して、プロファイルの結合や再ポイントも可能です。
+このページのツールは、ダッシュボードで重複プロファイルを統合します。Brazeの[ユーザーデータエンドポイント]({{site.baseurl}}/api/endpoints/user_data)を使用して、プロファイルの結合や再ポイントも可能です。
 
-- [POST: ユーザーの識別]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/)（`/users/identify`）：エイリアスのみ、メールのみ、または電話番号のみのプロファイルを、`external_id`を持つプロファイルと結合します。
-- [POST: ユーザーの統合]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)（`/users/merge`）：あるユーザープロファイルを別のプロファイルに統合します。両方のプロファイルがすでに`external_id`を持っている場合も含みます。このエンドポイントを呼び出す前に、[前提条件]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#prerequisites)と[マージの動作]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior)を確認してください。
+- [POST: ユーザーの識別]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)（`/users/identify`）：エイリアスのみ、メールのみ、または電話番号のみのプロファイルを、`external_id`を持つプロファイルと結合します。
+- [POST: ユーザーの統合]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)（`/users/merge`）：あるユーザープロファイルを別のプロファイルに統合します。両方のプロファイルがすでに`external_id`を持っている場合も含みます。このエンドポイントを呼び出す前に、[前提条件]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#prerequisites)と[マージの動作]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior)を確認してください。
 
-匿名プロファイルが既存の識別済みプロファイルと一致した場合（たとえばSDKの`changeUser()`呼び出しや`/users/identify`を通じて）、Brazeは匿名プロファイルを孤立させ、特定のフィールドのみを識別済みプロファイルにコピーします。詳細については、[匿名ユーザーを識別した場合の動作]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users)を参照してください。
+匿名プロファイルが既存の識別済みプロファイルと一致した場合（たとえばSDKの`changeUser()`呼び出しや`/users/identify`を通じて）、Brazeは匿名プロファイルを孤立させ、特定のフィールドのみを識別済みプロファイルにコピーします。詳細については、[匿名ユーザーを識別した場合の動作]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#what-happens-when-you-identify-anonymous-users)を参照してください。
 
 ユーザーの統合は元に戻すことが困難です。複数の`external_id`値にまたがる複雑な統合や大規模なプロファイル移行を計画している場合は、`/users/merge`に依存する前に、Brazeカスタマーサクセスマネージャーにガイダンスを求めてください。
 
-Brazeは統合時に、削除対象としてマークされたユーザー、テストユーザー、グローバルコントロールグループユーザーの3種類のユーザーを異なる方法で処理します。詳細については、[ユーザーマージの動作]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)を参照してください。
+Brazeは統合時に、削除対象としてマークされたユーザー、テストユーザー、グローバルコントロールグループユーザーの3種類のユーザーを異なる方法で処理します。詳細については、[ユーザーマージの動作]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior)を参照してください。
 
 ## 個別マージ {#individual-merging}
 
@@ -44,7 +44,6 @@ Brazeで、**Audience** > **User Search**を選択します。
 
 保持するユーザープロファイルと統合するユーザープロファイルを選択し、**Merge profiles**を選択します。すべての重複プロファイルが統合されるまで、このプロセスを繰り返します。
 
-![重複プロファイルの個別統合ページ。]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/select_merge_profiles.png %}){: style="max-width:80%;"}
 
 {% alert warning %}
 重複ユーザープロファイルは、統合後に復元できません。
@@ -54,7 +53,7 @@ Brazeで、**Audience** > **User Search**を選択します。
 
 重複ユーザーを一括マージすると、Brazeは一致する識別子（メールアドレスなど）を持つプロファイルを検索し、1つのプロファイルを保持します。Brazeはまず`external_id`を持つプロファイルを優先し、次に**Resolving ties**設定（**Resolve ties using**と**Prioritization**）を適用します。`external_id`を持つプロファイルがない場合、Brazeは`external_id`を持たないプロファイル全体に対して**Resolve ties using**と**Prioritization**を使用します。Brazeは、これらの設定で保持するプロファイルが1つに特定できる場合にのみユーザーを統合します。たとえば、**Resolve ties using**が**Updated date**で、両方のプロファイルの最終更新タイムスタンプが同じ場合、Brazeはタイブレークを解決できないため、それらのユーザーは統合されません。
 
-### ステップ1: オーディエンスを管理に移動する {#step-1-go-to-manage-audience}
+### ステップ1: オーディエンスの管理に移動する {#step-1-go-to-manage-audience}
 
 Brazeダッシュボードで、**Audience** > **Manage Audience**を選択します。
 
@@ -68,7 +67,6 @@ Brazeダッシュボードで、**Audience** > **Manage Audience**を選択し�
 
 Brazeがプレビューを生成し、CSVファイルとしてメールアドレスに送信します。
 
-![生成されたCSVファイルへのリンクが含まれたBrazeからのメール。]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/example_email.png %}){: style="max-width:60%;"}
 
 次の例では、Brazeはユーザーのexternal IDを使用して重複プロファイルにフラグを付け、保持するプロファイルを特定します。これらのプロファイルが一括マージされた場合、Brazeはexternal IDを持つプロファイルをユーザーの新しいプライマリプロファイルとして使用します。
 
@@ -85,7 +83,7 @@ Brazeがプレビューを生成し、CSVファイルとしてメールアドレ
 
 #### マージの動作 {#merge-behavior}
 
-Brazeは、保持されるプロファイルの空のフィールドを、統合されるプロファイルの値で埋めます。埋められるフィールドの一覧については、[マージの動作]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior)を参照してください。
+Brazeは、保持されるプロファイルの空のフィールドを、統合されるプロファイルの値で埋めます。埋められるフィールドの一覧については、[マージの動作]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior)を参照してください。
 
 ### ステップ3: 重複を統合する {#step-3-merge-your-duplicates}
 
@@ -95,7 +93,6 @@ Brazeは、保持されるプロファイルの空のフィールドを、統合
 重複ユーザープロファイルは、統合後に復元できません。
 {% endalert %}
 
-![「Merge all duplicates」がハイライトされた「Manage Audience」ページ。]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_merge_profiles.png %}){: style="max-width:70%;"}
 
 ## ルールベースのマージ {#rules-based-merging}
 
@@ -141,10 +138,10 @@ Brazeは、保持されるプロファイルの空のフィールドを、統合
 
 Brazeは、異なる識別子、インポート、または識別前の匿名セッションを通じてプロファイルが作成された場合、同じメールアドレスを共有する複数のユーザープロファイルを保存します。これは、ユーザーが単一の`external_id`を共有していない場合に想定される動作です。
 
-重複を統合する前に、[識別子によるユーザープロファイルのエクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)を使用して、メールアドレスに対してどのプロファイルが存在し、各プロファイルにどのフィールドが含まれているかを確認してください。また、**Audience** > **User Search**でメールアドレスを検索して、ダッシュボードで重複を確認することもできます。
+重複を統合する前に、[識別子によるユーザープロファイルのエクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)を使用して、メールアドレスに対してどのプロファイルが存在し、各プロファイルにどのフィールドが含まれているかを確認してください。また、**Audience** > **User Search**でメールアドレスを検索して、ダッシュボードで重複を確認することもできます。
 
 ## 関連記事 {#related-articles}
 
-- [ユーザーマージの動作]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)
-- [POST: ユーザーの統合]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)
-- [ユーザーの削除]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)
+- [ユーザーマージの動作]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior)
+- [POST: ユーザーの統合]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)
+- [ユーザーの削除]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users)

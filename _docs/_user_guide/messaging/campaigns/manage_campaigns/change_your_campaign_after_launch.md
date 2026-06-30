@@ -66,7 +66,7 @@ If you edit your campaign's scheduled send time or its audience, those changes a
 
 If your campaign uses Intelligent Timing or local time zone delivery, edits to the scheduled send time will not be reflected if the edit is made within 24 hours of the original send time. This is because:
 
-- **Intelligent Timing:** Braze begins calculating the optimal send time at midnight Samoa time. If this time has already passed, the message will have begun processing. For more information, refer to [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/).
+- **Intelligent Timing:** Braze begins calculating the optimal send time at midnight Samoa time. If this time has already passed, the message will have begun processing. For more information, refer to [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing).
 - **Local time zone delivery:** Editing a local time zone campaign that is scheduled less than 24 hours in advance will not alter the message's schedule. For more information, refer to the [How do I schedule a local time zone campaign?]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign).
 
 ### Send rate
@@ -75,7 +75,7 @@ When using a send rate limit, Braze "schedules" your messages in minute-granular
 
 #### Pausing campaigns with delivery speed rate limiting
 
-When you pause a campaign that uses [delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting), Braze distributes sends across minute-based slots. **Resume** does not re-send messages from slots that were canceled while the campaign was paused, and not all messages are necessarily sent when the campaign is resumed.
+When you pause a campaign that uses [delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting), Braze distributes sends across minute-based slots. **Resume** does not re-send messages from slots that were canceled while the campaign was paused, and not all messages are necessarily sent when the campaign is resumed.
 
 If some users didn't receive messages because the campaign was paused, duplicate the campaign and target only those users rather than relying on **Resume** to deliver the missed messages.
 

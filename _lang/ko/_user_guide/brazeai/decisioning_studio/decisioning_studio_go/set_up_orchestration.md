@@ -105,7 +105,7 @@ Braze는 추적 목적으로 사용할 수 있는 앱 ID(Braze 대시보드에�
 
 통합을 테스트하려면 사용자 ID가 필요합니다:
 
-워크스페이스에서 [식별자 필드 수준 암호화]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/)를 사용하는 경우, `/users/track` 엔드포인트로 생성하는 새 테스트 사용자는 암호화된 워크스페이스의 이메일 요구 사항을 따라야 합니다. `email` 필드는 소문자로 변환된 이메일 값의 Base64 인코딩 HMAC-SHA256 해시로 전송하고, `email_encrypted`는 구성된 PII 암호화 키로 생성된 암호화된 이메일 값으로 전송하세요.
+워크스페이스에서 [식별자 필드 수준 암호화]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption)를 사용하는 경우, `/users/track` 엔드포인트로 생성하는 새 테스트 사용자는 암호화된 워크스페이스의 이메일 요구 사항을 따라야 합니다. `email` 필드는 소문자로 변환된 이메일 값의 Base64 인코딩 HMAC-SHA256 해시로 전송하고, `email_encrypted`는 구성된 PII 암호화 키로 생성된 암호화된 이메일 값으로 전송하세요.
 
 1. Braze 대시보드에서 **오디언스** > **사용자 검색**으로 이동하세요.
 2. 외부 사용자 ID, 사용자 별칭, 이메일, 전화번호 또는 푸시 토큰으로 사용자를 검색하세요.
@@ -377,4 +377,4 @@ BrazeAI Decisioning Studio™ Go 포털은 가입자 및 참여 데이터를 하
 
 오케스트레이션 설정을 완료했으니, 이제 에이전트 설계를 진행하세요:
 
-- [에이전트 설계]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)
+- [에이전트 설계]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent)

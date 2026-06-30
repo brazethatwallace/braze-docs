@@ -665,7 +665,7 @@ subscribeToInAppMessage(async (inAppMessage) => {
 **데이터 플러시:**
 - 10초마다 자동 플러시(구성 가능, 최소: 3초)
 - 플러시가 조용히 실패할 수 있습니다 - `requestImmediateDataFlush()` 콜백을 사용하세요
-- 네트워크를 사용할 수 없는 경우 데이터가 대기줄에 추가되고, 네트워크가 복원되면 플러시됩니다
+- 네트워크를 사용할 수 없는 경우 데이터가 대기열에 추가되고, 네트워크가 복원되면 플러시됩니다
 
 ### 중요한 구현 참고 사항 {#important-implementation-notes}
 

@@ -12,7 +12,7 @@ channel:
 
 # Fazer upload de um modelo de e-mail HTML {#upload-an-html-email-template}
 
-> O dashboard da Braze permite que você faça upload dos seus próprios modelos de e-mail HTML e os salve para uso posterior em Campaigns. Você também pode [criar um modelo de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/) usando nosso editor.
+> O dashboard da Braze permite que você faça upload dos seus próprios modelos de e-mail HTML e os salve para uso posterior em Campaigns. Você também pode [criar um modelo de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) usando nosso editor.
 
 ## Requisitos {#upload-requirements}
 
@@ -53,7 +53,7 @@ Para usar seu e-mail em uma Campaign da API, você precisa do `email_template_id
 
 ## Gerenciando modelos de e-mail {#managing-email-templates}
 
-Você pode [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) e [arquivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) modelos de e-mail! Saiba mais sobre como criar e gerenciar modelos e conteúdo criativo em [Modelos]({{site.baseurl}}/user_guide/messaging/templates/).
+Você pode [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) e [arquivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) modelos de e-mail! Saiba mais sobre como criar e gerenciar modelos e conteúdo criativo em [Modelos]({{site.baseurl}}/user_guide/messaging/templates).
 
 ## Solução de problemas {#troubleshooting}
 
@@ -61,17 +61,17 @@ Existem várias mensagens de erro de e-mail que você pode receber ao fazer uplo
 
 | Erro | Correção |
 |------|---|
-| `.zip over 5&nbsp;MB` | Reduza o tamanho do arquivo e tente fazer upload novamente.|
-| `.zip corrupt` | Inspecione seu arquivo e tente fazer upload novamente. |
-| `Missing HTML` | Adicione o arquivo HTML ao seu arquivo ZIP e tente fazer upload novamente.|
-| `Multiple HTML` | Remova um dos arquivos HTML e tente fazer upload novamente.|
-| `Images over 5&nbsp;MB` | Reduza o número de imagens e tente fazer upload novamente. |
-| `Extra Images` | Pode haver imagens adicionais no seu arquivo que não são referenciadas no arquivo HTML. Isso não causa um erro de falha, mas as imagens extras são descartadas. Se essas imagens deveriam ser referenciadas no arquivo HTML, verifique o conteúdo, corrija quaisquer erros e tente fazer upload novamente.|
-| `Missing Images` | Se houver imagens referenciadas no seu arquivo HTML, mas essas imagens não estiverem incluídas na pasta de imagens do arquivo ZIP, você receberá um erro de arquivo. Inspecione seu arquivo e corrija quaisquer erros (como erros de digitação), ou adicione as imagens ausentes ao seu arquivo ZIP e tente fazer upload novamente.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+|`.zip over 5&nbsp;MB`| Reduza o tamanho do arquivo e tente fazer upload novamente.|
+|`.zip corrupt`| Inspecione seu arquivo e tente fazer upload novamente. |
+|`Missing HTML`| Adicione o arquivo HTML ao seu arquivo ZIP e tente fazer upload novamente.|
+|`Multiple HTML`| Remova um dos arquivos HTML e tente fazer upload novamente.|
+|`Images over 5&nbsp;MB`| Reduza o número de imagens e tente fazer upload novamente. |
+|`Extra Images`| Pode haver imagens adicionais no seu arquivo que não são referenciadas no arquivo HTML. Isso não causa um erro de falha, mas as imagens extras são descartadas. Se essas imagens deveriam ser referenciadas no arquivo HTML, verifique o conteúdo, corrija quaisquer erros e tente fazer upload novamente.|
+|`Missing Images`| Se houver imagens referenciadas no seu arquivo HTML, mas essas imagens não estiverem incluídas na pasta de imagens do arquivo ZIP, você receberá um erro de arquivo. Inspecione seu arquivo e corrija quaisquer erros (como erros de digitação), ou adicione as imagens ausentes ao seu arquivo ZIP e tente fazer upload novamente.|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solução de problemas" }
 
 Observe que, ao baixar os arquivos de Campaigns HTML, etapas do Canvas com mensagens de e-mail ou modelos em uma máquina Windows, o caractere `|` (pipe) não é suportado, então pode ser necessário usar um aplicativo diferente para extrair o conteúdo do download do arquivo ZIP.
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
-Para respostas a perguntas frequentes sobre modelos de e-mail, confira nossa página de [perguntas frequentes sobre modelos de e-mail e links]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq/).
+Para respostas a perguntas frequentes sobre modelos de e-mail, confira nossa página de [perguntas frequentes sobre modelos de e-mail e links]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq).

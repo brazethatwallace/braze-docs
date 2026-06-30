@@ -17,38 +17,38 @@ search_rank: 3
 
 ## 구매 이벤트 기록 {#log-purchase-events}
 
-구매를 기록하려면 [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object/)를 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)로 전달하거나, 아래에 나열된 SDK 라이브러리 중 하나를 사용하세요.
+구매를 기록하려면 [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object)를 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)로 전달하거나, 아래에 나열된 SDK 라이브러리 중 하나를 사용하세요.
 
 {% alert note %}
-구매 이벤트 속성정보는 [커스텀 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_events/#expected-format)와 동일한 데이터 유형을 사용합니다.
+구매 이벤트 속성정보는 [커스텀 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_events#expected-format)와 동일한 데이터 유형을 사용합니다.
 {% endalert %}
 
 다음은 다양한 플랫폼에서 구매를 기록하는 데 사용되는 메서드를 나열한 것입니다. 이 페이지에서는 구매 이벤트에 속성정보 및 수량을 추가하는 방법에 대한 설명서도 확인할 수 있습니다. 이러한 속성정보를 기반으로 사용자를 추가로 타겟팅할 수 있습니다.
 
-- [Android and FireOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=android)
-- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-purchases)
-- [Unity]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=unity)
-- [.NET MAUI(구 Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#logging-purchases)
-- [Roku]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=roku)
+- [Android and FireOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-purchases)
+- [Unity]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=unity)
+- [.NET MAUI(구 Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#logging-purchases)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=roku)
 
 ## 구매 데이터 보기 {#view-purchase-data}
 
-구매 이벤트를 설정하고 기록을 시작한 후, [개요 탭]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#overview-tab)에서 사용자 프로필의 구매 데이터를 확인할 수 있습니다.
+구매 이벤트를 설정하고 기록을 시작한 후, [개요 탭]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab)에서 사용자 프로필의 구매 데이터를 확인할 수 있습니다.
 
 ## 구매 데이터 사용 {#use-purchase-data}
 
 Braze에서 구매 데이터를 사용하는 방법은 여러 가지가 있습니다:
 
-- **[세분화](#purchase-event-segmentation):** 구매 데이터를 사용하여 구매 행동을 기반으로 사용자 세그먼트를 생성합니다.
+- **[세분화](#purchase-event-segmentation):** 구매 데이터를 사용하여 구매 행동을 기반으로 사용자 Segment를 생성합니다.
 - **[개인화](#personalization):** 구매 데이터를 사용하여 사용자에게 메시지를 개인화합니다.
 - **[메시지 트리거](#trigger-messages):** 구매 이벤트를 기반으로 메시지가 트리거되도록 설정합니다.
 - **[분석](#analytics):** 구매 데이터를 분석하여 사용자 행동과 마케팅 Campaign의 효과에 대한 인사이트를 얻습니다.
 
 ### 세분화 {#purchase-event-segmentation}
 
-기록된 구매 이벤트를 기반으로 원하는 수와 유형의 후속 캠페인을 트리거할 수 있습니다. 예를 들어, 지난 30일 동안 구매한 사용자 세그먼트나 특정 금액 이상을 지출한 사용자 세그먼트를 생성할 수 있습니다.
+기록된 구매 이벤트를 기반으로 원하는 수와 유형의 후속 Campaign을 트리거할 수 있습니다. 예를 들어, 지난 30일 동안 구매한 사용자 Segment나 특정 금액 이상을 지출한 사용자 Segment를 생성할 수 있습니다.
 
 사용자를 타겟팅할 때 다음과 같은 세분화 필터를 사용할 수 있습니다:
 
@@ -63,12 +63,12 @@ Braze에서 구매 데이터를 사용하는 방법은 여러 가지가 있습�
 - X Purchase Property in Y Days
 - X Purchases in Last Y Days
 
-각 필터에 대한 자세한 내용은 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) 용어집을 참조하고 "Purchase behavior"로 필터링하세요.
+각 필터에 대한 자세한 내용은 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) 용어집을 참조하고 "Purchase behavior"로 필터링하세요.
 
 ![정확히 3회 구매한 사용자 필터링]({% image_buster /assets/img/purchase_filter_example.gif %}){: style="max-width:80%;"}
 
 {% alert tip %}
-특정 구매가 발생한 횟수를 기준으로 세분화하려면, 해당 구매를 [증분 커스텀 속성]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#custom-attribute-storage)으로 개별적으로 기록하세요.
+특정 구매가 발생한 횟수를 기준으로 세분화하려면, 해당 구매를 [증분 커스텀 속성]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#custom-attribute-storage)으로 개별적으로 기록하세요.
 {% endalert %}
 
 ### 개인화 {#personalization}
@@ -111,9 +111,9 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
 
 ### 분석 {#analytics}
 
-세분화를 위한 구매 측정기준 추적 외에도, Braze는 각 제품의 구매 횟수와 시간에 따른 매출도 기록합니다. 이를 통해 가장 인기 있는 제품을 파악하거나 프로모션 캠페인이 매출에 미치는 영향을 측정하는 데 도움이 될 수 있습니다.
+세분화를 위한 구매 측정기준 추적 외에도, Braze는 각 제품의 구매 횟수와 시간에 따른 매출도 기록합니다. 이를 통해 가장 인기 있는 제품을 파악하거나 프로모션 Campaign이 매출에 미치는 영향을 측정하는 데 도움이 될 수 있습니다.
 
-이 데이터는 [매출 보고서]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/#revenue-data) 페이지에서 확인할 수 있습니다.
+이 데이터는 [매출 보고서]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#revenue-data) 페이지에서 확인할 수 있습니다.
 
 ### 매출 계산 {#revenue-calculations}
 
@@ -167,8 +167,8 @@ $$\text{평균 구매 금액} = \frac{\text{총 지출 금액(달러)}}{\text{�
 
 Braze에서 사용자의 LTV를 파악할 수 있는 주요 위치는 두 곳입니다:
 
-- 각 앱 및 사이트의 *생애 매출* 및 *사용자당 생애주기 가치*와 같은 전체 측정기준은 [매출 보고서]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/#revenue-data)를 참조하세요.
-- 특정 사용자의 생애 매출을 파악하려면 해당 [고객 프로필]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#overview-tab)을 참조하세요.
+- 각 앱 및 사이트의 *생애 매출* 및 *사용자당 생애주기 가치*와 같은 전체 측정기준은 [매출 보고서]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#revenue-data)를 참조하세요.
+- 특정 사용자의 생애 매출을 파악하려면 해당 [고객 프로필]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab)을 참조하세요.
 
 ##### 환불이 생애 매출에 미치는 영향 {#impact-of-refunds-on-lifetime-revenue}
 
@@ -180,7 +180,7 @@ Braze에서 사용자의 LTV를 파악할 수 있는 주요 위치는 두 곳입
 - -$5 가격의 구매 1건
 - 생애 매출 $7
 
-Sam의 프로필에는 두 건의 구매 이벤트가 있지만, 실제로는 한 번만 구매했습니다. 사용자의 구매 횟수를 기반으로 구축된 세그먼트나 사용 사례가 있는 경우 이 점을 고려하는 것이 중요합니다. 지속적인 환불은 사용자 프로필의 구매 횟수를 부풀릴 수 있습니다.
+Sam의 프로필에는 두 건의 구매 이벤트가 있지만, 실제로는 한 번만 구매했습니다. 사용자의 구매 횟수를 기반으로 구축된 Segment나 사용 사례가 있는 경우 이 점을 고려하는 것이 중요합니다. 지속적인 환불은 사용자 프로필의 구매 횟수를 부풀릴 수 있습니다.
 
 ## 구매 이벤트 속성정보 {#purchase-properties}
 
@@ -196,7 +196,7 @@ Sam의 프로필에는 두 건의 구매 이벤트가 있지만, 실제로는 �
 
 ![브랜드 이름이 HeadphoneMart인 헤드폰을 구매한 사용자에게 Campaign을 보내는 실행 기반 전달 설정]({% image_buster /assets/img/purchase2.png %}){: style="max-width:80%;margin-left:15px;"}
 
-자세한 내용은 [구매 속성정보 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object/#purchase-properties-object)를 참조하세요.
+자세한 내용은 [구매 속성정보 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-properties-object)를 참조하세요.
 
 ### 이벤트 속성정보 세분화 {#event-property-segmentation}
 
@@ -209,17 +209,19 @@ Sam의 프로필에는 두 건의 구매 이벤트가 있지만, 실제로는 �
 - 최근 Y일 동안 속성정보 Y의 값이 V인 구매를 X회 한 경우
 - 모든 구매, 이벤트, 구매 및 이벤트 내 속성정보에 대해 1~30일 세분화 추가
 
-[세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)과 달리, 사용되는 세그먼트는 실시간으로 업데이트되고, 무제한의 세그먼트를 지원하며, 최대 30일의 조회 기록을 제공하고, 데이터 포인트가 발생합니다. 추가 데이터 포인트 비용이 발생하므로, 커스텀 이벤트에 대한 이벤트 속성정보를 활성화하려면 Braze 고객 성공 매니저에게 문의해야 합니다.
+[세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension)과 달리, 사용되는 Segment는 실시간으로 업데이트되고, 무제한의 Segment를 지원하며, 최대 30일의 조회 기록을 제공하고, 데이터 포인트가 발생합니다. 추가 데이터 포인트 비용이 발생하므로, 커스텀 이벤트에 대한 이벤트 속성정보를 활성화하려면 Braze 고객 성공 매니저에게 문의해야 합니다.
 
 승인되면 **데이터 설정** > **커스텀 이벤트**에서 **등록정보 관리**를 선택하여 대시보드에서 추가 속성정보를 추가할 수 있습니다. 그런 다음 Campaign 또는 Canvas 빌더의 타겟 단계에서 이러한 이벤트 속성정보를 사용할 수 있습니다.
 
+{% include data_activation/segmentable_purchase_properties_keys_note.md %}
+
 ### Canvas 진입 속성정보 및 이벤트 속성정보 {#canvas-entry-properties-and-event-properties}
 
-{% multi_lang_include canvas_entry_event_properties.md %}
+{% multi_lang_include canvas/entry_event_properties.md %}
 
 ### 주문 수준에서 구매 기록 {#log-purchases-at-the-order-level}
 
-제품 수준이 아닌 주문 수준에서 구매를 기록하려면, 주문 이름 또는 주문 카테고리를 `product_id`로 사용하세요. 자세한 내용은 [구매 오브젝트 사양]({{site.baseurl}}/api/objects_filters/purchase_object/#product-id-naming-conventions)을 참조하세요.
+제품 수준이 아닌 주문 수준에서 구매를 기록하려면, 주문 이름 또는 주문 카테고리를 `product_id`로 사용하세요. 자세한 내용은 [구매 오브젝트 사양]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions)을 참조하세요.
 
 ### 제품 ID 명명 규칙 {#product-id-naming-conventions}
 
@@ -231,4 +233,4 @@ Braze에서는 구매 오브젝트 `product_id`에 대한 일반적인 명명 �
 
 데이터 포인트를 너무 많이 기록하거나, 마케팅 전략에 더 이상 유용하지 않거나, 실수로 기록된 구매 이벤트를 발견할 수 있습니다. 이 데이터가 Braze로 전송되는 것을 중지하려면, 엔지니어링 팀이 앱 또는 웹사이트의 백엔드에서 제거하는 작업을 진행하는 동안 커스텀 데이터 오브젝트를 차단 목록에 추가할 수 있습니다.
 
-Braze 대시보드에서 **데이터 설정** > **제품**으로 이동하여 차단 목록을 관리할 수 있습니다. 자세한 내용은 [커스텀 데이터 관리]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/)를 참조하세요.
+Braze 대시보드에서 **데이터 설정** > **제품**으로 이동하여 차단 목록을 관리할 수 있습니다. 자세한 내용은 [커스텀 데이터 관리]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data)를 참조하세요.

@@ -19,8 +19,8 @@ search_rank: 3
 
 Antes de empezar, asegúrate de tener lo siguiente:
 
-- **Push integrado en tu aplicación o sitio web.** Trabaja con tus desarrolladores para configurarlo. Para conocer los pasos detallados, consulta las guías de integración para [iOS]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android) y [Web]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web).
-- **Una estrategia de adhesión voluntaria a push.** Los usuarios deben conceder permiso de push en su dispositivo. Considera usar [mensajes de preparación para push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) para explicar el valor antes de solicitarlo.
+- **Push integrado en tu aplicación o sitio web.** Trabaja con tus desarrolladores para configurarlo. Para conocer los pasos detallados, consulta las guías de integración para [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications?tab=android) y [Web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web).
+- **Una estrategia de adhesión voluntaria a push.** Los usuarios deben conceder permiso de push en su dispositivo. Considera usar [mensajes de preparación para push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) para explicar el valor antes de solicitarlo.
 
 ## Casos de uso {#use-cases}
 
@@ -50,5 +50,5 @@ Tus mensajes push deben cumplir con las [Directrices de revisión del App Store 
 
 ## Próximos pasos {#next-steps}
 
-- [Configuración push]({{site.baseurl}}/user_guide/channels/push/push_setup/)
-- [Crear un mensaje push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/)
+- [Configuración push]({{site.baseurl}}/user_guide/channels/push/push_setup)
+- [Crear un mensaje push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)

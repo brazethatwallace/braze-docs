@@ -14,11 +14,11 @@ platform:
 
 # Verhalten von Content Cards anpassen {#customize-the-behavior-of-content-cards}
 
-> In diesem Implementierungsleitfaden werden Änderungen am Verhalten von Content Cards, das Hinzufügen von Extras wie Schlüssel-Wert-Paaren zur Nutzlast und Vorgehensweisen für gängige Anpassungen erläutert. Eine vollständige Liste der Content-Card-Typen finden Sie unter [Über Content Cards]({{site.baseurl}}/developer_guide/content_cards/).
+> In diesem Implementierungsleitfaden werden Änderungen am Verhalten von Content Cards, das Hinzufügen von Extras wie Schlüssel-Wert-Paaren zur Nutzlast und Vorgehensweisen für gängige Anpassungen erläutert. Eine vollständige Liste der Content-Card-Typen finden Sie unter [Über Content Cards]({{site.baseurl}}/developer_guide/content_cards).
 
 ## Schlüssel-Wert-Paare {#key-value-pairs}
 
-Mit Braze können Sie zusätzliche Daten-Nutzlasten über Content Cards an Nutzer:innengeräte senden, indem Sie Schlüssel-Wert-Paare verwenden. Diese können Ihnen helfen, interne Metriken zu tracken, App-Inhalte zu aktualisieren und Eigenschaften anzupassen. [Fügen Sie Schlüssel-Wert-Paare über das Dashboard hinzu]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/create/#step-4-configure-additional-settings-optional).
+Mit Braze können Sie zusätzliche Daten-Nutzlasten über Content Cards an Nutzer:innengeräte senden, indem Sie Schlüssel-Wert-Paare verwenden. Diese können Ihnen helfen, interne Metriken zu tracken, App-Inhalte zu aktualisieren und Eigenschaften anzupassen. [Fügen Sie Schlüssel-Wert-Paare über das Dashboard hinzu]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/create#step-4-configure-additional-settings-optional).
 
 {% alert note %}
 Wir raten davon ab, verschachtelte JSON-Werte als Schlüssel-Wert-Paare zu senden. Stattdessen sollten die JSON-Werte vor dem Senden durch Flatten vereinfacht werden.
@@ -48,7 +48,7 @@ Es ist wichtig, dass sich Ihre Marketing- und Entwicklerteams darüber abstimmen
 
 ## Content Cards als ergänzender Inhalt {#content-cards-as-supplemental-content}
 
-![]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
+![Feed mit einer hybriden Liste, die lokale Daten und Braze Content Cards kombiniert.]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
 
 Sie können Content Cards nahtlos in einen bestehenden Feed einfügen, sodass Daten aus mehreren Feeds gleichzeitig geladen werden können. Dadurch entsteht ein zusammenhängendes, harmonisches Erlebnis mit Braze Content Cards und vorhandenen Feed-Inhalten.
 
@@ -56,7 +56,7 @@ Das Beispiel auf der rechten Seite zeigt einen Feed mit einer hybriden Liste von
 
 ### API-getriggerte Schlüssel-Wert-Paare {#api-triggered-key-value-pairs}
 
-[API-getriggerte Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) sind eine gute Strategie, wenn die Werte einer Karte von externen Faktoren abhängen, um zu bestimmen, welche Inhalte den Nutzer:innen angezeigt werden sollen. Um zum Beispiel ergänzende Inhalte anzuzeigen, legen Sie Schlüssel-Wert-Paare mit Liquid fest. Beachten Sie, dass `class_type` zum Zeitpunkt der Einrichtung bekannt sein sollte.
+[API-getriggerte Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) sind eine gute Strategie, wenn die Werte einer Karte von externen Faktoren abhängen, um zu bestimmen, welche Inhalte den Nutzer:innen angezeigt werden sollen. Um zum Beispiel ergänzende Inhalte anzuzeigen, legen Sie Schlüssel-Wert-Paare mit Liquid fest. Beachten Sie, dass `class_type` zum Zeitpunkt der Einrichtung bekannt sein sollte.
 
 ![Die Schlüssel-Wert-Paare für den Anwendungsfall mit ergänzenden Content Cards. In diesem Beispiel werden verschiedene Aspekte der Karte, wie z. B. „tile_id“, „tile_deeplink“ und „tile_title“, mit Liquid festgelegt.]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 
@@ -65,13 +65,13 @@ Das Beispiel auf der rechten Seite zeigt einen Feed mit einer hybriden Liste von
 
 Content Cards können genutzt werden, um dynamische und interaktive Erlebnisse für Ihre Nutzer:innen zu schaffen. Im Beispiel auf der rechten Seite erscheint an der Kasse ein Content-Card-Popup, das den Nutzer:innen Last-Minute-Aktionen bietet. Gut platzierte Karten wie diese sind eine großartige Möglichkeit, den Nutzer:innen einen „Anstoß“ zu bestimmten Aktionen zu geben.
 
-Die Schlüssel-Wert-Paare für diesen Anwendungsfall umfassen einen `discount_percentage`, der als gewünschter Rabattbetrag festgelegt ist, und einen `class_type`, der als `coupon_code` festgelegt ist. Mit diesen Schlüssel-Wert-Paaren können Sie typspezifische Content Cards im Checkout-Bildschirm filtern und anzeigen. Weitere Informationen zur Verwendung von Schlüssel-Wert-Paaren zur Verwaltung mehrerer Feeds finden Sie unter [Anpassen des Standard-Content-Card-Feeds]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds).
+Die Schlüssel-Wert-Paare für diesen Anwendungsfall umfassen einen `discount_percentage`, der als gewünschter Rabattbetrag festgelegt ist, und einen `class_type`, der als `coupon_code` festgelegt ist. Mit diesen Schlüssel-Wert-Paaren können Sie typspezifische Content Cards im Checkout-Bildschirm filtern und anzeigen. Weitere Informationen zur Verwendung von Schlüssel-Wert-Paaren zur Verwaltung mehrerer Feeds finden Sie unter [Anpassen des Standard-Content-Card-Feeds]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds).
 <br>
 <br>
 
-![]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:80%;"}
+![Interaktive Content-Card mit einer Checkout-Aktion.]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:80%;"}
 
-## Content-Card-Badges
+## Content-Card-Badges {#content-card-badges}
 
 ![Ein iPhone-Startbildschirm, auf dem eine Braze-Beispiel-App namens „Swifty“ mit einem roten Badge angezeigt wird, auf dem die Zahl 7 zu sehen ist]({% image_buster /assets/img/cc_implementation/ios-unread-badge.png %}){: style="max-width:35%;float:right;margin-left:15px;border:none;"}
 

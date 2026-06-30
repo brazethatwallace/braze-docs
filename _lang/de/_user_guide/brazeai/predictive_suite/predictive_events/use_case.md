@@ -9,21 +9,21 @@ page_type: tutorial
 
 > Dieses Beispiel veranschaulicht, wie eine fiktive Marke Braze Predictive Events einsetzt, um die für ihr Geschäft relevanten Ergebnisse zu definieren – wie beispielsweise das Upgraden auf eine Pro-Mitgliedschaft – und gezielte Strategien zu entwickeln, die die Ergebnisse verbessern.
 
-Nehmen wir an, Jordan ist Lebenszyklusstrateg:in bei Steppington, einer Gesundheits- und Fitness-App mit kostenlosen und kostenpflichtigen Angeboten. Das Team von Jordan hat sich zum Ziel gesetzt, die Anzahl der Pro-Upgrades zu erhöhen, ohne die gesamte kostenlose Nutzerbasis mit Rabattnachrichten zu überfluten. Derzeit versenden sie nach sieben Tagen eine Werbeaktion mit dem Titel „Pro mit 50 % Rabatt testen“ an alle Nutzer:innen der kostenlosen Version. Das führt zwar zu einigen Conversions (etwa 5 % über 7 Tage), jedoch auch zu übermäßiger Ansprache – einschließlich der Rabattierung von Nutzer:innen, die wahrscheinlich ohnehin upgradet hätten.
+Nehmen wir an, Jordan ist Lifecycle-Strateg:in bei Steppington, einer Gesundheits- und Fitness-App mit kostenlosen und kostenpflichtigen Angeboten. Das Team von Jordan hat sich zum Ziel gesetzt, die Anzahl der Pro-Upgrades zu erhöhen, ohne die gesamte kostenlose Nutzerbasis mit Rabattnachrichten zu überfluten. Derzeit versenden sie nach sieben Tagen eine Werbeaktion mit dem Titel „Pro mit 50 % Rabatt testen“ an alle Nutzer:innen der kostenlosen Version. Das führt zwar zu einigen Conversions (etwa 5 % über 7 Tage), jedoch auch zu übermäßiger Ansprache – einschließlich der Rabattierung von Nutzer:innen, die wahrscheinlich ohnehin upgradet hätten.
 
 Um das Targeting zu verbessern und die Messaging-Ermüdung zu reduzieren, verwendet Jordan Predictive Events, um die Wahrscheinlichkeit zu modellieren, dass Nutzer:innen innerhalb der nächsten 7 Tage auf Pro upgraden. Er definiert ein angepasstes Event: `upgraded_to_pro` und nutzt dieses anschließend, um ein Prognosemodell zu trainieren und die Nutzer:innen in intelligente, handlungsorientierte Gruppen zu segmentieren.
 
 Dieses Tutorial führt Sie durch den Prozess, den Jordan durchlaufen hat:
 
 - Ein Prognosemodell für `upgraded_to_pro` innerhalb von 7 Tagen
-- Segments, die dazu beitragen, die Conversions zu erhöhen und gleichzeitig weniger Nachrichten insgesamt zu versenden
+- Segmente, die dazu beitragen, die Conversions zu erhöhen und gleichzeitig weniger Nachrichten insgesamt zu versenden
 
 ## Schritt 1: Ein Prognosemodell für Upgrades erstellen {#step-1-create-a-predictive-model-for-upgrades}
 
 Jordan beginnt damit, das für seine Upgrade-Strategie wichtigste Ergebnis zu definieren: Nutzer:innen, die von der kostenlosen Version zur Pro-Version wechseln. Anstatt sich auf allgemeine Auslöser wie „Zeit seit der Anmeldung“ zu verlassen, möchte er prognostizieren, welche Nutzer:innen tatsächlich wahrscheinlich konvertieren werden. Auf diese Weise kann sein Team auf echte Signale reagieren und nicht nur auf Annahmen.
 
 1. Im Braze-Dashboard navigiert Jordan zu **Analytics** > **Predictive Events**.
-2. Er [erstellt eine neue Event-Prognose]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/creating_an_event_prediction/) und benennt sie „Upgrade auf Pro in 7 Tagen“.
+2. Er [erstellt eine neue Event-Prognose]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/creating_an_event_prediction) und benennt sie „Upgrade auf Pro in 7 Tagen“.
 3. Als Ziel-Event wählt er sein angepasstes Event aus: `upgraded_to_pro`.
 4. Jordan legt das Prognosefenster auf 7 Tage fest, erstellt einen Update-Zeitplan und erstellt die Prognose.
 
@@ -31,15 +31,15 @@ Jordan beginnt damit, das für seine Upgrade-Strategie wichtigste Ergebnis zu de
 
 ## Schritt 2: Nutzer:innen anhand der Upgrade-Wahrscheinlichkeit segmentieren {#step-2-segment-users-based-on-upgrade-probability}
 
-Nach Abschluss des Trainings weist Braze jeder berechtigten Nutzer:in einen [Event Likelihood Score]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/analytics/#purchase_score) (0–100) zu. Jordan nutzt diesen Score, um umsetzbare Segments zu erstellen – eines für Nutzer:innen mit hoher Kaufabsicht, die möglicherweise keinen Rabatt benötigen, und ein weiteres für Nutzer:innen, die ohne Unterstützung wahrscheinlich nicht konvertieren werden.
+Nach Abschluss des Trainings weist Braze jeder berechtigten Nutzer:in einen [Event Likelihood Score]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/analytics#purchase_score) (0–100) zu. Jordan nutzt diesen Score, um umsetzbare Segmente zu erstellen – eines für Nutzer:innen mit hoher Kaufabsicht, die möglicherweise keinen Rabatt benötigen, und ein weiteres für Nutzer:innen, die ohne Unterstützung wahrscheinlich nicht konvertieren werden.
 
 1. Jordan navigiert zu Segments in Braze.
-2. Er erstellt zwei [Segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) mithilfe des [Filters „Event Likelihood Score“]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#event-likelihood-score) und wählt die von ihm erstellte Prognose aus. Die beiden Segments sind:
+2. Er erstellt zwei [Segmente]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) mithilfe des [Filters „Event Likelihood Score“]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score) und wählt die von ihm erstellte Prognose aus. Die beiden Segmente sind:
   - **Wahrscheinliches Upgrade:** Score mehr als 70
   - **Braucht Anstoß zum Upgrade:** Score mehr als 40 und weniger als 70
 
 {% alert tip %}
-Prädiktive Filter können mit beliebigen anderen Attributen oder Verhaltensweisen von Nutzer:innen kombiniert werden. Jordan plant, diese Segments auf Grundlage der Nutzerinteressen weiter zu verfeinern – beispielsweise durch die Priorisierung von Nutzer:innen, die häufig Fitness-Tracking-Features verwenden. Dadurch erhält er vier Untergruppen, die er gezielter ansprechen kann, sodass Inhalte und Messaging auf die Bedürfnisse jeder Nutzer:in abgestimmt werden können.
+Prädiktive Filter können mit beliebigen anderen Attributen oder Verhaltensweisen von Nutzer:innen kombiniert werden. Jordan plant, diese Segmente auf Grundlage der Nutzerinteressen weiter zu verfeinern – beispielsweise durch die Priorisierung von Nutzer:innen, die häufig Fitness-Tracking-Features verwenden. Dadurch erhält er vier Untergruppen, die er gezielter ansprechen kann, sodass Inhalte und Messaging auf die Bedürfnisse jeder Nutzer:in abgestimmt werden können.
 {% endalert %}
 
 ![Segment-Builder mit zwei Filtern für den Event Likelihood Score.]({% image_buster /assets/img/ai_use_cases/event_likelihood_score.png %})
@@ -50,7 +50,7 @@ Da Jordan nun eindeutige Signale für die Upgrade-Absicht hat und die Untergrupp
 
 Er wählt E-Mail als primären Kanal für diese Campaign. Warum? Weil Jordan den Wert von Pro für Nutzer:innen mit hoher Kaufabsicht erläutern und überzeugende Argumente für eher zögerliche Nutzer:innen liefern möchte – für beides sind Platz, visuelle Elemente und ein aussagekräftiger CTA erforderlich. E-Mails bieten ihm die Flexibilität, dies effektiv zu tun, ohne die Nutzer:innen unter Druck zu setzen, und ermöglichen es ihm, die Performance anhand des Klickverhaltens zu verfolgen.
 
-Jordan [erstellt ein Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/), das die Erfahrung auf der Grundlage der von ihm erstellten Segments aufteilt. Er fügt einen Zielgruppenpfade-Schritt hinzu, um folgende Gruppen anzusprechen:
+Jordan [erstellt ein Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas), das die Erfahrung auf der Grundlage der von ihm erstellten Segmente aufteilt. Er fügt einen Zielgruppenpfade-Schritt hinzu, um folgende Gruppen anzusprechen:
 
 - Hohe Absicht, Fitness-fokussierte Nutzer:innen
 - Hohe Absicht, andere Nutzer:innen
@@ -106,7 +106,7 @@ Diese Nutzer:innen zeigen insgesamt nur ein geringes Engagement. Ohne einen übe
 
 ## Schritt 4: Ergebnisse messen und Strategie optimieren {#step-4-measure-results-and-optimize-your-strategy}
 
-Nach Abschluss der Campaign überprüft Jordan die Performance in [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/), um zu ermitteln, wie erfolgreich die personalisierten Pfade waren – und ob die Kombination aus prädiktiver Absicht und Verhaltenssignalen die Upgrade-Raten verbessert hat.
+Nach Abschluss der Campaign überprüft Jordan die Performance in [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics), um zu ermitteln, wie erfolgreich die personalisierten Pfade waren – und ob die Kombination aus prädiktiver Absicht und Verhaltenssignalen die Upgrade-Raten verbessert hat.
 
 E-Mail-Performance nach Pfad:
 
@@ -133,12 +133,12 @@ E-Mail-Performance nach Pfad:
 
 Im Vergleich zur vorherigen einheitlichen Campaign des Teams (bei der ein pauschaler Rabatt nach 7 Tagen zu nur 5 % Conversions und übermäßigem Messaging führte) zeigt der zielgerichtete Ansatz eine deutliche Steigerung in allen Gruppen, mit verbesserter Effizienz und weniger unnötigen Rabatten.
 
-Der [Funnel-Bericht]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/) zeigt auch einen deutlichen Rückgang der Abbrüche in wichtigen Schritten, insbesondere bei Nutzer:innen mit geringer Kaufabsicht, die personalisiertes Messaging erhalten haben. Immer mehr Nutzer:innen öffnen, klicken und upgraden – ein Beweis für den Wert des absichtsbasierten Targetings.
+Der [Funnel-Bericht]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) zeigt auch einen deutlichen Rückgang der Abbrüche in wichtigen Schritten, insbesondere bei Nutzer:innen mit geringer Kaufabsicht, die personalisiertes Messaging erhalten haben. Immer mehr Nutzer:innen öffnen, klicken und upgraden – ein Beweis für den Wert des absichtsbasierten Targetings.
 
 Jordan nutzt diese Insights, um:
 
 - A/B-Tests zu Betreffzeilen und CTA-Formulierungen durchzuführen
 - Die Rabattschwelle für Nutzer:innen mit mittlerer Kaufabsicht neu zu bewerten
-- Die Segments auf der Grundlage zusätzlicher Verhaltensweisen wie Inhaltsaufrufe oder Nutzung von App-Features weiter zu verfeinern
+- Die Segmente auf der Grundlage zusätzlicher Verhaltensweisen wie Inhaltsaufrufe oder Nutzung von App-Features weiter zu verfeinern
 
 Dank Predictive Events und mehrstufiger Segmentierung verfügt sein Team nun über eine skalierbare Strategie, die das Messaging an die Absichten und das Verhalten der Nutzer:innen anpasst – und so mehr Upgrades generiert, während das Vertrauen in die Marke gewahrt bleibt.

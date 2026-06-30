@@ -2,13 +2,13 @@
 nav_title: 条件付きメッセージングロジック
 article_title: 条件付き Liquid メッセージングロジック
 page_order: 6
-description: "このリファレンス記事では、Campaignでタグをどのように使用できるか、また使用すべきかについて説明します。"
+description: "このリファレンス記事では、キャンペーンでタグをどのように使用できるか、また使用すべきかについて説明します。"
 
 ---
 
 # 条件付きメッセージングロジック {#conditional-messaging-logic}
 
-> [タグ](https://docs.shopify.com/themes/liquid-documentation/tags)を使用すると、メッセージングCampaignにプログラミングロジックを含めることができます。タグは、条件文の実行や、変数の割り当てやコードブロックの反復処理などの高度なユースケースに使用できます。<br><br>このページでは、null、nil、blankの属性値の処理方法やカスタム属性の参照方法など、タグの使用方法について説明します。
+> [タグ](https://docs.shopify.com/themes/liquid-documentation/tags)を使用すると、メッセージングキャンペーンにプログラミングロジックを含めることができます。タグは、条件文の実行や、変数の割り当てやコードブロックの反復処理などの高度なユースケースに使用できます。<br><br>このページでは、null、nil、blankの属性値の処理方法やカスタム属性の参照方法など、タグの使用方法について説明します。
 
 ## タグのフォーマット {#formatting-tags}
 
@@ -42,7 +42,7 @@ Buy now! Would 5% off convince you?
 
 ## 条件ロジック {#conditional-logic}
 
-[メッセージ内にインテリジェントロジック](http://docs.shopify.com/themes/liquid-documentation/basics)を多数含めることができます（条件文など）。以下の例では、[条件](http://docs.shopify.com/themes/liquid-documentation/tags/control-flow-tags)を使用してCampaignを国際化しています:
+[メッセージ内にインテリジェントロジック](http://docs.shopify.com/themes/liquid-documentation/basics)を多数含めることができます（条件文など）。以下の例では、[条件](http://docs.shopify.com/themes/liquid-documentation/tags/control-flow-tags)を使用してキャンペーンを国際化しています:
 {% raw %}
 
 ```liquid

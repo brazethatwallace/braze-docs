@@ -80,4 +80,4 @@ Apple Private Relay를 설정하려면 커스텀 MAIL FROM 도메인을 설정�
 {% endtab %}
 {% endtabs %}
 
-추가 질문이 있으면 [고객지원 티켓]({{site.baseurl}}/braze_support/)을 열어주세요.
+추가 질문이 있으면 [고객지원 티켓]({{site.baseurl}}/braze_support)을 열어주세요.

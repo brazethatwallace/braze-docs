@@ -51,14 +51,14 @@ guide_menu_list:
 
 | レポート | 最適な用途 | 説明 |
 | --- | --- | --- |
-| [キャンペーン分析]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) | チャネル別のキャンペーン結果 | 各キャンペーンのリアルタイム結果をメッセージングチャネル別に表示します。 |
-| [キャンバスの分析]({{site.baseurl}}/user_guide/analytics/reports/canvas_analytics/) | キャンバスのパフォーマンス | キャンバスのトップライン統計、バリアントのパフォーマンス、ステップレベルの指標を表示します。 |
-| [レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/) | キャンペーン間の比較 | 複数のキャンペーンまたはキャンバスの結果を、カスタマイズ可能な指標とドリルダウンで単一のビューで比較します。 |
-| [クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) | カスタムSQL分析 | SnowflakeのBrazeデータに対してカスタムSQLクエリを記述するか、一般的な分析用のビルド済みテンプレートを使用します。 |
-| [エンゲージメントレポート]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/) | スケジュールされたメールエクスポート | 選択したキャンペーンおよびキャンバスのエンゲージメント統計の定期的なCSVエクスポートを設定します。 |
-| [カスタムイベントレポート]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report/) | カスタムイベントのトレンド | カスタムイベントの頻度を時系列で監視し、セグメント別またはKPI数式で正規化して表示します。 |
-| [収益レポート]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/) | 収益と購入 | 収益、購入、製品の内訳を時系列で追跡し、オプションのセグメントフィルターを使用します。 |
-| [ファネルレポート]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/) | コンバージョンファネル分析 | キャンペーンまたはキャンバスを受信した後の顧客のジャーニーを、離脱ポイントを含めて分析します。 |
-| [リテンションレポート]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/) | 長期的なリテンションへの影響 | キャンペーンまたはキャンバスがユーザーを時間の経過とともに（最大30日間）どの程度効果的に再エンゲージしているかを測定します。 |
-| [レポートの設定]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/) | 週次メールダイジェスト | 週次の分析メールを購読し、含めるカスタムイベントを選択します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| [キャンペーン分析]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) | チャネル別のキャンペーン結果 | 各キャンペーンのリアルタイム結果をメッセージングチャネル別に表示します。 |
+| [キャンバスの分析]({{site.baseurl}}/user_guide/analytics/reports/canvas_analytics) | キャンバスのパフォーマンス | キャンバスのトップライン統計、バリアントのパフォーマンス、ステップレベルの指標を表示します。 |
+| [レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder) | キャンペーン間の比較 | 複数のキャンペーンまたはキャンバスの結果を、カスタマイズ可能な指標とドリルダウンで単一のビューで比較します。 |
+| [クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder) | カスタムSQL分析 | SnowflakeのBrazeデータに対してカスタムSQLクエリを記述するか、一般的な分析用のビルド済みテンプレートを使用します。 |
+| [エンゲージメントレポート]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports) | スケジュールされたメールエクスポート | 選択したキャンペーンおよびキャンバスのエンゲージメント統計の定期的なCSVエクスポートを設定します。 |
+| [カスタムイベントレポート]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report) | カスタムイベントのトレンド | カスタムイベントの頻度を時系列で監視し、セグメント別またはKPI数式で正規化して表示します。 |
+| [収益レポート]({{site.baseurl}}/user_guide/analytics/reports/revenue_report) | 収益と購入 | 収益、購入、製品の内訳を時系列で追跡し、オプションのセグメントフィルターを使用します。 |
+| [ファネルレポート]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) | コンバージョンファネル分析 | キャンペーンまたはキャンバスを受信した後の顧客のジャーニーを、離脱ポイントを含めて分析します。 |
+| [リテンションレポート]({{site.baseurl}}/user_guide/analytics/reports/retention_reports) | 長期的なリテンションへの影響 | キャンペーンまたはキャンバスがユーザーを時間の経過とともに（最大30日間）どの程度効果的に再エンゲージしているかを測定します。 |
+| [レポートの設定]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting) | 週次メールダイジェスト | 週次の分析メールを購読し、含めるカスタムイベントを選択します。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="レポートの選択" }

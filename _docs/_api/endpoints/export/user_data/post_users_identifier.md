@@ -22,7 +22,7 @@ Up to 50 `external_ids` or `user_aliases` can be included in a single request. S
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `users.export.ids` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `users.export.ids` permission.
 
 ## Rate limit
 
@@ -56,7 +56,7 @@ For customers who have onboarded with Braze on or after August 22, 2024, the req
 | Parameter          | Required | Data Type                                                     | Description                                                                                  |
 | ------------------ | -------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | `external_ids`     | Optional | Array of strings                                              | External identifiers for users you wish export.                                              |
-| `user_aliases`     | Optional | Array of user alias object                                    | [User aliases]({{site.baseurl}}/api/objects_filters/user_alias_object/) for users to export. |
+| `user_aliases`     | Optional | Array of user alias object                                    | [User aliases]({{site.baseurl}}/api/objects_filters/user_alias_object) for users to export. |
 | `device_id`        | Optional | String                                                        | Device identifier, as returned by various SDK methods such as `getDeviceId`.                 |
 | `braze_id`         | Optional | String                                                        | Braze identifier for a particular user.                                                      |
 | `email_address`    | Optional | String                                                        | Email address of user.                                                                       |
@@ -81,7 +81,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
   ],
   "device_id": "1234567",
   "braze_id": "braze_identifier",
-  "email_address": "example@braze.com",
+  "email_address": "example@example.com",
   "phone": "11112223333",
   "fields_to_export": ["first_name", "email", "purchases"]
 }'
@@ -94,10 +94,10 @@ The following is a list of valid `fields_to_export`. Using `fields_to_export` to
 | Field to export       | Data type       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `apps`                | Array           | Apps this user has logged sessions for, which includes the fields:<br><br>- `name`: app name<br>- `platform`: app platform, such as iOS, Android, or Web<br>- `version`: app version number or name <br>- `sessions`: total number of sessions for this app<br>- `first_used`: date of first session<br>- `last_used`: date of last session<br><br>All fields are strings.                                                                                                                                                                                                                                                                                       |
-| `attributed_campaign` | String          | Data from [attribution integrations]({{site.baseurl}}/partners/message_orchestration/), if set up. Identifier for a particular ad campaign.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `attributed_source`   | String          | Data from [attribution integrations]({{site.baseurl}}/partners/message_orchestration/), if set up. Identifier for the platform the ad was on.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `attributed_adgroup`  | String          | Data from [attribution integrations]({{site.baseurl}}/partners/message_orchestration/), if set up. Identifier for an optional sub-grouping below campaign.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `attributed_ad`       | String          | Data from [attribution integrations]({{site.baseurl}}/partners/message_orchestration/), if set up. Identifier for an optional sub-grouping below campaign and ad group.                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `attributed_campaign` | String          | Data from [attribution integrations]({{site.baseurl}}/partners/message_orchestration), if set up. Identifier for a particular ad campaign.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `attributed_source`   | String          | Data from [attribution integrations]({{site.baseurl}}/partners/message_orchestration), if set up. Identifier for the platform the ad was on.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `attributed_adgroup`  | String          | Data from [attribution integrations]({{site.baseurl}}/partners/message_orchestration), if set up. Identifier for an optional sub-grouping below campaign.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `attributed_ad`       | String          | Data from [attribution integrations]({{site.baseurl}}/partners/message_orchestration), if set up. Identifier for an optional sub-grouping below campaign and ad group.                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `push_subscribe`      | String          | User's push subscription status.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `email_subscribe`     | String          | User's email subscription status.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `braze_id`            | String          | Device-specific unique user identifier set by Braze for this user.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
@@ -303,13 +303,13 @@ User export object (we will include the least data possible - if a field is miss
     ],
     "braze_id": "5fbd99bac125ca40511f2cb1",
     "random_bucket" : 2365,
-    "first_name" : "Jane",
-    "last_name" : "Doe",
-    "email" : "example@braze.com",
+    "first_name" : "Alex",
+    "last_name" : "Smith",
+    "email" : "example@example.com",
     "dob" : "1980-12-21",
     "home_city" : "Chicago",
     "country" : "US",
-    "phone" : "+442071838750",
+    "phone" : "+15555550123",
     "language" : "en",
     "time_zone" : "Eastern Time (US & Canada)",
     "last_coordinates" : [41.84157636433568, -87.83520818508256],
@@ -432,7 +432,7 @@ User export object (we will include the least data possible - if a field is miss
 {% endtabs %}
 
 {% alert tip %}
-For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

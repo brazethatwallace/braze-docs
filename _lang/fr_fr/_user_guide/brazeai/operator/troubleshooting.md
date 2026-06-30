@@ -1,7 +1,7 @@
 ---
 nav_title: Résolution des problèmes
 article_title: Résolution des problèmes de BrazeAI Operator
-page_order: 4
+page_order: 10
 description: "Problèmes courants et solutions pour BrazeAI Operator<sup>TM</sup>."
 ---
 
@@ -17,7 +17,7 @@ description: "Problèmes courants et solutions pour BrazeAI Operator<sup>TM</sup
 | Réponses hors sujet | Reformulez votre question de manière plus précise. Mentionnez la fonctionnalité ou le flux de travail concerné. |
 | Messages d'erreur | Si Operator ne parvient pas à diffuser le contenu, un message « Réessayer » peut s'afficher. Operator est peut-être temporairement indisponible ou la connexion a été interrompue. Réessayez après quelques minutes. |
 | Dépassement de la limite d'utilisation quotidienne | La limite d'utilisation à l'échelle de la société a été atteinte. Attendez que la limite se réinitialise (réinitialisation toutes les 24 heures). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Common issues" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Problèmes courants" }
 
 ## Limitations {#limitations}
 

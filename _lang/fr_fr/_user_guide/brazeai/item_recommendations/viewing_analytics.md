@@ -43,9 +43,9 @@ Pour plus d'informations, reportez-vous au tableau suivant :
 
 | Indicateur | Description |
 | ------------------- | ---------- |
-| **Articles personnalisés**<br><br>**Articles les plus récents** | Cette colonne répertorie chaque article du catalogue par ordre décroissant de fréquence de recommandation aux utilisateurs. Elle indique également le nombre d'utilisateurs auxquels le modèle a attribué chaque article.<br><br>Les articles **personnalisés** ou les **plus récents** seront affichés en fonction du [type de recommandation]({{site.baseurl}}/user_guide/brazeai/item_recommendations/). |
+| **Articles personnalisés**<br><br>**Articles les plus récents** | Cette colonne répertorie chaque article du catalogue par ordre décroissant de fréquence de recommandation aux utilisateurs. Elle indique également le nombre d'utilisateurs auxquels le modèle a attribué chaque article.<br><br>Les articles **personnalisés** ou les **plus récents** seront affichés en fonction du [type de recommandation]({{site.baseurl}}/user_guide/brazeai/item_recommendations). |
 | **Articles les plus populaires** | Cette colonne présente chaque article du catalogue par ordre décroissant de popularité. La popularité fait ici référence aux articles du catalogue avec lesquels les utilisateurs interagissent le plus souvent dans l'ensemble de l'espace de travail. Les articles les plus populaires sont utilisés comme solution de repli lorsque les recommandations personnalisées ou les plus récentes ne peuvent pas être calculées pour un utilisateur individuel. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Items" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Articles" }
 
 ### Aperçu {#overview}
 

@@ -1,53 +1,45 @@
 ---
-nav_title: Assistant de modèle de message
-article_title: Assistant de modèle de message
+nav_title: Modèles d'e-mail HTML
+article_title: Générer des modèles d'e-mail HTML
 permalink: "/template_assistant/"
-description: "Cet article de référence explique comment utiliser l'assistant de modèle de message pour générer des modèles pour vos e-mails."
+description: "Cet article de référence explique comment générer des modèles d'e-mail HTML à l'aide d'Operator, y compris son fonctionnement et des exemples de prompts."
 page_type: reference
 ---
 
-# Assistant de modèle de message {#message-template-assistant}
+# Générer des modèles d'e-mail HTML {#generate-html-email-templates}
 
-> L'assistant de modèle de message vous aide à itérer sur un modèle d'e-mail HTML existant en utilisant l'intelligence artificielle générative pour créer des modèles adaptés à vos besoins spécifiques. Cette fonctionnalité peut vous aider à optimiser votre contenu pour un cas d'utilisation, une audience ou une conversion spécifique, et à réduire le temps et les efforts nécessaires à la composition de vos e-mails.
+> Générez et itérez sur des modèles d'e-mail HTML à l'aide d'Operator. Décrivez le modèle dont vous avez besoin en langage naturel, et Operator le crée ou le modifie en utilisant vos directives de marque et vos paramètres de style globaux.
 
 {% alert important %}
-L'assistant de modèle de message est en accès anticipé. Contactez votre gestionnaire de la satisfaction client si vous souhaitez participer à cet accès anticipé. <br><br>Cette fonctionnalité n'est actuellement prise en charge que pour le canal e-mail et uniquement dans l'éditeur HTML, pas dans les autres éditeurs (tels que le glisser-déposer ou AMP).
+La génération de modèles d'e-mail HTML avec Operator est en accès anticipé. Contactez votre gestionnaire de compte Braze si vous souhaitez participer à cet accès anticipé.
+
+Cette fonctionnalité n'est prise en charge que pour le canal e-mail dans l'éditeur HTML, pas dans les autres éditeurs (tels que le glisser-déposer ou AMP).
 {% endalert %}
+
+{% multi_lang_include brazeai/generative_ai/unification_note.md %}
+
+## Comment y accéder {#how-to-access}
+
+{% multi_lang_include brazeai/generative_ai/access_html_template.md %}
 
 ## Comment ça fonctionne {#how-it-works}
 
-L'assistant de modèle de message utilise vos [directives de marque](https://www.braze.com/docs/user_guide/administrative/app_settings/brand_guidelines) et vos [paramètres de style globaux](https://www.braze.com/docs/user_guide/message_building_by_channel/email/drag_and_drop/dnd_email_style_settings) pour adapter le contenu et le style du message à votre marque.
+Operator utilise vos [directives de marque]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) et vos [paramètres de style globaux]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_email_style_settings/) pour adapter le contenu et le style du message à votre marque.
 
-Par exemple, si vous avez configuré des paramètres de style globaux, l'assistant de modèle de message intégrera les couleurs et les styles de votre marque. Si vous avez défini des directives de marque dans Braze, l'assistant peut également s'y référer pour créer du contenu dans le ton et la personnalité de votre marque.
+Par exemple, si vous avez configuré des paramètres de style globaux, Operator intègre les couleurs et les styles de votre marque. Si vous avez défini des directives de marque dans Braze, Operator s'y réfère également pour créer du contenu dans le ton et la personnalité de votre marque.
 
-L'assistant de modèle de message peut se souvenir de l'historique de votre conversation uniquement lorsque vous êtes encore dans la même fenêtre de chat. Cela signifie qu'il peut faire référence à des prompts précédents pour en générer de nouveaux. L'assistant essaiera également d'adapter votre modèle pour qu'il soit responsive sur mobile.
+Operator adapte également votre modèle pour qu'il soit responsive sur mobile.
 
-Par exemple, si vous passez d'un prompt spécifiquement lié à une marque de fitness à une marque générique dans vos prompts suivants, l'assistant de modèle de message peut indiquer dans le modèle qu'il s'agit de cette même marque de fitness. Pour démarrer une nouvelle conversation, sélectionnez **Effacer l'historique** dans la fenêtre de chat et ouvrez à nouveau l'assistant de modèle de message.
+## Exemples de prompts {#example-prompts}
 
-## Créer un modèle {#creating-a-template}
+{% include copy_block.html content="Build a responsive HTML email template for a product launch with a hero image and two feature blocks." %}
 
-1. Dans le tableau de bord, allez dans **Modèles** > **Modèles d'e-mail**.
-2. Sélectionnez un modèle d'e-mail existant.
-3. Dans la section **Créer avec l'IA** de l'éditeur HTML, sélectionnez **Modèle**.
-4. À partir de là, vous pouvez saisir différents prompts ou poser des questions sur votre contenu.
-5. L'assistant de modèle de message fournira une réponse et déterminera les modifications nécessaires à votre modèle.
-6. Sélectionnez **Générer** pour appliquer les suggestions.
+{% include copy_block.html content="Create a clean, single-column newsletter template that matches our brand guidelines." %}
 
-{% alert important %}
-Nous vous recommandons vivement de tester le résultat généré pour vous assurer qu'il correspond à votre message.
-{% endalert %}
+{% include copy_block.html content="Add a feedback survey at the bottom of the email" %}
 
-![Un exemple de prompt pour créer un modèle avec plusieurs sections à utiliser pour plusieurs e-mails. L'assistant de modèle de message explique les modifications apportées au modèle actuel.]({% image_buster /assets/unlisted_docs/img/ai_message_template_assistant1.png %}){: style="width:70%;"}
+{% include copy_block.html content="Change font to [font name] and font size of the paragraph to size [number]" %}
 
-### Exemples de prompts {#example-prompts}
+{% include copy_block.html content="Make all the images have rounded corners" %}
 
-Voici quelques exemples de prompts pour vous aider à démarrer :
-
-- Ajouter un sondage de satisfaction en bas de l'e-mail
-- Changer la police en {% raw %}`{{font name}}` et la taille de police du paragraphe en taille `{{number}}`{% endraw %}
-- Arrondir les coins de toutes les images
-- Ajouter une autre section avec une image et un appel à l'action
-
-{% alert note %}
-Selon votre prompt et la réponse, l'assistant de modèle de message peut ajouter des images de substitution lors de la génération du nouveau modèle.
-{% endalert %}
+{% include copy_block.html content="Add another section with an image and a call-to-action" %}

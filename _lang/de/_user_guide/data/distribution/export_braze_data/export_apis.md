@@ -12,7 +12,7 @@ platform: API
 
 > Diese Seite hilft Ihnen bei der Entscheidung, wann Sie Export-APIs anstelle von CSV-Downloads aus dem Dashboard verwenden sollten.
 
-Die Braze-Export-APIs ermöglichen es Ihnen, Braze-Daten programmatisch als JSON zu exportieren. Details dazu, was Sie exportieren können, welche Voraussetzungen gelten und wie die Zustellung funktioniert, finden Sie unter [Export-Endpunkte]({{site.baseurl}}/api/endpoints/export/).
+Die Braze-Export-APIs ermöglichen es Ihnen, Braze-Daten programmatisch als JSON zu exportieren. Details dazu, was Sie exportieren können, welche Voraussetzungen gelten und wie die Zustellung funktioniert, finden Sie unter [Export-Endpunkte]({{site.baseurl}}/api/endpoints/export).
 
 ## Wann Sie Export-APIs anstelle von CSV-Downloads verwenden sollten {#when-to-use-export-apis-instead-of-csv-downloads}
 
@@ -28,5 +28,5 @@ Die folgende Tabelle beschreibt gängige Szenarien, in denen die Verwendung der 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Wann Sie Export-APIs anstelle von CSV-Downloads verwenden sollten" }
 
 {% alert tip %}
-Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}

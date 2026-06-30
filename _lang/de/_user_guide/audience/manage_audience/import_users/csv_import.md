@@ -58,14 +58,14 @@ Wenn Sie Nutzerprofile hochladen oder aktualisieren, die nur einen Alias haben, 
 
 | `user_alias_name` | `user_alias_label` | `last_name` | `email` | sample_attribute |
 | :---- | :---- | :---- | :---- | :---- |
-| 182736485 | my_alt_identifier | Smith | smith@user.com | TRUE |
-| 182736486 | my_alt_identifier | Nguyen | nguyen@user.com | FALSE |
+| 182736485 | my_alt_identifier | Smith | smith@example.com | TRUE |
+| 182736486 | my_alt_identifier | Nguyen | nguyen@example.com | FALSE |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Schritt 2: Bezeichner auswählen" }
 
 Wenn Sie sowohl einen `user_alias_name` als auch ein `user_alias_label` in Ihrem Import angeben, aktualisiert Braze alle bestehenden Nutzer:innen mit demselben `user_alias_name` und `user_alias_label`. Wenn keine Übereinstimmung gefunden wird, erstellt Braze eine:n neu identifizierte:n Nutzer:in mit diesem `user_alias_name`.
 
 {% alert important %}
-Sie können keinen CSV-Import verwenden, um bestehende Nutzer:innen mit einem `user_alias_name` zu aktualisieren, wenn diese bereits eine `external_id` haben. Stattdessen wird ein neues Nutzerprofil mit dem zugehörigen `user_alias_name` erstellt. Um eine:n Nutzer:in, die/der nur einen Alias hat, mit einer `external_id` zu verknüpfen, verwenden Sie den [Endpunkt „Nutzer:innen identifizieren“]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/).
+Sie können keinen CSV-Import verwenden, um bestehende Nutzer:innen mit einem `user_alias_name` zu aktualisieren, wenn diese bereits eine `external_id` haben. Stattdessen wird ein neues Nutzerprofil mit dem zugehörigen `user_alias_name` erstellt. Um eine:n Nutzer:in, die/der nur einen Alias hat, mit einer `external_id` zu verknüpfen, verwenden Sie den [Endpunkt „Nutzer:innen identifizieren“]({{site.baseurl}}/api/endpoints/user_data/post_user_identify).
 {% endalert %}
 
 Download: [CSV-Attribut-Import-Template: Nutzer-Alias]({{site.baseurl}}/assets/download_file/braze-user-import-alias-template-csv.xlsx?c0ce6c0aa1e901395161d87c5ba17747)
@@ -97,9 +97,9 @@ Sie können auf eine externe ID oder einen Nutzer-Alias verzichten und stattdess
 Wenn Sie sowohl E-Mail-Adressen als auch Telefonnummern in Ihrer CSV-Datei angeben, wird die E-Mail-Adresse bei der Profilsuche gegenüber der Telefonnummer priorisiert.
 {% endalert %}
 
-Wenn ein bestehendes Profil diese E-Mail-Adresse oder Telefonnummer hat, wird dieses Profil aktualisiert, und Braze erstellt kein neues Profil. Wenn es mehrere Profile mit derselben E-Mail-Adresse gibt, verwendet Braze dieselbe Logik wie der [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), wobei das zuletzt aktualisierte Profil aktualisiert wird.
+Wenn ein bestehendes Profil diese E-Mail-Adresse oder Telefonnummer hat, wird dieses Profil aktualisiert, und Braze erstellt kein neues Profil. Wenn es mehrere Profile mit derselben E-Mail-Adresse gibt, verwendet Braze dieselbe Logik wie der [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track), wobei das zuletzt aktualisierte Profil aktualisiert wird.
 
-Wenn kein Profil mit dieser E-Mail-Adresse oder Telefonnummer existiert, erstellt Braze ein neues Profil mit diesem Bezeichner. Sie können den [`/users/identify`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) verwenden, um dieses Profil später zu identifizieren. Um ein Nutzerprofil zu löschen, können Sie auch den [`/users/delete`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) verwenden.
+Wenn kein Profil mit dieser E-Mail-Adresse oder Telefonnummer existiert, erstellt Braze ein neues Profil mit diesem Bezeichner. Sie können den [`/users/identify`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) verwenden, um dieses Profil später zu identifizieren. Um ein Nutzerprofil zu löschen, können Sie auch den [`/users/delete`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) verwenden.
 {% endtab %}
 {% endtabs %}
 
@@ -139,7 +139,7 @@ Die folgenden Datentypen können als angepasste Attribute für den CSV-Import ve
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Angepasste Attribute" }
 
 {% alert important %}
-Arrays, Push-Token und angepasste Event-Datentypen werden beim Nutzerimport nicht unterstützt, da Kommas in Ihrer CSV-Datei als Spaltentrennzeichen interpretiert werden und beim Parsen Ihrer Datei Fehler verursachen.<br><br>Um diese Art von Werten hochzuladen, verwenden Sie stattdessen den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) oder die [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/).
+Arrays, Push-Token und angepasste Event-Datentypen werden beim Nutzerimport nicht unterstützt, da Kommas in Ihrer CSV-Datei als Spaltentrennzeichen interpretiert werden und beim Parsen Ihrer Datei Fehler verursachen.<br><br>Um diese Art von Werten hochzuladen, verwenden Sie stattdessen den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) oder die [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 {% endalert %}
 
 #### Standardattribute {#default-attributes}
@@ -149,7 +149,7 @@ Beim Import von Standardattributen müssen die verwendeten Spaltenüberschriften
 {% endalert %}
 
 {% alert tip %}
-Die vollständige Liste der von Braze erkannten Standardattribute (über SDK, API, CSV und Cloud-Datenaufnahme) finden Sie unter [Standardattribute]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/). Die folgende Tabelle enthält nur die Teilmenge, die über den CSV-Import festgelegt werden kann.
+Die vollständige Liste der von Braze erkannten Standardattribute (über SDK, API, CSV und Cloud-Datenaufnahme) finden Sie unter [Standardattribute]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes). Die folgende Tabelle enthält nur die Teilmenge, die über den CSV-Import festgelegt werden kann.
 {% endalert %}
 
 Die folgenden Standardattribute stehen für den Nutzerimport zur Verfügung.
@@ -161,13 +161,13 @@ Die folgenden Standardattribute stehen für den Nutzerimport zur Verfügung.
 | `user_alias_label` | String | Ein gemeinsames Label, um Nutzer-Aliase zu gruppieren. Muss zusammen mit `user_alias_name` verwendet werden. | Bedingt. Siehe [Erforderliche Bezeichner](#required-identifiers-attributes). |
 | `first_name` | String | Der Vorname Ihrer Nutzer:innen, wie von ihnen angegeben (z. B. `Jane`). | Nein |
 | `last_name` | String | Der Nachname Ihrer Nutzer:innen, wie von ihnen angegeben (z. B. `Doe`). | Nein |
-| `email` | String | Die E-Mail-Adresse Ihrer Nutzer:innen, wie von ihnen angegeben (z. B. `jane.doe@braze.com`). | Nein |
+| `email` | String | Die E-Mail-Adresse Ihrer Nutzer:innen, wie von ihnen angegeben (z. B. `jane.doe@example.com`). | Nein |
 | `country` | String | Ländercodes müssen im ISO-3166-1-Alpha-2-Standard an Braze übergeben werden (z. B. `GB`). | Nein |
 | `dob` | String | Muss im Format „YYYY-MM-DD“ übergeben werden (z. B. `1980-12-21`). Damit wird das Geburtsdatum Ihrer Nutzer:innen importiert und Sie können Nutzer:innen ansprechen, deren Geburtstag „heute“ ist. | Nein |
 | `gender` | String | „M“, „F“, „O“ (andere), „N“ (nicht zutreffend), „P“ (möchte nicht angeben) oder nil (unbekannt). | Nein |
 | `home_city` | String | Der Wohnort Ihrer Nutzer:innen, wie von ihnen angegeben (z. B. `London`). | Nein |
-| `language` | String | Die Sprache muss im ISO-639-1-Standard an Braze übergeben werden (z. B. `en`). Weitere Informationen finden Sie in unserer [Liste der akzeptierten Sprachen]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes/). | Nein |
-| `phone` | String | Eine Telefonnummer, wie von Ihren Nutzer:innen angegeben, im `E.164`-Format (z. B. `+442071838750`). Formatierungshinweise finden Sie unter [Nutzer-Telefonnummern]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/). | Nein |
+| `language` | String | Die Sprache muss im ISO-639-1-Standard an Braze übergeben werden (z. B. `en`). Weitere Informationen finden Sie in unserer [Liste der akzeptierten Sprachen]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes). | Nein |
+| `phone` | String | Eine Telefonnummer, wie von Ihren Nutzer:innen angegeben, im `E.164`-Format (z. B. `+442071838750`). Formatierungshinweise finden Sie unter [Nutzer-Telefonnummern]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers). | Nein |
 | `email_open_tracking_disabled` | Boolescher Wert | Akzeptiert true oder false. Setzen Sie den Wert auf true, um zu verhindern, dass das Öffnungs-Tracking-Pixel zu allen zukünftigen E-Mails an diese:n Nutzer:in hinzugefügt wird. Nur für SparkPost und SendGrid verfügbar. | Nein |
 | `email_click_tracking_disabled` | Boolescher Wert | Akzeptiert true oder false. Setzen Sie den Wert auf true, um das Klick-Tracking für alle Links in zukünftigen E-Mails an diese:n Nutzer:in zu deaktivieren. Nur für SparkPost und SendGrid verfügbar. | Nein |
 | `email_subscribe` | String | Verfügbare Werte sind `opted_in` (explizit für den Empfang von E-Mail-Nachrichten registriert), `unsubscribed` (explizit vom Empfang von E-Mail-Nachrichten abgemeldet) und `subscribed` (weder angemeldet noch abgemeldet). | Nein |
@@ -180,11 +180,11 @@ Die folgenden Standardattribute stehen für den Nutzerimport zur Verfügung.
 
 #### Abo-Gruppenstatus aktualisieren (optional) {#updating-subscription-group-status-optional}
 
-Zusätzlich können Sie Nutzer:innen über den Nutzerimport zu E-Mail- oder SMS-Abo-Gruppen hinzufügen. Dies ist besonders für SMS nützlich, da Nutzer:innen in eine SMS-Abo-Gruppe eingetragen sein müssen, um über den SMS-Kanal Nachrichten zu erhalten. Weitere Informationen finden Sie unter [SMS-Abo-Gruppen](https://www.braze.com/docs/sms_rcs_subscription_groups#subscription-group-mms-enablement).
+Zusätzlich können Sie Nutzer:innen über den Nutzerimport zu E-Mail- oder SMS-Abo-Gruppen hinzufügen. Dies ist besonders für SMS nützlich, da Nutzer:innen in eine SMS-Abo-Gruppe eingetragen sein müssen, um über den SMS-Kanal Nachrichten zu erhalten. Weitere Informationen finden Sie unter [SMS-Abo-Gruppen]({{site.baseurl}}/sms_rcs_subscription_groups#subscription-group-mms-enablement).
 
 Wenn Sie Abo-Gruppenstatus aktualisieren, müssen die folgenden zwei Spalten in Ihrer CSV-Datei vorhanden sein:
 
-- `subscription_group_id`: Die `id` der [Abo-Gruppe](https://www.braze.com/docs/user_guide/channels/email/subscriptions#subscription-groups).
+- `subscription_group_id`: Die `id` der [Abo-Gruppe]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups).
 - `subscription_state`: Verfügbare Werte sind `unsubscribed` (nicht in der Abo-Gruppe) oder `subscribed` (in der Abo-Gruppe).
 
 | external_id | first_name | subscription_group_id | subscription_state |
@@ -222,8 +222,8 @@ Zum Beispiel könnte das angepasste Event `trip_booked` die Eigenschaften `desti
 | `braze_id` | String | Ein von Braze zugewiesener Bezeichner für Ihre:n Nutzer:in. | Bedingt. Siehe [Erforderliche Bezeichner](#required-identifiers-custom-events). |
 | `user_alias_name` | String | Ein eindeutiger Nutzerbezeichner für anonyme Nutzer:innen als Alternative zur `external_id`. Muss zusammen mit `user_alias_label` verwendet werden. | Bedingt. Siehe [Erforderliche Bezeichner](#required-identifiers-custom-events). |
 | `user_alias_label` | String | Ein gemeinsames Label, um Nutzer-Aliase zu gruppieren. Muss zusammen mit `user_alias_name` verwendet werden. | Bedingt. Siehe [Erforderliche Bezeichner](#required-identifiers-custom-events). |
-| `email` | String | Die E-Mail-Adresse Ihrer Nutzer:innen, wie von ihnen angegeben (z. B. `jane.doe@braze.com`). | Nein, und kann nur verwendet werden, wenn keine anderen Bezeichner vorhanden sind. Siehe den folgenden Hinweis. |
-| `phone` | String | Eine Telefonnummer, wie von Ihren Nutzer:innen angegeben, im `E.164`-Format (z. B. `+442071838750`). Formatierungshinweise finden Sie unter [Nutzer-Telefonnummern]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/). | Nein, und kann nur verwendet werden, wenn keine anderen Bezeichner vorhanden sind. Siehe den folgenden Hinweis. |
+| `email` | String | Die E-Mail-Adresse Ihrer Nutzer:innen, wie von ihnen angegeben (z. B. `jane.doe@example.com`). | Nein, und kann nur verwendet werden, wenn keine anderen Bezeichner vorhanden sind. Siehe den folgenden Hinweis. |
+| `phone` | String | Eine Telefonnummer, wie von Ihren Nutzer:innen angegeben, im `E.164`-Format (z. B. `+442071838750`). Formatierungshinweise finden Sie unter [Nutzer-Telefonnummern]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers). | Nein, und kann nur verwendet werden, wenn keine anderen Bezeichner vorhanden sind. Siehe den folgenden Hinweis. |
 | `name` | String | Ein angepasstes Event Ihrer Nutzer:innen. | Ja |
 | `time` | String | Der Zeitpunkt des Events. Kann in einem der folgenden ISO-8601-Formate übergeben werden: „YYYY-MM-DD“ „YYYY-MM-DDTHH:MM:SS+00:00“ „YYYY-MM-DDTHH:MM:SSZ“ „YYYY-MM-DDTHH:MM:SS“ (z. B. 2019-11-20T18:38:57) | Ja |
 | `<event name>.properties.<property name>` | Mehrere | Eine Event-Eigenschaft, die mit einem angepassten Event verknüpft ist. Ein Beispiel ist `trip_booked.properties.destination` | Nein |
@@ -289,7 +289,7 @@ In diesem Beispiel:
 
 Um Ihre Datei hochzuladen, wählen Sie **Attributes** oder **Events**, klicken Sie auf **Browse Files** und laden Sie Ihre CSV-Datei hoch. Braze zeigt eine Vorschau der ersten Zeilen und eine Zusammenfassung der erkannten Felder an.
 
-Bei großen Dateien (bis zu 500 MB für Standardattribute und angepasste Attribute oder 50 MB für angepasste Events) kann das Dashboard vorübergehend nicht reagieren, während die Datei hochgeladen wird und Braze den Import berechnet. Diese Uploads und Berechnungen können länger dauern als bei kleineren Dateien. Lassen Sie diesen Schritt abschließen. Weitere Informationen zu Dateigrößenlimits und Zeitangaben finden Sie unter [CSV-Datei erstellen]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/#constructing-your-csv).
+Bei großen Dateien (bis zu 500 MB für Standardattribute und angepasste Attribute oder 50 MB für angepasste Events) kann das Dashboard vorübergehend nicht reagieren, während die Datei hochgeladen wird und Braze den Import berechnet. Diese Uploads und Berechnungen können länger dauern als bei kleineren Dateien. Lassen Sie diesen Schritt abschließen. Weitere Informationen zu Dateigrößenlimits und Zeitangaben finden Sie unter [CSV-Datei erstellen]({{site.baseurl}}/user_guide/data/user_data_collection/user_import#constructing-your-csv).
 
 Im Feld **Import name** können Sie Ihren Import umbenennen. Standardmäßig wird der Dateiname verwendet.
 
@@ -338,7 +338,7 @@ Nach der Zuordnung können Sie auf der Seite „Import-Einstellungen“ aus den 
 | Neue Segmente | Um zusätzlich ein neues Segment aus Ihrem neuen Targeting-Filter zu erstellen, wählen Sie **Create targeting filter and add to new segment**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 6: Targeting-Einstellungen wählen" }
 
-![Eine Filtergruppe mit dem Filter „Updated/Imported from CSV“, der eine CSV-Datei mit dem Titel „Halloween season fun“ enthält.]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
+![Eine Filtergruppe mit dem Filter „Updated/Imported from CSV„, der eine CSV-Datei mit dem Titel „Halloween season fun“ enthält.]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
 
 ### 7. Schritt: Datei validieren (optional) {#file-validation}
 
@@ -487,7 +487,7 @@ Datumsangaben, die nicht im [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)-F
 
 Wenn Ihr Upload mit Fehlern abgeschlossen wurde, kann es eine oder mehrere ungültige verschlüsselte E-Mail-Adressen geben. Bestätigen Sie, dass alle E-Mail-Adressen korrekt verschlüsselt sind, bevor Sie sie in Braze importieren.
 
-- **Beim [Aktualisieren oder Importieren von E-Mail-Adressen]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/#step-3-import-and-update-users)** in Braze verwenden Sie den gehashten E-Mail-Wert überall dort, wo eine E-Mail enthalten ist. Diese gehashten E-Mail-Werte werden von Ihrem internen Team bereitgestellt.
+- **Beim [Aktualisieren oder Importieren von E-Mail-Adressen]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption#step-3-import-and-update-users)** in Braze verwenden Sie den gehashten E-Mail-Wert überall dort, wo eine E-Mail enthalten ist. Diese gehashten E-Mail-Werte werden von Ihrem internen Team bereitgestellt.
 - **Beim Erstellen neuer Nutzer:innen** müssen Sie `email_encrypted` mit dem verschlüsselten E-Mail-Wert der/des Nutzers/Nutzerin hinzufügen. Andernfalls erstellt Braze die/den Nutzer:in nicht. Ebenso müssen Sie, wenn Sie einer/einem bestehenden Nutzer:in ohne E-Mail eine E-Mail-Adresse hinzufügen, `email_encrypted` hinzufügen. Andernfalls aktualisiert Braze die/den Nutzer:in nicht.
 
 #### Daten als angepasstes Attribut importiert {#data-imported-as-custom-attribute}
@@ -496,7 +496,7 @@ Wenn ein Standard-Nutzerdatum (wie `email` oder `first_name`) als angepasstes At
 
 #### Datentyp eines angepassten Attributs ändern {#change-a-custom-attributes-data-type}
 
-Wenn Sie den Datentyp eines bestehenden angepassten Attributs ändern müssen (z. B. von String zu Boolescher Wert), aktualisieren Sie den Datentyp auf der Seite [**Angepasste Attribute**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/) im Dashboard, bevor Sie Ihre CSV-Datei importieren. Wenn der Datentyp in Ihrer CSV-Datei nicht mit dem aktuell definierten Datentyp des Attributs übereinstimmt, schlägt der Import mit einem Fehler fehl.
+Wenn Sie den Datentyp eines bestehenden angepassten Attributs ändern müssen (z. B. von String zu Boolescher Wert), aktualisieren Sie den Datentyp auf der Seite [**Angepasste Attribute**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) im Dashboard, bevor Sie Ihre CSV-Datei importieren. Wenn der Datentyp in Ihrer CSV-Datei nicht mit dem aktuell definierten Datentyp des Attributs übereinstimmt, schlägt der Import mit einem Fehler fehl.
 
 #### Mehrere Datentypen {#multiple-data-types}
 
@@ -506,14 +506,14 @@ Außerdem kann das Beginnen eines Zahlenattributs mit einer Null Probleme verurs
 
 #### Standardattributtypen {#default-attribute-types}
 
-Einige Standardattribute akzeptieren möglicherweise nur bestimmte Werte als gültig für Nutzeraktualisierungen. Hinweise finden Sie unter [CSV-Datei erstellen]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/).
+Einige Standardattribute akzeptieren möglicherweise nur bestimmte Werte als gültig für Nutzeraktualisierungen. Hinweise finden Sie unter [CSV-Datei erstellen]({{site.baseurl}}/user_guide/audience/manage_audience/import_users).
 
 Nachgestellte Leerzeichen und Unterschiede in der Groß-/Kleinschreibung können dazu führen, dass ein Wert als ungültig interpretiert wird. In der folgenden CSV-Datei wird beispielsweise nur die/der Nutzer:in in der ersten Zeile (`brazetest1`) erfolgreich mit dem E-Mail- und Push-Status aktualisiert, da die akzeptierten Werte `unsubscribed`, `subscribed` und `opted_in` sind.
 
 ```plaintext
 external_id,email,email_subscribe,push_subscribe
-brazetest1,test1@braze.com,unsubscribed,unsubscribed
-brazetest2,test2@braze.com,Unsubscribed,Unsubscribed
+brazetest1,test1@example.com,unsubscribed,unsubscribed
+brazetest2,test2@example.com,Unsubscribed,Unsubscribed
 ```
 
 ### „CSV-Datei auswählen“ funktioniert nicht {#select-csv-file-is-not-working}

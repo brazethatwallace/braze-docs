@@ -8,6 +8,6 @@ description: "Erfahren Sie, wie Sie Umfragen auf Braze-Landing-Pages erstellen, 
 
 # Landing-Page-Umfragen {#landing-page-surveys}
 
-> Braze-Umfragen erfassen Feedback auf Landing-Pages, das Sie analysieren und in Folgenachrichten verwenden können. Während der Beta werden Umfragen im [Drag-and-Drop-Editor für Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) erstellt.
+> Braze-Umfragen erfassen Feedback auf Landing-Pages, das Sie analysieren und in Folge-Nachrichten nutzen können. Während der Beta werden Umfragen im [Drag-and-Drop-Editor für Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages) erstellt.
 
 {% multi_lang_include surveys/content.md channel='landing_page' %}

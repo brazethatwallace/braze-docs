@@ -122,7 +122,7 @@ struct SportsActivityAttributes: ActivityAttributes {
 
 먼저, 활동을 등록하는 방법을 선택합니다:
 
-- **원격:** [`registerPushToStart`](<http://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/registerpushtostart(fortype:name:)>) 메서드를 사용자 라이프사이클 초기에, 푸시 투 스타트 토큰이 필요하기 전에 호출한 다음 [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start/) 엔드포인트를 사용하여 활동을 시작합니다.
+- **원격:** [`registerPushToStart`](<http://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/registerpushtostart(fortype:name:)>) 메서드를 사용자 라이프사이클 초기에, 푸시 투 스타트 토큰이 필요하기 전에 호출한 다음 [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start) 엔드포인트를 사용하여 활동을 시작합니다.
 - **로컬:** 라이브 활동의 인스턴스를 생성한 다음, [`launchActivity`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/launchactivity(pushtokentag:activity:fileid:line:)>) 메서드를 사용하여 Braze가 관리할 푸시 토큰을 생성합니다.
 
 {% tabs local %}
@@ -176,7 +176,7 @@ struct SportsActivityAttributes: ActivityAttributes, BrazeLiveActivityAttributes
 iOS 운영체제는 기기를 재시작한 후 처음 앱을 설치할 때만 푸시 투 스타트 토큰을 생성합니다. 토큰이 안정적으로 등록되도록 하려면 `didFinishLaunchingWithOptions` 메서드에서 `registerPushToStart`를 호출하세요.
 {% endalert %}
 
-###### 예시
+##### 예시
 
 다음 예제에서 `LiveActivityManager` 클래스는 라이브 활동 오브젝트를 처리합니다. 그런 다음, `registerPushToStart` 메서드에서 `SportsActivityAttributes`를 등록합니다:
 
@@ -204,7 +204,7 @@ class LiveActivityManager {
 
 #### 2.4단계: 푸시 투 스타트 알림 보내기 {#step-24-send-a-push-to-start-notification}
 
-[`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start/) 엔드포인트를 사용하여 원격 푸시 투 스타트 알림을 보냅니다.
+[`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start) 엔드포인트를 사용하여 원격 푸시 투 스타트 알림을 보냅니다.
 {% endtab %}
 
 {% tab 로컬 %}
@@ -266,7 +266,7 @@ class LiveActivityManager {
 
 이를 통해 Braze는 모든 활성 라이브 활동에 대한 푸시 토큰 업데이트를 추적하는 작업을 재개할 수 있습니다. 사용자가 기기에서 라이브 활동을 명시적으로 삭제한 경우, 해당 활동은 제거된 것으로 간주되며 Braze는 더 이상 해당 활동을 추적하지 않습니다.
 
-###### 예시
+#### 예시
 
 ```swift
 import UIKit
@@ -301,20 +301,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ![두 팀의 점수가 표시된 iPhone 잠금 화면의 라이브 활동. Wild Bird Fund는 2점, Owl Rehab은 4점입니다.]({% image_buster /assets/img/swift/live_activities/example_1_2.png %}){: style="max-width:40%;float:right;margin-left:15px;"}
 
-[`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/) 엔드포인트를 사용하면 Braze REST API를 통해 전달되는 푸시 알림으로 라이브 활동을 업데이트할 수 있습니다. 이 엔드포인트를 사용하여 라이브 활동의 `ContentState`를 업데이트합니다.
+[`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) 엔드포인트를 사용하면 Braze REST API를 통해 전달되는 푸시 알림으로 라이브 활동을 업데이트할 수 있습니다. 이 엔드포인트를 사용하여 라이브 활동의 `ContentState`를 업데이트합니다.
 
 `ContentState`를 업데이트하면 라이브 활동 위젯에 새 정보가 표시됩니다. 다음은 전반전이 끝난 후 Superb Owl 프로그램의 모습입니다.
 
-자세한 내용은 [`/messages/live_activity/update` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/) 문서를 참조하세요.
+자세한 내용은 [`/messages/live_activity/update` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) 문서를 참조하세요.
 
 ### 5단계: 활동 종료 {#end-the-activity}
 
-라이브 활동이 활성화되면 사용자의 잠금 화면과 Dynamic Island에 모두 표시됩니다. Braze를 통해 종료하려면 [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/) 엔드포인트에서 `end_activity`를 `true`로 설정합니다.
+라이브 활동이 활성화되면 사용자의 잠금 화면과 Dynamic Island에 모두 표시됩니다. Braze를 통해 종료하려면 [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) 엔드포인트에서 `end_activity`를 `true`로 설정합니다.
 
 라이브 활동 종료의 안정성을 높이려면 다음 선택적 단계를 수행하세요:
 
 1. 동일한 `update` 요청에 `dismissal_date`를 선택적으로 포함하여 iOS가 라이브 활동 UI를 제거할 시점을 제안합니다.
-2. [메시지 활동 로그]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab/)에서 전달 결과를 확인합니다.
+2. [메시지 활동 로그]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab)에서 전달 결과를 확인합니다.
 
 #### 자동 해제 설정 {#arranging-automatic-dismissal}
 
@@ -323,7 +323,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 1. 추적할 수 있는 `activity_id`와 함께 `/messages/live_activity/start` 요청을 보냅니다.
 2. 해당 `activity_id`와 목표 종료 시간을 백엔드 스케줄러에 저장합니다.
 3. 목표 종료 시간에 `end_activity`를 `true`로 설정한 `/messages/live_activity/update` 요청을 보냅니다.
-4. 동일한 업데이트 요청에서 해제 날짜를 구성합니다. 자세한 내용은 [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/) 엔드포인트를 참조하세요.
+4. 동일한 업데이트 요청에서 해제 날짜를 구성합니다. 자세한 내용은 [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) 엔드포인트를 참조하세요.
 
 해제 타이밍은 iOS에 의해 제어됩니다. 유효한 종료 요청을 보낸 후에도 잠금 화면이나 Dynamic Island에서의 제거가 OS 수준의 조건에 따라 지연되거나 다르게 동작할 수 있습니다.
 
@@ -332,16 +332,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 * **사용자 해제**: 사용자가 수동으로 라이브 활동을 해제할 수 있습니다.
 * **시간 초과**: 기본 시간인 8시간이 지나면 iOS는 사용자의 Dynamic Island에서 라이브 활동을 제거합니다. 기본 시간인 12시간이 지나면 iOS는 사용자의 잠금 화면에서 라이브 활동을 제거합니다.
 
-자세한 내용은 [`/messages/live_activity/update` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/) 문서를 참조하세요.
+자세한 내용은 [`/messages/live_activity/update` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) 문서를 참조하세요.
 
 ## 라이브 활동 추적 {#tracking-live-activities}
 
 라이브 활동 이벤트는 Currents, Snowflake 데이터 공유 및 쿼리 빌더에서 사용할 수 있습니다. 다음 이벤트는 라이브 활동의 생애주기를 이해하고 모니터링하며, 토큰 가용성을 추적하고, 문제를 독립적으로 진단하거나 전달 상태를 확인하는 데 도움이 됩니다.
 
-- [라이브 활동 푸시 투 스타트 토큰 변경]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events/#live-activity-push-to-start-token-change-events): 푸시 투 스타트(PTS) 토큰이 Braze에 추가되거나 업데이트될 때 캡처하여 사용자별 토큰 등록 및 가용성을 추적할 수 있습니다.
-- [라이브 활동 업데이트 토큰 변경]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events/#live-activity-update-token-change-events): 라이브 활동 업데이트(LAU) 토큰의 추가, 업데이트 또는 제거를 추적합니다.
-- [라이브 활동 전송]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/#live-activity-send-events): Braze에 의해 라이브 활동이 시작, 업데이트 또는 종료될 때마다 로그를 기록합니다.
-- [라이브 활동 결과]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/#live-activity-outcome-events): Braze에서 전송된 모든 라이브 활동에 대해 Apple 푸시 알림 서비스(APNs)로의 최종 전달 상태를 나타냅니다.
+- [라이브 활동 푸시 투 스타트 토큰 변경]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events#live-activity-push-to-start-token-change-events): 푸시 투 스타트(PTS) 토큰이 Braze에 추가되거나 업데이트될 때 캡처하여 사용자별 토큰 등록 및 가용성을 추적할 수 있습니다.
+- [라이브 활동 업데이트 토큰 변경]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events#live-activity-update-token-change-events): 라이브 활동 업데이트(LAU) 토큰의 추가, 업데이트 또는 제거를 추적합니다.
+- [라이브 활동 전송]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events#live-activity-send-events): Braze에 의해 라이브 활동이 시작, 업데이트 또는 종료될 때마다 로그를 기록합니다.
+- [라이브 활동 결과]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events#live-activity-outcome-events): Braze에서 전송된 모든 라이브 활동에 대해 Apple 푸시 알림 서비스(APNs)로의 최종 전달 상태를 나타냅니다.
+
+## 라이브 활동 전송 확인 {#verify-live-activity-sends}
+
+워크스페이스에서 iOS 라이브 활동을 전송하고 있는지 확인해야 하는 경우 다음 방법을 사용할 수 있습니다:
+
+### 메시지 활동 로그 {#message-activity-log}
+
+**설정** > **메시지 활동 로그**로 이동하여 라이브 활동 오류를 필터링하면 예상 기간 동안의 라이브 활동 관련 전달 결과를 확인할 수 있습니다. 자세한 내용은 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)를 참조하세요.
+
+### 쿼리 빌더, Currents 또는 Snowflake 데이터 공유 {#query-builder-currents-or-snowflake-data-sharing}
+
+다음 라이브 활동 이벤트를 확인하여 라이브 활동 생애주기 및 전달을 검증합니다:
+
+- **라이브 활동 전송:** Braze에 의해 라이브 활동이 시작, 업데이트 또는 종료될 때마다 기록됩니다.
+- **라이브 활동 결과:** 전송된 각 라이브 활동에 대한 APNs로의 최종 전달 상태입니다.
+
+선택적으로 토큰 가용성 신호도 확인할 수 있습니다:
+- **라이브 활동 푸시 투 스타트 토큰 변경**
+- **라이브 활동 업데이트 토큰 변경**
+
+### API 사용량 대시보드 {#api-usage-dashboard}
+
+**설정** > **API 키** > **대시보드**로 이동하여 **필터**를 선택하고 **엔드포인트**별로 필터링하여 API 응답을 확인합니다. 예를 들어 `/messages/live_activity/update`(또는 `/messages/live_activity/start`)를 선택하고 지난 30일간의 요청 볼륨을 확인합니다. API 응답은 API가 호출되고 있으며 이 워크스페이스에서 iOS 라이브 활동 알림이 사용되고 있음을 나타냅니다. 자세한 내용은 [API 사용량 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage)를 참조하세요.
 
 ## 라이브 활동 이벤트 관찰(선택 사항) {#observe-live-activity-events}
 
@@ -438,7 +461,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 | `.pushTokenUpdated(activityId:activityType:)` | ActivityKit가 활동의 푸시 토큰을 교체했습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="인스턴스 범위 이벤트" }
 
-###### 예시
+##### 예시
 
 ```swift
 func handleStateUpdate(_ event: Braze.LiveActivities.UpdateEvent) {
@@ -501,7 +524,7 @@ func handleStateUpdate(_ event: Braze.LiveActivities.UpdateEvent) {
 | `.invalidPushTokenTag(activityId:activityType:tag:)` | `launchActivity(pushTokenTag:activity:)`가 유효하지 않은 태그로 호출되었습니다. 태그는 비어 있지 않아야 하며 256바이트 미만이어야 합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="인스턴스 범위 오류" }
 
-###### 예시
+##### 예시
 
 ```swift
 func handleLiveActivityError(_ error: Braze.LiveActivities.ErrorEvent) {
@@ -622,7 +645,7 @@ func findActivityInstance<Attributes: ActivityAttributes>(
 
 ![macOS 메뉴 바에 알림으로 표시된 라이브 활동의 스크린샷.]({% image_buster /assets/img/live-activity-macos.png %}){: style="max-width:60%;"}
 
-라이브 활동 문서에서는 Braze Swift SDK를 통해 라이브 활동을 관리하기 위한 [필수 조건]({{site.baseurl}}/developer_guide/platforms/swift/live_activities/#prerequisites)을 다룹니다.
+라이브 활동 문서에서는 Braze Swift SDK를 통해 라이브 활동을 관리하기 위한 [필수 조건]({{site.baseurl}}/developer_guide/platforms/swift/live_activities#prerequisites)을 다룹니다.
 
 #### React Native 앱이 라이브 활동을 지원하나요? {#do-react-native-apps-support-live-activities}
 
@@ -650,17 +673,17 @@ Apple에서 제공하는 라이브 활동 기능은 JavaScript로 변환할 수 
 
 #### 라이브 활동에 푸시 프라이머가 필요한가요? {#do-live-activities-require-push-primers}
 
-[푸시 프라이머]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)는 사용자에게 앱의 푸시 알림 옵트인을 유도하는 모범 사례입니다. 그러나 라이브 활동에 옵트인하라는 시스템 프롬프트는 없습니다. 기본적으로 사용자는 iOS 16.1 이상에서 해당 앱을 설치할 때 개별 앱의 라이브 활동에 옵트인됩니다. 이 권한은 앱별로 기기 설정에서 비활성화하거나 다시 활성화할 수 있습니다.
+[푸시 프라이머]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)는 사용자에게 앱의 푸시 알림 옵트인을 유도하는 모범 사례입니다. 그러나 라이브 활동에 옵트인하라는 시스템 프롬프트는 없습니다. 기본적으로 사용자는 iOS 16.1 이상에서 해당 앱을 설치할 때 개별 앱의 라이브 활동에 옵트인됩니다. 이 권한은 앱별로 기기 설정에서 비활성화하거나 다시 활성화할 수 있습니다.
 
 ### 기술 주제 및 문제 해결 {#technical-topics-and-troubleshooting}
 
 #### 라이브 활동에 오류가 있는지 어떻게 알 수 있나요? {#how-do-i-know-if-live-activities-has-errors}
 
-모든 라이브 활동 오류는 Braze 대시보드의 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)에 기록되며, "LiveActivity Errors"로 필터링할 수 있습니다.
+모든 라이브 활동 오류는 Braze 대시보드의 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에 기록되며, "LiveActivity Errors"로 필터링할 수 있습니다.
 
 #### 푸시 투 스타트 알림을 보낸 후에도 라이브 활동을 받지 못한 이유는 무엇인가요? {#after-sending-a-push-to-start-notification-why-havent-i-received-my-live-activity}
 
-먼저 페이로드에 [`messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start/) 엔드포인트에 설명된 모든 필수 필드가 포함되어 있는지 확인합니다. `activity_attributes` 및 `content_state` 필드는 프로젝트 코드에 정의된 등록정보와 일치해야 합니다. 페이로드가 정확하다고 확신하는 경우, APNs에 의해 사용량 제한이 적용되었을 수 있습니다. 이 제한은 Braze가 아닌 Apple에서 부과합니다.
+먼저 페이로드에 [`messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start) 엔드포인트에 설명된 모든 필수 필드가 포함되어 있는지 확인합니다. `activity_attributes` 및 `content_state` 필드는 프로젝트 코드에 정의된 등록정보와 일치해야 합니다. 페이로드가 정확하다고 확신하는 경우, APNs에 의해 사용량 제한이 적용되었을 수 있습니다. 이 제한은 Braze가 아닌 Apple에서 부과합니다.
 
 푸시 투 스타트 알림이 기기에 성공적으로 도착했지만 사용량 제한으로 인해 표시되지 않았는지 확인하려면 Mac의 콘솔 앱을 사용하여 프로젝트를 디버그할 수 있습니다. 원하는 기기의 기록 프로세스를 연결한 다음 검색창에서 `process:liveactivitiesd`로 로그를 필터링합니다.
 
@@ -674,8 +697,8 @@ Apple에서 제공하는 라이브 활동 기능은 JavaScript로 변환할 수 
 
 #### `live_activity/update` 엔드포인트를 사용하려고 할 때 액세스 거부 응답을 받습니다. 왜인가요? {#i-am-receiving-an-access-denied-response-when-i-try-to-use-the-live_activityupdate-endpoint-why}
 
-사용하는 API 키에 올바른 권한을 부여해야 다양한 Braze API 엔드포인트에 액세스할 수 있습니다. 이전에 생성한 API 키를 사용하는 경우 해당 권한을 업데이트하지 않았을 수 있습니다. [API 키 보안 개요]({{site.baseurl}}/api/basics/#rest-api-key-security)를 다시 한번 살펴보세요.
+사용하는 API 키에 올바른 권한을 부여해야 다양한 Braze API 엔드포인트에 액세스할 수 있습니다. 이전에 생성한 API 키를 사용하는 경우 해당 권한을 업데이트하지 않았을 수 있습니다. [API 키 보안 개요]({{site.baseurl}}/api/basics#rest-api-key-security)를 다시 한번 살펴보세요.
 
 #### `messages/send` 엔드포인트는 `messages/live_activity/update` 엔드포인트와 사용량 제한을 공유하나요? {#does-the-messagessend-endpoint-share-rate-limits-with-the-messageslive_activityupdate-endpoint}
 
-기본적으로 `messages/live_activity/update` 엔드포인트의 사용량 제한은 여러 엔드포인트에 걸쳐 워크스페이스당 시간당 250,000건의 요청입니다. 자세한 내용은 [API 사용량 제한]({{site.baseurl}}/api/api_limits/)을 참조하세요.
+기본적으로 `messages/live_activity/update` 엔드포인트의 사용량 제한은 여러 엔드포인트에 걸쳐 워크스페이스당 시간당 250,000건의 요청입니다. 자세한 내용은 [API 사용량 제한]({{site.baseurl}}/api/api_limits)을 참조하세요.

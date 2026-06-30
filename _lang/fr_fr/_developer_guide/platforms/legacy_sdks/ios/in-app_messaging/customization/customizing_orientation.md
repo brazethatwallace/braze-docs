@@ -3,7 +3,7 @@ nav_title: "Personnaliser l'orientation"
 article_title: "Personnaliser l'orientation des messages in-app pour iOS"
 platform: iOS
 page_order: 3
-description: "Cet article de référence explique comment définir l’orientation des messages in-app pour votre application iOS."
+description: "Cet article de référence explique comment définir l'orientation des messages in-app pour votre application iOS."
 channel:
   - in-app messages
 
@@ -12,11 +12,11 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Personnaliser l'orientation
+# Personnaliser l'orientation {#customize-orientation}
 
-## Définir l’orientation pour tous les messages in-app
+## Définir l'orientation pour tous les messages in-app {#setting-orientation-for-all-in-app-messages}
 
-Pour définir une orientation fixe pour tous les messages in-app, vous pouvez définir la propriété `supportedOrientationMask` sur `ABKInAppMessageUIController`. Ajoutez le code suivant après l’appel de votre application à `startWithApiKey:inApplication:withLaunchOptions:` :
+Pour définir une orientation fixe pour tous les messages in-app, vous pouvez définir la propriété `supportedOrientationMask` sur `ABKInAppMessageUIController`. Ajoutez le code suivant après l'appel de votre application à `startWithApiKey:inApplication:withLaunchOptions:` :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -42,11 +42,11 @@ if let controller = Appboy.sharedInstance()?.inAppMessageController.inAppMessage
 {% endtab %}
 {% endtabs %}
 
-Ensuite, tous les messages in-app seront affichés dans l’orientation prise en charge, quelle que soit l’orientation de l’appareil. Notez que l’orientation de l’appareil doit également être prise en charge par la propriété `orientation` du message in-app à afficher.
+Ensuite, tous les messages in-app seront affichés dans l'orientation prise en charge, quelle que soit l'orientation de l'appareil. Notez que l'orientation de l'appareil doit également être prise en charge par la propriété `orientation` du message in-app pour que celui-ci s'affiche.
 
-## Définition de l’orientation par message in-app
+## Définir l'orientation par message in-app {#setting-orientation-per-in-app-message}
 
-Vous pouvez également définir l’orientation message par message. Pour ce faire, définissez un [délégué de message in-app]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates/). Ensuite, dans votre méthode de délégation `beforeInAppMessageDisplayed:`, définissez la propriété `orientation` sur le `ABKInAppMessage` :
+Vous pouvez également définir l'orientation message par message. Pour ce faire, définissez un [délégué de message in-app]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates). Ensuite, dans votre méthode de délégation `beforeInAppMessageDisplayed:`, définissez la propriété `orientation` sur l'`ABKInAppMessage` :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -62,7 +62,7 @@ inAppMessage.orientation = ABKInAppMessageOrientationLandscape;
 {% endtab %}
 {% tab swift %}
 
-```swift    
+```swift
   // Set inAppMessage orientation to portrait
   inAppMessage.orientation = ABKInAppMessageOrientation.portrait
 
@@ -73,15 +73,14 @@ inAppMessage.orientation = ABKInAppMessageOrientationLandscape;
 {% endtab %}
 {% endtabs %}
 
-Les messages in-app ne s’affichent pas si l’orientation de l’appareil ne correspond pas à la propriété `orientation` sur le message in-app.
+Les messages in-app ne s'affichent pas si l'orientation de l'appareil ne correspond pas à la propriété `orientation` du message in-app.
 
 {% alert note %}
-Pour les iPads, les messages in-app apparaissent dans le style d’orientation préféré de l’utilisateur, quelle que soit l’orientation réelle de l’écran.
+Pour les iPads, les messages in-app apparaissent dans le style d'orientation préféré de l'utilisateur, quelle que soit l'orientation réelle de l'écran.
 {% endalert %}
 
-## Déclarations de méthode
+## Déclarations de méthode {#method-declarations}
 
-Pour plus d’informations, voir le fichier d’en-tête suivant :
+Pour plus d'informations, consultez le fichier d'en-tête suivant :
 
 - [`ABKInAppMessage.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessage.h)
-

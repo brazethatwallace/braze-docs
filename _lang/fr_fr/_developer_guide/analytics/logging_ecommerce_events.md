@@ -11,7 +11,7 @@ platform:
 
 # Enregistrer des événements eCommerce {#log-ecommerce-events}
 
-> Découvrez comment enregistrer des [événements eCommerce recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/) via les SDK Android, Swift et Web de Braze à l'aide de classes d'événements typées et de `logEcommerceEvent`. Pour les schémas de propriétés d'événements, les fonctionnalités de la plateforme et la validation à l'ingestion, consultez [Événements recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/) et [Validation des événements et résolution des problèmes]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-validation-and-troubleshooting).
+> Découvrez comment enregistrer des [événements eCommerce recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) via les SDK Android, Swift et Web de Braze à l'aide de classes d'événements typées et de `logEcommerceEvent`. Pour les schémas de propriétés d'événements, les fonctionnalités de la plateforme et la validation à l'ingestion, consultez [Événements recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events) et [Validation des événements et résolution des problèmes]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-validation-and-troubleshooting).
 
 {% alert note %}
 Pour les SDK wrapper non répertoriés, utilisez la méthode native Android ou Swift correspondante à la place.
@@ -19,7 +19,7 @@ Pour les SDK wrapper non répertoriés, utilisez la méthode native Android ou S
 
 ## Schémas d'événements {#event-schemas}
 
-Les six événements eCommerce recommandés partagent un schéma au niveau de la commande sur toutes les plateformes. Utilisez les tableaux de propriétés suivants lorsque vous construisez le payload de chaque événement. Pour le schéma canonique avec le comportement de validation complet et des exemples de REST API, consultez [Événements recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-schemas). Pour les fonctionnalités de la plateforme telles que la segmentation, les modèles Canvas et le reporting, consultez [Comment utiliser les événements eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/).
+Les six événements eCommerce recommandés partagent un schéma au niveau de la commande sur toutes les plateformes. Utilisez les tableaux de propriétés suivants lorsque vous construisez le payload de chaque événement. Pour le schéma canonique avec le comportement de validation complet et des exemples de REST API, consultez [Événements recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-schemas). Pour les fonctionnalités de la plateforme telles que la segmentation, les modèles Canvas et le reporting, consultez [Comment utiliser les événements eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 
 {% tabs local %}
 {% tab product_viewed %}
@@ -1273,6 +1273,6 @@ braze.logCustomEvent("ecommerce.order_refunded", {
 Pour enregistrer manuellement un événement recommandé, appelez `logCustomEvent` avec le nom exact de l'événement (par exemple, `ecommerce.product_viewed`) et un payload `BrazeProperties` ou `JSONObject` construit manuellement. Le SDK ne valide pas les schémas d'événements recommandés pour les appels manuels. Braze valide ces payloads lors de l'ingestion :
 
 - Les payloads valides sont traités comme des événements recommandés avec un post-traitement complet.
-- Les payloads invalides (champs requis manquants, types incorrects, propriétés de niveau supérieur supplémentaires) sont rejetés après l'ingestion. Les échecs apparaissent dans le journal de traitement SDK de l'espace de travail et dans l'[e-mail récapitulatif des échecs]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#find-failures).
+- Les payloads invalides (champs requis manquants, types incorrects, propriétés de niveau supérieur supplémentaires) sont rejetés après l'ingestion. Les échecs apparaissent dans le journal de traitement SDK de l'espace de travail et dans l'[e-mail récapitulatif des échecs]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#find-failures).
 
-Utilisez `logEcommerceEvent` autant que possible afin de détecter les données invalides avant qu'elles ne quittent l'application. Pour l'utilisation générale de `logCustomEvent`, consultez [Enregistrer des événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android).
+Utilisez `logEcommerceEvent` autant que possible afin de détecter les données invalides avant qu'elles ne quittent l'application. Pour l'utilisation générale de `logCustomEvent`, consultez [Enregistrer des événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android).

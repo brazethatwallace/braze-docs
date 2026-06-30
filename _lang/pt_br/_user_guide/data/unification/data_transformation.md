@@ -65,9 +65,9 @@ Embora adoraríamos que os desenvolvedores usassem esse recurso também, você n
 
 ### Ainda posso usar a Transformação de Dados da Braze se minha plataforma externa fornecer apenas um endereço de e-mail ou número de telefone como identificador? {#can-i-still-use-braze-data-transformation-if-my-external-platform-only-gives-an-email-address-or-phone-number-as-an-identifier}
 
-Sim. Você pode ter suas transformações atualizando o endpoint `/users/track` com o [endereço de e-mail ou número de telefone como identificador]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#example-request-for-updating-a-user-profile-by-email-address).
+Sim. Você pode ter suas transformações atualizando o endpoint `/users/track` com o [endereço de e-mail ou número de telefone como identificador]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-email-address).
 
-Isso funciona usando `email` ou `phone` como sua propriedade identificadora no código de transformação em vez de `external_id` ou `braze_id`. O exemplo de [código de transformação]({{site.baseurl}}/user_guide/data/unification/data_transformation/use_cases/#example-transformation-code) usa essa funcionalidade.
+Isso funciona usando `email` ou `phone` como sua propriedade identificadora no código de transformação em vez de `external_id` ou `braze_id`. O exemplo de [código de transformação]({{site.baseurl}}/user_guide/data/unification/data_transformation/use_cases#example-transformation-code) usa essa funcionalidade.
 
 {% alert note %}
 Os usuários de acesso antecipado da Transformação de Dados da Braze que começaram antes de abril de 2023 podem estar familiarizados com a função `get_user_by_email` que ajudava com esse caso de uso. Essa função foi descontinuada.

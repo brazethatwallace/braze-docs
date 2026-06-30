@@ -28,7 +28,7 @@ guide_featured_list:
 - name: Reintentos de Contenido conectado
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries
   image: /assets/img/braze_icons/refresh-ccw-01.svg
-- name: Solucionar problemas de webhooks y Contenido conectado
+- name: Solución de problemas de webhooks y Contenido conectado
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content
   image: /assets/img/braze_icons/check-square-broken.svg
 - name: Usar API públicas

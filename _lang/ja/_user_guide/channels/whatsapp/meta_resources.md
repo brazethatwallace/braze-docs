@@ -26,14 +26,14 @@ channel:
 
 ## WhatsApp製品アップデート {#whatsapp-product-updates}
 
-### 2026年: ビジネスユーザー名 {#2026-business-usernames}
-*最終更新: 2026年5月*
+### 2026年：ビジネスユーザー名 {#2026-business-usernames}
+*最終更新：2026年5月*
 
 Metaは、WhatsApp向けのビジネスユーザー名を導入しています。これは、ビジネスがWhatsAppの電話番号に対して採用できるオプションの表示名です。ユーザー名が設定されると、WhatsAppおよびWhatsApp Businessアプリのチャットウィンドウで電話番号の代わりに表示されます。ユーザー名を採用しても電話番号は非表示にならず、ビジネスプロファイルで常に確認できます。
 
 ユーザー名はすべてのWhatsApp電話番号間でユニークです。消費者用でもビジネス用でも、2つの番号が同じユーザー名を共有することはできません。一意性の判定では大文字と小文字は区別されませんが、ピリオドとアンダースコアは異なる文字として扱われます。例えば、`myid`、`my.id`、`my_id`はすべて異なるユーザー名と見なされますが、`myID`と`myid`は同じものとして扱われます。
 
-ビジネスユーザー名は以下のフォーマット要件を満たす必要があります:
+ビジネスユーザー名は以下のフォーマット要件を満たす必要があります：
 
 - 英字（a〜z）、数字（0〜9）、ピリオド（`.`）、またはアンダースコア（`_`）のみを含む
 - 3文字以上35文字以下
@@ -50,7 +50,7 @@ Metaは、WhatsApp向けのビジネスユーザー名を導入しています�
 
 #### チャットウィンドウでの表示優先順位 {#display-priority-in-chat-windows}
 
-ビジネスプロファイルがチャットウィンドウに表示される場合、WhatsAppは以下の優先順位（高い順）を使用します:
+ビジネスプロファイルがチャットウィンドウに表示される場合、WhatsAppは以下の優先順位（高い順）を使用します：
 
 1. 保存された連絡先名
 2. 認証済みビジネス名または公式ビジネスアカウント（OBA）名
@@ -59,8 +59,8 @@ Metaは、WhatsApp向けのビジネスユーザー名を導入しています�
 
 詳細については、Metaの[ビジネスユーザー名](https://developers.facebook.com/documentation/business-messaging/whatsapp/business-scoped-user-ids/#business-usernames)に関するドキュメントを参照してください。
 
-### 2026年4月: 非アクティブなテンプレートの自動アーカイブ {#april-2026-automatic-archival-of-inactive-templates}
-*最終更新: 2026年4月*
+### 2026年4月：非アクティブなテンプレートの自動アーカイブ {#april-2026-automatic-archival-of-inactive-templates}
+*最終更新：2026年4月*
 
 - Metaは12か月以上非アクティブなテンプレートを自動的にアーカイブします。
 - 自動アーカイブはすべてのWhatsApp Business Accountで有効であり、無効にすることはできません。
@@ -71,76 +71,76 @@ Metaは、WhatsApp向けのビジネスユーザー名を導入しています�
 
 詳細については、Metaの[テンプレートアーカイブ](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-archival)に関するドキュメントを参照してください。
 
-### 2026年6月: ビジネススコープのユーザーID {#june-2026-business-scoped-user-ids}
-*最終更新: 2026年3月*
+### 2026年6月：ビジネススコープのユーザーID {#june-2026-business-scoped-user-ids}
+*最終更新：2026年3月*
 
 - Metaはプライバシー保護のため、電話番号の共有に代わるユーザーIDを導入予定です
 - Brazeはロールアウトに先立ちソリューションの開発を進めています
 - Metaからのロールアウトは2026年6月を予定しています
 
-### 2025年11月: [WhatsApp向けマーケティングメッセージAPI](https://developers.facebook.com/documentation/business-messaging/whatsapp/marketing-messages/overview/)（旧Marketing Messages Lite API） {#november-2025-marketing-messages-api-for-whatsapphttpsdevelopersfacebookcomdocumentationbusiness-messagingwhatsappmarketing-messagesoverview-formerly-marketing-messages-lite-api}
-*最終更新: 2026年3月*
+### 2025年11月：[WhatsApp向けマーケティングメッセージAPI](https://developers.facebook.com/documentation/business-messaging/whatsapp/marketing-messages/overview/)（旧Marketing Messages Lite API） {#november-2025-marketing-messages-api-for-whatsapphttpsdevelopersfacebookcomdocumentationbusiness-messagingwhatsappmarketing-messagesoverview-formerly-marketing-messages-lite-api}
+*最終更新：2026年3月*
 
 - 静的なCloud API制限を、エンゲージメントベースの動的な制限に置き換えます
 - 最適化配信はEMEA、日本、韓国では利用できません
 - ユーティリティ/認証はCloud APIを通じて自動的に継続されます
 
-### 2025年10月: 公式ビジネスアカウント（OBA）承認プロセスの変更 {#october-2025-official-business-account-oba-approval-process-changed}
-*最終更新: 2026年3月*
+### 2025年10月：公式ビジネスアカウント（OBA）承認プロセスの変更 {#october-2025-official-business-account-oba-approval-process-changed}
+*最終更新：2026年3月*
 
 - 以前はWhatsApp Managerを通じてすべての顧客に開放されていました
-- 現在は以下に制限されています: 政府/大規模Meta広告主、直接広告主、またはBrazeのようなBSP経由（週最大5件）
-- 新しい前提条件: ビジネス認証、2段階認証、承認済み表示名、著名性
+- 現在は以下に制限されています：政府/大規模Meta広告主、直接広告主、またはBrazeのようなBSP経由（週最大5件）
+- 新しい前提条件：ビジネス認証、2段階認証、承認済み表示名、著名性
 - サポートが必要な場合は、カスタマーサクセスマネージャーにお問い合わせください
 
-### 2025年10月: 地域別料金の引き下げ {#october-2025-regional-pricing-rate-cuts}
-*最終更新: 2026年3月*
+### 2025年10月：地域別料金の引き下げ {#october-2025-regional-pricing-rate-cuts}
+*最終更新：2026年3月*
 
 - アルゼンチン、エジプト、メキシコ、北米でユーティリティ/認証料金が引き下げられました
 - メキシコでマーケティング料金が引き下げられました（2025年10月1日発効）
 
-### 2025年10月: メッセージング制限が電話番号単位からビジネスポートフォリオ単位に変更 {#october-2025-messaging-limits-change-from-per-phone-to-per-business-portfolio}
-*最終更新: 2026年3月*
+### 2025年10月：メッセージング制限が電話番号単位からビジネスポートフォリオ単位に変更 {#october-2025-messaging-limits-change-from-per-phone-to-per-business-portfolio}
+*最終更新：2026年3月*
 
 - 制限がポートフォリオ内のすべての電話番号で共有されるようになりました
 - ポートフォリオは既存の最高制限を継承します
 - より高い制限へのアクセスが迅速化されました（6時間以内）
-- リスク: 「無制限」の番号を持たないビジネスでは、集約制限が減少する可能性があります
+- リスク：「無制限」の番号を持たないビジネスでは、集約制限が減少する可能性があります
 
-### 2025年7月1日: 料金体系の大幅変更 {#july-1-2025-pricing-overhaul}
-*最終更新: 2026年3月*
+### 2025年7月1日：料金体系の大幅変更 {#july-1-2025-pricing-overhaul}
+*最終更新：2026年3月*
 
 - メッセージ単位の課金が会話単位の課金に置き換わりました
 - 24時間のサービスウィンドウ内に送信されたユーティリティメッセージが無料になりました
 - 複数の市場でユーティリティ/認証料金が更新され、新しいボリュームティアが導入されました
 - ユーティリティテンプレートの誤分類に関する新しいルール — テンプレートの拒否や送信制限を受ける可能性があります
 
-### 2025年4月: 米国の電話番号へのマーケティングメッセージの一時停止 {#april-2025-pause-of-marketing-messages-to-us-phone-numbers}
-*最終更新: 2025年8月*
+### 2025年4月：米国の電話番号へのマーケティングメッセージの一時停止 {#april-2025-pause-of-marketing-messages-to-us-phone-numbers}
+*最終更新：2025年8月*
 
 Metaは、米国の電話番号（`+1`のダイヤルコードと米国の市外局番で構成される番号）を持つWhatsAppユーザーへのすべてのマーケティングテンプレートメッセージの配信を一時停止します。この一時停止が解除される予定日は現在ありません。
 
 米国の電話番号を持つWhatsAppユーザーにテンプレートを送信しようとすると、エラー`131049`が発生します。
 
-### 2025年3月: テンプレートカテゴリの不正使用に対する制限 {#march-2025-template-category-misuse-restrictions}
-*最終更新: 2026年3月*
+### 2025年3月：テンプレートカテゴリの不正使用に対する制限 {#march-2025-template-category-misuse-restrictions}
+*最終更新：2026年3月*
 
 - Metaはユーティリティ/マーケティングのカテゴリ分類を不正使用するビジネスに対する取り締まりを導入しました
 - テンプレート作成とカテゴリレビューに対して7〜30日間の制限が課される可能性があります
 
-### 2025年3月: ユーザーごとのマーケティングテンプレートメッセージ制限 {#march-2025-per-user-marketing-template-message-limits}
-*最終更新: 2025年8月*
+### 2025年3月：ユーザーごとのマーケティングテンプレートメッセージ制限 {#march-2025-per-user-marketing-template-message-limits}
+*最終更新：2025年8月*
 
 Metaは、一定期間内にすべてのビジネスからユーザーが受信できるマーケティングテンプレートメッセージの数を制限します。読まれる可能性が低いメッセージから制限が適用されます。
 
 1つの例外として、マーケティングメッセージに対してユーザーが返信した場合、24時間のカスタマーサービスウィンドウが開始されます。このウィンドウ内に送信されたマーケティングメッセージは、ユーザーの制限にカウントされません。
 
-具体的な制限はユーザーのエンゲージメントレベルに応じて異なります。WhatsAppのユーザーごとのマーケティングテンプレートメッセージ制限の詳細については、[こちら](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits)をご覧ください。
+具体的な制限はユーザーのエンゲージメントレベルに応じて異なります。WhatsAppのユーザーごとのマーケティングテンプレートメッセージ制限の詳細については、[WhatsAppのユーザーごとのマーケティングテンプレートメッセージ制限に関するドキュメント](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits)をご覧ください。
 
-### 2025年1月: WhatsAppが4月1日から米国ユーザーへのマーケティングメッセージ送信を一時停止 {#january-2025-whatsapp-pausing-marketing-message-sending-to-us-users-starting-april-1}
-*最終更新: 2025年1月*
+### 2025年1月：WhatsAppが4月1日から米国ユーザーへのマーケティングメッセージ送信を一時停止 {#january-2025-whatsapp-pausing-marketing-message-sending-to-us-users-starting-april-1}
+*最終更新：2025年1月*
 
-WhatsAppは2025年4月1日から、米国ユーザー（米国の電話番号を持つ人）へのマーケティングメッセージ送信を一時停止します。[ユーティリティ、サービス、認証](https://developers.facebook.com/docs/whatsapp/pricing/)、および[レスポンスメッセージ]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#response-messages)は引き続き米国で許可されます。
+WhatsAppは2025年4月1日から、米国ユーザー（米国の電話番号を持つ人）へのマーケティングメッセージ送信を一時停止します。[ユーティリティ、サービス、認証](https://developers.facebook.com/docs/whatsapp/pricing/)、および[レスポンスメッセージ]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages)は引き続き米国で許可されます。
 
 マーケティングメッセージの送信（およびその他すべてのメッセージタイプ）は、他のすべての国や地域では引き続き許可されており、影響を受けません。
 
@@ -148,15 +148,15 @@ Metaは、WhatsAppが急速に成長しているものの、まだ初期段階�
 
 米国の市外局番を持つ電話番号へのマーケティングメッセージ配信はWhatsAppによって拒否され、エラーコード131049が返されます。
 
-### 2024年11月: WhatsAppオプトインポリシーの変更 {#november-2024-changes-to-whatsapp-opt-in-policy}
-*最終更新: 2025年1月*
+### 2024年11月：WhatsAppオプトインポリシーの変更 {#november-2024-changes-to-whatsapp-opt-in-policy}
+*最終更新：2025年1月*
 
-Metaは最近、[オプトインポリシー](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/)を更新しました。チャネル固有の同意を要求する代わりに、以下の条件を満たす場合、ビジネスはプラットフォーム上でユーザーにメッセージを送信できるようになりました:
+Metaは最近、[オプトインポリシー](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/)を更新しました。チャネル固有の同意を要求する代わりに、以下の条件を満たす場合、ビジネスはプラットフォーム上でユーザーにメッセージを送信できるようになりました：
 
 1. ユーザーが電話番号を提供している。
 2. ユーザーがWhatsAppに限定されない、一般的なメッセージングに対するオプトイン許可を提供している。
 
-ビジネスはオプトインを取得する際に、すべての現地法を遵守し、以下の要件に従う必要があります:
+ビジネスはオプトインを取得する際に、すべての現地法を遵守し、以下の要件に従う必要があります：
 
 - ビジネスは、ユーザーがそのビジネスからの通信の受信にオプトインしていることを明確に示す必要があります
 - ビジネスは、ユーザーがメッセージの受信にオプトインしているビジネス名を明確に示す必要があります
@@ -164,8 +164,8 @@ Metaは最近、[オプトインポリシー](https://developers.facebook.com/do
 
 WhatsAppがポリシーを緩和しましたが、Brazeでは最良のカスタマーエクスペリエンスとエンゲージメント率を促進するために、WhatsAppチャネルに固有のオプトインを収集することを引き続き推奨しています。いつものように、ブランドにとって何が適切かについては法務チームにご確認ください。
 
-### 2024年11月: ホリデーシーズンに先立つ米国のユーザーに対するユーザーごとのマーケティングテンプレート制限の更新 {#november-2024-updates-to-the-per-user-marketing-template-limit-for-people-in-the-us-ahead-of-the-holiday-season}
-*最終更新: 2024年12月*
+### 2024年11月：ホリデーシーズンに先立つ米国のユーザーに対するユーザーごとのマーケティングテンプレート制限の更新 {#november-2024-updates-to-the-per-user-marketing-template-limit-for-people-in-the-us-ahead-of-the-holiday-season}
+*最終更新：2024年12月*
 
 Metaがユーザーごとのマーケティングテンプレート制限を展開して以来、ユーザーの既読率とセンチメントに大幅な改善が見られています。
 
@@ -173,8 +173,8 @@ Metaがユーザーごとのマーケティングテンプレート制限を展�
 
 米国のビジネスは引き続き他の地域にマーケティングメッセージを配信でき、ユーティリティ、認証、サービスメッセージ、またはユーザーが開始した会話ウィンドウ内で送信されたマーケティングテンプレートメッセージ（例えば、Click-to-WhatsApp広告、製品カルーセル、会話の一部として送信されたクーポンテンプレート）には影響ありません。
 
-### 2024年11月: WhatsAppが品質ベースのアカウント制裁を拡大し既読率を含めるように {#november-2024-whatsapp-expanding-quality-based-account-enforcements-to-include-read-rates}
-*最終更新: 2024年12月*
+### 2024年11月：WhatsAppが品質ベースのアカウント制裁を拡大し既読率を含めるように {#november-2024-whatsapp-expanding-quality-based-account-enforcements-to-include-read-rates}
+*最終更新：2024年12月*
 
 WhatsAppは、プラットフォーム上のスパムのような行動を減らすなど、顧客に質の高い体験を提供するための新しい方法に継続的に投資しています。
 
@@ -182,7 +182,7 @@ WhatsAppは、プラットフォーム上のスパムのような行動を減ら
 
 アカウントの既読率が大幅に低下した場合（例えば、アカウントから送信されたメッセージの大部分が未読の場合）、アカウントにメッセージングブロックが適用されます。大規模に一貫して低い既読率が続く場合、ブロックの重大度は増加します。
 
-アカウントの既読率が極めて低い場合、以下のアクションが取られます:
+アカウントの既読率が極めて低い場合、以下のアクションが取られます：
 
 - アカウントはビジネス主導のメッセージの送信がブロックされます。顧客主導のメッセージへの返信は引き続き可能です。この初期ブロックは「ソフトロック」であり、Account Qualityで確認ボタンを選択することで承認し、メッセージングを再開できます。
 - ソフトロック後も既読率が低下し続けるか、低いままの場合、ビジネスは段階的に制裁が強化される可能性があります（例えば、数日間のメッセージング制限）。
@@ -192,14 +192,14 @@ WhatsAppは、プラットフォーム上のスパムのような行動を減ら
 
 既存のプラットフォーム制裁と同様に、ビジネスはこれらのアクションについて通知を受け、WhatsApp Business ManagerのAccount Qualityページを使用して承認できます。制裁通知メールはその情報に基づいて送信されるため、WhatsApp Business Managerに必要なすべての管理者の正しい連絡先情報が登録されていることを確認してください。
 
-重大なスパム違反に関する通知は以下の方法で行われます:
+重大なスパム違反に関する通知は以下の方法で行われます：
 
 - WhatsApp Business Manager通知センターに表示
 - WhatsApp Managerのバナーに表示
 - WhatsApp Business Managerに設定されたすべての管理者にメールで送信
 
-### 2024年5月: トルコでCloud APIが利用可能に {#may-2024-cloud-api-going-live-in-trkiye}
-*最終更新: 2024年5月*
+### 2024年5月：トルコでCloud APIが利用可能に {#may-2024-cloud-api-going-live-in-trkiye}
+*最終更新：2024年5月*
 
 Metaは現在、Cloud APIビジネスにトルコでのビジネスメッセージングへのアクセスを提供しています。以前は、WhatsApp Cloud APIはトルコのビジネスが使用できましたが、トルコの番号を持つWhatsAppユーザーはCloud API経由で送受信されたメッセージを利用できませんでした。
 
@@ -213,8 +213,8 @@ Cloud APIビジネスからメッセージを受信した、またはメッセ�
 
 ユーザーが更新を受け入れると、Cloud APIビジネスとチャットする際に既存のCloud APIシステムメッセージ通知が表示されます。
 
-### 2024年5月: ユーザーごとのマーケティングテンプレートメッセージ制限 {#may-2024-per-user-marketing-template-message-limits}
-*最終更新: 2024年5月*
+### 2024年5月：ユーザーごとのマーケティングテンプレートメッセージ制限 {#may-2024-per-user-marketing-template-message-limits}
+*最終更新：2024年5月*
 
 Metaは、WhatsAppプラットフォーム上で高品質なユーザー体験を維持し、マーケティングテンプレートメッセージのエンゲージメントを最大化するための新しいアプローチを展開しています。2024年5月23日から、一定期間内に各ユーザーがやり取りするすべてのビジネスから受信できるマーケティングテンプレートメッセージの数を制限します。読まれる可能性が低い少数の会話から開始されます。この制限は、そのユーザーがいずれかのビジネスからすでに受信したマーケティングテンプレートメッセージの数に基づいて決定され、特定のブランドに関連するものではありません。ただし、これはマーケティングテンプレートメッセージの配信率に影響を与える可能性があります。
 
@@ -226,25 +226,25 @@ Metaは、WhatsAppプラットフォーム上で高品質なユーザー体験�
 
 この配信率の更新に関する詳細（配信率の監視方法やWhatsAppでのマーケティングメッセージングのその他のベストプラクティスを含む）については、最近の[ブログ記事](https://www.braze.com/resources/articles/meta-introduces-deliverability-updates-for-whatsapp?utm_campaign=fy25-q2-global-customer-customer-meta-deliverability-updates-for-whatsapp&utm_medium=email-cdb&utm_source=braze&utm_content=blog-meta-deliverability-updates-for-wa-blog)を参照してください。
 
-### 2024年4月: ユーティリティテンプレートのテンプレートペーシング {#april-2024-template-pacing-for-utility-templates}
-*最終更新: 2024年4月*
+### 2024年4月：ユーティリティテンプレートのテンプレートペーシング {#april-2024-template-pacing-for-utility-templates}
+*最終更新：2024年4月*
 
 昨年、WhatsAppはテンプレートのエンゲージメントを向上させ、価値あるユーザー体験を創出するための新しい方法として、マーケティングメッセージ向けのテンプレートペーシングを導入しました。4月30日から、テンプレートペーシングがユーティリティメッセージにも拡大されます。アカウントのユーティリティテンプレートがユーザーフィードバックにより一時停止された場合、その後7日間に作成される新しいユーティリティテンプレートにペーシングが適用されます。
 
-### 2024年4月: 既読率がマーケティングテンプレートの品質評価に影響 {#april-2024-read-rates-will-affect-quality-rating-for-marketing-templates}
-*最終更新: 2024年3月*
+### 2024年4月：既読率がマーケティングテンプレートの品質評価に影響 {#april-2024-read-rates-will-affect-quality-rating-for-marketing-templates}
+*最終更新：2024年3月*
 
 WhatsAppは、インドの消費者を皮切りに、より価値ある体験を創出し、ビジネスのマーケティング会話とのエンゲージメントを最大化するための新しいアプローチをテストしています。これには、一定期間内にユーザーがいずれかのビジネスから受信するマーケティング会話の数を制限することが含まれる場合があり、読まれる可能性が低い少数の会話から開始されます。メッセージが配信されない場合、Brazeはエラーコードを受け取ります。
 
 WhatsAppは、ブロックやレポートなどの従来の指標に加えて、マーケティングテンプレートの品質評価の一部として既読率を考慮し始めます。WhatsAppは、2024年4月1日から、既読率が低いマーケティングメッセージキャンペーンを一時的に停止し、ビジネスがボリュームを拡大する前にエンゲージメントが最も低いテンプレートを改善する時間を提供する場合があります。
 
-### 2024年2月: マーケティング会話の実験 {#february-2024-marketing-conversations-experimentation}
-*最終更新: 2024年2月*
+### 2024年2月：マーケティング会話の実験 {#february-2024-marketing-conversations-experimentation}
+*最終更新：2024年2月*
 
 2024年2月6日から、WhatsAppはインドの消費者を皮切りに、より価値ある体験を創出し、ブランドのマーケティング会話とのカスタマーエンゲージメントを最大化するための新しいアプローチをテストしています。これには、一定期間内にユーザーがブランドから受信するマーケティング会話の数を制限することが含まれる場合があり、読まれる可能性が低い少数の会話から開始されます。
 
-### 2023年10月: テンプレートペーシング {#october-2023-template-pacing}
-*最終更新: 2023年10月*
+### 2023年10月：テンプレートペーシング {#october-2023-template-pacing}
+*最終更新：2023年10月*
 
 2023年10月12日から、WhatsAppはマーケティングメッセージに「テンプレートペーシング」という概念を導入しています。キャンペーンのオーディエンス全体に同時にメッセージを送信する代わりに、「テンプレートペーシング」では最初にユーザーの小さなサブセットにメッセージを配信し、キャンペーン受信者からのリアルタイムフィードバックを収集してから残りのメッセージを送信します。
 
@@ -256,8 +256,8 @@ WhatsAppはテンプレートペーシングでテンプレート品質を評価
 
 **この更新についてさらにご質問がある場合は、Metaパートナー担当者にお問い合わせください。**
 
-### 2023年6月: メッセージング実験 {#june-2023-messaging-experimentation}
-*最終更新: 2023年6月*
+### 2023年6月：メッセージング実験 {#june-2023-messaging-experimentation}
+*最終更新：2023年6月*
 
 2023年6月14日から、Metaは消費者の体験とエンゲージメントにマーケティングメッセージがどのように影響するかを評価するために、WhatsAppプラットフォームに新しい実験プラクティスを導入しています。この実験は、BrazeでWhatsApp Business APIを通じて送信されるマーケティングメッセージに影響を与える可能性があります。
 
@@ -265,7 +265,7 @@ MetaはWhatsAppプラットフォームでこのような実験を継続する�
 
 **WhatsAppの実験はマーケティングメッセージにのみ影響します。** この実験はマーケティングテンプレートメッセージの配信に影響を与える可能性があります。ユーティリティおよび認証テンプレートは、実験の影響を受けることなく引き続き配信されます。
 
-実験では、Metaは約1%のWhatsApp消費者を参加者としてランダムに選択します。選択された場合、以下のいずれかに該当しない限り、Metaはこれらの消費者にマーケティングメッセージテンプレートを配信しません:
+実験では、Metaは約1%のWhatsApp消費者を参加者としてランダムに選択します。選択された場合、以下のいずれかに該当しない限り、Metaはこれらの消費者にマーケティングメッセージテンプレートを配信しません：
 
 - 消費者が過去24時間以内に返信した場合
 - 既存のマーケティング会話が開かれている場合
@@ -289,4 +289,4 @@ MetaはWhatsAppプラットフォームでこのような実験を継続する�
 
 ### Metaの実験によりマーケティングメッセージが配信されない場合、どうすればよいですか？ {#what-can-i-do-if-my-marketing-messages-are-not-delivered-due-to-metas-experiment}
 
-メール、SMS、プッシュ通知、アプリ内メッセージなど、他のBrazeチャネルを使用して、対象ユーザーに同様のコンテンツのメッセージを送信することをお勧めします。
+メール、SMS、プッシュ通知、In-App Messagesなど、他のBrazeチャネルを使用して、対象ユーザーに同様のコンテンツのメッセージを送信することをお勧めします。

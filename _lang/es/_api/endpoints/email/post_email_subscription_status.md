@@ -10,7 +10,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 ---
 {% api %}
 # Cambiar el estado de la suscripción por correo electrónico {#change-email-subscription-status}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/status
 {% endapimethod %}
 
@@ -24,7 +24,7 @@ Puedes establecer el estado de suscripción por correo electrónico para una dir
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `email.status`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `email.status`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -39,7 +39,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ```json
 {
-  "email": "example@braze.com",
+  "email": "example@example.com",
   "subscription_state": "subscribed"
 }
 ```
@@ -54,7 +54,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Solución de problemas de bloqueos de correo electrónico de SendGrid {#troubleshooting-sendgrid-email-blocks}
 
-Cuando SendGrid bloquea a un destinatario, actualiza el estado de suscripción con este punto de conexión y revisa la interacción con filtros de segmento. Utiliza los eventos de rebote suave de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) para monitorear la capacidad de entrega, y confirma el estado de suscripción antes de reintentar los envíos.
+Cuando SendGrid bloquea a un destinatario, actualiza el estado de suscripción con este punto de conexión y revisa la interacción con filtros de segmento. Utiliza los eventos de rebote suave de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) para monitorear la capacidad de entrega, y confirma el estado de suscripción antes de reintentar los envíos.
 
 ## Ejemplo de solicitud {#example-request}
 ```
@@ -62,7 +62,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/email/status' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
 --data-raw '{
-  "email": "example@braze.com",
+  "email": "example@example.com",
   "subscription_state": "subscribed"
 }'
 ```

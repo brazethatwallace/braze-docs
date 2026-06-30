@@ -7,7 +7,7 @@ page_order: 1
 
 # Configuración de estilos de mensajes dentro de la aplicación {#in-app-message-style-settings}
 
-> La experiencia de edición de arrastrar y soltar se divide en dos secciones: **Build** y **Preview & Test**. Este artículo cubre lo que necesitas saber para trabajar dentro de la pestaña **Build** del editor y asume que ya has [creado un mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/).
+> La experiencia de edición de arrastrar y soltar se divide en dos secciones: **Build** y **Preview & Test**. Este artículo cubre lo que necesitas saber para trabajar dentro de la pestaña **Build** del editor y asume que ya has [creado un mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop).
 
 ![Pestaña "Estilos de mensaje".]({% image_buster /assets/img_archive/dnd_iam_message_styles.png %}){: style="float:right;max-width:25%;margin-left:15px;max-width:30%"}
 
@@ -15,7 +15,7 @@ page_order: 1
 
 Puedes configurar ciertos estilos para que se apliquen a todos los bloques relevantes de tu mensaje dentro de la aplicación desde la pestaña **Message Styles**. Por ejemplo, puedes personalizar la fuente de todo el texto o el color de todos los enlaces de tu mensaje.
 
-Los estilos de esta sección se utilizan en todo tu mensaje, excepto donde los anules para un bloque específico. Si tu mensaje tiene [varias páginas]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/#multi-page), también puedes anular los estilos a nivel de mensaje para páginas individuales, excepto el tipo de visualización y el ancho máximo.
+Los estilos de esta sección se utilizan en todo tu mensaje, excepto donde los anules para un bloque específico. Si tu mensaje tiene [varias páginas]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#multi-page), también puedes anular los estilos a nivel de mensaje para páginas individuales, excepto el tipo de visualización y el ancho máximo.
 
 Para una experiencia de diseño más sencilla, te recomendamos configurar los estilos a nivel de mensaje antes de personalizar los estilos a nivel de bloque.
 
@@ -26,7 +26,7 @@ Para volver a la pestaña **Message Styles** en cualquier momento:
 
 ### Fuentes personalizadas {#custom-fonts}
 
-Aceptamos los siguientes tipos de archivo para fuentes: `.ttf`, `.woff`, `.otf` y `.woff2`. Para más información, consulta [Archivos de activos]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#asset-files).
+Aceptamos los siguientes tipos de archivo para fuentes: `.ttf`, `.woff`, `.otf` y `.woff2`. Para más información, consulta [Archivos de activos]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#asset-files).
 
 Puedes añadir múltiples variaciones de una familia de fuentes, ya que algunas opciones de estilo pueden no estar disponibles para fuentes personalizadas. Actualmente, no admitimos la adición de fuentes a través de URL.
 
@@ -76,7 +76,7 @@ Como buena práctica, formatea las propiedades de tus filas y columnas antes de 
 
 #### Imagen de fondo {#background-image}
 
-Puedes añadir una imagen de fondo a una fila en el panel **Row properties**. Activa **Background image** y luego proporciona una URL de imagen o selecciona una imagen de la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). Finalmente, configura tu texto alternativo, tamaño, posición y si la imagen se repite para crear patrones a lo largo de la fila.
+Puedes añadir una imagen de fondo a una fila en el panel **Row properties**. Activa **Background image** y luego proporciona una URL de imagen o selecciona una imagen de la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Finalmente, configura tu texto alternativo, tamaño, posición y si la imagen se repite para crear patrones a lo largo de la fila.
 
 ![Una imagen de fondo de fila de una pizza con un patrón de repetición horizontal.]({% image_buster /assets/img_archive/background_row.png %})
 
@@ -90,7 +90,7 @@ Antes de añadir bloques, configura los [estilos a nivel de mensaje](#set-messag
 
 ![Cajas de arrastrar y soltar para seleccionar.]({% image_buster /assets/img_archive/dnd_iam_editor_blocks.png %}){: style="max-width:40%"}
 
-Cada bloque tiene su propia configuración, como control granular del relleno. El panel del lado derecho cambia automáticamente a un panel de estilos para el elemento de contenido seleccionado. Para más información, consulta [Propiedades de bloques del editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_properties).
+Cada bloque tiene su propia configuración, como control granular del relleno. El panel del lado derecho cambia automáticamente a un panel de estilos para el elemento de contenido seleccionado. Para más información, consulta [Propiedades de bloques del editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages#inappmessages_properties).
 
 A medida que construyes tu mensaje dentro de la aplicación, puedes seleccionar una vista de móvil, tableta o escritorio en la barra de herramientas para previsualizar cómo se verá tu mensaje dentro de la aplicación para tus grupos de usuarios. Esto asegurará que tu contenido sea adaptable y podrás hacer los ajustes necesarios sobre la marcha.
 
@@ -118,13 +118,13 @@ Si tienes problemas para seleccionar un bloque determinado, puedes usar la flech
 
 ![Icono para añadir personalización con Liquid.]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
 
-Para añadir [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) a tu mensaje dentro de la aplicación, selecciona <i class="fa-solid fa-circle-plus"></i> **Add Personalization** desde la barra de herramientas del editor. Aquí puedes añadir varios tipos de personalización como atributos predeterminados, atributos de dispositivo, atributos personalizados y más.
+Para añadir [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) a tu mensaje dentro de la aplicación, selecciona <i class="fa-solid fa-circle-plus"></i> **Add Personalization** desde la barra de herramientas del editor. Aquí puedes añadir varios tipos de personalización como atributos predeterminados, atributos de dispositivo, atributos personalizados y más.
 
 A continuación, toma tu fragmento de código Liquid generado e insértalo en tu mensaje. Después de diseñar y construir tu mensaje dentro de la aplicación, ve a **Preview & Test** para previsualizar tu mensaje.
 
 ### Usar el asistente de redacción con inteligencia artificial {#using-the-ai-copywriter}
 
-Cuando un bloque de texto está seleccionado en tu mensaje dentro de la aplicación, selecciona <i class="fa-solid fa-wand-magic-sparkles" title="Asistente de redacción con IA"></i> **AI copywriter** en la barra de herramientas del bloque para lanzar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). El asistente de redacción con inteligencia artificial pasa un nombre o descripción breve del producto a la herramienta de generación de texto GPT3 de OpenAI para generar textos de marketing similares a los escritos por humanos para tu mensajería.
+Cuando un bloque de texto está seleccionado en tu mensaje dentro de la aplicación, selecciona <i class="fa-solid fa-wand-magic-sparkles" title="Asistente de redacción con IA"></i> **AI copywriter** en la barra de herramientas del bloque para lanzar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). El asistente de redacción con inteligencia artificial pasa un nombre o descripción breve del producto a la herramienta de generación de texto GPT3 de OpenAI para generar textos de marketing similares a los escritos por humanos para tu mensajería.
 
 {% alert tip %}
 Puedes ahorrarte algunos clics resaltando el texto dentro del bloque antes de hacer clic en el icono. El texto resaltado se añadirá a la herramienta y se generará el texto de inmediato.

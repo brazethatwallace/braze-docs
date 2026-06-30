@@ -28,7 +28,7 @@ channel: email
 확인된 옵트인 프로세스를 설정하면 이러한 트랩을 피할 수 있습니다. 초기 옵트인 이메일을 보내고 가입자에게 메시지 수신 여부를 확인하도록 요청하면, 수신자가 메시지를 받고 싶어하는지 그리고 실제 유효한 주소로 발송하고 있는지 확인할 수 있습니다. 스팸 트랩을 피하는 추가 방법은 다음과 같습니다:
 
 1. 이중 옵트인 이메일을 보냅니다. 이 이메일은 사용자가 링크를 클릭하여 구독 선택을 확인해야 하는 이메일입니다.
-2. 모범 사례로 [일몰 정책]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/)을 시행하세요.
+2. 모범 사례로 [일몰 정책]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies)을 시행하세요.
 3. **이메일 목록을 절대 구매하지 마세요.**
 
 {% alert tip %}
@@ -43,15 +43,15 @@ Microsoft는 무료 이메일 도메인(Hotmail, Live, MSN, Outlook)으로의 �
 
 `550 5.7.1 Unfortunately, messages from [xx.xx.xx.xx] weren't sent. Please contact your Internet service provider since part of their network is on our block list (S3150). You can also refer your provider to: http://mail.live.com/mail/troubleshooting.aspx#errors.`
 
-[IP 워밍]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/)과 유사하게 발송량을 천천히 늘리면서 측정기준을 면밀히 모니터링할 수 있습니다. 전달 가능성 문제의 근본 원인을 파악하고 해결해야 하는 경우가 많습니다. 일반적으로 이는 적절한 권한 부족, 지속적인 목록 관리 부족 또는 이 두 가지 요인의 조합입니다.
+[IP 워밍]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)과 유사하게 발송량을 천천히 늘리면서 측정기준을 면밀히 모니터링할 수 있습니다. 전달 가능성 문제의 근본 원인을 파악하고 해결해야 하는 경우가 많습니다. 일반적으로 이는 적절한 권한 부족, 지속적인 목록 관리 부족 또는 이 두 가지 요인의 조합입니다.
 
 ## 반송 또는 스팸 목록에서 이메일 주소 제거하기 {#remove-an-email-address-from-your-bounce-or-spam-list}
 
 다음 엔드포인트를 사용하여 반송된 이메일과 Braze 스팸 목록의 이메일을 제거할 수 있습니다:
 
-- [`/email/bounce/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces/)
-- [`/email/spam/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_spam/)
+- [`/email/bounce/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces)
+- [`/email/spam/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_spam)
 
 ## 이메일 전달 가능성 개선 {#improve-email-deliverability}
 
-자세한 내용은 [이메일 전달 가능성 개선]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/)을 참조하세요.
+자세한 내용은 [이메일 전달 가능성 개선]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability)을 참조하세요.

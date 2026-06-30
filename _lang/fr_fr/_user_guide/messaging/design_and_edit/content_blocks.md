@@ -13,7 +13,7 @@ tool:
 
 # Blocs de contenu {#content-blocks}
 
-> Les blocs de contenu vous permettent de gérer du contenu réutilisable et cross-canal depuis un emplacement unique et centralisé. Utilisez-les pour créer une apparence cohérente dans vos campagnes, distribuer les mêmes codes promotionnels sur différents canaux, ou créer des ressources prédéfinies pour un envoi de messages cohérent à grande échelle. Vous pouvez également créer et gérer vos blocs de contenu [via l'API]({{site.baseurl}}/api/endpoints/templates/).
+> Les blocs de contenu vous permettent de gérer du contenu réutilisable et cross-canal depuis un emplacement unique et centralisé. Utilisez-les pour créer une apparence cohérente dans vos campagnes, distribuer les mêmes codes promotionnels sur différents canaux, ou créer des ressources prédéfinies pour un envoi de messages cohérent à grande échelle. Vous pouvez également créer et gérer vos blocs de contenu [via l'API]({{site.baseurl}}/api/endpoints/templates).
 
 ## Créer un bloc de contenu {#create-a-content-block}
 
@@ -22,7 +22,7 @@ Il existe deux types de blocs de contenu : glisser-déposer et HTML. Chaque type
 {% tabs %}
 {% tab Glisser-déposer %}
 
-{% multi_lang_include create_content_block.md location="dnd" %}
+{% multi_lang_include messaging/create_content_block.md location="dnd" %}
 
 {% alert important %}
 Chaque bloc de contenu glisser-déposer est limité à une seule ligne. Cependant, vous pouvez utiliser les blocs de l'éditeur glisser-déposer pour créer et personnaliser le bloc de contenu selon vos besoins en matière d'e-mails.
@@ -31,7 +31,7 @@ Chaque bloc de contenu glisser-déposer est limité à une seule ligne. Cependan
 {% endtab %}
 {% tab HTML %}
 
-{% multi_lang_include create_content_block.md location="html" %}
+{% multi_lang_include messaging/create_content_block.md location="html" %}
 
 {% endtab %}
 {% endtabs %}
@@ -86,7 +86,7 @@ Pour insérer un bloc de contenu à l'aide de Liquid :
 Dans l'éditeur glisser-déposer, vous pouvez également ajouter un bloc de contenu via le panneau **Personalization** :
 
 1. Accédez à votre campagne e-mail et sélectionnez **Edit Email Body**.
-2. Cliquez sur <i class="fas fa-plus"></i> **Personalization**.
+2. Cliquez sur <i class="fas fa-plus" aria-label="Ajouter une personnalisation"></i> **Personalization**.
 3. Sélectionnez **Content Blocks** dans le menu déroulant **Personalization Type**.
 4. Sélectionnez le nom de votre bloc de contenu dans le champ **Attribute**.
 5. Copiez et collez l'extrait de code Liquid dans un bloc éditeur de texte. <br>![L'onglet Add Personalization avec ses options.]({% image_buster /assets/img_archive/dnd_content_block_personalization.png %}){: style="max-width:30%;"}
@@ -103,7 +103,7 @@ Les blocs de contenu insérés via Liquid **sont liés** au bloc de contenu d'or
 
 ## Prévisualiser les blocs de contenu {#preview-content-blocks}
 
-Après avoir ajouté un bloc de contenu dans une campagne ou un Canvas actif, vous pouvez le prévisualiser depuis la bibliothèque de blocs de contenu en survolant le bloc de contenu et en sélectionnant l'icône <i class="fa fa-eye preview-icon"></i> **Preview**.
+Après avoir ajouté un bloc de contenu dans une campagne ou un Canvas actif, vous pouvez le prévisualiser depuis la bibliothèque de blocs de contenu en survolant le bloc de contenu et en sélectionnant l'icône <i class="fa fa-eye preview-icon" aria-label="Prévisualiser"></i> **Preview**.
 
 Cette prévisualisation inclut des informations sur le bloc de contenu telles que son créateur, les étiquettes, la date de création, la date de dernière modification, la description, le type d'éditeur, le nombre d'inclusions avec les détails (une liste cliquable des messages ou blocs de contenu qui utilisent ce bloc de contenu), ainsi qu'un aperçu réel du bloc de contenu.
 
@@ -123,7 +123,7 @@ Si vous souhaitez mettre à jour un bloc de contenu pour un seul message ou en f
 
 Après avoir apporté des modifications à un bloc de contenu, vous pouvez enregistrer et lancer le bloc de contenu mis à jour en sélectionnant **Launch Content Block**. Vous pouvez également sélectionner **More** > **Duplicate** pour créer un duplicata de votre bloc de contenu.
 
-![Un bloc de contenu qui indique « Welcome to our newsletter ».]({% image_buster /assets/img/copy-content-block.png %})
+![Un bloc de contenu qui indique « Bienvenue dans notre newsletter ».]({% image_buster /assets/img/copy-content-block.png %})
 
 ## Utiliser des pieds de page d'e-mail dans les blocs de contenu {#email-footers}
 

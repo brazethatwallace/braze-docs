@@ -20,14 +20,14 @@ Para aprovechar esta característica, debes actualizar a las siguientes versione
 
 {% sdk_min_versions swift:5.2.0 android:23.0.0 web:4.2.0 %}
 
-Tras actualizar el SDK, tus usuarios móviles deben actualizar su aplicación. Puedes filtrar la audiencia de tu campaña o Canvas para [dirigirte solo a usuarios con estas versiones mínimas de la aplicación]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions).
+Tras actualizar el SDK, tus usuarios móviles deben actualizar su aplicación. Puedes filtrar la audiencia de tu campaña o Canvas para [dirigirte solo a usuarios con estas versiones mínimas de la aplicación]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 
 ## Resumen {#overview}
 
 {% tabs %}
 {% tab Campaign %}
 
-Puedes elegir cuándo Braze crea una tarjeta en el paso **Delivery** al crear una nueva [campaña de tarjeta de contenido]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/) con entrega planificada.
+Puedes elegir cuándo Braze crea una tarjeta en el paso **Delivery** al crear una nueva [campaña de tarjeta de contenido]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card) con entrega planificada.
 
 ![Sección Controles de la tarjeta de contenido al editar la entrega de una tarjeta de contenido planificada.]({% image_buster /assets/img_archive/card_creation.png %})
 
@@ -41,7 +41,7 @@ Independientemente de la opción seleccionada, la cuenta regresiva de la fecha d
 {% endtab %}
 {% tab Canvas %}
 
-Puedes elegir cuándo Braze crea una tarjeta en la pestaña **Messaging Channels** de un [paso de mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) de Content Card.
+Puedes elegir cuándo Braze crea una tarjeta en la pestaña **Messaging Channels** de un [paso de mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) de Content Card.
 
 ![Sección Controles de la tarjeta de contenido al editar la entrega de una tarjeta de contenido planificada.]({% image_buster /assets/img_archive/card_creation_canvas.png %})
 
@@ -69,7 +69,7 @@ En la configuración de **Expiration (Time in Feed)**, puedes seleccionar **Pers
 ![Configuración de expiración mostrando Personalize duration configurada con una variable de contexto para la expiración de la Content Card.]({% image_buster /assets/img/content_card_personalize_duration.png %})
 
 {% alert important %}
-Las Content Cards tienen una expiración máxima de 30 días, incluso cuando se usa la duración personalizada con variables de contexto. Cualquier valor establecido más allá de 30 días se limita a 30 días. Para más detalles, consulta [Expiración de la tarjeta]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#card-expiration).
+Las Content Cards tienen una expiración máxima de 30 días, incluso cuando se usa la duración personalizada con variables de contexto. Cualquier valor establecido más allá de 30 días se limita a 30 días. Para más detalles, consulta [Expiración de la tarjeta]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#card-expiration).
 {% endalert %}
 
 {% endtab %}
@@ -89,7 +89,7 @@ Esta sección describe las principales diferencias entre la creación de tarjeta
 .leftHeader{font-size: 12px; font-weight: bold; background-color: #f4f4f7; text-transform: uppercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 </style>
-<table aria-label="Differences between creating cards at launch or entry versus at first impression #differences" class="tg">
+<table aria-label="Diferencias entre crear tarjetas en el lanzamiento o entrada frente a la primera impresión" class="tg">
   <caption>Diferencias entre crear tarjetas en el lanzamiento o entrada frente a la primera impresión</caption>
 <thead>
   <tr>
@@ -137,7 +137,7 @@ Las campañas multicanal no admiten tarjetas en la primera impresión, por lo qu
 
 ### Uso de propiedades de contexto de Canvas {#using-canvas-context-properties}
 
-Al personalizar Content Cards con [propiedades de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), usa la sintaxis `${...}` (por ejemplo, {%raw%}`{{context.${property_name}}}`{%endraw%}). La notación de punto sin la sintaxis (por ejemplo, {%raw%}`{{context.property_name}}`{%endraw%}) puede no resolverse correctamente en las Content Cards, aunque funcione en otros canales como push y correo electrónico.
+Al personalizar Content Cards con [propiedades de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties), usa la sintaxis `${...}` (por ejemplo, {%raw%}`{{context.${property_name}}}`{%endraw%}). La notación de punto sin la sintaxis (por ejemplo, {%raw%}`{{context.property_name}}`{%endraw%}) puede no resolverse correctamente en las Content Cards, aunque funcione en otros canales como push y correo electrónico.
 
 ### Cambiar la creación de tarjetas después del lanzamiento {#changing-card-creation-after-launch}
 

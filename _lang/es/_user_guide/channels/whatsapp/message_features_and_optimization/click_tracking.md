@@ -57,7 +57,7 @@ En el Constructor de plantillas, ve a la pestaña **Settings**. En **Link option
 
 En **Custom domain**, selecciona el dominio que te gustaría usar para los enlaces acortados. El menú desplegable muestra todos los dominios de seguimiento personalizados configurados para tu espacio de trabajo. Si no seleccionas uno, Braze usa el dominio predeterminado `brz.ai`.
 
-Para añadir o cambiar dominios, selecciona **Subscription Group Management**.
+Para añadir o cambiar dominios, selecciona **Administración del grupo de suscripción**.
 
 {% alert important %}
 Después de que una plantilla se envía a Meta para su aprobación, el dominio de seguimiento no se puede cambiar. Confirma que has seleccionado el dominio correcto antes de enviarla.
@@ -111,7 +111,7 @@ La URL de destino debe proporcionarse para cualquier enlace con una URL base que
 ![Sección Buttons con campos para el nombre del botón, la URL del sitio web y la URL de seguimiento de clics.]({% image_buster /assets/img/whatsapp/click_tracking/buttons.png %}){: style="max-width:70%;"}
 
 {% alert important %}
-**Envío de mensajes de plantilla a través de la API**: El seguimiento de clics de WhatsApp (usando `brz.ai` o un dominio de seguimiento personalizado y el campo **Click tracking URL** en el creador de mensajes) no es compatible cuando se envían mensajes de plantilla de WhatsApp a través del [punto de conexión `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/).
+**Envío de mensajes de plantilla a través de la API**: El seguimiento de clics de WhatsApp (usando `brz.ai` o un dominio de seguimiento personalizado y el campo **Click tracking URL** en el creador de mensajes) no es compatible cuando se envían mensajes de plantilla de WhatsApp a través del [punto de conexión `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages).
 
 Si envías un mensaje de plantilla a través de la API, puedes rellenar las variables de URL del CTA (usando `button_variables`), pero Braze no genera una URL de seguimiento de clics ni un enlace de redirección en el flujo de solicitud de la API. Para usar el seguimiento de clics, envía la plantilla desde el panel de Braze o mediante un desencadenador de Campaign de Braze.
 {% endalert %}
@@ -144,7 +144,7 @@ Braze acorta las URL generadas por Liquid, incluso las incluidas en propiedades 
 
 ## Pruebas {#testing}
 
-Antes de lanzar tu Campaign o Canvas, es una buena práctica previsualizar y probar tu mensaje primero. Para hacerlo, ve a la pestaña **Test** para previsualizar y enviar un WhatsApp a grupos de prueba de contenido o a un usuario individual.
+Antes de lanzar tu campaña o Canvas, es una buena práctica previsualizar y probar tu mensaje primero. Para hacerlo, ve a la pestaña **Test** para previsualizar y enviar un WhatsApp a grupos de prueba de contenido o a un usuario individual.
 
 Esta vista previa se actualizará con la personalización relevante y la URL acortada.
 
@@ -154,7 +154,7 @@ Si se crea un borrador dentro de un Canvas activo, no se generará una URL acort
 
 ## Informes {#reporting}
 
-Cuando el seguimiento de clics está activado o se usa con plantillas compatibles, la tabla de rendimiento de WhatsApp incluye la columna **Total Clicks** que muestra un recuento de eventos de clic por variante y una tasa de clics asociada. Para más detalles sobre las métricas de WhatsApp, consulta [Rendimiento de mensajes de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/reporting/).
+Cuando el seguimiento de clics está activado o se usa con plantillas compatibles, la tabla de rendimiento de WhatsApp incluye la columna **Total Clicks** que muestra un recuento de eventos de clic por variante y una tasa de clics asociada. Para más detalles sobre las métricas de WhatsApp, consulta [Rendimiento de mensajes de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/reporting).
 
 ![Paso de Canvas de mensaje de WhatsApp.]({% image_buster /assets/img/whatsapp/click_tracking/canvas_step.png %}){: style="max-width:30%;"}
 

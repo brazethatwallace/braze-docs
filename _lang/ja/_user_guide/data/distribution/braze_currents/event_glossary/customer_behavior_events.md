@@ -14,13 +14,13 @@ search_rank: 7
 
 {% details スキーマの範囲と関連リソース %}
 
-ストレージスキーマは、データウェアハウスのストレージパートナー（Google Cloud Storage、Amazon S3、Microsoft Azure Blob Storage）に送信するフラットファイルのイベントデータに適用されます。ここにリストされているイベントと送信先の組み合わせの一部は、まだ一般提供されていません。さまざまなパートナーがサポートするイベントの情報については、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/)のリストを参照し、それぞれのページを確認してください。
+ストレージスキーマは、データウェアハウスのストレージパートナー（Google Cloud Storage、Amazon S3、Microsoft Azure Blob Storage）に送信するフラットファイルのイベントデータに適用されます。ここにリストされているイベントと送信先の組み合わせの一部は、まだ一般提供されていません。さまざまなパートナーがサポートするイベントの情報については、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners)のリストを参照し、それぞれのページを確認してください。
 
 {% alert tip %}
-これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)、および[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)のSQLテーブルとしても利用できます。SQLテーブルスキーマとカラムの詳細については、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)を参照してください。
+これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)、および[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)のSQLテーブルとしても利用できます。SQLテーブルスキーマとカラムの詳細については、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)を参照してください。
 {% endalert %}
 
-追加のイベントエンタイトルメントへのアクセスが必要な場合は、Brazeの担当者に連絡するか、[サポートチケット]({{site.baseurl}}/braze_support/)を開いてください。このページで必要なものが見つからない場合は、[メッセージエンゲージメントイベントライブラリー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)や[Currentsのサンプルデータ例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご覧ください。
+追加のイベントエンタイトルメントへのアクセスが必要な場合は、Brazeの担当者に連絡するか、[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。このページで必要なものが見つからない場合は、[メッセージエンゲージメントイベントライブラリー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)や[Currentsのサンプルデータ例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご覧ください。
 
 {% enddetails %}
 
@@ -48,7 +48,7 @@ search_rank: 7
 | Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Platform values" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="プラットフォーム値" }
 
 {% enddetails %}
 
@@ -70,7 +70,7 @@ search_rank: 7
 Random Bucket Number
 {% endapitags %}
 
-このユーザーイベントは、ワークスペース内で新規ユーザーが作成されるたびに発生します。このイベントでは、各新規ユーザーにランダムバケット番号が割り当てられ、これを使用してランダムユーザーの均一に分散されたSegmentを作成できます。これを使用して、ランダムバケット番号の値の範囲をグループ化し、Campaignsやキャンペーンバリアント間でパフォーマンスを比較します。
+このユーザーイベントは、ワークスペース内で新規ユーザーが作成されるたびに発生します。このイベントでは、各新規ユーザーにランダムバケット番号が割り当てられ、これを使用してランダムユーザーの均一に分散されたセグメントを作成できます。これを使用して、ランダムバケット番号の値の範囲をグループ化し、キャンペーンやキャンペーンバリアント間でパフォーマンスを比較します。
 
 {% alert important %}
 このCurrentsイベントは「すべてのイベントコネクター」を購入した顧客にのみ利用でき、ストレージイベントコネクター（Amazon S3、Microsoft Azure、Google Cloud Storageなど）でのみ利用できます。
@@ -214,7 +214,7 @@ Custom Events
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // users.behaviors.CustomEvent
 
@@ -246,11 +246,11 @@ Custom Events
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細 {#property-details}
+### プロパティの詳細 {#property-details}
 
-- カスタムイベントの場合、ペイロードには、イベントに関連付けられている任意の[カスタムイベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/#custom-event-properties)も含まれます。
-- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` の場合、ネイティブSDKを介してiOS IDFAおよびAndroid GoogleアドIDを明示的に収集する必要があります。詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift)、[Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id) のリンク先を参照してください。
-- Kafkaを使って[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)データをインジェストしている場合、`ad_id` 送信用の機能フリッパーを有効にするには、カスタマーサクセスマネージャーまたはアカウントマネージャーにお問い合わせください。
+- カスタムイベントの場合、ペイロードには、イベントに関連付けられている任意の[カスタムイベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#custom-event-properties)も含まれます。
+- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` の場合、ネイティブSDKを介してiOS IDFAおよびAndroid GoogleアドIDを明示的に収集する必要があります。詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift)、[Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id) のリンク先を参照してください。
+- Kafkaを使って[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)データをインジェストしている場合、`ad_id` 送信用の機能フリッパーを有効にするには、カスタマーサクセスマネージャーまたはアカウントマネージャーにお問い合わせください。
 
 {% endapi %}
 
@@ -339,7 +339,7 @@ Attribution
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Install Attribution (users.behaviors.InstallAttribution)
 
@@ -498,7 +498,7 @@ Locations
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Location (users.behaviors.Location)
 
@@ -534,10 +534,10 @@ Locations
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` の場合、ネイティブSDKを介してiOS IDFAおよびAndroid GoogleアドIDを明示的に収集する必要があります。詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift)、[Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id) のリンク先を参照してください。
-- Kafkaを使って[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)データをインジェストしている場合、`ad_id` 送信用の機能フリッパーを有効にするには、カスタマーサクセスマネージャーまたはアカウントマネージャーにお問い合わせください。
+- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` の場合、ネイティブSDKを介してiOS IDFAおよびAndroid GoogleアドIDを明示的に収集する必要があります。詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift)、[Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id) のリンク先を参照してください。
+- Kafkaを使って[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)データをインジェストしている場合、`ad_id` 送信用の機能フリッパーを有効にするには、カスタマーサクセスマネージャーまたはアカウントマネージャーにお問い合わせください。
 
 {% endapi %}
 
@@ -670,7 +670,7 @@ Purchases
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Purchased (users.behaviors.Purchase)
 
@@ -704,11 +704,11 @@ Purchases
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
-- 購入イベントの場合、ペイロードには、イベントに関連付けられている[購入イベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/#purchase-properties)も含まれます。
-- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` の場合、ネイティブSDKを介してiOS IDFAおよびAndroid GoogleアドIDを明示的に収集する必要があります。詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift)、[Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id) のリンク先を参照してください。
-- Kafkaを使って[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)データをインジェストしている場合、`ad_id` 送信用の機能フリッパーを有効にするには、カスタマーサクセスマネージャーまたはアカウントマネージャーにお問い合わせください。
+- 購入イベントの場合、ペイロードには、イベントに関連付けられている[購入イベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#purchase-properties)も含まれます。
+- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` の場合、ネイティブSDKを介してiOS IDFAおよびAndroid GoogleアドIDを明示的に収集する必要があります。詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift)、[Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id) のリンク先を参照してください。
+- Kafkaを使って[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)データをインジェストしている場合、`ad_id` 送信用の機能フリッパーを有効にするには、カスタマーサクセスマネージャーまたはアカウントマネージャーにお問い合わせください。
 
 {% endapi %}
 
@@ -824,7 +824,7 @@ Sessions
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // First Session (users.behaviors.app.FirstSession)
 
@@ -961,7 +961,7 @@ Sessions
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Session Ended (users.behaviors.app.SessionEnd)
 
@@ -1099,7 +1099,7 @@ Sessions
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Session Started (users.behaviors.app.SessionStart)
 
@@ -1233,7 +1233,7 @@ Live Activity, Push To Start Token
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Live Activity Push To Start Token Changed (users.behaviors.liveactivity.PushToStartTokenChange)
 
@@ -1367,7 +1367,7 @@ Live Activity, Update Token
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Live Activity Update Token Changed (users.behaviors.liveactivity.UpdateTokenChange)
 
@@ -1428,7 +1428,7 @@ Push, Token State Change
   "push_token_updated_at" : "(optional, int) UNIX timestamp at which the push token was last updated",
   "sdk_version" : "(optional, string) Version of the Braze SDK in use during the event",
   "time" : "(required, int) UNIX timestamp at which the event happened",
-  "time_ms" : "(optional, long) Time in millisecond when the event happened",
+  "time_ms" : "(optional, long) Time in milliseconds when the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "web_push_token_public_key" : "(optional, string) Public key of the push token, only applies to web push tokens",
   "web_push_token_user_auth" : "(optional, string) User auth of the push token, only applies to web push tokens",
@@ -1454,7 +1454,7 @@ Push, Token State Change
     "push_token_provisionally_opted_in" : "(optional, boolean) Provisionally opted in flag of the push token",
     "push_token_state_change_type" : "(optional, string) A description of the push token state change type",
     "push_token_updated_at" : "(optional, int) UNIX timestamp at which the push token was last updated",
-    "time_ms" : "(optional, long) Time in millisecond when the event happened",
+    "time_ms" : "(optional, long) Time in milliseconds when the event happened",
     "web_push_token_public_key" : "(optional, string) Public key of the push token, only applies to web push tokens",
     "web_push_token_user_auth" : "(optional, string) User auth of the push token, only applies to web push tokens",
     "web_push_token_vapid_public_key" : "(optional, string) VAPID public key of the push token, only applies to web push tokens"
@@ -1487,7 +1487,7 @@ Push, Token State Change
     "push_token_provisionally_opted_in" : "(optional, boolean) Provisionally opted in flag of the push token",
     "push_token_state_change_type" : "(optional, string) A description of the push token state change type",
     "push_token_updated_at" : "(optional, int) UNIX timestamp at which the push token was last updated",
-    "time_ms" : "(optional, long) Time in millisecond when the event happened",
+    "time_ms" : "(optional, long) Time in milliseconds when the event happened",
     "web_push_token_public_key" : "(optional, string) Public key of the push token, only applies to web push tokens",
     "web_push_token_user_auth" : "(optional, string) User auth of the push token, only applies to web push tokens",
     "web_push_token_vapid_public_key" : "(optional, string) VAPID public key of the push token, only applies to web push tokens"
@@ -1523,7 +1523,7 @@ Push, Token State Change
     "push_token_state_change_type" : "(optional, string) A description of the push token state change type",
     "push_token_updated_at" : "(optional, int) UNIX timestamp at which the push token was last updated",
     "time" : "(required, int) UNIX timestamp at which the event happened",
-    "time_ms" : "(optional, long) Time in millisecond when the event happened",
+    "time_ms" : "(optional, long) Time in milliseconds when the event happened",
     "token" : "(required, string) The Mixpanel API token",
     "web_push_token_public_key" : "(optional, string) Public key of the push token, only applies to web push tokens",
     "web_push_token_user_auth" : "(optional, string) User auth of the push token, only applies to web push tokens",
@@ -1533,7 +1533,7 @@ Push, Token State Change
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Push Notification Token State Changed (users.behaviors.pushnotification.TokenStateChange)
 
@@ -1556,7 +1556,7 @@ Push, Token State Change
     "push_token_provisionally_opted_in" : "(optional, boolean) Provisionally opted in flag of the push token",
     "push_token_state_change_type" : "(optional, string) A description of the push token state change type",
     "push_token_updated_at" : "(optional, int) UNIX timestamp at which the push token was last updated",
-    "time_ms" : "(optional, long) Time in millisecond when the event happened",
+    "time_ms" : "(optional, long) Time in milliseconds when the event happened",
     "web_push_token_public_key" : "(optional, string) Public key of the push token, only applies to web push tokens",
     "web_push_token_user_auth" : "(optional, string) User auth of the push token, only applies to web push tokens",
     "web_push_token_vapid_public_key" : "(optional, string) VAPID public key of the push token, only applies to web push tokens"
@@ -1569,7 +1569,7 @@ Push, Token State Change
 {% endtab %}
 {% endtabs %}
 
-#### プロパティの詳細
+### プロパティの詳細
 
 - `push_token_foreground_push_disabled` フィールドは、プッシュトークンがフォアグラウンドまたはバックグラウンドのプッシュを受信できるかどうかを示します。
   - ユーザーがデバイス上でプッシュ通知の権限を明示的に許可した場合、この値は `false` となり、トークンはフォアグラウンドプッシュ通知を受信できます。
@@ -1579,7 +1579,7 @@ Push, Token State Change
   - プッシュ送信の試行によってこのフィールドが更新されることはありません。送信が成功した場合、`TokenStateChange` イベントは発行されません。送信がバウンスした場合（トークンが無効なため）、Brazeは「remove」イベントを発行し、トークンを削除します。
   - このフィールドは、BrazeがSDKからトークン状態の更新を取り込んだときにのみ変更されます（例えば、プッシュ権限ステータスを報告する後続のセッション同期）。
 - `push_token_provisionally_opted_in` フィールドはiOSプッシュトークンにのみ適用されます。
-  - [仮承認]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push)を設定している場合、仮トークンはこのフィールドが `true` に設定されます。その他のプッシュトークンはすべて `false` です。
+  - [仮承認]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push)を設定している場合、仮トークンはこのフィールドが `true` に設定されます。その他のプッシュトークンはすべて `false` です。
 - `sdk_version` フィールドは、SDKによってトークンの状態変更が開始された場合にのみ値が設定されます。
   - SDKの `changeUser` イベントがトリガーとなり、トークンがユーザー間で移動される場合、`sdk_version` フィールドに値が設定されます。
   - プッシュバウンス（例えばアンインストールによるもの）が発生した場合、`sdk_version` フィールドは空白となります。
@@ -1589,7 +1589,7 @@ Push, Token State Change
 
 ##### 追加 {#add}
 
-新しいトークンが登録されると、「add」イベントが取り込まれます。これは、ユーザーが新しいデバイスで初めてアプリを開いたとき、または以前にトークンを持たなかったユーザーに対して[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)エンドポイントを通じて `push_tokens` でトークンが設定されたときに発生します。
+新しいトークンが登録されると、「add」イベントが取り込まれます。これは、ユーザーが新しいデバイスで初めてアプリを開いたとき、または以前にトークンを持たなかったユーザーに対して[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)エンドポイントを通じて `push_tokens` でトークンが設定されたときに発生します。
 
 {% alert note %}
 iOS Swift SDK 13.3.0以降、およびAndroid SDK 40.0.0以降では、プッシュ権限ステータスとプッシュトークンが一緒に送信されます。これらのSDKからの新規登録では、「add」イベントに `push_token_foreground_push_disabled` が設定されます（通知が有効な場合は通常 `false`）。<br><br>
@@ -1627,10 +1627,10 @@ Brazeがトークンを削除すると、独立した「remove」イベントが
 
 - SDKが匿名プロファイルから識別済みプロファイルへ `changeUser` を呼び出す。「remove」イベントは空の `external_user_id` を持ちます。
 - SDKが識別済みプロファイルから別の識別済みプロファイルへ `changeUser` を呼び出す。両方のイベントは空ではない `external_user_id` を持ちます。
-- [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)エンドポイントまたは重複ユーザーのクリーンアップが、孤立したユーザーのトークンを存続するユーザーに移行する。
+- [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)エンドポイントまたは重複ユーザーのクリーンアップが、孤立したユーザーのトークンを存続するユーザーに移行する。
 
 {% alert note %}
-[`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/)エンドポイントを通じて匿名プロファイルが識別された場合、`user_id` は変化せず、トークン状態変更イベントも発行されません。
+[`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)エンドポイントを通じて匿名プロファイルが識別された場合、`user_id` は変化せず、トークン状態変更イベントも発行されません。
 {% endalert %}
 
 #### 最新のアクティブなトークン状態のクエリ {#querying-for-the-latest-active-token-state}

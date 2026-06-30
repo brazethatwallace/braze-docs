@@ -24,7 +24,7 @@ Stellen Sie sich angepasste Attribute als die persistenten Merkmale oder Eigensc
 - **Personalisierung:** Attribute eignen sich hervorragend für die Personalisierung. Sie können die `favorite_category` einer Nutzerin oder eines Nutzers in eine E-Mail-Betreffzeile einfügen, um Aufmerksamkeit zu erzeugen.
 - **Speicherung:** Diese Daten bleiben dauerhaft im Nutzerprofil gespeichert, solange das Profil aktiv ist.
 
-Weitere Informationen finden Sie unter [Angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/).
+Weitere Informationen finden Sie unter [Angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes).
 
 ### Angepasste Events: Was Ihre Nutzer:innen tun {#custom-events-what-your-users-do}
 
@@ -35,21 +35,21 @@ Angepasste Events erfassen bestimmte Aktionen, die Ihre Nutzer:innen zu einem be
 - **Metadaten:** Sie können einem Event mithilfe von Event-Eigenschaften zusätzliche Details hinzufügen, z. B. den Namen des Artikels, der in den Warenkorb gelegt wurde.
 - **Analytics:** Events ermöglichen Segmentierung, Berichte und Analytics, sodass Sie Engagement messen und Ihr Messaging optimieren können.
 
-Weitere Informationen finden Sie unter [Angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/).
+Weitere Informationen finden Sie unter [Angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events).
 
 ## Kataloge {#catalogs}
 
-Während sich Attribute und Events auf Ihre Nutzer:innen konzentrieren, ermöglichen Ihnen Kataloge, nicht-nutzerbezogene Daten wie Produktbestände, Kursdetails oder Veranstaltungslisten einzubringen.
+Während sich Attribute und Events auf Ihre Nutzer:innen konzentrieren, ermöglichen Ihnen Kataloge, nicht-nutzerbezogene Daten wie Produktbestände, Kursdetails oder Eventlisten einzubringen.
 
 Indem Sie diese Metadaten per CSV oder API importieren, können Sie Ihre Nachrichten mit Informationen anreichern, die nicht im Nutzerprofil gespeichert sind. Sie können beispielsweise einen Katalog verwenden, um Kund:innen automatisch zu benachrichtigen, wenn ein zuvor angesehener Artikel wieder auf Lager ist oder im Preis gesunken ist.
 
-Weitere Informationen finden Sie unter [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs/).
+Weitere Informationen finden Sie unter [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs).
 
 ## Datentypen {#data-types}
 
 Braze unterstützt mehrere Datentypen für Ihre angepassten Daten – darunter Boolescher Wert, Zahl, String, Array, Zeit und Objekt – jeweils mit spezifischem Verhalten und Segmentierungsoptionen. Der gewählte Datentyp beeinflusst, wie Sie in Campaigns und Segments filtern und personalisieren können.
 
-Eine vollständige Referenz der unterstützten Datentypen für angepasste Attribute, Event-Eigenschaften und Kataloge finden Sie unter [Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/).
+Eine vollständige Referenz der unterstützten Datentypen für angepasste Attribute, Event-Eigenschaften und Kataloge finden Sie unter [Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types).
 
 ## Datenintegrität verwalten {#managing-your-data-integrity}
 
@@ -66,4 +66,4 @@ Wenn Sie feststellen, dass bestimmte Attribute oder Events nicht mehr nützlich 
 - **Blocklist:** Dies verhindert, dass Braze neue Daten für dieses Objekt erfasst. Die Daten erscheinen nicht mehr in Filtern oder Grafiken, bleiben aber in den bestehenden Profilen erhalten.
 - **Löschen:** Dies entfernt die Daten dauerhaft aus allen Nutzerprofilen. Sie müssen ein Datenobjekt 7 Tage lang auf die Blocklist setzen, bevor es zum Löschen freigegeben wird.
 
-Weitere Informationen finden Sie unter [Angepasste Daten verwalten]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/) und [Angepasste Daten auf die Blocklist setzen]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
+Weitere Informationen finden Sie unter [Angepasste Daten verwalten]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) und [Angepasste Daten auf die Blocklist setzen]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data).

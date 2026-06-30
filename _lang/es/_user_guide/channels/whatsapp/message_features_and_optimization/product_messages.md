@@ -32,7 +32,7 @@ Cuando los usuarios añaden artículos a su carrito a través de mensajes de cat
 | Cuenta de WhatsApp Business | Para usar los mensajes de producto de WhatsApp, debes tener una cuenta de WhatsApp Business conectada con Braze. |
 | Catálogo de Meta | Necesitas configurar un catálogo de Meta en tu Commerce Manager. |
 | Cumplimiento de términos | Cumplir con los [Términos y políticas de comercio de Meta](https://www.facebook.com/policies_center/commerce). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
 ## Tipos de mensajes de producto {#product-message-types}
 
@@ -90,7 +90,7 @@ Asegúrate de usar el ID de Braze Business Manager, `332231937299182`, como ID d
 ![Página de configuración de WhatsApp Manager para el catálogo "Catalog_products".]({% image_buster /assets/img/whatsapp/meta_catalog_settings.png %}){: style="max-width:90%;"}
 
 {: start="4"}
-4. En Braze, completa el proceso de [registro integrado]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/) para proporcionar permisos. Asegúrate de seleccionar **todos** los catálogos para los que deseas proporcionar permisos. Esto desbloqueará el selector de productos integrado de Braze.
+4. En Braze, completa el proceso de [registro integrado]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup) para proporcionar permisos. Asegúrate de seleccionar **todos** los catálogos para los que deseas proporcionar permisos. Esto desbloqueará el selector de productos integrado de Braze.
 
 ![Ventana con cinco catálogos seleccionados para proporcionar permisos.]({% image_buster /assets/img/whatsapp/select_catalogs.png %}){: style="max-width:50%;"}
 
@@ -107,7 +107,7 @@ Puedes crear un mensaje de producto usando una plantilla de mensaje de WhatsApp 
 
 1. En tu Meta Business Manager, ve a **Message Templates**.
 2. Selecciona **Catalog** como formato y luego elige entre **Catalog message** (muestra el catálogo completo) y **Multi-product catalog message** (destaca artículos específicos).
-3. En Braze, crea una Campaign de WhatsApp o un paso de mensaje en Canvas.
+3. En Braze, crea una campaña de WhatsApp o un paso de mensaje en Canvas.
 4. Selecciona el grupo de suscripción que coincida con donde enviaste la plantilla.
 5. Selecciona **WhatsApp Template Message**.
 6. Selecciona la plantilla que deseas usar.
@@ -123,7 +123,7 @@ Puedes crear un mensaje de producto usando una plantilla de mensaje de WhatsApp 
 {% endtab %}
 {% tab Mensaje de respuesta %}
 
-1. En Braze, crea una Campaign de WhatsApp o un paso de mensaje en Canvas.
+1. En Braze, crea una campaña de WhatsApp o un paso de mensaje en Canvas.
 2. Selecciona un grupo de suscripción.
 3. Selecciona **Response Message**.
 4. Selecciona **Meta Product Messages**.
@@ -159,7 +159,7 @@ Si eliminas productos referenciados de tu catálogo, los mensajes asociados no s
 
 ## Recepción de preguntas entrantes sobre productos {#receiving-inbound-product-questions}
 
-Los usuarios pueden responder a tu mensaje de producto o catálogo con preguntas sobre productos. Estas llegan como mensajes entrantes, que luego pueden clasificarse con una [ruta de acción]({{site.baseurl}}/action_paths/).
+Los usuarios pueden responder a tu mensaje de producto o catálogo con preguntas sobre productos. Estas llegan como mensajes entrantes, que luego pueden clasificarse con una [ruta de acción]({{site.baseurl}}/action_paths).
 
 Además, Braze extrae el ID del producto y el ID del catálogo de estas preguntas, por lo que si deseas automatizar respuestas o enviar preguntas a otro equipo (como soporte al cliente), puedes incluir esos detalles. Por ejemplo, podrías personalizar respuestas con las propiedades de WhatsApp `inbound_product_id` o `inbound_catalog_id`.
 
@@ -196,7 +196,7 @@ El evento de carrito incluye:
 - **Source:** marcado como "whats_app"
 - **Metadata:** datos adicionales como el ID del catálogo y el texto del mensaje
 
-Puedes encontrar información adicional sobre eventos de carrito de Braze en [Tipos de eventos de comercio electrónico recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/#types-of-ecommerce-recommended-events).
+Puedes encontrar información adicional sobre eventos de carrito de Braze en [Tipos de eventos de comercio electrónico recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events).
 
 ### Configuración de una respuesta desencadenada {#setting-up-a-triggered-response}
 
@@ -249,7 +249,7 @@ Realiza una llamada API a tu sistema de comercio electrónico para generar una U
 #### Configuración
 
 1. Crea una campaña de webhook o un paso en Canvas desencadenado por el evento de comercio electrónico [`ecommerce.cart_update`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.cart_updated), que enviará los datos del carrito a tu sistema de comercio electrónico.
-2. Crea una campaña de WhatsApp o un paso de mensaje en Canvas desencadenado por el mismo evento de comercio electrónico para enviar un mensaje de respuesta de WhatsApp con la URL del carrito al usuario. Sigue las instrucciones en el mensaje de respuesta posterior para usar [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/).
+2. Crea una campaña de WhatsApp o un paso de mensaje en Canvas desencadenado por el mismo evento de comercio electrónico para enviar un mensaje de respuesta de WhatsApp con la URL del carrito al usuario. Sigue las instrucciones en el mensaje de respuesta posterior para usar [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content).
 
 ![Diagrama que muestra el flujo de trabajo de la experiencia de pago para una llamada de Contenido conectado: Meta envía un mensaje de pedido recibido a Braze, que tiene llamadas de ida y vuelta con una plataforma de comercio electrónico, y luego envía un mensaje de WhatsApp.]({% image_buster /assets/img/whatsapp/connected_content_checkout.png %})
 

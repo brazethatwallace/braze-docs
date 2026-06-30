@@ -14,7 +14,7 @@ tool: Canvas
 In diesem Artikel führen wir Sie durch einen Anwendungsfall für das Template **Abandoned Intent**, das für die Überlegungsphase des Nutzer:innen-Lebenszyklus vorgesehen ist. Nach diesem Artikel haben Sie eine User-Journey angepasst, die Käufe von Nutzer:innen fördert, die nach dem Hinzufügen von Artikeln zu ihren Warenkörben keine Käufe getätigt haben.
 
 {% alert tip %}
-Verwenden Sie [BrazeAI Operator<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/operator/), um dieses Template einzurichten und anzupassen. Wählen Sie **BrazeAI Operator<sup>TM</sup>** neben Ihrem Nutzerprofil, während Sie Ihr Canvas erstellen oder bearbeiten. Beschreiben Sie dann Ihr Ziel, z. B. „Hilf mir, das Abandoned-Intent-Template zu konfigurieren, um Nutzer:innen erneut anzusprechen, die ihren Warenkorb abgebrochen haben“.
+Verwenden Sie [BrazeAI Operator<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/operator), um dieses Template einzurichten und anzupassen. Wählen Sie **BrazeAI Operator<sup>TM</sup>** neben Ihrem Nutzerprofil, während Sie Ihr Canvas erstellen oder bearbeiten. Beschreiben Sie dann Ihr Ziel, z. B. „Hilf mir, das Abandoned-Intent-Template zu konfigurieren, um Nutzer:innen erneut anzusprechen, die ihren Warenkorb abgebrochen haben“.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -22,13 +22,13 @@ Verwenden Sie [BrazeAI Operator<sup>TM</sup>]({{site.baseurl}}/user_guide/brazea
 Um dieses Template erfolgreich zu verwenden, benötigen Sie Folgendes:
 
 - Ein separates Canvas für die Post-Purchase-User-Journey, da ein Kauf in diesem Canvas dazu führt, dass Nutzer:innen das Canvas verlassen.
-- Eine konfigurierte [Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/) mit den Partnern und Zielgruppen, die Sie verwenden.
+- Eine konfigurierte [Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync) mit den Partnern und Zielgruppen, die Sie verwenden.
 
 ## Das Template an Ihre Bedürfnisse anpassen {#tailoring-the-template-to-your-needs}
 
 Nehmen wir an, wir arbeiten bei Kitchenerie, einer Einzelhandelsmarke, die auf Küchenartikel spezialisiert ist, und unser Ziel ist es, Nutzer:innen erneut anzusprechen, die das neueste Produkt „Enormous Paper Plate“ in ihren Warenkorb gelegt, aber ihren Kauf nicht abgeschlossen haben.
 
-Bevor wir das Canvas erstellen, richten wir die Integration [Braze Audience Sync zu Facebook]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync/) ein, damit wir Nutzerdaten von Braze zu Facebook Audiences hinzufügen können, um Werbeanzeigen basierend auf Verhaltens-Triggern, Segmentierung und mehr zu senden.
+Bevor wir das Canvas erstellen, richten wir die Integration [Braze Audience Sync zu Facebook]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync) ein, damit wir Nutzerdaten von Braze zu Facebook Audiences hinzufügen können, um Werbeanzeigen basierend auf Verhaltens-Triggern, Segmentierung und mehr zu senden.
 
 Das Template **Abandoned Intent** folgt diesem Ablauf: Kauf prüfen, sofortige Erinnerung senden, warten, zum optimalen Kanal weiterleiten, Follow-up senden, erneut prüfen und Nicht-Konvertierer retargeten. Es enthält die folgenden Schritte:
 
@@ -37,7 +37,7 @@ Das Template **Abandoned Intent** folgt diesem Ablauf: Kauf prüfen, sofortige E
 | Aktionspfade | Made purchase? | Erste Abschlussprüfung; Nutzer:innen, die bereits gekauft haben, verlassen das Canvas. |
 | Nachricht | Itemized Reminder | Sofortige Warenkorb-Erinnerung, die direkt nach dem Eintritt gesendet wird. |
 | Verzögerung | Delay | 30-minütige Wartezeit, damit das Follow-up ankommt, solange das Produkt noch präsent ist. |
-| Zielgruppenpfade | Intelligent Channel split | Leitet Nutzer:innen basierend auf dem [intelligenten Kanal]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/)-Ranking zu E-Mail oder SMS weiter. |
+| Zielgruppenpfade | Intelligent Channel split | Leitet Nutzer:innen basierend auf dem [intelligenten Kanal]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel)-Ranking zu E-Mail oder SMS weiter. |
 | Nachricht | Abandoned Cart Email, Abandoned Cart SMS und Abandoned Cart In-App Message | Kanalspezifische Follow-ups. Der intelligente Kanal wählt zwischen E-Mail und SMS; die In-App-Nachricht wird auf einem separaten Pfad im Template gesendet. |
 | Aktionspfade | Made purchase? (2) | Zweite Abschlussprüfung vor dem Retargeting. |
 | Audience Sync | Ad Retargeting | Synchronisiert Nicht-Konvertierer mit Werbe-Zielgruppen (z. B. Facebook) für kanalübergreifendes Retargeting. |
@@ -73,8 +73,8 @@ Wenn Ihr Workspace das Konversions-Event **Places order** verwendet, können kau
 Das Template **Abandoned Intent** verwendet einen **API-Triggered**-Entry-Zeitplan, damit Sie Nutzer:innen in das Canvas aufnehmen können, sobald sie ihren Warenkorb abbrechen. Das passt zu unserem Anwendungsfall, da wir reagieren möchten, solange das Produkt noch präsent ist.
 
 1. Behalten Sie **API-Triggered** als Entry-Zeitplan-Typ bei.
-2. Notieren Sie sich die Canvas-ID und verwenden Sie den [`/canvas/trigger/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/), um Nutzer:innen hinzuzufügen, wenn Ihre App oder Website einen Warenkorb-Abbruch erkennt.
-3. Optional können Sie [Kontext-Variablen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/) (wie Produktname oder Warenkorb-Details) übergeben, um nachfolgende Nachrichten zu personalisieren.
+2. Notieren Sie sich die Canvas-ID und verwenden Sie den [`/canvas/trigger/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases), um Nutzer:innen hinzuzufügen, wenn Ihre App oder Website einen Warenkorb-Abbruch erkennt.
+3. Optional können Sie [Kontext-Variablen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) (wie Produktname oder Warenkorb-Details) übergeben, um nachfolgende Nachrichten zu personalisieren.
 
 Wenn Sie stattdessen einen aktionsbasierten Eintritt bevorzugen, wählen Sie **Action-Based** und einen Trigger, der zu der Art passt, wie Ihre Marke Warenkorb-Abbrüche erfasst – zum Beispiel **Perform Custom Event** für ein protokolliertes `abandoned_cart`-Event.
 
@@ -107,12 +107,12 @@ Passen Sie die Canvas-Schritte in der Reihenfolge an, in der Nutzer:innen sie du
 2. Belassen Sie den **Delay**-Schritt wie er ist. Das Template verwendet eine 30-minütige Verzögerung, bevor Follow-up-Nachrichten gesendet werden, um Nutzer:innen Zeit zu geben, den Checkout abzuschließen, solange das Produkt noch präsent ist.
 
 {% alert tip %}
-Sie können [Canvas-Kontext-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) verwenden, um die Nachrichten in Ihrem Canvas basierend auf dem Produkt, auf das Sie sich beziehen, anzupassen.
+Sie können [Canvas-Kontext-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) verwenden, um die Nachrichten in Ihrem Canvas basierend auf dem Produkt, auf das Sie sich beziehen, anzupassen.
 {% endalert %}
 
 #### Zum optimalen Kanal weiterleiten {#route-to-the-optimal-channel}
 
-1. Überprüfen Sie den Zielgruppenpfade-Schritt **Intelligent Channel split**. Dieser leitet Nutzer:innen basierend auf dem [intelligenten Kanal]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/)-Ranking zu **Abandoned Cart Email** oder **Abandoned Cart SMS** weiter. Passen Sie die Pfade bei Bedarf an.
+1. Überprüfen Sie den Zielgruppenpfade-Schritt **Intelligent Channel split**. Dieser leitet Nutzer:innen basierend auf dem [intelligenten Kanal]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel)-Ranking zu **Abandoned Cart Email** oder **Abandoned Cart SMS** weiter. Passen Sie die Pfade bei Bedarf an.
 2. Passen Sie die Schritte **Abandoned Cart Email**, **Abandoned Cart SMS** und **Abandoned Cart In-App Message** an. Wählen Sie bei jedem Schritt **Edit message**, um den Text und die Nachricht für den jeweiligen Kanal zu aktualisieren. Die In-App-Nachricht läuft auf einem separaten Pfad vom Intelligent-Channel-Split und wird nicht durch das Intelligent-Channel-Ranking ausgewählt.
 
 #### Nicht-Konvertierer retargeten {#retarget-non-converters}
@@ -126,5 +126,5 @@ Sie können [Canvas-Kontext-Eigenschaften]({{site.baseurl}}/user_guide/messaging
 Nachdem Sie das Canvas getestet und überprüft haben, um sicherzustellen, dass es wie erwartet funktioniert, wählen Sie **Launch Canvas**, um das Canvas zu starten. Jetzt können wir Nutzer:innen gezielt mit einer personalisierten User-Journey ansprechen, um sie zu ermutigen, das Produkt zu kaufen, das sie in ihren Warenkorb gelegt haben!
 
 {% alert tip %}
-Schauen Sie sich unsere [Checkliste vor und nach dem Start]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) an, um zu erfahren, was Sie vor und nach dem Start eines Canvas beachten sollten.
+Schauen Sie sich unsere [Checkliste vor und nach dem Start]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) an, um zu erfahren, was Sie vor und nach dem Start eines Canvas beachten sollten.
 {% endalert %}

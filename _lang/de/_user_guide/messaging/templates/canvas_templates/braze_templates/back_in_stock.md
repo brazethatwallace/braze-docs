@@ -17,14 +17,14 @@ Dieser Artikel führt Sie durch einen Anwendungsfall für das Template **Wieder 
 
 Um dieses Template erfolgreich zu verwenden, benötigen Sie Folgendes:
 
-- Einen [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs/create/) mit Informationen über Ihren Artikel
-- [Wieder-auf-Lager-Benachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/#how-back-in-stock-notifications-work) müssen für den Artikel eingerichtet sein, über den Sie Nutzer:innen benachrichtigen möchten
+- Einen [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs/create) mit Informationen über Ihren Artikel
+- [Wieder-auf-Lager-Benachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#how-back-in-stock-notifications-work) müssen für den Artikel eingerichtet sein, über den Sie Nutzer:innen benachrichtigen möchten
 
 ## Das Template an Ihre Bedürfnisse anpassen {#tailoring-the-template-to-your-needs}
 
 Nehmen wir an, wir arbeiten für PantsLabyrinth, einen Direktvertriebshändler für Bekleidung, der sich auf Stoffhosen, Jeans, Culottes und viele andere Hosenarten spezialisiert hat. Wir können das Template „Wieder auf Lager“ verwenden, um Kund:innen über verschiedene Kanäle zu benachrichtigen, wenn eine beliebte Jeans, die Classic Straight Leg, wieder auf Lager ist.
 
-Bevor wir das Canvas erstellen, [richten wir einen Katalog ein]({{site.baseurl}}/user_guide/data/activation/catalogs/create/), der Informationen über unser Straight-Leg-Hosen-Sortiment enthält, und [richten Wieder-auf-Lager-Benachrichtigungen ein]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/#setting-up-back-in-stock-notifications) für die Classic Straight Leg Jeans. Wir haben es so eingerichtet, dass Nutzer:innen Benachrichtigungen abonnieren, nachdem sie das angepasste Event ausgeführt haben, die Classic Straight Leg Jeans in der App als Favorit zu markieren.
+Bevor wir das Canvas erstellen, [richten wir einen Katalog ein]({{site.baseurl}}/user_guide/data/activation/catalogs/create), der Informationen über unser Straight-Leg-Hosen-Sortiment enthält, und [richten Wieder-auf-Lager-Benachrichtigungen ein]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#setting-up-back-in-stock-notifications) für die Classic Straight Leg Jeans. Wir haben es so eingerichtet, dass Nutzer:innen Benachrichtigungen abonnieren, nachdem sie das angepasste Event ausgeführt haben, die Classic Straight Leg Jeans in der App als Favorit zu markieren.
 
 Um auf das Template „Wieder auf Lager“ zuzugreifen, wählen Sie beim Erstellen eines neuen Canvas **Use a Canvas template** > **Braze templates**. Wählen Sie dann neben **Back in Stock** die Option **Apply Template**. Jetzt können wir das Template durchgehen und an unsere Bedürfnisse anpassen.
 
@@ -91,10 +91,10 @@ Wir behalten die Standard-Abo-Einstellungen bei, sodass wir nur an Nutzer:innen 
 
 ### 6. Schritt: Ihr Canvas anpassen {#step-6-customize-your-canvas}
 
-Jetzt erstellen wir unser Canvas, indem wir die Kanäle und Inhalte anpassen, die an Nutzer:innen gesendet werden. Da wir alle vier Template-Kanäle (Mobilgerät- und Web-Push, SMS und E-Mail) verwenden und den Filter [Intelligenter Kanal]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/) nutzen, müssen wir keine hinzufügen oder entfernen.
+Jetzt erstellen wir unser Canvas, indem wir die Kanäle und Inhalte anpassen, die an Nutzer:innen gesendet werden. Da wir alle vier Template-Kanäle (Mobilgerät- und Web-Push, SMS und E-Mail) verwenden und den Filter [Intelligenter Kanal]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) nutzen, müssen wir keine hinzufügen oder entfernen.
 
 {% alert tip %}
-Sie können [Canvas-Eingangs-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) verwenden, um die Nachrichten in Ihrem Canvas basierend auf dem Produkt, auf das Sie sich beziehen, anzupassen.
+Sie können [Canvas-Eingangs-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) verwenden, um die Nachrichten in Ihrem Canvas basierend auf dem Produkt, auf das Sie sich beziehen, anzupassen.
 {% endalert %}
 
 Wir beginnen unsere Anpassung, indem wir jeden Nachrichten-Schritt durchgehen und den Inhalt aktualisieren.
@@ -113,5 +113,5 @@ Wir beginnen unsere Anpassung, indem wir jeden Nachrichten-Schritt durchgehen un
 Nachdem wir unser Canvas getestet und überprüft haben, um sicherzustellen, dass es wie erwartet funktioniert, starten wir es, indem wir **Launch Canvas** auswählen. Jetzt erhalten unsere Nutzer:innen, die unsere Classic Straight Leg Jeans als Favorit markiert und unsere Messaging-Kanäle abonniert haben, Benachrichtigungen, wenn die Jeans wieder auf Lager sind!
 
 {% alert tip %}
-Sehen Sie sich unsere [Checkliste vor und nach dem Start]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) an, um Dinge zu berücksichtigen, bevor und nachdem Sie ein Canvas starten.
+Sehen Sie sich unsere [Checkliste vor und nach dem Start]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) an, um Dinge zu berücksichtigen, bevor und nachdem Sie ein Canvas starten.
 {% endalert %}

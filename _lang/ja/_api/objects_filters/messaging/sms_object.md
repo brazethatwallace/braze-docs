@@ -1,15 +1,15 @@
 ---
 nav_title: "SMSオブジェクト"
-article_title: SMSメッセージング・オブジェクト
+article_title: SMSメッセージングオブジェクト
 page_order: 10
 page_type: reference
 channel: SMS
-description: "この参考記事では、Braze SMS オブジェクトのさまざまなコンポーネントについて説明します。"
+description: "この参考記事では、Braze SMSオブジェクトのさまざまなコンポーネントについて説明します。"
 
 ---
-# SMSオブジェクト
+# SMSオブジェクト {#sms-object}
 
-> `sms` オブジェクトを使用すると、[メッセージングエンドポイント[]({{site.baseurl}}/api/endpoints/messaging)を通じて SMS メッセージを変更または作成できます。
+> `sms` オブジェクトを使用すると、[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging)を通じてSMSメッセージを変更または作成できます。
 
 ```json
 {
@@ -23,5 +23,5 @@ description: "この参考記事では、Braze SMS オブジェクトのさま�
 }
 ```
 
-- [アプリ識別子]({{site.baseurl}}/api/identifier_types/)
-  - ワークスペースに設定されたアプリからの有効な`app_id` は、ユーザーが特定のアプリをプロファイルに登録しているかどうかに関係なく、ワークスペース内のすべてのユーザーに対して機能する。
+- [アプリ識別子]({{site.baseurl}}/api/identifier_types)
+  - ワークスペースに設定されたアプリの有効な `app_id` は、ユーザーがそのアプリをプロファイルに登録しているかどうかに関係なく、ワークスペース内のすべてのユーザーに対して機能します。

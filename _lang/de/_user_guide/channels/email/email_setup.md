@@ -29,10 +29,10 @@ guide_featured_list:
 - name: "SSL-Übersicht"
   link: /docs/user_guide/channels/email/email_setup/ssl
   image: /assets/img/braze_icons/navigation-pointer-01.svg
-- name: "Einverständnis & Adresserfassung"
+- name: "Einverständnis und Adresserfassung"
   link: /docs/user_guide/channels/email/email_setup/consent_and_address_collection
   image: /assets/img/braze_icons/book-closed.svg
-- name: "Zustellbarkeitsfallen & Spam-Traps"
+- name: "Zustellbarkeitsfallen und Spam-Traps"
   link: /docs/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps
   image: /assets/img/braze_icons/alert-triangle.svg
 - name: "Öffnungspixel und Klick-Tracking"
@@ -58,11 +58,11 @@ Bevor Sie mit dem Versenden von E-Mails beginnen, benötigen Sie einige Dinge. L
 IP-Warming ist der **wichtigste Schritt** im E-Mail-Einrichtungsprozess. Obwohl es nicht Ihr erster Schritt ist (es ist tatsächlich der letzte), weisen wir hier darauf hin, damit Sie wissen, dass Sie Ihre IP-Adresse aufwärmen müssen – andernfalls landen Ihre E-Mails im Spam oder unterliegen anderen Versandeinschränkungen.
 {% endalert %}
 
-[IP-Warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/) bedeutet, dass Sie in Ihrem ersten Batch eine relativ kleine Anzahl von E-Mails versenden und dann im Laufe der Zeit das Volumen in den folgenden Batches schrittweise erhöhen, bis Sie Ihr typisches tägliches Volumen erreichen. Dies geschieht ganz am Ende Ihres E-Mail-Einrichtungsprozesses.
+[IP-Warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) bedeutet, dass Sie in Ihrem ersten Batch eine relativ kleine Anzahl von E-Mails versenden und dann im Laufe der Zeit das Volumen in den folgenden Batches schrittweise erhöhen, bis Sie Ihr typisches tägliches Volumen erreichen. Dies geschieht ganz am Ende Ihres E-Mail-Einrichtungsprozesses.
 
 Indem Sie mit kleineren E-Mail-Volumina beginnen, bauen Sie ein Vertrauensverhältnis zu Ihrem E-Mail-Anbieter auf und zeigen, dass Sie nur E-Mails an relevante Nutzer:innen senden. Wenn Sie Ihren ersten Batch an Ihre engagiertesten Nutzer:innen senden, können Sie schneller Vertrauen bei Ihrem Anbieter aufbauen.
 
-Nachdem Sie das IP-Warming abgeschlossen haben, können Sie mit dem [Erstellen und Versenden von E-Mails]({{site.baseurl}}/user_guide/channels/email/html_editor/) beginnen!
+Nachdem Sie das IP-Warming abgeschlossen haben, können Sie mit dem [Erstellen und Versenden von E-Mails]({{site.baseurl}}/user_guide/channels/email/html_editor) beginnen!
 
 ## Gesetzlich vorgeschriebene Transaktions-E-Mails {#legally-required-transactional-emails}
 

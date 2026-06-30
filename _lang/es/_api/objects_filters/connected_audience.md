@@ -15,12 +15,12 @@ En lugar de crear previamente un segmento para cada posible combinación de audi
 
 ## Cómo funciona {#how-it-works}
 
-1. Define tu mensaje creando una campaña activada por API o un Canvas en el dashboard de Braze, o define el contenido del mensaje completamente en línea usando los [objetos de mensajería]({{site.baseurl}}/api/objects_filters/#messaging-objects) en tu solicitud de API. Usa [propiedades de desencadenamiento]({{site.baseurl}}/api/objects_filters/trigger_properties_object/) o [contexto de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) para personalización dinámica.
+1. Define tu mensaje creando una campaña activada por API o un Canvas en el dashboard de Braze, o define el contenido del mensaje completamente en línea usando los [objetos de mensajería]({{site.baseurl}}/api/objects_filters#messaging-objects) en tu solicitud de API. Usa [propiedades de desencadenamiento]({{site.baseurl}}/api/objects_filters/trigger_properties_object) o [contexto de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) para personalización dinámica.
 2. Llama a un punto de conexión compatible e incluye tus filtros de audiencia conectada en el parámetro `audience`, o en `custom_audience` para `/messages/live_activity/start`. Puedes filtrar por atributos personalizados, estado de suscripción push, estado de suscripción de correo electrónico y hora de último uso de la aplicación.
 3. Braze evalúa los filtros en el momento del envío, entregando el mensaje solo a los usuarios que coincidan con tus criterios.
 
 {% alert tip %}
-No se requiere un `campaign_id` cuando usas el parámetro `audience`. Los puntos de conexión [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) y [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/) te permiten definir el contenido del mensaje en línea sin una campaña creada previamente. Sin embargo, si deseas rastrear métricas a nivel de campaña (como envíos, clics o rebotes) en el dashboard, incluye un `campaign_id`.
+No se requiere un `campaign_id` cuando usas el parámetro `audience`. Los puntos de conexión [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) y [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages) te permiten definir el contenido del mensaje en línea sin una campaña creada previamente. Sin embargo, si deseas rastrear métricas a nivel de campaña (como envíos, clics o rebotes) en el dashboard, incluye un `campaign_id`.
 {% endalert %}
 
 Dado que la audiencia se define por solicitud, tus sistemas de backend pueden desencadenar mensajes contextualmente relevantes en respuesta a cualquier evento de negocio (un cambio de precio, una alerta meteorológica, una actualización de puntuación en vivo) sin intervención del dashboard.
@@ -29,13 +29,13 @@ Dado que la audiencia se define por solicitud, tus sistemas de backend pueden de
 
 Puedes usar el objeto de audiencia conectada en estos puntos de conexión:
 
-- [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)
-- [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)
-- [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)
-- [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/)
-- [`/campaigns/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/)
-- [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/)
-- [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start/) (usa `custom_audience`)
+- [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)
+- [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)
+- [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)
+- [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages)
+- [`/campaigns/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns)
+- [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases)
+- [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start) (usa `custom_audience`)
 
 ## Casos de uso {#use-cases}
 
@@ -55,7 +55,7 @@ En cada caso, una sola campaña o definición de mensaje solo de API maneja toda
 
 ## Ejemplo de solicitud {#example-request}
 
-El siguiente ejemplo usa el punto de conexión [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) para dirigirse a los usuarios que han marcado como favorito un programa específico y han optado por recibir notificaciones push:
+El siguiente ejemplo usa el punto de conexión [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) para dirigirse a los usuarios que han marcado como favorito un programa específico y han optado por recibir notificaciones push:
 
 ```json
 {
@@ -146,7 +146,7 @@ El tipo de datos del atributo personalizado determina las comparaciones válidas
 | Comparación | Consideraciones adicionales |
 | --- | --- |
 | `value` | El `value` no es necesario cuando se utilizan las comparaciones `exists` o `does_not_exist`. `value` debe ser una cadena de fecha y hora ISO 8601 cuando se utilizan las comparaciones `before` y `after`. |
-| `matches_regex` | Cuando utilices la comparación `matches_regex`, el valor pasado debe ser una cadena. Para obtener más información sobre el uso de expresiones regulares con Braze, consulta [Expresiones regulares]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/#regex-with-braze) y [Tipos de datos de atributos personalizados]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#custom-attribute-data-types). |
+| `matches_regex` | Cuando utilices la comparación `matches_regex`, el valor pasado debe ser una cadena. Para obtener más información sobre el uso de expresiones regulares con Braze, consulta [Expresiones regulares]({{site.baseurl}}/user_guide/engagement_tools/segments/regex#regex-with-braze) y [Tipos de datos de atributos personalizados]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#custom-attribute-data-types). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Advertencias sobre la comparación de atributos" }
 
 #### Ejemplo de atributo personalizado {#custom-attribute-example}
@@ -245,8 +245,8 @@ Las audiencias conectadas no pueden filtrar a los usuarios por:
 
  - Atributos predeterminados
  - Eventos personalizados
- - Segments
+ - Segmentos
  - Eventos de interacción con mensajes
  - Atributos personalizados anidados
 
-Para utilizar estos filtros, recomendamos incorporarlos a un segmento de audiencia y, a continuación, especificar ese segmento en el parámetro `segment_id` del [punto de conexión `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters). Si utilizas otros puntos de conexión, primero deberás añadir el segmento a la campaña activada por API o al Canvas en el dashboard de Braze.
+Para utilizar estos filtros, recomendamos incorporarlos a un segmento de audiencia y, a continuación, especificar ese segmento en el parámetro `segment_id` del [punto de conexión `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters). Si utilizas otros puntos de conexión, primero deberás añadir el segmento a la campaña activada por API o al Canvas en el dashboard de Braze.

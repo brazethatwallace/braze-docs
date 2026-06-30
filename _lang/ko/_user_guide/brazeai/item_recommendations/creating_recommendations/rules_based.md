@@ -11,10 +11,10 @@ page_order: 2
 
 ## 규칙 기반 항목 추천 소개 {#about-rules-based-item-recommendations}
 
-규칙 기반 추천 엔진은 사용자 데이터와 제품 정보를 사용하여 메시지 내에서 사용자에게 관련 항목을 제안합니다. [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)과 Braze [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/) 또는 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)를 사용하여 사용자 행동 및 속성을 기반으로 콘텐츠를 동적으로 개인화합니다.
+규칙 기반 추천 엔진은 사용자 데이터와 제품 정보를 사용하여 메시지 내에서 사용자에게 관련 항목을 제안합니다. [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)과 Braze [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs) 또는 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)를 사용하여 사용자 행동 및 속성을 기반으로 콘텐츠를 동적으로 개인화합니다.
 
 {% alert important %}
-규칙 기반 추천은 수동으로 설정해야 하는 고정된 로직에 기반합니다. 즉, 로직을 업데이트하지 않으면 사용자의 구매 내역과 취향에 맞게 추천이 조정되지 않습니다.<br><br>사용자의 기록에 따라 자동으로 조정되는 개인화된 AI 추천을 만들려면 [AI 항목 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)을 확인하세요.
+규칙 기반 추천은 수동으로 설정해야 하는 고정된 로직에 기반합니다. 즉, 로직을 업데이트하지 않으면 사용자의 구매 내역과 취향에 맞게 추천이 조정되지 않습니다.<br><br>사용자의 기록에 따라 자동으로 조정되는 개인화된 AI 추천을 만들려면 [AI 항목 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)을 확인하세요.
 {% endalert %}
 
 ## 추천 엔진 옵션 {#recommendation-engine-options}
@@ -83,7 +83,7 @@ page_order: 2
 {% tab 카탈로그 사용 %}
 카탈로그를 사용하여 추천 엔진을 만들려면:
 
-1. 제품 [카탈로그를 생성합니다]({{site.baseurl}}/user_guide/data/activation/catalogs/create/).
+1. 제품 [카탈로그를 생성합니다]({{site.baseurl}}/user_guide/data/activation/catalogs/create).
 2. 각 제품에 대해 추천 제품 목록을 구분 기호(예: 파이프 `|`)로 구분된 문자열로 "product_recommendations"라는 열에 추가합니다.
 3. 추천을 찾으려는 제품 ID를 카탈로그에 전달합니다.
 4. 해당 카탈로그 항목의 `product_recommendations` 값을 가져와서 Liquid split 필터를 사용하여 구분 기호로 분할합니다.
@@ -104,7 +104,7 @@ page_order: 2
 
 카탈로그가 Braze에 업로드된 후 카탈로그 페이지에서 카탈로그를 선택하고 **미리보기** 탭을 열어 가져온 정보가 정확한지 확인합니다. 미리보기에는 일부 항목만 표시되며 무작위로 나타날 수 있지만, 이는 추천 엔진의 출력에 영향을 미치지 않습니다.
 
-카탈로그가 준비되면 [콘텐츠 카드 캠페인을 생성합니다]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/). 작성기에서 Liquid 로직을 입력하여 캠페인을 수신할 사용자와 표시할 레시피 및 이미지를 결정합니다. 이 사용 사례에서 Braze는 사용자의 `start_date`(또는 가입 날짜)를 가져와 현재 날짜와 비교합니다. 날짜 차이에 따라 전송되는 콘텐츠 카드가 결정됩니다.
+카탈로그가 준비되면 [콘텐츠 카드 캠페인을 생성합니다]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card). 작성기에서 Liquid 로직을 입력하여 캠페인을 수신할 사용자와 표시할 레시피 및 이미지를 결정합니다. 이 사용 사례에서 Braze는 사용자의 `start_date`(또는 가입 날짜)를 가져와 현재 날짜와 비교합니다. 날짜 차이에 따라 전송되는 콘텐츠 카드가 결정됩니다.
 
 {% subtabs local %}
 {% subtab title %}
@@ -184,7 +184,7 @@ page_order: 2
 |------|-----------|
 | **스프레드시트 변환** | SheetDP와 같은 서비스를 사용하여 스프레드시트를 JSON API 엔드포인트로 변환하고, 생성된 API URL을 기록하세요. |
 | **커스텀 엔드포인트 생성** | 커스텀으로 구축된 내부 엔드포인트를 구축하고 호스팅하며 유지 관리하세요. |
-| **서드파티 엔진 사용** | [Alloy 파트너]({{site.baseurl}}/partners/message_personalization/) 중 하나인 서드파티 추천 엔진을 사용하세요. 여기에는 [Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize/), [Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona/), [Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield/) 등이 포함됩니다. |
+| **서드파티 엔진 사용** | [Alloy 파트너]({{site.baseurl}}/partners/message_personalization) 중 하나인 서드파티 추천 엔진을 사용하세요. 여기에는 [Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize), [Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona), [Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield) 등이 포함됩니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="예시" }
 
 다음으로, 엔드포인트를 호출하여 커스텀 속성 값을 사용자 프로필과 일치시키고 해당 추천을 가져오는 메시지에서 Liquid를 사용하세요.
@@ -204,7 +204,7 @@ page_order: 2
 
 다음을 교체하세요:
 
-| 속성 | 교체 |
+| 속성 | 교체 내용 |
 | --- | --- |
 | `YOUR_API_URL` | API의 실제 URL로 바꿉니다. |
 | `RECOMMENDED_ITEM_IDS` | 추천 항목의 ID가 포함된 커스텀 속성의 실제 이름으로 바꿉니다. 이 속성은 세미콜론으로 구분된 ID 문자열이어야 합니다. |
@@ -212,7 +212,7 @@ page_order: 2
 {: .reset-td-br-1 .reset-td-br-2 aria-label="예시" }
 
 {% alert note %}
-이는 기본적인 예시이며, 특정 요구 사항과 데이터 구조에 따라 추가 수정이 필요할 수 있습니다. 자세한 안내는 [Liquid 설명서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)를 참조하거나 개발자에게 문의하세요.
+이는 기본적인 예시이며, 특정 요구 사항과 데이터 구조에 따라 추가 수정이 필요할 수 있습니다. 자세한 안내는 [Liquid 설명서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)를 참조하거나 개발자에게 문의하세요.
 {% endalert %}
 
 ### 예시

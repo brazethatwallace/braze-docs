@@ -21,7 +21,7 @@ description: "Dieser Artikel beschreibt die Details zum Braze-Endpunkt „Detail
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `catalogs.get_items`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `catalogs.get_items`.
 
 ## Rate-Limit
 
@@ -32,7 +32,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `catalog_name` | Erforderlich | String | Name des Katalogs. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfad-Parameter" }
 
 ## Abfrageparameter {#query-parameters}
 
@@ -41,7 +41,7 @@ Beachten Sie, dass jeder Aufruf dieses Endpunkts 50 Artikel zurückgibt. Bei ein
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `cursor` | Optional | String | Bestimmt die Paginierung der Katalogartikel. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Abfrageparameter" }
 
 ## Anfrageparameter {#request-parameters}
 
@@ -146,6 +146,6 @@ In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehle
 | --- | --- |
 | `catalog-not-found` | Prüfen Sie, ob der Katalogname gültig ist. |
 | `invalid-cursor` | Prüfen Sie, ob Ihr `cursor` gültig ist. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
 {% endapi %}

@@ -31,7 +31,7 @@ Consulta la siguiente tabla para obtener más información:
 | **Precisión**           | El porcentaje de veces que el modelo predijo correctamente el siguiente artículo que compró un usuario. La precisión depende en gran medida del tamaño y la combinación específicos de tu catálogo, y debe utilizarse como guía para comprender con qué frecuencia el modelo es correcto.<br><br>En pruebas anteriores, hemos visto que los modelos rinden bien con cifras de precisión que oscilan entre el 6 y el 20 %. Esta métrica se actualiza cuando el modelo vuelve a entrenarse.  |
 | **Cobertura**            | Qué porcentaje de artículos disponibles en el catálogo se recomiendan al menos a un usuario. Puedes esperar ver una mayor cobertura de artículos con recomendaciones de artículos personalizados que con los más populares. |
 | **Tipo de recomendación** | El porcentaje de usuarios que recibirán recomendaciones personalizadas o más recientes frente a la alternativa de los artículos más populares. La alternativa se envía a los usuarios que no tienen datos suficientes para generar una recomendación personalizada o más reciente. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Audiencia" }
 
 ### Artículos {#items}
 
@@ -43,9 +43,9 @@ Consulta la siguiente tabla para obtener más información:
 
 | Métrica              | Descripción |
 | ------------------- | ---------- |
-| **Artículos personalizados**<br><br>**Artículos más recientes** | Esta columna enumera cada artículo del catálogo en orden descendente según la frecuencia con la que se recomiendan a los usuarios. También muestra a cuántos usuarios asignó el modelo cada artículo.<br><br>Se mostrarán los artículos **personalizados** o **los más recientes** dependiendo del [tipo de recomendación]({{site.baseurl}}/user_guide/brazeai/item_recommendations/). |
+| **Artículos personalizados**<br><br>**Artículos más recientes** | Esta columna enumera cada artículo del catálogo en orden descendente según la frecuencia con la que se recomiendan a los usuarios. También muestra a cuántos usuarios asignó el modelo cada artículo.<br><br>Se mostrarán los artículos **personalizados** o **los más recientes** dependiendo del [tipo de recomendación]({{site.baseurl}}/user_guide/brazeai/item_recommendations). |
 | **Artículos más populares** | Esta columna enumera cada artículo del catálogo en orden descendente de popularidad. La popularidad aquí se refiere a los artículos del catálogo con los que los usuarios interactúan más a menudo en todo el espacio de trabajo. Los más populares se utilizan como alternativa cuando no se puede calcular la recomendación personalizada o la más reciente para un usuario individual. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Items" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Artículos" }
 
 ### Resumen {#overview}
 

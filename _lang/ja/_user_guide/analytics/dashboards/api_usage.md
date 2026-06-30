@@ -14,7 +14,7 @@ description: "この記事では、API 使用状況ダッシュボードの概�
 
 API 使用状況ダッシュボードを表示するには、**設定** > **APIキー**に移動し、**ダッシュボード**を選択します。
 
-デフォルトのダッシュボードには、過去1日（24時間）のワークスペースへのすべての受信 REST API リクエストが表示されます。ユースケースに応じて、ダッシュボードのコントロールを調整してトラフィックのフィルターやグループ化を行ったり、ダッシュボードの時間範囲を設定したりできます。
+デフォルトのダッシュボードには、過去1日（24時間）のワークスペースへのすべての受信 REST APIリクエストが表示されます。ユースケースに応じて、ダッシュボードのコントロールを調整してトラフィックのフィルターやグループ化を行ったり、ダッシュボードの時間範囲を設定したりできます。
 
 ![合計130件のリクエストがあり、成功率70%、失敗率30%のAPI使用状況ダッシュボード。]({% image_buster /assets/img/api_usage_dashboard/api_usage_dashboard.png %})
 
@@ -27,7 +27,7 @@ API 使用状況ダッシュボードには、以下の統計情報が含まれ�
 | 合計リクエスト数 | ダッシュボードに適用されたフィルターとコントロールに基づく、現在のワークスペースでBrazeに送信されたリクエストの合計数。 |
 | 成功率 | Brazeが `2XX` 成功応答を返した合計リクエストの割合。 |
 | エラー率 | Brazeが `4XX` または `5XX` エラー応答を返した合計リクエストの割合。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Available metrics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="利用可能な指標" }
 
 ## ダッシュボードの使用方法 {#using-the-dashboard}
 
@@ -76,7 +76,14 @@ API 使用状況ダッシュボードには、Brazeが受信し、`2XX`、`4XX`�
 
 ダッシュボードに表示されるデータは、最新のトラフィックの反映にわずかな遅延が生じる場合があります。使用量が多い期間中は、ダッシュボードを1分あたり最大4回まで更新できます。再度更新するまでに数分待つ必要がある場合があります。
 
+### リクエストボディ内のAPIキー {#api-keys-in-request-body}
+
+APIキーをリクエストヘッダーではなくリクエストボディで送信した場合、一部のリクエストがAPI使用状況ダッシュボードに表示されないことがあります。これにより、ダッシュボードのデータが不完全になり、API使用状況を正確に監視することが困難になる可能性があります。
+
+API使用状況ダッシュボードで最も正確なレポートを得るには、リクエストボディではなく[リクエストヘッダーにAPIキーを含めてください]({{site.baseurl}}/api/basics#bearer-token-authentication)。
+
 ## 関連記事 {#related-articles}
 
-- [API 使用状況アラート]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts/)
-- [レート制限]({{site.baseurl}}/api/api_limits/)
+- [API 使用状況アラート]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
+- [レート制限]({{site.baseurl}}/api/api_limits)
+- [Bearerトークン認証]({{site.baseurl}}/api/basics#bearer-token-authentication)

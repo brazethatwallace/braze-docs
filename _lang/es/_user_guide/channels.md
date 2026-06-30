@@ -36,7 +36,7 @@ guide_menu_list:
     link: /docs/user_guide/channels/line
     image: /assets/img/braze_icons/message-chat-circle.svg
   - name: Notificaciones en vivo
-    link: /docs/developer_guide/live_notifications/
+    link: /docs/developer_guide/live_notifications
     image: /assets/img/braze_icons/phone-02.svg
   - name: Push
     link: /docs/user_guide/channels/push
@@ -70,6 +70,6 @@ Aunque la matriz destaca los canales principales, es adaptable: SMS y WhatsApp, 
 Puedes usar Braze para crear campañas de mensajería accesibles en cada canal. Trabaja con tus ingenieros para asegurarte de cumplir con los estándares de accesibilidad en tu implementación. Si deseas orientación adicional, te recomendamos:
 
 - [Fundamentos de mensajería accesible](https://learning.braze.com/accessible-messaging-foundations): aprende los principios fundamentales de accesibilidad que se aplican a las comunicaciones de marca en este curso de Braze Learning.
-- [Crear mensajes accesibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/): aprende a añadir texto alternativo y estructurar tu contenido para tecnologías de asistencia directamente en Braze.
+- [Crear mensajes accesibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility): aprende a añadir texto alternativo y estructurar tu contenido para tecnologías de asistencia directamente en Braze.
 
-Si tienes comentarios sobre la accesibilidad de Braze o de los mensajes enviados desde Braze, nos encantaría conocerlos. Abre el menú **Support** en el encabezado global y selecciona **Share feedback** para enviarnos tus opiniones.
+Si tienes comentarios sobre la accesibilidad de Braze o de los mensajes enviados desde Braze, nos encantaría conocerlos. Abre el menú **Soporte** en el encabezado global y selecciona **Compartir comentarios** para enviarnos tus opiniones.

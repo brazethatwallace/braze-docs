@@ -12,8 +12,8 @@ Das Braze Cordova SDK hilft Ihnen, Braze-Messaging, Analytics und Funktionen fü
 
 Für den Einstieg stehen Ihnen die folgenden Ressourcen zur Verfügung:
 
-- [Braze-Benutzerhandbuch](https://www.braze.com/docs/user_guide/introduction/)
-- [Braze-Entwicklerleitfaden](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=cordova)
+- [Braze-Nutzer:innen-Handbuch](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze-Entwickler:innen-Leitfaden](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=cordova)
 
 ## Mindestversionsanforderungen {#minimum-version-requirements}
 

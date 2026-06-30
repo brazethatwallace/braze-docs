@@ -15,7 +15,7 @@ channel:
 
 Email deliverability is the core of campaign success. Using the Deliverability Center in the Braze dashboard, you can view your domains by **IP Reputation** or **Delivery Errors** to discover and troubleshoot any potential issues with email deliverability. 
 
-To access the Deliverability Center, you need the [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) in the following dropdown for your workspace.
+To access the Deliverability Center, you need the [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) in the following dropdown for your workspace.
 
 {% details User permissions for the Deliverability Center %}
 
@@ -80,6 +80,13 @@ If your subdomains aren't included in the Deliverability Center for Google Postm
 {% endalert %}
 
 ## Integrate Google Postmaster {#integrating-google-postmaster}
+
+{% alert important %}
+**Google Postmaster Tools v2 migration**<br>
+Google is deprecating the old Postmaster Tools (v1) and has released a next-generation version (v2) with a modern user interface and new dashboards, including a Compliance dashboard to help monitor adherence to Gmail's sender guidelines. All users must migrate to v2 by October 31, 2026.<br><br>
+To re-authorize your Google Postmaster Tool connection, go to **Partner Integrations** > **Technology Partners**, open **Google Postmaster**, and select **Change Account** to re-authenticate with the new v2 permissions. When finished, you are upgraded to v2 and gain access to new dashboards and data.<br><br>
+For more information, refer to [Google's announcement about the new Postmaster Tools](https://support.google.com/mail/answer/16594218?hl=en).
+{% endalert %}
 
 Before setting up your Deliverability Center, check that your domains have been [added to the Gmail Postmaster Tools](https://support.google.com/mail/answer/9981691?hl=en).
 
@@ -151,14 +158,14 @@ Refer to this table to understand what percentage of your inbound and outbound t
 | TLS Outbound | Shows the percentage of outgoing mail (from Gmail) accepted over TLS versus all mail sent to that domain. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Encryption" }
 
-For more ideas on improving deliverability, read [Deliverability pitfalls and spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps). Be sure to reference our [Email best practices]({{site.baseurl}}/user_guide/channels/email/best_practices/) for things you should check for before sending an email campaign.
+For more ideas on improving deliverability, read [Deliverability pitfalls and spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps). Be sure to reference our [Email best practices]({{site.baseurl}}/user_guide/channels/email/best_practices) for things you should check for before sending an email campaign.
 
 ## Set up Microsoft Smart Network Data Services (SNDS)
 
 If Microsoft is your main mailbox provider, you can use this integration to access and view your Microsoft reputation data. This way, you can monitor the health of your IPs to help determine how your emails are being received.
 
 {% alert important %}
-If you don't see your data in the Deliverability Center, contact [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) with a list of your IP addresses.
+If you don't see your data in the Deliverability Center, contact [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) with a list of your IP addresses.
 {% endalert %}
 
 ![An example of results from Microsoft SNDS, including sample IPs, recipients, RCPT commands, data commands, filter result, complaint rate, trap message period start and end, and spam trap hits.]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})

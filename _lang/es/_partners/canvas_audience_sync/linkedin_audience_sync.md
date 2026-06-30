@@ -21,7 +21,7 @@ Mediante la Sincronización de audiencia de Braze con LinkedIn, las marcas puede
 
 Esta característica permite a las marcas controlar qué datos propios específicos se comparten con LinkedIn. En Braze, se presta la máxima atención a las integraciones con las que puedes y no puedes compartir tus datos propios. Para más información, consulta nuestra [política de privacidad](https://www.braze.com/privacy).
 
-{% multi_lang_include early_access_beta_alert.md feature='Audience Sync to LinkedIn' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Audience Sync to LinkedIn' type='beta' %}
 
 ## Requisitos previos {#prerequisites}
 
@@ -38,7 +38,7 @@ Debes asegurarte de que tienes los siguientes elementos creados, completados o a
 ### Paso 1: Conéctate a LinkedIn {#step-1-connect-to-linkedin}
 
 {% alert important %}
-Debes tener el [permiso "Admin"]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) para conectar LinkedIn a tu cuenta de Braze.
+Debes tener el [permiso "Admin"]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin) para conectar LinkedIn a tu cuenta de Braze.
 {% endalert %}
 
 En el dashboard de Braze, ve a **Socios tecnológicos** y selecciona **LinkedIn**. En la sección **LinkedIn Audience Sync**, selecciona **Connect LinkedIn**.
@@ -59,7 +59,7 @@ Tu conexión a LinkedIn se aplicará a nivel del espacio de trabajo de Braze. Si
 
 Al crear audiencias para el seguimiento de anuncios, es posible que desees incluir o excluir a determinados usuarios en función de sus preferencias, y para cumplir con las leyes de privacidad, como el derecho de "No vender ni compartir" en virtud de la [CCPA](https://oag.ca.gov/privacy/ccpa). Los especialistas en marketing deben implementar los filtros pertinentes para la elegibilidad de los usuarios dentro de sus criterios de entrada en Canvas. A continuación enumeramos algunas opciones.
 
-Si has recopilado el [IDFA de iOS a través del SDK de Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overviewother_sdk_customizations/#optional-idfa-collection), podrás utilizar el filtro **Ads Tracking Enabled**. Selecciona el valor como `true` para enviar solo a los usuarios a los destinos de Audience Sync en los que hayan optado por la adhesión voluntaria.
+Si has recopilado el [IDFA de iOS a través del SDK de Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overviewother_sdk_customizations#optional-idfa-collection), podrás utilizar el filtro **Ads Tracking Enabled**. Selecciona el valor como `true` para enviar solo a los usuarios a los destinos de Audience Sync en los que hayan optado por la adhesión voluntaria.
 
 ![Una audiencia de entrada con el filtro "El seguimiento de anuncios habilitado es verdadero".]({% image_buster /assets/img/linkedin/linkedin5.png %}){: style="max-width:75%;"}
 
@@ -67,7 +67,7 @@ Si estás recopilando `opt-ins`, `opt-outs`, `Do Not Sell Or Share`, o cualquier
 
 ![Un Canvas con una audiencia de entrada de "opted_in_marketing" es igual a "verdadero".]({% image_buster /assets/img/linkedin/linkedin4.png %}){: style="max-width:75%;"}
 
-Para saber más sobre cómo cumplir estas leyes de protección de datos dentro de la plataforma Braze, consulta la [Asistencia técnica sobre protección de datos]({{site.baseurl}}/dp-technical-assistance/).
+Para saber más sobre cómo cumplir estas leyes de protección de datos dentro de la plataforma Braze, consulta la [Asistencia técnica sobre protección de datos]({{site.baseurl}}/dp-technical-assistance).
 
 ### Paso 3: Añadir un paso de Audience Sync con LinkedIn {#step-3-add-an-audience-sync-step-with-linkedin}
 

@@ -29,8 +29,8 @@ Errors like `unable to get mx info` often mean many targets use bad domains (for
 
 ### Throttled IPs
 
-You may see the message `Email was deferred due to the following reason(s): [IPs were throttled by recipient server]` in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) if a mailbox provider temporarily slows or blocks delivery from your IP because of volume, reputation, or both. Braze retries deferred messages; if deferrals cluster from this, you often see elevated soft bounces alongside them.
+You may see the message `Email was deferred due to the following reason(s): [IPs were throttled by recipient server]` in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) if a mailbox provider temporarily slows or blocks delivery from your IP because of volume, reputation, or both. Braze retries deferred messages; if deferrals cluster from this, you often see elevated soft bounces alongside them.
 
-This pattern usually means you're sending faster than the mailbox provider accepts for your current reputation. In addition to improving engagement and list quality, use [delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting) to cap how quickly messages leave Braze for a campaign or Canvas. That helps reduce throttling while you work with your deliverability team on longer-term fixes.
+This pattern usually means you're sending faster than the mailbox provider accepts for your current reputation. In addition to improving engagement and list quality, use [delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) to cap how quickly messages leave Braze for a campaign or Canvas. That helps reduce throttling while you work with your deliverability team on longer-term fixes.
 
 If throttling persists for specific domains, reduce volume to those domains and contact Braze deliverability support for guidance.

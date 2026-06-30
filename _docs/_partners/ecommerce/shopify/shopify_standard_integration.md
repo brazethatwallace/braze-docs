@@ -116,7 +116,7 @@ braze.logCustomEvent(
   “subscribed_to_newsletter”,
   {
     newsletterName: ‘News and Offers’,
-    customerEmail: ‘customer_1@gmail.com’,
+    customerEmail: ‘customer_1@example.com’,
     sendOffers: true
   }
 );
@@ -189,7 +189,7 @@ Braze sends the following parameters to your endpoint:
 #### Example endpoint
 
 ```http
-GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
+GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@example.com&shopify_storefront=dev-store.myshopify.com
 ```
 
 #### Expected response

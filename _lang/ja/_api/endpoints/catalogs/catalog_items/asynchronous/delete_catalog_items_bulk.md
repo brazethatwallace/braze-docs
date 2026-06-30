@@ -23,7 +23,7 @@ description: "この記事では、複数のカタログ項目を削除するBra
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.delete_items` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`catalogs.delete_items` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -34,14 +34,14 @@ description: "この記事では、複数のカタログ項目を削除するBra
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `catalog_name` | 必須 | 文字列 | カタログ名。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="パスパラメーター" }
 
 ## リクエストパラメーター {#request-parameters}
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `items` | 必須 | 配列 | 項目オブジェクトを含む配列。項目オブジェクトには、Brazeが削除すべき項目を参照する `id` が含まれている必要があります。リクエストごとに最大50個の項目オブジェクトが許可されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 
@@ -103,6 +103,6 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 | `items-missing-ids` | 項目IDを持たない項目があります。各項目に項目IDがあることを確認してください。 |
 | `invalid-ids` | 項目IDには、英字、数字、ハイフン、アンダースコアのみを使用できます。 |
 | `request-includes-too-many-items` | リクエストに含まれる項目が多すぎます。リクエストごとの項目の上限は50個です。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 {% endapi %}

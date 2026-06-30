@@ -102,7 +102,7 @@ Les conditions supplémentaires suivantes s'appliquent dans le cadre de l'utilis
 
 ### Conditions applicables du fournisseur tiers {#applicable-third-party-provider-terms}
 
-Le client doit se conformer à toutes les conditions préalables, conditions et politiques applicables au canal WhatsApp, y compris toute condition requise par WhatsApp, LLC et ses sociétés affiliées, comme décrit sur la page de [configuration WhatsApp](https://www.braze.com/docs/user_guide/message_building_by_channel/whatsapp/overview/) de Braze.
+Le client doit se conformer à toutes les conditions préalables, conditions et politiques applicables au canal WhatsApp, y compris toute condition requise par WhatsApp, LLC et ses sociétés affiliées, comme décrit sur la page de [configuration WhatsApp]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/overview/) de Braze.
 
 ### Conditions d'exception pour l'utilisation des webhooks
 
@@ -126,6 +126,7 @@ En utilisant le canal LINE, le client accepte de se conformer et d'être lié pa
 
 Nonobstant toute disposition contraire dans les conditions LINE, le client reste principalement responsable de son utilisation des services LINE.
 
+
 ## 5. Documentation de conformité de l'intégration Shopify {#shopify-integration-compliance-documentation}
 
 Les conditions supplémentaires suivantes s'appliquent dans le cadre de l'utilisation par le client de l'intégration Shopify en lien avec les services Braze (« **Intégration Shopify** ») :
@@ -147,7 +148,6 @@ Le client reconnaît que les fournisseurs tiers peuvent examiner, filtrer et/ou 
 ## 7. Documentation de conformité de l'archivage des messages et du chiffrement au niveau du champ {#message-archiving-and-field-level-encryption-compliance-documentation}
 
 ### Clause de non-responsabilité
-
 Le client reconnaît que l'utilisation de l'archivage des messages et/ou du chiffrement au niveau du champ (chacun, la « **Fonctionnalité** ») peut avoir un impact sur la vitesse d'envoi des messages envoyés via les services Braze. Braze ne saurait être tenu responsable d'un tel impact, et tout engagement relatif à la vitesse d'envoi ne s'appliquera pas lorsque le client utilise la fonctionnalité. La fonctionnalité peut être utilisée pour soutenir les efforts de conformité du client, cependant le client reconnaît que Braze ne fait aucune déclaration ni garantie quant à savoir si l'utilisation de la fonctionnalité elle-même satisfait les obligations de conformité du client, et décline toute responsabilité à cet égard.
 
 ## 8. Documentation de conformité de la Console des agents {#agent-console-compliance-documentation}

@@ -23,10 +23,10 @@ guide_featured_list:
 
 Braze를 사용하여 푸시 메시지를 생성하고 전송하려면 먼저 개발자와 협력하여 웹사이트 또는 앱에 푸시를 통합해야 합니다. 자세한 단계는 각 플랫폼별 통합 가이드를 참조하세요:
 
-- [iOS]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)
-- [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android)
-- [Web]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web)
+- [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)
+- [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications?tab=android)
+- [Web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web)
 
 ## 푸시 프라이밍 {#push-priming}
 
-사용자가 메시지를 수신하려면 푸시에 옵트인해야 한다는 점을 기억하세요. 따라서 인앱 메시지를 활용하여 고객에게 푸시 알림을 보내려는 이유와 푸시를 활성화하면 어떤 이점이 있는지 설명하는 것이 좋습니다. 이 과정을 [푸시 프라이밍]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)이라고 합니다.
+사용자가 메시지를 수신하려면 푸시에 옵트인해야 한다는 점을 기억하세요. 따라서 인앱 메시지를 활용하여 고객에게 푸시 알림을 보내려는 이유와 푸시를 활성화하면 어떤 이점이 있는지 설명하는 것이 좋습니다. 이 과정을 [푸시 프라이밍]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)이라고 합니다.

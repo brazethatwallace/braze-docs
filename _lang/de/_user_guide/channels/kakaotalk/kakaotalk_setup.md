@@ -10,7 +10,7 @@ channel:
 
 # KakaoTalk einrichten {#set-up-kakaotalk}
 
-> Dieser Artikel beschreibt, wie Sie den [KakaoTalk-Messaging-Kanal]({{site.baseurl}}/kakaotalk/) in Braze einrichten, einschließlich der Einrichtung von Nutzer:innen, der Abstimmung von Nutzer-IDs und der Erstellung von KakaoTalk-Testnutzer:innen.
+> Dieser Artikel beschreibt, wie Sie den [KakaoTalk-Messaging-Kanal]({{site.baseurl}}/kakaotalk) in Braze einrichten, einschließlich der Einrichtung von Nutzer:innen, der Abstimmung von Nutzer-IDs und der Erstellung von KakaoTalk-Testnutzer:innen.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -29,7 +29,7 @@ Registrieren Sie die Braze-IP-Adressen für Ihren Cluster in Ihrem Comm.One-Dash
 
 1. Gehen Sie in Ihrem Comm.One-Dashboard zu **Account Management (계정 관리)**, wählen Sie das Menüsymbol und dann **View Details (자세히보기)**.
 2. Wählen Sie **Center & Upload IP Allowlist (센터&업로드 IP 화이트리스트)**.
-3. Fügen Sie die IP-Adressen für Ihren Braze-Cluster hinzu. Die vollständige Liste der IPs nach Cluster finden Sie unter [IP-Allowlisting]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#ip-allowlisting).
+3. Fügen Sie die IP-Adressen für Ihren Braze-Cluster hinzu. Die vollständige Liste der IPs nach Cluster finden Sie unter [IP-Allowlisting]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting).
 
 ![Comm.One-Dashboard, das zeigt, wo Sie IP-Adressen hinzufügen können.]({% image_buster /assets/img/kakaotalk/register_braze_ip.png %})
 
@@ -94,7 +94,7 @@ Gehen Sie zu Ihrem [Comm.One-Dashboard](https://ums.cjmplace.com/) und sammeln S
 ![Comm.One-Dashboard mit einem zensierten Sender Key.]({% image_buster /assets/img/kakaotalk/sender_key.png %})
 
 {% alert important %}
-Sie können einen KakaoTalk-Sender-Key jeweils nur in einen Workspace integrieren. Um denselben Sender Key in einem anderen Workspace zu verwenden, müssen Sie zunächst die KakaoTalk-Abo-Gruppe im ursprünglichen Workspace archivieren und dann den [Braze-Support]({{site.baseurl}}/braze_support/) kontaktieren, um die Integration zu entfernen. Nachdem Braze die Integration entfernt hat, können Sie die Integration im neuen Workspace einrichten.
+Sie können einen KakaoTalk-Sender-Key jeweils nur in einen Workspace integrieren. Um denselben Sender Key in einem anderen Workspace zu verwenden, müssen Sie zunächst die KakaoTalk-Abo-Gruppe im ursprünglichen Workspace archivieren und dann den [Braze-Support]({{site.baseurl}}/braze_support) kontaktieren, um die Integration zu entfernen. Nachdem Braze die Integration entfernt hat, können Sie die Integration im neuen Workspace einrichten.
 {% endalert %}
 
 ![Zugangsdaten für einen Braze-KakaoTalk-Kanal.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
@@ -137,4 +137,4 @@ Nutzerprofile müssen Telefonnummern im E.164-Format enthalten, um ihnen Nachric
 
 ### Telefonnummern importieren {#import-phone-numbers}
 
-Importieren Sie Telefonnummern, indem Sie [eine CSV-Datei hochladen oder die API verwenden]({{site.baseurl}}/user_guide/data/unification/user_data/import_users/), um Nutzer:innen zu erstellen. Stellen Sie sicher, dass die Telefonnummern vor dem Import im E.164-Format vorliegen.
+Importieren Sie Telefonnummern, indem Sie [eine CSV-Datei hochladen oder die API verwenden]({{site.baseurl}}/user_guide/data/unification/user_data/import_users), um Nutzer:innen zu erstellen. Stellen Sie sicher, dass die Telefonnummern vor dem Import im E.164-Format vorliegen.

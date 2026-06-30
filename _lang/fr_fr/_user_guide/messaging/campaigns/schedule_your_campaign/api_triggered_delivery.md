@@ -18,16 +18,16 @@ platform: API
 La configuration d'une campagne déclenchée par API se fait en quelques étapes. Commencez par créer une nouvelle campagne multicanale ou monocanale (avec test multivarié).
 
 {% alert note %}
-Une campagne déclenchée par API est différente d'une [campagne API]({{site.baseurl}}/developer_guide/rest_api/api_campaigns/#api-campaigns).
+Une campagne déclenchée par API est différente d'une [campagne API]({{site.baseurl}}/developer_guide/rest_api/api_campaigns#api-campaigns).
 {% endalert %}
 
-Ensuite, configurez votre contenu et vos notifications de la même manière que pour des notifications planifiées, puis sélectionnez **API-Triggered Delivery**. Pour en savoir plus sur le déclenchement de ces campagnes depuis votre serveur, consultez cet article sur l'[envoi de campagnes déclenchées par API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/).
+Ensuite, configurez votre contenu et vos notifications de la même manière que pour des notifications planifiées, puis sélectionnez **API-Triggered Delivery**. Pour en savoir plus sur le déclenchement de ces campagnes depuis votre serveur, consultez cet article sur l'[envoi de campagnes déclenchées par API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).
 
-![]({% image_buster /assets/img_archive/api_triggered_campaign_delivery.png %})
+![Configurez votre contenu et vos notifications de la même manière que pour des notifications planifiées, puis sélectionnez API-Triggered Delivery. Pour en savoir plus sur le déclenchement de ces campagnes depuis votre serveur, consultez l'article sur l'envoi de campagnes déclenchées par API.]({% image_buster /assets/img_archive/api_triggered_campaign_delivery.png %})
 
 ## Utiliser le contenu modélisé inclus dans une requête API {#using-the-templated-content-included-with-an-api-request}
 
-En plus de déclencher le message, vous pouvez également inclure du contenu dans la requête API pour qu'il soit intégré au message via l'objet `trigger_properties`. Ce contenu peut être référencé dans le corps du message. Utilisez exactement deux accolades par étiquette Liquid dans `trigger_properties` et dans le contenu du message. Par exemple : {% raw %}`{{api_trigger_properties.${your_property}}}`.{% endraw %} Une accolade `{` ou `}` en trop est une cause fréquente d'[échecs de personnalisation déclenchée par API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze).
+En plus de déclencher le message, vous pouvez également inclure du contenu dans la requête API pour qu'il soit intégré au message via l'objet `trigger_properties`. Ce contenu peut être référencé dans le corps du message. Utilisez exactement deux accolades par étiquette Liquid dans `trigger_properties` et dans le contenu du message. Par exemple : {% raw %}`{{api_trigger_properties.${your_property}}}`.{% endraw %} Une accolade `{` ou `}` en trop est une cause fréquente d'[échecs de personnalisation déclenchée par API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq#why-is-my-api-triggered-liquid-failing-in-braze).
 
 Consultez l'exemple de notification sociale ci-dessous pour plus de contexte.
 
@@ -39,4 +39,4 @@ Le nombre de fois qu'un utilisateur reçoit une campagne déclenchée par API pe
 
 Par exemple, imaginons que vous utilisez une campagne déclenchée par API pour envoyer à l'utilisateur un message concernant un article qu'il a récemment consulté. Dans ce cas, vous pouvez limiter la campagne à l'envoi d'un maximum d'un message par jour, quel que soit le nombre d'articles consultés, tout en activant le déclencheur API pour chaque article. En revanche, si votre campagne déclenchée par API est transactionnelle, vous voudrez vous assurer que l'utilisateur reçoit la campagne à chaque transaction en définissant le délai à zéro minute.
 
-![]({% image_buster /assets/img_archive/api_triggered_reeligible.png %})
+![Capture d'écran relative à la rééligibilité pour les campagnes déclenchées par API.]({% image_buster /assets/img_archive/api_triggered_reeligible.png %})

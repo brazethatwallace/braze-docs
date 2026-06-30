@@ -21,7 +21,7 @@ description: "この記事では、カタログアイテムの編集Brazeエン�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.update_item` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`catalogs.update_item` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -33,14 +33,14 @@ description: "この記事では、カタログアイテムの編集Brazeエン�
 |---|---|---|---|
 | `catalog_name` | 必須 | 文字列 | カタログの名前。 |
 | `item_id` | 必須 | 文字列 | カタログアイテムのID。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="パスパラメーター" }
 
 ## リクエストパラメーター {#request-parameters}
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `items` | 必須 | 配列 | アイテムオブジェクトを含む配列。アイテムオブジェクトには、`id` フィールドを除き、カタログに存在するフィールドを含める必要があります。1つのリクエストにつき、1つのアイテムオブジェクトのみが許可されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 
@@ -120,7 +120,7 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 
 | エラー | トラブルシューティング |
 | --- | --- |
-| `arbitrary-error` | 任意のエラーが発生しました。もう一度試すか、[サポート]({{site.baseurl}}/support_contact/)に連絡してください。 |
+| `arbitrary-error` | 任意のエラーが発生しました。もう一度試すか、[サポート]({{site.baseurl}}/support_contact)に連絡してください。 |
 | `catalog-not-found` | カタログ名が有効であることを確認してください。 |
 | `filtered-set-field-too-long` | フィールド値が、アイテムの文字数制限を超えるフィルターセットで使用されています。 |
 | `id-in-body` | アイテムIDがすでにカタログに存在しています。 |
@@ -134,6 +134,6 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 | `request-includes-too-many-items` | 1つのリクエストにつき1つのカタログアイテムのみ編集できます。 |
 | `too-deep-nesting-in-value-object` | アイテムオブジェクトは50レベル以上のネストを持つことはできません。 |
 | `unable-to-coerce-value` | アイテムタイプは変換できません。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 {% endapi %}

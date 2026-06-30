@@ -1,12 +1,12 @@
 ---
 nav_title: Facebook
-article_title: CanvasオーディエンスのFacebook同期
+article_title: キャンバスオーディエンスのFacebook同期
 description: "このリファレンス記事では、Braze Audience Sync to Facebookを使用して、行動トリガーやセグメンテーションなどに基づいて広告を配信する方法について説明します。"
 page_order: 2
 alias: /audience_sync_facebook/
 
 tool:
-  - Canvas
+  - キャンバス
 
 ---
 
@@ -14,7 +14,7 @@ tool:
 
 > Braze Audience Sync to Facebookを使用すると、Braze統合からのユーザーデータをFacebookカスタムオーディエンスに追加して、行動トリガーやセグメンテーションなどに基づいて広告を配信できます。
 
-ユーザーデータに基づいてBraze Canvasでメッセージ（プッシュ、メール、SMS、Webhook）をトリガーするために通常使用する基準はすべて、カスタムオーディエンスを使用してFacebook内の該当ユーザーに対して広告をトリガーするためにも使用できるようになりました。例えば、FacebookへのAudience Syncを設定する場合、メール、電話、名、姓など、さまざまなファーストパーティフィールドを使用できます。
+ユーザーデータに基づいてBraze キャンバスでメッセージ（プッシュ、メール、SMS、Webhook）をトリガーするために通常使用する基準はすべて、カスタムオーディエンスを使用してFacebook内の該当ユーザーに対して広告をトリガーするためにも使用できるようになりました。例えば、FacebookへのAudience Syncを設定する場合、メール、電話、名、姓など、さまざまなファーストパーティフィールドを使用できます。
 
 **カスタムオーディエンスの同期の一般的なユースケース**：
 
@@ -33,12 +33,12 @@ FacebookのMarketing APIレート制限では、広告アカウント1つにつ�
 
 ## 前提条件 {#prerequisites}
 
-CanvasでFacebookオーディエンスのステップを設定するには、以下の項目の作成および完了を確認する必要があります。
+キャンバスでFacebookオーディエンスのステップを設定するには、以下の項目の作成および完了を確認する必要があります。
 
 | 必要条件 | 提供元 | 説明 |
 | ----------- | ------ | ----------- |
 | Facebook Business Manager | [Facebook](https://www.facebook.com/business/help/113163272211510) | ブランドのFacebookアセット（広告アカウント、ページ、アプリなど）を管理するための集中型ツールです。 |
-| Facebook広告アカウント | [Facebook](https://www.facebook.com/business/help/910137316041095) | ブランドのビジネスマネージャーと結びついたアクティブなFacebook広告アカウント。<br><br>Facebook Business Managerの管理者が、Brazeで使用する予定のFacebook広告アカウントに対して「Manage Campaigns」または「Manage ad accounts」のいずれかの権限を付与していることを確認してください。また、広告アカウントの利用規約に同意していることも確認してください。 |
+| Facebook広告アカウント | [Facebook](https://www.facebook.com/business/help/910137316041095) | ブランドのビジネスマネージャーと結びついたアクティブなFacebook広告アカウント。<br><br>Facebook Business Managerの管理者が、Brazeで使用する予定のFacebook広告アカウントに対して「Manage キャンペーン」または「Manage ad accounts」のいずれかの権限を付与していることを確認してください。また、広告アカウントの利用規約に同意していることも確認してください。 |
 | Facebookカスタムオーディエンス利用規約 | [Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Brazeで使用する予定のFacebook広告アカウントについて、Facebookのカスタムオーディエンス規約に同意します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
@@ -62,17 +62,17 @@ BrazeをFacebookアカウントにリンクしてから、Brazeワークスペ�
 
 ![広告アカウントが接続されたことを示す更新後のFacebookテクノロジーパートナーページ。]({% image_buster /assets/img/fb/afb_5.png %}){: style="max-width:85%;"}
 
-Facebookとの接続は、Brazeのワークスペースレベルで適用されます。Facebookの管理者がFacebook Business Managerからあなたを削除したり、接続されているFacebookアカウントへのアクセスを削除した場合、Brazeは無効なトークンを検出します。そのため、Facebook Audienceコンポーネントを使用しているアクティブなCanvasにはエラーが表示され、Brazeはユーザーを同期できません。
+Facebookとの接続は、Brazeのワークスペースレベルで適用されます。Facebookの管理者がFacebook Business Managerからあなたを削除したり、接続されているFacebookアカウントへのアクセスを削除した場合、Brazeは無効なトークンを検出します。そのため、Facebook Audienceコンポーネントを使用しているアクティブなキャンバスにはエラーが表示され、Brazeはユーザーを同期できません。
 
 {% alert important %}
 これまでに[Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management)および[Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard)のFacebookアプリレビュープロセスを受けたことがある顧客のシステムユーザートークンは、Facebook Audienceコンポーネントに対して引き続き有効です。FacebookパートナーページからFacebookシステムユーザートークンを編集したり、取り消したりすることはできません。その代わりに、Facebookアカウントに接続して、Brazeワークスペース内でFacebookシステムユーザートークンを置き換えることができます。
 
-<br><br>Facebook oAuthの設定は、[Segmentを使用したFacebookのエクスポート]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook/#prerequisites)にも適用されます。
+<br><br>Facebook oAuthの設定は、[セグメントを使用したFacebookのエクスポート]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook/#prerequisites)にも適用されます。
 {% endalert %}
 
 ### ステップ2: カスタムオーディエンスの利用規約に同意する {#step-2-accept-custom-audiences-terms-of-service}
 
-Canvasを構築する前に、以下のリンクからFacebookの下記の利用規約に同意する必要があります。
+キャンバスを構築する前に、以下のリンクからFacebookの下記の利用規約に同意する必要があります。
 
 - **利用する個人アカウントのCustomer List Custom Audiences規約：** `https://www.facebook.com/ads/manage/customaudiences/tos.php?act=<ACCOUNT_ID>`
 - **ビジネスアカウントのFacebook Business Tools規約：** `https://business.facebook.com/customaudiences/value_based/tos.php?act=<ACCOUNT_ID>&business_id=<BUSINESS_ID>`
@@ -82,11 +82,11 @@ Canvasを構築する前に、以下のリンクからFacebookの下記の利用
 
 統合時のFacebookアカウントの監査に関する詳細は、[FAQセクション](#terms)を参照してください。
 
-### ステップ3: CanvasにFacebook Audienceコンポーネントを追加する {#step-3-add-a-facebook-audience-component-in-canvas}
+### ステップ3: キャンバスにFacebook Audienceコンポーネントを追加する {#step-3-add-a-facebook-audience-component-in-canvas}
 
-Canvasにコンポーネントを追加し、**Facebook Audience**を選択します。
+キャンバスにコンポーネントを追加し、**Facebook Audience**を選択します。
 
-![Canvasに追加するコンポーネントのリスト。]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![Audience Syncコンポーネント。]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
+![キャンバスに追加するコンポーネントのリスト。]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![Audience Syncコンポーネント。]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
 
 ### ステップ4: 同期設定 {#step-4-sync-setup}
 
@@ -105,9 +105,9 @@ Canvasにコンポーネントを追加し、**Facebook Audience**を選択し�
 
 ![メール、電話、名、姓の情報が一致するオーディエンスの同期設定。]({% image_buster /assets/img/audience_sync/fb_sync.png %})
 
-オーディエンスが正常に作成された場合、またはこのプロセス中にエラーが発生した場合は、ステップエディターの上部に通知が表示されます。また、オーディエンスは下書きモードで作成されているため、Canvasジャーニーの後半でユーザーを削除する際にこのオーディエンスを参照することもできます。
+オーディエンスが正常に作成された場合、またはこのプロセス中にエラーが発生した場合は、ステップエディターの上部に通知が表示されます。また、オーディエンスは下書きモードで作成されているため、キャンバスジャーニーの後半でユーザーを削除する際にこのオーディエンスを参照することもできます。
 
-新しいオーディエンスでCanvasを起動すると、BrazeはCanvasの起動と同時に新しいカスタムオーディエンスを作成し、その後Audience Syncステップに入るとほぼリアルタイムでユーザーを同期します。
+新しいオーディエンスでキャンバスを起動すると、Brazeはキャンバスの起動と同時に新しいカスタムオーディエンスを作成し、その後Audience Syncステップに入るとほぼリアルタイムでユーザーを同期します。
 
 {% endtab %}
 {% tab 既存のオーディエンスと同期する %}
@@ -127,9 +127,9 @@ Facebookでは、オーディエンスのサイズが小さすぎる場合（通
 {% endtab %}
 {% endtabs %}
 
-### ステップ5: Canvasを起動する {#step-5-launch-canvas}
+### ステップ5: キャンバスを起動する {#step-5-launch-canvas}
 
-Facebook Audienceコンポーネントを設定したら、Canvasを起動できます。新しいカスタムオーディエンスが作成され、Facebook Audienceステップを通過したユーザーはFacebook上のこのカスタムオーディエンスに渡されます。Canvasに後続のステップが含まれている場合、ユーザーはユーザージャーニーの次のステップに進みます。
+Facebook Audienceコンポーネントを設定したら、キャンバスを起動できます。新しいカスタムオーディエンスが作成され、Facebook Audienceステップを通過したユーザーはFacebook上のこのカスタムオーディエンスに渡されます。キャンバスに後続のステップが含まれている場合、ユーザーはユーザージャーニーの次のステップに進みます。
 
 Facebook Audience Managerのカスタムオーディエンスの**History**タブには、Brazeからオーディエンスに送られたユーザー数が反映されます。ユーザーが再びステップに入ると、再びFacebookに送られます。
 
@@ -142,12 +142,12 @@ Facebook Audience Managerのカスタムオーディエンスの**History**タ�
 | 指標 | 説明 |
 | --- | --- |
 | 入力 | Facebookと同期するためにこのコンポーネントに入ったユーザーの数。 |
-| 次のステップに進む | 次のコンポーネントがある場合、次のコンポーネントに進んだユーザーの数。これがCanvasブランチの最後のステップである場合、すべてのユーザーは自動的に進みます。 |
+| 次のステップに進む | 次のコンポーネントがある場合、次のコンポーネントに進んだユーザーの数。これがキャンバスブランチの最後のステップである場合、すべてのユーザーは自動的に進みます。 |
 | 同期されたユーザー | Facebookとの同期に成功したユーザー数。 |
 | 同期されていないユーザー | 一致するフィールドが不足しているため、同期されていないユーザーの数。フィールドは「OR」演算子を使用して照合されます。このため、ユーザーにFacebookのフィールドのいずれか1つがあれば、他のすべてのフィールドで一致するものがなくても、Facebookはそのユーザーを一致と判断します。 |
 | 保留中のユーザー | 現在、BrazeがFacebookへの同期処理を行っているユーザー数。 |
 | エラーが発生したユーザー数 | 約13時間の再試行後、APIエラーのためにFacebookに同期されなかったユーザーの数。エラーの原因としては、無効なFacebookトークンや、Facebook上でカスタムオーディエンスが削除された場合などが考えられます。 |
-| Canvasを退出 | Canvasを退出したユーザーの数。これは、Canvasの最後のステップがFacebookステップである場合に発生します。 |
+| キャンバスを退出 | キャンバスを退出したユーザーの数。これは、キャンバスの最後のステップがFacebookステップである場合に発生します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
 
 {% alert important %}
@@ -164,11 +164,11 @@ Facebook Audience Managerのカスタムオーディエンスの**History**タ�
 
 FacebookパートナーページでFacebookアカウントの接続を解除してから再接続できます。Facebook Business Managerの管理者に、同期先の広告アカウントに対する適切な権限があることを確認してください。
 
-### Canvasを起動できないのはなぜですか？ {#why-is-my-canvas-not-allowed-to-launch}
+### キャンバスを起動できないのはなぜですか？ {#why-is-my-canvas-not-allowed-to-launch}
 
 - システムユーザートークンが認証され、Facebook Business Managerで目的の広告アカウントにアクセスできることを確認してください。
 - 広告アカウントを選択し、新しいカスタムオーディエンスの名前を入力し、一致するフィールドを選択していることを確認してください。
-- Facebookのカスタムオーディエンス数の上限である500に達した可能性があります。Canvasを使って新しいカスタムオーディエンスを作成する前に、Facebook Audience Managerに移動して不要なオーディエンスを削除してください。
+- Facebookのカスタムオーディエンス数の上限である500に達した可能性があります。キャンバスを使って新しいカスタムオーディエンスを作成する前に、Facebook Audience Managerに移動して不要なオーディエンスを削除してください。
 
 ### Facebookにユーザーを渡した後、ユーザーが一致していることを確認するにはどうすればよいですか？ {#how-do-i-know-if-users-have-matched-after-passing-users-to-facebook}
 
@@ -212,7 +212,7 @@ FacebookへのAudience Syncを利用するには、これらの利用規約に�
 Facebookカスタムオーディエンスの利用規約に同意したら、以下を行います。
 
 1. Facebookアカウントを一旦切断し、再接続することで、BrazeでFacebookアクセストークンをリフレッシュします。
-2. Canvasを編集して更新することにより、Facebook Audience Syncステップを再度有効にします。
+2. キャンバスを編集して更新することにより、Facebook Audience Syncステップを再度有効にします。
 
 これにより、ユーザーがFacebook Audience Syncステップに到達するとすぐに、Brazeでユーザーを同期できます。
 
@@ -220,9 +220,9 @@ Facebookカスタムオーディエンスの利用規約に同意したら、以
 
 **Number of Facebook Friends Using App**および**Connected Facebook**のBrazeセグメンテーションフィルターは非推奨になりました。FacebookおよびBraze SDKは、これらのフィルターが依存していた基盤データを収集しなくなりました。
 
-非推奨のフィルターは、カスタム属性、カスタムイベント、またはエンゲージメントベースのSegmentに置き換えてください。例えば、**Connected Facebook**の代わりにFacebookログインやソーシャルリンキングを、**Number of Facebook Friends Using App**の代わりに紹介、招待、共有を使用できます。
+非推奨のフィルターは、カスタム属性、カスタムイベント、またはエンゲージメントベースのセグメントに置き換えてください。例えば、**Connected Facebook**の代わりにFacebookログインやソーシャルリンキングを、**Number of Facebook Friends Using App**の代わりに紹介、招待、共有を使用できます。
 
-Canvasのリターゲティングについては、[ステップ4: 同期設定](#step-4-sync-setup)で示されているように、メール、電話、名、姓を使用してユーザーをマッチングします。リーチを拡大するには、高価値のSegmentをFacebookに同期し、Meta Ads Managerで類似オーディエンスを作成します。
+キャンバスのリターゲティングについては、[ステップ4: 同期設定](#step-4-sync-setup)で示されているように、メール、電話、名、姓を使用してユーザーをマッチングします。リーチを拡大するには、高価値のセグメントをFacebookに同期し、Meta Ads Managerで類似オーディエンスを作成します。
 
 ## トラブルシューティング {#troubleshooting}
 
@@ -290,7 +290,7 @@ table td {
     <tr>
       <td><b>広告アカウントがドロップダウンに表示されない</b></td>
       <td>Facebook Audienceステップを設定する際に、期待する広告アカウントが広告アカウントピッカーに表示されません。</td>
-      <td>Facebookアプリが、Marketing APIの使用にFacebookが要求するアクセスレベルで<code>ads_management</code>の<a href="https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management">アプリレビュー</a> を完了していることを確認してください。<a href="https://business.facebook.com/">Facebook Business Manager</a> で、システムユーザートークンが適切な権限を持ち、Brazeで使用する広告アカウントに関連付けられていること、および広告アカウントの利用規約に同意していることを確認してください。<br><br>新しいCanvasではドロップダウンが機能するが、既に編集したCanvasでは機能しない場合は、ブラウザのハードリフレッシュ（またはキャッシュのクリア）を試し、それらの広告アカウントにアクセスできるユーザーとしてサインインしていることを確認してください。</td>
+      <td>Facebookアプリが、Marketing APIの使用にFacebookが要求するアクセスレベルで<code>ads_management</code>の<a href="https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management">アプリレビュー</a> を完了していることを確認してください。<a href="https://business.facebook.com/">Facebook Business Manager</a> で、システムユーザートークンが適切な権限を持ち、Brazeで使用する広告アカウントに関連付けられていること、および広告アカウントの利用規約に同意していることを確認してください。<br><br>新しいキャンバスではドロップダウンが機能するが、既に編集したキャンバスでは機能しない場合は、ブラウザのハードリフレッシュ（またはキャッシュのクリア）を試し、それらの広告アカウントにアクセスできるユーザーとしてサインインしていることを確認してください。</td>
     </tr>
     <tr>
       <td><b>アクセストークンの検証エラー</b></td>
@@ -342,7 +342,7 @@ Facebookから保留中の利用規約（TOS）に同意します。Facebookは�
 {:start="5"}
 5. 利用規約に対して**Accept**を選択する必要があります。その後、次のメッセージが表示されます：「You have accepted these terms of service on behalf of Braze」。
 6. Facebookアカウントを一旦切断し、再接続することで、BrazeでFacebookアクセストークンをリフレッシュします。
-7. Canvasを編集して更新することにより、Facebook Audience Syncステップを再度有効にします。これにより、ユーザーがFacebook Audienceステップに到達するとすぐに、Brazeで同期できるようになります。
+7. キャンバスを編集して更新することにより、Facebook Audience Syncステップを再度有効にします。これにより、ユーザーがFacebook Audienceステップに到達するとすぐに、Brazeで同期できるようになります。
 8. 問題が解決しない場合は、管理者権限を持つ別のユーザーを使用して、Ads Managerから手動で規約に同意してみてください。
 
 #### 保留中のタスクを完了させる {#complete-any-pending-tasks}

@@ -32,7 +32,7 @@ Para configurar o rastreamento de cliques para uma mensagem de texto:
 
 1. Arraste uma mensagem de **Text** para o criador e adicione uma URL ao campo de texto.
 
-![Criador de mensagens LINE com uma mensagem de texto contendo uma URL longa: https://braze.com/docs/user_guide/channels/line/create/]({% image_buster /assets/img/line/click_tracking_text_message.png %})
+![Criador de mensagens LINE com uma mensagem de texto contendo uma URL longa: {{site.baseurl}}/user_guide/channels/line/create/]({% image_buster /assets/img/line/click_tracking_text_message.png %})
 
 {: start="2"}
 2. Acesse a guia **Settings** e confirme que o **Click Tracking** está ativado. O rastreamento de cliques é ativado por padrão para todas as novas mensagens.
@@ -116,9 +116,9 @@ A tabela de desempenho do LINE inclui a coluna **Total Clicks** que mostra uma c
 
 ![Desempenho de uma etapa do Canvas LINE.]({% image_buster /assets/img/line/line_step_performance.png %}){: style="max-width:30%;"}
 
-Os dados de cliques serão reportados automaticamente no dashboard de análise de dados.
+Os dados de cliques serão reportados automaticamente no dashboard de Analytics.
 
-![Dashboard de análise de desempenho do LINE.]({% image_buster /assets/img/line/line_performance.png %})
+![Dashboard de desempenho do LINE.]({% image_buster /assets/img/line/line_performance.png %})
 
 ## Redirecionamento de usuários {#retargeting-users}
 

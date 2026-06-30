@@ -10,7 +10,7 @@ description: "Dieser Artikel enthält Einzelheiten zum Endpunkt „Canvases dupl
 
 {% api %}
 # Canvases über die API duplizieren {#duplicate-canvases-using-the-api}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/duplicate
 {% endapimethod %}
 
@@ -44,7 +44,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id` | Erforderlich | String | Siehe [Canvas-Bezeichner](https://www.braze.com/docs/api/identifier_types/). |
+| `canvas_id` | Erforderlich | String | Siehe [Canvas-Bezeichner]({{site.baseurl}}/api/identifier_types). |
 | `name` | Erforderlich | String | Der Name des resultierenden Canvas. |
 | `description` | Optional | String | Das Beschreibungsfeld für das resultierende Canvas. |
 | `tag_names` | Optional | String | Die Tags für das resultierende Canvas. Es muss sich um bestehende Tags handeln. Wenn Sie in der Anfrage neue Tags hinzufügen, überschreiben diese alle Tags, die sich auf dem ursprünglichen Canvas befanden. |

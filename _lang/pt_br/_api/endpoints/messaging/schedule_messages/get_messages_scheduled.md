@@ -22,7 +22,7 @@ Mensagens diárias e recorrentes aparecerão apenas uma vez com sua próxima oco
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `messages.schedule_broadcasts`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `messages.schedule_broadcasts`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -33,7 +33,7 @@ Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
 | `end_time` | Obrigatória | String no formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Data final do intervalo para recuperar as próximas Campaigns e Canvas agendados. Isso é tratado como meia-noite no horário UTC pela API. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 ```

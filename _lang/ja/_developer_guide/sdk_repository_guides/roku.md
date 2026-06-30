@@ -63,7 +63,7 @@ m.Braze = getBrazeInstance(m.BrazeTask)
 m.BrazeTask.observeField("BrazeInAppMessage", "onInAppMessageReceived")
 ```
 
-次に、ハンドラ内で、Campaignによってトリガーされた最も優先度の高いアプリ内メッセージにアクセスできます。
+次に、ハンドラ内で、キャンペーンによってトリガーされた最も優先度の高いアプリ内メッセージにアクセスできます。
 
 ``` text
 in_app_message = m.BrazeTask.BrazeInAppMessage

@@ -1,20 +1,20 @@
 ---
 nav_title: Affichage conditionnel des messages
-article_title: "Tutoriel : Affichage conditionnel des messages in-app"
+article_title: "Tutoriel : Affichage conditionnel des messages in-app"
 description: ""
 page_order: 1
 layout: scrolly
 ---
 
-# Tutoriel : Affichage conditionnel des messages in-app
+# Tutoriel : Affichage conditionnel des messages in-app {#tutorial-conditionally-displaying-in-app-messages}
 
-> Suivez l'exemple de code de ce tutoriel pour afficher de manière conditionnelle des messages in-app à l'aide du SDK de Braze.
+> Suivez l'exemple de code de ce tutoriel pour afficher de manière conditionnelle des messages in-app à l'aide du SDK Braze.
 
 {% sdktabs %}
 {% sdktab web %}
 {% multi_lang_include developer_guide/prerequisites/web.md %} Cependant, aucune configuration supplémentaire n'est nécessaire.
 
-## Affichage conditionnel des messages in-app pour le web
+## Affichage conditionnel des messages in-app pour le web {#conditionally-displaying-in-app-messages-for-web}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Conditionally Displaying Messages Web" %}
 
@@ -41,47 +41,47 @@ braze.subscribeToInAppMessage(function (message) {
 });
 ```
 
-!étape
-lignes-index.js=2
+!!step
+lines-index.js=2
 
-#### 1\. Supprimer les appels à `automaticallyShowInAppMessages()`
+### 1. Supprimer les appels à `automaticallyShowInAppMessages()` {#1-remove-calls-to-automaticallyshowinappmessages}
 
-Supprimez tous les appels à [`automaticallyShowInAppMessages()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#automaticallyshowinappmessages)car ils remplaceront toute logique personnalisée que vous mettrez en œuvre ultérieurement.
+Supprimez tous les appels à [`automaticallyShowInAppMessages()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#automaticallyshowinappmessages), car ils remplaceront toute logique personnalisée que vous implémenterez ultérieurement.
 
-!étape
-lignes-index.js=6
+!!step
+lines-index.js=6
 
-#### 2\. Activer le débogage (facultatif)
+#### 2. Activer le débogage (facultatif) {#2-enable-debugging-optional}
 
 Pour faciliter la résolution des problèmes lors du développement, pensez à activer le débogage.
 
-!étape
-lignes-index.js=9-18
+!!step
+lines-index.js=9-18
 
-#### 3\. S'abonner aux envois de messages in-app
+#### 3. S'abonner aux mises à jour des messages in-app {#3-subscribe-to-in-app-message-updates}
 
 Enregistrez un rappel avec [`subscribeToInAppMessage(callback)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage) pour recevoir un `message` chaque fois qu'un message in-app est déclenché.
 
-!étape
-lignes-index.js=10-13
+!!step
+lines-index.js=10-13
 
-#### 4\. Créer une logique conditionnelle
+#### 4. Créer une logique conditionnelle {#4-create-conditional-logic}
 
 Créez une logique personnalisée pour contrôler l'affichage des messages. Dans cet exemple, la logique vérifie si l'URL contient `"checkout"` ou si un élément `#checkout` existe sur la page.
 
-!étape
-lignes-index.js=16
+!!step
+lines-index.js=16
 
-#### 5\. Affichage des messages avec `showInAppMessage`
+#### 5. Afficher les messages avec `showInAppMessage` {#5-display-messages-with-showinappmessage}
 
-Pour afficher le message, appelez la touche [`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage). En cas d'omission, le message sera ignoré.
+Pour afficher le message, appelez [`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage). En cas d'omission, le message sera ignoré.
 
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab android %}
-{% multi_lang_include developer_guide/prerequisites/android.md %} Il vous sera également nécessaire d'[activer les messages in-app pour Android]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=android#android_enabling-in-app-messages).
+{% multi_lang_include developer_guide/prerequisites/android.md %} Vous devrez également [activer les messages in-app pour Android]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=android#android_enabling-in-app-messages).
 
-## Affichage conditionnel des messages in-app pour Android
+## Affichage conditionnel des messages in-app pour Android {#conditionally-displaying-in-app-messages-for-android}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Conditionally Displaying Messages Android" %}
 
@@ -136,47 +136,47 @@ class MyApplication : Application() {
 }
 ```
 
-!étape
-lignes-MainApplication.kt=17
+!!step
+lines-MainApplication.kt=17
 
-#### 1\. Activer le débogage (facultatif)
+### 1. Activer le débogage (facultatif) {#1-enable-debugging-optional}
 
 Pour faciliter la résolution des problèmes lors du développement, pensez à activer le débogage.
 
-!étape
-lignes-MainApplication.kt=26-28
+!!step
+lines-MainApplication.kt=26-28
 
-#### 2\. Enregistrer les fonctions de rappel du cycle de vie des activités
+#### 2. Enregistrer les rappels du cycle de vie des activités {#2-register-activity-lifecycle-callbacks}
 
-Enregistrez l'auditeur par défaut de Braze pour gérer le cycle de vie des messages in-app.
+Enregistrez le listener par défaut de Braze pour gérer le cycle de vie des messages in-app.
 
-!étape
-lignes-MainApplication.kt=30-44
+!!step
+lines-MainApplication.kt=30-44
 
-#### 3\. Configurer un récepteur de messages in-app
+#### 3. Configurer un listener de messages in-app {#3-set-up-an-in-app-message-listener}
 
-Utilisez `BrazeInAppMessageManager` pour définir un récepteur personnalisé qui intercepte les messages avant qu'ils ne soient affichés.
+Utilisez `BrazeInAppMessageManager` pour définir un listener personnalisé qui intercepte les messages avant qu'ils ne soient affichés.
 
-!étape
-lignes-MainApplication.kt=34-42
+!!step
+lines-MainApplication.kt=34-42
 
-#### 4\. Créer une logique conditionnelle
+#### 4. Créer une logique conditionnelle
 
-Utilisez une logique personnalisée pour contrôler la synchronisation de l'affichage des messages. Dans cet exemple, la logique personnalisée vérifie si l'option `should_display_message` est définie sur `"true"`.
+Utilisez une logique personnalisée pour contrôler le moment d'affichage des messages. Dans cet exemple, la logique vérifie si l'extra `should_display_message` est défini sur `"true"`.
 
-!étape
-lignes-MainApplication.kt=38,41
+!!step
+lines-MainApplication.kt=38,41
 
-#### 5\. Renvoyer ou rejeter le message
+#### 5. Renvoyer ou rejeter le message {#5-return-or-discard-the-message}
 
-Retournez un `InAppMessageOperation` avec `DISPLAY_NOW` pour afficher le message, ou avec `DISCARD` pour le supprimer.
+Renvoyez un `InAppMessageOperation` avec `DISPLAY_NOW` pour afficher le message, ou avec `DISCARD` pour le supprimer.
 
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab swift %}
-{% multi_lang_include developer_guide/prerequisites/swift.md %} Il vous sera également nécessaire d'[activer les messages in-app pour Swift]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=swift#swift_enabling-in-app-messages).
+{% multi_lang_include developer_guide/prerequisites/swift.md %} Vous devrez également [activer les messages in-app pour Swift]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=swift#swift_enabling-in-app-messages).
 
-## Affichage conditionnel des messages in-app pour Swift
+## Affichage conditionnel des messages in-app pour Swift {#conditionally-displaying-in-app-messages-for-swift}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Conditionally Displaying Messages Swift" %}
 
@@ -234,33 +234,33 @@ struct SampleApp: App {
 }
 ```
 
-!étape
-lignes-AppDelegate.swift=5
+!!step
+lines-AppDelegate.swift=5
 
-#### 1\. Mettre en œuvre le `BrazeInAppMessageUIDelegate`
+### 1. Implémenter le `BrazeInAppMessageUIDelegate` {#1-implement-the-brazeinappmessageuidelegate}
 
-Dans votre classe AppDelegate, implémentez la méthode [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/delegate) afin que vous puissiez remplacer sa méthode `inAppMessage` ultérieurement.
+Dans votre classe AppDelegate, implémentez le protocole [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/delegate) afin de pouvoir redéfinir sa méthode `inAppMessage` ultérieurement.
 
-!étape
-lignes-AppDelegate.swift=12
+!!step
+lines-AppDelegate.swift=12
 
-#### 2\. Activer le débogage (facultatif)
+#### 2. Activer le débogage (facultatif)
 
 Pour faciliter la résolution des problèmes lors du développement, pensez à activer le débogage.
 
-!étape
-lignes-AppDelegate.swift=19-21
+!!step
+lines-AppDelegate.swift=19-21
 
-#### 3\. Configurez votre interface utilisateur Braze et déléguez.
+#### 3. Configurer l'interface utilisateur Braze et le délégué {#3-set-up-your-braze-ui-and-delegate}
 
-`BrazeInAppMessageUI()` rend les messages in-app par défaut. En attribuant à `self` le statut de délégué, vous pouvez intercepter et traiter les messages avant qu'ils ne soient affichés.
+`BrazeInAppMessageUI()` affiche les messages in-app par défaut. En attribuant `self` comme délégué, vous pouvez intercepter et traiter les messages avant qu'ils ne soient affichés.
 
-!étape
-lignes-AppDelegate.swift=26-33
+!!step
+lines-AppDelegate.swift=26-33
 
-#### 4\. Remplacer `DisplayChoice` par une logique conditionnelle
+#### 4. Redéfinir `DisplayChoice` avec une logique conditionnelle {#4-override-displaychoice-with-conditional-logic}
 
-Remplacer [`inAppMessage(_:displayChoiceForMessage:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb) pour décider si un message doit être affiché. Retournez `.now` pour afficher le message ou `.discard` pour le supprimer.
+Redéfinissez [`inAppMessage(_:displayChoiceForMessage:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb) pour décider si un message doit être affiché. Renvoyez `.now` pour afficher le message ou `.discard` pour le supprimer.
 
 {% endscrolly %}
 {% endsdktab %}

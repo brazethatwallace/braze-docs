@@ -70,7 +70,7 @@ You must return an object containing exactly five keys: "email_subject_line", "e
 
 Input & Output Example:
 <input_example>
-{{${first_name}}}: John Doe
+{{${first_name}}}: Alex Smith
 {{${language}}}: en
 {{custom_attribute.${loyalty_status}}}: Gold Tier
 {{context.${city_searched}}}: Tokyo
@@ -78,7 +78,7 @@ Input & Output Example:
 The user IS in the segment: “Logged multiple searches in the past 30D”.
 </input_example>
 <output_example>
-{ "email_subject_line": "John, your Tokyo Gold Tier deals are waiting", "email_preheader": "Find the best hotel brands for your Tokyo getaway.", "push_title": "John, Tokyo is calling!", "push_body": "Your Gold Tier deals are ready. Tap to view exclusive hotel offers.", "explanation": "Personalized on Tokyo and Gold Tier; matched survey value props; English per language code; kept within character limits for email and push." }
+{ "email_subject_line": "Alex, your Tokyo Gold Tier deals are waiting", "email_preheader": "Find the best hotel brands for your Tokyo getaway.", "push_title": "Alex, Tokyo is calling!", "push_body": "Your Gold Tier deals are ready. Tap to view exclusive hotel offers.", "explanation": "Personalized on Tokyo and Gold Tier; matched survey value props; English per language code; kept within character limits for email and push." }
 </output_example>
 ```
 {% endraw %}
@@ -135,7 +135,7 @@ You must return an object containing exactly four fields: sentiment, topic, acti
 
 Input & Output Example:
 <input_example>
-{{${first_name}}}: Sarah
+{{${first_name}}}: Alex
 {{custom_attribute.${loyalty_status}}}: Platinum
 {{context.${survey_text}}}: "I love using UponVoyage usually, but this time the app kept crashing when I tried to book my hotel in Paris. It was really frustrating."
 {{context.${trip_destination}}}: Paris
@@ -240,7 +240,7 @@ Ces instructions supposent que les informations suivantes sont disponibles :
     - **Champs du catalogue :**
         - **Catalogue :** `<Destination Catalog name>` qui contient une ligne par destination (par exemple, votre catalogue de destinations in-app).
         - **Champs :** `<Destination_Name>`, `<Country>`, `<Primary_Vibe>`, `<Price_Tier>`, qui sont des noms de colonnes correspondant au nom de la destination, au pays, à l'ambiance principale et au niveau de prix utilisés par les instructions.
-    - **Directives de marque :** Les [directives de marque]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) de StyleRyde
+    - **Directives de marque :** Les [directives de marque]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) de StyleRyde
 
 ### Instructions
 
@@ -266,7 +266,6 @@ Rules:
 - Ensure you understand the voice and tone, forbidden words, and formatting rules outlined in the included brand guidelines.
 - Avoid spammy phrasing (ALL CAPS, excessive punctuation) and emojis.
 - Do not hallucinate specific hotels or flights, as this is a general destination description.
-- If any input fields are missing, write the best description possible with the available data
 - Include "explanation": a short string that states how you applied the rules (for review or QA).
 
 Final Output Specification:

@@ -122,7 +122,7 @@ description: "이 참조 문서에서는 마케팅 콘텐츠에서 접근성이 
 
 - **짧고 명확한 문장을 작성하세요:** 짧은 문장은 모든 사람이 이해하기 쉽습니다. 특히 스크린 리더를 사용하거나 복잡한 정보를 처리하는 데 어려움이 있는 사람들에게 더욱 그렇습니다. 미국 7학년 수준의 읽기 수준으로 작성하세요. [Hemingway App](https://hemingwayapp.com/)과 같은 리소스를 사용하여 텍스트의 읽기 수준을 확인할 수 있습니다.
 - **읽기 쉬운 글꼴 크기와 간격을 선택하세요:** 너무 작은 텍스트는 읽기 어려울 수 있습니다. 특히 모바일에서 더욱 그렇습니다. 본문 텍스트에는 최소 14px를 사용하세요. 사용자가 차이를 명확하게 볼 수 있도록 제목을 더 크게 만드세요. 줄 사이의 추가 간격(약 1.5 줄 높이)과 단락 간격은 시각적 또는 인지적 요구가 있는 사람들의 가독성을 향상시킵니다.
-- **양쪽 정렬 텍스트를 피하세요:** 양쪽 정렬 텍스트는 단어 사이에 불균일한 간격을 만들어 난독증이나 인지 장애가 있는 사람들이 읽기 어렵게 합니다. 두 줄 이상으로 줄바꿈되는 콘텐츠는 왼쪽에서 오른쪽으로 읽는 언어의 경우 왼쪽 정렬, [오른쪽에서 왼쪽으로 읽는 언어]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/)의 경우 오른쪽 정렬을 고려하세요.
+- **양쪽 정렬 텍스트를 피하세요:** 양쪽 정렬 텍스트는 단어 사이에 불균일한 간격을 만들어 난독증이나 인지 장애가 있는 사람들이 읽기 어렵게 합니다. 두 줄 이상으로 줄바꿈되는 콘텐츠는 왼쪽에서 오른쪽으로 읽는 언어의 경우 왼쪽 정렬, [오른쪽에서 왼쪽으로 읽는 언어]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)의 경우 오른쪽 정렬을 고려하세요.
 - **굵게, 기울임꼴 및 대문자 텍스트를 아껴서 사용하세요:** 너무 많은 텍스트를 강조하면 읽기가 어려워집니다. 특히 난독증이나 시각 장애가 있는 사람들에게 더욱 그렇습니다. 간결하게 유지하세요.
 
 #### 명확성과 사용성 {#clarity-and-usability}
@@ -131,7 +131,7 @@ description: "이 참조 문서에서는 마케팅 콘텐츠에서 접근성이 
 
 - **링크와 버튼에 명확한 레이블을 지정하세요:** [링크](#links)와 [버튼](#buttons) 텍스트가 다음에 무슨 일이 일어나는지 명확하게 설명하는지 확인하세요. 스크린 리더를 사용하거나 키보드로 탐색하는 사람들이 무엇을 기대할 수 있는지 알 수 있도록 합니다.
 - **기호와 이모지를 적절히 사용하세요:** 특수 문자와 이모지는 콘텐츠를 재미있게 만들 수 있지만, 스크린 리더가 읽을 때 혼란스러울 수 있습니다. 아껴서 사용하고, 명확하고 설명적인 텍스트를 대체하지 않도록 하세요.
-- **잘림 현상을 테스트하세요:** 항상 기기에 [테스트 메시지를 전송]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages/)하여 텍스트가 잘리지 않는지 확인하세요. 메시지가 잘리면 콘텐츠가 오디언스에게 전달되지 않으므로 양쪽 모두에게 손해입니다.
+- **잘림 현상을 테스트하세요:** 항상 기기에 [테스트 메시지를 전송]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages)하여 텍스트가 잘리지 않는지 확인하세요. 메시지가 잘리면 콘텐츠가 오디언스에게 전달되지 않으므로 양쪽 모두에게 손해입니다.
 
 ### 접근성 언어 {#accessibility-language}
 
@@ -143,11 +143,11 @@ Campaigns와 Canvases는 워크스페이스에서 기능을 사용할 수 없는
 
 #### 접근성 언어 구성 {#configure-accessibility-language}
 
-에디터에 해당 옵션이 포함되어 있으면 메시지 설정의 **접근성** 섹션으로 이동하세요. 드롭다운에서 언어를 선택하거나 Liquid를 사용하세요(예: [다국어 메시지]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)가 켜져 있고 **현지화 설정**이 설정된 경우 {% raw %}`{{accessibility_language}}`{% endraw %}).
+에디터에 해당 옵션이 포함되어 있으면 메시지 설정의 **접근성** 섹션으로 이동하세요. 드롭다운에서 언어를 선택하거나 Liquid를 사용하세요(예: [다국어 메시지]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)가 켜져 있고 **현지화 설정**이 설정된 경우 {% raw %}`{{accessibility_language}}`{% endraw %}).
 
 #### 다국어 메시지 {#multi-language-messages}
 
-**현지화 설정**에서 각 로케일에 대한 접근성 언어를 설정하면 Liquid가 현지화된 발송에 대해 {% raw %}`{{accessibility_language}}`{% endraw %}를 채울 수 있습니다. 해당 값이 새 메시지에 이미 선택되어 있는지 여부는 채널에 따라 다릅니다. CSV 및 번역 워크플로의 경우 [언어 설정 및 접근성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/#language-settings-and-accessibility)부터 시작하세요.
+**현지화 설정**에서 각 로케일에 대한 접근성 언어를 설정하면 Liquid가 현지화된 발송에 대해 {% raw %}`{{accessibility_language}}`{% endraw %}를 채울 수 있습니다. 해당 값이 새 메시지에 이미 선택되어 있는지 여부는 채널에 따라 다릅니다. CSV 및 번역 워크플로의 경우 [언어 설정 및 접근성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#language-settings-and-accessibility)부터 시작하세요.
 
 #### 채널 및 에디터 지원 {#channel-and-editor-support}
 
@@ -161,7 +161,7 @@ Campaigns와 Canvases는 워크스페이스에서 기능을 사용할 수 없는
 | 배너 | 인앱 메시지와 동일한 동작입니다. |
 | 랜딩 페이지 | 라이브 페이지에서 언어를 설정할 수 있습니다. 하나의 언어를 선택하거나, 계정에서 랜딩 페이지에 Liquid를 허용하는 경우 Liquid를 사용하세요. 기본값도 인앱 메시지 및 배너와 다릅니다. 게시된 페이지를 확인하세요. |
 | Content Cards | Cards는 명시적인 접근성 언어 대신 앱용 **언어** 필드를 사용합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Channel and editor support" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="채널 및 에디터 지원" }
 
 HTML을 직접 작성하는 경우에도 메시지의 일부에 언어 태그를 추가할 수 있습니다(예: 다른 언어로 된 하나의 구문). 더 많은 패턴은 [커스텀 HTML](#custom-html)을 참조하세요.
 
@@ -240,7 +240,7 @@ Braze가 HTML에 루트 수준 언어 태그를 추가할 때 HTML [`lang`](http
 | 나쁨 | 보통 | 좋음 |
 | --- | --- | --- |
 | 여기를 클릭 | 오늘의 날씨를 보려면 여기를 클릭 | 오늘의 날씨 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Write descriptive link text" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="설명적인 링크 텍스트 작성" }
 
 모든 콘텐츠와 마찬가지로 가능한 한 적은 추가 단어로 간결하게 유지하세요.
 
@@ -458,7 +458,7 @@ Braze 드래그 앤 드롭 에디터는 기본적으로 시맨틱 HTML을 출력
 
 ##### 이미지의 목적을 고려하세요 {#tip-6}
 
-이미지가 링크나 행동 유도 역할을 하는 경우 레이블이나 표시된 제품뿐만 아니라 의도된 동작("쇼핑", "링크", "가입")을 설명하세요.
+이미지가 링크나 행동 유도 역할을 하는 경우 레이블이나 표시된 제품뿐만 아니라 의도된 동작("쇼핑하기", "링크", "가입하기")을 설명하세요.
 
 <table role="presentation" class="reset-td-br-1 reset-td-br-2">
   <thead>
@@ -552,7 +552,7 @@ Braze 드래그 앤 드롭 에디터는 기본적으로 시맨틱 HTML을 출력
 드래그 앤 드롭 이메일 에디터를 사용할 때 해당 컨트롤이 사용 가능한 경우 **설정** 탭에서 언어를 설정하세요. 전체 템플릿 및 콘텐츠 블록 전용 이메일은 접근성 언어에 대해 다른 기본값을 사용할 수 있습니다. [접근성 언어](#accessibility-language)를 참조하세요. 다른 채널도 해당 섹션에서 다룹니다.
 {% endalert %}
 
-- [ARIA 속성](#aria-attributes)을 사용하여 추가 컨텍스트를 제공하세요. 이러한 속성은 보조 기술에 추가 정보를 제공하여 그렇지 않으면 불명확할 수 있는 UI 요소의 역할, 상태 또는 등록정보를 명확히 하는 데 도움이 됩니다.
+- [ARIA 속성](#aria-attributes)을 사용하여 추가 컨텍스트를 제공하세요. 이러한 속성은 보조 기술에 추가 정보를 제공하여 그렇지 않으면 불명확할 수 있는 UI 요소의 역할, 상태 또는 속성을 명확히 하는 데 도움이 됩니다.
 
 ### ARIA 속성 {#aria-attributes}
 
@@ -633,8 +633,8 @@ ARIA는 웹 콘텐츠를 더 접근 가능하게 만들기 위해 설계되었�
 
 접근성 문제를 조기에 식별하고 수정할 수 있도록 Braze는 다음 영역에서 자동화된 접근성 테스트를 제공합니다:
 
-- 이메일용 [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision/#accessibility-testing)
-- HTML 에디터를 사용하여 생성된 메시지(예: HTML 인앱 메시지, HTML Content Blocks, [커스텀 이메일 푸터]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-unsubscribe-page), [이메일 옵트인 페이지]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/), [이메일 수신 거부 페이지]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-opt-in-page))용 [접근성 스캐너]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message#accessibility-scanner)
+- 이메일용 [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#accessibility-testing)
+- HTML 에디터를 사용하여 생성된 메시지(예: HTML 인앱 메시지, HTML Content Blocks, [커스텀 이메일 푸터]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-unsubscribe-page), [이메일 옵트인 페이지]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), [이메일 수신 거부 페이지]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-opt-in-page))용 [접근성 스캐너]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner)
 
 이러한 테스트는 접근 가능한 콘텐츠에 대한 국제적으로 인정된 기술 표준 세트인 웹 콘텐츠 접근성 지침([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)) 표준에 따라 메시지를 검사합니다. 자동으로 감지할 수 있는 모든 문제는 우선순위를 정하는 데 도움이 되도록 심각도별로 플래그가 지정되고 분류됩니다.
 

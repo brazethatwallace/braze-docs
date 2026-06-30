@@ -20,7 +20,7 @@ description: "Este artículo describe el punto de conexión de Braze para export
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `canvas.data_summary`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `canvas.data_summary`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -30,7 +30,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | Obligatorio | Cadena | Ver [identificador de API de Canvas]({{site.baseurl}}/api/identifier_types/). |
+| `canvas_id` | Obligatorio | Cadena | Ver [identificador de API de Canvas]({{site.baseurl}}/api/identifier_types). |
 | `ending_at` | Obligatorio | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Fecha de finalización de la exportación de datos. Se predetermina a la hora de la solicitud. |
 | `starting_at` | Opcional* | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Fecha de inicio de la exportación de datos. <br><br>* Se requiere `length` o `starting_at`. |
 | `length` | Opcional* | Cadena | Número máximo de días antes de `ending_at` incluidos en la serie devuelta. Debe estar comprendido entre 1 y 14 (ambos inclusive). <br><br>* Se requiere `length` o `starting_at`. |
@@ -55,7 +55,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 ## Respuesta {#response}
 
 {% alert note %}
-En `total_stats`, `variant_stats` y `step_stats`, `conversions` es el recuento del [evento de conversión primaria]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) del Canvas. Cuando configuras eventos de conversión adicionales, la carga útil también puede incluir `conversions1`, `conversions2` y campos con índices superiores para el segundo, tercer y posteriores eventos. Esto es similar a la [respuesta multivariante]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/#multivariate-response) del punto de conexión `/campaigns/data_series`. Cuando están presentes, los campos que terminan en `_by_entry_time` atribuyen esas conversiones por el momento de entrada al Canvas.
+En `total_stats`, `variant_stats` y `step_stats`, `conversions` es el recuento del [evento de conversión primaria]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) del Canvas. Cuando configuras eventos de conversión adicionales, la carga útil también puede incluir `conversions1`, `conversions2` y campos con índices superiores para el segundo, tercer y posteriores eventos. Esto es similar a la [respuesta multivariante]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics#multivariate-response) del punto de conexión `/campaigns/data_series`. Cuando están presentes, los campos que terminan en `_by_entry_time` atribuyen esas conversiones por el momento de entrada al Canvas.
 {% endalert %}
 
 ```json
@@ -109,7 +109,7 @@ En la respuesta de la API, el campo `influenced_opens` representa el número tot
 
 ## Artículos relacionados {#related-articles}
 
-- [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)
+- [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)
 
 
 {% endapi %}

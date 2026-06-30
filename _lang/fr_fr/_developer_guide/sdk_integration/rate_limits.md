@@ -69,7 +69,7 @@ Si vous rencontrez des problèmes liés à la limite de débit du SDK, examinez 
 - `logCustomEvent()`
 - `logPurchase()`
 
-Lorsque vous contactez l'[Assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/), incluez les informations suivantes pour chacune des méthodes réseau du SDK que vous utilisez :
+Lorsque vous contactez l'[Assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support), incluez les informations suivantes pour chacune des méthodes réseau du SDK que vous utilisez :
 
 ```plaintext
 Method name:

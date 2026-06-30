@@ -22,7 +22,7 @@ tool: Media
 | "Replace Media Library Assets" 권한 | URL과 자산 ID를 유지하면서 기존 미디어 라이브러리 자산의 파일 교체 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="미디어 라이브러리 권한" }
 
-자세한 내용은 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)을 참조하세요.
+자세한 내용은 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)을 참조하세요.
 
 ## 미디어 라이브러리 vs CDN {#media-library-versus-cdn}
 
@@ -50,7 +50,7 @@ CDN(Content Delivery Network) 대신 미디어 라이브러리를 사용하면 �
 
 ![메시지 작성기에 따라 미디어 라이브러리에 액세스하는 두 가지 일반적인 방법. 하나는 '이미지 및 GIF'라는 제목과 '미디어 라이브러리에서 추가' 버튼이 있는 이메일 드래그 앤 드롭 편집기입니다. 다른 하나는 '미디어'라는 제목과 '이미지 추가' 버튼이 있는 푸시 및 인앱 메시지와 같은 표준 편집기입니다.]({% image_buster /assets/img_archive/media_library_composers.png %}){: style="border:none"}
 
-{% alert tip %} 미디어 라이브러리에 대한 추가 도움이 필요하면 [미디어 라이브러리 FAQ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/faq/)를 확인하세요. {% endalert %}
+{% alert tip %} 미디어 라이브러리에 대한 추가 도움이 필요하면 [미디어 라이브러리 FAQ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/faq)를 확인하세요. {% endalert %}
 
 ## 파일 교체 {#replace-a-file}
 
@@ -75,11 +75,11 @@ URL과 자산 ID를 유지하면서 미디어 라이브러리의 기존 자산 �
 
 일부 채널은 메시지 설정 시 이미지의 최적화된 사본을 생성하여 별도의 URL을 만듭니다. 원본 미디어 라이브러리 자산을 교체해도 해당 채널을 사용하여 생성된 메시지에서 소비자에게 표시되는 내용은 업데이트되지 않습니다. 여기에는 인앱 메시지, Content Cards, 푸시 알림, 배너가 포함됩니다.
 
-[`PUT /media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file/) 엔드포인트를 사용하여 프로그래밍 방식으로 자산을 교체할 수도 있습니다.
+[`PUT /media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file) 엔드포인트를 사용하여 프로그래밍 방식으로 자산을 교체할 수도 있습니다.
 
 ## 이미지 사양 {#image-specifications}
 
-미디어 라이브러리에 업로드되는 모든 이미지는 5&nbsp;MB 미만이어야 합니다. 지원되는 파일 형식은 PNG, JPEG, GIF, SVG, WebP입니다. 메시징 채널별 권장 이미지 크기 및 사양은 [이미지 사양]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/)을 참조하세요.
+미디어 라이브러리에 업로드되는 모든 이미지는 5&nbsp;MB 미만이어야 합니다. 지원되는 파일 형식은 PNG, JPEG, GIF, SVG, WebP입니다. 메시징 채널별 권장 이미지 크기 및 사양은 [이미지 사양]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications)을 참조하세요.
 
 {% alert important %}
 매우 길쭉한 형태의 GIF(예: 3000 x 2 픽셀) 또는 300프레임 이상의 GIF는 전체 파일 크기가 작더라도 업로드에 실패할 수 있습니다.
@@ -90,7 +90,7 @@ URL과 자산 ID를 유지하면서 미디어 라이브러리의 기존 자산 �
 {% multi_lang_include brazeai/generative_ai/about_images.md %}
 
 {% alert important %}
-이 기능을 사용하기 전에 [데이터가 OpenAI로 어떻게 사용되고 전송되는지]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy) 검토하세요.
+이 기능을 사용하기 전에 [데이터가 OpenAI로 어떻게 사용되고 전송되는지]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#ai-policy) 검토하세요.
 {% endalert %}
 
-**미디어 라이브러리** 페이지에 **AI Image Generator**가 표시되지 않는 경우, **Edit Media Library Assets** 권한이 있는지 확인하세요. 옵션이 여전히 표시되지 않으면 Braze 고객 팀에 문의하여 워크스페이스에서 BrazeAI 이미지 생성에 액세스할 수 있는지 확인하세요. 생성에 실패하면 [OpenAI 콘텐츠 정책]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy)을 검토하세요.
+**미디어 라이브러리** 페이지에 **AI Image Generator**가 표시되지 않는 경우, **Edit Media Library Assets** 권한이 있는지 확인하세요. 옵션이 여전히 표시되지 않으면 Braze 고객 팀에 문의하여 워크스페이스에서 BrazeAI 이미지 생성에 액세스할 수 있는지 확인하세요. 생성에 실패하면 [OpenAI 콘텐츠 정책]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#ai-policy)을 검토하세요.
