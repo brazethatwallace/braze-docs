@@ -48,7 +48,7 @@ Before you create a user from an email capture form, call [`/subscription/status
 
 ## Snowflake `USERS_MESSAGES_EMAIL_UNSUBSCRIBE` events
 
-The Snowflake table `USERS_MESSAGES_EMAIL_UNSUBSCRIBE` logs unsubscribes triggered by email link clicks. Unsubscribes made through the REST API are not included in this table. To track API-driven subscription changes in Currents, use subscription group change events.
+The `USERS_MESSAGES_EMAIL_UNSUBSCRIBE` Snowflake table logs message-level email unsubscribes originating from the recipient's side—clicking an unsubscribe link, the email client's one-click List-Unsubscribe, preference center submissions, and ESP-reported unsubscribes. Unsubscribes made through the REST API are not included in this table; those emit [`users.behaviors.subscriptiongroup.StateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#subscription-group-state-change-events) or [`users.behaviors.subscription.GlobalStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#global-subscription-state-change-events) events instead.
 
 ## SMS test messages and subscription groups
 
