@@ -123,6 +123,7 @@ Before creating branches, confirm the user wants to proceed.
 1. **Prefer refining existing prose** over new alerts or FAQ entries unless the content cannot fit naturally.
 2. Follow [Braze docs style guides](docs/contributing/style_guide.md).
 3. Keep additions concise (bullets, tables, code samples where appropriate).
+4. When documenting a product limitation or enhancement ask, use `_includes/product_feedback_cta.md` per [Product feedback CTAs](docs/contributing/style_guide/product_feedback_ctas.md). Do not add ad hoc `portal.braze.com` or legacy portal links.
 
 ---
 

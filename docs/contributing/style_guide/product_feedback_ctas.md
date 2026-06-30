@@ -26,7 +26,7 @@ Invocation:
 
 The include outputs one or two sentences only. You choose placement:
 
-- **Inline** — immediately after the sentence that states the limitation or friction
+- **Inline** — immediately after the sentence that states the limitation or friction, on the **same line** (space before `{% multi_lang_include ... %}`) so the CTA stays in one Markdown paragraph. The include file uses `{%-` / `-%}` on Liquid tags so output does not start with blank lines.
 - **Note alert** — wrap the include (or limitation + include) in `{% alert note %}` when the CTA should stand out without using Important
 
 Do not wrap the include in Important unless the surrounding content already meets Important alert criteria in [Alerts](alerts.md).
@@ -94,6 +94,7 @@ Pass `feature` with the capitalization you want in the sentence. The include doe
 ## Reviewer checklist
 
 - Correct `context` and `channel` for the friction type
+- Inline CTAs are on the same line as the limitation sentence (no blank line before the include)
 - `feature` param names the specific ask where possible
 - Portal link targets `user_guide/administer/personal/product_portal` via the include (not ad hoc URLs)
 - EAP/beta content still uses contact AM/CSM pattern, not this include
