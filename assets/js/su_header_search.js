@@ -1,6 +1,12 @@
 // search-form-handler.js
 
 document.addEventListener("DOMContentLoaded", function () {
+  function searchI18n(key, fallback) {
+    return typeof site_i18n !== "undefined" && site_i18n[key]
+      ? site_i18n[key]
+      : fallback;
+  }
+
   const buttonLabels = {
     en:     { form: "Site search", search: "Search", clear: "Clear search" },
     "pt-br":{ form: "Pesquisa do site", search: "Pesquisar", clear: "Limpar pesquisa" },
@@ -134,31 +140,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const input = document.getElementById("search-box-autocomplete");
     if (!input || input.dataset.a11yLabelApplied) return;
 
-    const labelText = {
-      en: "Search everything",
-      "pt-br": "Buscar tudo",
-      ko: "전체 검색",
-      fr: "Rechercher tout",
-      es: "Buscar todo",
-      de: "Alles durchsuchen",
-      ja: "すべて検索",
-    };
-
-    const placeholderHints = {
-      en: "Search…",
-      "pt-br": "Buscar…",
-      ko: "검색…",
-      fr: "Rechercher…",
-      es: "Buscar…",
-      de: "Suchen…",
-      ja: "検索…",
-    };
-
-    const lang = document.documentElement.lang;
     applySearchInputLabel(
       input,
-      labelText[lang] || labelText.en,
-      placeholderHints[lang] || placeholderHints.en
+      searchI18n("site_search_input_aria", "Search everything"),
+      searchI18n("site_search_input_placeholder_hint", "Search…")
     );
     input.dataset.a11yLabelApplied = "true";
 

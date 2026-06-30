@@ -1,4 +1,30 @@
 document.addEventListener("DOMContentLoaded", function () {
+  function searchI18n(key, fallback) {
+    return typeof site_i18n !== "undefined" && site_i18n[key]
+      ? site_i18n[key]
+      : fallback;
+  }
+
+  function applySearchInputLabel(input, labelText, placeholderHint) {
+    const scope = input.closest("#auto, #su_main_search");
+    const labelId = `${scope?.id || "search"}-search-label`;
+    let label = document.getElementById(labelId);
+    if (!label) {
+      label = document.createElement("label");
+      label.id = labelId;
+      label.className = "sr-only";
+      label.setAttribute("for", "search-box-autocomplete");
+      input.parentNode?.insertBefore(label, input);
+    }
+    label.textContent = labelText;
+    input.setAttribute("aria-labelledby", labelId);
+    input.removeAttribute("aria-label");
+    input.setAttribute("placeholder", placeholderHint);
+    if (input.getAttribute("type") === "input") {
+      input.setAttribute("type", "search");
+    }
+  }
+
   const buttonLabels = {
     en:     { form: "Site search", search: "Search", clear: "Clear search" },
     "pt-br":{ form: "Pesquisa do site", search: "Pesquisar", clear: "Limpar pesquisa" },
@@ -72,46 +98,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      const labelText = {
-        en: "Search everything",
-        "pt-br": "Buscar tudo",
-        ko: "전체 검색",
-        fr: "Rechercher tout",
-        es: "Buscar todo",
-        de: "Alles durchsuchen",
-        ja: "すべて検索",
-      };
-
-      const placeholderHints = {
-        en: "Search…",
-        "pt-br": "Buscar…",
-        ko: "검색…",
-        fr: "Rechercher…",
-        es: "Buscar…",
-        de: "Suchen…",
-        ja: "検索…",
-      };
-
-      const scope = queryInput.closest("#auto, #su_main_search");
-      const labelId = `${scope?.id || "search"}-search-label`;
-      let label = document.getElementById(labelId);
-      if (!label) {
-        label = document.createElement("label");
-        label.id = labelId;
-        label.className = "sr-only";
-        label.setAttribute("for", "search-box-autocomplete");
-        queryInput.parentNode?.insertBefore(label, queryInput);
-      }
-      label.textContent = labelText[lang] || labelText.en;
-      queryInput.setAttribute("aria-labelledby", labelId);
-      queryInput.removeAttribute("aria-label");
-      queryInput.setAttribute(
-        "placeholder",
-        placeholderHints[lang] || placeholderHints.en
+      applySearchInputLabel(
+        queryInput,
+        searchI18n("site_search_input_aria", "Search everything"),
+        searchI18n("site_search_input_placeholder_hint", "Search…")
       );
-      if (queryInput.getAttribute("type") === "input") {
-        queryInput.setAttribute("type", "search");
-      }
 
       // Combobox ARIA — tells assistive technology this input controls a listbox
       queryInput.setAttribute("role", "combobox");
