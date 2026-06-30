@@ -29,7 +29,8 @@
     input.setAttribute("aria-labelledby", labelId);
     input.removeAttribute("aria-label");
     input.setAttribute("placeholder", placeholderHint);
-    if (input.getAttribute("type") === "input") {
+    const inputType = (input.getAttribute("type") || "text").toLowerCase();
+    if (inputType === "text" || inputType === "input") {
       input.setAttribute("type", "search");
     }
   }
