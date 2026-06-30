@@ -146,6 +146,14 @@ Toll-free numbers have distinct three-digit area codes (for example, 800, 888, 8
 {% endtab %} 
 {% endtabs %}
 
+## Using short codes and long codes together
+
+If your subscription group includes both short codes and long codes, short codes are typically prioritized for outbound messages. However, some providers offer sticky sender functionality, which can cause a long code to continue being used for certain users even after a short code is added to the sender pool.
+
+Sticky sender maintains message continuity by routing all messages to a specific user from the same phone number. If a user received a message from a long code before a short code was added to your subscription group, your provider may keep using that long code for future messages to that user, even though the short code would normally be prioritized.
+
+This behavior is controlled by providers and can't be changed in Braze.
+
 ## Setup
 
 Setup requirements and timelines vary by sender type and the country the sender is being provisioned in.
