@@ -100,6 +100,3 @@ Pass `feature` with the capitalization you want in the sentence. The include doe
 - EAP/beta content still uses contact AM/CSM pattern, not this include
 - Not confused with docs-format or page feedback widgets
 
-## Bulk migration
-
-Existing ad hoc CTAs (~22 reader-facing pages) should migrate to this include in follow-up PRs after this pattern is approved.
