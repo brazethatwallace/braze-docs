@@ -15,7 +15,7 @@ Once the share is provisioned, all data is immediately accessible from within th
 
 ![Snowflake incoming data share in the customer Snowflake instance]({% image_buster /assets/img/snowflake2.png %})
 
-Within your Snowflake instance, you will see one share per region. Each table has a column, `app_group_id`, which is effectively a tenant key for Braze. As new customers are added to a share within the same region, it will appear as different `app_group_ids` within the existing tables.
+Within your Snowflake instance, you see one share per region. Each table has a column, `app_group_id`, which is effectively a tenant key for Braze. As new customers are added to a share within the same region, they appear as different `app_group_ids` within the existing tables.
 
 {% alert important %}
 Braze currently hosts all user-level data in the Snowflake AWS US East-1 and EU-Central (Frankfurt) regions. Although Braze can share cross-region, it is most cost-effective for the customers if we share with `US-EAST-1` and/or `EU-CENTRAL-1`. 
