@@ -40,7 +40,7 @@ Each drag-and-drop Content Block is limited to one row. However, you can use dra
 
 | Content Block attribute | Specifications |
 |---|---|
-| Name | Required field with a maximum of 100 characters. It cannot be renamed after the Content Block has been saved. Additionally, you cannot name a new Content Block the same name as a previous Content Block, even if the previous one has been archived. |
+| Name | Required field with a maximum of 100 characters. Content Block names can only contain letters (A-Z), numbers (0-9), dashes (`-`), and underscores (`_`). Spaces and other special characters are not allowed and will be automatically converted (for example, spaces will be replaced with underscores). Names cannot be changed after the Content Block is saved, and you cannot reuse the name of a previous Content Block, even if archived. |
 | Description | (optional) Maximum of 250 characters. Describe the Content Block so that other Braze users know what it's for and where it's used. |
 | Content Size | Maximum of 50 KB. |
 | Placement | Content Blocks cannot be used within an email footer, but you can [create a Content Block that includes a footer](#email-footers) for use in your emails. |
