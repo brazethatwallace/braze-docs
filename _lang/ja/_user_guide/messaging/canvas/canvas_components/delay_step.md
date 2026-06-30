@@ -19,7 +19,7 @@ tool: Canvas
 
 ディレイを作成するには、Canvasにステップを追加します。サイドバーからディレイコンポーネントをドラッグ＆ドロップするか、ステップの下部にある<i class="fas fa-plus-circle"></i>プラスボタンを選択して**ディレイ**を選択します。
 
-#### 延長ディレイ
+### 延長ディレイ
 
 ディレイステップは最大2年間（730日）まで延長できます。例えば、アプリの新規ユーザーをオンボーディングしている場合、セッションを開始していないユーザーに対してメッセージステップを送信する前に、2か月間の延長ディレイを追加できます。
 
@@ -48,14 +48,14 @@ Canvasの次のメッセージまでのディレイのタイプを選択でき�
 
 **カレンダー日付**を選択すると、特定の日時までユーザーをステップに保持できます。
 
-#### 考慮事項
+### 考慮事項
 
-##### 過去の日付のステップやメッセージはユーザーに届きません
+#### 過去の日付のステップやメッセージはユーザーに届きません
 
 選択した日時がユーザーがディレイステップに進む時点ですでに過ぎている場合、ユーザーはCanvasを退出します。Canvasの開始と「正確な日まで待機」ステップに選択された日付の間には、最大31日の間隔を設けることができます。
 
 {% alert important %}
-[Canvas Contextの早期アクセス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)に参加している場合、最大2年間のディレイを設定できます。
+[Canvas Contextの早期アクセス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)に参加している場合、最大2年間のディレイを設定できます。
 {% endalert %}
 
 例えば、以下のシナリオではユーザーはステップやメッセージを受信しません：
@@ -63,7 +63,7 @@ Canvasの次のメッセージまでのディレイのタイプを選択でき�
 - メッセージが5月3日午後9時に送信されるようにスケジュールされているが、ディレイステップが5月3日午前9時に期限切れになる場合。
 - Canvasステップがユーザーのローカルタイムゾーンの特定の時間まで遅延するが、ユーザープロファイルにタイムゾーンが設定されていない場合。この場合、ディレイはこれらのユーザーに対して会社のタイムゾーンをデフォルトとして使用しますが、指定された時間がすでに過ぎています。
 
-##### 後続のディレイステップが前のディレイステップのタイムライン内にある場合、ユーザーは退出します
+#### 後続のディレイステップが前のディレイステップのタイムライン内にある場合、ユーザーは退出します
 
 Canvasに2つのディレイステップがあり、最初のディレイステップが2番目のディレイステップよりも長い場合、ユーザーもCanvasを退出します。
 
@@ -103,7 +103,7 @@ Canvasにディレイコンポーネントを追加し、後続のステップ�
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
 
-**ディレイをパーソナライズ**トグルを選択して、ユーザー向けのパーソナライズされたディレイを設定します。これを[Contextステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)と組み合わせて使用し、遅延に使用するコンテキスト変数を選択できます。これにより、選択した属性またはプロパティで設定された時刻が上書きされます。これは、日数または週数のオフセットを適用し、ユーザーを特定の時間に進めたい場合に便利です。タイムゾーンは属性またはプロパティから取得され、利用できない場合はフォールバックが使用されます。
+**ディレイをパーソナライズ**トグルを選択して、ユーザー向けのパーソナライズされたディレイを設定します。これを[Contextステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)と組み合わせて使用し、遅延に使用するコンテキスト変数を選択できます。これにより、選択した属性またはプロパティで設定された時刻が上書きされます。これは、日数または週数のオフセットを適用し、ユーザーを特定の時間に進めたい場合に便利です。タイムゾーンは属性またはプロパティから取得され、利用できない場合はフォールバックが使用されます。
 
 #### 「特定の時間に」のタイムゾーン動作
 
@@ -147,10 +147,10 @@ Canvasにディレイコンポーネントを追加し、後続のステップ�
 
 ### パーソナライゼーション失敗エラー {#personaliztion-failed-errors}
 
-ユーザーがパーソナライズされたディレイをトリガーしていない場合、ディレイステップの資格を得るために設定したContextステップが期待どおりに機能していない可能性があります。[コンテキスト変数が無効]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#troubleshooting)な場合、ユーザーはContextステップによるコンテキストの設定なしにCanvasを続行します。これにより、パーソナライズされたディレイなど、Canvasの後続のステップの資格を得られなくなる可能性があります。
+ユーザーがパーソナライズされたディレイをトリガーしていない場合、ディレイステップの資格を得るために設定したContextステップが期待どおりに機能していない可能性があります。[コンテキスト変数が無効]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#troubleshooting)な場合、ユーザーはContextステップによるコンテキストの設定なしにCanvasを続行します。これにより、パーソナライズされたディレイなど、Canvasの後続のステップの資格を得られなくなる可能性があります。
 
 ### Canvasが停止されたときにディレイステップにいるユーザー
 
-[Canvasを停止]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#stopping-canvases)すると、すでにディレイステップで待機しているユーザーはすぐには退出しません。Brazeはディレイの完了を引き続きスケジュールしますが、Canvasが停止している間は**それ以降のメッセージは送信されません**。
+[Canvasを停止]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases)すると、すでにディレイステップで待機しているユーザーはすぐには退出しません。Brazeはディレイの完了を引き続きスケジュールしますが、Canvasが停止している間は**それ以降のメッセージは送信されません**。
 
-Canvasを再有効化した時点でユーザーのディレイがまだ経過していない場合、スケジュールどおりに次のステップに進むことができます。Canvasが停止している間にディレイの時間枠がすでに過ぎていた場合、それらのユーザーは次のステップを受信する代わりにCanvasを退出します。例については、[Canvasを停止するとどうなりますか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-when-you-stop-a-canvas)および[Canvasの停止]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#stopping-canvases)を参照してください。
+Canvasを再有効化した時点でユーザーのディレイがまだ経過していない場合、スケジュールどおりに次のステップに進むことができます。Canvasが停止している間にディレイの時間枠がすでに過ぎていた場合、それらのユーザーは次のステップを受信する代わりにCanvasを退出します。例については、[Canvasを停止するとどうなりますか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-happens-when-you-stop-a-canvas)および[Canvasの停止]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases)を参照してください。

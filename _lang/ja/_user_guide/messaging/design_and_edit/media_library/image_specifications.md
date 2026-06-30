@@ -14,7 +14,7 @@ tool:
 
 > 一般的に、小さくて高品質な画像ほど読み込みが速くなるため、目的の出力を実現するために可能な限り小さなアセットを使用することをお勧めします。特定のチャネルで画像の使用を最大限に活用するには、この記事の詳細を参照してください。
 
-画像やメッセージの最も重要な部分が期待どおりに表示されることを確認するために、さまざまなデバイスで常に[メッセージをプレビューおよびテスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/)してください。
+画像やメッセージの最も重要な部分が期待どおりに表示されることを確認するために、さまざまなデバイスで常に[メッセージをプレビューおよびテスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages)してください。
 
 ## 画像の動作 {#image-behavior}
 
@@ -22,7 +22,7 @@ tool:
 
 ## 動画 {#video}
 
-メディアライブラリにアップロードされた動画は、WhatsAppメッセージでのみ使用できます。詳細については、[WhatsAppメッセージの作成]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#outbound-messages)を参照してください。
+メディアライブラリにアップロードされた動画は、WhatsAppメッセージでのみ使用できます。詳細については、[WhatsAppメッセージの作成]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#outbound-messages)を参照してください。
 
 ## GIF {#gifs}
 
@@ -46,7 +46,7 @@ GIFは、iOSプッシュ通知、アプリ内メッセージ、メール、Conte
 
 {% alert tip %}自信を持ってアセットを作成しましょう！アプリ内メッセージの画像テンプレートとセーフゾーンオーバーレイは、あらゆるサイズのデバイスに対応するように設計されています。[デザインテンプレートZIPをダウンロード]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %})。{% endalert %}
 
-詳細については、[アプリ内メッセージのクリエイティブの詳細]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/)を参照してください。
+詳細については、[アプリ内メッセージのクリエイティブの詳細]({{site.baseurl}}/user_guide/channels/in_app_messages/customize)を参照してください。
 
 #### Font Awesome
 
@@ -71,7 +71,7 @@ Brazeは、モーダルアプリ内メッセージアイコンに[Font Awesome v
 | Android通知ドロワー | 597文字 | N/A |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="推奨メッセージ長" }
 
-iOSの文字数の詳細については、[iOS文字数ガイドライン]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count)を参照してください。
+iOSの文字数の詳細については、[iOS文字数ガイドライン]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications#character-count)を参照してください。
 
 #### Webプッシュ {#web-push}
 
@@ -82,7 +82,7 @@ iOSの文字数の詳細については、[iOS文字数ガイドライン]({{sit
 | --- | --- |
 | Chrome | 192 x 192 px以上 |
 | Firefox | 192 x 192 px以上 |
-| Safari | 192 x 192 px以上（macOS 13+のSafari 16ではCampaignごとに設定可能） |
+| Safari | 192 x 192 px以上（macOS 13以降のSafari 16ではキャンペーンごとに設定可能） |
 | Opera | 192 x 192 px以上 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Webプッシュ" }
 
@@ -140,4 +140,4 @@ iOSの文字数の詳細については、[iOS文字数ガイドライン]({{sit
 {% endtab %}
 {% endtabs %}
 
-その他のリソースについては、[プッシュ通知の画像とテキストの仕様]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/)を参照してください。
+その他のリソースについては、[プッシュ通知の画像とテキストの仕様]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats)を参照してください。

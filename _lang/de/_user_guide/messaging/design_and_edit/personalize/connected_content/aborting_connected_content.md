@@ -20,9 +20,9 @@ Im folgenden Beispiel geben die Bedingungen `connected.recommendations.size < 5`
 ```
 {% endraw %}
 
-## Einen Abbruchgrund angeben
+## Einen Abbruchgrund angeben {#specify-an-abort-reason}
 
-Sie können auch einen Abbruchgrund angeben, der im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) gespeichert wird. Dieser Abbruchgrund muss ein String sein und darf kein Liquid enthalten.
+Sie können auch einen Abbruchgrund angeben, der im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) gespeichert wird. Dieser Abbruchgrund muss ein String sein und darf kein Liquid enthalten.
 
 {% raw %}
 `{% abort_message('Could not get enough recommendations') %}`

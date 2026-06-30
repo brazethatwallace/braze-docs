@@ -5,25 +5,25 @@ page_order: 0.2
 description: "Aprende a usar códigos promocionales y a consultar el uso en tus campañas y Canvas."
 ---
 
-# Usar códigos promocionales
+# Usar códigos promocionales {#use-promotion-codes}
 
 > Aprende a usar códigos promocionales y a consultar el uso en tus campañas y Canvas.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Antes de poder usar códigos promocionales, necesitarás [crear una lista de códigos promocionales]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/).
+Antes de poder usar códigos promocionales, necesitarás [crear una lista de códigos promocionales]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create).
 
-## Uso de códigos promocionales
+## Uso de códigos promocionales {#using-promotion-codes}
 
-Para enviar un código promocional en un mensaje, selecciona **Copiar fragmento de código** junto a la lista de códigos promocionales [que creaste anteriormente]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/#create).
+Para enviar un código promocional en un mensaje, selecciona **Copiar fragmento de código** junto a la lista de códigos promocionales [que creaste anteriormente]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create#create).
 
 ![Opción para copiar el fragmento de código y pegarlo en tu mensaje.]({% image_buster /assets/img/promocodes/promocode9.png %}){: style="max-width:70%"}
 
-Pega los fragmentos de código en uno de tus mensajes en Braze y luego usa [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) para insertar uno de los códigos promocionales únicos de tu lista. Ese código se marca como enviado, lo que garantiza que ningún otro mensaje envíe el mismo código.
+Pega los fragmentos de código en uno de tus mensajes en Braze y luego usa [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) para insertar uno de los códigos promocionales únicos de tu lista. Ese código se marca como enviado, lo que garantiza que ningún otro mensaje envíe el mismo código.
 
 ![Un mensaje de ejemplo "Date un capricho esta primavera con nuestra oferta exclusiva" seguido del fragmento de código.]({% image_buster /assets/img/promocodes/promocode10.png %}){: style="max-width:70%"}
 
-### Entre pasos en Canvas
+### Entre pasos en Canvas {#across-canvas-steps}
 
 Cuando se usa un fragmento de código en una campaña o Canvas con mensajes multicanal, cada usuario recibe un código único. En un Canvas con múltiples pasos que hacen referencia a códigos promocionales, un usuario obtiene un nuevo código por cada paso en el que entra.
 
@@ -40,19 +40,19 @@ Si no hay códigos promocionales disponibles, los mensajes de prueba o en vivo q
 
 ### Campañas de mensajes dentro de la aplicación {#promotion-codes-iam-campaigns}
 
-Después de crear una [campaña de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages), puedes insertar un [fragmento de código de lista de códigos promocionales]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#using-promotion-codes-1) en el cuerpo de tu mensaje dentro de la aplicación. Los códigos promocionales en mensajes dentro de la aplicación se deducen y se usan solo cuando un usuario desencadena la visualización del mensaje dentro de la aplicación.
+Después de crear una [campaña de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages), puedes insertar un [fragmento de código de lista de códigos promocionales]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes-1) en el cuerpo de tu mensaje dentro de la aplicación. Los códigos promocionales en mensajes dentro de la aplicación se deducen y se usan solo cuando un usuario desencadena la visualización del mensaje dentro de la aplicación.
 
-### Mensajes de prueba
+### Mensajes de prueba {#test-messages}
 
 Los envíos de prueba y los envíos de correo electrónico a grupos semilla consumen códigos promocionales a menos que se solicite lo contrario. Ponte en contacto con tu director de cuentas de Braze para actualizar el comportamiento de esta característica y que los códigos promocionales no se usen durante los envíos de prueba y los envíos de correo electrónico a grupos semilla.
 
-### Con extras de mensaje para Currents
+### Con extras de mensaje para Currents {#with-message-extras-for-currents}
 
 {% multi_lang_include partners/shopify.md section='Liquid promotion codes with Currents' %}
 
 ## Guardar códigos promocionales en perfiles de usuario {#save-to-profile}
 
-Para hacer referencia al mismo código promocional en mensajes posteriores, el código debe guardarse en el perfil de usuario como un atributo personalizado. Esto se puede hacer a través de un [paso de Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) que asigna el código de descuento a un atributo personalizado, como "Promo Code", directamente antes de un paso de Mensaje.
+Para hacer referencia al mismo código promocional en mensajes posteriores, el código debe guardarse en el perfil de usuario como un atributo personalizado. Esto se puede hacer a través de un [paso de Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) que asigna el código de descuento a un atributo personalizado, como "Promo Code", directamente antes de un paso de Mensaje.
 
 Primero, selecciona lo siguiente para cada campo en el paso de Actualización de usuario:
 
@@ -62,7 +62,7 @@ Primero, selecciona lo siguiente para cada campo en el paso de Actualización de
 
 Segundo, añade el atributo personalizado (en este ejemplo, {% raw %}`{{custom_attribute.${Promo Code}}}`{% endraw %}) a un mensaje. El código de descuento se inserta mediante plantilla.
 
-## Consultar el uso de códigos promocionales
+## Consultar el uso de códigos promocionales {#viewing-promotion-code-usage}
 
 Puedes encontrar el recuento de códigos restantes en la columna **Restantes** de la lista de códigos promocionales en la página **Códigos promocionales**.
 
@@ -72,7 +72,7 @@ Este recuento de códigos también se puede encontrar al volver a visitar una p�
 
 ![Un código promocional llamado "Black Friday Sale" con 992 códigos restantes.]({% image_buster /assets/img/promocodes/promocode12.png %}){: style="max-width:70%"}
 
-## Envíos multicanal y de canal único
+## Envíos multicanal y de canal único {#multichannel-and-single-channel-sends}
 
 Para campañas y Canvas multicanal y de envío único, todos los códigos promocionales referenciados en el Liquid de un mensaje se deducen para ser usados **antes** de que el mensaje se envíe, para garantizar lo siguiente:
 
@@ -83,7 +83,7 @@ Si un usuario tiene dos listas de códigos promocionales referenciadas en un men
 
 Si un usuario entra en un nuevo paso en Canvas o vuelve a entrar en un Canvas, y el fragmento de código Liquid del código promocional se aplica de nuevo para un mensaje a ese usuario, se usa un nuevo código promocional.
 
-### Ejemplo
+### Ejemplo {#example}
 
 En el siguiente ejemplo, ambas listas de códigos promocionales `vip-deal` y `regular-deal` se deducen. Este es el Liquid:
 

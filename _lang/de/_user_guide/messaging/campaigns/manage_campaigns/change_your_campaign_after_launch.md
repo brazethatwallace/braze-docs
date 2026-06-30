@@ -66,8 +66,8 @@ Wenn Sie den geplanten Sendezeitpunkt oder die Zielgruppe Ihrer Kampagne bearbei
 
 Wenn Ihre Kampagne intelligentes Timing oder Zustellung nach Ortszeit verwendet, werden Änderungen am geplanten Sendezeitpunkt nicht übernommen, wenn die Bearbeitung weniger als 24 Stunden vor dem ursprünglichen Sendezeitpunkt erfolgt. Das liegt daran:
 
-- **Intelligentes Timing:** Braze beginnt um Mitternacht Samoa-Zeit mit der Berechnung des optimalen Sendezeitpunkts. Wenn dieser Zeitpunkt bereits vergangen ist, hat die Verarbeitung der Nachricht bereits begonnen. Weitere Informationen finden Sie unter [Intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/).
-- **Zustellung nach Ortszeit:** Das Bearbeiten einer Kampagne mit Ortszeit-Zustellung, die weniger als 24 Stunden im Voraus geplant ist, ändert den Zeitplan der Nachricht nicht. Weitere Informationen finden Sie unter [Wie plane ich eine Kampagne mit Ortszeit-Zustellung?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign).
+- **Intelligentes Timing:** Braze beginnt um Mitternacht Samoa-Zeit mit der Berechnung des optimalen Sendezeitpunkts. Wenn dieser Zeitpunkt bereits vergangen ist, hat die Verarbeitung der Nachricht bereits begonnen. Weitere Informationen finden Sie unter [Intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing).
+- **Zustellung nach Ortszeit:** Das Bearbeiten einer Kampagne mit Ortszeit-Zustellung, die weniger als 24 Stunden im Voraus geplant ist, ändert den Zeitplan der Nachricht nicht. Weitere Informationen finden Sie unter [Wie plane ich eine Kampagne mit Ortszeit-Zustellung?]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign).
 
 ### Senderate {#send-rate}
 
@@ -75,7 +75,7 @@ Wenn Sie Rate-Limits verwenden, „plant“ Braze Ihre Nachrichten in minutengen
 
 #### Kampagnen mit Zustellgeschwindigkeits-Rate-Limiting pausieren {#pausing-campaigns-with-delivery-speed-rate-limiting}
 
-Wenn Sie eine Kampagne pausieren, die [Zustellgeschwindigkeits-Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting) verwendet, verteilt Braze die Sendungen auf minutenbasierte Zeitfenster. **Resume** sendet keine Nachrichten aus Zeitfenstern erneut, die abgebrochen wurden, während die Kampagne pausiert war, und es werden nicht unbedingt alle Nachrichten gesendet, wenn die Kampagne fortgesetzt wird.
+Wenn Sie eine Kampagne pausieren, die [Zustellgeschwindigkeits-Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) verwendet, verteilt Braze die Sendungen auf minutenbasierte Zeitfenster. **Resume** sendet keine Nachrichten aus Zeitfenstern erneut, die abgebrochen wurden, während die Kampagne pausiert war, und es werden nicht unbedingt alle Nachrichten gesendet, wenn die Kampagne fortgesetzt wird.
 
 Wenn einige Nutzer:innen keine Nachrichten erhalten haben, weil die Kampagne pausiert war, duplizieren Sie die Kampagne und richten Sie sie nur an diese Nutzer:innen, anstatt sich darauf zu verlassen, dass **Resume** die versäumten Nachrichten zustellt.
 

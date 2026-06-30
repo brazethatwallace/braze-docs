@@ -43,7 +43,7 @@ Um weitere Details zu den Eingangskriterien anzuzeigen, wählen Sie **See more**
 
 ### Liquid
 
-Braze verarbeitet Liquid-Logik während eines Testlaufs, auch wenn Sie keine tatsächliche Testnachricht senden. Das bedeutet, dass die [Nachricht-abbrechen-Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/#abort-messages) und andere Liquid-Logik berücksichtigt werden und die Canvas-Nutzer-Journey beeinflussen können.
+Braze verarbeitet Liquid-Logik während eines Testlaufs, auch wenn Sie keine tatsächliche Testnachricht senden. Das bedeutet, dass die [Nachricht-abbrechen-Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages) und andere Liquid-Logik berücksichtigt werden und die Canvas-Nutzer-Journey beeinflussen können.
 
 Wenn Ihre Vorschau den letzten Schritt Ihrer Nutzer-Journey sendet, anstatt abzubrechen, verwendet die Vorschau möglicherweise die aktuelle Uhrzeit als Testzeitpunkt für die Liquid-Auswertung und nicht die tatsächliche Zeit, zu der sich die/der Nutzer:in basierend auf der Canvas-Eintrittszeit im Schritt befinden würde.
 
@@ -87,21 +87,21 @@ Canvas-Schritte reagieren auf das Timing bei der Vorschau von Nutzerpfaden. Aktu
 
 Ebenso erkennen Filter Aktionen, die als Ergebnis der Interaktion der/des Testnutzers:in mit anderen Schritten im Canvas aufgetreten sind. Zum Beispiel erkennt dieser Vorschaumodus, dass eine/ein Nutzer:in auf einen Nachrichtenschritt gestoßen ist, der zuvor im Canvas „gesendet“ wurde, und er erkennt, dass die/der Testnutzer:in eine „Aktion ausgeführt“ hat, um durch einen Aktions-Pfad fortzuschreiten.
 
-Weitere Details zum reaktionsfähigen Verhalten finden Sie unter [Austrittskriterien]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/).
+Weitere Details zum reaktionsfähigen Verhalten finden Sie unter [Austrittskriterien]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria).
 
-## Connected-Content
+## Connected-Content {#connected-content}
 
 Connected-Content wird ausgeführt, wenn er im Canvas enthalten ist. Das bedeutet: Wenn Sie einen Canvas testen, der Connected-Content-Aufrufe oder Content Blocks mit Connected-Content enthält, kann der Canvas die Connected-Content-Aufrufe senden, was die in anderen Campaigns oder Canvases referenzierten Daten verändern könnte.
 
 Wenn Sie Nutzerpfade in der Vorschau anzeigen, sollten Sie den Connected-Content entfernen, der Nutzerprofile oder Daten verändert, die in anderen Canvases oder Campaigns referenziert werden.
 
-## Webhooks
+## Webhooks {#webhooks}
 
 Webhooks werden ausgeführt, wenn Testnachrichten gesendet werden, aber nicht während des Testlaufs. Ähnlich wie bei Connected-Content sollten Sie Webhooks entfernen, die Nutzerprofile oder Daten verändern, die in anderen Canvases oder Campaigns referenziert werden.
 
 ## Kontextvariablen und Seed-Gruppen {#context-variables-and-seed-groups}
 
-Bei einem Nachrichtenschritt mit E-Mail als Messaging-Kanal senden Seed-Gruppen Seed-Kopien von E-Mails, wenn eine/ein Nutzer:in diesen Schritt im Canvas erreicht. Diese Seed-Kopien werden nicht als Teil der eigenen Canvas-Journeys der Seed-Gruppen-Empfänger:innen gesendet, sodass Braze keine [Kontextschritte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) ausführt oder Kontextvariablen für diese Empfänger:innen auswertet. Wenn Ihr E-Mail-Inhalt Kontextvariablen referenziert, erhalten die Seed-Gruppen-Empfänger:innen eine Seed-Kopie ohne diese Daten. Um Nachrichten zu testen, die auf Kontextvariablendaten angewiesen sind, verwenden Sie die **Test Canvas**-Vorschau mit Testsendungen anstelle von Seed-Gruppen.
+Bei einem Nachrichtenschritt mit E-Mail als Messaging-Kanal senden Seed-Gruppen Seed-Kopien von E-Mails, wenn eine/ein Nutzer:in diesen Schritt im Canvas erreicht. Diese Seed-Kopien werden nicht als Teil der eigenen Canvas-Journeys der Seed-Gruppen-Empfänger:innen gesendet, sodass Braze keine [Kontextschritte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) ausführt oder Kontextvariablen für diese Empfänger:innen auswertet. Wenn Ihr E-Mail-Inhalt Kontextvariablen referenziert, erhalten die Seed-Gruppen-Empfänger:innen eine Seed-Kopie ohne diese Daten. Um Nachrichten zu testen, die auf Kontextvariablendaten angewiesen sind, verwenden Sie die **Test Canvas**-Vorschau mit Testsendungen anstelle von Seed-Gruppen.
 
 ## Anwendungsfall {#use-case}
 

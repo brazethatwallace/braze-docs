@@ -43,12 +43,12 @@ Para evitar confusão, não é possível definir regras idênticas com um númer
 Você pode criar até cinco regras de envio de mensagens.
 {% endalert %}
 
-1. Acesse **Settings** > **Approval Workflow** > **Messaging Rules**.
-2. Selecione **Create rule**.
+1. Acesse **Configurações** > **Fluxo de aprovação** > **Regras de envio de mensagens**.
+2. Selecione **Criar regra**.
 3. Dê um nome a essa regra (por exemplo, "Todas as inscrições de usuários").
-4. Em **Message type**, selecione **Campaign**, **Canvas** ou **Both Canvas and Campaigns** para aplicar a regra de aprovação.
-5. Insira um número em **Maximum reachable users**. Para saber mais, consulte [Estatísticas de público]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/#audience-statistics).
-6. Selecione **Save**.
+4. Em **Tipo de mensagem**, selecione **Campaign**, **Canvas** ou **Both Canvas and Campaigns** para aplicar a regra de aprovação.
+5. Insira um número em **Máximo de usuários contatáveis**. Para saber mais, consulte [Estatísticas de público]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users#audience-statistics).
+6. Selecione **Salvar**.
 
 ![Um exemplo de regra de envio de mensagens "Rule 1" para Campaigns com 100.000 usuários como máximo. Há um usuário que pode aprovar o Canvas e a Campaign para lançamento.]({% image_buster /assets/img/target_population_approval_example.png %}){: style="max-width:90%;"}
 
@@ -58,7 +58,7 @@ Selecione **Allow launching with approval**. Em seguida, em **With Approval From
 
 Observe os seguintes detalhes sobre o lançamento de mensagens com aprovação:
 
-- Se o máximo for atingido e um aprovador estiver selecionado, o usuário da Braze com a permissão de aprovação pode selecionar **Approved** no menu suspenso de aprovação de **Target Audience**.
+- Se o máximo for atingido e um aprovador estiver selecionado, o usuário da Braze com a permissão de aprovação pode selecionar **Approved** no menu suspenso de aprovação de **Público-alvo**.
 - Se o máximo for atingido e um aprovador não estiver selecionado, o Canvas ou a Campaign será impedido de ser lançado.
 
 ![A etapa "Summary" do fluxo de trabalho do Canvas mostrando que você precisa de uma aprovação para lançar.]({% image_buster /assets/img/non_approver_banner.png %}){: style="max-width:90%;"}

@@ -3,12 +3,12 @@ nav_title: 아이디어 및 전략
 article_title: 아이디어 및 전략
 layout: dev_guide
 guide_top_header: "아이디어 및 전략"
-guide_top_text: "다양한 아이디어와 전략을 활용하여 캔버스를 테스트하고 점검하는 방법을 알아보세요."
+guide_top_text: "다양한 아이디어와 전략을 활용하여 Canvas를 테스트하고 점검하는 방법을 알아보세요."
 page_order: 6
 
 tool: Canvas
 page_type: landing
-description: "이 랜딩 페이지에서는 모범 사례, 시작 전후 체크리스트, 캔버스를 활용한 시작 가이드 등 캔버스 아이디어와 전략을 확인할 수 있습니다."
+description: "이 랜딩 페이지에서는 모범 사례, 시작 전후 체크리스트, Canvas를 활용한 시작 가이드 등 Canvas 아이디어와 전략을 확인할 수 있습니다."
 
 guide_featured_title: "섹션 문서"
 guide_featured_list:
@@ -33,17 +33,17 @@ guide_menu_list:
   - name: Braze 캔버스 템플릿 사용하기
     link: /docs/user_guide/messaging/templates/canvas_templates/braze_templates
     image: /assets/img/braze_icons/target-04.svg
-  - name: 테스트 캔버스 보내기
+  - name: 테스트 Canvases 보내기
     link: /docs/user_guide/messaging/canvas/testing_canvases/sending_test_canvases
     image: /assets/img/braze_icons/user-check-01.svg
   - name: 리드 스코어링
     link: /docs/user_guide/get_started/b2b_use_cases/lead_scoring
     image: /assets/img/braze_icons/dataflow-02.svg
-  - name: 예약 리마인더 이메일 시스템
+  - name: 예약 알림 이메일 시스템
     link: /docs/user_guide/messaging/canvas/ideas_and_strategies/booking_use_case
     image: /assets/img/braze_icons/channel-email.svg
   - name: 이커머스 활용 사례
-    link: /docs/ecommerce_use_cases/
+    link: /docs/ecommerce_use_cases
     image: /assets/img/braze_icons/users-01.svg
 
 ---

@@ -36,7 +36,7 @@ Brazeで最も一般的な競合の1つは、新しく作成されたユーザ�
 
 しかし、場合によっては2番目のイベントが先にトリガーされることがあります。これは、まだ存在しないユーザーにメッセージを送信しようとしていることを意味します。その結果、ユーザーはメッセージを受信できません。これはイベントや属性にも当てはまり、まだ作成されていないユーザープロファイルにイベントや属性を記録しようとする場合があります。
 
-アプリ内メッセージの場合、トリガーされる前にユーザーのデバイスにアプリ内メッセージが読み込まれている必要があります。トリガーイベントがオンボーディングプロセスの一部である場合、またはユーザーが最初のセッションの一部としてカスタムイベントのセグメントから離脱する場合、ユーザーがアプリ内メッセージを見ることができない可能性が高くなります。
+アプリ内メッセージの場合、トリガーされる前にユーザーのデバイスにアプリ内メッセージが読み込まれている必要があります。トリガーイベントがオンボーディングプロセスの一部である場合、またはユーザーが最初のセッションの一部としてカスタムイベントのSegmentから離脱する場合、ユーザーがアプリ内メッセージを見ることができない可能性が高くなります。
 
 ### アプリ内メッセージ {#in-app-messages}
 
@@ -50,7 +50,7 @@ Brazeで最も一般的な競合の1つは、新しく作成されたユーザ�
 
 たとえば、ユーザーがアプリに登録した後、24時間後にプロモーションオファーを送信できます。また、ユーザーを作成したりカスタム属性を記録したりする場合、この競合を回避するためにプロセスを進める前に1分間の遅延を追加できます。
 
-この遅延は、新規ユーザーがCanvasにエントリするトリガーとなる特定のカスタムイベントに対して[Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/)で追加することもできます。
+この遅延は、新規ユーザーがCanvasにエントリするトリガーとなる特定のカスタムイベントに対して[Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration)で追加することもできます。
 
 ## シナリオ2：複数のAPIエンドポイントの使用 {#scenario-2-using-multiple-api-endpoints}
 
@@ -63,7 +63,7 @@ Brazeで最も一般的な競合の1つは、新しく作成されたユーザ�
 - 別々のAPIエンドポイントを使用してユーザーを作成し、CanvasesやCampaignsをトリガーする場合
 - `/users/track`エンドポイントに対してカスタム属性、イベント、または購入を更新するために複数の個別コールを行う場合
 
-ユーザー情報が[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を使用してBrazeに送信される場合、処理に数秒かかることがあります。つまり、`/users/track`とメッセージングエンドポイント（`/campaign/trigger/send`など）に同時にリクエストが行われた場合、メッセージが送信される前にユーザー情報が更新されている保証はありません。
+ユーザー情報が[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用してBrazeに送信される場合、処理に数秒かかることがあります。つまり、`/users/track`とメッセージングエンドポイント（`/campaign/trigger/send`など）に同時にリクエストが行われた場合、メッセージが送信される前にユーザー情報が更新されている保証はありません。
 
 {% alert note %}
 ユーザー属性とイベントが同じリクエストで送信された場合（`/users/track`またはSDKから）、Brazeはイベントの処理やメッセージの送信を試みる前に属性を処理します。
@@ -79,13 +79,13 @@ Brazeで最も一般的な競合の1つは、新しく作成されたユーザ�
 
 #### トリガーに主要なデータを含める {#include-key-data-with-the-trigger}
 
-複数のエンドポイントを使用する代わりに、[`campaign/trigger/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)を使用して、[ユーザー属性]({{site.baseurl}}/api/objects_filters/user_attributes_object/#object-body)と[トリガープロパティ]({{site.baseurl}}/api/objects_filters/trigger_properties_object/)を単一のAPIコールに含めることができます。
+複数のエンドポイントを使用する代わりに、[`campaign/trigger/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)を使用して、[ユーザー属性]({{site.baseurl}}/api/objects_filters/user_attributes_object#object-body)と[トリガープロパティ]({{site.baseurl}}/api/objects_filters/trigger_properties_object)を単一のAPIコールに含めることができます。
 
 これらのオブジェクトがトリガーに含まれている場合、メッセージがトリガーされる前に属性が先に処理されるため、潜在的な競合が排除されます。トリガープロパティはユーザープロファイルを更新せず、メッセージのコンテキストでのみ使用されることに注意してください。
 
 #### POST: Track users (sync) エンドポイントを使用する {#use-the-post-track-users-sync-endpoint}
 
-[`/users/track/sync/`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/)を使用して、カスタムイベントと購入を記録し、ユーザープロファイル属性を同期的に更新します。このエンドポイントを使用してユーザープロファイルを同時に単一のコールで更新することで、潜在的な競合を防ぐことができます。
+[`/users/track/sync/`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous)を使用して、カスタムイベントと購入を記録し、ユーザープロファイル属性を同期的に更新します。このエンドポイントを使用してユーザープロファイルを同時に単一のコールで更新することで、潜在的な競合を防ぐことができます。
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='This endpoint' type='beta' %}
 
@@ -97,7 +97,7 @@ Brazeで最も一般的な競合の1つは、新しく作成されたユーザ�
 
 #### 遅延後にオーディエンスを確認する {#check-your-audience-after-a-delay}
 
-トリガー条件を含むオーディエンスフィルターの使用を避けるために、配信前にオーディエンスを確認することをお勧めします。たとえば、Canvasのメッセージステップで[配信バリデーションを使用]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#edit-delivery-settings)して、メッセージ送信時にオーディエンスが配信条件を満たしていることを追加で確認できます。また、Canvasの離脱条件を活用して、ユーザージャーニーの任意の時点で条件を満たしたユーザーを離脱させることもできます。
+トリガー条件を含むオーディエンスフィルターの使用を避けるために、配信前にオーディエンスを確認することをお勧めします。たとえば、Canvasのメッセージステップで[配信バリデーションを使用]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#edit-delivery-settings)して、メッセージ送信時にオーディエンスが配信条件を満たしていることを追加で確認できます。また、Canvasの離脱条件を活用して、ユーザージャーニーの任意の時点で条件を満たしたユーザーを離脱させることもできます。
 
 Campaignsでは、離脱イベントを使用して、トリガーイベントを持つCampaignsが遅延中に離脱イベントを実行したユーザーへのメッセージを中止できるようにすることができます。
 

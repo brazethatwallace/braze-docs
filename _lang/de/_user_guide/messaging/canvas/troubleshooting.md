@@ -213,3 +213,14 @@ Um das Problem zu beheben:
 - Wenn Ihr Canvas den ursprünglichen Editor verwendet, [klonen Sie ihn zu Canvas Flow]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases) und bauen Sie ihn mit Canvas-Komponenten neu auf.
 
 Wenn Sie den Canvas dennoch ohne Änderungen starten müssen und nicht zu Canvas Flow wechseln können, kontaktieren Sie den [Support]({{site.baseurl}}/support_contact).
+
+## Wann Sie den Support kontaktieren sollten {#when-to-contact-support}
+
+Kontaktieren Sie den [Braze-Support]({{site.baseurl}}/braze_support) innerhalb von 30 Tagen nach dem Auftreten des Problems, wenn Sie den [standardmäßigen Untersuchungspfad](#standard-investigation-path) abgeschlossen haben und weiterhin Hilfe benötigen.
+
+Geben Sie Folgendes an:
+
+- Canvas-ID und betroffene Nutzer-IDs (externe ID oder Braze-ID)
+- Zeitstempel mit Zeitzone
+- Screenshots oder Exporte aus **Messaging-Verlauf** oder **Messaging-Diagnostics**
+- Für „Request Timed Out“-Fehler im Editor die unter [Editor- und Speicherprobleme](#editor-and-save-issues) aufgeführten Details

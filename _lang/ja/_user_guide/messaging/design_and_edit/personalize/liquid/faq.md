@@ -22,17 +22,17 @@ Brazeは現在、ShopifyのLiquidを100%サポートしているわけではな�
 
 #### 詳しくはどこで学べますか？ {#where-can-i-learn-more}
 
-Liquidの詳細については、ガイド付きの[Liquidによるダイナミックパーソナライゼーション](https://learning.braze.com/path/dynamic-personalization-with-liquid) Braze Learningパスをご覧ください。また、[Liquidユースケースライブラリー]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/)を参照して、Liquidを使用したパーソナライゼーションの例やインスピレーションを得ることもできます。
+Liquidの詳細については、ガイド付きの[Liquidによるダイナミックパーソナライゼーション](https://learning.braze.com/path/dynamic-personalization-with-liquid) Braze Learningパスをご覧ください。また、[Liquidユースケースライブラリー]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases)を参照して、Liquidを使用したパーソナライゼーションの例やインスピレーションを得ることもできます。
 
 ### パーソナライゼーションにおけるLiquidとコネクテッドコンテンツの違いは何ですか？ {#whats-the-difference-between-using-liquid-and-connected-content-for-personalization}
 
-Brazeのコネクテッドコンテンツは、Liquidタグの一例です。パーソナライゼーションにも使用されますが、このデータはBraze内に保存されたデータではなく、外部エンドポイントから取得されます。メッセージのパーソナライズ方法を拡張する方法について詳しくは、専用の[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)セクションをご覧ください。
+Brazeのコネクテッドコンテンツは、Liquidタグの一例です。パーソナライゼーションにも使用されますが、このデータはBraze内に保存されたデータではなく、外部エンドポイントから取得されます。メッセージのパーソナライズ方法を拡張する方法について詳しくは、専用の[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)セクションをご覧ください。
 
 ### Liquidテンプレートとは何ですか？ {#what-is-liquid-templating}
 
 これはBrazeでLiquidを使用する最も一般的な方法です。Liquidテンプレートでは、ユーザープロファイルからメッセージにデータを取り込みます。このデータは、ユーザーの名からトリガーメッセージのカスタムイベントまで多岐にわたります。
 
-サポートされているLiquidタグの完全なリストについては、[サポートされているパーソナライゼーションタグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)を参照してください。
+サポートされているLiquidタグの完全なリストについては、[サポートされているパーソナライゼーションタグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)を参照してください。
 
 ### Liquidを使用するとデータポイントが記録されますか？ {#does-using-liquid-log-data-points}
 
@@ -44,7 +44,7 @@ Brazeのコネクテッドコンテンツは、Liquidタグの一例です。パ
 
 ユーザーの名を使用したパーソナライズされた挨拶には、{% raw %}`{{${first_name}}}`や`{{${last_name}}}`{% endraw %}などの標準ユーザープロファイル属性を取り込むことができます。
 
-また、Liquidの{% raw %}`{% if X %}`{% endraw %}ステートメントを使用して、曜日やカスタム属性など、あらゆる条件に基づいた条件付きレンダリングを行うこともできます。条件文で使用できるサポートされているLiquid演算子の詳細については、[演算子]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/operators/)をご覧ください。
+また、Liquidの{% raw %}`{% if X %}`{% endraw %}ステートメントを使用して、曜日やカスタム属性など、あらゆる条件に基づいた条件付きレンダリングを行うこともできます。条件文で使用できるサポートされているLiquid演算子の詳細については、[演算子]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/operators)をご覧ください。
 
 ### ユーザーのロケーションに基づいてメッセージをパーソナライズするにはどうすればよいですか？ {#how-can-i-personalize-a-message-based-on-a-users-location}
 
@@ -58,13 +58,13 @@ Brazeのコネクテッドコンテンツは、Liquidタグの一例です。パ
 `{{campaign.${name}}}`と`{{campaign.${message_name}}}`はどちらもサポートされているLiquidパーソナライゼーションタグです。どちらのタグもCampaignの属性を参照します。`{{campaign.${name}}}`はCampaignの名前を示し、`{{campaign.${message_name}}}`はメッセージバリアントの名前です。
 {% endraw %}
 
-URLやクエリ文字列での使用（名前に`%`やスペースが含まれる場合など）については、[URLでのCampaign名]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#campaign-names-in-urls)を参照してください。
+URLやクエリ文字列での使用（名前に`%`やスペースが含まれる場合など）については、[URLでのCampaign名]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#campaign-names-in-urls)を参照してください。
 
 ### ネストされたオブジェクトでLiquidを使用するにはどうすればよいですか？ {#how-do-i-use-liquid-with-nested-objects}
 
 Brazeには、メッセージで使用できるSegments用のLiquidコードを生成する組み込み機能があります。具体的には、オブジェクト内の複数の条件に一致するセグメントを作成できます。
 
-詳細については、[マルチ条件セグメンテーション]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#multi-criteria-segmentation)をご覧ください。
+詳細については、[マルチ条件セグメンテーション]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#multi-criteria-segmentation)をご覧ください。
 
 ### イベント属性を使用して、イベントがトリガーするメッセージをパーソナライズするにはどうすればよいですか？ {#how-do-i-use-event-attributes-to-personalize-a-message-that-an-event-is-triggering}
 
@@ -126,7 +126,7 @@ Join our VIP program to unlock free shipping.
 
 forループは[反復タグ](https://shopify.github.io/liquid/tags/iteration/)とも呼ばれます。Liquidスニペットでforループロジックを使用すると、条件が満たされるまでLiquidブロックを繰り返し処理できます。
 
-Brazeでは、配列カスタム属性のアイテムのチェック、または[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)、[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/)、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)呼び出しの応答で返される値やオブジェクトのリストのチェックに使用できます。具体的には、forループロジックをメッセージングの一部として使用して、製品が在庫にあるかどうか、または製品が最低評価を満たしているかどうかを確認できます。
+Brazeでは、配列カスタム属性のアイテムのチェック、または[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)、[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)呼び出しの応答で返される値やオブジェクトのリストのチェックに使用できます。具体的には、forループロジックをメッセージングの一部として使用して、製品が在庫にあるかどうか、または製品が最低評価を満たしているかどうかを確認できます。
 
 例えば、「Games」というカタログに「cheap_games」というセレクションがあるとします。「cheap_games」のゲームタイトルを取得するには、次のLiquidスニペットを使用できます：
 
@@ -143,7 +143,7 @@ Brazeでは、配列カスタム属性のアイテムのチェック、または
 
 ### 中止ロジックとは何ですか？また、どのように使用できますか？ {#what-is-abort-logic-and-how-can-i-use-it}
 
-中止ロジックを使用すると、条件が満たされた場合にメッセージの送信を停止できます。これは、不完全なメッセージがユーザーに送信されるのを防ぐのに特に役立ちます。マーケティングCampaignでの中止ロジックの例については、[メッセージの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)で詳しくご覧ください。
+中止ロジックを使用すると、条件が満たされた場合にメッセージの送信を停止できます。これは、不完全なメッセージがユーザーに送信されるのを防ぐのに特に役立ちます。マーケティングCampaignでの中止ロジックの例については、[メッセージの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)で詳しくご覧ください。
 
 ### `abort_message`タグ内でLiquidを使用できますか？ {#can-i-use-liquid-inside-the-abort_message-tag}
 
@@ -159,11 +159,11 @@ Brazeでは、配列カスタム属性のアイテムのチェック、または
 
 ### Canvasコンテキストプロパティにサイズ制限はありますか？ {#are-there-size-limits-for-canvas-context-properties}
 
-Brazeは[Canvasコンテキストプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)にハードリミットを設けていませんが、ペイロードは約1 KB（約1,000文字）以下に抑えてください。大きなオブジェクトはメモリ使用量を増加させ、大量送信時のメッセージレンダリングを遅延させる可能性があります。
+Brazeは[Canvasコンテキストプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)にハードリミットを設けていませんが、ペイロードは約1 KB（約1,000文字）以下に抑えてください。大きなオブジェクトはメモリ使用量を増加させ、大量送信時のメッセージレンダリングを遅延させる可能性があります。
 
 ### ダッシュボードで特定のデータタイプをプレビューするとLiquidエラーが発生するのはなぜですか？ {#why-do-i-get-a-liquid-error-when-previewing-certain-data-types-in-the-dashboard}
 
-一部の[Canvasコンテキストプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)タイプは、比較や計算で使用する前にLiquidでの型変換が必要です。例えば、数値の動作が必要な場合：
+一部の[Canvasコンテキストプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)タイプは、比較や計算で使用する前にLiquidでの型変換が必要です。例えば、数値の動作が必要な場合：
 
 {% raw %}
 ```liquid
@@ -173,7 +173,7 @@ Brazeは[Canvasコンテキストプロパティ]({{site.baseurl}}/user_guide/me
 
 ### カタログのLiquidスニペットが中止メッセージを返すのはなぜですか？ {#why-does-my-catalog-liquid-snippet-return-an-abort-message}
 
-カタログのLiquidスニペットが送信時に中止される場合は、一括またはフルダイナミックセレクションを使用する代わりに、パーソナライゼーションメニューから個別のカタログアイテムを選択してスニペットを再作成してください。詳細については、[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)と[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/)を参照してください。
+カタログのLiquidスニペットが送信時に中止される場合は、一括またはフルダイナミックセレクションを使用する代わりに、パーソナライゼーションメニューから個別のカタログアイテムを選択してスニペットを再作成してください。詳細については、[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)と[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)を参照してください。
 
 ## Content Blocksとメッセージ作成画面 {#content-blocks-and-the-message-composer}
 
@@ -209,7 +209,7 @@ Content BlockをLiquidでテンプレート化すると、ブロック内のモ�
 
 ### ダイナミックな返信先アドレスを作成するにはどうすればよいですか？ {#how-do-i-create-a-dynamic-reply-to-address}
 
-ワークスペースがダイナミックな返信先設定をサポートしている場合、**返信先**フィールドでLiquidを使用してください。必要に応じて**差出人**の表示名設定と組み合わせてください。ワークスペース固有のオプションについては、[メール設定]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/)を参照してください。
+ワークスペースがダイナミックな返信先設定をサポートしている場合、**返信先**フィールドでLiquidを使用してください。必要に応じて**差出人**の表示名設定と組み合わせてください。ワークスペース固有のオプションについては、[メール設定]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences)を参照してください。
 
 ## Liquidエラーのトラブルシューティング {#troubleshooting-liquid-errors}
 

@@ -16,17 +16,17 @@ channel: in-app messages
 
 ## 仕組み {#how-it-works}
 
-Canvasでアプリ内メッセージを使用する前に、遅延とオーディエンスオプションを設定した[Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)を用意してください。
+Canvasでアプリ内メッセージを使用する前に、遅延とオーディエンスオプションを設定した[Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)を用意してください。
 
-Canvasビルダーで、[メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)ステップを追加し、**メッセージングチャネル**として**アプリ内メッセージ**を選択します。[メッセージの有効期限](#in-app-message-expiration)と[進行動作](#advancement-behavior)をカスタマイズできます。
+Canvasビルダーで、[メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)ステップを追加し、**メッセージングチャネル**として**アプリ内メッセージ**を選択します。[メッセージの有効期限](#in-app-message-expiration)と[進行動作](#advancement-behavior)をカスタマイズできます。
 
-ワークスペースに複数のアプリがある場合は、配信バリデーションではなく、**配信プラットフォーム**、{% raw %}`{{targeted_device.${platform}}}`{% endraw %}、または{% raw %}`{{app.${api_id}}}`{% endraw %} Liquidタグを使用して正しいアプリをターゲットにしてください。アプリ内メッセージは、ユーザーがターゲットのアプリを開き、ステップのトリガー条件を満たした場合にのみ表示されます。詳細については、[配信バリデーション]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations)を参照してください。
+ワークスペースに複数のアプリがある場合は、配信バリデーションではなく、**配信プラットフォーム**、{% raw %}`{{targeted_device.${platform}}}`{% endraw %}、または{% raw %}`{{app.${api_id}}}`{% endraw %} Liquidタグを使用して正しいアプリをターゲットにしてください。アプリ内メッセージは、ユーザーがターゲットのアプリを開き、ステップのトリガー条件を満たした場合にのみ表示されます。詳細については、[配信バリデーション]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations)を参照してください。
 
 ## ユーザージャーニーにアプリ内メッセージを追加する {#adding-an-in-app-message-to-your-user-journey}
 
 Canvasにアプリ内メッセージを追加するには、以下の手順に従ってください。
 
-1. ユーザージャーニーに[メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)ステップを追加します。
+1. ユーザージャーニーに[メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)ステップを追加します。
 2. **メッセージングチャネル**として**アプリ内メッセージ**を選択します。
 3. [メッセージの有効期限](#in-app-message-expiration)と[進行動作](#advancement-behavior-options)を決定します。
 
@@ -48,13 +48,13 @@ Canvasにアプリ内メッセージを追加するには、以下の手順に�
 |---|---|---|
 | **ステップが利用可能になってからの期間** | ステップがユーザーに利用可能になった時点を基準にアプリ内メッセージの有効期限を設定します。 | 2日間の有効期限を持つアプリ内メッセージは、ユーザーがメッセージステップに入りオーディエンスオプションが確認された時点で利用可能になります。このステップに到達する前の遅延は、Canvas内の先行する遅延ステップから発生します。アプリ内メッセージはユーザーがステップに入ってから2日間（48時間）利用可能となり、その間にユーザーがアプリを開くとアプリ内メッセージが表示される場合があります。 |
 | **特定の日時** | アプリ内メッセージが利用できなくなる特定の日時を選択します。 | 2024年11月30日に終了するセールがある場合、このオプションを選択すると、セール終了後にユーザーに関連するアプリ内メッセージが表示されなくなります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="In-app message expiration" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="アプリ内メッセージの有効期限" }
 
 ユーザーがセッションを開始すると、Brazeはアプリ内メッセージの適格性や有効期限が変更されたかどうかを確認し、更新された有効期限情報をデバイスに送信します。
 
 アプリ内メッセージが特定の日時に期限切れになるよう設定されており、ユーザーがメッセージステップに到達した時点でその日時がすでに過ぎている場合、そのユーザーはアプリ内メッセージを受信しません。そのステップの[進行動作](#advancement-behavior)に従ってCanvasを進行し続けます。
 
-これは、[遅延]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/)ステップなどの先行ステップがユーザーをより長いパスに保持する場合によく発生します。例えば、5月22日にCanvasを起動し、72時間の遅延の後に5月23日の深夜に期限切れになるアプリ内メッセージが続く場合、ユーザーは有効期限後にメッセージステップに到達するため、アプリ内メッセージは表示されません。
+これは、[遅延]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step)ステップなどの先行ステップがユーザーをより長いパスに保持する場合によく発生します。例えば、5月22日にCanvasを起動し、72時間の遅延の後に5月23日の深夜に期限切れになるアプリ内メッセージが続く場合、ユーザーは有効期限後にメッセージステップに到達するため、アプリ内メッセージは表示されません。
 
 ## ユースケース {#use-cases}
 
@@ -70,8 +70,8 @@ Brazeでは、プロモーションやオンボーディングのCanvasでこの
 .tg th{word-break:normal;}
 </style>
 
-<table aria-label="Use cases" class="tg">
-  <caption>Use cases</caption>
+<table aria-label="ユースケース" class="tg">
+  <caption>ユースケース</caption>
 <thead>
   <tr>
     <th>キャンバスステップ</th>
@@ -121,8 +121,8 @@ Brazeでは、プロモーションやオンボーディングのCanvasでこの
 
 ユーザーとの最初の印象は、おそらく最も重要なものです。アプリへの今後の訪問を左右する可能性があります。ユーザーとの最初のコミュニケーションは適切なタイミングで行い、アプリの利用を促進するために頻繁な訪問を促すべきです。
 
-<table aria-label="Use cases" class="tg">
-  <caption>Use cases</caption>
+<table aria-label="ユースケース" class="tg">
+  <caption>ユースケース</caption>
 <thead>
   <tr>
     <th>キャンバスステップ</th>
@@ -189,7 +189,7 @@ Brazeでは、プロモーションやオンボーディングのCanvasでこの
 
 ユーザーがアプリ内メッセージステップに入ると、有効期限の時間枠で保持されるのではなく、すぐにステップから進行します。この場合、ユーザージャーニーに遅延ステップを設けることが役立ちます。
 
-**メッセージ送信時に進行**オプションを使用するには、前のステップを受信しなかったユーザーをフィルタリングするための別の[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)を追加します。
+**メッセージ送信時に進行**オプションを使用するには、前のステップを受信しなかったユーザーをフィルタリングするための別の[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)を追加します。
 
 {% details オリジナルCanvasエディター %}
 
@@ -205,15 +205,15 @@ Brazeでは、プロモーションやオンボーディングのCanvasでこの
 **アプリ内メッセージライブ時に進行**が選択されている場合、アプリ内メッセージはユーザーが後続のステップに移動しても、期限切れになるまで利用可能です。アプリ内メッセージがCanvasの次のステップの配信時にライブであることを望まない場合は、有効期限が後続ステップの遅延よりも短いことを確認してください。
 {% endalert %}
 
-#### 複数チャネルを持つステップ {#steps-multiple-channels}
+### 複数チャネルを持つステップ {#steps-multiple-channels}
 
 アプリ内メッセージと別のチャネルを持つステップには、以下の進行オプションがあります。
 
 | オプション | 説明 |
 |---|---|
 | メッセージ送信時に進行 | ユーザーがCanvasの後続ステップに進行するには、メール、Webhook、またはプッシュ通知が送信されるか、アプリ内メッセージを閲覧する必要があります。<br> <br> アプリ内メッセージが期限切れになり、ユーザーにメール、Webhook、またはプッシュが送信されておらず、アプリ内メッセージも閲覧されていない場合、ユーザーはCanvasを退出し、後続ステップに進行しません。 |
-| オーディエンスを即座に進行 | ステップのオーディエンス全員が、メッセージを閲覧したかどうかに関わらず、遅延が経過した後に次のステップに進行します。<br> <br> ユーザーが次のステップに進行するには、ステップのセグメントとフィルター条件に一致する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Steps with multiple channels #steps-multiple-channels" }
+| オーディエンスを即座に進行 | ステップのオーディエンス全員が、メッセージを閲覧したかどうかに関わらず、遅延が経過した後に次のステップに進行します。<br> <br> ユーザーが次のステップに進行するには、ステップのSegmentとフィルター条件に一致する必要があります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="複数チャネルを持つステップ" }
 
 {% alert important %}
 **全オーディエンス**が選択されている場合、アプリ内メッセージはユーザーが後続のステップに移動しても、期限切れになるまで利用可能です。アプリ内メッセージがCanvasの次のステップの配信時にライブであることを望まない場合は、有効期限が後続ステップの遅延よりも短いことを確認してください。

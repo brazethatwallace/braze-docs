@@ -18,18 +18,18 @@ CampaignおよびCanvasの属性は、ダッシュボードでLiquidタグとし
 
 ### REST API
 
-CampaignおよびCanvasの属性は、[Campaignの詳細をエクスポートするエンドポイント]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/)や[Canvasの詳細をエクスポートするエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)でも利用できます。Braze REST APIを使用して、マッピング（すべてのCanvas名とそれに対応するIDのリスト）を構築できます。
+CampaignおよびCanvasの属性は、[Campaignの詳細をエクスポートするエンドポイント]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details)や[Canvasの詳細をエクスポートするエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details)でも利用できます。Braze REST APIを使用して、マッピング（すべてのCanvas名とそれに対応するIDのリスト）を構築できます。
 
 ### Currents
 
-CampaignおよびCanvasの属性は、Currentsの[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)に関連付けられています。メッセージステップのみがCampaign属性にアクセスでき、その他のCanvasステップはCanvas属性にのみアクセスできることに注意してください。これは、プッシュ送信やメール開封がどのCampaignまたはCanvasコンポーネントに関連付けられているかを判断するために重要です。
+CampaignおよびCanvasの属性は、Currentsの[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)に関連付けられています。メッセージステップのみがCampaign属性にアクセスでき、その他のCanvasステップはCanvas属性にのみアクセスできることに注意してください。これは、プッシュ送信やメール開封がどのCampaignまたはCanvasコンポーネントに関連付けられているかを判断するために重要です。
 
 ## Campaign属性 {#campaign-attributes}
 
 | 属性 | Liquid | REST API | Currents |
 | --- | --- | --- | --- |
 | Campaign名 | {% raw %}`{{campaign.${name}}}`{% endraw %} | `name` | `campaign_name` |
-| Campaign ID | {% raw %}`{{campaign.${api_id}}}`{% endraw %} | N/A（API呼び出し自体の入力として使用） | `campaign_id` |
+| Campaign ID | {% raw %}`{{campaign.${api_id}}}`{% endraw %} | N/A（API呼び出し自体の入力として使用） | campaign_id |
 | バリアント名 | {% raw %}`{{campaign.${message_name}}}`{% endraw %} | `messages.message_variation_id.name` | N/A（Campaignの詳細をエクスポートするエンドポイントを使用してバリアント名をバリアントIDにマッピング） |
 | バリアントID | {% raw %}`{{campaign.${message_api_id}}}`{% endraw %} | `messages.message_variation_id` | `message_variation_api_id` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Campaign属性" }
@@ -39,7 +39,7 @@ CampaignおよびCanvasの属性は、Currentsの[メッセージエンゲージ
 | 属性 | Liquid | REST API | Currents |
 | --- | --- | --- | --- |
 | Canvas名 | {% raw %}`{{canvas.${name}}}`{% endraw %} | `name` | `canvas_name` |
-| Canvas ID | {% raw %}`{{canvas.${api_id}}}`{% endraw %} | N/A（API呼び出し自体の入力として使用） | `canvas_id` |
+| Canvas ID | {% raw %}`{{canvas.${api_id}}}`{% endraw %} | N/A（API呼び出し自体の入力として使用） | canvas_id |
 | バリアント名 | {% raw %}`{{canvas.${variant_name}}}`{% endraw %} | `variants.name` | `canvas_variation_name` |
 | バリアントID | {% raw %}`{{canvas.${variant_api_id}}}`{% endraw %} | `variants.name.id` | `canvas_variation_id` |
 | ステップ名（メッセージステップのみ） | {% raw %}`{{campaign.${name}}}`{% endraw %} | `steps.name` | `canvas_step_name` |

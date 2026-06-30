@@ -38,4 +38,4 @@ Wechseln Sie den Monat, indem Sie <i class="fa-solid fa-chevron-left" style="col
 
 ![Der Versandkalender mit allen geplanten Kampagnen im aktuellen Monat.]({% image_buster /assets/img/campaign_calendar/content_calendar_sends.png %})
 
-Sehen Sie sich Ihre Kampagnen an oder bearbeiten Sie sie, indem Sie die Kampagne im Kalender auswählen. Weitere Informationen finden Sie unter [Kampagnen verwalten]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/).
+Sehen Sie sich Ihre Kampagnen an oder bearbeiten Sie sie, indem Sie die Kampagne im Kalender auswählen. Weitere Informationen finden Sie unter [Kampagnen verwalten]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns).

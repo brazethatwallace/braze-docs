@@ -36,7 +36,7 @@ Por padrão, a **Classificação** está desativada. Quando um usuário entra na
 Quando a opção **Avançar usuários com base na ordem de classificação** está ativada, a **Classificação** fica ativa. Portanto, todos os usuários são retidos até o final do período de avaliação. Ao final desse período, os usuários avançam pelo grupo de ação de maior prioridade para o qual são elegíveis. Os usuários que não realizarem nenhuma das ações durante o período de avaliação avançam pelo grupo padrão **Restante do público**.
 
 {% alert tip %}
-Para direcionar os usuários com base em seus atributos atuais ou pertencimento a segmentos, em vez de ações realizadas, use as [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/).
+Para direcionar os usuários com base em seus atributos atuais ou pertencimento a segmentos, em vez de ações realizadas, use as [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths).
 {% endalert %}
 
 Observe que você pode disparar uma jornada de ação quando um objeto de atributo personalizado aninhado muda, mas não para vetores de atributos personalizados aninhados ou alterações em tipos de dados de vetor de objeto.
@@ -59,7 +59,7 @@ Adicione um ou vários gatilhos para definir seus grupos de ação. Aqui, você 
 
 - Realizam uma compra
 - Iniciam uma sessão
-- Realizam um [evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)
+- Realizam um [evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events)
 - Realizam um evento de conversão
 - Adicionam um endereço de e-mail
 - Alteram o valor de um atributo personalizado.
@@ -85,7 +85,7 @@ Se os usuários entrarem em uma jornada de ação várias vezes e tiverem múlti
 
 | Status da classificação | Comportamento da jornada de ação |
 |---|--------------|
-| **Desativada** | Um usuário pode entrar em uma jornada de ação mais de uma vez. Essas entradas ficam retidas na jornada de ação até que uma ação-gatilho ou evento seja registrado. Se o evento de gatilho não satisfizer os filtros de propriedade de uma entrada (por exemplo, uma [variável de contexto]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables/) não corresponder aos filtros de propriedade do gatilho), a entrada permanece na jornada de ação. <br><br>Se o evento de gatilho satisfizer mais de uma entrada, a Braze faz a deduplicação apenas dessas entradas e avança imediatamente a entrada correspondente mais antiga pelo grupo de ação relevante. |
+| **Desativada** | Um usuário pode entrar em uma jornada de ação mais de uma vez. Essas entradas ficam retidas na jornada de ação até que uma ação-gatilho ou evento seja registrado. Se o evento de gatilho não satisfizer os filtros de propriedade de uma entrada (por exemplo, uma [variável de contexto]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables) não corresponder aos filtros de propriedade do gatilho), a entrada permanece na jornada de ação. <br><br>Se o evento de gatilho satisfizer mais de uma entrada, a Braze faz a deduplicação apenas dessas entradas e avança imediatamente a entrada correspondente mais antiga pelo grupo de ação relevante. |
 | **Ativada** | Todas as entradas avançam ao final do período de avaliação correspondente. Nenhuma deduplicação ocorre. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas com reelegibilidade" }
 
@@ -93,4 +93,4 @@ Se os usuários entrarem em uma jornada de ação várias vezes e tiverem múlti
 Não altere a opção **Avançar usuários com base na ordem de classificação** após o lançamento quando já houver usuários na etapa. A Braze aplica a configuração de classificação atual ao processar eventos e quando o período de avaliação termina, mas o estado da jornada registrado anteriormente no período pode refletir uma configuração anterior. Por exemplo, se você desativar a classificação depois que os usuários realizaram uma ação classificada, eles podem não avançar pela jornada esperada quando o período terminar. Em vez disso, crie uma nova jornada de ação com a configuração de classificação desejada ou duplique o Canvas.
 {% endalert %}
 
-Observe que as classificações não são [editáveis após o lançamento]({{site.baseurl}}/post-launch_edits/).
+Observe que as classificações não são [editáveis após o lançamento]({{site.baseurl}}/post-launch_edits).

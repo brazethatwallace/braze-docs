@@ -59,8 +59,8 @@ description: "この記事では、Brazeのメディアライブラリに関す�
 
 ### AIを使用して画像を生成する {#generate-an-image-using-ai}
 
-**コンテンツ** > **メディアライブラリ**から**AI Image Generator**を選択することで画像を生成できます。**メディアライブラリアセットの編集**権限が必要です。このオプションが表示されない場合は、Brazeカスタマーチームにお問い合わせください。手順とポリシーの詳細については、[BrazeAIで画像を生成する]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-images)および[BrazeAIによる画像生成]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai)を参照してください。
+**コンテンツ** > **メディアライブラリ**から**AI Image Generator**を選択することで画像を生成できます。**メディアライブラリアセットの編集**権限が必要です。このオプションが表示されない場合は、Brazeカスタマーチームにお問い合わせください。手順とポリシーの詳細については、[BrazeAIで画像を生成する]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images)および[BrazeAIによる画像生成]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#generate-ai)を参照してください。
 
 ### メディアライブラリの画像アセットにバニティURLを作成できますか？ {#can-i-create-vanity-urls-for-media-library-image-assets}
 
-メディアライブラリアセットのバニティURLはサポートされていません。カスタムURLを使用するとCDN配信が中断されるためです。Campaignが既にそのURLを参照している場合は、既存のURLで画像を置き換えることができます。詳細については、[ファイルを置き換える]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#replace-a-file)を参照してください。
+メディアライブラリアセットのバニティURLはサポートされていません。カスタムURLを使用するとCDN配信が中断されるためです。Campaignが既にそのURLを参照している場合は、既存のURLで画像を置き換えることができます。詳細については、[ファイルを置き換える]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file)を参照してください。

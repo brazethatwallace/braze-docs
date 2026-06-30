@@ -21,7 +21,7 @@ Canvasには最大200ステップを追加できます。
 
 ### コンポーネントとステップの違いは何ですか？ {#whats-the-difference-between-a-component-and-a-step}
 
-[コンポーネント]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/about/)は、Canvasの効果を判断するために使用できるCanvasの個々のパーツです。コンポーネントには、ユーザージャーニーの分岐、遅延の追加、複数のCanvasパスのテストなどのアクションを含めることができます。Canvasのステップは、Canvasブランチにおけるパーソナライズされたユーザージャーニーを指します。基本的に、Canvasはユーザージャーニーのステップを作成する個々のコンポーネントで構成されています。
+[コンポーネント]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/about)は、Canvasの効果を判断するために使用できるCanvasの個々のパーツです。コンポーネントには、ユーザージャーニーの分岐、遅延の追加、複数のCanvasパスのテストなどのアクションを含めることができます。Canvasのステップは、Canvasブランチにおけるパーソナライズされたユーザージャーニーを指します。基本的に、Canvasはユーザージャーニーのステップを作成する個々のコンポーネントで構成されています。
 
 ### 切断されたステップがあるCanvasを起動できますか？ {#can-i-launch-a-canvas-with-disconnected-steps}
 
@@ -37,7 +37,7 @@ Canvasには最大200ステップを追加できます。
 
 各ステップに対してジョブをキューに入れます。これらはほぼ同時に実行され、そのうちの1つが「勝ちます」。実際には、ある程度均等に分配される場合がありますが、最初に作成されたステップに少なくともわずかな偏りが生じる可能性があります。
 
-さらに、その分布がどのようになるかについて正確な保証はできません。均等な分割が必要な場合は、[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)フィルターを追加してください。
+さらに、その分布がどのようになるかについて正確な保証はできません。均等な分割が必要な場合は、[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers)フィルターを追加してください。
 
 ### Canvasのオーディエンスはどのように評価されますか？ {#how-are-canvas-audiences-evaluated}
 
@@ -45,13 +45,13 @@ Canvasには最大200ステップを追加できます。
 
 ### 例外イベントはいつトリガーされますか？ {#when-does-an-exception-event-trigger}
 
-例外イベントは、ユーザーが関連付けられたCanvasコンポーネントの受信を待っている間にのみトリガーされます。ユーザーが事前にアクションを実行した場合、例外イベントはトリガーされません。特定のイベントを事前に実行したユーザーを除外したい場合は、代わりに[フィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)を使用してください。
+例外イベントは、ユーザーが関連付けられたCanvasコンポーネントの受信を待っている間にのみトリガーされます。ユーザーが事前にアクションを実行した場合、例外イベントはトリガーされません。特定のイベントを事前に実行したユーザーを除外したい場合は、代わりに[フィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)を使用してください。
 
 ### Canvasの編集は、すでにCanvas内にいるユーザーにどのような影響を与えますか？ {#how-does-editing-a-canvas-affect-users-already-in-the-canvas}
 
 マルチステップCanvasのいくつかのステップを編集した場合、すでにオーディエンスに含まれているがまだステップを受信していないユーザーは、更新されたバージョンのメッセージを受信します。ただし、これはまだそのステップの評価が行われていない場合にのみ発生します。
 
-起動後に編集できる内容の詳細については、[起動後のCanvasの変更]({{site.baseurl}}/post-launch_edits/)を参照してください。
+起動後に編集できる内容の詳細については、[起動後のCanvasの変更]({{site.baseurl}}/post-launch_edits)を参照してください。
 
 ### Canvasを停止するとどうなりますか？ {#what-happens-when-you-stop-a-canvas}
 
@@ -63,7 +63,7 @@ Canvasを停止すると、以下が適用されます：
 
 ### ユーザーライフサイクルごとに1つのCanvasを構築すべきですか、それとも別々のCanvasを構築すべきですか？ {#should-i-build-one-canvas-or-separate-canvases-per-user-lifecycle}
 
-Canvasで達成したい目標に応じて、ユーザージャーニーの構築方法に異なるアプローチが必要になる場合があります。Canvasの柔軟性により、ユーザーライフサイクルのあらゆる段階のユーザージャーニーをマッピングできます。効果的なユーザージャーニーを作成するための合理化されたアプローチの例については、[Brazeキャンバステンプレート]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/)をご覧ください。
+Canvasで達成したい目標に応じて、ユーザージャーニーの構築方法に異なるアプローチが必要になる場合があります。Canvasの柔軟性により、ユーザーライフサイクルのあらゆる段階のユーザージャーニーをマッピングできます。効果的なユーザージャーニーを作成するための合理化されたアプローチの例については、[Brazeキャンバステンプレート]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates)をご覧ください。
 
 ## メッセージと配信 {#messages-and-delivery}
 
@@ -90,18 +90,18 @@ Canvasを停止しても、メッセージの受信を待っているユーザ�
 送信をずらしたり、パスごとに異なる時間を使用したりするには、以下の方法を試してください：
 
 - メッセージステップの間に遅延ステップを配置して、各メッセージに独自のスケジュールを持たせます。
-- ブランチまたは[実験パス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/)ステップを使用して、ユーザーが異なるタイミングのパスをたどるようにします。
+- ブランチまたは[実験パス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)ステップを使用して、ユーザーが異なるタイミングのパスをたどるようにします。
 - ユースケースが1つのCanvas内に収まる必要がない場合は、別々のCampaignsを使用します。
 
-CampaignsにおけるABテストと多変量テストの概念については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を参照してください。
+Campaignsにおける多変量テストとABテストの概念については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)を参照してください。
 
 ### ユーザーがCanvasメッセージステップでグローバルフリークエンシーキャップに達した場合、どうなりますか？ {#what-happens-if-a-user-is-global-frequency-capped-at-a-canvas-message-step}
 
-キャップされたチャネルの送信は受信しませんが、メッセージステップはグローバルフリークエンシーキャップによりメッセージが送信されなかった場合でもユーザーを進行させます。ステップごとの進行ケースについては、[ユーザーの進行方法]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance)を参照してください。グローバルフリークエンシーキャップだけではユーザーをCanvasから退出させません。この動作はメッセージステップの**配信バリデーション**とは別のものです。詳細については、[レート制限とフリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)を参照してください。
+キャップされたチャネルの送信は受信しませんが、メッセージステップはグローバルフリークエンシーキャップによりメッセージが送信されなかった場合でもユーザーを進行させます。ステップごとの進行ケースについては、[ユーザーの進行方法]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#how-users-advance)を参照してください。グローバルフリークエンシーキャップだけではユーザーをCanvasから退出させません。この動作はメッセージステップの**配信バリデーション**とは別のものです。詳細については、[レート制限とフリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)を参照してください。
 
 ### 送信数が推定オーディエンスサイズよりも少ないのはなぜですか？ {#why-are-sends-lower-than-the-estimated-audience-size}
 
-送信数が**推定オーディエンス**よりも少なくなる理由は、[Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size)と同様の多くの理由があります。これには、フリークエンシーキャップ、厳格なデバイスまたはブラウザフィルター、再適格性ウィンドウ、レート制限、チャネルレベルの除外（例：プッシュ到達可能性やメールサブスクリプションおよび配信可能性チェック）が含まれます。
+送信数が**推定オーディエンス**よりも少なくなる理由は、[Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq#why-are-sends-lower-than-the-estimated-audience-size)と同様の多くの理由があります。これには、フリークエンシーキャップ、厳格なデバイスまたはブラウザフィルター、再適格性ウィンドウ、レート制限、チャネルレベルの除外（例：プッシュ到達可能性やメールサブスクリプションおよび配信可能性チェック）が含まれます。
 
 Canvas固有の要因も適用されます：
 
@@ -170,15 +170,15 @@ Canvasバリアントのコンバージョン合計がステップ合計の合�
 
 ### APIトリガーのCanvasをユーザーが受信したことを確認するにはどうすればよいですか？ {#how-can-i-confirm-if-my-users-received-an-api-triggered-canvas}
 
-Canvasフィルターを使用して[セグメントを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)し、ユーザーがCanvasに入ったか、特定のキャンバスステップを受信したかを確認できます。例えば、ユーザーがAPIトリガーのCanvasに入ったことを確認したい場合はCanvasエントリフィルターを使用し、Canvasからメッセージを受信したことを確認したい場合は受信ステップフィルターを使用します。次に、[`/users/export/segment`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)を使用して、そのセグメント内のユーザーをエクスポートします。
+Canvasフィルターを使用して[セグメントを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)し、ユーザーがCanvasに入ったか、特定のキャンバスステップを受信したかを確認できます。例えば、ユーザーがAPIトリガーのCanvasに入ったことを確認したい場合はCanvasエントリフィルターを使用し、Canvasからメッセージを受信したことを確認したい場合は受信ステップフィルターを使用します。次に、[`/users/export/segment`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)を使用して、そのセグメント内のユーザーをエクスポートします。
 
 ### Canvasを削除できますか？ {#can-i-delete-a-canvas}
 
-いいえ。ただし、[Canvasをアーカイブ]({{site.baseurl}}/user_guide/messaging/governance/archiving/)することはできます。
+いいえ。ただし、[Canvasをアーカイブ]({{site.baseurl}}/user_guide/messaging/governance/archiving)することはできます。
 
 ### 各Canvasコンポーネントの分析はどのように確認できますか？ {#how-can-i-view-analytics-for-each-of-my-canvas-components}
 
-Canvasコンポーネントの分析を確認するには、Canvasに移動し、**Canvas Details**ページを下にスクロールします。ここで、各コンポーネントの分析を確認できます。詳細については、[Canvas分析]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/)をご覧ください。
+Canvasコンポーネントの分析を確認するには、Canvasに移動し、**Canvas Details**ページを下にスクロールします。ここで、各コンポーネントの分析を確認できます。詳細については、[Canvas分析]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)をご覧ください。
 
 ### ユニークユーザー数を確認する場合、Canvas分析とセグメンターのどちらがより正確ですか？ {#when-looking-at-the-number-of-unique-users-is-canvas-analytics-or-the-segmenter-more-accurate}
 
@@ -186,11 +186,11 @@ Canvasコンポーネントの分析を確認するには、Canvasに移動し�
 
 ### Canvasに入るユーザー数が予想数と一致しないのはなぜですか？ {#why-does-the-number-of-users-entering-a-canvas-not-match-the-expected-number}
 
-Canvasに入るユーザー数は、オーディエンスとトリガーの評価方法により、予想数と異なる場合があります。Brazeでは、オーディエンスはトリガーの前に評価されます（[属性の変更]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)トリガーを使用している場合を除く）。これにより、トリガーアクションが評価される前に、選択したオーディエンスに含まれていないユーザーがCanvasから脱落します。
+Canvasに入るユーザー数は、オーディエンスとトリガーの評価方法により、予想数と異なる場合があります。Brazeでは、オーディエンスはトリガーの前に評価されます（[属性の変更]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)トリガーを使用している場合を除く）。これにより、トリガーアクションが評価される前に、選択したオーディエンスに含まれていないユーザーがCanvasから脱落します。
 
 ### 匿名ユーザーはCanvasジャーニー中にどうなりますか？ {#what-happens-to-anonymous-users-during-their-canvas-journey}
 
-匿名ユーザーはCanvasに入退出できますが、識別されるまでそのアクションは特定のユーザープロファイルに関連付けられないため、インタラクションが分析で完全に追跡されない場合があります。[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)を使用して、これらの指標のレポートを生成できます。
+匿名ユーザーはCanvasに入退出できますが、識別されるまでそのアクションは特定のユーザープロファイルに関連付けられないため、インタラクションが分析で完全に追跡されない場合があります。[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)を使用して、これらの指標のレポートを生成できます。
 
 {% alert tip %}
 Canvasのトラブルシューティングについてさらにサポートが必要な場合は、問題発生から30日以内にBrazeサポートにお問い合わせください。直近30日間の診断ログのみ保持しています。
@@ -198,15 +198,15 @@ Canvasのトラブルシューティングについてさらにサポートが�
 
 ### 現在Canvasジャーニー中のユーザーをCampaignやセグメントから除外できますか？ {#can-i-exclude-users-who-are-currently-in-a-canvas-journey-from-a-campaign-or-segment}
 
-[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)（`Entered Canvas Variation`、`In Canvas Control Group`、`Received Message from Canvas Step`など）を使用して、Canvasエントリ、バリアント割り当て、またはステップエンゲージメントに基づいてユーザーをターゲットできます。これらのフィルターはエントリ履歴とインタラクションを評価するもので、ユーザーがアクティブなジャーニーをまだ進行中かどうかを示すものではありません。
+[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)（`Entered Canvas Variation`、`In Canvas Control Group`、`Received Message from Canvas Step`など）を使用して、Canvasエントリ、バリアント割り当て、またはステップエンゲージメントに基づいてユーザーをターゲットできます。これらのフィルターはエントリ履歴とインタラクションを評価するもので、ユーザーがアクティブなジャーニーをまだ進行中かどうかを示すものではありません。
 
-アクティブなCanvas参加に基づいてユーザーを含めたり除外したりするには、Canvasのエントリと退出に[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)ステップを追加してカスタム属性を設定およびクリアし、CampaignsやSegmentsでそれらの属性をフィルターとして使用します。
+アクティブなCanvas参加に基づいてユーザーを含めたり除外したりするには、Canvasのエントリと退出に[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)ステップを追加してカスタム属性を設定およびクリアし、CampaignsやSegmentsでそれらの属性をフィルターとして使用します。
 
 ## セグメンテーション {#segmentation}
 
 ### 「Canvasバリエーションに入っていない」と「Canvasコントロールグループに含まれていない」の違いは何ですか？ {#what-is-the-difference-between-has-not-entered-canvas-variation-and-is-not-in-canvas-control-group}
 
-フィルターの完全な定義については、[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)を参照してください。
+フィルターの完全な定義については、[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)を参照してください。
 
 #### Canvasバリエーションに入っていない {#has-not-entered-canvas-variation}
 
@@ -224,7 +224,7 @@ Canvasのトラブルシューティングについてさらにサポートが�
 
 ### 既存のCanvasをオリジナルエディターから現在のエディターに変換するにはどうすればよいですか？ {#how-do-i-convert-an-existing-canvas-from-the-original-editor-to-the-current-editor}
 
-[Canvasを複製]({{site.baseurl}}/cloning_canvases/)できます。これにより、最新のCanvasワークフローでオリジナルCanvasのコピーが作成されます。
+[Canvasを複製]({{site.baseurl}}/cloning_canvases)できます。これにより、最新のCanvasワークフローでオリジナルCanvasのコピーが作成されます。
 
 ### 現在のCanvasエディターとオリジナルCanvasエディターの主な違いは何ですか？ {#what-are-the-main-differences-between-the-current-and-original-canvas-editors}
 
@@ -238,11 +238,11 @@ Canvasのトラブルシューティングについてさらにサポートが�
 
 #### メッセージコンポーネントの進行 {#message-component-advancement}
 
-[メッセージコンポーネント]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)は、ステップに入ったすべてのユーザーを進行させます。メッセージ進行動作を指定する必要がないため、全体的なステップの設定がシンプルになります。**メッセージ送信時に進行**オプションを実装したい場合は、前のステップを受信しなかったユーザーをフィルタリングするために、別のオーディエンスパスを追加してください。
+[メッセージコンポーネント]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)は、ステップに入ったすべてのユーザーを進行させます。メッセージ進行動作を指定する必要がないため、全体的なステップの設定がシンプルになります。**メッセージ送信時に進行**オプションを実装したい場合は、前のステップを受信しなかったユーザーをフィルタリングするために、別のオーディエンスパスを追加してください。
 
 #### 遅延の「以内」の動作 {#delay-in-behavior}
 
-[遅延コンポーネント]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/)は、次のステップに進む前に遅延時間全体を待ちます。
+[遅延コンポーネント]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step)は、次のステップに進む前に遅延時間全体を待ちます。
 
 例えば、4月12日に遅延コンポーネントがあり、遅延が1日後の午後2時にユーザーを次のステップに送信するように設定されているとします。ユーザーが4月13日の午後2時1分にコンポーネントに入ります。
 - オリジナルワークフローでは、ユーザーは4月14日の午後2時に次のステップに進みます。これはエントリ時間から1日未満です。
@@ -250,7 +250,7 @@ Canvasのトラブルシューティングについてさらにサポートが�
 
 #### インテリジェントタイミングの動作 {#intelligent-timing-behavior}
 
-[インテリジェントタイミング]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)はメッセージコンポーネントに保存されるため、遅延はインテリジェントタイミングの計算の前に適用されます。つまり、ユーザーがコンポーネントに入るタイミングによっては、オリジナルCanvasワークフローで構築されたCanvasよりもメッセージの受信が遅くなる場合があります。
+[インテリジェントタイミング]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)はメッセージコンポーネントに保存されるため、遅延はインテリジェントタイミングの計算の前に適用されます。つまり、ユーザーがコンポーネントに入るタイミングによっては、オリジナルCanvasワークフローで構築されたCanvasよりもメッセージの受信が遅くなる場合があります。
 
 例えば、遅延が2日に設定され、インテリジェントタイミングがオンになっており、メッセージを送信する最適な時間が午後2時と判断されたとします。ユーザーが午後2時1分に遅延ステップに入ります。
 - **現在のワークフロー：** 遅延が経過するまで48時間かかるため、ユーザーは3日目の午後2時にメッセージを受信します。
@@ -274,7 +274,7 @@ Canvasのトラブルシューティングについてさらにサポートが�
 
 ### 「リクエストタイムアウト」エラーのサポートチケットを送信する際に何を含めるべきですか？ {#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error}
 
-Canvasの編集中に「リクエストタイムアウト」エラーが発生し、[Brazeサポート]({{site.baseurl}}/braze_support/)に連絡する必要がある場合は、解決を迅速化するために以下の情報を含めてください：
+Canvasの編集中に「リクエストタイムアウト」エラーが発生し、[Brazeサポート]({{site.baseurl}}/braze_support)に連絡する必要がある場合は、解決を迅速化するために以下の情報を含めてください：
 
 - **画面録画：** エラーが表示される前に行った手順の録画（ページ遷移を含む）。
 - **タイムスタンプとタイムゾーン：** エラーが発生した正確な時刻とタイムゾーン。
@@ -286,9 +286,9 @@ Canvasの編集中に「リクエストタイムアウト」エラーが発生�
 
 ### 孤立したユーザーはCanvasメッセージを受信する資格がありますか？ {#are-orphaned-users-eligible-to-receive-canvas-messages}
 
-いいえ。[孤立したユーザー]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users)はメッセージを受信する資格がありません。ユーザーがCanvasジャーニー中にプロファイルが孤立した場合、フローからサイレントに退出します。分析では、その退出に対して**退出済み**イベントが常に表示されるとは限らず、ワークフローサマリーに`exited_date`や`exit_reason`のない`partial_update_token`が含まれる場合があります。
+いいえ。[孤立したユーザー]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#what-happens-when-you-identify-anonymous-users)はメッセージを受信する資格がありません。ユーザーがCanvasジャーニー中にプロファイルが孤立した場合、フローからサイレントに退出します。分析では、その退出に対して**退出済み**イベントが常に表示されるとは限らず、ワークフローサマリーに`exited_date`や`exit_reason`のない`partial_update_token`が含まれる場合があります。
 
-マージと孤立プロファイルの詳細については、[重複ユーザーのマージ]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/)を参照してください。
+マージと孤立プロファイルの詳細については、[重複ユーザーのマージ]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users)を参照してください。
 
 ### アクティブなCanvasやCampaignを停止した場合、すでにESPに送信されたメッセージは配信されますか？ {#if-i-stop-an-active-canvas-or-campaign-do-messages-already-sent-to-the-esp-still-deliver}
 
@@ -298,7 +298,7 @@ Canvasの編集中に「リクエストタイムアウト」エラーが発生�
 
 ### Canvas Webhookステップがユーザーに表示されるコンテンツなしで実行されたことを確認するにはどうすればよいですか？ {#how-can-i-confirm-a-canvas-webhook-step-fired-without-user-visible-content}
 
-Brazeは、CampaignsおよびCanvasの[Webhook]({{site.baseurl}}/user_guide/channels/webhooks/)ステップに対してWebhookの**送信数**と関連する配信結果を追跡します。ステップ分析、[Webhookレポート]({{site.baseurl}}/user_guide/channels/webhooks/reporting/)、または[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) Webhookイベントを使用して、ステップが実行されたことを確認できます。エンドポイントのリクエストログは、サーバー側の受信証明が必要な場合に追加の確認を提供します。
+Brazeは、CampaignsおよびCanvasの[Webhook]({{site.baseurl}}/user_guide/channels/webhooks)ステップに対してWebhookの**送信数**と関連する配信結果を追跡します。ステップ分析、[Webhookレポート]({{site.baseurl}}/user_guide/channels/webhooks/reporting)、または[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) Webhookイベントを使用して、ステップが実行されたことを確認できます。エンドポイントのリクエストログは、サーバー側の受信証明が必要な場合に追加の確認を提供します。
 
 BrazeにはWebhookステップ用の組み込みの非表示トラッキングピクセルは含まれていません。Braze Webhook指標とエンドポイントのログに依存し、カスタムの1ピクセル画像リクエストではなくこれらを使用してください。
 
@@ -306,7 +306,7 @@ BrazeにはWebhookステップ用の組み込みの非表示トラッキング�
 
 アクションベースおよびAPIトリガーのCanvasでは、Brazeはトリガーイベントの重複を排除するため、ユーザーは同じCanvasに対して**1秒あたり最大約1回**しか入ることができません。ユーザーが1秒以内に同じトリガーを複数回実行した場合、1回のエントリのみが処理されます。
 
-同じ秒内に複数のエントリを許可するには、トリガーイベントの間隔を少なくとも1.1秒空けてください（例：サーバーからイベントタイミングを制御する場合）。同じ秒内の複数のトリガーを許可するCampaignスタイルの動作については、適切なスケジュールと再適格性設定を持つ[Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/)とユースケースを比較してください。
+同じ秒内に複数のエントリを許可するには、トリガーイベントの間隔を少なくとも1.1秒空けてください（例：サーバーからイベントタイミングを制御する場合）。同じ秒内の複数のトリガーを許可するCampaignスタイルの動作については、適切なスケジュールと再適格性設定を持つ[Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns)とユースケースを比較してください。
 
 ### テストプッシュが間違ったアプリに送信されるのに、ライブ送信は正しく見えるのはなぜですか？ {#why-does-a-test-push-go-to-the-wrong-app-but-live-sends-look-correct}
 
@@ -314,13 +314,13 @@ BrazeにはWebhookステップ用の組み込みの非表示トラッキング�
 
 アプリ固有のターゲティングを確認するには、プロファイルの**テストプッシュ**だけに頼るのではなく、狭いオーディエンス（例：`external_id`でフィルター）を持つCampaignまたはCanvasを通じてライブまたはテストメッセージを送信してください。
 
-複数のアプリを持つ**Canvas**メッセージステップの場合、メッセージステップで**メッセージ送信時にオーディエンスを検証**をオンにして、送信時にセグメントとフィルターのチェックが実行されるようにします。詳細については、[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)を参照してください。
+複数のアプリを持つ**Canvas**メッセージステップの場合、メッセージステップで**メッセージ送信時にオーディエンスを検証**をオンにして、送信時にセグメントとフィルターのチェックが実行されるようにします。詳細については、[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)を参照してください。
 
-一般的なテストプッシュの動作については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/)および[プッシュFAQ]({{site.baseurl}}/user_guide/channels/push/faqs/)を参照してください。
+一般的なテストプッシュの動作については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages)および[プッシュFAQ]({{site.baseurl}}/user_guide/channels/push/faqs)を参照してください。
 
 ### iOSとAndroidでPush Storiesをデバッグするにはどうすればよいですか？ {#how-do-i-debug-push-stories-on-ios-and-android}
 
-セットアップとクリエイティブ要件については、[Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/)から始めてください。実装とリッチプッシュ通知の処理については、開発者ガイドの[リッチプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/rich/)および[Push Stories]({{site.baseurl}}/developer_guide/push_notifications/push_stories/)を参照してください。
+セットアップとクリエイティブ要件については、[Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories)から始めてください。実装とリッチプッシュ通知の処理については、開発者ガイドの[リッチプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/rich)および[Push Stories]({{site.baseurl}}/developer_guide/push_notifications/push_stories)を参照してください。
 
 ### 「Canvasメッセージが24時間以上遅延」メールを受信するのは誰ですか？ {#who-receives-the-canvas-messages-delayed-24-hours-email}
 

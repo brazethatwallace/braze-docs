@@ -36,7 +36,7 @@ Standardmäßig ist **Ranking** deaktiviert. Wenn Nutzer:innen den Aktionspfad b
 Wenn **Advance users based on ranked order** aktiviert ist, bedeutet dies, dass **Ranking** aktiv ist. Alle Nutzer:innen werden dann bis zum Ende des Auswertungsfensters gehalten. Am Ende des Auswertungszeitraums werden Nutzer:innen durch die Aktionsgruppe mit der höchsten Priorität weitergeleitet, für die sie am Ende des Auswertungsfensters qualifiziert sind. Nutzer:innen, die während des Auswertungsfensters keine der Aktionen ausführen, werden durch die Standardgruppe **Alle anderen** weitergeleitet.
 
 {% alert tip %}
-Um Nutzer:innen basierend auf ihren aktuellen Attributen oder Segment-Zugehörigkeit statt auf ausgeführten Aktionen weiterzuleiten, verwenden Sie stattdessen [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/).
+Um Nutzer:innen basierend auf ihren aktuellen Attributen oder Segment-Zugehörigkeit statt auf ausgeführten Aktionen weiterzuleiten, verwenden Sie stattdessen [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths).
 {% endalert %}
 
 Beachten Sie, dass Sie einen Aktionspfad triggern können, wenn sich ein verschachteltes angepasstes Attribut-Objekt ändert, jedoch nicht für Arrays von verschachtelten angepassten Attributen oder Änderungen an Objekt-Array-Datentypen.
@@ -59,7 +59,7 @@ Fügen Sie einen oder mehrere Trigger hinzu, um Ihre Aktionsgruppen zu definiere
 
 - Einen Kauf tätigen
 - Eine Sitzung starten
-- Ein [angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) ausführen
+- Ein [angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events) ausführen
 - Ein Konversions-Event ausführen
 - Eine E-Mail-Adresse hinzufügen
 - Einen angepassten Attributwert ändern
@@ -85,7 +85,7 @@ Wenn Nutzer:innen einen Aktionspfad mehrfach betreten und gleichzeitig mehrere E
 
 | Ranking-Status | Verhalten des Aktionspfads |
 |---|--------------|
-| **Deaktiviert** | Nutzer:innen können einen Aktionspfad mehr als einmal betreten. Diese Einträge werden im Aktionspfad gehalten, bis eine Trigger-Aktion oder ein Event erfasst wird. Wenn das Trigger-Event die Eigenschaftsfilter eines Eintrags nicht erfüllt (z. B. wenn eine [Kontextvariable]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables/) nicht mit den Eigenschaftsfiltern des Triggers übereinstimmt), verbleibt der Eintrag im Aktionspfad. <br><br>Wenn das Trigger-Event mehr als einen Eintrag erfüllt, dedupliziert Braze nur diese Einträge und leitet den frühesten übereinstimmenden Eintrag sofort durch die entsprechende Aktionsgruppe weiter. |
+| **Deaktiviert** | Nutzer:innen können einen Aktionspfad mehr als einmal betreten. Diese Einträge werden im Aktionspfad gehalten, bis eine Trigger-Aktion oder ein Event erfasst wird. Wenn das Trigger-Event die Eigenschaftsfilter eines Eintrags nicht erfüllt (z. B. wenn eine [Kontextvariable]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables) nicht mit den Eigenschaftsfiltern des Triggers übereinstimmt), verbleibt der Eintrag im Aktionspfad. <br><br>Wenn das Trigger-Event mehr als einen Eintrag erfüllt, dedupliziert Braze nur diese Einträge und leitet den frühesten übereinstimmenden Eintrag sofort durch die entsprechende Aktionsgruppe weiter. |
 | **Aktiviert** | Alle Einträge werden am Ende des jeweiligen Auswertungsfensters weitergeleitet. Es findet keine Deduplizierung statt. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canvases mit erneuter Berechtigung" }
 
@@ -93,4 +93,4 @@ Wenn Nutzer:innen einen Aktionspfad mehrfach betreten und gleichzeitig mehrere E
 Ändern Sie **Advance users based on ranked order** nach dem Start nicht mehr, wenn sich bereits Nutzer:innen im Schritt befinden. Braze wendet die aktuelle Rangfolge-Einstellung bei der Verarbeitung von Events und am Ende des Auswertungsfensters an, aber der zuvor im Fenster aufgezeichnete Pfadstatus kann eine frühere Einstellung widerspiegeln. Wenn Sie beispielsweise die Rangfolge deaktivieren, nachdem Nutzer:innen eine rangbasierte Aktion ausgeführt haben, werden sie möglicherweise nicht durch den erwarteten Pfad weitergeleitet, wenn das Fenster endet. Erstellen Sie stattdessen einen neuen Aktionspfad mit der gewünschten Rangfolge-Einstellung oder duplizieren Sie den Canvas.
 {% endalert %}
 
-Beachten Sie, dass die Rangfolgen nach dem Start [nicht mehr bearbeitet werden können]({{site.baseurl}}/post-launch_edits/).
+Beachten Sie, dass die Rangfolgen nach dem Start [nicht mehr bearbeitet werden können]({{site.baseurl}}/post-launch_edits).

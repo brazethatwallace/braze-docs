@@ -6,48 +6,48 @@ description: "Los recorridos personalizados te permiten personalizar cualquier p
 tool: Canvas
 ---
 
-# Recorridos personalizados en recorridos de experimentos
+# Recorridos personalizados en recorridos de experimentos {#personalized-paths-in-experiment-paths}
 
-> Los recorridos personalizados son similares a la [variante personalizada]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations#personalized-variant) en campañas y te permiten personalizar cualquier punto de un recorrido de Canvas para usuarios individuales en función de la probabilidad de conversión.
+> Los recorridos personalizados son similares a la [variante personalizada]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations#personalized-variant) en Campaigns y te permiten personalizar cualquier punto de un recorrido de Canvas para usuarios individuales en función de la probabilidad de conversión.
 
-## Cómo funcionan los recorridos personalizados
+## Cómo funcionan los recorridos personalizados {#how-personalized-paths-works}
 
 Cuando los recorridos personalizados están activados en un paso de recorrido de experimentos, el comportamiento es ligeramente diferente dependiendo de si tu Canvas está configurado para enviarse una sola vez o de forma recurrente:
 
 - **Canvas de envío único:** Un grupo de usuarios se retiene en un grupo de retraso. Los usuarios restantes pasan a una prueba inicial para entrenar un modelo predictivo durante un período que tú configuras (al menos 24 horas para obtener mejores resultados). Después de la prueba, se crea un modelo que aprende qué comportamientos de los usuarios se asociaron con una mayor probabilidad de conversión en un recorrido determinado. Finalmente, cada usuario del grupo de retraso se envía por el recorrido con mayor probabilidad de generar una conversión para ellos, en función de los comportamientos que exhiben y lo que el modelo predictivo aprendió durante la prueba inicial.
 - **Canvas recurrentes, desencadenados por acción y desencadenados por API:** Se realiza un experimento inicial con todos los usuarios que entran en el recorrido de experimentos durante una ventana especificada. Para mantener la integridad del experimento, si un usuario recibe múltiples mensajes antes de que termine la ventana, se le asignará la misma variante cada vez. Después de la ventana del experimento, cada usuario se envía por el recorrido con mayor probabilidad de generar una conversión para ellos.
 
-## Uso de recorridos personalizados
+## Uso de recorridos personalizados {#using-personalized-paths}
 
-### Paso 1: Añadir un recorrido de experimentos
+### Paso 1: Añadir un recorrido de experimentos {#step-1-add-an-experiment-path}
 
-Añade un [recorrido de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) a tu Canvas y luego activa **Recorridos personalizados**.
+Añade un [recorrido de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) a tu Canvas y luego activa **Recorridos personalizados**.
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_path.png %})
+![Añade un recorrido de experimentos a tu Canvas y luego activa Recorridos personalizados.]({% image_buster /assets/img/experiment_step/experiment_personalized_path.png %})
 
-### Paso 2: Configurar los ajustes de recorridos personalizados
+### Paso 2: Configurar los ajustes de recorridos personalizados {#step-2-configure-personalized-paths-settings}
 
-Especifica el evento de conversión que debe determinar el ganador. Si no hay eventos de conversión disponibles, vuelve al primer paso de la configuración de Canvas y [asigna eventos de conversión]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#choose-conversion-events).
+Especifica el evento de conversión que debe determinar el ganador. Si no hay eventos de conversión disponibles, vuelve al primer paso de la configuración de Canvas y [asigna eventos de conversión]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#choose-conversion-events).
 
-Si eliges aperturas o clics como tu evento de conversión, asegúrate de que el primer paso en el recorrido sea un [paso de mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/). Braze solo cuenta la interacción del primer paso de mensaje en cada recorrido respectivo. Si el recorrido comienza con un paso diferente (como un paso de retraso o de ruta de audiencia) y el mensaje viene después, ese mensaje no se incluirá al evaluar el rendimiento.
+Si eliges aperturas o clics como tu evento de conversión, asegúrate de que el primer paso en el recorrido sea un [paso de mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step). Braze solo cuenta la interacción del primer paso de mensaje en cada recorrido respectivo. Si el recorrido comienza con un paso diferente (como un paso de retraso o de ruta de audiencia) y el mensaje viene después, ese mensaje no se incluirá al evaluar el rendimiento.
 
 Luego configura la **Ventana del experimento**. La **Ventana del experimento** determina durante cuánto tiempo los usuarios serán enviados por todos los recorridos antes de elegir el mejor recorrido para cada usuario en el grupo de retraso. La ventana comienza cuando el primer usuario entra en el paso.
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_settings.png %})
+![Captura de pantalla relacionada con el paso 2: configurar los ajustes de recorridos personalizados.]({% image_buster /assets/img/experiment_step/experiment_personalized_settings.png %})
 
-### Paso 3: Determinar la alternativa
+### Paso 3: Determinar la alternativa {#step-3-determine-fallback}
 
 De forma predeterminada, si los resultados de la prueba no son suficientes para determinar un ganador estadísticamente significativo, todos los usuarios futuros se enviarán por el recorrido con mejor rendimiento.
 
 Alternativamente, puedes seleccionar **Continuar enviando a todos los usuarios futuros la combinación de recorridos**.
 
-![]({% image_buster /assets/img/experiment_step/experiment_winning_statistical.png %})
+![Alternativamente, puedes seleccionar Continuar enviando a todos los usuarios futuros la combinación de recorridos.]({% image_buster /assets/img/experiment_step/experiment_winning_statistical.png %})
 
 Esta opción enviará a los usuarios futuros por la combinación de recorridos según los porcentajes especificados en la distribución del recorrido de experimentos.
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_percentages.png %})
+![Captura de pantalla relacionada con el paso 3: determinar la alternativa.]({% image_buster /assets/img/experiment_step/experiment_personalized_percentages.png %})
 
-### Paso 4: Añadir tus recorridos y lanzar el Canvas
+### Paso 4: Añadir tus recorridos y lanzar el Canvas {#step-4-add-your-paths-and-launch-the-canvas}
 
 {% tabs local %}
 {% tab Canvas de envío único %}
@@ -56,11 +56,11 @@ Un solo componente de recorrido de experimentos puede contener hasta cuatro reco
 
 Termina de configurar tu Canvas según sea necesario y luego lánzalo. Cuando el primer usuario haya entrado en el experimento, puedes consultar el Canvas para ver los análisis a medida que llegan y [hacer seguimiento del rendimiento de tu experimento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#tracking-performance).
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_pending.png %}){: style="max-width:75%;" }
+![Captura de pantalla relacionada con el paso 4: añadir tus recorridos y lanzar el Canvas.]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_pending.png %}){: style="max-width:75%;" }
 
 Cuando la ventana del experimento pase y el experimento esté completo, Braze enviará a los usuarios del grupo de retraso a sus recorridos respectivos con la mayor probabilidad personalizada de conversión, basándose en la recomendación del modelo predictivo.
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_complete.png %}){: style="max-width:75%;" }
+![Captura de pantalla relacionada con el paso 4: añadir tus recorridos y lanzar el Canvas.]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_complete.png %}){: style="max-width:75%;" }
 
 {% endtab %}
 {% tab Canvas recurrente, desencadenado por acción o desencadenado por API %}
@@ -71,7 +71,7 @@ Cuando el primer usuario haya entrado en el experimento, puedes consultar el Can
 
 Cuando la ventana del experimento pase y el experimento esté completo, todos los usuarios posteriores que entren en el Canvas se enviarán por el recorrido con mayor probabilidad de generar una conversión para ellos.
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_recurring_analytics.png %}){: style="max-width:75%;" }
+![Captura de pantalla relacionada con el paso 4: añadir tus recorridos y lanzar el Canvas.]({% image_buster /assets/img/experiment_step/experiment_personalized_recurring_analytics.png %}){: style="max-width:75%;" }
 
 {% endtab %}
 {% endtabs %}
@@ -91,7 +91,7 @@ De forma predeterminada, la prueba busca asociaciones entre los eventos personal
 
 Las relaciones entre eventos personalizados y preferencias de recorrido se muestran en la tabla de la pestaña **Experimento inicial**.
 
-![]({% image_buster /assets/img_archive/experiment_personalized_analytics_custom_data.png %})
+![Captura de pantalla relacionada con los análisis.]({% image_buster /assets/img_archive/experiment_personalized_analytics_custom_data.png %})
 
 Si la prueba no puede encontrar una relación significativa entre los eventos personalizados y las preferencias de recorrido, recurre a un método de análisis basado en sesiones, y no se muestran tablas de datos de eventos personalizados.
 
@@ -141,7 +141,7 @@ Las tres tarjetas en esta página muestran tu mejora proyectada, los resultados 
 {% endtab %}
 {% endtabs %}
 
-## Uso de recorridos personalizados con entrega según la zona horaria local
+## Uso de recorridos personalizados con entrega según la zona horaria local {#using-personalized-paths-with-local-time-delivery}
 
 No recomendamos usar la entrega según la zona horaria local en Canvas con recorridos personalizados. Esto se debe a que las ventanas de experimento comienzan cuando el primer usuario pasa por ellas. Los usuarios que se encuentran en zonas horarias muy tempranas pueden entrar en el paso y desencadenar el inicio de la ventana del experimento mucho antes de lo que esperas, lo que puede resultar en que el experimento concluya antes de que la mayoría de tus usuarios en zonas horarias más típicas hayan tenido suficiente tiempo para entrar en el Canvas y convertir.
 

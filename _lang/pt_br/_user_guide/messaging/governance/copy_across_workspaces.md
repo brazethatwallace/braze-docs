@@ -79,7 +79,7 @@ Landing pages são copiadas como rascunhos. Antes de publicar uma landing page c
 | Descrição | Territórios |
 | Tipo | Tags |
 | Ações (aninhadas) | Segments e filtros |
-| Comportamentos de conversão (aninhados) | [Aprovações]({{site.baseurl}}/user_guide/messaging/governance/approvals/) |
+| Comportamentos de conversão (aninhados) | [Aprovações]({{site.baseurl}}/user_guide/messaging/governance/approvals) |
 | Configurações de horário silencioso | Programação de gatilho |
 | Configurações de limite de frequência | Resumos da Campaign |
 | Estado de inscrição do destinatário |  |
@@ -95,7 +95,7 @@ Landing pages são copiadas como rascunhos. Antes de publicar uma landing page c
 | Descrição | Territórios |
 | Tipo | Tags |
 | Ações (aninhadas) | Segments e filtros |
-| Comportamentos de conversão (aninhados) | [Aprovações]({{site.baseurl}}/user_guide/messaging/governance/approvals/) |
+| Comportamentos de conversão (aninhados) | [Aprovações]({{site.baseurl}}/user_guide/messaging/governance/approvals) |
 | Configurações de horário silencioso | Programação de gatilho |
 | Configurações de limite de frequência | Resumos do Canvas |
 | Estado de inscrição do destinatário |  |
@@ -103,7 +103,7 @@ Landing pages são copiadas como rascunhos. Antes de publicar uma landing page c
 | É transacional |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Informações" }
 
-Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)) não são copiados para o espaço de trabalho de destino. Reconfigure esses filtros após a cópia.
+Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)) não são copiados para o espaço de trabalho de destino. Reconfigure esses filtros após a cópia.
 
 {% endtab %}
 {% endtabs %}
@@ -335,7 +335,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão d
 
 ## Copiando mensagens que contêm Liquid {#copying-messages-that-contain-liquid}
 
-As referências Liquid dentro dos corpos das mensagens são copiadas para o espaço de trabalho de destino, mas podem não funcionar conforme o esperado. Isso significa que, se um Canvas do Espaço de trabalho A for copiado para o Espaço de trabalho B, o Espaço de trabalho B não poderá referenciar os detalhes do Espaço de trabalho A, incluindo referências Liquid. Por exemplo, campos como ações-gatilho, filtros de público e critérios de filtro de [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) não são copiados.
+As referências Liquid dentro dos corpos das mensagens são copiadas para o espaço de trabalho de destino, mas podem não funcionar conforme o esperado. Isso significa que, se um Canvas do Espaço de trabalho A for copiado para o Espaço de trabalho B, o Espaço de trabalho B não poderá referenciar os detalhes do Espaço de trabalho A, incluindo referências Liquid. Por exemplo, campos como ações-gatilho, filtros de público e critérios de filtro de [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) não são copiados.
 
 Acompanhe as seguintes referências Liquid com dependências ao copiar Campaigns, Canvas e landing pages entre espaços de trabalho:
 
@@ -350,7 +350,7 @@ Acompanhe as seguintes referências Liquid com dependências ao copiar Campaigns
 
 ## Copiando mensagens com Feature Flags {#copying-messages-with-feature-flags}
 
-Para copiar uma Campaign de Feature Flag e um Canvas com uma etapa de Feature Flag entre espaços de trabalho, certifique-se de que o espaço de trabalho de destino tenha um [experimento de Feature Flag]({{site.baseurl}}/developer_guide/feature_flags/experiments/) configurado com um ID que corresponda ao Feature Flag referenciado na Campaign original ou à etapa de Feature Flag referenciada no Canvas original.
+Para copiar uma Campaign de Feature Flag e um Canvas com uma etapa de Feature Flag entre espaços de trabalho, certifique-se de que o espaço de trabalho de destino tenha um [experimento de Feature Flag]({{site.baseurl}}/developer_guide/feature_flags/experiments) configurado com um ID que corresponda ao Feature Flag referenciado na Campaign original ou à etapa de Feature Flag referenciada no Canvas original.
 
 Se você copiar uma Campaign ou Canvas que tenha uma etapa de Feature Flag com um ID de Feature Flag que não existe no espaço de trabalho de destino, a etapa de Feature Flag será copiada, mas seu conteúdo não será.
 

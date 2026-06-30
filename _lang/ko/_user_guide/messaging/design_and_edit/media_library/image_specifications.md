@@ -14,7 +14,7 @@ tool:
 
 > 일반적으로 작고 고품질인 이미지가 더 빠르게 로드되므로, 원하는 결과를 달성할 수 있는 가장 작은 자산을 사용하는 것을 권장합니다. 특정 채널에서 이미지 활용을 극대화하려면 이 문서의 세부 정보를 참조하세요.
 
-항상 다양한 기기에서 [메시지를 미리보기하고 테스트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/)하여 이미지와 메시지의 가장 중요한 영역이 예상대로 표시되는지 확인해야 합니다.
+항상 다양한 기기에서 [메시지를 미리보기하고 테스트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages)하여 이미지와 메시지의 가장 중요한 영역이 예상대로 표시되는지 확인해야 합니다.
 
 ## 이미지 동작 {#image-behavior}
 
@@ -22,7 +22,7 @@ tool:
 
 ## 동영상 {#video}
 
-미디어 라이브러리에 업로드된 동영상은 WhatsApp 메시지에서만 사용할 수 있습니다. 자세한 내용은 [WhatsApp 메시지 만들기]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#outbound-messages)를 참조하세요.
+미디어 라이브러리에 업로드된 동영상은 WhatsApp 메시지에서만 사용할 수 있습니다. 자세한 내용은 [WhatsApp 메시지 만들기]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#outbound-messages)를 참조하세요.
 
 ## GIF {#gifs}
 
@@ -46,7 +46,7 @@ GIF는 iOS 푸시, 인앱 메시지, 이메일, Content Cards, MMS 또는 RCS �
 
 {% alert tip %} 자신 있게 자산을 만들어 보세요! 인앱 메시지 이미지 템플릿과 세이프 존 오버레이는 모든 크기의 기기에서 잘 작동하도록 설계되었습니다. [디자인 템플릿 ZIP 다운로드]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}). {% endalert %}
 
-자세한 내용은 [인앱 메시지 크리에이티브 세부 정보]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/)를 참조하세요.
+자세한 내용은 [인앱 메시지 크리에이티브 세부 정보]({{site.baseurl}}/user_guide/channels/in_app_messages/customize)를 참조하세요.
 
 #### Font Awesome
 
@@ -71,7 +71,7 @@ Braze는 모달 인앱 메시지 아이콘에 [Font Awesome v4.3.0](https://font
 | Android 알림 서랍 | 597자 | N/A |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="권장 메시지 길이" }
 
-iOS 글자 수에 대한 자세한 내용은 [iOS 글자 수 가이드라인]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count)을 참조하세요.
+iOS 글자 수에 대한 자세한 내용은 [iOS 글자 수 가이드라인]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications#character-count)을 참조하세요.
 
 #### 웹 푸시 {#web-push}
 
@@ -140,4 +140,4 @@ iOS 글자 수에 대한 자세한 내용은 [iOS 글자 수 가이드라인]({{
 {% endtab %}
 {% endtabs %}
 
-추가 리소스는 [푸시 이미지 및 텍스트 사양]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/)을 참조하세요.
+추가 리소스는 [푸시 이미지 및 텍스트 사양]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats)을 참조하세요.

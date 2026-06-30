@@ -18,7 +18,7 @@ local_redirect: #optimizations
 ## ステップ 1:Campaignを作成する {#step-1-create-your-campaign}
 
 1. **Messaging** > **Campaigns**に移動します。
-2. **Create Campaign**を選択し、多変量テストとABテストが可能なセクションからCampaignのチャネルを選択します。各メッセージングチャネルの詳細なドキュメントについては、[Campaignの作成]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/)を参照してください。
+2. **Create Campaign**を選択し、多変量テストとABテストが可能なセクションからCampaignのチャネルを選択します。各メッセージングチャネルの詳細なドキュメントについては、[Campaignの作成]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign)を参照してください。
 
 ## ステップ 2:バリアントを作成する {#step-2-compose-your-variants}
 
@@ -30,19 +30,19 @@ local_redirect: #optimizations
 
 ## ステップ 3:Campaignをスケジュールする {#step-3-schedule-your-campaign}
 
-多変量Campaignのスケジュール設定は、他のBraze Campaignのスケジュール設定と同じです。すべての標準的な[配信タイプ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/)が利用可能です。
+多変量Campaignのスケジュール設定は、他のBraze Campaignのスケジュール設定と同じです。すべての標準的な[配信タイプ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types)が利用可能です。
 
 多変量テストの送信が開始された後は、Campaignに変更を加えることはできません。件名やHTML本文などのパラメーターを変更すると、Brazeは実験が損なわれたとみなし、直ちに実験を無効にします。
 
 {% alert important %}
-[最適化]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/)（一部のチャネルで利用可能）を使用するには、Campaignを1回限りの配信としてスケジュールしてください。最適化は、繰り返し配信や再エントリが有効になっているCampaignでは利用できません。
+[最適化]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations)（一部のチャネルで利用可能）を使用するには、Campaignを1回限りの配信としてスケジュールしてください。最適化は、繰り返し配信や再エントリが有効になっているCampaignでは利用できません。
 {% endalert %}
 
-## ステップ 4:セグメントを選択し、バリアント間でユーザーを分配する {#step-4-choose-a-segment-and-distribute-your-users-across-variants}
+## ステップ 4:Segmentを選択し、バリアント間でユーザーを分配する {#step-4-choose-a-segment-and-distribute-your-users-across-variants}
 
-ターゲットとするセグメントを選択し、選択したバリアントとオプションの[コントロールグループ](#including-a-control-group)にメンバーを分配します。テスト用のセグメント選択のベストプラクティスについては、[セグメントの選択](#choosing-a-segment)を参照してください。
+ターゲットとするSegmentを選択し、選択したバリアントとオプションの[コントロールグループ](#including-a-control-group)にメンバーを分配します。テスト用のSegment選択のベストプラクティスについては、[Segmentの選択](#choosing-a-segment)を参照してください。
 
-プッシュ、メール、Webhookの1回限りの配信Campaignでは、[最適化]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/)も使用できます。最適化は、ターゲットオーディエンスの一部をABテストから確保し、最初のテストの結果に基づいて最適化された2回目の送信のために保持します。
+プッシュ、メール、Webhookの1回限りの配信Campaignでは、[最適化]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations)も使用できます。最適化は、ターゲットオーディエンスの一部をABテストから確保し、最初のテストの結果に基づいて最適化された2回目の送信のために保持します。
 
 ### コントロールグループ {#including-a-control-group}
 
@@ -62,17 +62,17 @@ ABテストでレート制限を使用する場合、レート制限はテスト
 
 #### インテリジェントセレクションにおけるコントロールグループ {#control-groups-with-intelligent-selection}
 
-[インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/)を使用するCampaignのコントロールグループのサイズは、バリアントの数に基づきます。各バリアントがユーザーの20%以上に送信される場合、コントロールグループは20%となり、バリアントは残りの80%に均等に分配されます。ただし、各バリアントがユーザーの20%未満に送信されるほど多くのバリアントがある場合、コントロールグループはより小さくなる必要があります。インテリジェントセレクションがテストのパフォーマンス分析を開始すると、コントロールグループは結果に基づいて拡大または縮小します。
+[インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)を使用するCampaignのコントロールグループのサイズは、バリアントの数に基づきます。各バリアントがユーザーの20%以上に送信される場合、コントロールグループは20%となり、バリアントは残りの80%に均等に分配されます。ただし、各バリアントがユーザーの20%未満に送信されるほど多くのバリアントがある場合、コントロールグループはより小さくなる必要があります。インテリジェントセレクションがテストのパフォーマンス分析を開始すると、コントロールグループは結果に基づいて拡大または縮小します。
 
 ## ステップ 5:コンバージョンイベントを指定する（オプション） {#step-5-designate-a-conversion-event-optional}
 
 Campaignにコンバージョンイベントを設定すると、そのCampaignの受信者のうち、受信後に特定のアクションを実行した人数を確認できます。
 
-これは、前のステップで**1次コンバージョン率**を選択した場合にのみテストに影響します。詳細については、[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)を参照してください。
+これは、前のステップで**1次コンバージョン率**を選択した場合にのみテストに影響します。詳細については、[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)を参照してください。
 
 ## ステップ 6:確認して起動する {#step-6-review-and-launch}
 
-確認ページで多変量Campaignの詳細を確認し、テストを起動します。次に、[テスト結果の理解]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics/)の方法を学びましょう。
+確認ページで多変量Campaignの詳細を確認し、テストを起動します。次に、[テスト結果の理解]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics)の方法を学びましょう。
 
 ## 注意事項 {#things-to-know}
 
@@ -89,26 +89,26 @@ Campaignにコンバージョンイベントを設定すると、そのCampaign�
 | ---------------------| --------------- | ------------- |
 | プッシュ | コピー <br> 画像と絵文字の使用 <br> ディープリンク <br> 数値の表現（例：「3倍」と「200%増加」）<br> 時間の表現（例：「深夜に終了」と「残り6時間で終了」） | 開封数 <br> コンバージョン率 |
 | メール | 件名 <br> 表示名 <br> 挨拶文 <br> 本文コピー <br> 画像と絵文字の使用 <br> 数値の表現（例：「3倍」と「200%増加」）<br> 時間の表現（例：「深夜に終了」と「残り6時間で終了」） | 開封数 <br> コンバージョン率 |
-| アプリ内メッセージ | 「プッシュ」に記載された要素 <br> [アプリ内メッセージの画像仕様]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#in-app-messages) | クリック数 <br> コンバージョン率 |
+| アプリ内メッセージ | 「プッシュ」に記載された要素 <br> [アプリ内メッセージの画像仕様]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#in-app-messages) | クリック数 <br> コンバージョン率 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="チャネル別のヒント" }
 
 {% alert tip %}
-ABテストを実施する際は、[ファネルレポート]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/)を生成することを忘れないでください。各バリアントがコンバージョンファネルにどのような影響を与えたかを理解できます。特に、ビジネスにおける「コンバージョン」が複数のステップやアクションを伴う場合に有用です。
+ABテストを実施する際は、[ファネルレポート]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports)を生成することを忘れないでください。各バリアントがコンバージョンファネルにどのような影響を与えたかを理解できます。特に、ビジネスにおける「コンバージョン」が複数のステップやアクションを伴う場合に有用です。
 {% endalert %}
 
 また、テストの理想的な期間もチャネルによって異なる場合があります。各チャネルでユーザーがエンゲージメントするのに必要な平均的な時間を考慮してください。
 
 たとえば、プッシュをテストする場合、ユーザーはプッシュを即座に確認するため、メールのテストよりも早く有意な結果が得られる可能性があります。一方、メールの場合は確認や開封までに数日かかることがあります。アプリ内メッセージをテストする場合、ユーザーがCampaignを確認するにはアプリを開く必要があるため、最もアクティブなアプリユーザーだけでなく、一般的なユーザーからも結果を収集するために、より長い期間待つ必要があります。
 
-テストの実施期間が不明な場合は、[インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/)機能が勝者バリアントを効率的に見つけるのに役立ちます。
+テストの実施期間が不明な場合は、[インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)機能が勝者バリアントを効率的に見つけるのに役立ちます。
 
-### セグメントの選択 {#choosing-a-segment}
+### Segmentの選択 {#choosing-a-segment}
 
-ユーザーのセグメントによってメッセージへの反応が異なる可能性があるため、特定のメッセージの成功は、メッセージ自体とそのターゲットセグメントの両方について示唆を与えます。そのため、ターゲットセグメントを念頭に置いてテストを設計するようにしてください。
+ユーザーのSegmentによってメッセージへの反応が異なる可能性があるため、特定のメッセージの成功は、メッセージ自体とそのターゲットSegmentの両方について示唆を与えます。そのため、ターゲットSegmentを念頭に置いてテストを設計するようにしてください。
 
 たとえば、アクティブユーザーは「このセールは明日終了！」と「このセールは24時間で終了！」に対して同等の反応率を示すかもしれませんが、1週間アプリを開いていないユーザーは、より強い緊急感を生み出す後者の表現に対してより反応する可能性があります。
 
-さらに、テストを実施するセグメントを選択する際は、そのセグメントのサイズがテストに十分な大きさであることを確認してください。一般的に、バリアントが多い多変量テストやABテストでは、統計的に有意な結果を得るためにより大きなテストグループが必要です。これは、バリアントが多いほど、各バリアントを見るユーザーが少なくなるためです。
+さらに、テストを実施するSegmentを選択する際は、そのSegmentのサイズがテストに十分な大きさであることを確認してください。一般的に、バリアントが多い多変量テストやABテストでは、統計的に有意な結果を得るためにより大きなテストグループが必要です。これは、バリアントが多いほど、各バリアントを見るユーザーが少なくなるためです。
 
 {% alert tip %}
 目安として、テスト結果に95%の信頼度を得るには、バリアントごと（コントロールを含む）に約15,000人のユーザーが必要です。ただし、必要なユーザー数は、特定のケースによってそれより多くなったり少なくなったりする可能性があります。バリアントのサンプルサイズに関するより正確なガイダンスについては、[サンプルサイズ計算ツール](https://www.calculator.net/sample-size-calculator.html)を参照することを検討してください。
@@ -129,5 +129,5 @@ ABテストを実施する際は、[ファネルレポート]({{site.baseurl}}/u
 コントロールバリアントにCanvasステップが含まれていない場合、コントロールバリアントのユーザーに対して離脱条件イベントはログに記録されないことに注意してください。
 
 {% alert note %}
-コントロールグループにランダムバケット番号を手動で使用している場合は、コントロールグループの[注意事項]({{site.baseurl}}/user_guide/audience/global_control_group/#things-to-watch-for)を確認してください。
+コントロールグループにランダムバケット番号を手動で使用している場合は、コントロールグループの[注意事項]({{site.baseurl}}/user_guide/audience/global_control_group#things-to-watch-for)を確認してください。
 {% endalert %}

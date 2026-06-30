@@ -17,7 +17,7 @@ guide_featured_list:
 - name: サポートされているパーソナライゼーションタグ
   link: /docs/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags
   image: /assets/img/braze_icons/tag-01.svg
-- name: Operator
+- name: オペレーター
   link: /docs/user_guide/messaging/design_and_edit/personalize/liquid/operators
   image: /assets/img/braze_icons/code-02.svg
 - name: フィルター
@@ -35,7 +35,7 @@ guide_featured_list:
 - name: メッセージの中止
   link: /docs/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages
   image: /assets/img/braze_icons/refresh-ccw-01.svg
-- name: Liquidユースケース
+- name: Liquidユースケースライブラリ
   link: /docs/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases
   image: /assets/img/braze_icons/list.svg
 - name: チュートリアル
@@ -51,13 +51,13 @@ guide_featured_list:
 
 Liquidは、メッセージとユーザーデータの橋渡しをします。メッセージを送信すると、Brazeはテキスト内のLiquid構文をスキャンします。Liquidを検出すると、その特定のユーザーに関連するデータを取得し、メッセージが送信される前にコードを実際の値に置き換えます。
 
-たとえば、整数データタイプのカスタム属性をユーザープロファイルから取得し、その値を最も近い整数に丸めることができます。Liquidの構文と使い方の詳細については、[**サポートされているパーソナライゼーションタグ**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)を参照してください。
+たとえば、整数データタイプのカスタム属性をユーザープロファイルから取得し、その値を最も近い整数に丸めることができます。Liquidの構文と使い方の詳細については、[**サポートされているパーソナライゼーションタグ**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)を参照してください。
 
 Liquidテンプレート言語は、オブジェクト、タグ、フィルターの使用をサポートしています。
 
-- [**オブジェクト**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を使用すると、パーソナライズされた属性をメッセージに挿入できます。
-- [**タグ**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)を使用すると、メッセージングにデータを挿入し、条件付きロジックを使用して特定の条件が満たされた場合にメッセージを送信できます。たとえば、タグを使用してキャンペーンに「if」文などのインテリジェントロジックを含めることができます。
-- [**フィルター**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/)を使用すると、パーソナライズされた属性やダイナミックなコンテンツの書式を変更できます。たとえば、[`date`フィルター]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#date-filter)を使用して、*2016-09-07 08:43:50 UTC*のようなタイムスタンプを*September 7, 2016*のような日付に変換できます。
+- [**オブジェクト**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)を使用すると、パーソナライズされた属性をメッセージに挿入できます。
+- [**タグ**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)を使用すると、メッセージングにデータを挿入し、条件付きロジックを使用して特定の条件が満たされた場合にメッセージを送信できます。たとえば、タグを使用してCampaignに「if」文などのインテリジェントロジックを含めることができます。
+- [**フィルター**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters)を使用すると、パーソナライズされた属性やダイナミックなコンテンツの書式を変更できます。たとえば、[`date`フィルター]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#date-filter)を使用して、*2016-09-07 08:43:50 UTC*のようなタイムスタンプを*2016年9月7日*のような日付に変換できます。
 
 {% alert warning %}
 Brazeは現在、ShopifyのLiquidを100%サポートしているわけではなく、ドキュメントで説明を試みている特定の部分のみをサポートしています。エラーやサポートされていないLiquidの使用リスクを軽減するために、送信前にLiquidを使用したすべてのメッセージをテストすることを強くお勧めします。
@@ -65,7 +65,7 @@ Brazeは現在、ShopifyのLiquidを100%サポートしているわけではな�
 
 ### Liquid 5のサポート {#liquid-5-support}
 
-Brazeは**ShopifyのLiquid 5**までをサポートしています。Liquidの実装は、構文パーソナライゼーションタグタイプとホワイトスペース制御をサポートしています。特定のタグの詳細については、[構文タグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#syntax-tags)を参照してください。
+Brazeは**ShopifyのLiquid 5**までをサポートしています。Liquidの実装は、構文パーソナライゼーションタグタイプとホワイトスペース制御をサポートしています。特定のタグの詳細については、[構文タグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#syntax-tags)を参照してください。
 
 メッセージングを構築する際に、以下の新しい配列フィルターと数学フィルターをLiquidで使用できます。
 - `at_least`
@@ -75,7 +75,7 @@ Brazeは**ShopifyのLiquid 5**までをサポートしています。Liquidの�
 - `sort_natural`
 - `where`
 
-定義については[フィルター]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/)を参照してください。
+定義については[フィルター]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters)を参照してください。
 
 ## 知っておくべき用語 {#terms-to-know}
 
@@ -89,7 +89,7 @@ Brazeは**ShopifyのLiquid 5**までをサポートしています。Liquidの�
 | オブジェクト | 変数と目的の変数名の位置を示すもので、メッセージ内のどこにコンテンツを表示するかをLiquidに伝えます。 | `{{${city}}}`はメッセージにユーザーの市区町村を挿入します。 |
 | 条件付きロジックタグ | ロジックを作成し、メッセージコンテンツのフローを制御するために使用されます。Brazeでは、条件付きロジックタグは特定の事前定義された基準に基づいてメッセージに例外やバリエーションを作成するために使用されます。 | ```{% if ${language} == 'en' %}```は、ユーザーが言語として「English」を指定している場合に、指定された方法でメッセージをトリガーします。 |
 | フィルター | Liquidオブジェクトの出力を変更、絞り込み、または書式変更するために使用されます。数学的な演算を作成するためによく使用されます。 | ```{{"Big Sale" | upcase}}```は、「Big Sale」という文字をメッセージ内で「BIG SALE」として表示します。 |
-| Operator | メッセージ内で使用され、ユーザーが受け取るメッセージに影響する依存関係や基準を作成します。 | `{% custom_attribute.${Total_Revenue} > 0%}`タグが付いたメッセージで定義された基準をユーザーが満たしている場合、そのメッセージを受け取ります。満たしていない場合は、設定内容に応じて別の指定されたメッセージを受け取る（または受け取らない）ことになります。 |
+| オペレーター | メッセージ内で使用され、ユーザーが受け取るメッセージに影響する依存関係や基準を作成します。 | `{% custom_attribute.${Total_Revenue} > 0%}`タグが付いたメッセージで定義された基準をユーザーが満たしている場合、そのメッセージを受け取ります。満たしていない場合は、設定内容に応じて別の指定されたメッセージを受け取る（または受け取らない）ことになります。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="知っておくべき用語" }
 
 {% endraw %}

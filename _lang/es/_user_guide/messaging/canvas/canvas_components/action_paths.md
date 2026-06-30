@@ -36,7 +36,7 @@ Por defecto, la **Clasificación** está desactivada. Cuando un usuario entra en
 Cuando **Avanzar usuarios según el orden clasificado** está activado, significa que la **Clasificación** está activa. Así, todos los usuarios se retienen hasta el final de la ventana de evaluación. Al final del periodo de evaluación, los usuarios avanzan a través del grupo de acción de mayor prioridad para el que sean elegibles al final de la ventana de evaluación. Los usuarios que no realicen ninguna de las acciones durante la ventana de evaluación avanzan a través del grupo predeterminado **El resto**.
 
 {% alert tip %}
-Para dirigir a los usuarios en función de sus atributos actuales o pertenencia a un segmento en lugar de las acciones que realizan, usa [Rutas de audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) en su lugar.
+Para dirigir a los usuarios en función de sus atributos actuales o pertenencia a un segmento en lugar de las acciones que realizan, usa [Rutas de audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) en su lugar.
 {% endalert %}
 
 Ten en cuenta que puedes desencadenar una ruta de acción cuando cambia un objeto de atributo personalizado anidado, pero no para matrices de atributos personalizados anidados ni para cambios en tipos de datos de matriz de objetos.
@@ -59,7 +59,7 @@ Añade un desencadenante o varios desencadenantes para definir tus grupos de acc
 
 - Realizan una compra
 - Inician una sesión
-- Realizan un [evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)
+- Realizan un [evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events)
 - Realizan un evento de conversión
 - Añaden una dirección de correo electrónico
 - Cambian el valor de un atributo personalizado.
@@ -85,7 +85,7 @@ Si los usuarios entran en una ruta de acción varias veces y tienen múltiples e
 
 | Estado de clasificación | Comportamiento de la ruta de acción |
 |---|--------------|
-| **Desactivada** | Un usuario puede entrar en una ruta de acción más de una vez. Estas entradas se retienen en la ruta de acción hasta que se registra una acción o evento desencadenante. Si el evento desencadenante no cumple los filtros de propiedades de una entrada (por ejemplo, una [variable de contexto]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables/) no coincide con los filtros de propiedades del desencadenante), la entrada permanece en la ruta de acción. <br><br>Si el evento desencadenante cumple más de una entrada, Braze deduplica solo estas entradas y avanza inmediatamente la entrada coincidente más antigua a través del grupo de acción correspondiente. |
+| **Desactivada** | Un usuario puede entrar en una ruta de acción más de una vez. Estas entradas se retienen en la ruta de acción hasta que se registra una acción o evento desencadenante. Si el evento desencadenante no cumple los filtros de propiedades de una entrada (por ejemplo, una [variable de contexto]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables) no coincide con los filtros de propiedades del desencadenante), la entrada permanece en la ruta de acción. <br><br>Si el evento desencadenante cumple más de una entrada, Braze deduplica solo estas entradas y avanza inmediatamente la entrada coincidente más antigua a través del grupo de acción correspondiente. |
 | **Activada** | Todas las entradas avanzan al final de la ventana de evaluación correspondiente. No se realiza deduplicación. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas con reelegibilidad" }
 
@@ -93,4 +93,4 @@ Si los usuarios entran en una ruta de acción varias veces y tienen múltiples e
 No cambies **Avanzar usuarios según el orden clasificado** después del lanzamiento cuando los usuarios ya están en el paso. Braze aplica la configuración de clasificación actual al procesar eventos y cuando finaliza la ventana de evaluación, pero el estado de la ruta registrado anteriormente en la ventana puede reflejar una configuración previa. Por ejemplo, si desactivas la clasificación después de que los usuarios realizaron una acción clasificada, es posible que no avancen por la ruta que esperas cuando se cierre la ventana. En su lugar, crea una nueva ruta de acción con la configuración de clasificación deseada, o duplica el Canvas.
 {% endalert %}
 
-Ten en cuenta que las clasificaciones no son [editables después del lanzamiento]({{site.baseurl}}/post-launch_edits/).
+Ten en cuenta que las clasificaciones no son [editables después del lanzamiento]({{site.baseurl}}/post-launch_edits).

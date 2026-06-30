@@ -20,7 +20,7 @@ tool:
 同様に、複数のバリアントを整数のパーセンテージで均等に分割したい場合は、バリアントの数が100の約数であることを確認してください。そうでない場合、一部のバリアントに他のバリアントよりも高いパーセンテージのユーザーが配分されます。例えば、Campaignに7つのバリアントがある場合、7は100を整数で均等に割り切れないため、均等なバリアント配分にはなりません。この場合、15%のバリアントが2つと14%のバリアントが5つになります。
 
 {% alert tip %}
-Canvasでユーザーを配分するには、[条件分岐ステップ]({{site.baseurl}}/decision_split/)を追加し、[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)に基づいてユーザーを分けることができます。
+Canvasでユーザーを配分するには、[条件分岐ステップ]({{site.baseurl}}/decision_split)を追加し、[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers)に基づいてユーザーを分けることができます。
 {% endalert %}
 
 ## アプリ内メッセージの配分 {#in-app-message-distribution}

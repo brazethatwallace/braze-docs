@@ -34,13 +34,13 @@ La etiqueta `message_extras` es compatible con todos los tipos de mensaje que ti
 
 ## Cómo usar la etiqueta `message_extras` {#how-to-use-the-message_extras-tag}
 
-1. En el cuerpo del mensaje para el canal, introduce la etiqueta de Liquid `message_extras`. O bien, puedes usar el modal **Add Personalization** y seleccionar **Message Extras** para el tipo de personalización.
+1. En el cuerpo del mensaje para el canal, introduce la etiqueta de Liquid `message_extras`. O bien, puedes usar el modal **Añadir personalización** y seleccionar **Message Extras** para el tipo de personalización.
 
-![El modal Add Personalization con Message Extras seleccionado como tipo de personalización.]({% image_buster /assets/img_archive/message_extras1.png %}){: style="max-width:35%;"}
+![El modal Añadir personalización con Message Extras seleccionado como tipo de personalización.]({% image_buster /assets/img_archive/message_extras1.png %}){: style="max-width:35%;"}
 
 {: start="2"}
 
-2. Introduce el [par clave-valor]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/) para cada etiqueta `message_extras`.
+2. Introduce el [par clave-valor]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) para cada etiqueta `message_extras`.
 
 ![Un ejemplo de pares clave-valor para la etiqueta message extras. El campo de título dice "Your New Favorites". El mensaje muestra pares clave-valor para la etiqueta message extras y la siguiente frase: "We're excited to bring you a side selection of fresh and exciting products that are sure to become your new go-to favorites".]({% image_buster /assets/img_archive/message_extras2.png %}){: style="max-width:70%;"}
 
@@ -72,9 +72,9 @@ Cualquier otra entrada que no coincida con el estándar de la etiqueta descrito 
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
-#### ¿Cómo puedo asociar el campo message_extras en los eventos de envío con mis eventos de interacción como aperturas y clics? {#how-can-i-associate-the-message_extras-field-in-the-send-events-to-my-engagement-events-like-opens-and-clicks}
+### ¿Cómo puedo asociar el campo message_extras en los eventos de envío con mis eventos de interacción como aperturas y clics? {#how-can-i-associate-the-message_extras-field-in-the-send-events-to-my-engagement-events-like-opens-and-clicks}
 
-Se genera un `dispatch_id` y se proporciona en tus eventos de envío, que puedes usar como identificador único para vincularlo a eventos específicos de clic, apertura o entrega. Consulta este campo en Currents o Snowflake. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
+Se genera un `dispatch_id` y se proporciona en tus eventos de envío, que puedes usar como identificador único para vincularlo a eventos específicos de clic, apertura o entrega. Consulta este campo en Currents o Snowflake. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
 
 #### ¿Puedo usar message_extras con mensajes dentro de la aplicación? {#iam-sdk}
 

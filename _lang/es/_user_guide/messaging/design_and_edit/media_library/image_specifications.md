@@ -14,7 +14,7 @@ tool:
 
 > En general, las imágenes más pequeñas y de alta calidad se cargan más rápido, por lo que recomendamos usar el activo más pequeño posible para lograr el resultado deseado. Para maximizar el uso de tus imágenes en canales específicos, consulta los detalles en este artículo.
 
-Siempre debes [previsualizar y probar tus mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) en una variedad de dispositivos para confirmar que las áreas más importantes de tu imagen y mensaje se muestren como se espera.
+Siempre debes [previsualizar y probar tus mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) en una variedad de dispositivos para confirmar que las áreas más importantes de tu imagen y mensaje se muestren como se espera.
 
 ## Comportamiento de las imágenes {#image-behavior}
 
@@ -22,7 +22,7 @@ Siempre debes [previsualizar y probar tus mensajes]({{site.baseurl}}/user_guide/
 
 ## Video {#video}
 
-Los videos cargados en la biblioteca de medios solo se pueden usar en mensajes de WhatsApp. Para más información, consulta [Crear un mensaje de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#outbound-messages).
+Los videos cargados en la biblioteca de medios solo se pueden usar en mensajes de WhatsApp. Para más información, consulta [Crear un mensaje de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#outbound-messages).
 
 ## GIF {#gifs}
 
@@ -46,7 +46,7 @@ Los GIF son compatibles con push de iOS, mensajes dentro de la aplicación, corr
 
 {% alert tip %} ¡Crea activos con confianza! Nuestras plantillas de imágenes para mensajes dentro de la aplicación y las superposiciones de zona segura están diseñadas para funcionar bien con dispositivos de todos los tamaños. [Descargar ZIP de plantillas de diseño]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}). {% endalert %}
 
-Para más información, consulta [Detalles creativos de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/).
+Para más información, consulta [Detalles creativos de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/customize).
 
 #### Font Awesome
 
@@ -71,7 +71,7 @@ Para obtener los mejores resultados, consulta las siguientes directrices de long
 | Panel de notificaciones de Android | 597 caracteres | N/A |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Longitudes de mensaje recomendadas" }
 
-Para más información sobre el conteo de caracteres en iOS, consulta las [directrices de conteo de caracteres en iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count).
+Para más información sobre el conteo de caracteres en iOS, consulta las [directrices de conteo de caracteres en iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications#character-count).
 
 #### Notificación push web {#web-push}
 
@@ -140,4 +140,4 @@ Las notificaciones con imágenes grandes se muestran mejor cuando se usa una ima
 {% endtab %}
 {% endtabs %}
 
-Para recursos adicionales, consulta [Especificaciones de imagen y texto para push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/).
+Para recursos adicionales, consulta [Especificaciones de imagen y texto para push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats).

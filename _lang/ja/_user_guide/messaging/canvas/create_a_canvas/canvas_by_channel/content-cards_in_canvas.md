@@ -69,7 +69,7 @@ CanvasでContent Cardsステップを起動した後、このステップのさ�
 
 ![Content Cardsのメッセージパフォーマンスを含むメッセージステップの分析。]({% image_buster /assets/img_archive/content-cards-in-canvas-analytics.png %})
 
-利用可能な指標とその定義の詳細については、[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)を参照してください。
+利用可能な指標とその定義の詳細については、[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)を参照してください。
 
 ## ユースケース {#use-cases}
 
@@ -85,4 +85,4 @@ Canvasを使用して、Content Cardsとプッシュ通知の両方を送信す�
 
 ### カテゴリに基づく複数のフィード {#multiple-feeds-based-on-categories}
 
-Content Cardsを、ユーザーが閲覧できるさまざまなトピックや、トランザクション用フィードとマーケティング用フィードなどのカテゴリに基づいて複数のフィードに分けることができます。キーと値のペアを使用した複数フィードの作成の詳細については、[Content Cardsフィードのカスタマイズ]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds)ガイドを参照してください。
+Content Cardsを、ユーザーが閲覧できるさまざまなトピックや、トランザクション用フィードとマーケティング用フィードなどのカテゴリに基づいて複数のフィードに分けることができます。キーと値のペアを使用した複数フィードの作成の詳細については、[Content Cardsフィードのカスタマイズ]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds)ガイドを参照してください。

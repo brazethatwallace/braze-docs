@@ -69,7 +69,7 @@ Braze가 앱 버전 2.0.0의 데이터를 수신하면, 이전 또는 이후 버
 | 2.0.0 초과 | 2.5.1 | 해당 사용자와 향후 모든 설치가 Segment에 포함됩니다. |
 | 2.0.0 초과 | 1.9.9 | 사용자가 Segment에 포함되지 않습니다. |
 | 2.0.0 이하 | 3.0.1 | 사용자가 Segment에 포함되지 않습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="사용 사례" }
 
 ### 앱 버전 이름 {#app-version-name}
 
@@ -81,8 +81,8 @@ Android의 경우, 이 버전 이름은 앱의 [Package Version Name](https://de
 
 ### 기능을 사용하지 않은 경우 {#have-not-used-feature}
 
-새 앱 버전을 출시하고 새로운 기능을 도입할 때, 사용자가 새로운 콘텐츠를 인지하지 못할 수 있습니다. 기능 인지도 Campaign을 실행하면 사용자에게 새로운 기능이나 한 번도 사용하지 않은 기능에 대해 알릴 수 있는 좋은 방법입니다. 이를 위해 앱 내에서 특정 동작을 완료한 적이 없는 사용자에게 할당되는 [커스텀 속성]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#custom-data)을 생성하거나, 특정 동작을 추적하는 [커스텀 이벤트]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#custom-data)를 사용해야 합니다. 이 속성(또는 이벤트)을 사용하여 Campaign을 보낼 사용자를 세분화할 수 있습니다.
+새 앱 버전을 출시하고 새로운 기능을 도입할 때, 사용자가 새로운 콘텐츠를 인지하지 못할 수 있습니다. 기능 인지도 Campaign을 실행하면 사용자에게 새로운 기능이나 한 번도 사용하지 않은 기능에 대해 알릴 수 있는 좋은 방법입니다. 이를 위해 앱 내에서 특정 동작을 완료한 적이 없는 사용자에게 할당되는 [커스텀 속성]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#custom-data)을 생성하거나, 특정 동작을 추적하는 [커스텀 이벤트]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#custom-data)를 사용해야 합니다. 이 속성(또는 이벤트)을 사용하여 Campaign을 보낼 사용자를 세분화할 수 있습니다.
 
 {% alert tip %}
-오디언스의 특정 부분을 리타겟팅하고 싶으신가요? [리타겟팅 Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/)를 확인하여 사용자의 이전 행동을 활용해 Campaign을 리타겟하는 방법을 알아보세요.
+오디언스의 특정 부분을 리타겟팅하고 싶으신가요? [리타겟팅 Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns)를 확인하여 사용자의 이전 행동을 활용해 Campaign을 리타겟하는 방법을 알아보세요.
 {% endalert %}

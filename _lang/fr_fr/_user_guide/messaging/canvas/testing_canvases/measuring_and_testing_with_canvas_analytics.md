@@ -8,7 +8,6 @@ tool:
   - Canvas
   - Reports
 
-
 ---
 
 # Analytique Canvas {#canvas-analytics}
@@ -25,7 +24,7 @@ C'est l'endroit idéal pour obtenir un aperçu général et vérifier si votre C
 
 ### Utilisateurs pouvant être atteints et statistiques exactes {#reachable-users-and-exact-statistics}
 
-Lorsque l'option **[Calculer les statistiques exactes]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#single-user-segments)** est en cours d'exécution pour les audiences liées à votre Canvas, Braze peut brièvement afficher une estimation arrondie dans la zone **Utilisateurs pouvant être atteints**. Le total exact remplace l'estimation une fois le calcul terminé. Sélectionnez **Show Additional Stats** pour obtenir une répartition complète par canal. Le générateur de Canvas documente le même flux sous **Target Population** ; consultez [Calcul de la population cible]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#calculating-target-population).
+Lorsque l'option **[Calculer les statistiques exactes]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#single-user-segments)** est en cours d'exécution pour les audiences liées à votre Canvas, Braze peut brièvement afficher une estimation arrondie dans la zone **Utilisateurs pouvant être atteints**. Le total exact remplace l'estimation une fois le calcul terminé. Sélectionnez **Show Additional Stats** pour obtenir une répartition complète par canal. Le générateur de Canvas documente le même flux sous **Target Population** ; consultez [Calcul de la population cible]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#calculating-target-population).
 
 ![La page Canvas Details affichant les statistiques principales, notamment les messages envoyés, le taux de conversion, le nombre total d'entrées, le chiffre d'affaires total, le nombre total de sorties et l'audience estimée, avec des filtres par canal et par statistiques.]({% image_buster /assets/img_archive/Journey_5.png %})
 
@@ -36,7 +35,7 @@ Si un segment que vous avez créé à partir de l'activité Canvas affiche moins
 - **Utilisateurs ne correspondant plus aux critères :** certains utilisateurs comptabilisés dans l'analytique Canvas peuvent ne plus remplir les conditions du segment, par exemple parce qu'ils se sont désabonnés ou que les données de leur profil ont changé depuis l'exécution du Canvas. Consultez les **performances historiques** du Canvas pour vérifier un volume élevé de désabonnements.
 {% endalert %}
 
-### Changes Since Last Viewed {#changes-since-last-viewed}
+### Modifications depuis la dernière consultation {#changes-since-last-viewed}
 
 Le nombre de mises à jour apportées au Canvas par d'autres membres de votre équipe est suivi par l'indicateur *Changes Since Last Viewed* sur la page d'aperçu du Canvas. Sélectionnez **Changes Since Last Viewed** pour afficher un journal des modifications apportées au nom du Canvas, à la planification, aux étiquettes, aux messages, à l'audience, au statut d'approbation ou à la configuration d'accès de l'équipe. Pour chaque mise à jour, vous pouvez voir qui l'a effectuée et quand. Vous pouvez utiliser ce journal des modifications pour auditer les changements apportés à vos Canvas.
 
@@ -81,7 +80,7 @@ Comme les conversions, le chiffre d'affaires est techniquement suivi au niveau d
 Par exemple, si un utilisateur complète deux étapes puis effectue un achat, ce chiffre d'affaires est attribué au deuxième composant et à la variante dans laquelle il est entré. S'il entre dans le Canvas mais effectue un achat avant de recevoir le premier composant du Canvas, ce chiffre d'affaires est attribué à la variante dans laquelle il est entré, mais à aucun composant.
 {% endalert %}
 
-Au-delà de ces indicateurs, vous pouvez voir une répartition plus détaillée des [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), incluant les éléments suivants :
+Au-delà de ces indicateurs, vous pouvez voir une répartition plus détaillée des [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), incluant les éléments suivants :
 
 - Totaux de conversions et taux de conversion pour chaque événement de conversion
 - Amélioration par rapport à la variante de contrôle
@@ -109,8 +108,8 @@ Pour notre dernier exemple, imaginons un Canvas avec la rééligibilité activé
 
 ### Rapport d'entonnoir {#funnel-report}
 
-Le rapport d'entonnoir offre un rapport visuel qui vous permet d'analyser les parcours de vos clients après avoir reçu un Canvas. Si votre Canvas utilise un groupe de contrôle ou plusieurs variantes, vous pourrez comprendre comment les différentes variantes ont impacté le tunnel de conversion à un niveau plus granulaire et optimiser en fonction de ces données. Pour plus d'informations sur les rapports d'entonnoir, consultez [Rapports d'entonnoir]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/).
+Le rapport d'entonnoir offre un rapport visuel qui vous permet d'analyser les parcours de vos clients après avoir reçu un Canvas. Si votre Canvas utilise un groupe de contrôle ou plusieurs variantes, vous pourrez comprendre comment les différentes variantes ont impacté le tunnel de conversion à un niveau plus granulaire et optimiser en fonction de ces données. Pour plus d'informations sur les rapports d'entonnoir, consultez [Rapports d'entonnoir]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports).
 
 ### Rapport de rétention {#retention-report}
 
-La rétention des utilisateurs est l'un des indicateurs les plus importants pour tout marketeur. Maintenir l'engagement des utilisateurs et les inciter à revenir est un signe de bonne santé de l'activité. Braze vous permet désormais de mesurer la rétention des utilisateurs directement sur la page **Canvas Analytics**. Pour plus d'informations sur la lecture et l'interprétation de votre rapport de rétention, consultez [Rapports de rétention]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/).
+La rétention des utilisateurs est l'un des indicateurs les plus importants pour tout marketeur. Maintenir l'engagement des utilisateurs et les inciter à revenir est un signe de bonne santé de l'activité. Braze vous permet désormais de mesurer la rétention des utilisateurs directement sur la page **Canvas Analytics**. Pour plus d'informations sur la lecture et l'interprétation de votre rapport de rétention, consultez [Rapports de rétention]({{site.baseurl}}/user_guide/analytics/reports/retention_reports).

@@ -34,13 +34,13 @@ Currents 또는 Snowflake 데이터 공유 발송 이벤트에 동적 또는 추
 
 ## `message_extras` 태그 사용 방법 {#how-to-use-the-message_extras-tag}
 
-1. 채널의 메시지 본문에 `message_extras` Liquid 태그를 입력합니다. 또는 **Add Personalization** 모달을 사용하여 개인화 유형으로 **Message Extras**를 선택할 수 있습니다.
+1. 채널의 메시지 본문에 `message_extras` Liquid 태그를 입력합니다. 또는 **개인화 추가** 모달을 사용하여 개인화 유형으로 **Message Extras**를 선택할 수 있습니다.
 
-![개인화 유형으로 Message Extras가 선택된 Add Personalization 모달.]({% image_buster /assets/img_archive/message_extras1.png %}){: style="max-width:35%;"}
+![개인화 유형으로 Message Extras가 선택된 개인화 추가 모달.]({% image_buster /assets/img_archive/message_extras1.png %}){: style="max-width:35%;"}
 
 {: start="2"}
 
-2. 각 `message_extras` 태그에 대한 [키-값 페어]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/)를 입력합니다.
+2. 각 `message_extras` 태그에 대한 [키-값 페어]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs)를 입력합니다.
 
 ![메시지 추가 정보 태그의 키-값 페어 예시. 제목 필드에는 "Your New Favorites"라고 표시됩니다. 메시지에는 메시지 추가 정보 태그의 키-값 페어와 다음 문장이 표시됩니다: "We're excited to bring you a side selection of fresh and exciting products that are sure to become your new go-to favorites"]({% image_buster /assets/img_archive/message_extras2.png %}){: style="max-width:70%;"}
 
@@ -72,9 +72,9 @@ Currents 또는 Snowflake 데이터 공유 발송 이벤트에 동적 또는 추
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
-#### 발송 이벤트의 message_extras 필드를 열기 및 클릭과 같은 참여 이벤트에 어떻게 연결할 수 있나요? {#how-can-i-associate-the-message_extras-field-in-the-send-events-to-my-engagement-events-like-opens-and-clicks}
+### 발송 이벤트의 message_extras 필드를 열기 및 클릭과 같은 참여 이벤트에 어떻게 연결할 수 있나요? {#how-can-i-associate-the-message_extras-field-in-the-send-events-to-my-engagement-events-like-opens-and-clicks}
 
-`dispatch_id`가 생성되어 발송 이벤트에 제공되며, 이를 고유 식별자로 사용하여 특정 클릭, 열기 또는 전달 이벤트에 연결할 수 있습니다. Currents 또는 Snowflake에서 이 필드를 쿼리할 수 있습니다. 자세한 내용은 [Dispatch ID 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)을 참조하세요.
+`dispatch_id`가 생성되어 발송 이벤트에 제공되며, 이를 고유 식별자로 사용하여 특정 클릭, 열기 또는 전달 이벤트에 연결할 수 있습니다. Currents 또는 Snowflake에서 이 필드를 쿼리할 수 있습니다. 자세한 내용은 [Dispatch ID 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)을 참조하세요.
 
 #### 인앱 메시지에서 message_extras를 사용할 수 있나요? {#iam-sdk}
 

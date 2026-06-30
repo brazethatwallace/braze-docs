@@ -66,8 +66,8 @@ Si editas la hora de envío planificada de tu campaña o su audiencia, esos camb
 
 Si tu campaña utiliza Intelligent Timing o entrega en zona horaria local, las ediciones a la hora de envío planificada no se reflejarán si la edición se realiza dentro de las 24 horas previas a la hora de envío original. Esto se debe a que:
 
-- **Intelligent Timing:** Braze comienza a calcular la hora de envío óptima a medianoche, hora de Samoa. Si este momento ya ha pasado, el mensaje habrá comenzado a procesarse. Para más información, consulta [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/).
-- **Entrega en zona horaria local:** Editar una campaña de zona horaria local que está planificada con menos de 24 horas de antelación no alterará la planificación del mensaje. Para más información, consulta [¿Cómo planifico una campaña de zona horaria local?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign).
+- **Intelligent Timing:** Braze comienza a calcular la hora de envío óptima a medianoche, hora de Samoa. Si este momento ya ha pasado, el mensaje habrá comenzado a procesarse. Para más información, consulta [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing).
+- **Entrega en zona horaria local:** Editar una campaña de zona horaria local que está planificada con menos de 24 horas de antelación no alterará la planificación del mensaje. Para más información, consulta [¿Cómo planifico una campaña de zona horaria local?]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign).
 
 ### Tasa de envío {#send-rate}
 
@@ -75,7 +75,7 @@ Al usar un límite de velocidad de envío, Braze "planifica" tus mensajes en int
 
 #### Pausar campañas con limitación de velocidad de entrega {#pausing-campaigns-with-delivery-speed-rate-limiting}
 
-Cuando pausas una campaña que utiliza [limitación de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting), Braze distribuye los envíos en intervalos basados en minutos. **Reanudar** no reenvía los mensajes de los intervalos que se cancelaron mientras la campaña estaba pausada, y no todos los mensajes se envían necesariamente cuando se reanuda la campaña.
+Cuando pausas una campaña que utiliza [limitación de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting), Braze distribuye los envíos en intervalos basados en minutos. **Reanudar** no reenvía los mensajes de los intervalos que se cancelaron mientras la campaña estaba pausada, y no todos los mensajes se envían necesariamente cuando se reanuda la campaña.
 
 Si algunos usuarios no recibieron mensajes porque la campaña estuvo pausada, duplica la campaña y dirige el envío solo a esos usuarios en lugar de depender de **Reanudar** para entregar los mensajes perdidos.
 

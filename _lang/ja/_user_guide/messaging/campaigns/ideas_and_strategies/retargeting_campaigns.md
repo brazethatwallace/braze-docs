@@ -1,29 +1,29 @@
 ---
-nav_title: キャンペーンのリターゲティング
-article_title: キャンペーンのリターゲティング
+nav_title: Campaignのリターゲティング
+article_title: Campaignのリターゲティング
 page_order: 2
 page_type: reference
-description: "このリファレンス記事では、ユーザーが受信したメッセージに基づいてキャンペーンをリターゲティングする方法とその理由について説明します。"
+description: "このリファレンス記事では、ユーザーが受信したメッセージに基づいてCampaignをリターゲティングする方法とその理由について説明します。"
 tool:
-  - キャンペーン
-  
+  - Campaigns
+
 ---
 
-# キャンペーンのリターゲティング
+# Campaignのリターゲティング {#retarget-campaigns}
 
-> メールを開封したかどうかなど、ユーザーの過去のアクションに基づいてキャンペーンをリターゲティングすることで、ユーザーを再分類し、効果的なデータドリブン型のマーケティングアプローチへの道を開くことができます。
+> メールを開封したかどうかなど、ユーザーの過去のアクションに基づいてCampaignをリターゲティングすることで、ユーザーを再分類し、効果的なデータドリブン型のマーケティングアプローチへの道を開くことができます。
 
-Brazeは、ユーザーが受信したメッセージに基づいてリターゲティングする機能をサポートしています。キャンペーンやキャンバスとのインタラクションに基づいてユーザーをリターゲティングできます。
+Brazeは、ユーザーが受信したメッセージに基づいてリターゲティングする機能をサポートしています。CampaignsやCanvasesとのインタラクションに基づいてユーザーをリターゲティングできます。
 
-これらのリターゲティングフィルターはそれぞれ、追加後にいくつかのオプションを提供します。ユーザーのターゲティングの詳細については、キャンペーンセットアップに関する[Brazeラーニングコース](https://learning.braze.com/campaign-setup-delivery-targeting-conversions)をご覧ください。
+これらのリターゲティングフィルターはそれぞれ、追加後にいくつかのオプションを提供します。ユーザーのターゲティングの詳細については、Campaignセットアップに関する[Brazeラーニングコース](https://learning.braze.com/campaign-setup-delivery-targeting-conversions)をご覧ください。
 
-![利用可能なフィルターのドロップダウンメニューが表示されたセグメント詳細セクション。]({% image_buster /assets/img_archive/retarget.png %}){: style="max-width:80%;"}
+![利用可能なフィルターのドロップダウンメニューが表示されたSegment詳細セクション。]({% image_buster /assets/img_archive/retarget.png %}){: style="max-width:80%;"}
 
-## リターゲティングフィルター
+## リターゲティングフィルター {#retargeting-filters}
 
-このセクションのリターゲティングフィルターを、キャンペーンやキャンバス内のユーザーに対して使用できます。
+このセクションのリターゲティングフィルターを、CampaignsやCanvases内のユーザーに対して使用できます。
 
-### キャンペーンをクリック/開封
+### Campaignをクリック/開封 {#clickedopened-campaign}
 
 このフィルターを使用して、以下のアクションを行った、または行っていないユーザーを検索します:
 
@@ -33,13 +33,13 @@ Brazeは、ユーザーが受信したメッセージに基づいてリターゲ
 - メールを開封した
 - アプリ内メッセージを閲覧した
 
-![]({% image_buster /assets/img_archive/clickedopened.png %})
+![チャネルインタラクションオプションが表示されたCampaignをクリック/開封フィルター。]({% image_buster /assets/img_archive/clickedopened.png %})
 
-リターゲティングするキャンペーンを選択して、さらに絞り込むことができます。
+リターゲティングするCampaignを選択して、さらに絞り込むことができます。
 
-### タグ付きのキャンペーンまたはキャンバスをクリックまたは開封
+### タグ付きのCampaignまたはCanvasをクリックまたは開封 {#clicked-or-opened-campaign-or-canvas-with-tag}
 
-このフィルターを使用して、指定したタグを持つキャンペーンまたはキャンバスとインタラクションした、またはしていないユーザーを検索します:
+このフィルターを使用して、指定したタグを持つCampaignsまたはCanvasesとインタラクションした、またはしていないユーザーを検索します:
 
 - メールをクリックした
 - アプリ内メッセージをクリックした
@@ -47,79 +47,79 @@ Brazeは、ユーザーが受信したメッセージに基づいてリターゲ
 - メールを開封した
 - アプリ内メッセージを閲覧した
 
-![]({% image_buster /assets/img_archive/retarget_tag_filter.png %})
+![タグ付きのCampaignまたはCanvasをクリックまたは開封フィルター。]({% image_buster /assets/img_archive/retarget_tag_filter.png %})
 
-### キャンペーンからコンバージョン
+### Campaignからコンバージョン {#converted-from-campaign}
 
-このフィルターを使用して、ターゲットキャンペーンでコンバージョンした（1次コンバージョンに基づく）、またはしていないユーザーを検索します。
+このフィルターを使用して、ターゲットCampaignでコンバージョンした（1次コンバージョンに基づく）、またはしていないユーザーを検索します。
 
-定期キャンペーンの場合、このフィルターはキャンペーンの最新メッセージでユーザーがコンバージョンしたかどうかを参照します。
+定期Campaignsの場合、このフィルターはCampaignの最新メッセージでユーザーがコンバージョンしたかどうかを参照します。
 
-![]({% image_buster /assets/img_archive/converted_from_campaign.png %})
+![Campaign選択が表示されたCampaignからコンバージョンフィルター。]({% image_buster /assets/img_archive/converted_from_campaign.png %})
 
-### キャンバスからコンバージョン
+### Canvasからコンバージョン {#converted-from-canvas}
 
-このフィルターを使用して、ターゲットキャンバスでコンバージョンした（1次コンバージョンに基づく）、またはしていないユーザーを検索します。
+このフィルターを使用して、ターゲットCanvasでコンバージョンした（1次コンバージョンに基づく）、またはしていないユーザーを検索します。
 
-定期キャンバスの場合、このフィルターはユーザーがキャンバスを通過した際にこれまでにコンバージョンしたことがあるかどうかを参照します。
+定期Canvasesの場合、このフィルターはユーザーがCanvasを通過した際にこれまでにコンバージョンしたことがあるかどうかを参照します。
 
-![]({% image_buster /assets/img_archive/converted_from_canvas.png %})
+![Canvas選択が表示されたCanvasからコンバージョンフィルター。]({% image_buster /assets/img_archive/converted_from_canvas.png %})
 
-### キャンペーンのコントロールグループに所属
+### Campaignのコントロールグループに所属 {#in-campaign-control-group}
 
-このフィルターを使用して、ターゲットキャンペーンのコントロールグループに所属している、またはしていないユーザーを検索します。
+このフィルターを使用して、ターゲットCampaignのコントロールグループに所属している、またはしていないユーザーを検索します。
 
-![]({% image_buster /assets/img_archive/campaign_control_group.png %})
+![Campaign選択が表示されたCampaignのコントロールグループに所属フィルター。]({% image_buster /assets/img_archive/campaign_control_group.png %})
 
-### キャンバスのコントロールグループに所属
+### Canvasのコントロールグループに所属 {#in-canvas-control-group}
 
-このフィルターを使用して、ターゲットキャンバスのコントロールグループに所属している、またはしていないユーザーを検索します。ターゲットキャンバスはドロップダウンから選択できます。
+このフィルターを使用して、ターゲットCanvasのコントロールグループに所属している、またはしていないユーザーを検索します。ターゲットCanvasはドロップダウンから選択できます。
 
-![]({% image_buster /assets/img_archive/canvas_control_group.png %})
+![Canvas選択が表示されたCanvasのコントロールグループに所属フィルター。]({% image_buster /assets/img_archive/canvas_control_group.png %})
 
-### 特定のキャンペーンからの最終受信メッセージ
+### 特定のCampaignからの最終受信メッセージ {#last-received-message-from-specific-campaign}
 
-このフィルターを使用して、指定した日付または日数の前後に特定のキャンペーンを最後に受信したユーザーを検索します。このフィルターは、ユーザーが他のキャンペーンを受信した時期は考慮しません。
-
-{% multi_lang_include audience/segments.md section='same channel identifier' %}
-
-![]({% image_buster /assets/img_archive/last_received_specific_campaign.png %})
-
-### タグ付きのキャンペーンまたはキャンバスからの最終受信メッセージ
-
-このフィルターを使用して、指定した日付または日数の前後に、指定したタグを持つキャンペーンまたはキャンバスを最後に受信したユーザーを検索します。このフィルターは、ユーザーが他のキャンペーンやキャンバスを受信した時期は考慮しません。
-
-![]({% image_buster /assets/img_archive/last_received_campaign_with_tag.png %})
-
-### キャンペーンからメッセージを受信
-
-このフィルターを使用して、ターゲットキャンペーンを受信した、またはしていないユーザーを検索します。
+このフィルターを使用して、指定した日付または日数の前後に特定のCampaignを最後に受信したユーザーを検索します。このフィルターは、ユーザーが他のCampaignsを受信した時期は考慮しません。
 
 {% multi_lang_include audience/segments.md section='same channel identifier' %}
 
-![]({% image_buster /assets/img_archive/receivedcamp.png %})
+![日付オプションが表示された特定のCampaignからの最終受信メッセージフィルター。]({% image_buster /assets/img_archive/last_received_specific_campaign.png %})
 
-### タグ付きのキャンペーンまたはキャンバスからメッセージを受信
+### タグ付きのCampaignまたはCanvasからの最終受信メッセージ {#last-received-message-from-campaign-or-canvas-with-tag}
 
-このフィルターを使用して、ターゲットタグを持つキャンペーンまたはキャンバスを受信した、またはしていないユーザーを検索します。
+このフィルターを使用して、指定した日付または日数の前後に、指定したタグを持つCampaignまたはCanvasを最後に受信したユーザーを検索します。このフィルターは、ユーザーが他のCampaignsやCanvasesを受信した時期は考慮しません。
 
-![]({% image_buster /assets/img_archive/received_campaign_with_tag.png %})
+![タグ付きのCampaignまたはCanvasからの最終受信メッセージフィルター。]({% image_buster /assets/img_archive/last_received_campaign_with_tag.png %})
 
-## キャンペーンのリターゲティングの利点
+### Campaignからメッセージを受信 {#received-message-from-campaign}
 
-リターゲティングは、元のセグメントにユーザーに取ってほしい特定のアクションが含まれている場合に特に効果的です。たとえば、購入したことがないユーザーをターゲットにしたカードがあるとします。そのカードでは、アプリ内購入の割引プロモーションを宣伝しています。初期セグメントは次のようになります:
+このフィルターを使用して、ターゲットCampaignを受信した、またはしていないユーザーを検索します。
+
+{% multi_lang_include audience/segments.md section='same channel identifier' %}
+
+![Campaign選択が表示されたCampaignからメッセージを受信フィルター。]({% image_buster /assets/img_archive/receivedcamp.png %})
+
+### タグ付きのCampaignまたはCanvasからメッセージを受信 {#received-message-from-campaign-or-canvas-with-tag}
+
+このフィルターを使用して、ターゲットタグを持つCampaignまたはCanvasを受信した、またはしていないユーザーを検索します。
+
+![タグ付きのCampaignまたはCanvasからメッセージを受信フィルター。]({% image_buster /assets/img_archive/received_campaign_with_tag.png %})
+
+## Campaignのリターゲティングの利点 {#advantages-with-retargeting-campaigns}
+
+リターゲティングは、元のSegmentにユーザーに取ってほしい特定のアクションが含まれている場合に特に効果的です。たとえば、購入したことがないユーザーをターゲットにしたカードがあるとします。そのカードでは、アプリ内購入の割引プロモーションを宣伝しています。初期Segmentは次のようになります:
 
 - アプリ内の支出額がちょうど0
 - 最終アプリ使用日が14日以内
 
-セグメント内のユーザー総数は100,000人で、コンテンツカードの統計から60,000人のユニークユーザーがカードを閲覧し、20,000人のユニークユーザーがカードをクリックしたことがわかっています。セグメンターを使用して、カードをクリックしたユーザーのうち実際に購入したユーザー数を確認できます:
+Segment内のユーザー総数は100,000人で、コンテンツカードの統計から60,000人のユニークユーザーがカードを閲覧し、20,000人のユニークユーザーがカードをクリックしたことがわかっています。セグメンターを使用して、カードをクリックしたユーザーのうち実際に購入したユーザー数を確認できます:
 
 - アプリ内の支出額が0より大きい
 - クリックしたカードがカード名
 
-これらの統計を確認した後、カードをクリックしたが購入しなかったユーザーのセグメントを作成できます:
+これらの統計を確認した後、カードをクリックしたが購入しなかったユーザーのSegmentを作成できます:
 
 - アプリ内の支出額がちょうど0
 - クリックしたカードがカード名
 
-このセグメントに対して、プロモーションや別のアプリ内購入に関する追加メッセージでリターゲティングできます。リターゲティングはメッセージングキャンペーンで実行できます。マルチチャネルアプローチにより、ユーザーが最も反応しやすい場所でリーチでき、キャンペーンの効果を高めることができます。
+このSegmentに対して、プロモーションや別のアプリ内購入に関する追加メッセージでリターゲティングできます。リターゲティングはメッセージングCampaignで実行できます。マルチチャネルアプローチにより、ユーザーが最も反応しやすい場所でリーチでき、Campaignsの効果を高めることができます。

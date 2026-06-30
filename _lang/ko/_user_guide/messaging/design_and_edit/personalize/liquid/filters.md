@@ -8,7 +8,7 @@ description: "이 참조 페이지에서는 정적 또는 동적 콘텐츠를 �
 
 # 필터 {#filters}
 
-> 이 참조 문서에서는 Liquid의 필터에 대한 개요를 제공하며, Braze에서 지원하는 필터를 다룹니다. 이러한 필터를 어떻게 사용할 수 있는지 아이디어를 찾고 계신가요? [Liquid 사용 사례 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/)를 확인해 보세요.
+> 이 참조 문서에서는 Liquid의 필터에 대한 개요를 제공하며, Braze에서 지원하는 필터를 다룹니다. 이러한 필터를 어떻게 사용할 수 있는지 아이디어를 찾고 계신가요? [Liquid 사용 사례 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases)를 확인해 보세요.
 
 필터는 Liquid에서 숫자, 문자열, 변수 및 오브젝트의 출력을 수정하는 방법입니다. 필터를 사용하여 문자열을 소문자에서 대문자로 변경하거나 덧셈이나 나눗셈과 같은 수학 연산을 수행하는 등 정적 또는 동적 텍스트를 다시 포맷할 수 있습니다.
 
@@ -25,14 +25,14 @@ Braze는 Shopify의 모든 Liquid 필터를 지원하지는 않습니다. 이 �
 {% endraw %}
 
 {% tabs local %}
-{% tab Input %}
+{% tab 입력 %}
 {% raw %}
 ```liquid
 {{"Big Sale" | upcase}}
 ```
 {% endraw %}
 {% endtab %}
-{% tab Output %}
+{% tab 출력 %}
 {% raw %}
 ```liquid
 BIG SALE
@@ -44,7 +44,7 @@ BIG SALE
 이 예시에서 `Big Sale`은 문자열이고, `upcase`는 적용되는 필터입니다.
 
 {% alert note %}
-필터는 `assign` 문과 출력 태그 {% raw %}(`{{ }}`){% endraw %}에서 사용할 수 있지만, 조건문(`if`, `elsif`, `unless`), `case`/`when`, `for` 루프 또는 배열 접근 대괄호에서는 사용할 수 없습니다. 이러한 컨텍스트에서 필터링된 값을 사용하려면 먼저 결과를 변수에 할당하세요. 자세한 내용은 [연산자와 필터를 사용할 수 있는 위치]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters)를 참조하세요.
+필터는 `assign` 문과 출력 태그 {% raw %}(`{{ }}`){% endraw %}에서 사용할 수 있지만, 조건문(`if`, `elsif`, `unless`), `case`/`when`, `for` 루프 또는 배열 접근 대괄호에서는 사용할 수 없습니다. 이러한 컨텍스트에서 필터링된 값을 사용하려면 먼저 결과를 변수에 할당하세요. 자세한 내용은 [연산자와 필터를 사용할 수 있는 위치]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters)를 참조하세요.
 {% endalert %}
 
 ### 다중 필터 구문 {#syntax-for-multiple-filters}
@@ -52,14 +52,14 @@ BIG SALE
 하나의 출력에 여러 필터를 사용할 수 있습니다. 필터는 왼쪽에서 오른쪽으로 적용됩니다.
 
 {% tabs local %}
-{% tab Input %}
+{% tab 입력 %}
 {% raw %}
 ```liquid
  {{ "Big Sale" | upcase | remove: "BIG" }}
 ```
 {% endraw %}
 {% endtab %}
-{% tab Output %}
+{% tab 출력 %}
 {% raw %}
 ```liquid
 SALE
@@ -153,7 +153,7 @@ Liquid에서 정수를 정수로 나눌 때, 결과가 플로트(소수가 있�
 2. `plus` 필터를 사용하여 각 사용자의 기프트 카드 잔액과 `{{balance}}` 오브젝트로 표시되는 리워드 잔액을 결합합니다.
 {% endraw %}
 {% tabs local %}
-{% tab Input %}
+{% tab 입력 %}
 {% raw %}
 ```liquid
 {% assign balance = {{custom_attribute.${current_rewards_balance}}} %}
@@ -161,7 +161,7 @@ You have ${{custom_attribute.${giftcard_balance} | plus: {{balance}}}} to spend!
 ```
 {% endraw %}
 {% endtab %}
-{% tab Output %}
+{% tab 출력 %}
 {% raw %}
 ```liquid
 You have $35 to spend!
@@ -214,14 +214,14 @@ ${{custom_attribute.${account_balance} | money}}
 Braze의 `money` 필터는 사전 설정에 따라 자동으로 소수점을 적용하지 않기 때문에 Shopify와 다릅니다. 예를 들어, `rewards_redeemed`에 `145` 값이 포함된 다음 시나리오를 살펴보겠습니다:
 
 {% tabs local %}
-{% tab Input %}
+{% tab 입력 %}
 {% raw %}
 ```liquid
 ${{event_properties.${rewards_redeemed} | money }}
 ```
 {% endraw %}
 {% endtab %}
-{% tab Output %}
+{% tab 출력 %}
 {% raw %}
 ```liquid
 $145.00
@@ -233,14 +233,14 @@ $145.00
 Shopify의 [money](https://shopify.dev/api/liquid/filters/money) 필터에 따르면 출력이 `$1.45`여야 하지만, Braze에서는 `$145.00`으로 출력됩니다. 해결 방법으로, `divided_by` 필터를 사용하여 금액 필터를 적용하기 전에 숫자를 소수로 변환할 수 있습니다:
 
 {% tabs local %}
-{% tab Input %}
+{% tab 입력 %}
 {% raw %}
 ```liquid
 ${{event_properties.${rewards_redeemed} | divided_by: 100.00 | money }}
 ```
 {% endraw %}
 {% endtab %}
-{% tab Output %}
+{% tab 출력 %}
 {% raw %}
 ```liquid
 $1.45
@@ -265,9 +265,9 @@ $1.45
 | [downcase](https://shopify.dev/api/liquid/filters/downcase) | 문자열을 소문자로 변환합니다. | ✅  예 |
 | [escape](https://shopify.dev/api/liquid/filters/escape) | 문자열을 이스케이프합니다. | ✅  예 |
 | [handleize](https://shopify.dev/api/liquid/filters/handleize) | 문자열을 핸들로 포맷합니다. | ⛔  아니요 |
-| [md5](https://shopify.dev/api/liquid/filters/md5) | 문자열을 MD5 해시로 변환합니다. 자세한 내용은 [인코딩 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#encoding-filters)를 참조하세요. | ✅  예 |
-| [sha1](https://shopify.dev/api/liquid/filters/sha1) | 문자열을 SHA-1 해시로 변환합니다. 자세한 내용은 [인코딩 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#encoding-filters)를 참조하세요. | ✅  예 |
-| hmac_sha1_hex<br>(이전 [hmac_sha_1](https://shopify.dev/api/liquid/filters/string-filters#hmac_sha1)) | 해시 메시지 인증 코드(HMAC)를 사용하여 문자열을 SHA-1 해시로 변환합니다. 메시지의 비밀 키를 필터의 매개변수로 전달합니다. 자세한 내용은 [인코딩 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#encoding-filters)를 참조하세요. | ✅  예 |
+| [md5](https://shopify.dev/api/liquid/filters/md5) | 문자열을 MD5 해시로 변환합니다. 자세한 내용은 [인코딩 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#encoding-filters)를 참조하세요. | ✅  예 |
+| [sha1](https://shopify.dev/api/liquid/filters/sha1) | 문자열을 SHA-1 해시로 변환합니다. 자세한 내용은 [인코딩 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#encoding-filters)를 참조하세요. | ✅  예 |
+| hmac_sha1_hex<br>(이전 [hmac_sha_1](https://shopify.dev/api/liquid/filters/string-filters#hmac_sha1)) | 해시 메시지 인증 코드(HMAC)를 사용하여 문자열을 SHA-1 해시로 변환합니다. 메시지의 비밀 키를 필터의 매개변수로 전달합니다. 자세한 내용은 [인코딩 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#encoding-filters)를 참조하세요. | ✅  예 |
 | [hmac_sha256](https://shopify.dev/api/liquid/filters/hmac_sha256) | 해시 메시지 인증 코드(HMAC)를 사용하여 문자열을 SHA-256 해시로 변환합니다. 메시지의 비밀 키를 필터의 매개변수로 전달합니다. | ✅  예 |
 | hmac_sha512 | 해시 메시지 인증 코드(HMAC)를 사용하여 문자열을 SHA-512 해시로 변환합니다. 메시지의 비밀 키를 필터의 매개변수로 전달합니다. | ✅  예 |
 | [newline_to_br](https://shopify.dev/api/liquid/filters/newline_to_br) | 문자열의 각 줄 바꿈 앞에 `<br>` 줄 바꿈 HTML 태그를 삽입합니다. | ✅  예 |
@@ -301,7 +301,7 @@ $1.45
 | [highlight](https://shopify.dev/api/liquid/filters/highlight) | 제출된 검색어와 일치하는 경우 검색 결과 내의 단어를 highlight 클래스가 있는 HTML `<strong>` 태그로 감쌉니다. | ⛔  아니요 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Additional filters" }
 
-인코딩 및 URL 필터와 같은 더 많은 지원 필터는 [고급 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/) 페이지에서 확인할 수 있습니다.
+인코딩 및 URL 필터와 같은 더 많은 지원 필터는 [고급 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters) 페이지에서 확인할 수 있습니다.
 
 ### 날짜 필터 {#date-filter}
 
@@ -310,14 +310,14 @@ $1.45
 예를 들어, `date_attribute`의 값이 타임스탬프 `2021-06-03 17:13:41 UTC`라고 가정해 보겠습니다.
 
 {% tabs local %}
-{% tab Input %}
+{% tab 입력 %}
 {% raw %}
 ```liquid
 {{custom_attribute.${date_attribute} | date: '%b %d'}}
 ```
 {% endraw %}
 {% endtab %}
-{% tab Output %}
+{% tab 출력 %}
 {% raw %}
 ```liquid
 03 June
@@ -329,14 +329,14 @@ $1.45
 `strftime` 포맷 옵션 외에도, Braze는 `%s` 날짜 필터를 사용하여 타임스탬프를 Unix 시간으로 변환하는 것도 지원합니다. 예를 들어, `date_attribute`를 Unix 시간으로 가져오려면:
 
 {% tabs local %}
-{% tab Input %}
+{% tab 입력 %}
 {% raw %}
 ```liquid
 {{custom_attribute.${date_attribute} | date: '%s' }}
 ```
 {% endraw %}
 {% endtab %}
-{% tab Output %}
+{% tab 출력 %}
 {% raw %}
 ```liquid
 1433351621

@@ -51,13 +51,13 @@ guide_featured_list:
 
 Liquid actúa como un puente entre tu mensaje y los datos de tu usuario. Cuando envías un mensaje, Braze analiza el texto en busca de sintaxis Liquid. Cuando la encuentra, extrae los datos relevantes de ese usuario específico y reemplaza el código con el valor real antes de que se envíe el mensaje.
 
-Por ejemplo, puedes recuperar un atributo personalizado de un perfil de usuario que sea un tipo de datos entero y redondear ese valor al número entero más cercano. Para más información sobre la sintaxis y el uso de Liquid, consulta [**Etiquetas de personalización compatibles**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
+Por ejemplo, puedes recuperar un atributo personalizado de un perfil de usuario que sea un tipo de datos entero y redondear ese valor al número entero más cercano. Para más información sobre la sintaxis y el uso de Liquid, consulta [**Etiquetas de personalización compatibles**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
 El lenguaje de plantillas Liquid admite el uso de objetos, etiquetas y filtros.
 
-- Los [**objetos**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) te permiten insertar atributos personalizados en tus mensajes.
-- Las [**etiquetas**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) te permiten insertar datos en la mensajería y usar lógica condicional para enviar mensajes si se cumplen ciertas condiciones. Por ejemplo, puedes usar etiquetas para incluir lógica inteligente, como sentencias "if", en tus campañas.
-- Los [**filtros**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/) te permiten reformatear atributos personalizados y contenido dinámico. Por ejemplo, podrías usar el [filtro `date`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#date-filter) para convertir una marca de tiempo, como *2016-09-07 08:43:50 UTC*, en una fecha, como *7 de septiembre de 2016*.
+- Los [**objetos**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) te permiten insertar atributos personalizados en tus mensajes.
+- Las [**etiquetas**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) te permiten insertar datos en la mensajería y usar lógica condicional para enviar mensajes si se cumplen ciertas condiciones. Por ejemplo, puedes usar etiquetas para incluir lógica inteligente, como sentencias "if", en tus campañas.
+- Los [**filtros**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters) te permiten reformatear atributos personalizados y contenido dinámico. Por ejemplo, podrías usar el [filtro `date`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#date-filter) para convertir una marca de tiempo, como *2016-09-07 08:43:50 UTC*, en una fecha, como *7 de septiembre de 2016*.
 
 {% alert warning %}
 Actualmente, Braze no es compatible con el 100 % de Liquid de Shopify, solo con ciertas partes que hemos intentado describir en nuestra documentación. Recomendamos encarecidamente probar todos los mensajes que usen Liquid antes de enviarlos para reducir el riesgo de errores o de usar Liquid no compatible.
@@ -65,7 +65,7 @@ Actualmente, Braze no es compatible con el 100 % de Liquid de Shopify, solo con 
 
 ### Compatibilidad con Liquid 5 {#liquid-5-support}
 
-Braze es compatible con Liquid hasta e incluyendo **Liquid 5 de Shopify**. La implementación de Liquid admite tipos de etiquetas de personalización de sintaxis y control de espacios en blanco. Para más información sobre etiquetas específicas, consulta [etiquetas de sintaxis]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#syntax-tags).
+Braze es compatible con Liquid hasta e incluyendo **Liquid 5 de Shopify**. La implementación de Liquid admite tipos de etiquetas de personalización de sintaxis y control de espacios en blanco. Para más información sobre etiquetas específicas, consulta [etiquetas de sintaxis]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#syntax-tags).
 
 Los siguientes filtros nuevos de arrays y matemáticos están disponibles para usar en tu Liquid mientras construyes tu mensajería.
 - `at_least`
@@ -75,7 +75,7 @@ Los siguientes filtros nuevos de arrays y matemáticos están disponibles para u
 - `sort_natural`
 - `where`
 
-Consulta [Filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/) para ver las definiciones.
+Consulta [Filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters) para ver las definiciones.
 
 ## Términos que debes conocer {#terms-to-know}
 

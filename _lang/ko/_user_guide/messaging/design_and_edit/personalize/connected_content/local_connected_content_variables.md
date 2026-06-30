@@ -26,9 +26,9 @@ Metaweather는 "Where-on-Earth ID"를 사용하여 해당 지역의 날씨를 �
 
 저장된 변수는 `connected_content` 요청이 포함된 필드 내에서만 접근할 수 있습니다. 예를 들어, `localweather` 변수를 메시지와 제목 필드 모두에서 사용하려면 두 필드 모두에서 `connected_content` 요청을 해야 합니다.
 
-GET 요청은 일반적으로 기본적으로 캐시되지만, 몇 가지 예외가 있습니다(높은 카디널리티의 사용자 속성을 포함하는 URL, `:no_cache`, 또는 1MB보다 큰 응답 본문 등). 동일한 GET 요청이 둘 이상의 필드에 나타나면 Braze는 엔드포인트를 다시 호출하는 대신 캐시된 응답을 재사용합니다. 캐시 동작에 대한 자세한 내용은 [응답 캐싱]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/)을 참조하세요.
+GET 요청은 일반적으로 기본적으로 캐시되지만, 몇 가지 예외가 있습니다(높은 카디널리티의 사용자 속성을 포함하는 URL, `:no_cache`, 또는 1MB보다 큰 응답 본문 등). 동일한 GET 요청이 둘 이상의 필드에 나타나면 Braze는 엔드포인트를 다시 호출하는 대신 캐시된 응답을 재사용합니다. 캐시 동작에 대한 자세한 내용은 [응답 캐싱]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses)을 참조하세요.
 
-HTTP POST를 통한 연결된 콘텐츠 호출은 기본적으로 캐시되지 않습니다. POST 응답을 캐시하려면 태그에 `:cache_max_age`를 추가하세요. [기본 캐시 설정]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/#default-cache-settings)을 참조하세요.
+HTTP POST를 통한 연결된 콘텐츠 호출은 기본적으로 캐시되지 않습니다. POST 응답을 캐시하려면 태그에 `:cache_max_age`를 추가하세요. [기본 캐시 설정]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses#default-cache-settings)을 참조하세요.
 
 ## JSON 구문 분석 {#json-parsing}
 

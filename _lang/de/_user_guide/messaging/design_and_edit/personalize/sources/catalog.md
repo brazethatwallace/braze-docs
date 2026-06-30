@@ -37,14 +37,14 @@ Kataloge unterstützen bis zu 1.000 Felder pro Artikel und können Millionen von
 
 Kataloge ermöglichen auch automatisiertes Messaging über Katalog-Trigger. Richten Sie Wieder-verfügbar-Benachrichtigungen und Preissenkungsbenachrichtigungen ein, um Nutzer:innen automatisch zu benachrichtigen, wenn sich Katalogartikel ändern.
 
-Weitere Informationen finden Sie unter [Katalog-Trigger]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/).
+Weitere Informationen finden Sie unter [Katalog-Trigger]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers).
 
 ## Auswahl {#selections}
 
 Verwenden Sie Auswahlen, um Katalogartikel nach von Ihnen definierten Filtern zu gruppieren. Erstellen Sie beispielsweise eine Auswahl von Artikeln unter 20 € oder Artikeln in einer bestimmten Kategorie und referenzieren Sie dann die gefilterte Menge in Ihren Nachrichten.
 
-Weitere Informationen finden Sie unter [Auswahl]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/).
+Weitere Informationen finden Sie unter [Auswahl]({{site.baseurl}}/user_guide/data/activation/catalogs/selections).
 
 ## Erste Schritte {#getting-started}
 
-Informationen zum Erstellen und Verwalten von Katalogen finden Sie unter [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs/). Um zu erfahren, wie Sie Katalogdaten in Ihren Nachrichten referenzieren, lesen Sie [Kataloge in einer Nachricht verwenden]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
+Informationen zum Erstellen und Verwalten von Katalogen finden Sie unter [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs). Um zu erfahren, wie Sie Katalogdaten in Ihren Nachrichten referenzieren, lesen Sie [Kataloge in einer Nachricht verwenden]({{site.baseurl}}/user_guide/data/activation/catalogs/use).

@@ -79,7 +79,7 @@ Les pages d'accueil sont copiées en tant que brouillons. Avant de publier une p
 | Description | Territoires |
 | Type | Étiquettes |
 | Actions (imbriquées) | Segments et filtres |
-| Comportements de conversion (imbriqués) | [Approbations]({{site.baseurl}}/user_guide/messaging/governance/approvals/) |
+| Comportements de conversion (imbriqués) | [Approbations]({{site.baseurl}}/user_guide/messaging/governance/approvals) |
 | Configurations des heures calmes | Planification de déclenchement |
 | Configurations de limite de fréquence | Résumés de campagne |
 | État d'abonnement du destinataire |  |
@@ -95,7 +95,7 @@ Les pages d'accueil sont copiées en tant que brouillons. Avant de publier une p
 | Description | Territoires |
 | Type | Étiquettes |
 | Actions (imbriquées) | Segments et filtres |
-| Comportements de conversion (imbriqués) | [Approbations]({{site.baseurl}}/user_guide/messaging/governance/approvals/) |
+| Comportements de conversion (imbriqués) | [Approbations]({{site.baseurl}}/user_guide/messaging/governance/approvals) |
 | Configurations des heures calmes | Planification de déclenchement |
 | Configurations de limite de fréquence | Résumés du Canvas |
 | État d'abonnement du destinataire |  |
@@ -103,7 +103,7 @@ Les pages d'accueil sont copiées en tant que brouillons. Avant de publier une p
 | Est transactionnel |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Détails" }
 
-Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre décisionnel]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)) ne sont pas copiés vers l'espace de travail de destination. Reconfigurez ces filtres après la copie.
+Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre décisionnel]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)) ne sont pas copiés vers l'espace de travail de destination. Reconfigurez ces filtres après la copie.
 
 {% endtab %}
 {% endtabs %}
@@ -335,7 +335,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 
 ## Copier des messages contenant du Liquid {#copying-messages-that-contain-liquid}
 
-Les références Liquid dans le corps des messages sont copiées vers l'espace de travail de destination, mais elles peuvent ne pas fonctionner comme prévu. Cela signifie que si un Canvas de l'espace de travail A est copié vers l'espace de travail B, l'espace de travail B ne peut pas référencer les détails de l'espace de travail A, y compris les références Liquid. Par exemple, les champs tels que les actions de déclenchement, les filtres d'audience et les critères de filtre de l'[arbre décisionnel]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) ne sont pas copiés.
+Les références Liquid dans le corps des messages sont copiées vers l'espace de travail de destination, mais elles peuvent ne pas fonctionner comme prévu. Cela signifie que si un Canvas de l'espace de travail A est copié vers l'espace de travail B, l'espace de travail B ne peut pas référencer les détails de l'espace de travail A, y compris les références Liquid. Par exemple, les champs tels que les actions de déclenchement, les filtres d'audience et les critères de filtre de l'[arbre décisionnel]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) ne sont pas copiés.
 
 Gardez une trace des références Liquid suivantes avec des dépendances lors de la copie de campagnes, de Canvas et de pages d'accueil entre les espaces de travail :
 
@@ -350,7 +350,7 @@ Gardez une trace des références Liquid suivantes avec des dépendances lors de
 
 ## Copier des messages avec des indicateurs de fonctionnalité {#copying-messages-with-feature-flags}
 
-Pour copier une campagne d'indicateur de fonctionnalité et un Canvas comportant une étape d'indicateur de fonctionnalité entre les espaces de travail, assurez-vous que l'espace de travail de destination dispose d'une [expérience d'indicateur de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags/experiments/) configurée avec un ID correspondant soit à l'indicateur de fonctionnalité référencé dans la campagne d'origine, soit à l'étape d'indicateur de fonctionnalité référencée dans le Canvas d'origine.
+Pour copier une campagne d'indicateur de fonctionnalité et un Canvas comportant une étape d'indicateur de fonctionnalité entre les espaces de travail, assurez-vous que l'espace de travail de destination dispose d'une [expérience d'indicateur de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags/experiments) configurée avec un ID correspondant soit à l'indicateur de fonctionnalité référencé dans la campagne d'origine, soit à l'étape d'indicateur de fonctionnalité référencée dans le Canvas d'origine.
 
 Si vous copiez une campagne ou un Canvas comportant une étape d'indicateur de fonctionnalité avec un ID d'indicateur de fonctionnalité qui n'existe pas dans l'espace de travail de destination, l'étape d'indicateur de fonctionnalité sera copiée mais son contenu ne le sera pas.
 

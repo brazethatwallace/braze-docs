@@ -24,7 +24,7 @@ description: "このリファレンスページでは、コンテンツカレン
 
 ![メッセージング分析内の「Upcoming Message Types」と「Messages Sent」のグラフ。]({% image_buster /assets/img/campaign_calendar/content_calendar_messaging_analytics.png %})
 
-データのコピーをダウンロードするには、<i class="fa-solid fa-bars" style="color: #2e7487;" aria-hidden="true"></i> **Chart context menu**を選択し、希望のファイル形式を選択します。
+データのコピーをダウンロードするには、<i class="fa-solid fa-bars" style="color: #2e7487;" aria-hidden="true"></i> **チャートコンテキストメニュー**を選択し、希望のファイル形式を選択します。
 
 ## 送信カレンダー {#send-calendar}
 
@@ -34,8 +34,8 @@ description: "このリファレンスページでは、コンテンツカレン
 アプリ内メッセージは常にアクションベースであるため、送信カレンダーには表示されません。
 {% endalert %}
 
-月を変更するには、<i class="fa-solid fa-chevron-left" style="color: #2e7487;" aria-hidden="true"></i> **See previous month**または<i class="fa-solid fa-chevron-right" style="color: #2e7487;" aria-hidden="true"></i> **See next month**を選択します。当月に戻るには、**Today**を選択します。
+月を変更するには、<i class="fa-solid fa-chevron-left" style="color: #2e7487;" aria-hidden="true"></i> **前の月を表示**または<i class="fa-solid fa-chevron-right" style="color: #2e7487;" aria-hidden="true"></i> **次の月を表示**を選択します。当月に戻るには、**Today**を選択します。
 
 ![当月のスケジュールされたすべてのCampaignsを表示する送信カレンダー。]({% image_buster /assets/img/campaign_calendar/content_calendar_sends.png %})
 
-カレンダー内のCampaignを選択すると、Campaignの表示や変更ができます。詳細については、[Campaignsの管理]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/)を参照してください。
+カレンダー内のCampaignを選択すると、Campaignの表示や変更ができます。詳細については、[Campaignsの管理]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns)を参照してください。

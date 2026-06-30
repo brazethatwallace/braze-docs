@@ -21,18 +21,18 @@ La fonctionnalité de bloc produit en glisser-déposer est en accès anticipé e
 
 | Exigence | Description |
 | --- | --- |
-| Événements recommandés pour le commerce électronique | Les [événements recommandés pour le commerce électronique]({{site.baseurl}}/ecommerce_events/) fournissent des schémas de données normalisés pour les événements comportementaux clés qui se produisent avant et après la passation d'une commande. Ces événements remplaceront à terme l'ancien événement d'achat de Braze et deviendront la norme pour le suivi des comportements liés au commerce. <br><br> Les événements recommandés pour le commerce électronique sont requis pour les blocs produit dynamiques. |
-| Modèles de Canvas pour le commerce électronique | Les événements recommandés pour le commerce électronique prennent en charge des modèles prédéfinis, y compris des modèles de Canvas pour le commerce électronique conçus pour des cas d'utilisation essentiels tels que la navigation abandonnée, les paniers abandonnés et les confirmations de commande. <br><br>Si vous prévoyez d'implémenter l'un de ces cas d'utilisation essentiels du commerce électronique à l'aide des [modèles de Canvas pour le commerce électronique]({{site.baseurl}}/ecommerce_use_cases/), vous devez utiliser ou suivre le modèle de Canvas fourni. |
+| Événements recommandés pour le commerce électronique | Les [événements recommandés pour le commerce électronique]({{site.baseurl}}/ecommerce_events) fournissent des schémas de données normalisés pour les événements comportementaux clés qui se produisent avant et après la passation d'une commande. Ces événements remplaceront à terme l'ancien événement d'achat de Braze et deviendront la norme pour le suivi des comportements liés au commerce. <br><br> Les événements recommandés pour le commerce électronique sont requis pour les blocs produit dynamiques. |
+| Modèles de Canvas pour le commerce électronique | Les événements recommandés pour le commerce électronique prennent en charge des modèles prédéfinis, y compris des modèles de Canvas pour le commerce électronique conçus pour des cas d'utilisation essentiels tels que la navigation abandonnée, les paniers abandonnés et les confirmations de commande. <br><br>Si vous prévoyez d'implémenter l'un de ces cas d'utilisation essentiels du commerce électronique à l'aide des [modèles de Canvas pour le commerce électronique]({{site.baseurl}}/ecommerce_use_cases), vous devez utiliser ou suivre le modèle de Canvas fourni. |
 | Catalogue Braze | Vous devez créer un catalogue Braze qui inclut les champs suivants, que vous utilisez dans la configuration de votre bloc produit :{::nomarkdown}<code><ul><li>product_title</li><li>product_url</li><li>variant_image_url</li></ul></code>{:/} |
-| Sélection de catalogue | Pour les blocs produit statiques, vous devez créer une [sélection de catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) pour spécifier quels produits inclure dans votre bloc produit. |
+| Sélection de catalogue | Pour les blocs produit statiques, vous devez créer une [sélection de catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) pour spécifier quels produits inclure dans votre bloc produit. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions" }
 
 ## Types de blocs produit en glisser-déposer {#types-of-drag-and-drop-product-blocks}
 
 | Bloc produit | Objectif | Cas d'utilisation | Disponibilité |
 | --- | --- | --- | --- |
-| Dynamique | Personnalisez vos messages avec une vitrine de produits basée sur les interactions des clients en utilisant les [événements recommandés pour le commerce électronique]({{site.baseurl}}/ecommerce_events/) et les catalogues au sein de nos [modèles de Canvas pour le commerce électronique]({{site.baseurl}}/ecommerce_use_cases/). | {::nomarkdown}<ul><li>Navigation abandonnée</li><li>Panier abandonné</li><li>Paiement abandonné</li><li>Confirmations de commande</li></ul>{:/} | Disponible uniquement dans Canvas. |
-| Statique | Personnalisez les produits en utilisant les données stockées dans un catalogue Braze. Vous devez utiliser une [sélection de catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) pour spécifier quels produits inclure. | Idéal pour mettre en avant les lancements de nouveaux produits ou les offres spécifiques à une catégorie. | |
+| Dynamique | Personnalisez vos messages avec une vitrine de produits basée sur les interactions des clients en utilisant les [événements recommandés pour le commerce électronique]({{site.baseurl}}/ecommerce_events) et les catalogues au sein de nos [modèles de Canvas pour le commerce électronique]({{site.baseurl}}/ecommerce_use_cases). | {::nomarkdown}<ul><li>Navigation abandonnée</li><li>Panier abandonné</li><li>Paiement abandonné</li><li>Confirmations de commande</li></ul>{:/} | Disponible uniquement dans Canvas. |
+| Statique | Personnalisez les produits en utilisant les données stockées dans un catalogue Braze. Vous devez utiliser une [sélection de catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) pour spécifier quels produits inclure. | Idéal pour mettre en avant les lancements de nouveaux produits ou les offres spécifiques à une catégorie. | |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Types de blocs produit en glisser-déposer" }
 
 ## Configuration du contenu des blocs produit {#product-block-content-configuration}
@@ -84,7 +84,7 @@ Utilisez les options de disposition pour personnaliser l'affichage de vos produi
 
 ### Paramètres de style globaux des e-mails {#global-email-style-settings}
 
-Les [paramètres de style globaux des e-mails]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) vous permettent d'appliquer un style cohérent à vos e-mails dans Braze. Vous pouvez ainsi définir des styles spécifiques — polices, couleurs et designs de boutons — qui s'appliqueront automatiquement à tous vos e-mails.
+Les [paramètres de style globaux des e-mails]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings) vous permettent d'appliquer un style cohérent à vos e-mails dans Braze. Vous pouvez ainsi définir des styles spécifiques — polices, couleurs et designs de boutons — qui s'appliqueront automatiquement à tous vos e-mails.
 
 #### Fonctionnement des paramètres de style globaux avec les blocs produit {#how-global-email-style-settings-work-with-product-blocks}
 
@@ -95,7 +95,7 @@ Les styles existants pour les paragraphes et les boutons s'appliquent automatiqu
 ### Configuration du catalogue {#catalog-setup}
 
 {% alert important %}
-Si vous utilisez l'intégration Braze et Shopify pour la [synchronisation des produits]({{site.baseurl}}/shopify_catalogs/), aucune étape supplémentaire n'est nécessaire pour utiliser les blocs produit en glisser-déposer.<br><br> Si vous ne disposez pas d'informations sur les variantes de produit, vous devez dupliquer les informations de niveau supérieur du produit dans les champs produit et variante de produit au sein des payloads d'événements et des catalogues. Concrètement, vous devez fournir les mêmes détails de produit pour les deux identifiants afin de maintenir la cohérence nécessaire au bon fonctionnement du bloc produit.
+Si vous utilisez l'intégration Braze et Shopify pour la [synchronisation des produits]({{site.baseurl}}/shopify_catalogs), aucune étape supplémentaire n'est nécessaire pour utiliser les blocs produit en glisser-déposer.<br><br> Si vous ne disposez pas d'informations sur les variantes de produit, vous devez dupliquer les informations de niveau supérieur du produit dans les champs produit et variante de produit au sein des payloads d'événements et des catalogues. Concrètement, vous devez fournir les mêmes détails de produit pour les deux identifiants afin de maintenir la cohérence nécessaire au bon fonctionnement du bloc produit.
 {% endalert %}
 
 Pour utiliser les blocs produit en glisser-déposer, vous devez configurer un catalogue Braze qui inclut des valeurs de champs spécifiques. Ces champs sont utilisés dans la configuration de votre bloc produit. Assurez-vous que votre catalogue inclut les champs suivants :
@@ -128,7 +128,7 @@ Ce guide vous accompagne à travers les étapes de création, de test et de vér
 #### Bloc produit dynamique
 
 {% alert note %}
-Les blocs produit dynamiques nécessitent des [événements recommandés pour le commerce électronique]({{site.baseurl}}/ecommerce_events/) et ne peuvent être utilisés que dans des [Canvas]({{site.baseurl}}/ecommerce_use_cases/). Pour les utilisateurs Braze Shopify, ces événements sont automatiquement inclus dans l'intégration. Pour les utilisateurs non-Shopify, vous devez travailler avec vos développeurs pour transmettre ces événements à Braze et vous assurer que l'identifiant produit principal au sein des événements est ajouté comme ID d'article du catalogue.
+Les blocs produit dynamiques nécessitent des [événements recommandés pour le commerce électronique]({{site.baseurl}}/ecommerce_events) et ne peuvent être utilisés que dans des [Canvas]({{site.baseurl}}/ecommerce_use_cases). Pour les utilisateurs Braze Shopify, ces événements sont automatiquement inclus dans l'intégration. Pour les utilisateurs non-Shopify, vous devez travailler avec vos développeurs pour transmettre ces événements à Braze et vous assurer que l'identifiant produit principal au sein des événements est ajouté comme ID d'article du catalogue.
 {% endalert %}
 
 Créez un nouveau Canvas qui utilise l'un des modèles Braze disponibles pour votre cas d'utilisation spécifique :
@@ -137,7 +137,7 @@ Créez un nouveau Canvas qui utilise l'un des modèles Braze disponibles pour vo
 - Paiement abandonné
 - Confirmations de commande
 
-Pour des instructions détaillées sur la création de vos Canvas pour le commerce électronique, consultez les [cas d'utilisation du commerce électronique]({{site.baseurl}}/ecommerce_use_cases/).
+Pour des instructions détaillées sur la création de vos Canvas pour le commerce électronique, consultez les [cas d'utilisation du commerce électronique]({{site.baseurl}}/ecommerce_use_cases).
 
 #### Bloc produit statique
 

@@ -40,7 +40,7 @@ tool: Canvas
 
 #### Intelligent Timing {#intelligent-timing}
 
-사용자 프로필에 최적의 시간을 계산할 데이터가 충분하지 않을 때 대체 옵션과 함께 [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)을 활성화할 수 있습니다. 사용자가 메시지 단계에 진입하는 시점과 실제 메시지 발송 사이의 지연에 대한 추가 확인으로 Intelligent Timing과 [사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-frequency-capping/)을 활성화하는 것을 권장합니다.
+사용자 프로필에 최적의 시간을 계산할 데이터가 충분하지 않을 때 대체 옵션과 함께 [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)을 활성화할 수 있습니다. 사용자가 메시지 단계에 진입하는 시점과 실제 메시지 발송 사이의 지연에 대한 추가 확인으로 Intelligent Timing과 [사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-frequency-capping)을 활성화하는 것을 권장합니다.
 
 **전달 설정** 탭에서 **Intelligent Timing 사용**을 선택합니다. 여기에서 가장 인기 있는 시간 또는 특정 대체 시간을 선택할 수 있습니다. 방해금지 시간이 활성화된 경우, 메시지 단계에서 이 설정을 재정의할 수도 있습니다.
 
@@ -54,10 +54,10 @@ tool: Canvas
 
 워크스페이스에 여러 앱이 있고 메시지 단계가 특정 앱을 타겟팅해야 하는 경우, 다음 방법 중 하나를 대신 사용하세요:
 
-- 메시지를 작성할 때 **모바일 앱** 또는 **웹 브라우저**와 같은 [전달 플랫폼을 지정]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/#step-2-specify-delivery-platforms)합니다.
+- 메시지를 작성할 때 **모바일 앱** 또는 **웹 브라우저**와 같은 [전달 플랫폼을 지정]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#step-2-specify-delivery-platforms)합니다.
 - Liquid를 사용하여 발송 시점에 타겟팅된 기기 또는 앱을 확인합니다:
-  - {% raw %}`{{targeted_device.${platform}}}`{% endraw %}는 사용자의 현재 세션에 대한 플랫폼을 평가합니다. 자세한 내용은 [타겟팅된 기기 정보]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-device-information)를 참조하세요.
-  - {% raw %}`{{app.${api_id}}}`{% endraw %}는 메시지를 요청하는 앱을 평가합니다. 이 태그를 `abort_message()`와 결합하여 잘못된 앱으로의 발송을 방지할 수 있습니다. 자세한 내용은 [타겟팅된 앱 정보]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-app-information)를 참조하세요.
+  - {% raw %}`{{targeted_device.${platform}}}`{% endraw %}는 사용자의 현재 세션에 대한 플랫폼을 평가합니다. 자세한 내용은 [타겟팅된 기기 정보]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-device-information)를 참조하세요.
+  - {% raw %}`{{app.${api_id}}}`{% endraw %}는 메시지를 요청하는 앱을 평가합니다. 이 태그를 `abort_message()`와 결합하여 잘못된 앱으로의 발송을 방지할 수 있습니다. 자세한 내용은 [타겟팅된 앱 정보]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-app-information)를 참조하세요.
 
 ![메시지 발송 시 오디언스 유효성 검사가 활성화된 전달 유효성 검사. 전달 유효성 검사 진행 동작은 전달 유효성 검사가 충족되지 않을 경우 사용자를 Canvas의 다음 단계로 진행하도록 설정되어 있습니다.]({% image_buster /assets/img/canvas_components/message_step5.png %}){: style="max-width:90%;"}
 
@@ -93,13 +93,13 @@ tool: Canvas
 예를 들어, 다음 요청을 생각해 보겠습니다: `"context" : {"product_name" : "shoes", "product_price" : 79.99}`. Liquid `{{context.${product_name}}}`를 사용하여 메시지에 "shoes"라는 단어를 추가할 수 있습니다.
 {% endraw %}
 
-또한 Canvas 워크플로 전체에서 개인화된 단계를 통해 사용자를 안내하기 위해 모든 메시지 단계에서 [영구 진입 등록정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties/)를 활용할 수 있습니다.
+또한 Canvas 워크플로 전체에서 개인화된 단계를 통해 사용자를 안내하기 위해 모든 메시지 단계에서 [영구 진입 등록정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties)를 활용할 수 있습니다.
 
 ### 이벤트 등록정보 {#event-properties}
 
 이벤트 등록정보는 커스텀 이벤트 및 구매 이벤트에 대해 설정한 등록정보를 말합니다. 이러한 이벤트 등록정보는 실행 기반 전달이 있는 Campaigns과 Canvases에서 사용할 수 있습니다.
 
-Canvas에서 커스텀 이벤트 및 구매 이벤트 등록정보는 [행동 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) 단계 다음에 오는 모든 메시지 단계에서 Liquid로 사용할 수 있습니다. 예를 들어, `event_properties`를 참조할 때 다음 Liquid 스니펫을 사용합니다: {% raw %}``{{event_properties.${property_name}}}``{% endraw %}
+Canvas에서 커스텀 이벤트 및 구매 이벤트 등록정보는 [행동 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) 단계 다음에 오는 모든 메시지 단계에서 Liquid로 사용할 수 있습니다. 예를 들어, `event_properties`를 참조할 때 다음 Liquid 스니펫을 사용합니다: {% raw %}``{{event_properties.${property_name}}}``{% endraw %}
 
 {% alert important %}
 `event_properties`는 행동 경로 단계 없이 독립적으로 사용할 수 없습니다.
@@ -133,4 +133,4 @@ Canvas에서 커스텀 이벤트 및 구매 이벤트 등록정보는 [행동 �
 | _고유 수신자_ | 이 단계에서 메시지를 수신한 사용자 수입니다. |
 | _주요 전환 이벤트_ | Braze Campaign에서 수신한 메시지를 보거나 상호작용한 후 정의된 이벤트가 발생한 횟수입니다. 이 이벤트는 Campaign을 구축할 때 정의합니다. |
 | _매출_ | 설정된 주요 전환 기간 내 Campaign 수신자로부터 발생한 총 매출(달러)입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="분석" }

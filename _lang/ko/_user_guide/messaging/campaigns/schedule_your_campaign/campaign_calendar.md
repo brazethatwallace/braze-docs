@@ -38,4 +38,4 @@ description: "이 참조 페이지에서는 콘텐츠 캘린더의 구성요소�
 
 ![현재 월의 모든 스케줄된 캠페인을 표시하는 발송 캘린더.]({% image_buster /assets/img/campaign_calendar/content_calendar_sends.png %})
 
-캘린더에서 캠페인을 선택하여 캠페인을 확인하거나 수정할 수 있습니다. 자세한 내용은 [캠페인 관리]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/)를 참조하세요.
+캘린더에서 캠페인을 선택하여 캠페인을 확인하거나 수정할 수 있습니다. 자세한 내용은 [캠페인 관리]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns)를 참조하세요.

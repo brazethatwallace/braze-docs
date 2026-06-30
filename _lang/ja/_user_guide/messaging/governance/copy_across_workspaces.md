@@ -79,7 +79,7 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 | 説明 | テリトリー |
 | タイプ | タグ |
 | アクション（ネスト） | Segmentsとフィルター |
-| コンバージョン動作（ネスト） | [承認]({{site.baseurl}}/user_guide/messaging/governance/approvals/) |
+| コンバージョン動作（ネスト） | [承認]({{site.baseurl}}/user_guide/messaging/governance/approvals) |
 | サイレント時間の設定 | トリガースケジュール |
 | フリークエンシーキャップの設定 | Campaignサマリー |
 | 受信者のサブスクリプション状態 |  |
@@ -95,7 +95,7 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 | 説明 | テリトリー |
 | タイプ | タグ |
 | アクション（ネスト） | Segmentsとフィルター |
-| コンバージョン動作（ネスト） | [承認]({{site.baseurl}}/user_guide/messaging/governance/approvals/) |
+| コンバージョン動作（ネスト） | [承認]({{site.baseurl}}/user_guide/messaging/governance/approvals) |
 | サイレント時間の設定 | トリガースケジュール |
 | フリークエンシーキャップの設定 | Canvasサマリー |
 | 受信者のサブスクリプション状態 |  |
@@ -103,7 +103,7 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 | トランザクション |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="詳細" }
 
-キャンバスステップのフィルター条件（例：[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)ステップ）はコピー先のワークスペースにコピーされません。コピー後にこれらのフィルターを再設定してください。
+キャンバスステップのフィルター条件（例：[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)ステップ）はコピー先のワークスペースにコピーされません。コピー後にこれらのフィルターを再設定してください。
 
 {% endtab %}
 {% endtabs %}
@@ -335,7 +335,7 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 
 ## Liquidを含むメッセージのコピー {#copying-messages-that-contain-liquid}
 
-メッセージ本文内のLiquid参照はコピー先のワークスペースにコピーされますが、参照が期待どおりに機能しない場合があります。つまり、ワークスペースAのCanvasをワークスペースBにコピーした場合、ワークスペースBはLiquid参照を含むワークスペースAの詳細を参照できません。例えば、トリガーアクション、オーディエンスフィルター、[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)のフィルター条件などのフィールドはコピーされません。
+メッセージ本文内のLiquid参照はコピー先のワークスペースにコピーされますが、参照が期待どおりに機能しない場合があります。つまり、ワークスペースAのCanvasをワークスペースBにコピーした場合、ワークスペースBはLiquid参照を含むワークスペースAの詳細を参照できません。例えば、トリガーアクション、オーディエンスフィルター、[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)のフィルター条件などのフィールドはコピーされません。
 
 ワークスペース間でCampaign、Canvas、ランディングページをコピーする際は、依存関係のある以下のLiquid参照に注意してください：
 
@@ -350,7 +350,7 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 
 ## フィーチャーフラグを含むメッセージのコピー {#copying-messages-with-feature-flags}
 
-フィーチャーフラグCampaignやフィーチャーフラグステップを含むCanvasをワークスペース間でコピーするには、コピー先のワークスペースに、元のCampaignで参照されているフィーチャーフラグまたは元のCanvasで参照されているフィーチャーフラグステップと一致するIDを持つ[フィーチャーフラグ実験]({{site.baseurl}}/developer_guide/feature_flags/experiments/)が設定されていることを確認してください。
+フィーチャーフラグCampaignやフィーチャーフラグステップを含むCanvasをワークスペース間でコピーするには、コピー先のワークスペースに、元のCampaignで参照されているフィーチャーフラグまたは元のCanvasで参照されているフィーチャーフラグステップと一致するIDを持つ[フィーチャーフラグ実験]({{site.baseurl}}/developer_guide/feature_flags/experiments)が設定されていることを確認してください。
 
 コピー先のワークスペースに存在しないフィーチャーフラグIDを持つフィーチャーフラグステップを含むCampaignやCanvasをコピーした場合、フィーチャーフラグステップはコピーされますが、その内容はコピーされません。
 

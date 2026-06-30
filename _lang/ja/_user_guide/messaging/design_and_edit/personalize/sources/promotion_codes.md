@@ -50,15 +50,15 @@ Brazeがプロモーションコード付きのメッセージを送信する際
 
 次のステップをお探しですか？こちらから始めましょう：
 
-- [プロモーションコードリストの作成]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/)
-- [プロモーションコードの使用]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#using-promotion-codes)
-- [プロモーションコードの使用状況の確認]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#viewing-promotion-code-usage)
+- [プロモーションコードリストの作成]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create)
+- [プロモーションコードの使用]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes)
+- [プロモーションコードの使用状況の確認]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#viewing-promotion-code-usage)
 
 ## よくある質問 {#frequently-asked-questions}
 
 ### プロモーションコードはどのメッセージングチャネルで使用できますか？ {#which-messaging-channels-can-i-use-with-promotion-codes}
 
-プロモーションコードは、メール、モバイルプッシュ、Webプッシュ、Content Cards、Webhook、SMS、WhatsAppでサポートされています。アプリ内メッセージCampaignでは、早期アクセス機能としてプロモーションコードをサポートしています。BrazeのトランザクションメールキャンペーンおよびCanvasのアプリ内メッセージでは、プロモーションコードはサポートされていません。
+プロモーションコードは、メール、モバイルプッシュ、Webプッシュ、Content Cards、Webhook、SMS、WhatsAppでサポートされています。アプリ内メッセージCampaignでは、早期アクセス機能としてプロモーションコードをサポートしています。BrazeのトランザクションメールCampaignおよびCanvasのアプリ内メッセージでは、プロモーションコードはサポートされていません。
 
 ### テスト送信やシード送信は使用量にカウントされますか？ {#do-test-and-seed-sends-count-towards-usage}
 
@@ -87,7 +87,7 @@ Brazeがプロモーションコード付きのメッセージを送信する際
 - **リスト全体を非推奨にする：** 現在のリストをすべてのCampaign、Canvases、またはテンプレートでの使用を停止します。次に、正しいコードを新しいリストにアップロードし、すべてのメッセージを新しいリストを使用するように切り替えます。
 - **間違ったコードを使い切る：** 間違ったリストからプレースホルダーユーザーにコードを送信するCampaignを作成し、間違ったコードがすべて使用されるまで実行します。その後、間違ったコードを除外して、正しいコードを同じリストに再アップロードします。
 
-リストの更新に関する一般的なガイダンスについては、[プロモーションコードリストの更新]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/#updating-a-promotion-code-list)を参照してください。
+リストの更新に関する一般的なガイダンスについては、[プロモーションコードリストの更新]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create#updating-a-promotion-code-list)を参照してください。
 
 ### Brazeはどのユーザーがどのプロモーションコードを受け取ったか、または利用したかを追跡しますか？ {#does-braze-track-which-users-received-or-redeemed-which-promotion-codes}
 
@@ -95,9 +95,9 @@ Brazeがプロモーションコード付きのメッセージを送信する際
 
 コードをユーザーに関連付けたり、利用状況を自分で追跡したりする必要がある場合は、以下の方法があります：
 
-- ユーザーの更新ステップを通じて、プロモーションコードをユーザープロファイルに保存します。詳細については、[プロモーションコードをユーザープロファイルに保存する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#save-to-profile)を参照してください。
-- `message_extras` Liquidタグを使用して、プロモーションコードの値をCurrentsに送信します。詳細については、[プロモーションコード情報をCurrentsに送信する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/#sending-promotion-code-information-to-currents)を参照してください。
+- ユーザーの更新ステップを通じて、プロモーションコードをユーザープロファイルに保存します。詳細については、[プロモーションコードをユーザープロファイルに保存する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#save-to-profile)を参照してください。
+- `message_extras` Liquidタグを使用して、プロモーションコードの値をCurrentsに送信します。詳細については、[プロモーションコード情報をCurrentsに送信する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras#sending-promotion-code-information-to-currents)を参照してください。
 
 ### プロモーションコードをユーザープロファイルに保存して、将来のメッセージで使用できますか？ {#can-i-save-a-promotion-code-to-a-users-profile-for-future-messages}
 
-はい。ユーザーの更新ステップを通じて、プロモーションコードをユーザープロファイルに保存できます。詳細については、[プロモーションコードをユーザープロファイルに保存する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#save-to-profile)を参照してください。
+はい。ユーザーの更新ステップを通じて、プロモーションコードをユーザープロファイルに保存できます。詳細については、[プロモーションコードをユーザープロファイルに保存する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#save-to-profile)を参照してください。

@@ -40,7 +40,7 @@ A continuación, puedes editar los ajustes de Intelligent Delivery, las anulacio
 
 #### Intelligent Timing {#intelligent-timing}
 
-Puedes habilitar [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/) con una opción alternativa cuando el perfil de un usuario no tiene suficientes datos para calcular un momento óptimo. Recomendamos habilitar Intelligent Timing y el [límite de velocidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-frequency-capping/) como una comprobación adicional para cualquier retraso entre el momento en que los usuarios entran en el paso Mensaje y el envío real del mensaje.
+Puedes habilitar [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) con una opción alternativa cuando el perfil de un usuario no tiene suficientes datos para calcular un momento óptimo. Recomendamos habilitar Intelligent Timing y el [límite de velocidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-frequency-capping) como una comprobación adicional para cualquier retraso entre el momento en que los usuarios entran en el paso Mensaje y el envío real del mensaje.
 
 Selecciona **Using Intelligent Timing** en la pestaña **Delivery Settings**. Aquí puedes seleccionar la hora más popular o una hora alternativa específica. Si las horas tranquilas están habilitadas, el paso Mensaje también te permite anular este ajuste.
 
@@ -54,10 +54,10 @@ Las validaciones de entrega evalúan los criterios del perfil de usuario en el m
 
 Si tu espacio de trabajo tiene múltiples aplicaciones y un paso Mensaje debe dirigirse a una aplicación específica, usa uno de los siguientes enfoques en su lugar:
 
-- Al componer el mensaje, [especifica tus plataformas de entrega]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/#step-2-specify-delivery-platforms), como **Mobile Apps** o **Web Browsers**.
+- Al componer el mensaje, [especifica tus plataformas de entrega]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#step-2-specify-delivery-platforms), como **Mobile Apps** o **Web Browsers**.
 - Usa Liquid para comprobar el dispositivo o la aplicación de destino en el momento del envío:
-  - {% raw %}`{{targeted_device.${platform}}}`{% endraw %} evalúa la plataforma de la sesión actual del usuario. Para más información, consulta [Información del dispositivo de destino]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-device-information).
-  - {% raw %}`{{app.${api_id}}}`{% endraw %} evalúa qué aplicación está solicitando el mensaje. Combina esta etiqueta con `abort_message()` para evitar envíos a la aplicación incorrecta. Para más información, consulta [Información de la aplicación de destino]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-app-information).
+  - {% raw %}`{{targeted_device.${platform}}}`{% endraw %} evalúa la plataforma de la sesión actual del usuario. Para más información, consulta [Información del dispositivo de destino]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-device-information).
+  - {% raw %}`{{app.${api_id}}}`{% endraw %} evalúa qué aplicación está solicitando el mensaje. Combina esta etiqueta con `abort_message()` para evitar envíos a la aplicación incorrecta. Para más información, consulta [Información de la aplicación de destino]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-app-information).
 
 ![Las validaciones de entrega están habilitadas para validar la audiencia en el envío del mensaje. El comportamiento de avance de las validaciones de entrega está configurado para hacer avanzar al usuario al siguiente paso en el Canvas si no se cumplen las validaciones de entrega.]({% image_buster /assets/img/canvas_components/message_step5.png %}){: style="max-width:90%;"}
 
@@ -93,13 +93,13 @@ Usa el siguiente Liquid cuando hagas referencia a estas propiedades de entrada: 
 Por ejemplo, considera la siguiente solicitud: `"context" : {"product_name" : "shoes", "product_price" : 79.99}`. Podrías añadir la palabra "shoes" a un mensaje con el Liquid `{{context.${product_name}}}`.
 {% endraw %}
 
-También puedes aprovechar las [propiedades de entrada persistentes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties/) en cualquier paso Mensaje para guiar a tus usuarios a través de pasos personalizados en todo el flujo de trabajo de tu Canvas.
+También puedes aprovechar las [propiedades de entrada persistentes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties) en cualquier paso Mensaje para guiar a tus usuarios a través de pasos personalizados en todo el flujo de trabajo de tu Canvas.
 
 ### Propiedades del evento {#event-properties}
 
 Las propiedades del evento se refieren a las propiedades que configuras para eventos personalizados y eventos de compra. Estas propiedades del evento se pueden usar en Campaigns con entrega basada en acciones, así como en Canvas.
 
-En Canvas, las propiedades de eventos personalizados y eventos de compra se pueden usar en Liquid en cualquier paso Mensaje que siga a un paso de [Rutas de acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/). Por ejemplo, cuando hagas referencia a `event_properties`, usa este fragmento de Liquid: {% raw %}``{{event_properties.${property_name}}}``{% endraw %}
+En Canvas, las propiedades de eventos personalizados y eventos de compra se pueden usar en Liquid en cualquier paso Mensaje que siga a un paso de [Rutas de acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths). Por ejemplo, cuando hagas referencia a `event_properties`, usa este fragmento de Liquid: {% raw %}``{{event_properties.${property_name}}}``{% endraw %}
 
 {% alert important %}
 `event_properties` no se puede usar de forma independiente de los pasos de Rutas de acción.
@@ -133,4 +133,4 @@ Consulta la siguiente tabla para las definiciones de las métricas del component
 | _Destinatarios únicos_ | El número de usuarios que han recibido mensajes de este paso. |
 | _Evento de conversión primaria_ | El número de veces que ocurrió un evento definido después de interactuar con o ver un mensaje recibido de una Campaign de Braze. Defines este evento al crear la Campaign. |
 | _Ingresos_ | Los ingresos totales en dólares de los destinatarios de la Campaign dentro de la ventana de conversión primaria establecida. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Análisis" }

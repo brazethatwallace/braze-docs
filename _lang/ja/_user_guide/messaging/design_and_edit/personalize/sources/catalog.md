@@ -30,21 +30,21 @@ CSVまたはAPIを通じてカタログにデータをインポートした後�
 | レストランまたは店舗のリスト | ロケーション固有の詳細でメッセージをパーソナライズします |
 | コンテンツのおすすめ | 記事、動画、その他のメディアアイテムを参照します |
 | イベント情報 | イベントの日付、会場、説明をメッセージに取り込みます |
-| ティアベースのオファー | ユーザーのメンバーシップレベルやセグメントに合わせてプロモーションをマッチングします |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Common use cases" }
+| ティアベースのオファー | ユーザーのメンバーシップレベルやSegmentに合わせてプロモーションをマッチングします |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="一般的なユースケース" }
 
 ## カタログトリガー {#catalog-triggers}
 
 カタログは、カタログトリガーを通じて自動メッセージングも実現します。再入荷通知や値下げ通知を設定して、カタログアイテムが変更されたときにユーザーに自動的にメッセージを送信できます。
 
-詳細については、[カタログトリガー]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/)を参照してください。
+詳細については、[カタログトリガー]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers)を参照してください。
 
 ## セレクション {#selections}
 
 セレクションを使用して、定義したフィルターでカタログアイテムをグループ化できます。たとえば、20ドル未満のアイテムや特定のカテゴリのアイテムのセレクションを作成し、フィルタリングされたセットをメッセージ内で参照できます。
 
-詳細については、[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/)を参照してください。
+詳細については、[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)を参照してください。
 
 ## はじめに {#getting-started}
 
-カタログの作成と管理については、[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)を参照してください。メッセージ内でカタログデータを参照する方法については、[メッセージでのカタログの使用]({{site.baseurl}}/user_guide/data/activation/catalogs/use/)を参照してください。
+カタログの作成と管理については、[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)を参照してください。メッセージ内でカタログデータを参照する方法については、[メッセージでのカタログの使用]({{site.baseurl}}/user_guide/data/activation/catalogs/use)を参照してください。

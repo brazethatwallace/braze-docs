@@ -15,7 +15,7 @@ tool: Canvas
 > La rapidez con la que un usuario abandona completamente el Canvas depende del paso en el que se encuentre, especialmente en los pasos de demora.
 > Para más información, consulta [Cómo salen los usuarios](#how-users-exit).
 
-### Cómo salen los usuarios {#how-users-exit}
+## Cómo salen los usuarios {#how-users-exit}
 
 Cuando un usuario realiza el evento de salida, Braze lo marca inmediatamente para salir del Canvas. Después de eso, no avanza a ningún paso posterior.
 
@@ -105,5 +105,5 @@ Supongamos que queremos dirigirnos a usuarios que aún no han realizado ninguna 
 ![Configuración de criterios de salida con "Makes Any Purchase" como evento de excepción, de modo que si un usuario realiza cualquier compra, saldrá de este Canvas.]({% image_buster /assets/img_archive/exit_criteria_example.png %}){: style="max-width:80%;"}
 
 {% alert tip %}
-Para configurar criterios de salida que comparen propiedades del evento con propiedades de entrada del Canvas (por ejemplo, salir solo cuando un usuario compra el artículo específico que abandonó), consulta [Hacer coincidir criterios de salida con eventos de entrada]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/matching_entry_and_exit_criteria/).
+Para configurar criterios de salida que comparen propiedades del evento con propiedades de entrada del Canvas (por ejemplo, salir solo cuando un usuario compra el artículo específico que abandonó), consulta [Hacer coincidir criterios de salida con eventos de entrada]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/matching_entry_and_exit_criteria).
 {% endalert %}

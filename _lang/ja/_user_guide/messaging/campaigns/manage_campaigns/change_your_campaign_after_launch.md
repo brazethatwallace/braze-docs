@@ -66,8 +66,8 @@ Brazeでは、ライブ状態のまま編集するのではなく、変更を加
 
 キャンペーンがインテリジェントタイミングまたはローカルタイムゾーン配信を使用している場合、元の送信時間から24時間以内に編集が行われると、スケジュールされた送信時間の編集は反映されません。これは以下の理由によります。
 
-- **インテリジェントタイミング:** Brazeはサモア時間の午前0時に最適な送信時間の計算を開始します。この時間がすでに過ぎている場合、メッセージの処理が開始されています。詳細については、[インテリジェントタイミング]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)を参照してください。
-- **ローカルタイムゾーン配信:** 24時間以内にスケジュールされたローカルタイムゾーンキャンペーンを編集しても、メッセージのスケジュールは変更されません。詳細については、[ローカルタイムゾーンキャンペーンのスケジュール方法]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign)を参照してください。
+- **インテリジェントタイミング:** Brazeはサモア時間の午前0時に最適な送信時間の計算を開始します。この時間がすでに過ぎている場合、メッセージの処理が開始されています。詳細については、[インテリジェントタイミング]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)を参照してください。
+- **ローカルタイムゾーン配信:** 24時間以内にスケジュールされたローカルタイムゾーンキャンペーンを編集しても、メッセージのスケジュールは変更されません。詳細については、[ローカルタイムゾーンキャンペーンのスケジュール方法]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign)を参照してください。
 
 ### 送信レート {#send-rate}
 
@@ -75,7 +75,7 @@ Brazeでは、ライブ状態のまま編集するのではなく、変更を加
 
 #### 配信速度レート制限を使用したキャンペーンの一時停止 {#pausing-campaigns-with-delivery-speed-rate-limiting}
 
-[配信速度レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting)を使用しているキャンペーンを一時停止すると、Brazeは分単位のスロットに送信を分散します。**Resume**を選択しても、キャンペーンが一時停止されている間にキャンセルされたスロットのメッセージは再送信されず、キャンペーンの再開時にすべてのメッセージが送信されるとは限りません。
+[配信速度レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)を使用しているキャンペーンを一時停止すると、Brazeは分単位のスロットに送信を分散します。**Resume**を選択しても、キャンペーンが一時停止されている間にキャンセルされたスロットのメッセージは再送信されず、キャンペーンの再開時にすべてのメッセージが送信されるとは限りません。
 
 キャンペーンの一時停止によりメッセージを受信しなかったユーザーがいる場合は、**Resume**で未送信メッセージを配信しようとするのではなく、キャンペーンを複製してそれらのユーザーのみをターゲットにしてください。
 

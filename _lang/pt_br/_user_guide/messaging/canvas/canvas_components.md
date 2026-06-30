@@ -21,11 +21,11 @@ guide_featured_list:
     image: /assets/img/braze_icons/briefcase-01.svg
   - name: Etapa de Jornadas do público
     link: /docs/user_guide/messaging/canvas/canvas_components/audience_paths
-    image: /assets/img/braze_icons/users-01.svg 
+    image: /assets/img/braze_icons/users-01.svg
   - name: Etapa de sincronização de público
-    link: /docs/partners/canvas_audience_sync/
+    link: /docs/partners/canvas_audience_sync
     image: /assets/img/braze_icons/refresh-ccw-02.svg
-  - name: Etapa de Otimizador de conteúdo
+  - name: Etapa do Otimizador de conteúdo
     link: /docs/user_guide/messaging/canvas/canvas_components/content_optimizer_step
     image: /assets/img/braze_icons/target-04.svg
   - name: Etapa de contexto
@@ -54,11 +54,11 @@ guide_featured_list:
     image: /assets/img/braze_icons/user-check-01.svg
 ---
 
-## Sobre os componentes do Canvas
+## Sobre os componentes do Canvas {#about-canvas-components}
 
 Com os componentes do Canvas, você pode desbloquear novas jornadas de usuário para melhorar seu processo e aumentar a eficácia do alcance do seu público.
 
-### Personalizando jornadas de usuário
+### Personalizando jornadas de usuário {#customizing-user-journeys}
 
 ![Exemplo de uma jornada de usuário no Canvas com uma etapa de Divisão de decisão seguida por etapas de postergação e etapas de mensagem.]({% image_buster /assets/img/canvas_intro/canvas_intro.gif %}){: style="float:right;max-width:55%;margin-left:15px;"}
 
@@ -68,10 +68,10 @@ Os componentes de [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/c
 
 Os componentes de [Postergação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) permitem que você adie uma única etapa no seu Canvas. Essa etapa de postergação independente no seu Canvas é ideal para enviar mensagens aos seus usuários em um momento específico. Além disso, os componentes de postergação também podem aumentar o alcance do seu público, permitindo mais tempo para que ele atenda aos critérios do componente.
 
-### Testes
+### Testes {#testing}
 
 Ao criar suas jornadas de usuário, você também pode querer testar qual é a jornada mais eficaz no Canvas. Com as [Jornadas do experimento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step), você pode testar múltiplas jornadas do Canvas em qualquer etapa. Você também pode usar as conexões entre etapas como uma pré-visualização de alto nível. Conexões em laranja indicam que a etapa anterior avançará os usuários imediatamente para a próxima etapa.
 
-### Integração
+### Integração {#integration}
 
-Quer sincronizar com os dados primários de usuários da sua marca? Aproveite as opções de sincronização de público disponíveis para [Facebook]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync/) e [Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/).
+Quer sincronizar com os dados primários de usuários da sua marca? Aproveite as opções de sincronização de público disponíveis para [Facebook]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync) e [Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync).

@@ -569,7 +569,7 @@ There is a shovel here.
 
 ### ヨーロッパの数値表記規則に合わせて通貨をフォーマットする {#european-currency-format}
 
-小数点にカンマ、千の位にピリオドを使用するロケール（ドイツやイタリアなど）では、[`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#money-filter)フィルターと[`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#number-formatting-filters)フィルターを`replace`と組み合わせて区切り文字を入れ替えます。ピリオドとカンマが同じパスで入れ替わらないように、`#`を一時的なプレースホルダーとして使用します。
+小数点にカンマ、千の位にピリオドを使用するロケール（ドイツやイタリアなど）では、[`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filter)フィルターと[`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters)フィルターを`replace`と組み合わせて区切り文字を入れ替えます。ピリオドとカンマが同じパスで入れ替わらないように、`#`を一時的なプレースホルダーとして使用します。
 
 {% raw %}
 ```liquid
@@ -873,10 +873,10 @@ Miscellaneous
 
 ### マーケティングメールをブロックしている顧客へのメール送信を避ける {#misc-avoid-blocked-emails}
 
-このユースケースでは、Content Blocksに保存されたブロック済みユーザーのリストを取得し、それらのブロック済みユーザーが今後のCampaignやCanvasesで連絡やターゲティングされないようにします。
+このユースケースでは、Content Blockに保存されたブロック済みユーザーのリストを取得し、それらのブロック済みユーザーが今後のCampaignやCanvasesで連絡やターゲティングされないようにします。
 
 {% alert important %}
-このLiquidを使用するには、まずブロック済みメールのリストをContent Blocks内に保存してください。リストには、メールアドレス間に余分なスペースや文字を挿入しないでください（例：`test@braze.com,abc@braze.com`）。
+このLiquidを使用するには、まずブロック済みメールのリストをContent Block内に保存してください。リストには、メールアドレス間に余分なスペースや文字を挿入しないでください（例：`test@braze.com,abc@braze.com`）。
 {% endalert %}
 
 {% raw %}
@@ -892,10 +892,10 @@ Your message here!
 ```
 {% endraw %}
 
-**説明:** ここでは、ブロック済みメールのContent Blocksを参照して、潜在的な受信者のメールがこのリストに含まれているかどうかを確認します。メールが見つかった場合、メッセージは送信されません。
+**説明:** ここでは、ブロック済みメールのContent Blockを参照して、潜在的な受信者のメールがこのリストに含まれているかどうかを確認します。メールが見つかった場合、メッセージは送信されません。
 
 {% alert note %}
-Content Blocksのサイズ制限は5 MBです。
+Content Blockのサイズ制限は5 MBです。
 {% endalert %}
 
 ### 顧客のサブスクリプション状態を使用してメッセージ内のコンテンツをパーソナライズする {#misc-personalize-content}
@@ -952,7 +952,7 @@ Today's offer from {{store}}
 
 このユースケースでは、カスタムイベントに基づいて今後のリマインダーを設定できます。このシナリオ例では、26日以上先のポリシー更新日に対してリマインダーを設定し、ポリシー更新日の26日前、13日前、7日前、または2日前にリマインダーを送信します。
 
-このユースケースでは、以下を[WebhookのCampaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)またはキャンバスステップの本文に配置する必要があります。
+このユースケースでは、以下を[WebhookのCampaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)またはキャンバスステップの本文に配置する必要があります。
 
 {% raw %}
 ```liquid
@@ -1539,7 +1539,7 @@ Check out this new bar after work today. HH specials!
 ```
 {% endraw %}
 
-{% alert note %} これは[クワイエットアワー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options)の逆です。{% endalert %}
+{% alert note %} これは[クワイエットアワー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#time-based-options)の逆です。{% endalert %}
 
 ### 送信時に時間範囲外の場合にメッセージを中止する {#abort-send-time-hour-range}
 
@@ -1816,4 +1816,4 @@ Default copy
 
 {% endapi %}
 
-このライブラリの多くの例では、条件が満たされない場合に送信をスキップするために`abort_message`タグを使用しています。Liquidによる送信中止の完全なリファレンス（日付や時間ベースのパターンを含む）については、[Liquidメッセージの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)を参照してください。
+このライブラリの多くの例では、条件が満たされない場合に送信をスキップするために`abort_message`タグを使用しています。Liquidによる送信中止の完全なリファレンス（日付や時間ベースのパターンを含む）については、[Liquidメッセージの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)を参照してください。

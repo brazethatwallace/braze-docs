@@ -27,7 +27,7 @@ tool: Canvas
 
 指定先に送信ステップは、ユーザーがこのステップに到達するとすぐに送信先Canvasにエントリさせます。このステップは、送信先Canvasへの1回限りのエントリポイントとして機能します。送信先Canvasのエントリ条件とオーディエンス条件を満たすユーザーは、そのCanvasジャーニーを開始します。その時点で条件を満たさないユーザーは送信先Canvasにエントリせず、ソースCanvasを続行します。
 
-送信先Canvasがスケジュールされたエントリスケジュールを使用している場合、指定先に送信ステップはそのエントリスケジュールをバイパスします。また、送信先Canvasの**エントリコントロール**で**Canvasがスケジュールされるたびに**に設定されている場合、[**エントリ数の制限**]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls)もバイパスします。このステップから送信されたユーザーは、次のスケジュールされた評価時間枠を待ちません。送信先Canvasのエントリ条件とオーディエンス条件を満たしている場合、指定先に送信ステップに到達した時点で評価され、エントリします。
+送信先Canvasがスケジュールされたエントリスケジュールを使用している場合、送信先へ送信ステップはそのエントリスケジュールをバイパスします。また、送信先Canvasの**エントリコントロール**で**Canvasがスケジュールされるたびに**に設定されている場合、[**エントリ数の制限**]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls)もバイパスします。このステップから送信されたユーザーは、次のスケジュールされた評価時間枠を待ちません。送信先Canvasのエントリ条件とオーディエンス条件を満たしている場合、送信先へ送信ステップに到達した時点で評価され、エントリします。
 
 送信先Canvasがアクションベースのエントリを使用している場合、指定先に送信ステップは、ユーザーがそのCanvasに入るために設定されたエントリアクションを実行する要件をバイパスします。
 
@@ -47,7 +47,7 @@ tool: Canvas
 
 **Preview destination**を選択すると、ユーザーの送信先Canvasをプレビューできます。
 
-このCanvasステップを設定した後、[ユーザーパスをプレビュー]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths/)して、ユーザーが現在のCanvasの次のステップに進むかどうか、また送信先Canvasにも進むかどうかを確認できます。
+このCanvasステップを設定した後、[ユーザーパスをプレビュー]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths)して、ユーザーが現在のCanvasの次のステップに進むかどうか、また送信先Canvasにも進むかどうかを確認できます。
 
 ## よくある質問 {#frequently-asked-questions}
 
@@ -57,7 +57,7 @@ tool: Canvas
 
 ### コンテキスト変数は保持されますか？ {#are-context-variables-preserved}
 
-はい。ソースCanvasの[コンテキスト]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/)は常に送信先Canvasに渡されます。
+はい。ソースCanvasの[コンテキスト]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)は常に送信先Canvasに渡されます。
 
 ### APIやユーザーの更新のワークアラウンドの代わりに、指定先に送信ステップを使用してCanvasを接続できますか？ {#can-i-use-the-send-to-destination-step-to-connect-canvases-instead-of-using-api-or-user-update-workarounds}
 
@@ -67,7 +67,7 @@ tool: Canvas
 
 ### ユーザーは送信先Canvasの最初から入りますか？ {#do-users-enter-at-the-start-of-the-destination-canvas}
 
-資格のあるユーザーは、送信先Canvasの最初のステップにすぐにエントリします。送信先Canvasの次のスケジュールされたエントリ時間を待つことはありません。送信先Canvas内の特定のキャンバスステップにリンクすることはできません。
+資格のあるユーザーは、送信先Canvasの最初のステップにすぐにエントリします。送信先Canvasの次のスケジュールされたエントリ時間を待つことはありません。送信先Canvas内の特定のCanvasステップにリンクすることはできません。
 
 ### 指定先に送信ステップは、スケジュールされた送信先Canvasのエントリスケジュールを尊重しますか？ {#does-the-send-to-destination-step-respect-a-scheduled-destination-canvas-entry-schedule}
 

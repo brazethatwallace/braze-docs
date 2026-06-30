@@ -28,7 +28,7 @@ Si vous constatez plus d'appels de contenu connecté dans vos journaux que d'env
 
 {% raw %}
 
-Pour envoyer un appel de contenu connecté, utilisez la balise `{% connected_content %}`. Avec cette balise, vous pouvez assigner ou déclarer des variables en utilisant `:save`. Des aspects de ces variables peuvent être référencés plus tard dans le message avec [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/).
+Pour envoyer un appel de contenu connecté, utilisez la balise `{% connected_content %}`. Avec cette balise, vous pouvez assigner ou déclarer des variables en utilisant `:save`. Des aspects de ces variables peuvent être référencés plus tard dans le message avec [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid).
 
 Par exemple, le corps de message suivant accède à l'URL `http://numbersapi.com/random/trivia` et inclut une anecdote amusante dans votre message :
 
@@ -59,7 +59,7 @@ Les requêtes de contenu connecté ne prennent en charge que les requêtes GET e
 
 Si l'URL est indisponible et atteint une page 404, Braze affichera une chaîne vide à la place. Si l'URL atteint une page HTTP 500 ou 502, l'URL échouera selon la logique de nouvelles tentatives.
 
-Si l'endpoint renvoie du JSON, vous pouvez le détecter en vérifiant si la valeur `connected` est null, puis [abandonner conditionnellement le message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/). Braze n'autorise que les URL qui communiquent via le port 80 (HTTP) et 443 (HTTPS).
+Si l'endpoint renvoie du JSON, vous pouvez le détecter en vérifiant si la valeur `connected` est null, puis [abandonner conditionnellement le message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content). Braze n'autorise que les URL qui communiquent via le port 80 (HTTP) et 443 (HTTPS).
 
 ### Détection d'hôte défaillant {#unhealthy-host-detection}
 
@@ -67,24 +67,24 @@ Le contenu connecté utilise un mécanisme de détection d'hôte défaillant pou
 
 Si l'hôte cible connaît un taux élevé de ralentissements significatifs ou de surcharge, Braze interrompra temporairement les requêtes vers l'hôte cible pendant une minute, simulant à la place des réponses indiquant l'échec. Après une minute, Braze sondera la santé de l'hôte avec un petit nombre de requêtes avant de reprendre les requêtes à pleine vitesse si l'hôte est jugé sain. Si l'hôte est toujours défaillant, Braze attendra une minute supplémentaire avant de réessayer.
 
-Si les requêtes vers l'hôte cible sont interrompues par le détecteur d'hôte défaillant, Braze continuera à rendre les messages et à suivre votre logique Liquid comme s'il avait reçu un code de réponse d'erreur. Si vous souhaitez vous assurer que ces requêtes de contenu connecté sont réessayées lorsqu'elles sont interrompues par le détecteur d'hôte défaillant, utilisez l'option `:retry`. Pour plus d'informations sur l'option `:retry`, consultez [Nouvelles tentatives de contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/).
+Si les requêtes vers l'hôte cible sont interrompues par le détecteur d'hôte défaillant, Braze continuera à rendre les messages et à suivre votre logique Liquid comme s'il avait reçu un code de réponse d'erreur. Si vous souhaitez vous assurer que ces requêtes de contenu connecté sont réessayées lorsqu'elles sont interrompues par le détecteur d'hôte défaillant, utilisez l'option `:retry`. Pour plus d'informations sur l'option `:retry`, consultez [Nouvelles tentatives de contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries).
 
-Si vous pensez que la détection d'hôte défaillant cause des problèmes, contactez l'[assistance Braze]({{site.baseurl}}/support_contact/).
+Si vous pensez que la détection d'hôte défaillant cause des problèmes, contactez l'[assistance Braze]({{site.baseurl}}/support_contact).
 
 {% alert note %}
 Vous pouvez ajouter des URL spécifiques à une liste d'autorisation pour le contenu connecté. Pour accéder à cette fonctionnalité, contactez votre gestionnaire de la satisfaction client.
 {% endalert %}
 
 {% alert tip %}
-Pour en savoir plus sur les codes d'erreur courants, consultez [Résolution des problèmes de requêtes webhook et de contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content/#unhealthy-host-detection).
+Pour en savoir plus sur les codes d'erreur courants, consultez [Résolution des problèmes de requêtes webhook et de contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection).
 {% endalert %}
 
 ### Limites de débit (429) versus détection d'hôte défaillant {#rate-limits-429-versus-unhealthy-host-detection}
 
 Les mécanismes suivants sont différents :
 
-- **429 Too Many Requests :** Votre endpoint (ou un service en amont) renvoie cette réponse. Cela signifie que votre serveur ou middleware refuse le trafic, souvent parce qu'il a sa propre limite de débit. Braze n'applique pas de limite de débit distincte au contenu connecté ; le volume de requêtes de contenu connecté évolue directement avec votre [limite de débit de vitesse de distribution]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting). Comme les messages peuvent être rendus plusieurs fois par destinataire (par exemple, pour le HTML de l'e-mail, le texte brut et l'AMP), le nombre de requêtes de contenu connecté peut dépasser cette limite de débit — ne supposez pas qu'il sera inférieur ou égal au nombre de messages par minute que vous avez défini. Si vous constatez des erreurs 429, augmentez la capacité de votre endpoint ou middleware pour gérer le volume de requêtes attendu, ou réduisez la limite de débit de la campagne ou de l'étape du Canvas afin que moins de messages (et donc moins d'appels de contenu connecté) soient envoyés par minute.
-- **Détection d'hôte défaillant :** Une protection côté Braze qui se déclenche après un taux et un volume élevés d'*échecs* dans une fenêtre d'une minute. Le nombre d'échecs inclut les codes de statut `408`, `429`, `502`, `503`, `504` et `529`. Lorsqu'elle est déclenchée, Braze interrompt temporairement les requêtes vers cet hôte et simule une réponse d'échec. Cela est indépendant de votre propre limitation de débit. Pour les seuils de détection et plus de détails, consultez [Résolution des problèmes de requêtes webhook et de contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content/#unhealthy-host-detection). Pour éviter de déclencher la détection d'hôte défaillant, assurez-vous que votre endpoint peut gérer le volume d'appels décrit dans [Comprendre le volume d'appels de contenu connecté](#understanding-connected-content-call-volume) et [Bonnes pratiques pour les endpoints à haut volume](#best-practices-for-high-volume-endpoints).
+- **429 Too Many Requests :** Votre endpoint (ou un service en amont) renvoie cette réponse. Cela signifie que votre serveur ou middleware refuse le trafic, souvent parce qu'il a sa propre limite de débit. Braze n'applique pas de limite de débit distincte au contenu connecté ; le volume de requêtes de contenu connecté évolue directement avec votre [limite de débit de vitesse de distribution]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting). Comme les messages peuvent être rendus plusieurs fois par destinataire (par exemple, pour le HTML de l'e-mail, le texte brut et l'AMP), le nombre de requêtes de contenu connecté peut dépasser cette limite de débit — ne supposez pas qu'il sera inférieur ou égal au nombre de messages par minute que vous avez défini. Si vous constatez des erreurs 429, augmentez la capacité de votre endpoint ou middleware pour gérer le volume de requêtes attendu, ou réduisez la limite de débit de la campagne ou de l'étape du Canvas afin que moins de messages (et donc moins d'appels de contenu connecté) soient envoyés par minute.
+- **Détection d'hôte défaillant :** Une protection côté Braze qui se déclenche après un taux et un volume élevés d'*échecs* dans une fenêtre d'une minute. Le nombre d'échecs inclut les codes de statut `408`, `429`, `502`, `503`, `504` et `529`. Lorsqu'elle est déclenchée, Braze interrompt temporairement les requêtes vers cet hôte et simule une réponse d'échec. Cela est indépendant de votre propre limitation de débit. Pour les seuils de détection et plus de détails, consultez [Résolution des problèmes de requêtes webhook et de contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection). Pour éviter de déclencher la détection d'hôte défaillant, assurez-vous que votre endpoint peut gérer le volume d'appels décrit dans [Comprendre le volume d'appels de contenu connecté](#understanding-connected-content-call-volume) et [Bonnes pratiques pour les endpoints à haut volume](#best-practices-for-high-volume-endpoints).
 
 ## Permettre des performances efficaces {#allowing-for-efficient-performance}
 
@@ -104,8 +104,8 @@ Pour en savoir plus sur la planification de la capacité des endpoints et la ré
 Si vos messages utilisent du contenu connecté et que vous envoyez à haut volume, prévoyez plus de requêtes que le nombre de destinataires ou d'envois :
 
 1. **Estimez la charge de pointe :** Utilisez un multiplicateur conservateur lors du dimensionnement de votre endpoint ou middleware — les requêtes de contenu connecté peuvent dépasser le nombre de destinataires ou de messages envoyés. Par exemple, pour l'e-mail, un seul destinataire peut générer plusieurs appels (HTML, texte brut et AMP), donc destinataires × 2 ou × 3 est souvent utilisé comme estimation conservatrice.
-2. **Utilisez la mise en cache lorsque c'est approprié :** Les requêtes GET sont mises en cache par défaut. Pour les requêtes POST, ajoutez `:cache_max_age` lorsque la réponse peut être réutilisée pendant une période (par exemple, un jeton ou du contenu qui ne change pas par requête). Consultez [Mise en cache des réponses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/) et la [FAQ sur la mise en cache POST](#what-is-caching-behavior) ci-dessous.
-3. **Définissez une limite de débit de vitesse de distribution :** La [limite de débit de vitesse de distribution]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting) sur les Campaigns ou les étapes du Canvas est le seul levier pour limiter indirectement le volume de requêtes de contenu connecté — Braze ne limite pas le débit du contenu connecté lui-même. Ce n'est qu'un indicateur approximatif, et pas parfait, car les requêtes de contenu connecté ne sont pas en ratio 1:1 avec les messages. Utilisez-le pour maintenir le volume de messages (et donc de contenu connecté) dans les limites de ce que votre endpoint peut gérer.
+2. **Utilisez la mise en cache lorsque c'est approprié :** Les requêtes GET sont mises en cache par défaut. Pour les requêtes POST, ajoutez `:cache_max_age` lorsque la réponse peut être réutilisée pendant une période (par exemple, un jeton ou du contenu qui ne change pas par requête). Consultez [Mise en cache des réponses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) et la [FAQ sur la mise en cache POST](#what-is-caching-behavior) ci-dessous.
+3. **Définissez une limite de débit de vitesse de distribution :** La [limite de débit de vitesse de distribution]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) sur les Campaigns ou les étapes du Canvas est le seul levier pour limiter indirectement le volume de requêtes de contenu connecté — Braze ne limite pas le débit du contenu connecté lui-même. Ce n'est qu'un indicateur approximatif, et pas parfait, car les requêtes de contenu connecté ne sont pas en ratio 1:1 avec les messages. Utilisez-le pour maintenir le volume de messages (et donc de contenu connecté) dans les limites de ce que votre endpoint peut gérer.
 4. **Concevez pour l'idempotence et les nouvelles tentatives :** Braze peut appeler votre endpoint plus d'une fois par destinataire. Assurez-vous que votre endpoint peut tolérer des requêtes en double sans effets secondaires incorrects.
 
 ## Types d'authentification {#authentication-types}
@@ -136,7 +136,7 @@ Hi there, here is some fun trivia for you!: {% connected_content https://yourweb
 Si vous supprimez un identifiant, gardez à l'esprit que tous les appels de contenu connecté essayant de l'utiliser seront abandonnés.
 {% endalert %}
 
-Les identifiants stockés s'appliquent aux requêtes {% raw %}`{% connected_content %}`{% endraw %} lorsque Braze rend un message. Ils ne sont pas appliqués à la requête HTTP principale configurée dans une étape de [webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#authentication-and-connected-content-credentials). Utilisez les en-têtes de requête ou une balise {% raw %}`{% connected_content %}`{% endraw %} dans un champ d'en-tête ou de corps de webhook lorsque vous devez récupérer des secrets pour cet appel.
+Les identifiants stockés s'appliquent aux requêtes {% raw %}`{% connected_content %}`{% endraw %} lorsque Braze rend un message. Ils ne sont pas appliqués à la requête HTTP principale configurée dans une étape de [webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#authentication-and-connected-content-credentials). Utilisez les en-têtes de requête ou une balise {% raw %}`{% connected_content %}`{% endraw %} dans un champ d'en-tête ou de corps de webhook lorsque vous devez récupérer des secrets pour cet appel.
 
 ### Utiliser l'authentification par jeton {#using-token-authentication}
 
@@ -168,7 +168,7 @@ Certaines configurations d'API nécessitent la récupération d'un jeton d'accè
 
 #### Étape 1 : Récupérer le jeton d'accès {#step-1-retrieve-the-access-token}
 
-L'exemple suivant illustre la récupération et l'enregistrement d'un jeton d'accès dans une variable locale, qui peut ensuite être utilisée pour authentifier l'appel API suivant. Un paramètre `:cache_max_age` peut être ajouté pour correspondre à la durée de validité du jeton d'accès et réduire le nombre d'appels sortants de contenu connecté. Consultez [Mise en cache configurable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables/#configurable-caching) pour plus d'informations.
+L'exemple suivant illustre la récupération et l'enregistrement d'un jeton d'accès dans une variable locale, qui peut ensuite être utilisée pour authentifier l'appel API suivant. Un paramètre `:cache_max_age` peut être ajouté pour correspondre à la durée de validité du jeton d'accès et réduire le nombre d'appels sortants de contenu connecté. Consultez [Mise en cache configurable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#configurable-caching) pour plus d'informations.
 
 {% raw %}
 ```
@@ -242,7 +242,7 @@ Utilisez [Webhook.site](https://webhook.site/) pour résoudre les problèmes de 
 
 Vous pouvez également vérifier que la balise Liquid inclut les paramètres attendus par votre endpoint (par exemple, `:method`, `:headers`, `:content_type`, `:body` et `:basic_auth` lorsque requis). Si vous vous appuyez sur la clé de code de statut HTTP dans un objet JSON enregistré, l'endpoint doit renvoyer un objet JSON et un statut `2XX`.
 
-En cas de taux d'erreur élevé de votre hôte, consultez [Détection d'hôte défaillant]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/#unhealthy-host-detection) et [Volume d'appels de contenu connecté](#understanding-connected-content-call-volume).
+En cas de taux d'erreur élevé de votre hôte, consultez [Détection d'hôte défaillant]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors#unhealthy-host-detection) et [Volume d'appels de contenu connecté](#understanding-connected-content-call-volume).
 
 ## Questions fréquentes {#frequently-asked-questions}
 
@@ -260,7 +260,7 @@ Le contenu connecté n'a pas sa propre limite de débit. La limite de débit est
 
 ### Quel est le comportement de mise en cache ? {#what-is-caching-behavior}
 
-Les requêtes GET sont mises en cache par défaut (consultez [Mise en cache des réponses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/)). **Les requêtes POST ne sont pas mises en cache par défaut**, mais vous pouvez activer la mise en cache en ajoutant `:cache_max_age` à l'appel de contenu connecté. Cela peut réduire la charge sur l'endpoint lorsque la même requête POST (par exemple, une requête de jeton ou de contenu) serait effectuée de manière répétée dans la fenêtre de cache.
+Les requêtes GET sont mises en cache par défaut (consultez [Mise en cache des réponses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses)). **Les requêtes POST ne sont pas mises en cache par défaut**, mais vous pouvez activer la mise en cache en ajoutant `:cache_max_age` à l'appel de contenu connecté. Cela peut réduire la charge sur l'endpoint lorsque la même requête POST (par exemple, une requête de jeton ou de contenu) serait effectuée de manière répétée dans la fenêtre de cache.
 
 {% raw %}
 ```liquid
@@ -268,7 +268,7 @@ Les requêtes GET sont mises en cache par défaut (consultez [Mise en cache des 
 ```
 {% endraw %}
 
-La mise en cache peut aider à réduire les appels de contenu connecté en double, mais ne garantit pas un seul appel par utilisateur. La durée du cache est comprise entre cinq minutes et quatre heures. Pour tous les détails, consultez [Mise en cache des réponses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/).
+La mise en cache peut aider à réduire les appels de contenu connecté en double, mais ne garantit pas un seul appel par utilisateur. La durée du cache est comprise entre cinq minutes et quatre heures. Pour tous les détails, consultez [Mise en cache des réponses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses).
 
 ### Quel est le comportement HTTP par défaut du contenu connecté ? {#what-is-the-connected-content-http-default-behavior}
 
@@ -278,4 +278,4 @@ La mise en cache peut aider à réduire les appels de contenu connecté en doubl
 
 ### Que se passe-t-il si j'utilise le même appel de contenu connecté à plusieurs endroits ? {#what-happens-if-i-use-the-same-connected-content-call-in-multiple-places}
 
-Chaque balise de contenu connecté est évaluée séparément, même si plusieurs balises utilisent la même URL et les mêmes paramètres. Lorsque l'URL et les paramètres de cache le permettent, les requêtes identiques peuvent être servies depuis le cache plutôt que de déclencher une nouvelle requête sortante (consultez [Mise en cache des réponses]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/caching_responses/) pour les détails).
+Chaque balise de contenu connecté est évaluée séparément, même si plusieurs balises utilisent la même URL et les mêmes paramètres. Lorsque l'URL et les paramètres de cache le permettent, les requêtes identiques peuvent être servies depuis le cache plutôt que de déclencher une nouvelle requête sortante (consultez [Mise en cache des réponses]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/caching_responses) pour les détails).

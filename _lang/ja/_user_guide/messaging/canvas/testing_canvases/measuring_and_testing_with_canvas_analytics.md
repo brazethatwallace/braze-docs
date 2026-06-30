@@ -8,7 +8,6 @@ tool:
   - Canvas
   - Reports
 
-
 ---
 
 # キャンバス分析 {#canvas-analytics}
@@ -25,7 +24,7 @@ Canvasを構築してライブに設定したら、**Canvas**ページに移動�
 
 ### 到達可能なユーザーと正確な統計 {#reachable-users-and-exact-statistics}
 
-Canvasに関連付けられたオーディエンスに対して**[正確な統計を計算]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#single-user-segments)**が実行されている場合、Brazeは**到達可能なユーザー**エリアに丸められた推定値を一時的に表示することがあります。計算が完了すると、正確な合計値が推定値に置き換わります。**追加統計を表示**を選択すると、チャネルごとの完全な内訳が表示されます。Canvasビルダーでは、**ターゲット層**の下に同じフローが記載されています。[ターゲット層の計算]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#calculating-target-population)を参照してください。
+Canvasに関連付けられたオーディエンスに対して**[正確な統計を計算]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#single-user-segments)**が実行されている場合、Brazeは**到達可能なユーザー**エリアに丸められた推定値を一時的に表示することがあります。計算が完了すると、正確な合計値が推定値に置き換わります。**追加統計を表示**を選択すると、チャネルごとの完全な内訳が表示されます。Canvasビルダーでは、**ターゲット層**の下に同じフローが記載されています。[ターゲット層の計算]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#calculating-target-population)を参照してください。
 
 ![Canvasの詳細ページ。送信メッセージ数、コンバージョン率、合計エントリ数、合計収益、合計離脱数、推定オーディエンスなどの主要な統計情報と、チャネルおよび統計フィルターが表示されています。]({% image_buster /assets/img_archive/Journey_5.png %})
 
@@ -81,7 +80,7 @@ Canvasアクティビティから構築したSegmentが、キャンバス分析�
 例えば、ユーザーが2つのステップを完了してから購入した場合、その収益は2番目のコンポーネントとエントリしたバリアントに帰属されます。Canvasにエントリしたが、最初のCanvasコンポーネントを受信する前に購入した場合、その収益はエントリしたバリアントに帰属されますが、どのコンポーネントにも帰属されません。
 {% endalert %}
 
-さらに、以下を含む[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)のより詳細な内訳を確認できます：
+さらに、以下を含む[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)のより詳細な内訳を確認できます：
 
 - 各コンバージョンイベントのコンバージョン合計とコンバージョン率
 - コントロールバリアントに対するリフト
@@ -109,8 +108,8 @@ Canvasのサマリーには2件のコンバージョンが表示されますが�
 
 ### ファネルレポート {#funnel-report}
 
-ファネルレポートは、Canvasを受信した後に顧客がたどるジャーニーを分析できるビジュアルレポートを提供します。Canvasにコントロールグループまたは複数のバリアントがある場合、異なるバリアントがコンバージョンファネルにどのような影響を与えたかをより詳細なレベルで理解し、このデータに基づいて最適化できます。ファネルレポートの詳細については、[ファネルレポート]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/)を参照してください。
+ファネルレポートは、Canvasを受信した後に顧客がたどるジャーニーを分析できるビジュアルレポートを提供します。Canvasにコントロールグループまたは複数のバリアントがある場合、異なるバリアントがコンバージョンファネルにどのような影響を与えたかをより詳細なレベルで理解し、このデータに基づいて最適化できます。ファネルレポートの詳細については、[ファネルレポート]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports)を参照してください。
 
 ### リテンションレポート {#retention-report}
 
-ユーザーリテンションは、あらゆるマーケターにとって最も重要な指標の1つです。エンゲージメントの高いユーザーが繰り返し利用し続けることは、ビジネスが健全であることを示しています。Brazeでは、**キャンバス分析**ページで直接ユーザーリテンションを測定できます。リテンションレポートの読み方と解釈方法の詳細については、[リテンションレポート]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/)を参照してください。
+ユーザーリテンションは、あらゆるマーケターにとって最も重要な指標の1つです。エンゲージメントの高いユーザーが繰り返し利用し続けることは、ビジネスが健全であることを示しています。Brazeでは、**キャンバス分析**ページで直接ユーザーリテンションを測定できます。リテンションレポートの読み方と解釈方法の詳細については、[リテンションレポート]({{site.baseurl}}/user_guide/analytics/reports/retention_reports)を参照してください。

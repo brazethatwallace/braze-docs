@@ -9,10 +9,10 @@ search_rank: 1
 
 # キャンバスの作成 {#create-a-canvas}
 
-> このリファレンス記事では、キャンバスの作成、管理、テストに必要なステップについて説明します。このガイドに従うか、[Brazeラーニングコースの Canvas クイック概要](https://learning.braze.com/quick-overview-canvas-setup)をご確認ください。[Braze キャンバステンプレート]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/)から始めることで、セットアップを迅速に進めることもできます。詳細については、[キャンバステンプレート]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/)を参照してください。
+> このリファレンス記事では、キャンバスの作成、管理、テストに必要なステップについて説明します。このガイドに従うか、[Brazeラーニングコースの Canvas クイック概要](https://learning.braze.com/quick-overview-canvas-setup)をご確認ください。[Braze キャンバステンプレート]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates)から始めることで、セットアップを迅速に進めることもできます。詳細については、[キャンバステンプレート]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates)を参照してください。
 
 {% details 元のCanvasエディターの詳細を展開 %}
-元のキャンバスエクスペリエンスを使用してキャンバスを作成または複製することはできなくなりました。Brazeでは、最新のエディターに[キャンバスをクローン]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/)することを推奨しています。
+元のキャンバスエクスペリエンスを使用してキャンバスを作成または複製することはできなくなりました。Brazeでは、最新のエディターに[キャンバスをクローン]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases)することを推奨しています。
 {% enddetails %}
 
 ## ステップ 1: 新しいキャンバスをセットアップする {#step-1-set-up-a-new-canvas}
@@ -61,24 +61,24 @@ search_rank: 1
     キャンバスビルダーを使用して[キャンバスを構築する](#step-2-build-your-canvas)方法をご覧ください。
   {% endtab %}
   {% tab サマリー %}
-    ここでは、キャンバスの詳細のサマリーを確認できます。[キャンバス承認ワークフロー]({{site.baseurl}}/user_guide/messaging/governance/approvals/)が有効になっている場合、起動前にリストされたキャンバスの詳細を承認できます。
+    ここでは、キャンバスの詳細のサマリーを確認できます。[キャンバス承認ワークフロー]({{site.baseurl}}/user_guide/messaging/governance/approvals)が有効になっている場合、起動前にリストされたキャンバスの詳細を承認できます。
 
   {% endtab %}
 {% endtabs %}
 
 ### ステップ 1.1: キャンバスの基本情報から始める {#step-11-start-with-your-canvas-basics}
 
-ここでは、キャンバスに名前を付け、[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/#teams)を割り当て、[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/#tags)を作成または追加します。キャンバスのコンバージョンイベントも割り当てることができます。
+ここでは、キャンバスに名前を付け、[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams#teams)を割り当て、[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#tags)を作成または追加します。キャンバスのコンバージョンイベントも割り当てることができます。
 
 {% alert tip %}
-キャンバスにタグを付けると、検索やレポートの作成が簡単になります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)を使用する際に、特定のタグでフィルタリングできます。
+キャンバスにタグを付けると、検索やレポートの作成が簡単になります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder)を使用する際に、特定のタグでフィルタリングできます。
 {% endalert %}
 
 ![キャンバスの詳細ページ。キャンバス名、説明、ロケーション、タグのフィールドがあります。]({% image_buster /assets/img/canvas_details.png %}){: style="max-width:70%;"}
 
 #### コンバージョンイベントを選択する {#choose-conversion-events}
 
-コンバージョンイベントタイプを選択し、記録するコンバージョンを選択します。これらの[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)は、キャンバスの効率を測定します。
+コンバージョンイベントタイプを選択し、記録するコンバージョンを選択します。これらの[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)は、キャンバスの効率を測定します。
 
 ![1次コンバージョンイベント A。購入のコンバージョンイベントタイプが設定されており、3日間のコンバージョン期限内に購入を行ったユーザーのコンバージョンを記録します。]({% image_buster /assets/img/add_canvas_conversions.png %})
 
@@ -100,7 +100,7 @@ search_rank: 1
 
 ![「エントリスケジュール」ページ。タイプが「スケジュール」に設定されています。選択に基づいて、頻度、開始時間、繰り返し、曜日などの時間ベースのオプションが表示されています。]({% image_buster /assets/img_archive/Canvas_Scheduled_Delivery.png %})
 
-ローカルタイムゾーン配信を使用する場合、Brazeはエントリ適格性を2回評価します。最初にスケジュールされた日のサモア時間（UTC+13）で、次にユーザーのローカルタイムゾーンで評価します。ユーザーがキャンバスに入るには、両方のチェックで適格である必要があります。エントリフィルターが相対的な時間ウィンドウ（たとえば「2日以上前」）を使用している場合、最初のチェック時点で24時間が経過していない可能性があり、ユーザーが1日遅れてエントリすることがあります。これを避けるには、少なくとも2日以上のより広い時間ウィンドウを使用してください。詳細については、[Brazeはローカルタイムゾーン配信のユーザーをいつ評価しますか？]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery)を参照してください。
+ローカルタイムゾーン配信を使用する場合、Brazeはエントリ適格性を2回評価します。最初にスケジュールされた日のサモア時間（UTC+13）で、次にユーザーのローカルタイムゾーンで評価します。ユーザーがキャンバスに入るには、両方のチェックで適格である必要があります。エントリフィルターが相対的な時間ウィンドウ（たとえば「2日以上前」）を使用している場合、最初のチェック時点で24時間が経過していない可能性があり、ユーザーが1日遅れてエントリすることがあります。これを避けるには、少なくとも2日以上のより広い時間ウィンドウを使用してください。詳細については、[Brazeはローカルタイムゾーン配信のユーザーをいつ評価しますか？]({{site.baseurl}}/user_guide/messaging/campaigns/faq#when-does-braze-evaluate-users-for-local-time-zone-delivery)を参照してください。
 {% endtab %}
 {% tab アクションベースの配信 %}
 アクションベースの配信では、ユーザーはアプリを開く、購入する、カスタムイベントをトリガーするなどの特定のアクションを実行した際にキャンバスに入り、メッセージの受信を開始します。
@@ -114,14 +114,14 @@ search_rank: 1
 {% endalert %}
 {% endtab %}
 {% tab APIトリガー配信 %}
-APIトリガー配信では、API経由で[`/canvas/trigger/send` エンドポイント]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)を使用してユーザーが追加された後、キャンバスに入りメッセージの受信を開始します。ダッシュボードでは、これを行うcURLリクエストの例を確認でき、[コンテキストオブジェクト]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)を使用してオプションの[`context`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)を割り当てることもできます。
+APIトリガー配信では、API経由で[`/canvas/trigger/send` エンドポイント]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)を使用してユーザーが追加された後、キャンバスに入りメッセージの受信を開始します。ダッシュボードでは、これを行うcURLリクエストの例を確認でき、[コンテキストオブジェクト]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)を使用してオプションの[`context`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)を割り当てることもできます。
 
 ![APIトリガー配信の例。Canvas IDとcURLリクエストの例が表示されています。]({% image_buster /assets/img_archive/Canvas_API_Triggered_Delivery.png %})
 
 APIトリガー配信には以下のエンドポイントを使用できます。
-- [POST: APIトリガー配信でCanvasメッセージを送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)
-- [POST: APIトリガーCanvasをスケジュール]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/)
-- [POST: スケジュール済みAPIトリガーCanvasを更新]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases/)
+- [POST: APIトリガー配信でCanvasメッセージを送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)
+- [POST: APIトリガーCanvasをスケジュール]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases)
+- [POST: スケジュール済みAPIトリガーCanvasを更新]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases)
 {% endtab %}
 {% endtabs %}
 
@@ -135,7 +135,7 @@ APIトリガー配信には以下のエンドポイントを使用できます�
 
 ### ステップ 1.3: ターゲットエントリオーディエンスを設定する {#step-13-set-your-target-entry-audience}
 
-**ターゲットオーディエンス**ステップでは、定義した条件に一致するユーザーのみがジャーニーに入ることができます。つまり、Brazeはユーザーがキャンバスジャーニーに入る**前に**、まずターゲットオーディエンスの適格性を評価します。たとえば、新規ユーザーをターゲットにしたい場合、1週間以内にアプリを初めて使用したユーザーのセグメントを選択できます。
+**ターゲットオーディエンス**ステップでは、定義した条件に一致するユーザーのみがジャーニーに入ることができます。つまり、Brazeはユーザーがキャンバスジャーニーに入る**前に**、まずターゲットオーディエンスの適格性を評価します。たとえば、新規ユーザーをターゲットにしたい場合、1週間以内にアプリを初めて使用したユーザーのSegmentを選択できます。
 
 **エントリコントロール**では、キャンバスが実行されるようにスケジュールされるたびにユーザー数を制限できます。APIトリガーベースおよびアクションベースのCanvasesの場合、この制限はUTC時間の毎時に適用されます。
 
@@ -143,7 +143,7 @@ APIトリガー配信には以下のエンドポイントを使用できます�
 
 #### オーディエンスのテスト {#testing-your-audience}
 
-ターゲットオーディエンスにSegmentsとフィルターを追加した後、[ユーザーを検索]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)して、オーディエンス条件に一致するかどうかを確認することで、オーディエンスが期待通りに設定されているかテストできます。
+ターゲットオーディエンスにSegmentsとフィルターを追加した後、[ユーザーを検索]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)して、オーディエンス条件に一致するかどうかを確認することで、オーディエンスが期待通りに設定されているかテストできます。
 
 ![「ユーザー検索」フィールド。外部ユーザーIDまたはBraze IDで検索できます。]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -165,15 +165,15 @@ Brazeでは、IPウォーミングのときに**キャンバスがスケジュ�
 
 #### 終了条件の設定 {#setting-exit-criteria}
 
-[終了条件]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/)を設定すると、キャンバスから退出させたいユーザーを決定できます。ユーザーが例外イベントを実行するか、Segmentsとフィルターに一致した場合、それ以降のメッセージは受信しません。
+[終了条件]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria)を設定すると、キャンバスから退出させたいユーザーを決定できます。ユーザーが例外イベントを実行するか、Segmentsとフィルターに一致した場合、それ以降のメッセージは受信しません。
 
 #### ターゲット層の計算 {#calculating-target-population}
 
-**ターゲット層**セクションでは、選択したSegmentsや追加のフィルターなどのオーディエンスのサマリーと、メッセージングチャネルごとの到達可能なユーザー数の内訳を確認できます。デフォルトの推定値ではなく、ターゲットオーディエンスの到達可能なユーザーの正確な数を計算するには、[正確な統計を計算]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#calculating-exact-statistics)を選択します。
+**ターゲット層**セクションでは、選択したSegmentsや追加のフィルターなどのオーディエンスのサマリーと、メッセージングチャネルごとの到達可能なユーザー数の内訳を確認できます。デフォルトの推定値ではなく、ターゲットオーディエンスの到達可能なユーザーの正確な数を計算するには、[正確な統計を計算]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#calculating-exact-statistics)を選択します。
 
 注意事項:
 
-- 正確な統計の計算には数分かかる場合があります。この機能はセグメントレベルでのみ正確な統計を計算し、フィルターやフィルターグループレベルでは計算しません。
+- 正確な統計の計算には数分かかる場合があります。この機能はSegmentレベルでのみ正確な統計を計算し、フィルターやフィルターグループレベルでは計算しません。
 - 正確な統計の読み込み中は、概算値が表示される場合があります。正確な数値は読み込みが完了すると**到達可能なユーザー**セクションに表示されます。**追加統計を表示**を選択すると、詳細な内訳を確認できます。
 - 大規模なSegmentsの場合、正確な統計を計算しても若干の変動が見られることは正常です。この機能の精度は99.999%以上と想定されています。
 
@@ -187,7 +187,7 @@ Brazeでは、IPウォーミングのときに**キャンバスがスケジュ�
 
 ### ステップ 1.4: 送信設定を選択する {#step-14-select-your-send-settings}
 
-**送信設定**を選択して、サブスクリプション設定の編集、レート制限の有効化、[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)の有効化を行います。[レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting-and-canvas-components)または[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)を有効にすることで、ユーザーへのマーケティングプレッシャーを軽減し、過剰なメッセージ送信を防ぐことができます。
+**送信設定**を選択して、サブスクリプション設定の編集、レート制限の有効化、[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)の有効化を行います。[レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-canvas-components)または[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)を有効にすることで、ユーザーへのマーケティングプレッシャーを軽減し、過剰なメッセージ送信を防ぐことができます。
 
 メールとプッシュチャネルをターゲットとするCanvasesの場合、明示的にオプトインしたユーザーのみがメッセージを受信するようにキャンバスを制限したい場合があります（購読中または購読解除のユーザーを除外）。たとえば、オプトインステータスが異なる3人のユーザーがいるとします。
 
@@ -203,14 +203,14 @@ Brazeでは、IPウォーミングのときに**キャンバスがスケジュ�
 この設定では、**ターゲットオーディエンス**ステップにオーディエンスを単一チャネルに制限するフィルター（たとえば `Foreground Push Enabled = True` や `Email Subscription = Opted-In`）を含めないでください。
 {% endalert %}
 
-必要に応じて、キャンバスの[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)（メッセージが送信されない時間帯）を指定します。**送信設定**で**サイレント時間を有効にする**にチェックを入れます。次に、ユーザーのローカルタイムゾーンでサイレント時間を選択し、メッセージがサイレント時間内にトリガーされた場合のフォールバック動作を設定します。
+必要に応じて、キャンバスの[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)（メッセージが送信されない時間帯）を指定します。**送信設定**で**サイレント時間を有効にする**にチェックを入れます。次に、ユーザーのローカルタイムゾーンでサイレント時間を選択し、メッセージがサイレント時間内にトリガーされた場合のフォールバック動作を設定します。
 
 ![「サイレント時間」ページ。サイレント時間を有効にするチェックボックスが表示されています。有効にすると、開始時間、終了時間、フォールバック動作を設定できます。]({% image_buster /assets/img/quiet_hours.png %})
 
 ## ステップ 2: キャンバスを構築する {#step-2-build-your-canvas}
 
 {% alert tip %}
-[Braze キャンバステンプレート]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/)を使用して、時間を節約しキャンバスの作成を効率化しましょう！事前構築されたテンプレートのライブラリーを閲覧して、ユースケースに合ったものを見つけ、特定のニーズに合わせてカスタマイズしてください。詳細については、[キャンバステンプレート]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/)を参照してください。
+[Braze キャンバステンプレート]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates)を使用して、時間を節約しキャンバスの作成を効率化しましょう！事前構築されたテンプレートのライブラリーを閲覧して、ユースケースに合ったものを見つけ、特定のニーズに合わせてカスタマイズしてください。詳細については、[キャンバステンプレート]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates)を参照してください。
 {% endalert %}
 
 ### ステップ 2.1: バリアントを追加する {#step-21-add-a-variant}
@@ -224,13 +224,13 @@ Brazeでは、IPウォーミングのときに**キャンバスがスケジュ�
 ![Braze Canvasの2つのバリアント例。]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
-デフォルトでは、Canvasのバリアント割り当てはユーザーIDとCanvas IDの決定論的ハッシュによって決定されます（ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)ではありません）。つまり、バリアント配分の割合が変更されない限り、特定のユーザーは再エントリ時に常に同じバリアントに割り当てられます。起動後にバリアント配分を調整した場合、ユーザーがキャンバスに再エントリする際に異なるバリアントに割り当てられる可能性があります。<br><br>配分の割合を変更しても固定された割り当てが必要な場合は、単一のCanvasバリアントを使用し、[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)ステップでユーザーをルーティングしてください。ジャーニーの最初に[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)ステップを使用して乱数をカスタム属性に保存し、オーディエンスパスでその属性をフィルタリングします。
+デフォルトでは、Canvasのバリアント割り当てはユーザーIDとCanvas IDの決定論的ハッシュによって決定されます（ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers)ではありません）。つまり、バリアント配分の割合が変更されない限り、特定のユーザーは再エントリ時に常に同じバリアントに割り当てられます。起動後にバリアント配分を調整した場合、ユーザーがキャンバスに再エントリする際に異なるバリアントに割り当てられる可能性があります。<br><br>配分の割合を変更しても固定された割り当てが必要な場合は、単一のCanvasバリアントを使用し、[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)ステップでユーザーをルーティングしてください。ジャーニーの最初に[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)ステップを使用して乱数をカスタム属性に保存し、オーディエンスパスでその属性をフィルタリングします。
 
 {% details 手順を展開 %}
 
 1. 乱数を保存する**数値**カスタム属性を作成します。`lottery_number` や `random_assignment` など、見つけやすい名前を付けてください。ダッシュボードで**データ設定** > **カスタム属性**に移動します。<br><br>
-2. 単一のCanvasバリアントを使用します（または各バリアントに同じユーザーの更新ステップを追加します）。ジャーニーの最初に[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)ステップを追加します。このステップは、ユーザーがオーディエンスパスステップに到達する前に乱数を生成して保存します。<br><br>
-3. ユーザーの更新ステップで、[高度なJSONエディター]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#advanced-json-editor)を選択します。{% raw %}{% random %}{% endraw %} タグを使用して数値を生成します。詳細については、[乱数を含むメッセージを送信する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#send-messages-with-a-random-number)を参照してください。たとえば、{% raw %}`{% random 10 %}`{% endraw %} は0から9の整数を返します。ステップ1のカスタム属性を以下のようなJSONで設定します:<br><br>{% raw %}
+2. 単一のCanvasバリアントを使用します（または各バリアントに同じユーザーの更新ステップを追加します）。ジャーニーの最初に[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)ステップを追加します。このステップは、ユーザーがオーディエンスパスステップに到達する前に乱数を生成して保存します。<br><br>
+3. ユーザーの更新ステップで、[高度なJSONエディター]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor)を選択します。{% raw %}{% random %}{% endraw %} タグを使用して数値を生成します。詳細については、[乱数を含むメッセージを送信する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#send-messages-with-a-random-number)を参照してください。たとえば、{% raw %}`{% random 10 %}`{% endraw %} は0から9の整数を返します。ステップ1のカスタム属性を以下のようなJSONで設定します:<br><br>{% raw %}
 ```json
 {% if {{custom_attribute.${lottery_number}}} == blank %}
 {% capture lottery_number_str %}{% random 10 %}{% endcapture %}
@@ -248,7 +248,7 @@ Brazeでは、IPウォーミングのときに**キャンバスがスケジュ�
 {% raw %}`{% if %}`{% endraw %} ブロックは、属性が空白の場合にのみ数値を設定するため、ユーザーがキャンバスに再エントリしても同じ割り当てが維持されます。<br><br>
 
 {: start="4"}
-4. ユーザーの更新ステップの後に[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)ステップを追加します。各オーディエンスグループで、バリアント配分の割合を使用する代わりに、カスタム属性に基づくフィルターを追加します。<br><br>たとえば、{% raw %}`{% random 10 %}`{% endraw %} を使用した場合、あるグループは `lottery_number` が**4未満**、別のグループは**3より大きく7未満**、3番目のグループは**6より大きく10未満**とすることができます。
+4. ユーザーの更新ステップの後に[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)ステップを追加します。各オーディエンスグループで、バリアント配分の割合を使用する代わりに、カスタム属性に基づくフィルターを追加します。<br><br>たとえば、{% raw %}`{% random 10 %}`{% endraw %} を使用した場合、あるグループは `lottery_number` が**4未満**、別のグループは**3より大きく7未満**、3番目のグループは**6より大きく10未満**とすることができます。
 
 {% enddetails %}
 {% endalert %}
@@ -275,11 +275,11 @@ Brazeでは、IPウォーミングのときに**キャンバスがスケジュ�
 
 ユーザージャーニーのステップを編集したい場合は、キャンバスワークフローに応じた方法を確認してください。
 
-キャンバスワークフロー内の任意のコンポーネントを選択して編集できます。たとえば、ワークフローの最初のステップである[遅延]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/)コンポーネントを特定の日に編集したいとします。ステップを選択して設定を表示し、遅延を3月1日に調整します。これにより、3月1日にユーザーはキャンバスの次のステップに進みます。
+キャンバスワークフロー内の任意のコンポーネントを選択して編集できます。たとえば、ワークフローの最初のステップである[遅延]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step)コンポーネントを特定の日に編集したいとします。ステップを選択して設定を表示し、遅延を3月1日に調整します。これにより、3月1日にユーザーはキャンバスの次のステップに進みます。
 
 ![「遅延」ステップの例。遅延が「特定の日まで」に設定されています。]({% image_buster /assets/img_archive/edit_delay_flow.png %})
 
-または、[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/)ステップの**アクション設定**をすばやく編集・調整して、ユーザーを一定期間保持することもできます。これにより、この評価期間中のアクションに基づいて次のパスが優先されます。
+または、[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)ステップの**アクション設定**をすばやく編集・調整して、ユーザーを一定期間保持することもできます。これにより、この評価期間中のアクションに基づいて次のパスが優先されます。
 
 ![キャンバスの2番目のステップ「アクション設定」。評価ウィンドウが1日に設定されています。]({% image_buster /assets/img_archive/action_paths_flow.png %})
 
@@ -287,14 +287,14 @@ Canvasの軽量コンポーネントにより、シンプルな編集体験が�
 
 #### キャンバス内のメッセージ {#messages-in-canvas}
 
-キャンバスコンポーネント内のメッセージを編集して、特定のステップが送信するメッセージを制御します。キャンバスはメール、モバイルおよびWebプッシュメッセージ、webhookを送信して他のシステムと連携できます。Campaignsと同様に、特定の[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/)テンプレートを使用してメッセージをパーソナライズできます。
+キャンバスコンポーネント内のメッセージを編集して、特定のステップが送信するメッセージを制御します。キャンバスはメール、モバイルおよびWebプッシュメッセージ、webhookを送信して他のシステムと連携できます。Campaignsと同様に、特定の[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid)テンプレートを使用してメッセージをパーソナライズできます。
 
 {% alert tip %}
 キャンバスコンポーネント名をメッセージやリンクテンプレートに含められることをご存知ですか？<br>
 Canvasで `campaign.${name}` Liquidタグを使用すると、現在のキャンバスコンポーネント名を表示できます。
 {% endalert %}
 
-メッセージコンポーネントは、ユーザーに送信されるメッセージを管理します。**メッセージングチャネル**を選択し、**配信設定**を調整してキャンバスメッセージングを最適化できます。このコンポーネントの詳細については、[メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)を参照してください。
+メッセージコンポーネントは、ユーザーに送信されるメッセージを管理します。**メッセージングチャネル**を選択し、**配信設定**を調整してキャンバスメッセージングを最適化できます。このコンポーネントの詳細については、[メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)を参照してください。
 
 ![「メッセージの設定」ステップ。「メッセージングチャネル」が選択されており、Androidプッシュ通知、Content Cards、メールなどの利用可能なメッセージングチャネルのリストが表示されています。]({% image_buster /assets/img_archive/message_setup_settings_flow.png %})
 
@@ -303,7 +303,7 @@ Canvasで `campaign.${name}` Liquidタグを使用すると、現在のキャン
 {% tabs local %}
 {% tab Canvasエントリプロパティ %}
 
-[`context` オブジェクト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)は、キャンバス作成の**エントリスケジュール**ステップで設定され、ユーザーをキャンバスに入れるトリガーを示します。これらのプロパティは、APIトリガーCanvasesのエントリペイロードのプロパティにもアクセスできます。`context` オブジェクトは最大50 KBまでです。
+[`context` オブジェクト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)は、キャンバス作成の**エントリスケジュール**ステップで設定され、ユーザーをキャンバスに入れるトリガーを示します。これらのプロパティは、APIトリガーCanvasesのエントリペイロードのプロパティにもアクセスできます。`context` オブジェクトは最大50 KBまでです。
 
 キャンバスへのエントリ時に作成されたこれらのプロパティを参照する場合は、次のLiquidを使用します: {% raw %} ``context.${property_name}`` {% endraw %}。イベントはこの方法で使用するには、カスタムイベントまたは購入イベントである必要があることに注意してください。
 
@@ -327,7 +327,7 @@ Canvasで `campaign.${name}` Liquidタグを使用すると、現在のキャン
 
 ステップ間の接続を移動するには、2つのコンポーネントを接続する矢印を選択し、別のコンポーネントを選択します。接続を削除するには、矢印を選択し、キャンバスコンポーザーのフッターにある**Cancel Connection**を選択します。
 
-単一のバリアントに同じオーディエンスと送信時間を持つ複数の分岐がある場合、Brazeはそれらの分岐間で均等な分割を保証しません。配分は最初に作成された分岐が優先される場合があります。均等な分割を行うには、各分岐に[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)フィルターを使用してください。詳細については、[1つのバリアントを持つキャンバスで、オーディエンスと送信時間が同一の複数の分岐がある場合はどうなりますか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches)を参照してください。
+単一のバリアントに同じオーディエンスと送信時間を持つ複数の分岐がある場合、Brazeはそれらの分岐間で均等な分割を保証しません。配分は最初に作成された分岐が優先される場合があります。均等な分割を行うには、各分岐に[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers)フィルターを使用してください。詳細については、[1つのバリアントを持つキャンバスで、オーディエンスと送信時間が同一の複数の分岐がある場合はどうなりますか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches)を参照してください。
 
 ## ステップ 3: コントロールグループを追加する {#step-3-add-a-control-group}
 
@@ -343,7 +343,7 @@ Brazeはコントロールグループに配置されたユーザーのコンバ
 
 ### キャンバスのインテリジェントセレクション {#intelligent-selection-for-canvas}
 
-インテリジェントセレクション機能が多変量キャンバスで利用可能になりました。多変量Campaignsの[インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/)機能と同様に、キャンバスのインテリジェントセレクションは各キャンバスバリアントのパフォーマンスを分析し、各バリアントに送られるユーザーの割合を調整します。この配分は、各バリアントのパフォーマンス指標に基づいて、コンバージョンの合計期待数を最大化するように行われます。
+インテリジェントセレクション機能が多変量キャンバスで利用可能になりました。多変量Campaignsの[インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)機能と同様に、キャンバスのインテリジェントセレクションは各キャンバスバリアントのパフォーマンスを分析し、各バリアントに送られるユーザーの割合を調整します。この配分は、各バリアントのパフォーマンス指標に基づいて、コンバージョンの合計期待数を最大化するように行われます。
 
 多変量キャンバスでは、コピーだけでなく、タイミングやチャネルもテストできることを覚えておいてください。インテリジェントセレクションを使用すると、キャンバスをより効率的にテストでき、ユーザーが最適なキャンバスジャーニーに送られることに自信を持てます。
 
@@ -362,5 +362,5 @@ Brazeはコントロールグループに配置されたユーザーのコンバ
 ![Brazeのキャンバス例。]({% image_buster /assets/img_archive/Canvas_Analytics.png %})
 
 {% alert tip %}
-起動後にキャンバスを編集する必要がありますか？可能です！詳細については、[起動後のキャンバスの編集]({{site.baseurl}}/post-launch_edits/)を参照してください。
+起動後にキャンバスを編集する必要がありますか？可能です！詳細については、[起動後のキャンバスの編集]({{site.baseurl}}/post-launch_edits)を参照してください。
 {% endalert %}

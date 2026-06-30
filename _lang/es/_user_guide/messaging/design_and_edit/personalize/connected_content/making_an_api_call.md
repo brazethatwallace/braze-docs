@@ -28,7 +28,7 @@ Si ves más llamadas de Contenido conectado en tus registros que envíos o desti
 
 {% raw %}
 
-Para enviar una llamada de Contenido conectado, usa la etiqueta `{% connected_content %}`. Con esta etiqueta, puedes asignar o declarar variables usando `:save`. Los aspectos de estas variables pueden referenciarse más adelante en el mensaje con [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/).
+Para enviar una llamada de Contenido conectado, usa la etiqueta `{% connected_content %}`. Con esta etiqueta, puedes asignar o declarar variables usando `:save`. Los aspectos de estas variables pueden referenciarse más adelante en el mensaje con [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid).
 
 Por ejemplo, el siguiente cuerpo de mensaje accederá a la URL `http://numbersapi.com/random/trivia` e incluirá un dato curioso en tu mensaje:
 
@@ -59,7 +59,7 @@ Las solicitudes de Contenido conectado solo admiten solicitudes GET y POST.
 
 Si la URL no está disponible y llega a una página 404, Braze representará una cadena vacía en su lugar. Si la URL llega a una página HTTP 500 o 502, la URL fallará en la lógica de reintentos.
 
-Si el punto de conexión devuelve JSON, puedes detectarlo verificando si el valor `connected` es nulo, y luego [abortar condicionalmente el mensaje]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/). Braze solo permite URL que se comunican a través del puerto 80 (HTTP) y 443 (HTTPS).
+Si el punto de conexión devuelve JSON, puedes detectarlo verificando si el valor `connected` es nulo, y luego [abortar condicionalmente el mensaje]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content). Braze solo permite URL que se comunican a través del puerto 80 (HTTP) y 443 (HTTPS).
 
 ### Detección de host no saludable {#unhealthy-host-detection}
 
@@ -67,24 +67,24 @@ El Contenido conectado emplea un mecanismo de detección de host no saludable pa
 
 Si el host de destino experimenta una alta tasa de lentitud significativa o sobrecarga, Braze detendrá temporalmente las solicitudes al host de destino durante un minuto, simulando en su lugar respuestas que indican el fallo. Después de un minuto, Braze sondeará la salud del host usando un pequeño número de solicitudes antes de reanudar las solicitudes a velocidad completa si se determina que el host está saludable. Si el host aún no está saludable, Braze esperará otro minuto antes de intentar de nuevo.
 
-Si las solicitudes al host de destino son detenidas por el detector de host no saludable, Braze continuará representando mensajes y siguiendo tu lógica Liquid como si hubiera recibido un código de respuesta de error. Si quieres asegurarte de que estas solicitudes de Contenido conectado se reintenten cuando son detenidas por el detector de host no saludable, usa la opción `:retry`. Para más información sobre la opción `:retry`, consulta [Reintentos de Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/).
+Si las solicitudes al host de destino son detenidas por el detector de host no saludable, Braze continuará representando mensajes y siguiendo tu lógica Liquid como si hubiera recibido un código de respuesta de error. Si quieres asegurarte de que estas solicitudes de Contenido conectado se reintenten cuando son detenidas por el detector de host no saludable, usa la opción `:retry`. Para más información sobre la opción `:retry`, consulta [Reintentos de Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries).
 
-Si crees que la detección de host no saludable puede estar causando problemas, ponte en contacto con [soporte de Braze]({{site.baseurl}}/support_contact/).
+Si crees que la detección de host no saludable puede estar causando problemas, ponte en contacto con [soporte de Braze]({{site.baseurl}}/support_contact).
 
 {% alert note %}
 Puedes agregar URL específicas a una lista de permitidos para ser usadas con Contenido conectado. Para acceder a esta característica, ponte en contacto con tu administrador del éxito del cliente.
 {% endalert %}
 
 {% alert tip %}
-Para más información sobre códigos de error comunes, consulta [Solución de problemas de solicitudes de webhook y Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content/#unhealthy-host-detection).
+Para más información sobre códigos de error comunes, consulta [Solución de problemas de solicitudes de webhook y Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection).
 {% endalert %}
 
 ### Límites de velocidad (429) versus detección de host no saludable {#rate-limits-429-versus-unhealthy-host-detection}
 
 Los siguientes son mecanismos diferentes:
 
-- **429 Too Many Requests:** Tu punto de conexión (o un servicio upstream) está devolviendo esta respuesta. Significa que tu servidor o middleware está rechazando tráfico, a menudo porque tiene su propio límite de velocidad. Braze no aplica un límite de velocidad separado al Contenido conectado; el volumen de solicitudes de Contenido conectado escala directamente con tu [límite de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting). Debido a que los mensajes pueden representarse múltiples veces por destinatario (por ejemplo, para HTML de correo electrónico, texto plano y AMP), el número de solicitudes de Contenido conectado puede exceder ese límite de velocidad; no asumas que será menor o igual a los mensajes por minuto que configuraste. Si ves errores 429, escala tu punto de conexión o middleware para manejar el volumen de solicitudes esperado, o reduce el límite de velocidad de la campaña o paso en Canvas para que se envíen menos mensajes (y por lo tanto menos llamadas de Contenido conectado) por minuto.
-- **Detección de host no saludable:** Una protección del lado de Braze que se activa después de una alta tasa y volumen de *fallos* en una ventana de un minuto. El conteo de fallos incluye los códigos de estado `408`, `429`, `502`, `503`, `504` y `529`. Cuando se activa, Braze detiene temporalmente las solicitudes a ese host y simula una respuesta de fallo. Esto es independiente de tu propio límite de velocidad. Para los umbrales de detección y más detalles, consulta [Solución de problemas de solicitudes de webhook y Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content/#unhealthy-host-detection). Para evitar activar la detección de host no saludable, asegúrate de que tu punto de conexión pueda manejar el volumen de llamadas descrito en [Comprender el volumen de llamadas de Contenido conectado](#understanding-connected-content-call-volume) y [Mejores prácticas para puntos de conexión de alto volumen](#best-practices-for-high-volume-endpoints).
+- **429 Too Many Requests:** Tu punto de conexión (o un servicio upstream) está devolviendo esta respuesta. Significa que tu servidor o middleware está rechazando tráfico, a menudo porque tiene su propio límite de velocidad. Braze no aplica un límite de velocidad separado al Contenido conectado; el volumen de solicitudes de Contenido conectado escala directamente con tu [límite de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting). Debido a que los mensajes pueden representarse múltiples veces por destinatario (por ejemplo, para HTML de correo electrónico, texto plano y AMP), el número de solicitudes de Contenido conectado puede exceder ese límite de velocidad; no asumas que será menor o igual a los mensajes por minuto que configuraste. Si ves errores 429, escala tu punto de conexión o middleware para manejar el volumen de solicitudes esperado, o reduce el límite de velocidad de la campaña o paso en Canvas para que se envíen menos mensajes (y por lo tanto menos llamadas de Contenido conectado) por minuto.
+- **Detección de host no saludable:** Una protección del lado de Braze que se activa después de una alta tasa y volumen de *fallos* en una ventana de un minuto. El conteo de fallos incluye los códigos de estado `408`, `429`, `502`, `503`, `504` y `529`. Cuando se activa, Braze detiene temporalmente las solicitudes a ese host y simula una respuesta de fallo. Esto es independiente de tu propio límite de velocidad. Para los umbrales de detección y más detalles, consulta [Solución de problemas de solicitudes de webhook y Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection). Para evitar activar la detección de host no saludable, asegúrate de que tu punto de conexión pueda manejar el volumen de llamadas descrito en [Comprender el volumen de llamadas de Contenido conectado](#understanding-connected-content-call-volume) y [Mejores prácticas para puntos de conexión de alto volumen](#best-practices-for-high-volume-endpoints).
 
 ## Permitir un rendimiento eficiente {#allowing-for-efficient-performance}
 
@@ -104,25 +104,25 @@ Para más información sobre la planificación de la capacidad del punto de cone
 Si tus mensajes usan Contenido conectado y envías a alto volumen, planifica para más solicitudes que el número de destinatarios o envíos:
 
 1. **Estima la carga máxima:** Usa un multiplicador conservador al dimensionar tu punto de conexión o middleware; las solicitudes de Contenido conectado pueden exceder el número de destinatarios o mensajes enviados. Por ejemplo, para correo electrónico, un solo destinatario puede generar múltiples llamadas (HTML, texto plano y AMP), por lo que destinatarios × 2 o × 3 se usa frecuentemente como una estimación conservadora.
-2. **Usa caché cuando sea apropiado:** Las solicitudes GET se almacenan en caché de forma predeterminada. Para solicitudes POST, agrega `:cache_max_age` cuando la respuesta pueda reutilizarse durante un período (por ejemplo, token o contenido que no cambia por solicitud). Consulta [Almacenamiento en caché de respuestas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/) y las [preguntas frecuentes sobre caché de POST](#what-is-caching-behavior) a continuación.
-3. **Configura el límite de velocidad de entrega:** El [límite de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting) en campañas o pasos en Canvas es la única palanca para limitar indirectamente el volumen de solicitudes de Contenido conectado; Braze no limita la velocidad del Contenido conectado en sí. Es solo un proxy, y no uno perfecto, porque las solicitudes de Contenido conectado no son 1:1 con los mensajes. Úsalo para mantener el volumen de mensajes (y por lo tanto de Contenido conectado) dentro de lo que tu punto de conexión puede manejar.
+2. **Usa caché cuando sea apropiado:** Las solicitudes GET se almacenan en caché de forma predeterminada. Para solicitudes POST, agrega `:cache_max_age` cuando la respuesta pueda reutilizarse durante un período (por ejemplo, token o contenido que no cambia por solicitud). Consulta [Almacenamiento en caché de respuestas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) y las [preguntas frecuentes sobre caché de POST](#what-is-caching-behavior) a continuación.
+3. **Configura el límite de velocidad de entrega:** El [límite de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) en campañas o pasos en Canvas es la única palanca para limitar indirectamente el volumen de solicitudes de Contenido conectado; Braze no limita la velocidad del Contenido conectado en sí. Es solo un proxy, y no uno perfecto, porque las solicitudes de Contenido conectado no son 1:1 con los mensajes. Úsalo para mantener el volumen de mensajes (y por lo tanto de Contenido conectado) dentro de lo que tu punto de conexión puede manejar.
 4. **Diseña para idempotencia y reintentos:** Braze puede llamar a tu punto de conexión más de una vez por destinatario. Asegúrate de que tu punto de conexión pueda tolerar solicitudes duplicadas sin efectos secundarios incorrectos.
 
 ## Tipos de autenticación {#authentication-types}
 
 ### Usar autenticación básica {#using-basic-authentication}
 
-Si la URL requiere autenticación básica, Braze puede almacenar una credencial de autenticación básica para que la uses en tu llamada a la API. Puedes administrar las credenciales de autenticación básica existentes y agregar nuevas en **Settings** > **Connected Content**.
+Si la URL requiere autenticación básica, Braze puede almacenar una credencial de autenticación básica para que la uses en tu llamada a la API. Puedes administrar las credenciales de autenticación básica existentes y agregar nuevas en **Configuración** > **Contenido conectado**.
 
 ![La configuración de Contenido conectado en el panel de Braze.]({% image_buster /assets/img/connected_content/basic_auth_mgmt.png %})
 
-Para agregar una nueva credencial, selecciona **Add credential** > **Basic authentication**.
+Para agregar una nueva credencial, selecciona **Agregar credencial** > **Autenticación básica**.
 
-![Menú desplegable "Add credential" con la opción de usar autenticación básica o autenticación por token.]({% image_buster /assets/img/connected_content/add_credential_button.png %}){: style="max-width:60%"}
+![Menú desplegable "Agregar credencial" con la opción de usar autenticación básica o autenticación por token.]({% image_buster /assets/img/connected_content/add_credential_button.png %}){: style="max-width:60%"}
 
 Dale un nombre a tu credencial e ingresa el nombre de usuario y la contraseña.
 
-![La ventana "Create New Credential" con la opción de ingresar un nombre, nombre de usuario y contraseña.]({% image_buster /assets/img/connected_content/basic_auth_token.png %}){: style="max-width:60%"}
+![La ventana "Crear nueva credencial" con la opción de ingresar un nombre, nombre de usuario y contraseña.]({% image_buster /assets/img/connected_content/basic_auth_token.png %}){: style="max-width:60%"}
 
 Luego puedes usar esta credencial de autenticación básica en tus llamadas a la API haciendo referencia al nombre del token:
 
@@ -136,13 +136,13 @@ Hi there, here is some fun trivia for you!: {% connected_content https://yourweb
 Si eliminas una credencial, ten en cuenta que cualquier llamada de Contenido conectado que intente usarla será abortada.
 {% endalert %}
 
-Las credenciales almacenadas se aplican a las solicitudes {% raw %}`{% connected_content %}`{% endraw %} mientras Braze representa un mensaje. No se aplican a la solicitud HTTP principal configurada en un paso de [webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#authentication-and-connected-content-credentials). Usa encabezados de solicitud o una etiqueta {% raw %}`{% connected_content %}`{% endraw %} dentro de un campo de encabezado o cuerpo de webhook cuando necesites recuperar secretos para esa llamada.
+Las credenciales almacenadas se aplican a las solicitudes {% raw %}`{% connected_content %}`{% endraw %} mientras Braze representa un mensaje. No se aplican a la solicitud HTTP principal configurada en un paso de [webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#authentication-and-connected-content-credentials). Usa encabezados de solicitud o una etiqueta {% raw %}`{% connected_content %}`{% endraw %} dentro de un campo de encabezado o cuerpo de webhook cuando necesites recuperar secretos para esa llamada.
 
 ### Usar autenticación por token {#using-token-authentication}
 
 Al usar Contenido conectado de Braze, puedes encontrar que ciertas API requieren un token en lugar de un nombre de usuario y contraseña. Braze también puede almacenar credenciales que contienen valores de encabezado de autenticación por token.
 
-Para agregar una credencial que contenga valores de token, selecciona **Add credential** > **Token authentication**. Luego, agrega los pares clave-valor para los encabezados de tu llamada a la API y el dominio permitido.
+Para agregar una credencial que contenga valores de token, selecciona **Agregar credencial** > **Autenticación por token**. Luego, agrega los pares clave-valor para los encabezados de tu llamada a la API y el dominio permitido.
 
 ![Un ejemplo de token "token_credential_abc" con detalles de autenticación por token.]({% image_buster /assets/img/connected_content/token_auth.png %}){: style="max-width:60%"}
 
@@ -168,7 +168,7 @@ Algunas configuraciones de API requieren la recuperación de un token de acceso 
 
 #### Paso 1: Recuperar el token de acceso {#step-1-retrieve-the-access-token}
 
-El siguiente ejemplo ilustra la recuperación y el almacenamiento de un token de acceso en una variable local, que luego puede usarse para autenticar la llamada a la API subsiguiente. Se puede agregar un parámetro `:cache_max_age` para que coincida con el tiempo de validez del token de acceso y reducir el número de llamadas salientes de Contenido conectado. Consulta [Caché configurable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables/#configurable-caching) para más información.
+El siguiente ejemplo ilustra la recuperación y el almacenamiento de un token de acceso en una variable local, que luego puede usarse para autenticar la llamada a la API subsiguiente. Se puede agregar un parámetro `:cache_max_age` para que coincida con el tiempo de validez del token de acceso y reducir el número de llamadas salientes de Contenido conectado. Consulta [Caché configurable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#configurable-caching) para más información.
 
 {% raw %}
 ```
@@ -242,7 +242,7 @@ Usa [Webhook.site](https://webhook.site/) para solucionar problemas con tus llam
 
 También puedes verificar que la etiqueta Liquid incluya los parámetros que tu punto de conexión espera (por ejemplo, `:method`, `:headers`, `:content_type`, `:body` y `:basic_auth` cuando sea necesario). Si dependes de la clave de código de estado HTTP en un objeto JSON guardado, el punto de conexión debe devolver un objeto JSON y un estado `2XX`.
 
-Para tasas de error altas desde tu host, revisa [Detección de host no saludable]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/#unhealthy-host-detection) y [Volumen de llamadas de Contenido conectado](#understanding-connected-content-call-volume).
+Para tasas de error altas desde tu host, revisa [Detección de host no saludable]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors#unhealthy-host-detection) y [Volumen de llamadas de Contenido conectado](#understanding-connected-content-call-volume).
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
@@ -260,7 +260,7 @@ El Contenido conectado no tiene su propio límite de velocidad. En su lugar, el 
 
 ### ¿Cuál es el comportamiento de caché? {#what-is-caching-behavior}
 
-Las solicitudes GET se almacenan en caché de forma predeterminada (consulta [Almacenamiento en caché de respuestas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/)). **Las solicitudes POST no se almacenan en caché de forma predeterminada**, pero puedes habilitar el almacenamiento en caché agregando `:cache_max_age` a la llamada de Contenido conectado. Esto puede reducir la carga del punto de conexión cuando la misma solicitud POST (por ejemplo, una solicitud de token o contenido) se realizaría repetidamente dentro de la ventana de caché.
+Las solicitudes GET se almacenan en caché de forma predeterminada (consulta [Almacenamiento en caché de respuestas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses)). **Las solicitudes POST no se almacenan en caché de forma predeterminada**, pero puedes habilitar el almacenamiento en caché agregando `:cache_max_age` a la llamada de Contenido conectado. Esto puede reducir la carga del punto de conexión cuando la misma solicitud POST (por ejemplo, una solicitud de token o contenido) se realizaría repetidamente dentro de la ventana de caché.
 
 {% raw %}
 ```liquid
@@ -268,7 +268,7 @@ Las solicitudes GET se almacenan en caché de forma predeterminada (consulta [Al
 ```
 {% endraw %}
 
-El almacenamiento en caché puede ayudar a reducir las llamadas duplicadas de Contenido conectado, pero no se garantiza que resulte en una sola llamada por usuario. La duración del caché es entre cinco minutos y cuatro horas. Para todos los detalles, consulta [Almacenamiento en caché de respuestas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/).
+El almacenamiento en caché puede ayudar a reducir las llamadas duplicadas de Contenido conectado, pero no se garantiza que resulte en una sola llamada por usuario. La duración del caché es entre cinco minutos y cuatro horas. Para todos los detalles, consulta [Almacenamiento en caché de respuestas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses).
 
 ### ¿Cuál es el comportamiento HTTP predeterminado de Contenido conectado? {#what-is-the-connected-content-http-default-behavior}
 
@@ -278,4 +278,4 @@ El almacenamiento en caché puede ayudar a reducir las llamadas duplicadas de Co
 
 ### ¿Qué sucede si uso la misma llamada de Contenido conectado en múltiples lugares? {#what-happens-if-i-use-the-same-connected-content-call-in-multiple-places}
 
-Cada etiqueta de Contenido conectado se evalúa por separado, incluso si múltiples etiquetas usan la misma URL y parámetros. Cuando la URL y la configuración de caché lo permiten, las solicitudes idénticas pueden servirse desde el caché en lugar de desencadenar una nueva solicitud saliente (consulta [Almacenamiento en caché de respuestas]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/caching_responses/) para más detalles).
+Cada etiqueta de Contenido conectado se evalúa por separado, incluso si múltiples etiquetas usan la misma URL y parámetros. Cuando la URL y la configuración de caché lo permiten, las solicitudes idénticas pueden servirse desde el caché en lugar de desencadenar una nueva solicitud saliente (consulta [Almacenamiento en caché de respuestas]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/caching_responses) para más detalles).

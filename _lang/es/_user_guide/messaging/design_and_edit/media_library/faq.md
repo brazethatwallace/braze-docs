@@ -59,8 +59,8 @@ Esto se debe a que la mayoría de los compositores tienen restricciones en la pr
 
 ### Generar una imagen con IA {#generate-an-image-using-ai}
 
-Puedes generar imágenes desde **Contenido** > **Biblioteca de medios** seleccionando **AI Image Generator**. Necesitas el permiso **Edit Media Library Assets**. Si no ves la opción, ponte en contacto con tu equipo de Braze. Para conocer los pasos y los detalles de la política, consulta [Generar imágenes con BrazeAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-images) y [Generación de imágenes con BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai).
+Puedes generar imágenes desde **Contenido** > **Biblioteca de medios** seleccionando **AI Image Generator**. Necesitas el permiso **Edit Media Library Assets**. Si no ves la opción, ponte en contacto con tu equipo de Braze. Para conocer los pasos y los detalles de la política, consulta [Generar imágenes con BrazeAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images) y [Generación de imágenes con BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#generate-ai).
 
 ### ¿Puedo crear URL personalizadas para los activos de imagen de la biblioteca de medios? {#can-i-create-vanity-urls-for-media-library-image-assets}
 
-Las URL personalizadas para los activos de la biblioteca de medios no son compatibles porque las URL personalizadas interrumpirían la entrega del CDN. Puedes reemplazar una imagen en su URL existente cuando las campañas ya hacen referencia a esa URL. Para más información, consulta [Reemplazar un archivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#replace-a-file).
+Las URL personalizadas para los activos de la biblioteca de medios no son compatibles porque las URL personalizadas interrumpirían la entrega del CDN. Puedes reemplazar una imagen en su URL existente cuando las campañas ya hacen referencia a esa URL. Para más información, consulta [Reemplazar un archivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).

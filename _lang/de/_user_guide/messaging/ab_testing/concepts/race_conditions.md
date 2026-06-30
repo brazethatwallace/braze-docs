@@ -50,7 +50,7 @@ Nachdem eine neue Nutzer:in erstellt wurde, können Sie eine Verzögerung hinzuf
 
 Beispielsweise können Sie nach der Registrierung einer Nutzer:in für Ihre App ein Werbeangebot nach 24 Stunden senden. Oder wenn Sie eine Nutzer:in erstellen oder ein angepasstes Attribut protokollieren, können Sie eine einminütige Verzögerung hinzufügen, bevor Sie in Ihrem Prozess fortfahren, um diese Race-Condition zu vermeiden.
 
-Sie können diese Verzögerung auch im [Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/) für das spezifische angepasste Event hinzufügen, das eine neue Nutzer:in dazu bringt, einen Canvas zu betreten.
+Sie können diese Verzögerung auch im [Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration) für das spezifische angepasste Event hinzufügen, das eine neue Nutzer:in dazu bringt, einen Canvas zu betreten.
 
 ## Szenario 2: Mehrere API-Endpunkte verwenden {#scenario-2-using-multiple-api-endpoints}
 
@@ -63,7 +63,7 @@ Es gibt einige Szenarien, in denen mehrere API-Endpunkte ebenfalls zu dieser Rac
 - Separate API-Endpunkte verwendet werden, um Nutzer:innen zu erstellen und Canvases oder Campaigns zu triggern
 - Mehrere separate Aufrufe an den `/users/track`-Endpunkt gemacht werden, um angepasste Attribute, Events oder Käufe zu aktualisieren
 
-Wenn Nutzerinformationen über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) an Braze gesendet werden, kann die Verarbeitung gelegentlich einige Sekunden dauern. Das bedeutet, wenn gleichzeitig Anfragen an den `/users/track`- und Messaging-Endpunkte wie `/campaign/trigger/send` gestellt werden, gibt es keine Garantie, dass die Nutzerinformationen aktualisiert werden, bevor eine Nachricht gesendet wird.
+Wenn Nutzerinformationen über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) an Braze gesendet werden, kann die Verarbeitung gelegentlich einige Sekunden dauern. Das bedeutet, wenn gleichzeitig Anfragen an den `/users/track`- und Messaging-Endpunkte wie `/campaign/trigger/send` gestellt werden, gibt es keine Garantie, dass die Nutzerinformationen aktualisiert werden, bevor eine Nachricht gesendet wird.
 
 {% alert note %}
 Wenn Nutzerattribute und Events in derselben Anfrage gesendet werden (entweder über `/users/track` oder über das SDK), verarbeitet Braze Attribute vor Events oder bevor versucht wird, eine Nachricht zu senden.
@@ -79,13 +79,13 @@ Wenn Sie eine geplante Nachrichten-API-Anfrage senden, müssen diese Anfragen se
 
 #### Schlüsseldaten mit dem Trigger einschließen {#include-key-data-with-the-trigger}
 
-Anstatt mehrere Endpunkte zu verwenden, können Sie die [Nutzerattribute]({{site.baseurl}}/api/objects_filters/user_attributes_object/#object-body) und [Trigger-Eigenschaften]({{site.baseurl}}/api/objects_filters/trigger_properties_object/) in einem einzigen API-Aufruf über den [`campaign/trigger/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) einschließen.
+Anstatt mehrere Endpunkte zu verwenden, können Sie die [Nutzerattribute]({{site.baseurl}}/api/objects_filters/user_attributes_object#object-body) und [Trigger-Eigenschaften]({{site.baseurl}}/api/objects_filters/trigger_properties_object) in einem einzigen API-Aufruf über den [`campaign/trigger/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) einschließen.
 
 Wenn diese Objekte mit dem Trigger eingeschlossen werden, werden die Attribute zuerst verarbeitet, bevor die Nachricht getriggert wird, wodurch potenzielle Race-Conditions eliminiert werden. Beachten Sie, dass Trigger-Eigenschaften das Nutzerprofil nicht aktualisieren, sondern nur im Kontext der Nachricht verwendet werden.
 
 #### Den POST: Track users (sync)-Endpunkt verwenden {#use-the-post-track-users-sync-endpoint}
 
-Verwenden Sie den [`/users/track/sync/`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/), um angepasste Events und Käufe zu erfassen und Nutzerprofilattribute synchron zu aktualisieren. Die Verwendung dieses Endpunkts zur gleichzeitigen Aktualisierung von Nutzerprofilen in einem einzigen Aufruf kann helfen, potenzielle Race-Conditions zu vermeiden.
+Verwenden Sie den [`/users/track/sync/`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous), um angepasste Events und Käufe zu erfassen und Nutzerprofilattribute synchron zu aktualisieren. Die Verwendung dieses Endpunkts zur gleichzeitigen Aktualisierung von Nutzerprofilen in einem einzigen Aufruf kann helfen, potenzielle Race-Conditions zu vermeiden.
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='This endpoint' type='beta' %}
 
@@ -97,7 +97,7 @@ Eine weitere häufige Race-Condition kann auftreten, wenn Sie eine aktionsbasier
 
 #### Zielgruppe nach einer Verzögerung prüfen {#check-your-audience-after-a-delay}
 
-Um die Verwendung von Zielgruppen-Filtern zu vermeiden, die die Trigger-Kriterien enthalten, empfehlen wir, Ihre Zielgruppe vor der Zustellung zu prüfen. Sie können beispielsweise [Zustellungsvalidierungen verwenden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#edit-delivery-settings) in Canvas-Nachrichtenschritten als zusätzliche Prüfung, um zu bestätigen, dass Ihre Zielgruppe die Zustellungskriterien beim Nachrichtenversand erfüllt. Sie können auch Exit-Kriterien für Canvas nutzen, um Nutzer:innen an jedem Punkt während der User Journey auszuschließen, wenn sie Ihre Kriterien erfüllen.
+Um die Verwendung von Zielgruppen-Filtern zu vermeiden, die die Trigger-Kriterien enthalten, empfehlen wir, Ihre Zielgruppe vor der Zustellung zu prüfen. Sie können beispielsweise [Zustellungsvalidierungen verwenden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#edit-delivery-settings) in Canvas-Nachrichtenschritten als zusätzliche Prüfung, um zu bestätigen, dass Ihre Zielgruppe die Zustellungskriterien beim Nachrichtenversand erfüllt. Sie können auch Exit-Kriterien für Canvas nutzen, um Nutzer:innen an jedem Punkt während der User Journey auszuschließen, wenn sie Ihre Kriterien erfüllen.
 
 Für Campaigns können Sie Exit-Events verwenden, um Campaigns mit einem Trigger-Event zu ermöglichen, Nachrichten an Nutzer:innen abzubrechen, die das Exit-Event während der Verzögerung ausführen.
 
@@ -142,7 +142,7 @@ In diesem Fall registriert der Aktions-Pfad-Schritt die Interaktion nicht, da er
 
 Ein Canvas sendet eine Push-Benachrichtigung in einem Nachrichtenschritt, gefolgt von einem Aktions-Pfad-Schritt, der prüft, ob die Nutzer:in diese Push-Benachrichtigung öffnet. Wenn eine Nutzer:in die Push-Benachrichtigung sofort nach dem Empfang öffnet (bevor sie den Aktions-Pfad-Schritt betritt), wird das Öffnungs-Event möglicherweise nicht erfasst. Die Nutzer:in könnte dann fälschlicherweise den „Nicht geöffnet“-Pfad durchlaufen, obwohl sie mit der Nachricht interagiert hat.
 
-### Best Practices {#best-practices}
+### Best Practices
 
 #### Engagement über ein angepasstes Event tracken {#track-engagement-using-a-custom-event}
 
