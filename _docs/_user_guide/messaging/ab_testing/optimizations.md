@@ -12,11 +12,11 @@ description: "Learn how to use Winning Variant or Personalized Variant when crea
 
 
 ## Push
-When [creating an A/B test]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/) for push then there is one optimization option [BrazeAI™ Variant Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/). It is a feature that enables your single send or recurring A/B tests to automatically run an experiment and optimize for the best engagement results.
+When [creating an A/B test]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) for push then there is one optimization option [BrazeAI™ Variant Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection). It is a feature that enables your single send or recurring A/B tests to automatically run an experiment and optimize for the best engagement results.
 
 ## Email, Webhook, SMS, and WhatsApp
 
-When [creating an A/B test]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/) for email, webhook, SMS, and WhatsApp campaigns scheduled to send once, you can select an optimization between two optimization options: **Winning Variant** and **Personalized Variant**.
+When [creating an A/B test]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) for email, webhook, SMS, and WhatsApp campaigns scheduled to send once, you can select an optimization between two optimization options: **Winning Variant** and **Personalized Variant**.
 
 ![Optimization options listed in the A/B Testing section when choosing your target audience. Three options are listed: No Optimization, Winning Variant, and Personalized Variant. Personalized Variant is selected.]({% image_buster /assets/img_archive/ab_personalized_variant.png %})
 
@@ -35,10 +35,14 @@ Sending the Winning Variant is similar to a standard A/B test. Users in this gro
 
 | Field | Description |
 | --- | --- | 
-| Determine Winning Variant | The metric to optimize for. Choose between *Unique Opens* or *Clicks* for email, *Opens* for push, or *Primary Conversion Rate* for all channels. Selecting *Opens* or *Clicks* to determine the winner does not affect what you choose for the campaign's [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/). <br><br>Keep in mind that if you're using a control group, users in the control group can't perform *Opens* or *Clicks*, so the performance of the control group is guaranteed to be `0`. As a result, the control group can't win the A/B test. However, you may still want to use a control group to track other metrics for users who do not receive a message. |
+| Determine Winning Variant | The metric to optimize for. Choose between *Unique Opens* or *Clicks* for email, *Opens* for push, or *Primary Conversion Rate* for all channels. Selecting *Opens* or *Clicks* to determine the winner does not affect what you choose for the campaign's [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events). <br><br>Keep in mind that if you're using a control group, users in the control group can't perform *Opens* or *Clicks*, so the performance of the control group is guaranteed to be `0`. As a result, the control group can't win the A/B test. However, you may still want to use a control group to track other metrics for users who do not receive a message. |
 | Winning Variant Send Time | The date and time the winning variant is sent. |
 | If No Winning Variant Can Be Determined | What happens if no variant wins by a statistically significant margin. Choose between sending the best performing variant anyway, or ending the test and not sending any further messages. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Winning Variant" }
+
+{% alert note %}
+For Winning Variants and Personalized Variants, Braze runs an eligibility check again on the second send. Users who were not in the target segment (or otherwise not reachable) at the first send can enter later; users who left the segment may no longer receive the follow-up. Plan your segment and scheduling so the audience you intend to include is eligible at both sends.
+{% endalert %}
 
 ## Personalized Variant
 
@@ -51,11 +55,11 @@ To determine the best variant for each user, Braze will send an initial test to 
 
 | Field | Description |
 | --- | --- | 
-| Determine Personalized Variant | The metric to optimize for. Choose between *Unique Opens* or *Clicks* for email, *Opens* for push, or *Primary Conversion Rate* for all channels. Selecting *Opens* or *Clicks* to determine the winner does not affect what you choose for the campaign's [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/). <br><br>Keep in mind that if you're using a control group, users in the control group can't perform *Opens* or *Clicks*, so the performance of the control group is guaranteed to be `0`. As a result, the control group can't win the A/B test. However, you may still want to use a control group to track other metrics for users who do not receive a message. |
+| Determine Personalized Variant | The metric to optimize for. Choose between *Unique Opens* or *Clicks* for email, *Opens* for push, or *Primary Conversion Rate* for all channels. Selecting *Opens* or *Clicks* to determine the winner does not affect what you choose for the campaign's [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events). <br><br>Keep in mind that if you're using a control group, users in the control group can't perform *Opens* or *Clicks*, so the performance of the control group is guaranteed to be `0`. As a result, the control group can't win the A/B test. However, you may still want to use a control group to track other metrics for users who do not receive a message. |
 | Personalized Variant Send Time | The date and time the personalized variant is sent. |
 | If No personalized Variant Can Be Determined | What happens if no Personalized Variants are found. Choose between sending the Winning Variant instead, or ending the test and not sending any further messages. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Personalized Variant" }
 
 ## Analytics
 
-To learn about the results of your A/B test with an optimization, refer to [Multivariate and A/B test analytics]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics/).
+To learn about the results of your A/B test with an optimization, refer to [Multivariate and A/B test analytics]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics).

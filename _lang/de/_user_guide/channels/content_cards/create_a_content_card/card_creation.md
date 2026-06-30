@@ -20,14 +20,14 @@ Um dieses Feature nutzen zu können, müssen Sie mindestens auf die folgenden SD
 
 {% sdk_min_versions swift:5.2.0 android:23.0.0 web:4.2.0 %}
 
-Nach dem SDK-Upgrade müssen Ihre mobilen Nutzer:innen ihre App aktualisieren. Sie können Ihre Kampagnen- oder Canvas-Zielgruppe so filtern, dass nur [Nutzer:innen mit diesen Mindest-App-Versionen angesprochen werden]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions).
+Nach dem SDK-Upgrade müssen Ihre mobilen Nutzer:innen ihre App aktualisieren. Sie können Ihre Kampagnen- oder Canvas-Zielgruppe so filtern, dass nur [Nutzer:innen mit diesen Mindest-App-Versionen angesprochen werden]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 
 ## Übersicht {#overview}
 
 {% tabs %}
 {% tab Campaign %}
 
-Sie können festlegen, wann Braze eine Karte erstellt – im Schritt **Zustellung** beim Erstellen einer neuen [Content-Card-Kampagne]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/) mit geplanter Zustellung.
+Sie können festlegen, wann Braze eine Karte erstellt – im Schritt **Zustellung** beim Erstellen einer neuen [Content-Card-Kampagne]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card) mit geplanter Zustellung.
 
 ![Abschnitt „Content-Card-Steuerung“ beim Bearbeiten der Zustellung einer geplanten Content-Card.]({% image_buster /assets/img_archive/card_creation.png %})
 
@@ -41,7 +41,7 @@ Unabhängig von der gewählten Option beginnt der Countdown für das Ablaufdatum
 {% endtab %}
 {% tab Canvas %}
 
-Sie können festlegen, wann Braze eine Karte erstellt – im Tab **Messaging-Kanäle** eines Content-Card-[Nachrichtenschritts]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/).
+Sie können festlegen, wann Braze eine Karte erstellt – im Tab **Messaging-Kanäle** eines Content-Card-[Nachrichtenschritts]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step).
 
 ![Abschnitt „Content-Card-Steuerung“ beim Bearbeiten der Zustellung einer geplanten Content-Card.]({% image_buster /assets/img_archive/card_creation_canvas.png %})
 
@@ -69,7 +69,7 @@ In den Einstellungen **Ablauf (Verweildauer im Feed)** können Sie **Dauer perso
 ![Ablaufeinstellungen mit „Dauer personalisieren“, konfiguriert mit einer Kontextvariable für den Content-Card-Ablauf.]({% image_buster /assets/img/content_card_personalize_duration.png %})
 
 {% alert important %}
-Content Cards haben eine maximale Ablaufzeit von 30 Tagen, auch bei Verwendung personalisierter Dauer mit Kontextvariablen. Jeder Wert über 30 Tage wird auf 30 Tage begrenzt. Weitere Informationen finden Sie unter [Kartenablauf]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#card-expiration).
+Content Cards haben eine maximale Ablaufzeit von 30 Tagen, auch bei Verwendung personalisierter Dauer mit Kontextvariablen. Jeder Wert über 30 Tage wird auf 30 Tage begrenzt. Weitere Informationen finden Sie unter [Kartenablauf]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#card-expiration).
 {% endalert %}
 
 {% endtab %}
@@ -137,7 +137,7 @@ Mehrkanalige Kampagnen unterstützen keine Karten bei der ersten Impression, sod
 
 ### Verwendung von Canvas-Kontexteigenschaften {#using-canvas-context-properties}
 
-Wenn Sie Content Cards mit [Canvas-Kontexteigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) personalisieren, verwenden Sie die `${...}`-Syntax (zum Beispiel {%raw%}`{{context.${property_name}}}`{%endraw%}). Punktnotation ohne diese Syntax (zum Beispiel {%raw%}`{{context.property_name}}`{%endraw%}) wird in Content Cards möglicherweise nicht korrekt aufgelöst, auch wenn sie in anderen Kanälen wie Push und E-Mail funktioniert.
+Wenn Sie Content Cards mit [Canvas-Kontexteigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) personalisieren, verwenden Sie die `${...}`-Syntax (zum Beispiel {%raw%}`{{context.${property_name}}}`{%endraw%}). Punktnotation ohne diese Syntax (zum Beispiel {%raw%}`{{context.property_name}}`{%endraw%}) wird in Content Cards möglicherweise nicht korrekt aufgelöst, auch wenn sie in anderen Kanälen wie Push und E-Mail funktioniert.
 
 ### Kartenerstellung nach dem Start ändern {#changing-card-creation-after-launch}
 

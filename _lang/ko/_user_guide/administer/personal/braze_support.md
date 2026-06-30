@@ -16,7 +16,7 @@ search_rank: 7
 
 Braze 고객지원 팀에 연락하려면 Braze 대시보드로 이동하여 **고객지원**을 선택합니다. 메뉴에서 두 가지 옵션을 제공합니다:
 
-- **Operator로 도움 받기**를 선택하면 BrazeAI Operator<sup>TM</sup>가 열리며, 대화 컨텍스트와 현재 화면을 활용하여 문제를 즉시 해결할 수 있습니다. Operator가 문제를 해결하지 못하는 경우, 대화 내용을 기반으로 지원 티켓 초안을 작성하도록 요청할 수 있습니다. 자세한 내용은 [BrazeAI Operator로 지원 티켓 제출하기]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/)를 참조하세요.
+- **Operator로 도움 받기**를 선택하면 BrazeAI Operator<sup>TM</sup>가 열리며, 대화 컨텍스트와 현재 화면을 활용하여 문제를 즉시 해결할 수 있습니다. Operator가 문제를 해결하지 못하는 경우, 대화 내용을 기반으로 지원 티켓 초안을 작성하도록 요청할 수 있습니다. 자세한 내용은 [BrazeAI Operator로 지원 티켓 제출하기]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets)를 참조하세요.
 - **도움 받기**를 선택하면 Braze 고객지원 포털(지정된 지원 연락처인 경우) 또는 표준 지원 양식으로 바로 이동하여 케이스를 제출하고 추적할 수 있습니다. Braze 지원 연락처인지 확실하지 않은 경우, 회사의 Braze 관리자, Braze 성공 매니저 또는 계정 소유자에게 문의하세요.
 
 !["고객지원" 드롭다운에서 "Operator로 도움 받기"와 "도움 받기" 옵션을 보여주는 화면.]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:50%;"}
@@ -30,8 +30,6 @@ Braze 고객지원 팀에 연락하려면 Braze 대시보드로 이동하여 **�
 2. 사용자 이름을 선택하거나 사용자 이름 행 위에 마우스를 올려 메뉴를 표시합니다.
 3. 메뉴에서 **편집**을 선택하면 **사용자 편집** 페이지로 이동합니다.
 4. **이 사용자를 Braze 고객지원 포털의 지정된 지원 연락처로 설정** 체크박스를 선택합니다.
-
-![사용자를 지정된 지원 연락처로 설정하는 체크박스.]({% image_buster /assets/img_archive/designated_support_contact.png %}){: style="max-width:70%;"}
 
 ### 접근 권한 획득 {#gaining-access}
 
@@ -102,7 +100,7 @@ Braze 고객지원 팀에 연락하려면 Braze 대시보드로 이동하여 **�
 Braze 대시보드가 올바르게 로드되지 않는 경우, 고객지원팀에 연락하기 전에 다음을 시도해 보세요:
 
 1. 다른 브라우저 또는 시크릿/프라이빗 창에서 대시보드를 엽니다.
-2. [브라우저 캐시 및 쿠키를 삭제합니다]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#clearing-your-browser-cache-and-cookies).
+2. [브라우저 캐시 및 쿠키를 삭제합니다]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#clearing-your-browser-cache-and-cookies).
 3. 광고 차단기 및 브라우저 확장 프로그램을 비활성화한 다음 대시보드를 다시 로드합니다.
 4. VPN을 사용 중인 경우, 연결을 해제하고 다시 시도합니다.
 

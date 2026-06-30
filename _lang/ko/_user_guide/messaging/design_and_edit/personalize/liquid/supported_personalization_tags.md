@@ -30,34 +30,34 @@ search_rank: 1
 | 이벤트 등록정보 <br> (워크스페이스에 맞게 커스텀됩니다.)| `{{event_properties.${your_custom_event_property}}}` |
 | Canvas 컨텍스트 변수 | `{{context.${your_context_variable}}}` |
 | 커스텀 속성 <br> (워크스페이스에 맞게 커스텀됩니다.) | `{{custom_attribute.${your_custom_attribute}}}` |
-| <a href='/docs/api/objects_filters/trigger_properties_object/'>API 트리거 등록정보</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
+| <a href='/docs/api/objects_filters/trigger_properties_object'>API 트리거 등록정보</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
 | Canvas 진입 등록정보 | `{{context.${property_name}}}` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="지원되는 태그 요약" }
 
 {% endraw %}
 
 {% alert note %}
-API 트리거 등록정보는 태그당 두 개의 중괄호를 사용해야 합니다: {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`. 세 개의 중괄호(예: `{{{...}}}`){% endraw %}는 유효한 Braze 개인화 구문이 아닙니다. [Braze에서 API 트리거 Liquid가 실패하는 이유는 무엇인가요?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze)를 참조하세요.
+API 트리거 등록정보는 태그당 두 개의 중괄호를 사용해야 합니다: {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`. 세 개의 중괄호(예: `{{{...}}}`){% endraw %}는 유효한 Braze 개인화 구문이 아닙니다. [Braze에서 API 트리거 Liquid가 실패하는 이유는 무엇인가요?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq#why-is-my-api-triggered-liquid-failing-in-braze)를 참조하세요.
 {% endalert %}
 
 ### 지원되는 속성 {#supported-attributes}
 
-Campaign, 카드, Canvas 속성은 해당하는 메시징 템플릿에서만 지원됩니다(예: `dispatch_id`는 인앱 메시지 Campaign에서 사용할 수 없습니다).
+Campaign, 카드, Canvas 속성은 해당하는 메시징 템플릿에서만 지원됩니다. 예를 들어, `dispatch_id`는 이메일, 푸시, SMS, WhatsApp과 같은 메시징 채널의 Liquid에서 지원되지만, 인앱 메시지나 배너에서는 지원되지 않습니다.
 
-자세한 내용은 [소스별 Campaign 및 Canvas 속성]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/)을 참조하세요.
+자세한 내용은 [소스별 Campaign 및 Canvas 속성]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources)을 참조하세요.
 
 ### Canvas와 Campaign 태그 차이점 {#canvas-and-campaign-tag-differences}
 
 다음 태그의 동작은 Canvas와 Campaign 간에 다릅니다:
 {% raw %}
-- `dispatch_id` 동작이 다릅니다. Braze는 캔버스 단계를 트리거된 이벤트로 처리하기 때문입니다. "스케줄"된 경우에도 마찬가지입니다(진입 단계는 스케줄할 수 있으므로 제외). 자세한 내용은 [Dispatch ID 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)을 참조하세요.
+- `dispatch_id` 동작이 다릅니다. Braze는 캔버스 단계를 트리거된 이벤트로 처리하기 때문입니다. "스케줄"된 경우에도 마찬가지입니다(진입 단계는 스케줄할 수 있으므로 제외). 자세한 내용은 [Dispatch ID 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)을 참조하세요.
 - Canvas에서 `{{campaign.${name}}}` 태그를 사용하면 Canvas 구성요소 이름이 표시됩니다. Campaign에서 이 태그를 사용하면 Campaign 이름이 표시됩니다.
 {% endraw %}
 
 #### URL에서의 Campaign 이름 {#campaign-names-in-urls}
 
 {% raw %}
-Campaign 및 메시지 배리언트 이름에는 `%`, 공백, `&`와 같이 URL에 안전하지 않은 문자가 포함될 수 있습니다. `{{campaign.${name}}}` 또는 `{{campaign.${message_name}}}`을 `utm_campaign` 매개변수와 같은 링크나 쿼리 문자열에 삽입할 때는 URL이 올바르게 구문 분석되도록 [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters) 필터를 적용하세요. 예를 들어:
+Campaign 및 메시지 배리언트 이름에는 `%`, 공백, `&`와 같이 URL에 안전하지 않은 문자가 포함될 수 있습니다. `{{campaign.${name}}}` 또는 `{{campaign.${message_name}}}`을 `utm_campaign` 매개변수와 같은 링크나 쿼리 문자열에 삽입할 때는 URL이 올바르게 구문 분석되도록 [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) 필터를 적용하세요. 예를 들어:
 
 ```liquid
 https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
@@ -76,7 +76,7 @@ https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
 | `{{most_recently_used_device.${id}}}` | Braze 기기 식별자입니다. iOS에서는 Apple Identifier for Vendor(IDFV) 또는 UUID일 수 있습니다. Android 및 기타 플랫폼에서는 무작위로 생성된 UUID입니다. |
 | `{{most_recently_used_device.${carrier}}}` | 가장 최근에 사용한 기기의 통신사입니다(사용 가능한 경우). 예를 들어 "Verizon"과 "Orange"가 있습니다. |
 | `{{most_recently_used_device.${ad_tracking_enabled}}}` | 기기에서 광고 추적이 활성화되어 있는지 여부입니다. 부울 값(`true` 또는 `false`)입니다. |
-| `{{most_recently_used_device.${idfa}}}` | iOS 기기의 경우, 애플리케이션이 [선택적 IDFA 수집]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/)으로 구성되어 있으면 이 값은 Identifier for Advertising(IDFA)입니다. iOS가 아닌 기기의 경우 이 값은 null입니다. |
+| `{{most_recently_used_device.${idfa}}}` | iOS 기기의 경우, 애플리케이션이 [선택적 IDFA 수집]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection)으로 구성되어 있으면 이 값은 Identifier for Advertising(IDFA)입니다. iOS가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{most_recently_used_device.${google_ad_id}}}` | Android 기기의 경우, 애플리케이션이 선택적 Google Play Advertising ID 수집으로 구성되어 있으면 이 값은 Google Play Advertising Identifier입니다. Android가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{most_recently_used_device.${roku_ad_id}}}` | Roku 기기의 경우, 애플리케이션이 Braze로 구성되었을 때 수집되는 Roku Advertising Identifier입니다. Roku가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{most_recently_used_device.${model}}}` | 기기의 모델명입니다(사용 가능한 경우). 예를 들어 "iPhone 6S", "Nexus 6P", "Firefox"가 있습니다. |
@@ -115,7 +115,7 @@ User is in list of apps
 |------------------|---|
 | `{{targeted_device.${id}}}` | Braze 기기 식별자입니다. iOS에서는 Apple Identifier for Vendor(IDFV) 또는 UUID일 수 있습니다. Android 및 기타 플랫폼에서는 무작위로 생성된 UUID입니다. 예를 들어, 사용자가 5개의 기기를 가지고 있으면 5개 기기 모두에 대해 발송 시도가 이루어지며, 각각 해당 기기 식별자를 사용합니다. 메시지가 사용자의 가장 최근에 사용한 기기로 발송하도록 구성된 경우, Braze를 통해 식별된 가장 최근에 사용한 기기에 대해 한 번만 발송 시도가 이루어집니다. |
 | `{{targeted_device.${carrier}}}` | 가장 최근에 사용한 기기의 통신사입니다(사용 가능한 경우). 예를 들어 "Verizon"과 "Orange"가 있습니다. |
-| `{{targeted_device.${idfa}}}` | iOS 기기의 경우, 애플리케이션이 [선택적 IDFA 수집]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/)으로 구성되어 있으면 이 값은 Identifier for Advertising(IDFA)입니다. iOS가 아닌 기기의 경우 이 값은 null입니다. |
+| `{{targeted_device.${idfa}}}` | iOS 기기의 경우, 애플리케이션이 [선택적 IDFA 수집]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection)으로 구성되어 있으면 이 값은 Identifier for Advertising(IDFA)입니다. iOS가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{targeted_device.${google_ad_id}}}` | Android 기기의 경우, 애플리케이션이 [선택적 Google Play Advertising ID 수집]으로 구성되어 있으면 이 값은 Google Play Advertising Identifier입니다. Android가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{targeted_device.${roku_ad_id}}}` | Roku 기기의 경우, 애플리케이션이 Braze로 구성되었을 때 수집되는 Roku Advertising Identifier입니다. Roku가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{targeted_device.${model}}}` | 기기의 모델명입니다(사용 가능한 경우). 예를 들어 "iPhone 6S", "Nexus 6P", "Firefox"가 있습니다. |
@@ -134,7 +134,7 @@ User is in list of apps
 
 ### 기본값 대신 조건 로직 사용 {#using-conditional-logic-instead-of-a-default-value}
 
-경우에 따라 기본값을 설정하는 대신 [조건 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/)을 사용할 수 있습니다. 조건 로직을 사용하면 커스텀 속성의 값에 따라 다른 메시지를 보낼 수 있습니다. 또한 조건 로직을 사용하여 null 또는 빈 속성 값을 가진 고객에게 [메시지를 중단]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)할 수 있습니다.
+경우에 따라 기본값을 설정하는 대신 [조건 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic)을 사용할 수 있습니다. 조건 로직을 사용하면 커스텀 속성의 값에 따라 다른 메시지를 보낼 수 있습니다. 또한 조건 로직을 사용하여 null 또는 빈 속성 값을 가진 고객에게 [메시지를 중단]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)할 수 있습니다.
 
 #### 사용 사례 {#use-case}
 
@@ -168,7 +168,7 @@ User is in list of apps
    {% endif %}
    ```
 
-이 사용 사례에서 이름이 빈 값이거나 null인 사용자는 "Thanks for downloading!" 메시지를 받습니다. 실수가 발생했을 때 고객에게 Liquid가 그대로 표시되지 않도록 이름에 [기본값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/)을 포함하는 것을 권장합니다.
+이 사용 사례에서 이름이 빈 값이거나 null인 사용자는 "Thanks for downloading!" 메시지를 받습니다. 실수가 발생했을 때 고객에게 Liquid가 그대로 표시되지 않도록 이름에 [기본값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values)을 포함하는 것을 권장합니다.
 
 {% endraw %}
 
@@ -181,7 +181,7 @@ User is in list of apps
 {% alert tip %}
 매번 메시지마다 같은 변수를 할당하고 계신가요? `assign` 태그를 반복해서 작성하는 대신, 해당 태그를 콘텐츠 블록으로 저장하고 메시지 상단에 배치할 수 있습니다.
 
-1. [콘텐츠 블록을 생성합니다]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/#create-a-content-block).
+1. [콘텐츠 블록을 생성합니다]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#create-a-content-block).
 2. 콘텐츠 블록에 이름을 지정합니다(공백이나 특수 문자 없이).
 3. 페이지 하단에서 **편집**을 선택합니다.
 4. `assign` 태그를 입력합니다.
@@ -240,7 +240,7 @@ Sale on Converse!
 
 ## HTTP 상태 코드 {#http-personalization}
 
-[연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) 호출의 HTTP 상태를 먼저 로컬 변수로 저장한 다음 `__http_status_code__` 키를 사용하여 활용할 수 있습니다. 예를 들어:
+[연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) 호출의 HTTP 상태를 먼저 로컬 변수로 저장한 다음 `__http_status_code__` 키를 사용하여 활용할 수 있습니다. 예를 들어:
 
 ```html
 {% connected_content https://example.com/api/endpoint :save connected %}
@@ -336,7 +336,7 @@ Show variant B
 
 ## eCommerce 장바구니 태그 {#shopping-cart-tag}
 
-`shopping_cart` 태그는 eCommerce [유기한 장바구니]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/?tab=abandoned%20cart#abandoned-cart) 및 [유기한 결제]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/?tab=abandoned%20checkout#abandoned-checkout) eCommerce Canvas 사용 사례에서 사용자의 장바구니 내용에 접근합니다. `CART_ID`를 실제 장바구니 ID 값(예: {% raw %}`{{context.${cart_id}}}`{% endraw %})으로 교체하세요.
+`shopping_cart` 태그는 eCommerce [유기한 장바구니]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20cart#abandoned-cart) 및 [유기한 결제]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20checkout#abandoned-checkout) eCommerce Canvas 사용 사례에서 사용자의 장바구니 내용에 접근합니다. `CART_ID`를 실제 장바구니 ID 값(예: {% raw %}`{{context.${cart_id}}}`{% endraw %})으로 교체하세요.
 
 {% raw %}
 ```liquid
@@ -344,7 +344,7 @@ Show variant B
 ```
 {% endraw %}
 
-이 예시의 `abort_if_not_abandoned` 매개변수는 `ecommerce.checkout_started` 이벤트와 함께 사용할 때 [유기한 결제]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/?tab=abandoned%20checkout#abandoned-checkout) 사용 사례에만 적용됩니다. 유기한 장바구니 사용 사례에는 적용되지 않습니다. 자세한 내용은 [`abort_if_not_abandoned`]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/?tab=abandoned%20checkout#abort-if-not-abandoned)를 참조하세요.
+이 예시의 `abort_if_not_abandoned` 매개변수는 `ecommerce.checkout_started` 이벤트와 함께 사용할 때 [유기한 결제]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20checkout#abandoned-checkout) 사용 사례에만 적용됩니다. 유기한 장바구니 사용 사례에는 적용되지 않습니다. 자세한 내용은 [`abort_if_not_abandoned`]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20checkout#abort-if-not-abandoned)를 참조하세요.
 
 [31]:https://docs.shopify.com/themes/liquid/tags/variable-tags
 [32]:https://docs.shopify.com/themes/liquid/tags/iteration-tags

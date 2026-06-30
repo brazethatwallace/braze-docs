@@ -25,7 +25,7 @@ platform:
 
 These are the minimum SDK versions needed to create Banner placements:
 
-{% multi_lang_include sdk_versions.md feature='banners' %}
+{% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
 {% multi_lang_include banners/creating_placements.md section="developer" %}
 
@@ -555,7 +555,7 @@ This feature is not currently supported on Roku.
 
 ### Step 5: Send a test Banner (optional) {#handling-test-cards}
 
-Before you launch a Banner campaign, you can [send a test Banner]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=banners) to verify your integration. Test Banners are stored in a separate in-memory cache and don't persist across app restarts. While no extra setup is needed, your test device must be capable of receiving foreground push notifications so it can display the test.
+Before you launch a Banner campaign, you can [send a test Banner]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=banners) to verify your integration. Test Banners are stored in a separate in-memory cache and don't persist across app restarts. While no extra setup is needed, your test device must be capable of receiving foreground push notifications so it can display the test.
 
 {% alert note %}
 Test Banners are like any other banners, except they're removed at the next app session.
@@ -583,7 +583,7 @@ If your Banner uses the **Custom Code** editor block in the Braze dashboard, you
 </button>
 ```
 
-For the full reference, see [Custom code and JavaScript bridge for Banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-code). The `brazeBridge` provides a communication layer between the Banner's internal HTML and the parent Braze SDK.
+For the full reference, see [Custom code and JavaScript bridge for Banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-code). The `brazeBridge` provides a communication layer between the Banner's internal HTML and the parent Braze SDK.
 
 ### Custom UI implementations (headless)
 
@@ -717,6 +717,7 @@ These are the minimum SDK versions required to log Banner dismissals:
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### Integrations
+
 #### Standard Banner integrations (drag-and-drop editor)
 
 If your Banner uses the drag-and-drop editor and includes a dismiss button component, no additional code is required. When a user clicks the dismiss button, the message is hidden, triggers a dismissal, and then records a dismissal event for analytics.
@@ -866,7 +867,7 @@ You can use custom properties from your Banner campaign to retrieve key–value 
 
 ### Prerequisites
 
-You must [add custom properties]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-properties) to your Banner campaign. Additionally, these are the minimum SDK versions required to access custom properties:
+You must [add custom properties]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-properties) to your Banner campaign. Additionally, these are the minimum SDK versions required to access custom properties:
 
 {% sdk_min_versions swift:13.1.0 android:38.0.0 web:6.1.0 reactnative:17.0.0 flutter:15.1.0 %}
 

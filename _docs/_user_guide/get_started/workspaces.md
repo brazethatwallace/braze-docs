@@ -77,15 +77,15 @@ You must create separate app instances for each version of your app on each plat
 
 #### Teams
 
-[Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) can be set up across customer base location, language, and custom attributes so that team members and non-team members have different access to messaging features and customer data.
+[Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) can be set up across customer base location, language, and custom attributes so that team members and non-team members have different access to messaging features and customer data.
 
 #### Company user permissions
 
-Workspaces have independent access and user permission definitions. [User permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) allow you to create granular controls regarding what an individual dashboard user or team has access to within a single workspace.
+Workspaces have independent access and user permission definitions. [User permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) allow you to create granular controls regarding what an individual dashboard user or team has access to within a single workspace.
 
 #### Currents connectors
 
-The [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) tool is a real-time data stream of your engagement events that is the most robust yet granular export out of the Braze platform. Currents connectors are included with certain Braze packages, and you might have initially received one, assuming a single workspace.
+The [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) tool is a real-time data stream of your engagement events that is the most robust yet granular export out of the Braze platform. Currents connectors are included with certain Braze packages, and you might have initially received one, assuming a single workspace.
 
 When you're deciding between creating separate or combined workspaces, it's important to think about the number of Currents connectors you have, as Currents connectors are not shared across workspaces. 
 
@@ -93,7 +93,7 @@ For example, if you have separate workspaces for the development and production 
 
 #### User profiles
 
-All persistent data associated with a user is stored in their [user profile]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/). However, user profiles are also a great resource for troubleshooting and testing because you can easily access information about a user’s engagement history, segment membership, device, and operating system.
+All persistent data associated with a user is stored in their [user profile]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles). However, user profiles are also a great resource for troubleshooting and testing because you can easily access information about a user’s engagement history, segment membership, device, and operating system.
 
 #### Segments, campaigns, and Canvases
 
@@ -208,8 +208,8 @@ The following table describes the benefits and drawbacks of these two approaches
     <tr>
         <th scope="row">Duplicating content</th>
         <td>N/A</td>
-        <td>Cannot duplicate segments, push or Content Card campaigns, or Canvases across workspaces.</td>
-        <td>Can <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>duplicate campaigns across workspaces</a> for the following supported channels: SMS, in-app messages, email, email templates, and Content Blocks. <br><br>Can duplicate segments, campaigns, and Canvases to reuse content from one app instance to another.</td>
+        <td>Some content, such as segments and Content Card campaigns, can't be copied across workspaces.</td>
+        <td>Can <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces'>copy campaigns, Canvases, and landing pages across workspaces</a>. Supported content includes campaigns and Canvases for eligible channels, as well as landing pages, email templates, feature flags, and Content Blocks.<br><br>Can duplicate segments, campaigns, Canvases, and landing pages to reuse content from one app instance to another.</td>
         <td>N/A</td>
     </tr>
     <tr>
@@ -245,5 +245,5 @@ You should have more than one Braze user with admin permissions for a single wor
 
 ## Next steps
 
-After you've determined your workspace plan, it's time to create your workspace and add app instances. For steps, check out [Create and manage workspaces]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/).
+After you've determined your workspace plan, it's time to create your workspace and add app instances. For steps, check out [Create and manage workspaces]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces).
 

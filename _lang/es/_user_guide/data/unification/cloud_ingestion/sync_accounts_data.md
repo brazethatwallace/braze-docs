@@ -25,7 +25,7 @@ Realiza actualizaciones en el esquema de tu cuenta solo cuando la sincronizació
 
 ## Cómo funciona la sincronización {#how-syncing-works}
 
-- Cada sincronización importa filas donde `UPDATED_AT` es posterior a la última marca de tiempo sincronizada. Las filas que coinciden exactamente con la marca de tiempo límite pueden volver a sincronizarse si nuevas filas comparten esa misma marca de tiempo. Para más información, consulta [Evitar la resincronización de filas con marcas de tiempo duplicadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps).
+- Cada sincronización importa filas donde `UPDATED_AT` es posterior a la última marca de tiempo sincronizada. Las filas que coinciden exactamente con la marca de tiempo límite pueden volver a sincronizarse si nuevas filas comparten esa misma marca de tiempo. Para más información, consulta [Evitar la resincronización de filas con marcas de tiempo duplicadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
 - Los datos de la integración crean o actualizan cuentas basándose en el `id` proporcionado.
 - Si `DELETED` es `true`, la cuenta se elimina.
 - La sincronización no registra puntos de datos, pero todos los datos sincronizados cuentan para el uso total de tus cuentas, medido por el total de datos almacenados; no es necesario limitarse solo a los datos modificados.
@@ -73,7 +73,7 @@ Para integrar tu origen de datos con tu almacén de datos:
     CREATE USER BRAZE_INGESTION_USER;
     GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
     ```
-3. Si utilizas políticas de red, añade las IP de Braze a la lista de permitidas para que el servicio CDI pueda conectarse. Para consultar la lista de IP, ve a [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+3. Si utilizas políticas de red, añade las IP de Braze a la lista de permitidas para que el servicio CDI pueda conectarse. Para consultar la lista de IP, ve a [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 4. En el panel de Braze, ve a **Configuración de datos** > **Ingesta de datos de Cloud** y crea una nueva sincronización.
 5. Introduce los detalles de conexión (o reutiliza los existentes) y luego añade la tabla de origen.
 6. Selecciona el tipo de sincronización **Accounts** y luego introduce el nombre de la integración y la planificación.
@@ -109,7 +109,7 @@ Para integrar tu origen de datos con tu almacén de datos:
     GRANT SELECT ON TABLE ACCOUNTS_SYNC TO braze_user;
     ```
     {% endraw %}
-3. Si tienes un firewall o políticas de red, permite el acceso de Braze a tu instancia de Redshift. Para consultar la lista de IP, ve a [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+3. Si tienes un firewall o políticas de red, permite el acceso de Braze a tu instancia de Redshift. Para consultar la lista de IP, ve a [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endsubtab %}
 {% subtab BigQuery %}
@@ -140,7 +140,7 @@ Para integrar tu origen de datos con tu almacén de datos:
     | `ID` | String | Sí |
     | `NAME` | String | Sí |
     | `DELETED` | Boolean | Opcional |
-    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sync your account data" }
+    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sincronizar los datos de tu cuenta" }
 
 {:start="3"}
 3. Crea un usuario y concede permisos. Si ya tienes credenciales de otra sincronización, puedes reutilizarlas siempre que tengan acceso a la tabla de cuentas.
@@ -151,12 +151,12 @@ Para integrar tu origen de datos con tu almacén de datos:
     | BigQuery User | Permite a Braze ejecutar consultas, leer metadatos y listar tablas. |
     | BigQuery Data Viewer | Permite a Braze ver conjuntos de datos y su contenido. |
     | BigQuery Job User | Permite a Braze ejecutar trabajos. |
-    {: .reset-td-br-1 .reset-td-br-2 aria-label="Sync your account data" }
+    {: .reset-td-br-1 .reset-td-br-2 aria-label="Sincronizar los datos de tu cuenta" }
 
     Después de conceder los permisos, genera una clave JSON. Consulta [Crear y eliminar claves](https://cloud.google.com/iam/docs/keys-create-delete) para obtener instrucciones. La cargarás en el panel de Braze más adelante.
 
 {:start="4"}
-4. Si utilizas políticas de red, permite que las IP de Braze accedan a tu instancia de BigQuery. Para consultar la lista de IP, ve a [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+4. Si utilizas políticas de red, permite que las IP de Braze accedan a tu instancia de BigQuery. Para consultar la lista de IP, ve a [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endsubtab %}
 {% subtab Databricks %}
@@ -187,7 +187,7 @@ Para integrar tu origen de datos con tu almacén de datos:
     | `ID` | String | Sí |
     | `NAME` | String | Sí |
     | `DELETED` | Boolean | Opcional |
-    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sync your account data" }
+    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sincronizar los datos de tu cuenta" }
 
 {:start="3"}
 3. Crea un token de acceso personal en Databricks:
@@ -198,7 +198,7 @@ Para integrar tu origen de datos con tu almacén de datos:
     5. Copia y guarda el token de forma segura para usarlo en el panel de Braze.
 
 {:start="4"}
-4. Si utilizas políticas de red, permite que las IP de Braze accedan a tu instancia de Databricks. Para consultar la lista de IP, ve a [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+4. Si utilizas políticas de red, permite que las IP de Braze accedan a tu instancia de Databricks. Para consultar la lista de IP, ve a [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endsubtab %}
 {% subtab Microsoft Fabric %}
@@ -220,7 +220,7 @@ Para integrar tu origen de datos con tu almacén de datos:
 2. Crea un service principal y concede permisos. Si ya tienes credenciales de otra sincronización, puedes reutilizarlas; asegúrate de que tengan acceso a la tabla de cuentas.
 
 {:start="3"}
-3. Si utilizas políticas de red, permite que las IP de Braze accedan a tu instancia de Microsoft Fabric. Para consultar la lista de IP, ve a [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+3. Si utilizas políticas de red, permite que las IP de Braze accedan a tu instancia de Microsoft Fabric. Para consultar la lista de IP, ve a [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -236,10 +236,10 @@ Para sincronizar datos de cuentas desde almacenamiento de archivos, crea un arch
 | `PAYLOAD` | Sí | Cadena JSON de los campos a sincronizar con la cuenta en Braze |
 | `DELETED` | Opcional | Booleano que indica si se debe eliminar la cuenta de Braze |
 | `UPDATED_AT` | _*No compatible_ | El almacenamiento de archivos no admite columnas `UPDATED_AT` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sync your account data" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sincronizar los datos de tu cuenta" }
 
 {% alert note %}
-Los nombres de archivo deben seguir las reglas de AWS y ser únicos. Añade marcas de tiempo para ayudar a garantizar la unicidad. Para más información sobre la sincronización con Amazon S3, consulta [Integraciones de almacenamiento de archivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/).
+Los nombres de archivo deben seguir las reglas de AWS y ser únicos. Añade marcas de tiempo para ayudar a garantizar la unicidad. Para más información sobre la sincronización con Amazon S3, consulta [Integraciones de almacenamiento de archivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
 {% endalert %}
 
 Los siguientes ejemplos muestran formatos JSON y CSV válidos para sincronizar datos de cuentas desde almacenamiento de archivos.

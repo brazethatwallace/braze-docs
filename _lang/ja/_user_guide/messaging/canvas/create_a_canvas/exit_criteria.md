@@ -15,7 +15,7 @@ tool: Canvas
 > ユーザーがキャンバスから完全に退出するまでの速さは、特に遅延ステップの場合、ユーザーが現在いるステップによって異なります。
 > 詳細については、[ユーザーの退出方法](#how-users-exit)を参照してください。
 
-### ユーザーの退出方法 {#how-users-exit}
+## ユーザーの退出方法 {#how-users-exit}
 
 ユーザーが退出イベントを実行すると、Brazeはただちにそのユーザーをキャンバスから退出するようマークします。その後、ユーザーは後続のステップに進むことはありません。
 
@@ -105,5 +105,5 @@ tool: Canvas
 ![例外イベントとして「Makes Any Purchase」が設定された終了条件。ユーザーが任意の購入を行うと、このキャンバスから退出します。]({% image_buster /assets/img_archive/exit_criteria_example.png %}){: style="max-width:80%;"}
 
 {% alert tip %}
-イベントプロパティをキャンバスのエントリプロパティと比較する終了条件を設定するには（例えば、ユーザーが放棄した特定のアイテムを購入した場合にのみ退出させる場合）、[終了条件をエントリイベントに一致させる]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/matching_entry_and_exit_criteria/)を参照してください。
+イベントプロパティをキャンバスのエントリプロパティと比較する終了条件を設定するには（例えば、ユーザーが放棄した特定のアイテムを購入した場合にのみ退出させる場合）、[終了条件をエントリイベントに一致させる]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/matching_entry_and_exit_criteria)を参照してください。
 {% endalert %}

@@ -26,9 +26,9 @@ Metaweather é uma API gratuita de clima que usa um "Where-on-Earth ID" para ret
 
 A variável armazenada só pode ser acessada dentro do campo que contém a requisição `connected_content`. Por exemplo, se você quiser usar a variável `localweather` tanto no campo de mensagem quanto no campo de título, faça a requisição `connected_content` em ambos os campos.
 
-Requisições GET geralmente são armazenadas em cache por padrão, com algumas exceções (como URLs que incluem atributos de usuário de alta cardinalidade, `:no_cache` ou corpos de resposta maiores que 1 MB). Quando requisições GET idênticas aparecem em mais de um campo, a Braze reutiliza a resposta em cache em vez de chamar o endpoint novamente. Para detalhes sobre o comportamento de cache, consulte [Respostas em cache]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/).
+Requisições GET geralmente são armazenadas em cache por padrão, com algumas exceções (como URLs que incluem atributos de usuário de alta cardinalidade, `:no_cache` ou corpos de resposta maiores que 1 MB). Quando requisições GET idênticas aparecem em mais de um campo, a Braze reutiliza a resposta em cache em vez de chamar o endpoint novamente. Para detalhes sobre o comportamento de cache, consulte [Respostas em cache]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses).
 
-Chamadas de Conteúdo conectado feitas via HTTP POST não são armazenadas em cache por padrão. Para armazenar respostas POST em cache, adicione `:cache_max_age` à tag. Consulte [Configurações padrão de cache]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/#default-cache-settings).
+Chamadas de Conteúdo conectado feitas via HTTP POST não são armazenadas em cache por padrão. Para armazenar respostas POST em cache, adicione `:cache_max_age` à tag. Consulte [Configurações padrão de cache]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses#default-cache-settings).
 
 ## Análise de JSON {#json-parsing}
 
@@ -90,11 +90,11 @@ Se a API respondesse com {%raw%}`{{localweather.consolidated_weather[0].weather_
 
 ![Notificação por push com a mensagem "It's raining! Grab an umbrella!"]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){:style="max-width:50%" }
 
-{% multi_lang_include connected_content.md section='default behavior' %}
+{% multi_lang_include connected_content/sections.md section='default behavior' %}
 
 ## HTTP POST
 
-{% multi_lang_include connected_content.md section='http post' %}
+{% multi_lang_include connected_content/sections.md section='http post' %}
 
 ### Fornecendo um corpo JSON {#providing-json-body}
 

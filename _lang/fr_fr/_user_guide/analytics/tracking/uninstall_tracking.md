@@ -3,7 +3,7 @@ nav_title: Suivi des désinstallations
 article_title: Suivi des désinstallations
 page_order: 1
 page_type: reference
-description: "Cet article de référence couvre la mise en œuvre du suivi des désinstallations pour les statistiques au niveau de la campagne et de l'application."
+description: "Cet article de référence couvre la mise en œuvre du suivi des désinstallations pour les statistiques au niveau de la Campaign et de l'application."
 tool: Reports
 
 ---
@@ -37,7 +37,7 @@ Lorsque vous activez le suivi des désinstallations pour une application, Braze 
 
 ### Configuration {#configuration}
 
-Pour configurer le suivi des désinstallations pour votre application iOS, utilisez une [méthode utilitaire]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls/?sdktab=swift). Pour votre application Android, utilisez [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html). Lorsque Braze détecte une désinstallation, qu'il s'agisse du suivi des désinstallations ou de la distribution normale d'une Campaign push, nous enregistrons la meilleure estimation de l'heure de désinstallation sur le profil de l'utilisateur. Cette information est stockée dans le profil utilisateur en tant qu'attribut standard et peut être utilisée pour définir un segment d'utilisateurs pour les Campaigns de reconquête.
+Pour configurer le suivi des désinstallations pour votre application iOS, utilisez une [méthode utilitaire]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls?sdktab=swift). Pour votre application Android, utilisez [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html). Lorsque Braze détecte une désinstallation, qu'il s'agisse du suivi des désinstallations ou de la distribution normale d'une Campaign push, nous enregistrons la meilleure estimation de l'heure de désinstallation sur le profil de l'utilisateur. Cette information est stockée dans le profil utilisateur en tant qu'attribut standard et peut être utilisée pour définir un segment d'utilisateurs pour les Campaigns de reconquête.
 
 ## Filtrage des segments en fonction des désinstallations {#filtering-segments-by-uninstalls}
 
@@ -81,6 +81,10 @@ Pour en savoir plus sur l'utilisation du suivi des désinstallations, consultez 
 
 ## Résolution des problèmes {#troubleshooting}
 
+### Quand le profil d'un utilisateur est-il marqué comme désinstallé ? Quand le marqueur de désinstallation est-il supprimé ? {#when-is-a-users-profile-flagged-as-uninstalled-when-is-the-uninstall-tag-cleared}
+
+Braze marque un utilisateur comme ayant désinstallé l'application lorsque nous détectons que celle-ci n'est plus présente sur l'appareil (voir [Fonctionnement](#how-it-works) pour la détection via les notifications push classiques et le suivi optionnel des désinstallations). Après la réinstallation de votre application, le marqueur de désinstallation peut rester sur le profil de l'utilisateur jusqu'à ce qu'il **ouvre l'application et démarre une nouvelle session** — la réinstallation seule ne supprime pas le marqueur. Jusqu'à cette session, les segments et les filtres qui utilisent l'état de désinstallation (par exemple **N'a pas désinstallé**) continuent de considérer l'utilisateur comme ayant désinstallé.
+
 ### Pourquoi le nombre de désinstallations augmente-t-il soudainement ? {#why-am-i-suddenly-seeing-a-spike-in-uninstalls}
 
 Si vous constatez un pic de désinstallations de l'application, cela peut être dû à la révocation des anciens jetons à une fréquence différente par Firebase Cloud Messaging (FCM) et Apple Push Notification Service (APNs).
@@ -97,7 +101,7 @@ Pour afficher les désinstallations par segment :
 1. Accédez à la page **d'accueil** du tableau de bord.
 2. Dans la section **Performance Over Time**, sélectionnez **Uninstalls** pour **Statistics For** et **By Segment** pour **Breakdown**.
 
-Si vous disposez d'un segment qui suit les utilisateurs inactifs avec le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/) activé, comparez sa tendance de désinstallation à la tendance globale de l'application.
+Si vous disposez d'un segment qui suit les utilisateurs inactifs avec le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) activé, comparez sa tendance de désinstallation à la tendance globale de l'application.
 
 ### Comment confirmer que les désinstallations sont réelles ? {#how-do-i-confirm-uninstalls-are-genuine}
 

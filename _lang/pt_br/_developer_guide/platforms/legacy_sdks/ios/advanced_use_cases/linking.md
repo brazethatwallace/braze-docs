@@ -12,7 +12,7 @@ noindex: true
 
 # Deep linking para iOS {#deep-linking-for-ios}
 
-Para obter informações introdutórias sobre deep links, consulte nosso [artigo do Guia do Usuário]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking). Se você está procurando implementar deep links pela primeira vez no seu app da Braze, as etapas abaixo te ajudarão a começar.
+Para obter informações introdutórias sobre deep links, consulte nosso [artigo do Guia do Usuário]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking). Se você está procurando implementar deep links pela primeira vez no seu app da Braze, as etapas abaixo te ajudarão a começar.
 
 ## Etapa 1: Registrar um esquema {#step-1-register-a-scheme}
 
@@ -95,7 +95,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 {% endtab %}
 {% endtabs %}
 
-![]({% image_buster /assets/img_archive/deep_link.png %})
+![Exemplo de configuração de deep link no dashboard da Braze.]({% image_buster /assets/img_archive/deep_link.png %})
 
 # Links universais {#universal-links}
 
@@ -138,7 +138,7 @@ Para saber mais, consulte a [Apple](https://developer.apple.com/library/content/
 A integração de link universal padrão não é compatível com notificações por push da Braze ou mensagens no app. Consulte [personalização do tratamento de links](#linking-handling-customization) para lidar com links universais dentro do seu aplicativo. Alternativamente, recomendamos o uso de [deep links baseados em esquema](#step-1-registering-a-scheme) com notificações por push e mensagens no app.
 {% endalert%}
 
-## App Transport Security (ATS)
+## App Transport Security (ATS) {#app-transport-security-ats}
 O iOS 9 introduziu uma mudança significativa que afeta URLs da web incorporadas em mensagens no app e notificações por push.
 
 ### Requisitos do ATS {#ats-requirements}

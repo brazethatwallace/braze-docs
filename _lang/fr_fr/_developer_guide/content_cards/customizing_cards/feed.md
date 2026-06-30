@@ -14,7 +14,7 @@ platform:
 
 # Personnaliser le flux pour les Content Cards {#customize-the-feed-for-content-cards}
 
-> Un flux de Content Cards correspond à la séquence de Content Cards dans vos applications mobiles ou Web. Cet article traite de la configuration du moment où le flux est actualisé, de l'ordre des cartes, de la gestion de plusieurs flux et des messages d'erreur « flux vide ». Pour obtenir la liste complète des types de cartes de contenu, consultez [À propos des Content Cards]({{site.baseurl}}/developer_guide/content_cards/).
+> Un flux de Content Cards correspond à la séquence de Content Cards dans vos applications mobiles ou Web. Cet article traite de la configuration du moment où le flux est actualisé, de l'ordre des cartes, de la gestion de plusieurs flux et des messages d'erreur « flux vide ». Pour obtenir la liste complète des types de cartes de contenu, consultez [À propos des Content Cards]({{site.baseurl}}/developer_guide/content_cards).
 
 {% multi_lang_include developer_guide/_shared/about_session_lifecycle.md %}
 
@@ -50,7 +50,7 @@ function refresh() {
 }
 ```
 
-Pour ouvrir les liens des Content Cards dans un nouvel onglet du navigateur au lieu du même onglet, définissez `openCardsInNewTab: true` dans les options d'initialisation de votre SDK Web. Pour plus d'informations sur les options d'initialisation, consultez le [guide du dépôt du SDK Web]({{site.baseurl}}/developer_guide/sdk_repository_guides/web/).
+Pour ouvrir les liens des Content Cards dans un nouvel onglet du navigateur au lieu du même onglet, définissez `openCardsInNewTab: true` dans les options d'initialisation de votre SDK Web. Pour plus d'informations sur les options d'initialisation, consultez le [guide du dépôt du SDK Web]({{site.baseurl}}/developer_guide/sdk_repository_guides/web).
 
 {% endtab %}
 {% tab android %}
@@ -128,7 +128,7 @@ Braze utilise un algorithme de compartiment à jetons pour appliquer les limites
 - `subscribeToContentCards()` renverra toujours les cartes mises en cache, même lorsque la limite de débit est atteinte
 
 {% alert important %}
-Le SDK Braze applique également des limites de débit pour garantir les performances et la fiabilité. Gardez cela à l'esprit lorsque vous effectuez des tests automatisés ou des tests d'assurance qualité manuels. Consultez les [limites de débit du SDK Braze]({{site.baseurl}}/developer_guide/sdk_integration/rate_limits/) pour plus d'informations.
+Le SDK Braze applique également des limites de débit pour garantir les performances et la fiabilité. Gardez cela à l'esprit lorsque vous effectuez des tests automatisés ou des tests d'assurance qualité manuels. Consultez les [limites de débit du SDK Braze]({{site.baseurl}}/developer_guide/sdk_integration/rate_limits) pour plus d'informations.
 {% endalert %}
 
 ## Personnaliser l'ordre d'affichage des cartes {#customizing-displayed-card-order}
@@ -385,7 +385,7 @@ Le style utilisé pour afficher ce message est accessible via [`Braze.ContentCar
 </style>
 ```
 
-Pour plus d'informations sur la personnalisation des éléments de style des Content Cards, consultez [Personnaliser le style]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style/).
+Pour plus d'informations sur la personnalisation des éléments de style des Content Cards, consultez [Personnaliser le style]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style).
 {% endsubtab %}
 {% subtab Jetpack Compose %}
 Pour personnaliser le message d'erreur « flux vide » avec Jetpack Compose, vous pouvez passer une `emptyString` à [`ContentCardsList`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards/-content-cards-list.html). Vous pouvez également transmettre [`emptyTextStyle`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-list-styling/index.html#1193499348%2FProperties%2F-1725759721) à `ContentCardListStyling` pour personnaliser davantage ce message.
@@ -447,7 +447,7 @@ Les Content Cards peuvent être filtrées dans votre application afin que seules
 
 ### Étape 1 : Définir des paires clé-valeur sur les cartes {#step-1-set-key-value-pairs-on-cards}
 
-Lors de la création d'une campagne de Content Cards, définissez des [données de paires clé-valeur]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior/) sur chaque carte. Vous utiliserez cette paire clé-valeur pour catégoriser les cartes. Les paires clé-valeur sont stockées dans la propriété `extras` du modèle de données de la carte.
+Lors de la création d'une campagne de Content Cards, définissez des [données de paires clé-valeur]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior) sur chaque carte. Vous utiliserez cette paire clé-valeur pour catégoriser les cartes. Les paires clé-valeur sont stockées dans la propriété `extras` du modèle de données de la carte.
 
 Pour cet exemple, nous allons définir une paire clé-valeur avec la clé `feed_type` qui désignera dans quel flux de Content Cards la carte doit s'afficher. La valeur correspondra à vos flux personnalisés, par exemple `home_screen` ou `marketing`.
 

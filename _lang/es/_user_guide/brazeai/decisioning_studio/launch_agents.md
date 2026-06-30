@@ -28,7 +28,7 @@ Una vez lanzado, tu agente:
 
 Una vez lanzado, tu agente necesita datos de retroalimentación para aprender y mejorar. Esto incluye datos de conversiones, datos de interacción y datos de activaciones que le indican al agente qué sucedió después de que se enviaron las decisiones de interacción con los clientes.
 
-Para conocer los requisitos detallados sobre la preparación de estos activos de datos de retroalimentación críticos, consulta [Preparar tus orígenes de datos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/).
+Para conocer los requisitos detallados sobre la preparación de estos activos de datos de retroalimentación críticos, consulta [Preparar tus orígenes de datos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data).
 
 {% alert note %}
 Si el agente está integrado de forma nativa con la plataforma de interacción con los clientes (como Braze o Salesforce Marketing Cloud), es posible que no sean necesarios pasos de configuración adicionales para los datos de retroalimentación, ya que estos pueden enviarse automáticamente con los datos de clientes.

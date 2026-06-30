@@ -34,7 +34,7 @@ Bei der Einrichtung werden Sie aufgefordert, eine Assertion Consumer Service (AC
 1. Gehen Sie in Ihrem Microsoft Entra Admin Center zur Braze-Anwendungsintegrationsseite und wählen Sie **Single sign-on**.
 2. Wählen Sie auf der Seite **Select a single sign-on method** die Option **SAML** als Ihre Methode.
 3. Wählen Sie auf der Seite **Set up Single Sign-On with SAML** das Bearbeitungssymbol für **Basic SAML Configuration**.
-4. Konfigurieren Sie die Anwendung im IdP-initiierten Modus, indem Sie eine **Reply URL** eingeben, die Ihre [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/#braze-instances) mit dem folgenden Muster kombiniert: `https://<SUBDOMAIN>.braze.com/auth/saml/callback`.
+4. Konfigurieren Sie die Anwendung im IdP-initiierten Modus, indem Sie eine **Reply URL** eingeben, die Ihre [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints#braze-instances) mit dem folgenden Muster kombiniert: `https://<SUBDOMAIN>.braze.com/auth/saml/callback`.
 5. Konfigurieren Sie den RelayState, indem Sie Ihren generierten RelayState-API-Schlüssel in das Feld **Relay State** eingeben.
 
 {% alert important %}
@@ -106,5 +106,5 @@ Nachdem Ihr Account Manager SAML SSO für Ihr Konto aktiviert hat, gehen Sie wie
 {: .reset-td-br-1 .reset-td-br-2 aria-label="3. Schritt: Microsoft Entra SSO in Braze konfigurieren" }
 
 {% alert tip %}
-Wenn Sie möchten, dass sich Ihre Braze-Kontonutzer:innen nur mit SAML SSO anmelden, können Sie die [Single Sign-on-Authentifizierung einschränken]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/#restriction) auf der Seite **Unternehmenseinstellungen**.
+Wenn Sie möchten, dass sich Ihre Braze-Kontonutzer:innen nur mit SAML SSO anmelden, können Sie die [Single Sign-on-Authentifizierung einschränken]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) auf der Seite **Unternehmenseinstellungen**.
 {% endalert %}

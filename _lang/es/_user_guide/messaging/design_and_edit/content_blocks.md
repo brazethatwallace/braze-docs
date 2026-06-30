@@ -3,7 +3,7 @@ nav_title: Bloques de contenido
 article_title: Bloques de contenido
 alias: "/dnd/content_blocks/"
 page_order: 4
-description: "Aprende a crear, usar y administrar bloques de contenido reutilizables en tus Campaigns y Canvas de Braze."
+description: "Aprende a crear, usar y administrar bloques de contenido reutilizables en tus campañas y Canvas de Braze."
 page_type: reference
 tool:
   - Templates
@@ -13,7 +13,7 @@ tool:
 
 # Bloques de contenido {#content-blocks}
 
-> Los Content Blocks te permiten administrar contenido reutilizable de canales cruzados en una única ubicación centralizada. Úsalos para crear una apariencia consistente en tus Campaigns, distribuir los mismos códigos de oferta a través de diferentes canales o crear activos predefinidos para una mensajería consistente a escala. También puedes crear y administrar tus Content Blocks [usando la API]({{site.baseurl}}/api/endpoints/templates/).
+> Los Content Blocks te permiten administrar contenido reutilizable de canales cruzados en una única ubicación centralizada. Úsalos para crear una apariencia consistente en tus campañas, distribuir los mismos códigos de oferta a través de diferentes canales o crear activos predefinidos para una mensajería consistente a escala. También puedes crear y administrar tus Content Blocks [usando la API]({{site.baseurl}}/api/endpoints/templates).
 
 ## Crear un bloque de contenido {#create-a-content-block}
 
@@ -22,7 +22,7 @@ Hay dos tipos de Content Blocks: arrastrar y soltar y HTML. Cada tipo correspond
 {% tabs %}
 {% tab Arrastrar y soltar %}
 
-{% multi_lang_include create_content_block.md location="dnd" %}
+{% multi_lang_include messaging/create_content_block.md location="dnd" %}
 
 {% alert important %}
 Cada bloque de contenido de arrastrar y soltar está limitado a una fila. Sin embargo, puedes usar bloques de editor de arrastrar y soltar para crear y personalizar el bloque de contenido según tus necesidades de mensajería por correo electrónico.
@@ -31,7 +31,7 @@ Cada bloque de contenido de arrastrar y soltar está limitado a una fila. Sin em
 {% endtab %}
 {% tab HTML %}
 
-{% multi_lang_include create_content_block.md location="html" %}
+{% multi_lang_include messaging/create_content_block.md location="html" %}
 
 {% endtab %}
 {% endtabs %}
@@ -66,7 +66,7 @@ Después de crear tu bloque de contenido, puedes insertarlo en tus mensajes usan
 
 Para añadir un bloque de contenido en el editor de arrastrar y soltar:
 
-1. Ve a la pestaña **Rows** en el editor y selecciona **Content Blocks**.
+1. Ve a la pestaña **Filas** en el editor y selecciona **Content Blocks**.
 2. Arrastra y suelta tu bloque de contenido en el editor de correo electrónico.
 3. (Opcional) Ajusta el ancho de tu bloque de contenido seleccionando el botón en el menú de navegación. El ancho predeterminado es 100 % cuando no se especifica en la configuración global de estilo de tu correo electrónico; de lo contrario, se respetará la configuración global. <br><br>![Una flecha de doble sentido con una opción para editar el ancho.]({% image_buster /assets/img_archive/content_block_width_updated.png %}){: style="max-width:30%;" }<br><br>
 
@@ -80,16 +80,16 @@ Pueden producirse desalineaciones en el editor de arrastrar y soltar cuando se a
 
 Para insertar un bloque de contenido usando Liquid:
 
-1. Copia la **Content Block Liquid Tag** de la sección **Content Block Details**.
+1. Copia la **etiqueta de Liquid del bloque de contenido** de la sección **Detalles del bloque de contenido**.
 2. Inserta la etiqueta de Liquid del bloque de contenido en el mensaje. También puedes empezar a escribir el Liquid y dejar que la etiqueta se autocomplete.
 
-En el editor de arrastrar y soltar, también puedes añadir un bloque de contenido a través del panel de **Personalization**:
+En el editor de arrastrar y soltar, también puedes añadir un bloque de contenido a través del panel de **Personalización**:
 
-1. Ve a tu campaña de correo electrónico y selecciona **Edit Email Body**.
-2. Haz clic en <i class="fas fa-plus"></i> **Personalization**.
-3. Selecciona **Content Blocks** en el desplegable **Personalization Type**.
-4. Selecciona el nombre de tu bloque de contenido en el campo **Attribute**.
-5. Copia y pega el fragmento de Liquid en un bloque de editor de texto. <br>![La pestaña Add Personalization con opciones.]({% image_buster /assets/img_archive/dnd_content_block_personalization.png %}){: style="max-width:30%;"}
+1. Ve a tu campaña de correo electrónico y selecciona **Editar cuerpo del correo electrónico**.
+2. Haz clic en <i class="fas fa-plus"></i> **Personalización**.
+3. Selecciona **Content Blocks** en el desplegable **Tipo de personalización**.
+4. Selecciona el nombre de tu bloque de contenido en el campo **Atributo**.
+5. Copia y pega el fragmento de Liquid en un bloque de editor de texto. <br>![La pestaña Añadir personalización con opciones.]({% image_buster /assets/img_archive/dnd_content_block_personalization.png %}){: style="max-width:30%;"}
 
 {% alert important %}
 Los Content Blocks insertados mediante Liquid **están vinculados** al bloque de contenido original y reflejarán cualquier cambio en la plantilla.
@@ -103,7 +103,7 @@ Los Content Blocks insertados mediante Liquid **están vinculados** al bloque de
 
 ## Vista previa de Content Blocks {#preview-content-blocks}
 
-Después de añadir un bloque de contenido en una campaña o Canvas activo, puedes previsualizarlo desde la Biblioteca de bloques de contenido pasando el cursor sobre el bloque de contenido y seleccionando el icono <i class="fa fa-eye preview-icon"></i> **Preview**.
+Después de añadir un bloque de contenido en una campaña o Canvas activo, puedes previsualizarlo desde la Biblioteca de bloques de contenido pasando el cursor sobre el bloque de contenido y seleccionando el icono <i class="fa fa-eye preview-icon"></i> **Vista previa**.
 
 Esta vista previa incluye información sobre el bloque de contenido, como quién lo creó, etiquetas, fecha de creación, fecha de última edición, descripción, tipo de editor, recuento de inclusiones con detalles (una lista clicable de mensajes o Content Blocks que usan el bloque de contenido) y una vista previa real del bloque de contenido.
 
@@ -117,13 +117,13 @@ Nada te impedirá anidar un tercer nivel de bloque de contenido, pero no verás 
 
 ## Actualizar y copiar Content Blocks {#update-and-copy-content-blocks}
 
-Si decides actualizar un bloque de contenido, se actualizará en todos los mensajes donde el bloque de contenido esté insertado mediante Liquid. Si el bloque de contenido se importó usando el desplegable **Content Blocks** en **Rows** en el editor de arrastrar y soltar, no se actualizará en todos los mensajes.
+Si decides actualizar un bloque de contenido, se actualizará en todos los mensajes donde el bloque de contenido esté insertado mediante Liquid. Si el bloque de contenido se importó usando el desplegable **Content Blocks** en **Filas** en el editor de arrastrar y soltar, no se actualizará en todos los mensajes.
 
 Si quieres actualizar un bloque de contenido para un solo mensaje o hacer una copia para usarla en otros mensajes, puedes copiar el HTML del mensaje original al nuevo, o editar el bloque de contenido original (debe haber sido usado en un mensaje previamente) y guardarlo. Recibirás un aviso que te permitirá guardarlo como un nuevo bloque de contenido.
 
-Después de realizar ediciones en un bloque de contenido, puedes guardar y lanzar el bloque de contenido actualizado seleccionando **Launch Content Block**. O puedes seleccionar **More** > **Duplicate** para crear un duplicado de tu bloque de contenido.
+Después de realizar ediciones en un bloque de contenido, puedes guardar y lanzar el bloque de contenido actualizado seleccionando **Lanzar bloque de contenido**. O puedes seleccionar **Más** > **Duplicar** para crear un duplicado de tu bloque de contenido.
 
-![Un bloque de contenido que dice "Welcome to our newsletter".]({% image_buster /assets/img/copy-content-block.png %})
+![Un bloque de contenido que dice "Bienvenido a nuestro boletín".]({% image_buster /assets/img/copy-content-block.png %})
 
 ## Usar pies de página de correo electrónico en Content Blocks {#email-footers}
 

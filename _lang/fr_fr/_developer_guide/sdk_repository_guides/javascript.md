@@ -98,7 +98,7 @@ await logPurchase('sku-1', 9.99, 'USD', 1);
 
 L'objet de configuration d'initialisation nécessite `storageManager`. `networkManager` et `pushManager` sont facultatifs.
 
-**1. StorageManager** - Interface de stockage clé-valeur asynchrone
+**1. StorageManager** — Interface de stockage clé-valeur asynchrone
 ``` typescript
 interface StorageManager {
   store(key: string, value: string, isId?: boolean): Promise<void>;
@@ -110,7 +110,7 @@ interface StorageManager {
 - Le paramètre `isId` indique un **stockage d'identifiant persistant** : lorsqu'il est `true`, le SDK stocke un identifiant persistant (ID d'appareil, ID utilisateur) ou le drapeau de désinscription. Les implémentations doivent persister ces données entre les redémarrages de l'application afin que le SDK puisse reconnaître le même appareil/utilisateur. Lorsqu'il est `false`, la valeur est une donnée de session/cache (événements, attributs, etc.) et peut être uniquement en mémoire. Pour les environnements web, envisagez d'utiliser des cookies pour les clés stockées avec `isId: true` afin d'assurer la persistance entre les sessions.
 - Doit gérer les opérations asynchrones pour toutes les opérations de stockage
 
-**2. NetworkManager** (facultatif) - Interface de requête HTTP POST
+**2. NetworkManager** (facultatif) — Interface de requête HTTP POST
 ``` typescript
 interface NetworkManager {
   postRequest(
@@ -124,7 +124,7 @@ interface NetworkManager {
 - Peut être remplacée si `fetch` n'est pas l'API préférée
 - Remarque : le SDK intègre déjà une logique de réessai et de limitation de débit
 
-**3. PushManager** (facultatif) - Interface de notification push
+**3. PushManager** (facultatif) — Interface de notification push
 ``` typescript
 interface PushManager {
   isPushBlocked(): boolean | undefined;
@@ -631,7 +631,7 @@ subscribeToInAppMessage(async (inAppMessage) => {
 
 **Échecs de validation :**
 - Clé API ou URL de base invalide : `initialize()` retourne `false`, journalise l'erreur
-- Noms d'événements/clés invalides : maximum 255 caractères, ne peuvent pas commencer par `$`, alphanumériques + ponctuation uniquement
+- Noms d'événements/clés invalides : maximum 255 caractères, ne peuvent pas commencer par `$`, alphanumériques et ponctuation uniquement
 - Valeurs d'attributs invalides : chaînes de 255 caractères maximum, pas de retours à la ligne/tabulations/guillemets doubles, ne peuvent pas commencer par `$`
 - Codes de devise invalides : les codes non pris en charge génèrent un avertissement, aucune action effectuée
 - Quantité d'achat invalide : doit être entre 1 et 100, sinon ignorée
@@ -693,7 +693,7 @@ subscribeToInAppMessage(async (inAppMessage) => {
 
 11. **Sécurité des types** : le SDK est écrit en TypeScript avec des définitions de types complètes. Utilisez TypeScript pour une meilleure expérience et une vérification des types.
 
-12. **Règles de validation** : les noms d'événements, les clés d'attributs et les clés de propriétés ont une validation stricte (255 caractères maximum, ne peuvent pas commencer par `$`, alphanumériques + ponctuation uniquement). Les valeurs invalides peuvent être ignorées ou provoquer des erreurs.
+12. **Règles de validation** : les noms d'événements, les clés d'attributs et les clés de propriétés ont une validation stricte (255 caractères maximum, ne peuvent pas commencer par `$`, alphanumériques et ponctuation uniquement). Les valeurs invalides peuvent être ignorées ou provoquer des erreurs.
 
 ## Débogage et résolution des problèmes {#debugging-troubleshooting}
 

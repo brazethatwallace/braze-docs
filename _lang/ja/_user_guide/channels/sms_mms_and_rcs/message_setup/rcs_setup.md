@@ -50,6 +50,24 @@ RCSメッセージを送信する前に、RCS認証済み送信者を登録す�
 
 最初のRCS キャンペーンをデプロイする前に、現在のSMSオプトイン体験、サブスクリプショングループ、およびオーディエンスのセグメンテーションを確認することを強くお勧めします。必要に応じて、カスタマーサクセスマネージャーがいつでもガイダンスを提供し、セットアッププロセスをサポートします。
 
+#### SMSフォールバックとイベントおよびセグメンテーションの連携 {#how-sms-fallback-works-with-events-and-segmentation}
+
+{% tabs %}
+{% tab イベントの動作 %}
+
+RCSでSMSフォールバックを使用する場合、イベントの動作はメッセージがRCSで正常に送信されたか、SMSにフォールバックしたかによって異なります。
+
+- **RCS送信が成功した場合：** RCS送信イベントとRCS配信イベントを受信します。
+- **RCS送信がSMSにフォールバックした場合：** RCS送信イベント、RCS拒否イベント、およびSMS配信イベントを受信します。SMS配信イベントには`IS_SMS_FALLBACK=TRUE`が含まれます。
+
+{% endtab %}
+{% tab セグメンテーションの動作 %}
+
+SMSとRCSでは、受信メッセージの[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)（[キャンペーンからメッセージを受信]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-campaign)や[キャンバスステップからメッセージを受信]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step)など）は、メッセージがユーザーのデバイスに届いた時点ではなく、送信された時点で評価されます。SMSフォールバックが有効な場合、RCSメッセージが拒否されてSMSにフォールバックした場合や、フォールバックSMSがユーザーのデバイスに配信されなかった場合でも、ユーザーはこれらのフィルターに一致する可能性があります。
+
+{% endtab %}
+{% endtabs %}
+
 ### キャリア承認のタイムライン {#timeline-for-carrier-approval}
 
 キャリア承認のタイムラインは国によって異なり、同じ国内でも異なる場合があります。RCS市場はまだ初期段階にあるため、キャリアやアグリゲーターのプロセスは急速に進化しています。アメリカ合衆国では、RCS認証済み送信者のキャリア承認の所要時間は通常4〜6週間の範囲であり、テスト送信者は通常1週間以内に承認されるとBrazeは見積もっています。
@@ -58,7 +76,7 @@ RCS認証済み送信者が承認されると、オペレーションチーム�
 
 ## ステップ 3:サブスクリプショングループを設定する {#step-3-set-up-subscription-groups}
 
-インテグレーションに応じて、BrazeはRCS認証済み送信者を既存のSMSサブスクリプショングループに追加するか、新しいサブスクリプショングループを設定できます。詳細なセットアップ手順については、[SMSおよびRCSサブスクリプショングループ]({{site.baseurl}}/sms_rcs_subscription_groups/)を参照してください。
+インテグレーションに応じて、BrazeはRCS認証済み送信者を既存のSMSサブスクリプショングループに追加するか、新しいサブスクリプショングループを設定できます。詳細なセットアップ手順については、[SMSおよびRCSサブスクリプショングループ]({{site.baseurl}}/sms_rcs_subscription_groups)を参照してください。
 
 ## SMSトラフィックのRCSへの移行 {#migrating-sms-traffic-to-rcs}
 
@@ -68,7 +86,7 @@ Brazeでは、最初は少数のユーザーにRCSを送信してテストし、
 
 ### ステップ 1:キャンバスを作成し、エントリスケジュールを入力する {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
-キャンバスを作成し、簡単に識別できる名前を付けます（「SMS-RCSサブスクリプショングループユーザー移行」など）。次に、都合の良いタイミングでキャンペーンをスケジュールします。
+キャンバスを作成し、簡単に識別できる名前を付けます（「SMS-RCSサブスクリプショングループユーザー移行」など）。次に、都合の良いタイミングでスケジュールします。
 
 ### ステップ 2:オーディエンスを定義する {#step-2-define-your-audience}
 
@@ -78,7 +96,7 @@ Brazeでは、最初は少数のユーザーにRCSを送信してテストし、
 |---|---|
 | **セグメントを作成する** | サブスクリプショングループ内のすべてのユーザー、またはセグメンテーションフィルター（ランダムな5〜10%など）を使用したサブセットを含むセグメントを作成します。セグメントは各送信前に更新され、現在のユーザー群を反映します。 |
 | **キャンペーンまたはキャンバスフィルターを適用する** | キャンペーンまたはキャンバスの**ターゲットオーディエンス**ステップでオーディエンスを絞り込みます。ページを離れることなくターゲティングオプションを調整でき、柔軟性が向上します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 2:オーディエンスを定義する" }
 
 ### ステップ 3:ユーザーの更新ステップを設定する {#step-3-configure-a-user-update-step}
 
@@ -103,11 +121,11 @@ Brazeでは、最初は少数のユーザーにRCSを送信してテストし、
 ```
 {% endraw %}
 
-![前述のJSONコードを含む「User Update Object」。]({% image_buster /assets/img/sms/user_update_object.png %})
+![前述のJSONコードを含むユーザーの更新オブジェクト。]({% image_buster /assets/img/sms/user_update_object.png %})
 
 ### ステップ 4:キャンバスをテストする {#step-4-test-the-canvas}
 
-より広いオーディエンスに送信する前に、[キャンバスをテスト]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases/)して、期待どおりに動作することを確認することを強くお勧めします。
+より広いオーディエンスに送信する前に、[キャンバスをテスト]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases)して、期待どおりに動作することを確認することを強くお勧めします。
 
 ### ステップ 5:キャンバスを起動する {#step-5-launch-your-canvas}
 

@@ -21,9 +21,9 @@ La integración de Braze y Segment te permite aprovechar Braze Currents para exp
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta de Segment | Se necesita una [cuenta de Segment](https://app.segment.com/login) para beneficiarse de esta asociación. |
-| Destino Braze | Ya debes haber [configurado Braze como destino]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) en tu integración de Segment.<br><br>Esto incluye proporcionar el centro de datos de Braze y la clave de API REST correctos en tu [configuración de conexión]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings). |
-| Currents | Para volver a exportar datos a Segment, debes tener configurado [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) en tu cuenta. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Destino Braze | Ya debes haber [configurado Braze como destino]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) en tu integración de Segment.<br><br>Esto incluye proporcionar el centro de datos de Braze y la clave de API REST correctos en tu [configuración de conexión]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment#connection-settings). |
+| Currents | Para volver a exportar datos a Segment, debes tener configurado [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) en tu cuenta. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -37,7 +37,7 @@ Es importante mantener actualizada tu clave de escritura de Segment. Si las cred
 
 ### Paso 2: Crear un nuevo conector de Currents {#step-2-create-a-new-currents-connector}
 
-1. En Braze, ve a **Partner Integrations** > **Data Export**.
+1. En Braze, ve a **Integraciones de socios** > **Exportación de datos**.
 2. Haz clic en **+ Create New Current** > **Segment Data Export**.
 3. A continuación, proporciona el nombre de la integración, el correo electrónico de contacto, la clave de escritura de Segment y la región de Segment.
 
@@ -49,7 +49,7 @@ A continuación, selecciona los eventos de interacción con mensajes que deseas 
 
 Ten en cuenta que Braze solo envía datos de eventos de usuarios sin `external_user_id` si está marcada la opción **Include events from anonymous users**.
 
-{% multi_lang_include early_access_beta_alert.md feature='Anonymous user export' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Anonymous user export' %}
 
 ![Lista de todos los eventos de interacción con mensajes disponibles en la página de Segment Currents en Braze.]({% image_buster /assets/img/segment/segment_currents_data_config.png %})
 
@@ -61,13 +61,13 @@ Para saber más, visita la [documentación](https://segment.com/docs/connections
 
 ## Actualizar tu Current {#updating-your-current}
 
-{% multi_lang_include updating_currents.md %}
+{% multi_lang_include currents/updating_currents.md %}
 
 ## Eventos de Currents compatibles {#supported-currents-events}
 
 Braze admite la exportación de los siguientes eventos a Segment:
 
-- [Eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)
-- [Eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)
+- [Eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)
+- [Eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)
 
-Para consultar la estructura de la carga útil de cada evento, selecciona la pestaña **Segment** en el [glosario de eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) y en el [glosario de eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
+Para consultar la estructura de la carga útil de cada evento, selecciona la pestaña **Segment** en el [glosario de eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) y en el [glosario de eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).

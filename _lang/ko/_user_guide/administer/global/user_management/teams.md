@@ -18,7 +18,7 @@ Teams는 고객 기반 위치, 언어, 커스텀 속성에 따라 설정할 수 
 
 ## Teams는 권한 세트 및 역할과 어떻게 다른가요? {#how-do-teams-differ-from-permission-sets-and-roles}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Teams 생성 {#creating-teams}
 
@@ -36,9 +36,9 @@ Braze 관리자와 "회사 설정 관리 가능"이라는 회사 수준 권한�
 
 ### 사용자를 삭제하지 않고 회사 사용자 권한 제한하기 {#limit-company-user-permissions-without-deleting-a-user}
 
-회사 사용자의 계정을 유지하면서 로그인을 중지하려면 [사용자를 일시 중지]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users)하세요. 일시 중지하면 계정이 비활성 상태가 되어 사용자가 로그인할 수 없습니다.
+회사 사용자의 계정을 유지하면서 로그인을 중지하려면 [사용자를 일시 중지]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users)하세요. 일시 중지하면 계정이 비활성 상태가 되어 사용자가 로그인할 수 없습니다.
 
-사용자가 제한된 기능으로 계속 로그인할 수 있어야 하는 경우, **설정** > **회사 사용자**로 이동하여 사용자를 선택하고 권한을 편집합니다. Campaigns, Canvases, Segments 및 사용자 데이터에 대한 워크스페이스 수준 권한을 제거하고 최소한의 접근 권한만 남겨두세요. 예를 들어 "미디어 라이브러리 자산 보기"만 남길 수 있습니다. 자세한 내용은 [사용자 권한 편집]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#edit-a-users-permissions)을 참조하세요.
+사용자가 제한된 기능으로 계속 로그인할 수 있어야 하는 경우, **설정** > **회사 사용자**로 이동하여 사용자를 선택하고 권한을 편집합니다. Campaigns, Canvases, Segments 및 사용자 데이터에 대한 워크스페이스 수준 권한을 제거하고 최소한의 접근 권한만 남겨두세요. 예를 들어 "미디어 라이브러리 자산 보기"만 남길 수 있습니다. 자세한 내용은 [사용자 권한 편집]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions)을 참조하세요.
 
 Teams 권한은 워크스페이스 권한 위에서 작동합니다. 사용자를 Teams에 할당하는 경우, 필요한 최소한의 Teams 수준 권한만 부여하고 Campaigns, Canvases, Segments 또는 고객 프로필에 대한 권한은 부여하지 마세요. 사용자는 워크스페이스에 남아 로그인할 수 있지만, 대부분의 메시징 또는 오디언스 작업을 수행할 수 없습니다.
 
@@ -102,7 +102,7 @@ Teams 권한은 워크스페이스 권한 위에서 작동합니다. 사용자�
 - 대시보드 보고서 편집
 - 대시보드 보고서 삭제
 
-각 사용자 권한에 포함된 내용과 사용 방법에 대한 설명은 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) 섹션을 확인하세요.
+각 사용자 권한에 포함된 내용과 사용 방법에 대한 설명은 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) 섹션을 확인하세요.
 
 ## Teams 태그 할당 {#tags-and-filters}
 

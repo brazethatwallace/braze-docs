@@ -16,7 +16,7 @@ Esta guía utiliza el framework Hydrogen de Shopify como ejemplo. Sin embargo, p
 
 Para integrar tu tienda headless de Shopify con Braze, necesitas completar estos dos objetivos:
 
-1. **Inicializar y cargar el SDK web de Braze para habilitar el seguimiento in situ**<br><br> Añade manualmente código en tu sitio web de Shopify para habilitar el seguimiento in situ de Braze. Al implementar el SDK de Braze en tu tienda headless de Shopify, puedes hacer un seguimiento de las actividades in situ, incluidas las sesiones, el comportamiento del usuario anónimo, las acciones del comprador previas al pago y cualquier [evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) o [atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) que decidas incluir con tu equipo de desarrolladores. También puedes añadir cualquier canal admitido por los SDK, como mensajes dentro de la aplicación o Content Cards.
+1. **Inicializar y cargar el SDK web de Braze para habilitar el seguimiento in situ**<br><br> Añade manualmente código en tu sitio web de Shopify para habilitar el seguimiento in situ de Braze. Al implementar el SDK de Braze en tu tienda headless de Shopify, puedes hacer un seguimiento de las actividades in situ, incluidas las sesiones, el comportamiento del usuario anónimo, las acciones del comprador previas al pago y cualquier [evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events) o [atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) que decidas incluir con tu equipo de desarrolladores. También puedes añadir cualquier canal admitido por los SDK, como mensajes dentro de la aplicación o Content Cards.
 
 {: start="2"}
 2. **Instalar la integración Braze Shopify**<br><br> Cuando conectes tu tienda Shopify a Braze, tendrás acceso a los datos de clientes, pagos, pedidos y productos a través de los webhooks de Shopify.
@@ -31,7 +31,7 @@ Para completar estos objetivos, sigue estos pasos:
 
 ### Paso 1: Crear una aplicación web en Braze {#step-1}
 
-En Braze, ve a **Settings** > **App Settings** y selecciona **Add app**. Introduce "Shopify" como nombre de la aplicación.
+En Braze, ve a **Configuración** > **Configuración de la aplicación** y selecciona **Añadir aplicación**. Introduce "Shopify" como nombre de la aplicación.
 
 {% alert warning %}
 La tienda debe llamarse "Shopify" o la integración podría no funcionar correctamente.
@@ -57,7 +57,7 @@ npm install --save @braze/web-sdk@5.4.0
 ```
 
 {% alert important %}
-La versión del SDK web de Braze debe ser 5.4.0.
+La versión del SDK web de Braze debe ser 5.4.0 o posterior.
 {% endalert %}
 
 A continuación, [incluye esta configuración]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) como clave de nivel superior en tu archivo `vite.config.js`:
@@ -588,19 +588,19 @@ Antes de continuar con el proceso de incorporación, confirma que has habilitado
 
 ### Paso 3: Rastrear datos de Shopify {#step-3-track-shopify-data}
 
-Mejora tu integración añadiendo más eventos y atributos de Shopify, que se activarán mediante webhooks de Shopify. Para obtener información detallada sobre los datos rastreados a través de esta integración, consulta [Características de los datos de Shopify]({{site.baseurl}}/shopify_data_features/).
+Mejora tu integración añadiendo más eventos y atributos de Shopify, que se activarán mediante webhooks de Shopify. Para obtener información detallada sobre los datos rastreados a través de esta integración, consulta [Características de los datos de Shopify]({{site.baseurl}}/shopify_data_features).
 
 ![Paso de configuración para el seguimiento de los datos de Shopify.]({% image_buster /assets/img/shopify/track_shopify_data_setup.png %})
 
 ### Paso 4: Relleno histórico (opcional) {#step-4-historical-backfill-optional}
 
-A través de la configuración personalizada, puedes incluir opcionalmente la misma carga de datos históricos de Shopify que la [integración estándar]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#historical-backfill-setup): eventos de pedidos de los últimos 90 días y perfiles de usuario del último año, contados a partir de la fecha en que completes tu integración. Para incluir esta carga inicial de datos, marca la casilla de la opción de carga inicial de datos.
+A través de la configuración personalizada, puedes incluir opcionalmente la misma carga de datos históricos de Shopify que la [integración estándar]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration#historical-backfill-setup): eventos de pedidos de los últimos 90 días y perfiles de usuario del último año, contados a partir de la fecha en que completes tu integración. Para incluir esta carga inicial de datos, marca la casilla de la opción de carga inicial de datos.
 
 Si prefieres realizar el relleno más tarde, puedes completar la configuración inicial ahora y volver a este paso más adelante.
 
 ![Sección para configurar el relleno de datos históricos.]({% image_buster /assets/img/shopify/historical_backfill_setup.png %})
 
-Para consultar la lista completa de datos en la carga inicial, el comportamiento de los informes de ingresos y la monitorización de la sincronización, consulta [Relleno histórico]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill).
+Para consultar la lista completa de datos en la carga inicial, el comportamiento de los informes de ingresos y la monitorización de la sincronización, consulta [Relleno histórico]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#historical-backfill).
 
 ### Paso 5: Configuración personalizada de seguimiento de datos (avanzada) {#step-5-custom-data-tracking-setup-advanced}
 
@@ -613,7 +613,7 @@ Con los SDK de Braze, puedes hacer un seguimiento de eventos personalizados o at
 }
 </style>
 
-<table aria-label="Paso 5: Configuración personalizada de seguimiento de datos (avanzada)" style="width: 100%;">
+<table aria-label="Configuración personalizada de seguimiento de datos (avanzada)" style="width: 100%;">
   <caption>Paso 5: Configuración personalizada de seguimiento de datos (avanzada)</caption>
   <thead>
     <tr>
@@ -685,7 +685,7 @@ Debes crear un punto de conexión público al que Braze pueda llamar para recupe
 
 Braze envía los siguientes parámetros a tu punto de conexión:
 
-| Parámetro | Obligatorio | Tipo de datos | Descripción |
+| Parámetro            | Obligatorio | Tipo de datos | Descripción                                                      |
 |----------------------|----------|-----------|------------------------------------------------------------------|
 | shopify_customer_id  | Sí      | Cadena    | El ID de cliente de Shopify.                                         |
 | shopify_storefront   | Sí      | Cadena    | El nombre del escaparate para la solicitud. Ej.: `<storefront_name>.myshopify.com` |
@@ -695,7 +695,7 @@ Braze envía los siguientes parámetros a tu punto de conexión:
 ##### Ejemplo de punto de conexión {#example-endpoint}
 
 ```http
-GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
+GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@example.com&shopify_storefront=dev-store.myshopify.com
 ```
 
 
@@ -737,14 +737,14 @@ Si utilizas los canales de correo electrónico o SMS, puedes sincronizar tus est
 ![Sección "Recopilar suscriptores" con opción de recoger las adhesiones voluntarias de marketing por correo electrónico o SMS.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
 {% alert note %}
-Como se menciona en el [resumen de Shopify]({{site.baseurl}}/shopify_overview/), si quieres utilizar un formulario de captura de terceros, tus desarrolladores necesitan integrar el código del SDK de Braze. Esto te permitirá capturar la dirección de correo electrónico y el estado global de suscripción por correo electrónico de los envíos de formularios. Concretamente, necesitas implementar y probar estos métodos en tu archivo `theme.liquid`:<br><br>
+Como se menciona en el [resumen de Shopify]({{site.baseurl}}/shopify_overview), si quieres utilizar un formulario de captura de terceros, tus desarrolladores necesitan integrar el código del SDK de Braze. Esto te permitirá capturar la dirección de correo electrónico y el estado global de suscripción por correo electrónico de los envíos de formularios. Concretamente, necesitas implementar y probar estos métodos en tu archivo `theme.liquid`:<br><br>
 - [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail): Establece la dirección de correo electrónico en el perfil de usuario
 - [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): Actualiza el estado de la suscripción global por correo electrónico
 {% endalert %}
 
 ### Paso 7: Sincronizar productos (opcional) {#step-7-sync-products-optional}
 
-Puedes sincronizar todos los productos de tu tienda Shopify con un catálogo de Braze para una mayor personalización de la mensajería. Las actualizaciones automáticas se producen casi en tiempo real para que tu catálogo refleje siempre los detalles más recientes de los productos. Para saber más, consulta [Sincronización de productos de Shopify]({{site.baseurl}}/shopify_catalogs/).
+Puedes sincronizar todos los productos de tu tienda Shopify con un catálogo de Braze para una mayor personalización de la mensajería. Las actualizaciones automáticas se producen casi en tiempo real para que tu catálogo refleje siempre los detalles más recientes de los productos. Para saber más, consulta [Sincronización de productos de Shopify]({{site.baseurl}}/shopify_catalogs).
 
 ![Paso de configuración para sincronizar los datos del producto con Braze.]({% image_buster /assets/img/shopify/sync_product_data.png %})
 
@@ -752,9 +752,9 @@ Puedes sincronizar todos los productos de tu tienda Shopify con un catálogo de 
 
 Para activar los mensajes dentro de la aplicación, Content Cards y conmutadores de características utilizando la integración directa de Shopify, añade cada canal a tu SDK. Sigue los enlaces de documentación que se indican a continuación para cada canal:
 
-- **Mensajes dentro de la aplicación:** Para habilitar los mensajes dentro de la aplicación en casos de uso de formularios de captación de clientes potenciales, consulta [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages/).
-- **Content Cards:** Para habilitar Content Cards en casos de uso de buzón de entrada o banner del sitio web, consulta [Content Cards]({{site.baseurl}}/developer_guide/content_cards/).
-- **Conmutadores de características:** Para habilitar los conmutadores de características en casos de uso de experimentación en el sitio, consulta [Feature Flags]({{site.baseurl}}/developer_guide/feature_flags/).
+- **Mensajes dentro de la aplicación:** Para habilitar los mensajes dentro de la aplicación en casos de uso de formularios de captación de clientes potenciales, consulta [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages).
+- **Content Cards:** Para habilitar Content Cards en casos de uso de buzón de entrada o banner del sitio web, consulta [Content Cards]({{site.baseurl}}/developer_guide/content_cards).
+- **Conmutadores de características:** Para habilitar los conmutadores de características en casos de uso de experimentación en el sitio, consulta [Feature flags]({{site.baseurl}}/developer_guide/feature_flags).
 
 ### Paso 9: Finalizar la configuración {#step-9-finish-setup}
 

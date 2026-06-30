@@ -69,7 +69,7 @@ Aquí tienes algunos enlaces que podrías necesitar consultar mientras desarroll
 
 La privacidad de un cliente es clave para una relación significativa y respetuosa. Respetar la privacidad y la información de un cliente es simplemente otra oportunidad para crear un vínculo entre ellos y tu marca. A veces, el uso de herramientas de marketing puede relegar los datos y la privacidad a un segundo plano.
 
-Afortunadamente, Braze sigue las directrices de muchas [regulaciones de seguridad]({{site.baseurl}}/developer_guide/disclosures/security_qualifications/#security-qualifications), incluyendo el [RGPD]({{site.baseurl}}/dp-technical-assistance/).
+Afortunadamente, Braze sigue las directrices de muchas [regulaciones de seguridad]({{site.baseurl}}/developer_guide/disclosures/security_qualifications#security-qualifications), incluyendo el [RGPD]({{site.baseurl}}/dp-technical-assistance).
 
 La [CTIA](https://www.ctia.org/) (una asociación comercial que representa a la industria de comunicaciones inalámbricas en Estados Unidos) recomienda que mantengas y muestres de forma visible una política de privacidad clara y fácil de entender.
 
@@ -81,13 +81,13 @@ La Ley de Protección al Consumidor Telefónico ([TCPA](https://en.wikipedia.org
 
 Recuerda cumplir con el [Registro Nacional de No Llamar](https://www.donotcall.gov/).
 
-Braze utiliza [Grupos de suscripción]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/) para administrar grupos de usuarios según su nivel de consentimiento.
+Braze utiliza [Grupos de suscripción]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing) para administrar grupos de usuarios según su nivel de consentimiento.
 
 #### Cumplimiento mediante cancelación de suscripción difusa {#compliance-through-fuzzy-opt-out}
 
 Para ayudar a automatizar el reconocimiento de solicitudes de cancelación de suscripción no estándar, puedes habilitar la cancelación de suscripción difusa en la configuración de tu grupo de suscripción si eres un cliente en EE. UU.
 
-- **Configuración inmediata:** De forma predeterminada, la cancelación de suscripción difusa envía un mensaje de aclaración. Para aplicar una cancelación de suscripción inmediata en lugar de una aclaración, puedes configurar tu espacio de trabajo siguiendo las instrucciones en la [sección de cancelación de suscripción difusa]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/#configure-fuzzy-opt-out).
+- **Configuración inmediata:** De forma predeterminada, la cancelación de suscripción difusa envía un mensaje de aclaración. Para aplicar una cancelación de suscripción inmediata en lugar de una aclaración, puedes configurar tu espacio de trabajo siguiendo las instrucciones en la [sección de cancelación de suscripción difusa]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out#configure-fuzzy-opt-out).
 - **Adiciones manuales de palabras clave:** Recomendamos agregar manualmente palabras de alto riesgo a tu categoría de palabras clave de **cancelación de suscripción**, como "REMOVE", "END", "HALT", "CEASE", "DISCONTINUE" y "UNSUBSCRIBE", además de las palabras clave predeterminadas ya proporcionadas.
 
 ### Correo no deseado y cadencia {#spam-and-cadence}

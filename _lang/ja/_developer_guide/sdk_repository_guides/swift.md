@@ -109,7 +109,7 @@ Xcode|26.0+ (17A324)
 
 ## お問い合わせ {#contact}
 
-ご質問がある場合は、[support@braze.com](mailto:support@braze.com)までお問い合わせください。
+ご質問がある場合は、Brazeテクニカルサポートまでお問い合わせください。
 
 [braze-inc/braze-swift-sdk]: https://github.com/braze-inc/braze-swift-sdk
 [braze-inc/braze-swift-sdk-prebuilt-static]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-static

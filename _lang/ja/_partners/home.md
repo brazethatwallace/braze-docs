@@ -1,7 +1,7 @@
 ---
 page_order: 0
 article_title: テクノロジーパートナー
-alias: /partners/Partners/
+alias: /partners/partners/
 layout: partner_page
 search_tag: Partner
 
@@ -90,7 +90,7 @@ valid_partner_list:
   url: /docs/partners/looker/
 - name: Kubit
   url: /docs/partners/kubit/
-- name: Segment
+- name: Segments
   url: /docs/partners/segment/
 - name: mParticle
   url: /docs/partners/mparticle_overview/

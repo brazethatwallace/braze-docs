@@ -57,7 +57,7 @@ No Template Builder, acesse a guia **Settings**. Em **Link options**, marque a c
 
 Em **Custom domain**, selecione o domínio que você deseja usar para links encurtados. O menu suspenso mostra todos os domínios de rastreamento personalizados configurados para o seu espaço de trabalho. Se você não selecionar um, a Braze usará o domínio padrão `brz.ai`.
 
-Para adicionar ou alterar domínios, selecione **Subscription Group Management**.
+Para adicionar ou alterar domínios, selecione **Gerenciamento de grupos de inscrições**.
 
 {% alert important %}
 Depois que um modelo é enviado à Meta para aprovação, o domínio de rastreamento não pode ser alterado. Confirme que você selecionou o domínio correto antes de enviar.
@@ -65,7 +65,7 @@ Depois que um modelo é enviado à Meta para aprovação, o domínio de rastream
 
 ##### Etapa 3: Adicionar seus URLs de destino {#step-3-add-your-destination-urls}
 
-Volte para a guia **Compose** e adicione o conteúdo da sua mensagem.
+Volte para a guia **Redigir** e adicione o conteúdo da sua mensagem.
 
 - **Para botões CTA de site:** Insira o URL de destino no campo **Click tracking URL**. A Braze armazena seu URL de destino e formata automaticamente o URL do site do botão com o domínio de rastreamento e um espaço reservado de variável {% raw %}(por exemplo, `https://brz.ai/{{1}}`){% endraw %}. Esse espaço reservado é o que é enviado à Meta. No momento do envio, a Braze gera o URL rastreado completo para cada usuário e preenche a variável.
 - **Para links no corpo do texto:** Insira os URLs diretamente no corpo.
@@ -111,7 +111,7 @@ O URL de destino precisa ser fornecido para qualquer link com um URL base que co
 ![Seção Buttons com campos para nome do botão, URL do site e URL de rastreamento de cliques.]({% image_buster /assets/img/whatsapp/click_tracking/buttons.png %}){: style="max-width:70%;"}
 
 {% alert important %}
-**Envio de mensagens de modelo via API**: O rastreamento de cliques do WhatsApp (usando `brz.ai` ou um domínio de rastreamento personalizado e o campo **Click tracking URL** no criador de mensagens) não é compatível ao enviar mensagens de modelo do WhatsApp pelo [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/).
+**Envio de mensagens de modelo via API**: O rastreamento de cliques do WhatsApp (usando `brz.ai` ou um domínio de rastreamento personalizado e o campo **Click tracking URL** no criador de mensagens) não é compatível ao enviar mensagens de modelo do WhatsApp pelo [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages).
 
 Se você enviar uma mensagem de modelo pela API, poderá preencher variáveis de URL do CTA (usando `button_variables`), mas a Braze não gera um URL de rastreamento de cliques ou link de redirecionamento no fluxo de solicitação da API. Para usar o rastreamento de cliques, envie o modelo pelo dashboard da Braze ou por meio de um gatilho de Campaign da Braze.
 {% endalert %}
@@ -154,7 +154,7 @@ Se um rascunho for criado dentro de um Canvas ativo, um URL encurtado não será
 
 ## Relatórios {#reporting}
 
-Quando o rastreamento de cliques está ativado ou é usado com modelos compatíveis, a tabela de desempenho do WhatsApp inclui a coluna **Total Clicks** que mostra uma contagem de eventos de clique por variante e uma taxa de cliques associada. Para mais detalhes sobre métricas do WhatsApp, consulte [Desempenho de mensagens do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/reporting/).
+Quando o rastreamento de cliques está ativado ou é usado com modelos compatíveis, a tabela de desempenho do WhatsApp inclui a coluna **Total Clicks** que mostra uma contagem de eventos de clique por variante e uma taxa de cliques associada. Para mais detalhes sobre métricas do WhatsApp, consulte [Desempenho de mensagens do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/reporting).
 
 ![Etapa do Canvas de mensagem do WhatsApp.]({% image_buster /assets/img/whatsapp/click_tracking/canvas_step.png %}){: style="max-width:30%;"}
 

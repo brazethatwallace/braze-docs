@@ -10,13 +10,13 @@ search_tag: Partner
 
 > Hightouchの[Personalization API](https://hightouch.com/docs/destinations/personalization-api)は、クラウドデータウェアハウスの任意のデータセットに基づいて低レイテンシーのデータAPIをホストできるマネージドサービスです。
 
-![]({% image_buster /assets/img/hightouch/cohort7.png %})
+![データウェアハウスからHightouchを経由してモバイルアプリ、Webエクスペリエンス、ダイナミックメールへのデータフローを示すHightouch Personalization APIアーキテクチャ図。]({% image_buster /assets/img/hightouch/cohort7.png %})
 
-BrazeとHightouchの統合により、[Brazeコネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)とこのAPIを使用して、送信時に最新の顧客またはオブジェクトのデータをキャンペーンやキャンバスに取り込むことができます。
+BrazeとHightouchの統合により、[Brazeコネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)とこのAPIを使用して、送信時に最新の顧客またはオブジェクトのデータをキャンペーンやキャンバスに取り込むことができます。
 
 HightouchのPersonalization APIは、Brazeの設定で使用するRESTエンドポイントを提供します。具体的には、Brazeのコネクテッドコンテンツを使用してPersonalization APIに対するGETリクエストを実行し、特定の識別子に関連するすべての情報を取得できます。このAPIによって公開されるデータは、顧客、製品、またはその他のオブジェクトデータを表す場合があります。
 
-![]({% image_buster /assets/img/hightouch/cohort6.png %})
+![Snowflake、BigQuery、RedshiftからHightouch Personalization APIを経由してBrazeコネクテッドコンテンツへのデータフローを示す図。]({% image_buster /assets/img/hightouch/cohort6.png %})
 
 ## 前提条件 {#prerequisites}
 
@@ -63,7 +63,7 @@ Hightouchの[ソース](https://hightouch.com/docs/getting-started/concepts#sour
 
 詳細については、関連するソースの[ドキュメント](https://hightouch.com/docs)を参照してください。
 
-### ステップ2: モデルデータ {#step-2-model-data}
+### ステップ2: データをモデリングする {#step-2-model-data}
 
 Hightouchモデルは、ソースからどのようなデータを取得するかを定義します。新しいモデルをセットアップするには、以下の手順に従います。
 
@@ -77,7 +77,7 @@ Hightouchモデルは、ソースからどのようなデータを取得する�
 
 APIでリクエストを受信するための準備は、次の2つのステップからなります。
 - お客様のインフラに最も近い地域でPersonalization APIを有効にする
-- Hightouchが管理するキャッシュでマテリアライズされるべきモデルを定義するために同期を作成する
+- Hightouchが管理するキャッシュでマテリアライズするモデルを定義する同期を作成する
 
 以下の手順に従って、両方を完了させます。
 
@@ -124,7 +124,7 @@ Liquidテンプレートを使って、JSONペイロードで返されたプロ�
 ```json
 {
     "user_id": 12345,
-    "full_name": "Jane Doe",
+    "full_name": "Alex Smith",
     "lifetime_value": 1492.18,
     "churn_risk": 0.04,
     "90_day_summary": {
@@ -155,7 +155,7 @@ Liquidテンプレートを使って、JSONペイロードで返されたプロ�
         ],
         "upcoming_album_release": {
             "title": "Universal Language",
-            "artist": "Simon Doty",
+            "artist": "Alex Lee",
             "label": "Anjunadeep",
             "release_date": "2023-04-28"
         }
@@ -170,7 +170,7 @@ Liquidテンプレートを使って、JSONペイロードで返されたプロ�
 | {% raw %}`{{artists.recommendations.concerts[0].artist}}`{% endraw %} | Aphex Twin |
 | {% raw %}`{{artists.recommendations.concerts[0].location}}`{% endraw %} | San Francisco, CA |
 | {% raw %}`{{artists.recommendations.upcoming_album_release.title}}`{% endraw %} | Universal Language |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Call personalization API through Braze Connected Content" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Brazeコネクテッドコンテンツを通じてPersonalization APIを呼び出す" }
 
 ## トラブルシューティング {#troubleshooting}
 

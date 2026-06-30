@@ -16,7 +16,7 @@ page_order: 50
 
 A Braze primeiro tentará encontrar um usuário com um número correspondente. Se nenhum for encontrado, a Braze automaticamente lida com um número desconhecido de uma das duas formas:
 
-1. **Se uma palavra-gatilho com um [Canvas de opt-in]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs/) estiver configurada:**
+1. **Se uma palavra-gatilho com um [Canvas de opt-in]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs) estiver configurada:**
 - A Braze cria um perfil anônimo
 - Atribuímos um alias de usuário ao perfil com os seguintes detalhes:
   - Um `alias_name` com o valor sendo o número de telefone fornecido pelo usuário

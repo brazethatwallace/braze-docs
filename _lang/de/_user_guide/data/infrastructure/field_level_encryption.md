@@ -11,7 +11,7 @@ page_type: reference
 
 > Verschlüsseln Sie E-Mail-Adressen, um den Austausch von personenbezogenen Daten (PII) in Braze zu minimieren.
 
-{% multi_lang_include field_level_encryption_pii_description.md %}
+{% multi_lang_include data_activation/field_level_encryption_pii_description.md %}
 
 {% alert important %}
 Die Verschlüsselung auf Bezeichner-Feldebene ist als zusätzliches Feature verfügbar. Wenden Sie sich an Ihren Braze Account Manager, um mit der Verschlüsselung auf Bezeichner-Feldebene zu beginnen.
@@ -78,7 +78,7 @@ Wenn Sie eine:n neue:n Nutzer:in mit einer E-Mail-Adresse anlegen, müssen Sie `
 
 Diese Features werden bei der Verschlüsselung auf Bezeichner-Feldebene nicht unterstützt:
 
-- Identifizieren und Erfassen von E-Mail-Adressen über SDK
+- Identifizieren und Erfassen von E-Mail-Adressen über das SDK
 - In-App-Nachricht-E-Mail-Erfassungsformulare
 - Berichte über Empfänger:innen-Domains, einschließlich Charts der Email-Insights-Mailbox-Anbieter
 - Filter für E-Mail-Adressen mit regulärem Ausdruck
@@ -87,7 +87,7 @@ Diese Features werden bei der Verschlüsselung auf Bezeichner-Feldebene nicht un
 
 ### Nutzer:innen-Attribute-Objekt {#user-attributes-object}
 
-Wenn Sie die Verschlüsselung auf Bezeichner-Feldebene mit dem Endpunkt `/users/track` verwenden, beachten Sie diese Felddetails für das [Nutzer:innen-Attribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens):
+Wenn Sie die Verschlüsselung auf Bezeichner-Feldebene mit dem Endpunkt `/users/track` verwenden, beachten Sie diese Felddetails für das [Nutzer:innen-Attribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens):
 
 - Das Feld `email` muss der Hash-Wert der E-Mail sein.
 - Das Feld `email_encrypted` muss der verschlüsselte Wert für die E-Mail sein.

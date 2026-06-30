@@ -26,18 +26,18 @@ La integración de Braze con Shopify proporciona una potente solución para las 
 
 Braze ofrece dos opciones de integración para los comerciantes de Shopify, diseñadas para satisfacer las diversas necesidades de las empresas de comercio electrónico: **integración estándar** e **integración personalizada**.
 
-{% multi_lang_include shopify.md section='Integration Tabs' %}
+{% multi_lang_include partners/shopify.md section='Integration Tabs' %}
 
 ## Cómo funciona la integración {#how-the-integration-works}
 
-Si ya has configurado y activado el [relleno histórico]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill) en tus ajustes de configuración, la sincronización inicial de datos comenzará inmediatamente.
+Si ya has configurado y activado el [relleno histórico]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#historical-backfill) en tus ajustes de configuración, la sincronización inicial de datos comenzará inmediatamente.
 
-{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
+{% multi_lang_include partners/shopify.md section='Custom external ID historical backfill' %}
 
 Tras la sincronización inicial de datos, Braze hará un seguimiento continuo de los nuevos datos y actualizaciones, directamente desde los SDK de Shopify y Braze.
 
 {% alert note %}
-Si ya eres cliente de Braze con Campaigns o Canvas activos, revisa [el relleno histórico de Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill) para obtener información importante. Para ver qué datos específicos de clientes se están rellenando, consulta las [características de Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/).
+Si ya eres cliente de Braze con Campaigns o Canvas activos, revisa [el relleno histórico de Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#historical-backfill) para obtener información importante. Para ver qué datos específicos de clientes se están rellenando, consulta las [características de Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features).
 {% endalert %}
 
 ### Sincronización de usuarios y datos {#user-and-data-syncing}
@@ -65,10 +65,10 @@ Braze utiliza la integración de Shopify para dar soporte a múltiples identific
 | Alias de usuario del token de carrito | Un alias que Braze crea para realizar un seguimiento de los eventos de actualización del carrito. Este token se crea utilizando el token de carrito de Shopify. |
 | Alias de usuario del token de pago | Un alias que Braze crea cuando el usuario inicia el proceso de pago. Este token se crea utilizando el token de pago de Shopify.<br><br> Si un cliente utiliza Shop Pay como opción de pago acelerado, Shopify puede omitir ciertos eventos estándar de pago e impedir que Braze reciba los datos necesarios para añadir el alias del token de pago. |
 | Alias de ID de cliente de Shopify | El ID de cliente de Shopify se asigna como alias cuando se asigna el ID externo al iniciar sesión en la cuenta o al realizar un pedido. |
-| Braze `external_id` | Un identificador único que ayuda a seguir a los clientes a través de dispositivos y plataformas. Esto mantiene una experiencia de usuario consistente y mejora los análisis al evitar múltiples perfiles cuando los usuarios cambian de dispositivo o reinstalan la aplicación.<br><br>La integración de Shopify admite los siguientes tipos de `external_id`: <br><br>{::nomarkdown}<ul><li>ID de cliente de Shopify (predeterminado)</li><li>ID externo personalizado</li><li>Correo electrónico con hash (SHA-256)</li><li>Correo electrónico con hash (SHA-1)</li><li>Correo electrónico con hash (MD5)</li><li>Correo electrónico</li></ul>{:/}Braze asigna un `external_id` a tus usuarios llamando al método changeUser dentro de los SDK cuando: <br><br>{::nomarkdown}<ul><li>Un usuario inicia sesión o crea una cuenta</li><li>Se realiza un pedido</li></ul>{:/}<br> Para más información sobre lo que ocurre cuando asignas un `external_id` a un perfil anónimo, consulta [Ciclo de vida del perfil de usuario]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users).<br><br>Braze también aprovechará el `external_id` para atribuir los datos de comportamiento de comercio electrónico posteriores de los webhooks de Shopify.|
+| Braze `external_id` | Un identificador único que ayuda a seguir a los clientes a través de dispositivos y plataformas. Esto mantiene una experiencia de usuario consistente y mejora los análisis al evitar múltiples perfiles cuando los usuarios cambian de dispositivo o reinstalan la aplicación.<br><br>La integración de Shopify admite los siguientes tipos de `external_id`: <br><br>{::nomarkdown}<ul><li>ID de cliente de Shopify (predeterminado)</li><li>ID externo personalizado</li><li>Correo electrónico con hash (SHA-256)</li><li>Correo electrónico con hash (SHA-1)</li><li>Correo electrónico con hash (MD5)</li><li>Correo electrónico</li></ul>{:/}Braze asigna un `external_id` a tus usuarios llamando al método changeUser dentro de los SDK cuando: <br><br>{::nomarkdown}<ul><li>Un usuario inicia sesión o crea una cuenta</li><li>Se realiza un pedido</li></ul>{:/}<br> Para más información sobre lo que ocurre cuando asignas un `external_id` a un perfil anónimo, consulta [Ciclo de vida del perfil de usuario]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle#what-happens-when-you-identify-anonymous-users).<br><br>Braze también aprovechará el `external_id` para atribuir los datos de comportamiento de comercio electrónico posteriores de los webhooks de Shopify.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sincronización de usuarios y datos" }
 
-La integración requiere que los SDK de Braze y los servicios de Shopify trabajen juntos para seguir y atribuir adecuadamente los datos de Shopify a los usuarios correctos en tiempo casi real. Para obtener más información sobre los datos que se rastrean a través de la integración, consulta [Datos de Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/).
+La integración requiere que los SDK de Braze y los servicios de Shopify trabajen juntos para seguir y atribuir adecuadamente los datos de Shopify a los usuarios correctos en tiempo casi real. Para obtener más información sobre los datos que se rastrean a través de la integración, consulta [Datos de Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features).
 
 {% alert note %}
 - Si estás probando la integración, te aconsejamos que utilices el modo de incógnito o borres las cookies para restablecer el `device_id` de Braze e imitar el comportamiento de un usuario anónimo.
@@ -85,7 +85,7 @@ El estado de adhesión voluntaria al marketing por correo electrónico y SMS de 
 - **Proceso de pago:** Si un usuario actualiza su estado de adhesión voluntaria durante el pago.
 
 {% alert note %}
-El estado de adhesión voluntaria al marketing por correo electrónico de Shopify no cambiará el [estado de suscripción global al correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions/) de un usuario en Braze. El estado de suscripción predeterminado cuando se crea un perfil de usuario es "suscrito". Recuerda utilizar el grupo de suscripción como parte de los criterios de entrada de tu Campaign o Canvas.
+El estado de adhesión voluntaria al marketing por correo electrónico de Shopify no cambiará el [estado de suscripción global al correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions) de un usuario en Braze. El estado de suscripción predeterminado cuando se crea un perfil de usuario es "suscrito". Recuerda utilizar el grupo de suscripción como parte de los criterios de entrada de tu campaña o Canvas.
 {% endalert %}
 
 Esta tabla muestra qué estados de adhesión voluntaria al marketing de Shopify se correlacionan con los estados dentro de tu grupo de suscripción de Braze.
@@ -113,7 +113,7 @@ Los usuarios que introduzcan su dirección de correo electrónico en el pie de p
 3. El SDK de Braze actualiza el perfil anónimo con la dirección de correo electrónico.
 
 {% alert note %}
-Esto puede dar lugar a un perfil duplicado hasta que el usuario se identifique creando su cuenta, iniciando sesión o realizando un pedido. Braze ofrece herramientas de fusión masiva para ayudarte a automatizar la conciliación de perfiles duplicados. Consulta [Usuarios duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/) para más detalles.
+Esto puede dar lugar a un perfil duplicado hasta que el usuario se identifique creando su cuenta, iniciando sesión o realizando un pedido. Braze ofrece herramientas de fusión masiva para ayudarte a automatizar la conciliación de perfiles duplicados. Consulta [Usuarios duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users) para más detalles.
 {% endalert %}
 
 ##### Usuarios que ya han iniciado sesión en su cuenta {#users-who-have-already-logged-into-their-account}
@@ -123,24 +123,24 @@ Braze creará un perfil de usuario que contenga la dirección de correo electró
 #### Formularios de registro de Braze {#braze-sign-up-forms}
 
 Braze proporciona dos tipos de plantillas de formulario de registro:
-- **[Formularios de registro por correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/email_capture/):** Créalos utilizando el editor de arrastrar y soltar.
-- **[Formulario de captura de correo electrónico del editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/email_capture_form/):** Un formulario más sencillo para captar direcciones de correo electrónico.
+- **[Formularios de registro por correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/email_capture):** Créalos utilizando el editor de arrastrar y soltar.
+- **[Formulario de captura de correo electrónico del editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/email_capture_form):** Un formulario más sencillo para captar direcciones de correo electrónico.
 
 Cuando utilizas estas plantillas de formulario de registro, Braze actualiza automáticamente el estado global de suscripción por correo electrónico en el perfil de usuario. Para más detalles sobre cómo se gestiona el estado global de suscripción por correo electrónico, incluida información sobre la validación del correo electrónico, consulta la documentación de cada tipo de plantilla de formulario.
 
 {% alert note %}
-- Asegúrate de incluir criterios de entrada en tu Campaign o Canvas que incluyan tanto el estado de suscripción global por correo electrónico como el grupo de suscripción conectados a tu tienda de Shopify. Esto te ayudará a dirigirte a la audiencia adecuada.
+- Asegúrate de incluir criterios de entrada en tu campaña o Canvas que incluyan tanto el estado de suscripción global por correo electrónico como el grupo de suscripción conectados a tu tienda de Shopify. Esto te ayudará a dirigirte a la audiencia adecuada.
 - Braze recopila información de los visitantes, como direcciones de correo electrónico y números de teléfono, a través de mensajes en el explorador. Esta información se envía a la API de visitantes de Shopify, pero no crea un perfil de cliente en Shopify. Para más detalles, consulta la [API de visitantes](https://shopify.dev/docs/api/web-pixels-api/emitting-data#visitor-api).
 {% endalert %}
 
 #### Formularios de registro de terceros {#third-party-sign-up-forms}
 
-Si utilizas una plataforma de terceros o un plugin de Shopify para tus formularios de registro, tienes que trabajar con tus desarrolladores para integrar el código del SDK de Braze y capturar la dirección de correo electrónico y el estado global de suscripción por correo electrónico de los envíos de formularios. Para saber más, revisa la [configuración de integración estándar de Shopify]({{site.baseurl}}/shopify_standard_integration/) y la [configuración de integración personalizada de Shopify]({{site.baseurl}}/shopify_custom_integration/).
+Si utilizas una plataforma de terceros o un plugin de Shopify para tus formularios de registro, tienes que trabajar con tus desarrolladores para integrar el código del SDK de Braze y capturar la dirección de correo electrónico y el estado global de suscripción por correo electrónico de los envíos de formularios. Para saber más, revisa la [configuración de integración estándar de Shopify]({{site.baseurl}}/shopify_standard_integration) y la [configuración de integración personalizada de Shopify]({{site.baseurl}}/shopify_custom_integration).
 
 ### Sincronización de productos {#product-syncing}
 
-Braze permite sincronizar los productos de tu tienda Shopify en un catálogo de Braze. Para más detalles, consulta [Sincronización de productos de Shopify]({{site.baseurl}}/shopify_catalogs/).
+Braze permite sincronizar los productos de tu tienda Shopify en un catálogo de Braze. Para más detalles, consulta [Sincronización de productos de Shopify]({{site.baseurl}}/shopify_catalogs).
 
 ## Solicitudes del interesado {#data-subject-requests}
 
-Como parte de la integración de la plataforma Braze con Shopify, Braze recibe automáticamente [los webhooks de cumplimiento de Shopify](https://shopify.dev/docs/apps/build/privacy-law-compliance/). Sin embargo, dado que los clientes son los responsables del tratamiento de los datos de sus usuarios finales, los clientes deben llevar a cabo las acciones necesarias para responder a las solicitudes del interesado recibidas con respecto a los datos de usuarios finales en Braze (incluidos los datos de usuarios finales recibidos a través de la integración de Shopify). Para más detalles, consulta nuestra documentación de [Asistencia técnica sobre protección de datos]({{site.baseurl}}/dp-technical-assistance/).
+Como parte de la integración de la plataforma Braze con Shopify, Braze recibe automáticamente [los webhooks de cumplimiento de Shopify](https://shopify.dev/docs/apps/build/privacy-law-compliance/). Sin embargo, dado que los clientes son los responsables del tratamiento de los datos de sus usuarios finales, los clientes deben llevar a cabo las acciones necesarias para responder a las solicitudes del interesado recibidas con respecto a los datos de usuarios finales en Braze (incluidos los datos de usuarios finales recibidos a través de la integración de Shopify). Para más detalles, consulta nuestra documentación de [Asistencia técnica sobre protección de datos]({{site.baseurl}}/dp-technical-assistance).

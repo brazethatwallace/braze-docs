@@ -34,7 +34,7 @@ Pour intégrer Kickbox, suivez les étapes décrites dans la section [Intégrati
 
 Vous pouvez également choisir de vérifier l'ensemble de votre liste tous les quelques mois ou tous les trimestres, afin de vous protéger des e-mails qui deviennent obsolètes ou des listes qui se dégradent au fil du temps et font lentement chuter votre livrabilité.
 
-Pour ce faire, vous devez modifier les paramètres **Entry Settings** du flux de travail, comme indiqué par Kickbox. Au lieu de sélectionner **Action-Based Delivery**, sélectionnez **Scheduled**. Choisissez ensuite une heure planifiée pour que votre liste soit vérifiée en une seule fois.
+Pour ce faire, vous devez modifier les paramètres **Paramètres d'entrée** du flux de travail, comme indiqué par Kickbox. Au lieu de sélectionner **Livraison par événement**, sélectionnez **Planification**. Choisissez ensuite une heure planifiée pour que votre liste soit vérifiée en une seule fois.
 
 ### Créer des segments vérifiés {#create-verified-segments}
 
@@ -45,7 +45,7 @@ Les attributs personnalisés de Kickbox ont un schéma cohérent, correspondant 
    {
   "attributes": [
     {
-      "email": "example1@kickbox.com",
+      "email": "example1@example.com",
       "_update_existing_only": true,
       "success": true,
       "code": null,
@@ -59,10 +59,10 @@ Les attributs personnalisés de Kickbox ont un schéma cohérent, correspondant 
       "did_you_mean": null,
       "sendex": 1,
       "user": "example1",
-      "domain": "kickbox.com"
+      "domain": "example.com"
     },
     {
-      "email": "example2@gamil.com",
+      "email": "example2@exampl.com",
       "_update_existing_only": true,
       "success": true,
       "code": "44312",
@@ -73,10 +73,10 @@ Les attributs personnalisés de Kickbox ont un schéma cohérent, correspondant 
       "free": false,
       "disposable": false,
       "accept_all": false,
-      "did_you_mean": "example2@gmail.com",
+      "did_you_mean": "example2@example.com",
       "sendex": 0.23,
       "user": "example2",
-      "domain": "gamil.com"
+      "domain": "exampl.com"
     }
   ]
 }
@@ -88,6 +88,6 @@ Cela signifie que vous pouvez créer des segments d'audience regroupant les util
 Pour ce faire, suivez les étapes suivantes :
 
 1. Dans Braze, allez dans **Audience** > **Segments** > **Créer un segment**.
-2. Dans la section **Filter Group**, ajoutez le filtre **Custom Attribute** et sélectionnez « result » dans le menu déroulant.
+2. Dans la section **Groupe de filtres**, ajoutez le filtre **Attribut personnalisé** et sélectionnez « result » dans le menu déroulant.
 
 En fonction de votre cas d'utilisation, il peut être approprié de créer un segment dans lequel l'attribut personnalisé Kickbox « result » existe sur un profil utilisateur, ou dans lequel sa valeur est égale à « deliverable ». Ce filtre peut être utilisé seul pour créer un segment, ou peut être intégré à tous les futurs segments afin de valider tous les utilisateurs qui s'y trouvent.

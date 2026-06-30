@@ -18,7 +18,7 @@ Existem dois tipos de mensagens do WhatsApp na Braze: [mensagens de modelo](#tem
 |---|---|---|
 | Mensagens de modelo | Comunicação iniciada pela empresa; enviada a qualquer momento | Obrigatória; os modelos devem ser enviados à Meta e aprovados antes do envio. |
 | Mensagens de resposta | Respostas a mensagens iniciadas pelo usuário; apenas dentro da janela de conversa de 24 horas | Não obrigatória |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="WhatsApp message and image formats" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Formatos de mensagem e imagem do WhatsApp" }
 
 As mensagens de modelo devem ser enviadas à Meta para aprovação, o que pode levar até 24 horas. Após a aprovação, elas podem ser enviadas a qualquer momento. As mensagens de resposta (chamadas de "mensagens de sessão" na documentação da Meta) só podem ser enviadas enquanto uma janela de conversa ativa estiver aberta — dentro de 24 horas da última mensagem recebida do usuário.
 
@@ -36,7 +36,7 @@ Os modelos de marketing são o tipo mais comum usado na Braze. Eles consistem em
 | Corpo | Sim | O conteúdo principal da mensagem |
 | Rodapé | Não | Texto complementar exibido abaixo do corpo |
 | Botões | Não | Inclua até 10 botões (todos os tipos de botão são suportados) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Marketing templates" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Modelos de marketing" }
 
 #### Comprimento de caracteres {#character-length}
 
@@ -47,7 +47,7 @@ Os modelos de marketing são o tipo mais comum usado na Braze. Eles consistem em
 | Rótulo do botão (URL, telefone, resposta rápida) | 25 caracteres |
 | Número de telefone (no botão de telefone) | 20 caracteres |
 | Nome do modelo | 512 caracteres (apenas letras minúsculas, alfanuméricos e underscores) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Character length" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comprimento de caracteres" }
 
 #### Tipos de botão {#button-types}
 
@@ -57,7 +57,7 @@ Os modelos de marketing são o tipo mais comum usado na Braze. Eles consistem em
 | URL | Abre uma URL no navegador padrão do usuário; suporta 1 variável adicionada ao final da URL (máximo de 2.000 caracteres) | |
 | Número de telefone | Inicia uma chamada para o número de telefone especificado | |
 | Copiar código de cupom | Copia um código de cupom para a área de transferência do usuário | Sempre requer aprovação da Meta |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Button types" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tipos de botão" }
 
 #### Formatação de parâmetros {#parameter-formatting}
 
@@ -73,7 +73,7 @@ Os modelos de carrossel exibem um corpo de mensagem seguido de 2 a 10 cartões d
 |---|---|---|---|
 | Texto do corpo | Sim | 1.024 caracteres | Suporta variáveis |
 | Cartões | Sim | 2-10 cartões | A quantidade de cartões é fixa na criação do modelo. Um modelo de carrossel aprovado só pode ser enviado com o número exato de cartões definido durante a criação. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Top-level message" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Mensagem de nível superior" }
 
 #### Especificações por cartão {#per-card-specifications}
 
@@ -82,7 +82,7 @@ Os modelos de carrossel exibem um corpo de mensagem seguido de 2 a 10 cartões d
 | Cabeçalho (imagem ou vídeo) | Sim | Todos os cartões devem usar o mesmo formato (todos imagem ou todos vídeo). Isso inclui a mesma estrutura de componente; você não pode misturar cartões com e sem texto do corpo ou botões.<br><br> Os ativos de cabeçalho dos cartões são automaticamente cortados para uma proporção larga com base no dispositivo do usuário. |
 | Texto do corpo | Não | Se qualquer cartão incluir texto do corpo, todos os cartões devem incluir texto do corpo |
 | Botões | Não | Máximo de 2 botões por cartão |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Per-card specifications" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Especificações por cartão" }
 
 #### Comprimento de caracteres por cartão {#per-card-character-lengths}
 
@@ -92,7 +92,7 @@ Os modelos de carrossel exibem um corpo de mensagem seguido de 2 a 10 cartões d
 | Rótulo do botão | 25 caracteres | |
 | Número de telefone (no botão de telefone) | 20 caracteres | |
 | URL (no botão de URL) | 2.000 caracteres; suporta 1 variável adicionada ao final | Botões de URL abrem no navegador padrão do usuário, fora do WhatsApp. Nenhum webhook de pedido ou conversão é acionado a partir desse ponto. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Per-card character lengths" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Comprimento de caracteres por cartão" }
 
 ## Mensagens de resposta {#response-messages}
 
@@ -111,7 +111,7 @@ A Braze suporta sete layouts de mensagem de resposta:
 | Mensagem de lista | Mensagem com uma lista estruturada e rolável de opções selecionáveis |
 | Mensagem de fluxo | Mensagem que solicita aos usuários que preencham um formulário ou tarefa interativa no WhatsApp, com o resultado retornando para a Braze |
 | Mensagem de produto Meta | Mensagem que destaca um único produto, múltiplos produtos ou um catálogo inteiro de um catálogo Meta conectado |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Response messages" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Mensagens de resposta" }
 
 ### Componentes de mensagem de lista {#list-message-components}
 
@@ -124,7 +124,7 @@ A Braze suporta sete layouts de mensagem de resposta:
 | Título da seção | 24 caracteres |
 | Título da linha | 24 caracteres |
 | Descrição da linha | 72 caracteres |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="List message components" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Componentes de mensagem de lista" }
 
 ### Componentes de resposta rápida {#quick-reply-components}
 
@@ -132,7 +132,7 @@ A Braze suporta sete layouts de mensagem de resposta:
 | --- | --- |
 | Botão | Até 3 |
 | Rótulo do botão | 20 caracteres por botão |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Quick reply components" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Componentes de resposta rápida" }
 
 ## Especificações de mídia {#media-specifications}
 
@@ -142,11 +142,11 @@ As especificações a seguir se aplicam a todas as mídias em cabeçalhos de mod
 
 ### Imagens {#images}
 
-{% multi_lang_include image_specs.md variable_name='WhatsApp images' %}
+{% multi_lang_include channels/image_specs.md variable_name='WhatsApp images' %}
 
 ### Vídeo {#video}
 
-{% multi_lang_include image_specs.md variable_name='WhatsApp videos' %}
+{% multi_lang_include channels/image_specs.md variable_name='WhatsApp videos' %}
 
 #### Compatibilidade com Android {#android-compatibility}
 
@@ -167,7 +167,7 @@ Uma mensagem de voz funciona como uma nota de voz gravada, com controles de repr
 | Tamanho do arquivo | Máximo de 16 MB |
 | Ícone de reprodução | Este ícone só aparece se o arquivo tiver 512 KB ou menos; arquivos maiores exibem um ícone de download |
 | Transcrição | Exibida automaticamente se o usuário tiver ativado as transcrições de voz do WhatsApp |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Voice message" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Mensagem de voz" }
 
 #### Mensagem de áudio básica {#basic-audio-message}
 
@@ -180,7 +180,7 @@ As especificações a seguir se aplicam ao compartilhamento padrão de arquivos 
 | MP3 | .mp3 | 16 MB | |
 | MP4 Audio | .m4a | 16 MB | |
 | OGG (codec OPUS) | .ogg | 16 MB | Arquivos OGG devem usar o codec OPUS. O formato base `audio/ogg` sem OPUS não é suportado.<br><br> Arquivos OGG/OPUS enviados como mensagens de áudio básicas exibirão um ícone de microfone (igual às mensagens de voz) em vez de um ícone de música. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Basic audio message" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Mensagem de áudio básica" }
 
 #### Considerações {#considerations}
 
@@ -200,7 +200,7 @@ As especificações a seguir se aplicam a cabeçalhos de modelos (formato de doc
 | Microsoft Excel | XLS, XLSX | 100 MB |
 | Microsoft PowerPoint | PPT, PPTX | 100 MB |
 | Texto simples | TXT | 100 MB |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Documents" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Documentos" }
 
 #### Considerações
 
@@ -219,4 +219,4 @@ As especificações a seguir se aplicam a cabeçalhos de modelos (formato de doc
 | Áudio (voz) | OGG (OPUS) | 16 MB | Não |
 | Áudio (básico) | AAC, AMR, MP3, M4A, OGG | 16 MB | Não |
 | Documento | PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, TXT | 100 MB | Sim (máximo de 1.024 caracteres) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Quick reference: WhatsApp media specifications" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Referência rápida: especificações de mídia do WhatsApp" }

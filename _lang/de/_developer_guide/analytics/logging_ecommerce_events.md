@@ -11,7 +11,7 @@ platform:
 
 # E-Commerce-Events protokollieren {#log-ecommerce-events}
 
-> Erfahren Sie, wie Sie [empfohlene E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/) über die Braze Android-, Swift- und Web-SDKs mithilfe typisierter Event-Klassen und `logEcommerceEvent` protokollieren. Informationen zu Event-Eigenschaftsschemata, Plattform-Features und Ingestion-Validierung finden Sie unter [Empfohlene Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/) und [Event-Validierung und Fehlerbehebung]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-validation-and-troubleshooting).
+> Erfahren Sie, wie Sie [empfohlene E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) über die Braze Android-, Swift- und Web-SDKs mithilfe typisierter Event-Klassen und `logEcommerceEvent` protokollieren. Informationen zu Event-Eigenschaftsschemata, Plattform-Features und Ingestion-Validierung finden Sie unter [Empfohlene Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events) und [Event-Validierung und Fehlerbehebung]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-validation-and-troubleshooting).
 
 {% alert note %}
 Verwenden Sie für Wrapper-SDKs, die hier nicht aufgeführt sind, stattdessen die entsprechende native Android- oder Swift-Methode.
@@ -19,7 +19,7 @@ Verwenden Sie für Wrapper-SDKs, die hier nicht aufgeführt sind, stattdessen di
 
 ## Event-Schemata {#event-schemas}
 
-Die sechs empfohlenen E-Commerce-Events teilen sich ein Schema auf Bestellebene über alle Plattformen hinweg. Verwenden Sie die folgenden Eigenschaftstabellen, wenn Sie den Payload für jedes Event erstellen. Das kanonische Schema mit vollständigem Validierungsverhalten und REST-API-Beispielen finden Sie unter [Empfohlene Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-schemas). Informationen zu Plattform-Features wie Segmentierung, Canvas-Templates und Reporting finden Sie unter [E-Commerce-Events verwenden]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/).
+Die sechs empfohlenen E-Commerce-Events teilen sich ein Schema auf Bestellebene über alle Plattformen hinweg. Verwenden Sie die folgenden Eigenschaftstabellen, wenn Sie den Payload für jedes Event erstellen. Das kanonische Schema mit vollständigem Validierungsverhalten und REST-API-Beispielen finden Sie unter [Empfohlene Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-schemas). Informationen zu Plattform-Features wie Segmentierung, Canvas-Templates und Reporting finden Sie unter [E-Commerce-Events verwenden]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 
 {% tabs local %}
 {% tab product_viewed %}
@@ -1273,6 +1273,6 @@ braze.logCustomEvent("ecommerce.order_refunded", {
 Um ein empfohlenes Event manuell zu protokollieren, rufen Sie `logCustomEvent` mit dem exakten Event-Namen (zum Beispiel `ecommerce.product_viewed`) und einem manuell erstellten `BrazeProperties`- oder `JSONObject`-Payload auf. Das SDK validiert keine Schemata empfohlener Events bei manuellen Aufrufen. Braze validiert diese Payloads während der Ingestion:
 
 - Gültige Payloads werden als empfohlene Events mit vollständiger Nachverarbeitung verarbeitet.
-- Ungültige Payloads (fehlende Pflichtfelder, falsche Typen, zusätzliche Eigenschaften auf oberster Ebene) werden nach der Ingestion verworfen. Fehler erscheinen im SDK-Verarbeitungsprotokoll des Workspace und in der [Fehlerübersichts-E-Mail]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#find-failures).
+- Ungültige Payloads (fehlende Pflichtfelder, falsche Typen, zusätzliche Eigenschaften auf oberster Ebene) werden nach der Ingestion verworfen. Fehler erscheinen im SDK-Verarbeitungsprotokoll des Workspace und in der [Fehlerübersichts-E-Mail]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#find-failures).
 
-Verwenden Sie nach Möglichkeit `logEcommerceEvent`, damit Sie ungültige Daten erkennen, bevor sie die App verlassen. Informationen zur allgemeinen Verwendung von `logCustomEvent` finden Sie unter [Angepasste Events protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android).
+Verwenden Sie nach Möglichkeit `logEcommerceEvent`, damit Sie ungültige Daten erkennen, bevor sie die App verlassen. Informationen zur allgemeinen Verwendung von `logCustomEvent` finden Sie unter [Angepasste Events protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android).

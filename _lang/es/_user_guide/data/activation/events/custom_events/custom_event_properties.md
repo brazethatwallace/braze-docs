@@ -20,9 +20,9 @@ Cada evento personalizado o compra puede tener hasta 256 propiedades de eventos 
 
 ## Formato esperado {#expected-format}
 
-Los valores de las propiedades deben ser un objeto: las claves son los nombres de las propiedades (cadenas no vacías, de 255 caracteres o menos, sin `$` inicial), y los valores son los valores de las propiedades. Para los tipos de datos compatibles, los requisitos de formato y los límites de carga útil, consulta [Tipos de datos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#event-property-data-types).
+Los valores de las propiedades deben ser un objeto: las claves son los nombres de las propiedades (cadenas no vacías, de 255 caracteres o menos, sin `$` inicial), y los valores son los valores de las propiedades. Para los tipos de datos compatibles, los requisitos de formato y los límites de carga útil, consulta [Tipos de datos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#event-property-data-types).
 
-Puedes cambiar el tipo de datos de tu propiedad de evento personalizado, pero ten en cuenta los impactos de [cambiar los tipos de datos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#changing-custom-attribute-or-event-data-type) después de que se hayan recopilado los datos.
+Puedes cambiar el tipo de datos de tu propiedad de evento personalizado, pero ten en cuenta los impactos de [cambiar los tipos de datos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#changing-custom-attribute-or-event-data-type) después de que se hayan recopilado los datos.
 
 ### Claves reservadas {#reserved-keys}
 
@@ -40,19 +40,19 @@ Las propiedades de eventos personalizados pueden utilizarse para cualificar dese
 
 ### Desencadenar mensajes {#trigger-messages}
 
-Usa las propiedades de eventos personalizados para delimitar aún más tu audiencia para una Campaign o Canvas en particular. Por ejemplo, si tienes una aplicación de comercio electrónico y quieres enviar un mensaje a un usuario cuando abandona su carrito, puedes añadir una propiedad de evento personalizado de `price` para mejorar tu audiencia objetivo y permitir una mayor personalización de la campaña.
+Usa las propiedades de eventos personalizados para delimitar aún más tu audiencia para una campaña o Canvas en particular. Por ejemplo, si tienes una aplicación de comercio electrónico y quieres enviar un mensaje a un usuario cuando abandona su carrito, puedes añadir una propiedad de evento personalizado de `price` para mejorar tu audiencia objetivo y permitir una mayor personalización de la campaña.
 
 ![Filtros de propiedades de eventos personalizados para un carrito abandonado. Dos filtros se combinan con un operador AND para enviar esta campaña a usuarios que abandonaron su carrito con un precio entre 100 y 200 dólares]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png"){: style="max-width:70%;"}
 
-Las propiedades de eventos personalizados anidadas también son compatibles con la [entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/).
+Las propiedades de eventos personalizados anidadas también son compatibles con la [entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery).
 
 ![Filtros de propiedades de eventos personalizados para un carrito abandonado. Se selecciona un filtro si algún artículo del carrito tiene un precio superior a 100 dólares.]({% image_buster /assets/img_archive/customEventPropertiesNested.png %} "customEventPropertiesNested.png"){: style="max-width:70%;"}
 
 ### Personalizar mensajes {#personalize-messages}
 
-También puedes usar propiedades de eventos personalizados para la personalización dentro de la plantilla de mensajería. Cualquier campaña que utilice [entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) con un evento desencadenante puede usar propiedades de eventos personalizados de ese evento para la personalización de la mensajería.
+También puedes usar propiedades de eventos personalizados para la personalización dentro de la plantilla de mensajería. Cualquier campaña que utilice [entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) con un evento desencadenante puede usar propiedades de eventos personalizados de ese evento para la personalización de la mensajería.
 
-Por ejemplo, si tienes una aplicación de juegos y quieres enviar un mensaje a los usuarios que completaron un nivel, podrías personalizar aún más tu mensaje con una propiedad para el tiempo que les tomó a los usuarios completar ese nivel. En este ejemplo, el mensaje se personaliza para tres segmentos diferentes usando [lógica condicional]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/). La propiedad de evento personalizado llamada `time_spent` puede incluirse en el mensaje llamando a ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
+Por ejemplo, si tienes una aplicación de juegos y quieres enviar un mensaje a los usuarios que completaron un nivel, podrías personalizar aún más tu mensaje con una propiedad para el tiempo que les tomó a los usuarios completar ese nivel. En este ejemplo, el mensaje se personaliza para tres segmentos diferentes usando [lógica condicional]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic). La propiedad de evento personalizado llamada `time_spent` puede incluirse en el mensaje llamando a ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
 
 {% raw %}
 ```liquid
@@ -70,7 +70,7 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 Si el usuario no tiene conexión a Internet, los mensajes dentro de la aplicación desencadenados con propiedades de eventos personalizados con plantilla (por ejemplo, {% raw %}``{{event_properties.${time_spent}}}``{% endraw %}) fallarán y no se mostrarán.
 {% endalert %}
 
-Para obtener una lista completa de etiquetas de Liquid que harán que los mensajes dentro de la aplicación se entreguen como mensajes dentro de la aplicación con plantilla, consulta [Preguntas frecuentes]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages/).
+Para obtener una lista completa de etiquetas de Liquid que harán que los mensajes dentro de la aplicación se entreguen como mensajes dentro de la aplicación con plantilla, consulta [Preguntas frecuentes]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages).
 
 #### Consideraciones con los filtros {#considerations-with-filters}
 
@@ -85,7 +85,7 @@ Las propiedades de eventos para eventos personalizados se actualizan en tiempo r
 
 #### Añadir propiedades de eventos para segmentación {#adding-event-properties-for-segmentation}
 
-Necesitas el [permiso de usuario]({{site.baseurl}}/user_guide/data/infrastructure/data_points/#viewing-data-point-usage) "Edit Custom Event Property Segmentation" para crear segmentos basados en la recencia y frecuencia de propiedades de eventos.
+Necesitas el [permiso de usuario]({{site.baseurl}}/user_guide/data/infrastructure/data_points#viewing-data-point-usage) "Edit Custom Event Property Segmentation" para crear segmentos basados en la recencia y frecuencia de propiedades de eventos.
 
 De forma predeterminada, puedes tener 20 propiedades de eventos segmentables por espacio de trabajo. Ponte en contacto con tu director de cuentas de Braze para aumentar este límite.
 
@@ -113,13 +113,13 @@ En lo que respecta al uso de suscripción, las propiedades de eventos personaliz
 
 ### Propiedades de entrada de Canvas y propiedades de eventos {#canvas-entry-properties-and-event-properties}
 
-{% multi_lang_include canvas_entry_event_properties.md %}
+{% multi_lang_include canvas/entry_event_properties.md %}
 
 ### Objetos anidados {#nested-objects}
 
 Puedes usar objetos anidados (objetos dentro de otro objeto) para enviar datos JSON anidados como propiedades de eventos personalizados y compras. Estos datos anidados pueden utilizarse para crear plantillas de información personalizada en mensajes, desencadenar envíos de mensajes y segmentar usuarios.
 
-Para obtener más información, consulta nuestra página dedicada sobre [Objetos anidados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
+Para obtener más información, consulta nuestra página dedicada sobre [Objetos anidados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 
 ## Almacenamiento de propiedades de eventos personalizados {#custom-event-property-storage}
 
@@ -128,6 +128,6 @@ Las propiedades de eventos personalizados están diseñadas para ayudarte a aume
 Puedes segmentar basándote en los valores de las propiedades de eventos de dos maneras:
 
 1. **Dentro de 30 días:** Puedes usar la segmentación por propiedades de eventos basada en la frecuencia y recencia de valores específicos de propiedades de eventos dentro de los segmentos de Braze. Esta opción afecta al uso de datos.<br><br>
-2. **Dentro y más allá de 30 días:** Para cubrir tanto la segmentación por propiedades de eventos a corto como a largo plazo, puedes usar [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/). Esta característica segmenta a los usuarios basándose en eventos personalizados y propiedades de eventos registrados en los últimos dos años. Esta opción no afecta al uso de datos.
+2. **Dentro y más allá de 30 días:** Para cubrir tanto la segmentación por propiedades de eventos a corto como a largo plazo, puedes usar [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Esta característica segmenta a los usuarios basándose en eventos personalizados y propiedades de eventos registrados en los últimos dos años. Esta opción no afecta al uso de datos.
 
 Ponte en contacto con tu administrador del éxito del cliente de Braze para obtener recomendaciones sobre el mejor enfoque según tus necesidades específicas.

@@ -25,13 +25,13 @@ channel:
 
 ### ユーザープロファイルとプッシュ変更ログ {#user-profiles-and-push-changelog}
 
-ユーザーのプロファイル（[**ユーザーを検索**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) > ユーザーを選択 > **Engagement**タブ）では、**Contact Settings**にプッシュサブスクリプション状態が表示され、**Push Registered For**（Brazeがそのプロファイルにフォアグラウンドプッシュを送信するために使用できるアプリとプラットフォーム）、およびトークンの移動、エラー、登録更新に関する**Push Changelog**が表示されます。**Push Registered For**とフォアグラウンドおよびバックグラウンドの認可の読み方については、[プッシュ登録ステータスの確認]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#checking-push-registration-status)を参照してください。
+ユーザーのプロファイル（[**ユーザーを検索**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) > ユーザーを選択 > **Engagement**タブ）では、**Contact Settings**にプッシュサブスクリプション状態が表示され、**Push Registered For**（Brazeがそのプロファイルにフォアグラウンドプッシュを送信するために使用できるアプリとプラットフォーム）、およびトークンの移動、エラー、登録更新に関する**Push Changelog**が表示されます。**Push Registered For**とフォアグラウンドおよびバックグラウンドの認可の読み方については、[プッシュ登録ステータスの確認]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#checking-push-registration-status)を参照してください。
 
 iOSおよびAndroidでは、デバイスがフォアグラウンドプッシュ認可からバックグラウンドのみに移行した場合（たとえば、ユーザーがシステム設定で通知をオフにし、SDKがその変更を報告した場合）、プッシュ変更ログに「Push token was updated from foreground push enabled to foreground push disabled」などのエントリが含まれることがあります。
 
 新しいSDKデータを期待している場合（たとえば、テストセッションの直後）、値が古く見える場合はユーザープロファイルで**Refresh**を選択してください。SDKがデータをフラッシュしてからプロファイルに最新のプッシュ登録が反映されるまでに短い遅延が発生する場合があります。
 
-[内部グループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/)に追加したユーザーについては、そのグループの**Internal Group Settings**で**Record User Events for group members**を選択すると、SDKリクエストがログに表示されます。次に、**設定** > **Event User Log**で[イベントユーザーログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/)を開き、ユーザーのSDKリクエストを見つけて、生のペイロードを展開します。デバイスがリモート通知を有効または無効として報告しているかどうかを検証しながら、`remote_notification_enabled`などのフィールドを確認できます。
+[内部グループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups)に追加したユーザーについては、そのグループの**Internal Group Settings**で**Record User Events for group members**を選択すると、SDKリクエストがログに表示されます。次に、**設定** > **Event User Log**で[イベントユーザーログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log)を開き、ユーザーのSDKリクエストを見つけて、生のペイロードを展開します。デバイスがリモート通知を有効または無効として報告しているかどうかを検証しながら、`remote_notification_enabled`などのフィールドを確認できます。
 
 ### セグメンテーションとプッシュフィルター {#segmentation-and-push-filters}
 
@@ -39,7 +39,7 @@ iOSおよびAndroidでは、デバイスがフォアグラウンドプッシュ�
 
 ### キャンペーンおよびキャンバスの分析 {#campaign-and-canvas-analytics}
 
-プッシュ**キャンペーン**または**キャンバス**の分析ページでは、*送信数*、*バウンス数*、*開封数*などの指標がその送信の配信とエンゲージメントを反映します。これらの数値を個々のプロファイルと照合するには、**キャンペーン Details**または**キャンバス Details**から**User Data**（CSV）を使用して受信者をエクスポートします。手順と権限については、[キャンペーンデータのエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_campaign_results_data/)および[キャンバスデータのエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/)を参照してください。分析とエクスポートの間でカウントが一致しない場合は、エクスポートのトラブルシューティングの[キャンペーンおよびキャンバスの分析]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/#campaign-and-canvas-analytics)を参照してください。
+プッシュ**キャンペーン**または**キャンバス**の分析ページでは、*送信数*、*バウンス数*、*開封数*などの指標がその送信の配信とエンゲージメントを反映します。これらの数値を個々のプロファイルと照合するには、**キャンペーンの詳細**または**キャンバスの詳細**から**User Data**（CSV）を使用して受信者をエクスポートします。手順と権限については、[キャンペーンデータのエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_campaign_results_data)および[キャンバスデータのエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data)を参照してください。分析とエクスポートの間でカウントが一致しない場合は、エクスポートのトラブルシューティングの[キャンペーンおよびキャンバスの分析]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting#campaign-and-canvas-analytics)を参照してください。
 
 ## iOSユーザーアクションとプッシュステータス {#ios-user-actions-push-status}
 
@@ -53,7 +53,7 @@ iOSおよびAndroidでは、デバイスがフォアグラウンドプッシュ�
 | ユーザーがデバイス設定からプッシュを有効にしてセッションを記録する | `true` | `true` | フォアグラウンド | `Opted-In`** |
 | ユーザーがデバイス設定からプッシュを無効にしてセッションを記録する | `false` | `false` | バックグラウンド | 更新なし |
 | ユーザーがアプリを削除する | 更新なし | プッシュトークンが無効化された時に更新 | プッシュトークンが無効化された時に更新 | 更新なし |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="iOS user actions and push status #ios-user-actions-push-status" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="iOSユーザーアクションとプッシュステータス" }
 
 <sup>* アプリが仮承認プッシュを使用していない場合、ユーザーがプッシュ通知を許可するまで`Foreground Push Enabled`は`false`です。アプリが仮承認プッシュを使用している場合、最初のセッション開始時に`Foreground Push Enabled`は`true`になります。詳細については、[仮承認とサイレントプッシュ](#provisional-push)を参照してください。</sup>
 
@@ -63,7 +63,7 @@ iOSおよびAndroidでは、デバイスがフォアグラウンドプッシュ�
 
 プッシュ対応のすべてのプラットフォーム（iOS、Web、Android）では、OSレベルのシステムプロンプトによる明示的なオプトインが必要です。以下に若干の違いを説明します。
 
-ユーザーの決定は最終的なものであり、拒否された後に再度尋ねることはできないため、[プッシュプライマー]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)のアプリ内メッセージを使用することは、オプトイン率を向上させるための重要な戦略です。
+ユーザーの決定は最終的なものであり、拒否された後に再度尋ねることはできないため、[プッシュプライマー]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)のアプリ内メッセージを使用することは、オプトイン率を向上させるための重要な戦略です。
 
 **ネイティブOSプッシュ権限プロンプト**
 
@@ -72,13 +72,13 @@ iOSおよびAndroidでは、デバイスがフォアグラウンドプッシュ�
 | iOS | ![「My Appが通知を送信します」と表示され、メッセージの下部に「許可しない」と「許可」の2つのボタンがあるiOSネイティブプッシュプロンプト。]({% image_buster /assets/img/push_implementation_guide/ios-push-prompt.png %}){: style="max-width:410px;"} | [仮承認プッシュ](#provisional-push)権限をリクエストする場合は適用されません。|
 | Android | ![「Kitchenerie からの通知を許可しますか？」と表示され、メッセージの下部に「許可」と「許可しない」の2つのボタンがあるAndroidプッシュメッセージ。]({% image_buster /assets/img/push_implementation_guide/android-push-prompt.png %}){: style="max-width:410px;"} | このプッシュ権限はAndroid 13で導入されました。Android 13より前は、プッシュの送信に権限は不要でした。|
 | Web | ![「Braze.comが通知を表示しようとしています」と表示され、メッセージの下部に「ブロック」と「許可」の2つのボタンがあるWebブラウザのネイティブプッシュプロンプト。]({% image_buster /assets/img/push_implementation_guide/web-push-prompt.png %}){: style="max-width:410px;"} | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push permission" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="プッシュ権限" }
 
 ### Android
 
 Android 13より前は、プッシュ通知の送信に権限は不要でした。Android 12以前では、Brazeが自動的にプッシュトークンをリクエストする際、最初のセッションですべてのユーザーが`Subscribed`と見なされます。この時点で、ユーザーはそのデバイスの有効なプッシュトークンとデフォルトのサブスクリプション状態`Subscribed`を持つ**プッシュ有効**状態になります。
 
-[Android 13]({{site.baseurl}}/developer_guide/platforms/android/android_13/)以降、プッシュ権限はユーザーに要求し、許可を得る必要があります。アプリは適切なタイミングでユーザーに手動で権限をリクエストできますが、リクエストしない場合は、アプリが[通知チャネル](https://developer.android.com/reference/android/app/NotificationChannel)を作成した際に自動的にプロンプトが表示されます。
+[Android 13]({{site.baseurl}}/developer_guide/platforms/android/android_13)以降、プッシュ権限はユーザーに要求し、許可を得る必要があります。アプリは適切なタイミングでユーザーに手動で権限をリクエストできますが、リクエストしない場合は、アプリが[通知チャネル](https://developer.android.com/reference/android/app/NotificationChannel)を作成した際に自動的にプロンプトが表示されます。
 
 ### iOS
 
@@ -92,7 +92,7 @@ Android 13より前は、プッシュ通知の送信に権限は不要でした�
 
 iOS 12（2018年リリース）より前は、すべてのユーザーがプッシュ通知を受け取るために明示的にオプトインする必要がありました。
 
-iOS 12で、Appleは[仮承認](https://www.braze.com/resources/articles/mastering-provisional-push)を導入しました。これにより、ブランドはユーザーが明示的にオプトインする前に、ユーザーの通知センターにサイレントプッシュ通知を送信でき、メッセージの価値を早期に示す機会が得られます。詳細については、[仮承認]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push-authentication--quiet-notifications)を参照してください。
+iOS 12で、Appleは[仮承認](https://www.braze.com/resources/articles/mastering-provisional-push)を導入しました。これにより、ブランドはユーザーが明示的にオプトインする前に、ユーザーの通知センターにサイレントプッシュ通知を送信でき、メッセージの価値を早期に示す機会が得られます。詳細については、[仮承認]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push-authentication--quiet-notifications)を参照してください。
 
 ### Web {#web}
 
@@ -104,17 +104,17 @@ iOSやAndroidではアプリがいつでも権限プロンプトを表示でき�
 
 ## プッシュトークン {#push-tokens}
 
-[プッシュトークン]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/)は、ユーザーのデバイスによって生成される一意の匿名識別子であり、各受信者の通知をどこに送信するかを識別するためにBrazeに送信されます。
+[プッシュトークン]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle)は、ユーザーのデバイスによって生成される一意の匿名識別子であり、各受信者の通知をどこに送信するかを識別するためにBrazeに送信されます。
 
-[プッシュトークン]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/)の分類には、プッシュ通知をユーザーに送信する方法を理解するために不可欠な2つの方法があります。
+[プッシュトークン]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle)の分類には、プッシュ通知をユーザーに送信する方法を理解するために不可欠な2つの方法があります。
 
 1. **フォアグラウンドプッシュ**は、ユーザーのデバイスのフォアグラウンドに通常の可視プッシュ通知を送信する機能を提供します。
-2. **バックグラウンドプッシュ**は、特定のデバイスがそのブランドからのプッシュ通知の受信をオプトインしているかどうかに関係なく利用できます。バックグラウンドプッシュにより、ブランドはサイレントプッシュ通知（意図的に表示されない通知）をデバイスに送信して、[アンインストール追跡]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/)などの主要な機能をサポートできます。
+2. **バックグラウンドプッシュ**は、特定のデバイスがそのブランドからのプッシュ通知の受信をオプトインしているかどうかに関係なく利用できます。バックグラウンドプッシュにより、ブランドはサイレントプッシュ通知（意図的に表示されない通知）をデバイスに送信して、[アンインストール追跡]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking)などの主要な機能をサポートできます。
 
 ユーザープロファイルにアプリに関連付けられた有効なフォアグラウンドプッシュトークンがある場合、Brazeはそのユーザーを該当アプリの「プッシュ登録済み」と見なします。Brazeは、これらのユーザーを識別するための特定のセグメンテーションフィルター`Foreground Push Enabled for App,`を提供しています。
 
 {% alert note %}
-`Foreground Push Enabled for App`フィルターは、該当アプリの有効なフォアグラウンドおよびバックグラウンドプッシュトークンの存在のみを考慮します。ただし、より汎用的な[`Foreground Push Enabled`](#foreground-push-enabled)フィルターは、ワークスペース内のいずれかのアプリでプッシュ通知を明示的に有効にしたユーザーをセグメント化します。このカウントにはフォアグラウンドプッシュのみが含まれ、配信停止したユーザーは含まれません。これらのフィルターやその他のフィルターの詳細については、[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)を参照してください。
+`Foreground Push Enabled for App`フィルターは、該当アプリの有効なフォアグラウンドおよびバックグラウンドプッシュトークンの存在のみを考慮します。ただし、より汎用的な[`Foreground Push Enabled`](#foreground-push-enabled)フィルターは、ワークスペース内のいずれかのアプリでプッシュ通知を明示的に有効にしたユーザーをセグメント化します。このカウントにはフォアグラウンドプッシュのみが含まれ、配信停止したユーザーは含まれません。これらのフィルターやその他のフィルターの詳細については、[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)を参照してください。
 {% endalert %}
 
 ### 1つのデバイスに複数のユーザー {#multiple-users-on-one-device}
@@ -125,7 +125,7 @@ iOSやAndroidではアプリがいつでも権限プロンプトを表示でき�
 
 アプリまたはWebサイトは、デバイスごとに1つのプッシュサブスクリプションのみを持つことができます。そのため、ユーザーがデバイスまたはWebサイトからログアウトし、新しいユーザーがログインすると、プッシュトークンは新しいユーザーに再割り当てされます。これは、ユーザープロファイルの**Engagement**タブの**Contact Settings**セクションに反映されます。
 
-![ユーザープロファイルの**Engagement**タブにあるプッシュトークン変更ログ。プッシュトークンが別のユーザーに移動された日時とトークンの内容が表示されています。]({% image_buster /assets/img/push_token_changelog.png %})
+![ユーザープロファイルのEngagementタブにあるプッシュトークン変更ログ。プッシュトークンが別のユーザーに移動された日時とトークンの内容が表示されています。]({% image_buster /assets/img/push_token_changelog.png %})
 
 プッシュプロバイダー（APNs/FCM）が1つのデバイス上の複数のユーザーを区別する方法がないため、プッシュトークンは最後にログインしたユーザーに渡され、デバイス上でプッシュのターゲットとするユーザーが決定されます。
 
@@ -146,7 +146,7 @@ iOSやAndroidではアプリがいつでも権限プロンプトを表示でき�
 ユーザーは、ワークスペース内のアプリのアクティブなフォアグラウンドプッシュトークンを持っている場合、「プッシュ有効」または「プッシュ登録済み」と見なされます。つまり、プッシュ有効化ステータスはアプリ固有です。
 
 {% alert note %}
-プッシュ登録状態の確認方法については、[プッシュ登録ステータス]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#checking-push-registration-status)を参照してください。
+プッシュ登録状態の確認方法については、[プッシュ登録ステータス]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#checking-push-registration-status)を参照してください。
 {% endalert %}
 
 ## プッシュ登録と変更ログ情報の確認 {#finding-push-registration-and-changelog-information}
@@ -180,7 +180,7 @@ iOSやAndroidではアプリがいつでも権限プロンプトを表示でき�
 
 ユーザーがブラウザ内で通知を無効にした場合、そのユーザーに送信される次のプッシュ通知はバウンスし、Brazeはユーザーのプッシュトークンを適切に更新します。これは、プッシュ有効フィルター（`Background or Foreground Push Enabled`、`Foreground Push Enabled`、`Foreground Push Enabled for App`）の適格性を管理するために使用されます。ユーザーのプロファイルに設定されたサブスクリプションステータスはユーザーレベルの設定であり、プッシュがバウンスしても変更されません。
 
-### 410 Webプッシュトークンエラー {#410-web-push-token-errors} {#410-web-push-token-errors}
+### 410 Webプッシュトークンエラー {#410-web-push-token-errors}
 
 `410: Gone`エラーが発生した場合、これはユーザーがOS設定のブラウザからWebプッシュ通知を無効にした場合、同じデバイスで別のユーザーとしてログインしている場合、またはユーザーがしばらくWebサイトにアクセスしていない場合に発生する可能性があります。
 
@@ -233,4 +233,4 @@ iOSでは、プッシュ通知が表示される前にアプリがプッシュ�
 
 ## ベストプラクティス {#best-practices}
 
-Brazeでのプッシュの使用を最適化するための詳細なガイダンスについては、[プッシュのベストプラクティス]({{site.baseurl}}/user_guide/channels/push/best_practices/)に関する専用記事を参照してください。
+Brazeでのプッシュの使用を最適化するための詳細なガイダンスについては、[プッシュのベストプラクティス]({{site.baseurl}}/user_guide/channels/push/best_practices)に関する専用記事を参照してください。

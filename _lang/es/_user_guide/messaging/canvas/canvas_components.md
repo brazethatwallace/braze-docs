@@ -21,9 +21,9 @@ guide_featured_list:
     image: /assets/img/braze_icons/briefcase-01.svg
   - name: Paso de Rutas de audiencia
     link: /docs/user_guide/messaging/canvas/canvas_components/audience_paths
-    image: /assets/img/braze_icons/users-01.svg 
+    image: /assets/img/braze_icons/users-01.svg
   - name: Paso de sincronización de audiencia
-    link: /docs/partners/canvas_audience_sync/
+    link: /docs/partners/canvas_audience_sync
     image: /assets/img/braze_icons/refresh-ccw-02.svg
   - name: Paso del Optimizador de contenidos
     link: /docs/user_guide/messaging/canvas/canvas_components/content_optimizer_step
@@ -54,11 +54,11 @@ guide_featured_list:
     image: /assets/img/braze_icons/user-check-01.svg
 ---
 
-## Acerca de los componentes de Canvas
+## Acerca de los componentes de Canvas {#about-canvas-components}
 
 Con los componentes de Canvas, puedes desbloquear nuevos recorridos de usuario para mejorar tu proceso y aumentar la efectividad del alcance de tu audiencia.
 
-### Personalizar los recorridos de usuario
+### Personalizar los recorridos de usuario {#customizing-user-journeys}
 
 ![Ejemplo de un recorrido de usuario en Canvas con un paso de División de decisiones seguido de pasos de retraso y pasos de mensaje.]({% image_buster /assets/img/canvas_intro/canvas_intro.gif %}){: style="float:right;max-width:55%;margin-left:15px;"}
 
@@ -68,10 +68,10 @@ Los componentes de [División de decisiones]({{site.baseurl}}/user_guide/messagi
 
 Los componentes de [retraso]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) te permiten retrasar un solo paso en tu Canvas. Este paso de retraso independiente en tu Canvas es ideal para comunicar mensajes a tus usuarios en un momento específico. Además, los componentes de retraso también pueden aumentar el alcance de tu audiencia al permitir más tiempo para que tu audiencia cumpla con los criterios del componente.
 
-### Pruebas
+### Pruebas {#testing}
 
 Al crear los recorridos de tus usuarios, es posible que también quieras probar cuál es la ruta de Canvas más efectiva. Con los [Recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step), puedes probar múltiples rutas de Canvas en cualquier paso. También puedes usar las conexiones entre pasos como una vista previa de alto nivel. Las conexiones de color naranja indican que el paso anterior hará avanzar inmediatamente a los usuarios al siguiente paso.
 
-### Integración
+### Integración {#integration}
 
-¿Quieres sincronizar los datos de usuario propios de tu marca? Aprovecha las opciones de sincronización de audiencia disponibles para [Facebook]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync/) y [Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/).
+¿Quieres sincronizar los datos de usuario propios de tu marca? Aprovecha las opciones de sincronización de audiencia disponibles para [Facebook]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync) y [Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync).

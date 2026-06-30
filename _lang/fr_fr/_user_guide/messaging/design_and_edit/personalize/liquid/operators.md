@@ -23,13 +23,13 @@ Ce tableau répertorie les opérateurs pris en charge. Notez que les parenthèse
 | or | condition A ou condition B |
 | and | condition A et condition B |
 | contains | vérifie si une chaîne de caractères ou un tableau de chaînes contient une chaîne de caractères |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Operators" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Opérateurs" }
 
 {% alert note %}
-Les opérateurs peuvent être utilisés dans les instructions conditionnelles (`if`, `elsif`, `unless`) mais pas dans les instructions `assign`, les boucles `for` ou les crochets d'accès aux tableaux. Dans les balises `case` et `when`, chaque branche compare l'expression `case` à une valeur `when` en utilisant l'égalité plutôt que des expressions d'opérateurs arbitraires. Pour des exemples, consultez [Logique conditionnelle de messagerie]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags). Pour une explication complète, consultez [Où utiliser les opérateurs et les filtres]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).
+Les opérateurs peuvent être utilisés dans les instructions conditionnelles (`if`, `elsif`, `unless`) mais pas dans les instructions `assign`, les boucles `for` ou les crochets d'accès aux tableaux. Dans les balises `case` et `when`, chaque branche compare l'expression `case` à une valeur `when` en utilisant l'égalité plutôt que des expressions d'opérateurs arbitraires. Pour des exemples, consultez [Logique conditionnelle de messagerie]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags). Pour une explication complète, consultez [Où utiliser les opérateurs et les filtres]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
-### Regrouper des conditions sans parenthèses {#grouping-conditions-without-parentheses}
+## Regrouper des conditions sans parenthèses {#grouping-conditions-without-parentheses}
 
 Liquid ne prend pas en charge les parenthèses pour regrouper les expressions. Pour évaluer une logique booléenne complexe telle que `(a and b) or c`, utilisez des instructions `if` imbriquées ou des variables intermédiaires.
 
@@ -243,13 +243,13 @@ Stream now!
 
 ![Un compositeur de notification push avec le code Liquid complet du tutoriel.]({% image_buster /assets/img/abort-if.png %})
 
-Vous pouvez également [annuler des messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/) en fonction du Contenu connecté.
+Vous pouvez également [annuler des messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content) en fonction du Contenu connecté.
 
 ## Résolution des problèmes {#troubleshooting}
 
 ### L'envoi test n'arrive pas lors de l'utilisation d'`abort_message` {#test-send-doesnt-arrive-when-using-abort_message}
 
-Si vous utilisez [`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) et qu'un envoi test n'arrive jamais, il se peut que l'utilisateur de prévisualisation ne possède pas les attributs attendus par votre code Liquid. La logique d'annulation s'exécute lors du rendu ; lorsqu'elle se déclenche, Braze n'envoie pas le message. Prévisualisez avec un utilisateur qui dispose des données de profil requises, ou utilisez **Preview as user** pour tester les champs du destinataire qui fournissent les mêmes valeurs que celles de votre audience de production.
+Si vous utilisez [`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) et qu'un envoi test n'arrive jamais, il se peut que l'utilisateur de prévisualisation ne possède pas les attributs attendus par votre code Liquid. La logique d'annulation s'exécute lors du rendu ; lorsqu'elle se déclenche, Braze n'envoie pas le message. Prévisualisez avec un utilisateur qui dispose des données de profil requises, ou utilisez **Prévisualiser en tant qu'utilisateur** pour tester les champs du destinataire qui fournissent les mêmes valeurs que celles de votre audience de production.
 
 ### La prévisualisation peut convertir incorrectement les types de propriétés {#preview-may-incorrectly-coerce-property-types}
 

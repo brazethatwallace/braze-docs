@@ -26,9 +26,9 @@ Campaign은 단순한 단일 메시징(예: 하나의 메시지로 사용자에�
 1. **메시징** > **Campaigns**로 이동하여 **캠페인 생성**을 선택합니다.
 2. **Content Cards**를 선택하거나, 여러 채널을 타겟팅하는 Campaign의 경우 **멀티채널**을 선택합니다.
 3. Campaign에 명확하고 의미 있는 이름을 지정합니다.
-4. 필요에 따라 [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)와 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)를 추가합니다.
-   * 태그를 사용하면 Campaign을 더 쉽게 찾고 보고서를 작성할 수 있습니다. 예를 들어, [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)를 사용할 때 관련 태그로 필터링할 수 있습니다.
-5. Campaign에 원하는 만큼 배리언트를 추가하고 이름을 지정합니다. 추가된 각 배리언트에 대해 서로 다른 플랫폼, 메시지 유형 및 레이아웃을 선택할 수 있습니다. 배리언트에 대한 자세한 내용은 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)를 참조하세요.
+4. 필요에 따라 [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams)와 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)를 추가합니다.
+   * 태그를 사용하면 Campaign을 더 쉽게 찾고 보고서를 작성할 수 있습니다. 예를 들어, [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder)를 사용할 때 관련 태그로 필터링할 수 있습니다.
+5. Campaign에 원하는 만큼 배리언트를 추가하고 이름을 지정합니다. 추가된 각 배리언트에 대해 서로 다른 플랫폼, 메시지 유형 및 레이아웃을 선택할 수 있습니다. 배리언트에 대한 자세한 내용은 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing)를 참조하세요.
 
 {% alert tip %}
 Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 경우, 추가 배리언트를 추가하기 전에 메시지를 먼저 작성하세요. 그런 다음 **배리언트 추가** 드롭다운에서 **배리언트에서 복사**를 선택할 수 있습니다.
@@ -37,7 +37,7 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 {% endtab %}
 {% tab Canvas %}
 
-1. Canvas 작성기를 사용하여 [Canvas를 생성]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)합니다.
+1. Canvas 작성기를 사용하여 [Canvas를 생성]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)합니다.
 2. Canvas를 설정한 후 Canvas 빌더에서 메시지 단계를 추가합니다. 단계에 명확하고 의미 있는 이름을 지정합니다.
 3. 메시징 채널로 **Content Cards**를 선택합니다.
 4. Braze가 콘텐츠 카드의 오디언스 자격 및 개인화를 계산하는 시점을 선택합니다. 단계 진입 시 또는 첫 노출 시(권장)로 설정할 수 있습니다. Content Cards를 포함하는 단계는 스케줄 기반 또는 실행 기반으로 설정할 수 있습니다.
@@ -53,13 +53,13 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 
 세 가지 기본 콘텐츠 카드 유형 중 하나를 선택합니다: **클래식**, **자막 이미지**, **이미지 전용**.
 
-각 유형의 예상 동작과 외관에 대해 자세히 알아보려면 [크리에이티브 세부 정보]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/)를 참조하거나 다음 표의 링크를 확인하세요. 이러한 콘텐츠 카드 유형은 모바일 앱과 웹 애플리케이션 모두에서 지원됩니다.
+각 유형의 예상 동작과 외관에 대해 자세히 알아보려면 [크리에이티브 세부 정보]({{site.baseurl}}/user_guide/channels/content_cards/creative_details)를 참조하거나 다음 표의 링크를 확인하세요. 이러한 콘텐츠 카드 유형은 모바일 앱과 웹 애플리케이션 모두에서 지원됩니다.
 
 | 메시지 유형 | 예시 | 설명 |
 |---|---|---|
-| [클래식]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#classic) | ![운동 수업 예약을 권장하는 작은 아이콘과 텍스트가 있는 클래식 콘텐츠 카드.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | 클래식 카드는 굵은 제목, 메시지 텍스트, 그리고 제목과 텍스트 왼쪽에 위치하는 선택적 이미지로 구성된 간단한 레이아웃입니다. 클래식 카드에는 정사각형 이미지나 아이콘을 사용하는 것이 좋습니다. |
-| [자막 이미지]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#captioned-image) | ![역도 선수 이미지와 운동 수업 예약을 권장하는 텍스트가 있는 자막 콘텐츠 카드.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | 자막 이미지 카드는 문구와 시선을 끄는 이미지로 콘텐츠를 보여줍니다. |
-| [이미지 전용]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#banner) | ![텍스트만 있는 이미지 전용 콘텐츠 카드.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | 이미지 전용 카드는 이미지, GIF 및 기타 텍스트가 아닌 크리에이티브 콘텐츠를 위한 공간으로 주목을 끕니다. |
+| [클래식]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#classic) | ![운동 수업 예약을 권장하는 작은 아이콘과 텍스트가 있는 클래식 콘텐츠 카드.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | 클래식 카드는 굵은 제목, 메시지 텍스트, 그리고 제목과 텍스트 왼쪽에 위치하는 선택적 이미지로 구성된 간단한 레이아웃입니다. 클래식 카드에는 정사각형 이미지나 아이콘을 사용하는 것이 좋습니다. |
+| [자막 이미지]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#captioned-image) | ![역도 선수 이미지와 운동 수업 예약을 권장하는 텍스트가 있는 자막 콘텐츠 카드.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | 자막 이미지 카드는 문구와 시선을 끄는 이미지로 콘텐츠를 보여줍니다. |
+| [이미지 전용]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#banner) | ![텍스트만 있는 이미지 전용 콘텐츠 카드.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | 이미지 전용 카드는 이미지, GIF 및 기타 텍스트가 아닌 크리에이티브 콘텐츠를 위한 공간으로 주목을 끕니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2단계: 메시지 유형 지정" }
 
 ## 3단계: 콘텐츠 카드 작성 {#step-3-compose-a-content-card}
@@ -70,21 +70,21 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 
 여기의 콘텐츠는 이전 단계에서 선택한 **카드 유형**에 따라 달라지지만, 다음 옵션 중 하나를 포함할 수 있습니다:
 
-#### 언어 {#language}
+### 언어 {#language}
 
-**언어 추가**를 선택하여 제공된 목록에서 원하는 언어를 추가합니다. 이렇게 하면 메시지에 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#conditional-logic)가 삽입됩니다. 콘텐츠를 작성하기 전에 언어를 선택하여 Liquid에서 적절한 위치에 텍스트를 입력할 수 있도록 하는 것이 좋습니다. 사용 가능한 전체 언어 목록은 [지원되는 언어]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported)를 참조하세요.
+**언어 추가**를 선택하여 제공된 목록에서 원하는 언어를 추가합니다. 이렇게 하면 메시지에 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic)가 삽입됩니다. 콘텐츠를 작성하기 전에 언어를 선택하여 Liquid에서 적절한 위치에 텍스트를 입력할 수 있도록 하는 것이 좋습니다. 사용 가능한 전체 언어 목록은 [지원되는 언어]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported)를 참조하세요.
 
 ![언어로 영어, 스페인어, 프랑스어가 선택되어 있고, 국제화할 필드로 제목, 설명, 링크 텍스트가 선택된 창.]({% image_buster /assets/img/add_languages.png %}){: style="max-width:70%;"}
 
-##### 오른쪽에서 왼쪽으로 쓰는 메시지 만들기 {#create-right-to-left-messages}
+#### 오른쪽에서 왼쪽으로 쓰는 메시지 만들기 {#create-right-to-left-messages}
 
-오른쪽에서 왼쪽으로 쓰는 메시지의 최종 모습은 서비스 제공업체가 렌더링하는 방식에 크게 좌우됩니다. 가능한 한 정확하게 표시되는 오른쪽에서 왼쪽으로 쓰는 메시지를 작성하기 위한 모범 사례는 [오른쪽에서 왼쪽으로 쓰는 메시지 만들기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/)를 참조하세요.
+오른쪽에서 왼쪽으로 쓰는 메시지의 최종 모습은 서비스 제공업체가 렌더링하는 방식에 크게 좌우됩니다. 가능한 한 정확하게 표시되는 오른쪽에서 왼쪽으로 쓰는 메시지를 작성하기 위한 모범 사례는 [오른쪽에서 왼쪽으로 쓰는 메시지 만들기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)를 참조하세요.
 
-#### 제목 및 메시지 {#title-and-message}
+### 제목 및 메시지 {#title-and-message}
 
 원하는 내용을 자유롭게 작성하세요. 제한은 없지만, 메시지를 빠르게 전달하고 고객이 클릭하도록 유도할수록 좋습니다! 명확하고 간결한 제목과 메시지 콘텐츠를 권장합니다. 이 필드는 이미지 전용 카드에는 제공되지 않습니다.
 
-#### 이미지 {#image}
+### 이미지 {#image}
 
 콘텐츠 카드에 이미지를 추가하려면 **이미지 추가**를 선택하거나 이미지 URL을 제공할 수 있습니다. **이미지 추가**를 선택하면 **미디어 라이브러리**가 열리며, 이전에 업로드한 이미지를 선택하거나 새 이미지를 추가할 수 있습니다.
 
@@ -92,13 +92,13 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
-#### 상단에 고정 {#pin-to-top}
+### 상단에 고정 {#pin-to-top}
 
 Braze는 고정된 카드를 사용자 피드 상단에 표시하며, 사용자는 이를 닫을 수 없습니다. 사용자의 피드에 여러 개의 고정 카드가 있는 경우, Braze는 시간순으로 정렬합니다. Braze가 콘텐츠 카드를 전달할 때 카드는 고정 또는 고정 해제 상태이며, 해당 상태는 카드의 수명 동안 변경되지 않습니다. Campaign에서 고정 설정을 변경하면 향후 전송되는 카드에만 업데이트가 적용됩니다. 이미 사용자의 피드에 있는 카드의 고정 상태는 변경되지 않습니다.
 
 !["이 카드를 피드 상단에 고정" 옵션이 선택된 모바일 및 웹용 Braze 콘텐츠 카드 미리보기 나란히 비교.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
-#### 클릭 시 동작 {#on-click-behavior}
+### 클릭 시 동작 {#on-click-behavior}
 
 고객이 카드에 표시된 링크를 클릭하면, 해당 링크는 앱 내부로 더 깊이 이동하거나 다른 사이트로 연결할 수 있습니다. 콘텐츠 카드의 클릭 시 동작을 선택할 때는 **링크 텍스트**도 그에 맞게 업데이트하는 것을 잊지 마세요.
 
@@ -107,9 +107,9 @@ Braze는 고정된 카드를 사용자 피드 상단에 표시하며, 사용자�
 | 동작 | 설명 |
 |---|---|
 | 웹 URL로 리디렉션 | 네이티브가 아닌 웹 페이지를 엽니다. |
-| [앱으로 딥링크]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content) | 앱의 기존 화면으로 딥링크합니다. |
-| 커스텀 이벤트 기록 | 트리거할 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)를 선택합니다. 다른 콘텐츠 카드를 표시하거나 추가 메시징을 트리거하는 데 사용할 수 있습니다. |
-| 커스텀 속성 기록 | 현재 사용자에 대해 설정할 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)을 선택합니다. |
+| [앱으로 딥링크]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content) | 앱의 기존 화면으로 딥링크합니다. |
+| 커스텀 이벤트 기록 | 트리거할 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events)를 선택합니다. 다른 콘텐츠 카드를 표시하거나 추가 메시징을 트리거하는 데 사용할 수 있습니다. |
+| 커스텀 속성 기록 | 현재 사용자에 대해 설정할 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)을 선택합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="클릭 시 동작" }
 
 **커스텀 이벤트 기록** 및 **커스텀 속성 기록** 옵션에는 다음 SDK 버전 호환성이 필요합니다:
@@ -118,7 +118,7 @@ Braze는 고정된 카드를 사용자 피드 상단에 표시하며, 사용자�
 
 ## 4단계: 추가 설정 구성(선택 사항) {#step-4-configure-additional-settings-optional}
 
-[키-값 페어]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/)를 사용하여 카드의 카테고리를 만들고, [여러 Content Cards 피드]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds)를 생성하며, 카드 정렬 방식을 커스터마이즈할 수 있습니다.
+[키-값 페어]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs)를 사용하여 카드의 카테고리를 만들고, [여러 Content Cards 피드]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds)를 생성하며, 카드 정렬 방식을 커스터마이즈할 수 있습니다.
 
 메시지에 키-값 페어를 추가하려면 **설정** 탭으로 이동하여 **새 페어 추가**를 선택합니다.
 
@@ -129,11 +129,11 @@ Braze는 고정된 카드를 사용자 피드 상단에 표시하며, 사용자�
 
 Campaign의 나머지 부분을 구축합니다. Content Cards를 구축하기 위한 도구 활용 방법에 대한 자세한 내용은 다음 섹션을 계속 참조하세요.
 
-#### 전달 스케줄 또는 트리거 선택 {#choose-a-delivery-schedule-or-trigger}
+### 전달 스케줄 또는 트리거 선택 {#choose-a-delivery-schedule-or-trigger}
 
-Content Cards는 스케줄된 시간, 동작 또는 API 트리거를 기반으로 전달할 수 있습니다. 자세한 내용은 [Campaign 스케줄링]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)을 참조하세요.
+Content Cards는 스케줄된 시간, 동작 또는 API 트리거를 기반으로 전달할 수 있습니다. 자세한 내용은 [Campaign 스케줄링]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)을 참조하세요.
 
-Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)을 설정하고 Content Cards의 만료를 결정할 수도 있습니다. 특정 만료 날짜 또는 카드가 만료될 때까지의 일수를 최대 30일까지 설정할 수 있습니다. 모든 배리언트의 만료 날짜는 동일합니다.
+Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)을 설정하고 Content Cards의 만료를 결정할 수도 있습니다. 특정 만료 날짜 또는 카드가 만료될 때까지의 일수를 최대 30일까지 설정할 수 있습니다. 모든 배리언트의 만료 날짜는 동일합니다.
 
 설정된 기간 후에 카드를 만료시키도록 선택한 경우(예: 2주 후), 만료는 카드의 전송 시간부터 계산됩니다. 스케줄된 Campaign의 경우 스케줄된 시작 시간이 기준이 됩니다. 실행 기반 Campaign의 경우 사용자가 트리거 동작을 수행한 시간이 기준이 됩니다. 예를 들어, 실행 기반 카드가 오늘 오후 2시에 전송되고 만료 기간이 1일인 경우, 다음 날 오후 2시에 만료됩니다.
 
@@ -141,38 +141,38 @@ Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messagin
 
 실행 기반 전달의 경우, Content Cards가 나타나기 전에 짧은 지연이 예상됩니다. 예를 들어, 세션 시작 시 Campaign이 트리거되면 이 트리거 이벤트가 먼저 Braze 서버로 전송되어야 합니다. 그런 다음 사용자의 Campaign 자격이 기록됩니다. SDK가 동기화되면 카드가 생성되어 동일한 동기화 응답에서 반환됩니다. SDK 동기화가 사용자의 자격이 기록되기 전에 발생하면 카드를 받지 못합니다. 첫 세션 사용자의 경우 이 지연은 불가피합니다. 즉시 사용 가능해야 하는 기존 사용자의 경우 스케줄 기반 전달을 대신 사용하는 것을 고려하세요.
 
-##### 스케줄 기반 전달 {#scheduled-delivery}
+#### 스케줄 기반 전달 {#scheduled-delivery}
 
-스케줄 기반 전달을 사용하는 Content Cards Campaign의 경우, 카드가 생성되는 시점을 지정하여 Braze가 새 Content Cards Campaign의 오디언스 자격과 개인화를 평가하는 시점을 선택할 수 있습니다. 자세한 내용은 [카드 생성]({{site.baseurl}}/card_creation/)을 참조하세요.
+스케줄 기반 전달을 사용하는 Content Cards Campaign의 경우, 카드가 생성되는 시점을 지정하여 Braze가 새 Content Cards Campaign의 오디언스 자격과 개인화를 평가하는 시점을 선택할 수 있습니다. 자세한 내용은 [카드 생성]({{site.baseurl}}/card_creation)을 참조하세요.
 
 #### 타겟 사용자 선택 {#choose-users-to-target}
 
-다음으로, Segments 또는 필터를 선택하여 오디언스를 좁혀 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)합니다. 대략적인 Segment 인구의 미리보기가 자동으로 표시됩니다. 정확한 Segment 멤버십은 항상 메시지가 전송되기 전에 계산된다는 점을 유의하세요.
+다음으로, Segments 또는 필터를 선택하여 오디언스를 좁혀 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)합니다. 대략적인 Segment 인구의 미리보기가 자동으로 표시됩니다. 정확한 Segment 멤버십은 항상 메시지가 전송되기 전에 계산된다는 점을 유의하세요.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 #### 전환 이벤트 선택 {#choose-conversion-events}
 
-Braze를 사용하면 Campaign을 수신한 후 사용자가 특정 행동인 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)를 얼마나 자주 수행하는지 추적할 수 있습니다. 사용자가 지정된 행동을 수행하면 전환으로 집계되는 최대 30일의 기간을 설정할 수 있습니다.
+Braze를 사용하면 Campaign을 수신한 후 사용자가 특정 행동인 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)를 얼마나 자주 수행하는지 추적할 수 있습니다. 사용자가 지정된 행동을 수행하면 전환으로 집계되는 최대 30일의 기간을 설정할 수 있습니다.
 
 {% endtab %}
 
 {% tab Canvas %}
 
-아직 완료하지 않았다면 Canvas 구성요소의 나머지 섹션을 완료하세요. Canvas의 나머지 부분을 구축하고, [다변량 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/) 및 [지능형 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/)을 구현하는 방법 등에 대한 자세한 내용은 Canvas 설명서의 [Canvas 구축]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) 단계를 참조하세요.
+아직 완료하지 않았다면 Canvas 구성요소의 나머지 섹션을 완료하세요. Canvas의 나머지 부분을 구축하고, [다변량 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing) 및 [지능형 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)을 구현하는 방법 등에 대한 자세한 내용은 Canvas 설명서의 [Canvas 구축]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) 단계를 참조하세요.
 
 {% endtab %}
 {% endtabs %}
 
 ## 6단계: 검토 및 배포 {#step-6-review-and-deploy}
 
-Campaign 또는 Canvas의 마지막 부분을 완성한 후, 세부 정보를 검토하고 [테스트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/)한 다음 준비가 되면 전송합니다. 자세한 내용은 [테스트 메시지 보내기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=content%20card)를 참조하세요.
+Campaign 또는 Canvas의 마지막 부분을 완성한 후, 세부 정보를 검토하고 [테스트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages)한 다음 준비가 되면 전송합니다. 자세한 내용은 [테스트 메시지 보내기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=content%20card)를 참조하세요.
 
 {% alert warning %}
-Content Cards가 시작된 후에는 편집할 수 없습니다. 새 사용자에게 전송을 중지하고 사용자의 피드에서 제거하는 것만 가능합니다. 이 시나리오에 대한 접근 방법을 이해하려면 [시작된 카드 업데이트]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#updating-launched-cards)를 참조하세요.
+Content Cards가 시작된 후에는 편집할 수 없습니다. 새 사용자에게 전송을 중지하고 사용자의 피드에서 제거하는 것만 가능합니다. 이 시나리오에 대한 접근 방법을 이해하려면 [시작된 카드 업데이트]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#updating-launched-cards)를 참조하세요.
 {% endalert %}
 
-다음으로, [Content Cards 보고]({{site.baseurl}}/user_guide/channels/content_cards/reporting/)를 확인하여 Content Cards Campaign의 결과에 액세스하는 방법을 알아보세요.
+다음으로, [Content Cards 보고]({{site.baseurl}}/user_guide/channels/content_cards/reporting)를 확인하여 Content Cards Campaign의 결과에 액세스하는 방법을 알아보세요.
 
 ## 알아두어야 할 사항 {#things-to-know}
 
@@ -221,14 +221,14 @@ Content Cards 페이로드 크기를 관리하기 위한 모범 사례는 다음
 재자격은 사용자가 동일한 Campaign에서 메시지를 두 번 이상 받을 수 있는지 여부와 시기를 결정합니다. Content Cards의 경우, 이 작동 방식을 이해하는 것이 반복 Campaign을 관리하고 사용자가 중복되거나 오래된 메시지를 받지 않도록 하는 데 매우 중요합니다.
 
 {% alert tip %}
-콘텐츠를 30일 이상 유지하고 싶으신가요? [배너]({{site.baseurl}}/user_guide/channels/banners/)를 사용해 보세요.
+콘텐츠를 30일 이상 유지하고 싶으신가요? [배너]({{site.baseurl}}/user_guide/channels/banners)를 사용해 보세요.
 {% endalert %}
 
 #### 재자격 계산 방식 {#how-re-eligibility-is-calculated}
 
 재자격을 활성화하면, 사용자가 Campaign에 "재진입"할 수 있는 시점의 카운트다운은 메시지가 전송된 후 시작됩니다. 이 카운트다운이 시작되는 구체적인 시점은 카드 생성 설정에 따라 달라집니다:
 
-- [첫 노출 시]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression)를 사용하는 Content Cards는 노출 시간을 기준으로 재자격을 계산합니다.
+- [첫 노출 시]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression)를 사용하는 Content Cards는 노출 시간을 기준으로 재자격을 계산합니다.
 - Campaign 시작 시, 멀티채널 Campaign에서, 또는 캔버스 단계 진입 시 생성된 Content Cards는 전송 시간 또는 노출 시간 중 더 늦은 시간을 기준으로 합니다.
 
 #### 30일 만료와 재자격 {#the-30-day-expiration-and-re-eligibility}
@@ -331,7 +331,7 @@ Content Cards는 전송된 후 최대 30일 동안 사용할 수 있으며, 30�
 
 ### Content Cards 동기화 및 새로고침 {#content-card-sync-and-refresh}
 
-Content Cards는 스케줄에 따라 그리고 앱이 피드를 새로고침할 때 동기화됩니다. 동기화 동작은 전체 동기화와 부분 동기화에 따라 다르며, SDK 통합에 따라 세션 시작 시 카드가 새로고침되는 시점이 달라집니다. 구현 세부 정보는 [Content Cards 피드 커스터마이즈]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/) 및 [Content Cards 생성]({{site.baseurl}}/developer_guide/content_cards/creating_cards/)을 참조하세요.
+Content Cards는 스케줄에 따라 그리고 앱이 피드를 새로고침할 때 동기화됩니다. 동기화 동작은 전체 동기화와 부분 동기화에 따라 다르며, SDK 통합에 따라 세션 시작 시 카드가 새로고침되는 시점이 달라집니다. 구현 세부 정보는 [Content Cards 피드 커스터마이즈]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed) 및 [Content Cards 생성]({{site.baseurl}}/developer_guide/content_cards/creating_cards)을 참조하세요.
 
 ### Content Cards Campaign 중지의 영향 {#impact-of-stopping-content-cards-campaigns}
 

@@ -54,21 +54,21 @@ Observe o seguinte sobre como a Braze lida com múltiplas conversões:
 
 O evento de conversão primária é o primeiro evento que você adiciona durante a criação da Campaign ou Canvas. Esse evento tem o maior impacto no seu engajamento e relatórios. A Braze usa seu evento de conversão primária para:
 
-- Calcular a variante de mensagem vencedora em Campaigns ou Canvas [multivariantes]({{site.baseurl}}/user_guide/messaging/ab_testing/#multivariate-and-ab-testing).
+- Calcular a variante de mensagem vencedora em Campaigns ou Canvas [multivariantes]({{site.baseurl}}/user_guide/messaging/ab_testing#multivariate-and-ab-testing).
 - Determinar o período em que a receita é calculada para a Campaign ou Canvas.
-- Ajustar as distribuições de mensagens para Campaigns e Canvas usando a [Seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/).
+- Ajustar as distribuições de mensagens para Campaigns e Canvas usando a [Seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection).
 
 A contagem do evento de conversão primária é o número de eventos de conversão que ocorreram. Para Campaigns multicanal, a Braze conta conversões por canal (conforme descrito em [Regras de rastreamento de conversão](#conversion-tracking-rules)), o que significa que a contagem de conversões pode exceder o número de usuários únicos e resultar em taxas de conversão superiores a 100%. A Braze calcula a taxa do evento de conversão primária dividindo essa contagem pelo número de destinatários únicos. A Braze considera um usuário como destinatário quando a mensagem é enviada ou exibida, dependendo do canal. Por exemplo, em push ou e-mail, um usuário se torna destinatário após a Braze enviar a mensagem. Para mensagens no app ou Content Cards, o usuário precisa visualizar a mensagem para ser considerado destinatário.
 
 {% alert note %}
-Se você abortar mensagens usando a tag Liquid `abort`, a Braze aborta mensagens apenas para usuários que passam por variantes. Mensagens para usuários no grupo de controle não são abortadas, o que pode levar a porcentagens de conversão distorcidas entre variantes e grupos de controle. Como alternativa, use a [segmentação]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) para direcionar seus usuários na entrada da Campaign e do Canvas.
+Se você abortar mensagens usando a tag Liquid `abort`, a Braze aborta mensagens apenas para usuários que passam por variantes. Mensagens para usuários no grupo de controle não são abortadas, o que pode levar a porcentagens de conversão distorcidas entre variantes e grupos de controle. Como alternativa, use a [segmentação]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) para direcionar seus usuários na entrada da Campaign e do Canvas.
 {% endalert %}
 
 ## Criando uma Campaign com rastreamento de conversão {#creating-a-campaign-with-conversion-tracking}
 
 ### Etapa 1: Configure sua Campaign {#step-1-set-up-your-campaign}
 
-[Crie uma Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/) para o canal de envio de mensagens desejado. Após configurar as mensagens e a programação da sua Campaign, você pode adicionar até quatro eventos de conversão para rastreamento.
+[Crie uma Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign) para o canal de envio de mensagens desejado. Após configurar as mensagens e a programação da sua Campaign, você pode adicionar até quatro eventos de conversão para rastreamento.
 
 Use quantos eventos de conversão forem necessários. Adicionar um segundo ou terceiro evento de conversão enriquece significativamente seus relatórios. Por exemplo, para uma Campaign direcionada a usuários inativos, adicionar um evento de conversão secundário junto com o evento de conversão primária **Inicia sessão** ajuda a entender a eficácia da sua Campaign em trazer os usuários de volta ao seu aplicativo.
 
@@ -79,7 +79,7 @@ Primeiro, selecione o tipo geral de evento que você deseja usar:
 | Tipo de evento de conversão | Descrição |
 |-------------------------|----------------------------|
 | **Inicia sessão** | Um usuário é contado como convertido quando abre qualquer um dos apps que você especificar (o padrão é todos os apps no espaço de trabalho). |
-| **Realiza compra** | Um usuário é contado como convertido quando registra um [evento de compra]({{site.baseurl}}/api/objects_filters/purchase_object/). Isso rastreia qualquer compra por padrão, ou você pode especificar um produto específico. |
+| **Realiza compra** | Um usuário é contado como convertido quando registra um [evento de compra]({{site.baseurl}}/api/objects_filters/purchase_object). Isso rastreia qualquer compra por padrão, ou você pode especificar um produto específico. |
 | **Realiza pedido** | Um usuário é contado como convertido quando aciona o [evento recomendado de eCommerce Pedido realizado]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#ecommerce-recommended-events?tab=ecommerce.order_placed). Isso rastreia qualquer pedido por padrão, ou você pode filtrar por um produto específico.<br><br>O evento "Realiza pedido" está atualmente em acesso antecipado. Entre em contato com seu gerente de conta da Braze se tiver interesse em participar deste acesso antecipado. |
 | **Realiza evento personalizado** | Um usuário é contado como convertido quando realiza um dos seus eventos personalizados existentes (sem padrão, você deve especificar o evento). |
 | **Faz upgrade do app** | Um usuário é contado como convertido quando faz upgrade da versão do app em qualquer um dos apps que você especificar (o padrão é todos os apps no espaço de trabalho). A Braze realiza uma comparação numérica de melhor esforço para determinar se a alteração foi um upgrade. Versões não numéricas são contadas como conversões se a versão mudar. |

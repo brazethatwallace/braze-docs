@@ -14,7 +14,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts zum Abru
 /email/unsubscribes
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um die letzten E-Mails zurückzugeben, die im Zeitraum von `start_date` bis `end_date` abgemeldet wurden. Für einen vollständigen Verlauf des Abo-Status verwenden Sie [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), um diese Daten zu verfolgen.
+> Verwenden Sie diesen Endpunkt, um die letzten E-Mails zurückzugeben, die sich im Zeitraum von `start_date` bis `end_date` abgemeldet haben. Für einen vollständigen Verlauf des Abo-Status verwenden Sie [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), um diese Daten zu verfolgen.
 
 Sie können diesen Endpunkt verwenden, um eine bidirektionale Synchronisierung zwischen Braze und anderen E-Mail-Systemen oder Ihrer eigenen Datenbank einzurichten.
 
@@ -22,7 +22,7 @@ Sie können diesen Endpunkt verwenden, um eine bidirektionale Synchronisierung z
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `email.unsubscribe`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `email.unsubscribe`.
 
 ## Rate-Limit
 
@@ -48,7 +48,7 @@ Wenn Ihr Datumsbereich mehr als `limit` Abmeldungen enthält, müssen Sie mehrer
 
 ## Beispielanfrage {#example-request}
 ```
-curl --location --request GET 'https://rest.iad-01.braze.com/email/unsubscribes?start_date=2020-01-01&end_date=2020-02-01&limit=1&offset=1&sort_direction=desc&email=example@braze.com' \
+curl --location --request GET 'https://rest.iad-01.braze.com/email/unsubscribes?start_date=2020-01-01&end_date=2020-02-01&limit=1&offset=1&sort_direction=desc&email=example@example.com' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE'
 ```
 

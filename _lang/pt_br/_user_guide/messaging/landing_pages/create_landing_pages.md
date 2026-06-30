@@ -11,15 +11,13 @@ page_order: 0
 
 ## Pré-requisitos {#prerequisites}
 
-Para acessar o construtor de landing pages, você precisa de [determinadas permissões]({{site.baseurl}}/user_guide/messaging/landing_pages/#prerequisites). Se você não tiver acesso, peça ajuda ao administrador da Braze.
+Para acessar o construtor de landing pages, você precisa de [determinadas permissões]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites). Se você não tiver acesso, peça ajuda ao administrador da Braze.
 
 ## Criando uma landing page {#creating-a-landing-page}
 
 ### Etapa 1: Criar um novo rascunho {#step-1-create-a-new-draft}
 
 Acesse **Messaging** > **Landing Pages** e selecione **Create landing page**. Você também pode selecionar o nome de uma landing page existente para duplicá-la ou fazer alterações.
-
-![A seção de landing pages no dashboard da Braze.]({% image_buster /assets/img/landing_pages/landing-pages-homepage.png %})
 
 ### Etapa 2: Inserir os detalhes da página {#step-2-enter-the-page-details}
 
@@ -40,8 +38,8 @@ Sugerimos seguir estas práticas recomendadas:
 | Título do site | O título exibido na aba do navegador. | Use até 60 caracteres. |
 | Meta descrição | Um trecho de texto exibido nos resultados de busca. | Use entre 140 e 160 caracteres. |
 | Favicon | O ícone que aparece ao lado do título do site na aba do navegador. | Use uma proporção de 1:1 e um tipo de arquivo compatível: PNG, JPEG ou ICO. |
-| URL da página | Este é o caminho da URL para sua landing page. Esse valor também é referenciado ao usar [Liquid tags de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) que você pode incorporar em uma mensagem para identificar automaticamente quando os usuários enviam seu formulário. | Esse valor deve ser único em todo o seu espaço de trabalho. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Site details" }
+| URL da página | Este é o caminho da URL para sua landing page. Esse valor também é referenciado ao usar [Liquid tags de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) que você pode incorporar em uma mensagem para identificar automaticamente quando os usuários enviam seu formulário. | Esse valor deve ser único em todo o seu espaço de trabalho. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Detalhes do site" }
 
 ### Etapa 3: Personalizar a página {#step-3-customize-the-page}
 
@@ -49,7 +47,7 @@ Se ainda não fez isso, selecione **Salvar como rascunho**. Para começar a pers
 
 ![Um exemplo de landing page sendo criada no editor de arrastar e soltar.]({% image_buster /assets/img/landing_pages/template.png %})
 
-O editor usa dois tipos de componentes para a composição de landing pages: blocos básicos e blocos de formulário. Todos os blocos devem ser colocados em uma linha. Para uma referência dedicada de cada bloco e suas propriedades, consulte [Blocos do editor (landing pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages).
+O editor usa dois tipos de componentes para a composição de landing pages: blocos básicos e blocos de formulário. Todos os blocos devem ser colocados em uma linha. Para uma referência dedicada de cada bloco e suas propriedades, consulte [Blocos do editor (landing pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
 ![A seção "Build" contendo "Rows" e "Form Blocks".]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
 
@@ -68,11 +66,11 @@ Você pode usar esses blocos para adicionar conteúdo e personalizar o layout da
 | Link | Um hiperlink que os usuários podem clicar para navegar até uma URL específica. Pode ser incorporado dentro do texto ou independente. |
 | Espaçador | Um bloco invisível que adiciona espaçamento vertical entre elementos para melhorar o layout e a legibilidade. |
 | Código personalizado | Um bloco que permite inserir e executar HTML, CSS ou JavaScript personalizados para personalização avançada. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Customize the page" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Personalizar a página" }
 
-##### Span text {#span-text}
+#### Span text {#span-text}
 
-{% multi_lang_include span_text.md %}
+{% multi_lang_include drag_and_drop/span_text.md %}
 
 {% endtab %}
 {% tab Blocos de formulário %}
@@ -92,7 +90,7 @@ Você pode usar esses blocos para criar um formulário que vincula os dados envi
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Span text" }
 
 {% alert important %}
-Depois de criar uma landing page com um formulário, certifique-se de incorporar a [Liquid tag de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) na sua mensagem. Com essa tag, a Braze pode identificar e atualizar automaticamente os perfis de usuários existentes quando eles enviam o formulário.
+Depois de criar uma landing page com um formulário, certifique-se de incorporar a [Liquid tag de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) na sua mensagem. Com essa tag, a Braze pode identificar e atualizar automaticamente os perfis de usuários existentes quando eles enviam o formulário.
 {% endalert %}
 
 {% endtab %}

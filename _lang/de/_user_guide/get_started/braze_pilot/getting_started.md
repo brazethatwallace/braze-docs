@@ -27,7 +27,7 @@ Mit Braze Pilot können Sie das Braze SDK für jedes beliebige Braze-Dashboard i
 Es gibt zwei Methoden zur Konfiguration der SDK-Verbindung in Pilot: Demo-QR-Codes und den Einrichtungsassistenten.
 
 {% tabs local %}
-{% tab Demo QR codes %}
+{% tab Demo-QR-Codes %}
 
 ### Methode 1: Demo-QR-Codes {#method-1-demo-qr-codes}
 
@@ -36,14 +36,14 @@ Scannen Sie einen QR-Code, der alle erforderlichen Details zur Initialisierung d
 | Pilot für Android | Pilot für iOS |
 | --- | --- |
 | ![QR-Code für Android.]({% image_buster /assets/img/braze_pilot/android_qr_code.png %}){:style="max-width:60%"} | ![QR-Code für iOS.]({% image_buster /assets/img/braze_pilot/ios_qr_code.png %}){:style="max-width:60%"} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Method 1: Demo QR codes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Methode 1: Demo-QR-Codes" }
 
 {% endtab %}
-{% tab Setup wizard %}
+{% tab Einrichtungsassistent %}
 
 ### Methode 2: Einrichtungsassistent {#method-2-setup-wizard}
 
-Folgen Sie der Schritt-für-Schritt-Anleitung zur Initialisierung der Verbindung mit Ihrem Dashboard-Workspace auf der Seite **App-Einstellungen** in Ihrem Braze-Dashboard.
+Folgen Sie der Schritt-für-Schritt-Anleitung zur Initialisierung der Verbindung mit Ihrem Dashboard-Workspace auf der Seite **App Settings** in Ihrem Braze-Dashboard.
 
 ![Schritt 1 des Einrichtungsassistenten für Braze Pilot.]({% image_buster /assets/img/braze_pilot/setup_wizard.png %}){:style="max-width:40%"}
 
@@ -59,7 +59,7 @@ Diese Verbindung ist Workspace-spezifisch. Das bedeutet: Wenn Sie die Verbindung
 Abschließend empfehlen wir, der App die Berechtigung zum Senden von Push-Benachrichtigungen zu erteilen, wenn Sie die Push-Funktionen über die App testen möchten. Sie können der App diese Berechtigungen auf folgende Weise erteilen: über die Einstellungen der App in Ihren Geräteeinstellungen oder durch das Starten einer Push-Primer-Nachricht von Braze an die App.
 
 {% tabs local %}
-{% tab Update the settings for the app %}
+{% tab Einstellungen der App aktualisieren %}
 
 Öffnen Sie Ihre Geräteeinstellungen und suchen Sie nach Braze Pilot. Aktualisieren Sie anschließend die Einstellungen, damit Benachrichtigungen auf Ihrem Sperrbildschirm angezeigt werden.
 
@@ -75,9 +75,9 @@ Abschließend empfehlen wir, der App die Berechtigung zum Senden von Push-Benach
 <br>
 
 {% endtab %}
-{% tab Launch a push primer message %}
+{% tab Push-Primer-Nachricht starten %}
 
-Sie können eine Braze-In-App-Nachricht verwenden, um Push-Berechtigungen für die App anzufordern – genau wie Sie es für Ihre eigenen Verbraucher:innen tun würden. Informationen zum Erstellen dieser Art von Nachricht in Braze finden Sie unter [Push-Primer-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/#push-primer-in-app-messages).
+Sie können eine Braze-In-App-Nachricht verwenden, um Push-Berechtigungen für die App anzufordern – genau wie Sie es für Ihre eigenen Verbraucher:innen tun würden. Informationen zum Erstellen dieser Art von Nachricht in Braze finden Sie unter [Push-Primer-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages#push-primer-in-app-messages).
 
 <div class="imgDiv">
 <img src="{% image_buster /assets/img/braze_pilot/push_primer1.png %}" style="max-width:40%">
@@ -91,4 +91,4 @@ Sie können eine Braze-In-App-Nachricht verwenden, um Push-Berechtigungen für d
 
 Jetzt sind Sie bereit, als Nutzer:in von Braze Pilot Campaigns und Canvases über Ihr Braze-Dashboard zu empfangen! Besuchen Sie eine der gestarteten Campaigns in Ihrem Demo-Workspace, um eine kurze Demonstration der Braze-Anwendungsfälle zu erhalten, und wechseln Sie dann zu Ihrem Live-Workspace, um mit dem Versand Ihrer eigenen Nachrichten zu beginnen.
 
-Weitere Informationen zum Einrichten von Campaigns und Canvases in Braze finden Sie unter [Erste Schritte: Campaigns und Canvases]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/).
+Weitere Informationen zum Einrichten von Campaigns und Canvases in Braze finden Sie unter [Erste Schritte: Campaigns und Canvases]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases).

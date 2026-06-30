@@ -15,11 +15,11 @@ description: "Dieser Referenzartikel behandelt das Event-Objekt, was es ist und 
 
 Ein Event-Objekt ist ein Objekt, das über die API übergeben wird, wenn ein bestimmtes Ereignis eintritt. Event-Objekte sind in einem Events-Array untergebracht. Jedes Event-Objekt im Events-Array repräsentiert ein einzelnes Vorkommen eines angepassten Events durch eine:n bestimmte:n Nutzer:in zum angegebenen Zeitwert. Das Event-Objekt verfügt über viele verschiedene Felder, mit denen Sie durch das Festlegen und Verwenden von Event-Eigenschaften in Nachrichten, Datenerfassung und Personalisierung anpassen können.
 
-Wie Sie angepasste Events für eine bestimmte Plattform einrichten, erfahren Sie in der Anleitung zur Plattformintegration im [Entwicklerhandbuch]({{site.baseurl}}/developer_guide/home/). Lesen Sie den entsprechenden Artikel für Ihre Plattform:
+Wie Sie angepasste Events für eine bestimmte Plattform einrichten, erfahren Sie in der Anleitung zur Plattformintegration im [Entwicklerhandbuch]({{site.baseurl}}/developer_guide/home). Lesen Sie den entsprechenden Artikel für Ihre Plattform:
 
-- [Android]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)
-- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
-- [Internet]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)
+- [Android]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)
+- [Internet]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)
 
 ### Objektkörper {#object-body}
 
@@ -42,12 +42,12 @@ Wie Sie angepasste Events für eine bestimmte Plattform einrichten, erfahren Sie
 }
 ```
 
-- [Externe Nutzer-ID]({{site.baseurl}}/api/basics/#user-ids)
-- [App-Bezeichner]({{site.baseurl}}/api/identifier_types/)
+- [Externe Nutzer-ID]({{site.baseurl}}/api/basics#user-ids)
+- [App-Bezeichner]({{site.baseurl}}/api/identifier_types)
 - [ISO 8601 Zeitcode](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-Einige Bezeichnerpaare können nicht zusammen in einer einzigen Anfrage verwendet werden. Wenn sowohl `email` als auch `phone` angegeben sind, hat `email` Vorrang vor `phone`. Ausführliche Informationen finden Sie unter [Bezeichnerauflösung]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution).
+Einige Bezeichnerpaare können nicht zusammen in einer einzigen Anfrage verwendet werden. Wenn sowohl `email` als auch `phone` angegeben sind, hat `email` Vorrang vor `phone`. Ausführliche Informationen finden Sie unter [Bezeichnerauflösung]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
 {% endalert %}
 
 #### Nur bestehende Profile aktualisieren {#update-existing-profiles-only}
@@ -89,7 +89,7 @@ Die Verwendung reservierter Schlüssel als angepasste Event-Eigenschaftsnamen f�
 
 ### Persistenz von Event-Eigenschaften {#event-property-persistence}
 
-Event-Eigenschaften dienen zum Filtern und zur Liquid-Personalisierung von Nachrichten, die durch ihre übergeordneten Ereignisse getriggert werden. Standardmäßig werden sie nicht auf dem Braze-Nutzerprofil persistent gehalten. Um Event-Eigenschaftswerte bei der Segmentierung zu verwenden, lesen Sie den Abschnitt [Angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/), in dem die verschiedenen Ansätze zur langfristigen Speicherung von Event-Eigenschaftswerten beschrieben werden.
+Event-Eigenschaften dienen zum Filtern und zur Liquid-Personalisierung von Nachrichten, die durch ihre übergeordneten Ereignisse getriggert werden. Standardmäßig werden sie nicht auf dem Braze-Nutzerprofil persistent gehalten. Um Event-Eigenschaftswerte bei der Segmentierung zu verwenden, lesen Sie den Abschnitt [Angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events), in dem die verschiedenen Ansätze zur langfristigen Speicherung von Event-Eigenschaftswerten beschrieben werden.
 
 #### Beispielanfrage für ein Event {#event-example-request}
 
@@ -112,7 +112,7 @@ Authorization: Bearer YOUR-REST-API-KEY
       "time" : "2013-07-16T19:20:45+01:00",
       "properties": {
         "movie": "The Sad Egg",
-        "director": "Dan Alexander"
+        "director": "Alex Smith"
       }
     },
     {
@@ -128,4 +128,4 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Event-Objekte {#event-objects}
 
-Anhand des angegebenen Beispiels können wir sehen, dass jemand vor Kurzem einen Trailer gesehen und dann einen Film ausgeliehen hat. Wir können zwar nicht in eine Campaign gehen und die Nutzer:innen auf der Grundlage dieser Eigenschaften segmentieren, aber wir können diese Eigenschaften strategisch nutzen, indem wir sie in Form einer Quittung verwenden, um eine angepasste Nachricht über einen Kanal mit Liquid zu versenden. Zum Beispiel: „Hallo **Beth**, danke, dass Sie **The Sad Egg** von **Dan Alexander** ausgeliehen haben. Hier sind einige Filmempfehlungen, die auf Ihrer Ausleihe basieren …“
+Anhand des angegebenen Beispiels können wir sehen, dass jemand vor Kurzem einen Trailer gesehen und dann einen Film ausgeliehen hat. Wir können zwar nicht in eine Campaign gehen und die Nutzer:innen auf der Grundlage dieser Eigenschaften segmentieren, aber wir können diese Eigenschaften strategisch nutzen, indem wir sie in Form einer Quittung verwenden, um eine angepasste Nachricht über einen Kanal mit Liquid zu versenden. Zum Beispiel: „Hallo **Alex**, danke, dass Sie **The Sad Egg** von **Alex Smith** ausgeliehen haben. Hier sind einige Filmempfehlungen, die auf Ihrer Ausleihe basieren …“

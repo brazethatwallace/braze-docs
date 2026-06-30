@@ -14,13 +14,13 @@ alias: /geographic_permissions/
 
 # Geografische Berechtigungen {#geographic-permissions}
 
-> Geografische Berechtigungen erhöhen die Sicherheit und schützen vor betrügerischem SMS-, MMS- und RCS-Datenverkehr, indem sie Kontrollen für die Länder durchsetzen, an die Sie Nachrichten senden können. Sie können eine Allowlist von Ländern festlegen, um sicherzustellen, dass SMS-, MMS- und RCS-Nachrichten nur an genehmigte Regionen gesendet werden. Nachrichten werden nur an Telefonnummern mit den Vorwahlen dieser Länder gesendet.<br><br> Nur Admins können Änderungen an der Länder-Allowlist vornehmen. Nutzer:innen ohne Admin-Rechte haben Zugriff auf eine schreibgeschützte Version der Allowlist, die anzeigt, in welche Länder eine Abo-Gruppe senden kann.
+> Geografische Berechtigungen erhöhen die Sicherheit und schützen vor betrügerischem SMS-, MMS- und RCS-Datenverkehr, indem sie Kontrollen für die Länder durchsetzen, an die Sie Nachrichten senden können. Sie können eine Allowlist von Ländern festlegen, um SMS-, MMS- und RCS-Nachrichten nur an genehmigte Regionen zu senden. Nachrichten werden nur an Telefonnummern mit den Vorwahlen dieser Länder gesendet.<br><br> Nur Admins können Änderungen an der Länder-Allowlist vornehmen. Nutzer:innen ohne Admin-Rechte haben Zugriff auf eine schreibgeschützte Version der Allowlist, die anzeigt, in welche Länder eine Abo-Gruppe senden kann.
 
-Wenn Sie Admin sind, können Sie die Länder konfigurieren, die auf der Allowlist stehen. Die Länder-Allowlist wird auf Ebene der [Abo-Gruppe]({{site.baseurl}}/sms_rcs_subscription_groups/) konfiguriert. Sie können darauf zugreifen, indem Sie zu **Audience** > **Subscription Group Management** navigieren und eine SMS-, MMS- oder RCS-Abo-Gruppe auswählen. Die Allowlist befindet sich unter **Geographic Permissions**.
+Wenn Sie Admin sind, können Sie die Länder konfigurieren, die auf der Allowlist stehen. Die Länder-Allowlist wird auf Ebene der [Abo-Gruppe]({{site.baseurl}}/sms_rcs_subscription_groups) konfiguriert. Sie können darauf zugreifen, indem Sie zu **Zielgruppe** > **Abo-Gruppen-Verwaltung** navigieren und eine SMS-, MMS- oder RCS-Abo-Gruppe auswählen. Die Allowlist befindet sich unter **Geographic Permissions**.
 
 ![Der bearbeitbare Abschnitt „Geographic Permissions“ für Admins mit mehreren ausgewählten Ländern in der „Country allowlist“.]({% image_buster /assets/img/sms/sms_geographic_permissions.png %}){: style="max-width:80%;"}
 
-### Länder auswählen {#selecting-countries}
+## Länder auswählen {#selecting-countries}
 
 Fügen Sie Länder über das Dropdown-Menü zur Allowlist hinzu. Die gängigsten SMS-, MMS- und RCS-Länder werden oben angezeigt, weitere darunter. Sie können auch nach Ländern suchen, indem Sie in das Textfeld tippen.
 
@@ -43,12 +43,12 @@ Bestimmte Länder haben ein höheres Risiko für SMS-, MMS- und RCS-Traffic-Pump
 Wenn Sie den Versand in diese Länder zulassen, müssen Sie zunächst das Risiko bestätigen, bevor das Land zu Ihrer Allowlist hinzugefügt wird.
 
 {% alert note %}
-Beschränken Sie die Länder auf Ihrer Allowlist auf diejenigen, die zur Unterstützung Ihrer geschäftlichen Anforderungen erforderlich sind. Dies minimiert Ihr Potenzial für betrügerischen Datenverkehr. Weitere Hinweise zur Vermeidung von SMS-, MMS- und RCS-Traffic-Pumping finden Sie unter [FAQ zu SMS-Traffic-Pumping-Betrug]({{site.baseurl}}/sms_traffic_pumping_fraud/).
+Beschränken Sie die Länder auf Ihrer Allowlist auf diejenigen, die zur Unterstützung Ihrer geschäftlichen Anforderungen erforderlich sind. Dies minimiert Ihr Potenzial für betrügerischen Datenverkehr. Weitere Hinweise zur Vermeidung von SMS-, MMS- und RCS-Traffic-Pumping finden Sie unter [FAQ zu SMS-Traffic-Pumping-Betrug]({{site.baseurl}}/sms_traffic_pumping_fraud).
 {% endalert %}
 
 ## Sichtbarkeit von Sendungen außerhalb der Allowlist {#visibility-of-sends-outside-the-allowlist}
 
-Versuchte Sendungen an Länder, die nicht auf Ihrer Länder-Allowlist stehen, werden abgebrochen. Abgebrochene Nachrichten werden im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) und im [SMS-Abbruch-Nachrichten-Engagement-Ereignis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) protokolliert.
+Versuchte Sendungen an Länder, die nicht auf Ihrer Länder-Allowlist stehen, werden abgebrochen. Abgebrochene Nachrichten werden im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) und im [SMS-Abbruch-Nachrichten-Engagement-Ereignis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) protokolliert.
 
 Abgebrochene Nachrichten für Empfänger:innen in Ländern, die nicht auf Ihrer Allowlist stehen, werden als **Aborted Message Errors** angezeigt und enthalten die Meldung „The recipient's phone number is in a blocked country“.
 
@@ -72,4 +72,4 @@ Die Kund:innen sind verantwortlich für alle mobilen Nachrichten, die über die 
 
 ### So verhindern Sie Traffic-Pumping {#how-to-prevent-traffic-pumping}
 
-Wenn Sie Ihre Nachrichtenverteilung nicht strikt auf die geografischen Regionen beschränken, in denen sich Ihre tatsächlichen Kund:innen befinden, entsteht eine unmittelbare Anfälligkeit für Betrug und schwere finanzielle Schäden. Um Ihr Unternehmen zu schützen, müssen Sie Ihre Zustellregionen proaktiv mithilfe der Länder-Allowlist einschränken. Darüber hinaus – und das ist am wichtigsten – sollten Sie jedes Online-Formular zur Telefonnummernanfrage oder jeden API-Endpunkt, der SMS-, MMS- und RCS-Sendungen auslöst, gemäß den Best Practices der Branche absichern, wie in [SMS-, MMS- und RCS-Traffic-Pumping-Betrug verstehen und verhindern]({{site.baseurl}}/sms_traffic_pumping_fraud/) beschrieben.
+Wenn Sie Ihre Nachrichtenverteilung nicht strikt auf die geografischen Regionen beschränken, in denen sich Ihre tatsächlichen Kund:innen befinden, entsteht eine unmittelbare Anfälligkeit für Betrug und schwere finanzielle Schäden. Um Ihr Unternehmen zu schützen, müssen Sie Ihre Zustellregionen proaktiv mithilfe der Länder-Allowlist einschränken. Darüber hinaus – und das ist am wichtigsten – sollten Sie jedes Online-Formular zur Telefonnummernanfrage oder jeden API-Endpunkt, der SMS-, MMS- und RCS-Sendungen auslöst, gemäß den Best Practices der Branche absichern, wie in [SMS-, MMS- und RCS-Traffic-Pumping-Betrug verstehen und verhindern]({{site.baseurl}}/sms_traffic_pumping_fraud) beschrieben.

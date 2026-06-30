@@ -23,11 +23,11 @@ Cumprir as solicitações dos destinatários para descadastramento de comunicaç
 De acordo com os contratos de assinatura firmados conosco, nossos clientes são os únicos responsáveis pelo cumprimento da legislação aplicável no uso de nossos serviços. Sendo assim, recomendamos fortemente que os clientes prestem muita atenção à configuração correta do SMS e que testem essas configurações minuciosamente, tomem medidas para monitorar a conformidade com o descadastramento e ajam prontamente caso identifiquem casos de não conformidade com solicitações de descadastramento.
 
 Ao configurar SMS e MMS na Braze para gerenciar opt-ins e descadastramentos, consulte a seguinte lista de recursos:
-* [Grupos de inscrições de SMS]({{site.baseurl}}/sms_rcs_subscription_groups/): Grupos de inscrições e métodos e status de opt-in/descadastramento.
-* [REST APIs de grupos de inscrições]({{site.baseurl}}/api/endpoints/subscription_groups/): Como processar opt-ins e descadastramentos recebidos de uma fonte diferente de uma resposta direta a uma mensagem.
-* [Processamento de palavras-chave]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/): Explicações sobre como a Braze aborda o processamento e gerenciamento de palavras-chave.
-* [Duplo opt-in de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/): Exige que os usuários confirmem explicitamente sua intenção de opt-in antes de receberem mensagens SMS. O duplo opt-in de SMS é um requisito em alguns países, por isso a Braze recomenda configurá-lo.
-* [Envio de mensagens SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending/): Fundamentos do envio de SMS na Braze, incluindo a importância dos grupos de inscrições, requisitos para segmentos de SMS e corpos de mensagem, e mais.
+* [Grupos de inscrições de SMS]({{site.baseurl}}/sms_rcs_subscription_groups): Grupos de inscrições e métodos e status de opt-in/descadastramento.
+* [REST APIs de grupos de inscrições]({{site.baseurl}}/api/endpoints/subscription_groups): Como processar opt-ins e descadastramentos recebidos de uma fonte diferente de uma resposta direta a uma mensagem.
+* [Processamento de palavras-chave]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing): Explicações sobre como a Braze aborda o processamento e gerenciamento de palavras-chave.
+* [Duplo opt-in de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in): Exige que os usuários confirmem explicitamente sua intenção de opt-in antes de receberem mensagens SMS. O duplo opt-in de SMS é um requisito em alguns países, por isso a Braze recomenda configurá-lo.
+* [Envio de mensagens SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending): Fundamentos do envio de SMS na Braze, incluindo a importância dos grupos de inscrições, requisitos para segmentos de SMS e corpos de mensagem, e mais.
 
 ### Considerações {#considerations}
 
@@ -42,13 +42,13 @@ A Braze gerencia as inscrições de SMS/MMS tanto no nível do perfil de usuári
 
 Manter a higiene da lista de números de telefone ajuda a preservar dados válidos de consentimento e alcançabilidade ao longo do tempo. A Braze marca alguns números de telefone como inválidos para ajudar a reduzir riscos de conformidade, apoiar práticas de envio de mensagens baseadas em consentimento e evitar o envio para números que podem não pertencer mais ao usuário original.
 
-Para saber por que números de telefone são normalmente marcados como inválidos, consulte [Tratamento de números de telefone inválidos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#handling-invalid-phone-numbers).
+Para saber por que números de telefone são normalmente marcados como inválidos, consulte [Tratamento de números de telefone inválidos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#handling-invalid-phone-numbers).
 
 Recomendamos o seguinte fluxo de trabalho para remover números de telefone inválidos:
 
-1. Identifique os números de telefone afetados por meio do [endpoint `/sms/invalid_phone_numbers`]({{site.baseurl}}/api/endpoints/sms/get_query_invalid_numbers/).
+1. Identifique os números de telefone afetados por meio do [endpoint `/sms/invalid_phone_numbers`]({{site.baseurl}}/api/endpoints/sms/get_query_invalid_numbers).
 2. Diferencie entre números de telefone desativados e números de telefone que receberam erros de provedor.
-3. Para números de telefone desativados, verifique novamente o número com o usuário. Após o usuário confirmar seu número de telefone, remova o número da lista de inválidos por meio do [endpoint `/sms/invalid_phone_numbers/remove`]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers/).
+3. Para números de telefone desativados, verifique novamente o número com o usuário. Após o usuário confirmar seu número de telefone, remova o número da lista de inválidos por meio do [endpoint `/sms/invalid_phone_numbers/remove`]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers).
 
 ## Recomendações sobre bombeamento de tráfego {#traffic-pumping-recommendations}
 
@@ -60,7 +60,7 @@ O bombeamento de tráfego é uma forma de fraude que ocorre quando um agente mal
 
 * Números de tarifa premium que suportam esse tipo de golpe são frequentemente, mas nem sempre, configurados em países fora das suas geografias normais de envio.
 * Picos incomuns no envio de mensagens a partir de formulários online podem indicar bombeamento de tráfego.
-    * Recomendamos configurar [alertas de Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/campaign_alerts/) para limitar e notificar caso um número implausível de mensagens seja enviado.
+    * Recomendamos configurar [alertas de Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/campaign_alerts) para limitar e notificar caso um número implausível de mensagens seja enviado.
 * Formulários online incompletos podem indicar preenchimento programático de formulários.
 * Ao criar formulários online, recomendamos definir regras para garantir que os formulários sejam totalmente preenchidos e usar ferramentas como CAPTCHA para minimizar o risco.
 
@@ -72,7 +72,7 @@ Os clientes são responsáveis por monitorar o tráfego que estão enviando e se
 
 Algumas marcas podem desejar enviar mensagens para um grupo de usuários que possuem números de telefone de diferentes países. Para enviar uma mensagem SMS para um número de telefone em um determinado país, a melhor prática é usar um código longo ou código curto do mesmo país. Na verdade, códigos curtos só podem enviar SMS para números de telefone do mesmo país em que o código curto foi criado.
 
-Para superar essa limitação, durante o [processo de configuração]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/) dos grupos de inscrições, os grupos podem ser configurados para conter códigos longos e curtos de vários países diferentes. Quando concluído, os números de envio com o mesmo código de país do número de telefone do usuário-alvo serão usados automaticamente ao lançar uma Campaign. Você não precisará criar Campaigns separadas para usuários com números de telefone de diferentes códigos de país, permitindo que você lance uma Campaign ou use um componente do Canvas para direcionar os usuários relevantes.
+Para superar essa limitação, durante o [processo de configuração]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups) dos grupos de inscrições, os grupos podem ser configurados para conter códigos longos e curtos de vários países diferentes. Quando concluído, os números de envio com o mesmo código de país do número de telefone do usuário-alvo serão usados automaticamente ao lançar uma Campaign. Você não precisará criar Campaigns separadas para usuários com números de telefone de diferentes códigos de país, permitindo que você lance uma Campaign ou use um componente do Canvas para direcionar os usuários relevantes.
 
 ![As cargas úteis de SMS são enviadas usando o mesmo código de país do número de telefone do usuário-alvo.]({% image_buster /assets/img/sms/multi_country_subgroups.png %})
 
@@ -99,7 +99,7 @@ Planeja fazer envios em alto volume? Temos algumas melhores práticas para garan
 
 ### Horário de silêncio nativo da Braze {#braze-native-quiet-hours}
 
-Recomendamos fortemente ativar o [horário de silêncio]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/#quiet-hours) em todas as Campaigns e Canvas de SMS para ajudar a cumprir regulamentações regionais e melhores práticas.
+Recomendamos fortemente ativar o [horário de silêncio]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#quiet-hours) em todas as Campaigns e Canvas de SMS para ajudar a cumprir regulamentações regionais e melhores práticas.
 
 ### Proteção adicional por meio de Content Blocks {#additional-safeguard-through-content-blocks}
 
@@ -107,7 +107,7 @@ Você pode adicionar uma verificação baseada em Liquid dentro de um Content Bl
 
 #### Configuração {#setup}
 
-Inclua o trecho a seguir no topo do corpo da sua mensagem SMS. Este exemplo cancela o envio se ele estiver fora de uma janela das 9h às 21h no [fuso horário local]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#what-does-local-time-zone-delivery-offer) do usuário.
+Inclua o trecho a seguir no topo do corpo da sua mensagem SMS. Este exemplo cancela o envio se ele estiver fora de uma janela das 9h às 21h no [fuso horário local]({{site.baseurl}}/user_guide/messaging/campaigns/faq#what-does-local-time-zone-delivery-offer) do usuário.
 
 {% raw %}
 ```liquid
@@ -121,6 +121,6 @@ Inclua o trecho a seguir no topo do corpo da sua mensagem SMS. Este exemplo canc
 
 #### Considerações
 
-- {% raw %}`time_zone: ${time_zone}`{% endraw %} permite que a janela seja avaliada com base no horário local de cada usuário, e não em um horário global fixo, conforme explicado [neste FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#what-does-local-time-zone-delivery-offer).
+- {% raw %}`time_zone: ${time_zone}`{% endraw %} permite que a janela seja avaliada com base no horário local de cada usuário, e não em um horário global fixo, conforme explicado [neste FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq#what-does-local-time-zone-delivery-offer).
 - Mensagens suprimidas por {% raw %}`abort_message()`{% endraw %} não são reagendadas para o dia seguinte; elas são canceladas.
-- {% raw %} Por padrão, mensagens canceladas não são visíveis nos relatórios padrão de Campaign. No entanto, quando o Liquid cancela um envio com `{% abort_message %}`, a Braze registra isso no Registro de atividades de envio de mensagem como um erro de mensagem (por padrão, exibe `{% abort_message %}` chamado). Se você passar uma string, esse motivo é o que aparece no registro, como `{% abort_message('language was nil') %}`{% endraw %}. Para ter visibilidade dessas supressões no dashboard, entre em contato com seu gerente de sucesso do cliente para obter acesso ao [Dashboard de diagnóstico de envio de mensagens]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/).
+- {% raw %} Por padrão, mensagens canceladas não são visíveis nos relatórios padrão de Campaign. No entanto, quando o Liquid cancela um envio com `{% abort_message %}`, a Braze registra isso no Registro de atividades de envio de mensagem como um erro de mensagem (por padrão, exibe `{% abort_message %}` chamado). Se você passar uma string, esse motivo é o que aparece no registro, como `{% abort_message('language was nil') %}`{% endraw %}. Para ter visibilidade dessas supressões no dashboard, entre em contato com seu gerente de sucesso do cliente para obter acesso ao [Dashboard de diagnóstico de envio de mensagens]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard).

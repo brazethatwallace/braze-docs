@@ -8,39 +8,39 @@ tool: Currents
 
 ---
 
-# Amazon S3からSnowflakeにデータを転送する
+# Amazon S3からSnowflakeにデータを転送する {#transfer-data-from-amazon-s3-to-snowflake}
 
-> 現在データが Amazon S3 にある場合は、抽出、読み込み、変換 (ELT) プロセスを使用して、Snowflake や他のリレーショナルデータウェアハウスに転送できます。このページではその方法を説明します。
+> 現在データがAmazon S3にある場合は、抽出、読み込み、変換（ELT）プロセスを使用して、Snowflakeや他のリレーショナルデータウェアハウスに転送できます。このページではその方法を説明します。
 
 {% alert note %}
-より具体的なユースケースがあり、Braze に Currents インスタンスのサービスを依頼したい場合は、Braze アカウントマネージャーに連絡し、Braze Data Professional Services について尋ねてください。
+より具体的なユースケースがあり、BrazeにCurrentsインスタンスのサービスを依頼したい場合は、Brazeアカウントマネージャーに連絡し、Braze Data Professional Servicesについてお問い合わせください。
 {% endalert %}
 
-## 仕組み
+## 仕組み {#how-it-works}
 
-抽出、読み込み、変換 (ELT) プロセスは、データを [Snowflake](https://www.snowflake.com/) に移動する自動プロセスです。これにより、[Braze Looker Blocks](https://marketplace.looker.com/marketplace/directory) を使用して Looker でそのデータを可視化し、インサイトやフィードバックを キャンペーン、キャンバス、および セグメント で活用できます。
+抽出、読み込み、変換（ELT）プロセスは、データを[Snowflake](https://www.snowflake.com/)に移動する自動プロセスです。これにより、[Braze Looker Blocks](https://marketplace.looker.com/marketplace/directory)を使用してLookerでそのデータを可視化し、キャンペーン、キャンバス、セグメントにインサイトやフィードバックを活用できます。
 
-Currents から S3 へのエクスポートを設定し、ライブイベントデータを受信したら、次のコンポーネントを設定することにより Snowflake でライブ ELT パイプラインを設定できます。
+Currentsから S3へのエクスポートを設定し、ライブイベントデータを受信したら、次のコンポーネントを設定することによりSnowflakeでライブELTパイプラインを設定できます。
 
--   [AWS SQS キュー](#aws-sqs-queues)
--   [自動取り込み Snowpipe](#auto-ingest-snowpipes)
+-   [AWS SQSキュー](#aws-sqs-queues)
+-   [自動取り込みSnowpipe](#auto-ingest-snowpipes)
 
-## AWS SQS キューの設定
+## AWS SQSキューの設定 {#aws-sqs-queues}
 
-**自動取り込み Snowpipe** は、S3 から Snowpipe への通知の送信を SQS キューに依存します。このプロセスは、SQS の設定後に Snowflake によって管理されます。
+**自動取り込みSnowpipe**は、S3からSnowpipeへの通知の送信をSQSキューに依存します。このプロセスは、SQSの設定後にSnowflakeによって管理されます。
 
-### ステップ 1: 外部 S3 ステージの設定
+### ステップ1: 外部S3ステージの設定 {#step-1-configure-the-external-s3-stage}
 
 {% alert note %}
 この段階でデータベースのテーブルが作成されます。
 {% endalert %}
 
-1. Braze で Currents を設定するときに、S3 バケットに転送する Currents ファイルのフォルダーのパスを指定します。ここでは、デフォルトのフォルダーのパスである `currents` を使用します。
+1. BrazeでCurrentsを設定するときに、S3バケットに転送するCurrentsファイルのフォルダーパスを指定します。ここでは、デフォルトのフォルダーパスである`currents`を使用します。
 
 2. 以下の順番で作成します：
-  2.1 AWS で、目的の S3 バケットの新しい**公開キーと秘密キーのペア**を作成します。このときに、組織のセキュリティ要件に応じて権限を付与します。
-  2.2. Snowflake で、任意のデータベースとスキーマ (次の例では `currents` と `public` という名前) を作成します。
-  2.3. Snowflake S3 ステージ (`braze_data` という名前) を作成します。
+  2.1 AWSで、目的のS3バケットの新しい**公開キーと秘密キーのペア**を作成します。このときに、組織のセキュリティ要件に応じて権限を付与します。
+  2.2. Snowflakeで、任意のデータベースとスキーマ（次の例では`currents`と`public`という名前）を作成します。
+  2.3. Snowflake S3ステージ（`braze_data`という名前）を作成します。
 
 ```sql
 CREATE OR REPLACE STAGE
@@ -51,23 +51,23 @@ show stages;
 ```
 
 {: start="3"}
-3. ステージの AVRO ファイル形式を定義します。
+3. ステージのAVROファイル形式を定義します。
 
-`````````sql
+```sql
 CREATE FILE FORMAT
     currents.public.currents_avro
     type = 'avro'
     compression = 'auto';
 ```
 
-`````````sql
+```sql
 ALTER STAGE
     currents.public.braze_data
 SET
     file_format = currents.public.currents_avro;
 ```
 
-`````````sql
+```sql
 CREATE OR REPLACE PIPE
   pipe_users_messages_pushnotification_open
     auto_ingest=true AS
@@ -103,38 +103,38 @@ COPY INTO
 ```
 
 {: start="4"}
-4. 最後に、`show pipes;` コマンドを使用して SQS 情報を表示します。このパイプは自動取り込みパイプとして作成されたため、`NOTIFICATION_CHANNEL` という新しい列に SQS キューの名前が表示されます。
+4. 最後に、`show pipes;`コマンドを使用してSQS情報を表示します。このパイプは自動取り込みパイプとして作成されたため、`NOTIFICATION_CHANNEL`という新しい列にSQSキューの名前が表示されます。
 
-### ステップ 2: バケットイベントの作成
+### ステップ2: バケットイベントの作成 {#step-2-create-bucket-events}
 
-1. AWS で、新しい Snowflake ステージに対応するバケットに移動します。次に、**Properties** タブの **Events** に移動します。
+1. AWSで、新しいSnowflakeステージに対応するバケットに移動します。次に、**Properties**タブの**Events**に移動します。
 
-![AWS の Properties タブ]({% image_buster /assets/img/aws-properties.png %}){: height="50%" width="50%"}
+![AWSのPropertiesタブ]({% image_buster /assets/img/aws-properties.png %}){: height="50%" width="50%"}
 
 {: start="2"}
-2. 必要に応じて、各 Currents データセットの新しいイベントを作成します（[メッセージング]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)、[顧客行動]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)、またはその両方）。
+2. 必要に応じて、各Currentsデータセットの新しいイベントを作成します（[メッセージング]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)、[顧客行動]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)、またはその両方）。
 
-![AWS で新しいイベントを作成する]({% image_buster /assets/img/aws-events.png %}){: height="50%" width="50%"}
+![AWSで新しいイベントを作成する]({% image_buster /assets/img/aws-events.png %}){: height="50%" width="50%"}
 
 {: start="3"}
-3. オブジェクト作成通知の適切なチェックボックスをオンにし、フォームの下部にある ARN（Snowflake の通知チャネル列から取得）を入力します。
+3. オブジェクト作成通知の適切なチェックボックスをオンにし、フォームの下部にあるARN（Snowflakeの通知チャネル列から取得）を入力します。
 
-## 自動取り込み Snowpipe の設定 {#auto-ingest-snowpipes}
+## 自動取り込みSnowpipeの設定 {#auto-ingest-snowpipes}
 
-AWS SQS の設定で正しいテーブルを生成するには、受信データの構造を適切に定義する必要があります。以下の例と、Currents ドキュメントの[メッセージエンゲージメントまたはメッセージングイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)、[ユーザーまたは顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)、またはその両方で定義されたスキーマを使用してください。
+AWS SQSの設定で正しいテーブルを生成するには、受信データの構造を適切に定義する必要があります。以下の例と、Currentsドキュメントの[メッセージエンゲージメントまたはメッセージングイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)、[ユーザーまたは顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)、またはその両方で定義されたスキーマを使用してください。
 
-Braze Currents は特定のデータタイプの特定のフィールドを通じてデータを継続的に読み込むため、Braze Currents のスキーマに従ってテーブルを構造化することが重要です。たとえば、`user_id` は文字列として読み込まれ、Currents データでは `user_id` と呼ばれます。
+Braze Currentsは特定のデータタイプの特定のフィールドを通じてデータを継続的に読み込むため、Braze Currentsのスキーマに従ってテーブルを構造化することが重要です。たとえば、`user_id`は文字列として読み込まれ、Currentsデータでは`user_id`と呼ばれます。
 
 {% alert note %}
-  Currents の連携によっては、設定が必要なイベントが異なる場合があります（[メッセージエンゲージメントまたはメッセージングイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)や[ユーザーまたは顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)など）。このプロセスの一部またはすべてについてスクリプトを作成することもできます。
+  Currentsの連携によっては、設定が必要なイベントが異なる場合があります（[メッセージエンゲージメントまたはメッセージングイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)や[ユーザーまたは顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)など）。このプロセスの一部またはすべてについてスクリプトを作成することもできます。
 {% endalert %}
 
 {% tabs %}
   {% tab User Behavior Events %}
 
-1. 以下の Currents スキーマの構造を使用して、継続的にデータを読み込むテーブルを `INTO` で作成します。
+1. 以下のCurrentsスキーマの構造を使用して、継続的にデータを読み込むテーブルを`INTO`で作成します。
 
-`````````sql
+```sql
 CREATE TABLE
   users_behaviors_app_firstsession (
         id               STRING,
@@ -156,11 +156,11 @@ CREATE TABLE
 ```
 
 {: start="2"}
-2. `auto_ingest` パイプを作成し、以下を指定します。
+2. `auto_ingest`パイプを作成し、以下を指定します。
   2.1. 読み込み先のテーブル
   2.2 テーブルの読み込み方法
 
-`````````sql
+```sql
 CREATE OR REPLACE PIPE
   pipe_users_behaviors_app_firstsession
     auto_ingest=true AS
@@ -190,15 +190,15 @@ COPY INTO
 ```
 
 {% alert warning %}
-イベントタイプごとに `CREATE TABLE` コマンドと `CREATE PIPE` コマンドを繰り返す必要があります。
+イベントタイプごとに`CREATE TABLE`コマンドと`CREATE PIPE`コマンドを繰り返す必要があります。
 {% endalert %}
 
  {% endtab %}
  {% tab Messaging Events %}
 
-1. 以下の Currents スキーマの構造を使用して、継続的にデータを読み込むテーブルを `INTO` で作成します。
+1. 以下のCurrentsスキーマの構造を使用して、継続的にデータを読み込むテーブルを`INTO`で作成します。
 
-`````````sql
+```sql
 CREATE TABLE
     public_users_messages_pushnotification_open (
         id STRING,
@@ -226,11 +226,11 @@ CREATE TABLE
 ```
 
 {: start="2"}
-2. AUTO 継続読み込みパイプを作成し、以下を指定します。
+2. AUTO継続読み込みパイプを作成し、以下を指定します。
   2.1. 読み込み先のテーブル
   2.2 テーブルの読み込み方法
 
-`````````sql
+```sql
 CREATE OR REPLACE PIPE
   pipe_users_messages_pushnotification_open
     auto_ingest=true AS
@@ -266,14 +266,14 @@ COPY INTO
 ```
 
 {% alert warning %}
-イベントタイプごとに `CREATE TABLE` コマンドと `CREATE PIPE` コマンドを繰り返す必要があります。
+イベントタイプごとに`CREATE TABLE`コマンドと`CREATE PIPE`コマンドを繰り返す必要があります。
 {% endalert %}
 
   {% endtab %}
 {% endtabs %}
 
-Braze Currents を使用して実行できる分析の種類については、[Looker Blocks](https://github.com/llooker?q=braze) を参照してください。
+Braze Currentsを使用して実行できる分析の種類については、[Looker Blocks](https://github.com/llooker?q=braze)を参照してください。
 
 {% alert note %}
-ご質問がある場合や、Braze にこのプロセスのガイドを依頼したい場合は、Braze アカウントマネージャーにお問い合わせください。
+ご質問がある場合や、Brazeにこのプロセスのガイドを依頼したい場合は、Brazeアカウントマネージャーにお問い合わせください。
 {% endalert %}

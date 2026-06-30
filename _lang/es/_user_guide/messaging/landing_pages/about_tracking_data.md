@@ -18,7 +18,7 @@ El SDK Web de Braze se inicializa cuando un usuario envía un formulario en una 
 
 El SDK Web de Braze se inicializa inmediatamente cuando un usuario navega a la página de inicio a través de un enlace generado por una etiqueta de Liquid {% raw %}`{% landing_page_url %}`{% endraw %} en un mensaje de Braze.
 
-Cuando se envía un formulario, el SDK recopilará los siguientes datos:
+Cuando se envía un formulario, el SDK recopila los siguientes datos:
 
 - Evento de envío de formulario (nombre del evento y hora del envío)
 - Datos especificados por tu equipo en el formulario (como nombre, correo electrónico y número de teléfono)
@@ -38,5 +38,5 @@ Braze no fusiona automáticamente usuarios basándose en atributos, como correo 
 
 Para fusionar perfiles de usuario duplicados, puedes:
 
-- Desencadenar el [punto de conexión `/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) cuando se envía un formulario de página de inicio para fusionar el nuevo perfil con un perfil existente.
-- Programar una [fusión masiva]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/#bulk-merging) para fusionar periódicamente perfiles duplicados basándose en identificadores coincidentes.
+- Desencadenar el [punto de conexión `/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) cuando se envía un formulario de página de inicio para fusionar el nuevo perfil con un perfil existente.
+- Programar una [fusión masiva]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#bulk-merging) para fusionar periódicamente perfiles duplicados basándose en identificadores coincidentes.

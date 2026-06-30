@@ -28,6 +28,7 @@ Par exemple, utilisez un Data Push pour transmettre à Braze des événements pe
 
 ## Conditions préalables {#prerequisites}
 
+
 | Condition | Description |
 | --- | --- |
 | Compte Oracle Crowdtwist | Un [compte Oracle Crowdtwist](https://www.oracle.com/uk/cx/marketing/customer-loyalty/) est nécessaire pour profiter de ce partenariat. |
@@ -240,9 +241,9 @@ Les modèles de ce guide sont conçus pour envoyer les données à la destinatio
 
 ### Test {#testing}
 
-Après avoir modifié le modèle à votre convenance, vous devez vérifier qu'il fonctionne correctement. Dans l'éditeur de transformation, sélectionnez **Validate** pour générer un aperçu dans la section **Output** et confirmer que Braze acceptera la requête mappée pour la destination choisie.
+Après avoir modifié le modèle à votre convenance, vous devez vérifier qu'il fonctionne correctement. Dans l'éditeur de transformation, sélectionnez **Valider** pour générer un aperçu dans la section **Sortie** et confirmer que Braze accepte la requête mappée pour la destination choisie.
 
-Lorsque vous êtes satisfait de l'objet affiché dans le champ « output », cliquez sur **Activate** pour que l'endpoint de Transformation des données soit prêt à accepter des données.
+Lorsque vous êtes satisfait de l'objet affiché dans le champ **Sortie**, sélectionnez **Activer** pour que l'endpoint de Transformation des données soit prêt à accepter des données.
 
 Vous trouverez l'URL du webhook de votre Transformation des données dans le panneau latéral gauche. Copiez-la et utilisez-la pour la configuration dans le hub d'intégration d'Oracle Crowdtwist.
 

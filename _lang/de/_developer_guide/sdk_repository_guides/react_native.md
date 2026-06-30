@@ -425,7 +425,7 @@ Für eine tiefergehende Fehlerbehebung (Netzwerk, Sitzung oder Campaign-Verhalte
 
 ## Kontakt {#contact}
 
-Wenn Sie Fragen haben, kontaktieren Sie bitte [support@braze.com](mailto:support@braze.com).
+Wenn Sie Fragen haben, wenden Sie sich bitte an den technischen Support von Braze.
 <!-- END GENERATED README CONTENT -->
 
 Für Repository-Details und Beispielprojekte siehe [https://github.com/braze-inc/braze-react-native-sdk](https://github.com/braze-inc/braze-react-native-sdk).

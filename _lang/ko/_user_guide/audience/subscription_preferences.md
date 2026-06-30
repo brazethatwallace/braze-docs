@@ -36,7 +36,7 @@ guide_menu_list:
 guide_menu_title2: "관련 문서"
 guide_menu_list2:
   - name: API 엔드포인트
-    link: /docs/api/endpoints/subscription_groups/
+    link: /docs/api/endpoints/subscription_groups
     image: /assets/img/braze_icons/brackets.svg
 ---
 

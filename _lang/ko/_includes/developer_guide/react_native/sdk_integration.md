@@ -53,7 +53,7 @@ yarn add @braze/react-native-sdk
 
 #### 방법 1: Expo 플러그인 사용 {#reactnative-using-the-expo-plugin}
 
-##### 2.1 Braze Expo 플러그인 설치 {#21-install-the-braze-expo-plugin} {#21-install-the-braze-expo-plugin}
+##### 2.1 Braze Expo 플러그인 설치 {#21-install-the-braze-expo-plugin}
 
 Braze Expo 플러그인 버전이 4.1.0 이상인지 확인하세요. 지원되는 버전의 전체 목록은 [Braze Expo 플러그인 리포지토리](https://github.com/braze-inc/braze-expo-plugin?tab=readme-ov-file#version-support)를 참조하세요.
 
@@ -63,7 +63,7 @@ Braze Expo 플러그인 버전이 4.1.0 이상인지 확인하세요. 지원되�
 npx expo install @braze/expo-plugin
 ```
 
-##### 2.2 app.json에 플러그인 추가 {#22-add-the-plugin-to-your-appjson} {#22-add-the-plugin-to-your-appjson}
+##### 2.2 app.json에 플러그인 추가 {#22-add-the-plugin-to-your-appjson}
 
 `app.json`에 Braze Expo 플러그인을 추가하세요. API 키와 엔드포인트는 더 이상 여기에서 설정하지 않습니다. JavaScript에서 `Braze.initialize()`를 통해 런타임에 제공하세요. 구현 요구 사항에 따라 다음 선택적 구성 매개변수를 추가하세요:
 
@@ -73,7 +73,7 @@ npx expo install @braze/expo-plugin
 | `enableFirebaseCloudMessaging` | boolean | Android 전용. 푸시 알림에 Firebase Cloud Messaging을 사용할지 여부. |
 | `firebaseCloudMessagingSenderId` | string | Android 전용. Firebase Cloud Messaging 발신자 ID. |
 | `sessionTimeout` | integer | 애플리케이션의 Braze 세션 타임아웃(초). |
-| `enableSdkAuthentication` | boolean | [SDK 인증](https://www.braze.com/docs/developer_guide/platform_wide/sdk_authentication#sdk-authentication) 기능을 활성화할지 여부. |
+| `enableSdkAuthentication` | boolean | [SDK 인증]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication/#sdk-authentication) 기능을 활성화할지 여부. |
 | `logLevel` | integer | 애플리케이션의 로그 레벨. 기본 로그 레벨은 8이며 최소한의 정보를 기록합니다. 디버깅을 위해 상세 로깅을 활성화하려면 로그 레벨 0을 사용하세요. |
 | `minimumTriggerIntervalInSeconds` | integer | 트리거 사이의 최소 시간 간격(초). 기본값은 30초입니다. |
 | `enableAutomaticLocationCollection` | boolean | 자동 위치 수집이 활성화되어 있는지 여부(사용자가 허용하는 경우). |
@@ -91,7 +91,7 @@ npx expo install @braze/expo-plugin
 | `iosPushStoryAppGroup` | string | iOS 전용. iOS Push Stories에 사용되는 앱 그룹. |
 | `iosUseUUIDAsDeviceId` | boolean | iOS 전용. 기기 ID가 무작위로 생성된 UUID를 사용할지 여부. |
 | `iosForwardUniversalLinks` | boolean | iOS 전용. SDK가 자동으로 유니버설 링크를 인식하고 시스템 메서드로 전달할지 여부를 지정합니다(기본값: `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2.2 Add the plugin to your app.json" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2.2 app.json에 플러그인 추가" }
 
 다음 코드 스니펫은 `app.json` 구성 예시입니다:
 
@@ -181,7 +181,7 @@ Braze Expo 플러그인은 Android `drawable` 디렉토리에서 아이콘 파�
 
 Android 알림 아이콘에 대한 자세한 내용은 [Android의 알림 아이콘 가이드라인](https://developer.android.com/develop/ui/views/notifications#icon)을 참조하세요.
 
-##### 2.3 애플리케이션 빌드 및 실행 {#23-build-and-run-your-application} {#23-build-and-run-your-application}
+##### 2.3 애플리케이션 빌드 및 실행 {#23-build-and-run-your-application}
 
 애플리케이션을 프리빌드하면 Braze Expo 플러그인이 작동하는 데 필요한 네이티브 파일이 생성됩니다.
 
@@ -432,7 +432,7 @@ npx expo install @braze/expo-plugin
 | `enableFirebaseCloudMessaging` | boolean | Android 전용. 푸시 알림에 Firebase Cloud Messaging을 사용할지 여부. React Native SDK v1.38.0 및 Expo Plugin v0.4.0에서 도입되었습니다. |
 | `firebaseCloudMessagingSenderId` | string | Android 전용. Firebase Cloud Messaging 발신자 ID. React Native SDK v1.38.0 및 Expo Plugin v0.4.0에서 도입되었습니다. |
 | `sessionTimeout` | integer | 애플리케이션의 Braze 세션 타임아웃(초). |
-| `enableSdkAuthentication` | boolean | [SDK 인증](https://www.braze.com/docs/developer_guide/platform_wide/sdk_authentication#sdk-authentication) 기능을 활성화할지 여부. |
+| `enableSdkAuthentication` | boolean | [SDK 인증]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication/#sdk-authentication) 기능을 활성화할지 여부. |
 | `logLevel` | integer | 애플리케이션의 로그 레벨. 기본 로그 레벨은 8이며 최소한의 정보를 기록합니다. 디버깅을 위해 상세 로깅을 활성화하려면 로그 레벨 0을 사용하세요. |
 | `minimumTriggerIntervalInSeconds` | integer | 트리거 사이의 최소 시간 간격(초). 기본값은 30초입니다. |
 | `enableAutomaticLocationCollection` | boolean | 자동 위치 수집이 활성화되어 있는지 여부(사용자가 허용하는 경우). |
@@ -450,7 +450,7 @@ npx expo install @braze/expo-plugin
 | `iosPushStoryAppGroup` | string | iOS 전용. iOS Push Stories에 사용되는 앱 그룹. |
 | `iosUseUUIDAsDeviceId` | boolean | iOS 전용. 기기 ID가 무작위로 생성된 UUID를 사용할지 여부. |
 | `iosForwardUniversalLinks` | boolean | iOS 전용. SDK가 자동으로 유니버설 링크를 인식하고 시스템 메서드로 전달할지 여부를 지정합니다(기본값: `false`). 활성화되면 SDK는 [앱에서 유니버설 링크 지원](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks/)에 정의된 시스템 메서드로 유니버설 링크를 자동으로 전달합니다. React Native SDK v11.1.0 및 Expo Plugin v3.2.0에서 도입되었습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2.2: Add the plugin to your app.json" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2.2단계: app.json에 플러그인 추가" }
 
 다음 코드 스니펫은 `app.json` 구성 예시입니다:
 

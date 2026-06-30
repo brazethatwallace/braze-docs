@@ -20,7 +20,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `email.bounce.remove`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `email.bounce.remove`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -35,7 +35,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ```json
 {
-  "email": "example@braze.com"
+  "email": "example@example.com"
 }
 ```
 
@@ -44,7 +44,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | ----------|-----------| ---------|------ |
 | `email` | Obligatorio | Cadena o matriz | Dirección de correo electrónico en forma de cadena a modificar, o una matriz de hasta 50 direcciones de correo electrónico a modificar. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 ```
@@ -52,7 +52,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/email/bounce/remov
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
 --data-raw '{
-  "email": "example@braze.com"
+  "email": "example@example.com"
 }'
 ```
 

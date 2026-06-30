@@ -22,17 +22,17 @@ Braze는 현재 Shopify의 Liquid를 100% 지원하지 않으며, 설명서에�
 
 #### 더 자세히 알아보려면 어디를 참고하면 되나요? {#where-can-i-learn-more}
 
-Liquid에 대해 더 알아보려면 Braze Learning의 가이드 학습 경로 [Liquid를 활용한 동적 개인화](https://learning.braze.com/path/dynamic-personalization-with-liquid)를 확인하세요. 또한 [Liquid 사용 사례 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/)에서 영감을 얻고 Liquid를 사용한 다양한 개인화 예시를 참고할 수 있습니다.
+Liquid에 대해 더 알아보려면 Braze Learning의 가이드 학습 경로 [Liquid를 활용한 동적 개인화](https://learning.braze.com/path/dynamic-personalization-with-liquid)를 확인하세요. 또한 [Liquid 사용 사례 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases)에서 영감을 얻고 Liquid를 사용한 다양한 개인화 예시를 참고할 수 있습니다.
 
 ### 개인화에 Liquid와 연결된 콘텐츠를 사용하는 것의 차이점은 무엇인가요? {#whats-the-difference-between-using-liquid-and-connected-content-for-personalization}
 
-Braze 연결된 콘텐츠는 Liquid 태그의 한 예입니다. 마찬가지로 개인화에 사용되지만, 이 데이터는 Braze 내에 저장된 데이터가 아닌 외부 엔드포인트에서 가져옵니다. 메시지 개인화를 확장하는 방법에 대해 자세히 알아보려면 전용 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) 섹션을 확인하세요.
+Braze 연결된 콘텐츠는 Liquid 태그의 한 예입니다. 마찬가지로 개인화에 사용되지만, 이 데이터는 Braze 내에 저장된 데이터가 아닌 외부 엔드포인트에서 가져옵니다. 메시지 개인화를 확장하는 방법에 대해 자세히 알아보려면 전용 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) 섹션을 확인하세요.
 
 ### Liquid 템플릿이란 무엇인가요? {#what-is-liquid-templating}
 
 Braze에서 Liquid를 사용하는 가장 일반적인 방법입니다. Liquid 템플릿은 고객 프로필의 데이터를 메시지에 가져오는 것을 의미합니다. 이 데이터는 사용자의 이름부터 이벤트 트리거된 메시지의 커스텀 이벤트까지 다양할 수 있습니다.
 
-지원되는 Liquid 태그의 전체 목록은 [지원되는 개인화 태그]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)를 참조하세요.
+지원되는 Liquid 태그의 전체 목록은 [지원되는 개인화 태그]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)를 참조하세요.
 
 ### Liquid를 사용하면 데이터 포인트가 기록되나요? {#does-using-liquid-log-data-points}
 
@@ -44,7 +44,7 @@ Braze에서 Liquid를 사용하는 가장 일반적인 방법입니다. Liquid �
 
 사용자의 이름을 사용한 개인화된 인사말의 경우, {% raw %}`{{${first_name}}}`, `{{${last_name}}}`{% endraw %} 같은 표준 고객 프로필 속성을 가져올 수 있습니다.
 
-또한 Liquid {% raw %}`{% if X %}`{% endraw %}문을 사용하여 요일이나 커스텀 속성 등 다양한 조건에 따라 조건부 렌더링을 수행할 수 있습니다. 조건문에서 사용할 수 있는 지원되는 Liquid 연산자에 대한 자세한 내용은 [연산자]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/operators/)를 확인하세요.
+또한 Liquid {% raw %}`{% if X %}`{% endraw %}문을 사용하여 요일이나 커스텀 속성 등 다양한 조건에 따라 조건부 렌더링을 수행할 수 있습니다. 조건문에서 사용할 수 있는 지원되는 Liquid 연산자에 대한 자세한 내용은 [연산자]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/operators)를 확인하세요.
 
 ### 사용자의 위치를 기반으로 메시지를 개인화하려면 어떻게 하나요? {#how-can-i-personalize-a-message-based-on-a-users-location}
 
@@ -58,13 +58,13 @@ Braze에서 Liquid를 사용하는 가장 일반적인 방법입니다. Liquid �
 `{{campaign.${name}}}`과 `{{campaign.${message_name}}}`은 모두 지원되는 Liquid 개인화 태그입니다. 두 태그 모두 Campaign 속성을 참조합니다. `{{campaign.${name}}}`은 Campaign의 이름을 나타내고, `{{campaign.${message_name}}}`은 메시지 배리언트의 이름입니다.
 {% endraw %}
 
-URL 및 쿼리 문자열 사용(예: 이름에 `%` 또는 공백이 포함된 경우)에 대해서는 [URL에서의 Campaign 이름]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#campaign-names-in-urls)을 참조하세요.
+URL 및 쿼리 문자열 사용(예: 이름에 `%` 또는 공백이 포함된 경우)에 대해서는 [URL에서의 Campaign 이름]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#campaign-names-in-urls)을 참조하세요.
 
 ### 중첩된 오브젝트에서 Liquid를 어떻게 사용하나요? {#how-do-i-use-liquid-with-nested-objects}
 
 Braze에는 메시지에서 사용할 수 있는 Segments용 Liquid 코드를 생성하는 내장 기능이 있습니다. 구체적으로, 오브젝트 내에서 여러 기준과 일치하는 Segment를 생성할 수 있습니다.
 
-자세한 내용은 [다중 기준 세분화]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#multi-criteria-segmentation)를 확인하세요.
+자세한 내용은 [다중 기준 세분화]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#multi-criteria-segmentation)를 확인하세요.
 
 ### 이벤트가 트리거하는 메시지를 개인화하기 위해 이벤트 속성을 어떻게 사용하나요? {#how-do-i-use-event-attributes-to-personalize-a-message-that-an-event-is-triggering}
 
@@ -126,7 +126,7 @@ Join our VIP program to unlock free shipping.
 
 for 루프는 [반복 태그](https://shopify.github.io/liquid/tags/iteration/)라고도 합니다. Liquid 스니펫에서 for 루프 로직을 사용하면 조건이 충족될 때까지 Liquid 블록을 순환할 수 있습니다.
 
-Braze에서는 배열 커스텀 속성의 항목을 확인하거나, [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/), [선택]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/), 또는 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) 호출 응답에서 반환된 값 및 오브젝트 목록을 확인하는 데 사용할 수 있습니다. 구체적으로, for 루프 로직을 메시징의 일부로 사용하여 제품의 재고 여부나 제품의 최소 평점 충족 여부를 확인할 수 있습니다.
+Braze에서는 배열 커스텀 속성의 항목을 확인하거나, [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs), [선택]({{site.baseurl}}/user_guide/data/activation/catalogs/selections), 또는 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) 호출 응답에서 반환된 값 및 오브젝트 목록을 확인하는 데 사용할 수 있습니다. 구체적으로, for 루프 로직을 메시징의 일부로 사용하여 제품의 재고 여부나 제품의 최소 평점 충족 여부를 확인할 수 있습니다.
 
 예를 들어, "Games"라는 카탈로그에 "cheap_games"라는 선택이 있다고 가정해 보겠습니다. "cheap_games"에 있는 게임의 제목을 가져오려면 다음 Liquid 스니펫을 사용할 수 있습니다:
 
@@ -143,7 +143,7 @@ Braze에서는 배열 커스텀 속성의 항목을 확인하거나, [카탈로�
 
 ### 중단 로직이란 무엇이며, 어떻게 사용하나요? {#what-is-abort-logic-and-how-can-i-use-it}
 
-중단 로직을 사용하면 조건이 충족될 때 메시지 발송을 중지할 수 있습니다. 이는 불완전한 메시지가 사용자에게 발송되는 것을 방지하는 데 특히 유용합니다. 마케팅 Campaign에서의 중단 로직 예시에 대해 자세히 알아보려면 [메시지 중단]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)을 참조하세요.
+중단 로직을 사용하면 조건이 충족될 때 메시지 발송을 중지할 수 있습니다. 이는 불완전한 메시지가 사용자에게 발송되는 것을 방지하는 데 특히 유용합니다. 마케팅 Campaign에서의 중단 로직 예시에 대해 자세히 알아보려면 [메시지 중단]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)을 참조하세요.
 
 ### `abort_message` 태그 안에서 Liquid를 사용할 수 있나요? {#can-i-use-liquid-inside-the-abort_message-tag}
 
@@ -159,11 +159,11 @@ Braze에서는 배열 커스텀 속성의 항목을 확인하거나, [카탈로�
 
 ### Canvas 컨텍스트 등록정보에 크기 제한이 있나요? {#are-there-size-limits-for-canvas-context-properties}
 
-Braze는 [Canvas 컨텍스트 등록정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)에 대해 엄격한 제한을 적용하지 않지만, 페이로드를 약 1KB(~1,000자) 이하로 유지하세요. 더 큰 오브젝트는 메모리 사용량을 증가시키고 대량 발송 시 메시지 렌더링을 지연시킬 수 있습니다.
+Braze는 [Canvas 컨텍스트 등록정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)에 대해 엄격한 제한을 적용하지 않지만, 페이로드를 약 1KB(~1,000자) 이하로 유지하세요. 더 큰 오브젝트는 메모리 사용량을 증가시키고 대량 발송 시 메시지 렌더링을 지연시킬 수 있습니다.
 
 ### 대시보드에서 특정 데이터 유형을 미리볼 때 Liquid 오류가 발생하는 이유는 무엇인가요? {#why-do-i-get-a-liquid-error-when-previewing-certain-data-types-in-the-dashboard}
 
-일부 [Canvas 컨텍스트 등록정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) 유형은 비교나 수학 연산에 사용하기 전에 Liquid에서 형변환이 필요합니다. 예를 들어, 숫자 동작이 필요한 경우:
+일부 [Canvas 컨텍스트 등록정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) 유형은 비교나 수학 연산에 사용하기 전에 Liquid에서 형변환이 필요합니다. 예를 들어, 숫자 동작이 필요한 경우:
 
 {% raw %}
 ```liquid
@@ -173,7 +173,7 @@ Braze는 [Canvas 컨텍스트 등록정보]({{site.baseurl}}/user_guide/messagin
 
 ### 카탈로그 Liquid 스니펫이 중단 메시지를 반환하는 이유는 무엇인가요? {#why-does-my-catalog-liquid-snippet-return-an-abort-message}
 
-카탈로그 Liquid 스니펫이 발송 중 중단되는 경우, 대량 또는 완전 동적 선택을 사용하는 대신 개인화 메뉴에서 개별 카탈로그 항목을 선택하여 스니펫을 다시 생성하세요. [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/) 및 [선택]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/)을 참조하세요.
+카탈로그 Liquid 스니펫이 발송 중 중단되는 경우, 대량 또는 완전 동적 선택을 사용하는 대신 개인화 메뉴에서 개별 카탈로그 항목을 선택하여 스니펫을 다시 생성하세요. [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs) 및 [선택]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)을 참조하세요.
 
 ## Content Blocks와 메시지 작성기 {#content-blocks-and-the-message-composer}
 
@@ -209,7 +209,7 @@ Liquid로 Content Block을 템플릿화하면, 블록의 모바일 미디어 쿼
 
 ### 동적 회신 주소를 어떻게 만드나요? {#how-do-i-create-a-dynamic-reply-to-address}
 
-워크스페이스에서 동적 회신 주소 구성을 지원하는 경우 **회신 주소** 필드에서 Liquid를 사용하세요. 필요에 따라 **보낸 사람** 표시 이름 설정과 함께 사용하세요. 워크스페이스별 옵션에 대해서는 [이메일 설정]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/)을 참조하세요.
+워크스페이스에서 동적 회신 주소 구성을 지원하는 경우 **회신 주소** 필드에서 Liquid를 사용하세요. 필요에 따라 **보낸 사람** 표시 이름 설정과 함께 사용하세요. 워크스페이스별 옵션에 대해서는 [이메일 설정]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences)을 참조하세요.
 
 ## Liquid 오류 문제 해결 {#troubleshooting-liquid-errors}
 

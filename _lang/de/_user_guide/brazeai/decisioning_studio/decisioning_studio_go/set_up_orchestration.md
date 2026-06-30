@@ -105,7 +105,7 @@ Braze stellt App-IDs (im Braze-Dashboard als API-Schlüssel bezeichnet) zur Verf
 
 Um Ihre Integration zu testen, benötigen Sie eine Nutzer-ID:
 
-Wenn Ihr Workspace [Verschlüsselung auf Bezeichner-Feldebene]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/) verwendet, muss jede neue Testnutzer:in, die Sie über den `/users/track`-Endpunkt erstellen, die E-Mail-Anforderungen für verschlüsselte Workspaces erfüllen. Senden Sie das Feld `email` als Base64-kodierten HMAC-SHA256-Hash des kleingeschriebenen E-Mail-Werts und `email_encrypted` als den mit Ihren konfigurierten PII-Verschlüsselungsschlüsseln verschlüsselten E-Mail-Wert.
+Wenn Ihr Workspace [Verschlüsselung auf Bezeichner-Feldebene]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption) verwendet, muss jede neue Testnutzer:in, die Sie über den `/users/track`-Endpunkt erstellen, die E-Mail-Anforderungen für verschlüsselte Workspaces erfüllen. Senden Sie das Feld `email` als Base64-kodierten HMAC-SHA256-Hash des kleingeschriebenen E-Mail-Werts und `email_encrypted` als den mit Ihren konfigurierten PII-Verschlüsselungsschlüsseln verschlüsselten E-Mail-Wert.
 
 1. Gehen Sie im Braze-Dashboard zu **Zielgruppe** > **Nutzer:innen suchen**.
 2. Suchen Sie die Nutzer:in anhand der externen Nutzer-ID, des Nutzer-Alias, der E-Mail-Adresse, der Telefonnummer oder des Push-Tokens.
@@ -377,4 +377,4 @@ Geschafft! Sie können nun Sendungen über BrazeAI Decisioning Studio™ Go trig
 
 Nachdem Sie die Orchestrierung eingerichtet haben, fahren Sie mit der Gestaltung Ihres Agenten fort:
 
-- [Agenten konzipieren]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)
+- [Agenten konzipieren]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent)

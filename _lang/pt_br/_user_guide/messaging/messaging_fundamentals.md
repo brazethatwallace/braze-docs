@@ -4,7 +4,7 @@ article_title: Fundamentos do envio de mensagens
 layout: dev_guide
 page_order: 1
 guide_top_header: "Fundamentos"
-guide_top_text: "Defina quem recebe sua mensagem, quando ela é enviada e como você mede o sucesso. Esses conceitos se aplicam tanto ao usar uma <a href='/docs/user_guide/get_started/campaigns_and_canvases'>Campaign quanto um Canvas</a>."
+guide_top_text: "Defina quem recebe sua mensagem, quando ela é enviada e como você mede o sucesso — seja usando uma <a href='/docs/user_guide/get_started/campaigns_and_canvases'>Campaign ou um Canvas</a>. Esta seção aborda direcionamento de público, tipos de entrega e entrada, rastreamento de eventos de conversão, limite de frequência, regras de reelegibilidade, localização, acessibilidade e o checklist pré-lançamento. Revise esses conceitos antes de criar suas mensagens para alcançar os usuários certos sem sobrecarregá-los."
 page_type: landing
 tool:
   - Campaigns
@@ -19,7 +19,7 @@ guide_featured_list:
   - name: Tipos de entrega e entrada
     link: /docs/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types
     image: /assets/img/braze_icons/line-chart-up-01.svg
-  - name: Dispatch ID
+  - name: ID de despacho
     link: /docs/user_guide/messaging/messaging_fundamentals/dispatch_id
     image: /assets/img/braze_icons/key-01.svg
   - name: Reelegibilidade

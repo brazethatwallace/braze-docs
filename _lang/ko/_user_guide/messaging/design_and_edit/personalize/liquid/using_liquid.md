@@ -10,7 +10,7 @@ search_rank: 2
 
 > 이 문서에서는 다양한 사용자 속성을 활용하여 메시징에 개인 정보를 동적으로 삽입하는 방법을 설명합니다.
 
-Liquid는 Shopify에서 개발하고 Ruby로 작성된 오픈소스 템플릿 언어입니다. Braze에서 Liquid를 사용하면 고객 프로필 데이터를 메시지에 가져와 해당 데이터를 커스터마이즈할 수 있습니다. 예를 들어, Liquid 태그를 사용하여 사용자의 구독 기념일에 따라 다른 혜택을 보내는 등의 조건부 메시지를 만들 수 있습니다. 또한 필터를 사용하면 사용자의 등록 날짜를 타임스탬프에서 "2022년 1월 15일"과 같이 더 읽기 쉬운 형식으로 변환하는 등 데이터를 조작할 수 있습니다. Liquid 구문과 기능에 대한 자세한 내용은 [지원되는 개인화 태그]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)를 참조하세요.
+Liquid는 Shopify에서 개발하고 Ruby로 작성된 오픈소스 템플릿 언어입니다. Braze에서 Liquid를 사용하면 고객 프로필 데이터를 메시지에 가져와 해당 데이터를 커스터마이즈할 수 있습니다. 예를 들어, Liquid 태그를 사용하여 사용자의 구독 기념일에 따라 다른 혜택을 보내는 등의 조건부 메시지를 만들 수 있습니다. 또한 필터를 사용하면 사용자의 등록 날짜를 타임스탬프에서 "2022년 1월 15일"과 같이 더 읽기 쉬운 형식으로 변환하는 등 데이터를 조작할 수 있습니다. Liquid 구문과 기능에 대한 자세한 내용은 [지원되는 개인화 태그]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)를 참조하세요.
 
 ## 작동 방식 {#how-it-works}
 
@@ -44,14 +44,14 @@ HTML 주석(`<!-- -->`)은 Liquid가 읽히기 전에 제거되므로, HTML 주�
 
 가용성에 따라 다음 값을 메시지에 대체할 수 있습니다:
 
-- [기본 사용자 정보]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) (예: `first_name`, `last_name`, `email_address`)
-- [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)
-    - [중첩 고객 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#liquid-templating)
-- [커스텀 이벤트 등록정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)
-- [가장 최근에 사용한 기기 정보]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#most-recently-used-device-information)
-- [타겟 기기 정보]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-device-information)
+- [기본 사용자 정보]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) (예: `first_name`, `last_name`, `email_address`)
+- [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)
+    - [중첩 고객 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#liquid-templating)
+- [커스텀 이벤트 등록정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events)
+- [가장 최근에 사용한 기기 정보]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#most-recently-used-device-information)
+- [타겟 기기 정보]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-device-information)
 
-Braze [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)를 통해 웹 서버에서 직접 콘텐츠를 가져올 수도 있습니다.
+Braze [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)를 통해 웹 서버에서 직접 콘텐츠를 가져올 수도 있습니다.
 
 {% alert important %}
 Braze는 현재 Shopify의 Liquid 5까지 지원합니다.
@@ -59,7 +59,7 @@ Braze는 현재 Shopify의 Liquid 5까지 지원합니다.
 
 ## Liquid 사용하기 {#using-liquid}
 
-[Liquid 태그]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)를 사용하면 개인적인 터치를 더해 메시지의 품질을 높일 수 있습니다.
+[Liquid 태그]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)를 사용하면 개인적인 터치를 더해 메시지의 품질을 높일 수 있습니다.
 
 ### Liquid 구문 {#liquid-syntax}
 
@@ -84,7 +84,7 @@ Liquid는 동적 개인화를 작성할 때 염두에 두어야 할 특정 구�
 | 배열 접근 (`[ ]`) | 지원되지 않음 | 지원되지 않음 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="연산자와 필터를 사용할 수 있는 위치" }
 
-[^case_when_ops]: `case`와 `when` 태그에서 Liquid는 `case` 표현식을 각 `when` 값과 동등 비교(equality)를 사용하여 비교합니다(`if`와 `elsif`를 `==`로 연결하는 것과 유사). `when` 절 내에서는 `if`와 `elsif`에서처럼 임의의 비교 또는 논리 연산자를 사용할 수 없습니다. 예시는 [조건부 메시징 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags)을 참조하세요.
+[^case_when_ops]: `case`와 `when` 태그에서 Liquid는 `case` 표현식을 각 `when` 값과 동등 비교(equality)를 사용하여 비교합니다(`if`와 `elsif`를 `==`로 연결하는 것과 유사). `when` 절 내에서는 `if`와 `elsif`에서처럼 임의의 비교 또는 논리 연산자를 사용할 수 없습니다. 예시는 [조건부 메시징 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags)을 참조하세요.
 
 필터를 지원하지 않는 컨텍스트에서 필터링된 값이 필요한 경우, 먼저 결과를 변수에 할당하세요.
 

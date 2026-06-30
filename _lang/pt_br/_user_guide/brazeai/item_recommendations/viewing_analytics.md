@@ -20,7 +20,7 @@ page_order: 1.3
 
 ### Público {#audience}
 
-Estas são métricas relacionadas ao seu público de recomendação, que inclui precisão, cobertura e tipo de recomendação.
+Estas são métricas relacionadas ao público da sua recomendação, que incluem precisão, cobertura e tipo de recomendação.
 
 ![Métricas de público de recomendação mostrando precisão (25,3%), cobertura (54,3%) e tipos de recomendação divididos entre itens personalizados e mais populares.]({% image_buster /assets/img/item_recs_analytics_1.png %})
 
@@ -28,10 +28,10 @@ Consulte a tabela a seguir para saber mais:
 
 | Métrica              | Descrição |
 | ------------------- | ---------- |
-| **Precisão**           | A porcentagem de vezes em que o modelo adivinhou corretamente o próximo item que um usuário comprou. A precisão depende muito do tamanho e da composição do seu catálogo específico e deve ser usada como um guia para entender com que frequência o modelo está correto.<br><br>Em testes anteriores, vimos modelos com bom desempenho com números de precisão que variam de 6 a 20%. Essa métrica é atualizada na próxima vez que o modelo for retreinado.  |
-| **Cobertura**            | Qual porcentagem dos itens disponíveis no catálogo é recomendada a pelo menos um usuário. Você pode esperar ver uma cobertura maior de itens com recomendações personalizadas de itens em relação aos mais populares. |
+| **Precisão**           | A porcentagem de vezes em que o modelo adivinhou corretamente o próximo item que um usuário comprou. A precisão depende muito do tamanho e da composição do seu catálogo específico e deve ser usada como um guia para entender com que frequência o modelo está correto.<br><br>Em testes anteriores, vimos modelos com bom desempenho com números de precisão variando de 6 a 20%. Essa métrica é atualizada na próxima vez que o modelo for retreinado.  |
+| **Cobertura**            | Qual porcentagem dos itens disponíveis no catálogo é recomendada a pelo menos um usuário. Você pode esperar uma cobertura maior de itens com recomendações personalizadas em comparação com os mais populares. |
 | **Tipo de recomendação** | A porcentagem de usuários que receberão recomendações personalizadas ou mais recentes em comparação com o fallback de itens mais populares. O fallback é enviado aos usuários que não têm dados suficientes para gerar uma recomendação personalizada ou mais recente. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Público" }
 
 ### Itens {#items}
 
@@ -43,9 +43,9 @@ Consulte a tabela a seguir para saber mais:
 
 | Métrica              | Descrição |
 | ------------------- | ---------- |
-| **Itens personalizados**<br><br>**Itens mais recentes** | Essa coluna lista cada item do catálogo em ordem decrescente dos mais frequentemente recomendados aos usuários. Essa coluna também mostra quantos usuários foram atribuídos a cada item pelo modelo.<br><br>Os itens serão listados como **Personalizados** ou **Mais recentes**, dependendo do [tipo de recomendação]({{site.baseurl}}/user_guide/brazeai/item_recommendations/). |
-| **Itens mais populares** | Essa coluna lista cada item do catálogo em ordem decrescente de popularidade. A popularidade aqui se refere aos itens do catálogo com os quais os usuários interagem com mais frequência em todo o espaço de trabalho. O mais popular é usado como fallback quando o personalizado ou o mais recente não pode ser calculado para um usuário individual. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Items" }
+| **Itens personalizados**<br><br>**Itens mais recentes** | Essa coluna lista cada item do catálogo em ordem decrescente dos mais frequentemente recomendados aos usuários. Essa coluna também mostra quantos usuários foram atribuídos a cada item pelo modelo.<br><br>Os itens serão listados como **Personalizados** ou **Mais recentes**, dependendo do [tipo de recomendação]({{site.baseurl}}/user_guide/brazeai/item_recommendations). |
+| **Itens mais populares** | Essa coluna lista cada item do catálogo em ordem decrescente de popularidade. A popularidade aqui se refere aos itens do catálogo com os quais os usuários interagem com mais frequência em todo o espaço de trabalho. O mais popular é usado como fallback quando a recomendação personalizada ou mais recente não pode ser calculada para um usuário individual. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Itens" }
 
 ### Visão geral {#overview}
 

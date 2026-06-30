@@ -3,12 +3,12 @@ nav_title: Braze Pilot
 page_order: 10.5
 layout: dev_guide
 guide_top_header: "Braze Pilot"
-guide_top_text: "Braze Pilot es una aplicación móvil diseñada para conectarse fácilmente con tu panel de Braze. Esto te permite lanzar Campaigns y Canvas a la aplicación, dando vida a los mensajes de Braze en tu propio teléfono. Braze Pilot incluye una biblioteca de simulaciones de aplicaciones para marcas ficticias que representan diferentes sectores, lo que te permite experimentar cómo se verían tus mensajes desde la perspectiva de tus clientes."
+guide_top_text: "Braze Pilot es una aplicación móvil diseñada para conectarse fácilmente con tu panel de Braze. Esto te permite lanzar campañas y Canvas a la aplicación, dando vida a los mensajes de Braze en tu propio teléfono. Braze Pilot incluye una biblioteca de simulaciones de aplicaciones para marcas ficticias que representan diferentes sectores, lo que te permite experimentar cómo se verían tus mensajes desde la perspectiva de tus clientes."
 description: "Descubre las diferentes formas en que puedes utilizar Braze para enviar mensajes desde el panel de Braze a tu teléfono."
 
 guide_featured_title: "Artículos de sección"
 guide_featured_list:
-  - name: Introducción a Braze Pilot
+  - name: Empieza a utilizar Braze Pilot
     link: /docs/user_guide/get_started/braze_pilot/getting_started
     image: /assets/img/braze_icons/brush-02.svg
   - name: Diccionario de datos
@@ -20,7 +20,7 @@ guide_featured_list:
 
 ---
 
-## Simulaciones de aplicaciones de Pilot
+## Simulaciones de aplicaciones de Pilot {#pilot-app-simulations}
 
 El núcleo de Braze Pilot es su biblioteca de simulaciones de aplicaciones. Cada aplicación es una simulación realista de una marca ficticia específica del sector, equipada para registrar una amplia variedad de eventos y atributos que crean infinitas oportunidades para impulsar los casos de uso habituales de Braze.
 
@@ -29,12 +29,12 @@ El núcleo de Braze Pilot es su biblioteca de simulaciones de aplicaciones. Cada
 
 ### Steppington
 
-Steppington es una aplicación de fitness con entrenamientos, objetivos de ejercicio y un servicio premium Steppington+. Ofrece varios lugares para mostrar [tarjetas de contenido]({{site.baseurl}}/user_guide/channels/content_cards/), una sección que se puede revelar con [conmutadores de características]({{site.baseurl}}/developer_guide/feature_flags) y una sólida biblioteca de registro de eventos personalizados que permite ilustrar muchos recorridos del cliente para este sector.
+Steppington es una aplicación de fitness con entrenamientos, objetivos de ejercicio y un servicio premium Steppington+. Ofrece varios lugares para mostrar [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards), una sección que se puede revelar con [conmutadores de características]({{site.baseurl}}/developer_guide/feature_flags) y una sólida biblioteca de registro de eventos personalizados que permite ilustrar muchos recorridos del cliente para este sector.
 
 ![La página de inicio de Steppington con iconos para entrenamiento de maratón, yoga, ciclismo y pesas.]({% image_buster /assets/img/braze_pilot/steppington_app.png %}){:style="max-width:50%"}
 
 {% endtab %}
-{% tab eCommerce %}
+{% tab Comercio electrónico %}
 
 ### PantsLabyrinth
 
@@ -45,18 +45,18 @@ PantsLabyrinth es una aplicación de comercio electrónico que vende (¡lo has a
 {% endtab %}
 {% tab Streaming %}
 
-### MovieCanon 
+### MovieCanon
 
-MovieCanon es un servicio de streaming perfectamente diseñado para ilustrar los casos de uso habituales de Braze en torno a la interacción con el contenido. 
+MovieCanon es un servicio de streaming perfectamente diseñado para ilustrar los casos de uso habituales de Braze en torno a la interacción con el contenido.
 
 ![La aplicación MovieCanon con diferentes thrillers para ver.]({% image_buster /assets/img/braze_pilot/moviecanon_app.png %}){:style="max-width:50%"}
 
 {% endtab %}
 {% endtabs %}
 
-## Cómo se conecta Pilot con tu panel de Braze
+## Cómo se conecta Pilot con tu panel de Braze {#how-pilot-connects-with-your-braze-dashboard}
 
-El SDK de Braze es un paquete de código que recopila datos de tus usuarios una vez que se integra con tu aplicación o sitio web. Cuando conectas Pilot a tu dashboard, inicializas esta conexión entre la aplicación Pilot de tu teléfono y el SDK de Braze, y estableces una conexión única con tu instancia de Braze al proporcionar a Pilot el identificador de tu clave de API para tu dashboard.
+El SDK de Braze es un paquete de código que recopila datos de tus usuarios una vez que se integra con tu aplicación o sitio web. Cuando conectas Pilot a tu panel de Braze, inicializas esta conexión entre la aplicación Pilot de tu teléfono y el SDK de Braze, y estableces una conexión única con tu instancia de Braze al proporcionar a Pilot el identificador de tu clave de API para tu panel de Braze.
 
 ![El primer paso para la configuración de Pilot.]({% image_buster /assets/img/braze_pilot/setup_wizard.png %}){:style="max-width:40%"}
 
@@ -64,33 +64,27 @@ Una vez que Pilot se conecta a tu panel de Braze, el SDK de Braze funciona en la
 
 - Almacenará datos sobre tu actividad de usuario en Pilot, incluidos datos personalizados específicos de las marcas ficticias de la aplicación.
 - Recopilará automáticamente datos de sesión, información del dispositivo y tokens de notificaciones push.
-- Habilitará notificaciones push, mensajes dentro de la aplicación y canales de mensajería de tarjetas de contenido que requieren la integración del SDK para funcionar.
+- Habilitará notificaciones push, mensajes dentro de la aplicación y canales de mensajería de Content Cards que requieren la integración del SDK para funcionar.
 
-Para obtener más información sobre el SDK de Braze, consulta [Integración]({{site.baseurl}}/user_guide/get_started/integrations/).
+Para obtener más información sobre el SDK de Braze, consulta [Integración]({{site.baseurl}}/user_guide/get_started/integrations).
 
 ![La pila de interacción con los clientes de Braze, que incluye integraciones, API, SDK para la ingesta de datos, clasificación, orquestación, personalización y acción con canales de mensajería para un bucle de retroalimentación interactivo con tus clientes.]({% image_buster /assets/img/braze_pilot/braze_sdk_diagram.png %}){:style="max-width:70%"}
 
-## Perfiles de usuario en Braze
+## Perfiles de usuario en Braze {#user-profiles-in-braze}
 
 Todos los datos enviados a Braze se almacenan en un perfil de usuario dedicado a un usuario concreto de tu aplicación o sitio web. Una vez que conectes Pilot con tu panel de Braze, Braze comenzará a registrar datos sobre ti como usuario de Pilot. Hay dos tipos de usuarios que se pueden crear para ti a través de esta conexión: anónimos e identificados.
 
-### Anónimo 
+### Anónimo {#anonymous}
 
-Este estado de conexión representa la experiencia de un visitante de tu aplicación o sitio web que aún no ha iniciado sesión. Si inicializas Pilot como usuario anónimo, Braze crea un [perfil de usuario anónimo]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users/) para ti y registra allí los datos sobre tu actividad. Los usuarios anónimos pueden seguir siendo objetivo de campañas, pero no podrás consultar su perfil de usuario directamente en tu panel de Braze.
+Este estado de conexión representa la experiencia de un visitante de tu aplicación o sitio web que aún no ha iniciado sesión. Si inicializas Pilot como usuario anónimo, Braze crea un [perfil de usuario anónimo]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users) para ti y registra allí los datos sobre tu actividad. Los usuarios anónimos pueden seguir siendo objetivo de campañas, pero no podrás consultar su perfil de usuario directamente en tu panel de Braze.
 
-### Identificado
+### Identificado {#identified}
 
-Este estado de conexión significa que Braze reconoce tu perfil de usuario a través de un identificador único que se te ha asignado, conocido como identificador externo. Puedes buscar este identificador externo en la página **Búsqueda de usuarios** de tu dashboard para localizar tu perfil de usuario, que almacenará todos los atributos de usuario y eventos registrados desde Pilot en función de tu actividad en la aplicación. En el panel de Braze, ve a **Audience** > **Búsqueda de usuarios**, introduce tu **ID externo** de Pilot y abre el perfil para revisar atributos y eventos.
+Este estado de conexión significa que Braze reconoce tu perfil de usuario a través de un identificador único que se te ha asignado, conocido como identificador externo. Puedes buscar este identificador externo en la página **Búsqueda de usuarios** de tu panel de Braze para localizar tu perfil de usuario, que almacena todos los atributos de usuario y eventos registrados desde Pilot en función de tu actividad en la aplicación. En el panel de Braze, ve a **Audiencia** > **Búsqueda de usuarios**, introduce tu **ID externo** de Pilot y abre el perfil para revisar atributos y eventos.
 
-### Tipo de conexión
+### Tipo de conexión {#connection-type}
 
-Para saber qué tipo de conexión tienes, revisa el indicador de estado de conexión en la esquina superior derecha de la app Pilot.
-
-<style>
-  .imgDiv {
-      text-align: center;
-    }
-</style>
+Para saber qué tipo de conexión tienes, revisa el indicador de estado de conexión en la esquina superior derecha de la aplicación Pilot.
 
 {% tabs local %}
 {% tab Anonymous user  %}
@@ -100,12 +94,7 @@ Para saber qué tipo de conexión tienes, revisa el indicador de estado de conex
 {% endtab %}
 {% tab Identified user %}
 
-Si estás registrando datos como usuario identificado, aparecerá un icono de usuario junto a tu ID externo.
-
-<div class="imgDiv">
-<img src="{% image_buster /assets/img/braze_pilot/status_identified_user.png %}" style="max-width:40%">
-</div>
-<br>
+Si estás registrando datos como usuario identificado, el área de estado muestra **Usuario identificado** y tu ID externo.
 
 {% endtab %}
 {% tab Not connected %}
@@ -115,15 +104,15 @@ Si estás registrando datos como usuario identificado, aparecerá un icono de us
 {% endtab %}
 {% endtabs %}
 
-## Campañas y Canvas
+## Campaigns y Canvas {#campaigns-and-canvases}
 
-Las campañas y los Canvas son la forma en que envías mensajes a tus usuarios. 
+Campaigns y Canvas son la forma en que envías mensajes a tus usuarios.
 
-- Las campañas son ideales para mensajes únicos enviados a un segmento de audiencia específico a través de varios canales. 
-- Los Canvas son flujos de trabajo de campaña avanzados que te permiten automatizar y orquestar recorridos personalizados del cliente a través de múltiples canales. Dentro de un Canvas, puedes configurar lógica de ramificación, retrasos, puntos de decisión y eventos de conversión para guiar a los clientes a través de una serie de interacciones. Los Canvas ayudan a garantizar una comunicación coherente y fluida entre los diferentes puntos de contacto, lo que aumenta las posibilidades de interacción con los clientes y conversión.
+- Las campañas son ideales para mensajes únicos enviados a un segmento de audiencia específico a través de varios canales.
+- Los Canvas son flujos de trabajo avanzados que te permiten automatizar y orquestar recorridos personalizados del cliente a través de múltiples canales. Dentro de un Canvas, puedes configurar lógica de ramificación, retrasos, puntos de decisión y eventos de conversión para guiar a los clientes a través de una serie de interacciones. Los Canvas ayudan a garantizar una comunicación coherente y fluida entre los diferentes puntos de contacto, lo que aumenta las posibilidades de interacción con los clientes y conversión.
 
-## Canales de mensajería compatibles
+## Canales de mensajería compatibles {#supported-messaging-channels}
 
-Braze Pilot actualmente admite [mensajes dentro de la aplicación]({{site.baseurl}}/in-app_messages/), que aparecen en tu aplicación y entregan mensajes oportunos mientras el usuario está interactuando activamente.
+Braze Pilot actualmente admite [In-App Messages]({{site.baseurl}}/in-app_messages), que aparecen en tu aplicación y entregan mensajes oportunos mientras el usuario está interactuando activamente.
 
 ![Un mensaje dentro de la aplicación en MovieCanon: "¿Te gusta MovieCanon? ¡Recomienda a tus amigos!", con la opción de introducir tu dirección de correo electrónico para enviar un referido.]({% image_buster /assets/img/braze_pilot/moviecanon_iam.png %}){:style="max-width:40%"}

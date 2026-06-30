@@ -39,7 +39,7 @@ channel: email
 
 Braze 서버를 통해 타겟팅되는 이메일 주소는 [RFC 2822](https://datatracker.ietf.org/doc/html/rfc2822) 표준에 따라 유효성이 검사되어야 합니다. Braze는 특정 문자를 허용하지 않으며 이를 유효하지 않은 것으로 인식합니다. 이메일이 반송되면 Braze는 해당 이메일을 유효하지 않은 것으로 표시하며 구독 상태는 변경되지 않습니다.
 
-허용되지 않는 문자 및 이메일 유효성 검사 규칙에 대한 자세한 내용은 [이메일 유효성 검사]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation/#how-it-works)를 참조하세요.
+허용되지 않는 문자 및 이메일 유효성 검사 규칙에 대한 자세한 내용은 [이메일 유효성 검사]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation#how-it-works)를 참조하세요.
 
 ## 발신 및 회신 주소 {#from-and-reply-to-addresses}
 
@@ -89,7 +89,7 @@ UTM 파라미터는 분석을 위해 URL에 태그를 지정합니다. Liquid �
 - `<bgsound>`
 - `<embed>`
 - `<frameset>`
-- `<iframe>`
+- `iframe`
 - `<ilayer>`
 - `<layer>`
 - `<link>`

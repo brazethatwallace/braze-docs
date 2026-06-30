@@ -39,6 +39,10 @@ Braze는 사용자가 Google에 등록하거나 필요한 보안 요구 사항�
 
 지원되는 이메일 클라이언트의 전체 목록은 [AMP 설명서](https://amp.dev/support/faq/email-support)를 참조하세요.
 
+#### 미등록 공급자에게 발송하기 {#send-to-unregistered-providers}
+
+Yahoo나 Mail.ru와 같은 공급자에 등록 절차를 완료하기 전에 AMP 이메일을 보내면, 해당 공급자는 이메일의 AMP 부분을 무시하고 HTML 또는 일반 텍스트 대체 버전을 표시합니다. AMP 부분 자체는 미등록 발신자에 대해 전달 가능성 문제를 일으키지 않습니다.
+
 ### Gmail 계정 활성화 {#enabling-gmail-account}
 
 Gmail 설정으로 이동하여 **General** 탭에서 **Enable dynamic email**을 선택합니다.
@@ -47,7 +51,7 @@ Gmail 설정으로 이동하여 **General** 탭에서 **Enable dynamic email**�
 
 ## API 사용법 {#api-usage}
 
-API를 통해서도 이메일용 AMP를 사용할 수 있습니다. Braze [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/)를 사용하여 이메일을 보내는 경우, 아래와 같이 `amp_body`를 오브젝트 사양으로 추가하세요.
+API를 통해서도 이메일용 AMP를 사용할 수 있습니다. Braze [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging)를 사용하여 이메일을 보내는 경우, 아래와 같이 `amp_body`를 오브젝트 사양으로 추가하세요.
 
 ### 이메일 오브젝트 사양 {#email-object-specification}
 
@@ -55,8 +59,8 @@ API를 통해서도 이메일용 AMP를 사용할 수 있습니다. Braze [메�
 {
   "app_id": (required, string) see app identifier above,
   "subject": (optional, string),
-  "from": (required, valid email address in the format "Display Name <email@address.com>"),
-  "reply_to": (optional, valid email address in the format "email@address.com" - defaults to your workspace's default reply to if not set),
+  "from": (required, valid email address in the format "Display Name <user@example.com>"),
+  "reply_to": (optional, valid email address in the format "user@example.com" - defaults to your workspace's default reply to if not set),
   "plaintext_body": (optional, valid plaintext, defaults to autogenerating plaintext from "body" when this is not set),
   "amp_body": (optional, updates the text-amp-html MIME type) the email body in AMP HTML. The MIME (Multipurpose Internet Mail Extensions) type to be referenced is "text/x-amp-html",
   "body": (required unless email_template_id is given, valid HTML),
@@ -204,7 +208,7 @@ Liquid와 마찬가지로 AMP도 고급 사용 사례를 위한 스크립팅 언
     }
 </style>
 
-<table aria-label="Metrics and analytics">
+<table aria-label="측정기준 및 분석">
   <caption>측정기준 및 분석</caption>
     <thead>
         <tr>
@@ -250,7 +254,7 @@ AMP 이메일이 Gmail 계정에 전달되려면 다음 조건을 충족해야 �
 
 총 클릭 수와 고유 클릭 수에는 AMP 메시지에서 발생한 클릭이 포함되지 않습니다(HTML 및 일반 텍스트만 해당). AMP 관련 클릭은 *amp_click* 측정기준에 귀속됩니다.
 
-이러한 조건 중 어느 것도 오류의 원인이 아닌 경우 [고객지원]({{site.baseurl}}/support_contact/)에 문의하세요.
+이러한 조건 중 어느 것도 오류의 원인이 아닌 경우 [고객지원]({{site.baseurl}}/support_contact)에 문의하세요.
 
 ### Gmail 받은편지함에서 AMP 이메일을 렌더링하도록 설정하기 {#configure-gmail-inbox-to-render-amp-emails}
 

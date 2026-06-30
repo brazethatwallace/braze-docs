@@ -68,14 +68,13 @@ Python scripts automatically:
 
 ## Examples
 
-**Typical invocation (auto-detect):**
-`/check-accessibility` on a branch with one changed CSS file and two changed markdown files → runs Architecture path first (CSS), then Content path (two `.md` files).
+Natural-language example requests:
 
-**Force a single path:**
-`/check-accessibility architecture` → Architecture path only, even if markdown files also changed.
+**Typical invocation (auto-detect):** On a branch with one changed CSS file and two changed markdown files → runs Architecture path first (CSS), then Content path (two `.md` files).
 
-**Non-interactive (CI or automation):**
-`/check-accessibility ci` → runs both paths, auto-fixes high-confidence violations, skips medium/low with no prompts, exits with summary report.
+**Force a single path:** Request the architecture path only, even if markdown files also changed.
+
+**Non-interactive (CI or automation):** Request CI mode → runs both paths, auto-fixes high-confidence violations, skips medium/low with no prompts, exits with summary report.
 
 **Expected routing output (no violations):**
 > Architecture accessibility audit complete — no issues found. All 1 changed file(s) are clean.

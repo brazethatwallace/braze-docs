@@ -2,12 +2,12 @@
 nav_title: Uso de catálogos
 article_title: Usar catálogos
 page_order: 1.5
-description: "En este artículo de referencia se explica cómo utilizar catálogos para hacer referencia a datos de no usuarios en tus campañas de Braze a través de Liquid."
+description: "En este artículo de referencia se explica cómo utilizar catálogos para hacer referencia a datos de no usuarios en tus Campaigns de Braze a través de Liquid."
 ---
 
 # Uso de catálogos {#using-catalogs}
 
-> Después de crear un catálogo, puedes hacer referencia a datos de no usuarios en tus campañas de Braze a través de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/). Puedes utilizar catálogos en todos tus canales de mensajería, incluso en cualquier parte del editor de arrastrar y soltar donde se admita Liquid.
+> Después de crear un catálogo, puedes hacer referencia a datos de no usuarios en tus Campaigns de Braze a través de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid). Puedes utilizar catálogos en todos tus canales de mensajería, incluso en cualquier parte del editor de arrastrar y soltar donde se admita Liquid.
 
 ## Utilización de catálogos en un mensaje {#using-catalogs-in-a-message}
 
@@ -80,7 +80,7 @@ El resultado es el siguiente:
 ```Get the ultimate trio Tales, Teslagrad, and Acaratus today!```
 
 {% alert tip %}
-Check out [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) to create groups of data for more personalized messaging!
+Check out [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) to create groups of data for more personalized messaging!
 {% endalert %}
 
 ### Using Liquid `if` statements
@@ -174,7 +174,7 @@ También puedes utilizar plantillas para extraer dinámicamente elementos del ca
 Los objetos JSON de los catálogos solo se ingieren a través de la API. No puedes cargar un objeto JSON utilizando un archivo CSV.
 {% endalert %}
 
-Utilizando plantillas de Liquid, puedes extraer dinámicamente los ID de la lista de deseos y utilizarlos en tu mensaje. Para ello, [asigna una variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables) a tu atributo personalizado y, a continuación, utiliza el modal **Añadir personalización** para extraer un elemento específico de la matriz. Las variables a las que se hace referencia como ID de elemento del catálogo deben escribirse entre llaves para que se puedan referenciar correctamente, como por ejemplo `{{result}}`.
+Utilizando plantillas de Liquid, puedes extraer dinámicamente los ID de la lista de deseos y utilizarlos en tu mensaje. Para ello, [asigna una variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables) a tu atributo personalizado y, a continuación, utiliza el modal **Añadir personalización** para extraer un elemento específico de la matriz. Las variables a las que se hace referencia como ID de elemento del catálogo deben escribirse entre llaves para que se puedan referenciar correctamente, como por ejemplo `{{result}}`.
 
 {% alert tip %}
 Recuerda que las matrices empiezan en `0`, no en `1`.
@@ -206,7 +206,7 @@ También puedes crear catálogos manualmente con lógica de Liquid. Sin embargo,
 
 #### Elementos del catálogo con plantillas que incluyen Liquid
 
-De forma similar al [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), debes utilizar la marca `:rerender` en una etiqueta de Liquid para renderizar el contenido Liquid de un elemento del catálogo. Ten en cuenta que la marca `:rerender` solo tiene un nivel de profundidad, lo que significa que no se aplicará a ninguna llamada anidada de etiquetas de Liquid.
+De forma similar al [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), debes utilizar la marca `:rerender` en una etiqueta de Liquid para renderizar el contenido Liquid de un elemento del catálogo. Ten en cuenta que la marca `:rerender` solo tiene un nivel de profundidad, lo que significa que no se aplicará a ninguna llamada anidada de etiquetas de Liquid.
 
 Si un elemento del catálogo contiene campos de perfil de usuario (dentro de una etiqueta de personalización de Liquid), estos valores deben definirse en Liquid antes en el mensaje y antes de la plantilla para que el Liquid se renderice correctamente. Si no se proporciona la marca `:rerender`, se mostrará el contenido sin procesar de Liquid.
 
@@ -246,12 +246,12 @@ Si el Liquid del catálogo o de la selección no se muestra como esperas en un m
 | Síntoma | Qué verificar |
 | --- | --- |
 | La vista previa muestra elementos, pero los envíos en vivo están vacíos | Confirma que los **ID de elementos** del catálogo existen en el momento del envío. Si el ID en tu Liquid no coincide con una fila, Braze devuelve una matriz de elementos vacía; consulta [Utilizar Liquid](#using-liquid). Comprueba si hay errores tipográficos y si las fuentes de ID (como las propiedades del evento) faltan en el desencadenador o en el perfil de usuario. |
-| La vista previa del compositor funciona en una Campaign pero no en Canvas | Confirma que estás utilizando el contexto de Liquid correcto: **propiedades de contexto de Canvas** frente a **propiedades del evento**, y que esos campos existen en el desencadenador. Consulta [Propiedades de contexto y del evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/). |
-| Una selección no devuelve elementos | Revisa los [filtros de selección]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) y los límites; confirma que los datos del catálogo están sincronizados y que los nombres de las columnas coinciden con tus filtros. |
-| `:rerender` o la entrega con plantillas se ve incorrecta | Para Liquid anidado dentro de campos del catálogo, necesitas `:rerender` y el orden correcto de las variables; consulta [Elementos del catálogo con plantillas que incluyen Liquid](#templating-catalog-items-including-liquid). Los mensajes dentro de la aplicación con plantillas se resuelven en el momento del desencadenamiento; consulta [¿Qué son los mensajes dentro de la aplicación con plantillas?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/#what-are-templated-in-app-messages). Algunos canales restringen las etiquetas de catálogo (por ejemplo, ciertos usos de **:rerender** con Banners); consulta [¿Se admiten todas las etiquetas de Liquid?]({{site.baseurl}}/user_guide/channels/banners/faq/#are-all-liquid-tags-supported) en las preguntas frecuentes de Banners. |
+| La vista previa del compositor funciona en una Campaign pero no en Canvas | Confirma que estás utilizando el contexto de Liquid correcto: **propiedades de contexto de Canvas** frente a **propiedades del evento**, y que esos campos existen en el desencadenador. Consulta [Propiedades de contexto y del evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties). |
+| Una selección no devuelve elementos | Revisa los [filtros de selección]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) y los límites; confirma que los datos del catálogo están sincronizados y que los nombres de las columnas coinciden con tus filtros. |
+| `:rerender` o la entrega con plantillas se ve incorrecta | Para Liquid anidado dentro de campos del catálogo, necesitas `:rerender` y el orden correcto de las variables; consulta [Elementos del catálogo con plantillas que incluyen Liquid](#templating-catalog-items-including-liquid). Los mensajes dentro de la aplicación con plantillas se resuelven en el momento del desencadenamiento; consulta [¿Qué son los mensajes dentro de la aplicación con plantillas?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages). Algunos canales restringen las etiquetas de catálogo (por ejemplo, ciertos usos de **:rerender** con Banners); consulta [¿Se admiten todas las etiquetas de Liquid?]({{site.baseurl}}/user_guide/channels/banners/faq#are-all-liquid-tags-supported) en las preguntas frecuentes de Banners. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas de personalización de catálogos" }
 
-Para el comportamiento general de Liquid, consulta [Casos de uso de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/) y [Utilizar Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/).
+Para el comportamiento general de Liquid, consulta [Casos de uso de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases) y [Utilizar Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid).
 
 ## Estructurar los datos de tu catálogo
 
@@ -270,7 +270,7 @@ Con las llamadas estándar de catálogo, haces coincidir un valor con la columna
 
 ### Cuándo usar selecciones de catálogo
 
-Las [selecciones de catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) te permiten filtrar por cualquier columna de tu catálogo y devolver hasta 50 elementos coincidentes. Al insertar atributos personalizados o propiedades del evento en los filtros de selección, los resultados se personalizan para cada usuario. Los casos de uso más comunes incluyen:
+Las [selecciones de catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) te permiten filtrar por cualquier columna de tu catálogo y devolver hasta 50 elementos coincidentes. Al insertar atributos personalizados o propiedades del evento en los filtros de selección, los resultados se personalizan para cada usuario. Los casos de uso más comunes incluyen:
 
 - Elementos cuya categoría coincide con la preferencia del usuario
 - Elementos que coinciden con la marca, cocina o talla preferida del usuario

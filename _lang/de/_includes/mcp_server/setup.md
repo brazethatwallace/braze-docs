@@ -107,7 +107,7 @@ Weisen Sie nur die Berechtigungen zu, die Ihr Agent verwenden soll. Um zu verhin
 | [`/catalogs`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) | `catalogs.get` |
 | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_items_details_bulk/) | `catalogs.get_items` |
 | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details/) | `catalogs.get_item` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Catalogs" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Kataloge" }
 
 #### Cloud-Datenaufnahme {#cloud-data-ingestion}
 
@@ -115,7 +115,7 @@ Weisen Sie nur die Berechtigungen zu, die Ihr Agent verwenden soll. Um zu verhin
 |----------|---------------------|
 | [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list/) | `cdi.integration_list` |
 | [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status/) | `cdi.integration_job_status` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Cloud Data Ingestion" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cloud-Datenaufnahme" }
 
 #### Content Blocks
 
@@ -134,7 +134,7 @@ Die Berechtigungen `content_blocks.create` und `content_blocks.update` sind Schr
 | Endpunkt | Erforderliche Berechtigung |
 |----------|---------------------|
 | [`/custom_attributes`]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) | `custom_attributes.get` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom Attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Angepasste Attribute" }
 
 #### Ereignisse {#events}
 
@@ -143,7 +143,7 @@ Die Berechtigungen `content_blocks.create` und `content_blocks.update` sind Schr
 | [`/events/list`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events/) | `events.list` |
 | [`/events/data_series`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics/) | `events.data_series` |
 | [`/events`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) | `events.get` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Events" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ereignisse" }
 
 #### KPIs
 
@@ -162,14 +162,14 @@ Die Berechtigung `media_library.create` ist eine Schreibberechtigung. Fügen Sie
 | Endpunkt | Erforderliche Berechtigung |
 |----------|---------------------|
 | [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | `media_library.create` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Media Library" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Medienbibliothek" }
 
 #### Nachrichten {#messages}
 
 | Endpunkt | Erforderliche Berechtigung |
 |----------|---------------------|
 | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/) | `messages.schedule_broadcasts` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Messages" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nachrichten" }
 
 #### Präferenzzentrum {#preference-center}
 
@@ -177,7 +177,7 @@ Die Berechtigung `media_library.create` ist eine Schreibberechtigung. Fügen Sie
 |----------|---------------------|
 | [`/preference_center/v1/list`]({{site.baseurl}}/api/endpoints/preference_center/get_list_preference_center/) | `preference_center.list` |
 | [`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/) | `preference_center.get` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Preference Center" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Präferenzzentrum" }
 
 #### Käufe {#purchases}
 
@@ -186,7 +186,7 @@ Die Berechtigung `media_library.create` ist eine Schreibberechtigung. Fügen Sie
 | [`/purchases/product_list`]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id/) | `purchases.product_list` |
 | [`/purchases/revenue_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series/) | `purchases.revenue_series` |
 | [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases/) | `purchases.quantity_series` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Purchases" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Käufe" }
 
 #### Segments
 
@@ -202,21 +202,21 @@ Die Berechtigung `media_library.create` ist eine Schreibberechtigung. Fügen Sie
 | Endpunkt | Erforderliche Berechtigung |
 |----------|---------------------|
 | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | `sends.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Sends" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sendungen" }
 
 #### Sitzungen {#sessions}
 
 | Endpunkt | Erforderliche Berechtigung |
 |----------|---------------------|
 | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) | `sessions.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Sessions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sitzungen" }
 
 #### SDK-Authentifizierungsschlüssel {#sdk-authentication-keys}
 
 | Endpunkt | Erforderliche Berechtigung |
 |----------|---------------------|
 | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys/) | `sdk_authentication.keys` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK Authentication Keys" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK-Authentifizierungsschlüssel" }
 
 #### Abo {#subscription}
 
@@ -224,7 +224,7 @@ Die Berechtigung `media_library.create` ist eine Schreibberechtigung. Fügen Sie
 |----------|---------------------|
 | [`/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) | `subscription.status.get` |
 | [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) | `subscription.groups.get` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abo" }
 
 #### Templates
 
@@ -347,15 +347,18 @@ Nachdem Sie den Braze MCP-Server eingerichtet haben, senden Sie einen Test-Promp
 
 {% tabs %}
 {% tab Claude %}
-![„Welche Braze-Funktionen stehen mir zur Verfügung?“ – diese Frage wird in Claude gestellt und beantwortet.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**Beispiel-Prompt:** `What are my available Braze functions?`
+**Beispielantwort:** Hat `list_functions` verwendet und die verfügbaren Braze MCP-Funktionskategorien zurückgegeben.
 {% endtab %}
 
 {% tab Cursor %}
-![Die Frage „Welche Braze-Funktionen stehen mir zur Verfügung?“ wird in Cursor gestellt und beantwortet.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**Beispiel-Prompt:** `What are my available Braze functions?`
+**Beispielantwort:** Hat `list_functions` abgefragt und Funktionen wie `get_canvas_list` aufgelistet.
 {% endtab %}
 
 {% tab Gemini CLI %}
-![Die Frage „Welche Braze-Funktionen stehen mir zur Verfügung?“ wird in Gemini CLI gestellt und beantwortet.]({% image_buster /assets/img/mcp_server/gemini_cli/what_are_my_available_braze_functions.png %})
+**Beispiel-Prompt:** `What are my available Braze functions?`
+**Beispielantwort:** Hat `list_functions` in Gemini CLI abgefragt und verfügbare Braze MCP-Funktionskategorien sowie Beispielfunktionen zurückgegeben.
 {% endtab %}
 {% endtabs %}
 

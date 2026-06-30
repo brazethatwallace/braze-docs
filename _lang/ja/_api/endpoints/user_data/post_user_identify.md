@@ -32,7 +32,7 @@ description: "この記事では、「ユーザーの識別」Brazeエンドポ�
 その `external_id` を持つユーザーが存在しない場合、`external_id` はエイリアスユーザーのレコードに追加され、ユーザーは識別済みとみなされます。ユーザーは特定のラベルに対して1つのエイリアスしか持つことができません。`external_id` を持つユーザーが既に存在し、かつエイリアスのみのプロファイルと同じラベルを持つ既存のエイリアスがある場合、ユーザープロファイルは結合されません。
 
 {% alert tip %}
-ユーザーを識別する際にデータの予期しない損失を防ぐために、まず[データ収集のベストプラクティス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/best_practices/#capturing-user-data-when-alias-only-user-info-is-already-present)を参照して、エイリアスのみのユーザー情報が既に存在する場合のユーザーデータのキャプチャについて学ぶことを強くお勧めします。
+ユーザーを識別する際にデータの予期しない損失を防ぐために、まず[データ収集のベストプラクティス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/best_practices#capturing-user-data-when-alias-only-user-info-is-already-present)を参照して、エイリアスのみのユーザー情報が既に存在する場合のユーザーデータのキャプチャについて学ぶことを強くお勧めします。
 {% endalert %}
 
 ### マージ動作 {#merging-behavior}
@@ -77,7 +77,7 @@ description: "この記事では、「ユーザーの識別」Brazeエンドポ�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.identify` 権限を持つ[APIキー]({{site.baseurl}}/api/api_key/)が必要です。
+このエンドポイントを使用するには、`users.identify` 権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -108,10 +108,10 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |-----------------------------|----------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `aliases_to_identify` | 必須 | 識別するエイリアスオブジェクトの配列 | [識別するエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/aliases_to_identify/)および[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object/)を参照してください。 |
+| `aliases_to_identify` | 必須 | 識別するエイリアスオブジェクトの配列 | [識別するエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/aliases_to_identify)および[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)を参照してください。 |
 | `emails_to_identify` | 必須 | 識別するエイリアスオブジェクトの配列 | 識別子として `email` が指定されている場合は必須です。ユーザーを識別するためのメールアドレス。[メールによるユーザーの識別](#identifying-users-by-email)を参照してください。 |
 | `phone_numbers_to_identify` | 必須 | 識別するエイリアスオブジェクトの配列 | ユーザーを識別するための電話番号。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ### メールアドレスと電話番号によるユーザーの識別 {#identifying-users-by-email-addresses-and-phone-numbers}
 
@@ -154,7 +154,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
   "emails_to_identify": [
     {
       "external_id": "external_identifier_2",
-      "email": "john.smith@braze.com",
+      "email": "john.smith@example.com",
       "prioritization": ["unidentified", "most_recently_updated"]
     }
   ]
@@ -166,7 +166,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
 `alias_name` フィールドは大文字と小文字を区別します。`201` ステータスコードを返すリクエストは、リクエストの構文が有効であることのみを確認するものであり、エイリアスが一致したことを確認するものではありません。リクエスト内の `alias_name` の大文字と小文字がユーザープロファイルに保存されているエイリアスと正確に一致しない場合、操作はサイレントに失敗し、`external_id` は割り当てられません。例えば、保存されているエイリアスが `JimJones@example.com` の場合、`jimjones@example.com` でリクエストすると成功を返しますが、結果は生成されません。
 
 {% alert tip %}
-`alias_name` および `alias_label` の詳細については、[ユーザーエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)のドキュメントをご覧ください。
+`alias_name` および `alias_label` の詳細については、[ユーザーエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)のドキュメントをご覧ください。
 {% endalert %}
 
 ## 応答 {#response}

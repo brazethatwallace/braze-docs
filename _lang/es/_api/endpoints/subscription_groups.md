@@ -10,21 +10,21 @@ page_type: landing
 search_tag: Endpoint
 
 guide_top_header: "Puntos finales de grupos de suscripción"
-guide_top_text: "Utiliza las API REST de grupos de suscripción para gestionar de forma programática los grupos de suscripción que hayas almacenado en el panel de Braze, en la página **Grupo de suscripción**. Esto se aplica tanto a los grupos de suscripción por SMS como por correo electrónico.<br><br> ¿Buscas orientación para crear grupos de suscripción? Consulta nuestros artículos sobre <a href='/docs/user_guide/message_building_by_channel/sms/sms_subscription_group/'>grupos de suscripción por SMS</a> y <a href='/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions/'>grupos de suscripción por correo electrónico</a>."
+guide_top_text: "Utiliza las API REST de grupos de suscripción para gestionar de forma programática los grupos de suscripción que hayas almacenado en el panel de Braze, en la página **Subscription Group**. Esto se aplica tanto a los grupos de suscripción por SMS como por correo electrónico.<br><br> ¿Buscas orientación para crear grupos de suscripción? Consulta nuestros artículos sobre <a href='/docs/user_guide/message_building_by_channel/sms/sms_subscription_group/'>grupos de suscripción por SMS</a> y <a href='/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions/'>grupos de suscripción por correo electrónico</a>."
 
 guide_featured_title: ""
 guide_featured_list:
   - name: "GET: Listar el estado del grupo de suscripción del usuario"
-    link: /docs/api/endpoints/subscription_groups/get_list_user_subscription_group_status/
+    link: /docs/api/endpoints/subscription_groups/get_list_user_subscription_group_status
     image: /assets/img/braze_icons/users-01.svg
   - name: "GET: Lista de grupos de suscripción de usuarios"
-    link: /docs/api/endpoints/subscription_groups/get_list_user_subscription_groups/
+    link: /docs/api/endpoints/subscription_groups/get_list_user_subscription_groups
     image: /assets/img/braze_icons/users-01.svg
   - name: "POST: Actualizar el estado del grupo de suscripción del usuario"
-    link: /docs/api/endpoints/subscription_groups/post_update_user_subscription_group_status/
+    link: /docs/api/endpoints/subscription_groups/post_update_user_subscription_group_status
     image: /assets/img/braze_icons/user-plus-01.svg
   - name: "POST: Actualizar el estado del grupo de suscripción del usuario V2"
-    link: /docs/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2/
+    link: /docs/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2
     image: /assets/img/braze_icons/user-edit.svg
 ---
 <br>

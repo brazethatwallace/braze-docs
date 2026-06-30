@@ -28,7 +28,7 @@ channel:
 Wir empfehlen, Ihr WhatsApp-Business-Konto (WABA) über den integrierten Registrierungsablauf im Braze-Dashboard zu erstellen.
 
 #### Ich habe bereits ein Meta-Business-Konto. Benötige ich trotzdem ein WhatsApp-Business-Konto? {#i-already-have-a-meta-business-account-do-i-still-need-a-whatsapp-business-account}
-Ja, Sie müssen trotzdem ein WhatsApp-Business-Konto erstellen. Wir empfehlen, [Ihr WABA unter Ihrem Haupt-Meta-Business-Konto einzuordnen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/).
+Ja, Sie müssen trotzdem ein WhatsApp-Business-Konto erstellen. Wir empfehlen, [Ihr WABA unter Ihrem Haupt-Meta-Business-Konto einzuordnen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup).
 
 #### Wie greife ich auf mein WhatsApp-Business-Konto zu? {#how-do-i-access-my-whatsapp-business-account}
 Nachdem Sie den integrierten Registrierungsablauf abgeschlossen haben, können Sie auf Ihr Konto unter business.facebook.com zugreifen, indem Sie zum [WhatsApp-Bereich](https://business.facebook.com/wa/manage/home) navigieren.
@@ -39,7 +39,7 @@ Ja, Sie können bis zu 10 WhatsApp-Business-Konten pro Workspace hinzufügen, un
 ![Diagramm des Braze- und WhatsApp-Ökosystems, das zeigt, wie Workspaces und WhatsApp-Business-Konten miteinander verbunden sind: Sie können eine Abo-Gruppe mit einer Telefonnummer, mehrere WhatsApp-Business-Konten mit einem Workspace und einen Workspace mit mehreren Meta-Business-Portfolios verbinden.]({% image_buster /assets/img/whatsapp/whatsapp_braze_ecosystem.png %})
 
 #### Kann ich die Währung meines WhatsApp-Business-Kontos ändern? {#can-i-change-my-whatsapp-business-account-currency}
-Nein. Meta kontrolliert die Währung für Ihr WhatsApp-Business-Konto, und Braze kann diese nicht ändern oder umrechnen. Um eine andere Währung zu verwenden, [erstellen Sie ein separates WhatsApp-Business-Konto]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/) mit dieser Währung oder wenden Sie sich an den Meta-Support, um zu fragen, ob die Währung Ihres bestehenden Kontos aktualisiert werden kann.
+Nein. Meta kontrolliert die Währung für Ihr WhatsApp-Business-Konto, und Braze kann diese nicht ändern oder umrechnen. Um eine andere Währung zu verwenden, [erstellen Sie ein separates WhatsApp-Business-Konto]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) mit dieser Währung oder wenden Sie sich an den Meta-Support, um zu fragen, ob die Währung Ihres bestehenden Kontos aktualisiert werden kann.
 
 ### Telefonnummern für WhatsApp-Business-Konten {#whatsapp-business-account-phone-numbers}
 
@@ -72,10 +72,10 @@ Sie benötigen die Telefonnummer der Endnutzer:innen im Braze-Profil, um ihnen N
 - Wenn Sie die Nummer der Endnutzer:innen nicht haben, sollte Ihre Opt-in-Methode die Erfassung der Telefonnummer beinhalten.
 
 #### Wie aktualisiere ich den Abo-Status von Endnutzer:innen, die sich angemeldet haben? {#how-do-i-update-the-subscription-status-of-end-users-who-opt-in}
-Das Abo-Management des WhatsApp-Kanals funktioniert ähnlich wie bei anderen Braze-Kanälen. Weitere Informationen finden Sie unter [Nutzer-Abos verwalten]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/).
+Das Abo-Management des WhatsApp-Kanals funktioniert ähnlich wie bei anderen Braze-Kanälen. Weitere Informationen finden Sie unter [Nutzer-Abos verwalten]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups).
 
 #### Wenn ich bereits eine Liste von Nutzer:innen habe, die dem Empfang von Marketing-Nachrichten auf WhatsApp zugestimmt haben, wie aktualisiere ich deren Abo-Status in Braze? {#if-i-already-have-a-list-of-users-who-have-opted-in-to-receive-marketing-messages-on-whatsapp-how-do-i-update-their-subscription-status-in-braze}
-Sie können deren Abo-Status über den [Nutzerimport]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#importing-custom-data) aktualisieren.
+Sie können deren Abo-Status über den [Nutzerimport]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#importing-custom-data) aktualisieren.
 
 #### Welche Methoden sollte ich verwenden, um Opt-ins einzuholen? {#what-methods-should-i-use-to-collect-opt-ins}
 Braze empfiehlt, sich an [Metas Richtlinien für Opt-in-Methoden](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) zu halten, um die Compliance sicherzustellen. Weitere Informationen finden Sie in der folgenden Ressource zu [Kanal- und Opt-in-Ideen und -Vorschlägen](https://docs.google.com/document/d/1rNKnKN2oIn-e9bXdYEvnwdlzlCsEOKs-xREcdVvPBE8/edit).
@@ -131,13 +131,13 @@ Der Genehmigungsprozess kann bis zu 24 Stunden dauern, aber oft werden Templates
 Ihr Nachrichtentemplate-Limit hängt von Ihrem Geschäftsverifizierungsstatus ab. Sie können Ihr Limit auf der Seite **WhatsApp Manager > Message Templates** überprüfen.
 
 #### Wie personalisiere ich Template-Text und Rich Media in Braze? {#how-do-i-personalize-template-copy-and-rich-media-in-braze}
-WhatsApp ermöglicht das Einfügen variabler Parameter in Nachrichtentemplates. Nachrichten können nicht mit einem variablen Parameter beginnen oder enden. Variable Parameter können mit Liquid-Logik in der Braze-Plattform befüllt werden. Weitere Informationen zu variablen Parametern finden Sie unter [WhatsApp-Nachricht in Braze verfassen]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#step-2-compose-your-whatsapp-message).
+WhatsApp ermöglicht das Einfügen variabler Parameter in Nachrichtentemplates. Nachrichten können nicht mit einem variablen Parameter beginnen oder enden. Variable Parameter können mit Liquid-Logik in der Braze-Plattform befüllt werden. Weitere Informationen zu variablen Parametern finden Sie unter [WhatsApp-Nachricht in Braze verfassen]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#step-2-compose-your-whatsapp-message).
 
 #### Mein Template wurde abgelehnt. Kann Braze mir bei der Genehmigung helfen? {#my-template-got-rejected-can-braze-help-me-get-it-approved}
 Das Braze-Team hat keinen Einblick in Template-Ablehnungen. Sie sollten direkt mit Ihrem WhatsApp Business Manager zusammenarbeiten, um das Template zu bearbeiten und erneut einzureichen. Stellen Sie sicher, dass Sie bei Bedarf ein Beispieltemplate bereitstellen. Überprüfen Sie, ob Ihr Template den [Geschäfts-](https://www.whatsapp.com/legal/business-policy/?fbclid=IwAR2qWg6yFKdyjDMxJkbNSM38FLGsxXxffC1qStY2gaHOyp-gl_8g72rZNIw) oder [Handelsrichtlinien](https://www.whatsapp.com/legal/commerce-policy/?fbclid=IwAR3bzN3LTZ-7kO-wnO7X3smtPKGy0asxaFod-U1Ub8B9JUpnrfy1_y7LpAQ) von Meta entspricht.
 
 #### Können Rich Media in Braze gezielt eingesetzt oder personalisiert werden? {#can-the-rich-media-be-targeted-or-personalized-in-braze}
-Bilder können aus der Medienbibliothek hochgeladen werden, aber nicht dynamisch gezielt eingesetzt werden. Bei URLs kann der letzte Teil des Links [dynamisch mit Liquid befüllt werden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#use-liquid-personalization-in-urls).
+Bilder können aus der Medienbibliothek hochgeladen werden, aber nicht dynamisch gezielt eingesetzt werden. Bei URLs kann der letzte Teil des Links [dynamisch mit Liquid befüllt werden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#use-liquid-personalization-in-urls).
 
 ### Zustellbarkeit {#deliverability}
 
@@ -164,7 +164,7 @@ Wir unterstützen keine Chatbots oder menschlich unterstützten Chat innerhalb v
 Wenn Sie WhatsApp bereits als Kundensupport-Kanal nutzen, empfehlen wir, Ihr aktuelles Setup beizubehalten und ein neues WABA über Braze für Marketing-Messaging zu erstellen. Dieses WABA benötigt eine neue Telefonnummer.
 
 #### Wie kann ich die Lücke zwischen meinem Kundensupport-Messaging und meinem Marketing-Messaging über Braze überbrücken? {#how-can-i-bridge-the-gap-between-my-customer-support-messaging-and-my-marketing-messaging-via-braze}
-Sie können WhatsApp-Liquid-Eigenschaften verwenden, um eingehende WhatsApp-Nachrichteninhalte (einschließlich Nachrichtentext und Medien-URLs) von Braze an andere Plattformen weiterzuleiten, einschließlich jedes Kundensupport-Tools. Weitere Details finden Sie unter [Unterstützte Personalisierungs-Tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
+Sie können WhatsApp-Liquid-Eigenschaften verwenden, um eingehende WhatsApp-Nachrichteninhalte (einschließlich Nachrichtentext und Medien-URLs) von Braze an andere Plattformen weiterzuleiten, einschließlich jedes Kundensupport-Tools. Weitere Details finden Sie unter [Unterstützte Personalisierungs-Tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
 Um Informationen an Braze zu senden, beispielsweise um anzuzeigen, dass ein:e Nutzer:in sich in einer aktiven Support-Konversation befindet, können Sie ein angepasstes Attribut protokollieren (z. B. einen booleschen Wert „hat bestehenden Support-Chat = wahr/falsch“) und dieses als Segmentierungskriterium in Ihren Marketing-Campaigns verwenden. Sie können auch Deeplinks zwischen zwei Chat-Threads erstellen, um Nutzer:innen vom Marketing-Thread zum Support-Thread und umgekehrt zu leiten.
 
@@ -172,13 +172,13 @@ Um Informationen an Braze zu senden, beispielsweise um anzuzeigen, dass ein:e Nu
 Nachrichten werden nur so lange gespeichert, wie sie zur Verarbeitung benötigt werden. Um auf Nutzernachrichten zuzugreifen, verwenden Sie Currents.
 
 #### Wie müssen Telefonnummern von Nutzer:innen in Braze gespeichert werden? {#how-do-user-phone-numbers-need-to-be-stored-in-braze}
-Telefonnummern von Nutzer:innen müssen im [E.164-Format]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers/#formatting) gespeichert werden.
+Telefonnummern von Nutzer:innen müssen im [E.164-Format]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers#formatting) gespeichert werden.
 
 #### Welche Arten von Rich Media werden in WhatsApp-Templates unterstützt? {#what-kind-of-rich-media-is-supported-in-whatsapp-templates}
 Sie können Bilder, Calls-to-Action (URL oder Telefonnummer) und Schnellantwort-Buttons zu WhatsApp-Templates hinzufügen. Sie können diese Elemente hinzufügen, wenn Sie Templates direkt in WhatsApp erstellen.
 
 #### Kann ich Telefonnummern von Nutzer:innen importieren? {#can-i-import-user-phone-numbers}
-Ja. Sie können [Telefonnummern von Nutzer:innen importieren]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers/).
+Ja. Sie können [Telefonnummern von Nutzer:innen importieren]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers).
 
 #### Was ist die Geschäftsverifizierung? {#what-is-business-verification}
 Die Geschäftsverifizierung ist ein WhatsApp-Konzept, das sicherstellt, dass die Marke ein legitimes Unternehmen ist. Sie kann im WhatsApp Manager abgeschlossen werden. Die Geschäftsverifizierung ist auch erforderlich, um das Messaging zu skalieren. Ohne Geschäftsverifizierung können Kund:innen nur bis zu 250 eindeutigen Endnutzer:innen in einem rollierenden 24-Stunden-Zeitraum Nachrichten senden.

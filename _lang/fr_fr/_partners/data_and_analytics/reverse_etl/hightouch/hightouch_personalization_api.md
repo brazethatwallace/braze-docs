@@ -10,13 +10,13 @@ search_tag: Partner
 
 > L'[API de personnalisation](https://hightouch.com/docs/destinations/personalization-api) de Hightouch est un service géré qui vous permet d'héberger une API de données à faible latence basée sur n'importe quel ensemble de données de votre entrepôt de données cloud.
 
-![]({% image_buster /assets/img/hightouch/cohort7.png %})
+![Diagramme d'architecture de l'API de personnalisation Hightouch montrant le flux de données depuis un entrepôt de données via Hightouch vers des applications mobiles, des expériences web et des e-mails dynamiques.]({% image_buster /assets/img/hightouch/cohort7.png %})
 
-L'intégration de Braze et Hightouch vous permet d'utiliser l'API avec le [contenu connecté de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) pour intégrer des données à jour sur les clients ou les objets dans vos Campaigns ou Canvas au moment de l'envoi.
+L'intégration de Braze et Hightouch vous permet d'utiliser l'API avec le [contenu connecté de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) pour intégrer des données à jour sur les clients ou les objets dans vos Campaigns ou Canvas au moment de l'envoi.
 
 L'API de personnalisation de Hightouch fournit un endpoint REST à utiliser dans votre configuration Braze. Plus précisément, vous pouvez utiliser l'offre de contenu connecté de Braze pour effectuer une requête GET à l'API de personnalisation afin de récupérer toutes les informations liées à un identifiant particulier. Les données exposées par cette API peuvent représenter des données relatives à un client, à un produit ou à tout autre objet.
 
-![]({% image_buster /assets/img/hightouch/cohort6.png %})
+![Diagramme montrant les données de Snowflake, BigQuery et Redshift transitant par l'API de personnalisation Hightouch vers le contenu connecté de Braze.]({% image_buster /assets/img/hightouch/cohort6.png %})
 
 ## Conditions préalables {#prerequisites}
 
@@ -124,7 +124,7 @@ Pour l'exemple de payload ci-dessous :
 ```json
 {
     "user_id": 12345,
-    "full_name": "Jane Doe",
+    "full_name": "Alex Smith",
     "lifetime_value": 1492.18,
     "churn_risk": 0.04,
     "90_day_summary": {
@@ -155,7 +155,7 @@ Pour l'exemple de payload ci-dessous :
         ],
         "upcoming_album_release": {
             "title": "Universal Language",
-            "artist": "Simon Doty",
+            "artist": "Alex Lee",
             "label": "Anjunadeep",
             "release_date": "2023-04-28"
         }

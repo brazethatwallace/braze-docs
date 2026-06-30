@@ -14,9 +14,9 @@ noindex: true
 
 # Résolution des problèmes des messages in-app {#troubleshoot-in-app-messages}
 
-## Impressions
+## Impressions {#impressions}
 
-#### Les impressions ou les analyses de clics ne sont pas enregistrées {#impression-or-click-analytics-arent-being-logged}
+### Les impressions ou les analyses de clics ne sont pas enregistrées {#impression-or-click-analytics-arent-being-logged}
 
 Si vous avez défini un délégué de message in-app pour gérer manuellement l'affichage des messages ou les actions de clic, vous devrez enregistrer manuellement les clics et les impressions sur le message in-app.
 
@@ -40,7 +40,7 @@ Le SDK demande les messages in-app aux serveurs Braze au démarrage de la sessio
 4. Utilisez le [journal des événements utilisateurs]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) pour vérifier que votre appareil demande des messages in-app au démarrage de la session. Recherchez la requête SDK associée à l'événement de démarrage de session de votre utilisateur test.
   - Si votre application était censée demander des messages in-app déclenchés, vous devriez voir `trigger` dans le champ **Requested Responses** sous **Response Data**.
   - Si votre application était censée demander des messages in-app originaux, vous devriez voir `in_app` dans le champ **Requested Responses** sous **Response Data**.
-5. Utilisez le [journal des événements utilisateurs]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) pour vérifier si les messages in-app appropriés sont renvoyés dans les données de réponse.<br>![]({% image_buster /assets/img_archive/event_user_log_iams.png %})
+5. Utilisez le [journal des événements utilisateurs]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) pour vérifier si les messages in-app appropriés sont renvoyés dans les données de réponse.<br>![Entrées du journal des événements utilisateurs pour les requêtes de messages in-app.]({% image_buster /assets/img_archive/event_user_log_iams.png %})
 
 #### Résoudre les problèmes de messages non demandés {#troubleshoot-messages-not-being-requested}
 
@@ -66,7 +66,7 @@ Si les messages in-app ne sont pas renvoyés, vous rencontrez probablement un pr
 
 Si votre application demande et reçoit avec succès des messages in-app, mais qu'ils ne s'affichent pas, une logique côté appareil peut empêcher l'affichage :
 
-- Les messages in-app déclenchés sont soumis à une limitation de débit basée sur l'[intervalle de temps minimum entre les déclenchements]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/in-app_message_delivery/#minimum-time-interval-between-triggers), qui est de 30 secondes par défaut.
+- Les messages in-app déclenchés sont soumis à une limitation de débit basée sur l'[intervalle de temps minimum entre les déclenchements]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/in-app_message_delivery#minimum-time-interval-between-triggers), qui est de 30 secondes par défaut.
 - Si vous avez défini un délégué pour personnaliser la gestion des messages in-app, vérifiez votre délégué pour vous assurer qu'il n'affecte pas l'affichage des messages in-app.
 - Les échecs de téléchargement d'images empêcheront l'affichage des messages in-app contenant des images. Les téléchargements d'images échoueront systématiquement si le framework `SDWebImage` n'est pas intégré correctement. Vérifiez les journaux de votre appareil pour vous assurer que les téléchargements d'images n'échouent pas.
 - Si l'orientation de l'appareil ne correspondait pas à l'orientation spécifiée par le message in-app, le message in-app ne s'affichera pas. Assurez-vous que votre appareil est dans la bonne orientation.

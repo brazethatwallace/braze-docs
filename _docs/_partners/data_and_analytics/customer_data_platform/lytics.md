@@ -147,7 +147,7 @@ After defining the request type (HTTP `POST` method) and configuring the rest of
 {
   "city": "AnyTown",
   "country": "United States",
-  "first_name": "John",
+  "first_name": "Alex",
   "gender": "male",
   "language": "English",
   "last_name": "Smith",
@@ -155,7 +155,7 @@ After defining the request type (HTTP `POST` method) and configuring the rest of
   "phone_number": "5551231234",
   "time_zone": "GMT+7",
   "twitter_handle": "johnsmith",
-  "email": "john.smith@email.com",
+  "email": "john.smith@example.com",
   "braze_id": "xxxxxx" 
 }
 ```

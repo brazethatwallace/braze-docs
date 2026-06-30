@@ -69,7 +69,7 @@ Brazeがアプリのバージョン2.0.0からデータを受信すると、以�
 | 2.0.0 超過 | 2.5.1 | ユーザーおよび将来のすべてのインストールがセグメントに含まれます。 |
 | 2.0.0 超過 | 1.9.9 | ユーザーはセグメントに含まれません。 |
 | 2.0.0 以下 | 3.0.1 | ユーザーはセグメントに含まれません。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ユースケース" }
 
 ### アプリバージョン名 {#app-version-name}
 
@@ -81,8 +81,8 @@ Androidの場合、このバージョン名はアプリの [Package Version Name
 
 ### 機能を使用していない場合 {#have-not-used-feature}
 
-新しいアプリバージョンをリリースして新機能を導入した場合、ユーザーが新しいコンテンツに気づかないことがあります。機能認知キャンペーンを実施することは、新機能やまだ使用されていない機能についてユーザーに伝える優れた方法です。これを行うには、アプリ内で特定のアクションを完了したことがないユーザーに割り当てられる[カスタム属性]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#custom-data)を作成するか、特定のアクションを追跡する[カスタムイベント]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#custom-data)を使用する必要があります。この属性（またはイベント）を使用して、キャンペーンを送信するユーザーをセグメント化できます。
+新しいアプリバージョンをリリースして新機能を導入した場合、ユーザーが新しいコンテンツに気づかないことがあります。機能認知キャンペーンを実施することは、新機能やまだ使用されていない機能についてユーザーに伝える優れた方法です。これを行うには、アプリ内で特定のアクションを完了したことがないユーザーに割り当てられる[カスタム属性]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#custom-data)を作成するか、特定のアクションを追跡する[カスタムイベント]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#custom-data)を使用する必要があります。この属性（またはイベント）を使用して、キャンペーンを送信するユーザーをセグメント化できます。
 
 {% alert tip %}
-オーディエンスの特定の部分をリターゲティングしたいですか？[リターゲティングキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/)をチェックして、ユーザーの過去のアクションを活用してキャンペーンをリターゲティングする方法を学びましょう。
+オーディエンスの特定の部分をリターゲティングしたいですか？[リターゲティングキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns)をチェックして、ユーザーの過去のアクションを活用してキャンペーンをリターゲティングする方法を学びましょう。
 {% endalert %}

@@ -32,7 +32,7 @@ LINE 텍스트 메시지는 최대 5,000자까지 포함할 수 있으며 이모
 
 ## 이미지 {#image}
 
-LINE 이미지 메시지는 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/), URL 또는 Liquid를 통해 추가할 수 있습니다. 이러한 이미지는 독립형이며 클릭 가능한 링크를 포함하지 않습니다.
+LINE 이미지 메시지는 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library), URL 또는 Liquid를 통해 추가할 수 있습니다. 이러한 이미지는 독립형이며 클릭 가능한 링크를 포함하지 않습니다.
 
 사용 사례:
 - 휴가지를 소개하여 사용자가 항공권 구매를 고려하도록 유도
@@ -45,8 +45,8 @@ LINE 이미지 메시지는 [미디어 라이브러리]({{site.baseurl}}/user_gu
 
 URL 이미지는 다음과 같은 사용 사례에 활용합니다:
 - 이미지 소스 속성에 Liquid를 포함하여 Liquid 동적 이미지를 사용합니다. 예를 들어, 이미지 URL로 {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %}를 삽입하여 이미지에 사용자의 이름을 포함할 수 있습니다.
-- [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)를 사용하여 웹 서버 또는 공개적으로 접근 가능한 API에서 직접 이미지를 가져옵니다.
-- [Braze 카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/)를 사용하여 가져온 CSV 파일 및 API 엔드포인트에서 이미지에 접근합니다.
+- [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)를 사용하여 웹 서버 또는 공개적으로 접근 가능한 API에서 직접 이미지를 가져옵니다.
+- [Braze 카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs)를 사용하여 가져온 CSV 파일 및 API 엔드포인트에서 이미지에 접근합니다.
 
 | **사양** | **권장 속성** |
 |--------------------------|----------------------------|

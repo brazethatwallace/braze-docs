@@ -14,9 +14,9 @@ noindex: true
 
 # Configurações avançadas {#advanced-settings}
 
-Ao criar uma campanha de push, na etapa de composição, selecione **Settings** para visualizar as configurações avançadas disponíveis.
+Ao criar uma campanha de push, na etapa de composição, selecione **Configurações** para visualizar as configurações avançadas disponíveis.
 
-![]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
+![Configurações avançadas de campanha de push para iOS no dashboard da Braze.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
 
 ## Extração de dados de pares de valores-chave push {#extracting-data-from-push-key-value-pairs}
 
@@ -28,19 +28,19 @@ Marque a caixa de seleção **Alert Options** para ver um menu suspenso de valor
 
 ## Adição do sinalizador content-available {#adding-content-available-flag}
 
-Marque a caixa de seleção **Add Content-Available Flag** para instruir os dispositivos a baixar novos conteúdos em segundo plano. Geralmente, isso pode ser marcado se você estiver interessado em enviar [notificações silenciosas]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/silent_push_notifications/).
+Marque a caixa de seleção **Add Content-Available Flag** para instruir os dispositivos a baixar novos conteúdos em segundo plano. Geralmente, isso pode ser marcado se você estiver interessado em enviar [notificações silenciosas]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/silent_push_notifications).
 
 ## Adição do sinalizador de conteúdo mutável {#adding-mutable-content-flag}
 
-Marque a caixa de seleção **Add Mutable-Content Flag** para ativar a personalização avançada do receptor em dispositivos iOS 10+. Esse sinalizador será enviado automaticamente ao criar uma [notificação Rich]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications/), independentemente do valor dessa caixa de seleção.
+Marque a caixa de seleção **Add Mutable-Content Flag** para ativar a personalização avançada do receptor em dispositivos iOS 10+. Esse sinalizador será enviado automaticamente ao criar uma [notificação Rich]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications), independentemente do valor dessa caixa de seleção.
 
 ## Atualizar o contador de badges do app {#update-app-badge-count}
 
-Digite o número para o qual deseja atualizar a contagem de badges ou use a sintaxe Liquid para definir suas condições personalizadas. Você também pode atualizar a contagem de badges manualmente por meio da propriedade `applicationIconBadgeNumber` do seu aplicativo ou da carga útil da notificação por push. Para saber mais, consulte nosso artigo dedicado à [contagem de badges]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/badges/).
+Digite o número para o qual deseja atualizar a contagem de badges ou use a sintaxe Liquid para definir suas condições personalizadas. Você também pode atualizar a contagem de badges manualmente por meio da propriedade `applicationIconBadgeNumber` do seu aplicativo ou da carga útil da notificação por push. Para saber mais, consulte nosso artigo dedicado à [contagem de badges]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/badges).
 
 ## Sons {#sounds}
 
-Aqui você pode inserir um caminho para um arquivo de som no pacote do seu app para especificar um som a ser reproduzido quando a mensagem push for recebida. Se o arquivo de som especificado não existir ou se a palavra-chave "default" for inserida, a Braze usará o som de alerta padrão do dispositivo. Para obter mais informações sobre personalização, consulte nosso artigo dedicado a [sons personalizados]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/custom_sounds/).
+Aqui você pode inserir um caminho para um arquivo de som no pacote do seu app para especificar um som a ser reproduzido quando a mensagem push for recebida. Se o arquivo de som especificado não existir ou se a palavra-chave "default" for inserida, a Braze usará o som de alerta padrão do dispositivo. Para obter mais informações sobre personalização, consulte nosso artigo dedicado a [sons personalizados]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/custom_sounds).
 
 ## ID de recolhimento {#collapse-id}
 

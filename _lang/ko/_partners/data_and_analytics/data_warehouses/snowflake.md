@@ -89,7 +89,7 @@ Currents와 마찬가지로, Snowflake 보안 데이터 공유를 사용하여 �
 
 사용 가능한 테이블 및 열의 전체 목록은 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)를 참조하세요. Snowflake 데이터 공유에는 해당 참조의 모든 테이블과 스냅샷, Campaign 및 Canvas 체인지로그, 에이전트 콘솔 이벤트, 메시지 재시도 이벤트에 대한 추가 Snowflake 전용 테이블이 포함됩니다.
 
-[원시 테이블 스키마를 다운로드]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %})하여 텍스트 파일로 확인할 수도 있습니다.
+[원시 테이블 스키마를 다운로드](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)하여 텍스트 파일로 확인할 수도 있습니다.
 
 ### 사용자 ID 스키마 {#user-id-schema}
 

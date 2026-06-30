@@ -20,7 +20,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `preference_center.update`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `preference_center.update`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -31,7 +31,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
 | `preferenceCenterExternalID` | Obligatorio | Cadena | El ID de tu centro de preferencias. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de ruta" }
 
 
 ## Cuerpo de la solicitud {#request-body}
@@ -69,11 +69,11 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
 | `preference_center_page_html` | Obligatorio | Cadena | El HTML de la página del centro de preferencias. |
-| `preference_center_title` | Opcional | Cadena | El título del centro de preferencias y las páginas de confirmación. Si no se especifica un título, el de las páginas será predeterminado "Preference Center". |
+| `preference_center_title` | Opcional | Cadena | El título del centro de preferencias y las páginas de confirmación. Si no se especifica un título, el de las páginas será por defecto "Preference Center". |
 | `confirmation_page_html` | Obligatorio | Cadena | El HTML de la página de confirmación. |
 | `state` | Opcional | Cadena | Elige `active` o `draft`. |
 | `options` | Opcional | Objeto | Atributos: <br>`meta-viewport-content`: cuando esté presente, se añadirá una metaetiqueta `viewport` a la página con `content= <value of attribute>`.<br><br> `link-tags`: establece un favicon para la página. Cuando se establece, se añade a la página una etiqueta `<link>` con un atributo rel. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 

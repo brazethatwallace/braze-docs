@@ -20,11 +20,11 @@ Para usar este modelo com sucesso, você vai precisar do seguinte:
 - Um e-mail de boas-vindas que incentive os usuários a iniciar a integração.
 - Um e-mail de acompanhamento com dicas para começar a usar o app, destinado aos usuários que concluíram a integração.
 - Um e-mail de acompanhamento para incentivar os usuários a concluir a integração.
-- Uma [pesquisa]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/simple_survey/) com múltiplas perguntas para determinar as preferências dos usuários.
+- Uma [pesquisa]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/simple_survey) com múltiplas perguntas para determinar as preferências dos usuários.
 
 ## Adaptando o modelo às suas necessidades {#tailoring-the-template-to-your-needs}
 
-Digamos que trabalhamos para a StyleRyde, um app de transporte sob demanda que leva as pessoas aonde precisam ir. Antes de criar o Canvas, [configuramos uma pesquisa simples]({{site.baseurl}}/user_guide/data/activation/catalogs/create/) que inclui uma série de perguntas envolventes para determinar a experiência e a impressão da primeira corrida do usuário com o app.
+Digamos que trabalhamos para a StyleRyde, um app de transporte sob demanda que leva as pessoas aonde precisam ir. Antes de criar o Canvas, [configuramos uma pesquisa simples]({{site.baseurl}}/user_guide/data/activation/catalogs/create) que inclui uma série de perguntas envolventes para determinar a experiência e a impressão da primeira corrida do usuário com o app.
 
 Para acessar o modelo, ao criar um novo Canvas, selecione **Use a Canvas template** > **Braze templates**. Em seguida, ao lado de **Onboarding with preferences survey**, selecione **Apply Template**. Agora podemos percorrer o modelo e adaptá-lo às nossas necessidades.
 
@@ -104,5 +104,5 @@ Como nossa última etapa de reengajamento, vamos renomear **Step 2** para **Fina
 Depois de testar e revisar nosso Canvas para garantir que funciona como esperado, vamos lançá-lo selecionando **Launch Canvas**.
 
 {% alert tip %}
-Confira nossa [lista de verificação pré e pós-lançamento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) para saber o que considerar antes e depois de lançar um Canvas.
+Confira nossa [lista de verificação pré e pós-lançamento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) para saber o que considerar antes e depois de lançar um Canvas.
 {% endalert %}

@@ -28,7 +28,7 @@ description: "Decisioning Studio 에이전트를 시작하고 자기 학습 최�
 
 시작된 후 에이전트가 학습하고 개선하려면 피드백 데이터가 필요합니다. 여기에는 고객 참여 결정이 전송된 후 어떤 일이 발생했는지 에이전트에 알려주는 전환 데이터, 참여 데이터, 활성화 데이터가 포함됩니다.
 
-이러한 중요한 피드백 데이터 자산을 준비하기 위한 자세한 요구 사항은 [데이터 소스 준비]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/)를 참조하세요.
+이러한 중요한 피드백 데이터 자산을 준비하기 위한 자세한 요구 사항은 [데이터 소스 준비]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data)를 참조하세요.
 
 {% alert note %}
 에이전트가 고객 참여 플랫폼(예: Braze 또는 Salesforce Marketing Cloud)과 네이티브로 통합된 경우, 피드백 데이터가 고객 데이터와 함께 자동으로 전송될 수 있으므로 추가 구성 단계가 필요하지 않을 수 있습니다.
@@ -40,7 +40,7 @@ description: "Decisioning Studio 에이전트를 시작하고 자기 학습 최�
 
 - **성과 측정기준:** 실험 그룹 전반에 걸쳐 성공 측정기준을 추적합니다
 - **학습 진행 상황:** 시간이 지남에 따라 에이전트의 추천이 어떻게 발전하는지 관찰합니다
-- **인사이트:** 다양한 고객 Segments에 대해 어떤 차원과 옵션이 결과를 이끌어내는지 파악합니다
+- **인사이트:** 다양한 고객 Segments(세그먼트)에 대해 어떤 차원과 옵션이 결과를 이끌어내는지 파악합니다
 
 ## 지속적인 최적화 {#ongoing-optimization}
 

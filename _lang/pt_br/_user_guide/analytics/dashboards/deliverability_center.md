@@ -11,11 +11,11 @@ channel:
 
 # Centro de Entregabilidade {#deliverability-center}
 
-> O Centro de Entregabilidade oferece mais insights sobre a performance dos seus e-mails, com suporte ao uso do [Gmail Postmaster Tools](https://www.gmail.com/postmaster/) para rastrear dados de e-mails enviados e coletar informações sobre o seu domínio de envio.
+> O Centro de Entregabilidade oferece mais insights sobre o desempenho dos seus e-mails, com suporte ao uso do [Gmail Postmaster Tools](https://www.gmail.com/postmaster/) para rastrear dados de e-mails enviados e coletar informações sobre o seu domínio de envio.
 
 A entregabilidade de e-mail é o ponto central do sucesso de uma campanha. Usando o Centro de Entregabilidade no dashboard da Braze, você pode visualizar seus domínios por **IP Reputation** ou **Delivery Errors** para identificar e solucionar possíveis problemas de entregabilidade de e-mail.
 
-Para acessar o Centro de Entregabilidade, você precisa das [permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) listadas no dropdown a seguir para o seu espaço de trabalho.
+Para acessar o Centro de Entregabilidade, você precisa das [permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) listadas no dropdown a seguir para o seu espaço de trabalho.
 
 {% details Permissões de usuário para o Centro de Entregabilidade %}
 
@@ -80,6 +80,13 @@ Se seus subdomínios não aparecem no Centro de Entregabilidade do Google Postma
 {% endalert %}
 
 ## Integrar o Google Postmaster {#integrating-google-postmaster}
+
+{% alert important %}
+**Migração do Google Postmaster Tools v2**<br>
+O Google está descontinuando a versão antiga do Postmaster Tools (v1) e lançou uma versão de nova geração (v2) com uma interface moderna e novos dashboards, incluindo um dashboard de conformidade para ajudar a monitorar a aderência às diretrizes de remetente do Gmail. Todos os usuários devem migrar para a v2 até 31 de outubro de 2026.<br><br>
+Para reautorizar sua conexão com o Google Postmaster Tools, acesse **Integrações de parceiros** > **Parceiros de tecnologia**, abra **Google Postmaster** e selecione **Change Account** para reautenticar com as novas permissões da v2. Ao concluir, você será atualizado para a v2 e terá acesso aos novos dashboards e dados.<br><br>
+Para saber mais, consulte o [anúncio do Google sobre o novo Postmaster Tools](https://support.google.com/mail/answer/16594218?hl=en).
+{% endalert %}
 
 Antes de configurar o Centro de Entregabilidade, verifique se seus domínios foram [adicionados ao Gmail Postmaster Tools](https://support.google.com/mail/answer/9981691?hl=en).
 
@@ -151,14 +158,14 @@ Consulte esta tabela para entender qual porcentagem do seu tráfego de entrada e
 | TLS de saída | Mostra a porcentagem de e-mails enviados (do Gmail) aceitos via TLS em relação a todos os e-mails enviados para aquele domínio. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Criptografia" }
 
-Para mais ideias sobre como melhorar a entregabilidade, leia [Armadilhas de entregabilidade e spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/#deliverability-pitfalls-and-spam-traps). Consulte também nossas [Práticas recomendadas de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices/) para verificar o que deve ser revisado antes de enviar uma campanha de e-mail.
+Para mais ideias sobre como melhorar a entregabilidade, leia [Armadilhas de entregabilidade e spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps). Consulte também nossas [Práticas recomendadas de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices) para verificar o que deve ser revisado antes de enviar uma campanha de e-mail.
 
 ## Configurar o Microsoft Smart Network Data Services (SNDS) {#set-up-microsoft-smart-network-data-services-snds}
 
 Se a Microsoft é o seu principal provedor de caixa de e-mail, você pode usar essa integração para acessar e visualizar seus dados de reputação da Microsoft. Dessa forma, você pode monitorar a integridade dos seus IPs para entender como seus e-mails estão sendo recebidos.
 
 {% alert important %}
-Se você não vê seus dados no Centro de Entregabilidade, entre em contato com o [Suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support/) com uma lista dos seus endereços IP.
+Se você não vê seus dados no Centro de Entregabilidade, entre em contato com o [Suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) com uma lista dos seus endereços IP.
 {% endalert %}
 
 ![Um exemplo de resultados do Microsoft SNDS, incluindo IPs de amostra, destinatários, comandos RCPT, comandos DATA, resultado do filtro, taxa de reclamação, período de início e fim de mensagens de spam trap e hits de spam trap.]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})

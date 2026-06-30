@@ -17,7 +17,7 @@ API 사용량 알림을 사용하여 다음 범주의 요청량을 모니터링�
 |--------------|---------|
 | REST API 엔드포인트 | Braze 백엔드에 대한 모든 REST API 호출(예: 메시지 전송, Campaign 생성, 사용자 내보내기 등)의 사용 내역을 추적합니다. |
 | SDK API 요청 | 클라이언트 앱에서 Braze SDK를 통해 이루어지는 API 요청(예: 인앱 메시지 트리거링 또는 사용자 데이터 동기화)을 추적합니다.<br><br>_*월간 활성 사용자(MAU) – CY 24-25를 구매한 고객에게만 제공됩니다._ |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="About API usage alerts" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="API 사용 알림에 관하여" }
 
 ## API 사용량 알림 생성 {#creating-an-api-usage-alert}
 
@@ -33,7 +33,7 @@ API 사용량 알림을 생성하려면:
 
 알림 기준을 정의할 때 다음 임계값을 조정할 수 있습니다:
 
-<table aria-label="Alert thresholds #api-usage-alert-thresholds">
+<table aria-label="알림 임계값">
   <caption>알림 임계값</caption>
   <thead>
     <tr>
@@ -63,11 +63,11 @@ API 사용량 알림을 생성하려면:
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Alert thresholds #api-usage-alert-thresholds" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="알림 임계값" }
 
-## 알림 설정 {#setting-up-alert-notifications}
+## 알림 수신 설정 {#setting-up-alert-notifications}
 
-이메일 알림, 웹훅 알림 또는 둘 다 설정할 수 있습니다. 웹훅 알림은 Slack 채널과 같은 외부 플랫폼으로 알림을 보내는 사용 사례에 매우 유용합니다. 예시는 알림 환경설정에 대한 Slack 연동에 관한 [설명서](https://www.braze.com/docs/user_guide/administer/global/admin_settings/notification_preferences#slack-incoming-webhook-integration)를 참조하세요.
+이메일 알림, 웹훅 알림 또는 둘 다 설정할 수 있습니다. 웹훅 알림은 Slack 채널과 같은 외부 플랫폼으로 알림을 보내는 사용 사례에 매우 유용합니다. 예시는 알림 환경설정에 대한 Slack 연동에 관한 [설명서]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/#slack-incoming-webhook-integration)를 참조하세요.
 
 ![알림 기준이 충족되면 선택한 이메일로 알림이 전송됩니다.]({% image_buster /assets/img/api_usage_alerts/api_usage_alerts2.png %})
 
@@ -108,7 +108,7 @@ API의 전반적인 상태를 모니터링하기 위한 알림을 설정할 수 
 | 엔드포인트 | API 키 | 응답 코드 | 임계값 조건 | 임계값 볼륨 | 범위 |
 | --- | --- | --- | --- | --- | --- |
 | 모든 엔드포인트 | 모든 API 키 | `4XX` 및 `5XX` | 10% 증가 | 10 | 1시간 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="알림 예시" }
 {% endtab %}
 
 {% tab 엔드포인트 사용량 제한 %}
@@ -117,7 +117,7 @@ API의 전반적인 상태를 모니터링하기 위한 알림을 설정할 수 
 | 엔드포인트 | API 키 | 응답 코드 | 임계값 조건 | 임계값 볼륨 | 범위 |
 | --- | --- | --- | --- | --- | --- |
 | `/users/track` | 모든 API 키 | `429` | 이상 | 100 | 1시간 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="알림 예시" }
 {% endtab %}
 
 {% tab API 트리거 Campaigns %}
@@ -126,7 +126,7 @@ API의 전반적인 상태를 모니터링하기 위한 알림을 설정할 수 
 | 엔드포인트 | API 키 | 응답 코드 | 임계값 조건 | 임계값 볼륨 | 범위 |
 | --- | --- | --- | --- | --- | --- |
 | {::nomarkdown}<ul><li><code>/campaigns/trigger/send</code></li><li><code>/canvas/trigger/send</code></li><li><code>/messages/send</code></li></ul>{:/} | 모든 API 키 | `4XX` 및 `5XX` | 이상 | 1 | 1시간 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="알림 예시" }
 {% endtab %}
 
 {% tab 파트너 통합 %}
@@ -135,7 +135,7 @@ API의 전반적인 상태를 모니터링하기 위한 알림을 설정할 수 
 | 엔드포인트 | API 키 | 응답 코드 | 임계값 조건 | 임계값 볼륨 | 범위 |
 | --- | --- | --- | --- | --- | --- |
 | 모든 엔드포인트 | 파트너 통합에 사용되는 API 키 | 모든 응답 코드 | 이하 | 0 | 1일 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="알림 예시" }
 {% endtab %}
 {% endtabs %}
 

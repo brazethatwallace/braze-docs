@@ -20,7 +20,7 @@ description: "この記事では、「キャンバスの詳細のエクスポー
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`canvas.details` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`canvas.details` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -30,10 +30,10 @@ description: "この記事では、「キャンバスの詳細のエクスポー
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | 必須 | 文字列 | [Canvas API識別子]({{site.baseurl}}/api/identifier_types/)を参照してください |
+| `canvas_id` | 必須 | 文字列 | [キャンバス API識別子]({{site.baseurl}}/api/identifier_types)を参照してください |
 | `post_launch_draft_version` | オプション | ブール値 | 起動後の下書きがあるキャンバスの場合、これを`true`に設定すると、利用可能な下書きの変更が表示されます。デフォルトは`false`です。 |
 | `include_has_translatable_content` | オプション | ブール値 | `true`に設定すると、API応答の各メッセージに`has_translatable_content`フィールドが含まれます。デフォルトは`false`です。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 
@@ -220,7 +220,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?c
 ```
 
 {% alert tip %}
-CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。
+CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)」を参照してください。
 {% endalert %}
 
 {% endapi %}

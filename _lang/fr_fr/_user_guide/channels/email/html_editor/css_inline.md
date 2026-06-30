@@ -28,8 +28,8 @@ Vous pouvez définir un état par défaut (activé ou désactivé) de manière g
 
 ## Contenu connecté et insertion CSS {#connected-content-and-css-inlining}
 
-L'insertion CSS s'exécute **avant** l'évaluation du [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/). Le HTML renvoyé par le contenu connecté n'est **pas** soumis à la même étape d'insertion. Placez les styles dont vous avez besoin depuis le contenu connecté directement dans la réponse (attributs `style` en ligne ou règles intégrées), ou désactivez l'insertion pour le message si cela correspond mieux à votre modèle.
+L'insertion CSS s'exécute **avant** l'évaluation du [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Le HTML renvoyé par le contenu connecté n'est **pas** soumis à la même étape d'insertion. Placez les styles dont vous avez besoin depuis le contenu connecté directement dans la réponse (attributs `style` en ligne ou règles intégrées), ou désactivez l'insertion pour le message si cela correspond mieux à votre modèle.
 
 ## Content Blocks dans les modèles HTML personnalisés {#content-blocks-in-custom-html-templates}
 
-Lorsque vous intégrez un [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) avec Liquid dans un modèle d'e-mail ou une Campaign en **HTML personnalisé**, les règles CSS du modèle parent peuvent remplacer les styles définis dans le bloc de contenu. Vérifiez les sélecteurs en conflit ou les règles globales dans le wrapper du modèle.
+Lorsque vous intégrez un [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) avec Liquid dans un modèle d'e-mail ou une Campaign en **HTML personnalisé**, les règles CSS du modèle parent peuvent remplacer les styles définis dans le bloc de contenu. Vérifiez les sélecteurs en conflit ou les règles globales dans le wrapper du modèle.

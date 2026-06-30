@@ -26,9 +26,9 @@ Brazeを実装する際には、マーケティング目標についてチーム
 
 ## 自動的に収集されるデータ {#automatically-collected-data}
 
-最初に使用したアプリ、最後に使用したアプリ、合計セッション数、デバイスOSなど、特定のユーザーデータはSDKで自動的に収集されます。統合ガイドに従ってSDKを実装すると、この[デフォルトデータ収集]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/)を利用できるようになります。このリストを確認することで、ユーザーに関する同じ情報を複数回保存しなくて済みます。セッションの開始と終了を除き、その他の自動的にトラッキングされるデータは、データポイント使用量にはカウントされません。
+最初に使用したアプリ、最後に使用したアプリ、合計セッション数、デバイスOSなど、特定のユーザーデータはSDKで自動的に収集されます。統合ガイドに従ってSDKを実装すると、この[デフォルトデータ収集]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection)を利用できるようになります。このリストを確認することで、ユーザーに関する同じ情報を複数回保存しなくて済みます。セッションの開始と終了を除き、その他の自動的にトラッキングされるデータは、データポイント使用量にはカウントされません。
 
-特定のデータ項目のデフォルト収集をブロックするプロセスを許可リストに登録するには、[SDKプライマー]({{site.baseurl}}/developer_guide/getting_started/sdk_overview/)に関する記事を参照してください。
+特定のデータ項目のデフォルト収集をブロックするプロセスを許可リストに登録するには、[SDKプライマー]({{site.baseurl}}/developer_guide/getting_started/sdk_overview)に関する記事を参照してください。
 
 ## カスタムイベント {#custom-events}
 
@@ -53,7 +53,7 @@ Brazeはセグメンテーション用として、これらのイベントが発
 ![クレジットカードを追加して30日間にわたって検索を行ったユーザーに関する統計を示すカスタムイベント分析グラフ。]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
 {% alert note %}
-[カスタム属性の増分]({{site.baseurl}}/api/endpoints/messaging/)を使用すると、カスタムイベントと同様にユーザーアクションのカウンターを保持できます。ただし、時系列でカスタム属性データを表示することはできません。時系列で分析する必要がないユーザーアクションは、この方法で記録する必要があります。
+[カスタム属性の増分]({{site.baseurl}}/api/endpoints/messaging)を使用すると、カスタムイベントと同様にユーザーアクションのカウンターを保持できます。ただし、時系列でカスタム属性データを表示することはできません。時系列で分析する必要がないユーザーアクションは、この方法で記録する必要があります。
 {% endalert %}
 
 ### カスタムイベントの保存 {#custom-event-storage}
@@ -68,7 +68,7 @@ Brazeはセグメンテーション用として、これらのイベントが発
 
 ![カスタムイベントの例では、カートを放棄し、カートの価値が100以上200未満のユーザーにキャンペーンを送信します。]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png")
 
-カスタムイベントプロパティは、メッセージングテンプレート内でパーソナライゼーションのためにも使用できます。トリガーイベントを持つ[アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)を使用するキャンペーンは、メッセージングパーソナライゼーションのために、そのイベントのカスタムイベントプロパティを使用できます。ゲームアプリケーションがレベルをクリアしたユーザーにメッセージを送信したい場合、そのレベルをクリアするのにかかった時間のプロパティを使用してメッセージをさらにパーソナライズできます。この例では、メッセージは[条件付きロジック]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/)を使用して3つの異なるセグメントに対してパーソナライズされています。カスタムイベントプロパティ``time_spent``は、``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``を呼び出すことでメッセージに含めることができます。
+カスタムイベントプロパティは、メッセージングテンプレート内でパーソナライゼーションのためにも使用できます。トリガーイベントを持つ[アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)を使用するキャンペーンは、メッセージングパーソナライゼーションのために、そのイベントのカスタムイベントプロパティを使用できます。ゲームアプリケーションがレベルをクリアしたユーザーにメッセージを送信したい場合、そのレベルをクリアするのにかかった時間のプロパティを使用してメッセージをさらにパーソナライズできます。この例では、メッセージは[条件付きロジック]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic)を使用して3つの異なるセグメントに対してパーソナライズされています。カスタムイベントプロパティ``time_spent``は、``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``を呼び出すことでメッセージに含めることができます。
 
 {% raw %}
 ```liquid
@@ -120,7 +120,7 @@ Talk to villagers for essential tips on how to beat levels!
 正規表現フィルターの使用方法の詳細については、[Perl compatible regular expressions (PCRE)](http://www.regextester.com/pregsyntax.html)のドキュメントを参照してください。
 <br>
 正規表現に関するその他のリソース:
-- [Brazeでの正規表現]({{site.baseurl}}/user_guide/audience/segments/regex/)
+- [Brazeでの正規表現]({{site.baseurl}}/user_guide/audience/segments/regex)
 - [正規表現のデバッガーおよびテスター](https://regex101.com/)
 - [正規表現のチュートリアル](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -133,7 +133,7 @@ Talk to villagers for essential tips on how to beat levels!
 
 配列が最大数の要素を含んでいる場合、最初の要素は破棄され、新しい要素が最後に追加されます。次に、Web SDKでの配列の動作を示すいくつかの例コードを示します:
 
-`````````js
+```js
 var abUser = appboy.getUser();
 // initialize array for this user, assuming max length of favorite_foods is set to 4.
 abUser.setCustomUserAttribute('favorite_foods', ['pizza', 'wings', 'pasta']); // => ['pizza', 'wings', 'pasta']
@@ -188,7 +188,7 @@ abUser.addToCustomAttributeArray('favorite_foods', 'ice cream'); // => ['pasta',
 数値属性にはさまざまなユースケースがあります。数値のカスタム属性を増分すると、特定のアクションやイベントが発生した回数を保存する場合に便利です。標準的な数値には、靴のサイズ、ウエストのサイズ、ユーザーが特定の製品の特徴やカテゴリーを見た回数の記録など、あらゆる種類の用途があります。
 
 {% alert note %}
-支出した金額はこの方法で記録すべきではありません。むしろ、[購入メソッド]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#purchase-events--revenue-tracking)で記録してください。
+支出した金額はこの方法で記録すべきではありません。むしろ、[購入メソッド]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#purchase-events--revenue-tracking)で記録してください。
 {% endalert %}
 
 次の表は、数値属性に利用可能なセグメンテーションオプションについて説明しています。
@@ -287,7 +287,7 @@ abUser.addToCustomAttributeArray('favorite_foods', 'ice cream'); // => ['pasta',
 
 1. 7日間ログインしていないがプロモーションクレジットを持っているユーザーに、そのクレジットが存在することと、アプリに戻って使用するよう通知する。
 2. 低いドライバー評価を与えたユーザーにメッセージを送り、なぜ乗車を楽しめなかったのかを確認するために直接フィードバックを得る。
-3. [メッセージテンプレートとパーソナライゼーション機能]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/)を使用して、固有のプロモーションコード属性をユーザー向けのメッセージングに付け加えます。
+3. [メッセージテンプレートとパーソナライゼーション機能]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize)を使用して、固有のプロモーションコード属性をユーザー向けのメッセージングに付け加えます。
 
 ## ベストプラクティス {#best-practices}
 
@@ -306,8 +306,8 @@ abUser.addToCustomAttributeArray('favorite_foods', 'ice cream'); // => ['pasta',
 ユーザーIDは、各ユーザーに設定する必要があります。これらは変更されず、ユーザーがアプリを開いたときにアクセスできるようにする必要があります。この識別子を提供することを**強くお勧めします**。これにより、次のことが可能になります:
 
 - デバイスやプラットフォームを超えてユーザーをトラッキングし、行動データや人口統計データの質を向上させます。
-- [ユーザーデータAPI]({{site.baseurl}}/api/endpoints/user_data/)を使用して、ユーザーに関するデータをインポートします。
-- [メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging/)を使用して、一般的なメッセージとトランザクションメッセージの両方で特定のユーザーをターゲットにします。
+- [ユーザーデータAPI]({{site.baseurl}}/api/endpoints/user_data)を使用して、ユーザーに関するデータをインポートします。
+- [メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging)を使用して、一般的なメッセージとトランザクションメッセージの両方で特定のユーザーをターゲットにします。
 
 ユーザーIDは512文字未満でなければならず、プライベートで簡単に取得できないものであるべきです（例えば、単純なメールアドレスやユーザー名ではない）。そのような識別子が利用できない場合、Brazeはユーザーに一意の識別子を割り当てますが、ユーザーIDに対してリストされている機能が欠けることになります。個人として紐づけられた固有の識別子を持たないユーザーに対して、ユーザーIDの設定は避けるべきです。デバイス識別子を渡すことは、Brazeがデフォルトで提供する自動匿名ユーザートラッキングに対して何の利益も提供しません。以下は、適切および不適切なユーザーIDの例です。
 

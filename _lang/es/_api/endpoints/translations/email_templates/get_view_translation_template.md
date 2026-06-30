@@ -15,11 +15,11 @@ description: "Este artículo describe los detalles sobre el punto de conexión V
 /templates/email/translations/
 {% endapimethod %}
 
-> Usa este punto de conexión para ver todas las traducciones y configuraciones regionales de una [plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates/). Consulta [Configuraciones regionales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para obtener más información sobre las características de traducción.
+> Usa este punto de conexión para ver todas las traducciones y configuraciones regionales de una [plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates). Consulta [Configuraciones regionales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para obtener más información sobre las características de traducción.
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `templates.translations.get`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `templates.translations.get`.
 
 ## Límite de velocidad {#rate-limit}
 

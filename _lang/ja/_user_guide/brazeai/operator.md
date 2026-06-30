@@ -1,89 +1,89 @@
 ---
 nav_title: オペレーター
-article_title: BrazeAI オペレーター
+article_title: BrazeAI Operator
 page_order: 7
 alias: /operator/
 toc_headers: h2
-description: "BrazeAI オペレーター<sup>TM</sup>へのアクセス方法と使用方法について説明します。これはBrazeダッシュボードに組み込まれたAI搭載のアシスタントで、その機能やベストプラクティスを紹介します。"
+description: "BrazeAI Operator<sup>TM</sup>へのアクセス方法と使用方法について説明します。これはBrazeダッシュボードに組み込まれたAI搭載のアシスタントで、その機能やベストプラクティスを紹介します。"
 ---
 
-# BrazeAI オペレーター
+# BrazeAI Operator
 
-> BrazeAI オペレーター<sup>TM</sup>は、ダッシュボードに組み込まれたAI搭載のアシスタントです。オペレーターは、質問への回答、セットアップの手順案内、問題のトラブルシューティング、アイデアのブレインストーミングなど、さまざまな作業をサポートします。
+> BrazeAI Operator<sup>TM</sup>は、ダッシュボードに組み込まれたAI搭載のアシスタントです。Operatorは、質問への回答、セットアップの手順案内、問題のトラブルシューティング、アイデアのブレインストーミングなど、さまざまな作業をサポートします。
 
-## オペレーターにアクセスする {#access-operator}
+## Operatorにアクセスする {#access-operator}
 
-Brazeダッシュボードの任意のページからオペレーターを開きます。
+Brazeダッシュボードの任意のページからOperatorを開きます。
 
-1. ユーザープロファイルの横にある**BrazeAI オペレーター<sup>TM</sup>**を選択します。
+1. ユーザープロファイルの横にある**BrazeAI Operator<sup>TM</sup>**を選択します。
 
-![ユーザープロファイルの横にあるBrazeAI オペレーターアイコン。]({% image_buster /assets/img/operator/operator_icon.png %})
+![ユーザープロファイルの横にあるBrazeAI Operatorアイコン。]({% image_buster /assets/img/operator/operator_icon.png %})
 
 {:start="2"}
-2. 画面の右側にオペレーターチャットパネルが開きます。
+2. 画面の右側にOperatorチャットパネルが開きます。
 
-![オペレーターチャットパネル。]({% image_buster /assets/img/operator/operator_chat_panel.png %})
+![Operatorチャットパネル。]({% image_buster /assets/img/operator/operator_chat_panel.png %})
 
 {% alert tip %}
-パネルを最大化して読みやすくしたり、最小化して作業中もオペレーターを利用可能な状態に保つことができます。
+パネルを最大化して読みやすくしたり、最小化して作業中もOperatorを利用可能な状態に保つことができます。
 {% endalert %}
 
-オペレーターでできることの一例を、こちらの動画でご覧ください。
+Operatorでできることの一例を、こちらの動画でご覧ください。
 
 {% multi_lang_include video.html id="lnv9t8hn11" source="wistia" %}
 
-## オペレーターを使用する {#use-operator}
+## Operatorを使用する {#use-operator}
 
 自然言語を使って、達成したいことを説明します。プロンプトは、シンプルな質問から複雑なリクエストまで対応できます。
 
 - **シンプル：** Liquidが正しくレンダリングされないのはなぜですか？
 - **複雑：** メッセージの`abort_message`タグに、中止の原因となったユーザー属性を含めるにはどうすればよいですか？
 
-オペレーターは、ステップバイステップの手順、Brazeドキュメントへのリンク、わかりやすい説明を提供できます。明確で具体的な質問をすることで、より有益な回答が得られます。オペレーターは[GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2)を使用しており、強力な推論能力を備え、複雑なマルチステップのタスクに適しています。
+Operatorは、ステップバイステップの手順、Brazeドキュメントへのリンク、わかりやすい説明を提供できます。明確で具体的な質問をすることで、より有益な回答が得られます。Operatorは[GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2)を使用しており、強力な推論能力を備え、複雑なマルチステップのタスクに適しています。すぐに使えるプロンプト例については、[プロンプトライブラリー]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library)を参照してください。
 
 ## ベストプラクティス {#best-practices}
 
-オペレーターを検索エンジンではなく会話として扱いましょう。短く自然なプロンプトが最も効果的です。
+Operatorを検索エンジンではなく会話として扱いましょう。短く自然なプロンプトが最も効果的です。
 
 - **具体的に：** 「キャンバスについて教えてください」ではなく、「キャンバスでアクションパスをどのように使用しますか？」と聞いてみましょう。
 - **フォローアップの質問をする：** 最初の回答がニーズに合わない場合は、明確化や追加の詳細を求めましょう。
-- **ページ認識コンテキストを活用する：** オペレーターはBraze内での現在の位置を理解します。最も正確な結果を得るために、関連するページを表示しながらオペレーターを開きましょう。
+- **ページ認識コンテキストを活用する：** OperatorはBraze内での現在の位置を理解します。最も正確な結果を得るために、関連するページを表示しながらOperatorを開きましょう。
 
 ## 体験をカスタマイズする {#customize-your-experience}
 
 ### ブランドガイドラインを適用する {#apply-brand-guidelines}
 
-オペレーターのクエリにブランドガイドラインをコンテキストとして追加することで、ブランドの声、トーン、パーソナリティに合った回答を得ることができます。オペレーターはワークスペースで設定されたブランドガイドラインを使用するため、コピーの提案や機能の説明時に一貫したメッセージングを確保できます。
+Operatorのクエリにブランドガイドラインをコンテキストとして追加することで、ブランドの声、トーン、パーソナリティに合った回答を得ることができます。Operatorはワークスペースで設定されたブランドガイドラインを使用するため、コピーの提案や機能の説明時に一貫したメッセージングを確保できます。
 
-ブランドガイドラインを設定するには、**設定** > **ブランドガイドライン**に移動します。詳細については、[ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)を参照してください。
+ブランドガイドラインを設定するには、**設定** > **ブランドガイドライン**に移動します。詳細については、[ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)を参照してください。
 
-![オペレーターチャットパネルでのブランドガイドラインの選択。]({% image_buster /assets/img/operator/operator_brand_guidelines.png %})
+![Operatorチャットパネルでのブランドガイドラインの選択。]({% image_buster /assets/img/operator/operator_brand_guidelines.png %})
 
 ### ページ認識コンテキストを活用する {#leverage-page-aware-context}
 
-オペレーターは、Braze内での現在の位置を自動的に理解し、そのコンテキストに基づいて回答を調整します。たとえば、キャンバスの作成中にオペレーターを開くと、ワークフローのどこにいるかを説明しなくても、関連するステップを提案したり、キャンバス機能についてのガイダンスを提供したりできます。
+Operatorは、Braze内での現在の位置を自動的に理解し、そのコンテキストに基づいて回答を調整します。たとえば、キャンバスの作成中にOperatorを開くと、ワークフローのどこにいるかを説明しなくても、関連するステップを提案したり、キャンバスの機能についてのガイダンスを提供したりできます。
 
-このコンテキスト認識により、「キャンバスワークフローに遅延ステップを追加するにはどうすればよいですか？」ではなく、「遅延を追加するにはどうすればよいですか？」のように、より短く自然な質問ができます。
+このコンテキスト認識により、「キャンバスワークフローに遅延ステップを追加するにはどうすればよいですか？」ではなく、「遅延を追加するにはどうすればよいですか？」のように、より短く自然な質問ができます。ダッシュボードのページ別に整理されたすぐに使えるプロンプトについては、[プロンプトライブラリー]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library)を参照してください。
 
-## オペレーターの回答を活用する {#work-with-operator-responses}
+## Operatorの回答を活用する {#work-with-operator-responses}
 
 ### 推奨プロンプトから始める {#get-started-with-suggested-prompts}
 
-オペレーターとの会話を開くと、一般的なタスクと現在のページに基づいて推奨プロンプトが表示されます。すぐに始めるにはプロンプトを選択するか、独自の質問を入力します。
+Operatorとの会話を開くと、一般的なタスクと現在のページに基づいて推奨プロンプトが表示されます。すぐに始めるにはプロンプトを選択するか、独自の質問を入力します。
 
-### オペレーターの思考プロセスを理解する {#understand-how-operator-thinks}
+### Operatorの思考プロセスを理解する {#understand-how-operator-thinks}
 
-オペレーターは、**Reasoned**とラベル付けされた折りたたみ可能なセクションに推論ステップを表示します。ドロップダウンを選択してこれらのセクションを展開し、オペレーターがどのように回答を導き出したかを確認できます。提案の背後にあるロジックを理解したり、アプローチを検証したりする際に役立ちます。
+Operatorは、**Reasoned**とラベル付けされた折りたたみ可能なセクションに推論ステップを表示します。ドロップダウンを選択してこれらのセクションを展開し、Operatorがどのように回答を導き出したかを確認できます。提案の背後にあるロジックを理解したり、アプローチを検証したりする際に役立ちます。
 
-![オペレーターの回答内の折りたたまれた「Reasoned」ドロップダウン。]({% image_buster /assets/img/operator/operator_reasoning_collapsed.png %}){:style="max-width:40%"}
+![Operatorの回答内の折りたたまれた「Reasoned」ドロップダウン。]({% image_buster /assets/img/operator/operator_reasoning_collapsed.png %}){:style="max-width:40%"}
 
-### オペレーターでアクションを実行する {#take-action-with-operator}
+### Operatorでアクションを実行する {#take-action-with-operator}
 
-オペレーターは、フォームフィールドの入力、設定の更新、コンテンツの生成など、Brazeダッシュボードで直接変更を提案・実行できます。提案された変更はそれぞれアクションカードとして表示され、適用前に確認・承認できます。この仕組みの詳細については、[アクションの確認]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/)を参照してください。
+Operatorは、フォームフィールドの入力、設定の更新、コンテンツの生成など、Brazeダッシュボードで直接変更を提案・実行できます。提案された変更はそれぞれアクションカードとして表示され、適用前に確認・承認できます。この仕組みの詳細については、[アクションの確認]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)を参照してください。
 
 ### 回答を他のツールにコピーする {#copy-responses-to-other-tools}
 
-オペレーターの回答はMarkdown形式でフォーマットされています。回答を受け取ったら、表示されるツールバーの**コピー**を選択して、回答全体をクリップボードにコピーできます。ほとんどのツールはMarkdownをネイティブにレンダリングするか、わずかな調整で受け入れます。コピー先に応じてタブを選択してください。
+Operatorの回答はMarkdown形式でフォーマットされています。回答を受け取ったら、表示されるツールバーの**コピー**を選択して、回答全体をクリップボードにコピーできます。ほとんどのツールはMarkdownをネイティブにレンダリングするか、わずかな調整で受け入れます。コピー先に応じてタブを選択してください。
 
 {% tabs %}
 {% tab Google Docs %}
@@ -120,7 +120,7 @@ WordとOutlookはMarkdownをネイティブにレンダリングしません。�
 
 ### 回答を停止する {#stop-a-response}
 
-オペレーターが回答を生成している間、**送信**ボタンは**停止**ボタンに変わります。質問を言い換えたい場合や、回答が意図しない方向に進んでいる場合は、**停止**を選択して回答を早期に終了できます。
+Operatorが回答を生成している間、**送信**ボタンは**停止**ボタンに変わります。質問を言い換えたい場合や、回答が意図しない方向に進んでいる場合は、**停止**を選択して回答を早期に終了できます。
 
 ### 履歴をクリアする {#clear-your-history}
 
@@ -128,20 +128,16 @@ WordとOutlookはMarkdownをネイティブにレンダリングしません。�
 
 ### フィードバックを提供する {#provide-feedback}
 
-各回答の下部にある、サムズアップまたはサムズダウンボタンを使って、素早くフィードバックを提供できます。フィードバックは、オペレーターの回答を継続的に改善するのに役立ちます。
+各回答の下部にある、サムズアップまたはサムズダウンボタンを使って、素早くフィードバックを提供できます。フィードバックは、Operatorの回答を継続的に改善するのに役立ちます。
 
 ## データプライバシーとセキュリティ {#data-privacy-and-security}
 
-### サブプロセッサまたはサードパーティプロバイダーとしてのモデルプロバイダー {#model-providers-as-sub-processors-or-third-party-providers}
-
-Brazeサービス（「Braze提供のLLM」）を通じてBrazeが提供するLLMプロバイダーとの統合を使用する場合、当該Braze提供のLLMのプロバイダーは、お客様とBraze間のData Processing Addendum（DPA）の条件に従い、Brazeのサブプロセッサとして機能します。BrazeAI オペレーター<sup>TM</sup>はOpenAIと統合されています。
-
-### OpenAIでのデータの使用方法 {#how-data-is-used-with-openai}
-
-OpenAIを活用するBrazeAI機能を通じてAI出力（「Output」）を生成するために、Brazeは特定の情報（「Input」）をOpenAIに送信します。Inputは、プロンプト、ダッシュボードに表示されるコンテンツ、およびクエリに関連するワークスペースデータで構成されます。[OpenAIのAPIプラットフォームコミットメント](https://openai.com/enterprise-privacy/)に基づき、Brazeを介してOpenAIのAPIに送信されるデータは、OpenAIモデルのトレーニングや改善には使用されません。お客様とBrazeの間では、Outputはお客様の知的財産です。Brazeは、当該Outputに関する著作権の所有権を主張しません。Brazeは、Outputを含むAI生成コンテンツに関して、いかなる種類の保証も行いません。
+BrazeAI Operator<sup>TM</sup>はOpenAIと統合されており、OpenAIはお客様とBraze間のData Processing Addendum（DPA）に基づくBrazeのサブプロセッサーとして機能します。Brazeを介してOpenAIに送信されるデータは、OpenAIモデルのトレーニングや改善には使用されません。HIPAAコンプライアンス、データ保持、PII処理、ガバナンスの詳細については、[データプライバシーとセキュリティ]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security)を参照してください。
 
 ## 次のステップ {#next-steps}
 
-- [アクションの確認]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/)：オペレーターが提案した変更を確認・承認する方法を学びます
-- [サポートチケットの提出]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/)：オペレーターから直接サポートチケットを提出します
-- [トラブルシューティング]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/)：よくある問題とソリューションを参照します
+- [プロンプトライブラリー]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library)：ダッシュボードのページ別に整理されたプロンプト例を参照できます
+- [アクションの確認]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)：Operatorが提案した変更を確認・承認する方法を学べます
+- [サポートチケットの提出]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets)：Operatorから直接サポートチケットを提出できます
+- [トラブルシューティング]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting)：よくある問題とソリューションを参照できます
+- [データプライバシーとセキュリティ]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security)：HIPAAコンプライアンス、データ保持、PII最小化のガイダンスを確認できます

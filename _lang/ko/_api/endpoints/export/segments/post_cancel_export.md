@@ -18,7 +18,7 @@ description: "이 문서에서는 Segment별 내보내기 취소 Braze 엔드포
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `segments.list` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `segments.list` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -42,7 +42,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
 | `segment_id` | 필수 | 문자열 | 진행 중인 내보내기를 취소할 `segment_id`입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 ```

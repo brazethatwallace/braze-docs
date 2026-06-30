@@ -15,7 +15,7 @@ Neste artigo, vamos guiar você por um caso de uso do modelo **Integração**, d
 
 ## Pré-requisitos {#prerequisites}
 
-Antes de usar este modelo, você precisa criar os seguintes [modelos de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/) para referenciá-los no Canvas:
+Antes de usar este modelo, você precisa criar os seguintes [modelos de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) para referenciá-los no Canvas:
 
 - Um e-mail de boas-vindas para todos os usuários do seu app
 - Um e-mail com dicas sobre como usar seu app
@@ -98,5 +98,5 @@ A partir do conjunto de usuários que não interagiram com nosso app, podemos di
 Depois de testar e revisar nosso Canvas para garantir que ele funciona como esperado, selecione **Launch Canvas** para lançar o Canvas. Agora, podemos oferecer aos nossos novos usuários uma experiência de integração personalizada para incentivar um relacionamento duradouro!
 
 {% alert tip %}
-Confira nossa [Lista de verificação pré e pós-lançamento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) para saber o que considerar antes e depois de lançar um Canvas.
+Confira nossa [Lista de verificação pré e pós-lançamento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) para saber o que considerar antes e depois de lançar um Canvas.
 {% endalert %}

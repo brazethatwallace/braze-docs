@@ -8,22 +8,18 @@ description: "Cet article donne un aperçu des paramètres multilingues du table
 
 # Paramètres de localisation {#localization-settings}
 
-> La fonctionnalité multilingue vous permet d'utiliser des [étiquettes de traduction]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) pour cibler des utilisateurs de différentes langues et provenant de différents emplacements, le tout dans un seul message.
+> La fonctionnalité multilingue vous permet d'utiliser des [étiquettes de traduction]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) pour cibler des utilisateurs de différentes langues et provenant de différents emplacements, le tout dans un seul message.
 
 ## Conditions préalables {#prerequisites}
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 ## Ajouter un paramètre régional {#add-a-locale}
 
 1. Accédez à **Paramètres** > **Paramètres de localisation**.
-2. Sélectionnez **Add locale**, puis sélectionnez **Default locale** ou **Custom Attributes**.
-
-![La liste déroulante « Add locale » avec des options pour sélectionner les paramètres régionaux par défaut ou des attributs personnalisés.]({% image_buster /assets/img/multi-language_support/add_locale_options.png %}){: style="max-width:40%;"}
-
-{: start="3"}
+2. Sélectionnez **Add locale**, puis choisissez **Default locale** ou **Custom Attributes**.
 3. Saisissez un nom pour le paramètre régional.
-4. [Sélectionnez une langue pour l'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/#language-settings-and-accessibility). Ce paramètre permet aux technologies d'assistance, comme les lecteurs d'écran, de prononcer correctement le texte.
+4. [Sélectionnez une langue pour l'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#language-settings-and-accessibility). Ce paramètre permet aux technologies d'assistance, comme les lecteurs d'écran, de prononcer correctement le texte.
 5. Sélectionnez les attributs utilisateur correspondant à l'option de paramètre régional que vous avez choisie. Lors de la configuration d'un paramètre régional, vous pouvez sélectionner des langues à partir des attributs utilisateur par défaut ou des attributs personnalisés. Vous ne pouvez pas sélectionner les deux à la fois.
 
 {% tabs %}
@@ -46,7 +42,7 @@ Pour les **attributs personnalisés**, utilisez la liste déroulante pour sélec
 {: start="6"}
 6. Sélectionnez **Add locale**.
 
-Pour savoir comment utiliser ces paramètres régionaux dans vos messages, consultez [Utiliser les paramètres régionaux]({{site.baseurl}}/locales_in_messages/).
+Pour savoir comment utiliser ces paramètres régionaux dans vos messages, consultez [Utiliser les paramètres régionaux]({{site.baseurl}}/locales_in_messages).
 
 ## Points à prendre en compte {#considerations}
 
@@ -63,14 +59,14 @@ Pour savoir comment utiliser ces paramètres régionaux dans vos messages, consu
 
 ## Foire aux questions {#frequently-asked-questions}
 
-#### Combien de paramètres régionaux puis-je ajouter ? {#how-many-locales-can-i-add}
+### Combien de paramètres régionaux puis-je ajouter ? {#how-many-locales-can-i-add}
 
 Vous pouvez ajouter jusqu'à 200 paramètres régionaux.
 
-#### Où les fichiers de traduction sont-ils stockés dans Braze ? {#where-are-the-translation-files-stored-in-braze}
+### Où les fichiers de traduction sont-ils stockés dans Braze ? {#where-are-the-translation-files-stored-in-braze}
 
 Les fichiers de traduction sont stockés au niveau de la campagne, ce qui signifie que chaque variante de message doit disposer de traductions importées. Les traductions peuvent également être stockées dans des Content Blocks. Lorsqu'un bloc est ajouté à un message, ses traductions sont automatiquement incluses.
 
-#### Le nom du paramètre régional doit-il suivre un format ou un modèle spécifique ? {#does-the-locale-name-have-to-follow-a-specific-pattern-or-format}
+### Le nom du paramètre régional doit-il suivre un format ou un modèle spécifique ? {#does-the-locale-name-have-to-follow-a-specific-pattern-or-format}
 
 Non. Vous pouvez utiliser la convention de nommage de votre choix. Le nom du paramètre régional est utilisé lors de la sélection du paramètre régional dans l'éditeur et apparaîtra dans les en-têtes du fichier que vous téléchargez avec les ID de traduction.

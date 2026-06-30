@@ -3,7 +3,7 @@ nav_title: オンボーディング
 article_title: オンボーディング
 page_order: 5
 page_type: reference
-description: "この記事では、Braze キャンバステンプレートを使用して、強力な初期導入を促進し、ユーザーとの持続的な関係を育むオンボーディングジャーニーを作成する方法について説明します。"
+description: "この記事では、Braze Canvasテンプレートを使用して、強力な初期導入を促進し、ユーザーとの持続的な関係を育むオンボーディングジャーニーを作成する方法について説明します。"
 tool: Canvas
 ---
 
@@ -15,7 +15,7 @@ tool: Canvas
 
 ## 前提条件 {#prerequisites}
 
-このテンプレートを使用する前に、キャンバスで参照するための以下の[メールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)を作成する必要があります。
+このテンプレートを使用する前に、キャンバスで参照するための以下の[メールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)を作成する必要があります。
 
 - アプリのすべてのユーザーへのウェルカムメール
 - アプリの使い方のヒントを含むメール
@@ -27,7 +27,7 @@ PantsLabyrinthで働いていて、ユーザーエンゲージメントを向上
 
 オンボーディングテンプレートにアクセスするには、新しいキャンバスを作成する際に、**Use a Canvas template** > **Braze templates**を選択します。次に、**Onboarding**の横にある**Apply Template**を選択します。このテンプレートをユースケースに合わせてカスタマイズしましょう。
 
-### ステップ 1: 詳細を設定する {#step-1-set-up-the-details}
+### ステップ 1:詳細を設定する {#step-1-set-up-the-details}
 
 キャンバスの詳細を目標に合わせて調整しましょう。
 
@@ -42,7 +42,7 @@ PantsLabyrinthで働いていて、ユーザーエンゲージメントを向上
 
 ![キャンバスの新しい名前、説明、タグ。]({% image_buster /assets/img/canvas_templates/onboarding_new_name_description.png %}){: style="max-width:60%;"}
 
-### ステップ 2: コンバージョンイベントを割り当てる {#step-2-assign-your-conversion-events}
+### ステップ 2:コンバージョンイベントを割り当てる {#step-2-assign-your-conversion-events}
 
 次に、コンバージョンイベントを割り当てましょう。コンバージョンイベントは、キャンバスの成功を測定するために使用できる指標の一種です。**Custom event name**で、カスタムイベントとして**Email Click**を選択します。
 
@@ -50,7 +50,7 @@ PantsLabyrinthで働いていて、ユーザーエンゲージメントを向上
 
 これにより、新規ユーザーはウェルカムメールをクリックするまでに最大4日間の猶予があります。この場合、新規ユーザーにPantsLabyrinthとのエンゲージメントに緊迫感を持ってもらい、季節の衣料品の定期配送に登録してもらいたいと考えています。
 
-### ステップ 3: エントリスケジュールを設定する {#step-3-set-an-entry-schedule}
+### ステップ 3:エントリスケジュールを設定する {#step-3-set-an-entry-schedule}
 
 目標はPantsLabyrinthの新規ユーザーをターゲットにすることなので、キャンバスをアクションベースのままにします。**Start Session**で、**Start Session in Any App**を選択して、任意のアプリでセッションを開始したユーザーがキャンバスにエントリできるようにします。
 
@@ -58,15 +58,15 @@ PantsLabyrinthで働いていて、ユーザーエンゲージメントを向上
 
 ![開始時間が2024年10月28日午前8時のエントリウィンドウ。ユーザーはローカルタイムゾーンでこのメッセージにエントリします。]({% image_buster /assets/img/canvas_templates/onboarding4.png %})
 
-### ステップ 4: オーディエンスをターゲットにする {#step-4-target-your-audience}
+### ステップ 4:オーディエンスをターゲットにする {#step-4-target-your-audience}
 
 適切なオーディエンスをターゲットにすることで、新規ユーザーと効果的にエンゲージできます。例えば、このテンプレートは1日未満前にアプリを初めて使用したすべてのユーザーをターゲットにしており、これはユースケースに適しています。そのため、このセクションはそのままにします。
 
-### ステップ 5: 送信設定を行う {#step-5-set-send-settings}
+### ステップ 5:送信設定を行う {#step-5-set-send-settings}
 
 デフォルトでは、このキャンバスは購読中またはオプトインしたユーザーに送信され、フリークエンシーキャップルールに従います。これらの設定はそのままにします。
 
-### ステップ 6: キャンバスをカスタマイズする {#step-6-customize-your-canvas}
+### ステップ 6:キャンバスをカスタマイズする {#step-6-customize-your-canvas}
 
 次に、テンプレートのステップをカスタマイズしてキャンバスを構築しましょう。
 
@@ -93,10 +93,10 @@ PantsLabyrinthで働いていて、ユーザーエンゲージメントを向上
 
 アプリとやり取りしていないユーザーのセットから、「Check for Clicks」ステップと「Winback Nudge」ステップを編集することで、これらのユーザーをさらにターゲットにできます。
 
-### ステップ 7: キャンバスをテストして起動する {#step-7-test-and-launch-your-canvas}
+### ステップ 7:キャンバスをテストして起動する {#step-7-test-and-launch-your-canvas}
 
 キャンバスをテストして確認し、期待どおりに動作することを確認したら、**Launch キャンバス**を選択してキャンバスを起動します。これで、新規ユーザーにパーソナライズされたオンボーディング体験を提供し、持続的な関係を促進できます！
 
 {% alert tip %}
-キャンバスの起動前後に考慮すべき事項については、[起動前後のチェックリスト]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch)をご確認ください。
+キャンバスの起動前後に考慮すべき事項については、[起動前後のチェックリスト]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch)をご確認ください。
 {% endalert %}

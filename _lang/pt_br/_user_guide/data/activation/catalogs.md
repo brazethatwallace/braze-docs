@@ -21,7 +21,7 @@ guide_featured_list:
   link: /docs/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications
   image: /assets/img/braze_icons/shopping-cart-03.svg
 - name: Notificações de queda de preço
-  link: /docs/price_drop_notifications/
+  link: /docs/price_drop_notifications
   image: /assets/img/braze_icons/shopping-cart-03.svg
 - name: Seleções
   link: /docs/user_guide/data/activation/catalogs/selections
@@ -30,10 +30,10 @@ guide_featured_list:
 guide_menu_title: "Outros artigos"
 guide_menu_list:
 - name: Endpoints da API de catálogos
-  link: /docs/api/endpoints/catalogs/
+  link: /docs/api/endpoints/catalogs
   image: /assets/img/braze_icons/server-01.svg
 - name: Blocos de produtos de arrastar e soltar
-  link: /docs/dnd_product_blocks/
+  link: /docs/dnd_product_blocks
   image: /assets/img/braze_icons/columns-01.svg
 ---
 <br><br>
@@ -46,8 +46,8 @@ Você pode importar qualquer tipo de dados para um catálogo. Normalmente, os da
 
 - **Promoções sazonais:** importe coleções de produtos sazonais e personalize mensagens para refletir as tendências atuais.
 - **Mensagens localizadas:** importe os endereços, horários e serviços dos seus locais físicos e personalize as notificações com base na localização dos usuários.
-- **Notificações de reposição de estoque:** importe informações de produtos que incluam a quantidade em estoque e use as [notificações de reposição de estoque]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) e eventos personalizados da Braze para disparar uma Campaign ou um Canvas que envie aos usuários uma notificação de que um produto voltou ao estoque.
-- **Notificações de queda de preço:** importe informações de produtos que incluam os preços e use as [notificações de queda de preço]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/) e eventos personalizados da Braze para disparar um Canvas que envie aos usuários uma notificação de que o preço de um produto caiu.
+- **Notificações de reposição de estoque:** importe informações de produtos que incluam a quantidade em estoque e use as [notificações de reposição de estoque]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) e eventos personalizados da Braze para disparar uma Campaign ou um Canvas que envie aos usuários uma notificação de que um produto voltou ao estoque.
+- **Notificações de queda de preço:** importe informações de produtos que incluam os preços e use as [notificações de queda de preço]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) e eventos personalizados da Braze para disparar um Canvas que envie aos usuários uma notificação de que o preço de um produto caiu.
 
 ### Entretenimento {#entertainment}
 
@@ -60,13 +60,13 @@ Você pode importar qualquer tipo de dados para um catálogo. Normalmente, os da
 - **Destinos:** importe destinos de viagem com suas atrações, restaurantes e atividades mais populares e personalize as recomendações para seus usuários com base em viagens anteriores.
 - **Acomodações:** importe propriedades de hotéis com suas comodidades, tipos de quartos e preços e envie promoções para seus usuários com base nas preferências selecionadas.
 - **Meios de transporte:** importe ofertas e promoções para meios de transporte (como voos, trens, aluguel de carros e outros) e envie-as aos seus usuários com base no histórico de pesquisa recente.
-- **Preferências de refeições:** importe informações sobre ofertas de refeições e use [seleções]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) para enviar mensagens personalizadas aos usuários que têm preferências específicas de refeições com base na categoria de alimentos visualizada mais recentemente.
+- **Preferências de refeições:** importe informações sobre ofertas de refeições e use [seleções]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) para enviar mensagens personalizadas aos usuários que têm preferências específicas de refeições com base na categoria de alimentos visualizada mais recentemente.
 
 ## Como os catálogos e o Liquid funcionam juntos {#how-catalogs-and-liquid-work-together}
 
-Os catálogos são um recurso de armazenamento de dados. Eles contêm grandes conjuntos de dados que podem ser referenciados nas suas mensagens para personalização. Para referenciar os dados, você usará o [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) como linguagem de template. Em outras palavras, os catálogos são o armazenamento onde os dados ficam guardados, e o Liquid é a linguagem que extrai os dados relevantes desse armazenamento.
+Os catálogos são um recurso de armazenamento de dados. Eles contêm grandes conjuntos de dados que podem ser referenciados nas suas mensagens para personalização. Para referenciar os dados, você usará o [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) como linguagem de template. Em outras palavras, os catálogos são o armazenamento onde os dados ficam guardados, e o Liquid é a linguagem que extrai os dados relevantes desse armazenamento.
 
-Para exemplos de como usar o Liquid para extrair informações do catálogo, consulte os casos de uso adicionais em [Criar um catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases/).
+Para exemplos de como usar o Liquid para extrair informações do catálogo, consulte os casos de uso adicionais em [Criar um catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases).
 
 ## Limitações de armazenamento de dados {#data-storage-limitations}
 
@@ -76,4 +76,4 @@ Para a versão gratuita dos catálogos, a quantidade de armazenamento permitida 
 
 Para o Catalogs Pro, as opções de tamanho de armazenamento são: 5&nbsp;GB, 10&nbsp;GB, 15&nbsp;GB ou 50&nbsp;GB. Note que o armazenamento da versão gratuita (100&nbsp;MB) está incluído em cada um desses planos.
 
-Se você precisar fazer upgrade do armazenamento do seu catálogo, entre em contato com o gerente de conta da Braze. Para detalhes do plano e notas sobre direitos, consulte [Armazenamento de catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/create/#tiers).
+Se você precisar fazer upgrade do armazenamento do seu catálogo, entre em contato com o gerente de conta da Braze. Para detalhes do plano e notas sobre direitos, consulte [Armazenamento de catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/create#tiers).

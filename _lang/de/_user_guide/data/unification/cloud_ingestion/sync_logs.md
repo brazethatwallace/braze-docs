@@ -27,7 +27,7 @@ Die Hauptseite **Sync Log** bietet einen umfassenden Überblick über alle Ihre 
 Sync-Protokolle enthalten außerdem die folgenden Details zu jeder Synchronisierung:
 
 * **Sync-Name:** Der Name der Synchronisierungskonfiguration.
-* **Run-ID:** Ein eindeutiger Bezeichner für eine bestimmte Ausführung der Synchronisierung. Wählen Sie diese ID aus, um weitere Details anzuzeigen. Sie kann auch in den [CDI-API-Endpunkten]({{site.baseurl}}/api/endpoints/cdi/) verwendet werden oder um einen Synchronisierungslauf mit Braze Support zu referenzieren.
+* **Run-ID:** Ein eindeutiger Bezeichner für eine bestimmte Ausführung der Synchronisierung. Wählen Sie diese ID aus, um weitere Details anzuzeigen. Sie kann auch in den [CDI-API-Endpunkten]({{site.baseurl}}/api/endpoints/cdi) verwendet werden oder um einen Synchronisierungslauf mit Braze Support zu referenzieren.
 * **Status:** Der Status des Laufs (Success, Partial Success, Error, Running).
 * **Neue Zeilen aus der Quelle gelesen:** Die Anzahl der neuen Zeilen, die für diesen Durchlauf aus Ihrem Data Warehouse abgerufen wurden.
 * **Ergebnisse:** Eine Aufschlüsselung der Anzahl der erfolgreichen und fehlgeschlagenen Zeilen innerhalb des Durchlaufs.
@@ -78,7 +78,7 @@ Wählen Sie **Export rows** aus, um die Protokolle auf Zeilenebene für einen Sy
 * **Zeilen mit Fehlern:** Lädt eine Datei herunter, die ausschließlich die Zeilen mit dem Status **Error** enthält.
 * **Alle Zeilen:** Lädt eine Datei herunter, die alle in diesem Durchlauf verarbeiteten Zeilen enthält.
 
-{% multi_lang_include early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
 
 Protokolle können nicht direkt aus dem Dashboard exportiert werden. Nach der Erstellung des Exports erhalten Sie eine E-Mail mit einem Link zum Herunterladen der Protokollexportdatei.
 

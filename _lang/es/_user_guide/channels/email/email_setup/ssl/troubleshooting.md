@@ -24,7 +24,7 @@ Si de repente experimentas tasas bajas de apertura de correo electrónico, confi
 
 Si los enlaces de redirección con seguimiento devuelven **403 Forbidden**, el fallo suele ocurrir en tu red de entrega de contenido (CDN) o firewall de aplicaciones web (WAF), por ejemplo, reglas en AWS WAF o Amazon CloudFront que bloquean ciertos agentes de usuario, cadenas de consulta o patrones de redirección. Revisa los registros de solicitudes bloqueadas y las métricas con tu CDN o proveedor de nube. Para AWS, consulta [Solución de problemas con CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html).
 
-Para ver si el problema es específico del seguimiento de clics, desactiva el seguimiento de clics para un enlace de prueba (consulta [Desactivar el seguimiento de clics enlace por enlace]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis)). Si la URL de destino carga cuando el seguimiento de clics está desactivado pero devuelve 403 cuando está activado, concéntrate en la configuración de tu dominio de seguimiento de clics, CDN y WAF.
+Para ver si el problema es específico del seguimiento de clics, desactiva el seguimiento de clics para un enlace de prueba (consulta [Desactivar el seguimiento de clics enlace por enlace]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)). Si la URL de destino carga cuando el seguimiento de clics está desactivado pero devuelve 403 cuando está activado, concéntrate en la configuración de tu dominio de seguimiento de clics, CDN y WAF.
 
 ## Problemas con el registro de dominio {#domain-registry-issues}
 
@@ -235,7 +235,7 @@ Usa la siguiente plantilla para probar la configuración del CDN de tu dominio d
                             <li><strong>Tracked URL Fails / Untracked Works:</strong> This indicates a CDN or SSL certificate issue. Verify that your SSL certificate is valid and correctly bound to your tracking domain.</li>
                             <li><strong>Privacy Error (HTTPS):</strong> Ensure your CDN is configured to handle port 443 traffic and that the certificate matches your tracking CNAME.</li>
                             <li><strong>Both URLs Fail:</strong> Check the destination URL or your internal network firewall settings.</li>
-                            <li>For more information, visit: <a href="https://www.braze.com/docs/user_guide/channels/email/email_setup/ssl">SSL at Braze</a></li>
+                            <li>For more information, visit: <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/channels/email/email_setup/ssl">SSL at Braze</a></li>
                         </ul>
                     </div>
                 </td>
@@ -256,7 +256,7 @@ Usa la siguiente plantilla para probar la configuración del CDN de tu dominio d
 3. Envíate un correo electrónico de prueba y selecciona ambos botones.
 4. Verifica que el comportamiento esperado y los criterios de éxito sean los descritos en la plantilla.
 
-Si tu URL sin seguimiento funciona pero tu URL con seguimiento falla, es posible que tengas un problema de configuración. Para solucionarlo, consulta la documentación de tu ESP y proveedor de CDN específicos. También puedes revisar [SSL en Braze]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/) para conocer los requisitos detallados sobre el aprovisionamiento de certificados.
+Si tu URL sin seguimiento funciona pero tu URL con seguimiento falla, es posible que tengas un problema de configuración. Para solucionarlo, consulta la documentación de tu ESP y proveedor de CDN específicos. También puedes revisar [SSL en Braze]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl) para conocer los requisitos detallados sobre el aprovisionamiento de certificados.
 
 Usa la siguiente tabla para diagnosticar errores comunes al probar el seguimiento de clics.
 

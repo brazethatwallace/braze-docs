@@ -34,7 +34,7 @@ Para obtener más información sobre Stories, la API de datos de clientes de Mov
 
 #### Paso 1a: Crea una nueva campaña {#step-1a-create-a-new-campaign}
 
-1. En Braze, [crea una campaña webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+1. En Braze, [crea una campaña webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook).
 2. Dale a tu campaña un nombre y una descripción opcional.
 3. Selecciona **Blank Template** como plantilla.
 
@@ -83,9 +83,9 @@ Para probar tu webhook, haz lo siguiente:
 
 #### Paso 2a: Programa tu campaña {#step-2a-schedule-your-campaign}
 
-Cuando hayas terminado de redactar y probar el webhook, [programa tu campaña]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
+Cuando hayas terminado de redactar y probar el webhook, [programa tu campaña]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-Braze admite entregas programadas, basadas en acciones y activadas por API. La [entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) suele ser la más adecuada para la mayoría de los casos de uso de eventos de comportamiento. Si tienes preguntas sobre lo que tiene sentido para tu caso de uso, ponte en contacto con tus administradores del éxito del cliente de Braze y Movable Ink.
+Braze admite entregas programadas, basadas en acciones y activadas por API. La [entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) suele ser la más adecuada para la mayoría de los casos de uso de eventos de comportamiento. Si tienes preguntas sobre lo que tiene sentido para tu caso de uso, ponte en contacto con tus administradores del éxito del cliente de Braze y Movable Ink.
 
 Para la entrega basada en acciones:
 
@@ -99,7 +99,7 @@ Para asegurarte de que los datos se transmiten a Movable Ink en tiempo real, no 
 
 #### Paso 2b: Especifica tu audiencia {#step-2b-specify-your-audience}
 
-A continuación, determina a qué usuarios quieres dirigir esta campaña. Para más detalles, consulta [Dirigirse a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/).
+A continuación, determina a qué usuarios quieres dirigir esta campaña. Para más detalles, consulta [Dirigirse a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users).
 
 Asegúrate de no utilizar pruebas A/B en tu campaña desmarcando la casilla **Control Group**. Si se incluye un grupo de control, a un porcentaje de usuarios no se les enviarán datos a Movable Ink. Toda tu audiencia debe dirigirse a la variante y no al grupo de control.
 
@@ -135,7 +135,7 @@ Puedes generar una carga útil de evento dentro de Braze utilizando cualquier pr
 
 Comparte esta carga útil de ejemplo con tu equipo de Movable Ink Client Experience. Asegúrate de que no haya información sensible de identificación personal en la carga útil de ejemplo (como dirección de correo electrónico, número de teléfono o fechas de nacimiento completas).
 
-Para obtener más información sobre las propiedades de eventos personalizados y el formato esperado de los datos contenidos en las propiedades, consulta [Propiedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/).
+Para obtener más información sobre las propiedades de eventos personalizados y el formato esperado de los datos contenidos en las propiedades, consulta [Propiedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties).
 
 ### Usuarios conocidos frente a anónimos {#known-versus-anonymous-users}
 
@@ -164,7 +164,7 @@ Para más información, consulta los webhooks de ejemplo en [cargas útiles de e
 {
   "events": [
     {
-      "email": "test@braze.com",
+      "email": "test@example.com",
       "name": "Product Viewed",
       "time": "2023-12-06T19:20:45+01:00",
       "properties": {

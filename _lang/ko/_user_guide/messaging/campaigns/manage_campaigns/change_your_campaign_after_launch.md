@@ -66,8 +66,8 @@ Braze는 라이브 상태에서 편집하는 대신, 변경하기 전에 캠페�
 
 캠페인이 Intelligent Timing 또는 현지 시간대 전달을 사용하는 경우, 원래 발송 시간으로부터 24시간 이내에 편집하면 예정된 발송 시간 변경이 반영되지 않습니다. 그 이유는 다음과 같습니다:
 
-- **Intelligent Timing:** Braze는 사모아 시간 자정에 최적의 발송 시간 계산을 시작합니다. 이 시간이 이미 지났다면 메시지 처리가 시작된 것입니다. 자세한 내용은 [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)을 참조하세요.
-- **현지 시간대 전달:** 24시간 이내로 스케줄된 현지 시간대 캠페인을 편집해도 메시지의 스케줄은 변경되지 않습니다. 자세한 내용은 [현지 시간대 캠페인은 어떻게 스케줄하나요?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign)를 참조하세요.
+- **Intelligent Timing:** Braze는 사모아 시간 자정에 최적의 발송 시간 계산을 시작합니다. 이 시간이 이미 지났다면 메시지 처리가 시작된 것입니다. 자세한 내용은 [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)을 참조하세요.
+- **현지 시간대 전달:** 24시간 이내로 스케줄된 현지 시간대 캠페인을 편집해도 메시지의 스케줄은 변경되지 않습니다. 자세한 내용은 [현지 시간대 캠페인은 어떻게 스케줄하나요?]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign)를 참조하세요.
 
 ### 발송 속도 {#send-rate}
 
@@ -75,7 +75,7 @@ Braze는 라이브 상태에서 편집하는 대신, 변경하기 전에 캠페�
 
 #### 전달 속도 사용량 제한이 적용된 캠페인 일시 중지 {#pausing-campaigns-with-delivery-speed-rate-limiting}
 
-[전달 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting)을 사용하는 캠페인을 일시 중지하면, Braze는 분 단위 슬롯에 걸쳐 발송을 분배합니다. **재개**를 선택해도 캠페인이 일시 중지된 동안 취소된 슬롯의 메시지는 다시 발송되지 않으며, 캠페인이 재개되었을 때 모든 메시지가 반드시 발송되는 것은 아닙니다.
+[전달 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)을 사용하는 캠페인을 일시 중지하면, Braze는 분 단위 슬롯에 걸쳐 발송을 분배합니다. **재개**를 선택해도 캠페인이 일시 중지된 동안 취소된 슬롯의 메시지는 다시 발송되지 않으며, 캠페인이 재개되었을 때 모든 메시지가 반드시 발송되는 것은 아닙니다.
 
 캠페인이 일시 중지되어 일부 사용자가 메시지를 수신하지 못한 경우, **재개**에 의존하여 누락된 메시지를 전달하는 대신 캠페인을 복제하고 해당 사용자만 타겟으로 지정하세요.
 
@@ -113,4 +113,4 @@ Braze는 라이브 상태에서 편집하는 대신, 변경하기 전에 캠페�
 
 ### 인앱 메시지 우선순위 지정 {#in-app-message-prioritization}
 
-인앱 메시지 우선순위는 **상세 우선순위 지정**을 선택하고 다른 Campaign 또는 Canvas와의 관계에서 우선순위를 지정하면 임시저장본이 시작되기 전에 즉시 업데이트됩니다.
+인앱 메시지 우선순위는 **상세 우선순위 지정**을 선택하고 다른 Campaign 또는 Canvases와의 관계에서 우선순위를 지정하면 임시저장본이 시작되기 전에 즉시 업데이트됩니다.

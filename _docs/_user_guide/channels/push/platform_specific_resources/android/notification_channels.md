@@ -1,6 +1,6 @@
 ---
 nav_title: "Notification channels"
-article_title: Push notification channels 
+article_title: Push notification channels
 page_order: 4
 page_type: reference
 description: "This reference article covers Android push notification channel topics like Android O transition, how to add a channel to Braze, setting a fallback channel, and more."
@@ -16,7 +16,7 @@ channel:
 
 Notification channels can only be created in the code of your application and cannot be created programmatically in the Braze dashboard. We recommend your engineering team work with your marketers to ensure the desired notification channels are properly added to the dashboard.
 
-Starting with API level 26 (Android O), push notifications require a valid channel to display. If your app targets Android O or later, you must use Braze SDK version 2.1.0 or later. Your development team should define the channels that you want to use as well as suggested notification settings (for example, importance, sound, lights) for each channel in your application code. For information, you can see [Android developer documentation](https://developer.android.com/preview/features/notification-channels.html) and [Braze developer documentation]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-5-define-notification-channels)
+Starting with API level 26 (Android O), push notifications require a valid channel to display. If your app targets Android O or later, you must use Braze SDK version 2.1.0 or later. Your development team should define the channels that you want to use as well as suggested notification settings (for example, importance, sound, lights) for each channel in your application code. For information, you can see [Android developer documentation](https://developer.android.com/preview/features/notification-channels.html) and [Braze developer documentation]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-5-define-notification-channels)
 
 {% alert note %}
 Android supports localization for channel names, so in the code of your application, you can associate one channel ID with multiple translations of a channel name.
@@ -24,7 +24,7 @@ Android supports localization for channel names, so in the code of your applicat
 
 Once these channels are created, your engineers will need to pass on the associated channel IDs to your marketing team. Your team should enter your channel names and channel IDs into the Braze dashboard for use in your campaigns and Canvases.
 
-To add a channel to the Braze dashboard, navigate to the Android push composer, select the notification channels field and then select "manage channels."
+To add a channel to the Braze dashboard, go to the Android push composer, select the notification channels field, then select **Manage channels**.
 {% alert important %}
 Only users with permissions that include "manage apps" will be able to manage channels.
 {% endalert %}
@@ -73,13 +73,13 @@ To better understand the expected behavior for channels, refer to the following 
 
 When you apply a notification channel to a specific campaign or Canvas step, your **Reachable Users** tally (located in the Target Audience step) for Android Push will not appear to change. However, only users subscribed to the selected notification channel will see the message, and your campaign analytics (like clicks) will be measured based on this audience.
 
-![]({% image_buster /assets/img_archive/push_notification_channels.png %})
+![Android push composer with Manage Notification Channels and a list of configured channels.]({% image_buster /assets/img_archive/push_notification_channels.png %})
 
 {:start="4"}
-4. Click **Add Notification Channel**.
-5. Enter the name and ID of the notification channel you want to add.<br><br>![]({% image_buster /assets/img_archive/push_notifications_channels_manage.png %})<br><br>
+4. Select **Add Notification Channel**.
+5. Enter the name and ID of the notification channel you want to add.<br><br>![Add Notification Channel dialog with fields for channel name and channel ID.]({% image_buster /assets/img_archive/push_notifications_channels_manage.png %})<br><br>
 6. Repeat steps 4 and 5 for each notification channel that you'd like to add.
-7. Press **Save** to save your changes.
+7. Select **Save** to save your changes.
 
 ## Specifying your fallback channel
 

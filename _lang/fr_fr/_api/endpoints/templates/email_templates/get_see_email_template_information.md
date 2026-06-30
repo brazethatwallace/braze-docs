@@ -23,7 +23,7 @@ Les modèles créés à l'aide de l'éditeur par glisser-déposer pour l'e-mail 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e98d2d5b-62fe-4358-b391-9fe9e460d0ac {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key/) avec l'autorisation `templates.email.info`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `templates.email.info`.
 
 ## Limite de débit {#rate-limit}
 
@@ -33,8 +33,8 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
-| `email_template_id` | Requis | Chaîne de caractères | Voir l'[identifiant API du modèle d'e-mail]({{site.baseurl}}/api/identifier_types/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+| `email_template_id` | Requis | Chaîne de caractères | Voir l'[identifiant API du modèle d'e-mail]({{site.baseurl}}/api/identifier_types). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de demande" }
 
 ## Exemple de demande {#example-request}
 {% raw %}
@@ -62,6 +62,6 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/templates/email/
 }
 ```
 
-Les images de cette réponse apparaîtront dans la variable `body` sous forme HTML.
+Les images de cette réponse apparaîtront dans la variable `body` sous forme de HTML.
 
 {% endapi %}

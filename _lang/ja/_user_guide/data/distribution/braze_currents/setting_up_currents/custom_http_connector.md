@@ -60,7 +60,7 @@ Braze Currentsのスキーマに対して、非破壊的な変更を行うこと
 通常、これらの変更については2週間前に通知しますが、それが不可能な場合もあります。認識されないフィールドやイベントタイプを処理できるように統合を設計することが不可欠です。そうしないと、データ損失につながる可能性があります。
 
 {% alert tip %}
-Currentsイベントスキーマの完全なリストについては、[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)と[顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)を参照してください。
+Currentsイベントスキーマの完全なリストについては、[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)と[顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)を参照してください。
 {% endalert %}
 
 ## バッチ処理とシリアライゼーション {#batching-and-serialization}

@@ -34,7 +34,7 @@ Weitere Informationen über Stories, die Movable Ink Customer Data API und darü
 
 #### Schritt 1a: Erstellen Sie eine neue Campaign {#step-1a-create-a-new-campaign}
 
-1. [Erstellen Sie in Braze eine Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+1. [Erstellen Sie in Braze eine Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook).
 2. Geben Sie Ihrer Campaign einen Namen und eine optionale Beschreibung.
 3. Wählen Sie als Template **Blank Template** aus.
 
@@ -83,9 +83,9 @@ Um Ihren Webhook zu testen, gehen Sie wie folgt vor:
 
 #### Schritt 2a: Planen Sie Ihre Campaign {#step-2a-schedule-your-campaign}
 
-Wenn Sie den Webhook fertiggestellt und getestet haben, [planen Sie Ihre Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
+Wenn Sie den Webhook fertiggestellt und getestet haben, [planen Sie Ihre Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-Braze unterstützt geplante, aktionsbasierte und API-getriggerte Zustellungen. Die [aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) ist in der Regel die beste Lösung für die meisten Anwendungsfälle mit Verhaltens-Events. Bei Fragen dazu, was für Ihren Anwendungsfall sinnvoll ist, wenden Sie sich an Ihre Customer-Success-Manager von Braze und Movable Ink.
+Braze unterstützt geplante, aktionsbasierte und API-getriggerte Zustellungen. Die [aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) ist in der Regel die beste Lösung für die meisten Anwendungsfälle mit Verhaltens-Events. Bei Fragen dazu, was für Ihren Anwendungsfall sinnvoll ist, wenden Sie sich an Ihre Customer-Success-Manager von Braze und Movable Ink.
 
 Für aktionsbasierte Zustellung:
 
@@ -99,7 +99,7 @@ Um sicherzustellen, dass die Daten in Echtzeit an Movable Ink gestreamt werden, 
 
 #### Schritt 2b: Bestimmen Sie Ihre Zielgruppe {#step-2b-specify-your-audience}
 
-Bestimmen Sie als Nächstes, welche Nutzer:innen Sie für diese Campaign ansprechen möchten. Einzelheiten finden Sie unter [Nutzer:innen ansprechen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/).
+Bestimmen Sie als Nächstes, welche Nutzer:innen Sie für diese Campaign ansprechen möchten. Einzelheiten finden Sie unter [Nutzer:innen ansprechen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users).
 
 Stellen Sie sicher, dass Sie keine A/B-Tests in Ihrer Campaign verwenden, indem Sie das Kontrollkästchen **Control Group** deaktivieren. Wenn eine Kontrollgruppe enthalten ist, werden bei einem bestimmten Prozentsatz der Nutzer:innen keine Daten an Movable Ink gesendet. Ihre gesamte Zielgruppe sollte der Variante zugeordnet werden, nicht der Kontrollgruppe.
 
@@ -135,7 +135,7 @@ Sie können in Braze einen Event-Payload mit beliebigen Event-Eigenschaften erze
 
 Teilen Sie diesen Beispiel-Payload mit Ihrem Movable Ink Client Experience Team. Vergewissern Sie sich, dass keine sensiblen personenbezogenen Daten im Beispiel-Payload enthalten sind (wie z. B. E-Mail-Adresse, Telefonnummer oder vollständige Geburtsdaten).
 
-Wenn Sie mehr über angepasste Event-Eigenschaften und das erwartete Format der in den Eigenschaften enthaltenen Daten erfahren möchten, lesen Sie [Angepasste Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/).
+Wenn Sie mehr über angepasste Event-Eigenschaften und das erwartete Format der in den Eigenschaften enthaltenen Daten erfahren möchten, lesen Sie [Angepasste Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties).
 
 ### Bekannte versus anonyme Nutzer:innen {#known-versus-anonymous-users}
 
@@ -164,7 +164,7 @@ Weitere Informationen finden Sie in den Beispiel-Webhooks unter [Beispiel-Payloa
 {
   "events": [
     {
-      "email": "test@braze.com",
+      "email": "test@example.com",
       "name": "Product Viewed",
       "time": "2023-12-06T19:20:45+01:00",
       "properties": {

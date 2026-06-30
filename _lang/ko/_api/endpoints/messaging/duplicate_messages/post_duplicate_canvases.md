@@ -10,11 +10,11 @@ description: "이 문서에서는 캔버스 복제 엔드포인트에 대한 세
 
 {% api %}
 # API를 사용한 캔버스 복제 {#duplicate-canvases-using-the-api}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/duplicate
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 Canvases를 복제합니다. 이 API 엔드포인트는 [Braze 대시보드에서 Canvases를 복제하는 것][1]과 유사합니다.
+> 이 엔드포인트를 사용하여 Canvases를 복제할 수 있습니다. 이 API 엔드포인트는 [Braze 대시보드에서 Canvases를 복제하는 것][1]과 유사합니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -44,11 +44,11 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id` | 필수 | 문자열 | [Canvas 식별자](https://www.braze.com/docs/api/identifier_types/)를 참조하세요. |
+| `canvas_id` | 필수 | 문자열 | [Canvas 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요. |
 | `name` | 필수 | 문자열 | 결과 Canvas의 이름입니다. |
 | `description` | 선택 사항 | 문자열 | 결과 Canvas의 설명 필드입니다. |
 | `tag_names` | 선택 사항 | 문자열 | 결과 Canvas의 태그입니다. 기존에 존재하는 태그여야 합니다. 요청에 새 태그를 추가하면 원래 Canvas에 있던 모든 태그를 덮어쓰게 됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 응답 {#response}
 

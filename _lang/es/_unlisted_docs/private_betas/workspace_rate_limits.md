@@ -10,7 +10,7 @@ permalink: /workspace_rate_limits/
 
 ## Requisitos previos {#prerequisites}
 
-Los límites de velocidad del espacio de trabajo solo están disponibles para contratos de Braze sin puntos de datos. Además, necesitarás [permisos de administrador](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) para administrar los límites de velocidad.
+Los límites de velocidad del espacio de trabajo solo están disponibles para contratos de Braze sin puntos de datos. Además, necesitarás [permisos de administrador]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) para administrar los límites de velocidad.
 
 ## Acerca de los límites de velocidad del espacio de trabajo {#about-workspace-rate-limits}
 
@@ -30,7 +30,7 @@ Por ejemplo, si tu punto de conexión `/users/track` tiene un límite de velocid
 
 Para asignar un nuevo límite de velocidad a uno o más espacios de trabajo, ve a **Configuración** > **Configuración de administrador** > **Límites de velocidad del espacio de trabajo** y selecciona **Asignar límites de velocidad**.
 
-![La página "Límites de velocidad del espacio de trabajo" en el dashboard de Braze.]({% image_buster /assets/unlisted_docs/img/workspace_rate_limits/settings.png %}){: style="max-width:85%;"}
+![La página "Límites de velocidad del espacio de trabajo" en el panel de Braze.]({% image_buster /assets/unlisted_docs/img/workspace_rate_limits/settings.png %}){: style="max-width:85%;"}
 
 A continuación, elige un punto de conexión y uno o más espacios de trabajo, y luego introduce tu límite de velocidad. El límite puede ser cualquier número entero mayor que 1000 y que no exceda tu límite de velocidad a nivel de empresa.
 
@@ -73,6 +73,6 @@ El valor `Retry-After` refleja el número de segundos hasta el inicio de la sigu
 
 ### Dashboard de uso de la API {#api-usage-dashboard}
 
-Para monitorear el volumen de solicitudes, los códigos de respuesta y el comportamiento de ingesta entre espacios de trabajo, también puedes usar el [dashboard de uso de la API](https://www.braze.com/docs/user_guide/analytics/dashboard/api_usage_dashboard).
+Para monitorear el volumen de solicitudes, los códigos de respuesta y el comportamiento de ingesta entre espacios de trabajo, también puedes usar el [dashboard de uso de la API]({{site.baseurl}}/user_guide/analytics/dashboard/api_usage_dashboard/).
 
 Puedes filtrar el dashboard para mostrar `429 Workspace Rate Limited` o `429 Company Rate Limited`, de modo que puedas identificar rápidamente si una solicitud fue limitada por el límite de velocidad de la empresa o del espacio de trabajo.

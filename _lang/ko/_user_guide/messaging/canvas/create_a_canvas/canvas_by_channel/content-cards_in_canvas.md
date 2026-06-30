@@ -69,7 +69,7 @@ Canvas에서 Content Cards 단계를 시작한 후 이 단계에 대한 여러 �
 
 ![Content Cards 메시지 성과가 표시된 메시지 단계의 분석.]({% image_buster /assets/img_archive/content-cards-in-canvas-analytics.png %})
 
-사용 가능한 측정기준과 정의에 대한 자세한 내용은 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)을 참조하세요.
+사용 가능한 측정기준과 정의에 대한 자세한 내용은 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)을 참조하세요.
 
 ## 활용 사례 {#use-cases}
 
@@ -85,4 +85,4 @@ Canvas를 사용하면 Content Cards와 푸시 알림을 모두 전송하는 구
 
 ### 카테고리 기반 다중 피드 {#multiple-feeds-based-on-categories}
 
-사용자가 탐색할 수 있는 다양한 주제, 또는 트랜잭션 및 마케팅 피드와 같은 카테고리를 기반으로 Content Cards를 여러 피드로 분리할 수 있습니다. 키-값 페어를 사용하여 다중 피드를 만드는 방법에 대한 자세한 내용은 [Content Cards 피드 커스터마이징]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds) 가이드를 참조하세요.
+사용자가 탐색할 수 있는 다양한 주제, 또는 트랜잭션 및 마케팅 피드와 같은 카테고리를 기반으로 Content Cards를 여러 피드로 분리할 수 있습니다. 키-값 페어를 사용하여 다중 피드를 만드는 방법에 대한 자세한 내용은 [Content Cards 피드 커스터마이징]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds) 가이드를 참조하세요.

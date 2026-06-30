@@ -73,7 +73,7 @@ Ensuite, créez une table de données au [format requis](https://docs.liveramp.c
 
 #### Identifiants Braze {#braze-identifiers}
 
-Les journaux d'événements de Braze contiennent des identifiants que vous pouvez utiliser dans l'application native LiveRamp. Pour obtenir la liste complète des identifiants disponibles pour chaque type d'événement, téléchargez les [schémas et identifiants d'événements Braze]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt).
+Les journaux d'événements de Braze contiennent des identifiants que vous pouvez utiliser dans l'application native LiveRamp. Pour obtenir la liste complète des identifiants disponibles pour chaque type d'événement, téléchargez les [schémas et identifiants d'événements Braze](/docs/assets/download_file/data-sharing-raw-table-schemas.txt).
 
 | Type d'identifiant | Description |
 |-----------------|--------------|
@@ -93,7 +93,7 @@ Ensuite, définissez vos variables pour la tâche dans la feuille de travail des
 
 ### Étape 5 : Créer la table de métadonnées pour la résolution des PII {#step-5-create-the-metadata-table-for-pii-resolution}
 
-Maintenant que vos variables sont définies, créez la table de métadonnées pour la résolution des PII. Celle-ci fournira des détails sur le type de tâche spécifique à exécuter en fonction de la catégorie d'identifiants impliquée. Pour une procédure pas à pas complète, consultez [LiveRamp : Create the Metadata Table](https://docs.liveramp.com/identity/en/perform-identity-resolution-in-snowflake.html#create-the-metadata-table-43).
+Maintenant que vos variables sont définies, créez la table de métadonnées pour la résolution des PII. Celle-ci fournit des détails sur le type de tâche spécifique à exécuter en fonction de la catégorie d'identifiants impliquée. Pour une procédure pas à pas complète, consultez [LiveRamp : Create the Metadata Table](https://docs.liveramp.com/identity/en/perform-identity-resolution-in-snowflake.html#create-the-metadata-table-43).
 
 ### Étape 6 : Effectuer l'opération de résolution d'identité {#step-6-perform-the-identity-resolution-operation}
 

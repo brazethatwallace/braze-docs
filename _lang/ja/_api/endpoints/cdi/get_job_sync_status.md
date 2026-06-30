@@ -30,7 +30,7 @@ description: "この記事では、ジョブ同期ステータスの一覧を取
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `integration_id` | 必須 | 文字列 | 統合 ID。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="パスパラメーター" }
 
 ## クエリパラメーター {#query-parameters}
 
@@ -39,7 +39,7 @@ description: "この記事では、ジョブ同期ステータスの一覧を取
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `cursor` | オプション | 文字列 | 同期ステータスのページネーションを決定します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="クエリパラメーター" }
 
 ## リクエスト例 {#example-request}
 
@@ -96,7 +96,7 @@ Link: </cdi/integrations/00000000-0000-0000-0000-000000000000/job_sync_status?cu
 | `partial` | 一部の行はエラーのため同期に失敗しました。 |
 | `error` | 行は同期されませんでした。 |
 | `config_error` | 統合設定にエラーがありました。統合のセットアップを確認してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Example success response" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="成功応答の例" }
 
 ## トラブルシューティング {#troubleshooting}
 
@@ -106,8 +106,8 @@ Link: </cdi/integrations/00000000-0000-0000-0000-000000000000/job_sync_status?cu
 | --- | --- |
 | `400 Invalid cursor` | `cursor` が有効であることを確認してください。 |
 | `400 Invalid integration ID` | `integration_id` が有効であることを確認してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
-その他のステータスコードと関連するエラーメッセージについては、[致命的なエラーと応答]({{site.baseurl}}/api/errors/#fatal-errors)を参照してください。
+その他のステータスコードと関連するエラーメッセージについては、[致命的なエラーと応答]({{site.baseurl}}/api/errors#fatal-errors)を参照してください。
 
 {% endapi %}

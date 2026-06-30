@@ -15,13 +15,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /canvas/translations
 {% endapimethod %}
 
-> Usa este punto de conexión para actualizar múltiples traducciones de un Canvas. Consulta [Configuraciones regionales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para obtener más información sobre las características de localización.
+> Usa este punto de conexión para actualizar múltiples traducciones de un Canvas. Consulta [Configuraciones regionales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para obtener más información sobre las características de localización.
 
-Si deseas actualizar las traducciones después de haber lanzado un Canvas, primero deberás [guardar tu mensaje como borrador]({{site.baseurl}}/post-launch_edits/).
+Si deseas actualizar las traducciones después de haber lanzado un Canvas, primero deberás [guardar tu mensaje como borrador]({{site.baseurl}}/post-launch_edits).
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `canvas.translations.update`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `canvas.translations.update`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -40,7 +40,7 @@ No hay parámetros de ruta para este punto de conexión.
 | `message_variation_id` | Obligatorio | Cadena | El ID de tu variación de mensaje. |
 | `locale_id` | Obligatorio | Cadena | El ID (UUID) de la configuración regional. |
 | `translation_map` | Obligatorio | Objeto | Objeto que contiene las nuevas traducciones. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 {% alert note %}
 Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto de conexión GET.

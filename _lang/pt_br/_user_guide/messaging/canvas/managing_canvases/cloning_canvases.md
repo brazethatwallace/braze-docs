@@ -9,7 +9,7 @@ tool: Canvas
 
 # Clonar Canvas para o Canvas Flow {#clone-canvases-to-canvas-flow}
 
-> Se você tem um Canvas existente do editor original, é possível cloná-lo para criar uma cópia no Canvas Flow. Ao mudar para o fluxo de trabalho atual do Canvas, você ganha acesso a [componentes do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/) leves, [propriedades de entrada persistentes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#canvas-entry-properties) e [edição pós-lançamento]({{site.baseurl}}/post-launch_edits/). Seu Canvas original não será alterado nem excluído.
+> Se você tem um Canvas existente do editor original, é possível cloná-lo para criar uma cópia no Canvas Flow. Ao mudar para o fluxo de trabalho atual do Canvas, você ganha acesso a [componentes do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components) leves, [propriedades de entrada persistentes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#canvas-entry-properties) e [edição pós-lançamento]({{site.baseurl}}/post-launch_edits). Seu Canvas original não será alterado nem excluído.
 
 {% alert important %}
 Não é mais possível criar ou duplicar Canvas usando a experiência original do Canvas. A Braze recomenda que os clientes que usam a experiência original do Canvas migrem para o Canvas Flow, a experiência atual do Canvas.
@@ -21,12 +21,12 @@ Para clonar seu Canvas, faça o seguinte:
 2. Identifique o Canvas do qual você deseja criar uma cópia no fluxo de trabalho do Canvas Flow. Você pode clonar Canvas com status **Draft**, **Active** ou **Stopped**.
 3. Clique em <i class="fas fa-ellipsis-vertical"></i> **More actions** e selecione **Clone to Canvas Flow**.
 
-![]({% image_buster /assets/img_archive/clone_to_v2_workflow.png %}){: style="max-width:25%;"}
+![Diagrama de fluxo do processo descrito.]({% image_buster /assets/img_archive/clone_to_v2_workflow.png %}){: style="max-width:25%;"}
 
 {: start="4"}
 4. Insira o nome do seu novo Canvas e clique em **Clone to Canvas Flow**.
 
-![]({% image_buster /assets/img_archive/clone_to_v2_modal.png %}){: style="max-width:70%;"}
+![Exemplo de posicionamento de modal de cartão de conteúdo.]({% image_buster /assets/img_archive/clone_to_v2_modal.png %}){: style="max-width:70%;"}
 
 Agora, você tem duas versões do seu Canvas: o Canvas original e a versão do Canvas Flow. Seu Canvas original mantém o status original, e o Canvas clonado tem o status **Draft**. Você ainda pode acessar o Canvas original, mas a Braze recomenda usar o fluxo de trabalho do Canvas Flow para continuar construindo seus Canvas.
 
@@ -50,4 +50,4 @@ Se a reelegibilidade estiver desativada, adicione o filtro "Entered Canvas Varia
 
 Para Canvas disparados por API, coordene com sua equipe de engenharia para garantir que esses Canvas estejam usando o novo ID do Canvas quando os novos Canvas estiverem prontos para lançamento.
 
-Para saber mais sobre as diferenças entre o editor original do Canvas e a experiência do Canvas Flow, confira as [Perguntas frequentes sobre o Canvas]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-are-the-main-differences-between-canvas-flow-and-the-original-canvas-editor).
+Para saber mais sobre as diferenças entre o editor original do Canvas e a experiência do Canvas Flow, confira as [Perguntas frequentes sobre o Canvas]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-are-the-main-differences-between-canvas-flow-and-the-original-canvas-editor).

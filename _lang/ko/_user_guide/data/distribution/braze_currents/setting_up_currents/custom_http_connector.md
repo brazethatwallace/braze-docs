@@ -60,7 +60,7 @@ Braze는 커스텀 HTTP 커넥터로 다음 데이터를 내보내는 것을 지
 일반적으로 이러한 변경에 대해 2주 전에 공지하지만, 항상 가능한 것은 아닙니다. 인식되지 않는 필드나 이벤트 유형을 처리할 수 있도록 통합을 설계하는 것이 필수적이며, 그렇지 않으면 데이터 손실이 발생할 가능성이 높습니다.
 
 {% alert tip %}
-Currents 이벤트 스키마의 전체 목록은 [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) 및 [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)를 참조하세요.
+Currents 이벤트 스키마의 전체 목록은 [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) 및 [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)를 참조하세요.
 {% endalert %}
 
 ## 배치 처리 및 직렬화 {#batching-and-serialization}

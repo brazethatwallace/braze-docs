@@ -7,7 +7,7 @@ description: "Este artigo de referência descreve a Priorização de Mensagens d
 
 # Priorização de mensagens {#message-prioritization}
 
-> Use a Priorização de Mensagens para garantir que seus usuários recebam as campanhas mais importantes.
+> Use a Priorização de Mensagens para garantir que seus usuários recebam as Campaigns mais importantes.
 
 {% alert important %}
 A Priorização de Mensagens está atualmente em beta. Entre em contato com o gerente da sua conta Braze se tiver interesse em participar deste beta.
@@ -27,7 +27,7 @@ Digamos que você esteja gerenciando promoções por e-mail para parcerias pagas
 
 ## Categorias {#categories}
 
-As regras de priorização são baseadas em uma classificação de categorias, que é um rótulo que você pode atribuir a uma determinada Campaign (semelhante a uma [tag](https://www.braze.com/docs/user_guide/administrative/app_settings/tags)). Você pode criar até 20 categorias por vez.
+As regras de priorização são baseadas em uma classificação de categorias, que é um rótulo que você pode atribuir a uma determinada Campaign (semelhante a uma [tag]({{site.baseurl}}/user_guide/administrative/app_settings/tags/)). Você pode criar até 20 categorias por vez.
 
 Para adicionar uma nova categoria:
 
@@ -140,7 +140,7 @@ Assumiremos que sua mensagem foi enviada no horário originalmente agendado se e
 
 ### Minha mensagem foi priorizada, mas abortada no último minuto. O que isso significa para a priorização? {#my-message-was-prioritized-but-aborted-last-minute-what-does-that-mean-for-prioritization}
 
-Quando uma mensagem é priorizada, a Braze assumirá que ela foi enviada no horário originalmente agendado. De modo geral, para a Priorização de Mensagens, não recomendamos o uso de aborts via Liquid. Se uma mensagem for abortada devido à [lógica Liquid `abort_message`](https://www.braze.com/docs/user_guide/personalization_and_dynamic_content/liquid/aborting_messages), assumiremos que ela foi enviada para aquele usuário e priorizaremos Campaigns futuras de acordo.
+Quando uma mensagem é priorizada, a Braze assumirá que ela foi enviada no horário originalmente agendado. De modo geral, para a Priorização de Mensagens, não recomendamos o uso de aborts via Liquid. Se uma mensagem for abortada devido à [lógica Liquid `abort_message`]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages/), assumiremos que ela foi enviada para aquele usuário e priorizaremos Campaigns futuras de acordo.
 
 Digamos que você tenha duas mensagens: Mensagem 1 e Mensagem 2. Se a Mensagem 1 for abortada em favor de uma futura Mensagem 2 de maior prioridade, isso não garante que a Mensagem 2 será realmente enviada. A Mensagem 2 ainda pode ser abortada por qualquer motivo, incluindo:
 
@@ -167,4 +167,4 @@ Neste momento, a Priorização de Mensagens não é compatível com Campaigns ba
 
 ### Existe alguma funcionalidade de relatórios ou análise de dados específica para a Priorização de Mensagens? {#is-there-any-reporting-or-analytics-functionality-specific-to-message-prioritization}
 
-Neste momento, não há funcionalidade de relatórios ou análise de dados específica para esse recurso. Recomendamos que você use a [funcionalidade de relatórios existente da Braze](https://www.braze.com/docs/user_guide/analytics/reporting) para monitorar a integridade e o desempenho das suas Campaigns priorizadas.
+Neste momento, não há funcionalidade de relatórios ou análise de dados específica para esse recurso. Recomendamos que você use a [funcionalidade de relatórios existente da Braze]({{site.baseurl}}/user_guide/analytics/reporting/) para monitorar a integridade e o desempenho das suas Campaigns priorizadas.

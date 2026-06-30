@@ -2,14 +2,10 @@
 
 > Découvrez le serveur MCP Braze, une connexion sécurisée qui permet aux outils d'intelligence artificielle tels que Claude et Cursor d'accéder aux données Braze non personnelles afin de répondre à des questions, d'analyser des tendances et de fournir des informations.
 
-{% multi_lang_include mcp_server/beta_alert.md %}
-
 {% alert important %}
-## Temporisation du serveur MCP Braze hébergé localement {#sunsetting-the-locally-hosted-braze-mcp-server}
+Cet été, Braze lance un serveur MCP distant, hébergé par Braze, en accès anticipé. Il remplace le serveur bêta hébergé localement (`braze-mcp-server` sur [PyPI](https://pypi.org/project/braze-mcp-server/) et le répertoire d'extensions de Claude Desktop).<br><br>
 
-Cet été, Braze lance un serveur MCP distant, hébergé par Braze, en accès anticipé. Il remplace le serveur bêta hébergé localement (`braze-mcp-server` sur [PyPI](https://pypi.org/project/braze-mcp-server/) et le répertoire d'extensions de Claude Desktop).
-
-**Ce que cela signifie pour vous :**
+**Ce que cela signifie pour vous :**<br><br>
 
 - Le serveur hébergé localement continuera de fonctionner, mais il n'est plus pris en charge. Nous n'ajouterons pas de nouveaux endpoints et ne corrigerons pas les problèmes de la version bêta.
 - Lorsque le serveur distant sera disponible en accès anticipé, vous devrez migrer vers celui-ci. Le serveur distant ne nécessite aucune installation locale, utilise OAuth au lieu de clés API statiques et fonctionne avec les clients MCP tels que Claude, Copilot, Gemini CLI, Codex et Cursor.
@@ -43,11 +39,13 @@ Vous pouvez interagir avec Braze en utilisant le langage naturel grâce à des o
 
 {% tabs %}
 {% tab Claude %}
-![« Quelles sont les fonctions Braze à ma disposition ? » : question posée et réponse fournie dans Claude.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**Exemple de requête :** `What are my available Braze functions?`
+**Exemple de réponse :** A utilisé `list_functions` et renvoyé les catégories de fonctions MCP Braze disponibles.
 {% endtab %}
 
 {% tab Cursor %}
-![« Quelles sont les fonctions Braze disponibles ? » : question posée et réponse fournie dans Cursor.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**Exemple de requête :** `What are my available Braze functions?`
+**Exemple de réponse :** A interrogé `list_functions` et listé les fonctions telles que `get_canvas_list`.
 {% endtab %}
 {% endtabs %}
 

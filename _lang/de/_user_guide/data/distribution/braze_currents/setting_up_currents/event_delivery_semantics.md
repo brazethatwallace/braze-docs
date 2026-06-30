@@ -12,10 +12,10 @@ tool: Currents
 
 > Auf dieser Seite wird beschrieben und definiert, wie Currents die Flat-File-Event-Daten verwaltet, die wir an Data Warehouse-Speicherpartner senden.
 
-„Currents für Datenspeicher“ ist ein kontinuierlicher Datenstrom von unserer Plattform zu einem Speicher-Bucket auf einer unserer Data Warehouse-[Partnerverbindungen]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/). Currents schreibt Avro-Dateien in regelmäßigen Abständen in Ihren Speicher-Bucket, sodass Sie die Event-Daten mit Ihrem eigenen Business-Intelligence-Toolset (BI) verarbeiten und analysieren können.
+„Currents für Datenspeicher“ ist ein kontinuierlicher Datenstrom von unserer Plattform zu einem Speicher-Bucket auf einer unserer Data Warehouse-[Partnerverbindungen]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners). Currents schreibt Avro-Dateien in regelmäßigen Abständen in Ihren Speicher-Bucket, sodass Sie die Event-Daten mit Ihrem eigenen Business-Intelligence-Toolset (BI) verarbeiten und analysieren können.
 
 {% alert important %}
-Dieser Inhalt **gilt nur für die Flat-File-Event-Daten, die wir an Data Warehouse-Speicherpartner (Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage) senden**. <br><br>Inhalte, die für andere Partner gelten, finden Sie in unserer Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) und auf den jeweiligen Seiten.
+Dieser Inhalt **gilt nur für die Flat-File-Event-Daten, die wir an Data Warehouse-Speicherpartner (Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage) senden**. <br><br>Inhalte, die für andere Partner gelten, finden Sie in unserer Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) und auf den jeweiligen Seiten.
 {% endalert %}
 
 ## Test-Events {#test-events}
@@ -57,7 +57,7 @@ Currents erstellt für jeden Event-Typ eine Datei im folgenden Format:
 ```
 
 {% alert tip %}
-Sie können den Code wegen der Scrollleiste nicht sehen? Erfahren Sie [hier]({{site.baseurl}}/user_guide/), wie Sie das beheben können.
+Sie können den Code wegen der Scrollleiste nicht sehen? Erfahren Sie [auf der Startseite des Braze-Benutzerhandbuchs]({{site.baseurl}}/user_guide), wie Sie das beheben können.
 {% endalert %}
 
 Beispielsweise kann ein Pfad für ein Push-Sende-Event so aussehen:
@@ -116,4 +116,4 @@ Wenn ein Feld aus dem Avro-Schema entfernt oder darin geändert wird, betrachten
 
 Alle brechenden Änderungen werden vor dem Release im Voraus kommuniziert.
 
-Eine vollständige Änderungshistorie nach Version finden Sie im [Currents-Changelog]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/).
+Eine vollständige Änderungshistorie nach Version finden Sie im [Currents-Changelog]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs).

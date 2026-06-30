@@ -241,9 +241,9 @@ Las plantillas de esta guía se han creado para entregar al destino "Track Users
 
 ### Pruebas {#testing}
 
-Después de modificar la plantilla a tu gusto, debes validar que funciona correctamente. En el editor de transformación, selecciona **Validate** para generar una vista previa en la sección **Output** y confirmar que Braze aceptará la solicitud asignada para el destino elegido.
+Después de modificar la plantilla a tu gusto, debes validar que funciona correctamente. En el editor de transformación, selecciona **Validar** para generar una vista previa en la sección **Salida** y confirmar que Braze acepta la solicitud asignada para el destino elegido.
 
-Cuando estés satisfecho con el objeto que ves en el campo "output", haz clic en **Activate** para que el punto de conexión de Transformación de datos esté listo para aceptar datos.
+Cuando estés satisfecho con el objeto que ves en el campo **Salida**, selecciona **Activar** para que el punto de conexión de Transformación de datos esté listo para aceptar datos.
 
 Encontrarás la URL del webhook de tu Transformación de datos en el panel lateral izquierdo. Cópiala y utilízala para la configuración dentro del Integration Hub de Oracle Crowdtwist.
 

@@ -22,27 +22,27 @@ Braze는 전 세계 여러 지역에 위치한 여러 데이터 센터를 운영
 
 ### 호주 {#australia}
 
-{% multi_lang_include data_centers.md datacenters='AU' %}
+{% multi_lang_include administer/data_centers.md datacenters='AU' %}
 
 ### 유럽연합 {#european-union}
 
-{% multi_lang_include data_centers.md datacenters='EU' %}
+{% multi_lang_include administer/data_centers.md datacenters='EU' %}
 
 ### 인도네시아 {#indonesia}
 
-{% multi_lang_include data_centers.md datacenters='ID' %}
+{% multi_lang_include administer/data_centers.md datacenters='ID' %}
 
 ### 일본 {#japan}
 
-{% multi_lang_include data_centers.md datacenters='JP' %}
+{% multi_lang_include administer/data_centers.md datacenters='JP' %}
 
 ### 한국 {#south-korea}
 
-{% multi_lang_include data_centers.md datacenters='KR' %}
+{% multi_lang_include administer/data_centers.md datacenters='KR' %}
 
 ### 미국 {#united-states}
 
-{% multi_lang_include data_centers.md datacenters='US' %}
+{% multi_lang_include administer/data_centers.md datacenters='US' %}
 
 ## 지역별 데이터 센터에 가입하기 {#signing-up-for-region-specific-data-centers}
 

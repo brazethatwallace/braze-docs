@@ -10,11 +10,11 @@ platform:
   - Web
 ---
 
-# Perguntas frequentes
+# Perguntas frequentes {#frequently-asked-questions}
 
 > Este artigo fornece respostas para algumas perguntas frequentes sobre Feature Flags.
 
-## Funcionalidade e suporte
+## Funcionalidade e suporte {#functionality-and-support}
 
 ### Em quais plataformas as Feature Flags da Braze são compatíveis? {#platforms}
 
@@ -79,7 +79,7 @@ Por exemplo, com as Feature Flags da Braze, você pode lançar um novo programa 
 
 Equipes de produto podem usar Feature Flags para realizar lançamentos graduais ou soft launches de novas funcionalidades, monitorando indicadores-chave de desempenho e feedback dos clientes antes de disponibilizar para todos os usuários.
 
-Equipes de produto podem usar [propriedades de Feature Flags]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create/#properties) para preencher remotamente conteúdo em um app, como deep links, textos, imagens ou outro conteúdo dinâmico.
+Equipes de produto podem usar [propriedades de Feature Flags]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#properties) para preencher remotamente conteúdo em um app, como deep links, textos, imagens ou outro conteúdo dinâmico.
 
 Usando a etapa Feature Flag do Canvas, equipes de produto também podem executar um teste A/B para medir como uma nova funcionalidade impacta as taxas de conversão em comparação com usuários que não têm a funcionalidade ativada.
 
@@ -89,11 +89,11 @@ Equipes de engenharia podem usar Feature Flags para reduzir o risco inerente ao 
 
 Ao lançar novo código oculto por trás de uma Feature Flag, sua equipe pode ativar ou desativar a funcionalidade remotamente pelo dashboard da Braze, evitando a demora de publicar novo código ou esperar pela aprovação de uma atualização na loja de apps.
 
-## Lançamentos de funcionalidades e direcionamento
+## Lançamentos de funcionalidades e direcionamento {#feature-rollouts-and-targeting}
 
 ### Uma Feature Flag pode ser lançada apenas para um grupo específico de usuários? {#target-users}
 
-Sim, crie um segmento na Braze que direcione usuários específicos — por endereço de e-mail, `user_id` ou qualquer outro atributo nos perfis de usuário. Em seguida, implante a Feature Flag para 100% desse segmento.
+Sim, crie um Segment na Braze que direcione usuários específicos — por endereço de e-mail, `user_id` ou qualquer outro atributo nos perfis de usuário. Em seguida, implante a Feature Flag para 100% desse Segment.
 
 ### Como o ajuste da porcentagem de lançamento afeta os usuários que já foram incluídos no grupo ativado? {#random-buckets}
 
@@ -105,7 +105,7 @@ Os lançamentos de Feature Flags permanecem consistentes para os usuários entre
 
 Essa estratégia ajuda a garantir que os usuários tenham uma experiência consistente no seu app e não fiquem alternando entre estados ao longo das sessões. Claro, desativar uma funcionalidade para 0% removerá todos os usuários da Feature Flag, o que é útil se você descobrir um bug ou precisar desativar a funcionalidade completamente.
 
-## Tópicos técnicos
+## Tópicos técnicos {#technical-topics}
 
 ### Feature Flags podem ser usadas para controlar quando o SDK da Braze é inicializado? {#initialization}
 
@@ -113,7 +113,7 @@ Não, o SDK precisa ser inicializado para baixar e sincronizar as Feature Flags 
 
 ### Com que frequência o SDK atualiza as Feature Flags? {#refresh-frequency}
 
-As Feature Flags são atualizadas no início da sessão e ao trocar de usuário ativo. As Feature Flags também podem ser atualizadas manualmente usando o [método de atualização]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create/#refreshing) do SDK. As atualizações de Feature Flags têm um limite de taxa de uma vez a cada cinco minutos (sujeito a alterações).
+As Feature Flags são atualizadas no início da sessão e ao trocar de usuário ativo. As Feature Flags também podem ser atualizadas manualmente usando o [método de atualização]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#refreshing) do SDK. As atualizações de Feature Flags têm um limite de taxa de uma vez a cada cinco minutos (sujeito a alterações).
 
 Tenha em mente que boas práticas de dados recomendam não atualizar Feature Flags com muita frequência (com possível limitação de taxa se isso acontecer). Portanto, o ideal é atualizar apenas antes de um usuário interagir com novas funcionalidades ou periodicamente no app, se necessário.
 
@@ -125,12 +125,12 @@ Sim, após as Feature Flags serem atualizadas, elas são armazenadas localmente 
 
 As Feature Flags podem ser atualizadas no meio de uma sessão. Existem cenários em que você pode querer atualizar seu app se determinadas variáveis ou sua configuração mudarem. Existem outros cenários em que você pode não querer atualizar seu app, para evitar uma mudança brusca na forma como sua interface é renderizada.
 
-Para controlar isso, [escute atualizações]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create/#updates) das Feature Flags e determine se deve re-renderizar seu app com base em quais Feature Flags foram alteradas.
+Para controlar isso, [escute atualizações]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#updates) das Feature Flags e determine se deve re-renderizar seu app com base em quais Feature Flags foram alteradas.
 
-### Por que os usuários do meu Grupo de controle global não estão recebendo experimentos de Feature Flags?
+### Por que os usuários do meu Grupo de controle global não estão recebendo experimentos de Feature Flags? {#why-arent-users-in-my-global-control-group-receiving-feature-flags-experiments}
 
-Você não pode ativar Feature Flags para usuários no seu [Grupo de controle global]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/). Isso significa que os usuários no seu Grupo de controle global também não podem participar de experimentos de Feature Flags.
+Você não pode ativar Feature Flags para usuários no seu [Grupo de controle global]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts). Isso significa que os usuários no seu Grupo de controle global também não podem participar de experimentos de Feature Flags.
 
-## Mais perguntas?
+## Mais perguntas? {#additional-questions}
 
 Tem perguntas ou feedback? Envie um e-mail para nossa equipe: [feature-flags-feedback@braze.com](mailto:feature-flags-feedback@braze.com).

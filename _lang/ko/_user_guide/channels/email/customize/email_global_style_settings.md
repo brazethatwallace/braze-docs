@@ -14,7 +14,7 @@ tool:
 
 > 글로벌 스타일 설정을 사용하면 이메일 Campaigns과 Canvases의 외관을 개인화할 수 있습니다. 드래그 앤 드롭 편집기에 기본 테마를 추가하고 커스텀할 수 있습니다. 여기에는 이메일 제목, 텍스트, 버튼 등의 스타일 편집이 포함됩니다. 이러한 설정을 조합하면 이메일 메시징 전반에 걸쳐 일관된 외관을 만들 수 있습니다.
 
-글로벌 스타일 설정을 편집하려면 **설정** > **이메일 환경설정** > **드래그 앤 드롭 이메일 환경설정**으로 이동합니다. 드래그 앤 드롭 이메일 편집기에서 스타일을 편집한 후 **저장**을 선택합니다. 이메일 Campaigns과 Canvases를 더 커스텀하려면 [편집기 블록(이메일)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email)을 활용하는 방법을 확인하세요.
+글로벌 스타일 설정을 편집하려면 **설정** > **이메일 환경설정** > **드래그 앤 드롭 이메일 환경설정**으로 이동합니다. 드래그 앤 드롭 이메일 편집기에서 스타일을 편집한 후 **저장**을 선택합니다. 이메일 Campaigns과 Canvases를 더 커스텀하려면 [편집기 블록(이메일)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)을 활용하는 방법을 확인하세요.
 
 ![드래그 앤 드롭 이메일 편집기 설정 탭의 이메일 글로벌 스타일 설정 섹션.]({% image_buster /assets/img_archive/dnd_global_style_settings.png %})
 
@@ -57,7 +57,7 @@ tool:
 Gmail은 커스텀 글꼴을 지원하지 않으므로 커스텀 글꼴이 기본 시스템 글꼴로 표시될 수 있습니다. 다른 이메일 플랫폼의 경우 이메일 메시징을 발송하기 전에 커스텀 글꼴이 올바르게 표시되는지 확인하세요.
 {% endalert %}
 
-이메일 Campaigns에서 다른 커스텀 글꼴을 사용하려면 커스텀 글꼴이 포함된 [이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/) 또는 [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)를 만들 수 있습니다. 예를 들어, 세일 테마에 맞춘 축제 분위기의 커스텀 글꼴로 디자인된 특정 이메일 템플릿을 만들 수 있습니다. 선택한 글꼴이 웹에서 안전하고 이메일 플랫폼에서 지원되는지 반드시 확인하세요.
+이메일 Campaigns에서 다른 커스텀 글꼴을 사용하려면 커스텀 글꼴이 포함된 [이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) 또는 [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)를 만들 수 있습니다. 예를 들어, 세일 테마에 맞춘 축제 분위기의 커스텀 글꼴로 디자인된 특정 이메일 템플릿을 만들 수 있습니다. 선택한 글꼴이 웹에서 안전하고 이메일 플랫폼에서 지원되는지 반드시 확인하세요.
 
 ### 대체 글꼴 {#fallback-font}
 

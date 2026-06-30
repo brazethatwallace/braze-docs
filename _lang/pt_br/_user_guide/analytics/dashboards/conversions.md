@@ -53,7 +53,7 @@ Se você selecionar um evento personalizado, não verá o menu suspenso **Evento
 
 Para que um usuário seja contabilizado no relatório, ele deve atender aos seguintes critérios dentro do período selecionado:
 1. Entrar no Canvas ou campanha.
-2. Registrar um [método de atribuição]({{site.baseurl}}/user_guide/analytics/dashboards/conversions/#attribution-methods).
+2. Registrar um [método de atribuição]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#attribution-methods).
 3. Realizar o evento de conversão.
 
 Por exemplo, digamos que um usuário faça o seguinte:
@@ -91,7 +91,7 @@ Se você selecionou detalhes em nível de detalhamento para campanhas ou Canvas 
 
 ### Funil de conversão {#conversion-funnel}
 
-Este gráfico de barras mostra as contagens absolutas de cada [evento de engajamento]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) com base no canal selecionado. A contagem de conversões será definida conforme o método de atribuição selecionado.
+Este gráfico de barras mostra as contagens absolutas de cada [evento de engajamento]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) com base no canal selecionado. A contagem de conversões será definida conforme o método de atribuição selecionado.
 
 Por padrão, todas as campanhas e Canvas selecionados são exibidos. Para desmarcar uma campanha ou Canvas, selecione o nome da campanha ou Canvas que deseja excluir. Para mais detalhes sobre o evento de engajamento, passe o cursor sobre cada barra.
 
@@ -120,7 +120,7 @@ Para baixar os dados da série temporal, selecione <i class="fas fa-bars" title=
 | Ao abrir | Número total de conversões que ocorreram após a abertura da mensagem | Calculado como (Conversões únicas ao abrir) / (Destinatários únicos) | {::nomarkdown}<ul><li>Ao abrir e-mail</li><li>Ao abrir push</li></ul>{:/} |
 | Ao clicar | Número total de conversões que ocorreram após o clique na mensagem | Calculado como (Conversões únicas ao clicar) / (Destinatários únicos) | {::nomarkdown}<ul><li>Ao clicar em e-mail</li><li>Ao clicar em cartão de conteúdo</li><li>Ao clicar em mensagem no app</li></ul>{:/} |
 | Ao visualizar | Número total de conversões que ocorreram após uma impressão | Calculado como (Conversões únicas por impressão) / (Destinatários únicos) | {::nomarkdown}<ul><li>Ao visualizar mensagem no app</li><li>Ao visualizar cartão de conteúdo</li></ul>{:/} |
-| Último ponto de contato | Conversões que atribuem todo o crédito à última mensagem tocada ou clicada durante a janela de conversão. | Calculado como (Número de pontos de contato) / (Destinatários únicos) | A atribuição de último ponto de contato é selecionada automaticamente se múltiplos canais forem adicionados ao relatório.|
+| Último ponto de contato | Conversões que atribuem todo o crédito à última mensagem tocada ou clicada durante a janela de conversão. | Calculado como (Número de pontos de contato) / (Destinatários únicos) | A atribuição de último ponto de contato é selecionada automaticamente se múltiplos canais forem adicionados ao relatório. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Métodos de atribuição" }
 
 ## Termos importantes {#terms-to-know}
@@ -140,10 +140,10 @@ Para solucionar o problema, verifique o rastreamento de eventos e os prazos de c
 
 #### Rastreamento de eventos {#event-tracking}
 
-Quando uma campanha dispara um início de sessão ou evento personalizado, você deve garantir que esse evento, ou sessão, esteja ocorrendo com frequência suficiente para disparar a mensagem. Verifique o [dashboard inicial]({{site.baseurl}}/user_guide/analytics/dashboards/home/) para dados de sessão ou o relatório de [eventos personalizados]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/).
+Quando uma campanha dispara um início de sessão ou evento personalizado, você deve garantir que esse evento, ou sessão, esteja ocorrendo com frequência suficiente para disparar a mensagem. Verifique o [dashboard inicial]({{site.baseurl}}/user_guide/analytics/dashboards/home) para dados de sessão ou o relatório de [eventos personalizados]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting).
 
 #### Prazos de conversão {#conversion-deadlines}
 
-Para cada evento de conversão selecionado por campanha, você define o [prazo]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#creating-a-campaign-with-conversion-tracking). Isso significa que você está definindo um limite de tempo dentro do qual uma conversão deve ocorrer para ser contabilizada em cada campanha respectiva.
+Para cada evento de conversão selecionado por campanha, você define o [prazo]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#creating-a-campaign-with-conversion-tracking). Isso significa que você está definindo um limite de tempo dentro do qual uma conversão deve ocorrer para ser contabilizada em cada campanha respectiva.
 
-Verifique se você revisou as informações sobre [regras de rastreamento de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules) para entender as métricas da sua campanha. Para conversões de usuários no Canvas, consulte as [Perguntas frequentes sobre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#how-are-user-conversions-tracked-in-a-canvas).
+Verifique se você revisou as informações sobre [regras de rastreamento de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules) para entender as métricas da sua campanha. Para conversões de usuários no Canvas, consulte as [Perguntas frequentes sobre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/faqs#how-are-user-conversions-tracked-in-a-canvas).

@@ -97,6 +97,6 @@ The following table lists possible returned errors and their associated troubles
 | `400 Invalid cursor` | Check that your `cursor` is valid. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
-For additional status codes and associated error messages, refer to [Fatal errors & responses]({{site.baseurl}}/api/errors/#fatal-errors).
+For additional status codes and associated error messages, refer to [Fatal errors & responses]({{site.baseurl}}/api/errors#fatal-errors).
 
 {% endapi %}

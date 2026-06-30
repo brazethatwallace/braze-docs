@@ -9,11 +9,11 @@ description: "Erfahren Sie, wie Sie die ausführliche Protokollausgabe des Braze
 
 > Auf dieser Seite wird erläutert, wie die ausführliche Protokollausgabe des Braze SDK interpretiert werden kann. Für jeden Messaging-Kanal finden Sie die wichtigsten Protokolleinträge, deren Bedeutung und häufige Probleme, auf die Sie achten sollten.
 
-Bevor Sie beginnen, stellen Sie sicher, dass Sie [die ausführliche Protokollierung aktiviert]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) haben und wissen, wie Sie Protokolle auf Ihrer Plattform erfassen können.
+Bevor Sie beginnen, stellen Sie sicher, dass Sie [die ausführliche Protokollierung aktiviert]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) haben und wissen, wie Sie Protokolle auf Ihrer Plattform erfassen können.
 
 ## Sitzungen {#sessions}
 
-Sitzungen bilden die Grundlage für Analytics und die Nachrichtenzustellung von Braze. Viele Messaging-Features – einschließlich In-App-Nachrichten und Content Cards – erfordern eine gültige Sitzung, bevor sie funktionieren können. Sollten Sitzungen nicht korrekt protokolliert werden, untersuchen Sie dies zuerst. Weitere Informationen zum Aktivieren des Sitzungs-Trackings finden Sie unter [Schritt 5: Sitzungs-Tracking für Nutzer:innen aktivieren]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_step-5-enable-user-session-tracking).
+Sitzungen bilden die Grundlage für Analytics und die Nachrichtenzustellung von Braze. Viele Messaging-Features – einschließlich In-App-Nachrichten und Content Cards – erfordern eine gültige Sitzung, bevor sie funktionieren können. Sollten Sitzungen nicht korrekt protokolliert werden, untersuchen Sie dies zuerst. Weitere Informationen zum Aktivieren des Sitzungs-Trackings finden Sie unter [Schritt 5: Sitzungs-Tracking für Nutzer:innen aktivieren]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_step-5-enable-user-session-tracking).
 
 ### Wichtige Protokolleinträge {#key-log-entries}
 
@@ -129,7 +129,7 @@ Ein häufiger Fehler ist `SENDER_ID_MISMATCH`, was bedeutet, dass die konfigurie
 ### Was zu überprüfen ist
 
 - Falls `push_token` im Anfragetext fehlt, wurde das Token nicht erfasst. Überprüfen Sie die Push-Einstellungen in Ihrer App-Konfiguration.
-- Wenn `ios_push_auth` den Wert `denied` oder `provisional` anzeigt, hat die Nutzer:in keine vollständige Push-Berechtigung erteilt.
+- Wenn `ios_push_auth` den Wert `denied` oder `provisional` anzeigt, haben die Nutzer:innen keine vollständige Push-Berechtigung erteilt.
 - Wenn Sie auf Android `SENDER_ID_MISMATCH` sehen, aktualisieren Sie Ihre FCM-Absender-ID, damit sie mit Ihrem Firebase-Projekt übereinstimmt.
 
 ### Push-Zustellung und Klick {#push-delivery-and-click}
@@ -525,4 +525,18 @@ In ausführlichen Protokollnutzlasten verwendet Braze abgekürzte Ereignisnamen.
 | `ccc` | Content-Card-Klick |
 | `ccd` | Content Card abgelehnt |
 | `lr` | Standort aufgezeichnet |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Gängige Ereignisabkürzungen" }
+
+## Fehlerbehebung {#troubleshooting}
+
+### Wann kann ein Nutzerprofil 0 Sitzungen aufweisen? {#when-might-a-user-have-0-sessions-recorded-against-their-profile}
+
+Ein Nutzerprofil kann 0 Sitzungen anzeigen, wenn Sie Nutzer:innen über die REST API ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) oder einen CSV-Import ohne die Felder **Erste Sitzung** oder **Letzte Sitzung** importieren. Sitzungen werden aufgezeichnet, wenn Nutzer:innen über das SDK mit Ihrer App interagieren. Weitere Details finden Sie unter [Nutzerprofil hat 0 Sitzungen]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#user-profile-has-0-sessions).
+
+### Datendiskrepanzen bei gleichzeitiger Verwendung von SDK und REST API {#user-data-discrepancies-when-using-the-sdk-and-rest-api-together}
+
+Wenn Sie das SDK und die REST API gleichzeitig verwenden, können Race-Conditions zu Datendiskrepanzen führen. Nachdem Sie `changeUser()` aufgerufen haben, lassen Sie das SDK ausstehende Daten senden, bevor Sie kritische REST-API-Aufrufe durchführen. Vermeiden Sie das Bündeln zeitkritischer Updates und erwägen Sie, eine kurze Verzögerung zwischen SDK- und API-Anfragen einzufügen. Informationen zum Verhalten von `changeUser()` finden Sie unter [Wie changeUser() funktioniert]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#how-changeuser-works).
+
+### Daten erreichen Braze nicht {#data-not-reaching-braze}
+
+Wenn Daten Braze nicht erreichen, bestätigen Sie, dass Ihre Firewall ausgehenden Datenverkehr zu Braze-API-Endpunkten und CDN-Anbietern zulässt. Führen Sie einen MTR-Test durch und verwenden Sie [Fastly Debug](https://www.fastly-debug.com/), während das Problem auftritt. Informationen zum Allowlisting und zur Fehlerbehebung bei Verbindungsproblemen finden Sie unter [API-Netzwerkverbindungsprobleme]({{site.baseurl}}/api/network_connectivity_issues).

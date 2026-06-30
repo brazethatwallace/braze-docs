@@ -20,7 +20,7 @@ Campaign에 지능형 선택을 추가하기 전에 다음 사항이 올바르�
 - Campaign이 반복 스케줄로 발송됩니다. 단일 발송 Campaign은 지원되지 않습니다.
 - 최소 두 개의 메시지 배리언트를 추가했습니다.
 - 배리언트 간 성과를 측정할 전환 이벤트를 정의했습니다.
-- 재자격 기간이 24시간 이상으로 설정되어 있습니다. 더 짧은 기간은 대조군 배리언트의 무결성에 영향을 미칠 수 있으므로 지원되지 않습니다. 자세한 내용은 [이 FAQ]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection)를 참조하세요.
+- 재자격 기간이 24시간 이상으로 설정되어 있습니다. 더 짧은 기간은 대조군 배리언트의 무결성에 영향을 미칠 수 있으므로 지원되지 않습니다. 자세한 내용은 [이 FAQ]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection)를 참조하세요.
 {% endtab %}
 
 {% tab Canvas %}
@@ -39,10 +39,10 @@ Canvas에서 지능형 선택을 사용하려면 다음을 확인하세요:
 지능형 선택의 기능:
 - 성과 데이터를 반복적으로 살펴보고 Campaign 트래픽을 점차적으로 위닝 배리언트로 전환합니다.
 - 통계적 신뢰도를 유지하면서 더 많은 사용자가 가장 성과가 좋은 배리언트를 받을 수 있도록 합니다.
-- 성과가 저조한 배리언트를 제외하고 [기존 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)보다 빠르게 고성과 배리언트를 식별합니다.
+- 성과가 저조한 배리언트를 제외하고 [기존 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing)보다 빠르게 고성과 배리언트를 식별합니다.
 - 사용자가 최상의 메시지를 볼 수 있도록 더 자주, 더 높은 신뢰도로 테스트합니다.
 
-지능형 선택은 두 번 이상 발송하는 Campaign에서 가장 잘 작동합니다. 최적화를 시작하려면 초기 성과 데이터가 필요하므로 단일 발송 Campaign에는 적합하지 않습니다. 이러한 Campaign의 경우 기존 [A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)를 사용하는 것을 권장합니다.
+지능형 선택은 두 번 이상 발송하는 Campaign에서 가장 잘 작동합니다. 최적화를 시작하려면 초기 성과 데이터가 필요하므로 단일 발송 Campaign에는 적합하지 않습니다. 이러한 Campaign의 경우 기존 [A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing)를 사용하는 것을 권장합니다.
 
 
 Campaign과 Canvases에 지능형 선택을 추가할 수 있습니다.
@@ -52,7 +52,7 @@ Campaign과 Canvases에 지능형 선택을 추가할 수 있습니다.
 지능형 선택은 Braze Campaign 작성기의 **타겟 오디언스** 단계에서 다중 발송 Campaign에 추가할 수 있습니다. 한 번만 발송하는 Campaign은 이 기능을 활용할 수 없습니다.
 
 {% alert note %}
-지능형 선택은 재자격 기간이 24시간 미만인 Campaign에서는 사용할 수 없습니다. 대조군 배리언트의 무결성에 영향을 미칠 수 있기 때문입니다. 자세한 내용은 [인텔리전스 FAQ]({{site.baseurl}}/user_guide/brazeai/intelligence/faqs/#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection)를 참조하세요.
+지능형 선택은 재자격 기간이 24시간 미만인 Campaign에서는 사용할 수 없습니다. 대조군 배리언트의 무결성에 영향을 미칠 수 있기 때문입니다. 자세한 내용은 [인텔리전스 FAQ]({{site.baseurl}}/user_guide/brazeai/intelligence/faqs#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection)를 참조하세요.
 {% endalert %}
 {% endtab %}
 

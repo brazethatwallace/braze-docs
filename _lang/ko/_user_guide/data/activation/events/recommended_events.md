@@ -13,9 +13,9 @@ description: "이 참조 문서에서는 Braze가 eCommerce 이벤트에 대해 
 
 ## eCommerce 추천 이벤트 {#ecommerce-recommended-events}
 
-[eCommerce 추천 이벤트]({{site.baseurl}}/ecommerce_events/)는 구매 여정의 6단계를 다룹니다: `product_viewed`, `cart_updated`, `checkout_started`, `order_placed`, `order_cancelled`, `order_refunded`. 이러한 이벤트를 성공적으로 전송하면 Braze가 데이터를 유효성 검사하고 점점 늘어나는 플랫폼 기능 세트에서 사용할 수 있도록 합니다.
+[eCommerce 추천 이벤트]({{site.baseurl}}/ecommerce_events)는 구매 여정의 6단계를 다룹니다: `product_viewed`, `cart_updated`, `checkout_started`, `order_placed`, `order_cancelled`, `order_refunded`. 이러한 이벤트를 성공적으로 전송하면 Braze가 데이터를 유효성 검사하고 점점 늘어나는 플랫폼 기능 세트에서 사용할 수 있도록 합니다.
 
-이러한 기능에는 유기한 탐색, 유기한 장바구니, 유기한 결제, 주문 확인 플로우를 위한 Canvas 템플릿, eCommerce 리포팅, 그리고 _총 매출_, _총 주문 수_, _총 환불 금액_에 대한 계산된 사용자 프로필 필드가 포함됩니다. 또한 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 통해 중첩된 제품 등록정보 필터링을 사용하여 Segments를 구축하고, {% raw %}`{% shopping_cart %}`{% endraw %} Liquid 태그로 유기한 장바구니 메시지를 개인화하며, [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/), [아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/) 등의 BrazeAI<sup>TM</sup> 기능과 기타 기능을 활용할 수 있습니다.
+이러한 기능에는 유기한 탐색, 유기한 장바구니, 유기한 결제, 주문 확인 플로우를 위한 Canvas 템플릿, eCommerce 리포팅, 그리고 _총 매출_, _총 주문 수_, _총 환불 금액_에 대한 계산된 사용자 프로필 필드가 포함됩니다. 또한 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension)을 통해 중첩된 제품 등록정보 필터링을 사용하여 세그먼트를 구축하고, {% raw %}`{% shopping_cart %}`{% endraw %} Liquid 태그로 유기한 장바구니 메시지를 개인화하며, [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn), [아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations) 등의 BrazeAI<sup>TM</sup> 기능과 기타 기능을 활용할 수 있습니다.
 
 이러한 이벤트는 정의된 스키마를 따르기 때문에, 지원되는 각 기능이 커스텀 등록정보 매핑이나 기능별 구성 없이도 구조화된 데이터를 읽을 수 있습니다.
 
@@ -23,7 +23,7 @@ description: "이 참조 문서에서는 Braze가 eCommerce 이벤트에 대해 
 
 ### eCommerce 이벤트 작동 방식 {#how-ecommerce-events-work}
 
-eCommerce 이벤트는 사전 정의된 이름과 등록정보 스키마를 가진 커스텀 이벤트입니다. [Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/) 또는 [`/users/track` REST API 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)를 사용하여 전송하며, Braze는 수집 시 각 이벤트를 해당 스키마에 대해 유효성 검사합니다. 유효성 검사를 통과하면 Braze는 해당 이벤트 유형에 특화된 후처리를 자동으로 적용합니다(예: 매출 필드 계산 및 사용자 프로필의 장바구니 상태 관리).
+eCommerce 이벤트는 사전 정의된 이름과 등록정보 스키마를 가진 커스텀 이벤트입니다. [Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events) 또는 [`/users/track` REST API 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하여 전송하며, Braze는 수집 시 각 이벤트를 해당 스키마에 대해 유효성 검사합니다. 유효성 검사를 통과하면 Braze는 해당 이벤트 유형에 특화된 후처리를 자동으로 적용합니다(예: 매출 필드 계산 및 사용자 프로필의 장바구니 상태 관리).
 
 eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에서 작동합니다: 수행된 커스텀 이벤트에 대한 트리거 및 필터, 커스텀 이벤트 리포팅 등. 그러나 스키마 유효성 검사를 통해 다음과 같은 추가 기능이 활성화됩니다:
 
@@ -32,7 +32,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 - 유기한 장바구니 플로우를 위한 장바구니 상태 관리
 - Predictive Events, Predictive Churn, 아이템 추천과 같은 BrazeAI<sup>TM</sup> 기능을 위한 더 풍부한 데이터
 
-플랫폼에서 커스텀 이벤트를 지원하는 모든 곳에서 이름으로 eCommerce 이벤트를 참조할 수도 있습니다. 예를 들어, `ecommerce.product_viewed` 이벤트로 액션 기반 Campaign을 트리거하거나, `ecommerce.checkout_started` 이벤트를 필터링하여 Segment를 구축하거나, Currents를 통해 `ecommerce.order_placed` 이벤트를 내보낼 수 있습니다.
+플랫폼에서 커스텀 이벤트를 지원하는 모든 곳에서 이름으로 eCommerce 이벤트를 참조할 수도 있습니다. 예를 들어, `ecommerce.product_viewed` 이벤트로 액션 기반 Campaign을 트리거하거나, `ecommerce.checkout_started` 이벤트를 필터링하여 세그먼트를 구축하거나, Currents를 통해 `ecommerce.order_placed` 이벤트를 내보낼 수 있습니다.
 
 #### 이벤트 이름 지정 {#event-naming}
 
@@ -51,17 +51,17 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 
 {% alert tip %}
 다음 예시는 각 이벤트의 REST API 페이로드를 보여줍니다.
-클라이언트 측 로깅의 경우, `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started`, `ecommerce.order_placed`는 사용 가능한 SDK eCommerce 이벤트 API를 사용하고, `ecommerce.order_cancelled`와 `ecommerce.order_refunded`는 `logCustomEvent`를 사용합니다. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
+클라이언트 측 로깅의 경우, `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started`, `ecommerce.order_placed`는 사용 가능한 SDK eCommerce 이벤트 API를 사용하고, `ecommerce.order_cancelled`와 `ecommerce.order_refunded`는 `logCustomEvent`를 사용합니다. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)을 참조하세요.
 {% endalert %}
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}
 
-사용자가 제품 상세 페이지를 조회할 때 트리거합니다. 이 이벤트는 Braze 카탈로그의 [재입고 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) 및 [가격 인하 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/)과 호환됩니다.
+사용자가 제품 상세 페이지를 조회할 때 트리거합니다. 이 이벤트는 Braze 카탈로그의 [재입고 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) 및 [가격 인하 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications)과 호환됩니다.
 
 #### 클라이언트 측 구현 {#client-side-implementation}
 
-사용 가능한 SDK eCommerce 이벤트 API를 사용하세요. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
+사용 가능한 SDK eCommerce 이벤트 API를 사용하세요. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)을 참조하세요.
 
 #### 이벤트 등록정보 {#event-properties}
 
@@ -116,7 +116,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 
 #### 클라이언트 측 구현
 
-사용 가능한 SDK eCommerce 이벤트 API를 사용하세요. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
+사용 가능한 SDK eCommerce 이벤트 API를 사용하세요. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)을 참조하세요.
 
 이 이벤트는 다음 두 가지 방법 중 하나로 전송할 수 있습니다:
 
@@ -704,7 +704,7 @@ Objective-C
 
 #### 클라이언트 측 구현
 
-사용 가능한 SDK eCommerce 이벤트 API를 사용하세요. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
+사용 가능한 SDK eCommerce 이벤트 API를 사용하세요. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)을 참조하세요.
 
 #### 이벤트 등록정보
 
@@ -799,7 +799,7 @@ Objective-C
 
 #### 클라이언트 측 구현
 
-사용 가능한 SDK eCommerce 이벤트 API를 사용하세요. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
+사용 가능한 SDK eCommerce 이벤트 API를 사용하세요. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)을 참조하세요.
 
 {% alert important %}
 이 이벤트는 주요 매출 동인입니다. 사용자 프로필에서 `total_value` 값만큼 `total_revenue`를 증가시키고 `total_orders`를 1 증가시킵니다.
@@ -907,7 +907,7 @@ Objective-C
 
 #### 클라이언트 측 구현
 
-`logCustomEvent`를 사용합니다. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
+`logCustomEvent`를 사용합니다. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)을 참조하세요.
 
 {% alert important %}
 이 이벤트는 사용자 프로필에서 `total_orders`를 1 감소시킵니다. `total_revenue`에는 영향을 미치지 않습니다. 매출을 조정하려면 `order_refunded`를 사용하세요.
@@ -1004,7 +1004,7 @@ Objective-C
 
 #### 클라이언트 측 구현
 
-`logCustomEvent`를 사용합니다. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
+`logCustomEvent`를 사용합니다. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)을 참조하세요.
 
 {% alert important %}
 이 이벤트는 사용자 프로필에서 `total_value` 값만큼 `total_revenue`를 감소시키고 `total_refunds`를 증가시킵니다. 부분 환불의 경우, `total_value`를 원래 주문 총액이 아닌 환불 금액만으로 설정하세요.
@@ -1144,7 +1144,7 @@ eCommerce 이벤트를 전송하면 Braze는 해당 이벤트 이름에 대한 �
 
 ## eCommerce 이벤트 구현 {#implement-ecommerce-events}
 
-[`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)(서버 측) 또는 Braze SDK(클라이언트 측)를 통해 eCommerce 이벤트를 전송할 수 있습니다. SDK 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
+[`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)(서버 측) 또는 Braze SDK(클라이언트 측)를 통해 eCommerce 이벤트를 전송할 수 있습니다. SDK 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)을 참조하세요.
 
 ### 서버 측에서 이벤트 전송 {#send-events-server-side}
 
@@ -1190,11 +1190,11 @@ POST /users/track
 
 ### 데이터 포인트 및 과금 {#data-points-and-billing}
 
-eCommerce 이벤트는 [데이터 포인트]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)를 소비하지 않습니다. 데이터 포인트 사용량에 영향을 주지 않고 기록할 수 있습니다.
+eCommerce 이벤트는 [데이터 포인트]({{site.baseurl}}/user_guide/data/infrastructure/data_points)를 소비하지 않습니다. 데이터 포인트 사용량에 영향을 주지 않고 기록할 수 있습니다.
 
 ### 이벤트 크기 제한 {#event-size-limit}
 
-`/users/track`으로 전송되는 이벤트 등록정보는 이벤트당 102,400바이트(100KB)로 제한됩니다. 트리거된 Campaign 및 Canvas 메시지의 경우, [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) 및 [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)로 전송되는 `trigger_properties`는 기본 제한이 51,200바이트(50KB)로 더 엄격합니다.
+`/users/track`으로 전송되는 이벤트 등록정보는 이벤트당 102,400바이트(100KB)로 제한됩니다. 트리거된 Campaign 및 Canvas 메시지의 경우, [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) 및 [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)로 전송되는 `trigger_properties`는 기본 제한이 51,200바이트(50KB)로 더 엄격합니다.
 
 모범 사례로, 이벤트를 트리거하거나 개인화하거나 귀속시키는 데 필요한 제품 정보만 전송하세요. 설명, 전체 배리언트 목록, 재고, 대체 이미지 등 더 풍부한 제품 세부 정보는 Braze 카탈로그에 저장하세요. 메시지를 전송할 때 `product_id` 또는 `variant_id`로 이러한 세부 정보를 참조하세요. `metadata` 오브젝트는 메시징에서 사용할 주문 또는 제품별 컨텍스트에 선택적으로 사용하세요.
 
@@ -1212,7 +1212,7 @@ USD로만 운영하는 경우, 불필요한 변환을 방지하기 위해 모든
 
 ### 메타데이터 유연성 {#metadata-flexibility}
 
-이벤트 수준 및 제품 수준 메타데이터 오브젝트 모두 임의의 키-값 페어를 허용하므로, 핵심 스키마를 수정하지 않고도 커스텀 차원을 첨부할 수 있습니다. 일반적인 예로는 `order_status_url`, `gift_wrapped`, `loyalty_points_earned`, `warehouse_id` 등이 있습니다. 이러한 등록정보는 Liquid 개인화, Currents 내보내기, [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 통한 세분화에서 사용할 수 있습니다.
+이벤트 수준 및 제품 수준 메타데이터 오브젝트 모두 임의의 키-값 페어를 허용하므로, 핵심 스키마를 수정하지 않고도 커스텀 차원을 첨부할 수 있습니다. 일반적인 예로는 `order_status_url`, `gift_wrapped`, `loyalty_points_earned`, `warehouse_id` 등이 있습니다. 이러한 등록정보는 Liquid 개인화, Currents 내보내기, [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension)을 통한 세분화에서 사용할 수 있습니다.
 
 {% alert important %}
 추천 이벤트는 엄격한 스키마를 사용합니다. 따라서 등록정보의 최상위 수준에 커스텀 등록정보를 추가하면 유효성 검사에 실패합니다. 모든 커스텀 등록정보는 이벤트 수준 `metadata` 오브젝트 또는 `products[]` 내부의 제품 수준 `metadata` 오브젝트에 넣으세요. 이러한 등록정보는 최상위 필드와 마찬가지로 Liquid, Currents, 세분화에서 사용할 수 있습니다.
@@ -1248,8 +1248,8 @@ eCommerce 이벤트는 매출 추적, {% raw %}`{% shopping_cart %}`{% endraw %}
 
 이벤트를 전송한 후 다음 방법 중 하나를 사용하여 이벤트가 수락되고 올바르게 처리되었는지 확인할 수 있습니다:
 
-- [이벤트 사용자 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/): 대시보드에서 사용자의 프로필을 열고 활동을 검토합니다. 추천 이벤트는 전체 등록정보 페이로드와 함께 표시되므로, 이벤트가 도착했는지와 값이 전송한 것과 일치하는지 확인할 수 있습니다.
-- [사용자 지정 이벤트 보고서]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report/): **Analytics** > **Custom Events**로 이동하여 시간에 따른 각 추천 이벤트의 집계 수를 확인합니다. 이는 통합이 라이브 상태일 때 프로덕션 트래픽이 예상대로 흐르고 있는지 확인하는 데 유용합니다.
+- [이벤트 사용자 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log): 대시보드에서 사용자의 프로필을 열고 활동을 검토합니다. 추천 이벤트는 전체 등록정보 페이로드와 함께 표시되므로, 이벤트가 도착했는지와 값이 전송한 것과 일치하는지 확인할 수 있습니다.
+- [사용자 지정 이벤트 보고서]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report): **Analytics** > **Custom Events**로 이동하여 시간에 따른 각 추천 이벤트의 집계 수를 확인합니다. 이는 통합이 라이브 상태일 때 프로덕션 트래픽이 예상대로 흐르고 있는지 확인하는 데 유용합니다.
 - [테스트 사용자]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups?utm_source=operator_user&utm_medium=dashboard#adding-test-users): 개발 워크스페이스에서 사용자를 테스트 사용자로 표시한 다음, 해당 사용자에 대해 통합에서 이벤트를 트리거합니다. 테스트 사용자는 대시보드에서 플래그가 지정되어 엔드투엔드 동작을 쉽게 격리하고 검사할 수 있습니다.
 
 ### 유효성 검사 실패 시 {#when-validation-fails}

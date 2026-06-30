@@ -6,8 +6,8 @@ channel: email
 page_order: 5
 description: "この記事では、ドラッグ＆ドロップエディターに関するさまざまなFAQを取り上げます。"
 tool:
-  - Campaigns
-  - Canvas
+  - キャンペーン
+  - キャンバス
 
 ---
 
@@ -15,7 +15,7 @@ tool:
 
 > このページでは、メール用ドラッグ＆ドロップエディターに関するよくある質問への回答を提供します。
 
-### メールがダークモードでどのように表示されるかプレビューできますか？ {#can-i-preview-how-my-email-appears-in-dark-mode}
+## メールがダークモードでどのように表示されるかプレビューできますか？ {#can-i-preview-how-my-email-appears-in-dark-mode}
 
 はい。ドラッグ＆ドロップエディターの**プレビューとテスト**セクションに移動し、**ダークモード**をオンにしてください。さまざまなユーザープラットフォームでメールをプレビューおよびテストすることもお勧めします。また、行の背景画像には可能な限り透過画像を使用してください。
 
@@ -44,18 +44,18 @@ tool:
 
 ドラッグ＆ドロップエディターは現在2つのレイヤーをサポートしています。行の背景画像を設定し、背景色をカスタマイズできます。
 
-### CampaignまたはCanvas内で作成したドラッグ＆ドロップメールをテンプレートとして保存できますか？ {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+### キャンペーンまたはキャンバス内で作成したドラッグ＆ドロップメールをテンプレートとして保存できますか？ {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-いいえ。CampaignまたはCanvasからドラッグ＆ドロップメールを、**テンプレート** > **メールテンプレート**のドラッグ＆ドロップ**メールテンプレート**として保存することはできません。**テンプレート** > **メールテンプレート**でレイアウトを再作成するか、次回は保存済みのテンプレートから開始してください。手順については、[メールテンプレートの作成]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)を参照してください。
+いいえ。キャンペーンまたはキャンバスからドラッグ＆ドロップメールを、**テンプレート** > **メールテンプレート**のドラッグ＆ドロップ**メールテンプレート**として保存することはできません。**テンプレート** > **メールテンプレート**でレイアウトを再作成するか、次回は保存済みのテンプレートから開始してください。手順については、[メールテンプレートの作成]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)を参照してください。
 
-再利用可能なHTMLテンプレートが必要な場合は、ドラッグ＆ドロップの本文を編集中に**ファイルをダウンロード**を選択し、ZIPからHTMLを開き、HTMLコードエディターを使用して[HTMLメールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)にマークアップを貼り付けてください。その後、Liquid、リンク、ホストされたアセットを再確認してください。
+再利用可能なHTMLテンプレートが必要な場合は、ドラッグ＆ドロップの本文を編集中に**ファイルをダウンロード**を選択し、ZIPからHTMLを開き、HTMLコードエディターを使用して[HTMLメールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)にマークアップを貼り付けてください。その後、Liquid、リンク、ホストされたアセットを再確認してください。
 
-テンプレートの保存場所の詳細については、[テンプレートとメディア]({{site.baseurl}}/user_guide/messaging/templates/)を参照してください。
+テンプレートの保存場所の詳細については、[テンプレートとメディア]({{site.baseurl}}/user_guide/messaging/templates)を参照してください。
 
 ### ドラッグ＆ドロップエディターでボタンの塗りつぶし色を変更できないのはなぜですか？ {#why-cant-i-change-a-buttons-fill-color-in-the-drag-and-drop-editor}
 
 ページレベルのスタイルがメッセージレベルのスタイルを上書きすることがあります。ボタンやブロックの**塗りつぶし**を更新しても反映されない場合は、以下をお試しください。
-1. [メールのグローバルスタイル設定]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/)を開き、競合しているページスタイルで**デフォルトにリセット**を選択して、メッセージレベルの色が適用されるようにします。
+1. [メールのグローバルスタイル設定]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings)を開き、競合しているページスタイルで**デフォルトにリセット**を選択して、メッセージレベルの色が適用されるようにします。
 2. ブロックで色を再度設定します。
 
 ### ドラッグ＆ドロップエディターにメールの添付ファイルを追加できますか？ {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
@@ -64,11 +64,11 @@ tool:
 
 ### ドラッグ＆ドロップメールの生のHTMLをダウンロードするにはどうすればよいですか？ {#how-do-i-download-the-raw-html-for-a-drag-and-drop-email}
 
-1. CampaignまたはCanvasを開き、メールメッセージを編集します。
+1. キャンペーンまたはキャンバスを開き、メールメッセージを編集します。
 2. **メール本文を編集**を選択して、ドラッグ＆ドロップエディターを開きます。
 3. **ファイルをダウンロード**（エディターの下部）を選択します。アーカイブを展開して、生成されたHTMLにアクセスします。
 
-そのHTMLを[HTMLブロック]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#content)やHTMLエディターに貼り付けて、低レベルの編集を行うことができます。例えば、[特定のリンクのクリックトラッキングをオフにする]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis)場合などです。
+そのHTMLを[HTMLブロック]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#content)やHTMLエディターに貼り付けて、低レベルの編集を行うことができます。例えば、[特定のリンクのクリックトラッキングをオフにする]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)場合などです。
 
 ### ドラッグ＆ドロップのレイアウトが崩れるのはなぜですか？ {#why-is-my-drag-and-drop-layout-breaking}
 

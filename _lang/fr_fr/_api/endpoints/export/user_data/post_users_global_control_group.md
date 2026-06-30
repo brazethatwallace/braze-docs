@@ -18,13 +18,13 @@ description: "Cet article présente en détail l'endpoint Braze Exporter les uti
 
 Les données des utilisateurs sont exportées sous la forme de plusieurs fichiers d'objets JSON d'utilisateurs séparés par de nouvelles lignes (par exemple, un objet JSON par ligne). Tous les utilisateurs d'un Groupe de contrôle global sont inclus à chaque fois que les fichiers sont générés. Braze ne conserve pas l'historique des ajouts et suppressions d'utilisateurs dans un Groupe de contrôle global.
 
-Pour trouver l'identifiant de segment de votre Groupe de contrôle global, consultez les [types d'identifiants API]({{site.baseurl}}/api/identifier_types/?tab=segments#segment-identifier).
+Pour trouver l'identifiant de segment de votre Groupe de contrôle global, consultez les [types d'identifiants API]({{site.baseurl}}/api/identifier_types?tab=segments#segment-identifier).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aa3d8b90-d984-48f0-9287-57aa30469de2 {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `users.export.global_control_group`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `users.export.global_control_group`.
 
 ## Limite de débit {#rate-limit}
 
@@ -32,7 +32,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 
 ## Informations relatives à la réponse basée sur les identifiants {#credentials-based-response-details}
 
-Si vous avez ajouté vos identifiants [S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/) ou [Azure]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/) à Braze via la page **Partenaires technologiques** correspondante, chaque fichier est téléchargé dans votre compartiment sous forme de fichier ZIP avec un format de clé similaire à `segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip`. Si vous utilisez Azure, assurez-vous que la case **Faire de cette destination la destination par défaut de l'exportation de données** est cochée dans la page d'aperçu du partenaire Azure dans Braze.
+Si vous avez ajouté vos identifiants [S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3) ou [Azure]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents) à Braze via la page **Partenaires technologiques** correspondante, chaque fichier est téléchargé dans votre compartiment sous forme de fichier ZIP avec un format de clé similaire à `segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip`. Si vous utilisez Azure, assurez-vous que la case **Faire de cette destination la destination par défaut de l'exportation de données** est cochée dans la page d'aperçu du partenaire Azure dans Braze.
 
 En règle générale, nous créons un fichier pour chaque tranche de 5 000 utilisateurs afin d'optimiser le traitement. L'exportation de segments plus petits au sein d'un grand espace de travail peut donner lieu à plusieurs fichiers. Vous pouvez alors décompresser les fichiers et concaténer tous les fichiers `json` dans un fichier unique si nécessaire. Si vous spécifiez une valeur `output_format` de `gzip`, l'extension du fichier sera `.gz` au lieu de `.zip`.
 
@@ -115,10 +115,10 @@ Voici une liste des `fields_to_export` valides. Utiliser `fields_to_export` pour
 | Champ à exporter | Type de données | Description |
 | --------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `apps` | Tableau | Les applications pour lesquelles l'utilisateur a enregistré des sessions, ce qui comprend les champs :<br><br>- `name` : nom de l'application<br>- `platform` : plateforme de l'application, telle qu'iOS, Android ou Web<br>- `version` : numéro ou nom de version de l'application <br>- `sessions` : nombre total de sessions pour cette application<br>- `first_used` : date de la première session<br>- `last_used` : date de la dernière session<br><br>Tous les champs sont des chaînes de caractères. |
-| `attributed_campaign` | Chaîne de caractères | Données provenant des [intégrations d'attribution]({{site.baseurl}}/partners/message_orchestration/), si elles sont configurées. Identifiant d'une campagne publicitaire donnée. |
-| `attributed_source` | Chaîne de caractères | Données provenant des [intégrations d'attribution]({{site.baseurl}}/partners/message_orchestration/), si elles sont configurées. Identifiant de la plateforme sur laquelle se trouvait l'annonce. |
-| `attributed_adgroup` | Chaîne de caractères | Données provenant des [intégrations d'attribution]({{site.baseurl}}/partners/message_orchestration/), si elles sont configurées. Identifiant d'un sous-groupe optionnel sous la campagne. |
-| `attributed_ad` | Chaîne de caractères | Données provenant des [intégrations d'attribution]({{site.baseurl}}/partners/message_orchestration/), si elles sont configurées. Identifiant d'un sous-groupe facultatif en dessous de la campagne et du groupe d'annonces. |
+| `attributed_campaign` | Chaîne de caractères | Données provenant des [intégrations d'attribution]({{site.baseurl}}/partners/message_orchestration), si elles sont configurées. Identifiant d'une campagne publicitaire donnée. |
+| `attributed_source` | Chaîne de caractères | Données provenant des [intégrations d'attribution]({{site.baseurl}}/partners/message_orchestration), si elles sont configurées. Identifiant de la plateforme sur laquelle se trouvait l'annonce. |
+| `attributed_adgroup` | Chaîne de caractères | Données provenant des [intégrations d'attribution]({{site.baseurl}}/partners/message_orchestration), si elles sont configurées. Identifiant d'un sous-groupe optionnel sous la campagne. |
+| `attributed_ad` | Chaîne de caractères | Données provenant des [intégrations d'attribution]({{site.baseurl}}/partners/message_orchestration), si elles sont configurées. Identifiant d'un sous-groupe facultatif en dessous de la campagne et du groupe d'annonces. |
 | `braze_id` | Chaîne de caractères | Identifiant utilisateur unique spécifique à l'appareil défini par Braze pour cet utilisateur. |
 | `country` | Chaîne de caractères | Pays de l'utilisateur selon la norme [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). |
 | `created_at` | Chaîne de caractères | Date et heure de création du profil utilisateur au format ISO 8601. |
@@ -136,11 +136,11 @@ Voici une liste des `fields_to_export` valides. Utiliser `fields_to_export` pour
 | `last_name` | Chaîne de caractères | Nom de famille de l'utilisateur. |
 | `phone` | Chaîne de caractères | Numéro de téléphone de l'utilisateur au format E.164. |
 | `purchases` | Tableau | Achats réalisés par cet utilisateur au cours des 90 derniers jours. |
-| `random_bucket` | Entier | [Numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event) de l'utilisateur, utilisé pour créer des segments uniformément distribués d'utilisateurs aléatoires. |
+| `random_bucket` | Entier | [Numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event) de l'utilisateur, utilisé pour créer des segments uniformément distribués d'utilisateurs aléatoires. |
 | `time_zone` | Chaîne de caractères | Fuseau horaire de l'utilisateur au même format que la base de données de fuseaux horaires IANA. |
 | `total_revenue` | Float | Chiffre d'affaires total attribué à cet utilisateur. Le chiffre d'affaires total est calculé à partir des achats réalisés par l'utilisateur pendant les fenêtres de conversion des Campaigns et Canvas qu'il a reçus. |
 | `uninstalled_at` | Horodatage | Date et heure de désinstallation de l'application par l'utilisateur. Absent si l'application n'a pas été désinstallée. |
-| `user_aliases` | Objet | [Objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification) contenant les champs `alias_name` et `alias_label`, s'ils existent. |
+| `user_aliases` | Objet | [Objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification) contenant les champs `alias_name` et `alias_label`, s'ils existent. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Champs à exporter" }
 
 ## Réponse {#response}
@@ -250,13 +250,13 @@ Objet d'exportation utilisateur (nous incluons le moins de données possible —
     ],
     "braze_id": "5fbd99bac125ca40511f2cb1",
     "random_bucket" : 2365,
-    "first_name" : "Jane",
-    "last_name" : "Doe",
-    "email" : "example@braze.com",
+    "first_name" : "Alex",
+    "last_name" : "Smith",
+    "email" : "example@example.com",
     "dob" : "1980-12-21",
     "home_city" : "Chicago",
     "country" : "US",
-    "phone" : "+442071838750",
+    "phone" : "+15555550123",
     "language" : "en",
     "time_zone" : "Eastern Time (US & Canada)",
     "last_coordinates" : [41.84157636433568, -87.83520818508256],

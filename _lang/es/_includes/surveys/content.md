@@ -4,7 +4,7 @@
   - channel (obligatorio): "in_app_message" o "landing_page"
 {% endcomment %}
 
-{% multi_lang_include early_access_beta_alert.md feature='Braze surveys' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Braze surveys' %}
 
 ## Requisitos previos {#prerequisites}
 
@@ -12,13 +12,13 @@ Antes de crear un cuestionario, debes:
 
 {% if include.channel == 'in_app_message' %}
 - Tener acceso a los mensajes dentro de la aplicación en tu espacio de trabajo de Braze
-- Estar familiarizado con la [creación de mensajes dentro de la aplicación en el editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)
+- Estar familiarizado con la [creación de mensajes dentro de la aplicación en el editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
 {% elsif include.channel == 'landing_page' %}
 - Tener acceso a las páginas de inicio en tu espacio de trabajo de Braze
-- Estar familiarizado con la [creación de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)
+- Estar familiarizado con la [creación de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)
 {% else %}
 - Tener acceso a las páginas de inicio, los mensajes dentro de la aplicación, o ambos en tu espacio de trabajo de Braze
-- Estar familiarizado con la [creación de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) y la [creación de mensajes dentro de la aplicación en el editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)
+- Estar familiarizado con la [creación de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages) y la [creación de mensajes dentro de la aplicación en el editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
 {% endif %}
 
 ## Crear un cuestionario {#create-a-survey}
@@ -26,14 +26,14 @@ Antes de crear un cuestionario, debes:
 Durante el acceso anticipado, los cuestionarios se crean dentro de tu flujo de composición de mensajes existente.
 
 {% if include.channel == 'in_app_message' %}
-1. Crea un [mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) en una Campaign o Canvas.
+1. Crea un [mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) en una Campaign o Canvas.
 2. Selecciona **Survey** como tu tipo de mensaje.
 {% elsif include.channel == 'landing_page' %}
 1. Ve a **Mensajería** > **Páginas de inicio**.
 2. Crea una nueva página de inicio.
 3. Selecciona **Survey** como tu tipo de mensaje.
 {% else %}
-1. Ve a **Mensajería** > **Páginas de inicio**, o crea un [mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) en una Campaign o Canvas.
+1. Ve a **Mensajería** > **Páginas de inicio**, o crea un [mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) en una Campaign o Canvas.
 2. Crea un nuevo mensaje.
 3. Selecciona **Survey** como tu tipo de mensaje.
 {% endif %}
@@ -60,10 +60,10 @@ Para controles compartidos de estilo y composición, consulta:
 {% if include.channel == 'in_app_message' %}
 - [Bloques del editor de arrastrar y soltar de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
 {% elsif include.channel == 'landing_page' %}
-- [Bloques de formulario de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#form-blocks)
+- [Bloques de formulario de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
 {% else %}
 - [Bloques del editor de arrastrar y soltar de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
-- [Bloques de formulario de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#form-blocks)
+- [Bloques de formulario de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
 {% endif %}
 
 Puedes añadir los siguientes bloques de formulario a los cuestionarios:
@@ -76,6 +76,12 @@ Puedes añadir los siguientes bloques de formulario a los cuestionarios:
 - Desplegable
 - Casilla de verificación única
 - Grupo de casillas de verificación
+
+### Aleatorizar opciones de respuesta {#randomize-answer-choices}
+
+Los bloques de grupo de botones de opción, grupo de casillas de verificación y desplegable admiten opciones de respuesta aleatorizadas. Activa **Randomize choice order** para mezclar las opciones cada vez que se carga el cuestionario. Usa esta configuración para reducir el sesgo de orden cuando la misma primera opción podría distorsionar las respuestas.
+
+La aleatorización solo cambia el orden de visualización para cada encuestado. Las etiquetas y los valores de los informes permanecen asignados a las opciones que configuraste, por lo que los análisis, las exportaciones CSV y la segmentación utilizan los mismos datos de respuesta.
 
 ### Captura de texto largo {#long-text-capture}
 
@@ -94,7 +100,7 @@ Durante el acceso anticipado, las respuestas de texto largo están disponibles e
 
 ## Configurar campos obligatorios y atributos {#configure-required-fields-and-attributes}
 
-Para cada bloque de formulario, introduce un **Identificador para informes** en el panel de configuración del lado derecho. Este identificador aparece en los informes de cuestionarios y en las exportaciones CSV.
+Para cada bloque de formulario, introduce un **Identifier for Reporting** en el panel de configuración del lado derecho. Este identificador aparece en los informes de cuestionarios y en las exportaciones CSV.
 
 Durante el acceso anticipado:
 
@@ -116,8 +122,6 @@ Después del lanzamiento, revisa los resultados en:
 - La pestaña **Responses** para cuestionarios de mensajes dentro de la aplicación
 - La vista de análisis de la página de inicio para cuestionarios de páginas de inicio
 {% endif %}
-
-![Pestaña de análisis de la página de inicio.]({% image_buster /assets/img/surveys/survey-analytics-1.png %})
 
 Los análisis de nivel superior incluyen:
 

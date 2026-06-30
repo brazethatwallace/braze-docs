@@ -10,20 +10,20 @@ hidden: true
 
 # Mise à niveau de votre intégration Shopify (standard) {#upgrading-your-shopify-integration-standard}
 
-> Découvrez comment mettre à niveau votre intégration Shopify en utilisant le parcours standard pour Braze. Dans le cadre de notre engagement à vous offrir la meilleure expérience possible, nous exigeons que toutes les intégrations Shopify soient [mises à niveau]({{site.baseurl}}/shopify/) vers la dernière version d'ici le 28 août 2025. Cette mise à niveau est essentielle car des changements significatifs dans la technologie de Shopify auront un impact sur le fonctionnement de notre intégration.
+> Découvrez comment mettre à niveau votre intégration Shopify en utilisant le parcours standard pour Braze. Dans le cadre de notre engagement à vous offrir la meilleure expérience possible, nous exigeons que toutes les intégrations Shopify soient [mises à niveau]({{site.baseurl}}/shopify) vers la dernière version d'ici le 28 août 2025. Cette mise à niveau est essentielle car des changements significatifs dans la technologie de Shopify auront un impact sur le fonctionnement de notre intégration.
 
 ## Qui est éligible ? {#whos-eligible}
 
 Ce parcours de mise à niveau est destiné aux marques disposant d'une boutique en ligne Shopify.
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## Conditions requises pour la mise à niveau {#upgrade-requirements}
 
 Avant de commencer, vérifiez les points suivants :
 
-- **Changements critiques :** Assurez-vous d'avoir examiné tous les changements importants entre l'ancien connecteur et le nouveau connecteur dans l'[aperçu de la mise à niveau Shopify]({{site.baseurl}}/shopify_upgrade_overview/#subscriber-collection).
-- **Prérequis de mise à niveau :** Assurez-vous d'avoir rempli tous les [prérequis de mise à niveau]({{site.baseurl}}/shopify_upgrade_overview/#upgrade-prerequisites) nécessaires avec vos équipes d'ingénierie et de marketing.
+- **Changements critiques :** Assurez-vous d'avoir examiné tous les changements importants entre l'ancien connecteur et le nouveau connecteur dans l'[aperçu de la mise à niveau Shopify]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection).
+- **Prérequis de mise à niveau :** Assurez-vous d'avoir rempli tous les [prérequis de mise à niveau]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites) nécessaires avec vos équipes d'ingénierie et de marketing.
 - **Changements majeurs :** Examinez et corrigez tous les changements majeurs signalés dans Braze. Pour un guide complet, continuez vers [Corriger les changements majeurs](#fixing-breaking-changes-fixing-breaking-changes).
 
 ## Corriger les changements majeurs {#fixing-breaking-changes}
@@ -60,13 +60,13 @@ Pour une liste complète des nouveaux modèles de Canvas eCommerce et des blocs 
 Si vous ne tenez pas compte des messages actifs qui utilisent des événements abandonnés dans l'intégration Shopify, les messages impactés ne seront plus envoyés à vos clients.
 {% endalert %}
 
-Pour en savoir plus, consultez [Événements Shopify pris en charge]({{site.baseurl}}/shopify_upgrade_overview/#supported-shopify-events).
+Pour en savoir plus, consultez [Événements Shopify pris en charge]({{site.baseurl}}/shopify_upgrade_overview#supported-shopify-events).
 {% endtab %}
 
 {% tab Listes d'abonnés %}
 Si vous collectez des abonnés e-mail ou SMS depuis Shopify via l'intégration, confirmez que vos messages actifs incluent les listes d'abonnés correspondantes pour votre boutique Shopify.
 
-Lorsque la mise à niveau sera terminée, de nouveaux groupes d'abonnement par défaut seront créés pour votre intégration, que vous devrez utiliser dans le cadre de vos messages actifs. Pour plus d'informations sur les changements, consultez [Collecte d'abonnés]({{site.baseurl}}/shopify_upgrade_overview/#subscriber-collection).
+Lorsque la mise à niveau sera terminée, de nouveaux groupes d'abonnement par défaut seront créés pour votre intégration, que vous devrez utiliser dans le cadre de vos messages actifs. Pour plus d'informations sur les changements, consultez [Collecte d'abonnés]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection).
 {% endtab %}
 {% endtabs %}
 
@@ -160,7 +160,7 @@ Vous devez créer un endpoint public que Braze peut appeler pour récupérer l'I
 
 ```
 GET
-https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
+https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@example.com&shopify_storefront=dev-store.myshopify.com
 ```
 
 ##### Réponse attendue {#expected-response}
@@ -212,4 +212,4 @@ Pour vérifier que votre nouveau connecteur Shopify est en production, testez le
 - **Personnalisations du SDK (facultatif) :** Si vous avez effectué des personnalisations de votre intégration Braze et Shopify (comme la journalisation d'événements personnalisés ou d'attributs), vérifiez qu'elles fonctionnent correctement après la mise à niveau.
 - **Collecte d'abonnés e-mail ou SMS (facultatif) :** Si vous aviez précédemment activé la collecte d'abonnés e-mail ou SMS, de nouveaux groupes d'abonnement par défaut seront créés pour refléter le dernier statut de vos abonnés lors de la mise à niveau. Les groupes d'abonnement par défaut porteront le nom de votre vitrine Shopify. Ces nouveaux groupes d'abonnement par défaut seront disponibles environ 5 heures après la mise à niveau, et vous devrez les ajouter à vos messages actifs.
 
-Si vous avez des questions, [contactez l'assistance](https://www.braze.com/docs/user_guide/administrative/access_braze/support/).
+Si vous avez des questions, [contactez l'assistance]({{site.baseurl}}/user_guide/administrative/access_braze/support).

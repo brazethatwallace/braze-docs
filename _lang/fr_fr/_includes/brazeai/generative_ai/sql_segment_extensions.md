@@ -1,6 +1,6 @@
 # Extensions de segments SQL {#sql-segment-extensions}
 
-> Vous pouvez générer une extension de segment à l'aide de requêtes SQL Snowflake sur des données [Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/). Le SQL vous aide à exploiter de nouveaux cas d'utilisation de segments, car il offre la flexibilité nécessaire pour décrire les relations entre les données d'une manière qui n'est pas réalisable avec les autres fonctionnalités de segmentation.
+> Vous pouvez générer une extension de segment à l'aide de requêtes SQL Snowflake sur des données [Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Le SQL vous aide à exploiter de nouveaux cas d'utilisation de segments, car il offre la flexibilité nécessaire pour décrire les relations entre les données d'une manière qui n'est pas réalisable avec les autres fonctionnalités de segmentation.
 >
 > Comme les extensions de segments standard, vous pouvez interroger les événements des deux dernières années (730 jours) dans votre extension de segment SQL. Contrairement aux extensions de segments standard, les extensions de segments SQL [consomment des crédits](#credits).
 
@@ -29,7 +29,7 @@ Pour créer une extension de segment SQL à actualisation complète :
 
 1. Accédez à **Audience** > **Segment Extensions**.
 2. Sélectionnez **Create New Extension**, puis sélectionnez **Full refresh**.<br><br>
-   ![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
+   ![Fenêtre modale de création d'une nouvelle extension avec les options d'actualisation complète et d'actualisation incrémentielle.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
 3. Ajoutez un nom pour votre extension de segment et saisissez votre SQL. Reportez-vous à l'[étape 2](#step-2-write-your-sql) pour les exigences et les ressources.<br><br>
    ![Éditeur SQL présentant un exemple d'extension de segment SQL.]({% image_buster /assets/img_archive/sql_segments_editor.png %}){: style="max-width:60%" }<br><br>
 4. Enregistrez votre extension de segment.
@@ -41,12 +41,12 @@ Pour créer une extension de segment SQL à actualisation incrémentielle :
 
 1. Accédez à **Audience** > **Segment Extensions**.
 2. Sélectionnez **Create New Extension**, puis sélectionnez **Incremental refresh**.<br><br>
-   ![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
+   ![Fenêtre modale de création d'une nouvelle extension avec les options d'actualisation complète et d'actualisation incrémentielle.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
 3. Ajoutez un nom pour votre extension de segment et saisissez votre SQL. Reportez-vous à la section [Écriture de code SQL](#writing-sql) pour les exigences et les ressources.<br><br>
    ![Éditeur SQL présentant un exemple d'extension de segment SQL incrémentielle.]({% image_buster /assets/img_archive/sql_segments_editor_incremental.png %}){: style="max-width:60%" }<br><br>
 4. Si vous le souhaitez, sélectionnez **Regenerate Extension Daily**.<br><br>
    ![Case à cocher pour régénérer l'extension quotidiennement.]({% image_buster /assets/img_archive/sql_segments_regenerate.png %}){: style="max-width:60%" }<br><br>
-   Lorsque cette option est sélectionnée, Braze met automatiquement à jour l'appartenance au segment chaque jour. Concrètement, chaque jour à minuit dans le fuseau horaire de votre entreprise (avec un retard potentiel d'une heure), Braze vérifie s'il y a de nouveaux utilisateurs dans votre segment et les ajoute automatiquement. Si une extension de segment n'a pas été utilisée depuis 7 jours, Braze interrompt automatiquement la régénération quotidienne. Une extension de segment inutilisée est une extension qui ne fait pas partie d'une Campaign ou d'un Canvas (la Campaign ou le Canvas n'a pas besoin d'être actif pour que l'extension soit considérée comme « utilisée »).<br><br>
+   Lorsque cette option est sélectionnée, Braze met automatiquement à jour l'appartenance au segment chaque jour. Concrètement, chaque jour à minuit dans le fuseau horaire de votre entreprise (avec un retard potentiel d'une heure), Braze vérifie s'il y a de nouveaux utilisateurs dans votre segment et les ajoute automatiquement. Si une extension de segment n'a pas été utilisée depuis 7 jours, Braze interrompt automatiquement la régénération quotidienne. Une extension de segment inutilisée est une extension qui ne fait pas partie d'une campagne ou d'un Canvas (la campagne ou le Canvas n'a pas besoin d'être actif pour que l'extension soit considérée comme « utilisée »).<br><br>
 5. Enregistrez votre extension de segment.
 
 {% endtab %}
@@ -63,7 +63,7 @@ Le générateur SQL par intelligence artificielle s'appuie sur [GPT](https://ope
 
 Pour utiliser le générateur SQL par intelligence artificielle, procédez comme suit :
 
-1. Sélectionnez **Launch AI SQL Generator** après avoir créé un [segment SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/) en utilisant l'actualisation complète ou incrémentielle.
+1. Sélectionnez **Launch AI SQL Generator** après avoir créé un [segment SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments) en utilisant l'actualisation complète ou incrémentielle.
 2. Saisissez votre invite et sélectionnez **Generate** pour la convertir en SQL.
 3. Vérifiez le code SQL généré pour vous assurer qu'il est correct, puis enregistrez votre segment.
 
@@ -74,7 +74,7 @@ Pour utiliser le générateur SQL par intelligence artificielle, procédez comme
 
 #### Conseils {#tips}
 
-- Familiarisez-vous avec les [tables de données Snowflake]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/) disponibles. Si vous demandez des données qui n'existent pas dans ces tables, ChatGPT risque d'inventer une fausse table.
+- Familiarisez-vous avec les [tables de données Snowflake]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables) disponibles. Si vous demandez des données qui n'existent pas dans ces tables, ChatGPT risque d'inventer une fausse table.
 - Familiarisez-vous avec les [règles d'écriture SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments?tab=sql%20editor#writing-sql) pour cette fonctionnalité. Le non-respect de ces règles entraînera une erreur. Par exemple, votre code SQL doit sélectionner la colonne `user_id`. Commencer votre invite par « Utilisateurs qui » peut être utile.
 - Vous pouvez envoyer jusqu'à 20 invites par minute avec le générateur SQL par intelligence artificielle.
 
@@ -87,14 +87,14 @@ Pour utiliser le générateur SQL par intelligence artificielle, procédez comme
 Les requêtes SQL dont l'exécution dépasse 20 minutes expireront.
 {% endalert %}
 
-Une fois le traitement de l'extension terminé, vous pouvez [créer un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/#step-5-use-your-extension-in-a-segment) à l'aide de votre extension de segment et cibler ce nouveau segment avec vos Campaigns et Canvas.
+Une fois le traitement de l'extension terminé, vous pouvez [créer un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension#step-5-use-your-extension-in-a-segment) à l'aide de votre extension de segment et cibler ce nouveau segment avec vos campagnes et Canvas.
 
 ### Étape 2 : Rédiger votre requête SQL {#step-2-write-your-sql}
 
-Votre requête SQL doit être écrite en utilisant la [syntaxe Snowflake](https://docs.snowflake.com/en/sql-reference.html). Consultez la [référence des tables]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/) pour obtenir la liste complète des tables et colonnes disponibles.
+Votre requête SQL doit être écrite en utilisant la [syntaxe Snowflake](https://docs.snowflake.com/en/sql-reference.html). Consultez la [référence des tables]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables) pour obtenir la liste complète des tables et colonnes disponibles.
 
 {% alert important %}
-Notez que les tables disponibles ne contiennent que des données d'événements. Si vous souhaitez interroger des attributs utilisateur, vous devez combiner votre segment SQL avec des filtres d'attributs personnalisés du [segmenteur classique]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
+Notez que les tables disponibles ne contiennent que des données d'événements. Si vous souhaitez interroger des attributs utilisateur, vous devez combiner votre segment SQL avec des filtres d'attributs personnalisés du [segmenteur classique]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment).
 {% endalert %}
 
 {% tabs %}
@@ -190,12 +190,12 @@ Par exemple, pour cibler les utilisateurs ayant effectué moins de trois achats,
 Pour actualiser l'appartenance au segment d'une extension de segment créée à l'aide de SQL, ouvrez l'extension de segment et sélectionnez **Refresh**.
 
 {% alert tip %}
-Si vous avez créé un segment dans lequel vous vous attendez à ce que les utilisateurs entrent et sortent régulièrement, actualisez manuellement l'extension de segment qu'il utilise avant de cibler ce segment dans une Campaign ou un Canvas.
+Si vous avez créé un segment dans lequel vous vous attendez à ce que les utilisateurs entrent et sortent régulièrement, actualisez manuellement l'extension de segment qu'il utilise avant de cibler ce segment dans une campagne ou un Canvas.
 {% endalert %}
 
 ## Gestion de vos extensions de segments {#managing-your-segment-extensions}
 
-Sur la page **Segment Extensions**, les segments générés à l'aide de SQL sont signalés par <i class="fas fa-code" alt="SQL Segment Extension"></i> à côté de leur nom.
+Sur la page **Segment Extensions**, les segments générés à l'aide de SQL sont signalés par <i class="fas fa-code" alt="Extension de segment SQL"></i> à côté de leur nom.
 
 Sélectionnez une extension de segment SQL pour voir où l'extension est utilisée, archiver l'extension ou [actualiser manuellement l'appartenance au segment](#refreshing-segment-membership).
 
@@ -203,7 +203,7 @@ Sélectionnez une extension de segment SQL pour voir où l'extension est utilis�
 
 ### Définir les paramètres d'actualisation {#designating-refresh-settings}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ## Crédits Snowflake {#credits}
 
@@ -217,13 +217,13 @@ La consommation de crédits est corrélée à la durée d'exécution de votre re
 
 Pour économiser des crédits, prévisualisez votre requête pour vous assurer qu'elle est correcte avant d'enregistrer l'extension de segment SQL.
 
-Vos crédits sont réinitialisés à 5 le premier de chaque mois à 00h00 UTC. Vous pouvez suivre votre consommation de crédits tout au long du mois dans le panneau d'utilisation des crédits. Depuis la page **Segment Extensions**, cliquez sur <i class="fa-solid fa-chart-column"></i> **View SQL Credit Usage**.
+Vos crédits sont réinitialisés à 5 le premier de chaque mois à 00h00 UTC. Vous pouvez suivre votre consommation de crédits tout au long du mois dans le panneau d'utilisation des crédits. Depuis la page **Segment Extensions**, cliquez sur <i class="fa-solid fa-chart-column" aria-label="Voir l'utilisation des crédits SQL"></i> **View SQL Credit Usage**.
 
 ![Panneau d'utilisation des crédits SQL sur la page Extensions de segments SQL]({% image_buster /assets/img_archive/sql_segments_credits.png %}){: style="max-width:60%"}
 
 Voici ce qui se passe lorsque vos crédits atteignent zéro :
 
-- Toutes les extensions de segments SQL configurées pour s'actualiser automatiquement cessent de s'actualiser, ce qui impacte l'appartenance à ces segments ainsi que toutes les Campaigns ou Canvas qui ciblent ces segments.
+- Toutes les extensions de segments SQL configurées pour s'actualiser automatiquement cessent de s'actualiser, ce qui impacte l'appartenance à ces segments ainsi que toutes les campagnes ou Canvas qui ciblent ces segments.
 - Vous ne pouvez enregistrer les nouvelles extensions de segments SQL qu'en tant que brouillons pour le reste du mois.
 
 Tous les utilisateurs de l'entreprise ayant créé un segment SQL ainsi que les administrateurs de votre entreprise recevront un e-mail de notification lorsque vous aurez utilisé 50 %, 80 % et 100 % de vos crédits. Après la réinitialisation de vos crédits au début du mois suivant, vous pourrez créer de nouveaux segments SQL et les actualisations automatiques reprendront.

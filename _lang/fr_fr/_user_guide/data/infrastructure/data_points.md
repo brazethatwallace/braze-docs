@@ -27,9 +27,9 @@ Pour consulter votre utilisation des points de données, allez dans **Paramètre
 
 ### Calendrier d'actualisation des points de données {#data-point-refresh-schedule}
 
-L'utilisation des points de données est mise en cache (et non en temps réel) toutes les 24 heures. Tant que le cache n'est pas actualisé, différents utilisateurs du tableau de bord peuvent voir les mêmes totaux, même s'ils ouvrent l'onglet à des moments différents le même jour. Pour le même comportement de mise en cache sur d'autres vues de facturation, consultez [Tableau de bord de l'utilisation totale des points de données]({{site.baseurl}}/user_guide/administer/global/billing/#total-data-points-dashboard).
+L'utilisation des points de données est mise en cache (et non en temps réel) toutes les 24 heures, aux alentours de 2 h (heure de l'Est). Tant que le cache n'est pas actualisé, différents utilisateurs du tableau de bord peuvent voir les mêmes totaux, même s'ils ouvrent l'onglet à des moments différents le même jour. Pour le même comportement de mise en cache sur d'autres vues de facturation, consultez [Tableau de bord de l'utilisation totale des points de données]({{site.baseurl}}/user_guide/administer/global/billing#total-data-points-dashboard).
 
-Pour plus d'informations sur les composants du tableau de bord des points de données, consultez [Facturation]({{site.baseurl}}/user_guide/administer/global/billing/).
+Pour plus d'informations sur les composants du tableau de bord des points de données, consultez [Facturation]({{site.baseurl}}/user_guide/administer/global/billing).
 
 {% alert tip %}
 **Ne gaspillez pas de points de données. Ne mettez à jour que les données modifiées !**<br><br>
@@ -42,13 +42,13 @@ En résumé, les points de données s'accumulent lorsque les données de profil 
 
 Vous trouverez une décomposition de la façon dont Braze accumule les points de données dans les sections suivantes. Si vous avez des questions sur les subtilités des points de données Braze, votre gestionnaire de compte Braze pourra y répondre.
 
-Pour l'ingestion via l'API, chaque mise à jour facturable effectuée via [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) suit les mêmes règles que les autres mises à jour de profil : par exemple, chaque **événement personnalisé** enregistré compte comme un point de donnée, et les **attributs personnalisés** comptent généralement par attribut mis à jour dans cette requête (voir les tableaux facturables ci-dessous et les [Circonstances particulières](#special-circumstances)).
+Pour l'ingestion via l'API, chaque mise à jour facturable effectuée via [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) suit les mêmes règles que les autres mises à jour de profil : par exemple, chaque **événement personnalisé** enregistré compte comme un point de donnée, et les **attributs personnalisés** comptent généralement par attribut mis à jour dans cette requête (voir les tableaux facturables ci-dessous et les [Circonstances particulières](#special-circumstances)).
 
 Les actions suivantes n'enregistrent pas de points de données :
 - Supprimer des utilisateurs de Braze
 - Utiliser du contenu connecté lors de l'envoi de messages
 - Les changements d'état d'abonnement à l'échelle globale et au niveau des groupes d'abonnement
-- Renommer les ID externes de vos utilisateurs via des [appels d'API]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename/)
+- Renommer les ID externes de vos utilisateurs via des [appels d'API]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename)
 - Bloquer des événements, des attributs ou des propriétés d'événement
 
 ### Circonstances particulières {#special-circumstances}
@@ -84,7 +84,7 @@ Les tableaux suivants sont donnés à titre d'exemple. Pour connaître les conve
 {% tabs %}
 {% tab Non facturables %}
 
-#### Points de données non facturables (par défaut) {#non-billable-data-points-default}
+### Points de données non facturables (par défaut) {#non-billable-data-points-default}
 
 <div class="small_table"></div>
 
@@ -120,7 +120,7 @@ Les tableaux suivants sont donnés à titre d'exemple. Pour connaître les conve
 {% endtab %}
 {% tab Facturables %}
 
-#### Points de données facturables {#billable-data-points}
+### Points de données facturables {#billable-data-points}
 
 {% alert important %}
 L'ajout, la suppression ou la mise à jour des types de données suivants donne lieu à un point de donnée facturable.

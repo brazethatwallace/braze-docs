@@ -18,7 +18,7 @@ _Esta integración está mantenida por Blings._
 | Requisito | Descripción |
 |-----------------|-----------------------------------------------------------------------------|
 | Cuenta de Blings | Se necesita una cuenta de Blings para beneficiarse de esta asociación. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -31,8 +31,8 @@ _Esta integración está mantenida por Blings._
 
 Localiza y copia tu fragmento de código HTML directamente en la aplicación de Blings.
 
-1. Ve a la pestaña **Connect** del proyecto MP5 seleccionado.
-2. Añade etiquetas de Braze Liquid a las variables correspondientes en la página **Connect** de Blings. Las etiquetas rellenarán dinámicamente los valores en el fragmento de código HTML.
+1. Ve a la pestaña **Conectar** del proyecto MP5 seleccionado.
+2. Añade etiquetas de Liquid de Braze a las variables correspondientes en la página **Conectar** de Blings. Las etiquetas rellenarán dinámicamente los valores en el fragmento de código HTML.
 
 ![Fragmento de código HTML de Blings.]({% image_buster /assets/img/blings/blings_connect_audience.png %}){: style="max-width:70%;"}
 
@@ -46,13 +46,13 @@ Solicita el fragmento de código HTML a tu representante de Blings.
 {% endtab %}
 {% endtabs %}
 
-### Paso 2: Crea una Campaign en Braze {#step-2-create-a-braze-campaign}
+### Paso 2: Crea una campaña en Braze {#step-2-create-a-braze-campaign}
 
-En Braze, crea una nueva Campaign de correo electrónico o de mensaje dentro de la aplicación e inserta el fragmento de código HTML de Blings. Usa la vista previa del editor para confirmar que los campos personalizados y el contenido dinámico de Creative Suite se muestran correctamente.
+En Braze, crea una nueva campaña de correo electrónico o de mensaje dentro de la aplicación e inserta el fragmento de código HTML de Blings. Usa la vista previa del editor para confirmar que los campos personalizados y el contenido dinámico de Creative Suite se muestran correctamente.
 
 ### Paso 3: Prueba y lanzamiento {#step-3-test-and-launch}
 
-Realiza una vista previa de la Campaign en Braze para confirmar que los campos personalizados se rellenan correctamente. Después, despliega tu Campaign MP5 a escala.
+Realiza una vista previa de la campaña en Braze para confirmar que los campos personalizados se rellenan correctamente. Después, despliega tu campaña MP5 a escala.
 
 ![Vista previa de Blings en Braze.]({% image_buster /assets/img/blings/blings_braze_preview.png %}){: style="max-width:70%;"}
 

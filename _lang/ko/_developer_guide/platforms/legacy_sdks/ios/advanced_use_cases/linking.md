@@ -12,7 +12,7 @@ noindex: true
 
 # iOS용 딥링킹 {#deep-linking-for-ios}
 
-딥링크에 대한 소개 정보는 [사용 설명서 문서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)를 참조하세요. Braze 앱에서 처음으로 딥링크를 구현하려는 경우, 아래 단계를 따라 시작하세요.
+딥링크에 대한 소개 정보는 [사용 설명서 문서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking)를 참조하세요. Braze 앱에서 처음으로 딥링크를 구현하려는 경우, 아래 단계를 따라 시작하세요.
 
 ## 1단계: 스키마 등록 {#step-1-register-a-scheme}
 
@@ -95,7 +95,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 {% endtab %}
 {% endtabs %}
 
-![]({% image_buster /assets/img_archive/deep_link.png %})
+![Braze 대시보드에서의 딥링크 구성 예시.]({% image_buster /assets/img_archive/deep_link.png %})
 
 # 유니버설 링크 {#universal-links}
 

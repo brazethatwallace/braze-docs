@@ -12,7 +12,7 @@ channel: email
 
 ## HTML renderiza incorretamente em e-mails de teste {#html-renders-incorrectly-in-test-emails}
 
-Se o seu [e-mail de teste]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) parecer estranho, recomendamos primeiro verificar a configuração do seu HTML. Em seguida, você pode verificar estes problemas:
+Se o seu [e-mail de teste]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) parecer estranho, recomendamos primeiro verificar a configuração do seu HTML. Em seguida, você pode verificar estes problemas:
 * [Conflitos de extensões](#check-conflicts)
 * [Renderização de e-mail](#check-rendering)
 * [Inlining de CSS](#switch-css-inlining)
@@ -29,11 +29,11 @@ A visualização em texto simples remove o editor `WYSIWYG` (o que você vê é 
 
 Os e-mails são renderizados de forma diferente dependendo dos navegadores e clientes de e-mail, então anote em quais navegadores e clientes de e-mail você está enfrentando problemas.
 
-- Pré-visualize seus e-mails usando o [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision/#inbox-vision/) para ver como seus e-mails aparecem em diferentes navegadores e clientes de e-mail.
+- Pré-visualize seus e-mails usando o [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#inbox-vision) para ver como seus e-mails aparecem em diferentes navegadores e clientes de e-mail.
 - Depois de identificar quais navegadores ou clientes de e-mail estão causando problemas, informe sua equipe de desenvolvimento que será necessário modificar o HTML e fazer ajustes para acomodar esses navegadores ou clientes de e-mail.
 
 ### Inlining de CSS {#css-inlining}
 
 Há momentos em que as pré-visualizações no Inbox Vision ainda não correspondem ao que é enviado pela Braze. Isso pode ser causado pela diferença no inlining de CSS realizado pela Braze e por outras ferramentas. Se você suspeitar que esse é o caso, desative o inlining de CSS.
 
-Ainda precisa de ajuda? Abra um [ticket de suporte]({{site.baseurl}}/braze_support/).
+Ainda precisa de ajuda? Abra um [ticket de suporte]({{site.baseurl}}/braze_support).

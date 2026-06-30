@@ -35,7 +35,7 @@ Lorsque Braze « envoie » un message, la distribution finale peut dépendre de 
 | SMS/MMS/RCS | Braze transmet le message à une passerelle SMS (comme Twilio). Cette passerelle est responsable de la distribution finale à l'opérateur mobile. |
 | Webhooks | La requête webhook a été effectuée avec succès, renvoyant une réponse `2xx`. |
 | WhatsApp | Le message a été transmis avec succès à un partenaire d'envoi. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Sent and delivered" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Envoyé et distribué" }
 
 ### Fraîcheur des données {#data-freshness}
 
@@ -101,31 +101,31 @@ Les définitions suivantes expliquent les résultats d'abandon affichés sur le 
 | Carte de contenu invalide | La carte de contenu contenait des erreurs et n'a pas été envoyée à l'utilisateur. Voici quelques raisons courantes : {::nomarkdown}<ul><li> Taille maximale dépassée (2 Ko) </li><li> La date d'expiration est invalide </li><li> Le message contient des caractères invalides </li></ul>{:/} |
 | Échec du contenu connecté | Braze a tenté d'envoyer le message, mais le contenu connecté a échoué après le nombre maximal de tentatives (cinq par défaut). **Remarque :** Ce nombre représente le nombre de messages abandonnés en raison de l'atteinte du nombre maximal de tentatives, et non le nombre total de requêtes de contenu connecté ayant échoué. |
 | Délai d'expiration du rendu du message in-app | Après plusieurs tentatives, le Liquid n'a pas pu être rendu et a expiré. |
-| Abandon Liquid | L'étiquette Liquid [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) a été appelée, l'envoi a donc été annulé. |
+| Abandon Liquid | L'étiquette Liquid [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) a été appelée, l'envoi a donc été annulé. |
 | Délai d'expiration du rendu Liquid | Le rendu du modèle Liquid a pris trop de temps. Cela se produit le plus souvent pour les bannières, les messages in-app et les e-mails. |
 | Erreur de syntaxe Liquid | Le modèle Liquid contenait une erreur d'analyse, le message a donc été annulé. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Contenu et rendu" }
 
 #### État de la campagne et du Canvas {#campaign-and-canvas-state}
 
 | Résultat d'abandon | Explication |
 | ---- | ---- |
-| Échec de l'étape de délai | L'[étape de délai]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/#personalized-delays) a échoué, provoquant la sortie de l'utilisateur du Canvas. Cet échec peut se produire lorsque : {::nomarkdown}<ul><li> La variable fournie à l'étape de délai personnalisé était vide ou d'un type invalide </li><li> Le délai dépasse la durée maximale autorisée dans le Canvas</li></ul>{:/} |
+| Échec de l'étape de délai | L'[étape de délai]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step#personalized-delays) a échoué, provoquant la sortie de l'utilisateur du Canvas. Cet échec peut se produire lorsque : {::nomarkdown}<ul><li> La variable fournie à l'étape de délai personnalisé était vide ou d'un type invalide </li><li> Le délai dépasse la durée maximale autorisée dans le Canvas</li></ul>{:/} |
 | Événement d'exception ou de sortie | L'utilisateur était précédemment éligible pour recevoir le message, mais {::nomarkdown}<ul><li> a effectué un <a href="/docs/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-3-select-exception-events">événement d'exception</a> pour une campagne basée sur une action, le message a donc été abandonné, ou </li><li> a rempli les <a href="/docs/user_guide/messaging/canvas/create_a_canvas#setting-exit-criteria">critères de sortie</a> du Canvas et a donc été retiré en cours de parcours.</li></ul>{:/} |
 | Campagne inactive | La campagne a été arrêtée alors que le message était en cours de traitement, il a donc été abandonné. |
 | Canvas inactif | Le Canvas a été arrêté avant que l'utilisateur n'entre dans le parcours. |
 | Étape du Canvas inactive | Cela peut se produire dans le Canvas si : {::nomarkdown}<ul><li> L'étape du Canvas a été supprimée </li> <li>Le Canvas a été arrêté, ce qui rend toutes les étapes inactives </li></ul>{:/} |
 | Limite de volume atteinte | La campagne a atteint la limite de volume définie, l'envoi a donc été annulé. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign and Canvas state" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="État de la campagne et du Canvas" }
 
 #### Limite de débit et timing {#rate-limiting-and-timing}
 
 | Résultat d'abandon | Explication |
 | ---- | ---- |
-| Limite de fréquence atteinte | L'utilisateur a déjà reçu le nombre maximal de messages autorisé selon les règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#about-frequency-capping) de votre espace de travail, l'envoi a donc été annulé. |
-| Abandon pour heures calmes | Les heures calmes étaient activées pour la campagne ou l'étape du Canvas avec l'option de repli définie sur **Abort message**. L'utilisateur a déclenché la campagne ou est entré dans l'étape Message du Canvas pendant les heures calmes, le message a donc été abandonné. Cependant, cela ne fait pas sortir l'utilisateur du Canvas. |
-| Limite de débit dépassée pendant plus de 72 heures | Le message a été limité pendant plus de 72 heures en raison des [limites de débit de vitesse de distribution]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting), l'envoi a donc été abandonné. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limiting and timing" }
+| Limite de fréquence atteinte | L'utilisateur a déjà reçu le nombre maximal de messages autorisé selon les règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) de votre espace de travail, l'envoi a donc été annulé. |
+| Abandon pour heures calmes | Les heures calmes étaient activées pour la campagne ou l'étape du Canvas avec l'option de repli définie sur **Abandon du message**. L'utilisateur a déclenché la campagne ou est entré dans l'étape Message du Canvas pendant les heures calmes, le message a donc été abandonné. Cependant, cela ne fait pas sortir l'utilisateur du Canvas. |
+| Limite de débit dépassée pendant plus de 72 heures | Le message a été limité pendant plus de 72 heures en raison des [limites de débit de vitesse de distribution]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting), l'envoi a donc été abandonné. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limite de débit et timing" }
 
 #### Éligibilité de l'utilisateur et profil {#user-eligibility-and-profile}
 
@@ -135,17 +135,17 @@ Les définitions suivantes expliquent les résultats d'abandon affichés sur le 
 | L'utilisateur a échoué à la pré-vérification de l'étape Message | Cette pré-vérification s'exécute avant les validations de distribution. Lorsque cela se produit, l'utilisateur n'a pas satisfait la pré-vérification de base pour cette étape Message (utilisateur introuvable ou non éligible pour le canal de l'étape Message). **Remarque :** Pour une étape Message multicanal, cela signifie que l'utilisateur n'a pas été trouvé ; l'éligibilité au canal n'est vérifiée ici que pour les étapes Message à canal unique. |
 | L'utilisateur a échoué à la pré-vérification du message déclenché | Pour un message déclenché, Braze exécute un premier ensemble de pré-vérifications de base concernant l'éligibilité de l'audience, la rééligibilité et l'éligibilité au canal avant de créer un message à envoyer à partir de ce déclencheur. |
 | L'utilisateur n'est plus éligible | L'utilisateur faisait initialement partie de l'audience cible, mais ne correspondait plus aux critères de l'audience avant que Braze n'envoie le message ou n'intègre l'utilisateur dans le Canvas. Le délai entre le moment où l'utilisateur a initialement satisfait les critères de l'audience et celui où il en est sorti peut être dû à : {::nomarkdown}<ul><li>Le timing intelligent</li><li>Les heures calmes</li><li>L'heure locale</li><li>Les limites de débit de vitesse de distribution (non applicable pour l'entrée dans le Canvas)</li><li>Les délais du pipeline d'envoi de messages</li></ul>{:/} |
-| L'utilisateur n'est pas éligible pour l'étape | L'utilisateur ne satisfaisait pas les [validations de distribution]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations) définies pour l'étape Message ou faisait partie d'une [liste de suppression]({{site.baseurl}}/user_guide/audience/suppression_lists/). Selon les paramètres des **validations de distribution**, l'utilisateur peut avoir quitté le Canvas ou être passé à l'étape suivante. |
+| L'utilisateur n'est pas éligible pour l'étape | L'utilisateur ne satisfaisait pas les [validations de distribution]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations) définies pour l'étape Message ou faisait partie d'une [liste de suppression]({{site.baseurl}}/user_guide/audience/suppression_lists). Selon les paramètres des **validations de distribution**, l'utilisateur peut avoir quitté le Canvas ou être passé à l'étape suivante. |
 | L'utilisateur n'est pas rééligible | L'utilisateur était éligible pour recevoir le message ou entrer dans le Canvas, mais l'envoi a été annulé en raison des paramètres de rééligibilité ou de réentrée. Cela peut se produire si l'utilisateur a déjà reçu la campagne ou est entré dans le Canvas trop récemment, si un autre envoi pour la même campagne est déjà en cours pour cet utilisateur, ou si la rééligibilité ou la réentrée est désactivée. |
 | Profil utilisateur introuvable | L'utilisateur n'a jamais existé ou n'existe plus dans Braze. Voici quelques cas courants : {::nomarkdown}<ul><li> L'utilisateur a été ciblé via l'API d'envoi de messages, mais n'a jamais existé dans Braze. </li><li>L'utilisateur a été supprimé avant l'envoi du message ou l'exécution de l'étape du Canvas. </li><li>L'utilisateur a été fusionné avec un autre profil avant l'envoi du message.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="User eligibility and profile" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Éligibilité de l'utilisateur et profil" }
 
 #### Canal et distribution {#channel-and-delivery}
 
 | Résultat d'abandon | Explication |
 | ---- | ---- |
 | Délai d'expiration de la distribution par le partenaire | Braze a tenté d'envoyer ce message à votre partenaire de distribution pendant 24 heures, mais le partenaire a renvoyé des erreurs temporaires pendant toute la durée de cette fenêtre. |
-| Identifiants push invalides | Les [identifiants push]({{site.baseurl}}/user_guide/channels/push/faqs/#valid-push-token) pour cette application sont manquants ou invalides, l'envoi a donc été annulé. Mettez à jour vos identifiants dans **App Settings**. |
+| Identifiants push invalides | Les [identifiants push]({{site.baseurl}}/user_guide/channels/push/faqs#valid-push-token) pour cette application sont manquants ou invalides, l'envoi a donc été annulé. Mettez à jour vos identifiants dans **Paramètres des applications**. |
 | L'utilisateur n'est pas activé pour les notifications push Android, l'application ou l'appareil | La notification push ne peut pas être envoyée à cet utilisateur. Voici quelques raisons courantes : {::nomarkdown}<ul><li> L'utilisateur n'a pas l'application installée.</li> <li> L'utilisateur n'a pas de jeton de notification push valide. </li> <li>L'utilisateur ne dispose pas de l'appareil nécessaire pour cette notification push. </li> <li> L'utilisateur a désactivé les notifications pour cette application dans les paramètres de son appareil. </li> <li> L'utilisateur n'est pas abonné ou n'a pas opté pour recevoir des notifications push.</li></ul>{:/} |
 | L'utilisateur n'est pas activé pour les notifications push iOS, l'application ou l'appareil | Identique au résultat d'abandon « L'utilisateur n'est pas activé pour les notifications push Android, l'application ou l'appareil ». |
 | L'utilisateur n'est pas activé pour les notifications push Kindle, l'application ou l'appareil | Identique au résultat d'abandon « L'utilisateur n'est pas activé pour les notifications push Android, l'application ou l'appareil ». |
@@ -155,8 +155,8 @@ Les définitions suivantes expliquent les résultats d'abandon affichés sur le 
 | L'utilisateur n'est pas activé pour LINE | Les messages LINE ne peuvent pas être envoyés à cet utilisateur. Voici quelques raisons courantes : {::nomarkdown}<ul><li> L'utilisateur n'a pas de numéro de téléphone dans son profil utilisateur. </li><li> Le numéro de téléphone de l'utilisateur a été marqué comme invalide en raison d'échecs de distribution. </li><li> L'état d'abonnement de l'utilisateur l'exclut de la réception de ce message. </li><li> L'utilisateur n'a pas d'identifiant LINE.</li></ul>{:/} |
 | L'utilisateur n'est pas activé pour SMS/MMS/RCS | Les messages SMS ne peuvent pas être envoyés à cet utilisateur. Voici quelques raisons courantes : {::nomarkdown}<ul><li> L'utilisateur n'a pas de numéro de téléphone dans son profil utilisateur. </li><li> Le numéro de téléphone de l'utilisateur a été marqué comme invalide en raison d'échecs de distribution. </li><li> Le numéro de téléphone de l'utilisateur n'est pas dans un format E.164 valide, et les tentatives de formatage automatique du numéro ont échoué. </li><li> L'état d'abonnement de l'utilisateur l'exclut de la réception du message SMS.</li><li>Le numéro de téléphone de l'utilisateur se trouve dans un pays bloqué.</li></ul>{:/} |
 | L'utilisateur n'est pas activé pour WhatsApp | Les messages WhatsApp ne peuvent pas être envoyés à cet utilisateur. Voici quelques raisons courantes : {::nomarkdown}<ul><li> L'utilisateur n'a pas de numéro de téléphone dans son profil utilisateur. </li><li> Le numéro de téléphone de l'utilisateur a été marqué comme invalide en raison d'échecs de distribution. </li><li> L'état d'abonnement de l'utilisateur l'exclut de la réception de ce message. </li><li> L'utilisateur n'a pas de compte WhatsApp.</li></ul>{:/} |
-| Échec du webhook | Le webhook a reçu un code de réponse non réussi (non-`2xx`). Consultez le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/#dev-console-troubleshooting) pour plus de détails. Les journaux de plus de 60 heures sont nettoyés et ne sont plus accessibles ; les erreurs de webhook sont échantillonnées jusqu'à 20 journaux par heure. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Channel and delivery" }
+| Échec du webhook | Le webhook a reçu un code de réponse non réussi (non-`2xx`). Consultez le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#dev-console-troubleshooting) pour plus de détails. Les journaux de plus de 60 heures sont nettoyés et ne sont plus accessibles ; les erreurs de webhook sont échantillonnées jusqu'à 20 journaux par heure. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Canal et distribution" }
 
 ## Questions fréquentes {#frequently-asked-questions}
 
@@ -168,7 +168,7 @@ Si un utilisateur échoue à cette vérification groupée unique, il est immédi
 
 ### Que signifie un résultat d'abandon « autre » ? {#what-does-an-other-abort-outcome-mean}
 
-Il s'agit d'abandons qui ne correspondent à aucune des catégories préexistantes de Braze. Si vous constatez une proportion importante d'abandons avec ce résultat, contactez l'[assistance Braze]({{site.baseurl}}/braze_support/) pour obtenir de l'aide.
+Il s'agit d'abandons qui ne correspondent à aucune des catégories préexistantes de Braze. Si vous constatez une proportion importante d'abandons avec ce résultat, contactez l'[assistance Braze]({{site.baseurl}}/braze_support) pour obtenir de l'aide.
 
 ### Pourquoi la somme de *Total Aborts* et *Message Sends* est-elle inférieure à la taille d'audience attendue ? {#why-is-the-sum-of-_total-aborts_-and-_message-sends_-lower-than-my-expected-audience-size}
 
@@ -177,7 +177,7 @@ Cela peut se produire pour plusieurs raisons :
 - **Critères d'audience :** Moins d'utilisateurs que prévu ont pu satisfaire les critères d'audience (par exemple, ils n'étaient pas dans le segment ou ne possédaient pas les attributs nécessaires) au moment du lancement de la campagne ou du Canvas.
 - **Traitement en cours :** Les messages peuvent encore être en cours de traitement. Les utilisateurs peuvent encore se trouver dans des étapes antérieures du Canvas et ne pas avoir atteint les étapes Message.
 - **Fraîcheur des données :** Les données du tableau de bord sont mises à jour environ toutes les 15 minutes, mais cela n'est pas garanti. Les données les plus récentes pour cette campagne ou ce Canvas peuvent ne pas encore être disponibles dans le tableau de bord.
-- **Cas limites :** Il existe une faible probabilité que vous rencontriez un cas limite qui n'est pas pris en compte dans ce tableau de bord pour le moment. Si vous pensez que c'est le cas, contactez l'[assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+- **Cas limites :** Il existe une faible probabilité que vous rencontriez un cas limite qui n'est pas pris en compte dans ce tableau de bord pour le moment. Si vous pensez que c'est le cas, contactez l'[assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ### Pourquoi la somme de *Total Aborts* et *Message Sends* est-elle supérieure à l'audience d'une campagne ou d'un Canvas ? {#why-is-the-sum-of-_total-aborts_-and-_message-sends_-greater-than-the-audience-for-a-campaign-and-canvas}
 

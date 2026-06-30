@@ -35,7 +35,7 @@ Cuando Braze "envía" un mensaje, la entrega final puede depender de servicios e
 | SMS/MMS/RCS | Braze entrega el mensaje a una pasarela SMS (como Twilio). Esa pasarela es responsable de la entrega final al operador móvil. |
 | Webhooks | La solicitud del webhook se realizó con éxito, devolviendo una respuesta `2xx`. |
 | WhatsApp | El mensaje fue entregado con éxito a un socio de envío. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Sent and delivered" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Enviado y entregado" }
 
 ### Actualización de datos {#data-freshness}
 
@@ -43,11 +43,11 @@ La frecuencia con la que se actualizan los datos en este dashboard puede variar 
 
 ## Configurar el dashboard {#configuring-the-dashboard}
 
-Puedes acceder al dashboard de diagnóstico yendo a **Analytics** > **Dashboard Builder** y seleccionando **Messaging Diagnostics** de la lista de dashboards creados por Braze.
+Puedes acceder al dashboard de diagnóstico yendo a **Analytics** > **Generador de dashboards** y seleccionando **Messaging Diagnostics** de la lista de dashboards creados por Braze.
 
 Para ejecutar el dashboard y ver tus datos:
 
-1. Elige **Campaigns** o **Canvases** como fuente para los informes de tu dashboard.
+1. Elige **Campaigns** o **Canvas** como fuente para los informes de tu dashboard.
 2. Selecciona una o más campañas o Canvas.
 3. Selecciona **Run Dashboard** para cargar los datos de los filtros seleccionados.
 
@@ -101,31 +101,31 @@ Las siguientes definiciones explican los resultados de cancelación que se muest
 | Tarjeta de contenido no válida | La tarjeta de contenido tenía errores y no fue enviada al usuario. Algunas razones comunes incluyen: {::nomarkdown}<ul><li> Se excedió el tamaño máximo (2 KB) </li><li> La fecha de expiración no es válida </li><li> El mensaje contiene caracteres no válidos </li></ul>{:/} |
 | Fallo de contenido conectado | Braze intentó enviar el mensaje, pero el contenido conectado falló después del número máximo de reintentos (el predeterminado es cinco). **Nota:** Este recuento representa el número de mensajes cancelados por alcanzar el número máximo de reintentos, no el número total de solicitudes de contenido conectado fallidas. |
 | Tiempo de espera de renderizado de mensaje dentro de la aplicación | Después de múltiples intentos de reintento, no se pudo renderizar el Liquid y se agotó el tiempo de espera. |
-| Cancelación por Liquid | Se llamó a la etiqueta de Liquid [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/), por lo que el envío fue cancelado. |
+| Cancelación por Liquid | Se llamó a la etiqueta de Liquid [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages), por lo que el envío fue cancelado. |
 | Tiempo de espera de renderizado de Liquid | El renderizado de la plantilla de Liquid tardó demasiado. Es más probable que ocurra con banners, mensajes dentro de la aplicación y correo electrónico. |
 | Error de sintaxis de Liquid | La plantilla de Liquid tenía un error de análisis, por lo que el mensaje fue cancelado. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Contenido y renderizado" }
 
 #### Estado de Campaign y Canvas {#campaign-and-canvas-state}
 
 | Resultado de cancelación | Explicación |
 | ---- | ---- |
-| Fallo en paso de retraso | El [paso de retraso]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/#personalized-delays) falló, causando que el usuario saliera del Canvas. Este fallo puede ocurrir cuando: {::nomarkdown}<ul><li> La variable proporcionada al paso de retraso personalizado estaba vacía o era de un tipo no válido </li><li> El retraso supera la duración máxima permitida dentro del Canvas</li></ul>{:/} |
+| Fallo en paso de retraso | El [paso de retraso]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step#personalized-delays) falló, causando que el usuario saliera del Canvas. Este fallo puede ocurrir cuando: {::nomarkdown}<ul><li> La variable proporcionada al paso de retraso personalizado estaba vacía o era de un tipo no válido </li><li> El retraso supera la duración máxima permitida dentro del Canvas</li></ul>{:/} |
 | Evento de excepción o salida | El usuario era previamente elegible para recibir el mensaje, pero {::nomarkdown}<ul><li> realizó un <a href="/docs/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-3-select-exception-events">evento de excepción</a> para una campaña basada en acciones, por lo que el mensaje fue cancelado, o </li><li> cumplió los <a href="/docs/user_guide/messaging/canvas/create_a_canvas#setting-exit-criteria">criterios de salida</a> del Canvas, por lo que fue eliminado a mitad del recorrido.</li></ul>{:/} |
-| Inactive campaign | La campaña fue detenida mientras el mensaje estaba en tránsito, por lo que fue cancelado. |
-| Inactive Canvas | El Canvas fue detenido antes de que el usuario entrara al recorrido. |
-| Inactive Canvas step | Esto puede ocurrir en el Canvas si: {::nomarkdown}<ul><li> El paso en Canvas fue eliminado </li> <li>El Canvas fue detenido, lo que causa que todos los pasos se vuelvan inactivos </li></ul>{:/} |
+| Campaña inactiva | La campaña fue detenida mientras el mensaje estaba en tránsito, por lo que fue cancelado. |
+| Canvas inactivo | El Canvas fue detenido antes de que el usuario entrara al recorrido. |
+| Paso en Canvas inactivo | Esto puede ocurrir en el Canvas si: {::nomarkdown}<ul><li> El paso en Canvas fue eliminado </li> <li>El Canvas fue detenido, lo que causa que todos los pasos se vuelvan inactivos </li></ul>{:/} |
 | Límite de volumen alcanzado | La campaña alcanzó el límite de volumen establecido, por lo que el envío fue cancelado. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign and Canvas state" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estado de Campaign y Canvas" }
 
 #### Limitación de velocidad y temporización {#rate-limiting-and-timing}
 
 | Resultado de cancelación | Explicación |
 | ---- | ---- |
-| Limitación de frecuencia | El usuario ya recibió el número máximo de mensajes permitidos según las reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#about-frequency-capping) de tu espacio de trabajo, por lo que el envío fue cancelado. |
+| Limitación de frecuencia | El usuario ya recibió el número máximo de mensajes permitidos según las reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) de tu espacio de trabajo, por lo que el envío fue cancelado. |
 | Cancelación por horas tranquilas | Las horas tranquilas estaban habilitadas para la campaña o el paso en Canvas con la alternativa configurada como **Abort message**. El usuario desencadenó la campaña o entró al paso de mensaje del Canvas durante las horas tranquilas, por lo que el mensaje fue cancelado. Sin embargo, esto no hace que el usuario salga del Canvas. |
-| Límite de velocidad superado por más de 72 horas | El mensaje fue limitado durante más de 72 horas debido a los [límites de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting), por lo que el envío fue cancelado. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limiting and timing" }
+| Límite de velocidad superado por más de 72 horas | El mensaje fue limitado durante más de 72 horas debido a los [límites de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting), por lo que el envío fue cancelado. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limitación de velocidad y temporización" }
 
 #### Elegibilidad del usuario y perfil {#user-eligibility-and-profile}
 
@@ -135,17 +135,17 @@ Las siguientes definiciones explican los resultados de cancelación que se muest
 | El usuario no pasó la verificación previa para el paso de mensaje | Esta verificación previa se ejecuta antes de las validaciones de entrega. Cuando esto ocurre, el usuario no cumplió la verificación previa básica para este paso de mensaje (usuario no encontrado o no elegible para el canal del paso de mensaje). **Nota:** Para un paso de mensaje multicanal, esto significa que el usuario no fue encontrado; la elegibilidad del canal solo se verifica aquí para pasos de mensaje de un solo canal. |
 | El usuario no pasó la verificación previa para mensaje desencadenado | Para un mensaje desencadenado, Braze ejecuta un primer conjunto de verificaciones previas básicas para la elegibilidad de la audiencia, la re-elegibilidad y la elegibilidad del canal antes de crear un mensaje para enviar desde este desencadenador. |
 | El usuario ya no es elegible | El usuario estaba inicialmente en la audiencia objetivo, pero ya no cumplía los criterios de audiencia antes de que Braze enviara el mensaje o ingresara al usuario en el Canvas. El tiempo entre que el usuario cumplió inicialmente los criterios de audiencia y dejó de cumplirlos podría deberse a retrasos por: {::nomarkdown}<ul><li>Intelligent Timing</li><li>Horas tranquilas</li><li>Hora local</li><li>Límites de velocidad de entrega (no aplica para la entrada a Canvas)</li><li>Retrasos en el pipeline de mensajería</li></ul>{:/} |
-| El usuario no es elegible para el paso | El usuario no cumplió las [validaciones de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations) establecidas para el paso de mensaje o formaba parte de una [lista de supresión]({{site.baseurl}}/user_guide/audience/suppression_lists/). Dependiendo de la configuración de **Delivery validations**, el usuario puede haber salido del Canvas o avanzado al siguiente paso. |
+| El usuario no es elegible para el paso | El usuario no cumplió las [validaciones de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations) establecidas para el paso de mensaje o formaba parte de una [lista de supresión]({{site.baseurl}}/user_guide/audience/suppression_lists). Dependiendo de la configuración de **Delivery validations**, el usuario puede haber salido del Canvas o avanzado al siguiente paso. |
 | El usuario no es re-elegible | El usuario era elegible para recibir el mensaje o entrar al Canvas, pero el envío fue cancelado debido a la configuración de re-elegibilidad o re-entrada. Esto puede ocurrir si el usuario ya recibió la campaña o entró al Canvas demasiado recientemente, si otro envío de la misma campaña ya está en curso para este usuario, o si la re-elegibilidad o re-entrada está desactivada. |
 | Perfil de usuario no encontrado | El usuario nunca existió o ya no existe en Braze. Algunos casos comunes incluyen: {::nomarkdown}<ul><li> El usuario fue dirigido usando mensajería por API, pero nunca existió en Braze. </li><li>El usuario fue eliminado antes de que el mensaje fuera enviado o el paso en Canvas fuera ejecutado. </li><li>El usuario fue fusionado con otro perfil antes de que el mensaje fuera enviado.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="User eligibility and profile" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Elegibilidad del usuario y perfil" }
 
 #### Canal y entrega {#channel-and-delivery}
 
 | Resultado de cancelación | Explicación |
 | ---- | ---- |
 | Tiempo de espera de entrega del socio | Braze intentó enviar este mensaje a tu socio de entrega durante 24 horas, pero el socio devolvió errores temporales durante toda la ventana. |
-| Credenciales push no válidas | Las [credenciales push]({{site.baseurl}}/user_guide/channels/push/faqs/#valid-push-token) para esta aplicación faltan o no son válidas, por lo que el envío fue cancelado. Actualiza tus credenciales en **Configuración de la aplicación**. |
+| Credenciales push no válidas | Las [credenciales push]({{site.baseurl}}/user_guide/channels/push/faqs#valid-push-token) para esta aplicación faltan o no son válidas, por lo que el envío fue cancelado. Actualiza tus credenciales en **Configuración de la aplicación**. |
 | El usuario no está habilitado para push de Android, aplicación o dispositivo | No se puede enviar push a este usuario. Algunas razones comunes: {::nomarkdown}<ul><li> El usuario no tiene la aplicación instalada.</li> <li> El usuario no tiene un token de notificaciones push válido. </li> <li>El usuario no tiene el dispositivo necesario para esta notificación push. </li> <li> El usuario ha desactivado las notificaciones para esta aplicación en la configuración de su dispositivo. </li> <li> El usuario no está suscrito ni ha optado por recibir notificaciones push.</li></ul>{:/} |
 | El usuario no está habilitado para push de iOS, aplicación o dispositivo | Igual que el resultado de cancelación "El usuario no está habilitado para push de Android, aplicación o dispositivo". |
 | El usuario no está habilitado para push de Kindle, aplicación o dispositivo | Igual que el resultado de cancelación "El usuario no está habilitado para push de Android, aplicación o dispositivo". |
@@ -155,8 +155,8 @@ Las siguientes definiciones explican los resultados de cancelación que se muest
 | El usuario no está habilitado para LINE | No se pueden enviar mensajes de LINE a este usuario. Algunas razones comunes: {::nomarkdown}<ul><li> El usuario no tiene un número de teléfono en su perfil de usuario. </li><li> El número de teléfono del usuario ha sido marcado como no válido debido a fallos de entrega. </li><li> El estado de suscripción del usuario lo excluye de recibir este mensaje. </li><li> El usuario no tiene un ID de LINE.</li></ul>{:/} |
 | El usuario no está habilitado para SMS/MMS/RCS | No se pueden enviar mensajes SMS a este usuario. Algunas razones comunes: {::nomarkdown}<ul><li> El usuario no tiene un número de teléfono en su perfil de usuario. </li><li> El número de teléfono del usuario ha sido marcado como no válido debido a fallos de entrega. </li><li> El número de teléfono del usuario no está en un formato E.164 válido, y los intentos de formatear automáticamente el número fallaron. </li><li> El estado de suscripción del usuario lo excluye de recibir el mensaje SMS.</li><li>El número de teléfono del usuario está en un país bloqueado.</li></ul>{:/} |
 | El usuario no está habilitado para WhatsApp | No se pueden enviar mensajes de WhatsApp a este usuario. Algunas razones comunes: {::nomarkdown}<ul><li> El usuario no tiene un número de teléfono en su perfil de usuario. </li><li> El número de teléfono del usuario ha sido marcado como no válido debido a fallos de entrega. </li><li> El estado de suscripción del usuario lo excluye de recibir este mensaje. </li><li> El usuario no tiene una cuenta de WhatsApp.</li></ul>{:/} |
-| Fallo del webhook | El webhook recibió un código de respuesta no exitoso (no `2xx`). Consulta el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/#dev-console-troubleshooting) para más detalles. Los registros con más de 60 horas de antigüedad se limpian y ya no son accesibles; los errores de webhook se muestrean hasta 20 registros por hora. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Channel and delivery" }
+| Fallo del webhook | El webhook recibió un código de respuesta no exitoso (no `2xx`). Consulta el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#dev-console-troubleshooting) para más detalles. Los registros con más de 60 horas de antigüedad se limpian y ya no son accesibles; los errores de webhook se muestrean hasta 20 registros por hora. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Canal y entrega" }
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
@@ -168,7 +168,7 @@ Si un usuario no pasa esta comprobación agrupada, es eliminado inmediatamente. 
 
 ### ¿Qué significa un resultado de cancelación "otro"? {#what-does-an-other-abort-outcome-mean}
 
-Estas son cancelaciones que no encajaron en ninguna de las categorías preexistentes de Braze. Si notas una gran proporción de cancelaciones con este resultado, ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support/) para obtener más ayuda.
+Estas son cancelaciones que no encajaron en ninguna de las categorías preexistentes de Braze. Si notas una gran proporción de cancelaciones con este resultado, ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support) para obtener más ayuda.
 
 ### ¿Por qué la suma de _Total Aborts_ y _Message Sends_ es menor que el tamaño esperado de mi audiencia? {#why-is-the-sum-of-_total-aborts_-and-_message-sends_-lower-than-my-expected-audience-size}
 
@@ -177,7 +177,7 @@ Esto puede ocurrir por varias razones:
 - **Criterios de audiencia:** Menos usuarios de los esperados pueden haber cumplido los criterios de audiencia (por ejemplo, no estaban en el segmento o no tenían los atributos necesarios) cuando se lanzó la campaña o el Canvas.
 - **Procesamiento en curso:** Los mensajes pueden estar aún procesándose activamente. Los usuarios pueden estar todavía en pasos anteriores del Canvas y no haber llegado a ningún paso de mensaje.
 - **Actualización de datos:** Los datos del dashboard se actualizan aproximadamente cada 15 minutos, pero esto no está garantizado. Los datos más recientes para esta campaña o Canvas pueden no haber llegado al dashboard todavía.
-- **Casos límite:** Existe una pequeña posibilidad de que estés encontrando un caso límite que no está capturado en este dashboard en este momento. Si sospechas que este es el caso, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+- **Casos límite:** Existe una pequeña posibilidad de que estés encontrando un caso límite que no está capturado en este dashboard en este momento. Si sospechas que este es el caso, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ### ¿Por qué la suma de _Total Aborts_ y _Message Sends_ es mayor que la audiencia de una campaña o Canvas? {#why-is-the-sum-of-_total-aborts_-and-_message-sends_-greater-than-the-audience-for-a-campaign-and-canvas}
 

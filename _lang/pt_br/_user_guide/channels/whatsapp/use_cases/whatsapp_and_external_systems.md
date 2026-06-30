@@ -30,7 +30,7 @@ O fluxo de trabalho da integração pode ser dividido em dois fluxos principais:
 **Fluxo de entrada:** A mensagem de um usuário chega na Braze e é encaminhada para o seu sistema externo para processamento.
 **Fluxo de saída:** Após processar a mensagem, o seu sistema externo envia uma resposta para a Braze, que então entrega a mensagem ao usuário final.
 
-Para automatizar essa comunicação de forma eficiente, essa integração utiliza dois recursos principais da Braze: [Campaigns de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) e [Campaigns disparadas por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/).
+Para automatizar essa comunicação de forma eficiente, essa integração utiliza dois recursos principais da Braze: [Campaigns de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) e [Campaigns disparadas por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
 
 ![Arquitetura da integração entre o canal WhatsApp da Braze e um sistema externo.]({% image_buster /assets/img/whatsapp/external_system_architecture.png %})
 ## Configurando a integração {#configuring-the-integration}

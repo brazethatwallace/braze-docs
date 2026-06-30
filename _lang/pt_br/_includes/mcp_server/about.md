@@ -2,18 +2,14 @@
 
 > Saiba mais sobre o servidor MCP da Braze, uma conexão segura que permite que ferramentas de IA como Claude e Cursor acessem dados da Braze que não são IPI para responder perguntas, analisar tendências e fornecer insights.
 
-{% multi_lang_include mcp_server/beta_alert.md %}
-
 {% alert important %}
-## Sunsetting do servidor MCP da Braze hospedado localmente {#sunsetting-the-locally-hosted-braze-mcp-server}
+Neste verão, a Braze está lançando um servidor MCP remoto, hospedado pela Braze, em acesso antecipado. Ele substitui o servidor beta hospedado localmente (`braze-mcp-server` no [PyPI](https://pypi.org/project/braze-mcp-server/) e no diretório de extensões do Claude Desktop).<br><br>
 
-Neste verão, a Braze está lançando um servidor MCP remoto, hospedado pela Braze, em Acesso Antecipado. Ele substitui o servidor beta hospedado localmente (`braze-mcp-server` no [PyPI](https://pypi.org/project/braze-mcp-server/) e no diretório de extensões do Claude Desktop).
-
-**O que isso significa para você:**
+**O que isso significa para você:**<br><br>
 
 - O servidor hospedado localmente continuará funcionando, mas não é mais suportado. Não adicionaremos novos endpoints nem corrigiremos problemas no beta.
-- Quando o servidor remoto estiver disponível em Acesso Antecipado, você precisará migrar para ele. O servidor remoto não requer instalação local, usa OAuth em vez de chaves de API estáticas e funciona com clientes MCP como Claude, Copilot, Gemini CLI, Codex e Cursor.
-- Acompanhe esta página para saber sobre a disponibilidade do Acesso Antecipado ou entre em contato com a equipe da sua conta na Braze para manifestar interesse.
+- Quando o servidor remoto estiver disponível em acesso antecipado, você precisará migrar para ele. O servidor remoto não requer instalação local, usa OAuth em vez de chaves de API estáticas e funciona com clientes MCP como Claude, Copilot, Gemini CLI, Codex e Cursor.
+- Acompanhe esta página para saber sobre a disponibilidade do acesso antecipado ou entre em contato com a equipe da sua conta na Braze para manifestar interesse.
 {% endalert %}
 
 ## O que é o Model Context Protocol (MCP)? {#what-is-model-context-protocol-mcp}
@@ -43,11 +39,13 @@ Você pode interagir com a Braze por meio de linguagem natural usando ferramenta
 
 {% tabs %}
 {% tab Claude %}
-!["Quais são minhas funções disponíveis na Braze?" sendo perguntado e respondido no Claude.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**Exemplo de prompt:** `What are my available Braze functions?`
+**Exemplo de resposta:** Usou `list_functions` e retornou as categorias de funções MCP disponíveis da Braze.
 {% endtab %}
 
 {% tab Cursor %}
-!["Quais são minhas funções disponíveis na Braze" sendo perguntado e respondido no Cursor.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**Exemplo de prompt:** `What are my available Braze functions?`
+**Exemplo de resposta:** Consultou `list_functions` e listou funções como `get_canvas_list`.
 {% endtab %}
 {% endtabs %}
 
@@ -79,7 +77,7 @@ Não. Você precisará criar uma nova chave de API para seu cliente MCP. Lembre-
 
 ### O servidor MCP da Braze está hospedado localmente ou remotamente? {#is-the-braze-mcp-server-hosted-locally-or-remotely}
 
-O servidor MCP da Braze atualmente disponível está hospedado localmente. Um servidor MCP remoto, hospedado pela Braze, está chegando em Acesso Antecipado neste verão e substituirá o servidor beta hospedado localmente.
+O servidor MCP da Braze atualmente disponível está hospedado localmente. Um servidor MCP remoto, hospedado pela Braze, está chegando em acesso antecipado neste verão e substituirá o servidor beta hospedado localmente.
 
 ### Por que o Cursor está listando apenas funções? {#why-is-cursor-only-listing-functions}
 

@@ -32,7 +32,7 @@ Se você quiser ver exemplos ou testar este endpoint para **grupos do WhatsApp**
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `subscription.status.get`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `subscription.status.get`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -42,11 +42,11 @@ Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
-| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types/?tab=subscription%20group%20ids) | Obrigatória | String | O `id` do seu grupo de inscrições. |
+| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types?tab=subscription%20group%20ids) | Obrigatória | String | O `id` do seu grupo de inscrições. |
 | `external_id` | Obrigatória* | String | O `external_id` do usuário (deve incluir pelo menos um e no máximo 50 `external_ids`). <br><br>Quando um `external_id` e `email`/`phone` são enviados juntos, apenas os `external_id`(s) fornecidos serão aplicados à consulta de resultado. |
 | `email` | Obrigatória* | String | O endereço de e-mail do usuário. Pode ser passado como um array de strings com no máximo 50.<br><br> Enviar tanto um endereço de e-mail quanto um número de telefone (sem `external_id`) resultará em um erro. |
 | `phone` | Obrigatória* | String no formato [E.164](https://en.wikipedia.org/wiki/E.164) | O número de telefone do usuário. Se o e-mail não estiver incluído, você deve incluir pelo menos um número de telefone (com no máximo 50).<br><br> Enviar tanto um endereço de e-mail quanto um número de telefone (sem `external_id`) resultará em um erro. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 *Um entre `external_id`, `email` ou `phone` é obrigatório para cada usuário.
 
@@ -74,7 +74,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/sta
 {% tab E-mail %}
 {% raw %}
 ```
-curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@braze.com' \
+curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@example.com' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 {% endraw %}

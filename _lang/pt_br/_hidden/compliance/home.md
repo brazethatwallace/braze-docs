@@ -102,7 +102,7 @@ Os seguintes termos adicionais se aplicam em relação ao uso do Canal do WhatsA
 
 ### Termos aplicáveis do prestador de serviços terceirizado {#applicable-third-party-provider-terms}
 
-O Cliente deve cumprir quaisquer pré-requisitos, termos e políticas aplicáveis ao Canal do WhatsApp, incluindo quaisquer termos exigidos pelo WhatsApp, LLC e suas afiliadas do grupo, conforme descrito na página de [configuração do WhatsApp](https://www.braze.com/docs/user_guide/message_building_by_channel/whatsapp/overview/) da Braze.
+O Cliente deve cumprir quaisquer pré-requisitos, termos e políticas aplicáveis ao Canal do WhatsApp, incluindo quaisquer termos exigidos pelo WhatsApp, LLC e suas afiliadas do grupo, conforme descrito na página de [configuração do WhatsApp]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/overview/) da Braze.
 
 ### Termos de exceção para uso de webhooks
 

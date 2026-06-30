@@ -23,41 +23,41 @@ search_rank: 1
 | <a href='/docs/user_guide/channels/email/subscriptions#managing-user-subscriptions'>メールリスト属性</a> | `{{${set_user_to_unsubscribed_url}}}` <br>このタグは以前の `{{${unsubscribe_url}}}` タグに代わるものです。以前のタグは過去に作成されたメールでは引き続き機能しますが、新しいタグの使用を推奨します。<br><br> `{{${set_user_to_one_click_list_unsubscribe}}}` <br> `{{${set_user_to_subscribed_url}}}` <br> `{{${set_user_to_opted_in_url}}}` |
 | <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting#trigger-messages'>SMS 属性</a> | `{{sms.${inbound_message_body}}}` <br> `{{sms.${inbound_media_urls}}}` |
 | <a href='/docs/user_guide/channels/whatsapp/message_processing/messaging_users'>WhatsApp 属性</a> | `{{whats_app.${inbound_message_body}}}` <br> `{{whats_app.${inbound_media_urls}}}` <br> `{{whats_app.${inbound_flow_response}}}` <br> `{{whats_app.${inbound_product_id}}}` <br> `{{whats_app.${inbound_catalog_id}}}` <br> `{{whats_app.${inbound_profile_name}}}` |
-| Campaign属性とキャンバスステップ属性 | `{{campaign.${api_id}}}` <br> `{{campaign.${dispatch_id}}}` <br> `{{campaign.${name}}}` <br> `{{campaign.${message_name}}}` <br> `{{campaign.${message_api_id}}}` |
-| Canvas属性 | `{{canvas.${name}}}` <br> `{{canvas.${api_id}}}` <br> `{{canvas.${variant_name}}}` <br> `{{canvas.${variant_api_id}}}` |
+| キャンペーン属性とキャンバスステップ属性 | `{{campaign.${api_id}}}` <br> `{{campaign.${dispatch_id}}}` <br> `{{campaign.${name}}}` <br> `{{campaign.${message_name}}}` <br> `{{campaign.${message_api_id}}}` |
+| キャンバス属性 | `{{canvas.${name}}}` <br> `{{canvas.${api_id}}}` <br> `{{canvas.${variant_name}}}` <br> `{{canvas.${variant_api_id}}}` |
 | カード属性 | `{{card.${api_id}}}` <br> `{{card.${name}}}` |
 | ジオフェンスイベント | `{{event_properties.${geofence_name}}}` <br> `{{event_properties.${geofence_set_name}}}` |
 | イベントプロパティ <br> (ワークスペースに固有のものです。)| `{{event_properties.${your_custom_event_property}}}` |
-| Canvasコンテキスト変数 | `{{context.${your_context_variable}}}` |
+| キャンバスコンテキスト変数 | `{{context.${your_context_variable}}}` |
 | カスタム属性 <br> (ワークスペースに固有のものです。) | `{{custom_attribute.${your_custom_attribute}}}` |
-| <a href='/docs/api/objects_filters/trigger_properties_object/'>API トリガープロパティ</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
-| Canvasエントリプロパティ | `{{context.${property_name}}}` |
+| <a href='/docs/api/objects_filters/trigger_properties_object'>API トリガープロパティ</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
+| キャンバスエントリプロパティ | `{{context.${property_name}}}` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="サポートされているタグの概要" }
 
 {% endraw %}
 
 {% alert note %}
-API トリガープロパティでは、タグごとに 2 つの波括弧を使用する必要があります: {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`。3 つの波括弧（例: `{{{...}}}`）{% endraw %}は有効な Braze パーソナライゼーション構文ではありません。[API トリガーの Liquid が Braze で失敗するのはなぜですか？]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze)を参照してください。
+API トリガープロパティでは、タグごとに 2 つの波括弧を使用する必要があります: {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`。3 つの波括弧（例: `{{{...}}}`）{% endraw %}は有効な Braze パーソナライゼーション構文ではありません。[API トリガーの Liquid が Braze で失敗するのはなぜですか？]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq#why-is-my-api-triggered-liquid-failing-in-braze)を参照してください。
 {% endalert %}
 
 ### サポートされている属性 {#supported-attributes}
 
-Campaign、カード、Canvasの属性は、対応するメッセージングテンプレートでのみサポートされています（例えば、`dispatch_id` はアプリ内メッセージCampaignでは使用できません）。
+キャンペーン、カード、キャンバスの属性は、対応するメッセージングテンプレートでのみサポートされています。例えば、`dispatch_id` はメール、プッシュ、SMS、WhatsApp などのメッセージングチャネルの Liquid ではサポートされていますが、アプリ内メッセージやバナーではサポートされていません。
 
-詳細については、[ソース別のCampaignおよびCanvas属性]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/)を参照してください。
+詳細については、[ソース別のキャンペーンおよびキャンバス属性]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources)を参照してください。
 
-### CanvasとCampaignのタグの違い {#canvas-and-campaign-tag-differences}
+### キャンバスとキャンペーンのタグの違い {#canvas-and-campaign-tag-differences}
 
-以下のタグの動作は、CanvasとCampaignで異なります。
+以下のタグの動作は、キャンバスとキャンペーンで異なります。
 {% raw %}
-- `dispatch_id` の動作が異なるのは、Brazeがキャンバスステップを（「スケジュール済み」であっても）トリガーイベントとして扱うためです（スケジュール可能なエントリステップを除く）。詳細については、[ディスパッチ ID の動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)を参照してください。
-- Canvasで `{{campaign.${name}}}` タグを使用すると、Canvasコンポーネント名が表示されます。Campaignでこのタグを使用すると、Campaign名が表示されます。
+- `dispatch_id` の動作が異なるのは、Brazeがキャンバスステップを（「スケジュール済み」であっても）トリガーイベントとして扱うためです（スケジュール可能なエントリステップを除く）。詳細については、[ディスパッチ ID の動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)を参照してください。
+- キャンバスで `{{campaign.${name}}}` タグを使用すると、キャンバスコンポーネント名が表示されます。キャンペーンでこのタグを使用すると、キャンペーン名が表示されます。
 {% endraw %}
 
-#### URL 内のCampaign名 {#campaign-names-in-urls}
+#### URL 内のキャンペーン名 {#campaign-names-in-urls}
 
 {% raw %}
-Campaignおよびメッセージバリアント名には、`%`、スペース、`&` など、URLセーフでない文字が含まれる場合があります。`{{campaign.${name}}}` または `{{campaign.${message_name}}}` をリンクやクエリ文字列（`utm_campaign` パラメーターなど）に挿入する場合は、URLが正しく解析されるように [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters) フィルターを適用してください。例えば：
+キャンペーンおよびメッセージバリアント名には、`%`、スペース、`&` など、URLセーフでない文字が含まれる場合があります。`{{campaign.${name}}}` または `{{campaign.${message_name}}}` をリンクやクエリ文字列（`utm_campaign` パラメーターなど）に挿入する場合は、URLが正しく解析されるように [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) フィルターを適用してください。例えば：
 
 ```liquid
 https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
@@ -76,7 +76,7 @@ https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
 |`{{most_recently_used_device.${id}}}` | Brazeデバイス識別子です。iOSでは、Apple Identifier for Vendor (IDFV) または UUID になります。Androidやその他のプラットフォームでは、ランダムに生成された UUID です。|
 | `{{most_recently_used_device.${carrier}}}` | 最近使用されたデバイスの電話サービスキャリアです（利用可能な場合）。例として「Verizon」や「Orange」があります。|
 | `{{most_recently_used_device.${ad_tracking_enabled}}}` | デバイスで広告トラッキングが有効かどうかを示します。ブール値（`true` または `false`）です。|
-| `{{most_recently_used_device.${idfa}}}` | iOSデバイスの場合、アプリケーションがオプションの [IDFA 収集]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/)で設定されていれば、この値は Identifier for Advertising (IDFA) になります。iOS以外のデバイスでは、この値は null です。|
+| `{{most_recently_used_device.${idfa}}}` | iOSデバイスの場合、アプリケーションがオプションの [IDFA 収集]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection)で設定されていれば、この値は Identifier for Advertising (IDFA) になります。iOS以外のデバイスでは、この値は null です。|
 | `{{most_recently_used_device.${google_ad_id}}}` | Androidデバイスの場合、アプリケーションがオプションの Google Play 広告 ID 収集で設定されていれば、この値は Google Play Advertising Identifier になります。Android以外のデバイスでは、この値は null です。|
 | `{{most_recently_used_device.${roku_ad_id}}}` | Rokuデバイスの場合、アプリケーションがBrazeで設定されているときに収集される Roku Advertising Identifier がこの値になります。Roku以外のデバイスでは、この値は null です。|
 | `{{most_recently_used_device.${model}}}` | デバイスのモデル名です（利用可能な場合）。例として「iPhone 6S」、「Nexus 6P」、「Firefox」があります。|
@@ -115,7 +115,7 @@ User is in list of apps
 |------------------|---|
 | `{{targeted_device.${id}}}` | Brazeデバイス識別子です。iOSでは、Apple Identifier for Vendor (IDFV) または UUID になります。Androidやその他のプラットフォームでは、ランダムに生成された UUID です。例えば、ユーザーが 5 台のデバイスを持っている場合、5 台すべてのデバイスに対して送信が試行され、それぞれ対応するデバイス識別子が使用されます。メッセージがユーザーの最近使用したデバイスに送信するよう設定されている場合、Brazeで特定された最近使用したデバイスに対して 1 回のみ送信が試行されます。|
 | `{{targeted_device.${carrier}}}` | 最近使用されたデバイスの電話サービスキャリアです（利用可能な場合）。例として「Verizon」や「Orange」があります。|
-| `{{targeted_device.${idfa}}}` | iOSデバイスの場合、アプリケーションがオプションの [IDFA 収集]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/)で設定されていれば、この値は Identifier for Advertising (IDFA) になります。iOS以外のデバイスでは、この値は null です。|
+| `{{targeted_device.${idfa}}}` | iOSデバイスの場合、アプリケーションがオプションの [IDFA 収集]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection)で設定されていれば、この値は Identifier for Advertising (IDFA) になります。iOS以外のデバイスでは、この値は null です。|
 | `{{targeted_device.${google_ad_id}}}` | Androidデバイスの場合、アプリケーションがオプションの [Google Play 広告 ID 収集]で設定されていれば、この値は Google Play Advertising Identifier になります。Android以外のデバイスでは、この値は null です。|
 | `{{targeted_device.${roku_ad_id}}}` | Rokuデバイスの場合、アプリケーションがBrazeで設定されているときに収集される Roku Advertising Identifier がこの値になります。Roku以外のデバイスでは、この値は null です。|
 | `{{targeted_device.${model}}}` | デバイスのモデル名です（利用可能な場合）。例として「iPhone 6S」、「Nexus 6P」、「Firefox」があります。|
@@ -134,7 +134,7 @@ User is in list of apps
 
 ### デフォルト値の代わりに条件付きロジックを使用する {#using-conditional-logic-instead-of-a-default-value}
 
-状況によっては、デフォルト値を設定する代わりに[条件付きロジック]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/)を使用することもできます。条件付きロジックを使用すると、カスタム属性の値に基づいて異なるメッセージを送信できます。さらに、条件付きロジックを使用して、null または空白の属性値を持つ顧客への[メッセージを中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)することもできます。
+状況によっては、デフォルト値を設定する代わりに[条件付きロジック]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic)を使用することもできます。条件付きロジックを使用すると、カスタム属性の値に基づいて異なるメッセージを送信できます。さらに、条件付きロジックを使用して、null または空白の属性値を持つ顧客への[メッセージを中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)することもできます。
 
 #### ユースケース {#use-case}
 
@@ -168,7 +168,7 @@ User is in list of apps
    {% endif %}
    ```
 
-このユースケースでは、名が空白または null のユーザーには「Thanks for downloading!」というメッセージが届きます。ミスが発生した場合に顧客に Liquid が表示されないよう、名に[デフォルト値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/)を含めることを推奨します。
+このユースケースでは、名が空白または null のユーザーには「Thanks for downloading!」というメッセージが届きます。ミスが発生した場合に顧客に Liquid が表示されないよう、名に[デフォルト値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values)を含めることを推奨します。
 
 {% endraw %}
 
@@ -181,7 +181,7 @@ User is in list of apps
 {% alert tip %}
 毎回のメッセージで同じ変数を割り当てていませんか？`assign` タグを何度も書く代わりに、そのタグをコンテンツブロックとして保存し、メッセージの先頭に配置できます。
 
-1. [コンテンツブロックを作成]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/#create-a-content-block)します。
+1. [コンテンツブロックを作成]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#create-a-content-block)します。
 2. コンテンツブロックに名前を付けます（スペースや特殊文字は使用しないでください）。
 3. ページ下部の**編集**を選択します。
 4. `assign` タグを入力します。
@@ -240,7 +240,7 @@ Sale on Converse!
 
 ## HTTP ステータスコード {#http-personalization}
 
-[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)呼び出しの HTTP ステータスを利用するには、まずローカル変数として保存し、次に `__http_status_code__` キーを使用します。例えば：
+[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)呼び出しの HTTP ステータスを利用するには、まずローカル変数として保存し、次に `__http_status_code__` キーを使用します。例えば：
 
 ```html
 {% connected_content https://example.com/api/endpoint :save connected %}
@@ -290,7 +290,7 @@ Message in default language
 
 ### ユースケース：タイムゾーンによるユーザーのターゲティング {#use-case-target-users-by-time-zone}
 
-タイムゾーンによってユーザーをターゲティングすることもできます。例えば、EST にいるユーザーには 1 つのメッセージを送信し、PST にいるユーザーには別のメッセージを送信します。これを行うには、現在の時刻を UTC で保存し、if/else 文をユーザーの現在の時刻と比較して、適切なタイムゾーンに適切なメッセージを送信します。ユーザーのローカルタイムゾーンで送信するようCampaignを設定し、適切な時間にCampaignが届くようにする必要があります。
+タイムゾーンによってユーザーをターゲティングすることもできます。例えば、EST にいるユーザーには 1 つのメッセージを送信し、PST にいるユーザーには別のメッセージを送信します。これを行うには、現在の時刻を UTC で保存し、if/else 文をユーザーの現在の時刻と比較して、適切なタイムゾーンに適切なメッセージを送信します。ユーザーのローカルタイムゾーンで送信するようキャンペーンを設定し、適切な時間にキャンペーンが届くようにする必要があります。
 
 以下のユースケースでは、午後 2 時から午後 3 時の間に配信されるメッセージを、各タイムゾーン向けの特定のメッセージで記述する方法を示します。
 
@@ -336,7 +336,7 @@ Show variant B
 
 ## eコマースショッピングカートタグ {#shopping-cart-tag}
 
-`shopping_cart` タグは、eコマースの[カート放棄]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/?tab=abandoned%20cart#abandoned-cart)および[チェックアウト放棄]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/?tab=abandoned%20checkout#abandoned-checkout)のCanvasユースケースで、ユーザーのカート内容にアクセスします。`CART_ID` を実際のカート ID 値（{% raw %}`{{context.${cart_id}}}`{% endraw %} など）に置き換えてください。
+`shopping_cart` タグは、eコマースの[カート放棄]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20cart#abandoned-cart)および[チェックアウト放棄]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20checkout#abandoned-checkout)のキャンバスユースケースで、ユーザーのカート内容にアクセスします。`CART_ID` を実際のカート ID 値（{% raw %}`{{context.${cart_id}}}`{% endraw %} など）に置き換えてください。
 
 {% raw %}
 ```liquid
@@ -344,7 +344,7 @@ Show variant B
 ```
 {% endraw %}
 
-この例の `abort_if_not_abandoned` パラメーターは、`ecommerce.checkout_started` イベントと併用する[チェックアウト放棄]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/?tab=abandoned%20checkout#abandoned-checkout)のユースケースにのみ適用されます。カート放棄のユースケースには適用されません。詳細については、[`abort_if_not_abandoned`]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/?tab=abandoned%20checkout#abort-if-not-abandoned) を参照してください。
+この例の `abort_if_not_abandoned` パラメーターは、`ecommerce.checkout_started` イベントと併用する[チェックアウト放棄]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20checkout#abandoned-checkout)のユースケースにのみ適用されます。カート放棄のユースケースには適用されません。詳細については、[`abort_if_not_abandoned`]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20checkout#abort-if-not-abandoned) を参照してください。
 
 [31]:https://docs.shopify.com/themes/liquid/tags/variable-tags
 [32]:https://docs.shopify.com/themes/liquid/tags/iteration-tags

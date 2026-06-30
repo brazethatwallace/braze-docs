@@ -25,9 +25,9 @@ Eine gesunde Zustellrate liegt oft bei etwa 99 % zugestellt mit einer Bounce-Rat
 
 Bevor Sie mit dem IP-Warming beginnen:
 
-1. Legen Sie unter **Settings** > **Email Preferences** Ihre Standard-Versanddomain fest, fügen Sie einen gültigen Abmeldelink in Ihrer [angepassten Fußzeile]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/) hinzu, aktivieren Sie den [List-Unsubscribe-Header]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) und erwägen Sie bei Bedarf angepasste Abmelde-/Opt-in-Seiten.
-2. Konfigurieren Sie [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) für E-Mail.
-3. Erstellen Sie Ihre erforderlichen Templates unter **Content** > **Email**.
+1. Legen Sie unter **Einstellungen** > **E-Mail-Präferenzen** Ihre Standard-Versanddomain fest, fügen Sie einen gültigen Abmeldelink in Ihrer [angepassten Fußzeile]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer) hinzu, aktivieren Sie den [List-Unsubscribe-Header]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) und erwägen Sie bei Bedarf angepasste Abmelde-/Opt-in-Seiten.
+2. Konfigurieren Sie [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) für E-Mail.
+3. Erstellen Sie Ihre erforderlichen Templates unter **Inhalt** > **E-Mail**.
 
 ## Was passiert, wenn ich keine Zeit habe, IPs aufzuwärmen? {#what-if-i-dont-have-time-to-warm-ips}
 
@@ -37,7 +37,7 @@ ISPs drosseln die E-Mail-Zustellung, wenn Spam-Verdacht aufkommt, um ihre Nutzer
 
 Wenn das Engagement moderat ist, kann er Ihre E-Mails weiterhin drosseln, um mehr Engagement-Daten zu sammeln und mit größerer Sicherheit festzustellen, ob die E-Mail Spam ist oder nicht. Wenn die E-Mail sehr hohe Engagement-Metriken aufweist, kann er die Drosselung dieser E-Mail vollständig einstellen. Diese Daten werden verwendet, um eine E-Mail-Reputation aufzubauen, die letztendlich bestimmt, ob Ihre E-Mails automatisch als Spam gefiltert werden oder nicht.
 
-Wenn Ihre Domain oder IP von einem ISP blockiert wird, enthalten die Nachrichtenprotokolle im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) Informationen darüber, welche Websites Sie besuchen können, um bei diesen ISPs Einspruch einzulegen und von diesen Listen entfernt zu werden.
+Wenn Ihre Domain oder IP von einem ISP blockiert wird, enthalten die Nachrichtenprotokolle im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) Informationen darüber, welche Websites Sie besuchen können, um bei diesen ISPs Einspruch einzulegen und von diesen Listen entfernt zu werden.
 
 ## IP-Warming-Zeitpläne {#ip-warming-schedules}
 
@@ -151,13 +151,13 @@ Die meisten ISPs speichern Reputationsdaten nur für 30 Tage. Wenn Sie einen Mon
 
 ### IP-Adressen {#ip-addresses}
 
-Nach drei Monaten ohne Nutzung kann Braze IP-Adressen recyceln und neu zuweisen. Unabhängig von der vorherigen Historie einer IP-Adresse wird ein vollständiges IP-Warming für alle neu zugewiesenen IPs empfohlen, da die meisten ISPs Reputationsdaten nur für 30 Tage speichern. Für die meisten ISPs bedeutet dies, dass eine dreimonatige Abkühlphase die Reputation effektiv zurücksetzt. Wenn Sie weitere Fragen zur Historie einer bestimmten IP-Adresse haben, wenden Sie sich an den [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+Nach drei Monaten ohne Nutzung kann Braze IP-Adressen recyceln und neu zuweisen. Unabhängig von der vorherigen Historie einer IP-Adresse wird ein vollständiges IP-Warming für alle neu zugewiesenen IPs empfohlen, da die meisten ISPs Reputationsdaten nur für 30 Tage speichern. Für die meisten ISPs bedeutet dies, dass eine dreimonatige Abkühlphase die Reputation effektiv zurücksetzt. Wenn Sie weitere Fragen zur Historie einer bestimmten IP-Adresse haben, wenden Sie sich an den [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ## So begrenzen Sie Sendungen während des Warmings {#how-to-limit-sends-during-warming}
 
-Das integrierte Feature zur Nutzerbegrenzung dient als nützliches Werkzeug, um Sie beim Aufwärmen Ihrer IP-Adresse zu unterstützen. Nachdem Sie Ihre gewünschten Messaging-Segmente während der Campaign-Erstellung ausgewählt haben, wählen Sie im Schritt [Zielgruppe zusammenstellen]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas) das Dropdown **Erweiterte Optionen**, um Ihre Nutzer:innen zu begrenzen. Während Ihr Warming-Zeitplan fortschreitet, können Sie dieses Limit schrittweise erhöhen, um das Volumen der gesendeten E-Mails zu steigern.
+Das integrierte Feature zur Nutzerbegrenzung dient als nützliches Werkzeug, um Sie beim Aufwärmen Ihrer IP-Adresse zu unterstützen. Nachdem Sie Ihre gewünschten Messaging-Segmente während der Campaign-Erstellung ausgewählt haben, wählen Sie im Schritt [Zielgruppe zusammenstellen]({{site.baseurl}}/user_guide/channels/email/html_editor#step-4-build-the-remainder-of-your-campaign-or-canvas) das Dropdown **Erweiterte Optionen**, um Ihre Nutzer:innen zu begrenzen. Während Ihr Warming-Zeitplan fortschreitet, können Sie dieses Limit schrittweise erhöhen, um das Volumen der gesendeten E-Mails zu steigern.
 
-![]({% image_buster /assets/img_archive/email_ip_warming_sends_limit_new.png %})
+![Das integrierte Feature zur Nutzerbegrenzung dient als nützliches Werkzeug, um Sie beim Aufwärmen Ihrer IP-Adresse zu unterstützen. Nachdem Sie Ihre gewünschten Messaging-Segmente während der Campaign-Erstellung ausgewählt haben, wählen Sie im Schritt „Zielgruppe zusammenstellen“ das Dropdown „Erweiterte Optionen“, um Ihre Nutzer:innen zu begrenzen. Während Ihr Warming-Zeitplan fortschreitet, können Sie dieses Limit schrittweise erhöhen, um das Volumen der gesendeten E-Mails zu steigern.]({% image_buster /assets/img_archive/email_ip_warming_sends_limit_new.png %})
 
 ## Subdomain-Segmentierung {#subdomain-segmentation}
 
@@ -189,17 +189,17 @@ Orientieren Sie sich an unserem [IP-Warming-Zeitplan](#ip-warming-schedules), um
 
 ### Bereinigen Sie Ihre E-Mail-Listen {#clean-your-email-lists}
 
-Stellen Sie sicher, dass Ihre E-Mail-Liste sauber ist und keine alten oder unverifizierten E-Mails enthält. Es ist ideal sicherzustellen, dass Sie sowohl [CASL- als auch CAN-SPAM-konform]({{site.baseurl}}/user_guide/administer/global/privacy/spam_regulations/) sind.
+Stellen Sie sicher, dass Ihre E-Mail-Liste sauber ist und keine alten oder unverifizierten E-Mails enthält. Es ist ideal sicherzustellen, dass Sie sowohl [CASL- als auch CAN-SPAM-konform]({{site.baseurl}}/user_guide/administer/global/privacy/spam_regulations) sind.
 
 ### Überwachen Sie Ihre Absender-Reputation {#monitor-your-sender-reputation}
 
 Achten Sie während des IP-Warming-Prozesses darauf, Ihre Absender-Reputation sorgfältig zu überwachen. Diese spezifischen Metriken sind wichtig zu beobachten:
-- **Bounce-Raten:** Wenn eine Campaign eine Bounce-Rate von mehr als 3–5 % aufweist, sollten Sie die Sauberkeit Ihrer Liste bewerten, indem Sie den Richtlinien in unserem Artikel [Keep It Clean: The Importance of Email List Hygiene](https://www.braze.com/blog/email-list-hygiene/) folgen. Zusätzlich sollten Sie die Implementierung einer [Sunset-Richtlinie]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/) in Betracht ziehen, um den Versand an nicht engagierte oder inaktive E-Mail-Adressen einzustellen.
+- **Bounce-Raten:** Wenn eine Campaign eine Bounce-Rate von mehr als 3–5 % aufweist, sollten Sie die Sauberkeit Ihrer Liste bewerten, indem Sie den Richtlinien in unserem Artikel [Keep It Clean: The Importance of Email List Hygiene](https://www.braze.com/blog/email-list-hygiene/) folgen. Zusätzlich sollten Sie die Implementierung einer [Sunset-Richtlinie]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies) in Betracht ziehen, um den Versand an nicht engagierte oder inaktive E-Mail-Adressen einzustellen.
 - **Spam-Berichte:** Wenn eine Campaign mit einer Rate von mehr als 0,08 % als Spam gemeldet wird, sollten Sie die Inhalte, die Sie senden, neu bewerten, überprüfen, ob sie an eine interessierte Zielgruppe gerichtet sind, und sicherstellen, dass Ihre E-Mails angemessen formuliert sind, um deren Interesse zu wecken.
 - **Öffnungsraten:** Öffnungsraten sind ein nützlicher Indikator für die Posteingangsplatzierung. Wenn Ihre eindeutigen Öffnungsraten über 25 % liegen, erleben Sie wahrscheinlich eine hohe Posteingangsplatzierung, was auf eine positive Absender-Reputation hinweist.
 
 {% alert tip %}
-Braze empfiehlt, [intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/) nicht zum Aufwärmen Ihrer IPs zu verwenden. Da IP-Warming-Campaigns zu den ersten Campaigns gehören, die Sie senden, verfügt Braze nicht über genügend Informationen über Ihre Nutzer:innen, um einen optimalen Sendezeitpunkt zu berechnen. In diesem Fall würden alle Nachrichten mit intelligentem Timing auf die Fallback-Zeit zurückfallen und ohnehin zur gleichen Zeit gesendet werden.
+Braze empfiehlt, [intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) nicht zum Aufwärmen Ihrer IPs zu verwenden. Da IP-Warming-Campaigns zu den ersten Campaigns gehören, die Sie senden, verfügt Braze nicht über genügend Informationen über Ihre Nutzer:innen, um einen optimalen Sendezeitpunkt zu berechnen. In diesem Fall würden alle Nachrichten mit intelligentem Timing auf die Fallback-Zeit zurückfallen und ohnehin zur gleichen Zeit gesendet werden.
 {% endalert %}
 
 {% alert tip %}

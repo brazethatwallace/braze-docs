@@ -28,7 +28,7 @@ Brazeは、受信者1人あたり同じコネクテッドコンテンツAPIの�
 
 {% raw %}
 
-コネクテッドコンテンツの呼び出しを送信するには、`{% connected_content %}` タグを使用します。このタグでは、`:save` を使用して変数を割り当てたり宣言したりできます。これらの変数の要素は、後でメッセージ内で[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/)を使用して参照できます。
+コネクテッドコンテンツの呼び出しを送信するには、`{% connected_content %}` タグを使用します。このタグでは、`:save` を使用して変数を割り当てたり宣言したりできます。これらの変数の要素は、後でメッセージ内で[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid)を使用して参照できます。
 
 たとえば、以下のメッセージ本文はURL `http://numbersapi.com/random/trivia` にアクセスし、楽しいトリビアをメッセージに含めます。
 
@@ -59,7 +59,7 @@ Hi, here are some articles that you might find interesting:
 
 URLが利用できず404ページに到達した場合、Brazeはその代わりに空の文字列をレンダリングします。URLがHTTP 500または502ページに到達した場合、URLはリトライロジックで失敗します。
 
-エンドポイントがJSONを返す場合、`connected` の値がnullかどうかを確認し、[条件付きでメッセージを中止する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/)ことで検出できます。Brazeはポート80（HTTP）および443（HTTPS）で通信するURLのみを許可します。
+エンドポイントがJSONを返す場合、`connected` の値がnullかどうかを確認し、[条件付きでメッセージを中止する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content)ことで検出できます。Brazeはポート80（HTTP）および443（HTTPS）で通信するURLのみを許可します。
 
 ### 異常ホスト検出 {#unhealthy-host-detection}
 
@@ -67,24 +67,24 @@ URLが利用できず404ページに到達した場合、Brazeはその代わり
 
 ターゲットホストが著しい遅延やオーバーロードの高い発生率を経験した場合、Brazeはターゲットホストへのリクエストを1分間一時的に停止し、代わりに失敗を示すレスポンスをシミュレートします。1分後、Brazeは少数のリクエストでホストの健全性を確認し、ホストが健全であることが確認された場合はフルスピードでリクエストを再開します。ホストがまだ異常な場合、Brazeはさらに1分間待ってから再試行します。
 
-異常ホスト検出器によってターゲットホストへのリクエストが停止された場合、Brazeはエラーレスポンスコードを受信したかのようにメッセージのレンダリングを続行し、Liquidロジックに従います。異常ホスト検出器によって停止されたコネクテッドコンテンツリクエストをリトライさせたい場合は、`:retry` オプションを使用してください。`:retry` オプションの詳細については、[コネクテッドコンテンツのリトライ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/)を参照してください。
+異常ホスト検出器によってターゲットホストへのリクエストが停止された場合、Brazeはエラーレスポンスコードを受信したかのようにメッセージのレンダリングを続行し、Liquidロジックに従います。異常ホスト検出器によって停止されたコネクテッドコンテンツリクエストをリトライさせたい場合は、`:retry` オプションを使用してください。`:retry` オプションの詳細については、[コネクテッドコンテンツのリトライ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries)を参照してください。
 
-異常ホスト検出が問題を引き起こしていると思われる場合は、[Brazeサポート]({{site.baseurl}}/support_contact/)にお問い合わせください。
+異常ホスト検出が問題を引き起こしていると思われる場合は、[Brazeサポート]({{site.baseurl}}/support_contact)にお問い合わせください。
 
 {% alert note %}
 コネクテッドコンテンツに使用する特定のURLを許可リストに登録できます。この機能にアクセスするには、カスタマーサクセスマネージャーにお問い合わせください。
 {% endalert %}
 
 {% alert tip %}
-一般的なエラーコードの詳細については、[Webhookとコネクテッドコンテンツリクエストのトラブルシューティング]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content/#unhealthy-host-detection)を参照してください。
+一般的なエラーコードの詳細については、[Webhookとコネクテッドコンテンツリクエストのトラブルシューティング]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection)を参照してください。
 {% endalert %}
 
 ### レート制限（429）と異常ホスト検出の違い {#rate-limits-429-versus-unhealthy-host-detection}
 
 以下は異なるメカニズムです。
 
-- **429 Too Many Requests:** エンドポイント（またはアップストリームサービス）がこのレスポンスを返しています。サーバーまたはミドルウェアがトラフィックを拒否していることを意味し、多くの場合、独自のレート制限があるためです。Brazeはコネクテッドコンテンツに個別のレート制限を適用しません。コネクテッドコンテンツのリクエスト量は、[メッセージ配信速度のレート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting)に直接比例してスケールします。メッセージは受信者1人あたり複数回レンダリングされる可能性があるため（たとえば、メールのHTML、プレーンテキスト、AMP）、コネクテッドコンテンツリクエストの数はそのレート制限を超える可能性があります。設定した1分あたりのメッセージ数以下になるとは想定しないでください。429が発生する場合は、エンドポイントまたはミドルウェアを予想されるリクエスト量に対応できるようにスケールするか、Campaignまたはキャンバスステップのレート制限を下げて、1分あたりに送信されるメッセージ（およびコネクテッドコンテンツの呼び出し）を減らしてください。
-- **異常ホスト検出:** 1分間の時間枠内で高い発生率と量の*失敗*が発生した後にトリガーされるBraze側のセーフガードです。失敗カウントには `408`、`429`、`502`、`503`、`504`、`529` のステータスコードが含まれます。トリガーされると、Brazeはそのホストへのリクエストを一時的に停止し、失敗レスポンスをシミュレートします。これはお客様独自のレート制限とは独立しています。検出しきい値の詳細については、[Webhookとコネクテッドコンテンツリクエストのトラブルシューティング]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content/#unhealthy-host-detection)を参照してください。異常ホスト検出を回避するには、[コネクテッドコンテンツの呼び出し量について](#understanding-connected-content-call-volume)と[大量エンドポイントのベストプラクティス](#best-practices-for-high-volume-endpoints)で説明されている呼び出し量をエンドポイントが処理できるようにしてください。
+- **429 Too Many Requests:** エンドポイント（またはアップストリームサービス）がこのレスポンスを返しています。サーバーまたはミドルウェアがトラフィックを拒否していることを意味し、多くの場合、独自のレート制限があるためです。Brazeはコネクテッドコンテンツに個別のレート制限を適用しません。コネクテッドコンテンツのリクエスト量は、[メッセージ配信速度のレート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)に直接比例してスケールします。メッセージは受信者1人あたり複数回レンダリングされる可能性があるため（たとえば、メールのHTML、プレーンテキスト、AMP）、コネクテッドコンテンツリクエストの数はそのレート制限を超える可能性があります。設定した1分あたりのメッセージ数以下になるとは想定しないでください。429が発生する場合は、エンドポイントまたはミドルウェアを予想されるリクエスト量に対応できるようにスケールするか、キャンペーンまたはキャンバスステップのレート制限を下げて、1分あたりに送信されるメッセージ（およびコネクテッドコンテンツの呼び出し）を減らしてください。
+- **異常ホスト検出:** 1分間の時間枠内で高い発生率と量の*失敗*が発生した後にトリガーされるBraze側のセーフガードです。失敗カウントには `408`、`429`、`502`、`503`、`504`、`529` のステータスコードが含まれます。トリガーされると、Brazeはそのホストへのリクエストを一時的に停止し、失敗レスポンスをシミュレートします。これはお客様独自のレート制限とは独立しています。検出しきい値の詳細については、[Webhookとコネクテッドコンテンツリクエストのトラブルシューティング]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection)を参照してください。異常ホスト検出を回避するには、[コネクテッドコンテンツの呼び出し量について](#understanding-connected-content-call-volume)と[大量エンドポイントのベストプラクティス](#best-practices-for-high-volume-endpoints)で説明されている呼び出し量をエンドポイントが処理できるようにしてください。
 
 ## 効率的なパフォーマンスの確保 {#allowing-for-efficient-performance}
 
@@ -104,8 +104,8 @@ Brazeは非常に高速にメッセージを配信するため、コンテンツ
 メッセージでコネクテッドコンテンツを使用し、大量に送信する場合は、受信者数や送信数よりも多くのリクエストを計画してください。
 
 1. **ピーク負荷を見積もる:** エンドポイントまたはミドルウェアのサイジング時には、保守的な乗数を使用してください。コネクテッドコンテンツリクエストは受信者数や送信メッセージ数を超える可能性があります。たとえば、メールの場合、1人の受信者が複数の呼び出し（HTML、プレーンテキスト、AMP）を生成する可能性があるため、受信者数 × 2 または × 3 が保守的な見積もりとしてよく使用されます。
-2. **適切な場合はキャッシュを使用する:** GETリクエストはデフォルトでキャッシュされます。POSTリクエストの場合、レスポンスが一定期間再利用できる場合（たとえば、リクエストごとに変わらないトークンやコンテンツ）は `:cache_max_age` を追加してください。[レスポンスのキャッシュ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/)と以下の[POSTキャッシュに関するFAQ](#what-is-caching-behavior)を参照してください。
-3. **配信速度のレート制限を設定する:** Campaignまたはキャンバスステップの[配信速度のレート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting)は、コネクテッドコンテンツのリクエスト量を間接的に制限する唯一の手段です。Brazeはコネクテッドコンテンツ自体にレート制限を適用しません。これはプロキシに過ぎず、完全なものではありません。コネクテッドコンテンツリクエストはメッセージと1:1ではないためです。メッセージ（およびコネクテッドコンテンツ）の量をエンドポイントが処理できる範囲内に保つために使用してください。
+2. **適切な場合はキャッシュを使用する:** GETリクエストはデフォルトでキャッシュされます。POSTリクエストの場合、レスポンスが一定期間再利用できる場合（たとえば、リクエストごとに変わらないトークンやコンテンツ）は `:cache_max_age` を追加してください。[レスポンスのキャッシュ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses)と以下の[POSTキャッシュに関するFAQ](#what-is-caching-behavior)を参照してください。
+3. **配信速度のレート制限を設定する:** キャンペーンまたはキャンバスステップの[配信速度のレート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)は、コネクテッドコンテンツのリクエスト量を間接的に制限する唯一の手段です。Brazeはコネクテッドコンテンツ自体にレート制限を適用しません。これはプロキシに過ぎず、完全なものではありません。コネクテッドコンテンツリクエストはメッセージと1:1ではないためです。メッセージ（およびコネクテッドコンテンツ）の量をエンドポイントが処理できる範囲内に保つために使用してください。
 4. **冪等性とリトライを考慮して設計する:** Brazeは受信者1人あたりエンドポイントを複数回呼び出す場合があります。エンドポイントが重複リクエストを不正な副作用なく許容できることを確認してください。
 
 ## 認証タイプ {#authentication-types}
@@ -136,7 +136,7 @@ Hi there, here is some fun trivia for you!: {% connected_content https://yourweb
 認証情報を削除すると、その認証情報を使用しようとするすべてのコネクテッドコンテンツの呼び出しが中止されることに注意してください。
 {% endalert %}
 
-保存された認証情報は、Brazeがメッセージをレンダリングする際の {% raw %}`{% connected_content %}`{% endraw %} リクエストに適用されます。[Webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#authentication-and-connected-content-credentials)ステップで設定されたプライマリHTTPリクエストには適用されません。その呼び出しのシークレットを取得する必要がある場合は、リクエストヘッダーまたはWebhookのヘッダーまたは本文フィールド内の {% raw %}`{% connected_content %}`{% endraw %} タグを使用してください。
+保存された認証情報は、Brazeがメッセージをレンダリングする際の {% raw %}`{% connected_content %}`{% endraw %} リクエストに適用されます。[Webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#authentication-and-connected-content-credentials)ステップで設定されたプライマリHTTPリクエストには適用されません。その呼び出しのシークレットを取得する必要がある場合は、リクエストヘッダーまたはWebhookのヘッダーまたは本文フィールド内の {% raw %}`{% connected_content %}`{% endraw %} タグを使用してください。
 
 ### トークン認証の使用 {#using-token-authentication}
 
@@ -168,7 +168,7 @@ Brazeのコネクテッドコンテンツを使用する際、一部のAPIでは
 
 #### ステップ1:アクセストークンを取得する {#step-1-retrieve-the-access-token}
 
-以下の例は、アクセストークンを取得してローカル変数に保存し、その後のAPI呼び出しの認証に使用する方法を示しています。`:cache_max_age` パラメーターを追加して、アクセストークンの有効期間に合わせ、送信コネクテッドコンテンツの呼び出し数を削減できます。詳細については、[設定可能なキャッシュ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables/#configurable-caching)を参照してください。
+以下の例は、アクセストークンを取得してローカル変数に保存し、その後のAPI呼び出しの認証に使用する方法を示しています。`:cache_max_age` パラメーターを追加して、アクセストークンの有効期間に合わせ、送信コネクテッドコンテンツの呼び出し数を削減できます。詳細については、[設定可能なキャッシュ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#configurable-caching)を参照してください。
 
 {% raw %}
 ```
@@ -219,7 +219,7 @@ Brazeは以下のIP範囲からコネクテッドコンテンツリクエスト�
 
 Brazeはすべてのサービスに使用される予約済みのIPセットを持っており、特定の時点ですべてがアクティブであるとは限りません。これは、必要に応じてBrazeが別のデータセンターから送信したりメンテナンスを行ったりしても、顧客に影響を与えないように設計されています。Brazeはコネクテッドコンテンツリクエストを行う際に、以下にリストされたIPの1つ、サブセット、またはすべてを使用する場合があります。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### `User-Agent` ヘッダー {#user-agent-header}
 
@@ -238,11 +238,11 @@ Braze Sender 75e404755ae1270441f07eb238f0faf25e44dfdc
 コネクテッドコンテンツの呼び出しのトラブルシューティングや、呼び出しで送信されるリクエストヘッダー、リクエスト本文、その他の情報に関する問題の診断には、[Webhook.site](https://webhook.site/)を使用してください。
 
 1. コネクテッドコンテンツの呼び出しのURLを、サイトで生成された一意のURLに切り替えます。
-2. Campaignまたはキャンバスステップをプレビューしてテストし、このWebサイトにリクエストが届くことを確認します。
+2. キャンペーンまたはキャンバスステップをプレビューしてテストし、このWebサイトにリクエストが届くことを確認します。
 
 Liquidタグにエンドポイントが期待するパラメーター（たとえば、`:method`、`:headers`、`:content_type`、`:body`、必要に応じて `:basic_auth`）が含まれていることも確認できます。保存されたJSONオブジェクトのHTTPステータスコードキーに依存する場合、エンドポイントはJSONオブジェクトと `2XX` ステータスを返す必要があります。
 
-ホストからのエラー率が高い場合は、[異常ホスト検出]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/#unhealthy-host-detection)と[コネクテッドコンテンツの呼び出し量](#understanding-connected-content-call-volume)を確認してください。
+ホストからのエラー率が高い場合は、[異常ホスト検出]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors#unhealthy-host-detection)と[コネクテッドコンテンツの呼び出し量](#understanding-connected-content-call-volume)を確認してください。
 
 ## よくある質問 {#frequently-asked-questions}
 
@@ -260,7 +260,7 @@ Brazeはメッセージペイロードをレンダリングするために、受
 
 ### キャッシュの動作はどうなっていますか？ {#what-is-caching-behavior}
 
-GETリクエストはデフォルトでキャッシュされます（[レスポンスのキャッシュ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/)を参照）。**POSTリクエストはデフォルトではキャッシュされません**が、コネクテッドコンテンツの呼び出しに `:cache_max_age` を追加することでキャッシュを有効にできます。これにより、同じPOST（たとえば、トークンやコンテンツリクエスト）がキャッシュ時間枠内で繰り返し行われる場合のエンドポイント負荷を軽減できます。
+GETリクエストはデフォルトでキャッシュされます（[レスポンスのキャッシュ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses)を参照）。**POSTリクエストはデフォルトではキャッシュされません**が、コネクテッドコンテンツの呼び出しに `:cache_max_age` を追加することでキャッシュを有効にできます。これにより、同じPOST（たとえば、トークンやコンテンツリクエスト）がキャッシュ時間枠内で繰り返し行われる場合のエンドポイント負荷を軽減できます。
 
 {% raw %}
 ```liquid
@@ -268,14 +268,14 @@ GETリクエストはデフォルトでキャッシュされます（[レスポ�
 ```
 {% endraw %}
 
-キャッシュは重複するコネクテッドコンテンツの呼び出しを削減するのに役立ちますが、ユーザーあたり1回の呼び出しになることは保証されません。キャッシュの持続時間は5分から4時間です。詳細については、[レスポンスのキャッシュ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/)を参照してください。
+キャッシュは重複するコネクテッドコンテンツの呼び出しを削減するのに役立ちますが、ユーザーあたり1回の呼び出しになることは保証されません。キャッシュの持続時間は5分から4時間です。詳細については、[レスポンスのキャッシュ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses)を参照してください。
 
 ### コネクテッドコンテンツのHTTPデフォルト動作はどうなっていますか？ {#what-is-the-connected-content-http-default-behavior}
 
-{% multi_lang_include connected_content.md section='default behavior' %}
+{% multi_lang_include connected_content/sections.md section='default behavior' %}
 
-{% multi_lang_include connected_content.md section='http post' %}
+{% multi_lang_include connected_content/sections.md section='http post' %}
 
 ### 同じコネクテッドコンテンツの呼び出しを複数の場所で使用するとどうなりますか？ {#what-happens-if-i-use-the-same-connected-content-call-in-multiple-places}
 
-各コネクテッドコンテンツタグは、複数のタグが同じURLとパラメーターを使用している場合でも、個別に評価されます。URLとキャッシュ設定が許可する場合、同一のリクエストは新しい送信リクエストをトリガーするのではなく、キャッシュから提供される場合があります（詳細については[レスポンスのキャッシュ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/caching_responses/)を参照してください）。
+各コネクテッドコンテンツタグは、複数のタグが同じURLとパラメーターを使用している場合でも、個別に評価されます。URLとキャッシュ設定が許可する場合、同一のリクエストは新しい送信リクエストをトリガーするのではなく、キャッシュから提供される場合があります（詳細については[レスポンスのキャッシュ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/caching_responses)を参照してください）。

@@ -56,7 +56,7 @@ Currentsと同様に、Databricks Delta Sharingを使用して以下のことが
 - 生のイベントデータやユーザーデータをCRM（Salesforceなど）にマッピング
 - その他
 
-Databricksで利用可能なテーブルとカラムの完全なリストについては、[Databricks生テーブルスキーマをダウンロード]({% image_buster /assets/download_file/databricks-data-sharing-raw-table-schemas.txt %})してテキストファイルとして確認してください。このファイルはDatabricks Delta Sharingスキーマを反映しています（例: 取り込み時刻の`DB_CREATED_AT`）。[Snowflake生テーブルスキーマ]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %})や[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)とは互換性がありません。これらはSnowflakeの命名規則とフィールドを記述しています。
+Databricksで利用可能なテーブルとカラムの完全なリストについては、[Databricks生テーブルスキーマをダウンロード](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt)してテキストファイルとして確認してください。このファイルはDatabricks Delta Sharingスキーマを反映しています（例: 取り込み時刻の`DB_CREATED_AT`）。[Snowflake生テーブルスキーマ](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)や[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)とは互換性がありません。これらはSnowflakeの命名規則とフィールドを記述しています。
 
 {% alert note %}
 クローズドベータ期間中は、Databricksスキーマファイルに記載されているすべてのテーブルが共有で利用できるとは限りません。カラム名や型もSnowflakeデータ共有と異なる場合があります（例: `SF_CREATED_AT`の代わりに`DB_CREATED_AT`）。お使いのワークスペースの現在のテーブルリストが必要な場合は、Brazeカスタマーサクセスマネージャーにお問い合わせください。
@@ -70,13 +70,13 @@ Databricksで利用可能なテーブルとカラムの完全なリストにつ�
 | ----------- | ----------- | ----------- |
 | `braze_id` | `USER_ID` | Brazeが自動的に割り当てるユニーク識別子です。 |
 | `external_id` | `EXTERNAL_USER_ID` | Brazeで設定するユーザープロファイルのユニーク識別子です。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User ID schema" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ユーザーIDスキーマ" }
 
 ## 重要な情報と制限事項 {#important-information-and-limitations}
 
 ### クローズドベータの利用可能性 {#closed-beta-availability}
 
-クローズドベータ期間中は、[Databricks生テーブルスキーマ]({% image_buster /assets/download_file/databricks-data-sharing-raw-table-schemas.txt %})ファイルに記載されているすべてのテーブルが共有に含まれない場合があります。共有データは、カラム名や型においてSnowflakeデータ共有と異なる場合もあります。例えば、Databricks共有では取り込み時刻に`DB_CREATED_AT`を使用しますが、Snowflake共有では`SF_CREATED_AT`を使用します。
+クローズドベータ期間中は、[Databricks生テーブルスキーマ](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt)ファイルに記載されているすべてのテーブルが共有に含まれない場合があります。共有データは、カラム名や型においてSnowflakeデータ共有と異なる場合もあります。例えば、Databricks共有では取り込み時刻に`DB_CREATED_AT`を使用しますが、Snowflake共有では`SF_CREATED_AT`を使用します。
 
 ### 破壊的変更と非破壊的変更 {#breaking-versus-non-breaking-changes}
 
@@ -121,7 +121,7 @@ Databricksで利用可能なテーブルとカラムの完全なリストにつ�
 | ----- | ------- |
 | `TIME` | イベントが発生したUnixタイムスタンプです。発生時刻でフィルタリングする場合はこちらを使用してください。 |
 | `DB_CREATED_AT` | 行がDatabricksに読み込まれたタイムスタンプ（取り込み時刻）です。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Querying shared data: TIME and query performance" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="共有データのクエリ: TIMEとクエリパフォーマンス" }
 
 ### クエリの速度、パフォーマンス、コスト {#speed-performance-and-cost-of-queries}
 

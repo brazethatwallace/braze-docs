@@ -26,9 +26,9 @@ Puedes hacer seguimiento de las adhesiones y cancelaciones de suscripción de SM
 
 | Método | Descripción |
 |--------|-------------|
-| Segmentador | El segmentador muestra el número de usuarios en un [grupo de suscripción]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#subscription-group) específico. No deduplica por número de teléfono: si varios usuarios comparten el mismo número de teléfono, cada instancia se cuenta por separado. |
+| Segmentador | El segmentador muestra el número de usuarios en un [grupo de suscripción]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#subscription-group) específico. No deduplica por número de teléfono: si varios usuarios comparten el mismo número de teléfono, cada instancia se cuenta por separado. |
 | Serie temporal de grupos de suscripción | Proporciona una instantánea diaria de las suscripciones para correo electrónico y números de teléfono. La serie temporal cuenta suscripciones, cancelaciones de suscripción y resuscripciones. Por ejemplo, si un usuario se suscribe, cancela su suscripción y luego se vuelve a suscribir, se cuenta como un usuario suscrito. |
-| Currents | Usa Currents para exportar [eventos de suscripción e interacción]({{site.baseurl}}/message_events_glossary/) para tus propios informes. |
+| Currents | Usa Currents para exportar [eventos de suscripción e interacción]({{site.baseurl}}/message_events_glossary) para tus propios informes. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Seguimiento de adhesiones y cancelaciones de suscripción de SMS" }
 
 {% alert note %}
@@ -37,7 +37,7 @@ Las estadísticas de _adhesión voluntaria_ y _cancelación de suscripción_ en 
 
 ### Seguimiento de cancelaciones de suscripción de campañas de SMS {#track-sms-campaign-opt-outs}
 
-Haz seguimiento de las cancelaciones de suscripción de SMS a nivel de campaña utilizando la tabla de recepción de entrada en lugar de la tabla de cambio de estado del grupo de suscripción. Por ejemplo, en el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/query_builder/) o en tu almacén de datos, puedes ejecutar una consulta que haga referencia a la tabla `USERS_MESSAGES_SMS_INBOUNDRECEIVE` o [`USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED`]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED).
+Haz seguimiento de las cancelaciones de suscripción de SMS a nivel de campaña utilizando la tabla de recepción de entrada en lugar de la tabla de cambio de estado del grupo de suscripción. Por ejemplo, en el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/query_builder) o en tu almacén de datos, puedes ejecutar una consulta que haga referencia a la tabla `USERS_MESSAGES_SMS_INBOUNDRECEIVE` o [`USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED`]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED).
 
 Esta consulta de ejemplo hace referencia a la tabla `USERS_MESSAGES_SMS_INBOUNDRECEIVE`:
 
@@ -54,13 +54,13 @@ Esto devuelve los usuarios que cancelaron su suscripción a las comunicaciones p
 
 ### Momento de la cancelación de suscripción {#opt-out-timing}
 
-Los eventos de palabras clave y mensajes de entrada en Currents o en tu almacén de datos, como las marcas de tiempo en [`users.messages.sms.InboundReceive`]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-inbound-received-events) o los eventos de cambio de estado del grupo de suscripción, son la fuente autorizada de cuándo Braze registró la cancelación de suscripción.
+Los eventos de palabras clave y mensajes de entrada en Currents o en tu almacén de datos, como las marcas de tiempo en [`users.messages.sms.InboundReceive`]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) o los eventos de cambio de estado del grupo de suscripción, son la fuente autorizada de cuándo Braze registró la cancelación de suscripción.
 
 {% alert note %}
 Las marcas de tiempo de los eventos reflejan cuándo Braze recibió o procesó el mensaje de entrada, no necesariamente cuándo el usuario envió el SMS o cuándo un operador o proveedor de SMS lo recibió. Si tu análisis trata las cancelaciones de suscripción como el momento en que Braze procesó la ruta de cancelación de suscripción entrante, estas marcas de tiempo coinciden con esa definición.
 {% endalert %}
 
-El perfil de usuario muestra el estado de suscripción actual, pero puede que no muestre un campo único de "cancelación de suscripción de SMS en" a menos que establezcas un [atributo personalizado]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/) o similar al procesar las cancelaciones de suscripción.
+El perfil de usuario muestra el estado de suscripción actual, pero puede que no muestre un campo único de "cancelación de suscripción de SMS en" a menos que establezcas un [atributo personalizado]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes) o similar al procesar las cancelaciones de suscripción.
 
 ## Cargos aplicados a los resultados de envío de SMS {#charges-applied-to-sms-sending-outcomes}
 
@@ -77,4 +77,4 @@ Esta tabla refleja la facturación de Braze, no la de tu proveedor. Los resultad
 
 ## Conciliar *rechazos* con Snowflake o Currents {#reconcile-rejections-with-snowflake-or-currents}
 
-La métrica de *rechazos* en el dashboard es un recuento agregado del espacio de trabajo. No es una exportación a nivel de fila, por lo que no siempre puedes hacer coincidir cada rechazo con una sola fila en Snowflake o un solo evento `users.messages.sms.Rejection` en Currents. Por ejemplo, si el perfil de usuario fue eliminado antes de que Braze terminara de procesar el rechazo para la exportación al almacén de datos, ese rechazo no aparece en tu tabla `USERS_MESSAGES_SMS_REJECTION_SHARED` ni en la carga útil de Currents, mientras que los informes agregados de SMS aún pueden reflejar el resultado. Para más información, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#sms-message-events-and-deleted-user-profiles) y los [eventos de rechazo de SMS]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-rejection-events) en el glosario de eventos de Currents.
+La métrica de *rechazos* en el dashboard es un recuento agregado del espacio de trabajo. No es una exportación a nivel de fila, por lo que no siempre puedes hacer coincidir cada rechazo con una sola fila en Snowflake o un solo evento `users.messages.sms.Rejection` en Currents. Por ejemplo, si el perfil de usuario fue eliminado antes de que Braze terminara de procesar el rechazo para la exportación al almacén de datos, ese rechazo no aparece en tu tabla `USERS_MESSAGES_SMS_REJECTION_SHARED` ni en la carga útil de Currents, mientras que los informes agregados de SMS aún pueden reflejar el resultado. Para más información, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#sms-message-events-and-deleted-user-profiles) y los [eventos de rechazo de SMS]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-rejection-events) en el glosario de eventos de Currents.

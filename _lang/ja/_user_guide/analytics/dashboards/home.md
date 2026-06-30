@@ -17,37 +17,32 @@ tool:
 - [前回の続きから再開](#pick-up-where-you-left-off)
 - [パフォーマンス概要](#performance-overview)
 
-![Brazeのホームダッシュボード。]({% image_buster /assets/img_archive/home_dashboard.png %})
 
 ## 前回の続きから再開 {#pick-up-where-you-left-off}
 
 Brazeダッシュボードで最近編集または作成したファイルに直接アクセスして、前回の続きから作業を再開できます。このセクションは、Brazeダッシュボードの**ホーム**ページの上部に表示されます。
 
-最近編集または作成したCampaign、Canvas、Segmentを再度確認できます。各カードには、コンテンツタイプ（Campaign、Canvas、Segment）とステータス（アクティブ、下書き、アーカイブ、停止）を示すタグが付いています。
+最近編集または作成したキャンペーン、キャンバス、セグメントを再度確認できます。各カードには、コンテンツタイプ（キャンペーン、キャンバス、セグメント）とステータス（アクティブ、下書き、アーカイブ、停止）を示すタグが付いています。
 
 {% alert note %}
-**前回の続きから再開**セクションは、Campaign、Canvas、またはSegmentを編集または作成した後に表示されます。
+**前回の続きから再開**セクションは、キャンペーン、キャンバス、またはセグメントを編集または作成した後に表示されます。
 {% endalert %}
 
-![「前回の続きから再開」セクションに表示されたCanvasの下書き、アクティブなSegment、Campaignの下書き。]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
+![「前回の続きから再開」セクションに表示されたキャンバスの下書き、アクティブなセグメント、キャンペーンの下書き。]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
 
 ## パフォーマンス概要 {#performance-overview}
 
 デフォルトでは、**パフォーマンス概要**セクションには、すべてのアプリとサイトの過去30日間のデータが表示されます。すべての指標は、選択した日付範囲に基づいて計算されます。
 
-![ホームダッシュボードの日付範囲とアプリのフィールド。]({% image_buster /assets/img_archive/home_dashboard_select_date.png %}){: style="max-width:60%;"}
-
 パーセンテージは、現在の日付範囲と前の日付範囲を比較して計算されます。ただし、*月間アクティブユーザー*（MAU）は範囲ではなく前の期間の最終日を使用します。
 
 例えば、日付範囲を**過去7日間**に設定し、*デイリーアクティブユーザー*が1.8%の増加を示している場合、先週と比較して今週のデイリーアクティブユーザーが1.8%多かったことを意味します。
 
-![指標値とパーセンテージの変化を表示するパフォーマンス概要の指標タイル。]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![デイリーアクティブユーザーの指標タイル。平均22.2千人で、7.1%の増加バッジとトレンドラインが表示されています。]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### 内訳を表示 {#show-breakdown}
 
 パフォーマンス概要の統計の各行で**Show Breakdown**を選択すると、指定した日付範囲の各統計の日別値を確認できます。
-
-![展開された内訳表示。]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
 
 ### 経時パフォーマンス {#performance-over-time}
 
@@ -59,7 +54,7 @@ Brazeダッシュボードで最近編集または作成したファイルに直
 - バナー
 - Content Cards
 - デイリーアクティブユーザー
-  - （オプション）Segment別の内訳
+  - （オプション）セグメント別の内訳
 - メール
 - アプリ内メッセージ
 - KPI計算式
@@ -68,15 +63,15 @@ Brazeダッシュボードで最近編集または作成したファイルに直
 - 月間アクティブユーザー（MAU）
 - 新規ユーザー
 - プッシュ
-  - （オプション）Segment別の内訳
+  - （オプション）セグメント別の内訳
 - セッション
-  - （オプション）Segmentまたはアプリバージョン別の内訳
+  - （オプション）セグメントまたはアプリバージョン別の内訳
 - 時間別セッション
 - MAUあたりのセッション
 - SMS
 - スティッキネス
 - アンインストール
-  - （オプション）Segment別の内訳
+  - （オプション）セグメント別の内訳
 - ユーザー
 - Webhook
 - WhatsApp
@@ -89,12 +84,11 @@ Brazeダッシュボードで最近編集または作成したファイルに直
 
 *ユーザー*は、そのワークスペースで作成されたユーザーの合計数です。これには、アプリやWebサイトを使用したことがあるすべてのユーザーと、特定のアプリやWebサイトに関連付けられていないユーザーが含まれます。この数値は、ライフタイムユーザーのうち*月間アクティブユーザー*（MAU）として表されるユーザーの割合であり、長期間にわたるユーザーリテンションを確認するのに役立ちます。
 
-MAUとユーザーの比率が低い場合は、メッセージングチャネルを多様化するか、離脱ユーザーへのリーチを強化する必要があることを示している可能性があります。詳細については、[離脱ユーザーの獲得]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users/#capture-lapsing-users)に関するクイックウィンをご覧ください。一般的に、MAUとライフタイムの比率はユーザーの離脱により時間の経過とともに必然的に低下しますが、Brazeのツールを使用することで、ユーザーのエンゲージメントを長期間維持し、この影響を最小限に抑えることができます。
+MAUとユーザーの比率が低い場合は、メッセージングチャネルを多様化するか、離脱ユーザーへのリーチを強化する必要があることを示している可能性があります。詳細については、[離脱ユーザーの獲得]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users#capture-lapsing-users)に関するクイックウィンをご覧ください。一般的に、MAUとライフタイムの比率はユーザーの離脱により時間の経過とともに必然的に低下しますが、Brazeのツールを使用することで、ユーザーのエンゲージメントを長期間維持し、この影響を最小限に抑えることができます。
 
 ### ライフタイムセッション {#lifetime-sessions}
 
-*ライフタイムセッション*は、連携以降にBrazeが記録したセッションの合計数です。セッションとは、ユーザーがアプリを使用するかWebサイトにアクセスするたびにカウントされます。プラットフォームごとのセッションの定義の詳細については、対応する
-[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift)、[AndroidおよびFireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android)、または[Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web)のセッショントラッキングに関する開発者向け記事をご覧ください。
+*ライフタイムセッション*は、連携以降にBrazeが記録したセッションの合計数です。セッションとは、ユーザーがアプリを使用するかWebサイトにアクセスするたびにカウントされます。プラットフォームごとのセッションの定義の詳細については、対応する[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift)、[AndroidおよびFireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android)、または[Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web)のセッショントラッキングに関する開発者向け記事をご覧ください。
 
 ### 月間アクティブユーザー {#monthly-active-users}
 
@@ -131,13 +125,13 @@ BrazeのMAUカウントは、各製品がアクティブユーザーの定義を
 | 2 | **匿名ユーザー1**を識別（プロファイルが識別済みに変換） | 0 | 1 |
 | 3 | **匿名ユーザー2**を作成し、セッションを記録 | +1 | 2 |
 | 4 | **匿名ユーザー2**をユーザー1と**同一人物**として識別（ユーザー2が孤立状態になる） | –1 | 1 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="MAU calculation example" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="MAUの計算例" }
 
 MAUスナップショットは1日1回計算され、遡って変更されることはありません。この例では、ステップ3の翌日のMAUカウントは、ユーザー2がその後孤立状態になっても永続的に2のままです。ただし、それ以降の日のMAUカウントには、孤立していないユーザーのみが反映されます。30日間のウィンドウ内では、孤立していない個別のユーザーが1人だけ残るため、このフローは最終的に1 MAUを消費します。
 
 ### デイリーアクティブユーザー {#daily-active-users}
 
-*デイリーアクティブユーザー*（DAU）は、特定の日にアプリまたはサイトで少なくとも1つのセッションを記録したユニークユーザーの数を表示します。DAUは、アプリやサイトの使用状況の日々の変動を調べ、メッセージングCampaignsを可能な限り効果的にするために役立つ統計です。例えば、アプリの使用量が週末に顕著に増加する場合、平日よりもこれらの日にアプリ内メッセージでより多くのユーザーにリーチできることがわかります。
+*デイリーアクティブユーザー*（DAU）は、特定の日にアプリまたはサイトで少なくとも1つのセッションを記録したユニークユーザーの数を表示します。DAUは、アプリやサイトの使用状況の日々の変動を調べ、メッセージングキャンペーンを可能な限り効果的にするために役立つ統計です。例えば、アプリの使用量が週末に顕著に増加する場合、平日よりもこれらの日にアプリ内メッセージでより多くのユーザーにリーチできることがわかります。
 
 ### 新規ユーザー {#new-users}
 
@@ -146,7 +140,7 @@ MAUスナップショットは1日1回計算され、遡って変更されるこ
 {% alert note %}
 Brazeを初めて連携した際には、Brazeがそれまでセッションを記録したことがないため、すべてのユーザーが新規ユーザーとして表示されます。
 
-MAUとは異なり、*新規ユーザー*のカウントは、Brazeが匿名プロファイルを識別済みプロファイルにマージし、匿名プロファイルを孤立させた場合に遡って減少することがあります。Brazeは孤立したプロファイルをアプリ使用量の合計から削除するため、すでに確認した日付の*新規ユーザー*が減少する可能性があります。プロファイルのリンク動作については、[ユーザープロファイルのライフサイクル]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)をご覧ください。
+MAUとは異なり、*新規ユーザー*のカウントは、Brazeが匿名プロファイルを識別済みプロファイルにマージし、匿名プロファイルを孤立させた場合に遡って減少することがあります。Brazeは孤立したプロファイルをアプリ使用量の合計から削除するため、すでに確認した日付の*新規ユーザー*が減少する可能性があります。プロファイルのリンク動作については、[ユーザープロファイルのライフサイクル]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)をご覧ください。
 {% endalert %}
 
 {% alert important %}

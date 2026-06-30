@@ -57,7 +57,7 @@ Die Integration wird sowohl für die Synchronisierung von Daten von [Braze zu Mo
 
 #### 2. Schritt: Fivetran-Konnektor-Formular ausfüllen {#step-2-fill-out-the-fivetran-connector-form}
 
-Sie werden auf die Seite des Fivetran-Konnektors weitergeleitet. Füllen Sie auf dieser Seite die vorgegebenen Felder aus. Klicken Sie anschließend auf **Continue** > **Save & Test**, um den Fivetran-Konnektor fertigzustellen.
+Sie werden auf die Seite des Fivetran-Konnektors weitergeleitet, nachdem Sie Schritt 1 abgeschlossen haben. Füllen Sie die vorgegebenen Felder aus und klicken Sie anschließend auf **Continue** > **Save & Test**, um den Fivetran-Konnektor fertigzustellen.
 
 Fivetran beginnt mit der Synchronisierung der Daten von Ihrem Braze-Konto in Ihr Snowflake Data Warehouse. Sie können auf Abfragedaten von Mozart Data zugreifen, nachdem der Konnektor die Synchronisierung abgeschlossen hat.
 
@@ -69,15 +69,15 @@ Folgen Sie den Anweisungen zur [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide
 
 #### 2. Schritt: Snowflake-Integration in Braze einrichten {#step-2-set-up-your-snowflake-integration-in-braze}
 
-Nachdem Sie Ihr Snowflake Warehouse eingerichtet haben, gehen Sie in Mozart Data auf die Seite **Integration** und wählen Sie **Braze** aus. Hier finden Sie die Zugangsdaten, die Sie Braze zur Verfügung stellen müssen.
+Nachdem Sie Ihr Snowflake Warehouse eingerichtet haben, gehen Sie in Mozart Data auf die Seite **Integration** und wählen Sie **Braze** aus. In der **Braze**-Integrationsansicht finden Sie die Zugangsdaten, die Sie in Braze kopieren müssen.
 
-![]({% image_buster /assets/img/mozartdata/mozartdata-braze-integrationpage.png %}){: style="max-width:80%;"}
+![Mozart Data-Integrationsseite mit ausgewähltem Braze und Snowflake-Verbindungszugangsdaten zur Verwendung in Braze.]({% image_buster /assets/img/mozartdata/mozartdata-braze-integrationpage.png %}){: style="max-width:80%;"}
 
 Gehen Sie dann, während Sie bei Braze angemeldet sind, zu **Integrations > Technology Partners > Snowflake**, um den Integrationsprozess zu starten. Kopieren Sie die Zugangsdaten von Mozart Data und fügen Sie sie auf der Snowflake-Datenimportseite hinzu. Klicken Sie auf **Set up sync details** und geben Sie Ihr Snowflake-Konto und die Informationen zur Quelltabelle ein.
 
-![]({% image_buster /assets/img/mozartdata/mozartdata-braze-snowflakecredentials.png %}){: style="max-width:80%;"}
+![Braze-Snowflake-Partnerintegrationsformular mit Feldern für Konto, Warehouse, Datenbank und Schema, die mit Mozart Data-Zugangsdaten ausgefüllt sind.]({% image_buster /assets/img/mozartdata/mozartdata-braze-snowflakecredentials.png %}){: style="max-width:80%;"}
 
-Wählen Sie als Nächstes einen Namen für Ihre Synchronisierung, geben Sie Kontakt-E-Mails an und wählen Sie einen Datentyp und eine Synchronisierungshäufigkeit auf dem Bildschirm für den Braze-Snowflake-Datenimport aus.
+Wählen Sie als Nächstes einen Namen für Ihre Synchronisierung, geben Sie Kontakt-E-Mails an und wählen Sie einen Datentyp und eine Synchronisierungshäufigkeit auf dem Bildschirm für die Braze-Snowflake-Importkonfiguration aus.
 
 #### 3. Schritt: Public Key zum Braze-Nutzer hinzufügen {#step-3-add-a-public-key-to-the-braze-user}
 
@@ -93,7 +93,7 @@ ALTER USER BRAZE_INGESTION_USER SET rsa_public_key='Braze12345...';
 
 Sobald der Nutzer mit dem Public Key aktualisiert wurde, kehren Sie zum Braze-Dashboard zurück und klicken Sie auf **Test connection**. Bei Erfolg sehen Sie eine Vorschau der Daten. Wenn die Verbindung aus irgendeinem Grund nicht zustande kommt, wird eine Fehlermeldung angezeigt, die Sie bei der Fehlerbehebung unterstützt.
 
-![]({% image_buster /assets/img/mozartdata/mozartdata-braze-testsyncpublickey.png %}){: style="max-width:80%;"}
+![Ergebnis des Braze-Snowflake-Integrationstests mit einer erfolgreichen Vorschau nach Anwendung des Public Key.]({% image_buster /assets/img/mozartdata/mozartdata-braze-testsyncpublickey.png %}){: style="max-width:80%;"}
 
 {% alert note %}
 Sie müssen eine Integration erfolgreich testen, bevor sie vom Entwurfsstatus in den aktiven Status übergehen kann. Wenn Sie die Erstellungsseite verlassen müssen, wird Ihre Integration gespeichert, und Sie können die Detailseite erneut aufrufen, um Änderungen vorzunehmen und zu testen.

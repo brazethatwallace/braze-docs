@@ -10,7 +10,7 @@ description: "Este artigo de referência aborda como criar e usar seleções com
 
 > Seleções são grupos de dados que você pode usar para personalizar uma mensagem para cada usuário em sua Campaign. Ao usar uma seleção, você está basicamente configurando filtros personalizados com base em colunas específicas do seu catálogo. Isso pode incluir filtros por marca, tamanho, local, data de adição e muito mais. Isso dá a você controle sobre o que está sendo mostrado aos usuários, permitindo que você defina critérios que os itens devem atender primeiro.<br><br>Esta página aborda como criar e usar seleções com seus catálogos.
 
-Depois de criar um [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/), você pode fazer referência adicional aos dados do catálogo incorporando seleções em suas Campaigns ou recomendações da Braze.
+Depois de criar um [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs), você pode fazer referência adicional aos dados do catálogo incorporando seleções em suas Campaigns ou recomendações da Braze.
 
 ![A seção Seleções em um catálogo de exemplo.]({% image_buster /assets/img_archive/catalog_selections1.png %})
 
@@ -18,11 +18,11 @@ Depois de criar um [catálogo]({{site.baseurl}}/user_guide/data/activation/catal
 
 - Você pode criar até 30 seleções por catálogo.
 - Você pode adicionar até 10 filtros por seleção.
-- As seleções são ótimas para refinar as recomendações dos dados do catálogo da Braze. Se estiver procurando inspiração, consulte [Sobre recomendações de itens]({{site.baseurl}}/user_guide/brazeai/recommendations/) para ver exemplos de casos de uso.
+- As seleções são ótimas para refinar as recomendações dos dados do catálogo da Braze. Se estiver procurando inspiração, consulte [Sobre recomendações de itens]({{site.baseurl}}/user_guide/brazeai/recommendations) para ver exemplos de casos de uso.
 
 ## Filtros de geolocalização {#geolocation-filters}
 
-Se o seu catálogo inclui um [tipo de campo de geolocalização]({{site.baseurl}}/user_guide/data/activation/catalogs/create/#supported-data-types), você pode usar filtros baseados em geolocalização em suas seleções para exibir itens do catálogo com base na proximidade de um ponto geográfico.
+Se o seu catálogo inclui um [tipo de campo de geolocalização]({{site.baseurl}}/user_guide/data/activation/catalogs/create#supported-data-types), você pode usar filtros baseados em geolocalização em suas seleções para exibir itens do catálogo com base na proximidade de um ponto geográfico.
 
 Dois operadores de geolocalização estão disponíveis:
 

@@ -35,7 +35,7 @@ For a use case where you need to create or update a user profile in Braze withou
 
 ```json
 {
- "email_address": "test@braze.com",
+ "email_address": "test@example.com",
  "fields_to_export": ["braze_id", "user_aliases"]
 }
 ```
@@ -55,10 +55,10 @@ In order for the user alias to be a sendable profile, you must include the email
    "attributes": [
    {
      "user_alias" : {
-       "alias_name" : "test@braze.com",
+       "alias_name" : "test@example.com",
        "alias_label" : "email"
      },
-     "email": "test@braze.com",
+     "email": "test@example.com",
      "_update_existing_only": false,
      "string_attribute": "sherman",
      "boolean_attribute_1": true,
@@ -79,7 +79,7 @@ Use the email address as the identifier in the user track endpoint.
 {
     "attributes": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "string_attribute": "fruit",
             "boolean_attribute_1": true,
             "integer_attribute": 25,

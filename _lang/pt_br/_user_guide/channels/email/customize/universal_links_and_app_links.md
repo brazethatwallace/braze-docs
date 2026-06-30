@@ -12,7 +12,7 @@ channel: email
 > Este artigo descreve como configurar links universais da Apple e Android App Links.
 
 {% alert tip %}
-Para uma comparação dos tipos de links em todos os canais de envio de mensagens e orientações sobre quando você precisa de um arquivo AASA, consulte o [Guia de deep linking para iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/).
+Para uma comparação dos tipos de links em todos os canais de envio de mensagens e orientações sobre quando você precisa de um arquivo AASA, consulte o [Guia de deep linking para iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide).
 {% endalert %}
 
 Os links universais da Apple e os Android App Links são mecanismos criados para proporcionar uma transição fluida entre conteúdo web e apps móveis. Enquanto os links universais são específicos do iOS, os Android App Links servem ao mesmo propósito para aplicativos Android.
@@ -24,6 +24,10 @@ Os links universais (iOS) e App Links (Android) são links web padrão (`http://
 Quando um link universal ou App Link é aberto, o sistema operacional verifica se algum app instalado está registrado para aquele domínio. Se um app for encontrado, ele é aberto imediatamente sem carregar a página web. Se nenhum app for encontrado, a URL web é carregada no navegador padrão do usuário, que também pode ser configurado para redirecionar para a App Store ou Google Play Store, respectivamente.
 
 Em termos simples, os links universais permitem que um site associe suas páginas web a telas específicas do app. Assim, quando um usuário clica em um link para uma página web que corresponde a uma tela do app, o app pode ser aberto diretamente (se estiver instalado).
+
+{% alert important %}
+O Firebase Dynamic Links foi descontinuado. A Braze não possui uma integração direta com o Firebase, e o deep linking é gerenciado fora da plataforma Braze. Migre para soluções nativas de plataforma (links universais da Apple e Android App Links, conforme descrito neste artigo) ou para provedores alternativos de serviço de deep linking. Para orientações sobre migração, consulte as [Perguntas frequentes sobre migração do Firebase](https://firebase.google.com/support/dynamic-links-faq).
+{% endalert %}
 
 Esta tabela descreve as principais diferenças entre links universais e deep links tradicionais:
 
@@ -93,7 +97,7 @@ Estas etapas são adaptadas da documentação para desenvolvedores da Apple. Par
 2. Selecione **Associated Domains**.
 3. Clique em **Save**.
 
-![]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
+![Seção App Services]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
 
 #### Etapa 1c: Ative Associated Domains no seu projeto Xcode {#step-1c}
 
@@ -113,7 +117,7 @@ Se você vir o erro "An App ID with Identifier 'your-app-id' is not available. P
 
 Na seção de domínios, adicione a tag de domínio apropriada. Você deve prefixá-la com `applinks:`. Neste caso, você pode ver que adicionamos `applinks:yourdomain.com`.
 
-![]({% image_buster /assets/img_archive/universal_links_1d.png %})
+![Seção Associated Domains]({% image_buster /assets/img_archive/universal_links_1d.png %})
 
 #### Etapa 1e: Confirme que o arquivo de entitlements está incluído no build {#step-1e-confirm-that-the-entitlements-file-is-included-at-build}
 
@@ -439,13 +443,12 @@ Certifique-se de que o arquivo AASA (iOS) ou Digital Asset Links (Android) está
 
 Certifique-se de que você tem as definições corretas para os domínios que seu app pode abrir.
 
-- **iOS:** Revise os Associated Domains configurados no Xcode para o seu app ([Etapa 1c: Ative Associated Domains no seu projeto Xcode]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Verifique se o domínio de rastreamento de cliques está incluído nessa lista.
+- **iOS:** Revise os Associated Domains configurados no Xcode para o seu app ([Etapa 1c: Ative Associated Domains no seu projeto Xcode]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links?tab=ios#step-1c)). Verifique se o domínio de rastreamento de cliques está incluído nessa lista.
 - **Android:** Abra a página de informações do app (pressione e segure o ícone do app e clique em ⓘ). No menu de informações do app, localize **Abrir por padrão** e toque nessa opção. Isso deve mostrar uma tela com todos os links verificados que o app pode abrir. Verifique se o domínio de rastreamento de cliques está incluído nessa lista.
 
 #### O domínio de rastreamento não consegue servir arquivos .well-known {#tracking-domain-cant-serve-well-known-files}
 
 Em alguns casos, o seu domínio de rastreamento de cliques pode não conseguir hospedar os arquivos `.well-known` necessários devido a limitações do ESP ou restrições de infraestrutura. Se você não conseguir hospedar o arquivo AASA ou Digital Asset Links no seu domínio de rastreamento, considere as seguintes opções:
 
-- **Entre em contato com o seu ESP para hospedar os arquivos no domínio de rastreamento:** Seu subdomínio de rastreamento de cliques normalmente é um CNAME apontando para o seu ESP (SendGrid, SparkPost ou Amazon SES). Como o ESP encerra o tráfego para esse domínio, ele pode hospedar os arquivos `.well-known` para você. Tanto o SendGrid quanto o SparkPost oferecem suporte a isso. Entre em contato diretamente com o seu ESP para solicitar.
-- **Desative seletivamente o rastreamento de cliques em URLs de deep link:** Se o seu ESP não puder hospedar os arquivos, você pode desativar o rastreamento de cliques para links universais específicos para que eles apontem diretamente para o seu domínio principal (onde você pode hospedar o arquivo AASA ou Digital Asset Links). Observe que esse método pode causar perda de análise de dados de cliques para esses links específicos. Consulte [Desativando o rastreamento de cliques link a link](#turning-off-click-tracking-on-a-link-to-link-basis) para instruções.
+- **Desative seletivamente o rastreamento de cliques em URLs de deep link:** Você pode desativar o rastreamento de cliques para links universais específicos para que eles apontem diretamente para o seu domínio principal (onde você pode hospedar o arquivo AASA ou Digital Asset Links). Observe que esse método pode causar perda de análise de dados de cliques para esses links específicos. Consulte [Desativando o rastreamento de cliques link a link](#turning-off-click-tracking-on-a-link-to-link-basis) para instruções.
 - **Coloque um CDN na frente do subdomínio de rastreamento:** Se você precisar de cobertura completa de rastreamento de cliques e deep linking, pode colocar um CDN (como Cloudflare ou CloudFront) na frente do seu subdomínio de rastreamento. Configure o CDN para servir os arquivos `.well-known` localmente e encaminhar todo o restante do tráfego para o seu ESP. Essa abordagem é mais complexa, mas oferece controle total sobre o rastreamento de cliques e os links universais.

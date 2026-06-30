@@ -11,7 +11,7 @@ description: "Este artigo aborda como solucionar problemas de códigos de erro d
 
 ## Erros 4XX {#4xx-errors}
 
-Erros `4XX` indicam que há um problema com a solicitação enviada ao endpoint. Esses erros geralmente são causados por solicitações incorretas, incluindo parâmetros malformados, cabeçalhos de autenticação ausentes ou URLs incorretas. Esses erros também se aplicam ao [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder/).
+Erros `4XX` indicam que há um problema com a solicitação enviada ao endpoint. Esses erros geralmente são causados por solicitações incorretas, incluindo parâmetros malformados, cabeçalhos de autenticação ausentes ou URLs incorretas. Esses erros também se aplicam ao [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
 Consulte a tabela a seguir para detalhes dos códigos de erro e etapas para resolução:
 
@@ -149,18 +149,18 @@ Quando as solicitações são interrompidas, a Braze simula respostas com um có
 
 Os seguintes códigos de erro contribuem para a contagem de falhas do detector de host não íntegro: `408`, `429`, `502`, `503`, `504`, `529`.
 
-Para webhooks, a Braze tenta automaticamente reenviar solicitações HTTP que foram interrompidas pelo detector de host não íntegro. Essa tentativa automática usa backoff exponencial e tenta apenas algumas vezes antes de falhar. Para saber mais sobre erros de webhook, consulte [Erros, lógica de nova tentativa e tempos limite]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#errors-retry-logic-and-timeouts).
+Para webhooks, a Braze tenta automaticamente reenviar solicitações HTTP que foram interrompidas pelo detector de host não íntegro. Essa tentativa automática usa backoff exponencial e tenta apenas algumas vezes antes de falhar. Para saber mais sobre erros de webhook, consulte [Erros, lógica de nova tentativa e tempos limite]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#errors-retry-logic-and-timeouts).
 
-Para Conteúdo conectado, se as solicitações ao host de destino forem interrompidas pelo detector de host não íntegro, a Braze continua a renderizar mensagens e seguir sua lógica Liquid como se tivesse recebido um código de resposta de erro. Se você quiser garantir que essas solicitações de Conteúdo conectado sejam reenviadas quando interrompidas pelo detector de host não íntegro, use a opção `:retry`. Para saber mais sobre a opção `:retry`, consulte [Novas tentativas de Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/).
+Para Conteúdo conectado, se as solicitações ao host de destino forem interrompidas pelo detector de host não íntegro, a Braze continua a renderizar mensagens e seguir sua lógica Liquid como se tivesse recebido um código de resposta de erro. Se você quiser garantir que essas solicitações de Conteúdo conectado sejam reenviadas quando interrompidas pelo detector de host não íntegro, use a opção `:retry`. Para saber mais sobre a opção `:retry`, consulte [Novas tentativas de Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries).
 
-Se você acredita que a detecção de host não íntegro pode estar causando problemas, entre em contato com o [suporte da Braze]({{site.baseurl}}/support_contact/).
+Se você acredita que a detecção de host não íntegro pode estar causando problemas, entre em contato com o [suporte da Braze]({{site.baseurl}}/support_contact).
 
 ### Conteúdo conectado não retorna corpo de resposta {#connected-content-returns-no-response-body}
 
 Se uma chamada de Conteúdo conectado aparece em branco na pré-visualização ou no envio da mensagem, verifique:
 
 - **Espaços não separáveis na URL:** A Braze remove espaços não separáveis (`&nbsp;` ou Unicode `U+00A0`) das URLs de Conteúdo conectado antes de fazer a solicitação. Se a URL foi copiada de um documento ou campo do dashboard que inseriu espaços não separáveis entre os caracteres, a solicitação pode falhar ou não retornar um corpo utilizável. Redigite a URL em texto simples ou remova os espaços ocultos e pré-visualize novamente.
-- **Erros HTTP e corpos vazios:** Para códigos de status acima de 300 ou hosts bloqueados, o Conteúdo conectado pode renderizar uma string vazia. Consulte [Fazendo uma chamada de API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) e revise as falhas no **Registro de atividades de envio de mensagem**.
+- **Erros HTTP e corpos vazios:** Para códigos de status acima de 300 ou hosts bloqueados, o Conteúdo conectado pode renderizar uma string vazia. Consulte [Fazendo uma chamada de API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) e revise as falhas no **Registro de atividades de envio de mensagem**.
 
 ## E-mails automatizados e entradas no Registro de atividades de envio de mensagem {#automated-emails-and-message-activity-log-entries}
 
@@ -176,7 +176,7 @@ Se você tiver mais de 100.000 erros de endpoint de webhook ou Conteúdo conecta
 - Links para o Registro de atividades de envio de mensagem e documentação relacionada
 
 {% alert note %}
-Você pode configurar o limite de erros por espaço de trabalho. Para ajustar esse limite, entre em contato com o [suporte da Braze]({{site.baseurl}}/support_contact/).
+Você pode configurar o limite de erros por espaço de trabalho. Para ajustar esse limite, entre em contato com o [suporte da Braze]({{site.baseurl}}/support_contact).
 {% endalert %}
 
 Os erros de endpoint são:
@@ -193,7 +193,7 @@ Para se inscrever e receber esses e-mails, faça o seguinte:
 
 ### Entradas no Registro de atividades de envio de mensagem {#message-activity-log-entries}
 
-Se ocorrer uma falha, haverá pelo menos uma entrada no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) relacionada a ela. Se a solicitação for reenviada e eventualmente tiver sucesso, esses detalhes estarão disponíveis no Currents e no Compartilhamento de dados do Snowflake. Mesmo que uma solicitação eventualmente tenha sucesso após uma nova tentativa, os erros ainda podem acionar o e-mail automatizado.
+Se ocorrer uma falha, haverá pelo menos uma entrada no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) relacionada a ela. Se a solicitação for reenviada e eventualmente tiver sucesso, esses detalhes estarão disponíveis no Currents e no Compartilhamento de dados do Snowflake. Mesmo que uma solicitação eventualmente tenha sucesso após uma nova tentativa, os erros ainda podem acionar o e-mail automatizado.
 
 ### Insights adicionais de falhas no Braze Currents {#additional-failure-insights-in-braze-currents}
 
@@ -203,4 +203,4 @@ Para aumentar a transparência em relação a problemas relacionados a webhooks,
 Solicitações de Conteúdo conectado não estão incluídas nesses eventos de falha de webhook.
 {% endalert %}
 
-Para saber mais, consulte o [Glossário de eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/).
+Para saber mais, consulte o [Glossário de eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).

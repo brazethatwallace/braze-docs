@@ -1,20 +1,20 @@
 ---
-nav_title: "Tutorial: Buzones de entrada de tarjetas de contenido"
-article_title: "Tutorial: Crear un buzón de entrada con tarjetas de contenido"
+nav_title: "Tutorial: Buzones de entrada de Content Cards"
+article_title: "Tutorial: Crear un buzón de entrada con Content Cards"
 description: ""
 page_order: 6
 layout: scrolly
 ---
 
-# Tutorial: Crear un buzón de entrada con tarjetas de contenido
+# Tutorial: Crear un buzón de entrada con Content Cards {#tutorial-making-an-inbox-with-content-cards}
 
-> Sigue el código de ejemplo de este tutorial para crear un buzón de entrada con las tarjetas de contenido de Braze.
+> Sigue el código de ejemplo de este tutorial para crear un buzón de entrada con Content Cards de Braze.
 
 {% sdktabs %}
 {% sdktab android %}
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## Crear un buzón de entrada con tarjetas de contenido para Android (Redactar)
+## Crear un buzón de entrada con Content Cards para Android (Compose) {#making-an-inbox-with-content-cards-for-android-compose}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md %}
 
@@ -167,46 +167,46 @@ fun ContentCardItem(
 }
 ```
 
-!!paso
-líneas-=12MainApplication.kt
+!!step
+lines-MainApplication.kt=12
 
-#### 1\. Habilitar depuración (opcional)
+### 1. Habilitar depuración (opcional) {#1-enable-debugging-optional}
 
-Para facilitar la solución de problemas durante el desarrollo, considera la posibilidad de habilitar la depuración.
+Para facilitar la solución de problemas durante el desarrollo, considera habilitar la depuración.
 
-!!paso
-líneas-=47-69ContentCardsInboxScreen.kt
+!!step
+lines-ContentCardsInboxScreen.kt=47-69
 
-#### 2\. Crear una vista de interfaz de usuario
+#### 2. Crear una vista de interfaz de usuario {#2-build-a-ui-view}
 
-Para Jetpack Compose, utiliza un[`LazyColumn`](<https://developer.android.com/develop/ui/compose/lists#lazy>)  para mostrar tarjetas de contenido en una lista desplazable.
+Para Jetpack Compose, usa un [`LazyColumn`](<https://developer.android.com/develop/ui/compose/lists#lazy>) para mostrar Content Cards en una lista desplazable.
 
-!!paso
-líneas-=25-37ContentCardsInboxScreen.kt
+!!step
+lines-ContentCardsInboxScreen.kt=25-37
 
-#### 3\. Suscríbete a las actualizaciones de la tarjeta de contenido
+#### 3. Suscribirse a las actualizaciones de Content Cards {#3-subscribe-to-content-card-updates}
 
-Utiliza un administrador[`DisposableEffect`](<https://developer.android.com/develop/ui/compose/side-effects#disposableeffect>)para administrar el ciclo de vida de la suscripción, asegurándote de que se realice una limpieza adecuada cuando el componente salga de la composición.
+Usa un [`DisposableEffect`](<https://developer.android.com/develop/ui/compose/side-effects#disposableeffect>) para administrar el ciclo de vida de la suscripción, asegurándote de que se realice una limpieza adecuada cuando el composable salga de la composición.
 
-!!paso
-líneas-=84-95ContentCardsInboxScreen.kt
+!!step
+lines-ContentCardsInboxScreen.kt=84-95
 
-#### 4\. Crear una interfaz de usuario personalizada para el buzón de entrada
+#### 4. Crear una interfaz de usuario personalizada para el buzón de entrada {#4-build-a-custom-inbox-ui}
 
-El uso de los [atributos](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html>) de las tarjetas de contenido, como `title`,`description`  y , te`url` permite crear tarjetas de contenido que se adapten a tus requisitos específicos de interfaz de usuario. En este caso, estamos creando un buzón de entrada con los composables`Column`  y  `Card`de Jetpack Compose.
+El uso de los [atributos](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html>) de Content Cards, como `title`, `description` y `url`, te permite crear Content Cards que se adapten a tus requisitos específicos de interfaz de usuario. En este caso, estamos creando un buzón de entrada con los composables `Card` y `Column` de Jetpack Compose.
 
-!!paso
-líneas-=57ContentCardsInboxScreen.kt,62
+!!step
+lines-ContentCardsInboxScreen.kt=57,62
 
-#### 5\. Realiza el seguimiento de las impresiones y los clics.
+#### 5. Realizar el seguimiento de impresiones y clics {#5-track-impressions-and-clicks}
 
-Puedes registrar impresiones y clics utilizando los [`logImpressions`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-impression.html>)métodos  [`logClick`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-click.html>)y  disponibles para las tarjetas de contenido.
+Puedes registrar impresiones y clics utilizando los métodos [`logImpressions`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-impression.html>) y [`logClick`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-click.html>) disponibles para Content Cards.
 
-Las impresiones solo deben registrarse una vez cuando el usuario ve una tarjeta. Utiliza`LaunchedEffect`  para registrar las impresiones cuando una tarjeta se hace visible. Ten en cuenta que es posible que debas tener en cuenta el ciclo de vida de la vista de tu aplicación, así como los casos de uso, para garantizar que las impresiones se registren correctamente.
+Las impresiones solo deben registrarse una vez cuando el usuario ve una tarjeta. Usa `LaunchedEffect` para registrar las impresiones cuando una tarjeta se hace visible. Ten en cuenta que es posible que debas considerar el ciclo de vida de la vista de tu aplicación, así como el caso de uso, para garantizar que las impresiones se registren correctamente.
 
 {% endscrolly %}
 
-## Creación de un buzón de entrada con tarjetas de contenido para Android (RecyclerView)
+## Crear un buzón de entrada con Content Cards para Android (RecyclerView) {#making-an-inbox-with-content-cards-for-android-recyclerview}
 
 {% scrolly %}
 
@@ -363,49 +363,49 @@ class ContentCardsActivity : ComponentActivity() {
 
 ```
 
-!!paso
-líneas-=12MainApplication.kt
+!!step
+lines-MainApplication.kt=12
 
-#### 1\. Habilitar depuración (opcional)
+### 1. Habilitar depuración (opcional)
 
-Para facilitar la solución de problemas durante el desarrollo, considera la posibilidad de habilitar la depuración.
+Para facilitar la solución de problemas durante el desarrollo, considera habilitar la depuración.
 
-!!paso
+!!step
 lines-content_card_inbox.xml=1-24
 
-#### 2\. Crear una vista de interfaz de usuario
+#### 2. Crear una vista de interfaz de usuario
 
-En este tutorial, utilizamos Android[`RecyclerView`](<https://developer.android.com/develop/ui/views/layout/recyclerview>)para mostrar tarjetas de contenido, pero te recomendamos crear una interfaz de usuario con clases y componentes que se adapten a tu caso de uso. Braze proporciona la interfaz de usuario de forma predeterminada, pero este tutorial te guía para crear una vista personalizada con el fin de personalizar la apariencia y el comportamiento.
+En este tutorial, usamos [`RecyclerView`](<https://developer.android.com/develop/ui/views/layout/recyclerview>) de Android para mostrar Content Cards, pero te recomendamos crear una interfaz de usuario con clases y componentes que se adapten a tu caso de uso. Braze proporciona la interfaz de usuario de forma predeterminada, pero este tutorial te guía para crear una vista personalizada con el fin de personalizar la apariencia y el comportamiento.
 
-!!paso
-líneas ContentCardInboxActivity.kt29-35, 40-42, 44
+!!step
+lines-ContentCardInboxActivity.kt=29-35,40-42,44
 
-#### 3\. Suscríbete a las actualizaciones de la tarjeta de contenido
+#### 3. Suscribirse a las actualizaciones de Content Cards
 
-Utiliza[`subscribeToContentCardsUpdates`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/subscribe-to-content-cards-updates.html?query=abstract%20fun%20subscribeToContentCardsUpdates(subscriber:%20IEventSubscriber%3CContentCardsUpdatedEvent%3E)>)  para permitir que tu interfaz de usuario responda cuando haya nuevas tarjetas de contenido disponibles. Aquí, los suscriptores realizan el registro y la eliminación dentro de los ganchos del ciclo de vida de la actividad.
+Usa [`subscribeToContentCardsUpdates`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/subscribe-to-content-cards-updates.html?query=abstract%20fun%20subscribeToContentCardsUpdates(subscriber:%20IEventSubscriber%3CContentCardsUpdatedEvent%3E)>) para permitir que tu interfaz de usuario responda cuando haya nuevas Content Cards disponibles. Aquí, los suscriptores se registran y eliminan dentro de los hooks del ciclo de vida de la actividad.
 
-!!paso
-líneas-=73-84ContentCardInboxActivity.kt
+!!step
+lines-ContentCardInboxActivity.kt=73-84
 
-#### 4\. Crear una interfaz de usuario personalizada para el buzón de entrada
+#### 4. Crear una interfaz de usuario personalizada para el buzón de entrada
 
-El uso de los [atributos](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html>) de la tarjeta de contenido, como `title`,`description`  y , te`url` permite crear tarjetas de contenido que se adapten a tus requisitos específicos de interfaz de usuario. En este caso, estamos creando un buzón de entrada con el `RecyclerView`.
+El uso de los [atributos](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html>) de Content Cards, como `title`, `description` y `url`, te permite crear Content Cards que se adapten a tus requisitos específicos de interfaz de usuario. En este caso, estamos creando un buzón de entrada con el `RecyclerView` nativo de Android.
 
-!!paso
-líneas-=90ContentCardInboxActivity.kt,93
+!!step
+lines-ContentCardInboxActivity.kt=90,93
 
-#### 5\. Realiza el seguimiento de las impresiones y los clics.
+#### 5. Realizar el seguimiento de impresiones y clics
 
-Puedes registrar impresiones y clics utilizando los [`logImpressions`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-impression.html>)métodos  [`logClick`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-click.html>)y  disponibles para las tarjetas de contenido.
+Puedes registrar impresiones y clics utilizando los métodos [`logImpressions`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-impression.html>) y [`logClick`](<https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-click.html>) disponibles para Content Cards.
 
-Las impresiones solo deben registrarse una vez cuando el usuario ve una tarjeta. Aquí utilizamos un mecanismo sencillo para evitar registros duplicados con un indicador por tarjeta. Ten en cuenta que es posible que debas tener en cuenta el ciclo de vida de la vista de tu aplicación, así como los casos de uso, para garantizar que las impresiones se registren correctamente.
+Las impresiones solo deben registrarse una vez cuando el usuario ve una tarjeta. Aquí usamos un mecanismo sencillo para evitar registros duplicados con un indicador por tarjeta. Ten en cuenta que es posible que debas considerar el ciclo de vida de la vista de tu aplicación, así como el caso de uso, para garantizar que las impresiones se registren correctamente.
 
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab swift %}
-{% multi_lang_include developer_guide/prerequisites/swift.md %} También tendrás que [habilitar los mensajes dentro de la aplicación para SWIFT]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=swift#swift_enabling-in-app-messages).
+{% multi_lang_include developer_guide/prerequisites/swift.md %} También necesitarás [habilitar los mensajes dentro de la aplicación para Swift]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=swift#swift_enabling-in-app-messages).
 
-## Crear un buzón de entrada con tarjetas de contenido para SWIFT
+## Crear un buzón de entrada con Content Cards para Swift {#making-an-inbox-with-content-cards-for-swift}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md %}
 
@@ -505,7 +505,7 @@ class BrazeInboxViewController: UITableViewController {
         // Work with the content card's title and description
         cell.textLabel?.numberOfLines = 2
         cell.textLabel?.text = [card.title, card.description].compactMap { $0 }.joined(separator: "\n")
-        
+
         return cell
     }
 
@@ -517,7 +517,7 @@ class BrazeInboxViewController: UITableViewController {
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
+
     override func tableView(_ tableView: UITableView,
                             willDisplay cell: UITableViewCell,
                             forRowAt indexPath: IndexPath) {
@@ -529,51 +529,51 @@ class BrazeInboxViewController: UITableViewController {
 }
 ```
 
-!!paso
-líneas-=15AppDelegate.swift
+!!step
+lines-AppDelegate.swift=15
 
-#### 1\. Habilitar depuración (opcional)
+### 1. Habilitar depuración (opcional)
 
-Para facilitar la solución de problemas durante el desarrollo, considera la posibilidad de habilitar la depuración.
+Para facilitar la solución de problemas durante el desarrollo, considera habilitar la depuración.
 
-!!paso
-líneas-=5BrazeInboxView.swift
+!!step
+lines-BrazeInboxView.swift=5
 
-#### 2\. Crear una vista de interfaz de usuario
+#### 2. Crear una vista de interfaz de usuario
 
-En este tutorial, utilizamos SWIFT[`UITableViewController`](https://developer.apple.com/documentation/uikit/uitableviewcontroller), pero recomendamos crear una interfaz de usuario con clases y componentes que se adapten a tu caso de uso.
+En este tutorial, usamos [`UITableViewController`](https://developer.apple.com/documentation/uikit/uitableviewcontroller) de Swift, pero te recomendamos crear una interfaz de usuario con clases y componentes que se adapten a tu caso de uso.
 
-!!paso
-líneas-=15-20BrazeInboxView.swift
+!!step
+lines-BrazeInboxView.swift=15-20
 
-#### 3\. Suscríbete a las actualizaciones de la tarjeta de contenido
+#### 3. Suscribirse a las actualizaciones de Content Cards
 
-Suscríbete al listener de tarjetas de contenido para recibir las últimas actualizaciones y, a continuación, llama`requestRefresh()`a  para solicitar las últimas tarjetas de contenido para ese usuario.
+Suscríbete al listener de Content Cards para recibir las últimas actualizaciones y, a continuación, llama a `requestRefresh()` para solicitar las Content Cards más recientes para ese usuario.
 
-!!paso
-líneas-=34-35BrazeInboxView.swift
+!!step
+lines-BrazeInboxView.swift=34-35
 
-#### 4\. Crear una interfaz de usuario personalizada para el buzón de entrada
+#### 4. Crear una interfaz de usuario personalizada para el buzón de entrada
 
-El uso de la tarjeta de contenido[`attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard)  como `title`, `description`, y  te`imageUrl` permite crear tarjetas de contenido que se adapten a tus requisitos específicos de interfaz de usuario. En este caso, estamos creando un buzón de entrada con las API nativas de tablas de SWIFT.
+El uso de los [atributos](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard) de Content Cards, como `title`, `description` e `imageUrl`, te permite crear Content Cards que se adapten a tus requisitos específicos de interfaz de usuario. En este caso, estamos creando un buzón de entrada con las API nativas de tablas de Swift.
 
-!!paso
-líneas-=8BrazeInboxView.swift,43,49-56
+!!step
+lines-BrazeInboxView.swift=8,43,49-56
 
-#### 5\. Realiza el seguimiento de las impresiones y los clics.
+#### 5. Realizar el seguimiento de impresiones y clics
 
-Puedes registrar las impresiones y los clics utilizando los [`logClick(using:)`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/logclick(using:)/>)métodos  [`logImpression(using:)`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/logimpression(using:)/>)y  disponibles para una tarjeta de contenido.
+Puedes registrar impresiones y clics utilizando los métodos [`logClick(using:)`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/logclick(using:)/>) y [`logImpression(using:)`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/logimpression(using:)/>) disponibles para una tarjeta de contenido.
 
-Además, puedes utilizar[`logDismissed(using:)`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/logdismissed(using:)/>)  para los despidos.
+Además, puedes usar [`logDismissed(using:)`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/logdismissed(using:)/>) para los descartes.
 
-Las impresiones solo deben registrarse una vez cuando las vea el usuario. Aquí, se utiliza un mecanismo `willDisplay`ingenuo que emplea`Set`  y  para lograrlo. Ten en cuenta que es posible que debas tener en cuenta el ciclo de vida de la interfaz de usuario de tu aplicación, así como los casos de uso, para garantizar que las impresiones se registren correctamente.
+Las impresiones solo deben registrarse una vez cuando el usuario las ve. Aquí se usa un mecanismo sencillo con un `Set` y `willDisplay` para lograrlo. Ten en cuenta que es posible que debas considerar el ciclo de vida de la interfaz de usuario de tu aplicación, así como el caso de uso, para garantizar que las impresiones se registren correctamente.
 
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab web %}
 {% multi_lang_include developer_guide/prerequisites/web.md %} Sin embargo, no es necesario realizar ninguna configuración adicional.
 
-## Crear un buzón de entrada con tarjetas de contenido para Web
+## Crear un buzón de entrada con Content Cards para Web {#making-an-inbox-with-content-cards-for-web}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md %}
 
@@ -734,44 +734,44 @@ braze.requestContentCardsRefresh();
 </html>
 ```
 
-!!paso
-líneas-=3-4main.js,9
+!!step
+lines-main.js=3-4,9
 
-#### 1\. Habilitar depuración (opcional)
+### 1. Habilitar depuración (opcional)
 
-Para facilitar la solución de problemas durante el desarrollo, considera la posibilidad de habilitar la depuración. Opcionalmente, también puedes ejecutar métodos de Braze Web SDK en la consola.
+Para facilitar la solución de problemas durante el desarrollo, considera habilitar la depuración. Opcionalmente, también puedes ejecutar métodos del SDK Web de Braze en la consola.
 
-!!paso
-líneas-=1-44index.html
+!!step
+lines-index.html=1-44
 
-#### 2\. Crear la interfaz de usuario
+#### 2. Crear la interfaz de usuario {#2-build-the-ui}
 
-Crea una interfaz de usuario para la página del buzón de entrada. Aquí estamos creando una página HTML básica, que incluye un`div`  con el ID `cards-list`. Se utiliza como contenedor de destino para renderizar tarjetas de contenido.
+Crea una interfaz de usuario para la página del buzón de entrada. Aquí estamos creando una página HTML básica, que incluye un `div` con el ID `cards-list`. Se usa como contenedor de destino para renderizar Content Cards.
 
-!!paso
-líneas-=96-99main.js,101
+!!step
+lines-main.js=96-99,101
 
-#### 3\. Suscríbete a las actualizaciones de la tarjeta de contenido
+#### 3. Suscribirse a las actualizaciones de Content Cards
 
-Suscríbete al listener de tarjetas de contenido para recibir las últimas actualizaciones y, a continuación, llama[`requestContentCardsRefresh()`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh>)a  para solicitar las últimas tarjetas de contenido para ese usuario. Como alternativa, llama al suscriptor antes`openSession()`  para una actualización automática al inicio de la sesión. 
+Suscríbete al listener de Content Cards para recibir las últimas actualizaciones y, a continuación, llama a [`requestContentCardsRefresh()`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh>) para solicitar las Content Cards más recientes para ese usuario. Como alternativa, llama al suscriptor antes de `openSession()` para una actualización automática al inicio de la sesión.
 
-!!paso
-líneas-=64main.js,67,70-74
+!!step
+lines-main.js=64,67,70-74
 
-#### 4\. Crear los elementos del buzón de entrada
+#### 4. Crear los elementos del buzón de entrada {#4-build-the-inbox-elements}
 
-El uso de los [atributos](<https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html>) de la tarjeta de contenido, como `title`,`description`  y , te`url` permite mostrar tarjetas de contenido que se adapten a tus requisitos específicos de interfaz de usuario.
+El uso de los [atributos](<https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html>) de Content Cards, como `title`, `description` y `url`, te permite mostrar Content Cards que se adapten a tus requisitos específicos de interfaz de usuario.
 
-!!paso
-líneas main.js22-25, 28-43, 84 y 91
+!!step
+lines-main.js=22-25,28-43,84,91
 
-#### 5\. Realiza el seguimiento de las impresiones y los clics.
+#### 5. Realizar el seguimiento de impresiones y clics
 
-Puedes registrar impresiones y clics utilizando los [`logContentCardImpressions`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardimpressions>)métodos  [`logContentCardClick`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardclick>)y  disponibles para las tarjetas de contenido.
+Puedes registrar impresiones y clics utilizando los métodos [`logContentCardImpressions`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardimpressions>) y [`logContentCardClick`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardclick>) disponibles para Content Cards.
 
-Además, puedes utilizar[`logCardDismissal`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcarddismissal>)  para los despidos.
+Además, puedes usar [`logCardDismissal`](<https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcarddismissal>) para los descartes.
 
-Las impresiones solo deben registrarse una vez cuando las vea el usuario. Aquí, un`IntersectionObserver`  más un`Set`  indexado por`card.id`  evita los registros duplicados. Ten en cuenta que es posible que debas tener en cuenta el ciclo de vida de la interfaz de usuario de tu aplicación, así como los casos de uso, para garantizar que las impresiones se registren correctamente.
+Las impresiones solo deben registrarse una vez cuando el usuario las ve. Aquí, un `IntersectionObserver` junto con un `Set` indexado por `card.id` evita los registros duplicados. Ten en cuenta que es posible que debas considerar el ciclo de vida de la interfaz de usuario de tu aplicación, así como el caso de uso, para garantizar que las impresiones se registren correctamente.
 
 {% endscrolly %}
 {% endsdktab %}

@@ -10,13 +10,13 @@ search_tag: Partner
 
 > Die [Personalization API](https://hightouch.com/docs/destinations/personalization-api) von Hightouch ist ein verwalteter Dienst, mit dem Sie eine Daten-API mit niedriger Latenz hosten können, die auf einem beliebigen Datensatz in Ihrem Cloud Data Warehouse basiert.
 
-![]({% image_buster /assets/img/hightouch/cohort7.png %})
+![Architekturdiagramm der Hightouch Personalization API, das den Datenfluss von einem Data Warehouse über Hightouch zu mobilen Apps, Web-Erlebnissen und dynamischen E-Mails zeigt.]({% image_buster /assets/img/hightouch/cohort7.png %})
 
-Die Integration von Braze und Hightouch ermöglicht es Ihnen, die API mit [Braze Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) zu nutzen, um aktuelle Kund:innen- oder Objektdaten zum Zeitpunkt des Versands in Ihre Campaigns oder Canvases zu ziehen.
+Die Integration von Braze und Hightouch ermöglicht es Ihnen, die API mit [Braze Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) zu nutzen, um aktuelle Kund:innen- oder Objektdaten zum Zeitpunkt des Versands in Ihre Campaigns oder Canvases zu ziehen.
 
 Die Personalization API von Hightouch bietet einen REST-Endpunkt zur Verwendung innerhalb Ihrer Braze-Konfiguration. Konkret können Sie das Braze Connected-Content-Angebot nutzen, um eine GET-Anfrage an die Personalization API zu stellen und alle Informationen zu einem bestimmten Bezeichner abzurufen. Die von dieser API bereitgestellten Daten können Kund:innen-, Produkt- oder andere Objektdaten darstellen.
 
-![]({% image_buster /assets/img/hightouch/cohort6.png %})
+![Diagramm, das den Datenfluss von Snowflake, BigQuery und Redshift über die Hightouch Personalization API zu Braze Connected-Content zeigt.]({% image_buster /assets/img/hightouch/cohort6.png %})
 
 ## Voraussetzungen {#prerequisites}
 
@@ -25,8 +25,8 @@ Die Personalization API von Hightouch bietet einen REST-Endpunkt zur Verwendung 
 | [Hightouch-Konto](https://app.hightouch.com/login) mit aktivierter Personalization API | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Hightouch [Business-Tier-Konto](https://hightouch.com/pricing). |
 | Definierte Anwendungsfälle | Bevor Sie die API einrichten, müssen Sie Ihren Anwendungsfall für diese Integration festlegen. In der folgenden Liste finden Sie gängige Anwendungsfälle. |
 | In einem Cloud Data Warehouse oder einer anderen Datenquelle gespeicherte Daten | Hightouch lässt sich mit [über 25 Datenquellen](https://hightouch.com/integrations) integrieren. |
-| Hightouch API-Schlüssel | Dieser kann unter **Hightouch > Settings > API keys > Add API key** erstellt werden. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Hightouch-API-Schlüssel | Dieser kann unter **Hightouch > Settings > API keys > Add API key** erstellt werden. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% tabs %}
 {% tab Anwendungsfälle %}
@@ -124,7 +124,7 @@ Für die Beispiel-Payload unten:
 ```json
 {
     "user_id": 12345,
-    "full_name": "Jane Doe",
+    "full_name": "Alex Smith",
     "lifetime_value": 1492.18,
     "churn_risk": 0.04,
     "90_day_summary": {
@@ -155,7 +155,7 @@ Für die Beispiel-Payload unten:
         ],
         "upcoming_album_release": {
             "title": "Universal Language",
-            "artist": "Simon Doty",
+            "artist": "Alex Lee",
             "label": "Anjunadeep",
             "release_date": "2023-04-28"
         }
@@ -170,7 +170,7 @@ Die folgenden Liquid-Referenzen würden diese Beispieldaten zurückgeben:
 | {% raw %}`{{artists.recommendations.concerts[0].artist}}`{% endraw %} | Aphex Twin |
 | {% raw %}`{{artists.recommendations.concerts[0].location}}`{% endraw %} | San Francisco, CA |
 | {% raw %}`{{artists.recommendations.upcoming_album_release.title}}`{% endraw %} | Universal Language |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Call personalization API through Braze Connected Content" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 4: Personalization API über Braze Connected-Content aufrufen" }
 
 ## Fehlerbehebung {#troubleshooting}
 

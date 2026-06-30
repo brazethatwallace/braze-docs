@@ -7,15 +7,15 @@ description: "Dieser Referenzartikel behandelt das automatisierte IP-Warming und
 channel: email
 ---
 
-# Automatisiertes IP-Warming
+# Automatisiertes IP-Warming {#automated-ip-warming}
 
 > Nutzen Sie automatisiertes IP-Warming, um das E-Mail-Volumen von einer neuen IP-Adresse schrittweise zu erhöhen und so die Absender-Reputation bei Posteingangsanbietern aufzubauen.
 
-{% multi_lang_include early_access_beta_alert.md feature='Automated IP warming' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Automated IP warming' %}
 
 ## Funktionsweise {#how-it-works}
 
-Sie können automatisiertes IP-Warming einsetzen, um Ihr tägliches Versandvolumen schrittweise zu erhöhen, sodass Posteingangsanbieter Ihre Versandmuster kennenlernen und ihnen vertrauen können. Wenn Sie Ihrem Workspace eine Domain hinzufügen, können Sie die Kachel **Automatisiertes IP-Warming** im Abschnitt **Weitermachen, wo Sie aufgehört haben** Ihres Start-Dashboards auswählen. Diese Kachel bleibt dort 60 Tage lang angezeigt.
+Sie können automatisiertes IP-Warming einsetzen, um Ihr tägliches Versandvolumen schrittweise zu erhöhen, sodass Posteingangsanbieter Ihre Versandmuster kennenlernen und ihnen vertrauen können. Wenn Sie Ihrem Workspace eine Domain hinzufügen, können Sie die Kachel **Automated IP Warming** im Abschnitt **Pick up where you left off** Ihres Start-Dashboards auswählen. Diese Kachel bleibt dort 60 Tage lang angezeigt.
 
 Braze sendet zuerst an Ihre engagiertesten Abonnent:innen, wodurch das tägliche Volumen in einem Tempo wachsen kann, das den Best Practices entspricht. Anschließend verfolgt Braze Engagement- und Zustellbarkeitssignale. Sollte Braze Probleme feststellen, passt das System Ihren Zeitplan automatisch an.
 
@@ -48,13 +48,13 @@ Um automatisiertes IP-Warming durchzuführen, benötigen Sie Folgendes:
 
 ![Beispiel für Zeitplandetails.]({% image_buster /assets/img/automated_ip_warming_schedule.png %})
 
-### 2. Schritt: Segments auswählen und priorisieren {#step-2-select-and-rank-segments}
+### 2. Schritt: Segmente auswählen und priorisieren {#step-2-select-and-rank-segments}
 
-1. Wählen Sie als Nächstes die Segments aus, die Sie ansprechen möchten. Während des IP-Warmings beginnt Braze mit dem Versand an Ihre am stärksten engagierten Nutzer:innen und erhöht das Versandvolumen schrittweise über die Zeit, wobei nach und nach Segments mit geringerem Engagement hinzugefügt werden.
-2. Ziehen Sie die Segments per Drag-and-Drop, um sie von hohem zu niedrigem Engagement zu ordnen. Hohes Engagement umfasst Empfänger:innen, die Ihre E-Mails regelmäßig öffnen und anklicken. Niedriges Engagement umfasst Empfänger:innen, die unregelmäßig mit Ihren E-Mails interagieren oder seit sehr langer Zeit nicht mehr mit Ihren E-Mails interagiert haben.
+1. Wählen Sie als Nächstes die Segmente aus, die Sie ansprechen möchten. Während des IP-Warmings beginnt Braze mit dem Versand an Ihre am stärksten engagierten Nutzer:innen und erhöht das Versandvolumen schrittweise über die Zeit, wobei nach und nach Segmente mit geringerem Engagement hinzugefügt werden.
+2. Ziehen Sie die Segmente per Drag-and-Drop, um sie von hohem zu niedrigem Engagement zu ordnen. Hohes Engagement umfasst Empfänger:innen, die Ihre E-Mails regelmäßig öffnen und anklicken. Niedriges Engagement umfasst Empfänger:innen, die unregelmäßig mit Ihren E-Mails interagieren oder seit sehr langer Zeit nicht mehr mit Ihren E-Mails interagiert haben.
 3. Wählen Sie **Next: Messages**, um die Einrichtung fortzusetzen.
 
-![Zwei ausgewählte Segments als Zielgruppe für automatisiertes IP-Warming.]({% image_buster /assets/img/automated_ip_warming_segment.png %})
+![Zwei ausgewählte Segmente als Zielgruppe für automatisiertes IP-Warming.]({% image_buster /assets/img/automated_ip_warming_segment.png %})
 
 ### 3. Schritt: Nachrichten zum Senden auswählen {#step-3-select-the-messages-to-send}
 
@@ -78,7 +78,7 @@ Sie können bis zu vier der folgenden Konversions-Events zum Tracking definieren
 - E-Mail öffnen
 - E-Mail anklicken
 
-Wählen Sie als Nächstes die Conversion-Frist aus – die maximale Zeit, die zwischen dem Eintritt einer Nutzer:in in eine Campaign und dem Konversions-Event vergehen darf.
+Wählen Sie als Nächstes die Conversion-Frist aus – die maximale Zeit, die zwischen dem Eintritt von Nutzer:innen in eine Campaign und dem Konversions-Event vergehen darf.
 
 ![Conversion-Einstellungen mit Auswahl des Konversions-Events und der Conversion-Frist.]({% image_buster /assets/img/automated_ip_warming_conversions.png %})
 

@@ -7,11 +7,11 @@ alias: "/promotion_codes/"
 description: "Aprende sobre las listas de códigos promocionales para poder añadirlos a tus campañas y Canvas."
 ---
 
-# Códigos promocionales
+# Códigos promocionales {#promotion-codes}
 
 > Aprende sobre las listas de códigos promocionales para poder añadirlos a tus campañas y Canvas.
 
-## Acerca de los códigos promocionales
+## Acerca de los códigos promocionales {#about-promotion-codes}
 
 Los códigos promocionales te permiten insertar valores únicos y con tiempo limitado en los mensajes para impulsar las conversiones. Cada lista puede contener hasta 20 millones de códigos, y cada código puede durar hasta seis meses antes de expirar.
 
@@ -43,36 +43,36 @@ Por ejemplo, en el siguiente Liquid condicional, los códigos de ambas listas (`
 {% endtabs %}
 
 {% alert important %}
-Los códigos promocionales no se pueden enviar en mensajes dentro de la aplicación en Canvas.
+Los códigos promocionales están disponibles en campañas de mensajes dentro de la aplicación como característica de acceso anticipado, pero no se pueden enviar en mensajes dentro de la aplicación en Canvas.
 {% endalert %}
 
-## Próximos pasos
+## Próximos pasos {#next-steps}
 
 ¿Buscas los próximos pasos? Empieza aquí:
 
-- [Crear una lista de códigos promocionales]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/)
-- [Usar códigos promocionales]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#using-promotion-codes)
-- [Ver el uso de códigos promocionales]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#viewing-promotion-code-usage)
+- [Crear una lista de códigos promocionales]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create)
+- [Usar códigos promocionales]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes)
+- [Ver el uso de códigos promocionales]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#viewing-promotion-code-usage)
 
-## Preguntas frecuentes
+## Preguntas frecuentes {#frequently-asked-questions}
 
-### ¿Qué canales de mensajería puedo usar con los códigos promocionales?
+### ¿Qué canales de mensajería puedo usar con los códigos promocionales? {#which-messaging-channels-can-i-use-with-promotion-codes}
 
-Los códigos promocionales son compatibles actualmente con correo electrónico, push móvil, notificación push web, Tarjetas de contenido, webhook, SMS y WhatsApp. Las campañas de correo electrónico transaccional de Braze y los mensajes dentro de la aplicación no son compatibles actualmente con los códigos promocionales.
+Los códigos promocionales son compatibles con correo electrónico, push móvil, notificación push web, Content Cards, webhook, SMS y WhatsApp. Las campañas de mensajes dentro de la aplicación son compatibles con los códigos promocionales como característica de acceso anticipado. Las campañas de correo electrónico transaccional de Braze y los mensajes dentro de la aplicación en Canvas no son compatibles con los códigos promocionales.
 
-### ¿Los envíos de prueba y los envíos de grupo semilla cuentan para el uso?
+### ¿Los envíos de prueba y los envíos de grupo semilla cuentan para el uso? {#do-test-and-seed-sends-count-towards-usage}
 
 De forma predeterminada, los envíos de prueba y los envíos de correo electrónico de grupo semilla usarán códigos promocionales por usuario, por envío de prueba. Sin embargo, puedes ponerte en contacto con tu director de cuentas de Braze para actualizar este comportamiento y no usar códigos promocionales durante las pruebas.
 
-### ¿Qué sucede cuando múltiples canales de mensajería usan el mismo fragmento de código promocional?
+### ¿Qué sucede cuando múltiples canales de mensajería usan el mismo fragmento de código promocional? {#what-happens-when-multiple-messaging-channels-use-the-same-promotion-code-snippet}
 
 Si un usuario en particular es elegible para recibir un código a través de múltiples canales, recibirá el mismo código a través de cada canal. Solo se usará un código promocional independientemente de los canales recibidos.
 
-### ¿Puedo usar múltiples fragmentos de código Liquid para hacer referencia a la misma lista de códigos promocionales en un mensaje?
+### ¿Puedo usar múltiples fragmentos de código Liquid para hacer referencia a la misma lista de códigos promocionales en un mensaje? {#can-i-use-multiple-liquid-snippets-to-reference-the-same-promotion-code-list-in-one-message}
 
 Sí. Braze aplicará el mismo código promocional en todas las instancias de ese fragmento en el mensaje, asegurando que el usuario solo reciba un código único.
 
-### ¿Qué sucede cuando una lista de códigos promocionales está expirada o vacía?
+### ¿Qué sucede cuando una lista de códigos promocionales está expirada o vacía? {#what-happens-when-a-promotion-code-list-is-expired-or-empty}
 
 Los códigos expirados se eliminan después de seis meses.
 
@@ -80,10 +80,24 @@ Si el mensaje debía contener un código promocional de una lista vacía o expir
 
 Si el mensaje contiene lógica Liquid que inserta condicionalmente un código promocional, el mensaje solo se cancelará si debía contener un código promocional. Si el mensaje no debía contener un código promocional, el mensaje se enviará normalmente.
 
-### Si cargué los códigos promocionales incorrectos, ¿puedo actualizarlos?
+### Si cargué los códigos promocionales incorrectos, ¿puedo actualizarlos? {#if-i-uploaded-the-wrong-promotion-codes-can-i-update-them}
 
-Sí. Puedes resolver esto descontinuando la lista completa o usando un marcador de posición para eliminar la lista. Para más información, consulta [Actualizar una lista de códigos promocionales]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/#updating-a-promotion-code-list).
+Si cargaste códigos incorrectos, tienes dos opciones para resolverlo:
 
-### ¿Puedo guardar un código promocional en el perfil de un usuario para mensajes futuros?
+- **Descontinuar la lista completa:** Deja de usar la lista actual en cualquier campaña, Canvas o plantilla. Luego carga los códigos correctos en una nueva lista y cambia todos tus mensajes para que usen la nueva lista.
+- **Agotar los códigos incorrectos:** Crea una campaña que envíe códigos de la lista incorrecta a un usuario de marcador de posición hasta que se agoten todos los códigos incorrectos. Después, vuelve a cargar los códigos correctos en la misma lista, excluyendo los incorrectos.
 
-Sí. Puedes guardar códigos promocionales en el perfil de un usuario a través de un paso de Actualización de usuario. Para más información, consulta [Guardar códigos promocionales en perfiles de usuario]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#save-to-profile).
+Para orientación general sobre cómo actualizar una lista, consulta [Actualizar una lista de códigos promocionales]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create#updating-a-promotion-code-list).
+
+### ¿Braze rastrea qué usuarios recibieron o canjearon qué códigos promocionales? {#does-braze-track-which-users-received-or-redeemed-which-promotion-codes}
+
+Cuando un mensaje usa un código promocional, Braze marca ese código como consumido para que no pueda enviarse de nuevo y actualiza el recuento restante de la lista. Braze no mantiene un informe de códigos enviados, no rastrea qué usuarios específicos recibieron cada código ni rastrea si los códigos fueron canjeados.
+
+Si necesitas asociar códigos con usuarios o rastrear el canje por tu cuenta, puedes:
+
+- Guardar códigos promocionales en perfiles de usuario a través de un paso de Actualización de usuario. Para más información, consulta [Guardar códigos promocionales en perfiles de usuario]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#save-to-profile).
+- Enviar valores de códigos promocionales a Currents usando la etiqueta de Liquid `message_extras`. Para más información, consulta [Enviar información de códigos promocionales a Currents]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras#sending-promotion-code-information-to-currents).
+
+### ¿Puedo guardar un código promocional en el perfil de un usuario para mensajes futuros? {#can-i-save-a-promotion-code-to-a-users-profile-for-future-messages}
+
+Sí. Puedes guardar códigos promocionales en el perfil de un usuario a través de un paso de Actualización de usuario. Para más información, consulta [Guardar códigos promocionales en perfiles de usuario]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#save-to-profile).

@@ -14,7 +14,7 @@ noindex: true
 
 A Braze fornece métodos para atribuir atributos aos usuários. Você poderá filtrar e segmentar seus usuários de acordo com esses atributos no dashboard.
 
-Antes da implementação, certifique-se de revisar exemplos das opções de segmentação oferecidas por eventos personalizados, atributos personalizados e eventos de compra em nossas [melhores práticas]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection), bem como nossas notas sobre [convenções de nomenclatura de eventos]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/).
+Antes da implementação, certifique-se de revisar exemplos das opções de segmentação oferecidas por eventos personalizados, atributos personalizados e eventos de compra em nossas [melhores práticas]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#user-data-collection), bem como nossas notas sobre [convenções de nomenclatura de eventos]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
 
 ## Atribuindo atributos de usuário padrão {#assigning-default-user-attributes}
 
@@ -54,7 +54,7 @@ Os seguintes atributos devem ser definidos no objeto `ABKUser`:
 
 ## Atribuindo atributos personalizados ao usuário {#assigning-custom-user-attributes}
 
-Além dos atributos de usuário padrão, a Braze também permite definir atributos personalizados usando vários tipos de dados diferentes. Consulte nossa [coleta de dados de usuários]({{site.baseurl}}/developer_guide/analytics/) para saber mais sobre as opções de segmentação que cada um desses atributos oferece.
+Além dos atributos de usuário padrão, a Braze também permite definir atributos personalizados usando vários tipos de dados diferentes. Consulte nossa [coleta de dados de usuários]({{site.baseurl}}/developer_guide/analytics) para saber mais sobre as opções de segmentação que cada um desses atributos oferece.
 
 ### Atributo personalizado com um valor da string {#custom-attribute-with-a-string-value}
 
@@ -233,7 +233,7 @@ Appboy.sharedInstance()?.user.incrementCustomUserAttribute("your_attribute_key",
 
 ### Definindo um atributo personalizado por meio da REST API {#setting-a-custom-attribute-via-the-rest-api}
 
-Você também pode usar nossa REST API para definir atributos de usuário. Consulte a [documentação da API de usuários]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data) para obter detalhes.
+Você também pode usar nossa REST API para definir atributos de usuário. Consulte a [documentação da API de usuários]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data) para obter detalhes.
 
 ### Limites de valores de atributos personalizados {#custom-attribute-value-limits}
 
@@ -257,7 +257,7 @@ Para configurar uma inscrição para seus usuários (e-mail ou push), chame as f
 
 Os usuários que concedem permissão para um app enviar notificações por push têm o status padrão de `ABKOptedin`, pois o iOS exige uma aceitação explícita.
 
-Os usuários serão configurados como `ABKSubscribed` automaticamente após o recebimento de um endereço de e-mail válido; no entanto, sugerimos que você estabeleça um processo de aceitação explícita e defina esse valor para `OptedIn` após o recebimento do consentimento explícito do seu usuário. Para saber mais, consulte [Gerenciar inscrições de usuários]({{site.baseurl}}/user_guide/channels/email/subscriptions/).
+Os usuários serão configurados como `ABKSubscribed` automaticamente após o recebimento de um endereço de e-mail válido; no entanto, sugerimos que você estabeleça um processo de aceitação explícita e defina esse valor para `OptedIn` após o recebimento do consentimento explícito do seu usuário. Para saber mais, consulte [Gerenciar inscrições de usuários]({{site.baseurl}}/user_guide/channels/email/subscriptions).
 
 ### Configurando inscrições de e-mail {#setting-email-subscriptions}
 
@@ -297,4 +297,4 @@ Appboy.sharedInstance()?.user.setPushNotificationSubscriptionType(ABKNotificatio
 {% endtab %}
 {% endtabs %}
 
-Para saber mais, consulte [Gerenciar inscrições de usuários]({{site.baseurl}}/user_guide/channels/email/subscriptions/).
+Para saber mais, consulte [Gerenciar inscrições de usuários]({{site.baseurl}}/user_guide/channels/email/subscriptions).

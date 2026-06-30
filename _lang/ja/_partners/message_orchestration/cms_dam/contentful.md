@@ -1,7 +1,7 @@
 ---
 nav_title: Contentful
 article_title: Contentful
-description: "このリファレンス記事では、BrazeとContentfulの連携について説明します。Contentfulは、コネクテッドコンテンツを動的に使用してContentfulからBraze Campaignsにコンテンツをプルできるコンテンツ管理システムです。"
+description: "このリファレンス記事では、BrazeとContentfulの連携について説明します。Contentfulは、コネクテッドコンテンツを動的に使用してContentfulからBraze キャンペーンにコンテンツをプルできるコンテンツ管理システムです。"
 alias: /partners/contentful/
 page_type: partner
 search_tag: Partner
@@ -11,7 +11,7 @@ search_tag: Partner
 
 >[Contentful](https://www.contentful.com/) は、コンテンツの作成、管理、およびあらゆるプラットフォームへの配信を可能にするヘッドレスのコンテンツ管理システムです。コンテンツ管理システム (CMS) とは異なり、Contentfulではコンテンツモデルを作成できるため、どのコンテンツを管理するかを決めることができます。<br><br>このページでは、ContentfulのContent Delivery APIからデータを取得するようにBrazeコネクテッドコンテンツを設定する手順について説明します。
 
-統合後は、ContentfulのRESTful APIを使用して、Webサイト、モバイルアプリ（iOS、Android、およびWindows）、その他の多くのプラットフォームなど、複数のチャネルにわたってコンテンツを配信できます。また、Contentfulからコンテンツをダイナミックにプルして、Braze Campaignsで使用することもできます。
+統合後は、ContentfulのRESTful APIを使用して、Webサイト、モバイルアプリ（iOS、Android、およびWindows）、その他の多くのプラットフォームなど、複数のチャネルにわたってコンテンツを配信できます。また、Contentfulからコンテンツをダイナミックにプルして、Braze キャンペーンで使用することもできます。
 
 ## 前提条件 {#prerequisites}
 
@@ -62,11 +62,11 @@ search_tag: Partner
 5. **Done**を選択してContent Blockを保存します。
 6. Content Blockに「Contentful API」などのわかりやすい名前をつけ、**Launch Content Block**を選択します。
 
-### ステップ3:CampaignsやCanvasでコネクテッドコンテンツを使用する {#step-3-use-connected-content-in-campaigns-and-canvasses}
+### ステップ3:キャンペーンやキャンバスでコネクテッドコンテンツを使用する {#step-3-use-connected-content-in-campaigns-and-canvasses}
 
-1. Brazeで、新しいCampaignを作成するか、既存のCampaignを編集します。
-2. コネクテッドコンテンツブロックを使って、Contentfulから取得したデータを挿入します。設定時に定義したデータパスを使用して、Campaignのコンテンツをダイナミックに入力します。<br><br>
-- **応答パス:** Content BlockをBraze CampaignまたはCanvasに含めた後、変数`{response}`をメッセージに挿入すると、レスポンスが利用可能になります。<br><br>JSONドット表記法では、Contentfulからの応答本文のどの部分をメッセージに含めるかを指定できます。これはユースケースによって異なります。例えば、Contentfulのエントリエンドポイントからタイトル値（{% raw %}`liquid{{response.items[0].fields.title}}`{% endraw %}）を使用し、次のような応答を受け取ることができます。
+1. Brazeで、新しいキャンペーンを作成するか、既存のキャンペーンを編集します。
+2. コネクテッドコンテンツブロックを使って、Contentfulから取得したデータを挿入します。設定時に定義したデータパスを使用して、キャンペーンのコンテンツをダイナミックに入力します。<br><br>
+- **応答パス:** Content BlockをBraze キャンペーンまたはキャンバスに含めた後、変数`{response}`をメッセージに挿入すると、レスポンスが利用可能になります。<br><br>JSONドット表記法では、Contentfulからの応答本文のどの部分をメッセージに含めるかを指定できます。これはユースケースによって異なります。例えば、Contentfulのエントリエンドポイントからタイトル値（{% raw %}`liquid{{response.items[0].fields.title}}`{% endraw %}）を使用し、次のような応答を受け取ることができます。
 
 {% raw %}
 ```json
@@ -117,8 +117,8 @@ search_tag: Partner
 {% endraw %}
 
 {: start="3" }
-3. Campaignをプレビューしてテストし、コネクテッドコンテンツデータが正しく表示されることを確認します。
-4. 設定に問題がなければ、Campaignを起動します。
+3. キャンペーンをプレビューしてテストし、コネクテッドコンテンツデータが正しく表示されることを確認します。
+4. 設定に問題がなければ、キャンペーンを起動します。
 
 ## トラブルシューティング {#troubleshooting}
 

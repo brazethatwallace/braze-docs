@@ -348,7 +348,7 @@ useEffect(() => {
 - **Expo**：可能な限り手動のネイティブ配線を避けるために、[Braze Expoプラグイン](https://github.com/braze-inc/braze-expo-plugin)を使用してください。
 - **New Architecture / Turbo Modules**：最新のプラグインバージョンでサポートされています。移行する場合は、開発者ガイドとサンプルの`AppDelegate`/Gradle設定に従ってください。
 - **プライバシー（iOS）**：`updateTrackingPropertyAllowList`などのメソッドはプライバシーマニフェスト関連の設定をサポートしています。[Swiftプライバシーマニフェスト](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/)を参照してください。
-## - **Jest**：`react-native`ネイティブモジュールまたはBraze Turboモジュールをモックしてください（パターンについてはこのリポジトリの`__tests__/jest.setup.js`を参照）。 {#jest-mock-react-native-native-modules-or-the-braze-turbo-module-see-__tests__jestsetupjs-in-this-repo-for-patterns}
+- **Jest**：`react-native`ネイティブモジュールまたはBraze Turboモジュールをモックしてください（パターンについてはこのリポジトリの`__tests__/jest.setup.js`を参照）。
 
 ## バージョンサポート {#version-support}
 
@@ -425,7 +425,7 @@ npx react-native run-android
 
 ## お問い合わせ {#contact}
 
-ご質問がある場合は、[support@braze.com](mailto:support@braze.com)までお問い合わせください。
+ご質問がある場合は、Brazeテクニカルサポートまでお問い合わせください。
 <!-- END GENERATED README CONTENT -->
 
 リポジトリの詳細とサンプルプロジェクトについては、[https://github.com/braze-inc/braze-react-native-sdk](https://github.com/braze-inc/braze-react-native-sdk)を参照してください。

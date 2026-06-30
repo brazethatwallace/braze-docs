@@ -29,7 +29,7 @@ Operator Analyze s'exécute dans le panneau de conversation Operator.
 2. Posez une question sur l'engagement d'un canal ou les comparaisons de benchmarks (voir [Exemples de questions](#example-questions)).
 3. Operator renvoie la réponse et, le cas échéant, un graphique ou un tableau ainsi qu'une courte liste d'informations exploitables.
 
-Pour en savoir plus sur le panneau de conversation Operator, consultez [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/).
+Pour en savoir plus sur le panneau de conversation Operator, consultez [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator).
 
 ## Exemples de questions {#example-questions}
 
@@ -102,7 +102,7 @@ Le *chiffre d'affaires attribué* et les *conversions* utilisent la même agrég
 | Content Cards | *Envois*, *Impressions*, *Clics* | Oui |
 | WhatsApp | *Envois*, *Livraisons*, *Lectures*, *Clics* | Pas encore |
 | RCS | *Envois*, *Livraisons*, *Lectures*, *Clics* (y compris les sous-types URL texte, bouton, action, action de réponse et bouton de réponse) | Pas encore |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported channels, metrics, and benchmark availability" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Canaux pris en charge, indicateurs et disponibilité des benchmarks" }
 
 {% alert tip %}
 Operator utilise des comptages uniques pour les taux (par exemple, *ouvertures uniques* divisées par les *livraisons* pour le *taux d'ouverture e-mail*). Si un chiffre diffère d'un tableau de bord, comparez la fenêtre d'attribution, la période et la définition. Operator indique ces trois éléments dans chaque réponse.
@@ -120,7 +120,7 @@ Operator Analyze utilise par défaut l'**exercice fiscal Braze**, qui s'étend d
 | FQ2 | Mai – Juil |
 | FQ3 | Août – Oct |
 | FQ4 | Nov – Jan |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze fiscal quarters and calendar months" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Trimestres fiscaux Braze et mois correspondants" }
 
 Pour les questions relatives à l'année civile, incluez « CY », « année civile » ou « année standard ». Les formulations ambiguës comme « l'année dernière » amènent Operator à vous demander de préciser le calendrier concerné.
 
@@ -159,9 +159,9 @@ Les questions hors périmètre reçoivent une réponse directe, une alternative 
 
 ## Confidentialité et sécurité des données {#data-privacy-and-security}
 
-Operator Analyze suit le même modèle de confidentialité et de sécurité que BrazeAI Operator<sup>TM</sup>. Pour en savoir plus, consultez [Confidentialité et sécurité des données]({{site.baseurl}}/user_guide/brazeai/operator/#data-privacy-and-security).
+Operator Analyze suit le même modèle de confidentialité et de sécurité que BrazeAI Operator<sup>TM</sup>. Pour en savoir plus, consultez [Confidentialité et sécurité des données]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
 
 ## Étapes suivantes {#next-steps}
 
-* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)
-* [Vérifier les actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/)
+* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)
+* [Vérifier les actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)

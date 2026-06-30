@@ -17,7 +17,7 @@ El mensaje push general. Estos aparecen en el dispositivo de tu usuario con un s
 
 **Compatible con:** Web, Android, iOS
 
-Para más información, consulta [Crear un mensaje push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/).
+Para más información, consulta [Crear un mensaje push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
 
 ## Notificación push web {#web-push}
 
@@ -25,7 +25,7 @@ Estos mensajes push aparecen en aplicaciones web o navegadores. Requieren permis
 
 **Compatible con:** Web
 
-Para más información, consulta [Notificaciones push web]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web/).
+Para más información, consulta [Notificaciones push web]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web).
 
 ## Campañas de push primer {#push-primer-campaigns}
 
@@ -33,7 +33,7 @@ Campañas de mensajes dentro de la aplicación utilizadas para obtener una seña
 
 **Compatible con:** Web, Android, iOS
 
-Para más información, consulta [Mensajes dentro de la aplicación de push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/).
+Para más información, consulta [Mensajes dentro de la aplicación de push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
 
 ## Push Stories
 
@@ -41,7 +41,7 @@ Push Stories son mensajes inmersivos que llevan a tu usuario a través de un rec
 
 **Compatible con:** iOS, Android
 
-Para más información, consulta [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/).
+Para más información, consulta [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories).
 
 ## Push con botones de acción {#push-with-action-buttons}
 
@@ -49,7 +49,7 @@ Las notificaciones push con botones de acción son mensajes que te permiten ofre
 
 **Compatible con:** Web, Android, iOS
 
-Para más información, consulta [Botones de acción para notificación push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/).
+Para más información, consulta [Botones de acción para notificación push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons).
 
 ## Notificaciones push enriquecidas {#rich-push-notifications}
 
@@ -57,7 +57,7 @@ Las notificaciones push enriquecidas son notificaciones con imágenes inmersivas
 
 **Compatible con:** iOS, Android
 
-Para más información, consulta [Crear notificaciones enriquecidas para iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/) o [Crear notificaciones enriquecidas para Android]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/rich_notifications/).
+Para más información, consulta [Crear notificaciones enriquecidas para iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications) o [Crear notificaciones enriquecidas para Android]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/rich_notifications).
 
 ## Notificaciones push provisionales para iOS {#provisional-push-notifications-for-ios}
 
@@ -65,7 +65,7 @@ Introducidas por Apple en iOS 12, la autorización provisional ocurre automátic
 
 **Compatible con:** iOS
 
-Para más información, consulta [Opciones de notificación de iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push).
+Para más información, consulta [Opciones de notificación de iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push).
 
 ## Notificaciones push HTML {#html-push-notifications}
 
@@ -79,7 +79,7 @@ Los ID de notificación y los ID de canal te permiten reemplazar o actualizar no
 
 **Compatible con:** iOS, Android
 
-Para más información, consulta [Canales de notificación]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels/) y [Configuración avanzada de campañas push]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings/).
+Para más información, consulta [Canales de notificación]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels) y [Configuración avanzada de campañas push]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings).
 
 ## Notificaciones push en segundo plano o silenciosas {#background-push-notifications}
 
@@ -87,7 +87,7 @@ Notificaciones push que no se muestran en el dispositivo. Generalmente se utiliz
 
 **Compatible con:** Web, Android, iOS
 
-Para más información, consulta [Notificaciones push silenciosas]({{site.baseurl}}/developer_guide/push_notifications/silent/).
+Para más información, consulta [Notificaciones push silenciosas]({{site.baseurl}}/developer_guide/push_notifications/silent).
 
 ## Notificaciones push para dispositivos wearable {#wearable-push-notifications}
 

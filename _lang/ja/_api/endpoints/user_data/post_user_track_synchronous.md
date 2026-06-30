@@ -10,11 +10,11 @@ description: "この記事では、同期処理のユーザー追跡 Braze エ�
 ---
 {% api %}
 # ユーザーを作成および更新する（同期処理） {#create-and-update-users-synchronous}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/sync
 {% endapimethod %}
 
-> このエンドポイントを使用して、カスタムイベントと購入を記録し、ユーザープロファイル属性を同期的に更新します。このエンドポイントは、ユーザープロファイルを非同期に更新する[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)と同様に機能します。
+> このエンドポイントを使用して、カスタムイベントと購入を記録し、ユーザープロファイル属性を同期的に更新します。このエンドポイントは、ユーザープロファイルを非同期に更新する[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)と同様に機能します。
 
 {% alert important %}
 このエンドポイントは現在、**限定ベータ版**です。現在ベータ版への新規顧客の追加は行っていませんが、この機能がBrazeとの連携に有用だと思われる場合は、担当のBrazeアカウントマネージャーにお知らせください。
@@ -32,7 +32,7 @@ description: "この記事では、同期処理のユーザー追跡 Braze エ�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.track.sync`権限を持つ[APIキー]({{site.baseurl}}/api/api_key/)が必要です。
+このエンドポイントを使用するには、`users.track.sync`権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
 
 サーバー間の呼び出しにAPIを使用する顧客がファイアウォールの内側にいる場合には、`rest.iad-01.braze.com`を許可リストに登録する必要が生じることがあります。
 
@@ -65,9 +65,9 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | オプション | 1つの属性オブジェクト | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)を参照してください |
-| `events` | オプション | 1つのイベントオブジェクト | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object/)を参照してください |
-| `purchases` | オプション | 1つの購入オブジェクト | [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object/)を参照してください |
+| `attributes` | オプション | 1つの属性オブジェクト | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)を参照してください |
+| `events` | オプション | 1つのイベントオブジェクト | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object)を参照してください |
+| `purchases` | オプション | 1つの購入オブジェクト | [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object)を参照してください |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## 応答 {#responses}
@@ -162,7 +162,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 --data-raw '{
     "events": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "app_id": "your_app_identifier",
             "name": "rented_movie",
             "time": "2022-12-06T19:20:45+01:00",
@@ -191,7 +191,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 {
     "users": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "custom_events": [
                 {
                 "name": "rented_movie",

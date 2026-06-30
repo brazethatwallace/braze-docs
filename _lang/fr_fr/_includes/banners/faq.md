@@ -47,10 +47,6 @@ Les utilisateurs peuvent fermer manuellement les bannières uniquement si le com
 
 Lorsqu'un utilisateur ferme une bannière, il n'est plus éligible à cette campagne par défaut. Pour permettre aux utilisateurs ayant fermé la bannière de la revoir, [configurez la rééligibilité]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility) dans l'étape **Contrôles de l'envoi** de la campagne. Les étapes de bannière Canvas utilisent les paramètres de réentrée Canvas pour contrôler la rééligibilité.
 
-{% alert important %}
-Les [fermetures de bannières]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals) sont actuellement en accès anticipé. Si vous souhaitez participer à l'accès anticipé, contactez votre gestionnaire de la satisfaction client.
-{% endalert %}
-
 Par exemple, si vous affichez une bannière promotionnelle jusqu'à ce qu'un utilisateur effectue un achat, l'enregistrement d'un événement tel que `purchase_completed` peut retirer cet utilisateur du segment ciblé, masquant ainsi la bannière lors des sessions suivantes.
 
 ## Puis-je exporter les analyses des campagnes de bannières à l'aide de l'API Braze ? {#can-i-export-banners-campaign-analytics-using-the-braze-api}

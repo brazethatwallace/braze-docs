@@ -12,12 +12,12 @@ description: "Dieser Referenzartikel beschreibt interne Gruppen – eine hervorr
 > Interne Gruppen sind eine hervorragende Möglichkeit, interne oder externe Testgruppen zu erstellen und zu organisieren. Sie bieten Einblicke in Ihre SDK- oder API-Protokolle und sind nützlich beim Testen Ihrer SDK-Integration. Sie können eine unbegrenzte Anzahl angepasster interner Gruppen mit bis zu 1.000 Nutzer:innen erstellen.
 
 {% alert tip %}
-Wir empfehlen außerdem, unseren Braze-Lernkurs [Testing and Troubleshooting](https://learning.braze.com/path/developer/testing-and-troubleshooting) zu besuchen, der erklärt, wie Sie interne Gruppen für Ihre eigene Fehlerbehebung und Fehlersuche nutzen können.
+Wir empfehlen außerdem, unseren Braze-Lernkurs [Testen und Fehlerbehebung](https://learning.braze.com/path/developer/testing-and-troubleshooting) zu besuchen, der erklärt, wie Sie interne Gruppen für Ihre eigene Fehlerbehebung und Fehlersuche nutzen können.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
 
-Um interne Gruppen zu erstellen und zu verwalten, benötigen Sie die folgenden [Nutzerberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/):
+Um interne Gruppen zu erstellen und zu verwalten, benötigen Sie die folgenden [Nutzerberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions):
 
 - API-Schlüssel anzeigen
 - API-Schlüssel bearbeiten
@@ -63,18 +63,16 @@ Nachdem Sie Ihre interne Gruppe erstellt haben, fügen Sie Testnutzer:innen als 
 | Methode | Beschreibung |
 |-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Identifizierte:n Nutzer:in hinzufügen** | Suchen Sie nach der/dem Nutzer:in anhand der externen Nutzer-ID, E-Mail-Adresse, Telefonnummer oder des Push-Tokens. |
-| **Anonyme:n Nutzer:in hinzufügen** | Suchen Sie nach IP-Adresse. Geben Sie dann einen Namen für jede:n Testnutzer:in an, die/den Sie hinzufügen. Dies ist der Name, mit dem alle Event-Protokolle auf der Seite [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) verknüpft werden. |
-| **Nutzer:innen in großer Anzahl hinzufügen** | Kopieren Sie eine Liste von E-Mail-Adressen oder externen IDs und fügen Sie sie ein. Sie können nur Nutzer:innen hinzufügen, die bereits im Dashboard bekannt sind. Weitere Informationen finden Sie unter [Nutzerimport]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/). |
+| **Anonyme:n Nutzer:in hinzufügen** | Suchen Sie nach IP-Adresse. Geben Sie dann einen Namen für jede:n Testnutzer:in an, die/den Sie hinzufügen. Dies ist der Name, mit dem alle Event-Protokolle auf der Seite [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) verknüpft werden. |
+| **Nutzer:innen in großer Anzahl hinzufügen** | Kopieren Sie eine Liste von E-Mail-Adressen oder externen IDs und fügen Sie sie ein. Sie können nur Nutzer:innen hinzufügen, die bereits im Dashboard bekannt sind. Weitere Informationen finden Sie unter [Nutzerimport]({{site.baseurl}}/user_guide/audience/manage_audience/import_users). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Testnutzer:innen hinzufügen" }
-
-![Einstellungen für interne Gruppen beim Erstellen einer neuen internen Gruppe]({% image_buster /assets/img_archive/internal_group_add_user.png %})
 
 ### Content-Testgruppen {#content-test-groups}
 
 Ähnlich wie beim Senden einer Vorschau-Testnachricht spart die Content-Testgruppe Zeit und ermöglicht es Ihnen, Tests gleichzeitig an eine vordefinierte Liste von Braze-Nutzer:innen zu senden. Dies ist für Push, In-App-Nachrichten, SMS, E-Mail und Content Cards in Braze verfügbar. Nur Gruppen, die als Content-Testgruppen gekennzeichnet sind, stehen im Vorschaubereich einer Nachricht zur Verfügung.
 
 {% alert note %}
-[SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/)-Testnachrichten können nur an gültige Telefonnummern in der Datenbank gesendet werden.
+[SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)-Testnachrichten können nur an gültige Telefonnummern in der Datenbank gesendet werden.
 {% endalert %}
 
 Wählen Sie einzelne Braze-Nutzer:innen oder eine beliebige Anzahl interner Gruppen aus, an die die Nachricht gesendet werden soll. Wenn Ihre Nachricht Liquid oder andere dynamische Personalisierung enthält, verwendet Braze die für jede:n Nutzer:in verfügbaren Attribute, um den Nachrichteninhalt zu personalisieren. Für Nutzer:innen ohne Attribute verwendet Braze den festgelegten Standardwert.
@@ -91,7 +89,7 @@ Seed-Gruppen werden nur für den E-Mail-Kanal unterstützt. Fügen Sie Nutzer:in
 
 Seed-Gruppen sind für API-Kampagnen nicht verfügbar, aber Sie können Seed-Gruppen über einen API-getriggerten Einstieg in die Campaign einbinden. Verwenden Sie dies, um Zustellbarkeitsmetriken zu messen und eine Aufzeichnung Ihrer E-Mail-Inhalte für historische und Archivierungszwecke zu führen.
 
-Nachdem Sie eine interne Gruppe erstellt und als Seed-Gruppe gekennzeichnet haben, wählen Sie sie im Schritt **Target Audiences** des Campaign-Editors oder im Schritt **Send Settings** in einem Canvas aus.
+Nachdem Sie eine interne Gruppe erstellt und als Seed-Gruppe gekennzeichnet haben, wählen Sie sie im Schritt **Target Audiences** des Campaign-Editors oder im Schritt **Sendeeinstellungen** in einem Canvas aus.
 
 Seed-E-Mails haben `[SEED]` vor der Betreffzeile. Beachten Sie, dass Seed-E-Mails **Folgendes nicht tun**:
 
@@ -108,7 +106,7 @@ Seed-Sendungen sind für interne QA und Überprüfung konzipiert und umgehen dah
 {% alert tip %}
 Wenn Seed-Gruppen-Mitglieder die Nachricht nicht sehen, bestätigen Sie, dass sie in der internen Gruppe sind, verwenden Sie unterschiedliche Betreffzeilen, damit Gmail Nachrichten nicht zusammenfasst, und bitten Sie sie, den Spam-Ordner zu überprüfen.
 
-Wenn die E-Mail [`abort_message()` Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) verwendet, müssen Seed-Gruppen-Mitglieder weiterhin die Abbruchbedingung erfüllen, um die Sendung zu erhalten.
+Wenn die E-Mail [`abort_message()` Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) verwendet, müssen Seed-Gruppen-Mitglieder weiterhin die Abbruchbedingung erfüllen, um die Sendung zu erhalten.
 {% endalert %}
 
 #### Für Campaigns {#for-campaigns}

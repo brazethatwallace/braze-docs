@@ -90,7 +90,7 @@ Nachdem Sie die Benachrichtigungen über Preissenkungen in einem Katalog eingeri
 1. Richten Sie ein aktionsbasiertes Canvas ein.
 2. Wählen Sie als Trigger **Perform Price Drop Event**.
 3. Wählen Sie den Namen des Katalogs mit den Preissenkungsbenachrichtigungen aus.
-4. Fahren Sie mit der [Einrichtung]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) Ihres Canvas fort, wie Sie es gewohnt sind.
+4. Fahren Sie mit der [Einrichtung]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) Ihres Canvas fort, wie Sie es gewohnt sind.
 
 Jetzt werden Ihre Kund:innen benachrichtigt, wenn der Preis eines Artikels sinkt.
 

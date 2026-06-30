@@ -19,7 +19,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Excluir 
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `catalogs.delete_fields`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `catalogs.delete_fields`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -27,10 +27,10 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 ## Parâmetros de caminho {#path-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro      | Obrigatória | Tipo de dados | Descrição                  |
 | -------------- | -------- | --------- | -------------------------- |
-| `catalog_name` | Obrigatória | String | Nome do catálogo. |
-| `field_name` | Obrigatória | String | Nome do campo do catálogo. |
+| `catalog_name` | Obrigatória | String    | Nome do catálogo.          |
+| `field_name`   | Obrigatória | String    | Nome do campo do catálogo. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de caminho" }
 
 ## Exemplo de solicitação {#example-request}
@@ -81,12 +81,12 @@ O código de status `404` poderia retornar o seguinte corpo de resposta. Consult
 
 A tabela a seguir lista os possíveis erros retornados e as etapas de solução de problemas associadas.
 
-| Erro | Solução de problemas |
+| Erro                            | Solução de problemas                                             |
 | ------------------------------- | ---------------------------------------------------------------- |
-| `catalog-not-found` | Verifique se o nome do catálogo é válido. |
+| `catalog-not-found`             | Verifique se o nome do catálogo é válido.                        |
 | `field-referenced-by-selection` | Verifique se o campo de catálogo está sendo usado atualmente por uma seleção. |
-| `field-is-inventory` | Verifique se o campo de catálogo é usado como um campo de inventário. |
-| `invalid-field-name` | Verifique se o nome do campo do catálogo é válido. |
+| `field-is-inventory`            | Verifique se o campo de catálogo é usado como um campo de inventário. |
+| `invalid-field-name`            | Verifique se o nome do campo do catálogo é válido.               |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Solução de problemas" }
 
 {% endapi %}

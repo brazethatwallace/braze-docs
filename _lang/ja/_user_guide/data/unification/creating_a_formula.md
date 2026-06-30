@@ -25,7 +25,7 @@ tool: Reports
 
 ## 計算式の作成 {#creating-formulas}
 
-計算式には、ダッシュボードの[ホーム]({{site.baseurl}}/user_guide/analytics/dashboards/home/)、[収益レポート]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/)、[カスタムイベントレポート]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)の各ページにある統計パネルからアクセスできます。このパネルを表示するには、**Performance Over Time** チャートに移動し、**Statistics For** ドロップダウンを **KPI Formulas** に変更してから、少なくとも1つのKPI計算式を選択してチャートに入力します。
+計算式には、ダッシュボードの[ホーム]({{site.baseurl}}/user_guide/analytics/dashboards/home)、[収益レポート]({{site.baseurl}}/user_guide/analytics/reports/revenue_report)、[カスタムイベントレポート]({{site.baseurl}}/user_guide/data/activation/events/custom_events)の各ページにある統計パネルからアクセスできます。このパネルを表示するには、**Performance Over Time** チャートに移動し、**Statistics For** ドロップダウンを **KPI Formulas** に変更してから、少なくとも1つのKPI計算式を選択してチャートに入力します。
 
 ![BrazeダッシュボードでKPI計算式の統計を表示する]({% image_buster /assets/img_archive/kpi_forms.png %})
 
@@ -68,7 +68,7 @@ table td {
 | DAU | MAU |
 | セッション | DAU |
 | | セグメントサイズ |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview dashboard" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="概要ダッシュボード" }
 
 ### 収益ダッシュボード {#revenue-dashboard}
 
@@ -76,7 +76,7 @@ table td {
 | --- | --- |
 | 購入（すべて） | DAU |
 | 選択した購入（ギフトカードや商品IDなど） | MAU |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Revenue dashboard" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="収益ダッシュボード" }
 
 ### カスタムイベントダッシュボード {#custom-event-dashboard}
 
@@ -84,5 +84,5 @@ table td {
 | --- | --- |
 | カスタムイベント数 | MAU |
 |  | DAU |
-|  | セグメントサイズ（[分析トラッキング]({{site.baseurl}}/viewing_and_understanding_segment_data/)が有効なセグメントのみ使用できます） |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom event dashboard" }
+|  | セグメントサイズ（[分析トラッキング]({{site.baseurl}}/viewing_and_understanding_segment_data)が有効なセグメントのみ使用できます） |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="カスタムイベントダッシュボード" }

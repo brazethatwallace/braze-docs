@@ -1,9 +1,9 @@
 ---
 nav_title: "Push primer"
-article_title: Manual do Push para iOS
+article_title: Push Primer para iOS
 page_order: 6
 page_type: reference
-description: "Este artigo de referência aborda como integrar os primers push do iOS."
+description: "Este artigo de referência aborda como integrar push primers no iOS."
 platform: iOS
 channel:
   - push
@@ -13,11 +13,11 @@ alias: /push_primer/
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Integração do push primer
+# Integração do push primer {#push-primer-integration}
 
-Campanhas de push primer incentivam os usuários a ativar os pushes do seu app nos dispositivos deles. Obter a permissão dos usuários para enviar mensagens diretamente para seus dispositivos pode ser complexo, mas nossos guias podem ajudar! Este guia mostra as etapas que os desenvolvedores devem seguir para integrar push primers.
+Campanhas de push primer incentivam os usuários a ativar as notificações push no dispositivo para o seu app. Obter a permissão dos usuários para enviar mensagens diretamente para seus dispositivos pode ser complexo, mas nossos guias podem ajudar! Este guia mostra as etapas que os desenvolvedores devem seguir para integrar o push priming.
 
-## Etapa 1: Adicionar snippet no arquivo AppDelegate.m 
+## Etapa 1: Adicionar snippet no arquivo AppDelegate.m {#step-1-add-snippet-in-appdelegatem-file}
 
 Adicione a seguinte linha de código ao seu arquivo `AppDelegate.m` no lugar da integração padrão:
 
@@ -79,9 +79,9 @@ if #available(iOS 10, *) {
 {% endtab %}
 {% endtabs %}
 
-## Etapa 2: Anexar o verificador de eventos personalizado ao arquivo AppDelegate.m 
+## Etapa 2: Anexar o verificador de evento personalizado ao arquivo AppDelegate.m {#step-2-append-custom-event-checker-to-appdelegatem-file}
 
-O seguinte trecho de código verifica se um evento personalizado precisa ser disparado. Adicione a seguinte linha de código em seu site `AppDelegate.m`.
+O seguinte trecho de código verifica se um evento personalizado precisa ser disparado. Adicione a seguinte linha de código ao seu `AppDelegate.m`.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -128,11 +128,11 @@ let notificationSettiings = UIApplication.shared.currentUserNotificationSettings
 {% endtab %}
 {% endtabs %}
 
-## Etapa 3: Configurar um manipulador de deep links
+## Etapa 3: Configurar um manipulador de deep links {#step-3-set-up-a-deep-link-handler}
 
-Coloque o seguinte trecho de código em seu código de manipulação de deep links. Você só deve executar esse código de deep link para a mensagem no app do seu push primer.
+Coloque o seguinte trecho de código dentro do seu código de manipulação de deep links. Você só deve executar esse código de deep linking para a mensagem no app do seu push primer.
 
-Para saber mais sobre deep links, consulte a [personalização do manuseio de links]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking/#linking-handling-customization).
+Para saber mais sobre deep linking, consulte a [personalização do tratamento de links]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking#linking-handling-customization).
 
 {% tabs %}
 {% tab OBJECTIVE-C %}

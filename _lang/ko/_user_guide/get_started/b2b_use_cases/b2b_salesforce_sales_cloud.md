@@ -23,7 +23,7 @@ Braze는 현재 다음 사용 사례를 위해 Salesforce Sales Cloud에 두 가
 2. [Salesforce Sales Cloud에서 리드 업데이트하기](#updating-lead)
 
 {% alert note %}
-이 통합은 리드 확보 및 육성 노력의 일환으로 Braze에서 Salesforce를 업데이트하기 위한 것입니다. Salesforce에서 Braze로 데이터를 다시 동기화하려면 [B2B 데이터 모델]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models/)을 확인하거나 [기술 파트너]({{site.baseurl}}/partners/home/) 중 한 곳에 문의하세요.
+이 통합은 리드 확보 및 육성 노력의 일환으로 Braze에서 Salesforce를 업데이트하기 위한 것입니다. Salesforce에서 Braze로 데이터를 다시 동기화하려면 [B2B 데이터 모델]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models)을 확인하거나 [기술 파트너]({{site.baseurl}}/partners/home) 중 한 곳에 문의하세요.
 {% endalert %}
 
 ## 필수 조건 {#prerequisites}
@@ -94,9 +94,9 @@ Braze에서 Salesforce로 매핑하려는 각 키/값 쌍에 대해 **+ Add New 
 
 ## Salesforce Sales Cloud에서 리드 업데이트하기 {#updating-lead}
 
-Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹훅을 설정하려면 Salesforce Sales Cloud와 Braze 간의 공통 식별자가 필요합니다. 아래 예시에서는 Salesforce `lead_id`를 Braze `external_id`로 사용하지만, `user_alias`를 사용하여 이 작업을 수행할 수도 있습니다. 자세한 내용은 [B2B 데이터]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models/)를 참조하세요.
+Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹훅을 설정하려면 Salesforce Sales Cloud와 Braze 간의 공통 식별자가 필요합니다. 아래 예시에서는 Salesforce `lead_id`를 Braze `external_id`로 사용하지만, `user_alias`를 사용하여 이 작업을 수행할 수도 있습니다. 자세한 내용은 [B2B 데이터]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models)를 참조하세요.
 
-이 예시에서는 리드가 특정 리드 임계값을 넘은 후 리드의 리드 단계를 "MQL"(마케팅 적격 리드)로 업데이트하는 방법을 구체적으로 보여줍니다. 이는 [B2B 리드 스코어링 워크플로]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/) 사용 사례의 핵심 부분입니다.
+이 예시에서는 리드가 특정 리드 임계값을 넘은 후 리드의 리드 단계를 "MQL"(마케팅 적격 리드)로 업데이트하는 방법을 구체적으로 보여줍니다. 이는 [B2B 리드 스코어링 워크플로]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring) 사용 사례의 핵심 부분입니다.
 
 ### 1단계: `client_id` 및 `client_secret` 수집하기
 
@@ -160,7 +160,7 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 
 ### MQL(마케팅 적격 리드) 임계값 초과를 위한 리드 스코어링 Canvas {#lead-scoring}
 
-이 웹훅은 [리드 스코어링]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/#lead-handoff) 사용 사례에서 다루고 있지만, 별도의 웹훅 Campaign을 만드는 대신 리드 스코어링 Canvas 내에서 직접 MQL을 확인하고 Salesforce를 업데이트할 수도 있습니다:
+이 웹훅은 [리드 스코어링]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring#lead-handoff) 사용 사례에서 다루고 있지만, 별도의 웹훅 Campaign을 만드는 대신 리드 스코어링 Canvas 내에서 직접 MQL을 확인하고 Salesforce를 업데이트할 수도 있습니다:
 
 사용자 업데이트에 후속 단계를 추가하여 사용자가 정의한 MQL 임계값을 넘었는지 확인하세요. 임계값을 넘었다면 사용자의 상태를 "MQL"로 업데이트한 다음, 이 웹훅 템플릿을 사용하여 동일한 "MQL" 상태로 Salesforce를 업데이트합니다. Salesforce는 정의된 리드 라우팅 규칙에 따라 이 리드를 적절한 영업 팀으로 라우팅하여 나머지 작업을 처리합니다.
 
@@ -187,7 +187,7 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 
 ## 문제 해결 {#troubleshooting}
 
-이러한 워크플로는 Salesforce 내에서 디버깅 기능이 제한되어 있으므로 Braze [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/#message-activity-log)를 참조하여 웹훅이 실패한 이유와 오류 발생 여부를 확인하는 것이 좋습니다.
+이러한 워크플로는 Salesforce 내에서 디버깅 기능이 제한되어 있으므로 Braze [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#message-activity-log)를 참조하여 웹훅이 실패한 이유와 오류 발생 여부를 확인하는 것이 좋습니다.
 
 예를 들어, OAuth 토큰 검색에 사용된 잘못된 URL로 인한 오류는 `https://[insert_instance_name].my.salesforce.com/services/oauth2/token is not a valid URL`로 표시됩니다.
 

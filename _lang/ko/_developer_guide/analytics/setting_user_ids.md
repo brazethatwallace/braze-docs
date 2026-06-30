@@ -8,7 +8,7 @@ description: "Braze SDK를 통해 사용자 ID를 설정하는 방법을 알아�
 
 # 사용자 ID 설정 {#set-user-ids}
 
-> Braze SDK를 통해 사용자 ID를 설정하는 방법을 알아보세요. 이는 여러 기기와 플랫폼에서 사용자를 추적하고, [사용자 데이터 API]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)를 통해 데이터를 가져오고, [메시징 API]({{site.baseurl}}/api/endpoints/messaging/)를 통해 타겟팅된 메시지를 보낼 수 있는 고유 식별자입니다. 사용자에게 고유 ID를 할당하지 않으면 Braze에서 익명 ID를 대신 할당하지만, 할당할 때까지는 이러한 기능을 사용할 수 없습니다.
+> Braze SDK를 통해 사용자 ID를 설정하는 방법을 알아보세요. 이는 여러 기기와 플랫폼에서 사용자를 추적하고, [사용자 데이터 API]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data)를 통해 데이터를 가져오고, [메시징 API]({{site.baseurl}}/api/endpoints/messaging)를 통해 타겟팅된 메시지를 보낼 수 있는 고유 식별자입니다. 사용자에게 고유 ID를 할당하지 않으면 Braze에서 익명 ID를 대신 할당하지만, 할당할 때까지는 이러한 기능을 사용할 수 없습니다.
 
 {% alert note %}
 목록에 없는 래퍼 SDK의 경우 관련 네이티브 Android 또는 Swift 메서드를 대신 사용하세요.
@@ -188,15 +188,15 @@ Braze.addAlias("ALIAS_NAME", "ALIAS_LABEL");
 
 무작위로 잘 분산된 128비트 문자열인 [UUID(범용 고유 식별자)](https://en.wikipedia.org/wiki/Universally_unique_identifier) 표준을 사용하여 사용자 ID를 생성하는 것이 좋습니다.
 
-또는 기존 고유 식별자(예: 이름 또는 이메일 주소)를 해시하여 사용자 ID를 대신 생성할 수도 있습니다. 이 경우 사용자 가장을 방지할 수 있도록 [SDK 인증]({{site.baseurl}}/developer_guide/sdk_integration/authentication/)을 구현해야 합니다.
+또는 기존 고유 식별자(예: 이름 또는 이메일 주소)를 해시하여 사용자 ID를 대신 생성할 수도 있습니다. 이 경우 사용자 가장을 방지할 수 있도록 [SDK 인증]({{site.baseurl}}/developer_guide/sdk_integration/authentication)을 구현해야 합니다.
 
 {% alert warning %}
 사용자 ID에 추측 가능한 값이나 증가하는 숫자를 사용하지 마세요. 이로 인해 조직이 악의적인 공격이나 데이터 유출에 노출될 수 있습니다.
 
-추가 보안을 위해 [SDK 인증]({{site.baseurl}}/developer_guide/sdk_integration/authentication/)을 사용하세요.
+추가 보안을 위해 [SDK 인증]({{site.baseurl}}/developer_guide/sdk_integration/authentication)을 사용하세요.
 {% endalert %}
 
-처음부터 사용자 ID의 이름을 올바르게 지정하는 것이 중요하지만, 나중에 언제든지 [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/) 엔드포인트를 사용하여 이름을 변경할 수 있습니다.
+처음부터 사용자 ID의 이름을 올바르게 지정하는 것이 중요하지만, 나중에 언제든지 [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration) 엔드포인트를 사용하여 이름을 변경할 수 있습니다.
 
 | 권장되지 않는 ID 유형 | 권장되지 않는 예 |
 | ------------ | ----------- |

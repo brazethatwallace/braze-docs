@@ -1,0 +1,1 @@
+No editor de modelos de e-mail HTML, o grupo da barra lateral **Gerar** contém a opção **Modelo**. Selecione-a para gerar ou iterar em um modelo de e-mail HTML alinhado à sua marca. O Operator aplica suas [diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) para que o resultado corresponda à sua voz e estilo.

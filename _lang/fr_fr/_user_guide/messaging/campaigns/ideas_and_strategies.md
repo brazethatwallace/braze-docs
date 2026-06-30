@@ -3,7 +3,7 @@ nav_title: Idées et stratégies
 article_title: Idées et stratégies
 layout: dev_guide
 guide_top_header: "Idées et stratégies"
-guide_top_text: "Découvrez comment créer la campagne idéale grâce à ces cas d'utilisation et autres idées."
+guide_top_text: "Découvrez des exemples détaillés et des modèles pour atteindre vos objectifs courants de campagne. Cette section couvre le reciblage des utilisateurs actifs et inactifs, l'adoption de fonctionnalités et les mises à jour d'application, l'attribution d'installation, l'ajout de liens de calendrier aux messages, ainsi que l'automatisation des workflows d'inscription avec des outils externes comme Zoom. Parcourez ces cas d'utilisation pour trouver des approches adaptables à vos propres audiences."
 page_order: 5
 
 tool: Campaigns

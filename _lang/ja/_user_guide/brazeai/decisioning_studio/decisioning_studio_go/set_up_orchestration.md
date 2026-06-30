@@ -16,7 +16,7 @@ Decisioning Studio Goは、以下のカスタマーエンゲージメントプ�
 
 | CEP | 統合タイプ | 主要な機能 |
 |-----|-----------------|--------------|
-| **Braze** | APIトリガーCampaigns | ネイティブ統合、リアルタイムトリガー |
+| **Braze** | APIトリガーキャンペーン | ネイティブ統合、リアルタイムトリガー |
 | **Salesforce Marketing Cloud** | APIイベント付きJourney Builder | SQLクエリのオートメーション、データエクステンション |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="サポートされているCEP" }
 
@@ -27,7 +27,7 @@ Decisioning Studio Goは、以下のカスタマーエンゲージメントプ�
 
 ## Braze統合を設定する {#set-up-braze-integration}
 
-Decisioning Studio GoをBrazeと統合するには、APIキーを作成し、APIトリガーCampaignを設定し、必要な識別子をDecisioning Studio Goポータルに提供します。
+Decisioning Studio GoをBrazeと統合するには、APIキーを作成し、APIトリガーキャンペーンを設定し、必要な識別子をDecisioning Studio Goポータルに提供します。
 
 ### ステップ1: REST APIキーを作成する {#step-1-create-a-rest-api-key}
 
@@ -37,9 +37,9 @@ Decisioning Studio GoをBrazeと統合するには、APIキーを作成し、API
 4. 以下のカテゴリに基づいて権限を選択します。
     - **ユーザーデータ：** `users.track`、`users.delete`、`users.export.ids`、`users.export.segment`を選択
     - **メッセージ：** `messages.send`、`messages.schedule.create`、`messages.schedule.update`、`messages.schedule.delete`を選択
-    - **Campaigns：** リストされているすべての権限を選択
-    - **Canvas：** リストされているすべての権限を選択
-    - **Segments：** リストされているすべての権限を選択
+    - **キャンペーン：** リストされているすべての権限を選択
+    - **キャンバス：** リストされているすべての権限を選択
+    - **セグメント：** リストされているすべての権限を選択
     - **テンプレート：** リストされているすべての権限を選択
 
 {: start="5"}
@@ -69,32 +69,32 @@ BrazeはアプリID（BrazeダッシュボードではAPIキーと呼ばれま�
 2. トラッキングしたいアプリに移動します。
 3. **APIキー**をコピーし、BrazeAI Decisioning Studio™ Goポータルに貼り付けます。
 
-### ステップ4: APIトリガーCampaignを作成する {#step-4-create-an-api-triggered-campaign}
+### ステップ4: APIトリガーキャンペーンを作成する {#step-4-create-an-api-triggered-campaign}
 
-1. Brazeダッシュボードで、**メッセージング** > **Campaigns**に移動します。
+1. Brazeダッシュボードで、**メッセージング** > **キャンペーン**に移動します。
 2. **キャンペーンを作成**を選択します。
-3. Campaignタイプとして、**API campaign**を選択します。
-4. Campaign名を入力します。例：「Decisioning Studio Go Email」
+3. キャンペーンタイプとして、**API キャンペーン**を選択します。
+4. キャンペーン名を入力します。例：「Decisioning Studio Go Email」
 
-![「Decisioning Studio Go Email」という名前のAPI Campaign。]({% image_buster /assets/img/decisioning_studio_go/api_campaign_name.png %})
+![「Decisioning Studio Go Email」という名前のAPI キャンペーン。]({% image_buster /assets/img/decisioning_studio_go/api_campaign_name.png %})
 
 {: start="5"}
 5. メッセージングチャネルとして、**Email**を選択します。
 
-![API Campaignのメッセージングチャネルを選択するオプション。]({% image_buster /assets/img/decisioning_studio_go/select_api_campaign.png %})
+![API キャンペーンのメッセージングチャネルを選択するオプション。]({% image_buster /assets/img/decisioning_studio_go/select_api_campaign.png %})
 
 {: start="6"}
-6. **追加オプション**で、**ユーザーがCampaignの受信資格を再取得できるようにする**チェックボックスを選択します。
+6. **追加オプション**で、**ユーザーがキャンペーンの受信資格を再取得できるようにする**チェックボックスを選択します。
 7. 再資格取得までの時間として、**1**を入力し、ドロップダウンから**Hours**を選択します。
 
-![API Campaignの再資格設定が選択された状態。]({% image_buster /assets/img/decisioning_studio_go/additional_options.png %})
+![API キャンペーンの再資格設定が選択された状態。]({% image_buster /assets/img/decisioning_studio_go/additional_options.png %})
 
 {: start="8"}
-8. **Save Campaign**を選択します。
+8. **キャンペーンを保存**を選択します。
 
-### ステップ5: Campaign IDとメッセージIDをコピーする {#step-5-copy-your-campaign-and-message-ids}
+### ステップ5: キャンペーン IDとメッセージIDをコピーする {#step-5-copy-your-campaign-and-message-ids}
 
-1. API Campaignで、**Campaign ID**をコピーします。次に、BrazeAI Decisioning Studio™ Goポータルに移動し、**Campaign ID**を貼り付けます。
+1. API キャンペーンで、**キャンペーン ID**をコピーします。次に、BrazeAI Decisioning Studio™ Goポータルに移動し、**キャンペーン ID**を貼り付けます。
 
 ![コピーして貼り付けるメッセージバリエーションIDの例。]({% image_buster /assets/img/decisioning_studio_go/campaign_id.png %})
 
@@ -105,7 +105,7 @@ BrazeはアプリID（BrazeダッシュボードではAPIキーと呼ばれま�
 
 統合をテストするには、ユーザーIDが必要です。
 
-ワークスペースで[識別子フィールドレベル暗号化]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/)を使用している場合、`/users/track`エンドポイントで作成する新しいテストユーザーは、暗号化されたワークスペースのメール要件に従う必要があります。`email`フィールドには、小文字に変換したメール値のBase64エンコードされたHMAC-SHA256ハッシュを送信し、`email_encrypted`には設定済みのPII暗号化キーで生成された暗号化メール値を送信してください。
+ワークスペースで[識別子フィールドレベル暗号化]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption)を使用している場合、`/users/track`エンドポイントで作成する新しいテストユーザーは、暗号化されたワークスペースのメール要件に従う必要があります。`email`フィールドには、小文字に変換したメール値のBase64エンコードされたHMAC-SHA256ハッシュを送信し、`email_encrypted`には設定済みのPII暗号化キーで生成された暗号化メール値を送信してください。
 
 1. Brazeダッシュボードで、**オーディエンス** > **ユーザーを検索**に移動します。
 2. 外部ユーザーID、ユーザーエイリアス、メール、電話番号、またはプッシュトークンでユーザーを検索します。
@@ -377,4 +377,4 @@ BrazeAI Decisioning Studio™ Goポータルには、サブスクライバーと
 
 オーケストレーションの設定が完了したら、次にエージェントの設計に進みましょう。
 
-- [エージェントを設計する]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)
+- [エージェントを設計する]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent)

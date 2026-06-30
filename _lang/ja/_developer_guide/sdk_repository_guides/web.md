@@ -33,8 +33,8 @@ Braze Web SDKを統合する前に、以下が必要です。
 
 ### 認証情報の取得 {#getting-your-credentials}
 
-1. **APIキー**: Brazeダッシュボードの**Settings** > **API Keys**にあります
-2. **SDKエンドポイント**: **Settings** > **SDK Authentication** > **Endpoints**にあります
+1. **APIキー**: Brazeダッシュボードの**設定** > **APIキー**にあります
+2. **SDKエンドポイント**: **設定** > **SDK認証** > **エンドポイント**にあります
 3. **Service Worker**: プッシュ通知に必要です（プッシュ通知セクションを参照）
 
 ## インストール {#installation}
@@ -70,7 +70,7 @@ braze.changeUser('Jane Doe');
 | `enableLogging` | `boolean` | `false` | デフォルトでログを有効にするにはtrueに設定します。これによりBrazeがJavaScriptコンソールにログを出力するようになり、すべてのユーザーに表示されます。本番環境にリリースする前に、このオプションを削除するか、setLoggerで代替ロガーを提供してください。 |
 | `allowUserSuppliedJavascript` | `boolean` | `false` | デフォルトでは、Braze Web SDKはユーザー提供のJavaScriptクリックアクションを許可せず、HTMLアプリ内メッセージやバナーも有効にしません。これらはBrazeダッシュボードのユーザーがサイト上でJavaScriptを実行できるようにするためです。Brazeダッシュボードのユーザーが悪意のないJavaScriptクリックアクションを記述することを信頼する場合は、このプロパティをtrueに設定してください。 |
 | `doNotLoadFontAwesome` | `boolean` | `false` | Brazeはアプリ内メッセージのアイコンにFont Awesomeを使用しています。デフォルトでは、BrazeはFontAwesome CDNからFontAwesome 4.7.0を自動的に読み込みます。この動作を無効にするには（例えば、サイトでカスタマイズされたバージョンのFontAwesomeを使用している場合）、このオプションを`true`に設定してください。この場合、サイトでFontAwesomeが読み込まれていることを確認する責任はお客様にあります。そうしないと、アプリ内メッセージが正しくレンダリングされない場合があります。 |
-| `inAppMessageZIndex` | `number` | `999999` | デフォルトでは、Braze SDKはIn-App Messagesをz-index 999999で表示します。このオプションに値を指定すると、そのデフォルトを上書きできます。 |
+| `inAppMessageZIndex` | `number` | `999999` | デフォルトでは、Braze SDKはアプリ内メッセージをz-index 999999で表示します。このオプションに値を指定すると、そのデフォルトを上書きできます。 |
 | `sessionTimeoutInSeconds` | `number` | `30` | デフォルトでは、セッションは30秒間操作がないとタイムアウトします。このオプションに値を指定すると、そのデフォルトを上書きできます。 |
 | `deviceId` | `string` | 自動生成 | デフォルトでは、BrazeはデバイスIDとしてランダムなGUIDを割り当てます。この設定オプションに値を指定すると、そのデフォルトを独自の値で上書きできます。 |
 | `appVersion` | `string` | `undefined` | このオプションに値を指定すると、Brazeに送信されるユーザーイベントが指定されたバージョンに関連付けられ、ユーザーセグメンテーションに使用できます。 |
@@ -90,7 +90,7 @@ braze.changeUser('Jane Doe');
 | `requireExplicitInAppMessageDismissal` | `boolean` | `false` | デフォルトでは、アプリ内メッセージはメッセージの外側をクリックするかEscapeキーを押すことで閉じることができます。ユーザーが明示的に閉じるボタンまたはアクションボタンをクリックしてメッセージを閉じることを要求するには、このオプションをtrueに設定してください。 |
 | `devicePropertyAllowlist` | `string[]` | `undefined` | デフォルトでは、Braze SDKはDevicePropertiesのすべてのデバイスプロパティを自動的に検出して収集します。この動作を上書きするには、DevicePropertiesの配列を指定してください。すべてのプロパティのBrazeサーバーへの送信を無効にするには、空の配列を指定してください。一部のプロパティがないと、すべての機能が正しく動作しない場合があります。例えば、タイムゾーンがないと、ローカルタイムゾーン配信が機能しません。 |
 | `serviceWorkerScope` | `string` | `undefined` | デフォルトでは、Braze Web SDKはデフォルトのスコープ（Service Workerのディレクトリ）でService Workerを登録します。このオプションに値を指定すると、そのデフォルトを上書きし、Service Workerのカスタムスコープを指定できます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Initialization Options" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="初期化オプション" }
 
 ---
 
@@ -771,7 +771,7 @@ AMP統合には、以下が必要です。
 4. **Service Workerの作成**: BrazeのService Workerファイルを追加します
 5. **AMP Webプッシュ要素の設定**: APIキーとベースURLをクエリパラメーターとして`amp-web-push`要素を追加します
 
-AMPの統合手順の詳細については、[Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web#amp)を参照してください。
+AMP統合の詳細な手順については、[Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web#amp)を参照してください。
 
 ### Electron
 
@@ -807,7 +807,7 @@ Brazeは、カスタムHTMLタグ内の統合手順に従うことで、他の�
 | Full | UIを含む完全なSDKです。npmバージョンを使用する場合、JavaScriptバンドラーはUIを含む未使用のコードを削除します。 | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.8/braze.min.js
 | Core | UIなしのSDKです。このバージョンのSDKを使用する場合、In-App MessagesとContent Cards用に独自のUIを実装する必要があります。UI要素はCSSで完全にカスタマイズ可能なため、一般的にはフルライブラリの統合をお勧めします。 | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.core.min.js
 | No-AMD | AMDサポートなしの完全なSDKです。サイトでRequireJSまたは別のAMDモジュールローダーを使用しているが、CDNを通じてSDKを読み込みたい場合に便利です。 | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.no-amd.min.js
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Libraries" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="ライブラリ" }
 
 ## サポートされているブラウザ {#supported-browsers}
 

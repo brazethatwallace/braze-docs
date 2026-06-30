@@ -16,7 +16,7 @@ noindex: true
 
 ## Impressões {#impressions}
 
-#### A análise de dados de impressões ou cliques não está sendo registrada {#impression-or-click-analytics-arent-being-logged}
+### A análise de dados de impressões ou cliques não está sendo registrada {#impression-or-click-analytics-arent-being-logged}
 
 Se você definiu um delegado de mensagem no app para lidar manualmente com a exibição da mensagem ou com as ações de clique, será necessário registrar manualmente os cliques e as impressões na mensagem no app.
 
@@ -40,7 +40,7 @@ O SDK solicita mensagens no app dos servidores da Braze no início da sessão. P
 4. Use os [registros de usuários de eventos]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) para verificar se o seu dispositivo está solicitando mensagens no app no início da sessão. Encontre a solicitação do SDK associada ao evento de início de sessão do usuário teste.
   - Se o seu app foi projetado para solicitar mensagens no app disparadas, você deverá ver `trigger` no campo **Requested Responses** em **Response Data**.
   - Se o seu app foi projetado para solicitar mensagens originais no app, você deverá ver `in_app` no campo **Requested Responses** em **Response Data**.
-5. Use os [registros de usuários de eventos]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) para verificar se as mensagens corretas no app estão sendo retornadas nos dados da resposta.<br>![]({% image_buster /assets/img_archive/event_user_log_iams.png %})
+5. Use os [registros de usuários de eventos]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) para verificar se as mensagens corretas no app estão sendo retornadas nos dados da resposta.<br>![Entradas do registro de usuários de eventos para solicitações de mensagens no app.]({% image_buster /assets/img_archive/event_user_log_iams.png %})
 
 #### Solução de problemas de mensagens que não estão sendo solicitadas {#troubleshoot-messages-not-being-requested}
 
@@ -66,7 +66,7 @@ Se suas mensagens no app não estiverem sendo retornadas, é provável que haja 
 
 Se o seu app estiver solicitando e recebendo mensagens no app com êxito, mas elas não estiverem sendo exibidas, alguma lógica do lado do dispositivo pode estar impedindo a exibição:
 
-- As mensagens no app disparadas são limitadas com base no [intervalo de tempo mínimo entre os disparos]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/in-app_message_delivery/#minimum-time-interval-between-triggers), cujo padrão é de 30 segundos.
+- As mensagens no app disparadas são limitadas com base no [intervalo de tempo mínimo entre os disparos]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/in-app_message_delivery#minimum-time-interval-between-triggers), cujo padrão é de 30 segundos.
 - Se você definiu um delegado para personalizar o tratamento de mensagens no app, verifique se o delegado não está afetando a exibição de mensagens no app.
 - A falha no download de imagens impedirá a exibição de mensagens no app com imagens. Os downloads de imagens sempre falharão se o framework `SDWebImage` não estiver integrado corretamente. Verifique os registros do dispositivo para garantir que os downloads de imagens não estejam falhando.
 - Se a orientação do dispositivo não corresponder à orientação especificada pela mensagem no app, a mensagem no app não será exibida. Certifique-se de que o dispositivo esteja na orientação correta.

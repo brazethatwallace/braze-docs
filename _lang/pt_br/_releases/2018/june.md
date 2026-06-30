@@ -13,4 +13,4 @@ Os administradores agora podem determinar o número mínimo de senhas novas e ex
 
 ## Rastreamento de desinstalação para etapas do Canvas {#uninstall-tracking-for-canvas-steps}
 
-As desinstalações por etapas do Canvas agora são rastreadas e podem ser visualizadas como uma estatística nas análises do Canvas.
+As desinstalações por etapa do Canvas agora são rastreadas e podem ser visualizadas como uma estatística na análise de dados do Canvas.

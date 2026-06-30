@@ -12,9 +12,9 @@ tool:
 
 # セグメントごとの指標 {#metrics-by-segments}
 
-> [クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)のレポートテンプレートを使用して、キャンペーン、キャンバス、バリアント、ステップのパフォーマンス指標をセグメントごとに分類します。
+> [クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)のレポートテンプレートを使用して、キャンペーン、キャンバス、バリアント、ステップのパフォーマンス指標をセグメントごとに分類します。
 
-指標にアクセスしたいセグメントに対して、[分析トラッキング]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking)をオンにする必要があります。
+指標にアクセスしたいセグメントに対して、[分析トラッキング]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking)をオンにする必要があります。
 
 これらのレポートを実行するには、以下の手順に従ってください。
 1. **クエリビルダー**で、テンプレートを使用して新しいSQLレポートを作成します。

@@ -26,13 +26,13 @@ The Braze integration with Shopify provides a powerful solution for eCommerce bu
 
 Braze offers two integration options for Shopify merchants that are designed to meet the diverse needs of eCommerce businesses: **Standard integration** and **Custom integration**.
 
-{% multi_lang_include shopify.md section='Integration Tabs' %}
+{% multi_lang_include partners/shopify.md section='Integration Tabs' %}
 
 ## How the integration works
 
 If you've already set up and turned on [historical backfill]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill) in your configuration settings, the initial data sync will immediately begin.
 
-{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
+{% multi_lang_include partners/shopify.md section='Custom external ID historical backfill' %}
 
 Following the initial data sync, Braze will continuously track new data and updates, directly from Shopify and Braze SDKs.
 

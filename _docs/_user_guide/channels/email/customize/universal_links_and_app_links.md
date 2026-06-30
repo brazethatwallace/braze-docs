@@ -25,6 +25,10 @@ When a universal link or App Link is opened, the operating system checks to see 
 
 Plainly, universal links allow a website to associate its web pages with specific app screens, so when a user clicks a link to a web page that corresponds to an app screen, the app can be opened directly (if the app is currently installed).
 
+{% alert important %}
+Firebase Dynamic Links is deprecated. Braze does not have a direct integration with Firebase, and deep linking is managed outside the Braze platform. Migrate to platform-native solutions (Apple universal links and Android App Links, as described in this article) or to alternative deep linking service providers. For migration guidance, see [Firebase's migration FAQ](https://firebase.google.com/support/dynamic-links-faq).
+{% endalert %}
+
 This table outlines the key differences between universal links and traditional deep links:
 
 |                        | Universal Links and App Links                                  | Deep Links                   |
@@ -93,7 +97,7 @@ These steps are adapted from the Apple developer documentation. For more informa
 2. Select **Associated Domains**.
 3. Click **Save**.
 
-![]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
+![App Services section]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
 
 #### Step 1c: Turn on Associated Domains in your Xcode project {#step-1c}
 
@@ -113,7 +117,7 @@ If you see the error "An App ID with Identifier 'your-app-id' is not available. 
 
 In the domains section, add the appropriate domain tag. You must prefix it with `applinks:`. In this case, you can see we added `applinks:yourdomain.com`.
 
-![]({% image_buster /assets/img_archive/universal_links_1d.png %})
+![Associated Domains section]({% image_buster /assets/img_archive/universal_links_1d.png %})
 
 #### Step 1e: Confirm that the entitlements file is included at build
 
@@ -439,13 +443,12 @@ It's important to ensure that these files are always publicly accessible. If you
 
 Make sure you have the correct definitions for domains your app is allowed to open.
 
-- **iOS:** Review the Associated Domains set up in Xcode for your app ([Step 1c: Turn on Associated Domains in your Xcode project]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Check that the click-tracking domain is included in that list.
+- **iOS:** Review the Associated Domains set up in Xcode for your app ([Step 1c: Turn on Associated Domains in your Xcode project]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links?tab=ios#step-1c)). Check that the click-tracking domain is included in that list.
 - **Android:** Open the app info page (long press the app icon and click ⓘ). Within the app info menu, locate **Open by default** and tap that. This should show a screen with all verified links the app is allowed to open. Check that the click-tracking domain is included in that list.
 
 #### Tracking domain can't serve .well-known files
 
 In some cases, your click-tracking domain may not be able to host the required `.well-known` files due to ESP limitations or infrastructure constraints. If you can't host the AASA or Digital Asset Links file on your tracking domain, consider the following options:
 
-- **Contact your ESP to host the files on their tracking domain:** Your click-tracking subdomain is typically a CNAME pointing to your ESP (SendGrid, SparkPost, or Amazon SES). Since the ESP terminates traffic for that domain, they can host the `.well-known` files for you. SendGrid and SparkPost both support this. Contact your ESP directly to request it.
-- **Selectively disable click-tracking on deep-link URLs:** If your ESP can't host the files, you can disable click-tracking for specific universal links so they go directly to your main domain (where you can host the AASA or Digital Asset Links file). Note that this method can cause loss of click analytics for those specific links. Refer to [Turning off click-tracking on a link-to-link basis](#turning-off-click-tracking-on-a-link-to-link-basis) for instructions.
+- **Selectively disable click-tracking on deep-link URLs:** You can disable click-tracking for specific universal links so they go directly to your main domain (where you can host the AASA or Digital Asset Links file). Note that this method can cause loss of click analytics for those specific links. Refer to [Turning off click-tracking on a link-to-link basis](#turning-off-click-tracking-on-a-link-to-link-basis) for instructions.
 - **Front the tracking subdomain with a CDN:** If you need full click-tracking coverage and deep linking, you can place a CDN (such as Cloudflare or CloudFront) in front of your tracking subdomain. Configure the CDN to serve the `.well-known` files locally and proxy all other traffic to your ESP. This approach is more involved but gives you full control over both click-tracking and universal links.

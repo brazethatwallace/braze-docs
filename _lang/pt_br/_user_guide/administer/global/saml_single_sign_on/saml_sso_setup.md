@@ -73,14 +73,12 @@ Certifique-se de que o seu certificado `x.509` siga este formato ao adicioná-lo
 
 Salve suas configurações de segurança e faça logout. Em seguida, faça login novamente com o seu provedor de identidade.
 
-![Tela de login do dashboard com SSO ativado]({% image_buster /assets/img/sso1.png %}){: style="max-width:60%;"}
-
 ## Configurando seu RelayState {#setting-up-your-relaystate}
 
 1. Na Braze, acesse **Configurações** > **APIs e identificadores**.
 2. Na guia **Chaves de API**, selecione o botão **Criar chave de API**.
 3. No campo **Nome da chave de API**, insira um nome para a sua chave.
-4. Expanda o menu suspenso **SSO** em **Permissões** e marque **sso.saml.login**.<br><br>![A seção "Permissões" com sso.saml.login marcado.]({% image_buster /assets/img/relaystate_troubleshoot.png %}){: style="max-width:70%;"}<br><br>
+4. Expanda o menu suspenso **SSO** em **Permissões** e marque **sso.saml.login**.
 5. Selecione **Criar chave de API**.
 6. Na guia **Chaves de API**, copie o identificador ao lado da chave de API que você criou.
 7. Cole a chave de API do RelayState no RelayState do seu IdP (também pode aparecer como "Relay State" ou "Default Relay State" dependendo do seu IdP).
@@ -171,11 +169,11 @@ Se você está recebendo o erro `ERROR_CODE_SSO_INVALID_RELAY_STATE`, seu RelayS
 
 Isso pode acontecer quando o RelayState não está configurado corretamente. Confirme que você criou uma chave de API (em **Configurações** > **Chaves de API**) para login pelo IdP e definiu essa chave de API como o parâmetro `RelayState` no seu IdP. O RelayState identifica em qual conta da empresa você está fazendo login. Para instruções passo a passo, consulte [Configurando seu RelayState](#setting-up-your-relaystate).
 
-Se ainda não conseguir fazer login, [fale com o suporte da Braze]({{site.baseurl}}/braze_support/) com um rastreamento SAML, se possível. Para ajuda na captura de um rastreamento, consulte [Obtendo um rastreamento SAML](#obtaining-a-saml-trace).
+Se ainda não conseguir fazer login, [fale com o suporte da Braze]({{site.baseurl}}/braze_support) com um rastreamento SAML, se possível. Para ajuda na captura de um rastreamento, consulte [Obtendo um rastreamento SAML](#obtaining-a-saml-trace).
 
 ### O usuário está preso em um loop de login entre o Okta e a Braze? {#is-the-user-stuck-in-a-sign-in-loop-between-okta-and-braze}
 
-Se um usuário não consegue fazer login porque está preso em um ciclo entre o SSO do Okta e o dashboard da Braze, você precisa acessar o Okta e definir a URL de destino do SSO para a sua [instância da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) (por exemplo, `https://dashboard-07.braze.com`).
+Se um usuário não consegue fazer login porque está preso em um ciclo entre o SSO do Okta e o dashboard da Braze, você precisa acessar o Okta e definir a URL de destino do SSO para a sua [instância da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) (por exemplo, `https://dashboard-07.braze.com`).
 
 Se você está usando outro IdP, verifique se a sua empresa fez upload do certificado SAML ou x.509 correto na Braze.
 
@@ -201,5 +199,5 @@ Se alguns usuários não conseguem fazer login com Google SSO, verifique o segui
 
 Após configurar o SAML SSO, você pode:
 
-- [Exigir login apenas por SSO]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#restriction) nas suas configurações de segurança para restringir os usuários de fazerem login com uma senha.
-- [Configurar o provisionamento just-in-time SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning/) para que novos usuários criem automaticamente contas na Braze no primeiro login por SSO.
+- [Exigir login apenas por SSO]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#restriction) nas suas configurações de segurança para restringir os usuários de fazerem login com uma senha.
+- [Configurar o provisionamento just-in-time SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning) para que novos usuários criem automaticamente contas na Braze no primeiro login por SSO.

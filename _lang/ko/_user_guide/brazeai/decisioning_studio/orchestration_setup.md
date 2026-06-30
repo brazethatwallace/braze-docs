@@ -31,7 +31,7 @@ toc_headers: h2
 | **Braze** | 네이티브 API 통합 (권장) | 낮음 |
 | **Salesforce Marketing Cloud** | API 이벤트 + Journey Builder | 중간 |
 | **기타 CEP** | 커스텀 (추천 파일) | 높음 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported CEPs" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="지원되는 CEP" }
 
 {% alert tip %}
 이미 Braze를 CEP로 사용하고 있다면, 가장 원활한 설정 경험을 위해 네이티브 Braze 통합을 사용하는 것을 권장합니다.
@@ -46,13 +46,13 @@ toc_headers: h2
 
 | 요구 사항 | 설명 |
 |---------|------|
-| **REST API 키** | 사용자 데이터, 메시지, Campaigns, Canvas, Segments, 템플릿에 대한 권한이 있는 새 API 키. |
+| **REST API 키** | 사용자 데이터, 메시지, Campaign(캠페인), Canvas, Segment, 템플릿에 대한 권한이 있는 새 API 키. |
 | **Braze 대시보드 URL** | Braze 인스턴스 URL (예: `https://dashboard-01.braze.com`). |
 | **앱 ID** | 추적하려는 앱과 연결된 API 키 (**설정** > **앱 설정**에서 확인). |
 | **이메일 표시 이름 및 주소** | Campaign에 사용할 발신자 정보 (**설정** > **이메일 환경설정**에서 확인). |
 | **기본 템플릿** | 에이전트가 오케스트레이션에 사용할 메시지 템플릿. 각 템플릿에 대해 API 트리거 Campaign을 생성합니다. |
 | **테스트 사용자 ID** | 시작 전 통합을 테스트하기 위한 사용자 ID. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 {% endtab %}
 {% tab Salesforce Marketing Cloud %}
@@ -64,7 +64,7 @@ toc_headers: h2
 | **데이터 확장** | 가입자 데이터, 참여 데이터, 추천을 위한 데이터 확장이 필요합니다. |
 | **이메일 템플릿** | Decisioning Studio에서 사용할 템플릿과 각 템플릿 ID. |
 | **Journey Builder 접근 권한** | API 이벤트 진입 소스를 사용하는 다단계 여정을 생성하고 활성화할 수 있는 접근 권한. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 {% endtab %}
 {% tab 기타 CEP %}
@@ -76,7 +76,7 @@ Braze 또는 Salesforce Marketing Cloud 이외의 CEP를 사용하는 경우, De
 | **데이터 수집 기능** | CEP가 각 고객에 대한 개인화된 결정이 포함된 추천 파일(일반적으로 CSV 또는 JSON)을 수집할 수 있어야 합니다. |
 | **동적 콘텐츠 지원** | Campaign이 추천 데이터를 기반으로 필드를 동적으로 채울 수 있어야 합니다. |
 | **커스텀 엔지니어링 리소스** | 팀에서 추천 파일을 읽고 커뮤니케이션을 트리거하는 통합을 구축해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 {% endtab %}
 {% endtabs %}
@@ -114,7 +114,7 @@ Braze 통합의 경우, 에이전트가 최적화할 차원을 계획하세요. 
 | 행동 유도 문구 | {% raw %}`{{api_trigger_properties.${cta_message}}}`{% endraw %} |
 | 오퍼 | {% raw %}`{{api_trigger_properties.${offer_id}}}`{% endraw %} |
 | 할인 금액 | {% raw %}`{{api_trigger_properties.${discount}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="API trigger properties" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="API 트리거 등록정보" }
 
 ## 통합 설정 {#integration-setup}
 
@@ -194,7 +194,7 @@ Decisioning Studio 에이전트가 SMS Campaign의 필드를 최적화한다고 
 
 Decisioning Studio는 Salesforce Marketing Cloud와의 네이티브 통합을 지원합니다. Decisioning Studio는 동적 요소를 채우는 데 필요한 데이터와 함께 여정에 API 이벤트를 트리거합니다.
 
-SFMC 통합을 구성하는 자세한 단계는 Decisioning Studio Go 설명서의 [SFMC 지침]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration/)을 참조하세요.
+SFMC 통합을 구성하는 자세한 단계는 Decisioning Studio Go 설명서의 [SFMC 지침]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration)을 참조하세요.
 
 {% endtab %}
 {% tab 기타 CEP %}
@@ -224,10 +224,10 @@ Decisioning Studio는 모든 고객 참여 플랫폼과 통합할 수 있습니�
 2. **철저히 테스트하세요.** 시작하기 전에 소규모 사용자 세트로 통합을 테스트하여 동적 콘텐츠가 올바르게 채워지는지 확인하세요.
 3. **설정을 문서화하세요.** Campaign ID, 템플릿 ID, API 키 및 기타 식별자를 기록해 두세요. Decisioning Studio 포털에서 이를 참조해야 합니다.
 4. **팀과 협력하세요.** 오케스트레이션 설정에는 마케팅, 엔지니어링, 데이터 팀이 관여할 수 있습니다. 모든 사람이 프로세스에서 자신의 역할을 이해하도록 하세요.
-5. **피드백 데이터를 계획하세요.** 오케스트레이션에는 메시지 발송과 에이전트가 학습하는 데 도움이 되는 참여 및 전환 데이터 수집이 포함됩니다. 자세한 내용은 [데이터 준비]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/)를 참조하세요.
+5. **피드백 데이터를 계획하세요.** 오케스트레이션에는 메시지 발송과 에이전트가 학습하는 데 도움이 되는 참여 및 전환 데이터 수집이 포함됩니다. 자세한 내용은 [데이터 준비]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data)를 참조하세요.
 
 ## 다음 단계 {#next-steps}
 
 오케스트레이션을 설정한 후, 에이전트 설계를 진행하세요:
 
-- [의사 결정 에이전트 설계]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents/)
+- [의사 결정 에이전트 설계]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents)

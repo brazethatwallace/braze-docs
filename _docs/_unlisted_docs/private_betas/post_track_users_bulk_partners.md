@@ -9,7 +9,7 @@ description: "If you're a Braze partner, use this endpoint to record custom even
 
 {% api %}
 # Track users (bulk) for Braze Partners
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %} 
+{% apimethod post core_endpoint|/docs/core_endpoints %} 
 /users/track/bulk
 {% endapimethod %}
 
@@ -34,7 +34,7 @@ We plan on decreasing the `/users/track` object limit from 225 to 5 in order to 
 
 ## Prerequisites
 
-To use this endpoint, you’ll need an [API key](https://www.braze.com/docs/api/api_key/) with the `users.track` permission. This permission provides access to both `/users/track` and `/users/track/bulk`.
+To use this endpoint, you’ll need an [API key]({{site.baseurl}}/api/api_key/) with the `users.track` permission. This permission provides access to both `/users/track` and `/users/track/bulk`.
 
 Because most of our shared customers will already be using an API key with `users.track` permissions for their Braze partner integration, they won't need to change API keys as you migrate your integration to use `/users/track/bulk`.
 
@@ -46,7 +46,7 @@ For most customers, we apply a base speed limit of 50 requests per second to thi
 
 However, customers on newer contracts may be given a burst (per second) and steady (per hour) rate limit instead, which is tied to their contracted MAU with Braze.
 
-To improve real-time interactions with our API, be sure to use our [recommended response headers](https://www.braze.com/docs/api/api_limits/#monitoring-your-rate-limits). 
+To improve real-time interactions with our API, be sure to use our [recommended response headers]({{site.baseurl}}/api/api_limits/#monitoring-your-rate-limits). 
 
 Each `/users/sync/bulk` request has a payload limit of 2&nbsp;MB, and may contain up to 1,000 event, attribute, or purchase objects.
 
@@ -242,9 +242,9 @@ If your message has a fatal error, you will receive the following response:
 
 #### Fatal error response codes
 
-For status codes and associated error messages that will be returned if your request encounters a fatal error, reference [Fatal errors and responses](https://www.braze.com/docs/api/errors/#fatal-errors).
+For status codes and associated error messages that will be returned if your request encounters a fatal error, reference [Fatal errors and responses]({{site.baseurl}}/api/errors/#fatal-errors).
 
-If you receive the error`provided external\_id is blacklisted and disallowed`, your request may have included a `dummy user.` For more information, refer to [Spam blocking](https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking).
+If you receive the error`provided external\_id is blacklisted and disallowed`, your request may have included a `dummy user.` For more information, refer to [Spam blocking]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking).
 
 ## Frequently asked questions
 
@@ -261,7 +261,7 @@ We plan on decreasing the `/users/track` object limit from 225 to 5 in order to 
 
 ### What identifiers can I use in `/users/track/bulk`?
 
-One of `external\_id`, `braze\_id`, `user\_alias`, `email`, or `phone` is required. See our documentation for [user attributes object](https://www.braze.com/docs/api/objects_filters/user_attributes_object/), [events object](https://www.braze.com/docs/api/objects_filters/event_object/), or [purchases object](https://www.braze.com/docs/api/objects_filters/purchase_object/) for further examples. 
+One of `external\_id`, `braze\_id`, `user\_alias`, `email`, or `phone` is required. See our documentation for [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/), [events object]({{site.baseurl}}/api/objects_filters/event_object/), or [purchases object]({{site.baseurl}}/api/objects_filters/purchase_object/) for further examples. 
 
 ### Can I include attributes, events, and purchases in one request?
 

@@ -16,11 +16,11 @@ platform:
 
 {% tabs %}
 {% tab Android %}
-### プッシュバウンス: MismatchSenderId {#push-bounced-mismatchsenderid}
+## プッシュバウンス: MismatchSenderId {#push-bounced-mismatchsenderid}
 `MismatchSenderId` は認証の失敗を示します。Firebase Cloud Messaging (FCM) は、senderIDとFCM APIキーという2つの重要なデータで認証を行います。これらの両方が正確であることを確認する必要があります。詳細については、この問題に関する[Androidドキュメント](https://firebase.google.com/docs/cloud-messaging/http-server-ref#error-codes)を参照してください。
 
 一般的な失敗の原因には以下が含まれます:
-- 不正な[senderID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-1-enable-firebase)
+- 不正な[senderID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-1-enable-firebase)
 - 異なるsenderIDを持つ別のプッシュサービスに登録した場合の多重登録
 
 ### プッシュバウンス: InvalidRegistration {#push-bounced-invalidregistration}
@@ -32,7 +32,7 @@ platform:
 
 `NotRegistered` は通常、アプリがデバイスから削除されたことを意味します（アンインストールのシグナルなど）。これは、多重登録が発生し、2番目の登録がBrazeが受信したプッシュトークンを無効にした場合にも発生する可能性があります。
 
-### DEVICE_UNREGISTERED エラー {#device-unregistered}
+### DEVICE_UNREGISTERED {#device-unregistered}
 
 このエラーはメッセージアクティビティログに以下のように表示されます: `Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
 
@@ -82,7 +82,7 @@ Brazeでは、このダッシュボードメッセージは以下のAPNsエラ�
 
 `BadToken` エラーはいくつかの理由で発生する可能性があります:
 - プッシュトークンがBrazeに正しく送信されていない場合（たとえば、`registerDeviceToken:` またはプラットフォームの同等のメソッドで）。
-	- [メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)でトークンを確認してください。通常、文字と数字の長い文字列（`6e407a9be8d07f0cdeb9e714733a89445f57a89ec890d63867c482a483506fa6` など）のように見えるはずです。そうでない場合は、Brazeにプッシュトークンを送信するコードを確認してください。<br><br>
+	- [メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)でトークンを確認してください。通常、文字と数字の長い文字列（`6e407a9be8d07f0cdeb9e714733a89445f57a89ec890d63867c482a483506fa6` など）のように見えるはずです。そうでない場合は、Brazeにプッシュトークンを送信するコードを確認してください。<br><br>
 - プロビジョニング環境の不一致:
 	- 開発用証明書で登録し、本番用証明書で送信しようとすると、このエラーが表示されることがあります。
 	- Brazeは本番環境のユニバーサル証明書のみをサポートしています。ユニバーサル証明書を使用した開発環境でのプッシュテストは機能しません。
@@ -100,7 +100,7 @@ Brazeでは、このダッシュボードメッセージは以下のAPNsエラ�
 2. **APNs認証設定を確認してください。** アプリが正しいAPNs `.p8` キーで構成されていること、およびそのキーが送信先のアプリと同じApple Developer Teamに関連付けられていることを確認してください。
 3. **アプリ環境を確認してください。** 開発ビルドと本番ビルドでBrazeに別々のApp IDがある場合は、それぞれが正しいプッシュ認証情報と環境で構成されていることを確認してください。
 
-### Unregistered エラー {#ios-unregistered}
+### Unregistered {#ios-unregistered}
 
 このエラーはメッセージアクティビティログに以下のように表示されます:
 
@@ -116,11 +116,11 @@ Brazeでは、このダッシュボードメッセージは以下のAPNsエラ�
 このエラーは、ユーザーのプッシュが無効であることを意味するものではありません。特定のトークンがプロファイルから削除されたことを示しているだけです。ユーザーがまだ有効なトークンを持っているかどうかを確認するには、**ユーザー検索**に移動し、**エンゲージメント**タブの**連絡先設定**セクションを確認してください。
 {% endalert %}
 
-### InvalidProviderToken エラー {#invalidprovidertoken}
+### InvalidProviderToken
 
 `InvalidProviderToken` エラーは、認証トークン（`.p8` キーから）またはプッシュ証明書（`.p12`）がアプリのバンドルIDまたはTeam IDと一致しないため、APNsがリクエストを拒否したことを意味します。これを解決するには:
 
-1. **Team IDとKey IDを確認してください:** `.p8` 認証キーを使用している場合は、Brazeダッシュボード（**Settings** > **App Settings** > iOSアプリを選択）で構成されている**Team ID**と**Key ID**が、Apple Developerアカウントの値と一致していることを確認してください。
+1. **Team IDとKey IDを確認してください:** `.p8` 認証キーを使用している場合は、Brazeダッシュボード（**設定** > **アプリ設定** > iOSアプリを選択）で構成されている**Team ID**と**Key ID**が、Apple Developerアカウントの値と一致していることを確認してください。
 2. **バンドルIDを確認してください:** Brazeに登録されているバンドルIDがアプリのバンドルIDと一致していることを確認してください。大文字小文字の違いや `.debug` サフィックスなどの不一致がこのエラーの原因となります。
 3. **キーまたは証明書を再アップロードしてください:** `.p8` キーまたは `.p12` 証明書が最近再生成または取り消された場合は、新しいキーをBrazeにアップロードし、古いものを削除してください。
 4. **APNs環境を確認してください:** `.p12` 証明書を使用している場合は、アップロード時に正しい環境（開発と本番）を選択したことを確認してください。`.p8` キーの場合、これは自動的に処理されます。

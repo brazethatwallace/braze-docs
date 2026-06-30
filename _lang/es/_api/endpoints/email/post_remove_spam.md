@@ -20,7 +20,7 @@ description: "Este artículo describe los detalles sobre el punto de conexión d
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `email.spam.remove`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `email.spam.remove`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -34,7 +34,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ```json
 {
-  "email": "example@braze.com"
+  "email": "example@example.com"
 }
 ```
 
@@ -51,7 +51,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/email/spam/remove'
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
 --data-raw '{
-  "email": "example@braze.com"
+  "email": "example@example.com"
 }'
 ```
 {% endapi %}

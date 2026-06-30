@@ -84,11 +84,6 @@ De plus, les messages de bannière ne prennent pas en charge les fonctionnalité
 - Contenu connecté
 - Codes promotionnels
 - `catalog_items` utilisant [l'étiquette `:rerender`]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)
-- Fermeture par l'utilisateur (accès anticipé uniquement)
-
-{% alert important %}
-La possibilité pour les utilisateurs de fermer manuellement une bannière est en accès anticipé. Consultez [Configurer le comportement de fermeture]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) pour plus de détails. Si vous souhaitez participer à l'accès anticipé, contactez votre gestionnaire de la satisfaction client.
-{% endalert %}
 
 ## Étapes suivantes {#next-steps}
 

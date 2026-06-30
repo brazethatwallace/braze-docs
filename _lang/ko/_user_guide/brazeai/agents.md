@@ -37,7 +37,7 @@ Braze 에이전트는 추가 작업 없이도 팀이 더 스마트하고 개인�
 
 Braze 에이전트의 기능은 다음과 같습니다:
 
-- **유연한 설정:** Braze에서 제공하는 LLM을 사용하거나 OpenAI, Anthropic, Google Gemini 또는 Databricks Mosaic과 같은 자체 [AI 모델 제공업체]({{site.baseurl}}/partners/ai_model_providers/)를 연결하세요.
+- **유연한 설정:** Braze에서 제공하는 LLM을 사용하거나 OpenAI, Anthropic, Google Gemini 또는 Databricks Mosaic과 같은 자체 [AI 모델 제공업체]({{site.baseurl}}/partners/ai_model_providers)를 연결하세요.
 - **원활한 통합:** 에이전트를 캔버스 단계나 카탈로그 필드에 직접 배포하세요.
 - **테스트 및 로깅 도구:** 시작 전에 샘플 입력으로 테스트하여 에이전트의 출력을 미리보기하세요. 에이전트가 실행될 때마다 해당 실행의 입력 및 출력을 포함한 로그를 확인하세요.
 - **사용량 제어:** 일일 한도로 성능과 비용을 관리할 수 있습니다.
@@ -50,13 +50,13 @@ Braze 에이전트의 기능은 다음과 같습니다:
 
 | 용어 | 정의 |
 | --- | --- |
-| [모델]({{site.baseurl}}/user_guide/brazeai/agents/reference/#models) | 에이전트의 "두뇌"로, 이 경우 대규모 언어 모델(LLM)입니다. 입력을 해석하고, 응답을 생성하며, 추론을 수행합니다. 더 강력한 모델(더 관련성 높은 데이터로 훈련됨)은 에이전트를 더 유능하고 다재다능하게 만듭니다. |
-| [지침]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) | 에이전트에게 제공하는 규칙이나 가이드라인(시스템 프롬프트)입니다. 에이전트가 실행될 때마다 어떻게 동작해야 하는지를 정의합니다. 명확한 지침은 에이전트를 더 신뢰할 수 있고 예측 가능하게 만듭니다. |
+| [모델]({{site.baseurl}}/user_guide/brazeai/agents/reference#models) | 에이전트의 "두뇌"로, 이 경우 대규모 언어 모델(LLM)입니다. 입력을 해석하고, 응답을 생성하며, 추론을 수행합니다. 더 강력한 모델(더 관련성 높은 데이터로 훈련됨)은 에이전트를 더 유능하고 다재다능하게 만듭니다. |
+| [지침]({{site.baseurl}}/user_guide/brazeai/agents/reference#writing-instructions) | 에이전트에게 제공하는 규칙이나 가이드라인(시스템 프롬프트)입니다. 에이전트가 실행될 때마다 어떻게 동작해야 하는지를 정의합니다. 명확한 지침은 에이전트를 더 신뢰할 수 있고 예측 가능하게 만듭니다. |
 | 컨텍스트 | 에이전트가 배포된 곳에서 런타임에 전달되는 데이터로, 고객 프로필 필드나 카탈로그 행 등이 있습니다. 이 입력은 에이전트가 출력을 생성하는 데 사용하는 정보를 제공합니다. |
-| [Canvas 컨텍스트 변수]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#how-context-variables-work) | 특정 Canvas를 통한 사용자 여정 내에서 생성하고 사용할 수 있는 임시 데이터입니다. |
-| [출력 변수]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#define-the-output-variable) | 캔버스 단계에서 사용될 때 에이전트가 생성하는 출력입니다. 출력 변수는 콘텐츠를 개인화하거나 워크플로 경로를 안내하기 위해 에이전트의 결과를 저장합니다. 출력 변수는 문자열, 숫자 또는 부울 데이터 유형일 수 있습니다. |
+| [Canvas 컨텍스트 변수]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#how-context-variables-work) | 특정 Canvas를 통한 사용자 여정 내에서 생성하고 사용할 수 있는 임시 데이터입니다. |
+| [출력 변수]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#define-the-output-variable) | 캔버스 단계에서 사용될 때 에이전트가 생성하는 출력입니다. 출력 변수는 콘텐츠를 개인화하거나 워크플로 경로를 안내하기 위해 에이전트의 결과를 저장합니다. 출력 변수는 문자열, 숫자 또는 부울 데이터 유형일 수 있습니다. |
 | [실행](#limitations) | 에이전트의 단일 실행입니다. 일일 한도에 포함됩니다. |
-| [출력 형식]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#select-output) | 에이전트 응답의 미리 정의된 데이터 구조입니다. |
+| [출력 형식]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#select-output) | 에이전트 응답의 미리 정의된 데이터 구조입니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="핵심 개념" }
 
 ## 제한 사항 {#limitations}
@@ -68,11 +68,17 @@ Braze 에이전트의 기능은 다음과 같습니다:
     - 에이전트가 지속적으로 시간 초과되는 경우 Braze 계정 매니저에게 문의하여 이 한도를 늘리세요.
 - 입력 데이터는 요청당 25KB로 제한됩니다. 더 긴 입력은 잘립니다.
 
+## 모범 사례 {#best-practices}
+
+에이전트가 가장 큰 투자수익률(ROI)을 이끌어낼 수 있는 고가치 사용 사례를 타겟팅하고, 반응할 가능성이 높은 오디언스를 선택하세요. 규모가 작지만 기회가 높은 오디언스가 기회가 낮은 대규모 오디언스보다 더 나은 성과를 보이는 경우가 많습니다. 예를 들어, 에이전트가 생성한 카피를 전체 사용자 기반에 발송하는 것보다 최근에 검색했지만 전환하지 않은 사용자를 리타겟팅하는 것이 더 효과적입니다.
+
+확장하기 전에 ROI를 검증하려면 [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) 단계를 사용하여 오디언스의 일부만 에이전트 단계를 통과하도록 하세요. 배포에 대한 자세한 안내는 [커스텀 에이전트 배포]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents)를 참조하세요.
+
 ## 오류 처리 {#error-handling}
 
-Canvas 에이전트 단계에서 연결된 모델이 LLM 제공업체로부터 [사용량 제한 오류]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors)를 반환하면, Braze는 지수 백오프를 사용하여 최대 5회까지 요청을 재시도합니다. 시간 초과나 잘못된 API 키와 같은 기타 실패의 경우, 에이전트 출력은 `null`로 설정됩니다. 에이전트가 일일 실행 한도에 도달한 경우에도 출력은 `null`로 설정됩니다.
+**Canvas 에이전트 단계**에서 연결된 모델이 LLM 제공업체로부터 [사용량 제한 오류]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors)를 반환하면, Braze는 지수 백오프를 사용하여 요청을 지속적으로 재시도합니다. 카탈로그 에이전트는 사용량 제한이 적용된 실행을 재시도하지 않습니다. 시간 초과나 잘못된 API 키와 같은 기타 실패의 경우, 에이전트 콘솔에서 [대체 값이 구성]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values)되어 있지 않으면 Canvas 에이전트 출력은 `null`로 설정됩니다(Canvas 단계 에이전트만 해당). 에이전트가 일일 실행 한도에 도달하면, Braze는 구성된 대체 값이 있을 경우 이를 적용하고, 그렇지 않으면 출력은 `null`로 설정됩니다.
 
-많은 사용자가 동시에 에이전트 단계에 진입하면, [실행 흐름 제어]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls)로 인해 처리 시간이 더 오래 걸릴 수 있습니다. 메시지에서 null 출력에 대비하려면 [기본 Liquid 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/)을 사용하세요.
+많은 사용자가 동시에 에이전트 단계에 진입하면, [실행 흐름 제어]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls)로 인해 처리 시간이 더 오래 걸릴 수 있습니다. Canvas 에이전트의 경우 에이전트 콘솔에서 대체 값을 구성하여 실행이 실패하더라도 사용자가 출력을 받을 수 있도록 하거나, 다운스트림 메시지 단계에서 [기본 Liquid 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values)을 사용하세요.
 
 ## 내 데이터는 어떻게 사용되고 Braze 제공 LLM에 전송되나요? {#how-is-my-data-used-and-sent-to-braze-provided-llms}
 
@@ -84,5 +90,5 @@ Braze 에이전트를 위한 Braze 제공 LLM은 "Auto"로 식별되며, Google 
 
 이제 Braze 에이전트에 대해 알게 되었으니, 다음 단계를 진행할 준비가 되었습니다:
 
-- [커스텀 에이전트 생성]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)
-- [커스텀 에이전트 배포]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/)
+- [커스텀 에이전트 생성]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)
+- [커스텀 에이전트 배포]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents)

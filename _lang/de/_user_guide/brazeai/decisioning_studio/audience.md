@@ -64,4 +64,4 @@ Um festzustellen, ob dies möglich ist, lesen Sie die Dokumentation Ihrer Plattf
 
 Nachdem Sie Ihre Zielgruppe definiert haben, fahren Sie mit der Einrichtung der Orchestrierung fort:
 
-- [Orchestrierung einrichten]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup/)
+- [Orchestrierung einrichten]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup)

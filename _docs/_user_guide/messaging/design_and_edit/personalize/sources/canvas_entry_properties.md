@@ -28,7 +28,7 @@ Entry properties are available in action-based and API-triggered Canvases.
 Persistent entry properties let you reference the original entry data in every step of your Canvas, including steps that occur after a delay. Without persistence, entry properties are only available in the first step.
 
 {% alert important %}
-Persistent entry properties are part of the original Canvas entry properties workflow. For the current updated Canvas editor, refer to [Context and event properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/).
+Persistent entry properties are part of the original Canvas entry properties workflow. For the current updated Canvas editor, refer to [Context and event properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties).
 {% endalert %}
 
-For the full reference on persistent entry properties, see [Persistent entry properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties/).
+For the full reference on persistent entry properties, see [Persistent entry properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties).

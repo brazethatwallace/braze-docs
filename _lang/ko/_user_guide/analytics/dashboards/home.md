@@ -17,7 +17,6 @@ tool:
 - [이전 작업 이어서 하기](#pick-up-where-you-left-off)
 - [성과 개요](#performance-overview)
 
-![Braze의 홈 대시보드.]({% image_buster /assets/img_archive/home_dashboard.png %})
 
 ## 이전 작업 이어서 하기 {#pick-up-where-you-left-off}
 
@@ -35,19 +34,15 @@ Braze 대시보드에서 최근에 편집하거나 생성한 파일에 직접 �
 
 기본적으로 **성과 개요** 섹션은 모든 앱과 사이트의 최근 30일 데이터를 표시합니다. 모든 측정기준은 선택한 날짜 범위를 기준으로 계산됩니다.
 
-![홈 대시보드의 날짜 범위 및 앱 필드.]({% image_buster /assets/img_archive/home_dashboard_select_date.png %}){: style="max-width:60%;"}
-
 백분율은 현재 날짜 범위를 이전 날짜 범위와 비교하여 계산됩니다. 단, *월간 활성 사용자*(MAU)는 범위 대신 이전 기간의 마지막 날을 사용합니다.
 
 예를 들어, 날짜 범위를 **최근 7일**로 설정하고 *일일 활성 사용자*가 1.8% 증가를 보인다면, 이번 주에 지난 주보다 일일 활성 사용자가 1.8% 더 많았다는 의미입니다.
 
-![측정기준 값과 백분율 변화를 보여주는 성과 개요 측정기준 타일.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![일일 활성 사용자 측정기준 타일로, 평균 22.2천 명과 7.1% 증가 배지 및 추세선이 표시된 모습.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### 세부 내역 보기 {#show-breakdown}
 
-성과 개요 통계의 각 행에서 **세부 내역 보기**를 선택하면 지정된 날짜 범위에 대한 각 통계의 일별 값을 확인할 수 있습니다.
-
-![세부 내역 확장]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
+성과 개요 통계의 각 행에서 **Show Breakdown**을 선택하면 지정된 날짜 범위에 대한 각 통계의 일별 값을 확인할 수 있습니다.
 
 ### 시간별 성과 {#performance-over-time}
 
@@ -63,7 +58,7 @@ Braze 대시보드에서 최근에 편집하거나 생성한 파일에 직접 �
 - 이메일
 - 인앱 메시지
 - KPI 수식
-  - **KPI 수식 관리**를 선택하여 수식을 생성하거나 기존 수식을 편집할 수 있습니다.
+  - **Manage KPI Formulas**를 선택하여 수식을 생성하거나 기존 수식을 편집할 수 있습니다.
 - LINE
 - 월간 활성 사용자(MAU)
 - 신규 사용자
@@ -89,12 +84,12 @@ Braze 대시보드에서 최근에 편집하거나 생성한 파일에 직접 �
 
 *사용자*는 해당 워크스페이스에서 생성된 총 사용자 수입니다. 여기에는 앱이나 웹사이트를 사용한 적이 있는 모든 사용자와 특정 앱이나 웹사이트와 연결되지 않은 사용자가 포함됩니다. 이 숫자는 전체 사용자 중 *월간 활성 사용자*(MAU)가 차지하는 비율로, 장기간에 걸친 사용자 유지율을 파악하는 데 유용합니다.
 
-MAU 대비 사용자 비율이 낮다면 메시징 채널을 다양화하거나 이탈 중인 사용자에게 다가가는 노력을 강화해야 할 수 있습니다. 자세한 내용은 [이탈 사용자 확보]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users/#capture-lapsing-users)에 대한 빠른 가이드를 참조하세요. 일반적으로 MAU 대비 전체 사용자 비율은 고객이탈로 인해 시간이 지남에 따라 불가피하게 감소하지만, Braze 도구를 활용하면 사용자의 참여를 더 오래 유지하여 이 효과를 최소화할 수 있습니다.
+MAU 대비 사용자 비율이 낮다면 메시징 채널을 다양화하거나 이탈 중인 사용자에게 다가가는 노력을 강화해야 할 수 있습니다. 자세한 내용은 [이탈 사용자 확보]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users#capture-lapsing-users)에 대한 빠른 가이드를 참조하세요. 일반적으로 MAU 대비 전체 사용자 비율은 고객이탈로 인해 시간이 지남에 따라 불가피하게 감소하지만, Braze 도구를 활용하면 사용자의 참여를 더 오래 유지하여 이 효과를 최소화할 수 있습니다.
 
 ### 전체 세션 {#lifetime-sessions}
 
 *전체 세션*은 Braze가 통합 이후 기록한 총 세션 수입니다. 세션은 사용자가 앱을 사용하거나 웹사이트를 방문할 때마다 기록됩니다. 플랫폼별 세션 정의에 대한 자세한 내용은 해당
-[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [Android 및 FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android), 또는 [웹]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web) 세션 추적 개발자 문서를 참조하세요.
+[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [Android 및 FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android), 또는 [웹]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web) 세션 추적 개발자 문서를 참조하세요.
 
 ### 월간 활성 사용자 {#monthly-active-users}
 
@@ -146,7 +141,7 @@ MAU 스냅샷은 하루에 한 번 계산되며 소급하여 변경되지 않습
 {% alert note %}
 Braze를 처음 통합하면 Braze가 이전에 세션을 기록한 적이 없으므로 모든 사용자가 신규 사용자로 표시됩니다.
 
-MAU와 달리, *신규 사용자* 수는 Braze가 익명 프로필을 식별된 프로필에 병합하고 익명 프로필을 고아 프로필로 처리할 때 소급하여 감소할 수 있습니다. Braze는 고아 프로필을 앱 사용 합계에서 제거하므로, 이미 확인한 날짜의 *신규 사용자* 수가 줄어들 수 있습니다. 프로필 연결 동작에 대한 자세한 내용은 [고객 프로필 수명주기]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)를 참조하세요.
+MAU와 달리, *신규 사용자* 수는 Braze가 익명 프로필을 식별된 프로필에 병합하고 익명 프로필을 고아 프로필로 처리할 때 소급하여 감소할 수 있습니다. Braze는 고아 프로필을 앱 사용 합계에서 제거하므로, 이미 확인한 날짜의 *신규 사용자* 수가 줄어들 수 있습니다. 프로필 연결 동작에 대한 자세한 내용은 [고객 프로필 수명주기]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)를 참조하세요.
 {% endalert %}
 
 {% alert important %}

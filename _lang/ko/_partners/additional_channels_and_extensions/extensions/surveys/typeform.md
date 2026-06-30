@@ -22,14 +22,14 @@ Braze와 Typeform을 통합하면 다음을 수행할 수 있습니다.
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
 | Typeform 계정 | 이 파트너십을 이용하려면 웹훅에 액세스할 수 있는 Typeform 계정이 필요합니다. |
-| Braze 데이터 변환 | Typeform에서 데이터를 수신하려면 [데이터 변환 URL]({{site.baseurl}}/data_transformation/)이 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Braze 데이터 변환 | Typeform에서 데이터를 수신하려면 [데이터 변환 URL]({{site.baseurl}}/data_transformation)이 필요합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
 ### 1단계: Typeform 웹훅을 수신하도록 Braze 데이터 변환 설정하기 {#step-1}
 
-{% multi_lang_include create_transformation.md location="typeform" %}
+{% multi_lang_include data_activation/create_transformation.md location="typeform" %}
 
 ### 2단계: Typeform 웹훅 설정하기 {#step-2-set-up-typeform-webhooks}
 
@@ -37,11 +37,11 @@ Braze와 Typeform을 통합하면 다음을 수행할 수 있습니다.
 
 4단계에서 데이터 변환 웹훅 URL을 **Destination URL**로 추가합니다.
 
-![]({% image_buster /assets/img/typeform/typeform_add_webhook.png %}){: style="max-width:50%" }
+![Destination URL 필드가 표시된 Typeform 웹훅 설정 화면.]({% image_buster /assets/img/typeform/typeform_add_webhook.png %}){: style="max-width:50%" }
 
 **View deliveries**를 클릭한 다음 **Send test request**를 클릭하여 데이터 변환에 테스트 이벤트를 전송합니다.
 
-![]({% image_buster /assets/img/typeform/typeform_test_request.png %})
+![Send test request가 선택된 Typeform View deliveries 페이지.]({% image_buster /assets/img/typeform/typeform_test_request.png %})
 
 ### 3단계: 선택한 Typeform 이벤트를 수신하는 변환 코드 작성하기 {#step-3-write-transformation-code-to-accept-your-chosen-typeform-events}
 
@@ -52,7 +52,7 @@ Braze와 Typeform을 통합하면 다음을 수행할 수 있습니다.
 3. **Validate**를 클릭하여 코드 출력의 미리보기를 반환하고 유효한 `/users/track` 요청인지 확인합니다.
 4. 데이터 변환을 저장하고 활성화합니다.
 
-![]({% image_buster /assets/img/typeform/typeform_test_result.png %})
+![Typeform 테스트 페이로드 유효성 검사가 성공한 데이터 변환 미리보기.]({% image_buster /assets/img/typeform/typeform_test_result.png %})
 
 #### 요청 본문 형식 {#request-body-format}
 
@@ -333,7 +333,7 @@ Content-Type: application/json
 이 예시 템플릿에서는 Typeform 내 이메일 주소 질문에서 캡처한 이메일 주소를 식별자로 사용합니다.
 
 {% alert note %}
-이메일 주소를 식별자로 사용하려는 경우, 예상 동작에 대한 자세한 내용은 `/users/track` 엔드포인트의 [자주 묻는 질문]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#frequently-asked-questions)을 참조하세요.
+이메일 주소를 식별자로 사용하려는 경우, 예상 동작에 대한 자세한 내용은 `/users/track` 엔드포인트의 [자주 묻는 질문]({{site.baseurl}}/api/endpoints/user_data/post_user_track#frequently-asked-questions)을 참조하세요.
 {% endalert %}
 
 {% tabs local %}
@@ -616,8 +616,8 @@ return brazecall;
 
 활성화하면 사용자가 양식을 작성할 때 커스텀 이벤트 데이터가 사용자 프로필에 기록됩니다.
 
-![]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
+![Typeform 제출 후 기록된 커스텀 이벤트가 표시된 고객 프로필.]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
 
 ## 모니터링 및 문제 해결 {#monitoring-and-troubleshooting}
 
-변환 모니터링 및 문제 해결에 대한 자세한 내용은 [변환 모니터링]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation/#step-5-monitor-your-transformation) 섹션을 참조하세요.
+변환 모니터링 및 문제 해결에 대한 자세한 내용은 [변환 모니터링]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation) 섹션을 참조하세요.

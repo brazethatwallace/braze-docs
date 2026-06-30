@@ -18,13 +18,13 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „E-Mai
 Diese Templates werden auf der Seite **Templates und Medien** verfügbar sein. Die Antwort dieses Endpunkts enthält ein Feld für `email_template_id`, das zum Update des Templates in nachfolgenden API-Aufrufen verwendet werden kann.
 
 {% alert tip %}
-Sie können diesen Endpunkt auch über den [Braze MCP-Server]({{site.baseurl}}/user_guide/brazeai/mcp_server/) mit der Funktion [`create_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates) aufrufen. So können KI-Tools wie Claude und Cursor E-Mail-Templates über natürlichsprachliche Eingaben erstellen.
+Sie können diesen Endpunkt auch über den [Braze MCP-Server]({{site.baseurl}}/user_guide/brazeai/mcp_server) mit der Funktion [`create_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#templates) aufrufen. So können KI-Tools wie Claude und Cursor E-Mail-Templates über natürlichsprachliche Eingaben erstellen.
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5eb1fe0d-2795-474d-aaf2-c4e2977dc94b {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key/) mit der Berechtigung `templates.email.create`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `templates.email.create`.
 
 ## Rate-Limit
 
@@ -58,9 +58,9 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `body` | Erforderlich | String | Body des E-Mail-Templates, der HTML enthalten kann. Bis zu 400&nbsp;KB. |
 | `plaintext_body` | Optional | String | Eine Klartextversion des E-Mail-Template-Bodys. |
 | `preheader` | Optional | String | E-Mail-Preheader, der in einigen Clients zur Erstellung von Vorschauen verwendet wird. |
-| `tags` | Optional | String | [Tags]({{site.baseurl}}/user_guide/messaging/governance/tags/) müssen bereits existieren. |
+| `tags` | Optional | String | [Tags]({{site.baseurl}}/user_guide/messaging/governance/tags) müssen bereits existieren. |
 | `should_inline_css` | Optional | Boolescher Wert | Aktiviert oder deaktiviert das Feature `inline_css` pro Template. Wenn nicht angegeben, verwendet Braze die Standardeinstellung für die App-Gruppe. Erwartet wird `true` oder `false`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 ```
@@ -98,6 +98,6 @@ Die folgende Tabelle listet mögliche zurückgegebene Fehler und die zugehörige
 | Einige Tags konnten nicht gefunden werden | Um beim Erstellen eines E-Mail-Templates einen Tag hinzuzufügen, muss dieser bereits in Braze vorhanden sein. |
 | E-Mail muss gültige Content-Block-Namen haben | Die E-Mail könnte Content Blocks enthalten, die in dieser Umgebung nicht vorhanden sind. |
 | Ungültiger Wert für `should_inline_css`. `true` oder `false` wurde erwartet | Dieser Parameter akzeptiert nur boolesche Werte (true oder false). Stellen Sie sicher, dass der Wert für `should_inline_css` nicht in Anführungszeichen (`""`) eingeschlossen ist, da der Wert sonst als String gesendet wird. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
 {% endapi %}

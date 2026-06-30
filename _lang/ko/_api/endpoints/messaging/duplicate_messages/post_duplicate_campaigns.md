@@ -10,7 +10,7 @@ description: "이 문서에서는 Campaign 복제 엔드포인트에 대한 세�
 ---
 {% api %}
 # API를 사용하여 Campaign 복제 {#duplicate-campaigns-using-the-api}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/duplicate
 {% endapimethod %}
 
@@ -44,16 +44,16 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | 필수 | 문자열 | [Campaign 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요. |
+| `campaign_id` | 필수 | 문자열 | [Campaign 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요. |
 | `name` | 필수 | 문자열 | 결과 Campaign의 이름입니다. |
 | `description` | 선택 사항 | 문자열 | 결과 Campaign의 설명 필드입니다. |
 | `tag_names` | 선택 사항 | 문자열 | 결과 Campaign의 태그입니다. 기존 태그여야 합니다. 요청에 새 태그를 추가하면 원래 Campaign에 있던 태그를 덮어씁니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 
 ## 응답 {#response}
 
-이 엔드포인트는 `202` 상태 코드를 반환하며, Campaign 생성은 비동기적으로 발생합니다. [보안 이벤트 다운로드][2]를 사용하여 Campaign이 언제, 어떤 API 키에 의해 복제되었는지에 대한 기록을 확인할 수 있습니다.
+이 엔드포인트는 `202` 상태 코드를 반환하며, Campaign 생성은 비동기적으로 처리됩니다. [보안 이벤트 다운로드][2]를 사용하여 Campaign이 언제, 어떤 API 키에 의해 복제되었는지 기록을 확인할 수 있습니다.
 
 
 [1]: {{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/duplicating_segments_and_campaigns#duplicating-segments-campaigns-and-canvases

@@ -8,7 +8,7 @@ page_order: 6
 
 tool: Canvas
 page_type: landing
-description: "Cette page d'accueil regroupe les idées et stratégies pour Canvas, notamment les bonnes pratiques, une checklist pré et post-lancement, ainsi que des conseils pour lancer avec Canvas."
+description: "Cette page regroupe les idées et stratégies pour Canvas, notamment les bonnes pratiques, une checklist pré et post-lancement, ainsi que des conseils pour lancer avec Canvas."
 
 guide_featured_title: "Articles de la section"
 guide_featured_list:
@@ -30,20 +30,20 @@ guide_menu_list:
   - name: Localisation
     link: /docs/user_guide/messaging/messaging_fundamentals/localization
     image: /assets/img/braze_icons/globe-02.svg
-  - name: Utiliser les modèles de canvas Braze
+  - name: Utiliser les modèles de Canvas Braze
     link: /docs/user_guide/messaging/templates/canvas_templates/braze_templates
     image: /assets/img/braze_icons/target-04.svg
   - name: Envoyer des Canvas de test
     link: /docs/user_guide/messaging/canvas/testing_canvases/sending_test_canvases
     image: /assets/img/braze_icons/user-check-01.svg
-  - name: Lead scoring
+  - name: Évaluation des prospects
     link: /docs/user_guide/get_started/b2b_use_cases/lead_scoring
     image: /assets/img/braze_icons/dataflow-02.svg
-  - name: "Système d'e-mail de rappel de réservation"
+  - name: "Système d'e-mails de rappel de réservation"
     link: /docs/user_guide/messaging/canvas/ideas_and_strategies/booking_use_case
     image: /assets/img/braze_icons/channel-email.svg
   - name: Cas d'utilisation e-commerce
-    link: /docs/ecommerce_use_cases/
+    link: /docs/ecommerce_use_cases
     image: /assets/img/braze_icons/users-01.svg
 
 ---

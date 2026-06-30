@@ -11,16 +11,16 @@ page_order: 4
 
 ## REST API : identifier et fusionner les utilisateurs {#rest-api-identify-and-merge-users}
 
-Les outils de cette page fusionnent les profils en double dans le tableau de bord. Vous pouvez également combiner ou réorienter des profils via les [endpoints User Data]({{site.baseurl}}/api/endpoints/user_data/) de Braze :
+Les outils de cette page fusionnent les profils en double dans le tableau de bord. Vous pouvez également combiner ou réorienter des profils via les [endpoints User Data]({{site.baseurl}}/api/endpoints/user_data) de Braze :
 
-- [POST : Identifier les utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) (`/users/identify`) : combine un profil uniquement alias, uniquement e-mail ou uniquement numéro de téléphone avec un profil possédant un `external_id`.
-- [POST : Fusionner les utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) (`/users/merge`) : fusionne un profil utilisateur dans un autre, y compris lorsque les deux profils possèdent déjà un `external_id`. Consultez les [Conditions préalables]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#prerequisites) et le [Comportement de fusion]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior) avant d'appeler cet endpoint.
+- [POST : Identifier les utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) (`/users/identify`) : combine un profil uniquement alias, uniquement e-mail ou uniquement numéro de téléphone avec un profil possédant un `external_id`.
+- [POST : Fusionner les utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) (`/users/merge`) : fusionne un profil utilisateur dans un autre, y compris lorsque les deux profils possèdent déjà un `external_id`. Consultez les [Conditions préalables]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#prerequisites) et le [Comportement de fusion]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior) avant d'appeler cet endpoint.
 
-Lorsqu'un profil anonyme est associé à un profil identifié existant (par exemple via un appel SDK `changeUser()` ou `/users/identify`), Braze rend orphelin le profil anonyme et ne copie que certains champs sur le profil identifié. Pour en savoir plus, consultez [Que se passe-t-il lorsque vous identifiez des utilisateurs anonymes]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users).
+Lorsqu'un profil anonyme est associé à un profil identifié existant (par exemple via un appel SDK `changeUser()` ou `/users/identify`), Braze rend orphelin le profil anonyme et ne copie que certains champs sur le profil identifié. Pour en savoir plus, consultez [Que se passe-t-il lorsque vous identifiez des utilisateurs anonymes]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#what-happens-when-you-identify-anonymous-users).
 
 Les fusions d'utilisateurs sont difficiles à annuler. Si vous prévoyez une fusion complexe impliquant plusieurs valeurs `external_id` ou des migrations de profils à grande échelle, contactez votre gestionnaire de la satisfaction client Braze pour obtenir des conseils avant de vous appuyer sur `/users/merge`.
 
-Braze traite différemment trois types d'utilisateurs lors de la fusion : les utilisateurs marqués pour suppression, les utilisateurs test et les utilisateurs du Groupe de contrôle global. Pour plus de détails, consultez [Comportement de fusion des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/).
+Braze traite différemment trois types d'utilisateurs lors de la fusion : les utilisateurs marqués pour suppression, les utilisateurs test et les utilisateurs du Groupe de contrôle global. Pour plus de détails, consultez [Comportement de fusion des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior).
 
 ## Fusion individuelle {#individual-merging}
 
@@ -44,7 +44,6 @@ Pour lancer le processus de fusion, sélectionnez **Merge duplicates**.
 
 Choisissez le profil utilisateur à conserver et celui à fusionner, puis sélectionnez **Merge profiles**. Répétez ce processus jusqu'à ce que tous les profils en double aient été fusionnés.
 
-![La page de fusion individuelle pour un profil en double.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/select_merge_profiles.png %}){: style="max-width:80%;"}
 
 {% alert warning %}
 Les profils utilisateur en double ne peuvent pas être récupérés après la fusion.
@@ -54,7 +53,7 @@ Les profils utilisateur en double ne peuvent pas être récupérés après la fu
 
 Lorsque vous fusionnez des utilisateurs en double en masse, Braze recherche les profils ayant des identifiants correspondants (tels qu'une adresse e-mail) et conserve un seul profil. Braze donne d'abord la priorité aux profils possédant un `external_id`, puis applique vos paramètres de **résolution des égalités** : **Resolve ties using** et **Prioritization**. S'il n'existe aucun profil avec un `external_id`, Braze utilise **Resolve ties using** et **Prioritization** sur les profils sans `external_id`. Braze ne fusionne les utilisateurs que lorsque ces paramètres identifient un profil à conserver. Par exemple, si **Resolve ties using** est défini sur **Updated date** et que les deux profils ont le même horodatage de dernière mise à jour, Braze ne peut pas résoudre l'égalité, et ces utilisateurs ne sont donc pas fusionnés.
 
-### Étape 1 : Accéder à Manage Audience {#step-1-go-to-manage-audience}
+### Étape 1 : Accéder à Gérer l'audience {#step-1-go-to-manage-audience}
 
 Dans le tableau de bord de Braze, sélectionnez **Audience** > **Manage Audience**.
 
@@ -68,7 +67,6 @@ Pour prévisualiser vos résultats avant de fusionner vos doublons, sélectionne
 
 Braze génère votre prévisualisation et l'envoie à votre adresse e-mail sous forme de fichier CSV.
 
-![Un e-mail de Braze contenant un lien vers le fichier CSV généré.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/example_email.png %}){: style="max-width:60%;"}
 
 Dans l'exemple suivant, Braze utilise l'ID externe de l'utilisateur pour signaler les profils en double et identifier celui à conserver. Si ces profils sont fusionnés en masse, Braze utilisera le profil possédant un ID externe comme nouveau profil principal de l'utilisateur.
 
@@ -85,7 +83,7 @@ Dans l'exemple suivant, Braze utilise l'ID externe de l'utilisateur pour signale
 
 #### Comportement de fusion {#merge-behavior}
 
-Braze remplira les champs vides du profil conservé avec les valeurs du profil fusionné. Pour consulter la liste des champs qui seront remplis, reportez-vous à [Comportement de fusion]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior).
+Braze remplira les champs vides du profil conservé avec les valeurs du profil fusionné. Pour consulter la liste des champs qui seront remplis, reportez-vous à [Comportement de fusion]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior).
 
 ### Étape 3 : Fusionner vos doublons {#step-3-merge-your-duplicates}
 
@@ -95,7 +93,6 @@ Si les résultats de votre prévisualisation vous conviennent, sélectionnez **M
 Les profils utilisateur en double ne peuvent pas être récupérés après la fusion.
 {% endalert %}
 
-![La page « Manage Audience » avec « Merge all duplicates » mis en évidence.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_merge_profiles.png %}){: style="max-width:70%;"}
 
 ## Fusion basée sur des règles {#rules-based-merging}
 
@@ -141,10 +138,10 @@ Les profils utilisateur en double ne peuvent pas être récupérés après la fu
 
 Braze conserve plusieurs profils utilisateur partageant la même adresse e-mail lorsque les profils sont créés via différents identifiants, importations ou sessions anonymes avant identification. Il s'agit d'un comportement attendu lorsque les utilisateurs ne partagent pas un même `external_id`.
 
-Avant de fusionner les doublons, utilisez l'[endpoint d'exportation de profil utilisateur par identifiant]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) pour confirmer quels profils existent pour une adresse e-mail et quels champs chaque profil contient. Vous pouvez également effectuer une recherche par e-mail dans **Audience** > **User Search** pour examiner les doublons dans le tableau de bord.
+Avant de fusionner les doublons, utilisez l'[endpoint d'exportation de profil utilisateur par identifiant]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) pour confirmer quels profils existent pour une adresse e-mail et quels champs chaque profil contient. Vous pouvez également effectuer une recherche par e-mail dans **Audience** > **User Search** pour examiner les doublons dans le tableau de bord.
 
 ## Articles connexes {#related-articles}
 
-- [Comportement de fusion des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)
-- [POST : Fusionner les utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)
-- [Supprimer des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)
+- [Comportement de fusion des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior)
+- [POST : Fusionner les utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)
+- [Supprimer des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users)

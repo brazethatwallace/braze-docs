@@ -13,7 +13,7 @@ search_rank: 1
 
 # メールテンプレートの作成 {#create-an-email-template}
 
-> Brazeダッシュボードには、カスタマイズされた目を引くメールを作成し、後でCampaignsで使用するために保存できるメールテンプレートエディターがあります。独自の[HTMLメールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)をアップロードすることもできます。
+> Brazeダッシュボードには、カスタマイズされた目を引くメールを作成し、後でキャンペーンで使用するために保存できるメールテンプレートエディターがあります。独自の[HTMLメールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)をアップロードすることもできます。
 
 ## ステップ 1:メールテンプレートエディターに移動する {#step-1-navigate-to-the-email-template-editor}
 
@@ -23,7 +23,7 @@ Brazeダッシュボードで、**コンテンツ** > **メール**に移動し�
 
 編集エクスペリエンスとして、**ドラッグ＆ドロップエディター**または**HTMLコードエディター**を選択します。
 
-また、あらかじめデザインされたBrazeテンプレートから選択したり、新しいテンプレートを作成したり、既存のテンプレート（プレーンまたは[モバイルレスポンシブ]({{site.baseurl}}/help/release_notes/2018/may/#mobile-responsive-email-templates)）を編集したりすることもできます。
+また、あらかじめデザインされたBrazeテンプレートから選択したり、新しいテンプレートを作成したり、既存のテンプレート（プレーンまたは[モバイルレスポンシブ]({{site.baseurl}}/help/release_notes/2018/may#mobile-responsive-email-templates)）を編集したりすることもできます。
 
 ![ドラッグ＆ドロップエディターまたはHTMLエディターを選択するオプション、またはBrazeテンプレートから選択するオプションが表示された、企業のスプリングセール用メールテンプレート。]({% image_buster /assets/img/email_templates/template2.png %})
 
@@ -33,11 +33,11 @@ Brazeダッシュボードで、**コンテンツ** > **メール**に移動し�
 
 ## ステップ 3:テンプレートをカスタマイズする {#step-3-customize-your-template}
 
-エディターエクスペリエンスを選択したら、メールテンプレートを自由にカスタマイズできます。HTMLエディターでHTMLを使用してブランディングを作成・再現したり、ドラッグ＆ドロップエディターでさまざまな[クリエイティブの詳細]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#creative-details)を含めたりできます。
+エディターエクスペリエンスを選択したら、メールテンプレートを自由にカスタマイズできます。HTMLエディターでHTMLを使用してブランディングを作成・再現したり、ドラッグ＆ドロップエディターでさまざまな[クリエイティブの詳細]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#creative-details)を含めたりできます。
 
 ### 配信停止リンクを含める {#include-an-unsubscribe-link}
 
-メールテンプレートをデザインする際、配信停止リンクを含めない場合、Brazeはメールに追加するよう促します。これは、すべてのマーケティングメールで法律上必要とされるためです。Liquidタグ {% raw %}``${email_footer}``{% endraw %} を使用してメールの下部にフッターとしてこの配信停止リンクを追加するか、テンプレートで[フッターをカスタマイズ]({{site.baseurl}}/user_guide/channels/email/subscriptions/#custom-footer)できます。
+メールテンプレートをデザインする際、配信停止リンクを含めない場合、Brazeはメールに追加するよう促します。これは、すべてのマーケティングメールで法律上必要とされるためです。Liquidタグ {% raw %}``${email_footer}``{% endraw %} を使用してメールの下部にフッターとしてこの配信停止リンクを追加するか、テンプレートで[フッターをカスタマイズ]({{site.baseurl}}/user_guide/channels/email/subscriptions#custom-footer)できます。
 
 ## ステップ 4:メールエラーを確認する {#step-4-check-for-email-errors}
 
@@ -48,7 +48,7 @@ Brazeダッシュボードで、**コンテンツ** > **メール**に移動し�
 エディターで検出されるエラーのリストは以下のとおりです。
 
 - 不正なLiquid構文
-- [400KBを超えるメール本文。本文は102KB未満にすることを強く推奨します]({{site.baseurl}}/user_guide/channels/email/best_practices/)
+- [400KBを超えるメール本文。本文は102KB未満にすることを強く推奨します]({{site.baseurl}}/user_guide/channels/email/best_practices)
 - 配信停止リンクのないテンプレート
 - **本文**または**件名**が空白のメール
 - 配信停止リンクのないメール
@@ -75,17 +75,17 @@ Brazeダッシュボードで、**コンテンツ** > **メール**に移動し�
 
 ## ステップ 6:テンプレートを保存する {#step-6-save-your-template}
 
-**Save Template**を選択して、テンプレートを必ず保存してください。これで、任意のCampaignまたはCanvasコンポーネントでこのテンプレートを使用する準備が整いました。テンプレートにアクセスするには、作成時に使用した編集エクスペリエンスを選択し、利用可能なテンプレートのリストから選択します。
+**Save Template**を選択して、テンプレートを必ず保存してください。これで、任意のキャンペーンまたはキャンバスコンポーネントでこのテンプレートを使用する準備が整いました。テンプレートにアクセスするには、作成時に使用した編集エクスペリエンスを選択し、利用可能なテンプレートのリストから選択します。
 
 {% alert note %}
-既存のテンプレートに編集を加えた場合、以前のバージョンのテンプレートを使用して作成されたCampaignsにはその変更は反映されません。
+既存のテンプレートに編集を加えた場合、以前のバージョンのテンプレートを使用して作成されたキャンペーンにはその変更は反映されません。
 {% endalert %}
 
 ### テンプレートを管理する {#manage-your-templates}
 
-メールテンプレートは、**テンプレート** > **メールテンプレート**で表示でき、ステータス、タイプ、タグ、作成者でフィルタリングしたり、テンプレート名で検索したりできます。これらのテンプレートを表示するには、**View Email Templates**などの関連するユーザー権限が必要です。詳細については、[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)を参照してください。
+メールテンプレートは、**テンプレート** > **メールテンプレート**で表示でき、ステータス、タイプ、タグ、作成者でフィルタリングしたり、テンプレート名で検索したりできます。これらのテンプレートを表示するには、**View Email Templates**などの関連するユーザー権限が必要です。詳細については、[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)を参照してください。
 
-メールテンプレートを増やしていくにつれて、メールテンプレートを[複製]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates)したり[アーカイブ]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates)したりできます。テンプレートとクリエイティブコンテンツのライブラリーの作成と管理について詳しくは、[テンプレートとメディア]({{site.baseurl}}/user_guide/messaging/templates/)をご覧ください。
+メールテンプレートを増やしていくにつれて、メールテンプレートを[複製]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicate-templates)したり[アーカイブ]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archive-templates)したりできます。テンプレートとクリエイティブコンテンツのライブラリーの作成と管理について詳しくは、[テンプレートとメディア]({{site.baseurl}}/user_guide/messaging/templates)をご覧ください。
 
 ### APIキャンペーンでテンプレートを使用する {#use-your-templates-in-api-campaigns}
 
@@ -107,4 +107,4 @@ APIキャンペーンでメールを使用するには、`email_template_id`が�
 
 ![「Looks good to me」と書かれたメールテンプレートのコメント。]({% image_buster /assets/img/email_templates/template_comment.png %})
 
-メールテンプレートに関するよくある質問への回答については、[テンプレートFAQ]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq/)をご確認ください。
+メールテンプレートに関するよくある質問への回答については、[テンプレートFAQ]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq)をご確認ください。

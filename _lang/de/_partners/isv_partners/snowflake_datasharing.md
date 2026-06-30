@@ -22,7 +22,7 @@ Braze hostet derzeit alle Nutzer:innen-Daten in den Snowflake-AWS-Regionen US Ea
 {% endalert %}
 
 {% alert tip %}
-Laden Sie die [Rohtabellenschemata]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ffbc5f5ca7092bc9ae26268aa0e711df) hier herunter oder verwenden Sie diesen Satz von [Beispiel-Ereignisdaten](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset), der auf dem Snowflake-Marktplatz verfügbar ist, um sich mit den freigegebenen Ereignissen vertraut zu machen.
+Laden Sie die [Rohtabellenschemata](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) herunter oder verwenden Sie diesen Satz von [Beispiel-Ereignisdaten](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset), der auf dem Snowflake-Marktplatz verfügbar ist, um sich mit den freigegebenen Ereignissen vertraut zu machen.
 {% endalert %}
 
 ## Umgang mit doppelten Ereignissen {#handling-duplicate-events}

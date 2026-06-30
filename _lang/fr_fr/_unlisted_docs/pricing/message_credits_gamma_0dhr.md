@@ -15,8 +15,8 @@ Les différents produits utilisent des unités de mesure différentes dans les r
 <b>Console des agents :</b> Invocations<br>
 <b>SMS :</b> Segments<br>
 <b>MMS :</b> Envois<br>
-<b>WhatsApp :</b> Messages<br>
-<b>RCS :</b> Segments, Envois<br>
+<b>WhatsApp :</b> Messages distribués<br>
+<b>RCS :</b> Segments distribués, Envois distribués<br>
 <b>LINE :</b> Envois<br>
 <b>KakaoTalk :</b> Envois<br>
 
@@ -29,7 +29,7 @@ Les définitions des colonnes sont les suivantes :
 
 |---------|-------------------------------------------------|
 | **Destination** | Région finale, pays ou type d'action spécifique envoyé via la plateforme Braze |
-| **Crédits par envoi** | Nombre exact de crédits de message pour effectuer un envoi<br> (crédits par envoi = ratio de crédits × multiplicateur de destination) |
+| **Crédits par envoi** | Nombre exact de crédits de message nécessaires pour effectuer un envoi<br> (crédits par envoi = ratio de crédits × multiplicateur de destination) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
@@ -2130,7 +2130,7 @@ Les définitions des colonnes sont les suivantes :
         <td>5.80</td>
     </tr>
     <tr>
-        <td>LINE</td>
+        <td>Line</td>
         <td>All Regions</td>
         <td>0.15</td>
     </tr>
@@ -2281,15 +2281,14 @@ Les définitions des colonnes sont les suivantes :
 
 ------
 
-## Détails de la Console des agents {#agent-console-details}
-
-Braze facture des crédits de message pour les invocations de la Console des agents envoyées depuis la plateforme Braze. Une invocation est enregistrée lorsqu'un agent initie un appel vers un LLM. Par défaut, votre contrat inclut dix mille invocations par période de votre durée d'abonnement.
+## Détails de la console des agents {#agent-console-details}
+Braze facture des crédits de message pour les invocations de la console des agents envoyées depuis la plateforme Braze. Une invocation est enregistrée lorsqu'un agent lance un appel à un LLM. Par défaut, votre contrat inclut dix mille invocations par période de votre durée d'abonnement.
 
 ## Détails du canal SMS/MMS {#smsmms-channel-details}
 
 ### Segments SMS {#sms-segments}
 
-Les segments de message SMS correspondent à la manière dont l'industrie du SMS comptabilise les messages. Un segment de message est un regroupement pouvant contenir jusqu'à un nombre défini de caractères (160 pour l'encodage GSM-7 ; 67 pour l'encodage UCS-2) qui sera envoyé en un seul envoi SMS. Si vous envoyez un SMS de 161 caractères en utilisant l'encodage GSM-7, vous constaterez que deux (2) segments de message ont été envoyés. L'envoi de plusieurs segments de message entraîne des frais supplémentaires.
+Les segments de message SMS correspondent à la manière dont l'industrie du SMS comptabilise les messages. Un segment de message est un regroupement pouvant contenir jusqu'à un nombre défini de caractères (160 pour l'encodage GSM-7 ; 67 pour l'encodage UCS-2) qui sera envoyé en un seul envoi SMS. Si vous envoyez un SMS de 161 caractères en encodage GSM-7, vous constaterez que deux (2) segments de message ont été envoyés. L'envoi de plusieurs segments de message entraîne des frais supplémentaires.
 
 ### Segments MMS {#mms-segments}
 
@@ -2297,7 +2296,7 @@ Pour les MMS, la limite de message est de 5 Mo (cela inclut la ressource multim�
 
 ### Types RCS {#rcs-types}
 
-Le RCS est la prochaine génération du SMS et du MMS. Il offre les avantages d'un canal direct et à fort engagement comme le SMS, avec des capacités plus riches que les consommateurs modernes attendent désormais : contenu enrichi (images, vidéos, documents), envoi vérifié et brandé, fonctionnalités interactives comme les réponses et actions suggérées, et bien plus encore.
+Le RCS est la prochaine génération du SMS et du MMS. Il offre les avantages d'un canal direct et à fort engagement comme le SMS, avec des fonctionnalités plus riches que les consommateurs modernes attendent, telles que du contenu enrichi (images, vidéos, documents), un envoi vérifié et brandé, des fonctionnalités interactives comme les réponses et actions suggérées, et bien plus encore.
 
 - La facturation RCS repose sur deux types de messages différents (avec des distinctions pour les États-Unis) :
     - **RCS Basic :** Texte uniquement, jusqu'à 160 caractères
@@ -2309,19 +2308,19 @@ Le RCS est la prochaine génération du SMS et du MMS. Il offre les avantages d'
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-## Détails des canaux supplémentaires {#additional-channel-details}
+## Détails supplémentaires par canal {#additional-channel-details}
 
 ### Webhooks
 
-Les webhooks ont été intégrés aux crédits de message le 9 décembre 2024. Braze facture des crédits de message pour tout webhook envoyé depuis la plateforme Braze. Par défaut, votre contrat inclut cent mille webhooks par période de votre durée d'abonnement. Les webhooks supplémentaires seront facturés conformément à votre bon de commande.
+Les webhooks font partie des crédits de messages depuis le 9 décembre 2024. Braze facturera des crédits de messages pour tout webhook envoyé depuis la plateforme Braze. Par défaut, votre contrat inclut cent mille webhooks par période de votre durée d'abonnement. Les webhooks supplémentaires seront facturés conformément à votre bon de commande.
 
-### Connecteurs SMS BYO (Bring Your Own) {#bring-your-own-byo-sms-connectors}
+### Connecteurs SMS en gestion propre (BYO) {#bring-your-own-byo-sms-connectors}
 
-Braze permet aux clients de s'intégrer à des fournisseurs tiers pour envoyer des messages SMS via le modèle « connecteur SMS BYO ». Braze facture des crédits de message pour chaque message envoyé depuis la plateforme Braze via les connecteurs SMS BYO.
+Braze permet aux clients de s'intégrer à des fournisseurs tiers pour envoyer des messages SMS via le modèle « connecteur SMS BYO ». Braze facturera des crédits de messages pour chaque message envoyé depuis la plateforme Braze via les connecteurs SMS BYO.
 
 ### LINE
 
-Braze facture des crédits de message pour tout message LINE envoyé depuis la plateforme Braze.
+Braze facturera des crédits de messages pour tout message LINE envoyé depuis la plateforme Braze.
 
 ## Répartition par région de facturation {#billing-region-breakdown}
 

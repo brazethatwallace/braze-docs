@@ -37,7 +37,7 @@ Todo esto funciona conjuntamente para crear interacciones satisfactorias entre t
 Braze se basa en una arquitectura de datos de transmisión que aprovecha Snowflake, Kafka, MongoDB y Redis. Los datos de muchos orígenes se pueden cargar en Braze a través del SDK y la API. La plataforma puede manejar cualquier dato en tiempo real, independientemente de cómo esté anidado o estructurado. Los datos en Braze se almacenan en el perfil de usuario.
 
 {% alert tip %}
-Braze puede hacer un seguimiento de los datos de un usuario a lo largo de su trayecto contigo, desde que es anónimo hasta que inicia sesión en tu aplicación y es conocido. Los ID de usuario, llamados `external_id`s en Braze, deben establecerse para cada uno de tus usuarios. Deben ser inmutables y accesibles cuando un usuario abra la aplicación, permitiéndote hacer un seguimiento de tus usuarios en todos los dispositivos y plataformas. Consulta el [artículo Ciclo de vida del usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/) para conocer las mejores prácticas.
+Braze puede hacer un seguimiento de los datos de un usuario a lo largo de su trayecto contigo, desde que es anónimo hasta que inicia sesión en tu aplicación y es conocido. Los ID de usuario, llamados `external_id`s en Braze, deben establecerse para cada uno de tus usuarios. Deben ser inmutables y accesibles cuando un usuario abra la aplicación, permitiéndote hacer un seguimiento de tus usuarios en todos los dispositivos y plataformas. Consulta el [artículo Ciclo de vida del usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) para conocer las mejores prácticas.
 {% endalert %}
 
 ![Braze importa orígenes de datos backend desde la API, orígenes de datos frontend desde el SDK, datos de almacén de datos desde la Ingesta de datos de Cloud de Braze y desde las integraciones de socios. Estos datos se exportan a través de la API de Braze]({% image_buster /assets/img/getting-started/import-export.png %}){: style="display:block;margin:auto;" }
@@ -58,32 +58,32 @@ Braze utiliza diferentes sistemas de almacenamiento de datos para diversas carac
 - La mayoría de las características de segmentación y orientación
 
 #### Características impulsadas por Snowflake {#snowflake-powered-features}
-- [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)
-- [Paquete de predicción]({{site.baseurl}}/user_guide/brazeai/)
-- [Rutas personalizadas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths/) y [variante personalizada]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/optimizations/#personalized-variant)
-- [Recomendaciones de artículos personalizadas mediante IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)
-- [Tasa de apertura real estimada]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting/#estimated-real-open-rate) (no utiliza eventos personalizados)
+- [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)
+- [Paquete de predicción]({{site.baseurl}}/user_guide/brazeai)
+- [Rutas personalizadas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths) y [variante personalizada]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/optimizations#personalized-variant)
+- [Recomendaciones de artículos personalizadas mediante IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)
+- [Tasa de apertura real estimada]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting#estimated-real-open-rate) (no utiliza eventos personalizados)
 
 {% alert important %}
 **Consideraciones sobre la eliminación de datos:** Los eventos personalizados se almacenan en MongoDB y están separados de los datos de Snowflake. Si necesitas eliminar datos de eventos personalizados erróneos, debes hacerlo en MongoDB. Las características basadas en Snowflake (como las extensiones de segmento SQL y otras características basadas en Snowflake) utilizan datos de Snowflake, que se gestionan por separado. Eliminar datos de un sistema no los elimina automáticamente del otro.
 {% endalert %}
 
 ### Orígenes de datos backend a través de la API de Braze {#backend-data-sources-through-the-braze-api}
-Braze puede extraer datos de bases de datos de usuarios, transacciones offline y almacenes de datos a través de nuestra [REST API]({{site.baseurl}}/api/endpoints/user_data/).
+Braze puede extraer datos de bases de datos de usuarios, transacciones offline y almacenes de datos a través de nuestra [REST API]({{site.baseurl}}/api/endpoints/user_data).
 
 ### Orígenes de datos frontend a través del SDK de Braze {#frontend-data-sources-through-braze-sdk}
-Braze captura automáticamente datos propios de orígenes de datos frontend, como los dispositivos de los usuarios, mediante el [SDK de Braze]({{site.baseurl}}/user_guide/get_started/sdk_overview/). El SDK gestiona los usuarios nuevos (anónimos) y administra los datos de su perfil de usuario a lo largo de su ciclo de vida.
+Braze captura automáticamente datos propios de orígenes de datos frontend, como los dispositivos de los usuarios, mediante el [SDK de Braze]({{site.baseurl}}/user_guide/get_started/sdk_overview). El SDK gestiona los usuarios nuevos (anónimos) y administra los datos de su perfil de usuario a lo largo de su ciclo de vida.
 
 ### Integraciones de socios {#partner-integrations}
-Braze tiene más de 150 socios tecnológicos, a los que llamamos "Alloys". Puedes complementar tus fuentes de datos mediante una red significativamente sólida de [tecnologías interoperables y API de datos.]({{site.baseurl}}/partners/home/)
+Braze tiene más de 150 socios tecnológicos, a los que llamamos "Alloys". Puedes complementar tus fuentes de datos mediante una red significativamente sólida de [tecnologías interoperables y API de datos.]({{site.baseurl}}/partners/home)
 
 ### Conexión directa con el almacén a través de la Ingesta de datos de Cloud de Braze {#direct-warehouse-connection-through-braze-cloud-data-ingestion}
-Puedes transmitir datos de clientes desde tu almacén de datos a la plataforma a través de la [Ingesta de datos de Cloud de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) en solo unos minutos, lo que te permitirá sincronizar los atributos, eventos y compras relevantes de los usuarios. La integración de la Ingesta de datos de Cloud admite estructuras de datos complejas, como JSON anidado y matrices de objetos.
+Puedes transmitir datos de clientes desde tu almacén de datos a la plataforma a través de la [Ingesta de datos de Cloud de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) en solo unos minutos, lo que te permitirá sincronizar los atributos, eventos y compras relevantes de los usuarios. La integración de la Ingesta de datos de Cloud admite estructuras de datos complejas, como JSON anidado y matrices de objetos.
 
 La Ingesta de datos de Cloud puede sincronizar datos de Snowflake, Amazon Redshift, Databricks y Google BigQuery.
 
 ## Clasificación {#classification}
-La capa de clasificación habilita a tu equipo para clasificar y construir dinámicamente audiencias, llamadas [segmentos]({{site.baseurl}}/user_guide/audience/segments/), basándose en los datos que pasan por Braze.
+La capa de clasificación habilita a tu equipo para clasificar y construir dinámicamente audiencias, llamadas [segmentos]({{site.baseurl}}/user_guide/audience/segments), basándose en los datos que pasan por Braze.
 
 {% alert note %}
 En las capas de clasificación, orquestación y personalización es donde tu equipo de marketing realizará gran parte de su trabajo. La mayoría de las veces interactúan con estas capas a través del dashboard de Braze, nuestra interfaz web. Los desarrolladores tienen un papel en la configuración y personalización de estas capas.
@@ -91,21 +91,21 @@ En las capas de clasificación, orquestación y personalización es donde tu equ
 
 Muchos tipos comunes de atributos de usuario, como el nombre, el correo electrónico, la fecha de nacimiento, el país y otros, son seguidos automáticamente por el SDK de forma predeterminada. Como desarrollador, trabajarás con tu equipo para definir qué datos adicionales y personalizados tiene sentido seguir para tu caso de uso. Tus datos personalizados influirán en cómo se clasificará y segmentará tu base de usuarios. Configurarás este modelo de datos durante el proceso de implementación.
 
-Más información sobre [datos recopilados automáticamente y datos personalizados]({{site.baseurl}}/developer_guide/analytics/).
+Más información sobre [datos recopilados automáticamente y datos personalizados]({{site.baseurl}}/developer_guide/analytics).
 
 ## Orquestación {#orchestration}
-La capa de orquestación permite a tu equipo de marketing diseñar recorridos de usuario basados en los datos de usuario y la interacción previa. Este trabajo se realiza principalmente a través de la interfaz de nuestro dashboard, pero también tienes la opción de lanzar [campañas a través de la API]({{site.baseurl}}/api/api_campaigns/#api-campaigns). Por ejemplo, puedes hacer que tu backend le diga a Braze cuándo enviar los mensajes y las campañas que tus especialistas en marketing diseñaron en el dashboard, y desencadenarlos según la lógica de tu backend. Un ejemplo de mensaje desencadenado por la API podrían ser los restablecimientos de contraseña o las confirmaciones de envío.
+La capa de orquestación permite a tu equipo de marketing diseñar recorridos de usuario basados en los datos de usuario y la interacción previa. Este trabajo se realiza principalmente a través de la interfaz de nuestro dashboard, pero también tienes la opción de lanzar [Campaigns a través de la API]({{site.baseurl}}/api/api_campaigns#api-campaigns). Por ejemplo, puedes hacer que tu backend le diga a Braze cuándo enviar los mensajes y las Campaigns que tus especialistas en marketing diseñaron en el dashboard, y desencadenarlos según la lógica de tu backend. Un ejemplo de mensaje desencadenado por la API podrían ser los restablecimientos de contraseña o las confirmaciones de envío.
 
 {% alert note %}
-Las campañas desencadenadas por la API son ideales para casos de uso transaccional más avanzados. Permiten a los especialistas en marketing gestionar el texto de la campaña, las pruebas multivariante y las reglas de reelegibilidad dentro del dashboard de Braze, a la vez que desencadenan la entrega de ese contenido desde tus servidores y sistemas. La solicitud de la API para desencadenar el mensaje también puede incluir datos adicionales que se incorporarán al mensaje en tiempo real.
+Las Campaigns desencadenadas por la API son ideales para casos de uso transaccional más avanzados. Permiten a los especialistas en marketing gestionar el texto de la Campaign, las pruebas multivariante y las reglas de reelegibilidad dentro del dashboard de Braze, a la vez que desencadenan la entrega de ese contenido desde tus servidores y sistemas. La solicitud de la API para desencadenar el mensaje también puede incluir datos adicionales que se incorporarán al mensaje en tiempo real.
 {% endalert %}
 
 
 ### Conmutadores de características {#feature-flags}
-Braze te permite habilitar o deshabilitar a distancia la funcionalidad de una selección de usuarios mediante [conmutadores de características]({{site.baseurl}}/developer_guide/feature_flags/). Esto permite a tus especialistas en marketing dirigirse al segmento correcto de tu base de usuarios con mensajería para características que aún no has desplegado a toda tu audiencia. Pero, además, los conmutadores de características pueden utilizarse para activar y desactivar una característica en producción sin necesidad de desplegar código adicional ni actualizar la tienda de aplicaciones. Esto te permite desplegar nuevas características con seguridad y confianza.
+Braze te permite habilitar o deshabilitar a distancia la funcionalidad de una selección de usuarios mediante [conmutadores de características]({{site.baseurl}}/developer_guide/feature_flags). Esto permite a tus especialistas en marketing dirigirse al segmento correcto de tu base de usuarios con mensajería para características que aún no has desplegado a toda tu audiencia. Pero, además, los conmutadores de características pueden utilizarse para activar y desactivar una característica en producción sin necesidad de desplegar código adicional ni actualizar la tienda de aplicaciones. Esto te permite desplegar nuevas características con seguridad y confianza.
 
 ## Personalización {#personalization}
-La capa de personalización representa la capacidad de entregar contenido dinámico en tus mensajes. Utilizando Liquid, un lenguaje de personalización muy extendido, tu equipo puede extraer dinámicamente los datos existentes para mostrar el mensaje adaptado a cada destinatario. Además, puedes insertar cualquier información accesible en tu servidor web o a través de la API directamente en los mensajes que envías, como notificaciones push o correos electrónicos, utilizando [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/). El Contenido conectado se basa en Liquid y utiliza una sintaxis familiar.
+La capa de personalización representa la capacidad de entregar contenido dinámico en tus mensajes. Utilizando Liquid, un lenguaje de personalización muy extendido, tu equipo puede extraer dinámicamente los datos existentes para mostrar el mensaje adaptado a cada destinatario. Además, puedes insertar cualquier información accesible en tu servidor web o a través de la API directamente en los mensajes que envías, como notificaciones push o correos electrónicos, utilizando [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). El Contenido conectado se basa en Liquid y utiliza una sintaxis familiar.
 
 Y como este contenido dinámico es programable, los especialistas en marketing pueden incluir valores calculados, respuestas de otras llamadas o elementos del catálogo de productos. Una vez que hayas configurado estos sistemas durante la implementación, tu equipo de marketing podrá hacerlo sin apenas ayuda de los equipos técnicos.
 
@@ -115,24 +115,24 @@ La capa de acción habilita la mensajería real a tus usuarios. El objetivo de l
 ### Canales de mensajería {#messaging-channels}
 Braze se diseñó para gestionar un panorama tecnológico en evolución con su modelo de datos centrado en el usuario e independiente del canal. El dashboard gestiona la entrega de mensajes y los desencadenantes transaccionales. Por ejemplo, tus especialistas en marketing pueden desencadenar un mensaje SMS ofreciendo un cupón para uno de tus escaparates recién abiertos cuando un usuario entre en la geovalla establecida cerca de esta ubicación, o enviar a un usuario un correo electrónico para informarle de que su programa favorito tiene una nueva temporada.
 
-El [SDK de Braze]({{site.baseurl}}/user_guide/get_started/sdk_overview/) potencia canales de mensajería adicionales: push, mensajes dentro de la aplicación y Content Cards. Integras el SDK con tu aplicación o sitio web para permitir que tu equipo de marketing utilice el dashboard de Braze para coordinar sus campañas en todos los canales de mensajería admitidos.
+El [SDK de Braze]({{site.baseurl}}/user_guide/get_started/sdk_overview) potencia canales de mensajería adicionales: push, mensajes dentro de la aplicación y Content Cards. Integras el SDK con tu aplicación o sitio web para permitir que tu equipo de marketing utilice el dashboard de Braze para coordinar sus Campaigns en todos los canales de mensajería admitidos.
 
-![]({% image_buster /assets/img/getting_started/channels.png %})
+![Diagrama de los canales de mensajería de Braze disponibles a través del SDK.]({% image_buster /assets/img/getting_started/channels.png %})
 
 ## Exportar datos {#exporting-data}
 Fundamentalmente, todas las interacciones del usuario final con Braze son objeto de seguimiento para que puedas medir tu interacción y alcance. Después de que Braze haya agregado tus datos de todas estas fuentes, se pueden exportar de nuevo a tu stack tecnológico utilizando una variedad de herramientas, cerrando el bucle.
 
 ### Currents
-[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) es un complemento opcional de Braze que proporciona una exportación de streaming granular que alimenta continuamente otros destinos de tu stack. Currents es una fuente de datos brutos por usuario y evento que exporta datos cada cinco minutos o cada 15.000 eventos, lo que ocurra primero. Ejemplos de algunos destinos descendentes para Currents serían Segment, S3, Redshift y Mixpanel, entre otros.
+[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) es un complemento opcional de Braze que proporciona una exportación de streaming granular que alimenta continuamente otros destinos de tu stack. Currents es una fuente de datos brutos por usuario y evento que exporta datos cada cinco minutos o cada 15.000 eventos, lo que ocurra primero. Ejemplos de algunos destinos descendentes para Currents serían Segment, S3, Redshift y Mixpanel, entre otros.
 
 ### Uso compartido de datos de Snowflake {#snowflake-data-sharing}
-La funcionalidad de [Compartición segura de datos]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/) de Snowflake permite a Braze darte acceso seguro a los datos de nuestro portal Snowflake sin preocuparte de las fricciones del flujo de trabajo, los puntos de fallo y los costes innecesarios que conllevan las típicas relaciones con los proveedores de datos. Todo el intercambio se realiza a través de la capa de servicios y el almacén de metadatos únicos de Snowflake: en realidad, no se copia ni se transfiere ningún dato entre cuentas. Se trata de un concepto importante porque los datos compartidos no ocupan almacenamiento en una cuenta de consumidor y, por tanto, no contribuyen a tus gastos mensuales de almacenamiento de datos. Lo único que se cobra a los consumidores son los recursos informáticos (es decir, los almacenes virtuales) utilizados para consultar los datos compartidos.
+La funcionalidad de [Compartición segura de datos]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) de Snowflake permite a Braze darte acceso seguro a los datos de nuestro portal Snowflake sin preocuparte de las fricciones del flujo de trabajo, los puntos de fallo y los costes innecesarios que conllevan las típicas relaciones con los proveedores de datos. Todo el intercambio se realiza a través de la capa de servicios y el almacén de metadatos únicos de Snowflake: en realidad, no se copia ni se transfiere ningún dato entre cuentas. Se trata de un concepto importante porque los datos compartidos no ocupan almacenamiento en una cuenta de consumidor y, por tanto, no contribuyen a tus gastos mensuales de almacenamiento de datos. Lo único que se cobra a los consumidores son los recursos informáticos (es decir, los almacenes virtuales) utilizados para consultar los datos compartidos.
 
 ### API de exportación de Braze {#braze-export-apis}
-La API de Braze proporciona [puntos finales]({{site.baseurl}}/api/endpoints/export/) que te permiten exportar mediante programación análisis agregados, así como exportar datos de usuario individuales. Estos datos pueden exportarse para audiencias y segmentos de cualquier tamaño.
+La API de Braze proporciona [puntos finales]({{site.baseurl}}/api/endpoints/export) que te permiten exportar mediante programación análisis agregados, así como exportar datos de usuario individuales. Estos datos pueden exportarse para audiencias y segmentos de cualquier tamaño.
 
 ### CSV {#csvs}
-Por último, existe una opción para descargar tus datos a nivel agregado directamente desde el dashboard como [CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/). La opción CSV permite fácilmente a los miembros de tu equipo exportar datos desde Braze.
+Por último, existe una opción para descargar tus datos a nivel agregado directamente desde el dashboard como [CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data). La opción CSV permite fácilmente a los miembros de tu equipo exportar datos desde Braze.
 
 {% alert tip %}
 Mientras que la exportación CSV tiene un límite base de 500.000 filas, las API no tienen límite en este sentido.
@@ -147,4 +147,4 @@ El anuncio de tu producto se envió a todos los clientes a los que les gustó un
 
 Cuando Mel abre el anuncio, añade tu nuevo producto a su lista de deseos. Braze hace un seguimiento de que hizo clic en el correo electrónico automáticamente. El SDK hace un seguimiento de que ha incluido tu nuevo producto en la lista de deseos. Cada vez que interactúan con tu marca, tú y tus usuarios aprendéis más el uno del otro.
 
-![]({% image_buster /assets/img/getting-started/putting-it-all-together.png %})
+![Diagrama que muestra cómo Braze hace un seguimiento de las acciones de los usuarios a través de los canales de mensajería.]({% image_buster /assets/img/getting-started/putting-it-all-together.png %})

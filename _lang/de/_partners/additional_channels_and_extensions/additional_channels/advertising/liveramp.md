@@ -69,11 +69,11 @@ Als Nächstes erstellen Sie eine Datentabelle mit dem [erforderlichen Format](ht
 | Nur E-Mail | Die E-Mail-Adressen der Nutzer:innen, z. B. `alex-lee@email.com`. |
 | Gerät | Dazu gehören Cookies von Drittanbietern, Mobile Advertising IDs (MAIDs), Connected TV IDs (CTV IDs) und RampIDs (aufgelöst in eine Household RampID). |
 | CIDs | Dabei handelt es sich um Bezeichner eines Plattformpartners oder einer mit LiveRamp synchronisierten Identität, wie z. B. Ihre interne Kund:innen-ID. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="3. Schritt: Datentabelle erstellen" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Datentabelle erstellen" }
 
 #### Braze-Bezeichner {#braze-identifiers}
 
-Die Event-Protokolle von Braze enthalten Bezeichner, die Sie in der nativen LiveRamp-App verwenden können. Eine vollständige Liste der verfügbaren Bezeichner für jeden Event-Typ finden Sie in den [Braze-Event-Schemata und -Bezeichnern]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt).
+Die Event-Protokolle von Braze enthalten Bezeichner, die Sie in der nativen LiveRamp-App verwenden können. Eine vollständige Liste der verfügbaren Bezeichner für jeden Event-Typ finden Sie in den [Braze-Event-Schemata und -Bezeichnern](/docs/assets/download_file/data-sharing-raw-table-schemas.txt).
 
 | Bezeichner-Typ | Beschreibung |
 |---|---|
@@ -100,7 +100,7 @@ Da Ihre Variablen nun festgelegt sind, erstellen Sie die Metadatentabelle für d
 Führen Sie abschließend den Vorgang der Identitätsauflösung durch. Eine vollständige Übersicht finden Sie unter [LiveRamp: Identitätsauflösung durchführen](https://docs.liveramp.com/identity/en/perform-identity-resolution-in-snowflake.html#perform-the-identity-resolution-operation).
 
 {% tabs local %}
-{% tab example input %}
+{% tab Beispiel-Eingabe %}
 ```sql
 call lr_resolution_and_transcoding(
 $customer_input_table_name,
@@ -112,7 +112,7 @@ $customer_metrics_table_name
 ```
 {% endtab %}
 
-{% tab example output %}
+{% tab Beispiel-Ausgabe %}
 ```sql
 call check_for_output(
 $output_table_name

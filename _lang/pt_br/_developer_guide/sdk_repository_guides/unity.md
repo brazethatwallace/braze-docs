@@ -33,7 +33,7 @@ Para integrar a Braze ao seu aplicativo Unity, siga nossas instruções para [In
 [1]: https://github.com/braze-inc/braze-unity-sdk/releases
 [2]: https://www.braze.com/docs/developer_guide/sdk_integration?sdktab=unity
 
-## Fale com o suporte {#contact}
+## Fale conosco {#contact}
 
 Se você tiver dúvidas, entre em contato pelo e-mail [support@braze.com](mailto:support@braze.com).
 <!-- END GENERATED README CONTENT -->

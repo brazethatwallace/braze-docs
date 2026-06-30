@@ -29,7 +29,7 @@ Você verá um alerta se não tiver programado um intervalo suficiente. Uma solu
 
 Depois de configurar os detalhes preliminares de quando seus usuários devem entrar em um Canvas, é recomendável verificar seus segmentos ou filtros na etapa **Público-alvo** da criação do Canvas. Nessa etapa, você também pode revisar o resumo do **Público-alvo** para ver como seu público foi configurado.
 
-Aqui, considere usar uma expressão regular para segmentos ou filtros nas etapas de Jornadas do público, bem como nas configurações de validação de entrega nas etapas de Mensagem e Divisão de decisão. Uma [expressão regular]({{site.baseurl}}/user_guide/audience/segments/regex/) (também chamada de regex) é uma string, o que significa que ela reconhece padrões e leva em conta os caracteres, em vez de coisas como capitalização. Isso significa que, se você estiver usando "Equals / Does Not Equal", pode estar limitando o tamanho do seu público por causa de erros simples de sintaxe.
+Aqui, considere usar uma expressão regular para segmentos ou filtros nas etapas de Jornadas do público, bem como nas configurações de validação de entrega nas etapas de Mensagem e Divisão de decisão. Uma [expressão regular]({{site.baseurl}}/user_guide/audience/segments/regex) (também chamada de regex) é uma string, o que significa que ela reconhece padrões e leva em conta os caracteres, em vez de coisas como capitalização. Isso significa que, se você estiver usando "Equals / Does Not Equal", pode estar limitando o tamanho do seu público por causa de erros simples de sintaxe.
 
 Se você perceber que seu público-alvo é menor do que o esperado, tente usar "Matches Regex" ou "Does Not Match Regex" em vez de "Equals" ou "Does Not Equal". Isso pode incluir os usuários que estavam faltando e alcançar um público maior.
 
@@ -40,12 +40,12 @@ Uma condição de corrida pode ocorrer quando você usa os mesmos critérios de 
 Se você estiver usando entrada baseada em ação, verifique se não usou a mesma ação-gatilho aqui e no seu público-alvo. Uma condição de corrida pode ocorrer quando o usuário não está no público no momento em que realiza o evento de gatilho, o que significa que ele não entrará no Canvas.
 
 {% alert tip %}
-Confira as [práticas recomendadas]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/#scenario-3-matching-action-based-triggers-and-audience-filters) para evitar essa condição de corrida ao configurar um Canvas baseado em ação com o mesmo gatilho do filtro de público.
+Confira as [práticas recomendadas]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#scenario-3-matching-action-based-triggers-and-audience-filters) para evitar essa condição de corrida ao configurar um Canvas baseado em ação com o mesmo gatilho do filtro de público.
 {% endalert %}
 
 ### Verifique as propriedades de entrada do Canvas e as propriedades de evento {#check-canvas-entry-properties-and-event-properties}
 
-Embora tenham nomes semelhantes, as [propriedades de entrada do Canvas e as propriedades de evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) funcionam de maneira diferente nos fluxos de trabalho do Canvas. As propriedades de entrada do Canvas estão vinculadas às suas configurações de entrada e podem ser referenciadas em qualquer componente de mensagem ao longo do Canvas. Elas são propriedades do evento ou da chamada de API que aciona a entrada de um usuário no Canvas, usando configurações de entrada baseadas em ação ou acionadas por API.
+Embora tenham nomes semelhantes, as [propriedades de entrada do Canvas e as propriedades de evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) funcionam de maneira diferente nos fluxos de trabalho do Canvas. As propriedades de entrada do Canvas estão vinculadas às suas configurações de entrada e podem ser referenciadas em qualquer componente de mensagem ao longo do Canvas. Elas são propriedades do evento ou da chamada de API que aciona a entrada de um usuário no Canvas, usando configurações de entrada baseadas em ação ou acionadas por API.
 
 As propriedades de evento, por outro lado, só podem ser referenciadas na primeira etapa de Mensagem após uma etapa de Jornadas de ação. Elas são propriedades de um evento personalizado ou evento de compra que o usuário realizou durante a janela de avaliação de uma etapa de Jornadas de ação, e que aciona a progressão dele por uma das jornadas de ação definidas.
 
@@ -72,7 +72,7 @@ Por exemplo, digamos que você notou uma disparidade entre o número de mensagen
 
 #### Público de entrada {#entry-audience}
 
-Se você estiver usando uma Campaign de envio agendado, verifique novamente seu público-alvo revisando o público-alvo. Como estão os números entre os canais, e como isso se relaciona com os canais que você usou no Canvas? Se os números mais baixos correspondem aos canais usados no Canvas, você pode ter encontrado o problema.
+Se você estiver usando uma campanha de envio agendado, verifique novamente seu público-alvo revisando o público-alvo. Como estão os números entre os canais, e como isso se relaciona com os canais que você usou no Canvas? Se os números mais baixos correspondem aos canais usados no Canvas, você pode ter encontrado o problema.
 
 #### Primeiro componente do Canvas {#first-component-of-the-canvas}
 
@@ -95,11 +95,11 @@ Além disso, verifique se o segmento selecionado tem usuários revisando a tabel
 Outra forma evidente de identificar áreas de ajuste no Canvas é quando há uma grande queda de uma etapa para a próxima. Nesse caso, verifique se seus filtros de público e eventos de exceção não têm erros de digitação ou capitalização. E, como sempre, verifique se seus filtros de público não são tão restritivos a ponto de excluir a maioria dos usuários da entrada no Canvas.
 
 Em seguida, é importante identificar estas configurações que podem afetar quando e se as mensagens são enviadas aos seus usuários:
-- [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)
-- [Horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)
+- [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)
+- [Horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)
 - Validações de entrega
 
-Em geral, escolha Intelligent Timing ou [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) para o seu Canvas, não ambos. A mesma sugestão se aplica ao uso de Intelligent Timing ou [limite de taxa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/), não ambos. Para saber mais sobre como usar melhor o Intelligence Suite, leia nossos [casos de uso do Intelligence Suite]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/#use-cases).
+Em geral, escolha Intelligent Timing ou [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) para o seu Canvas, não ambos. A mesma sugestão se aplica ao uso de Intelligent Timing ou [limite de taxa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping), não ambos. Para saber mais sobre como usar melhor o Intelligence Suite, leia nossos [casos de uso do Intelligence Suite]({{site.baseurl}}/user_guide/brazeai/intelligence_suite#use-cases).
 
 ### Volumes de envio suspeitos entre jornadas {#suspicious-send-volumes-between-paths}
 

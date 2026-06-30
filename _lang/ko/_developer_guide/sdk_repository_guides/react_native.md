@@ -425,7 +425,7 @@ npx react-native run-android
 
 ## 문의 {#contact}
 
-질문이 있으시면 [support@braze.com](mailto:support@braze.com)으로 연락해 주세요.
+질문이 있으시면 Braze 기술 지원팀에 문의하세요.
 <!-- END GENERATED README CONTENT -->
 
 리포지토리 세부 정보 및 샘플 프로젝트는 [https://github.com/braze-inc/braze-react-native-sdk](https://github.com/braze-inc/braze-react-native-sdk)를 참조하세요.

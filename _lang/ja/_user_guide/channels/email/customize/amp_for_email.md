@@ -39,6 +39,10 @@ Brazeは、ユーザーがGoogleに登録したり、必要なセキュリティ
 
 サポートされているメールクライアントの完全なリストについては、[AMPドキュメント](https://amp.dev/support/faq/email-support)を参照してください。
 
+#### 未登録プロバイダーへの送信 {#send-to-unregistered-providers}
+
+YahooやMail.ruなどのプロバイダーに登録プロセスを完了する前にAMPメールを送信した場合、それらのプロバイダーはメールのAMP部分を無視し、代わりにHTMLまたはプレーンテキストのフォールバックバージョンを表示します。AMP部分自体は、未登録の送信者に対して配信性の問題を引き起こしません。
+
 ### Gmailアカウントの有効化 {#enabling-gmail-account}
 
 Gmailの設定に移動し、**全般**タブの**ダイナミックメールを有効にする**を選択します。
@@ -47,7 +51,7 @@ Gmailの設定に移動し、**全般**タブの**ダイナミックメールを
 
 ## APIの使用 {#api-usage}
 
-APIを使用してAMP for emailを利用することもできます。Brazeの[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging/)のいずれかを使用してメールを送信する場合、以下に示すようにオブジェクト仕様として`amp_body`を追加します。
+APIを使用してAMP for emailを利用することもできます。Brazeの[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging)のいずれかを使用してメールを送信する場合、以下に示すようにオブジェクト仕様として`amp_body`を追加します。
 
 ### メールオブジェクト仕様 {#email-object-specification}
 
@@ -55,8 +59,8 @@ APIを使用してAMP for emailを利用することもできます。Brazeの[�
 {
   "app_id": (required, string) see app identifier above,
   "subject": (optional, string),
-  "from": (required, valid email address in the format "Display Name <email@address.com>"),
-  "reply_to": (optional, valid email address in the format "email@address.com" - defaults to your workspace's default reply to if not set),
+  "from": (required, valid email address in the format "Display Name <user@example.com>"),
+  "reply_to": (optional, valid email address in the format "user@example.com" - defaults to your workspace's default reply to if not set),
   "plaintext_body": (optional, valid plaintext, defaults to autogenerating plaintext from "body" when this is not set),
   "amp_body": (optional, updates the text-amp-html MIME type) the email body in AMP HTML. The MIME (Multipurpose Internet Mail Extensions) type to be referenced is "text/x-amp-html",
   "body": (required unless email_template_id is given, valid HTML),
@@ -204,7 +208,7 @@ Liquidと同様に、AMPはより高度なユースケース向けのスクリ�
     }
 </style>
 
-<table aria-label="Metrics and analytics">
+<table aria-label="指標と分析">
   <caption>指標と分析</caption>
     <thead>
         <tr>
@@ -250,7 +254,7 @@ AMPメールがGmailアカウントに配信されるためには、メールが
 
 合計クリック数とユニーククリック数には、AMPメッセージから発生したクリック（HTMLとプレーンテキストのみ）は含まれないことに注意してください。AMP固有のクリックは*amp_click*指標に帰属されます。
 
-これらの条件のいずれもエラーの原因でない場合は、[サポート]({{site.baseurl}}/support_contact/)にお問い合わせください。
+これらの条件のいずれもエラーの原因でない場合は、[サポート]({{site.baseurl}}/support_contact)にお問い合わせください。
 
 ### Gmailの受信トレイでAMPメールをレンダリングするように設定する {#configure-gmail-inbox-to-render-amp-emails}
 

@@ -7,7 +7,7 @@ description: "이 참조 문서에서는 Braze 통합의 문제를 디버깅하�
 
 ---
 
-# 이벤트 사용자 로그
+# 이벤트 사용자 로그 {#event-user-log}
 
 > 이벤트 사용자 로그는 Braze 통합에서 발생하는 문제를 분석, 디버깅 또는 해결하는 데 도움을 줍니다. 이 탭에서는 오류 유형, 관련 앱, 발생 시점 등의 세부 정보가 포함된 오류 로그를 확인할 수 있으며, 관련 원시 데이터를 직접 확인할 수 있는 경우도 많습니다.
 
@@ -40,13 +40,13 @@ description: "이 참조 문서에서는 Braze 통합의 문제를 디버깅하�
 
 ![이벤트의 원시 로그]({% image_buster /assets/img_archive/rawlogs.png %}){: style="max-width:60%;"}
 
-## 문제 해결
+## 문제 해결 {#troubleshooting}
 
-### 테스트 사용자의 SDK 로그가 누락되는 경우
+### 테스트 사용자의 SDK 로그가 누락되는 경우 {#missing-sdk-logs-for-test-users}
 
-사용자를 내부 그룹에 추가했지만 이벤트 사용자 로그에 SDK 로그가 표시되지 않는 경우, 구성 옵션이 누락되었을 수 있습니다. SDK 로그를 캡처하려면 해당 [내부 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/)의 **내부 그룹 설정**에서 **그룹 멤버의 사용자 이벤트 기록**을 선택해야 합니다.
+사용자를 내부 그룹에 추가했지만 이벤트 사용자 로그에 SDK 로그가 표시되지 않는 경우, 구성 옵션이 누락되었을 수 있습니다. SDK 로그를 캡처하려면 해당 [내부 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups)의 **내부 그룹 설정**에서 **그룹 멤버의 사용자 이벤트 기록**을 선택해야 합니다.
 
-### 로그 업데이트 지연
+### 로그 업데이트 지연 {#delay-in-logs-updates}
 
 이는 API의 정상적인 지연일 수 있습니다.
 
@@ -54,11 +54,11 @@ SDK 메서드를 호출하면 일반적으로 SDK가 해당 이벤트를 로컬�
 
 이벤트가 가능한 한 빨리 도착하도록 하려면 `requestImmediateDataFlush()` 함수를 호출해 보세요.
 
-### 인앱 메시지 노출 실패
+### 인앱 메시지 노출 실패 {#in-app-message-impression-failures}
 
-인앱 메시지가 표시되지 않는 경우, 이벤트 사용자 로그에서 관련 SDK 요청의 원시 JSON 데이터를 확장하고 응답의 `error_code` 필드를 확인하여 원인을 찾을 수 있습니다. `error_code`는 노출이 실패한 구체적인 이유(예: 잘못된 색상 값 또는 렌더링 문제)를 나타냅니다. 추가 조사가 필요한 경우 이 오류 코드를 [Braze 고객지원]({{site.baseurl}}/braze_support/)에 공유하세요.
+인앱 메시지가 표시되지 않는 경우, 이벤트 사용자 로그에서 관련 SDK 요청의 원시 JSON 데이터를 확장하고 응답의 `error_code` 필드를 확인하여 원인을 찾을 수 있습니다. `error_code`는 노출이 실패한 구체적인 이유(예: 잘못된 색상 값 또는 렌더링 문제)를 나타냅니다. 추가 조사가 필요한 경우 이 오류 코드를 [Braze 고객지원]({{site.baseurl}}/braze_support)에 공유하세요.
 
-### 세션 종료와 세션 시작의 타임스탬프가 유사한 경우 (iOS)
+### 세션 종료와 세션 시작의 타임스탬프가 유사한 경우 (iOS) {#session-end-and-session-start-have-similar-timestamps-ios}
 
 이벤트 사용자 로그에는 Braze가 세션 종료 알림을 받은 타임스탬프가 표시되며, 이는 다음 세션이 시작되기 밀리초 전입니다. iOS는 앱이 백그라운드에 있을 때 스레드 실행을 적극적으로 중단하기 때문에, 앱이 다시 열리기 전까지는 Braze로 데이터를 플러시할 수 없어 세션이 종료되었는지 알 수 없습니다.
 

@@ -19,19 +19,19 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze Excluir se
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `catalogs.delete_selection`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `catalogs.delete_selection`.
 
 ## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='asynchronous catalog selections' %}
 
-## Parâmetros de caminho {#path-parameters}
+## Parâmetros de jornada {#path-parameters}
 
 | Parâmetro        | Obrigatória | Tipo de dados | Descrição                    |
 | ---------------- | -------- | --------- | ------------------------------ |
 | `catalog_name`   | Obrigatória | String    | Nome do catálogo.           |
 | `selection_name` | Obrigatória | String    | Nome da seleção do catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de caminho" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de jornada" }
 
 ## Exemplo de solicitação {#example-request}
 

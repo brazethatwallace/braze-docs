@@ -34,7 +34,7 @@ BSUID에는 세 가지 주요 특성이 있습니다:
 | 고유성 | 비즈니스 포트폴리오 내에서 두 사용자가 동일한 BSUID를 공유하지 않습니다. |
 | 비즈니스 범위 | 동일한 사용자가 메시지를 보내는 각 비즈니스마다 다른 BSUID를 갖게 됩니다. BSUID는 서로 다른 비즈니스 포트폴리오 간에 공유하거나 비교할 수 없습니다. |
 | 웹훅에서 사용 가능 | BSUID는 현재 사용자의 전화번호를 포함하는 모든 동일한 웹훅 페이로드에 포함됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Business-scoped user ID (BSUID)" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="비즈니스 범위 사용자 ID(BSUID)" }
 
 ## WhatsApp 사용자 유형 변경 사항 {#changes-to-whatsapp-user-types}
 
@@ -44,13 +44,13 @@ WhatsApp 사용자 이름이 출시된 후에는 두 가지 유형의 WhatsApp �
 | ----- | ----- | ----- |
 | 사용자 이름이 없는 사용자 | 전화번호(변경 없음) | 전화번호(변경 없음) |
 | 사용자 이름이 있는 사용자 | 사용자 이름(표시됨), BSUID(백엔드) | BSUID, 비즈니스와 기존 대화가 있는 사용자의 전화번호 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Changes to WhatsApp user types" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="WhatsApp 사용자 유형 변경 사항" }
 
 핵심적인 차이점은 사용자 이름을 채택한 사용자가 이전에 대화한 적이 있거나 WhatsApp 연락처 목록에 있는 경우에만 비즈니스에 전화번호를 공유한다는 것입니다.
 
 ## Braze의 BSUID 처리 방식 {#how-braze-will-handle-bsuids}
 
-Braze는 BSUID를 고객 프로필에 `whats_app_bsuid` 레이블이 있는 [사용자 별칭]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle/#user-aliases)으로 저장합니다. 이는 BSUID만 있는 사용자도 완전한 Braze 고객 프로필을 가지며 Canvases에 진입하고, 메시지를 수신하고, 이벤트를 생성하고, API를 통해 업데이트될 수 있음을 의미합니다.
+Braze는 BSUID를 고객 프로필에 `whats_app_bsuid` 레이블이 있는 [사용자 별칭]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle#user-aliases)으로 저장합니다. 이는 BSUID만 있는 사용자도 완전한 Braze 고객 프로필을 가지며 Canvases에 진입하고, 메시지를 수신하고, 이벤트를 생성하고, API를 통해 업데이트될 수 있음을 의미합니다.
 
 ### 메시지 전송 {#send-messages}
 
@@ -74,12 +74,12 @@ Braze가 WhatsApp 메시지를 전송할 때, 전화번호가 있으면 전화�
 
 구독 그룹 관리는 사용자 별칭으로 식별된 모든 사용자와 동일한 방식으로 BSUID 사용자에게도 작동합니다. 다음을 통해 BSUID 사용자의 구독 상태를 업데이트할 수 있습니다:
 
-- `user_alias`를 사용하는 [users/track 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)
-- [사용자 업데이트]({{site.baseurl}}/user_update/) 캔버스 단계(자동으로 작동)
+- `user_alias`를 사용하는 [users/track 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
+- [사용자 업데이트]({{site.baseurl}}/user_update) 캔버스 단계(자동으로 작동)
 - CSV 업로드
 
 {% alert note %}
-[subscription/status/set 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)는 [`user_alias`]({{site.baseurl}}/api/objects_filters/user_alias_object/)를 지원하지 않습니다. BSUID만 있는 사용자의 구독 상태를 업데이트하려면 [users/track 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)를 사용하세요.
+[subscription/status/set 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)는 [`user_alias`]({{site.baseurl}}/api/objects_filters/user_alias_object)를 지원하지 않습니다. BSUID만 있는 사용자의 구독 상태를 업데이트하려면 [users/track 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하세요.
 {% endalert %}
 
 ### Currents 및 이벤트 데이터 {#currents-and-event-data}
@@ -144,7 +144,7 @@ Meta가 비즈니스 포트폴리오 연결 프로세스를 관리합니다. 시
 | 단일 비즈니스 포트폴리오 | 일반 BSUID |
 | 여러 연결된 포트폴리오 | 상위 BSUID(우선). 상위 BSUID가 없으면 일반 BSUID 사용 |
 | 여러 연결되지 않은 포트폴리오 | 일반 BSUID(포트폴리오별로 중복 고객 프로필이 생성될 수 있음) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="How Braze uses parent BSUIDs" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze의 상위 BSUID 사용 방식" }
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
@@ -201,8 +201,8 @@ WhatsApp용 Currents 이벤트에는 기존 전화번호 필드와 함께 `bsuid
 
 ## 추가 리소스 {#additional-resources}
 
-* [WhatsApp 설정]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)
-* [사용자 별칭]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle/#user-aliases)
-* [WhatsApp 구독 그룹]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/)
-* [WhatsApp Currents 이벤트]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/#whatsapp)
+* [WhatsApp 설정]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)
+* [사용자 별칭]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle#user-aliases)
+* [WhatsApp 구독 그룹]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)
+* [WhatsApp Currents 이벤트]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events#whatsapp)
 * [Meta: 비즈니스 범위 사용자 ID](https://developers.facebook.com/documentation/business-messaging/whatsapp/business-scoped-user-ids)

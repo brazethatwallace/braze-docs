@@ -23,7 +23,7 @@ Decisioning Studio unterstützt mehrere Integrationsmuster für die Verbindung v
 | **Braze-Cloud-Datenaufnahme (CDI)** | Anbindung externer Data Warehouses | Mittel |
 | **Cloud Storage (GCS, AWS, Azure)** | Direkte Datenexporte von anderen Plattformen | Mittel |
 | **CEP-Integrationen** | SFMC, Klaviyo-Datenerweiterungen | Mittel |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported integration patterns" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Unterstützte Integrationsmuster" }
 
 ## Kundendatentypen {#customer-data-types}
 
@@ -35,7 +35,7 @@ Die folgenden Kundendaten-Assets helfen Agenten, effektiver zu personalisieren:
 | **Kundenverhalten** | Aktivitäts- und Engagement-Muster | Kontoanmeldungen, Gerätetyp, Kundenservice-Interaktionen, Produktnutzung |
 | **Transaktionsverlauf** | Kauf- und Conversion-Daten | Gekaufte Produkte, Transaktionsbeträge, Zahlungsmethoden, Kaufkanäle |
 | **Marketing-Engagement** | Reaktionen auf Kommunikation | E-Mail-Öffnungen/-Klicks, SMS-Engagement, Web- und Mobilaktivität, Umfrageantworten |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Customer data types" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Kundendatentypen" }
 
 {% alert tip %}
 Je mehr Informationen Agenten über Ihre Kund:innen haben, desto besser werden sie arbeiten. Erwägen Sie, Daten zu allen Insights einzubeziehen, die für Ihr Unternehmen besonders wichtig wären (möchten Sie beispielsweise sehen, wie die KI Ihre Treuekund:innen anders behandelt? Stellen Sie sicher, dass der Treuestatus in den Kundendaten enthalten ist).
@@ -50,7 +50,7 @@ Je mehr Informationen Agenten über Ihre Kund:innen haben, desto besser werden s
 
 BrazeAI Decisioning Studio kann alle Daten nutzen, die Sie bereits an die Braze-Datenplattform senden.
 
-Wenn es Kundendaten gibt, die Sie für Decisioning Studio verwenden möchten, die derzeit nicht im Nutzerprofil oder in angepassten Attributen gespeichert sind, empfiehlt es sich, die [Braze-Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) zu verwenden, um Daten aus anderen Quellen aufzunehmen.
+Wenn es Kundendaten gibt, die Sie für Decisioning Studio verwenden möchten, die derzeit nicht im Nutzerprofil oder in angepassten Attributen gespeichert sind, empfiehlt es sich, die [Braze-Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) zu verwenden, um Daten aus anderen Quellen aufzunehmen.
 
 CDI unterstützt direkte Integrationen mit:
 
@@ -61,16 +61,16 @@ CDI unterstützt direkte Integrationen mit:
 - Microsoft Fabric
 - AWS S3
 
-Die vollständige Liste der unterstützten Quellen finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/).
+Die vollständige Liste der unterstützten Quellen finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 
 Sobald Sie mit den Daten zufrieden sind, die Sie an die Braze-Datenplattform senden, kontaktieren Sie Ihr KI-Decisioning-Services-Team, um zu besprechen, welche Felder im Nutzerprofil oder in angepassten Attributen für die KI-Entscheidungsfindung verwendet werden sollen.
 
-Um diesen Prozess zu optimieren, erstellen Sie eine Liste von Braze-Nutzerprofilattributen, die Ihrer Meinung nach das Verhalten Ihrer Kund:innen am besten repräsentieren und in Decisioning Studio verwendet werden sollten (siehe die [Liste der verfügbaren Felder]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#fields-to-export)). Ihr Services-Team kann Ihnen auch dabei helfen, Discovery-Sitzungen durchzuführen, um zu entscheiden, welche Felder für die KI-Entscheidungsfindung am besten geeignet sind.
+Um diesen Prozess zu optimieren, erstellen Sie eine Liste von Braze-Nutzerprofilattributen, die Ihrer Meinung nach das Verhalten Ihrer Kund:innen am besten repräsentieren und in Decisioning Studio verwendet werden sollten (siehe die [Liste der verfügbaren Felder]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#fields-to-export)). Ihr Services-Team kann Ihnen auch dabei helfen, Discovery-Sitzungen durchzuführen, um zu entscheiden, welche Felder für die KI-Entscheidungsfindung am besten geeignet sind.
 
 Weitere Optionen zum Senden von Daten umfassen:
 
 - Senden von angepassten Braze-Events über das SDK
-- Senden von Events über den REST-Endpunkt ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/))
+- Senden von Events über den REST-Endpunkt ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track))
 
 Diese Muster erfordern mehr Engineering-Aufwand, sind aber je nach Ihrer aktuellen Braze-Konfiguration manchmal vorzuziehen. Wenden Sie sich an das KI-Decisioning-Services-Team, um mehr zu erfahren.
 
@@ -139,4 +139,4 @@ Dieser Leitfaden erläutert die gängigsten Integrationsmuster. Die Informations
 
 Nachdem Sie Ihre Datenquellen verbunden haben, fahren Sie mit der Einrichtung der Orchestrierung fort:
 
-- [Orchestrierung einrichten]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup/)
+- [Orchestrierung einrichten]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup)

@@ -24,7 +24,7 @@ Each request can support up to 50 items. This endpoint is asynchronous.
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `catalogs.update_items` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `catalogs.update_items` permission.
 
 ## Rate limit
 

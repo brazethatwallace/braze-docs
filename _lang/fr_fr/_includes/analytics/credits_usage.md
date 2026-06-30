@@ -6,7 +6,7 @@ Le tableau de bord **Credits Usage** est divisé en deux sections :
 - [Aperçu de l'utilisation des crédits](#credits-usage-overview)
 - [Onglets par canal](#credits-features)
 
-Accédez au tableau de bord en allant dans **Settings** > **Billing** > **Credits Usage**.
+Accédez au tableau de bord en allant dans **Paramètres** > **Billing** > **Credits Usage**.
 
 ## Aperçu de l'utilisation des crédits {#credits-usage-overview}
 
@@ -20,7 +20,6 @@ Si vous avez acheté WhatsApp mais que vous n'êtes pas sous un contrat de créd
 
 Les données d'aperçu de l'utilisation des crédits sont limitées à la période contractuelle, qui est affichée dans **Credits contract overview**. Vous ne pouvez pas filtrer sur une plage de dates en dehors de la **Credits period**.
 
-![Onglet d'aperçu de l'utilisation des crédits avec des panneaux pour l'utilisation des crédits et un aperçu du contrat de crédits.]({% image_buster /assets/img/app_settings/credits_usage_overview.png %})
 
 ### Utilisation des crédits sur la durée du contrat {#credits-usage-over-contract}
 

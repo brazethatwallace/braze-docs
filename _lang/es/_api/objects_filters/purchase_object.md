@@ -15,7 +15,7 @@ description: "Este artículo de referencia explica los distintos componentes de 
 
 ## ¿Qué es un objeto de compra? {#what-is-a-purchase-object}
 
-Un objeto de compra es un objeto que se pasa a través de la API cuando se ha realizado una compra. Cada objeto de compra está ubicado dentro de una matriz de compras, siendo cada objeto una única compra realizada por un usuario concreto en un momento determinado. El objeto de compra tiene muchos campos diferentes que permiten al backend de Braze almacenar y utilizar esta información para la personalización, la recopilación de datos y la personalización.
+Un objeto de compra es un objeto que se pasa a través de la API cuando se ha realizado una compra. Cada objeto de compra está ubicado dentro de una matriz de compras, siendo cada objeto una única compra realizada por un usuario concreto en un momento determinado. El objeto de compra tiene muchos campos diferentes que permiten al backend de Braze almacenar y utilizar esta información para la personalización, la recopilación de datos y la adaptación del contenido.
 
 ### Cuerpo del objeto {#object-body}
 
@@ -43,13 +43,13 @@ Un objeto de compra es un objeto que se pasa a través de la API cuando se ha re
 }
 ```
 
-- [ID de usuario externo]({{site.baseurl}}/api/basics/#user-ids)
-- [Identificador de la aplicación]({{site.baseurl}}/api/identifier_types/)
+- [ID de usuario externo]({{site.baseurl}}/api/basics#user-ids)
+- [Identificador de la aplicación]({{site.baseurl}}/api/identifier_types)
 - [Wiki de código de divisa ISO 4217](http://en.wikipedia.org/wiki/ISO_4217)
 - [Wiki de código de hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-Algunos pares de identificadores no se pueden utilizar juntos, y `email` tiene prioridad sobre `phone` cuando se proporcionan ambos. Para obtener más información, consulta [Resolución de identificadores]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution).
+Algunos pares de identificadores no se pueden utilizar juntos, y `email` tiene prioridad sobre `phone` cuando se proporcionan ambos. Para obtener más información, consulta [Resolución de identificadores]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
 {% endalert %}
 
 ## ID del producto de compra {#purchase-product-id}
@@ -98,13 +98,15 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 {% include data_activation/purchase_event_property_data_types.md %}
 
-Para una referencia consolidada de los tipos de datos en atributos personalizados, propiedades del evento y catálogos, consulta [Tipos de datos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#purchase-event-property-data-types).
+Para una referencia consolidada de los tipos de datos en atributos personalizados, propiedades del evento y catálogos, consulta [Tipos de datos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#purchase-event-property-data-types).
 
 ### Propiedades de la compra {#purchase-properties}
 
-[Las propiedades de la compra]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties) pueden utilizarse para desencadenar mensajes y para la personalización mediante Liquid, permitiéndote también segmentar en función de estas propiedades.
+[Las propiedades de la compra]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-properties) pueden utilizarse para desencadenar mensajes y para la personalización mediante Liquid, permitiéndote también segmentar en función de estas propiedades.
 
-#### Convenciones de denominación {#naming-conventions}
+{% include data_activation/segmentable_purchase_properties_keys_note.md %}
+
+#### Convenciones de denominación
 
 Es importante tener en cuenta que esta característica se activa **por producto**, no por compra. Por ejemplo, si tienes un gran volumen de productos distintos, pero todos tienen las mismas propiedades, la segmentación puede resultar innecesaria.
 
@@ -166,6 +168,6 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ### Objetos de compra, objetos de evento y webhooks {#purchase-objects-event-objects-and-webhooks}
 
-Utilizando el ejemplo proporcionado, podemos ver que alguien compró una mochila con las propiedades: color, monograma, duración de la compra, tamaño y marca. A continuación, podemos crear segmentos con estas propiedades utilizando [las propiedades del evento de compra]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties) o enviar mensajes personalizados a través de un canal utilizando Liquid. Por ejemplo: "Hola, **Ann F.**, gracias por comprar esa **mochila roja mediana** por **40,00 $**. ¡Gracias por comprar en **Backpack Locker**!"
+Utilizando el ejemplo proporcionado, podemos ver que alguien compró una mochila con las propiedades: color, monograma, duración de la compra, tamaño y marca. A continuación, podemos crear segmentos con estas propiedades utilizando [las propiedades del evento de compra]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-properties) o enviar mensajes personalizados a través de un canal utilizando Liquid. Por ejemplo: "Hola, **Ann F.**, gracias por comprar esa **mochila roja mediana** por **40,00 $**. ¡Gracias por comprar en **Backpack Locker**!"
 
-Si quieres guardar, almacenar y hacer un seguimiento de las propiedades para segmentar, tienes que configurarlas como atributos personalizados. Esto puede hacerse utilizando [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), que te permiten dirigirte a los usuarios basándote en un evento personalizado o en el comportamiento de compra almacenado durante toda la vida de ese perfil de usuario.
+Si quieres guardar, almacenar y hacer un seguimiento de las propiedades para segmentar, tienes que configurarlas como atributos personalizados. Esto puede hacerse utilizando [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension), que te permiten dirigirte a los usuarios basándote en un evento personalizado o en el comportamiento de compra almacenado durante toda la vida de ese perfil de usuario.

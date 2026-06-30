@@ -76,7 +76,14 @@ The API usage dashboard includes all REST API requests that Braze received and r
 
 Data shown in the dashboard may have up to a short delay in showing recent traffic. During periods of high usage, you can refresh the dashboard up to 4 times per minute. You may need to wait a few minutes before refreshing the dashboard again.
 
+### API keys in request body
+
+When API keys are sent in the request body instead of the request header, some requests may not appear in the API usage dashboard. This can lead to incomplete data in the dashboard and make it difficult to accurately monitor API usage.
+
+For the most accurate reporting in the API usage dashboard, [include API keys in the request header]({{site.baseurl}}/api/basics#bearer-token-authentication) rather than in the request body.
+
 ## Related articles
 
-- [API usage alerts]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts/)
+- [API usage alerts]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
 - [Rate limits]({{site.baseurl}}/api/api_limits)
+- [Bearer token authentication]({{site.baseurl}}/api/basics#bearer-token-authentication)

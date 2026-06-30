@@ -32,7 +32,7 @@ Las propiedades del evento se envían junto con tu usuario, por lo que puedes in
 Sigue estos pasos para configurar las notificaciones de bajada de precios en un catálogo específico.
 
 1. Ve a tu catálogo y selecciona la pestaña **Configuración**.
-2. Selecciona el alternador **Price Drop**.
+2. Selecciona el alternador **Bajada de precio**.
 3. Si no se ha realizado la configuración global del catálogo, se te pedirá que configures los eventos y propiedades personalizados que se utilizarán para desencadenar las notificaciones. <br><br> ![Cajón de configuración del catálogo.]({% image_buster /assets/img/catalog_settings_drawer.png %}){: style="max-width:70%;"}
 
 | Campo | Descripción |
@@ -90,7 +90,7 @@ Después de configurar las notificaciones de bajada de precios en un catálogo, 
 1. Configura un Canvas basado en acciones.
 2. Selecciona **Perform Price Drop Event** como desencadenante.
 3. Selecciona el nombre del catálogo con las notificaciones de bajada de precios.
-4. Continúa [configurando]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) tu Canvas como lo harías normalmente.
+4. Continúa [configurando]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) tu Canvas como lo harías normalmente.
 
 Ahora, tus clientes recibirán una notificación cuando baje el precio de un artículo.
 

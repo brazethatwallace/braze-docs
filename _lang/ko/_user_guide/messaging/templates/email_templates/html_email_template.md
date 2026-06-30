@@ -12,7 +12,7 @@ channel:
 
 # HTML 이메일 템플릿 업로드 {#upload-an-html-email-template}
 
-> Braze 대시보드에서는 자체 HTML 이메일 템플릿을 업로드하고 나중에 Campaign에서 사용할 수 있도록 저장할 수 있습니다. 에디터를 사용하여 [이메일 템플릿을 생성]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)할 수도 있습니다.
+> Braze 대시보드에서는 자체 HTML 이메일 템플릿을 업로드하고 나중에 Campaign에서 사용할 수 있도록 저장할 수 있습니다. 에디터를 사용하여 [이메일 템플릿을 생성]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)할 수도 있습니다.
 
 ## 요구 사항 {#upload-requirements}
 
@@ -53,7 +53,7 @@ API 캠페인에 이메일을 사용하려면 `email_template_id`가 필요하�
 
 ## 이메일 템플릿 관리 {#managing-email-templates}
 
-이메일 템플릿을 [복제]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) 및 [아카이브]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/)할 수 있습니다! 템플릿 및 크리에이티브 콘텐츠 생성과 관리에 대해 자세히 알아보려면 [템플릿]({{site.baseurl}}/user_guide/messaging/templates/)을 참조하세요.
+이메일 템플릿을 [복제]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) 및 [아카이브]({{site.baseurl}}/user_guide/messaging/templates/managing_templates)할 수 있습니다! 템플릿 및 크리에이티브 콘텐츠 생성과 관리에 대해 자세히 알아보려면 [템플릿]({{site.baseurl}}/user_guide/messaging/templates)을 참조하세요.
 
 ## 문제 해결 {#troubleshooting}
 
@@ -68,10 +68,10 @@ HTML 템플릿 파일을 업로드할 때 여러 이메일 오류 메시지를 �
 | `Images over 5&nbsp;MB` | 이미지 수를 줄이고 다시 업로드하세요. |
 | `Extra Images` | HTML 파일에서 참조되지 않는 추가 이미지가 파일에 있을 수 있습니다. 이 경우 실패 오류가 발생하지는 않지만 추가 이미지는 삭제됩니다. 해당 이미지가 HTML 파일에서 참조되어야 하는 경우 콘텐츠를 확인하고 오류를 수정한 후 다시 업로드하세요.|
 | `Missing Images` | HTML 파일에서 참조되는 이미지가 ZIP 파일의 이미지 폴더에 포함되어 있지 않으면 파일 오류가 발생합니다. 파일을 검사하고 오류(예: 오타)를 수정하거나 누락된 이미지를 ZIP 파일에 추가한 후 다시 업로드하세요.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }
 
 Windows 컴퓨터에서 HTML Campaign, 이메일 메시지가 포함된 캔버스 단계 또는 템플릿의 파일을 다운로드할 때 `|`(파이프 문자)가 지원되지 않으므로 ZIP 파일에서 다운로드 콘텐츠를 추출하려면 다른 애플리케이션을 사용해야 할 수 있습니다.
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
-이메일 템플릿에 대한 자주 묻는 질문의 답변은 [이메일 및 링크 템플릿 FAQ]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq/) 페이지를 확인하세요.
+이메일 템플릿에 대한 자주 묻는 질문의 답변은 [이메일 및 링크 템플릿 FAQ]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq) 페이지를 확인하세요.

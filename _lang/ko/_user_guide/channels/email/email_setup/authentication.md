@@ -75,7 +75,7 @@ Braze를 통해 전송된 메시지에서 DMARC가 **FAIL**로 표시되는 경�
 
 1. 최근 메시지의 원본 헤더 또는 인증 결과를 열고 **SPF**와 **DKIM**이 각각 통과했는지 실패했는지 확인합니다.
 2. **정렬:** DMARC는 SPF *또는* DKIM 중 *하나*가 **From** 도메인과 정렬되면 통과합니다. 정렬이란 **From** 도메인이 SPF를 통과한 도메인(보통 **Return-Path** / 봉투 도메인) *또는* DKIM **d=** 서명의 도메인과 일치하는 것을 의미합니다.
-3. SPF는 통과했지만 DMARC가 실패하는 경우, Return-Path 도메인이 **From** 도메인과 정렬되지 않을 수 있습니다. [화이트라벨 전송 및 추적 도메인]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/)이 SPF 및 DKIM을 게시한 도메인과 일치하는지 확인하세요.
+3. SPF는 통과했지만 DMARC가 실패하는 경우, Return-Path 도메인이 **From** 도메인과 정렬되지 않을 수 있습니다. [화이트라벨 전송 및 추적 도메인]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains)이 SPF 및 DKIM을 게시한 도메인과 일치하는지 확인하세요.
 4. DKIM이 실패하는 경우, Braze에서 제공한 DKIM DNS 레코드가 존재하고 변경되지 않았는지 확인합니다.
 
 서드파티 검사 도구(예: [MXToolbox](https://mxtoolbox.com/dmarc.aspx))를 사용하면 게시된 레코드를 확인하는 데 도움이 됩니다. 항상 Braze에서 보낸 실제 메시지로도 검증하세요.

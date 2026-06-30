@@ -91,6 +91,17 @@ MODEL = os.environ.get("TRANSLATION_MODEL", "claude-opus-4-6")
 MAX_TOKENS = int(os.environ.get("TRANSLATION_MAX_TOKENS", "128000"))
 MAX_FILE_KB = int(os.environ.get("TRANSLATION_MAX_FILE_KB", "130"))
 CHUNK_TARGET_KB = int(os.environ.get("TRANSLATION_CHUNK_KB", "50"))
+# Table-heavy confidential pricing pages (~50KB+) are chunked even below
+# MAX_FILE_KB — single-shot requests often trigger transient API 500s (June 2026).
+FORCE_CHUNK_MIN_KB = int(os.environ.get("TRANSLATION_FORCE_CHUNK_MIN_KB", "40"))
+_FORCE_CHUNK_PATH_PREFIXES = tuple(
+    p.strip()
+    for p in os.environ.get(
+        "TRANSLATION_FORCE_CHUNK_PATH_PREFIXES",
+        "_docs/_unlisted_docs/pricing/",
+    ).split(",")
+    if p.strip()
+)
 MAX_WORKERS = int(os.environ.get("TRANSLATION_WORKERS", "12"))
 API_RETRIES = int(os.environ.get("TRANSLATION_API_RETRIES", "6"))
 FAILED_PASS_RETRIES = int(os.environ.get("TRANSLATION_FAILED_PASS_RETRIES", "6"))
@@ -381,7 +392,20 @@ _RETRYABLE_API_ERROR_TOKENS = (
     "broken pipe",
     "remote protocol",
     "server disconnected",
+    "internal server error",
+    "api_error",
 )
+
+
+def _uses_chunked_translation(fpath, size_kb):
+    """Return True when a file should use chunked translation."""
+    if size_kb > MAX_FILE_KB:
+        return True
+    if size_kb >= FORCE_CHUNK_MIN_KB:
+        norm = fpath.replace("\\", "/")
+        if any(norm.startswith(prefix) for prefix in _FORCE_CHUNK_PATH_PREFIXES):
+            return True
+    return False
 
 
 def _is_retryable_api_error(exc):
@@ -1367,9 +1391,17 @@ def cmd_translate(args):
     chunked = []
     for fpath in md_files:
         size_kb = (REPO_ROOT / fpath).stat().st_size / 1024
-        if size_kb > MAX_FILE_KB:
+        if _uses_chunked_translation(fpath, size_kb):
             chunked.append(fpath)
-            print(f"  CHUNKED: {fpath} ({round(size_kb)} KB — will use chunked translation)")
+            reason = (
+                "pricing table path"
+                if size_kb <= MAX_FILE_KB
+                else "size limit"
+            )
+            print(
+                f"  CHUNKED: {fpath} ({round(size_kb)} KB — "
+                f"will use chunked translation, {reason})"
+            )
         else:
             translatable.append(fpath)
 
@@ -2655,8 +2687,8 @@ _MD_LINK_FRAGMENT_ANCHOR_RE = re.compile(r"^[a-zA-Z][a-zA-Z0-9_-]*$")
 
 
 def _normalize_single_internal_link_url(url):
-    """If ``url`` is a ``{{site.baseurl}}`` doc link whose path omits ``/``
-    before ``#anchor``, insert the slash. Returns ``(new_url, changed)``.
+    """If ``url`` is a ``{{site.baseurl}}`` doc link with ``/`` before ``#anchor``,
+    remove the slash. Returns ``(new_url, changed)``.
     """
     if "{{site.baseurl}}" not in url:
         return url, False
@@ -2666,17 +2698,17 @@ def _normalize_single_internal_link_url(url):
     if hashidx <= 0:
         return url, False
     before, frag = url[:hashidx], url[hashidx + 1 :]
-    if not frag or before.endswith("/"):
+    if not frag or not before.endswith("/"):
         return url, False
     bl = before.lower()
     if bl.endswith((".md", ".html", ".htm", ".json", ".xml")):
         return url, False
-    last_seg = before.rsplit("/", 1)[-1]
+    last_seg = before.rstrip("/").rsplit("/", 1)[-1]
     if "." in last_seg:
         return url, False
     if not _MD_LINK_FRAGMENT_ANCHOR_RE.match(frag):
         return url, False
-    return f"{before}/#{frag}", True
+    return f"{before.rstrip('/')}#{frag}", True
 
 
 _SUP_BOLD_STAR_TYPO = re.compile(r"<sup>\*\*([^*<]+)\*</sup>")
@@ -2697,22 +2729,22 @@ def repair_sup_addon_footnote_bold_typo(translated_content: str):
 
 
 def repair_ideas_and_strategies_internal_link_trailing_slash(translated_content: str):
-    """Ensure ``ideas_and_strategies`` doc links use a trailing ``/`` before ``)``."""
+    """Remove trailing ``/`` from ``ideas_and_strategies`` doc links."""
     repairs = []
     new = translated_content
     for wrong, right in (
         (
-            "]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies)",
             "]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/)",
+            "]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies)",
         ),
         (
-            "]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies)",
             "]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/)",
+            "]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies)",
         ),
     ):
         if wrong in new:
             new = new.replace(wrong, right)
-            repairs.append("md-link — ideas_and_strategies trailing /")
+            repairs.append("md-link — ideas_and_strategies trailing / removed")
     if repairs:
         return new, repairs
     return translated_content, []
@@ -2748,7 +2780,7 @@ def repair_markdown_site_baseurl_link_paren_typos(translated_content: str):
 
 
 def repair_markdown_internal_link_fragments(content):
-    """Normalize ``]({{site.baseurl}}/...slug#anchor)`` → ``.../slug/#anchor``."""
+    """Normalize ``]({{site.baseurl}}/...slug/#anchor)`` → ``.../slug#anchor``."""
     repairs = []
 
     def repl(match):
@@ -2757,7 +2789,7 @@ def repair_markdown_internal_link_fragments(content):
         if changed:
             preview = url if len(url) <= 100 else url[:97] + "..."
             repairs.append(
-                f"md-fragment — inserted '/' before # in internal link ({preview})"
+                f"md-fragment — removed '/' before # in internal link ({preview})"
             )
         return f"]({new_url})"
 
@@ -3061,17 +3093,15 @@ _SLASH_SKIP_EXTS = (
 
 
 def _normalize_trailing_slash_on_baseurl(url):
-    """Add trailing ``/`` to extensionless ``{{site.baseurl}}`` doc links.
+    """Remove trailing ``/`` from extensionless ``{{site.baseurl}}`` doc links.
 
-    Braze docs are directory-style (Jekyll permalinks end in ``/``). Bare
-    ``{{site.baseurl}}/path)`` without a trailing slash causes redirects
-    and inconsistent in-page link formats (Copilot flag on PR #13302).
+    Production URLs omit trailing slashes (Vercel ``trailingSlash: false``).
     """
     if "{{site.baseurl}}" not in url:
         return url, False
     if "?" in url or "#" in url:
         return url, False
-    if url.endswith("/"):
+    if not url.endswith("/"):
         return url, False
     if url.rstrip().endswith("}}"):
         return url, False
@@ -3079,7 +3109,7 @@ def _normalize_trailing_slash_on_baseurl(url):
     tail = url[idx + len("{{site.baseurl}}") :]
     if not tail or not tail.startswith("/"):
         return url, False
-    last_seg = tail.rsplit("/", 1)[-1]
+    last_seg = tail.rstrip("/").rsplit("/", 1)[-1]
     if not last_seg:
         return url, False
     lower = last_seg.lower()
@@ -3087,18 +3117,11 @@ def _normalize_trailing_slash_on_baseurl(url):
         return url, False
     if "." in last_seg:
         return url, False
-    return url + "/", True
+    return url.rstrip("/"), True
 
 
 def repair_markdown_internal_link_trailing_slash(content):
-    """Generalize ``repair_ideas_and_strategies_internal_link_trailing_slash``
-    to every extensionless ``{{site.baseurl}}`` directory-style link.
-
-    PR #13302 had the same link appearing both as
-    ``.../ecommerce_use_cases)`` and ``.../ecommerce_use_cases/)`` within a
-    single localized file. The translation prompt already asks for trailing
-    ``/`` on directory-style links; this is a deterministic backstop.
-    """
+    """Remove trailing ``/`` from extensionless ``{{site.baseurl}}`` directory-style links."""
     repairs = []
     counts = {}
 
@@ -3114,7 +3137,7 @@ def repair_markdown_internal_link_trailing_slash(content):
         total = sum(counts.values())
         distinct = len(counts)
         repairs.append(
-            f"md-link — added trailing / to {total} directory-style "
+            f"md-link — removed trailing / from {total} directory-style "
             f"{{{{site.baseurl}}}} link(s) ({distinct} distinct path(s))"
         )
         return new, repairs
@@ -3150,16 +3173,198 @@ def repair_korean_query_hangul_typo(translated_path, translated_content, lang_ke
     ]
 
 
-# Latin Braze product / SDK tokens immediately followed by a Japanese
-# particle should not have an ASCII space in between — models often emit
-# ``Segment を`` / ``Canvas の`` (seen on auto-translate PR #13316) which
-# reads like sloppy typography next to native ``を``/``の``.
+# Latin SDK / feature tokens and localized JA product names immediately
+# followed by a Japanese particle should not have an ASCII space in between.
 _JA_LATIN_TOKEN_PARTICLE_RE = re.compile(
     r"(?P<tok>"
-    r"Content Cards|In-App Messages|REST API|"
-    r"Campaigns?|Segment|Canvas|SDK"
+    r"Content Cards|In-App Messages|REST API|SDK|"
+    r"キャンペーン|キャンバス|セグメント"
     r")\s+(?P<particle>[をのとはがも])"
 )
+
+_JA_EN_CAMPAIGN_CANVAS_SEGMENT_TERMS = (
+    "Campaign",
+    "Campaigns",
+    "Canvas",
+    "Canvases",
+    "Segment",
+    "Segments",
+)
+
+# Preserve English Liquid tab labels and multi-word UI strings during token repair.
+_JA_PROTECTED_ENGLISH_PHRASES = (
+    "Save Campaign",
+    "{% tab Campaigns %}",
+    "{% tab Canvas %}",
+    "{% tab Segments %}",
+)
+
+
+def _mask_ja_protected_english_phrases(chunk: str) -> tuple[str, dict[str, str]]:
+    placeholders: dict[str, str] = {}
+    for i, phrase in enumerate(_JA_PROTECTED_ENGLISH_PHRASES):
+        if phrase not in chunk:
+            continue
+        token = f"__JA_PHRASE_PROTECT_{i}__"
+        chunk = chunk.replace(phrase, token)
+        placeholders[token] = phrase
+    return chunk, placeholders
+
+
+def _unmask_ja_protected_english_phrases(
+    chunk: str, placeholders: dict[str, str]
+) -> str:
+    for token, phrase in placeholders.items():
+        chunk = chunk.replace(token, phrase)
+    return chunk
+
+
+def _ja_campaign_canvas_segment_replacement_pairs():
+    """Longest-first ``(english, japanese)`` pairs for Campaign/Canvas/Segment repair."""
+    glossary_path = GLOSSARY_DIR / "ja.json"
+    raw = (
+        json.loads(glossary_path.read_text())
+        if glossary_path.exists()
+        else {}
+    )
+    pairs = []
+    for en, ja in raw.items():
+        if not ja or en == ja:
+            continue
+        if not re.search(r"[ぁ-んァ-ン一-龥]", ja):
+            continue
+        if not re.search(r"(?i)(campaign|canvas|segment)", en):
+            continue
+        # Lowercase single tokens (``campaign``, ``canvas``, ``segment``) appear
+        # inside URL slugs and anchor IDs — only Title Case + multi-word UI.
+        if " " not in en and en[:1].islower():
+            continue
+        pairs.append((en, ja))
+    for en, ja in (
+        ("Canvases", "キャンバス"),
+        ("Campaigns", "キャンペーン"),
+        ("Segments", "セグメント"),
+        ("Canvas", "キャンバス"),
+        ("Campaign", "キャンペーン"),
+        ("Segment", "セグメント"),
+    ):
+        pairs.append((en, ja))
+    seen = set()
+    out = []
+    for en, ja in sorted(pairs, key=lambda x: len(x[0]), reverse=True):
+        if en in seen:
+            continue
+        seen.add(en)
+        out.append((en, ja))
+    return out
+
+
+def _replace_ja_product_terms_in_text_segment(segment, pairs):
+    """Apply glossary replacements outside code fences, URLs, and ``{#anchors}``."""
+
+    def _replace_plain(chunk: str) -> str:
+        chunk, protected = _mask_ja_protected_english_phrases(chunk)
+        for en, ja in pairs:
+            if re.search(r"\s", en):
+                chunk = chunk.replace(en, ja)
+            else:
+                chunk = re.sub(
+                    rf"(?<![A-Za-z/_-]){re.escape(en)}(?![A-Za-z/_-])",
+                    ja,
+                    chunk,
+                )
+        return _unmask_ja_protected_english_phrases(chunk, protected)
+
+    parts = re.split(r"(\{#[^}]+\})", segment)
+    out: list[str] = []
+    for part in parts:
+        if part.startswith("{#") and part.endswith("}"):
+            out.append(part)
+            continue
+
+        def _fix_link(m: re.Match) -> str:
+            return f"[{_replace_plain(m.group(1))}]({m.group(2)})"
+
+        part = re.sub(r"\[([^\]]*)\]\(([^)]*)\)", _fix_link, part)
+        out.append(_replace_plain(part))
+    return "".join(out)
+
+
+def repair_japanese_english_product_terms(
+    translated_path, translated_content, lang_key
+):
+    """Replace English Campaign/Canvas/Segment tokens with JA glossary forms.
+
+    JA docs historically kept Title Case product nouns in English via
+    ``PROTECTED_PRODUCT_TERMS``; partner review (2026-06) expects
+    **キャンペーン** / **キャンバス** / **セグメント** in prose and UI
+  labels where ``ja.json`` defines a translation.
+    """
+    if lang_key != "ja":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/ja/" not in rel:
+        return translated_content, []
+
+    pairs = _ja_campaign_canvas_segment_replacement_pairs()
+    fm_match = re.match(
+        r"^([ \t]*---\s*\n.*?\n---[ \t]*(?:\n|\Z))",
+        translated_content,
+        re.DOTALL,
+    )
+    if fm_match:
+        prefix = fm_match.group(1)
+        body = translated_content[fm_match.end() :]
+    else:
+        prefix = ""
+        body = translated_content
+    parts = re.split(r"(```.*?```)", body, flags=re.DOTALL)
+    for i in range(0, len(parts), 2):
+        parts[i] = _replace_ja_product_terms_in_text_segment(parts[i], pairs)
+    new = prefix + "".join(parts)
+    if new == translated_content:
+        return translated_content, []
+    return new, [
+        "ja-product-terms — replaced English Campaign/Canvas/Segment "
+        "with glossary Japanese forms"
+    ]
+
+
+def check_japanese_english_product_terms_in_prose(
+    translated_path, translated_content, lang_key
+):
+    """Warn when JA docs still use English Campaign/Canvas/Segment in prose."""
+    if lang_key != "ja":
+        return []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/ja/" not in rel:
+        return []
+    # API/event schema pages intentionally keep English field tokens.
+    if any(
+        part in rel
+        for part in (
+            "/_api/",
+            "/event_glossary/",
+            "/_includes/snowflake_users_messages/",
+        )
+    ):
+        return []
+
+    _, body = _extract_front_matter(translated_content)
+    parts = re.split(r"(```.*?```)", body, flags=re.DOTALL)
+    prose = "".join(parts[i] for i in range(0, len(parts), 2))
+    warnings = []
+    for term in _JA_EN_CAMPAIGN_CANVAS_SEGMENT_TERMS:
+        matches = re.findall(
+            rf"(?<![A-Za-z]){re.escape(term)}(?![A-Za-z])",
+            prose,
+        )
+        if matches:
+            warnings.append(
+                f"ja-product-terms — English '{term}' appears {len(matches)}x "
+                f"in prose; use glossary Japanese (キャンペーン/キャンバス/セグメント)"
+            )
+    return warnings
 
 
 def repair_japanese_latin_token_particle_spacing(
@@ -6616,6 +6821,13 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(ko_query_repairs)
 
+    translated_content, ja_product_repairs = (
+        repair_japanese_english_product_terms(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(ja_product_repairs)
+
     translated_content, ja_particle_repairs = (
         repair_japanese_latin_token_particle_spacing(
             translated_path, translated_content, lang_key
@@ -6874,6 +7086,11 @@ def qc_check_file(english_path, translated_path, lang_key):
 
     findings["warnings"].extend(
         check_liquid_tags(english_content, translated_content)
+    )
+    findings["warnings"].extend(
+        check_japanese_english_product_terms_in_prose(
+            translated_path, translated_content, lang_key
+        )
     )
     findings["warnings"].extend(
         check_glossary_compliance(english_content, translated_content, lang_key)
@@ -7328,6 +7545,33 @@ def cmd_summary(_args):
     print(body)
 
 
+def cmd_repair_ja_product_terms(args: argparse.Namespace) -> None:
+    """Batch-apply ``repair_japanese_english_product_terms`` under ``_lang/ja/``."""
+    ja_root = REPO_ROOT / "_lang" / "ja"
+    if not ja_root.is_dir():
+        print("No _lang/ja/ directory found.", file=sys.stderr)
+        sys.exit(1)
+
+    changed = 0
+    for path in sorted(ja_root.rglob("*.md")):
+        rel = path.relative_to(REPO_ROOT).as_posix()
+        original = path.read_text()
+        updated, repairs = repair_japanese_english_product_terms(
+            rel, original, "ja"
+        )
+        if not repairs:
+            continue
+        changed += 1
+        if args.dry_run:
+            print(f"would repair: {rel}")
+        else:
+            path.write_text(updated)
+            print(f"repaired: {rel}")
+
+    label = "Would repair" if args.dry_run else "Repaired"
+    print(f"{label} {changed} file(s) under _lang/ja/")
+
+
 # ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
@@ -7420,6 +7664,20 @@ def main():
         ),
     )
     st.set_defaults(func=cmd_stale_english_sources)
+
+    rj = sub.add_parser(
+        "repair-ja-product-terms",
+        help=(
+            "Replace English Campaign/Canvas/Segment tokens in _lang/ja/ "
+            "with glossary Japanese forms (one-off corpus repair)"
+        ),
+    )
+    rj.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Print files that would change without writing",
+    )
+    rj.set_defaults(func=cmd_repair_ja_product_terms)
 
     args = parser.parse_args()
     args.func(args)

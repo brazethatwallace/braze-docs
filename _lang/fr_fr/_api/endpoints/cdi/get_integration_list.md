@@ -97,6 +97,6 @@ Le tableau suivant répertorie les erreurs possibles et les étapes de résoluti
 | `400 Invalid cursor` | Vérifiez que votre `cursor` est valide. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }
 
-Pour obtenir des codes de statut supplémentaires et les messages d'erreur associés, consultez la section [Erreurs fatales et réponses]({{site.baseurl}}/api/errors/#fatal-errors).
+Pour obtenir des codes de statut supplémentaires et les messages d'erreur associés, consultez la section [Erreurs fatales et réponses]({{site.baseurl}}/api/errors#fatal-errors).
 
 {% endapi %}

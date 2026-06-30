@@ -21,7 +21,7 @@ description: "この記事では、「カタログ項目を削除」Brazeエン�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.delete_item` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`catalogs.delete_item` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -33,7 +33,7 @@ description: "この記事では、「カタログ項目を削除」Brazeエン�
 |---|---|---|---|
 | `catalog_name` | 必須 | 文字列 | カタログ名。 |
 | `item_id` | 必須 | 文字列 | カタログ項目のID。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="パスパラメーター" }
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -89,9 +89,9 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 
 | エラー | トラブルシューティング |
 | --- | --- |
-| `arbitrary-error` | 任意のエラーが発生しました。もう一度試すか、[サポート]({{site.baseurl}}/support_contact/)に連絡してください。 |
+| `arbitrary-error` | 任意のエラーが発生しました。もう一度試すか、[サポート]({{site.baseurl}}/support_contact)に連絡してください。 |
 | `catalog-not-found` | カタログ名が有効であることを確認してください。 |
 | `item-not-found` | 削除する項目がカタログに存在することを確認してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 {% endapi %}

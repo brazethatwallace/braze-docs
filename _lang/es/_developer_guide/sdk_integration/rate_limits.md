@@ -69,7 +69,7 @@ Si tienes problemas con el límite de velocidad del SDK, revisa los siguientes m
 - `logCustomEvent()`
 - `logPurchase()`
 
-Cuando te pongas en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/), incluye los siguientes detalles para cada uno de los métodos de red del SDK que utilices:
+Cuando te pongas en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support), incluye los siguientes detalles para cada uno de los métodos de red del SDK que utilices:
 
 ```plaintext
 Method name:

@@ -42,7 +42,7 @@ end
 
 We suggest you version Braze so pod updates automatically grab anything smaller than a minor version update. This looks like `pod 'Appboy-iOS-SDK' ~> Major.Minor.Build`. If you want to automatically integrate the latest Braze SDK version, even with major changes, you can use `pod 'Appboy-iOS-SDK'` in your Podfile.
 
-#### Subspecs
+### Subspecs
 
 We recommend that integrators import our full SDK. However, if you are certain that you are only going to integrate a particular Braze feature, you can import just the desired UI subspec instead of the full SDK.
 
@@ -67,7 +67,7 @@ At this point, you should be able to open the new Xcode project workspace create
 
 ## Next steps
 
-Follow the instructions for [completing the integration]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/completing_integration/).
+Follow the instructions for [completing the integration]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/completing_integration).
 
 ## Updating the Braze SDK via CocoaPods
 

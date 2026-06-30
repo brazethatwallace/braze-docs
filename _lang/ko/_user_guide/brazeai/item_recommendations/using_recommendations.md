@@ -15,7 +15,7 @@ page_order: 1.2
 
 ## 필수 조건 {#prerequisites}
 
-메시징에서 추천을 사용하려면 먼저 [추천 엔진을 생성하고 학습시켜야]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/) 합니다. 학습은 10분에서 36시간까지 소요될 수 있으며&#8212;학습이 완료되거나 오류가 발생하면 이메일을 받게 됩니다.
+메시징에서 추천을 사용하려면 먼저 [추천 엔진을 생성하고 학습시켜야]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations) 합니다. 학습은 10분에서 36시간까지 소요될 수 있으며&#8212;학습이 완료되거나 오류가 발생하면 이메일을 받게 됩니다.
 
 ## 메시징에서 추천 사용하기 {#using-recommendations-in-your-messaging}
 

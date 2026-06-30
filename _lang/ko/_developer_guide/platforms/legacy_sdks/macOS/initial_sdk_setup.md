@@ -21,11 +21,11 @@ noindex: true
 Mac Catalyst로 앱을 빌드하려면 <a href="https://developer.apple.com/documentation/uikit/mac_catalyst">Apple 설명서</a> 를 참조하세요.
 {% endalert %}
 
-앱이 Catalyst를 지원하면 [다음 지침에 따라 스위프트 패키지 매니저를 사용]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration/?tab=swift%20package%20manager/)하여 Braze SDK를 앱으로 가져옵니다.
+앱이 Catalyst를 지원하면 [다음 지침에 따라 스위프트 패키지 매니저를 사용]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration?tab=swift%20package%20manager/)하여 Braze SDK를 앱으로 가져옵니다.
 
 ## 지원되는 기능 {#supported-features}
 
-Braze는 Mac Catalyst에서 실행할 때 [푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift), [Content Cards]({{site.baseurl}}/developer_guide/platforms/swift/content_cards/#content-cards-data-model), [인앱 메시지]({{site.baseurl}}/developer_guide/analytics/tracking_location/?sdktab=swift), [자동 위치 수집]({{site.baseurl}}/developer_guide/analytics/tracking_location/?sdktab=swift)을 지원합니다.
+Braze는 Mac Catalyst에서 실행할 때 [푸시 알림]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Content Cards]({{site.baseurl}}/developer_guide/platforms/swift/content_cards#content-cards-data-model), [인앱 메시지]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift), [자동 위치 수집]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift)을 지원합니다.
 
 Push Stories, 리치 푸시 및 지오펜스는 macOS에서 지원되지 않습니다.
 

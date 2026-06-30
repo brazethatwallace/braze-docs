@@ -10,12 +10,12 @@ page_order: 4
 > Utilisez la personnalisation Liquid dans les pages d'accueil pour adapter dynamiquement le contenu avec les données du profil utilisateur. Par exemple, vous pouvez personnaliser les titres en fonction de différents attributs utilisateur sans avoir à gérer plusieurs pages d'accueil statiques.
 
 {% alert important %}
-La personnalisation Liquid pour les pages d'accueil n'est disponible que sur le niveau Pro des pages d'accueil. Actuellement, le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), le [multilingue]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings/) et les [codes de promotion]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/) ne sont pas pris en charge avec la personnalisation Liquid dans les pages d'accueil.
+La personnalisation Liquid pour les pages d'accueil n'est disponible que sur le niveau Pro des pages d'accueil. Actuellement, le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), le [multilingue]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings) et les [codes de promotion]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes) ne sont pas pris en charge avec la personnalisation Liquid dans les pages d'accueil.
 {% endalert %}
 
 ## Insérer du Liquid {#inserting-liquid}
 
-Dans l'éditeur par glisser-déposer, vous pouvez insérer de la personnalisation Liquid à la fois dans l'éditeur et dans les paramètres de la page ou du bloc dans le panneau de droite. Pour des instructions sur l'implémentation de Liquid, consultez notre [documentation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#using-liquid) dédiée.
+Dans l'éditeur par glisser-déposer, vous pouvez insérer de la personnalisation Liquid à la fois dans l'éditeur et dans les paramètres de la page ou du bloc dans le panneau de droite. Pour des instructions sur l'implémentation de Liquid, consultez notre [documentation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#using-liquid) dédiée.
 
 ![Éditeur de page d'accueil avec personnalisation Liquid ajoutée.]({% image_buster /assets/img/landing_pages/lp_liquid_.png %})
 
@@ -41,13 +41,13 @@ Pour éviter que votre page ne dépasse les limites de taille ou ne connaisse de
 - Ne boucle pas continuellement et ne référence pas de grands ensembles de données.
 - Ne repose pas sur une logique mathématique ou conditionnelle étendue au sein du bloc Liquid.
 
-De plus, évitez d'intégrer directement dans le code de votre page d'accueil des scripts volumineux, des feuilles de style et des ressources encodées en base64. Ces ressources en ligne comptent dans la limite de taille de la page et peuvent ralentir le rendu. Téléchargez plutôt les polices, images, feuilles de style et scripts dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). Les ressources servies depuis la bibliothèque multimédia sont hébergées sur le réseau de diffusion de contenu de Braze, elles ne sont donc pas traitées pour le rendu Liquid et ne comptent pas dans la limite de taille de la page.
+De plus, évitez d'intégrer directement dans le code de votre page d'accueil des scripts volumineux, des feuilles de style et des ressources encodées en base64. Ces ressources en ligne comptent dans la limite de taille de la page et peuvent ralentir le rendu. Téléchargez plutôt les polices, images, feuilles de style et scripts dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Les ressources servies depuis la bibliothèque multimédia sont hébergées sur le réseau de diffusion de contenu de Braze, elles ne sont donc pas traitées pour le rendu Liquid et ne comptent pas dans la limite de taille de la page.
 
 ### Utiliser Liquid pour les utilisateurs identifiés et anonymes {#use-liquid-for-identified-and-anonymous-users}
 
 Liquid peut personnaliser l'expérience de la page d'accueil pour les visiteurs identifiés et anonymes.
 
-- **Utilisateurs identifiés :** créez un lien vers la page d'accueil depuis un message Braze et incluez l'[étiquette Liquid de page d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/#using-landing-page-liquid-tags). Cela associe l'utilisateur à son profil Braze et personnalise l'expérience de la page.
+- **Utilisateurs identifiés :** créez un lien vers la page d'accueil depuis un message Braze et incluez l'[étiquette Liquid de page d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users#using-landing-page-liquid-tags). Cela associe l'utilisateur à son profil Braze et personnalise l'expérience de la page.
 - **Visiteurs anonymes :** utilisez Liquid pour du contenu contextuel non basé sur le profil, comme un nombre aléatoire ou un message d'accueil selon l'heure de la journée.
 
 ### Préremplir les champs de formulaire {#pre-fill-form-fields}
@@ -72,7 +72,7 @@ Le préremplissage ne fonctionne que pour les [utilisateurs identifiés](#use-li
 Vous pouvez utiliser un bloc **Custom Code** pour récupérer des données depuis des endpoints externes et les afficher dans votre page d'accueil. Cette approche effectue la requête côté client (dans le navigateur de l'utilisateur), de sorte que la page se charge rapidement sans délais de rendu côté serveur.
 
 {% alert warning %}
-Lorsque vous récupérez des données externes, vous êtes responsable de la sécurité de votre implémentation. Les identifiants externes utilisés dans les appels API doivent être des UUID ou utiliser un schéma de nommage équivalent en termes de sécurité. Consultez les [bonnes pratiques de nommage des ID utilisateur]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices).
+Lorsque vous récupérez des données externes, vous êtes responsable de la sécurité de votre implémentation. Les identifiants externes utilisés dans les appels API doivent être des UUID ou utiliser un schéma de nommage équivalent en termes de sécurité. Consultez les [bonnes pratiques de nommage des ID utilisateur]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
 {% endalert %}
 
 ### Cas d'utilisation {#use-case}
@@ -127,7 +127,7 @@ Lorsque vous récupérez des données externes dans les pages d'accueil :
 - **États de chargement :** les utilisateurs verront un texte de remplacement jusqu'à ce que l'endpoint réponde. Envisagez d'ajouter un indicateur de chargement ou un écran squelette.
 - **Gestion des erreurs :** si l'endpoint échoue ou met du temps à répondre, la page peut sembler défectueuse. Implémentez des messages d'erreur et des solutions de repli appropriés.
 - **Performances :** la page se charge immédiatement, mais les données apparaissent après la fin de la requête externe. Gardez vos réponses API rapides pour une expérience utilisateur optimale.
-- **Sécurité :** assurez-vous que votre endpoint API valide l'identifiant et ne renvoie que les données que l'utilisateur est autorisé à consulter. Implémentez une limitation de débit pour prévenir les abus. Pour des conseils sur le choix d'identifiants sécurisés, consultez les [bonnes pratiques de nommage des ID utilisateur]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices).
+- **Sécurité :** assurez-vous que votre endpoint API valide l'identifiant et ne renvoie que les données que l'utilisateur est autorisé à consulter. Implémentez une limitation de débit pour prévenir les abus. Pour des conseils sur le choix d'identifiants sécurisés, consultez les [bonnes pratiques de nommage des ID utilisateur]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
 
 ## Pages de secours {#fallback-pages}
 

@@ -22,9 +22,10 @@ description: "이 참조 문서에서는 중첩 커스텀 속성을 커스텀 �
 - 키 이름과 문자열 값의 크기 제한은 255자입니다.
 - 키 이름에는 공백을 포함할 수 없습니다.
 - 마침표(`.`)와 달러 기호(`$`)는 중첩 커스텀 속성을 고객 프로필에 보내려는 경우 API 페이로드에서 지원되지 않는 문자입니다.
-- 모든 Braze 파트너가 중첩 커스텀 속성을 지원하는 것은 아닙니다. 특정 파트너 통합에서 이 기능을 지원하는지 확인하려면 [파트너 설명서]({{site.baseurl}}/partners/home/)를 참조하세요.
+- 모든 Braze 파트너가 중첩 커스텀 속성을 지원하는 것은 아닙니다. 특정 파트너 통합에서 이 기능을 지원하는지 확인하려면 [파트너 설명서]({{site.baseurl}}/partners/home)를 참조하세요.
 - 연결된 오디언스 API를 호출할 때 중첩 커스텀 속성을 필터로 사용할 수 없습니다.
-- 기본적으로 **중첩 커스텀 속성** Segment 필터에는 오브젝트 유형 커스텀 속성, 오브젝트 배열 속성, 배열 유형 커스텀 속성이 포함됩니다. 속성을 선택하면 등록정보 스키마 선택기에 중첩 배열 필드에 대한 배열 경로(`[]` 표기법 사용)가 포함됩니다. 해당 필터에서 최상위 배열 커스텀 속성을 숨기려면 [Braze 고객지원]({{site.baseurl}}/braze_support/)에 문의하세요.
+- 기본적으로 **중첩 커스텀 속성** Segment 필터에는 오브젝트 유형 커스텀 속성, 오브젝트 배열 속성, 배열 유형 커스텀 속성이 포함됩니다. 속성을 선택하면 등록정보 스키마 선택기에 중첩 배열 필드에 대한 배열 경로(`[]` 표기법 사용)가 포함됩니다. 해당 필터에서 최상위 배열 커스텀 속성을 숨기려면 [Braze 고객지원]({{site.baseurl}}/braze_support)에 문의하세요.
+- 대시보드에서 **커스텀 사용자로 미리보기**를 사용하여 메시지를 미리 볼 때, 모의 데이터는 문자열 또는 문자열 배열로만 입력할 수 있으며 중첩 오브젝트는 지원되지 않습니다. 중첩 커스텀 속성을 참조하는 메시지를 미리 보려면 프로필에 이미 중첩 속성이 있는 기존 사용자를 선택하세요. 중첩 커스텀 이벤트 등록정보의 경우, 렌더링을 확인하려면 테스트 사용자를 타겟으로 하는 라이브 Campaign을 시작해야 합니다.
 
 ## API 예제 {#api-example}
 
@@ -106,7 +107,7 @@ description: "이 참조 문서에서는 중첩 커스텀 속성을 커스텀 �
 ```
 
 {% alert note %}
-이 방법은 [오브젝트 배열]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/) 내부의 중첩 키를 삭제하는 데는 사용할 수 없습니다.
+이 방법은 [오브젝트 배열]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects) 내부의 중첩 키를 삭제하는 데는 사용할 수 없습니다.
 {% endalert %}
 
 {% endtab %}
@@ -264,15 +265,31 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 <br> `{{custom_attribute.${most_played_song}[0].play_analytics.count}}` — "1000"
 {% endraw %}
 
-![Liquid를 사용하여 노래 이름과 리스너가 해당 노래를 재생한 횟수를 메시지에 템플릿으로 삽입하는 모습]({% image_buster /assets/img_archive/nca_liquid_2.png %})
+중첩 커스텀 속성 Liquid를 메시지에 사용하려면:
+
+1. Campaign 또는 Canvas로 이동한 다음 개인화를 추가할 메시지 단계를 엽니다.
+2. 메시지 작성기에서 값을 표시할 위치에 Liquid 스니펫을 삽입합니다.
+3. 프로필에 이미 중첩 커스텀 속성이 있는 기존 사용자로 **미리보기 및 테스트**를 사용하여 값이 예상대로 렌더링되는지 확인합니다.
 
 ### 개인화 {#personalization}
 
-**개인화 추가** 모달을 사용하여 중첩 커스텀 속성을 메시징에 삽입할 수도 있습니다. 개인화 유형으로 **중첩 커스텀 속성**을 선택합니다. 그런 다음 최상위 속성과 속성 키를 선택합니다.
+**개인화 추가**를 사용하여 중첩 커스텀 속성을 메시지에 삽입할 수 있습니다.
 
-예를 들어, 아래 개인화 모달에서는 사용자의 선호도에 따라 지역 사무소의 중첩 커스텀 속성을 삽입합니다.
+**개인화 추가**를 열려면:
 
-![]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
+1. Campaign 또는 Canvas로 이동한 다음 개인화를 추가할 메시지 단계를 엽니다.
+2. 메시지 작성기에서 **개인화**를 선택하여 **개인화 추가** 사이드바를 열고 개인화 옵션을 선택합니다.
+
+중첩 커스텀 속성 개인화를 구성하려면:
+
+1. **개인화 유형**에서 **중첩 커스텀 속성**을 선택합니다.
+2. **최상위 속성**에서 삽입할 중첩 커스텀 속성 경로를 선택합니다.
+   예를 들어, `preferences.neighborhood_office`를 선택합니다.
+3. 선택 사항: **기본값**에 해당 속성에 대한 자체 값이 없는 사용자를 위한 대체 값을 입력합니다.
+4. 생성된 **Liquid 스니펫**을 검토하여 예상 경로와 일치하는지 확인합니다.
+5. **삽입**을 선택합니다.
+
+이 예시에서 Braze는 `preferences.neighborhood_office`의 중첩 값을 메시지에 삽입합니다. 기본값은 해당 속성에 대한 자체 값이 없는 사용자를 위해 메시지에 포함되는 대체 값입니다.
 
 {% alert tip %}
 중첩 커스텀 속성을 삽입하는 옵션이 표시되지 않으면 스키마가 생성되었는지 확인하세요.
@@ -280,13 +297,13 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 
 ## 스키마 재생성 {#regenerate-schema}
 
-스키마가 생성된 후에는 **캘린더 일 기준 하루에 한 번**(회사의 시간대 기준) 재생성할 수 있습니다. 이 섹션에서는 스키마를 재생성하는 방법을 설명합니다. 스키마에 대한 자세한 내용은 [중첩 오브젝트 탐색기를 사용하여 스키마 생성]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema)을 참조하세요.
+스키마가 생성된 후에는 **캘린더 일 기준 하루에 한 번**(회사의 시간대 기준) 재생성할 수 있습니다. 이 섹션에서는 스키마를 재생성하는 방법을 설명합니다. 스키마에 대한 자세한 내용은 [중첩 오브젝트 탐색기를 사용하여 스키마 생성]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#generate-schema)을 참조하세요.
 
 중첩 커스텀 속성의 스키마를 재생성하려면:
 
 1. **데이터 설정** > **커스텀 속성**으로 이동합니다.
 2. 중첩 커스텀 속성을 검색합니다.
-3. 속성의 **Attribute Name** 열에서 <i class="fas fa-plus" aria-label="스키마 관리"></i> **스키마 관리**를 선택하여 스키마를 관리합니다.
+3. 속성의 **속성 이름** 열에서 <i class="fas fa-plus" aria-label="스키마 관리"></i> **스키마 관리**를 선택하여 스키마를 관리합니다.
 4. 모달이 나타납니다. **스키마 재생성**을 선택합니다.
 
 **스키마 재생성** 동작은 회사의 시간대 기준으로 **캘린더 일 기준 하루에 한 번**으로 제한됩니다. 스키마 작업이 이미 **진행 중**인 경우(상태가 **생성 중**인 동안에는 옵션을 사용할 수 없음) 다른 재생성을 시작할 수 없습니다. 스키마 재생성은 새 오브젝트만 감지하며 현재 스키마에 존재하는 오브젝트를 삭제하지 않습니다.
@@ -301,9 +318,16 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 
 중첩 커스텀 속성 오브젝트가 변경될 때 트리거할 수 있습니다. 이 옵션은 오브젝트 배열의 변경에는 사용할 수 없습니다. 경로 탐색기를 볼 수 있는 옵션이 표시되지 않으면 스키마가 생성되었는지 확인하세요.
 
-예를 들어, 액션 기반 Campaign에서 **커스텀 속성 값 변경**에 대한 새 트리거 동작을 추가하여 지역 사무소 선호도를 변경한 사용자를 타겟팅할 수 있습니다.
+예를 들어, 실행 기반 Campaign에서 **커스텀 속성 값 변경**에 대한 새 트리거 동작을 추가하여 지역 사무소 선호도를 변경한 사용자를 타겟팅할 수 있습니다.
 
-![중첩 선호도에 대한 커스텀 속성 값 변경 트리거가 있는 액션 기반 Campaign 전달 설정]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
+실행 기반 Campaign에서 이 트리거를 구성하려면:
+
+1. Campaign을 생성하거나 편집한 다음 전달 유형을 **실행 기반 전달**로 설정합니다.
+2. 트리거 설정에서 **커스텀 속성 값 변경**을 선택합니다.
+3. 모니터링할 중첩 커스텀 속성 경로를 선택합니다.
+   예를 들어, `preferences.neighborhood_office`를 선택합니다.
+4. 원하는 트리거 조건(예: **새 값**)을 선택합니다.
+5. Campaign 메시지와 오디언스 구성을 완료한 다음 Campaign을 시작합니다.
 
 ## 오브젝트 배열에서의 세분화 동작 {#segmentation-behavior-with-arrays-of-objects}
 
@@ -327,7 +351,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 
 이 사용자는 첫 번째 필터가 "Shoes" 항목(80 > 50)과 일치하고 두 번째 필터가 "Hat" 항목(25 < 30)과 일치하므로 해당됩니다. 단일 항목이 두 조건을 모두 충족하지 않더라도 사용자는 여전히 Segment에 포함됩니다.
 
-배열 내 동일한 항목에서 모든 조건이 일치해야 하는 경우, 동일한 경로에서 [다중 기준 세분화]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#use-multi-criteria-segmentation)를 사용하거나 교차 항목 매칭을 방지하도록 데이터를 재구성하세요.
+배열 내 동일한 항목에서 모든 조건이 일치해야 하는 경우, 동일한 경로에서 [다중 기준 세분화]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation)를 사용하거나 교차 항목 매칭을 방지하도록 데이터를 재구성하세요.
 
 ## 데이터 포인트 {#data-points}
 

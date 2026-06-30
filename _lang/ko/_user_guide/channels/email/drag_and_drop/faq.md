@@ -15,7 +15,7 @@ tool:
 
 > 이 페이지에서는 이메일용 드래그 앤 드롭 편집기와 관련하여 자주 묻는 질문에 대한 답변을 제공합니다.
 
-### 다크 모드에서 이메일이 어떻게 표시되는지 미리볼 수 있나요? {#can-i-preview-how-my-email-appears-in-dark-mode}
+## 다크 모드에서 이메일이 어떻게 표시되는지 미리볼 수 있나요? {#can-i-preview-how-my-email-appears-in-dark-mode}
 
 네. 드래그 앤 드롭 편집기의 **미리보기 및 테스트** 섹션으로 이동하여 **다크 모드**를 켜세요. 다양한 사용자 플랫폼에서 이메일을 미리보기하고 테스트하는 것도 권장하며, 가능하면 행 배경 이미지에 투명 이미지를 사용하는 것이 좋습니다.
 
@@ -46,16 +46,16 @@ tool:
 
 ### Campaign이나 Canvas에서 작성한 드래그 앤 드롭 이메일을 템플릿으로 저장할 수 있나요? {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-아니요. Campaign이나 Canvas에서 작성한 드래그 앤 드롭 이메일을 **템플릿** > **이메일 템플릿**에서 드래그 앤 드롭 **이메일 템플릿**으로 저장할 수 없습니다. **템플릿** > **이메일 템플릿**에서 레이아웃을 다시 만들거나, 다음에는 저장된 템플릿에서 시작하세요. 자세한 내용은 [이메일 템플릿 만들기]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)를 참조하세요.
+아니요. Campaign이나 Canvas에서 작성한 드래그 앤 드롭 이메일을 **템플릿** > **이메일 템플릿**에서 드래그 앤 드롭 **이메일 템플릿**으로 저장할 수 없습니다. **템플릿** > **이메일 템플릿**에서 레이아웃을 다시 만들거나, 다음에는 저장된 템플릿에서 시작하세요. 자세한 내용은 [이메일 템플릿 만들기]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)를 참조하세요.
 
-재사용 가능한 HTML 템플릿이 필요한 경우, 드래그 앤 드롭 본문을 편집하는 동안 **파일 다운로드**를 선택하고, ZIP에서 HTML을 열어 HTML 코드 편집기를 사용하여 [HTML 이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)에 마크업을 붙여넣으세요. 이후 Liquid, 링크 및 호스팅된 자산을 다시 확인하세요.
+재사용 가능한 HTML 템플릿이 필요한 경우, 드래그 앤 드롭 본문을 편집하는 동안 **파일 다운로드**를 선택하고, ZIP에서 HTML을 열어 HTML 코드 편집기를 사용하여 [HTML 이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)에 마크업을 붙여넣으세요. 이후 Liquid, 링크 및 호스팅된 자산을 다시 확인하세요.
 
-템플릿이 어디에 있는지에 대한 자세한 내용은 [템플릿 및 미디어]({{site.baseurl}}/user_guide/messaging/templates/)를 참조하세요.
+템플릿이 어디에 있는지에 대한 자세한 내용은 [템플릿 및 미디어]({{site.baseurl}}/user_guide/messaging/templates)를 참조하세요.
 
 ### 드래그 앤 드롭 편집기에서 버튼의 채우기 색상을 변경할 수 없는 이유는 무엇인가요? {#why-cant-i-change-a-buttons-fill-color-in-the-drag-and-drop-editor}
 
 페이지 수준 스타일이 메시지 수준 스타일을 재정의할 수 있습니다. 버튼이나 블록에서 **채우기**를 업데이트해도 아무 변화가 없다면 다음을 시도해 보세요:
-1. [이메일 글로벌 스타일 설정]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/)을 열고 충돌하는 페이지 스타일에서 **기본값으로 재설정**을 선택하여 메시지 수준 색상이 적용되도록 합니다.
+1. [이메일 글로벌 스타일 설정]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings)을 열고 충돌하는 페이지 스타일에서 **기본값으로 재설정**을 선택하여 메시지 수준 색상이 적용되도록 합니다.
 2. 블록에서 색상을 다시 설정합니다.
 
 ### 드래그 앤 드롭 편집기에 이메일 첨부 파일을 추가할 수 있나요? {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
@@ -68,7 +68,7 @@ tool:
 2. **이메일 본문 편집**을 선택하여 드래그 앤 드롭 편집기를 엽니다.
 3. **파일 다운로드**(편집기 하단)를 선택합니다. 아카이브를 추출하여 생성된 HTML에 접근합니다.
 
-해당 HTML을 [HTML 블록]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#content)이나 HTML 편집기에 붙여넣어 저수준 편집을 수행할 수 있습니다. 예를 들어, [특정 링크에 대한 클릭 추적 끄기]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis) 등이 있습니다.
+해당 HTML을 [HTML 블록]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#content)이나 HTML 편집기에 붙여넣어 저수준 편집을 수행할 수 있습니다. 예를 들어, [특정 링크에 대한 클릭 추적 끄기]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis) 등이 있습니다.
 
 ### 드래그 앤 드롭 레이아웃이 깨지는 이유는 무엇인가요? {#why-is-my-drag-and-drop-layout-breaking}
 

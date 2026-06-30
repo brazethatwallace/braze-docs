@@ -6,61 +6,61 @@ description: "パーソナライズ済みパスを使用すると、コンバー
 tool: Canvas
 ---
 
-# 実験パスのパーソナライズ済みパス
+# 実験パスのパーソナライズ済みパス {#personalized-paths-in-experiment-paths}
 
 > パーソナライズ済みパスは、キャンペーンの[パーソナライズ済みバリアント]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations#personalized-variant)と同様の機能で、コンバージョンの可能性に基づいてキャンバスジャーニーの任意のポイントを個々のユーザー向けにパーソナライズできます。
 
-## パーソナライズ済みパスの仕組み
+## パーソナライズ済みパスの仕組み {#how-personalized-paths-works}
 
 実験パスステップでパーソナライズ済みパスをオンにすると、キャンバスが1回限りの送信か繰り返し送信かによって動作が若干異なります。
 
 - **1回限りの送信キャンバス:** ユーザーのグループが遅延グループに保持されます。残りのユーザーは、設定した期間（最良の結果を得るには少なくとも24時間）にわたって予測モデルをトレーニングするための初期テストに進みます。テスト後、特定のパスでコンバージョンする可能性が高いユーザー行動を学習するモデルが作成されます。最後に、遅延グループの各ユーザーは、そのユーザーが示す行動と初期テスト中に予測モデルが学習した内容に基づいて、コンバージョンの可能性が最も高いパスに送られます。
 - **繰り返し、アクショントリガー、APIトリガーのキャンバス:** 指定された時間枠内に実験パスに入るすべてのユーザーに対して初期実験が実行されます。実験の整合性を維持するため、時間枠が終了する前にユーザーが複数のメッセージを受信した場合、毎回同じバリアントに割り当てられます。実験の時間枠が終了すると、各ユーザーはコンバージョンの可能性が最も高いパスに送られます。
 
-## パーソナライズ済みパスの使用
+## パーソナライズ済みパスの使用 {#using-personalized-paths}
 
-### ステップ 1: 実験パスを追加する
+### ステップ 1: 実験パスを追加する {#step-1-add-an-experiment-path}
 
-キャンバスに[実験パス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/)を追加し、**パーソナライズ済みパス**をオンにします。
+キャンバスに[実験パス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)を追加し、**パーソナライズ済みパス**をオンにします。
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_path.png %})
+![キャンバスに実験パスを追加し、パーソナライズ済みパスをオンにします。]({% image_buster /assets/img/experiment_step/experiment_personalized_path.png %})
 
-### ステップ 2: パーソナライズ済みパスの設定を構成する
+### ステップ 2: パーソナライズ済みパスの設定を構成する {#step-2-configure-personalized-paths-settings}
 
-勝者を決定するコンバージョンイベントを指定します。利用可能なコンバージョンイベントがない場合は、キャンバス設定の最初のステップに戻り、[コンバージョンイベントを割り当て]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#choose-conversion-events)てください。
+勝者を決定するコンバージョンイベントを指定します。利用可能なコンバージョンイベントがない場合は、キャンバス設定の最初のステップに戻り、[コンバージョンイベントを割り当て]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#choose-conversion-events)てください。
 
-コンバージョンイベントとして開封またはクリックを選択する場合は、パスの最初のステップが[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)であることを確認してください。Braze は各パスの最初のメッセージステップからのエンゲージメントのみをカウントします。パスが別のステップ（遅延やオーディエンスパスステップなど）で始まり、メッセージが後から来る場合、そのメッセージはパフォーマンス評価時に含まれません。
+コンバージョンイベントとして開封またはクリックを選択する場合は、パスの最初のステップが[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)であることを確認してください。Brazeは各パスの最初のメッセージステップからのエンゲージメントのみをカウントします。パスが別のステップ（遅延やオーディエンスパスステップなど）で始まり、メッセージが後から来る場合、そのメッセージはパフォーマンス評価時に含まれません。
 
 次に、**実験の時間枠**を設定します。**実験の時間枠**は、遅延グループの各ユーザーに最適なパスを選択する前に、すべてのパスにユーザーを送る期間を決定します。この時間枠は、最初のユーザーがステップに入った時点から開始されます。
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_settings.png %})
+![ステップ2に関連するスクリーンショット: パーソナライズ済みパスの設定を構成します。]({% image_buster /assets/img/experiment_step/experiment_personalized_settings.png %})
 
-### ステップ 3: フォールバックを決定する
+### ステップ 3: フォールバックを決定する {#step-3-determine-fallback}
 
 デフォルトでは、テストの結果が統計的に有意な勝者を決定するのに十分でない場合、今後のすべてのユーザーは最もパフォーマンスの高い単一のパスに送られます。
 
 または、**今後のすべてのユーザーにパスの組み合わせを送信し続ける**を選択することもできます。
 
-![]({% image_buster /assets/img/experiment_step/experiment_winning_statistical.png %})
+![今後のすべてのユーザーにパスの組み合わせを送信し続けるオプションを選択することもできます。]({% image_buster /assets/img/experiment_step/experiment_winning_statistical.png %})
 
 このオプションを選択すると、実験パスの配分で指定されたパーセンテージに従って、今後のユーザーにパスの組み合わせが送信されます。
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_percentages.png %})
+![ステップ3に関連するスクリーンショット: フォールバックを決定します。]({% image_buster /assets/img/experiment_step/experiment_personalized_percentages.png %})
 
-### ステップ 4: パスを追加してキャンバスを起動する
+### ステップ 4: パスを追加してキャンバスを起動する {#step-4-add-your-paths-and-launch-the-canvas}
 
 {% tabs local %}
 {% tab 1回限りの送信キャンバス %}
 
-1つの実験パスコンポーネントには最大4つのパスを含めることができます。ただし、1回限りの送信キャンバスでは、パーソナライズ済みパスがオンの場合、最大3つのパスを追加できます。4番目のパスは、Braze が自動的に実験に追加する遅延グループ用に予約する必要があります。
+1つの実験パスコンポーネントには最大4つのパスを含めることができます。ただし、1回限りの送信キャンバスでは、パーソナライズ済みパスがオンの場合、最大3つのパスを追加できます。4番目のパスは、Brazeが自動的に実験に追加する遅延グループ用に予約する必要があります。
 
 必要に応じてキャンバスの設定を完了し、起動します。最初のユーザーが実験に入ったら、キャンバスを確認して分析データが入ってくるのを確認し、[実験のパフォーマンスを追跡]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#tracking-performance)できます。
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_pending.png %}){: style="max-width:75%;" }
+![ステップ4に関連するスクリーンショット: パスを追加してキャンバスを起動します。]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_pending.png %}){: style="max-width:75%;" }
 
-実験の時間枠が経過し、実験が完了すると、Braze は遅延グループのユーザーを、予測モデルのおすすめに基づいてパーソナライズされたコンバージョンの可能性が最も高いそれぞれのパスに送ります。
+実験の時間枠が経過し、実験が完了すると、Brazeは遅延グループのユーザーを、予測モデルのおすすめに基づいてパーソナライズされたコンバージョンの可能性が最も高いそれぞれのパスに送ります。
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_complete.png %}){: style="max-width:75%;" }
+![ステップ4に関連するスクリーンショット: パスを追加してキャンバスを起動します。]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_complete.png %}){: style="max-width:75%;" }
 
 {% endtab %}
 {% tab 繰り返し、アクショントリガー、またはAPIトリガーのキャンバス %}
@@ -71,7 +71,7 @@ tool: Canvas
 
 実験の時間枠が経過し、実験が完了すると、その後キャンバスに入るすべてのユーザーは、コンバージョンの可能性が最も高いパスに送られます。
 
-![]({% image_buster /assets/img/experiment_step/experiment_personalized_recurring_analytics.png %}){: style="max-width:75%;" }
+![ステップ4に関連するスクリーンショット: パスを追加してキャンバスを起動します。]({% image_buster /assets/img/experiment_step/experiment_personalized_recurring_analytics.png %}){: style="max-width:75%;" }
 
 {% endtab %}
 {% endtabs %}
@@ -91,7 +91,7 @@ tool: Canvas
 
 カスタムイベントとパスの好みの関係は、**初期実験**タブのテーブルに表示されます。
 
-![]({% image_buster /assets/img_archive/experiment_personalized_analytics_custom_data.png %})
+![カスタムイベントとパスの好みの関係を示す分析テーブル。]({% image_buster /assets/img_archive/experiment_personalized_analytics_custom_data.png %})
 
 テストがカスタムイベントとパスの好みの間に意味のある関係を見つけられない場合、テストはセッションベースの分析方法にフォールバックし、カスタムイベントデータのテーブルは表示されません。
 
@@ -110,9 +110,9 @@ tool: Canvas
 
 最新性は最後のインタラクションがどれくらい最近だったか、頻度はどれくらいの頻度でエンゲージしているか、利用期間はエンゲージしている全体的な期間の長さと考えてください。これら3つの要素に基づいてユーザーを「バケット」にグループ化し（**ユーザー特性**テーブルで説明されている通り）、どのバケットがどのパスをより好むかを確認します。これは、最後に購入した時期、購入頻度、顧客である期間に基づいて、ユーザーを数百の異なるリストに分類するようなものです。
 
-ユーザーへのメッセージを選択する際、Braze はそのユーザーが属するバケットを調べます。各バケットはユーザーのパス選択に異なる影響を与えます。この影響は、[ロジスティック回帰](https://en.wikipedia.org/wiki/Logistic_regression)と呼ばれる統計的手法を使用して定量化されます。これは、過去のアクションに基づいて将来の行動を予測する方法です。この方法は、初期メッセージ送信中のユーザーインタラクションを考慮します。このテーブルは、各バケットのユーザーがどのパスにエンゲージする傾向があったかを表示することで結果を要約しているだけです。
+ユーザーへのメッセージを選択する際、Brazeはそのユーザーが属するバケットを調べます。各バケットはユーザーのパス選択に異なる影響を与えます。この影響は、[ロジスティック回帰](https://en.wikipedia.org/wiki/Logistic_regression)と呼ばれる統計的手法を使用して定量化されます。これは、過去のアクションに基づいて将来の行動を予測する方法です。この方法は、初期メッセージ送信中のユーザーインタラクションを考慮します。このテーブルは、各バケットのユーザーがどのパスにエンゲージする傾向があったかを表示することで結果を要約しているだけです。
 
-最終的に、Braze はこれらすべてのデータを組み合わせて、各ユーザーに合わせたメッセージパスを選択し、可能な限りエンゲージメントが高く関連性のあるものにします。
+最終的に、Brazeはこれらすべてのデータを組み合わせて、各ユーザーに合わせたメッセージパスを選択し、可能な限りエンゲージメントが高く関連性のあるものにします。
 
 {% alert note %}
 各バケットの時間間隔は、キャンバス固有のユーザーデータに基づいて決定されるため、キャンバスによって異なる場合があります。
@@ -141,7 +141,7 @@ tool: Canvas
 {% endtab %}
 {% endtabs %}
 
-## パーソナライズ済みパスとローカルタイム配信の併用
+## パーソナライズ済みパスとローカルタイム配信の併用 {#using-personalized-paths-with-local-time-delivery}
 
 パーソナライズ済みパスを使用するキャンバスでは、ローカルタイム配信の使用はおすすめしません。これは、実験の時間枠が最初のユーザーが通過した時点で開始されるためです。非常に早いタイムゾーンにいるユーザーがステップに入り、予想よりもはるかに早く実験の時間枠の開始をトリガーする可能性があり、その結果、より一般的なタイムゾーンにいる大多数のユーザーがキャンバスに入ってコンバージョンするのに十分な時間がないまま実験が終了する可能性があります。
 

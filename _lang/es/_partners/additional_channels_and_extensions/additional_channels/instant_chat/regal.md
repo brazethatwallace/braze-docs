@@ -24,7 +24,7 @@ Usa datos de Braze para dar forma a lo que dicen tus agentes de IA, cómo respon
 | ----------- | ----------- |
 | Cuenta Regal | Se necesita una cuenta Regal para beneficiarse de esta asociación. |
 | Clave de API de Regal | Una clave de API de Regal te permite enviar eventos de Braze a Regal.<br><br>Envía un correo electrónico a [support@regal.io](mailto:support@regal.io) para obtener esta clave. |
-| Transformación de datos de Braze | Se requiere una [Transformación de datos]({{site.baseurl}}/data_transformation/) para recibir datos de Regal. |
+| Transformación de datos de Braze | Se requiere una [Transformación de datos]({{site.baseurl}}/data_transformation) para recibir datos de Regal. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración: envío de datos de Braze a Regal {#integration-sending-data-from-braze-to-regal}
@@ -273,8 +273,6 @@ Para crear una Transformación de datos:
 2. Dale un nombre a tu transformación y haz clic en **Create transformation**.
 3. En la lista de transformaciones, selecciona <i class="fa-solid fa-ellipsis-vertical" title="Ver acciones"></i> **Ver acciones** y selecciona **Copy webhook URL**.
 
-![]({% image_buster /assets/img/regal/copy_webhook_url.png %})
-
 ### Paso 2: Habilitar webhooks de informes en Regal {#step-2-enable-reporting-webhooks-in-regal}
 
 Para configurar webhooks de informes:
@@ -283,8 +281,6 @@ Para configurar webhooks de informes:
 2. En la sección **Reporting Webhooks**, haz clic en **Create Webhooks**.
 
 3. En la entrada del punto de conexión del webhook, añade la URL del webhook de Transformación de datos de Braze para la Transformación de datos asociada.
-
-![]({% image_buster /assets/img/regal/edit_webhook.png %}){: style="max-width:60%;"}
 
 #### Actualización de un punto de conexión {#updating-an-endpoint}
 
@@ -299,7 +295,7 @@ Para la lista completa de eventos de informes, definiciones de propiedades y eje
 
 ### Paso 3: Transformar los eventos de Regal en eventos de Braze {#step-3-transform-regal-events-into-braze-events}
 
-La característica de [Transformación de datos]({{site.baseurl}}/data_transformation/) de Braze te permite mapear los eventos entrantes de Regal en el formato necesario para añadirlos como atributos, eventos o compras en Braze.
+La característica de [Transformación de datos]({{site.baseurl}}/data_transformation) de Braze te permite mapear los eventos entrantes de Regal en el formato necesario para añadirlos como atributos, eventos o compras en Braze.
 
 1. Dale un nombre a tu Transformación de datos. Se recomienda configurar una Transformación de datos por webhook de evento.
 
@@ -313,7 +309,7 @@ La característica de [Transformación de datos]({{site.baseurl}}/data_transform
 En las cargas útiles de eventos de Braze a Regal, Regal recomienda usar `traits.phones` para admitir múltiples números de teléfono y consentimiento a nivel de teléfono. En los eventos de informes de Regal enviados de vuelta a Braze, `traits.phone` puede seguir apareciendo como identificador en las cargas útiles de eventos.
 
 #### Identificadores compatibles con Braze {#braze-supported-identifiers}
-- Braze no admite números de teléfono como identificador. Para utilizarlo como identificador, el número de teléfono puede configurarse como [alias de usuario]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases) en Braze.
+- Braze no admite números de teléfono como identificador. Para utilizarlo como identificador, el número de teléfono puede configurarse como [alias de usuario]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases) en Braze.
 - Al utilizar la Transformación de datos de Braze, la dirección de correo electrónico puede utilizarse como identificador. Si la dirección de correo electrónico existe como perfil en Braze, se actualizará el perfil existente. Si la dirección de correo electrónico aún no existe en Braze, se creará un perfil solo para correo electrónico.
 
 ## Casos de uso {#use-cases}
@@ -329,18 +325,18 @@ A continuación se muestra un ejemplo de carga útil para un evento `call.comple
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "call.completed",
   "properties": {
-    "agent_firstname": "Rebecca",
-    "agent_fullname": "Rebecca Greene",
-    "agent_id": "xxxx@yourbrand.com",
+    "agent_firstname": "Alex",
+    "agent_fullname": "Alex Lee",
+    "agent_id": "xxxx@example.com",
     "direction": "OUTBOUND",
-    "regal_voice_phone": "+19545558563",
+    "regal_voice_phone": "+15555550200",
     "regal_voice_phone_internal_name": "Sales Line",
-    "contact_phone": "+17625555555",
+    "contact_phone": "+15555550123",
     "call_id": "WTxxxxx9",
     "type": "Outbound Call",
     "disposition": "Converted During Convo",
@@ -427,13 +423,13 @@ A continuación se muestra un ejemplo de carga útil para un evento `contact.att
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "contact.attribute.edited",
   "properties": {
-    "agent_email": "xxxx@yourbrand.com",
-    "contact_phone": "+17625555555",
+    "agent_email": "xxxx@example.com",
+    "contact_phone": "+15555550123",
     "changes": {
       "custom_properties": {
         "annual_income": {
@@ -491,8 +487,8 @@ A continuación se muestra un ejemplo de carga útil para un evento `contact.exp
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "contact.experiment.assigned",
   "properties": {
@@ -554,8 +550,8 @@ A continuación se muestra un ejemplo de carga útil para un evento `contact.uns
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com",
+    "phone": "+15555550123",
+    "email": "xxx@example.com",
     "ip": "78.97.213.166"
   },
   "name": "contact.unsubscribed",
@@ -617,11 +613,11 @@ A continuación se muestra un ejemplo de carga útil para un evento `call.analys
 {
   "traits": {
     "phone": "+1XXXXXXXXXX",
-    "email": "xxx@gmail.com"
+    "email": "xxx@example.com"
   },
   "name": "call.analysis.available",
   "brand": "circle-bank",
-  "contact_email": "xxx@gmail.com",
+  "contact_email": "xxx@example.com",
   "contact_phone": "+1XXXXXXXXXX",
   "created_at": "1754079836",
   "entity_type": "event",
@@ -631,7 +627,7 @@ A continuación se muestra un ejemplo de carga útil para un evento `call.analys
   "original_timestamp": "1754079835",
   "profile_id": "62653af1111111173af128291e92",
   "properties": {
-    "agent_email": "xxx@yourbrand.com",
+    "agent_email": "xxx@example.com",
     "call_analysis": {
       "purchase_intent": "medium",
       "primary_objection": "price",
@@ -652,7 +648,7 @@ A continuación se muestra un ejemplo de carga útil para un evento `call.analys
     "is_ai_agent": true,
     "outgoing_sip_headers": {
       "Via": "SIP/2.0/TCP srv2.example.com;branch=z9hG4bKgsdh7723",
-      "To": "<sip:agent@yourbrand.com>",
+      "To": "<sip:agent@example.com>",
       "User-Agent": "RegalVoiceAI/1.0"
     },
     "task_id": "WT7f3ea47fa6e6055aa847f0a62111111"
@@ -677,16 +673,16 @@ A continuación se muestra un ejemplo de carga útil para un evento `call.transc
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625551796",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "call.transcript.available",
   "properties": {
-    "agent_email": "xxx@yourbrand.com",
+    "agent_email": "xxx@example.com",
     "task_id": "WT953358e8822dd9333fc38dfbac25e1e1",
-    "call_summary": "The agent Zoe explained insurance options to Joe and he said he'll need to think about it before moving forward Agent politely ended the call.",
-    "contact_name": "Joe Smith",
-    "contact_phone": "+13523182825",
+    "call_summary": "The agent Yuri explained insurance options to Alex and he said he'll need to think about it before moving forward Agent politely ended the call.",
+    "contact_name": "Alex Smith",
+    "contact_phone": "+15555550123",
     "is_voicemail": false,
     "moments_count": 18,
     "recording_id": "RE0118052841b7299d0630d1dff610c1fb",
@@ -697,8 +693,8 @@ A continuación se muestra un ejemplo de carga útil para un evento `call.transc
     "sentiments": {
       "contact_sentiment": 70,
       "agent_sentiment": 75,
-      "agent_sentiment_reason": "Zoe was polite and attentive, effectively gathering information and providing a resource, which contributed to a positive interaction.",
-      "contact_sentiment_reason": "Joe was satisfied with the information provided but may have wanted more assistance regarding insurance options."
+      "agent_sentiment_reason": "Yuri was polite and attentive, effectively gathering information and providing a resource, which contributed to a positive interaction.",
+      "contact_sentiment_reason": "Alex was satisfied with the information provided but may have wanted more assistance regarding insurance options."
     },
     "trackers": [
       {
@@ -710,7 +706,7 @@ A continuación se muestra un ejemplo de carga útil para un evento `call.transc
         "tracker_name": "High Intent"
       }
     ],
-    "transcript": "[handling agent]: Hi Joe, this is Zoe with BrightCover Insurance. I'll be going over some insurance options with you today. [contact]: Sounds good. [handling agent]: Before we start, I'm going to transfer you to a specialist for a moment. One sec. [transfer agent]: Hi Joe, this is Mark. Just verifying a few details before sending you back to Zoe. [contact]: Okay. [handling agent]: Thanks, Joe. Based on what you shared, here are some plan options... [contact]: I'll need to think about it. [handling agent]: Totally understandable. Feel free to reach out anytime. Have a great day! END OF TRANSCRIPT",
+    "transcript": "[handling agent]: Hi Alex, this is Yuri with BrightCover Insurance. I'll be going over some insurance options with you today. [contact]: Sounds good. [handling agent]: Before we start, I'm going to transfer you to a specialist for a moment. One sec. [transfer agent]: Hi Alex, this is Lee. Just verifying a few details before sending you back to Yuri. [contact]: Okay. [handling agent]: Thanks, Alex. Based on what you shared, here are some plan options... [contact]: I'll need to think about it. [handling agent]: Totally understandable. Feel free to reach out anytime. Have a great day! END OF TRANSCRIPT",
     "transcript_is_truncated": false,
     "transcript_url": "https://app.regalvoice.com/transcripts/WT953358e8822dd9333fc38dfbac25e1e1"
   },

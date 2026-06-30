@@ -65,7 +65,7 @@ SSLのクリックおよび開封トラッキングに記載されているCDN�
 ### その他のリソース {#additional-resources}
 
 {% alert important %}
-CDN設定のトラブルシューティングについては、CDNプロバイダーにお問い合わせいただくか、一般的なガイダンスとして[トラブルシューティング]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/)を参照してください。
+CDN設定のトラブルシューティングについては、CDNプロバイダーにお問い合わせいただくか、一般的なガイダンスとして[トラブルシューティング]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting)を参照してください。
 {% endalert %}
 
 特定のCDNの設定方法については、メールサービスプロバイダー（ESP）パートナーによる以下のリソースを参照してください。お使いのCDNが一覧にない場合でも、CDNがSSL証明書を適用できることを確認してください。
@@ -103,4 +103,4 @@ CDNのクリックトラッキングドメインを設定する際は、ホス�
 
 ## トラブルシューティング {#troubleshooting}
 
-CDNの設定、証明書、プロキシの問題はCDNプロバイダーに対応を依頼する必要がありますが、一般的なSSLクリックトラッキングの問題を特定するために以下のヒントを活用してください。トラブルシューティングのガイダンスについては、[トラブルシューティング]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/)を参照してください。
+CDNの設定、証明書、プロキシの問題はCDNプロバイダーに対応を依頼する必要がありますが、一般的なSSLクリックトラッキングの問題を特定するために以下のヒントを活用してください。トラブルシューティングのガイダンスについては、[トラブルシューティング]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting)を参照してください。

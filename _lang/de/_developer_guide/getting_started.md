@@ -11,16 +11,16 @@ description: "Dieser Abschnitt hilft Ihnen und Ihrem Marketing-Team dabei, Braze
 guide_featured_title: "Abschnittsartikel"
 guide_featured_list:
   - name: SDK-Übersicht
-    link: /docs/developer_guide/getting_started/sdk_overview/
+    link: /docs/developer_guide/getting_started/sdk_overview
     image: /assets/img/braze_icons/edit-04.svg
   - name: Plattform-Übersicht
-    link: /docs/developer_guide/getting_started/platform_overview/
+    link: /docs/developer_guide/getting_started/platform_overview
     image: /assets/img/braze_icons/announcement-01.svg
   - name: Überblick über die Integration
-    link: /docs/developer_guide/getting_started/integration_overview/
+    link: /docs/developer_guide/getting_started/integration_overview
     image: /assets/img/braze_icons/chevron-up-double.svg
   - name: Architektonische Übersicht
-    link: /docs/developer_guide/getting_started/architecture_overview/
+    link: /docs/developer_guide/getting_started/architecture_overview
     image: /assets/img/braze_icons/columns-01.svg
 
 search_rank: 4

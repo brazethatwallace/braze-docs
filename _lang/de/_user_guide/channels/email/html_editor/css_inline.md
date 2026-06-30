@@ -28,8 +28,8 @@ Sie können unter **Einstellungen** > **E-Mail-Präferenzen** einen Standardstat
 
 ## Connected-Content und CSS-Inlining {#connected-content-and-css-inlining}
 
-CSS-Inlining wird **vor** der Auswertung von [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) ausgeführt. HTML, das von Connected-Content zurückgegeben wird, durchläuft **nicht** denselben Inlining-Schritt. Fügen Sie Stile, die Sie aus Connected-Content benötigen, direkt in die Antwort ein (Inline-`style`-Attribute oder eingebettete Regeln), oder deaktivieren Sie das Inlining für die Nachricht, wenn das besser zu Ihrem Template passt.
+CSS-Inlining wird **vor** der Auswertung von [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) ausgeführt. HTML, das von Connected-Content zurückgegeben wird, durchläuft **nicht** denselben Inlining-Schritt. Fügen Sie Stile, die Sie aus Connected-Content benötigen, direkt in die Antwort ein (Inline-`style`-Attribute oder eingebettete Regeln), oder deaktivieren Sie das Inlining für die Nachricht, wenn das besser zu Ihrem Template passt.
 
 ## Content Blocks in benutzerdefinierten HTML-Templates {#content-blocks-in-custom-html-templates}
 
-Wenn Sie einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) mit Liquid in ein **benutzerdefiniertes HTML**-E-Mail-Template oder eine Campaign einbinden, können CSS-Regeln im übergeordneten Template die im Content-Block definierten Stile überschreiben. Prüfen Sie, ob es im Template-Wrapper widersprüchliche Selektoren oder globale Regeln gibt.
+Wenn Sie einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) mit Liquid in ein **benutzerdefiniertes HTML**-E-Mail-Template oder eine Campaign einbinden, können CSS-Regeln im übergeordneten Template die im Content-Block definierten Stile überschreiben. Prüfen Sie, ob es im Template-Wrapper widersprüchliche Selektoren oder globale Regeln gibt.

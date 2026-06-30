@@ -9,21 +9,21 @@ page_type: reference
 
 # 接続されたソース {#connected-sources}
 
-> 接続されたソースは、BrazeのCDI（クラウドデータ取り込み）機能を使ってデータを直接同期するのではなく、ゼロコピーの代替手段です。接続されたソースはデータウェアハウスに直接クエリを行い、基盤となるデータをBrazeに一切コピーせずに新しい **セグメント** を作成します。
+> 接続されたソースは、Brazeのクラウドデータ取り込み（CDI）機能を使ってデータを直接同期するのではなく、ゼロコピーの代替手段です。接続されたソースはデータウェアハウスに直接クエリを行い、基盤となるデータをBrazeに一切コピーせずに新しいセグメントを作成します。
 
-接続されたソースをBrazeワークスペースに追加すると、**セグメント**エクステンション内にCDI セグメントを作成できます。CDI**セグメント**エクステンションを使えば、データウェアハウスを直接クエリするSQLを記述し（CDI接続ソースを通じて利用可能になったデータを使用）、Braze内でターゲティング可能なユーザーグループを作成・維持できます。
+接続されたソースをBrazeワークスペースに追加すると、セグメントエクステンション内にCDI セグメントを作成できます。CDIセグメントエクステンションを使えば、データウェアハウスを直接クエリするSQLを記述し（CDI接続ソースを通じて利用可能になったデータを使用）、Braze内でターゲティング可能なユーザーグループを作成・維持できます。
 
-このソースでセグメントを作成する方法の詳細については、[CDI**セグメント**エクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/)を参照してください。
+このソースでセグメントを作成する方法の詳細については、[CDIセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments)を参照してください。
 
 {% alert warning %}
-接続されたソースはデータウェアハウス上で直接実行されるため、データウェアハウスでこれらのクエリの実行に関連するすべてのコストが発生します。接続されたソースはデータポイントをログに記録せず、CDI**セグメント**エクステンションはSQL**セグメント**クレジットを消費しません。
+接続されたソースはデータウェアハウス上で直接実行されるため、データウェアハウスでこれらのクエリの実行に関連するすべてのコストが発生します。接続されたソースはデータポイントをログに記録せず、CDIセグメントエクステンションはSQLセグメントクレジットを消費しません。
 {% endalert %}
 
 ## 接続されたソースの統合 {#integrating-connected-sources}
 
 ### ステップ1：リソースを接続する {#step-1-connect-your-resources}
 
-クラウドデータ取り込みの接続されたソースは、Braze側とインスタンス側での設定を必要とします。統合を設定するには、次の手順に従います。一部はデータウェアハウスで実行され、一部はBrazeダッシュボードで実行されます。
+クラウドデータ取り込みの接続されたソースは、Braze側とインスタンス側での設定が必要です。統合を設定するには、次の手順に従います。一部はデータウェアハウスで実行され、一部はBrazeダッシュボードで実行されます。
 
 {% tabs %}
 {% tab Snowflake %}
@@ -43,14 +43,14 @@ page_type: reference
 **データウェアハウスで次を行います。**
 
 {: start="8"}
-8. Brazeダッシュボードの公開キーを[認証用のSnowflakeユーザー](https://docs.snowflake.com/en/user-guide/key-pair-auth.html)に追加します。作業が終わったら、接続されたソースを使って1つ以上のCDI**セグメント**エクステンションを作成できます。
+8. Brazeダッシュボードの公開キーを[認証用のSnowflakeユーザー](https://docs.snowflake.com/en/user-guide/key-pair-auth.html)に追加します。作業が終わったら、接続されたソースを使って1つ以上のCDIセグメントエクステンションを作成できます。
 {% endtab %}
 
 {% tab Redshift %}
 1. Redshift環境にソースデータと必要なリソースをセットアップします。
 2. Brazeダッシュボードで接続されたソースを新規作成します。
 4. 統合をテストします。
-5. 接続されたソースを使用して、1つ以上のCDI**セグメント**エクステンションを作成します。
+5. 接続されたソースを使用して、1つ以上のCDIセグメントエクステンションを作成します。
 {% endtab %}
 
 {% tab BigQuery %}
@@ -58,7 +58,7 @@ page_type: reference
 2. サービスアカウントを作成し、同期するデータを含むBigQueryのプロジェクトとデータセットへのアクセスを許可します。
 3. Brazeダッシュボードで接続されたソースを新規作成します。
 4. 統合をテストします。
-5. 接続されたソースを使用して、1つ以上のCDI**セグメント**エクステンションを作成します。
+5. 接続されたソースを使用して、1つ以上のCDIセグメントエクステンションを作成します。
 {% endtab %}
 
 {% tab Databricks %}
@@ -66,10 +66,10 @@ page_type: reference
 2. サービスアカウントを作成し、同期するデータを含むDatabricksのプロジェクトとデータセットへのアクセスを許可します。
 3. Brazeダッシュボードで接続されたソースを新規作成します。
 4. 統合をテストします。
-5. 接続されたソースを使用して、1つ以上のCDI**セグメント**エクステンションを作成します。
+5. 接続されたソースを使用して、1つ以上のCDIセグメントエクステンションを作成します。
 
 {% alert important %}
-BrazeがClassicおよびPro SQLインスタンスに接続する際、2分から5分のウォームアップ時間が発生する可能性があります。これにより、接続設定やテスト中、ならびにCDI**セグメント**エクステンションの作成や更新中に遅延が生じます。サーバーレスSQLインスタンスを使用すると、ウォームアップ時間が最小限に抑えられ、クエリのスループットが向上しますが、連携コストが若干高くなる場合があります。
+BrazeがClassicおよびPro SQLインスタンスに接続する際、2分から5分のウォームアップ時間が発生する可能性があります。これにより、接続設定やテスト中、ならびにCDIセグメントエクステンションの作成や更新中に遅延が生じます。サーバーレスSQLインスタンスを使用すると、ウォームアップ時間が最小限に抑えられ、クエリのスループットが向上しますが、連携コストが若干高くなる場合があります。
 {% endalert %}
 
 {% endtab %}
@@ -79,7 +79,7 @@ BrazeがClassicおよびPro SQLインスタンスに接続する際、2分から
 2. Fabricワークスペースで、ソースデータを設定し、サービスプリンシパルに権限を付与します。
 3. Brazeダッシュボードで接続されたソースを新規作成します。
 4. 統合をテストします。
-5. 接続されたソースを使用して、1つ以上のCDI**セグメント**エクステンションを作成します。
+5. 接続されたソースを使用して、1つ以上のCDIセグメントエクステンションを作成します。
 {% endtab %}
 
 {% endtabs %}
@@ -92,11 +92,11 @@ BrazeがClassicおよびPro SQLインスタンスに接続する際、2分から
 {% tab Snowflake %}
 #### ステップ2.1：ロールを作成し、権限を付与する {#step-21-create-a-role-and-grant-permissions}
 
-接続されたソースが使用するロールを作成します。このロールは、CDI**セグメント**エクステンションで利用可能なテーブルの一覧を生成し、ソーステーブルをクエリして新しい **セグメント** を作成するために使用されます。接続されたソースが作成されると、Brazeはソーススキーマ内のユーザーが利用可能なすべてのテーブルの名前と説明を検出します。
+接続されたソースが使用するロールを作成します。このロールは、CDIセグメントエクステンションで利用可能なテーブルの一覧を生成し、ソーステーブルをクエリして新しいセグメントを作成するために使用されます。接続されたソースが作成されると、Brazeはソーススキーマ内のユーザーが利用可能なすべてのテーブルの名前と説明を検出します。
 
-スキーマ内のすべてのテーブルにアクセス権を付与するか、特定のテーブルにのみ権限を付与するかを選択できます。Brazeのロールがアクセス権を持つテーブルは、すべてCDI**セグメント**エクステンションでクエリ可能となります。
+スキーマ内のすべてのテーブルにアクセス権を付与するか、特定のテーブルにのみ権限を付与するかを選択できます。Brazeのロールがアクセス権を持つテーブルは、すべてCDIセグメントエクステンションでクエリ可能となります。
 
-`create table`権限は、BrazeがCDI**セグメント**エクステンションのクエリ結果をテーブルに作成し、その後Braze内でセグメントを更新するために必要です。Brazeは**セグメント**ごとに一時テーブルを作成し、そのテーブルはBrazeがセグメントを更新している間だけ保持されます。
+`create table`権限は、BrazeがCDIセグメントエクステンションのクエリ結果をテーブルに作成し、その後Braze内でセグメントを更新するために必要です。Brazeはセグメントごとに一時テーブルを作成し、そのテーブルはBrazeがセグメントを更新している間だけ保持されます。
 
 ```sql
 CREATE ROLE BRAZE_INGESTION_ROLE;
@@ -116,7 +116,7 @@ GRANT SELECT ON TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC TO 
 
 #### ステップ2.2：ウェアハウスの設定と、Brazeロールへのアクセス権の付与 {#step-22-set-up-the-warehouse-and-give-access-to-braze-role}
 
-`````````sql
+```sql
 CREATE WAREHOUSE BRAZE_INGESTION_WAREHOUSE;
 
 GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
@@ -127,7 +127,7 @@ GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
 {% endalert %}
 
 #### ステップ2.3：ユーザーの設定 {#step-23-set-up-the-user}
-`````````sql
+```sql
 CREATE USER BRAZE_INGESTION_USER;
 
 GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
@@ -143,24 +143,24 @@ Brazeと接続情報を共有し、後のステップでユーザーに付加す
 
 Snowflakeアカウントの設定によっては、Snowflakeのネットワークポリシー内で以下のIPアドレスを許可する必要があります。この方法の詳細については、[ネットワークポリシーの変更](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies)に関するSnowflakeの関連ドキュメントを参照してください。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 {% endtab %}
 
 {% tab Redshift %}
 #### ステップ2.1：ユーザーの作成と権限の付与 {#step-21-create-user-and-grant-permissions}
 
-`````````sql
+```sql
 CREATE USER braze_user PASSWORD '{password}';
 GRANT USAGE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION to braze_user;
 GRANT CREATE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION to braze_user;
 GRANT SELECT ON TABLE USERS_ATTRIBUTES_SYNC TO braze_user;
 ```
 
-接続されたソースが使用するユーザーを作成します。このユーザーは、CDI**セグメント**エクステンションで利用可能なテーブルの一覧を生成し、新しい **セグメント** を作成するためにソーステーブルをクエリするために使用されます。接続されたソースが作成されると、Brazeはソーススキーマ内のユーザーが利用可能なすべてのテーブルの名前と説明を検出します。CDI連携を複数作成する場合は、スキーマに権限を付与したり、グループを使用して権限を管理したりできます。
+接続されたソースが使用するユーザーを作成します。このユーザーは、CDIセグメントエクステンションで利用可能なテーブルの一覧を生成し、新しいセグメントを作成するためにソーステーブルをクエリするために使用されます。接続されたソースが作成されると、Brazeはソーススキーマ内のユーザーが利用可能なすべてのテーブルの名前と説明を検出します。CDI連携を複数作成する場合は、スキーマに権限を付与したり、グループを使用して権限を管理したりできます。
 
-スキーマ内のすべてのテーブルにアクセス権を付与するか、特定のテーブルにのみ権限を付与するかを選択できます。Brazeのロールがアクセス権を持つテーブルは、すべてCDI**セグメント**エクステンションでクエリ可能となります。新しいテーブルを作成する際には、必ずそのユーザーにアクセス権を付与するか、そのユーザーにデフォルトのアクセス権を設定してください。
+スキーマ内のすべてのテーブルにアクセス権を付与するか、特定のテーブルにのみ権限を付与するかを選択できます。Brazeのロールがアクセス権を持つテーブルは、すべてCDIセグメントエクステンションでクエリ可能となります。新しいテーブルを作成する際には、必ずそのユーザーにアクセス権を付与するか、そのユーザーにデフォルトのアクセス権を設定してください。
 
-`create table`権限は、BrazeがCDI**セグメント**エクステンションのクエリ結果をテーブルに作成し、その後Braze内でセグメントを更新するために必要です。Brazeは**セグメント**ごとに一時テーブルを作成し、Brazeがセグメントを更新している間だけ保持されます。
+`create table`権限は、BrazeがCDIセグメントエクステンションのクエリ結果をテーブルに作成し、その後Braze内でセグメントを更新するために必要です。Brazeはセグメントごとに一時テーブルを作成し、Brazeがセグメントを更新している間だけ保持されます。
 
 
 #### ステップ2.2：Braze IPへのアクセスの許可 {#step-22-allow-access-to-braze-ips}
@@ -171,7 +171,7 @@ GRANT SELECT ON TABLE USERS_ATTRIBUTES_SYNC TO braze_user;
 
 Redshiftクラスターにパブリックアクセスを許可しない場合は、SSHトンネルを使用してRedshiftデータにアクセスするようにVPCとEC2インスタンスを設定できます。詳しくは、[AWS：ローカルマシンからAmazon Redshiftのプライベートクラスターにアクセスするには？](https://repost.aws/knowledge-center/private-redshift-cluster-local-machine)を参照してください。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -184,13 +184,13 @@ GCPで、Brazeがテーブルに接続してデータを読み取るために使
 - **BigQuery User：** クエリの実行、データセットメタデータの読み取り、およびテーブルの一覧表示を行うためのアクセスをBrazeに提供します。
 - **BigQuery Data Viewer：** データセットとその内容を閲覧するためのアクセスをBrazeに提供します。
 - **BigQuery Job User：** ジョブを実行するためのアクセスをBrazeに提供します。
-- **bigquery.tables.create：** **セグメント**更新時に一時テーブルを作成するためのアクセスをBrazeに提供します。
+- **bigquery.tables.create：** セグメント更新時に一時テーブルを作成するためのアクセスをBrazeに提供します。
 
-接続されたソースが使用するサービスアカウントを作成します。このユーザーは、CDI**セグメント**エクステンションで利用可能なテーブルの一覧を生成し、新しい **セグメント** を作成するためにソーステーブルをクエリするために使用されます。接続されたソースが作成されると、Brazeはソーススキーマ内のユーザーが利用可能なすべてのテーブルの名前と説明を検出します。
+接続されたソースが使用するサービスアカウントを作成します。このユーザーは、CDIセグメントエクステンションで利用可能なテーブルの一覧を生成し、新しいセグメントを作成するためにソーステーブルをクエリするために使用されます。接続されたソースが作成されると、Brazeはソーススキーマ内のユーザーが利用可能なすべてのテーブルの名前と説明を検出します。
 
-データセット内のすべてのテーブルにアクセス権を付与するか、特定のテーブルだけに権限を付与するかを選択できます。Brazeのロールがアクセス権を持つテーブルは、すべてCDI**セグメント**エクステンションでクエリ可能となります。
+データセット内のすべてのテーブルにアクセス権を付与するか、特定のテーブルだけに権限を付与するかを選択できます。Brazeのロールがアクセス権を持つテーブルは、すべてCDIセグメントエクステンションでクエリ可能となります。
 
-`create table`権限は、BrazeがCDI**セグメント**エクステンションのクエリ結果をテーブルに作成し、その後Braze内でセグメントを更新するために必要です。Brazeは**セグメント**ごとに一時テーブルを作成し、そのテーブルはBrazeがセグメントを更新している間だけ保持されます。
+`create table`権限は、BrazeがCDIセグメントエクステンションのクエリ結果をテーブルに作成し、その後Braze内でセグメントを更新するために必要です。Brazeはセグメントごとに一時テーブルを作成し、そのテーブルはBrazeがセグメントを更新している間だけ保持されます。
 
 サービスアカウントを作成して権限を付与したら、JSONキーを生成します。詳しくは、[Google Cloud：サービスアカウントキーの作成と削除](https://cloud.google.com/iam/docs/keys-create-delete)を参照してください。これを後でBrazeダッシュボードにアップロードします。
 
@@ -198,7 +198,7 @@ GCPで、Brazeがテーブルに接続してデータを読み取るために使
 
 ネットワークポリシーを設定している場合は、BrazeにBigQueryインスタンスへのネットワークアクセスを許可する必要があります。Brazeダッシュボードのリージョンに対応する以下のIPからのアクセスを許可してください。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -214,11 +214,11 @@ BrazeがDatabricksにアクセスするには、パーソナルアクセスト�
 5. **Generate**を選択します。
 6. 表示されたトークンをコピーして、**Done**を選択します。
 
-このトークンは、CDI**セグメント**エクステンションで利用可能なテーブルのリストを生成し、ソーステーブルをクエリして新しい **セグメント** を作成するために使用されます。接続されたソースが作成されると、Brazeはソーススキーマ内のユーザーが利用可能なすべてのテーブルの名前と説明を検出します。
+このトークンは、CDIセグメントエクステンションで利用可能なテーブルのリストを生成し、ソーステーブルをクエリして新しいセグメントを作成するために使用されます。接続されたソースが作成されると、Brazeはソーススキーマ内のユーザーが利用可能なすべてのテーブルの名前と説明を検出します。
 
-スキーマ内のすべてのテーブルにアクセス権を付与するか、特定のテーブルにのみ権限を付与するかを選択できます。Brazeのロールがアクセス権を持つテーブルは、すべてCDI**セグメント**エクステンションでクエリ可能となります。
+スキーマ内のすべてのテーブルにアクセス権を付与するか、特定のテーブルにのみ権限を付与するかを選択できます。Brazeのロールがアクセス権を持つテーブルは、すべてCDIセグメントエクステンションでクエリ可能となります。
 
-`create table`権限は、BrazeがCDI**セグメント**エクステンションのクエリ結果をテーブルに作成し、その後Braze内でセグメントを更新するために必要です。Brazeは**セグメント**ごとに一時テーブルを作成し、Brazeがセグメントを更新している間だけ保持されます。
+`create table`権限は、BrazeがCDIセグメントエクステンションのクエリ結果をテーブルに作成し、その後Braze内でセグメントを更新するために必要です。Brazeはセグメントごとに一時テーブルを作成し、Brazeがセグメントを更新している間だけ保持されます。
 
 認証情報の作成ステップでBrazeダッシュボードへの入力が必要になるまで、トークンを安全な場所に保管してください。
 
@@ -226,7 +226,7 @@ BrazeがDatabricksにアクセスするには、パーソナルアクセスト�
 
 ネットワークポリシーを設定している場合は、BrazeにDatabricksインスタンスへのネットワークアクセスを許可する必要があります。Brazeダッシュボードのリージョンに対応する以下のIPからのアクセスを許可してください。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -234,8 +234,8 @@ BrazeがDatabricksにアクセスするには、パーソナルアクセスト�
 #### ステップ2.1：Fabricリソースへのアクセスを許可する {#step-21-grant-access-to-fabric-resources}
 BrazeはEntra ID認証でサービスプリンシパルを使用してFabricウェアハウスに接続します。Brazeが使用する新しいサービスプリンシパルを作成し、必要に応じてFabricリソースへのアクセスを許可します。Brazeの接続には以下の詳細が必要となります。
 
-* AzureアカウントのテナントID（ディレクトリとも呼ばれる）
-* サービスプリンシパルのプリンシパルID（アプリケーションIDとも呼ばれる）
+* AzureアカウントのテナントID（ディレクトリとも呼ばれます）
+* サービスプリンシパルのプリンシパルID（アプリケーションIDとも呼ばれます）
 * Brazeが認証するためのクライアントシークレット
 
 1. Azureポータルで、Microsoft Entra管理センターに移動し、**App Registrations**を選択します。
@@ -265,7 +265,7 @@ Brazeを接続するには、ウェアハウスのSQLエンドポイントが必
 
 Microsoft Fabricアカウントの設定によっては、Brazeからのトラフィックを許可するように、ファイアウォールで以下のIPアドレスを許可する必要があります。これを有効にする方法の詳細については、[Entra Conditional Access](https://learn.microsoft.com/en-us/fabric/security/protect-inbound-traffic#entra-conditional-access)の関連ドキュメントを参照してください。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -277,17 +277,17 @@ Microsoft Fabricアカウントの設定によっては、Brazeからのトラ�
 {% tab Snowflake %}
 #### ステップ3.1：Snowflakeの接続情報とソーステーブルの追加 {#step-31-add-snowflake-connection-information-and-source-table}
 
-Brazeダッシュボードで接続されたソースを作成します。**Data Settings** > **Cloud Data Ingestion** > **Connected Sources**の順に移動し、**Create new data sync** > **Snowflake Import**を選択します。
+Brazeダッシュボードで接続されたソースを作成します。**データ設定** > **クラウドデータ取り込み** > **接続されたソース**の順に移動し、**Create new data sync** > **Snowflake Import**を選択します。
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![新しいデータ同期を作成するオプションが表示された接続されたソースページ。]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Snowflakeデータウェアハウスとソーススキーマの情報を入力し、次のステップに進みます。
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_1.png %})
+![ウェアハウスとソーススキーマのSnowflake接続フィールド。]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_1.png %})
 
 #### ステップ3.2：同期の詳細の設定 {#step-32-configure-sync-details}
 
-接続されたソースの名前を選択します。この名前は、新しいCDI**セグメント**エクステンションを作成する際に、利用可能なソースのリストで使用されます。
+接続されたソースの名前を選択します。この名前は、新しいCDIセグメントエクステンションを作成する際に、利用可能なソースのリストで使用されます。
 
 このソースの最大実行時間を設定します。Brazeは、セグメントを作成または更新する際に、最大実行時間を超えるクエリを自動的に中止します。許容される最大実行時間は60分です。実行時間を短くすると、Snowflakeアカウントに課金されるコストが削減されます。
 
@@ -295,29 +295,29 @@ Snowflakeデータウェアハウスとソーススキーマの情報を入力�
 クエリが常にタイムアウトしており、最大実行時間を60分に設定している場合は、クエリの実行時間を最適化するか、Brazeユーザーにより大きなウェアハウスを割り当てることを検討してください。
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_2.png %})
+![Snowflakeの同期名と最大実行時間の設定。]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_2.png %})
 
 #### ステップ3.3：公開キーを書き留める {#step-33-note-the-public-key}
 
 **Test connection**ステップに表示されているRSA公開キーをメモします。Snowflakeでの統合を完了するために必要です。
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_3.png %})
+![RSA公開キーが表示されたSnowflakeの接続テストステップ。]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_3.png %})
 
 {% endtab %}
 {% tab Redshift %}
 #### ステップ3.1：Redshiftの接続情報とソーステーブルの追加 {#step-31-add-redshift-connection-information-and-source-table}
 
-Brazeダッシュボードで接続されたソースを作成します。**Data Settings** > **Cloud Data Ingestion** > **Connected Sources**の順に移動し、**Create data connection** > **Amazon Redshift Import**を選択します。
+Brazeダッシュボードで接続されたソースを作成します。**データ設定** > **クラウドデータ取り込み** > **接続されたソース**の順に移動し、**Create data connection** > **Amazon Redshift Import**を選択します。
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![新しいデータ同期を作成するオプションが表示された接続されたソースページ。]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Redshiftデータウェアハウスとソーススキーマの情報を入力し、次のステップに進みます。
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_1.png %})
+![ウェアハウスとソーススキーマのRedshift接続フィールド。]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_1.png %})
 
 #### ステップ3.2：同期の詳細の設定
 
-接続されたソースの名前を選択します。この名前は、新しいCDI**セグメント**エクステンションを作成する際に、利用可能なソースのリストで使用されます。
+接続されたソースの名前を選択します。この名前は、新しいCDIセグメントエクステンションを作成する際に、利用可能なソースのリストで使用されます。
 
 このソースの最大実行時間を設定します。Brazeは、セグメントを作成または更新する際に、最大実行時間を超えるクエリを自動的に中止します。許容される最大実行時間は60分です。実行時間を短くすると、Redshiftアカウントに課金されるコストが削減されます。
 
@@ -325,29 +325,29 @@ Redshiftデータウェアハウスとソーススキーマの情報を入力し
 クエリが常にタイムアウトしており、最大実行時間を60分に設定している場合は、クエリの実行時間を最適化するか、Brazeユーザーにより大きなウェアハウスを割り当てることを検討してください。
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_2.png %})
+![Redshiftの同期名と最大実行時間の設定。]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_2.png %})
 
 #### ステップ3.3：公開キーを書き留める（省略可） {#step-33-note-the-public-key-optional}
 
 認証情報で**Connect with SSH Tunnel**が選択されている場合は、**Test connection**ステップに表示されているRSA公開キーをメモします。Redshiftでの統合を完了するために必要です。
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_3.png %})
+![RSA公開キーが表示されたRedshiftの接続テストステップ。]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_3.png %})
 
 {% endtab %}
 {% tab BigQuery %}
 #### ステップ3.1：BigQueryの接続情報とソーステーブルの追加 {#step-31-add-bigquery-connection-information-and-source-table}
 
-Brazeダッシュボードで接続されたソースを作成します。**Data Settings** > **Cloud Data Ingestion** > **Connected Sources**の順に移動し、**Create new data sync** > **Google BigQuery Import**を選択します。
+Brazeダッシュボードで接続されたソースを作成します。**データ設定** > **クラウドデータ取り込み** > **接続されたソース**の順に移動し、**Create new data sync** > **Google BigQuery Import**を選択します。
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![新しいデータ同期を作成するオプションが表示された接続されたソースページ。]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 BigQueryプロジェクトとデータセットの情報を入力し、次のステップに進みます。
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_1.png %})
+![BigQueryの接続情報とソーステーブルの追加に関するスクリーンショット。]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_1.png %})
 
 #### ステップ3.2：同期の詳細の設定
 
-接続されたソースの名前を選択します。この名前は、新しいCDI**セグメント**エクステンションを作成する際に、利用可能なソースのリストで使用されます。
+接続されたソースの名前を選択します。この名前は、新しいCDIセグメントエクステンションを作成する際に、利用可能なソースのリストで使用されます。
 
 このソースの最大実行時間を設定します。Brazeは、セグメントを作成または更新する際に、最大実行時間を超えるクエリを自動的に中止します。許容される最大実行時間は60分です。実行時間を短くすると、BigQueryアカウントに課金されるコストが削減されます。
 
@@ -355,29 +355,29 @@ BigQueryプロジェクトとデータセットの情報を入力し、次のス
 クエリが常にタイムアウトしており、最大実行時間を60分に設定している場合は、クエリの実行時間を最適化するか、Brazeユーザーにより大きなウェアハウスを割り当てることを検討してください。
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_2.png %})
+![同期の詳細の設定に関するスクリーンショット。]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_2.png %})
 
 #### ステップ3.3：接続をテストする {#step-33-test-the-connection}
 
-**Test Connection**を選択し、ユーザーに表示されるテーブルのリストが期待どおりであることを確認してから、**Done**を選択します。接続されたソースが作成され、CDI**セグメント**エクステンションで使用できる状態になりました。
+**Test Connection**を選択し、ユーザーに表示されるテーブルのリストが期待どおりであることを確認してから、**Done**を選択します。接続されたソースが作成され、CDIセグメントエクステンションで使用できる状態になりました。
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
+![接続されたソースで利用可能なテーブルが表示された接続テストステップ。]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% tab Databricks %}
 #### ステップ3.1：Databricksの接続情報とソーステーブルの追加 {#step-31-add-databricks-connection-information-and-source-table}
 
-Brazeダッシュボードで接続されたソースを作成します。**Data Settings** > **Cloud Data Ingestion** > **Connected Sources**の順に移動し、**Create new data sync** > **Databricks Import**を選択します。
+Brazeダッシュボードで接続されたソースを作成します。**データ設定** > **クラウドデータ取り込み** > **接続されたソース**の順に移動し、**Create new data sync** > **Databricks Import**を選択します。
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![新しいデータ同期を作成するオプションが表示された接続されたソースページ。]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Databricks認証情報、オプションのカタログとソーススキーマの情報を入力してから、次のステップに進みます。
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_databricks_1.png %})
+![認証情報とソーススキーマのDatabricks接続フィールド。]({% image_buster /assets/img/cloud_ingestion/connected_source_databricks_1.png %})
 
 #### ステップ3.2：同期の詳細の設定
 
-接続されたソースの名前を選択します。この名前は、新しいCDI**セグメント**エクステンションを作成する際に、利用可能なソースのリストで使用されます。
+接続されたソースの名前を選択します。この名前は、新しいCDIセグメントエクステンションを作成する際に、利用可能なソースのリストで使用されます。
 
 このソースの最大実行時間を設定します。Brazeは、セグメントを作成または更新する際に、最大実行時間を超えるクエリを自動的に中止します。許容される最大実行時間は60分です。実行時間を短くすると、Databricksアカウントに課金されるコストが削減されます。
 
@@ -385,29 +385,29 @@ Databricks認証情報、オプションのカタログとソーススキーマ�
 クエリが常にタイムアウトしており、最大実行時間を60分に設定している場合は、クエリの実行時間を最適化するか、Brazeユーザーにより大きなウェアハウスを割り当てることを検討してください。
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_db_2.png %})
+![Databricksの同期名と最大実行時間の設定。]({% image_buster /assets/img/cloud_ingestion/connected_source_db_2.png %})
 
 #### ステップ3.3：接続をテストする
 
-**Test Connection**を選択し、ユーザーに表示されるテーブルのリストが期待どおりであることを確認してから、**Done**を選択します。接続されたソースが作成され、CDI**セグメント**エクステンションで使用できる状態になりました。
+**Test Connection**を選択し、ユーザーに表示されるテーブルのリストが期待どおりであることを確認してから、**Done**を選択します。接続されたソースが作成され、CDIセグメントエクステンションで使用できる状態になりました。
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
+![接続されたソースで利用可能なテーブルが表示された接続テストステップ。]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% tab Microsoft Fabric %}
 #### ステップ3.1：Microsoft Fabricの接続情報とソーステーブルを追加する {#step-31-add-microsoft-fabric-connection-information-and-source-table}
 
-Brazeダッシュボードで接続されたソースを作成します。**Data Settings** > **Cloud Data Ingestion** > **Connected Sources**の順に移動し、**Create new data sync** > **Microsoft Fabric Import**を選択します。
+Brazeダッシュボードで接続されたソースを作成します。**データ設定** > **クラウドデータ取り込み** > **接続されたソース**の順に移動し、**Create new data sync** > **Microsoft Fabric Import**を選択します。
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![新しいデータ同期を作成するオプションが表示された接続されたソースページ。]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Microsoft Fabricの認証情報およびソースウェアハウス、スキーマの情報を入力し、次のステップに進みます。
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_1.png %})
+![認証情報とソーススキーマのMicrosoft Fabric接続フィールド。]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_1.png %})
 
 #### ステップ3.2：同期の詳細の設定
 
-接続されたソースの名前を選択します。この名前は、新しいCDI**セグメント**エクステンションを作成する際に、利用可能なソースのリストで使用されます。
+接続されたソースの名前を選択します。この名前は、新しいCDIセグメントエクステンションを作成する際に、利用可能なソースのリストで使用されます。
 
 このソースの最大実行時間を設定します。Brazeは、セグメントを作成または更新する際に、最大実行時間を超えるクエリを自動的に中止します。許容される最大実行時間は60分です。実行時間を短くすると、Microsoft Fabricアカウントに課金されるコストが削減されます。
 
@@ -415,13 +415,13 @@ Microsoft Fabricの認証情報およびソースウェアハウス、スキー�
 クエリが常にタイムアウトしており、最大実行時間を60分に設定している場合は、クエリの実行時間を最適化するか、Fabric容量を拡張することを検討してください。
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_2.png %})
+![Microsoft Fabricの同期名と最大実行時間の設定。]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_2.png %})
 
 #### ステップ3.3：接続をテストする
 
-**Test Connection**を選択し、ユーザーに表示されるテーブルのリストが期待どおりであることを確認してから、**Done**を選択します。接続されたソースが作成され、CDI**セグメント**エクステンションで使用できる状態になりました。
+**Test Connection**を選択し、ユーザーに表示されるテーブルのリストが期待どおりであることを確認してから、**Done**を選択します。接続されたソースが作成され、CDIセグメントエクステンションで使用できる状態になりました。
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
+![接続されたソースで利用可能なテーブルが表示された接続テストステップ。]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -432,21 +432,21 @@ Microsoft Fabricの認証情報およびソースウェアハウス、スキー�
 {% tab Snowflake %}
 最後のステップで書き留めた公開キーをSnowflakeのユーザーに追加します。これにより、BrazeがSnowflakeに接続できるようになります。この方法の詳細については、[Snowflakeのドキュメント](https://docs.snowflake.com/en/user-guide/key-pair-auth.html)を参照してください。
 
-任意の時点でキーのローテーションを行う場合は、新しい公開キーを作成できます。このためには、**Cloud Data Ingestion**の**Data Access Management**に移動し、該当するアカウントの**Generate New Key**を選択します。
+任意の時点でキーのローテーションを行う場合は、新しい公開キーを作成できます。このためには、**クラウドデータ取り込み**の**Data Access Management**に移動し、該当するアカウントの**Generate New Key**を選択します。
 
 ![Snowflakeデータアクセスの認証情報のデータアクセス管理。新しいキーを生成するボタンが表示されています。]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_4.png %})
 
-`````````sql
+```sql
 ALTER USER BRAZE_INGESTION_USER SET rsa_public_key='{INSERT_YOUR_KEY}';
 ```
 
-Snowflakeでユーザーにキーを追加したら、Brazeで**Test Connection**を選択し、**Done**を選択します。接続されたソースが作成され、CDI**セグメント**エクステンションで使用できる状態になりました。
+Snowflakeでユーザーにキーを追加したら、Brazeで**Test Connection**を選択し、**Done**を選択します。接続されたソースが作成され、CDIセグメントエクステンションで使用できる状態になりました。
 {% endtab %}
 
 {% tab Redshift %}
 SSHトンネルで接続する場合は、最後のステップで書き留めた公開キーをSSHトンネルユーザーに追加します。
 
-ユーザーにキーを追加したら、Brazeで**Test Connection**を選択し、**Done**を選択します。接続されたソースが作成され、CDI**セグメント**エクステンションで使用できる状態になりました。
+ユーザーにキーを追加したら、Brazeで**Test Connection**を選択し、**Done**を選択します。接続されたソースが作成され、CDIセグメントエクステンションで使用できる状態になりました。
 
 {% endtab %}
 {% tab BigQuery %}
@@ -495,7 +495,7 @@ Brazeで複数のソースを設定できますが、各ソースは異なるス
 
 ## 接続されたソースの使用 {#using-the-connected-source}
 
-ソースが作成された後、それを使って1つ以上のCDI**セグメント**エクステンションを作成できます。このソースを使用したセグメントの作成に関する詳細情報は、[CDI**セグメント**エクステンションのドキュメント]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/)を参照してください。
+ソースが作成された後、それを使って1つ以上のCDIセグメントエクステンションを作成できます。このソースを使用したセグメントの作成に関する詳細情報は、[CDIセグメントエクステンションのドキュメント]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments)を参照してください。
 
 {% alert note %}
 クエリが常にタイムアウトしており、最大実行時間を60分に設定している場合は、クエリの実行時間を最適化するか、より多くのコンピューティングリソース（より大きなウェアハウスなど）をBrazeユーザーに割り当てることを検討してください。

@@ -13,7 +13,7 @@ search_rank: 1
 
 # Créer un modèle d'e-mail {#create-an-email-template}
 
-> Le tableau de bord de Braze dispose d'un éditeur de modèles d'e-mail qui vous permet de créer des e-mails personnalisés et attrayants, puis de les enregistrer pour une utilisation ultérieure dans des campagnes. Vous pouvez également charger votre propre [modèle d'e-mail HTML]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/).
+> Le tableau de bord de Braze dispose d'un éditeur de modèles d'e-mail qui vous permet de créer des e-mails personnalisés et attrayants, puis de les enregistrer pour une utilisation ultérieure dans des campagnes. Vous pouvez également charger votre propre [modèle d'e-mail HTML]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template).
 
 ## Étape 1 : Accéder à l'éditeur de modèles d'e-mail {#step-1-navigate-to-the-email-template-editor}
 
@@ -23,7 +23,7 @@ Dans le tableau de bord de Braze, accédez à **Contenu** > **E-mail**.
 
 Choisissez entre l'**éditeur par glisser-déposer** ou l'**éditeur de code HTML** pour votre expérience d'édition.
 
-Vous pouvez également choisir parmi les modèles Braze préconçus, créer un nouveau modèle ou modifier un modèle existant (simple ou [responsive mobile]({{site.baseurl}}/help/release_notes/2018/may/#mobile-responsive-email-templates)).
+Vous pouvez également choisir parmi les modèles Braze préconçus, créer un nouveau modèle ou modifier un modèle existant (simple ou [responsive mobile]({{site.baseurl}}/help/release_notes/2018/may#mobile-responsive-email-templates)).
 
 ![Un modèle d'e-mail pour les soldes de printemps d'une entreprise avec des options pour sélectionner l'éditeur par glisser-déposer ou l'éditeur HTML, ou pour choisir parmi les modèles Braze.]({% image_buster /assets/img/email_templates/template2.png %})
 
@@ -33,11 +33,11 @@ Tout modèle HTML personnalisé existant doit être recréé à l'aide de l'édi
 
 ## Étape 3 : Personnaliser votre modèle {#step-3-customize-your-template}
 
-Après avoir sélectionné votre expérience d'édition, c'est l'occasion de faire preuve de créativité pour personnaliser votre modèle d'e-mail. Vous pouvez utiliser le HTML pour créer et reproduire votre identité de marque dans l'éditeur HTML, ou inclure une variété de [détails créatifs]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#creative-details) dans l'éditeur par glisser-déposer.
+Après avoir sélectionné votre expérience d'édition, c'est l'occasion de faire preuve de créativité pour personnaliser votre modèle d'e-mail. Vous pouvez utiliser le HTML pour créer et reproduire votre identité de marque dans l'éditeur HTML, ou inclure une variété de [détails créatifs]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#creative-details) dans l'éditeur par glisser-déposer.
 
 ### Inclure un lien de désabonnement {#include-an-unsubscribe-link}
 
-Lors de la conception de votre modèle d'e-mail, si vous n'incluez pas de lien de désabonnement, Braze vous invitera à en ajouter un dans votre e-mail, car il est exigé par la loi pour tous les e-mails marketing. Vous pouvez ajouter ce lien de désabonnement en tant que pied de page en bas de vos e-mails en utilisant l'étiquette Liquid {% raw %}``${email_footer}``{% endraw %}, ou en [personnalisant le pied de page]({{site.baseurl}}/user_guide/channels/email/subscriptions/#custom-footer) dans votre modèle.
+Lors de la conception de votre modèle d'e-mail, si vous n'incluez pas de lien de désabonnement, Braze vous invitera à en ajouter un dans votre e-mail, car il est exigé par la loi pour tous les e-mails marketing. Vous pouvez ajouter ce lien de désabonnement en tant que pied de page en bas de vos e-mails en utilisant l'étiquette Liquid {% raw %}``${email_footer}``{% endraw %}, ou en [personnalisant le pied de page]({{site.baseurl}}/user_guide/channels/email/subscriptions#custom-footer) dans votre modèle.
 
 ## Étape 4 : Vérifier les erreurs d'e-mail {#step-4-check-for-email-errors}
 
@@ -48,7 +48,7 @@ Les erreurs d'e-mail sont présentées dans l'onglet **Rédiger** du flux de tra
 Voici la liste des erreurs prises en compte dans notre éditeur :
 
 - Syntaxe Liquid incorrecte
-- [Corps d'e-mail supérieurs à 400 ko ; il est fortement recommandé que les corps fassent moins de 102 ko]({{site.baseurl}}/user_guide/channels/email/best_practices/)
+- [Corps d'e-mail supérieurs à 400 ko ; il est fortement recommandé que les corps fassent moins de 102 ko]({{site.baseurl}}/user_guide/channels/email/best_practices)
 - Modèles sans lien de désabonnement
 - E-mails avec un **corps** ou un **objet** vide
 - E-mails sans lien de désabonnement
@@ -83,9 +83,9 @@ Si vous apportez des modifications à un modèle existant, ces changements ne se
 
 ### Gérer vos modèles {#manage-your-templates}
 
-Vous pouvez consulter les modèles d'e-mail dans **Modèles** > **Modèles d'e-mail**, en filtrant par état, type, étiquettes, utilisateur qui l'a créé, ou en recherchant par nom de modèle. Vous avez besoin des autorisations utilisateur appropriées, telles que **View Email Templates**, pour consulter ces modèles. Pour plus de détails, consultez [Autorisations des utilisateurs]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Vous pouvez consulter les modèles d'e-mail dans **Modèles** > **Modèles d'e-mail**, en filtrant par état, type, étiquettes, utilisateur qui l'a créé, ou en recherchant par nom de modèle. Vous avez besoin des autorisations utilisateur appropriées, telles que **View Email Templates**, pour consulter ces modèles. Pour plus de détails, consultez [Autorisations des utilisateurs]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
-Au fur et à mesure que vous créez des modèles d'e-mail, vous pouvez les [dupliquer]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates) et les [archiver]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates). Apprenez-en plus sur la création et la gestion de votre bibliothèque de modèles et de contenu créatif dans [Modèles et médias]({{site.baseurl}}/user_guide/messaging/templates/).
+Au fur et à mesure que vous créez des modèles d'e-mail, vous pouvez les [dupliquer]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicate-templates) et les [archiver]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archive-templates). Apprenez-en plus sur la création et la gestion de votre bibliothèque de modèles et de contenu créatif dans [Modèles et médias]({{site.baseurl}}/user_guide/messaging/templates).
 
 ### Utiliser vos modèles dans des campagnes API {#use-your-templates-in-api-campaigns}
 
@@ -107,4 +107,4 @@ Une fois votre modèle enregistré, les utilisateurs peuvent voir des icônes au
 
 ![Un commentaire de modèle d'e-mail indiquant « Looks good to me ».]({% image_buster /assets/img/email_templates/template_comment.png %})
 
-Pour obtenir des réponses aux questions fréquemment posées sur les modèles d'e-mail, consultez notre [FAQ sur les modèles]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq/).
+Pour obtenir des réponses aux questions fréquemment posées sur les modèles d'e-mail, consultez notre [FAQ sur les modèles]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq).

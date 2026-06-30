@@ -117,7 +117,7 @@ configuration.devicePropertyAllowList = @[
 {% endtabs %}
 
 {% alert tip %}
-Wenn Sie mehr über automatisch erfasste Geräteeigenschaften erfahren möchten, lesen Sie den Abschnitt [SDK-Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
+Wenn Sie mehr über automatisch erfasste Geräteeigenschaften erfahren möchten, lesen Sie den Abschnitt [SDK-Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
 {% endalert %}
 
 ## Speichern von Cookies (nur Internet) {#cookies}
@@ -133,7 +133,7 @@ Die folgenden Cookies werden gespeichert:
 | `ab.storage.deviceId.[your-api-key]` | Zufällig generierter String zur Identifizierung anonymer Nutzer:innen und zur Unterscheidung der Geräte der Nutzer:innen, der gerätebasiertes Messaging ermöglicht. | ~200 Bytes |
 | `ab.optOut` | Wird verwendet, um die Opt-out-Präferenz einer Nutzer:in zu speichern, wenn `disableSDK` aufgerufen wird. | ~40 Bytes |
 | `ab._gd` | Wird vorübergehend erstellt (und dann gelöscht), um die Root-Level-Cookie-Domain zu bestimmen, damit das SDK über Sub-Domains hinweg korrekt funktioniert. | k. A. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Store cookies (web only) #cookies" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Cookies speichern (nur Internet)" }
 
 ### Ablauf von Cookies ändern {#cookie-expiry}
 

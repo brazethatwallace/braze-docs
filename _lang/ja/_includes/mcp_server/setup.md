@@ -80,7 +80,7 @@ APIキーを作成するには：
 {% endalert %}
 
 {% details サポートされている権限の一覧 %}
-#### Campaigns
+#### キャンペーン
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
@@ -88,9 +88,9 @@ APIキーを作成するには：
 | [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/) | `campaigns.details` |
 | [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/) | `campaigns.list` |
 | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | `sends.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaigns" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="キャンペーン" }
 
-#### Canvas
+#### キャンバス
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
@@ -98,7 +98,7 @@ APIキーを作成するには：
 | [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/) | `canvas.data_summary` |
 | [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) | `canvas.details` |
 | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | `canvas.list` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="キャンバス" }
 
 #### カタログ {#catalogs}
 
@@ -188,14 +188,14 @@ APIキーを作成するには：
 | [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases/) | `purchases.quantity_series` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="購入" }
 
-#### Segments
+#### セグメント
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
 | [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) | `segments.list` |
 | [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics/) | `segments.data_series` |
 | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | `segments.details` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Segments" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="セグメント" }
 
 #### 送信 {#sends}
 
@@ -347,15 +347,18 @@ Braze MCPサーバーを設定したら、MCPクライアントにテストプ�
 
 {% tabs %}
 {% tab Claude %}
-![Claudeで「利用可能なBraze機能は何ですか？」と質問し、回答が表示されている様子。]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**プロンプト例:** `What are my available Braze functions?`
+**応答例:** `list_functions`を使用し、利用可能なBraze MCP機能カテゴリを返しました。
 {% endtab %}
 
 {% tab Cursor %}
-![Cursorで「利用可能なBraze機能は何ですか」と質問し、回答が表示されている様子。]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**プロンプト例:** `What are my available Braze functions?`
+**応答例:** `list_functions`をクエリし、`get_canvas_list`などの機能を一覧表示しました。
 {% endtab %}
 
 {% tab Gemini CLI %}
-![Gemini CLIで「利用可能なBraze機能は何ですか？」と質問し、回答が表示されている様子。]({% image_buster /assets/img/mcp_server/gemini_cli/what_are_my_available_braze_functions.png %})
+**プロンプト例:** `What are my available Braze functions?`
+**応答例:** Gemini CLIで`list_functions`をクエリし、利用可能なBraze MCP機能カテゴリとサンプル機能を返しました。
 {% endtab %}
 {% endtabs %}
 

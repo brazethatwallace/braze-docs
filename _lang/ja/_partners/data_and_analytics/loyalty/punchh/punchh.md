@@ -159,7 +159,7 @@ BrazeとPunchhの統合を設定するには、次の手順を実行します。
 
 Brazeは、Punchhカスタムセグメントを使用してwebhook経由でユーザーをPunchhセグメントに追加できます。
 
-1. Punchhでカスタムセグメントを作成し、以下に示すPunchhセグメントダッシュボードURLに含まれている`custom_segment_id`をメモします。従来のセグメントビルダーまたはベータセグメントビルダーの両方を使用できます。ただし、classicは最終的に非推奨になるため、ベータが推奨されています。<br><br>Punchhプラットフォームで**Guest** > **Segment** > **Custom List** > **New Custom List**に移動します。<br><br>![]({% image_buster /assets/img/punchh/update1.png %})<br><br>
+1. Punchhでカスタムセグメントを作成し、以下に示すPunchhセグメントダッシュボードURLに含まれている`custom_segment_id`をメモします。従来のセグメントビルダーまたはベータセグメントビルダーの両方を使用できます。ただし、classicは最終的に非推奨になるため、ベータが推奨されています。<br><br>Punchhプラットフォームで**Guest** > **セグメント** > **Custom List** > **New Custom List**に移動します。<br><br>![]({% image_buster /assets/img/punchh/update1.png %})<br><br>
 
 2. Brazeでwebhookキャンペーンを作成するには、ユーザーをカスタムセグメントに追加するためのPunchhエンドポイントをwebhook URLとして使用します。ここでは、URLから取得した`custom_segment_id`と`user_id`をキーと値のペアとして指定できます。<br><br>![]({% image_buster /assets/img/punchh/punchh4.png %})<br><br>
 

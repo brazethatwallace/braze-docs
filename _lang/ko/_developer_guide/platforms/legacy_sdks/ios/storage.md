@@ -43,4 +43,4 @@ appboyOptions[ABKDeviceAllowlistKey] = @(ABKDeviceOptionTimezone | ABKDeviceOpti
 
 기본적으로 모든 필드가 활성화되어 있습니다. 일부 등록정보가 없으면 모든 기능이 제대로 작동하지 않을 수 있습니다. 예를 들어, 현지 시간대 전달은 시간대가 없으면 작동하지 않습니다.
 
-자동으로 수집되는 기기 등록정보에 대한 자세한 내용은 [SDK 데이터 수집]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/)을 참조하세요.
+자동으로 수집되는 기기 등록정보에 대한 자세한 내용은 [SDK 데이터 수집]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection)을 참조하세요.

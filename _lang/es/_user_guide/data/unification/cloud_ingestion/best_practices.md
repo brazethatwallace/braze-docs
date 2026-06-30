@@ -26,7 +26,7 @@ Braze CDI sincronizará las filas basándose estrictamente en el valor de `UPDAT
 
 ### Ejemplo: sincronización recurrente {#example-recurring-sync}
 
-Para ilustrar cómo se utiliza `UPDATED_AT` en una sincronización CDI, considera este ejemplo de sincronización periódica para actualizar los atributos de usuario:
+Para ilustrar cómo se utiliza `UPDATED_AT` en una sincronización CDI, considera este ejemplo de sincronización recurrente para actualizar atributos de usuario:
 
 - Fuentes de almacenamiento de archivos
    - Amazon S3
@@ -51,7 +51,7 @@ Al utilizar CDI para sincronizar datos de fuentes externas (como Databricks o Sn
 - **Números almacenados como cadenas:** Convierte las columnas numéricas a tipos integer o float en tu consulta de origen antes de sincronizar.
 - **Tipos inconsistentes entre sincronizaciones:** Si el tipo de una columna cambia entre sincronizaciones, Braze puede rechazar los nuevos datos. Verifica que el esquema de tu origen se mantenga consistente.
 
-Para forzar o cambiar los tipos de datos de los atributos personalizados en el panel de Braze, consulta [Administrar datos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#forcing-data-type-comparisons).
+Para forzar o cambiar los tipos de datos de los atributos personalizados en el panel de Braze, consulta [Administrar datos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#forcing-data-type-comparisons).
 
 Puedes actualizar los datos de usuario mediante el ID externo, el alias de usuario, el ID de Braze, el correo electrónico o el número de teléfono. Puedes eliminar usuarios por ID externo, alias de usuario o ID de Braze.
 
@@ -122,7 +122,7 @@ En tu almacén de datos, añade los siguientes usuarios y atributos a tu tabla, 
 
 Durante la siguiente sincronización programada, Braze sincroniza todas las filas con una marca de tiempo de `UPDATED_AT` posterior a la marca de tiempo sincronizada más reciente. Braze actualiza o añade campos, por lo que no es necesario sincronizar el perfil de usuario completo cada vez. Tras la sincronización, los perfiles de usuario reflejan las nuevas actualizaciones:
 
-**Sincronización periódica, segunda ejecución el 20 de julio de 2022 a las 12 p. m.**
+**Sincronización recurrente, segunda ejecución el 20 de julio de 2022 a las 12 p. m.**
 
 <table role="presentation">
   <thead>
@@ -194,7 +194,7 @@ Durante la siguiente sincronización programada, Braze sincroniza todas las fila
 
 Se añadió una nueva fila para `customer_9012`, pero su valor de `UPDATED_AT` (`2022-07-16 00:25:30`) es anterior a la marca de tiempo almacenada (`2022-07-19 09:07:23`), por lo que no se sincronizará. Sin embargo, la fila existente de `customer_5678` tiene un valor de `UPDATED_AT` igual a la marca de tiempo almacenada, por lo que se vuelve a sincronizar debido al límite inclusivo. Para más detalles sobre este comportamiento, consulta [Asegúrate de que la hora de UPDATED_AT no sea la misma que la de tu sincronización](#make-sure-the-updated_at-time-isnt-the-same-time-as-your-sync). El `UPDATED_AT` almacenado permanece como `2022-07-19 09:07:23`.
 
-**Sincronización periódica, tercera ejecución el 21 de julio de 2022 a las 12 p. m.**
+**Sincronización recurrente, tercera ejecución el 21 de julio de 2022 a las 12 p. m.**
 
 <table role="presentation">
   <thead>
@@ -695,7 +695,7 @@ Disponemos de un [repositorio público en GitHub](https://github.com/braze-inc/b
 
 ### Formato de los datos {#data-formatting}
 
-Los requisitos de configuración de tablas y de formato de la carga útil para la Ingesta de datos de Cloud están documentados en [Configuración de tablas para la Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/).
+Los requisitos de configuración de tablas y de formato de la carga útil para la Ingesta de datos de Cloud están documentados en [Configuración de tablas para la Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
 
 Utiliza esa página para distinguir:
 

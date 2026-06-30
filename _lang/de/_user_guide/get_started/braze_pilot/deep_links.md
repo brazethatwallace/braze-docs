@@ -8,7 +8,7 @@ description: "Dieser Referenzartikel beschreibt kurz die erforderlichen Integrat
 
 # Navigations-Deeplinks in Braze Pilot {#navigation-deep-links-in-braze-pilot}
 
-> Braze Pilot unterstützt Deeplinking von Braze-Messaging zu bestimmten Bereichen der Pilot-App. So können Sie Engagement-Anwendungsfälle erstellen und Nutzer:innen in verschiedene Bereiche der Pilot-Anwendung leiten. Sie können auch optionale Deeplink-Parameter verwenden, um den Inhalt bestimmter Seiten in der App für die Nutzer:innen anzupassen. Weitere Informationen zum Deeplinking finden Sie unter [Deeplinking zu In-App-Inhalten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
+> Braze Pilot unterstützt Deeplinking von Braze-Messaging zu bestimmten Bereichen der Pilot-App. So können Sie Engagement-Anwendungsfälle erstellen und Nutzer:innen in verschiedene Bereiche der Pilot-Anwendung leiten. Sie können auch optionale Deeplink-Parameter verwenden, um den Inhalt bestimmter Seiten in der App für die Nutzer:innen anzupassen. Weitere Informationen zum Deeplinking finden Sie unter [Deeplinking zu In-App-Inhalten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
 
 ## Allgemein {#general}
 

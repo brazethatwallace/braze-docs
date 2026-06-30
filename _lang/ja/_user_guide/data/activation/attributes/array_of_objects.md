@@ -9,7 +9,7 @@ description: "このリファレンス記事では、オブジェクト配列を
 
 # オブジェクト配列 {#array-of-objects}
 
-> このページでは、オブジェクトの配列を使って関連する属性をグループ化する方法を説明します。例えば、1人のユーザーに属するペットオブジェクト、曲オブジェクト、アカウントオブジェクトをすべて含むグループがあるとします。これらのオブジェクト配列を使用して、Liquidでメッセージングをパーソナライズしたり、オブジェクト内のいずれかの要素が条件に一致する場合にオーディエンスSegmentを作成したりできます。
+> このページでは、オブジェクトの配列を使って関連する属性をグループ化する方法を説明します。例えば、1人のユーザーに属するペットオブジェクト、曲オブジェクト、アカウントオブジェクトをすべて含むグループがあるとします。これらのオブジェクト配列を使用して、Liquidでメッセージングをパーソナライズしたり、オブジェクト内のいずれかの要素が条件に一致する場合にオーディエンスセグメントを作成したりできます。
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 
@@ -17,16 +17,16 @@ description: "このリファレンス記事では、オブジェクト配列を
 
 - オブジェクトの配列は、APIを通じて送信されるカスタム属性を対象としています。CSVアップロードはサポートされていません。これは、CSVファイル内のカンマが列区切りとして解釈され、値内のカンマがパースエラーを引き起こすためです。
 - オブジェクトの配列にはアイテム数の制限はありませんが、最大サイズは100&nbsp;KBです。更新（`$add`や`$update`など）によって配列がこの制限を超える場合、Brazeはその更新を破棄し、属性は変更されません。APIリクエスト自体は成功レスポンスを返します。新しいアイテムを追加できるように配列を制限内に収めるには、まず`$remove`を使用して配列からアイテムを削除してください。
-- すべてのBrazeパートナーがオブジェクト配列をサポートしているわけではありません。連携がこの機能をサポートしているかどうかは、[パートナードキュメント]({{site.baseurl}}/partners/home/)を参照して確認してください。
+- すべてのBrazeパートナーがオブジェクト配列をサポートしているわけではありません。連携がこの機能をサポートしているかどうかは、[パートナードキュメント]({{site.baseurl}}/partners/home)を参照して確認してください。
 
 配列内のアイテムを更新または削除するには、キーと値でアイテムを識別する必要があるため、配列内の各アイテムに一意の識別子を含めることを検討してください。一意性は配列内のみにスコープされ、配列から特定のオブジェクトを更新および削除する場合に役立ちます。これはBrazeによって強制されるものではありません。
 
 {% alert important %}
-リクエスト内の階層化カスタム属性に無効な値（無効な時刻形式や`null`値など）が含まれている場合、Brazeはそのリクエスト内のすべての階層化カスタム属性の更新を処理から除外します。これは、その特定の属性内のすべての階層化構造に適用されます。送信前に、階層化カスタム属性内のすべての値が有効であることを確認してください。詳細については、[ユーザーの作成と更新]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#how-does-userstrack-handle-invalid-nested-custom-attributes)を参照してください。
+リクエスト内の階層化カスタム属性に無効な値（無効な時刻形式や`null`値など）が含まれている場合、Brazeはそのリクエスト内のすべての階層化カスタム属性の更新を処理から除外します。これは、その特定の属性内のすべての階層化構造に適用されます。送信前に、階層化カスタム属性内のすべての値が有効であることを確認してください。詳細については、[ユーザーの作成と更新]({{site.baseurl}}/api/endpoints/user_data/post_user_track#how-does-userstrack-handle-invalid-nested-custom-attributes)を参照してください。
 {% endalert %}
 
 {% alert tip %}
-ユーザー属性オブジェクトでのオブジェクト配列の使用について詳しくは、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)を参照してください。
+ユーザー属性オブジェクトでのオブジェクト配列の使用について詳しくは、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)を参照してください。
 {% endalert %}
 
 ## APIの例 {#api-example}
@@ -50,13 +50,13 @@ description: "このリファレンス記事では、オブジェクト配列を
           "id": 1,
           "type": "dog",
           "breed": "beagle",
-          "name": "Gus"
+          "name": "Mochi"
         },
         {
           "id": 2,
           "type": "cat",
           "breed": "calico",
-          "name": "Gerald"
+          "name": "Pixel"
         }
       ]
     }
@@ -81,19 +81,19 @@ description: "このリファレンス記事では、オブジェクト配列を
             "id": 3,
             "type": "dog",
             "breed": "corgi",
-            "name": "Doug"
+            "name": "Biscuit"
           },
           {
             "id": 4,
             "type": "fish",
             "breed": "salmon",
-            "name": "Larry"
+            "name": "Pepper"
           },
            {
             "id": 5,
             "type": "bird",
             "breed": "parakeet",
-            "name": "Mary"
+            "name": "Noodle"
           }
         ]
       }
@@ -104,7 +104,7 @@ description: "このリファレンス記事では、オブジェクト配列を
 {% endtab %}
 {% tab 更新 %}
 
-`_merge_objects`パラメーターと`$update`演算子を使用して、配列内の特定のオブジェクトの値を更新します。他の[階層化カスタム属性]({{site.baseurl}}/nested_custom_attribute_support/#api-request-body)オブジェクトの更新と同様に、ディープマージが実行されます。
+`_merge_objects`パラメーターと`$update`演算子を使用して、配列内の特定のオブジェクトの値を更新します。他の[階層化カスタム属性]({{site.baseurl}}/nested_custom_attribute_support#api-request-body)オブジェクトの更新と同様に、ディープマージが実行されます。
 
 `$update`は、配列内のオブジェクトからネストされたプロパティを削除するためには使用できないことに注意してください。これを行うには、配列からアイテム全体を削除し、その特定のキーを含まないオブジェクトを追加する必要があります（`$remove`と`$add`の組み合わせを使用）。
 
@@ -220,7 +220,7 @@ description: "このリファレンス記事では、オブジェクト配列を
 ```
 
 {% alert tip %}
-詳細については、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/)を参照してください。
+詳細については、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)を参照してください。
 {% endalert %}
 
 ## SDKの例 {#sdk-example}
@@ -240,7 +240,7 @@ val json = JSONArray()
         .put("id", 2)
         .put("type", "cat")
         .put("breed", "calico")
-        .put("name", "Gerald")
+        .put("name", "Pixel")
     )
 
 braze.getCurrentUser { user ->
@@ -262,12 +262,12 @@ val json = JSONObject()
             .put("id", 4)
             .put("type", "fish")
             .put("breed", "salmon")
-            .put("name", "Larry"))
+            .put("name", "Pepper"))
         .put(JSONObject()
             .put("id", 5)
             .put("type", "bird")
             .put("breed", "parakeet")
-            .put("name", "Mary")
+            .put("name", "Noodle")
         )
     )
 
@@ -338,13 +338,13 @@ let json: [[String: Any?]] = [
     "id": 1,
     "type": "dog",
     "breed": "beagle",
-    "name": "Gus"
+    "name": "Mochi"
   ],
   [
     "id": 2,
     "type": "cat",
     "breed": "calico",
-    "name": "Gerald"
+    "name": "Pixel"
   ]
 ]
 
@@ -360,19 +360,19 @@ let json: [String: Any?] = [
       "id": 3,
       "type": "dog",
       "breed": "corgi",
-      "name": "Doug"
+      "name": "Biscuit"
     ],
     [
       "id": 4,
       "type": "fish",
       "breed": "salmon",
-      "name": "Larry"
+      "name": "Pepper"
     ],
     [
       "id": 5,
       "type": "bird",
       "breed": "parakeet",
-      "name": "Mary"
+      "name": "Noodle"
     ]
   ]
 ]
@@ -444,12 +444,12 @@ const json = [{
   "id": 1,
   "type": "dog",
   "breed": "beagle",
-  "name": "Gus"
+  "name": "Mochi"
 }, {
   "id": 2,
   "type": "cat",
   "breed": "calico",
-  "name": "Gerald"
+  "name": "Pixel"
 }];
 braze.getUser().setCustomUserAttribute("pets", json);
 ```
@@ -468,12 +468,12 @@ const json = {
     "id":  4,
     "type":  "fish",
     "breed":  "salmon",
-    "name":  "Larry",
+    "name":  "Pepper",
   }, {
     "id":  5,
     "type":  "bird",
     "breed":  "parakeet",
-    "name":  "Mary",
+    "name":  "Noodle",
   }]
 };
 braze.getUser().setCustomUserAttribute("pets", json, true);
@@ -545,13 +545,13 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 ```
 {% endraw %}
 
-このシナリオでは、Liquidを使用して`pets`配列をループし、各ペットについてのステートメントを出力できます。`pets`カスタム属性に[変数を割り当て]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables)、ドット記法を使用してオブジェクトのプロパティにアクセスします。オブジェクト名の後にピリオド`.`を付け、その後にプロパティ名を指定します。
+このシナリオでは、Liquidを使用して`pets`配列をループし、各ペットについてのステートメントを出力できます。`pets`カスタム属性に[変数を割り当て]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables)、ドット記法を使用してオブジェクトのプロパティにアクセスします。オブジェクト名の後にピリオド`.`を付け、その後にプロパティ名を指定します。
 
 ## セグメンテーション {#segmentation}
 
-オブジェクトの配列に基づいてユーザーをセグメント化する場合、配列内のいずれかのオブジェクトが条件に一致すると、そのユーザーはSegmentの対象となります。
+オブジェクトの配列に基づいてユーザーをセグメント化する場合、配列内のいずれかのオブジェクトが条件に一致すると、そのユーザーはセグメントの対象となります。
 
-新しいSegmentを作成し、フィルターとして**階層化カスタム属性**を選択します。次に、オブジェクト配列の名前を検索して選択します。
+新しいセグメントを作成し、フィルターとして**階層化カスタム属性**を選択します。次に、オブジェクト配列の名前を検索して選択します。
 
 ![オブジェクト配列でフィルタリング。]({% image_buster /assets/img_archive/array_of_objects_segmenting_1.gif %})
 
@@ -562,7 +562,7 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 
 ### ネストのレベル {#levels-of-nesting}
 
-配列のネストは1レベルまで（配列内の配列）でSegmentを作成できます。たとえば、以下の属性の場合、`pets[].name`に`Gus`が含まれるSegmentは作成できますが、`pets[].nicknames[]`に`Gugu`が含まれるSegmentは作成できません。
+配列のネストは1レベルまで（配列内の配列）でセグメントを作成できます。たとえば、以下の属性の場合、`pets[].name`に`Mochi`が含まれるセグメントは作成できますが、`pets[].nicknames[]`に`Gugu`が含まれるセグメントは作成できません。
 
 {% raw %}
 ```json
@@ -575,20 +575,20 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
           "id": 1,
           "type": "dog",
           "breed": "beagle",
-          "name": "Gus",
+          "name": "Mochi",
           "nicknames": [
-            "Gugu",
-            "Gusto"
+            "MoMo",
+            "Mochi"
           ]
         },
         {
           "id": 2,
           "type": "cat",
           "breed": "calico",
-          "name": "Gerald",
+          "name": "Pixel",
           "nicknames": [
-            "GeGe",
-            "Gerry"
+            "PiPi",
+            "Pixel"
           ]
         }
       ]
@@ -617,13 +617,13 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
           "id": 1,
           "type": "dog",
           "breed": "beagle",
-          "name": "Gus"
+          "name": "Mochi"
         },
         {
           "id": 2,
           "type": "cat",
           "breed": "calico",
-          "name": "Gerald"
+          "name": "Pixel"
         }
       ]
     }

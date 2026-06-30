@@ -18,7 +18,7 @@ Les trois ressources d'événements requises (activations, engagements et conver
 - **Les engagements** indiquent au modèle comment les clients ont réagi au message
 - **Les conversions** indiquent au modèle si le résultat commercial final a été atteint
 
-Chacune de ces ressources doit être structurée sous forme de flux d'événements incrémentiel (et non un instantané). Consultez [Instantanés versus flux d'événements]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/) pour plus de détails.
+Chacune de ces ressources doit être structurée sous forme de flux d'événements incrémentiel (et non un instantané). Consultez [Instantanés versus flux d'événements]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams) pour plus de détails.
 
 {% alert note %}
 Si Decisioning Studio est nativement intégré à votre plateforme d'engagement client (comme Braze ou Salesforce Marketing Cloud), les données d'activation et d'engagement peuvent être collectées automatiquement sans configuration supplémentaire. Consultez votre documentation de configuration pour confirmer.

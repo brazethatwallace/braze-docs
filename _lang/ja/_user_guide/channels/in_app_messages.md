@@ -19,8 +19,8 @@ search_rank: 5
 アプリ内メッセージを送信するには、アプリまたはWebサイトに[Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)を統合する必要があります。追加のセットアップは不要です。
 
 SDKの最小バージョンおよび機能固有の要件については、以下を参照してください。
-- [ドラッグ＆ドロップエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)
-- [メッセージタイプ]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/)
+- [ドラッグ＆ドロップエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
+- [メッセージタイプ]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types)
 
 ## ユースケース {#use-cases}
 
@@ -28,11 +28,11 @@ SDKの最小バージョンおよび機能固有の要件については、以�
 
 | ユースケース | 説明 |
 | --- | --- |
-| プッシュプライミング | リッチなアプリ内メッセージを使用した[プッシュプライミング]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)キャンペーンを実行し、アプリやサイトのプッシュ通知をオプトインするメリットを顧客に示し、プッシュ許可を付与するプロンプトを表示します。
+| プッシュプライミング | リッチなアプリ内メッセージを使用した[プッシュプライミング]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)キャンペーンを実行し、アプリやサイトのプッシュ通知をオプトインするメリットを顧客に示し、プッシュ許可を付与するプロンプトを表示します。
 | セールとプロモーション | モーダルアプリ内メッセージを使用して、静的なプロモーションコードやオファーを含む視覚的に魅力的なメディアで顧客を迎えます。通常であれば購入やコンバージョンに至らなかったユーザーにインセンティブを与えます。 |
 | 機能の採用促進 | アプリの他の部分を使用したり、サービスを活用したりするよう顧客に促します。 |
-| 高度にパーソナライズされたキャンペーン | 顧客がアプリやサイトに入ったときに最初に目にするものとしてアプリ内メッセージを配置します。[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)などのBrazeパーソナライゼーション機能を追加して、ユーザーにアクションを促し、アウトリーチをより効果的にします。
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
+| 高度にパーソナライズされたキャンペーン | 顧客がアプリやサイトに入ったときに最初に目にするものとしてアプリ内メッセージを配置します。[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)などのBrazeパーソナライゼーション機能を追加して、ユーザーにアクションを促し、アウトリーチをより効果的にします。
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユースケース" }
 
 その他に検討すべきユースケースには以下があります。
 
@@ -70,13 +70,13 @@ SDKの最小バージョンおよび機能固有の要件については、以�
 {% endtab %}
 {% endtabs %}
 
-これらのデフォルトメッセージテンプレートに加えて、カスタムHTMLアプリ内メッセージ、CSSを使用したWebモーダル、またはWebメールキャプチャフォームを使用して、メッセージングをさらにカスタマイズすることもできます。詳細については、[カスタマイズ]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/)を参照してください。
+これらのデフォルトメッセージテンプレートに加えて、カスタムHTMLアプリ内メッセージ、CSSを使用したWebモーダル、またはWebメールキャプチャフォームを使用して、メッセージングをさらにカスタマイズすることもできます。詳細については、[カスタマイズ]({{site.baseurl}}/user_guide/channels/in_app_messages/customize)を参照してください。
 
-表示時のテンプレート配信が**中止**ログにどのように影響するかについては、[アプリ内メッセージFAQ]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/)を参照してください。
+表示時のテンプレート配信が**中止**ログにどのように影響するかについては、[アプリ内メッセージFAQ]({{site.baseurl}}/user_guide/channels/in_app_messages/faq)を参照してください。
 
 ## 次のステップ {#next-steps}
 
-- [ドラッグ＆ドロップエディターでアプリ内メッセージを作成する]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)
-- [従来のエディターでアプリ内メッセージを作成する]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)
+- [ドラッグ＆ドロップエディターでアプリ内メッセージを作成する]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
+- [従来のエディターでアプリ内メッセージを作成する]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}

@@ -9,7 +9,7 @@ description: "Aprenda a projetar um agente Go do BrazeAI Decisioning Studio, inc
 
 > Este artigo aborda como projetar seu agente Decisioning Studio Go, incluindo a definição do seu público, a seleção de dimensões e a compreensão dos recursos e limitações específicos do Go.
 
-Para conceitos básicos sobre agentes de decisão — incluindo métricas de sucesso, dimensões, bancos de ações e restrições — consulte [Projetando agentes de decisão]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents/).
+Para conceitos básicos sobre agentes de decisão — incluindo métricas de sucesso, dimensões, bancos de ações e restrições — consulte [Projetando agentes de decisão]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents).
 
 ## Recursos Go versus Pro {#go-versus-pro-capabilities}
 
@@ -81,7 +81,7 @@ O Decisioning Studio Go cria automaticamente grupos de experimentos para medir o
 |-------|-------------|
 | **Decisioning Studio Go** | Clientes que recebem recomendações otimizadas por IA |
 | **Controle aleatório** | Clientes que recebem opções selecionadas aleatoriamente (comparação com a linha de base) |
-| **Business as Usual (opcional)** | Clientes que recebem sua Campaign atual (se comparando com o desempenho atual) |
+| **Business as Usual (opcional)** | Clientes que recebem sua campanha atual (se comparando com o desempenho atual) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 4: Configure os grupos experimentais" }
 
 {% alert important %}
@@ -107,4 +107,4 @@ Ao projetar seu agente Go, tenha em mente estas limitações:
 
 Depois de projetar seu agente e configurá-lo no portal Decisioning Studio Go, você estará pronto para lançar:
 
-- [Lance seu agente]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent/)
+- [Lance seu agente]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent)

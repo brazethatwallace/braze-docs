@@ -16,7 +16,7 @@ search_rank: 7
 
 Brazeサポートチームに連絡するには、Brazeダッシュボードに移動し、**Support**を選択します。メニューには2つのオプションがあります。
 
-- **Get help with Operator**を選択すると、BrazeAI Operator<sup>TM</sup>が開きます。会話の内容と現在の画面のコンテキストを使用して、その場で問題をトラブルシューティングできます。Operatorが問題を解決できない場合は、会話に基づいてサポートチケットの下書きを作成するよう依頼できます。詳細については、[BrazeAI Operatorでサポートチケットを提出する]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/)を参照してください。
+- **Get help with Operator**を選択すると、BrazeAI Operator<sup>TM</sup>が開きます。会話の内容と現在の画面のコンテキストを使用して、その場で問題をトラブルシューティングできます。Operatorが問題を解決できない場合は、会話に基づいてサポートチケットの下書きを作成するよう依頼できます。詳細については、[BrazeAI Operatorでサポートチケットを提出する]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets)を参照してください。
 - **Get help**を選択すると、Brazeサポートポータル（指定サポート連絡先の場合）または標準のサポートフォームに直接移動し、ケースの送信と追跡ができます。Brazeサポート連絡先かどうか不明な場合は、会社のBraze管理者、Brazeサクセスマネージャー、またはアカウントオーナーにお問い合わせください。
 
 ![「Get help with Operator」と「Get help」のオプションが表示された「Support」ドロップダウン。]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:50%;"}
@@ -30,8 +30,6 @@ Brazeサポートチームに連絡するには、Brazeダッシュボードに�
 2. ユーザー名を選択するか、ユーザー名の行にカーソルを合わせてメニューを表示します。
 3. メニューで**Edit**を選択すると、**Edit user**ページにリダイレクトされます。
 4. **Set this user as a Designated Support Contact for Braze Support Portal**のチェックボックスをオンにします。
-
-![ユーザーを指定サポート連絡先に設定するためのチェックボックス。]({% image_buster /assets/img_archive/designated_support_contact.png %}){: style="max-width:70%;"}
 
 ### アクセスの取得 {#gaining-access}
 
@@ -63,11 +61,11 @@ Brazeサポートチームに連絡するには、Brazeダッシュボードに�
 
 ### できるだけ多くの情報を提供する {#provide-as-much-information-as-possible}
 
-提供できるインサイトが多いほど、より効果的に対応できます。ワークスペース、CampaignやSegmentのURL、関連するexternal IDなどの具体的な情報を含めてください。これにより、問題をより効率的にトラブルシューティングできます。
+提供できるインサイトが多いほど、より効果的に対応できます。ワークスペース、キャンペーンやセグメントのURL、関連するexternal IDなどの具体的な情報を含めてください。これにより、問題をより効率的にトラブルシューティングできます。
 
 ### ユーザーのサンプルを提供する {#provide-a-sample-of-users}
 
-影響を受けたSegment全体ではなく、ユーザーのサンプルを共有してください。少数のユーザーを提供することで、調査範囲を絞り込み、調査を迅速化できます。
+影響を受けたセグメント全体ではなく、ユーザーのサンプルを共有してください。少数のユーザーを提供することで、調査範囲を絞り込み、調査を迅速化できます。
 
 ### ネットワークログ（HARログ）を添付する {#attach-network-logs-har-logs}
 
@@ -102,7 +100,7 @@ Brazeサポートチームに連絡するには、Brazeダッシュボードに�
 Brazeダッシュボードが正しく読み込まれない場合は、サポートに連絡する前に以下をお試しください。
 
 1. 別のブラウザ、またはシークレットウィンドウやプライベートウィンドウでダッシュボードを開きます。
-2. [ブラウザのキャッシュとCookieをクリアします]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#clearing-your-browser-cache-and-cookies)。
+2. [ブラウザのキャッシュとCookieをクリアします]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#clearing-your-browser-cache-and-cookies)。
 3. 広告ブロッカーとブラウザ拡張機能を無効にしてから、ダッシュボードを再読み込みします。
 4. VPNを使用している場合は、切断してから再度お試しください。
 

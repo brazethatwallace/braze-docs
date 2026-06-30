@@ -84,11 +84,6 @@ Außerdem unterstützen Banner-Nachrichten die folgenden Features nicht:
 - Connected-Content
 - Aktionscodes
 - `catalog_items` unter Verwendung des [`:rerender`-Tags]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)
-- Nutzer:innen-gesteuerte Schließung (nur Early Access)
-
-{% alert important %}
-Die Möglichkeit, Nutzer:innen ein Banner manuell schließen zu lassen, befindet sich im Early Access. Weitere Informationen finden Sie unter [Schließverhalten konfigurieren]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior). Wenn Sie am Early Access teilnehmen möchten, wenden Sie sich an Ihren Customer-Success-Manager.
-{% endalert %}
 
 ## Nächste Schritte {#next-steps}
 

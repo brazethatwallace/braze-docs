@@ -26,9 +26,9 @@ Metaweatherは「Where-on-Earth ID」を使用してエリアの天気を返す�
 
 保存された変数は、`connected_content`リクエストを含むフィールド内でのみアクセスできます。たとえば、メッセージフィールドとタイトルフィールドの両方で`localweather`変数を使用したい場合は、両方のフィールド内で`connected_content`リクエストを行う必要があります。
 
-GETリクエストは通常デフォルトでキャッシュされますが、いくつかの例外があります（高カーディナリティのユーザー属性を含むURL、`:no_cache`、または1 MBを超えるレスポンスボディなど）。同一のGETリクエストが複数のフィールドに存在する場合、Brazeはエンドポイントを再度呼び出す代わりにキャッシュされた応答を再利用します。キャッシュの動作の詳細については、[応答のキャッシュ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/)を参照してください。
+GETリクエストは通常デフォルトでキャッシュされますが、いくつかの例外があります（高カーディナリティのユーザー属性を含むURL、`:no_cache`、または1 MBを超えるレスポンスボディなど）。同一のGETリクエストが複数のフィールドに存在する場合、Brazeはエンドポイントを再度呼び出す代わりにキャッシュされた応答を再利用します。キャッシュの動作の詳細については、[応答のキャッシュ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses)を参照してください。
 
-HTTP POST経由で行われたコネクテッドコンテンツの呼び出しはデフォルトではキャッシュされません。POST応答をキャッシュするには、タグに`:cache_max_age`を追加します。[デフォルトのキャッシュ設定]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/#default-cache-settings)を参照してください。
+HTTP POST経由で行われたコネクテッドコンテンツの呼び出しはデフォルトではキャッシュされません。POST応答をキャッシュするには、タグに`:cache_max_age`を追加します。[デフォルトのキャッシュ設定]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses#default-cache-settings)を参照してください。
 
 ## JSONの解析 {#json-parsing}
 
@@ -90,11 +90,11 @@ APIが{%raw%}`{{localweather.consolidated_weather[0].weather_state_name}}`{%endr
 
 ![「It's raining! Grab an umbrella!」というメッセージのプッシュ通知]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){:style="max-width:50%" }
 
-{% multi_lang_include connected_content.md section='default behavior' %}
+{% multi_lang_include connected_content/sections.md section='default behavior' %}
 
 ## HTTP POST
 
-{% multi_lang_include connected_content.md section='http post' %}
+{% multi_lang_include connected_content/sections.md section='http post' %}
 
 ### JSONボディの提供 {#providing-json-body}
 

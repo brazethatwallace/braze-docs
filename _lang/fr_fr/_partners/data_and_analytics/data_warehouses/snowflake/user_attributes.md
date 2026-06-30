@@ -95,7 +95,7 @@ Ces vues fournissent des instantanés périodiques des attributs du profil utili
 | `GENDER` | VARCHAR |
 | `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
+| `TIME_ZONE` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
@@ -132,7 +132,7 @@ Ces vues fournissent des mises à jour quasi en temps réel des attributs du pro
 * Utile pour les analyses en temps réel et les scénarios nécessitant des données récentes.
 * **Considérations relatives aux performances :**
     * Les requêtes sur des utilisateurs individuels sont plus rapides (moins d'une minute avec un grand entrepôt).
-    * Les requêtes sans filtre sur `USER_ID` nécessitent une agrégation pour tous les utilisateurs, ce qui allonge considérablement le temps d'exécution.
+    * Les requêtes sans filtre sur USER_ID nécessitent une agrégation pour tous les utilisateurs, ce qui allonge considérablement le temps d'exécution.
     * Les requêtes sur un grand ensemble de données (plus de 100 millions d'utilisateurs, par exemple) peuvent prendre plusieurs minutes.
 
 {% include partners/snowflake_user_attributes_date_fields_note.md %}
@@ -159,7 +159,7 @@ Ces vues fournissent des mises à jour quasi en temps réel des attributs du pro
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
+| `TIME_ZONE` | VARCHAR |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED schema" }
 
 ### Schéma `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` {#user_latest_state_custom_attribute_view_shared-schema}
@@ -211,7 +211,7 @@ Ces vues stockent les journaux de modifications historiques des attributs utilis
 | `GENDER` | VARCHAR |
 | `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
+| `TIME_ZONE` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |

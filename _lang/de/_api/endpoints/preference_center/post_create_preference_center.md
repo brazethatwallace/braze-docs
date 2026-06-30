@@ -14,13 +14,13 @@ description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Präferenz
 /preference_center/v1
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um ein Präferenzzentrum zu erstellen, mit dem Nutzer:innen ihre Benachrichtigungspräferenzen für Ihre E-Mail-Campaigns verwalten können. Unter [Erstellen eines Präferenzzentrums mit API]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview/#creating-a-preference-center-with-api) finden Sie die Schritte zum Erstellen eines API-generierten Präferenzzentrums.
+> Verwenden Sie diesen Endpunkt, um ein Präferenzzentrum zu erstellen, mit dem Nutzer:innen ihre Benachrichtigungspräferenzen für Ihre E-Mail-Campaigns verwalten können. Unter [Erstellen eines Präferenzzentrums mit API]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview#creating-a-preference-center-with-api) finden Sie die Schritte zum Erstellen eines API-generierten Präferenzzentrums.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e15d7065-2cbc-4eb3-ae16-32efe43357a6 {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `preference_center.update`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `preference_center.update`.
 
 ## Rate-Limit
 
@@ -65,7 +65,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `confirmation_page_html` | Erforderlich | String | Der HTML-Code für die Bestätigungsseite. |
 | `state` | Optional | String | Wählen Sie `active` oder `draft`. Der Standardwert ist `active`, wenn nichts angegeben wird. |
 | `options` | Optional | Objekt | Attribute: <br>`meta-viewport-content`: Wenn vorhanden, wird der Seite ein `viewport`-Meta-Tag mit `content= <value of attribute>` hinzugefügt.<br><br> `link-tags`: Legen Sie ein Favicon für die Seite fest. Wenn gesetzt, wird der Seite ein `<link>`-Tag mit einem rel-Attribut hinzugefügt. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 {% alert note %}
 Der Name des Präferenzzentrums kann nach der Erstellung nicht mehr geändert werden.
@@ -83,7 +83,7 @@ Im Folgenden finden Sie die Liquid-Tags, die Sie in Ihr HTML einfügen können, 
 | --------- | ---------|
 | `{{subscribed_state.${email_global}}}` | Ruft den globalen E-Mail-Abo-Status für die Nutzer:innen ab (z. B. „opted_in“, „subscribed“ oder „unsubscribed“). |
 | `{{subscribed_state.${<subscription_group_id>}}}` | Ruft den Abo-Status der angegebenen Abo-Gruppe für die Nutzer:innen ab (z. B. „subscribed“ oder „unsubscribed“). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abo-Status der Nutzer:innen" }
 
 #### Formulareingaben und Aktionen {#form-inputs-and-action}
 
@@ -92,7 +92,7 @@ Im Folgenden finden Sie die Liquid-Tags, die Sie in Ihr HTML einfügen können, 
 | `{% form_field_name :email_global_state %}` | Gibt an, dass ein bestimmtes Formulareingabeelement dem globalen E-Mail-Abo-Status der Nutzer:innen entspricht. Der Auswahlstatus sollte „opted_in“, „subscribed“ oder „unsubscribed“ sein, wenn das Formular mit Auswahldaten für den globalen E-Mail-Abo-Status übermittelt wird. Wenn es sich um ein Kontrollkästchen handelt, sind die Nutzer:innen entweder „opted_in“ oder „unsubscribed“. Bei einer ausgeblendeten Eingabe ist auch der Status „subscribed“ gültig. |
 | `{% form_field_name :subscription_group <subscription_group_id> %}` | Gibt an, dass ein bestimmtes Formulareingabeelement einer bestimmten Abo-Gruppe entspricht. Der Auswahlstatus sollte entweder „subscribed“ oder „unsubscribed“ sein, wenn das Formular mit Auswahldaten für eine bestimmte Abo-Gruppe übermittelt wird. |
 | `{{preference_center_submit_url}}` | Erzeugt die URL für die Formularübermittlung. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Formulareingaben und Aktionen" }
 
 {% endraw %}
 

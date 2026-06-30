@@ -18,13 +18,13 @@ alias: /line/
 
 LINEの利用可否はBrazeパッケージによって異なります。開始するには、アカウントマネージャーまたはカスタマーサクセスマネージャーにお問い合わせください。
 
-開始する前に、以下をご用意ください:
+開始する前に、以下をご用意ください。
 
 - プレミアムまたは認証済みステータスの[LINE公式アカウント](https://www.linebiz.com/jp-en/manual/OfficialAccountManager/tutorial-steps/?list=7171)
 - [LINE Developersアカウント](https://developers.line.biz/en/docs/line-developers-console/login-account/)
 - [LINE Messaging APIチャネル](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
 
-詳細なウォークスルーについては、[LINE セットアップ]({{site.baseurl}}/user_guide/channels/line/line_setup/)を参照してください。
+詳細なウォークスルーについては、[LINE セットアップ]({{site.baseurl}}/user_guide/channels/line/line_setup)を参照してください。
 
 ## ユースケース {#use-cases}
 
@@ -35,11 +35,11 @@ LINEの利用可否はBrazeパッケージによって異なります。開始�
 | カスタマーサポート | 双方向の会話を可能にし、問い合わせへの対応、製品情報の提供、問題の解決を行います。 |
 | 注文通知 | 注文確認、配送状況の更新、配達通知で顧客に最新情報を提供します。 |
 | イベントエンゲージメント | 招待状、リマインダー、フォローアップメッセージでイベントへの参加とエンゲージメントを促進します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユースケース" }
 
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
 ## 次のステップ {#next-steps}
 
-- [LINE セットアップ]({{site.baseurl}}/user_guide/channels/line/line_setup/)
-- [LINE メッセージの作成]({{site.baseurl}}/user_guide/channels/line/create_a_line_message/)
+- [LINE セットアップ]({{site.baseurl}}/user_guide/channels/line/line_setup)
+- [LINE メッセージの作成]({{site.baseurl}}/user_guide/channels/line/create_a_line_message)

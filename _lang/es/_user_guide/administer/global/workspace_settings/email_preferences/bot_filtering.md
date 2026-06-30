@@ -10,7 +10,7 @@ description: "Este artículo ofrece un resumen del filtrado de bots para el corr
 
 # Filtrado de bots para correos electrónicos {#bot-filtering-for-emails}
 
-> Configura el filtrado de bots en tus [Preferencias de correo electrónico]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) para excluir todos los clics sospechosos de máquina o bot. Un "clic de bot" en correo electrónico se refiere a un clic en hipervínculos dentro de un correo electrónico generado por un programa automatizado. Al filtrar estos clics de bot, puedes desencadenar y entregar mensajes intencionadamente a destinatarios que estén interactuando.
+> Configura el filtrado de bots en tus [Preferencias de correo electrónico]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) para excluir todos los clics sospechosos de máquina o bot. Un "clic de bot" en correo electrónico se refiere a un clic en hipervínculos dentro de un correo electrónico generado por un programa automatizado. Al filtrar estos clics de bot, puedes desencadenar y entregar mensajes intencionadamente a destinatarios que estén interactuando.
 
 {% alert important %}
 A partir del 9 de julio de 2025, todos los espacios de trabajo nuevos que se creen tendrán activada la configuración de filtrado de bots para obtener informes de clics más precisos en Braze.
@@ -35,7 +35,7 @@ Las siguientes métricas de Braze pueden verse afectadas por los clics de los bo
 - Mapa de calor
 - Ciertos filtros de segmentación
 
-Las [características de Braze Intelligence]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/) que aprovechan los datos de clics sobre nuestros sistemas de detección pueden verse afectadas. Activar la configuración tiene el potencial de interrumpir temporalmente nuestros sistemas de detección, lo que puede resultar en una disminución de la métrica o entrada debido a esta exclusión de clics sospechosos de bots:
+Las [características de Braze Intelligence]({{site.baseurl}}/user_guide/brazeai/intelligence_suite) que aprovechan los datos de clics sobre nuestros sistemas de detección pueden verse afectadas. Activar la configuración tiene el potencial de interrumpir temporalmente nuestros sistemas de detección, lo que puede resultar en una disminución de la métrica o entrada debido a esta exclusión de clics sospechosos de bots:
 
 - Intelligent Selection
 - Canal inteligente
@@ -48,19 +48,19 @@ Las [características de Braze Intelligence]({{site.baseurl}}/user_guide/brazeai
     - Variante personalizada
 - Tasa estimada de aperturas reales
 
-Las cancelaciones de suscripción derivadas de clics sospechosos de bots no se verán afectadas. Braze seguirá procesando todas las solicitudes de cancelación de suscripción con normalidad. Si quieres que Braze bloquee estas cancelaciones de suscripción, envía [comentarios sobre el producto]({{site.baseurl}}/user_guide/administer/personal/product_portal/).
+Las cancelaciones de suscripción derivadas de clics sospechosos de bots no se verán afectadas. Braze seguirá procesando todas las solicitudes de cancelación de suscripción con normalidad. Si quieres que Braze bloquee estas cancelaciones de suscripción, envía [comentarios sobre el producto]({{site.baseurl}}/user_guide/administer/personal/product_portal).
 
 ## Filtros de segmentación afectados por el filtrado de bots {#segmentation-filters-affected-by-bot-filtering}
 
-Los siguientes [filtros de segmentación]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) pueden verse afectados por el filtrado de bots para mensajes de correo electrónico:
+Los siguientes [filtros de segmentación]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) pueden verse afectados por el filtrado de bots para mensajes de correo electrónico:
 
-- [Hizo clic/abrió Campaign o Canvas con etiqueta]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#clicked-opened-campaign-or-canvas-with-tag)
-- [Hizo clic/abrió paso]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#clicked-opened-step)
-- [Hizo clic en alias en Campaign]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#clicked-alias-in-campaign)
-- [Hizo clic en alias en paso en Canvas]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#clicked-alias-in-canvas-step)
-- [Hizo clic en alias en cualquier Campaign o paso en Canvas]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#clicked-alias-in-any-campaign-or-canvas-step)
-- [Última interacción con mensaje]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#last-engaged-with-message)
-- [Canal inteligente]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#intelligent-channel)
+- [Hizo clic/abrió Campaign o Canvas con etiqueta]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-opened-campaign-or-canvas-with-tag)
+- [Hizo clic/abrió paso]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-opened-step)
+- [Hizo clic en alias en Campaign]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-alias-in-campaign)
+- [Hizo clic en alias en paso en Canvas]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-alias-in-canvas-step)
+- [Hizo clic en alias en cualquier Campaign o paso en Canvas]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-alias-in-any-campaign-or-canvas-step)
+- [Última interacción con mensaje]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#last-engaged-with-message)
+- [Canal inteligente]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#intelligent-channel)
 
 ## Activar el filtrado de bots {#turning-on-bot-filtering}
 

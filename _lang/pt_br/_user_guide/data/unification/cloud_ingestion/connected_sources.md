@@ -9,14 +9,14 @@ page_type: reference
 
 # Fontes conectadas {#connected-sources}
 
-> As fontes conectadas são uma alternativa de cópia zero à sincronização direta de dados com o recurso de Ingestão de Dados na Nuvem (CDI) da Braze. Uma fonte conectada consulta diretamente seu data warehouse para criar novos **Segments** sem copiar nenhum dos dados subjacentes para a Braze.
+> As fontes conectadas são uma alternativa de cópia zero à sincronização direta de dados com o recurso de Ingestão de Dados na Nuvem (CDI) da Braze. Uma fonte conectada consulta diretamente seu data warehouse para criar novos segmentos sem copiar nenhum dos dados subjacentes para a Braze.
 
-Depois de adicionar uma fonte conectada ao seu espaço de trabalho da Braze, você pode criar um **Segment** CDI dentro das **Segment Extensions**. As CDI **Segment Extensions** permitem que você escreva SQL que consulta diretamente seu data warehouse (usando os dados disponibilizados por meio da sua Fonte Conectada CDI) e cria e mantém um grupo de usuários que podem ser direcionados dentro da Braze.
+Depois de adicionar uma fonte conectada ao seu espaço de trabalho da Braze, você pode criar um Segment CDI dentro das Extensões de segmento. As Extensões de segmento CDI permitem que você escreva SQL que consulta diretamente seu data warehouse (usando os dados disponibilizados por meio da sua Fonte Conectada CDI) e cria e mantém um grupo de usuários que podem ser direcionados dentro da Braze.
 
-Para saber mais sobre como criar um **Segment** com essa fonte, consulte [CDI **Segment Extensions**]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/).
+Para saber mais sobre como criar um segmento com essa fonte, consulte [Extensões de segmento CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments).
 
 {% alert warning %}
-Como as fontes conectadas são executadas diretamente no seu data warehouse, você incorrerá em todos os custos associados à execução dessas consultas no seu data warehouse. As fontes conectadas não registram pontos de dados, e as CDI **Segment Extensions** não consomem SQL **Segment** credits.
+Como as fontes conectadas são executadas diretamente no seu data warehouse, você incorrerá em todos os custos associados à execução dessas consultas no seu data warehouse. As fontes conectadas não registram pontos de dados, e as Extensões de segmento CDI não consomem créditos de Segment SQL.
 {% endalert %}
 
 ## Integração de fontes conectadas {#integrating-connected-sources}
@@ -92,7 +92,7 @@ Configure os dados de origem e os recursos necessários no seu ambiente de data 
 {% tab Snowflake %}
 #### Etapa 2.1: Criar uma função e conceder permissões {#step-21-create-a-role-and-grant-permissions}
 
-Crie uma função para sua fonte conectada usar. Essa função será usada para gerar a lista de tabelas disponíveis nas suas Extensões de segmento CDI e para consultar tabelas de origem para criar novos **Segments**. Depois que a fonte conectada for criada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem.
+Crie uma função para sua fonte conectada usar. Essa função será usada para gerar a lista de tabelas disponíveis nas suas Extensões de segmento CDI e para consultar tabelas de origem para criar novos segmentos. Depois que a fonte conectada for criada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem.
 
 Você pode optar por conceder acesso a todas as tabelas em um esquema ou conceder privilégios somente a tabelas específicas. Quaisquer tabelas às quais a função da Braze tenha acesso estarão disponíveis para consulta na Extensão de segmento CDI.
 
@@ -143,7 +143,7 @@ Ao conectar diferentes espaços de trabalho à mesma conta do Snowflake, é nece
 
 Dependendo da configuração da sua conta do Snowflake, talvez seja necessário permitir os seguintes endereços IP na sua política de rede do Snowflake. Para saber mais sobre como fazer isso, consulte a documentação relevante do Snowflake sobre [modificação de uma política de rede](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 {% endtab %}
 
 {% tab Redshift %}
@@ -156,7 +156,7 @@ GRANT CREATE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION to braze_user;
 GRANT SELECT ON TABLE USERS_ATTRIBUTES_SYNC TO braze_user;
 ```
 
-Crie um usuário para sua fonte conectada usar. Esse usuário será usado para gerar a lista de tabelas disponíveis nas suas Extensões de segmento CDI e para consultar tabelas de origem para criar novos **Segments**. Depois que a fonte conectada for criada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem. Se estiver criando várias integrações CDI, talvez você queira conceder permissões a um esquema ou gerenciar as permissões usando um grupo.
+Crie um usuário para sua fonte conectada usar. Esse usuário será usado para gerar a lista de tabelas disponíveis nas suas Extensões de segmento CDI e para consultar tabelas de origem para criar novos segmentos. Depois que a fonte conectada for criada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem. Se estiver criando várias integrações CDI, talvez você queira conceder permissões a um esquema ou gerenciar as permissões usando um grupo.
 
 Você pode optar por conceder acesso a todas as tabelas em um esquema ou conceder privilégios somente a tabelas específicas. Quaisquer tabelas às quais a função da Braze tenha acesso estarão disponíveis para consulta na Extensão de segmento CDI. Certifique-se de conceder acesso a todas as novas tabelas ao usuário quando elas forem criadas, ou defina permissões padrão para o usuário.
 
@@ -171,7 +171,7 @@ Também pode ser necessário alterar seus grupos de segurança para permitir que
 
 Se não quiser que o cluster do Redshift seja acessível publicamente, você pode configurar uma instância VPC e EC2 para usar um túnel SSH para acessar os dados do Redshift. Para saber mais, consulte [AWS: Como posso acessar um cluster privado do Amazon Redshift a partir da minha máquina local?](https://repost.aws/knowledge-center/private-redshift-cluster-local-machine)
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -186,7 +186,7 @@ Crie uma conta de serviço no GCP para a Braze usar para se conectar e ler dados
 - **BigQuery Job User:** Fornece à Braze acesso para executar jobs.
 - **bigquery.tables.create** Fornece à Braze acesso para criar tabelas temporárias durante a atualização do segmento.
 
-Crie uma conta de serviço para ser usada pela sua fonte conectada. Esse usuário será usado para gerar a lista de tabelas disponíveis nas suas Extensões de segmento CDI e para consultar tabelas de origem para criar novos **Segments**. Depois que a fonte conectada for criada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem.
+Crie uma conta de serviço para ser usada pela sua fonte conectada. Esse usuário será usado para gerar a lista de tabelas disponíveis nas suas Extensões de segmento CDI e para consultar tabelas de origem para criar novos segmentos. Depois que a fonte conectada for criada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem.
 
 Você pode optar por conceder acesso a todas as tabelas em um conjunto de dados ou conceder privilégios somente a tabelas específicas. Quaisquer tabelas às quais a função da Braze tenha acesso estarão disponíveis para consulta na Extensão de segmento CDI.
 
@@ -198,7 +198,7 @@ Depois de criar a conta de serviço e conceder permissões, gere uma chave JSON.
 
 Se você tiver políticas de rede em vigor, deverá conceder à Braze acesso de rede à sua instância do BigQuery. Permita o acesso dos IPs abaixo correspondentes à região do seu dashboard da Braze.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -214,7 +214,7 @@ Para que a Braze acesse o Databricks, é necessário criar um token de acesso pe
 5. Selecione **Generate**.
 6. Copie o token exibido e, em seguida, selecione **Done**.
 
-Esse token será usado para gerar a lista de tabelas disponíveis nas suas Extensões de segmento CDI e para consultar tabelas de origem para criar novos **Segments**. Depois que a fonte conectada for criada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem.
+Esse token será usado para gerar a lista de tabelas disponíveis nas suas Extensões de segmento CDI e para consultar tabelas de origem para criar novos segmentos. Depois que a fonte conectada for criada, a Braze descobrirá os nomes e a descrição de todas as tabelas disponíveis para o usuário no esquema de origem.
 
 Você pode optar por conceder acesso a todas as tabelas em um esquema ou conceder privilégios somente a tabelas específicas. Quaisquer tabelas às quais a função da Braze tenha acesso estarão disponíveis para consulta na Extensão de segmento CDI.
 
@@ -226,7 +226,7 @@ Mantenha o token em um local seguro até que seja necessário inseri-lo no dashb
 
 Se você tiver políticas de rede em vigor, deverá conceder à Braze acesso de rede à sua instância do Databricks. Permita o acesso dos IPs abaixo correspondentes à região do seu dashboard da Braze.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -241,7 +241,7 @@ A Braze se conectará ao seu warehouse do Fabric usando uma entidade de serviço
 1. No portal Azure, navegue até o centro de administração Microsoft Entra e, em seguida, **App Registrations**.
 2. Selecione **+ New registration** em **Identity > Applications > App registrations**
 3. Digite um nome e selecione `Accounts in this organizational directory only` como o tipo de conta compatível. Em seguida, selecione **Register**.
-4. Selecione o aplicativo (entidade de serviço) que você acabou de criar e navegue até **Certificates & secrets > + New client secret**.
+4. Selecione o aplicativo (entidade de serviço) que você acabou de criar e navegue até **Certificates & secrets > + New client secret**
 5. Digite uma descrição para o segredo e defina um período de vencimento para o segredo. Em seguida, selecione **Add**.
 6. Anote o segredo do cliente criado para ser usado na configuração da Braze.
 
@@ -265,7 +265,7 @@ Você precisará do endpoint SQL do seu warehouse para que a Braze possa se cone
 
 Dependendo da configuração da sua conta Microsoft Fabric, talvez seja necessário permitir os seguintes endereços IP no seu firewall para permitir o tráfego da Braze. Para saber mais sobre como ativar esse recurso, consulte a documentação relevante sobre [Entra Conditional Access](https://learn.microsoft.com/en-us/fabric/security/protect-inbound-traffic#entra-conditional-access).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -277,13 +277,13 @@ Dependendo da configuração da sua conta Microsoft Fabric, talvez seja necessá
 {% tab Snowflake %}
 #### Etapa 3.1: Adicionar informações de conexão do Snowflake e tabela de origem {#step-31-add-snowflake-connection-information-and-source-table}
 
-Crie uma fonte conectada no dashboard da Braze. Acesse **Data Settings** > **Cloud Data Ingestion** > **Connected Sources** e selecione **Create new data sync** > **Snowflake Import**.
+Crie uma fonte conectada no dashboard da Braze. Acesse **Configurações de dados** > **Ingestão de dados na nuvem** > **Fontes conectadas** e selecione **Create new data sync** > **Snowflake Import**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![Página de fontes conectadas com opções para criar uma nova sincronização de dados.]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Insira as informações do seu data warehouse do Snowflake e do esquema de origem e prossiga para a próxima etapa.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_1.png %})
+![Campos de conexão do Snowflake para warehouse e esquema de origem.]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_1.png %})
 
 #### Etapa 3.2: Configurar detalhes de sincronização {#step-32-configure-sync-details}
 
@@ -295,25 +295,25 @@ Configure um tempo máximo de execução para essa fonte. A Braze abortará auto
 Se as consultas estiverem constantemente atingindo o tempo limite e você tiver definido um tempo de execução máximo de 60 minutos, considere tentar otimizar o tempo de execução da consulta ou dedicar um warehouse maior ao usuário da Braze.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_2.png %})
+![Configuração do nome de sincronização e tempo máximo de execução do Snowflake.]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_2.png %})
 
 #### Etapa 3.3: Anote a chave pública {#step-33-note-the-public-key}
 
 Na etapa **Test connection**, anote a chave pública RSA. Você precisará dela para concluir a integração no Snowflake.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_3.png %})
+![Etapa de teste de conexão do Snowflake mostrando a chave pública RSA.]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_3.png %})
 
 {% endtab %}
 {% tab Redshift %}
 #### Etapa 3.1: Adicionar informações de conexão do Redshift e tabela de origem {#step-31-add-redshift-connection-information-and-source-table}
 
-Crie uma fonte conectada no dashboard da Braze. Acesse **Data Settings** > **Cloud Data Ingestion** > **Connected Sources** e selecione **Create data connection** > **Amazon Redshift Import**.
+Crie uma fonte conectada no dashboard da Braze. Acesse **Configurações de dados** > **Ingestão de dados na nuvem** > **Fontes conectadas** e selecione **Create data connection** > **Amazon Redshift Import**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![Página de fontes conectadas com opções para criar uma nova sincronização de dados.]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Insira as informações do seu data warehouse Redshift e esquema de origem e prossiga para a próxima etapa.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_1.png %})
+![Campos de conexão do Redshift para warehouse e esquema de origem.]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_1.png %})
 
 #### Etapa 3.2: Configurar detalhes de sincronização
 
@@ -325,25 +325,25 @@ Configure um tempo máximo de execução para essa fonte. A Braze abortará auto
 Se as consultas estiverem constantemente atingindo o tempo limite e você tiver definido um tempo de execução máximo de 60 minutos, considere tentar otimizar o tempo de execução da consulta ou dedicar um warehouse maior ao usuário da Braze.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_2.png %})
+![Configuração do nome de sincronização e tempo máximo de execução do Redshift.]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_2.png %})
 
 #### Etapa 3.3: Anote a chave pública (opcional) {#step-33-note-the-public-key-optional}
 
 Se suas credenciais tiverem a opção **Connect with SSH Tunnel** selecionada, anote a chave pública RSA na etapa **Test connection**. Você precisará dela para concluir a integração no Redshift.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_3.png %})
+![Etapa de teste de conexão do Redshift mostrando a chave pública RSA.]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_3.png %})
 
 {% endtab %}
 {% tab BigQuery %}
 #### Etapa 3.1: Adicionar informações de conexão do BigQuery e tabela de origem {#step-31-add-bigquery-connection-information-and-source-table}
 
-Crie uma fonte conectada no dashboard da Braze. Acesse **Data Settings** > **Cloud Data Ingestion** > **Connected Sources** e selecione **Create new data sync** > **Google BigQuery Import**.
+Crie uma fonte conectada no dashboard da Braze. Acesse **Configurações de dados** > **Ingestão de dados na nuvem** > **Fontes conectadas** e selecione **Create new data sync** > **Google BigQuery Import**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![Página de fontes conectadas com opções para criar uma nova sincronização de dados.]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Insira as informações do seu projeto e conjunto de dados do BigQuery e prossiga para a próxima etapa.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_1.png %})
+![Captura de tela relacionada à etapa 3.1: adicionar informações de conexão do BigQuery e tabela de origem.]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_1.png %})
 
 #### Etapa 3.2: Configurar detalhes de sincronização
 
@@ -355,25 +355,25 @@ Configure um tempo máximo de execução para essa fonte. A Braze abortará auto
 Se as consultas estiverem constantemente atingindo o tempo limite e você tiver definido um tempo de execução máximo de 60 minutos, considere tentar otimizar o tempo de execução da consulta ou dedicar um warehouse maior ao usuário da Braze.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_2.png %})
+![Captura de tela relacionada à etapa 3.2: configurar detalhes de sincronização.]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_2.png %})
 
 #### Etapa 3.3: Teste a conexão {#step-33-test-the-connection}
 
 Selecione **Test Connection** para verificar se a lista de tabelas visíveis para o usuário é a esperada e, em seguida, selecione **Done**. Sua fonte conectada agora está criada e pronta para uso nas Extensões de segmento CDI.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
+![Etapa de teste de conexão mostrando as tabelas disponíveis para a fonte conectada.]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% tab Databricks %}
 #### Etapa 3.1: Adicionar informações de conexão do Databricks e tabela de origem {#step-31-add-databricks-connection-information-and-source-table}
 
-Crie uma fonte conectada no dashboard da Braze. Acesse **Data Settings** > **Cloud Data Ingestion** > **Connected Sources** e selecione **Create new data sync** > **Databricks Import**.
+Crie uma fonte conectada no dashboard da Braze. Acesse **Configurações de dados** > **Ingestão de dados na nuvem** > **Fontes conectadas** e selecione **Create new data sync** > **Databricks Import**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![Página de fontes conectadas com opções para criar uma nova sincronização de dados.]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Insira as informações das suas credenciais do Databricks e, opcionalmente, o catálogo e o esquema de origem, e prossiga para a próxima etapa.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_databricks_1.png %})
+![Campos de conexão do Databricks para credenciais e esquema de origem.]({% image_buster /assets/img/cloud_ingestion/connected_source_databricks_1.png %})
 
 #### Etapa 3.2: Configurar detalhes de sincronização
 
@@ -385,25 +385,25 @@ Configure um tempo máximo de execução para essa fonte. A Braze abortará auto
 Se as consultas estiverem constantemente atingindo o tempo limite e você tiver definido um tempo de execução máximo de 60 minutos, considere tentar otimizar o tempo de execução da consulta ou dedicar um warehouse maior ao usuário da Braze.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_db_2.png %})
+![Configuração do nome de sincronização e tempo máximo de execução do Databricks.]({% image_buster /assets/img/cloud_ingestion/connected_source_db_2.png %})
 
 #### Etapa 3.3: Teste a conexão
 
 Selecione **Test Connection** para verificar se a lista de tabelas visíveis para o usuário é a esperada e, em seguida, selecione **Done**. Sua fonte conectada agora está criada e pronta para uso nas Extensões de segmento CDI.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
+![Etapa de teste de conexão mostrando as tabelas disponíveis para a fonte conectada.]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% tab Microsoft Fabric %}
 #### Etapa 3.1: Adicionar informações de conexão do Microsoft Fabric e tabela de origem {#step-31-add-microsoft-fabric-connection-information-and-source-table}
 
-Crie uma fonte conectada no dashboard da Braze. Acesse **Data Settings** > **Cloud Data Ingestion** > **Connected Sources** e selecione **Create new data sync** > **Microsoft Fabric Import**.
+Crie uma fonte conectada no dashboard da Braze. Acesse **Configurações de dados** > **Ingestão de dados na nuvem** > **Fontes conectadas** e selecione **Create new data sync** > **Microsoft Fabric Import**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![Página de fontes conectadas com opções para criar uma nova sincronização de dados.]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Insira as informações das suas credenciais do Microsoft Fabric, bem como o warehouse e o esquema de origem, e prossiga para a próxima etapa.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_1.png %})
+![Campos de conexão do Microsoft Fabric para credenciais e esquema de origem.]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_1.png %})
 
 #### Etapa 3.2: Configurar detalhes de sincronização
 
@@ -415,13 +415,13 @@ Configure um tempo máximo de execução para essa fonte. A Braze abortará auto
 Se as consultas estiverem constantemente atingindo o tempo limite e você tiver definido um tempo de execução máximo de 60 minutos, considere tentar otimizar o tempo de execução da consulta ou aumentar a capacidade do Fabric.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_2.png %})
+![Configuração do nome de sincronização e tempo máximo de execução do Microsoft Fabric.]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_2.png %})
 
 #### Etapa 3.3: Teste a conexão
 
 Selecione **Test Connection** para verificar se a lista de tabelas visíveis para o usuário é a esperada e, em seguida, selecione **Done**. Sua fonte conectada agora está criada e pronta para uso nas Extensões de segmento CDI.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
+![Etapa de teste de conexão mostrando as tabelas disponíveis para a fonte conectada.]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -432,7 +432,7 @@ Selecione **Test Connection** para verificar se a lista de tabelas visíveis par
 {% tab Snowflake %}
 Adicione a chave pública que você anotou na última etapa ao seu usuário no Snowflake. Isso permitirá que a Braze se conecte ao Snowflake. Para detalhes sobre como fazer isso, consulte a [documentação do Snowflake](https://docs.snowflake.com/en/user-guide/key-pair-auth.html).
 
-Se quiser fazer a rotação das chaves a qualquer momento, você pode criar uma nova chave pública acessando **Data Access Management** em **Cloud Data Ingestion** e selecionando **Generate New Key** para a respectiva conta.
+Se quiser fazer a rotação das chaves a qualquer momento, você pode criar uma nova chave pública acessando **Data Access Management** em **Ingestão de dados na nuvem** e selecionando **Generate New Key** para a respectiva conta.
 
 ![Gerenciamento de acesso a dados para credenciais de acesso a dados do Snowflake, com um botão para gerar nova chave.]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_4.png %})
 
@@ -495,7 +495,7 @@ Você pode configurar várias fontes com a Braze, mas cada fonte deve ser config
 
 ## Usando a fonte conectada {#using-the-connected-source}
 
-Após a fonte ser criada, você pode usá-la para criar uma ou mais Extensões de segmento CDI. Para saber mais sobre como criar um segmento com essa fonte, consulte a [documentação das Extensões de segmento CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/).
+Após a fonte ser criada, você pode usá-la para criar uma ou mais Extensões de segmento CDI. Para saber mais sobre como criar um segmento com essa fonte, consulte a [documentação das Extensões de segmento CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments).
 
 {% alert note %}
 Se as consultas estiverem constantemente atingindo o tempo limite e você tiver definido um tempo de execução máximo de 60 minutos, considere tentar otimizar o tempo de execução da consulta ou dedicar mais recursos de computação (como um warehouse maior) ao usuário da Braze.

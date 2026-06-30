@@ -12,10 +12,10 @@ channel:
 
 > このリファレンス記事では、BrazeにおけるWhatsApp埋め込みサインアップワークフローの手順を説明します。
 
-WhatsApp埋め込みサインアップワークフローは、Brazeワークスペースに初めて[WhatsAppを統合する]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)とき、および既存のWhatsApp統合に[WhatsApp Businessアカウントを追加する]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/)ときにアクセスします。
+WhatsApp埋め込みサインアップワークフローは、Brazeワークスペースに初めて[WhatsAppを統合する]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)とき、および既存のWhatsApp統合に[WhatsApp Businessアカウントを追加する]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)ときにアクセスします。
 
 {% alert note %}
-Brazeワークスペースには[複数のWhatsApp Businessアカウント]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/)を追加できます。ただし、各WhatsApp Businessアカウントは1つのBrazeワークスペースにのみ追加できます。
+Brazeワークスペースには[複数のWhatsApp Businessアカウント]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)を追加できます。ただし、各WhatsApp Businessアカウントは1つのBrazeワークスペースにのみ追加できます。
 {% endalert %}
 
 ## ワークフローへのアクセス {#accessing-the-workflow}

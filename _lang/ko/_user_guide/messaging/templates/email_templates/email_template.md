@@ -13,7 +13,7 @@ search_rank: 1
 
 # 이메일 템플릿 만들기 {#create-an-email-template}
 
-> Braze 대시보드에는 맞춤형의 눈길을 끄는 이메일을 만들고 나중에 Campaign에서 사용할 수 있도록 저장할 수 있는 이메일 템플릿 편집기가 있습니다. 직접 만든 [HTML 이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)을 업로드할 수도 있습니다.
+> Braze 대시보드에는 맞춤형의 눈길을 끄는 이메일을 만들고 나중에 Campaign에서 사용할 수 있도록 저장할 수 있는 이메일 템플릿 편집기가 있습니다. 직접 만든 [HTML 이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)을 업로드할 수도 있습니다.
 
 ## 1단계: 이메일 템플릿 편집기로 이동하기 {#step-1-navigate-to-the-email-template-editor}
 
@@ -21,9 +21,9 @@ Braze 대시보드에서 **콘텐츠** > **이메일**로 이동합니다.
 
 ## 2단계: 편집 환경 선택하기 {#step-2-select-your-editing-experience}
 
-편집 환경으로 **Drag-and-drop Editor** 또는 **HTML code editor**를 선택합니다.
+편집 환경으로 **드래그 앤 드롭 편집기** 또는 **HTML 코드 편집기**를 선택합니다.
 
-미리 디자인된 Braze 템플릿에서 선택하거나, 새 템플릿을 만들거나, 기존 템플릿(일반 또는 [모바일 반응형]({{site.baseurl}}/help/release_notes/2018/may/#mobile-responsive-email-templates))을 편집할 수도 있습니다.
+미리 디자인된 Braze 템플릿에서 선택하거나, 새 템플릿을 만들거나, 기존 템플릿(일반 또는 [모바일 반응형]({{site.baseurl}}/help/release_notes/2018/may#mobile-responsive-email-templates))을 편집할 수도 있습니다.
 
 ![드래그 앤 드롭 편집기 또는 HTML 편집기를 선택하거나 Braze 템플릿에서 선택할 수 있는 옵션이 있는 회사 봄 세일 이메일 템플릿.]({% image_buster /assets/img/email_templates/template2.png %})
 
@@ -33,11 +33,11 @@ Braze 대시보드에서 **콘텐츠** > **이메일**로 이동합니다.
 
 ## 3단계: 템플릿 커스텀하기 {#step-3-customize-your-template}
 
-편집기 환경을 선택한 후, 이메일 템플릿을 창의적으로 커스텀할 수 있습니다. HTML 편집기에서 HTML을 사용하여 브랜딩을 만들고 구현하거나, 드래그 앤 드롭 편집기에서 다양한 [크리에이티브 세부 사항]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#creative-details)을 포함할 수 있습니다.
+편집기 환경을 선택한 후, 이메일 템플릿을 창의적으로 커스텀할 수 있습니다. HTML 편집기에서 HTML을 사용하여 브랜딩을 만들고 구현하거나, 드래그 앤 드롭 편집기에서 다양한 [크리에이티브 세부 사항]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#creative-details)을 포함할 수 있습니다.
 
 ### 수신 거부 링크 포함하기 {#include-an-unsubscribe-link}
 
-이메일 템플릿을 디자인할 때 수신 거부 링크를 포함하지 않으면, 모든 마케팅 이메일에 법적으로 필수이므로 Braze에서 이메일에 이 링크를 추가하라는 메시지를 표시합니다. Liquid 태그 {% raw %}``${email_footer}``{% endraw %}를 사용하여 이메일 하단에 푸터로 이 수신 거부 링크를 추가하거나, 템플릿에서 [푸터를 커스텀]({{site.baseurl}}/user_guide/channels/email/subscriptions/#custom-footer)할 수 있습니다.
+이메일 템플릿을 디자인할 때 수신 거부 링크를 포함하지 않으면, 모든 마케팅 이메일에 법적으로 필수이므로 Braze에서 이메일에 이 링크를 추가하라는 메시지를 표시합니다. Liquid 태그 {% raw %}``${email_footer}``{% endraw %}를 사용하여 이메일 하단에 푸터로 이 수신 거부 링크를 추가하거나, 템플릿에서 [푸터를 커스텀]({{site.baseurl}}/user_guide/channels/email/subscriptions#custom-footer)할 수 있습니다.
 
 ## 4단계: 이메일 오류 확인하기 {#step-4-check-for-email-errors}
 
@@ -48,7 +48,7 @@ Braze 대시보드에서 **콘텐츠** > **이메일**로 이동합니다.
 편집기에서 확인하는 오류 목록은 다음과 같습니다:
 
 - 잘못된 Liquid 구문
-- [400KB를 초과하는 이메일 본문; 본문은 102KB 미만을 강력히 권장합니다]({{site.baseurl}}/user_guide/channels/email/best_practices/)
+- [400KB를 초과하는 이메일 본문; 본문은 102KB 미만을 강력히 권장합니다]({{site.baseurl}}/user_guide/channels/email/best_practices)
 - 수신 거부 링크가 없는 템플릿
 - **본문** 또는 **제목**이 비어 있는 이메일
 - 수신 거부 링크가 없는 이메일
@@ -83,9 +83,9 @@ Braze 대시보드에서 **콘텐츠** > **이메일**로 이동합니다.
 
 ### 템플릿 관리하기 {#manage-your-templates}
 
-**Templates** > **Email Templates**에서 이메일 템플릿을 확인할 수 있으며, 상태, 유형, 태그, 만든 사용자별로 필터링하거나 템플릿 이름으로 검색할 수 있습니다. 이 템플릿을 보려면 **View Email Templates**와 같은 관련 사용자 권한이 필요합니다. 자세한 내용은 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)을 참조하세요.
+**Templates** > **Email Templates**에서 이메일 템플릿을 확인할 수 있으며, 상태, 유형, 태그, 만든 사용자별로 필터링하거나 템플릿 이름으로 검색할 수 있습니다. 이 템플릿을 보려면 **View Email Templates**와 같은 관련 사용자 권한이 필요합니다. 자세한 내용은 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)을 참조하세요.
 
-이메일 템플릿을 더 많이 만들면 이메일 템플릿을 [복제]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates)하고 [아카이브]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates)할 수 있습니다. 템플릿 및 크리에이티브 콘텐츠 라이브러리를 만들고 관리하는 방법에 대해 [템플릿 및 미디어]({{site.baseurl}}/user_guide/messaging/templates/)에서 자세히 알아보세요.
+이메일 템플릿을 더 많이 만들면 이메일 템플릿을 [복제]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicate-templates)하고 [아카이브]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archive-templates)할 수 있습니다. 템플릿 및 크리에이티브 콘텐츠 라이브러리를 만들고 관리하는 방법에 대해 [템플릿 및 미디어]({{site.baseurl}}/user_guide/messaging/templates)에서 자세히 알아보세요.
 
 ### API Campaign에서 템플릿 사용하기 {#use-your-templates-in-api-campaigns}
 
@@ -98,7 +98,7 @@ API Campaign에 이메일을 사용하려면 `email_template_id`가 필요하며
 드래그 앤 드롭 편집기에서 이메일 템플릿에 대해 협업하고 댓글을 달 수 있습니다.
 
 1. 댓글을 달고 싶은 이메일 본문의 콘텐츠 블록 또는 행을 선택합니다.
-2. <i class="fas fa-comment"></i> 댓글 아이콘을 선택합니다.
+2. <i class="fas fa-comment" aria-label="댓글"></i> 댓글 아이콘을 선택합니다.
 3. 사이드바에 댓글을 입력한 다음 **Submit**을 선택합니다.
 4. 댓글을 입력한 후 **Done**을 선택합니다.
 5. **Save Template**을 선택하여 댓글을 저장합니다.
@@ -107,4 +107,4 @@ API Campaign에 이메일을 사용하려면 `email_template_id`가 필요하며
 
 !["좋아 보입니다"라고 적혀 있는 이메일 템플릿 댓글.]({% image_buster /assets/img/email_templates/template_comment.png %})
 
-이메일 템플릿에 대해 자주 묻는 질문에 대한 답변은 [템플릿 FAQ]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq/)를 확인하세요.
+이메일 템플릿에 대해 자주 묻는 질문에 대한 답변은 [템플릿 FAQ]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq)를 확인하세요.

@@ -82,7 +82,7 @@ braze.initialize("API-KEY", {
 {% endtab %}
 
 {% tab android %}
-예를 들어 허용 목록에 추가할 Android OS 버전과 기기 로캘을 지정할 수 있습니다. 자세한 내용은 [`setDeviceObjectAllowlistEnabled()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist-enabled.html) 및 [`setDeviceObjectAllowlist()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist.html) 메서드를 참조하세요.
+예를 들어 허용 목록에 추가할 Android OS 버전과 기기 로케일을 지정할 수 있습니다. 자세한 내용은 [`setDeviceObjectAllowlistEnabled()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist-enabled.html) 및 [`setDeviceObjectAllowlist()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist.html) 메서드를 참조하세요.
 
 ```java
 new BrazeConfig.Builder()
@@ -92,7 +92,7 @@ new BrazeConfig.Builder()
 {% endtab %}
 
 {% tab swift %}
-예를 들어 허용 목록에 추가할 시간대 및 로캘 수집을 지정할 수 있습니다. 자세한 내용은 `configuration` 오브젝트의 [`devicePropertyAllowList`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/devicepropertyallowlist) 등록정보를 참조하세요.
+예를 들어 허용 목록에 추가할 시간대 및 로케일 수집을 지정할 수 있습니다. 자세한 내용은 `configuration` 오브젝트의 [`devicePropertyAllowList`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/devicepropertyallowlist) 등록정보를 참조하세요.
 
 {% subtabs %}
 {% subtab swift %}
@@ -117,7 +117,7 @@ configuration.devicePropertyAllowList = @[
 {% endtabs %}
 
 {% alert tip %}
-자동으로 수집되는 기기 등록정보에 대해 자세히 알아보려면 [SDK 데이터 수집]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/)을 참조하세요.
+자동으로 수집되는 기기 등록정보에 대해 자세히 알아보려면 [SDK 데이터 수집]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection)을 참조하세요.
 {% endalert %}
 
 ## 쿠키 저장(웹 전용) {#cookies}
@@ -127,13 +127,13 @@ configuration.devicePropertyAllowList = @[
 다음과 같은 쿠키가 저장됩니다.
 
 | 쿠키 | 설명 | 크기 |
-|---|----|---|
+|---|---|---|
 | `ab.storage.userId.[your-api-key]` | 현재 로그인한 사용자의 변경 여부를 확인하고 이벤트를 현재 사용자와 연결하는 데 사용됩니다. | `changeUser`에 전달된 값의 크기에 따라 다름 |
 | `ab.storage.sessionId.[your-api-key]` | 사용자가 새 세션을 시작하는지 기존 세션을 시작하는지 확인하여 메시지를 동기화하고 세션 분석을 계산하는 데 사용되는 무작위 생성 문자열입니다. | ~200바이트 |
 | `ab.storage.deviceId.[your-api-key]` | 익명 사용자를 식별하고 사용자의 기기를 구분하여 기기 기반 메시징을 활성화하는 데 사용되는 무작위 생성 문자열입니다. | ~200바이트 |
 | `ab.optOut` | `disableSDK` 호출 시 사용자의 옵트아웃 환경설정을 저장하는 데 사용됩니다. | ~40바이트 |
 | `ab._gd` | 루트 수준 쿠키 도메인을 결정하기 위해 임시로 생성(후 삭제)되며, 이를 통해 SDK가 하위 도메인에서 올바르게 작동할 수 있습니다. | 해당 없음 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Store cookies (web only) #cookies" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="쿠키 저장(웹 전용)" }
 
 ### 쿠키 만료 변경하기 {#cookie-expiry}
 

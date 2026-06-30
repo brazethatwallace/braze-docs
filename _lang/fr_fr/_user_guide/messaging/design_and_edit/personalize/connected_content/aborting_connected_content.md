@@ -20,9 +20,9 @@ Dans l'exemple suivant, les conditions `connected.recommendations.size < 5` et `
 ```
 {% endraw %}
 
-## Spécifier une raison d'abandon
+## Spécifier une raison d'abandon {#specify-an-abort-reason}
 
-Vous pouvez également spécifier une raison d'abandon, qui sera enregistrée dans le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/). Cette raison d'abandon doit être une chaîne de caractères et ne peut pas contenir de Liquid.
+Vous pouvez également spécifier une raison d'abandon, qui sera enregistrée dans le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Cette raison d'abandon doit être une chaîne de caractères et ne peut pas contenir de Liquid.
 
 {% raw %}
 `{% abort_message('Could not get enough recommendations') %}`

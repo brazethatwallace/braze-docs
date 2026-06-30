@@ -18,10 +18,10 @@ platform:
 
 アプリ内メッセージは、SDKが以下のカスタムイベントタイプのいずれかをログに記録したときにトリガーされます: `Session Start`、`Push Click`、`Any Purchase`、`Specific Purchase`、`Custom Event`（最後の2つは堅牢なプロパティフィルターを含みます）。
 
-ユーザーのセッション開始時に、Brazeは対象となるすべてのアプリ内メッセージをユーザーのデバイスに配信し、同時にアセットをプリフェッチして表示レイテンシーを最小化します。トリガーイベントに複数の適格なアプリ内メッセージがある場合、最も優先度の高いメッセージのみが配信されます。詳しくは[セッションライフサイクル]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/#about-the-session-lifecycle)を参照してください。
+ユーザーのセッション開始時に、Brazeは対象となるすべてのアプリ内メッセージをユーザーのデバイスに配信し、同時にアセットをプリフェッチして表示レイテンシーを最小化します。トリガーイベントに複数の適格なアプリ内メッセージがある場合、最も優先度の高いメッセージのみが配信されます。詳しくは[セッションライフサイクル]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#about-the-session-lifecycle)を参照してください。
 
 {% alert note %}
-アプリ内メッセージは、APIまたはAPIイベントによってトリガーすることはできません。SDKによってログに記録されるカスタムイベントによってのみトリガーされます。ロギングの詳細については、[カスタムイベントのログ記録]({{site.baseurl}}/developer_guide/analytics/logging_events/)を参照してください。
+アプリ内メッセージは、APIまたはAPIイベントによってトリガーすることはできません&#8212;SDKによってログに記録されるカスタムイベントによってのみトリガーされます。ロギングの詳細については、[カスタムイベントのログ記録]({{site.baseurl}}/developer_guide/analytics/logging_events)を参照してください。
 {% endalert %}
 
 ## アプリ内メッセージのタイプ {#types-of-in-app-messages}
@@ -30,9 +30,9 @@ Brazeは、セッション開始時にユーザーのデバイスに以下のタ
 
 ### `inapp`（標準） {#inapp-standard}
 
-`inapp`（または「[標準]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/#standard-message-types)」）アプリ内メッセージは、Brazeがすでに把握しているカスタム属性などの必要な情報がすでにテンプレート化されています。一般的に、アプリ内メッセージがデバイスにダウンロードされると、デバイスがオフラインまたは機内モードであっても、トリガーイベントによってSDKが`inapp`アプリ内メッセージを表示します。
+`inapp`（または「[標準]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages#standard-message-types)」）アプリ内メッセージは、Brazeがすでに把握しているカスタム属性などの必要な情報がすでにテンプレート化されています。一般的に、アプリ内メッセージがデバイスにダウンロードされると、デバイスがオフラインまたは機内モードであっても、トリガーイベントによってSDKが`inapp`アプリ内メッセージを表示します。
 
-### `templated_iam`（テンプレート化） {#templatediam-templated}
+### `templated_iam`（テンプレート化） {#templated_iam-templated}
 
 `templated_iam`（または「テンプレート化」）アプリ内メッセージは、まだ必要な情報がテンプレート化されていません。メッセージが表示される前に、Brazeは情報を取得するために別のリクエストを行う必要があります。
 
@@ -71,12 +71,12 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 {% tab android %}
 {% subtabs %}
 {% subtab JAVA %}
-`````````java
+```java
 Map<String, String> getExtras()
 ```
 {% endsubtab %}
 {% subtab KOTLIN %}
-`````````kotlin
+```kotlin
 extras: Map<String, String>
 ```
 {% endsubtab %}
@@ -93,7 +93,7 @@ extras: Map<String, String>
 {% subtabs %}
 {% subtab swift %}
 
-`````````swift
+```swift
 let customization = message.extras["custom-display"] as? String
 if customization == "colorful-slideup" {
   // Perform your custom logic.
@@ -102,7 +102,7 @@ if customization == "colorful-slideup" {
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-`````````objc
+```objc
 if ([message.extras[@"custom-display"] isKindOfClass:[NSString class]]) {
   NSString *customization = message.extras[@"custom-display"];
   if ([customization isEqualToString:@"colorful-slideup"]) {
@@ -124,7 +124,7 @@ if ([message.extras[@"custom-display"] isKindOfClass:[NSString class]]) {
 {% tab web %}
 読み込みスニペット内の`braze.automaticallyShowInAppMessages()`への呼び出しを削除し、アプリ内メッセージの表示/非表示を処理するカスタムロジックを作成します。
 
-`````````javascript
+```javascript
 braze.subscribeToInAppMessage(function(inAppMessage) {
   // control group messages should always be "shown"
   // this will log an impression and not show a visible message
@@ -148,21 +148,21 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 `braze.automaticallyShowInAppMessages()`を削除せずに`braze.showInAppMessage`を呼び出すと、メッセージが2回表示される場合があります。
 {% endalert %}
 
-メッセージのタイミングをより高度にコントロールする方法（トリガーメッセージの遅延や復元を含む）については、[チュートリアル: トリガーメッセージの遅延と復元]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages/)を参照してください。
+メッセージのタイミングをより高度にコントロールする方法（トリガーメッセージの遅延や復元を含む）については、[チュートリアル: トリガーメッセージの遅延と復元]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages)を参照してください。
 {% endtab %}
 
 {% tab android %}
-1. カスタムリスナーを設定するために[`IInAppMessageManagerListener`](https://www.braze.com/docs/developer_guide/in_app_messages/customization/?sdktab=android&tab=global%20listener#android_step-1-implement-the-custom-manager-listener)を実装します。
+1. カスタムリスナーを設定するために[`IInAppMessageManagerListener`]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=android&tab=global%20listener#android_step-1-implement-the-custom-manager-listener)を実装します。
 2. [`beforeInAppMessageDisplayed()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.listeners/-i-in-app-message-manager-listener/before-in-app-message-displayed.html)メソッドを更新して、[`InAppMessageOperation.DISCARD`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-in-app-message-operation/-d-i-s-c-a-r-d/index.html)を返すようにします。
 
-メッセージのタイミングをより高度にコントロールするには（後から表示や再キューイングを含む）、[メッセージのカスタマイズ](https://www.braze.com/docs/developer_guide/in_app_messages/customization/?tab=global%20listener&subtab=kotlin#android_step-2-instruct-braze-to-use-the-custom-manager-listener)ページを参照してください。
+メッセージのタイミングをより高度にコントロールする方法（後から表示や再キューイングを含む）については、[メッセージのカスタマイズ]({{site.baseurl}}/developer_guide/in_app_messages/customization?tab=global%20listener&subtab=kotlin#android_step-2-instruct-braze-to-use-the-custom-manager-listener)ページを参照してください。
 {% endtab %}
 
 {% tab swift %}
 1. アプリに`BrazeInAppMessageUIDelegate`デリゲートを実装します。完全な手順については、[チュートリアル: アプリ内メッセージUI](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui)を参照してください。
 2. `inAppMessage(_:displayChoiceForMessage:)`デリゲートメソッドを更新して`.discard`を返すようにします。
 
-メッセージのタイミングをより高度にコントロールする方法（トリガーメッセージの遅延や復元を含む）については、[チュートリアル: トリガーメッセージの遅延と復元]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages/)を参照してください。
+メッセージのタイミングをより高度にコントロールする方法（トリガーメッセージの遅延や復元を含む）については、[チュートリアル: トリガーメッセージの遅延と復元]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages)を参照してください。
 {% endtab %}
 
 {% tab flutter %}
@@ -204,14 +204,14 @@ iOSの場合、Braze設定エディターでゲームオブジェクトリスナ
 
 {% tabs %}
 {% tab web %}
-`````````javascript
+```javascript
 // Sets the minimum time interval between triggered in-app messages to 5 seconds instead of the default 30
 braze.initialize('YOUR-API-KEY', { minimumIntervalBetweenTriggerActionsInSeconds: 5 })
 ```
 {% endtab %}
 
 {% tab android %}
-`````````xml
+```xml
 <integer name="com_braze_trigger_action_minimum_time_interval_seconds">5</integer>
 ```
 {% endtab %}
@@ -219,7 +219,7 @@ braze.initialize('YOUR-API-KEY', { minimumIntervalBetweenTriggerActionsInSeconds
 {% tab swift %}
 {% subtabs %}
 {% subtab swift %}
-`````````swift
+```swift
 let configuration = Braze.Configuration(
   apiKey: "YOUR-APP-IDENTIFIER-API-KEY",
   endpoint: "YOUR-BRAZE-ENDPOINT"
@@ -231,7 +231,7 @@ AppDelegate.braze = braze
 ```
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
-`````````objc
+```objc
 BRZConfiguration *configuration =
     [[BRZConfiguration alloc] initWithApiKey:@"<BRAZE_API_KEY>"
                                     endpoint:@"<BRAZE_ENDPOINT>"];
@@ -261,14 +261,14 @@ AppDelegate.braze = braze;
 
 #### ステップ1: サイレントプッシュを受信するプッシュコールバックを作成する {#step-1-create-a-push-callback-to-receive-the-silent-push}
 
-特定のサイレントプッシュ通知をリッスンするには、カスタムプッシュコールバックを登録します。詳細については、[プッシュ通知の設定]({{site.baseurl}}/developer_guide/push_notifications/#android_setting-up-push-notifications)を参照してください。
+特定のサイレントプッシュ通知をリッスンするには、カスタムプッシュコールバックを登録します。詳細については、[プッシュ通知の設定]({{site.baseurl}}/developer_guide/push_notifications#android_setting-up-push-notifications)を参照してください。
 
 アプリ内メッセージが配信されるために2つのイベントが記録されます。1つはサーバーによって記録され、もう1つはカスタムプッシュコールバック内から記録されます。同じイベントが重複しないようにするには、プッシュコールバック内からログに記録されるイベントは、サーバー送信イベントと同じ名前ではなく、「アプリ内メッセージトリガーイベント」などの一般的な命名規則に従う必要があります。そうしないと、単一のユーザーアクションについてログに記録される重複イベントによって、セグメンテーションとユーザーデータが影響を受ける可能性があります。
 
 {% subtabs %}
 {% subtab JAVA %}
 
-`````````java
+```java
 Braze.getInstance(context).subscribeToPushNotificationEvents(event -> {
   final Bundle kvps = event.getNotificationPayload().getBrazeExtras();
   if (kvps.containsKey("IS_SERVER_EVENT")) {
@@ -285,7 +285,7 @@ Braze.getInstance(context).subscribeToPushNotificationEvents(event -> {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-`````````kotlin
+```kotlin
 Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event ->
     val kvps = event.notificationPayload.brazeExtras
     if (kvps.containsKey("IS_SERVER_EVENT")) {
@@ -304,9 +304,9 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
 
 #### ステップ2: プッシュキャンペーンを作成する {#step-2-create-a-push-campaign}
 
-サーバー送信イベントを介してトリガーされる[サイレントプッシュキャンペーン]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android)を作成します。
+サーバー送信イベントを介してトリガーされる[サイレントプッシュキャンペーン]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=android)を作成します。
 
-![]({% image_buster /assets/img_archive/serverSentPush.png %})
+![アクションベースの配信で設定されたサイレントプッシュキャンペーンの配信ステップ。server_eventカスタムイベントトリガーが設定されている。]({% image_buster /assets/img_archive/serverSentPush.png %})
 
 プッシュキャンペーンにはキーと値のペアエクストラを含める必要があります。これは、このプッシュキャンペーンがSDKカスタムイベントを記録するために送信されることを示します。このイベントはアプリ内メッセージをトリガーするために使用されます。
 
@@ -335,7 +335,7 @@ Brazeダッシュボードで、ユーザーに表示されるアプリ内メッ
 {% subtabs %}
 {% subtab swift %}
 
-`````````swift
+```swift
 func handleExtras(userInfo: [AnyHashable : Any]) {
   print("A push was received")
   if userInfo != nil && (userInfo["IS_SERVER_EVENT"] as? String) != nil && (userInfo["CAMPAIGN_NAME"] as? String) != nil {
@@ -347,7 +347,7 @@ func handleExtras(userInfo: [AnyHashable : Any]) {
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-`````````objc
+```objc
 - (void)handleExtrasFromPush:(NSDictionary *)userInfo {
   NSLog(@"A push was received.");
   if (userInfo !=nil && userInfo[@"IS_SERVER_EVENT"] !=nil && userInfo[@"CAMPAIGN_NAME"]!=nil) {
@@ -367,7 +367,7 @@ SDKのログに記録されたカスタムイベントの記録にプッシュ�
 
 #### ステップ2: サイレントプッシュキャンペーンを作成する {#step-2-create-a-silent-push-campaign}
 
-サーバー送信イベントを介してトリガーされる[サイレントプッシュキャンペーン]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift)を作成します。
+サーバー送信イベントを介してトリガーされる[サイレントプッシュキャンペーン]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift)を作成します。
 
 ![カスタムイベント「server_event」をユーザープロファイルに持つユーザーに配信される、アクションベースのアプリ内メッセージキャンペーン。]({% image_buster /assets/img_archive/iosServerSentPush.png %})
 
@@ -377,9 +377,9 @@ SDKのログに記録されたカスタムイベントの記録にプッシュ�
 
 `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`メソッド内のコードはキー`IS_SERVER_EVENT`をチェックし、存在する場合はSDKカスタムイベントをログに記録します。
 
-プッシュペイロードのキーと値のペアエクストラ内で目的の値を送信することで、イベント名またはイベントプロパティのいずれかを変更できます。カスタムイベントを記録する場合、これらのエクストラはイベント名のパラメータまたはイベントプロパティとして使用できます。
+プッシュペイロードのキーと値のペアエクストラ内で目的の値を送信することで、イベント名またはイベントプロパティのいずれかを変更できます。カスタムイベントを記録する場合、これらのエクストラはイベント名のパラメーターまたはイベントプロパティとして使用できます。
 
-#### ステップ3: アプリ内メッセージキャンペーンを作成する {#step-3-create-an-in-app-message-campaign}
+#### ステップ3: アプリ内メッセージキャンペーンを作成する
 
 Brazeダッシュボードで、ユーザーに表示されるアプリ内メッセージキャンペーンを作成します。このキャンペーンにはアクションベースの配信があり、`application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`メソッド内から記録されたカスタムイベントからトリガーされる必要があります。
 
@@ -406,14 +406,14 @@ Web SDKでは、`braze.showInAppMessage(inAppMessage)`を使用してアプリ�
 {% subtabs %}
 {% subtab JAVA %}
 
-`````````java
+```java
 BrazeInAppMessageManager.getInstance().addInAppMessage(inAppMessage);
 ```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-`````````kotlin
+```kotlin
 BrazeInAppMessageManager.getInstance().addInAppMessage(inAppMessage)
 ```
 
@@ -422,7 +422,7 @@ BrazeInAppMessageManager.getInstance().addInAppMessage(inAppMessage)
 {% endtab %}
 
 {% tab swift %}
-`````````swift
+```swift
 if let inAppMessage = AppDelegate.braze?.inAppMessagePresenter?.nextAvailableMessage() {
   AppDelegate.braze?.inAppMessagePresenter?.present(message: inAppMessage)
 }
@@ -436,7 +436,7 @@ if let inAppMessage = AppDelegate.braze?.inAppMessagePresenter?.nextAvailableMes
 
 {% tabs %}
 {% tab web %}
-`````````javascript
+```javascript
   // Displays a slideup type in-app message.
   var message = new braze.SlideUpMessage("Welcome to Braze! This is an in-app message.");
   message.slideFrom = braze.InAppMessage.SlideFrom.TOP;
@@ -448,7 +448,7 @@ if let inAppMessage = AppDelegate.braze?.inAppMessagePresenter?.nextAvailableMes
 {% subtabs %}
 {% subtab JAVA %}
 
-`````````java
+```java
 // Initializes a new slideup type in-app message and specifies its message.
 InAppMessageSlideup inAppMessage = new InAppMessageSlideup();
 inAppMessage.setMessage("Welcome to Braze! This is a slideup in-app message.");
@@ -457,7 +457,7 @@ inAppMessage.setMessage("Welcome to Braze! This is a slideup in-app message.");
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-`````````kotlin
+```kotlin
 // Initializes a new slideup type in-app message and specifies its message.
 val inAppMessage = InAppMessageSlideup()
 inAppMessage.message = "Welcome to Braze! This is a slideup in-app message."
@@ -477,7 +477,7 @@ inAppMessage.message = "Welcome to Braze! This is a slideup in-app message."
 {% subtabs %}
 {% subtab swift %}
 
-`````````swift
+```swift
 let customInAppMessage = Braze.InAppMessage.slideup(
   .init(message: "YOUR_CUSTOM_SLIDEUP_MESSAGE", slideFrom: .bottom, themes: .defaults)
 )
@@ -487,7 +487,7 @@ AppDelegate.braze?.inAppMessagePresenter?.present(message: customInAppMessage)
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-`````````objc
+```objc
 BRZInAppMessageRaw *customInAppMessage = [[BRZInAppMessageRaw alloc] init];
 customInAppMessage.type = BRZInAppMessageRawTypeSlideup;
 customInAppMessage.message = @"YOUR_CUSTOM_SLIDEUP_MESSAGE";
@@ -510,7 +510,7 @@ customInAppMessage.themes = @{
 {% tab unity %}
 スタックの次のメッセージを表示するには、`DisplayNextInAppMessage()`メソッドを使用します。`DISPLAY_LATER`または`BrazeUnityInAppMessageDisplayActionType.IAM_DISPLAY_LATER`がアプリ内メッセージ表示アクションとして選択されている場合、メッセージはこのスタックに保存されます。
 
-`````````csharp
+```csharp
 Appboy.AppboyBinding.DisplayNextInAppMessage();
 ```
 {% endtab %}
@@ -530,7 +530,7 @@ Exit-intentメッセージは、訪問者がWebサイトを離れる前に重要
 
 Web SDKでこれらのメッセージタイプのトリガーを設定するには、Webサイトにexit-intentライブラリ（[ouibounceのオープンソースライブラリ](https://github.com/carlsednaoui/ouibounce)など）を実装し、次のコードを使ってBrazeのカスタムイベントとして`'exit intent'`をログに記録します。これで、今後のアプリ内メッセージキャンペーンでは、このメッセージタイプをカスタムイベントトリガーとして使用できます。
 
-`````````javascript
+```javascript
   var _ouibounce = ouibounce(false, {
     callback: function() { braze.logCustomEvent('exit intent'); }
   });

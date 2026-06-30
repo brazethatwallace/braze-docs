@@ -28,7 +28,7 @@
 # a blocking failure. PR comments are left unchanged on skip.
 #
 # Cursor skill:
-#   @screenshot-pii-audit
+#   .github/skills/screenshot-pii-audit/SKILL.md (invoke from chat: /screenshot-pii-audit)
 
 name: Check screenshot PII
 
@@ -42,6 +42,7 @@ on:
       - 'assets/img/**/*.jpg'
       - 'assets/img/**/*.jpeg'
       - 'scripts/check_screenshot_pii.py'
+      - 'scripts/pii_text_scan.py'
       - 'scripts/pii_name_lexicon.py'
       - '.github/workflows/check-screenshot-pii.yml'
 
@@ -63,7 +64,7 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: Checkout PR head
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
@@ -475,7 +476,7 @@ jobs:
             lines.push('5. After review, a maintainer may add the `pii-audit-dismissed` label to override remaining findings.');
             lines.push('');
             lines.push('Run locally: `python3 scripts/check_screenshot_pii.py <image-path>`');
-            lines.push('Cursor: `@screenshot-pii-audit`');
+            lines.push('Cursor: see `.github/skills/screenshot-pii-audit/SKILL.md` (invoke from chat with `/screenshot-pii-audit`)');
             lines.push('');
             lines.push('#### Active findings');
             lines.push('');

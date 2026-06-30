@@ -116,7 +116,7 @@ ATSは次のいずれかの方法で処理できますが、**ATSの要件に準
 
 {% tabs local %}
 {% tab Comply %}
-Brazeの統合では、（アプリ内メッセージやプッシュCampaignsなどから）ユーザーを誘導する既存のリンクがATSの要件を満たすようにすることで、ATS要件を満たすことができます。ATSの制限を回避する方法はありますが、リンクされたすべてのURLがATSに準拠するようにすることをお勧めします。Appleがアプリケーションのセキュリティをこれまで以上に重視していることを考えると、ATSの例外を許可する以下のアプローチがAppleによってサポートされる保証はありません。
+Brazeの統合では、（アプリ内メッセージやプッシュキャンペーンなどから）ユーザーを誘導する既存のリンクがATSの要件を満たすようにすることで、ATS要件を満たすことができます。ATSの制限を回避する方法はありますが、リンクされたすべてのURLがATSに準拠するようにすることをお勧めします。Appleがアプリケーションのセキュリティをこれまで以上に重視していることを考えると、ATSの例外を許可する以下のアプローチがAppleによってサポートされる保証はありません。
 {% endtab %}
 
 {% tab Partially disable %}
@@ -242,7 +242,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 `BrazeDelegate` プロトコルを使用して、ディープリンク、Web URL、ユニバーサルリンクなどのURLの処理をカスタマイズできます。Brazeの初期化中にデリゲートを設定するには、`Braze` インスタンスにデリゲートオブジェクトを設定します。その後、URIを処理する前にBrazeがデリゲートの `shouldOpenURL` 実装を呼び出します。
 
-プッシュ通知やアプリ内メッセージで**アプリ内でWeb URLを開く**を使用すると、Brazeは [`Braze.URLContext`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/urlcontext) で `context.useWebView == true` を渡します。メッセージがシステムブラウザーでURLを開く場合、`useWebView` は `false` になります。`braze(_:shouldOpenURL:)` で `context.useWebView` を確認して、カスタム処理を分岐させます。たとえば、Campaignがアプリ内表示をリクエストした場合にのみアプリ内の `WebViewController` を開くことができます。
+プッシュ通知やアプリ内メッセージで**アプリ内でWeb URLを開く**を使用すると、Brazeは [`Braze.URLContext`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/urlcontext) で `context.useWebView == true` を渡します。メッセージがシステムブラウザーでURLを開く場合、`useWebView` は `false` になります。`braze(_:shouldOpenURL:)` で `context.useWebView` を確認して、カスタム処理を分岐させます。たとえば、キャンペーンがアプリ内表示をリクエストした場合にのみアプリ内の `WebViewController` を開くことができます。
 
 #### ユニバーサルリンク {#universal-links}
 

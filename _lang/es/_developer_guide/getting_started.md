@@ -11,16 +11,16 @@ description: "Esta sección te ayudará a ti y a tu equipo de marketing a config
 guide_featured_title: "Artículos de sección"
 guide_featured_list:
   - name: Resumen del SDK
-    link: /docs/developer_guide/getting_started/sdk_overview/
+    link: /docs/developer_guide/getting_started/sdk_overview
     image: /assets/img/braze_icons/edit-04.svg
   - name: Resumen de la plataforma
-    link: /docs/developer_guide/getting_started/platform_overview/
+    link: /docs/developer_guide/getting_started/platform_overview
     image: /assets/img/braze_icons/announcement-01.svg
   - name: Resumen de la integración
-    link: /docs/developer_guide/getting_started/integration_overview/
+    link: /docs/developer_guide/getting_started/integration_overview
     image: /assets/img/braze_icons/chevron-up-double.svg
   - name: Resumen arquitectónico
-    link: /docs/developer_guide/getting_started/architecture_overview/
+    link: /docs/developer_guide/getting_started/architecture_overview
     image: /assets/img/braze_icons/columns-01.svg
 
 search_rank: 4

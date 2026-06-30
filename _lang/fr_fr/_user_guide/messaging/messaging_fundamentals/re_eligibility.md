@@ -24,7 +24,7 @@ Par défaut, Braze n'envoie un message à un utilisateur qu'une seule fois, mêm
 {% tab campaign %}
 Pour activer la rééligibilité pour une Campaign, cochez la case **Allow users to become re-eligible to receive campaign** dans la section **Delivery Controls**. Le délai maximum de rééligibilité pour une Campaign est de 720 jours.
 
-Pour les Campaigns déclenchées avec la rééligibilité activée, les utilisateurs qui [n'ont pas réellement reçu le message de la Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/#why-did-a-user-not-receive-my-triggered-campaign) (bien qu'ils aient effectué l'événement déclencheur) se qualifieront automatiquement pour le message la prochaine fois qu'ils effectueront l'événement déclencheur. En effet, la rééligibilité est basée sur la réception du message et non sur l'entrée dans la Campaign. En rendant les utilisateurs rééligibles pour une Campaign déclenchée, vous leur permettez de réellement recevoir (et pas simplement déclencher) le message plus d'une fois.
+Pour les Campaigns déclenchées avec la rééligibilité activée, les utilisateurs qui [n'ont pas réellement reçu le message de la Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#why-did-a-user-not-receive-my-triggered-campaign) (bien qu'ils aient effectué l'événement déclencheur) se qualifieront automatiquement pour le message la prochaine fois qu'ils effectueront l'événement déclencheur. En effet, la rééligibilité est basée sur la réception du message et non sur l'entrée dans la Campaign. En rendant les utilisateurs rééligibles pour une Campaign déclenchée, vous leur permettez de réellement recevoir (et pas simplement déclencher) le message plus d'une fois.
 
 {% alert note %}
 La « réception » inclut l'attribution via des identifiants de canal partagés : lorsqu'un message est distribué, ouvert ou cliqué, Braze met à jour les données de tous les profils partageant la même adresse e-mail ou le même numéro de téléphone. Ainsi, un utilisateur à qui le message n'a jamais été directement envoyé peut être marqué comme l'ayant reçu et peut ne pas redevenir éligible.
@@ -49,7 +49,7 @@ Notez qu'un utilisateur n'a pas besoin de quitter un Canvas avant d'y réentrer 
 
 Vous pouvez ajouter des filtres supplémentaires pour empêcher les utilisateurs de recevoir la même étape ou le même message plusieurs fois. Cependant, lorsqu'un utilisateur réentre dans un Canvas pour la deuxième fois, les étapes précédemment reçues lors de son premier passage dans le Canvas ne sont pas visibles pour l'utilisateur. Cela signifie que l'utilisateur peut toujours recevoir le même message à nouveau. Pour éviter cela, vous pouvez configurer le Canvas pour empêcher la réentrée ou définir la rééligibilité sur la durée maximale du Canvas.
 
-Vous pouvez également utiliser une [étape de mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) pour que l'utilisateur recevant l'étape enregistre cela comme un attribut personnalisé, qui peut ensuite être utilisé pour filtrer les utilisateurs ayant déjà reçu l'étape au cours de leur parcours Canvas.
+Vous pouvez également utiliser une [étape de mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) pour que l'utilisateur recevant l'étape enregistre cela comme un attribut personnalisé, qui peut ensuite être utilisé pour filtrer les utilisateurs ayant déjà reçu l'étape au cours de leur parcours Canvas.
 
 ### Exemple {#example}
 
@@ -76,7 +76,11 @@ Cela signifie que les utilisateurs ayant reçu la Campaign le 15 février ne son
 
 ## Rééligibilité pour les Content Cards {#re-eligibility-for-content-cards}
 
-Lorsque la rééligibilité est activée pour des Campaigns ou des étapes de Canvas de Content Cards, un utilisateur peut recevoir une autre carte alors qu'une carte précédente de la même Campaign est encore présente dans son flux, ce qui peut ressembler à des cartes en double. Pour réduire les doublons, désactivez la rééligibilité ou allongez la fenêtre de rééligibilité afin que la première carte [expire du flux]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#the-30-day-expiration-and-re-eligibility) avant que l'utilisateur ne se qualifie pour un nouvel envoi.
+Lorsque la rééligibilité est activée pour des Campaigns ou des étapes de Canvas de Content Cards, un utilisateur peut recevoir une autre carte alors qu'une carte précédente de la même Campaign est encore présente dans son flux, ce qui peut ressembler à des cartes en double. Pour réduire les doublons, désactivez la rééligibilité ou allongez la fenêtre de rééligibilité afin que la première carte [expire du flux]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#the-30-day-expiration-and-re-eligibility) avant que l'utilisateur ne se qualifie pour un nouvel envoi.
+
+## Rééligibilité pour les bannières {#re-eligibility-for-banners}
+
+Lorsque la rééligibilité est activée pour des Campaigns de bannières, les utilisateurs qui ferment une bannière peuvent redevenir éligibles après une fenêtre de temporisation configurable qui commence au moment de la fermeture. Si la rééligibilité n'est pas activée, les utilisateurs ayant fermé la bannière restent inéligibles. Pour configurer la rééligibilité, consultez [Configurer la rééligibilité]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#re-eligibility). Notez que les étapes de bannière dans Canvas utilisent les paramètres de réentrée du Canvas à la place.
 
 ## Test multivarié {#multivariate-testing}
 

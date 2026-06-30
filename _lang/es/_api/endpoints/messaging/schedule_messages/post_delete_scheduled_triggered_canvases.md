@@ -10,7 +10,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 ---
 {% api %}
 # Eliminar Canvas programados desencadenados por API {#delete-scheduled-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/delete
 {% endapimethod %}
 
@@ -22,7 +22,7 @@ Los mensajes programados o desencadenados que se eliminan cerca de la hora a la 
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `canvas.trigger.schedule.delete`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `canvas.trigger.schedule.delete`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -46,7 +46,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id` | Obligatorio | Cadena | Ver [identificador de Canvas]({{site.baseurl}}/api/identifier_types/). |
+| `canvas_id` | Obligatorio | Cadena | Ver [identificador de Canvas]({{site.baseurl}}/api/identifier_types). |
 | `schedule_id` | Obligatorio | Cadena | El `schedule_id` a eliminar (obtenido de la respuesta a crear programación). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 

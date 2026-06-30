@@ -34,7 +34,7 @@ Stories, Movable Ink 고객 데이터 API, 그리고 Movable Ink가 행동 데�
 
 #### 1a단계: 새 Campaign 생성하기 {#step-1a-create-a-new-campaign}
 
-1. Braze에서 [웹훅 Campaign을 생성]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)합니다.
+1. Braze에서 [웹훅 Campaign을 생성]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)합니다.
 2. Campaign에 이름과 선택적 설명을 입력합니다.
 3. 템플릿으로 **Blank Template**을 선택합니다.
 
@@ -54,14 +54,14 @@ Stories, Movable Ink 고객 데이터 API, 그리고 Movable Ink가 행동 데�
 | Authorization | Movable Ink에서 받은 기본 인증을 입력합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1b: Add your Customer Data API credentials" }
 
-![Content-Type 및 Authorization에 대한 키-값 페어가 있는 Braze 웹훅 작성기의 Settings 탭.]({% image_buster /assets/img/movable_ink/cd_api_webhook_settings.png %}){: style="max-width:75%" }
+![Content-Type 및 Authorization에 대한 키-값 페어가 있는 Braze 웹훅 작성기의 설정 탭.]({% image_buster /assets/img/movable_ink/cd_api_webhook_settings.png %}){: style="max-width:75%" }
 
 #### 1c단계: 페이로드 구성하기 {#step-1c-configure-your-payload}
 
 1. **Compose** 탭으로 돌아갑니다.
 2. **Request Body**에 JSON 키-값 페어로 직접 요청 본문을 생성하거나 이벤트 페이로드를 원시 텍스트로 입력합니다. 표준 이커머스 이벤트 예시는 [샘플 페이로드](#sample-payloads)를 참조하세요.
 
-![ID, 타임스탬프, 사용자 ID, 이벤트 유형에 대한 JSON 키-값 페어가 있는 Braze 웹훅 작성기의 Compose 탭.]({% image_buster /assets/img/movable_ink/cd_api_webhook_kvp.png %}){: style="max-width:75%" }
+![ID, 타임스탬프, 사용자 ID, 이벤트 유형에 대한 JSON 키-값 페어가 있는 Braze 웹훅 작성기의 작성 탭.]({% image_buster /assets/img/movable_ink/cd_api_webhook_kvp.png %}){: style="max-width:75%" }
 
 #### 1d단계: 웹훅 테스트하기 {#step-1d}
 
@@ -83,14 +83,14 @@ Movable Ink는 Movable Ink 클라이언트 경험 팀이 매핑을 완료하고 
 
 #### 2a단계: Campaign 스케줄 설정하기 {#step-2a-schedule-your-campaign}
 
-웹훅 작성 및 테스트가 완료되면 [Campaign을 스케줄]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)합니다.
+웹훅 작성 및 테스트가 완료되면 [Campaign을 스케줄]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)합니다.
 
-Braze는 스케줄, 실행 기반, API 트리거 전달을 지원합니다. [실행 기반 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)은 대부분의 행동 이벤트 사용 사례에 가장 적합합니다. 사용 사례에 적합한 방법에 대한 질문이 있으면 Braze 및 Movable Ink 고객 성공 매니저에게 문의하세요.
+Braze는 스케줄, 실행 기반, API 트리거 전달을 지원합니다. [실행 기반 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)은 대부분의 행동 이벤트 사용 사례에 가장 적합합니다. 사용 사례에 적합한 방법에 대한 질문이 있으면 Braze 및 Movable Ink 고객 성공 매니저에게 문의하세요.
 
 실행 기반 전달의 경우:
 
 1. 트리거 동작을 지정합니다. 이것은 Movable Ink로 웹훅을 트리거하는 이벤트입니다.
-2. **스케줄 지연**이 **Immediately**로 설정되어 있는지 확인합니다. 이벤트 데이터는 이벤트 발생 직후 지연 없이 Movable Ink로 전송되어야 합니다.
+2. **Schedule Delay**가 **Immediately**로 설정되어 있는지 확인합니다. 이벤트 데이터는 이벤트 발생 직후 지연 없이 Movable Ink로 전송되어야 합니다.
 3. 시작 시간을 지정하여 Campaign 기간을 설정합니다. 종료 시간은 일반적으로 적용되지 않지만, 사용 사례에 필요한 경우 설정할 수 있습니다.
 
 {% alert note %}
@@ -99,7 +99,7 @@ Braze는 스케줄, 실행 기반, API 트리거 전달을 지원합니다. [실
 
 #### 2b단계: 오디언스 지정하기 {#step-2b-specify-your-audience}
 
-다음으로, 이 Campaign의 타겟 사용자를 결정합니다. 자세한 내용은 [사용자 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)을 참조하세요.
+다음으로, 이 Campaign의 타겟 사용자를 결정합니다. 자세한 내용은 [사용자 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)을 참조하세요.
 
 **Control Group** 체크박스를 해제하여 Campaign에서 A/B 테스트를 사용하지 않도록 합니다. 대조군이 포함되면 일정 비율의 사용자 데이터가 Movable Ink로 전송되지 않습니다. 모든 오디언스는 대조군이 아닌 배리언트로 이동해야 합니다.
 
@@ -135,7 +135,7 @@ Movable Ink의 고객 데이터 API에 대한 커넥터를 설정하기 전에 �
 
 이 샘플 페이로드를 Movable Ink 클라이언트 경험 팀과 공유합니다. 샘플 페이로드에 민감한 개인 식별 정보(예: 이메일 주소, 전화번호 또는 전체 생년월일)가 포함되지 않도록 합니다.
 
-커스텀 이벤트 등록정보 및 등록정보에 포함된 데이터의 예상 형식에 대해 자세히 알아보려면 [커스텀 이벤트 등록정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/)를 참조하세요.
+커스텀 이벤트 등록정보 및 등록정보에 포함된 데이터의 예상 형식에 대해 자세히 알아보려면 [커스텀 이벤트 등록정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties)를 참조하세요.
 
 ### 알려진 사용자 대 익명 사용자 {#known-versus-anonymous-users}
 
@@ -164,7 +164,7 @@ Braze에서 이벤트는 익명 사용자 프로필에 기록될 수 있습니�
 {
   "events": [
     {
-      "email": "test@braze.com",
+      "email": "test@example.com",
       "name": "Product Viewed",
       "time": "2023-12-06T19:20:45+01:00",
       "properties": {

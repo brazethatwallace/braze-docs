@@ -8,33 +8,29 @@ description: "Este artículo ofrece un resumen de la configuración multilingüe
 
 # Configuración de localización {#localization-settings}
 
-> La característica multilingüe te permite utilizar [etiquetas de traducción]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para dirigirte a usuarios de diferentes idiomas y ubicaciones, todo ello en un solo mensaje.
+> La característica multilingüe te permite utilizar [etiquetas de traducción]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para dirigirte a usuarios de diferentes idiomas y ubicaciones, todo ello en un solo mensaje.
 
 ## Requisitos previos {#prerequisites}
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 ## Añadir una configuración regional {#add-a-locale}
 
 1. Ve a **Configuración** > **Configuración de localización**.
 2. Selecciona **Añadir configuración regional** y, a continuación, selecciona **Configuración regional predeterminada** o **Atributos personalizados**.
-
-![El desplegable "Añadir configuración regional" con opciones para seleccionar la configuración regional predeterminada o atributos personalizados.]({% image_buster /assets/img/multi-language_support/add_locale_options.png %}){: style="max-width:40%;"}
-
-{: start="3"}
 3. Introduce un nombre para la configuración regional.
-4. [Selecciona un idioma para accesibilidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/#language-settings-and-accessibility). Esta configuración permite que las tecnologías de asistencia, como los lectores de pantalla, pronuncien correctamente el texto.
+4. [Selecciona un idioma para accesibilidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#language-settings-and-accessibility). Esta configuración permite que las tecnologías de asistencia, como los lectores de pantalla, pronuncien correctamente el texto.
 5. Selecciona los atributos de usuario correspondientes a la opción de configuración regional que hayas elegido. Al configurar una configuración regional, puedes seleccionar idiomas de los atributos de usuario predeterminados o de los atributos personalizados. No puedes seleccionar de ambos.
 
 {% tabs %}
-{% tab Default locale %}
+{% tab Configuración regional predeterminada %}
 
 Para **Configuración regional predeterminada**, usa los desplegables para seleccionar el idioma que deseas añadir y, opcionalmente, el país que se asociará con el idioma.
 
 ![Una ventana llamada "Añadir configuración regional - Idioma y país predeterminados" para especificar el idioma y el país.]({% image_buster /assets/img/multi-language_support/default_option.png %})
 
 {% endtab %}
-{% tab Custom attributes %}
+{% tab Atributos personalizados %}
 
 Para **Atributos personalizados**, usa el desplegable para seleccionar el atributo personalizado asociado y, en el campo de texto, introduce el valor.
 
@@ -46,7 +42,7 @@ Para **Atributos personalizados**, usa el desplegable para seleccionar el atribu
 {: start="6"}
 6. Selecciona **Añadir configuración regional**.
 
-Para conocer los pasos para usar estas configuraciones regionales en tus mensajes, consulta [Uso de configuraciones regionales]({{site.baseurl}}/locales_in_messages/).
+Para conocer los pasos para usar estas configuraciones regionales en tus mensajes, consulta [Uso de configuraciones regionales]({{site.baseurl}}/locales_in_messages).
 
 ## Consideraciones {#considerations}
 
@@ -63,14 +59,14 @@ Para conocer los pasos para usar estas configuraciones regionales en tus mensaje
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
-#### ¿Cuántas configuraciones regionales puedo añadir? {#how-many-locales-can-i-add}
+### ¿Cuántas configuraciones regionales puedo añadir? {#how-many-locales-can-i-add}
 
 Puedes añadir hasta 200 configuraciones regionales.
 
-#### ¿Dónde se almacenan los archivos de traducción en Braze? {#where-are-the-translation-files-stored-in-braze}
+### ¿Dónde se almacenan los archivos de traducción en Braze? {#where-are-the-translation-files-stored-in-braze}
 
 Los archivos de traducción se almacenan a nivel de Campaign, lo que significa que cada variante de mensaje debe tener traducciones cargadas. Las traducciones también se pueden almacenar en Content Blocks. Cuando el bloque se añade a un mensaje, sus traducciones se incluyen automáticamente.
 
-#### ¿El nombre de la configuración regional tiene que seguir un patrón o formato específico? {#does-the-locale-name-have-to-follow-a-specific-pattern-or-format}
+### ¿El nombre de la configuración regional tiene que seguir un patrón o formato específico? {#does-the-locale-name-have-to-follow-a-specific-pattern-or-format}
 
 No. Puedes usar la convención de nomenclatura que prefieras. El nombre de la configuración regional se usa al seleccionar la configuración regional en el editor y aparecerá en los encabezados del archivo que descargues con los ID de traducción.

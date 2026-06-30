@@ -25,8 +25,6 @@ toc_headers: h2
 
 ここでは、すべてのワークスペースの一覧、それぞれの設定タイムゾーン、そしてタイムゾーンが最後に編集された日時を確認できます。検索バーを使って、名前で特定のワークスペースを探すことができます。
 
-![ワークスペースの一覧、それぞれのタイムゾーン、そしてタイムゾーンが最後に編集された日時が表示された「ワークスペースのタイムゾーン」ページ。]({% image_buster /assets/img/workspaces/time_zones/workspace_time_zones_page.png %})
-
 ### タイムゾーンの設定 {#setting-a-time-zone}
 
 {% alert note %}
@@ -36,28 +34,27 @@ toc_headers: h2
 {% tabs %}
 {% tab 単一ワークスペース %}
 1. リストから目的のワークスペースを探します。
-2. ワークスペース名の横にある**Edit**アイコンを選択します。
+2. ワークスペース名の横にある**編集**アイコンを選択します。
 
-![ワークスペース名の横にある「Edit」ボタン。]({% image_buster /assets/img/workspaces/time_zones/single_edit_icon.png %})
+![ワークスペース名の横にある「編集」ボタン。]({% image_buster /assets/img/workspaces/time_zones/single_edit_icon.png %})
 
 {: start="3"}
 3. ドロップダウンメニューで、そのワークスペースに適用したいタイムゾーンを選択します。
-4. **Save**を選択します。
+4. **保存**を選択します。
 
-![GMTタイムゾーンが選択されたドロップダウンメニュー。]({% image_buster /assets/img/workspaces/time_zones/edit_single_workspace.png %})
 {% endtab %}
 {% tab 複数ワークスペース %}
 
 以下の手順で、複数のワークスペースに特定のタイムゾーンを一度に適用できます。
 
 1. 更新したいすべてのワークスペースの横にあるチェックボックスを選択します。
-2. **Edit time zone**を選択します。
+2. **タイムゾーンを編集**を選択します。
 3. ドロップダウンメニューから、選択したすべてのワークスペースに適用するタイムゾーンを選択します。
 
-![複数のワークスペースが選択された「ワークスペースのタイムゾーン」ページと「Edit time zone」ボタン。]({% image_buster /assets/img/workspaces/time_zones/bulk_edit_workspace_time_zone.png %})
+![複数のワークスペースが選択された「ワークスペースのタイムゾーン」ページと「タイムゾーンを編集」ボタン。]({% image_buster /assets/img/workspaces/time_zones/bulk_edit_workspace_time_zone.png %})
 
 {: start="4"}
-4. **Save**を選択します。
+4. **保存**を選択します。
 
 {% endtab %}
 {% endtabs %}
@@ -68,7 +65,7 @@ toc_headers: h2
 タイムゾーンの変更について、各ワークスペース内の関連チームや関係者に通知し、キャンペーンスケジュールに関する混乱を避けてください。
 {% endalert %}
 
-- **ローカルタイムおよびインテリジェントタイミングのキャンペーン:** ユーザーのローカルタイムまたは[インテリジェントタイミング]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/#option-3-intelligent-timing)を使用して配信するキャンペーンやキャンバスは、これまでどおり機能し、ワークスペースのタイムゾーンの影響を受けません。
+- **ローカルタイムおよびインテリジェントタイミングのキャンペーン:** ユーザーのローカルタイムまたは[インテリジェントタイミング]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery#option-3-intelligent-timing)を使用して配信するキャンペーンやキャンバスは、これまでどおり機能し、ワークスペースのタイムゾーンの影響を受けません。
 - **スケジュールされたキャンペーンとキャンバス:** ユーザーのローカルタイムやインテリジェントタイミングを使用しないスケジュールされたキャンペーンやキャンバスは、ワークスペースで選択されたタイムゾーンに基づいて送信されるようになります。
 - **タイムゾーン変更前にスケジュールされたキャンペーン:** ワークスペースのタイムゾーンを変更する前にキャンペーンやキャンバスをスケジュールしていた場合、Brazeは元の送信時刻を保持し、再スケジュールは行いません。例えば、キャンペーンがPST午後7時に送信されるように設定されていて、ワークスペースのタイムゾーンがESTに変更された場合、キャンペーンは引き続きPST午後7時に送信されます（これはEST午後10時に相当します）。システムは引き続き元の時刻を参照しますが、新しいワークスペースのタイムゾーンを通じて解釈します。
 

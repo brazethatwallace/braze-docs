@@ -65,7 +65,7 @@ table td {
 | `phone`            | String     | No*      | El número de teléfono del usuario. |
 | `user_role`             | String     | No       | El rol que tiene el usuario en la cuenta, como "director" o "empleado". |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
-<sup>Se requiere uno de `external_id`, `email`, `phone` o `user_alias` para identificar a un usuario.</sup>
+<sup>*Se requiere uno de `external_id`, `email`, `phone` o `user_alias` para identificar a un usuario.</sup>
 
 #### Usar un archivo CSV {#using-a-csv-file}
 
@@ -142,7 +142,7 @@ La API de Braze te da control programático sobre los datos de cuenta a escala. 
 Para más información sobre métodos HTTP y cómo funcionan las REST API, consulta los siguientes recursos:
 - [Métodos de solicitud HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods) en MDN Web Docs
 - [Tutorial de REST API](https://restapitutorial.com/)
-- [Resumen de la API de Braze](https://www.braze.com/docs/api/basics)
+- [Resumen de la API de Braze]({{site.baseurl}}/api/basics)
 
 {% alert note %}
 Usa una clave de API con permisos de catálogos para autenticar solicitudes al punto de conexión `/business/accounts`.
@@ -186,7 +186,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
                   "website": "http://www.acme.com",
                   "main_phone": "+1-212-555-1234",
                   "created_date": "2023-01-15T09:30:00Z",
-                  "account_owner_email_address": "owner@acme.com",
+                  "account_owner_email_address": "owner@example.com",
                   "parent_account_id": "",
                   "sic_code": "2011"
               },
@@ -206,7 +206,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
                   "website": "http://www.globalsolutions.com",
                   "main_phone": "+1-650-555-5678",
                   "created_date": "2023-02-20T14:45:00Z",
-                  "account_owner_email_address": "partner@globalsolutions.com",
+                  "account_owner_email_address": "partner@example.com",
                   "parent_account_id": "ACC001",
                   "sic_code": "7372"
               },
@@ -226,7 +226,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
                   "website": "http://www.oceanicventures.com",
                   "main_phone": "+1-305-555-6789",
                   "created_date": "2023-03-05T08:15:00Z",
-                  "account_owner_email_address": "contact@oceanicventures.com",
+                  "account_owner_email_address": "contact@example.com",
                   "parent_account_id": "",
                   "sic_code": "5941"
               }
@@ -265,7 +265,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts/ACC001 \
                 "website": "http://www.acme.com",
                 "main_phone": "+1-212-555-1234",
                 "created_date": "2023-01-15T09:30:00Z",
-                "account_owner_email_address": "owner@acme.com",
+                "account_owner_email_address": "owner@example.com",
                 "parent_account_id": "",
                 "sic_code": "2011"
             }

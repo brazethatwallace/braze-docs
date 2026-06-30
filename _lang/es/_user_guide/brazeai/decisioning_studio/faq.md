@@ -10,7 +10,7 @@ description: "Esta página ofrece respuestas a preguntas frecuentes sobre Decisi
 
 > Este artículo ofrece respuestas a algunas preguntas frecuentes sobre Decisioning Studio.
 
-### ¿Qué es un agente de decisión? {#what-is-a-decisioning-agent}
+## ¿Qué es un agente de decisión? {#what-is-a-decisioning-agent}
 
 Un agente de decisión es una configuración personalizada para BrazeAI Decisioning Studio™ que se adapta a medida para cumplir un objetivo de negocio específico. Esto viene definido por la métrica de éxito, las dimensiones y las opciones que elijas. El agente de decisión descubre automáticamente la acción óptima para cada cliente con el fin de maximizar la métrica empresarial elegida.
 
@@ -36,4 +36,4 @@ Las restricciones limitan las acciones del agente de decisión para que respete 
 
 ### ¿Cuál es la diferencia entre Decisioning Studio Go y Decisioning Studio Pro? {#what-is-the-difference-between-decisioning-studio-go-and-decisioning-studio-pro}
 
-Decisioning Studio Pro incluye el soporte de los servicios de toma de decisiones con IA del equipo de ciencia de datos de Braze, que te ayudará a diseñar y configurar tu agente para maximizar los resultados de tu negocio. Para obtener más información, consulta [Decisioning Studio Go frente a Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/#decisioning-studio-go-vs-decisioning-studio-pro).
+Decisioning Studio Pro incluye el soporte de los servicios de toma de decisiones con IA del equipo de ciencia de datos de Braze, que te ayudará a diseñar y configurar tu agente para maximizar los resultados de tu negocio. Para obtener más información, consulta [Decisioning Studio Go frente a Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio#decisioning-studio-go-vs-decisioning-studio-pro).

@@ -1,7 +1,7 @@
 ---
 nav_title: Convercus
 article_title: Convercus
-description: "このリファレンス記事では、BrazeとConvercusのパートナーシップについて説明します。Convercusはロイヤルティおよびクーポンプラットフォームで、リアルタイムのロイヤルティデータでBrazeを強化し、BrazeのCampaignsからConvercusのロイヤルティアクションをトリガーできます。"
+description: "このリファレンス記事では、BrazeとConvercusのパートナーシップについて説明します。Convercusはロイヤルティおよびクーポンプラットフォームで、リアルタイムのロイヤルティデータでBrazeを強化し、BrazeのキャンペーンからConvercusのロイヤルティアクションをトリガーできます。"
 page_type: partner
 search_tag: Partner
 ---
@@ -14,13 +14,13 @@ search_tag: Partner
 
 ## 連携について {#about-the-integration}
 
-BrazeとConvercusの連携は双方向です。ロイヤルティデータはカスタム属性、カスタムイベント、購入としてリアルタイムでBrazeに流れ込み、BrazeのCanvasesやCampaignsはwebhookを通じてConvercusのロイヤルティアクションをトリガーできます。同期されたメンバーティア、ポイント残高、購入、クーポンアクティビティをSegments、Liquid、コネクテッドコンテンツで活用できます。Brazeジャーニーからは、クーポンの割り当て、ポイントの獲得・消費トランザクションの記録、Convercusでのメールサブスクリプション設定の更新も可能です。
+BrazeとConvercusの連携は双方向です。ロイヤルティデータはカスタム属性、カスタムイベント、購入としてリアルタイムでBrazeに流れ込み、Brazeのキャンバスやキャンペーンはwebhookを通じてConvercusのロイヤルティアクションをトリガーできます。同期されたメンバーティア、ポイント残高、購入、クーポンアクティビティをセグメント、Liquid、コネクテッドコンテンツで活用できます。Brazeジャーニーからは、クーポンの割り当て、ポイントの獲得・消費トランザクションの記録、Convercusでのメールサブスクリプション設定の更新も可能です。
 
 Convercusが連携をホストするため、追加のインフラを導入する必要はありません。多くのロイヤルティコネクターがデータを一方向にプッシュするだけなのに対し、Convercusはループを閉じます。Brazeでロイヤルティイベントに反応し、Convercusでアクションを実行し、その結果をBrazeで測定できます。
 
 ## ユースケース {#use-cases}
 
-1. **ティアアップのお祝い:** メンバーがConvercusでロイヤルティティアを上がった際に、ウェルカムメッセージ、ティア限定特典、メンバーの新しいティアとポイント残高を含むパーソナライズされたBraze Canvasをトリガーします。
+1. **ティアアップのお祝い:** メンバーがConvercusでロイヤルティティアを上がった際に、ウェルカムメッセージ、ティア限定特典、メンバーの新しいティアとポイント残高を含むパーソナライズされたBraze キャンバスをトリガーします。
 2. **誕生日やマイルストーンボーナス:** Brazeジャーニーから、メンバーの誕生日や記念日にConvercusでボーナスポイントを記録し、新しい残高を確認するお祝いメッセージを送信します。
 3. **休眠メンバーの復帰施策:** 非アクティブなメンバーに対して、BrazeがWebhookを通じてConvercusでパーソナライズされたクーポンを割り当て、メール、プッシュ、アプリ内メッセージで配信します。
 4. **メッセージ内のリアルタイムポイント残高:** コネクテッドコンテンツを使用してメンバーのリアルタイムポイント残高をBraze Liquidに取り込み、「次の報酬まであとXポイント」のようなケイデンスを実現します。
@@ -54,7 +54,7 @@ Convercus Selfservice（顧客向け管理UI — Convercusアカウントマネ�
    | `defaultOptins` | プログラムのオプトインチャネル（`membershipOptins`から）の複数選択。メールサブスクリプションWebhookでリクエストが`optins`を省略した場合のデフォルトとして使用されます。少なくとも1つが選択されるまで、Braze設定は**未完了**として扱われます。 |
    {: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ1: Convercus SelfserviceでBrazeを設定する" }
 
-2. インバウンドコール用のAPIキーを作成します。プログラムごとの`X-Convercus-Key`認証情報を作成します。生のキーは作成時に一度だけ表示され、`cvc_`がプレフィックスとして付きます（形式: `cvc_<base64url>`）。ステップ2でWebhook CampaignsとコネクテッドコンテンツブロックをBrazeで設定する際に保存してください。キーは同じカードからいつでも取り消すことができ、取り消しは即座に有効になります。
+2. インバウンドコール用のAPIキーを作成します。プログラムごとの`X-Convercus-Key`認証情報を作成します。生のキーは作成時に一度だけ表示され、`cvc_`がプレフィックスとして付きます（形式: `cvc_<base64url>`）。ステップ2でWebhook キャンペーンとコネクテッドコンテンツブロックをBrazeで設定する際に保存してください。キーは同じカードからいつでも取り消すことができ、取り消しは即座に有効になります。
 
 Braze接続を保存すると、Convercusはそのプログラムのロイヤルティイベントを即座にBrazeへストリーミングし始めます。追加のインフラセットアップは不要です。
 
@@ -64,7 +64,7 @@ Braze接続を保存すると、Convercusはそのプログラムのロイヤル
 
 ### ステップ2: BrazeでWebhookを設定する {#step-2-configure-webhooks-in-braze}
 
-CanvasやCampaignからConvercusアクションをトリガーするには、Convercus連携サービスを呼び出すBraze Webhookアクションを作成します。すべてのリクエストには以下のヘッダーを含める必要があります。
+キャンバスやキャンペーンからConvercusアクションをトリガーするには、Convercus連携サービスを呼び出すBraze Webhookアクションを作成します。すべてのリクエストには以下のヘッダーを含める必要があります。
 
 - `X-Convercus-Key: cvc_…` — ステップ1で生成したAPIキー。
 - `Content-Type: application/json`
@@ -123,8 +123,8 @@ Content-Type: application/json
 
 連携が稼働すると、Convercusイベントは[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)エンドポイントを通じてBrazeの各ユーザープロファイルに届き、他のネイティブデータと同様に使用できます。
 
-1. ロイヤルティカスタム属性（例: `convercus_status_level`、`convercus_balance`）を**Segments**で使用して、ティア保有者、高残高メンバー、または最近ダウングレードされたユーザーをターゲットにします。
-2. カスタムイベント（例: `convercus_status_level_changed`、クーポンおよびメンバーシップイベント）をCanvasの**トリガーステップ**として、またはリエンゲージメントCampaignsのフィルターとして使用します。
+1. ロイヤルティカスタム属性（例: `convercus_status_level`、`convercus_balance`）を**セグメント**で使用して、ティア保有者、高残高メンバー、または最近ダウングレードされたユーザーをターゲットにします。
+2. カスタムイベント（例: `convercus_status_level_changed`、クーポンおよびメンバーシップイベント）をキャンバスの**トリガーステップ**として、またはリエンゲージメントキャンペーンのフィルターとして使用します。
 3. これらのフィールドを**Liquid**で参照して、メッセージ内パーソナライゼーション（件名、本文、プッシュタイトル）に活用します。
 4. Convercusからストリーミングされた`purchase`イベントを使用して、商品対応ジャーニー（補充、カテゴリアップセル、購入後レビューリクエスト）を推進します。
 

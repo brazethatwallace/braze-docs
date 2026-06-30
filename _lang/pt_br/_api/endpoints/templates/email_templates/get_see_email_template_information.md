@@ -23,7 +23,7 @@ Modelos criados usando o editor de arrastar e soltar para e-mail não são aceit
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e98d2d5b-62fe-4358-b391-9fe9e460d0ac {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `templates.email.info`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `templates.email.info`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -33,8 +33,8 @@ Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
-| `email_template_id` | Obrigatória | String | Veja [identificador de API de modelo de e-mail]({{site.baseurl}}/api/identifier_types/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de solicitação" }
+| `email_template_id` | Obrigatória | String | Veja [identificador de API de modelo de e-mail]({{site.baseurl}}/api/identifier_types). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 {% raw %}

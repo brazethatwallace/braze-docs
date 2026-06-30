@@ -2,14 +2,10 @@
 
 > Braze MCP 서버에 대해 알아보세요. 이는 Claude 및 Cursor와 같은 AI 도구가 비PII Braze 데이터에 접근하여 질문에 답하고, 트렌드를 분석하며, 인사이트를 제공할 수 있는 안전한 연결입니다.
 
-{% multi_lang_include mcp_server/beta_alert.md %}
-
 {% alert important %}
-## 로컬 호스팅 Braze MCP 서버 서비스 종료 {#sunsetting-the-locally-hosted-braze-mcp-server}
+올여름 Braze는 원격 Braze 호스팅 MCP 서버를 얼리 액세스로 출시합니다. 이 서버는 로컬 호스팅 베타 서버([PyPI](https://pypi.org/project/braze-mcp-server/)의 `braze-mcp-server` 및 Claude Desktop 확장 디렉토리)를 대체합니다.<br><br>
 
-올여름 Braze는 원격 Braze 호스팅 MCP 서버를 얼리 액세스로 출시합니다. 이 서버는 로컬 호스팅 베타 서버([PyPI](https://pypi.org/project/braze-mcp-server/)의 `braze-mcp-server` 및 Claude Desktop 확장 디렉토리)를 대체합니다.
-
-**이것이 의미하는 바:**
+**이것이 의미하는 바:**<br><br>
 
 - 로컬 호스팅 서버는 계속 작동하지만 더 이상 지원되지 않습니다. 베타에서 새로운 엔드포인트를 추가하거나 문제를 수정하지 않습니다.
 - 원격 서버가 얼리 액세스로 제공되면 해당 서버로 전환해야 합니다. 원격 서버는 로컬 설치가 필요 없으며, 정적 API 키 대신 OAuth를 사용하고, Claude, Copilot, Gemini CLI, Codex, Cursor와 같은 MCP 클라이언트에서 작동합니다.
@@ -43,11 +39,13 @@ Claude나 Cursor와 같은 도구를 사용하여 자연어로 Braze와 상호�
 
 {% tabs %}
 {% tab Claude %}
-![Claude에서 '사용 가능한 Braze 기능은 무엇인가요?'라는 질문과 답변.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**예시 프롬프트:** `What are my available Braze functions?`
+**예시 응답:** `list_functions`를 사용하여 사용 가능한 Braze MCP 기능 카테고리를 반환했습니다.
 {% endtab %}
 
 {% tab Cursor %}
-![Cursor에서 '사용 가능한 Braze 기능은 무엇인가요?'라는 질문과 답변.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**예시 프롬프트:** `What are my available Braze functions?`
+**예시 응답:** `list_functions`를 쿼리하고 `get_canvas_list`와 같은 기능을 나열했습니다.
 {% endtab %}
 {% endtabs %}
 

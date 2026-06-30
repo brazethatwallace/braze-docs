@@ -18,17 +18,17 @@ Las listas de supresión son dinámicas y se aplican automáticamente a todas la
 
 ### Tipos de mensajes y canales afectados por las listas de supresión {#message-types-and-channels-affected-by-suppression-lists}
 
-Las listas de supresión se aplican a todos los tipos de mensajes y canales excepto a los [conmutadores de características]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags/). Esto significa que las listas de supresión se aplican de forma predeterminada a todos los canales, Campaigns y Canvas, incluyendo:
-- [Campaigns de API]({{site.baseurl}}/api/api_campaigns/)
+Las listas de supresión se aplican a todos los tipos de mensajes y canales excepto a los [conmutadores de características]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags). Esto significa que las listas de supresión se aplican de forma predeterminada a todos los canales, Campaigns y Canvas, incluyendo:
+- [Campaigns de API]({{site.baseurl}}/api/api_campaigns)
 - Campaigns y Canvas activados por API
-- [Correos electrónicos transaccionales]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)
+- [Correos electrónicos transaccionales]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)
 
 El único tipo de mensaje al que no se aplican las listas de supresión son los conmutadores de características. Los usuarios en una lista de supresión no serán suprimidos de los conmutadores de características, pero sí de todos los demás canales.
 
 Puedes usar etiquetas de excepción para que los usuarios de la lista de supresión sigan siendo objetivo de Campaigns y Canvas específicos. Para más detalles, consulta el paso 4 en [Configurar listas de supresión](#setup). Si no añades etiquetas de excepción a una lista de supresión, los usuarios de esa lista de supresión no serán objetivo de ninguna mensajería aparte de los conmutadores de características.
 
 {% alert note %}
-Las listas de supresión se aplican a las Campaigns de API que se crean en el dashboard de Braze con un `campaign_id`. Las listas de supresión no se aplican a los mensajes enviados a través de los [puntos de conexión de mensajería de Braze]({{site.baseurl}}/api/endpoints/messaging/) sin un `campaign_id` asociado.
+Las listas de supresión se aplican a las Campaigns de API que se crean en el dashboard de Braze con un `campaign_id`. Las listas de supresión no se aplican a los mensajes enviados a través de los [puntos de conexión de mensajería de Braze]({{site.baseurl}}/api/endpoints/messaging) sin un `campaign_id` asociado.
 {% endalert %}
 
 ![La sección "Configuración de excepciones" con una casilla de verificación para no aplicar la lista de supresión a Campaigns y Canvas activados por API.]({% image_buster /assets/img/suppression_list_checkbox.png %}){: style="max-width:70%;"}
@@ -39,12 +39,12 @@ Las listas de supresión se aplican a las Campaigns de API que se crean en el da
 Todos los usuarios pueden ver las listas de supresión, pero solo los usuarios con [permisos de administrador]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions?tab=admin) pueden crear y administrar listas de supresión.
 {% endalert %}
 
-1. Ve a **Audiencia** > **Listas de supresión**.<br><br>![La página "Listas de supresión" con una lista de tres listas de supresión.]({% image_buster /assets/img/suppression_lists_home.png %})<br><br>
-2. Selecciona **Crear lista de supresión** y añade un nombre.<br><br>![Una ventana llamada "Crear una lista de supresión" con un campo para introducir un nombre.]({% image_buster /assets/img/create_suppression_list.png %}){: style="max-width:80%;"}<br><br>
+1. Ve a **Audiencia** > **Listas de supresión**.
+2. Selecciona **Crear lista de supresión** y añade un nombre.
 3. Usa filtros de segmento para identificar a los usuarios en tus listas de supresión. Debes seleccionar al menos uno.
 
 {% alert important %}
-Aunque el proceso de configuración parece similar a la [creación de segmentos]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), una lista de supresión es un grupo de usuarios a los que **no** quieres enviar mensajes independientemente de su pertenencia a un segmento.
+Aunque el proceso de configuración parece similar a la [creación de segmentos]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), una lista de supresión es un grupo de usuarios a los que **no** quieres enviar mensajes independientemente de su pertenencia a un segmento.
 {% endalert %}
 
 ![Un constructor de listas de supresión con un filtro para usuarios que abrieron un correo electrónico por última vez hace más de 90 días.]({% image_buster /assets/img/suppression_list_filters.png %})
@@ -68,7 +68,7 @@ Puedes desactivar o archivar las listas de supresión cuando ya no las necesites
 Para comprobar si tu lista de supresión impidió que un usuario recibiera un mensaje, usa **Búsqueda de usuarios** en el paso **Público objetivo** dentro de tu Campaign o Canvas. Aquí podrás ver a qué lista de supresión pertenece.
 
 {% alert note %}
-Las listas de supresión se actualizan antes de que se envíe un mensaje, no después de que se lance una campaña. Esto significa que un usuario que se añade a una lista de supresión después del lanzamiento de la campaña pero antes del envío del mensaje podría seguir recibiendo el mensaje.
+Las listas de supresión se actualizan antes de que se envíe un mensaje, no después de que se lance una Campaign. Esto significa que un usuario que se añade a una lista de supresión después del lanzamiento de la Campaign pero antes del envío del mensaje podría seguir recibiendo el mensaje.
 {% endalert %}
 
 ![Ventana de "Búsqueda de usuarios" que muestra que un usuario está en una lista de supresión.]({% image_buster /assets/img/suppression_list_user_lookup.png %}){: style="max-width:70%;"}
@@ -81,13 +81,13 @@ Mientras creas una Campaign o Canvas, usa **Búsqueda de usuarios** dentro del p
 
 ![Ventana de "Búsqueda de usuarios" que muestra que un usuario está en una lista de supresión.]({% image_buster /assets/img/suppression_list_user_lookup.png %}){: style="max-width:70%;"}
 
-### Campaign {#campaign}
+### Campaign
 
 Si un usuario está en una lista de supresión, no recibirá una Campaign a la que se aplique esa lista de supresión. Consulta [Tipos de mensajes y canales afectados por las listas de supresión](#message-types-and-channels-affected-by-suppression-lists) para los casos en que una lista de supresión no se aplique.
 
 ![La sección "Listas de supresión" con una lista de supresión activa, llamada "Puntuaciones bajas de salud de marketing".]({% image_buster /assets/img/active_suppression_list.png %})
 
-### Canvas {#canvas}
+### Canvas
 
 Desde el momento en que un usuario se añade a una lista de supresión, no entrará en Canvas. Si ya ha entrado en un Canvas, no recibirá los pasos de mensaje. Esto significa que si un usuario ya está dentro de un Canvas cuando se le añade a una lista de supresión, avanzará a través del Canvas hasta el siguiente paso de mensaje, momento en el que saldrá sin recibir el paso de mensaje.
 

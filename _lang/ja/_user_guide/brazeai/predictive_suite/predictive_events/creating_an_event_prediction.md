@@ -8,7 +8,7 @@ description: "この記事では、Brazeダッシュボード内でイベント�
 
 # イベント予測を作成する {#create-an-event-prediction}
 
-> 予測は、トレーニングされた機械学習モデルと、それが使用するすべてのパラメーターおよびデータの1つのインスタンスです。Predictive Eventsの詳細については、[Predictive Eventsの概要]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/)を参照してください。
+> 予測は、トレーニングされた機械学習モデルと、それが使用するすべてのパラメーターおよびデータの1つのインスタンスです。予測イベントの詳細については、[予測イベントの概要]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events)を参照してください。
 
 Brazeで、**Analytics** > **Predictive Events** に移動します。
 
@@ -19,24 +19,24 @@ Brazeで、**Analytics** > **Predictive Events** に移動します。
 1. **予測を作成**を選択し、新しい**イベント予測**を選択します。
 
 {% alert note %}
-同時にアクティブにできる予測は5つまでに制限されています。Predictive Eventsを購入する前は、アクティブなプレビュー予測が1つに制限されます。プレビュー予測では、予測の出力に基づいてスコアやターゲットユーザーが定期的に更新されることはありません。詳細については、担当のアカウントマネージャーにお問い合わせください。
+同時にアクティブにできる予測は5つまでに制限されています。予測イベントを購入する前は、アクティブなプレビュー予測が1つに制限されます。プレビュー予測では、予測の出力に基づいてスコアやターゲットユーザーが定期的に更新されることはありません。詳細については、担当のアカウントマネージャーにお問い合わせください。
 {% endalert %}
 
 {: start="2"}
 2. 予測に一意の名前を付けます。関連するメモを保存するための説明を指定することもできます。
 
-![]({% image_buster /assets/img/purchasePrediction/purchases_step1.png %})
+![ステップ1に関するスクリーンショット：新しい予測を作成する。]({% image_buster /assets/img/purchasePrediction/purchases_step1.png %})
 
 {: start="3"}
 3. 次のステップに進むには、**進む**をクリックします。<br><br>オプションで**今すぐ作成**をクリックして、すべてのデフォルト設定を使用し、作成の最後のステップにスキップすることもできます。作成プロセスを開始する前に、設定を確認できます。また、上部のバーでクリックすると、後で任意のステップに戻ることができます。
 
 ## ステップ 2: イベントトラッキングを指定する {#event-tracking}
 
-ユーザーのイベントがBrazeに[購入イベント]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/)、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)、または[注文完了イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/?tab=ecommerce.order_placed)のいずれとして保存されているかを指定します。
+ユーザーのイベントがBrazeに[購入イベント]({{site.baseurl}}/user_guide/data/activation/events/purchase_events)、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)、または[注文完了イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.order_placed)のいずれとして保存されているかを指定します。
 
 ここでは、選択した方法がBrazeで機械学習モデルを作成するのに十分なデータを提供しているかどうかを確認できます。要件が満たされていない場合は、アプリケーションでも使用されている他のロギング方法を選択してみてください。該当するものがない場合、残念ながらBrazeでは利用可能なデータの量で予測を作成できません。このエラーの表示が間違っていると思われる場合は、カスタマーサクセスマネージャーにお問い合わせください。
 
-#### イベントウィンドウ {#event-window}
+### イベントウィンドウ {#event-window}
 
 イベントウィンドウは、ユーザーがイベントを実行するかどうかを予測する時間枠です。最大60日に設定できます。この時間枠は、予測をトレーニングするための履歴データのクエリに使用されます。さらに、予測が作成されてユーザーがスコアを受け取った後、可能性スコアは、ユーザーがイベントウィンドウで指定された日数内にイベントを実行する可能性を示します。
 

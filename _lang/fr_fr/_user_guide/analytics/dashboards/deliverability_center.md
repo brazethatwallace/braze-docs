@@ -15,7 +15,7 @@ channel:
 
 La livrabilité des e-mails est au cœur du succès de vos campagnes. Grâce au Centre de livrabilité du tableau de bord de Braze, vous pouvez consulter vos domaines par **IP Reputation** ou **Delivery Errors** afin de détecter et résoudre d'éventuels problèmes de livrabilité.
 
-Pour accéder au Centre de livrabilité, vous devez disposer des [autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) listées dans le menu déroulant ci-dessous pour votre espace de travail.
+Pour accéder au Centre de livrabilité, vous devez disposer des [autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) listées dans le menu déroulant ci-dessous pour votre espace de travail.
 
 {% details Autorisations utilisateur pour le Centre de livrabilité %}
 
@@ -80,6 +80,13 @@ Si vos sous-domaines n'apparaissent pas dans le Centre de livrabilité pour Goog
 {% endalert %}
 
 ## Intégrer Google Postmaster {#integrating-google-postmaster}
+
+{% alert important %}
+**Migration vers Google Postmaster Tools v2**<br>
+Google abandonne l'ancienne version de Postmaster Tools (v1) et a publié une nouvelle génération (v2) avec une interface utilisateur modernisée et de nouveaux tableaux de bord, notamment un tableau de bord de conformité pour vous aider à surveiller le respect des directives d'envoi de Gmail. Tous les utilisateurs doivent migrer vers la v2 avant le 31 octobre 2026.<br><br>
+Pour réautoriser votre connexion Google Postmaster Tools, accédez à **Intégrations partenaires** > **Partenaires technologiques**, ouvrez **Google Postmaster**, puis sélectionnez **Change Account** pour vous réauthentifier avec les nouvelles autorisations v2. Une fois terminé, vous êtes mis à niveau vers la v2 et accédez aux nouveaux tableaux de bord et données.<br><br>
+Pour en savoir plus, consultez l'[annonce de Google concernant les nouveaux Postmaster Tools](https://support.google.com/mail/answer/16594218?hl=en).
+{% endalert %}
 
 Avant de configurer votre Centre de livrabilité, vérifiez que vos domaines ont été [ajoutés à Gmail Postmaster Tools](https://support.google.com/mail/answer/9981691?hl=en).
 
@@ -151,14 +158,14 @@ Consultez ce tableau pour comprendre quel pourcentage de votre trafic entrant et
 | TLS sortant | Affiche le pourcentage de courrier sortant (depuis Gmail) accepté via TLS par rapport à l'ensemble du courrier envoyé à ce domaine. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Chiffrement" }
 
-Pour plus d'idées sur l'amélioration de la livrabilité, consultez [Pièges de livrabilité et pièges à spam]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/#deliverability-pitfalls-and-spam-traps). N'oubliez pas de consulter nos [Bonnes pratiques pour les e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/) pour vérifier les points essentiels avant d'envoyer une campagne e-mail.
+Pour plus d'idées sur l'amélioration de la livrabilité, consultez [Pièges de livrabilité et pièges à spam]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps). N'oubliez pas de consulter nos [Bonnes pratiques pour les e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices) pour vérifier les points essentiels avant d'envoyer une campagne e-mail.
 
 ## Configurer Microsoft Smart Network Data Services (SNDS) {#set-up-microsoft-smart-network-data-services-snds}
 
 Si Microsoft est votre principal fournisseur de messagerie, vous pouvez utiliser cette intégration pour accéder à vos données de réputation Microsoft et les consulter. Cela vous permet de surveiller la santé de vos adresses IP afin de mieux comprendre comment vos e-mails sont reçus.
 
 {% alert important %}
-Si vous ne voyez pas vos données dans le Centre de livrabilité, contactez l'[Assistance]({{site.baseurl}}/user_guide/administer/personal/braze_support/) en fournissant la liste de vos adresses IP.
+Si vous ne voyez pas vos données dans le Centre de livrabilité, contactez l'[Assistance]({{site.baseurl}}/user_guide/administer/personal/braze_support) en fournissant la liste de vos adresses IP.
 {% endalert %}
 
 ![Un exemple de résultats de Microsoft SNDS, incluant des adresses IP d'exemple, des destinataires, des commandes RCPT, des commandes DATA, des résultats de filtrage, un taux de plaintes, les dates de début et de fin de la période de messages piège, et les occurrences de pièges à spam.]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})

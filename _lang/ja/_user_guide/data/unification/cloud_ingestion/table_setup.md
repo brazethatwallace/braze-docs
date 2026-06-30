@@ -44,10 +44,10 @@ Brazeはまずソーステーブルから行を読み取り、次に選択され
 - Brazeは、`UPDATED_AT`が最後に同期された値より後の行を同期します。
 - 新しい行が同じタイムスタンプを共有している場合、境界タイムスタンプの行が再同期されることがあります。
 
-重複タイムスタンプと増分更新に関するガイダンスについては、[クラウドデータ取り込みのベストプラクティス]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps)を参照してください。
+重複タイムスタンプと増分更新に関するガイダンスについては、[クラウドデータ取り込みのベストプラクティス]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps)を参照してください。
 
 {% alert note %}
-ファイルストレージソースは異なるセットアップ要件を使用し、`UPDATED_AT`をサポートしていません。詳細については、[ファイルストレージ統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/#required-file-formats)を参照してください。
+ファイルストレージソースは異なるセットアップ要件を使用し、`UPDATED_AT`をサポートしていません。詳細については、[ファイルストレージ統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#required-file-formats)を参照してください。
 {% endalert %}
 
 ## `PAYLOAD`カラムをセットアップする {#set-up-the-payload-column}
@@ -56,12 +56,12 @@ Brazeはまずソーステーブルから行を読み取り、次に選択され
 
 | データタイプ | フォーマット参照 |
 | --- | --- |
-| `attributes` | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
-| `events` | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object/) |
+| `attributes` | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) |
+| `events` | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object) |
+| `purchases` | [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="PAYLOADカラムをセットアップする" }
 
-階層化属性の場合は、[オブジェクトプロパティとしての日付のキャプチャ]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#capturing-dates-as-object-properties)に記載されているフォーマットを使用して日付を含めてください。
+階層化属性の場合は、[オブジェクトプロパティとしての日付のキャプチャ]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#capturing-dates-as-object-properties)に記載されているフォーマットを使用して日付を含めてください。
 
 ### ペイロードの例 {#payload-examples}
 
@@ -97,7 +97,7 @@ Brazeはまずソーステーブルから行を読み取り、次に選択され
     "time" : "2013-07-16T19:20:45+01:00",
     "properties": {
         "movie": "The Sad Egg",
-        "director": "Dan Alexander"
+        "director": "Alex Smith"
     }
 }
 ```
@@ -149,6 +149,6 @@ Brazeはまずソーステーブルから行を読み取り、次に選択され
 
 ## 関連するCDIセットアップドキュメント {#related-cdi-setup-docs}
 
-- ソース固有のDDL例については、[データウェアハウス統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)を参照してください。
-- ファイルベースのセットアップについては、[ファイルストレージ統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/)を参照してください。
-- 同期動作と最適化のガイダンスについては、[クラウドデータ取り込みのベストプラクティス]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/)を参照してください。
+- ソース固有のDDL例については、[データウェアハウス統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)を参照してください。
+- ファイルベースのセットアップについては、[ファイルストレージ統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations)を参照してください。
+- 同期動作と最適化のガイダンスについては、[クラウドデータ取り込みのベストプラクティス]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices)を参照してください。

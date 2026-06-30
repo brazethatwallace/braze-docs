@@ -10,7 +10,7 @@ description: "Cet article présente les détails de l'endpoint Dupliquer les Can
 
 {% api %}
 # Dupliquer des Canvas à l'aide de l'API {#duplicate-canvases-using-the-api}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/duplicate
 {% endapimethod %}
 
@@ -44,11 +44,11 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id` | Requis | Chaîne de caractères | Voir [Identifiant Canvas](https://www.braze.com/docs/api/identifier_types/). |
+| `canvas_id` | Requis | Chaîne de caractères | Voir [Identifiant Canvas]({{site.baseurl}}/api/identifier_types). |
 | `name` | Requis | Chaîne de caractères | Le nom du Canvas résultant. |
 | `description` | Facultatif | Chaîne de caractères | Le champ de description du Canvas résultant. |
 | `tag_names` | Facultatif | Chaîne de caractères | Les étiquettes du Canvas résultant. Il doit s'agir d'étiquettes existantes. Si vous ajoutez de nouvelles étiquettes dans la requête, elles remplaceront toutes les étiquettes présentes sur le Canvas d'origine. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Réponse {#response}
 

@@ -26,7 +26,7 @@ Este punto de conexión elimina completamente el ID obsoleto y no puede deshacer
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `users.external_ids.remove`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `users.external_ids.remove`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -50,7 +50,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
 | `external_ids` | Obligatorio | Matriz de cadenas | Identificadores externos de los usuarios que se van a eliminar. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#request-example}
 

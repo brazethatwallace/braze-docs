@@ -44,4 +44,4 @@ guide_menu_list:
     image: /assets/img/braze_icons/calendar-check-02.svg
 ---
 
-Para ver as etapas de como salvar modelos a partir do criador, criar perfis de cores ou modelos CSS e gerenciar sua biblioteca, consulte [Criar um modelo de mensagem no app]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/).
+Para ver as etapas de como salvar modelos a partir do criador, criar perfis de cores ou modelos CSS e gerenciar sua biblioteca, consulte [Criar um modelo de mensagem no app]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template).

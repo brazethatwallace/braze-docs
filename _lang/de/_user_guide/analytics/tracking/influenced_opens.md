@@ -26,4 +26,4 @@ Beeinflusste Öffnungen werden zu den direkten Öffnungen einer Campaign addiert
 
 ![Statistiken zu beeinflussten Öffnungen auf der Seite „Campaign-Details“ für eine Campaign]({% image_buster /assets/img_archive/Influenced_Opens2.png %})
 
-Weitere Informationen zum Tracking von Öffnungen finden Sie im Abschnitt zum Conversion-Tracking in unseren [Best Practices für Push]({{site.baseurl}}/user_guide/channels/push/best_practices/).
+Weitere Informationen zum Tracking von Öffnungen finden Sie im Abschnitt zum Conversion-Tracking in unseren [Best Practices für Push]({{site.baseurl}}/user_guide/channels/push/best_practices).

@@ -19,7 +19,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Katal
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `catalogs.create_selection`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `catalogs.create_selection`.
 
 ## Rate-Limit
 
@@ -36,7 +36,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 | Parameter   | Erforderlich | Datentyp | Beschreibung                                                                                                                                                        |
 | ----------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `selection` | Erforderlich | Objekt    | Ein Objekt, das Auswahlkriterien enthält. Eine vollständige Aufschlüsselung des Objekts und seiner Felder finden Sie unter [Katalogauswahl-Objekt]({{site.baseurl}}/api/objects_filters/catalog_selection_object/). |
+| `selection` | Erforderlich | Objekt    | Ein Objekt, das Auswahlkriterien enthält. Eine vollständige Aufschlüsselung des Objekts und seiner Felder finden Sie unter [Katalogauswahl-Objekt]({{site.baseurl}}/api/objects_filters/catalog_selection_object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ### Parameter des Auswahlobjekts {#selection-object-parameters}

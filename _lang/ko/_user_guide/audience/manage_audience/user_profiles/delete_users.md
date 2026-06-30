@@ -48,11 +48,10 @@ Braze에서 개별 사용자를 삭제하려면 **Audience** > **Search Users**�
 
 프로필 페이지에서 <i class="fa-solid fa-ellipsis-vertical"></i> **Show options** > **Delete User**를 선택합니다. 사용자가 Braze에서 완전히 삭제되기까지 몇 분이 소요될 수 있습니다.
 
-![세로 줄임표 메뉴가 열려 있고 사용자 삭제 옵션이 표시된 Braze의 사용자.]({% image_buster /assets/img/audience_management/deleting_users/delete_user.png %}){: style="max-width:85%;"}
 
 ### Segment 삭제 {#delete-segment}
 
-아직 하지 않았다면, 삭제하려는 사용자 프로필이 포함된 [Segment를 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)하세요. 중복 사용자를 삭제하는 경우 모든 사용자 프로필을 포함해야 합니다.
+아직 하지 않았다면, 삭제하려는 사용자 프로필이 포함된 [Segment를 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)하세요. 중복 사용자를 삭제하는 경우 모든 사용자 프로필을 포함해야 합니다.
 
 Braze에서 **Audience** > **Manage Audience**로 이동한 다음 **Delete Users** 탭을 선택합니다.
 
@@ -69,7 +68,7 @@ Braze에서 **Audience** > **Manage Audience**로 이동한 다음 **Delete User
 이 Segment의 사용자는 즉시 삭제되지 않습니다. 대신 향후 7일 동안 삭제 대기 상태로 표시됩니다. 이 기간이 지나면 삭제가 진행되며, 완료 시 이메일로 알려드립니다.
 
 {% alert tip %}
-Segment 변경과 관계없이 정확히 이 사용자들이 삭제되도록 **Pending Deletion**이라는 Segment 필터가 자동으로 생성됩니다. [이 필터를 사용]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters)하여 삭제 대기 상태를 확인할 수 있습니다.
+Segment 변경과 관계없이 정확히 이 사용자들이 삭제되도록 **Pending Deletion**이라는 Segment 필터가 자동으로 생성됩니다. [이 필터를 사용]({{site.baseurl}}/user_guide/audience/segments/managing_segments#filters)하여 삭제 대기 상태를 확인할 수 있습니다.
 {% endalert %}
 
 ## Segment 삭제 확인 {#confirming-segment-deletions}
@@ -104,7 +103,7 @@ Braze는 삭제 대기 중인 프로필 수가 포함된 확인 이메일을 발
 
 ### Segment 필터 {#segment-filters}
 
-사용자 Segment의 삭제를 요청하면 **Pending Deletion**이라는 [Segment 필터]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters)가 자동으로 생성됩니다. 이를 사용하여 다음을 수행할 수 있습니다:
+사용자 Segment의 삭제를 요청하면 **Pending Deletion**이라는 [Segment 필터]({{site.baseurl}}/user_guide/audience/segments/managing_segments#filters)가 자동으로 생성됩니다. 이를 사용하여 다음을 수행할 수 있습니다:
 
 - 특정 삭제 실행 날짜에 연결된 정확한 사용자 집합을 확인합니다.
 - 해당 사용자를 Campaigns에서 제외하여 제거 전에 메시지를 받지 않도록 합니다.
@@ -136,13 +135,13 @@ Braze는 삭제 대기 중인 프로필 수가 포함된 확인 이메일을 발
 
 ### 보안 이벤트 보고서 {#security-event-report}
 
-보안 이벤트 보고서를 다운로드하여 이전 삭제의 상태를 확인할 수도 있습니다. 자세한 내용은 [보안 설정]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report)을 참조하세요.
+보안 이벤트 보고서를 다운로드하여 이전 삭제의 상태를 확인할 수도 있습니다. 자세한 내용은 [보안 설정]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report)을 참조하세요.
 
 ## 자주 묻는 질문 {#faq}
 
 ### 1,000만 명 이상의 사용자가 포함된 Segment를 삭제할 수 있나요? {#can-i-delete-segments-with-more-than-10-million-users}
 
-아니요. 1,000만 명 이상의 사용자가 포함된 Segment는 삭제할 수 없습니다. 이 규모의 Segment를 삭제하는 데 도움이 필요하면 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support/)에 문의하세요.
+아니요. 1,000만 명 이상의 사용자가 포함된 Segment는 삭제할 수 없습니다. 이 규모의 Segment를 삭제하는 데 도움이 필요하면 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support)에 문의하세요.
 
 ### 한 번에 최대 1,000만 명의 사용자만 삭제할 수 있습니다. 이것은 버그인가요? {#i-can-only-delete-up-to-10-million-users-at-a-time-is-this-a-bug}
 
@@ -168,4 +167,4 @@ Braze는 삭제 대기 중인 프로필 수가 포함된 확인 이메일을 발
 
 ### 대시보드 대신 API를 사용하여 사용자를 삭제할 수 있나요? {#can-i-delete-users-with-the-api-instead-of-the-dashboard}
 
-네. 소규모 배치의 경우 [`/users/delete` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/)를 사용할 수 있으며, 요청당 최대 50개의 식별자를 허용하고 해당 엔드포인트의 [사용량 제한]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#rate-limit)이 적용됩니다. Segment 기반 대시보드 삭제는 매우 큰 오디언스에 더 적합하지만 [7일 대기 기간](#about-user-deletion)이 포함됩니다.
+네. 소규모 배치의 경우 [`/users/delete` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)를 사용할 수 있으며, 요청당 최대 50개의 식별자를 허용하고 해당 엔드포인트의 [사용량 제한]({{site.baseurl}}/api/endpoints/user_data/post_user_delete#rate-limit)이 적용됩니다. Segment 기반 대시보드 삭제는 매우 큰 오디언스에 더 적합하지만 [7일 대기 기간](#about-user-deletion)이 포함됩니다.

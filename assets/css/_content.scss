@@ -129,23 +129,16 @@
     }
 
 		ul {
-			list-style: square;
 			margin-left: 20px;
+			list-style: disc;
 
 			> li {
 				p {
-					display: inline-block;
+					display: inline;
 				}
 
-				&::before {
-					content: none;
+				&::marker {
 					color: $black-shark;
-					margin-right: 10px;
-					margin-top: auto;
-					margin-bottom: auto;
-					font-size: 15px;
-					display: inline-block;
-					font-family: $braze-bold;
 				}
 
 				div {
@@ -157,25 +150,17 @@
 		}
 
 		ol {
-			list-style: none;
-			counter-reset: li;
+			list-style: decimal;
 			margin-left: 20px;
 
 			> li {
-				counter-increment: li;
-
 				p {
 					display: inline;
 				}
 
-				&::before {
-					content: counter(li) "."; // Add a period right after the counter value
+				&::marker {
 					font-family: $braze-bold;
 					color: $black-shark;
-					display: inline-block;
-					margin-right: 10px;
-					margin-top: auto;
-					margin-bottom: auto;
 				}
 
 				div {
@@ -183,11 +168,6 @@
 						margin-top: 15px;
 					}
 				}
-			}
-		}
-		@for $oli from 1 through 12 {
-			ol[start="#{$oli}"] {
-				counter-reset: li #{$oli - 1};
 			}
 		}
 

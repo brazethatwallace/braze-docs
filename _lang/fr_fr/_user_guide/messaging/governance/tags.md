@@ -47,10 +47,10 @@ Les balises sont visibles dans la liste des campagnes, des Canvas ou des segment
 
 ## Balises de données personnalisées {#custom-data-tags}
 
-Des balises peuvent également être ajoutées aux données personnalisées lors de la gestion des [attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes) et des [événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events/#adding-tags).
+Des balises peuvent également être ajoutées aux données personnalisées lors de la gestion des [attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes) et des [événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events#adding-tags).
 
 {% alert important %}
 Cette fonctionnalité est actuellement en accès anticipé. Contactez votre gestionnaire de la satisfaction client si vous souhaitez participer à cet accès anticipé.
 {% endalert %}
 
-Pour en savoir plus sur le renommage, la suppression ou l'imbrication des balises dans votre tableau de bord, consultez [Gestion des balises]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/#managing-tags).
+Pour en savoir plus sur le renommage, la suppression ou l'imbrication des balises dans votre tableau de bord, consultez [Gestion des balises]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags).

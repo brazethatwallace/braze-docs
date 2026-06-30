@@ -46,9 +46,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | Obligatorio | Cadena | Ver [identificador de campaña]({{site.baseurl}}/api/identifier_types/). |
-| `send_id` | Opcional | Cadena | Ver [identificador de envío]({{site.baseurl}}/api/identifier_types/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `campaign_id` | Obligatorio | Cadena | Ver [identificador de campaña]({{site.baseurl}}/api/identifier_types). |
+| `send_id` | Opcional | Cadena | Ver [identificador de envío]({{site.baseurl}}/api/identifier_types). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 ```

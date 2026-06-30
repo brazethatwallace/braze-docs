@@ -15,7 +15,7 @@ noindex: true
 # Aviso personalizado de revisión de la App Store {#custom-app-store-review-prompt}
 
 {% alert note %}
-Una vez que implementes esta solicitud, Braze dejará de hacer un seguimiento automático de las impresiones, y deberás registrar tus propios [análisis]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/handing_in_app_display/#logging-impressions-and-clicks).
+Una vez que implementes esta solicitud, Braze dejará de hacer un seguimiento automático de las impresiones, y deberás registrar tus propios [análisis]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/handing_in_app_display#logging-impressions-and-clicks).
 {% endalert %}
 
 Crear una campaña para pedir a los usuarios una reseña de la App Store es un uso popular de los mensajes dentro de la aplicación.
@@ -96,5 +96,5 @@ A continuación, crea una campaña de mensajería dentro de la aplicación con l
 {% endraw %}
 
 {% alert tip %}
-Apple limita las solicitudes de revisión de la App Store a un máximo de tres (3) veces al año por cada usuario, por lo que tu campaña debe tener [una tasa limitada]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) a tres veces al año por usuario.<br><br>Los usuarios pueden desactivar los avisos de revisión de la App Store. En consecuencia, tu solicitud de revisión personalizada no debe prometer que aparecerá una solicitud de revisión nativa de la App Store ni pedir directamente una revisión.
+Apple limita las solicitudes de revisión de la App Store a un máximo de tres (3) veces al año por cada usuario, por lo que tu campaña debe tener [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) a tres veces al año por usuario.<br><br>Los usuarios pueden desactivar los avisos de revisión de la App Store. En consecuencia, tu solicitud de revisión personalizada no debe prometer que aparecerá una solicitud de revisión nativa de la App Store ni pedir directamente una revisión.
 {% endalert %}

@@ -34,7 +34,7 @@ Dans Braze, accédez à **Intégrations partenaires** > **Exportation de donnée
 
 Donnez un nom à votre export ainsi qu'un e-mail de contact, puis passez à la page **Current Details**. Sur cette page, saisissez l'URL de votre endpoint et le jeton bearer facultatif.
 
-Après avoir configuré vos identifiants, cochez tous les événements d'engagement lié aux messages, de comportement client et d'utilisateur que vous souhaitez exporter, puis cliquez sur **Lancer**.
+Après avoir configuré vos identifiants, cochez tous les événements d'engagement lié aux messages, de comportement client et d'utilisateur que vous souhaitez exporter, puis cliquez sur **Launch Current**.
 
 ## Événements Currents pris en charge {#supported-currents-events}
 
@@ -60,7 +60,7 @@ Il arrive que nous apportions des modifications non disruptives aux schémas de 
 Nous donnons généralement un préavis de deux semaines pour ces changements, mais ce n'est pas toujours possible. Il est essentiel que vous conceviez votre intégration pour gérer les champs ou types d'événements non reconnus, sinon cela entraînera probablement une perte de données.
 
 {% alert tip %}
-Pour la liste complète des schémas d'événements Currents, consultez [Événements d'engagement lié aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) et [Événements de comportement client]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
+Pour la liste complète des schémas d'événements Currents, consultez [Événements d'engagement lié aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) et [Événements de comportement client]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).
 {% endalert %}
 
 ## Mise en lots et sérialisation {#batching-and-serialization}

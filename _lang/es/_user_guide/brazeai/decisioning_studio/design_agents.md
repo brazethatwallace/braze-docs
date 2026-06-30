@@ -25,7 +25,7 @@ Los siguientes términos se utilizan a lo largo de la guía de Decisioning Studi
 | **Dimensiones** | Las dimensiones pueden entenderse como los *tipos de palancas* que el agente de toma de decisiones puede accionar para maximizar la métrica de éxito. Las dimensiones típicas incluyen oferta, línea del asunto, creatividad, canal o momento de envío. |
 | **Banco de acciones** | El banco de acciones define las *opciones específicas* a las que el agente de toma de decisiones tiene acceso para cada "palanca" de dimensión. Por ejemplo, para una dimensión de canal, defines los canales específicos a los que el agente de toma de decisiones tiene acceso. Para una dimensión de oferta, defines las ofertas específicas que el agente de toma de decisiones puede probar. |
 | **Restricciones** | En general, el agente de toma de decisiones podría tomar cualquier combinación de acciones que pongas en el banco de acciones. Sin embargo, también puedes definir restricciones para limitar las acciones del agente de toma de decisiones y respetar reglas de negocio críticas. Por ejemplo, esto podría ser evitar que se seleccione una oferta específica para clientes en una geografía no elegible, o establecer un presupuesto máximo para que el agente de toma de decisiones gaste. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Key concepts" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conceptos clave" }
 
 ![Resumen de alto nivel de un agente de toma de decisiones]({% image_buster /assets/img/decisioning_studio/decisioning_studio_high_level_agent.png %})
 
@@ -132,4 +132,4 @@ Podrías construir un agente de fidelización e interacción para maximizar las 
 
 ## Próximos pasos {#next-steps}
 
-¿Listo para construir tu propio agente de toma de decisiones? Consulta [Primeros pasos con Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started/) para obtener una guía que te acompaña a través de la conexión de orígenes de datos, la configuración de la orquestación, el diseño de tu agente y el lanzamiento a producción.
+¿Listo para construir tu propio agente de toma de decisiones? Consulta [Primeros pasos con Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started) para obtener una guía que te acompaña a través de la conexión de orígenes de datos, la configuración de la orquestación, el diseño de tu agente y el lanzamiento a producción.

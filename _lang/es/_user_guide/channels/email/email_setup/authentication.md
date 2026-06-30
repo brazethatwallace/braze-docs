@@ -75,7 +75,7 @@ Si DMARC muestra **FAIL** para los mensajes enviados a través de Braze:
 
 1. Abre los encabezados sin procesar o los resultados de autenticación de un mensaje reciente y observa si **SPF** y **DKIM** se superan o fallan.
 2. **Alineación:** DMARC se supera cuando *SPF* *o* *DKIM* se alinean con el dominio **From**. La alineación significa que el dominio **From** coincide con el dominio que superó SPF (a menudo el dominio **Return-Path** / sobre) *o* el dominio en la firma **d=** de DKIM.
-3. Si SPF se supera pero DMARC falla, es posible que el dominio Return-Path no esté alineado con tu dominio **From**; confirma que tus [dominios de envío y seguimiento con etiqueta sin marca]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/) coincidan con los dominios para los que publicas SPF y DKIM.
+3. Si SPF se supera pero DMARC falla, es posible que el dominio Return-Path no esté alineado con tu dominio **From**; confirma que tus [dominios de envío y seguimiento con etiqueta sin marca]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains) coincidan con los dominios para los que publicas SPF y DKIM.
 4. Si DKIM falla, verifica que los registros de DNS de DKIM proporcionados por Braze estén presentes y sin modificaciones.
 
 Los verificadores de terceros (por ejemplo, [MXToolbox](https://mxtoolbox.com/dmarc.aspx)) ayudan a confirmar los registros publicados; valida siempre también con un mensaje en vivo de Braze.

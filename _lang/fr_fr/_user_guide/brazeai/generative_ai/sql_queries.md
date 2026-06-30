@@ -1,7 +1,7 @@
 ---
 nav_title: Requêtes SQL
 article_title: Utiliser le générateur de requêtes
-page_order: 0.2
+page_order: 6
 page_type: reference
 description: "Cet article de référence décrit comment créer des rapports à l'aide des données Braze depuis Snowflake dans le générateur de requêtes."
 tool: Reports

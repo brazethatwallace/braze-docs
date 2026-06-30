@@ -23,7 +23,7 @@ description: "この記事では、メールテンプレートの表示Brazeエ�
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e98d2d5b-62fe-4358-b391-9fe9e460d0ac {% endapiref %}
 
 ## 前提条件 {#prerequisites}
-このエンドポイントを使用するには、`templates.email.info` 権限を持つ [API キー]({{site.baseurl}}/api/api_key/)が必要です。
+このエンドポイントを使用するには、`templates.email.info` 権限を持つ [API キー]({{site.baseurl}}/api/api_key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -33,7 +33,7 @@ description: "この記事では、メールテンプレートの表示Brazeエ�
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
-| `email_template_id` | 必須 | 文字列 | [メールテンプレートAPI識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
+| `email_template_id` | 必須 | 文字列 | [メールテンプレートAPI識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}

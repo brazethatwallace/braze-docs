@@ -23,7 +23,7 @@ Se puede utilizar para volver a validar números de teléfono después de haberl
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `sms.invalid_phone_numbers.remove`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `sms.invalid_phone_numbers.remove`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -47,7 +47,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | ----------|-----------| ---------|------ |
 | `phone_number` | Obligatorio | Matriz de cadenas en formato e.164 | Una matriz de hasta 50 números de teléfono para modificar. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 

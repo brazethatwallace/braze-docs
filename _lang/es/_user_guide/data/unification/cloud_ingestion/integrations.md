@@ -65,7 +65,7 @@ Puede haber de dos a cinco minutos de tiempo de calentamiento cuando Braze se co
 
 ### Paso 1: Configurar tablas o vistas {#step-1-set-up-tables-or-views}
 
-Antes de empezar, revisa [Configuración de tablas para la Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/) para comprender los requisitos de la tabla de origen en comparación con los requisitos de formato de `PAYLOAD`.
+Antes de empezar, revisa [Configuración de tablas para la Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup) para comprender los requisitos de la tabla de origen en comparación con los requisitos de formato de `PAYLOAD`.
 
 {% alert note %}
 Tu tabla o vista de origen puede incluir columnas que no están listadas para tu almacén en las pestañas a continuación (por ejemplo, auditoría o hash). Braze solo lee las columnas descritas en esas pestañas; las demás columnas no se utilizan durante las sincronizaciones de la Ingesta de datos de Cloud.
@@ -148,7 +148,7 @@ Cuando conectes diferentes espacios de trabajo a la misma cuenta de Snowflake, d
 
 Dependiendo de la configuración de tu cuenta de Snowflake, puede que necesites permitir las siguientes direcciones IP en tu política de red de Snowflake. Para obtener más información sobre cómo habilitarlo, consulta la documentación pertinente de Snowflake sobre la [modificación de una política de red](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Redshift %}
@@ -211,7 +211,7 @@ Algunas cosas importantes que debes saber:
 
 Permite el acceso desde las siguientes IP correspondientes a la región de tu dashboard de Braze.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab BigQuery %}
@@ -254,7 +254,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 1.1: Preparar la tabla" }
 
 Puedes nombrar el proyecto, el conjunto de datos y la tabla como desees, pero los nombres de las columnas deben coincidir con la definición anterior.
 
@@ -294,7 +294,7 @@ Tras crear la cuenta de servicio y conceder los permisos, genera una clave JSON.
 
 Si tienes políticas de red en vigor, debes dar acceso de red a Braze a tu instancia de BigQuery. Permite el acceso desde las siguientes IP correspondientes a la región de tu dashboard de Braze.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Databricks %}
@@ -339,7 +339,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 1.1: Preparar la tabla" }
 
 Puedes nombrar el esquema y la tabla como desees, pero los nombres de las columnas deben coincidir con la definición anterior.
 
@@ -368,7 +368,7 @@ Guarda el token en un lugar seguro hasta que necesites introducirlo en el dashbo
 
 Si tienes políticas de red en vigor, debes dar acceso de red a Braze a tu instancia de Databricks. Permite el acceso desde las siguientes IP correspondientes a la región de tu dashboard de Braze.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -457,7 +457,7 @@ Para recuperar el punto de conexión SQL de tu almacén, ve al **espacio de trab
 
 Dependiendo de la configuración de tu cuenta de Microsoft Fabric, puede que necesites permitir las siguientes direcciones IP en tu cortafuegos para permitir el tráfico desde Braze. Para más información sobre cómo habilitarlo, consulta la documentación correspondiente sobre el [acceso condicional de Entra](https://learn.microsoft.com/en-us/fabric/security/protect-inbound-traffic#entra-conditional-access).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -596,7 +596,7 @@ Por último, configura tu sincronización como no recurrente o recurrente.
 
 Las sincronizaciones no recurrentes se pueden desencadenar manualmente o a través de la API.
 
-Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze utiliza la zona horaria configurada en tu dashboard de Braze para programar la sincronización recurrente.
+Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze programa la sincronización recurrente en la zona horaria UTC.
 
 {% endtab %}
 
@@ -629,7 +629,7 @@ Por último, configura tu sincronización como no recurrente o recurrente.
 
 Las sincronizaciones no recurrentes se pueden desencadenar manualmente o a través de la API.
 
-Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze utiliza la zona horaria configurada en tu dashboard de Braze para programar la sincronización recurrente.
+Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze programa la sincronización recurrente en la zona horaria UTC.
 
 {% endtab %}
 
@@ -660,7 +660,7 @@ Por último, configura tu sincronización como no recurrente o recurrente.
 
 Las sincronizaciones no recurrentes se pueden desencadenar manualmente o a través de la API.
 
-Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze utiliza la zona horaria configurada en tu dashboard de Braze para programar la sincronización recurrente.
+Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze programa la sincronización recurrente en la zona horaria UTC.
 
 {% endtab %}
 
@@ -692,7 +692,7 @@ Por último, configura tu sincronización como no recurrente o recurrente.
 
 Las sincronizaciones no recurrentes se pueden desencadenar manualmente o a través de la API.
 
-Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze utiliza la zona horaria configurada en tu dashboard de Braze para programar la sincronización recurrente.
+Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze programa la sincronización recurrente en la zona horaria UTC.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -725,7 +725,7 @@ Por último, configura tu sincronización como no recurrente o recurrente.
 
 Las sincronizaciones no recurrentes se pueden desencadenar manualmente o a través de la API.
 
-Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze utiliza la zona horaria configurada en tu dashboard de Braze para programar la sincronización recurrente.
+Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze programa la sincronización recurrente en la zona horaria UTC.
 
 {% endtab %}
 {% endtabs %}

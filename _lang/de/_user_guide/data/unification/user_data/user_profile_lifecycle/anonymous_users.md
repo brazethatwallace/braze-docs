@@ -9,7 +9,7 @@ description: "Dieser Artikel bietet eine Übersicht über anonyme Nutzer:innen u
 
 # Anonyme Nutzer:innen {#anonymous-users}
 
-> Nutzer:innen, die Ihre Website oder Anwendung besuchen, ohne sich anzumelden – wie Gastbesucher:innen –, werden als anonyme Nutzer:innen erkannt. Diese Nutzer:innen verfügen nicht über `external_ids`, die zum Aktualisieren von Nutzerprofilen mit der Braze API verwendet werden, aber ihnen sind dennoch [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points/) zugeordnet und sie können in Ihren Segmenten gezielt angesprochen werden.
+> Nutzer:innen, die Ihre Website oder Anwendung besuchen, ohne sich anzumelden – wie Gastbesucher:innen –, werden als anonyme Nutzer:innen erkannt. Diese Nutzer:innen verfügen nicht über `external_ids`, die zum Aktualisieren von Nutzerprofilen mit der Braze API verwendet werden, aber ihnen sind dennoch [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points) zugeordnet und sie können in Ihren Segmenten gezielt angesprochen werden.
 
 Wenn anonyme Nutzer:innen Ihre Website oder Anwendung besuchen, erstellt das Braze SDK ein „anonymes“ Nutzerprofil und ordnet es ihnen zu. Während die Nutzer:innen surfen, erfasst das SDK automatisch Daten für ihr anonymes Nutzerprofil, z. B. Nutzungsinformationen, Geräteinformationen und mehr, wenn Sie angepasste Attribute und angepasste Events eingerichtet haben.
 
@@ -31,7 +31,7 @@ Mit erfassten anonymen Nutzer:innen können Sie Folgendes tun:
 
 ## Anonyme Nutzer:innen zusammenführen {#merging-anonymous-users}
 
-Manchmal handelt es sich bei anonymen Nutzerprofilen um Duplikate, die dieselbe Telefonnummer oder E-Mail-Adresse wie andere Nutzerprofile haben. Eines der Duplikate kann sogar ein identifiziertes Nutzerprofil sein. Diese Duplikate können mit dem [POST: Nutzer:innen zusammenführen-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) oder einem der Zusammenführungs-Tools auf der Braze-Plattform, wie z. B. der [regelbasierten Zusammenführung]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/#rules-based-merging), zu einem Nutzerprofil zusammengeführt werden.
+Manchmal handelt es sich bei anonymen Nutzerprofilen um Duplikate, die dieselbe Telefonnummer oder E-Mail-Adresse wie andere Nutzerprofile haben. Eines der Duplikate kann sogar ein identifiziertes Nutzerprofil sein. Diese Duplikate können mit dem [POST: Nutzer:innen zusammenführen-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) oder einem der Zusammenführungs-Tools auf der Braze-Plattform, wie z. B. der [regelbasierten Zusammenführung]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#rules-based-merging), zu einem Nutzerprofil zusammengeführt werden.
 
 ## Anonyme Nutzer:innen nachschlagen {#looking-up-an-anonymous-user}
 
@@ -45,7 +45,7 @@ console.log(braze.getDeviceId());
 ```
 
 {:start="3"}
-3. Verwenden Sie im Braze-Dashboard die [Nutzersuche]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search/), um nach der zurückgegebenen Geräte-ID zu suchen.
+3. Verwenden Sie im Braze-Dashboard die [Nutzersuche]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search), um nach der zurückgegebenen Geräte-ID zu suchen.
 
 ## Anwendungsfälle {#use-cases}
 

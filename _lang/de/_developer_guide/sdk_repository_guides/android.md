@@ -75,13 +75,13 @@ Die folgende Tabelle beschreibt jedes Modul im Braze Android SDK.
 
 Modul | Beschreibung
 :----|:----
-`android-sdk-base` | Die Braze SDK Basis-Analytics-Bibliothek.
-`android-sdk-ui` | Die Braze SDK Benutzeroberflächen-Bibliothek für In-App-Nachrichten, Push, Content Cards und Banner.
-`android-sdk-location` | Die Braze SDK Standort-Bibliothek für Standort und Geofences.
-`android-sdk-jetpack-compose` | Die Braze SDK Bibliothek für Jetpack Compose-Unterstützung.
-`droidboy` | Eine Beispiel-App, die zeigt, wie Sie Braze umfassend nutzen können.
-`android-sdk-unity` | Eine Bibliothek, die Braze SDK-Integrationen auf Unity ermöglicht.
-`samples` | Ein Ordner mit Beispiel-Apps für verschiedene Integrationsoptionen.
+`android-sdk-base`|Die Braze SDK Basis-Analytics-Bibliothek.
+`android-sdk-ui`|Die Braze SDK Benutzeroberflächen-Bibliothek für In-App-Nachrichten, Push, Content Cards und Banner.
+`android-sdk-location`|Die Braze SDK Standort-Bibliothek für Standort und Geofences.
+`android-sdk-jetpack-compose`|Die Braze SDK Bibliothek für Jetpack Compose-Unterstützung.
+`droidboy`|Eine Beispiel-App, die zeigt, wie Sie Braze umfassend nutzen können.
+`android-sdk-unity`|Eine Bibliothek, die Braze SDK-Integrationen auf Unity ermöglicht.
+`samples`|Ein Ordner mit Beispiel-Apps für verschiedene Integrationsoptionen.
 
 ## Kontakt {#contact}
 

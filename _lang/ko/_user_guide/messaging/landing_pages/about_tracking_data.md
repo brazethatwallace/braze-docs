@@ -30,7 +30,7 @@ Braze 웹 SDK는 사용자가 Braze 메시지의 {% raw %}`{% landing_page_url %
 
 사용자가 양식을 제출하기 전에 랜딩 페이지에서 추적되는 데이터는 익명화된 비식별 정보로만 구성됩니다. 이는 랜딩 페이지가 수신하는 페이지 조회수(노출 횟수) 및 클릭 수와 같은 표준 웹사이트 집계 측정기준으로 구성됩니다.
 
-이 데이터는 식별 가능한 사용자에게 연결되지 않으므로, 개별 사용자 행동을 리타겟하거나 추적하는 데 사용할 수 없습니다.
+이 데이터는 식별 가능한 사용자에게 연결되지 않으므로, 개별 사용자 동작을 리타겟하거나 추적하는 데 사용할 수 없습니다.
 
 ## 중복 고객 프로필 병합 {#merging-duplicate-user-profiles}
 
@@ -38,5 +38,5 @@ Braze는 랜딩 페이지 양식이 제출될 때 이메일이나 전화번호�
 
 중복 고객 프로필을 병합하려면 다음을 수행할 수 있습니다:
 
-- 랜딩 페이지 양식이 제출될 때 [`/users/merge` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)를 트리거하여 새 프로필을 기존 프로필과 병합합니다.
-- [일괄 병합]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/#bulk-merging)을 스케줄하여 일치하는 식별자를 기반으로 중복 프로필을 주기적으로 병합합니다.
+- 랜딩 페이지 양식이 제출될 때 [`/users/merge` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)를 트리거하여 새 프로필을 기존 프로필과 병합합니다.
+- [일괄 병합]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#bulk-merging)을 스케줄하여 일치하는 식별자를 기반으로 중복 프로필을 주기적으로 병합합니다.

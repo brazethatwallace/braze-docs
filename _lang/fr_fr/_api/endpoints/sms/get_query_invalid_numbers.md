@@ -13,13 +13,13 @@ description: "Cet article présente en détail l'endpoint Braze Extraire les num
 /sms/invalid_phone_numbers
 {% endapimethod %}
 
-> Utilisez cet endpoint pour obtenir une liste des numéros de téléphone qui ont été marqués comme « invalides » dans un certain laps de temps. Pour plus d'informations, consultez la documentation sur la [gestion des numéros de téléphone non valides]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers/#handling-invalid-phone-numbers).
+> Utilisez cet endpoint pour obtenir une liste des numéros de téléphone qui ont été marqués comme « invalides » dans un certain laps de temps. Pour plus d'informations, consultez la documentation sur la [gestion des numéros de téléphone non valides]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers#handling-invalid-phone-numbers).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81ceae19-15d1-4ac1-ad22-a6b86a92456d {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `sms.invalid_phone_numbers`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `sms.invalid_phone_numbers`.
 
 ## Limite de débit {#rate-limit}
 
@@ -31,17 +31,17 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | ----------|-----------| ----------|----- |
 | `start_date` | Facultatif <br>(voir la note) | Chaîne de caractères au format YYYY-MM-DD | Date de début de la plage pour récupérer les numéros de téléphone non valides, doit être antérieure à `end_date`. Ce paramètre est traité comme minuit (UTC) par l'API. |
 | `end_date` | Facultatif <br>(voir la note) | Chaîne de caractères au format YYYY-MM-DD | Date de fin de la plage pour récupérer les numéros de téléphone non valides. Ce paramètre est traité comme minuit (UTC) par l'API. |
-| `limit` | Facultatif | Entier | Champ facultatif pour limiter le nombre de résultats renvoyés. Par défaut à 100, le maximum est 500. |
+| `limit` | Facultatif | Entier | Champ facultatif pour limiter le nombre de résultats renvoyés. La valeur par défaut est 100, le maximum est 500. |
 | `offset` | Facultatif | Entier | Point de départ facultatif dans la liste où commencer la récupération. |
 | `phone_numbers` | Facultatif <br>(voir la note) | Tableau de chaînes de caractères au format e.164 | S'il est fourni, nous renverrons le numéro de téléphone s'il s'avère non valide. |
 | `reason` | Facultatif <br>(voir la note) | Chaîne de caractères | Les valeurs disponibles sont "provider_error" (une erreur de l'opérateur indique que le téléphone ne peut pas recevoir de SMS) ou "deactivated" (le numéro de téléphone a été désactivé). En cas d'omission, tous les motifs sont renvoyés. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 {% alert note %}
-Vous devez fournir une `start_date` et une `end_date`, OU un `phone_numbers`. Si vous fournissez les trois, une `start_date`, une `end_date` et un `phone_numbers`, nous donnerons la priorité aux numéros de téléphone communiqués et ignorerons la plage de dates.
+Vous devez fournir une `start_date` et une `end_date`, OU un `phone_numbers`. Si vous fournissez les trois (`start_date`, `end_date` et `phone_numbers`), nous donnerons la priorité aux numéros de téléphone communiqués et ignorerons la plage de dates.
 {% endalert %}
 
-Si votre plage de dates dépasse le nombre `limit` de numéros de téléphone non valides, vous devrez effectuer plusieurs appels d'API, en augmentant à chaque fois le `offset` jusqu'à ce qu'un appel renvoie un résultat inférieur à `limit` ou égal à zéro.
+Si votre plage de dates contient plus de numéros de téléphone non valides que la valeur `limit`, vous devrez effectuer plusieurs appels API en augmentant le `offset` à chaque fois, jusqu'à ce qu'un appel renvoie un nombre de résultats inférieur à `limit` ou égal à zéro.
 
 ## Exemple de requête {#example-request}
 ```

@@ -122,7 +122,7 @@ Una vez que tu estructura está en su lugar, el siguiente paso es asegurarte de 
 
 - **Escribe oraciones cortas y claras:** Las oraciones cortas son fáciles de entender para todos, especialmente para las personas que usan lectores de pantalla o que tienen dificultades para procesar información compleja. Escribe a un nivel de lectura de séptimo grado de Estados Unidos. Puedes usar recursos como [Hemingway App](https://hemingwayapp.com/) para verificar el nivel de lectura de tu texto.
 - **Elige tamaños de fuente y espaciado legibles:** El texto demasiado pequeño puede ser difícil de leer, especialmente en dispositivos móviles. Usa al menos 14 px para el texto del cuerpo. Haz los encabezados más grandes para que los usuarios puedan ver claramente la diferencia. Un espaciado extra entre líneas (alrededor de 1.5 de altura de línea) y entre párrafos mejora la legibilidad, especialmente para personas con necesidades visuales o cognitivas.
-- **Evita el texto justificado:** El texto justificado crea un espaciado desigual entre palabras, lo que dificulta la lectura para personas con dislexia o discapacidades cognitivas. Considera alinear a la izquierda el contenido que ocupe más de dos líneas para idiomas de izquierda a derecha, o alinear a la derecha para [idiomas de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
+- **Evita el texto justificado:** El texto justificado crea un espaciado desigual entre palabras, lo que dificulta la lectura para personas con dislexia o discapacidades cognitivas. Considera alinear a la izquierda el contenido que ocupe más de dos líneas para idiomas de izquierda a derecha, o alinear a la derecha para [idiomas de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 - **Usa negrita, cursiva y mayúsculas con moderación:** Enfatizar demasiado texto dificulta la lectura, especialmente para personas con dislexia o discapacidades visuales. Mantenlo simple.
 
 #### Claridad y usabilidad {#clarity-and-usability}
@@ -131,7 +131,7 @@ Finalmente, hablemos de los detalles más finos: las cosas que ayudan a los usua
 
 - **Etiqueta claramente los enlaces y botones:** Asegúrate de que el texto de tus [enlaces](#links) y [botones](#buttons) explique claramente qué sucederá a continuación. Esto ayuda a las personas que usan lectores de pantalla o navegan con teclado a saber qué esperar.
 - **Usa símbolos y emojis con moderación:** Los caracteres especiales y los emojis pueden hacer que tu contenido sea divertido, pero pueden resultar confusos cuando los lee un lector de pantalla. Úsalos con moderación y asegúrate de que no reemplacen texto claro y descriptivo.
-- **Prueba el truncamiento:** Siempre prueba tu texto [enviando un mensaje de prueba]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages/) a un dispositivo para asegurarte de que tu texto no se trunca. Si tu mensaje se está cortando, esto te perjudica tanto a ti como a tu audiencia, ya que impide que tu contenido les llegue.
+- **Prueba el truncamiento:** Siempre prueba tu texto [enviando un mensaje de prueba]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages) a un dispositivo para asegurarte de que tu texto no se trunca. Si tu mensaje se está cortando, esto te perjudica tanto a ti como a tu audiencia, ya que impide que tu contenido les llegue.
 
 ### Idioma de accesibilidad {#accessibility-language}
 
@@ -143,11 +143,11 @@ Campaigns y Canvas usan los mismos editores para estas opciones, a menos que una
 
 #### Configurar el idioma de accesibilidad {#configure-accessibility-language}
 
-Cuando tu editor lo incluya, ve a la sección **Accesibilidad** en la configuración del mensaje. Elige un idioma del menú desplegable o usa Liquid (por ejemplo {% raw %}`{{accessibility_language}}`{% endraw %} cuando los [mensajes multilingües]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) están activados y la **Configuración de localización** está establecida).
+Cuando tu editor lo incluya, ve a la sección **Accesibilidad** en la configuración del mensaje. Elige un idioma del menú desplegable o usa Liquid (por ejemplo {% raw %}`{{accessibility_language}}`{% endraw %} cuando los [mensajes multilingües]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) están activados y la **Configuración de localización** está establecida).
 
 #### Mensajes multilingües {#multi-language-messages}
 
-En **Configuración de localización**, establece un idioma de accesibilidad para cada configuración regional para que Liquid pueda completar {% raw %}`{{accessibility_language}}`{% endraw %} en los envíos localizados. Si ese valor ya está seleccionado para los mensajes nuevos depende del canal. Para flujos de trabajo de CSV y traducción, comienza con [Configuración de idioma y accesibilidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/#language-settings-and-accessibility).
+En **Configuración de localización**, establece un idioma de accesibilidad para cada configuración regional para que Liquid pueda completar {% raw %}`{{accessibility_language}}`{% endraw %} en los envíos localizados. Si ese valor ya está seleccionado para los mensajes nuevos depende del canal. Para flujos de trabajo de CSV y traducción, comienza con [Configuración de idioma y accesibilidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#language-settings-and-accessibility).
 
 #### Compatibilidad de canales y editores {#channel-and-editor-support}
 
@@ -633,8 +633,8 @@ Los correos electrónicos creados en el editor de correo electrónico de arrastr
 
 Para ayudarte a identificar y corregir problemas de accesibilidad de forma temprana, Braze ofrece pruebas automatizadas de accesibilidad en las siguientes áreas:
 
-- [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision/#accessibility-testing) para correos electrónicos
-- [Escáner de accesibilidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message#accessibility-scanner) para mensajes creados con nuestro editor HTML (por ejemplo, In-App Messages HTML, Content Blocks HTML, [pies de correo electrónico personalizados]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/), [páginas de adhesión voluntaria por correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-opt-in-page) y [páginas de cancelación de suscripción por correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-unsubscribe-page)).
+- [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#accessibility-testing) para correos electrónicos
+- [Escáner de accesibilidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner) para mensajes creados con nuestro editor HTML (por ejemplo, In-App Messages HTML, Content Blocks HTML, [pies de correo electrónico personalizados]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), [páginas de adhesión voluntaria por correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-opt-in-page) y [páginas de cancelación de suscripción por correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-unsubscribe-page)).
 
 Estas pruebas verifican tu mensaje contra el estándar de Pautas de Accesibilidad al Contenido Web ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)), un conjunto de estándares técnicos reconocidos internacionalmente para contenido accesible. Cualquier problema que pueda detectarse automáticamente se marca y categoriza por gravedad para ayudarte a priorizar.
 

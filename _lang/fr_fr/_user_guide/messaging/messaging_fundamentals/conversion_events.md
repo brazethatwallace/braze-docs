@@ -54,21 +54,21 @@ Notez les points suivants concernant la manière dont Braze gère les conversion
 
 L'événement de conversion principal est le premier événement que vous ajoutez lors de la création d'une Campaign ou d'un Canvas. Cet événement a le plus d'impact sur votre engagement et vos rapports. Braze utilise votre événement de conversion principal pour :
 
-- Déterminer la variante gagnante dans les campagnes ou Canvas [multivariés]({{site.baseurl}}/user_guide/messaging/ab_testing/#multivariate-and-ab-testing).
+- Déterminer la variante gagnante dans les campagnes ou Canvas [multivariés]({{site.baseurl}}/user_guide/messaging/ab_testing#multivariate-and-ab-testing).
 - Définir la fenêtre de calcul du chiffre d'affaires pour la Campaign ou le Canvas.
-- Ajuster la distribution des messages pour les campagnes et Canvas utilisant la [Sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/).
+- Ajuster la distribution des messages pour les campagnes et Canvas utilisant la [Sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection).
 
 Le nombre d'événements de conversion principaux correspond au nombre d'événements de conversion survenus. Pour les campagnes multicanal, Braze comptabilise les conversions par canal (comme décrit dans les [Règles de suivi des conversions](#conversion-tracking-rules)), ce qui signifie que le nombre de conversions peut dépasser le nombre d'utilisateurs uniques et entraîner des taux de conversion supérieurs à 100 %. Braze calcule le taux de l'événement de conversion principal en divisant ce nombre par le nombre de destinataires uniques. Braze considère un utilisateur comme destinataire lorsque le message est envoyé ou affiché, selon le canal. Par exemple, pour les notifications push ou les e-mails, un utilisateur devient destinataire après l'envoi du message par Braze. Pour les messages in-app ou les Content Cards, l'utilisateur doit visualiser le message pour être considéré comme destinataire.
 
 {% alert note %}
-Si vous annulez des messages à l'aide de la balise Liquid `abort`, Braze n'annule les messages que pour les utilisateurs qui passent par les variantes. Les messages destinés aux utilisateurs du groupe de contrôle ne sont pas annulés, ce qui peut entraîner des pourcentages de conversion biaisés entre les variantes et les groupes de contrôle. Pour contourner ce problème, utilisez la [segmentation]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) pour cibler vos utilisateurs à l'entrée de la Campaign ou du Canvas.
+Si vous annulez des messages à l'aide de la balise Liquid `abort`, Braze n'annule les messages que pour les utilisateurs qui passent par les variantes. Les messages destinés aux utilisateurs du groupe de contrôle ne sont pas annulés, ce qui peut entraîner des pourcentages de conversion biaisés entre les variantes et les groupes de contrôle. Pour contourner ce problème, utilisez la [segmentation]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) pour cibler vos utilisateurs à l'entrée de la Campaign ou du Canvas.
 {% endalert %}
 
 ## Créer une Campaign avec suivi des conversions {#creating-a-campaign-with-conversion-tracking}
 
 ### Étape 1 : Configurer votre Campaign {#step-1-set-up-your-campaign}
 
-[Créez une Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/) pour le canal de communication souhaité. Après avoir configuré les messages et la planification de votre Campaign, vous pouvez ajouter jusqu'à quatre événements de conversion pour le suivi.
+[Créez une Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign) pour le canal de communication souhaité. Après avoir configuré les messages et la planification de votre Campaign, vous pouvez ajouter jusqu'à quatre événements de conversion pour le suivi.
 
 Utilisez autant d'événements de conversion que nécessaire. L'ajout d'un deuxième ou troisième événement de conversion enrichit considérablement vos rapports. Par exemple, pour une Campaign ciblant les utilisateurs inactifs, l'ajout d'un événement de conversion secondaire en complément de l'événement de conversion principal **Démarrer une session** vous aide à comprendre l'efficacité de votre Campaign pour ramener les utilisateurs dans votre application.
 
@@ -79,7 +79,7 @@ Commencez par sélectionner le type général d'événement que vous souhaitez u
 | Type d'événement de conversion | Description |
 |-------------------------|----------------------------|
 | **Démarrer une session** | Un utilisateur est considéré comme converti lorsqu'il ouvre l'une des applications que vous spécifiez (par défaut, toutes les applications de l'espace de travail). |
-| **Effectuer un achat** | Un utilisateur est considéré comme converti lorsqu'il enregistre un [événement d'achat]({{site.baseurl}}/api/objects_filters/purchase_object/). Cela suit tout achat par défaut, ou vous pouvez spécifier un produit particulier. |
+| **Effectuer un achat** | Un utilisateur est considéré comme converti lorsqu'il enregistre un [événement d'achat]({{site.baseurl}}/api/objects_filters/purchase_object). Cela suit tout achat par défaut, ou vous pouvez spécifier un produit particulier. |
 | **Passer une commande** | Un utilisateur est considéré comme converti lorsqu'il déclenche l'[événement eCommerce recommandé Commande passée]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#ecommerce-recommended-events?tab=ecommerce.order_placed). Cela suit toute commande par défaut, ou vous pouvez filtrer par un produit spécifique.<br><br>L'événement « Passer une commande » est actuellement en accès anticipé. Contactez votre gestionnaire de compte Braze si vous souhaitez participer à cet accès anticipé. |
 | **Effectuer un événement personnalisé** | Un utilisateur est considéré comme converti lorsqu'il effectue l'un de vos événements personnalisés existants (pas de valeur par défaut, vous devez spécifier l'événement). |
 | **Mettre à jour l'application** | Un utilisateur est considéré comme converti lorsqu'il met à jour la version de l'application sur l'une des applications que vous spécifiez (par défaut, toutes les applications de l'espace de travail). Braze effectue une comparaison numérique au mieux pour déterminer si le changement constitue une mise à jour. Les versions non numériques sont comptabilisées comme des conversions si la version change. |

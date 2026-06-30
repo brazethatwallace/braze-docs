@@ -14,7 +14,7 @@ channel: email
 
 ## Estados del suscriptor {#subscriber-states}
 
-Existen tres estados de suscripción de correo electrónico para un usuario: **adhesión voluntaria**, **suscrito** y **cancelado**. Para cambiar el estado de suscripción de un usuario, consulta nuestro artículo sobre [cambiar suscripciones]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-subscriptions) o usa nuestras [API de suscripción]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
+Existen tres estados de suscripción de correo electrónico para un usuario: **adhesión voluntaria**, **suscrito** y **cancelado**. Para cambiar el estado de suscripción de un usuario, consulta nuestro artículo sobre [cambiar suscripciones]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-subscriptions) o usa nuestras [API de suscripción]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status).
 
 | Estado del suscriptor | Descripción |
 |---|---|

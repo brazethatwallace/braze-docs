@@ -10,7 +10,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Statu
 ---
 {% api %}
 # Status des E-Mail-Abos ändern {#change-email-subscription-status}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/status
 {% endapimethod %}
 
@@ -24,7 +24,7 @@ Sie können den Status des E-Mail-Abos für eine E-Mail-Adresse festlegen, die n
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `email.status`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `email.status`.
 
 ## Rate-Limit
 
@@ -39,7 +39,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ```json
 {
-  "email": "example@braze.com",
+  "email": "example@example.com",
   "subscription_state": "subscribed"
 }
 ```
@@ -54,7 +54,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Fehlerbehebung bei SendGrid-E-Mail-Blockierungen {#troubleshooting-sendgrid-email-blocks}
 
-Wenn SendGrid eine/n Empfänger:in blockiert, aktualisieren Sie den Abo-Status mit diesem Endpunkt und überprüfen Sie das Engagement mithilfe von Segment-Filtern. Verwenden Sie Soft-Bounce-Ereignisse von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) zur Überwachung der Zustellbarkeit und bestätigen Sie den Abo-Status, bevor Sie den Versand erneut versuchen.
+Wenn SendGrid eine/n Empfänger:in blockiert, aktualisieren Sie den Abo-Status mit diesem Endpunkt und überprüfen Sie das Engagement mithilfe von Segment-Filtern. Verwenden Sie Soft-Bounce-Ereignisse von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) zur Überwachung der Zustellbarkeit und bestätigen Sie den Abo-Status, bevor Sie den Versand erneut versuchen.
 
 ## Beispielanfrage {#example-request}
 ```
@@ -62,7 +62,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/email/status' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
 --data-raw '{
-  "email": "example@braze.com",
+  "email": "example@example.com",
   "subscription_state": "subscribed"
 }'
 ```

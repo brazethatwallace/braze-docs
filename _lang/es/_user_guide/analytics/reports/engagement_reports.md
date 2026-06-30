@@ -24,7 +24,7 @@ Con los informes de interacción, puedes seleccionar manualmente las campañas y
 
 Independientemente del número de campañas o Canvas que selecciones, se generan hasta dos archivos CSV: uno para todos los datos de campaña y otro para todos los datos de Canvas. Puedes acceder a estos archivos CSV desde el enlace incluido en el correo electrónico de tu informe. Los informes de interacción no se guardan en el panel de Braze.
 
-Ciertos datos se agregan a nivel de campaña o Canvas en lugar de a nivel de variante de campaña individual o paso en Canvas. Si [eliminas un paso en Canvas después del lanzamiento]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#canvas-details), esto también eliminará los datos de los informes de interacción.
+Ciertos datos se agregan a nivel de campaña o Canvas en lugar de a nivel de variante de campaña individual o paso en Canvas. Si [eliminas un paso en Canvas después del lanzamiento]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#canvas-details), esto también eliminará los datos de los informes de interacción.
 
 {% alert tip %}
 Puedes volver a ejecutar el informe para generar estadísticas actualizadas.
@@ -43,7 +43,7 @@ Añade las campañas y los mensajes de Canvas que deseas compilar en tu informe.
 - Seleccionar manualmente campañas y Canvas
 - Seleccionar automáticamente campañas y Canvas en función de reglas específicas
 
-![Selección de mensajes del informe de interacción]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
+![engagement_reports_message_selection]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
 
 #### Seleccionar manualmente campañas o Canvas {#manually-select-campaigns-or-canvases}
 
@@ -51,7 +51,7 @@ Esta opción te da la libertad de elegir las campañas o Canvas que desees para 
 
 #### Seleccionar automáticamente campañas o Canvas {#automatically-select-campaigns-or-canvases}
 
-Esta opción te permite incluir automáticamente todos los mensajes que contengan una [etiqueta]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) específica. Puedes dirigirte a mensajes que tengan una o todas las etiquetas listadas. Esta opción es útil si estás configurando informes recurrentes y etiquetas regularmente tus mensajes de interacción.
+Esta opción te permite incluir automáticamente todos los mensajes que contengan una [etiqueta]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) específica. Puedes dirigirte a mensajes que tengan una o todas las etiquetas listadas. Esta opción es útil si estás configurando informes recurrentes y etiquetas regularmente tus mensajes de interacción.
 
 {% alert important %}
 Las etiquetas deben coincidir con al menos una campaña o Canvas para que se genere un informe. Si utilizas **Automatically select campaigns and Canvases based on specific rules** y ves un error, confirma que al menos una campaña o Canvas coincide con tus etiquetas y otros filtros (por ejemplo, cuando requieres todas las etiquetas listadas, cada mensaje coincidente debe tener todas las etiquetas).
@@ -61,9 +61,9 @@ Las etiquetas deben coincidir con al menos una campaña o Canvas para que se gen
 
 El paso **Add Stats** te muestra las estadísticas para los tipos de campañas o Canvas que hayas seleccionado. Por ejemplo, si seleccionaste mensajes de correo electrónico, solo podrás ver las estadísticas relevantes de correo electrónico. Si elegiste una combinación de correo electrónico y push, podrás ver las estadísticas de esos dos canales.
 
-![Añadir estadísticas al informe de interacción]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
-Los informes de interacción agregan datos por campaña o Canvas, no a nivel de espacio de trabajo. Para monitorear el volumen total de envíos o impresiones en todas las campañas y Canvas activos, como los envíos e impresiones por canal en todo un espacio de trabajo, usa el [Generador de informes]({{site.baseurl}}/report_builder/).
+Los informes de interacción agregan datos por campaña o Canvas, no a nivel de espacio de trabajo. Para monitorear el volumen total de envíos o impresiones en todas las campañas y Canvas activos, como los envíos e impresiones por canal en todo un espacio de trabajo, usa el [Generador de informes]({{site.baseurl}}/report_builder).
 
 {% alert note %}
 *Envíos al operador* está obsoleto, pero seguirá siendo compatible para los usuarios que ya lo tienen.
@@ -100,7 +100,7 @@ De forma predeterminada, el rango de datos mostrado se basa en la zona horaria d
 
 De forma predeterminada, los datos mostrados en los informes de interacción son diarios (un día). Para ver estos datos en diferentes intervalos, elige un número explícito de días o semanas para agregar los datos del informe. Así, en lugar de ver métricas diarias, puedes ver tu interacción por semana, mes, trimestre o similar. Si una agregación centrada en el tiempo no es suficiente, también puedes optar por exportar datos a nivel de campaña o Canvas.
 
-![Cobertura de datos del informe de interacción]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+![engagement_reports_data_coverage]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
 
 ##### Mostrar datos por campaña o Canvas completo {#show-data-by-entire-campaign-or-canvas}
 
@@ -117,7 +117,7 @@ Hay dos opciones al planificar tu informe:
 - **Enviar inmediatamente:** Después de lanzar el informe, Braze lo enviará de inmediato.
 - **Enviar en un horario designado:** Esta opción te da la flexibilidad de elegir con qué frecuencia recibes este informe. Puedes elegir enviar este informe cada cierto número de días, semanas o meses. También puedes definir cuándo dejar de enviar el informe.
 
-![Planificación del informe de interacción]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
+![engagement_reports_schedule_report]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
 
 ### Paso 5: Revisar y lanzar {#step-5-review-and-launch}
 
@@ -145,7 +145,7 @@ Si deseas filas agregadas por campaña o Canvas completo en lugar de contenedore
 
 #### Clics de botón duplicados en mensajes dentro de la aplicación HTML {#duplicate-button-clicks-in-html-in-app-messages}
 
-Si utilizas mensajes dentro de la aplicación HTML y los **clics en el cuerpo** parecen altos en el informe de interacción, es posible que estés registrando clics dos veces, por ejemplo, al llamar a `brazeBridge.logClick()` para un clic genérico en el cuerpo y también `brazeBridge.logClick('body click')` (u otro ID) en la misma interacción. Busca en tu código `brazeBridge.logClick(` y alinea con un patrón por control. Para el uso recomendado, consulta [Seguimiento de botones]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#button-tracking-improvements).
+Si utilizas mensajes dentro de la aplicación HTML y los **clics en el cuerpo** parecen altos en el informe de interacción, es posible que estés registrando clics dos veces, por ejemplo, al llamar a `brazeBridge.logClick()` para un clic genérico en el cuerpo y también `brazeBridge.logClick('body click')` (u otro ID) en la misma interacción. Busca en tu código `brazeBridge.logClick(` y alinea con un patrón por control. Para el uso recomendado, consulta [Seguimiento de botones]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#button-tracking-improvements).
 
 #### Enlaces rotos en los correos electrónicos de informes de interacción {#broken-links-in-emailed-engagement-reports}
 

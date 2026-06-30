@@ -111,7 +111,7 @@ WhatsApp Business Manager에서 직접 템플릿을 생성하는 경우, [WhatsA
 ![버튼 이름, 웹사이트 URL, 클릭 추적 URL 필드가 있는 버튼 섹션.]({% image_buster /assets/img/whatsapp/click_tracking/buttons.png %}){: style="max-width:70%;"}
 
 {% alert important %}
-**API를 통한 템플릿 메시지 발송**: WhatsApp 클릭 추적(`brz.ai` 또는 커스텀 추적 도메인 및 메시지 작성기의 **클릭 추적 URL** 필드 사용)은 [`/messages/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)를 통해 WhatsApp 템플릿 메시지를 발송할 때 지원되지 않습니다.
+**API를 통한 템플릿 메시지 발송**: WhatsApp 클릭 추적(`brz.ai` 또는 커스텀 추적 도메인 및 메시지 작성기의 **클릭 추적 URL** 필드 사용)은 [`/messages/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)를 통해 WhatsApp 템플릿 메시지를 발송할 때 지원되지 않습니다.
 
 API를 통해 템플릿 메시지를 발송하는 경우 CTA URL 변수(`button_variables` 사용)를 채울 수 있지만, Braze는 API 요청 흐름에서 클릭 추적 URL이나 리디렉션 링크를 생성하지 않습니다. 클릭 추적을 사용하려면 Braze 대시보드에서 또는 Braze Campaign 트리거를 통해 템플릿을 발송하세요.
 {% endalert %}
@@ -154,7 +154,7 @@ Campaign 또는 Canvas를 시작하기 전에 먼저 메시지를 미리보기�
 
 ## 보고 {#reporting}
 
-클릭 추적이 활성화되었거나 지원되는 템플릿과 함께 사용되는 경우, WhatsApp 성과 테이블에는 배리언트별 클릭 이벤트 수와 관련 클릭률을 보여주는 **총 클릭 수** 열이 포함됩니다. WhatsApp 측정기준에 대한 자세한 내용은 [WhatsApp 메시지 성과]({{site.baseurl}}/user_guide/channels/whatsapp/reporting/)를 참조하세요.
+클릭 추적이 활성화되었거나 지원되는 템플릿과 함께 사용되는 경우, WhatsApp 성과 테이블에는 배리언트별 클릭 이벤트 수와 관련 클릭률을 보여주는 **총 클릭 수** 열이 포함됩니다. WhatsApp 측정기준에 대한 자세한 내용은 [WhatsApp 메시지 성과]({{site.baseurl}}/user_guide/channels/whatsapp/reporting)를 참조하세요.
 
 ![WhatsApp 메시지 캔버스 단계.]({% image_buster /assets/img/whatsapp/click_tracking/canvas_step.png %}){: style="max-width:30%;"}
 

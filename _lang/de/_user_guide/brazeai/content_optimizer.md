@@ -7,7 +7,7 @@ page_type: reference
 page_order: 3
 ---
 
-# Der Content Optimizer {#content-optimizer}
+# Content Optimizer {#content-optimizer}
 
 > Der Content Optimizer ist ein Agent, der Ihnen dabei hilft, Nachrichteninhalte in großem Umfang zu testen und zu optimieren. Dabei wird KI eingesetzt, um automatisch große Mengen an Inhaltsvarianten zu generieren und zu bewerten.
 
@@ -26,7 +26,7 @@ Der Content Optimizer ist ein Agent, der in einem Canvas-Schritt ausgeführt wir
 - Große Mengen an Inhaltsvarianten schnell zu testen und dabei KI zur Ideenfindung zu nutzen.
 - Leistungsschwache Inhalte automatisch auszumustern und erfolgreiche Inhalte auszubauen.
 
-Erfahren Sie, wie Sie einen [Content Optimizer-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step/) erstellen.
+Erfahren Sie, wie Sie einen [Content Optimizer-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step) erstellen.
 
 ## Anwendungsfälle {#use-cases}
 
@@ -66,7 +66,7 @@ Der proprietäre Bandit-Optimierungsalgorithmus von Braze wurde speziell für di
 
 Bei der ersten Ausführung des Schritts sendet der Content Optimizer Varianten zufällig, um erste Performance-Daten zu erfassen. Nach dieser anfänglichen Erkundungsphase beginnt der Algorithmus, den Traffic auf leistungsstärkere Inhaltskombinationen umzuleiten und die Zuweisung an leistungsschwächere Optionen schrittweise zu reduzieren. Während der Erkundungsphase wird der Traffic in der Regel auf die verfügbaren Varianten verteilt, damit der Algorithmus aus deren relativer Performance lernen kann.
 
-Der Content Optimizer ähnelt dem Nachricht-Schritt in Canvas und verfügt über Features wie Ruhezeiten, [intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/) und Ereignisprotokollierung. Sie können einen Content Optimizer-Schritt konfigurieren, indem Sie eine Basisnachricht erstellen und festlegen, welche Inhaltskomponenten (wie Betreffzeile, Textkörper oder Call-to-Action) optimiert werden sollen. Varianten für jede Komponente können mit KI generiert oder manuell eingegeben werden. Liquid-Tags müssen zur Basisnachricht hinzugefügt werden, um Komponenten in den Nachrichteninhalt einzubinden.
+Der Content Optimizer ähnelt dem Nachricht-Schritt in Canvas und verfügt über Features wie Ruhezeiten, [intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) und Ereignisprotokollierung. Sie können einen Content Optimizer-Schritt konfigurieren, indem Sie eine Basisnachricht erstellen und festlegen, welche Inhaltskomponenten (wie Betreffzeile, Textkörper oder Call-to-Action) optimiert werden sollen. Varianten für jede Komponente können mit KI generiert oder manuell eingegeben werden. Liquid-Tags müssen zur Basisnachricht hinzugefügt werden, um Komponenten in den Nachrichteninhalt einzubinden.
 
 Jede:r Nutzer:in erhält eine Nachricht pro Eintritt in den Content Optimizer-Schritt. Wiedereintritte werden als neu behandelt, ohne Berücksichtigung früherer Varianten.
 
@@ -74,7 +74,7 @@ Jede:r Nutzer:in erhält eine Nachricht pro Eintritt in den Content Optimizer-Sc
 
 Für optimale Ergebnisse verwenden Sie den Content Optimizer in Canvases, in denen Nutzer:innen den Schritt schrittweise und regelmäßig über einen längeren Zeitraum hinweg erreichen – beispielsweise in wiederkehrenden oder dauerhaft aktiven Canvases mit konstantem täglichem Volumen. Wenn alle Nutzer:innen gleichzeitig in den Schritt eintreten, hat der Agent keine Zeit, aus den ersten Ergebnissen zu lernen. Der Schritt verhält sich dann eher wie ein statischer A/B-Test als wie eine Live-Optimierungs-Engine.
 
-Am besten eignet sich der Content Optimizer für täglich wiederkehrende Eintritts-Canvases sowie für Event-getriggerte und API-getriggerte Canvases mit relativ konstantem täglichem Nutzer:innen-Eintritt. Wenn Sie den Content Optimizer in Einmal-Sende-Canvases oder Canvases mit unregelmäßigem Eintritt (z. B. monatlich wiederkehrend) verwenden, sollten Sie [Eintrittskontrollen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls) nutzen, um die Nutzer:innen-Eintritte über mehrere Tage zu verteilen.
+Am besten eignet sich der Content Optimizer für täglich wiederkehrende Eintritts-Canvases sowie für Event-getriggerte und API-getriggerte Canvases mit relativ konstantem täglichem Nutzer:innen-Eintritt. Wenn Sie den Content Optimizer in Einmal-Sende-Canvases oder Canvases mit unregelmäßigem Eintritt (z. B. monatlich wiederkehrend) verwenden, sollten Sie [Eintrittskontrollen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) nutzen, um die Nutzer:innen-Eintritte über mehrere Tage zu verteilen.
 
 ### Wichtige Konzepte {#key-concepts}
 
@@ -107,4 +107,4 @@ Am besten eignet sich der Content Optimizer für täglich wiederkehrende Eintrit
 ## Nächste Schritte {#next-steps}
 
 - Wenden Sie sich an Ihren Customer-Success-Manager, um an der Beta-Phase teilzunehmen oder Unterstützung beim Onboarding zu erhalten.
-- Erfahren Sie, wie Sie einen [Content Optimizer-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step/) erstellen.
+- Erfahren Sie, wie Sie einen [Content Optimizer-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step) erstellen.

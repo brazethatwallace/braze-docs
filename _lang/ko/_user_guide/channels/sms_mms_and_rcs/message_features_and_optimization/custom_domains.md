@@ -13,7 +13,7 @@ channel:
 
 # 셀프서비스 커스텀 도메인 {#self-serve-custom-domains}
 
-> 이 페이지에서는 Braze 대시보드에서 자체 커스텀 도메인을 설정하는 방법을 다룹니다. 커스텀 도메인을 사용하면 일반적인 단축 링크나 Braze 도메인(`brz.ai`) 대신 브랜드 아이덴티티를 반영하는 브랜드 단축 링크를 사용할 수 있어, SMS 링크에 대한 사용자 신뢰도와 Campaign 참여도를 높일 수 있습니다.
+> 이 페이지에서는 Braze 대시보드에서 자체 커스텀 도메인을 설정하는 방법을 다룹니다. 커스텀 도메인을 사용하면 일반적인 단축 링크나 Braze 도메인(`brz.ai`) 대신 브랜드 아이덴티티를 반영하는 브랜드 단축 링크를 사용할 수 있어, SMS 링크에 대한 사용자 신뢰도와 Campaign(캠페인) 참여도를 높일 수 있습니다.
 
 셀프서비스 커스텀 도메인을 사용하면 SMS, RCS, WhatsApp용 커스텀 도메인을 Braze 대시보드에서 직접 구성하고 관리할 수 있습니다. 한 곳에서 최대 10개의 커스텀 도메인을 쉽게 추가, 모니터링 및 관리할 수 있습니다.
 
@@ -37,7 +37,7 @@ Braze의 링크 단축 및 클릭 추적 서비스와의 적절한 라우팅 및
 
 ## 커스텀 도메인 추가 {#adding-a-custom-domain}
 
-1. Braze에서 **Company Settings** > **SMS/RCS and Messaging Apps Domains**로 이동합니다.
+1. Braze에서 **회사 설정** > **SMS/RCS and Messaging Apps Domains**로 이동합니다.
 ![여러 도메인이 나열된 "SMS/RCS and Messaging Apps Domains" 페이지.]({% image_buster /assets/img/main_page.png %})
 
 {: start="2"}
@@ -64,21 +64,19 @@ Braze는 약 30분마다 DNS 구성을 폴링하여 업데이트를 확인합니
 
 ![커스텀 도메인 및 상태 목록.]({% image_buster /assets/img/custom_domain_statuses.png %}){: style="max-width:60%;"}
 
-실시간 모니터링을 통해 활성 도메인에 문제가 발생하면 Braze 대시보드에서 알림을 받아 커스텀 링크를 계속 사용할 수 있습니다. 문제가 발생하면 인앱 오류 세부 정보를 참조하거나 Braze [고객지원]({{site.baseurl}}/braze_support/)에 문의하세요.
+실시간 모니터링을 통해 활성 도메인에 문제가 발생하면 Braze 대시보드에서 알림을 받아 커스텀 링크를 계속 사용할 수 있습니다. 문제가 발생하면 인앱 오류 세부 정보를 참조하거나 Braze [고객지원]({{site.baseurl}}/braze_support)에 문의하세요.
 
 ## 구독 그룹에 커스텀 도메인 할당 {#assigning-custom-domains-to-subscription-groups}
 
 구성이 완료되면 커스텀 도메인을 하나 또는 여러 SMS, RCS, WhatsApp 구독 그룹에 할당할 수 있습니다.
 
-1. **Audience** > **Subscription Group Management**로 이동합니다.
+1. **오디언스** > **구독 그룹 관리**로 이동합니다.
 2. 목록에서 구독 그룹을 찾아 선택합니다.
-3. **Subscription Group Details**에서 커스텀 도메인을 **Link Shortening Domain**으로 선택합니다.
-
-![링크 단축 도메인을 선택할 수 있는 구독 그룹 설정.]({% image_buster /assets/img/custom_domain.png %})
+3. **구독 그룹 세부 정보**에서 **Link Shortening Domain** 드롭다운에서 커스텀 도메인을 선택합니다.
 
 링크 단축이 활성화된 상태로 전송된 Campaigns는 SMS, RCS 또는 WhatsApp 구독 그룹에 연결된 할당 도메인을 사용합니다.
 
-!["Message" 상자의 도메인과 다른 단축 링크 도메인이 표시된 SMS 메시지 작성기 미리보기.]({% image_buster /assets/img/custom_domain2.png %})
+![메시지 상자의 도메인과 다른 단축 링크 도메인이 표시된 SMS 메시지 작성기 미리보기.]({% image_buster /assets/img/custom_domain2.png %})
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
@@ -108,4 +106,4 @@ Cloudflare DNS 레코드 세부 정보는 45일 후에 만료되지만, 동일�
 
 ### 질문이 있거나 추가 지원이 필요하면 어떻게 하나요? {#what-if-i-have-questions-or-need-further-support}
 
-커스텀 도메인 설정 및 관리에 대한 자세한 안내(문제 해결 단계 및 기술 요구 사항 포함)는 [고객지원에 문의]({{site.baseurl}}/braze_support/)하세요.
+커스텀 도메인 설정 및 관리에 대한 자세한 안내(문제 해결 단계 및 기술 요구 사항 포함)는 [고객지원에 문의]({{site.baseurl}}/braze_support)하세요.

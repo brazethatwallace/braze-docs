@@ -14,9 +14,9 @@ noindex: true
 
 Antes de começar, conclua a integração inicial de notificações por push para a sua plataforma:
 
-- [Notificações por push para Android]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android)
-- [Notificações por push para Swift]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)
-- [Notificações por push para web]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web)
+- [Notificações por push para Android]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android)
+- [Notificações por push para Swift]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)
+- [Notificações por push para web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web)
 
 ## Análise de dados nativa de push vs. registro de eventos personalizados {#native-push-analytics-vs-custom-event-logging}
 
@@ -34,13 +34,13 @@ Registrar um evento personalizado (como `push_notification_opened`) não é o me
 
 ## O que a Braze registra automaticamente {#what-braze-logs-automatically}
 
-Quando a integração do SDK está configurada, a Braze registra automaticamente os dados principais de interação do canal, incluindo aberturas de push e aberturas por influência. Nenhum código adicional é necessário para a análise de dados padrão de push. Para uma lista completa dos dados coletados automaticamente, consulte [Coleta de dados do SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
+Quando a integração do SDK está configurada, a Braze registra automaticamente os dados principais de interação do canal, incluindo aberturas de push e aberturas por influência. Nenhum código adicional é necessário para a análise de dados padrão de push. Para uma lista completa dos dados coletados automaticamente, consulte [Coleta de dados do SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
 
 Para saber mais, consulte:
 
-- [Coleta de dados do SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/) para uma lista completa de dados coletados automaticamente e opcionais.
-- [Aberturas por influência]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/) para saber como a Braze calcula as aberturas por influência.
-- [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) para esquemas de eventos downstream no Currents.
+- [Coleta de dados do SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection) para uma lista completa de dados coletados automaticamente e opcionais.
+- [Aberturas por influência]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens) para saber como a Braze calcula as aberturas por influência.
+- [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) para esquemas de eventos downstream no Currents.
 
 ## Preservando a análise de dados nativa de push com tratamento personalizado de push {#preserving-native-push-analytics-with-custom-push-handling}
 
@@ -120,7 +120,7 @@ Para um exemplo completo de implementação, consulte o [exemplo de push manual 
 {% endtab %}
 {% tab Web %}
 
-Para push na web, configure seu service worker e a inicialização do SDK conforme descrito em [Notificações por push para web]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web).
+Para push na web, configure seu service worker e a inicialização do SDK conforme descrito em [Notificações por push para web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web).
 
 Para mais exemplos de código, consulte o [repositório do SDK Web da Braze](https://github.com/braze-inc/braze-web-sdk).
 
@@ -131,11 +131,11 @@ Para mais exemplos de código, consulte o [repositório do SDK Web da Braze](htt
 
 Use esta seção quando precisar registrar dados adicionais a partir de pares chave-valor da carga útil de push, como eventos personalizados ou atributos vinculados à sua lógica de negócios.
 
-Para saber mais sobre eventos personalizados, consulte [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/). Para registrar eventos personalizados por meio de métodos do SDK, consulte [Registrando eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/).
+Para saber mais sobre eventos personalizados, consulte [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events). Para registrar eventos personalizados por meio de métodos do SDK, consulte [Registrando eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events).
 
 ### Opção A: Registrar com o endpoint `/users/track` {#option-a-log-with-the-userstrack-endpoint}
 
-Você pode registrar análise de dados em tempo real chamando o endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/).
+Você pode registrar análise de dados em tempo real chamando o endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 Para identificar o perfil de usuário, inclua `braze_id` nos pares chave-valor da carga útil de push.
 
@@ -165,14 +165,14 @@ No Xcode, adicione a capacidade `App Groups` ao target principal do seu app. Ati
 
 Antes de implementar os trechos de código, escolha qual categoria de análise de dados você deseja registrar:
 
-- **Eventos personalizados:** Ações que os usuários realizam (por exemplo, concluir um fluxo ou tocar em um elemento específico da interface). Use eventos personalizados para gatilhos baseados em ação, segmentação e análise de dados de eventos. Para saber mais, consulte [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) e [Registrando eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/).
-- **Atributos personalizados:** Campos de perfil que você define (por exemplo, `plan_tier` ou `preferred_language`) e atualiza ao longo do tempo. Para saber mais, consulte [Atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/) e [Definindo atributos de usuário]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/).
+- **Eventos personalizados:** Ações que os usuários realizam (por exemplo, concluir um fluxo ou tocar em um elemento específico da interface). Use eventos personalizados para gatilhos baseados em ação, segmentação e análise de dados de eventos. Para saber mais, consulte [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) e [Registrando eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events).
+- **Atributos personalizados:** Campos de perfil que você define (por exemplo, `plan_tier` ou `preferred_language`) e atualiza ao longo do tempo. Para saber mais, consulte [Atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types) e [Definindo atributos de usuário]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes).
 - **Atributos de usuário:** Campos padrão de perfil (por exemplo, e-mail, nome e número de telefone). No código de exemplo, eles são representados por um modelo tipado `UserAttribute` e então mapeados para campos de usuário da Braze.
 
-Os arquivos auxiliares nesta seção (`RemoteStorage`, `UserAttribute` e `EventName Dictionary`) são arquivos utilitários locais usados por esta implementação de exemplo. Eles não são classes integradas do SDK. Eles armazenam dados derivados da carga útil em `UserDefaults`, definem um modelo tipado para atualizações pendentes de usuário e padronizam a construção da carga útil de eventos. Para saber mais sobre o comportamento de armazenamento local de dados, consulte [Armazenamento]({{site.baseurl}}/developer_guide/storage/?tab=swift).
+Os arquivos auxiliares nesta seção (`RemoteStorage`, `UserAttribute` e `EventName Dictionary`) são arquivos utilitários locais usados por esta implementação de exemplo. Eles não são classes integradas do SDK. Eles armazenam dados derivados da carga útil em `UserDefaults`, definem um modelo tipado para atualizações pendentes de usuário e padronizam a construção da carga útil de eventos. Para saber mais sobre o comportamento de armazenamento local de dados, consulte [Armazenamento]({{site.baseurl}}/developer_guide/storage?tab=swift).
 
 {% alert note %}
-Os exemplos de arquivos auxiliares nesta seção são específicos para iOS (Swift e Objective-C). Para abordagens de Android e Web para registrar eventos personalizados e atributos, consulte [Registrando eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/) ([Android]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)) e [Definindo atributos de usuário]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/) ([Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=web)).
+Os exemplos de arquivos auxiliares nesta seção são específicos para iOS (Swift e Objective-C). Para abordagens de Android e Web para registrar eventos personalizados e atributos, consulte [Registrando eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events) ([Android]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)) e [Definindo atributos de usuário]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes) ([Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?tab=web)).
 {% endalert %}
 
 {% tabs local %}
@@ -801,18 +801,18 @@ Use a superfície de relatório que corresponde à categoria de análise de dado
 
 | Categoria de análise de dados | Onde visualizar na Braze |
 | --- | --- |
-| Análise de dados nativa de push | Para visualizar as métricas de abertura de push no nível da Campaign, navegue até a página **Análise de dados da Campaign** da sua Campaign de push. Para definições de métricas, consulte [Aberturas por influência]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/). Para criar visualizações personalizadas de análise de dados, navegue até **Analytics** > **Report Builder (New)**. Para etapas de navegação, consulte [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder/). Para esquemas de eventos em nível de data warehouse, consulte [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/). |
-| Eventos personalizados e atributos | Para visualizar tendências de eventos personalizados, navegue até **Analytics** > **Relatório de eventos personalizados**. Para mais informações, consulte [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/). Para inspecionar valores no nível do usuário, navegue até a página **Pesquisar usuários** e abra um perfil. Para ver as etapas, consulte [Perfis de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/). Para filtrar públicos por esses valores, navegue até **Público** > **Segments**. Para etapas de navegação, consulte [Criar um Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) e opções de filtro em [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/). |
+| Análise de dados nativa de push | Para visualizar as métricas de abertura de push no nível da Campaign, navegue até a página **Análise de dados da Campaign** da sua Campaign de push. Para definições de métricas, consulte [Aberturas por influência]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens). Para criar visualizações personalizadas de análise de dados, navegue até **Analytics** > **Report Builder (New)**. Para etapas de navegação, consulte [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder). Para esquemas de eventos em nível de data warehouse, consulte [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events). |
+| Eventos personalizados e atributos | Para visualizar tendências de eventos personalizados, navegue até **Analytics** > **Relatório de eventos personalizados**. Para mais informações, consulte [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events). Para inspecionar valores no nível do usuário, navegue até a página **Pesquisar usuários** e abra um perfil. Para ver as etapas, consulte [Perfis de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles). Para filtrar públicos por esses valores, navegue até **Público** > **Segments**. Para etapas de navegação, consulte [Criar um Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) e opções de filtro em [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Analisando resultados" }
 
-Para criação de relatórios personalizados, consulte [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder/).
+Para criação de relatórios personalizados, consulte [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
 ## Referências relacionadas {#related-references}
 
-- [Notificações por push]({{site.baseurl}}/developer_guide/push_notifications/)
-- [Registrando eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/)
-- [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)
-- [Endpoint de rastreamento de usuários (`/users/track`)]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)
+- [Notificações por push]({{site.baseurl}}/developer_guide/push_notifications)
+- [Registrando eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events)
+- [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events)
+- [Endpoint de rastreamento de usuários (`/users/track`)]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
 - [Repositório do SDK Android da Braze](https://github.com/braze-inc/braze-android-sdk)
 - [Repositório do SDK Swift da Braze](https://github.com/braze-inc/braze-swift-sdk)
 - [Repositório do SDK Web da Braze](https://github.com/braze-inc/braze-web-sdk)

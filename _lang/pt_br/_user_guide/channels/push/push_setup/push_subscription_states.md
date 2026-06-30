@@ -24,13 +24,13 @@ Você pode verificar o estado de inscrição de push, o registro e a ativação 
 
 ### Perfis de usuário e changelog de push {#user-profiles-and-push-changelog}
 
-No perfil de um usuário ([**Pesquisar usuários**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) > selecione o usuário > guia **Engagement**), **Contact Settings** lista o estado de inscrição de push, **Push Registered For** (quais apps e plataformas a Braze pode usar para enviar push em primeiro plano para aquele perfil) e o **Push Changelog** para movimentações de token, erros e atualizações de registro. Para saber como interpretar **Push Registered For** e a autorização de primeiro plano versus segundo plano, consulte [Verificando o status de registro de push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#checking-push-registration-status).
+No perfil de um usuário ([**Pesquisar usuários**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) > selecione o usuário > guia **Engagement**), **Contact Settings** lista o estado de inscrição de push, **Push Registered For** (quais apps e plataformas a Braze pode usar para enviar push em primeiro plano para aquele perfil) e o **Push Changelog** para movimentações de token, erros e atualizações de registro. Para saber como interpretar **Push Registered For** e a autorização de primeiro plano versus segundo plano, consulte [Verificando o status de registro de push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#checking-push-registration-status).
 
 No iOS e Android, quando um dispositivo passa de autorização de push em primeiro plano para apenas segundo plano (por exemplo, depois que o usuário desativa notificações nas configurações do sistema e o SDK reporta a mudança), o changelog de push pode incluir uma entrada como "Push token was updated from foreground push enabled to foreground push disabled".
 
 Depois de esperar novos dados do SDK (por exemplo, logo após uma sessão de teste), selecione **Refresh** no perfil do usuário se os valores parecerem desatualizados. Pode haver um pequeno atraso entre o envio dos dados pelo SDK e a atualização do perfil com o registro de push mais recente.
 
-Para usuários que você adiciona a um [grupo interno]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/), selecione **Record User Events for group members** nas **Internal Group Settings** daquele grupo para que as solicitações do SDK apareçam no registro. Em seguida, abra o [Registro de usuários de eventos]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) em **Settings** > **Event User Log**, encontre as solicitações do SDK do usuário e expanda a carga útil bruta. Você pode inspecionar campos como `remote_notification_enabled` ao validar se o dispositivo reporta notificações remotas como ativadas ou desativadas.
+Para usuários que você adiciona a um [grupo interno]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups), selecione **Record User Events for group members** nas **Internal Group Settings** daquele grupo para que as solicitações do SDK apareçam no registro. Em seguida, abra o [Registro de usuários de eventos]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) em **Settings** > **Event User Log**, encontre as solicitações do SDK do usuário e expanda a carga útil bruta. Você pode inspecionar campos como `remote_notification_enabled` ao validar se o dispositivo reporta notificações remotas como ativadas ou desativadas.
 
 ### Segmentação e filtros de push {#segmentation-and-push-filters}
 
@@ -38,7 +38,7 @@ No criador de segmentos, use filtros como **`Foreground Push Enabled`**, **`Fore
 
 ### Analytics de Campaign e Canvas {#campaign-and-canvas-analytics}
 
-Na página de análise de dados de uma **Campaign** ou **Canvas** de push, métricas como *Enviadas*, *Bounces* e *Aberturas* refletem a entrega e o engajamento daquele envio. Para cruzar esses números com perfis individuais, exporte os destinatários em **Campaign Details** ou **Canvas Details** usando **User Data** (CSV). Para etapas e permissões, consulte [Exportar dados de Campaign]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_campaign_results_data/) e [Exportar dados de Canvas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/). Se as contagens entre a análise de dados e uma exportação não coincidirem, consulte [Analytics de Campaign e Canvas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/#campaign-and-canvas-analytics) na solução de problemas de exportação.
+Na página de análise de dados de uma **Campaign** ou **Canvas** de push, métricas como *Enviadas*, *Bounces* e *Aberturas* refletem a entrega e o engajamento daquele envio. Para cruzar esses números com perfis individuais, exporte os destinatários em **Campaign Details** ou **Canvas Details** usando **User Data** (CSV). Para etapas e permissões, consulte [Exportar dados de Campaign]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_campaign_results_data) e [Exportar dados de Canvas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data). Se as contagens entre a análise de dados e uma exportação não coincidirem, consulte [Analytics de Campaign e Canvas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting#campaign-and-canvas-analytics) na solução de problemas de exportação.
 
 ## Ações do usuário no iOS e status de push {#ios-user-actions-push-status}
 
@@ -52,7 +52,7 @@ A tabela a seguir mostra como diferentes ações do usuário afetam a ativação
 | O usuário ativa push nas configurações do dispositivo e registra uma sessão | `true` | `true` | Primeiro plano | `Opted-In`** |
 | O usuário desativa push nas configurações do dispositivo e registra uma sessão | `false` | `false` | Segundo plano | Não atualizado |
 | O usuário exclui o app | Não atualizado | Atualizado quando o token de push é retirado | Atualizado quando o token de push é retirado | Não atualizado |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="iOS user actions and push status #ios-user-actions-push-status" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Ações do usuário no iOS e status de push" }
 
 <sup>* Se o app não usar push provisório, `Foreground Push Enabled` será `false` até que o usuário permita notificações por push. Se o app usar push provisório, `Foreground Push Enabled` será `true` no início da primeira sessão. Para saber mais, consulte [Autorização provisória e push silencioso](#provisional-push).</sup>
 
@@ -62,7 +62,7 @@ A tabela a seguir mostra como diferentes ações do usuário afetam a ativação
 
 Todas as plataformas com push ativado — iOS, Web e Android — exigem opt-in explícito por meio de um prompt do sistema no nível do SO, com algumas pequenas diferenças descritas abaixo.
 
-Como a decisão do usuário é final e você não pode perguntar novamente após uma recusa, usar mensagens no app de [push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) é uma estratégia importante para aumentar suas taxas de opt-in.
+Como a decisão do usuário é final e você não pode perguntar novamente após uma recusa, usar mensagens no app de [push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) é uma estratégia importante para aumentar suas taxas de opt-in.
 
 **Prompts nativos de permissão de push do SO**
 
@@ -71,13 +71,13 @@ Como a decisão do usuário é final e você não pode perguntar novamente após
 | iOS | ![Um prompt nativo de push do iOS perguntando "My App would like to send you notifications" com dois botões, "Don't Allow" e "Allow" na parte inferior da mensagem.]({% image_buster /assets/img/push_implementation_guide/ios-push-prompt.png %}){: style="max-width:410px;"} | Isso não se aplica ao solicitar permissão de [push provisório](#provisional-push). |
 | Android | ![Uma mensagem de push do Android perguntando "Allow Kitchenerie to send you notifications?" com dois botões, "Allow" e "Don't allow" na parte inferior da mensagem.]({% image_buster /assets/img/push_implementation_guide/android-push-prompt.png %}){: style="max-width:410px;"} | Essa permissão de push foi introduzida no Android 13. Antes do Android 13, a permissão não era necessária para enviar push. |
 | Web | ![Um prompt nativo de push do navegador web perguntando "Braze.com wants to show notification" com dois botões, "Block" e "Allow" na parte inferior da mensagem.]({% image_buster /assets/img/push_implementation_guide/web-push-prompt.png %}){: style="max-width:410px;"} | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push permission" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permissão de push" }
 
 ### Android
 
 Antes do Android 13, a permissão não era necessária para enviar notificações por push. No Android 12 e versões anteriores, todos os usuários são considerados `Subscribed` na primeira sessão, quando a Braze solicita automaticamente um token de push. Nesse ponto, o usuário está **com push ativado** com um token de push válido para aquele dispositivo e um estado de inscrição padrão de `Subscribed`.
 
-A partir do [Android 13]({{site.baseurl}}/developer_guide/platforms/android/android_13/), a permissão de push deve ser solicitada e concedida pelo usuário. Seu app pode solicitar manualmente a permissão ao usuário em momentos oportunos, mas, caso contrário, os usuários serão solicitados automaticamente quando seu app criar um [canal de notificação](https://developer.android.com/reference/android/app/NotificationChannel).
+A partir do [Android 13]({{site.baseurl}}/developer_guide/platforms/android/android_13), a permissão de push deve ser solicitada e concedida pelo usuário. Seu app pode solicitar manualmente a permissão ao usuário em momentos oportunos, mas, caso contrário, os usuários serão solicitados automaticamente quando seu app criar um [canal de notificação](https://developer.android.com/reference/android/app/NotificationChannel).
 
 ### iOS
 
@@ -91,9 +91,9 @@ O push autorizado exige permissão explícita do usuário antes de enviar qualqu
 
 Antes do iOS 12 (lançado em 2018), todos os usuários precisavam fazer opt-in explícito para receber notificações por push.
 
-No iOS 12, a Apple introduziu a [autorização provisória](https://www.braze.com/resources/articles/mastering-provisional-push), permitindo que marcas enviem notificações por push silenciosas para a central de notificações dos usuários antes que eles façam opt-in explícito, dando a você a chance de demonstrar o valor das suas mensagens antecipadamente. Consulte [autorização provisória]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push-authentication--quiet-notifications) para saber mais.
+No iOS 12, a Apple introduziu a [autorização provisória](https://www.braze.com/resources/articles/mastering-provisional-push), permitindo que marcas enviem notificações por push silenciosas para a central de notificações dos usuários antes que eles façam opt-in explícito, dando a você a chance de demonstrar o valor das suas mensagens antecipadamente. Consulte [autorização provisória]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push-authentication--quiet-notifications) para saber mais.
 
-### Navegador web {#web}
+### Web {#web}
 
 Para Web, você deve solicitar opt-in explícito do usuário por meio do diálogo nativo de permissão do navegador.
 
@@ -103,17 +103,17 @@ Por isso, você deve solicitar permissão apenas quando o usuário clicar em alg
 
 ## Tokens de push {#push-tokens}
 
-[Tokens de push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/) são identificadores anônimos únicos gerados pelo dispositivo do usuário e enviados à Braze para identificar para onde enviar a notificação de cada destinatário.
+[Tokens de push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle) são identificadores anônimos únicos gerados pelo dispositivo do usuário e enviados à Braze para identificar para onde enviar a notificação de cada destinatário.
 
-Existem duas formas de classificar um [token de push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/) que são essenciais para entender como uma notificação por push pode ser enviada aos seus usuários.
+Existem duas formas de classificar um [token de push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle) que são essenciais para entender como uma notificação por push pode ser enviada aos seus usuários.
 
 1. **Push em primeiro plano** oferece a capacidade de enviar notificações por push regulares e visíveis para o primeiro plano do dispositivo do usuário.
-2. **Push em segundo plano** está disponível independentemente de um dispositivo específico ter feito opt-in para receber notificações por push daquela marca. O push em segundo plano permite que marcas enviem notificações por push silenciosas — notificações que intencionalmente não são exibidas — para dispositivos, a fim de dar suporte a funcionalidades essenciais como [rastreamento de desinstalação]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/).
+2. **Push em segundo plano** está disponível independentemente de um dispositivo específico ter feito opt-in para receber notificações por push daquela marca. O push em segundo plano permite que marcas enviem notificações por push silenciosas — notificações que intencionalmente não são exibidas — para dispositivos, a fim de dar suporte a funcionalidades essenciais como [rastreamento de desinstalação]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking).
 
 Quando um perfil de usuário tem um token de push de primeiro plano válido associado a um app, a Braze considera o usuário como "registrado para push" naquele app. A Braze então fornece um filtro de segmentação específico, `Foreground Push Enabled for App,` para ajudar a identificar esses usuários.
 
 {% alert note %}
-O filtro `Foreground Push Enabled for App` considera apenas a presença de um token de push de primeiro plano e segundo plano válido para o app em questão. No entanto, o filtro mais genérico [`Foreground Push Enabled`](#foreground-push-enabled) segmenta usuários que ativaram explicitamente notificações por push para qualquer app no seu espaço de trabalho. Essa contagem inclui apenas push em primeiro plano e não inclui usuários que cancelaram a inscrição. Você pode saber mais sobre esses e outros filtros em [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+O filtro `Foreground Push Enabled for App` considera apenas a presença de um token de push de primeiro plano e segundo plano válido para o app em questão. No entanto, o filtro mais genérico [`Foreground Push Enabled`](#foreground-push-enabled) segmenta usuários que ativaram explicitamente notificações por push para qualquer app no seu espaço de trabalho. Essa contagem inclui apenas push em primeiro plano e não inclui usuários que cancelaram a inscrição. Você pode saber mais sobre esses e outros filtros em [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
 {% endalert %}
 
 ### Múltiplos usuários em um dispositivo {#multiple-users-on-one-device}
@@ -145,7 +145,7 @@ O filtro `Foreground Push Enabled` leva em consideração o seguinte:
 Um usuário é considerado "com push ativado" ou "registrado para push" se tiver um token de push de primeiro plano ativo para um app dentro do seu espaço de trabalho, o que significa que o status de ativação de push é específico do app.
 
 {% alert note %}
-Para informações sobre como verificar o estado de registro de push, visite [status de registro de push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#checking-push-registration-status)
+Para informações sobre como verificar o estado de registro de push, visite [status de registro de push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#checking-push-registration-status)
 {% endalert %}
 
 ## Encontrando informações de registro de push e changelog {#finding-push-registration-and-changelog-information}
@@ -179,7 +179,7 @@ Para gerenciar inscrições, você pode usar o método de usuário [`setPushNoti
 
 Se um usuário desativar notificações no navegador, a próxima notificação por push enviada a esse usuário sofrerá bounce, e a Braze atualizará o token de push do usuário de acordo. Isso é usado para gerenciar a elegibilidade para os filtros de push ativado (`Background or Foreground Push Enabled`, `Foreground Push Enabled` e `Foreground Push Enabled for App`). O status de inscrição definido no perfil do usuário é uma configuração no nível do usuário e não muda quando um push sofre bounce.
 
-### Erros 410 de token de push para Web {#410-web-push-token-errors} {#410-web-push-token-errors}
+### Erros 410 de token de push para Web {#410-web-push-token-errors}
 
 Se você receber um erro `410: Gone`, isso pode ocorrer quando um usuário desativa notificações por push para a web nas configurações do SO do navegador, ou se está fazendo login como um usuário diferente no mesmo dispositivo, ou se o usuário não visitou o site há algum tempo.
 
@@ -232,4 +232,4 @@ O iOS não permite que apps interceptem uma notificação por push antes de ela 
 
 ## Práticas recomendadas {#best-practices}
 
-Consulte nosso artigo dedicado sobre [Práticas recomendadas de push]({{site.baseurl}}/user_guide/channels/push/best_practices/) para orientações detalhadas sobre como otimizar o uso de push na Braze.
+Consulte nosso artigo dedicado sobre [Práticas recomendadas de push]({{site.baseurl}}/user_guide/channels/push/best_practices) para orientações detalhadas sobre como otimizar o uso de push na Braze.

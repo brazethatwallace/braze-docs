@@ -24,15 +24,15 @@ Está enfrentando dificuldades na entrega de notificações por push? Há vária
 - [Tipo de notificação por push](#push-notification-type)
 - [App atual](#current-app)
 
-#### Status da inscrição para push {#push-subscription-status}
+### Status da inscrição para push {#push-subscription-status}
 
-Pushes só podem ser enviados para usuários inscritos ou que optaram por receber. Verifique o perfil do usuário na guia [Engajamento]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#engagement-tab) na seção **Perfil de usuário** para confirmar se você está ativamente registrado para push no espaço de trabalho que está testando. Se você estiver registrado em vários apps, eles serão listados no campo **Push Registered For**:
+Pushes só podem ser enviados para usuários inscritos ou que optaram por receber. Verifique o perfil do usuário na guia [Engajamento]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab) na seção **Perfil de usuário** para confirmar se você está ativamente registrado para push no espaço de trabalho que está testando. Se você estiver registrado em vários apps, eles serão listados no campo **Push Registered For**:
 
 ![Push Registered For]({% image_buster /assets/img_archive/trouble1.png %})
 
 Você também pode exportar os perfis de usuário usando os endpoints de exportação da Braze:
-- [Usuários por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)
-- [Usuários por segmento]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)
+- [Usuários por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)
+- [Usuários por segmento]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)
 
 Ambos os endpoints retornarão um objeto de token por push que inclui informações de ativação de push por dispositivo.
 
@@ -42,7 +42,7 @@ Certifique-se de que você faz parte do segmento que está sendo direcionado (se
 
 ![Lista de Segments]({% image_buster /assets/img_archive/trouble2.png %})
 
-Você também pode confirmar que o usuário faz parte do segmento usando a **Pesquisa de usuário** ao criar um segmento. A **Pesquisa de usuário** aceita apenas `external_id` ou `braze_id` — não endereços de e-mail ou números de telefone. Para pesquisar por e-mail, telefone, token por push ou alias de usuário, use [**Pesquisar usuários**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/).
+Você também pode confirmar que o usuário faz parte do segmento usando a **Pesquisa de usuário** ao criar um segmento. A **Pesquisa de usuário** aceita apenas `external_id` ou `braze_id` — não endereços de e-mail ou números de telefone. Para pesquisar por e-mail, telefone, token por push ou alias de usuário, use [**Pesquisar usuários**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
 
 ![Seção de pesquisa de usuário com um campo de busca.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -50,20 +50,20 @@ Você também pode confirmar que o usuário faz parte do segmento usando a **Pes
 
 Verifique os limites de frequência globais. É possível que você não tenha recebido a notificação por push porque seu espaço de trabalho tem um limite de frequência global ativo e você já atingiu o limite de notificações por push para o período especificado.
 
-Você pode fazer isso verificando o [limite de frequência global]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#freq-cap-feat-over) no dashboard. Se a Campaign estiver configurada para obedecer às regras do limite de frequência, haverá um número de usuários impactados por essas configurações.
+Você pode fazer isso verificando o [limite de frequência global]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#freq-cap-feat-over) no dashboard. Se a Campaign estiver configurada para obedecer às regras do limite de frequência, haverá um número de usuários impactados por essas configurações.
 
 ![Detalhes da Campaign]({% image_buster /assets/img_archive/trouble3.png %})
 
 #### Limites de taxa {#rate-limits}
 
-Se você tiver um limite de taxa definido para sua Campaign ou Canvas, pode estar deixando de receber mensagens por ter excedido esse limite. Para saber mais, consulte [Limite de taxa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting).
+Se você tiver um limite de taxa definido para sua Campaign ou Canvas, pode estar deixando de receber mensagens por ter excedido esse limite. Para saber mais, consulte [Limite de taxa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting).
 
 #### Status do grupo de controle {#control-group-status}
 
 Se for uma Campaign de canal único ou um Canvas com grupo de controle, é possível que você esteja no grupo de controle.
 
-  1. Verifique a [distribuição de variantes]({{site.baseurl}}/user_guide/messaging/ab_testing/#step-5-distribute-users-among-your-variants) para ver se há um grupo de controle.
-  2. Se houver, crie um segmento filtrando por [no grupo de controle da Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/#in-campaign-control-group-filter) e depois [exporte o segmento]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#exporting-to-csv) e verifique se o ID do seu usuário está nessa lista.
+  1. Verifique a [distribuição de variantes]({{site.baseurl}}/user_guide/messaging/ab_testing#step-5-distribute-users-among-your-variants) para ver se há um grupo de controle.
+  2. Se houver, crie um segmento filtrando por [no grupo de controle da Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group-filter) e depois [exporte o segmento]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-to-csv) e verifique se o ID do seu usuário está nessa lista.
 
 #### Token por push válido {#valid-push-token}
 Um token por push é um identificador que os remetentes usam para direcionar dispositivos específicos com uma notificação por push. Portanto, se o dispositivo não tiver um token por push válido, não há como enviar uma notificação por push para ele.
@@ -71,8 +71,8 @@ Um token por push é um identificador que os remetentes usam para direcionar dis
 #### Tipo de notificação por push {#push-notification-type}
 
 Verifique se você está usando o tipo correto de notificação por push. Por exemplo, se quiser direcionar uma FireTV, você usaria uma notificação por push Kindle, não uma Campaign de push para Android. Da mesma forma, se quiser direcionar um Android, use uma notificação por push para Android e não uma Campaign de push para iOS. Confira os artigos a seguir para mais informações sobre como entender o fluxo de trabalho da Braze para:
-- [Apple Push Notification]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=swift)
-- [Firebase Cloud Messaging]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android)
+- [Apple Push Notification]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting?sdktab=swift)
+- [Firebase Cloud Messaging]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting?sdktab=android)
 
 #### App atual {#current-app}
 
@@ -132,13 +132,13 @@ Se clicar em uma notificação por push não abrir seu app, verifique o seguinte
 2. **Verifique o tratamento de deep links:** no seu arquivo `braze.xml`, verifique se `com_braze_handle_push_deep_links_automatically` está definido como `true` ou `false`.
    - Se definido como `true`, o SDK da Braze trata os deep links diretamente e o app deve abrir conforme esperado.
    - Se definido como `false`, seu app precisa de um broadcast receiver para escutar e tratar os intents de push recebidos e abertos. Verifique se esse receiver está implementado corretamente.
-3. **Colete logs detalhados:** [ative o registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), reproduza o problema e forneça os logs junto com seus arquivos `braze.xml` e `AndroidManifest.xml` ao suporte da Braze.
+3. **Colete logs detalhados:** [ative o registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), reproduza o problema e forneça os logs junto com seus arquivos `braze.xml` e `AndroidManifest.xml` ao suporte da Braze.
 
 ### iOS
 
 1. **Verifique o comportamento ao clicar:** confirme que a Campaign está configurada para abrir o app quando clicada.
-2. **Verifique a integração de push:** o deep linking a partir de um push para o app é tratado automaticamente pela [integração padrão de push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) da Braze. Confirme que a integração está implementada corretamente, incluindo qualquer tratamento de delegate personalizado.
-3. **Colete logs detalhados:** [ative o registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), reproduza o problema e forneça os logs ao suporte da Braze.
+2. **Verifique a integração de push:** o deep linking a partir de um push para o app é tratado automaticamente pela [integração padrão de push]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift) da Braze. Confirme que a integração está implementada corretamente, incluindo qualquer tratamento de delegate personalizado.
+3. **Colete logs detalhados:** [ative o registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), reproduza o problema e forneça os logs ao suporte da Braze.
 
 ## Cliques em push abrem inesperadamente no app {#push-clicks-unexpectedly-open-in-app}
 
@@ -158,9 +158,9 @@ Se esse não for o problema, pode haver um problema com sua implementação de p
 
 Se os links nas suas notificações por push estão abrindo no app inesperadamente, isso pode ser devido a problemas com a integração ou configurações de personalização das notificações por push. Siga estas etapas para solucionar:
 
-1. **Revise a implementação do delegate de push:** certifique-se de que o delegate de push da Braze está implementado corretamente. Para instruções detalhadas, consulte o guia de integração de notificações por push para sua [plataforma]({{site.baseurl}}/developer_guide/home/).
+1. **Revise a implementação do delegate de push:** certifique-se de que o delegate de push da Braze está implementado corretamente. Para instruções detalhadas, consulte o guia de integração de notificações por push para sua [plataforma]({{site.baseurl}}/developer_guide/home).
 2. **Inspecione o tratamento personalizado de links:** verifique se o app inclui tratamento personalizado para todos os links `https://`. Configurações personalizadas podem sobrescrever comportamentos padrão. Colabore com sua equipe de desenvolvimento para revisar e ajustar essas configurações, se necessário.
-3. **Verifique o registro de push no iOS:** para iOS, revise a etapa 1 do guia de integração de push sobre [registrar notificações por push com APNs]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-1-register-for-push-notifications-with-apns). Certifique-se de que seu objeto delegate é atribuído de forma síncrona antes que o app termine de iniciar. Essa etapa deve ser concluída no método `application:didFinishLaunchingWithOptions:`.
+3. **Verifique o registro de push no iOS:** para iOS, revise a etapa 1 do guia de integração de push sobre [registrar notificações por push com APNs]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-1-register-for-push-notifications-with-apns). Certifique-se de que seu objeto delegate é atribuído de forma síncrona antes que o app termine de iniciar. Essa etapa deve ser concluída no método `application:didFinishLaunchingWithOptions:`.
 4. **Teste sua integração:** após fazer os ajustes, teste o comportamento das notificações por push em dispositivos iOS e Android para confirmar que o problema foi resolvido.
 
 ### Deep links com o app ainda em execução em segundo plano (iOS) {#deep-links-with-app-still-running-in-the-background-ios}
@@ -171,7 +171,7 @@ Se os deep links funcionam quando o app não está em execução ou quando o lin
 
 As chaves de autenticação `.p8` da Apple são a abordagem obrigatória para push via APNs na Braze. Diferentemente dos tipos de arquivo de certificado legados, as chaves `.p8` não expiram e suportam todos os seus apps com uma única chave, eliminando a necessidade de renovações anuais de certificados e reduzindo o risco de falhas na entrega de push.
 
-Se você está usando atualmente um certificado `.p12` ou `.pem`, migre para uma chave `.p8` o mais rápido possível. Para instruções sobre como criar e fazer upload de uma chave `.p8`, consulte [Fazer upload do seu certificado de push APNs]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift). Para orientações da Apple sobre como gerar uma chave `.p8` a partir da sua conta de desenvolvedor, consulte [Communicate with APNs using authentication tokens](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
+Se você está usando atualmente um certificado `.p12` ou `.pem`, migre para uma chave `.p8` o mais rápido possível. Para instruções sobre como criar e fazer upload de uma chave `.p8`, consulte [Fazer upload do seu certificado de push APNs]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift). Para orientações da Apple sobre como gerar uma chave `.p8` a partir da sua conta de desenvolvedor, consulte [Communicate with APNs using authentication tokens](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
 
 ### Chaves .p8 versus certificados .p12 {#p8-keys-versus-p12-certificates}
 
@@ -185,7 +185,7 @@ Quando você substitui um certificado `.p12` por uma chave `.p8` (ou faz upload 
 
 Em **Configurações** > **Configurações do app** > **Configurações das notificações por push**, confirme que **App Bundle ID**, **Team ID** e **Key ID** (para chaves `.p8`) correspondem aos valores na sua conta de desenvolvedor da Apple. Vários espaços de trabalho da Braze podem usar a mesma credencial de push da Apple quando o **bundle ID** do app iOS é idêntico; o ambiente da credencial (desenvolvimento versus produção) deve corresponder à forma como o app foi compilado.
 
-Apps com [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) ou posterior podem usar o [gerenciamento dinâmico de gateway APNs]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#dynamic-apns-gateway-management), que roteia tokens para o ambiente APNs correto automaticamente.
+Apps com [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) ou posterior podem usar o [gerenciamento dinâmico de gateway APNs]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift#dynamic-apns-gateway-management), que roteia tokens para o ambiente APNs correto automaticamente.
 
 ## Notificações por push para a web não estão funcionando como esperado {#web-push-notifications-arent-behaving-as-expected}
 
@@ -279,6 +279,6 @@ Suas permissões de push foram redefinidas. Abra uma nova guia para o seu site e
 
 ## Mensagens de erro de push {#push-error-messages}
 
-Para informações detalhadas sobre mensagens de erro comuns de push (como `DEVICE_UNREGISTERED`, `Unregistered`, `NotRegistered` e outras), consulte [Mensagens de erro comuns de push]({{site.baseurl}}/user_guide/channels/push/push_error_codes/).
+Para informações detalhadas sobre mensagens de erro comuns de push (como `DEVICE_UNREGISTERED`, `Unregistered`, `NotRegistered` e outras), consulte [Mensagens de erro comuns de push]({{site.baseurl}}/user_guide/channels/push/push_error_codes).
 
-Ainda precisa de ajuda? Abra um [ticket de suporte]({{site.baseurl}}/braze_support/).
+Ainda precisa de ajuda? Abra um [ticket de suporte]({{site.baseurl}}/braze_support).

@@ -20,7 +20,7 @@ description: "Este artigo descreve detalhes sobre o endpoint \"Ver informações
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `preference_center.get`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `preference_center.get`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -30,7 +30,7 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-|`preferenceCenterExternalID`| Obrigatória | String | O ID da sua Central de Preferências. |
+| `preferenceCenterExternalID` | Obrigatória | String | O ID da sua Central de Preferências. |
 {: aria-label="Parâmetros de caminho" }
 
 ## Parâmetros de solicitação {#request-parameters}

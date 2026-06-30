@@ -10,7 +10,7 @@ channel:
   - email
 ---
 
-> 이 용어집은 이메일 Campaign 및 Canvases의 **Analytics** 탭에 있는 측정기준을 정의합니다. Braze는 호스팅된 "브라우저에서 이 이메일 보기" 페이지를 제공하지 않습니다. 해결 방법은 [이메일에 "브라우저에서 이 이메일 보기" 링크를 추가할 수 있나요?]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails)를 참조하세요. 여러 측정기준에 걸친 기타 문제 해결은 [이메일 FAQ]({{site.baseurl}}/user_guide/channels/email/faq/)를 참조하세요.
+> 이 용어집은 이메일 Campaign 및 Canvases의 **Analytics** 탭에 있는 측정기준을 정의합니다. Braze는 호스팅된 "브라우저에서 이 이메일 보기" 페이지를 제공하지 않습니다. 해결 방법은 [이메일에 "브라우저에서 이 이메일 보기" 링크를 추가할 수 있나요?]({{site.baseurl}}/user_guide/channels/email/faq#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails)를 참조하세요. 여러 측정기준에 걸친 기타 문제 해결은 [이메일 FAQ]({{site.baseurl}}/user_guide/channels/email/faq)를 참조하세요.
 
 <style>
   .calculation-line {
@@ -150,7 +150,7 @@ Count, Percentage
 SendGrid를 사용하는 고객의 이메일 반송은 하드바운스, 스팸(`spam_report_drops`), 유효하지 않은 주소로 발송된 이메일(`invalid_emails`)로 구성됩니다.
 
 {% alert note %}
-[Braze 커런츠]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)에서 일시적인 ESP 지연은 종종 소프트바운스로 표시됩니다. 전달 가능성 도구(예: 기본 SendGrid 보고 또는 Looker 모델)는 동일한 상황에 대해 지연을 사용할 수 있습니다. 지연은 일반적으로 일시적이며, 재시도 후 메일이 전달되는 경우가 많습니다. 장기간 재시도(Campaign 분석에서 소프트바운스의 경우 약 72시간까지) 후에도 ESP에 따라 메시지가 전달 불가로 처리될 수 있습니다. Currents 이메일 이벤트는 추가 전용이므로, 기록된 소프트바운스는 메시지가 최종적으로 전달되더라도 나중에 제거되지 않습니다.
+[Braze 커런츠]({{site.baseurl}}/user_guide/data/distribution/braze_currents)에서 일시적인 ESP 지연은 종종 소프트바운스로 표시됩니다. 전달 가능성 도구(예: 기본 SendGrid 보고 또는 Looker 모델)는 동일한 상황에 대해 지연을 사용할 수 있습니다. 지연은 일반적으로 일시적이며, 재시도 후 메일이 전달되는 경우가 많습니다. 장기간 재시도(Campaign 분석에서 소프트바운스의 경우 약 72시간까지) 후에도 ESP에 따라 메시지가 전달 불가로 처리될 수 있습니다. Currents 이메일 이벤트는 추가 전용이므로, 기록된 소프트바운스는 메시지가 최종적으로 전달되더라도 나중에 제거되지 않습니다.
 {% endalert %}
 
 {::nomarkdown}
@@ -175,7 +175,7 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Hard Bounce' %}
 
-이메일이 하드바운스되거나 스팸으로 표시되면, Braze는 해당 이메일 주소를 유효하지 않은 것으로 표시하지만 사용자의 [구독 상태]({{site.baseurl}}/user_guide/channels/email/subscriptions/)는 업데이트하지 않습니다. Braze는 해당 이메일 주소로의 향후 발송을 중단합니다. 하드바운스 목록에서 이메일 주소를 제거하려면 [하드바운스 이메일 제거 엔드포인트]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces/)를 사용하세요.
+이메일이 하드바운스되거나 스팸으로 표시되면, Braze는 해당 이메일 주소를 유효하지 않은 것으로 표시하지만 사용자의 [구독 상태]({{site.baseurl}}/user_guide/channels/email/subscriptions)는 업데이트하지 않습니다. Braze는 해당 이메일 주소로의 향후 발송을 중단합니다. 하드바운스 목록에서 이메일 주소를 제거하려면 [하드바운스 이메일 제거 엔드포인트]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces)를 사용하세요.
 
 <span class="calculation-line">계산: 카운트 </span>
 
@@ -191,7 +191,7 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Soft Bounce' %} 이메일이 소프트바운스되면 일반적으로 72시간 이내에 재시도하지만, 재시도 횟수는 수신자에 따라 다릅니다.
 
-소프트바운스는 Campaign 분석에서 추적되지 않지만, [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)에서 소프트바운스를 모니터링하거나 [소프트바운스 Segment 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced)를 사용하여 발송에서 해당 사용자를 제외할 수 있습니다. 메시지 활동 로그에서 소프트바운스의 원인을 확인하고 이메일 Campaign의 "발송"과 "전달" 간의 차이를 파악할 수도 있습니다.
+소프트바운스는 Campaign 분석에서 추적되지 않지만, [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에서 소프트바운스를 모니터링하거나 [소프트바운스 Segment 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced)를 사용하여 발송에서 해당 사용자를 제외할 수 있습니다. 메시지 활동 로그에서 소프트바운스의 원인을 확인하고 이메일 Campaign의 "발송"과 "전달" 간의 차이를 파악할 수도 있습니다.
 
 <span class="calculation-line">계산: 카운트 </span>
 
@@ -249,7 +249,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} 이메일의 경우 7일 동안 추적되며 <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>(단일 발송 시도) 단위로 측정됩니다. 여기에는 Braze에서 제공하는 탈퇴 링크 클릭도 포함됩니다. 추적되는 사용자 지정 구독취소 URL도 사용자가 링크를 선택하면 *고유 클릭*에 집계됩니다. 7일 후 동일한 사용자가 다시 클릭하면 새로운 고유 클릭으로 집계됩니다. *고유 클릭*을 포함한 대시보드 이메일 참여 측정기준은 Braze에서 계산되며 ESP 집계 보고서와 조정되지 않습니다. Currents에서 대시보드 수치와 일치시키려면 `is_unique`가 `true`인 이벤트를 필터링하세요.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} 이메일의 경우 7일 동안 추적되며 <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id'>dispatch_id</a>(단일 발송 시도) 단위로 측정됩니다. 여기에는 Braze에서 제공하는 탈퇴 링크 클릭도 포함됩니다. 추적되는 사용자 지정 구독취소 URL도 사용자가 링크를 선택하면 *고유 클릭*에 집계됩니다. 7일 후 동일한 사용자가 다시 클릭하면 새로운 고유 클릭으로 집계됩니다. *고유 클릭*을 포함한 대시보드 이메일 참여 측정기준은 Braze에서 계산되며 ESP 집계 보고서와 조정되지 않습니다. Currents에서 대시보드 수치와 일치시키려면 `is_unique`가 `true`인 이벤트를 필터링하세요.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -263,7 +263,7 @@ Count, Percentage
 
 #### 이메일 히트맵에서 예상치 못한 링크 {#unexpected-links-on-the-email-heatmap}
 
-[이메일 히트맵]({{site.baseurl}}/user_guide/channels/email/reporting/)에 예상치 못한 링크가 표시되면, 메시지 HTML에서 추적 URL을 생성하는 [콘텐츠 블록]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/) 또는 단어 사이의 간격을 확인하세요. 히트맵 보기에서 **Link Table by Total Clicks**를 사용하여 표시된 텍스트와 일치하지 않는 URL을 식별하세요.
+[이메일 히트맵]({{site.baseurl}}/user_guide/channels/email/reporting)에 예상치 못한 링크가 표시되면, 메시지 HTML에서 추적 URL을 생성하는 [콘텐츠 블록]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks) 또는 단어 사이의 간격을 확인하세요. 히트맵 보기에서 **총 클릭 수 기준 링크 테이블**을 사용하여 표시된 텍스트와 일치하지 않는 URL을 식별하세요.
 
 {% endapi %}
 
@@ -307,10 +307,10 @@ _구독취소_는 Braze의 표준 구독취소 링크를 반영합니다. 사용
 
 이메일 Campaign 또는 Canvas의 **Analytics** 페이지에서 **Total Clicks** 또는 **Unique Clicks**를 확장할 때 링크별 분석에서 Braze 구독취소 URL 클릭 수와 *구독취소* 수를 비교해 보세요. 두 수치는 대체로 일치하지만 차이가 발생할 수 있습니다.
 
-- ***구독취소*가 본문 구독취소 URL 클릭 수보다 많은 경우:** [List-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe)는 이메일 헤더에 있는 추가 구독취소 경로입니다(메시지 본문의 링크가 아님). 사용자가 이 방법으로 구독을 취소하면 *구독취소*에는 집계되지만 본문의 추적된 구독취소 URL 클릭으로는 집계되지 않습니다.
+- ***구독취소*가 본문 구독취소 URL 클릭 수보다 많은 경우:** [List-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe)는 이메일 헤더에 있는 추가 구독취소 경로입니다(메시지 본문의 링크가 아님). 사용자가 이 방법으로 구독을 취소하면 *구독취소*에는 집계되지만 본문의 추적된 구독취소 URL 클릭으로는 집계되지 않습니다.
 - **본문 구독취소 URL 클릭 수가 *구독취소*보다 많은 경우:** 사용자가 해당 링크를 여러 번 선택할 수 있습니다. 구독을 취소한 후 다시 구독하고 다시 구독을 취소하면, 이메일 분석에서 클릭 분석에 여러 번의 클릭(예: 두 번)이 기록될 수 있습니다.
 
-자세한 내용은 [구독취소 수와 구독취소 링크 클릭 수가 다른 이유는 무엇인가요?]({{site.baseurl}}/user_guide/channels/email/faq/#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link)를 참조하세요.
+자세한 내용은 [구독취소 수와 구독취소 링크 클릭 수가 다른 이유는 무엇인가요?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link)를 참조하세요.
 
 {% endapi %}
 
@@ -412,7 +412,7 @@ Percentage
 
 #### 메시지 열람 가능성 점수 (세분화) {#message-open-likelihood-scores-segmentation}
 
-[`Message Open Likelihood`]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#message-open-likelihood) Segment 필터는 사용자가 이메일을 열 가능성을 0~100 척도로 점수화합니다. 해당 채널에 대한 충분한 발송 또는 열람 이력이 없는 사용자는 빈 값으로 표시됩니다. 이메일의 경우 머신 열람은 계산에서 제외되며, 해당 채널의 최근 메시지 이력을 사용합니다([개별 채널에 대한 메시지 열람 가능성 필터]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/#individual-channels) 참조).
+[`Message Open Likelihood`]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#message-open-likelihood) Segment 필터는 사용자가 이메일을 열 가능성을 0~100 척도로 점수화합니다. 해당 채널에 대한 충분한 발송 또는 열람 이력이 없는 사용자는 빈 값으로 표시됩니다. 이메일의 경우 머신 열람은 계산에서 제외되며, 해당 채널의 최근 메시지 이력을 사용합니다([개별 채널에 대한 메시지 열람 가능성 필터]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#individual-channels) 참조).
 
 {% endapi %}
 
@@ -420,42 +420,42 @@ Percentage
 
 ### 구독취소 링크와 고유 클릭 {#unsubscribe-links-and-unique-clicks}
 
-수신자가 구독취소 링크를 클릭하면, Braze는 해당 동작이 URL을 사용하기 때문에 클릭으로 집계합니다. 이는 Braze에서 제공하는 구독취소 링크와 메시지 본문의 사용자 지정 구독취소 링크 모두에 적용됩니다. 이러한 클릭은 다른 링크 클릭과 함께 *고유 클릭* 및 *총 클릭 수*에 기여합니다. 측정기준 정의는 위의 [고유 클릭](#unique-clicks) 및 [구독취소 수와 구독취소 링크 클릭 수가 다른 이유는 무엇인가요?]({{site.baseurl}}/user_guide/channels/email/faq/#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link)를 참조하세요.
+수신자가 구독취소 링크를 클릭하면, Braze는 해당 동작이 URL을 사용하기 때문에 클릭으로 집계합니다. 이는 Braze에서 제공하는 구독취소 링크와 메시지 본문의 사용자 지정 구독취소 링크 모두에 적용됩니다. 이러한 클릭은 다른 링크 클릭과 함께 *고유 클릭* 및 *총 클릭 수*에 기여합니다. 측정기준 정의는 위의 [고유 클릭](#unique-clicks) 및 [구독취소 수와 구독취소 링크 클릭 수가 다른 이유는 무엇인가요?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link)를 참조하세요.
 
 ### 브라우저에서 보기 {#view-in-browser}
 
-Braze에는 "브라우저에서 이 이메일 보기" 기능이 내장되어 있지 않습니다. 이메일 콘텐츠를 외부 랜딩 페이지(예: 웹사이트)에 호스팅하고 이메일 편집기의 **Link** 도구를 사용하여 메시지에서 링크를 추가하세요. 자세한 내용은 [이메일에 "브라우저에서 이 이메일 보기" 링크를 추가할 수 있나요?]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails)를 참조하세요.
+Braze에는 "브라우저에서 이 이메일 보기" 기능이 내장되어 있지 않습니다. 이메일 콘텐츠를 외부 랜딩 페이지(예: 웹사이트)에 호스팅하고 이메일 편집기의 **링크** 도구를 사용하여 메시지에서 링크를 추가하세요. 자세한 내용은 [이메일에 "브라우저에서 이 이메일 보기" 링크를 추가할 수 있나요?]({{site.baseurl}}/user_guide/channels/email/faq#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails)를 참조하세요.
 
 ### 사용자 지정 구독취소 페이지 업데이트 {#custom-unsubscribe-page-updates}
 
-[사용자 지정 구독취소 페이지]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/)에 대한 변경 사항은 몇 분 이내에 반영됩니다. 실시간 발송은 변경 사항을 저장할 때 새로고침되는 짧은 수명의 페이지 캐시를 사용합니다.
+[사용자 지정 구독취소 페이지]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences)에 대한 변경 사항은 몇 분 이내에 반영됩니다. 실시간 발송은 변경 사항을 저장할 때 새로고침되는 짧은 수명의 페이지 캐시를 사용합니다.
 
 ### 용량 초과 및 사서함 가득 참 반송 {#over-quota-and-full-mailbox-bounces}
 
 용량 초과 또는 사서함 가득 참 반송은 수신자의 사서함이 새 메일을 수신할 수 없음을 의미합니다. 유효하지 않거나 위험한 주소를 가진 신규 가입자 또는 비활성 상태에서 받은편지함이 가득 찬 장기 비활성 프로필에서 이러한 주소를 볼 수 있습니다.
 
-Segment 및 소스별 반송률을 검토하고, 반복적으로 하드바운스되는 주소를 제거하거나 일몰 처리하며, 신규 가입자에게는 확인 또는 이중 옵트인을 사용하세요. 목록 위생 관행에 대한 자세한 내용은 [전달 가능성 함정 및 스팸 트랩]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/) 및 [이메일 보고]({{site.baseurl}}/user_guide/channels/email/reporting/#troubleshooting)를 참조하세요.
+Segment 및 소스별 반송률을 검토하고, 반복적으로 하드바운스되는 주소를 제거하거나 일몰 처리하며, 신규 가입자에게는 확인 또는 이중 옵트인을 사용하세요. 목록 위생 관행에 대한 자세한 내용은 [전달 가능성 함정 및 스팸 트랩]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps) 및 [이메일 보고]({{site.baseurl}}/user_guide/channels/email/reporting#troubleshooting)를 참조하세요.
 
 ### 550 5.7.1 원치 않는 메일 {#550-571-unsolicited-mail}
 
 "Our system has detected that this message is likely unsolicited mail"과 같은 `550 5.7.1` 응답은 평판 또는 참여 신호가 좋지 않을 때 엄격한 사서함 공급자(예: Gmail)에서 발생하는 경우가 많습니다. 일반적인 원인으로는 스팸 불만, 낮은 참여도, 구매 또는 임대 목록, 갑작스러운 발송량 급증 등이 있습니다.
 
-동의 기반 목록 성장에 집중하고, 비활성 가입자를 일몰 처리하며, 불만 및 반송률을 모니터링하세요. 자세한 내용은 [전달 가능성 함정 및 스팸 트랩]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/)을 참조하세요.
+동의 기반 목록 성장에 집중하고, 비활성 가입자를 일몰 처리하며, 불만 및 반송률을 모니터링하세요. 자세한 내용은 [전달 가능성 함정 및 스팸 트랩]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps)을 참조하세요.
 
 ### 좋은 이메일 전달 가능성 비율 {#good-email-deliverability-rates}
 
 **전달**은 수신 서버가 메시지를 수락하는지 여부이며, *전달 수* 및 반송률과 같은 측정기준으로 측정할 수 있습니다. **전달 가능성**(받은편지함 배치)은 공급자 필터링에 따라 달라지며 단일 Braze 측정기준으로 표시되지 않습니다.
 
-일반적인 가이드로, 전달률은 99%에 가깝게, 하드바운스는 약 1% 미만을 목표로 하고, 열람 및 클릭을 통해 참여 추세를 관찰하세요. 정확한 목표는 업종 및 발송 패턴에 따라 다릅니다. 평판을 지원하는 관행에 대한 자세한 내용은 [이메일 전달 가능성 개선]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) 및 [전달 가능성 함정 및 스팸 트랩]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/)을 참조하세요.
+일반적인 가이드로, 전달률은 99%에 가깝게, 하드바운스는 약 1% 미만을 목표로 하고, 열람 및 클릭을 통해 참여 추세를 관찰하세요. 정확한 목표는 업종 및 발송 패턴에 따라 다릅니다. 평판을 지원하는 관행에 대한 자세한 내용은 [이메일 전달 가능성 개선]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability) 및 [전달 가능성 함정 및 스팸 트랩]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps)을 참조하세요.
 
 ### "Campaign is already in delay window, so not enqueueing another" {#campaign-is-already-in-delay-window-so-not-enqueueing-another}
 
-[액션 기반 Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)의 메시지 활동 또는 진단 로그에서 이 처리 결과는 동일한 사용자에 대한 이전 트리거가 아직 Campaign의 전달 기간 내에 있는 동안 Braze가 중복 발송을 차단했음을 의미합니다. 디바운스 잠금은 동일한 트리거 버스트에 대한 다중 대기열 등록을 방지합니다.
+[액션 기반 Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)의 메시지 활동 또는 진단 로그에서 이 처리 결과는 동일한 사용자에 대한 이전 트리거가 아직 Campaign의 전달 기간 내에 있는 동안 Braze가 중복 발송을 차단했음을 의미합니다. 디바운스 잠금은 동일한 트리거 버스트에 대한 다중 대기열 등록을 방지합니다.
 
 다음 중 하나라도 해당되면 Campaign에 **즉시 발송**이 표시되어 있어도 이 결과가 나타날 수 있습니다.
 
-- Campaign이 타이밍에 영향을 미치는 [예외 이벤트]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/#exception-events) 또는 발송 시간 지연을 사용합니다.
-- 사용자에게 [재적격성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) 기간이 있어 해당 기간이 지날 때까지 메시지를 다시 받을 수 없습니다.
+- Campaign이 타이밍에 영향을 미치는 [예외 이벤트]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria#exception-events) 또는 발송 시간 지연을 사용합니다.
+- 사용자에게 [재적격성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) 기간이 있어 해당 기간이 지날 때까지 메시지를 다시 받을 수 없습니다.
 - 트리거가 겹칠 때 우선순위가 더 높은 다른 Campaign 또는 Canvas 메시지 단계가 발송 슬롯을 소비했습니다.
 
 사용자가 메시지를 받았어야 하는데 받지 못한 경우, 동일한 트리거에 대한 이전 결과(예: 이메일 반송 또는 채널 미활성화)를 확인하세요. 동일한 워크플로의 다른 메시지가 이 발송을 방지했을 수 있습니다.

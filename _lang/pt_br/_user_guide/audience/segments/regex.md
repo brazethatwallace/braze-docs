@@ -2,7 +2,6 @@
 nav_title: "Expressões regulares"
 article_title: "Expressões regulares"
 page_order: 8
-
 description: "Este artigo de referência aborda o que são expressões regulares (regex), como começar a usá-las e oferece funcionalidade de depuração para validar e testar expressões regulares."
 page_type: reference
 tool:
@@ -10,9 +9,9 @@ tool:
 
 ---
 
-# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/regular-expression-basics-for-braze){: style="float:right;width:120px;border:0;" class="noimgborder"} Expressões regulares {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomregular-expression-basics-for-braze-stylefloatrightwidth120pxborder0-classnoimgborder-regular-expressions}
+# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/regular-expression-basics-for-braze){: style="float:right;width:120px;border:0;" class="noimgborder"} Expressões regulares {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomregular-expression-basics-for-braze-stylefloatrightwidth120pxborder0-classnoimgborder-regular-expressions}
 
-> Expressão regular, comumente conhecida como regex, é uma sequência de caracteres que define um padrão de busca. Expressões regulares permitem validar agrupamentos de texto e realizar ações de busca e substituição. Na Braze, utilizamos expressões regulares para oferecer uma solução mais flexível de correspondência de strings na segmentação e filtragem de Campaigns para o seu público-alvo.<br><br>Esta página aborda expressões regulares (regex), como usá-las, perguntas frequentes e fornece um depurador de regex para testar expressões regulares.
+> Expressão regular, comumente conhecida como regex, é uma sequência de caracteres que define um padrão de busca. Expressões regulares permitem validar agrupamentos de texto e realizar ações de busca e substituição. Na Braze, utilizamos expressões regulares para oferecer uma solução mais flexível de correspondência de strings na segmentação e filtragem de campanhas para o seu público-alvo.<br><br>Esta página aborda expressões regulares (regex), como usá-las, perguntas frequentes e fornece um depurador de regex para testar expressões regulares.
 
 <!--{% multi_lang_include video.html id="3h5Xbhl-TxE" align="right" %}-->
 
@@ -21,7 +20,7 @@ No curso do Braze Learning vinculado, mostramos como expressões regulares podem
 ## Recursos {#resources}
 
 - Curso do Braze Learning sobre [noções básicas de expressões regulares](https://learning.braze.com/regular-expression-basics-for-braze)
-- [Folha de referência de regex]({{site.baseurl}}/regex_cheat_sheet/)
+- [Folha de referência de regex]({{site.baseurl}}/regex_cheat_sheet)
 - [Dados de exemplo RTF]({% image_buster /assets/download_file/regex-dummy-data.rtf %})
 
 ## Depurador de regex {#regex-debugger}
@@ -139,11 +138,19 @@ $( document ).ready(function() {
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
-#### O filtro `does not match regex` inclui valores em branco? {#does-the-does-not-match-regex-filter-include-blank-values}
+### O filtro `does not match regex` inclui valores em branco? {#does-the-does-not-match-regex-filter-include-blank-values}
 
 Não. Se o valor estiver em branco, o usuário não será incluído no filtro `does not match regex`.
 
-#### Como filtrar endereços de e-mail específicos de uma caixa de entrada ao segmentar? {#how-do-i-filter-for-inbox-specific-email-addresses-when-segmenting}
+### Como fazer a correspondência de vários valores exatos (lógica OR) para um atributo personalizado de string? {#how-do-i-match-any-of-several-exact-values-or-logic-for-a-string-custom-attribute}
+
+Use alternância com âncoras de início e fim para que cada valor corresponda exatamente e você não capture correspondências parciais. Por exemplo, para corresponder exatamente a `gold`, `silver` ou `bronze`:
+
+```
+(^gold$)|(^silver$)|(^bronze$)
+```
+
+### Como filtrar endereços de e-mail específicos de uma caixa de entrada ao segmentar? {#how-do-i-filter-for-inbox-specific-email-addresses-when-segmenting}
 
 {% raw %}
 Use o filtro de endereço de e-mail, defina-o como `matches regex`. Em seguida, referencie a regex para endereços de e-mail:
@@ -160,13 +167,13 @@ Podemos dividir essa regex nas três partes a seguir:
 
 {% endraw %}
 
-#### Como filtrar endereços de e-mail associados a um domínio específico? {#how-do-i-filter-for-email-addresses-associated-to-a-specific-domain}
+### Como filtrar endereços de e-mail associados a um domínio específico? {#how-do-i-filter-for-email-addresses-associated-to-a-specific-domain}
 
 Digamos que você queira filtrar e-mails que terminam com "@braze.com". Você usaria o filtro de endereço de e-mail, definiria como `matches regex` e inseriria "@braze.com" no campo de regex. O mesmo se aplica a qualquer outro domínio de e-mail.
 
 ![Filtro para um endereço de e-mail que corresponde à regex "@braze.com".]({% image_buster /assets/img/regex/regeximg1.png %})
 
-#### Como posso usar strings de filtro numérico para valores ≥ x ou ≤ x? {#how-can-i-use-filter-number-strings-for-values-x-or-x}
+### Como posso usar strings de filtro numérico para valores ≥ x ou ≤ x? {#how-can-i-use-filter-number-strings-for-values-x-or-x}
 
 Se você está buscando valores maiores ou iguais a (≥) x, use a seguinte regex:
 
@@ -184,7 +191,7 @@ Se você está buscando valores menores ou iguais a (≤) x, use a seguinte rege
 
 Onde `x-y` é o intervalo de números (0-9) do primeiro dígito, e `a-b` é o intervalo do limite inferior de x. Por exemplo, para valores menores ou iguais a 50, a regex seria `^([5-9][0-9]|[0-4][0-9])$`.
 
-#### Como filtrar atributos personalizados que começam com uma string específica? {#how-do-i-filter-custom-attributes-that-start-with-a-specific-string}
+### Como filtrar atributos personalizados que começam com uma string específica? {#how-do-i-filter-custom-attributes-that-start-with-a-specific-string}
 
 Use o símbolo de circunflexo (`^`) para indicar com o que a string começa e, em seguida, insira o nome do atributo personalizado que deseja especificar.
 
@@ -192,13 +199,19 @@ Por exemplo, se você está tentando segmentar usuários que moram em cidades qu
 
 ![Filtro para uma cidade que corresponde à regex "^San \w".]({% image_buster /assets/img/regex/regeximg2.png %})
 
-#### Como filtrar números de telefone específicos? {#how-do-i-filter-for-specific-phone-numbers}
+### Como filtrar números de telefone específicos? {#how-do-i-filter-for-specific-phone-numbers}
 
-Antes de usar regex para filtrar números de telefone, lembre-se de que os números registrados nos perfis de usuário devem estar no formato [E.164](https://en.wikipedia.org/wiki/E.164), conforme especificado em [Números de telefone de usuários]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/).
+Antes de usar regex para filtrar números de telefone, lembre-se de que os números registrados nos perfis de usuário devem estar no formato [E.164](https://en.wikipedia.org/wiki/E.164), conforme especificado em [Números de telefone de usuários]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers).
 
 Supondo que você esteja buscando números de telefone dos EUA, use o formato de regex `1?\d\d\d\d\d\d\d\d\d\d`, onde cada repetição de `\d` é um dígito que você deseja especificar. Os três primeiros dígitos são o código de área.
 
 Da mesma forma, o formato para números de telefone do Reino Unido é `^\+4\d\d\d\d\d\d\d\d\d\d\d`. Qualquer outro país seria o respectivo código do país, seguido pelo número necessário de repetições de `\d` para cada dígito restante. Então, no caso da Lituânia, com código de país "3", a regex seria `^\+3\d\d\d\d\d\d\d\d\d\d`.
+
+Se os seus números de celular do Reino Unido estiverem armazenados sem o `+` inicial, no formato comum começando com `447` (por exemplo, `447123456789`), você pode fazer a correspondência com:
+
+```
+^447\d{9}$
+```
 
 Por exemplo, digamos que você queira filtrar usuários por número de telefone para um código de área específico, "718". Use o filtro de número de telefone, defina-o como `matches regex` e insira a seguinte regex:
 

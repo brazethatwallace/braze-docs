@@ -79,7 +79,7 @@ Brazeダッシュボードで、**設定** > **設定およびテスト** > **AP
 
 1. Linkrunnerで、左側のパネルの**統合**に移動します。
 2. **分析**の下で、Brazeの**設定**を選択します。
-3. ステップ 2でコピーしたAPIキーとRESTエンドポイントを入力します。
+3. ステップ2でコピーしたAPIキーとRESTエンドポイントを入力します。
 
 詳細については、[Linkrunnerのドキュメント](https://docs.linkrunner.io/analytics-integrations/braze)を参照してください。
 

@@ -45,7 +45,7 @@ hide_toc: true
 7월 1일 추가 변경 사항(Meta가 5월 15일에 발표):
 - Meta는 대체 채널과 동등한 가격을 보장하기 위한 지속적인 노력의 일환으로 여러 시장에서 유틸리티 및 인증 요금을 업데이트합니다.
     - 인도네시아를 제외한 모든 시장에서 유틸리티 및 인증 메시징 가격이 인하됩니다. 인도네시아에서는 유틸리티 가격이 인상되고 인증 가격이 인하됩니다.
-- Meta는 사용자 참여도와 감성을 기반으로 유틸리티의 정의를 개선하여 특정 사용 사례를 유틸리티 카테고리로 이동하거나 제외합니다. 유틸리티 템플릿에 대한 새로운 정의는 [여기](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing#updates-to-template-category-guidelines)에서 확인하세요.
+- Meta는 사용자 참여도와 감성을 기반으로 유틸리티의 정의를 개선하여 특정 사용 사례를 유틸리티 카테고리로 이동하거나 제외합니다. Meta의 새로운 [유틸리티 템플릿 정의](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing#updates-to-template-category-guidelines)를 확인하세요.
 
 대부분의 고객에게 이러한 업데이트는 7월 1일에 자동으로 적용됩니다.
 
@@ -92,7 +92,7 @@ Meta는 브랜드가 투자 수익률(ROI) 계산을 간소화할 수 있도록 
 이러한 변경 사항에 대응하고 WhatsApp 마케팅 예산을 극대화하기 위해 다음 모범 사례를 권장합니다:
 
 - 24시간 기간 내에 동일한 유형의 여러 메시지 템플릿을 전송하는 것을 제한하세요(사용자 응답 없이). "대화당" 모델에서 이전에 부과되었던 것보다 더 많은 요금이 부과되지 않습니다. 이는 고객에게 양질의 경험을 제공하고 메시지 피로도를 줄이기 위한 모범 사례이기도 합니다.
-- 최종 사용자 메시지에 응답할 때 [응답 메시징](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages/)을 사용하세요. 응답 메시징은 무료입니다.
+- 최종 사용자 메시지에 응답할 때 [응답 메시징]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages/)을 사용하세요. 응답 메시징은 무료입니다.
 
 | 예시 시나리오 | 2025년 4월 이전 가격 | 2025년 4월 이후 가격 |
 | --- | --- | --- |
@@ -103,7 +103,7 @@ Meta는 브랜드가 투자 수익률(ROI) 계산을 간소화할 수 있도록 
 이러한 변경 사항에 대응하고 WhatsApp 마케팅 예산을 극대화하기 위해 다음 모범 사례를 권장합니다:
 
 - 24시간 기간 내에 동일한 유형의 여러 메시지 템플릿을 전송하는 것을 제한하세요(사용자 응답 없이). 이렇게 하면 "대화당" 모델에서 이전에 부과되었던 것보다 더 많은 요금이 부과되는 것을 방지할 수 있습니다. 이는 고객에게 양질의 경험을 제공하고 메시지 피로도를 줄이기 위한 모범 사례이기도 합니다.
-- 최종 사용자 메시지에 응답할 때 [응답 메시징](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages)을 사용하세요. 응답 메시징은 무료입니다.
+- 최종 사용자 메시지에 응답할 때 [응답 메시징]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages)을 사용하세요. 응답 메시징은 무료입니다.
 
 *참고: 이 업데이트는 원래 4월 1일로 예정되었으며, **현재 7월 1일**로 변경되었습니다.*
 
@@ -137,14 +137,14 @@ Meta는 브랜드가 투자 수익률(ROI) 계산을 간소화할 수 있도록 
 
 #### 서비스 대화란 무엇인가요? {#what-are-service-conversations}
 
-서비스 대화를 통해 고객 문의에 응답할 수 있습니다. 여기에는 최종 사용자가 시작한 대화에서 브랜드가 템플릿 메시지 대신 [응답 메시지](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages)로 회신하는 경우가 포함됩니다.
+서비스 대화를 통해 고객 문의에 응답할 수 있습니다. 여기에는 최종 사용자가 시작한 대화에서 브랜드가 템플릿 메시지 대신 [응답 메시지]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages)로 회신하는 경우가 포함됩니다.
 
 #### 이 업데이트를 어떻게 활용할 수 있나요?
 
 이전에 "서비스"로 요금이 부과되었던 일부 대화가 이제 무료가 됩니다. 여기에는 다음이 포함됩니다:
 
-- [인식되지 않는 응답 캠페인](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages): 최종 사용자가 인식되지 않는 메시지를 보내고 브랜드가 [응답 메시징](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages)을 사용하여 일반 메시지로 회신하는 경우. 예를 들어, 최종 사용자가 키워드 없이 메시지를 보내고 브랜드가 "메시지를 인식할 수 없습니다. 고객지원에 문의해 주세요."라고 응답하는 경우입니다.
-- 최종 사용자가 브랜드에 프로모션 키워드를 메시지로 보내고 브랜드가 [응답 메시지](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages)를 사용하여 회신하는 대화. 일반적인 예로는 WhatsApp 메시징 옵트인이나 특정 프로모션 참여가 있습니다.
+- [인식되지 않는 응답 캠페인]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages): 최종 사용자가 인식되지 않는 메시지를 보내고 브랜드가 [응답 메시징]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages)을 사용하여 일반 메시지로 회신하는 경우. 예를 들어, 최종 사용자가 키워드 없이 메시지를 보내고 브랜드가 "메시지를 인식할 수 없습니다. 고객지원에 문의해 주세요."라고 응답하는 경우입니다.
+- 최종 사용자가 브랜드에 프로모션 키워드를 메시지로 보내고 브랜드가 [응답 메시지]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages)를 사용하여 회신하는 대화. 일반적인 예로는 WhatsApp 메시징 옵트인이나 특정 프로모션 참여가 있습니다.
 
 <br>
 

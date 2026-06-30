@@ -32,7 +32,7 @@ LINEクリックトラッキングの設定は、メッセージ作成中に**Se
 
 1. **Text**メッセージを作成画面にドラッグし、テキストフィールドにURLを追加します。
 
-![長いURL（https://braze.com/docs/user_guide/channels/line/create/）を含むTextメッセージが表示されたLINEメッセージ作成画面]({% image_buster /assets/img/line/click_tracking_text_message.png %})
+![長いURLを含むTextメッセージが表示されたLINEメッセージ作成画面]({% image_buster /assets/img/line/click_tracking_text_message.png %})
 
 {: start="2"}
 2. **Settings**タブに移動し、**Click Tracking**が有効になっていることを確認します。クリックトラッキングは、すべての新しいメッセージでデフォルトで有効になっています。
@@ -41,7 +41,7 @@ LINEクリックトラッキングの設定は、メッセージ作成中に**Se
 短縮リンクのプレビューは、**Settings**タブまたは**Preview & Test**タブで確認できます。メッセージの作成中は、作成画面に完全なリンクが表示されます。
 {% endalert %}
 
-![「Click Tracking」がオンに切り替えられたLINEメッセージ作成画面の「Settings」タブと、短縮URL（https://olaf.brz.ai/p/9rcfdqdD）を含むプレビューテキストメッセージ]({% image_buster /assets/img/line/click_tracking_settings.png %})
+![「Click Tracking」がオンに切り替えられたLINEメッセージ作成画面の「Settings」タブと、短縮URLを含むプレビューテキストメッセージ]({% image_buster /assets/img/line/click_tracking_settings.png %})
 
 ### リッチメッセージ {#rich-messages}
 
@@ -101,12 +101,12 @@ Brazeは、APIトリガープロパティに含まれるURLも含め、Liquidで
 
 ## テスト {#testing}
 
-CampaignまたはCanvasを起動する前に、まずメッセージをプレビューしてテストすることがベストプラクティスです。これを行うには、**Test**タブに移動して、コンテンツテストグループまたは個々のユーザーにLINEメッセージをプレビューして送信します。
+キャンペーンまたはキャンバスを起動する前に、まずメッセージをプレビューしてテストすることがベストプラクティスです。これを行うには、**Test**タブに移動して、コンテンツテストグループまたは個々のユーザーにLINEメッセージをプレビューして送信します。
 
 このプレビューは、関連するパーソナライゼーションと短縮URLで更新されます。
 
 {% alert important %}
-アクティブなCanvas内で下書きが作成された場合、短縮URLは生成されません。実際の短縮URLは、Canvasの下書きがアクティブになったときに生成されます。
+アクティブなキャンバス内で下書きが作成された場合、短縮URLは生成されません。実際の短縮URLは、キャンバスの下書きがアクティブになったときに生成されます。
 {% endalert %}
 
 ## レポート {#reporting}
@@ -124,23 +124,23 @@ LINEパフォーマンステーブルには、バリアントごとのクリッ�
 LINEメッセージ内のURLをクリックしたユーザーを、以下のセグメンテーションフィルターとトリガーを使用してリターゲティングできます。
 
 - アクションベースのトリガー
-    - Campaignとのインタラクション
+    - キャンペーンとのインタラクション
     - ステップとのインタラクション
 
 ![LINEアクションベースの配信トリガー]({% image_buster /assets/img/line/line_action_based.png %})
 
 - セグメンテーションフィルター
-    - Campaignのクリック/開封
-    - タグ付きCampaignまたはCanvasのクリック/開封
+    - キャンペーンのクリック/開封
+    - タグ付きキャンペーンまたはキャンバスのクリック/開封
     - ステップのクリック/開封
 
-![「Campaignのクリック/開封」、「タグ付きCampaignまたはCanvasのクリック/開封」、「ステップのクリック/開封」の3つのセグメンテーションフィルターを表示するフィルターグループ]({% image_buster /assets/img/line/line_segmentation_filters.png %})
+![「キャンペーンのクリック/開封」、「タグ付きキャンペーンまたはキャンバスのクリック/開封」、「ステップのクリック/開封」の3つのセグメンテーションフィルターを表示するフィルターグループ]({% image_buster /assets/img/line/line_segmentation_filters.png %})
 
 ## よくある質問 {#frequently-asked-questions}
 
 ### テスト送信で受け取るリンクは実際のURLですか？ {#are-the-links-i-receive-when-test-sending-real-urls}
 
-はい、テスト送信時に実際のURLが生成されます。ただし、起動されたCampaignで送信される正確なURLは、テスト送信で送信されたものとは異なる場合があります。
+はい、テスト送信時に実際のURLが生成されます。ただし、起動されたキャンペーンで送信される正確なURLは、テスト送信で送信されたものとは異なる場合があります。
 
 ### URLが短縮される前にUTMパラメーターを追加できますか？ {#can-i-add-utm-parameters-to-a-url-before-it-is-shortened}
 

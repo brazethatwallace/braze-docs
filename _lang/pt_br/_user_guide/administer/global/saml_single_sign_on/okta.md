@@ -33,7 +33,7 @@ Depois que o gerente da sua conta ativar o SAML SSO para sua conta, acesse **Con
 
 No dashboard de administração do Okta, o Okta fornece uma URL de destino (URL de login) e um certificado `x.509`, que você deve inserir na página **Configurações de segurança** da sua conta na Braze.
 
-![]({% image_buster /assets/img/Okta/okta5.png %}){: style="max-width:75%"}
+![Captura de tela relacionada à etapa 1b: editar configurações de SAML SSO.]({% image_buster /assets/img/Okta/okta5.png %}){: style="max-width:75%"}
 
 | Requisito | Informações |
 |---|---|
@@ -55,7 +55,7 @@ Em seguida, insira a chave de API RelayState com permissão `sso.saml.login` no 
 Certifique-se de salvar essas novas configurações.
 
 {% alert tip %}
-Se você deseja que os usuários da sua conta na Braze façam login apenas com SAML SSO, é possível [restringir a autenticação de login único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/#restriction) na página **Configurações da empresa**.
+Se você deseja que os usuários da sua conta na Braze façam login apenas com SAML SSO, é possível [restringir a autenticação de login único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) na página **Configurações da empresa**.
 {% endalert %}
 
 ## Etapa 3: Faça login {#step-3-log-in}

@@ -32,9 +32,9 @@ search_rank: 1
 1. **메시징** > **Campaigns**으로 이동하여 **캠페인 생성**을 선택합니다.
 2. **이메일**을 선택하거나, 여러 채널을 타겟팅하는 Campaign의 경우 **멀티채널**을 선택합니다.
 3. Campaign에 명확하고 의미 있는 이름을 지정합니다.
-4. 필요에 따라 [팀]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)과 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)를 추가합니다.
-   * 태그를 사용하면 Campaign을 더 쉽게 찾고 보고서를 작성할 수 있습니다. 예를 들어, [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)를 사용할 때 특정 태그로 필터링할 수 있습니다.
-5. Campaign에 필요한 만큼 배리언트를 추가하고 이름을 지정합니다. 이 주제에 대한 자세한 내용은 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)를 참조하세요.
+4. 필요에 따라 [팀]({{site.baseurl}}/user_guide/administer/global/user_management/teams)과 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)를 추가합니다.
+   * 태그를 사용하면 Campaign을 더 쉽게 찾고 보고서를 작성할 수 있습니다. 예를 들어, [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder)를 사용할 때 특정 태그로 필터링할 수 있습니다.
+5. Campaign에 필요한 만큼 배리언트를 추가하고 이름을 지정합니다. 이 주제에 대한 자세한 내용은 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing)를 참조하세요.
 
 {% alert tip %}
 Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 경우, 추가 배리언트를 추가하기 전에 먼저 메시지를 작성하세요. 그런 다음 **배리언트 추가** 드롭다운에서 **배리언트에서 복사**를 선택할 수 있습니다.
@@ -42,11 +42,11 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 {% endtab %}
 {% tab Canvas %}
 
-1. Canvas 작성기를 사용하여 [Canvas를 만듭니다]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/).
+1. Canvas 작성기를 사용하여 [Canvas를 만듭니다]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
 2. Canvas를 설정한 후, Canvas 빌더에서 단계를 추가합니다. 단계에 명확하고 의미 있는 이름을 지정합니다.
-3. [단계 스케줄]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay)을 선택하고 필요에 따라 지연을 지정합니다.
+3. [단계 스케줄]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay)을 선택하고 필요에 따라 지연을 지정합니다.
 4. 필요에 따라 이 단계의 오디언스를 필터링합니다. Segments를 지정하고 추가 필터를 추가하여 이 단계의 수신자를 더 세밀하게 조정할 수 있습니다. 오디언스 옵션은 지연 후 메시지가 발송되는 시점에 확인됩니다.
-5. [진행 동작]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/)을 선택합니다.
+5. [진행 동작]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases)을 선택합니다.
 6. 메시지와 함께 사용할 다른 메시징 채널을 선택합니다.
 {% endtab %}
 {% endtabs %}
@@ -59,11 +59,11 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 
 ## 2단계: 편집 환경 선택하기 {#step-2-choose-your-template-and-compose-your-email}
 
-Braze는 이메일 Campaign을 만들 때 두 가지 편집 환경을 제공합니다: [드래그 앤 드롭 편집기]({{site.baseurl}}/dnd/)와 표준 HTML 편집기입니다. 원하는 편집 환경에 맞는 타일을 선택하세요.
+Braze는 이메일 Campaign을 만들 때 두 가지 편집 환경을 제공합니다: [드래그 앤 드롭 편집기]({{site.baseurl}}/dnd)와 표준 HTML 편집기입니다. 원하는 편집 환경에 맞는 타일을 선택하세요.
 
 ![이메일 편집 환경으로 드래그 앤 드롭 편집기, HTML 편집기 또는 템플릿 중에서 선택하기.]({% image_buster /assets/img_archive/choose_email_creation.png %}){: style="max-width:75%" }
 
-그런 다음 기존 [이메일 템플릿]({{site.baseurl}}/user_guide/channels/email/html_editor/#creating-an-email-template)을 선택하거나, 파일에서 [템플릿을 업로드]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)하거나(HTML 편집기만 해당), 빈 템플릿을 사용할 수 있습니다.
+그런 다음 기존 [이메일 템플릿]({{site.baseurl}}/user_guide/channels/email/html_editor#creating-an-email-template)을 선택하거나, 파일에서 [템플릿을 업로드]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)하거나(HTML 편집기만 해당), 빈 템플릿을 사용할 수 있습니다.
 
 HTML 편집기를 사용하고 기기가 다크 모드일 때 Gmail 모바일 앱에서 배경색이 일관되게 유지되어야 하는 경우, [Gmail 모바일 앱과 다크 모드 배경색](#gmail-dark-mode)을 참조하세요.
 
@@ -73,7 +73,7 @@ HTML 편집기를 사용하고 기기가 다크 모드일 때 Gmail 모바일 �
 
 ## 3단계: 이메일 작성하기 {#step-3-compose-your-email}
 
-템플릿을 선택하면 이메일 개요가 표시되며, 여기서 전체화면 편집기로 바로 이동하여 이메일을 작성하고, 발송 정보를 변경하고, 전달 가능성 또는 법률 준수에 대한 경고를 확인할 수 있습니다. 작성하는 동안 HTML, 클래식, 일반 텍스트, [AMP]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email/) 탭 간에 전환할 수 있습니다.
+템플릿을 선택하면 이메일 개요가 표시되며, 여기서 전체화면 편집기로 바로 이동하여 이메일을 작성하고, 발송 정보를 변경하고, 전달 가능성 또는 법률 준수에 대한 경고를 확인할 수 있습니다. 작성하는 동안 HTML, 클래식, 일반 텍스트, [AMP]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email) 탭 간에 전환할 수 있습니다.
 
 !["HTML에서 재생성" 버튼.]({% image_buster /assets/img_archive/regenerate_from_html.png %}){: style="max-width:30%;float:right;margin-left:15px;border:none;" }
 
@@ -89,12 +89,12 @@ Braze는 속성으로 참조된 HTML 이벤트 핸들러를 자동으로 제거�
 {% endalert %}
 
 {% alert tip %}
-멋진 카피를 작성하는 데 도움이 필요하신가요? [AI 카피라이팅 어시스턴트]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/)를 사용해 보세요. 제품 이름이나 설명을 입력하면 AI가 메시징에 사용할 수 있는 사람이 쓴 것 같은 마케팅 카피를 생성합니다.
+멋진 카피를 작성하는 데 도움이 필요하신가요? [AI 카피라이팅 어시스턴트]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy)를 사용해 보세요. 제품 이름이나 설명을 입력하면 AI가 메시징에 사용할 수 있는 사람이 쓴 것 같은 마케팅 카피를 생성합니다.
 
 ![이메일 작성기의 본문 탭에 있는 AI 카피라이터 시작 버튼.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_email.png %}){: style="max-width:80%"}
 {% endalert %}
 
-아랍어나 히브리어와 같은 오른쪽에서 왼쪽으로 쓰는 언어의 메시지를 작성하는 데 도움이 필요하신가요? 모범 사례는 [오른쪽에서 왼쪽으로 쓰는 메시지 만들기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/)를 참조하세요.
+아랍어나 히브리어와 같은 오른쪽에서 왼쪽으로 쓰는 언어의 메시지를 작성하는 데 도움이 필요하신가요? 모범 사례는 [오른쪽에서 왼쪽으로 쓰는 메시지 만들기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)를 참조하세요.
 
 ### Gmail 모바일 앱과 다크 모드 {#gmail-dark-mode}
 
@@ -141,14 +141,14 @@ Gmail 모바일 앱(Android 및 iOS)은 기기가 다크 모드일 때 배경색
 다음 방법으로 이메일 첨부 파일을 추가할 수도 있습니다:
 
 - **파일 업로드:** 컴퓨터에서 직접 파일을 드래그 앤 드롭하거나 찾아보기로 이메일에 업로드합니다. Braze는 업로드 전에 파일 유형과 크기(기본적으로 최대 2&nbsp;MB)를 검증한 후 미디어 라이브러리에 업로드합니다. 2&nbsp;MB 제한을 초과하는 파일은 업로드할 수 없습니다.
-- **미디어 라이브러리 사용:** [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)에 이미 저장된 자산을 찾아보고 선택합니다. PDF, Word 문서, Excel 파일, PowerPoint 프레젠테이션이 모두 지원됩니다.
+- **미디어 라이브러리 사용:** [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)에 이미 저장된 자산을 찾아보고 선택합니다. PDF, Word 문서, Excel 파일, PowerPoint 프레젠테이션이 모두 지원됩니다.
 - **URL에서 추가:** 파일을 가리키는 URL을 입력하고 표시 파일 이름을 제공합니다. Braze는 이메일 작성 중에 임의의 URL의 크기를 확인할 수 없으므로, 파일 크기는 발송 시점에 적용됩니다. 이 필드에서는 Liquid가 지원되지 않습니다.
 
-구체적인 모범 사례는 [이메일 가이드라인]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/)을 참조하세요.
+구체적인 모범 사례는 [이메일 가이드라인]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines)을 참조하세요.
 
 ##### 이메일 헤더 {#email-headers}
 
-이메일 헤더를 추가하려면 **Add New Header**를 선택합니다. 이메일 헤더에는 발송되는 이메일에 대한 정보가 포함됩니다. 이러한 [키-값 페어]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/)에는 일반적으로 발신자, 수신자, 인증 프로토콜 및 라우팅 정보가 포함됩니다. Braze는 이메일이 받은편지함 제공업체에 도달할 수 있도록 RFC에서 요구하는 헤더 정보를 자동으로 추가합니다.
+이메일 헤더를 추가하려면 **Add New Header**를 선택합니다. 이메일 헤더에는 발송되는 이메일에 대한 정보가 포함됩니다. 이러한 [키-값 페어]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs)에는 일반적으로 발신자, 수신자, 인증 프로토콜 및 라우팅 정보가 포함됩니다. Braze는 이메일이 받은편지함 제공업체에 도달할 수 있도록 RFC에서 요구하는 헤더 정보를 자동으로 추가합니다.
 
 Braze는 고급 사용 사례를 위해 필요에 따라 추가 이메일 헤더를 추가할 수 있는 유연성을 제공합니다. Braze 플랫폼이 발송 중에 덮어쓰는 몇 가지 예약된 필드가 있습니다.
 
@@ -209,7 +209,7 @@ Braze는 고급 사용 사례를 위해 필요에 따라 추가 이메일 헤더
 추가된 키-값 페어의 총 크기는 1KB를 초과하지 않아야 합니다. 그렇지 않으면 메시지가 중단됩니다.
 {% endalert %}
 
-이메일 추가 정보 값은 Currents 또는 Snowflake에 게시되지 않습니다. Currents 또는 Snowflake로 추가 메타데이터나 동적 값을 보내려면 [`message_extras`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/)를 대신 사용하세요.
+이메일 추가 정보 값은 Currents 또는 Snowflake에 게시되지 않습니다. Currents 또는 Snowflake로 추가 메타데이터나 동적 값을 보내려면 [`message_extras`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras)를 대신 사용하세요.
 
 ### 3.2단계: 메시지 미리보기 및 테스트하기 {#step-3b-preview-and-test-your-message}
 
@@ -256,7 +256,7 @@ Apple Mail 앱에서 HTML 이메일의 이미지 링크가 클릭 가능하려�
 - Liquid 구문 오류
 - 전체 `<!DOCTYPE html>`을 포함하는 Content Blocks
 - 이메일 본문이 400&nbsp;KB를 초과함
-  - 잘림을 방지하려면 [102&nbsp;KB 미만]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices/guidelines_and_tips/#email-size)을 목표로 하세요.
+  - 잘림을 방지하려면 [102&nbsp;KB 미만]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices/guidelines_and_tips#email-size)을 목표로 하세요.
 - 빈 본문 또는 제목
 - 탈퇴 링크 누락
 - 보낸 사람 도메인이 허용 목록에 없음(발송이 크게 제한됨)
@@ -269,21 +269,21 @@ Apple Mail 앱에서 HTML 이메일의 이미지 링크가 클릭 가능하려�
 
 ### 전달 스케줄 또는 트리거 선택하기 {#choose-delivery-schedule-or-trigger}
 
-예약된 시간, 동작 또는 API 트리거를 기반으로 이메일을 전달합니다. 자세한 내용은 [Campaign 스케줄 설정]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)을 참조하세요.
+예약된 시간, 동작 또는 API 트리거를 기반으로 이메일을 전달합니다. 자세한 내용은 [Campaign 스케줄 설정]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)을 참조하세요.
 
 {% alert note %}
 API 트리거 Campaign의 경우, 트리거 동작이 **Interact With Campaign**으로 설정되어 있을 때 상호작용으로 **Receive** 옵션을 선택하면, 해당 메시지가 반송되거나 전달에 실패하더라도 Braze가 선택한 Campaign을 발송 완료로 표시하는 즉시 새 Campaign이 트리거됩니다.
 {% endalert %}
 
-Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)을 지정하고, [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) 규칙을 설정할 수도 있습니다.
+Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)을 지정하고, [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping) 규칙을 설정할 수도 있습니다.
 
 ### 타겟 사용자 선택하기 {#choose-users-to-target}
 
-다음으로, Segments 또는 필터를 선택하여 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)합니다. Braze는 이메일을 통해 도달 가능한 사용자 수를 포함하여 Segment 모집단의 실시간 미리보기를 표시합니다. 정확한 Segment 멤버십은 발송 직전에 계산됩니다.
+다음으로, Segments 또는 필터를 선택하여 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)합니다. Braze는 이메일을 통해 도달 가능한 사용자 수를 포함하여 Segment 모집단의 실시간 미리보기를 표시합니다. 정확한 Segment 멤버십은 발송 직전에 계산됩니다.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
-이메일에 가입하고 옵트인한 사용자와 같이 특정 [구독 상태]({{site.baseurl}}/user_guide/channels/email/subscriptions/)를 가진 사용자에게만 Campaign을 보내도록 선택할 수도 있습니다.
+이메일에 가입하고 옵트인한 사용자와 같이 특정 [구독 상태]({{site.baseurl}}/user_guide/channels/email/subscriptions)를 가진 사용자에게만 Campaign을 보내도록 선택할 수도 있습니다.
 
 선택적으로, Segment 내 지정된 수의 사용자에게만 전달을 제한하거나, Campaign이 반복될 때 사용자가 동일한 메시지를 두 번 받을 수 있도록 허용할 수도 있습니다.
 
@@ -307,18 +307,18 @@ Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_
 
 ### 전환 이벤트 선택하기 {#choose-conversion-events}
 
-Braze를 사용하면 Campaign을 수신한 후 사용자가 특정 동작인 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)를 얼마나 자주 수행하는지 추적할 수 있습니다. 다음 동작 중 하나를 전환 이벤트로 지정할 수 있습니다:
+Braze를 사용하면 Campaign을 수신한 후 사용자가 특정 동작인 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)를 얼마나 자주 수행하는지 추적할 수 있습니다. 다음 동작 중 하나를 전환 이벤트로 지정할 수 있습니다:
 
 - 앱 열기
 - 구매하기(일반 구매 또는 특정 항목일 수 있음)
 - 특정 커스텀 이벤트 수행
 - 이메일 열기
 
-사용자가 지정된 동작을 수행하면 Braze가 전환을 카운트하는 최대 30일의 기간을 허용할 수 있습니다. Braze는 열기와 클릭을 자동으로 추적하지만, [지능형 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/)을 사용하려면 전환 이벤트를 열기 또는 클릭으로 설정할 수 있습니다.
+사용자가 지정된 동작을 수행하면 Braze가 전환을 카운트하는 최대 30일의 기간을 허용할 수 있습니다. Braze는 열기와 클릭을 자동으로 추적하지만, [지능형 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)을 사용하려면 전환 이벤트를 열기 또는 클릭으로 설정할 수 있습니다.
 {% endtab %}
 
 {% tab Canvas %}
-아직 완료하지 않았다면, Canvas 구성요소의 나머지 섹션을 완료하세요. Canvas의 나머지 부분을 구축하고, 다변량 테스트와 지능형 선택을 구현하는 방법 등에 대한 자세한 내용은 Canvas 설명서의 [Canvas 구축하기]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) 단계를 참조하세요.
+아직 완료하지 않았다면, Canvas 구성요소의 나머지 섹션을 완료하세요. Canvas의 나머지 부분을 구축하고, 다변량 테스트와 지능형 선택을 구현하는 방법 등에 대한 자세한 내용은 Canvas 설명서의 [Canvas 구축하기]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) 단계를 참조하세요.
 {% endtab %}
 {% endtabs %}
 
@@ -326,4 +326,4 @@ Braze를 사용하면 Campaign을 수신한 후 사용자가 특정 동작인 [�
 
 마지막 섹션에서는 설계한 Campaign의 요약을 보여줍니다. 모든 관련 세부 정보를 확인하고 **캠페인 시작**을 선택합니다.
 
-이메일 Campaign의 결과에 액세스하는 방법을 알아보려면 [이메일 보고서]({{site.baseurl}}/user_guide/channels/email/reporting/)를 확인하세요.
+이메일 Campaign의 결과에 액세스하는 방법을 알아보려면 [이메일 보고서]({{site.baseurl}}/user_guide/channels/email/reporting)를 확인하세요.

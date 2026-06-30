@@ -88,6 +88,22 @@ Depois de selecionar seus destinos do Audience Sync Pro, conecte a conta de anú
 
 Por fim, crie sua etapa do Audience Sync no Canvas usando esse destino do Audience Sync Pro.
 
+### Processamento em lote e latência {#batching-and-latency}
+
+Quando os usuários entram em uma etapa do Audience Sync no Canvas, a Braze os enfileira em um sistema de lotes que agrega as atualizações de usuários antes de enviá-las à API do parceiro. Um lote é enviado quando uma das seguintes condições ocorre:
+
+- **O lote atinge seu limite de tamanho.** Isso varia por parceiro:
+  - O padrão suporta até 2.000 usuários
+  - O Google Ads suporta até 10.000 usuários
+  - O Facebook e o TikTok suportam até 2.000 usuários
+- **O temporizador de latência do lote expira.** O padrão é uma hora, mas isso é configurável por parceiro. Por exemplo, o The Trade Desk usa 10 minutos.
+
+Canvas de alto volume podem despachar mais cedo porque os lotes são preenchidos mais rapidamente. Canvas de baixo volume aguardam até que o temporizador de latência expire. A Braze não garante um tempo fixo de despacho; o tempo depende do tamanho do lote e da janela de latência configurada.
+
+A Braze registra a atividade de despacho em registros internos para monitoramento e solução de problemas, mas esses carimbos de data/hora não são expostos como campos consultáveis. Depois que a Braze despacha um lote para a API do parceiro, o parceiro processa a atualização do público de acordo com seus próprios acordos de nível de serviço — normalmente de 6 a 48 horas.
+
+A Braze não recebe confirmação dos parceiros de que usuários individuais foram correspondidos ou sincronizados. As respostas dos parceiros são confirmações HTTP de recebimento, não confirmações de correspondência. Para verificar se um público foi preenchido, confira a plataforma de anúncios do parceiro (como o Google Ads Audience Manager ou o Meta Business Manager).
+
 ### E-mails de erro do Audience Sync {#audience-sync-error-emails}
 
 Se o erro estiver relacionado à integração geral com o parceiro (como um problema de autorização), um e-mail será enviado ao usuário que conectou a integração. Se esse usuário não existir mais, os administradores receberão os e-mails.
