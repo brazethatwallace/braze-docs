@@ -4,8 +4,8 @@ description: >
   Finds redundant, outdated, or unneeded images still referenced in English docs
   (_docs/, _includes/). Removes image references (delete-image-only by default),
   and deletes dereferenced binaries when safe. Use for image curation,
-  redundant screenshot cleanup, or @image-curator. Complements @image-pruner.
-  Scheduled twice yearly via CI; also runs manually.
+  redundant screenshot cleanup, or /image-curator from chat. Complements
+  braze-docs:image-pruner. Scheduled twice yearly via CI; also runs manually.
 ---
 
 # Image curator
@@ -36,12 +36,12 @@ Remove **referenced but redundant** images from English canonical docs. Unlike [
 | Batch | Up to **15** high-confidence removals per run; **delete-image-only**; opens a **draft** `[IC]` PR |
 | Review | Merge the draft PR after diff review. Skips if another open `[IC]` PR exists. |
 
-Manual runs: GitHub Actions *workflow_dispatch*, or `@image-curator` for medium-confidence and vision review.
+Manual runs: GitHub Actions *workflow_dispatch*, or `/image-curator` from chat for medium-confidence and vision review.
 
 | After curation | Use |
 |----------------|-----|
-| Nuanced screenshots | `@image-curator` with vision on each candidate |
-| Orphan binaries | `@image-pruner` on a follow-up PR |
+| Nuanced screenshots | `braze-docs:image-curator` with vision on each candidate |
+| Orphan binaries | [`image-pruner`](../image-pruner/SKILL.md) on a follow-up PR |
 
 ---
 
@@ -72,7 +72,7 @@ Do not mix curation doc edits with script/skill changes in one PR.
 
 | Field | Value |
 |-------|-------|
-| Title prefix | `[IC]` (not `[IP]` — that is image-pruner) |
+| Title prefix | `[IC]` (not `[IP]` — that is [`image-pruner`](../image-pruner/SKILL.md)) |
 | Title example | `[IC] Remove 12 redundant image references from English docs` |
 | Label | `image pruning` (required) |
 | Body | **Image Pruning** section: delete-image-only; scan command; reference count; binaries deleted; English-only scope |
@@ -93,14 +93,16 @@ Do not mix curation doc edits with script/skill changes in one PR.
 
 ## Example prompts
 
+Contributor chat (Cursor):
+
 ```
-@image-curator Scan for redundant settings and home-page screenshots in _docs/_user_guide/administer/.
+/image-curator Scan for redundant settings and home-page screenshots in _docs/_user_guide/administer/.
 ```
 
 ```
-@image-curator Review the draft [IC] PR from CI maintenance.
+/image-curator Review the draft [IC] PR from CI maintenance.
 ```
 
 ```
-@image-curator Remove approved medium-confidence candidates from the latest CSV.
+/image-curator Remove approved medium-confidence candidates from the latest CSV.
 ```

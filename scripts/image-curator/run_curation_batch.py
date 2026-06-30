@@ -281,7 +281,7 @@ python3 scripts/image-curator/find_redundant_image_candidates.py --csv candidate
 IMAGE_CURATION_DELETE_FORCE=1 python3 scripts/image-curator/run_curation_batch.py --limit 15 --csv candidates.csv
 ```
 
-English-only edits. Prose updates after removal require manual review via `@image-curator`.
+English-only edits. Prose updates after removal require manual review via `braze-docs:image-curator` (see [removal-criteria.md](../../../.github/skills/image-curator/removal-criteria.md)).
 """
     path.write_text(body, encoding="utf-8")
 

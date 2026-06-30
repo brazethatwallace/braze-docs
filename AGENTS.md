@@ -19,7 +19,7 @@ For the full reference — descriptions, when-to-use guidance, and invocation sy
 | [`support-analyzer`](.github/skills/support-analyzer/SKILL.md) | Manual triage of support case CSVs (after CI digest / Phase 2) |
 | [`salesforce-migration`](.github/skills/salesforce-migration/SKILL.md) | Jira SF KB migration tickets and `_data/sf_*.xml` / CSV workflows |
 | [`image-pruner`](.github/skills/image-pruner/SKILL.md) | Finding and removing unreferenced `assets/img/` files (all locales) |
-| [`image-curator`](.github/skills/image-curator/SKILL.md) | Removing redundant referenced images from English docs; prose absorption; dereferenced binary cleanup |
+| [`image-curator`](.github/skills/image-curator/SKILL.md) | Redundant reference removal from English docs (delete-image-only by default); optional manual prose edits via alt merge gate; dereferenced binary cleanup |
 | [`screenshot-pii-audit`](.github/skills/screenshot-pii-audit/SKILL.md) | OCR audit of screenshots for PII before PRs; CI blocking check |
 | [`snippet-pii`](scripts/check_snippet_pii.py) | Advisory fenced-code-block PII scan for `_docs/` and `_includes/` (see `check-snippet-pii.yml`) |
 | [`tam-solutions`](.github/skills/tam-solutions/SKILL.md) | Converting TAM solution assets into public User Guide example articles |
@@ -28,7 +28,7 @@ For the full reference — descriptions, when-to-use guidance, and invocation sy
 
 - **Routine `_docs/` edits:** Describe the task; no tag required. The repo bootstrap rule points agents at `braze-docs`.
 - **Verification:** Invoke **`/reference-repos`** from chat, or ask to “verify against source.” Open [`braze-workspace.code-workspace`](braze-workspace.code-workspace) so `platform` and SDK repos are sibling folders.
-- **Heavy workflows:** Invoke from chat once (for example `/support-analyzer`, `/salesforce-migration`, `/docs-discrepancies`, `/image-pruner`, `/screenshot-pii-audit`).
+- **Heavy workflows:** Invoke from chat once (for example `/support-analyzer`, `/salesforce-migration`, `/docs-discrepancies`, `/image-curator`, `/image-pruner`, `/screenshot-pii-audit`).
 
 Inside `SKILL.md` files and agent rules, cross-reference other skills with `braze-docs:skill-name` or relative links — not `@` or `/`. See [CAPABILITIES.md](CAPABILITIES.md#cross-referencing-skills-in-instructions).
 
@@ -46,7 +46,7 @@ Twice-yearly GitHub Actions (June 1 and December 1) scans `develop` for unrefere
 
 ## Image curator (CI)
 
-Twice-yearly GitHub Actions (June 1 and December 1, 14:00 ET) scans English docs for redundant image references via [`.github/workflows/image-curator-maintenance.yml`](.github/workflows/image-curator-maintenance.yml). Each run removes up to 15 high-confidence references (delete-image-only, dereferenced binary delete) and opens a **draft** `[IC]` pull request labeled `image pruning`. Manual vision review and medium-confidence batches use the **image-curator** skill or `@image-curator`.
+Twice-yearly GitHub Actions (June 1 and December 1, 14:00 ET) scans English docs for redundant image references via [`.github/workflows/image-curator-maintenance.yml`](.github/workflows/image-curator-maintenance.yml). Each run removes up to 15 high-confidence references (delete-image-only, dereferenced binary delete) and opens a **draft** `[IC]` pull request labeled `image pruning`. Manual vision review and medium-confidence batches use the [image-curator](.github/skills/image-curator/SKILL.md) skill (`/image-curator` from chat).
 
 ## Cursor rules (always on)
 

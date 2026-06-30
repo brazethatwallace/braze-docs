@@ -1,6 +1,6 @@
 # Curation batch workflow
 
-For manual `@image-curator` runs and CI draft PR review. Criteria: [removal-criteria.md](../removal-criteria.md).
+For manual `/image-curator` runs and CI draft PR review. Criteria: [removal-criteria.md](../removal-criteria.md).
 
 ## Checklist
 

@@ -4,6 +4,8 @@
 Scans _docs/ and root _includes/ for image references, then flags candidates
 using style-guide heuristics (filename, alt text, surrounding prose). Optional
 OCR via Tesseract when available (same dependency as check_screenshot_pii.py).
+OCR runs in two phases: heuristics first, then OCR only for refs with removal
+signals, cached by normalized image path so shared binaries are OCR'd once.
 
 Usage (from repo root):
   python3 scripts/image-curator/find_redundant_image_candidates.py
@@ -169,6 +171,21 @@ ADMINISTER_SOURCE_PREFIX = "_docs/_user_guide/administer/"
 BUILDER_SOURCE_PREFIXES = (
     "_docs/_user_guide/messaging/landing_pages/",
     "_includes/span_text.md",
+)
+
+# Early-return skip reasons in score_candidate — no OCR benefit when these are the only signals.
+_OCR_SKIP_REASONS = frozenset(
+    {
+        "protected_path",
+        "partner_page_skip",
+        "diagram_or_workflow",
+        "builder_editor_ui",
+        "reference_table_icon",
+        "third_party_console",
+        "metric_chart_example",
+        "instructional_placement",
+        "settings_field_keep",
+    }
 )
 
 # Diagrams, workflows, and integration graphics — keep; do not auto-curate.
@@ -580,6 +597,19 @@ def extract_refs_from_file(path: Path) -> list[ImageRef]:
     return refs
 
 
+def reset_candidate_scores(ref: ImageRef) -> None:
+    ref.reasons.clear()
+    ref.confidence = "low"
+    ref.ocr_snippet = ""
+
+
+def ocr_worthwhile(ref: ImageRef) -> bool:
+    """True when no-OCR heuristics found removal signals worth corroborating with OCR."""
+    if not ref.reasons:
+        return False
+    return bool(set(ref.reasons) - _OCR_SKIP_REASONS)
+
+
 def collect_candidates(
     *,
     min_confidence: Confidence | None = None,
@@ -590,6 +620,13 @@ def collect_candidates(
 
     candidates: list[ImageRef] = []
     seen: set[tuple[str, int, str]] = set()
+    ocr_cache: dict[str, str] = {}
+
+    def cached_ocr(normalized_path: str) -> str:
+        if normalized_path not in ocr_cache:
+            disk = resolve_image_on_disk(normalized_path)
+            ocr_cache[normalized_path] = try_ocr(disk) if disk else ""
+        return ocr_cache[normalized_path]
 
     for file_path in iter_english_files():
         for ref in extract_refs_from_file(file_path):
@@ -598,15 +635,22 @@ def collect_candidates(
                 continue
             seen.add(key)
 
-            ocr_text = ""
-            if use_ocr:
-                disk = resolve_image_on_disk(ref.normalized_path())
-                if disk:
-                    ocr_text = try_ocr(disk)
+            # Phase 1: filename/alt/context heuristics without OCR.
+            score_candidate(ref, "")
+            if use_ocr and ocr_worthwhile(ref):
+                # Phase 2: OCR once per normalized path, then re-score with corroboration.
+                reset_candidate_scores(ref)
+                score_candidate(ref, cached_ocr(ref.normalized_path()))
 
-            score_candidate(ref, ocr_text)
             if order[ref.confidence] >= min_rank and ref.reasons:
                 candidates.append(ref)
+
+    if use_ocr and ocr_cache:
+        print(
+            f"OCR: {len(ocr_cache)} unique image path(s) "
+            f"(skipped OCR for refs with no removal heuristics)",
+            file=sys.stderr,
+        )
 
     candidates.sort(
         key=lambda r: (-order[r.confidence], r.source_file, r.line_number),
