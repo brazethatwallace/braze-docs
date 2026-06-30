@@ -352,3 +352,9 @@ You must have a receiver to handle and display push payloads. To notify the rece
 {% alert note %}
 For some push notification providers, Braze needs to flatten the key-value pairs so that they can be properly interpreted. To flatten key-value pairs for a specific Android app, contact your customer success manager.
 {% endalert %}
+
+## Frequently asked questions
+
+### How do I find users treated as spam or blocked from messaging?
+
+Braze does not provide a dedicated spam list in the dashboard. Braze blocks individual users with over five million sessions ("dummy users") and no longer ingests their SDK events. If an identifier is blocked, [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) may return the error `"provided external_id is blacklisted and disallowed"`. This wording is taken verbatim from the API response. To find affected profiles, create a [segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) with the **Session Count** filter set to **more than 5,000,000**, export the segment as a CSV, and cross-check profile fields in **Engagement** > **Search users** or with the [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) endpoint.
