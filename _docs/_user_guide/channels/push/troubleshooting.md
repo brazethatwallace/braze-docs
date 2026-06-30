@@ -283,7 +283,7 @@ Your push permissions are now reset. Open a new tab to your site and try it out.
 {% endtab %}
 {% endtabs %}
 
-## Push Open metrics
+## Push open metrics
 
 Braze logs a Direct Open when a user taps the notification and your app starts a session. Expanding a rich push notification without opening the app does not log a Direct Open.
 
