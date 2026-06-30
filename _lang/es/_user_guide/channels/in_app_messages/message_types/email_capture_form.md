@@ -12,15 +12,15 @@ channel:
 
 > Los mensajes de captura de correo electrónico te permiten solicitar a los usuarios de tu sitio que envíen su dirección de correo electrónico. Braze añade la dirección a su perfil de usuario para usarla en todas tus campañas de mensajería.
 
-Este tipo de mensaje está disponible en el [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+Este tipo de mensaje está disponible en el [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 ## Cómo funciona {#how-it-works}
 
 Cuando un usuario final introduce su dirección de correo electrónico en este formulario, Braze añade la dirección de correo electrónico a su perfil de usuario.
 
-- Para los [usuarios anónimos]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#anonymous-user-profiles) que aún no tienen una cuenta, la dirección de correo electrónico se almacena en el perfil de usuario anónimo vinculado al dispositivo del usuario.
+- Para los [usuarios anónimos]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#anonymous-user-profiles) que aún no tienen una cuenta, la dirección de correo electrónico se almacena en el perfil de usuario anónimo vinculado al dispositivo del usuario.
 - Si ya existe una dirección de correo electrónico en el perfil de usuario, la dirección de correo electrónico recién introducida sobrescribe la dirección existente.
-- Si el usuario conocido tiene una dirección de correo electrónico marcada como [rebote duro]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#hard-bounce), Braze comprueba si la nueva dirección de correo electrónico introducida difiere de la que está en su perfil de Braze. Si la dirección de correo electrónico proporcionada es diferente, Braze actualiza la dirección de correo electrónico y elimina el estado de rebote duro.
+- Si el usuario conocido tiene una dirección de correo electrónico marcada como [rebote duro]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#hard-bounce), Braze comprueba si la nueva dirección de correo electrónico introducida difiere de la que está en su perfil de Braze. Si la dirección de correo electrónico proporcionada es diferente, Braze actualiza la dirección de correo electrónico y elimina el estado de rebote duro.
 - Si un usuario introduce una dirección de correo electrónico no válida, verá el mensaje de error: "Please enter a valid email."
     - Direcciones de correo electrónico no válidas:
         - `example`
@@ -30,7 +30,7 @@ Cuando un usuario final introduce su dirección de correo electrónico en este f
     - Direcciones de correo electrónico válidas:
         - `example@gmail.com`
         - `example@gnail.com` (con un error tipográfico)
-    - Para más información sobre la validación de correo electrónico en Braze, consulta [Directrices técnicas y notas sobre correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation/).
+    - Para más información sobre la validación de correo electrónico en Braze, consulta [Directrices técnicas y notas sobre correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation).
 
 {% details Más sobre usuarios identificados frente a usuarios anónimos %}
 
@@ -38,9 +38,9 @@ El formulario de captura de correo electrónico establece la dirección de corre
 
 Si un usuario anónimo introduce su correo electrónico en el formulario y lo envía, Braze añade la dirección de correo electrónico a su perfil. Si se llama a `changeUser` más adelante en su recorrido web y se asigna un nuevo `external_id` (por ejemplo, cuando un nuevo usuario se registra en el servicio), todos los datos del perfil de usuario anónimo se fusionan, incluida la dirección de correo electrónico.
 
-Si se llama a `changeUser` con un `external_id` existente, el perfil de usuario anónimo queda huérfano y los [campos específicos de datos del perfil de usuario]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge_updates-behavior) que aún no existen en el usuario identificado se fusionan, pero los campos que ya existen se pierden, incluida la dirección de correo electrónico.
+Si se llama a `changeUser` con un `external_id` existente, el perfil de usuario anónimo queda huérfano y los [campos específicos de datos del perfil de usuario]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge_updates-behavior) que aún no existen en el usuario identificado se fusionan, pero los campos que ya existen se pierden, incluida la dirección de correo electrónico.
 
-Para más información, consulta el [Ciclo de vida del perfil de usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
+Para más información, consulta el [Ciclo de vida del perfil de usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 
 {% enddetails %}
 

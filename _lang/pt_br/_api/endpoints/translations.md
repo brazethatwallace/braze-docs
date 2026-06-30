@@ -14,49 +14,49 @@ guide_top_text: "Use os endpoints de tradução da Braze para gerenciar e atuali
 guide_featured_title: "Endpoints de Campaign"
 guide_featured_list:
   - name: "GET: Ver tradução de uma Campaign"
-    link: /docs/api/endpoints/translations/campaigns/get_translation_campaign/
+    link: /docs/api/endpoints/translations/campaigns/get_translation_campaign
     image: /assets/img/braze_icons/message-plus-square.svg
   - name: "PUT: Atualizar tradução em uma Campaign"
-    link: /docs/api/endpoints/translations/campaigns/put_update_translation_campaign/
+    link: /docs/api/endpoints/translations/campaigns/put_update_translation_campaign
     image: /assets/img/braze_icons/target-04.svg
   - name: "GET: Ver traduções de origem padrão de uma Campaign"
-    link: /docs/api/endpoints/translations/campaigns/get_source_campaign/
+    link: /docs/api/endpoints/translations/campaigns/get_source_campaign
     image: /assets/img/braze_icons/message-plus-square.svg
 
 guide_menu_title: "Endpoints de Canvas"
 guide_menu_list:
   - name: "GET: Ver tradução de um Canvas"
-    link: /docs/api/endpoints/translations/canvas/get_translation_canvas/
+    link: /docs/api/endpoints/translations/canvas/get_translation_canvas
     image: /assets/img/braze_icons/message-plus-square.svg
   - name: "PUT: Atualizar tradução em um Canvas"
-    link: /docs/api/endpoints/translations/canvas/put_update_translation_canvas/
+    link: /docs/api/endpoints/translations/canvas/put_update_translation_canvas
     image: /assets/img/braze_icons/target-04.svg
   - name: "GET: Ver traduções de origem padrão de um Canvas"
-    link: /docs/api/endpoints/translations/canvas/get_source_canvas/
+    link: /docs/api/endpoints/translations/canvas/get_source_canvas
     image: /assets/img/braze_icons/message-plus-square.svg
 
 guide_menu_title2: "Endpoints de modelos de e-mail"
 guide_menu_list2:
   - name: "GET: Ver traduções de origem padrão de um modelo de e-mail"
-    link: /docs/api/endpoints/translations/email_templates/get_view_source_template/
+    link: /docs/api/endpoints/translations/email_templates/get_view_source_template
     image: /assets/img/braze_icons/message-plus-square.svg
   - name: "GET: Ver tradução e localidade específicas"
-    link: /docs/api/endpoints/translations/email_templates/get_view_translation_locale_template/
+    link: /docs/api/endpoints/translations/email_templates/get_view_translation_locale_template
     image: /assets/img/braze_icons/target-04.svg
   - name: "GET: Ver todas as traduções e localidades"
-    link: /docs/api/endpoints/translations/email_templates/get_view_translation_template/
+    link: /docs/api/endpoints/translations/email_templates/get_view_translation_template
     image: /assets/img/braze_icons/target-04.svg
   - name: "PUT: Atualizar traduções em um modelo de e-mail"
-    link: /docs/api/endpoints/translations/email_templates/put_update_template/
+    link: /docs/api/endpoints/translations/email_templates/put_update_template
     image: /assets/img/braze_icons/target-04.svg
 
 guide_menu_title3: "Endpoints de blocos de conteúdo"
 guide_menu_list3:
   - name: "GET: Ver todas as traduções de um bloco de conteúdo"
-    link: /docs/api/endpoints/translations/content_blocks/get_translation_content_block/
+    link: /docs/api/endpoints/translations/content_blocks/get_translation_content_block
     image: /assets/img/braze_icons/message-plus-square.svg
   - name: "PUT: Atualizar tradução em um bloco de conteúdo"
-    link: /docs/api/endpoints/translations/content_blocks/put_update_translation_content_block/
+    link: /docs/api/endpoints/translations/content_blocks/put_update_translation_content_block
     image: /assets/img/braze_icons/target-04.svg
 
 ---
@@ -65,11 +65,11 @@ guide_menu_list3:
 
 ## Como funcionam nossos endpoints de tradução {#how-our-translation-endpoints-work}
 
-Nossos endpoints de tradução funcionam com a [composição multilíngue]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings/), em que uma mensagem pode ter diferentes versões renderizadas dependendo do usuário que a recebe.
+Nossos endpoints de tradução funcionam com a [composição multilíngue]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings), em que uma mensagem pode ter diferentes versões renderizadas dependendo do usuário que a recebe.
 
 ### Pré-requisitos {#prerequisites}
 
-Antes de usar esses endpoints, você deve [adicionar suas localidades]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings/#add-a-locale).
+Antes de usar esses endpoints, você deve [adicionar suas localidades]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale).
 
 ### Como testar suas traduções {#how-to-test-your-translations}
 
@@ -80,7 +80,7 @@ Existem duas maneiras de validar o suporte à tradução usando a API e o dashbo
 
 Antes de testar a atualização de traduções, você deve:
 
-1. [Adicionar suas localidades]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings/#add-a-locale).
+1. [Adicionar suas localidades]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale).
 2. Criar uma mensagem e usar tags de tradução onde apropriado.
 3. Salvar a mensagem.
 4. Selecionar as localidades a serem incluídas.

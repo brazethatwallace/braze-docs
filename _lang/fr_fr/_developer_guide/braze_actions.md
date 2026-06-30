@@ -16,7 +16,7 @@ hidden: true
 
 Le schéma de deeplink `brazeActions://` peut être utilisé partout où une option de deeplink ou de redirection existe dans les messages in-app et les Content Cards.
 
-Pour les messages in-app au format HTML, utilisez plutôt le [`pont JavaScript`]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize/#javascript-bridge), car les deeplinks ne sont pas pris en charge dans les types de messages HTML.
+Pour les messages in-app au format HTML, utilisez plutôt le [`pont JavaScript`]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize#javascript-bridge), car les deeplinks ne sont pas pris en charge dans les types de messages HTML.
 
 ## Schéma {#schema}
 
@@ -93,7 +93,7 @@ function encode(input) {
 | `removeFromSubscriptionGroup` | `subscriptionGroupId` |
 | `addToCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
 | `removeFromCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported Actions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Actions prises en charge" }
 
 ## Encodeur JSON {#json-encoder}
 

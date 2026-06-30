@@ -63,7 +63,7 @@ Quando você usa o fallback de SMS com RCS, o comportamento dos eventos depende 
 {% endtab %}
 {% tab Comportamento de segmentação %}
 
-Para SMS e RCS, os [filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) de mensagens recebidas (como [Recebeu mensagem de Campaign]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#received-message-from-campaign) e [Recebeu mensagem de etapa do Canvas]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#received-message-from-canvas-step)) são avaliados quando uma mensagem é enviada, não quando ela chega ao dispositivo do usuário. Com o fallback de SMS ativado, os usuários ainda podem corresponder a esses filtros se uma mensagem RCS for rejeitada e recorrer ao fallback de SMS, ou se o SMS de fallback não for entregue ao dispositivo do usuário.
+Para SMS e RCS, os [filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) de mensagens recebidas (como [Recebeu mensagem de Campaign]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-campaign) e [Recebeu mensagem de etapa do Canvas]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step)) são avaliados quando uma mensagem é enviada, não quando ela chega ao dispositivo do usuário. Com o fallback de SMS ativado, os usuários ainda podem corresponder a esses filtros se uma mensagem RCS for rejeitada e recorrer ao fallback de SMS, ou se o SMS de fallback não for entregue ao dispositivo do usuário.
 
 {% endtab %}
 {% endtabs %}
@@ -76,7 +76,7 @@ Quando seu remetente verificado de RCS for aprovado, nossa equipe de operações
 
 ## Etapa 3: Configurar grupos de inscrições {#step-3-set-up-subscription-groups}
 
-Dependendo da sua integração, a Braze pode adicionar remetentes verificados de RCS aos seus grupos de inscrições de SMS existentes ou configurar novos. Para instruções detalhadas de configuração, consulte [Grupos de inscrições de SMS e RCS]({{site.baseurl}}/sms_rcs_subscription_groups/).
+Dependendo da sua integração, a Braze pode adicionar remetentes verificados de RCS aos seus grupos de inscrições de SMS existentes ou configurar novos. Para instruções detalhadas de configuração, consulte [Grupos de inscrições de SMS e RCS]({{site.baseurl}}/sms_rcs_subscription_groups).
 
 ## Migrar tráfego de SMS para RCS {#migrating-sms-traffic-to-rcs}
 
@@ -125,7 +125,7 @@ Adicione uma etapa de Atualização de Usuário ao seu Canvas. Na etapa, abra o 
 
 ### Etapa 4: Testar o Canvas {#step-4-test-the-canvas}
 
-Recomendamos fortemente [testar seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases/) para confirmar que ele funciona conforme esperado antes de enviá-lo para seu público mais amplo.
+Recomendamos fortemente [testar seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases) para confirmar que ele funciona conforme esperado antes de enviá-lo para seu público mais amplo.
 
 ### Etapa 5: Lançar seu Canvas {#step-5-launch-your-canvas}
 

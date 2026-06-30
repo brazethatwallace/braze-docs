@@ -10,7 +10,7 @@ toc_headers: h2
 
 > Esta es una lista de documentación de referencia, repositorios GitHub y aplicaciones de ejemplo pertenecientes a cada SDK de Braze. La documentación de referencia de un SDK detalla las clases, tipos, funciones y variables disponibles. El repositorio GitHub proporciona información sobre las declaraciones de funciones y atributos de ese SDK, los cambios en el código y el versionado. Cada repositorio también incluye aplicaciones de ejemplo totalmente compilables que puedes utilizar para probar las características de Braze o implementar junto con tus propias aplicaciones.
 
-Para ver el contenido del README del repositorio reflejado en la documentación, consulta [Guías de repositorios]({{site.baseurl}}/developer_guide/sdk_repository_guides/).
+Para ver el contenido del README del repositorio reflejado en la documentación, consulta [Guías de repositorios]({{site.baseurl}}/developer_guide/sdk_repository_guides).
 
 ## Lista de recursos {#list-of-resources}
 
@@ -41,7 +41,7 @@ Actualmente, algunos SDK no cuentan con documentación de referencia específica
 
 Nuestra aplicación de prueba dentro del [repositorio GitHub del SDK para Android](https://github.com/braze-inc/braze-android-sdk) se llama Droidboy. Sigue estas instrucciones para crear una copia totalmente funcional junto a tu proyecto.
 
-1. Crea un nuevo [espacio de trabajo]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration/#app-group-configuration) y anota la clave de identificador de API de Braze.<br><br>
+1. Crea un nuevo [espacio de trabajo]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration#app-group-configuration) y anota la clave de identificador de API de Braze.<br><br>
 2. Copia tu ID de remitente de FCM y la clave de identificador de API de Braze en los lugares correspondientes dentro de `/droidboy/res/values/braze.xml` (entre las etiquetas de las cadenas denominadas `com_braze_push_fcm_sender_id` y `com_braze_api_key`, respectivamente).<br><br>
 3. Copia la clave de tu servidor FCM y el ID del servidor en la configuración de tu espacio de trabajo, en **Administrar configuración**.<br><br>
 4. Para montar el APK de Droidboy, ejecuta `./gradlew assemble` dentro del directorio del SDK. Utiliza `gradlew.bat` en Windows.<br><br>
@@ -52,7 +52,7 @@ Nuestra aplicación de prueba dentro del [repositorio GitHub del SDK para Androi
 La aplicación de prueba Hello Braze muestra un caso de uso mínimo del SDK de Braze y, además, muestra cómo integrar fácilmente el SDK de Braze en un proyecto Gradle.
 
 1. Copia tu clave de identificador de API de la página **Administrar configuración** en tu archivo `braze.xml` de la carpeta `res/values`.
-![]({% image_buster /assets/img_archive/hello_appboy.png %})<br><br>
+![Captura de pantalla relacionada con la compilación de "Hello Braze".]({% image_buster /assets/img_archive/hello_appboy.png %})<br><br>
 2. Para instalar la aplicación de ejemplo en un dispositivo o emulador, ejecuta el siguiente comando dentro del directorio del SDK:
 ```
 ./gradlew installDebug
@@ -67,12 +67,12 @@ Para obtener más información sobre el sistema de compilación del SDK para And
 
 Sigue estas instrucciones para compilar y ejecutar nuestras aplicaciones de prueba.
 
-1. Crea un nuevo [espacio de trabajo]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration/#creating-your-app-group-in-my-apps) y anota la clave de API del identificador de la aplicación y el punto de conexión.
+1. Crea un nuevo [espacio de trabajo]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration#creating-your-app-group-in-my-apps) y anota la clave de API del identificador de la aplicación y el punto de conexión.
 2. Según tu método de integración (Swift Package Manager, CocoaPods, manual), selecciona el archivo `xcodeproj` adecuado para abrirlo.
 3. Coloca tu clave de API y tu punto de conexión en el campo correspondiente del archivo `Credentials`.
 {% endtab %}
 {% endtabs %}
 
 {% alert note %}
-Mientras realizas el control de calidad de tu integración de SDK, utiliza el [Depurador de SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging/) para solucionar problemas sin activar el registro detallado de tu aplicación.
+Mientras realizas el control de calidad de tu integración de SDK, utiliza el [Depurador de SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging) para solucionar problemas sin activar el registro detallado de tu aplicación.
 {% endalert %}

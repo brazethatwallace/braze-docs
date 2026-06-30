@@ -34,7 +34,7 @@ guide_featured_list:
   link: /docs/user_guide/analytics/reports/query_builder
   image: /assets/img/braze_icons/tool-01.svg
 - name: SQL 세그먼트 확장
-  link: /docs/sql_segments/
+  link: /docs/sql_segments
   image: /assets/img/braze_icons/users-01.svg
 
 ---

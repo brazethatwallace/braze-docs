@@ -15,15 +15,15 @@ description: "Este artículo describe los detalles sobre el punto de conexión `
 /media_library/create
 {% endapimethod %}
 
-> Utiliza este punto de conexión para añadir un activo a la [biblioteca de medios de Braze]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/) utilizando una URL alojada externamente (`asset_url`) o datos de archivo binario enviados en el cuerpo de la solicitud (`asset_file`). Este punto de conexión admite imágenes y archivos ZIP que contienen imágenes.
+> Utiliza este punto de conexión para añadir un activo a la [biblioteca de medios de Braze]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) utilizando una URL alojada externamente (`asset_url`) o datos de archivo binario enviados en el cuerpo de la solicitud (`asset_file`). Este punto de conexión admite imágenes y archivos ZIP que contienen imágenes.
 
 {% alert tip %}
-También puedes llamar a este punto de conexión a través del [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server/) utilizando la función [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#media-library). Esto permite que herramientas de IA como Claude y Cursor carguen activos en tu biblioteca de medios mediante indicaciones en lenguaje natural.
+También puedes llamar a este punto de conexión a través del [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) utilizando la función [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library). Esto permite que herramientas de IA como Claude y Cursor carguen activos en tu biblioteca de medios mediante indicaciones en lenguaje natural.
 {% endalert %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `media_library.create`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `media_library.create`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -154,7 +154,7 @@ Esta tabla enumera los posibles errores de procesamiento.
 | `ZIP_FILE_TOO_LARGE` | 400 | El tamaño total sin comprimir del archivo ZIP supera el límite de 5 MB. El objeto `meta` incluye el `zip_file_name` y el `zip_file_size`. |
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | Una entrada de archivo dentro del ZIP no tiene nombre. Asegúrate de que el archivo ZIP no esté dañado y añade un nombre a cualquier entrada de archivo sin nombre. |
 | `ZIPPED_ENTITY_CANNOT_HAVE_NESTED_DIRECTORY` | 400 | El archivo ZIP contiene directorios anidados, que no son compatibles. Todos los archivos deben estar en el nivel raíz del ZIP. |
-| `GENERIC_ERROR` | 500 | Se produjo un error inesperado durante la carga. El objeto `meta` incluye el mensaje `original_error` para la depuración. Vuelve a intentarlo o ponte en contacto con [Soporte]({{site.baseurl}}/support_contact/). |
+| `GENERIC_ERROR` | 500 | Se produjo un error inesperado durante la carga. El objeto `meta` incluye el mensaje `original_error` para la depuración. Vuelve a intentarlo o ponte en contacto con [Soporte]({{site.baseurl}}/support_contact). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Errores de procesamiento" }
 
 

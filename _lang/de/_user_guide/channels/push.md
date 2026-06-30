@@ -19,8 +19,8 @@ search_rank: 3
 
 Bevor Sie beginnen, stellen Sie sicher, dass Folgendes vorhanden ist:
 
-- **Push ist in Ihre App oder Website integriert.** Arbeiten Sie mit Ihren Entwickler:innen zusammen, um dies einzurichten. Detaillierte Schritte finden Sie in den Integrationsleitfäden für [iOS]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android) und [Internet]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web).
-- **Eine Push-Opt-in-Strategie.** Nutzer:innen müssen die Push-Berechtigung auf ihrem Gerät erteilen. Erwägen Sie den Einsatz von [Push-Primer-Nachrichten]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/), um den Mehrwert zu erklären, bevor Sie die Aufforderung anzeigen.
+- **Push ist in Ihre App oder Website integriert.** Arbeiten Sie mit Ihren Entwickler:innen zusammen, um dies einzurichten. Detaillierte Schritte finden Sie in den Integrationsleitfäden für [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications?tab=android) und [Internet]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web).
+- **Eine Push-Opt-in-Strategie.** Nutzer:innen müssen die Push-Berechtigung auf ihrem Gerät erteilen. Erwägen Sie den Einsatz von [Push-Primer-Nachrichten]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages), um den Mehrwert zu erklären, bevor Sie die Aufforderung anzeigen.
 
 ## Anwendungsfälle {#use-cases}
 
@@ -50,5 +50,5 @@ Ihre Push-Nachrichten müssen den [Richtlinien für die Überprüfung im Apple A
 
 ## Nächste Schritte {#next-steps}
 
-- [Push-Einrichtung]({{site.baseurl}}/user_guide/channels/push/push_setup/)
-- [Eine Push-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/)
+- [Push-Einrichtung]({{site.baseurl}}/user_guide/channels/push/push_setup)
+- [Eine Push-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)

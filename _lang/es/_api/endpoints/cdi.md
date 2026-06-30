@@ -15,13 +15,13 @@ guide_top_text: "Usa los puntos de conexión de Ingesta de datos de Cloud de Bra
 guide_featured_title: ""
 guide_featured_list:
   - name: "GET: Listar integraciones"
-    link: /docs/api/cdi/get_integration_list/
+    link: /docs/api/cdi/get_integration_list
     image: /assets/img/braze_icons/list.svg
   - name: "GET: Listar estado de sincronización de trabajos"
     link: /docs/api/cdi/get_job_sync
     image: /assets/img/braze_icons/list.svg
   - name: "POST: Desencadenar sincronización"
-    link: /docs/api/cdi/post_trigger_sync/
+    link: /docs/api/cdi/post_trigger_sync
     image: /assets/img/braze_icons/play.svg
 
 ---

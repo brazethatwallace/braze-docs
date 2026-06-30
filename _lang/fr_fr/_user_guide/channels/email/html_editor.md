@@ -32,9 +32,9 @@ Utilisez les campagnes pour un envoi de messages simple et unique. Utilisez les 
 1. Accédez à **Messaging** > **Campaigns** et sélectionnez **Create Campaign**.
 2. Sélectionnez **Email** ou, pour les campagnes ciblant plusieurs canaux, sélectionnez **Multichannel**.
 3. Donnez à votre campagne un nom clair et significatif.
-4. Ajoutez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) et des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) si nécessaire.
-   * Les étiquettes facilitent la recherche de vos campagnes et la création de rapports. Par exemple, lorsque vous utilisez le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder/), vous pouvez filtrer par étiquettes spécifiques.
-5. Ajoutez et nommez autant de variantes que nécessaire pour votre campagne. Pour en savoir plus sur ce sujet, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+4. Ajoutez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) si nécessaire.
+   * Les étiquettes facilitent la recherche de vos campagnes et la création de rapports. Par exemple, lorsque vous utilisez le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par étiquettes spécifiques.
+5. Ajoutez et nommez autant de variantes que nécessaire pour votre campagne. Pour en savoir plus sur ce sujet, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
 Si tous les messages de votre campagne sont similaires ou ont le même contenu, rédigez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite choisir **Copy from Variant** dans le menu déroulant **Add Variant**.
@@ -42,11 +42,11 @@ Si tous les messages de votre campagne sont similaires ou ont le même contenu, 
 {% endtab %}
 {% tab Canvas %}
 
-1. [Créez votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) à l'aide du compositeur de Canvas.
+1. [Créez votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) à l'aide du compositeur de Canvas.
 2. Après avoir configuré votre Canvas, ajoutez une étape dans le générateur de Canvas. Donnez à votre étape un nom clair et significatif.
-3. Choisissez une [planification d'étape]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay) et spécifiez un délai si nécessaire.
+3. Choisissez une [planification d'étape]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) et spécifiez un délai si nécessaire.
 4. Filtrez votre audience pour cette étape, si nécessaire. Vous pouvez affiner davantage les destinataires de cette étape en spécifiant des segments et en ajoutant des filtres supplémentaires. Les options d'audience seront vérifiées après le délai, au moment de l'envoi des messages.
-5. Choisissez votre [comportement d'avancement]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/).
+5. Choisissez votre [comportement d'avancement]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 6. Choisissez tout autre canal de communication que vous souhaitez associer à votre message.
 {% endtab %}
 {% endtabs %}
@@ -59,11 +59,11 @@ Si vous prévoyez de créer du HTML personnalisé et que vous souhaitez que les 
 
 ## Étape 2 : Sélectionner votre expérience d'édition {#step-2-choose-your-template-and-compose-your-email}
 
-Braze propose deux expériences d'édition lors de la création d'une campagne e-mail : notre [éditeur par glisser-déposer]({{site.baseurl}}/dnd/) et notre éditeur HTML standard. Choisissez la tuile correspondant à l'expérience d'édition que vous préférez.
+Braze propose deux expériences d'édition lors de la création d'une campagne e-mail : notre [éditeur par glisser-déposer]({{site.baseurl}}/dnd) et notre éditeur HTML standard. Choisissez la tuile correspondant à l'expérience d'édition que vous préférez.
 
 ![Choix entre l'éditeur par glisser-déposer, l'éditeur HTML ou les modèles pour votre expérience d'édition d'e-mail.]({% image_buster /assets/img_archive/choose_email_creation.png %}){: style="max-width:75%" }
 
-Ensuite, vous pouvez soit sélectionner un [modèle d'e-mail]({{site.baseurl}}/user_guide/channels/email/html_editor/#creating-an-email-template) existant, [importer un modèle]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/) depuis un fichier (éditeur HTML uniquement), soit utiliser un modèle vierge.
+Ensuite, vous pouvez soit sélectionner un [modèle d'e-mail]({{site.baseurl}}/user_guide/channels/email/html_editor#creating-an-email-template) existant, [importer un modèle]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template) depuis un fichier (éditeur HTML uniquement), soit utiliser un modèle vierge.
 
 Si vous utilisez l'éditeur HTML et que vous souhaitez que les couleurs d'arrière-plan restent cohérentes dans l'application mobile Gmail lorsque l'appareil est en mode sombre, consultez [Application mobile Gmail et couleurs d'arrière-plan en mode sombre](#gmail-dark-mode).
 
@@ -73,7 +73,7 @@ Nous recommandons de sélectionner une seule expérience d'édition par campagne
 
 ## Étape 3 : Rédiger votre e-mail {#step-3-compose-your-email}
 
-Après avoir sélectionné votre modèle, vous verrez un aperçu de votre e-mail où vous pouvez accéder directement à l'éditeur en plein écran pour rédiger votre e-mail, modifier vos informations d'envoi et consulter les avertissements relatifs à la livrabilité ou à la conformité légale. Vous pouvez basculer entre les onglets HTML, classique, texte brut et [AMP]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email/) pendant la rédaction.
+Après avoir sélectionné votre modèle, vous verrez un aperçu de votre e-mail où vous pouvez accéder directement à l'éditeur en plein écran pour rédiger votre e-mail, modifier vos informations d'envoi et consulter les avertissements relatifs à la livrabilité ou à la conformité légale. Vous pouvez basculer entre les onglets HTML, classique, texte brut et [AMP]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email) pendant la rédaction.
 
 ![Le bouton « Régénérer à partir du HTML ».]({% image_buster /assets/img_archive/regenerate_from_html.png %}){: style="max-width:30%;float:right;margin-left:15px;border:none;" }
 
@@ -89,12 +89,12 @@ Braze supprime automatiquement les gestionnaires d'événements HTML référenc�
 {% endalert %}
 
 {% alert tip %}
-Besoin d'aide pour rédiger un texte percutant ? Essayez l'[assistant de rédaction IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy). Saisissez un nom ou une description de produit et l'IA générera un texte marketing de qualité humaine à utiliser dans vos messages.
+Besoin d'aide pour rédiger un texte percutant ? Essayez l'[assistant de rédaction IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Saisissez un nom ou une description de produit et l'IA générera un texte marketing de qualité humaine à utiliser dans vos messages.
 
 ![Bouton Lancer l'assistant de rédaction IA, situé dans l'onglet Corps du compositeur d'e-mail.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_email.png %}){: style="max-width:80%"}
 {% endalert %}
 
-Besoin d'aide pour créer des messages de droite à gauche pour des langues comme l'arabe et l'hébreu ? Consultez [Créer des messages de droite à gauche]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/) pour les bonnes pratiques.
+Besoin d'aide pour créer des messages de droite à gauche pour des langues comme l'arabe et l'hébreu ? Consultez [Créer des messages de droite à gauche]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages) pour les bonnes pratiques.
 
 ### Application mobile Gmail et mode sombre {#gmail-dark-mode}
 
@@ -140,14 +140,14 @@ Vous pouvez également ajouter de la personnalisation pour les en-têtes d'e-mai
 Vous pouvez également ajouter des pièces jointes à vos e-mails par les méthodes suivantes :
 
 - **Importer un fichier :** Glissez-déposez ou parcourez pour importer un fichier directement depuis votre ordinateur vers l'e-mail. Braze valide le type et la taille du fichier (jusqu'à 2&nbsp;Mo par défaut) avant l'importation, puis ces fichiers sont importés dans la bibliothèque multimédia. Les fichiers dépassant la limite de 2&nbsp;Mo ne peuvent pas être importés.
-- **Utiliser la bibliothèque multimédia :** Parcourez et sélectionnez parmi les ressources déjà stockées dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). Les PDF, documents Word, fichiers Excel et présentations PowerPoint sont tous pris en charge.
+- **Utiliser la bibliothèque multimédia :** Parcourez et sélectionnez parmi les ressources déjà stockées dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Les PDF, documents Word, fichiers Excel et présentations PowerPoint sont tous pris en charge.
 - **Ajouter depuis une URL :** Saisissez une URL pointant vers le fichier et fournissez un nom de fichier d'affichage. Comme Braze ne peut pas vérifier la taille des fichiers à partir d'URL arbitraires lors de la composition de l'e-mail, la taille du fichier est vérifiée au moment de l'envoi. Notez que Liquid n'est pas pris en charge dans ce champ.
 
-Consultez les [bonnes pratiques pour les e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/) pour les recommandations spécifiques à prendre en compte.
+Consultez les [bonnes pratiques pour les e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) pour les recommandations spécifiques à prendre en compte.
 
 ##### En-têtes d'e-mail {#email-headers}
 
-Pour ajouter des en-têtes d'e-mail, sélectionnez **Add New Header**. Les en-têtes d'e-mail contiennent des informations sur l'e-mail envoyé. Ces [paires clé-valeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/) incluent généralement l'expéditeur, le destinataire, le protocole d'authentification et les informations de routage. Braze ajoute automatiquement les informations d'en-tête requises par la RFC pour que les e-mails atteignent les fournisseurs de boîtes de réception.
+Pour ajouter des en-têtes d'e-mail, sélectionnez **Add New Header**. Les en-têtes d'e-mail contiennent des informations sur l'e-mail envoyé. Ces [paires clé-valeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) incluent généralement l'expéditeur, le destinataire, le protocole d'authentification et les informations de routage. Braze ajoute automatiquement les informations d'en-tête requises par la RFC pour que les e-mails atteignent les fournisseurs de boîtes de réception.
 
 Braze vous offre la flexibilité d'ajouter des en-têtes d'e-mail supplémentaires selon vos besoins pour des cas d'utilisation avancés. Il existe quelques champs réservés que la plateforme Braze écrasera lors de l'envoi.
 
@@ -208,7 +208,7 @@ Pour ajouter des extras d'e-mail, accédez à **Sending Info** et sélectionnez 
 Le total des paires clé-valeur ajoutées ne doit pas dépasser 1 Ko. Sinon, les messages seront abandonnés.
 {% endalert %}
 
-Les valeurs des extras d'e-mail ne sont pas publiées dans Currents ou Snowflake. Si vous souhaitez envoyer des métadonnées supplémentaires ou des valeurs dynamiques à Currents ou Snowflake, utilisez plutôt [`message_extras`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/).
+Les valeurs des extras d'e-mail ne sont pas publiées dans Currents ou Snowflake. Si vous souhaitez envoyer des métadonnées supplémentaires ou des valeurs dynamiques à Currents ou Snowflake, utilisez plutôt [`message_extras`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras).
 
 ### Étape 3.2 : Prévisualiser et tester votre message {#step-3b-preview-and-test-your-message}
 
@@ -255,7 +255,7 @@ Avant l'envoi, l'éditeur signale les problèmes courants :
 - Erreurs de syntaxe Liquid
 - Content Blocks qui incluent un `<!DOCTYPE html>` complet
 - Le corps de l'e-mail dépasse 400&nbsp;Ko
-  - Visez [moins de 102&nbsp;Ko]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices/guidelines_and_tips/#email-size) pour éviter la troncature.
+  - Visez [moins de 102&nbsp;Ko]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices/guidelines_and_tips#email-size) pour éviter la troncature.
 - Corps ou objet vide
 - Lien de désabonnement manquant
 - Le domaine d'expéditeur n'est pas dans la liste autorisée (envois fortement limités)
@@ -268,21 +268,21 @@ Ensuite, construisez le reste de votre campagne. Consultez les sections suivante
 
 ### Choisir la planification de distribution ou le déclencheur {#choose-delivery-schedule-or-trigger}
 
-Distribuez les e-mails en fonction d'un horaire planifié, d'une action ou d'un déclencheur API. Pour en savoir plus, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
+Distribuez les e-mails en fonction d'un horaire planifié, d'une action ou d'un déclencheur API. Pour en savoir plus, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
 {% alert note %}
 Pour les campagnes déclenchées par API, lorsque l'action de déclenchement est définie sur **Interact With Campaign**, la sélection d'une option **Receive** comme interaction entraînera le déclenchement de votre nouvelle campagne dès que Braze marquera la campagne sélectionnée comme envoyée, même si ce message rebondit ou n'est pas distribué.
 {% endalert %}
 
-Vous pouvez également définir la durée de la campagne, spécifier les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) et définir des règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
+Vous pouvez également définir la durée de la campagne, spécifier les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) et définir des règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping).
 
 ### Choisir les utilisateurs à cibler {#choose-users-to-target}
 
-Ensuite, [ciblez les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) en choisissant des segments ou des filtres. Braze affiche un aperçu en temps réel de la population du segment, y compris le nombre d'utilisateurs joignables par e-mail. L'appartenance exacte au segment est calculée juste avant l'envoi.
+Ensuite, [ciblez les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) en choisissant des segments ou des filtres. Braze affiche un aperçu en temps réel de la population du segment, y compris le nombre d'utilisateurs joignables par e-mail. L'appartenance exacte au segment est calculée juste avant l'envoi.
 
 {% multi_lang_include audience/target_audiences.md %}
 
-Vous pouvez également choisir d'envoyer votre campagne uniquement aux utilisateurs ayant un [statut d'abonnement]({{site.baseurl}}/user_guide/channels/email/subscriptions/) spécifique, comme ceux qui sont abonnés et ont accepté de recevoir des e-mails.
+Vous pouvez également choisir d'envoyer votre campagne uniquement aux utilisateurs ayant un [statut d'abonnement]({{site.baseurl}}/user_guide/channels/email/subscriptions) spécifique, comme ceux qui sont abonnés et ont accepté de recevoir des e-mails.
 
 Vous pouvez également limiter la distribution à un nombre spécifié d'utilisateurs au sein du segment, ou permettre aux utilisateurs de recevoir le même message deux fois lors d'une récurrence de la campagne.
 
@@ -306,18 +306,18 @@ Avec cette configuration, n'incluez aucun filtre dans l'étape **Target Audience
 
 ### Choisir les événements de conversion {#choose-conversion-events}
 
-Braze vous permet de suivre la fréquence à laquelle les utilisateurs effectuent des actions spécifiques, les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), après avoir reçu une campagne. Vous pouvez spécifier l'une des actions suivantes comme événement de conversion :
+Braze vous permet de suivre la fréquence à laquelle les utilisateurs effectuent des actions spécifiques, les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), après avoir reçu une campagne. Vous pouvez spécifier l'une des actions suivantes comme événement de conversion :
 
 - Ouvre l'application
 - Effectue un achat (il peut s'agir d'un achat générique ou d'un article spécifique)
 - Effectue un événement personnalisé spécifique
 - Ouvre l'e-mail
 
-Vous pouvez autoriser une fenêtre allant jusqu'à 30 jours pendant laquelle Braze comptabilise une conversion si l'utilisateur effectue l'action spécifiée. Bien que Braze suive automatiquement les ouvertures et les clics, vous pouvez définir l'événement de conversion sur une ouverture ou un clic pour utiliser la [Sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/).
+Vous pouvez autoriser une fenêtre allant jusqu'à 30 jours pendant laquelle Braze comptabilise une conversion si l'utilisateur effectue l'action spécifiée. Bien que Braze suive automatiquement les ouvertures et les clics, vous pouvez définir l'événement de conversion sur une ouverture ou un clic pour utiliser la [Sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection).
 {% endtab %}
 
 {% tab Canvas %}
-Si ce n'est pas déjà fait, complétez les sections restantes de vos composants Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, de mettre en œuvre les tests multivariés et la Sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) de notre documentation Canvas.
+Si ce n'est pas déjà fait, complétez les sections restantes de vos composants Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, de mettre en œuvre les tests multivariés et la Sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de notre documentation Canvas.
 {% endtab %}
 {% endtabs %}
 
@@ -325,4 +325,4 @@ Si ce n'est pas déjà fait, complétez les sections restantes de vos composants
 
 La dernière section résume la campagne que vous avez conçue. Confirmez tous les détails pertinents et sélectionnez **Launch Campaign**.
 
-Pour savoir comment accéder aux résultats de vos campagnes e-mail, consultez [Rapports e-mail]({{site.baseurl}}/user_guide/channels/email/reporting/).
+Pour savoir comment accéder aux résultats de vos campagnes e-mail, consultez [Rapports e-mail]({{site.baseurl}}/user_guide/channels/email/reporting).

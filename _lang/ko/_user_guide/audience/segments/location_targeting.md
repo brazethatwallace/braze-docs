@@ -12,7 +12,7 @@ description: "이 사용법 문서에서는 위치 타겟팅을 설정하여 위
 
 # 위치 타겟팅 {#location-targeting}
 
-> 이 문서에서는 위치 타겟팅을 설정하여 가장 최근 위치를 기준으로 사용자를 세분화하는 방법을 안내합니다. 위치 기반 Campaign(캠페인) 및 전략을 검토하고 있다면 이 기능이 적합합니다.
+> 이 문서에서는 위치 타겟팅을 설정하여 가장 최근 위치를 기준으로 사용자를 세분화하는 방법을 안내합니다. 위치 기반 Campaign 및 전략을 검토하고 있다면 이 기능이 적합합니다.
 
 ## 1단계: Segment 생성하기 {#step-1-create-your-segment}
 
@@ -51,6 +51,6 @@ Segment를 생성한 후 **가장 최근 위치** 필터를 추가하여 사용�
 
 기존 비콘 또는 지오펜스 지원을 타겟팅 및 메시징 기능과 결합하면 사용자의 물리적 행동에 대한 더 많은 정보를 얻을 수 있으므로 그에 맞게 메시지를 보낼 수 있습니다. 다음 파트너를 통해 위치 추적을 활용할 수 있습니다:
 
-- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/)
-- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion/)
-- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)
+- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar)
+- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion)
+- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare)

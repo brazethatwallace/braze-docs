@@ -23,7 +23,7 @@ Braze에서 푸시 Campaign 또는 Canvas를 생성할 때 여러 플랫폼과 �
 
 여러 플랫폼과 기기를 타겟팅하는 Campaign을 생성하려면:
 
-1. Campaign을 생성하거나 Canvas에 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)를 추가합니다.
+1. Campaign을 생성하거나 Canvas에 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)를 추가합니다.
 2. **푸시 알림**을 선택합니다.
 3. 원하는 플랫폼(모바일, 웹, Kindle)과 모바일 기기(iOS, Android)를 선택합니다. 여러 기기를 선택하면 Campaign에서 다변량 테스트를 사용할 수 없습니다.
 
@@ -39,7 +39,7 @@ Braze에서 푸시 Campaign 또는 Canvas를 생성할 때 여러 플랫폼과 �
 
 ## 다중 플랫폼 다변량 테스트 실행하기 {#running-a-multi-platform-multivariate-test}
 
-다변량 테스트는 다중 플랫폼 Campaign에서 지원됩니다. 단일 플랫폼 Campaign에서와 마찬가지로 배리언트 이름 옆의 더하기 아이콘을 선택하면 됩니다. 다변량 테스트 생성에 대한 [가이드를 읽어보시고]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/) [BrazeAI<sup>TM</sup> 배리언트 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/)을 활용하여 참여를 자동화하고 극대화하는 것을 권장합니다.
+다변량 테스트는 다중 플랫폼 Campaign에서 지원됩니다. 단일 플랫폼 Campaign에서와 마찬가지로 배리언트 이름 옆의 더하기 아이콘을 선택하면 됩니다. 다변량 테스트 생성에 대한 [가이드를 읽어보시고]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) [BrazeAI<sup>TM</sup> 배리언트 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection)을 활용하여 참여를 자동화하고 극대화하는 것을 권장합니다.
 
 ![간편한 다중 플랫폼 다변량 테스트]({% image_buster /assets/img_archive/push_multiple_platform_message_composer_multivariate.png %})
 
@@ -53,7 +53,7 @@ Braze에서 푸시 Campaign 또는 Canvas를 생성할 때 여러 플랫폼과 �
 ![iOS, Android, 웹 세 가지 푸시 유형에 대해 하나의 제목, 메시지, 클릭 시 동작 필드가 있는 단일 편집 화면.]({% image_buster /assets/img_archive/push_multiple_platform_message_composer.png %})
 
 ### 개별 자산 {#separate-assets}
-**자산** 섹션에서 각 플랫폼에 표시할 이미지를 선택하거나 업로드합니다. 기기마다 이미지 및 글자 수에 대한 사양이 다르다는 점에 유의하세요. 도움이 필요하면 [푸시 메시지 및 이미지 형식]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/)을 참조하세요.
+**자산** 섹션에서 각 플랫폼에 표시할 이미지를 선택하거나 업로드합니다. 기기마다 이미지 및 글자 수에 대한 사양이 다르다는 점에 유의하세요. 도움이 필요하면 [푸시 메시지 및 이미지 형식]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats)을 참조하세요.
 
 ![푸시 아이콘 이미지, iOS 알림 이미지, Android 알림 이미지, 웹 알림 이미지 필드가 있는 단일 편집 화면의 자산 섹션.]({% image_buster /assets/img_archive/push_multiple_platform_message_composer_assets.png %}){:style="max-width:50%"}
 
@@ -63,12 +63,12 @@ Braze에서 푸시 Campaign 또는 Canvas를 생성할 때 여러 플랫폼과 �
 
 ### 기기별 설정 {#device-specific-settings}
 
-편집기에서 플랫폼별 설정을 편집할 수 있습니다. 여기에는 [푸시 실행 버튼]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/), 알림 채널 및 그룹, TTL, 표시 우선순위, 사운드 등의 설정이 포함됩니다.
+편집기에서 플랫폼별 설정을 편집할 수 있습니다. 여기에는 [푸시 실행 버튼]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons), 알림 채널 및 그룹, TTL, 표시 우선순위, 사운드 등의 설정이 포함됩니다.
 
 기기별 설정에 대한 자세한 내용은 다음 문서 모음을 참조하세요.
 
-- [iOS 옵션]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/)
-- [Android 옵션]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/)
+- [iOS 옵션]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios)
+- [Android 옵션]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android)
 
 ### Push Stories
 

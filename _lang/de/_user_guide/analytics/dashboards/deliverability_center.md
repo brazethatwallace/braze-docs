@@ -15,7 +15,7 @@ channel:
 
 E-Mail-Zustellbarkeit ist der Kern des Kampagnenerfolgs. Mit dem Deliverability Center im Braze-Dashboard können Sie Ihre Domains nach **IP Reputation** oder **Delivery Errors** anzeigen, um potenzielle Probleme mit der E-Mail-Zustellbarkeit zu erkennen und zu beheben.
 
-Um auf das Deliverability Center zuzugreifen, benötigen Sie die [Nutzer:innenberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) im folgenden Dropdown für Ihren Workspace.
+Um auf das Deliverability Center zuzugreifen, benötigen Sie die [Nutzer:innenberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) im folgenden Dropdown für Ihren Workspace.
 
 {% details Nutzer:innenberechtigungen für das Deliverability Center %}
 
@@ -80,6 +80,13 @@ Wenn Ihre Subdomains nicht im Deliverability Center für Google Postmaster angez
 {% endalert %}
 
 ## Google Postmaster integrieren {#integrating-google-postmaster}
+
+{% alert important %}
+**Migration zu Google Postmaster Tools v2**<br>
+Google stellt die alten Postmaster Tools (v1) ein und hat eine Version der nächsten Generation (v2) mit einer modernen Benutzeroberfläche und neuen Dashboards veröffentlicht, darunter ein Compliance-Dashboard zur Überwachung der Einhaltung der Gmail-Absenderrichtlinien. Alle Nutzer:innen müssen bis zum 31. Oktober 2026 auf v2 migrieren.<br><br>
+Um Ihre Google Postmaster Tool-Verbindung erneut zu autorisieren, gehen Sie zu **Partnerintegrationen** > **Technologie-Partner**, öffnen Sie **Google Postmaster** und wählen Sie **Change Account**, um sich mit den neuen v2-Berechtigungen erneut zu authentifizieren. Danach sind Sie auf v2 aktualisiert und erhalten Zugriff auf neue Dashboards und Daten.<br><br>
+Weitere Informationen finden Sie in [Googles Ankündigung zu den neuen Postmaster Tools](https://support.google.com/mail/answer/16594218?hl=en).
+{% endalert %}
 
 Bevor Sie Ihr Deliverability Center einrichten, stellen Sie sicher, dass Ihre Domains [zu den Gmail Postmaster Tools hinzugefügt](https://support.google.com/mail/answer/9981691?hl=en) wurden.
 
@@ -151,14 +158,14 @@ In dieser Tabelle erfahren Sie, welcher Prozentsatz Ihres eingehenden und ausgeh
 | TLS ausgehend | Zeigt den Prozentsatz der ausgehenden E-Mails (von Gmail), die über TLS akzeptiert wurden, im Verhältnis zu allen an diese Domain gesendeten E-Mails. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Verschlüsselung" }
 
-Weitere Ideen zur Verbesserung der Zustellbarkeit finden Sie unter [Zustellbarkeitsfallen und Spam-Traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/#deliverability-pitfalls-and-spam-traps). Lesen Sie auch unsere [Best Practices für E-Mails]({{site.baseurl}}/user_guide/channels/email/best_practices/), um zu erfahren, was Sie vor dem Versand einer E-Mail-Kampagne überprüfen sollten.
+Weitere Ideen zur Verbesserung der Zustellbarkeit finden Sie unter [Zustellbarkeitsfallen und Spam-Traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps). Lesen Sie auch unsere [Best Practices für E-Mails]({{site.baseurl}}/user_guide/channels/email/best_practices), um zu erfahren, was Sie vor dem Versand einer E-Mail-Kampagne überprüfen sollten.
 
 ## Microsoft Smart Network Data Services (SNDS) einrichten {#set-up-microsoft-smart-network-data-services-snds}
 
 Wenn Microsoft Ihr Haupt-Mailbox-Anbieter ist, können Sie diese Integration nutzen, um auf Ihre Microsoft-Reputationsdaten zuzugreifen und diese einzusehen. So können Sie den Zustand Ihrer IPs überwachen und besser einschätzen, wie Ihre E-Mails empfangen werden.
 
 {% alert important %}
-Wenn Sie Ihre Daten nicht im Deliverability Center sehen, kontaktieren Sie den [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) mit einer Liste Ihrer IP-Adressen.
+Wenn Sie Ihre Daten nicht im Deliverability Center sehen, kontaktieren Sie den [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) mit einer Liste Ihrer IP-Adressen.
 {% endalert %}
 
 ![Ein Beispiel für Ergebnisse von Microsoft SNDS, einschließlich Beispiel-IPs, Empfänger:innen, RCPT-Befehle, DATA-Befehle, Filterergebnis, Beschwerderate, Spam-Trap-Nachrichtenzeitraum (Start und Ende) und Spam-Trap-Treffer.]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})

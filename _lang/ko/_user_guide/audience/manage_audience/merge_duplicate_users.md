@@ -7,20 +7,20 @@ page_order: 4
 
 # 중복 사용자 병합 {#merge-duplicate-users}
 
-> Campaign과 Canvases의 효과를 극대화할 수 있도록 중복 사용자를 찾고 병합하는 방법을 알아보세요.
+> Campaign(캠페인)과 Canvases의 효과를 극대화할 수 있도록 중복 사용자를 찾고 병합하는 방법을 알아보세요.
 
 ## REST API: 사용자 식별 및 병합 {#rest-api-identify-and-merge-users}
 
-이 페이지의 도구는 대시보드에서 중복 프로필을 병합합니다. Braze의 [사용자 데이터 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/)를 통해 프로필을 결합하거나 다시 연결할 수도 있습니다.
+이 페이지의 도구는 대시보드에서 중복 프로필을 병합합니다. Braze의 [사용자 데이터 엔드포인트]({{site.baseurl}}/api/endpoints/user_data)를 통해 프로필을 결합하거나 다시 연결할 수도 있습니다.
 
-- [POST: 사용자 식별]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) (`/users/identify`): 별칭 전용, 이메일 전용 또는 전화번호 전용 프로필을 `external_id`가 있는 프로필과 결합합니다.
-- [POST: 사용자 병합]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) (`/users/merge`): 하나의 고객 프로필을 다른 프로필에 병합합니다. 두 프로필 모두 이미 `external_id`가 있는 경우에도 가능합니다. 이 엔드포인트를 호출하기 전에 [필수 조건]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#prerequisites) 및 [병합 동작]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior)을 검토하세요.
+- [POST: 사용자 식별]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) (`/users/identify`): 별칭 전용, 이메일 전용 또는 전화번호 전용 프로필을 `external_id`가 있는 프로필과 결합합니다.
+- [POST: 사용자 병합]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) (`/users/merge`): 하나의 고객 프로필을 다른 프로필에 병합합니다. 두 프로필 모두 이미 `external_id`가 있는 경우에도 가능합니다. 이 엔드포인트를 호출하기 전에 [필수 조건]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#prerequisites) 및 [병합 동작]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior)을 검토하세요.
 
-익명 프로필이 기존 식별된 프로필과 매칭되면(예: SDK `changeUser()` 호출 또는 `/users/identify`를 통해), Braze는 익명 프로필을 분리하고 특정 필드만 식별된 프로필에 복사합니다. 자세한 내용은 [익명 사용자를 식별할 때 발생하는 일]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users)을 참조하세요.
+익명 프로필이 기존 식별된 프로필과 매칭되면(예: SDK `changeUser()` 호출 또는 `/users/identify`를 통해), Braze는 익명 프로필을 분리하고 특정 필드만 식별된 프로필에 복사합니다. 자세한 내용은 [익명 사용자를 식별할 때 발생하는 일]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#what-happens-when-you-identify-anonymous-users)을 참조하세요.
 
 사용자 병합은 되돌리기 어렵습니다. 여러 `external_id` 값에 걸친 복잡한 병합이나 대규모 프로필 마이그레이션을 계획하고 있다면, `/users/merge`에 의존하기 전에 Braze 고객 성공 매니저에게 안내를 요청하세요.
 
-Braze는 병합 시 삭제 예정 사용자, 테스트 사용자, 전역 제어 그룹 사용자의 세 가지 사용자 유형을 다르게 처리합니다. 자세한 내용은 [사용자 병합 동작]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)을 참조하세요.
+Braze는 병합 시 삭제 예정 사용자, 테스트 사용자, 전역 제어 그룹 사용자의 세 가지 사용자 유형을 다르게 처리합니다. 자세한 내용은 [사용자 병합 동작]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior)을 참조하세요.
 
 ## 개별 병합 {#individual-merging}
 
@@ -83,7 +83,7 @@ Braze가 미리보기를 생성하여 이메일 주소로 CSV 파일로 전송�
 
 #### 병합 동작 {#merge-behavior}
 
-Braze는 유지되는 프로필의 비어 있는 필드를 병합된 프로필의 값으로 채웁니다. 채워지는 필드 목록은 [병합 동작]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior)을 참조하세요.
+Braze는 유지되는 프로필의 비어 있는 필드를 병합된 프로필의 값으로 채웁니다. 채워지는 필드 목록은 [병합 동작]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior)을 참조하세요.
 
 ### 3단계: 중복 항목 병합 {#step-3-merge-your-duplicates}
 
@@ -138,10 +138,10 @@ Braze는 유지되는 프로필의 비어 있는 필드를 병합된 프로필�
 
 Braze는 서로 다른 식별자, 가져오기 또는 식별 전 익명 세션을 통해 프로필이 생성된 경우 동일한 이메일 주소를 공유하는 여러 고객 프로필을 저장합니다. 이는 사용자가 단일 `external_id`를 공유하지 않을 때 예상되는 동작입니다.
 
-중복 항목을 병합하기 전에 [식별자별 사용자 프로필 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)를 사용하여 이메일 주소에 어떤 프로필이 존재하는지, 각 프로필에 어떤 필드가 포함되어 있는지 확인하세요. **오디언스** > **사용자 검색**에서 이메일로 검색하여 대시보드에서 중복 항목을 검토할 수도 있습니다.
+중복 항목을 병합하기 전에 [식별자별 사용자 프로필 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)를 사용하여 이메일 주소에 어떤 프로필이 존재하는지, 각 프로필에 어떤 필드가 포함되어 있는지 확인하세요. **오디언스** > **사용자 검색**에서 이메일로 검색하여 대시보드에서 중복 항목을 검토할 수도 있습니다.
 
 ## 관련 문서 {#related-articles}
 
-- [사용자 병합 동작]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)
-- [POST: 사용자 병합]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)
-- [사용자 삭제]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)
+- [사용자 병합 동작]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior)
+- [POST: 사용자 병합]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)
+- [사용자 삭제]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users)

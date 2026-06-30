@@ -14,7 +14,7 @@ noindex: true
 
 Brazeには、ユーザーに属性を割り当てるメソッドが用意されています。ダッシュボード上でこれらの属性に基づいて、ユーザーのフィルター処理やセグメント化を行うことができます。
 
-実装前に、[ベストプラクティス]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection)のカスタムイベント、カスタム属性、および購入イベントによって提供されるセグメンテーションオプションの例と、[イベント命名規則]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/)に関する注意事項を必ず確認してください。
+実装前に、[ベストプラクティス]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#user-data-collection)のカスタムイベント、カスタム属性、および購入イベントによって提供されるセグメンテーションオプションの例と、[イベント命名規則]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions)に関する注意事項を必ず確認してください。
 
 ## デフォルトユーザー属性の割り当て {#assigning-default-user-attributes}
 
@@ -54,7 +54,7 @@ Appboy.sharedInstance()?.user.firstName = "first_name"
 
 ## カスタムユーザー属性の割り当て {#assigning-custom-user-attributes}
 
-Brazeでは、デフォルトユーザー属性以外にも、複数の異なるデータタイプを使用してカスタム属性を定義できます。これらの各属性で提供されるセグメンテーションオプションの詳細については、[ユーザーデータ収集]({{site.baseurl}}/developer_guide/analytics/)を参照してください。
+Brazeでは、デフォルトユーザー属性以外にも、複数の異なるデータタイプを使用してカスタム属性を定義できます。これらの各属性で提供されるセグメンテーションオプションの詳細については、[ユーザーデータ収集]({{site.baseurl}}/developer_guide/analytics)を参照してください。
 
 ### 文字列値のカスタム属性 {#custom-attribute-with-a-string-value}
 
@@ -233,7 +233,7 @@ Appboy.sharedInstance()?.user.incrementCustomUserAttribute("your_attribute_key",
 
 ### REST APIによるカスタム属性の設定 {#setting-a-custom-attribute-via-the-rest-api}
 
-REST APIを使用してユーザー属性を設定することもできます。詳細については、[ユーザーAPIのドキュメント]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)を参照してください。
+REST APIを使用してユーザー属性を設定することもできます。詳細については、[ユーザーAPIのドキュメント]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data)を参照してください。
 
 ### カスタム属性値の制限 {#custom-attribute-value-limits}
 
@@ -257,7 +257,7 @@ REST APIを使用してユーザー属性を設定することもできます。
 
 アプリにプッシュ通知の送信を許可するユーザーは、iOSでは明示的なオプトインが必要であるため、デフォルトでステータスが`ABKOptedin`に設定されます。
 
-ユーザーは、有効なメールアドレスを受信すると自動的に`ABKSubscribed`に設定されます。ただし、明示的なオプトインのプロセスを確立し、ユーザーから明示的な同意を得た時点でこの値を`OptedIn`に設定することをお勧めします。詳細については、「[ユーザーサブスクリプションの管理]({{site.baseurl}}/user_guide/channels/email/subscriptions/)」を参照してください。
+ユーザーは、有効なメールアドレスを受信すると自動的に`ABKSubscribed`に設定されます。ただし、明示的なオプトインのプロセスを確立し、ユーザーから明示的な同意を得た時点でこの値を`OptedIn`に設定することをお勧めします。詳細については、「[ユーザーサブスクリプションの管理]({{site.baseurl}}/user_guide/channels/email/subscriptions)」を参照してください。
 
 ### メールサブスクリプションの設定 {#setting-email-subscriptions}
 
@@ -297,4 +297,4 @@ Appboy.sharedInstance()?.user.setPushNotificationSubscriptionType(ABKNotificatio
 {% endtab %}
 {% endtabs %}
 
-詳細については、「[ユーザーサブスクリプションの管理]({{site.baseurl}}/user_guide/channels/email/subscriptions/)」を参照してください。
+詳細については、「[ユーザーサブスクリプションの管理]({{site.baseurl}}/user_guide/channels/email/subscriptions)」を参照してください。

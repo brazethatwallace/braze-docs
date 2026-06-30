@@ -33,7 +33,7 @@ Les contraintes décrites dans cet article s'appliquent uniquement aux messages 
 
 ## Message Extras {#message-extras}
 
-L'[étiquette Liquid `message_extras`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/) vous permet d'annoter un message avec des métadonnées clé-valeur au moment de l'envoi. Ces données ne sont pas rendues dans le corps du message. Elles sont transmises au Contenu connecté, à Currents ou à d'autres mécanismes de capture de données à des fins d'attribution, de mesure d'impact et d'enrichissement d'événements.
+L'[étiquette Liquid `message_extras`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras) vous permet d'annoter un message avec des métadonnées clé-valeur au moment de l'envoi. Ces données ne sont pas rendues dans le corps du message. Elles sont transmises au Contenu connecté, à Currents ou à d'autres mécanismes de capture de données à des fins d'attribution, de mesure d'impact et d'enrichissement d'événements.
 
 {% raw %}
 ```liquid

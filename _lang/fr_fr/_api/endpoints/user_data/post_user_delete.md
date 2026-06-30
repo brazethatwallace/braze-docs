@@ -18,7 +18,7 @@ description: "Cet article décrit les détails de l'endpoint Braze pour supprime
 
 Jusqu'à 50 `external_ids`, `user_aliases`, `braze_ids`, `email_addresses` ou `phone_numbers` peuvent être inclus dans une seule requête. Un seul type parmi `external_ids`, `user_aliases`, `braze_ids`, `email_addresses` ou `phone_numbers` peut être inclus dans une seule requête.
 
-Si vous avez un cas d'utilisation qui ne peut pas être résolu par la suppression en bloc d'utilisateurs via l'API, contactez l'[équipe d'assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) pour obtenir de l'aide.
+Si vous avez un cas d'utilisation qui ne peut pas être résolu par la suppression en bloc d'utilisateurs via l'API, contactez l'[équipe d'assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) pour obtenir de l'aide.
 
 {% alert warning %}
 La suppression de profils utilisateur est irréversible. Cette action supprime définitivement les utilisateurs, ce qui peut entraîner des écarts dans vos données. Pour en savoir plus, consultez la section [Effets de la suppression de profils utilisateur](#effects-of-deleting-user-profiles).
@@ -28,7 +28,7 @@ La suppression de profils utilisateur est irréversible. Cette action supprime d
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key/) avec l'autorisation `users.delete`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `users.delete`.
 
 ## Limite de débit {#rate-limit}
 
@@ -55,7 +55,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | Paramètre | Requis | Type de données | Description |
 |-------------------|----------|----------------------------|--------------------------------------------------------------------------------------------------|
 | `external_ids` | Facultatif | Tableau de chaînes de caractères | Identifiants externes à supprimer. |
-| `user_aliases` | Facultatif | Tableau d'objets alias d'utilisateur | [Alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object/) à supprimer. |
+| `user_aliases` | Facultatif | Tableau d'objets alias d'utilisateur | [Alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object) à supprimer. |
 | `braze_ids` | Facultatif | Tableau de chaînes de caractères | Identifiants utilisateur Braze à supprimer. |
 | `email_addresses` | Facultatif | Tableau de chaînes de caractères | Adresses e-mail des utilisateurs à supprimer. Pour plus d'informations, reportez-vous à la section [Suppression d'utilisateurs par e-mail](#deleting-users-by-email). |
 | `phone_numbers` | Facultatif | Tableau de chaînes de caractères | Numéros de téléphone des utilisateurs à supprimer. |
@@ -95,7 +95,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
   ],
   "email_addresses": [
     {
-      "email": "john.smith@braze.com",
+      "email": "john.smith@example.com",
       "prioritization": ["unidentified", "most_recently_updated"]
     }
   ]
@@ -115,12 +115,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
 Lorsque vous supprimez un utilisateur avec cet endpoint, les événements suivants se produisent :
 
 - Le profil utilisateur est supprimé (mis à null).
-- Le nombre d'utilisateurs de l'espace de travail (tel que le nombre total d'utilisateurs sur la [page d'accueil analytique]({{site.baseurl}}/user_guide/analytics/dashboards/home/)) est mis à jour pour tenir compte des utilisateurs supprimés.
+- Le nombre d'utilisateurs de l'espace de travail (tel que le nombre total d'utilisateurs sur la [page d'accueil analytique]({{site.baseurl}}/user_guide/analytics/dashboards/home)) est mis à jour pour tenir compte des utilisateurs supprimés.
 - L'utilisateur supprimé est toujours comptabilisé dans le pourcentage de conversion agrégé. Les compteurs d'événements personnalisés et d'achats ne sont pas mis à jour pour les utilisateurs supprimés.
 
 ### Profils multiples partageant une même adresse e-mail {#multiple-profiles-with-a-shared-email-address}
 
-Pour fusionner des profils utilisateur partageant la même adresse e-mail, appelez l'[endpoint `/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/).
+Pour fusionner des profils utilisateur partageant la même adresse e-mail, appelez l'[endpoint `/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge).
 
 ## Résolution des problèmes {#troubleshooting}
 
@@ -130,10 +130,10 @@ Une réponse réussie confirme que la requête a été mise en file d'attente, e
 
 Si l'utilisateur existe toujours après plusieurs minutes, vérifiez que l'identifiant de votre requête correspond bien au profil réel de l'utilisateur :
 
-- **Tableau `external_ids` :** Confirmez que chaque valeur correspond exactement à l'ID externe d'un utilisateur.
-- **`braze_id` :** Vous pouvez trouver le `braze_id` d'un utilisateur en exportant ses données avec l'[endpoint `/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) ou en exportant un segment au format CSV (où le `braze_id` apparaît sous le nom « Appboy ID »).
-- **Profils avec alias uniquement ou e-mail uniquement :** Si le profil ne possède pas d'`external_id`, créez un segment filtrant sur **External User ID is blank** combiné avec l'adresse e-mail ou le numéro de téléphone connu, puis exportez au format CSV pour récupérer le `braze_id`.
+- **Tableau `external_ids` :** confirmez que chaque valeur correspond exactement à l'ID externe d'un utilisateur.
+- **`braze_id` :** vous pouvez trouver le `braze_id` d'un utilisateur en exportant ses données avec l'[endpoint `/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) ou en exportant un segment au format CSV (où le `braze_id` apparaît sous le nom « Appboy ID »).
+- **Profils avec alias uniquement ou e-mail uniquement :** si le profil ne possède pas d'`external_id`, créez un segment filtrant sur **External User ID is blank** combiné avec l'adresse e-mail ou le numéro de téléphone connu, puis exportez au format CSV pour récupérer le `braze_id`.
 
-Pour confirmer qu'un utilisateur a bien été supprimé, appelez l'[endpoint `/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) en utilisant le même type d'identifiant que celui utilisé dans la requête de suppression (par exemple, en incluant la valeur dans `external_ids`, `braze_id` ou `user_aliases`). Si l'utilisateur n'existe plus, la réponse contient `"users": []` et peut inclure `"invalid_user_ids"` listant cet identifiant.
+Pour confirmer qu'un utilisateur a bien été supprimé, appelez l'[endpoint `/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) en utilisant le même type d'identifiant que celui utilisé dans la requête de suppression (par exemple, en incluant la valeur dans `external_ids`, `braze_id` ou `user_aliases`). Si l'utilisateur n'existe plus, la réponse contient `"users": []` et peut inclure `"invalid_user_ids"` listant cet identifiant.
 
 {% endapi %}

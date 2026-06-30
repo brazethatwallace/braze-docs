@@ -132,4 +132,4 @@ Sie könnten einen Kundenbindungs- und Engagement-Agenten erstellen, um Käufe v
 
 ## Nächste Schritte {#next-steps}
 
-Bereit, Ihren eigenen Entscheidungsagenten zu erstellen? Unter [Erste Schritte mit Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started/) finden Sie einen Leitfaden, der Sie durch das Verbinden von Datenquellen, das Einrichten der Orchestrierung, das Entwerfen Ihres Agenten und den Start in die Produktion führt.
+Bereit, Ihren eigenen Entscheidungsagenten zu erstellen? Unter [Erste Schritte mit Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started) finden Sie einen Leitfaden, der Sie durch das Verbinden von Datenquellen, das Einrichten der Orchestrierung, das Entwerfen Ihres Agenten und den Start in die Produktion führt.

@@ -12,8 +12,8 @@ Das Braze Flutter SDK hilft Ihnen, Braze-Messaging, Analytics und Nutzer:innen-E
 
 Für den Einstieg stehen Ihnen die folgenden Ressourcen zur Verfügung:
 
-- [Braze-Benutzerhandbuch]({{site.baseurl}}/user_guide/introduction/)
-- [Braze-Entwicklerhandbuch]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=flutter)
+- [Braze-Benutzerhandbuch]({{site.baseurl}}/user_guide/introduction)
+- [Braze-Entwicklerhandbuch]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=flutter)
 
 ## Schnellstart {#quickstart}
 
@@ -79,7 +79,7 @@ _braze = new BrazePlugin();
 _braze.changeUser("Jane Doe");
 ```
 
-Weitere Informationen zu erweiterten Integrationsoptionen finden Sie im [Braze-Entwicklerhandbuch]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=flutter).
+Weitere Informationen zu erweiterten Integrationsoptionen finden Sie im [Braze-Entwicklerhandbuch]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=flutter).
 
 ## Versionsunterstützung {#version-support}
 

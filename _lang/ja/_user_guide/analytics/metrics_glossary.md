@@ -146,7 +146,7 @@ In-App Message
 Feature Flags
 {% endapitags %}
 
-さまざまなチャネルにおけるメッセージのパフォーマンスです。表示される指標は、選択したメッセージングチャネルと、[フィーチャーフラグ実験]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments/#campaign-analytics)が多変量テストかどうかによって異なります。
+さまざまなチャネルにおけるメッセージのパフォーマンスです。表示される指標は、選択したメッセージングチャネルと、[フィーチャーフラグ実験]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments#campaign-analytics)が多変量テストかどうかによって異なります。
 
 {% endapi %}
 
@@ -483,7 +483,7 @@ Email
 
 {% multi_lang_include analytics/metrics.md metric='Hard Bounce' %}
 
-この場合、Brazeはメールアドレスを無効としてマークしますが、ユーザーの[サブスクリプションステータス]({{site.baseurl}}/user_guide/channels/email/subscriptions/)は更新しません。メールがハードバウンスした場合、Brazeはこのメールアドレスへの今後のリクエストを停止します。
+この場合、Brazeはメールアドレスを無効としてマークしますが、ユーザーの[サブスクリプションステータス]({{site.baseurl}}/user_guide/channels/email/subscriptions)は更新しません。メールがハードバウンスした場合、Brazeはこのメールアドレスへの今後のリクエストを停止します。
 
 {% endapi %}
 
@@ -768,7 +768,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 {% multi_lang_include analytics/metrics.md metric='Sends' %} この指標はBrazeによって提供されます。スケジュールされたCampaignを起動すると、この指標にはレート制限によりまだ送信されていないメッセージも含め、送信されたすべてのメッセージが含まれます。
 
 {% alert tip %}
-Content Cardsの場合、この指標は[カード作成]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/)で選択した内容によって計算方法が異なります。
+Content Cardsの場合、この指標は[カード作成]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation)で選択した内容によって計算方法が異なります。
 
 - **起動時またはステップエントリ時:** 作成され、閲覧可能なカードの数です。ユーザーがカードを閲覧したかどうかはカウントされません。
 - **初回インプレッション時:** ユーザーに表示されたカードの数です。
@@ -789,7 +789,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 {% multi_lang_include analytics/metrics.md metric='Messages Sent' %} この指標はBrazeによって提供されます。スケジュールされたCampaignを起動すると、この指標にはレート制限によりまだ送信されていないメッセージも含め、送信されたすべてのメッセージが含まれます。
 
 {% alert tip %}
-Content Cardsの場合、この指標は[カード作成]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/)で選択した内容によって計算方法が異なります。
+Content Cardsの場合、この指標は[カード作成]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation)で選択した内容によって計算方法が異なります。
 
 - **起動時またはステップエントリ時:** 作成され、閲覧可能なカードの数です。ユーザーがカードを閲覧したかどうかはカウントされません。
 - **初回インプレッション時:** ユーザーに表示されたカードの数です。
@@ -833,7 +833,7 @@ Email
 
 _ソフトバウンス_は_遅延_とは異なります。このリトライ期間中にメールが正常に配信されなかった場合、Brazeは試行されたCampaign送信ごとに1つのソフトバウンスイベントを送信します。2025年2月25日以前は、これらのリトライは1回のCampaign送信に対して複数のソフトバウンスとしてカウントされていました。
 
-ソフトバウンスはCampaign分析では追跡されませんが、[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)で監視できます。また、これらのユーザーを送信から除外したり、[ソフトバウンスSegmentフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced)を使用して過去30日間のソフトバウンス数を確認したりすることもできます。メッセージアクティビティログでは、ソフトバウンスの理由を確認し、メールキャンペーンの「送信数」と「配信数」の間の差異を理解することもできます。
+ソフトバウンスはCampaign分析では追跡されませんが、[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)で監視できます。また、これらのユーザーを送信から除外したり、[ソフトバウンスSegmentフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced)を使用して過去30日間のソフトバウンス数を確認したりすることもできます。メッセージアクティビティログでは、ソフトバウンスの理由を確認し、メールキャンペーンの「送信数」と「配信数」の間の差異を理解することもできます。
 
 {% endapi %}
 

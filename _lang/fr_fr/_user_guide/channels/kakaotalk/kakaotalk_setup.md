@@ -10,7 +10,7 @@ channel:
 
 # Configurer KakaoTalk {#set-up-kakaotalk}
 
-> Cet article explique comment configurer le [canal de communication KakaoTalk]({{site.baseurl}}/kakaotalk/) dans Braze, notamment comment configurer les utilisateurs, réconcilier les ID utilisateur et créer des utilisateurs test KakaoTalk.
+> Cet article explique comment configurer le [canal de communication KakaoTalk]({{site.baseurl}}/kakaotalk) dans Braze, notamment comment configurer les utilisateurs, réconcilier les ID utilisateur et créer des utilisateurs test KakaoTalk.
 
 ## Conditions préalables {#prerequisites}
 
@@ -29,7 +29,7 @@ Enregistrez les adresses IP Braze de votre cluster dans votre tableau de bord Co
 
 1. Dans votre tableau de bord Comm.One, accédez à **Account Management (계정 관리)**, sélectionnez l'icône de menu, puis sélectionnez **View Details (자세히보기)**.
 2. Sélectionnez **Center & Upload IP Allowlist (센터&업로드 IP 화이트리스트)**.
-3. Ajoutez les adresses IP de votre cluster Braze. Pour la liste complète des IP par cluster, consultez [Liste d'autorisation des IP]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#ip-allowlisting).
+3. Ajoutez les adresses IP de votre cluster Braze. Pour la liste complète des IP par cluster, consultez [Liste d'autorisation des IP]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting).
 
 ![Tableau de bord Comm.One montrant où ajouter des adresses IP.]({% image_buster /assets/img/kakaotalk/register_braze_ip.png %})
 
@@ -94,7 +94,7 @@ Accédez à votre [tableau de bord Comm.One](https://ums.cjmplace.com/) et rasse
 ![Tableau de bord Comm.One affichant une clé d'expéditeur masquée.]({% image_buster /assets/img/kakaotalk/sender_key.png %})
 
 {% alert important %}
-Vous ne pouvez intégrer une clé d'expéditeur KakaoTalk que dans un seul espace de travail à la fois. Pour utiliser la même clé d'expéditeur dans un autre espace de travail, vous devez d'abord archiver le groupe d'abonnement KakaoTalk dans l'espace de travail d'origine, puis contacter l'[assistance Braze]({{site.baseurl}}/braze_support/) pour supprimer l'intégration. Une fois l'intégration supprimée par Braze, vous pouvez configurer l'intégration dans le nouvel espace de travail.
+Vous ne pouvez intégrer une clé d'expéditeur KakaoTalk que dans un seul espace de travail à la fois. Pour utiliser la même clé d'expéditeur dans un autre espace de travail, vous devez d'abord archiver le groupe d'abonnement KakaoTalk dans l'espace de travail d'origine, puis contacter l'[assistance Braze]({{site.baseurl}}/braze_support) pour supprimer l'intégration. Une fois l'intégration supprimée par Braze, vous pouvez configurer l'intégration dans le nouvel espace de travail.
 {% endalert %}
 
 ![Identifiants pour un canal KakaoTalk Braze.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
@@ -137,4 +137,4 @@ Les profils utilisateur doivent contenir des numéros de téléphone au format E
 
 ### Importer des numéros de téléphone {#import-phone-numbers}
 
-Importez des numéros de téléphone en [chargeant un fichier CSV ou en utilisant l'API]({{site.baseurl}}/user_guide/data/unification/user_data/import_users/) pour créer un utilisateur. Assurez-vous que les numéros de téléphone sont au format E.164 avant l'importation.
+Importez des numéros de téléphone en [chargeant un fichier CSV ou en utilisant l'API]({{site.baseurl}}/user_guide/data/unification/user_data/import_users) pour créer un utilisateur. Assurez-vous que les numéros de téléphone sont au format E.164 avant l'importation.

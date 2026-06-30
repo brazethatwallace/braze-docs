@@ -16,4 +16,4 @@ description: "Dieser Referenzartikel beschreibt, wie Sie mit Operator Bilder fü
 
 {% multi_lang_include brazeai/generative_ai/access_images.md %}
 
-Weitere Informationen, einschließlich Tipps für Prompts, Beispiel-Prompts und Nutzungslimits, finden Sie unter [Bilder generieren in den Operator-Funktionen]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-images).
+Weitere Informationen, einschließlich Tipps für Prompts, Beispiel-Prompts und Nutzungslimits, finden Sie unter [Bilder generieren in den Operator-Funktionen]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images).

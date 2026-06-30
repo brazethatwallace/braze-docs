@@ -17,7 +17,7 @@ description: "Cet article pratique vous explique comment configurer vos adresses
 <br>
 
 {% alert important %}
-Vous pouvez utiliser SendGrid, SparkPost ou Amazon Simple Email Service (SES) comme fournisseur de services d'e-mailing (ESP) partenaire. À partir de 2026, Braze utilise Amazon SES comme ESP par défaut pour les nouvelles configurations d'e-mail. Pour plus de détails, consultez [Configuration d'Amazon SES]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses/).
+Vous pouvez utiliser SendGrid, SparkPost ou Amazon Simple Email Service (SES) comme fournisseur de services d'e-mailing (ESP) partenaire. À partir de 2026, Braze utilise Amazon SES comme ESP par défaut pour les nouvelles configurations d'e-mail. Pour plus de détails, consultez [Configuration d'Amazon SES]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses).
 {% endalert %}
 
 ## Méthode 1 : Coordonner avec Braze (recommandé) {#method-1-coordinate-with-braze-recommended}
@@ -68,11 +68,11 @@ Pour utiliser la configuration e-mail en libre-service, vous devez remplir les c
 
 ### Étape 2 : Ajouter et vérifier un domaine d'envoi {#step-2-add-and-verify-a-sending-domain}
 
-Un domaine d'envoi est utilisé dans l'adresse « de » lors de l'envoi d'un e-mail. Saisissez un domaine d'envoi et cliquez sur **Envoyer**.
+Un domaine d'envoi est utilisé dans l'adresse « de » lors de l'envoi d'un e-mail. Saisissez un domaine d'envoi et cliquez sur **Submit**.
 
 Ensuite, ajoutez les enregistrements TXT et CNAME situés en bas de la page à votre fournisseur DNS. Puis, retournez sur le tableau de bord de Braze et cliquez sur **Verify**.
 
-![]({% image_buster /assets/img_archive/email_setup_rdns_records.png %})
+![Page de configuration e-mail affichant les enregistrements DNS TXT et CNAME pour vérifier un domaine d'envoi.]({% image_buster /assets/img_archive/email_setup_rdns_records.png %})
 
 Si la vérification échoue et que vous pensez que vos enregistrements DNS sont corrects, contactez l'assistance Braze pour obtenir de l'aide.
 
@@ -84,7 +84,7 @@ Le domaine d'envoi doit être un sous-domaine d'un domaine que vous possédez. P
 
 Un domaine de suivi est utilisé pour encapsuler les liens dans vos e-mails à des fins de suivi des clics et de branding. Il sera visible par les utilisateurs lorsqu'ils survolent ou cliquent sur les liens de vos e-mails. Nous recommandons de le faire correspondre à votre domaine d'envoi.
 
-1. Saisissez un domaine de suivi et sélectionnez **Envoyer**.
+1. Saisissez un domaine de suivi et sélectionnez **Submit**.
 2. Ensuite, ajoutez les enregistrements CNAME situés en bas de la page à votre fournisseur DNS.
 3. Puis, retournez sur le tableau de bord de Braze et sélectionnez **Verify**.
 
@@ -100,4 +100,4 @@ Lorsqu'un pool d'adresses IP contient plusieurs adresses IP dédiées, Braze et 
 
 ### Étapes suivantes
 
-Une fois la vérification de votre expéditeur terminée, nous recommandons le réchauffement d'adresses IP afin que vos messages atteignent les boîtes de réception de destination à un taux élevé et constant. Après avoir terminé cette configuration, assurez-vous de consulter également l'équipe d'onboarding de Braze pour confirmer que vos domaines et votre [adresse IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/) fonctionnent correctement.
+Une fois la vérification de votre expéditeur terminée, nous recommandons le réchauffement d'adresses IP afin que vos messages atteignent les boîtes de réception de destination à un taux élevé et constant. Après avoir terminé cette configuration, assurez-vous de consulter également l'équipe d'onboarding de Braze pour confirmer que vos domaines et votre [adresse IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) fonctionnent correctement.

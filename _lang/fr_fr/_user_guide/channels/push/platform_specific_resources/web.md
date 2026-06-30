@@ -18,14 +18,14 @@ Les notifications push Web sont un excellent moyen d'interagir avec les utilisat
 
 ## Conditions préalables {#prerequisites}
 
-Avant de pouvoir créer et envoyer des notifications push avec Braze, vous devez collaborer avec vos développeurs pour intégrer les notifications push à votre site Web. Pour les étapes détaillées, consultez notre [guide d'intégration des notifications push Web]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web).
+Avant de pouvoir créer et envoyer des notifications push avec Braze, vous devez collaborer avec vos développeurs pour intégrer les notifications push à votre site Web. Pour les étapes détaillées, consultez notre [guide d'intégration des notifications push Web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web).
 
 ### Autorisation de notification push {#push-permission}
 
-Toute marque peut intégrer et utiliser les notifications push Web sur son site. Les notifications peuvent atteindre les visiteurs actuels et précédents tant qu'ils ont un navigateur Web ouvert, mais les visiteurs doivent [s'abonner pour recevoir les notifications]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#push-permission), tout comme pour les notifications push classiques sur application mobile.
+Toute marque peut intégrer et utiliser les notifications push Web sur son site. Les notifications peuvent atteindre les visiteurs actuels et précédents tant qu'ils ont un navigateur Web ouvert, mais les visiteurs doivent [s'abonner pour recevoir les notifications]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#push-permission), tout comme pour les notifications push classiques sur application mobile.
 
 {% alert tip %}
-Envisagez d'utiliser un message dans le navigateur pour inciter les utilisateurs à s'abonner aux notifications push Web, également connu sous le nom d'[amorce de notification push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/).
+Envisagez d'utiliser un message dans le navigateur pour inciter les utilisateurs à s'abonner aux notifications push Web, également connu sous le nom d'[amorce de notification push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
 {% endalert %}
 
 ## Aperçu {#overview}
@@ -36,7 +36,7 @@ Les notifications push Web délivrent des mises à jour urgentes et exploitables
 - Ramener les utilisateurs sur votre site Web grâce à des boutons d'appel à l'action clairs
 - Personnaliser vos notifications push avec des informations sur les produits et les clients pour rendre votre message pertinent
 
-Les notifications push Web fonctionnent de la même manière que les notifications push d'application sur votre téléphone. Pour plus d'informations sur la composition d'une notification push Web, consultez [Créer une notification push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#creating-a-push-message).
+Les notifications push Web fonctionnent de la même manière que les notifications push d'application sur votre téléphone. Pour plus d'informations sur la composition d'une notification push Web, consultez [Créer une notification push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message).
 
 ![Exemple de notification push Web avec le même message affiché sur un ordinateur portable et un téléphone.]({% image_buster /assets/img_archive/Macbook_Push.png %}){: style="border:none"}
 
@@ -67,7 +67,7 @@ Les navigateurs suivants prennent en charge les notifications push Web.
 Pour plus d'informations sur les standards du protocole push et la prise en charge par les navigateurs, vous pouvez consulter les ressources en fonction de votre navigateur :
 
 - [Safari (ordinateur de bureau)](https://developer.apple.com/notifications/safari-push-notifications/)
-- [Safari (mobile)]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=safari)
+- [Safari (mobile)]({{site.baseurl}}/developer_guide/push_notifications?sdktab=safari)
 - [Mozilla Firefox](https://developer.mozilla.org/en-us/docs/web/api/push_api#browser_compatibility)
 - [Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/push)
 

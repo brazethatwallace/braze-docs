@@ -24,7 +24,7 @@ Avec les rapports d'engagement, vous pouvez sélectionner manuellement les Campa
 
 Quel que soit le nombre de Campaigns ou de Canvas sélectionnés, jusqu'à deux fichiers CSV sont générés : un pour toutes les données de Campaign et un pour toutes les données de Canvas. Vous pouvez accéder à ces fichiers CSV via le lien intégré dans l'e-mail de votre rapport. Les rapports d'engagement ne sont pas enregistrés dans le tableau de bord de Braze.
 
-Certaines données sont agrégées au niveau de la Campaign ou du Canvas plutôt qu'au niveau de la variante de campagne individuelle ou de l'étape du Canvas. Si vous [supprimez une étape du Canvas après le lancement]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#canvas-details), cela supprimera également les données des rapports d'engagement.
+Certaines données sont agrégées au niveau de la Campaign ou du Canvas plutôt qu'au niveau de la variante de campagne individuelle ou de l'étape du Canvas. Si vous [supprimez une étape du Canvas après le lancement]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#canvas-details), cela supprimera également les données des rapports d'engagement.
 
 {% alert tip %}
 Vous pouvez relancer le rapport pour générer des statistiques mises à jour.
@@ -51,7 +51,7 @@ Cette option vous donne la liberté de choisir les Campaigns ou les Canvas que v
 
 #### Sélectionner automatiquement les Campaigns ou les Canvas {#automatically-select-campaigns-or-canvases}
 
-Cette option vous permet d'inclure automatiquement tous les messages qui comportent une [étiquette]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) spécifique. Vous pouvez cibler les messages qui possèdent une ou toutes les étiquettes répertoriées. Cette option est utile si vous configurez des rapports récurrents et que vous étiquetez régulièrement vos messages d'engagement.
+Cette option vous permet d'inclure automatiquement tous les messages qui comportent une [étiquette]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) spécifique. Vous pouvez cibler les messages qui possèdent une ou toutes les étiquettes répertoriées. Cette option est utile si vous configurez des rapports récurrents et que vous étiquetez régulièrement vos messages d'engagement.
 
 {% alert important %}
 Les étiquettes doivent correspondre à au moins une Campaign ou un Canvas pour qu'un rapport soit généré. Si vous utilisez **Automatically select campaigns and Canvases based on specific rules** et que vous voyez une erreur, confirmez qu'au moins une Campaign ou un Canvas correspond à vos étiquettes et autres filtres (par exemple, lorsque vous exigez toutes les étiquettes répertoriées, chaque message correspondant doit posséder chaque étiquette).
@@ -63,7 +63,7 @@ L'étape **Add Stats** vous présente les statistiques correspondant aux types d
 
 ![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
-Les rapports d'engagement agrègent les données par Campaign ou par Canvas, et non au niveau de l'espace de travail. Pour surveiller le volume total d'envois ou d'impressions sur l'ensemble des Campaigns et Canvas actifs, comme les envois et impressions par canal à l'échelle d'un espace de travail entier, utilisez le [Générateur de rapports]({{site.baseurl}}/report_builder/).
+Les rapports d'engagement agrègent les données par Campaign ou par Canvas, et non au niveau de l'espace de travail. Pour surveiller le volume total d'envois ou d'impressions sur l'ensemble des Campaigns et Canvas actifs, comme les envois et impressions par canal à l'échelle d'un espace de travail entier, utilisez le [Générateur de rapports]({{site.baseurl}}/report_builder).
 
 {% alert note %}
 *Envois à l'opérateur* est obsolète, mais continuera d'être pris en charge pour les utilisateurs qui en disposent déjà.
@@ -145,7 +145,7 @@ Si vous souhaitez une seule ligne agrégée pour la plage complète au lieu de c
 
 #### Clics de bouton en double dans les messages in-app HTML {#duplicate-button-clicks-in-html-in-app-messages}
 
-Si vous utilisez des messages in-app HTML et que les **Clics sur le corps** semblent élevés dans le rapport d'engagement, il est possible que vous déclenchiez la journalisation des clics deux fois — par exemple en appelant `brazeBridge.logClick()` pour un clic générique sur le corps et également `brazeBridge.logClick('body click')` (ou un autre ID) sur la même interaction. Recherchez `brazeBridge.logClick(` dans votre code et alignez-vous sur un seul modèle par contrôle. Pour l'utilisation recommandée, consultez [Suivi des boutons]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#button-tracking-improvements).
+Si vous utilisez des messages in-app HTML et que les **Clics sur le corps** semblent élevés dans le rapport d'engagement, il est possible que vous déclenchiez la journalisation des clics deux fois — par exemple en appelant `brazeBridge.logClick()` pour un clic générique sur le corps et également `brazeBridge.logClick('body click')` (ou un autre ID) sur la même interaction. Recherchez `brazeBridge.logClick(` dans votre code et alignez-vous sur un seul modèle par contrôle. Pour l'utilisation recommandée, consultez [Suivi des boutons]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#button-tracking-improvements).
 
 #### Liens cassés dans les rapports d'engagement envoyés par e-mail {#broken-links-in-emailed-engagement-reports}
 

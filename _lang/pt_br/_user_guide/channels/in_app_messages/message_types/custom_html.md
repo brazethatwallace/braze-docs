@@ -12,7 +12,7 @@ channel:
 
 > Embora nossas mensagens no app padrão possam ser personalizadas de diversas formas, você pode obter ainda mais controle sobre a aparência das suas campanhas usando mensagens projetadas e criadas com HTML, CSS e JavaScript. Com uma composição simples, você pode desbloquear funcionalidades e identidade visual personalizadas para atender a qualquer necessidade.
 
-Esse tipo de mensagem está disponível no [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+Esse tipo de mensagem está disponível no [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 ## Como funciona {#how-it-works}
 
@@ -42,7 +42,7 @@ Além do JavaScript personalizado, os SDKs da Braze também podem enviar dados d
 ### Rastreamento de clique em botão (descontinuado) {#button-click-tracking-deprecated}
 
 {% alert warning %}
-O uso de `abButtonID` não é compatível com os tipos de mensagem [HTML com pré-visualização]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#html-upload-with-preview/). Para saber mais, consulte nosso [guia de upgrade]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#html-upload-with-preview).
+O uso de `abButtonID` não é compatível com os tipos de mensagem [HTML com pré-visualização]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview). Para saber mais, consulte nosso [guia de upgrade]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview).
 {% endalert %}
 
 Para registrar cliques em botões para análise de dados de mensagens no app, você pode adicionar `abButtonId` como parâmetro de consulta a qualquer deep link, URL de redirecionamento ou elemento âncora `<a>`. Use `?abButtonId=0` para registrar um clique no "Botão 1" e `?abButtonId=1` para registrar um clique no "Botão 2".
@@ -98,21 +98,21 @@ Para usar a pré-visualização HTML para mensagens no app, você deve fazer upg
 {% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}
 
 {% alert warning %}
-Como esse tipo de mensagem só pode ser recebido por determinadas versões mais recentes do SDK, usuários em versões não compatíveis do SDK não receberão a mensagem. Considere adotar esse tipo de mensagem depois que uma parcela significativa da sua base de usuários estiver acessível, ou direcione apenas os usuários cuja versão do app seja posterior aos requisitos. Saiba mais sobre [filtrar pela versão mais recente do app]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions).
+Como esse tipo de mensagem só pode ser recebido por determinadas versões mais recentes do SDK, usuários em versões não compatíveis do SDK não receberão a mensagem. Considere adotar esse tipo de mensagem depois que uma parcela significativa da sua base de usuários estiver acessível, ou direcione apenas os usuários cuja versão do app seja posterior aos requisitos. Saiba mais sobre [filtrar pela versão mais recente do app]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 {% endalert %}
 
 ### Criando uma campanha {#instructions}
 
-Os usuários do seu app mobile precisam fazer upgrade para as versões compatíveis do SDK para receber uma mensagem no app de **Código personalizado**. Recomendamos que você [incentive os usuários a fazer upgrade]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/) dos seus apps mobile antes de lançar campanhas que dependam de versões mais recentes do SDK da Braze.
+Os usuários do seu app mobile precisam fazer upgrade para as versões compatíveis do SDK para receber uma mensagem no app de **Código personalizado**. Recomendamos que você [incentive os usuários a fazer upgrade]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features) dos seus apps mobile antes de lançar campanhas que dependam de versões mais recentes do SDK da Braze.
 
 #### Arquivos de ativos {#asset-files}
 
-Ao criar mensagens no app com código personalizado e upload de HTML, você pode fazer upload de ativos da campanha para a [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) para referenciá-los na sua mensagem.
+Ao criar mensagens no app com código personalizado e upload de HTML, você pode fazer upload de ativos da campanha para a [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) para referenciá-los na sua mensagem.
 
 Os seguintes tipos de arquivo são compatíveis para upload:
 
-| Tipo de arquivo       | Extensão do arquivo             |
-| :-------------------- | :------------------------------ |
+| Tipo de arquivo       | Extensão do arquivo               |
+| :-------------------- | :-------------------------------- |
 | Arquivos de fonte     | `.ttf`, `.woff`, `.otf`, `.woff2` |
 | Imagens SVG           | `.svg`                            |
 | Arquivos JavaScript   | `.js`                             |
@@ -141,12 +141,12 @@ Caso contrário, passe o mouse sobre um ativo da lista e selecione <i class="fas
 As alterações que você fizer no HTML são renderizadas automaticamente no painel de pré-visualização conforme você digita. Quaisquer métodos JavaScript [`brazeBridge`](#bridge) que você usar no seu HTML não atualizarão perfis de usuário durante a pré-visualização no dashboard.
 
 {% alert tip %}
-Você pode selecionar <i class="fa-solid fa-magnifying-glass" aria-label="Pesquisar"></i> **Pesquisar** dentro do editor de HTML para pesquisar no seu código!
+Você pode selecionar <i class="fa-solid fa-magnifying-glass"></i> **Pesquisar** dentro do editor de HTML para pesquisar no seu código!
 {% endalert %}
 
 ### Rastreamento de botões {#button-tracking-improvements}
 
-Você pode rastrear o desempenho dentro da sua mensagem no app com código personalizado usando o método JavaScript [`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/). Isso permite que você rastreie programaticamente "Botão 1", "Botão 2" e "Cliques no corpo" usando `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')` ou `brazeBridge.logClick()`, respectivamente.
+Você pode rastrear o desempenho dentro da sua mensagem no app com código personalizado usando o método JavaScript [`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types). Isso permite que você rastreie programaticamente "Botão 1", "Botão 2" e "Cliques no corpo" usando `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')` ou `brazeBridge.logClick()`, respectivamente.
 
 | Cliques    | Método                       |
 | ---------- | ---------------------------- |

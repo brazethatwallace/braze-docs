@@ -29,7 +29,7 @@ A versão mínima do SDK que atende à WCAG 2.1 é próxima da v3.4.0. No entant
 | **3.1.2** | Minor | Texto alternativo padrão para imagens |
 | **2.4.1** | **Major** | HTML semântico (`h1` ou `button`), atributos ARIA, navegação por teclado, gerenciamento de foco |
 | **2.0.5** | Minor | Gerenciamento de foco, navegação por teclado, rótulos |
-{: .reset-td-br-1, .reset-td-br-2 aria-label="Notable accessibility fixes" }
+{: .reset-td-br-1, .reset-td-br-2 aria-label="Correções notáveis de acessibilidade" }
 
 ## Recursos de acessibilidade suportados {#supported-accessibility-features}
 
@@ -43,7 +43,7 @@ Suportamos esses recursos para Content Cards e mensagens no app:
 
 ## Diretrizes de acessibilidade para integrações de SDK {#accessibility-guidelines-for-sdk-integrations}
 
-Consulte [Crie mensagens acessíveis na Braze]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/) para diretrizes gerais de acessibilidade. Este guia fornece dicas e boas práticas para máxima acessibilidade ao integrar o SDK Web da Braze em sua aplicação web.
+Consulte [Crie mensagens acessíveis na Braze]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) para diretrizes gerais de acessibilidade. Este guia fornece dicas e boas práticas para máxima acessibilidade ao integrar o SDK Web da Braze em sua aplicação web.
 
 ### Content Cards
 

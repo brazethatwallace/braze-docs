@@ -79,18 +79,18 @@ Hay varios pasos que puedes seguir para limitar la exposición de PII al usar Op
 
 ### Restringir el acceso a Operator {#restrict-access-to-operator}
 
-El acceso a Operator se gestiona a nivel de espacio de trabajo a través de [permisos granulares de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/). Los administradores pueden otorgar o revocar el permiso **Usar BrazeAI Operator** para usuarios individuales, asegurando que solo el personal autorizado pueda interactuar con la herramienta. Sin estos permisos específicos, la interfaz de Operator se suprime completamente y los puntos de conexión del backend permanecen protegidos.
+El acceso a Operator se gestiona a nivel de espacio de trabajo a través de [permisos granulares de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions). Los administradores pueden otorgar o revocar el permiso **Use BrazeAI Operator** para usuarios individuales, asegurando que solo el personal autorizado pueda interactuar con la herramienta. Sin estos permisos específicos, la interfaz de Operator se suprime completamente y los puntos de conexión del backend permanecen protegidos.
 
 ### Modelo de intervención humana {#human-in-the-loop-model}
 
-De forma predeterminada, Operator requiere aprobación explícita antes de confirmar cualquier cambio. Las modificaciones propuestas se presentan como [tarjetas de acción]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/) para su revisión. Si un usuario rechaza una propuesta, no se realizan cambios. Si un usuario acepta una propuesta, el dashboard se actualiza, pero los cambios quedan pendientes y deben guardarse o lanzarse manualmente para que sean persistentes.
+De forma predeterminada, Operator requiere aprobación explícita antes de confirmar cualquier cambio. Las modificaciones propuestas se presentan como [tarjetas de acción]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) para su revisión. Si un usuario rechaza una propuesta, no se realizan cambios. Si un usuario acepta una propuesta, el dashboard se actualiza, pero los cambios quedan pendientes y deben guardarse o lanzarse manualmente para que sean persistentes.
 
-Los usuarios pueden habilitar **Aprobar acciones automáticamente** en el panel de chat de Operator, lo que hace que las acciones sugeridas se ejecuten inmediatamente sin revisión manual. Incluso con la aprobación automática habilitada, algunas acciones siempre requieren aprobación explícita por seguridad, incluyendo la generación de imágenes y la modificación de configuraciones a nivel de espacio de trabajo.
+Los usuarios pueden habilitar **Auto-approve actions** en el panel de chat de Operator, lo que hace que las acciones sugeridas se ejecuten inmediatamente sin revisión manual. Incluso con la aprobación automática habilitada, algunas acciones siempre requieren aprobación explícita por seguridad, incluyendo la generación de imágenes y la modificación de configuraciones a nivel de espacio de trabajo.
 
 ### Herencia de permisos de usuario {#user-permission-inheritance}
 
-Operator hereda completamente el perfil de permisos del usuario que ha iniciado sesión. Tiene restringido ver datos o ejecutar acciones, como modificaciones de campañas, que el usuario no está autorizado a realizar de forma independiente.
+Operator hereda completamente el perfil de permisos del usuario que ha iniciado sesión. Tiene restringido ver datos o ejecutar acciones, como modificaciones de Campaign, que el usuario no está autorizado a realizar de forma independiente.
 
 ### Auditar el uso del equipo {#audit-team-usage}
 
-Descarga el [Informe de eventos de seguridad]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report) de Braze para monitorear el uso del equipo. El evento "Requested BrazeAI Operator Response" proporciona un registro de auditoría completo, que te permite revisar las entradas exactas proporcionadas a Operator.
+Descarga el [Informe de eventos de seguridad]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report) de Braze para monitorear el uso del equipo. El evento "Requested BrazeAI Operator Response" proporciona un registro de auditoría completo, que te permite revisar las entradas exactas proporcionadas a Operator.

@@ -14,7 +14,7 @@ platform:
 
 # Personalize o feed para Content Cards {#customize-the-feed-for-content-cards}
 
-> Um feed de cartão de conteúdo é a sequência de Content Cards nos seus aplicativos móveis ou da web. Este artigo aborda a configuração de quando o feed é atualizado, a ordem dos cartões, o gerenciamento de vários feeds e as mensagens de erro de "feed vazio". Para a lista completa de tipos de cartões de conteúdo, consulte [Sobre Content Cards]({{site.baseurl}}/developer_guide/content_cards/).
+> Um feed de cartão de conteúdo é a sequência de Content Cards nos seus aplicativos móveis ou da web. Este artigo aborda a configuração de quando o feed é atualizado, a ordem dos cartões, o gerenciamento de vários feeds e as mensagens de erro de "feed vazio". Para a lista completa de tipos de cartões de conteúdo, consulte [Sobre Content Cards]({{site.baseurl}}/developer_guide/content_cards).
 
 {% multi_lang_include developer_guide/_shared/about_session_lifecycle.md %}
 
@@ -50,7 +50,7 @@ function refresh() {
 }
 ```
 
-Para abrir links de Content Cards em uma nova aba do navegador em vez da mesma aba, defina `openCardsInNewTab: true` nas opções de inicialização do SDK para web. Para saber mais sobre as opções de inicialização, consulte o [guia do repositório do SDK para web]({{site.baseurl}}/developer_guide/sdk_repository_guides/web/).
+Para abrir links de Content Cards em uma nova aba do navegador em vez da mesma aba, defina `openCardsInNewTab: true` nas opções de inicialização do SDK para web. Para saber mais sobre as opções de inicialização, consulte o [guia do repositório do SDK para web]({{site.baseurl}}/developer_guide/sdk_repository_guides/web).
 
 {% endtab %}
 {% tab android %}
@@ -128,7 +128,7 @@ A Braze usa um algoritmo de token bucket para impor os seguintes limites de taxa
 - `subscribeToContentCards()` ainda retornará cartões em cache mesmo quando o limite de taxa for atingido
 
 {% alert important %}
-O SDK da Braze também aplica limites de taxa para desempenho e confiabilidade. Tenha isso em mente ao executar testes automatizados ou realizar QA manual. Para saber mais, consulte [Limites de taxa do SDK da Braze]({{site.baseurl}}/developer_guide/sdk_integration/rate_limits/).
+O SDK da Braze também aplica limites de taxa para desempenho e confiabilidade. Tenha isso em mente ao executar testes automatizados ou realizar QA manual. Para saber mais, consulte [Limites de taxa do SDK da Braze]({{site.baseurl}}/developer_guide/sdk_integration/rate_limits).
 {% endalert %}
 
 ## Personalização da ordem dos cartões exibidos {#customizing-displayed-card-order}
@@ -385,7 +385,7 @@ O estilo usado para exibir essa mensagem pode ser encontrado em [`Braze.ContentC
 </style>
 ```
 
-Para saber mais sobre como personalizar os elementos de estilo dos Content Cards, consulte [Personalização de estilo]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style/).
+Para saber mais sobre como personalizar os elementos de estilo dos Content Cards, consulte [Personalização de estilo]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style).
 {% endsubtab %}
 {% subtab Jetpack Compose %}
 Para personalizar a mensagem de erro de "feed vazio" com Jetpack Compose, você pode passar um `emptyString` para [`ContentCardsList`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards/-content-cards-list.html). Você também pode passar [`emptyTextStyle`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-list-styling/index.html#1193499348%2FProperties%2F-1725759721) para `ContentCardListStyling` para personalizar ainda mais essa mensagem.
@@ -447,7 +447,7 @@ Os Content Cards podem ser filtrados no seu app para que apenas cartões especí
 
 ### Etapa 1: Definir pares de valores-chave nos cartões {#step-1-set-key-value-pairs-on-cards}
 
-Ao criar uma Campaign de cartão de conteúdo, defina [os dados do par chave-valor]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior/) em cada cartão. Você usará esse par chave-valor para categorizar os cartões. Os pares de valores-chave são armazenados na propriedade `extras` no modelo de dados do cartão.
+Ao criar uma Campaign de cartão de conteúdo, defina [os dados do par chave-valor]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior) em cada cartão. Você usará esse par chave-valor para categorizar os cartões. Os pares de valores-chave são armazenados na propriedade `extras` no modelo de dados do cartão.
 
 Para este exemplo, definiremos um par de valores-chave com a chave `feed_type` que designará em qual feed de Content Card o cartão deve ser exibido. O valor será o que seus feeds personalizados representam, como `home_screen` ou `marketing`.
 

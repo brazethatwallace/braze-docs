@@ -17,7 +17,7 @@ A [WWDC](https://developer.apple.com/wwdc24/) da Apple foi realizada de 9 a 11 d
 
 ### Live Activities no Apple Watch {#live-activities-on-apple-watch}
 
-O [Live Activities]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift) será compatível com o watchOS 11. Não é necessária nenhuma configuração adicional. No entanto, a Apple oferece a opção de personalizar a interface do relógio.
+O [Live Activities]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift) será compatível com o watchOS 11. Não é necessária nenhuma configuração adicional. No entanto, a Apple oferece a opção de personalizar a interface do relógio.
 
 ### Apple Vision Pro
 
@@ -25,7 +25,7 @@ O Vision Pro já está disponível na China, Japão, Cingapura, Austrália, Cana
 
 ### Notificações do iPhone no macOS {#iphone-notifications-on-macos}
 
-O novo recurso de [espelhamento do iPhone](https://www.apple.com/newsroom/2024/06/macos-sequoia-takes-productivity-and-intelligence-on-mac-to-new-heights/) da Apple permite que os usuários recebam notificações do iPhone em seus dispositivos macOS. Lembre-se de que alguns tipos de mídia, como imagens de push story e GIFs, não são compatíveis, pois não podem ser renderizados como uma notificação no macOS.
+O novo recurso de [espelhamento do iPhone](https://www.apple.com/newsroom/2024/06/macos-sequoia-takes-productivity-and-intelligence-on-mac-to-new-heights/) da Apple permite que os usuários recebam notificações do iPhone em seus dispositivos macOS. Lembre-se de que alguns tipos de mídia, como imagens de story por push e GIFs, não são compatíveis, pois não podem ser renderizados como uma notificação no macOS.
 
 ### Apple Intelligence
 

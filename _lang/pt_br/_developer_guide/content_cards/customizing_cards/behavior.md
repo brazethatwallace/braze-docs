@@ -14,11 +14,11 @@ platform:
 
 # Personalize o comportamento dos Content Cards {#customize-the-behavior-of-content-cards}
 
-> Este guia de implementação aborda a alteração do comportamento dos Content Cards, a adição de extras como pares de chave-valor à sua carga útil e receitas de personalizações comuns. Para a lista completa de tipos de cartões de conteúdo, consulte [Sobre os Content Cards]({{site.baseurl}}/developer_guide/content_cards/).
+> Este guia de implementação aborda a alteração do comportamento dos Content Cards, a adição de extras como pares de chave-valor à sua carga útil e receitas de personalizações comuns. Para a lista completa de tipos de cartões de conteúdo, consulte [Sobre os Content Cards]({{site.baseurl}}/developer_guide/content_cards).
 
 ## Pares de chave-valor {#key-value-pairs}
 
-A Braze permite que você envie cargas úteis de dados extras por meio de Content Cards para os dispositivos dos usuários usando pares de chave-valor. Eles podem ajudar a rastrear métricas internas, atualizar o conteúdo do app e personalizar propriedades. [Adicione pares de chave-valor usando o dashboard]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/create/#step-4-configure-additional-settings-optional).
+A Braze permite que você envie cargas úteis de dados extras por meio de Content Cards para os dispositivos dos usuários usando pares de chave-valor. Eles podem ajudar a rastrear métricas internas, atualizar o conteúdo do app e personalizar propriedades. [Adicione pares de chave-valor usando o dashboard]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/create#step-4-configure-additional-settings-optional).
 
 {% alert note %}
 Não recomendamos o envio de valores JSON aninhados como pares de chave-valor. Em vez disso, achate o JSON antes de enviá-lo.
@@ -48,7 +48,7 @@ Os pares de chave-valor são armazenados em objetos <a href="https://braze-inc.g
 
 ## Content Cards como conteúdo suplementar {#content-cards-as-supplemental-content}
 
-![]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
+![Feed com uma lista híbrida que combina dados locais e Content Cards da Braze.]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
 
 Você pode combinar perfeitamente os Content Cards em um feed existente, permitindo que os dados de vários feeds sejam carregados simultaneamente. Isso cria uma experiência coesa e harmoniosa com os Content Cards da Braze e o conteúdo de feed existente.
 
@@ -56,7 +56,7 @@ O exemplo à direita mostra um feed com uma lista híbrida de itens que são pre
 
 ### Pares de chave-valor disparados por API {#api-triggered-key-value-pairs}
 
-As [Campaigns disparadas por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) são uma boa estratégia a ser empregada quando os valores de um cartão dependem de fatores externos para determinar o conteúdo a ser exibido para o usuário. Por exemplo, para exibir conteúdo suplementar, defina pares de chave-valor usando Liquid. Note que o `class_type` deve ser conhecido no momento da configuração.
+As [Campaigns disparadas por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) são uma boa estratégia a ser empregada quando os valores de um cartão dependem de fatores externos para determinar o conteúdo a ser exibido para o usuário. Por exemplo, para exibir conteúdo suplementar, defina pares de chave-valor usando Liquid. Note que o `class_type` deve ser conhecido no momento da configuração.
 
 ![Os pares de chave-valor para o caso de uso de Content Cards suplementares. Neste exemplo, diferentes aspectos do cartão, como "tile_id", "tile_deeplink" e "tile_title", são definidos usando Liquid.]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 
@@ -65,11 +65,11 @@ As [Campaigns disparadas por API]({{site.baseurl}}/user_guide/messaging/campaign
 
 Os Content Cards podem ser aproveitados para criar experiências dinâmicas e interativas para seus usuários. No exemplo à direita, temos um pop-up de Content Card que aparece no checkout, oferecendo aos usuários promoções de última hora. Cartões bem posicionados como esse são uma ótima maneira de dar aos usuários um "empurrãozinho" em direção a ações específicas.
 
-Os pares de chave-valor para esse caso de uso incluem `discount_percentage` definido como o valor do desconto desejado e `class_type` definido como `coupon_code`. Esses pares de chave-valor permitem filtrar e exibir Content Cards específicos por tipo na tela de checkout. Para saber mais sobre o uso de pares de chave-valor para gerenciar vários feeds, consulte [Personalização do feed padrão de Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds).
+Os pares de chave-valor para esse caso de uso incluem `discount_percentage` definido como o valor do desconto desejado e `class_type` definido como `coupon_code`. Esses pares de chave-valor permitem filtrar e exibir Content Cards específicos por tipo na tela de checkout. Para saber mais sobre o uso de pares de chave-valor para gerenciar vários feeds, consulte [Personalização do feed padrão de Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds).
 <br>
 <br>
 
-![]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:80%;"}
+![Promoção interativa de Content Card exibida no checkout.]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:80%;"}
 
 ## Emblemas de Content Cards {#content-card-badges}
 

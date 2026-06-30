@@ -38,7 +38,7 @@ CanvasでLinkedInへのオーディエンス同期ステップを設定する前
 ### ステップ1: LinkedInへの接続 {#step-1-connect-to-linkedin}
 
 {% alert important %}
-LinkedInをBrazeアカウントに接続するには、[「Admin」権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin)が必要です。
+LinkedInをBrazeアカウントに接続するには、[「Admin」権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin)が必要です。
 {% endalert %}
 
 Brazeダッシュボードで、**テクノロジーパートナー**に移動し、**LinkedIn**を選択します。**LinkedIn Audience Sync**セクションで、**Connect LinkedIn**を選択します。
@@ -59,7 +59,7 @@ LinkedIn接続はBrazeワークスペースレベルで適用されます。Link
 
 広告トラッキング用のオーディエンスを構築する際、ユーザーの設定に基づいて特定のユーザーを含めたり除外したり、[CCPA](https://oag.ca.gov/privacy/ccpa)の「販売・共有の拒否」権利などのプライバシー法に準拠したりすることが必要になる場合があります。マーケターは、Canvasのエントリ条件内でユーザーの適格性に関する適切なフィルターを実装する必要があります。以下にいくつかのオプションを示します。
 
-[Braze SDKを通じてiOS IDFAを]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overviewother_sdk_customizations/#optional-idfa-collection)収集した場合、**Ads Tracking Enabled**フィルターを使用できます。値を`true`に選択すると、オプトインしたオーディエンス同期の宛先にのみユーザーを送信します。
+[Braze SDKを通じてiOS IDFAを]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overviewother_sdk_customizations#optional-idfa-collection)収集した場合、**Ads Tracking Enabled**フィルターを使用できます。値を`true`に選択すると、オプトインしたオーディエンス同期の宛先にのみユーザーを送信します。
 
 ![「Ad Tracking Enabled is true」というフィルターを持つエントリオーディエンス。]({% image_buster /assets/img/linkedin/linkedin5.png %}){: style="max-width:75%;"}
 
@@ -67,7 +67,7 @@ LinkedIn接続はBrazeワークスペースレベルで適用されます。Link
 
 ![「opted_in_marketing」が「true」と等しいエントリオーディエンスを持つCanvas。]({% image_buster /assets/img/linkedin/linkedin4.png %}){: style="max-width:75%;"}
 
-Brazeプラットフォーム内でこれらのデータ保護法に準拠する方法の詳細については、[データ保護テクニカルアシスタンス]({{site.baseurl}}/dp-technical-assistance/)を参照してください。
+Brazeプラットフォーム内でこれらのデータ保護法に準拠する方法の詳細については、[データ保護テクニカルアシスタンス]({{site.baseurl}}/dp-technical-assistance)を参照してください。
 
 ### ステップ3: LinkedInを使用したオーディエンス同期ステップの追加 {#step-3-add-an-audience-sync-step-with-linkedin}
 
@@ -182,6 +182,6 @@ LinkedInは、ダッシュボードでマッチ率に関する情報を提供し
 
 現在、LinkedIn広告アカウントのオーディエンス数に制限はありません。
 
-### セグメントが「BUILDING」ステータスに留まり、更新されないのはなぜですか？ {#why-is-a-segment-stuck-in-building-status-and-not-updated}
+### Segmentが「BUILDING」ステータスに留まり、更新されないのはなぜですか？ {#why-is-a-segment-stuck-in-building-status-and-not-updated}
 
-セグメントは、下書きまたはアクティブなCampaignで30日間継続的に使用されない場合、未使用と見なされARCHIVEDに設定されます。このため、更新がARCHIVEDのセグメントにストリーミングされると、セグメントがBUILDING状態に「スタック」したように見えることがあります。BUILDING状態に移行し、再度アーカイブされる直前に、新しい更新が未使用のセグメントにストリーミングされます。
+Segmentは、下書きまたはアクティブなCampaignで30日間継続的に使用されない場合、未使用と見なされARCHIVEDに設定されます。このため、更新がARCHIVEDのSegmentにストリーミングされると、SegmentがBUILDING状態に「スタック」したように見えることがあります。BUILDING状態に移行し、再度アーカイブされる直前に、新しい更新が未使用のSegmentにストリーミングされます。

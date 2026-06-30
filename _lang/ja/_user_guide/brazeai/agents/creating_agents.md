@@ -8,13 +8,13 @@ alias: /creating-agents/
 
 # カスタムエージェントを作成する {#create-custom-agents}
 
-> カスタムエージェントの作成方法、開始前に準備すべき事項、そしてメッセージング、意思決定、データ管理の分野でそれらを活用する方法を学びます。より一般的な情報については、[Brazeエージェント]({{site.baseurl}}/user_guide/brazeai/agents/)を参照してください。
+> カスタムエージェントの作成方法、開始前に準備すべき事項、そしてメッセージング、意思決定、データ管理の分野でそれらを活用する方法を学びます。より一般的な情報については、[Brazeエージェント]({{site.baseurl}}/user_guide/brazeai/agents)を参照してください。
 
 ## 前提条件 {#prerequisites}
 
 開始する前に、以下が必要です。
 
-- ワークスペース内の**エージェントコンソール**にアクセスするための[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions)。このオプションが表示されない場合は、Brazeの管理者に確認してください。
+- ワークスペース内の**エージェントコンソール**にアクセスするための[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)。このオプションが表示されない場合は、Brazeの管理者に確認してください。
 - カスタムAIエージェントの作成と編集の権限。
 - エージェントに達成させたいことのアイデア。Brazeエージェントは以下のアクションをサポートできます。
    - **パーソナライズされたメッセージング：** 件名、見出し、製品内のコピー、その他のコンテンツを生成します。
@@ -48,7 +48,7 @@ alias: /creating-agents/
 **Create agent**を選択し、以下のオプションのいずれかを選びます。
 
 - **カスタムエージェント**：白紙の状態からエージェントを構築します
-- **Operatorでエージェントを作成**のオプション：[BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)を使用して[開始テンプレート](#agent-templates-built-with-operator)を適用します
+- **Operatorでエージェントを作成**のオプション：[BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)を使用して[開始テンプレート](#agent-templates-built-with-operator)を適用します
 
 Operatorを使用する場合は、次のステップに進む前に、チャットで変更内容を確認して承認してください。
 
@@ -58,8 +58,8 @@ Operatorを使用する場合は、次のステップに進む前に、チャッ
 
 1. 名前と説明を入力し、チームがその目的を理解できるようにします。
 2. （オプション）エージェントをフィルターするためのタグを追加します。
-3. エージェントが使用する[モデル]({{site.baseurl}}/user_guide/brazeai/agents/reference/#models)を選択します。
-4. **Braze Auto**モデルを使用していない場合は、モデルの[思考レベル]({{site.baseurl}}/user_guide/brazeai/agents/reference/#thinking-levels)を選択します。最小、低、中、高から選べます。まず**最小**から始めて、エージェントの応答をテストし、必要に応じて調整することを推奨します。
+3. エージェントが使用する[モデル]({{site.baseurl}}/user_guide/brazeai/agents/reference#models)を選択します。
+4. **Braze Auto**モデルを使用していない場合は、モデルの[思考レベル]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels)を選択します。最小、低、中、高から選べます。まず**最小**から始めて、エージェントの応答をテストし、必要に応じて調整することを推奨します。
 5. 1日あたりの呼び出し制限を設定します。デフォルトでは、この値は250,000に設定されていますが、1,000,000まで引き上げることができます。上限を1,000,000以上に引き上げたい場合は、カスタマーサクセスマネージャーに連絡して詳細を確認してください。
 
 ![Brazeでカスタムエージェントを作成するためのエージェントコンソールインターフェイス。画面には、エージェント名と説明を入力するフィールド、モデルを選択するフィールド、1日あたりの呼び出し制限を設定するフィールドが表示されます。]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
@@ -70,7 +70,7 @@ Operatorを使用する場合は、次のステップに進む前に、チャッ
 
 予期せぬ状況や曖昧な状況においてエージェントが取るべきアクションに関する指示を含めてください。これにより、エージェントの混乱がエラーにつながるリスクを最小限に抑えられます。例えば、エージェントに「肯定的」や「否定的」といった感情値だけを求めるのではなく、判断できない場合には「不明」を返すように指示します。
 
-ベストプラクティスについては[指示の書き方]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions)を、エージェントへのプロンプトのインスピレーションについては[例]({{site.baseurl}}/user_guide/brazeai/agents/reference/#examples)を参照してください。
+ベストプラクティスについては[指示の書き方]({{site.baseurl}}/user_guide/brazeai/agents/reference#writing-instructions)を、エージェントへのプロンプトのインスピレーションについては[例]({{site.baseurl}}/user_guide/brazeai/agents/reference#examples)を参照してください。
 
 {% alert tip %}
 Canvasエージェントの場合、指示文内でLiquidを使用してユーザー属性（名前や姓など）やカスタム属性を参照できます。エージェントの指示内のLiquid変数は、ユーザーがそのステップに入ると自動的にエージェントステップに渡されます。
@@ -80,20 +80,20 @@ Canvasエージェントの場合、指示文内でLiquidを使用してユー�
 
 **+ Agent context**を選択し、エージェントが参照できる内容を選びます。これには以下が含まれます。
 
-- [カタログフィールド]({{site.baseurl}}/user_guide/brazeai/agents/reference/#catalogs-and-fields)：エージェントにカタログデータへのアクセス権限を与えることで、より正確な応答が得られます。
-- [セグメントメンバーシップ]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context)：エージェントが、ユーザーがどのセグメントに属しているかに基づいて応答をパーソナライズできるようにします。最大5つのセグメントを選択できます。
-- [ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)：エージェントが従うべきブランドボイスとスタイルガイドラインを参照します。例えば、エージェントにジムの会員登録を促すSMSコピーを生成させたい場合、このフィールドを使って事前に定義した太字でモチベーションを高めるガイドラインを参照できます。
-- [すべてのCanvasコンテキスト]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/)：このエージェントが呼び出された際に、ユーザーのすべてのCanvasコンテキストデータを分析します。これには**Instructions**セクションで参照されていない変数も含まれます。
-- [ユーザーインタラクションデータ]({{site.baseurl}}/user_guide/brazeai/agents/reference/#user-history)：各ユーザーの最近のCampaignおよびCanvasの開封、クリック、コンバージョンデータをエージェントに提供します。
+- [カタログフィールド]({{site.baseurl}}/user_guide/brazeai/agents/reference#catalogs-and-fields)：エージェントにカタログデータへのアクセス権限を与えることで、より正確な応答が得られます。
+- [Segmentメンバーシップ]({{site.baseurl}}/user_guide/brazeai/agents/reference#segment-membership-context)：エージェントが、ユーザーがどのSegmentに属しているかに基づいて応答をパーソナライズできるようにします。最大5つのSegmentを選択できます。
+- [ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)：エージェントが従うべきブランドボイスとスタイルガイドラインを参照します。例えば、エージェントにジムの会員登録を促すSMSコピーを生成させたい場合、このフィールドを使って事前に定義した太字でモチベーションを高めるガイドラインを参照できます。
+- [すべてのCanvasコンテキスト]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)：このエージェントが呼び出された際に、ユーザーのすべてのCanvasコンテキストデータを分析します。これには**Instructions**セクションで参照されていない変数も含まれます。
+- [ユーザーインタラクションデータ]({{site.baseurl}}/user_guide/brazeai/agents/reference#user-history)：各ユーザーの最近のCampaignおよびCanvasの開封、クリック、コンバージョンデータをエージェントに提供します。
 
 ### ステップ 5: 出力を選択する {#select-output}
 
-**Output**セクションでは、基本スキーマまたは高度なスキーマによってエージェントの[出力]({{site.baseurl}}/user_guide/brazeai/agents/reference/#outputs)を整理し定義できます。Operatorテンプレートを使用した場合は、事前に入力された出力スキーマを確認し、必要に応じて編集してください。
+**Output**セクションでは、基本スキーマまたは高度なスキーマによってエージェントの[出力]({{site.baseurl}}/user_guide/brazeai/agents/reference#outputs)を整理し定義できます。Operatorテンプレートを使用した場合は、事前に入力された出力スキーマを確認し、必要に応じて編集してください。
 
 最良の結果を得るには、**Output**セクションで指定した内容が、[ステップ 4](#agent-instructions)で入力したエージェントの指示と一致していることを確認してください。例えば、エージェントの指示で2つの文字列を持つオブジェクトを要求した場合、**Output**セクションでも必ず2つの文字列を持つオブジェクトを指定してください。エージェントの指示が指定された出力と一致しない場合、エージェントは混乱したり、タイムアウトしたり、望ましくない出力を生成したりする可能性があります。
 
 {% alert tip %}
-[高度な出力スキーマ]({{site.baseurl}}/user_guide/brazeai/agents/reference/#advanced-schemas)を使用する場合、エージェントに他の出力に加えてその根拠も返させたいときは、`explanation`という名前の文字列フィールドを追加してください。応答の確認やデバッグに役立つ場合に`explanation`を入力するよう、[指示](#agent-instructions)でエージェントに伝えてください。
+[高度な出力スキーマ]({{site.baseurl}}/user_guide/brazeai/agents/reference#advanced-schemas)を使用する場合、エージェントに他の出力に加えてその根拠も返させたいときは、`explanation`という名前の文字列フィールドを追加してください。応答の確認やデバッグに役立つ場合に`explanation`を入力するよう、[指示](#agent-instructions)でエージェントに伝えてください。
 {% endalert %}
 
 #### フォールバック値を設定する {#configure-fallback-values}
@@ -104,7 +104,7 @@ Canvasエージェントの場合、指示文内でLiquidを使用してユー�
 
 ![数値スキーマのフォールバック出力フィールドを表示するエージェントコンソールの出力設定。]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
 
-Canvasエージェントのフォールバック値は[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)テンプレートをサポートしているため、フォールバックテキスト内でユーザー属性やコンテキスト変数を参照できます。
+Canvasエージェントのフォールバック値は[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)テンプレートをサポートしているため、フォールバックテキスト内でユーザー属性やコンテキスト変数を参照できます。
 
 フォールバックフィールドは、Canvasエージェントの出力形式に応じて変化します。
 
@@ -115,9 +115,9 @@ Canvasエージェントのフォールバック値は[Liquid]({{site.baseurl}}/
 | JSONスキーマ（高度なスキーマ） | BrazeがJSONスキーマを読み取り、各プロパティの入力フィールドを生成するため、キーごとにフォールバック値を定義できます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="フォールバック値を設定する" }
 
-フォールバック値が設定されたCanvasエージェントが[エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/)で実行されると、Brazeはユーザーごとにフォールバックをレンダリングし、`null`の代わりに出力変数に格納します。フォールバック値を設定しない場合、失敗した呼び出しではCanvasの出力は未設定（`null`）のままになります。
+フォールバック値が設定されたCanvasエージェントが[エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)で実行されると、Brazeはユーザーごとにフォールバックをレンダリングし、`null`の代わりに出力変数に格納します。フォールバック値を設定しない場合、失敗した呼び出しではCanvasの出力は未設定（`null`）のままになります。
 
-ランタイムの動作については、[エラー処理とフォールバック動作]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior)を参照してください。
+ランタイムの動作については、[エラー処理とフォールバック動作]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior)を参照してください。
 
 ### ステップ 6: エージェントをテストする {#step-6-test-the-agent}
 
@@ -147,7 +147,7 @@ Canvasエージェントのフォールバック値は[Liquid]({{site.baseurl}}/
 
 ### ステップ 7: エージェントを使用する {#step-7-use-your-agent}
 
-エージェントが使用可能になりました！詳細については、[エージェントのデプロイ]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/)を参照してください。
+エージェントが使用可能になりました！詳細については、[エージェントのデプロイ]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents)を参照してください。
 
 ## Operatorで構築されたエージェントテンプレート {#agent-templates-built-with-operator}
 
@@ -173,6 +173,6 @@ Operatorは、以下のエージェントコンソール開始テンプレート
 
 ## 関連リソース {#related-resources}
 
-- [エージェント向けリファレンス]({{site.baseurl}}/user_guide/brazeai/agents/reference/)
-- [よくある質問]({{site.baseurl}}/user_guide/brazeai/agents/faq/)
+- [エージェント向けリファレンス]({{site.baseurl}}/user_guide/brazeai/agents/reference)
+- [よくある質問]({{site.baseurl}}/user_guide/brazeai/agents/faq)
 - [Brazeウェビナー AI in Action：1:1パーソナライゼーションの3つの新しいユースケース](https://www.braze.com/resources/webinars-and-events/ai-in-action-use-cases)

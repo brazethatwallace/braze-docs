@@ -43,7 +43,7 @@ MESSAGE HERE
 
 ### Campaigns
 
-アプリ内メッセージCampaignの場合、**配信コントロール**で再適格性を有効にすることで（**ユーザーがCampaignを再度受信できるようにする**）、ユーザーが再びCampaignを受信できるようにすることができます。再度受信できるまでの期間は、設定した再適格性の時間枠と、Brazeが以前の送信をどのように記録したかによって異なります。Campaignの動作（再適格性とメッセージ受信の関係を含む）については、[CampaignとCanvasの再適格性]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/)を参照してください。
+アプリ内メッセージCampaignの場合、**配信コントロール**で再適格性を有効にすることで（**ユーザーがCampaignを再度受信できるようにする**）、ユーザーが再びCampaignを受信できるようにすることができます。再度受信できるまでの期間は、設定した再適格性の時間枠と、Brazeが以前の送信をどのように記録したかによって異なります。Campaignの動作（再適格性とメッセージ受信の関係を含む）については、[CampaignとCanvasの再適格性]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility)を参照してください。
 
 再適格性がオフの場合、ユーザーは一般的に、受信後に適格条件のみに基づいて同じCampaignを再度受信することはありません。
 
@@ -65,11 +65,11 @@ Canvasから送信されるアプリ内メッセージの場合、ユーザー�
 
 ## 同じセッション内で複数のアプリ内メッセージを表示できますか？ {#can-multiple-in-app-messages-display-in-the-same-session}
 
-はい。ただし、[トリガーイベント]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-trigger)の発生ごとに表示できるアプリ内メッセージは1つだけです。複数のアプリ内メッセージCampaignが同じトリガー（例：セッション開始）を共有している場合、そのトリガーが発生するたびに最も優先度の高いメッセージのみが表示されます。セッション開始トリガーの場合、セッションごとに1つのメッセージのみ表示でき、次に適格なメッセージを表示する機会は次のセッションになります。
+はい。ただし、[トリガーイベント]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-trigger)の発生ごとに表示できるアプリ内メッセージは1つだけです。複数のアプリ内メッセージCampaignが同じトリガー（例：セッション開始）を共有している場合、そのトリガーが発生するたびに最も優先度の高いメッセージのみが表示されます。セッション開始トリガーの場合、セッションごとに1つのメッセージのみ表示でき、次に適格なメッセージを表示する機会は次のセッションになります。
 
 複数のメッセージが同じ優先度レベルを共有している場合、最も新しく作成されたメッセージが最初に表示されます。セッション開始トリガーの場合、次に新しいメッセージは後続のセッションで表示されます。その他のトリガータイプの場合、次に新しいメッセージは次にそのトリガーイベントが発生したときに表示されます（同じセッション内の場合もあれば、後のセッションの場合もあります）。
 
-優先度バケット内の表示順序を制御するには、いずれかのCampaignの配信設定に移動し、**正確な優先度を設定**を選択してから、Campaignをドラッグ＆ドロップして希望の順序に並べ替えてください。詳細については、[優先度の選択]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority)を参照してください。
+優先度バケット内の表示順序を制御するには、いずれかのCampaignの配信設定に移動し、**正確な優先度を設定**を選択してから、Campaignをドラッグ＆ドロップして希望の順序に並べ替えてください。詳細については、[優先度の選択]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-priority)を参照してください。
 
 ## Brazeは「1日後」に設定されたアプリ内メッセージの有効期限をどのように計算しますか？ {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 
@@ -149,7 +149,7 @@ HTMLがコネクテッドコンテンツから返されたRESTデータを参照
 
 標準アプリ内メッセージは、トリガーイベント後にキャッシュされたペイロードの準備ができ次第すぐに表示されます。AndroidおよびiOSでは、メッセージ内で参照されている大きな画像やその他のCDNホストのアセットが、アプリ内メッセージが表示される前にダウンロードを完了するまで、短い遅延が発生する場合があります。
 
-[テンプレート化されたアプリ内メッセージ](#what-are-templated-in-app-messages)および**表示前にCampaignの適格性を再評価する**が選択されたCampaignでは、トリガー後にメッセージが表示される前に追加のネットワークリクエストが必要です。これにより短い遅延が発生する場合があります（安定した接続では通常100ミリ秒未満）。詳細については、[ターゲットユーザーの選択]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-users-to-target)を参照してください。
+[テンプレート化されたアプリ内メッセージ](#what-are-templated-in-app-messages)および**表示前にCampaignの適格性を再評価する**が選択されたCampaignでは、トリガー後にメッセージが表示される前に追加のネットワークリクエストが必要です。これにより短い遅延が発生する場合があります（安定した接続では通常100ミリ秒未満）。詳細については、[ターゲットユーザーの選択]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-users-to-target)を参照してください。
 
 ### アプリ内メッセージがダッシュボードのプレビューと異なって見えるのはなぜですか？ {#why-does-my-in-app-message-look-different-from-the-dashboard-preview}
 
@@ -159,7 +159,7 @@ HTMLがコネクテッドコンテンツから返されたRESTデータを参照
 - プレビューが受信者とは異なる属性を持つテストユーザープロファイルを使用している場合
 - テンプレート化されたコンテンツが送信時とプレビューモードで異なる解決をする場合
 
-外観を検証する際は、ターゲットオーディエンスと一致するプロファイルを持つテストユーザーで[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message)を使用してください。
+外観を検証する際は、ターゲットオーディエンスと一致するプロファイルを持つテストユーザーで[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message)を使用してください。
 
 ### マルチページのアプリ内メッセージですべてのページで同じ背景が使用されるのはなぜですか？ {#why-does-a-multi-page-in-app-message-use-the-same-background-on-every-page}
 
@@ -167,7 +167,7 @@ HTMLがコネクテッドコンテンツから返されたRESTデータを参照
 
 ### Webアプリ内メッセージをテストするにはどうすればよいですか？ {#how-do-i-test-web-in-app-messages}
 
-Webアプリ内メッセージのテスト送信では、テストデバイスでプッシュが有効になっている必要があります。テストフローでは、アプリ内メッセージが表示されるアプリまたはサイトを開くプッシュ通知が配信されるためです。Brazeでプッシュが設定されていないプラットフォームでも同じプッシュベースのテストパスが適用されますが、多くのモバイルインテグレーションではすでにプッシュが有効になっているため、プッシュの未設定はWebで最もよく遭遇します。代わりに、内部テストセグメントへのライブCampaignを使用してください。手順については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message)を参照してください。
+Webアプリ内メッセージのテスト送信では、テストデバイスでプッシュが有効になっている必要があります。テストフローでは、アプリ内メッセージが表示されるアプリまたはサイトを開くプッシュ通知が配信されるためです。Brazeでプッシュが設定されていないプラットフォームでも同じプッシュベースのテストパスが適用されますが、多くのモバイルインテグレーションではすでにプッシュが有効になっているため、プッシュの未設定はWebで最もよく遭遇します。代わりに、内部テストセグメントへのライブCampaignを使用してください。手順については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message)を参照してください。
 
 ## AndroidのフルスクリーンHTMLアプリ内メッセージで閉じるボタンが非表示になるのはなぜですか？ {#why-is-the-close-button-hidden-on-full-screen-html-in-app-messages-on-android}
 
@@ -179,7 +179,7 @@ Braze Android SDKバージョン37.0.0以降では、デフォルトでHTMLア�
 
 ## ドラッグ＆ドロップのアプリ内メッセージをカスタマイズする際に知っておくべきことは何ですか？ {#what-should-i-know-when-customizing-drag-and-drop-in-app-messages}
 
-[ドラッグ＆ドロップエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)は、モーダルおよびフルスクリーンの表示タイプをサポートしています。エディターブロックを使用して、これらのコンテナ内にコンテンツを構築します。
+[ドラッグ＆ドロップエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)は、モーダルおよびフルスクリーンの表示タイプをサポートしています。エディターブロックを使用して、これらのコンテナ内にコンテンツを構築します。
 
 以下の点にご注意ください。
 
@@ -191,7 +191,7 @@ Braze Android SDKバージョン37.0.0以降では、デフォルトでHTMLア�
 - **メッセージレベルのスタイル：** メッセージレベルのスタイルはメッセージ全体に適用されます。
 - **背景画像：** 背景画像はモーダルに合わせて引き伸ばされます。
 
-エディターに関するその他の考慮事項については、[アプリ内メッセージ準備ガイド]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/prep_guide/#drag-and-drop-editor-considerations)を参照してください。
+エディターに関するその他の考慮事項については、[アプリ内メッセージ準備ガイド]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/prep_guide#drag-and-drop-editor-considerations)を参照してください。
 
 ## Android SDKログの「Event was published, but no subscribers were found」とはどういう意味ですか？ {#what-does-event-was-published-but-no-subscribers-were-found-mean-in-android-sdk-logs}
 

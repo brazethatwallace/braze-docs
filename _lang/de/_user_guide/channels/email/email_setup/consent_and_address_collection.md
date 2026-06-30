@@ -14,7 +14,7 @@ channel: email
 
 ## Statusangaben von Abonnent:innen {#subscriber-states}
 
-Es gibt drei Zustände des E-Mail-Abonnements für Nutzer:innen: **Opt-in**, **Abonniert** und **Abgemeldet**. Um den Abo-Status von Nutzer:innen zu ändern, lesen Sie unseren Artikel zum [Ändern von Abonnements]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-subscriptions) oder verwenden Sie unsere [Abo-APIs]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
+Es gibt drei Zustände des E-Mail-Abonnements für Nutzer:innen: **Opt-in**, **Abonniert** und **Abgemeldet**. Um den Abo-Status von Nutzer:innen zu ändern, lesen Sie unseren Artikel zum [Ändern von Abonnements]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-subscriptions) oder verwenden Sie unsere [Abo-APIs]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status).
 
 | Statusangabe | Beschreibung |
 |---|---|

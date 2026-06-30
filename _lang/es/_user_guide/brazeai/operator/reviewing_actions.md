@@ -33,7 +33,7 @@ Las tarjetas de acción son compatibles con los siguientes editores y páginas.
     - Notificaciones push
     - SMS/MMS/RCS
     - Webhooks
-- Página [Crear agente personalizado]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)
+- Página [Crear agente personalizado]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)
 
 En otras páginas, Operator proporciona una lista de pasos a seguir en la interfaz de usuario en lugar de realizar la acción por sí mismo. La funcionalidad de Operator se mejora periódicamente y se espera ampliar la cobertura de las herramientas de creación.
 
@@ -54,4 +54,4 @@ El conmutador **Aprobación automática de acciones** se encuentra en el panel d
 
 La aprobación automática se restablece cuando actualizas la página, abres una nueva pestaña o cierras sesión y vuelves a iniciarla. Navegar entre páginas en el dashboard no la restablece. La aprobación automática se puede desactivar en cualquier momento.
 
-Para obtener información sobre cómo restringir el acceso a Operator y auditar el uso del equipo, consulta [Privacidad de datos y seguridad]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/).
+Para obtener información sobre cómo restringir el acceso a Operator y auditar el uso del equipo, consulta [Privacidad de datos y seguridad]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).

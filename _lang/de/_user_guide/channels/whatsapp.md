@@ -23,7 +23,7 @@ Stellen Sie vor dem Start sicher, dass Sie über Folgendes verfügen:
 - Ein Meta Business Manager-Konto und ein WhatsApp Business-Konto
 - Eine WhatsApp-Telefonnummer, die den Anforderungen der [Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers) entspricht
 
-Eine vollständige Anleitung finden Sie unter [WhatsApp-Einrichtung]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/).
+Eine vollständige Anleitung finden Sie unter [WhatsApp-Einrichtung]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup).
 
 ## Anwendungsfälle {#use-cases}
 
@@ -34,9 +34,9 @@ Eine vollständige Anleitung finden Sie unter [WhatsApp-Einrichtung]({{site.base
 | Terminerinnerungen | Reduzieren Sie Nichterscheinen durch rechtzeitige Terminerinnerungen und ermöglichen Sie Kund:innen, Termine zu bestätigen oder umzubuchen. |
 | Werbe-Campaigns | Erreichen Sie Kund:innen mit gezielten Aktionen, Produkteinführungen und personalisierten Angeboten über Rich-Media-Nachrichten. |
 | Bidirektionale Konversationen | Bauen Sie tiefere Beziehungen mit interaktivem Messaging auf, das Kund:innen ermöglicht, zu antworten, Fragen zu stellen und Feedback zu geben. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anwendungsfälle" }
 
 ## Nächste Schritte {#next-steps}
 
-- [WhatsApp-Einrichtung]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)
-- [Eine WhatsApp-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)
+- [WhatsApp-Einrichtung]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)
+- [Eine WhatsApp-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message)

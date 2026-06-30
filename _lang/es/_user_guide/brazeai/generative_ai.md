@@ -12,19 +12,19 @@ guide_featured_list:
 - name: Directrices de marca
   link: /docs/user_guide/administer/global/workspace_settings/brand_guidelines
   image: /assets/img/braze_icons/edit-05.svg
-- name: Control de calidad del contenido
+- name: Revisión de contenido
   link: /docs/user_guide/brazeai/generative_ai/content_qa
   image: /assets/img/braze_icons/clipboard-check.svg
-- name: Genera textos
+- name: Generar textos
   link: /docs/user_guide/brazeai/generative_ai/copywriting
   image: /assets/img/braze_icons/edit-05.svg
-- name: Genera código de Transformación de datos
+- name: Generar código de transformación de datos
   link: /docs/user_guide/brazeai/generative_ai/data_transformation
   image: /assets/img/braze_icons/flip-forward.svg
-- name: Genera imágenes
+- name: Generar imágenes
   link: /docs/user_guide/brazeai/generative_ai/images
   image: /assets/img/braze_icons/image-03.svg
-- name: Genera código Liquid
+- name: Generar código Liquid
   link: /docs/user_guide/brazeai/generative_ai/liquid
   image: /assets/img/braze_icons/beaker-02.svg
 - name: Capacidades de Operator
@@ -34,7 +34,7 @@ guide_featured_list:
   link: /docs/user_guide/analytics/reports/query_builder
   image: /assets/img/braze_icons/tool-01.svg
 - name: Extensiones de segmento SQL
-  link: /docs/sql_segments/
+  link: /docs/sql_segments
   image: /assets/img/braze_icons/users-01.svg
 
 ---

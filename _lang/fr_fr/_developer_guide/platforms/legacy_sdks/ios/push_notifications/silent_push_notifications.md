@@ -28,7 +28,7 @@ Pour envoyer une notification push silencieuse, définissez l'indicateur `conten
 Il n'est pas recommandé d'attacher à la fois un titre et un corps avec `content-available=1`, car cela peut entraîner un comportement indéfini. Pour qu'une notification soit vraiment silencieuse, excluez à la fois le titre et le corps lorsque vous définissez l'indicateur `content-available` sur `1.` Pour plus de détails, reportez-vous à la [documentation officielle d'Apple sur les mises à jour en arrière-plan](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app).
 {% endalert %}
 
-L'indicateur `content-available` peut être défini dans le tableau de bord de Braze ainsi que dans notre [objet Apple push]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) dans l'[API d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging/).
+L'indicateur `content-available` peut être défini dans le tableau de bord de Braze ainsi que dans notre [objet Apple push]({{site.baseurl}}/api/objects_filters/messaging/apple_object) dans l'[API d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging).
 
 ![Le tableau de bord de Braze affichant la case « content-available » dans l'onglet « Settings » du compositeur de notifications push.]({% image_buster /assets/img_archive/remote_notification.png %} "content available")
 
@@ -40,7 +40,7 @@ Pour utiliser des notifications push silencieuses afin de déclencher des tâche
 
 ![Xcode affichant la case à cocher du mode « remote notifications » dans « Capabilities ».]({% image_buster /assets/img_archive/background_mode.png %} "background mode enabled")
 
-L'activation du mode arrière-plan pour les notifications à distance est nécessaire pour le [suivi des désinstallations]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls/?sdktab=swift).
+L'activation du mode arrière-plan pour les notifications à distance est nécessaire pour le [suivi des désinstallations]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls?sdktab=swift).
 
 Même avec le mode arrière-plan des notifications à distance activé, le système ne lancera pas votre application en arrière-plan si l'utilisateur a quitté l'application de manière forcée. L'utilisateur doit explicitement lancer l'application ou redémarrer l'appareil avant que l'application ne puisse être automatiquement lancée en arrière-plan par le système.
 
@@ -56,7 +56,7 @@ Braze possède plusieurs fonctionnalités qui reposent sur les notifications pus
 |---|---|
 | Suivi des désinstallations | L'utilisateur reçoit une notification push silencieuse et nocturne de suivi de désinstallation. |
 | Géorepérages | Synchronisation silencieuse des géorepérages du serveur vers l'appareil. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limitations des notifications silencieuses iOS" }
 
 Reportez-vous à la documentation d'Apple sur les [méthodes d'instance](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application) et les [notifications non reçues](https://developer.apple.com/library/content/technotes/tn2265/_index.html#//apple_ref/doc/uid/DTS40010376-CH1-TNTAG23) pour plus de détails.
 

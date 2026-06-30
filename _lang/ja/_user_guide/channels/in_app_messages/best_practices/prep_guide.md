@@ -15,9 +15,9 @@ toc_headers: h2
 
 ## 一般的な考慮事項 {#general-considerations}
 
-- キャンペーンを作成する場合、このメッセージのバリアントをいくつ表示しますか？バリアントテストのアイデアについては、[チャネル別のヒント]({{site.baseurl}}/user_guide/messaging/ab_testing/#tips-different-channels)をご覧ください。
-- キャンバスを作成する場合、このメッセージはそのステップ内の他のメッセージングチャネルと組み合わせますか？
-- [メッセージの有効期限]({{site.baseurl}}/canvas_in-app_messages/)はいつに設定しますか？
+- Campaignを作成する場合、このメッセージのバリアントをいくつ表示しますか？バリアントテストのアイデアについては、[チャネル別のヒント]({{site.baseurl}}/user_guide/messaging/ab_testing#tips-different-channels)をご覧ください。
+- Canvasを作成する場合、このメッセージはそのステップ内の他のメッセージングチャネルと組み合わせますか？
+- [メッセージの有効期限]({{site.baseurl}}/canvas_in-app_messages)はいつに設定しますか？
 
 ## ターゲティングの考慮事項 {#targeting-considerations}
 
@@ -25,30 +25,31 @@ toc_headers: h2
 - ユーザーにメッセージをどこで表示しますか？Webアプリですか？モバイルアプリですか？
 - このメッセージをトリガーするイベントは何ですか？
 - 古いバージョンのアプリを使用しているユーザーはいますか？その場合、メッセージの一部の要素が表示されない可能性があります。
-- どのタイプのデバイスに対してこのメッセージを作成しますか？**Preview**ボックスまたは**Test**タブを使用してメッセージをプレビューできます。詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message)を参照してください。
+- どのタイプのデバイスに対してこのメッセージを作成しますか？**プレビュー**ボックスまたは**テスト**タブを使用してメッセージをプレビューできます。詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message)を参照してください。
 
 ## スケジューリング、遅延、セッション開始 {#scheduling-delays-and-session-starts}
 
-アプリ内メッセージキャンペーンでセッション開始をトリガーとする**スケジュールの遅延**が設定されている場合、セッションを開始してからアプリ内メッセージが表示される前にアプリを閉じたユーザーでも、遅延が経過した後の次のセッション開始時にそのメッセージを受け取ることができます。
+アプリ内メッセージのCampaignでセッション開始をトリガーとする**スケジュールの遅延**が設定されている場合、セッションを開始してからアプリ内メッセージが表示される前にアプリを閉じたユーザーでも、遅延が経過した後の次のセッション開始時にそのメッセージを受け取ることができます。
 
-このタイミングにより、特にキャンペーンで**Re-evaluate campaign eligibility before displaying**が選択されていない場合、予期しない表示動作が発生する可能性があります。
+このタイミングにより、特にCampaignで**表示前にキャンペーン適格性を再評価する**が選択されていない場合、予期しない表示動作が発生する可能性があります。
 
-例えば、キャンペーンの開始から1か月後に、8秒の遅延が設定されたアプリ内メッセージをユーザーが受け取ることがあります。これは、ユーザーがセッションを開始し、すぐにセッションを終了し、1か月後にセッションを開始し、その8秒後にアプリ内メッセージを受け取った場合に発生します。アプリを閉じずに離れた場合、アプリに戻った時にアプリ内メッセージが表示されます。
+例えば、Campaignの開始から1か月後に、8秒の遅延が設定されたアプリ内メッセージをユーザーが受け取ることがあります。これは、ユーザーがセッションを開始し、すぐにセッションを終了し、1か月後にセッションを開始し、その8秒後にアプリ内メッセージを受け取った場合に発生します。アプリを閉じずに離れた場合、アプリに戻ったときにアプリ内メッセージが表示されます。
 
 ## コンテンツの考慮事項 {#content-considerations}
 
 - このメッセージではどの言語を使用しますか？
 - ヘッダーと本文のコピーは何ですか？目を引く内容で、ユーザーに関連性がありますか？
 - アプリ内メッセージは一定時間のみ表示されます。コピーは簡潔で印象に残るものですか？
-- カスタムコピーを追加するために[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/)を使用しますか？
-- フルスクリーンのアプリ内メッセージの場合、画像やその他のメディアは[セーフゾーン]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/fullscreen/#image-safe-zone)内に収まっていますか？
+- カスタムコピーを追加するために[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid)を使用しますか？
+- ユーザーはメッセージのテキスト（割引コードやバウチャーコードなど）をコピーする必要がありますか？iOSおよびAndroidでは、ユーザーはテキストまたはテキスト入力フィールドを長押ししてコンテンツをコピーできます。長押しは画像では機能しないため、コードやユーザーがコピーする必要のあるコピーを含む画像の代わりに、テキストまたはテキスト入力フィールドを使用してください。
+- フルスクリーンのアプリ内メッセージの場合、画像やその他のメディアは[セーフゾーン]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/fullscreen#image-safe-zone)内に収まっていますか？
 - 調査アプリ内メッセージの場合、属性や送信内容を記録しますか？確認ページは設定しましたか？
 
 ## コンバージョンの考慮事項 {#conversion-considerations}
 
 - このメッセージの目標は何ですか？それをメッセージ内でどのように表現できますか？
-- ボタンはユーザーにとって意味のあるオプションを提供していますか？[主要なコールトゥアクション]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/#buttons)は何ですか？
-- [他のアプリ内コンテンツへのディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content)を設定していますか？このアプリ内メッセージを使用して[パーミッションまたはプッシュプライミングリクエスト]({{site.baseurl}}/user_guide/channels/push/best_practices/)を送信・承認しますか？
+- ボタンはユーザーにとって意味のあるオプションを提供していますか？[主要なコールトゥアクション]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#buttons)は何ですか？
+- [他のアプリ内コンテンツへのディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content)を設定していますか？このアプリ内メッセージを使用して[パーミッションまたはプッシュプライミングリクエスト]({{site.baseurl}}/user_guide/channels/push/best_practices)を送信・承認しますか？
 - メッセージの終了オプションはありますか？ない場合は、以下のスニペットをコピー＆ペーストして簡単なボタンを作成できます：
     ```html
     <a href="appboy://close">X</a>

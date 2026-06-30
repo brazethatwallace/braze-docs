@@ -10,7 +10,7 @@ description: "このページでは、抑制リストを使用して、メッセ
 
 # 抑制リスト {#suppression-lists}
 
-> 抑制リストは、CampaignsやCanvasesを自動的に受信しないユーザーのグループです。抑制リストはセグメントフィルターによって定義され、ユーザーはフィルター条件を満たすと抑制リストに追加されたり、除外されたりします。また、例外タグを設定して、そのタグを持つCampaignsやCanvasesに抑制リストが適用されないようにすることもできます。例外タグを持つCampaignsやCanvasesからのメッセージは、ターゲットSegmentsに含まれる抑制リストのユーザーにも引き続き届きます。
+> 抑制リストは、CampaignsやCanvasesを自動的に受信しないユーザーのグループです。抑制リストはSegmentフィルターによって定義され、ユーザーはフィルター条件を満たすと抑制リストに追加されたり、除外されたりします。また、例外タグを設定して、そのタグを持つCampaignsやCanvasesに抑制リストが適用されないようにすることもできます。例外タグを持つCampaignsやCanvasesからのメッセージは、ターゲットSegmentsに含まれる抑制リストのユーザーにも引き続き届きます。
 
 ## 抑制リストを使用する理由 {#why-use-suppression-lists}
 
@@ -18,17 +18,17 @@ description: "このページでは、抑制リストを使用して、メッセ
 
 ### 抑制リストの影響を受けるメッセージタイプとチャネル {#message-types-and-channels-affected-by-suppression-lists}
 
-抑制リストは、[フィーチャーフラグ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags/)を除くすべてのメッセージタイプとチャネルに適用されます。つまり、抑制リストはデフォルトですべてのチャネル、Campaigns、Canvasesに適用されます。これには以下が含まれます。
-- [APIキャンペーン]({{site.baseurl}}/api/api_campaigns/)
+抑制リストは、[フィーチャーフラグ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags)を除くすべてのメッセージタイプとチャネルに適用されます。つまり、抑制リストはデフォルトですべてのチャネル、Campaigns、Canvasesに適用されます。これには以下が含まれます。
+- [APIキャンペーン]({{site.baseurl}}/api/api_campaigns)
 - APIトリガーのCampaignsおよびCanvases
-- [トランザクションメール]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)
+- [トランザクションメール]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)
 
 抑制リストが適用されない唯一のメッセージタイプはフィーチャーフラグです。抑制リストに含まれるユーザーはフィーチャーフラグからは抑制されませんが、他のすべてのチャネルからは抑制されます。
 
 例外タグを使用すると、抑制リストのユーザーが特定のCampaignsやCanvasesのターゲットに引き続き含まれるようにできます。詳細については、[抑制リストの設定](#setup)のステップ4を参照してください。抑制リストに例外タグを追加しない場合、その抑制リストのユーザーはフィーチャーフラグ以外のメッセージングのターゲットになりません。
 
 {% alert note %}
-抑制リストは、Brazeダッシュボードで`campaign_id`を使用して作成されたAPIキャンペーンに適用されます。抑制リストは、関連する`campaign_id`なしで[Brazeメッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging/)を通じて送信されたメッセージには適用されません。
+抑制リストは、Brazeダッシュボードで`campaign_id`を使用して作成されたAPIキャンペーンに適用されます。抑制リストは、関連する`campaign_id`なしで[Brazeメッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging)を通じて送信されたメッセージには適用されません。
 {% endalert %}
 
 ![「例外設定」セクション。APIトリガーのCampaignsおよびCanvasesに抑制リストを適用しないチェックボックスが表示されています。]({% image_buster /assets/img/suppression_list_checkbox.png %}){: style="max-width:70%;"}
@@ -41,16 +41,16 @@ description: "このページでは、抑制リストを使用して、メッセ
 
 1. **オーディエンス** > **抑制リスト**に移動します。
 2. **抑制リストを作成**を選択し、名前を追加します。
-3. セグメントフィルターを使用して、抑制リストのユーザーを特定します。少なくとも1つ選択する必要があります。
+3. Segmentフィルターを使用して、抑制リストのユーザーを特定します。少なくとも1つ選択する必要があります。
 
 {% alert important %}
-設定プロセスは[セグメントの作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)と似ていますが、抑制リストはセグメントのメンバーシップに関係なく、メッセージを送信**しない**ユーザーのグループです。
+設定プロセスは[Segmentの作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)と似ていますが、抑制リストはSegmentのメンバーシップに関係なく、メッセージを送信**しない**ユーザーのグループです。
 {% endalert %}
 
 ![最後にメールを開封してから90日以上経過したユーザーのフィルターが設定された抑制リストビルダー。]({% image_buster /assets/img/suppression_list_filters.png %})
 
 {: start="4"}
-4. セグメント名の下にあるチェックボックスをオンにして、タグに基づく例外を設定するかどうかを決定します（詳細については[抑制リストを使用する理由](#why-use-suppression-lists)を参照してください）。次に、この抑制リストのユーザーが引き続き受信すべきCampaignsまたはCanvasesのタグを追加します。<br><br>つまり、例外タグ「配送確認」を追加すると、抑制リストのユーザーは「配送確認」タグを使用するメッセージを除くすべてのメッセージングから除外されます。<br><br>![「配送確認」という例外タグが適用された「配送リストの詳細」セクション。]({% image_buster /assets/img/exception_tags.png %})<br><br>
+4. Segment名の下にあるチェックボックスをオンにして、タグに基づく例外を設定するかどうかを決定します（詳細については[抑制リストを使用する理由](#why-use-suppression-lists)を参照してください）。次に、この抑制リストのユーザーが引き続き受信すべきCampaignsまたはCanvasesのタグを追加します。<br><br>つまり、例外タグ「配送確認」を追加すると、抑制リストのユーザーは「配送確認」タグを使用するメッセージを除くすべてのメッセージングから除外されます。<br><br>![「配送確認」という例外タグが適用された「配送リストの詳細」セクション。]({% image_buster /assets/img/exception_tags.png %})<br><br>
 5. 抑制リストを保存またはアクティブ化します。
 - 保存すると、抑制リストは保存されますがアクティブ化されません。つまり、有効になりません。抑制リストはアクティブ化するまで非アクティブのままで、非アクティブな抑制リストはメッセージングに影響しません（ユーザーはメッセージから除外されません）。
 - アクティブ化すると、抑制リストは保存され、すぐに有効になります。つまり、抑制リストのユーザーはCampaignsまたはCanvases（例外タグを含むものを除く）からすぐに除外されます。

@@ -21,11 +21,11 @@ Braze 대시보드를 사용하여 Campaign을 계획하고, 메시지를 시작
 - **왼쪽 내비게이션:** 기능별로 도구를 정리합니다(메시징, 오디언스, 분석, 설정)
 - **글로벌 헤더:** 검색, 고객지원, 언어 설정, 알림, 계정에 빠르게 접근할 수 있습니다
 
-대시보드 환경은 [워크스페이스]({{site.baseurl}}/user_guide/get_started/workspaces/)별로 구성되어 있으며, 다양한 브랜드, 지역 또는 팀의 콘텐츠를 관리하는 데 도움이 됩니다. 사이드 내비게이션에서 언제든지 [워크스페이스를 전환](#workspace-switcher)할 수 있습니다.
+대시보드 환경은 [워크스페이스]({{site.baseurl}}/user_guide/get_started/workspaces)별로 구성되어 있으며, 다양한 브랜드, 지역 또는 팀의 콘텐츠를 관리하는 데 도움이 됩니다. 사이드 내비게이션에서 언제든지 [워크스페이스를 전환](#workspace-switcher)할 수 있습니다.
 
 ## 대시보드에 접속하기 {#access-your-dashboard}
 
-시작하려면 [Braze 계정에 로그인]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/)하세요. 대시보드 내 페이지에 대한 접근 권한과 특정 작업 수행 권한은 할당된 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions)에 따라 결정됩니다. 권한에 대해 도움이 필요하면 Braze 관리자에게 문의하세요.
+시작하려면 [Braze 계정에 로그인]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account)하세요. 대시보드 내 페이지에 대한 접근 권한과 특정 작업 수행 권한은 할당된 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)에 따라 결정됩니다. 권한에 대해 도움이 필요하면 Braze 관리자에게 문의하세요.
 
 ## Braze 내비게이션 {#navigate-braze}
 
@@ -35,10 +35,10 @@ Braze 내비게이션은 다양한 기기에서 기능과 콘텐츠에 효율적
 
 - [검색](#search-your-dashboard)
 - 고객지원 및 커뮤니티 링크
-- [대시보드 언어]({{site.baseurl}}/user_guide/administer/personal/language_settings/)
+- [대시보드 언어]({{site.baseurl}}/user_guide/administer/personal/language_settings)
 - 알림
 - 계정 설정
-- [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/)
+- [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator)
 
 ### 사이드 내비게이션 사용하기 {#use-the-side-navigation}
 
@@ -50,13 +50,13 @@ Braze 내비게이션은 다양한 기기에서 기능과 콘텐츠에 효율적
 
 사이드 내비게이션 상단에 위치한 워크스페이스 전환기를 사용하면 Braze 인스턴스 내의 다른 워크스페이스로 이동할 수 있습니다. 활성 워크스페이스가 강조 표시됩니다.
 
-[워크스페이스]({{site.baseurl}}/user_guide/get_started/workspaces/)는 브랜드, 지역, 제품 라인 또는 팀별로 콘텐츠를 정리하는 데 도움이 됩니다. 각 워크스페이스에는 자체 데이터, Campaign, 설정이 포함됩니다. 워크스페이스마다 접근 권한이 다를 수 있습니다. 예를 들어, 한 워크스페이스에서는 편집 권한이 있고 다른 워크스페이스에서는 보기 전용 권한만 있을 수 있습니다.
+[워크스페이스]({{site.baseurl}}/user_guide/get_started/workspaces)는 브랜드, 지역, 제품 라인 또는 팀별로 콘텐츠를 정리하는 데 도움이 됩니다. 각 워크스페이스에는 자체 데이터, Campaigns, 설정이 포함됩니다. 워크스페이스마다 접근 권한이 다를 수 있습니다. 예를 들어, 한 워크스페이스에서는 편집 권한이 있고 다른 워크스페이스에서는 보기 전용 권한만 있을 수 있습니다.
 
 워크스페이스를 전환하려면 사이드 내비게이션 상단의 워크스페이스 드롭다운을 선택하고 접근하려는 워크스페이스를 선택합니다. 자주 사용하는 워크스페이스에 더 빠르게 접근하려면 [워크스페이스 즐겨찾기](#favorite-workspaces)를 추가할 수도 있습니다.
 
 #### 사이드 내비게이션 최소화 {#minimize-the-side-navigation}
 
-Canvas 디자인과 같은 작업 중 시각적 혼잡을 줄이려면 사이드 내비게이션 패널을 최소화할 수 있습니다. **Minimize menu**를 눌러 접으세요. 최소화된 상태에서도 아이콘 위에 마우스를 올리면 메뉴 항목 이름이 포함된 툴팁을 볼 수 있습니다. 이를 통해 워크스페이스를 깔끔하게 유지하면서 도구 간에 빠르게 이동할 수 있습니다.
+Canvas 디자인과 같은 작업 중 시각적 혼잡을 줄이려면 사이드 내비게이션 패널을 최소화할 수 있습니다. **메뉴 최소화**를 눌러 접으세요. 최소화된 상태에서도 아이콘 위에 마우스를 올리면 메뉴 항목 이름이 포함된 툴팁을 볼 수 있습니다. 이를 통해 워크스페이스를 깔끔하게 유지하면서 도구 간에 빠르게 이동할 수 있습니다.
 
 ![메뉴 최소화 및 확대 아이콘]({% image_buster /assets/img/minimize_expand_menu.png %}){: style="max-width:60%;border:none"}
 
@@ -120,12 +120,12 @@ table td {
 
 <div class="small_table"></div>
 
-| 동작                      | 키보드 단축키                                                             |
-| --------------------------- | ----------------------------------------------------------------------------- |
-| 검색 메뉴 열기        | {::nomarkdown} <ul> <li> Mac: <kbd>⌘</kbd>&nbsp;+&nbsp;<kbd>K</kbd> </li> <li>Windows: <kbd>Ctrl</kbd>&nbsp;+&nbsp;<kbd>K</kbd> </li> </ul> {:/}  |
-| 검색 결과 간 이동 | <kbd>⬆</kbd> / <kbd>⬇</kbd>  |
-| 검색 결과 선택      | <kbd>Enter</kbd>    |
-| 검색 메뉴 닫기       | <kbd>Esc</kbd>  |
+| 동작 | 키보드 단축키 |
+| --- | --- |
+| 검색 메뉴 열기 | {::nomarkdown} <ul> <li> Mac: <kbd>⌘</kbd>&nbsp;+&nbsp;<kbd>K</kbd> </li> <li>Windows: <kbd>Ctrl</kbd>&nbsp;+&nbsp;<kbd>K</kbd> </li> </ul> {:/} |
+| 검색 결과 간 이동 | <kbd>⬆</kbd> / <kbd>⬇</kbd> |
+| 검색 결과 선택 | <kbd>Enter</kbd> |
+| 검색 메뉴 닫기 | <kbd>Esc</kbd> |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="키보드 단축키" }
 
 ## 생산성 기능 {#productivity-features}
@@ -134,15 +134,15 @@ Braze 대시보드에는 더 효율적으로 작업하고 자주 사용하는 �
 
 ### BrazeAI Operator
 
-BrazeAI Operator™는 대시보드에 내장된 AI 기반 어시스턴트입니다. 답변을 얻고, 설정을 안내받고, 문제를 해결하고, 아이디어를 브레인스토밍하는 데 사용할 수 있습니다. 프로필 옆 글로벌 헤더의 **BrazeAI Operator™**에서 열 수 있습니다. 자세한 내용은 [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)를 참조하세요.
+BrazeAI Operator™는 대시보드에 내장된 AI 기반 어시스턴트입니다. 답변을 얻고, 설정을 안내받고, 문제를 해결하고, 아이디어를 브레인스토밍하는 데 사용할 수 있습니다. 프로필 옆 글로벌 헤더의 **BrazeAI Operator™**에서 열 수 있습니다. 자세한 내용은 [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)를 참조하세요.
 
 ### 이전 작업 이어하기 {#pick-up-where-you-left-off}
 
-**Home** 페이지에서 대시보드는 최근 편집하거나 생성한 Campaign, Canvas, Segment를 표시합니다. 이를 통해 검색 없이도 진행 중인 작업으로 쉽게 돌아갈 수 있습니다. 각 항목에는 콘텐츠 유형과 상태(초안, 활성, 중지됨 등)를 나타내는 태그가 포함되어 있습니다.
+**Home** 페이지에서 대시보드는 최근 편집하거나 생성한 Campaigns, Canvases, Segments를 표시합니다. 이를 통해 검색 없이도 진행 중인 작업으로 쉽게 돌아갈 수 있습니다. 각 항목에는 콘텐츠 유형과 상태(초안, 활성, 중지됨 등)를 나타내는 태그가 포함되어 있습니다.
 
 ![Canvas 초안, 활성 Segment, Campaign 초안이 "이전 작업 이어하기" 섹션에 표시됩니다.]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
 
-자세한 내용은 [홈 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/home/#pick-up-where-you-left-off)를 참조하세요.
+자세한 내용은 [홈 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/home#pick-up-where-you-left-off)를 참조하세요.
 
 ### 워크스페이스 즐겨찾기 {#favorite-workspaces}
 
@@ -175,15 +175,15 @@ Braze 대시보드는 WCAG AA 표준의 색상 대비를 충족하는 브랜드 
 
 ### 관리 작업 {#administrative-tasks}
 
-- [워크스페이스 생성 및 관리]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/)
-- [Braze 사용자 관리]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/)
-- [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)
-- [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)
+- [워크스페이스 생성 및 관리]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces)
+- [Braze 사용자 관리]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users)
+- [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)
+- [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams)
 
 ### 주요 작업 및 다음 단계 {#key-tasks-and-next-steps}
 
-- **Campaign 구축**: [Campaign 생성]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/)
-- **여정 만들기**: [Canvas 구축]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)
-- **오디언스 정의**: [Segment 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)
-- **성과 검토**: [분석 개요]({{site.baseurl}}/user_guide/analytics/dashboards/home/)
-- **설정 구성**: [앱 설정]({{site.baseurl}}/user_guide/administer/global/workspace_settings/)
+- **Campaign 구축**: [Campaign 생성]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign)
+- **여정 만들기**: [Canvas 구축]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)
+- **오디언스 정의**: [Segment 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)
+- **성과 검토**: [분석 개요]({{site.baseurl}}/user_guide/analytics/dashboards/home)
+- **설정 구성**: [앱 설정]({{site.baseurl}}/user_guide/administer/global/workspace_settings)

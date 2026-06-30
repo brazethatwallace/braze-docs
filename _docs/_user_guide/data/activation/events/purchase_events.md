@@ -213,6 +213,8 @@ Unlike with [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/s
 
 When approved, additional properties can be added in the dashboard under **Data Settings** > **Custom Events** by selecting **Manage Properties**. You can then use these event properties in the target step of the campaign or Canvas builder.
 
+{% include data_activation/segmentable_purchase_properties_keys_note.md %}
+
 ### Canvas entry properties and event properties
 
 {% multi_lang_include canvas/entry_event_properties.md %}

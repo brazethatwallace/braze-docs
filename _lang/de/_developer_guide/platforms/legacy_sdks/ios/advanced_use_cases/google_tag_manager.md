@@ -3,54 +3,54 @@ nav_title: Google Tag Manager
 article_title: Google Tag Manager für iOS
 platform: iOS
 page_order: 7
-description: "Dieser Artikel beschreibt, wie Sie den Google Tag Manager initialisieren, konfigurieren und in Ihre iOS App implementieren."
+description: "Dieser Artikel beschreibt, wie Sie den Google Tag Manager initialisieren, konfigurieren und in Ihre iOS-App implementieren."
 
 noindex: true
 ---
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Google Tag Manager für iOS
+# Google Tag Manager für iOS {#google-tag-manager-for-ios}
 
 ## Initialisierung des SDK {#initializing-ios-google-tag-provider}
 
-Das Braze iOS SDK kann durch Tags, die im [Google Tag Manager](https://tagmanager.google.com/):in konfiguriert wurden, initialisiert und gesteuert werden.
+Das Braze iOS SDK kann durch Tags, die im [Google Tag Manager](https://tagmanager.google.com/) konfiguriert wurden, initialisiert und gesteuert werden.
 
-Bevor Sie Google Tag Manager verwenden, müssen Sie zunächst die [SDK-Ersteinrichtung]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview/) durchführen.
+Bevor Sie Google Tag Manager verwenden, müssen Sie zunächst die [SDK-Ersteinrichtung]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview) durchführen.
 
-## Konfigurieren Sie Ihren Google Tag Manager {#configuring-ios-google-tag-manager}
+## Konfigurieren Ihres Google Tag Managers {#configuring-ios-google-tag-manager}
 
-In diesem Beispiel tun wir so, als ob wir eine Musik-Streaming-App wären, die verschiedene Ereignisse protokollieren möchte, während die Benutzer Lieder hören. Mit dem Google Tag Manager für iOS können wir kontrollieren, welche unserer Drittanbieter dieses Ereignis erhalten und Tags speziell für Braze erstellen.
+In diesem Beispiel tun wir so, als wären wir eine Musik-Streaming-App, die verschiedene Ereignisse protokollieren möchte, während Nutzer:innen Lieder anhören. Mit dem Google Tag Manager für iOS können wir steuern, welche unserer Drittanbieter dieses Ereignis erhalten, und Tags speziell für Braze erstellen.
 
-### Angepasste Events
+### Angepasste Events {#custom-events}
 
-Benutzerdefinierte Ereignisse werden protokolliert, wenn `actionType` auf `logEvent` eingestellt ist. Der Braze Custom Tag Provider in unserem Beispiel erwartet, dass der Name des angepassten Events mit `eventName` festgelegt wird.
+Angepasste Events werden protokolliert, wenn `actionType` auf `logEvent` eingestellt ist. Der angepasste Tag-Anbieter von Braze erwartet in unserem Beispiel, dass der Name des angepassten Events mit `eventName` festgelegt wird.
 
-Um zu beginnen, erstellen Sie einen Trigger, der nach dem "event name" namens `played song` sucht.
+Um zu beginnen, erstellen Sie einen Trigger, der nach einem „Event Name“ sucht, der gleich `played song` ist.
 
-![Ein angepasster Trigger im Google Tag Manager:in, der für einige Events triggert, wenn "Ereignisname" gleich "abgespielter Song" ist.]({% image_buster /assets/img/android_google_tag_manager/gtm_android_trigger.png %})
+![Ein angepasster Trigger im Google Tag Manager, der für einige Events triggert, wenn „Ereignisname“ gleich „abgespielter Song“ ist.]({% image_buster /assets/img/android_google_tag_manager/gtm_android_trigger.png %})
 
-Als Nächstes erstellen Sie ein neues Tag ("Funktionsaufruf") und geben den Klassenpfad Ihres [Custom Tag Provider](#adding-ios-google-tag-provider) ein, der später in diesem Artikel beschrieben wird. 
+Als Nächstes erstellen Sie ein neues Tag („Funktionsaufruf“) und geben den Klassenpfad Ihres [angepassten Tag-Anbieters](#adding-ios-google-tag-provider) ein, der weiter unten in diesem Artikel beschrieben wird.
 
-Dieses Tag wird ausgelöst, wenn Sie das soeben erstellte Event `played song` protokollieren. 
+Dieses Tag wird ausgelöst, wenn Sie das soeben erstellte Event `played song` protokollieren.
 
-In den benutzerdefinierten Parametern (Schlüssel-Wert-Paare) unseres Beispiel-Tags haben wir `eventName` auf `played song` gesetzt. Das ist der Name des angepassten Events, der in Braze protokolliert wird.
+In den angepassten Parametern (Schlüssel-Wert-Paare) unseres Beispiel-Tags haben wir `eventName` auf `played song` gesetzt – das ist der Name des angepassten Events, der in Braze protokolliert wird.
 
 {% alert important %}
-Wenn Sie ein angepasstes Event senden, setzen Sie `actionType` auf `logEvent` und legen einen Wert für `eventName` fest, wie im folgenden Beispiel gezeigt. 
+Wenn Sie ein angepasstes Event senden, setzen Sie `actionType` auf `logEvent` und legen Sie einen Wert für `eventName` fest, wie im folgenden Beispiel gezeigt.
 
-Der angepasste Tag-Anbieter in unserem Beispiel verwendet diese Schlüssel, um zu bestimmen, welche Aktion er durchführen und welchen Event-Namen er an Braze senden soll, wenn er Daten vom Google Tag Manager erhält.
+Der angepasste Tag-Anbieter in unserem Beispiel verwendet diese Schlüssel, um zu bestimmen, welche Aktion durchgeführt und welcher Event-Name an Braze gesendet werden soll, wenn er Daten vom Google Tag Manager erhält.
 {% endalert %}
 
-![Ein Tag in Google Tag Manager mit Klassenpfad und Schlüssel-Wert-Paar-Feldern. Dieser Tag ist so eingestellt, dass er mit dem zuvor erstellten Trigger "Gespielter Song" triggert.]({% image_buster /assets/img/android_google_tag_manager/gtm_android_function_call_tag.png %})
+![Ein Tag im Google Tag Manager mit Klassenpfad- und Schlüssel-Wert-Paar-Feldern. Dieses Tag ist so eingestellt, dass es mit dem zuvor erstellten Trigger „played song“ ausgelöst wird.]({% image_buster /assets/img/android_google_tag_manager/gtm_android_function_call_tag.png %})
 
-Sie können dem Tag auch zusätzliche Schlüssel-Wert-Paar-Argumente hinzufügen, die als Eigenschaften des angepassten Events an Braze gesendet werden. `eventName` und `actionType` werden für angepasste Event-Eigenschaften nicht ignoriert. Im folgenden Beispiel-Tag übergeben wir `genre`, das über eine Tag-Variable im Google Tag Manager definiert wurde und aus dem angepassten Event stammt, das wir in unserer App protokolliert haben.
+Sie können dem Tag auch zusätzliche Schlüssel-Wert-Paar-Argumente hinzufügen, die als Event-Eigenschaften des angepassten Events an Braze gesendet werden. `eventName` und `actionType` werden für Event-Eigenschaften angepasster Events nicht ignoriert. Im folgenden Beispiel-Tag übergeben wir `genre`, das über eine Tag-Variable im Google Tag Manager definiert wurde und aus dem angepassten Event stammt, das wir in unserer App protokolliert haben.
 
-Die Event-Eigenschaft `genre` wird als Variable "Firebase - Event Parameter" an Google Tag Manager gesendet, da Google Tag Manager für iOS Firebase als Datenebene verwendet.
+Die Event-Eigenschaft `genre` wird als Variable „Firebase - Event Parameter“ an den Google Tag Manager gesendet, da Google Tag Manager für iOS Firebase als Datenebene verwendet.
 
-![Eine Variable im Google Tag Manager, bei der "genre" als Ereignisparameter für den Tag "Braze - Played Song Event" hinzugefügt wird.]({% image_buster /assets/img/android_google_tag_manager/gtm_android_eventname_variable.png %})
+![Eine Variable im Google Tag Manager, bei der „genre“ als Event-Parameter für das Tag „Braze - Played Song Event“ hinzugefügt wird.]({% image_buster /assets/img/android_google_tag_manager/gtm_android_eventname_variable.png %})
 
-Wenn ein Benutzer einen Song in unserer App abspielt, protokollieren wir ein Ereignis über Firebase und den Google Tag Manager unter Verwendung des Firebase-Analytics-Ereignisnamens, der mit dem Auslösernamen unseres Tags übereinstimmt: `played song`:
+Wenn Nutzer:innen schließlich einen Song in unserer App abspielen, protokollieren wir ein Ereignis über Firebase und den Google Tag Manager unter Verwendung des Firebase-Analytics-Event-Namens, der mit dem Trigger-Namen unseres Tags übereinstimmt: `played song`:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -64,9 +64,9 @@ NSDictionary *parameters = @{@"genre" : @"pop",
 {% endtab %}
 {% endtabs %}
 
-### Benutzerdefinierte Attribute protokollieren
+### Angepasste Attribute protokollieren {#logging-custom-attributes}
 
-Benutzerdefinierte Attribute werden über `actionType` gesetzt, das auf `customAttribute` eingestellt ist. Der Braze Custom Tag Provider erwartet, dass der Schlüsselwert "angepasstes Attribut" über `customAttributeKey` und `customAttributeValue` gesetzt wird:
+Angepasste Attribute werden über einen `actionType` gesetzt, der auf `customAttribute` eingestellt ist. Der angepasste Tag-Anbieter von Braze erwartet, dass der Schlüssel-Wert des angepassten Attributs über `customAttributeKey` und `customAttributeValue` gesetzt wird:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -80,9 +80,9 @@ NSDictionary *parameters = @{@"customAttributeKey" : @"favorite song",
 {% endtab %}
 {% endtabs %}
 
-### Aufruf von changeUser
+### Aufruf von changeUser {#calling-changeuser}
 
-Anrufe an `changeUser()` erfolgen über ein `actionType`, das auf `changeUser` eingestellt ist. Der Braze Custom Tag Provider erwartet, dass die Braze-Benutzer-ID über das Schlüssel-Wert-Paar `externalUserId` in Ihrem Tag festgelegt wird:
+Aufrufe von `changeUser()` erfolgen über einen `actionType`, der auf `changeUser` eingestellt ist. Der angepasste Tag-Anbieter von Braze erwartet, dass die Braze-Nutzer-ID über das Schlüssel-Wert-Paar `externalUserId` in Ihrem Tag festgelegt wird:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -95,17 +95,17 @@ NSDictionary *parameters = @{@"externalUserId" : userId};
 {% endtab %}
 {% endtabs %}
 
-## Braze SDK Custom Tag Provider {#adding-ios-google-tag-provider}
+## Angepasster Tag-Anbieter für das Braze SDK {#adding-ios-google-tag-provider}
 
-Wenn Sie die Tags und Trigger eingerichtet haben, müssen Sie auch den Google Tag Manager in Ihrer iOS App implementieren, den Sie in der Dokumentation von Google finden.
+Wenn die Tags und Trigger eingerichtet sind, müssen Sie auch den Google Tag Manager in Ihrer iOS-App implementieren. Informationen dazu finden Sie in der [Dokumentation](https://developers.google.com/tag-manager/ios/v5/) von Google.
 
-Sobald Google Tag Manager in Ihrer App installiert ist, fügen Sie einen benutzerdefinierten Tag-Anbieter hinzu, um Braze SDK-Methoden auf der Grundlage der Tags aufzurufen, die Sie in Google Tag Manager konfiguriert haben. 
+Sobald Google Tag Manager in Ihrer App installiert ist, fügen Sie einen angepassten Tag-Anbieter hinzu, um Braze-SDK-Methoden auf der Grundlage der Tags aufzurufen, die Sie im Google Tag Manager konfiguriert haben.
 
-Achten Sie darauf, den "Klassenpfad" der Datei zu notieren. Diesen geben Sie ein, wenn Sie ein Tag in der [Google Tag Manager-Konsole](https://tagmanager.google.com/) einrichten.
+Achten Sie darauf, den „Klassenpfad“ der Datei zu notieren – diesen geben Sie ein, wenn Sie ein Tag in der [Google Tag Manager](https://tagmanager.google.com/)-Konsole einrichten.
 
-Dieses Beispiel zeigt eine von vielen Möglichkeiten, wie Sie Ihren benutzerdefinierten Tag-Provider strukturieren können. Dabei bestimmen wir anhand des vom GTM-Tag gesendeten Schlüssel-Wert-Paares `actionType`, welche Methode des Braze SDK aufgerufen werden soll.
+Dieses Beispiel zeigt eine von vielen Möglichkeiten, Ihren angepassten Tag-Anbieter zu strukturieren. Dabei bestimmen wir anhand des vom GTM-Tag gesendeten Schlüssel-Wert-Paares `actionType`, welche Braze-SDK-Methode aufgerufen werden soll.
 
-Die `actionType`, die wir in unserem Beispiel unterstützt haben, sind `logEvent`, `customAttribute` und `changeUser`, aber Sie können ändern, wie Ihr Tag Provider die Daten von Google Tag Manager verarbeitet.
+Die `actionType`-Werte, die wir in unserem Beispiel unterstützen, sind `logEvent`, `customAttribute` und `changeUser`. Sie können jedoch ändern, wie Ihr Tag-Anbieter die Daten vom Google Tag Manager verarbeitet.
 
 Fügen Sie den folgenden Code in Ihre Datei `BrazeGTMTagManager.h` ein:
 
@@ -124,7 +124,7 @@ Fügen Sie den folgenden Code in Ihre Datei `BrazeGTMTagManager.h` ein:
 {% endtab %}
 {% endtabs %}
 
-Und fügen Sie den folgenden Code in Ihre `BrazeGTMTagManager.m` Datei ein:
+Und fügen Sie den folgenden Code in Ihre Datei `BrazeGTMTagManager.m` ein:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -153,15 +153,15 @@ static NSString *const ChangeUserExternalUserId = @"externalUserId";
 
 - (NSObject *)executeWithParameters:(NSDictionary *)parameters {
   NSMutableDictionary *mutableParameters = [parameters mutableCopy];
-  
+
   NSString *actionType = mutableParameters[ActionTypeKey];
   if (!actionType) {
     NSLog(@"There is no Braze action type key in this call. Doing nothing.", nil);
     return nil;
   }
-  
+
   [mutableParameters removeObjectForKey:ActionTypeKey];
-  
+
   if ([actionType isEqualToString:LogEventActionType]) {
     [self logEvent:mutableParameters];
   } else if ([actionType isEqualToString:CustomAttributeActionType]) {
@@ -183,7 +183,7 @@ static NSString *const ChangeUserExternalUserId = @"externalUserId";
 - (void)logCustomAttribute:(NSMutableDictionary *)parameters {
   NSString *customAttributeKey = parameters[CustomAttributeKey];
   id customAttributeValue = parameters[CustomAttributeValueKey];
-  
+
   if ([customAttributeValue isKindOfClass:[NSString class]]) {
     [[Appboy sharedInstance].user setCustomAttributeWithKey:customAttributeKey
                                              andStringValue:customAttributeValue];
@@ -222,4 +222,3 @@ static NSString *const ChangeUserExternalUserId = @"externalUserId";
 
 {% endtab %}
 {% endtabs %}
-

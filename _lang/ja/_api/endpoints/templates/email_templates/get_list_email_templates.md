@@ -19,7 +19,7 @@ description: "この記事では、利用可能なメールテンプレートの
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#eec24bf4-a3f4-47cb-b4d8-bb8f03964cca {% endapiref %}
 
 ## 前提条件 {#prerequisites}
-このエンドポイントを使用するには、`templates.email.list` 権限を持つ [API キー]({{site.baseurl}}/api/api_key/)が必要です。
+このエンドポイントを使用するには、`templates.email.list` 権限を持つ [API キー]({{site.baseurl}}/api/api_key)が必要です。
 
 ## レート制限 {#rate-limit}
 

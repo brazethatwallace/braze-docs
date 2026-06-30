@@ -28,7 +28,7 @@ channel: email
 このような罠は、確認オプトインプロセスを設定すれば回避できます。最初のオプトインメールを送信し、メッセージを希望するかどうかをサブスクライバーに確認することで、受信者があなたからの連絡を求めていること、そして実在する有効なアドレスに送信していることを確認できます。スパムの罠を回避するその他の方法を紹介します。
 
 1. ダブルオプトインメールを送信します。これは、ユーザーがリンクをクリックしてサブスクリプションの選択を確認することを要求するメールです。
-2. ベストプラクティスとして、[サンセットポリシー]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/)を導入します。
+2. ベストプラクティスとして、[サンセットポリシー]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies)を導入します。
 3. **メールリストは決して購入しないでください。**
 
 {% alert tip %}
@@ -43,15 +43,15 @@ Microsoftは、無料メールドメイン（Hotmail、Live、MSN、Outlook）�
 
 `550 5.7.1 Unfortunately, messages from [xx.xx.xx.xx] weren't sent. Please contact your Internet service provider since part of their network is on our block list (S3150). You can also refer your provider to: http://mail.live.com/mail/troubleshooting.aspx#errors.`
 
-[IPウォーミング]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/)と同様に、指標に細心の注意を払いながら、徐々に送信量を増やすことができます。多くの場合、配信の問題には特定して解決すべき根本原因があります。一般的には、適切な許可の欠如、継続的なリスト衛生管理の欠如、またはそれらの組み合わせが原因です。
+[IPウォーミング]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)と同様に、指標に細心の注意を払いながら、徐々に送信量を増やすことができます。多くの場合、配信の問題には特定して解決すべき根本原因があります。一般的には、適切な許可の欠如、継続的なリスト衛生管理の欠如、またはそれらの組み合わせが原因です。
 
 ## バウンスリストやスパムリストからメールアドレスを削除する {#remove-an-email-address-from-your-bounce-or-spam-list}
 
 バウンスメールやBrazeスパムリストのメールは、以下のエンドポイントで削除できます。
 
-- [`/email/bounce/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces/)
-- [`/email/spam/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_spam/)
+- [`/email/bounce/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces)
+- [`/email/spam/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_spam)
 
 ## メール配信性を向上させる {#improve-email-deliverability}
 
-詳細については、[メール配信性を向上させる]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/)を参照してください。
+詳細については、[メール配信性を向上させる]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability)を参照してください。

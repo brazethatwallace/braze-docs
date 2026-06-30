@@ -48,7 +48,7 @@ RCSメッセージを送信する前に、RCS認証済み送信者を登録す�
 
 現在のキャリアカバレッジは国によって異なり、ユーザーのハードウェアやソフトウェアのサポートも個人によって異なるため、SMSフォールバックは現在のRCSプログラムを成功させるための重要な要素です。SMSフォールバックの設定をお勧めします。キャリアがRCSをサポートしていない場合やユーザーのデバイスがRCSメッセージを受信できない場合、SMSフォールバックによりメッセージが送信されるため、ユーザーとの重要な瞬間を逃すことがありません。
 
-最初のRCSキャンペーンをデプロイする前に、現在のSMSオプトイン体験、サブスクリプショングループ、およびオーディエンスのセグメンテーションを確認することを強くお勧めします。必要に応じて、カスタマーサクセスマネージャーがいつでもガイダンスを提供し、セットアッププロセスをサポートします。
+最初のRCS Campaignをデプロイする前に、現在のSMSオプトイン体験、サブスクリプショングループ、およびオーディエンスのセグメンテーションを確認することを強くお勧めします。必要に応じて、カスタマーサクセスマネージャーがいつでもガイダンスを提供し、セットアッププロセスをサポートします。
 
 #### SMSフォールバックとイベントおよびセグメンテーションの連携 {#how-sms-fallback-works-with-events-and-segmentation}
 
@@ -63,7 +63,7 @@ RCSでSMSフォールバックを使用する場合、イベントの動作は�
 {% endtab %}
 {% tab セグメンテーションの動作 %}
 
-SMSとRCSでは、受信メッセージの[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)（[Campaignからメッセージを受信]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#received-message-from-campaign)や[キャンバスステップからメッセージを受信]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#received-message-from-canvas-step)など）は、メッセージがユーザーのデバイスに届いた時点ではなく、送信された時点で評価されます。SMSフォールバックが有効な場合、RCSメッセージが拒否されてSMSにフォールバックした場合や、フォールバックSMSがユーザーのデバイスに配信されなかった場合でも、ユーザーはこれらのフィルターに一致する可能性があります。
+SMSとRCSでは、受信メッセージの[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)（[Campaignからメッセージを受信]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-campaign)や[キャンバスステップからメッセージを受信]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step)など）は、メッセージがユーザーのデバイスに届いた時点ではなく、送信された時点で評価されます。SMSフォールバックが有効な場合、RCSメッセージが拒否されてSMSにフォールバックした場合や、フォールバックSMSがユーザーのデバイスに配信されなかった場合でも、ユーザーはこれらのフィルターに一致する可能性があります。
 
 {% endtab %}
 {% endtabs %}
@@ -76,7 +76,7 @@ RCS認証済み送信者が承認されると、オペレーションチーム�
 
 ## ステップ 3:サブスクリプショングループを設定する {#step-3-set-up-subscription-groups}
 
-インテグレーションに応じて、BrazeはRCS認証済み送信者を既存のSMSサブスクリプショングループに追加するか、新しいサブスクリプショングループを設定できます。詳細なセットアップ手順については、[SMSおよびRCSサブスクリプショングループ]({{site.baseurl}}/sms_rcs_subscription_groups/)を参照してください。
+インテグレーションに応じて、BrazeはRCS認証済み送信者を既存のSMSサブスクリプショングループに追加するか、新しいサブスクリプショングループを設定できます。詳細なセットアップ手順については、[SMSおよびRCSサブスクリプショングループ]({{site.baseurl}}/sms_rcs_subscription_groups)を参照してください。
 
 ## SMSトラフィックのRCSへの移行 {#migrating-sms-traffic-to-rcs}
 
@@ -121,11 +121,11 @@ Canvasにユーザーの更新ステップを追加します。ステップ内�
 ```
 {% endraw %}
 
-![前述のJSONコードを含む「ユーザーの更新オブジェクト」。]({% image_buster /assets/img/sms/user_update_object.png %})
+![前述のJSONコードを含むユーザーの更新オブジェクト。]({% image_buster /assets/img/sms/user_update_object.png %})
 
 ### ステップ 4:Canvasをテストする {#step-4-test-the-canvas}
 
-より広いオーディエンスに送信する前に、[Canvasをテスト]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases/)して、期待どおりに動作することを確認することを強くお勧めします。
+より広いオーディエンスに送信する前に、[Canvasをテスト]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases)して、期待どおりに動作することを確認することを強くお勧めします。
 
 ### ステップ 5:Canvasを起動する {#step-5-launch-your-canvas}
 

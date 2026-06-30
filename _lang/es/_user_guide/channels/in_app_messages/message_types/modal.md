@@ -14,7 +14,7 @@ description: "Este artículo de referencia cubre los requisitos de mensaje y dis
 
 > Los modales aparecen en el centro de la pantalla del dispositivo con una superposición de pantalla que ayuda a destacarlos del fondo de tu aplicación. Son perfectos para sugerir de forma llamativa que tu usuario aproveche una oferta o promoción.
 
-Este tipo de mensaje está disponible tanto en el [editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) como en el [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+Este tipo de mensaje está disponible tanto en el [editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) como en el [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 ![Dos mensajes modales dentro de la aplicación lado a lado, detallando las recomendaciones de imagen y texto. Consulta las siguientes secciones para más detalles.]({% image_buster /assets/img/modal-spec.png %}){: style="max-width: 801px; border: none;"}
 

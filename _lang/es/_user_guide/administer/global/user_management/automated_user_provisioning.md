@@ -27,7 +27,7 @@ alias: /scim/automated_user_provisioning/
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-Utiliza la opción **Okta - Braze app** si has configurado la aplicación Braze para SAML SSO en Okta. Si configuraste una aplicación personalizada para SSO, sigue las instrucciones en la pestaña [Okta - Integración de aplicación personalizada]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning).
+Utiliza la opción **Okta - Braze app** si has configurado la aplicación Braze para SAML SSO en Okta. Si configuraste una aplicación personalizada para SSO, sigue las instrucciones en la pestaña [Okta - Integración de aplicación personalizada]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning).
 
 ## Paso 1: Configurar el aprovisionamiento SCIM {#step-1-set-up-scim-provisioning}
 
@@ -78,7 +78,7 @@ Selecciona **Test API Credentials**. Si la integración es correcta, aparecerá 
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-Utiliza la opción **Okta - Custom app integration** si configuraste una aplicación personalizada para SSO. Si configuraste la aplicación Braze para SAML SSO en Okta, sigue las instrucciones en la pestaña [Okta - Braze app]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning).
+Utiliza la opción **Okta - Custom app integration** si configuraste una aplicación personalizada para SSO. Si configuraste la aplicación Braze para SAML SSO en Okta, sigue las instrucciones en la pestaña [Okta - Braze app]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning).
 
 ## Paso 1: Configurar el aprovisionamiento SCIM
 

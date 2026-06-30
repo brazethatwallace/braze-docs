@@ -38,7 +38,7 @@ O vídeo a seguir apresenta uma visão geral de como criar e personalizar relat�
 
     Observe que sua seleção de **Rows** afetará [as métricas que você pode visualizar](#metrics-availability). Por exemplo, você pode visualizar métricas multivariantes somente se gerar o relatório sobre **Canvas** ou **Campaigns** com um detalhamento por **Variant**. Não é possível visualizar essas métricas ao gerar relatórios sobre **Campaigns and Canvases**, mesmo que essas Campaigns e Canvas tenham testes multivariantes.
 
-![A seção "Rows and columns" com campos para selecionar as linhas e agrupamentos do seu relatório.]({% image_buster /assets/img/report_builder_2/rows_and_columns.png %}){: style="width:90%;"}
+![A seção "Linhas e colunas" com campos para selecionar as linhas e agrupamentos do seu relatório.]({% image_buster /assets/img/report_builder_2/rows_and_columns.png %}){: style="width:90%;"}
 
 {: start="4"}
 4. (Opcional) Selecione **Add drilldown** para dividir seus dados em visualizações mais detalhadas:
@@ -58,7 +58,7 @@ Experimente diferentes configurações de opções de detalhamento para explorar
 {: start="5"}
 5. Na seção **Columns**, selecione **Customize Metrics**.
 
-![A seção "Customize Metrics" com opções para selecionar múltiplas métricas.]({% image_buster /assets/img/report_builder_2/customize_metrics.png %}){: style="width:90%;"}
+![A seção "Personalizar métricas" com opções para selecionar múltiplas métricas.]({% image_buster /assets/img/report_builder_2/customize_metrics.png %}){: style="width:90%;"}
 
 {: start="6"}
 6. Navegue pelas métricas por categoria e marque a caixa de seleção correspondente para adicionar uma métrica ao seu relatório.
@@ -143,7 +143,7 @@ Você pode compartilhar um link do dashboard para o relatório selecionando **Sh
 1. Selecione o ícone pontilhado no topo da tabela do relatório.
 2. Selecione **Add to dashboard**.
 3. Selecione se deseja criar um novo dashboard ou adicionar a um dashboard existente.<br><br>![Janela com opções para selecionar se você deseja adicionar o relatório a um dashboard novo ou existente.]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
-4. Siga as etapas em [Criador de dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/) para saber mais sobre como construir um dashboard.
+4. Siga as etapas em [Criador de dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder) para saber mais sobre como construir um dashboard.
 
 ## Solução de problemas {#troubleshooting}
 
@@ -157,4 +157,4 @@ Por exemplo, suponha que **Last sent** seja de 1º de janeiro de 2025 a 14 de ab
 
 Os links de download de relatórios expiram após uma hora. Se o seu link expirou, gere um novo relatório e baixe-o dentro de uma hora. Não é possível estender o tempo de vencimento.
 
-Se você tem um [bucket Amazon S3]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3/) conectado em **Integrações de parceiros**, pode ser possível recuperar dados de relatórios mais antigos navegando diretamente pelo seu bucket S3.
+Se você tem um [bucket Amazon S3]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3) conectado em **Integrações de parceiros**, pode ser possível recuperar dados de relatórios mais antigos navegando diretamente pelo seu bucket S3.

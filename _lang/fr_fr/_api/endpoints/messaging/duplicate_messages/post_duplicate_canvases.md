@@ -44,7 +44,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id` | Requis | Chaîne de caractères | Voir [Identifiant Canvas]({{site.baseurl}}/api/identifier_types/). |
+| `canvas_id` | Requis | Chaîne de caractères | Voir [Identifiant Canvas]({{site.baseurl}}/api/identifier_types). |
 | `name` | Requis | Chaîne de caractères | Le nom du Canvas résultant. |
 | `description` | Facultatif | Chaîne de caractères | Le champ de description du Canvas résultant. |
 | `tag_names` | Facultatif | Chaîne de caractères | Les étiquettes du Canvas résultant. Il doit s'agir d'étiquettes existantes. Si vous ajoutez de nouvelles étiquettes dans la requête, elles remplaceront toutes les étiquettes présentes sur le Canvas d'origine. |

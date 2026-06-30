@@ -23,7 +23,7 @@ Cette expérience d'édition est idéale pour les cas d'utilisation suivants :
 
 Pour créer une campagne ciblant plusieurs plateformes et appareils :
 
-1. Créez une campagne ou ajoutez une [étape de message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) à un Canvas.
+1. Créez une campagne ou ajoutez une [étape de message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) à un Canvas.
 2. Sélectionnez **Notification push**.
 3. Sélectionnez les plateformes souhaitées (Mobile, Web, Kindle) et les appareils mobiles (iOS, Android). Si vous sélectionnez plusieurs appareils, le test multivarié ne sera pas disponible pour votre campagne.
 
@@ -39,7 +39,7 @@ Pour créer une campagne ciblant plusieurs plateformes et appareils :
 
 ## Exécuter un test multivarié multiplateforme {#running-a-multi-platform-multivariate-test}
 
-Le test multivarié est pris en charge pour les campagnes multiplateformes. Il vous suffit de sélectionner l'icône plus à côté du nom de la variante, comme vous le feriez normalement pour les campagnes sur une seule plateforme. Nous vous recommandons de [consulter notre guide]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/) pour créer des tests multivariés et d'utiliser la [sélection de variante BrazeAI<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/) pour automatiser et maximiser votre engagement.
+Le test multivarié est pris en charge pour les campagnes multiplateformes. Il vous suffit de sélectionner l'icône plus à côté du nom de la variante, comme vous le feriez normalement pour les campagnes sur une seule plateforme. Nous vous recommandons de [consulter notre guide]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) pour créer des tests multivariés et d'utiliser la [sélection de variante BrazeAI<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection) pour automatiser et maximiser votre engagement.
 
 ![Tests multivariés multiplateformes simplifiés]({% image_buster /assets/img_archive/push_multiple_platform_message_composer_multivariate.png %})
 
@@ -53,7 +53,7 @@ Le volet de prévisualisation affiche une approximation de l'apparence de votre 
 ![Vue d'édition unique avec un titre, un message et un champ de comportement au clic pour trois types de push : iOS, Android et Web.]({% image_buster /assets/img_archive/push_multiple_platform_message_composer.png %})
 
 ### Ressources séparées {#separate-assets}
-Dans la section **Actifs**, sélectionnez ou téléchargez les images que vous souhaitez afficher pour chaque plateforme. Gardez à l'esprit que les différents appareils ont des spécifications différentes pour les images et le nombre de caractères. Consultez [Formats de messages push et d'images]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/) pour obtenir de l'aide.
+Dans la section **Actifs**, sélectionnez ou téléchargez les images que vous souhaitez afficher pour chaque plateforme. Gardez à l'esprit que les différents appareils ont des spécifications différentes pour les images et le nombre de caractères. Consultez [Formats de messages push et d'images]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats) pour obtenir de l'aide.
 
 ![Section Actifs de la vue d'édition unique avec des champs pour l'image d'icône push, l'image de notification iOS, l'image de notification Android et l'image de notification Web.]({% image_buster /assets/img_archive/push_multiple_platform_message_composer_assets.png %}){:style="max-width:50%"}
 
@@ -63,12 +63,12 @@ Le type de notification est défini par défaut sur « Push standard » et ne pe
 
 ### Paramètres spécifiques à l'appareil {#device-specific-settings}
 
-Vous pouvez modifier les paramètres spécifiques à chaque plateforme dans l'éditeur. Cela inclut des paramètres tels que les [boutons d'action push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/), les canaux et groupes de notification, le TTL, la priorité d'affichage, les sons, et plus encore.
+Vous pouvez modifier les paramètres spécifiques à chaque plateforme dans l'éditeur. Cela inclut des paramètres tels que les [boutons d'action push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons), les canaux et groupes de notification, le TTL, la priorité d'affichage, les sons, et plus encore.
 
 Pour plus d'informations sur les paramètres spécifiques aux appareils, consultez les collections d'articles suivantes :
 
-- [Options iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/)
-- [Options Android]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/)
+- [Options iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios)
+- [Options Android]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android)
 
 ### Push Stories
 

@@ -79,18 +79,18 @@ Vous pouvez prendre plusieurs mesures pour limiter l'exposition des PII lorsque 
 
 ### Restreindre l'accès à Operator {#restrict-access-to-operator}
 
-L'accès à Operator est géré au niveau de l'espace de travail via les [autorisations granulaires des utilisateurs]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/). Les administrateurs peuvent accorder ou révoquer l'autorisation **Use BrazeAI Operator** pour des utilisateurs individuels, garantissant que seul le personnel autorisé peut interagir avec l'outil. Sans ces autorisations spécifiques, l'interface d'Operator est entièrement masquée et les endpoints backend restent sécurisés.
+L'accès à Operator est géré au niveau de l'espace de travail via les [autorisations granulaires des utilisateurs]({{site.baseurl}}/user_guide/administer/global/user_management/permissions). Les administrateurs peuvent accorder ou révoquer l'autorisation **Use BrazeAI Operator** pour des utilisateurs individuels, garantissant que seul le personnel autorisé peut interagir avec l'outil. Sans ces autorisations spécifiques, l'interface d'Operator est entièrement masquée et les endpoints backend restent sécurisés.
 
 ### Modèle avec intervention humaine {#human-in-the-loop-model}
 
-Par défaut, Operator nécessite une approbation explicite avant de valider toute modification. Les modifications proposées sont présentées sous forme de [cartes d'action]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/) pour vérification. Si un utilisateur rejette une proposition, aucune modification n'est effectuée. Si un utilisateur accepte une proposition, le tableau de bord est mis à jour, mais les modifications restent en attente et doivent être enregistrées ou lancées manuellement pour devenir persistantes.
+Par défaut, Operator nécessite une approbation explicite avant de valider toute modification. Les modifications proposées sont présentées sous forme de [cartes d'action]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) pour vérification. Si un utilisateur rejette une proposition, aucune modification n'est effectuée. Si un utilisateur accepte une proposition, le tableau de bord est mis à jour, mais les modifications restent en attente et doivent être enregistrées ou lancées manuellement pour devenir persistantes.
 
 Les utilisateurs peuvent activer **l'approbation automatique des actions** dans le panneau de chat d'Operator, ce qui entraîne l'exécution immédiate des actions suggérées sans vérification manuelle. Même avec l'approbation automatique activée, certaines actions nécessitent toujours une approbation explicite pour des raisons de sécurité, notamment la génération d'images et la modification des paramètres au niveau de l'espace de travail.
 
 ### Héritage des autorisations utilisateur {#user-permission-inheritance}
 
-Operator hérite intégralement du profil d'autorisations de l'utilisateur connecté. Il ne peut pas consulter des données ni exécuter des actions, telles que des modifications de Campaign, que l'utilisateur n'est pas déjà autorisé à effectuer de manière indépendante.
+Operator hérite intégralement du profil d'autorisations de l'utilisateur connecté. Il ne peut pas consulter des données ni exécuter des actions, telles que des modifications de campagne, que l'utilisateur n'est pas déjà autorisé à effectuer de manière indépendante.
 
 ### Auditer l'utilisation de l'équipe {#audit-team-usage}
 
-Téléchargez le [rapport d'événements de sécurité]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report) de Braze pour surveiller l'utilisation de l'équipe. L'événement « Requested BrazeAI Operator Response » fournit une piste d'audit complète, vous permettant de vérifier les entrées exactes fournies à Operator.
+Téléchargez le [rapport d'événements de sécurité]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report) de Braze pour surveiller l'utilisation de l'équipe. L'événement « Requested BrazeAI Operator Response » fournit une piste d'audit complète, vous permettant de vérifier les entrées exactes fournies à Operator.

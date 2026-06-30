@@ -84,7 +84,7 @@ Braze fournit des ID d'application (appelés clés API dans le tableau de bord d
 ![Option permettant de sélectionner votre canal de communication pour la campagne API.]({% image_buster /assets/img/decisioning_studio_go/select_api_campaign.png %})
 
 {: start="6"}
-6. Dans **Additional Options**, cochez la case **Allow users to become re-eligible to receive campaign**.
+6. Dans **Options supplémentaires**, cochez la case **Allow users to become re-eligible to receive campaign**.
 7. Pour le délai de rééligibilité, saisissez **1** et sélectionnez **Hours** dans le menu déroulant.
 
 ![Rééligibilité sélectionnée pour la campagne API.]({% image_buster /assets/img/decisioning_studio_go/additional_options.png %})
@@ -105,7 +105,7 @@ Braze fournit des ID d'application (appelés clés API dans le tableau de bord d
 
 Pour tester votre intégration, vous aurez besoin d'un ID utilisateur :
 
-Si votre espace de travail utilise le [chiffrement au niveau des champs d'identification]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/), tout nouvel utilisateur test créé avec l'endpoint `/users/track` doit respecter les exigences relatives aux e-mails pour les espaces de travail chiffrés. Envoyez le champ `email` sous forme de hachage HMAC-SHA256 encodé en Base64 de la valeur de l'e-mail en minuscules, et envoyez `email_encrypted` comme valeur d'e-mail chiffrée générée avec vos clés de chiffrement PII configurées.
+Si votre espace de travail utilise le [chiffrement au niveau des champs d'identification]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption), tout nouvel utilisateur test créé avec l'endpoint `/users/track` doit respecter les exigences relatives aux e-mails pour les espaces de travail chiffrés. Envoyez le champ `email` sous forme de hachage HMAC-SHA256 encodé en Base64 de la valeur de l'e-mail en minuscules, et envoyez `email_encrypted` comme valeur d'e-mail chiffrée générée avec vos clés de chiffrement PII configurées.
 
 1. Dans le tableau de bord de Braze, accédez à **Audience** > **Rechercher des utilisateurs**.
 2. Recherchez l'utilisateur par son ID externe, son alias d'utilisateur, son e-mail, son numéro de téléphone ou son jeton de notification push.
@@ -377,4 +377,4 @@ C'est terminé ! Vous pouvez maintenant commencer à déclencher des envois via 
 
 Maintenant que vous avez configuré l'orchestration, passez à la conception de votre agent :
 
-- [Concevoir votre agent]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)
+- [Concevoir votre agent]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent)

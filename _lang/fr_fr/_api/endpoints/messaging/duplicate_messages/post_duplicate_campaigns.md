@@ -44,7 +44,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | Requis | Chaîne de caractères | Voir [identifiant de campagne]({{site.baseurl}}/api/identifier_types/). |
+| `campaign_id` | Requis | Chaîne de caractères | Voir [identifiant de campagne]({{site.baseurl}}/api/identifier_types). |
 | `name` | Requis | Chaîne de caractères | Le nom de la campagne résultante. |
 | `description` | Facultatif | Chaîne de caractères | Le champ de description de la campagne résultante. |
 | `tag_names` | Facultatif | Chaîne de caractères | Les étiquettes de la campagne résultante. Il doit s'agir d'étiquettes existantes. Si vous ajoutez de nouvelles étiquettes dans la requête, elles remplaceront toutes les étiquettes présentes sur la campagne d'origine. |

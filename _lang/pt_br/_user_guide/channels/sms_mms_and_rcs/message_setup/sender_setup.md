@@ -57,7 +57,7 @@ As operadoras impõem seus próprios limites de tamanho de arquivo, que determin
 | 300&nbsp;KB | Todas as operadoras devem lidar de forma confiável com mensagens MMS desse tamanho. |
 | 600&nbsp;KB | Este é considerado o tamanho máximo padrão de arquivo para MMS na maioria das operadoras. |
 | 1&nbsp;MB | A maioria das operadoras dos EUA e Canadá pode lidar com mensagens MMS desse tamanho, embora isso possa variar por operadora. Algumas operadoras podem permitir tamanhos de arquivo maiores que este. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Carrier file size limits" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limites de tamanho de arquivo por operadora" }
 
 #### Tipos de arquivo aceitos {#accepted-file-types}
 

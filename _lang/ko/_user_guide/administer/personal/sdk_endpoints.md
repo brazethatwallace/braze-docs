@@ -21,4 +21,4 @@ Braze는 대시보드, SDK, REST 엔드포인트를 위해 여러 인스턴스�
 SDK를 통합할 때는 SDK 엔드포인트를 사용하세요. REST API를 호출할 때는 REST 엔드포인트를 사용하세요.
 {% endalert %}
 
-API 접근에 대한 자세한 내용은 [API 개요 문서]({{site.baseurl}}/api/basics/)를 참조하세요.
+API 접근에 대한 자세한 내용은 [API 개요 문서]({{site.baseurl}}/api/basics)를 참조하세요.

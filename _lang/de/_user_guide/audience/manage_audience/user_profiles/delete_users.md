@@ -51,7 +51,7 @@ Wählen Sie auf der Profilseite <i class="fa-solid fa-ellipsis-vertical"></i> **
 
 ### Segment löschen {#delete-segment}
 
-Falls noch nicht geschehen, [erstellen Sie ein Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), das die Nutzerprofile enthält, die Sie löschen möchten. Stellen Sie sicher, dass alle Nutzerprofile enthalten sind, wenn Sie doppelte Nutzer:innen löschen.
+Falls noch nicht geschehen, [erstellen Sie ein Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), das die Nutzerprofile enthält, die Sie löschen möchten. Stellen Sie sicher, dass alle Nutzerprofile enthalten sind, wenn Sie doppelte Nutzer:innen löschen.
 
 Gehen Sie in Braze zu **Audience** > **Manage Audience** und wählen Sie dann den Tab **Delete Users**.
 
@@ -68,7 +68,7 @@ Geben Sie **DELETE** ein, um Ihre Anfrage zu bestätigen, und wählen Sie dann *
 Die Nutzer:innen in diesem Segment werden nicht sofort gelöscht. Stattdessen werden sie für die nächsten 7 Tage als zur Löschung ausstehend markiert. Nach Ablauf dieser Zeit werden sie gelöscht und Sie erhalten eine E-Mail-Benachrichtigung.
 
 {% alert tip %}
-Um sicherzustellen, dass genau diese Nutzer:innen unabhängig von Segmentänderungen gelöscht werden, wird automatisch ein Segmentfilter namens **Pending Deletion** erstellt. Sie können [diesen Filter verwenden]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters), um den Status ausstehender Löschungen zu überprüfen.
+Um sicherzustellen, dass genau diese Nutzer:innen unabhängig von Segmentänderungen gelöscht werden, wird automatisch ein Segmentfilter namens **Pending Deletion** erstellt. Sie können [diesen Filter verwenden]({{site.baseurl}}/user_guide/audience/segments/managing_segments#filters), um den Status ausstehender Löschungen zu überprüfen.
 {% endalert %}
 
 ## Segment-Löschungen bestätigen {#confirming-segment-deletions}
@@ -103,7 +103,7 @@ Sie können den Status einer Löschung mithilfe von [Segmentfiltern](#segment-fi
 
 ### Segmentfilter {#segment-filters}
 
-Wenn Sie die Löschung eines Segments von Nutzer:innen anfordern, wird automatisch ein [Segmentfilter]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters) namens **Pending Deletion** erstellt. Sie können ihn verwenden, um:
+Wenn Sie die Löschung eines Segments von Nutzer:innen anfordern, wird automatisch ein [Segmentfilter]({{site.baseurl}}/user_guide/audience/segments/managing_segments#filters) namens **Pending Deletion** erstellt. Sie können ihn verwenden, um:
 
 - Die genaue Gruppe von Nutzer:innen zu sehen, die einem bestimmten Löschdatum zugeordnet sind.
 - Diese Nutzer:innen von Campaigns auszuschließen, damit sie vor der Entfernung keine Nachrichten erhalten.
@@ -135,13 +135,13 @@ Für weitere Details zu einer bestimmten Anfrage wählen Sie <i class="fa-solid 
 
 ### Sicherheitsereignisbericht {#security-event-report}
 
-Sie können den Status früherer Löschungen auch überprüfen, indem Sie einen Sicherheitsereignisbericht herunterladen. Weitere Informationen finden Sie unter [Sicherheitseinstellungen]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report).
+Sie können den Status früherer Löschungen auch überprüfen, indem Sie einen Sicherheitsereignisbericht herunterladen. Weitere Informationen finden Sie unter [Sicherheitseinstellungen]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report).
 
 ## Häufig gestellte Fragen {#faq}
 
 ### Kann ich Segmente mit mehr als 10 Millionen Nutzer:innen löschen? {#can-i-delete-segments-with-more-than-10-million-users}
 
-Nein. Sie können keine Segmente mit mehr als 10 Millionen Nutzer:innen löschen. Wenn Sie Hilfe beim Löschen eines Segments dieser Größe benötigen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+Nein. Sie können keine Segmente mit mehr als 10 Millionen Nutzer:innen löschen. Wenn Sie Hilfe beim Löschen eines Segments dieser Größe benötigen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ### Ich kann nur bis zu 10 Millionen Nutzer:innen auf einmal löschen. Ist das ein Fehler? {#i-can-only-delete-up-to-10-million-users-at-a-time-is-this-a-bug}
 
@@ -167,4 +167,4 @@ Sie können [Segment-Löschungen](#cancel) innerhalb der ersten 7 Tage abbrechen
 
 ### Kann ich Nutzer:innen über die API statt über das Dashboard löschen? {#can-i-delete-users-with-the-api-instead-of-the-dashboard}
 
-Ja. Für kleinere Mengen können Sie den [`/users/delete`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) verwenden, der bis zu 50 Bezeichner pro Anfrage akzeptiert und dem [Rate-Limit]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#rate-limit) dieses Endpunkts unterliegt. Die segmentbasierte Löschung über das Dashboard eignet sich besser für sehr große Zielgruppen, beinhaltet jedoch die [7-tägige Wartezeit](#about-user-deletion).
+Ja. Für kleinere Mengen können Sie den [`/users/delete`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) verwenden, der bis zu 50 Bezeichner pro Anfrage akzeptiert und dem [Rate-Limit]({{site.baseurl}}/api/endpoints/user_data/post_user_delete#rate-limit) dieses Endpunkts unterliegt. Die segmentbasierte Löschung über das Dashboard eignet sich besser für sehr große Zielgruppen, beinhaltet jedoch die [7-tägige Wartezeit](#about-user-deletion).

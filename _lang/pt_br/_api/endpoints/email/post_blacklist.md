@@ -16,7 +16,7 @@ description: "Este artigo descreve os detalhes sobre o endpoint da Braze para li
 {% endapimethod %}
 
 {% alert important %}
-A Braze lançou o [endpoint `/email/blocklist`]({{site.baseurl}}/api/endpoints/email/post_blocklist/) com a mesma funcionalidade do endpoint `/email/blacklist`. Recomendamos que você use o endpoint `/email/blocklist` em vez disso.
+A Braze lançou o [endpoint `/email/blocklist`]({{site.baseurl}}/api/endpoints/email/post_blocklist) com a mesma funcionalidade do endpoint `/email/blacklist`. Recomendamos que você use o endpoint `/email/blocklist` em vez disso.
 {% endalert %}
 
 > Use esse endpoint para cancelar a inscrição de um usuário no e-mail e marcá-lo como hard bounce.
@@ -25,7 +25,7 @@ A Braze lançou o [endpoint `/email/blocklist`]({{site.baseurl}}/api/endpoints/e
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `email.blacklist`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `email.blacklist`.
 
 ## Limite de taxa {#rate-limit}
 

@@ -11,24 +11,24 @@ description: "Diese Landing-Page behandelt die Vorbereitung Ihrer Daten für Bra
 guide_featured_title: "Artikel in diesem Abschnitt"
 guide_featured_list:
   - name: Allgemeine Prinzipien
-    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/data_principles/
+    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/data_principles
     image: /assets/img/braze_icons/list.svg
   - name: Datenquellen verbinden
-    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/connect_data_sources/
+    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/connect_data_sources
     image: /assets/img/braze_icons/link-03.svg
   - name: Kritische Datenressourcen
-    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/data_assets/
+    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/data_assets
     image: /assets/img/braze_icons/database-01.svg
   - name: Snapshots im Vergleich zu Event-Streams
-    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/
+    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/data_streams
     image: /assets/img/braze_icons/dataflow-04.svg
   - name: Braze externe ID verwenden
-    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id/
+    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id
     image: /assets/img/braze_icons/user-01.svg
   - name: Features auswählen
-    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/choose_features/
+    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/choose_features
     image: /assets/img/braze_icons/settings-01.svg
   - name: Best Practices für Backfilling
-    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/backfill_best_practices/
+    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/backfill_best_practices
     image: /assets/img/braze_icons/refresh-ccw-01.svg
 ---

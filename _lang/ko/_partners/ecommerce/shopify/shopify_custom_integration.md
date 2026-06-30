@@ -16,7 +16,7 @@ page_order: 3
 
 Shopify 헤드리스 스토어를 Braze와 통합하려면 다음 두 가지 목표를 완료해야 합니다:
 
-1. **Braze Web SDK를 초기화하고 로드하여 온사이트 추적 활성화**<br><br> Shopify 웹사이트에 코드를 수동으로 추가하여 Braze 온사이트 추적을 활성화합니다. Shopify 헤드리스 스토어에 Braze SDK를 구현하면 세션, 익명 사용자 행동, 결제 전 쇼핑객 동작, 그리고 개발팀과 함께 포함하기로 선택한 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) 또는 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)을 포함한 온사이트 활동을 추적할 수 있습니다. 인앱 메시지나 Content Cards와 같이 SDK에서 지원하는 채널도 추가할 수 있습니다.
+1. **Braze Web SDK를 초기화하고 로드하여 온사이트 추적 활성화**<br><br> Shopify 웹사이트에 코드를 수동으로 추가하여 Braze 온사이트 추적을 활성화합니다. Shopify 헤드리스 스토어에 Braze SDK를 구현하면 세션, 익명 사용자 행동, 결제 전 쇼핑객 동작, 그리고 개발팀과 함께 포함하기로 선택한 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events) 또는 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)을 포함한 온사이트 활동을 추적할 수 있습니다. 인앱 메시지나 Content Cards와 같이 SDK에서 지원하는 채널도 추가할 수 있습니다.
 
 {: start="2"}
 2. **Braze Shopify 통합 설치**<br><br> Shopify 스토어를 Braze에 연결하면 Shopify 웹훅을 통해 고객, 결제, 주문 및 제품 데이터에 접근할 수 있습니다.
@@ -588,19 +588,19 @@ Shopify Hydrogen 또는 헤드리스 스토어의 경우 **커스텀 설정** �
 
 ### 3단계: Shopify 데이터 추적 {#step-3-track-shopify-data}
 
-Shopify 웹훅을 통해 제공되는 더 많은 Shopify 이벤트와 속성을 추가하여 통합을 강화합니다. 이 통합을 통해 추적되는 데이터에 대한 자세한 내용은 [Shopify 데이터 기능]({{site.baseurl}}/shopify_data_features/)을 참조하세요.
+Shopify 웹훅을 통해 제공되는 더 많은 Shopify 이벤트와 속성을 추가하여 통합을 강화합니다. 이 통합을 통해 추적되는 데이터에 대한 자세한 내용은 [Shopify 데이터 기능]({{site.baseurl}}/shopify_data_features)을 참조하세요.
 
 ![Shopify 데이터 추적 설정 단계.]({% image_buster /assets/img/shopify/track_shopify_data_setup.png %})
 
 ### 4단계: 과거 데이터 백필(선택 사항) {#step-4-historical-backfill-optional}
 
-커스텀 설정을 통해 [표준 통합]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#historical-backfill-setup)과 동일한 과거 Shopify 데이터 로드를 선택적으로 포함할 수 있습니다: 통합을 완료한 날짜로부터 지난 90일간의 주문 이벤트와 지난 1년간의 고객 프로필. 이 초기 데이터 로드를 포함하려면 초기 데이터 로드 옵션의 체크박스를 선택합니다.
+커스텀 설정을 통해 [표준 통합]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration#historical-backfill-setup)과 동일한 과거 Shopify 데이터 로드를 선택적으로 포함할 수 있습니다: 통합을 완료한 날짜로부터 지난 90일간의 주문 이벤트와 지난 1년간의 고객 프로필. 이 초기 데이터 로드를 포함하려면 초기 데이터 로드 옵션의 체크박스를 선택합니다.
 
 나중에 백필을 수행하려면 지금 초기 설정을 완료하고 나중에 이 단계로 돌아올 수 있습니다.
 
 ![과거 데이터 백필 설정 섹션.]({% image_buster /assets/img/shopify/historical_backfill_setup.png %})
 
-초기 로드에 포함되는 전체 데이터 목록, 매출 보고 동작 및 동기화 모니터링에 대해서는 [과거 데이터 백필]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)을 참조하세요.
+초기 로드에 포함되는 전체 데이터 목록, 매출 보고 동작 및 동기화 모니터링에 대해서는 [과거 데이터 백필]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#historical-backfill)을 참조하세요.
 
 ### 5단계: 커스텀 데이터 추적 설정(고급) {#step-5-custom-data-tracking-setup-advanced}
 
@@ -613,8 +613,8 @@ Braze SDK를 사용하면 이 통합에서 지원하는 데이터 이상의 커�
 }
 </style>
 
-<table aria-label="Step 5: Custom data tracking setup (advanced)" style="width: 100%;">
-  <caption>Step 5: Custom data tracking setup (advanced)</caption>
+<table aria-label="5단계: 커스텀 데이터 추적 설정(고급)" style="width: 100%;">
+  <caption>5단계: 커스텀 데이터 추적 설정(고급)</caption>
   <thead>
     <tr>
       <th style="width: 50%;">커스텀 이벤트</th>
@@ -695,7 +695,7 @@ Braze는 다음 매개변수를 엔드포인트로 전송합니다:
 ##### 엔드포인트 예시 {#example-endpoint}
 
 ```http
-GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
+GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@example.com&shopify_storefront=dev-store.myshopify.com
 ```
 
 
@@ -737,14 +737,14 @@ Shopify에서 이메일 또는 SMS 마케팅 옵트인을 수집할 수 있는 �
 ![이메일 또는 SMS 마케팅 옵트인 수집 옵션이 있는 "가입자 수집" 섹션.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
 {% alert note %}
-[Shopify 개요]({{site.baseurl}}/shopify_overview/)에서 언급한 바와 같이, 서드파티 캡처 폼을 사용하려면 개발자가 Braze SDK 코드를 통합해야 합니다. 이를 통해 폼 제출에서 이메일 주소와 글로벌 이메일 구독 상태를 캡처할 수 있습니다. 구체적으로 `theme.liquid` 파일에 다음 메서드를 구현하고 테스트해야 합니다:<br><br>
+[Shopify 개요]({{site.baseurl}}/shopify_overview)에서 언급한 바와 같이, 서드파티 캡처 폼을 사용하려면 개발자가 Braze SDK 코드를 통합해야 합니다. 이를 통해 폼 제출에서 이메일 주소와 글로벌 이메일 구독 상태를 캡처할 수 있습니다. 구체적으로 `theme.liquid` 파일에 다음 메서드를 구현하고 테스트해야 합니다:<br><br>
 - [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail): 고객 프로필에 이메일 주소를 설정합니다
 - [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): 글로벌 이메일 구독 상태를 업데이트합니다
 {% endalert %}
 
 ### 7단계: 제품 동기화(선택 사항) {#step-7-sync-products-optional}
 
-Shopify 스토어의 모든 제품을 Braze 카탈로그에 동기화하여 더 깊은 메시징 개인화를 구현할 수 있습니다. 자동 업데이트가 거의 실시간으로 이루어지므로 카탈로그에 항상 최신 제품 세부 정보가 반영됩니다. 자세한 내용은 [Shopify 제품 동기화]({{site.baseurl}}/shopify_catalogs/)를 확인하세요.
+Shopify 스토어의 모든 제품을 Braze 카탈로그에 동기화하여 더 깊은 메시징 개인화를 구현할 수 있습니다. 자동 업데이트가 거의 실시간으로 이루어지므로 카탈로그에 항상 최신 제품 세부 정보가 반영됩니다. 자세한 내용은 [Shopify 제품 동기화]({{site.baseurl}}/shopify_catalogs)를 확인하세요.
 
 ![Braze에 제품 데이터를 동기화하는 설정 단계.]({% image_buster /assets/img/shopify/sync_product_data.png %})
 
@@ -752,9 +752,9 @@ Shopify 스토어의 모든 제품을 Braze 카탈로그에 동기화하여 더 
 
 Shopify 직접 통합을 사용하여 인앱 메시지, Content Cards 및 피처 플래그를 활성화하려면 SDK에 각 채널을 추가합니다. 아래에서 각 채널에 대해 제공된 설명서 링크를 따르세요:
 
-- **인앱 메시지:** 리드 캡처 폼 사용 사례를 위한 인앱 메시지 활성화에 대해서는 [인앱 메시지]({{site.baseurl}}/developer_guide/in_app_messages/)를 참조하세요.
-- **Content Cards:** 받은편지함 또는 웹사이트 배너 사용 사례를 위한 Content Cards 활성화에 대해서는 [Content Cards]({{site.baseurl}}/developer_guide/content_cards/)를 참조하세요.
-- **피처 플래그:** 사이트 실험 사용 사례를 위한 피처 플래그 활성화에 대해서는 [피처 플래그]({{site.baseurl}}/developer_guide/feature_flags/)를 참조하세요.
+- **인앱 메시지:** 리드 캡처 폼 사용 사례를 위한 인앱 메시지 활성화에 대해서는 [인앱 메시지]({{site.baseurl}}/developer_guide/in_app_messages)를 참조하세요.
+- **Content Cards:** 받은편지함 또는 웹사이트 배너 사용 사례를 위한 Content Cards 활성화에 대해서는 [Content Cards]({{site.baseurl}}/developer_guide/content_cards)를 참조하세요.
+- **피처 플래그:** 사이트 실험 사용 사례를 위한 피처 플래그 활성화에 대해서는 [피처 플래그]({{site.baseurl}}/developer_guide/feature_flags)를 참조하세요.
 
 ### 9단계: 설정 완료 {#step-9-finish-setup}
 

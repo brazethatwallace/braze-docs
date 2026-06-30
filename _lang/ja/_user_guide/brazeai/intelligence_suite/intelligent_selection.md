@@ -20,7 +20,7 @@ Campaignにインテリジェントセレクションを追加する前に、設
 - Campaignが定期的なスケジュールで送信されること。単一送信のCampaignはサポートされていません。
 - 少なくとも2つのメッセージバリアントが追加されていること。
 - バリアント全体のパフォーマンスを測定するためにコンバージョンイベントが定義されていること。
-- 再適格期間が24時間以上に設定されていること。これよりも短い期間は、コントロールバリアントの整合性に影響する可能性があるため、サポートされていません。詳細については、[こちらのFAQ]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection)を参照してください。
+- 再適格期間が24時間以上に設定されていること。これよりも短い期間は、コントロールバリアントの整合性に影響する可能性があるため、サポートされていません。詳細については、[こちらのFAQ]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection)を参照してください。
 {% endtab %}
 
 {% tab Canvas %}
@@ -39,10 +39,10 @@ Canvasでインテリジェントセレクションを使用するには、以�
 インテリジェントセレクションは以下のことを行います。
 - パフォーマンスデータを繰り返し確認して、Campaignのトラフィックを段階的に勝者バリアントにシフトします。
 - 統計的な信頼度を損なうことなく、より多くのユーザーが最もパフォーマンスの高いバリアントを受信していることをチェックします。
-- [従来のABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)よりも迅速にパフォーマンスの低いバリアントを除外し、パフォーマンスの高いバリアントを特定します。
+- [従来のABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)よりも迅速にパフォーマンスの低いバリアントを除外し、パフォーマンスの高いバリアントを特定します。
 - 最適なメッセージがユーザーに表示されるように、より頻繁に、かつより高い信頼度でテストします。
 
-インテリジェントセレクションは、複数回送信するCampaignに最適です。最適化を開始するために早期のパフォーマンスデータが必要であるため、単一送信のCampaignではメリットがありません。このようなCampaignには、代わりに従来の[ABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を使用することをお勧めします。
+インテリジェントセレクションは、複数回送信するCampaignに最適です。最適化を開始するために早期のパフォーマンスデータが必要であるため、単一送信のCampaignではメリットがありません。このようなCampaignには、代わりに従来の[ABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)を使用することをお勧めします。
 
 
 CampaignとCanvasesにインテリジェントセレクションを追加できます。
@@ -52,7 +52,7 @@ CampaignとCanvasesにインテリジェントセレクションを追加でき�
 インテリジェントセレクションは、BrazeのCampaign作成画面の**ターゲットオーディエンス**ステップで、任意の複数回送信Campaignに追加できます。一度だけ送信するCampaignでは、この機能を利用できません。
 
 {% alert note %}
-インテリジェントセレクションは、コントロールバリアントの整合性に影響するため、再適格期間が24時間未満のCampaignでは使用できません。詳細については、[インテリジェンスに関するFAQ]({{site.baseurl}}/user_guide/brazeai/intelligence/faqs/#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection)を参照してください。
+インテリジェントセレクションは、コントロールバリアントの整合性に影響するため、再適格期間が24時間未満のCampaignでは使用できません。詳細については、[インテリジェンスに関するFAQ]({{site.baseurl}}/user_guide/brazeai/intelligence/faqs#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection)を参照してください。
 {% endalert %}
 {% endtab %}
 

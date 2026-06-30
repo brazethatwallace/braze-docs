@@ -15,7 +15,7 @@ tool:
 
 > Esta página fornece respostas para algumas perguntas frequentes relacionadas ao editor de arrastar e soltar para e-mail.
 
-### Posso pré-visualizar como meu e-mail aparece no modo escuro? {#can-i-preview-how-my-email-appears-in-dark-mode}
+## Posso pré-visualizar como meu e-mail aparece no modo escuro? {#can-i-preview-how-my-email-appears-in-dark-mode}
 
 Sim. Acesse a seção **Preview and Test** do editor de arrastar e soltar e ative o **Dark mode**. Recomendamos também pré-visualizar e testar seus e-mails em diferentes plataformas de usuários e usar imagens transparentes para imagens de fundo de linha sempre que possível.
 
@@ -46,16 +46,16 @@ O editor de arrastar e soltar atualmente suporta duas camadas. Você pode defini
 
 ### Posso salvar meu e-mail de arrastar e soltar como modelo depois de criá-lo na minha Campaign ou Canvas? {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-Não. Não é possível salvar um e-mail de arrastar e soltar de uma Campaign ou Canvas como um **Modelo de e-mail** de arrastar e soltar em **Templates** > **Email Templates**. Recrie o layout em **Templates** > **Email Templates** ou comece a partir de um modelo salvo na próxima vez. Para instruções, consulte [Criar um modelo de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/).
+Não. Não é possível salvar um e-mail de arrastar e soltar de uma Campaign ou Canvas como um **Modelo de e-mail** de arrastar e soltar em **Templates** > **Email Templates**. Recrie o layout em **Templates** > **Email Templates** ou comece a partir de um modelo salvo na próxima vez. Para instruções, consulte [Criar um modelo de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template).
 
-Se você precisar de um modelo HTML reutilizável, selecione **Download file** enquanto edita o corpo de arrastar e soltar, abra o HTML do ZIP e cole a marcação em um [modelo de e-mail HTML]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/) usando o editor de código HTML. Verifique novamente o Liquid, os links e os ativos hospedados depois.
+Se você precisar de um modelo HTML reutilizável, selecione **Download file** enquanto edita o corpo de arrastar e soltar, abra o HTML do ZIP e cole a marcação em um [modelo de e-mail HTML]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template) usando o editor de código HTML. Verifique novamente o Liquid, os links e os ativos hospedados depois.
 
-Para saber mais sobre onde os modelos ficam, consulte [Modelos e mídia]({{site.baseurl}}/user_guide/messaging/templates/).
+Para saber mais sobre onde os modelos ficam, consulte [Modelos e mídia]({{site.baseurl}}/user_guide/messaging/templates).
 
 ### Por que não consigo alterar a cor de preenchimento de um botão no editor de arrastar e soltar? {#why-cant-i-change-a-buttons-fill-color-in-the-drag-and-drop-editor}
 
 Os estilos no nível da página podem substituir os estilos no nível da mensagem. Se atualizar o **Fill** em um botão ou bloco não funcionar, tente o seguinte:
-1. Abra as [configurações globais de estilo de e-mail]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) e selecione **Reset to default** no estilo de página conflitante para que a cor no nível da mensagem possa ser aplicada.
+1. Abra as [configurações globais de estilo de e-mail]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings) e selecione **Reset to default** no estilo de página conflitante para que a cor no nível da mensagem possa ser aplicada.
 2. Defina a cor novamente no bloco.
 
 ### Posso adicionar anexos de e-mail ao editor de arrastar e soltar? {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
@@ -68,7 +68,7 @@ Sim. Você pode adicionar anexos à sua mensagem de e-mail acessando **Sending S
 2. Selecione **Edit email body** para abrir o editor de arrastar e soltar.
 3. Selecione **Download file** (na parte inferior do editor). Extraia o arquivo para acessar o HTML gerado.
 
-Você pode colar esse HTML em um [bloco HTML]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#content) ou no editor de HTML quando precisar de edições de baixo nível — por exemplo, para [desativar o rastreamento de cliques em links específicos]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis).
+Você pode colar esse HTML em um [bloco HTML]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#content) ou no editor de HTML quando precisar de edições de baixo nível — por exemplo, para [desativar o rastreamento de cliques em links específicos]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis).
 
 ### Por que meu layout de arrastar e soltar está quebrando? {#why-is-my-drag-and-drop-layout-breaking}
 

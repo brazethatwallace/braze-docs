@@ -37,7 +37,7 @@ En revanche, les autres outils BrazeAI sont conçus pour optimiser les indicateu
 
 Les fonctionnalités des agents Braze comprennent :
 
-- **Configuration flexible :** Utilisez un LLM fourni par Braze ou connectez vos propres [fournisseurs de modèles d'intelligence artificielle]({{site.baseurl}}/partners/ai_model_providers/) (tels qu'OpenAI, Anthropic, Google Gemini ou Databricks Mosaic).
+- **Configuration flexible :** Utilisez un LLM fourni par Braze ou connectez vos propres [fournisseurs de modèles d'intelligence artificielle]({{site.baseurl}}/partners/ai_model_providers) (tels qu'OpenAI, Anthropic, Google Gemini ou Databricks Mosaic).
 - **Intégration fluide :** Déployez les agents directement dans les étapes du Canvas ou les champs du catalogue.
 - **Outils de test et de journalisation :** Prévisualisez les résultats de votre agent en effectuant des tests avec des exemples d'entrées avant le lancement. Consultez les journaux de chaque exécution de l'agent, y compris les entrées et sorties correspondantes.
 - **Contrôles d'utilisation :** Les limites quotidiennes facilitent la gestion des performances et des coûts.
@@ -50,13 +50,13 @@ Les agents sont configurés avec des instructions (invites système) qui défini
 
 | Terme | Définition |
 | --- | --- |
-| [Modèle]({{site.baseurl}}/user_guide/brazeai/agents/reference/#models) | Le « cerveau » de l'agent, en l'occurrence un grand modèle de langage (LLM). Il interprète les entrées, génère des réponses et effectue des raisonnements. Un modèle plus performant (entraîné sur des données plus pertinentes) rend l'agent plus efficace et polyvalent. |
-| [Instructions]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) | Les règles ou directives que vous fournissez à l'agent (invite système). Elles définissent comment l'agent doit se comporter à chaque exécution. Des instructions claires rendent l'agent plus fiable et prévisible. |
+| [Modèle]({{site.baseurl}}/user_guide/brazeai/agents/reference#models) | Le « cerveau » de l'agent, en l'occurrence un grand modèle de langage (LLM). Il interprète les entrées, génère des réponses et effectue des raisonnements. Un modèle plus performant (entraîné sur des données plus pertinentes) rend l'agent plus efficace et polyvalent. |
+| [Instructions]({{site.baseurl}}/user_guide/brazeai/agents/reference#writing-instructions) | Les règles ou directives que vous fournissez à l'agent (invite système). Elles définissent comment l'agent doit se comporter à chaque exécution. Des instructions claires rendent l'agent plus fiable et prévisible. |
 | Contexte | Données transmises à l'agent lors de l'exécution, quel que soit son lieu de déploiement, telles que les champs du profil utilisateur ou les lignes du catalogue. Ces entrées fournissent les informations que l'agent utilise pour générer ses sorties. |
-| [Variables de contexte Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#how-context-variables-work) | Données temporaires que vous pouvez créer et utiliser dans le parcours d'un utilisateur au sein d'un Canvas spécifique. |
-| [Variable de sortie]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#define-the-output-variable) | Le résultat généré par l'agent lorsqu'il est utilisé dans les étapes du Canvas. Les variables de sortie enregistrent le résultat de l'agent afin de personnaliser le contenu ou de guider les parcours du workflow. Les variables de sortie peuvent être de type chaîne de caractères, nombre ou valeur booléenne. |
+| [Variables de contexte Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#how-context-variables-work) | Données temporaires que vous pouvez créer et utiliser dans le parcours d'un utilisateur au sein d'un Canvas spécifique. |
+| [Variable de sortie]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#define-the-output-variable) | Le résultat généré par l'agent lorsqu'il est utilisé dans les étapes du Canvas. Les variables de sortie enregistrent le résultat de l'agent afin de personnaliser le contenu ou de guider les parcours du workflow. Les variables de sortie peuvent être de type chaîne de caractères, nombre ou valeur booléenne. |
 | [Invocation](#limitations) | Une seule exécution de l'agent. Celle-ci est décomptée de vos limites quotidiennes. |
-| [Format de sortie]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#select-output) | La structure de données prédéfinie de la réponse de l'agent. |
+| [Format de sortie]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#select-output) | La structure de données prédéfinie de la réponse de l'agent. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Concepts clés" }
 
 ## Restrictions {#limitations}
@@ -72,13 +72,13 @@ Les restrictions suivantes s'appliquent :
 
 Ciblez les cas d'utilisation à forte valeur ajoutée où les agents peuvent générer le meilleur retour sur investissement (ROI), et choisissez des audiences susceptibles de répondre. Une audience plus restreinte mais à fort potentiel surpasse souvent une audience large avec peu d'opportunités — par exemple, recibler les utilisateurs qui ont effectué une recherche récemment mais n'ont pas converti, plutôt que d'envoyer du contenu généré par un agent à l'ensemble de votre base d'utilisateurs.
 
-Pour valider le ROI avant de passer à l'échelle, utilisez une étape [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) pour n'envoyer qu'une partie de votre audience à travers une étape Agent. Pour plus de conseils sur le déploiement, consultez [Déployer des agents personnalisés]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/).
+Pour valider le ROI avant de passer à l'échelle, utilisez une étape [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) pour n'envoyer qu'une partie de votre audience à travers une étape Agent. Pour plus de conseils sur le déploiement, consultez [Déployer des agents personnalisés]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents).
 
 ## Gestion des erreurs {#error-handling}
 
-Si le modèle connecté renvoie une [erreur de limite de débit]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) du fournisseur de LLM lors d'une **étape Agent dans Canvas**, Braze relance la requête en continu en utilisant des délais exponentiels. Les agents de catalogue ne relancent pas les invocations soumises à une limite de débit. Pour les autres types d'échecs (comme un dépassement de délai ou une clé API invalide), la sortie de l'agent Canvas est définie sur `null`, sauf si l'agent dispose de [valeurs de repli configurées]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) dans la Console des agents (étapes Agent dans Canvas uniquement). Si un agent atteint sa limite d'invocation quotidienne, Braze applique les valeurs de repli configurées lorsqu'elles sont présentes ; sinon, la sortie est définie sur `null`.
+Si le modèle connecté renvoie une [erreur de limite de débit]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) du fournisseur de LLM lors d'une **étape Agent dans Canvas**, Braze relance la requête en continu en utilisant des délais exponentiels. Les agents de catalogue ne relancent pas les invocations soumises à une limite de débit. Pour les autres types d'échecs (comme un dépassement de délai ou une clé API invalide), la sortie de l'agent Canvas est définie sur `null`, sauf si l'agent dispose de [valeurs de repli configurées]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) dans la Console des agents (étapes Agent dans Canvas uniquement). Si un agent atteint sa limite d'invocation quotidienne, Braze applique les valeurs de repli configurées lorsqu'elles sont présentes ; sinon, la sortie est définie sur `null`.
 
-Lorsque de nombreux utilisateurs entrent simultanément dans une étape Agent, le traitement peut prendre plus de temps en raison des [contrôles de flux d'invocation]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls). Configurez des valeurs de repli dans la Console des agents pour les agents Canvas afin que les utilisateurs reçoivent toujours un résultat en cas d'échec d'une invocation, ou utilisez les [valeurs Liquid par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) dans les étapes Message en aval.
+Lorsque de nombreux utilisateurs entrent simultanément dans une étape Agent, le traitement peut prendre plus de temps en raison des [contrôles de flux d'invocation]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls). Configurez des valeurs de repli dans la Console des agents pour les agents Canvas afin que les utilisateurs reçoivent toujours un résultat en cas d'échec d'une invocation, ou utilisez les [valeurs Liquid par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) dans les étapes Message en aval.
 
 ## Comment mes données sont-elles utilisées et transmises aux LLM fournis par Braze ? {#how-is-my-data-used-and-sent-to-braze-provided-llms}
 
@@ -90,5 +90,5 @@ Le LLM fourni par Braze pour les agents Braze, identifié comme « Auto », util
 
 Maintenant que vous connaissez les agents Braze, vous êtes prêt pour la suite :
 
-- [Créer des agents personnalisés]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)
-- [Déployer des agents personnalisés]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/)
+- [Créer des agents personnalisés]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)
+- [Déployer des agents personnalisés]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents)

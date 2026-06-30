@@ -18,14 +18,14 @@ Les messages WhatsApp avec distribution optimisée sont envoyés via l'[API Mark
 
 Les marques peuvent s'attendre à une livrabilité égale ou supérieure avec la MM API pour WhatsApp, par rapport à la Cloud API. En Inde, les messages marketing à fort engagement ont enregistré jusqu'à 9 % de messages livrés en plus par rapport à la Cloud API, selon Meta. Notez que la MM API pour WhatsApp ne garantit toujours pas une livrabilité de 100 %.
 
-### Disponibilité régionale {#regional-availability}
+## Disponibilité régionale {#regional-availability}
 
 La disponibilité et les capacités d'optimisation de la distribution optimisée dépendent de la région du numéro de téléphone professionnel et de l'utilisateur. Pour en savoir plus, consultez [Disponibilité géographique des fonctionnalités](https://developers.facebook.com/docs/whatsapp/marketing-messages-lite-api/get-started#geographic-availability-of-features).
 
 ## Configuration de la distribution optimisée {#setting-up-optimized-delivery}
 
 1. Dans Braze, accédez à **Intégrations partenaires** > **Partenaires technologiques** > **WhatsApp**.
-2. Dans la section **Optimize your sending with optimized delivery**, sélectionnez **Upgrade setting** pour déclencher le [flux d'inscription intégré]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/).
+2. Dans la section **Optimisez vos envois avec la distribution optimisée**, sélectionnez **Mettre à niveau le paramètre** pour déclencher le [flux d'inscription intégré]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup).
 
 ![La section d'intégration des messages WhatsApp avec une option pour optimiser l'envoi avec la distribution optimisée.]({% image_buster /assets/img/whatsapp/whatsapp_messaging_integration.png %})
 
@@ -38,7 +38,7 @@ Vous pouvez également activer la distribution optimisée directement dans votre
 
 ### Résolution des problèmes de configuration {#troubleshooting-your-setup}
 
-- **Erreur générale :** Si un problème survient lors de la mise à niveau, cette bannière d'erreur s'affichera et vous conseillera de [contacter l'assistance]({{site.baseurl}}/braze_support/).
+- **Erreur générale :** Si un problème survient lors de la mise à niveau, cette bannière d'erreur s'affichera et vous conseillera de [contacter l'assistance]({{site.baseurl}}/braze_support).
 - **Erreur d'inéligibilité :** Si vous êtes restreint par Meta, cette bannière d'erreur s'affichera : « Au moins un compte WhatsApp Business est restreint par Meta. Les comptes doivent être en règle pour effectuer la mise à niveau. » Cette bannière ne peut pas être fermée tant que le problème n'est pas résolu.
 
 ## Utilisation de la distribution optimisée dans les campagnes et les Canvas {#using-optimized-delivery-in-campaigns-and-canvases}
@@ -47,8 +47,8 @@ La distribution optimisée doit être utilisée pour les **messages marketing**.
 
 ### Sélection de la méthode de distribution {#selecting-the-delivery-method}
 
-1. Dans le compositeur WhatsApp de Braze pour une campagne ou une étape de message Canvas, accédez à l'onglet **Settings**.
-2. Dans la section **Delivery method**, la case **Optimized Delivery (Recommended)** sera cochée par défaut si votre compte WhatsApp Business (WABA) est activé. Si vous ne souhaitez pas utiliser la distribution optimisée pour ce message spécifique, décochez la case.
+1. Dans le compositeur WhatsApp de Braze pour une campagne ou une étape de message Canvas, accédez à l'onglet **Paramètres**.
+2. Dans la section **Méthode de distribution**, la case **Distribution optimisée (recommandée)** sera cochée par défaut si votre compte WhatsApp Business (WABA) est activé. Si vous ne souhaitez pas utiliser la distribution optimisée pour ce message spécifique, décochez la case.
 - Si vous sélectionnez la distribution optimisée mais qu'elle n'est pas disponible, le message basculera automatiquement vers la méthode Cloud API.
 
 ![Compositeur de messages avec un onglet de prévisualisation comportant une case à cocher pour sélectionner la distribution optimisée.]({% image_buster /assets/img/whatsapp/delivery_method_settings.png %})

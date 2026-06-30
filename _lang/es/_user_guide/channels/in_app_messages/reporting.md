@@ -18,7 +18,7 @@ tool:
 
 ## Métricas de mensajes dentro de la aplicación {#in-app-message-metrics}
 
-Estas son las métricas clave de mensajes dentro de la aplicación que puedes ver en tus análisis. Para consultar las definiciones de todas las métricas utilizadas en Braze, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+Estas son las métricas clave de mensajes dentro de la aplicación que puedes ver en tus análisis. Para consultar las definiciones de todas las métricas utilizadas en Braze, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 {% alert note %}
 Para los mensajes dentro de la aplicación, esta página define las impresiones únicas utilizando un límite de día calendario en la zona horaria de tu espacio de trabajo.
@@ -34,7 +34,7 @@ Para los mensajes dentro de la aplicación, esta página define las impresiones 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Métricas de mensajes dentro de la aplicación" }
 
 {% alert note %}
-En las pruebas A/B, las *Impresiones únicas* del grupo de control pueden superar las *Impresiones únicas* de la variante, y las *Impresiones totales* del control pueden superar las *Impresiones totales* de la variante, cuando los mensajes de la variante requieren tiempo de renderizado (por ejemplo, imágenes grandes o Contenido conectado con plantillas). Los usuarios que desencadenan el mensaje pero lo abandonan antes de que la variante termine de renderizarse pueden no registrar impresiones de la variante, mientras que el grupo de control registra impresiones sin renderizar un mensaje.
+En las pruebas A/B, las *Impresiones únicas* del grupo de control pueden superar las *Impresiones únicas* de la variante, y las *Impresiones totales* del control pueden superar las *Impresiones totales* de la variante, cuando los mensajes de la variante requieren tiempo de renderizado (por ejemplo, imágenes grandes o contenido conectado con plantillas). Los usuarios que desencadenan el mensaje pero lo abandonan antes de que la variante termine de renderizarse pueden no registrar impresiones de la variante, mientras que el grupo de control registra impresiones sin renderizar un mensaje.
 {% endalert %}
 
 ## ¿Cómo se incrementan las conversiones con la reelegibilidad? {#how-do-conversions-increment-with-re-eligibility}

@@ -31,12 +31,12 @@ Brazeは、グローバルおよび購読グループにおけるサブスクリ
 
 ### 配信停止されたメールアドレス {#unsubscribed-email-addresses}
 
-Brazeは、[カスタムフッター]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/)を通じて手動で配信停止したユーザーを自動的に配信停止にします。ユーザーがメールアドレスを更新し、**送信設定**で**ユーザーがメールを更新したときに再購読する**が有効になっている場合、通常の送信が再開されます。
+Brazeは、[カスタムフッター]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer)を通じて手動で配信停止したユーザーを自動的に配信停止にします。ユーザーがメールアドレスを更新し、**送信設定**で**ユーザーがメールを更新したときに再購読する**が有効になっている場合、通常の送信が再開されます。
 
 ユーザーがメールの1つ以上をスパムとしてマークした場合、Brazeはそのユーザーにトランザクションメールのみを送信します。トランザクションメールとは、**ターゲットオーディエンス**の**配信停止ユーザーを含むすべてのユーザーに送信**オプションを指します。
 
 {% alert tip %}
-ユーザーを効果的に再エンゲージする方法については、[IPウォーミング]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/)のベストプラクティスを参照してください。
+ユーザーを効果的に再エンゲージする方法については、[IPウォーミング]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)のベストプラクティスを参照してください。
 {% endalert %}
 
 ### バウンスと無効なメール {#bounces-and-invalid-emails}
@@ -55,7 +55,7 @@ Braze SDKを使用して、ユーザーのサブスクリプション状態を�
 
 #### REST API
 
-[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を使用して、ユーザーの[`email_subscribe` 属性]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)を更新します。たとえば、ユーザーがカスタム配信停止リンクを使用した際にメールのサブスクリプション状態を配信停止に設定するには、リクエストのユーザー属性に `email_subscribe: "unsubscribed"` を含めます。
+[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用して、ユーザーの[`email_subscribe` 属性]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)を更新します。たとえば、ユーザーがカスタム配信停止リンクを使用した際にメールのサブスクリプション状態を配信停止に設定するには、リクエストのユーザー属性に `email_subscribe: "unsubscribed"` を含めます。
 
 #### ユーザープロファイル {#user-profile}
 
@@ -74,8 +74,8 @@ Braze SDKを使用して、ユーザーのサブスクリプション状態を�
 
 ユーザーのメールサブスクリプション状態は、以下の方法で確認できます。
 
-1. **REST APIエクスポート:** [セグメントごとのユーザーエクスポート]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)または[識別子ごとのユーザーエクスポート]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)エンドポイントを使用して、個々のユーザープロファイルをJSON形式でエクスポートします。
-2. **ユーザープロファイル:** [ユーザーを検索]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)ページでユーザーのプロファイルを見つけ、**エンゲージメント**タブを選択してユーザーのサブスクリプション状態を表示および手動で更新します。
+1. **REST APIエクスポート:** [セグメントごとのユーザーエクスポート]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)または[識別子ごとのユーザーエクスポート]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)エンドポイントを使用して、個々のユーザープロファイルをJSON形式でエクスポートします。
+2. **ユーザープロファイル:** [ユーザーを検索]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)ページでユーザーのプロファイルを見つけ、**エンゲージメント**タブを選択してユーザーのサブスクリプション状態を表示および手動で更新します。
 
 ユーザーがメールアドレスを更新すると、サブスクリプション状態は購読中に設定されます。更新されたメールアドレスがBrazeワークスペース内の別の場所にすでに存在する場合、ユーザーはその既存ユーザーのサブスクリプション状態を引き継ぎます。ただし、**送信設定**で**ユーザーがメール設定を更新したときに再購読する**が有効になっている場合は除きます。
 
@@ -84,26 +84,26 @@ Braze SDKを使用して、ユーザーのサブスクリプション状態を�
 | ソース | 説明 |
 | ------ | ----------- |
 | SDK | Braze SDKを通じて送信されたユーザー属性の更新 |
-| REST API | [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)エンドポイントを通じて送信されたユーザー属性の更新 |
+| REST API | [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)エンドポイントを通じて送信されたユーザー属性の更新 |
 | ダッシュボード | ユーザープロファイルページで手動で変更されたサブスクリプション状態 |
 | CSVインポート | ユーザーCSVインポート時に設定されたサブスクリプション状態 |
 | ユーザー設定センター | Brazeがホストするユーザー設定センターからユーザーが設定を更新 |
 | 購読ページ | ユーザーがメール内の配信停止リンクを選択し、Brazeの購読ページに遷移 |
 | List-Unsubscribe | ユーザーがメールクライアントのネイティブList-Unsubscribeヘッダーを通じて配信停止 |
-| Canvasユーザー更新ステップ | Canvasの[ユーザー更新ステップ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/)によって更新されたサブスクリプション状態 |
+| Canvasユーザー更新ステップ | Canvasの[ユーザー更新ステップ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update)によって更新されたサブスクリプション状態 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="メールサブスクリプション状態の更新ソース" }
 
 ユーザーのグローバルメールサブスクリプション状態が変更されると、Brazeはその状態を同じメールアドレスを共有する他のプロファイルに伝播します（変更ごとに最大100プロファイル）。同じメールアドレスを共有するプロファイルが100を超える場合、Brazeは伝播を保証しません。同じメールアドレスを共有するユーザーが異なるサブスクリプション状態を示す場合は、Brazeサポートにお問い合わせください。
 
 ## 購読グループ {#subscription-groups}
 
-購読グループは、[グローバルサブスクリプション状態](#subscription-states)からオーディエンスをさらに絞り込むことができるセグメントフィルターです。これらのグループにより、エンドユーザーに対してより詳細なサブスクリプションオプションを提示できます。
+購読グループは、[グローバルサブスクリプション状態](#subscription-states)からオーディエンスをさらに絞り込むことができるSegmentフィルターです。これらのグループにより、エンドユーザーに対してより詳細なサブスクリプションオプションを提示できます。
 
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
 たとえば、複数のカテゴリのメールキャンペーン（プロモーション、ニュースレター、製品アップデートなど）を送信するとします。その場合、購読グループを使用して、[メールのユーザー設定センター](#email-preference-center)から顧客が1つのページで一括してメールカテゴリの購読または購読解除を選択できるようにすることができます。あるいは、購読グループを使用して、日次、週次、月次のメール用の購読グループを作成し、顧客がメールの受信頻度を選択できるようにすることもできます。
 
-[購読グループエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/)を使用して、Brazeダッシュボードの**購読グループ**ページに保存されている購読グループをプログラムで管理します。
+[購読グループエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups)を使用して、Brazeダッシュボードの**購読グループ**ページに保存されている購読グループをプログラムで管理します。
 
 ### 購読グループの作成 {#creating-a-subscription-group}
 
@@ -120,11 +120,11 @@ Braze SDKを使用して、ユーザーのサブスクリプション状態を�
 
 Segmentを作成する際に、購読グループ名をフィルターとして設定して、グループにオプトインしたユーザーをターゲットにします。月次ニュースレター、クーポン、メンバーシップティアなどに最適です。
 
-![「Lapsed Users」セグメントのユーザーをターゲットにし、「Weekly Emails」購読グループのユーザーのフィルターを使用した例。]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
+![「Lapsed Users」Segmentのユーザーをターゲットにし、「Weekly Emails」購読グループのユーザーのフィルターを使用した例。]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
 
 ### 購読グループのアーカイブ {#archiving-subscription-groups}
 
-アーカイブされた購読グループは編集できず、Segmentフィルターやユーザー設定センターに表示されなくなります。メール、Campaign、またはCanvasのSegmentフィルターとして使用されているグループをアーカイブしようとすると、そのグループのすべての使用箇所を削除するまでアーカイブを防止するエラーメッセージが表示されます。
+アーカイブされた購読グループは編集できず、SegmentフィルターやユーザーSettingsセンターに表示されなくなります。メール、Campaign、またはCanvasのSegmentフィルターとして使用されているグループをアーカイブしようとすると、そのグループのすべての使用箇所を削除するまでアーカイブを防止するエラーメッセージが表示されます。
 
 **購読グループ**ページからグループをアーカイブするには、以下の手順に従います。
 
@@ -135,11 +135,11 @@ Brazeは、アーカイブされたグループのユーザーの状態変更を
 
 #### 購読グループサイズの表示 {#viewing-subscription-group-sizes}
 
-**購読グループ**ページの**購読グループ時系列**グラフを参照して、一定期間のユーザー数に基づく購読グループサイズを確認できます。これらの購読グループサイズは、セグメントサイズの計算など、Brazeの他の領域とも一致しています。
+**購読グループ**ページの**購読グループ時系列**グラフを参照して、一定期間のユーザー数に基づく購読グループサイズを確認できます。これらの購読グループサイズは、Segmentサイズの計算など、Brazeの他の領域とも一致しています。
 
 ![12月2日から11日までの「購読グループ時系列」グラフの例。グラフは6日から7日にかけてユーザー数が約1,000万増加したことを示しています。]({% image_buster /assets/img_archive/subscription_group_graph.png %})
 
-時系列のカウントが**メールサブスクリプションステータスが配信停止**を使用するセグメントと大きく異なる場合、グラフはその**購読グループ**のメンバーシップをカウントしているのに対し、そのフィルターは**グローバル**なメールサブスクリプション状態を反映していることに注意してください。たとえば、ユーザーはグローバルでは購読中でも、特定のグループからは配信停止している場合があります。
+時系列のカウントが**メールサブスクリプションステータスが配信停止**を使用するSegmentと大きく異なる場合、グラフはその**購読グループ**のメンバーシップをカウントしているのに対し、そのフィルターは**グローバル**なメールサブスクリプション状態を反映していることに注意してください。たとえば、ユーザーはグローバルでは購読中でも、特定のグループからは配信停止している場合があります。
 
 #### Campaign分析での購読グループの表示 {#viewing-subscription-groups-in-campaign-analytics}
 
@@ -152,14 +152,14 @@ Brazeは、アーカイブされたグループのユーザーの状態変更を
 
 ### ユーザーのメール購読グループの確認 {#checking-a-users-email-subscription-group}
 
-- **ユーザープロファイル:** Brazeダッシュボードの[ユーザーを検索]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#access-profiles)ページから個々のユーザープロファイルにアクセスできます。ここでは、メールアドレス、電話番号、または外部ユーザーIDでユーザープロファイルを検索できます。**エンゲージメント**タブでユーザーのメール購読グループを確認することもできます。
-- **Braze REST API:** [ユーザーの購読グループ一覧エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/)または[ユーザーの購読グループステータス一覧エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/)を使用して、個々のユーザープロファイルの購読グループを確認します。
+- **ユーザープロファイル:** Brazeダッシュボードの[ユーザーを検索]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles)ページから個々のユーザープロファイルにアクセスできます。ここでは、メールアドレス、電話番号、または外部ユーザーIDでユーザープロファイルを検索できます。**エンゲージメント**タブでユーザーのメール購読グループを確認することもできます。
+- **Braze REST API:** [ユーザーの購読グループ一覧エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups)または[ユーザーの購読グループステータス一覧エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)を使用して、個々のユーザープロファイルの購読グループを確認します。
 
 ## メールのユーザー設定センター {#email-preference-center}
 
 メールのユーザー設定センターでは、購読グループのニュースレターを受信するユーザーを管理できます。ダッシュボードの**購読グループ**で確認できます。作成した各購読グループは、ユーザー設定センターのリストに追加されます。
 
-ユーザー設定センターの追加やカスタマイズの方法については、[ユーザー設定センター]({{site.baseurl}}/user_guide/channels/email/subscriptions/)を参照してください。
+ユーザー設定センターの追加やカスタマイズの方法については、[ユーザー設定センター]({{site.baseurl}}/user_guide/channels/email/subscriptions)を参照してください。
 
 ## メールサブスクリプションの変更 {#changing-email-subscriptions}
 
@@ -171,7 +171,7 @@ Brazeは、アーカイブされたグループのユーザーの状態変更を
 
 デフォルトのフッターを使用したくない場合は、ワークスペース全体のカスタムメールフッターを作成し、{% raw %}`{{${email_footer}}}`{% endraw %}を使用してすべてのメールにテンプレート化します。
 
-これにより、メールテンプレートやメールCampaignごとに新しいフッターを作成する必要がなくなります。手順については、[カスタムメールフッター]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/)を参照してください。
+これにより、メールテンプレートやメールCampaignごとに新しいフッターを作成する必要がなくなります。手順については、[カスタムメールフッター]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer)を参照してください。
 
 #### 中国のIPアドレスに対するサブスクリプション状態の管理 {#managing-subscription-states-for-chinese-ip-addresses}
 
@@ -188,7 +188,7 @@ Brazeは、アーカイブされたグループのユーザーの状態変更を
 
 再購読リンク（例: {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}）を含めて、ユーザーが誤った配信停止を元に戻せるようにしてください。
 
-また、ユーザーをサイトに誘導し、Braze REST APIでステータスを更新することもできます（例: {% raw %}`?user_id={{${user_id}}}`{% endraw %}を含むリンクを使用し、[`/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status/)を呼び出します）。
+また、ユーザーをサイトに誘導し、Braze REST APIでステータスを更新することもできます（例: {% raw %}`?user_id={{${user_id}}}`{% endraw %}を含むリンクを使用し、[`/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status)を呼び出します）。
 
 {% alert note %}
 HTMLコンテンツブロックのみではなくダッシュボードフッターを使用する場合、テンプレートには保存するために {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} が含まれている必要があります。一時的に別の配信停止URLを使用するには、デフォルトのタグをコメントアウトできます。例: {% raw %}`<!-- {{${set_user_to_unsubscribed_url}}} -->`{% endraw %}。
@@ -223,13 +223,13 @@ Brazeは3つのターゲティング状態をサポートしています。
 - 配信停止したユーザーを含むすべてのユーザー。
 
 {% alert important %}
-これらのターゲティング設定を使用する際は、適用される[スパム法]({{site.baseurl}}/help/best_practices/spam_regulations/#spam-regulations)を遵守する責任があります。
+これらのターゲティング設定を使用する際は、適用される[スパム法]({{site.baseurl}}/help/best_practices/spam_regulations#spam-regulations)を遵守する責任があります。
 {% endalert %}
 
 ## ユーザーサブスクリプションによるセグメント化 {#segmenting-by-user-subscriptions}
 
 「メールサブスクリプションステータス」および「プッシュサブスクリプションステータス」フィルターを使用して、サブスクリプションステータスでユーザーをセグメント化します。
 
-これを使用して、オプトインもオプトアウトもしていないユーザーをターゲットにし、明示的なオプトインを促します。「メール/プッシュサブスクリプションステータスが購読中」のフィルターでセグメントを作成し、購読中だがオプトインしていないユーザーにCampaignを送信します。
+これを使用して、オプトインもオプトアウトもしていないユーザーをターゲットにし、明示的なオプトインを促します。「メール/プッシュサブスクリプションステータスが購読中」のフィルターでSegmentを作成し、購読中だがオプトインしていないユーザーにCampaignを送信します。
 
-![セグメントフィルターとして使用されているメールサブスクリプションステータス。]({% image_buster /assets/img_archive/not_optin.png %})
+![Segmentフィルターとして使用されているメールサブスクリプションステータス。]({% image_buster /assets/img_archive/not_optin.png %})

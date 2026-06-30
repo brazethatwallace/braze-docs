@@ -22,7 +22,7 @@ Befolgen Sie diese Anleitung, um eine Gmail-Aktionskarte für eine E-Mail-Campai
 
 ### 1. Schritt: E-Mail-Campaign erstellen {#step-1-create-an-email-campaign}
 
-[Erstellen Sie zunächst Ihre E-Mail-Campaign]({{site.baseurl}}/user_guide/channels/email/html_editor/) und wählen Sie den **HTML code editor** als Bearbeitungsumgebung aus.
+[Erstellen Sie zunächst Ihre E-Mail-Campaign]({{site.baseurl}}/user_guide/channels/email/html_editor) und wählen Sie den **HTML code editor** als Bearbeitungsumgebung aus.
 
 ### 2. Schritt: Details zur Gmail-Aktionskarte hinzufügen {#step-2-add-details-to-gmail-promotion-card}
 
@@ -86,7 +86,7 @@ Wir empfehlen, Ihre Produktbilder in die Medienbibliothek hochzuladen und dann d
 | Währung | (optional) Die Währung des Preises. |
 | Preis | Der Preis der Aktion. |
 | Rabattwert | Der vom Originalpreis abgezogene Betrag. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3. Schritt: Gmail-Aktionskarte anpassen" }
 
 ![Ein Beispiel für ein Produktkarussell eines Unternehmens namens Motto mit der E-Mail-Überschrift „Unsere meistverkauften Socken sind im Angebot“, mit drei Bildern von Socken und ihren reduzierten Preisen.]({% image_buster /assets/img_archive/product_carousel.png %}){: style="max-width:40%;"}
 
@@ -98,7 +98,7 @@ Wir empfehlen, Ihre Produktbilder in die Medienbibliothek hochzuladen und dann d
 Nachdem Sie Ihre Gmail-Aktionskarte erstellt haben, wählen Sie **Generate HTML code**. Kopieren Sie das Skript und fügen Sie es in das `<head>`-Element des HTML-Codes Ihrer E-Mail ein.
 
 {% alert tip %}
-Für den Drag-and-Drop-Editor kopieren Sie den generierten HTML-Code und fügen ihn in den Abschnitt [Custom Head Tags]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#custom-head-tags) unter **Sending Settings** ein.
+Für den Drag-and-Drop-Editor kopieren Sie den generierten HTML-Code und fügen ihn in den Abschnitt [Custom Head Tags]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#custom-head-tags) unter **Sending Settings** ein.
 {% endalert %}
 
 {% alert warning %}

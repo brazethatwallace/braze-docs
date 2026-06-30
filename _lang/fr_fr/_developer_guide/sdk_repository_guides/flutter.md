@@ -12,8 +12,8 @@ Le SDK Flutter Braze vous aide à intégrer les fonctionnalités d'envoi de mess
 
 Pour commencer, consultez les ressources suivantes :
 
-- [Guide utilisateur Braze]({{site.baseurl}}/user_guide/introduction/)
-- [Guide développeur Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=flutter)
+- [Guide utilisateur Braze]({{site.baseurl}}/user_guide/introduction)
+- [Guide développeur Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=flutter)
 
 ## Démarrage rapide {#quickstart}
 
@@ -79,7 +79,7 @@ _braze = new BrazePlugin();
 _braze.changeUser("Jane Doe");
 ```
 
-Consultez [le guide développeur Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=flutter) pour les options d'intégration avancées.
+Consultez [le guide développeur Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=flutter) pour les options d'intégration avancées.
 
 ## Versions prises en charge {#version-support}
 

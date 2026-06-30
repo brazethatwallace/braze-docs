@@ -75,7 +75,7 @@ Brazeを通じて送信されたメッセージでDMARCが**FAIL**と表示さ�
 
 1. 最近のメッセージの生ヘッダーまたは認証結果を開き、**SPF**と**DKIM**がそれぞれ通過しているか失敗しているかを確認します。
 2. **アライメント:** DMARCは、SPFまたはDKIMの*いずれか*が**From**ドメインとアライメントしている場合に通過します。アライメントとは、**From**ドメインがSPFを通過したドメイン（多くの場合**Return-Path**/エンベロープドメイン）*または*DKIMの**d=**署名のドメインと一致することを意味します。
-3. SPFは通過しているがDMARCが失敗する場合、Return-Pathドメインが**From**ドメインとアライメントしていない可能性があります。[Whitelabel（独自ドメイン利用）の送信ドメインとトラッキングドメイン]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/)が、SPFとDKIMを公開しているドメインと一致していることを確認してください。
+3. SPFは通過しているがDMARCが失敗する場合、Return-Pathドメインが**From**ドメインとアライメントしていない可能性があります。[Whitelabel（独自ドメイン利用）の送信ドメインとトラッキングドメイン]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains)が、SPFとDKIMを公開しているドメインと一致していることを確認してください。
 4. DKIMが失敗する場合、Brazeが提供したDKIM DNSレコードが存在し、変更されていないことを確認してください。
 
 サードパーティチェッカー（例：[MXToolbox](https://mxtoolbox.com/dmarc.aspx)）は公開されたレコードの確認に役立ちますが、Brazeからの実際のメッセージでも必ず検証してください。

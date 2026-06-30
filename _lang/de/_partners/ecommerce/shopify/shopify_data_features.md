@@ -14,7 +14,7 @@ page_order: 4
 
 ## Getrackte Shopify-Events {#tracked-shopify-events}
 
-Die Shopify-Integration nutzt die [empfohlenen E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/), um wichtiges Einkaufsverhalten zu erfassen. Beispiele für die Umsetzung und Marketing-Strategien mit diesen Events finden Sie in den [E-Commerce-Anwendungsfällen]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/).
+Die Shopify-Integration nutzt die [empfohlenen E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events), um wichtiges Einkaufsverhalten zu erfassen. Beispiele für die Umsetzung und Marketing-Strategien mit diesen Events finden Sie in den [E-Commerce-Anwendungsfällen]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases).
 
 {% multi_lang_include alerts/important_alerts.md alert='Shopify customer create' %}
 
@@ -473,7 +473,7 @@ Anschließend können Sie die folgenden Warenkorb-Liquid-Tags in Ihre Nachricht 
 {% endraw %}
 
 {% alert tip %}
-Weitere Informationen darüber, wie Sie eine Liquid-`for`-Schleife einrichten, um alle Produkte dynamisch in Ihre E-Mail einzufügen, finden Sie unter [Personalisierung von Produkten bei Warenkorb-Abbruch für E-Mails]({{site.baseurl}}/ecommerce_use_cases/#abandoned-cart).
+Weitere Informationen darüber, wie Sie eine Liquid-`for`-Schleife einrichten, um alle Produkte dynamisch in Ihre E-Mail einzufügen, finden Sie unter [Personalisierung von Produkten bei Warenkorb-Abbruch für E-Mails]({{site.baseurl}}/ecommerce_use_cases#abandoned-cart).
 {% endalert %}
 
 {% endsubtab %}
@@ -548,13 +548,13 @@ Anschließend können Sie die folgenden Liquid-Tags in Ihre Nachricht einfügen,
 {% endraw %}
 
 {% alert tip %}
-Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs oder Bild-URLs. Daher müssen Sie die Kataloge-Liquid-Personalisierung verwenden, wie unter [Personalisierung von Produkten bei Warenkorb-Abbruch für E-Mails]({{site.baseurl}}/ecommerce_use_cases/#order-confirmation-and-feedback-survey) beschrieben.
+Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs oder Bild-URLs. Daher müssen Sie die Kataloge-Liquid-Personalisierung verwenden, wie unter [Personalisierung von Produkten bei Warenkorb-Abbruch für E-Mails]({{site.baseurl}}/ecommerce_use_cases#order-confirmation-and-feedback-survey) beschrieben.
 {% endalert %}
 
 {% endsubtab %}
 {% subtab Fulfilled order %}
 **Event**: `shopify_fulfilled_order`<br>
-**Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Getriggert**: Wenn die Bestellung einer Nutzer:in erfüllt und versandfertig ist<br>
 **Datenquelle**: Braze REST API<br>
 **Anwendungsfall**: (Transaktional) Fulfillment-Update
@@ -605,7 +605,7 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 {% endsubtab %}
 {% subtab Partially fulfilled order %}
 **Event**: `shopify_partially_fulfilled_order`<br>
-**Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Getriggert**: Wenn ein Teil der Bestellung einer Nutzer:in erfüllt und versandfertig ist<br>
 **Datenquelle**: Braze REST API<br>
 **Anwendungsfall**: (Transaktional) Fulfillment-Update
@@ -656,7 +656,7 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 {% endsubtab %}
 {% subtab Paid order %}
 **Event**: `shopify_paid_order`<br>
-**Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Getriggert**: Wenn die Bestellung einer Nutzer:in in Shopify als bezahlt markiert wird<br>
 **Datenquelle**: Braze REST API<br>
 **Anwendungsfall**: (Transaktional) Zahlungsbestätigung
@@ -753,7 +753,7 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 {% subtab Account login %}
 
 **Event**: `shopify_account_login`<br>
-**Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Getriggert**: Wenn sich eine Nutzer:in bei ihrem Konto anmeldet<br>
 **Datenquelle**: Braze REST API<br>
 **Anwendungsfall**: Willkommensserie
@@ -766,7 +766,7 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 {% endraw %}
 
 {% alert note %}
-Die Shopify-Integration unterstützt derzeit nicht das Befüllen des Braze-[Kauf-Events]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-events). Daher sollten Kauf-Filter, Liquid-Tags, aktionsbasierte Trigger und Analytics das Event `ecommerce.order_placed` verwenden.
+Die Shopify-Integration unterstützt derzeit nicht das Befüllen des Braze-[Kauf-Events]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-events). Daher sollten Kauf-Filter, Liquid-Tags, aktionsbasierte Trigger und Analytics das Event `ecommerce.order_placed` verwenden.
 {% endalert %}
 
 {% endsubtab %}
@@ -849,13 +849,13 @@ Braze aktualisiert die unterstützten angepassten Shopify-Attribute und Braze-St
 
 ## SDK-Datenerfassung {#sdk-data-collection}
 
-Weitere Informationen darüber, welche Daten von den Braze SDKs erfasst werden, finden Sie unter [SDK-Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
+Weitere Informationen darüber, welche Daten von den Braze SDKs erfasst werden, finden Sie unter [SDK-Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
 
 ## Historischer Backfill {#historical-backfill}
 
 > Historische Shopify-Daten werden importiert, bevor Sie Braze verbinden – Bestell-Events aus den letzten 90 Tagen und Kundendaten aus dem letzten Jahr. Beide Zeiträume werden ab dem Datum zurückgerechnet, an dem Sie Ihre Integration abschließen.
 
-Über die [Shopify-Standardintegration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/) oder die [angepasste Shopify-Integration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/) können Sie den historischen Backfill aktivieren, um vergangene Kund:innen anzusprechen. Dabei werden Ihre Shopify-Bestellungen (bestellbezogene Events) aus den letzten 90 Tagen und Nutzerprofile aus dem letzten Jahr importiert. Beide Zeiträume werden ab dem Datum zurückgerechnet, an dem Sie Ihre Integration abschließen.
+Über die [Shopify-Standardintegration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration) oder die [angepasste Shopify-Integration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration) können Sie den historischen Backfill aktivieren, um vergangene Kund:innen anzusprechen. Dabei werden Ihre Shopify-Bestellungen (bestellbezogene Events) aus den letzten 90 Tagen und Nutzerprofile aus dem letzten Jahr importiert. Beide Zeiträume werden ab dem Datum zurückgerechnet, an dem Sie Ihre Integration abschließen.
 
 Wenn Braze Ihre Shopify-Kund:innen importiert, wird der `external_id`-Typ zugewiesen, den Sie in Ihren Konfigurationseinstellungen gewählt haben.
 

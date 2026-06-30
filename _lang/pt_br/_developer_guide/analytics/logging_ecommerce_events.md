@@ -11,7 +11,7 @@ platform:
 
 # Registrar eventos de eCommerce {#log-ecommerce-events}
 
-> Saiba como registrar [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/) pelos SDKs Android, Swift e Web da Braze usando classes de eventos tipadas e `logEcommerceEvent`. Para esquemas de propriedades de eventos, recursos da plataforma e validação de ingestão, consulte [Eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/) e [Validação de eventos e solução de problemas]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-validation-and-troubleshooting).
+> Saiba como registrar [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) pelos SDKs Android, Swift e Web da Braze usando classes de eventos tipadas e `logEcommerceEvent`. Para esquemas de propriedades de eventos, recursos da plataforma e validação de ingestão, consulte [Eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events) e [Validação de eventos e solução de problemas]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-validation-and-troubleshooting).
 
 {% alert note %}
 Para wrapper SDKs não listados, use o método nativo Android ou Swift correspondente.
@@ -19,7 +19,7 @@ Para wrapper SDKs não listados, use o método nativo Android ou Swift correspon
 
 ## Esquemas de eventos {#event-schemas}
 
-Os seis eventos recomendados de eCommerce compartilham um esquema em nível de pedido em todas as plataformas. Use as tabelas de propriedades a seguir ao construir a carga útil de cada evento. Para o esquema canônico com comportamento completo de validação e exemplos de REST API, consulte [Eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-schemas). Para recursos da plataforma como segmentação, modelos de Canvas e relatórios, consulte [Como usar eventos de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/).
+Os seis eventos recomendados de eCommerce compartilham um esquema em nível de pedido em todas as plataformas. Use as tabelas de propriedades a seguir ao construir a carga útil de cada evento. Para o esquema canônico com comportamento completo de validação e exemplos de REST API, consulte [Eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-schemas). Para recursos da plataforma como segmentação, modelos de Canvas e relatórios, consulte [Como usar eventos de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 
 {% tabs local %}
 {% tab product_viewed %}
@@ -1273,6 +1273,6 @@ braze.logCustomEvent("ecommerce.order_refunded", {
 Para registrar manualmente um evento recomendado, chame `logCustomEvent` com o nome exato do evento (por exemplo, `ecommerce.product_viewed`) e uma carga útil `BrazeProperties` ou `JSONObject` construída manualmente. O SDK não valida esquemas de eventos recomendados para chamadas manuais. A Braze valida essas cargas úteis durante a ingestão:
 
 - Cargas úteis válidas são processadas como eventos recomendados com pós-processamento completo.
-- Cargas úteis inválidas (campos obrigatórios ausentes, tipos incorretos, propriedades extras no nível superior) são descartadas após a ingestão. As falhas aparecem no registro de processamento do SDK do espaço de trabalho e no [e-mail de resumo de falhas]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#find-failures).
+- Cargas úteis inválidas (campos obrigatórios ausentes, tipos incorretos, propriedades extras no nível superior) são descartadas após a ingestão. As falhas aparecem no registro de processamento do SDK do espaço de trabalho e no [e-mail de resumo de falhas]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#find-failures).
 
-Use `logEcommerceEvent` sempre que possível para detectar dados inválidos antes que saiam do app. Para o uso geral de `logCustomEvent`, consulte [Registrar eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android).
+Use `logEcommerceEvent` sempre que possível para detectar dados inválidos antes que saiam do app. Para o uso geral de `logCustomEvent`, consulte [Registrar eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android).

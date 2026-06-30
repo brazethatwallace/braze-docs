@@ -11,11 +11,11 @@ channel:
 
 # バナーを作成 {#create-a-banner}
 
-> BrazeでCampaignsやCanvasesを構築する際にバナーを作成する方法を説明します。一般的な情報については、[バナーについて]({{site.baseurl}}/user_guide/channels/banners/)を参照してください。
+> BrazeでCampaignsやCanvasesを構築する際にバナーを作成する方法を説明します。一般的な情報については、[バナーについて]({{site.baseurl}}/user_guide/channels/banners)を参照してください。
 
 ## 前提条件 {#prerequisites}
 
-バナーを起動する前に、開発チームが[アプリまたはWebサイトにプレースメントを設定する]({{site.baseurl}}/developer_guide/banners/placements/)必要があります。その間にバナーCampaignの下書きを作成することはできますが、プレースメントが設定されるまでCampaignを起動することはできません。
+バナーを起動する前に、開発チームが[アプリまたはWebサイトにプレースメントを設定する]({{site.baseurl}}/developer_guide/banners/placements)必要があります。その間にバナーCampaignの下書きを作成することはできますが、プレースメントが設定されるまでCampaignを起動することはできません。
 
 ## バナーメッセージを作成する {#create-a-banner-message}
 
@@ -31,9 +31,9 @@ channel:
 1. **Messaging** > **Campaigns** に移動し、**Create Campaign** を選択します。
 2. **Banner** を選択します。
 3. Campaignにわかりやすく意味のある名前を付けます。
-4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。タグを使用すると、Campaignsを見つけやすくなり、レポートを作成しやすくなります。たとえば、レポートビルダーを使用する際に、関連するタグでフィルタリングできます。
+4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)を追加します。タグを使用すると、Campaignsを見つけやすくなり、レポートを作成しやすくなります。たとえば、レポートビルダーを使用する際に、関連するタグでフィルタリングできます。
 5. 以前に作成したプレースメントを選択して、Campaignに関連付けます。
-6. 必要に応じてバリアントを追加します。各バリアントに異なるメッセージタイプとレイアウトを選択できます。バリアントの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を参照してください。
+6. 必要に応じてバリアントを追加します。各バリアントに異なるメッセージタイプとレイアウトを選択できます。バリアントの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)を参照してください。
 7. バナーCampaignの開始日時を選択します。デフォルトでは、バナーは無期限に継続します。**End Time** を選択して終了日時を指定することで、これを変更できます。
 
 {% alert tip %}
@@ -43,11 +43,11 @@ Campaign内のすべてのメッセージが類似している、または同じ
 {% endtab %}
 {% tab Canvas %}
 
-1. Canvasコンポーザーを使用して[Canvasを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)します。
+1. Canvasコンポーザーを使用して[Canvasを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)します。
 2. Canvasを設定した後、Canvasビルダーでメッセージステップを追加します。ステップにわかりやすく意味のある名前を付けます。
 3. メッセージングチャネルとして **Banner** を選択します。
 4. バナーのプレースメントを選択します。
-5. バナーの優先度を設定します。[バナーの優先度]({{site.baseurl}}/user_guide/channels/banners/#priority)は、同じプレースメントを共有するバナーの表示順序を決定します。
+5. バナーの優先度を設定します。[バナーの優先度]({{site.baseurl}}/user_guide/channels/banners#priority)は、同じプレースメントを共有するバナーの表示順序を決定します。
 6. バナーの有効期限を設定します。ステップが利用可能になってからの期間、または特定の日時で設定できます。
 
 {% endtab %}
@@ -65,7 +65,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 #### ステップ3.1: バナーのスタイルを設定する {#step-31-style-the-banner}
 
-ブロックと行をキャンバスエリアにドラッグ＆ドロップして、メッセージの作成を開始できます。バナーエディターのブロックと共有プロパティの詳細へのリンクについては、[エディターブロック（バナー）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=banners)を参照してください。
+ブロックと行をキャンバスエリアにドラッグ＆ドロップして、メッセージの作成を開始できます。バナーエディターのブロックと共有プロパティの詳細へのリンクについては、[エディターブロック（バナー）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=banners)を参照してください。
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -75,7 +75,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 #### ステップ3.2: クリック時の動作を定義する（オプション） {#step-32-define-on-click-behavior-optional}
 
-ユーザーがバナー内のリンクをクリックした際に、アプリ内のより深い場所に移動させるか、別のWebページにリダイレクトさせるかを選択できます。さらに、[カスタム属性またはイベントを記録する]({{site.baseurl}}/developer_guide/analytics/)ことを選択でき、ユーザーがバナーをクリックした際にカスタムデータでユーザーのプロファイルを更新します。より詳細なクリックトラッキングのために、プロパティパネルの **Identifier for Reporting** フィールドを使用して、各インタラクティブ要素にカスタム識別子を割り当てます。
+ユーザーがバナー内のリンクをクリックした際に、アプリ内のより深い場所に移動させるか、別のWebページにリダイレクトさせるかを選択できます。さらに、[カスタム属性またはイベントを記録する]({{site.baseurl}}/developer_guide/analytics)ことを選択でき、ユーザーがバナーをクリックした際にカスタムデータでユーザーのプロファイルを更新します。より詳細なクリックトラッキングのために、プロパティパネルの **Identifier for Reporting** フィールドを使用して、各インタラクティブ要素にカスタム識別子を割り当てます。
 
 {% alert important %}
 {::nomarkdown}
@@ -100,7 +100,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 #### ステップ3.4: カスタムプロパティを追加する（オプション） {#custom-properties}
 
-バナーにカスタムプロパティを追加して、文字列やJSONオブジェクトなどの構造化メタデータを添付できます。これらのプロパティはバナーの表示方法には影響しませんが、[Braze SDKを通じてアクセス]({{site.baseurl}}/developer_guide/banners/placements/)して、アプリの動作や外観を変更できます。たとえば、以下のことが可能です。
+バナーにカスタムプロパティを追加して、文字列やJSONオブジェクトなどの構造化メタデータを添付できます。これらのプロパティはバナーの表示方法には影響しませんが、[Braze SDKを通じてアクセス]({{site.baseurl}}/developer_guide/banners/placements)して、アプリの動作や外観を変更できます。たとえば、以下のことが可能です。
 
 - サードパーティの分析や統合のためにメタデータを送信する。
 - `timestamp`やJSONオブジェクトなどのメタデータを使用して条件付きロジックをトリガーする。
@@ -130,7 +130,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 #### バナーの優先度を設定する（オプション） {#set-banner-priority-optional}
 
-[バナーの優先度]({{site.baseurl}}/user_guide/channels/banners/#priority)は、同じプレースメントを共有するバナーの表示順序を決定します。優先度を手動で設定するには：
+[バナーの優先度]({{site.baseurl}}/user_guide/channels/banners#priority)は、同じプレースメントを共有するバナーの表示順序を決定します。優先度を手動で設定するには：
 
 1. **正確な優先度を設定**を選択します。
 2. Campaignsをドラッグ＆ドロップして正しい優先度に並べ替えます。
@@ -157,15 +157,15 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 #### コンバージョンイベントを選択する {#choose-conversion-events}
 
-Brazeでは、Campaignを受信した後にユーザーが特定のアクションを実行する頻度である[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)を追跡できます。ユーザーが指定されたアクションを実行した場合にコンバージョンとしてカウントされる最大30日間の時間枠を設定するオプションがあります。
+Brazeでは、Campaignを受信した後にユーザーが特定のアクションを実行する頻度である[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)を追跡できます。ユーザーが指定されたアクションを実行した場合にコンバージョンとしてカウントされる最大30日間の時間枠を設定するオプションがあります。
 
 {% endtab %}
 
 {% tab Canvas %}
 
-まだ完了していない場合は、Canvasコンポーネントの残りのセクションを完了してください。Canvasの残りの部分の構築方法、[多変量テスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)や[インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/)の実装などの詳細については、Canvasドキュメントの[Canvasを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas)ステップを参照してください。
+まだ完了していない場合は、Canvasコンポーネントの残りのセクションを完了してください。Canvasの残りの部分の構築方法、[多変量テスト]({{site.baseurl}}/user_guide/messaging/ab_testing)や[インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)の実装などの詳細については、Canvasドキュメントの[Canvasを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas)ステップを参照してください。
 
-CanvasバナーステップのCampaign再適格性を制御するには、Canvasの再エントリ設定を使用します。詳細については、[CampaignsとCanvasの再適格性]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/)を参照してください。
+CanvasバナーステップのCampaign再適格性を制御するには、Canvasの再エントリ設定を使用します。詳細については、[CampaignsとCanvasの再適格性]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility)を参照してください。
 
 {% endtab %}
 {% endtabs %}
@@ -176,4 +176,4 @@ CanvasバナーステップのCampaign再適格性を制御するには、Canvas
 
 ### ステップ6: 確認してデプロイする {#step-6-review-and-deploy}
 
-CampaignまたはCanvasの構築が完了したら、詳細を確認し、[テスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/)を行い、準備ができたら送信します。
+CampaignまたはCanvasの構築が完了したら、詳細を確認し、[テスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages)を行い、準備ができたら送信します。

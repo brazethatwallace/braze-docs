@@ -15,7 +15,7 @@ description: "이 문서에서는 대시보드 사용자 계정 제거 Braze 엔
 /scim/v2/Users/{id}
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account/) 메서드에서 반환된 리소스 `id`를 지정하여 기존 대시보드 사용자를 영구적으로 삭제할 수 있습니다.
+> 이 엔드포인트를 사용하여 SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account) 메서드에서 반환된 리소스 `id`를 지정하여 기존 대시보드 사용자를 영구적으로 삭제할 수 있습니다.
 
 이는 Braze 대시보드의 **회사 사용자** 섹션에서 사용자를 삭제하는 것과 유사합니다.
 
@@ -23,7 +23,7 @@ description: "이 문서에서는 대시보드 사용자 계정 제거 Braze 엔
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 SCIM 토큰이 필요합니다. 서비스 출처를 `X-Request-Origin` 헤더로 사용합니다. 자세한 내용은 [자동화된 사용자 프로비저닝]({{site.baseurl}}/scim/automated_user_provisioning/)을 참조하세요.
+이 엔드포인트를 사용하려면 SCIM 토큰이 필요합니다. 서비스 출처를 `X-Request-Origin` 헤더로 사용합니다. 자세한 내용은 [자동화된 사용자 프로비저닝]({{site.baseurl}}/scim/automated_user_provisioning)을 참조하세요.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -33,8 +33,8 @@ description: "이 문서에서는 대시보드 사용자 계정 제거 Braze 엔
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
-| `id` | 필수 | 문자열 | 사용자의 리소스 ID입니다. 이 매개변수는 `POST` `/scim/v2/Users/` 또는 `GET` `/scim/v2/Users?filter=userName eq "user@test.com"` 메서드에서 반환됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+| `id` | 필수 | 문자열 | 사용자의 리소스 ID입니다. 이 매개변수는 `POST` `/scim/v2/Users/` 또는 `GET` `/scim/v2/Users?filter=userName eq "user@example.com"` 메서드에서 반환됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="경로 매개변수" }
 
 ## 요청 본문 {#request-body}
 

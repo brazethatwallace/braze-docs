@@ -14,16 +14,16 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Criar bl
 /content_blocks/create
 {% endapimethod %}
 
-> Use esse endpoint para criar um [bloco de conteúdo]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/).
+> Use esse endpoint para criar um [bloco de conteúdo]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks).
 
 {% alert tip %}
-Você também pode chamar esse endpoint por meio do [servidor MCP da Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server/) usando a função [`create_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#content-blocks). Isso permite que ferramentas de IA como Claude e Cursor criem blocos de conteúdo por meio de prompts em linguagem natural.
+Você também pode chamar esse endpoint por meio do [servidor MCP da Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) usando a função [`create_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#content-blocks). Isso permite que ferramentas de IA como Claude e Cursor criem blocos de conteúdo por meio de prompts em linguagem natural.
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f1cefa8b-7a28-4e64-b579-198a4610d0a5 {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `content_blocks.create`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `content_blocks.create`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -54,8 +54,8 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `description` | Opcional | String | Descrição do bloco de conteúdo. Deve ter menos de 250 caracteres. |
 | `content` | Obrigatória | String | Conteúdo HTML ou de texto no bloco de conteúdo. |
 | `state` | Opcional | String | Escolha `active` ou `draft`. O padrão é `active` se não for especificado. |
-| `tags` | Opcional | Matriz de strings | As [tags]({{site.baseurl}}/user_guide/messaging/governance/tags/) já devem existir. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `tags` | Opcional | Matriz de strings | As [tags]({{site.baseurl}}/user_guide/messaging/governance/tags) já devem existir. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 ```bash
@@ -104,7 +104,7 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | `Tags must be an array` | As tags devem ser formatadas como uma matriz de strings, por exemplo, `["marketing", "promotional", "transactional"]`. | |
 | `All tags must be strings` | Confira se as tags estão entre aspas (`""`). |
 | `Some tags could not be found` | Para adicionar uma tag ao criar um bloco de conteúdo, a tag já deve existir na Braze. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solução de problemas" }
 
 
 {% endapi %}

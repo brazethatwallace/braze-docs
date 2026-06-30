@@ -28,7 +28,7 @@ channel:
 同じ電話番号（SMSが有効）を共有する複数のユーザープロファイルが、受信SMSのイベントによってトリガーされるアクションベースのCampaignまたはCanvasコンポーネントに同時に適格である場合、BrazeはCanvasコンポーネントレベルでユーザーの重複を排除します。これにより、複数のユーザーが同じ電話番号を共有していても、Canvasコンポーネントに対して複数のSMSテキストを受信することが防止されます。
 
 {% alert note %}
-Brazeはスケジュールされたcanvasesでは電話番号による重複排除を行いません。
+BrazeはスケジュールされたCanvasesでは電話番号による重複排除を行いません。
 {% endalert %}
 
 Brazeは以下のフローを使用して受信者プロファイルを決定します。
@@ -58,7 +58,7 @@ Brazeは以下のフローを使用して受信者プロファイルを決定し
 
 ### SMSの請求はどのように行われますか？ {#how-will-i-be-billed-for-sms}
 
-ショートコードとロングコードの料金に加えて、Brazeはさまざまな国のSMSメッセージの割り当てを提供します。つまり、さまざまな国に対して一定数のメッセージセグメントを設定し、SMS Campaignの送信に使用します。請求は、国ごとに送信されたメッセージセグメント数に基づいて行われます。メッセージセグメントの計算方法の詳細については、[メッセージセグメントとコピー制限]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/)ガイドをご覧ください。アカウントマネージャーが上限に近づいている場合に連絡し、関連レポートを提供して情報を把握できるようにします。超過料金に関するその他の質問については、Brazeの担当者にお問い合わせください。
+ショートコードとロングコードの料金に加えて、Brazeはさまざまな国のSMSメッセージの割り当てを提供します。つまり、さまざまな国に対して一定数のメッセージセグメントを設定し、SMSキャンペーンの送信に使用します。請求は、国ごとに送信されたメッセージセグメント数に基づいて行われます。メッセージセグメントの計算方法の詳細については、[メッセージセグメントとコピー制限]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator)ガイドをご覧ください。アカウントマネージャーが上限に近づいている場合に連絡し、関連レポートを提供して情報を把握できるようにします。超過料金に関するその他の質問については、Brazeの担当者にお問い合わせください。
 
 ### MMSとSMSの料金は異なりますか？ {#does-mms-and-sms-pricing-differ}
 
@@ -68,7 +68,7 @@ MMSとSMSはコストが異なり、ボリュームに基づいて別々に課�
 
 超過料金が発生しないことを保証することはできませんが、割り当て制限を超える可能性を減らすために以下の予防策を講じることができます。
 
-- SMSの文字数に注意してください。意図せず複数のセグメントを送信すると、超過料金が発生する可能性があります。詳細については、[セグメントの内訳]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/)を参照してください。
+- SMSの文字数に注意してください。意図せず複数のセグメントを送信すると、超過料金が発生する可能性があります。詳細については、[セグメントの内訳]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator)を参照してください。
 - Liquidやコネクテッドコンテンツを考慮してSMSの文字数を慎重に計算してください。ダッシュボードのBraze SMSコンポーザーは、これらの機能の使用を推定または考慮しません。
 - メッセージが使用するエンコーディングの種類を考慮してください。メッセージがGSM-7エンコーディングを使用する場合、通常、メッセージセグメントあたり128文字のメッセージを送信できると見積もることができます。メッセージが[UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set)エンコーディングを使用する場合、通常、メッセージセグメントあたり67文字のメッセージを送信できると見積もることができます。
 - テスト、テスト、そしてテスト！特にLiquidやコネクテッドコンテンツを使用する場合は、起動前に必ずSMSメッセージをテストしてください。
@@ -94,9 +94,9 @@ MMSとSMSはコストが異なり、ボリュームに基づいて別々に課�
 
 - リンクはSMSの160文字制限の多くを占める可能性があります。リンクとテキストを含めると、1つではなく2つのSMSメッセージになる場合があります。
 - 企業はリンクの文字数への影響を制限するためにリンク短縮サービスを使用することがよくあります。ただし、ロングコードを通じて短縮リンクを送信すると、キャリアがリンクのリダイレクトを疑い、メッセージをブロックまたは拒否する可能性があります。
-- [ショートコード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/)を使用することが、リンクを含める最も信頼性の高い番号タイプです。
+- [ショートコード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup)を使用することが、リンクを含める最も信頼性の高い番号タイプです。
 
-Brazeには独自のリンク短縮機能もあり、リンクを自動的に短縮してクリックスルー分析を提供します。詳細については、[リンク短縮]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/)を参照してください。
+Brazeには独自のリンク短縮機能もあり、リンクを自動的に短縮してクリックスルー分析を提供します。詳細については、[リンク短縮]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening)を参照してください。
 
 ### SMSメッセージの送信速度をレート制限する必要がありますか？ {#do-you-need-to-rate-limit-how-fast-you-send-sms-messages}
 
@@ -112,17 +112,17 @@ Brazeには独自のリンク短縮機能もあり、リンクを自動的に短
 2. あなた（ブランド）が顧客との関係を持っていることを確認してください。
 3. コンテンツがその関係に関連し、ユーザーが受信をオプトインした内容であることを確認してください。
 
-スパム検出を回避するためのその他のガイドラインについては、[SMSの法律と規制のガイドライン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/)をご覧ください。
+スパム検出を回避するためのその他のガイドラインについては、[SMSの法律と規制のガイドライン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations)をご覧ください。
 
 ### 絵文字は何文字を使用しますか？ {#how-many-characters-does-an-emoji-use}
 
-絵文字は、すべての絵文字に標準的な文字数がないため、扱いが難しい場合があります。絵文字が文字制限を超え、Brazeコンポーザーでは1つのメッセージとして表示されているにもかかわらず、SMSが複数のメッセージに分割されるリスクがあります。メッセージをテストする際に、[セグメント計算ツール]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/#segment-calculator)を使用してメッセージが分割されるかどうかをより正確に確認できます。
+絵文字は、すべての絵文字に標準的な文字数がないため、扱いが難しい場合があります。絵文字が文字制限を超え、Brazeコンポーザーでは1つのメッセージとして表示されているにもかかわらず、SMSが複数のメッセージに分割されるリスクがあります。メッセージをテストする際に、[セグメント計算ツール]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator#segment-calculator)を使用してメッセージが分割されるかどうかをより正確に確認できます。
 
 ## サブスクリプショングループとオプトイン/オプトアウト {#subscription-groups-and-opt-inopt-out}
 
 ### ユーザーが適切なサブスクリプショングループに入るように、SMSへの選択的オプトインのロジックをどのように作成しますか？ {#how-do-you-create-logic-for-selective-opt-ins-to-sms-so-users-are-in-the-right-subscription-group}
 
-カスタムキーワードはカスタムイベントとして記述されるため、顧客がテキストで送信できるキーワードに基づいてセグメントを作成する必要があります。たとえば、ユーザーがVIPメッセージのSMSにはオプトインしたがアラートにはオプトインしていない場合、VIPのセグメントとアラートのセグメントを作成し、ユーザーを適切なセグメントに割り当てることができます。
+カスタムキーワードはカスタムイベントとして記述されるため、顧客がテキストで送信できるキーワードに基づいてSegmentを作成する必要があります。たとえば、ユーザーがVIPメッセージのSMSにはオプトインしたがアラートにはオプトインしていない場合、VIPのSegmentとアラートのSegmentを作成し、ユーザーを適切なSegmentに割り当てることができます。
 
 ### ユーザーがショートコードに「Stop」とテキスト送信した場合、サブスクリプショングループから購読解除されますか？ {#if-a-user-texts-stop-to-our-short-code-are-they-unsubscribed-from-the-subscription-group}
 
@@ -130,7 +130,7 @@ Brazeには独自のリンク短縮機能もあり、リンクを自動的に短
 
 ### ユーザーがオプトアウトしている状態でショートコードやロングコードにキーワードを送信した場合、Brazeで設定したそのキーワードの応答を受信しますか？ {#if-a-user-is-opted-out-and-sends-a-keyword-to-our-short-and-long-code-do-they-receive-the-response-we-configured-for-that-keyword-in-braze}
 
-ユーザーがオプトアウトしている状態で[デフォルトキーワードカテゴリ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/)のキーワードを送信した場合、そのキーワードの応答を受信します。ユーザーがオプトアウトしている状態で[カスタムキーワード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/)を送信した場合、そのキーワードの応答は受信しません。
+ユーザーがオプトアウトしている状態で[デフォルトキーワードカテゴリ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout)のキーワードを送信した場合、そのキーワードの応答を受信します。ユーザーがオプトアウトしている状態で[カスタムキーワード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling)を送信した場合、そのキーワードの応答は受信しません。
 
 ### SMSイベントプロパティは文中のキーワードをキャプチャしますか？ {#will-sms-event-properties-capture-keywords-in-a-sentence}
 
@@ -148,7 +148,7 @@ Brazeには独自のリンク短縮機能もあり、リンクを自動的に短
 
 ### ユーザープロファイルにエイリアスが存在するかどうかを確認する方法はありますか？ {#is-there-a-way-to-see-if-an-alias-exists-on-a-user-profile}
 
-エイリアスはユーザープロファイルには表示されません。エイリアスが設定されていることを確認するには、[ユーザーデータのエクスポート]({{site.baseurl}}/api/endpoints/export/)エンドポイントを使用する必要があります。
+エイリアスはユーザープロファイルには表示されません。エイリアスが設定されていることを確認するには、[ユーザーデータのエクスポート]({{site.baseurl}}/api/endpoints/export)エンドポイントを使用する必要があります。
 
 ## MMS
 
@@ -166,7 +166,7 @@ Brazeは、MMSメッセージにメッセージ本文と画像の両方が含ま
 
 ### MMSには別途オンボーディングプロセスが必要ですか？ {#does-mms-require-a-separate-onboarding-process}
 
-いいえ。MMSは現在、SMSオンボーディングプロセスに含まれています。すでにオンボーディングを完了した既存のお客様は、以下のステップを完了した後にMMS Campaignの送信を開始できます。
+いいえ。MMSは現在、SMSオンボーディングプロセスに含まれています。すでにオンボーディングを完了した既存のお客様は、以下のステップを完了した後にMMSキャンペーンの送信を開始できます。
 
 1. MMSを購入します。
 2. Brazeオンボーディングチームに連絡して、MMS機能の有効化をリクエストします。これによりMMSが有効になり、SMS/MMSサブスクリプショングループが作成または更新されます。
@@ -198,6 +198,6 @@ Brazeは作成したRCSペイロードを送信しますが、サジェストア
 
 ### REST APIのSMSオプトインがSMS/MMS/RCSパフォーマンスの**合計オプトイン数**と一致しないのはなぜですか？ {#why-do-rest-api-sms-opt-ins-not-match-total-opt-ins-on-smsmmsrcs-performance}
 
-[SMS/MMS/RCSパフォーマンス]({{site.baseurl}}/user_guide/analytics/dashboards/)ダッシュボードの**合計オプトイン数**と**合計オプトアウト数**は、受信SMSキーワード処理によるサブスクリプション変更をカウントします（たとえば、ユーザーがショートコードにオプトインキーワードをテキスト送信した場合）。REST API、ダッシュボード、またはその他のソースを通じて行われたすべてのサブスクリプション更新が含まれるわけではありません。
+[SMS/MMS/RCSパフォーマンス]({{site.baseurl}}/user_guide/analytics/dashboards)ダッシュボードの**合計オプトイン数**と**合計オプトアウト数**は、受信SMSキーワード処理によるサブスクリプション変更をカウントします（たとえば、ユーザーがショートコードにオプトインキーワードをテキスト送信した場合）。REST API、ダッシュボード、またはその他のソースを通じて行われたすべてのサブスクリプション更新が含まれるわけではありません。
 
-ソース別のオプトインとオプトアウトを分析するには、`USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED`で[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)を使用し、`STATE_CHANGE_SOURCE`でフィルタリングします（たとえば、**Rest API**と**Inbound Message**の比較）。
+ソース別のオプトインとオプトアウトを分析するには、`USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED`で[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)を使用し、`STATE_CHANGE_SOURCE`でフィルタリングします（たとえば、**Rest API**と**Inbound Message**の比較）。

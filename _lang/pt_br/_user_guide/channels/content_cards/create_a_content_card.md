@@ -26,9 +26,9 @@ Use Campaigns para envios de mensagens simples e únicos (como informar os usuá
 1. Acesse **Messaging** > **Campaigns** e selecione **Create Campaign**.
 2. Selecione **Content Cards** ou, para Campaigns direcionadas a vários canais, selecione **Multichannel**.
 3. Dê à sua Campaign um nome claro e significativo.
-4. Adicione [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) e [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) conforme necessário.
-   * As tags facilitam a localização das suas Campaigns e a criação de relatórios. Por exemplo, ao usar o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder/), você pode filtrar pelas tags relevantes.
-5. Adicione e nomeie quantas variantes quiser para sua Campaign. Você pode escolher diferentes plataformas, tipos de mensagem e disposições para cada variante adicionada. Para saber mais sobre variantes, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+4. Adicione [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) e [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) conforme necessário.
+   * As tags facilitam a localização das suas Campaigns e a criação de relatórios. Por exemplo, ao usar o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder), você pode filtrar pelas tags relevantes.
+5. Adicione e nomeie quantas variantes quiser para sua Campaign. Você pode escolher diferentes plataformas, tipos de mensagem e disposições para cada variante adicionada. Para saber mais sobre variantes, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
 Se todas as mensagens da sua Campaign forem semelhantes ou tiverem o mesmo conteúdo, redija sua mensagem antes de adicionar variantes extras. Em seguida, selecione **Copy from Variant** no menu suspenso **Add Variant**.
@@ -37,7 +37,7 @@ Se todas as mensagens da sua Campaign forem semelhantes ou tiverem o mesmo conte
 {% endtab %}
 {% tab Canvas %}
 
-1. [Crie seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) usando o criador de Canvas.
+1. [Crie seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando o criador de Canvas.
 2. Após configurar seu Canvas, adicione uma etapa de Mensagem no construtor de Canvas. Dê à sua etapa um nome claro e significativo.
 3. Selecione **Content Cards** como seu canal de envio de mensagens.
 4. Escolha quando a Braze calcula a elegibilidade do público e a personalização para o Content Card. Isso pode ser na entrada da etapa ou na primeira impressão (recomendado). Etapas que contêm Content Cards podem ser agendadas ou baseadas em ação.
@@ -53,13 +53,13 @@ Se todas as mensagens da sua Campaign forem semelhantes ou tiverem o mesmo conte
 
 Selecione um dos três tipos essenciais de Content Card: **Classic**, **Captioned Image** e **Image Only**.
 
-Para saber mais sobre o comportamento esperado e a aparência de cada tipo, consulte [Detalhes criativos]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/) ou confira os links na tabela a seguir. Esses tipos de Content Card são aceitos tanto por apps móveis quanto por aplicações web.
+Para saber mais sobre o comportamento esperado e a aparência de cada tipo, consulte [Detalhes criativos]({{site.baseurl}}/user_guide/channels/content_cards/creative_details) ou confira os links na tabela a seguir. Esses tipos de Content Card são aceitos tanto por apps móveis quanto por aplicações web.
 
 | Tipo de mensagem | Exemplo | Descrição |
 |---|---|---|
-| [Classic]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#classic) | ![Um Content Card clássico com um ícone pequeno e texto incentivando a reservar uma aula de treino.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | O cartão clássico tem uma disposição direta com um título em negrito, texto da mensagem e uma imagem opcional posicionada à esquerda do título e do texto. É melhor usar uma imagem quadrada ou ícone com o cartão clássico. |
-| [Captioned Image]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#captioned-image) | ![Um Content Card com legenda mostrando a imagem de um halterofilista e texto incentivando a reservar uma aula de treino.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | O cartão de imagem com legenda destaca seu conteúdo com texto e uma imagem chamativa. |
-| [Image Only]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#banner) | ![Um Content Card somente imagem com apenas texto.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | O cartão somente imagem chama a atenção com espaço para imagens, GIFs e outros conteúdos criativos sem texto. |
+| [Classic]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#classic) | ![Um Content Card clássico com um ícone pequeno e texto incentivando a reservar uma aula de treino.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | O cartão clássico tem uma disposição direta com um título em negrito, texto da mensagem e uma imagem opcional posicionada à esquerda do título e do texto. É melhor usar uma imagem quadrada ou ícone com o cartão clássico. |
+| [Captioned Image]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#captioned-image) | ![Um Content Card com legenda mostrando a imagem de um halterofilista e texto incentivando a reservar uma aula de treino.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | O cartão de imagem com legenda destaca seu conteúdo com texto e uma imagem chamativa. |
+| [Image Only]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#banner) | ![Um Content Card somente imagem com apenas texto.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | O cartão somente imagem chama a atenção com espaço para imagens, GIFs e outros conteúdos criativos sem texto. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 2: Especifique seus tipos de mensagem" }
 
 ## Etapa 3: Redija um Content Card {#step-3-compose-a-content-card}
@@ -70,15 +70,15 @@ Você pode editar todos os aspectos do conteúdo e do comportamento da sua mensa
 
 O conteúdo aqui varia com base no **Tipo de cartão** escolhido na etapa anterior, mas pode incluir qualquer uma das seguintes opções:
 
-#### Idioma {#language}
+### Idioma {#language}
 
-Selecione **Add Languages** para adicionar os idiomas desejados da lista fornecida. Isso insere [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#conditional-logic) na sua mensagem. Recomendamos selecionar seus idiomas antes de escrever o conteúdo para que você possa preencher o texto nos locais corretos no Liquid. Para ver a lista completa de idiomas disponíveis, consulte [Idiomas suportados]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported).
+Selecione **Add Languages** para adicionar os idiomas desejados da lista fornecida. Isso insere [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic) na sua mensagem. Recomendamos selecionar seus idiomas antes de escrever o conteúdo para que você possa preencher o texto nos locais corretos no Liquid. Para ver a lista completa de idiomas disponíveis, consulte [Idiomas suportados]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported).
 
 ![Uma janela com inglês, espanhol e francês selecionados como idiomas, e título, descrição e texto do link selecionados como campos para internacionalizar.]({% image_buster /assets/img/add_languages.png %}){: style="max-width:70%;"}
 
-##### Criar mensagens da direita para a esquerda {#create-right-to-left-messages}
+#### Criar mensagens da direita para a esquerda {#create-right-to-left-messages}
 
-A aparência final das mensagens da direita para a esquerda depende muito de como os prestadores de serviço as renderizam. Para conhecer as práticas recomendadas na criação de mensagens da direita para a esquerda que sejam exibidas da forma mais precisa possível, consulte [Criando mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
+A aparência final das mensagens da direita para a esquerda depende muito de como os prestadores de serviço as renderizam. Para conhecer as práticas recomendadas na criação de mensagens da direita para a esquerda que sejam exibidas da forma mais precisa possível, consulte [Criando mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 #### Título e mensagem {#title-and-message}
 
@@ -107,9 +107,9 @@ As seguintes ações estão disponíveis para links de Content Card:
 | Ação | Descrição |
 |---|---|
 | Redirecionar para URL da web | Abrir uma página web não nativa. |
-| [Deep link para o app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content) | Deep link para uma tela existente no seu app. |
-| Registrar evento personalizado | Escolha um [evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) para disparar. Pode ser usado para exibir outro Content Card ou disparar envios de mensagens adicionais. |
-| Registrar atributo personalizado | Escolha um [atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) para definir para o usuário atual. |
+| [Deep link para o app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content) | Deep link para uma tela existente no seu app. |
+| Registrar evento personalizado | Escolha um [evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events) para disparar. Pode ser usado para exibir outro Content Card ou disparar envios de mensagens adicionais. |
+| Registrar atributo personalizado | Escolha um [atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) para definir para o usuário atual. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comportamento ao clicar" }
 
 As opções **Registrar evento personalizado** e **Registrar atributo personalizado** exigem a seguinte compatibilidade de versão do SDK:
@@ -118,7 +118,7 @@ As opções **Registrar evento personalizado** e **Registrar atributo personaliz
 
 ## Etapa 4: Configure definições adicionais (opcional) {#step-4-configure-additional-settings-optional}
 
-Você pode usar [pares chave-valor]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/) para criar categorias para seus cartões, criar [múltiplos feeds de Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds) e personalizar como os cartões são ordenados.
+Você pode usar [pares chave-valor]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) para criar categorias para seus cartões, criar [múltiplos feeds de Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds) e personalizar como os cartões são ordenados.
 
 Para adicionar pares chave-valor à sua mensagem, acesse a guia **Settings** e selecione **Add New Pair**.
 
@@ -129,11 +129,11 @@ Para adicionar pares chave-valor à sua mensagem, acesse a guia **Settings** e s
 
 Construa o restante da sua Campaign. Continue nas próximas seções para mais detalhes sobre como usar nossas ferramentas da melhor forma para criar Content Cards.
 
-#### Escolha um cronograma de entrega ou gatilho {#choose-a-delivery-schedule-or-trigger}
+### Escolha um cronograma de entrega ou gatilho {#choose-a-delivery-schedule-or-trigger}
 
-Content Cards podem ser entregues com base em um horário agendado, uma ação ou um gatilho de API. Para saber mais, consulte [Agendando sua Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
+Content Cards podem ser entregues com base em um horário agendado, uma ação ou um gatilho de API. Para saber mais, consulte [Agendando sua Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-Você também pode definir a duração da Campaign e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/), além de determinar a expiração do Content Card. Defina uma data de expiração específica ou os dias até o cartão expirar, até 30 dias. Todas as variantes têm datas de expiração idênticas.
+Você também pode definir a duração da Campaign e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours), além de determinar a expiração do Content Card. Defina uma data de expiração específica ou os dias até o cartão expirar, até 30 dias. Todas as variantes têm datas de expiração idênticas.
 
 Se você optar por expirar um cartão após um período definido (por exemplo, após duas semanas), a expiração é calculada a partir do momento do envio do cartão. Para Campaigns agendadas, esse é o horário de lançamento programado. Para Campaigns baseadas em ação, esse é o momento em que o usuário realiza a ação de gatilho. Por exemplo, se um cartão baseado em ação for enviado às 14h hoje com expiração de 1 dia, ele expira às 14h do dia seguinte.
 
@@ -141,38 +141,38 @@ Se você optar por expirar um cartão após um período definido (por exemplo, a
 
 Para entrega baseada em ação, há um pequeno atraso esperado antes que o Content Card apareça. Por exemplo, quando uma Campaign é disparada no início da sessão, esse evento de gatilho precisa primeiro ser enviado aos servidores da Braze. Em seguida, a elegibilidade do usuário para a Campaign é registrada. Quando o SDK sincroniza, o cartão é criado e retornado na mesma resposta de sincronização. Se a sincronização do SDK aconteceu antes da elegibilidade do usuário ser registrada, ele não recebe o cartão. Para usuários de primeira sessão, esse atraso é inevitável. Para usuários existentes que precisam de disponibilidade imediata, considere usar a entrega agendada.
 
-##### Entrega agendada {#scheduled-delivery}
+#### Entrega agendada {#scheduled-delivery}
 
-Para Campaigns de Content Card com entrega agendada, você pode escolher quando a Braze avalia a elegibilidade do público e a personalização para novas Campaigns de Content Card, especificando quando o cartão é criado. Para saber mais, consulte [criação de cartão]({{site.baseurl}}/card_creation/).
+Para Campaigns de Content Card com entrega agendada, você pode escolher quando a Braze avalia a elegibilidade do público e a personalização para novas Campaigns de Content Card, especificando quando o cartão é criado. Para saber mais, consulte [criação de cartão]({{site.baseurl}}/card_creation).
 
 #### Escolha os usuários-alvo {#choose-users-to-target}
 
-Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo segmentos ou filtros para refinar seu público. Você recebe automaticamente uma pré-visualização de como é a população aproximada desse segmento. Lembre-se de que a composição exata do segmento é sempre calculada antes do envio da mensagem.
+Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo segmentos ou filtros para refinar seu público. Você recebe automaticamente uma pré-visualização de como é a população aproximada desse segmento. Lembre-se de que a composição exata do segmento é sempre calculada antes do envio da mensagem.
 
 {% multi_lang_include audience/target_audiences.md %}
 
 #### Escolha eventos de conversão {#choose-conversion-events}
 
-A Braze permite que você rastreie com que frequência os usuários realizam ações específicas, [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), após receberem uma Campaign. Você tem a opção de permitir um período de até 30 dias durante o qual uma conversão é contabilizada se o usuário realizar a ação especificada.
+A Braze permite que você rastreie com que frequência os usuários realizam ações específicas, [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), após receberem uma Campaign. Você tem a opção de permitir um período de até 30 dias durante o qual uma conversão é contabilizada se o usuário realizar a ação especificada.
 
 {% endtab %}
 
 {% tab Canvas %}
 
-Se ainda não o fez, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar [testes multivariantes]({{site.baseurl}}/user_guide/messaging/ab_testing/) e [Seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/), e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) da nossa documentação de Canvas.
+Se ainda não o fez, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar [testes multivariantes]({{site.baseurl}}/user_guide/messaging/ab_testing) e [Seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) da nossa documentação de Canvas.
 
 {% endtab %}
 {% endtabs %}
 
 ## Etapa 6: Revise e implante {#step-6-review-and-deploy}
 
-Após terminar de construir a última parte da sua Campaign ou Canvas, revise os detalhes, [teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) e envie quando estiver pronto. Para saber mais, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=content%20card).
+Após terminar de construir a última parte da sua Campaign ou Canvas, revise os detalhes, [teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) e envie quando estiver pronto. Para saber mais, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=content%20card).
 
 {% alert warning %}
-Depois que um Content Card é lançado, ele não pode ser editado. Ele só pode ser impedido de ser enviado a novos usuários e removido dos feeds dos usuários. Consulte [Atualizando cartões lançados]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#updating-launched-cards) para entender como lidar com esse cenário.
+Depois que um Content Card é lançado, ele não pode ser editado. Ele só pode ser impedido de ser enviado a novos usuários e removido dos feeds dos usuários. Consulte [Atualizando cartões lançados]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#updating-launched-cards) para entender como lidar com esse cenário.
 {% endalert %}
 
-Em seguida, confira [Relatórios de Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/reporting/) para saber como acessar os resultados das suas Campaigns de Content Card.
+Em seguida, confira [Relatórios de Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/reporting) para saber como acessar os resultados das suas Campaigns de Content Card.
 
 ## Informações importantes {#things-to-know}
 
@@ -221,14 +221,14 @@ Para evitar problemas com o limite de cartões, recomendamos as seguintes práti
 A reelegibilidade determina se e quando um usuário pode receber uma mensagem da mesma Campaign mais de uma vez. Para Content Cards, entender como isso funciona é fundamental para gerenciar Campaigns recorrentes e garantir que os usuários não recebam mensagens duplicadas ou desatualizadas.
 
 {% alert tip %}
-Quer que seu conteúdo dure mais de 30 dias? Experimente os [Banners]({{site.baseurl}}/user_guide/channels/banners/).
+Quer que seu conteúdo dure mais de 30 dias? Experimente os [Banners]({{site.baseurl}}/user_guide/channels/banners).
 {% endalert %}
 
 #### Como a reelegibilidade é calculada {#how-re-eligibility-is-calculated}
 
 Se você ativar a reelegibilidade, a contagem regressiva para quando um usuário pode "reentrar" em uma Campaign começa após o envio da mensagem. O momento específico em que essa contagem começa depende das suas configurações de criação de cartão:
 
-- Content Cards que usam [na primeira impressão]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression) usam o momento da impressão para calcular a reelegibilidade.
+- Content Cards que usam [na primeira impressão]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression) usam o momento da impressão para calcular a reelegibilidade.
 - Content Cards criados no lançamento da Campaign, em Campaigns multicanal ou na entrada da etapa do Canvas usam o que for mais recente entre o momento do envio e o momento da impressão.
 
 #### A expiração de 30 dias e a reelegibilidade {#the-30-day-expiration-and-re-eligibility}
@@ -331,7 +331,7 @@ Se você quiser que um cartão pareça estar sempre disponível, pode criar uma 
 
 ### Sincronização e atualização de Content Cards {#content-card-sync-and-refresh}
 
-Content Cards sincronizam em um cronograma e quando seu app atualiza o feed. O comportamento de sincronização difere entre sincronizações completas e parciais, e sua integração de SDK afeta quando os cartões são atualizados no início da sessão. Para detalhes de implementação, consulte [Personalizar o feed de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/) e [Criando Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards/).
+Content Cards sincronizam em um cronograma e quando seu app atualiza o feed. O comportamento de sincronização difere entre sincronizações completas e parciais, e sua integração de SDK afeta quando os cartões são atualizados no início da sessão. Para detalhes de implementação, consulte [Personalizar o feed de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed) e [Criando Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards).
 
 ### Impacto de interromper Campaigns de Content Cards {#impact-of-stopping-content-cards-campaigns}
 

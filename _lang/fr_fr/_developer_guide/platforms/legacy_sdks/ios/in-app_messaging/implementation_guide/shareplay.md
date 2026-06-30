@@ -31,7 +31,7 @@ Avec la lecture multimédia synchronisée, si une personne met en pause la vidé
 
 ## Intégration {#integration}
 
-Le message in-app utilisé dans cette intégration est un contrôleur de vue modal de message in-app sous-classé. Un guide de configuration est disponible dans le [guide d'implémentation]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide/) du cas d'utilisation avancé des messages in-app iOS. Avant de procéder à l'intégration, assurez-vous d'ajouter le droit `GroupActivities` à votre projet Xcode.
+Le message in-app utilisé dans cette intégration est un contrôleur de vue modal de message in-app sous-classé. Un guide de configuration est disponible dans le [guide d'implémentation]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide) du cas d'utilisation avancé des messages in-app iOS. Avant de procéder à l'intégration, assurez-vous d'ajouter le droit `GroupActivities` à votre projet Xcode.
 
 {% alert important %}
 Nous vous recommandons d'ouvrir la [documentation Apple SharePlay](https://developer.apple.com/documentation/avfoundation/media_playback_and_selection/supporting_coordinated_media_playback) côte à côte avec ce guide pour réaliser l'intégration.

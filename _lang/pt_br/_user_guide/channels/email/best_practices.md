@@ -25,13 +25,13 @@ guide_featured_list:
     link: /docs/user_guide/channels/email/best_practices/sunset_policies
     image: /assets/img/braze_icons/sun-setting-03.svg
   - name: "Envio de mensagens de teste"
-    link: /docs/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=email
+    link: /docs/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=email
     image: /assets/img/braze_icons/mail-01.svg
   - name: "Saiba antes de enviar"
-    link: /docs/know_before_send/
+    link: /docs/know_before_send
     image: /assets/img/braze_icons/send-01.svg
   - name: "Entregabilidade de e-mail"
-    link: /docs/user_guide/channels/email/best_practices/improve_deliverability/
+    link: /docs/user_guide/channels/email/best_practices/improve_deliverability
     image: /assets/img/braze_icons/send-02.svg
 
 ---

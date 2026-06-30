@@ -16,4 +16,4 @@ description: "Este artigo de referência aborda como gerar textos de marketing p
 
 {% multi_lang_include brazeai/generative_ai/access_copy.md %}
 
-Para saber mais, incluindo tons disponíveis, exemplos de prompts e integração com diretrizes da marca, consulte [Gerar texto nas capacidades do Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy).
+Para saber mais, incluindo tons disponíveis, exemplos de prompts e integração com diretrizes da marca, consulte [Gerar texto nas capacidades do Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy).

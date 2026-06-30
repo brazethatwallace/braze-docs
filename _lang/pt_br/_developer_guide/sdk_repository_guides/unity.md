@@ -12,8 +12,8 @@ O Braze Unity SDK ajuda você a integrar recursos de envio de mensagens, anális
 
 Para começar, consulte os seguintes recursos:
 
-- [Guia do Usuário da Braze]({{site.baseurl}}/user_guide/introduction/)
-- [Guia do Desenvolvedor da Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=unity)
+- [Guia do Usuário da Braze]({{site.baseurl}}/user_guide/introduction)
+- [Guia do Desenvolvedor da Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=unity)
 
 ## Configuração do plugin {#plugin-setup}
 

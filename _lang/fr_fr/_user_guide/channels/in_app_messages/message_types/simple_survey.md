@@ -14,7 +14,7 @@ tool:
 
 > Utilisez le modèle de message in-app **Simple Survey** pour collecter des attributs utilisateur, des informations et des préférences qui alimentent votre stratégie de campagne.
 
-Ce type de message est disponible dans l'[éditeur traditionnel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+Ce type de message est disponible dans l'[éditeur traditionnel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 Les cas d'utilisation courants des sondages incluent demander aux utilisateurs comment ils souhaitent utiliser votre application, en apprendre davantage sur leurs préférences personnelles, ou recueillir leur avis sur leur satisfaction concernant une fonctionnalité particulière.
 
@@ -22,7 +22,7 @@ Les cas d'utilisation courants des sondages incluent demander aux utilisateurs c
 
 ## Exigences du SDK {#supported-sdk-versions}
 
-Ce message in-app ne sera envoyé qu'aux appareils prenant en charge [Flex CSS](https://caniuse.com/flexbox), et doit disposer au minimum des [versions du SDK]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions) suivantes.
+Ce message in-app ne sera envoyé qu'aux appareils prenant en charge [Flex CSS](https://caniuse.com/flexbox), et doit disposer au minimum des [versions du SDK]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions) suivantes.
 
 {% sdk_min_versions ios:3.23.0 android:8.0.0 web:2.5.0 %}
 
@@ -32,7 +32,7 @@ Pour activer les messages in-app HTML via le SDK Web, vous devez fournir l'optio
 
 ## Créer un sondage {#create}
 
-Lors de la création d'un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/), sélectionnez **Simple Survey** pour votre **Message Type**.
+Lors de la création d'un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional), sélectionnez **Simple Survey** pour votre **Message Type**.
 
 Ce modèle de sondage est pris en charge à la fois pour les applications mobiles et les navigateurs web. N'oubliez pas de vérifier que vos SDK sont aux [versions minimales du SDK](#supported-sdk-versions) requises pour cette fonctionnalité.
 
@@ -60,7 +60,7 @@ Ensuite, déterminez si vous allez [collecter des attributs personnalisés](#cus
 
 Sélectionnez **Log attributes upon submission** pour collecter des attributs basés sur la soumission de l'utilisateur. Vous pouvez utiliser cette option pour créer de nouveaux segments et des campagnes de reciblage. Par exemple, dans un [sondage de satisfaction](#user-satisfaction), vous pourriez envoyer un e-mail de suivi à tous les utilisateurs qui n'étaient pas satisfaits.
 
-Pour ajouter un attribut personnalisé à chaque choix, sélectionnez un nom d'attribut personnalisé dans le menu déroulant (ou créez-en un nouveau), puis saisissez la valeur à définir lorsque ce choix est soumis. Vous pouvez également créer un nouvel attribut personnalisé dans votre [page Paramètres]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/).
+Pour ajouter un attribut personnalisé à chaque choix, sélectionnez un nom d'attribut personnalisé dans le menu déroulant (ou créez-en un nouveau), puis saisissez la valeur à définir lorsque ce choix est soumis. Vous pouvez également créer un nouvel attribut personnalisé dans votre [page Paramètres]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data).
 
 Le type de données de vos attributs personnalisés est important selon la façon dont vous avez configuré votre sondage.
 
@@ -73,7 +73,7 @@ Lorsque la collecte d'attributs personnalisés est activée, les choix qui parta
 
 ##### Exemple {#example}
 
-Par exemple, dans un [sondage de préférences de notification](#notification-preferences), vous pourriez faire de chaque choix un attribut booléen (vrai/faux) pour permettre aux utilisateurs de sélectionner les sujets qui les intéressent. Si un utilisateur coche le choix « Promotions », cela mettra à jour son [profil utilisateur]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/) avec l'attribut personnalisé `Promotions Topic` défini sur `true`. S'il laisse le choix non coché, ce même attribut restera inchangé.
+Par exemple, dans un [sondage de préférences de notification](#notification-preferences), vous pourriez faire de chaque choix un attribut booléen (vrai/faux) pour permettre aux utilisateurs de sélectionner les sujets qui les intéressent. Si un utilisateur coche le choix « Promotions », cela mettra à jour son [profil utilisateur]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) avec l'attribut personnalisé `Promotions Topic` défini sur `true`. S'il laisse le choix non coché, ce même attribut restera inchangé.
 
 Vous pouvez ensuite utiliser le filtre `Custom Attribute` pour créer un segment d'utilisateurs avec l'attribut personnalisé `Promotions Topic` `is` `true` afin de vous assurer que seuls les utilisateurs intéressés par vos promotions recevront les campagnes pertinentes.
 
@@ -119,13 +119,13 @@ Vous pouvez trouver les indicateurs de performance de votre sondage en développ
 - **Résultats du sondage** affiche une répartition du nombre d'utilisateurs ayant sélectionné chaque option de réponse, ainsi que le pourcentage du total des soumissions que chaque choix représente.
 - **Indicateurs de la page de confirmation** (si activée) incluent le nombre d'utilisateurs ayant vu l'écran de confirmation, cliqué sur son bouton ou l'ayant rejeté sans interagir.
 
-Pour les définitions des indicateurs de sondage, consultez le [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) et filtrez par « In-App Message ».
+Pour les définitions des indicateurs de sondage, consultez le [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary) et filtrez par « In-App Message ».
 
-Consultez [Rapports des messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting/) pour une répartition des indicateurs de votre campagne.
+Consultez [Rapports des messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting) pour une répartition des indicateurs de votre campagne.
 
 ### Currents {#currents}
 
-Les choix sélectionnés seront automatiquement transmis à Currents, sous le champ `button_id` des [**événements de clic de message in-app**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#api_fzzdoylmrtwe). Chaque choix sera envoyé avec son identifiant universel unique (UUID).
+Les choix sélectionnés seront automatiquement transmis à Currents, sous le champ `button_id` des [**événements de clic de message in-app**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#api_fzzdoylmrtwe). Chaque choix sera envoyé avec son identifiant universel unique (UUID).
 
 ## Cas d'utilisation {#use-cases}
 

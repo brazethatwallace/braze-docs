@@ -27,7 +27,7 @@ Cet endpoint ne garantit pas l'ordre de mise à jour des objets `alias_updates`.
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key/) avec l'autorisation `users.alias.update`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `users.alias.update`.
 
 ## Limite de débit {#rate-limit}
 
@@ -50,8 +50,8 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | --------- | --------- | ----------- |
-| `alias_updates` | Requis | Tableau d'objets de mise à jour d'alias d'utilisateur | Voir l'[objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object/).<br><br> Pour plus d'informations sur `old_alias_name`, `new_alias_name` et `alias_label`, consultez la section [Alias d'utilisateur]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `alias_updates` | Requis | Tableau d'objets de mise à jour d'alias d'utilisateur | Voir l'[objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> Pour plus d'informations sur `old_alias_name`, `new_alias_name` et `alias_label`, consultez la section [Alias d'utilisateur]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ### Corps de requête de l'endpoint avec spécification de l'objet de mise à jour d'alias d'utilisateur {#endpoint-request-body-with-update-user-alias-object-specification}
 

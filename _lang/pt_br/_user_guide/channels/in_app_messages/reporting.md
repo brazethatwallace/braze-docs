@@ -18,7 +18,7 @@ tool:
 
 ## Métricas de mensagens no app {#in-app-message-metrics}
 
-Aqui estão as principais métricas de mensagens no app que você pode ver na sua análise de dados. Para definições de todas as métricas usadas na Braze, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+Aqui estão as principais métricas de mensagens no app que você pode ver na sua análise de dados. Para definições de todas as métricas usadas na Braze, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 {% alert note %}
 Para mensagens no app, esta página define impressões únicas usando um limite de dia corrido no fuso horário do seu espaço de trabalho.

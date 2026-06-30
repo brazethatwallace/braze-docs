@@ -16,7 +16,7 @@ channel: email
 
 La ligne d'objet est l'une des premières choses que les destinataires verront en recevant votre message. Les lignes d'objet de 6 à 10 mots génèrent les meilleurs taux d'ouverture.
 
-Il existe différentes approches pour créer une bonne ligne d'objet : poser une question pour susciter l'intérêt du lecteur, être plus direct, la personnaliser pour mieux engager votre clientèle… Ne vous contentez pas d'une seule ligne d'objet, tirez parti des [tests A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/#what-are-multivariate-and-ab-testing/) pour en essayer de nouvelles et évaluer leur efficacité. Pour s'afficher correctement sur mobile, les lignes d'objet ne doivent pas dépasser 35 caractères.
+Il existe différentes approches pour créer une bonne ligne d'objet : poser une question pour susciter l'intérêt du lecteur, être plus direct, la personnaliser pour mieux engager votre clientèle… Ne vous contentez pas d'une seule ligne d'objet, tirez parti des [tests A/B]({{site.baseurl}}/user_guide/messaging/ab_testing#what-are-multivariate-and-ab-testing) pour en essayer de nouvelles et évaluer leur efficacité. Pour s'afficher correctement sur mobile, les lignes d'objet ne doivent pas dépasser 35 caractères.
 
 Le champ « De » doit indiquer clairement qui est l'expéditeur. Évitez d'utiliser le nom d'une personne ou une abréviation peu courante. Privilégiez plutôt un nom reconnaissable, comme celui de votre marque. Si l'utilisation du nom d'une personne correspond aux méthodes de personnalisation des e-mails de votre marque, restez cohérent afin de développer une relation avec les destinataires. Pour s'afficher correctement sur mobile, le nom du champ « De » ne doit pas comporter plus de 25 caractères.
 
@@ -88,7 +88,7 @@ Voici quelques bonnes pratiques à garder à l'esprit lors de la rédaction de v
 La taille de l'e-mail correspond à la taille du HTML de votre message dans Braze (le corps que vous créez et ce que Braze ajoute lors de l'envoi du message).
 
 - Veillez à limiter la taille de votre e-mail. Les corps d'e-mail dépassant 102&nbsp;Ko sont non seulement très gourmands en ressources pour les serveurs de Braze, mais ils sont également tronqués par Gmail et d'autres clients de messagerie.
-- Les images hébergées que vous référencez par URL ne sont pas intégrées dans le HTML de la même manière que le collage de ressources volumineuses en ligne. Nous recommandons d'utiliser la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) et de créer des liens via `href` pour réduire la taille du message.
+- Les images hébergées que vous référencez par URL ne sont pas intégrées dans le HTML de la même manière que le collage de ressources volumineuses en ligne. Nous recommandons d'utiliser la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) et de créer des liens via `href` pour réduire la taille du message.
 
 |   Texte uniquement   | Texte avec images |     Largeur de l'e-mail    |
 |:-------------:|:----------------:|:------------------:|
@@ -143,13 +143,13 @@ Les applications web et mobile de Gmail ne rendent généralement pas les SVG (e
 
 ## Liens profonds {#deep-linking}
 
-Avec les notifications push et les messages in-app, un [lien profond]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/) dirige les utilisateurs directement vers une destination spécifique au sein d'une application. Cependant, les liens profonds nécessitent que l'application soit installée, et les e-mails ne permettent pas de savoir si les destinataires disposent de l'application. Cela signifie que les liens profonds dans les e-mails peuvent entraîner des erreurs pour les destinataires qui n'ont pas l'application installée.
+Avec les notifications push et les messages in-app, un [lien profond]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls) dirige les utilisateurs directement vers une destination spécifique au sein d'une application. Cependant, les liens profonds nécessitent que l'application soit installée, et les e-mails ne permettent pas de savoir si les destinataires disposent de l'application. Cela signifie que les liens profonds dans les e-mails peuvent entraîner des erreurs pour les destinataires qui n'ont pas l'application installée.
 
-Utilisez plutôt les [liens universels et App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/), qui fonctionnent comme des URL standard. Vous pouvez les configurer pour ouvrir l'application ou diriger les utilisateurs vers une page spécifique. Ils peuvent également rediriger vers l'app store ou afficher une page web de secours lorsque l'application n'est pas installée.
+Utilisez plutôt les [liens universels et App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links), qui fonctionnent comme des URL standard. Vous pouvez les configurer pour ouvrir l'application ou diriger les utilisateurs vers une page spécifique. Ils peuvent également rediriger vers l'app store ou afficher une page web de secours lorsque l'application n'est pas installée.
 
 ## Content Blocks avec images transparentes {#content-blocks-with-transparent-images}
 
-Lorsqu'un Content Block contient une image avec un arrière-plan transparent (par exemple, un logo) et qu'il est inséré via une étiquette Liquid, une couleur d'arrière-plan peut apparaître derrière l'image. Cette couleur provient des [paramètres de style global de l'e-mail]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) de l'éditeur par glisser-déposer, plus précisément de la **couleur d'arrière-plan de l'e-mail**. Si vos paramètres de style global utilisent une couleur autre que le blanc, cette couleur apparaîtra à la place.
+Lorsqu'un Content Block contient une image avec un arrière-plan transparent (par exemple, un logo) et qu'il est inséré via une étiquette Liquid, une couleur d'arrière-plan peut apparaître derrière l'image. Cette couleur provient des [paramètres de style global de l'e-mail]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings) de l'éditeur par glisser-déposer, plus précisément de la **couleur d'arrière-plan de l'e-mail**. Si vos paramètres de style global utilisent une couleur autre que le blanc, cette couleur apparaîtra à la place.
 
 Pour afficher le Content Block comme prévu :
 

@@ -1,14 +1,14 @@
 ---
 nav_title: 프롬프트 라이브러리
 article_title: BrazeAI Operator 프롬프트 라이브러리
-page_order: 5
+page_order: 4
 page_type: reference
 description: "BrazeAI Operator의 예시 프롬프트를 목적별로 정리하여 제공합니다."
 ---
 
 # BrazeAI Operator 프롬프트 라이브러리 {#prompt-library-for-brazeai-operator}
 
-> Braze 전문가가 엄선한 Operator 프롬프트 모음을 살펴보세요. 목표를 선택하면 관련 프롬프트를 확인할 수 있습니다. 자세한 내용은 [페이지 인식 컨텍스트 활용하기]({{site.baseurl}}/user_guide/brazeai/operator/#leverage-page-aware-context)를 참조하세요.
+> Braze 전문가가 엄선한 Operator 프롬프트 모음을 살펴보세요. 목표를 선택하면 관련 프롬프트를 확인할 수 있습니다. 자세한 내용은 [페이지 인식 컨텍스트 활용하기]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context)를 참조하세요.
 
 
 <div class="prompt-library-tabs">

@@ -13,14 +13,14 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 # Créer un message in-app par glisser-déposer {#create-an-in-app-message-with-drag-and-drop}
 
-> L'éditeur par glisser-déposer vous permet de créer des messages in-app entièrement personnalisés dans des Campaigns ou des Canvas en utilisant l'expérience d'édition par glisser-déposer. Pour en savoir plus sur les blocs de construction disponibles dans l'éditeur, consultez les [Blocs éditeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages).
+> L'éditeur par glisser-déposer vous permet de créer des messages in-app entièrement personnalisés dans des Campaigns ou des Canvas en utilisant l'expérience d'édition par glisser-déposer. Pour en savoir plus sur les blocs de construction disponibles dans l'éditeur, consultez les [Blocs éditeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
 
 
 {% multi_lang_include video.html id="j94omgo73o" align="right" source="wistia" %}
 
 Si vous souhaitez utiliser vos modèles HTML personnalisés existants ou des modèles créés par un tiers, ils doivent être recréés dans l'éditeur par glisser-déposer.
 
-Vous ne savez pas si votre message in-app doit être envoyé via une campagne ou un [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/) ? Les Campaigns sont plus adaptées aux campagnes de communication ciblées et ponctuelles, tandis que les Canvas sont plus adaptés aux parcours utilisateur en plusieurs étapes. Une fois que vous avez choisi où créer votre message, passons aux étapes de création d'un message in-app par glisser-déposer.
+Vous ne savez pas si votre message in-app doit être envoyé via une Campaign ou un [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas) ? Les Campaigns sont plus adaptées aux campagnes de communication ciblées et ponctuelles, tandis que les Canvas sont plus adaptés aux parcours utilisateur en plusieurs étapes. Une fois que vous avez choisi où créer votre message, passons aux étapes de création d'un message in-app par glisser-déposer.
 
 ## Conditions préalables {#prerequisites}
 
@@ -134,15 +134,15 @@ Les utilisateurs peuvent sélectionner le bouton de fermeture X pour quitter le 
 
 C'est ici que votre message prend vie, habillé du style signature de votre marque. En utilisant une combinaison de blocs éditeur et de paramètres de style, vous pouvez personnaliser et concevoir votre message in-app.
 
-- Pour une liste des blocs éditeur disponibles et de leurs propriétés, consultez les [Blocs éditeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages).
-- Pour obtenir de l'aide sur la personnalisation de l'apparence de votre message, consultez les [Paramètres de style]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/).
-- Pour les bonnes pratiques de création de messages de droite à gauche, consultez [Créer des messages de droite à gauche]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
+- Pour une liste des blocs éditeur disponibles et de leurs propriétés, consultez les [Blocs éditeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
+- Pour obtenir de l'aide sur la personnalisation de l'apparence de votre message, consultez les [Paramètres de style]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings).
+- Pour les bonnes pratiques de création de messages de droite à gauche, consultez [Créer des messages de droite à gauche]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ## Étape 5 : Tester votre message in-app {#step-5-test-your-in-app-message}
 
-La section **Preview & Test** vous permet de prévisualiser vos messages in-app sur différents appareils et d'envoyer un message de test à votre appareil. Vous pouvez ainsi vous assurer que les détails sont cohérents sur toutes vos plateformes pour votre campagne de message in-app par glisser-déposer.
+La section **Preview & Test** vous permet de prévisualiser vos messages in-app sur différents appareils et d'envoyer un message de test à votre appareil. Vous pouvez ainsi vous assurer que les détails sont cohérents sur toutes vos plateformes pour votre Campaign de message in-app par glisser-déposer.
 
-Il est important de toujours tester vos messages in-app avant d'envoyer vos campagnes afin de visualiser à quoi ressemblera votre message final du point de vue de l'utilisateur.
+Il est important de toujours tester vos messages in-app avant d'envoyer vos Campaigns afin de visualiser à quoi ressemblera votre message final du point de vue de l'utilisateur.
 
 ### Prévisualiser le message en tant qu'utilisateur {#preview-message-as-a-user}
 
@@ -154,7 +154,7 @@ Vous pouvez prévisualiser les messages depuis l'onglet **Preview & Test**, comm
 
 - **Random User :** Braze sélectionnera aléatoirement un utilisateur de la base de données et prévisualisera le message in-app en fonction de ses attributs ou informations d'événements.
 - **Select User :** Vous pouvez sélectionner un utilisateur spécifique en fonction de son adresse e-mail ou de son `external_id`. Le message in-app sera prévisualisé en fonction des attributs et des informations d'événements de cet utilisateur.
-- **Custom User :** Vous pouvez personnaliser un utilisateur. Braze proposera des champs de saisie pour tous les attributs et événements disponibles. Saisissez les informations que vous souhaitez voir dans la prévisualisation de l'e-mail.
+- **Custom User :** Vous pouvez personnaliser un utilisateur. Braze proposera des champs de saisie pour tous les attributs et événements disponibles. Saisissez les informations que vous souhaitez voir dans l'e-mail de prévisualisation.
 
 ### Liste de vérification pour les tests {#test-checklist}
 
@@ -186,9 +186,9 @@ Vous ne pouvez pas transférer directement des messages HTML existants dans l'é
 
 Actuellement, l'éditeur est limité aux messages modaux et plein écran uniquement. Vous pouvez basculer entre les types d'affichage dans la section **Message container** du panneau **Message styles**.
 
-### Puis-je enregistrer mon message in-app en tant que modèle après l'avoir créé dans ma campagne ou mon Canvas ? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+### Puis-je enregistrer mon message in-app en tant que modèle après l'avoir créé dans ma Campaign ou mon Canvas ? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-Oui. Pour tout message in-app que vous souhaitez réutiliser dans une future campagne ou étape Canvas, vous pouvez l'enregistrer en tant que modèle personnalisé en utilisant le bouton **Save as template**, disponible après avoir quitté l'éditeur. Avant de pouvoir l'enregistrer en tant que modèle, vous devez d'abord lancer la campagne OU l'enregistrer en tant que brouillon.
+Oui. Pour tout message in-app que vous souhaitez réutiliser dans une future Campaign ou étape Canvas, vous pouvez l'enregistrer en tant que modèle personnalisé en utilisant le bouton **Save as template**, disponible après avoir quitté l'éditeur. Avant de pouvoir l'enregistrer en tant que modèle, vous devez d'abord lancer la Campaign OU l'enregistrer en tant que brouillon.
 
 ![Une prévisualisation d'un message in-app pour une visite guidée du produit.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 

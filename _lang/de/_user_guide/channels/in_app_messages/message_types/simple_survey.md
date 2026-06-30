@@ -14,7 +14,7 @@ tool:
 
 > Verwenden Sie das In-App-Nachrichten-Template **Simple Survey**, um Nutzerattribute, Insights und Präferenzen zu erfassen, die Ihre Campaign-Strategie unterstützen.
 
-Dieser Nachrichtentyp ist im [traditionellen Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) verfügbar.
+Dieser Nachrichtentyp ist im [traditionellen Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) verfügbar.
 
 Häufige Anwendungsfälle für Umfragen sind z. B. die Frage, wie Nutzer:innen Ihre App nutzen möchten, mehr über ihre persönlichen Präferenzen zu erfahren oder ihre Zufriedenheit mit einem bestimmten Feature abzufragen.
 
@@ -22,7 +22,7 @@ Häufige Anwendungsfälle für Umfragen sind z. B. die Frage, wie Nutzer:innen I
 
 ## SDK-Anforderungen {#supported-sdk-versions}
 
-Diese In-App-Nachricht wird nur an Geräte ausgeliefert, die [Flex CSS](https://caniuse.com/flexbox) unterstützen, und erfordert mindestens die folgenden [SDK-Versionen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions).
+Diese In-App-Nachricht wird nur an Geräte ausgeliefert, die [Flex CSS](https://caniuse.com/flexbox) unterstützen, und erfordert mindestens die folgenden [SDK-Versionen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 
 {% sdk_min_versions ios:3.23.0 android:8.0.0 web:2.5.0 %}
 
@@ -32,7 +32,7 @@ Um HTML-In-App-Nachrichten über das Web-SDK zu aktivieren, müssen Sie die Init
 
 ## Eine Umfrage erstellen {#create}
 
-Wenn Sie eine [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) erstellen, wählen Sie **Simple Survey** als **Nachrichtentyp** aus.
+Wenn Sie eine [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) erstellen, wählen Sie **Simple Survey** als **Nachrichtentyp** aus.
 
 Dieses Umfrage-Template wird sowohl für mobile Apps als auch für Webbrowser unterstützt. Stellen Sie sicher, dass Ihre SDKs die für dieses Feature erforderlichen [Mindest-SDK-Versionen](#supported-sdk-versions) erfüllen.
 
@@ -60,7 +60,7 @@ Legen Sie dann fest, ob Sie [angepasste Attribute erfassen](#custom-attributes) 
 
 Wählen Sie **Log attributes upon submission**, um Attribute basierend auf der Antwort der Nutzer:innen zu erfassen. Sie können diese Option verwenden, um neue Segmente und Retargeting-Campaigns zu erstellen. Beispielsweise könnten Sie in einer [Zufriedenheitsumfrage](#user-satisfaction) eine Follow-up-E-Mail an alle Nutzer:innen senden, die nicht zufrieden waren.
 
-Um jeder Auswahlmöglichkeit ein angepasstes Attribut hinzuzufügen, wählen Sie einen Namen für das angepasste Attribut aus dem Dropdown-Menü aus (oder erstellen Sie ein neues) und geben Sie dann den Wert ein, der gesetzt werden soll, wenn diese Auswahl abgesendet wird. Sie können auch ein neues angepasstes Attribut auf Ihrer [Einstellungsseite]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/) erstellen.
+Um jeder Auswahlmöglichkeit ein angepasstes Attribut hinzuzufügen, wählen Sie einen Namen für das angepasste Attribut aus dem Dropdown-Menü aus (oder erstellen Sie ein neues) und geben Sie dann den Wert ein, der gesetzt werden soll, wenn diese Auswahl abgesendet wird. Sie können auch ein neues angepasstes Attribut auf Ihrer [Einstellungsseite]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) erstellen.
 
 Der Datentyp Ihrer angepassten Attribute ist wichtig und hängt davon ab, wie Sie Ihre Umfrage eingerichtet haben.
 
@@ -73,7 +73,7 @@ Wenn die Erfassung angepasster Attribute aktiviert ist, werden Auswahlmöglichke
 
 ##### Beispiel {#example}
 
-In einer [Umfrage zu Benachrichtigungspräferenzen](#notification-preferences) könnten Sie beispielsweise jede Auswahlmöglichkeit als boolesches (true/false) Attribut anlegen, damit Nutzer:innen auswählen können, welche Themen sie interessieren. Wenn eine Nutzer:in die Auswahl „Aktionen“ ankreuzt, wird ihr [Nutzerprofil]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/) mit dem angepassten Attribut `Promotions Topic` auf `true` aktualisiert. Wenn die Auswahl nicht angekreuzt wird, bleibt dasselbe Attribut unverändert.
+In einer [Umfrage zu Benachrichtigungspräferenzen](#notification-preferences) könnten Sie beispielsweise jede Auswahlmöglichkeit als boolesches (true/false) Attribut anlegen, damit Nutzer:innen auswählen können, welche Themen sie interessieren. Wenn eine Nutzer:in die Auswahl „Aktionen“ ankreuzt, wird ihr [Nutzerprofil]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) mit dem angepassten Attribut `Promotions Topic` auf `true` aktualisiert. Wenn die Auswahl nicht angekreuzt wird, bleibt dasselbe Attribut unverändert.
 
 Sie können dann den Filter `Custom Attribute` verwenden, um ein Segment für Nutzer:innen mit dem angepassten Attribut `Promotions Topic` `is` `true` zu erstellen, damit nur Nutzer:innen, die an Ihren Aktionen interessiert sind, die relevanten Campaigns erhalten.
 
@@ -119,13 +119,13 @@ Sie finden Ihre Umfrage-Performance-Metriken, indem Sie das Dropdown **Ergebniss
 - **Umfrageergebnisse** zeigen eine Aufschlüsselung, wie viele Nutzer:innen jede Antwortoption ausgewählt haben, zusammen mit dem prozentualen Anteil an den Gesamtabsendungen, den jede Auswahl repräsentiert.
 - **Bestätigungsseiten-Metriken** (falls aktiviert) umfassen, wie viele Nutzer:innen den Bestätigungsbildschirm gesehen, seinen Button angeklickt oder ihn ohne Interaktion geschlossen haben.
 
-Definitionen der Umfrage-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary/). Filtern Sie dort nach „In-App Message“.
+Definitionen der Umfrage-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary). Filtern Sie dort nach „In-App Message“.
 
-Sehen Sie sich den [In-App-Nachrichten-Bericht]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting/) für eine Aufschlüsselung Ihrer Campaign-Metriken an.
+Sehen Sie sich den [In-App-Nachrichten-Bericht]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting) für eine Aufschlüsselung Ihrer Campaign-Metriken an.
 
 ### Currents {#currents}
 
-Ausgewählte Optionen fließen automatisch in Currents ein, unter dem Feld `button_id` der [**In-App Message Click Events**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#api_fzzdoylmrtwe). Jede Auswahl wird mit ihrem universell eindeutigen Bezeichner (UUID) gesendet.
+Ausgewählte Optionen fließen automatisch in Currents ein, unter dem Feld `button_id` der [**In-App Message Click Events**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#api_fzzdoylmrtwe). Jede Auswahl wird mit ihrem universell eindeutigen Bezeichner (UUID) gesendet.
 
 ## Anwendungsfälle {#use-cases}
 

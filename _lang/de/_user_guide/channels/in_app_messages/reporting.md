@@ -18,7 +18,7 @@ tool:
 
 ## In-App-Nachrichten-Metriken {#in-app-message-metrics}
 
-Hier finden Sie die wichtigsten Metriken für In-App-Nachrichten, die in Ihren Analytics angezeigt werden können. Definitionen aller in Braze verwendeten Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+Hier finden Sie die wichtigsten Metriken für In-App-Nachrichten, die in Ihren Analytics angezeigt werden können. Definitionen aller in Braze verwendeten Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 {% alert note %}
 Für In-App-Nachrichten definiert diese Seite eindeutige Impressionen anhand einer Kalendertag-Grenze in der Zeitzone Ihres Workspace.

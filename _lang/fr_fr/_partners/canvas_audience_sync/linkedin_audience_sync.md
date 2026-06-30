@@ -38,7 +38,7 @@ Vous devez vous assurer que les éléments suivants ont été créés, complét�
 ### Étape 1 : Se connecter à LinkedIn {#step-1-connect-to-linkedin}
 
 {% alert important %}
-Vous devez disposer de l'[autorisation « Admin »]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) pour connecter LinkedIn à votre compte Braze.
+Vous devez disposer de l'[autorisation « Admin »]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin) pour connecter LinkedIn à votre compte Braze.
 {% endalert %}
 
 Dans le tableau de bord de Braze, accédez à **Partenaires technologiques** et sélectionnez **LinkedIn**. Dans la section **LinkedIn Audience Sync**, sélectionnez **Connect LinkedIn**.
@@ -59,7 +59,7 @@ Votre connexion LinkedIn sera appliquée au niveau de l'espace de travail Braze.
 
 Lorsque vous créez des audiences pour le suivi publicitaire, vous pouvez souhaiter inclure ou exclure certains utilisateurs en fonction de leurs préférences, et vous conformer aux lois sur la protection de la vie privée, telles que le droit « Ne pas vendre ou partager » en vertu de la [CCPA](https://oag.ca.gov/privacy/ccpa). Les marketeurs devraient implémenter les filtres pertinents pour l'éligibilité des utilisateurs dans leurs critères d'entrée Canvas. Ci-dessous, nous listons quelques options.
 
-Si vous avez collecté l'[IDFA iOS via le SDK Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overviewother_sdk_customizations/#optional-idfa-collection), vous pourrez utiliser le filtre **Ads Tracking Enabled**. Sélectionnez la valeur `true` afin d'envoyer uniquement les utilisateurs vers les destinations de synchronisation d'audience où ils ont donné leur consentement.
+Si vous avez collecté l'[IDFA iOS via le SDK Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overviewother_sdk_customizations#optional-idfa-collection), vous pourrez utiliser le filtre **Ads Tracking Enabled**. Sélectionnez la valeur `true` afin d'envoyer uniquement les utilisateurs vers les destinations de synchronisation d'audience où ils ont donné leur consentement.
 
 ![Une audience d'entrée avec le filtre « Ad Tracking Enabled is true ».]({% image_buster /assets/img/linkedin/linkedin5.png %}){: style="max-width:75%;"}
 
@@ -67,7 +67,7 @@ Si vous collectez `opt-ins`, `opt-outs`, `Do Not Sell Or Share`, ou tout autre a
 
 ![Un Canvas dont l'audience d'entrée est « opted_in_marketing » égal à « true ».]({% image_buster /assets/img/linkedin/linkedin4.png %}){: style="max-width:75%;"}
 
-Pour en savoir plus sur la manière de se conformer à ces lois sur la protection des données au sein de la plateforme Braze, consultez l'[Assistance technique à la protection des données]({{site.baseurl}}/dp-technical-assistance/).
+Pour en savoir plus sur la manière de se conformer à ces lois sur la protection des données au sein de la plateforme Braze, consultez l'[Assistance technique à la protection des données]({{site.baseurl}}/dp-technical-assistance).
 
 ### Étape 3 : Ajouter une étape de synchronisation de l'audience avec LinkedIn {#step-3-add-an-audience-sync-step-with-linkedin}
 

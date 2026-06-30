@@ -8,7 +8,7 @@ page_order: 2
 
 # Implementar agentes personalizados {#deploy-custom-agents}
 
-> Después de [crear un agente]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/), utiliza esta página para saber dónde y cómo implementarlo en Braze. El tipo de agente que elijas en el momento de la creación —agente de Canvas o agente de catálogo— determina dónde puede ejecutarse el agente. Para obtener una introducción, consulta [Agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents/).
+> Después de [crear un agente]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents), utiliza esta página para saber dónde y cómo implementarlo en Braze. El tipo de agente que elijas en el momento de la creación —agente de Canvas o agente de catálogo— determina dónde puede ejecutarse el agente. Para obtener una introducción, consulta [Agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents).
 
 ## Tipos de agentes personalizados {#types-of-custom-agents}
 
@@ -16,11 +16,11 @@ Los agentes personalizados se implementan en diferentes partes de Braze según s
 
 | Tipo de agente | Se implementa en | Se ejecuta cuando | Sección |
 | --- | --- | --- | --- |
-| Agente de paso en Canvas | [Paso Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/) en Canvas | Un usuario entra en el paso | [Usar agentes de paso en Canvas](#use-canvas-step-agents) |
+| Agente de paso en Canvas | [Paso Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) en Canvas | Un usuario entra en el paso | [Usar agentes de paso en Canvas](#use-canvas-step-agents) |
 | Agente de catálogo | Campo de catálogo | Se crea o actualiza una fila del catálogo | [Usar agentes de catálogo](#use-catalog-agents) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tipos de agentes personalizados" }
 
-Seleccionas el tipo de agente en la **Consola de Agente** cuando creas el agente. Para conocer los pasos de configuración, consulta [Crear agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#step-1-choose-an-agent-type).
+Seleccionas el tipo de agente en la **Consola de Agente** cuando creas el agente. Para conocer los pasos de configuración, consulta [Crear agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#step-1-choose-an-agent-type).
 
 ## Buenas prácticas {#best-practices}
 
@@ -28,7 +28,7 @@ Apunta a casos de uso de alto valor en los que los agentes puedan generar el may
 
 Para los agentes de Canvas, empieza con usuarios que tengan señales fuertes —como búsquedas recientes, alta interacción o datos de perfil enriquecidos— antes de expandirte a segmentos más amplios. Para los agentes de catálogo, prioriza las filas en las que las columnas de entrada que necesitas ya estén rellenadas, de modo que cada invocación tenga suficiente contexto para producir resultados útiles.
 
-Para probar el ROI a pequeña escala antes de desplegar un agente de forma amplia, utiliza un paso de [Recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) para que solo una parte de tu audiencia entre en la rama que contiene tu paso Agente.
+Para probar el ROI a pequeña escala antes de desplegar un agente de forma amplia, utiliza un paso de [Recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que solo una parte de tu audiencia entre en la rama que contiene tu paso Agente.
 
 ## Usar agentes de paso en Canvas {#use-canvas-step-agents}
 
@@ -38,7 +38,7 @@ Después de crear un agente de Canvas, añádelo a un Canvas como paso Agente pa
 
 Cuando un usuario llega a un paso Agente en un Canvas, Braze envía los datos de entrada que configuraste a tu agente. El agente procesa la entrada utilizando su modelo e instrucciones, y luego devuelve un resultado almacenado en la variable de salida que definiste en el paso. Puedes utilizar esa salida para la toma de decisiones, la personalización o el procesamiento posterior.
 
-Los pasos Agente utilizan [variables de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/) para incorporar el contexto relevante y generar una variable que puede utilizarse en el Canvas. Para conocer los requisitos previos y una referencia completa, consulta [Paso Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/).
+Los pasos Agente utilizan [variables de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) para incorporar el contexto relevante y generar una variable que puede utilizarse en el Canvas. Para conocer los requisitos previos y una referencia completa, consulta [Paso Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
 
 ### Añadir un paso Agente {#add-an-agent-step}
 
@@ -46,11 +46,11 @@ Para añadir un agente a tu Canvas:
 
 1. Arrastra y suelta el componente **Agente** desde la barra lateral, o selecciona el botón <i class="fas fa-plus-circle"></i> en la parte inferior de un paso y selecciona **Agente**.
 2. Selecciona el agente que procesará los datos en este paso.
-3. Define el nombre de la variable de salida. El tipo de datos de salida se configura en la [Consola de Agente]({{site.baseurl}}/user_guide/brazeai/agents/).
+3. Define el nombre de la variable de salida. El tipo de datos de salida se configura en la [Consola de Agente]({{site.baseurl}}/user_guide/brazeai/agents).
 4. (Opcional) Añade valores de contexto adicionales para que el agente los consulte cuando se ejecute. Esto puede incluir variables Liquid adicionales o contexto de Canvas que no hayas vinculado previamente en la configuración del agente, por ejemplo, valores que solo quieras pasar en el momento del envío desde este paso.
 5. Prueba y previsualiza la salida del agente en la vista previa del paso.
 
-Para conocer los tipos de datos de salida, la creación de plantillas con Liquid y las capturas de pantalla, consulta [Paso Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/).
+Para conocer los tipos de datos de salida, la creación de plantillas con Liquid y las capturas de pantalla, consulta [Paso Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
 
 ### Casos de uso {#use-cases}
 
@@ -68,26 +68,26 @@ Para conocer los tipos de datos de salida, la creación de plantillas con Liquid
 
 Después de que el agente se ejecute, utiliza la variable de salida en tu Canvas:
 
-- **Enrutamiento del recorrido:** Dirige a los usuarios por diferentes rutas de Canvas en función de la respuesta del agente. Utiliza [Rutas de audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) o [Divisiones de decisiones]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) con salidas numéricas, booleanas o estructuradas.
+- **Enrutamiento del recorrido:** Dirige a los usuarios por diferentes rutas de Canvas en función de la respuesta del agente. Utiliza [Rutas de audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) o [División de decisiones]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) con salidas numéricas, booleanas o estructuradas.
 - **Personalización:** Inserta la respuesta del agente directamente en un paso de mensaje utilizando Liquid.
-- **Procesamiento de datos de usuario:** Analiza y estandariza los datos de usuario, y luego almacénalos en el perfil de usuario (por ejemplo, con un paso de [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)) o envíalos mediante un webhook.
+- **Procesamiento de datos de usuario:** Analiza y estandariza los datos de usuario, y luego almacénalos en el perfil de usuario (por ejemplo, con un paso de [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)) o envíalos mediante un webhook.
 
-Para ver ejemplos, consulta [Cómo funciona]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#how-it-works) en Paso Agente.
+Para ver ejemplos, consulta [Cómo funciona]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#how-it-works) en Paso Agente.
 
 ### Gestión de errores y comportamiento alternativo {#fallback-behavior}
 
-Lo siguiente se aplica a los **agentes de paso en Canvas** en un [paso Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/).
+Lo siguiente se aplica a los **agentes de paso en Canvas** en un [paso Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
 
-- Si el modelo conectado devuelve un [error de límite de velocidad]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) del proveedor del LLM, Braze reintenta continuamente la solicitud utilizando retirada exponencial hasta que la llamada se complete correctamente o Braze determine que no puede completarse; a continuación, los usuarios avanzan al siguiente paso en Canvas.
-- Para otros fallos (como un tiempo de espera agotado o una clave de API no válida), la variable de salida se establece en `null` a menos que el agente tenga [valores alternativos configurados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) en la Consola de Agente.
+- Si el modelo conectado devuelve un [error de límite de velocidad]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) del proveedor del LLM, Braze reintenta continuamente la solicitud utilizando retirada exponencial hasta que la llamada se complete correctamente o Braze determine que no puede completarse; a continuación, los usuarios avanzan al siguiente paso en Canvas.
+- Para otros fallos (como un tiempo de espera agotado o una clave de API no válida), la variable de salida se establece en `null` a menos que el agente tenga [valores alternativos configurados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) en la Consola de Agente.
 - Si un agente alcanza su límite de invocaciones diarias, Braze también aplica los valores alternativos configurados cuando están presentes; de lo contrario, la variable de salida se establece en `null`.
 
-Cuando se configuran valores alternativos, Braze los aplica para errores no reintentables y para fallos por límite diario. Braze renderiza la alternativa con Liquid por usuario y almacena el resultado en la variable de salida del paso Agente. Sin valores alternativos, esos fallos establecen la variable de salida en `null`. Si prefieres configurar valores predeterminados específicos del paso en los pasos de mensaje en lugar de las alternativas de la Consola de Agente, puedes utilizar [valores predeterminados de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) en pasos posteriores. Para ello, deja las alternativas en blanco en la sección **Output** de la configuración del agente para que los valores predeterminados de Liquid puedan aplicarse cuando el agente devuelva null.
+Cuando se configuran valores alternativos, Braze los aplica para errores no reintentables y para fallos por límite diario. Braze renderiza la alternativa con Liquid por usuario y almacena el resultado en la variable de salida del paso Agente. Sin valores alternativos, esos fallos establecen la variable de salida en `null`. Si prefieres configurar valores predeterminados específicos del paso en los pasos de mensaje en lugar de las alternativas de la Consola de Agente, puedes utilizar [valores predeterminados de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) en pasos posteriores. Para ello, deja las alternativas en blanco en la sección **Output** de la configuración del agente para que los valores predeterminados de Liquid puedan aplicarse cuando el agente devuelva null.
 
 - Las respuestas se almacenan en caché para entradas idénticas y pueden reutilizarse para invocaciones idénticas repetidas en unos pocos minutos. Las respuestas en caché siguen contando para el total de invocaciones y las invocaciones diarias.
-- Los pasos Agente pueden tardar en procesar un lote grande de usuarios. Braze pone en cola las invocaciones según los [controles de flujo de invocaciones]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls), por lo que los usuarios pueden permanecer pendientes durante envíos de alto volumen.
+- Los pasos Agente pueden tardar en procesar un lote grande de usuarios. Braze pone en cola las invocaciones según los [controles de flujo de invocaciones]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls), por lo que los usuarios pueden permanecer pendientes durante envíos de alto volumen.
 
-Para conocer la configuración del paso Agente y los detalles del tiempo de ejecución, consulta [Gestión de errores]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#error-handling) en Paso Agente. Para más detalles, consulta [Gestión de errores]({{site.baseurl}}/user_guide/brazeai/agents/#error-handling) en Agentes de Braze.
+Para conocer la configuración del paso Agente y los detalles del tiempo de ejecución, consulta [Gestión de errores]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#error-handling) en Paso Agente. Para más detalles, consulta [Gestión de errores]({{site.baseurl}}/user_guide/brazeai/agents#error-handling) en Agentes de Braze.
 
 ## Usar agentes de catálogo {#use-catalog-agents}
 
@@ -150,7 +150,7 @@ No dejes una columna marcada como obligatoria si esperas que permanezca vacía p
 
 ### Definir campos de respuesta {#define-response-fields}
 
-Si tu agente utiliza [campos]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/?tab=fields#advanced-schemas) como formato de salida, puedes seleccionar el campo correspondiente del agente en **Response Field** para utilizarlo en el campo del catálogo.
+Si tu agente utiliza [campos]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents?tab=fields#advanced-schemas) como formato de salida, puedes seleccionar el campo correspondiente del agente en **Response Field** para utilizarlo en el campo del catálogo.
 
 Supongamos que tienes un agente que añade descripciones de productos a un catálogo con los siguientes campos para estructurar el formato de salida:
 
@@ -168,7 +168,7 @@ También puedes anular manualmente la celda generada por el agente seleccionando
 
 ### Gestión de errores {#error-handling}
 
-- Las invocaciones de catálogo fallidas no se reintentan, incluidos los [errores de límite de velocidad]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) del proveedor del LLM.
+- Las invocaciones de catálogo fallidas no se reintentan, incluidos los [errores de límite de velocidad]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) del proveedor del LLM.
 - Si la llamada a la API del proveedor del modelo fundacional devuelve algún otro error, como un error de clave de API no válida, el valor del campo no se actualiza. Los agentes de catálogo no admiten la configuración de valores alternativos en la Consola de Agente.
 - Puedes revisar los registros del agente para obtener detalles sobre las ejecuciones fallidas.
 - Los agentes de catálogo solo pueden procesar valores de entrada de hasta 25 KB por fila.
@@ -184,7 +184,7 @@ En la sección **Uso** de tu agente, puedes consultar y navegar hasta los lugare
 En la sección **Registros** de tu agente, puedes supervisar las llamadas reales de los agentes que se producen en tus Canvas y catálogos. Puedes filtrar por información como el intervalo de fechas, el resultado (correcto o fallido) o la ubicación de la llamada. También puedes seleccionar **Exportar CSV** para exportar solo los registros que se muestran en la página actual.
 
 {% alert tip %}
-También puedes supervisar los errores de límite de invocaciones diarias en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/).
+También puedes supervisar los errores de límite de invocaciones diarias en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log).
 {% endalert %}
 
 ![Registros para la puntuación de sentimiento de IA de un agente.]({% image_buster /assets/img/ai_agent/agent_logs.png %})
@@ -200,10 +200,10 @@ También puedes utilizar estos eventos de Currents para acceder a los esquemas d
 - Eventos ejecutados por el agente
 - Eventos de invocación de herramientas
 
-Consulta el [glosario de eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) para obtener más detalles.
+Consulta el [glosario de eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) para obtener más detalles.
 
 ## Artículos relacionados {#related-articles}
 
-- [Paso Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/)
-- [Referencia para agentes]({{site.baseurl}}/user_guide/brazeai/agents/reference/)
-- [Preguntas frecuentes]({{site.baseurl}}/user_guide/brazeai/agents/faq/)
+- [Paso Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)
+- [Referencia para agentes]({{site.baseurl}}/user_guide/brazeai/agents/reference)
+- [Preguntas frecuentes]({{site.baseurl}}/user_guide/brazeai/agents/faq)

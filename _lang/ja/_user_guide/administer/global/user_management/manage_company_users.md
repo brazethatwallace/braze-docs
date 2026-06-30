@@ -18,18 +18,18 @@ Brazeアカウントにユーザーを追加するには、管理者権限が必
 
 1. **設定** > **ユーザー管理** > **会社ユーザー**に移動します。
 2. **+ 新しいユーザーを追加**を選択します。
-3. メールアドレス、部署、[ユーザーロール]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#creating-a-role)など、求められた情報を入力します。
-4. 管理者でないユーザーの場合、そのユーザーに付与する会社レベルおよびワークスペースレベルの[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#editing-a-users-permissions)を選択します。
+3. メールアドレス、部署、[ユーザーロール]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#creating-a-role)など、求められた情報を入力します。
+4. 管理者でないユーザーの場合、そのユーザーに付与する会社レベルおよびワークスペースレベルの[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#editing-a-users-permissions)を選択します。
 
 ![カスタム権限フィールドのセクションを含むワークスペースレベルの権限。]({% image_buster /assets/img/add_new_user_3.png %})
 
 ### メールアドレスの要件 {#email-address-requirements}
 
-[インスタンス]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)で使用されるすべてのメールアドレスは一意である必要があります。つまり、そのインスタンスの会社ワークスペースへのアクセス権を持っていた、または現在も持っているユーザーに既に関連付けられているメールアドレスを追加しようとすると、エラーメッセージが表示されます。
+[インスタンス]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)で使用されるすべてのメールアドレスは一意である必要があります。つまり、そのインスタンスの会社ワークスペースへのアクセス権を持っていた、または現在も持っているユーザーに既に関連付けられているメールアドレスを追加しようとすると、エラーメッセージが表示されます。
 
 チームがGmailを使用していてメールアドレスの追加に問題がある場合は、メールアドレスにプラス記号（+）を追加してエイリアスを作成できます（「+1」や「+test」など）。たとえば、`contractor@braze.com`のエイリアスとして`contractor+1@braze.com`を使用できます。`contractor+1@braze.com`宛てのメールは引き続き`contractor@braze.com`に配信されますが、エイリアスは一意のメールアドレスとして認識されます。
 
-エイリアスを使用せずに複数の会社で1つのアカウントを使用するには、[マルチカンパニー開発者を使用する]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#use-multi-company-developers)を参照してください。SSOを使用している場合は、複数のメールアドレスで登録する前に[シングルサインオン（SSO）に関する考慮事項]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#considerations-for-single-sign-on-sso)を確認してください。
+エイリアスを使用せずに複数の会社で1つのアカウントを使用するには、[マルチカンパニー開発者を使用する]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#use-multi-company-developers)を参照してください。SSOを使用している場合は、複数のメールアドレスで登録する前に[シングルサインオン（SSO）に関する考慮事項]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#considerations-for-single-sign-on-sso)を確認してください。
 
 ### Brazeアカウントのメールアドレスを変更できますか？ {#can-i-change-my-braze-accounts-email-address}
 
@@ -89,7 +89,7 @@ Brazeは以下のアカウントデータを保持します。
 
 - メールアドレスの先頭や末尾のスペースや隠し文字を削除します。
 - そのアドレスが組織で有効なメール形式であることを確認します。一部の特殊文字は拒否されます。
-- 同じ[クラスター]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/)内の2人のダッシュボードユーザーに同じメールアドレスを使用することはできません。そのアドレスが同じクラスター内の別のワークスペースに既に登録されている場合は、別のアドレスまたは`user+1@company.com`のようなエイリアスを使用してください。
+- 同じ[クラスター]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account)内の2人のダッシュボードユーザーに同じメールアドレスを使用することはできません。そのアドレスが同じクラスター内の別のワークスペースに既に登録されている場合は、別のアドレスまたは`user+1@company.com`のようなエイリアスを使用してください。
 
 ### ユーザーを追加しようとすると「メールアドレスは既に使用されています」と表示される {#email-is-already-taken-when-trying-to-add-a-user}
 
@@ -106,5 +106,5 @@ Brazeは以下のアカウントデータを保持します。
 
 ユーザーを追加した後、アクセスを管理します。
 
-- [権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) - ダッシュボードで各ユーザーが実行できる操作を設定します。
-- [チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) - 特定のダッシュボードオブジェクトへの共有アクセス権を持つグループにユーザーを整理します。
+- [権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) - ダッシュボードで各ユーザーが実行できる操作を設定します。
+- [チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams) - 特定のダッシュボードオブジェクトへの共有アクセス権を持つグループにユーザーを整理します。

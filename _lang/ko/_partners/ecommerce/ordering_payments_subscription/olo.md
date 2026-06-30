@@ -21,8 +21,8 @@ Olo와 Braze를 통합하면 다음을 수행할 수 있습니다.
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
 | Olo 계정 | 이 파트너십을 활용하려면 웹훅에 접근할 수 있는 Olo 계정이 필요합니다. Olo 대시보드 내 [셀프 서비스 웹훅 도구](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks)를 통해 웹훅 구독을 설정하세요. |
-| Braze 데이터 변환 | Olo에서 데이터를 수신하려면 [데이터 변환 URL]({{site.baseurl}}/data_transformation/)이 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze 데이터 변환 | Olo에서 데이터를 수신하려면 [데이터 변환 URL]({{site.baseurl}}/data_transformation)이 필요합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 웹훅은 Olo가 사용자와 사용자의 행동에 대한 이벤트 기반 정보를 Braze로 전송하는 방법으로, Order Placed, Guest Opt In, Order Picked Up 등의 이벤트를 포함합니다. Olo 웹훅은 일반적으로 동작이 수행된 후 몇 초 이내에 이벤트를 Braze로 전달합니다.
 

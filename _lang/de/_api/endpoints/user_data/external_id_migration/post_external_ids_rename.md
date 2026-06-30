@@ -20,7 +20,7 @@ Sie können bis zu 50 Umbenennungsobjekte pro Anfrage senden.
 
 Dieser Endpunkt legt eine neue (primäre) `external_id` für die Nutzer:innen fest und markiert die bestehende `external_id` als veraltet. Das bedeutet, dass Nutzer:innen über beide `external_id` identifiziert werden können, bis die veraltete ID entfernt wird. Mehrere externe IDs ermöglichen einen Migrationszeitraum, sodass ältere Versionen Ihrer Apps, die das frühere Namensschema für externe IDs verwenden, nicht beeinträchtigt werden.
 
-Nachdem Ihr altes Namensschema nicht mehr verwendet wird, empfehlen wir dringend, veraltete externe IDs über den [Endpunkt `/users/external_ids/remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove/) zu entfernen.
+Nachdem Ihr altes Namensschema nicht mehr verwendet wird, empfehlen wir dringend, veraltete externe IDs über den [Endpunkt `/users/external_ids/remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove) zu entfernen.
 
 {% alert warning %}
 Stellen Sie sicher, dass Sie veraltete externe IDs mit dem Endpunkt `/users/external_ids/remove` anstelle von `/users/delete` entfernen. Wenn Sie eine Anfrage an `/users/delete` mit der veralteten externen ID senden, wird das Nutzerprofil vollständig gelöscht und kann nicht rückgängig gemacht werden.
@@ -30,7 +30,7 @@ Stellen Sie sicher, dass Sie veraltete externe IDs mit dem Endpunkt `/users/exte
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key/) mit der Berechtigung `users.external_ids.rename`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `users.external_ids.rename`.
 
 ## Rate-Limit
 

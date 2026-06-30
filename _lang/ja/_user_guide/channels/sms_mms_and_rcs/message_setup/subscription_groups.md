@@ -14,7 +14,7 @@ channel:
 
 # SMS、MMS、RCSサブスクリプショングループ {#sms-mms-and-rcs-subscription-groups}
 
-> サブスクリプショングループは、Brazeを通じてSMS、MMS、RCSメッセージを送信するための基盤です。サブスクリプショングループは、特定の種類のメッセージング目的に使用される[送信エンティティ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/)（RCS認証済み送信者、SMSショートコード、SMSロングコード、SMS英数字送信者IDなど）の集合です。たとえば、ブランドがトランザクションSMSとプロモーションSMSの両方を送信する予定がある場合、Brazeダッシュボード内で送信電話番号のプールが別々の2つのサブスクリプショングループを設定する必要があります。
+> サブスクリプショングループは、Brazeを通じてSMS、MMS、RCSメッセージを送信するための基盤です。サブスクリプショングループは、特定の種類のメッセージング目的に使用される[送信エンティティ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup)（RCS認証済み送信者、SMSショートコード、SMSロングコード、SMS英数字送信者IDなど）の集合です。たとえば、ブランドがトランザクションSMSとプロモーションSMSの両方を送信する予定がある場合、Brazeダッシュボード内で送信電話番号のプールが別々の2つのサブスクリプショングループを設定する必要があります。
 
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
@@ -24,8 +24,8 @@ SMSおよびRCSユーザーには、`subscribed`と`unsubscribed`の2つのサ�
 
 | 状態 | 定義 |
 | --------- | ---------- |
-| 購読中 | ユーザーは特定のサブスクリプショングループからSMSおよびRCSを受信するよう購読しています。ユーザーは、BrazeサブスクリプションAPIを通じてサブスクリプション状態を更新するか、オプトインキーワード応答をテキスト送信することで購読できます。ユーザーがSMS、RCS、またはその両方を受信するには、SMSまたはRCSサブスクリプショングループに購読している必要があります。[ダブルオプトイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/)が有効な場合、ユーザーはサブスクリプションステータスが`Subscribed`に更新される前にオプトインの意思を確認する必要があります。 |
-| 購読解除 | ユーザーはSMSおよびRCSサブスクリプショングループとそのサブスクリプショングループ内の送信電話番号からのメッセージングを明示的にオプトアウトしています。オプトアウトキーワード応答をテキスト送信するか、[BrazeサブスクリプションAPI]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)を通じてユーザーの購読を解除できます。SMSおよびRCSサブスクリプショングループから購読解除されたユーザーは、そのサブスクリプショングループに属する送信電話番号からSMSまたはRCSを受信しなくなります。|
+| 購読中 | ユーザーは特定のサブスクリプショングループからSMSおよびRCSを受信するよう購読しています。ユーザーは、BrazeサブスクリプションAPIを通じてサブスクリプション状態を更新するか、オプトインキーワード応答をテキスト送信することで購読できます。ユーザーがSMS、RCS、またはその両方を受信するには、SMSまたはRCSサブスクリプショングループに購読している必要があります。[ダブルオプトイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in)が有効な場合、ユーザーはサブスクリプションステータスが`Subscribed`に更新される前にオプトインの意思を確認する必要があります。 |
+| 購読解除 | ユーザーはSMSおよびRCSサブスクリプショングループとそのサブスクリプショングループ内の送信電話番号からのメッセージングを明示的にオプトアウトしています。オプトアウトキーワード応答をテキスト送信するか、[BrazeサブスクリプションAPI]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)を通じてユーザーの購読を解除できます。SMSおよびRCSサブスクリプショングループから購読解除されたユーザーは、そのサブスクリプショングループに属する送信電話番号からSMSまたはRCSを受信しなくなります。|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="サブスクリプショングループの状態" }
 
 ### ユーザーの状態を設定する {#set-a-users-state}
@@ -39,12 +39,12 @@ SMSおよびRCSユーザーには、`subscribed`と`unsubscribed`の2つのサ�
 - **REST API:** ユーザープロファイルは、Braze REST APIを使用して[`/subscription/status/set`エンドポイント]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)でプログラム的に設定できます。
 - **SDK統合:** ユーザーは、[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html)、[iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:))、または[Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)の`addToSubscriptionGroup`メソッドを使用して、メールまたはSMSおよびRCSサブスクリプショングループに追加できます。
 - **電話番号キャプチャIAMフォーム:** アプリ内メッセージのドラッグ＆ドロップエディターの電話番号キャプチャテンプレートを通じて、ユーザーの電話番号を収集できます。
-- **ユーザーのオプトイン/オプトアウト時に自動処理:** ユーザーがデフォルトのオプトインまたはオプトアウト[キーワード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/)をテキスト送信すると、Brazeはユーザーのサブスクリプション状態を自動的に設定および更新します。
-- **ユーザーインポート:** ユーザーは**Import Users**を通じてメールまたはSMSおよびRCSサブスクリプショングループに追加できます。サブスクリプショングループのステータスを更新する場合、CSVに`subscription_group_id`と`subscription_state`の2つの列が必要です。詳細については、[ユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#updating-subscription-group-status)を参照してください。
+- **ユーザーのオプトイン/オプトアウト時に自動処理:** ユーザーがデフォルトのオプトインまたはオプトアウト[キーワード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout)をテキスト送信すると、Brazeはユーザーのサブスクリプション状態を自動的に設定および更新します。
+- **ユーザーインポート:** ユーザーは**Import Users**を通じてメールまたはSMSおよびRCSサブスクリプショングループに追加できます。サブスクリプショングループのステータスを更新する場合、CSVに`subscription_group_id`と`subscription_state`の2つの列が必要です。詳細については、[ユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#updating-subscription-group-status)を参照してください。
 
 #### Canvasでユーザーの状態を更新する {#update-a-users-state-in-a-canvas}
 
-キャンバスフローの一部としてユーザーのサブスクリプショングループステータスを更新する場合は、Webhookの代わりに[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)ステップを使用してください。ユーザーの更新ステップは、処理が完了するまで待ってからユーザーを次のステップに進めるため、後続のメッセージングステップでは更新されたサブスクリプションステータスが使用されます。
+キャンバスフローの一部としてユーザーのサブスクリプショングループステータスを更新する場合は、Webhookの代わりに[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)ステップを使用してください。ユーザーの更新ステップは、処理が完了するまで待ってからユーザーを次のステップに進めるため、後続のメッセージングステップでは更新されたサブスクリプションステータスが使用されます。
 
 Webhookを使用してサブスクリプショングループを更新すると、ユーザーはWebhookが送信された時点で進行し、サブスクリプション変更の処理が完了した時点ではありません。これにより、フォローアップのSMSステップがユーザーの購読前に実行される競合が発生し、一部のユーザーでメッセージが失敗する可能性があります。Webhookを使用する必要がある場合は、次のメッセージングステップの前に少なくとも1分の遅延ステップを追加してください。
 
@@ -55,14 +55,14 @@ Webhookを使用してサブスクリプショングループを更新すると�
 ユーザーのサブスクリプショングループを確認するには、以下のいずれかの方法を使用します。
 
 - **ユーザープロファイル:** 個々のユーザープロファイルは、サイドバーから**ユーザー検索**を選択してBrazeダッシュボードからアクセスできます。ここでは、メールアドレス、電話番号、または外部ユーザーIDでユーザープロファイルを検索できます。ユーザープロファイル内の「エンゲージメント」タブで、ユーザーのSMSおよびRCSサブスクリプショングループを確認できます。
-- **REST API:** 個々のユーザープロファイルのサブスクリプショングループは、Braze REST APIを使用して[ユーザーのサブスクリプショングループを一覧表示するエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/)または[ユーザーのサブスクリプショングループステータスを一覧表示するエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/)で確認できます。
+- **REST API:** 個々のユーザープロファイルのサブスクリプショングループは、Braze REST APIを使用して[ユーザーのサブスクリプショングループを一覧表示するエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups)または[ユーザーのサブスクリプショングループステータスを一覧表示するエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)で確認できます。
 
 ## サブスクリプショングループでメッセージを送信する {#send-messages-with-a-subscription-group}
 
 Brazeを通じてSMSまたはRCSのCampaignを開始するには、**SMS/MMS/RCSバリアント**ドロップダウンからサブスクリプショングループを選択します。選択すると、オーディエンスフィルターがCampaignまたはCanvasに自動的に追加され、選択したサブスクリプショングループに`subscribed`しているユーザーのみがターゲットオーディエンスに含まれるようになります。
 
 {% alert important %}
-国際的な[通信コンプライアンスおよびガイドライン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/)に準拠して、Brazeは選択したサブスクリプショングループに購読していないユーザーにSMSまたはRCSを送信しません。
+国際的な[通信コンプライアンスおよびガイドライン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations)に準拠して、Brazeは選択したサブスクリプショングループに購読していないユーザーにSMSまたはRCSを送信しません。
 {% endalert %}
 
 ![サブスクリプショングループのドロップダウンが開いたSMSコンポーザーで、ユーザーが「Messaging Service A for SMS」をハイライトしている様子。]({% image_buster /assets/img/sms/sms_subgroup_select.png %})
@@ -104,17 +104,17 @@ RCS認証済み送信者を追加するには、2つの方法があります。
 
 ### セットアップ {#setup}
 
-1. [エージェントコンソール]({{site.baseurl}}/user_guide/brazeai/agents/)で「SMSセンチメント分析エージェント」を作成します。
+1. [エージェントコンソール]({{site.baseurl}}/user_guide/brazeai/agents)で「SMSセンチメント分析エージェント」を作成します。
 
 {% alert tip %}
-初期エージェント設定のサポートには[Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agent-examples)を使用してください。
+初期エージェント設定のサポートには[Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference#canvas-agent-examples)を使用してください。
 {% endalert %}
 
 {: start="2"}
 2. **その他**のキーワードカテゴリ内で、**SMS受信メッセージを送信**によってトリガーされるアクションベースのCanvasを作成します。
-3. Canvasに[エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/)を追加して、オプトアウト意図を識別します。
-4. リクエストを確認するための後続のSMS[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)を追加します：「SMSの配信停止をご希望のようですので、配信を停止いたします。間違いの場合は、STARTとテキスト送信して再度オプトインしてください。」
-5. [ユーザーの更新ステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#user-update)を追加して、特定のSMSサブスクリプショングループでのユーザーのステータスを「購読解除」に変更します。
+3. Canvasに[エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)を追加して、オプトアウト意図を識別します。
+4. リクエストを確認するための後続のSMS[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)を追加します：「SMSの配信停止をご希望のようですので、配信を停止いたします。間違いの場合は、STARTとテキスト送信して再度オプトインしてください。」
+5. [ユーザーの更新ステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#user-update)を追加して、特定のSMSサブスクリプショングループでのユーザーのステータスを「購読解除」に変更します。
 
 {% alert note %}
 エージェントコンソールの使用にはメッセージクレジットまたはアクションクレジットが消費されます。
@@ -137,7 +137,7 @@ Canvasを作成し、識別しやすい名前を付けます（「SMS-RCSサブ�
 
 | 方法 | 説明 |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **セグメントを作成する** | サブスクリプショングループ内のすべてのユーザーまたはセグメンテーションフィルターを使用したサブセット（ランダムな5〜10%など）を含むセグメントを作成します。セグメントは各送信前に更新され、現在のユーザー群を反映します。 |
+| **Segmentを作成する** | サブスクリプショングループ内のすべてのユーザーまたはセグメンテーションフィルターを使用したサブセット（ランダムな5〜10%など）を含むSegmentを作成します。Segmentは各送信前に更新され、現在のユーザー群を反映します。 |
 | **CampaignまたはCanvasフィルターを適用する** | CampaignまたはCanvasの**ターゲットオーディエンス**ステップでオーディエンスを絞り込みます。ページを離れることなくターゲティングオプションを調整でき、柔軟性が向上します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ2: オーディエンスを定義する" }
 
@@ -168,7 +168,7 @@ Canvasにユーザーの更新ステップを追加します。ステップ内�
 
 ### ステップ4: Canvasをテストする {#step-4-test-the-canvas}
 
-より広いオーディエンスに送信する前に、[Canvasをテスト]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases/)して期待どおりに動作することを確認することを強く推奨します。
+より広いオーディエンスに送信する前に、[Canvasをテスト]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases)して期待どおりに動作することを確認することを強く推奨します。
 
 ### ステップ5: Canvasを起動する {#step-5-launch-your-canvas}
 
@@ -176,7 +176,7 @@ Canvasのテストが成功したら、ユーザーのサブセットに対し�
 
 ユーザーが正常に移行されたことを確認するには、更新された個々のユーザープロファイルをいくつか確認することを推奨します。**エンゲージメント**タブで**連絡先設定**を探し、スクロールしてユーザーが購読しているサブスクリプショングループを確認します。RCSサブスクリプショングループのトグルがオンになっているはずです。
 
-RCS送信者とサブスクリプショングループの設定については、[RCSの設定]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup/)も参照してください。
+RCS送信者とサブスクリプショングループの設定については、[RCSの設定]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup)も参照してください。
 
 ## ベストプラクティス {#best-practices}
 
@@ -202,6 +202,6 @@ SMSのCampaignを作成する際に正しいグループが選択されるよう
 
 SMS規制は国によって異なります。SMSサブスクリプショングループを国別に分けることを推奨します。これにより、メッセージを送信するすべての地域でコンプライアンス基準を満たすことができます。
 
-各サブスクリプショングループでは、**Geographic Permissions**の下で国の許可リストを設定し、SMS、MMS、RCSが承認された地域にのみ送信されるようにすることもできます。詳細については、[地理的権限]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/)を参照してください。
+各サブスクリプショングループでは、**Geographic Permissions**の下で国の許可リストを設定し、SMS、MMS、RCSが承認された地域にのみ送信されるようにすることもできます。詳細については、[地理的権限]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions)を参照してください。
 
 たとえば、ブラジルでは現地時間の午前9時から午後9時以外のマーケティングメッセージの送信が禁止されており、国内には3つのタイムゾーンがあります。これらの規制に準拠するために、ブラジルと米国へのメッセージ送信用に別々のグループを設定することが考えられます。これにより、ブラジルのユーザーが禁止時間帯にマーケティングメッセージを受信することを防ぎます。

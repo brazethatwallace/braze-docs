@@ -24,7 +24,7 @@ description: "この記事では、メールアドレスまたは電話番号で
 | --- | --- | --- | --- |
 | `email` | はい | 文字列 | ユーザーのメールアドレス（最低1個、最大50個のアドレスを含める必要があります）。 |
 | `phone` | はい | 文字列 | ユーザーの電話番号（最低1個、最大50個の電話番号を含める必要があります）。E.164形式で指定することをお勧めします。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 
@@ -33,7 +33,7 @@ Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
 {
   {phone: "+12125551212"},
-  {email: "dont.spam@me.com"},
+  {email: "dont.spam@example.com"},
   {phone: "+17185551212"}
 }
 ```

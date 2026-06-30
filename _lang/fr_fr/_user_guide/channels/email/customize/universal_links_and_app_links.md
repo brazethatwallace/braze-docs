@@ -12,7 +12,7 @@ channel: email
 > Cet article décrit comment configurer les liens universels Apple et les Android App Links.
 
 {% alert tip %}
-Pour une comparaison des types de liens sur tous les canaux de communication et des conseils sur les cas où un fichier AASA est nécessaire, consultez le [guide de création de liens profonds iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/).
+Pour une comparaison des types de liens sur tous les canaux de communication et des conseils sur les cas où un fichier AASA est nécessaire, consultez le [guide de création de liens profonds iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide).
 {% endalert %}
 
 Les liens universels Apple et les Android App Links sont des mécanismes conçus pour offrir une transition fluide entre le contenu web et les applications mobiles. Alors que les liens universels sont spécifiques à iOS, les Android App Links remplissent la même fonction pour les applications Android.
@@ -37,7 +37,7 @@ Ce tableau présente les principales différences entre les liens universels et 
 
 ## Cas d'utilisation {#use-cases}
 
-Les liens universels et les App Links sont le plus souvent utilisés pour les Campaigns par e-mail, car les e-mails peuvent être ouverts et cliqués depuis des appareils de bureau et mobiles.
+Les liens universels et les App Links sont le plus souvent utilisés pour les campagnes par e-mail, car les e-mails peuvent être ouverts et cliqués depuis des appareils de bureau et mobiles.
 
 Certains canaux ne fonctionnent pas bien avec ces liens. Par exemple, les notifications push, les messages in-app et les Content Cards doivent utiliser des liens profonds basés sur un schéma (`mydomain://`).
 
@@ -439,7 +439,7 @@ Il est important de s'assurer que ces fichiers sont toujours accessibles publiqu
 
 Assurez-vous que les définitions des domaines que votre application est autorisée à ouvrir sont correctes.
 
-- **iOS :** vérifiez les Associated Domains configurés dans Xcode pour votre application ([Étape 1c : Activer les Associated Domains dans votre projet Xcode]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Vérifiez que le domaine de suivi des clics est inclus dans cette liste.
+- **iOS :** vérifiez les Associated Domains configurés dans Xcode pour votre application ([Étape 1c : Activer les Associated Domains dans votre projet Xcode]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links?tab=ios#step-1c)). Vérifiez que le domaine de suivi des clics est inclus dans cette liste.
 - **Android :** ouvrez la page d'informations de l'application (appui long sur l'icône de l'application et cliquez sur ⓘ). Dans le menu d'informations de l'application, localisez **Ouvrir par défaut** et appuyez dessus. Cela devrait afficher un écran avec tous les liens vérifiés que l'application est autorisée à ouvrir. Vérifiez que le domaine de suivi des clics est inclus dans cette liste.
 
 #### Le domaine de suivi ne peut pas servir les fichiers .well-known {#tracking-domain-cant-serve-well-known-files}

@@ -10,7 +10,7 @@ hidden: true
 
 # Ihre Shopify-Integration upgraden (Standard) {#upgrading-your-shopify-integration-standard}
 
-> Erfahren Sie, wie Sie Ihre Shopify-Integration über den Standardpfad für Braze upgraden. Im Rahmen unseres Engagements, Ihnen die bestmögliche Erfahrung zu bieten, verlangen wir, dass alle Shopify-Integrationen bis zum 28. August 2025 auf die neueste Version [upgraden]({{site.baseurl}}/shopify/). Dieses Upgrade ist unerlässlich, da wesentliche Änderungen in der Shopify-Technologie die Funktionsweise unserer Integration beeinflussen werden.
+> Erfahren Sie, wie Sie Ihre Shopify-Integration über den Standardpfad für Braze upgraden. Im Rahmen unseres Engagements, Ihnen die bestmögliche Erfahrung zu bieten, verlangen wir, dass alle Shopify-Integrationen bis zum 28. August 2025 auf die neueste Version [upgraden]({{site.baseurl}}/shopify). Dieses Upgrade ist unerlässlich, da wesentliche Änderungen in der Shopify-Technologie die Funktionsweise unserer Integration beeinflussen werden.
 
 ## Wer ist berechtigt? {#whos-eligible}
 
@@ -22,8 +22,8 @@ Dieser Upgrade-Pfad ist für Marken mit einem Shopify-Onlineshop vorgesehen.
 
 Bevor Sie beginnen, überprüfen Sie Folgendes:
 
-- **Kritische Änderungen:** Stellen Sie sicher, dass Sie alle wichtigen Änderungen vom Legacy-Konnektor zum neuen Konnektor in der [Shopify-Upgrade-Übersicht]({{site.baseurl}}/shopify_upgrade_overview/#subscriber-collection) überprüft haben.
-- **Upgrade-Voraussetzungen:** Stellen Sie sicher, dass Sie alle erforderlichen [Upgrade-Voraussetzungen]({{site.baseurl}}/shopify_upgrade_overview/#upgrade-prerequisites) mit Ihren Engineering- und Marketing-Teams abgeschlossen haben.
+- **Kritische Änderungen:** Stellen Sie sicher, dass Sie alle wichtigen Änderungen vom Legacy-Konnektor zum neuen Konnektor in der [Shopify-Upgrade-Übersicht]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection) überprüft haben.
+- **Upgrade-Voraussetzungen:** Stellen Sie sicher, dass Sie alle erforderlichen [Upgrade-Voraussetzungen]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites) mit Ihren Engineering- und Marketing-Teams abgeschlossen haben.
 - **Breaking Changes:** Überprüfen und beheben Sie alle in Braze markierten Breaking Changes. Eine vollständige Anleitung finden Sie unter [Breaking Changes beheben](#fixing-breaking-changes).
 
 ## Breaking Changes beheben {#fixing-breaking-changes}
@@ -60,13 +60,13 @@ Eine vollständige Liste der neuen E-Commerce-Canvas-Templates und vordefinierte
 Wenn Sie aktive Nachrichten, die eingestellte Events in der Shopify-Integration verwenden, nicht berücksichtigen, werden betroffene Nachrichten nicht mehr an Ihre Kund:innen gesendet.
 {% endalert %}
 
-Weitere Informationen finden Sie unter [Unterstützte Shopify-Events]({{site.baseurl}}/shopify_upgrade_overview/#supported-shopify-events).
+Weitere Informationen finden Sie unter [Unterstützte Shopify-Events]({{site.baseurl}}/shopify_upgrade_overview#supported-shopify-events).
 {% endtab %}
 
 {% tab Abonnent:innenlisten %}
 Wenn Sie E-Mail- oder SMS-Abonnent:innen über die Integration aus Shopify erfassen, bestätigen Sie, dass Ihre aktiven Nachrichten die entsprechenden Abonnent:innenlisten für Ihren Shopify-Shop enthalten.
 
-Wenn das Upgrade abgeschlossen ist, werden neue Standard-Abo-Gruppen für Ihre Integration erstellt, die Sie als Teil Ihres aktiven Messagings nutzen müssen. Weitere Informationen zu den Änderungen finden Sie unter [Abonnent:innenerfassung]({{site.baseurl}}/shopify_upgrade_overview/#subscriber-collection).
+Wenn das Upgrade abgeschlossen ist, werden neue Standard-Abo-Gruppen für Ihre Integration erstellt, die Sie als Teil Ihres aktiven Messagings nutzen müssen. Weitere Informationen zu den Änderungen finden Sie unter [Abonnent:innenerfassung]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection).
 {% endtab %}
 {% endtabs %}
 
@@ -160,7 +160,7 @@ Sie müssen einen öffentlichen Endpunkt erstellen, den Braze aufrufen kann, um 
 
 ```
 GET
-https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
+https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@example.com&shopify_storefront=dev-store.myshopify.com
 ```
 
 ##### Erwartete Antwort {#expected-response}
@@ -212,4 +212,4 @@ Um zu überprüfen, dass Ihr neuer Shopify-Konnektor aktiv ist, testen Sie Folge
 - **SDK-Anpassungen (optional):** Wenn Sie Anpassungen an Ihrer Braze- und Shopify-Integration vorgenommen haben (z. B. das Protokollieren angepasster Events oder Attribute), überprüfen Sie, ob diese nach dem Upgrade korrekt funktionieren.
 - **E-Mail- oder SMS-Abonnent:innenerfassung (optional):** Wenn Sie zuvor die E-Mail- oder SMS-Abonnent:innenerfassung aktiviert haben, werden neue Standard-Abo-Gruppen erstellt, die den aktuellen Status Ihrer Abonnent:innen während des Upgrades widerspiegeln. Die Standard-Abo-Gruppen tragen den Namen Ihrer Shopify-Storefront. Diese neuen Standard-Abo-Gruppen sind ungefähr 5 Stunden nach dem Upgrade verfügbar, und Sie müssen sie zu Ihren aktiven Nachrichten hinzufügen.
 
-Wenn Sie Fragen haben, [kontaktieren Sie den Support]({{site.baseurl}}/user_guide/administrative/access_braze/support/).
+Wenn Sie Fragen haben, [kontaktieren Sie den Support]({{site.baseurl}}/user_guide/administrative/access_braze/support).

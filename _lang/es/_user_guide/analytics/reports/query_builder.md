@@ -9,13 +9,13 @@ alias: /query_builder/
 
 # Generador de consultas {#query-builder}
 
-> El Generador de consultas genera informes utilizando datos de Braze en Snowflake. El Generador de consultas incluye [plantillas de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/) SQL predefinidas para que puedas empezar, o puedes escribir tus propias consultas SQL personalizadas para obtener aún más información.
+> El Generador de consultas genera informes utilizando datos de Braze en Snowflake. El Generador de consultas incluye [plantillas de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) SQL predefinidas para que puedas empezar, o puedes escribir tus propias consultas SQL personalizadas para obtener aún más información.
 
-Dado que el Generador de consultas permite el acceso directo a algunos datos de clientes, solo puedes acceder al Generador de consultas si tienes el [permiso]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) "Ver PII".
+Dado que el Generador de consultas permite el acceso directo a algunos datos de clientes, solo puedes acceder al Generador de consultas si tienes el [permiso]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) "Ver PII".
 
 ## Tablas de datos disponibles {#available-data-tables}
 
-El Generador de consultas utiliza las mismas tablas SQL de Snowflake que las [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) y el [Uso compartido de datos de Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/). Para obtener una lista completa de las tablas disponibles y sus columnas, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/).
+El Generador de consultas utiliza las mismas tablas SQL de Snowflake que las [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) y el [Uso compartido de datos de Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para obtener una lista completa de las tablas disponibles y sus columnas, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 
 ## Ejecución de informes en el Generador de consultas {#running-reports-in-the-query-builder}
 
@@ -37,11 +37,11 @@ Los resultados de cada informe se pueden generar una vez al día. Si ejecutas el
 
 Accede a las plantillas de consultas seleccionando **Create SQL Query** > **Query Template** al crear un informe por primera vez.
 
-Consulta [Plantillas de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/) para ver una lista de las plantillas disponibles.
+Consulta [Plantillas de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) para ver una lista de las plantillas disponibles.
 
 ### Periodo de tiempo de los datos {#data-timeframe}
 
-Las consultas devuelven datos de los últimos 60 días. Si utilizas Currents o el [Uso compartido de datos de Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/), es posible que puedas consultar hasta dos años de datos, que es el tiempo que se retienen tus datos en Snowflake. Para más detalles sobre la retención extendida de datos, ponte en contacto con tu administrador del éxito del cliente.
+Las consultas devuelven datos de los últimos 60 días. Si utilizas Currents o el [Uso compartido de datos de Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake), es posible que puedas consultar hasta dos años de datos, que es el tiempo que se retienen tus datos en Snowflake. Para más detalles sobre la retención extendida de datos, ponte en contacto con tu administrador del éxito del cliente.
 
 ### Zona horaria del Generador de consultas {#query-builder-time-zone}
 
@@ -90,15 +90,15 @@ Para generar SQL con el AI Query Builder:
 
 ### Consejos {#tips}
 
-- Familiarízate con las tablas y columnas disponibles en la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/). Solicitar datos que no existen en estas tablas puede hacer que ChatGPT invente una tabla ficticia.
-- Familiarízate con las [reglas de escritura SQL]({{site.baseurl}}/user_guide/analytics/reports/query_builder/#custom-sql) para esta característica. No seguir estas reglas provocará un error.
+- Familiarízate con las tablas y columnas disponibles en la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables). Solicitar datos que no existen en estas tablas puede hacer que ChatGPT invente una tabla ficticia.
+- Familiarízate con las [reglas de escritura SQL]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql) para esta característica. No seguir estas reglas provocará un error.
 - Puedes enviar hasta 20 prompts por minuto con el AI Query Builder.
 
 #{% multi_lang_include brazeai/generative_ai/policy.md %}
 
 ## Escritura de consultas SQL personalizadas {#custom-sql}
 
-Escribe tu consulta SQL utilizando la [sintaxis de Snowflake](https://docs.snowflake.com/en/sql-reference). Consulta la [referencia de tablas]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/) para obtener una lista completa de las tablas y columnas disponibles para consultar.
+Escribe tu consulta SQL utilizando la [sintaxis de Snowflake](https://docs.snowflake.com/en/sql-reference). Consulta la [referencia de tablas]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables) para obtener una lista completa de las tablas y columnas disponibles para consultar.
 
 Para ver los detalles de las tablas dentro del Generador de consultas:
 

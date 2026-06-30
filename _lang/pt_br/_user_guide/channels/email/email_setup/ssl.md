@@ -65,7 +65,7 @@ Se você não puder ou não quiser usar os CDNs listados para rastreamento de cl
 ### Recursos adicionais {#additional-resources}
 
 {% alert important %}
-Para solucionar problemas de configuração do CDN, entre em contato com seu provedor de CDN ou consulte a [Solução de problemas]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/) para orientações gerais.
+Para solucionar problemas de configuração do CDN, entre em contato com seu provedor de CDN ou consulte a [Solução de problemas]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting) para orientações gerais.
 {% endalert %}
 
 Consulte os seguintes recursos dos parceiros ESP sobre como configurar determinados CDNs. Embora seu CDN específico possa não estar listado, você deve garantir que seu CDN tenha a capacidade de aplicar certificados SSL.
@@ -103,4 +103,4 @@ Ao configurar o domínio de rastreamento de cliques do seu CDN, ative o cabeçal
 
 ## Solução de problemas {#troubleshooting}
 
-Embora você deva lidar com a configuração do CDN, certificados e problemas de proxy com seu CDN, use estas dicas para identificar problemas comuns de rastreamento de cliques com SSL. Para orientações de solução de problemas, consulte [Solução de problemas]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/).
+Embora você deva lidar com a configuração do CDN, certificados e problemas de proxy com seu CDN, use estas dicas para identificar problemas comuns de rastreamento de cliques com SSL. Para orientações de solução de problemas, consulte [Solução de problemas]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting).

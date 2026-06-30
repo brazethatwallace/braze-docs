@@ -12,7 +12,7 @@ channel:
 
 > 標準のアプリ内メッセージはさまざまな方法でカスタマイズできますが、HTML、CSS、JavaScriptを使用してデザイン・構築されたメッセージを使用することで、Campaignsの外観と操作感をさらに細かくコントロールできます。シンプルな構成で、あらゆるニーズに合わせたカスタム機能やブランディングを実現できます。
 
-このメッセージタイプは[従来のエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)で利用できます。
+このメッセージタイプは[従来のエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)で利用できます。
 
 ## 仕組み {#how-it-works}
 
@@ -42,7 +42,7 @@ Web SDKでHTMLアプリ内メッセージを有効にするには、Brazeに`all
 ### ボタンクリックトラッキング（非推奨） {#button-click-tracking-deprecated}
 
 {% alert warning %}
-`abButtonID`の使用は、[プレビュー付きHTML]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#html-upload-with-preview/)メッセージタイプではサポートされていません。詳細については、[アップグレードガイド]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#html-upload-with-preview)をご覧ください。
+`abButtonID`の使用は、[プレビュー付きHTML]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview)メッセージタイプではサポートされていません。詳細については、[アップグレードガイド]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview)をご覧ください。
 {% endalert %}
 
 アプリ内メッセージ分析のボタンクリックを記録するには、任意のディープリンク、リダイレクトURL、またはアンカー要素`<a>`にクエリパラメーターとして`abButtonId`を追加します。「ボタン1」のクリックを記録するには`?abButtonId=0`を、「ボタン2」のクリックを記録するには`?abButtonId=1`を使用します。
@@ -98,16 +98,16 @@ BrazeにHTTPまたはHTTPSリンクをディープリンクとして処理させ
 {% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}
 
 {% alert warning %}
-このメッセージタイプは特定の新しいSDKバージョンでのみ受信できるため、サポートされていないSDKバージョンのユーザーにはメッセージが表示されません。ユーザー群の大部分がリーチ可能になった後にこのメッセージタイプを採用するか、アプリバージョンが要件を満たすユーザーのみをターゲットにすることを検討してください。[最新のアプリバージョンによるフィルタリング]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions)の詳細をご覧ください。
+このメッセージタイプは特定の新しいSDKバージョンでのみ受信できるため、サポートされていないSDKバージョンのユーザーにはメッセージが表示されません。ユーザー群の大部分がリーチ可能になった後にこのメッセージタイプを採用するか、アプリバージョンが要件を満たすユーザーのみをターゲットにすることを検討してください。[最新のアプリバージョンによるフィルタリング]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions)の詳細をご覧ください。
 {% endalert %}
 
 ### Campaignの作成 {#instructions}
 
-モバイルアプリのユーザーが**カスタムコード**のアプリ内メッセージを受信するには、サポートされているSDKバージョンにアップグレードする必要があります。新しいBraze SDKバージョンに依存するCampaignsを開始する前に、[ユーザーにモバイルアプリのアップグレードを促す]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/)ことをお勧めします。
+モバイルアプリのユーザーが**カスタムコード**のアプリ内メッセージを受信するには、サポートされているSDKバージョンにアップグレードする必要があります。新しいBraze SDKバージョンに依存するCampaignsを開始する前に、[ユーザーにモバイルアプリのアップグレードを促す]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features)ことをお勧めします。
 
 #### アセットファイル {#asset-files}
 
-HTMLアップロードでカスタムコードのアプリ内メッセージを作成する際、Campaignアセットを[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)にアップロードして、メッセージ内で参照できます。
+HTMLアップロードでカスタムコードのアプリ内メッセージを作成する際、Campaignアセットを[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)にアップロードして、メッセージ内で参照できます。
 
 以下のファイルタイプがアップロードに対応しています。
 
@@ -117,7 +117,7 @@ HTMLアップロードでカスタムコードのアプリ内メッセージを�
 | SVG画像 | `.svg` |
 | JavaScriptファイル | `.js` |
 | CSSファイル | `.css` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="アセットファイル" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Asset files" }
 
 Brazeでは、以下の2つの理由からアセットをメディアライブラリにアップロードすることを推奨しています。
 
@@ -146,7 +146,7 @@ HTMLエディター内で<i class="fa-solid fa-magnifying-glass"></i> **Search**
 
 ### ボタントラッキング {#button-tracking-improvements}
 
-[`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/) JavaScriptメソッドを使用して、カスタムコードのアプリ内メッセージ内のパフォーマンスをトラッキングできます。これにより、`brazeBridge.logClick('0')`、`brazeBridge.logClick('1')`、または`brazeBridge.logClick()`を使用して、それぞれ「ボタン1」、「ボタン2」、「ボディクリック」をプログラムでトラッキングできます。
+[`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types) JavaScriptメソッドを使用して、カスタムコードのアプリ内メッセージ内のパフォーマンスをトラッキングできます。これにより、`brazeBridge.logClick('0')`、`brazeBridge.logClick('1')`、または`brazeBridge.logClick()`を使用して、それぞれ「ボタン1」、「ボタン2」、「ボディクリック」をプログラムでトラッキングできます。
 
 | クリック | メソッド |
 | ---------- | ---------------------------- |
@@ -154,7 +154,7 @@ HTMLエディター内で<i class="fa-solid fa-magnifying-glass"></i> **Search**
 | Button 2   | `brazeBridge.logClick('1')` |
 | Body click | `brazeBridge.logClick()`    |
 | カスタムボタントラッキング | `brazeBridge.logClick('your custom name here')` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ボタントラッキング" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Button tracking #button-tracking-improvements" }
 
 {% alert note %}
 このボタントラッキング方法は、以前の自動クリックトラッキング方法（`?abButtonId=0`など）に代わるもので、それらは削除されました。
@@ -184,4 +184,4 @@ HTMLエディター内で<i class="fa-solid fa-magnifying-glass"></i> **Search**
    |<code>&lt;a href="braze://close?abButtonId=0"&gt;Close Button&lt;/a&gt;</code>|<code>&lt;a href="#" onclick="brazeBridge.logClick('0');brazeBridge.closeMessage()"&gt;Close Button&lt;/a&gt;</code>|
    |<code>&lt;a href="app://deeplink?abButtonId=0">Track button 1&lt;/a&gt;</code>|<code>&lt;a href="app://deeplink" onclick="brazeBridge.logClick('0')"&gt;Track button 1&lt;/a&gt;</code>|
    |<code>&lt;script&gt;<br>location.href = "braze://close?abButtonId=1"<br>&lt;/script&gt;</code>|<code>&lt;script&gt;<br>window.addEventListener("ab.BridgeReady", function(){<br>&nbsp;&nbsp;brazeBridge.logClick("1");<br>&nbsp;&nbsp;brazeBridge.closeMessage();<br>});<br>&lt;/script&gt;</code>|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="後方互換性のない変更" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Backward incompatible changes #backward-incompatible-changes" }

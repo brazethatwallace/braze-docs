@@ -37,7 +37,7 @@ glossary_tags:
 
 glossaries:
   - name: Segment Membership
-    description: Te permite filtrar en función de la pertenencia a un segmento en cualquier lugar donde se utilicen filtros (como segmentos, campañas y otros) y dirigirte a múltiples segmentos diferentes dentro de una sola campaña. <br><br>Para capturar la pertenencia a un segmento en un momento específico, exporta los usuarios del segmento en el dashboard o llama al punto de conexión [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) antes de enviar una campaña o Canvas. Para más información, consulta [Exportar datos de segmento a CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/).<br><br>Ten en cuenta que los segmentos que ya utilizan este filtro no pueden incluirse ni anidarse dentro de otros segmentos, ya que esto podría crear un ciclo en el que el segmento A incluye al segmento B, que a su vez intenta incluir al segmento A de nuevo. Si eso ocurriera, el segmento seguiría referenciándose a sí mismo, haciendo imposible calcular quién pertenece realmente a él. Además, anidar segmentos de esta forma añade complejidad y puede ralentizar las cosas. En su lugar, recrea el segmento que intentas incluir utilizando los mismos filtros.<br><br>Si un segmento no aparece en el desplegable del filtro **Segment Membership**, recréalo con los mismos filtros y selecciona el nuevo segmento, o confirma que no depende ya de esta audiencia de una forma que crearía un ciclo.
+    description: Te permite filtrar en función de la pertenencia a un segmento en cualquier lugar donde se utilicen filtros (como segmentos, campañas y otros) y dirigirte a múltiples segmentos diferentes dentro de una sola campaña. <br><br>Para capturar la pertenencia a un segmento en un momento específico, exporta los usuarios del segmento en el dashboard o llama al punto de conexión [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) antes de enviar una campaña o Canvas. Para más información, consulta [Exportar datos de segmento a CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv).<br><br>Ten en cuenta que los segmentos que ya utilizan este filtro no pueden incluirse ni anidarse dentro de otros segmentos, ya que esto podría crear un ciclo en el que el segmento A incluye al segmento B, que a su vez intenta incluir al segmento A de nuevo. Si eso ocurriera, el segmento seguiría referenciándose a sí mismo, haciendo imposible calcular quién pertenece realmente a él. Además, anidar segmentos de esta forma añade complejidad y puede ralentizar las cosas. En su lugar, recrea el segmento que intentas incluir utilizando los mismos filtros.<br><br>Si un segmento no aparece en el desplegable del filtro **Segment Membership**, recréalo con los mismos filtros y selecciona el nuevo segmento, o confirma que no depende ya de esta audiencia de una forma que crearía un ciclo.
     tags:
       - Segment or CSV membership
   - name: Braze Segment Extensions
@@ -81,11 +81,11 @@ glossaries:
     tags:
       - Custom events
   - name: X Custom Event In Y Days
-    description: Determina si un usuario ha realizado o no un evento registrado especialmente entre 0 y 50 veces en el último número especificado de días naturales entre 1 y 30. (Día natural = 1 día natural examina de 24 a 48 horas del historial del usuario)<br> <a href="/docs/x-in-y-behavior/">Más información sobre el comportamiento X en Y aquí.</a> <br><br>Ejemplo:<br>Carrito abandonado exactamente 0 veces en el último 1 día natural<br><br>Zona horaria:<br>UTC - Para tener en cuenta todas las zonas horarias, 1 día natural examina de 24 a 48 horas del historial del usuario, dependiendo de la hora en que se evalúe el segmento; para 2 días naturales, examina de 48 a 72 horas del historial del usuario, y así sucesivamente.
+    description: Determina si un usuario ha realizado o no un evento registrado especialmente entre 0 y 50 veces en el último número especificado de días naturales entre 1 y 30. (Día natural = 1 día natural examina de 24 a 48 horas del historial del usuario)<br> <a href="/docs/x-in-y-behavior">Más información sobre el comportamiento X en Y aquí.</a> <br><br>Ejemplo:<br>Carrito abandonado exactamente 0 veces en el último 1 día natural<br><br>Zona horaria:<br>UTC - Para tener en cuenta todas las zonas horarias, 1 día natural examina de 24 a 48 horas del historial del usuario, dependiendo de la hora en que se evalúe el segmento; para 2 días naturales, examina de 48 a 72 horas del historial del usuario, y así sucesivamente.
     tags:
       - Custom events
   - name: X Custom Event Property In Y Days
-    description: Determina si un usuario ha realizado o no un evento registrado especialmente en relación con una propiedad específica entre 0 y 50 veces en el último número especificado de días naturales entre 1 y 30. (Día natural = 1 día natural examina de 24 a 48 horas del historial del usuario)<br><a href="/docs/x-in-y-behavior/">Más información sobre el comportamiento X en Y aquí.</a> <br><br>Ejemplo:<br> Añadido a favoritos con la propiedad "event_name" exactamente 0 veces en el último 1 día natural<br><br>Zona horaria:<br>UTC - Para tener en cuenta todas las zonas horarias, 1 día natural examina de 24 a 48 horas del historial del usuario, dependiendo de la hora en que se evalúe el segmento; para 2 días naturales, examina de 48 a 72 horas del historial del usuario, y así sucesivamente.
+    description: Determina si un usuario ha realizado o no un evento registrado especialmente en relación con una propiedad específica entre 0 y 50 veces en el último número especificado de días naturales entre 1 y 30. (Día natural = 1 día natural examina de 24 a 48 horas del historial del usuario)<br><a href="/docs/x-in-y-behavior">Más información sobre el comportamiento X en Y aquí.</a> <br><br>Ejemplo:<br> Añadido a favoritos con la propiedad "event_name" exactamente 0 veces en el último 1 día natural<br><br>Zona horaria:<br>UTC - Para tener en cuenta todas las zonas horarias, 1 día natural examina de 24 a 48 horas del historial del usuario, dependiendo de la hora en que se evalúe el segmento; para 2 días naturales, examina de 48 a 72 horas del historial del usuario, y así sucesivamente.
     tags:
       - Custom events
   - name: Email Address
@@ -109,7 +109,7 @@ glossaries:
     tags:
       - Sessions
   - name: X Sessions In Last Y Days
-    description: Segmenta a tus usuarios por el número de sesiones (entre 0 y 50) que han tenido en tu aplicación en el último número especificado de días naturales entre 1 y 30. <br> <a href="/docs/x-in-y-behavior/">Más información sobre el comportamiento X en Y aquí.</a>
+    description: Segmenta a tus usuarios por el número de sesiones (entre 0 y 50) que han tenido en tu aplicación en el último número especificado de días naturales entre 1 y 30. <br> <a href="/docs/x-in-y-behavior">Más información sobre el comportamiento X en Y aquí.</a>
     tags:
       - Sessions
   - name: First Used App
@@ -217,7 +217,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Hard Bounced
-    description: Segmenta a tus usuarios en función de si su dirección de correo electrónico ha tenido un rebote duro (por ejemplo, la dirección de correo electrónico no es válida). Para exportar usuarios con correos electrónicos no válidos, llama al punto de conexión [`/email/hard_bounces`]({{site.baseurl}}/api/endpoints/email/get_list_hard_bounces/) o crea un segmento con filtros como la dirección de correo electrónico no está en blanco, el correo electrónico no está disponible y el estado de suscripción de correo electrónico no es cancelado.
+    description: Segmenta a tus usuarios en función de si su dirección de correo electrónico ha tenido un rebote duro (por ejemplo, la dirección de correo electrónico no es válida). Para exportar usuarios con correos electrónicos no válidos, llama al punto de conexión [`/email/hard_bounces`]({{site.baseurl}}/api/endpoints/email/get_list_hard_bounces) o crea un segmento con filtros como la dirección de correo electrónico no está en blanco, el correo electrónico no está disponible y el estado de suscripción de correo electrónico no es cancelado.
     tags:
       - Retargeting
   - name: Soft Bounced
@@ -273,7 +273,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Feature Flags
-    description: El segmento de tus usuarios que tienen un <a href="/docs/developer_guide/feature_flags/">conmutador de características</a> particular habilitado actualmente.
+    description: El segmento de tus usuarios que tienen un <a href="/docs/developer_guide/feature_flags">conmutador de características</a> particular habilitado actualmente.
     tags:
       - Retargeting
   - name: Subscription Group
@@ -333,11 +333,11 @@ glossaries:
     tags:
       - Purchase behavior
   - name: X Purchases in Last Y Days
-    description: Segmenta a tus usuarios por el número de veces (entre 0 y 50) que han realizado una compra en el último número especificado de días naturales entre 1 y 30. <br> <a href="/docs/x-in-y-behavior/">Más información sobre el comportamiento X en Y aquí.</a>
+    description: Segmenta a tus usuarios por el número de veces (entre 0 y 50) que han realizado una compra en el último número especificado de días naturales entre 1 y 30. <br> <a href="/docs/x-in-y-behavior">Más información sobre el comportamiento X en Y aquí.</a>
     tags:
       - Purchase behavior
   - name: X Purchase Property In Y Days
-    description: Segmenta a tus usuarios por el número de veces que se realizó una compra en relación con una propiedad de compra determinada en el último número especificado de días naturales entre 1 y 30. <br> <a href="/docs/x-in-y-behavior/">Más información sobre el comportamiento X en Y aquí.</a>
+    description: Segmenta a tus usuarios por el número de veces que se realizó una compra en relación con una propiedad de compra determinada en el último número especificado de días naturales entre 1 y 30. <br> <a href="/docs/x-in-y-behavior">Más información sobre el comportamiento X en Y aquí.</a>
     tags:
       - Purchase behavior
   - name: First Made Purchase
@@ -361,7 +361,7 @@ glossaries:
     tags:
       - Purchase behavior
   - name: X Money Spent in Y Days
-    description: Segmenta a tus usuarios por la cantidad de dinero que han gastado en tu aplicación en el último número especificado de días naturales entre 1 y 30. Esta cantidad incluye solo la suma de las últimas 50 compras. <br> <a href="/docs/x-in-y-behavior/">Más información sobre el comportamiento X en Y aquí.</a>
+    description: Segmenta a tus usuarios por la cantidad de dinero que han gastado en tu aplicación en el último número especificado de días naturales entre 1 y 30. Esta cantidad incluye solo la suma de las últimas 50 compras. <br> <a href="/docs/x-in-y-behavior">Más información sobre el comportamiento X en Y aquí.</a>
     tags:
       - Purchase behavior
   - name: Last order placed (last 730 days)
@@ -521,7 +521,7 @@ glossaries:
     tags:
       - Location
   - name: Location Available
-    description: Segmenta a tus usuarios en función de si han reportado sus ubicaciones. Para utilizar este filtro, tu aplicación necesita tener <a href="/docs/search/?query=location%20tracking">el seguimiento de ubicación integrado.</a>
+    description: Segmenta a tus usuarios en función de si han reportado sus ubicaciones. Para utilizar este filtro, tu aplicación necesita tener <a href="/docs/search?query=location%20tracking">el seguimiento de ubicación integrado.</a>
     tags:
       - Location
   - name: Amplitude Cohorts

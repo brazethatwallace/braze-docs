@@ -12,7 +12,7 @@ channel:
 
 # Résolution des problèmes de création de liens profonds {#deep-linking-troubleshooting}
 
-> Cette page traite des problèmes courants liés à la création de liens profonds sur iOS et explique comment les diagnostiquer. Pour obtenir de l'aide afin de choisir le type de lien approprié, consultez le [guide de création de liens profonds iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/). Pour les détails d'implémentation, consultez [Création de liens profonds]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift).
+> Cette page traite des problèmes courants liés à la création de liens profonds sur iOS et explique comment les diagnostiquer. Pour obtenir de l'aide afin de choisir le type de lien approprié, consultez le [guide de création de liens profonds iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide). Pour les détails d'implémentation, consultez [Création de liens profonds]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=swift).
 
 ## Le lien profond de schéma personnalisé n'ouvre pas la vue correcte {#custom-scheme-deep-link-doesnt-open-the-correct-view}
 
@@ -25,7 +25,7 @@ Si un lien profond de schéma personnalisé (par exemple, `myapp://products/123`
    xcrun simctl openurl booted "myapp://products/123"
    ```
    Si le lien ne fonctionne pas ici, le problème provient de la gestion des URL de votre application, et non de Braze.
-4. **Vérifiez le format de l'URL.** Vérifiez que l'URL de votre campagne correspond à ce que votre gestionnaire attend. Les erreurs courantes incluent des composants de chemin manquants ou une casse incorrecte.
+4. **Vérifiez le format de l'URL.** Vérifiez que l'URL de votre Campaign correspond à ce que votre gestionnaire attend. Les erreurs courantes incluent des composants de chemin manquants ou une casse incorrecte.
 
 ## Le lien universel s'ouvre dans Safari au lieu de l'application {#universal-link-opens-in-safari-instead-of-the-app}
 
@@ -100,7 +100,7 @@ Les liens contenus dans les e-mails passent par le système de suivi des clics d
 2. Hébergez le fichier AASA à l'adresse `https://your-click-tracking-domain/.well-known/apple-app-site-association`.
 3. Assurez-vous que le fichier AASA sur le domaine de suivi des clics contient le même `appID` et des modèles de chemin valides.
 
-Pour obtenir des instructions de configuration spécifiques à chaque ESP, consultez [Liens universels et App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/).
+Pour obtenir des instructions de configuration spécifiques à chaque ESP, consultez [Liens universels et App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).
 
 ### Vérifier la chaîne de redirection {#check-the-redirect-chain}
 
@@ -120,7 +120,7 @@ Si vous implémentez `BrazeDelegate.braze(_:shouldOpenURL:)`, vérifiez qu'il g�
 
 ### Activer la journalisation détaillée {#enable-verbose-logging}
 
-[Activez la journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) et reproduisez le problème. Recherchez l'entrée de journal `Opening` :
+[Activez la journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) et reproduisez le problème. Recherchez l'entrée de journal `Opening` :
 
 ```
 Opening '<URL>':
@@ -146,7 +146,7 @@ Si la sélection de **Open Web URL Inside App** affiche une WebView vide ou déf
 
 ## Résolution des problèmes de Branch avec Braze {#branch}
 
-Si vous utilisez [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/) comme fournisseur de liens :
+Si vous utilisez [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) comme fournisseur de liens :
 
 ### Vérifier que le BrazeDelegate route vers Branch {#verify-the-brazedelegate-routes-to-branch}
 
@@ -178,9 +178,9 @@ Vérifiez que le domaine Branch dans votre `BrazeDelegate` correspond à votre d
 
 Pour diagnostiquer où le lien se rompt dans la chaîne :
 
-1. Activez la [journalisation détaillée Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) — recherchez les entrées `Opening '<URL>':` pour vérifier que le SDK a bien reçu le lien.
+1. Activez la [journalisation détaillée Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) — recherchez les entrées `Opening '<URL>':` pour vérifier que le SDK a bien reçu le lien.
 2. Activez le [mode test Branch](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking) — consultez le tableau de bord Branch pour les événements de clic sur les liens.
-1. Activez la [journalisation détaillée Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/). Recherchez les entrées `Opening '<URL>':` pour vérifier que le SDK a bien reçu le lien.
+1. Activez la [journalisation détaillée Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Recherchez les entrées `Opening '<URL>':` pour vérifier que le SDK a bien reçu le lien.
 2. Activez le [mode test Branch](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking). Consultez le tableau de bord Branch pour les événements de clic sur les liens.
 3. Si Braze enregistre le lien mais que Branch ne détecte aucun clic, la logique de routage du `BrazeDelegate` est probablement en cause.
 
@@ -203,7 +203,7 @@ Testez le lien Branch en dehors de Braze pour isoler le problème :
 
 ### Utiliser la journalisation détaillée {#use-verbose-logging}
 
-[Activez la journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) pour observer précisément comment le SDK traite les liens. Entrées clés à rechercher :
+[Activez la journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) pour observer précisément comment le SDK traite les liens. Entrées clés à rechercher :
 
 | Entrée de journal | Signification |
 |---|---|
@@ -214,7 +214,7 @@ Testez le lien Branch en dehors de Braze pour isoler le problème :
 | `isUniversalLink: true` | Le SDK a identifié l'URL comme un lien universel |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Utiliser la journalisation détaillée" }
 
-Pour plus de détails sur la lecture de ces journaux, consultez [Lecture des journaux détaillés]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/).
+Pour plus de détails sur la lecture de ces journaux, consultez [Lecture des journaux détaillés]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging).
 
 ### Tester les liens de manière isolée {#test-links-in-isolation}
 

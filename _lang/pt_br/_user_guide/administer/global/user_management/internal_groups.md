@@ -87,7 +87,7 @@ Se você usar um pool de IP para enviar um e-mail, selecione de qual pool de IP 
 
 Os grupos de teste são compatíveis apenas com o canal de e-mail. Adicione usuários a um grupo de teste para enviar cópias de cada variante de mensagem de e-mail para todos os membros do grupo.
 
-Os grupos de teste não estão disponíveis para campanhas da API, mas você pode incluir grupos de teste usando uma entrada disparada por API na campanha. Use isso para medir métricas de entregabilidade e manter um registro do conteúdo do seu e-mail para fins históricos e de arquivamento.
+Os grupos de teste não estão disponíveis para Campaigns da API, mas você pode incluir grupos de teste usando uma entrada disparada por API na Campaign. Use isso para medir métricas de entregabilidade e manter um registro do conteúdo do seu e-mail para fins históricos e de arquivamento.
 
 Depois de criar um grupo interno e marcá-lo para ser usado como grupo de teste, selecione-o na etapa **Público-alvo** do editor de Campaign ou na etapa **Configurações de envio** em um Canvas.
 

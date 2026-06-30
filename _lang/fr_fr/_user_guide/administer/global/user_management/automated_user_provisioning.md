@@ -27,7 +27,7 @@ alias: /scim/automated_user_provisioning/
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-Utilisez l'option **Okta - Braze app** si vous avez configuré l'application Braze pour l'authentification unique (SSO) SAML dans Okta. Si vous avez configuré une application personnalisée pour le SSO, suivez les instructions dans l'onglet [Okta - Custom app integration]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning).
+Utilisez l'option **Okta - Braze app** si vous avez configuré l'application Braze pour l'authentification unique (SSO) SAML dans Okta. Si vous avez configuré une application personnalisée pour le SSO, suivez les instructions dans l'onglet [Okta - Custom app integration]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning).
 
 ## Étape 1 : Configurer le provisionnement SCIM {#step-1-set-up-scim-provisioning}
 
@@ -78,7 +78,7 @@ Sélectionnez **Test API Credentials**. Un message de vérification apparaît si
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-Utilisez l'option **Okta - Custom app integration** si vous avez configuré une application personnalisée pour le SSO. Si vous avez configuré l'application Braze pour l'authentification unique (SSO) SAML dans Okta, suivez les instructions dans l'onglet [Okta - Braze app]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning).
+Utilisez l'option **Okta - Custom app integration** si vous avez configuré une application personnalisée pour le SSO. Si vous avez configuré l'application Braze pour l'authentification unique (SSO) SAML dans Okta, suivez les instructions dans l'onglet [Okta - Braze app]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning).
 
 ## Étape 1 : Configurer le provisionnement SCIM
 

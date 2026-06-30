@@ -29,7 +29,7 @@ Operator Analyze s'exécute dans le panneau de conversation Operator.
 2. Posez une question sur l'engagement d'un canal ou les comparaisons de benchmarks (voir [Exemples de questions](#example-questions)).
 3. Operator renvoie la réponse et, le cas échéant, un graphique ou un tableau ainsi qu'une courte liste d'informations exploitables.
 
-Pour en savoir plus sur le panneau de conversation Operator, consultez [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/).
+Pour en savoir plus sur le panneau de conversation Operator, consultez [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator).
 
 ## Exemples de questions {#example-questions}
 
@@ -159,9 +159,9 @@ Les questions hors périmètre reçoivent une réponse directe, une alternative 
 
 ## Confidentialité et sécurité des données {#data-privacy-and-security}
 
-Operator Analyze suit le même modèle de confidentialité et de sécurité que BrazeAI Operator<sup>TM</sup>. Pour en savoir plus, consultez [Confidentialité et sécurité des données]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/).
+Operator Analyze suit le même modèle de confidentialité et de sécurité que BrazeAI Operator<sup>TM</sup>. Pour en savoir plus, consultez [Confidentialité et sécurité des données]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
 
 ## Étapes suivantes {#next-steps}
 
-* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)
-* [Vérifier les actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/)
+* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)
+* [Vérifier les actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)

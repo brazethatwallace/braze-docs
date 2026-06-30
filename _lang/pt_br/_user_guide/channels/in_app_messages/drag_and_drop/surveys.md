@@ -13,6 +13,6 @@ tool:
 
 # Pesquisas em mensagens no app {#in-app-message-surveys}
 
-> As pesquisas da Braze coletam feedback em mensagens no app que você pode analisar e usar em envios de mensagens de acompanhamento. Durante o beta, as pesquisas são criadas no [editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/).
+> As pesquisas da Braze coletam feedback em mensagens no app que você pode analisar e usar em mensagens de acompanhamento. Durante o beta, as pesquisas são criadas no [editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop).
 
 {% multi_lang_include surveys/content.md channel='in_app_message' %}

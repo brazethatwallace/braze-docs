@@ -15,7 +15,7 @@ tool: Reports
 Brazeのアンインストール追跡では、以下の詳細が提供されます。
 
 1. アプリレベルの日次アンインストール統計情報: **ホーム**ページの時系列グラフに表示されます。
-2. キャンペーンレベルのアンインストール統計情報: 特定キャンペーンの**Campaign Details**ページの時系列グラフに表示されます。この統計情報は、アンインストールしたキャンペーン受信者の日次数を示します。
+2. キャンペーンレベルのアンインストール統計情報: 特定のCampaignの**Campaign Details**ページの時系列グラフに表示されます。この統計情報は、アンインストールしたCampaign受信者の日次数を示します。
 
 {% alert note %}
 Brazeダッシュボードでアンインストール追跡をオプトインする必要があります。この機能は、iOS、Android、Fire OSのアプリで利用できます。
@@ -37,7 +37,7 @@ Brazeがアンインストールを検出すると、そのユーザーにはア
 
 ### 設定 {#configuration}
 
-iOSアプリケーションのアンインストール追跡を設定するには、[ユーティリティメソッド]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls/?sdktab=swift)を使用します。Androidアプリケーションの場合は、[`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html)を使用します。Brazeがアンインストールを検出した場合、アンインストール追跡または通常のプッシュキャンペーン配信のいずれであっても、ユーザーにおけるアンインストールの最良推定時間を記録します。この時刻はユーザープロファイルに標準属性項目として保存され、win-backキャンペーンのユーザーSegmentを定義するために使用できます。
+iOSアプリケーションのアンインストール追跡を設定するには、[ユーティリティメソッド]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls?sdktab=swift)を使用します。Androidアプリケーションの場合は、[`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html)を使用します。Brazeがアンインストールを検出した場合、アンインストール追跡または通常のプッシュキャンペーン配信のいずれであっても、ユーザーにおけるアンインストールの最良推定時間を記録します。この時刻はユーザープロファイルに標準属性項目として保存され、win-backキャンペーンのユーザーSegmentを定義するために使用できます。
 
 ## アンインストールによるSegmentのフィルタリング {#filtering-segments-by-uninstalls}
 
@@ -83,7 +83,7 @@ Brazeは、以下のFCMレスポンスをトークン削除（アンインスト
 
 ### ユーザーのプロファイルはいつアンインストール済みとしてフラグが付けられますか？アンインストールタグはいつクリアされますか？ {#when-is-a-users-profile-flagged-as-uninstalled-when-is-the-uninstall-tag-cleared}
 
-Brazeは、デバイス上にアプリが存在しないことを検出した時点で、ユーザーにアンインストール済みのフラグを付けます（検出方法については[仕組み](#how-it-works)を参照してください）。ユーザーがアプリを再インストールした後も、**アプリを開いて新しいセッションを開始する**まで、アンインストールタグはプロファイルに残ることがあります。再インストールだけではタグはクリアされません。そのセッションが開始されるまで、アンインストール状態を使用するSegmentやフィルター（例: **Has Not Uninstalled**）は、そのユーザーを引き続きアンインストール済みとして扱います。
+Brazeは、デバイス上にアプリが存在しないことを検出した時点で、ユーザーにアンインストール済みのフラグを付けます（検出方法については[仕組み](#how-it-works)を参照してください。通常のプッシュおよびオプションのアンインストール追跡による検出が含まれます）。ユーザーがアプリを再インストールした後も、**アプリを開いて新しいセッションを開始する**まで、アンインストールタグはプロファイルに残ることがあります。再インストールだけではタグはクリアされません。そのセッションが開始されるまで、アンインストール状態を使用するSegmentやフィルター（例: **Has Not Uninstalled**）は、そのユーザーを引き続きアンインストール済みとして扱います。
 
 ### なぜ突然アンインストールが急増したのですか？ {#why-am-i-suddenly-seeing-a-spike-in-uninstalls}
 

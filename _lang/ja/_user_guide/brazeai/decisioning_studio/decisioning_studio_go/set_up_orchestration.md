@@ -105,7 +105,7 @@ BrazeはアプリID（BrazeダッシュボードではAPIキーと呼ばれま�
 
 統合をテストするには、ユーザーIDが必要です。
 
-ワークスペースで[識別子フィールドレベル暗号化]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/)を使用している場合、`/users/track`エンドポイントで作成する新しいテストユーザーは、暗号化されたワークスペースのメール要件に従う必要があります。`email`フィールドには、小文字に変換したメール値のBase64エンコードされたHMAC-SHA256ハッシュを送信し、`email_encrypted`には設定済みのPII暗号化キーで生成された暗号化メール値を送信してください。
+ワークスペースで[識別子フィールドレベル暗号化]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption)を使用している場合、`/users/track`エンドポイントで作成する新しいテストユーザーは、暗号化されたワークスペースのメール要件に従う必要があります。`email`フィールドには、小文字に変換したメール値のBase64エンコードされたHMAC-SHA256ハッシュを送信し、`email_encrypted`には設定済みのPII暗号化キーで生成された暗号化メール値を送信してください。
 
 1. Brazeダッシュボードで、**オーディエンス** > **ユーザーを検索**に移動します。
 2. 外部ユーザーID、ユーザーエイリアス、メール、電話番号、またはプッシュトークンでユーザーを検索します。
@@ -377,4 +377,4 @@ BrazeAI Decisioning Studio™ Goポータルには、サブスクライバーと
 
 オーケストレーションの設定が完了したら、次にエージェントの設計に進みましょう。
 
-- [エージェントを設計する]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)
+- [エージェントを設計する]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent)

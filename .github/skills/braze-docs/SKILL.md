@@ -21,23 +21,25 @@ Detect mode from $ARGUMENTS first, then modified files, then ask.
 | Signal | Mode | Load |
 |--------|------|------|
 | $ARGUMENTS: "conflict", "merge", "resolve" | **Conflict** | *(workflow is in this file)* |
-| $ARGUMENTS: "link", "redirect", "broken" | **Links** | [site-conventions.md](references/site-conventions.md) |
+| $ARGUMENTS: "redirect", "mredirects", "ulinks", "broken_redirect" | **Redirects** | **REQUIRED SUB-SKILL:** [redirect-management](../redirect-management/SKILL.md) |
+| $ARGUMENTS: "link", "broken" | **Links** | [site-conventions.md](references/site-conventions.md) |
 | $ARGUMENTS: "write", "draft", "create", "new" | **Write** | [writing-style.md](references/writing-style.md) |
 | $ARGUMENTS: "review", "audit", "style", "check" | **Review** | [writing-style.md](references/writing-style.md), [glossary.md](references/glossary.md) |
 | $ARGUMENTS: "css", "layout", "component", "include", "i18n", "custom" | **Custom** | *(workflow is in this file — see Custom components and CSS)* |
-| Modified files include `broken_redirect_list.js` | **Links** | [site-conventions.md](references/site-conventions.md) |
+| Modified files include `broken_redirect_list.js` | **Redirects** | **REQUIRED SUB-SKILL:** [redirect-management](../redirect-management/SKILL.md) |
 | Modified files show conflict markers or branch matches `merge/*` | **Conflict** | *(workflow is in this file)* |
 | Modified files are under `_docs/` with no link/conflict signals | **Write** | [writing-style.md](references/writing-style.md) |
 
 If mode is still ambiguous, ask: "What are you working on?"
 
 If AskUserQuestion is available:
-- **Writing or editing content** — Drafting new articles or updating existing ones
-- **Fixing broken links** — Broken links, redirects, or cross-references
-- **Resolving merge conflicts** — Conflicts between branches
-- **Reviewing for style** — Checking existing content against style standards
+- **Writing or editing content** — Drafting new articles or updating existing ones → **Write**
+- **Fixing broken links** — Broken cross-references or internal links in Markdown (not `broken_redirect_list.js`) → **Links**
+- **Managing redirects** — Adding, updating, or validating entries in `broken_redirect_list.js` → **Redirects** (**REQUIRED SUB-SKILL:** [redirect-management](../redirect-management/SKILL.md))
+- **Resolving merge conflicts** — Conflicts between branches → **Conflict**
+- **Reviewing for style** — Checking existing content against style standards → **Review**
 
-Otherwise ask: "What are you working on? (1) Writing/editing content, (2) Fixing broken links, (3) Resolving merge conflicts, (4) Reviewing for style"
+Otherwise ask: "What are you working on? (1) Writing/editing content, (2) Fixing broken links, (3) Managing redirects (`broken_redirect_list.js`), (4) Resolving merge conflicts, (5) Reviewing for style"
 
 ## Overview
 
@@ -144,11 +146,11 @@ Optional fields: `tool`, `noindex`, `hidden`, `layout`, `local_redirect`, `searc
 ## Internal linking
 
 ```markdown
-[Link text]({{site.baseurl}}/user_guide/path/to/page/)
+[Link text]({{site.baseurl}}/user_guide/path/to/page)
 ```
 
-- Always use `{{site.baseurl}}` (resolves to `/docs`). Trailing slash required.
-- Anchor links: `{{site.baseurl}}/user_guide/path/to/page/#heading-slug`
+- Always use `{{site.baseurl}}` (resolves to `/docs`). Do not add a trailing slash on internal links.
+- Anchor links: `{{site.baseurl}}/user_guide/path/to/page#heading-slug`
 - Same-page anchors: `[heading text](#heading-slug)`
 - Never use "Learn more", "here", or "click here" as link text.
 - Standard cross-reference phrase: "To learn more, refer to [Topic](...)." or "For more information, see [Topic](...)."
@@ -217,3 +219,4 @@ When chaining another skill, use **REQUIRED SUB-SKILL:** `braze-docs:skill-name`
 | [support-analyzer](../support-analyzer/SKILL.md) (`braze-docs:support-analyzer`) | Triage support case CSVs and draft docs updates |
 | [salesforce-migration](../salesforce-migration/SKILL.md) (`braze-docs:salesforce-migration`) | SF Knowledge Base migration tickets (Phase 1/2) |
 | [check-accessibility](../check-accessibility/SKILL.md) (`braze-docs:check-accessibility`) | Pre-PR accessibility gate — run before any PR touching `_docs/`, `_includes/`, layouts, JS, or CSS |
+| [create-pr](../create-pr/SKILL.md) (`braze-docs:create-pr`) | Open a draft PR to `develop` with repo-aligned description, pre-PR gates, and manual verification checklist |

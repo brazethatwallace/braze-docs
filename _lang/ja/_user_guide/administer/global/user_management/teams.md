@@ -36,9 +36,9 @@ Braze の管理者および「会社設定の管理」という会社レベル�
 
 ### ユーザーを削除せずに会社ユーザーの権限を制限する {#limit-company-user-permissions-without-deleting-a-user}
 
-会社ユーザーのアカウントを保持したままサインインを停止するには、ユーザーを削除する代わりに[ユーザーを一時停止]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users)します。一時停止すると、アカウントは非アクティブ状態になり、ユーザーはログインできなくなります。
+会社ユーザーのアカウントを保持したままサインインを停止するには、ユーザーを削除する代わりに[ユーザーを一時停止]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users)します。一時停止すると、アカウントは非アクティブ状態になり、ユーザーはログインできなくなります。
 
-ユーザーが制限された機能でサインインできるようにする場合は、**設定** > **会社ユーザー**に移動し、ユーザーを選択して権限を編集します。Campaigns、Canvases、Segments、およびユーザーデータに対するワークスペースレベルの権限を削除し、最小限のアクセスのみを残します（例：「メディアライブラリアセットを表示」）。詳細については、[ユーザーの権限を編集する]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#edit-a-users-permissions)を参照してください。
+ユーザーが制限された機能でサインインできるようにする場合は、**設定** > **会社ユーザー**に移動し、ユーザーを選択して権限を編集します。Campaigns、Canvases、Segments、およびユーザーデータに対するワークスペースレベルの権限を削除し、最小限のアクセスのみを残します（例：「メディアライブラリアセットを表示」）。詳細については、[ユーザーの権限を編集する]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions)を参照してください。
 
 チーム権限はワークスペース権限の上に機能します。ユーザーをチームに割り当てる場合は、必要最小限のチームレベルの権限のみを付与し、Campaigns、Canvases、Segments、またはユーザープロファイルに対する権限は付与しないでください。ユーザーはワークスペースに残りサインインできますが、ほとんどのメッセージングやオーディエンスアクションを実行できません。
 
@@ -102,7 +102,7 @@ Braze の管理者および「会社設定の管理」という会社レベル�
 - ダッシュボードレポートを編集
 - ダッシュボードレポートを削除
 
-各ユーザー権限の内容と使用方法については、[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)セクションをご覧ください。
+各ユーザー権限の内容と使用方法については、[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)セクションをご覧ください。
 
 ## チームタグの割り当て {#tags-and-filters}
 

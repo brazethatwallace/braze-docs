@@ -34,7 +34,7 @@ Durante a configuração, será solicitado que você forneça uma URL do Asserti
 1. No centro de administração do Microsoft Entra, acesse a página de integração do aplicativo da Braze e selecione **Single sign-on**.
 2. Na página **Select a single sign-on method**, selecione **SAML** como seu método.
 3. Na página **Set up Single Sign-On with SAML**, selecione o ícone de edição para **Basic SAML Configuration**.
-4. Configure o aplicativo no modo iniciado pelo IdP inserindo uma **Reply URL** que combine sua [instância da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/#braze-instances) com o seguinte padrão: `https://<SUBDOMAIN>.braze.com/auth/saml/callback`.
+4. Configure o aplicativo no modo iniciado pelo IdP inserindo uma **Reply URL** que combine sua [instância da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints#braze-instances) com o seguinte padrão: `https://<SUBDOMAIN>.braze.com/auth/saml/callback`.
 5. Configure o RelayState inserindo sua chave de API gerada para o Relay State no campo **Relay State**.
 
 {% alert important %}
@@ -103,8 +103,8 @@ Depois que o gerente da sua conta tiver ativado o SAML SSO para a sua conta, fa�
 | `SAML Name` | Isso aparecerá como o texto do botão na tela de login. Normalmente é o nome do seu provedor de identidade, como "Microsoft Entra". |
 | `Target URL` | Esta é a URL de login fornecida pelo Microsoft Entra.|
 | `Certificate` | O certificado `x.509` codificado em PEM é fornecido pelo seu provedor de identidade. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Configurar o Microsoft Entra SSO na Braze #step-3" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Configurar o Microsoft Entra SSO na Braze" }
 
 {% alert tip %}
-Se você deseja que os usuários da sua conta da Braze façam login apenas com SAML SSO, você pode [restringir a autenticação de login único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/#restriction) na página **Configurações da empresa**.
+Se você deseja que os usuários da sua conta da Braze façam login apenas com SAML SSO, você pode [restringir a autenticação de login único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) na página **Configurações da empresa**.
 {% endalert %}

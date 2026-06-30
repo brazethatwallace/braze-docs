@@ -19,7 +19,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.create_fields`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `catalogs.create_fields`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -117,7 +117,7 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 
 | Error                                | Solución de problemas                                                                                        |
 |--------------------------------------|--------------------------------------------------------------------------------------------------------|
-| `arbitrary-error`                    | Se ha producido un error arbitrario. Inténtalo de nuevo o ponte en contacto con [Soporte]({{site.baseurl}}/support_contact/). |
+| `arbitrary-error`                    | Se ha producido un error arbitrario. Inténtalo de nuevo o ponte en contacto con [Soporte]({{site.baseurl}}/support_contact). |
 | `catalog-not-found`                  | Comprueba que el nombre del catálogo es válido.                                                                  |
 | `company-size-limit-already-reached` | Se ha alcanzado el límite de tamaño de almacenamiento del catálogo.                                                             |
 | `request-includes-too-many-fields`   | Cada solicitud puede admitir hasta 50 campos nuevos.                                                          |

@@ -20,7 +20,7 @@ Avant d'ajouter la sélection intelligente à votre campagne, assurez-vous d'avo
 - Votre campagne est envoyée selon une planification récurrente. Les campagnes à envoi unique ne sont pas prises en charge.
 - Vous avez ajouté au moins deux variantes de message.
 - Vous avez défini un événement de conversion pour mesurer les performances des variantes.
-- La fenêtre de rééligibilité est fixée à 24 heures ou plus. Les fenêtres plus courtes ne sont pas prises en charge, car elles affecteraient l'intégrité de la variante de contrôle. Pour en savoir plus, consultez [cette FAQ]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
+- La fenêtre de rééligibilité est fixée à 24 heures ou plus. Les fenêtres plus courtes ne sont pas prises en charge, car elles affecteraient l'intégrité de la variante de contrôle. Pour en savoir plus, consultez [cette FAQ]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
 {% endtab %}
 
 {% tab Canvas %}
@@ -39,10 +39,10 @@ Une variante qui semble être plus performante que les autres sera envoyée à u
 La sélection intelligente va :
 - Examiner à plusieurs reprises les données de performance et déplacer progressivement le trafic de la campagne vers les variantes gagnantes.
 - Vérifier que davantage d'utilisateurs reçoivent votre variante la plus performante sans sacrifier la confiance statistique.
-- Exclure les variantes moins performantes et identifier les variantes très performantes plus rapidement qu'un [test A/B traditionnel]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+- Exclure les variantes moins performantes et identifier les variantes très performantes plus rapidement qu'un [test A/B traditionnel]({{site.baseurl}}/user_guide/messaging/ab_testing).
 - Tester plus fréquemment et avec une plus grande confiance que vos utilisateurs verront votre meilleur message.
 
-La sélection intelligente fonctionne mieux pour les campagnes envoyées plusieurs fois. Elle a besoin de données de performance précoces pour commencer à optimiser, de sorte que les campagnes à envoi unique n'en bénéficieront pas. Pour ces campagnes, nous vous recommandons plutôt d'utiliser un [test A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/) traditionnel.
+La sélection intelligente fonctionne mieux pour les campagnes envoyées plusieurs fois. Elle a besoin de données de performance précoces pour commencer à optimiser, de sorte que les campagnes à envoi unique n'en bénéficieront pas. Pour ces campagnes, nous vous recommandons plutôt d'utiliser un [test A/B]({{site.baseurl}}/user_guide/messaging/ab_testing) traditionnel.
 
 
 Vous pouvez ajouter la sélection intelligente à vos campagnes et à vos Canvas.
@@ -52,7 +52,7 @@ Vous pouvez ajouter la sélection intelligente à vos campagnes et à vos Canvas
 La sélection intelligente peut être ajoutée à n'importe quelle campagne multi-envoi dans l'étape **Audiences cibles** du compositeur de campagne de Braze. Les campagnes qui n'envoient qu'une seule fois ne peuvent pas bénéficier de cette fonctionnalité.
 
 {% alert note %}
-La sélection intelligente ne peut pas être utilisée dans les campagnes dont la période de rééligibilité est inférieure à 24 heures, car elle affecterait l'intégrité de la variante de contrôle. Pour en savoir plus, consultez la [FAQ sur l'intelligence]({{site.baseurl}}/user_guide/brazeai/intelligence/faqs/#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
+La sélection intelligente ne peut pas être utilisée dans les campagnes dont la période de rééligibilité est inférieure à 24 heures, car elle affecterait l'intégrité de la variante de contrôle. Pour en savoir plus, consultez la [FAQ sur l'intelligence]({{site.baseurl}}/user_guide/brazeai/intelligence/faqs#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
 {% endalert %}
 {% endtab %}
 

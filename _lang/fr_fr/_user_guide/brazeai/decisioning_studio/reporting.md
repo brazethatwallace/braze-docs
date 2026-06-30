@@ -37,7 +37,7 @@ Pour définir ou exclure des dates, sélectionnez <i class="fa-solid fa-gear" ar
 
 ## Rapports disponibles {#available-reports}
 
-- [Performance]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/performance/) : indicateurs de haut niveau de l'agent comparant les groupes de traitement aux groupes de contrôle, avec les vues **Trending** et **Driver Tree**.
-- [Informations]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/insights/) : comment les options de recommandation de votre banque d'actions sont générées, y compris les préférences de l'agent et les rapports SHAP.
-- [Diagnostics]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/diagnostics/) : santé des données sortantes et entrantes, y compris le volume de recommandations et la surveillance des flux de données.
-- [Chronologie]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/timeline/) : un enregistrement visuel des événements clés (exécutions d'agents, modifications de configuration, mises à jour des garde-fous) associé aux indicateurs de performance.
+- [Performance]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/performance) : indicateurs de haut niveau de l'agent comparant les groupes de traitement aux groupes de contrôle, avec les vues **Trending** et **Driver Tree**.
+- [Informations]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/insights) : comment les options de recommandation de votre banque d'actions sont générées, y compris les préférences de l'agent et les rapports SHAP.
+- [Diagnostics]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/diagnostics) : santé des données sortantes et entrantes, y compris le volume de recommandations et la surveillance des flux de données.
+- [Chronologie]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/timeline) : un enregistrement visuel des événements clés (exécutions d'agents, modifications de configuration, mises à jour des garde-fous) associé aux indicateurs de performance.

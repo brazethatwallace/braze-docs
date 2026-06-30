@@ -4,7 +4,7 @@ article_title: Tipos de mensagem no app
 page_order: 3
 layout: dev_guide
 guide_top_header: "Tipos de mensagem no app"
-guide_top_text: "A Braze oferece vários tipos de mensagem no app, cada um projetado para diferentes casos de uso. Antes de soltar a criatividade, revise as diretrizes de cada tipo para garantir que sua mensagem seja exibida corretamente em celulares, tablets e computadores. Sempre <a href='/docs/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message'>teste suas mensagens</a> antes de lançar."
+guide_top_text: "A Braze oferece vários tipos de mensagem no app, cada um projetado para diferentes casos de uso. Antes de soltar a criatividade, revise as diretrizes de cada tipo para garantir que sua mensagem seja exibida corretamente em celulares, tablets e computadores. Sempre <a href='/docs/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message'>teste suas mensagens</a> antes de lançar."
 description: "Esta landing page abrange os diferentes tipos de mensagens no app disponíveis na Braze, incluindo tela cheia, modal, slideup, HTML personalizado, formulários de captura de e-mail e pesquisas simples."
 
 channel:

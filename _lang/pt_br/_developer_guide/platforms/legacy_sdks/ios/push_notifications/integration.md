@@ -38,7 +38,7 @@ noindex: true
 
 Nas configurações do projeto, certifique-se de que, na guia **Capabilities**, o recurso de **Push Notifications** esteja ativado.
 
-![]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
+![Nas configurações do projeto, certifique-se de que, na guia Capabilities, o recurso de Push Notifications esteja ativado.]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
 
 Se tiver certificados push de desenvolvimento e produção separados, desmarque a caixa **Automatically manage signing** na guia **General**. Isso permitirá que você escolha diferentes perfis de provisionamento para cada configuração de compilação, pois o recurso de assinatura automática de código do Xcode só faz a assinatura de desenvolvimento.
 
@@ -48,10 +48,10 @@ Se tiver certificados push de desenvolvimento e produção separados, desmarque 
 
 O exemplo de código apropriado deve ser incluído no método delegado `application:didFinishLaunchingWithOptions:` do seu app para que o dispositivo dos seus usuários se registre com APNs. Chame todo o código de integração push na thread principal do app.
 
-A Braze também fornece categorias de push padrão para suporte ao botão de ação por push, que devem ser adicionadas manualmente ao seu código de registro de push. Consulte os [botões de ação por push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons/) para obter etapas adicionais de integração.
+A Braze também fornece categorias de push padrão para suporte ao botão de ação por push, que devem ser adicionadas manualmente ao seu código de registro de push. Consulte os [botões de ação por push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons) para obter etapas adicionais de integração.
 
 {% alert warning %}
-Se você implementou um prompt de push personalizado, conforme descrito em nossas [práticas recomendadas de push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/troubleshooting/), certifique-se de chamar o seguinte código **toda vez que o aplicativo for executado** após a concessão de permissões de push ao seu aplicativo. **Os apps precisam se registrar novamente no APNs, pois [os tokens de dispositivos podem mudar arbitrariamente](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html).**
+Se você implementou um prompt de push personalizado, conforme descrito em nossas [práticas recomendadas de push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/troubleshooting), certifique-se de chamar o seguinte código **toda vez que o aplicativo for executado** após a concessão de permissões de push ao seu aplicativo. **Os apps precisam se registrar novamente no APNs, pois [os tokens de dispositivos podem mudar arbitrariamente](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html).**
 {% endalert %}
 
 ### Usando o framework UserNotification (iOS 10+) {#using-usernotification-framework-ios-10}
@@ -59,7 +59,7 @@ Se você implementou um prompt de push personalizado, conforme descrito em nossa
 Se estiver usando o framework `UserNotifications` (recomendado) lançado no iOS 10, adicione o seguinte código ao método `application:didFinishLaunchingWithOptions:` do delegado do seu app.
 
 {% alert important %}
-O seguinte exemplo de código inclui integração para autenticação push provisória (linhas 5 e 6). Se você não planeja usar autorização provisória no seu app, pode remover as linhas de código que adicionam `UNAuthorizationOptionProvisional` às opções de `requestAuthorization`.<br>Visite [opções de notificação do iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/) para saber mais sobre a autenticação provisória push.
+O seguinte exemplo de código inclui integração para autenticação push provisória (linhas 5 e 6). Se você não planeja usar autorização provisória no seu app, pode remover as linhas de código que adicionam `UNAuthorizationOptionProvisional` às opções de `requestAuthorization`.<br>Visite [opções de notificação do iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options) para saber mais sobre a autenticação provisória push.
 {% endalert %}
 
 {% tabs %}
@@ -304,8 +304,8 @@ Appboy.sharedInstance()?.register(application,
 
 ## Etapa 6: Deep linking {#step-6-deep-linking}
 
-O deep linking de um push para o app é tratado automaticamente por meio da nossa documentação padrão de integração de push. Se quiser saber mais sobre como adicionar deep links a locais específicos em seu app, consulte nossos [casos de uso avançados]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking/#linking-implementation).
+O deep linking de um push para o app é tratado automaticamente por meio da nossa documentação padrão de integração de push. Se quiser saber mais sobre como adicionar deep links a locais específicos em seu app, consulte nossos [casos de uso avançados]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking#linking-implementation).
 
 ## Etapa 7: Testes de unidade (opcional) {#step-7-unit-tests-optional}
 
-Para adicionar cobertura de teste para as etapas de integração que você acabou de seguir, implemente [testes unitários de push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/unit_tests/).
+Para adicionar cobertura de teste para as etapas de integração que você acabou de seguir, implemente [testes unitários de push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/unit_tests).

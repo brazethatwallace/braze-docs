@@ -6,7 +6,7 @@ description: "Este artigo aborda o filtro Canal Inteligente, que seleciona a par
 search_rank: 11
 ---
 
-# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/most-engaged-channel){: style="float:right;width:120px;border:0;" class="noimgborder"}Filtro de Canal Inteligente {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecommost-engaged-channel-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-channel-filter}
+# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/most-engaged-channel){: style="float:right;width:120px;border:0;" class="noimgborder"}Filtro Canal Inteligente {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecommost-engaged-channel-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-channel-filter}
 
 > O filtro `Intelligent Channel` (anteriormente `Most Engaged`) seleciona a parte do seu público para quem o canal de envio de mensagens selecionado é o "melhor" canal.
 
@@ -20,10 +20,10 @@ O Canal Inteligente calcula a taxa de engajamento para cada usuário em cada um 
 
 Toda vez que uma mensagem é enviada a um usuário, ou que um usuário interage com uma mensagem, a taxa de engajamento é recalculada em segundos. Um usuário só pode ser contado como tendo interagido com uma mensagem uma vez (por exemplo, uma abertura e um clique no mesmo e-mail farão com que essa mensagem seja marcada como tendo sido engajada apenas uma vez, não duas).
 
-Para ativar o filtro de Canal Inteligente, selecione o filtro **Intelligent Channel** na página **Target Audiences** ao criar uma Campaign de e-mail, push para a web ou mobile push.
+Para ativar o filtro Canal Inteligente, selecione o filtro **Intelligent Channel** na página **Público-alvo** ao criar uma Campaign de e-mail, push para a web ou mobile push.
 
 {% alert important %}
-Para calcular a taxa de engajamento do canal de SMS, ative o [encurtamento de links de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening#overview/) com rastreamento avançado e rastreamento de cliques. Sem esse rastreamento, o SMS pode ser selecionado como o Canal Inteligente com uma taxa de engajamento de 0% devido ao nosso [comportamento de desempate]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/#tie-breaking).
+Para calcular a taxa de engajamento do canal de SMS, ative o [encurtamento de links de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening#overview) com rastreamento avançado e rastreamento de cliques. Sem esse rastreamento, o SMS pode ser selecionado como o Canal Inteligente com uma taxa de engajamento de 0% devido ao nosso [comportamento de desempate]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking).
 {% endalert %}
 
 ## A opção "Dados insuficientes" {#the-not-enough-data-option}
@@ -37,7 +37,7 @@ Por exemplo, suponha que você queira que os usuários que preferem push recebam
 ![Filtros de Canal Inteligente para mobile push ou dados insuficientes.]({% image_buster /assets/img/intelligent_example.png %}){:style="border:none"}
 
 {% alert note %}
-Campaigns e etapas do Canvas que ignoram o [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-rules) não serão contabilizadas pelo Canal Inteligente e não poderão contribuir para os requisitos de dados.
+Campaigns e etapas do Canvas que ignoram o [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-rules) não serão contabilizadas pelo Canal Inteligente e não poderão contribuir para os requisitos de dados.
 {% endalert %}
 
 ## A opção "Mobile push" {#the-mobile-push-option}
@@ -48,7 +48,7 @@ Por exemplo, se um usuário tiver vários dispositivos móveis, sua taxa de enga
 
 ## Filtro de probabilidade de abertura de mensagem para canais individuais {#individual-channels}
 
-Em vez de deixar a Braze escolher o único melhor canal para um usuário, você pode usar o [filtro de segmentação "Probabilidade de Abertura de Mensagem"]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#message-open-likelihood) para filtrar usuários com base na probabilidade de abrirem uma mensagem em um canal específico que você escolher. Esse filtro é calculado pela porcentagem de interações dividida pelo total de mensagens recebidas nas últimas 100 mensagens enviadas por canal.
+Em vez de deixar a Braze escolher o único melhor canal para um usuário, você pode usar o [filtro de segmentação "Probabilidade de abertura de mensagem"]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#message-open-likelihood) para filtrar usuários com base na probabilidade de abrirem uma mensagem em um canal específico que você escolher. Esse filtro é calculado pela porcentagem de interações dividida pelo total de mensagens recebidas nas últimas 100 mensagens enviadas por canal.
 
 Observe que um usuário deve ter recebido pelo menos três mensagens em um canal específico antes de poder ter uma pontuação de probabilidade para esse canal. Usuários sem dados suficientes para medir a probabilidade de um canal podem ser selecionados usando "está em branco."
 

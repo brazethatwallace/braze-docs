@@ -15,7 +15,7 @@ Die Braze-Segmentierung ermöglicht es Ihnen, Nutzer:innen basierend auf angepas
 
 ## Warum Segmenterweiterungen verwenden? {#why-use-segment-extensions}
 
-Braze Segments bieten Ihnen leistungsstarke Targeting-Tools, um dynamische Nutzer:innen-Gruppen zu erstellen. Für die meisten Anwendungsfälle reicht dies aus, um Ihre Zielgruppe effektiv zu erreichen. Segmenterweiterungen sind für fortgeschrittene Anwendungsfälle konzipiert, bei denen Sie Verhaltensweisen von bis zu zwei Jahren analysieren oder komplexe Logik anwenden müssen – ohne die Datenaufbewahrung oder Systemleistung zu beeinträchtigen. Sie können [SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)-Abfragen (SQL-Segmenterweiterungen) oder Daten aus Ihrem eigenen [Data Warehouse]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/) verwenden, um Ihre Zielgruppe weiter zu verfeinern.
+Braze Segments bieten Ihnen leistungsstarke Targeting-Tools, um dynamische Nutzer:innen-Gruppen zu erstellen. Für die meisten Anwendungsfälle reicht dies aus, um Ihre Zielgruppe effektiv zu erreichen. Segmenterweiterungen sind für fortgeschrittene Anwendungsfälle konzipiert, bei denen Sie Verhaltensweisen von bis zu zwei Jahren analysieren oder komplexe Logik anwenden müssen – ohne die Datenaufbewahrung oder Systemleistung zu beeinträchtigen. Sie können [SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)-Abfragen (SQL-Segmenterweiterungen) oder Daten aus Ihrem eigenen [Data Warehouse]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments) verwenden, um Ihre Zielgruppe weiter zu verfeinern.
 
 Zum Beispiel findet die Standard-Segmentierung von Braze Nutzer:innen, die bestimmte von Ihnen definierte Kriterien erfüllen, wie etwa die Identifizierung von Nutzer:innen, die kürzlich eines Ihrer Produkte gekauft haben. Segmenterweiterungen ermöglichen es Ihnen, tiefer zu gehen – etwa Nutzer:innen zu identifizieren, die eine bestimmte Farbe eines bestimmten Produkts mindestens zweimal zwischen 18 und 24 Monaten gekauft haben. Segmenterweiterungen sind eine Erweiterung, keine Voraussetzung. Wenn Sie fortgeschrittenere Filter oder ein längeres Rückblickfenster benötigen, sind sie ein großartiges Werkzeug, das Ihnen hilft und gleichzeitig Ihre Datennutzung optimiert.
 
@@ -36,18 +36,18 @@ Wählen Sie in der Segmenterweiterungen-Tabelle **Create New Extension** und dan
 - **Simple extension:** Erstellen Sie eine Segmenterweiterung, die sich auf ein einzelnes Event konzentriert, mithilfe eines geführten Formulars. Am besten geeignet, wenn Sie kein SQL verwenden möchten.
 - **Start with a template:** Erstellen Sie ein SQL-Segment mit einem anpassbaren Template unter Verwendung von Snowflake-Daten.
 - **Incremental refresh:** Schreiben Sie ein Snowflake-SQL-Segment, das automatisch die Daten der letzten 2 Tage aktualisiert, oder aktualisieren Sie bei Bedarf manuell. Am besten geeignet, um Genauigkeit und Kosteneffizienz in Einklang zu bringen.
-- **Full refresh:** Schreiben Sie ein SQL-Segment mit Snowflake-Daten oder einer beliebigen [CDI-verbundenen Quelle]({{site.baseurl}}/cdi_segment_extensions/), das die gesamte Zielgruppe bei manueller Aktualisierung neu berechnet. Am besten geeignet, wenn Sie eine vollständige, aktuelle Ansicht Ihrer Zielgruppe benötigen.
+- **Full refresh:** Schreiben Sie ein SQL-Segment mit Snowflake-Daten oder einer beliebigen [CDI-verbundenen Quelle]({{site.baseurl}}/cdi_segment_extensions), das die gesamte Zielgruppe bei manueller Aktualisierung neu berechnet. Am besten geeignet, wenn Sie eine vollständige, aktuelle Ansicht Ihrer Zielgruppe benötigen.
 
 ![Tabelle mit verschiedenen Erstellungsmethoden für Segmenterweiterungen zur Auswahl.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%"}
 
-Wenn Sie eine Methode auswählen, die SQL verwendet, lesen Sie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) für weitere Informationen. Wenn Sie **Simple extension** auswählen, fahren Sie mit Schritt 2 fort.
+Wenn Sie eine Methode auswählen, die SQL verwendet, lesen Sie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) für weitere Informationen. Wenn Sie **Simple extension** auswählen, fahren Sie mit Schritt 2 fort.
 
 #### SQL-Credit-Verbrauch {#sql-credit-usage}
 
 Die folgenden Segmenterweiterungstypen verbrauchen SQL-Credits:
 
 - SQL-Segmenterweiterungen (sowohl inkrementelle als auch vollständige Aktualisierung)
-- Katalog-Segmente
+- Katalogsegmente
 - CDI-Segmente
     - Credits werden in Ihrem eigenen Data Warehouse verbraucht
 
@@ -87,14 +87,14 @@ Wenn Sie empfohlene E-Commerce-Events verwenden und eine Event-Eigenschaft hinzu
 
 ![Segmenterweiterungs-Details mit einem Dropdown-Menü der verfügbaren Eigenschaften.]({% image_buster /assets/img/segment/ecommerce_recommended_event_properties.png %})
 
-Wir unterstützen auch Segmentierung basierend auf [verschachtelten Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/). Wählen Sie im Vergleichs-Dropdown den Vergleich aus, der zum Datentyp Ihrer verschachtelten Eigenschaft passt. Sie können dieselbe Syntax für verschachtelte Event-Eigenschaften verwenden, um verschachtelte Eigenschaften für alle empfohlenen E-Commerce-Events hinzuzufügen, die verschachtelte Eigenschaften enthalten. Informationen zu den verschiedenen verfügbaren verschachtelten Eigenschaften finden Sie unter [Typen empfohlener E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/#types-of-ecommerce-recommended-events). Um das erforderliche Schema für den Eigenschaftsnamen Ihrer Segmenterweiterung zu generieren, folgen Sie den Schritten unter [Verschachtelte Objekte in angepassten Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
+Wir unterstützen auch Segmentierung basierend auf [verschachtelten Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects). Wählen Sie im Vergleichs-Dropdown den Vergleich aus, der zum Datentyp Ihrer verschachtelten Eigenschaft passt. Sie können dieselbe Syntax für verschachtelte Event-Eigenschaften verwenden, um verschachtelte Eigenschaften für alle empfohlenen E-Commerce-Events hinzuzufügen, die verschachtelte Eigenschaften enthalten. Informationen zu den verschiedenen verfügbaren verschachtelten Eigenschaften finden Sie unter [Typen empfohlener E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events). Um das erforderliche Schema für den Eigenschaftsnamen Ihrer Segmenterweiterung zu generieren, folgen Sie den Schritten unter [Verschachtelte Objekte in angepassten Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 
 ![Segmentierung basierend auf verschachtelten Event-Eigenschaften.]({% image_buster /assets/img/segment/nested_segment_extensions.png %})
 
 Segmenterweiterungen basieren auf der Langzeitspeicherung von Event-Eigenschaften und haben kein zeitgestempeltes Eigenschaftsspeicherlimit. Sie können auf Event-Eigenschaften zurückblicken, die in den letzten zwei Jahren erfasst wurden. Die Verwendung von Event-Eigenschaften innerhalb von Segmenterweiterungen hat keinen Einfluss auf den Datenpunkt-Verbrauch.
 
 {% alert note %}
-Sie benötigen keine Segmenterweiterungen, um Event-Eigenschaften oder verschachtelte angepasste Attribute in Ihrem Segment zu verwenden. Segmenterweiterungen erweitern lediglich das historische Fenster, das zur Erstellung eines Standard-Segments verwendet wird. Sie können ein Realtime-Standard-[Segment]({{site.baseurl}}/user_guide/audience/segments/) erstellen, das Event-Eigenschaften der letzten 30 Tage oder verschachtelte angepasste Attribute verwendet. Ebenso können Sie [Ihre Nachricht planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/), um in Realtime basierend auf einer Event-Eigenschaft ausgelöst zu werden – keine Segmenterweiterung erforderlich.
+Sie benötigen keine Segmenterweiterungen, um Event-Eigenschaften oder verschachtelte angepasste Attribute in Ihrem Segment zu verwenden. Segmenterweiterungen erweitern lediglich das historische Fenster, das zur Erstellung eines Standard-Segments verwendet wird. Sie können ein Realtime-Standard-[Segment]({{site.baseurl}}/user_guide/audience/segments) erstellen, das Event-Eigenschaften der letzten 30 Tage oder verschachtelte angepasste Attribute verwendet. Ebenso können Sie [Ihre Nachricht planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery), um in Realtime basierend auf einer Event-Eigenschaft ausgelöst zu werden – keine Segmenterweiterung erforderlich.
 {% endalert %}
 
 ### 4. Schritt: Aktualisierungseinstellungen festlegen (optional) {#step-4-designate-refresh-settings-optional}
@@ -125,13 +125,13 @@ Um die Kriterien der Segmenterweiterung anzuzeigen, wählen Sie **View Extension
 
 ![Erweiterung für „1 email click in the last 56 days“.]({% image_buster /assets/img/segment/segment_extension8.png %}){: style="max-width:70%;"}
 
-Jetzt können Sie wie gewohnt mit dem [Erstellen Ihres Segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) fortfahren.
+Jetzt können Sie wie gewohnt mit dem [Erstellen Ihres Segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) fortfahren.
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
 ### Kann ich eine Segmenterweiterung erstellen, die mehrere angepasste Events verwendet? {#can-i-create-a-segment-extension-that-uses-multiple-custom-events}
 
-Ja. Sie können mehrere Events hinzufügen oder mehrere Snowflake-Tabellen referenzieren, wenn Sie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) verwenden.
+Ja. Sie können mehrere Events hinzufügen oder mehrere Snowflake-Tabellen referenzieren, wenn Sie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) verwenden.
 
 Bei Verwendung von **Simple extension**-Segmenterweiterungen können Sie ein angepasstes Event, ein Kauf-Event oder eine Kanalinteraktion auswählen. Sie können jedoch mehrere Segmenterweiterungen mit AND oder OR kombinieren, wenn Sie das Standard-Segment erstellen.
 
@@ -145,7 +145,7 @@ Ja. Um Arrays zu verwenden, hängen Sie eckige Klammern (`[]`) an Ihren Eigensch
 
 Braze verwendet `[]`, um Arrays zu durchlaufen und zu prüfen, ob ein Element im durchlaufenen Array mit der Event-Eigenschaft übereinstimmt. Zum Beispiel könnten Sie eine Segmenterweiterung von Nutzer:innen erstellen, die mindestens einem Wert einer Array-Eigenschaft entsprechen.
 
-### Wie berechnet Braze den Zeitraum für einen relativen Zeitraum von „letzte __ Tage“? {#how-does-braze-calculate-the-time-period-for-a-relative-time-period-of-last-days}
+### Wie berechnet Braze den Zeitraum für einen relativen Zeitraum von „letzte __ Tage“? {#how-does-braze-calculate-the-time-period-for-a-relative-time-period-of-last-__-days}
 
 Wenn Segmenterweiterungen den relativen Zeitraum („letzte X Tage“) berechnen, wird die Startzeit auf Mitternacht UTC gesetzt. Zum Beispiel wird bei einer Segmenterweiterung, die am 16.09.2024 um 21:00 UTC aktualisiert wird und 10 Tage angibt, die Startzeit auf den 06.09.2024 um 00:00 UTC gesetzt, nicht auf den 06.09.2024 um 21:00 UTC.
 

@@ -17,7 +17,7 @@ description: "Este artículo te guía sobre cómo configurar tus IP y dominios p
 <br>
 
 {% alert important %}
-Puedes usar SendGrid, SparkPost o Amazon Simple Email Service (SES) como tu socio proveedor de servicios de correo electrónico (ESP). A partir de 2026, Braze utiliza Amazon SES como el ESP predeterminado para nuevas configuraciones de correo electrónico. Para más detalles, consulta [Configuración de Amazon SES]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses/).
+Puedes usar SendGrid, SparkPost o Amazon Simple Email Service (SES) como tu socio proveedor de servicios de correo electrónico (ESP). A partir de 2026, Braze utiliza Amazon SES como el ESP predeterminado para nuevas configuraciones de correo electrónico. Para más detalles, consulta [Configuración de Amazon SES]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses).
 {% endalert %}
 
 ## Método 1: Coordinar con Braze (recomendado) {#method-1-coordinate-with-braze-recommended}
@@ -72,7 +72,7 @@ Un dominio de envío se utiliza en la dirección "de" al enviar un correo electr
 
 A continuación, añade los registros TXT y CNAME de la parte inferior de la página a tu proveedor de DNS. Luego, vuelve al panel de Braze y haz clic en **Verificar**.
 
-![]({% image_buster /assets/img_archive/email_setup_rdns_records.png %})
+![Página de configuración de correo electrónico que muestra los registros DNS TXT y CNAME para verificar un dominio de envío.]({% image_buster /assets/img_archive/email_setup_rdns_records.png %})
 
 Si la verificación falla y crees que tus registros DNS son correctos, ponte en contacto con soporte de Braze para obtener ayuda.
 
@@ -100,4 +100,4 @@ Cuando un pool de IP contiene múltiples direcciones IP dedicadas, Braze y tu pr
 
 ### Próximos pasos
 
-Una vez que tu verificación de remitente esté completa, recomendamos el calentamiento de IP para que tus mensajes lleguen a los buzones de entrada de destino a una tasa consistentemente alta. Después de completar esta configuración, asegúrate de consultar también con el equipo de incorporación de Braze para confirmar si tus dominios y [dirección IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/) están funcionando.
+Una vez que tu verificación de remitente esté completa, recomendamos el calentamiento de IP para que tus mensajes lleguen a los buzones de entrada de destino a una tasa consistentemente alta. Después de completar esta configuración, asegúrate de consultar también con el equipo de incorporación de Braze para confirmar si tus dominios y [dirección IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) están funcionando.

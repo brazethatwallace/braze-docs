@@ -33,7 +33,7 @@ page_order: 1
 
 ## メッセージエクストラ {#message-extras}
 
-[`message_extras` Liquid タグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/)を使用すると、送信時にキーバリューメタデータでメッセージに注釈を付けることができます。このデータはメッセージ本文にはレンダリングされません。代わりに、アトリビューション、影響測定、イベントエンリッチメントなどの目的で、コネクテッドコンテンツ、Currents、またはその他のデータキャプチャメカニズムにデータが流れます。
+[`message_extras` Liquid タグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras)を使用すると、送信時にキーバリューメタデータでメッセージに注釈を付けることができます。このデータはメッセージ本文にはレンダリングされません。代わりに、アトリビューション、影響測定、イベントエンリッチメントなどの目的で、コネクテッドコンテンツ、Currents、またはその他のデータキャプチャメカニズムにデータが流れます。
 
 {% raw %}
 ```liquid
@@ -160,7 +160,7 @@ Hi {{1}}, we have a special offer for you.
 
 - **`catalog_items`:** カタログデータを検索して参照する Liquid は変数スロット内に配置する必要があります。そうしないと、タグがメッセージにそのまま表示されます。
 - **`assign`:** 変数代入タグ（{% raw %}{% assign discount = "20%" %}{% endraw %} など）はそれ自体では出力を生成しません。メッセージ内で後で使用する値を設定するために変数スロット外で使用すると、`assign` タグがそのままレンダリングされます。`assign` ロジックは、その出力が必要な変数スロット内の Liquid 式の先頭に含めてください。
-- **Liquid タグのみを含む Content Blocks:** Content Blocksに Liquid ロジックが含まれているが表示テキストを生成しない場合（例えば、`assign` や `message_extras` タグのみを使用している場合）、変数スロット外でそれを参照すると、生のブロックコンテンツがメッセージに表示されます。表示出力を生成しない Content Blocksは、レンダリングされるコンテンツと一緒に変数スロット内に埋め込む必要があります。
+- **Liquid タグのみを含むContent Blocks:** Content Blocksに Liquid ロジックが含まれているが表示テキストを生成しない場合（例えば、`assign` や `message_extras` タグのみを使用している場合）、変数スロット外でそれを参照すると、生のブロックコンテンツがメッセージに表示されます。表示出力を生成しないContent Blocksは、レンダリングされるコンテンツと一緒に変数スロット内に埋め込む必要があります。
 
 ### その他の構造的制約 {#additional-structural-constraints}
 

@@ -7,7 +7,7 @@ toc_headers: h2
 description: "Erfahren Sie, wie Sie auf BrazeAI Operator<sup>TM</sup> zugreifen und diesen nutzen können, einen in das Braze-Dashboard integrierten KI-gestützten Assistenten, einschließlich seiner Features und Best Practices."
 ---
 
-# BrazeAI Operator {#brazeai-operator}
+# BrazeAI Operator
 
 > BrazeAI Operator<sup>TM</sup> ist ein KI-gestützter Assistent, der in das Dashboard integriert ist. Operator unterstützt Sie bei der Erledigung Ihrer Aufgaben – beantwortet Fragen, führt Sie durch die Einrichtung, hilft bei der Fehlerbehebung und entwickelt gemeinsam mit Ihnen Ideen.
 
@@ -39,7 +39,7 @@ Beschreiben Sie in natürlicher Sprache, was Sie erreichen möchten. Prompts kö
 - **Einfach:** Warum wird mein Liquid nicht gerendert?
 - **Komplex:** Wie kann ich sicherstellen, dass der `abort_message`-Tag meiner Nachricht das Nutzerattribut enthält, das den Abbruch verursacht hat?
 
-Operator kann Schritt-für-Schritt-Anleitungen, Links zur Braze-Dokumentation und Erklärungen in einfacher Sprache bereitstellen. Klare und spezifische Fragen führen zu hilfreicheren Antworten. Operator verwendet [GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2), das über starke Schlussfolgerungsfähigkeiten verfügt und sich für komplexe, mehrstufige Aufgaben eignet. Sofort einsetzbare Beispiele finden Sie in der [Prompt-Bibliothek]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library/).
+Operator kann Schritt-für-Schritt-Anleitungen, Links zur Braze-Dokumentation und Erklärungen in einfacher Sprache bereitstellen. Klare und spezifische Fragen führen zu hilfreicheren Antworten. Operator verwendet [GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2), das über starke Schlussfolgerungsfähigkeiten verfügt und sich für komplexe, mehrstufige Aufgaben eignet. Sofort einsetzbare Beispiele finden Sie in der [Prompt-Bibliothek]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 
 ## Best Practices {#best-practices}
 
@@ -55,7 +55,7 @@ Behandeln Sie Operator wie eine Konversation, nicht wie eine Suchmaschine. Kurze
 
 Fügen Sie Markenrichtlinien als Kontext zu Operator-Abfragen hinzu, damit die Antworten dem Stil, Tonfall und der Persönlichkeit Ihrer Marke entsprechen. Operator nutzt die in Ihrem Workspace konfigurierten Markenrichtlinien, was dazu beiträgt, ein einheitliches Messaging zu gewährleisten, wenn er Texte vorschlägt oder Features erläutert.
 
-Um Markenrichtlinien festzulegen, navigieren Sie zu **Einstellungen** > **Markenrichtlinien**. Weitere Informationen finden Sie unter [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/).
+Um Markenrichtlinien festzulegen, navigieren Sie zu **Einstellungen** > **Markenrichtlinien**. Weitere Informationen finden Sie unter [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines).
 
 ![Auswahl der Markenrichtlinien im Chat-Panel von Operator.]({% image_buster /assets/img/operator/operator_brand_guidelines.png %})
 
@@ -63,7 +63,7 @@ Um Markenrichtlinien festzulegen, navigieren Sie zu **Einstellungen** > **Marken
 
 Operator erkennt automatisch Ihren Standort in Braze und passt die Antworten entsprechend an. Wenn Sie beispielsweise Operator während der Erstellung eines Canvas öffnen, kann er Ihnen relevante Schritte vorschlagen oder Anleitungen zu Canvas-Features geben, ohne dass Sie erklären müssen, an welcher Stelle Ihres Arbeitsablaufs Sie sich befinden.
 
-Dank dieser Kontextbezogenheit können Sie kürzere, natürlichere Fragen stellen, wie beispielsweise „Wie füge ich eine Verzögerung hinzu?“ anstelle von „Wie füge ich einen Verzögerungsschritt in einen Canvas-Workflow ein?“. Sofort einsetzbare Prompts, geordnet nach Dashboard-Seite, finden Sie in der [Prompt-Bibliothek]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library/).
+Dank dieser Kontextbezogenheit können Sie kürzere, natürlichere Fragen stellen, wie beispielsweise „Wie füge ich eine Verzögerung hinzu?“ anstelle von „Wie füge ich einen Verzögerungsschritt in einen Canvas-Workflow ein?“. Sofort einsetzbare Prompts, geordnet nach Dashboard-Seite, finden Sie in der [Prompt-Bibliothek]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 
 ## Arbeiten mit Operator-Antworten {#work-with-operator-responses}
 
@@ -79,7 +79,7 @@ Operator zeigt seine Argumentationsschritte in ausblendbaren Abschnitten mit der
 
 ### Aktionen mit Operator ausführen {#take-action-with-operator}
 
-Operator kann direkt im Braze-Dashboard Änderungen vorschlagen und ausführen, beispielsweise Formularfelder ausfüllen, Einstellungen aktualisieren oder Inhalte generieren. Jede vorgeschlagene Änderung wird Ihnen als Aktionskarte zur Überprüfung und Genehmigung vorgelegt, bevor sie wirksam wird. Weitere Informationen zur Funktionsweise finden Sie unter [Aktionen überprüfen]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/).
+Operator kann direkt im Braze-Dashboard Änderungen vorschlagen und ausführen, beispielsweise Formularfelder ausfüllen, Einstellungen aktualisieren oder Inhalte generieren. Jede vorgeschlagene Änderung wird Ihnen als Aktionskarte zur Überprüfung und Genehmigung vorgelegt, bevor sie wirksam wird. Weitere Informationen zur Funktionsweise finden Sie unter [Aktionen überprüfen]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions).
 
 ### Antworten in andere Tools kopieren {#copy-responses-to-other-tools}
 
@@ -132,12 +132,12 @@ Verwenden Sie am Ende jeder Antwort die Daumen-hoch- oder Daumen-runter-Buttons,
 
 ## Datenschutz und Sicherheit {#data-privacy-and-security}
 
-BrazeAI Operator<sup>TM</sup> verfügt über eine Integration mit OpenAI, das als Unterauftragsverarbeiter von Braze fungiert und dem Datenverarbeitungszusatz (DPA) zwischen Ihnen und Braze unterliegt. Daten, die über Braze an OpenAI gesendet werden, werden nicht zum Trainieren oder Verbessern von OpenAI-Modellen verwendet. Einzelheiten zur HIPAA-Konformität, Datenaufbewahrung, PII-Handhabung und Governance finden Sie unter [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/).
+BrazeAI Operator<sup>TM</sup> verfügt über eine Integration mit OpenAI, das als Unterauftragsverarbeiter von Braze fungiert und dem Datenverarbeitungszusatz (DPA) zwischen Ihnen und Braze unterliegt. Daten, die über Braze an OpenAI gesendet werden, werden nicht zum Trainieren oder Verbessern von OpenAI-Modellen verwendet. Einzelheiten zur HIPAA-Konformität, Datenaufbewahrung, PII-Handhabung und Governance finden Sie unter [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
 
 ## Nächste Schritte {#next-steps}
 
-- [Prompt-Bibliothek]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library/): Durchsuchen Sie Beispiel-Prompts, geordnet nach Dashboard-Seite
-- [Aktionen überprüfen]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/): Erfahren Sie, wie Sie die von Operator vorgeschlagenen Änderungen überprüfen und genehmigen können
-- [Support-Tickets einreichen]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/): Reichen Sie Support-Tickets direkt über Operator ein
-- [Fehlerbehebung]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/): Häufige Probleme und Lösungen
-- [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/): Informationen zu HIPAA-Konformität, Datenaufbewahrung und PII-Minimierung
+- [Prompt-Bibliothek]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library): Durchsuchen Sie Beispiel-Prompts, geordnet nach Dashboard-Seite
+- [Aktionen überprüfen]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): Erfahren Sie, wie Sie die von Operator vorgeschlagenen Änderungen überprüfen und genehmigen können
+- [Support-Tickets einreichen]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets): Reichen Sie Support-Tickets direkt über Operator ein
+- [Fehlerbehebung]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting): Häufige Probleme und Lösungen
+- [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security): Informationen zu HIPAA-Konformität, Datenaufbewahrung und PII-Minimierung

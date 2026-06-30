@@ -18,7 +18,7 @@ description: "この記事では、「SDK認証キーを作成」Brazeエンド�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`sdk_authentication.create` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`sdk_authentication.create` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -46,11 +46,11 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `rsa_public_key_str` | 必須 | 文字列 | RSA公開キーの文字列。有効なRSA公開キーでなければならず、そうでない場合はエラーを返します。 |
 | `description` | 必須 | 文字列 | SDK認証キーの説明。 |
 | `make_primary` | オプション | ブール値 | `true` に設定すると、作成時にこのキーがプライマリSDK認証キーになります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 
-`````````bash
+```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/app_group/sdk_authentication/create' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -74,7 +74,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/app_group/sdk_auth
 | パラメーター | データタイプ | 説明 |
 | --------- | --------- | ----------- |
 | `id` | 文字列 | 新しく作成されたSDK認証キーのID。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="応答パラメーター" }
 
 ### バリデーションルール {#validation-rules}
 

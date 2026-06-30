@@ -53,4 +53,4 @@ Plus vous fournissez d'informations et de contexte, mieux c'est ! Incluez des li
 - Avez-vous des informations supplémentaires ? (Par exemple, en quoi cela vous serait bénéfique, à vous et à vos équipes)
 - Existe-t-il des solutions de contournement actuelles ? (Ce n'est pas pour notre processus de priorisation, mais cela peut aider dans la recherche de solutions)
 
-Pour un exemple de demande produit bien rédigée, consultez cet [exemple de demande produit]({{site.baseurl}}/product_request/).
+Pour un exemple de demande produit bien rédigée, consultez cet [exemple de demande produit]({{site.baseurl}}/product_request).

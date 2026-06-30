@@ -37,7 +37,7 @@ Lorsque vous activez le suivi des désinstallations pour une application, Braze 
 
 ### Configuration {#configuration}
 
-Pour configurer le suivi des désinstallations pour votre application iOS, utilisez une [méthode utilitaire]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls/?sdktab=swift). Pour votre application Android, utilisez [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html). Lorsque Braze détecte une désinstallation, qu'il s'agisse du suivi des désinstallations ou de la distribution normale d'une Campaign push, nous enregistrons la meilleure estimation de l'heure de désinstallation sur le profil de l'utilisateur. Cette information est stockée dans le profil utilisateur en tant qu'attribut standard et peut être utilisée pour définir un segment d'utilisateurs pour les Campaigns de reconquête.
+Pour configurer le suivi des désinstallations pour votre application iOS, utilisez une [méthode utilitaire]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls?sdktab=swift). Pour votre application Android, utilisez [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html). Lorsque Braze détecte une désinstallation, qu'il s'agisse du suivi des désinstallations ou de la distribution normale d'une Campaign push, nous enregistrons la meilleure estimation de l'heure de désinstallation sur le profil de l'utilisateur. Cette information est stockée dans le profil utilisateur en tant qu'attribut standard et peut être utilisée pour définir un segment d'utilisateurs pour les Campaigns de reconquête.
 
 ## Filtrage des segments en fonction des désinstallations {#filtering-segments-by-uninstalls}
 
@@ -47,7 +47,7 @@ Les statistiques quotidiennes sur les désinstallations sont disponibles sur la 
 
 ![Segment de désinstallation.]({% image_buster /assets/img_archive/Uninstall_Segment.png %} "Uninstall Segment")
 
-Le graphique peut être décomposé par application et par segment, à l'instar d'autres statistiques fournies par Braze. Dans la section **Aperçu des performances**, sélectionnez votre plage de dates et, si vous le souhaitez, une application. Ensuite, faites défiler la page jusqu'au graphique **Performance Over Time** et procédez comme suit :
+Le graphique peut être décomposé par application et par segment, à l'instar d'autres statistiques fournies par Braze. Dans la section **Performance overview**, sélectionnez votre plage de dates et, si vous le souhaitez, une application. Ensuite, faites défiler la page jusqu'au graphique **Performance Over Time** et procédez comme suit :
 
 1. Dans le menu déroulant **Statistics For**, sélectionnez **Uninstalls**.
 2. Dans le menu déroulant **Breakdown**, sélectionnez **By Segment**.

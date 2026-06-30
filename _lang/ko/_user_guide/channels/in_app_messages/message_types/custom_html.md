@@ -12,7 +12,7 @@ channel:
 
 > 표준 인앱 메시지를 다양한 방식으로 커스터마이징할 수 있지만, HTML, CSS, JavaScript를 사용하여 디자인하고 구축한 메시지를 활용하면 Campaign의 외관과 느낌을 더욱 세밀하게 제어할 수 있습니다. 간단한 구성만으로 커스텀 기능과 브랜딩을 구현하여 모든 요구 사항에 맞출 수 있습니다.
 
-이 메시지 유형은 [기존 편집기]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)에서 사용할 수 있습니다.
+이 메시지 유형은 [기존 편집기]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)에서 사용할 수 있습니다.
 
 ## 작동 방식 {#how-it-works}
 
@@ -42,7 +42,7 @@ HTML 인앱 메시지를 사용하면 다음을 포함하여 메시지의 외관
 ### 버튼 클릭 추적(지원 중단) {#button-click-tracking-deprecated}
 
 {% alert warning %}
-`abButtonID` 사용은 [미리보기가 포함된 HTML]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#html-upload-with-preview/) 메시지 유형에서 지원되지 않습니다. 자세한 내용은 [업그레이드 가이드]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#html-upload-with-preview)를 참조하세요.
+`abButtonID` 사용은 [미리보기가 포함된 HTML]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview) 메시지 유형에서 지원되지 않습니다. 자세한 내용은 [업그레이드 가이드]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview)를 참조하세요.
 {% endalert %}
 
 인앱 메시지 분석을 위해 버튼 클릭을 기록하려면 딥링크, 리디렉션 URL 또는 앵커 요소 `<a>`에 쿼리 매개변수로 `abButtonId`를 추가할 수 있습니다. "Button 1" 클릭을 기록하려면 `?abButtonId=0`을, "Button 2" 클릭을 기록하려면 `?abButtonId=1`을 사용하세요.
@@ -98,16 +98,16 @@ HTML에서 사용하는 `brazeBridge` JavaScript 메서드는 대시보드에서
 {% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}
 
 {% alert warning %}
-이 메시지 유형은 특정 최신 SDK 버전에서만 수신할 수 있으므로, 지원되지 않는 SDK 버전을 사용하는 사용자는 메시지를 수신하지 못합니다. 사용자 기반의 상당 부분이 도달 가능한 상태가 된 후에 이 메시지 유형을 채택하거나, 앱 버전이 요구 사항보다 최신인 사용자만 타겟팅하는 것을 고려하세요. [최신 앱 버전별 필터링]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions)에 대해 자세히 알아보세요.
+이 메시지 유형은 특정 최신 SDK 버전에서만 수신할 수 있으므로, 지원되지 않는 SDK 버전을 사용하는 사용자는 메시지를 수신하지 못합니다. 사용자 기반의 상당 부분이 도달 가능한 상태가 된 후에 이 메시지 유형을 채택하거나, 앱 버전이 요구 사항보다 최신인 사용자만 타겟팅하는 것을 고려하세요. [최신 앱 버전별 필터링]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions)에 대해 자세히 알아보세요.
 {% endalert %}
 
 ### Campaign 생성 {#instructions}
 
-모바일 앱 사용자가 **사용자 지정 코드** 인앱 메시지를 수신하려면 지원되는 SDK 버전으로 업그레이드해야 합니다. 최신 Braze SDK 버전에 의존하는 Campaign을 시작하기 전에 사용자에게 [모바일 앱 업그레이드를 유도]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/)하는 것을 권장합니다.
+모바일 앱 사용자가 **사용자 지정 코드** 인앱 메시지를 수신하려면 지원되는 SDK 버전으로 업그레이드해야 합니다. 최신 Braze SDK 버전에 의존하는 Campaign을 시작하기 전에 사용자에게 [모바일 앱 업그레이드를 유도]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features)하는 것을 권장합니다.
 
 #### 자산 파일 {#asset-files}
 
-HTML 업로드로 사용자 지정 코드 인앱 메시지를 생성할 때, Campaign 자산을 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)에 업로드하여 메시지에서 참조할 수 있습니다.
+HTML 업로드로 사용자 지정 코드 인앱 메시지를 생성할 때, Campaign 자산을 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)에 업로드하여 메시지에서 참조할 수 있습니다.
 
 업로드에 지원되는 파일 유형은 다음과 같습니다:
 
@@ -146,7 +146,7 @@ HTML 편집기 내에서 <i class="fa-solid fa-magnifying-glass"></i> **검색**
 
 ### 버튼 추적 {#button-tracking-improvements}
 
-[`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/) JavaScript 메서드를 사용하여 사용자 지정 코드 인앱 메시지 내에서 성과를 추적할 수 있습니다. 이를 통해 `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')` 또는 `brazeBridge.logClick()`을 사용하여 각각 "Button 1", "Button 2", "본문 클릭"을 프로그래밍 방식으로 추적할 수 있습니다.
+[`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types) JavaScript 메서드를 사용하여 사용자 지정 코드 인앱 메시지 내에서 성과를 추적할 수 있습니다. 이를 통해 `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')` 또는 `brazeBridge.logClick()`을 사용하여 각각 "Button 1", "Button 2", "본문 클릭"을 프로그래밍 방식으로 추적할 수 있습니다.
 
 | 클릭 | 메서드 |
 | ---------- | ---------------------------- |

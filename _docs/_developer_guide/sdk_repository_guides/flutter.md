@@ -12,8 +12,8 @@ The Braze Flutter SDK helps you integrate Braze messaging, analytics, and user e
 
 To get started, refer to the following resources:
 
-- [Braze User Guide]({{site.baseurl}}/user_guide/introduction)
-- [Braze Developer Guide]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=flutter)
+- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=flutter)
 
 ## Quickstart
 
@@ -79,7 +79,7 @@ _braze = new BrazePlugin();
 _braze.changeUser("Jane Doe");
 ```
 
-See [the Braze Developer Guide]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=flutter) for advanced integration options.
+See [the Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=flutter) for advanced integration options.
 
 ## Version Support
 

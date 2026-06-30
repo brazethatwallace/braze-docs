@@ -23,7 +23,7 @@ Avant de commencer, assurez-vous de disposer des éléments suivants :
 - Un compte Meta Business Manager et un compte WhatsApp Business
 - Un numéro de téléphone WhatsApp répondant aux exigences de l'[API Cloud](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers)
 
-Pour un guide complet, consultez la [configuration de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/).
+Pour un guide complet, consultez la [configuration de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup).
 
 ## Cas d'utilisation {#use-cases}
 
@@ -38,5 +38,5 @@ Pour un guide complet, consultez la [configuration de WhatsApp]({{site.baseurl}}
 
 ## Étapes suivantes {#next-steps}
 
-- [Configuration de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)
-- [Créer un message WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)
+- [Configuration de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)
+- [Créer un message WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message)

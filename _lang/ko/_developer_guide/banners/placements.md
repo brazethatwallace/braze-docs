@@ -13,7 +13,7 @@ platform:
 
 # 배너 배치 관리 {#manage-banner-placements}
 
-> Braze SDK에서 배너 배치를 생성하고 관리하는 방법을 알아보세요. 고유 속성에 접근하고 노출을 기록하는 방법도 포함됩니다. 보다 일반적인 정보는 [배너 정보]({{site.baseurl}}/developer_guide/banners/)를 참조하세요.
+> Braze SDK에서 배너 배치를 생성하고 관리하는 방법을 알아보세요. 고유 속성에 접근하고 노출을 기록하는 방법도 포함됩니다. 보다 일반적인 정보는 [배너 정보]({{site.baseurl}}/developer_guide/banners)를 참조하세요.
 
 ## 배치 요청에 대하여 {#requests}
 
@@ -268,7 +268,7 @@ This feature is not currently supported on Roku.
 ### 4단계: 배치 ID를 사용하여 삽입 {#insertBanner}
 
 {% alert tip %}
-전체 단계별 튜토리얼은 [배치 ID로 배너 표시하기]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/)를 확인하세요.
+전체 단계별 튜토리얼은 [배치 ID로 배너 표시하기]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)를 확인하세요.
 {% endalert %}
 
 {% tabs %}
@@ -555,7 +555,7 @@ This feature is not currently supported on Roku.
 
 ### 5단계: 테스트 배너 보내기(선택 사항) {#handling-test-cards}
 
-배너 Campaign을 시작하기 전에 [테스트 배너를 전송]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=banners)하여 통합을 확인할 수 있습니다. 테스트 배너는 별도의 인메모리 캐시에 저장되며 앱 재시작 시 유지되지 않습니다. 추가 설정은 필요하지 않지만, 테스트를 표시할 수 있도록 테스트 기기가 포그라운드 푸시 알림을 수신할 수 있어야 합니다.
+배너 Campaign을 시작하기 전에 [테스트 배너를 전송]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=banners)하여 통합을 확인할 수 있습니다. 테스트 배너는 별도의 인메모리 캐시에 저장되며 앱 재시작 시 유지되지 않습니다. 추가 설정은 필요하지 않지만, 테스트를 표시할 수 있도록 테스트 기기가 포그라운드 푸시 알림을 수신할 수 있어야 합니다.
 
 {% alert note %}
 테스트 배너는 다음 앱 세션에서 제거된다는 점을 제외하면 다른 배너와 동일합니다.
@@ -583,13 +583,13 @@ Braze는 SDK 메서드를 사용하여 배너를 삽입할 때 보이는 배너�
 </button>
 ```
 
-전체 참조는 [배너를 위한 커스텀 코드 및 JavaScript 브리지]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-code)를 참조하세요. `brazeBridge`는 배너의 내부 HTML과 상위 Braze SDK 간의 통신 계층을 제공합니다.
+전체 참조는 [배너를 위한 커스텀 코드 및 JavaScript 브리지]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-code)를 참조하세요. `brazeBridge`는 배너의 내부 HTML과 상위 Braze SDK 간의 통신 계층을 제공합니다.
 
 ### 커스텀 UI 구현(헤드리스) {#custom-ui-implementations-headless}
 
 배너의 [커스텀 속성](#custom-properties)을 사용하여 배너 HTML을 렌더링하는 대신 완전히 커스텀 UI를 구축하는 경우, 애플리케이션 코드에서 클릭과 노출을 수동으로 기록해야 합니다. SDK가 배너를 렌더링하지 않기 때문에 커스텀 UI 요소와의 상호작용을 자동으로 추적할 방법이 없습니다.
 
-메서드 시그니처 및 전체 세부 정보는 [Braze SDK 참조 문서]({{site.baseurl}}/developer_guide/references/)를 참조하세요.
+메서드 시그니처 및 전체 세부 정보는 [Braze SDK 참조 문서]({{site.baseurl}}/developer_guide/references)를 참조하세요.
 
 #### 노출 기록 {#logging-impressions}
 
@@ -867,7 +867,7 @@ bannerView.onDismiss = { dismissedBanner in
 
 ### 필수 조건
 
-배너 Campaign에 [커스텀 속성을 추가]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-properties)해야 합니다. 또한 커스텀 속성에 접근하기 위해 필요한 최소 SDK 버전은 다음과 같습니다:
+배너 Campaign에 [커스텀 속성을 추가]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-properties)해야 합니다. 또한 커스텀 속성에 접근하기 위해 필요한 최소 SDK 버전은 다음과 같습니다:
 
 {% sdk_min_versions swift:13.1.0 android:38.0.0 web:6.1.0 reactnative:17.0.0 flutter:15.1.0 %}
 

@@ -13,13 +13,13 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Consult
 /sms/invalid_phone_numbers
 {% endapimethod %}
 
-> Use esse endpoint para obter uma lista de números de telefone que foram marcados como "inválidos" em um determinado período de tempo. Para saber mais, consulte a documentação sobre [tratamento de números de telefone inválidos]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers/#handling-invalid-phone-numbers).
+> Use esse endpoint para obter uma lista de números de telefone que foram marcados como "inválidos" em um determinado período de tempo. Para saber mais, consulte a documentação sobre [tratamento de números de telefone inválidos]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers#handling-invalid-phone-numbers).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81ceae19-15d1-4ac1-ad22-a6b86a92456d {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `sms.invalid_phone_numbers`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `sms.invalid_phone_numbers`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -35,7 +35,7 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | `offset` | Opcional | Inteiro | Ponto inicial opcional na lista a ser recuperado. |
 | `phone_numbers` | Opcional <br>(ver nota) | Matriz de strings no formato e.164 | Se fornecido, retornaremos o número de telefone caso ele tenha sido considerado inválido. |
 | `reason` | Opcional <br>(ver nota) | String | Os valores disponíveis são "provider_error" (o erro do provedor indica que o telefone não pode receber SMS) ou "deactivated" (o número de telefone foi desativado). Se omitido, todos os motivos são retornados. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 {% alert note %}
 Você deve fornecer um `start_date` e um `end_date` OU `phone_numbers`. Se você fornecer todos os três, `start_date`, `end_date` e `phone_numbers`, priorizaremos os números de telefone fornecidos e desconsideraremos o intervalo de datas.

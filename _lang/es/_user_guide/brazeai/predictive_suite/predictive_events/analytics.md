@@ -12,7 +12,7 @@ page_order: 1.3
 
 ## Acerca del análisis predictivo de eventos {#about-predictive-event-analytics}
 
-En cuanto la predicción haya terminado de entrenarse y esta página esté llena, puedes empezar a utilizar [filtros]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users/#filters) en segmentos o campañas para empezar a utilizar los resultados del modelo. Si quieres ayuda para decidir a quién dirigirte y por qué, esta página puede ayudarte basándose en la precisión histórica del modelo y en tus propios objetivos de negocio.
+En cuanto la predicción haya terminado de entrenarse y esta página esté llena, puedes empezar a utilizar [filtros]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users#filters) en segmentos o campañas para empezar a utilizar los resultados del modelo. Si quieres ayuda para decidir a quién dirigirte y por qué, esta página puede ayudarte basándose en la precisión histórica del modelo y en tus propios objetivos de negocio.
 
 Estos son los componentes que conforman el análisis predictivo de eventos:
 
@@ -25,7 +25,7 @@ La distribución de las puntuaciones de probabilidad de toda la audiencia de pre
 
 A medida que muevas los controles deslizantes a diferentes posiciones, la barra de la mitad izquierda del panel te informará de cuántos usuarios de toda la audiencia de predicción serían objetivo utilizando la parte de la población que hayas seleccionado.
 
-![]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"}
+![A medida que muevas los controles deslizantes a diferentes posiciones, la barra de la mitad izquierda del panel te informará de cuántos usuarios de toda la audiencia de predicción serían objetivo utilizando la parte de la población que hayas seleccionado.]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"}
 
 ## Puntuación de probabilidad {#purchase_score}
 
@@ -41,10 +41,10 @@ Las puntuaciones y las categorías correspondientes se actualizarán según el c
 
 ### Acceso a las puntuaciones de probabilidad a nivel de usuario {#accessing-user-level-likelihood-scores}
 
-Para ver la puntuación de probabilidad de un solo usuario, busca a ese usuario en el dashboard y ve a **Engagement** > **Predictions** para ver su puntuación. Para acceder a las puntuaciones y categorías de muchos usuarios a la vez, crea un [segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) utilizando los filtros [Puntuación de probabilidad de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#event-likelihood-score) o [Categoría de probabilidad de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#event-likelihood-category) y, a continuación, exporta los usuarios de ese segmento. Al exportar, puedes incluir las puntuaciones de probabilidad en los datos exportados.
+Para ver la puntuación de probabilidad de un solo usuario, busca a ese usuario en el dashboard y ve a **Engagement** > **Predictions** para ver su puntuación. Para acceder a las puntuaciones y categorías de muchos usuarios a la vez, crea un [segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) utilizando los filtros [Puntuación de probabilidad de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score) o [Categoría de probabilidad de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-category) y, a continuación, exporta los usuarios de ese segmento. Al exportar, puedes incluir las puntuaciones de probabilidad en los datos exportados.
 
 {% alert note %}
-Aunque tanto Predictive Events como [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) asignan puntuaciones a los usuarios, existen diferencias importantes:<br><br>
+Aunque tanto Predictive Events como [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) asignan puntuaciones a los usuarios, existen diferencias importantes:<br><br>
 
 - **Predictive Events** (predicciones de compra): tienen en cuenta a todos los usuarios de la audiencia de predicción, independientemente de si han realizado el evento objetivo anteriormente. Por ejemplo, una predicción de compra puede identificar a los usuarios que probablemente vayan a realizar su primera compra.
 - **Predictive Churn**: solo tiene en cuenta a los usuarios que ya han realizado el evento personalizado. Las predicciones de cancelación identifican a los usuarios que han hecho algo anteriormente y es probable que dejen de hacerlo. Un usuario que nunca ha iniciado sesión no puede considerarse «perdido» si no inicia sesión.
@@ -78,7 +78,7 @@ Utilizando esta información, te animamos a que decidas cuántos de los verdader
 
 ## Tabla de correlación de eventos {#correlation_table}
 
-Este análisis muestra los atributos o comportamientos de los usuarios que están correlacionados con los eventos de la audiencia de predicción. Los atributos evaluados son edad, país, sexo e idioma. Los comportamientos que se analizan incluyen sesiones, compras, total de dólares gastados, eventos personalizados, y Campaigns y pasos en Canvas recibidos en los últimos 30 días.
+Este análisis muestra los atributos o comportamientos de los usuarios que están correlacionados con los eventos de la audiencia de predicción. Los atributos evaluados son edad, país, sexo e idioma. Los comportamientos que se analizan incluyen sesiones, compras, total de dólares gastados, eventos personalizados, y campañas y pasos en Canvas recibidos en los últimos 30 días.
 
 Las tablas se dividen en izquierda y derecha para los más y los menos propensos a realizar el evento, respectivamente. Para cada fila, en la columna de la derecha se muestra la proporción en la que los usuarios con el comportamiento o atributo de la columna de la izquierda tienen más o menos probabilidades de realizar el evento. Este número es el cociente de las puntuaciones de probabilidad de los usuarios con este comportamiento o atributo dividido por la probabilidad de realizar el evento de toda la audiencia de predicción.
 

@@ -15,11 +15,11 @@ description: "この記事では、`PUT /media_library/replace_file` エンド�
 /media_library/replace_file
 {% endapimethod %}
 
-> このエンドポイントを使用して、[Brazeメディアライブラリ]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/)内の既存アセットのファイルを、アセットIDとURLを保持したまま置換できます。置換ファイルは、外部ホストURL（`asset_url`）またはリクエストボディで送信するバイナリファイルデータ（`asset_file`）のいずれかで指定できます。
+> このエンドポイントを使用して、[Brazeメディアライブラリ]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library)内の既存アセットのファイルを、アセットIDとURLを保持したまま置換できます。置換ファイルは、外部ホストURL（`asset_url`）またはリクエストボディで送信するバイナリファイルデータ（`asset_file`）のいずれかで指定できます。
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`media_library.replace` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`media_library.replace` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -54,7 +54,7 @@ description: "この記事では、`PUT /media_library/replace_file` エンド�
 | `asset_id` | 必須 | 文字列 | 置換するアセットのID。 |
 | `asset_url` | オプション | 文字列 | 置換ファイルの公開アクセス可能なURL。 |
 | `asset_file` | オプション | バイナリ | 置換ファイルのバイナリファイルデータ。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request body" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="リクエストボディ" }
 
 {% alert important %}
 `asset_url` と `asset_file` は相互に排他的です。APIリクエストにはどちらか一方のみを含める必要があります。
@@ -107,7 +107,7 @@ curl -X PUT --location 'https://rest.iad-01.braze.com/media_library/replace_file
 | --- | --- | --- |
 | 400 | "asset_id is required." | リクエストにアセットIDが指定されていません。 |
 | 400 | "Either file or asset_url is required." | `asset_file` も `asset_url` も指定されていません。いずれか一方が必要です。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validation errors" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="バリデーションエラー" }
 
 #### 処理エラー {#processing-errors}
 
@@ -131,8 +131,8 @@ curl -X PUT --location 'https://rest.iad-01.braze.com/media_library/replace_file
 | `UNSUPPORTED_ASSET_TYPE_FOR_REPLACE` | 400 | このアセットタイプ（動画など）ではファイルの置換がサポートされていません。`meta` オブジェクトには `asset_type` が含まれます。 |
 | `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | ファイルが許可される最大サイズを超えています。`meta` オブジェクトには `size_limit_bytes` と `file_size_bytes` が含まれます。 |
 | `CORRUPT_FILE` | 400 | 画像ファイルが破損しているか読み取れません。`meta` オブジェクトには `file_name` が含まれます。 |
-| `GENERIC_ERROR` | 500 | ファイルの置換中に予期しないエラーが発生しました。`meta` オブジェクトにはデバッグ用の `original_error` が含まれます。再試行するか、[サポート]({{site.baseurl}}/support_contact/)にお問い合わせください。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Processing errors" }
+| `GENERIC_ERROR` | 500 | ファイルの置換中に予期しないエラーが発生しました。`meta` オブジェクトにはデバッグ用の `original_error` が含まれます。再試行するか、[サポート]({{site.baseurl}}/support_contact)にお問い合わせください。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="処理エラー" }
 
 ## 応答 {#response}
 

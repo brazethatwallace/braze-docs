@@ -24,7 +24,7 @@ Os usuários podem ser `opted_in`, `unsubscribed` ou `subscribed` (sem aceitaç�
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `email.status`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `email.status`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -39,22 +39,22 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ```json
 {
-  "email": "example@braze.com",
+  "email": "example@example.com",
   "subscription_state": "subscribed"
 }
 ```
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatório | Tipo de dados | Descrição |
+| Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `email` | Obrigatório | String ou matriz | Endereço de e-mail em string para modificar ou uma matriz de até 50 endereços de e-mail para modificar. |
-| `subscription_state` | Obrigatório | String | "subscribed", "unsubscribed" ou "opted_in". |
+| `email` | Obrigatória | String ou matriz | Endereço de e-mail em string para modificar ou uma matriz de até 50 endereços de e-mail para modificar. |
+| `subscription_state` | Obrigatória | String | "subscribed", "unsubscribed" ou "opted_in". |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Solução de problemas com bloqueios de e-mail do SendGrid {#troubleshooting-sendgrid-email-blocks}
 
-Quando o SendGrid bloqueia um destinatário, atualize o status da inscrição com esse endpoint e revise o engajamento usando filtros de segmento. Use os eventos de soft bounce do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) para monitoramento de entregabilidade e confirme o estado da inscrição antes de tentar reenviar.
+Quando o SendGrid bloqueia um destinatário, atualize o status da inscrição com esse endpoint e revise o engajamento usando filtros de segmento. Use os eventos de soft bounce do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) para monitoramento de entregabilidade e confirme o estado da inscrição antes de tentar reenviar.
 
 ## Exemplo de solicitação {#example-request}
 ```
@@ -62,7 +62,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/email/status' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
 --data-raw '{
-  "email": "example@braze.com",
+  "email": "example@example.com",
   "subscription_state": "subscribed"
 }'
 ```

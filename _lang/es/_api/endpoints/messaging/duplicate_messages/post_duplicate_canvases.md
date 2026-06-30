@@ -44,7 +44,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id` | Obligatorio | Cadena | Ver [identificador de Canvas]({{site.baseurl}}/api/identifier_types/). |
+| `canvas_id` | Obligatorio | Cadena | Ver [identificador de Canvas]({{site.baseurl}}/api/identifier_types). |
 | `name` | Obligatorio | Cadena | El nombre del Canvas resultante. |
 | `description` | Opcional | Cadena | El campo de descripción del Canvas resultante. |
 | `tag_names` | Opcional | Cadena | Las etiquetas del Canvas resultante. Deben ser etiquetas existentes. Si añades nuevas etiquetas en la solicitud, sobrescribirán cualquier etiqueta que hubiera en el Canvas original. |

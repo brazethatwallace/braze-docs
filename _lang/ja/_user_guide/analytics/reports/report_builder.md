@@ -143,7 +143,7 @@ Canvasのバリアントやステップについてレポートする場合は�
 1. レポートテーブルの上部にあるドットアイコンを選択します。
 2. **ダッシュボードに追加**を選択します。
 3. 新しいダッシュボードを作成するか、既存のダッシュボードに追加するかを選択します。<br><br>![レポートを新しいダッシュボードに追加するか既存のダッシュボードに追加するかを選択するオプションが表示されたウィンドウ。]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
-4. ダッシュボードの構築について詳しくは、[ダッシュボードビルダー]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/)の手順に従ってください。
+4. ダッシュボードの構築について詳しくは、[ダッシュボードビルダー]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder)の手順に従ってください。
 
 ## トラブルシューティング {#troubleshooting}
 
@@ -157,4 +157,4 @@ CampaignまたはCanvasは、その**最終送信日**が設定した**最終送
 
 レポートのダウンロードリンクは1時間で期限切れになります。リンクの有効期限が切れた場合は、新しいレポートを生成し、1時間以内にダウンロードしてください。有効期限を延長する方法はありません。
 
-**パートナー連携**で[Amazon S3バケット]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3/)を接続している場合は、S3バケットを直接参照して古いレポートのデータを取得できる場合があります。
+**パートナー連携**で[Amazon S3バケット]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3)を接続している場合は、S3バケットを直接参照して古いレポートのデータを取得できる場合があります。

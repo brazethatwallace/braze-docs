@@ -14,7 +14,7 @@ description: "Este artigo descreve os detalhes sobre o endpoint da Braze para re
 /email/unsubscribes
 {% endapimethod %}
 
-> Use esse endpoint para retornar os e-mails mais recentes que cancelaram inscrição durante o período de `start_date` a `end_date`. Para obter um histórico completo do estado da inscrição, use o [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) para rastrear esses dados.
+> Use esse endpoint para retornar os e-mails mais recentes que cancelaram inscrição durante o período de `start_date` a `end_date`. Para obter um histórico completo do estado da inscrição, use o [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) para rastrear esses dados.
 
 Você pode usar esse endpoint para configurar uma sincronização bidirecional entre a Braze e outros sistemas de e-mail ou seu próprio banco de dados.
 
@@ -22,7 +22,7 @@ Você pode usar esse endpoint para configurar uma sincronização bidirecional e
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `email.unsubscribe`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `email.unsubscribe`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -48,7 +48,7 @@ Se o seu intervalo de datas tiver mais do que `limit` cancelamentos de inscriç�
 
 ## Exemplo de solicitação {#example-request}
 ```
-curl --location --request GET 'https://rest.iad-01.braze.com/email/unsubscribes?start_date=2020-01-01&end_date=2020-02-01&limit=1&offset=1&sort_direction=desc&email=example@braze.com' \
+curl --location --request GET 'https://rest.iad-01.braze.com/email/unsubscribes?start_date=2020-01-01&end_date=2020-02-01&limit=1&offset=1&sort_direction=desc&email=example@example.com' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE'
 ```
 

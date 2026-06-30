@@ -16,4 +16,4 @@ description: "このリファレンス記事では、オペレーターを使用
 
 {% multi_lang_include brazeai/generative_ai/access_data_transformation.md %}
 
-プロンプトの例を含む詳細については、[オペレーターの機能でデータ変換コードを生成する]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-data-transformation-code)を参照してください。
+プロンプトの例を含む詳細については、[オペレーターの機能でデータ変換コードを生成する]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code)を参照してください。

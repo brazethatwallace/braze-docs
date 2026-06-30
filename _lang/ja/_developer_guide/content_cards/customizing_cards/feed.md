@@ -14,7 +14,7 @@ platform:
 
 # Content Cards用のフィードをカスタマイズする {#customize-the-feed-for-content-cards}
 
-> Content Cardsフィードは、モバイルまたはWebアプリケーションにおける一連のContent Cardsです。この記事では、フィードの更新タイミングの設定、カードの順序、複数フィードの管理、「空のフィード」エラーメッセージについて説明します。コンテンツカードタイプの完全なリストについては、[Content Cardsについて]({{site.baseurl}}/developer_guide/content_cards/)を参照してください。
+> Content Cardsフィードは、モバイルまたはWebアプリケーションにおける一連のContent Cardsです。この記事では、フィードの更新タイミングの設定、カードの順序、複数フィードの管理、「空のフィード」エラーメッセージについて説明します。コンテンツカードタイプの完全なリストについては、[Content Cardsについて]({{site.baseurl}}/developer_guide/content_cards)を参照してください。
 
 {% multi_lang_include developer_guide/_shared/about_session_lifecycle.md %}
 
@@ -50,7 +50,7 @@ function refresh() {
 }
 ```
 
-Content Cardsのリンクを同じタブではなく新しいブラウザタブで開くには、Web SDKの初期化オプションで`openCardsInNewTab: true`を設定します。初期化オプションの詳細については、[Web SDKリポジトリガイド]({{site.baseurl}}/developer_guide/sdk_repository_guides/web/)を参照してください。
+Content Cardsのリンクを同じタブではなく新しいブラウザタブで開くには、Web SDKの初期化オプションで`openCardsInNewTab: true`を設定します。初期化オプションの詳細については、[Web SDKリポジトリガイド]({{site.baseurl}}/developer_guide/sdk_repository_guides/web)を参照してください。
 
 {% endtab %}
 {% tab android %}
@@ -128,7 +128,7 @@ Brazeはトークンバケットアルゴリズムを使用して、次のレー
 - `subscribeToContentCards()`はレート制限中でもキャッシュされたカードを返します
 
 {% alert important %}
-Braze SDKは、パフォーマンスと信頼性のためにレート制限も適用します。自動テストの実行時や手動QAの実施時には、この点にご注意ください。詳細については、[Braze SDKのレート制限]({{site.baseurl}}/developer_guide/sdk_integration/rate_limits/)を参照してください。
+Braze SDKは、パフォーマンスと信頼性のためにレート制限も適用します。自動テストの実行時や手動QAの実施時には、この点にご注意ください。詳細については、[Braze SDKのレート制限]({{site.baseurl}}/developer_guide/sdk_integration/rate_limits)を参照してください。
 {% endalert %}
 
 ## 表示されるカードの順序をカスタマイズする {#customizing-displayed-card-order}
@@ -385,7 +385,7 @@ Web SDKでは、「空のフィード」の文言をプログラムで置き換�
 </style>
 ```
 
-Content Cardsのスタイル要素のカスタマイズについて詳しくは、[スタイルのカスタマイズ]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style/)を参照してください。
+Content Cardsのスタイル要素のカスタマイズについて詳しくは、[スタイルのカスタマイズ]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style)を参照してください。
 {% endsubtab %}
 {% subtab Jetpack Compose %}
 Jetpack Composeで「空のフィード」エラーメッセージをカスタマイズするには、`emptyString`を[`ContentCardsList`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards/-content-cards-list.html)に渡します。また、[`emptyTextStyle`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-list-styling/index.html#1193499348%2FProperties%2F-1725759721)を`ContentCardListStyling`に渡して、このメッセージをさらにカスタマイズすることもできます。
@@ -447,7 +447,7 @@ Content Cardsはアプリ内でフィルタリングして特定のカードの�
 
 ### ステップ1:カードにキーと値のペアを設定する {#step-1-set-key-value-pairs-on-cards}
 
-Content Cards Campaignを作成する際に、各カードに[キーと値のペアデータ]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior/)を設定します。このキーと値のペアを使用してカードを分類します。キーと値のペアは、カードのデータモデルの`extras`プロパティに保存されます。
+Content Cards Campaignを作成する際に、各カードに[キーと値のペアデータ]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior)を設定します。このキーと値のペアを使用してカードを分類します。キーと値のペアは、カードのデータモデルの`extras`プロパティに保存されます。
 
 この例では、カードが表示されるContent Cardsフィードを指定するキー`feed_type`を使用してキーと値のペアを設定します。値は、`home_screen`や`marketing`など、カスタムフィードに応じた任意の値になります。
 

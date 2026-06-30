@@ -8,7 +8,7 @@ description: "Braze SDKでユーザー IDを設定する方法を学習します
 
 # ユーザー IDを設定する {#set-user-ids}
 
-> Braze SDKでユーザー IDを設定する方法を学習します。これは、デバイスやプラットフォームを超えてユーザーを追跡し、[ユーザーデータAPI]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)を通じてユーザーデータをインポートし、[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging/)を通じてターゲットメッセージを送信するための一意の識別子です。ユーザーに固有のIDを割り当てない場合、Brazeは代わりに匿名IDを割り当てますが、割り当てるまでこれらの機能を使用することはできません。
+> Braze SDKでユーザー IDを設定する方法を学習します。これは、デバイスやプラットフォームを超えてユーザーを追跡し、[ユーザーデータAPI]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data)を通じてユーザーデータをインポートし、[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging)を通じてターゲットメッセージを送信するための一意の識別子です。ユーザーに固有のIDを割り当てない場合、Brazeは代わりに匿名IDを割り当てますが、割り当てるまでこれらの機能を使用することはできません。
 
 {% alert note %}
 リストされていないラッパーSDKの場合は、代わりに関連するネイティブAndroidまたはSwiftメソッドを使用してください。
@@ -23,7 +23,7 @@ description: "Braze SDKでユーザー IDを設定する方法を学習します
 ユーザーが識別される前にデータを収集しないユースケースの場合、ユーザーがログインして `external_id` が利用可能になるまでBraze SDKの初期化を遅延させることができます。コード内にフラグを設定し、ユーザーがサインインしたときに `true` に切り替え、そのフラグが設定されている場合にのみSDKを初期化します。
 
 {% alert warning %}
-初期化の遅延は、ユーザーがアプリを**初めて**ダウンロードしたとき（`external_id` が設定される前）にのみ行ってください。ユーザーがサインアウトしたり新しいセッションを開始したりするたびにSDKの初期化を妨げると、アプリ内メッセージやコンテンツカードアセットのプリフェッチに干渉し、それらのキャンペーンの配信エラーにつながる可能性があります。
+初期化の遅延は、ユーザーがアプリを**初めて**ダウンロードしたとき（`external_id` が設定される前）にのみ行ってください。ユーザーがサインアウトしたり新しいセッションを開始したりするたびにSDKの初期化を妨げると、アプリ内メッセージやコンテンツカードアセットのプリフェッチに干渉し、それらのCampaignsの配信エラーにつながる可能性があります。
 {% endalert %}
 
 ## ユーザー IDの設定 {#setting-a-user-id}
@@ -50,12 +50,12 @@ braze.changeUser(YOUR_USER_ID_STRING);
 {% tab ANDROID %}
 {% subtabs %}
 {% subtab JAVA %}
-`````````java
+```java
 Braze.getInstance(context).changeUser(YOUR_USER_ID_STRING);
 ```
 {% endsubtab %}
 {% subtab KOTLIN %}
-`````````kotlin
+```kotlin
 Braze.getInstance(context).changeUser(YOUR_USER_ID_STRING)
 ```
 {% endsubtab %}
@@ -65,12 +65,12 @@ Braze.getInstance(context).changeUser(YOUR_USER_ID_STRING)
 {% tab SWIFT %}
 {% subtabs %}
 {% subtab swift %}
-`````````swift
+```swift
 AppDelegate.braze?.changeUser(userId: "YOUR_USER_ID")
 ```
 {% endsubtab %}
 {% subtab objective-c %}
-`````````objc
+```objc
 [AppDelegate.braze changeUser:@"YOUR_USER_ID_STRING"];
 ```
 {% endsubtab %}
@@ -78,25 +78,25 @@ AppDelegate.braze?.changeUser(userId: "YOUR_USER_ID")
 {% endtab %}
 
 {% tab CORDOVA %}
-`````````javascript
+```javascript
 BrazePlugin.changeUser("YOUR_USER_ID");
 ```
 {% endtab %}
 
 {% tab ROKU %}
-`````````brightscript
+```brightscript
 m.Braze.setUserId(YOUR_USER_ID_STRING)
 ```
 {% endtab %}
 
 {% tab UNITY %}
-`````````csharp
+```csharp
 AppboyBinding.ChangeUser("YOUR_USER_ID_STRING");
 ```
 {% endtab %}
 
 {% tab REACT NATIVE %}
-`````````javascript
+```javascript
 Braze.changeUser("YOUR_USER_ID_STRING");
 ```
 {% endtab %}
@@ -131,7 +131,7 @@ Braze.changeUser("YOUR_USER_ID_STRING");
 
 {% tabs local %}
 {% tab web %}
-`````````javascript
+```javascript
 braze.getUser().addAlias(ALIAS_NAME, ALIAS_LABEL);
 ```
 {% endtab %}
@@ -139,13 +139,13 @@ braze.getUser().addAlias(ALIAS_NAME, ALIAS_LABEL);
 {% tab android %}
 {% subtabs %}
 {% subtab java %}
-`````````java
+```java
 Braze.getInstance(context).getCurrentUser().addAlias(ALIAS_NAME, ALIAS_LABEL);
 ```
 {% endsubtab %}
 
 {% subtab kotlin %}
-`````````kotlin
+```kotlin
 Braze.getInstance(context).currentUser?.addAlias(ALIAS_NAME, ALIAS_LABEL)
 ```
 {% endsubtab %}
@@ -155,13 +155,13 @@ Braze.getInstance(context).currentUser?.addAlias(ALIAS_NAME, ALIAS_LABEL)
 {% tab swift %}
 {% subtabs %}
 {% subtab swift %}
-`````````swift
+```swift
 Appboy.sharedInstance()?.user.addAlias(ALIAS_NAME, ALIAS_LABEL)
 ```
 {% endsubtab %}
 
 {% subtab objective-c %}
-`````````objc
+```objc
  [[Appboy sharedInstance].user addAlias:ALIAS_NAME withLabel:ALIAS_LABEL];
 ```
 {% endsubtab %}
@@ -178,7 +178,7 @@ Appboy.sharedInstance()?.user.addAlias(ALIAS_NAME, ALIAS_LABEL)
 {% endtab %}
 
 {% tab react native %}
-`````````javascript
+```javascript
 Braze.addAlias("ALIAS_NAME", "ALIAS_LABEL");
 ```
 {% endtab %}
@@ -188,22 +188,22 @@ Braze.addAlias("ALIAS_NAME", "ALIAS_LABEL");
 
 ユーザー IDは、[Universally Unique Identifier (UUID)](https://en.wikipedia.org/wiki/Universally_unique_identifier) 標準を使用して作成することをおすすめします。UUIDは、ランダムで適切に分散された128ビットの文字列です。
 
-あるいは、既存の一意識別子（名前やメールアドレスなど）をハッシュ化してユーザー IDを生成することもできます。その場合は、必ず[SDK認証]({{site.baseurl}}/developer_guide/sdk_integration/authentication/)を実装し、ユーザーのなりすましを防いでください。
+あるいは、既存の一意識別子（名前やメールアドレスなど）をハッシュ化してユーザー IDを生成することもできます。その場合は、必ず[SDK認証]({{site.baseurl}}/developer_guide/sdk_integration/authentication)を実装し、ユーザーのなりすましを防いでください。
 
 {% alert warning %}
 ユーザー IDには推測されやすい値や連番を使用しないでください。これにより、組織が悪意のある攻撃やデータ漏洩にさらされる可能性があります。
 
-セキュリティを強化するには、[SDK認証]({{site.baseurl}}/developer_guide/sdk_integration/authentication/)を使用してください。
+セキュリティを強化するには、[SDK認証]({{site.baseurl}}/developer_guide/sdk_integration/authentication)を使用してください。
 {% endalert %}
 
-最初からユーザー IDに正しい名前をつけることが重要ですが、将来的にはいつでも[`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/) エンドポイントを使って変更できます。
+最初からユーザー IDに正しい名前をつけることが重要ですが、将来的にはいつでも[`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration)エンドポイントを使って変更できます。
 
 | 推奨されないIDの種類 | 推奨されない例 |
 | ------------ | ----------- |
 | ユーザーが閲覧可能なプロファイルIDまたはユーザー名 | JonDoe829525552 |
 | メールアドレス | Anna@email.com |
 | 自動増分するユーザー ID | 123 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ID Naming best practices" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ID命名のベストプラクティス" }
 
 {% alert warning %}
 ユーザー IDの作成方法に関する詳細を共有することは避けてください。これにより、組織が悪意のある攻撃やデータ漏洩にさらされる可能性があります。

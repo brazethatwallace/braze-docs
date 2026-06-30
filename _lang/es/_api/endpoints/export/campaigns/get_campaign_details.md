@@ -16,13 +16,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 > Utiliza este punto de conexión para recuperar información relevante sobre una campaña especificada, que puede identificarse mediante `campaign_id`.
 
-Si quieres recuperar datos de Canvas, consulta el punto de conexión [Exportar detalles de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/).
+Si quieres recuperar datos de Canvas, consulta el punto de conexión [Exportar detalles de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aad2a811-7237-43b1-9d64-32042eabecd9 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `campaigns.details`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `campaigns.details`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -32,10 +32,10 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | Obligatorio | Cadena | Ver [identificador de API de campaña]({{site.baseurl}}/api/identifier_types/).<br><br> Puedes encontrar el `campaign_id` para las campañas de API en la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) y en la página **Campaign Details** dentro de tu dashboard; o puedes utilizar el [punto de conexión Exportar lista de campañas](#campaign-list-endpoint). |
+| `campaign_id` | Obligatorio | Cadena | Ver [identificador de API de campaña]({{site.baseurl}}/api/identifier_types).<br><br> Puedes encontrar el `campaign_id` para las campañas de API en la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) y en la página **Campaign Details** dentro de tu dashboard; o puedes utilizar el [punto de conexión Exportar lista de campañas](#campaign-list-endpoint). |
 | `post_launch_draft_version` | Opcional | Booleano | Para los mensajes que tienen un borrador posterior al lanzamiento, configurar esto en `true` mostrará los cambios disponibles en el borrador. Predeterminado: `false`. |
 | `include_has_translatable_content` | Opcional | Booleano | Cuando se establece en `true`, la respuesta de la API incluye un campo `has_translatable_content` para cada mensaje. Predeterminado: `false`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 {% raw %}
@@ -329,7 +329,7 @@ La matriz `conversion_behaviors` contiene información sobre cada comportamiento
 {% endtabs %}
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y de API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y de API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

@@ -10,7 +10,7 @@ channel:
 
 # Video in benutzerdefinierten HTML-In-App-Nachrichten {#video}
 
-> Dieser Artikel gilt für [benutzerdefinierte HTML-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/) im [traditionellen Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+> Dieser Artikel gilt für [benutzerdefinierte HTML-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html) im [traditionellen Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 ## Videos einbetten {#embed-videos}
 
@@ -32,9 +32,9 @@ Videoinhalte sind nur verfügbar, wenn das Gerät eine angemessene Netzwerkgesch
 
 ## Hinweise für Android {#android-considerations}
 
-Um Videos und andere HTML5-Inhalte in HTML-In-App-Nachrichten auf Android einzubetten, muss die Hardwarebeschleunigung in der Activity aktiviert sein, in der die In-App-Nachricht angezeigt wird. Weitere Informationen finden Sie im [Android-Entwicklerhandbuch]({{site.baseurl}}/developer_guide/in_app_messages/html_messages/#android_embedding-youtube-content).
+Um Videos und andere HTML5-Inhalte in HTML-In-App-Nachrichten auf Android einzubetten, muss die Hardwarebeschleunigung in der Activity aktiviert sein, in der die In-App-Nachricht angezeigt wird. Weitere Informationen finden Sie im [Android-Entwicklerhandbuch]({{site.baseurl}}/developer_guide/in_app_messages/html_messages#android_embedding-youtube-content).
 
-**Automatische Wiedergabe**: Auch bei aktivierter Hardwarebeschleunigung können Android-WebViews eine Geste der Nutzer:innen erfordern, um die Medienwiedergabe zu starten. Wenn Sie die automatische Wiedergabe benötigen, konfigurieren Sie die WebView, die zum Rendern von HTML-In-App-Nachrichten verwendet wird, so, dass die Anforderung einer Geste deaktiviert wird, indem Sie [`WebSettings.setMediaPlaybackRequiresUserGesture(false)`](https://developer.android.com/reference/android/webkit/WebSettings#setMediaPlaybackRequiresUserGesture(boolean)) setzen. Dies erfordert eine Anpassung auf SDK-Ebene, wie HTML-In-App-Nachrichten angezeigt werden. Eine Anleitung zur Einrichtung finden Sie unter [In-App-Nachrichten für das Braze SDK anpassen]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android).
+**Automatische Wiedergabe**: Auch bei aktivierter Hardwarebeschleunigung können Android-WebViews eine Geste der Nutzer:innen erfordern, um die Medienwiedergabe zu starten. Wenn Sie die automatische Wiedergabe benötigen, konfigurieren Sie die WebView, die zum Rendern von HTML-In-App-Nachrichten verwendet wird, so, dass die Anforderung einer Geste deaktiviert wird, indem Sie [`WebSettings.setMediaPlaybackRequiresUserGesture(false)`](https://developer.android.com/reference/android/webkit/WebSettings#setMediaPlaybackRequiresUserGesture(boolean)) setzen. Dies erfordert eine Anpassung auf SDK-Ebene, wie HTML-In-App-Nachrichten angezeigt werden. Eine Anleitung zur Einrichtung finden Sie unter [In-App-Nachrichten für das Braze SDK anpassen]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=android).
 
 ## Hinweise für iOS {#ios-considerations}
 
@@ -43,7 +43,7 @@ Zur Unterstützung von iOS-Geräten:
 - Sie müssen das Attribut `playsinline` einfügen, da die Vollbildwiedergabe nicht unterstützt wird.
 - **Die automatische Wiedergabe ist auf iOS nicht garantiert**. Das Wiedergabeverhalten auf iOS hängt von `WKWebView` und den Medienrichtlinien auf Betriebssystemebene ab und kann eine Geste der Nutzer:innen erfordern, selbst wenn `autoplay` und `muted` gesetzt sind. Testen Sie Ihre HTML-In-App-Nachricht auf Ihren Ziel-iOS-Versionen und -Geräten.
 
-Wenn die automatische Wiedergabe erforderlich ist und Ihre Tests zeigen, dass sie standardmäßig nicht funktioniert, können Sie die `WKWebViewConfiguration`, die von HTML-In-App-Nachrichten verwendet wird, anpassen, um die Anforderung einer Nutzeraktion für die Medienwiedergabe zu ändern, beispielsweise durch Setzen der Eigenschaft `mediaTypesRequiringUserActionForPlayback`. Dies erfordert eine Anpassung auf SDK-Ebene. Für Swift-Ressourcen siehe [In-App-Nachrichten für das Braze SDK anpassen]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=swift) und [Hinzufügen der Braze-JavaScript-Schnittstelle zu WebViews für Swift]({{site.baseurl}}/developer_guide/in_app_messages/html_messages/?sdktab=swift).
+Wenn die automatische Wiedergabe erforderlich ist und Ihre Tests zeigen, dass sie standardmäßig nicht funktioniert, können Sie die `WKWebViewConfiguration`, die von HTML-In-App-Nachrichten verwendet wird, anpassen, um die Anforderung einer Nutzeraktion für die Medienwiedergabe zu ändern, beispielsweise durch Setzen der Eigenschaft `mediaTypesRequiringUserActionForPlayback`. Dies erfordert eine Anpassung auf SDK-Ebene. Für Swift-Ressourcen siehe [In-App-Nachrichten für das Braze SDK anpassen]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=swift) und [Hinzufügen der Braze-JavaScript-Schnittstelle zu WebViews für Swift]({{site.baseurl}}/developer_guide/in_app_messages/html_messages?sdktab=swift).
 
 ## Hinweise für Web {#web-considerations}
 

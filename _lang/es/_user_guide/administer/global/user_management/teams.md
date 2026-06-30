@@ -36,9 +36,9 @@ Los administradores de Braze y los usuarios limitados con el permiso a nivel de 
 
 ### Limitar los permisos de un usuario de la empresa sin eliminar al usuario {#limit-company-user-permissions-without-deleting-a-user}
 
-Para impedir que un usuario de la empresa inicie sesión sin eliminar su cuenta, [suspende al usuario]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users). La suspensión pone la cuenta en un estado inactivo en el que el usuario no puede iniciar sesión.
+Para impedir que un usuario de la empresa inicie sesión sin eliminar su cuenta, [suspende al usuario]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users). La suspensión pone la cuenta en un estado inactivo en el que el usuario no puede iniciar sesión.
 
-Si el usuario debe poder seguir iniciando sesión con capacidades limitadas, ve a **Configuración** > **Usuarios de la empresa**, selecciona al usuario y edita sus permisos. Elimina los permisos a nivel de espacio de trabajo para Campaigns, Canvas, Segments y datos de usuario, y deja solo el acceso mínimo, por ejemplo, "Ver activos de la biblioteca de medios". Para más información, consulta [Editar los permisos de un usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#edit-a-users-permissions).
+Si el usuario debe poder seguir iniciando sesión con capacidades limitadas, ve a **Configuración** > **Usuarios de la empresa**, selecciona al usuario y edita sus permisos. Elimina los permisos a nivel de espacio de trabajo para Campaigns, Canvas, Segments y datos de usuario, y deja solo el acceso mínimo, por ejemplo, "Ver activos de la biblioteca de medios". Para más información, consulta [Editar los permisos de un usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
 
 Los permisos de equipo funcionan sobre los permisos de espacio de trabajo. Si asignas al usuario a un equipo, otorga solo los permisos mínimos a nivel de equipo que necesite y no otorgues permisos para Campaigns, Canvas, Segments o perfiles de usuario. El usuario permanece en el espacio de trabajo y puede iniciar sesión, pero no puede realizar la mayoría de las acciones de mensajería o audiencia.
 
@@ -102,7 +102,7 @@ Los siguientes son todos los permisos disponibles que puedes asignar a nivel de 
 - Editar informes del dashboard
 - Eliminar informes del dashboard
 
-Para ver las descripciones de lo que incluye cada permiso de usuario y cómo usarlos, consulta nuestra sección de [Permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Para ver las descripciones de lo que incluye cada permiso de usuario y cómo usarlos, consulta nuestra sección de [Permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ## Asignar etiquetas de equipo {#tags-and-filters}
 

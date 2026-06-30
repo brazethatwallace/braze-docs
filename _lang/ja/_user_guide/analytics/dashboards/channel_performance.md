@@ -37,12 +37,12 @@ toc_headers: h2
 | 送信数 | カウント | 日付範囲内の各日の送信数の合計 |
 | 配信率 | 率 | （日付範囲内の各日の配信数の合計）/（日付範囲内の各日の送信数の合計） |
 | バウンス率 | 率 | （日付範囲内の各日のバウンス数の合計）/（日付範囲内の各日の送信数の合計） |
-| 配信停止率 | 率 | （日付範囲内の各日のユニーク配信停止数の合計）/（日付範囲の配信数の合計）<br><br>ここではユニーク配信停止数を使用しており、キャンペーン分析、概要、レポートビルダーでも同様に使用されています。これらの配信停止は、すべてのソース（REST API、CSVインポート、メール、リスト配信停止など）にわたって記録されます。CampaignsおよびCanvas分析における配信停止率は、Brazeが配信したメールの配信停止リンクのクリックによって発生した配信停止です。 |
+| 配信停止率 | 率 | （日付範囲内の各日のユニーク配信停止数の合計）/（日付範囲の配信数の合計）<br><br>ここではユニーク配信停止数を使用しており、Campaign分析、概要、レポートビルダーでも同様に使用されています。これらの配信停止は、すべてのソース（REST API、CSVインポート、メール、リスト配信停止など）にわたって記録されます。CampaignsおよびCanvas分析における配信停止率は、Brazeが配信したメールの配信停止リンクのクリックによって発生した配信停止です。 |
 | ユニーク開封率 | 率 | （日付範囲内の各日のユニーク開封数の合計）/（日付範囲の配信数の合計） |
 | その他の開封率 | 率 | （日付範囲内の各日のその他の開封数の合計）/（日付範囲の配信数の合計）<br><br>その他の開封には、マシン開封として識別されていないメール（ユーザーがメールを開封した場合など）が含まれます。この指標はユニークではなく、合計開封数のサブ指標です。 |
 | ユニーククリック率 | 率 | （日付範囲内の各日のユニーククリック数の合計）/（日付範囲の配信数の合計） |
 | ユニーク開封後クリック率 | 率 | （日付範囲内の各日のユニーククリック数の合計）/（日付範囲内の各日のユニーク開封数の合計） |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How metrics are calculated" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="指標の計算方法" }
 
 {% endtab %}
 {% tab メールインサイト %}
@@ -63,14 +63,14 @@ CDNとしてCloudFrontを使用している場合は、ユーザーのユーザ�
 
 この「その他」カテゴリの内容をより詳しく理解するには、以下のいずれかのオプションを使用してユーザーエージェントを抽出できます。
 
-1. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)を使用すると、ユーザーのデバイスから取得された正確なユーザーエージェント文字列が送信されます。
-2. [クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)を活用してSQLを使用するか、[AIクエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/#generating-sql-with-the-ai-query-builder)を使用してユーザーエージェントを表示します。
+1. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)を使用すると、ユーザーのデバイスから取得された正確なユーザーエージェント文字列が送信されます。
+2. [クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)を活用してSQLを使用するか、[AIクエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder#generating-sql-with-the-ai-query-builder)を使用してユーザーエージェントを表示します。
 
 ![モバイル、デスクトップ、タブレット、その他のデバイスのクリック数を表示するデバイス別エンゲージメントレポート。最も多くのクリック数はモバイルデバイスで発生しています。]({% image_buster /assets/img/engagement_by_device_type.png %}){: style="max-width:70%;"}
 
 メール開封については、BrazeはGoogle Image Proxy、Apple Image Proxy、Yahoo Mail Proxyを分離します。これらのサービスは、メールが受信者に配信される前に、メール内のすべての埋め込み画像をキャッシュして読み込みます。その結果、受信者のサーバーではなくメールボックスプロバイダーのサーバーからメール開封がトリガーされ、メール開封数が膨らむ可能性があります。これらのサービスは、画像読み込み時のプライバシー、セキュリティ、パフォーマンス、効率性を向上させることを目的としています。また、これらのプロキシサービスはユーザーエージェントをマスクするため、受信者からの実際の開封が含まれる場合もあり、Brazeはユーザーエージェントを使用してプロキシデータを分類します。
 
-![モバイル、デスクトップ、タブレット、Apple Privacy Proxy、Google Image Proxy、Yahoo Mail Proxy、その他のクリック数を表示するデバイス別エンゲージメントレポート。最も多くの開封数はモバイルデバイスで発生しています。]({% image_buster /assets/img/engagement_by_device_type_proxy.png %}){: style="max-width:70%;"}
+![モバイル、デスクトップ、タブレット、Apple Privacy Proxy、Google Image Proxy、Yahoo Mail Proxy、その他の開封数を表示するデバイス別エンゲージメントレポート。最も多くの開封数はモバイルデバイスで発生しています。]({% image_buster /assets/img/engagement_by_device_type_proxy.png %}){: style="max-width:70%;"}
 
 #### メールボックスプロバイダー別エンゲージメント {#engagement-by-mailbox-provider}
 
@@ -90,7 +90,7 @@ CDNとしてCloudFrontを使用している場合は、ユーザーのユーザ�
 
 ![午前0時から午後11時までの開封数またはクリック数を表示する時間帯別エンゲージメントレポートの例。]({% image_buster /assets/img_archive/time_engagement_day.png %})
 
-メールの分析の詳細については、[メールレポート]({{site.baseurl}}/user_guide/channels/email/reporting/)をご確認ください。
+メールの分析の詳細については、[メールレポート]({{site.baseurl}}/user_guide/channels/email/reporting)をご確認ください。
 
 {% endtab %}
 {% tab SMSパフォーマンス %}
@@ -114,7 +114,7 @@ SMSパフォーマンスダッシュボードを使用するには、**Analytics
 | クリック率 | 率 | （日付範囲内の各日のクリック数の合計）/（日付範囲内の各日の配信数の合計） |
 | 合計オプトイン数 | 率 | 日付範囲内の各日の受信メッセージオプトイン数の合計 |
 | 合計オプトアウト数 | 率 | 日付範囲内の各日の受信メッセージオプトアウト数の合計 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How metrics are calculated" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="指標の計算方法" }
 
 {% endtab %}
 {% tab プッシュパフォーマンス %}
@@ -139,7 +139,7 @@ SMSパフォーマンスダッシュボードを使用するには、**Analytics
 | 直接開封率 | 率 | （日付範囲内の各日の直接開封数の合計）/（日付範囲内の各日の配信数の合計） |
 | 影響開封率 | 率 | （日付範囲内の各日の影響開封数の合計）/（日付範囲内の各日の配信数の合計） |
 | 合計開封率 | 率 | （日付範囲内の各日の合計開封数の合計）/（日付範囲内の各日の配信数の合計）<br><br>合計開封数には、直接開封数と影響開封数の両方が含まれます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How metrics are calculated" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="指標の計算方法" }
 
 {% endtab %}
 {% endtabs %}
@@ -185,18 +185,18 @@ SMSパフォーマンスダッシュボードを使用するには、**Analytics
 
 <!---Temporarily hidden until functionality is added
 
-## Empty values in your data
+## Empty values in your data {#empty-values-in-your-data}
 
-#### If a metric displays "0%" or "0"
+#### If a metric displays "0%" or "0" {#if-a-metric-displays-0-or-0}
 
 This means Braze recorded zero for that particular metric during the time frame you've selected.
 
-#### If a metric displays "N/A"
+#### If a metric displays "N/A" {#if-a-metric-displays-na}
 
 This means that while Braze recorded positive counts for a particular metric for the time frame you've selected, the denominator for the rate calculation (either sends or deliveries in most cases) was zero. This can occur when emails are sent out on one day and opens and clicks are recorded the following days if your selected time frame does not include the date the messages were sent.
 
-#### If a metric displays "--"
+#### If a metric displays "--" {#if-a-metric-displays}
 
-This means Braze hasn't recorded any data for that metric during the time you selected. If you haven't set up or sent any emails yet, learn more about how to do so in our dedicated [Email]({{site.baseurl}}/user_guide/channels/email/) section.
+This means Braze hasn't recorded any data for that metric during the time you selected. If you haven't set up or sent any emails yet, learn more about how to do so in our dedicated [Email]({{site.baseurl}}/user_guide/channels/email) section.
 
 --->

@@ -11,7 +11,7 @@ platform:
 
 # Localização {#localization}
 
-> Saiba mais sobre localização e idiomas suportados pelo SDK da Braze, para que você possa se conectar com seus usuários em todo o mundo. Para obter orientações sobre como configurar mensagens localizadas, consulte [Localização]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/) em nossa seção Fundamentos do envio de mensagens.
+> Saiba mais sobre localização e idiomas suportados pelo SDK da Braze, para que você possa se conectar com seus usuários em todo o mundo. Para obter orientações sobre como configurar mensagens localizadas, consulte [Localização]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) em nossa seção Fundamentos do envio de mensagens.
 
 ## Sobre a localização {#about-localization}
 

@@ -40,8 +40,8 @@ La définition d'une audience de prédiction ne peut pas dépasser 100 millions 
 
 ### La prédiction a une qualité médiocre {#prediction-has-poor-quality}
 
-![]({% image_buster /assets/img/churn/churn3.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
-Si votre modèle a une [qualité de prédiction]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics/) de 40 % ou plus, vous êtes en bonne posture ! Mais si la qualité de votre prédiction tombe à 39 % ou moins, vous devrez peut-être modifier vos définitions d'attrition et d'audience de prédiction pour qu'elles soient plus spécifiques ou qu'elles aient des fenêtres temporelles différentes.
+![Capture d'écran relative à une prédiction de qualité médiocre.]({% image_buster /assets/img/churn/churn3.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
+Si votre modèle a une [qualité de prédiction]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics) de 40 % ou plus, vous êtes en bonne posture ! Mais si la qualité de votre prédiction tombe à 39 % ou moins, vous devrez peut-être modifier vos définitions d'attrition et d'audience de prédiction pour qu'elles soient plus spécifiques ou qu'elles aient des fenêtres temporelles différentes.
 
 Si vous n'êtes pas en mesure de respecter à la fois l'exigence relative à la taille de l'audience lors de l'élaboration de vos définitions de prédiction et d'obtenir une qualité de prédiction supérieure à 40 %, cela signifie probablement que les données envoyées à Braze ne sont pas idéales pour ce cas d'utilisation, qu'il n'y a pas suffisamment d'utilisateurs pour créer un modèle ou que le cycle de vie de votre produit est plus long que ce que notre fenêtre rétrospective de 60 jours permet actuellement de prendre en charge.
 

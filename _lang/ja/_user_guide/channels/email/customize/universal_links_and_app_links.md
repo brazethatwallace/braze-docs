@@ -12,7 +12,7 @@ channel: email
 > この記事では、Appleユニバーサルリンクと Android App Linksの設定方法について説明します。
 
 {% alert tip %}
-すべてのメッセージングチャネルにおけるリンクタイプの比較と、AASAファイルが必要なタイミングに関するガイダンスについては、[iOSディープリンクガイド]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/)を参照してください。
+すべてのメッセージングチャネルにおけるリンクタイプの比較と、AASAファイルが必要なタイミングに関するガイダンスについては、[iOSディープリンクガイド]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide)を参照してください。
 {% endalert %}
 
 Appleユニバーサルリンクと Android App Linksは、Webコンテンツとモバイルアプリ間のシームレスな遷移を提供するために考案されたメカニズムです。ユニバーサルリンクはiOS固有のものですが、Android App LinksはAndroidアプリケーションで同じ目的を果たします。
@@ -439,7 +439,7 @@ AASAファイル（iOS）またはDigital Asset Linksファイル（Android）�
 
 アプリが開くことを許可されるドメインの定義が正しいことを確認します。
 
-- **iOS:** XcodeでアプリのAssociated Domainsを確認します（[ステップ1c:XcodeプロジェクトでAssociated Domainsを有効にする]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)）。クリックトラッキングドメインがそのリストに含まれていることを確認します。
+- **iOS:** XcodeでアプリのAssociated Domainsを確認します（[ステップ1c:XcodeプロジェクトでAssociated Domainsを有効にする]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links?tab=ios#step-1c)）。クリックトラッキングドメインがそのリストに含まれていることを確認します。
 - **Android:** アプリ情報ページを開きます（アプリアイコンを長押しして ⓘ をクリック）。アプリ情報メニュー内で**Open by default**を見つけてタップします。アプリが開くことを許可されているすべての検証済みリンクが表示される画面が表示されます。クリックトラッキングドメインがそのリストに含まれていることを確認します。
 
 #### トラッキングドメインが.well-knownファイルを提供できない場合 {#tracking-domain-cant-serve-well-known-files}

@@ -93,11 +93,11 @@ Reportez-vous au tableau **Product Breakdown** pour obtenir la liste des produit
 Pour exporter vos données de chiffre d'affaires, sélectionnez <i class="fas fa-bars" title="Menu contextuel du graphique"></i> **Menu contextuel du graphique** dans le graphique **Performance Over Time** et choisissez votre option d'exportation.
 
 {% alert tip %}
-Vous cherchez d'autres moyens d'obtenir des données de chiffre d'affaires ? Essayez d'ajouter un comportement d'achat (ainsi que l'achat d'un produit) aux campagnes ou aux Canvas en tant qu'[événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/).
+Vous cherchez d'autres moyens d'obtenir des données de chiffre d'affaires ? Essayez d'ajouter un comportement d'achat (ainsi que l'achat d'un produit) aux campagnes ou aux Canvas en tant qu'[événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events).
 {% endalert %}
 
-Vous pouvez également consulter les statistiques de chiffre d'affaires au cas par cas sur les pages [Analyse de campagne]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) ou [Analyse de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/).
+Vous pouvez également consulter les statistiques de chiffre d'affaires au cas par cas sur les pages [Analyse de Campaign]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) ou [Analyse de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).
 
 {% alert tip %}
-Les rapports sur les revenus ne peuvent pas être exportés via l'API. Pour obtenir de l'aide concernant les exportations CSV, consultez la [résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Les rapports sur les revenus ne peuvent pas être exportés via l'API. Pour obtenir de l'aide concernant les exportations CSV, consultez la [résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}

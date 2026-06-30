@@ -26,4 +26,4 @@ channel: push
 
 ![Campaign의 Campaign 세부 정보 페이지에 표시된 영향받은 열람 통계]({% image_buster /assets/img_archive/Influenced_Opens2.png %})
 
-열람 추적에 대한 자세한 내용은 [푸시 모범 사례]({{site.baseurl}}/user_guide/channels/push/best_practices/)의 전환 추적 섹션을 확인하세요.
+열람 추적에 대한 자세한 내용은 [푸시 모범 사례]({{site.baseurl}}/user_guide/channels/push/best_practices)의 전환 추적 섹션을 확인하세요.

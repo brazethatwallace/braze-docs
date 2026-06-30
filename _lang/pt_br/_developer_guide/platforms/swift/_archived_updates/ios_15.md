@@ -27,7 +27,7 @@ O iOS 15 introduziu novos recursos de notificação para ajudar os usuários a m
 
 Os usuários do iOS 15 agora podem criar "Modos de Foco" — perfis personalizados usados para determinar quais notificações eles querem que ultrapassem o foco e sejam exibidas com destaque.
 
-![]({% image_buster /assets/img/ios/ios15-notification-settings.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
+![Os usuários do iOS 15 agora podem criar "Modos de Foco" — perfis personalizados usados para determinar quais notificações eles querem que ultrapassem o foco e sejam exibidas com destaque.]({% image_buster /assets/img/ios/ios15-notification-settings.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
 
 ### Níveis de interrupção {#interruption-levels}
 
@@ -38,17 +38,17 @@ No iOS 15, as notificações por push podem ser enviadas com um dos quatro níve
 * **Time-Sensitive** (novo) - Permite som, vibração, despertar da tela, pode ultrapassar os controles do sistema, se permitido.
 * **Critical** - Permite som, vibração, despertar da tela, pode ultrapassar os controles do sistema e ignorar o interruptor de campainha.
 
-Consulte [Opções de notificação do iOS]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/#interruption-level) para saber mais sobre como definir essa opção no iOS Push.
+Consulte [Opções de notificação do iOS]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#interruption-level) para saber mais sobre como definir essa opção no iOS Push.
 
 ### Resumo de notificações {#notification-summary}
 
-![]({% image_buster /assets/img/ios/ios15-notification-summary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
+![Captura de tela relacionada ao resumo de notificações.]({% image_buster /assets/img/ios/ios15-notification-summary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
 
 No iOS 15, os usuários podem (opcionalmente) escolher determinados horários ao longo do dia para receber um resumo das notificações. As notificações que não exigem atenção imediata (como as enviadas como "Passive" ou enquanto o usuário estiver no Modo de Foco) serão agrupadas para evitar interrupções constantes ao longo do dia.
 
 Para cada notificação enviada, em breve você poderá especificar uma "pontuação de relevância" para controlar qual notificação deve aparecer na parte superior do resumo.
 
-Consulte [Opções de notificação do iOS]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/#relevance-score) para saber mais sobre como definir a "pontuação de relevância" de uma notificação.
+Consulte [Opções de notificação do iOS]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#relevance-score) para saber mais sobre como definir a "pontuação de relevância" de uma notificação.
 
 ## Botões de localização {#location-buttons}
 

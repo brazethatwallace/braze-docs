@@ -12,7 +12,7 @@ channel: email
 
 # Seguimiento de correos electrónicos transaccionales {#track-transactional-emails}
 
-> Esta página describe cómo configurar el seguimiento en tiempo real para [campañas de correo electrónico transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/). Para más información sobre el punto de conexión en sí, consulta [Enviar correos electrónicos transaccionales mediante entrega activada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message/).
+> Esta página describe cómo configurar el seguimiento en tiempo real para [campañas de correo electrónico transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email). Para más información sobre el punto de conexión en sí, consulta [Enviar correos electrónicos transaccionales mediante entrega desencadenada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message).
 
 Cuando envías correos electrónicos transaccionales, como confirmaciones de pedido o restablecimientos de contraseña, es fundamental saber si llegan a tus clientes. Con los postbacks de eventos HTTP transaccionales de Braze, obtendrás información en tiempo real sobre el estado de cada correo electrónico transaccional, para que puedas actuar rápidamente si surge algún problema.
 

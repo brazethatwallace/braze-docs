@@ -22,7 +22,7 @@ description: "この記事では、新しいダッシュボードユーザーア
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、SCIMトークンが必要です。`X-Request-Origin` ヘッダーとしてサービスOriginを使用します。詳細については、「[自動ユーザープロビジョニング]({{site.baseurl}}/scim/automated_user_provisioning/)」を参照してください。
+このエンドポイントを使用するには、SCIMトークンが必要です。`X-Request-Origin` ヘッダーとしてサービスOriginを使用します。詳細については、「[自動ユーザープロビジョニング]({{site.baseurl}}/scim/automated_user_provisioning)」を参照してください。
 
 ## レート制限 {#rate-limit}
 
@@ -37,7 +37,7 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 ```
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -84,19 +84,19 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | `schemas` | 必須 | 文字列の配列 | ユーザーオブジェクトに期待されるSCIM 2.0スキーマ名。 |
 | `userName` | 必須 | 文字列 | ユーザーのメールアドレス。 |
 | `name` | 必須 | JSONオブジェクト | このオブジェクトには、ユーザーの名と姓が含まれます。 |
-| `department` | 必須 | 文字列 | [部門文字列のドキュメント]({{site.baseurl}}/scim_api_appendix/#department-strings)にある有効な部門文字列。 |
-| `permissions` | オプション | JSONオブジェクト | [権限オブジェクトのドキュメント]({{site.baseurl}}/scim_api_appendix/#permissions-object)で説明されている権限オブジェクト。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `department` | 必須 | 文字列 | [部門文字列のドキュメント]({{site.baseurl}}/scim_api_appendix#department-strings)にある有効な部門文字列。 |
+| `permissions` | オプション | JSONオブジェクト | [権限オブジェクトのドキュメント]({{site.baseurl}}/scim_api_appendix#permissions-object)で説明されている権限オブジェクト。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
-`````````bash
+```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 --header 'Content-Type: application/json' \
 --header 'X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE' \
 --header 'Authorization: Bearer YOUR-SCIM–TOKEN-HERE' \
 --data raw '{
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -133,7 +133,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "id": "dfa245b7-24195aec-887bb3ad-602b3340",
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -212,17 +212,17 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 | `schemas` | 文字列の配列 | ユーザーオブジェクトに期待されるSCIM 2.0スキーマ名。 |
 | `userName` | 文字列 | ユーザーのメールアドレス。 |
 | `name` | JSONオブジェクト | このオブジェクトには、ユーザーの名と姓が含まれます。 |
-| `department` | 文字列 | [部門文字列のドキュメント]({{site.baseurl}}/scim_api_appendix/#department-strings)にある有効な部門文字列。 |
-| `permissions` | JSONオブジェクト | [権限オブジェクトのドキュメント]({{site.baseurl}}/scim_api_appendix/#permissions-object)で説明されている権限オブジェクト。 |
+| `department` | 文字列 | [部門文字列のドキュメント]({{site.baseurl}}/scim_api_appendix#department-strings)にある有効な部門文字列。 |
+| `permissions` | JSONオブジェクト | [権限オブジェクトのドキュメント]({{site.baseurl}}/scim_api_appendix#permissions-object)で説明されている権限オブジェクト。 |
 | `id` | 文字列 | Brazeが生成するIDで、ユーザーアカウントの検索や管理に使用されます。 |
 | `lastSignInAt` | 文字列 | 最後にサインオンに成功した日付（UTC時間）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="応答パラメーター" }
 
 ### エラー状態 {#error-states}
 
 この `userName` またはメールアドレスを持つユーザーがBrazeにすでに存在する場合、エンドポイントは次のように応答します。
 
-`````````http
+```http
 HTTP/1.1 409 Conflict
 Date: Tue, 10 Sep 2019 02:22:30 GMT
 Content-Type: text/json;charset=UTF-8

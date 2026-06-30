@@ -36,9 +36,9 @@ Les administrateurs Braze et les utilisateurs limités disposant de l'autorisati
 
 ### Limiter les autorisations d'un utilisateur sans supprimer son compte {#limit-company-user-permissions-without-deleting-a-user}
 
-Pour empêcher un utilisateur de se connecter tout en conservant son compte, [suspendez l'utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users). La suspension place le compte dans un état inactif où l'utilisateur ne peut pas se connecter.
+Pour empêcher un utilisateur de se connecter tout en conservant son compte, [suspendez l'utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users). La suspension place le compte dans un état inactif où l'utilisateur ne peut pas se connecter.
 
-Si l'utilisateur doit pouvoir continuer à se connecter avec des capacités limitées, accédez à **Paramètres** > **Utilisateurs de l'entreprise**, sélectionnez l'utilisateur et modifiez ses autorisations. Supprimez les autorisations au niveau de l'espace de travail pour les Campaigns, les Canvas, les Segments et les données utilisateur, et ne laissez qu'un accès minimal, par exemple « Voir les ressources de la bibliothèque multimédia ». Pour plus d'informations, consultez [Modifier les autorisations d'un utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#edit-a-users-permissions).
+Si l'utilisateur doit pouvoir continuer à se connecter avec des capacités limitées, accédez à **Paramètres** > **Utilisateurs de l'entreprise**, sélectionnez l'utilisateur et modifiez ses autorisations. Supprimez les autorisations au niveau de l'espace de travail pour les Campaigns, les Canvas, les Segments et les données utilisateur, et ne laissez qu'un accès minimal, par exemple « Voir les ressources de la bibliothèque multimédia ». Pour plus d'informations, consultez [Modifier les autorisations d'un utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
 
 Les autorisations d'équipe s'ajoutent aux autorisations de l'espace de travail. Si vous affectez l'utilisateur à une équipe, n'accordez que les autorisations minimales au niveau de l'équipe dont il a besoin, et n'accordez pas d'autorisations pour les Campaigns, les Canvas, les Segments ou les profils utilisateur. L'utilisateur reste dans l'espace de travail et peut se connecter, mais il ne peut pas effectuer la plupart des actions d'envoi de messages ou de ciblage d'audience.
 
@@ -102,7 +102,7 @@ Voici toutes les autorisations disponibles que vous pouvez attribuer au niveau d
 - Modifier les rapports du tableau de bord
 - Supprimer les rapports du tableau de bord
 
-Pour consulter les descriptions de ce que chaque autorisation utilisateur inclut et comment les utiliser, consultez notre section [Autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Pour consulter les descriptions de ce que chaque autorisation utilisateur inclut et comment les utiliser, consultez notre section [Autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ## Attribuer des étiquettes d'équipe {#tags-and-filters}
 
@@ -115,7 +115,7 @@ Vous pouvez attribuer une équipe aux Canvas, Campaigns, Content Cards, Segments
 
 ### Cas d'utilisation {#use-cases}
 
-Considérez les deux scénarios suivants pour une marketeur utilisant Braze nommée Michelle. Michelle est membre d'une équipe appelée « Development ». Elle a accès à toutes les autorisations au niveau de l'équipe pour l'équipe Development.
+Considérez les deux scénarios suivants pour une marketeure utilisant Braze nommée Michelle. Michelle est membre d'une équipe appelée « Development ». Elle a accès à toutes les autorisations au niveau de l'équipe pour l'équipe Development.
 
 {% tabs %}
 {% tab Scénario 1 - Autorisations d'équipe uniquement %}

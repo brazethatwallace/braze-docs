@@ -15,7 +15,10 @@ en:
   expand_menu: Expand menu
   filter_navigation_topics: Filter navigation topics
   clear_filter: Clear filter
-  documentation_nav: Documentation
+  documentation_nav: Documentation menu
+  breadcrumb_nav: Breadcrumb trail
+  language_select_nav: Language selection
+  language_select_mobile_nav: Language selection (mobile menu)
   sidebar_home: Home
   nav_flyout_esc_hint_before: "Press "
   nav_flyout_esc_hint_after: " to close the menu"
@@ -234,6 +237,9 @@ fr:
   filter_navigation_topics: Filtrer les sujets de navigation
   clear_filter: Effacer le filtre
   documentation_nav: Documentation
+  breadcrumb_nav: Fil d'Ariane
+  language_select_nav: Sélection de la langue
+  language_select_mobile_nav: Sélection de la langue (menu mobile)
   sidebar_home: Accueil
   nav_flyout_esc_hint_before: "Appuyez sur "
   nav_flyout_esc_hint_after: " pour fermer le menu"
@@ -312,6 +318,9 @@ ja:
   filter_navigation_topics: ナビゲーションのトピックをフィルター
   clear_filter: フィルターをクリア
   documentation_nav: ドキュメント
+  breadcrumb_nav: パンくずリスト
+  language_select_nav: 言語選択
+  language_select_mobile_nav: 言語選択（モバイルメニュー）
   sidebar_home: ホーム
   nav_flyout_esc_hint_before: "メニューを閉じるには "
   nav_flyout_esc_hint_after: " を押してください"
@@ -516,6 +525,9 @@ ko:
   filter_navigation_topics: 탐색 주제 필터
   clear_filter: 필터 지우기
   documentation_nav: 문서
+  breadcrumb_nav: 이동 경로
+  language_select_nav: 언어 선택
+  language_select_mobile_nav: 언어 선택 (모바일 메뉴)
   sidebar_home: 홈
   nav_flyout_esc_hint_before: "메뉴를 닫으려면 "
   nav_flyout_esc_hint_after: " 키를 누르세요"
@@ -715,6 +727,9 @@ pt-br:
   filter_navigation_topics: Filtrar tópicos da navegação
   clear_filter: Limpar filtro
   documentation_nav: Documentação
+  breadcrumb_nav: Trilha de navegação
+  language_select_nav: Seleção de idioma
+  language_select_mobile_nav: Seleção de idioma (menu móvel)
   sidebar_home: Início
   nav_flyout_esc_hint_before: "Pressione "
   nav_flyout_esc_hint_after: " para fechar o menu"
@@ -793,6 +808,9 @@ es:
   filter_navigation_topics: Filtrar temas de navegación
   clear_filter: Borrar filtro
   documentation_nav: Documentación
+  breadcrumb_nav: Ruta de navegación
+  language_select_nav: Selección de idioma
+  language_select_mobile_nav: Selección de idioma (menú móvil)
   sidebar_home: Inicio
   nav_flyout_esc_hint_before: "Pulse "
   nav_flyout_esc_hint_after: " para cerrar el menú"
@@ -871,6 +889,9 @@ de:
   filter_navigation_topics: Navigationsthemen filtern
   clear_filter: Filter löschen
   documentation_nav: Dokumentation
+  breadcrumb_nav: Brotkrumen-Navigation
+  language_select_nav: Sprache auswählen
+  language_select_mobile_nav: Sprache auswählen (Mobilmenü)
   sidebar_home: Startseite
   nav_flyout_esc_hint_before: "Drücken Sie "
   nav_flyout_esc_hint_after: ", um das Menü zu schließen"

@@ -11,7 +11,7 @@ tool: Media
 
 # Kreativdetails für Content Cards {#creative-details-for-content-cards}
 
-> Die Anpassung von Content Cards und des Feeds, in dem sie sich befinden, kann nicht während der Kampagnenerstellung vorgenommen werden – Sie müssen mit Ihren Entwickler:innen zusammenarbeiten, um Ihre Cards zu erstellen und anzupassen. Technische Details finden Sie in unserer [Entwickler:innen-Dokumentation]({{site.baseurl}}/developer_guide/getting_started/customization_overview/).
+> Die Anpassung von Content Cards und des Feeds, in dem sie sich befinden, kann nicht während der Kampagnenerstellung vorgenommen werden – Sie müssen mit Ihren Entwickler:innen zusammenarbeiten, um Ihre Cards zu erstellen und anzupassen. Technische Details finden Sie in unserer [Entwickler:innen-Dokumentation]({{site.baseurl}}/developer_guide/getting_started/customization_overview).
 
 ## Content-Card-Typen {#content-card-types}
 
@@ -63,7 +63,7 @@ Wenn Sie mehr kreative Kontrolle wünschen, ist die Image-only-Card genau das Ri
 
 ## Allgemeine Kreativdetails {#general}
 
-Content Cards unterstützen standardmäßig Text und Bilder, einschließlich GIFs. Derzeit können angepasste Stile für die Card, wie z. B. verschiedene Schriftfarben oder mehrere Bilder, nicht im Dashboard vorgenommen werden. Sie können Ihre Content Cards und den Feed während der Integration individuell gestalten. Weitere Details finden Sie unter [Cards anpassen]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/) für das Braze SDK.
+Content Cards unterstützen standardmäßig Text und Bilder, einschließlich GIFs. Derzeit können angepasste Stile für die Card, wie z. B. verschiedene Schriftfarben oder mehrere Bilder, nicht im Dashboard vorgenommen werden. Sie können Ihre Content Cards und den Feed während der Integration individuell gestalten. Weitere Details finden Sie unter [Cards anpassen]({{site.baseurl}}/developer_guide/content_cards/customizing_cards) für das Braze SDK.
 
 ### Verhalten beim Schließen {#dismissal-behavior}
 
@@ -83,5 +83,5 @@ Halten Sie Content Cards relevant, indem Sie sie so einstellen, dass sie geschlo
 
 | Content Cards für Android | Content Cards für iOS | Content Cards für Web |
 | --- | --- |---|
-| Das Android-SDK bietet standardmäßig keine Unterstützung für animierte GIFs. Weitere Details zur Aktivierung der GIF-Unterstützung finden Sie unter [GIFs]({{site.baseurl}}/developer_guide/content_cards/embedding_gifs/?sdktab=android). | Das Swift-SDK bietet standardmäßig keine Unterstützung für animierte GIFs. Weitere Details zur Aktivierung der GIF-Unterstützung finden Sie im [GIF-Support-Tutorial](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c3-gif-support). | GIF-Unterstützung ist standardmäßig in der Web-SDK-Integration enthalten. |
+| Das Android-SDK bietet standardmäßig keine Unterstützung für animierte GIFs. Weitere Details zur Aktivierung der GIF-Unterstützung finden Sie unter [GIFs]({{site.baseurl}}/developer_guide/content_cards/embedding_gifs?sdktab=android). | Das Swift-SDK bietet standardmäßig keine Unterstützung für animierte GIFs. Weitere Details zur Aktivierung der GIF-Unterstützung finden Sie im [GIF-Support-Tutorial](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c3-gif-support). | GIF-Unterstützung ist standardmäßig in der Web-SDK-Integration enthalten. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="GIFs in Content Cards verwenden" }

@@ -18,17 +18,17 @@ As listas de supressão são dinâmicas e se aplicam automaticamente a todas as 
 
 ### Tipos de mensagem e canais afetados por listas de supressão {#message-types-and-channels-affected-by-suppression-lists}
 
-As listas de supressão se aplicam a todos os tipos de mensagem e canais, exceto [Feature Flags]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags/). Isso significa que as listas de supressão, por padrão, se aplicam a todos os canais, Campaigns e Canvas, incluindo:
-- [Campaigns da API]({{site.baseurl}}/api/api_campaigns/)
+As listas de supressão se aplicam a todos os tipos de mensagem e canais, exceto [Feature Flags]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags). Isso significa que as listas de supressão, por padrão, se aplicam a todos os canais, Campaigns e Canvas, incluindo:
+- [Campaigns da API]({{site.baseurl}}/api/api_campaigns)
 - Campaigns e Canvas disparados por API
-- [E-mails de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)
+- [E-mails de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)
 
 O único tipo de mensagem ao qual as listas de supressão não se aplicam são as Feature Flags. Usuários em uma lista de supressão não serão suprimidos de Feature Flags, mas serão suprimidos de todos os outros canais.
 
 Você pode usar tags de exceção para que os usuários da lista de supressão ainda sejam direcionados por Campaigns e Canvas específicos. Para mais informações, consulte a etapa 4 em [Configurando listas de supressão](#setup). Se você não adicionar tags de exceção a uma lista de supressão, os usuários dessa lista não serão direcionados com nenhum envio de mensagens além de Feature Flags.
 
 {% alert note %}
-As listas de supressão são aplicadas a Campaigns da API criadas no dashboard da Braze com um `campaign_id`. As listas de supressão não se aplicam a mensagens enviadas por meio dos [endpoints de envio de mensagens da Braze]({{site.baseurl}}/api/endpoints/messaging/) sem um `campaign_id` associado.
+As listas de supressão são aplicadas a Campaigns da API criadas no dashboard da Braze com um `campaign_id`. As listas de supressão não se aplicam a mensagens enviadas por meio dos [endpoints de envio de mensagens da Braze]({{site.baseurl}}/api/endpoints/messaging) sem um `campaign_id` associado.
 {% endalert %}
 
 ![A seção "Configurações de exceção" com uma caixa de seleção para não aplicar a lista de supressão a Campaigns e Canvas disparados por API.]({% image_buster /assets/img/suppression_list_checkbox.png %}){: style="max-width:70%;"}
@@ -44,7 +44,7 @@ Todos os usuários podem visualizar listas de supressão, mas apenas usuários c
 3. Use filtros de segmento para identificar os usuários nas suas listas de supressão. Você deve selecionar pelo menos um.
 
 {% alert important %}
-Embora o processo de configuração pareça semelhante à [criação de segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), uma lista de supressão é um grupo de usuários para os quais você **não** deseja enviar mensagens, independentemente da associação ao segmento.
+Embora o processo de configuração pareça semelhante à [criação de segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), uma lista de supressão é um grupo de usuários para os quais você **não** deseja enviar mensagens, independentemente da associação ao segmento.
 {% endalert %}
 
 ![Um construtor de lista de supressão com um filtro para usuários que abriram um e-mail pela última vez há mais de 90 dias.]({% image_buster /assets/img/suppression_list_filters.png %})

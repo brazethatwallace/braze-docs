@@ -20,7 +20,7 @@ description: "이 문서에서는 외부 ID 이름 바꾸기 엔드포인트에 
 
 이 엔드포인트는 사용자에 대해 새(기본) `external_id`를 설정하고 기존 `external_id`를 더 이상 사용하지 않도록 설정합니다. 즉, 더 이상 사용되지 않는 ID가 제거될 때까지 두 `external_id` 중 하나로 사용자를 식별할 수 있습니다. 여러 개의 외부 ID를 사용하면 이전 외부 ID 명명 스키마를 사용하는 앱의 레거시 버전이 중단되지 않도록 마이그레이션 기간을 가질 수 있습니다.
 
-이전 명명 스키마를 더 이상 사용하지 않는 경우 [`/users/external_ids/remove` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove/)를 사용하여 더 이상 사용되지 않는 외부 ID를 제거하는 것을 적극 권장합니다.
+이전 명명 스키마를 더 이상 사용하지 않는 경우 [`/users/external_ids/remove` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove)를 사용하여 더 이상 사용되지 않는 외부 ID를 제거하는 것을 적극 권장합니다.
 
 {% alert warning %}
 더 이상 사용되지 않는 외부 ID는 `/users/delete`가 아닌 `/users/external_ids/remove` 엔드포인트를 사용하여 제거해야 합니다. 더 이상 사용되지 않는 외부 ID로 `/users/delete`에 요청을 보내면 고객 프로필이 완전히 삭제되며 되돌릴 수 없습니다.
@@ -30,7 +30,7 @@ description: "이 문서에서는 외부 ID 이름 바꾸기 엔드포인트에 
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.external_ids.rename` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.external_ids.rename` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -54,7 +54,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
 | `external_id_renames` | 필수 | 외부 식별자 이름 변경 오브젝트 배열 | 외부 식별자 이름 바꾸기 오브젝트의 구조에 대한 요청 예시와 다음 제한 사항을 확인하세요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 다음 사항에 유의하세요:
 

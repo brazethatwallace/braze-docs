@@ -37,7 +37,7 @@ BrazeでDecisioning Studioエージェントの指標を表示するには、**A
 
 ## 利用可能なレポート {#available-reports}
 
-- [パフォーマンス]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/performance/): トリートメントグループとコントロールグループを比較するハイレベルなエージェント指標です。**Trending**と**Driver Tree**のビューがあります。
-- [インサイト]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/insights/): アクションバンク内のおすすめオプションがどのように生成されるかを示します。エージェントの設定やSHAPsレポートを含みます。
-- [診断]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/diagnostics/): アウトバウンドおよびインバウンドのデータ健全性です。おすすめのボリュームやデータフィードの監視を含みます。
-- [タイムライン]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/timeline/): 主要なイベント（エージェントの実行、設定変更、ガードレールの更新）をパフォーマンス指標と共に表示する視覚的な記録です。
+- [パフォーマンス]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/performance): トリートメントグループとコントロールグループを比較するハイレベルなエージェント指標です。**Trending**と**Driver Tree**のビューがあります。
+- [インサイト]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/insights): アクションバンク内のおすすめオプションがどのように生成されるかを示します。エージェントの設定やSHAPsレポートを含みます。
+- [診断]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/diagnostics): アウトバウンドおよびインバウンドのデータ健全性です。おすすめのボリュームやデータフィードの監視を含みます。
+- [タイムライン]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/timeline): 主要なイベント（エージェントの実行、設定変更、ガードレールの更新）をパフォーマンス指標と共に表示する視覚的な記録です。

@@ -4,13 +4,13 @@ article_title: WhatsAppメッセージングオブジェクト
 page_order: 15
 page_type: reference
 channel: WhatsApp
-description: "この参考記事では、Braze WhatsApp オブジェクトのさまざまなコンポーネントについて説明します。"
+description: "この参考記事では、Braze WhatsAppオブジェクトのさまざまなコンポーネントについて説明します。"
 
 ---
 
-# WhatsAppオブジェクト
+# WhatsAppオブジェクト {#whatsapp-object}
 
-> `whats_app` オブジェクトを使用すると、[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging)経由でWhatsAppメッセージを変更または作成できる。
+> `whats_app`オブジェクトを使用すると、[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging)経由でWhatsAppメッセージを変更または作成できます。
 
 ## WhatsAppオブジェクト
 
@@ -24,9 +24,9 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
 }
 ```
 
-- [アプリ識別子]({{site.baseurl}}/api/identifier_types/)
+- [アプリ識別子]({{site.baseurl}}/api/identifier_types)
 
-### メッセージタイプ
+### メッセージタイプ {#message-types}
 
 #### template_message
 
@@ -42,17 +42,17 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
 ```
 
 {% alert important %}
-**メディア送信の制限:**メディア送信(ドキュメント、動画、および他のメディアタイプ) は、`messages/send` API ではサポートされていません。API を介して送信されるテンプレート メッセージでは、TEXT およびIMAGE ヘッダータイプのみがサポートされます。WhatsApp テンプレートがドキュメント、ビデオ、または他のメディアタイプのヘッダーを使用している場合、`messages/send` API を使用して送信することはできません。[キャンペーン Triggered API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)またはBraze ダッシュボードを使用して、メディアヘッダーsでテンプレートsを送信します。
+**メディア送信の制限:** メディア送信（ドキュメント、動画、およびその他のメディアタイプ）は、`messages/send` APIではサポートされていません。APIを介して送信されるテンプレートメッセージでは、TEXTおよびIMAGEヘッダータイプのみがサポートされます。WhatsAppテンプレートがDOCUMENT、VIDEO、またはその他のメディアタイプのヘッダーを使用している場合、`messages/send` APIを使用して送信することはできません。メディアヘッダー付きのテンプレートを送信するには、[Campaigns Triggered API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)またはBrazeダッシュボードを使用してください。
 {% endalert %}
 
-##### ヘッダー変数オブジェクト
+##### ヘッダー変数オブジェクト {#header-variables-object}
 
-`header_variables` オブジェクトを使用すると、WhatsApp テンプレートのヘッダー変数の値を指定することができる。各キーは、指定された値で置換するWhatsAppテンプレート変数のインデックス（ゼロインデックス）である。
+`header_variables`オブジェクトを使用すると、WhatsAppテンプレートのヘッダー変数の値を指定できます。各キーは、指定された値で置換するWhatsAppテンプレート変数のインデックス（ゼロインデックス）です。
 
 {% alert note %}
-`header_variables` は、TEXT 型のヘッダーs を持つテンプレートs でのみ使用できます。IMAGE ヘッダー s の場合は、代わりに`header_media_uri` を使用します。`messages/send` API では、ドキュメント、ビデオなどのメディアヘッダータイプはサポートされていません。<br><br>
+`header_variables`は、TEXT型のヘッダーを持つテンプレートでのみ使用できます。IMAGEヘッダーの場合は、代わりに`header_media_uri`を使用してください。DOCUMENT、VIDEO、およびその他のメディアヘッダータイプは、`messages/send` APIではサポートされていません。<br><br>
 
-`header_image_uri` は、テンプレートメッセージではなく、レスポンスメッセージタイプ(`quick_reply_response_message` など)にのみ使用されます。
+`header_image_uri`は、テンプレートメッセージではなく、応答メッセージタイプ（`quick_reply_response_message`など）にのみ使用されます。
 {% endalert %}
 
 ```json
@@ -60,10 +60,10 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
   "$TEMPLATE_VARIABLE_INDEX_0": "$TEMPLATE_VARIABLE_VALUE_0"
 }
 ```
-現在、指定できるヘッダー変数は0個か1個だけである。
+現在、指定できるヘッダー変数は0個または1個のみです。
 
 
-###### 例
+###### 例 {#example}
 
 ```json
 {
@@ -71,9 +71,9 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
 }
 ```
 
-##### ボディ変数オブジェクト
+##### ボディ変数オブジェクト {#body-variables-object}
 
-`body_variables` オブジェクトを使用すると、WhatsApp テンプレートのボディ変数の値を指定することができる。各キーは、指定された値で置換するWhatsAppテンプレート変数のインデックス（ゼロインデックス）である。
+`body_variables`オブジェクトを使用すると、WhatsAppテンプレートのボディ変数の値を指定できます。各キーは、指定された値で置換するWhatsAppテンプレート変数のインデックス（ゼロインデックス）です。
 ```json
 {
   "$TEMPLATE_VARIABLE_INDEX_0": "$TEMPLATE_VARIABLE_VALUE_0",
@@ -90,9 +90,9 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
 }
 ```
 
-##### ボタン変数オブジェクト
+##### ボタン変数オブジェクト {#button-variables-object}
 
-`button_variables` オブジェクトを使用すると、WhatsApp テンプレートのボタン変数の値を指定することができる。各キーは、指定された値で置換するWhatsAppテンプレート変数のインデックス（ゼロインデックス）である。
+`button_variables`オブジェクトを使用すると、WhatsAppテンプレートのボタン変数の値を指定できます。各キーは、指定された値で置換するWhatsAppテンプレート変数のインデックス（ゼロインデックス）です。
 
 ```json
 {
@@ -100,7 +100,7 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
 }
 ```
 
-現在、指定できるボタン変数は 1 つだけで、CTA URL のパスコンポーネントです。変数のインデックスは、テンプレート内のCTA URLボタンのインデックスと一致しなければならない。例えば、CTAボタンがテンプレートの2番目のボタンであれば、変数インデックス「1」を使う。
+現在、指定できるボタン変数は1つだけで、CTA URLのパスコンポーネントです。変数のインデックスは、テンプレート内のCTA URLボタンのインデックスと一致する必要があります。例えば、CTAボタンがテンプレートの2番目のボタンである場合、変数インデックス「1」を使用します。
 
 ###### 例
 
@@ -110,7 +110,7 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
 }
 ```
 
-### 応答メッセージ
+### 応答メッセージ {#response-messages}
 
 #### text_response_message
 
@@ -121,7 +121,7 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
 }
 ```
 
-###### 例
+##### 例
 
 ```json
 {
@@ -139,7 +139,7 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
 }
 ```
 
-###### 例
+##### 例
 
 ```json
 {
@@ -160,7 +160,7 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
 }
 ```
 
-##### ボタン・オブジェクト
+##### ボタンオブジェクト {#button-object}
 
 ```json
 {
@@ -186,7 +186,7 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
 
 #### list_response_message
 
-`list_response_message` タイプを使用すると、WhatsApp でリストベースのメッセージを送信できます。このメッセージタイプには、受信者が対話できる項目のリストが含まれます。
+`list_response_message`タイプを使用すると、WhatsAppでリストベースのメッセージを送信できます。このメッセージタイプには、受信者が操作できる項目のリストが含まれます。
 
 ```json
 {
@@ -199,7 +199,7 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
 }
 ```
 
-#### リストセクションオブジェクト
+#### リストセクションオブジェクト {#list-section-object}
 
 ```json
 {
@@ -208,7 +208,7 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
 }
 ```
 
-#### リスト行オブジェクト
+#### リスト行オブジェクト {#list-row-object}
 
 ```json
 {
@@ -217,11 +217,11 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
 }
 ```
 
-##### 制約
+##### 制約 {#constraints}
 
-- **list_sections**:少なくとも 1 つのセクションが必要です。
-- **list_rows**:すべてのセクションで最大 10 行まで含めることができます。
-- **row_description**:各列のオプション。
+- **list_sections**: 少なくとも1つのセクションが必要です。
+- **list_rows**: すべてのセクションで最大10行まで含めることができます。
+- **row_description**: 各行でオプションです。
 
 ##### 例
 
@@ -264,7 +264,7 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
 
 #### flow_response_message
 
-`flow_response_message` 型では、フローベースのメッセージをWhatsAppで送信できます。このメッセージタイプには、受信者が完了できる対話式フローが含まれています。
+`flow_response_message`タイプを使用すると、WhatsAppでフローベースのメッセージを送信できます。このメッセージタイプには、受信者が完了できるインタラクティブなフローが含まれます。
 
 ```json
 {
@@ -278,7 +278,7 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
 }
 ```
 
-##### フローボタンオブジェクト
+##### フローボタンオブジェクト {#flow-button-object}
 
 ```json
 {
@@ -289,9 +289,9 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
 
 ##### 制約
 
-- **flow_button**:caption と`flow_id` の両方を含める必要があります。
-- **キャプション**:最大20 文字。
-- **flow_id**:発行済みの有効なフローID である必要があります。
+- **flow_button**: captionと`flow_id`の両方を含める必要があります。
+- **caption**: 最大20文字です。
+- **flow_id**: 公開済みの有効なフローIDである必要があります。
 
 ##### 例
 

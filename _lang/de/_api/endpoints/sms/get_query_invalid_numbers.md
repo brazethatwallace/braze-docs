@@ -13,13 +13,13 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Ungü
 /sms/invalid_phone_numbers
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um eine Liste der Telefonnummern abzurufen, die innerhalb eines bestimmten Zeitraums als „ungültig“ markiert wurden. Weitere Informationen finden Sie in der Dokumentation [Behandlung ungültiger Telefonnummern]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers/#handling-invalid-phone-numbers).
+> Verwenden Sie diesen Endpunkt, um eine Liste der Telefonnummern abzurufen, die innerhalb eines bestimmten Zeitraums als „ungültig“ markiert wurden. Weitere Informationen finden Sie in der Dokumentation [Behandlung ungültiger Telefonnummern]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers#handling-invalid-phone-numbers).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81ceae19-15d1-4ac1-ad22-a6b86a92456d {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `sms.invalid_phone_numbers`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `sms.invalid_phone_numbers`.
 
 ## Rate-Limit
 
@@ -35,7 +35,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | `offset` | Optional | Integer | Optionaler Anfangspunkt in der Liste, ab dem abgerufen werden soll. |
 | `phone_numbers` | Optional <br>(siehe Anmerkung) | String-Array im Format e.164 | Falls angegeben, wird die Telefonnummer zurückgegeben, wenn sie als ungültig erkannt wurde. |
 | `reason` | Optional <br>(siehe Anmerkung) | String | Verfügbare Werte sind „provider_error“ (Anbieterfehler zeigt an, dass das Telefon keine SMS empfangen kann) oder „deactivated“ (die Telefonnummer wurde deaktiviert). Wenn dieser Parameter weggelassen wird, werden alle Gründe zurückgegeben. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 {% alert note %}
 Sie müssen entweder `start_date` und `end_date` ODER `phone_numbers` angeben. Wenn Sie alle drei Parameter – `start_date`, `end_date` und `phone_numbers` – angeben, werden die angegebenen Telefonnummern priorisiert und der Datumsbereich ignoriert.

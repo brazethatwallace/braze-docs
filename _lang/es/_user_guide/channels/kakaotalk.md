@@ -14,15 +14,15 @@ description: "Esta página de inicio alberga todo lo relacionado con KakaoTalk, 
 guide_featured_title: "Artículos"
 guide_featured_list:
 - name: Configurar KakaoTalk
-  link: /docs/kakaotalk_setup/
+  link: /docs/kakaotalk_setup
   image: /assets/img/braze_icons/settings-01.svg
 - name: Crear un mensaje de KakaoTalk
-  link: /docs/create_kakaotalk_message/
+  link: /docs/create_kakaotalk_message
   image: /assets/img/braze_icons/message-chat-square.svg
 - name: Seguimiento de clics en KakaoTalk
-  link: /docs/kakaotalk_click_tracking/
+  link: /docs/kakaotalk_click_tracking
   image: /assets/img/braze_icons/cursor-click-02.svg
 - name: Informes de KakaoTalk
-  link: /docs/kakaotalk_reporting/
+  link: /docs/kakaotalk_reporting
   image: /assets/img/braze_icons/line-chart-up-01.svg
 ---

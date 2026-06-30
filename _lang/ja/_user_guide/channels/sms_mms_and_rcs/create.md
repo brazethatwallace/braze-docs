@@ -258,7 +258,7 @@ MMSの場合、アセット（画像とメッセージ本文）の順序はカ�
 RCSのレンダリングはユーザーのオペレーティングシステム、デバイスメーカー、キャリア、メッセージングアプリ（たとえば、Google MessagesとApple Messages）によって制御されるため、メッセージの外観は異なる場合があります。Brazeに表示されるプレビューは、エンドユーザーが受信するものと正確に一致しない場合があります。可能な限り、実際のデバイスで最終的なレンダリングを検証してください。iOSデバイスでのRCSレンダリングの詳細については、[RCSメッセージがiOSデバイスで正確にレンダリングされないのはなぜですか？]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-doesnt-my-rcs-message-render-accurately-on-ios-devices)を参照してください。
 {% endalert %}
 
-詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=sms%2Fmms%20and%20rcs)を参照してください。
+詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=sms%2Fmms%20and%20rcs)を参照してください。
 
 ## ステップ5:CampaignまたはCanvasの残りを構築する {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 

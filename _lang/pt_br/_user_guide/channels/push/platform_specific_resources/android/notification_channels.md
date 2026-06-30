@@ -15,7 +15,7 @@ channel:
 
 Os canais de notificação só podem ser criados no código do seu app e não podem ser criados programaticamente no dashboard da Braze. Recomendamos que sua equipe de engenharia trabalhe com seus profissionais de marketing para garantir que os canais de notificação desejados sejam adicionados corretamente ao dashboard.
 
-A partir do nível de API 26 (Android O), as notificações por push exigem um canal válido para serem exibidas. Se o seu app tem como alvo o Android O ou posterior, você deve usar a versão 2.1.0 ou posterior do SDK da Braze. Sua equipe de desenvolvimento deve definir os canais que você deseja usar, bem como as configurações de notificação sugeridas (por exemplo, importância, som, luzes) para cada canal no código do seu app. Para mais informações, consulte a [documentação para desenvolvedores do Android](https://developer.android.com/preview/features/notification-channels.html) e a [documentação para desenvolvedores da Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-5-define-notification-channels).
+A partir do nível de API 26 (Android O), as notificações por push exigem um canal válido para serem exibidas. Se o seu app tem como alvo o Android O ou posterior, você deve usar a versão 2.1.0 ou posterior do SDK da Braze. Sua equipe de desenvolvimento deve definir os canais que você deseja usar, bem como as configurações de notificação sugeridas (por exemplo, importância, som, luzes) para cada canal no código do seu app. Para mais informações, consulte a [documentação para desenvolvedores do Android](https://developer.android.com/preview/features/notification-channels.html) e a [documentação para desenvolvedores da Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-5-define-notification-channels).
 
 {% alert note %}
 O Android suporta localização para nomes de canais, então no código do seu app, você pode associar um ID de canal a múltiplas traduções de um nome de canal.
@@ -68,7 +68,7 @@ Para entender melhor o comportamento esperado dos canais, consulte a tabela a se
 
 1. Abra ou crie qualquer Campaign ou Canvas que inclua um push para Android.
 2. Navegue até o criador de mensagens push para Android.
-3. Selecione **Gerenciar canais de notificação**. Quaisquer canais adicionados aqui estarão disponíveis globalmente para todas as Campaigns e Canvas. Você deve ter [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#limited-and-team-role-permissions) de "Gerenciar apps" para seu espaço de trabalho para gerenciar canais.
+3. Selecione **Gerenciar canais de notificação**. Quaisquer canais adicionados aqui estarão disponíveis globalmente para todas as Campaigns e Canvas. Você deve ter [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#limited-and-team-role-permissions) de "Gerenciar apps" para seu espaço de trabalho para gerenciar canais.
 
 Quando você aplica um canal de notificação a uma Campaign ou etapa do Canvas específica, a contagem de **Usuários contatáveis** (localizada na etapa de Público-alvo) para push Android não parecerá mudar. No entanto, somente os usuários inscritos no canal de notificação selecionado verão a mensagem, e a análise de dados da sua campanha (como cliques) será medida com base nesse público.
 

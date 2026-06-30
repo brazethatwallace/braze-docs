@@ -152,7 +152,7 @@ table td {
 | --- | --- | 
 | Size | 5 MB |
 | Width | Header: 600 px<br>Body: 480 px |
-| File types | PNG, JPEG, GIF<br><br> WebP image support varies across email clients. For reliable rendering, convert WebP images to PNG or JPEG before adding them to email messages. |
+| File types | PNG, JPEG, GIF<br><br> WebP image support varies across email clients. For reliable rendering, convert WebP images to PNG or JPEG before adding them to email messages.<br><br>SVG images are not recommended for email messages due to compatibility issues with Gmail and other major email clients. Use PNG, JPEG, or GIF instead. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 | Text specifications | Recommended maximum properties |

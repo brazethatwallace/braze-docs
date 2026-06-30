@@ -22,7 +22,7 @@ Se pueden especificar hasta 50 fusiones por solicitud. Este punto de conexión e
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `users.merge`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `users.merge`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -60,7 +60,7 @@ Este punto de conexión fusiona los siguientes campos si no se encuentran en el 
 
 - Nombre
 - Apellido
-- Direcciones de correo electrónico (a menos que estén [encriptadas]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/))
+- Direcciones de correo electrónico (a menos que estén [encriptadas]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption))
 - Género
 - Fecha de nacimiento
 - Número de teléfono
@@ -94,7 +94,7 @@ Este punto de conexión fusiona los siguientes campos si no se encuentran en el 
 Al fusionar usuarios, el uso del punto de conexión `/users/merge` funciona del mismo modo que el [método `changeUser()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser).
 {% endalert %}
 
-Braze gestiona de forma diferente tres tipos de usuarios durante la fusión: usuarios marcados para eliminación, usuarios de prueba y usuarios del Grupo de control global. Para más detalles, consulta [Comportamiento de la fusión de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/).
+Braze gestiona de forma diferente tres tipos de usuarios durante la fusión: usuarios marcados para eliminación, usuarios de prueba y usuarios del Grupo de control global. Para más detalles, consulta [Comportamiento de la fusión de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior).
 
 #### Comportamiento de la fecha de eventos personalizados y la fecha de eventos de compra {#custom-event-date-and-purchase-event-date-behavior}
 
@@ -142,11 +142,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
     },
     {
       "identifier_to_merge": {
-        "email": "user1@braze.com",
+        "email": "user1@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep":  {
-        "email": "user2@braze.com",
+        "email": "user2@example.com",
         "prioritization": ["identified", "most_recently_updated"]
       }
     },
@@ -170,7 +170,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### Fusionar usuario no identificado {#merging-unidentified-user}
 
-La siguiente solicitud fusionaría el usuario no identificado actualizado más recientemente con la dirección de correo electrónico `john.smith@braze.com` con el usuario con ID externo `john`. En este ejemplo, el uso de `most_recently_updated` filtra la consulta a un usuario no identificado. Por lo tanto, si hubiera dos usuarios no identificados con esta dirección de correo electrónico, solo uno se fusionaría con el usuario que tiene el ID externo `john`.
+La siguiente solicitud fusionaría el usuario no identificado actualizado más recientemente con la dirección de correo electrónico `john.smith@example.com` con el usuario con ID externo `john`. En este ejemplo, el uso de `most_recently_updated` filtra la consulta a un usuario no identificado. Por lo tanto, si hubiera dos usuarios no identificados con esta dirección de correo electrónico, solo uno se fusionaría con el usuario que tiene el ID externo `john`.
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
@@ -180,7 +180,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep": {
@@ -193,7 +193,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### Fusionar usuario no identificado en usuario identificado {#merging-unidentified-user-into-identified-user}
 
-El siguiente ejemplo fusiona el usuario no identificado actualizado más recientemente con la dirección de correo electrónico `john.smith@braze.com` con el usuario identificado actualizado más recientemente con la dirección de correo electrónico `john.smith@braze.com`.
+El siguiente ejemplo fusiona el usuario no identificado actualizado más recientemente con la dirección de correo electrónico `john.smith@example.com` con el usuario identificado actualizado más recientemente con la dirección de correo electrónico `john.smith@example.com`.
 
 El uso de `most_recently_updated` filtra las consultas a un usuario (un usuario no identificado para `identifier_to_merge` y un usuario identificado para `identifier_to_keep`).
 
@@ -205,11 +205,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["identified", "most_recently_updated"]
       }
     }
@@ -219,7 +219,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### Fusionar un usuario no identificado sin incluir la priorización most_recently_updated {#merging-an-unidentified-user-without-including-the-most_recently_updated-prioritization}
 
-Si hay dos usuarios no identificados con la dirección de correo electrónico `john.smith@braze.com`, esta solicitud de ejemplo no fusiona ningún usuario porque hay dos usuarios no identificados con esa dirección de correo electrónico. Esta solicitud solo funciona si hay un único usuario no identificado con la dirección de correo electrónico `john.smith@braze.com`.
+Si hay dos usuarios no identificados con la dirección de correo electrónico `john.smith@example.com`, esta solicitud de ejemplo no fusiona ningún usuario porque hay dos usuarios no identificados con esa dirección de correo electrónico. Esta solicitud solo funciona si hay un único usuario no identificado con la dirección de correo electrónico `john.smith@example.com`.
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
@@ -229,7 +229,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified"]
       },
       "identifier_to_keep": {

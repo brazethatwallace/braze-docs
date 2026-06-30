@@ -18,7 +18,7 @@ tool:
 
 ## 인앱 메시지 측정기준 {#in-app-message-metrics}
 
-다음은 분석에서 확인할 수 있는 주요 인앱 메시지 측정기준입니다. Braze에서 사용되는 모든 측정기준의 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)을 참조하세요.
+다음은 분석에서 확인할 수 있는 주요 인앱 메시지 측정기준입니다. Braze에서 사용되는 모든 측정기준의 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)을 참조하세요.
 
 {% alert note %}
 인앱 메시지의 경우, 이 페이지에서는 워크스페이스 시간대의 캘린더 일 기준으로 고유 노출 횟수를 정의합니다.

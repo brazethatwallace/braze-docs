@@ -20,7 +20,7 @@ tool:
 ## リソース {#resources}
 
 - [正規表現の基礎](https://learning.braze.com/regular-expression-basics-for-braze) Brazeラーニングコース
-- [Regexチートシート]({{site.baseurl}}/regex_cheat_sheet/)
+- [Regexチートシート]({{site.baseurl}}/regex_cheat_sheet)
 - [サンプルデータRTF]({% image_buster /assets/download_file/regex-dummy-data.rtf %})
 
 ## Regexデバッガー {#regex-debugger}
@@ -201,7 +201,7 @@ x以下（≤）の値を検索する場合は、以下のregexを使用しま�
 
 ### 特定の電話番号をフィルタリングするにはどうすればよいですか？ {#how-do-i-filter-for-specific-phone-numbers}
 
-regexを使用して電話番号をフィルタリングする前に、ユーザープロファイルに記録される番号は、[ユーザーの電話番号]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/)で指定されている[E.164](https://en.wikipedia.org/wiki/E.164)形式である必要があることを覚えておいてください。
+regexを使用して電話番号をフィルタリングする前に、ユーザープロファイルに記録される番号は、[ユーザーの電話番号]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers)で指定されている[E.164](https://en.wikipedia.org/wiki/E.164)形式である必要があることを覚えておいてください。
 
 米国の電話番号を検索する場合、regex形式は`1?\d\d\d\d\d\d\d\d\d\d`を使用します。ここで、`\d`の各繰り返しは指定したい桁を表します。最初の3桁は市外局番です。
 

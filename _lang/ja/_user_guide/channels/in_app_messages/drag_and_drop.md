@@ -13,14 +13,14 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 # ドラッグ＆ドロップでアプリ内メッセージを作成する {#create-an-in-app-message-with-drag-and-drop}
 
-> ドラッグ＆ドロップエディターを使用すると、CampaignまたはCanvasのいずれかで、ドラッグ＆ドロップの編集体験を使って完全にカスタムでパーソナライズされたアプリ内メッセージを作成できます。エディターで使用できるビルディングブロックの詳細については、[エディターブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)を参照してください。
+> ドラッグ＆ドロップエディターを使用すると、CampaignまたはCanvasのいずれかで、ドラッグ＆ドロップの編集体験を使って完全にカスタムでパーソナライズされたアプリ内メッセージを作成できます。エディターで使用できるビルディングブロックの詳細については、[エディターブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages)を参照してください。
 
 
 {% multi_lang_include video.html id="j94omgo73o" align="right" source="wistia" %}
 
 既存のカスタムHTMLテンプレートやサードパーティが作成したテンプレートを使用する場合は、ドラッグ＆ドロップエディターで再作成する必要があります。
 
-アプリ内メッセージをCampaignで送信するか[Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/)で送信するか迷っていますか？Campaignは単一のターゲットメッセージングに適しており、Canvasはマルチステップのユーザージャーニーに適しています。メッセージの作成場所を選択したら、ドラッグ＆ドロップのアプリ内メッセージを作成する手順を見ていきましょう。
+アプリ内メッセージをCampaignで送信するか[Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas)で送信するか迷っていますか？Campaignは単一のターゲットメッセージングに適しており、Canvasはマルチステップのユーザージャーニーに適しています。メッセージの作成場所を選択したら、ドラッグ＆ドロップのアプリ内メッセージを作成する手順を見ていきましょう。
 
 ## 前提条件 {#prerequisites}
 
@@ -95,7 +95,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 既存のページを複製するには：
 
-1. リスト内のページにカーソルを合わせ、<i class="fas fa-ellipsis-vertical"></i>**その他のオプション**を選択します。
+1. リスト内のページにカーソルを合わせ、<i class="fas fa-ellipsis-vertical" aria-label="その他のオプション"></i> **その他のオプション**を選択します。
 2. **複製**を選択します。
 3. ページにわかりやすい名前を付けます。これはページ同士を接続する際に役立ちます。
 
@@ -104,7 +104,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 ページを削除または名前変更するには：
 
-1. リスト内のページにカーソルを合わせ、<i class="fas fa-ellipsis-vertical"></i>**その他のオプション**を選択します。
+1. リスト内のページにカーソルを合わせ、<i class="fas fa-ellipsis-vertical" aria-label="その他のオプション"></i> **その他のオプション**を選択します。
 2. **名前変更**または**削除**を選択します。
 
 {% endtab %}
@@ -134,9 +134,9 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 ここでは、ブランド独自のスタイルでメッセージを仕上げます。エディターブロックとスタイル設定を組み合わせて、アプリ内メッセージをカスタマイズおよびデザインできます。
 
-- 利用可能なエディターブロックとそのプロパティの一覧については、[エディターブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)を参照してください。
-- メッセージの外観と操作感のカスタマイズについては、[スタイル設定]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/)をご確認ください。
-- 右から左へのメッセージ作成のベストプラクティスについては、[右から左へのメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/)を参照してください。
+- 利用可能なエディターブロックとそのプロパティの一覧については、[エディターブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages)を参照してください。
+- メッセージの外観と操作感のカスタマイズについては、[スタイル設定]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings)をご確認ください。
+- 右から左へのメッセージ作成のベストプラクティスについては、[右から左へのメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)を参照してください。
 
 ## ステップ 5: アプリ内メッセージをテストする {#step-5-test-your-in-app-message}
 

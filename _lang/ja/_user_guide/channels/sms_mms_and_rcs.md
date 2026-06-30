@@ -23,9 +23,9 @@ SMS、MMS、RCSの利用可否は、Brazeのパッケージによって異なり
 
 開始する前に、以下を準備してください。
 
-- ショートコード、ロングコード、または英数字の送信者IDが設定されていること。詳細については、[送信者設定]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/)を参照してください。
-- TCPAやキャリア要件を含むSMSの法律および規制に精通していること。詳細については、[法律と規制]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/)を参照してください。
-- ユーザーから明示的なオプトイン同意を取得していること。詳細については、[ユーザーオプトインの収集]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/collecting_user_opt_ins/)を参照してください。
+- ショートコード、ロングコード、または英数字の送信者IDが設定されていること。詳細については、[送信者設定]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup)を参照してください。
+- TCPAやキャリア要件を含むSMSの法律および規制に精通していること。詳細については、[法律と規制]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations)を参照してください。
+- ユーザーから明示的なオプトイン同意を取得していること。詳細については、[ユーザーオプトインの収集]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/collecting_user_opt_ins)を参照してください。
 
 ## ユースケース {#use-cases}
 
@@ -36,7 +36,7 @@ SMS、MMS、RCSの利用可否は、Brazeのパッケージによって異なり
 | 2要素認証 | アカウントログインやトランザクション確認のためのワンタイム認証コードを配信します。 |
 | プロモーションオファー | 期間限定のプロモーション、フラッシュセール、パーソナライズ済みの割引を顧客の電話に直接届けます。 |
 | カスタマーサポート | 双方向の会話を通じて、顧客の問い合わせの解決、フィードバックの収集、サービスリクエストの確認を行います。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユースケース" }
 
 ## SMS、MMS、RCSの比較 {#sms-mms-and-rcs-compared}
 
@@ -53,9 +53,9 @@ RCS（リッチコミュニケーションサービス）は、対応デバイ�
 - ブランディング付きの認証済み送信者プロファイルを表示し、メッセージの信頼性を高めます。
 - キャリアが許可する場合、既読確認や入力インジケーターをサポートします。
 
-RCSは、トランザクション更新（配送、予約）、リッチクリエイティブを使用したプロモーション、クイックリプライパスを使用したカスタマーサポート、メディアや構造化アクションを活用したオンボーディングやチュートリアルなどのユースケースに適しています。セットアップとSMSからの移行については、[RCSセットアップ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup/)を参照してください。
+RCSは、トランザクション更新（配送、予約）、リッチクリエイティブを使用したプロモーション、クイックリプライパスを使用したカスタマーサポート、メディアや構造化アクションを活用したオンボーディングやチュートリアルなどのユースケースに適しています。セットアップとSMSからの移行については、[RCSセットアップ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup)を参照してください。
 
 ## 次のステップ {#next-steps}
 
-- [メッセージ設定]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/)
-- [メッセージを作成する]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/)
+- [メッセージ設定]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup)
+- [メッセージを作成する]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create)

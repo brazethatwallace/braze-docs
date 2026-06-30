@@ -13,7 +13,7 @@ description: "このリファレンス記事では、BrazeAI Decisioning Studio�
 社内にデータサイエンスチームやデータエンジニアリングチームがある場合、データ内のどのシグナルが意味を持つかについて最も多くのコンテキストを持っているため、特徴量の構築とキュレートに最適な立場にあります。
 
 {% alert note %}
-Brazeをご利用のお客様の場合、顧客特徴量は通常、ユーザープロファイルのカスタム属性を通じてDecisioning Studioに渡されます。カスタム属性とカスタムイベントの違い、およびそれぞれの更新戦略の詳細については、[スナップショットとイベントストリーム]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/)を参照してください。
+Brazeをご利用のお客様の場合、顧客特徴量は通常、ユーザープロファイルのカスタム属性を通じてDecisioning Studioに渡されます。カスタム属性とカスタムイベントの違い、およびそれぞれの更新戦略の詳細については、[スナップショットとイベントストリーム]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams)を参照してください。
 {% endalert %}
 
 ## 顧客特徴量の種類 {#types-of-customer-features}
@@ -26,17 +26,17 @@ Brazeをご利用のお客様の場合、顧客特徴量は通常、ユーザー
 | **ユーザー傾向** | 顧客が何かを行う可能性に関するモデル由来のスコア | `churn_risk_score`、`purchase_intent_score`、`upsell_affinity` |
 | **ユーザー行動** | 時間枠における顧客アクティビティの要約 | `clicks_past_30d`、`purchases_past_7d`、`app_logins_past_14d` |
 | **環境** | 顧客外部の文脈に応じたシグナル | `is_promotional_period`、`is_holiday`、`regional_economic_index` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Types of customer features" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="顧客特徴量の種類" }
 
-これらの特徴量の種類を組み合わせることで、モデルはセグメントを特定し、顧客を区別し、それに応じておすすめを適応させるために必要な情報を得ることができます。
+これらの特徴量の種類を組み合わせることで、モデルはSegmentを特定し、顧客を区別し、それに応じておすすめを適応させるために必要な情報を得ることができます。
 
 ## 一般的なガイドライン {#general-guidelines}
 
 特徴量を選択・構築する際には、以下の点に留意してください。
 
 - **カバレッジ:** 特徴量はターゲットオーディエンス内のすべての顧客をカバーする必要があります。オーディエンスの大部分で欠損またはnullとなる特徴量は、それらの顧客に対してモデルが活用できる情報を減少させます。
-- **粒度:** すべての特徴量は顧客レベルに集約する必要があります。「顧客レベル」が実際に何を意味するかについては、[Braze external IDの使用]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id/)を参照してください。
-- **鮮度:** 特徴量はイベント駆動ではなく、時間駆動のスケジュールで更新する必要があります。これが重要な理由については、[スナップショットとイベントストリーム]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/)を参照してください。
+- **粒度:** すべての特徴量は顧客レベルに集約する必要があります。「顧客レベル」が実際に何を意味するかについては、[Braze external IDの使用]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id)を参照してください。
+- **鮮度:** 特徴量はイベント駆動ではなく、時間駆動のスケジュールで更新する必要があります。これが重要な理由については、[スナップショットとイベントストリーム]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams)を参照してください。
 - **妥当性:** 特徴量の値は、定義に照らして妥当な範囲内に収まる必要があります。「過去30日間の購入数」の特徴量が負の値になることはあり得ません。
 - **スパース性:** 明確なビジネス上の理由がない限り、大多数の顧客でゼロまたはnullとなる特徴量は避けてください。スパースな特徴量はシグナルを追加せずにノイズを増やします。
 - **相関:** 互いに高い相関を持つ特徴量を含めることは避けてください。冗長な特徴量はバイアスを導入し、予測を改善せずにトレーニングを遅くする可能性があります。

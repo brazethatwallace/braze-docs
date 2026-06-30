@@ -10,13 +10,13 @@ noindex: true
 
 # Banners de prueba {#test-banners}
 
-> Aprende a probar tu mensaje de banner antes de lanzar tu campaña para asegurarte de que todos los medios, textos, personalizaciones y atributos personalizados se muestren correctamente. Para obtener información más general, consulta [Acerca de los banners]({{site.baseurl}}/developer_guide/banners/).
+> Aprende a probar tu mensaje de banner antes de lanzar tu campaña para asegurarte de que todos los medios, textos, personalizaciones y atributos personalizados se muestren correctamente. Para obtener información más general, consulta [Acerca de los banners]({{site.baseurl}}/developer_guide/banners).
 
 ## Requisitos previos {#prerequisites}
 
-Antes de poder probar los mensajes de banner en Braze, deberás crear una [campaña de banner en Braze]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/). Además, comprueba que la ubicación que deseas probar ya esté [colocada en tu aplicación o sitio web]({{site.baseurl}}/developer_guide/banners/placements/).
+Antes de poder probar los mensajes de banner en Braze, deberás crear una [Campaign de banner en Braze]({{site.baseurl}}/user_guide/channels/banners/create_a_banner). Además, comprueba que la ubicación que deseas probar ya esté [colocada en tu aplicación o sitio web]({{site.baseurl}}/developer_guide/banners/placements).
 
-Para enviar una prueba a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/internal_groups_tab/#content-test-groups) o a usuarios individuales, las notificaciones push deben estar habilitadas en tus dispositivos de prueba con tokens de notificaciones push válidos registrados para el usuario de prueba antes de enviarla.
+Para enviar una prueba a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/internal_groups_tab#content-test-groups) o a usuarios individuales, las notificaciones push deben estar habilitadas en tus dispositivos de prueba con tokens de notificaciones push válidos registrados para el usuario de prueba antes de enviarla.
 
 ## Prueba un banner {#test-a-banner}
 

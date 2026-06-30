@@ -10,13 +10,13 @@ description: "Auf dieser Seite finden Sie Antworten auf häufig gestellte Fragen
 
 > Dieser Artikel enthält Antworten auf einige häufig gestellte Fragen zu Decisioning Studio.
 
-### Was ist ein Decisioning-Agent? {#what-is-a-decisioning-agent}
+## Was ist ein Decisioning-Agent? {#what-is-a-decisioning-agent}
 
 Ein Decisioning-Agent ist eine angepasste Konfiguration für BrazeAI Decisioning Studio™, die speziell auf ein bestimmtes Geschäftsziel zugeschnitten ist. Dies wird durch die von Ihnen gewählte Erfolgsmetrik, die Dimensionen und die Optionen bestimmt. Der Decisioning-Agent ermittelt automatisch die optimale Aktion für jede:n Kund:in, um die von Ihnen gewählte Geschäftsmetrik zu maximieren.
 
 ### Welche Metriken kann ich optimieren? {#what-metrics-can-i-optimize-for}
 
-Sie können jede Geschäftsmetrik optimieren, die mit Ihren Zielen übereinstimmt, wie beispielsweise Umsatz, Conversions, durchschnittlicher Umsatz pro Nutzer:in (ARPU), Customer Lifetime-Value (CLV), Gewinn, Vertragsverlängerungen oder andere geschäftliche KPIs.
+Sie können jede Geschäftsmetrik optimieren, die mit Ihren Zielen übereinstimmt, wie beispielsweise Umsatz, Conversions, durchschnittlicher Umsatz pro Nutzer:in (ARPU), Lifetime-Value (CLV), Gewinn, Vertragsverlängerungen oder andere geschäftliche KPIs.
 
 ### Was sind Dimensionen in Decisioning Studio? {#what-are-dimensions-in-decisioning-studio}
 
@@ -36,4 +36,4 @@ Einschränkungen begrenzen die Aktionen des Decisioning-Agents, um wichtige Gesc
 
 ### Was ist der Unterschied zwischen Decisioning Studio Go und Decisioning Studio Pro? {#what-is-the-difference-between-decisioning-studio-go-and-decisioning-studio-pro}
 
-Decisioning Studio Pro umfasst die Unterstützung durch KI-Entscheidungsfindung-Dienste des vor Ort eingesetzten Data-Science-Teams von Braze, das Sie bei der Gestaltung und Konfiguration Ihres Agents unterstützt, um Ihre Geschäftsergebnisse zu maximieren. Weitere Informationen finden Sie unter [Decisioning Studio Go im Vergleich zu Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/#decisioning-studio-go-vs-decisioning-studio-pro).
+Decisioning Studio Pro umfasst die Unterstützung durch die KI-Entscheidungsfindung-Dienste des vor Ort eingesetzten Data-Science-Teams von Braze, das Sie bei der Gestaltung und Konfiguration Ihres Agents unterstützt, um Ihre Geschäftsergebnisse zu maximieren. Weitere Informationen finden Sie unter [Decisioning Studio Go im Vergleich zu Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio#decisioning-studio-go-vs-decisioning-studio-pro).

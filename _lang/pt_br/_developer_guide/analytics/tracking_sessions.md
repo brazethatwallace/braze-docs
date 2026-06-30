@@ -22,14 +22,14 @@ Entender como a inatividade é definida e medida é fundamental para gerenciar c
 
 ### Como a inatividade é medida {#how-inactivity-is-measured}
 
-O SDK Web rastreia a inatividade com base em [eventos rastreados pelo SDK]({{site.baseurl}}/user_guide/data/activation/custom_data/events/#events). O SDK mantém um temporizador interno que é redefinido cada vez que um evento rastreado é enviado. Se nenhum evento rastreado pelo SDK ocorrer dentro do período de tempo limite configurado, a sessão é considerada inativa e termina.
+O SDK Web rastreia a inatividade com base em [eventos rastreados pelo SDK]({{site.baseurl}}/user_guide/data/activation/custom_data/events#events). O SDK mantém um temporizador interno que é redefinido cada vez que um evento rastreado é enviado. Se nenhum evento rastreado pelo SDK ocorrer dentro do período de tempo limite configurado, a sessão é considerada inativa e termina.
 
 Para saber mais sobre como o ciclo de vida da sessão é implementado no SDK Web, veja o código-fonte de gerenciamento de sessão no [repositório do Braze Web SDK no GitHub](https://github.com/braze-inc/braze-web-sdk/blob/master/src/session.ts).
 
 **O que conta como atividade por padrão:**
 - Abrir ou atualizar o app web
-- Interagir com elementos de UI da Braze (como [mensagens no app]({{site.baseurl}}/developer_guide/in_app_messages/) ou [Content Cards]({{site.baseurl}}/developer_guide/content_cards/))
-- Chamar métodos do SDK que enviam eventos rastreados (como [eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/) ou [atualizações de atributos do usuário]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/))
+- Interagir com elementos de UI da Braze (como [mensagens no app]({{site.baseurl}}/developer_guide/in_app_messages) ou [Content Cards]({{site.baseurl}}/developer_guide/content_cards))
+- Chamar métodos do SDK que enviam eventos rastreados (como [eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events) ou [atualizações de atributos do usuário]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes))
 
 **O que não conta como atividade por padrão:**
 - Alternar para uma guia de navegador diferente
@@ -38,7 +38,7 @@ Para saber mais sobre como o ciclo de vida da sessão é implementado no SDK Web
 - Rolagem ou movimentos do mouse na página
 
 {% alert note %}
-O SDK Web não rastreia automaticamente mudanças de visibilidade do navegador, troca de guia ou foco do usuário. No entanto, você pode rastrear essas interações em nível de navegador implementando ouvintes de eventos personalizados usando a [API de Visibilidade da Página](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) do navegador e enviando [eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web) para a Braze. Para um exemplo de implementação, consulte [Rastreamento de inatividade personalizada](#tracking-custom-inactivity).
+O SDK Web não rastreia automaticamente mudanças de visibilidade do navegador, troca de guia ou foco do usuário. No entanto, você pode rastrear essas interações em nível de navegador implementando ouvintes de eventos personalizados usando a [API de Visibilidade da Página](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) do navegador e enviando [eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web) para a Braze. Para um exemplo de implementação, consulte [Rastreamento de inatividade personalizada](#tracking-custom-inactivity).
 {% endalert %}
 
 ### Configuração de tempo limite de sessão {#session-timeout-configuration}
@@ -57,7 +57,7 @@ Considere o seguinte cenário:
 
 ### Rastreamento de inatividade personalizada {#tracking-custom-inactivity}
 
-Se você precisar rastrear inatividade com base na visibilidade do navegador ou troca de guia, implemente ouvintes de eventos personalizados no seu código JavaScript. Use eventos do navegador, como `visibilitychange`, para detectar quando os usuários saem da sua página e envie manualmente [eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/) para a Braze ou chame [`braze.openSession()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#opensession) quando apropriado.
+Se você precisar rastrear inatividade com base na visibilidade do navegador ou troca de guia, implemente ouvintes de eventos personalizados no seu código JavaScript. Use eventos do navegador, como `visibilitychange`, para detectar quando os usuários saem da sua página e envie manualmente [eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events) para a Braze ou chame [`braze.openSession()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#opensession) quando apropriado.
 
 ```javascript
 // Example: Track when user switches away from tab
@@ -73,7 +73,7 @@ document.addEventListener('visibilitychange', function() {
 });
 ```
 
-Para saber mais sobre o registro de eventos personalizados, consulte [Registro de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/). Para detalhes sobre o ciclo de vida da sessão e configuração de tempo limite, consulte [Alterando o tempo limite padrão da sessão](#change-session-timeout).
+Para saber mais sobre o registro de eventos personalizados, consulte [Registro de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events). Para detalhes sobre o ciclo de vida da sessão e configuração de tempo limite, consulte [Alterando o tempo limite padrão da sessão](#change-session-timeout).
 
 ## Inscrever-se para receber atualizações de sessão {#subscribing-to-session-updates}
 
@@ -259,12 +259,12 @@ Se você definir um tempo limite de sessão, todas as semânticas de sessão ser
 
 Um perfil de usuário pode ter 0 sessões se o usuário foi criado fora do SDK:
 
-- **Criado pela REST API:** Se um usuário é criado através do endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) com um `app_id` na requisição, o perfil aparece associado a esse app, mas não possui dados de sessão porque o SDK nunca foi inicializado para esse usuário.
-- **Criado por importação CSV:** Se um usuário é importado por [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/) sem valores para os campos de primeira ou última sessão, o perfil existe com 0 sessões.
+- **Criado pela REST API:** Se um usuário é criado através do endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) com um `app_id` na requisição, o perfil aparece associado a esse app, mas não possui dados de sessão porque o SDK nunca foi inicializado para esse usuário.
+- **Criado por importação CSV:** Se um usuário é importado por [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) sem valores para os campos de primeira ou última sessão, o perfil existe com 0 sessões.
 
 ### Alguns usuários não estão registrando sessões {#some-users-are-not-logging-sessions}
 
-Como as sessões são rastreadas somente após a inicialização do SDK, usuários que não acionam a inicialização do SDK não registram nenhuma sessão. Isso normalmente acontece quando seu app usa lógica condicional antes de inicializar o SDK, como atrasar a inicialização por trás de um fluxo de login, prompt de consentimento ou Feature Flag. Para orientações de implementação, veja [Inicialização atrasada]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=swift). Nesses casos, qualquer usuário que não satisfaça a condição nunca inicia uma sessão.
+Como as sessões são rastreadas somente após a inicialização do SDK, usuários que não acionam a inicialização do SDK não registram nenhuma sessão. Isso normalmente acontece quando seu app usa lógica condicional antes de inicializar o SDK, como atrasar a inicialização por trás de um fluxo de login, prompt de consentimento ou Feature Flag. Para orientações de implementação, veja [Inicialização atrasada]({{site.baseurl}}/developer_guide/sdk_initalization?sdktab=swift). Nesses casos, qualquer usuário que não satisfaça a condição nunca inicia uma sessão.
 
 Se alguns usuários estão registrando sessões e outros não, verifique o seguinte:
 
@@ -276,6 +276,6 @@ Se o problema persistir após verificar sua implementação, reproduza o problem
 
 - Etapas para reproduzir o problema
 - A versão do app afetada
-- [Registros detalhados do SDK]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), capturados enquanto o problema ocorre (ou por plataforma: [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_enabling-logs), [Swift]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_setting-the-log-level), [Web]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#web_logging))
+- [Registros detalhados do SDK]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), capturados enquanto o problema ocorre (ou por plataforma: [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_enabling-logs), [Swift]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift#swift_setting-the-log-level), [Web]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web#web_logging))
 - O trecho de código da inicialização do SDK
 - Um resumo de qualquer lógica condicional aplicada antes da inicialização

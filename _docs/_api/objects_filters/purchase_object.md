@@ -104,6 +104,8 @@ For a consolidated reference of data types across custom attributes, event prope
 
 [Purchase properties]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-properties) can be used to trigger messages and for personalization using Liquid, also allowing you to segment based on these properties.
 
+{% include data_activation/segmentable_purchase_properties_keys_note.md %}
+
 #### Naming conventions
 
 It's important to note that this feature is turned on **per product**, not per purchase. For example, if a you have a high volume of distinct products, but each has the same properties, segmenting may be more unnecessary.

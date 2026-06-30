@@ -31,12 +31,12 @@ Braze zählt Änderungen des Abo-Status nicht als Datenpunkte – weder global n
 
 ### Abgemeldete E-Mail-Adressen {#unsubscribed-email-addresses}
 
-Braze meldet automatisch jede Nutzer:in ab, die sich manuell über eine [angepasste Fußzeile]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/) abmeldet. Wenn die Nutzer:in ihre E-Mail-Adresse aktualisiert und **Resubscribe users when they update their email** in der **Sendekonfiguration** aktiviert ist, wird der normale Versand fortgesetzt.
+Braze meldet automatisch jede Nutzer:in ab, die sich manuell über eine [angepasste Fußzeile]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer) abmeldet. Wenn die Nutzer:in ihre E-Mail-Adresse aktualisiert und **Resubscribe users when they update their email** in der **Sendekonfiguration** aktiviert ist, wird der normale Versand fortgesetzt.
 
 Wenn eine Nutzer:in eine oder mehrere Ihrer E-Mails als Spam markiert, sendet Braze nur noch Transaktions-E-Mails an diese Nutzer:in. Transaktions-E-Mails beziehen sich auf die Option **Send to all users including unsubscribed users** unter **Target Audience**.
 
 {% alert tip %}
-Lesen Sie unsere Best Practices zum [IP-Warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/), um Hinweise zur effektiven Reaktivierung Ihrer Nutzer:innen zu erhalten.
+Lesen Sie unsere Best Practices zum [IP-Warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming), um Hinweise zur effektiven Reaktivierung Ihrer Nutzer:innen zu erhalten.
 {% endalert %}
 
 ### Bounces und ungültige E-Mails {#bounces-and-invalid-emails}
@@ -55,7 +55,7 @@ Verwenden Sie das Braze SDK, um den Abo-Status einer Nutzer:in zu aktualisieren.
 
 #### REST API
 
-Verwenden Sie den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), um das [`email_subscribe`-Attribut]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) für eine Nutzer:in zu aktualisieren. Um beispielsweise den E-Mail-Abo-Status einer Nutzer:in auf „Abgemeldet“ zu setzen, wenn sie einen angepassten Abmeldelink verwendet, fügen Sie `email_subscribe: "unsubscribed"` in den Nutzerattributen Ihrer Anfrage ein.
+Verwenden Sie den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um das [`email_subscribe`-Attribut]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) für eine Nutzer:in zu aktualisieren. Um beispielsweise den E-Mail-Abo-Status einer Nutzer:in auf „Abgemeldet“ zu setzen, wenn sie einen angepassten Abmeldelink verwendet, fügen Sie `email_subscribe: "unsubscribed"` in den Nutzerattributen Ihrer Anfrage ein.
 
 #### Nutzerprofil {#user-profile}
 
@@ -74,8 +74,8 @@ Fügen Sie [Präferenzzentrum](#email-preference-center)-Liquid am Ende Ihrer E-
 
 Sie können den E-Mail-Abo-Status einer Nutzer:in auf folgende Weise überprüfen:
 
-1. **REST-API-Export:** Verwenden Sie die Endpunkte [Nutzer:innen nach Segment exportieren]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) oder [Nutzer:innen nach Bezeichner exportieren]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/), um einzelne Nutzerprofile im JSON-Format zu exportieren.
-2. **Nutzerprofil:** Suchen Sie das Profil der Nutzer:in auf der Seite [Nutzer:innen suchen]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/), wählen Sie dann den Tab **Engagement**, um den Abo-Status der Nutzer:in einzusehen und manuell zu aktualisieren.
+1. **REST-API-Export:** Verwenden Sie die Endpunkte [Nutzer:innen nach Segment exportieren]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) oder [Nutzer:innen nach Bezeichner exportieren]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier), um einzelne Nutzerprofile im JSON-Format zu exportieren.
+2. **Nutzerprofil:** Suchen Sie das Profil der Nutzer:in auf der Seite [Nutzer:innen suchen]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles), wählen Sie dann den Tab **Engagement**, um den Abo-Status der Nutzer:in einzusehen und manuell zu aktualisieren.
 
 Wenn eine Nutzer:in ihre E-Mail-Adresse aktualisiert, wird ihr Abo-Status auf „Abonniert“ gesetzt. Wenn die aktualisierte E-Mail-Adresse bereits an anderer Stelle in einem Braze-Workspace existiert, übernimmt die Nutzer:in den Abo-Status von dieser bestehenden Nutzer:in, es sei denn, **Resubscribe users when they update their email setting** ist in der **Sendekonfiguration** aktiviert.
 
@@ -84,13 +84,13 @@ Um Änderungen des Abo-Status nachzuvollziehen, überprüfen Sie die **Email Sub
 | Quelle | Beschreibung |
 | ------ | ----------- |
 | SDK | Nutzerattribut-Update, gesendet über ein Braze SDK |
-| REST API | Nutzerattribut-Update, gesendet über den [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)-Endpunkt |
+| REST API | Nutzerattribut-Update, gesendet über den [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Endpunkt |
 | Dashboard | Abo-Status manuell auf der Nutzerprofil-Seite geändert |
 | CSV-Import | Abo-Status während eines Nutzer-CSV-Imports festgelegt |
 | Präferenzzentrum | Nutzer:in hat ihre Präferenz über ein von Braze gehostetes Präferenzzentrum aktualisiert |
 | Abo-Seite | Nutzer:in hat einen Abmeldelink in einer E-Mail ausgewählt und ist auf der Braze-Abo-Seite gelandet |
 | List-Unsubscribe | Nutzer:in hat sich über den nativen List-Unsubscribe-Header des E-Mail-Clients abgemeldet |
-| Canvas-Nutzeraktualisierungsschritt | Abo-Status durch einen [Nutzeraktualisierungsschritt]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/) in einem Canvas aktualisiert |
+| Canvas-Nutzeraktualisierungsschritt | Abo-Status durch einen [Nutzeraktualisierungsschritt]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update) in einem Canvas aktualisiert |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Quellen für Aktualisierungen des E-Mail-Abo-Status" }
 
 Wenn sich der globale E-Mail-Abo-Status einer Nutzer:in ändert, überträgt Braze diesen Status auf andere Profile, die dieselbe E-Mail-Adresse verwenden – bis zu 100 Profile pro Änderung. Braze garantiert keine Übertragung, wenn mehr als 100 Profile dieselbe E-Mail-Adresse verwenden. Wenn Nutzer:innen, die eine E-Mail-Adresse teilen, unterschiedliche Abo-Status aufweisen, wenden Sie sich an den Braze-Support.
@@ -103,7 +103,7 @@ Abo-Gruppen sind Segment-Filter, mit denen Sie Ihre Zielgruppe über die [global
 
 Angenommen, Sie versenden mehrere Kategorien von E-Mail-Campaigns (Werbeaktionen, Newsletter oder Produktupdates). In diesem Fall können Sie Abo-Gruppen verwenden, damit Ihre Kund:innen auf einer einzigen Seite auswählen können, welche E-Mail-Kategorien sie abonnieren oder abbestellen möchten – mithilfe eines [E-Mail-Präferenzzentrums](#email-preference-center). Alternativ können Sie Abo-Gruppen nutzen, um Ihren Kund:innen die Wahl zu lassen, wie häufig sie E-Mails von Ihnen erhalten möchten, indem Sie Abo-Gruppen für tägliche, wöchentliche oder monatliche E-Mails erstellen.
 
-Verwenden Sie die [Abo-Gruppen-Endpunkte]({{site.baseurl}}/api/endpoints/subscription_groups/), um die Abo-Gruppen, die Sie im Braze-Dashboard auf der Seite **Subscription Group** gespeichert haben, programmatisch zu verwalten.
+Verwenden Sie die [Abo-Gruppen-Endpunkte]({{site.baseurl}}/api/endpoints/subscription_groups), um die Abo-Gruppen, die Sie im Braze-Dashboard auf der Seite **Subscription Group** gespeichert haben, programmatisch zu verwalten.
 
 ### Abo-Gruppe erstellen {#creating-a-subscription-group}
 
@@ -152,14 +152,14 @@ Sie können die Anzahl der Nutzer:innen sehen, die ihren Abo-Status (abonniert o
 
 ### E-Mail-Abo-Gruppe einer Nutzer:in überprüfen {#checking-a-users-email-subscription-group}
 
-- **Nutzerprofil:** Auf einzelne Nutzerprofile kann über das Braze-Dashboard auf der Seite [Nutzer:innen suchen]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#access-profiles) zugegriffen werden. Dort können Sie Nutzerprofile nach E-Mail-Adresse, Telefonnummer oder externer Nutzer-ID suchen. Sie können die E-Mail-Abo-Gruppen einer Nutzer:in auch im Tab **Engagement** einsehen.
-- **Braze REST API:** Verwenden Sie den Endpunkt [Abo-Gruppen einer Nutzer:in auflisten]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) oder den Endpunkt [Abo-Gruppenstatus einer Nutzer:in auflisten]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/), um die Abo-Gruppen einzelner Nutzerprofile einzusehen.
+- **Nutzerprofil:** Auf einzelne Nutzerprofile kann über das Braze-Dashboard auf der Seite [Nutzer:innen suchen]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles) zugegriffen werden. Dort können Sie Nutzerprofile nach E-Mail-Adresse, Telefonnummer oder externer Nutzer-ID suchen. Sie können die E-Mail-Abo-Gruppen einer Nutzer:in auch im Tab **Engagement** einsehen.
+- **Braze REST API:** Verwenden Sie den Endpunkt [Abo-Gruppen einer Nutzer:in auflisten]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) oder den Endpunkt [Abo-Gruppenstatus einer Nutzer:in auflisten]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status), um die Abo-Gruppen einzelner Nutzerprofile einzusehen.
 
 ## E-Mail-Präferenzzentrum {#email-preference-center}
 
 Das E-Mail-Präferenzzentrum ermöglicht es Ihnen zu verwalten, welche Nutzer:innen Abo-Gruppen-Newsletter erhalten. Sie finden es im Dashboard unter **Subscription Groups**. Jede von Ihnen erstellte Abo-Gruppe wird der Liste des Präferenzzentrums hinzugefügt.
 
-Um mehr darüber zu erfahren, wie Sie ein Präferenzzentrum hinzufügen oder anpassen können, lesen Sie [Präferenzzentrum]({{site.baseurl}}/user_guide/channels/email/subscriptions/).
+Um mehr darüber zu erfahren, wie Sie ein Präferenzzentrum hinzufügen oder anpassen können, lesen Sie [Präferenzzentrum]({{site.baseurl}}/user_guide/channels/email/subscriptions).
 
 ## E-Mail-Abos ändern {#changing-email-subscriptions}
 
@@ -171,7 +171,7 @@ Wenn eine Nutzer:in im Präferenzzentrum „Von allen oben genannten E-Mail-Type
 
 Wenn Sie nicht die Standard-Fußzeile verwenden möchten, erstellen Sie eine Workspace-weite angepasste E-Mail-Fußzeile und binden Sie diese mit {% raw %}`{{${email_footer}}}`{% endraw %} in jede E-Mail ein.
 
-So müssen Sie nicht für jedes E-Mail-Template oder jede E-Mail-Campaign eine neue Fußzeile erstellen. Die Schritte finden Sie unter [Angepasste E-Mail-Fußzeile]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/).
+So müssen Sie nicht für jedes E-Mail-Template oder jede E-Mail-Campaign eine neue Fußzeile erstellen. Die Schritte finden Sie unter [Angepasste E-Mail-Fußzeile]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer).
 
 #### Abo-Status für chinesische IP-Adressen verwalten {#managing-subscription-states-for-chinese-ip-addresses}
 
@@ -188,7 +188,7 @@ Um stattdessen eine angepasste Landing-Page zu verwenden:
 
 Fügen Sie einen Link zur erneuten Anmeldung ein (z. B. {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}), damit Nutzer:innen eine versehentliche Abmeldung rückgängig machen können.
 
-Sie können Nutzer:innen auch auf Ihre Website weiterleiten und den Status über die Braze REST API aktualisieren (z. B. mit einem Link mit {% raw %}`?user_id={{${user_id}}}`{% endraw %} und anschließendem Aufruf von [`/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status/)).
+Sie können Nutzer:innen auch auf Ihre Website weiterleiten und den Status über die Braze REST API aktualisieren (z. B. mit einem Link mit {% raw %}`?user_id={{${user_id}}}`{% endraw %} und anschließendem Aufruf von [`/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status)).
 
 {% alert note %}
 Wenn Sie die Dashboard-Fußzeile anstelle eines reinen HTML-Content-Blocks verwenden, muss das Template dennoch {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} enthalten, um gespeichert werden zu können. Um vorübergehend eine andere Abmelde-URL zu verwenden, können Sie den Standard-Tag auskommentieren. Ein Beispiel: {% raw %}`<!-- {{${set_user_to_unsubscribed_url}}} -->`{% endraw %}.
@@ -223,7 +223,7 @@ Braze unterstützt drei Targeting-Status:
 - Alle Nutzer:innen, einschließlich derjenigen, die sich abgemeldet haben.
 
 {% alert important %}
-Es liegt in Ihrer Verantwortung, bei der Verwendung dieser Targeting-Einstellungen alle geltenden [Spam-Gesetze]({{site.baseurl}}/help/best_practices/spam_regulations/#spam-regulations) einzuhalten.
+Es liegt in Ihrer Verantwortung, bei der Verwendung dieser Targeting-Einstellungen alle geltenden [Spam-Gesetze]({{site.baseurl}}/help/best_practices/spam_regulations#spam-regulations) einzuhalten.
 {% endalert %}
 
 ## Nach Nutzer-Abos segmentieren {#segmenting-by-user-subscriptions}

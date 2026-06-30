@@ -5,7 +5,7 @@ page_order: 40
 hide_toc: true
 layout: dev_guide
 guide_top_header: "アプリ内メッセージのチュートリアル"
-guide_top_text: "> これらは Braze SDK のアプリ内メッセージチュートリアルで、ステップバイステップでスクロール可能なコードが含まれています。完全なリストは、<a href='/docs/developer_guide/tutorials/'>Braze SDK チュートリアル</a>を参照してください。"
+guide_top_text: "> これらはBraze SDKのアプリ内メッセージチュートリアルで、ステップバイステップでスクロール可能なコードが含まれています。完全なリストは、<a href='/docs/developer_guide/tutorials'>Braze SDKチュートリアル</a> を参照してください。"
 
 guide_featured_title: "セクションの記事"
 guide_featured_list:
@@ -15,7 +15,7 @@ guide_featured_list:
   - name: 条件付き表示
     link: /docs/developer_guide/in_app_messages/tutorials/conditionally_displaying_messages
     image: /assets/img/braze_icons/zap-off.svg
-  - name: トリガーメッセージを遅延させ、復元する
+  - name: トリガーメッセージの遅延と復元
     link: /docs/developer_guide/in_app_messages/tutorials/deferring_triggered_messages
     image: /assets/img/braze_icons/watch-circle.svg
 ---

@@ -16,7 +16,7 @@ description: "Cet article présente en détail l'endpoint Braze Ajouter des e-ma
 {% endapimethod %}
 
 {% alert important %}
-Braze a publié l'[endpoint `/email/blocklist`]({{site.baseurl}}/api/endpoints/email/post_blocklist/) avec la même fonctionnalité que l'endpoint `/email/blacklist`. Nous vous recommandons d'utiliser l'endpoint `/email/blocklist` à la place.
+Braze a publié l'[endpoint `/email/blocklist`]({{site.baseurl}}/api/endpoints/email/post_blocklist) avec la même fonctionnalité que l'endpoint `/email/blacklist`. Nous vous recommandons d'utiliser l'endpoint `/email/blocklist` à la place.
 {% endalert %}
 
 > Utilisez cet endpoint pour désinscrire un utilisateur des e-mails et le marquer comme ayant subi un échec d'envoi définitif.
@@ -25,7 +25,7 @@ Braze a publié l'[endpoint `/email/blocklist`]({{site.baseurl}}/api/endpoints/e
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `email.blacklist`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `email.blacklist`.
 
 ## Limite de débit {#rate-limit}
 

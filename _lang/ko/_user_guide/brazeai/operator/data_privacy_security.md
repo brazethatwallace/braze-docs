@@ -79,11 +79,11 @@ Operator를 사용할 때 PII 노출을 제한하기 위해 취할 수 있는 �
 
 ### Operator에 대한 접근 제한 {#restrict-access-to-operator}
 
-Operator에 대한 접근은 [세분화된 사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)을 통해 워크스페이스 수준에서 관리됩니다. 관리자는 개별 사용자에 대해 **BrazeAI Operator 사용** 권한을 부여하거나 취소하여 승인된 인원만 도구와 상호작용할 수 있도록 할 수 있습니다. 이러한 특정 권한이 없으면 Operator 인터페이스가 완전히 숨겨지고 백엔드 엔드포인트도 보안이 유지됩니다.
+Operator에 대한 접근은 [세분화된 사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)을 통해 워크스페이스 수준에서 관리됩니다. 관리자는 개별 사용자에 대해 **BrazeAI Operator 사용** 권한을 부여하거나 취소하여 승인된 인원만 도구와 상호작용할 수 있도록 할 수 있습니다. 이러한 특정 권한이 없으면 Operator 인터페이스가 완전히 숨겨지고 백엔드 엔드포인트도 보안이 유지됩니다.
 
 ### 휴먼 인 더 루프 모델 {#human-in-the-loop-model}
 
-기본적으로 Operator는 변경 사항을 커밋하기 전에 명시적 승인을 요구합니다. 제안된 수정 사항은 검토를 위해 [동작 카드]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/)로 표시됩니다. 사용자가 제안을 거부하면 변경 사항이 발생하지 않습니다. 사용자가 제안을 수락하면 대시보드가 업데이트되지만, 변경 사항은 보류 상태로 유지되며 영구적으로 적용되려면 수동으로 저장하거나 시작해야 합니다.
+기본적으로 Operator는 변경 사항을 커밋하기 전에 명시적 승인을 요구합니다. 제안된 수정 사항은 검토를 위해 [동작 카드]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)로 표시됩니다. 사용자가 제안을 거부하면 변경 사항이 발생하지 않습니다. 사용자가 제안을 수락하면 대시보드가 업데이트되지만, 변경 사항은 보류 상태로 유지되며 영구적으로 적용되려면 수동으로 저장하거나 시작해야 합니다.
 
 사용자는 Operator 채팅 패널에서 **동작 자동 승인**을 활성화할 수 있으며, 이 경우 제안된 동작이 수동 검토 없이 즉시 실행됩니다. 자동 승인이 활성화된 경우에도 이미지 생성 및 워크스페이스 수준 설정 수정을 포함하여 일부 동작은 안전을 위해 항상 명시적 승인이 필요합니다.
 
@@ -93,4 +93,4 @@ Operator는 로그인한 사용자의 권한 프로필을 완전히 상속합니
 
 ### 팀 사용 감사 {#audit-team-usage}
 
-팀 사용을 모니터링하려면 Braze의 [보안 이벤트 보고서]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report)를 다운로드하세요. "Requested BrazeAI Operator Response" 이벤트는 포괄적인 감사 추적을 제공하여 Operator에 제공된 정확한 입력을 검토할 수 있게 합니다.
+팀 사용을 모니터링하려면 Braze의 [보안 이벤트 보고서]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report)를 다운로드하세요. "Requested BrazeAI Operator Response" 이벤트는 포괄적인 감사 추적을 제공하여 Operator에 제공된 정확한 입력을 검토할 수 있게 합니다.

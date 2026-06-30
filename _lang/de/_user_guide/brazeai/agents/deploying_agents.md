@@ -8,7 +8,7 @@ page_order: 2
 
 # Angepasste Agenten bereitstellen {#deploy-custom-agents}
 
-> Nachdem Sie [einen Agenten erstellt]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/) haben, erfahren Sie auf dieser Seite, wo und wie Sie ihn in Braze bereitstellen können. Der Agententyp, den Sie bei der Erstellung wählen – Canvas-Agent oder Katalog-Agent – bestimmt, wo der Agent ausgeführt werden kann. Eine Einführung finden Sie unter [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/).
+> Nachdem Sie [einen Agenten erstellt]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents) haben, erfahren Sie auf dieser Seite, wo und wie Sie ihn in Braze bereitstellen können. Der Agententyp, den Sie bei der Erstellung wählen – Canvas-Agent oder Katalog-Agent – bestimmt, wo der Agent ausgeführt werden kann. Eine Einführung finden Sie unter [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents).
 
 ## Typen angepasster Agenten {#types-of-custom-agents}
 
@@ -16,11 +16,11 @@ Angepasste Agenten werden je nach Typ in verschiedenen Bereichen von Braze berei
 
 | Agententyp | Bereitgestellt in | Wird ausgeführt, wenn | Abschnitt |
 | --- | --- | --- | --- |
-| Canvas-Schritt-Agent | [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/) in Canvas | Nutzer:innen den Schritt erreichen | [Canvas-Schritt-Agenten verwenden](#use-canvas-step-agents) |
+| Canvas-Schritt-Agent | [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) in Canvas | Nutzer:innen den Schritt erreichen | [Canvas-Schritt-Agenten verwenden](#use-canvas-step-agents) |
 | Katalog-Agent | Katalogfeld | Eine Katalogzeile erstellt oder aktualisiert wird | [Katalog-Agenten verwenden](#use-catalog-agents) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Typen angepasster Agenten" }
 
-Sie wählen den Agententyp in der **Agentenkonsole** aus, wenn Sie den Agenten erstellen. Informationen zu den Einrichtungsschritten finden Sie unter [Angepasste Agenten erstellen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#step-1-choose-an-agent-type).
+Sie wählen den Agententyp in der **Agentenkonsole** aus, wenn Sie den Agenten erstellen. Informationen zu den Einrichtungsschritten finden Sie unter [Angepasste Agenten erstellen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#step-1-choose-an-agent-type).
 
 ## Best Practices {#best-practices}
 
@@ -28,7 +28,7 @@ Konzentrieren Sie sich auf hochwertige Anwendungsfälle, bei denen Agenten die g
 
 Beginnen Sie bei Canvas-Agenten mit Nutzer:innen, die starke Signale aufweisen – wie aktuelle Suchanfragen, hohes Engagement oder umfangreiche Profildaten – bevor Sie auf breitere Segmente ausweiten. Priorisieren Sie bei Katalog-Agenten Zeilen, in denen die benötigten Eingabespalten bereits befüllt sind, damit jeder Aufruf genügend Kontext hat, um nützliche Ausgaben zu erzeugen.
 
-Um die Kapitalrendite in kleinem Maßstab zu testen, bevor Sie einen Agenten breit ausrollen, verwenden Sie einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/)-Schritt, sodass nur ein Teil Ihrer Zielgruppe den Branch betritt, der Ihren Agent-Schritt enthält.
+Um die Kapitalrendite in kleinem Maßstab zu testen, bevor Sie einen Agenten breit ausrollen, verwenden Sie einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Schritt, sodass nur ein Teil Ihrer Zielgruppe den Branch betritt, der Ihren Agent-Schritt enthält.
 
 ## Canvas-Schritt-Agenten verwenden {#use-canvas-step-agents}
 
@@ -38,7 +38,7 @@ Nachdem Sie einen Canvas-Agenten erstellt haben, fügen Sie ihn als Agent-Schrit
 
 Wenn Nutzer:innen einen Agent-Schritt in einem Canvas erreichen, sendet Braze die von Ihnen konfigurierten Eingabedaten an Ihren Agenten. Der Agent verarbeitet die Eingabe mithilfe seines Modells und seiner Anweisungen und gibt dann eine Ausgabe zurück, die in der von Ihnen im Schritt definierten Ausgabevariable gespeichert wird. Sie können diese Ausgabe für Entscheidungen, Personalisierung oder nachgelagerte Verarbeitung verwenden.
 
-Agent-Schritte verwenden [Canvas-Kontextvariablen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/), um relevanten Kontext aufzunehmen und eine Variable auszugeben, die im Canvas verwendet werden kann. Voraussetzungen und eine vollständige Referenz finden Sie unter [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/).
+Agent-Schritte verwenden [Canvas-Kontextvariablen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables), um relevanten Kontext aufzunehmen und eine Variable auszugeben, die im Canvas verwendet werden kann. Voraussetzungen und eine vollständige Referenz finden Sie unter [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
 
 ### Einen Agent-Schritt hinzufügen {#add-an-agent-step}
 
@@ -46,11 +46,11 @@ Um einen Agenten zu Ihrem Canvas hinzuzufügen:
 
 1. Ziehen Sie die **Agent**-Komponente per Drag-and-Drop aus der Seitenleiste, oder wählen Sie den <i class="fas fa-plus-circle"></i>-Plus-Button am unteren Rand eines Schritts und wählen Sie **Agent**.
 2. Wählen Sie den Agenten aus, der die Daten in diesem Schritt verarbeitet.
-3. Definieren Sie den Namen der Ausgabevariable. Der Ausgabedatentyp wird in der [Agentenkonsole]({{site.baseurl}}/user_guide/brazeai/agents/) festgelegt.
+3. Definieren Sie den Namen der Ausgabevariable. Der Ausgabedatentyp wird in der [Agentenkonsole]({{site.baseurl}}/user_guide/brazeai/agents) festgelegt.
 4. (Optional) Fügen Sie zusätzliche Kontextwerte hinzu, die der Agent bei der Ausführung referenzieren kann. Dies können zusätzliche Liquid-Variablen oder Canvas-Kontext sein, die Sie nicht bereits im Agent-Setup gebunden haben – beispielsweise Werte, die Sie nur zum Sendezeitpunkt aus diesem Schritt übergeben möchten.
 5. Testen und überprüfen Sie die Agentenausgabe in der Schrittvorschau.
 
-Informationen zu Ausgabedatentypen, Liquid-Templating und Screenshots finden Sie unter [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/).
+Informationen zu Ausgabedatentypen, Liquid-Templating und Screenshots finden Sie unter [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
 
 ### Anwendungsfälle {#use-cases}
 
@@ -68,26 +68,26 @@ Informationen zu Ausgabedatentypen, Liquid-Templating und Screenshots finden Sie
 
 Nachdem der Agent ausgeführt wurde, verwenden Sie die Ausgabevariable in Ihrem Canvas:
 
-- **Journey-Routing:** Leiten Sie Nutzer:innen basierend auf der Antwort des Agenten in verschiedene Canvas-Pfade. Verwenden Sie [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) oder [Decision-Splits]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) mit numerischen, booleschen oder strukturierten Ausgaben.
+- **Journey-Routing:** Leiten Sie Nutzer:innen basierend auf der Antwort des Agenten in verschiedene Canvas-Pfade. Verwenden Sie [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) oder [Decision-Splits]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) mit numerischen, booleschen oder strukturierten Ausgaben.
 - **Personalisierung:** Fügen Sie die Antwort des Agenten mithilfe von Liquid direkt in einen Nachrichten-Schritt ein.
-- **Nutzerdaten verarbeiten:** Analysieren und standardisieren Sie Nutzerdaten und speichern Sie diese dann im Nutzerprofil (z. B. mit einem [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)-Schritt) oder senden Sie sie über einen Webhook.
+- **Nutzerdaten verarbeiten:** Analysieren und standardisieren Sie Nutzerdaten und speichern Sie diese dann im Nutzerprofil (z. B. mit einem [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Schritt) oder senden Sie sie über einen Webhook.
 
-Beispiele finden Sie unter [Funktionsweise]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#how-it-works) im Agent-Schritt.
+Beispiele finden Sie unter [Funktionsweise]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#how-it-works) im Agent-Schritt.
 
 ### Fehlerbehandlung und Fallback-Verhalten {#fallback-behavior}
 
-Das Folgende gilt für **Canvas-Schritt-Agenten** in einem [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/).
+Das Folgende gilt für **Canvas-Schritt-Agenten** in einem [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
 
-- Wenn das verbundene Modell einen [Rate-Limit-Fehler]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) vom LLM-Anbieter zurückgibt, wiederholt Braze die Anfrage kontinuierlich mit exponentiellem Backoff, bis der Aufruf erfolgreich ist oder Braze feststellt, dass er nicht abgeschlossen werden kann; die Nutzer:innen fahren dann mit dem nächsten Canvas-Schritt fort.
-- Bei anderen Fehlern (wie einem Timeout oder einem ungültigen API-Schlüssel) wird die Ausgabevariable auf `null` gesetzt, es sei denn, der Agent hat [konfigurierte Fallback-Werte]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) in der Agentenkonsole.
+- Wenn das verbundene Modell einen [Rate-Limit-Fehler]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) vom LLM-Anbieter zurückgibt, wiederholt Braze die Anfrage kontinuierlich mit exponentiellem Backoff, bis der Aufruf erfolgreich ist oder Braze feststellt, dass er nicht abgeschlossen werden kann; die Nutzer:innen fahren dann mit dem nächsten Canvas-Schritt fort.
+- Bei anderen Fehlern (wie einem Timeout oder einem ungültigen API-Schlüssel) wird die Ausgabevariable auf `null` gesetzt, es sei denn, der Agent hat [konfigurierte Fallback-Werte]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) in der Agentenkonsole.
 - Wenn ein Agent sein tägliches Aufruflimit erreicht, wendet Braze ebenfalls konfigurierte Fallback-Werte an, sofern vorhanden; andernfalls wird die Ausgabevariable auf `null` gesetzt.
 
-Wenn Fallback-Werte konfiguriert sind, wendet Braze diese bei nicht wiederholbaren Fehlern und bei Tageslimit-Fehlern an. Braze rendert den Fallback mit Liquid pro Nutzer:in und speichert das Ergebnis in der Ausgabevariable des Agent-Schritts. Ohne Fallback-Werte setzen diese Fehler die Ausgabevariable auf `null`. Wenn Sie es vorziehen, schrittspezifische Standardwerte in Nachrichten-Schritten statt in Agentenkonsolen-Fallbacks zu konfigurieren, können Sie weiterhin [Standard-Liquid-Werte]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) nachgelagert verwenden. Lassen Sie dazu die Fallbacks im Abschnitt **Ausgabe** des Agent-Setups leer, damit Liquid-Standardwerte greifen können, wenn der Agent null zurückgibt.
+Wenn Fallback-Werte konfiguriert sind, wendet Braze diese bei nicht wiederholbaren Fehlern und bei Tageslimit-Fehlern an. Braze rendert den Fallback mit Liquid pro Nutzer:in und speichert das Ergebnis in der Ausgabevariable des Agent-Schritts. Ohne Fallback-Werte setzen diese Fehler die Ausgabevariable auf `null`. Wenn Sie es vorziehen, schrittspezifische Standardwerte in Nachrichten-Schritten statt in Agentenkonsolen-Fallbacks zu konfigurieren, können Sie weiterhin [Standard-Liquid-Werte]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) nachgelagert verwenden. Lassen Sie dazu die Fallbacks im Abschnitt **Ausgabe** des Agent-Setups leer, damit Liquid-Standardwerte greifen können, wenn der Agent null zurückgibt.
 
 - Antworten werden für identische Eingaben zwischengespeichert und können bei wiederholten identischen Aufrufen innerhalb weniger Minuten wiederverwendet werden. Zwischengespeicherte Antworten zählen weiterhin zu den Gesamt- und Tagesaufrufen.
-- Agent-Schritte können bei der Verarbeitung einer großen Anzahl von Nutzer:innen Zeit in Anspruch nehmen. Braze reiht Aufrufe gemäß den [Aufruf-Flusssteuerungen]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls) in eine Warteschlange ein, sodass Nutzer:innen bei Sendungen mit hohem Volumen möglicherweise ausstehend bleiben.
+- Agent-Schritte können bei der Verarbeitung einer großen Anzahl von Nutzer:innen Zeit in Anspruch nehmen. Braze reiht Aufrufe gemäß den [Aufruf-Flusssteuerungen]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls) in eine Warteschlange ein, sodass Nutzer:innen bei Sendungen mit hohem Volumen möglicherweise ausstehend bleiben.
 
-Informationen zum Agent-Schritt-Setup und zu Laufzeitdetails finden Sie unter [Fehlerbehandlung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#error-handling) im Agent-Schritt. Weitere Details finden Sie unter [Fehlerbehandlung]({{site.baseurl}}/user_guide/brazeai/agents/#error-handling) in Braze Agents.
+Informationen zum Agent-Schritt-Setup und zu Laufzeitdetails finden Sie unter [Fehlerbehandlung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#error-handling) im Agent-Schritt. Weitere Details finden Sie unter [Fehlerbehandlung]({{site.baseurl}}/user_guide/brazeai/agents#error-handling) in Braze Agents.
 
 ## Katalog-Agenten verwenden {#use-catalog-agents}
 
@@ -150,7 +150,7 @@ Lassen Sie eine Spalte nicht als erforderlich markiert, wenn Sie erwarten, dass 
 
 ### Antwortfelder definieren {#define-response-fields}
 
-Wenn Ihr Agent [Felder]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/?tab=fields#advanced-schemas) als Ausgabeformat verwendet, können Sie das entsprechende Feld des Agenten als **Antwortfeld** auswählen, um es im Katalogfeld zu verwenden.
+Wenn Ihr Agent [Felder]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents?tab=fields#advanced-schemas) als Ausgabeformat verwendet, können Sie das entsprechende Feld des Agenten als **Antwortfeld** auswählen, um es im Katalogfeld zu verwenden.
 
 Angenommen, Sie haben einen Agenten, der Produktbeschreibungen zu einem Katalog hinzufügt und die folgenden Felder zur Strukturierung des Ausgabeformats verwendet:
 
@@ -168,7 +168,7 @@ Sie können die vom Agenten generierte Zelle auch manuell überschreiben, indem 
 
 ### Fehlerbehandlung {#error-handling}
 
-- Fehlgeschlagene Katalogaufrufe werden nicht wiederholt, auch nicht bei [Rate-Limit-Fehlern]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) des LLM-Anbieters.
+- Fehlgeschlagene Katalogaufrufe werden nicht wiederholt, auch nicht bei [Rate-Limit-Fehlern]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) des LLM-Anbieters.
 - Wenn der API-Aufruf an den Basismodellanbieter einen anderen Fehler zurückgibt, beispielsweise einen ungültigen API-Schlüssel, wird der Feldwert nicht aktualisiert. Katalog-Agenten unterstützen keine Konfiguration von Fallback-Werten in der Agentenkonsole.
 - Sie können die Protokolle des Agenten überprüfen, um Details zu fehlgeschlagenen Ausführungen zu erhalten.
 - Katalog-Agenten können nur Eingabewerte von bis zu 25 KB pro Zeile verarbeiten.
@@ -184,7 +184,7 @@ Im Abschnitt **Nutzung** Ihres Agenten können Sie einsehen und dorthin navigier
 Im Abschnitt **Protokolle** Ihres Agenten können Sie die tatsächlichen Agentenaufrufe überwachen, die in Ihren Canvases und Katalogen stattfinden. Sie können nach Informationen wie dem Datumsbereich, dem Ergebnis (Erfolg oder Fehler) oder dem Aufrufstandort filtern. Sie können auch **CSV exportieren** auswählen, um nur die auf der aktuellen Seite angezeigten Protokolle zu exportieren.
 
 {% alert tip %}
-Sie können auch Fehler bezüglich des täglichen Aufruflimits im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) überwachen.
+Sie können auch Fehler bezüglich des täglichen Aufruflimits im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) überwachen.
 {% endalert %}
 
 ![Protokolle für einen Agenten „AI Sentiment Score“.]({% image_buster /assets/img/ai_agent/agent_logs.png %})
@@ -200,10 +200,10 @@ Sie können auch diese Currents-Ereignisse verwenden, um auf die Kafka-Datensatz
 - Vom Agenten ausgeführte Ereignisse
 - Tool-Aufrufereignisse
 
-Weitere Details finden Sie im [Glossar zu Nachrichten-Engagement-Ereignissen]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/).
+Weitere Details finden Sie im [Glossar zu Nachrichten-Engagement-Ereignissen]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
 
 ## Verwandte Artikel {#related-articles}
 
-- [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/)
-- [Referenz für Agenten]({{site.baseurl}}/user_guide/brazeai/agents/reference/)
-- [Häufig gestellte Fragen]({{site.baseurl}}/user_guide/brazeai/agents/faq/)
+- [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)
+- [Referenz für Agenten]({{site.baseurl}}/user_guide/brazeai/agents/reference)
+- [Häufig gestellte Fragen]({{site.baseurl}}/user_guide/brazeai/agents/faq)

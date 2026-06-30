@@ -12,7 +12,7 @@ tool:
 
 # レポートビルダー（レガシー） {#report-builder-legacy}
 
-> レポートビルダーを使用すると、複数のCampaignまたはCanvasesの結果を1つのビューで比較できるため、どのエンゲージメント戦略が主要な指標に最も影響を与えたかを簡単に判断できます。CampaignとCanvasesの両方について、データをエクスポートし、レポートを保存して将来表示することができます。<br><br>レポートに含まれる指標の説明リストについては、[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)を参照してください。
+> レポートビルダーを使用すると、複数のCampaignまたはCanvasesの結果を1つのビューで比較できるため、どのエンゲージメント戦略が主要な指標に最も影響を与えたかを簡単に判断できます。CampaignとCanvasesの両方について、データをエクスポートし、レポートを保存して将来表示することができます。<br><br>レポートに含まれる指標の説明リストについては、[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)を参照してください。
 
 ![Campaignの比較例]({% image_buster /assets/img/campaign_comparison/campaign_main.png %}){: style="max-width:80%;"}
 
@@ -64,7 +64,7 @@ Canvasレポートは手動Campaignレポートと同様に機能し、Canvasの
 
 ![Campaignオプション]({% image_buster /assets/img/campaign_comparison/campaign_comparison_columns.png %}){: style="max-width:80%;"}
 
-選択した指標でテーブルにデータが入力されます。これらの指標の定義については、[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)を参照してください。一部の指標はCampaign比較レポートでのみ利用可能です。
+選択した指標でテーブルにデータが入力されます。これらの指標の定義については、[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)を参照してください。一部の指標はCampaign比較レポートでのみ利用可能です。
 
 また、任意の割合または数値指標の**平均**と、任意の数値指標の**合計**の計算を切り替えることもできます。
 

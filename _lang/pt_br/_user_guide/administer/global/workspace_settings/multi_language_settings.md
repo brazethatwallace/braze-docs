@@ -55,7 +55,7 @@ Para saber como usar essas localidades nas suas mensagens, consulte [Usando loca
 - Se um usuário corresponder tanto a uma localidade definida por atributos personalizados quanto a uma definida por atributos padrão do usuário, a localidade de atributo personalizado terá prioridade.
 - Atributos personalizados suportam valores de texto (string) com correspondência exata.
 - Se um atributo personalizado for excluído ou seu tipo for alterado, o usuário não poderá mais se enquadrar nessa localidade e seguirá pela lista de prioridade de localidades em que se encaixa ou receberá as traduções de marketing padrão.
-- Se uma localidade for inválida (o atributo personalizado foi alterado ou excluído), o erro aparecerá na página **Suporte multilíngue**.
+- Se uma localidade for inválida (o atributo personalizado foi alterado ou excluído), o erro aparecerá na página **Multi-Language Support**.
 
 ## Perguntas frequentes {#frequently-asked-questions}
 

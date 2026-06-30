@@ -142,7 +142,7 @@ Braze API를 사용하면 대규모로 계정 데이터를 프로그래밍 방�
 HTTP 메서드와 REST API 작동 방식에 대한 자세한 내용은 다음 리소스를 참조하세요:
 - MDN Web Docs의 [HTTP 요청 메서드](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods)
 - [REST API 튜토리얼](https://restapitutorial.com/)
-- [Braze API 개요]({{site.baseurl}}/api/basics/)
+- [Braze API 개요]({{site.baseurl}}/api/basics)
 
 {% alert note %}
 `/business/accounts` 엔드포인트에 대한 요청을 인증하려면 카탈로그 권한이 있는 API 키를 사용하세요.
@@ -186,7 +186,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
                   "website": "http://www.acme.com",
                   "main_phone": "+1-212-555-1234",
                   "created_date": "2023-01-15T09:30:00Z",
-                  "account_owner_email_address": "owner@acme.com",
+                  "account_owner_email_address": "owner@example.com",
                   "parent_account_id": "",
                   "sic_code": "2011"
               },
@@ -206,7 +206,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
                   "website": "http://www.globalsolutions.com",
                   "main_phone": "+1-650-555-5678",
                   "created_date": "2023-02-20T14:45:00Z",
-                  "account_owner_email_address": "partner@globalsolutions.com",
+                  "account_owner_email_address": "partner@example.com",
                   "parent_account_id": "ACC001",
                   "sic_code": "7372"
               },
@@ -226,7 +226,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
                   "website": "http://www.oceanicventures.com",
                   "main_phone": "+1-305-555-6789",
                   "created_date": "2023-03-05T08:15:00Z",
-                  "account_owner_email_address": "contact@oceanicventures.com",
+                  "account_owner_email_address": "contact@example.com",
                   "parent_account_id": "",
                   "sic_code": "5941"
               }
@@ -265,7 +265,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts/ACC001 \
                 "website": "http://www.acme.com",
                 "main_phone": "+1-212-555-1234",
                 "created_date": "2023-01-15T09:30:00Z",
-                "account_owner_email_address": "owner@acme.com",
+                "account_owner_email_address": "owner@example.com",
                 "parent_account_id": "",
                 "sic_code": "2011"
             }

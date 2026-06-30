@@ -88,7 +88,7 @@ Die Antwort von diesem Endpunkt enthält ein Feld für `email_template_id`, das 
 | `modified_before`  |  Nein | String in ISO 8601 | Ruft nur Templates ab, die zum oder vor dem angegebenen Zeitpunkt aktualisiert wurden. |
 | `limit` | Nein | Positive Zahl | Maximale Anzahl der abzurufenden Templates. Standard ist 100, wenn nicht angegeben; der maximal zulässige Wert ist 1000. |
 | `offset`  |  Nein | Positive Zahl | Anzahl der Templates, die übersprungen werden sollen, bevor der Rest der Templates zurückgegeben wird, die den Suchkriterien entsprechen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER-DETAILS" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parameter-Details" }
 
 
 {% endapi %}
@@ -140,7 +140,7 @@ GET https://YOUR_REST_API_URL/templates/email/list
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `email_template_id`  | Ja | String | Der API-Bezeichner Ihres E-Mail-Templates. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER-DETAILS" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parameter-Details" }
 
 {% endapi %}
 
@@ -208,7 +208,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `email_template_id`  | Ja | String | Der API-Bezeichner Ihres E-Mail-Templates. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER-DETAILS" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parameter-Details" }
 
 {% endapi %}
 
@@ -248,7 +248,7 @@ Authorization: Bearer YOUR-REST-API-KEY
   // See note regarding anonymous push token imports
   "push_token_import" : (optional, boolean).
   // Braze User Profile Fields
-  "first_name" : "Jon",
+  "first_name" : "Alex",
   "email" : "bob@example.com",
   // Custom Attributes
   "my_custom_attribute" : value,
@@ -286,7 +286,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | push_tokens | Array von Objekten mit `app_id` und `token` String. Sie können optional eine `device_id` für das Gerät angeben, mit dem dieses Token verknüpft ist, zum Beispiel `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`. Wenn keine `device_id` angegeben wird, wird eine zufällig generiert. |
 | time_zone | (String) Name der Zeitzone aus der [IANA-Zeitzonendatenbank][26] (zum Beispiel „America/New_York“ oder „Eastern Time (US & Canada)“). Es werden nur gültige Zeitzonenwerte gesetzt. |
 | twitter | Hash mit beliebigen der folgenden Werte: `id` (Ganzzahl), `screen_name` (String, X (ehemals Twitter) Handle), `followers_count` (Ganzzahl), `friends_count` (Ganzzahl), `statuses_count` (Ganzzahl). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="PARAMETER-DETAILS" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Parameter-Details" }
 
 {% endapi %}
 

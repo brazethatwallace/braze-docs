@@ -20,7 +20,7 @@ description: "이 문서에서는 Braze에서 Microsoft Entra 싱글 사인온 �
 | Assertion Consumer Service(ACS) URL | `https://<SUBDOMAIN>.braze.com/auth/saml/callback` <br> 일부 ID 공급자에서는 이를 Reply URL, Audience URL 또는 Audience URI라고도 합니다. |
 | Entity ID | `braze_dashboard`|
 | RelayState API 키 | ID 공급자 로그인을 활성화하려면 **설정** > **API 키**로 이동하여 `sso.saml.login` 권한이 있는 API 키를 생성합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="요구 사항" }
 
 ## Microsoft Entra SSO 내 서비스 공급자(SP) 시작 로그인 {#service-provider-sp-initiated-login-within-microsoft-entra-sso}
 
@@ -34,7 +34,7 @@ description: "이 문서에서는 Braze에서 Microsoft Entra 싱글 사인온 �
 1. Microsoft Entra 관리 센터에서 Braze 애플리케이션 통합 페이지로 이동하여 **Single sign-on**을 선택합니다.
 2. **Select a single sign-on method** 페이지에서 방법으로 **SAML**을 선택합니다.
 3. **Set up Single Sign-On with SAML** 페이지에서 **Basic SAML Configuration**의 편집 아이콘을 선택합니다.
-4. [Braze 인스턴스]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/#braze-instances)와 다음 패턴을 결합한 **Reply URL**을 입력하여 IdP 시작 모드로 애플리케이션을 구성합니다: `https://<SUBDOMAIN>.braze.com/auth/saml/callback`.
+4. [Braze 인스턴스]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints#braze-instances)와 다음 패턴을 결합한 **Reply URL**을 입력하여 IdP 시작 모드로 애플리케이션을 구성합니다: `https://<SUBDOMAIN>.braze.com/auth/saml/callback`.
 5. **Relay State** 필드에 Relay State 생성 API 키를 입력하여 RelayState를 구성합니다.
 
 {% alert important %}
@@ -103,8 +103,8 @@ Microsoft Entra 관리 센터에서 Braze를 설정한 후, Microsoft Entra가 �
 | `SAML Name` | 로그인 화면에서 버튼 텍스트로 표시됩니다. 일반적으로 "Microsoft Entra"와 같은 ID 공급자의 이름입니다. |
 | `Target URL` | Microsoft Entra에서 제공하는 로그인 URL입니다.|
 | `Certificate` | `x.509` PEM 인코딩 인증서는 ID 공급자가 제공합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Configure Microsoft Entra SSO within Braze #step-3" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: Braze 내에서 Microsoft Entra SSO 구성" }
 
 {% alert tip %}
-Braze 계정 사용자가 SAML SSO로만 로그인하도록 하려면 **회사 설정** 페이지에서 [싱글 사인온 인증을 제한]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/#restriction)할 수 있습니다.
+Braze 계정 사용자가 SAML SSO로만 로그인하도록 하려면 **회사 설정** 페이지에서 [싱글 사인온 인증을 제한]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction)할 수 있습니다.
 {% endalert %}

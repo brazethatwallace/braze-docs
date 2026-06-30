@@ -26,9 +26,9 @@ Campaignsは、シンプルな単一メッセージング（1つのメッセー�
 1. **Messaging** > **Campaigns**に移動し、**Create Campaign**を選択します。
 2. **Content Cards**を選択するか、複数のチャネルをターゲットとするCampaignsの場合は**Multichannel**を選択します。
 3. Campaignにわかりやすく意味のある名前を付けます。
-4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
-   * タグを使用すると、Campaignsを見つけやすくなり、レポートを作成しやすくなります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)を使用する場合、関連するタグでフィルタリングできます。
-5. Campaignに必要な数のバリアントを追加して名前を付けます。追加したバリアントごとに、異なるプラットフォーム、メッセージタイプ、レイアウトを選択できます。バリアントの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を参照してください。
+4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)を追加します。
+   * タグを使用すると、Campaignsを見つけやすくなり、レポートを作成しやすくなります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder)を使用する場合、関連するタグでフィルタリングできます。
+5. Campaignに必要な数のバリアントを追加して名前を付けます。追加したバリアントごとに、異なるプラットフォーム、メッセージタイプ、レイアウトを選択できます。バリアントの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)を参照してください。
 
 {% alert tip %}
 Campaign内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**Add Variant**ドロップダウンから**Copy from Variant**を選択できます。
@@ -37,7 +37,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 {% endtab %}
 {% tab Canvas %}
 
-1. Canvasコンポーザーを使用して[Canvasを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)します。
+1. Canvasコンポーザーを使用して[Canvasを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)します。
 2. Canvasの設定後、Canvasビルダーでメッセージステップを追加します。ステップにわかりやすく意味のある名前を付けます。
 3. メッセージングチャネルとして**Content Cards**を選択します。
 4. BrazeがContent Cardsのオーディエンス適格性とパーソナライゼーションを計算するタイミングを選択します。これは、ステップエントリ時またはファーストインプレッション時（推奨）に設定できます。Content Cardsを含むステップは、スケジュール配信またはアクションベースで設定できます。
@@ -53,13 +53,13 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 3つの基本的なContent Cardsタイプから1つを選択します: **クラシック**、**キャプション付き画像**、**画像のみ**。
 
-各タイプの想定される動作と外観の詳細については、[クリエイティブの詳細]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/)を参照するか、以下の表のリンクを確認してください。これらのContent Cardsタイプは、モバイルアプリとWebアプリケーションの両方で使用できます。
+各タイプの想定される動作と外観の詳細については、[クリエイティブの詳細]({{site.baseurl}}/user_guide/channels/content_cards/creative_details)を参照するか、以下の表のリンクを確認してください。これらのContent Cardsタイプは、モバイルアプリとWebアプリケーションの両方で使用できます。
 
 | メッセージタイプ | 例 | 説明 |
 |---|---|---|
-|[クラシック]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#classic)| ![ワークアウトクラスの予約を促す小さなアイコンとテキストを含むクラシックContent Card。]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) |クラシックカードは、太字のタイトル、メッセージテキスト、およびタイトルとテキストの左側に配置されるオプションの画像を含むシンプルなレイアウトです。クラシックカードには正方形の画像またはアイコンを使用するのが最適です。|
-|[キャプション付き画像]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#captioned-image)| ![ウェイトリフターの画像とワークアウトクラスの予約を促すテキストを含むキャプション付きContent Card。]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | キャプション付き画像カードは、コピーと目を引く画像でコンテンツを紹介します。|
-|[画像のみ]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#banner)| ![テキストのみの画像のみContent Card。]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | 画像のみカードは、画像、GIF、その他のクリエイティブなテキスト以外のコンテンツ用のスペースで注目を集めます。|
+|[クラシック]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#classic)| ![ワークアウトクラスの予約を促す小さなアイコンとテキストを含むクラシックContent Card。]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) |クラシックカードは、太字のタイトル、メッセージテキスト、およびタイトルとテキストの左側に配置されるオプションの画像を含むシンプルなレイアウトです。クラシックカードには正方形の画像またはアイコンを使用するのが最適です。|
+|[キャプション付き画像]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#captioned-image)| ![ウェイトリフターの画像とワークアウトクラスの予約を促すテキストを含むキャプション付きContent Card。]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | キャプション付き画像カードは、コピーと目を引く画像でコンテンツを紹介します。|
+|[画像のみ]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#banner)| ![テキストのみの画像のみContent Card。]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | 画像のみカードは、画像、GIF、その他のクリエイティブなテキスト以外のコンテンツ用のスペースで注目を集めます。|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ 2: メッセージタイプを指定する" }
 
 ## ステップ 3: コンテンツカードを作成する {#step-3-compose-a-content-card}
@@ -70,15 +70,15 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 ここに表示されるコンテンツは、前のステップで選択した**カードタイプ**によって異なりますが、以下のオプションのいずれかが含まれる場合があります。
 
-#### 言語 {#language}
+### 言語 {#language}
 
-**Add Languages**を選択して、提供されたリストから希望の言語を追加します。これにより、メッセージに[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#conditional-logic)が挿入されます。コンテンツを作成する前に言語を選択して、Liquid内の適切な場所にテキストを入力できるようにすることをお勧めします。使用可能な言語の完全なリストについては、[サポートされている言語]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported)を参照してください。
+**Add Languages**を選択して、提供されたリストから希望の言語を追加します。これにより、メッセージに[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic)が挿入されます。コンテンツを作成する前に言語を選択して、Liquid内の適切な場所にテキストを入力できるようにすることをお勧めします。使用可能な言語の完全なリストについては、[サポートされている言語]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported)を参照してください。
 
 ![言語として英語、スペイン語、フランス語が選択され、国際化するフィールドとしてタイトル、説明、リンクテキストが選択されたウィンドウ。]({% image_buster /assets/img/add_languages.png %}){: style="max-width:70%;"}
 
-##### 右から左に読むメッセージの作成 {#create-right-to-left-messages}
+#### 右から左に読むメッセージの作成 {#create-right-to-left-messages}
 
-右から左に読むメッセージの最終的な表示は、サービスプロバイダーのレンダリング方法に大きく依存します。できるだけ正確に表示される右から左に読むメッセージを作成するためのベストプラクティスについては、[右から左に読むメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/)を参照してください。
+右から左に読むメッセージの最終的な表示は、サービスプロバイダーのレンダリング方法に大きく依存します。できるだけ正確に表示される右から左に読むメッセージを作成するためのベストプラクティスについては、[右から左に読むメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)を参照してください。
 
 #### タイトルとメッセージ {#title-and-message}
 
@@ -107,9 +107,9 @@ Content Cardsのリンクで使用できるアクションは以下のとおり�
 | アクション | 説明 |
 |---|---|
 | Web URLにリダイレクト | ネイティブでないWebページを開きます。|
-| [アプリへのディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content) | アプリ内の既存の画面にディープリンクします。|
-| カスタムイベントをログに記録 | トリガーする[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)を選択します。別のContent Cardsの表示や追加のメッセージングのトリガーに使用できます。|
-| カスタム属性をログに記録 | 現在のユーザーに設定する[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)を選択します。|
+| [アプリへのディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content) | アプリ内の既存の画面にディープリンクします。|
+| カスタムイベントをログに記録 | トリガーする[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)を選択します。別のContent Cardsの表示や追加のメッセージングのトリガーに使用できます。|
+| カスタム属性をログに記録 | 現在のユーザーに設定する[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)を選択します。|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="クリック時の動作" }
 
 **カスタムイベントをログに記録**と**カスタム属性をログに記録**オプションには、以下のSDKバージョンの互換性が必要です。
@@ -118,7 +118,7 @@ Content Cardsのリンクで使用できるアクションは以下のとおり�
 
 ## ステップ 4: 追加設定を構成する（オプション） {#step-4-configure-additional-settings-optional}
 
-[キーと値のペア]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/)を使用して、カードのカテゴリを作成したり、[複数のContent Cardsフィード]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds)を作成したり、カードのソート方法をカスタマイズしたりできます。
+[キーと値のペア]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs)を使用して、カードのカテゴリを作成したり、[複数のContent Cardsフィード]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds)を作成したり、カードのソート方法をカスタマイズしたりできます。
 
 メッセージにキーと値のペアを追加するには、**Settings**タブに移動して**Add New Pair**を選択します。
 
@@ -129,11 +129,11 @@ Content Cardsのリンクで使用できるアクションは以下のとおり�
 
 Campaignの残りの部分を構築します。Content Cardsを構築するためのツールの最適な使用方法の詳細については、次のセクションに進んでください。
 
-#### 配信スケジュールまたはトリガーを選択する {#choose-a-delivery-schedule-or-trigger}
+### 配信スケジュールまたはトリガーを選択する {#choose-a-delivery-schedule-or-trigger}
 
-Content Cardsは、スケジュールされた時刻、アクション、またはAPIトリガーに基づいて配信できます。詳細については、[Campaignのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)を参照してください。
+Content Cardsは、スケジュールされた時刻、アクション、またはAPIトリガーに基づいて配信できます。詳細については、[Campaignのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)を参照してください。
 
-Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)を設定し、Content Cardsの有効期限を決定することもできます。特定の有効期限日またはカードの有効期限が切れるまでの日数（最大30日）を設定します。すべてのバリアントの有効期限は同一です。
+Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)を設定し、Content Cardsの有効期限を決定することもできます。特定の有効期限日またはカードの有効期限が切れるまでの日数（最大30日）を設定します。すべてのバリアントの有効期限は同一です。
 
 設定された期間後にカードの有効期限が切れるように選択した場合（たとえば2週間後）、有効期限はカードの送信時刻から計算されます。スケジュールされたCampaignsの場合、これはスケジュールされた起動時刻です。アクションベースのCampaignsの場合、これはユーザーがトリガーアクションを実行した時刻です。たとえば、アクションベースのカードが本日午後2時に送信され、有効期限が1日の場合、翌日の午後2時に有効期限が切れます。
 
@@ -141,38 +141,38 @@ Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messagin
 
 アクションベースの配信では、Content Cardsが表示されるまでに短い遅延が予想されます。たとえば、Campaignがセッション開始時にトリガーされる場合、このトリガーイベントはまずBrazeのサーバーにフラッシュされる必要があります。次に、Campaignに対するユーザーの適格性が記録されます。SDKが同期すると、カードが作成され、同じ同期レスポンスで返されます。ユーザーの適格性が記録される前にSDK同期が行われた場合、ユーザーはカードを受信しません。初回セッションのユーザーの場合、この遅延は避けられません。既存のユーザーで即時の利用可能性が必要な場合は、代わりにスケジュール配信の使用を検討してください。
 
-##### スケジュール配信 {#scheduled-delivery}
+#### スケジュール配信 {#scheduled-delivery}
 
-スケジュール配信のContent Cards Campaignsでは、カードが作成されるタイミングを指定することで、Brazeが新しいContent Cards Campaignsのオーディエンス適格性とパーソナライゼーションを評価するタイミングを選択できます。詳細については、[カード作成]({{site.baseurl}}/card_creation/)を参照してください。
+スケジュール配信のContent Cards Campaignsでは、カードが作成されるタイミングを指定することで、Brazeが新しいContent Cards Campaignsのオーディエンス適格性とパーソナライゼーションを評価するタイミングを選択できます。詳細については、[カード作成]({{site.baseurl}}/card_creation)を参照してください。
 
 #### ターゲットユーザーを選択する {#choose-users-to-target}
 
-次に、Segmentsまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)にします。おおよそのセグメント人口のプレビューが自動的に表示されます。正確なセグメントメンバーシップは、メッセージが送信される前に常に計算されることに注意してください。
+次に、Segmentsまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)にします。おおよそのセグメント人口のプレビューが自動的に表示されます。正確なセグメントメンバーシップは、メッセージが送信される前に常に計算されることに注意してください。
 
 {% multi_lang_include audience/target_audiences.md %}
 
 #### コンバージョンイベントを選択する {#choose-conversion-events}
 
-Brazeでは、Campaignを受信した後にユーザーが特定のアクション（[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)）を実行する頻度を追跡できます。ユーザーが指定されたアクションを実行した場合にコンバージョンがカウントされる最大30日間の時間枠を設定するオプションがあります。
+Brazeでは、Campaignを受信した後にユーザーが特定のアクション（[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)）を実行する頻度を追跡できます。ユーザーが指定されたアクションを実行した場合にコンバージョンがカウントされる最大30日間の時間枠を設定するオプションがあります。
 
 {% endtab %}
 
 {% tab Canvas %}
 
-まだ完了していない場合は、Canvasコンポーネントの残りのセクションを完了してください。Canvasの残りの部分の構築方法、[多変量テスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)や[インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/)の実装方法などの詳細については、Canvasドキュメントの[Canvasの構築]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas)ステップを参照してください。
+まだ完了していない場合は、Canvasコンポーネントの残りのセクションを完了してください。Canvasの残りの部分の構築方法、[多変量テスト]({{site.baseurl}}/user_guide/messaging/ab_testing)や[インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)の実装方法などの詳細については、Canvasドキュメントの[Canvasの構築]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas)ステップを参照してください。
 
 {% endtab %}
 {% endtabs %}
 
 ## ステップ 6: 確認してデプロイする {#step-6-review-and-deploy}
 
-CampaignまたはCanvasの最後の構築が完了したら、詳細を確認し、[テスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/)を行い、準備ができたら送信します。詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=content%20card)を参照してください。
+CampaignまたはCanvasの最後の構築が完了したら、詳細を確認し、[テスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages)を行い、準備ができたら送信します。詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=content%20card)を参照してください。
 
 {% alert warning %}
-Content Cardsは起動後に編集できません。新しいユーザーへの送信を停止し、ユーザーのフィードから削除することのみ可能です。このシナリオへの対処方法については、[起動済みカードの更新]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#updating-launched-cards)を参照してください。
+Content Cardsは起動後に編集できません。新しいユーザーへの送信を停止し、ユーザーのフィードから削除することのみ可能です。このシナリオへの対処方法については、[起動済みカードの更新]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#updating-launched-cards)を参照してください。
 {% endalert %}
 
-次に、[Content Cardsレポート]({{site.baseurl}}/user_guide/channels/content_cards/reporting/)を確認して、Content Cards Campaignsの結果にアクセスする方法を学びましょう。
+次に、[Content Cardsレポート]({{site.baseurl}}/user_guide/channels/content_cards/reporting)を確認して、Content Cards Campaignsの結果にアクセスする方法を学びましょう。
 
 ## 知っておくべきこと {#things-to-know}
 
@@ -221,14 +221,14 @@ Content Cardsのペイロードサイズを管理するためのベストプラ�
 再適格性は、ユーザーが同じCampaignからメッセージを複数回受信できるかどうか、またいつ受信できるかを決定します。Content Cardsの場合、この仕組みを理解することは、定期的なCampaignsを管理し、ユーザーが重複したメッセージや古いメッセージを受信しないようにするために重要です。
 
 {% alert tip %}
-コンテンツを30日以上持続させたい場合は、[バナー]({{site.baseurl}}/user_guide/channels/banners/)をお試しください。
+コンテンツを30日以上持続させたい場合は、[バナー]({{site.baseurl}}/user_guide/channels/banners)をお試しください。
 {% endalert %}
 
 #### 再適格性の計算方法 {#how-re-eligibility-is-calculated}
 
 再適格性を有効にすると、ユーザーがCampaignに「再エントリ」できるまでのカウントダウンは、メッセージが送信された後に開始されます。このカウントダウンが開始される具体的なタイミングは、カード作成の設定によって異なります。
 
-- [ファーストインプレッション時]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression)を使用するContent Cardsは、インプレッション時刻を使用して再適格性を計算します。
+- [ファーストインプレッション時]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression)を使用するContent Cardsは、インプレッション時刻を使用して再適格性を計算します。
 - Campaign起動時、マルチチャネルCampaigns、またはキャンバスステップエントリ時に作成されたContent Cardsは、送信時刻またはインプレッション時刻のいずれか遅い方を使用します。
 
 #### 30日間の有効期限と再適格性 {#the-30-day-expiration-and-re-eligibility}
@@ -331,7 +331,7 @@ Content Cardsは、送信されてから最大30日間利用可能です。30日
 
 ### Content Cardsの同期と更新 {#content-card-sync-and-refresh}
 
-Content Cardsはスケジュールに基づいて同期され、アプリがフィードを更新するときにも同期されます。同期の動作はフル同期と部分同期で異なり、SDKの統合はセッション開始時にカードが更新されるタイミングに影響します。実装の詳細については、[Content Cardsフィードのカスタマイズ]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/)と[Content Cardsの作成]({{site.baseurl}}/developer_guide/content_cards/creating_cards/)を参照してください。
+Content Cardsはスケジュールに基づいて同期され、アプリがフィードを更新するときにも同期されます。同期の動作はフル同期と部分同期で異なり、SDKの統合はセッション開始時にカードが更新されるタイミングに影響します。実装の詳細については、[Content Cardsフィードのカスタマイズ]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed)と[Content Cardsの作成]({{site.baseurl}}/developer_guide/content_cards/creating_cards)を参照してください。
 
 ### Content Cards Campaignsの停止による影響 {#impact-of-stopping-content-cards-campaigns}
 

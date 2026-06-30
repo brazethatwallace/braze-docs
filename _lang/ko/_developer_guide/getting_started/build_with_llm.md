@@ -76,7 +76,7 @@ VS Code의 `settings.json` 또는 `.vscode/mcp.json` 파일에 다음 내용을 
 {% endtabs %}
 
 {% alert note %}
-Context7은 [Braze MCP 서버]({{site.baseurl}}/developer_guide/mcp_server/)와 다릅니다. Context7은 AI 어시스턴트에게 **Braze 설명서**에 대한 접근 권한을 제공하며, Braze MCP 서버는 Campaign(캠페인), Segments, 분석 등 **Braze 워크스페이스 데이터**에 대한 읽기 전용 접근 권한을 제공합니다. 두 가지를 함께 사용하면 보다 완벽한 AI 지원 개발 환경을 경험할 수 있습니다.
+Context7은 [Braze MCP 서버]({{site.baseurl}}/developer_guide/mcp_server)와 다릅니다. Context7은 AI 어시스턴트에게 **Braze 설명서**에 대한 접근 권한을 제공하며, Braze MCP 서버는 Campaign(캠페인), Segment, 분석 등 **Braze 워크스페이스 데이터**에 대한 읽기 전용 접근 권한을 제공합니다. 두 가지를 함께 사용하면 보다 완벽한 AI 지원 개발 환경을 경험할 수 있습니다.
 {% endalert %}
 
 ## Braze SDK 개발을 위한 프롬프트 작성하기 {#writing-prompts-for-braze-sdk-development}
@@ -85,7 +85,7 @@ Context7을 설정한 후, 프롬프트에 `use context7`을 포함하여 AI 어
 
 ### React Native SDK {#react-native-sdk}
 
-이 프롬프트는 [Braze React Native SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=react%20native)의 일반적인 통합 작업을 보여줍니다.
+이 프롬프트는 [Braze React Native SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native)의 일반적인 통합 작업을 보여줍니다.
 
 #### SDK 초기화 {#initializing-the-sdk}
 
@@ -122,7 +122,7 @@ programmatically. Use context7.
 
 ### 웹 SDK {#web-sdk}
 
-이 프롬프트는 [Braze 웹 SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)의 일반적인 통합 작업을 보여줍니다.
+이 프롬프트는 [Braze 웹 SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)의 일반적인 통합 작업을 보여줍니다.
 
 #### SDK 초기화
 

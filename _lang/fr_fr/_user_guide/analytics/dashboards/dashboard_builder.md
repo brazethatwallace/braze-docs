@@ -26,10 +26,10 @@ Le Générateur de tableaux de bord vous permet de composer et de visualiser des
 Suivez ensuite les étapes correspondant à votre source de données :
 
 {% tabs %}
-{% tab Reports %}
+{% tab Rapports %}
 
 {: start="4"}
-4. Sélectionnez **+ Ajouter une tuile**, puis choisissez l'un des rapports que vous avez créés dans le [Générateur de rapports (Nouveau)]({{site.baseurl}}/user_guide/analytics/reports/report_builder/).
+4. Sélectionnez **+ Ajouter une tuile**, puis choisissez l'un des rapports que vous avez créés dans le [Générateur de rapports (Nouveau)]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
 {% alert important %}
 Une fois qu'un rapport du Générateur de rapports est ajouté à une tuile du Générateur de tableaux de bord, la tuile n'est pas connectée au rapport d'origine. Si vous modifiez le rapport d'origine dans le Générateur de rapports, vous devez supprimer la tuile existante du tableau de bord et en créer une nouvelle en utilisant le rapport mis à jour comme source de données.
@@ -42,7 +42,7 @@ Une fois qu'un rapport du Générateur de rapports est ajouté à une tuile du G
 6. Sélectionnez **Enregistrer** une fois que vous avez modifié la visualisation à votre convenance.
 7. Ajoutez un nom, une description et une étiquette pour retrouver plus facilement votre tableau de bord par la suite.
 {% endtab %}
-{% tab Custom Queries %}
+{% tab Requêtes personnalisées %}
 {: start="4"}
 4. Sélectionnez **+ Ajouter une tuile**, puis choisissez une requête que vous avez exécutée dans le Générateur de requêtes.
 5. Pour modifier l'affichage des résultats de la requête dans la tuile, sélectionnez l'icône de crayon pour changer le titre et le type de graphique.
@@ -50,7 +50,7 @@ Une fois qu'un rapport du Générateur de rapports est ajouté à une tuile du G
         - Si vous choisissez l'une des options de graphique, utilisez le menu déroulant **Axe X** pour sélectionner une seule colonne de vos résultats de requête à utiliser comme axe X.
         - Utilisez le menu déroulant **Axe Y** pour sélectionner les indicateurs à inclure dans votre visualisation. Par défaut, toutes les colonnes de vos résultats de requête seront affichées ; désélectionnez celles que vous ne souhaitez pas visualiser.<br><br>![Boutons de basculement pour les différents types de graphiques.]({% image_buster /assets/img/query_builder_axis.png %})<br><br>
         - (Facultatif) Vous pouvez utiliser le menu déroulant **Regroupement** pour regrouper les résultats de votre requête. Par exemple, si vous avez un ID de campagne comme colonne de résultat et que vous souhaitez additionner toutes les lignes ayant cette valeur, utilisez le menu déroulant **Regroupement**.
-        - (Facultatif) Pour modifier les données affichées, sélectionnez la requête associée au visuel et effectuez vos modifications dans le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/).
+        - (Facultatif) Pour modifier les données affichées, sélectionnez la requête associée au visuel et effectuez vos modifications dans le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder).
 6. Sélectionnez **Enregistrer** une fois que vous avez modifié la visualisation à votre convenance.
 7. Ajoutez un nom, une description et une étiquette pour retrouver plus facilement votre tableau de bord par la suite.
 {% endtab %}
@@ -111,7 +111,7 @@ Les points de contact incluent le *clic sur un e-mail* (clic sur un lien), le *c
 | Achats par produit | Nombre de tous les achats regroupés par produit. |
 | Chiffre d'affaires par canal | Somme de tous les événements de chiffre d'affaires des campagnes et Canvas ayant un événement de dernier point de contact qualifiant, regroupés par canal. |
 | Série temporelle du chiffre d'affaires | Somme de tous les événements de chiffre d'affaires des campagnes et Canvas ayant un événement de dernier point de contact qualifiant, regroupés par jour en UTC. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Revenue - Last Touch Attribution" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Chiffre d'affaires - Attribution au dernier point de contact" }
 
 #### Appareils et opérateurs {#devices-and-carriers}
 
@@ -121,7 +121,7 @@ Les points de contact incluent le *clic sur un e-mail* (clic sur un lien), le *c
 | Modèle d'appareil | Nombre d'utilisateurs dans la plage de dates sélectionnée ayant ouvert une notification push, regroupés par modèle d'appareil. |
 | Système d'exploitation de l'appareil | Nombre d'utilisateurs dans la plage de dates sélectionnée ayant ouvert une notification push, regroupés par système d'exploitation de l'appareil. |
 | Taille d'écran de l'appareil | Nombre d'utilisateurs dans la plage de dates sélectionnée ayant ouvert une notification push, regroupés par résolution d'écran (taille) de l'appareil. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Devices and carriers" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Appareils et opérateurs" }
 
 #### Statistiques des segments - E-mail {#segment-insights-email}
 
@@ -141,7 +141,7 @@ Les points de contact incluent le *clic sur un e-mail* (clic sur un lien), le *c
 | 10 dernières campagnes pour les indicateurs d'achat | Liste classée des campagnes ayant les indicateurs de conversion d'achat les plus faibles à partir de l'engagement e-mail (indicateur configurable pour le classement). |
 | Top 10 des Canvas pour les indicateurs d'achat | Liste classée des Canvas ayant les indicateurs de conversion d'achat les plus élevés à partir de l'engagement e-mail (indicateur configurable pour le classement). |
 | 10 derniers Canvas pour les indicateurs d'achat | Liste classée des Canvas ayant les indicateurs de conversion d'achat les plus faibles à partir de l'engagement e-mail (indicateur configurable pour le classement). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment Insights - Email" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Statistiques des segments - E-mail" }
 
 #### Analyse des sessions {#session-analytics}
 
@@ -152,7 +152,7 @@ Les points de contact incluent le *clic sur un e-mail* (clic sur un lien), le *c
 | Campagnes converties en sessions | Nombre de sessions uniques survenues en même temps que des conversions de campagne, regroupées par ID de campagne et classées par nombre de sessions. |
 | Canvas convertis en sessions | Nombre de sessions uniques survenues en même temps que des conversions de Canvas, regroupées par ID de Canvas et classées par nombre de sessions. |
 | Nombre total de sessions par utilisateur | Liste des 1 000 premiers utilisateurs par nombre total de sessions dans la plage de dates sélectionnée. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Session Analytics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analyse des sessions" }
 
 ## Partagez vos commentaires {#share-your-feedback-with-us}
 

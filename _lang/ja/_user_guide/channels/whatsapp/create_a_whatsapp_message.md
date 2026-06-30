@@ -17,7 +17,7 @@ search_rank: 1
 
 ## 前提条件 {#prerequisites}
 
-WhatsAppメッセージを作成する前に、[WhatsAppの概要]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)から以下を確認し、完了する必要があります。
+WhatsAppメッセージを作成する前に、[WhatsAppの概要]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)から以下を確認し、完了する必要があります。
   - ポリシー、制限、コンテンツルールを確認する
   - WhatsApp接続を設定する
   - メッセージで使用する初期テンプレートをMetaで作成する
@@ -40,9 +40,9 @@ WhatsAppは言語ごとに異なる[メッセージテンプレート](#template
 1. **Campaigns**ページに移動し、<i class="fas fa-plus"></i> **キャンペーンを作成**をクリックします。
 2. **WhatsApp**を選択するか、複数チャネルをターゲットとするCampaignの場合は**マルチチャネルCampaign**を選択します。
 3. Campaignにわかりやすく意味のある名前を付けます。
-4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
-   * タグを使用すると、Campaignsの検索やレポートの作成が容易になります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)を使用する際に、特定のタグでフィルタリングできます。
-5. Campaignに必要な数のバリアントを追加し、名前を付けます。追加した各バリアントに対して、異なるプラットフォーム、メッセージタイプ、レイアウトを選択できます。このトピックの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を参照してください。
+4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)を追加します。
+   * タグを使用すると、Campaignsの検索やレポートの作成が容易になります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder)を使用する際に、特定のタグでフィルタリングできます。
+5. Campaignに必要な数のバリアントを追加し、名前を付けます。追加した各バリアントに対して、異なるプラットフォーム、メッセージタイプ、レイアウトを選択できます。このトピックの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)を参照してください。
 
 {% alert tip %}
 Campaign内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**バリアントを追加**ドロップダウンから**バリアントからコピー**を選択できます。
@@ -53,11 +53,11 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 **ステップ:**
 
-1. Canvasコンポーザーを使用して[Canvasを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)します。
+1. Canvasコンポーザーを使用して[Canvasを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)します。
 2. Canvasの設定が完了したら、Canvasビルダーでステップを追加します。ステップにわかりやすく意味のある名前を付けます。
-3. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay)を選択し、必要に応じて遅延を指定します。
+3. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay)を選択し、必要に応じて遅延を指定します。
 4. 必要に応じて、このステップのオーディエンスをフィルタリングします。Segmentsを指定し、追加のフィルターを追加することで、このステップの受信者をさらに絞り込むことができます。オーディエンスオプションは、メッセージ送信時に遅延後にチェックされます。
-5. [進行動作]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/)を選択します。
+5. [進行動作]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases)を選択します。
 6. メッセージと組み合わせたい他のメッセージングチャネルを選択します。
 
 {% alert tip %}
@@ -76,7 +76,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 {% tabs %}
 {% tab テンプレートメッセージ %}
 
-[承認済みWhatsAppテンプレートメッセージ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/#step-3-create-whatsapp-templates
+[承認済みWhatsAppテンプレートメッセージ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates
 )を使用して、WhatsAppでユーザーとの会話を開始できます。これらのメッセージは事前にWhatsAppにコンテンツ承認のために送信され、承認には最大24時間かかる場合があります。コピーに加えた編集は、WhatsAppで編集して再送信する必要があります。
 
 無効なテキストフィールド（グレーでハイライト表示）は、承認済みWhatsAppテンプレートの一部であるため編集できません。無効なテキストを更新するには、テンプレートを編集して再承認を受ける必要があります。
@@ -87,7 +87,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 ![テンプレートのリスト。メッセージのプレビュー、割り当てられた言語、承認ステータスが表示されています。]({% image_buster /assets/img/whatsapp/whatsapp_templates.png %}){: style="max-width:80%;"}
 
-右から左に書く言語でコピーを追加する場合、右から左のメッセージの最終的な表示はサービスプロバイダーのレンダリング方法に大きく依存することに注意してください。右から左のメッセージをできるだけ正確に表示するためのベストプラクティスについては、[右から左のメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/)を参照してください。
+右から左に書く言語でコピーを追加する場合、右から左のメッセージの最終的な表示はサービスプロバイダーのレンダリング方法に大きく依存することに注意してください。右から左のメッセージをできるだけ正確に表示するためのベストプラクティスについては、[右から左のメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)を参照してください。
 
 #### 変数 {#variables}
 
@@ -105,7 +105,7 @@ Liquidを使用する予定がある場合は、選択したパーソナライ�
 
 ### ダイナミックリンク {#dynamic-links}
 
-コールトゥアクションURLには変数を含めることができますが、Metaでは`{% raw %}https://example.com/{{variable}}{% endraw %}`のようにURLの末尾に配置する必要があります。変数はBrazeでLiquidに置き換えることができます。リンクはテンプレートの一部として本文テキストに含めることもできます。これらのリンクはどちらも[クリックトラッキング]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking/)を使用して短縮およびトラッキングできます。
+コールトゥアクションURLには変数を含めることができますが、Metaでは`{% raw %}https://example.com/{{variable}}{% endraw %}`のようにURLの末尾に配置する必要があります。変数はBrazeでLiquidに置き換えることができます。リンクはテンプレートの一部として本文テキストに含めることもできます。これらのリンクはどちらも[クリックトラッキング]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking)を使用して短縮およびトラッキングできます。
 
 ### ダイナミック画像 {#dynamic-images}
 
@@ -130,7 +130,7 @@ Liquidを使用する予定がある場合は、選択したパーソナライ�
 
 ### ステップ 3:メッセージをプレビューしてテストする {#step-3-preview-and-test-your-message}
 
-Brazeでは、メッセージを送信する前に必ずプレビューとテストを行うことをお勧めします。**テスト**タブに切り替えて、[コンテンツテストグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups)または個々のユーザーにテストWhatsAppメッセージを送信するか、Braze内でユーザーとしてメッセージを直接プレビューします。
+Brazeでは、メッセージを送信する前に必ずプレビューとテストを行うことをお勧めします。**テスト**タブに切り替えて、[コンテンツテストグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups)または個々のユーザーにテストWhatsAppメッセージを送信するか、Braze内でユーザーとしてメッセージを直接プレビューします。
 
 ![カスタムユーザーMaxのプレビューメッセージ。]({% image_buster /assets/img/whatsapp/whatsapp8.png %}){: style="max-width:80%;"}
 
@@ -140,7 +140,7 @@ Brazeでは、メッセージを送信する前に必ずプレビューとテス
 
 ![会話ウィンドウを開くためにWhatsAppメッセージを送信し、その後テストユーザーにメッセージを送信するよう案内するアラート。]({% image_buster /assets/img/whatsapp/whatsapp_test_phone_number.png %}){: style="max-width:70%;"}
 
-詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=whatsapp)を参照してください。
+詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=whatsapp)を参照してください。
 
 ### ステップ 4:テスト送信結果を確認する {#step-4-view-test-send-results}
 
@@ -189,21 +189,21 @@ Brazeでは、メッセージを送信する前に必ずプレビューとテス
 
 #### 配信スケジュールまたはトリガーを選択する {#choose-a-delivery-schedule-or-trigger}
 
-WhatsAppメッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。詳細については、[Campaignのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)を参照してください。
+WhatsAppメッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。詳細については、[Campaignのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)を参照してください。
 
-アクションベースの配信では、Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)を設定することもできます。
+アクションベースの配信では、Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)を設定することもできます。
 
-このステップでは、ユーザーがCampaignを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)ルールを有効にするなどの配信コントロールを指定することもできます。
+このステップでは、ユーザーがCampaignを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)ルールを有効にするなどの配信コントロールを指定することもできます。
 
 #### ターゲットユーザーを選択する {#choose-users-to-target}
 
-次に、Segmentsまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)する必要があります。サブスクリプショングループはすでに選択されているはずで、これによりユーザーが希望するコミュニケーションのレベルやカテゴリで絞り込まれます。このステップでは、Segmentsからより大きなオーディエンスを選択し、フィルターを使用してそのセグメントをさらに絞り込みます。おおよそのセグメント人口のスナップショットが自動的に表示されます。正確なセグメントメンバーシップは、メッセージ送信前に常に計算されることに注意してください。
+次に、Segmentsまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)する必要があります。サブスクリプショングループはすでに選択されているはずで、これによりユーザーが希望するコミュニケーションのレベルやカテゴリで絞り込まれます。このステップでは、Segmentsからより大きなオーディエンスを選択し、フィルターを使用してそのセグメントをさらに絞り込みます。おおよそのセグメント人口のスナップショットが自動的に表示されます。正確なセグメントメンバーシップは、メッセージ送信前に常に計算されることに注意してください。
 
 {% multi_lang_include audience/target_audiences.md %}
 
 #### コンバージョンイベントを選択する {#choose-conversion-events}
 
-Brazeでは、Campaignを受信した後にユーザーが特定のアクション（[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)）を実行する頻度をトラッキングできます。ユーザーが指定されたアクションを実行した場合にコンバージョンがカウントされる最大30日間の時間枠を設定できます。
+Brazeでは、Campaignを受信した後にユーザーが特定のアクション（[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)）を実行する頻度をトラッキングできます。ユーザーが指定されたアクションを実行した場合にコンバージョンがカウントされる最大30日間の時間枠を設定できます。
 
 特定のユースケースに基づいてカスタムコンバージョンイベントを設定することもできます。クリエイティブに考え、このCampaignの成功をどのように測定したいかを検討してください。
 
@@ -211,7 +211,7 @@ Brazeでは、Campaignを受信した後にユーザーが特定のアクショ�
 
 {% tab Canvas %}
 
-まだ完了していない場合は、Canvasコンポーネントの残りのセクションを完了してください。Canvasの残りの構築方法、多変量テストとインテリジェントセレクションの実装方法などの詳細については、Canvasドキュメントの[Canvasの構築]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)ステップを参照してください。
+まだ完了していない場合は、Canvasコンポーネントの残りのセクションを完了してください。Canvasの残りの構築方法、多変量テストとインテリジェントセレクションの実装方法などの詳細については、Canvasドキュメントの[Canvasの構築]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message)ステップを参照してください。
 
 会話ウィンドウは受信メッセージごとに24時間しか持続しないため、Brazeは受信メッセージと応答メッセージの間に24時間を超える遅延がないことを確認します。
 
@@ -222,7 +222,7 @@ Brazeでは、Campaignを受信した後にユーザーが特定のアクショ�
 
 CampaignまたはCanvasの最後の構築が完了したら、詳細を確認し、テストしてから送信してください。
 
-次に、[WhatsAppレポート]({{site.baseurl}}/user_guide/channels/whatsapp/reporting/)を確認して、WhatsApp Campaignsの結果にアクセスする方法を学びましょう。
+次に、[WhatsAppレポート]({{site.baseurl}}/user_guide/channels/whatsapp/reporting)を確認して、WhatsApp Campaignsの結果にアクセスする方法を学びましょう。
 
 ## サポートされているWhatsApp機能 {#supported-whatsapp-features}
 
@@ -232,13 +232,13 @@ Brazeを通じて送信するWhatsApp送信メッセージでは、以下の機�
 
 | 機能 | 詳細 | 最大サイズ | サポートされる形式 |
 | ------- | ------- | ------------- | ---------------------- |
-| ヘッダーテキスト | 文字列と変数パラメーターがサポートされています。 | — | — |
+| ヘッダーテキスト | 文字列と変数パラメーターがサポートされています。 | — | —
 | 本文テキスト | 文字列と変数パラメーターがサポートされています。 | — | — |
 | フッターテキスト | 文字列と変数パラメーターがサポートされています。 | — | — |
 | CTAリンク | さまざまなコールトゥアクション（CTA）タイプがサポートされています。詳細については、[コールトゥアクションタイプ](#ctas)を参照してください。 | — | — |
 | 画像 | 画像は本文テキスト内に埋め込むことができます。8ビットで、RGBまたはRGBAカラーモデルを使用する必要があります。 | < 5 MB | `.png`、`.jpg`、`.jpeg` |
 | ドキュメント | ドキュメントは本文テキスト内に埋め込むことができます。ファイルはURL経由でホストされている必要があります。 | < 100 MB | `.txt`、`.xls`、`.xlsx`、`.doc`、`.docx`、`.ppt`、`.pttx`、`.pdf` |
-| 動画 | 動画は本文テキスト内に埋め込むことができます。ファイルはURL経由または[Brazeメディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)でホストされている必要があります。 | < 16 MB | `.3gp`、`.mp4` |
+| 動画 | 動画は本文テキスト内に埋め込むことができます。ファイルはURL経由または[Brazeメディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)でホストされている必要があります。 | < 16 MB | `.3gp`、`.mp4` |
 | オーディオ | オーディオは応答メッセージングでのみサポートされています。ファイルはURL経由でホストされている必要があります。 | < 16 MB | `.aac`、`.amr`、`.mp3`、`.mp4`、`.ogg` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="送信メッセージ" }
 
@@ -267,8 +267,8 @@ Brazeを通じて送信するWhatsAppメッセージでは、以下のコール�
 | Webサイトにアクセス | ボタンは最大1つ（変数パラメーターを含む）。 |
 | 電話番号に発信 | メッセージテンプレートでのみ利用可能。<br>ボタンは最大1つ。 |
 | カスタムクイック返信ボタン | ボタンは最大3つ。 |
-| マーケティングオプトアウトボタン | デフォルトでは、サブスクリプションステータスは自動的に更新されません。完全なウォークスルーについては、[オプトインとオプトアウト]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs/#marketing-opt-out-selection)を参照してください。 |
+| マーケティングオプトアウトボタン | デフォルトでは、サブスクリプションステータスは自動的に更新されません。完全なウォークスルーについては、[オプトインとオプトアウト]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs#marketing-opt-out-selection)を参照してください。 |
 | クーポンコードメッセージテンプレート | メッセージテンプレートでのみ利用可能。<br>他のメッセージテンプレートと同様に開いて編集でき、LiquidおよびBrazeプロモーションコードと互換性があります。 |
 | CTA応答メッセージ | コールトゥアクションボタンを含む応答メッセージを作成します。 |
-| [リスト応答メッセージ]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users/#list-messages) | ユーザーが選択できる最大10個のオプションのリストを含む応答メッセージを作成します。 |
+| [リスト応答メッセージ]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#list-messages) | ユーザーが選択できる最大10個のオプションのリストを含む応答メッセージを作成します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="コールトゥアクションタイプ" }

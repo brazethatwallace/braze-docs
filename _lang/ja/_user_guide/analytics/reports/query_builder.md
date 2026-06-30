@@ -9,13 +9,13 @@ alias: /query_builder/
 
 # クエリビルダー {#query-builder}
 
-> クエリビルダーは、SnowflakeのBrazeデータを使用してレポートを生成します。クエリビルダーには、すぐに使い始められるビルド済みのSQL[クエリテンプレート]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/)が付属しています。また、独自のカスタムSQLクエリを記述して、さらに多くのインサイトを引き出すこともできます。
+> クエリビルダーは、SnowflakeのBrazeデータを使用してレポートを生成します。クエリビルダーには、すぐに使い始められるビルド済みのSQL[クエリテンプレート]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates)が付属しています。また、独自のカスタムSQLクエリを記述して、さらに多くのインサイトを引き出すこともできます。
 
-クエリビルダーでは一部の顧客データに直接アクセスできるため、「PIIを表示」[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)を持つユーザーのみがクエリビルダーにアクセスできます。
+クエリビルダーでは一部の顧客データに直接アクセスできるため、「PIIを表示」[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)を持つユーザーのみがクエリビルダーにアクセスできます。
 
 ## 利用可能なデータテーブル {#available-data-tables}
 
-クエリビルダーは、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)および[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)と同じSnowflake SQLテーブルを使用します。利用可能なテーブルとそのカラムの完全なリストについては、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)を参照してください。
+クエリビルダーは、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)および[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)と同じSnowflake SQLテーブルを使用します。利用可能なテーブルとそのカラムの完全なリストについては、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)を参照してください。
 
 ## クエリビルダーでレポートを実行する {#running-reports-in-the-query-builder}
 
@@ -37,11 +37,11 @@ alias: /query_builder/
 
 クエリテンプレートにアクセスするには、レポートを最初に作成するときに**Create SQL Query** > **Query Template**を選択します。
 
-利用可能なテンプレートのリストについては、[クエリテンプレート]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/)を参照してください。
+利用可能なテンプレートのリストについては、[クエリテンプレート]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates)を参照してください。
 
 ### データの期間 {#data-timeframe}
 
-クエリは過去60日間のデータを返します。Currentsまたは[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)を使用している場合は、最大2年間のデータをクエリできる場合があります。これは、Snowflakeでデータが保持される期間です。延長データ保持の詳細については、カスタマーサクセスマネージャーにお問い合わせください。
+クエリは過去60日間のデータを返します。Currentsまたは[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)を使用している場合は、最大2年間のデータをクエリできる場合があります。これは、Snowflakeでデータが保持される期間です。延長データ保持の詳細については、カスタマーサクセスマネージャーにお問い合わせください。
 
 ### クエリビルダーのタイムゾーン {#query-builder-time-zone}
 
@@ -90,15 +90,15 @@ AIクエリビルダーでSQLを生成するには:
 
 ### ヒント {#tips}
 
-- [SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)で利用可能なテーブルとカラムを確認してください。これらのテーブルに存在しないデータを要求すると、ChatGPTが架空のテーブルを作成する可能性があります。
-- この機能の[SQL記述ルール]({{site.baseurl}}/user_guide/analytics/reports/query_builder/#custom-sql)を確認してください。これらのルールに従わないとエラーが発生します。
+- [SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)で利用可能なテーブルとカラムを確認してください。これらのテーブルに存在しないデータを要求すると、ChatGPTが架空のテーブルを作成する可能性があります。
+- この機能の[SQL記述ルール]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql)を確認してください。これらのルールに従わないとエラーが発生します。
 - AIクエリビルダーでは、1分あたり最大20件のプロンプトを送信できます。
 
 #{% multi_lang_include brazeai/generative_ai/policy.md %}
 
 ## カスタムSQLクエリの記述 {#custom-sql}
 
-[Snowflake構文](https://docs.snowflake.com/en/sql-reference)を使用してSQLクエリを記述します。クエリ可能なテーブルとカラムの完全なリストについては、[テーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)を参照してください。
+[Snowflake構文](https://docs.snowflake.com/en/sql-reference)を使用してSQLクエリを記述します。クエリ可能なテーブルとカラムの完全なリストについては、[テーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)を参照してください。
 
 クエリビルダー内でテーブルの詳細を表示するには:
 

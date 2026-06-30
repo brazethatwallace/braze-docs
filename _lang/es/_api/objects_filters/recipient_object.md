@@ -13,7 +13,7 @@ description: "Este artículo de referencia explica los distintos componentes del
 
 Debes incluir uno de `external_user_id`, `user_alias`, `braze_id` o `email` en este objeto. **Las solicitudes deben especificar solo uno.**
 
-El objeto de destinatarios te permite combinar el [objeto de alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object/), el [objeto de propiedades del desencadenador]({{site.baseurl}}/api/objects_filters/trigger_properties_object/), el [objeto de propiedades de entrada de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) y el [objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
+El objeto de destinatarios te permite combinar el [objeto de alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object), el [objeto de propiedades del desencadenador]({{site.baseurl}}/api/objects_filters/trigger_properties_object), el [objeto de propiedades de entrada de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) y el [objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
 
 ## Cuerpo del objeto {#object-body}
 
@@ -33,15 +33,15 @@ El objeto de destinatarios te permite combinar el [objeto de alias de usuario]({
 
 Cuando `send_to_existing_only` es `true`, Braze solo envía el mensaje a los usuarios existentes. Sin embargo, no puedes utilizar este indicador con alias de usuario.
 
-Cuando `send_to_existing_only` es `false`, debes incluir un objeto `attributes` en el mismo destinatario. El indicador no reemplaza a `attributes`. Braze utiliza `attributes` para la creación o actualización del perfil previa al envío (por ejemplo, añadir campos de `email` o teléfono para la entrega de correo electrónico o SMS, o actualizar grupos de suscripción). Sin ese objeto, no obtienes el comportamiento combinado previsto para usuarios nuevos en [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) o [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/).
+Cuando `send_to_existing_only` es `false`, debes incluir un objeto `attributes` en el mismo destinatario. El indicador no reemplaza a `attributes`. Braze utiliza `attributes` para la creación o actualización del perfil previa al envío (por ejemplo, añadir campos de `email` o teléfono para la entrega de correo electrónico o SMS, o actualizar grupos de suscripción). Sin ese objeto, no obtienes el comportamiento combinado previsto para usuarios nuevos en [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) o [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
 
 Ese perfil aún debe cumplir con las reglas de audiencia y elegibilidad de canal del mensaje antes de que Braze lo envíe.
 
-- [ID de Braze]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)
-- [Alias de usuario]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
-- [ID de usuario externo]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)
-- [Priorización]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email)
-- [Objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)
+- [ID de Braze]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
+- [Alias de usuario]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)
+- [ID de usuario externo]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
+- [Priorización]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email)
+- [Objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)
 
 ## Desduplicación del objeto de destinatario {#recipient-object-deduping}
 

@@ -16,7 +16,7 @@ channel:
 
 이중 옵트인이 활성화되면, 사용자는 Campaign(캠페인) 또는 Canvas를 통해 메시지를 받기 전에 명시적 동의를 요청하는 메시지를 수신합니다.
 
-1991년 전화 소비자 보호법(TCPA)의 명시적 요구 사항은 아니지만, Braze는 사용자가 SMS, MMS 또는 RCS 프로그램에 참여하는 것을 인지하고 동의하는지 확인하기 위해 이중 옵트인을 구성할 것을 권장합니다. 규정 준수에 대한 자세한 내용은 [SMS, MMS 및 RCS에 대한 법률, 규정 및 남용 방지]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/)를 참조하세요.
+1991년 전화 소비자 보호법(TCPA)의 명시적 요구 사항은 아니지만, Braze는 사용자가 SMS, MMS 또는 RCS 프로그램에 참여하는 것을 인지하고 동의하는지 확인하기 위해 이중 옵트인을 구성할 것을 권장합니다. 규정 준수에 대한 자세한 내용은 [SMS, MMS 및 RCS에 대한 법률, 규정 및 남용 방지]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations)를 참조하세요.
 
 ## 이중 옵트인 워크플로 {#double-opt-in-workflows}
 
@@ -48,7 +48,7 @@ channel:
 | | 응답 메시지 | 사용자가 옵트인 키워드를 문자로 보낸 후 받게 되는 초기 응답입니다(예: "이 번호에서 메시지를 수신하려면 Y로 답장하여 확인하세요. 메시지 및 데이터 요금이 적용될 수 있습니다.")
 | 이중 옵트인 확인 | 키워드 | 사용자가 옵트인 의도를 확인하기 위해 답장할 수 있는 키워드입니다. 최소 하나의 키워드가 필요합니다. 이 키워드는 **옵트인 안내 응답 메시지** 필드에 지정해야 합니다.
 | | 응답 메시지 | 사용자가 옵트인을 명시적으로 확인하고 메시지 수신이 가능해진 후 받게 되는 확인 응답입니다. 사용자의 구독 그룹 상태가 `Subscribed`로 설정됩니다.
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="구성 가능한 필드" }
 
 사용자가 옵트인 안내를 받으면 옵트인 의도를 확인할 수 있는 기간은 30일입니다. 30일 기간이 지난 후 구독하려면 옵트인 키워드를 문자로 보내 이중 옵트인 워크플로를 다시 시작해야 합니다.
 
@@ -56,9 +56,9 @@ channel:
 
 ## 구독 그룹 상태 {#subscription-group-status}
 
-사용자가 이중 옵트인 워크플로를 완료한 후에만 [구독 그룹 상태]({{site.baseurl}}/sms_rcs_subscription_groups/)가 `Subscribed`로 업데이트됩니다. 사용자가 워크플로를 시작했지만 완료하지 않으면 `Unsubscribed` 상태로 유지되며 해당 구독 그룹에서 메시지를 받을 수 없습니다.
+사용자가 이중 옵트인 워크플로를 완료한 후에만 [구독 그룹 상태]({{site.baseurl}}/sms_rcs_subscription_groups)가 `Subscribed`로 업데이트됩니다. 사용자가 워크플로를 시작했지만 완료하지 않으면 `Unsubscribed` 상태로 유지되며 해당 구독 그룹에서 메시지를 받을 수 없습니다.
 
-사용자는 [다른 소스에서 구독]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/)한 경우(예: REST API, SDK)에도 이중 옵트인 워크플로에 진입할 수 있습니다.
+사용자는 [다른 소스에서 구독]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups)한 경우(예: REST API, SDK)에도 이중 옵트인 워크플로에 진입할 수 있습니다.
 
 ## 구독 소스 {#subscription-sources}
 
@@ -76,9 +76,9 @@ channel:
 | REST API | `/subscription/status/set`, `/v2/subscription/status/set` 또는 `/users/track`를 통해 구독 상태가 설정되고 선택적 매개변수 `use_double_opt_in_logic`이 `true`로 전달되면 사용자가 워크플로에 진입할 수 있습니다(예: [{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed", "use_double_opt_in_logic": true}]). 이 매개변수가 생략되면 사용자는 이중 옵트인 워크플로에 진입하지 않습니다. |
 | Shopify | Shopify 통합에 의해 구독 상태가 설정된 경우 사용자는 이중 옵트인 워크플로에 진입하지 않습니다. |
 | 사용자 가져오기 | 사용자 가져오기에 의해 구독 상태가 설정된 경우 사용자는 이중 옵트인 워크플로에 진입하지 않습니다. |
-| [환경설정 센터]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/) | 사용자가 환경설정 센터를 통해 구독하면 자동으로 이중 옵트인 워크플로에 진입합니다. |
+| [환경설정 센터]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) | 사용자가 환경설정 센터를 통해 구독하면 자동으로 이중 옵트인 워크플로에 진입합니다. |
 | 사용자 업데이트 단계 | 사용자 업데이트 단계를 통해 구독 상태가 설정되고 선택적 매개변수 `use_double_opt_in_logic`이 `true`로 전달되면 사용자가 이중 옵트인 워크플로에 진입할 수 있습니다. 이 매개변수가 생략되면 사용자는 이중 옵트인 워크플로에 진입하지 않습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="구독 소스" }
 
 ## 다중 언어 지원 {#multi-language-support}
 인바운드 메시지의 경우, 이중 옵트인은 구독 그룹에 정의된 모든 언어를 지원합니다. 즉, 다양한 언어로 자동 응답을 정의할 수 있으며, 일치하는 키워드가 수신되면 Braze가 특정 언어와 연결된 자동 응답을 전송합니다.

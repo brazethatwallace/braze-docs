@@ -28,7 +28,7 @@ Die Zustellbarkeit Ihrer E-Mails kann durch folgende Spam-Traps beeinträchtigt 
 Diese Traps lassen sich vermeiden, wenn Sie ein bestätigtes Opt-in-Verfahren einrichten. Indem Sie eine erste Opt-in-E-Mail versenden und Ihre Abonnent:innen bitten, zu bestätigen, dass sie Ihre Nachrichten erhalten möchten, stellen Sie sicher, dass Ihre Empfänger:innen von Ihnen hören möchten und dass Sie an echte, gültige Adressen senden. Hier finden Sie weitere Möglichkeiten, um Spam-Traps zu vermeiden:
 
 1. Senden Sie eine Double-Opt-in-E-Mail. Das ist eine E-Mail, bei der Nutzer:innen ihre Abo-Auswahl durch Klicken auf einen Link bestätigen müssen.
-2. Implementieren Sie als Best Practice eine [Sunset-Richtlinie]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/).
+2. Implementieren Sie als Best Practice eine [Sunset-Richtlinie]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies).
 3. **Kaufen Sie niemals E-Mail-Listen.**
 
 {% alert tip %}
@@ -43,15 +43,15 @@ Ein Beispiel für eine Blockierungsnachricht bei kostenlosen E-Mail-Domains:
 
 `550 5.7.1 Unfortunately, messages from [xx.xx.xx.xx] weren't sent. Please contact your Internet service provider since part of their network is on our block list (S3150). You can also refer your provider to: http://mail.live.com/mail/troubleshooting.aspx#errors.`
 
-Sie können das Volumen langsam steigern, ähnlich wie beim [IP-Warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/), und dabei die Metriken genau im Auge behalten. Häufig gibt es eine Grundursache für die Zustellbarkeitsprobleme, die identifiziert und behoben werden muss. In der Regel handelt es sich um fehlende ordnungsgemäße Einwilligungen, mangelnde laufende Listenhygiene oder eine Kombination dieser Faktoren.
+Sie können das Volumen langsam steigern, ähnlich wie beim [IP-Warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming), und dabei die Metriken genau im Auge behalten. Häufig gibt es eine Grundursache für die Zustellbarkeitsprobleme, die identifiziert und behoben werden muss. In der Regel handelt es sich um fehlende ordnungsgemäße Einwilligungen, mangelnde laufende Listenhygiene oder eine Kombination dieser Faktoren.
 
 ## Eine E-Mail-Adresse von Ihrer Bounce- oder Spam-Liste entfernen {#remove-an-email-address-from-your-bounce-or-spam-list}
 
 Sie können Bounce-E-Mails und E-Mails auf Ihrer Braze-Spam-Liste mit den folgenden Endpunkten entfernen:
 
-- [`/email/bounce/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces/)
-- [`/email/spam/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_spam/)
+- [`/email/bounce/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces)
+- [`/email/spam/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_spam)
 
 ## E-Mail-Zustellbarkeit verbessern {#improve-email-deliverability}
 
-Weitere Informationen finden Sie unter [E-Mail-Zustellbarkeit verbessern]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/).
+Weitere Informationen finden Sie unter [E-Mail-Zustellbarkeit verbessern]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability).

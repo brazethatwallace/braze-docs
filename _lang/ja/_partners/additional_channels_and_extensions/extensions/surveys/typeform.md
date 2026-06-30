@@ -22,8 +22,8 @@ BrazeとTypeformを統合することで、以下のことが可能になりま�
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | Typeformアカウント | このパートナーシップを利用するには、webhookにアクセスできるTypeformアカウントが必要です。 |
-| Brazeデータ変換 | Typeformからデータを受信するには、[データ変換URL]({{site.baseurl}}/data_transformation/)が必要です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Brazeデータ変換 | Typeformからデータを受信するには、[データ変換URL]({{site.baseurl}}/data_transformation)が必要です。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
@@ -37,11 +37,11 @@ BrazeとTypeformを統合することで、以下のことが可能になりま�
 
 ステップ4で、**Destination URL**としてデータ変換のWebhook URLを追加します。
 
-![]({% image_buster /assets/img/typeform/typeform_add_webhook.png %}){: style="max-width:50%" }
+![送信先URLフィールドが表示されたTypeformのWebhook設定画面。]({% image_buster /assets/img/typeform/typeform_add_webhook.png %}){: style="max-width:50%" }
 
 **View deliveries**をクリックし、次に**Send test request**をクリックして、データ変換にテストイベントを送信します。
 
-![]({% image_buster /assets/img/typeform/typeform_test_request.png %})
+![「Send test request」が選択されたTypeformのView deliveriesページ。]({% image_buster /assets/img/typeform/typeform_test_request.png %})
 
 ### ステップ3: 選択したTypeformイベントを受け入れる変換コードを書く {#step-3-write-transformation-code-to-accept-your-chosen-typeform-events}
 
@@ -52,7 +52,7 @@ BrazeとTypeformを統合することで、以下のことが可能になりま�
 3. **Validate**をクリックして、コード出力のプレビューを返し、受け入れ可能な`/users/track`リクエストであるかどうかを確認します。
 4. データ変換を保存して有効化します。
 
-![]({% image_buster /assets/img/typeform/typeform_test_result.png %})
+![Typeformのテストペイロード検証が成功したことを示すデータ変換プレビュー。]({% image_buster /assets/img/typeform/typeform_test_result.png %})
 
 #### リクエスト本文の形式 {#request-body-format}
 
@@ -333,13 +333,13 @@ Content-Type: application/json
 このテンプレート例では、メールアドレス（Typeform内のメールアドレスの質問から取得）を識別子として使用しています。
 
 {% alert note %}
-メールアドレスを識別子として使用する場合は、`/users/track`エンドポイントの[よくある質問]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#frequently-asked-questions)を参照して、期待される動作の詳細を確認してください。
+メールアドレスを識別子として使用する場合は、`/users/track`エンドポイントの[よくある質問]({{site.baseurl}}/api/endpoints/user_data/post_user_track#frequently-asked-questions)を参照して、期待される動作の詳細を確認してください。
 {% endalert %}
 
 {% tabs local %}
 {% tab Input %}
 
-`````````javascript
+```javascript
 /* In the Typeform webhook payload each question is stored as a “title” within each object of the “fields” array. Our code defines a “title” variable where we store the value of each field title. */
 const titles = payload.form_response.definition.fields.map(field => field.title);
 
@@ -479,7 +479,7 @@ Typeformの隠しフィールドを使用して、Typeformの回答でこの情�
 {% tabs local %}
 {% tab Input %}
 
-`````````javascript
+```javascript
 /* In the Typeform webhook payload each question is stored as a “title” within each object of the “fields” array. Our code defines a “title” variable where we store the value of each field title. */
 const titles = payload.form_response.definition.fields.map(field => field.title);
 
@@ -616,8 +616,8 @@ return brazecall;
 
 アクティブ化すると、ユーザーがフォームへの入力を完了した際にカスタムイベントデータがユーザーのプロファイルに記録されます。
 
-![]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
+![Typeformの送信後にカスタムイベントが記録されたユーザープロファイル。]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
 
 ## モニタリングとトラブルシューティング {#monitoring-and-troubleshooting}
 
-変換のモニタリングとトラブルシューティングの詳細については、「[変換のモニタリング]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation/#step-5-monitor-your-transformation)」セクションを参照してください。
+変換のモニタリングとトラブルシューティングの詳細については、「[変換のモニタリング]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation)」セクションを参照してください。

@@ -33,7 +33,7 @@ Nesta seção, você pode adicionar os nomes e endereços de e-mail que podem se
 
 #### Personalizar com Liquid {#personalize-with-liquid}
 
-Você também pode usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) nos campos **From Display Name**, **Local Part** e **Domain** para criar dinamicamente o nome do remetente e o endereço de e-mail com base em atributos personalizados. Para usar Liquid no campo **Domain**, você deve acessar as opções de **Sending Info** de uma Campaign de e-mail e marcar a caixa de seleção **Customize from display name + address**.
+Você também pode usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) nos campos **From Display Name**, **Local Part** e **Domain** para criar dinamicamente o nome do remetente e o endereço de e-mail com base em atributos personalizados. Para usar Liquid no campo **Domain**, você deve acessar as opções de **Sending Info** de uma Campaign de e-mail e marcar a caixa de seleção **Customize from display name + address**.
 
 ![Configurações de envio com campos para personalizar o nome de exibição do remetente, endereço e domínio.]({% image_buster /assets/img/email_settings/email_campaign_domain.png %})
 
@@ -64,16 +64,16 @@ Os domínios de envio da Braze não aceitam e-mails de entrada. Se um destinatá
 
 #### Personalizar com Liquid
 
-Você também pode usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) no campo **Reply-To Address** para criar dinamicamente o endereço de resposta com base em atributos personalizados. Por exemplo, você pode usar lógica condicional para enviar respostas para diferentes regiões ou departamentos:
+Você também pode usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) no campo **Reply-To Address** para criar dinamicamente o endereço de resposta com base em atributos personalizados. Por exemplo, você pode usar lógica condicional para enviar respostas para diferentes regiões ou departamentos:
 
 {% raw %}
 ```liquid
 {% if {{custom_attribute.${region}}} == 'US' %}
-{% assign address = "us-support@company.com" %}
+{% assign address = "us-support@example.com" %}
 {% elsif {{custom_attribute.${region}}} == 'EU' %}
-{% assign address = "eu-support@company.com" %}
+{% assign address = "eu-support@example.com" %}
 {% else %}
-{% assign address = "global-support@company.com" %}{% endif %}{{address}}
+{% assign address = "global-support@example.com" %}{% endif %}{{address}}
 ```
 {% endraw %}
 
@@ -82,7 +82,7 @@ Você também pode usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_an
 
 Esta seção permite que você gerencie endereços BCC que podem ser adicionados a mensagens de e-mail de saída enviadas pela Braze. Adicionar um endereço BCC a uma mensagem de e-mail envia uma cópia idêntica da mensagem que seu usuário recebe para sua caixa de entrada BCC. Essa é uma ferramenta útil para manter cópias de mensagens enviadas aos seus usuários para requisitos de conformidade ou questões de suporte ao cliente. E-mails BCC não são incluídos nos relatórios e na análise de dados de e-mail.
 
-Endereços BCC estão disponíveis para Amazon SES, SendGrid e SparkPost. Como alternativa aos endereços BCC, recomendamos usar o [arquivamento de mensagens]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving/) para salvar uma cópia das mensagens enviadas aos usuários para fins de arquivamento ou conformidade.
+Endereços BCC estão disponíveis para Amazon SES, SendGrid e SparkPost. Como alternativa aos endereços BCC, recomendamos usar o [arquivamento de mensagens]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving) para salvar uma cópia das mensagens enviadas aos usuários para fins de arquivamento ou conformidade.
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
@@ -113,7 +113,7 @@ O comportamento padrão na Braze é adicionar o pixel de rastreamento na parte i
 
 Embora o pixel já esteja estilizado para causar o mínimo de alterações visuais possível, quaisquer alterações visuais não intencionais seriam menos visíveis na parte inferior de um e-mail. Esse também é o padrão para provedores de e-mail como SendGrid e SparkPost.
 
-Para reduzir comportamentos inesperados, mantenha o Liquid dentro de tags `<html>`. Tags de nível de documento aninhadas ou duplicadas podem alterar como o e-mail é analisado e onde o pixel é posicionado, o que pode afetar o rastreamento de abertura e o layout. Para saber mais, consulte [Usando Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/).
+Para reduzir comportamentos inesperados, mantenha o Liquid dentro de tags `<html>`. Tags de nível de documento aninhadas ou duplicadas podem alterar como o e-mail é analisado e onde o pixel é posicionado, o que pode afetar o rastreamento de abertura e o layout. Para saber mais, consulte [Usando Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid).
 
 ### Atualizar o posicionamento {#update-the-placement}
 
@@ -235,7 +235,7 @@ No seu editor de e-mail, acesse **Sending Settings** > **Sending Info**. Selecio
     - Ao selecionar um grupo de inscrições, adicione o filtro **Subscription Group** em **Target Audiences** para direcionar apenas usuários que estão inscritos nesse grupo específico. O grupo de inscrições selecionado para o cancelamento de inscrição com um clique deve corresponder ao grupo de inscrições que você está direcionando. Se houver uma incompatibilidade no grupo de inscrições, você pode correr o risco de enviar para um usuário que está tentando cancelar a inscrição de um grupo de inscrições do qual já está cancelado.
 
 {% alert important %}
-A configuração **Unsubscribe from specific subscription group** se aplica apenas ao cabeçalho list-unsubscribe com um clique. O cabeçalho mailto list-unsubscribe não é afetado ao selecionar essa opção. Isso significa que um destinatário que cancela a inscrição usando esse método registra um cancelamento global, não um cancelamento do grupo de inscrições específico. Para excluir o cabeçalho mailto list-unsubscribe do cancelamento global de inscrição dos usuários ao selecionar essa configuração, entre em contato com o [Suporte]({{site.baseurl}}/support_contact/).
+A configuração **Unsubscribe from specific subscription group** se aplica apenas ao cabeçalho list-unsubscribe com um clique. O cabeçalho mailto list-unsubscribe não é afetado ao selecionar essa opção. Isso significa que um destinatário que cancela a inscrição usando esse método registra um cancelamento global, não um cancelamento do grupo de inscrições específico. Para excluir o cabeçalho mailto list-unsubscribe do cancelamento global de inscrição dos usuários ao selecionar essa configuração, entre em contato com o [Suporte]({{site.baseurl}}/support_contact).
 {% endalert %}
 
 - **Custom**: Adiciona sua URL personalizada de cancelamento de inscrição com um clique para você processar cancelamentos diretamente.
@@ -272,7 +272,7 @@ Use a opção para incluir "[TEST]" e "[SEED]" nas linhas de assunto dos seus e-
 
 CSS inline é uma técnica que automaticamente aplica estilos CSS inline para seus e-mails e novos e-mails. Para alguns clientes de e-mail, isso pode melhorar a forma como seus e-mails são renderizados.
 
-Alterar essa configuração não afeta nenhuma das suas mensagens de e-mail ou modelos existentes. Você pode substituir esse padrão a qualquer momento ao redigir mensagens ou modelos. Para saber mais, consulte [CSS inline]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline/).
+Alterar essa configuração não afeta nenhuma das suas mensagens de e-mail ou modelos existentes. Você pode substituir esse padrão a qualquer momento ao redigir mensagens ou modelos. Para saber mais, consulte [CSS inline]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline).
 
 ## Reinscrever usuários quando o e-mail muda {#resubscribe-users-when-their-email-changes}
 
@@ -293,7 +293,7 @@ Observe os seguintes requisitos ao criar um rodapé personalizado para suas mens
 
 ![Editor de rodapé personalizado de e-mail com campos de link de cancelamento de inscrição e endereço postal para conformidade com a CAN-SPAM.]({% image_buster /assets/img/email_settings/custom_footer.png %})
 
-Para saber mais sobre a modelagem Liquid de rodapé personalizado, consulte [Rodapés personalizados]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions).
+Para saber mais sobre a modelagem Liquid de rodapé personalizado, consulte [Rodapés personalizados]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
 
 {% endtab %}
 {% tab Página de cancelamento de inscrição personalizada %}
@@ -302,7 +302,7 @@ A Braze permite que você defina uma **Página de cancelamento de inscrição pe
 
 ![Editor de HTML e pré-visualização da página de cancelamento de inscrição personalizada exibida após o usuário cancelar a inscrição de e-mail.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
-Saiba mais sobre as práticas recomendadas para gerenciamento de listas de e-mail em [Gerenciando inscrições de e-mail]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses).
+Saiba mais sobre as práticas recomendadas para gerenciamento de listas de e-mail em [Gerenciando inscrições de e-mail]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses).
 
 {% endtab %}
 {% tab Página de opt-in personalizada %}
@@ -311,7 +311,7 @@ Você pode criar uma página personalizada de opt-in usando seu próprio HTML. I
 
 ![Editor de HTML e pré-visualização da página de opt-in personalizada para confirmação de inscrição de e-mail com a marca.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
-Saiba mais sobre as práticas recomendadas para gerenciamento de listas de e-mail em [Gerenciando inscrições de e-mail]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses).
+Saiba mais sobre as práticas recomendadas para gerenciamento de listas de e-mail em [Gerenciando inscrições de e-mail]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses).
 
 {% endtab %}
 {% endtabs %}
@@ -367,7 +367,7 @@ Se um grupo de inscrições referenciado em **Sending Info** para cancelamento c
 {% enddetails %}
 
 {% details A configuração de cancelamento de inscrição com um clique está disponível para modelos de e-mail? %}
-Não, atualmente não temos planos de adicionar isso para modelos de e-mail, pois esses modelos não são atribuídos a um domínio de envio. Se você tem interesse nesse recurso para modelos de e-mail, envie um [feedback de produto]({{site.baseurl}}/user_guide/administer/personal/product_portal/).
+Não, atualmente não temos planos de adicionar isso para modelos de e-mail, pois esses modelos não são atribuídos a um domínio de envio. Se você tem interesse nesse recurso para modelos de e-mail, envie um [feedback de produto]({{site.baseurl}}/user_guide/administer/personal/product_portal).
 {% enddetails %}
 
 {% details Esse recurso verifica se a URL de cancelamento de inscrição com um clique adicionada à opção personalizada é válida? %}

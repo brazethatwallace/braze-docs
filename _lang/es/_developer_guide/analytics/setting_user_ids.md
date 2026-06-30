@@ -8,7 +8,7 @@ description: "Aprende a configurar los ID de usuario a través del SDK de Braze.
 
 # Establecer ID de usuario {#set-user-ids}
 
-> Aprende a configurar los ID de usuario a través del SDK de Braze. Son identificadores únicos que te permiten realizar el seguimiento de los usuarios en distintos dispositivos y plataformas, importar sus datos a través de la [API de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data) y enviar mensajes dirigidos a través de la [API de mensajería]({{site.baseurl}}/api/endpoints/messaging/). Si no asignas un ID único a un usuario, Braze le asignará un ID anónimo; sin embargo, no podrás utilizar estas características hasta que lo hagas.
+> Aprende a configurar los ID de usuario a través del SDK de Braze. Son identificadores únicos que te permiten realizar el seguimiento de los usuarios en distintos dispositivos y plataformas, importar sus datos a través de la [API de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data) y enviar mensajes dirigidos a través de la [API de mensajería]({{site.baseurl}}/api/endpoints/messaging). Si no asignas un ID único a un usuario, Braze le asignará un ID anónimo; sin embargo, no podrás utilizar estas características hasta que lo hagas.
 
 {% alert note %}
 Para los SDK envolventes que no aparecen en la lista, utiliza el método nativo de Android o Swift correspondiente.
@@ -44,7 +44,7 @@ Si prefieres utilizar Google Tag Manager, puedes usar el tipo de etiqueta **Chan
 
 Asegúrate de introducir el ID único del usuario actual en el campo **External User ID**, que normalmente se rellena utilizando una variable de capa de datos enviada por tu sitio web.
 
-![Un cuadro de diálogo que muestra los ajustes de configuración de la etiqueta de acción Braze. Las configuraciones incluidas son "tag type" y "external user ID".]({% image_buster /assets/img/web-gtm/gtm-change-user.png %})
+![Un cuadro de diálogo que muestra los ajustes de configuración de la etiqueta de acción de Braze. Los ajustes incluidos son "tag type" y "external user ID".]({% image_buster /assets/img/web-gtm/gtm-change-user.png %})
 {% endtab %}
 
 {% tab ANDROID %}
@@ -188,15 +188,15 @@ Braze.addAlias("ALIAS_NAME", "ALIAS_LABEL");
 
 Te recomendamos que crees ID de usuario utilizando el estándar [UUID (Universally Unique Identifier)](https://en.wikipedia.org/wiki/Universally_unique_identifier), es decir, cadenas de 128 bits aleatorias y bien distribuidas.
 
-Como alternativa, puedes realizar un hash de un identificador único existente (como un nombre o una dirección de correo electrónico) para generar tus ID de usuario. Si lo haces, asegúrate de implementar la [autenticación del SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication/) para evitar la suplantación de identidad de los usuarios.
+Como alternativa, puedes realizar un hash de un identificador único existente (como un nombre o una dirección de correo electrónico) para generar tus ID de usuario. Si lo haces, asegúrate de implementar la [autenticación del SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication) para evitar la suplantación de identidad de los usuarios.
 
 {% alert warning %}
 No utilices un valor fácil de adivinar ni un número incremental para tu ID de usuario. Esto puede exponer a tu organización a ataques maliciosos o a la filtración de datos.
 
-Para mayor seguridad, utiliza la [autenticación del SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication/).
+Para mayor seguridad, utiliza la [autenticación del SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication).
 {% endalert %}
 
-Aunque es fundamental que nombres correctamente tus ID de usuario desde el principio, siempre puedes renombrarlos en el futuro utilizando el punto de conexión [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/).
+Aunque es fundamental que nombres correctamente tus ID de usuario desde el principio, siempre puedes renombrarlos en el futuro utilizando el punto de conexión [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration).
 
 | Tipos de ID no recomendados | Ejemplo no recomendado |
 | ------------ | ----------- |

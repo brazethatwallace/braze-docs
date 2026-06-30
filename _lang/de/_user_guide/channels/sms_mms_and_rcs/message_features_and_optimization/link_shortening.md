@@ -18,7 +18,7 @@ channel:
 > Diese Seite beschreibt, wie Sie die Linkverkürzung in Ihren SMS- und RCS-Nachrichten aktivieren, verkürzte Links testen, Ihre angepasste Domain in verkürzten Links verwenden und mehr.
 
 {% alert important %}
-Braze führt schrittweise die [einheitliche Linkverkürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/?sdktab=unified) ein, die alle verkürzten SMS- und RCS-Links in ein einziges personalisiertes Linkformat zusammenführt (zum Beispiel `brz.ai/abcdefgh`).
+Braze führt schrittweise die [einheitliche Linkverkürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening?sdktab=unified) ein, die alle verkürzten SMS- und RCS-Links in ein einziges personalisiertes Linkformat zusammenführt (zum Beispiel `brz.ai/abcdefgh`).
 {% endalert %}
 
 {% sdktabs %}

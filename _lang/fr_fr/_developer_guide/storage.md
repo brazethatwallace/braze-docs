@@ -53,7 +53,7 @@ Les propriétés `AD_TRACKING_ENABLED` et `TIMEZONE` ne sont pas collectées si 
 - Version du système d'exploitation de l'appareil
 - État de l'autorisation des notifications push
 - Options d'affichage push
-- Push activé
+- Notifications push activées
 - Résolution de l'appareil
 - Fuseau horaire de l'appareil
 
@@ -117,7 +117,7 @@ configuration.devicePropertyAllowList = @[
 {% endtabs %}
 
 {% alert tip %}
-Pour en savoir plus sur les propriétés d'appareil collectées automatiquement, consultez la section [Collecte de données du SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
+Pour en savoir plus sur les propriétés d'appareil collectées automatiquement, consultez la section [Collecte de données du SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
 {% endalert %}
 
 ## Stockage des cookies (web uniquement) {#cookies}
@@ -133,7 +133,7 @@ Les cookies suivants sont stockés :
 | `ab.storage.deviceId.[your-api-key]` | Chaîne de caractères générée aléatoirement, utilisée pour identifier les utilisateurs anonymes et différencier les appareils des utilisateurs, permettant ainsi l'envoi de messages par appareil. | ~200 octets |
 | `ab.optOut` | Stocke la préférence de refus de l'utilisateur lorsque `disableSDK` est appelé. | ~40 octets |
 | `ab._gd` | Créé temporairement (puis supprimé) pour déterminer le domaine de cookie racine, ce qui permet au SDK de fonctionner correctement sur les sous-domaines. | s/o |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Store cookies (web only) #cookies" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Stockage des cookies (web uniquement)" }
 
 ### Modifier l'expiration des cookies {#cookie-expiry}
 

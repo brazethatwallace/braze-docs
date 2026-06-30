@@ -21,11 +21,11 @@ Cuando inicias sesión, el dashboard te ofrece una vista centralizada de tus her
 - **Navegación lateral:** Organiza las herramientas por función (mensajería, audiencia, análisis, configuración)
 - **Encabezado global:** Proporciona acceso rápido a la búsqueda, soporte, configuración de idioma, notificaciones y tu cuenta
 
-Tu experiencia en el dashboard se organiza por [espacios de trabajo]({{site.baseurl}}/user_guide/get_started/workspaces/), que te ayudan a gestionar contenido para diferentes marcas, regiones o equipos. Puedes [cambiar entre espacios de trabajo](#workspace-switcher) en cualquier momento desde la navegación lateral.
+Tu experiencia en el dashboard se organiza por [espacios de trabajo]({{site.baseurl}}/user_guide/get_started/workspaces), que te ayudan a gestionar contenido para diferentes marcas, regiones o equipos. Puedes [cambiar entre espacios de trabajo](#workspace-switcher) en cualquier momento desde la navegación lateral.
 
 ## Accede a tu dashboard {#access-your-dashboard}
 
-Para empezar, [inicia sesión en tu cuenta de Braze]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/). Tu acceso a las páginas del dashboard y los permisos para realizar determinadas acciones se basan en tus [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions) asignados. Si necesitas ayuda con tus permisos, ponte en contacto con los administradores de Braze.
+Para empezar, [inicia sesión en tu cuenta de Braze]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account). Tu acceso a las páginas del dashboard y los permisos para realizar determinadas acciones se basan en tus [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) asignados. Si necesitas ayuda con tus permisos, ponte en contacto con los administradores de Braze.
 
 ## Navega por Braze {#navigate-braze}
 
@@ -35,10 +35,10 @@ El encabezado global es casi siempre visible en la parte superior de la pantalla
 
 - [Búsqueda](#search-your-dashboard)
 - Enlaces de soporte y comunidad
-- [Idioma del dashboard]({{site.baseurl}}/user_guide/administer/personal/language_settings/)
+- [Idioma del dashboard]({{site.baseurl}}/user_guide/administer/personal/language_settings)
 - Notificaciones
 - Configuración de cuenta
-- [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/)
+- [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator)
 
 ### Usa la navegación lateral {#use-the-side-navigation}
 
@@ -50,13 +50,13 @@ El menú vertical de la izquierda organiza las herramientas de Braze por funció
 
 Ubicado en la parte superior de la navegación lateral, el selector de espacio de trabajo te permite moverte entre diferentes espacios de trabajo en tu instancia de Braze. El espacio de trabajo activo aparece resaltado.
 
-Los [espacios de trabajo]({{site.baseurl}}/user_guide/get_started/workspaces/) ayudan a organizar el contenido por marca, región, línea de producto o equipo. Cada espacio de trabajo incluye sus propios datos, campañas y configuración. Tu acceso puede variar entre espacios de trabajo. Por ejemplo, podrías tener acceso de edición en un espacio de trabajo y acceso de solo lectura en otro.
+Los [espacios de trabajo]({{site.baseurl}}/user_guide/get_started/workspaces) ayudan a organizar el contenido por marca, región, línea de producto o equipo. Cada espacio de trabajo incluye sus propios datos, Campaigns y configuración. Tu acceso puede variar entre espacios de trabajo. Por ejemplo, podrías tener acceso de edición en un espacio de trabajo y acceso de solo lectura en otro.
 
 Para cambiar de espacio de trabajo, selecciona el menú desplegable de espacio de trabajo en la parte superior de la navegación lateral y elige el espacio de trabajo al que deseas acceder. También puedes [añadir espacios favoritos](#favorite-workspaces) para acceder más rápido a los que usas con más frecuencia.
 
 #### Minimizar la navegación lateral {#minimize-the-side-navigation}
 
-Para reducir el desorden visual, especialmente durante tareas como diseñar un Canvas, puedes minimizar el panel de navegación lateral. Pulsa **Minimize menu** para contraerlo. Incluso cuando está minimizado, pasa el cursor sobre cualquier icono para ver información emergente con los nombres de los elementos del menú. Esto te ayuda a moverte rápidamente entre herramientas mientras mantienes tu espacio de trabajo limpio.
+Para reducir el desorden visual, especialmente durante tareas como diseñar un Canvas, puedes minimizar el panel de navegación lateral. Pulsa **Minimizar menú** para contraerlo. Incluso cuando está minimizado, pasa el cursor sobre cualquier icono para ver información emergente con los nombres de los elementos del menú. Esto te ayuda a moverte rápidamente entre herramientas mientras mantienes tu espacio de trabajo limpio.
 
 ![Iconos de minimizar y maximizar menú]({% image_buster /assets/img/minimize_expand_menu.png %}){: style="max-width:60%;border:none"}
 
@@ -126,7 +126,7 @@ table td {
 | Moverse entre resultados de búsqueda | <kbd>⬆</kbd> / <kbd>⬇</kbd>  |
 | Seleccionar un resultado de búsqueda      | <kbd>Enter</kbd>    |
 | Cerrar el menú de búsqueda       | <kbd>Esc</kbd>  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Keyboard shortcuts" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Atajos de teclado" }
 
 ## Características de productividad {#productivity-features}
 
@@ -134,7 +134,7 @@ El dashboard de Braze incluye varias características para ayudarte a trabajar d
 
 ### BrazeAI Operator
 
-BrazeAI Operator™ es un asistente impulsado por IA integrado en el dashboard. Úsalo para obtener respuestas, recorrer la configuración, solucionar problemas y generar ideas. Ábrelo desde **BrazeAI Operator™** en el encabezado global junto a tu perfil. Para más información, consulta [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/).
+BrazeAI Operator™ es un asistente impulsado por IA integrado en el dashboard. Úsalo para obtener respuestas, recorrer la configuración, solucionar problemas y generar ideas. Ábrelo desde **BrazeAI Operator™** en el encabezado global junto a tu perfil. Para más información, consulta [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator).
 
 ### Retoma donde lo dejaste {#pick-up-where-you-left-off}
 
@@ -142,7 +142,7 @@ En la página de **Home**, el dashboard muestra tus Campaigns, Canvas y Segments
 
 ![Un borrador de Canvas, un Segment activo y un borrador de Campaign en la sección "Retoma donde lo dejaste".]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
 
-Para más información, consulta [Dashboard de inicio]({{site.baseurl}}/user_guide/analytics/dashboards/home/#pick-up-where-you-left-off).
+Para más información, consulta [Dashboard de inicio]({{site.baseurl}}/user_guide/analytics/dashboards/home#pick-up-where-you-left-off).
 
 ### Espacios favoritos {#favorite-workspaces}
 
@@ -151,7 +151,7 @@ Si trabajas en varios espacios de trabajo, puedes marcar los que usas con más f
 Para añadir espacios favoritos:
 
 1. [Accede a la configuración de tu perfil](#access-your-profile-settings).
-2. En la sección **Account Profile**, localiza el campo **Favorite workspaces**.
+2. En la sección **Perfil de cuenta**, localiza el campo **Espacios favoritos**.
 3. Selecciona los espacios de trabajo que deseas marcar como favoritos.
 
 ### Accede a la configuración de tu perfil {#access-your-profile-settings}
@@ -159,7 +159,7 @@ Para añadir espacios favoritos:
 Para gestionar la configuración de tu cuenta, las preferencias de notificación y la información personal:
 
 1. Selecciona el icono de tu perfil en el encabezado global.
-2. Selecciona **Manage your account** para acceder a tu página de perfil.
+2. Selecciona **Gestiona tu cuenta** para acceder a tu página de perfil.
 
 Desde tu página de perfil, puedes actualizar la configuración de correo electrónico, configurar la autenticación de dos factores, ver tus claves de API y gestionar otros detalles de la cuenta.
 
@@ -175,15 +175,15 @@ El dashboard de Braze utiliza colores de marca que cumplen con los estándares W
 
 ### Tareas administrativas {#administrative-tasks}
 
-- [Crear y gestionar espacios de trabajo]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/)
-- [Gestionar usuarios de Braze]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/)
-- [Permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)
-- [Equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)
+- [Crear y gestionar espacios de trabajo]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces)
+- [Gestionar usuarios de Braze]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users)
+- [Permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)
+- [Equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams)
 
 ### Tareas clave y próximos pasos {#key-tasks-and-next-steps}
 
-- **Crear Campaigns**: [Crear una Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/)
-- **Crear recorridos**: [Crear un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)
-- **Definir audiencias**: [Crear un Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)
-- **Revisar el rendimiento**: [Resumen de análisis]({{site.baseurl}}/user_guide/analytics/dashboards/home/)
-- **Configurar ajustes**: [Configuración de la aplicación]({{site.baseurl}}/user_guide/administer/global/workspace_settings/)
+- **Crear Campaigns**: [Crear una Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign)
+- **Crear recorridos**: [Crear un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)
+- **Definir audiencias**: [Crear un Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)
+- **Revisar el rendimiento**: [Resumen de análisis]({{site.baseurl}}/user_guide/analytics/dashboards/home)
+- **Configurar ajustes**: [Configuración de la aplicación]({{site.baseurl}}/user_guide/administer/global/workspace_settings)

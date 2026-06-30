@@ -117,7 +117,7 @@ configuration.devicePropertyAllowList = @[
 {% endtabs %}
 
 {% alert tip %}
-Para saber mais sobre as propriedades de dispositivo coletadas automaticamente, consulte [Coleta de dados do SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
+Para saber mais sobre as propriedades de dispositivo coletadas automaticamente, consulte [Coleta de dados do SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
 {% endalert %}
 
 ## Armazenamento de cookies (apenas web) {#cookies}
@@ -133,7 +133,7 @@ Os seguintes cookies são armazenados:
 | `ab.storage.deviceId.[your-api-key]` | String gerada aleatoriamente usada para identificar usuários anônimos e para diferenciar os dispositivos dos usuários, além de ativar o envio de mensagens com base no dispositivo. | ~200 bytes |
 | `ab.optOut` | Usado para armazenar a preferência de descadastramento do usuário quando `disableSDK` é chamado | ~40 bytes |
 | `ab._gd` | Criado temporariamente (e depois excluído) para determinar o domínio do cookie de nível raiz, o que permite que o SDK funcione corretamente em subdomínios. | n/a |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Store cookies (web only) #cookies" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Armazenamento de cookies (apenas web)" }
 
 ### Alterando o vencimento do cookie {#cookie-expiry}
 

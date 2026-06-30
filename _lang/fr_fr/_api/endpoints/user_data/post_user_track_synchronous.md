@@ -14,7 +14,7 @@ description: "Cet article présente en détail l'endpoint synchrone de suivi uti
 /users/track/sync
 {% endapimethod %}
 
-> Utilisez cet endpoint pour enregistrer des événements personnalisés et des achats, et pour mettre à jour les attributs de profil utilisateur de manière synchrone. Cet endpoint fonctionne de la même manière que l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), qui met à jour les profils utilisateurs de manière asynchrone.
+> Utilisez cet endpoint pour enregistrer des événements personnalisés et des achats, et pour mettre à jour les attributs de profil utilisateur de manière synchrone. Cet endpoint fonctionne de la même manière que l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), qui met à jour les profils utilisateurs de manière asynchrone.
 
 {% alert important %}
 Cet endpoint est actuellement en **version bêta limitée**. Bien que nous n'ajoutions pas de nouveaux clients à la version bêta pour le moment, veuillez informer votre gestionnaire de compte Braze si vous pensez que cette fonctionnalité pourrait être utile pour votre intégration Braze.
@@ -32,7 +32,7 @@ Par exemple, si vous envoyez des requêtes consécutives pour le même utilisate
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key/) avec l'autorisation `users.track.sync`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `users.track.sync`.
 
 Les clients utilisant l'API pour les appels de serveur à serveur devront peut-être ajouter `rest.iad-01.braze.com` à leur liste d'autorisations s'ils sont derrière un pare-feu.
 
@@ -65,9 +65,9 @@ Pour chaque composant de requête répertorié dans le tableau suivant, vous dev
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | Facultatif | Un objet d'attributs | Voir [objet attributs de l'utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
-| `events` | Facultatif | Un objet d'événement | Voir [objet événements]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | Facultatif | Un objet d'achat | Voir [objet achats]({{site.baseurl}}/api/objects_filters/purchase_object/) |
+| `attributes` | Facultatif | Un objet d'attributs | Voir [objet attributs de l'utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) |
+| `events` | Facultatif | Un objet d'événement | Voir [objet événements]({{site.baseurl}}/api/objects_filters/event_object) |
+| `purchases` | Facultatif | Un objet d'achat | Voir [objet achats]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Réponses {#responses}
@@ -162,7 +162,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 --data-raw '{
     "events": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "app_id": "your_app_identifier",
             "name": "rented_movie",
             "time": "2022-12-06T19:20:45+01:00",
@@ -191,7 +191,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 {
     "users": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "custom_events": [
                 {
                 "name": "rented_movie",

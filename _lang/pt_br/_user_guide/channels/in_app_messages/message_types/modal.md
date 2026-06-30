@@ -14,7 +14,7 @@ description: "Este artigo de referência aborda os requisitos de mensagem e desi
 
 > Os modais aparecem no centro da tela do dispositivo com uma sobreposição que ajuda a destacá-los do seu app em segundo plano. São perfeitos para sugerir de forma direta que o usuário aproveite uma promoção ou sorteio.
 
-Esse tipo de mensagem está disponível tanto no [editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) quanto no [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+Esse tipo de mensagem está disponível tanto no [editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) quanto no [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 ![Duas mensagens no app modais lado a lado, detalhando as recomendações de imagem e texto. Consulte as seções a seguir para mais informações.]({% image_buster /assets/img/modal-spec.png %}){: style="max-width: 801px; border: none;"}
 

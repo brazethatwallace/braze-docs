@@ -16,4 +16,4 @@ description: "Este artículo de referencia cubre cómo generar textos de marketi
 
 {% multi_lang_include brazeai/generative_ai/access_copy.md %}
 
-Para más información, incluyendo tonos disponibles, ejemplos de prompts e integración de directrices de marca, consulta [Generar textos en las capacidades de Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy).
+Para más información, incluyendo tonos disponibles, ejemplos de prompts e integración de directrices de marca, consulta [Generar textos en las capacidades de Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy).

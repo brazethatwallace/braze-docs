@@ -33,7 +33,7 @@ Os cartões de ação são compatíveis com os seguintes editores e páginas.
     - Notificações por push
     - SMS/MMS/RCS
     - Webhooks
-- Página [Criar agente personalizado]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)
+- Página [Criar agente personalizado]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)
 
 Em outras páginas, o Operator fornece uma lista de etapas a seguir na interface em vez de tomar a ação por conta própria. A funcionalidade do Operator está sendo aprimorada regularmente, e a expectativa é que a cobertura para ferramentas de criação seja expandida.
 
@@ -54,4 +54,4 @@ O botão **Aprovação automática de ações** está localizado no painel de ch
 
 A aprovação automática é redefinida quando você atualiza a página, abre uma nova guia ou faz logout e login novamente. Navegar entre páginas no dashboard não a redefine. A aprovação automática pode ser desativada a qualquer momento.
 
-Para informações sobre como restringir o acesso ao Operator e auditar o uso da equipe, consulte [Privacidade e segurança de dados]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/).
+Para informações sobre como restringir o acesso ao Operator e auditar o uso da equipe, consulte [Privacidade e segurança de dados]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).

@@ -15,7 +15,7 @@ description: "Dieser Artikel beschreibt den Braze-Endpunkt zum Entfernen eines D
 /scim/v2/Users/{id}
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um eine:n bestehende:n Dashboard-Nutzer:in dauerhaft zu löschen, indem Sie die Ressourcen-`id` angeben, die von der SCIM-Methode [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account/) zurückgegeben wird.
+> Verwenden Sie diesen Endpunkt, um eine:n bestehende:n Dashboard-Nutzer:in dauerhaft zu löschen, indem Sie die Ressourcen-`id` angeben, die von der SCIM-Methode [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account) zurückgegeben wird.
 
 Dies ist vergleichbar mit dem Löschen von Nutzer:innen im Bereich **Unternehmensnutzer:innen** des Braze-Dashboards.
 
@@ -23,7 +23,7 @@ Dies ist vergleichbar mit dem Löschen von Nutzer:innen im Bereich **Unternehmen
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Verwenden Sie die Herkunft Ihres Dienstes als `X-Request-Origin`-Header. Weitere Informationen finden Sie unter [Automatisierte Nutzerbereitstellung]({{site.baseurl}}/scim/automated_user_provisioning/).
+Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Verwenden Sie die Herkunft Ihres Dienstes als `X-Request-Origin`-Header. Weitere Informationen finden Sie unter [Automatisierte Nutzerbereitstellung]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Rate-Limit
 
@@ -33,7 +33,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Verwenden Sie di
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `id` | Erforderlich | String | Die Ressourcen-ID der/des Nutzer:in. Dieser Parameter wird von den Methoden `POST` `/scim/v2/Users/` oder `GET` `/scim/v2/Users?filter=userName eq "user@test.com"` zurückgegeben. |
+| `id` | Erforderlich | String | Die Ressourcen-ID der/des Nutzer:in. Dieser Parameter wird von den Methoden `POST` `/scim/v2/Users/` oder `GET` `/scim/v2/Users?filter=userName eq "user@example.com"` zurückgegeben. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfadparameter" }
 
 ## Anfragekörper {#request-body}
@@ -61,7 +61,7 @@ HTTP/1.1 204 Not Found
 Content-Type: text/html; charset=UTF-8
 ```
 
-Wenn eine Entwickler:in mit dieser ID nicht in Braze existiert, antwortet der Endpunkt mit:
+Wenn ein:e Entwickler:in mit dieser ID nicht in Braze existiert, antwortet der Endpunkt mit:
 ```http
 HTTP/1.1 404 Not Found
 Content-Type: text/html; charset=UTF-8

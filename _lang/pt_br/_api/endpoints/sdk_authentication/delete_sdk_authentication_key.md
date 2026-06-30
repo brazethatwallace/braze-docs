@@ -22,7 +22,7 @@ A chave primária não pode ser excluída. Se você tentar excluir a chave prim�
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `sdk_authentication.delete`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `sdk_authentication.delete`.
 
 ## Limite de taxa {#rate-limit}
 

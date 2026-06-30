@@ -20,7 +20,7 @@ description: "この記事では、「外部IDの名前を変更」エンドポ�
 
 このエンドポイントは、ユーザーに新しい（プライマリ）`external_id`を設定し、既存の`external_id`を非推奨にします。つまり、非推奨のIDが削除されるまで、どちらの`external_id`でもユーザーを識別できるということです。複数のexternal IDを持つことで、以前のexternal ID命名スキーマを使用しているレガシーバージョンのアプリが壊れないように、移行期間を設けることができます。
 
-古い命名スキーマが使用されなくなった後は、[`/users/external_ids/remove`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove/)を使用して非推奨のexternal IDを削除することを強く推奨します。
+古い命名スキーマが使用されなくなった後は、[`/users/external_ids/remove`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove)を使用して非推奨のexternal IDを削除することを強く推奨します。
 
 {% alert warning %}
 非推奨のexternal IDは、`/users/delete`ではなく`/users/external_ids/remove`エンドポイントを使用して削除してください。非推奨のexternal IDを使用して`/users/delete`にリクエストを送信すると、ユーザープロファイルは完全に削除され、元に戻すことはできません。
@@ -30,7 +30,7 @@ description: "この記事では、「外部IDの名前を変更」エンドポ�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.external_ids.rename`権限を持つ[APIキー]({{site.baseurl}}/api/api_key/)が必要です。
+このエンドポイントを使用するには、`users.external_ids.rename`権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
 
 ## レート制限 {#rate-limit}
 

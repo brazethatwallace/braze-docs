@@ -15,11 +15,11 @@ description: "이 문서에서는 Intelligent Timing(이전의 지능형 전달)
 Braze는 사용자의 앱 과거 상호작용 및 각 메시징 채널과의 상호작용에 대한 통계적 분석을 바탕으로 최적의 발송 시간을 계산합니다. 다음 상호작용 데이터가 사용됩니다:
 
 - 세션 시간
-- 푸시 직접 열람
+- 직접 열람 수
 - 푸시 영향 열람
 - 이메일 클릭 수
-- 이메일 열람 수([머신 열람]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#machine-opens) 제외)
-- SMS 클릭 수([링크 단축]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) 및 고급 추적 기능이 활성화된 경우에만)
+- 이메일 열람 수([머신 열람]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) 제외)
+- SMS 클릭 수([링크 단축]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) 및 고급 추적 기능이 활성화된 경우에만)
 
 예를 들어, 샘은 아침에 정기적으로 이메일을 열람하지만 저녁에는 앱을 열고 알림과 상호작용합니다. 즉, 샘은 아침에 Intelligent Timing이 적용된 이메일 Campaign을 수신하고, 참여 가능성이 높은 저녁에는 푸시 알림이 포함된 Campaign을 수신하게 됩니다.
 
@@ -65,7 +65,7 @@ Braze는 사용자의 앱 과거 상호작용 및 각 메시징 채널과의 상
 
 예를 들어, 방해금지 시간이 오후 10시부터 오전 6시까지로 설정되어 있고 사용자의 최적 시간이 오전 5시 30분인 경우, Braze는 메시지를 보류하고 방해금지 시간대 밖의 가장 가까운 시간인 오전 6시에 전달합니다.
 
-자세한 내용은 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)을 참조하세요.
+자세한 내용은 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)을 참조하세요.
 
 #### 전달 시간 미리보기 {#preview-delivery-times}
 
@@ -101,7 +101,7 @@ Campaign이 시작되고 사용자의 최적 시간이 1시간 이내로 지난 
 
 #### A/B 테스트 종료 2일 후 위닝 배리언트 일정 설정 {#schedule-winning-variants-2-days-after-ab-test}
 
-**위닝 배리언트** 자동 전송 또는 **개인화된 배리언트** 사용과 같은 [최적화가 포함된 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/)를 활용하는 경우, Intelligent Timing이 Campaign의 기간과 타이밍에 영향을 줄 수 있습니다.
+**위닝 배리언트** 자동 전송 또는 **개인화된 배리언트** 사용과 같은 [최적화가 포함된 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations)를 활용하는 경우, Intelligent Timing이 Campaign의 기간과 타이밍에 영향을 줄 수 있습니다.
 
 Intelligent Timing을 사용할 때는 위닝 배리언트 발송 시간을 A/B 테스트 시작 후 최소 **2일 후**로 예약하는 것이 좋습니다. 예를 들어, A/B 테스트가 4월 16일 오후 4시에 시작되면, 위닝 배리언트를 4월 18일 오후 4시 이후에 발송하도록 예약하세요. 이렇게 하면 Braze가 사용자 행동을 평가하고 최적의 시간에 메시지를 보낼 수 있는 충분한 시간이 확보됩니다.
 
@@ -147,7 +147,7 @@ Intelligent Timing 또는 Campaign 오디언스에 대한 설정을 변경할 �
 
 ### 1단계: Intelligent Timing 추가
 
-Canvas에서 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)를 추가한 다음 **Delivery Settings**로 이동하여 **Using Intelligent Timing**을 선택합니다.
+Canvas에서 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)를 추가한 다음 **Delivery Settings**로 이동하여 **Using Intelligent Timing**을 선택합니다.
 
 해당 날짜에 단계에 진입한 사용자에게 최적의 현지 시간에 메시지가 전송됩니다. 그러나 해당 날짜에 최적 시간이 이미 지난 경우, 다음 날 최적 시간에 전달됩니다. 여러 채널을 대상으로 하는 메시지 단계는 채널별로 서로 다른 시간에 메시지를 보내거나 보내려고 시도할 수 있습니다. 메시지 단계의 첫 번째 메시지가 전송을 시도하면 모든 사용자가 자동으로 다음 단계로 이동합니다.
 
@@ -159,7 +159,7 @@ Braze가 최적의 발송 시간을 계산할 수 있는 관련 참여 데이터
 
 Campaign과 달리, Intelligent Timing은 Canvas 수준이 아닌 단계 수준에서 설정되므로 발송 날짜 48시간 전에 Canvas를 시작할 필요가 없습니다.
 
-대신, 사용자가 Canvas에 진입한 시점과 Intelligent Timing 단계를 수신하는 시점 사이에 최소 2일 이상의 캘린더 일수를 [지연 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/)로 추가하세요.
+대신, 사용자가 Canvas에 진입한 시점과 Intelligent Timing 단계를 수신하는 시점 사이에 최소 2일 이상의 캘린더 일수를 [지연 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step)로 추가하세요.
 
 #### 캘린더 일 vs. 24시간 일 {#calendar-vs-24-hour-days}
 
@@ -203,7 +203,7 @@ Intelligent Timing은 각 사용자의 지정된 현지 시간대를 기반으�
 
 ### 예정된 날짜가 지나서 발송 {#sending-past-the-scheduled-date}
 
-[최적화가 포함된 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/)를 활용하는 경우 Intelligent Timing Campaign이 예정된 날짜를 지나서 발송될 수 있습니다. A/B 테스트 최적화를 사용하는 Campaign은 초기 테스트가 종료된 후 자동으로 위닝 배리언트를 전송하여 Campaign 기간을 늘릴 수 있습니다. 기본적으로 최적화가 적용된 Campaign은 초기 테스트 다음 날에 나머지 사용자에게 위닝 배리언트를 전송하지만, 이 발송 날짜를 변경할 수 있습니다.
+[최적화가 포함된 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations)를 활용하는 경우 Intelligent Timing Campaign이 예정된 날짜를 지나서 발송될 수 있습니다. A/B 테스트 최적화를 사용하는 Campaign은 초기 테스트가 종료된 후 자동으로 위닝 배리언트를 전송하여 Campaign 기간을 늘릴 수 있습니다. 기본적으로 최적화가 적용된 Campaign은 초기 테스트 다음 날에 나머지 사용자에게 위닝 배리언트를 전송하지만, 이 발송 날짜를 변경할 수 있습니다.
 
 Intelligent Timing을 사용하는 경우, A/B 테스트가 완료될 때까지 시간을 더 두고 위닝 배리언트를 초기 테스트 후 1일이 아닌 2일 후에 발송하도록 예약하는 것이 좋습니다.
 
@@ -235,7 +235,7 @@ Intelligent Timing은 사용자가 메시지를 열람하거나 클릭할 가능
 
 #### 최적 시간 계산 시 머신 열람이 포함되나요? {#are-machine-opens-included-when-calculating-optimal-time}
 
-아니요, [머신 열람]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#machine-opens)은 최적 시간 계산에서 제외됩니다. 이는 발송 시간이 순수한 사용자 참여만을 기반으로 하여 Campaign에 더 정확한 타이밍을 제공한다는 것을 의미합니다.
+아니요, [머신 열람]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens)은 최적 시간 계산에서 제외됩니다. 이는 발송 시간이 순수한 사용자 참여만을 기반으로 하여 Campaign에 더 정확한 타이밍을 제공한다는 것을 의미합니다.
 
 #### 최적 시간은 얼마나 정밀한가요? {#how-precise-is-the-optimal-time}
 

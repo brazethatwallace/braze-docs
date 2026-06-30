@@ -14,7 +14,7 @@ guide_featured_list:
   - name: 인앱 메시지
     link: /docs/user_guide/channels/in_app_messages
     image: /assets/img/braze_icons/phone-02.svg
-  - name: 콘텐츠 카드
+  - name: Content Cards
     link: /docs/user_guide/channels/content_cards
     image: /assets/img/braze_icons/sticker-square.svg
   - name: 배너
@@ -36,7 +36,7 @@ guide_menu_list:
     link: /docs/user_guide/channels/line
     image: /assets/img/braze_icons/message-chat-circle.svg
   - name: 라이브 알림
-    link: /docs/developer_guide/live_notifications/
+    link: /docs/developer_guide/live_notifications
     image: /assets/img/braze_icons/phone-02.svg
   - name: 푸시
     link: /docs/user_guide/channels/push
@@ -70,6 +70,6 @@ Braze 메시징 매트릭스는 **콘텐츠 복잡도**와 **전달 긴급성**�
 Braze를 사용하여 각 채널에서 접근성 높은 메시징 캠페인을 만들 수 있습니다. 엔지니어와 협력하여 구현 시 접근성 표준을 충족하는지 확인하세요. 추가 가이드가 필요하다면 다음을 권장합니다:
 
 - [접근성 높은 메시징 기초](https://learning.braze.com/accessible-messaging-foundations): 이 Braze 학습 과정에서 브랜드 커뮤니케이션에 적용되는 기본적인 접근성 원칙을 배울 수 있습니다.
-- [접근성 높은 메시지 구축하기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/): Braze 내에서 직접 대체 텍스트를 추가하고 보조 기술을 위한 콘텐츠를 구조화하는 방법을 알아보세요.
+- [접근성 높은 메시지 구축하기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility): Braze 내에서 직접 대체 텍스트를 추가하고 보조 기술을 위한 콘텐츠를 구조화하는 방법을 알아보세요.
 
 Braze의 접근성 또는 Braze에서 발송된 메시지에 대한 피드백이 있으시면 언제든지 알려주세요. 글로벌 헤더의 **고객지원** 메뉴를 열고 **피드백 공유**를 선택하여 의견을 보내주세요.

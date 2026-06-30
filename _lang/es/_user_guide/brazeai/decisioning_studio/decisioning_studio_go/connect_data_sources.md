@@ -25,7 +25,7 @@ Decisioning Studio Go admite los siguientes CEP para el acceso a datos:
 |-----|-----------------|-----------------|
 | **Braze** | Segments | Exportación de Braze Currents |
 | **Salesforce Marketing Cloud** | Extensiones de datos | Automatización de consultas SQL |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Patrones de integración compatibles" }
 
 ## Requisitos de datos según el CEP {#data-requirements-by-cep}
 
@@ -43,7 +43,7 @@ Para las integraciones de Braze, Decisioning Studio Go requiere:
 3. **Datos del perfil de usuario:** cualquier atributo del perfil de usuario o atributo personalizado que desees que el agente tenga en cuenta debe ser accesible a través de la API de Braze.
 
 {% alert important %}
-Asegúrate de que tu exportación de Braze Currents incluya datos de todas las Campaigns con las que quieras comparar (incluidas las Campaigns BAU).
+Asegúrate de que tu exportación de Braze Currents incluya datos de todas las campañas con las que quieras comparar (incluidas las campañas BAU).
 {% endalert %}
 
 {% endtab %}
@@ -56,7 +56,7 @@ Para las integraciones de Salesforce Marketing Cloud, Decisioning Studio Go requ
 1. **Extensiones de datos:** tu audiencia debe estar definida en una extensión de datos a la que Decisioning Studio Go pueda acceder. Utiliza la SubscriberKey como identificador principal del usuario.
 2. **Acceso al seguimiento de eventos:** siempre que el paquete de aplicaciones instalado admita la configuración automatizada de extremo a extremo, no se requiere ninguna configuración adicional.
 
-Las extensiones de datos y las consultas SQL se configuran como parte de la [configuración de la orquestación]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration/).
+Las extensiones de datos y las consultas SQL se configuran como parte de la [configuración de la orquestación]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration).
 
 {% endtab %}
 {% endtabs %}
@@ -70,4 +70,4 @@ Las extensiones de datos y las consultas SQL se configuran como parte de la [con
 
 Ahora que ya sabes cómo se conecta Go a los datos, continúa con la configuración de la integración CEP:
 
-- [Configurar la orquestación]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration/)
+- [Configurar la orquestación]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration)

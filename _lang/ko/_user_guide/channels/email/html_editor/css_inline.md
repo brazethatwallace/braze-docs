@@ -28,8 +28,8 @@ channel:
 
 ## 연결된 콘텐츠와 CSS 인라이닝 {#connected-content-and-css-inlining}
 
-CSS 인라이닝은 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)가 평가되기 **전에** 실행됩니다. 연결된 콘텐츠에서 반환된 HTML은 동일한 인라이닝 단계를 **거치지 않습니다**. 연결된 콘텐츠에서 필요한 스타일은 응답에 직접 포함하거나(인라인 `style` 속성 또는 임베디드 규칙), 템플릿에 더 적합한 경우 해당 메시지의 인라이닝을 비활성화하세요.
+CSS 인라이닝은 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)가 평가되기 **전에** 실행됩니다. 연결된 콘텐츠에서 반환된 HTML은 동일한 인라이닝 단계를 **거치지 않습니다**. 연결된 콘텐츠에서 필요한 스타일은 응답에 직접 포함하거나(인라인 `style` 속성 또는 임베디드 규칙), 템플릿에 더 적합한 경우 해당 메시지의 인라이닝을 비활성화하세요.
 
 ## 커스텀 HTML 템플릿의 Content Blocks {#content-blocks-in-custom-html-templates}
 
-**커스텀 HTML** 이메일 템플릿이나 Campaign에서 Liquid를 사용하여 [콘텐츠 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)을 가져올 때, 상위 템플릿의 CSS 규칙이 콘텐츠 블록 내부에 정의된 스타일을 재정의할 수 있습니다. 템플릿 래퍼에서 충돌하는 선택자나 전역 규칙이 있는지 확인하세요.
+**커스텀 HTML** 이메일 템플릿이나 Campaign에서 Liquid를 사용하여 [콘텐츠 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)을 가져올 때, 상위 템플릿의 CSS 규칙이 콘텐츠 블록 내부에 정의된 스타일을 재정의할 수 있습니다. 템플릿 래퍼에서 충돌하는 선택자나 전역 규칙이 있는지 확인하세요.

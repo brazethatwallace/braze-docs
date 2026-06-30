@@ -18,17 +18,17 @@ Unterdrückungslisten sind dynamisch und gelten automatisch für alle Formen des
 
 ### Nachrichtentypen und Kanäle, die von Unterdrückungslisten betroffen sind {#message-types-and-channels-affected-by-suppression-lists}
 
-Unterdrückungslisten gelten für alle Nachrichtentypen und Kanäle mit Ausnahme von [Feature-Flags]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags/). Das bedeutet, dass Unterdrückungslisten standardmäßig für alle Kanäle, Campaigns und Canvases gelten, einschließlich:
-- [API-Kampagnen]({{site.baseurl}}/api/api_campaigns/)
+Unterdrückungslisten gelten für alle Nachrichtentypen und Kanäle mit Ausnahme von [Feature-Flags]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags). Das bedeutet, dass Unterdrückungslisten standardmäßig für alle Kanäle, Campaigns und Canvases gelten, einschließlich:
+- [API-Kampagnen]({{site.baseurl}}/api/api_campaigns)
 - API-getriggerte Campaigns und Canvases
-- [Transaktions-E-Mails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)
+- [Transaktions-E-Mails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)
 
 Der einzige Nachrichtentyp, für den Unterdrückungslisten nicht gelten, sind Feature-Flags. Nutzer:innen in einer Unterdrückungsliste werden nicht von Feature-Flags unterdrückt, aber von allen anderen Kanälen.
 
 Sie können Ausnahme-Tags verwenden, damit Nutzer:innen der Unterdrückungsliste weiterhin von bestimmten Campaigns und Canvases angesprochen werden. Weitere Informationen finden Sie in Schritt 4 unter [Unterdrückungslisten einrichten](#setup). Wenn Sie einer Unterdrückungsliste keine Ausnahme-Tags hinzufügen, werden Nutzer:innen in dieser Unterdrückungsliste mit keinem Messaging außer Feature-Flags angesprochen.
 
 {% alert note %}
-Unterdrückungslisten werden auf API-Kampagnen angewendet, die im Braze-Dashboard mit einer `campaign_id` erstellt wurden. Unterdrückungslisten gelten nicht für Nachrichten, die über [Braze-Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging/) ohne zugehörige `campaign_id` gesendet werden.
+Unterdrückungslisten werden auf API-Kampagnen angewendet, die im Braze-Dashboard mit einer `campaign_id` erstellt wurden. Unterdrückungslisten gelten nicht für Nachrichten, die über [Braze-Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging) ohne zugehörige `campaign_id` gesendet werden.
 {% endalert %}
 
 ![Der Abschnitt „Ausnahmeeinstellungen“ mit einem Kontrollkästchen, um die Unterdrückungsliste nicht auf API-getriggerte Campaigns und Canvases anzuwenden.]({% image_buster /assets/img/suppression_list_checkbox.png %}){: style="max-width:70%;"}
@@ -44,7 +44,7 @@ Alle Nutzer:innen können Unterdrückungslisten einsehen, aber nur Nutzer:innen 
 3. Verwenden Sie Segmentfilter, um die Nutzer:innen in Ihren Unterdrückungslisten zu identifizieren. Sie müssen mindestens einen auswählen.
 
 {% alert important %}
-Obwohl der Einrichtungsprozess der [Segmenterstellung]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) ähnelt, ist eine Unterdrückungsliste eine Gruppe von Nutzer:innen, an die Sie unabhängig von der Segmentzugehörigkeit **keine** Nachrichten senden möchten.
+Obwohl der Einrichtungsprozess der [Segmenterstellung]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) ähnelt, ist eine Unterdrückungsliste eine Gruppe von Nutzer:innen, an die Sie unabhängig von der Segmentzugehörigkeit **keine** Nachrichten senden möchten.
 {% endalert %}
 
 ![Ein Unterdrückungslisten-Builder mit einem Filter für Nutzer:innen, die eine E-Mail zuletzt vor mehr als 90 Tagen geöffnet haben.]({% image_buster /assets/img/suppression_list_filters.png %})

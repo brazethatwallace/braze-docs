@@ -20,7 +20,7 @@ description: "この記事では、Canvasデータサマリー分析のエクス
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`canvas.data_summary` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`canvas.data_summary` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -30,10 +30,10 @@ description: "この記事では、Canvasデータサマリー分析のエクス
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | 必須 | 文字列 | [Canvas API識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
+| `canvas_id` | 必須 | 文字列 | [Canvas API識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
 | `ending_at` | 必須 | 日時 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列) | データエクスポートの終了日。デフォルトはリクエスト時刻です。 |
-| `starting_at` | オプション* | 日時 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列) | データエクスポートの開始日。<br><br>* `length` または `starting_at` のいずれかが必要です。 |
-| `length` | オプション* | 文字列 | 返されるシリーズに含まれる `ending_at` より前の最大日数。1以上14以下（両端を含む）でなければなりません。<br><br>* `length` または `starting_at` のいずれかが必要です。 |
+| `starting_at` | オプション* | 日時 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列) | データエクスポートの開始日。<br><br>* `length` または `starting_at` のいずれかが必須です。 |
+| `length` | オプション* | 文字列 | 返されるシリーズに含まれる `ending_at` より前の最大日数。1以上14以下（両端を含む）でなければなりません。<br><br>* `length` または `starting_at` のいずれかが必須です。 |
 | `include_variant_breakdown` | オプション | ブール値 | バリアント統計を含めるかどうか（デフォルトは `false`）。  |
 | `include_step_breakdown` | オプション | ブール値 | ステップ統計を含めるかどうか（デフォルトは `false`）。 |
 | `include_deleted_step_data` | オプション | ブール値 | 削除されたステップの統計を含めるかどうか（デフォルトは `false`）。 |
@@ -55,7 +55,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 ## 応答 {#response}
 
 {% alert note %}
-`total_stats`、`variant_stats`、`step_stats`において、`conversions`はCanvasの[1次コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)のカウントです。追加のコンバージョンイベントを設定すると、ペイロードには2番目、3番目、およびそれ以降のイベントに対応する `conversions1`、`conversions2`、およびより大きなインデックスのフィールドも含まれる場合があります。これは `/campaigns/data_series` エンドポイントの[多変量応答]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/#multivariate-response)と同様です。存在する場合、`_by_entry_time` で終わるフィールドは、Canvasエントリ時刻によるコンバージョンを示します。
+`total_stats`、`variant_stats`、`step_stats`において、`conversions`はCanvasの[1次コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)のカウントです。追加のコンバージョンイベントを設定すると、ペイロードには2番目、3番目、およびそれ以降のイベントに対応する `conversions1`、`conversions2`、およびより大きなインデックスのフィールドも含まれる場合があります。これは `/campaigns/data_series` エンドポイントの[多変量応答]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics#multivariate-response)と同様です。存在する場合、`_by_entry_time` で終わるフィールドは、Canvasエントリ時刻によるコンバージョンを示します。
 {% endalert %}
 
 ```json
@@ -109,7 +109,7 @@ APIレスポンスでは、`influenced_opens` フィールドは開封の総数�
 
 ## 関連記事 {#related-articles}
 
-- [エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)
+- [エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)
 
 
 {% endapi %}

@@ -14,11 +14,11 @@ platform:
 
 # Content Cards의 동작 커스터마이즈 {#customize-the-behavior-of-content-cards}
 
-> 이 구현 가이드에서는 Content Cards의 동작 변경, 페이로드에 키-값 페어와 같은 추가 항목 추가, 일반적인 커스터마이즈 레시피에 대해 설명합니다. 콘텐츠 카드 유형의 전체 목록은 [Content Cards 정보]({{site.baseurl}}/developer_guide/content_cards/)를 참조하세요.
+> 이 구현 가이드에서는 Content Cards의 동작 변경, 페이로드에 키-값 페어와 같은 추가 항목 추가, 일반적인 커스터마이즈 레시피에 대해 설명합니다. 콘텐츠 카드 유형의 전체 목록은 [Content Cards 정보]({{site.baseurl}}/developer_guide/content_cards)를 참조하세요.
 
 ## 키-값 페어 {#key-value-pairs}
 
-Braze를 사용하면 키-값 페어를 사용하여 Content Cards를 통해 사용자 기기에 추가 데이터 페이로드를 전송할 수 있습니다. 이를 통해 내부 측정기준을 추적하고, 앱 콘텐츠를 업데이트하고, 등록정보를 커스터마이즈할 수 있습니다. [대시보드를 사용하여 키-값 페어를 추가합니다]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/create/#step-4-configure-additional-settings-optional).
+Braze를 사용하면 키-값 페어를 사용하여 Content Cards를 통해 사용자 기기에 추가 데이터 페이로드를 전송할 수 있습니다. 이를 통해 내부 측정기준을 추적하고, 앱 콘텐츠를 업데이트하고, 등록정보를 커스터마이즈할 수 있습니다. [대시보드를 사용하여 키-값 페어를 추가합니다]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/create#step-4-configure-additional-settings-optional).
 
 {% alert note %}
 중첩된 JSON 값을 키-값 페어로 전송하는 것은 권장하지 않습니다. 대신 JSON을 보내기 전에 평탄화하세요.
@@ -48,7 +48,7 @@ Braze를 사용하면 키-값 페어를 사용하여 Content Cards를 통해 사
 
 ## 보조 콘텐츠로서의 Content Cards {#content-cards-as-supplemental-content}
 
-![]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
+![로컬 데이터와 Braze Content Cards가 혼합된 하이브리드 목록이 포함된 피드]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
 
 Content Cards를 기존 피드에 원활하게 혼합하여 여러 피드의 데이터를 동시에 로드할 수 있습니다. 이를 통해 Braze Content Cards와 기존 피드 콘텐츠가 일관되고 조화로운 경험을 만들어 냅니다.
 
@@ -56,7 +56,7 @@ Content Cards를 기존 피드에 원활하게 혼합하여 여러 피드의 데
 
 ### API 트리거 키-값 페어 {#api-triggered-key-value-pairs}
 
-[API 트리거 Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)은 카드의 값이 외부 요인에 따라 사용자에게 표시할 콘텐츠를 결정할 때 사용할 수 있는 좋은 전략입니다. 예를 들어 보조 콘텐츠를 표시하려면 Liquid를 사용하여 키-값 페어를 설정합니다. 설정 시 `class_type`을 알아야 합니다.
+[API 트리거 Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)은 카드의 값이 외부 요인에 따라 사용자에게 표시할 콘텐츠를 결정할 때 사용할 수 있는 좋은 전략입니다. 예를 들어 보조 콘텐츠를 표시하려면 Liquid를 사용하여 키-값 페어를 설정합니다. 설정 시 `class_type`을 알아야 합니다.
 
 ![보조 Content Cards 사용 사례에 대한 키-값 페어입니다. 이 예시에서는 카드의 다양한 측면인 "tile_id", "tile_deeplink", "tile_title"이 Liquid를 사용하여 설정됩니다.]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 
@@ -65,11 +65,11 @@ Content Cards를 기존 피드에 원활하게 혼합하여 여러 피드의 데
 
 Content Cards를 활용하여 사용자를 위한 역동적이고 인터랙티브한 경험을 만들 수 있습니다. 오른쪽 예시에서는 결제 시 Content Card 팝업이 표시되어 사용자에게 막바지 프로모션을 제공합니다. 이와 같은 카드를 잘 배치하면 특정 사용자 동작을 향한 '넛지'를 제공할 수 있습니다.
 
-이 사용 사례의 키-값 페어에는 원하는 할인 금액으로 설정된 `discount_percentage`와 `coupon_code`로 설정된 `class_type`이 포함됩니다. 이러한 키-값 페어를 사용하여 결제 화면에서 유형별 Content Cards를 필터링하고 표시할 수 있습니다. 키-값 페어를 사용하여 여러 피드를 관리하는 방법에 대한 자세한 내용은 [기본 Content Card 피드 커스터마이즈]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds)를 참조하세요.
+이 사용 사례의 키-값 페어에는 원하는 할인 금액으로 설정된 `discount_percentage`와 `coupon_code`로 설정된 `class_type`이 포함됩니다. 이러한 키-값 페어를 사용하여 결제 화면에서 유형별 Content Cards를 필터링하고 표시할 수 있습니다. 키-값 페어를 사용하여 여러 피드를 관리하는 방법에 대한 자세한 내용은 [기본 Content Card 피드 커스터마이즈]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds)를 참조하세요.
 <br>
 <br>
 
-![]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:80%;"}
+![결제 프로모션을 표시하는 대화형 Content Card]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:80%;"}
 
 ## Content Card 배지 {#content-card-badges}
 

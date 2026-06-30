@@ -37,7 +37,7 @@ glossary_tags:
 
 glossaries:
   - name: Segment Membership
-    description: Permite filtrar com base na associação a segmentos em qualquer lugar onde filtros são usados (como segmentos, Campaigns e outros) e direcionar vários segmentos diferentes dentro de uma única Campaign. <br><br>Para capturar a associação a um segmento em um momento específico, exporte os usuários do segmento no dashboard ou chame o endpoint <a href="{{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/">`/users/export/segment`</a> antes de enviar uma Campaign ou Canvas. Para saber mais, consulte <a href="/docs/user_guide/data/distribution/export_braze_data/segment_data_to_csv/">Exportar dados de segmento para CSV</a>.<br><br>Observe que segmentos que já usam esse filtro não podem ser incluídos ou aninhados em outros segmentos, pois isso pode criar um ciclo em que o Segment A inclui o Segment B, que então tenta incluir o Segment A novamente. Se isso acontecesse, o segmento ficaria referenciando a si mesmo, tornando impossível calcular quem realmente pertence a ele. Além disso, aninhar segmentos dessa forma adiciona complexidade e pode deixar as coisas mais lentas. Em vez disso, recrie o segmento que você está tentando incluir usando os mesmos filtros.<br><br>Se um segmento não aparecer no menu suspenso do filtro **Segment Membership**, recrie-o com os mesmos filtros e selecione o novo segmento, ou confirme que ele não depende desse público de uma forma que criaria um ciclo.
+    description: Permite filtrar com base na associação a segmentos em qualquer lugar onde filtros são usados (como segmentos, Campaigns e outros) e direcionar vários segmentos diferentes dentro de uma única Campaign. <br><br>Para capturar a associação a um segmento em um momento específico, exporte os usuários do segmento no dashboard ou chame o endpoint <a href="{{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/">`/users/export/segment`</a> antes de enviar uma Campaign ou Canvas. Para saber mais, consulte <a href="/docs/user_guide/data/distribution/export_braze_data/segment_data_to_csv">Exportar dados de segmento para CSV</a>.<br><br>Observe que segmentos que já usam esse filtro não podem ser incluídos ou aninhados em outros segmentos, pois isso pode criar um ciclo em que o Segment A inclui o Segment B, que então tenta incluir o Segment A novamente. Se isso acontecesse, o segmento ficaria referenciando a si mesmo, tornando impossível calcular quem realmente pertence a ele. Além disso, aninhar segmentos dessa forma adiciona complexidade e pode deixar as coisas mais lentas. Em vez disso, recrie o segmento que você está tentando incluir usando os mesmos filtros.<br><br>Se um segmento não aparecer no menu suspenso do filtro **Segment Membership**, recrie-o com os mesmos filtros e selecione o novo segmento, ou confirme que ele não depende desse público de uma forma que criaria um ciclo.
     tags:
       - Segment or CSV membership
   - name: Braze Segment Extensions
@@ -81,11 +81,11 @@ glossaries:
     tags:
       - Custom events
   - name: X Custom Event In Y Days
-    description: Determina se um usuário realizou ou não um evento especialmente registrado entre 0 e 50 vezes no último número especificado de dias corridos entre 1 e 30. (Dia corrido = 1 dia corrido considera 24-48 horas do histórico do usuário)<br> <a href="/docs/x-in-y-behavior/"> Saiba mais sobre o comportamento X em Y aqui.</a> <br><br>Exemplo:<br>Carrinho abandonado exatamente 0 vezes no último 1 dia corrido<br><br>Fuso horário:<br>UTC - Para considerar todos os fusos horários, 1 dia corrido considera 24-48 horas do histórico do usuário, dependendo do momento em que o segmento é avaliado; para 2 dias corridos, considera 48-72 horas do histórico do usuário, e assim por diante.
+    description: Determina se um usuário realizou ou não um evento especialmente registrado entre 0 e 50 vezes no último número especificado de dias corridos entre 1 e 30. (Dia corrido = 1 dia corrido considera 24-48 horas do histórico do usuário)<br> <a href="/docs/x-in-y-behavior"> Saiba mais sobre o comportamento X em Y aqui.</a> <br><br>Exemplo:<br>Carrinho abandonado exatamente 0 vezes no último 1 dia corrido<br><br>Fuso horário:<br>UTC - Para considerar todos os fusos horários, 1 dia corrido considera 24-48 horas do histórico do usuário, dependendo do momento em que o segmento é avaliado; para 2 dias corridos, considera 48-72 horas do histórico do usuário, e assim por diante.
     tags:
       - Custom events
   - name: X Custom Event Property In Y Days
-    description: Determina se um usuário realizou ou não um evento especialmente registrado em relação a uma propriedade específica entre 0 e 50 vezes no último número especificado de dias corridos entre 1 e 30. (Dia corrido = 1 dia corrido considera 24-48 horas do histórico do usuário)<br><a href="/docs/x-in-y-behavior/">Saiba mais sobre o comportamento X em Y aqui.</a> <br><br>Exemplo:<br> Adicionado aos favoritos com a propriedade "event_name" exatamente 0 vezes no último 1 dia corrido<br><br>Fuso horário:<br>UTC - Para considerar todos os fusos horários, 1 dia corrido considera 24-48 horas do histórico do usuário, dependendo do momento em que o segmento é avaliado; para 2 dias corridos, considera 48-72 horas do histórico do usuário, e assim por diante.
+    description: Determina se um usuário realizou ou não um evento especialmente registrado em relação a uma propriedade específica entre 0 e 50 vezes no último número especificado de dias corridos entre 1 e 30. (Dia corrido = 1 dia corrido considera 24-48 horas do histórico do usuário)<br><a href="/docs/x-in-y-behavior">Saiba mais sobre o comportamento X em Y aqui.</a> <br><br>Exemplo:<br> Adicionado aos favoritos com a propriedade "event_name" exatamente 0 vezes no último 1 dia corrido<br><br>Fuso horário:<br>UTC - Para considerar todos os fusos horários, 1 dia corrido considera 24-48 horas do histórico do usuário, dependendo do momento em que o segmento é avaliado; para 2 dias corridos, considera 48-72 horas do histórico do usuário, e assim por diante.
     tags:
       - Custom events
   - name: Email Address
@@ -109,7 +109,7 @@ glossaries:
     tags:
       - Sessions
   - name: X Sessions In Last Y Days
-    description: Segmenta seus usuários pelo número de sessões (entre 0 e 50) que tiveram no seu app no último número especificado de dias corridos entre 1 e 30. <br> <a href="/docs/x-in-y-behavior/">Saiba mais sobre o comportamento X em Y aqui.</a>
+    description: Segmenta seus usuários pelo número de sessões (entre 0 e 50) que tiveram no seu app no último número especificado de dias corridos entre 1 e 30. <br> <a href="/docs/x-in-y-behavior">Saiba mais sobre o comportamento X em Y aqui.</a>
     tags:
       - Sessions
   - name: First Used App
@@ -217,7 +217,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Hard Bounced
-    description: Segmenta seus usuários por se o endereço de e-mail deles sofreu hard bounce (como quando o endereço de e-mail é inválido). Para exportar usuários com e-mails inválidos, chame o endpoint [`/email/hard_bounces`]({{site.baseurl}}/api/endpoints/email/get_list_hard_bounces/) ou crie um segmento com filtros como "endereço de e-mail não está em branco", "e-mail não está disponível" e "status de inscrição de e-mail não é cancelado".
+    description: Segmenta seus usuários por se o endereço de e-mail deles sofreu hard bounce (como quando o endereço de e-mail é inválido). Para exportar usuários com e-mails inválidos, chame o endpoint [`/email/hard_bounces`]({{site.baseurl}}/api/endpoints/email/get_list_hard_bounces) ou crie um segmento com filtros como "endereço de e-mail não está em branco", "e-mail não está disponível" e "status de inscrição de e-mail não é cancelado".
     tags:
       - Retargeting
   - name: Soft Bounced
@@ -273,7 +273,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Feature Flags
-    description: O segmento dos seus usuários que possuem uma <a href="/docs/developer_guide/feature_flags/">Feature Flag</a> específica atualmente ativada.
+    description: O segmento dos seus usuários que possuem uma <a href="/docs/developer_guide/feature_flags">Feature Flag</a> específica atualmente ativada.
     tags:
       - Retargeting
   - name: Subscription Group
@@ -333,11 +333,11 @@ glossaries:
     tags:
       - Purchase behavior
   - name: X Purchases in Last Y Days
-    description: Segmenta seus usuários pelo número de vezes (entre 0 e 50) que fizeram uma compra no último número especificado de dias corridos entre 1 e 30. <br> <a href="/docs/x-in-y-behavior/">Saiba mais sobre o comportamento X em Y aqui.</a>
+    description: Segmenta seus usuários pelo número de vezes (entre 0 e 50) que fizeram uma compra no último número especificado de dias corridos entre 1 e 30. <br> <a href="/docs/x-in-y-behavior">Saiba mais sobre o comportamento X em Y aqui.</a>
     tags:
       - Purchase behavior
   - name: X Purchase Property In Y Days
-    description: Segmenta seus usuários pelo número de vezes que uma compra foi feita em relação a uma determinada propriedade de compra no último número especificado de dias corridos entre 1 e 30. <br> <a href="/docs/x-in-y-behavior/">Saiba mais sobre o comportamento X em Y aqui.</a>
+    description: Segmenta seus usuários pelo número de vezes que uma compra foi feita em relação a uma determinada propriedade de compra no último número especificado de dias corridos entre 1 e 30. <br> <a href="/docs/x-in-y-behavior">Saiba mais sobre o comportamento X em Y aqui.</a>
     tags:
       - Purchase behavior
   - name: First Made Purchase
@@ -361,7 +361,7 @@ glossaries:
     tags:
       - Purchase behavior
   - name: X Money Spent in Y Days
-    description: Segmenta seus usuários pela quantia de dinheiro que gastaram no seu app no último número especificado de dias corridos entre 1 e 30. Esse valor inclui apenas a soma das últimas 50 compras. <br> <a href="/docs/x-in-y-behavior/">Saiba mais sobre o comportamento X em Y aqui.</a>
+    description: Segmenta seus usuários pela quantia de dinheiro que gastaram no seu app no último número especificado de dias corridos entre 1 e 30. Esse valor inclui apenas a soma das últimas 50 compras. <br> <a href="/docs/x-in-y-behavior">Saiba mais sobre o comportamento X em Y aqui.</a>
     tags:
       - Purchase behavior
   - name: Last order placed (last 730 days)
@@ -521,7 +521,7 @@ glossaries:
     tags:
       - Location
   - name: Location Available
-    description: Segmenta seus usuários por terem reportado suas localizações. Para usar esse filtro, seu app precisa ter o <a href="/docs/search/?query=location%20tracking">monitoramento de localização integrado.</a>
+    description: Segmenta seus usuários por terem reportado suas localizações. Para usar esse filtro, seu app precisa ter o <a href="/docs/search?query=location%20tracking">monitoramento de localização integrado.</a>
     tags:
       - Location
   - name: Amplitude Cohorts

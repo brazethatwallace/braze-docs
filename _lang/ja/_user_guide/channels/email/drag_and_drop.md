@@ -70,7 +70,7 @@ tool:
 
 ### 行 {#rows}
 
-**行**は、列を使用してメッセージのセクションの水平方向の構成を定義する構造単位です。空の行または[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)を使用できます。複数の列を使用すると、異なるコンテンツ要素を横に並べて配置できます。これにより、開始時に選択したテンプレートに関係なく、メッセージに必要なすべての構造要素を追加できます。
+**行**は、列を使用してメッセージのセクションの水平方向の構成を定義する構造単位です。空の行または[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)を使用できます。複数の列を使用すると、異なるコンテンツ要素を横に並べて配置できます。これにより、開始時に選択したテンプレートに関係なく、メッセージに必要なすべての構造要素を追加できます。
 
 #### テキストブロック内への画像のネスト {#nesting-images-inside-text-blocks}
 
@@ -85,7 +85,7 @@ tool:
 メールメッセージをCampaignで送信するかCanvasで送信するか迷っていますか？Campaignは単一のターゲットメッセージングに適しており、Canvasはマルチステップのユーザージャーニーに適しています。
 
 {% alert note %}
-ドラッグ＆ドロップメールをCampaignまたはCanvasから直接**テンプレート** > **メールテンプレート**にメールテンプレートとして保存することはできません。まず**テンプレート**で構築するか、[CampaignまたはCanvas内で構築した後にドラッグ＆ドロップメールをテンプレートとして保存できますか？]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas)を参照して、ドラッグ＆ドロップテンプレートの再作成や**ファイルをダウンロード**でHTMLをエクスポートする方法をご確認ください。
+ドラッグ＆ドロップメールをCampaignまたはCanvasから直接**テンプレート** > **メールテンプレート**にメールテンプレートとして保存することはできません。まず**テンプレート**で構築するか、[CampaignまたはCanvas内で構築した後にドラッグ＆ドロップメールをテンプレートとして保存できますか？]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas)を参照して、ドラッグ＆ドロップテンプレートの再作成や**ファイルをダウンロード**でHTMLをエクスポートする方法をご確認ください。
 {% endalert %}
 
 メッセージの作成場所を選択したら、ドラッグ＆ドロップメールを作成する手順を見ていきましょう。
@@ -128,7 +128,7 @@ tool:
 メールを構築する際に、デスクトップビューとモバイルビューを切り替えて、ユーザーグループに対してメールメッセージングがどのように表示されるかをプレビューできます。これにより、コンテンツがレスポンシブであることを確認し、途中で必要な調整を行うことができます。
 
 {% alert tip %}
-素晴らしいコピーの作成にお困りですか？[AIコピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy)を使用してみてください。製品名または説明を入力すると、AIがメッセージングで使用できる人間のようなマーケティングコピーを生成します。
+素晴らしいコピーの作成にお困りですか？[AIコピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy)を使用してみてください。製品名または説明を入力すると、AIがメッセージングで使用できる人間のようなマーケティングコピーを生成します。
 
 ![ドラッグ＆ドロップエディターのコンテンツパネルのスタイル設定の横にあるコピーライターボタン。]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
 {% endalert %}
@@ -151,10 +151,10 @@ tool:
 **送信設定** > **詳細設定**で、以下の方法でメール添付ファイルを追加できます。
 
 - **ファイルをアップロード:** コンピューターからファイルを直接ドラッグ＆ドロップまたは参照してアップロードします。Brazeはアップロード前にファイルタイプとサイズ（デフォルトで最大2&nbsp;MB）を検証し、ファイルはメディアライブラリにアップロードされます。2&nbsp;MBの制限を超えるファイルはアップロードできません。
-- **メディアライブラリを使用:** [メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)に既に保存されているアセットを参照して選択します。PDF、Wordドキュメント、Excelファイル、PowerPointプレゼンテーションがすべてサポートされています。
+- **メディアライブラリを使用:** [メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)に既に保存されているアセットを参照して選択します。PDF、Wordドキュメント、Excelファイル、PowerPointプレゼンテーションがすべてサポートされています。
 - **URLから追加:** ファイルを指すURLを入力し、表示ファイル名を指定します。Brazeはメール作成中に任意のURLのサイズを調べることができないため、ファイルサイズは送信時に適用されます。このフィールドではLiquidはサポートされていないことに注意してください。
 
-考慮すべき具体的なベストプラクティスについては、[メールガイドライン]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/)を参照してください。
+考慮すべき具体的なベストプラクティスについては、[メールガイドライン]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines)を参照してください。
 
 #### メールヘッダーのパーソナライズ（詳細設定） {#personalize-your-email-header-advanced}
 
@@ -172,7 +172,7 @@ tool:
 エディターでの表示がプレビューやテスト送信と異なる場合は、すべてのタグが閉じられていること、画像属性に値があること、バックグラウンド画像の端がぼやけていないことを確認してください。
 {% endalert %}
 
-**プレビューとテスト**セクションに移動します。ここでは、ユーザーとしてメールをプレビューするか、テストメッセージを送信するオプションがあります。このセクションには[Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision/)も含まれており、さまざまなモバイルおよびWebクライアントでメールが正しくレンダリングされていることを確認できます。
+**プレビューとテスト**セクションに移動します。ここでは、ユーザーとしてメールをプレビューするか、テストメッセージを送信するオプションがあります。このセクションには[Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision)も含まれており、さまざまなモバイルおよびWebクライアントでメールが正しくレンダリングされていることを確認できます。
 
 {% alert tip %}
 プレビューパネルの**ダークモードプレビュー**トグルを使用して、ダークモードでメール本文を表示し、必要に応じてメールを調整することもできます。
@@ -204,9 +204,9 @@ Inbox Visionを使用すると、メールクライアントやモバイルデ�
 
 メールメッセージの細部をテストして確認することが重要です。たとえば、メールメッセージングのバックグラウンド画像は、画像間に白い線や途切れが表示されることがあります。また、Windows Outlookなどのクライアントではバックグラウンド画像が表示されない場合があります。Inbox Visionを使用すると、クライアント間のこれらの不一致を特定できます。このシナリオでは、フォールバックのバックグラウンドカラーを設定して、これらの画像が期待どおりにレンダリングされるようにします。
 
-詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=email)を参照してください。
+詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=email)を参照してください。
 
-ドラッグ＆ドロップエディターを使用してメールメッセージをデザインおよび作成した後、CampaignまたはCanvasの残りの部分の[構築]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas)を続けます。
+ドラッグ＆ドロップエディターを使用してメールメッセージをデザインおよび作成した後、CampaignまたはCanvasの残りの部分の[構築]({{site.baseurl}}/user_guide/channels/email/html_editor#step-4-build-the-remainder-of-your-campaign-or-canvas)を続けます。
 
 {% details 更新されたHTMLエンジンについて %}
 ドラッグ＆ドロップエディターからHTMLを生成する基盤エンジンが最適化および更新され、HTMLファイルの圧縮とレンダリングに関する改善がもたらされました。
@@ -216,7 +216,7 @@ Inbox Visionを使用すると、メールクライアントやモバイルデ�
 HTMLレンダリングは、条件付きコメントとCSSメディアクエリの数を最小限に抑える以下の更新に基づいて改善されました。その結果、HTMLファイルはより小さく、より効率的にコーディングされています。
 - `<div>` 要素ベースのデザインから標準的な `<table aria-label="Inbox Visionを使用する">` フォーマットのコードベースへの移行
   <caption>Inbox Visionを使用する</caption>
-- [エディターブロック（メール）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email)が簡潔さのために再コーディングされました
+- [エディターブロック（メール）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)が簡潔さのために再コーディングされました
 - 最終的なHTMLコードはタグ間の空白を削除するために圧縮されます
 - 透明な区切り線はコンテンツパディングに自動的に変換されます
 {% enddetails %}
@@ -226,7 +226,7 @@ HTMLレンダリングは、条件付きコメントとCSSメディアクエリ�
 ドラッグ＆ドロップメールの構築を続ける中で、これらのクリエイティブな詳細を組み合わせて使用することで、各メール本文をさらにカスタマイズし、オーディエンスの注目と関心を引くことができます。
 
 {% alert tip %}
-[グローバルスタイル設定]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/)を使用して、ドラッグ＆ドロップエディターのカスタムテーマを作成できます。
+[グローバルスタイル設定]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings)を使用して、ドラッグ＆ドロップエディターのカスタムテーマを作成できます。
 {% endalert %}
 
 ### 自動幅画像 {#auto-width-images}
@@ -249,7 +249,7 @@ HTMLレンダリングは、条件付きコメントとCSSメディアクエリ�
 
 ### コンテンツバックグラウンド {#content-background}
 
-行の設定にバックグラウンド画像を追加して、メールキャンペーンにより多くのデザインとビジュアルコンテンツを組み込むことができます。
+行の設定にバックグラウンド画像を追加して、メールCampaignにより多くのデザインとビジュアルコンテンツを組み込むことができます。
 
 ### 言語属性 {#language-attribute}
 
@@ -272,7 +272,7 @@ Liquidパーソナライゼーションは、画像ブロックとボタンリ�
 
 #### ダイナミック画像 {#dynamic-images}
 
-画像ソース属性に[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/#about-connected-content)または[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を含めることで、メールメッセージングにダイナミック画像を含めることができます。たとえば、静的な画像の代わりに、画像URLとして{% raw %}`https://example.com/images/?imageBanner={{first_name}}`{% endraw %}を挿入して、画像にユーザーの名を含めることができます。これにより、各ユーザーに合わせてメールをパーソナライズできます。
+画像ソース属性に[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content#about-connected-content)または[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)を含めることで、メールメッセージングにダイナミック画像を含めることができます。たとえば、静的な画像の代わりに、画像URLとして{% raw %}`https://example.com/images/?imageBanner={{first_name}}`{% endraw %}を挿入して、画像にユーザーの名を含めることができます。これにより、各ユーザーに合わせてメールをパーソナライズできます。
 
 {% alert important %}
 画像URLは`https://`で始まる必要があります。`http://`を使用するとアプリがクラッシュします。
@@ -284,7 +284,7 @@ Liquidパーソナライゼーションは、画像ブロックとボタンリ�
 
 ![右から左と左から右のテキスト配置を切り替えるボタンを含むメールドラッグ＆ドロップエディターメニュー。]({% image_buster /assets/img/dnd/dnd_template1.png %}){: style="max-width:50%;"}
 
-右から左のメッセージの最終的な外観は、サービスプロバイダーがどのようにレンダリングするかに大きく依存します。右から左のメッセージをできるだけ正確に表示するためのベストプラクティスについては、[右から左のメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/)を参照してください。
+右から左のメッセージの最終的な外観は、サービスプロバイダーがどのようにレンダリングするかに大きく依存します。右から左のメッセージをできるだけ正確に表示するためのベストプラクティスについては、[右から左のメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)を参照してください。
 
 ### HTML
 
@@ -304,11 +304,11 @@ Liquidパーソナライゼーションは、画像ブロックとボタンリ�
 * **SendGrid:** `universal = "true"`
 * **SparkPost:** `data-msys-sublink = "open-in-app"`（[カスタムサブパス](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#custom-link-sub-paths)を設定する必要があります）
 
-ユニバーサルリンクを設定するには、[ユニバーサルリンクとApp Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/)を参照してください。
+ユニバーサルリンクを設定するには、[ユニバーサルリンクとApp Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links)を参照してください。
 
-または、[Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/)や[AppsFlyer]({{site.baseurl}}/partners/message_orchestration/attribution/appsflyer/appsflyer/#email-deep-linking-and-click-tracking)などのアトリビューションパートナーと統合して、ユニバーサルリンクを管理することもできます。
+または、[Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking)や[AppsFlyer]({{site.baseurl}}/partners/message_orchestration/attribution/appsflyer/appsflyer#email-deep-linking-and-click-tracking)などのアトリビューションパートナーと統合して、ユニバーサルリンクを管理することもできます。
 
-最後に、メッセージをアクセシブルにするための定義済み属性が利用可能です。詳細については、[Brazeでアクセシブルなメッセージを構築する]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/)の記事を参照してください。
+最後に、メッセージをアクセシブルにするための定義済み属性が利用可能です。詳細については、[Brazeでアクセシブルなメッセージを構築する]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility)の記事を参照してください。
 
 #### カスタムheadタグ {#custom-head-tags}
 

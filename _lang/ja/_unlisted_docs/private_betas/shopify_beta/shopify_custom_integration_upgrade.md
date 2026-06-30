@@ -10,7 +10,7 @@ hidden: true
 
 # Shopify連携のアップグレード（カスタム） {#upgrading-your-shopify-integration-custom}
 
-> BrazeのカスタムパスでShopify連携をアップグレードする方法を説明します。最高のエクスペリエンスを提供するため、すべてのShopify連携は2025年8月28日までに最新バージョンへの[アップグレード]({{site.baseurl}}/shopify/)が必要です。このアップグレードは、Shopifyの技術における重要な変更が連携の機能に影響を与えるため、不可欠です。
+> BrazeのカスタムパスでShopify連携をアップグレードする方法を説明します。最高のエクスペリエンスを提供するため、すべてのShopify連携は2025年8月28日までに最新バージョンへの[アップグレード]({{site.baseurl}}/shopify)が必要です。このアップグレードは、Shopifyの技術における重要な変更が連携の機能に影響を与えるため、不可欠です。
 
 ## 対象者 {#whos-eligible}
 
@@ -24,8 +24,8 @@ hidden: true
 
 | 要件 | 説明 |
 |-----------------------|-------------|
-| **重要な変更** | レガシーコネクターから新しいコネクターへの重要な変更をすべて[Shopifyアップグレードの概要]({{site.baseurl}}/shopify_upgrade_overview/#subscriber-collection)で確認してください。 |
-| **アップグレードの前提条件** | エンジニアリングチームとマーケティングチームで必要な[アップグレードの前提条件]({{site.baseurl}}/shopify_upgrade_overview/#upgrade-prerequisites)をすべて完了してください。ShopifyヘッドレスストアをBrazeでアップグレードするには、2つの重要なステップを完了する必要があります。<br><br>- Braze Web SDKを初期化して読み込み、オンサイトトラッキングを有効にする<br>- 製品内アップグレードエクスペリエンスを通じて既存のストアをアップグレードする |
+| **重要な変更** | レガシーコネクターから新しいコネクターへの重要な変更をすべて[Shopifyアップグレードの概要]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection)で確認してください。 |
+| **アップグレードの前提条件** | エンジニアリングチームとマーケティングチームで必要な[アップグレードの前提条件]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites)をすべて完了してください。ShopifyヘッドレスストアをBrazeでアップグレードするには、2つの重要なステップを完了する必要があります。<br><br>- Braze Web SDKを初期化して読み込み、オンサイトトラッキングを有効にする<br>- 製品内アップグレードエクスペリエンスを通じて既存のストアをアップグレードする |
 | **破壊的変更** | Brazeでフラグが立てられたすべての破壊的変更を確認し、修正してください。詳細なウォークスルーについては、[破壊的変更の修正](#fixing-breaking-changes-fixing-breaking-changes)に進んでください。 |
 {: .reset-td-br-1 .reset-td-br-2  role="presentation"}
 
@@ -63,13 +63,13 @@ Shopifyデータを使用している影響を受けるCanvases、Campaigns、Se
 Shopify連携で廃止されたイベントを使用するアクティブなメッセージを考慮しない場合、影響を受けるメッセージは顧客に送信されなくなります。
 {% endalert %}
 
-詳細については、[サポートされているShopifyイベント]({{site.baseurl}}/shopify_upgrade_overview/#supported-shopify-events)を確認してください。
+詳細については、[サポートされているShopifyイベント]({{site.baseurl}}/shopify_upgrade_overview#supported-shopify-events)を確認してください。
 {% endtab %}
 
 {% tab サブスクライバーリスト %}
 連携を通じてShopifyからメールまたはSMSサブスクライバーを収集している場合、アクティブなメッセージにShopifyストアの対応するサブスクライバーリストが含まれていることを確認してください。
 
-アップグレードが完了すると、連携用の新しいデフォルトサブスクリプショングループが作成されます。これらをアクティブなメッセージングの一部として活用する必要があります。変更の詳細については、[サブスクライバーの収集]({{site.baseurl}}/shopify_upgrade_overview/#subscriber-collection)を参照してください。
+アップグレードが完了すると、連携用の新しいデフォルトサブスクリプショングループが作成されます。これらをアクティブなメッセージングの一部として活用する必要があります。変更の詳細については、[サブスクライバーの収集]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection)を参照してください。
 {% endtab %}
 {% endtabs %}
 
@@ -81,7 +81,7 @@ Shopify連携で廃止されたイベントを使用するアクティブなメ�
 
 ### ステップ1: Braze Web SDKを初期化して読み込み、オンサイトトラッキングを有効にする {#step-1}
 
-まだ行っていない場合は、Braze Web SDKを初期化して読み込み、オンサイトトラッキングを有効にしてください。詳細なウォークスルーについては、[Shopifyカスタム連携のセットアップ]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-1)を参照してください。
+まだ行っていない場合は、Braze Web SDKを初期化して読み込み、オンサイトトラッキングを有効にしてください。詳細なウォークスルーについては、[Shopifyカスタム連携のセットアップ]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration#step-1)を参照してください。
 - Braze Webアプリを作成する
 - サブドメインと環境変数を追加する
 - オンサイトトラッキングを有効にする
@@ -169,7 +169,7 @@ Brazeがexternal IDを取得するために呼び出せるパブリックエン�
 
 ```
 GET
-https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
+https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@example.com&shopify_storefront=dev-store.myshopify.com
 ```
 
 ##### 期待されるレスポンス {#expected-response}
@@ -219,4 +219,4 @@ Brazeに戻ると、Shopify連携のインストールが完了した際に通�
 - **SDKカスタマイズ（オプション）:** BrazeとShopifyの連携にカスタマイズ（カスタムイベントや属性のログ記録など）を行った場合、アップグレード後にそれらが正しく動作していることを確認します。
 - **メールまたはSMSサブスクライバーの収集（オプション）:** 以前にメールまたはSMSサブスクライバーの収集を有効にしていた場合、アップグレード中にサブスクライバーの最新ステータスを反映する新しいデフォルトサブスクリプショングループが作成されます。デフォルトサブスクリプショングループの名前はShopifyストアフロントの名前になります。これらの新しいデフォルトサブスクリプショングループはアップグレード後約5時間で利用可能になり、アクティブなメッセージに追加する必要があります。
 
-ご質問がある場合は、[サポートにお問い合わせ]({{site.baseurl}}/user_guide/administrative/access_braze/support/)ください。
+ご質問がある場合は、[サポートにお問い合わせ]({{site.baseurl}}/user_guide/administrative/access_braze/support)ください。

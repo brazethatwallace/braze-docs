@@ -34,7 +34,7 @@ Conecte a Braze à Lytics para [importar](#importing-data-from-braze-to-lytics) 
 | Número da conta da Lytics | É necessário um número de conta da Lytics para configurar a URL do endpoint do webhook. |
 | Token da API da Lytics | Um token da REST API da Lytics com permissões de gerenciamento de dados. <br><br> Isso pode ser criado no dashboard da Lytics em **Account Settings Console** > **Access Tokens** > **Create New Token**. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com permissão `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Instância da Braze | Sua [instância da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/). Entre em contato com o gerente de integração da Braze para obter essas informações se não tiver certeza. |
+| Instância da Braze | Sua [instância da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Entre em contato com o gerente de integração da Braze para obter essas informações se não tiver certeza. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -139,7 +139,7 @@ Substitua `<ACCOUNT-NUMBER>` pelo número da sua conta e `<LYTICS-API-TOKEN>` pe
 
 #### Etapa 3: Criar um webhook na Braze {#step-3-create-a-webhook-on-braze}
 
-Na Braze, crie uma nova [campanha de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/). Adicione a URL do webhook da Lytics no campo **Webhook URL**.
+Na Braze, crie uma nova [campanha de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook). Adicione a URL do webhook da Lytics no campo **Webhook URL**.
 
 Após definir o tipo de solicitação (método HTTP `POST`) e configurar o restante dos detalhes do webhook, o webhook estará pronto para testes e implantação. Aqui está um exemplo de corpo da solicitação POST após a configuração do webhook na Braze:
 
@@ -147,7 +147,7 @@ Após definir o tipo de solicitação (método HTTP `POST`) e configurar o resta
 {
   "city": "AnyTown",
   "country": "United States",
-  "first_name": "John",
+  "first_name": "Alex",
   "gender": "male",
   "language": "English",
   "last_name": "Smith",
@@ -155,7 +155,7 @@ Após definir o tipo de solicitação (método HTTP `POST`) e configurar o resta
   "phone_number": "5551231234",
   "time_zone": "GMT+7",
   "twitter_handle": "johnsmith",
-  "email": "john.smith@email.com",
+  "email": "john.smith@example.com",
   "braze_id": "xxxxxx"
 }
 ```
@@ -182,7 +182,7 @@ No prompt **Configure Authorization** exibido, forneça um rótulo e uma descri�
 
 #### Etapa 2: Exportar seus dados de segmento para CSV {#step-2-export-your-segment-data-to-csv}
 
-Na Braze, navegue até **Público** > **Segments**. Localize o segmento que deseja exportar e selecione <i class="fas fa-gear" aria-label="Configurações"></i> e, em seguida, **Exportar dados de usuários em CSV**. É possível exportar até 500.000 usuários em um segmento. Para obter detalhes, consulte [Exportação de dados de segmento para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/).
+Na Braze, navegue até **Público** > **Segments**. Localize o segmento que deseja exportar e selecione <i class="fas fa-gear" aria-label="Configurações"></i> e, em seguida, **Exportar dados de usuários em CSV**. É possível exportar até 500.000 usuários em um segmento. Para obter detalhes, consulte [Exportação de dados de segmento para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv).
 
 #### Etapa 3: Configurar um trabalho de importação de CSV {#step-3-configure-a-csv-import-job}
 

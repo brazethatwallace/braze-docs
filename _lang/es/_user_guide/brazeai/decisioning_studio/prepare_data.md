@@ -11,24 +11,24 @@ description: "Esta página de inicio cubre cómo preparar tus datos para BrazeAI
 guide_featured_title: "Artículos de la sección"
 guide_featured_list:
   - name: Principios generales
-    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/data_principles/
+    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/data_principles
     image: /assets/img/braze_icons/list.svg
   - name: Conectar tus datos
-    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/connect_data_sources/
+    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/connect_data_sources
     image: /assets/img/braze_icons/link-03.svg
   - name: Activos de datos críticos
-    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/data_assets/
+    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/data_assets
     image: /assets/img/braze_icons/database-01.svg
   - name: Instantáneas frente a flujos de eventos
-    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/
+    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/data_streams
     image: /assets/img/braze_icons/dataflow-04.svg
   - name: Usar el ID externo de Braze
-    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id/
+    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id
     image: /assets/img/braze_icons/user-01.svg
   - name: Elige tus características
-    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/choose_features/
+    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/choose_features
     image: /assets/img/braze_icons/settings-01.svg
   - name: Mejores prácticas de backfill
-    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/backfill_best_practices/
+    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/backfill_best_practices
     image: /assets/img/braze_icons/refresh-ccw-01.svg
 ---

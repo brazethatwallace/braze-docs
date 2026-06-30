@@ -327,7 +327,7 @@ Todas las variables de Campaign y Canvas deben usar los mismos identificadores p
 
 ### Productos {#products}
 
-`products` se usa para seleccionar uno o más productos del dashboard de Braze.
+`products` se usa para seleccionar uno o más productos del panel de Braze.
 
 {% tabs %}
 {% tab uso %}
@@ -355,7 +355,7 @@ Selecciona uno o más eventos personalizados o propiedades de eventos personaliz
 
 {% tabs local %}
 {% tab evento %}
-`custom_events` se usa para seleccionar uno o más eventos personalizados del dashboard de Braze.
+`custom_events` se usa para seleccionar uno o más eventos personalizados del panel de Braze.
 
 {% subtabs %}
 {% subtab uso %}
@@ -395,7 +395,7 @@ name = '{{custom_event_properties.${property names)}}}'
 
 ### Espacio de trabajo {#workspace}
 
-`workspace` se usa para seleccionar un único espacio de trabajo del dashboard de Braze.
+`workspace` se usa para seleccionar un único espacio de trabajo del panel de Braze.
 
 {% tabs %}
 {% tab uso %}
@@ -413,7 +413,7 @@ Selecciona uno o más catálogos o campos de catálogo de una lista.
 
 {% tabs local %}
 {% tab catálogos %}
-`catalogs` se usa para seleccionar uno o más catálogos del dashboard de Braze.
+`catalogs` se usa para seleccionar uno o más catálogos del panel de Braze.
 
 {% subtabs %}
 {% subtab uso %}
@@ -443,7 +443,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 
 ### Segments
 
-Para seleccionar Segments que tengan activado el [seguimiento de análisis]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/). Se establece con el ID de análisis del Segment, que corresponde a los ID almacenados en la columna `user_segment_membership_ids` en las tablas donde esta columna está disponible.
+Para seleccionar Segments que tengan activado el [seguimiento de análisis]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking). Se establece con el ID de análisis del Segment, que corresponde a los ID almacenados en la columna `user_segment_membership_ids` en las tablas donde esta columna está disponible.
 
 {% tabs %}
 {% tab uso %}

@@ -11,16 +11,16 @@ description: "この参考記事では、複数のShopifyストアを1つのワ�
 > 単一のワークスペースに複数のShopifyストアドメインを接続して、すべての市場における顧客の全体像を把握できます。地域のストア間で作業を重複させることなく、単一のワークスペースでオートメーションプログラムとジャーニーを構築し、起動します。
 
 {% alert important %}
-この機能はShopify MarketsやMarkets Proには対応していません。これらのサポートを希望する場合は、[製品リクエスト]({{site.baseurl}}/user_guide/administer/personal/product_portal/)を送信してください。
+この機能はShopify MarketsやMarkets Proには対応していません。これらのサポートを希望する場合は、[製品リクエスト]({{site.baseurl}}/user_guide/administer/personal/product_portal)を送信してください。
 {% endalert %}
 
 ## 要件 {#requirements}
 
 | 要件 | 説明 |
 | ----------- | ----------- |
-| Shopifyストアを設定する | [Brazeで少なくとも1つのShopifyストアを設定]({{site.baseurl}}/shopify_overview/)済みであることを確認してください。 |
+| Shopifyストアを設定する | [Brazeで少なくとも1つのShopifyストアを設定]({{site.baseurl}}/shopify_overview)済みであることを確認してください。 |
 | 各地域の固有のShopifyストアフロントドメイン | 複数ストアサポートは、さまざまな地域のストアフロントの固有のShopifyストアドメインで使用することを目的としています。<br><br>複数のサブブランドをBrazeに接続したい場合は、サブブランドごとに別々のワークスペースを作成することをお勧めします。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="要件" }
 
 ## 追加のストアを接続する {#connecting-an-additional-store}
 Shopifyストアに Brazeアプリをインストールし、最初のストアをインストールしたら、**+ Connect New Store**を選択します。
@@ -55,13 +55,13 @@ Braze external IDは以下のオプションから選択できます。
 
 | オプション | 説明 |
 |------|-----------|
-| Shopify顧客ID | Shopifyの顧客IDをBraze external IDとして使用する場合、各ストアはユーザーごとに固有の顧客IDを生成します。つまり、ユーザーが複数のストアとやり取りする場合、Brazeでは別々のプロファイルを持つことになります。|
-| メール、ハッシュ化メール、またはカスタムexternal ID | メール、ハッシュ化されたメール、またはカスタムexternal IDタイプを使用する場合、複数のストアとエンゲージメントを持つユーザーは、ログインまたは注文時にプロファイルが1つの統合プロファイルにマージされます。|
+| Shopify顧客ID | Shopifyの顧客IDをBraze external IDとして使用する場合、各ストアはユーザーごとに固有の顧客IDを生成します。つまり、ユーザーが複数のストアとやり取りする場合、Brazeでは別々のプロファイルを持つことになります。 |
+| メール、ハッシュ化メール、またはカスタムexternal ID | メール、ハッシュ化されたメール、またはカスタムexternal IDタイプを使用する場合、複数のストアとエンゲージメントを持つユーザーは、ログインまたは注文時にプロファイルが1つの統合プロファイルにマージされます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Braze external ID" }
 
 ### マージされるフィールド {#merged-fields}
 
-ユーザープロファイルが同期されると、以下のフィールドがマージされます。マージの動作の詳細については、[マージ動作]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior)を参照してください。
+ユーザープロファイルが同期されると、以下のフィールドがマージされます。マージの動作の詳細については、[マージ動作]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior)を参照してください。
 
 - デバイス情報
 - 合計セッション数（両プロファイルの合計）
@@ -79,21 +79,21 @@ Braze external IDは以下のオプションから選択できます。
 Brazeを通じて直接（Shopifyコネクターの設定で）サブスクライバーを収集するか、Shopifyからデータを同期するAPIやSDKの代替手段を通じてサブスクライバーを収集するかを選択できます。
 
 {% tabs local %}
-{% tab Shopify connector %}
+{% tab Shopifyコネクター %}
 Shopifyコネクター設定の**ユーザーを管理**ステップで、Brazeを使用してメールやSMSサブスクライバーのオプトインを収集し、専用のサブスクリプショングループに整理できます。
 
 1. 接続する各ストアに固有のサブスクリプショングループを作成します。これにより、サブスクライバーがどこから来ているかについての正確なデータを維持できます。
 2. メールおよびSMSサブスクライバーの収集を有効にします。
 {% endtab %}
 
-{% tab Braze API or SDKs %}
+{% tab Braze APIまたはSDK %}
 また、Braze APIやSDKを使って、Shopifyから直接メールやSMSマーケティングのオプトイン情報を同期することもできます。
 
 | オプション | リソース |
 |------|---------|
-| API | - 統合によってサポートされるものを直接置き換える[サブスクリプショングループエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/)<br>- サブスクリプショングループデータまたは[グローバルメールのサブスクリプションステータス]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#subscription-states)を設定する[`Users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#set-subscription-groups)<br>- よりカスタマイズされたマーケティングオプトイン収集オプションのための[Brazeユーザー設定センター]({{site.baseurl}}/user_guide/channels/email/subscriptions/) |
+| API | - 統合によってサポートされるものを直接置き換える[サブスクリプショングループエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups)<br>- サブスクリプショングループデータまたは[グローバルメールのサブスクリプションステータス]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#subscription-states)を設定する[`Users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track#set-subscription-groups)<br>- よりカスタマイズされたマーケティングオプトイン収集オプションのための[Brazeユーザー設定センター]({{site.baseurl}}/user_guide/channels/email/subscriptions) |
 | SDK | - [`NotificationSubscriptionTypes`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#notificationsubscriptiontypes)<br>- [`addToSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)<br>- [`removeFromSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#removefromsubscriptiongroup)<br>- [`setEmailNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Collecting subscribers (optional)" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="サブスクライバーの収集（オプション）" }
 {% endtab %}
 {% endtabs %}
 
@@ -146,7 +146,7 @@ Shopify統合内でサポートされているeコマース推奨イベントは
 - `shopify_paid_order`
 - `shopify_account_login`
 
-すべてのイベントペイロードの完全な概要については、[Shopifyデータ機能]({{site.baseurl}}/shopify_data_features/)を参照してください。
+すべてのイベントペイロードの完全な概要については、[Shopifyデータ機能]({{site.baseurl}}/shopify_data_features)を参照してください。
 
 ### Shopify製品の同期 {#shopify-product-sync}
 

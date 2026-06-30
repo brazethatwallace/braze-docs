@@ -34,7 +34,7 @@ As seguintes versões do SDK são necessárias para receber Push Stories:
 
 Para usar Push Stories, faça o seguinte:
 
-1. Crie uma [Campaign de push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/).
+1. Crie uma [Campaign de push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
 2. Em **Notification Type**, selecione **Push Stories**.
 3. Selecione **iOS** ou **Android**. Observe que, se você selecionar ambos para uma mensagem push, a opção de criar uma Push Story não aparecerá.
 
@@ -51,12 +51,12 @@ As pré-visualizações serão refletidas e são interativas.
 ![Criador de Push Stories]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
 
 {% alert important %}
-Se você estiver carregando imagens com [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/#about-connected-content), certifique-se de que a URL da sua imagem comece com `https://`. Usar `http://` causará uma falha no seu app.
+Se você estiver carregando imagens com [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content#about-connected-content), certifique-se de que a URL da sua imagem comece com `https://`. Usar `http://` causará uma falha no seu app.
 {% endalert %}
 
 ### Especificações de imagem e texto {#image-and-text-specifications}
 
-As seguintes especificações de imagem e texto se aplicam à parte do carrossel de fotos das Push Stories. Para informações sobre o push básico com o qual os usuários interagem para ativar a Push Story, consulte [Formatos de mensagem e imagem de push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/).
+As seguintes especificações de imagem e texto se aplicam à parte do carrossel de fotos das Push Stories. Para informações sobre o push básico com o qual os usuários interagem para ativar a Push Story, consulte [Formatos de mensagem e imagem de push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats).
 
 {% tabs %}
 {% tab Imagens %}

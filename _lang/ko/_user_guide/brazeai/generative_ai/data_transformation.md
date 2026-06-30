@@ -16,4 +16,4 @@ description: "이 참조 문서에서는 Operator를 사용하여 데이터 변�
 
 {% multi_lang_include brazeai/generative_ai/access_data_transformation.md %}
 
-예시 프롬프트를 포함한 자세한 내용은 [Operator 기능에서 데이터 변환 코드 생성]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-data-transformation-code)을 참조하세요.
+예시 프롬프트를 포함한 자세한 내용은 [Operator 기능에서 데이터 변환 코드 생성]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code)을 참조하세요.

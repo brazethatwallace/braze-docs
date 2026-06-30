@@ -84,12 +84,11 @@ Brazeダッシュボードで最近編集または作成したファイルに直
 
 *ユーザー*は、そのワークスペースで作成されたユーザーの合計数です。これには、アプリやWebサイトを使用したことがあるすべてのユーザーと、特定のアプリやWebサイトに関連付けられていないユーザーが含まれます。この数値は、ライフタイムユーザーのうち*月間アクティブユーザー*（MAU）として表されるユーザーの割合であり、長期間にわたるユーザーリテンションを確認するのに役立ちます。
 
-MAUとユーザーの比率が低い場合は、メッセージングチャネルを多様化するか、離脱ユーザーへのリーチを強化する必要があることを示している可能性があります。詳細については、[離脱ユーザーの獲得]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users/#capture-lapsing-users)に関するクイックウィンをご覧ください。一般的に、MAUとライフタイムの比率はユーザーの離脱により時間の経過とともに必然的に低下しますが、Brazeのツールを使用することで、ユーザーのエンゲージメントを長期間維持し、この影響を最小限に抑えることができます。
+MAUとユーザーの比率が低い場合は、メッセージングチャネルを多様化するか、離脱ユーザーへのリーチを強化する必要があることを示している可能性があります。詳細については、[離脱ユーザーの獲得]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users#capture-lapsing-users)に関するクイックウィンをご覧ください。一般的に、MAUとライフタイムの比率はユーザーの離脱により時間の経過とともに必然的に低下しますが、Brazeのツールを使用することで、ユーザーのエンゲージメントを長期間維持し、この影響を最小限に抑えることができます。
 
 ### ライフタイムセッション {#lifetime-sessions}
 
-*ライフタイムセッション*は、連携以降にBrazeが記録したセッションの合計数です。セッションとは、ユーザーがアプリを使用するかWebサイトにアクセスするたびにカウントされます。プラットフォームごとのセッションの定義の詳細については、対応する
-[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift)、[AndroidおよびFireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android)、または[Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web)のセッショントラッキングに関する開発者向け記事をご覧ください。
+*ライフタイムセッション*は、連携以降にBrazeが記録したセッションの合計数です。セッションとは、ユーザーがアプリを使用するかWebサイトにアクセスするたびにカウントされます。プラットフォームごとのセッションの定義の詳細については、対応する[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift)、[AndroidおよびFireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android)、または[Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web)のセッショントラッキングに関する開発者向け記事をご覧ください。
 
 ### 月間アクティブユーザー {#monthly-active-users}
 
@@ -141,7 +140,7 @@ MAUスナップショットは1日1回計算され、遡って変更されるこ
 {% alert note %}
 Brazeを初めて連携した際には、Brazeがそれまでセッションを記録したことがないため、すべてのユーザーが新規ユーザーとして表示されます。
 
-MAUとは異なり、*新規ユーザー*のカウントは、Brazeが匿名プロファイルを識別済みプロファイルにマージし、匿名プロファイルを孤立させた場合に遡って減少することがあります。Brazeは孤立したプロファイルをアプリ使用量の合計から削除するため、すでに確認した日付の*新規ユーザー*が減少する可能性があります。プロファイルのリンク動作については、[ユーザープロファイルのライフサイクル]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)をご覧ください。
+MAUとは異なり、*新規ユーザー*のカウントは、Brazeが匿名プロファイルを識別済みプロファイルにマージし、匿名プロファイルを孤立させた場合に遡って減少することがあります。Brazeは孤立したプロファイルをアプリ使用量の合計から削除するため、すでに確認した日付の*新規ユーザー*が減少する可能性があります。プロファイルのリンク動作については、[ユーザープロファイルのライフサイクル]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)をご覧ください。
 {% endalert %}
 
 {% alert important %}

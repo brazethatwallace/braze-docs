@@ -36,7 +36,7 @@ Braze kann in den folgenden Bereichen Ihrer Erweiterung eingesetzt werden:
 | Popup-Seite | Die [Popup-Seite](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) ist ein Dialog, der Nutzer:innen angezeigt werden kann, wenn sie auf das Symbol Ihrer Erweiterung in der Browser-Symbolleiste klicken. | Analytics, In-App-Nachrichten und Content Cards |
 | Hintergrundskripte | [Hintergrundskripte](https://developer.chrome.com/extensions/background_pages) (nur Manifest v2) ermöglichen es Ihrer Erweiterung, die Navigation der Nutzer:innen zu inspizieren und mit ihr zu interagieren oder Webseiten zu verändern (z. B. wie Werbeblocker den Inhalt von Seiten erkennen und verändern). | Analytics, In-App-Nachrichten und Content Cards.<br><br>Hintergrundskripte sind für Nutzer:innen nicht sichtbar. Für Messaging müssten Sie also mit Browser-Tabs oder Ihrer Popup-Seite kommunizieren, wenn Sie Nachrichten anzeigen. |
 | Optionsseiten | Auf der [Optionsseite](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages) können Ihre Nutzer:innen die Einstellungen Ihrer Erweiterung umschalten. Es handelt sich um eine eigenständige HTML-Seite, die einen neuen Tab öffnet. | Analytics, In-App-Nachrichten und Content Cards |
-{: .reset-td-br-1 .reset-td-br-2, .reset-td-br-3 aria-label="Extension types" }
+{: .reset-td-br-1 .reset-td-br-2, .reset-td-br-3 aria-label="Erweiterungstypen" }
 
 ## Berechtigungen {#permissions}
 
@@ -47,7 +47,7 @@ Wenn Sie jedoch den [Google Tag Manager]({{ site.baseurl }}/developer_guide/plat
 ## Erste Schritte {#getting-started}
 
 {% alert tip %}
-Bevor Sie beginnen, sollten Sie den [Leitfaden zur SDK-Ersteinrichtung]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) für das Web SDK lesen, um mehr über unsere JavaScript-Integration im Allgemeinen zu erfahren.  <br><br>Vielleicht möchten Sie auch die [JavaScript SDK-Referenz](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html) als Lesezeichen speichern, um alle Einzelheiten zu den verschiedenen SDK-Methoden und Konfigurationsoptionen nachzuschlagen.
+Bevor Sie beginnen, sollten Sie den [Leitfaden zur SDK-Ersteinrichtung]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) für das Web SDK lesen, um mehr über unsere JavaScript-Integration im Allgemeinen zu erfahren.  <br><br>Vielleicht möchten Sie auch die [JavaScript SDK-Referenz](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html) als Lesezeichen speichern, um alle Einzelheiten zu den verschiedenen SDK-Methoden und Konfigurationsoptionen nachzuschlagen.
 {% endalert %}
 
 Um das Braze Web SDK zu integrieren, müssen Sie zunächst eine Kopie der neuesten JavaScript-Bibliothek herunterladen. Dazu können Sie NPM verwenden oder sie direkt vom [Braze CDN](https://js.appboycdn.com/web-sdk/latest/braze.min.js) herunterladen.

@@ -12,8 +12,8 @@ Braze Roku SDK는 Braze 메시징, 분석 및 사용자 참여 기능을 애플�
 
 시작하려면 다음 리소스를 참조하세요:
 
-- [Braze 사용자 가이드]({{site.baseurl}}/user_guide/introduction/)
-- [Braze 개발자 가이드]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=roku)
+- [Braze 사용자 가이드]({{site.baseurl}}/user_guide/introduction)
+- [Braze 개발자 가이드]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=roku)
 
 ## 초기 SDK 통합 {#initial-sdk-integration}
 

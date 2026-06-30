@@ -9,13 +9,13 @@ alias: /query_builder/
 
 # Criador de consultas {#query-builder}
 
-> O Criador de consultas gera relatórios usando dados da Braze no Snowflake. O Criador de consultas vem com [modelos de consulta]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/) SQL pré-criados para você começar, ou você pode escrever suas próprias consultas SQL personalizadas para obter ainda mais insights.
+> O Criador de consultas gera relatórios usando dados da Braze no Snowflake. O Criador de consultas vem com [modelos de consulta]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) SQL pré-criados para você começar, ou você pode escrever suas próprias consultas SQL personalizadas para obter ainda mais insights.
 
-Como o Criador de consultas permite acesso direto a alguns dados de cliente, você só pode acessá-lo se tiver a [permissão]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) "View PII".
+Como o Criador de consultas permite acesso direto a alguns dados de cliente, você só pode acessá-lo se tiver a [permissão]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) "View PII".
 
 ## Tabelas de dados disponíveis {#available-data-tables}
 
-O Criador de consultas usa as mesmas tabelas SQL do Snowflake que as [Extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) e o [Compartilhamento de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/). Para uma lista completa das tabelas disponíveis e suas colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/).
+O Criador de consultas usa as mesmas tabelas SQL do Snowflake que as [extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e o [Compartilhamento de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para uma lista completa das tabelas disponíveis e suas colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 
 ## Executando relatórios no Criador de consultas {#running-reports-in-the-query-builder}
 
@@ -37,11 +37,11 @@ Os resultados de cada relatório podem ser gerados uma vez por dia. Se você exe
 
 Acesse os modelos de consulta selecionando **Create SQL Query** > **Query Template** ao criar um relatório pela primeira vez.
 
-Consulte [Modelos de consulta]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/) para uma lista de modelos disponíveis.
+Consulte [Modelos de consulta]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) para uma lista de modelos disponíveis.
 
 ### Período dos dados {#data-timeframe}
 
-As consultas retornam dados dos últimos 60 dias. Se você usa Currents ou [Compartilhamento de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/), pode ser possível consultar até dois anos de dados, que é o tempo de retenção dos seus dados no Snowflake. Para mais detalhes sobre retenção estendida de dados, entre em contato com seu gerente de sucesso do cliente.
+As consultas retornam dados dos últimos 60 dias. Se você usa Currents ou [Compartilhamento de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake), pode ser possível consultar até dois anos de dados, que é o tempo de retenção dos seus dados no Snowflake. Para mais detalhes sobre retenção estendida de dados, entre em contato com seu gerente de sucesso do cliente.
 
 ### Fuso horário do Criador de consultas {#query-builder-time-zone}
 
@@ -90,15 +90,15 @@ Para gerar SQL com o AI Query Builder:
 
 ### Dicas {#tips}
 
-- Familiarize-se com as tabelas e colunas disponíveis na [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/). Solicitar dados que não existem nessas tabelas pode fazer com que o ChatGPT invente uma tabela fictícia.
-- Familiarize-se com as [regras de escrita SQL]({{site.baseurl}}/user_guide/analytics/reports/query_builder/#custom-sql) para este recurso. Não seguir essas regras causará um erro.
+- Familiarize-se com as tabelas e colunas disponíveis na [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables). Solicitar dados que não existem nessas tabelas pode fazer com que o ChatGPT invente uma tabela fictícia.
+- Familiarize-se com as [regras de escrita SQL]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql) para este recurso. Não seguir essas regras causará um erro.
 - Você pode enviar até 20 prompts por minuto com o AI Query Builder.
 
 #{% multi_lang_include brazeai/generative_ai/policy.md %}
 
 ## Escrevendo consultas SQL personalizadas {#custom-sql}
 
-Escreva sua consulta SQL usando a [sintaxe do Snowflake](https://docs.snowflake.com/en/sql-reference). Consulte a [referência de tabelas]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/) para uma lista completa de tabelas e colunas disponíveis para consulta.
+Escreva sua consulta SQL usando a [sintaxe do Snowflake](https://docs.snowflake.com/en/sql-reference). Consulte a [referência de tabelas]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables) para uma lista completa de tabelas e colunas disponíveis para consulta.
 
 Para visualizar detalhes das tabelas dentro do Criador de consultas:
 

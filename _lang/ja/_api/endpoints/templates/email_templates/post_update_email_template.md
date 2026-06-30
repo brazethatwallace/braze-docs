@@ -16,18 +16,18 @@ description: "この記事では、「メールテンプレートの更新」Bra
 
 > このエンドポイントを使用して、Brazeダッシュボードのメールテンプレートを更新します。
 
-メールテンプレートの`email_template_id`には、**テンプレートとメディア**ページからアクセスできます。[メールテンプレートの作成エンドポイント]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/)も`email_template_id`の参照を返します。
+メールテンプレートの`email_template_id`には、**テンプレートとメディア**ページからアクセスできます。[メールテンプレートの作成エンドポイント]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template)も`email_template_id`の参照を返します。
 
 `email_template_id`以外のフィールドはすべてオプションですが、更新するフィールドを少なくとも1つ指定する必要があります。
 
 {% alert tip %}
-このエンドポイントは、[`update_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates)関数を使用して、[Braze MCPサーバー]({{site.baseurl}}/user_guide/brazeai/mcp_server/)経由で呼び出すこともできます。これにより、ClaudeやCursorなどのAIツールが自然言語プロンプトを通じてメールテンプレートを更新できます。
+このエンドポイントは、[`update_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#templates)関数を使用して、[Braze MCPサーバー]({{site.baseurl}}/user_guide/brazeai/mcp_server)経由で呼び出すこともできます。これにより、ClaudeやCursorなどのAIツールが自然言語プロンプトを通じてメールテンプレートを更新できます。
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#afb25494-3350-458d-932d-5bf4220049fa {% endapiref %}
 
 ## 前提条件 {#prerequisites}
-このエンドポイントを使用するには、`templates.email.update`権限を持つ[APIキー]({{site.baseurl}}/api/api_key/)が必要です。
+このエンドポイントを使用するには、`templates.email.update`権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -57,15 +57,15 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `email_template_id` | 必須 | 文字列 | [メールテンプレートのAPI識別子]({{site.baseurl}}/api/identifier_types/)。|
+| `email_template_id` | 必須 | 文字列 | [メールテンプレートのAPI識別子]({{site.baseurl}}/api/identifier_types)。|
 | `template_name` | オプション | 文字列 | メールテンプレートの名前。|
 | `subject` | オプション | 文字列 | メールテンプレートの件名。|
 | `body` | オプション | 文字列 | HTMLを含む可能性のあるメールテンプレート本文。|
 | `plaintext_body` | オプション | 文字列 | メールテンプレート本文のプレーンテキストバージョン。|
 | `preheader` | オプション | 文字列 | 一部のクライアントでプレビューを生成するために使用されるメールプリヘッダー。|
-| `tags` | オプション | 文字列 | [タグ]({{site.baseurl}}/user_guide/messaging/governance/tags/)はすでに存在している必要があります。|
+| `tags` | オプション | 文字列 | [タグ]({{site.baseurl}}/user_guide/messaging/governance/tags)はすでに存在している必要があります。|
 | `should_inline_css` | オプション | ブール値 | テンプレートごとに`inline_css`機能を有効または無効にします。指定されない場合、BrazeはAppGroupのデフォルト設定を使用します。`true`または`false`のいずれかを指定します。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 ```
@@ -94,6 +94,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/templates/email/up
 | すべてのタグは文字列でなければなりません | タグが引用符（`""`）で囲まれていることを確認してください。 |
 | 一部のタグが見つかりませんでした | メールテンプレート作成時にタグを追加するには、そのタグがすでにBrazeに存在している必要があります。 |
 | `should_inline_css`の値が無効です。`true`または`false`のいずれかが必要です | このパラメーターはブール値（trueまたはfalse）のみを受け付けます。`should_inline_css`の値が引用符（`""`）で囲まれていないことを確認してください。囲まれている場合、値は文字列として送信されます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 {% endapi %}

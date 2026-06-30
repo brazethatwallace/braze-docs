@@ -11,10 +11,10 @@ page_order: 2
 
 ## ルールベースのアイテムレコメンデーションについて {#about-rules-based-item-recommendations}
 
-ルールベースのレコメンデーションエンジンは、ユーザーデータと商品情報を使用して、メッセージ内でユーザーに関連アイテムを提案します。[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)と、Brazeの[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)または[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)のいずれかを使用して、ユーザーの動作と属性に基づいてコンテンツをダイナミックにパーソナライズします。
+ルールベースのレコメンデーションエンジンは、ユーザーデータと商品情報を使用して、メッセージ内でユーザーに関連アイテムを提案します。[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)とBrazeの[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)または[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)のいずれかを使用して、ユーザーの動作と属性に基づいてコンテンツをダイナミックにパーソナライズします。
 
 {% alert important %}
-ルールベースのレコメンデーションは、手動で設定する必要がある固定ロジックに基づいています。つまり、ロジックを更新しない限り、ユーザーの購入履歴や嗜好に合わせてレコメンデーションが調整されることはありません。<br><br>ユーザーの履歴に合わせて自動的に調整されるパーソナライズされたAIレコメンデーションを作成するには、[AI 項目のレコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)を参照してください。
+ルールベースのレコメンデーションは、手動で設定する必要がある固定ロジックに基づいています。つまり、ロジックを更新しない限り、ユーザーの購入履歴や嗜好に合わせてレコメンデーションが調整されることはありません。<br><br>ユーザーの履歴に合わせて自動的に調整されるパーソナライズされたAIレコメンデーションを作成するには、[AI 項目のレコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)を参照してください。
 {% endalert %}
 
 ## レコメンデーションエンジンのオプション {#recommendation-engine-options}
@@ -83,7 +83,7 @@ page_order: 2
 {% tab using a catalog %}
 カタログを使用してレコメンデーションエンジンを作成するには、以下の手順に従います。
 
-1. 製品の[カタログを作成]({{site.baseurl}}/user_guide/data/activation/catalogs/create/)します。
+1. 製品の[カタログを作成]({{site.baseurl}}/user_guide/data/activation/catalogs/create)します。
 2. 各製品について、推奨製品のリストを区切り文字（パイプ`|`など）で区切った文字列として「product_recommendations」という名前の列に追加します。
 3. レコメンデーションを検索したい製品IDをカタログに渡します。
 4. そのカタログアイテムの`product_recommendations`値を取得し、Liquidのsplitフィルターを使用して区切り文字で分割します。
@@ -104,7 +104,7 @@ page_order: 2
 
 カタログがBrazeにアップロードされたら、カタログページからカタログを選択し、**プレビュー**タブを開いて、情報が正確にインポートされたことを確認します。プレビューには一部のアイテムが表示され、ランダムに表示される場合がありますが、レコメンデーションエンジンの出力には影響しません。
 
-カタログの準備ができたら、[コンテンツカードCampaignを作成]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/)します。作成画面で、Campaignを受信するユーザーと、表示するレシピおよび画像を決定するLiquidロジックを入力します。このユースケースでは、Brazeがユーザーの`start_date`（登録日）を取得し、現在の日付と比較します。日数の差によって、送信されるコンテンツカードが決まります。
+カタログの準備ができたら、[コンテンツカードCampaignを作成]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card)します。作成画面で、Campaignを受信するユーザーと、表示するレシピおよび画像を決定するLiquidロジックを入力します。このユースケースでは、Brazeがユーザーの`start_date`（登録日）を取得し、現在の日付と比較します。日数の差によって、送信されるコンテンツカードが決まります。
 
 {% subtabs local %}
 {% subtab title %}
@@ -184,7 +184,7 @@ page_order: 2
 |------|-----------|
 | **スプレッドシートの変換** | SheetDPなどのサービスを使用してスプレッドシートをJSON APIエンドポイントに変換し、生成されるAPI URLを控えておきます。 |
 | **カスタムエンドポイントの作成** | カスタムビルドの社内エンドポイントを構築し、ホスティングおよびメンテナンスを行います。 |
-| **サードパーティエンジンの使用** | [Alloyパートナー]({{site.baseurl}}/partners/message_personalization/)などのサードパーティレコメンデーションエンジンを使用します。[Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize/)、[Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona/)、[Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield/)などが含まれます。 |
+| **サードパーティエンジンの使用** | [Alloyパートナー]({{site.baseurl}}/partners/message_personalization)などのサードパーティレコメンデーションエンジンを使用します。[Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize)、[Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona)、[Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield)などが含まれます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="例" }
 
 次に、メッセージ内でLiquidを使用してエンドポイントを呼び出し、カスタム属性値をユーザーのプロファイルと照合して、対応するレコメンデーションを取得します。
@@ -212,7 +212,7 @@ page_order: 2
 {: .reset-td-br-1 .reset-td-br-2 aria-label="例" }
 
 {% alert note %}
-これは基本的な例であり、特定のニーズやデータ構造に基づいてさらに修正が必要になる場合があります。詳細なガイダンスについては、[Liquidのドキュメント]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を参照するか、開発者に相談してください。
+これは基本的な例であり、特定のニーズやデータ構造に基づいてさらに修正が必要になる場合があります。詳細なガイダンスについては、[Liquidのドキュメント]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)を参照するか、開発者に相談してください。
 {% endalert %}
 
 ### 例

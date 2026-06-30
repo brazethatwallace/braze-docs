@@ -19,7 +19,7 @@ description: "Cet article présente les détails de l'endpoint Braze Créer une 
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `catalogs.create_selection`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `catalogs.create_selection`.
 
 ## Limite de débit {#rate-limit}
 
@@ -36,7 +36,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 
 | Paramètre   | Requis | Type de données | Description                                                                                                                                                        |
 | ----------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `selection` | Requis | Objet    | Un objet contenant les critères de sélection. Consultez l'[objet de sélection de catalogue]({{site.baseurl}}/api/objects_filters/catalog_selection_object/) pour une description complète de l'objet et de ses champs. |
+| `selection` | Requis | Objet    | Un objet contenant les critères de sélection. Consultez l'[objet de sélection de catalogue]({{site.baseurl}}/api/objects_filters/catalog_selection_object) pour une description complète de l'objet et de ses champs. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ### Paramètres de l'objet de sélection {#selection-object-parameters}

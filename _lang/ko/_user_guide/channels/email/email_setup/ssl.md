@@ -65,7 +65,7 @@ SSL 클릭 및 오픈 추적에 나열된 CDN을 사용할 수 없거나 사용�
 ### 추가 리소스 {#additional-resources}
 
 {% alert important %}
-CDN 구성 문제 해결은 CDN 공급자에게 문의하거나 일반적인 안내는 [문제 해결]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/)을 참조하세요.
+CDN 구성 문제 해결은 CDN 공급자에게 문의하거나 일반적인 안내는 [문제 해결]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting)을 참조하세요.
 {% endalert %}
 
 특정 CDN을 구성하는 방법에 대한 이메일 서비스 공급자 파트너의 다음 리소스를 참조하세요. 사용 중인 CDN이 목록에 없더라도 해당 CDN이 SSL 인증서를 적용할 수 있는지 확인해야 합니다.
@@ -103,4 +103,4 @@ CDN의 클릭 추적 도메인을 구성할 때 호스트 헤더 공격과 같�
 
 ## 문제 해결 {#troubleshooting}
 
-CDN 구성, 인증서 및 프록시 문제는 CDN에서 처리해야 하지만, 다음 팁을 사용하여 일반적인 SSL 클릭 추적 문제를 식별할 수 있습니다. 문제 해결 안내는 [문제 해결]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/)을 참조하세요.
+CDN 구성, 인증서 및 프록시 문제는 CDN에서 처리해야 하지만, 다음 팁을 사용하여 일반적인 SSL 클릭 추적 문제를 식별할 수 있습니다. 문제 해결 안내는 [문제 해결]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting)을 참조하세요.

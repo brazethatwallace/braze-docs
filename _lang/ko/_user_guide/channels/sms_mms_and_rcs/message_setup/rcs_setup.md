@@ -63,7 +63,7 @@ RCS에서 SMS 대체를 사용할 때, 이벤트 동작은 메시지가 RCS를 �
 {% endtab %}
 {% tab 세분화 동작 %}
 
-SMS 및 RCS의 경우, 수신 메시지 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)(예: [Campaign에서 메시지 수신]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#received-message-from-campaign) 및 [캔버스 단계에서 메시지 수신]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#received-message-from-canvas-step))은 메시지가 사용자의 기기에 도달할 때가 아니라 발송될 때 평가됩니다. SMS 대체가 활성화된 경우, RCS 메시지가 거부되어 SMS로 대체되거나 대체 SMS가 사용자의 기기에 전달되지 않더라도 사용자는 여전히 이러한 필터에 매칭될 수 있습니다.
+SMS 및 RCS의 경우, 수신 메시지 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)(예: [Campaign에서 메시지 수신]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-campaign) 및 [캔버스 단계에서 메시지 수신]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step))은 메시지가 사용자의 기기에 도달할 때가 아니라 발송될 때 평가됩니다. SMS 대체가 활성화된 경우, RCS 메시지가 거부되어 SMS로 대체되거나 대체 SMS가 사용자의 기기에 전달되지 않더라도 사용자는 여전히 이러한 필터에 매칭될 수 있습니다.
 
 {% endtab %}
 {% endtabs %}
@@ -76,7 +76,7 @@ RCS 인증 발신자가 승인되면, 운영팀이 구독 그룹을 필요에 �
 
 ## 3단계: 구독 그룹 설정 {#step-3-set-up-subscription-groups}
 
-통합 방식에 따라 Braze는 기존 SMS 구독 그룹에 RCS 인증 발신자를 추가하거나 새로운 구독 그룹을 설정할 수 있습니다. 자세한 설정 안내는 [SMS 및 RCS 구독 그룹]({{site.baseurl}}/sms_rcs_subscription_groups/)을 참조하세요.
+통합 방식에 따라 Braze는 기존 SMS 구독 그룹에 RCS 인증 발신자를 추가하거나 새로운 구독 그룹을 설정할 수 있습니다. 자세한 설정 안내는 [SMS 및 RCS 구독 그룹]({{site.baseurl}}/sms_rcs_subscription_groups)을 참조하세요.
 
 ## SMS 트래픽을 RCS로 마이그레이션 {#migrating-sms-traffic-to-rcs}
 
@@ -125,7 +125,7 @@ Canvas에 사용자 업데이트 단계를 추가합니다. 해당 단계에서 
 
 ### 4단계: Canvas 테스트 {#step-4-test-the-canvas}
 
-더 넓은 오디언스에 발송하기 전에 [Canvas를 테스트]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases/)하여 예상대로 작동하는지 확인하는 것을 강력히 권장합니다.
+더 넓은 오디언스에 발송하기 전에 [Canvas를 테스트]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases)하여 예상대로 작동하는지 확인하는 것을 강력히 권장합니다.
 
 ### 5단계: Canvas 시작 {#step-5-launch-your-canvas}
 

@@ -21,4 +21,4 @@ Se connecter sur [dashboard.braze.com](https://dashboard.braze.com) vous redirig
 Lors de l'intégration de votre SDK, utilisez l'endpoint SDK. Lors d'appels à notre REST API, utilisez l'endpoint REST.
 {% endalert %}
 
-Pour plus de détails sur l'accès à l'API, consultez notre [article d'aperçu de l'API]({{site.baseurl}}/api/basics/).
+Pour plus de détails sur l'accès à l'API, consultez notre [article d'aperçu de l'API]({{site.baseurl}}/api/basics).

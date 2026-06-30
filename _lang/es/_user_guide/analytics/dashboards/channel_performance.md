@@ -63,8 +63,8 @@ La categoría "Otros" incluye cualquier cadena de usuario que no pueda identific
 
 Para comprender mejor qué contiene esta categoría "Otros", puedes extraer los agentes de usuario usando cualquiera de estas opciones:
 
-1. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) te enviará la cadena exacta de agente de usuario que se obtuvo de los dispositivos de tus usuarios.
-2. Aprovecha nuestro [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) para usar SQL o nuestro [Generador de consultas con IA]({{site.baseurl}}/user_guide/analytics/reports/query_builder/#generating-sql-with-the-ai-query-builder) para ver los agentes de usuario.
+1. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) te enviará la cadena exacta de agente de usuario que se obtuvo de los dispositivos de tus usuarios.
+2. Aprovecha nuestro [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder) para usar SQL o nuestro [Generador de consultas con IA]({{site.baseurl}}/user_guide/analytics/reports/query_builder#generating-sql-with-the-ai-query-builder) para ver los agentes de usuario.
 
 ![Informe de interacción por dispositivo que muestra el número de clics para dispositivos móviles, de escritorio, tabletas y otros dispositivos. La mayor cantidad de clics ocurre en dispositivos móviles.]({% image_buster /assets/img/engagement_by_device_type.png %}){: style="max-width:70%;"}
 
@@ -90,7 +90,7 @@ El informe de interacción **Time of the day** desglosa las aperturas o clics po
 
 ![Un ejemplo de informe de interacción por hora del día con las aperturas o clics desde las 12 a.m. hasta las 11 p.m.]({% image_buster /assets/img_archive/time_engagement_day.png %})
 
-Para más información sobre el análisis de tus correos electrónicos, consulta [Informes de correo electrónico]({{site.baseurl}}/user_guide/channels/email/reporting/).
+Para más información sobre el análisis de tus correos electrónicos, consulta [Informes de correo electrónico]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 {% endtab %}
 {% tab SMS performance %}
@@ -185,18 +185,18 @@ Para la métrica *Aperturas únicas*, Braze deduplicará cualquier apertura repe
 
 <!---Temporarily hidden until functionality is added
 
-## Empty values in your data
+## Valores vacíos en tus datos {#empty-values-in-your-data}
 
-#### If a metric displays "0%" or "0"
+### Si una métrica muestra "0%" o "0" {#if-a-metric-displays-0-or-0}
 
-This means Braze recorded zero for that particular metric during the time frame you've selected.
+Esto significa que Braze registró cero para esa métrica en particular durante el período de tiempo que has seleccionado.
 
-#### If a metric displays "N/A"
+#### Si una métrica muestra "N/A" {#if-a-metric-displays-na}
 
-This means that while Braze recorded positive counts for a particular metric for the time frame you've selected, the denominator for the rate calculation (either sends or deliveries in most cases) was zero. This can occur when emails are sent out on one day and opens and clicks are recorded the following days if your selected time frame does not include the date the messages were sent.
+Esto significa que, aunque Braze registró recuentos positivos para una métrica en particular durante el período de tiempo que has seleccionado, el denominador para el cálculo de la tasa (ya sea envíos o entregas en la mayoría de los casos) fue cero. Esto puede ocurrir cuando los correos electrónicos se envían un día y las aperturas y clics se registran en los días siguientes si el período de tiempo seleccionado no incluye la fecha en que se enviaron los mensajes.
 
-#### If a metric displays "--"
+#### Si una métrica muestra "--" {#if-a-metric-displays}
 
-This means Braze hasn't recorded any data for that metric during the time you selected. If you haven't set up or sent any emails yet, learn more about how to do so in our dedicated [Email]({{site.baseurl}}/user_guide/channels/email/) section.
+Esto significa que Braze no ha registrado ningún dato para esa métrica durante el tiempo que seleccionaste. Si aún no has configurado ni enviado ningún correo electrónico, obtén más información sobre cómo hacerlo en nuestra sección dedicada de [Correo electrónico]({{site.baseurl}}/user_guide/channels/email).
 
 --->

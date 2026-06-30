@@ -16,7 +16,7 @@ channel:
 
 通知チャネルはアプリケーションのコード内でのみ作成でき、Brazeダッシュボードでプログラム的に作成することはできません。エンジニアリングチームとマーケターが連携して、必要な通知チャネルがダッシュボードに適切に追加されるようにすることをお勧めします。
 
-APIレベル26（Android O）以降、プッシュ通知を表示するには有効なチャネルが必要です。アプリがAndroid O以降をターゲットにしている場合、Braze SDKバージョン2.1.0以降を使用する必要があります。開発チームは、使用するチャネルと各チャネルの推奨通知設定（重要度、サウンド、ライトなど）をアプリケーションコード内で定義する必要があります。詳細については、[Android開発者ドキュメント](https://developer.android.com/preview/features/notification-channels.html)および[Braze開発者ドキュメント]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-5-define-notification-channels)をご覧ください。
+APIレベル26（Android O）以降、プッシュ通知を表示するには有効なチャネルが必要です。アプリがAndroid O以降をターゲットにしている場合、Braze SDKバージョン2.1.0以降を使用する必要があります。開発チームは、使用するチャネルと各チャネルの推奨通知設定（重要度、サウンド、ライトなど）をアプリケーションコード内で定義する必要があります。詳細については、[Android開発者ドキュメント](https://developer.android.com/preview/features/notification-channels.html)および[Braze開発者ドキュメント]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-5-define-notification-channels)をご覧ください。
 
 {% alert note %}
 Androidはチャネル名のローカライゼーションをサポートしているため、アプリケーションのコード内で1つのチャネルIDを複数のチャネル名の翻訳に関連付けることができます。
@@ -69,7 +69,7 @@ Brazeでは、ダッシュボードフォールバックチャネルを指定で
 
 1. Androidプッシュを含むCampaignまたはCanvasを開くか新規作成します。
 2. Androidプッシュメッセージ作成画面に移動します。
-3. **Manage Notification Channels**を選択します。ここで追加されたチャネルは、すべてのCampaignsとCanvasesでグローバルに利用可能になります。チャネルを管理するには、ワークスペースの「Manage Apps」[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#limited-and-team-role-permissions)が必要です。
+3. **Manage Notification Channels**を選択します。ここで追加されたチャネルは、すべてのCampaignsとCanvasesでグローバルに利用可能になります。チャネルを管理するには、ワークスペースの「Manage Apps」[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#limited-and-team-role-permissions)が必要です。
 
 通知チャネルを特定のCampaignまたはキャンバスステップに適用すると、**到達可能なユーザー**数（ターゲットオーディエンスステップにあります）はAndroidプッシュで変化しないように見えます。ただし、選択した通知チャネルを購読しているユーザーのみがメッセージを受け取り、Campaignの分析（クリック数など）はこのオーディエンスに基づいて測定されます。
 

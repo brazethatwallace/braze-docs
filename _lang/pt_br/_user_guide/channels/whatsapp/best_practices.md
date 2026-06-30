@@ -44,6 +44,6 @@ Para informações sobre requisitos de opt-in e dicas úteis, consulte [Get Opt-
 
 Os descadastramentos não afetam sua classificação de qualidade do telefone, então é melhor que um usuário cancele o recebimento de comunicações do WhatsApp do que bloqueie ou denuncie você.
 
-Uma melhor prática sugerida é fornecer instruções sobre como cancelar a inscrição no rodapé da primeira mensagem que você enviar aos usuários. Por exemplo, você pode informar que os usuários podem cancelar a inscrição do seu canal do WhatsApp respondendo com sua palavra-gatilho de descadastramento. Você também pode incluir regularmente o rodapé de descadastramento em campanhas futuras. Para saber como configurar isso, consulte [Opt-in e descadastramento]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs/).
+Uma melhor prática sugerida é fornecer instruções sobre como cancelar a inscrição no rodapé da primeira mensagem que você enviar aos usuários. Por exemplo, você pode informar que os usuários podem cancelar a inscrição do seu canal do WhatsApp respondendo com sua palavra-gatilho de descadastramento. Você também pode incluir regularmente o rodapé de descadastramento em campanhas futuras. Para saber como configurar isso, consulte [Opt-in e descadastramento]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs).
 
 ![Mensagem do WhatsApp com um rodapé informando para responder STOP para cancelar a inscrição do canal]({% image_buster /assets/img/whatsapp/whatsapp_unsubscribe.png %}){: style="max-width:35%;"}

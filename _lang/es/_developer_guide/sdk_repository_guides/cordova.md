@@ -12,8 +12,8 @@ El SDK de Braze para Cordova te ayuda a integrar las capacidades de mensajería,
 
 Para empezar, consulta los siguientes recursos:
 
-- [Guía del usuario de Braze]({{site.baseurl}}/user_guide/introduction/)
-- [Guía del desarrollador de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=cordova)
+- [Guía del usuario de Braze]({{site.baseurl}}/user_guide/introduction)
+- [Guía del desarrollador de Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=cordova)
 
 ## Requisitos mínimos de versión {#minimum-version-requirements}
 

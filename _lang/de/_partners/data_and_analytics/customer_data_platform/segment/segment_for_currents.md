@@ -21,8 +21,8 @@ Die Integration von Braze und Segment ermöglicht es Ihnen, Braze-Currents zu nu
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Segment-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, ist ein [Segment-Konto](https://app.segment.com/login) erforderlich. |
-| Braze-Ziel | Sie müssen [Braze bereits als Ziel eingerichtet]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) haben in Ihrer Segment-Integration.<br><br>Dazu gehört die Angabe des richtigen Braze-Rechenzentrums und des REST-API-Schlüssels in Ihren [Verbindungseinstellungen]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings). |
-| Currents | Um Daten zurück nach Segment zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) für Ihr Konto eingerichtet haben. |
+| Braze-Ziel | Sie müssen [Braze bereits als Ziel eingerichtet]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) haben in Ihrer Segment-Integration.<br><br>Dazu gehört die Angabe des richtigen Braze-Rechenzentrums und des REST-API-Schlüssels in Ihren [Verbindungseinstellungen]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment#connection-settings). |
+| Currents | Um Daten zurück nach Segment zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) für Ihr Konto eingerichtet haben. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -37,7 +37,7 @@ Es ist wichtig, dass Sie Ihren Segment-Schreibschlüssel auf dem neuesten Stand 
 
 ### 2. Schritt: Neuen Currents-Konnektor erstellen {#step-2-create-a-new-currents-connector}
 
-1. Navigieren Sie in Braze zu **Partner Integrations** > **Data Export**.
+1. Navigieren Sie in Braze zu **Partnerintegrationen** > **Datenexport**.
 2. Klicken Sie auf **+ Create New Current** > **Segment Data Export**.
 3. Geben Sie anschließend den Integrationsnamen, die Kontakt-E-Mail, den Segment-Schreibschlüssel und die Segment-Region an.
 
@@ -67,7 +67,7 @@ Weitere Informationen finden Sie in der Segment-[Dokumentation](https://segment.
 
 Braze unterstützt den Export der folgenden Events nach Segment:
 
-- [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)
-- [Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)
+- [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)
+- [Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)
 
-Für die Payload-Struktur jedes Events wählen Sie den Tab **Segment** im [Glossar der Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) und im [Glossar der Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
+Für die Payload-Struktur jedes Events wählen Sie den Tab **Segment** im [Glossar der Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) und im [Glossar der Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).

@@ -16,4 +16,4 @@ description: "Cet article de référence explique comment effectuer l'assurance 
 
 {% multi_lang_include brazeai/generative_ai/access_content_qa.md %}
 
-Pour plus d'informations, y compris les fonctionnalités prises en charge, les bonnes pratiques et des exemples de prompts, consultez [Vérifier la qualité du contenu dans les capacités d'Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#review-content-quality).
+Pour plus d'informations, y compris les fonctionnalités prises en charge, les bonnes pratiques et des exemples de prompts, consultez [Vérifier la qualité du contenu dans les capacités d'Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#review-content-quality).

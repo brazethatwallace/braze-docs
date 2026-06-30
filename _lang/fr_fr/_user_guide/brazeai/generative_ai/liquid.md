@@ -1,5 +1,5 @@
 ---
-nav_title: Liquid code
+nav_title: Code Liquid
 article_title: Générer du code Liquid
 description: "Cet article explique comment générer des extraits de code Liquid pour vos envois de messages à l'aide d'Operator, y compris les canaux pris en charge et les bonnes pratiques."
 page_type: reference
@@ -16,4 +16,4 @@ page_order: 5
 
 {% multi_lang_include brazeai/generative_ai/access_liquid.md %}
 
-Pour plus d'informations, y compris les canaux pris en charge, les attributs Liquid, les bonnes pratiques et des exemples d'invites, consultez [Générer du Liquid dans les fonctionnalités d'Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-liquid).
+Pour plus d'informations, y compris les canaux pris en charge, les attributs Liquid, les bonnes pratiques et des exemples d'invites, consultez [Générer du Liquid dans les fonctionnalités d'Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-liquid).

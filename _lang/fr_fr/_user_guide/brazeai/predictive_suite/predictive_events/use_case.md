@@ -5,7 +5,7 @@ description: "Cet exemple illustre comment une marque fictive utilise Braze Pred
 page_type: tutorial
 ---
 
-# Cas d'utilisation : prévoyez les mises à niveau d'abonnement grâce à un ciblage plus intelligent {#use-case-predict-subscription-upgrades-with-smarter-targeting}
+# Cas d'utilisation : prévoir les mises à niveau d'abonnement grâce à un ciblage plus intelligent {#use-case-predict-subscription-upgrades-with-smarter-targeting}
 
 > Cet exemple illustre comment une marque fictive utilise Braze Predictive Events pour définir les résultats qui comptent pour son activité, comme la mise à niveau vers un abonnement pro, et créer des stratégies ciblées qui améliorent les résultats.
 
@@ -23,7 +23,7 @@ Ce tutoriel explique comment Jordan a créé :
 Jordan commence par définir le résultat le plus important pour sa stratégie de mise à niveau : un utilisateur passant de la version gratuite à la version Pro. Plutôt que de s'appuyer sur des déclencheurs génériques tels que « le temps écoulé depuis l'inscription », il souhaite prévoir quels utilisateurs sont réellement susceptibles de se convertir. De cette manière, son équipe peut agir sur la base de signaux réels, et non pas seulement d'hypothèses.
 
 1. Dans le tableau de bord de Braze, Jordan accède à **Analytics** > **Predictive Events**.
-2. Il [crée une nouvelle prédiction d'événement]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/creating_an_event_prediction/) et la nomme « Passer à la version Pro en 7 jours ».
+2. Il [crée une nouvelle prédiction d'événement]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/creating_an_event_prediction) et la nomme « Passer à la version Pro en 7 jours ».
 3. Comme événement cible, il sélectionne son événement personnalisé : `upgraded_to_pro`.
 4. Jordan définit la fenêtre de prédiction sur 7 jours, établit une planification de mise à jour et crée la prédiction.
 
@@ -31,10 +31,10 @@ Jordan commence par définir le résultat le plus important pour sa stratégie d
 
 ## Étape 2 : segmenter les utilisateurs en fonction de la probabilité de mise à niveau {#step-2-segment-users-based-on-upgrade-probability}
 
-Une fois l'entraînement terminé, Braze attribue un [score de probabilité d'événement]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/analytics/#purchase_score) (0-100) à chaque utilisateur éligible. Jordan utilise ce score pour créer des segments exploitables : l'un pour les utilisateurs ayant une forte intention de conversion qui n'ont peut-être pas besoin de remise, et l'autre pour les utilisateurs qui ne se convertiront probablement pas sans aide.
+Une fois l'entraînement terminé, Braze attribue un [score de probabilité d'événement]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/analytics#purchase_score) (0-100) à chaque utilisateur éligible. Jordan utilise ce score pour créer des segments exploitables : l'un pour les utilisateurs ayant une forte intention de conversion qui n'ont peut-être pas besoin de remise, et l'autre pour les utilisateurs qui ne se convertiront probablement pas sans aide.
 
 1. Jordan accède à la section Segments dans Braze.
-2. Il crée deux [segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) à l'aide du [filtre Event Likelihood Score]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#event-likelihood-score) et sélectionne la prédiction qu'il a créée. Les deux segments sont les suivants :
+2. Il crée deux [segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) à l'aide du [filtre Event Likelihood Score]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score) et sélectionne la prédiction qu'il a créée. Les deux segments sont les suivants :
   - **Susceptible de passer à la version supérieure :** score supérieur à 70
   - **A besoin d'un coup de pouce pour passer à la version supérieure :** score supérieur à 40 et inférieur à 70
 
@@ -50,7 +50,7 @@ Maintenant que Jordan dispose de signaux clairs indiquant une intention de mise 
 
 Il choisit l'e-mail comme canal principal pour cette Campaign. Pourquoi ? Parce que Jordan souhaite expliquer la valeur ajoutée de Pro aux utilisateurs ayant une forte intention et convaincre les utilisateurs plus hésitants, ce qui nécessite de l'espace, des visuels et un appel à l'action percutant. L'e-mail lui offre la flexibilité nécessaire pour y parvenir sans exercer de pression sur les utilisateurs, et lui permet de suivre les performances grâce au comportement des clics.
 
-Jordan [crée un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) qui divise l'expérience en fonction des segments qu'il vient de créer. Il ajoute une étape Parcours d'audience pour cibler :
+Jordan [crée un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) qui divise l'expérience en fonction des segments qu'il vient de créer. Il ajoute une étape Parcours d'audience pour cibler :
 
 - Les utilisateurs ayant une forte intention, axés sur le fitness
 - Les utilisateurs ayant une forte intention, autres profils
@@ -106,7 +106,7 @@ Ces utilisateurs présentent un engagement global minimal. Il est peu probable q
 
 ## Étape 4 : mesurer les résultats et optimiser votre stratégie {#step-4-measure-results-and-optimize-your-strategy}
 
-Une fois la Campaign terminée, Jordan examine les performances dans [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/) afin de comprendre l'efficacité des parcours personnalisés et de déterminer si la combinaison de l'intention prédictive et des signaux comportementaux a amélioré les taux de mise à niveau.
+Une fois la campagne terminée, Jordan examine les performances dans [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics) afin de comprendre l'efficacité des parcours personnalisés et de déterminer si la combinaison de l'intention prédictive et des signaux comportementaux a amélioré les taux de mise à niveau.
 
 Performances des e-mails par parcours :
 
@@ -131,9 +131,9 @@ Performances des e-mails par parcours :
    - *Taux de conversion :* 6 %
    - Offre de réduction de 50 % incluse
 
-Par rapport à la Campaign précédente de l'équipe, qui était uniforme (une remise générale après 7 jours n'avait généré que 5 % de conversions et un excès d'envoi de messages), l'approche ciblée montre une amélioration significative dans tous les groupes, avec une efficacité accrue et moins de remises inutiles.
+Par rapport à la campagne précédente de l'équipe, qui était uniforme (une remise générale après 7 jours n'avait généré que 5 % de conversions et un excès d'envoi de messages), l'approche ciblée montre une amélioration significative dans tous les groupes, avec une efficacité accrue et moins de remises inutiles.
 
-Le [rapport d'entonnoir]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/) montre également une nette réduction du taux d'abandon à chaque étape clé, en particulier chez les utilisateurs ayant une faible intention qui ont reçu des messages personnalisés. De plus en plus d'utilisateurs ouvrent, cliquent et effectuent des mises à niveau, ce qui démontre la valeur du ciblage basé sur l'intention.
+Le [rapport d'entonnoir]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) montre également une nette réduction du taux d'abandon à chaque étape clé, en particulier chez les utilisateurs ayant une faible intention qui ont reçu des messages personnalisés. De plus en plus d'utilisateurs ouvrent, cliquent et effectuent des mises à niveau, ce qui démontre la valeur du ciblage basé sur l'intention.
 
 Jordan utilise ces informations pour :
 

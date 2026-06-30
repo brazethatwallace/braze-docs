@@ -33,7 +33,7 @@ Operatorがダッシュボードで変更（フォームフィールドの入力
     - プッシュ通知
     - SMS/MMS/RCS
     - Webhook
-- [カスタムエージェントの作成]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)ページ
+- [カスタムエージェントの作成]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)ページ
 
 その他のページでは、Operatorはアクションを直接実行する代わりに、UIで実行するステップの一覧を提供します。Operatorの機能は定期的に改善されており、作成ツールの対応範囲の拡大が予定されています。
 
@@ -54,4 +54,4 @@ Operatorの計画を変更するには、まず保留中のアクションを承
 
 自動承認は、ページを更新したり、新しいタブを開いたり、ログアウトして再度ログインするとリセットされます。ダッシュボード内のページ間を移動してもリセットされません。自動承認はいつでもオフにできます。
 
-Operatorのアクセス制限やチームの利用状況の監査については、[データプライバシーとセキュリティ]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/)を参照してください。
+Operatorのアクセス制限やチームの利用状況の監査については、[データプライバシーとセキュリティ]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security)を参照してください。

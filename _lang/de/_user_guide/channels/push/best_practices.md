@@ -77,7 +77,7 @@ Sie können in Ihrer App eine Einstellungsseite erstellen, auf der Nutzer:innen 
 
 Wenn die Nachrichten-App eine Campaign erstellen möchte, die nur an Nutzer:innen gerichtet ist, die sich für Politik interessieren, fügt sie den Attributfilter `Subscribes to Politics` zum Segment hinzu. Wenn dieser auf „true“ gesetzt ist, erhalten nur Nutzer:innen, die Benachrichtigungen abonniert haben, diese auch.
 
-Weitere Informationen zum Festlegen angepasster Attribute finden Sie in den folgenden Artikeln für [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/#setting-custom-attributes) oder [REST API]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-attributes-object-specification).
+Weitere Informationen zum Festlegen angepasster Attribute finden Sie in den folgenden Artikeln für [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes#setting-custom-attributes) oder [REST API]({{site.baseurl}}/developer_guide/rest_api/user_data#user-attributes-object-specification).
 
 ## Opt-ins und Relevanz steigern {#increase-opt-ins-and-relevance}
 
@@ -89,11 +89,11 @@ Android 13 und höher erfordert eine Genehmigung, bevor Push-Benachrichtigungen 
 
 ### Nutzer:innen auf Push vorbereiten {#prime-users-for-push}
 
-Sie haben nur eine Chance, Nutzer:innen um die Push-Berechtigung zu bitten, und nachdem sie abgelehnt haben, ist es sehr schwer, sie davon zu überzeugen, Push in ihren Geräteeinstellungen wieder zu aktivieren. Aus diesem Grund sollten Sie Nutzer:innen mit einer In-App-Nachricht auf Push vorbereiten, bevor Sie die Systemaufforderung anzeigen. Weitere Informationen zur Steigerung der Opt-ins finden Sie unter [Push-Primer-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/).
+Sie haben nur eine Chance, Nutzer:innen um die Push-Berechtigung zu bitten, und nachdem sie abgelehnt haben, ist es sehr schwer, sie davon zu überzeugen, Push in ihren Geräteeinstellungen wieder zu aktivieren. Aus diesem Grund sollten Sie Nutzer:innen mit einer In-App-Nachricht auf Push vorbereiten, bevor Sie die Systemaufforderung anzeigen. Weitere Informationen zur Steigerung der Opt-ins finden Sie unter [Push-Primer-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
 
 ### Push-Abo-Steuerungen hinzufügen {#add-push-subscription-controls}
 
-Um zu vermeiden, dass Nutzer:innen Benachrichtigungen auf Geräteebene deaktivieren, was ihr Vordergrund-Push-Token vollständig entfernt, lassen Sie Nutzer:innen ihr Push-Abo direkt in Ihrer App steuern. Weitere Details finden Sie unter [Push-Abo-Status aktualisieren]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#update-push-subscription-state).
+Um zu vermeiden, dass Nutzer:innen Benachrichtigungen auf Geräteebene deaktivieren, was ihr Vordergrund-Push-Token vollständig entfernt, lassen Sie Nutzer:innen ihr Push-Abo direkt in Ihrer App steuern. Weitere Details finden Sie unter [Push-Abo-Status aktualisieren]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#update-push-subscription-state).
 
 ### Erweiterte Zeitplanung verwenden oder Verzögerungen hinzufügen {#use-advanced-scheduling-or-add-delays}
 
@@ -115,20 +115,20 @@ Wenn ein Nutzerprofil außerdem kein gültiges oder registriertes Push-Token fü
 
 Selbst wenn Sie nur relevante, zeitnahe Push-Benachrichtigungen senden, können einige Nutzer:innen dennoch nicht darauf reagieren und sie als Spam empfinden. Angenommen, Nutzer:innen zeigen eine Vorgeschichte des wiederholten Ignorierens Ihrer Push-Benachrichtigungen. In diesem Fall ist es eine gute Idee, ihnen keine Push-Benachrichtigungen mehr zu senden, bevor sie sich über die Kommunikation Ihrer App ärgern oder sie ganz deinstallieren.
 
-Erstellen Sie dazu eine [Sunset-Richtlinie]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/), die schließlich keine Push-Benachrichtigungen mehr an Nutzer:innen sendet, die über einen längeren Zeitraum keine direkte oder beeinflusste Öffnung hatten.
+Erstellen Sie dazu eine [Sunset-Richtlinie]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies), die schließlich keine Push-Benachrichtigungen mehr an Nutzer:innen sendet, die über einen längeren Zeitraum keine direkte oder beeinflusste Öffnung hatten.
 
 1. Identifizieren Sie nicht reagierende Nutzer:innen anhand direkter oder beeinflusster Öffnungen.
 2. Reduzieren Sie schrittweise das Senden von Push-Benachrichtigungen an diese Nutzer:innen.
 3. Bevor Sie Push-Benachrichtigungen vollständig entfernen, senden Sie eine letzte Benachrichtigung, die erklärt, warum sie keine weiteren erhalten werden. Dies gibt Nutzer:innen die Möglichkeit, ihr Interesse an weiteren Push-Benachrichtigungen zu zeigen, indem sie diese Benachrichtigung öffnen.
-4. Nachdem die Sunset-Richtlinie in Kraft getreten ist, verwenden Sie eine [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/), um diese Nutzer:innen daran zu erinnern, dass sie zwar keine Push-Benachrichtigungen mehr erhalten, In-App-Messaging-Kanäle aber weiterhin interessante, hilfreiche Informationen liefern.
+4. Nachdem die Sunset-Richtlinie in Kraft getreten ist, verwenden Sie eine [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages), um diese Nutzer:innen daran zu erinnern, dass sie zwar keine Push-Benachrichtigungen mehr erhalten, In-App-Messaging-Kanäle aber weiterhin interessante, hilfreiche Informationen liefern.
 
 Auch wenn Sie möglicherweise zögern, Nutzer:innen, die sich ursprünglich für Push entschieden haben, keine Push-Benachrichtigungen mehr zu senden, denken Sie daran, dass andere Messaging-Kanäle diese Nutzer:innen effektiver erreichen können, insbesondere wenn sie Ihre Push-Benachrichtigungen zuvor ignoriert haben. Wenn Nutzer:innen Ihre E-Mails öffnen, sind E-Mail-Campaigns eine gute Möglichkeit, sie außerhalb Ihrer App zu erreichen. Wenn nicht, sind In-App Messages der beste Weg, Inhalte zu liefern, ohne zu riskieren, dass Nutzer:innen Ihre App deinstallieren.
 
 ## Konversions-Events für App-Öffnungen festlegen {#set-conversion-events-for-app-opens}
 
-Wenn Sie einer Push-Campaign [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) zuweisen, können Sie App-Öffnungen für einen bestimmten Zeitraum nach Erhalt der Campaign verfolgen. Das Festlegen eines Konversions-Events für App-Öffnungen bietet andere Einblicke als die Ergebnisstatistiken, die Sie normalerweise nach einer Push-Campaign erhalten.
+Wenn Sie einer Push-Campaign [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) zuweisen, können Sie App-Öffnungen für einen bestimmten Zeitraum nach Erhalt der Campaign verfolgen. Das Festlegen eines Konversions-Events für App-Öffnungen bietet andere Einblicke als die Ergebnisstatistiken, die Sie normalerweise nach einer Push-Campaign erhalten.
 
-Während alle Push-Campaign-Ergebnisse die direkten Öffnungen und Öffnungen einer Nachricht aufschlüsseln (die sowohl direkte als auch [beeinflusste Öffnungen]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/) umfassen), verfolgt das Conversion-Tracking jede Art von Öffnung, ob direkt oder beeinflusst.
+Während alle Push-Campaign-Ergebnisse die direkten Öffnungen und Öffnungen einer Nachricht aufschlüsseln (die sowohl direkte als auch [beeinflusste Öffnungen]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens) umfassen), verfolgt das Conversion-Tracking jede Art von Öffnung, ob direkt oder beeinflusst.
 
 Darüber hinaus verfolgen Sie mit dem Konversions-Event „App öffnen“ App-Öffnungen, die vor Ablauf der Conversion-Frist stattfinden (z. B. drei Tage). Dies unterscheidet sich von einer beeinflussten Öffnung, da die Zeit, die Nutzer:innen haben, um eine beeinflusste Öffnung zu registrieren, von Person zu Person variieren kann, abhängig vom bisherigen Engagement-Verhalten jeder:jedes Nutzer:in.
 
@@ -154,7 +154,7 @@ Da Push-Benachrichtigungen eine aufdringliche Art von Messaging sind, die direkt
 
 Haben Sie nicht gefunden, wonach Sie gesucht haben? Sehen Sie sich diese zusätzlichen Best-Practices-Artikel an:
 
-- [Formate für Push-Nachrichten und Bilder]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/)
-- [Push-Primer-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)
-- [Zustellbarkeit für chinesische Android-Geräte]({{site.baseurl}}/user_guide/channels/push/best_practices/chinese_push_deliverability/)
-- [Vor dem Senden beachten: Kanäle]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send/)
+- [Formate für Push-Nachrichten und Bilder]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats)
+- [Push-Primer-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)
+- [Zustellbarkeit für chinesische Android-Geräte]({{site.baseurl}}/user_guide/channels/push/best_practices/chinese_push_deliverability)
+- [Vor dem Senden beachten: Kanäle]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send)

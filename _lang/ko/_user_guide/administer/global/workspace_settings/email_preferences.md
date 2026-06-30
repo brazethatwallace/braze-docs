@@ -33,7 +33,7 @@ toc_headers: h2
 
 #### Liquid로 개인화하기 {#personalize-with-liquid}
 
-**From Display Name**, **Local Part**, **Domain** 필드에서 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)를 사용하여 커스텀 속성을 기반으로 발신자 이름과 이메일 주소를 동적으로 템플릿화할 수 있습니다. **Domain** 필드에서 Liquid를 사용하려면 이메일 Campaign의 **Sending Info** 옵션으로 이동하여 **Customize from display name + address** 체크박스를 선택해야 합니다.
+**From Display Name**, **Local Part**, **Domain** 필드에서 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)를 사용하여 커스텀 속성을 기반으로 발신자 이름과 이메일 주소를 동적으로 템플릿화할 수 있습니다. **Domain** 필드에서 Liquid를 사용하려면 이메일 Campaign의 **Sending Info** 옵션으로 이동하여 **Customize from display name + address** 체크박스를 선택해야 합니다.
 
 ![보낸 사람 표시 이름, 주소, 도메인을 사용자 지정하는 필드가 있는 발송 설정.]({% image_buster /assets/img/email_settings/email_campaign_domain.png %})
 
@@ -64,16 +64,16 @@ Braze 발송 도메인은 수신 이메일을 수락하지 않습니다. 수신�
 
 #### Liquid로 개인화하기
 
-**Reply-To Address** 필드에서 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)를 사용하여 커스텀 속성을 기반으로 회신 주소를 동적으로 템플릿화할 수도 있습니다. 예를 들어, 조건 로직을 사용하여 다른 지역이나 부서로 회신을 보낼 수 있습니다:
+**Reply-To Address** 필드에서 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)를 사용하여 커스텀 속성을 기반으로 회신 주소를 동적으로 템플릿화할 수도 있습니다. 예를 들어, 조건 로직을 사용하여 다른 지역이나 부서로 회신을 보낼 수 있습니다:
 
 {% raw %}
 ```liquid
 {% if {{custom_attribute.${region}}} == 'US' %}
-{% assign address = "us-support@company.com" %}
+{% assign address = "us-support@example.com" %}
 {% elsif {{custom_attribute.${region}}} == 'EU' %}
-{% assign address = "eu-support@company.com" %}
+{% assign address = "eu-support@example.com" %}
 {% else %}
-{% assign address = "global-support@company.com" %}{% endif %}{{address}}
+{% assign address = "global-support@example.com" %}{% endif %}{{address}}
 ```
 {% endraw %}
 
@@ -82,7 +82,7 @@ Braze 발송 도메인은 수신 이메일을 수락하지 않습니다. 수신�
 
 이 섹션에서는 Braze에서 발송하는 발신 이메일 메시지에 추가할 수 있는 BCC 주소를 관리할 수 있습니다. 이메일 메시지에 BCC 주소를 추가하면 사용자가 수신하는 메시지의 동일한 사본이 BCC 받은편지함으로 전송됩니다. 이는 규정 준수 요구 사항이나 고객지원 문제를 위해 사용자에게 보낸 메시지의 사본을 보관하는 데 유용한 도구입니다. BCC 이메일은 이메일 보고서 및 분석에 포함되지 않습니다.
 
-BCC 주소는 Amazon SES, SendGrid, SparkPost에서 사용할 수 있습니다. BCC 주소의 대안으로, 아카이브 또는 규정 준수 목적으로 사용자에게 보낸 메시지의 사본을 저장하려면 [메시지 아카이빙]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving/)을 사용하는 것을 권장합니다.
+BCC 주소는 Amazon SES, SendGrid, SparkPost에서 사용할 수 있습니다. BCC 주소의 대안으로, 아카이브 또는 규정 준수 목적으로 사용자에게 보낸 메시지의 사본을 저장하려면 [메시지 아카이빙]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving)을 사용하는 것을 권장합니다.
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
@@ -113,7 +113,7 @@ Braze의 기본 동작은 이메일 하단, 일반적으로 `<body>` 태그에 �
 
 픽셀은 시각적 변화를 최소화하도록 이미 스타일이 적용되어 있지만, 의도하지 않은 시각적 변화가 있더라도 이메일 하단에서 가장 눈에 띄지 않습니다. 이는 SendGrid 및 SparkPost와 같은 이메일 서비스 공급자의 기본값이기도 합니다.
 
-예기치 않은 동작을 줄이려면 Liquid를 `<html>` 태그 안에 유지하세요. 중첩되거나 중복된 문서 수준 태그는 이메일이 구문 분석되는 방식과 픽셀이 배치되는 위치를 변경하여 열람 추적 및 레이아웃에 영향을 줄 수 있습니다. 자세한 내용은 [Liquid 사용하기]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/)를 참조하세요.
+예기치 않은 동작을 줄이려면 Liquid를 `<html>` 태그 안에 유지하세요. 중첩되거나 중복된 문서 수준 태그는 이메일이 구문 분석되는 방식과 픽셀이 배치되는 위치를 변경하여 열람 추적 및 레이아웃에 영향을 줄 수 있습니다. 자세한 내용은 [Liquid 사용하기]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid)를 참조하세요.
 
 ### 배치 업데이트 {#update-the-placement}
 
@@ -235,7 +235,7 @@ Braze가 위의 방법 중 하나를 통해 사용자로부터 목록 탈퇴 요
     - 구독 그룹을 선택할 때 **타겟 오디언스**에서 **구독 그룹** 필터를 추가하여 이 특정 그룹에 가입한 사용자만 타겟팅합니다. 원클릭 탈퇴에 선택한 구독 그룹은 타겟팅하는 구독 그룹과 일치해야 합니다. 구독 그룹이 일치하지 않으면 이미 탈퇴한 구독 그룹에서 탈퇴하려는 사용자에게 발송할 위험이 있습니다.
 
 {% alert important %}
-**Unsubscribe from specific subscription group** 설정은 원클릭 목록 탈퇴 헤더에만 적용됩니다. mailto 목록 탈퇴 헤더는 이 옵션을 선택해도 영향을 받지 않습니다. 즉, 이 방법을 사용하여 탈퇴하는 수신자는 특정 구독 그룹이 아닌 글로벌 탈퇴를 기록합니다. 이 설정을 선택할 때 mailto 목록 탈퇴 헤더가 사용자를 전체 탈퇴시키지 않도록 하려면 [고객지원]({{site.baseurl}}/support_contact/)에 문의하세요.
+**Unsubscribe from specific subscription group** 설정은 원클릭 목록 탈퇴 헤더에만 적용됩니다. mailto 목록 탈퇴 헤더는 이 옵션을 선택해도 영향을 받지 않습니다. 즉, 이 방법을 사용하여 탈퇴하는 수신자는 특정 구독 그룹이 아닌 글로벌 탈퇴를 기록합니다. 이 설정을 선택할 때 mailto 목록 탈퇴 헤더가 사용자를 전체 탈퇴시키지 않도록 하려면 [고객지원]({{site.baseurl}}/support_contact)에 문의하세요.
 {% endalert %}
 
 - **Custom**: 탈퇴를 직접 처리할 수 있도록 커스텀 원클릭 탈퇴 URL을 추가합니다.
@@ -272,7 +272,7 @@ Braze가 위의 방법 중 하나를 통해 사용자로부터 목록 탈퇴 요
 
 CSS 인라인은 이메일 및 새 이메일의 CSS 스타일을 자동으로 인라인하는 기술입니다. 일부 이메일 클라이언트의 경우 이메일 렌더링 방식을 개선할 수 있습니다.
 
-이 설정을 변경해도 기존 이메일 메시지나 템플릿에는 영향을 미치지 않습니다. 메시지나 템플릿을 작성하는 동안 언제든지 이 기본값을 재정의할 수 있습니다. 자세한 내용은 [CSS 인라인]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline/)을 참조하세요.
+이 설정을 변경해도 기존 이메일 메시지나 템플릿에는 영향을 미치지 않습니다. 메시지나 템플릿을 작성하는 동안 언제든지 이 기본값을 재정의할 수 있습니다. 자세한 내용은 [CSS 인라인]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline)을 참조하세요.
 
 ## 이메일 변경 시 사용자 재가입 {#resubscribe-users-when-their-email-changes}
 
@@ -293,7 +293,7 @@ CSS 인라인은 이메일 및 새 이메일의 CSS 스타일을 자동으로 �
 
 ![CAN-SPAM 준수를 위한 탈퇴 링크 및 우편 주소 필드가 있는 사용자 지정 이메일 바닥글 편집기.]({% image_buster /assets/img/email_settings/custom_footer.png %})
 
-사용자 지정 바닥글 Liquid 템플릿에 대해 자세히 알아보려면 [사용자 지정 바닥글]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions)을 참조하세요.
+사용자 지정 바닥글 Liquid 템플릿에 대해 자세히 알아보려면 [사용자 지정 바닥글]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions)을 참조하세요.
 
 {% endtab %}
 {% tab 사용자 지정 구독취소 페이지 %}
@@ -302,7 +302,7 @@ Braze에서는 자체 HTML로 **사용자 지정 구독취소 페이지**를 설
 
 ![사용자가 이메일에서 탈퇴한 후 표시되는 페이지의 사용자 지정 구독취소 페이지 HTML 편집기 및 미리보기.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
-이메일 목록 관리 모범 사례에 대해 자세히 알아보려면 [이메일 구독 관리]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses)를 참조하세요.
+이메일 목록 관리 모범 사례에 대해 자세히 알아보려면 [이메일 구독 관리]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses)를 참조하세요.
 
 {% endtab %}
 {% tab 사용자 지정 옵트인 페이지 %}
@@ -311,7 +311,7 @@ Braze에서는 자체 HTML로 **사용자 지정 구독취소 페이지**를 설
 
 ![브랜드 이메일 구독 확인을 위한 사용자 지정 옵트인 페이지 HTML 편집기 및 미리보기.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
-이메일 목록 관리 모범 사례에 대해 자세히 알아보려면 [이메일 구독 관리]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses)를 참조하세요.
+이메일 목록 관리 모범 사례에 대해 자세히 알아보려면 [이메일 구독 관리]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses)를 참조하세요.
 
 {% endtab %}
 {% endtabs %}
@@ -367,7 +367,7 @@ A/B 테스트가 있는 Campaign의 경우, Braze는 사용자에게 배리언�
 {% enddetails %}
 
 {% details 원클릭 탈퇴 설정은 이메일 템플릿에서 사용할 수 있나요? %}
-아니요, 현재 이메일 템플릿에 이 기능을 추가할 계획은 없습니다. 이러한 템플릿은 발송 도메인에 할당되지 않기 때문입니다. 이메일 템플릿에 이 기능이 필요한 경우 [제품 피드백]({{site.baseurl}}/user_guide/administer/personal/product_portal/)을 제출하세요.
+아니요, 현재 이메일 템플릿에 이 기능을 추가할 계획은 없습니다. 이러한 템플릿은 발송 도메인에 할당되지 않기 때문입니다. 이메일 템플릿에 이 기능이 필요한 경우 [제품 피드백]({{site.baseurl}}/user_guide/administer/personal/product_portal)을 제출하세요.
 {% enddetails %}
 
 {% details 이 기능은 커스텀 옵션에 추가된 원클릭 탈퇴 URL이 유효한지 확인하나요? %}

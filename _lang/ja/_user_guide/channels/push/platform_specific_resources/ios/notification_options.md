@@ -19,7 +19,7 @@ channel:
 
 メッセージをカテゴリ分けし、ユーザーの通知トレイでグループ化したい場合は、Brazeを通じてiOSの通知グループ機能を活用できます。
 
-iOSプッシュキャンペーンを作成し、**設定**タブに移動して**通知グループ**ドロップダウンを開きます。
+iOSプッシュCampaignを作成し、**設定**タブに移動して**通知グループ**ドロップダウンを開きます。
 
 ![「設定」タブに「通知グループ」ドロップダウンがあり、「Coupons」の値が選択されている画面。]({% image_buster /assets/img_archive/notification_group_dropdown.png %}){: style="max-width:50%;" }
 
@@ -29,11 +29,11 @@ iOSプッシュキャンペーンを作成し、**設定**タブに移動して*
 
 ![iOSプッシュ通知グループを管理するウィンドウ。]({% image_buster /assets/img_archive/managenotgroups.png %}){: style="max-width:70%;" }
 
-iOSプッシュキャンペーンを作成し、コンポーザーの上部を確認します。そこに**Notification Groups**というラベルのドロップダウンが表示されます。
+iOSプッシュCampaignを作成し、コンポーザーの上部を確認します。そこに**Notification Groups**というラベルのドロップダウンが表示されます。
 
 ### サマリー引数 {#summary-arguments}
 
-スレッドIDによる通知のグループ化に加えて、Appleでは通知がグループ化された際に表示されるサマリーを編集できます。Brazeユーザーは、プッシュキャンペーンを作成する際に、サマリーカテゴリ、サマリーカウント、サマリー引数を指定できます。
+スレッドIDによる通知のグループ化に加えて、Appleでは通知がグループ化された際に表示されるサマリーを編集できます。Brazeユーザーは、プッシュCampaignを作成する際に、サマリーカテゴリ、サマリーカウント、サマリー引数を指定できます。
 
 {% alert tip %}
 同じスレッドIDを持つ通知が通知トレイでどのようにグループ化されるかは、OSの制御下にあります。iOSは、最適と判断した内容に応じて、同じスレッドIDを持つ通知を個別に表示したり、グループ化して表示したりする場合があります。
@@ -77,14 +77,14 @@ Appleでは、ユーザーが正式に明示的にオプトインする前に、
 従来のiOSプッシュトークンとは異なり、仮プッシュトークンは「お試しパス」として機能し、ユーザーがAppleのネイティブプッシュオプトインプロンプトを見てクリックする前に、ブランドが新規ユーザーにリーチできるようにします。この機能により、プッシュ通知は新規ユーザーの通知トレイに直接配信され、今後の通知を「保持」または「オフにする」オプションが表示されます。「オプトイン」の体験ではなく、「オプトアウト」に近い体験をユーザーに提供します。
 
 {% alert tip %}
-仮認証はオプトイン率を大幅に向上させる可能性がありますが、ユーザーがメッセージに価値を感じる場合に限ります。[ユーザーセグメンテーション]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)、[ロケーションターゲティング]({{site.baseurl}}/user_guide/audience/locations_and_geofences/)、[パーソナライゼーション]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)機能を活用して、適切なユーザーが適切なタイミングでこれらの「お試し」通知を受け取れるようにしてください。その後、プッシュ通知がアプリ体験に価値を加えることを理解したユーザーに、完全なオプトインを促すことができます。
+仮認証はオプトイン率を大幅に向上させる可能性がありますが、ユーザーがメッセージに価値を感じる場合に限ります。[ユーザーセグメンテーション]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)、[ロケーションターゲティング]({{site.baseurl}}/user_guide/audience/locations_and_geofences)、[パーソナライゼーション]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)機能を活用して、適切なユーザーが適切なタイミングでこれらの「お試し」通知を受け取れるようにしてください。その後、プッシュ通知がアプリ体験に価値を加えることを理解したユーザーに、完全なオプトインを促すことができます。
 {% endalert %}
 
-ユーザーがどちらのオプションを選択しても、適切なトークンまたは[サブスクリプションステータス]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/)がユーザープロファイルの**エンゲージメント**タブにある[連絡先設定]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#engagement-tab)に追加されます。
+ユーザーがどちらのオプションを選択しても、適切なトークンまたは[サブスクリプションステータス]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states)がユーザープロファイルの**エンゲージメント**タブにある[連絡先設定]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab)に追加されます。
 
 ![プッシュ購読中ステータスが表示された連絡先設定。]({% image_buster /assets/img/profile-push-prov-auth.png %}){: width="50%"}
 
-[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)を使用して、仮認証されているかどうかに基づいてユーザーをターゲットにできます。
+[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)を使用して、仮認証されているかどうかに基づいてユーザーをターゲットにできます。
 
 ![セグメントの詳細パネルに、ユーザーをターゲットにするためのサンプルセグメントフィルター「Provisionally Authorized on iOS Stopwatch (iOS) is true」が表示されている画面。]({% image_buster /assets/img/segment-push-prov-auth.png %})
 
@@ -98,10 +98,10 @@ Appleでは、ユーザーが正式に明示的にオプトインする前に、
 
 #### 仮プッシュ通知の設定 {#set-up-provisional-push-notifications}
 
-Brazeでは、Braze iOS SDKの実装内のトークン登録スニペットでコードを更新することで、仮認証に登録できます。以下のスニペットを例として使用してください（開発者に送信するか、[統合プロセス中に仮プッシュ認証を実装]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#using-usernotification-framework-ios-10)してもらってください）。
+Brazeでは、Braze iOS SDKの実装内のトークン登録スニペットでコードを更新することで、仮認証に登録できます。以下のスニペットを例として使用してください（開発者に送信するか、[統合プロセス中に仮プッシュ認証を実装]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#using-usernotification-framework-ios-10)してもらってください）。
 
 {% alert warning %}
-仮プッシュ認証の実装はiOS 12以降のみをサポートしており、デプロイメントターゲットがそれ以前の場合はエラーが発生します。詳細については、[こちらの詳細な実装ドキュメント]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#using-usernotification-framework-ios-10)をご覧ください。
+仮プッシュ認証の実装はiOS 12以降のみをサポートしており、デプロイメントターゲットがそれ以前の場合はエラーが発生します。詳細については、[こちらの詳細な実装ドキュメント]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#using-usernotification-framework-ios-10)をご覧ください。
 {% endalert %}
 
 {% tabs local %}
@@ -138,7 +138,7 @@ iOS 15の新しい集中モードにより、ユーザーはアプリの通知�
 
 アプリは、通知の緊急度に基づいて、通知に含める中断レベルを指定できるようになりました。
 
-iOSプッシュ通知の中断レベルを変更するには、**Settings**タブを選択し、**Interruption Level**ドロップダウンメニューから希望のレベルを選択します。
+iOSプッシュ通知の中断レベルを変更するには、**設定**タブを選択し、**Interruption Level**ドロップダウンメニューから希望のレベルを選択します。
 
 ![中断レベルを選択するドロップダウン。]({% image_buster /assets/img/ios/interruption_level.png %}){: style="max-width:50%"}
 
@@ -154,7 +154,7 @@ iOSプッシュ通知の中断レベルを変更するには、**Settings**タ�
 | [アクティブ](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/active)（デフォルト） | ユーザーが集中モードでない場合にのみ、サウンド、バイブレーション、画面の点灯を行います。 | ユーザーが集中モードを有効にしていない限り、即時の注意を必要とする通知。 | いいえ |
 | [時間的制約あり](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/timesensitive) | 集中モード中でもサウンド、バイブレーション、画面の点灯を行います。これには、Xcodeでアプリに**Time Sensitive Notifications capability**を追加する必要があります。 | ライドシェアや配達通知など、集中モードに関係なくユーザーに通知すべきタイムリーな通知。 | はい |
 | [クリティカル](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/critical) | 電話の**おやすみモード**スイッチが有効になっていても、サウンド、バイブレーション、画面の点灯を行います。これには[Appleによる明示的な承認が必要です](https://developer.apple.com/contact/request/notifications-critical-alerts-entitlement/)。 | 悪天候や安全警報などの緊急事態。 | はい |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="中断レベル（iOS 15以降）" }
 
 ### 関連性スコア（iOS 15以降） {#relevance-score}
 
@@ -166,7 +166,7 @@ iOS 15では、1日を通じて指定した時間に複数の通知をダイジ�
 
 すべての通知は、ユーザーの通知センターで引き続きアクセスできます。
 
-iOS通知の関連性スコアを設定するには、**Settings**タブで`0.0`から`1.0`の間の値を入力します。たとえば、最も重要なメッセージは`1.0`で送信し、中程度の重要度のメッセージは`0.5`で送信します。
+iOS通知の関連性スコアを設定するには、**設定**タブで`0.0`から`1.0`の間の値を入力します。たとえば、最も重要なメッセージは`1.0`で送信し、中程度の重要度のメッセージは`0.5`で送信します。
 
 ![関連性スコア「0.5」。]({% image_buster /assets/img/ios/relevance-score.png %}){: style="max-width:80%;"}
 
@@ -174,5 +174,5 @@ iOS通知の関連性スコアを設定するには、**Settings**タブで`0.0`
 
 さまざまなメッセージタイプの最大メッセージ長の詳細については、以下のリソースを参照してください：
 
-- [画像とテキストの仕様]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/)
-- [iOS文字数ガイドライン]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count)
+- [画像とテキストの仕様]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats)
+- [iOS文字数ガイドライン]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications#character-count)

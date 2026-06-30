@@ -65,7 +65,7 @@ Si no puedes o no quieres usar los CDN listados para el seguimiento de clics y a
 ### Recursos adicionales {#additional-resources}
 
 {% alert important %}
-Para la solución de problemas de configuración de tu CDN, ponte en contacto con tu proveedor de CDN o consulta [Solución de problemas]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/) para obtener orientación general.
+Para la solución de problemas de configuración de tu CDN, ponte en contacto con tu proveedor de CDN o consulta [Solución de problemas]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting) para obtener orientación general.
 {% endalert %}
 
 Consulta los siguientes recursos de los socios ESP sobre cómo configurar ciertos CDN. Aunque tu CDN específico puede no estar listado, debes asegurarte de que tu CDN tenga la capacidad de aplicar certificados SSL.
@@ -103,4 +103,4 @@ Cuando configures el dominio de seguimiento de clics de tu CDN, habilita el enca
 
 ## Solución de problemas {#troubleshooting}
 
-Aunque debes gestionar la configuración del CDN, los certificados y los problemas de proxy con tu CDN, usa estos consejos para identificar problemas comunes de seguimiento de clics con SSL. Para obtener orientación sobre la solución de problemas, consulta [Solución de problemas]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/).
+Aunque debes gestionar la configuración del CDN, los certificados y los problemas de proxy con tu CDN, usa estos consejos para identificar problemas comunes de seguimiento de clics con SSL. Para obtener orientación sobre la solución de problemas, consulta [Solución de problemas]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting).

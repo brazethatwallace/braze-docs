@@ -15,15 +15,15 @@ description: "이 문서에서는 `POST /media_library/create` 엔드포인트�
 /media_library/create
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 외부 호스팅된 URL(`asset_url`) 또는 요청 본문에 전송된 바이너리 파일 데이터(`asset_file`)를 사용하여 [Braze 미디어 라이브러리]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/)에 자산을 추가합니다. 이 엔드포인트는 이미지와 이미지를 포함하는 ZIP 파일을 지원합니다.
+> 이 엔드포인트를 사용하여 외부 호스팅된 URL(`asset_url`) 또는 요청 본문에 전송된 바이너리 파일 데이터(`asset_file`)를 사용하여 [Braze 미디어 라이브러리]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library)에 자산을 추가합니다. 이 엔드포인트는 이미지와 이미지를 포함하는 ZIP 파일을 지원합니다.
 
 {% alert tip %}
-[Braze MCP 서버]({{site.baseurl}}/user_guide/brazeai/mcp_server/)를 통해 [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#media-library) 함수를 사용하여 이 엔드포인트를 호출할 수도 있습니다. 이를 통해 Claude 및 Cursor와 같은 AI 도구가 자연어 프롬프트를 통해 미디어 라이브러리에 자산을 업로드할 수 있습니다.
+[Braze MCP 서버]({{site.baseurl}}/user_guide/brazeai/mcp_server)를 통해 [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library) 함수를 사용하여 이 엔드포인트를 호출할 수도 있습니다. 이를 통해 Claude 및 Cursor와 같은 AI 도구가 자연어 프롬프트를 통해 미디어 라이브러리에 자산을 업로드할 수 있습니다.
 {% endalert %}
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `media_library.create` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `media_library.create` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -154,7 +154,7 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 | `ZIP_FILE_TOO_LARGE` | 400 | ZIP 파일의 총 압축 해제 크기가 5MB 제한을 초과합니다. `meta` 오브젝트에는 `zip_file_name`과 `zip_file_size`가 포함되어 있습니다. |
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | ZIP 내부의 파일 항목에 이름이 없습니다. ZIP 파일이 손상되지 않았는지 확인하고 이름이 없는 파일 항목에 이름을 추가하세요. |
 | `ZIPPED_ENTITY_CANNOT_HAVE_NESTED_DIRECTORY` | 400 | ZIP 파일에 지원되지 않는 중첩 디렉토리가 포함되어 있습니다. 모든 파일은 ZIP의 루트 수준에 있어야 합니다. |
-| `GENERIC_ERROR` | 500 | 업로드 중 예기치 않은 오류가 발생했습니다. `meta` 오브젝트에는 디버깅을 위한 `original_error` 메시지가 포함되어 있습니다. 다시 시도하거나 [고객지원]({{site.baseurl}}/support_contact/)에 문의하세요. |
+| `GENERIC_ERROR` | 500 | 업로드 중 예기치 않은 오류가 발생했습니다. `meta` 오브젝트에는 디버깅을 위한 `original_error` 메시지가 포함되어 있습니다. 다시 시도하거나 [고객지원]({{site.baseurl}}/support_contact)에 문의하세요. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="처리 오류" }
 
 

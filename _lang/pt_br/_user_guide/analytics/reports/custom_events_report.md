@@ -34,7 +34,7 @@ Use as opções a seguir para personalizar quais dados aparecem no gráfico **De
 Para exportar os dados de eventos personalizados, selecione <i class="fas fa-bars" title="Menu de contexto do gráfico"></i> **Menu de contexto do gráfico** no gráfico **Desempenho ao longo do tempo** e selecione a opção de exportação desejada.
 
 {% alert tip %}
-Para ajuda com exportações de CSV e API, consulte [Solução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Para ajuda com exportações de CSV e API, consulte [Solução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 ## Solução de problemas {#troubleshooting}

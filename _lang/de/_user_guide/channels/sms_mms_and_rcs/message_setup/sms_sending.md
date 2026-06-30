@@ -18,7 +18,7 @@ channel:
 
 ### Abo-Gruppe auswählen {#select-your-subscription-group}
 
-SMS-Nachrichten müssen über eine [Abo-Gruppe]({{site.baseurl}}/sms_rcs_subscription_groups/) gesendet werden. Eine Abo-Gruppe ist eine Sammlung von Sende-Telefonnummern (wie Shortcodes, Langcodes und/oder alphanumerische Sender-IDs), die für einen bestimmten Messaging-Zweck verwendet werden. Sie müssen eine Abo-Gruppe festlegen, um sicherzustellen, dass nur abonnierte Nutzer:innen angesprochen werden. Einige Kunden stellen möglicherweise fest, dass sie mehrere Abo-Gruppen für verschiedene Anwendungsfälle haben, z. B. für transaktionsbezogenes SMS-Messaging und werbliches SMS-Messaging.<br><br>
+SMS-Nachrichten müssen über eine [Abo-Gruppe]({{site.baseurl}}/sms_rcs_subscription_groups) gesendet werden. Eine Abo-Gruppe ist eine Sammlung von Sende-Telefonnummern (wie Shortcodes, Langcodes und/oder alphanumerische Sender-IDs), die für einen bestimmten Messaging-Zweck verwendet werden. Sie müssen eine Abo-Gruppe festlegen, um sicherzustellen, dass nur abonnierte Nutzer:innen angesprochen werden. Einige Kunden stellen möglicherweise fest, dass sie mehrere Abo-Gruppen für verschiedene Anwendungsfälle haben, z. B. für transaktionsbezogenes SMS-Messaging und werbliches SMS-Messaging.<br><br>
 
 ### Nachrichtentext eingeben {#input-message-body}
 
@@ -30,10 +30,10 @@ SMS-Nachrichten-Segmente sind die Art und Weise, wie die SMS-Branche Nachrichten
 
 ### Schlüsselwort-Anpassung (optional) {#keyword-customization-optional}
 
-Vorschriften verlangen, dass es Antworten auf alle Opt-in-, Opt-out- und Hilfe-/Info-SMS-Schlüsselwortantworten gibt. Mit Braze können Sie Ihre eigenen Schlüsselwörter definieren, um Opt-in-, Opt-out- und Hilfe-Antworten auszulösen, Ihre eigenen Antworten verwalten, die an Nutzer:innen gesendet werden, und Schlüsselwort-Sets für verschiedene Sprachen festlegen. Weitere Informationen finden Sie in unserer Sammlung zur [Schlüsselwortverarbeitung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/).
+Vorschriften verlangen, dass es Antworten auf alle Opt-in-, Opt-out- und Hilfe-/Info-SMS-Schlüsselwortantworten gibt. Mit Braze können Sie Ihre eigenen Schlüsselwörter definieren, um Opt-in-, Opt-out- und Hilfe-Antworten auszulösen, Ihre eigenen Antworten verwalten, die an Nutzer:innen gesendet werden, und Schlüsselwort-Sets für verschiedene Sprachen festlegen. Weitere Informationen finden Sie in unserer Sammlung zur [Schlüsselwortverarbeitung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing).
 
 {% alert tip %}
-Möchten Sie erfahren, wie Sie eine SMS-Campaign erstellen? Lesen Sie unsere Schritt-für-Schritt-Anleitung zum [Erstellen einer SMS-, MMS- oder RCS-Nachricht]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/).
+Möchten Sie erfahren, wie Sie eine SMS-Campaign erstellen? Lesen Sie unsere Schritt-für-Schritt-Anleitung zum [Erstellen einer SMS-, MMS- oder RCS-Nachricht]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).
 {% endalert %}
 
-Best Practices für den Versand, einschließlich Anleitungen für den Versand in mehrere Länder und für hohe Volumina, finden Sie unter [Best Practices für SMS, MMS und RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/best_practices/).
+Best Practices für den Versand, einschließlich Anleitungen für den Versand in mehrere Länder und für hohe Volumina, finden Sie unter [Best Practices für SMS, MMS und RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/best_practices).

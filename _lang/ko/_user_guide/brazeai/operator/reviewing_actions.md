@@ -33,7 +33,7 @@ Operator가 대시보드에서 변경 사항(예: 양식 필드 입력, 설정 �
     - 푸시 알림
     - SMS/MMS/RCS
     - 웹훅
-- [커스텀 에이전트 생성]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/) 페이지
+- [커스텀 에이전트 생성]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents) 페이지
 
 다른 페이지에서는 Operator가 직접 동작을 수행하지 않고 UI에서 따라야 할 단계 목록을 제공합니다. Operator 기능은 지속적으로 개선되고 있으며, 생성 도구에 대한 지원 범위 확대가 예상됩니다.
 
@@ -54,4 +54,4 @@ Operator의 계획을 수정하려면 먼저 보류 중인 동작을 승인하�
 
 자동 승인은 페이지를 새로고침하거나 새 탭을 열거나 로그아웃 후 다시 로그인할 때 초기화됩니다. 대시보드에서 페이지를 이동해도 초기화되지 않습니다. 자동 승인은 언제든지 해제할 수 있습니다.
 
-Operator 접근 권한 제한 및 팀 사용 감사에 대한 자세한 내용은 [데이터 프라이버시 및 보안]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/)을 참조하세요.
+Operator 접근 권한 제한 및 팀 사용 감사에 대한 자세한 내용은 [데이터 프라이버시 및 보안]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security)을 참조하세요.

@@ -36,9 +36,9 @@ Administradores da Braze e usuários limitados com a permissão de nível de emp
 
 ### Limitar permissões de um usuário da empresa sem excluí-lo {#limit-company-user-permissions-without-deleting-a-user}
 
-Para impedir que um usuário da empresa faça login sem excluir a conta dele, [suspenda o usuário]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users). A suspensão coloca a conta em um estado inativo, impedindo o login.
+Para impedir que um usuário da empresa faça login sem excluir a conta dele, [suspenda o usuário]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users). A suspensão coloca a conta em um estado inativo, impedindo o login.
 
-Se o usuário precisar continuar com acesso limitado, acesse **Configurações** > **Usuários da empresa**, selecione o usuário e edite suas permissões. Remova as permissões de nível de espaço de trabalho para Campaigns, Canvas, Segments e dados de usuários, e deixe apenas o acesso mínimo — por exemplo, "View Media Library Assets". Para saber mais, consulte [Editar permissões de um usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#edit-a-users-permissions).
+Se o usuário precisar continuar com acesso limitado, acesse **Configurações** > **Usuários da empresa**, selecione o usuário e edite suas permissões. Remova as permissões de nível de espaço de trabalho para Campaigns, Canvas, Segments e dados de usuários, e deixe apenas o acesso mínimo — por exemplo, "View Media Library Assets". Para saber mais, consulte [Editar permissões de um usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
 
 As permissões de Equipe funcionam em cima das permissões de espaço de trabalho. Se você atribuir o usuário a uma Equipe, conceda apenas as permissões mínimas de nível de equipe necessárias e não conceda permissões para Campaigns, Canvas, Segments ou perfis de usuário. Ele permanecerá no espaço de trabalho e poderá fazer login, mas não poderá executar a maioria das ações de envio de mensagens ou de público.
 
@@ -102,7 +102,7 @@ A seguir estão todas as permissões disponíveis que você pode atribuir no ní
 - Edit Dashboard Reports
 - Delete Dashboard Reports
 
-Para ver descrições do que cada permissão de usuário inclui e como usá-las, consulte nossa seção [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Para ver descrições do que cada permissão de usuário inclui e como usá-las, consulte nossa seção [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ## Atribuir tags de Equipe {#tags-and-filters}
 

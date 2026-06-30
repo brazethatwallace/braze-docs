@@ -42,7 +42,7 @@ Por ejemplo, si estableces tu rango de fechas en **Últimos 7 días** y tus *Usu
 
 ### Mostrar desglose {#show-breakdown}
 
-Selecciona **Mostrar desglose** para cada fila de las estadísticas del resumen de rendimiento para ver el valor de cada estadística por día dentro del rango de fechas especificado.
+Selecciona **Show Breakdown** para cada fila de las estadísticas del resumen de rendimiento para ver el valor de cada estadística por día dentro del rango de fechas especificado.
 
 ### Rendimiento a lo largo del tiempo {#performance-over-time}
 
@@ -58,7 +58,7 @@ Puedes graficar estadísticas para:
 - Correo electrónico
 - Mensajes dentro de la aplicación
 - Fórmulas de KPI
-  - Selecciona **Administrar fórmulas de KPI** para crear una fórmula o editar una fórmula existente.
+  - Selecciona **Manage KPI Formulas** para crear una fórmula o editar una fórmula existente.
 - LINE
 - Usuarios activos al mes (MAU)
 - Nuevos usuarios
@@ -84,12 +84,12 @@ A continuación se presentan las definiciones de las estadísticas disponibles, 
 
 *Usuarios* es el número total de usuarios creados en ese espacio de trabajo. Esto incluye a todos los usuarios registrados que han utilizado tu aplicación o sitio web en cualquier momento, y aquellos que podrían no estar asociados con una aplicación o sitio web específico. Este número es el porcentaje de cuántos de tus usuarios históricos están representados como *Usuarios activos al mes* (MAU), lo cual es útil para ver la retención de usuarios durante un largo período de tiempo.
 
-Una proporción baja de MAU respecto a usuarios puede indicar que necesitas diversificar tus canales de mensajería o aumentar tus esfuerzos para contactar a los usuarios inactivos. Consulta nuestra guía rápida sobre [captar usuarios inactivos]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users/#capture-lapsing-users) para más información. En general, la proporción de MAU respecto a usuarios históricos inevitablemente disminuirá con el tiempo debido al abandono de usuarios, pero las herramientas de Braze pueden ayudarte a minimizar este efecto manteniendo a los usuarios comprometidos durante más tiempo.
+Una proporción baja de MAU respecto a usuarios puede indicar que necesitas diversificar tus canales de mensajería o aumentar tus esfuerzos para contactar a los usuarios inactivos. Consulta nuestra guía rápida sobre [captar usuarios inactivos]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users#capture-lapsing-users) para más información. En general, la proporción de MAU respecto a usuarios históricos inevitablemente disminuirá con el tiempo debido al abandono de usuarios, pero las herramientas de Braze pueden ayudarte a minimizar este efecto manteniendo a los usuarios comprometidos durante más tiempo.
 
 ### Sesiones históricas {#lifetime-sessions}
 
 *Sesiones históricas* es el recuento total de sesiones que Braze ha registrado desde la integración. Una sesión es cada vez que un usuario utiliza la aplicación o visita tu sitio web. Para una definición más precisa de cómo se definen las sesiones por plataforma, consulta los artículos correspondientes para desarrolladores sobre seguimiento de sesiones en
-[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [Android y FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android) o [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web).
+[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [Android y FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android) o [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web).
 
 ### Usuarios activos al mes {#monthly-active-users}
 
@@ -141,7 +141,7 @@ Las instantáneas de MAU se calculan una vez al día y nunca cambian retroactiva
 {% alert note %}
 Cuando integras Braze inicialmente, todos los usuarios aparecerán como nuevos usuarios porque Braze nunca había registrado una sesión para ellos antes.
 
-A diferencia de MAU, el recuento de *Nuevos usuarios* puede disminuir retroactivamente cuando Braze fusiona un perfil anónimo con un perfil identificado y convierte en huérfano el perfil anónimo. Braze elimina el perfil huérfano de los totales de uso de la aplicación, lo que puede reducir *Nuevos usuarios* para fechas que ya habías consultado. Para conocer el comportamiento de vinculación de perfiles, consulta [Ciclo de vida del perfil de usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
+A diferencia de MAU, el recuento de *Nuevos usuarios* puede disminuir retroactivamente cuando Braze fusiona un perfil anónimo con un perfil identificado y convierte en huérfano el perfil anónimo. Braze elimina el perfil huérfano de los totales de uso de la aplicación, lo que puede reducir *Nuevos usuarios* para fechas que ya habías consultado. Para conocer el comportamiento de vinculación de perfiles, consulta [Ciclo de vida del perfil de usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 {% endalert %}
 
 {% alert important %}

@@ -47,7 +47,7 @@ Sin embargo, si utilizas [Google Tag Manager]({{ site.baseurl }}/developer_guide
 ## Cómo empezar {#getting-started}
 
 {% alert tip %}
-Antes de empezar, asegúrate de haber leído la [guía de configuración inicial del SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) Web para saber más sobre nuestra integración de JavaScript en general.  <br><br>También puedes marcar la [referencia del SDK de JavaScript](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html) para obtener información detallada sobre los distintos métodos y opciones de configuración del SDK.
+Antes de empezar, asegúrate de haber leído la [guía de configuración inicial del SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) Web para saber más sobre nuestra integración de JavaScript en general.  <br><br>También puedes marcar la [referencia del SDK de JavaScript](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html) para obtener información detallada sobre los distintos métodos y opciones de configuración del SDK.
 {% endalert %}
 
 Para integrar el SDK Web de Braze, primero debes descargar una copia de la última biblioteca JavaScript. Esto se puede hacer utilizando NPM o descargándolo directamente desde el [CDN de Braze](https://js.appboycdn.com/web-sdk/latest/braze.min.js).
@@ -110,4 +110,4 @@ Para más información sobre las opciones de inicialización admitidas, visita l
 
 ## Push {#push}
 
-Los diálogos emergentes de las extensiones no permiten las solicitudes push (no tienen la barra de URL en la navegación). Así que para registrarte y solicitar el permiso push en el diálogo emergente de una extensión, tendrás que utilizar una solución alternativa para el dominio, como se describe en [Dominio push alternativo]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/push_notifications/alternate_push_domain).
+Los diálogos emergentes de las extensiones no permiten las solicitudes push (no tienen la barra de URL en la navegación). Así que para registrarte y solicitar el permiso push en el diálogo emergente de una extensión, tendrás que utilizar una solución alternativa de dominio, como se describe en [Dominio push alternativo]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/push_notifications/alternate_push_domain).

@@ -33,7 +33,7 @@ In diesem Abschnitt können Sie die Namen und E-Mail-Adressen hinzufügen, die v
 
 #### Mit Liquid personalisieren {#personalize-with-liquid}
 
-Sie können auch [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) in den Feldern **Anzeigename des Absenders**, **Lokaler Teil** und **Domain** verwenden, um den Absendernamen und die E-Mail-Adresse dynamisch auf Basis angepasster Attribute zu erstellen. Beachten Sie, dass Sie zur Verwendung von Liquid im Feld **Domain** in den **Sendeinformationen** einer E-Mail-Campaign das Kontrollkästchen **Customize from display name + address** aktivieren müssen.
+Sie können auch [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) in den Feldern **Anzeigename des Absenders**, **Lokaler Teil** und **Domain** verwenden, um den Absendernamen und die E-Mail-Adresse dynamisch auf Basis angepasster Attribute zu erstellen. Beachten Sie, dass Sie zur Verwendung von Liquid im Feld **Domain** in den **Sendeinformationen** einer E-Mail-Campaign das Kontrollkästchen **Customize from display name + address** aktivieren müssen.
 
 ![Sendeeinstellungen mit Feldern zur Anpassung des Anzeigenamens, der Adresse und der Domain des Absenders.]({% image_buster /assets/img/email_settings/email_campaign_domain.png %})
 
@@ -64,16 +64,16 @@ Braze-Sendedomains akzeptieren keine eingehenden E-Mails. Wenn eine Empfängerin
 
 #### Mit Liquid personalisieren
 
-Sie können auch [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) im Feld **Antwortadresse** verwenden, um die Antwortadresse dynamisch auf Basis angepasster Attribute zu erstellen. Sie können beispielsweise bedingte Logik verwenden, um Antworten an verschiedene Regionen oder Abteilungen zu senden:
+Sie können auch [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) im Feld **Antwortadresse** verwenden, um die Antwortadresse dynamisch auf Basis angepasster Attribute zu erstellen. Sie können beispielsweise bedingte Logik verwenden, um Antworten an verschiedene Regionen oder Abteilungen zu senden:
 
 {% raw %}
 ```liquid
 {% if {{custom_attribute.${region}}} == 'US' %}
-{% assign address = "us-support@company.com" %}
+{% assign address = "us-support@example.com" %}
 {% elsif {{custom_attribute.${region}}} == 'EU' %}
-{% assign address = "eu-support@company.com" %}
+{% assign address = "eu-support@example.com" %}
 {% else %}
-{% assign address = "global-support@company.com" %}{% endif %}{{address}}
+{% assign address = "global-support@example.com" %}{% endif %}{{address}}
 ```
 {% endraw %}
 
@@ -82,7 +82,7 @@ Sie können auch [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/
 
 In diesem Abschnitt können Sie BCC-Adressen verwalten, die an ausgehende E-Mail-Nachrichten von Braze angehängt werden können. Durch das Anhängen einer BCC-Adresse an eine E-Mail-Nachricht wird eine identische Kopie der Nachricht, die Ihre Nutzer:innen erhalten, an Ihren BCC-Posteingang gesendet. Dies ist ein nützliches Werkzeug, um Kopien von Nachrichten aufzubewahren, die Sie an Ihre Nutzer:innen gesendet haben, sei es für Compliance-Anforderungen oder Kundensupport-Zwecke. BCC-E-Mails sind nicht in E-Mail-Berichten und Analytics enthalten.
 
-BCC-Adressen sind für Amazon SES, SendGrid und SparkPost verfügbar. Als Alternative zu BCC-Adressen empfehlen wir die Verwendung der [Nachrichtenarchivierung]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving/), um eine Kopie der an Nutzer:innen gesendeten Nachrichten für Archivierungs- oder Compliance-Zwecke zu speichern.
+BCC-Adressen sind für Amazon SES, SendGrid und SparkPost verfügbar. Als Alternative zu BCC-Adressen empfehlen wir die Verwendung der [Nachrichtenarchivierung]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving), um eine Kopie der an Nutzer:innen gesendeten Nachrichten für Archivierungs- oder Compliance-Zwecke zu speichern.
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
@@ -113,7 +113,7 @@ Das Standardverhalten in Braze ist es, das Tracking-Pixel am Ende Ihrer E-Mail a
 
 Obwohl das Pixel bereits so gestaltet ist, dass es so wenige visuelle Änderungen wie möglich verursacht, wären unbeabsichtigte visuelle Änderungen am Ende einer E-Mail am wenigsten sichtbar. Dies ist auch der Standard für E-Mail-Anbieter wie SendGrid und SparkPost.
 
-Um unerwartetes Verhalten zu reduzieren, halten Sie Liquid innerhalb von `<html>`-Tags. Verschachtelte oder doppelte Tags auf Dokumentebene können die Analyse der E-Mail und die Platzierung des Pixels verändern, was sich auf das Open-Tracking und das Layout auswirken kann. Weitere Informationen finden Sie unter [Liquid verwenden]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/).
+Um unerwartetes Verhalten zu reduzieren, halten Sie Liquid innerhalb von `<html>`-Tags. Verschachtelte oder doppelte Tags auf Dokumentebene können die Analyse der E-Mail und die Platzierung des Pixels verändern, was sich auf das Open-Tracking und das Layout auswirken kann. Weitere Informationen finden Sie unter [Liquid verwenden]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid).
 
 ### Platzierung aktualisieren {#update-the-placement}
 
@@ -235,7 +235,7 @@ Gehen Sie in Ihrem E-Mail-Editor zu **Sending Settings** > **Sending Info**. Wä
     - Wenn Sie eine Abo-Gruppe auswählen, fügen Sie den Filter **Subscription Group** unter **Target Audiences** hinzu, um nur Nutzer:innen anzusprechen, die diese bestimmte Gruppe abonniert haben. Die für die One-Click-Abmeldung ausgewählte Abo-Gruppe muss mit der Abo-Gruppe übereinstimmen, die Sie ansprechen. Bei einer Nichtübereinstimmung der Abo-Gruppe riskieren Sie, an Nutzer:innen zu senden, die versuchen, sich von einer Abo-Gruppe abzumelden, von der sie bereits abgemeldet sind.
 
 {% alert important %}
-Die Einstellung **Unsubscribe from specific subscription group** gilt nur für den One-Click-List-Unsubscribe-Header. Der Mailto-List-Unsubscribe-Header wird bei Auswahl dieser Option nicht beeinflusst. Das bedeutet, dass eine Empfängerin oder ein Empfänger, die bzw. der sich über diese Methode abmeldet, eine globale Abmeldung protokolliert, nicht eine Abmeldung von der bestimmten Abo-Gruppe. Um den Mailto-List-Unsubscribe-Header von der globalen Abmeldung von Nutzer:innen auszuschließen, wenden Sie sich bei Auswahl dieser Einstellung an den [Support]({{site.baseurl}}/support_contact/).
+Die Einstellung **Unsubscribe from specific subscription group** gilt nur für den One-Click-List-Unsubscribe-Header. Der Mailto-List-Unsubscribe-Header wird bei Auswahl dieser Option nicht beeinflusst. Das bedeutet, dass eine Empfängerin oder ein Empfänger, die bzw. der sich über diese Methode abmeldet, eine globale Abmeldung protokolliert, nicht eine Abmeldung von der bestimmten Abo-Gruppe. Um den Mailto-List-Unsubscribe-Header von der globalen Abmeldung von Nutzer:innen auszuschließen, wenden Sie sich bei Auswahl dieser Einstellung an den [Support]({{site.baseurl}}/support_contact).
 {% endalert %}
 
 - **Custom**: Fügt Ihre angepasste One-Click-Abmelde-URL hinzu, damit Sie Abmeldungen direkt verarbeiten können.
@@ -272,7 +272,7 @@ Verwenden Sie den Schalter, um „[TEST]“ und „[SEED]“ in Ihren Test- und 
 
 CSS-Inlining ist eine Technik, die CSS-Stile automatisch für Ihre E-Mails und neuen E-Mails inline einfügt. Bei einigen E-Mail-Clients kann dies die Darstellung Ihrer E-Mails verbessern.
 
-Das Ändern dieser Einstellung hat keine Auswirkungen auf Ihre bestehenden E-Mail-Nachrichten oder Templates. Sie können diesen Standard jederzeit beim Erstellen von Nachrichten oder Templates überschreiben. Weitere Informationen finden Sie unter [CSS-Inlining]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline/).
+Das Ändern dieser Einstellung hat keine Auswirkungen auf Ihre bestehenden E-Mail-Nachrichten oder Templates. Sie können diesen Standard jederzeit beim Erstellen von Nachrichten oder Templates überschreiben. Weitere Informationen finden Sie unter [CSS-Inlining]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline).
 
 ## Nutzer:innen bei E-Mail-Änderung erneut abonnieren {#resubscribe-users-when-their-email-changes}
 
@@ -293,7 +293,7 @@ Beachten Sie die folgenden Anforderungen beim Erstellen einer angepassten Fußze
 
 ![Editor für angepasste E-Mail-Fußzeilen mit Feldern für Abmeldelink und Postanschrift zur CAN-SPAM-Konformität.]({% image_buster /assets/img/email_settings/custom_footer.png %})
 
-Weitere Informationen zum Liquid-Templating für angepasste Fußzeilen finden Sie unter [Angepasste Fußzeilen]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions).
+Weitere Informationen zum Liquid-Templating für angepasste Fußzeilen finden Sie unter [Angepasste Fußzeilen]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
 
 {% endtab %}
 {% tab Angepasste Abmeldeseite %}
@@ -302,7 +302,7 @@ Braze ermöglicht es Ihnen, eine **Angepasste Abmeldeseite** mit Ihrem eigenen H
 
 ![HTML-Editor und Vorschau für die angepasste Abmeldeseite, die nach der Abmeldung von E-Mails angezeigt wird.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
-Erfahren Sie mehr über Best Practices für die E-Mail-Listenverwaltung unter [E-Mail-Abos verwalten]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses).
+Erfahren Sie mehr über Best Practices für die E-Mail-Listenverwaltung unter [E-Mail-Abos verwalten]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses).
 
 {% endtab %}
 {% tab Angepasste Opt-in-Seite %}
@@ -311,7 +311,7 @@ Sie können eine angepasste Opt-in-Seite mit Ihrem eigenen HTML erstellen. Die E
 
 ![HTML-Editor und Vorschau für die angepasste Opt-in-Seite zur gebrandeten E-Mail-Abo-Bestätigung.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
-Erfahren Sie mehr über Best Practices für die E-Mail-Listenverwaltung unter [E-Mail-Abos verwalten]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses).
+Erfahren Sie mehr über Best Practices für die E-Mail-Listenverwaltung unter [E-Mail-Abos verwalten]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses).
 
 {% endtab %}
 {% endtabs %}
@@ -367,7 +367,7 @@ Wenn eine in den **Sendeinformationen** für One-Click referenzierte Abo-Gruppe 
 {% enddetails %}
 
 {% details Ist die One-Click-Abmeldeeinstellung für E-Mail-Templates verfügbar? %}
-Nein, wir planen derzeit nicht, dies für E-Mail-Templates hinzuzufügen, da diese Templates keiner Sendedomain zugewiesen sind. Wenn Sie an diesem Feature für E-Mail-Templates interessiert sind, reichen Sie [Produktfeedback]({{site.baseurl}}/user_guide/administer/personal/product_portal/) ein.
+Nein, wir planen derzeit nicht, dies für E-Mail-Templates hinzuzufügen, da diese Templates keiner Sendedomain zugewiesen sind. Wenn Sie an diesem Feature für E-Mail-Templates interessiert sind, reichen Sie [Produktfeedback]({{site.baseurl}}/user_guide/administer/personal/product_portal) ein.
 {% enddetails %}
 
 {% details Prüft dieses Feature, ob die zur angepassten Option hinzugefügte One-Click-Abmelde-URL gültig ist? %}

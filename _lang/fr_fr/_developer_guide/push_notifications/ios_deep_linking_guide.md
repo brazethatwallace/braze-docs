@@ -14,7 +14,7 @@ channel:
 
 > Ce guide vous aide à choisir la stratégie de création de liens profonds la mieux adaptée à votre application iOS, en fonction du canal de communication que vous utilisez et de votre recours ou non à un fournisseur de liens tiers tel que Branch.
 
-Pour plus de détails sur l'implémentation, consultez [Création de liens profonds]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift). Pour la résolution des problèmes, consultez [Résolution des problèmes de création de liens profonds]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/).
+Pour plus de détails sur l'implémentation, consultez [Création de liens profonds]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=swift). Pour la résolution des problèmes, consultez [Résolution des problèmes de création de liens profonds]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting).
 
 ## Choisir un type de lien {#choosing-a-link-type}
 
@@ -25,7 +25,7 @@ Il existe trois méthodes pour gérer les liens provenant des messages Braze dan
 | **Schéma personnalisé** | `myapp://products/123` | Notifications push, messages in-app, Content Cards | Non — le lien échoue |
 | **Lien universel** | `https://myapp.com/products/123` | E-mails, SMS, canaux avec suivi des clics | Oui — bascule vers le web |
 | **Ouvrir l'URL web dans l'application** | Toute URL `https://` | Affichage de contenu web dans une WebView modale | N/A — s'affiche dans la WebView |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Choosing a link type" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Choisir un type de lien" }
 
 ### Liens profonds avec schéma personnalisé {#custom-scheme-deep-links}
 
@@ -75,7 +75,7 @@ Cette option ouvre une page web dans une WebView modale au sein de votre applica
 | `Info.plist` | Enregistrez votre schéma sous `CFBundleURLTypes` et ajoutez-le à `LSApplicationQueriesSchemes` |
 | Méthode déléguée de l'application | Implémentez `application(_:open:options:)` pour analyser l'URL et naviguer |
 | Configuration du SDK Braze | Aucune — le SDK ouvre les URL avec schéma personnalisé par défaut |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom scheme deep links" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liens profonds avec schéma personnalisé" }
 
 ### Liens universels
 
@@ -86,10 +86,10 @@ Cette option ouvre une page web dans une WebView modale au sein de votre applica
 | Méthode déléguée de l'application | Implémentez `application(_:continue:restorationHandler:)` pour gérer `NSUserActivity` |
 | Configuration du SDK Braze | Définissez `configuration.forwardUniversalLinks = true` |
 | BrazeDelegate (facultatif) | Implémentez `braze(_:shouldOpenURL:)` pour un routage personnalisé (par exemple, Branch) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Universal links" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liens universels" }
 
 {% alert important %}
-Si vous envoyez des e-mails via Braze, votre ESP (SendGrid, SparkPost ou Amazon SES) encapsule les liens dans un domaine de suivi des clics. Vous devez héberger le fichier AASA sur votre domaine de suivi des clics également, et pas uniquement sur votre domaine principal. Pour une configuration complète, consultez [Liens universels et App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/).
+Si vous envoyez des e-mails via Braze, votre ESP (SendGrid, SparkPost ou Amazon SES) encapsule les liens dans un domaine de suivi des clics. Vous devez héberger le fichier AASA sur votre domaine de suivi des clics également, et pas uniquement sur votre domaine principal. Pour une configuration complète, consultez [Liens universels et App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).
 {% endalert %}
 
 ### « Ouvrir l'URL web dans l'application »
@@ -99,7 +99,7 @@ Si vous envoyez des e-mails via Braze, votre ESP (SendGrid, SparkPost ou Amazon 
 | Fichier AASA | Non requis |
 | Méthode déléguée de l'application | Non requis — le SDK gère cela automatiquement |
 | Configuration du SDK Braze | Aucune — sélectionnez **Open Web URL Inside App** dans l'éditeur de Campaign |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Open Web URL Inside App" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ouvrir l'URL web dans l'application" }
 
 ## Quand avez-vous besoin d'un fichier AASA {#when-aasa}
 
@@ -115,9 +115,9 @@ Vous avez besoin d'un fichier AASA lorsque :
 Vous n'avez pas besoin d'un fichier AASA lorsque :
 
 - Vous n'utilisez que des liens profonds avec schéma personnalisé (par exemple, `myapp://`) depuis des notifications push, des messages in-app ou des Content Cards.
-- Vous utilisez l'option **Open Web URL Inside App**.
+- Vous utilisez l'option **Ouvrir l'URL web dans l'application**.
 
-Pour les instructions de configuration AASA, consultez [Liens universels et App Links]({{site.baseurl}}/user_guide/message_building_by_channel/email/universal_links/#setting-up-universal-links-and-app-links).
+Pour les instructions de configuration AASA, consultez [Liens universels et App Links]({{site.baseurl}}/user_guide/message_building_by_channel/email/universal_links#setting-up-universal-links-and-app-links).
 
 ## Quand avez-vous besoin de code applicatif pour gérer les liens {#when-app-code}
 
@@ -128,19 +128,19 @@ La méthode déléguée que vous implémentez dépend du type de lien que vous u
 | `application(_:open:options:)` | Liens profonds avec schéma personnalisé (`myapp://`) | Vous utilisez des liens profonds avec schéma personnalisé depuis n'importe quel canal |
 | `application(_:continue:restorationHandler:)` | Liens universels (`https://`) | Vous utilisez des liens universels depuis des e-mails, des SMS ou avec `forwardUniversalLinks = true` |
 | `BrazeDelegate.braze(_:shouldOpenURL:)` | Toutes les URL ouvertes par le SDK | Vous avez besoin d'une logique de routage personnalisée (par exemple, Branch, traitement conditionnel, analytique) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="When you need app code to handle links #when-app-code" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Quand avez-vous besoin de code applicatif pour gérer les liens" }
 
 {% alert tip %}
-Si vous utilisez un fournisseur de liens tiers tel que Branch, implémentez `BrazeDelegate.braze(_:shouldOpenURL:)` pour intercepter les URL et les transmettre au SDK du fournisseur. Consultez [Branch pour la création de liens profonds]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/) pour un exemple complet.
+Si vous utilisez un fournisseur de liens tiers tel que Branch, implémentez `BrazeDelegate.braze(_:shouldOpenURL:)` pour intercepter les URL et les transmettre au SDK du fournisseur. Consultez [Branch pour la création de liens profonds]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) pour un exemple complet.
 {% endalert %}
 
 ## Utiliser Branch avec Braze {#branch}
 
-Si vous utilisez [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/) comme fournisseur de liens, votre configuration nécessite quelques étapes supplémentaires par rapport à une configuration de lien universel standard :
+Si vous utilisez [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) comme fournisseur de liens, votre configuration nécessite quelques étapes supplémentaires par rapport à une configuration de lien universel standard :
 
 1. **SDK Branch** : intégrez le SDK Branch en suivant [la documentation de Branch](https://help.branch.io/developers-hub/docs/native-sdks-overview).
 2. **Domaines associés** : ajoutez votre domaine Branch (par exemple, `applinks:yourapp.app.link`) dans Xcode sous **Signing & Capabilities**.
 3. **BrazeDelegate** : implémentez `braze(_:shouldOpenURL:)` pour router les liens Branch vers le SDK Branch au lieu de laisser Braze les gérer directement.
 4. **Transfert des liens universels** : définissez `configuration.forwardUniversalLinks = true` dans la configuration du SDK Braze.
 
-Pour plus de détails sur l'implémentation et des conseils de débogage, consultez [Branch pour la création de liens profonds]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/).
+Pour plus de détails sur l'implémentation et des conseils de débogage, consultez [Branch pour la création de liens profonds]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking).
