@@ -71,6 +71,12 @@ To select channels:
 If you don't see **Message Archiving** in **Settings**, confirm that your company has purchased and turned on message archiving.
 {% endalert %}
 
+## IP allowlisting
+
+When message archiving uploads files to your cloud storage bucket, Braze makes network requests from our servers to your AWS S3, Azure Blob Storage, or Google Cloud Storage endpoint. With IP allowlisting, you can verify that these requests are coming from Braze, adding a layer of security.
+
+Braze sends message archiving uploads from the same IP addresses used for Connected Content and Currents. For the complete list of IPs by instance, refer to [Connected Content IP allowlisting]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting).
+
 ## File references
 
 The following are references to the JSON payload delivered to your cloud storage bucket each time a message is sent. Refer to our code example repository for [message archive sample files](https://github.com/braze-inc/braze-examples/tree/main/message-archiving).
