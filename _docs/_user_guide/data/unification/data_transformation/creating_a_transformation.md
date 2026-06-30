@@ -46,7 +46,7 @@ Here’s what it looks like for Typeform:
 ![Example Data Transformation code that maps the webhook to Braze user profiles.]({% image_buster /assets/img/data_transformation/data_transformation11.png %})
 
 {% alert note %}
-Braze Data Transformation may not yet support external platforms that require special verification or authentication for webhooks. Consider leaving [product feedback]({{site.baseurl}}/user_guide/administer/personal/product_portal) if you're interested in using this type of platform with Braze Data Transformation.
+Braze Data Transformation may not yet support external platforms that require special verification or authentication for webhooks. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="webhook authentication for external platforms" %}
 {% endalert %}
 
 ## Step 4: Write transformation code
