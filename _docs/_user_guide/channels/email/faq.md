@@ -285,3 +285,20 @@ Typical causes include:
 - Ask them to audit MX and related DNS records, including PTR records for their mail servers, with their DNS provider.
 
 Other recipients are usually unaffected. For how soft bounces appear in reporting, see [Soft Bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce).
+
+### Why do I get a spam alert when sending an email from Braze to myself?
+
+If you send a test email from Braze to your own email address and see a spam warning or phishing alert—such as "the sending domain is similar to your company's domain, but we do not recognize it"—this is a common anti-phishing security feature, not an error with your Braze setup.
+
+This alert typically appears when the sending domain of the email matches the recipient domain (for example, both are `@yourcompany.com`). Email security systems flag this because scammers often spoof domains that look similar to a recipient's company domain.
+
+To verify your email is configured correctly:
+
+1. View the original message (raw email headers) in your email client.
+2. Check that SPF, DKIM, and DMARC authentication all pass.
+3. If all three pass, your Braze email sending is configured properly.
+
+To prevent this alert from appearing:
+
+Ask your IT team to allowlist your Braze sending domain and IP addresses in your company's email security services or mail gateway. This tells your security system to trust emails from your Braze sending infrastructure.
+
