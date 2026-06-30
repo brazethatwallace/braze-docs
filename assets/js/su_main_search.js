@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const { applyDefaultSearchInputLabel } = window.SuSearchA11y;
+  const applyDefaultSearchInputLabel =
+    window.SuSearchA11y?.applyDefaultSearchInputLabel;
 
   const buttonLabels = {
     en:     { form: "Site search", search: "Search", clear: "Clear search" },
@@ -74,7 +75,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      applyDefaultSearchInputLabel(queryInput);
+      if (applyDefaultSearchInputLabel) {
+        applyDefaultSearchInputLabel(queryInput);
+      }
 
       // Combobox ARIA — tells assistive technology this input controls a listbox
       queryInput.setAttribute("role", "combobox");

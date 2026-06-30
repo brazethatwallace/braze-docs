@@ -1,7 +1,8 @@
 // search-form-handler.js
 
 document.addEventListener("DOMContentLoaded", function () {
-  const { applyDefaultSearchInputLabel } = window.SuSearchA11y;
+  const applyDefaultSearchInputLabel =
+    window.SuSearchA11y?.applyDefaultSearchInputLabel;
 
   const buttonLabels = {
     en:     { form: "Site search", search: "Search", clear: "Clear search" },
@@ -108,10 +109,11 @@ document.addEventListener("DOMContentLoaded", function () {
    */
   function setupInputWatcher() {
     const input = document.getElementById("search-box-autocomplete");
-    if (!input || input.dataset.a11yLabelApplied) return;
+    if (!input || input.dataset.searchWatcherApplied) return;
 
-    applyDefaultSearchInputLabel(input);
-    input.dataset.a11yLabelApplied = "true";
+    if (applyDefaultSearchInputLabel) {
+      applyDefaultSearchInputLabel(input);
+    }
 
     // Combobox ARIA — tells assistive technology this input controls a listbox
     input.setAttribute("role", "combobox");
@@ -164,6 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // --- Run check immediately and periodically for autofill/preload ---
     const checkDelays = [0, 100, 300, 1000, 2000];
     checkDelays.forEach((delay) => setTimeout(toggleHasTextClass, delay));
+    input.dataset.searchWatcherApplied = "true";
   }
 
   /**
