@@ -8,7 +8,7 @@ alias: "/message_extras_tag/"
 
 # メッセージエクストラ Liquid タグ {#message-extras-liquid-tag}
 
-> `message_extras` Liquid タグを使用して、コネクテッドコンテンツ、カタログ、カスタム属性（言語、国など）、Canvasエントリプロパティ、またはその他のデータソースからのダイナミックなデータで送信イベントにアノテーションを付けます。
+> `message_extras` Liquid タグを使用して、コネクテッドコンテンツ、カタログ、カスタム属性（言語、国など）、キャンバスエントリプロパティ、またはその他のデータソースからのダイナミックなデータで送信イベントにアノテーションを付けます。
 
 `message_extras` Liquid タグは、Currentsおよび Snowflake データ共有の対応する送信イベントにキーと値のペアを追加します。
 
@@ -46,7 +46,7 @@ alias: "/message_extras_tag/"
 
 {: start="3"}
 
-3. CampaignまたはCanvasが送信された後、Brazeは送信時にCurrentsまたは Snowflake データ共有の送信イベントを通じて、ダイナミックなデータを `message_extras` フィールドに付加します。
+3. キャンペーンまたはキャンバスが送信された後、Brazeは送信時にCurrentsまたは Snowflake データ共有の送信イベントを通じて、ダイナミックなデータを `message_extras` フィールドに付加します。
 
 ## 構文の確認 {#checking-syntax}
 

@@ -1,13 +1,13 @@
 ---
 nav_title: レポートとインサイト
 article_title: レポートとインサイト
-description: "BrazeでBrazeAI Decisioning Studio™レポートを表示する方法について説明します。これにより、AIを活用した意思決定がCampaignsにどのような影響を与えるかを理解できます。"
+description: "BrazeでBrazeAI Decisioning Studio™レポートを表示する方法について説明します。これにより、AIを活用した意思決定がキャンペーンにどのような影響を与えるかを理解できます。"
 page_order: 6
 ---
 
 # レポートとインサイト {#reports-and-insights}
 
-> BrazeでBrazeAI Decisioning Studio™レポートを表示する方法について説明します。これにより、AIを活用した意思決定がCampaignsにどのような影響を与えるかを理解できます。パフォーマンス指標からデータの健全性やシステムの変更まで、これらのレポートは結果の理解、問題のトラブルシューティング、そして確信を持った意思決定に役立ちます。
+> BrazeでBrazeAI Decisioning Studio™レポートを表示する方法について説明します。これにより、AIを活用した意思決定がキャンペーンにどのような影響を与えるかを理解できます。パフォーマンス指標からデータの健全性やシステムの変更まで、これらのレポートは結果の理解、問題のトラブルシューティング、そして確信を持った意思決定に役立ちます。
 
 ## 前提条件 {#prerequisites}
 

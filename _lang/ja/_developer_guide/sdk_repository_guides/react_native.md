@@ -412,7 +412,7 @@ npx react-native run-android
 - **iOS** — `BrazeReactInitializer.configure`に渡す`configure`クロージャで、`config.logger.level = .debug`（または`.info`）を設定します。本番環境ではログがユーザーに表示されないように、レベルを下げるか無効にしてください。
 - **Android** — `braze.xml`の`com_braze_logger_initial_log_level`リソースを使用するか、`BrazeConfig.Builder`で同等の設定を行います（[BrazeConfigurationProvider](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/logger-initial-log-level.html)を参照）。リリース前に冗長でないレベルを使用するか、オーバーライドを削除してください。
 
-より詳細なトラブルシューティング（ネットワーク、セッション、またはCampaignの動作）については、[Braze React Native開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native)とネイティブSDKドキュメント（[Swift](https://github.com/braze-inc/braze-swift-sdk) · [Android](https://github.com/braze-inc/braze-android-sdk)）を参照してください。
+より詳細なトラブルシューティング（ネットワーク、セッション、またはキャンペーンの動作）については、[Braze React Native開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native)とネイティブSDKドキュメント（[Swift](https://github.com/braze-inc/braze-swift-sdk) · [Android](https://github.com/braze-inc/braze-android-sdk)）を参照してください。
 
 ---
 

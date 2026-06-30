@@ -22,7 +22,7 @@ SMSメッセージは[サブスクリプショングループ]({{site.baseurl}}/
 
 ### メッセージ本文の入力 {#input-message-body}
 
-SMSメッセージ本文には、絵文字、Liquid、コネクテッドコンテンツを含めて最大1,600文字を入力できます。1回のCampaign送信で、複数のメッセージセグメント送信が発生する場合があります。BrazeのSMSメッセージ本文は、[GSM-7](https://en.wikipedia.org/wiki/GSM_03.38)または[UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set)のいずれかのエンコーディング標準で構成できます。UCS-2文字（例：絵文字）が使用された場合、メッセージ本文は自動的にそのエンコーディング標準にフォーマットされます。<br><br>
+SMSメッセージ本文には、絵文字、Liquid、コネクテッドコンテンツを含めて最大1,600文字を入力できます。1回のキャンペーン送信で、複数のメッセージセグメント送信が発生する場合があります。BrazeのSMSメッセージ本文は、[GSM-7](https://en.wikipedia.org/wiki/GSM_03.38)または[UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set)のいずれかのエンコーディング標準で構成できます。UCS-2文字（例：絵文字）が使用された場合、メッセージ本文は自動的にそのエンコーディング標準にフォーマットされます。<br><br>
 
 ### メッセージセグメントと文字数制限の理解 {#understand-message-segments-and-character-limits}
 

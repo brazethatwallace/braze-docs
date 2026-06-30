@@ -1,6 +1,6 @@
-リンク短縮を使用すると、SMSまたはRCSメッセージに含まれるURLを自動的に短縮し、クリックスルー率の分析を収集できます。これにより、追加のエンゲージメント指標が提供され、ユーザーがCampaignsにどのように関わっているかを理解するのに役立ちます。
+リンク短縮を使用すると、SMSまたはRCSメッセージに含まれるURLを自動的に短縮し、クリックスルー率の分析を収集できます。これにより、追加のエンゲージメント指標が提供され、ユーザーがキャンペーンにどのように関わっているかを理解するのに役立ちます。
 
-リンク短縮は、CampaignsとCanvasesの両方で[メッセージバリアントレベル]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign)で有効にできます。リンク短縮が有効になると、クリックによりCurrentsを通じて送信される[SMSクリックイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)が生成されます。
+リンク短縮は、キャンペーンとキャンバスの両方で[メッセージバリアントレベル]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign)で有効にできます。リンク短縮が有効になると、クリックによりCurrentsを通じて送信される[SMSクリックイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)が生成されます。
 
 リンクは共有ショートドメイン（`brz.ai`）またはカスタムリンク短縮ドメインを使用して短縮され、作成日から9週間有効です。URLの例は `https://brz.ai/8jshX2dj` のようになります。
 
@@ -35,14 +35,14 @@ Brazeの作成画面内で直接URLをダイナミックに構築し、URLにダ
 
 ## テスト {#testing}
 
-CampaignまたはCanvasを起動する前に、まずメッセージをプレビューしてテストすることがベストプラクティスです。これを行うには、**テスト**タブに移動して、[コンテンツテストグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups)または個々のユーザーにSMSまたはRCSメッセージをプレビューして送信します。
+キャンペーンまたはキャンバスを起動する前に、まずメッセージをプレビューしてテストすることがベストプラクティスです。これを行うには、**テスト**タブに移動して、[コンテンツテストグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups)または個々のユーザーにSMSまたはRCSメッセージをプレビューして送信します。
 
 このプレビューは、関連するパーソナライゼーションと短縮URLで更新されます。文字数と[課金対象セグメント]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator)も、レンダリングされたパーソナライゼーションと短縮URLを反映して更新されます。
 
-テストメッセージを送信する前にCampaignまたはCanvasを保存して、メッセージで配信される短縮URLの表現を受け取るようにしてください。テスト送信前にCampaignまたはCanvasが保存されていない場合、テスト送信にはプレースホルダーURLが含まれます。
+テストメッセージを送信する前にキャンペーンまたはキャンバスを保存して、メッセージで配信される短縮URLの表現を受け取るようにしてください。テスト送信前にキャンペーンまたはキャンバスが保存されていない場合、テスト送信にはプレースホルダーURLが含まれます。
 
 {% alert important %}
-アクティブなCanvas内で下書きが作成された場合、短縮URLは生成されません。実際の短縮URLは、Canvasの下書きがアクティブになったときに生成されます。
+アクティブなキャンバス内で下書きが作成された場合、短縮URLは生成されません。実際の短縮URLは、キャンバスの下書きがアクティブになったときに生成されます。
 {% endalert %}
 
 ![テスト受信者を選択するフィールドがあるメッセージの「テスト」タブ。]({% image_buster /assets/img/link_shortening/shortening2.png %})

@@ -7,7 +7,7 @@ description: "この参照記事では、Liquidを通してBrazeのCampaignで�
 
 # カタログの使用 {#using-catalogs}
 
-> カタログを作成した後、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)を使用して、BrazeのCampaignで非ユーザーデータを参照できます。Liquidがサポートされているドラッグ＆ドロップエディター内の任意の場所を含む、すべてのメッセージングチャネルでカタログを使用できます。
+> カタログを作成した後、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)を使用して、Brazeのキャンペーンで非ユーザーデータを参照できます。Liquidがサポートされているドラッグ＆ドロップエディター内の任意の場所を含む、すべてのメッセージングチャネルでカタログを使用できます。
 
 ## メッセージでカタログを使う {#using-catalogs-in-a-message}
 
@@ -241,12 +241,12 @@ Welcome to our store, Peter!
 
 ## カタログパーソナライゼーションのトラブルシューティング
 
-カタログまたはセレクションのLiquidがメッセージやCanvasステップで期待どおりに表示されない場合は、以下を確認してください。
+カタログまたはセレクションのLiquidがメッセージやキャンバスステップで期待どおりに表示されない場合は、以下を確認してください。
 
 | 症状 | 確認事項 |
 | --- | --- |
 | プレビューではアイテムが表示されるが、ライブ送信では空になる | 送信時にカタログの**アイテムID**が存在することを確認してください。Liquid内のIDが行と一致しない場合、Brazeは空のitems配列を返します。[Liquidの使用](#using-liquid)を参照してください。タイプミスや、トリガーまたはユーザープロファイルに存在しないIDソース（イベントプロパティなど）がないか確認してください。 |
-| 作成画面のプレビューはCampaignでは動作するがCanvasでは動作しない | 正しいLiquidコンテキスト（**Canvasコンテキストプロパティ**と**イベントプロパティ**）を使用していること、およびそれらのフィールドがトリガーに存在することを確認してください。[コンテキストプロパティとイベントプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)を参照してください。 |
+| 作成画面のプレビューはキャンペーンでは動作するがキャンバスでは動作しない | 正しいLiquidコンテキスト（**キャンバスコンテキストプロパティ**と**イベントプロパティ**）を使用していること、およびそれらのフィールドがトリガーに存在することを確認してください。[コンテキストプロパティとイベントプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)を参照してください。 |
 | セレクションがアイテムを返さない | [セレクションフィルター]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)と制限を確認してください。カタログデータが同期されていること、および列名がフィルターと一致していることを確認してください。 |
 | `:rerender`またはテンプレート化された配信が正しく表示されない | カタログフィールド内のネストされたLiquidには、`:rerender`と変数の正しい順序が必要です。[Liquidを含むカタログアイテムのテンプレート化](#templating-catalog-items-including-liquid)を参照してください。テンプレート化されたアプリ内メッセージはトリガー時に解決されます。[テンプレート化されたアプリ内メッセージとは？]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages)を参照してください。一部のチャネルではカタログタグが制限されています（例えば、バナーでの特定の**:rerender**の使用）。バナーFAQの[すべてのLiquidタグがサポートされていますか？]({{site.baseurl}}/user_guide/channels/banners/faq#are-all-liquid-tags-supported)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="カタログパーソナライゼーションのトラブルシューティング" }

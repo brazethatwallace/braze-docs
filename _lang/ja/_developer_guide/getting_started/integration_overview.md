@@ -22,7 +22,7 @@ platform:
 ![発見、統合、品質保証、保守という4つの円のベン図。中心に「価値実現までの時間」が配置されています。]({% image_buster /assets/img/getting-started/getting-started-integrate-flower.png %}){: style="max-width:50%;float:right;margin-left:15px;border:none;"}
 
 技術リソースとして、Brazeを技術スタックに統合することでチームを強化できます。オンボーディングは大きく4つのステップに分けられます。
-* [発見と計画](#discovery)：チームと協力してスコープを調整し、データとCampaignsの構造を計画し、適切なワークスペース構造を作成します。
+* [発見と計画](#discovery)：チームと協力してスコープを調整し、データとキャンペーンの構造を計画し、適切なワークスペース構造を作成します。
 * [統合](#integration)：SDKとAPIを統合し、メッセージングチャネルを有効にし、データのインポートとエクスポートを設定することで計画を実行します。
 * [品質保証](#qa)：Brazeプラットフォームとアプリまたはサイト間のデータとメッセージングのループが期待通りに機能していることを確認します。
 * [メンテナンス](#maintenance)：Brazeをマーケティングチームに引き渡した後も、すべてがスムーズに実行されるよう引き続き確認します。
@@ -46,7 +46,7 @@ platform:
 
 ![メール、ショッピングカート、画像、ジオロケーションなど、さまざまなチャネルのアイコン。]({% image_buster /assets/img/getting-started/data-graphic-2.png %}){: style="max-width:40%;float:right;margin-left:15px;"}
 
-### Campaign計画 {#campaign-planning}
+### キャンペーン計画 {#campaign-planning}
 
 CRMチームは、近い将来に立ち上げるメッセージングのユースケースを計画します。これには以下が含まれます。
 * [チャネル]({{site.baseurl}}/user_guide/channels)（例：プッシュ通知やアプリ内メッセージ）
@@ -54,16 +54,16 @@ CRMチームは、近い将来に立ち上げるメッセージングのユー�
 * [ターゲットオーディエンス]({{site.baseurl}}/user_guide/audience/segments)
 * [成功指標]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)
 
-例えば、新規顧客向けCampaignは、昨日最初のセッションを記録した顧客のSegmentに毎日午前10時にメールを送信するものです。コンバージョンイベント（成功指標）はセッションの記録です。
+例えば、新規顧客向けキャンペーンは、昨日最初のセッションを記録した顧客のセグメントに毎日午前10時にメールを送信するものです。コンバージョンイベント（成功指標）はセッションの記録です。
 
 <br>
 {% alert important %}
-Campaign計画のステップが完了するまで、統合を開始することはできません。このステップでは、統合フェーズで構成する必要があるBrazeの構成要素を決定します。
+キャンペーン計画のステップが完了するまで、統合を開始することはできません。このステップでは、統合フェーズで構成する必要があるBrazeの構成要素を決定します。
 {% endalert %}
 
 ### データ要件の作成 {#creating-data-requirements}
 
-次に、CRMチームは計画したCampaignsを実施するために必要なデータを定義し、データ要件を作成します。
+次に、CRMチームは計画したキャンペーンを実施するために必要なデータを定義し、データ要件を作成します。
 
 名前、メール、生年月日、国など、多くの一般的なユーザー属性は、Braze SDKが統合された後に自動的に追跡されます。その他のタイプのデータはカスタムデータとして定義する必要があります。
 
@@ -87,7 +87,7 @@ BrazeダッシュボードはウェブUIインターフェイスです。マー�
 
 ### ワークスペースとAPIキー {#workspaces-and-api-keys}
 
-チーム管理者はまた、さまざまな[ワークスペース]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces)を作成します。ワークスペースは、ユーザー、Segments、APIキーなどのデータを1つの場所にグループ化します。ベストプラクティスとして、同じアプリやよく似たアプリの異なるバージョンのみを1つのワークスペースにまとめることをお勧めします。
+チーム管理者はまた、さまざまな[ワークスペース]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces)を作成します。ワークスペースは、ユーザー、セグメント、APIキーなどのデータを1つの場所にグループ化します。ベストプラクティスとして、同じアプリやよく似たアプリの異なるバージョンのみを1つのワークスペースにまとめることをお勧めします。
 
 重要なのは、ワークスペースが複数のプラットフォーム（iOSやAndroidなど）用のAPIキーを提供することです。SDKデータを特定のワークスペースに関連付けるには、対応するAPIキーを使用します。ワークスペースに移動して、各アプリのAPIキーにアクセスしてください。各APIキーがスコープした作業を実行するための正しい権限を持っていることを確認してください。詳細は[APIプロビジョニングの記事]({{site.baseurl}}/api/basics#rest-api-key)を参照してください。
 
@@ -111,7 +111,7 @@ BrazeはiOSアプリ、Androidアプリ、ウェブアプリなどをサポー�
 
 ### CDP統合パートナー {#cdp-integration-partners}
 
-多くの顧客は、Brazeのオンボーディングを、統合パートナーとして顧客データプラットフォーム（CDP）とも統合する機会として利用しています。Brazeはデータの追跡と分析を提供し、CDPは追加のデータルーティングとオーケストレーションを提供できます。Brazeは、[mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle)や[Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment)など多くのCDPとシームレスに統合できます。
+多くの顧客は、Brazeのオンボーディングを、統合パートナーとして顧客データプラットフォーム（CDP）とも統合する機会として利用しています。Brazeはデータの追跡と分析を提供し、CDPは追加のデータルーティングとオーケストレーションを提供できます。Brazeは、[mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle)や[セグメント]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment)など多くのCDPとシームレスに統合できます。
 
 CDPとサイドバイサイドの統合を行う場合は、CDPのSDKからの呼び出しをBraze SDKにマッピングします。基本的に、以下を実行します。
 * 識別呼び出しを`changeUser`（[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html)、[iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:)/)、[web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)）にマッピングし、属性を設定します。
@@ -189,12 +189,12 @@ QAを始める前に、本番環境とテスト環境がセットアップされ
 | **QAデータインジェスト**  | **QAメッセージング**                                              |
 |---------------------------|---------------------------------------------------------------|
 | データのインジェスト、保存、エクスポートの方法について品質保証を行います。 | メッセージがユーザーに正しく送信され、すべてが適切に表示されることを確認します。 |
-| データが正しく保存されていることを確認するためにテストを実行します。 | ユーザーのSegmentsを作成します。 |
-| セッションデータがBraze内の意図したワークスペースに正しく帰属していることを確認します。 | CampaignsとCanvasesを正常に起動します。 |
-| セッションの開始と終了が記録されていることを確認します。 | 正しいCampaignsが正しいユーザーSegmentsに表示されていることを確認します。 |
+| データが正しく保存されていることを確認するためにテストを実行します。 | ユーザーのセグメントを作成します。 |
+| セッションデータがBraze内の意図したワークスペースに正しく帰属していることを確認します。 | キャンペーンとキャンバスを正常に起動します。 |
+| セッションの開始と終了が記録されていることを確認します。 | 正しいキャンペーンが正しいユーザーセグメントに表示されていることを確認します。 |
 | ユーザー属性情報がユーザープロファイルに対して正しく記録されていることを確認します。 | プッシュトークンが正しく登録されていることを確認します。 |
 | ユーザープロファイルに対してカスタムデータが正しく記録されていることをテストします。 | プッシュトークンが正しく削除されていることを確認します。 |
-| 匿名ユーザープロファイルを作成します。 | プッシュCampaignsがデバイスに正しく送信され、エンゲージメントが記録されているかテストします。 |
+| 匿名ユーザープロファイルを作成します。 | プッシュキャンペーンがデバイスに正しく送信され、エンゲージメントが記録されているかテストします。 |
 | `changeUser()`メソッドが呼び出されたときに、匿名ユーザープロファイルが既知のユーザープロファイルになることを確認します。 | アプリ内メッセージが配信され、指標が記録されることをテストします。 |
 |                           | Content Cardsが配信され、指標が記録されていることをテストします。 |
 |                           | コネクテッドコンテンツを促進します（例：AccuWeather）。 |

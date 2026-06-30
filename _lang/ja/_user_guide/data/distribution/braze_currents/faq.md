@@ -11,12 +11,12 @@ tool: Currents
 
 > このページでは、Currentsに関するよくある質問への回答を提供します。
 
-## 特定の日付範囲のCampaignまたはCanvasデータをエクスポートできますか？ {#can-i-export-campaign-or-canvas-data-for-a-specific-date-window}
+## 特定の日付範囲のキャンペーンまたはキャンバスデータをエクスポートできますか？ {#can-i-export-campaign-or-canvas-data-for-a-specific-date-window}
 
-特定の日付範囲のCampaignまたはCanvasの指標を取得するには、以下のいずれかの方法を使用してください。
+特定の日付範囲のキャンペーンまたはキャンバスの指標を取得するには、以下のいずれかの方法を使用してください。
 
 - 標準APIの時間枠外でダッシュボードスタイルのレポートが必要な場合は、日付に合わせたエクスポートの[製品リクエスト](https://portal.braze.com/)を送信してください。
-- `ending_at` と `length` パラメーターを指定して[Campaign分析]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics)または[Canvas分析]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics)エンドポイントを呼び出すか、時系列データには[`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics)および[`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics)を使用してください。
+- `ending_at` と `length` パラメーターを指定して[キャンペーン分析]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics)または[キャンバス分析]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics)エンドポイントを呼び出すか、時系列データには[`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics)および[`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics)を使用してください。
 - Amazon S3、Azure Blob Storage、またはその他のサポートされている送信先で、継続的にクエリ可能なメッセージエンゲージメントデータが必要な場合は、[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)を使用してイベントをウェアハウスにストリーミングしてください。
 
 ## ライブのCurrents統合を編集するにはどうすればよいですか？ {#how-do-i-edit-a-live-currents-integration}
@@ -103,9 +103,9 @@ CurrentsデータをウェアハウスやCRMにルーティングし、プロフ
 
 いいえ。Currentsは送信イベントにカスタム属性を含めません。Currentsはカスタムイベントとメッセージエンゲージメントイベントをログ記録します。利用可能なフィールドの完全なリストについては、[イベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary)を参照してください。
 
-## CurrentsにはCampaignやCanvasのタグやキーと値のペアが含まれますか？ {#does-currents-include-campaign-or-canvas-tags-or-key-value-pairs}
+## Currentsにはキャンペーンやキャンバスのタグやキーと値のペアが含まれますか？ {#does-currents-include-campaign-or-canvas-tags-or-key-value-pairs}
 
-いいえ。CurrentsにはCampaignやCanvasのタグ、またはメッセージレベルのキーと値のペアは含まれません。タグデータを取得するには、[エクスポートREST API]({{site.baseurl}}/api/endpoints/export)を使用してください。別の回避策として、Campaign内のWebhookチャネルを使用し、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)で値をテンプレート化して、タグやキーと値のペアのデータを独自のエンドポイントに送信できます。
+いいえ。Currentsにはキャンペーンやキャンバスのタグ、またはメッセージレベルのキーと値のペアは含まれません。タグデータを取得するには、[エクスポートREST API]({{site.baseurl}}/api/endpoints/export)を使用してください。別の回避策として、キャンペーン内のWebhookチャネルを使用し、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)で値をテンプレート化して、タグやキーと値のペアのデータを独自のエンドポイントに送信できます。
 
 ## BrazeはCurrentsの変更をどのように顧客に通知しますか？ {#how-does-braze-notify-customers-of-changes-to-currents}
 
@@ -115,9 +115,9 @@ Currentsの変更（新しいイベントフィールドやイベントタイプ
 
 ストレージ要件は、イベントの量とエクスポートするイベントの種類によって異なります。Brazeは[Avro形式のサンプルイベント](https://github.com/appboy/currents-examples/tree/master/sample-data)を提供しており、ユースケースに合わせてファイルサイズを見積もることができます。
 
-## CurrentsデータでCampaign名やキャンバスステップ名が `NULL` になるのはなぜですか？ {#why-is-the-campaign-name-or-canvas-step-name-null-in-my-currents-data}
+## Currentsデータでキャンペーン名やキャンバスステップ名が `NULL` になるのはなぜですか？ {#why-is-the-campaign-name-or-canvas-step-name-null-in-my-currents-data}
 
-新しいCampaignやCanvasを作成すると、名前がすべてのBrazeシステムに伝播するまでに時間がかかることがあります。この時間枠内にCurrentsを通じて送信されたイベントでは、名前フィールド（`campaign_name` や `canvas_step_name` など）が `NULL` になることがあります。これは、イベントがログ記録される直前に名前が変更された場合にも発生します。これを回避するには、CampaignやCanvasステップを作成または名前変更した後、送信前にしばらく時間を置いてください。
+新しいキャンペーンやキャンバスを作成すると、名前がすべてのBrazeシステムに伝播するまでに時間がかかることがあります。この時間枠内にCurrentsを通じて送信されたイベントでは、名前フィールド（`campaign_name` や `canvas_step_name` など）が `NULL` になることがあります。これは、イベントがログ記録される直前に名前が変更された場合にも発生します。これを回避するには、キャンペーンやキャンバスステップを作成または名前変更した後、送信前にしばらく時間を置いてください。
 
 ## Currentsでセッション終了イベントが遅延または欠落するのはなぜですか？ {#why-are-session-end-events-delayed-or-missing-in-currents}
 
@@ -141,15 +141,15 @@ Currentsでよりタイムリーなセッション境界が必要な場合は、
 
 ## メッセージエンゲージメントイベントで `campaign_id` や `canvas_id` が欠落しているのはなぜですか？ {#why-are-campaign_id-or-canvas_id-missing-from-a-message-engagement-event}
 
-イベントタイプとコンテキストによっては、メッセージエンゲージメントイベントが特定のCampaignやCanvasステップに紐付けられていない場合があります。その場合、`campaign_id`、`canvas_id`、および関連する名前フィールドはイベントペイロードから省略されることがあります。特定のイベントでこれらのフィールドが表示されない場合は、そのイベントタイプとコンテキストが通常CampaignやCanvasの識別子を含むかどうかを確認してください。
+イベントタイプとコンテキストによっては、メッセージエンゲージメントイベントが特定のキャンペーンやキャンバスステップに紐付けられていない場合があります。その場合、`campaign_id`、`canvas_id`、および関連する名前フィールドはイベントペイロードから省略されることがあります。特定のイベントでこれらのフィールドが表示されない場合は、そのイベントタイプとコンテキストが通常キャンペーンやキャンバスの識別子を含むかどうかを確認してください。
 
 ## Currentsのタイムスタンプが秒精度に制限されているのはなぜですか？ {#why-are-currents-timestamps-limited-to-second-precision}
 
 Currentsイベントの `time` フィールドは32ビット整数として保存されるため、秒精度に制限されています。一部のイベントには、別途64ビットのミリ秒精度タイムスタンプフィールドも含まれています。各イベントタイプで利用可能なフィールドについては、[イベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary)を確認してください。
 
-## Currentsの `users.canvas.Conversion` イベントの時刻がCanvasと異なるのはなぜですか？ {#why-does-the-userscanvasconversion-event-from-currents-have-a-different-time-than-the-canvas}
+## Currentsの `users.canvas.Conversion` イベントの時刻がキャンバスと異なるのはなぜですか？ {#why-does-the-userscanvasconversion-event-from-currents-have-a-different-time-than-the-canvas}
 
-Currentsの `users.canvas.Conversion` イベントの時刻は、Canvasエントリからの合計コンバージョンウィンドウ（Canvas期間とコンバージョン期限の合計）を反映しています。
+Currentsの `users.canvas.Conversion` イベントの時刻は、キャンバスエントリからの合計コンバージョンウィンドウ（キャンバス期間とコンバージョン期限の合計）を反映しています。
 
 ## エンゲージメントレポートがS3に送信されるとどうなりますか？ {#what-happens-when-engagement-reports-are-sent-to-s3}
 
@@ -161,7 +161,7 @@ S3の認証情報がデータのエクスポート用に設定されているが
 
 ## Content Cardsとアプリ内メッセージのコントロールグループのインプレッションはCurrentsでどのようにログ記録されますか？ {#how-are-control-group-impressions-for-content-cards-and-in-app-messages-logged-in-currents}
 
-ユーザーがContent Cardsまたはアプリ内メッセージCampaignのコントロールグループに割り当てられた場合、Currentsはインプレッションイベントではなく `users.campaigns.EnrollInControl` イベントを発行します。
+ユーザーがContent Cardsまたはアプリ内メッセージキャンペーンのコントロールグループに割り当てられた場合、Currentsはインプレッションイベントではなく `users.campaigns.EnrollInControl` イベントを発行します。
 
 ## APIを通じて存在しないユーザーをターゲットにした場合はどうなりますか？ {#what-happens-when-you-target-a-non-existent-user-through-the-api}
 

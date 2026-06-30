@@ -12,9 +12,9 @@ page_type: glossary
 tool:
   - Dashboard
   - Docs
-  - Canvas
-  - Campaigns
-  - Segments
+  - キャンバス
+  - キャンペーン
+  - セグメント
   - Templates
   - Media
   - Location
@@ -146,9 +146,9 @@ GET https://YOUR_REST_API_URL/templates/email/list
 
 
 {% api %}
-## 3 Campaignsトリガー送信 {#3-campaigns-trigger-send}
+## 3 キャンペーントリガー送信 {#3-campaigns-trigger-send}
 {% apimethod post %}campaigns/trigger/send{% endapimethod %}
-{% apitags %}Post, Campaigns, Trigger,Send{% endapitags %}
+{% apitags %}Post, キャンペーン, Trigger,Send{% endapitags %}
 
 APIトリガー配信を使用すると、メッセージのコンテンツをBrazeダッシュボード内に保存しながら、メッセージの送信タイミングと送信先をAPI経由で指定できます。
 
@@ -214,9 +214,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 
 {% api %}
-## 4 Campaignsトリガー送信 {#4-campaigns-trigger-send}
+## 4 キャンペーントリガー送信 {#4-campaigns-trigger-send}
 {% apimethod put %}users/track{% endapimethod %}
-{% apitags %}PUT, Campaigns, Trigger, Send{% endapitags %}
+{% apitags %}PUT, キャンペーン, Trigger, Send{% endapitags %}
 
 このエンドポイントは、カスタムイベント、ユーザー属性、およびユーザーの購入を記録するために使用できます。リクエストごとに最大75の属性、イベント、購入オブジェクトを含めることができます。つまり、一度に最大75人のユーザーの属性を投稿できますが、同じAPI呼び出しで最大75件のイベントと最大75件の購入も提供できます。
 

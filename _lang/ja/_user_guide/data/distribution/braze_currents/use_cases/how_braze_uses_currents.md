@@ -12,11 +12,11 @@ tool: Currents
 
 > Brazeは選択した[パートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners)とともに、社内でCurrentsを使用しています。
 
-弊社ではメールやプッシュのCampaignから得たデータをフィルターにかけ、ビジネスインサイトツールであるLookerに取り込んでいますが、そこにたどり着くまでには少し異なるルートがあります。弊社ではETL（Extract, Transform, Load）手法の逆バージョンを使用しています。つまり、順序をELT（Extract, Load, Transform）に切り替えるのです。
+弊社ではメールやプッシュのキャンペーンから得たデータをフィルターにかけ、ビジネスインサイトツールであるLookerに取り込んでいますが、そこにたどり着くまでには少し異なるルートがあります。弊社ではETL（Extract, Transform, Load）手法の逆バージョンを使用しています。つまり、順序をELT（Extract, Load, Transform）に切り替えるのです。
 
 ## ステップ 1: イベントデータの取り込みと集約 {#step-1-intake-and-aggregate-event-data}
 
-エンゲージメントツール（CampaignやCanvasなど）を使用してCampaignを開始した後、独自のシステムとメールパートナーからのデータを使用してイベントデータを追跡します。このデータの一部は集計されてダッシュボードに表示されますが、さらに詳細を調べたいと考えました。
+エンゲージメントツール（キャンペーンやキャンバスなど）を使用してキャンペーンを開始した後、独自のシステムとメールパートナーからのデータを使用してイベントデータを追跡します。このデータの一部は集計されてダッシュボードに表示されますが、さらに詳細を調べたいと考えました。
 
 ## ステップ 2: データストレージパートナーへのイベントデータの送信 {#step-2-send-event-data-to-a-data-storage-partner}
 

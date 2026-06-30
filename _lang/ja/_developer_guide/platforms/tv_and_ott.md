@@ -37,7 +37,7 @@ platform:
             <th>アプリ内メッセージ</th>
             <th>Content Cards</th>
             <th>プッシュ通知</th>
-            <th>Canvas</th>
+            <th>キャンバス</th>
             <th>フィーチャーフラグ</th>
             <th>バナー</th>
         </tr>
@@ -275,9 +275,9 @@ Braze Swift SDKを使用してvisionOSと統合します。iOSで利用可能な
 
 ## アプリターゲティング {#app-targeting}
 
-メッセージングでOTTアプリをターゲットにするには、OTTアプリ専用のSegmentを作成することをお勧めします。
+メッセージングでOTTアプリをターゲットにするには、OTTアプリ専用のセグメントを作成することをお勧めします。
 
-![Android OTTアプリを使用して作成されたSegment。]({% image_buster /assets/img/android_ott.png %})
+![Android OTTアプリを使用して作成されたセグメント。]({% image_buster /assets/img/android_ott.png %})
 
 ## ヘッドレスUI {#custom-ui}
 

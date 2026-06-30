@@ -19,7 +19,7 @@ search_rank: 2
 
 予測モデルが構築されると、予測対象ユーザーには、定義した内容に従って解約の可能性を示す0～100の間の[解約リスクスコア]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics#churn_score)が割り当てられます。スコアが高いほど、ユーザーが解約する可能性が高くなります。
 
-予測対象ユーザーのリスクスコアの更新は、[選択した頻度]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/creating_a_churn_prediction#step-4-choose-the-update-frequency-for-churn-prediction)で実行できます。こうすることで、解約リスクのあるユーザーに、実際に離れる前に連絡を取ることができ、離脱を未然に防げます。最大3つのアクティブな予測を使用することで、解約予測を活用して個々のモデルをカスタマイズし、最も価値があると思われるユーザーからなる特定のSegmentでの解約防止に役立てることができます。
+予測対象ユーザーのリスクスコアの更新は、[選択した頻度]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/creating_a_churn_prediction#step-4-choose-the-update-frequency-for-churn-prediction)で実行できます。こうすることで、解約リスクのあるユーザーに、実際に離れる前に連絡を取ることができ、離脱を未然に防げます。最大3つのアクティブな予測を使用することで、解約予測を活用して個々のモデルをカスタマイズし、最も価値があると思われるユーザーからなる特定のセグメントでの解約防止に役立てることができます。
 
 ![解約の概要。過去の予測対象ユーザーと、履歴データによるトレーニングを含みます。これは、現在の予測対象ユーザーの解約リスクスコアを測定することにより、将来の解約リスクを予測するために役立ちます。]({% image_buster /assets/img/churn/churn_overview.png %})
 

@@ -40,7 +40,7 @@ Brazeは、セッション開始時にユーザーのデバイスに以下のタ
 
 ## キーと値のペア {#key-value-pairs}
 
-BrazeでCampaignを作成する際、キーと値のペアを`extras`として設定できます。アプリ内メッセージングオブジェクトはこれを使用してアプリにデータを送信できます。
+Brazeでキャンペーンを作成する際、キーと値のペアを`extras`として設定できます。アプリ内メッセージングオブジェクトはこれを使用してアプリにデータを送信できます。
 
 {% tabs %}
 {% tab web %}
@@ -385,7 +385,7 @@ Brazeダッシュボードで、ユーザーに表示されるアプリ内メッ
 
 以下の例では、イベントプロパティを最初のサイレントプッシュの一部として送信することで、トリガーされる特定のアプリ内メッセージが設定されています。
 
-![カスタムイベント「In-app message trigger」を実行したユーザーに配信される、アクションベースのアプリ内メッセージキャンペーン。「campaign_name」が「IAM Campaign Name Example」と等しい。]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
+![カスタムイベント「In-app message trigger」を実行したユーザーに配信される、アクションベースのアプリ内メッセージキャンペーン。「campaign_name」が「IAM キャンペーン Name Example」と等しい。]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
 
 {% alert note %}
 これらのアプリ内メッセージは、アプリケーションがフォアグラウンドにある間にサイレントプッシュが受信された場合にのみトリガーされます。

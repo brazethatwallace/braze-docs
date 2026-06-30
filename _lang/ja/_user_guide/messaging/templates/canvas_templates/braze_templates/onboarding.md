@@ -11,11 +11,11 @@ tool: Canvas
 
 > このオンボーディングテンプレートでユーザーのジャーニーを開始しましょう。このテンプレートは、強力な初期導入を促進し、ユーザーとの持続的な関係を育むように設計されています。パーソナライズされたコミュニケーションと構造化されたメッセージセットを活用することで、ユーザーをシームレスにブランドに紹介し、持続的な関係の始まりを開始できます。
 
-この記事では、ユーザーライフサイクルの検討段階を対象とした**オンボーディング**テンプレートのユースケースを説明し、新規ユーザー向けのシームレスなオンボーディングジャーニーを作成します。この記事を読み終えると、新規ユーザー向けのパーソナライズされたメッセージを含むBraze Canvasテンプレートをカスタマイズできるようになります。
+この記事では、ユーザーライフサイクルの検討段階を対象とした**オンボーディング**テンプレートのユースケースを説明し、新規ユーザー向けのシームレスなオンボーディングジャーニーを作成します。この記事を読み終えると、新規ユーザー向けのパーソナライズされたメッセージを含むBraze キャンバステンプレートをカスタマイズできるようになります。
 
 ## 前提条件 {#prerequisites}
 
-このテンプレートを使用する前に、Canvasで参照するための以下の[メールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)を作成する必要があります。
+このテンプレートを使用する前に、キャンバスで参照するための以下の[メールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)を作成する必要があります。
 
 - アプリのすべてのユーザーへのウェルカムメール
 - アプリの使い方のヒントを含むメール
@@ -25,26 +25,26 @@ tool: Canvas
 
 PantsLabyrinthで働いていて、ユーザーエンゲージメントを向上させ、ユーザーとの信頼とロイヤルティを構築し、ユーザーのエンゲージメントを維持することが目標だとしましょう。そのために、アプリとまだやり取りしていない新規ユーザーをターゲットにしたメッセージの作成に注力します。
 
-オンボーディングテンプレートにアクセスするには、新しいCanvasを作成する際に、**Use a Canvas template** > **Braze templates**を選択します。次に、**Onboarding**の横にある**Apply Template**を選択します。このテンプレートをユースケースに合わせてカスタマイズしましょう。
+オンボーディングテンプレートにアクセスするには、新しいキャンバスを作成する際に、**Use a Canvas template** > **Braze templates**を選択します。次に、**Onboarding**の横にある**Apply Template**を選択します。このテンプレートをユースケースに合わせてカスタマイズしましょう。
 
 ### ステップ 1:詳細を設定する {#step-1-set-up-the-details}
 
-Canvasの詳細を目標に合わせて調整しましょう。
+キャンバスの詳細を目標に合わせて調整しましょう。
 
 1. テンプレート名の横にある**Edit**を選択します。
 
-![Canvasの現在のタイトルと説明。]({% image_buster /assets/img/canvas_templates/onboarding_old_name_description.png %}){: style="max-width:60%;"}
+![キャンバスの現在のタイトルと説明。]({% image_buster /assets/img/canvas_templates/onboarding_old_name_description.png %}){: style="max-width:60%;"}
 
 {:start="2"}
-2. Canvas名を更新して、Canvasが新規ユーザーのオンボーディング用であることを明示します。
-3. 説明を更新して、Canvasがユーザーとの信頼とロイヤルティを促進するユーザージャーニーをマッピングすることを明示します。
-4. **Onboarding**タグを追加して、Canvasホームページでフィルタリングできるようにします。
+2. キャンバス名を更新して、キャンバスが新規ユーザーのオンボーディング用であることを明示します。
+3. 説明を更新して、キャンバスがユーザーとの信頼とロイヤルティを促進するユーザージャーニーをマッピングすることを明示します。
+4. **Onboarding**タグを追加して、キャンバスホームページでフィルタリングできるようにします。
 
-![Canvasの新しい名前、説明、タグ。]({% image_buster /assets/img/canvas_templates/onboarding_new_name_description.png %}){: style="max-width:60%;"}
+![キャンバスの新しい名前、説明、タグ。]({% image_buster /assets/img/canvas_templates/onboarding_new_name_description.png %}){: style="max-width:60%;"}
 
 ### ステップ 2:コンバージョンイベントを割り当てる {#step-2-assign-your-conversion-events}
 
-次に、コンバージョンイベントを割り当てましょう。コンバージョンイベントは、Canvasの成功を測定するために使用できる指標の一種です。**Custom event name**で、カスタムイベントとして**Email Click**を選択します。
+次に、コンバージョンイベントを割り当てましょう。コンバージョンイベントは、キャンバスの成功を測定するために使用できる指標の一種です。**Custom event name**で、カスタムイベントとして**Email Click**を選択します。
 
 ![1次コンバージョンイベント - A。コンバージョンタイプは「カスタムイベントを実行」で、カスタムイベント名は「Email Click」。4日間のコンバージョン期限が設定されています。]({% image_buster /assets/img/canvas_templates/onboarding1.png %})
 
@@ -52,9 +52,9 @@ Canvasの詳細を目標に合わせて調整しましょう。
 
 ### ステップ 3:エントリスケジュールを設定する {#step-3-set-an-entry-schedule}
 
-目標はPantsLabyrinthの新規ユーザーをターゲットにすることなので、Canvasをアクションベースのままにします。**Start Session**で、**Start Session in Any App**を選択して、任意のアプリでセッションを開始したユーザーがCanvasにエントリできるようにします。
+目標はPantsLabyrinthの新規ユーザーをターゲットにすることなので、キャンバスをアクションベースのままにします。**Start Session**で、**Start Session in Any App**を選択して、任意のアプリでセッションを開始したユーザーがキャンバスにエントリできるようにします。
 
-次に、**Entry Window**を調整して、ユーザーがCanvasにエントリできるタイミングを決定します。10月下旬にPantsLabyrinthのサブスクリプションローンチが予定されているとしましょう。ここで開始時間を**2024/10/28 8:00 am**に設定します。オプションで、ユーザーがローカルタイムゾーンでCanvasにエントリできるようにすることもできます。
+次に、**Entry Window**を調整して、ユーザーがキャンバスにエントリできるタイミングを決定します。10月下旬にPantsLabyrinthのサブスクリプションローンチが予定されているとしましょう。ここで開始時間を**2024/10/28 8:00 am**に設定します。オプションで、ユーザーがローカルタイムゾーンでキャンバスにエントリできるようにすることもできます。
 
 ![開始時間が2024年10月28日午前8時のエントリウィンドウ。ユーザーはローカルタイムゾーンでこのメッセージにエントリします。]({% image_buster /assets/img/canvas_templates/onboarding4.png %})
 
@@ -64,11 +64,11 @@ Canvasの詳細を目標に合わせて調整しましょう。
 
 ### ステップ 5:送信設定を行う {#step-5-set-send-settings}
 
-デフォルトでは、このCanvasは購読中またはオプトインしたユーザーに送信され、フリークエンシーキャップルールに従います。これらの設定はそのままにします。
+デフォルトでは、このキャンバスは購読中またはオプトインしたユーザーに送信され、フリークエンシーキャップルールに従います。これらの設定はそのままにします。
 
-### ステップ 6:Canvasをカスタマイズする {#step-6-customize-your-canvas}
+### ステップ 6:キャンバスをカスタマイズする {#step-6-customize-your-canvas}
 
-次に、テンプレートのステップをカスタマイズしてCanvasを構築しましょう。
+次に、テンプレートのステップをカスタマイズしてキャンバスを構築しましょう。
 
 #### ウェルカムメールを設定する {#set-up-the-welcome-email}
 
@@ -84,7 +84,7 @@ Canvasの詳細を目標に合わせて調整しましょう。
 
 ![エンゲージしたユーザー用のパスとその他のユーザー用のパスを持つオーディエンス分割ステップ。]({% image_buster /assets/img/canvas_templates/onboarding2.png %}){: style="max-width:70%;"}
 
-オンライン衣料品小売業者として、PantsLabyrinthにはモバイルユーザーのアクティブなグループもあります。そのため、別のオンボーディングCanvasで、以下のフィルターを選択してモバイルユーザーを識別し、これらのSegmentsに分割することもできます。
+オンライン衣料品小売業者として、PantsLabyrinthにはモバイルユーザーのアクティブなグループもあります。そのため、別のオンボーディングキャンバスで、以下のフィルターを選択してモバイルユーザーを識別し、これらのセグメントに分割することもできます。
 
 - **Has clicked content card for step Welcome Content Card**
 - **Everyone Else**
@@ -93,10 +93,10 @@ Canvasの詳細を目標に合わせて調整しましょう。
 
 アプリとやり取りしていないユーザーのセットから、「Check for Clicks」ステップと「Winback Nudge」ステップを編集することで、これらのユーザーをさらにターゲットにできます。
 
-### ステップ 7:Canvasをテストして起動する {#step-7-test-and-launch-your-canvas}
+### ステップ 7:キャンバスをテストして起動する {#step-7-test-and-launch-your-canvas}
 
-Canvasをテストして確認し、期待どおりに動作することを確認したら、**Launch Canvas**を選択してCanvasを起動します。これで、新規ユーザーにパーソナライズされたオンボーディング体験を提供し、持続的な関係を促進できます！
+キャンバスをテストして確認し、期待どおりに動作することを確認したら、**Launch キャンバス**を選択してキャンバスを起動します。これで、新規ユーザーにパーソナライズされたオンボーディング体験を提供し、持続的な関係を促進できます！
 
 {% alert tip %}
-Canvasの起動前後に考慮すべき事項については、[起動前後のチェックリスト]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch)をご確認ください。
+キャンバスの起動前後に考慮すべき事項については、[起動前後のチェックリスト]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch)をご確認ください。
 {% endalert %}

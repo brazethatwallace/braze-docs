@@ -7,8 +7,8 @@ description: "アプリ内メッセージのドラッグアンドドロップエ
 channel:
   - in-app messages
 tool:
-  - Campaigns
-  - Canvas
+  - キャンペーン
+  - キャンバス
 ---
 
 # アプリ内メッセージアンケート {#in-app-message-surveys}

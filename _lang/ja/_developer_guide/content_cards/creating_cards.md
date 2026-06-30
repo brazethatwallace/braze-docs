@@ -224,10 +224,10 @@ BRZCancellable *cancellable = [self.braze.contentCards subscribeToUpdates:^(NSAr
 コンテンツカードをテストするには:
 
 1. [`changeUser()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser) メソッドを呼び出して、アプリケーションでアクティブユーザーを設定します。
-2. Brazeで**Campaigns**に移動し、[新しいContent Cardsキャンペーンを作成します]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card)。
+2. Brazeで**キャンペーン**に移動し、[新しいContent Cardsキャンペーンを作成します]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card)。
 3. キャンペーンで**Test**を選択し、テストユーザーの `user-id` を入力します。準備ができたら、**Send Test**を選択します。すぐにデバイスでコンテンツカードを起動できます。
 
-![BrazeのContent Cardsキャンペーンでは、自分のユーザー IDをテスト受信者として追加し、コンテンツカードをテストすることができます。]({% image_buster /assets/img/react-native/content-card-test.png %} "Content Card Campaign Test")
+![BrazeのContent Cardsキャンペーンでは、自分のユーザー IDをテスト受信者として追加し、コンテンツカードをテストすることができます。]({% image_buster /assets/img/react-native/content-card-test.png %} "Content Card キャンペーン Test")
 
 ## コンテンツカードの配置 {#content-card-placements}
 
@@ -241,7 +241,7 @@ Content Cardsを使用してメッセージセンターをシミュレーショ�
 
 #### 例 {#example}
 
-たとえば、ユーザーにおすすめの読書の有効化を促すコールトゥアクションと、新しいサブスクライバーSegmentに付与されるクーポンコードという2つのメッセージカードを作成できます。
+たとえば、ユーザーにおすすめの読書の有効化を促すコールトゥアクションと、新しいサブスクライバーセグメントに付与されるクーポンコードという2つのメッセージカードを作成できます。
 
 `body`、`title`、`buttonText` などのキーは、マーケターが設定できるシンプルな文字列値を持つ場合があります。`terms` のようなキーは、法務部門が承認したフレーズの小さなコレクションを提供する値を持つ場合があります。`style` や `class_type` などのキーには、アプリやサイトでのカードのレンダリング方法を決定するために設定できる文字列値があります。
 
@@ -414,4 +414,4 @@ Content Cardsカルーセルを実装するには:
 
 Content Cardsは「カード」のように見せる必要はありません。たとえば、Content Cardsは、ホームページや指定されたページの上部に永続的に表示されるダイナミックな画像として表示できます。
 
-これを実現するには、マーケターが**Image Only**タイプのContent CardsでCampaignまたはキャンバスステップを作成します。次に、[Content Cardsを補足コンテンツとして]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior#content-cards-as-supplemental-content)使用するのに適したキーと値のペアを設定します。
+これを実現するには、マーケターが**Image Only**タイプのContent Cardsでキャンペーンまたはキャンバスステップを作成します。次に、[Content Cardsを補足コンテンツとして]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior#content-cards-as-supplemental-content)使用するのに適したキーと値のペアを設定します。

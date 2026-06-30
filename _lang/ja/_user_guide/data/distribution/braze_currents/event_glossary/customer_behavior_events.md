@@ -70,7 +70,7 @@ search_rank: 7
 Random Bucket Number
 {% endapitags %}
 
-このユーザーイベントは、ワークスペース内で新規ユーザーが作成されるたびに発生します。このイベントでは、各新規ユーザーにランダムバケット番号が割り当てられ、これを使用してランダムユーザーの均一に分散されたSegmentを作成できます。これを使用して、ランダムバケット番号の値の範囲をグループ化し、Campaignsやキャンペーンバリアント間でパフォーマンスを比較します。
+このユーザーイベントは、ワークスペース内で新規ユーザーが作成されるたびに発生します。このイベントでは、各新規ユーザーにランダムバケット番号が割り当てられ、これを使用してランダムユーザーの均一に分散されたセグメントを作成できます。これを使用して、ランダムバケット番号の値の範囲をグループ化し、キャンペーンやキャンペーンバリアント間でパフォーマンスを比較します。
 
 {% alert important %}
 このCurrentsイベントは「すべてのイベントコネクター」を購入した顧客にのみ利用でき、ストレージイベントコネクター（Amazon S3、Microsoft Azure、Google Cloud Storageなど）でのみ利用できます。
@@ -214,7 +214,7 @@ Custom Events
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // users.behaviors.CustomEvent
 
@@ -339,7 +339,7 @@ Attribution
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Install Attribution (users.behaviors.InstallAttribution)
 
@@ -498,7 +498,7 @@ Locations
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Location (users.behaviors.Location)
 
@@ -670,7 +670,7 @@ Purchases
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Purchased (users.behaviors.Purchase)
 
@@ -824,7 +824,7 @@ Sessions
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // First Session (users.behaviors.app.FirstSession)
 
@@ -961,7 +961,7 @@ Sessions
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Session Ended (users.behaviors.app.SessionEnd)
 
@@ -1099,7 +1099,7 @@ Sessions
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Session Started (users.behaviors.app.SessionStart)
 
@@ -1233,7 +1233,7 @@ Live Activity, Push To Start Token
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Live Activity Push To Start Token Changed (users.behaviors.liveactivity.PushToStartTokenChange)
 
@@ -1367,7 +1367,7 @@ Live Activity, Update Token
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Live Activity Update Token Changed (users.behaviors.liveactivity.UpdateTokenChange)
 
@@ -1533,7 +1533,7 @@ Push, Token State Change
 ```
 {% endtab %}
 
-{% tab Segment %}
+{% tab セグメント %}
 ```json
 // Push Notification Token State Changed (users.behaviors.pushnotification.TokenStateChange)
 
@@ -1602,7 +1602,7 @@ iOS Swift SDK 13.3.0以降、およびAndroid SDK 40.0.0以降では、プッシ
 既存のトークンのプロパティが変更された場合、トークン文字列自体が変更されなくても「update」イベントが取り込まれます。トークンは同じ文字列、同じユーザー、同じアプリを持ちますが、以下のフィールドの1つ以上が変更されています：`foreground_push_disabled`、APNsゲートウェイ、Webプッシュキー、`provisionally_opted_in`、または `device_id`。これらの更新はトークン状態の同期イベント（例えば、SDKが新しい権限状態を報告するとき）から発生し、プッシュ送信の結果からは発生しません。
 
 {% alert note %}
-ほとんどの場合、アプリの再インストールやバックアップからの復元は、新しい `push_token` と新しい `device_id` を持つ新たな「add」イベントを引き起こします（SDKが新しい `device_id` を生成し、OSが新しいプッシュトークン文字列を提供するためです）。これにより、ユーザープロファイル上に2つの別々のトークンとデバイスのエントリが作成され、古いエントリは後ほど、アンインストール追跡やCampaign送信を通じてクリーンアップされます。<br><br>
+ほとんどの場合、アプリの再インストールやバックアップからの復元は、新しい `push_token` と新しい `device_id` を持つ新たな「add」イベントを引き起こします（SDKが新しい `device_id` を生成し、OSが新しいプッシュトークン文字列を提供するためです）。これにより、ユーザープロファイル上に2つの別々のトークンとデバイスのエントリが作成され、古いエントリは後ほど、アンインストール追跡やキャンペーン送信を通じてクリーンアップされます。<br><br>
 
 `push_token` が変更されずに `device_id` だけが変更されることは極めて稀です（これはOSが再インストール後に同じトークン文字列を返す必要があるためです）。
 {% endalert %}

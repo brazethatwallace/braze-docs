@@ -4,10 +4,10 @@ article_title: キャンバスの管理
 page_order: 4
 layout: dev_guide
 guide_top_header: "キャンバスの管理"
-guide_top_text: "Canvasを起動したら、あとはデータが集まるのを見守りましょう。変更を加えたり、Canvasをアーカイブしたりする必要がある場合は、以下の記事を参考にしてください。"
+guide_top_text: "キャンバスを起動したら、あとはデータが集まるのを見守りましょう。変更を加えたり、キャンバスをアーカイブしたりする必要がある場合は、以下の記事を参考にしてください。"
 
 page_type: landing
-description: "このランディングページには、アーカイブ、複製、起動後の変更など、Canvasの管理に関する記事がまとめられています。"
+description: "このランディングページには、アーカイブ、複製、起動後の変更など、キャンバスの管理に関する記事がまとめられています。"
 tool: Canvas
 
 guide_featured_title: "セクション記事"

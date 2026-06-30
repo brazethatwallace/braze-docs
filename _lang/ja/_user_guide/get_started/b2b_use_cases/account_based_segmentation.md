@@ -49,7 +49,7 @@ B2Bアカウントベースのセグメンテーションのユースケース�
 
 より高度で複雑なセグメンテーションについては、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)を参照してください。B2Bアカウントベースのセグメンテーションを開始するのに役立つSQLテンプレートをいくつか紹介します。
 
-1. 1つのカタログで2つのフィルターを比較するSegmentを作成します（エンタープライズレベルのアカウントでレストラン業界に勤務するユーザーなど）。カタログIDとアイテムIDを含める必要があります。
+1. 1つのカタログで2つのフィルターを比較するセグメントを作成します（エンタープライズレベルのアカウントでレストラン業界に勤務するユーザーなど）。カタログIDとアイテムIDを含める必要があります。
 
 ```sql
 WITH salesforce_accounts AS (
@@ -72,7 +72,7 @@ AND salesforce_accounts.Classification = 'Enterprise'
 ```
 
 {: start="2"}
-2. 2つの別個のカタログにまたがる2つのフィルターを比較するSegmentを作成します（例えば、オープン中の「Stage 3」の商談があるエンタープライズターゲットアカウントに関連するユーザーなど）。
+2. 2つの別個のカタログにまたがる2つのフィルターを比較するセグメントを作成します（例えば、オープン中の「Stage 3」の商談があるエンタープライズターゲットアカウントに関連するユーザーなど）。
 
 ```sql
 -- Reformat catalog data into a table with columns for each field
@@ -110,6 +110,6 @@ AND salesforce_opportunities.Stage = 'Closed Won'
 
 セグメンテーションにおける接続ソースの使用方法の基本については、[CDIセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments)を参照してください。[カタログを使用する場合](#option-1-when-using-catalogs-for-your-business-objects)で取り上げたテンプレートを参考に、ソーステーブルのフォーマットを自由に設定できます。
 
-## Segmentでアカウントベースのエクステンションを使用する {#using-your-account-based-extension-in-a-segment}
+## セグメントでアカウントベースのエクステンションを使用する {#using-your-account-based-extension-in-a-segment}
 
-上記のステップでアカウントレベルのセグメンテーションを作成したら、それらのセグメントエクステンションをターゲティング条件に直接取り込むことができます。また、役割や以前のCampaignsへのエンゲージメントなど、ユーザーの属性条件を段階的に追加して適用することも簡単です。詳しくは、[Segmentでエクステンションを使用する]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-6-use-your-extension-in-a-segment)を参照してください。
+上記のステップでアカウントレベルのセグメンテーションを作成したら、それらのセグメントエクステンションをターゲティング条件に直接取り込むことができます。また、役割や以前のキャンペーンへのエンゲージメントなど、ユーザーの属性条件を段階的に追加して適用することも簡単です。詳しくは、[セグメントでエクステンションを使用する]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-6-use-your-extension-in-a-segment)を参照してください。

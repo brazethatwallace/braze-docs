@@ -1,5 +1,5 @@
 ---
-nav_title: "GET: Campaignのリンクエイリアス一覧"
+nav_title: "GET: キャンペーンのリンクエイリアス一覧"
 layout: api_page
 page_type: reference
 hidden: true
@@ -9,18 +9,18 @@ platform: API
 channel:
   - Email
 tool:
-  - Canvas
-  - Campaigns
+  - キャンバス
+  - キャンペーン
 
 description: "この記事では、リンクエイリアス一覧のBrazeエンドポイントについて詳しく説明します。"
 ---
 {% api %}
-# Campaignのリンクエイリアス一覧 {#list-link-alias-for-campaign}
+# キャンペーンのリンクエイリアス一覧 {#list-link-alias-for-campaign}
 {% apimethod get %}
 /campaigns/url_info/details
 {% endapimethod %}
 
-> このエンドポイントを使用して、特定のCampaignメッセージバリアントに設定されたリンクエイリアスを一覧表示します。
+> このエンドポイントを使用して、特定のキャンペーンメッセージバリアントに設定されたリンクエイリアスを一覧表示します。
 
 {% apiref postman %}  {% endapiref %}
 
@@ -28,8 +28,8 @@ description: "この記事では、リンクエイリアス一覧のBrazeエン�
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
-| `campaign_id` | 必須 | 文字列 | [Campaign API識別子]({{site.baseurl}}/api/identifier_types/#campaign-api-identifier)を参照してください。|
-| `message_variation_id ` | 必須 | 文字列 | メッセージバリアントAPI識別子。これはCampaignの詳細ページの**API Identifier**セクションで確認できます。 |
+| `campaign_id` | 必須 | 文字列 | [キャンペーン API識別子]({{site.baseurl}}/api/identifier_types/#campaign-api-identifier)を参照してください。|
+| `message_variation_id ` | 必須 | 文字列 | メッセージバリアントAPI識別子。これはキャンペーンの詳細ページの**API Identifier**セクションで確認できます。 |
 | `includes_link_id` | オプション | 文字列 | 特定のリンク識別子（Brazeによって割り当てられたもの）または`null`。これは結果を特定の`link_id`でフィルタリングするために使用されます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
@@ -65,8 +65,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | エラー | トラブルシューティング |
 | --- | --- |
-| `Missing/Invalid Campaign ID` | Campaign API IDはAPI識別子である必要があります。これは[Campaigns一覧エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/)を使用するか、ダッシュボードにログインして確認できます。 |
-| `Missing/Invalid Message Variant ID` | メッセージバリアントAPI IDはAPI識別子である必要があります。これは[Campaign詳細エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/)を使用するか、ダッシュボードにログインして確認できます。 |
+| `Missing/Invalid Campaign ID` | キャンペーン API IDはAPI識別子である必要があります。これは[キャンペーン一覧エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/)を使用するか、ダッシュボードにログインして確認できます。 |
+| `Missing/Invalid Message Variant ID` | メッセージバリアントAPI IDはAPI識別子である必要があります。これは[キャンペーン詳細エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/)を使用するか、ダッシュボードにログインして確認できます。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 

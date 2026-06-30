@@ -39,9 +39,9 @@ channel: email
 - **コメント内のタグの例：** `<!-- ${set_user_to_unsubscribed_url} -->`
 - **非表示の `<div>` タグ内のコメントの例：** {%raw%}`<div style="display:none;max-height:0px;overflow:hidden;">${set_user_to_unsubscribed_url}</div>`{%endraw%}
 
-### 現在Campaignで使用されているメールテンプレートを編集するとどうなりますか？ {#what-happens-if-i-edit-an-email-template-that-is-currently-being-used-in-a-campaign}
+### 現在キャンペーンで使用されているメールテンプレートを編集するとどうなりますか？ {#what-happens-if-i-edit-an-email-template-that-is-currently-being-used-in-a-campaign}
 
-既存のテンプレートに加えた編集は、そのテンプレートの以前のバージョンを使用して作成されたCampaignには反映されません。REST API本文でテンプレートを使用するAPIキャンペーンの場合、Brazeは送信時にテンプレートの最新バージョンを使用します。
+既存のテンプレートに加えた編集は、そのテンプレートの以前のバージョンを使用して作成されたキャンペーンには反映されません。REST API本文でテンプレートを使用するAPIキャンペーンの場合、Brazeは送信時にテンプレートの最新バージョンを使用します。
 
 ## リンクテンプレート {#link-templates}
 

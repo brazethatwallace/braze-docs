@@ -11,29 +11,29 @@ alias: /line/reporting/
 
 # LINE レポート {#line-reporting}
 
-> CampaignまたはCanvasを起動した後、Campaignの詳細ページまたはCanvas分析で主要な指標を確認できます。この記事では、それらの指標の確認場所と、各指標が何を表しているかについて説明します。
+> キャンペーンまたはキャンバスを起動した後、キャンペーンの詳細ページまたはキャンバス分析で主要な指標を確認できます。この記事では、それらの指標の確認場所と、各指標が何を表しているかについて説明します。
 
 {% alert tip %}
 レポートに含まれる用語や指標の定義をお探しですか？[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)を参照してください。
 {% endalert %}
 
-## Campaign分析 {#campaign-analytics}
+## キャンペーン分析 {#campaign-analytics}
 
-**Campaign Analytics**タブでは、一連のパネルでレポートを確認できます。以下のセクションに記載されているものより多い場合も少ない場合もありますが、それぞれに目的があります。
+**キャンペーン Analytics**タブでは、一連のパネルでレポートを確認できます。以下のセクションに記載されているものより多い場合も少ない場合もありますが、それぞれに目的があります。
 
 {% alert note %}
 LINEの開封およびクリック関連の統計は、特定の日に20人以上のユーザーがイベントを実行した場合にのみ計算されます。
 {% endalert %}
 
-### Campaignの詳細 {#campaign-details}
+### キャンペーンの詳細 {#campaign-details}
 
-**Campaign Details**パネルには、LINEメッセージのパフォーマンスの概要が表示されます。
+**キャンペーンの詳細**パネルには、LINEメッセージのパフォーマンスの概要が表示されます。
 
 このパネルを確認して、受信者に送信されたメッセージ数、1次コンバージョン率、このメッセージによって生成された合計収益などの全体的な指標を確認できます。また、このページから配信、オーディエンス、コンバージョンの設定を確認することもできます。
 
 #### コントロールグループ {#control-groups}
 
-個々のLINEメッセージの影響を測定するには、A/Bテストに[コントロールグループ]({{site.baseurl}}/user_guide/messaging/ab_testing)を追加できます。トップレベルの**Campaign Details**パネルには、コントロールグループバリアントの指標は含まれません。
+個々のLINEメッセージの影響を測定するには、A/Bテストに[コントロールグループ]({{site.baseurl}}/user_guide/messaging/ab_testing)を追加できます。トップレベルの**キャンペーンの詳細**パネルには、コントロールグループバリアントの指標は含まれません。
 
 ### LINEパフォーマンス {#line-performance}
 
@@ -64,8 +64,8 @@ LINEの開封およびクリック関連の統計は、特定の日に20人以�
 
 ### コンバージョンイベントの詳細 {#conversion-event-details}
 
-**Conversion Event Details**パネルには、Campaignのコンバージョンイベントのパフォーマンスが表示されます。詳しくは、[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation)を参照してください。
+**Conversion Event Details**パネルには、キャンペーンのコンバージョンイベントのパフォーマンスが表示されます。詳しくは、[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation)を参照してください。
 
 ### コンバージョン相関 {#conversion-correlation}
 
-**Conversion Correlation**パネルでは、Campaignに設定した成果にどのユーザー属性や動作が寄与しているか、または妨げているかについてのインサイトを得ることができます。詳しくは、[コンバージョン相関]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation)を参照してください。
+**Conversion Correlation**パネルでは、キャンペーンに設定した成果にどのユーザー属性や動作が寄与しているか、または妨げているかについてのインサイトを得ることができます。詳しくは、[コンバージョン相関]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation)を参照してください。

@@ -16,7 +16,7 @@ _この統合はRemergeによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとRemergeの統合により、ユーザーデータをWebhookイベント経由でRemergeに送信し、モバイルデマンドサイドプラットフォームでユーザーのリターゲティングを支援することで、堅牢なクロスチャネルのライフサイクルマーケティングCampaignsを開発できます。
+BrazeとRemergeの統合により、ユーザーデータをWebhookイベント経由でRemergeに送信し、モバイルデマンドサイドプラットフォームでユーザーのリターゲティングを支援することで、堅牢なクロスチャネルのライフサイクルマーケティングキャンペーンを開発できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -33,7 +33,7 @@ BrazeとRemergeの統合により、ユーザーデータをWebhookイベント�
 
 ### ステップ1: Braze Webhookテンプレートを作成する {#step-1-create-your-braze-webhook-template}
 
-今後のCampaignsまたはCanvases用のRemerge Webhookテンプレートを作成するには、Brazeプラットフォームの**コンテンツ** > **Webhook**に移動します。次に、**Webhookテンプレートを作成**を選択します。
+今後のキャンペーンまたはキャンバス用のRemerge Webhookテンプレートを作成するには、Brazeプラットフォームの**コンテンツ** > **Webhook**に移動します。次に、**Webhookテンプレートを作成**を選択します。
 
 
 単発のRemerge Webhookキャンペーンを作成したい場合、または既存のテンプレートを使用したい場合は、新しいキャンペーンを作成する際にBrazeで**Webhook**を選択します。

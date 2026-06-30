@@ -9,7 +9,7 @@
 {% if include.alert == 'BCC address billable emails' %}
 
 {% alert important %}
-CampaignまたはCanvasにBCCアドレスを追加すると、請求対象となるメール数が倍増します。これは、Brazeがユーザー宛てに1通、BCCアドレス宛てに1通のメッセージを送信するためです。
+キャンペーンまたはキャンバスにBCCアドレスを追加すると、請求対象となるメール数が倍増します。これは、Brazeがユーザー宛てに1通、BCCアドレス宛てに1通のメッセージを送信するためです。
 {% endalert %}
 
 {% endif %}
@@ -61,7 +61,7 @@ NaverのAndroidアプリやiOSアプリなど、Brazeのユーザー設定セン
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-レガシーの購入イベントは非推奨状態（メンテナンスモード）に移行します。購入イベントは引き続き期待どおりに動作しますが、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events)が優先されるため、購入イベントの上にまったく新しい機能が構築されることはありません。この移行が行われると、Segmentフィルターは購入動作の下にデータが入力されなくなります。<br><br>現在購入イベントを使用している場合は、段階的廃止計画に関する事前通知を受け取ります。現時点では、正式な非推奨日まで購入イベントを引き続き使用できます。詳細については、[推奨イベントの概要]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events)を参照してください。
+レガシーの購入イベントは非推奨状態（メンテナンスモード）に移行します。購入イベントは引き続き期待どおりに動作しますが、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events)が優先されるため、購入イベントの上にまったく新しい機能が構築されることはありません。この移行が行われると、セグメントフィルターは購入動作の下にデータが入力されなくなります。<br><br>現在購入イベントを使用している場合は、段階的廃止計画に関する事前通知を受け取ります。現時点では、正式な非推奨日まで購入イベントを引き続き使用できます。詳細については、[推奨イベントの概要]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events)を参照してください。
 {% endalert %}
 
 {% endif %}
@@ -85,7 +85,7 @@ Shopify連携は、Shopifyの顧客作成と顧客更新のwebhookをサポー�
 {% if include.alert == 'context variable' %}
 
 {% alert important %}
-Canvasのエントリプロパティは、Canvasコンテキスト変数の一部です。つまり、`canvas_entry_properties`は`context`として参照されます。各`context`変数には、名前、データタイプ、およびLiquidを含めることができる値が含まれます。現在、`canvas_entry_properties`は下位互換性があります。詳細については、[コンテキスト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#how-it-works)と[Canvasコンテキストオブジェクト]({{site.baseurl}}/api/objects_filters/context_object)を参照してください。
+キャンバスのエントリプロパティは、キャンバスコンテキスト変数の一部です。つまり、`canvas_entry_properties`は`context`として参照されます。各`context`変数には、名前、データタイプ、およびLiquidを含めることができる値が含まれます。現在、`canvas_entry_properties`は下位互換性があります。詳細については、[コンテキスト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#how-it-works)と[キャンバスコンテキストオブジェクト]({{site.baseurl}}/api/objects_filters/context_object)を参照してください。
 {% endalert %}
 
 {% endif %}

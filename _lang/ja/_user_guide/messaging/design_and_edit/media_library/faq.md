@@ -63,4 +63,4 @@ description: "この記事では、Brazeのメディアライブラリに関す�
 
 ### メディアライブラリの画像アセットにバニティURLを作成できますか？ {#can-i-create-vanity-urls-for-media-library-image-assets}
 
-メディアライブラリアセットのバニティURLはサポートされていません。カスタムURLを使用するとCDN配信が中断されるためです。Campaignが既にそのURLを参照している場合は、既存のURLで画像を置き換えることができます。詳細については、[ファイルを置き換える]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file)を参照してください。
+メディアライブラリアセットのバニティURLはサポートされていません。カスタムURLを使用するとCDN配信が中断されるためです。キャンペーンが既にそのURLを参照している場合は、既存のURLで画像を置き換えることができます。詳細については、[ファイルを置き換える]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file)を参照してください。

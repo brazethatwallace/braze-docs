@@ -23,15 +23,15 @@ search_rank: 1
 | <a href='/docs/user_guide/channels/email/subscriptions#managing-user-subscriptions'>メールリスト属性</a> | `{{${set_user_to_unsubscribed_url}}}` <br>このタグは以前の `{{${unsubscribe_url}}}` タグに代わるものです。以前のタグは過去に作成されたメールでは引き続き機能しますが、新しいタグの使用を推奨します。<br><br> `{{${set_user_to_one_click_list_unsubscribe}}}` <br> `{{${set_user_to_subscribed_url}}}` <br> `{{${set_user_to_opted_in_url}}}` |
 | <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting#trigger-messages'>SMS 属性</a> | `{{sms.${inbound_message_body}}}` <br> `{{sms.${inbound_media_urls}}}` |
 | <a href='/docs/user_guide/channels/whatsapp/message_processing/messaging_users'>WhatsApp 属性</a> | `{{whats_app.${inbound_message_body}}}` <br> `{{whats_app.${inbound_media_urls}}}` <br> `{{whats_app.${inbound_flow_response}}}` <br> `{{whats_app.${inbound_product_id}}}` <br> `{{whats_app.${inbound_catalog_id}}}` <br> `{{whats_app.${inbound_profile_name}}}` |
-| Campaign属性とキャンバスステップ属性 | `{{campaign.${api_id}}}` <br> `{{campaign.${dispatch_id}}}` <br> `{{campaign.${name}}}` <br> `{{campaign.${message_name}}}` <br> `{{campaign.${message_api_id}}}` |
-| Canvas属性 | `{{canvas.${name}}}` <br> `{{canvas.${api_id}}}` <br> `{{canvas.${variant_name}}}` <br> `{{canvas.${variant_api_id}}}` |
+| キャンペーン属性とキャンバスステップ属性 | `{{campaign.${api_id}}}` <br> `{{campaign.${dispatch_id}}}` <br> `{{campaign.${name}}}` <br> `{{campaign.${message_name}}}` <br> `{{campaign.${message_api_id}}}` |
+| キャンバス属性 | `{{canvas.${name}}}` <br> `{{canvas.${api_id}}}` <br> `{{canvas.${variant_name}}}` <br> `{{canvas.${variant_api_id}}}` |
 | カード属性 | `{{card.${api_id}}}` <br> `{{card.${name}}}` |
 | ジオフェンスイベント | `{{event_properties.${geofence_name}}}` <br> `{{event_properties.${geofence_set_name}}}` |
 | イベントプロパティ <br> (ワークスペースに固有のものです。)| `{{event_properties.${your_custom_event_property}}}` |
-| Canvasコンテキスト変数 | `{{context.${your_context_variable}}}` |
+| キャンバスコンテキスト変数 | `{{context.${your_context_variable}}}` |
 | カスタム属性 <br> (ワークスペースに固有のものです。) | `{{custom_attribute.${your_custom_attribute}}}` |
 | <a href='/docs/api/objects_filters/trigger_properties_object'>API トリガープロパティ</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
-| Canvasエントリプロパティ | `{{context.${property_name}}}` |
+| キャンバスエントリプロパティ | `{{context.${property_name}}}` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="サポートされているタグの概要" }
 
 {% endraw %}
@@ -42,22 +42,22 @@ API トリガープロパティでは、タグごとに 2 つの波括弧を使�
 
 ### サポートされている属性 {#supported-attributes}
 
-Campaign、カード、Canvasの属性は、対応するメッセージングテンプレートでのみサポートされています。例えば、`dispatch_id` はメール、プッシュ、SMS、WhatsApp などのメッセージングチャネルの Liquid ではサポートされていますが、アプリ内メッセージやバナーではサポートされていません。
+キャンペーン、カード、キャンバスの属性は、対応するメッセージングテンプレートでのみサポートされています。例えば、`dispatch_id` はメール、プッシュ、SMS、WhatsApp などのメッセージングチャネルの Liquid ではサポートされていますが、アプリ内メッセージやバナーではサポートされていません。
 
-詳細については、[ソース別のCampaignおよびCanvas属性]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources)を参照してください。
+詳細については、[ソース別のキャンペーンおよびキャンバス属性]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources)を参照してください。
 
-### CanvasとCampaignのタグの違い {#canvas-and-campaign-tag-differences}
+### キャンバスとキャンペーンのタグの違い {#canvas-and-campaign-tag-differences}
 
-以下のタグの動作は、CanvasとCampaignで異なります。
+以下のタグの動作は、キャンバスとキャンペーンで異なります。
 {% raw %}
 - `dispatch_id` の動作が異なるのは、Brazeがキャンバスステップを（「スケジュール済み」であっても）トリガーイベントとして扱うためです（スケジュール可能なエントリステップを除く）。詳細については、[ディスパッチ ID の動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)を参照してください。
-- Canvasで `{{campaign.${name}}}` タグを使用すると、Canvasコンポーネント名が表示されます。Campaignでこのタグを使用すると、Campaign名が表示されます。
+- キャンバスで `{{campaign.${name}}}` タグを使用すると、キャンバスコンポーネント名が表示されます。キャンペーンでこのタグを使用すると、キャンペーン名が表示されます。
 {% endraw %}
 
-#### URL 内のCampaign名 {#campaign-names-in-urls}
+#### URL 内のキャンペーン名 {#campaign-names-in-urls}
 
 {% raw %}
-Campaignおよびメッセージバリアント名には、`%`、スペース、`&` など、URLセーフでない文字が含まれる場合があります。`{{campaign.${name}}}` または `{{campaign.${message_name}}}` をリンクやクエリ文字列（`utm_campaign` パラメーターなど）に挿入する場合は、URLが正しく解析されるように [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) フィルターを適用してください。例えば：
+キャンペーンおよびメッセージバリアント名には、`%`、スペース、`&` など、URLセーフでない文字が含まれる場合があります。`{{campaign.${name}}}` または `{{campaign.${message_name}}}` をリンクやクエリ文字列（`utm_campaign` パラメーターなど）に挿入する場合は、URLが正しく解析されるように [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) フィルターを適用してください。例えば：
 
 ```liquid
 https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
@@ -290,7 +290,7 @@ Message in default language
 
 ### ユースケース：タイムゾーンによるユーザーのターゲティング {#use-case-target-users-by-time-zone}
 
-タイムゾーンによってユーザーをターゲティングすることもできます。例えば、EST にいるユーザーには 1 つのメッセージを送信し、PST にいるユーザーには別のメッセージを送信します。これを行うには、現在の時刻を UTC で保存し、if/else 文をユーザーの現在の時刻と比較して、適切なタイムゾーンに適切なメッセージを送信します。ユーザーのローカルタイムゾーンで送信するようCampaignを設定し、適切な時間にCampaignが届くようにする必要があります。
+タイムゾーンによってユーザーをターゲティングすることもできます。例えば、EST にいるユーザーには 1 つのメッセージを送信し、PST にいるユーザーには別のメッセージを送信します。これを行うには、現在の時刻を UTC で保存し、if/else 文をユーザーの現在の時刻と比較して、適切なタイムゾーンに適切なメッセージを送信します。ユーザーのローカルタイムゾーンで送信するようキャンペーンを設定し、適切な時間にキャンペーンが届くようにする必要があります。
 
 以下のユースケースでは、午後 2 時から午後 3 時の間に配信されるメッセージを、各タイムゾーン向けの特定のメッセージで記述する方法を示します。
 
@@ -336,7 +336,7 @@ Show variant B
 
 ## eコマースショッピングカートタグ {#shopping-cart-tag}
 
-`shopping_cart` タグは、eコマースの[カート放棄]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20cart#abandoned-cart)および[チェックアウト放棄]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20checkout#abandoned-checkout)のCanvasユースケースで、ユーザーのカート内容にアクセスします。`CART_ID` を実際のカート ID 値（{% raw %}`{{context.${cart_id}}}`{% endraw %} など）に置き換えてください。
+`shopping_cart` タグは、eコマースの[カート放棄]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20cart#abandoned-cart)および[チェックアウト放棄]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20checkout#abandoned-checkout)のキャンバスユースケースで、ユーザーのカート内容にアクセスします。`CART_ID` を実際のカート ID 値（{% raw %}`{{context.${cart_id}}}`{% endraw %} など）に置き換えてください。
 
 {% raw %}
 ```liquid

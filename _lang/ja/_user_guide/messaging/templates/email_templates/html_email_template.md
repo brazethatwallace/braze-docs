@@ -12,7 +12,7 @@ channel:
 
 # HTMLメールテンプレートのアップロード {#upload-an-html-email-template}
 
-> Brazeダッシュボードでは、独自のHTMLメールテンプレートをアップロードして保存し、後からCampaignsで使用できます。また、エディターを使用して[メールテンプレートを作成]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)することもできます。
+> Brazeダッシュボードでは、独自のHTMLメールテンプレートをアップロードして保存し、後からキャンペーンで使用できます。また、エディターを使用して[メールテンプレートを作成]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)することもできます。
 
 ## 要件 {#upload-requirements}
 
@@ -39,10 +39,10 @@ channel:
 
 ### ステップ 4: テンプレートを完成させて保存する {#step-4-finish-and-save-your-template}
 
-**Save template**を選択してテンプレートを保存してください。これで、任意のCampaignまたはCanvasでこのテンプレートを使用する準備が整いました。
+**Save template**を選択してテンプレートを保存してください。これで、任意のキャンペーンまたはキャンバスでこのテンプレートを使用する準備が整いました。
 
 {% alert note %}
-既存のテンプレートに編集を加えた場合、その変更は以前のバージョンのテンプレートを使用して作成されたCampaignsには反映されません。
+既存のテンプレートに編集を加えた場合、その変更は以前のバージョンのテンプレートを使用して作成されたキャンペーンには反映されません。
 {% endalert %}
 
 ## APIキャンペーンでテンプレートを使用する {#api_for_upload_email_templates}

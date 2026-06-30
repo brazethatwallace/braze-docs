@@ -96,7 +96,7 @@ Android (FCM) | 4 KB
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Webプッシュ" }
 Chrome | 192 x 192以上
 Firefox | 192 x 192以上
-Safari | 192 x 192以上（アイコンはmacOS 13以降のSafari 16以降でCampaignごとに設定可能）
+Safari | 192 x 192以上（アイコンはmacOS 13以降のSafari 16以降でキャンペーンごとに設定可能）
 Opera | 192x192以上
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Webプッシュ" }
 

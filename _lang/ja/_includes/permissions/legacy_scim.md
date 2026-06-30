@@ -88,11 +88,11 @@ Brazeではアプリグループはワークスペースに改名されました
 | 権限名 | SCIM API文字列 |
 | --- | --- |
 | Admin | `admin` |
-| Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
-| Approve and Deny Canvases | `approve_deny_campaigns` |
-| Send Campaigns, Canvases | `send_campaigns_canvases` |
+| Access キャンペーン, キャンバス, Cards, セグメント, Media Library | `basic_access` |
+| Approve and Deny キャンバス | `approve_deny_campaigns` |
+| キャンペーン、キャンバスを送信 | `send_campaigns_canvases` |
 | Publish Cards | `publish_cards` |
-| Edit Segments | `edit_segments` |
+| Edit セグメント | `edit_segments` |
 | Export User Data | `export_user_data` |
 | View PII | `view_pii` |
 | View User Profiles PII Compliant | `view_user_profile` |
@@ -119,11 +119,11 @@ Brazeではアプリグループはワークスペースに改名されました
 | 権限名 | SCIM API文字列 |
 | --- | --- |
 | Admin | `admin` |
-| Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
-| Approve and Deny Canvases | `approve_deny_campaigns` |
-| Send Campaigns, Canvases | `send_campaigns_canvases` |
+| Access キャンペーン, キャンバス, Cards, セグメント, Media Library | `basic_access` |
+| Approve and Deny キャンバス | `approve_deny_campaigns` |
+| キャンペーン、キャンバスを送信 | `send_campaigns_canvases` |
 | Publish Cards | `publish_cards` |
-| Edit Segments | `edit_segments` |
+| Edit セグメント | `edit_segments` |
 | Export User Data | `export_user_data` |
 | View User Profile | `view_user_profile` |
 | Manage Dashboard Users | `manage_dashboard_users` |

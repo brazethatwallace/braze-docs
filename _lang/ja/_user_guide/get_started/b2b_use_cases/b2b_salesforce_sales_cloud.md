@@ -149,18 +149,18 @@ Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設�
 
 テンプレートをBrazeの運用ワークフローにすばやく追加できます。例えば以下のようなケースがあります。
 
-1. Salesforceでリードを作成する[新規リードCampaign](#new-lead)の一部として
-2. MQLしきい値を超えたユーザーを「MQL」に更新し、同じ情報でSalesforce Sales Cloudを更新する[リードスコアリングCanvas](#lead-scoring)の一部として
+1. Salesforceでリードを作成する[新規リードキャンペーン](#new-lead)の一部として
+2. MQLしきい値を超えたユーザーを「MQL」に更新し、同じ情報でSalesforce Sales Cloudを更新する[リードスコアリングキャンバス](#lead-scoring)の一部として
 
-### 新規リードCampaign {#new-lead}
+### 新規リードキャンペーン {#new-lead}
 
-ユーザーがメールアドレスを提供したときにSalesforceでリードを作成するには、「Update Lead」Webhookテンプレートを使用するCampaignを作成し、ユーザーがメールアドレスを追加したとき（例えば、Webフォームに入力したとき）にトリガーします。
+ユーザーがメールアドレスを提供したときにSalesforceでリードを作成するには、「Update Lead」Webhookテンプレートを使用するキャンペーンを作成し、ユーザーがメールアドレスを追加したとき（例えば、Webフォームに入力したとき）にトリガーします。
 
-![アクションベースで「メールアドレスを追加する」というトリガーアクションを持つCampaign作成のステップ2。]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
+![アクションベースで「メールアドレスを追加する」というトリガーアクションを持つキャンペーン作成のステップ2。]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
 
-### マーケティング適格リード（MQL）しきい値を超えた場合のリードスコアリングCanvas {#lead-scoring}
+### マーケティング適格リード（MQL）しきい値を超えた場合のリードスコアリングキャンバス {#lead-scoring}
 
-このWebhookは[リードスコアリング]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring#lead-handoff)のユースケースで取り上げていますが、リードスコアリングCanvas内でMQLをチェックし、Salesforceを直接更新することもできます（別途Webhook Campaignを作成する代わりに）。
+このWebhookは[リードスコアリング]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring#lead-handoff)のユースケースで取り上げていますが、リードスコアリングキャンバス内でMQLをチェックし、Salesforceを直接更新することもできます（別途Webhook キャンペーンを作成する代わりに）。
 
 ユーザーの更新に後続ステップを追加し、ユーザーが定義したMQLしきい値を超えたかどうかをチェックします。超えた場合、そのユーザーのステータスを「MQL」に更新し、このWebhookテンプレートを使用して同じ「MQL」ステータスでSalesforceを更新します。Salesforceは、定義されたリードルーティングルールを使用して、このリードを適切な営業チームにルーティングすることで残りの処理を行います。
 
@@ -183,7 +183,7 @@ Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設�
 
 これで、キャンバスフローがMQLしきい値を超えたユーザーを更新するようになります。
 
-![ユーザーがMQLしきい値を超えたかどうかをチェックし、超えた場合はSalesforceを更新するCanvasのユーザーの更新ステップ。]({% image_buster /assets/img/b2b/salesforce_canvas.png %}){: style="max-width:50%;"}
+![ユーザーがMQLしきい値を超えたかどうかをチェックし、超えた場合はSalesforceを更新するキャンバスのユーザーの更新ステップ。]({% image_buster /assets/img/b2b/salesforce_canvas.png %}){: style="max-width:50%;"}
 
 ## トラブルシューティング {#troubleshooting}
 

@@ -1,20 +1,20 @@
 ---
-nav_title: "GET: Canvasデータサマリー分析のエクスポート"
-article_title: "GET: Canvasデータサマリー分析のエクスポート"
+nav_title: "GET: キャンバスデータサマリー分析のエクスポート"
+article_title: "GET: キャンバスデータサマリー分析のエクスポート"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、Canvasデータサマリー分析のエクスポートBrazeエンドポイントについて説明します。"
+description: "この記事では、キャンバスデータサマリー分析のエクスポートBrazeエンドポイントについて説明します。"
 
 ---
 {% api %}
-# Canvasデータサマリー分析のエクスポート {#export-canvas-data-summary-analytics}
+# キャンバスデータサマリー分析のエクスポート {#export-canvas-data-summary-analytics}
 {% apimethod get %}
 /canvas/data_summary
 {% endapimethod %}
 
-> このエンドポイントを使用して、Canvasの時系列データのロールアップをエクスポートし、Canvas結果の簡潔なサマリーを提供します。
+> このエンドポイントを使用して、キャンバスの時系列データのロールアップをエクスポートし、キャンバス結果の簡潔なサマリーを提供します。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#1eb1b760-6b00-4c03-bcfb-12646f2ba6da {% endapiref %}
 
@@ -30,7 +30,7 @@ description: "この記事では、Canvasデータサマリー分析のエクス
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | 必須 | 文字列 | [Canvas API識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
+| `canvas_id` | 必須 | 文字列 | [キャンバス API識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
 | `ending_at` | 必須 | 日時 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列) | データエクスポートの終了日。デフォルトはリクエスト時刻です。 |
 | `starting_at` | オプション* | 日時 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列) | データエクスポートの開始日。<br><br>* `length` または `starting_at` のいずれかが必須です。 |
 | `length` | オプション* | 文字列 | 返されるシリーズに含まれる `ending_at` より前の最大日数。1以上14以下（両端を含む）でなければなりません。<br><br>* `length` または `starting_at` のいずれかが必須です。 |
@@ -40,7 +40,7 @@ description: "この記事では、Canvasデータサマリー分析のエクス
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 {% alert important %}
-Canvasの分析は、Brazeで設定された会社のタイムゾーン（ダッシュボードが使用するタイムゾーンと同じ）に基づいて日次で集計されます。APIは `starting_at` と `ending_at` をそのタイムゾーンの午前0時に正規化します。
+キャンバスの分析は、Brazeで設定された会社のタイムゾーン（ダッシュボードが使用するタイムゾーンと同じ）に基づいて日次で集計されます。APIは `starting_at` と `ending_at` をそのタイムゾーンの午前0時に正規化します。
 {% endalert %}
 
 ## リクエスト例 {#example-request}
@@ -55,7 +55,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 ## 応答 {#response}
 
 {% alert note %}
-`total_stats`、`variant_stats`、`step_stats`において、`conversions`はCanvasの[1次コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)のカウントです。追加のコンバージョンイベントを設定すると、ペイロードには2番目、3番目、およびそれ以降のイベントに対応する `conversions1`、`conversions2`、およびより大きなインデックスのフィールドも含まれる場合があります。これは `/campaigns/data_series` エンドポイントの[多変量応答]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics#multivariate-response)と同様です。存在する場合、`_by_entry_time` で終わるフィールドは、Canvasエントリ時刻によるコンバージョンを示します。
+`total_stats`、`variant_stats`、`step_stats`において、`conversions`はキャンバスの[1次コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)のカウントです。追加のコンバージョンイベントを設定すると、ペイロードには2番目、3番目、およびそれ以降のイベントに対応する `conversions1`、`conversions2`、およびより大きなインデックスのフィールドも含まれる場合があります。これは `/campaigns/data_series` エンドポイントの[多変量応答]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics#multivariate-response)と同様です。存在する場合、`_by_entry_time` で終わるフィールドは、キャンバスエントリ時刻によるコンバージョンを示します。
 {% endalert %}
 
 ```json

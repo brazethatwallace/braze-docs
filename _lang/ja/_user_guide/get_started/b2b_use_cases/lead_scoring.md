@@ -12,65 +12,65 @@ description: "Brazeを使用してシンプルなリードスコアリング、�
 
 Brazeでリードスコアリングワークフローを作成するには、次の2つの重要なステップがあります。
 
-1. Brazeでリードスコアリング Canvasを作成するか、外部リードスコアリングツールと連携します。
+1. Brazeでリードスコアリング キャンバスを作成するか、外部リードスコアリングツールと連携します。
 - [シンプルなリードスコアリング](#simple-lead-scoring)
 - [外部リードスコアリング](#external-lead-scoring)
 
-2. 適格なリードを営業チームに送信するWebhook Campaignを作成します。
+2. 適格なリードを営業チームに送信するWebhook キャンペーンを作成します。
 - [リードの引き継ぎ: マーケティング適格リード (MQL) を営業へ](#lead-handoff)
 
 ## シンプルなリードスコアリング {#simple-lead-scoring}
 
-### ステップ 1: Canvasを作成する {#step-1-create-a-canvas}
+### ステップ 1: キャンバスを作成する {#step-1-create-a-canvas}
 
-1. **Messaging** > **Canvas**に移動し、**Create Canvas**を選択してから、Canvasの基本情報を入力します。
+1. **Messaging** > **キャンバス**に移動し、**Create キャンバス**を選択してから、キャンバスの基本情報を入力します。
 
-2. Canvasに「Lead Scoring Canvas」などの関連する名前を付け、探しやすくするために「Lead Management」などのタグを付けます。<br><br>![「Lead Scoring Canvas」という名前と「Lead Management」というタグでCanvasを作成するステップ1。]({% image_buster /assets/img/b2b/step_1_simple.png %}){: style="max-width:80%;"}
+2. キャンバスに「Lead Scoring キャンバス」などの関連する名前を付け、探しやすくするために「Lead Management」などのタグを付けます。<br><br>![「Lead Scoring キャンバス」という名前と「Lead Management」というタグでキャンバスを作成するステップ1。]({% image_buster /assets/img/b2b/step_1_simple.png %}){: style="max-width:80%;"}
 
 ### ステップ 2: エントリ基準を設定する {#step-2-set-up-your-entry-criteria}
 
-1. **エントリスケジュール**ステップに進み、**アクションベース**のエントリスケジュールを選択します。これにより、ユーザーが特定のアクションを実行したときにCanvasに入ります。
+1. **エントリスケジュール**ステップに進み、**アクションベース**のエントリスケジュールを選択します。これにより、ユーザーが特定のアクションを実行したときにキャンバスに入ります。
 
 2. **アクションベースのオプション**で、次の2つのアクションを追加します。
-    - **カスタム属性値の変更**: リードスコアリング属性の名前（`lead score` など）を指定します。リードスコアリング属性をまだ作成していない場合は、[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)のステップに従ってください。これにより、ユーザーのリードスコアが変化するたびにCanvasに入ります。
+    - **カスタム属性値の変更**: リードスコアリング属性の名前（`lead score` など）を指定します。リードスコアリング属性をまだ作成していない場合は、[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)のステップに従ってください。これにより、ユーザーのリードスコアが変化するたびにキャンバスに入ります。
     - **メールアドレスの追加**
 
-![「アクションベース」のエントリスケジュールで、カスタム属性「lead score」の変更とメールアドレスの追加をアクションベースのオプションとしてCanvasを作成するステップ2。]({% image_buster /assets/img/b2b/step_2_simple.png %}){: style="max-width:80%;"}
+![「アクションベース」のエントリスケジュールで、カスタム属性「lead score」の変更とメールアドレスの追加をアクションベースのオプションとしてキャンバスを作成するステップ2。]({% image_buster /assets/img/b2b/step_2_simple.png %}){: style="max-width:80%;"}
 
 ### ステップ 3: ターゲットオーディエンスを特定する {#step-3-identify-your-target-audience}
 
-#### ステップ 3a: Segmentを選択する {#step-3a-select-segments}
+#### ステップ 3a: セグメントを選択する {#step-3a-select-segments}
 
-すべてのユーザーがリードスコアリングの対象であるため、どのユーザー[Segment]({{site.baseurl}}/user_guide/audience/segments)をターゲットにするかを選択し、追加の[フィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)を適用することで、スコアリング対象に関する会社固有のルールを追加できます。たとえば、従業員、すでに顧客であるユーザーなどを除外できます。
+すべてのユーザーがリードスコアリングの対象であるため、どのユーザー[セグメント]({{site.baseurl}}/user_guide/audience/segments)をターゲットにするかを選択し、追加の[フィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)を適用することで、スコアリング対象に関する会社固有のルールを追加できます。たとえば、従業員、すでに顧客であるユーザーなどを除外できます。
 
-![Segmentとフィルターを選択してエントリオーディエンスを絞り込むオプションがあるCanvasの作成ステップ3。]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
+![セグメントとフィルターを選択してエントリオーディエンスを絞り込むオプションがあるキャンバスの作成ステップ3。]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
 
-#### ステップ 3b: Canvasの再適格性を設定する {#step-3b-set-canvas-re-eligibility}
+#### ステップ 3b: キャンバスの再適格性を設定する {#step-3b-set-canvas-re-eligibility}
 
-ユーザーはライフサイクル全体を通じてこのCanvasを何度も通過するため、前回終了した後すぐに再エントリできるようにしてください。これは再適格性の設定で実現できます。
+ユーザーはライフサイクル全体を通じてこのキャンバスを何度も通過するため、前回終了した後すぐに再エントリできるようにしてください。これは再適格性の設定で実現できます。
 
 **エントリコントロール**で、以下を実行します。
-- **ユーザーがこのCanvasに再エントリできるようにする**を選択します。
+- **ユーザーがこのキャンバスに再エントリできるようにする**を選択します。
 - **指定時間枠**を選択します。
 - 再適格性を「0」**秒**に設定します。
 
-![「ユーザーがこのCanvasに再エントリできるようにする」が選択され、「指定時間枠」が0秒に設定された「エントリコントロール」セクション。]({% image_buster /assets/img/b2b/entry_controls_simple.png %}){: style="max-width:80%;"}
+![「ユーザーがこのキャンバスに再エントリできるようにする」が選択され、「指定時間枠」が0秒に設定された「エントリコントロール」セクション。]({% image_buster /assets/img/b2b/entry_controls_simple.png %}){: style="max-width:80%;"}
 
 #### ステップ 3c: 送信設定を更新する {#step-3c-update-send-settings}
 
-このCanvasは運用目的であり、ユーザーにメッセージが送信されないため、サブスクリプションステータスに従う必要はありません。
+このキャンバスは運用目的であり、ユーザーにメッセージが送信されないため、サブスクリプションステータスに従う必要はありません。
 
 **サブスクリプション設定**の**次のユーザーに送信:**で、**配信停止ユーザーを含むすべてのユーザー**を選択します。
 
-![メッセージ送信オプションを設定するCanvasの作成ステップ4。]({% image_buster /assets/img/b2b/step_4_simple.png %}){: style="max-width:80%;"}
+![メッセージ送信オプションを設定するキャンバスの作成ステップ4。]({% image_buster /assets/img/b2b/step_4_simple.png %}){: style="max-width:80%;"}
 
-### ステップ 4: Canvasを構築する {#step-4-build-your-canvas}
+### ステップ 4: キャンバスを構築する {#step-4-build-your-canvas}
 
 #### ステップ 4a: アクションパスを追加する {#step-4a-add-an-action-path}
 
 バリアントの下で<i class="fas fa-plus" aria-label="追加"></i> **追加**を選択し、**アクションパス**を選択します。
 
-![プラスアイコンで開いたメニューに「アクションパス」が表示されているCanvas。]({% image_buster /assets/img/b2b/action_paths_simple.png %}){: style="max-width:60%;"}
+![プラスアイコンで開いたメニューに「アクションパス」が表示されているキャンバス。]({% image_buster /assets/img/b2b/action_paths_simple.png %}){: style="max-width:60%;"}
 
 #### ステップ 4b: アクショングループを作成する {#step-4b-create-action-groups}
 
@@ -93,9 +93,9 @@ Brazeでリードスコアリングワークフローを作成するには、次
 
 #### ステップ 4d: ユーザーの更新ステップを追加する {#step-4d-add-user-update-steps}
 
-アクションパスの下に作成された各Canvasパスに、ユーザーの更新ステップを追加します。
+アクションパスの下に作成された各キャンバスパスに、ユーザーの更新ステップを追加します。
 
-![アクションパスと、各アクショングループに分岐したユーザーの更新パスが表示されたCanvas。]({% image_buster /assets/img/b2b/user_update_paths_simple.png %}){: style="max-width:80%;"}
+![アクションパスと、各アクショングループに分岐したユーザーの更新パスが表示されたキャンバス。]({% image_buster /assets/img/b2b/user_update_paths_simple.png %}){: style="max-width:80%;"}
 
 {: start="2"}
 各ユーザーの更新ステップの**作成**タブで、対応するフィールドに対して次の操作を行います。
@@ -107,9 +107,9 @@ Brazeでリードスコアリングワークフローを作成するには、次
 | **Increment By**または**Decrement By** | リードスコアから増減するポイント数を入力します。|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4d: Add User Update steps" }
 
-### ステップ 5: Canvasを起動する {#step-5-launch-your-canvas}
+### ステップ 5: キャンバスを起動する {#step-5-launch-your-canvas}
 
-以上です！リードスコアリングCanvasを起動する準備ができました。
+以上です！リードスコアリングキャンバスを起動する準備ができました。
 
 ## 外部リードスコアリング {#external-lead-scoring}
 
@@ -151,13 +151,13 @@ Brazeは、リードスコアリングモデルを含む内部データモデル
 
 BrazeのリードステータスでSalesforceのリードレコードを更新するには、トリガー型のWebhookテンプレートを使用することをお勧めします。
 
-### ステップ 1: Webhook Campaignを作成する {#step-1-create-a-webhook-campaign}
+### ステップ 1: Webhook キャンペーンを作成する {#step-1-create-a-webhook-campaign}
 
 ### ステップ 2: Webhookを設定する {#step-2-configure-your-webhook}
 
 #### ステップ 2a: Webhookを作成する {#step-2a-compose-webhook}
 
-1. Webhook Campaignに「Salesforce > Update lead to MQL」などの名前を付けます。
+1. Webhook キャンペーンに「Salesforce > Update lead to MQL」などの名前を付けます。
 
 2. Webhook URLを{% raw %}`https://YOUR_SALESFORCE_INSTANCE.my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %}の形式で入力します。{% raw %}`{{${user_id}}}`{% endraw %}のBrazeユーザーIDは、Salesforceの連絡先IDと一致する必要があります。一致しない場合は、{% raw %}`{{${user_id}}}`{% endraw %}の代わりにエイリアスを使用してください。
 
@@ -190,7 +190,7 @@ BrazeのリードステータスでSalesforceのリードレコードを更新�
 
 #### ステップ 2b: Webhookの送信をスケジュールする {#step-2b-schedule-webhook-sends}
 
-このCampaignは、ユーザーのリードスコアが変更されるたびにトリガーされる必要があります。このCampaignはスコアが変化したすべてのユーザーに対してトリガーされますが、現在MQLではなく、前のステップで設定したしきい値を超えたユーザーにのみ影響します。
+このキャンペーンは、ユーザーのリードスコアが変更されるたびにトリガーされる必要があります。このキャンペーンはスコアが変化したすべてのユーザーに対してトリガーされますが、現在MQLではなく、前のステップで設定したしきい値を超えたユーザーにのみ影響します。
 
 **配信スケジュール**ステップで、以下を選択します。
 - **アクションベース**の配信タイプ
@@ -202,6 +202,6 @@ BrazeのリードステータスでSalesforceのリードレコードを更新�
 
 ![「lead_status」が「MQL」のいずれでもないフィルターを持つWebhookターゲティングオプション。]({% image_buster /assets/img/b2b/step_3_webhook.png %}){: style="max-width:80%;"}
 
-### ステップ 3: Campaignを起動する {#step-3-launch-campaign}
+### ステップ 3: キャンペーンを起動する {#step-3-launch-campaign}
 
 **Launch**を選択し、顧客がMQLリードスコアのしきい値を超えたときにSalesforceでリードステータスが変化するのを確認しましょう。

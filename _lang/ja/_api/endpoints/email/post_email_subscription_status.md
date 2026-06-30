@@ -54,7 +54,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## SendGridメールブロックのトラブルシューティング {#troubleshooting-sendgrid-email-blocks}
 
-SendGridが受信者をブロックした場合、このエンドポイントでサブスクリプションステータスを更新し、Segmentフィルターでエンゲージメントを確認してください。配信到達性のモニタリングには [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) のソフトバウンスイベントを使用し、再送信前にサブスクリプション状態を確認してください。
+SendGridが受信者をブロックした場合、このエンドポイントでサブスクリプションステータスを更新し、セグメントフィルターでエンゲージメントを確認してください。配信到達性のモニタリングには [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) のソフトバウンスイベントを使用し、再送信前にサブスクリプション状態を確認してください。
 
 ## リクエスト例 {#example-request}
 ```

@@ -56,7 +56,7 @@ Content Cardsを既存のフィードにシームレスにブレンドし、複�
 
 ### APIトリガーのキーと値のペア {#api-triggered-key-value-pairs}
 
-[APIトリガーCampaigns]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)は、カードの値が外部要因に依存してユーザーに表示するコンテンツを決定する場合に使用するのに適した戦略です。たとえば、補足的なコンテンツを表示するには、Liquidを使用してキーと値のペアを設定します。なお、`class_type`はセットアップ時に把握しておく必要があります。
+[APIトリガーキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)は、カードの値が外部要因に依存してユーザーに表示するコンテンツを決定する場合に使用するのに適した戦略です。たとえば、補足的なコンテンツを表示するには、Liquidを使用してキーと値のペアを設定します。なお、`class_type`はセットアップ時に把握しておく必要があります。
 
 ![補足Content Cardsのユースケースのキーと値のペア。この例では、「tile_id」、「tile_deeplink」、「tile_title」などカードのさまざまな要素がLiquidを使って設定されています。]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 

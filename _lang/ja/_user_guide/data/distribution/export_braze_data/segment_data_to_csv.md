@@ -17,11 +17,11 @@ CSVエクスポートオプションは、そのワークスペースに対す�
 
 セグメントデータをCSVにエクスポートするには、セグメントの編集中に**User Data**ドロップダウンを選択し、そのセグメントのユーザーデータまたはメールアドレスのいずれかをエクスポートするように選択します。
 
-![「User Data」ドロップダウンにエクスポートオプションが表示されている「Segment Details」セクション。]({% image_buster /assets/img_archive/csvexport.png %})
+![「User Data」ドロップダウンにエクスポートオプションが表示されている「セグメント Details」セクション。]({% image_buster /assets/img_archive/csvexport.png %})
 
-メインの**Segments**ページから、セグメントの<i class="fas fa-gear" aria-label="設定メニューを開く"></i> **Settings**ドロップダウンを選択して、CSVエクスポートをリクエストすることもできます。
+メインの**セグメント**ページから、セグメントの<i class="fas fa-gear" aria-label="設定メニューを開く"></i> **Settings**ドロップダウンを選択して、CSVエクスポートをリクエストすることもできます。
 
-![メインのSegmentsページの「Settings」ドロップダウン。]({% image_buster /assets/img_archive/csvexport2.png %})
+![メインのセグメントページの「Settings」ドロップダウン。]({% image_buster /assets/img_archive/csvexport2.png %})
 
 {% alert tip %}
 すべてのユーザープロファイルからデータをエクスポートするには、フィルターなしでセグメントを作成し、CSVエクスポートをリクエストしてください。
@@ -94,7 +94,7 @@ CSV出力には、エクスポート時にセグメントに含まれる各ユ�
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーデータのCSVエクスポート" }
 
 {% alert note %}
-キャンバスステップからユーザーデータをエクスポートすると、CSVにはそのキャンバスステップの全期間にわたってそのステップに含まれたすべてのユーザーが含まれます。エクスポートを日付範囲やその他の時間枠に制限することはできません。これらのエクスポートの実行方法については、[Canvasデータのエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data)を参照してください。
+キャンバスステップからユーザーデータをエクスポートすると、CSVにはそのキャンバスステップの全期間にわたってそのステップに含まれたすべてのユーザーが含まれます。エクスポートを日付範囲やその他の時間枠に制限することはできません。これらのエクスポートの実行方法については、[キャンバスデータのエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data)を参照してください。
 {% endalert %}
 
 ### メールアドレスをCSV形式でエクスポート {#csv-export-email-addresses}

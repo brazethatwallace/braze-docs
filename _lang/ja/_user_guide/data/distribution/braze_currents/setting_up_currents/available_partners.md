@@ -13,7 +13,7 @@ tool: Currents
 > このページでは、Braze Currentsと連携できるデータパートナーの一覧と、そのユースケースの概要を説明します。
 
 {% alert note %}
-Brazeから配信されるイベントの命名規則は、パートナーによって異なる場合があります。たとえば、SegmentでのCurrentsメール開封イベントは `Email Opened` ですが、Mixpanelでは `Email Open` になります。
+Brazeから配信されるイベントの命名規則は、パートナーによって異なる場合があります。たとえば、セグメントでのCurrentsメール開封イベントは `Email Opened` ですが、Mixpanelでは `Email Open` になります。
 {% endalert %}
 
 ## データウェアハウスストレージ {#data-warehouse-storage}
@@ -30,7 +30,7 @@ Brazeでは、Currentsとデータウェアハウスの組み合わせの力を�
 ここに示す顧客データプラットフォームは、複数のソースから情報を収集してさまざまな場所に転送するため、Brazeのデータを最大限に活用できます。
 
 * [mParticle]({{site.baseurl}}/partners/mparticle_for_currents)
-* [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment_for_currents)
+* [セグメント]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment_for_currents)
 * [Tealium]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium/tealium_for_currents#tealium-for-currents)
 * [トレジャーデータ]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/treasure_data/treasure_data_for_currents)
 * [RudderStack]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/rudderstack/rudderstack_for_currents)

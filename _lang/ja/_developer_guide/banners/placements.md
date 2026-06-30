@@ -555,7 +555,7 @@ This feature is not currently supported on Roku.
 
 ### ステップ5:テストバナーを送信する（オプション） {#handling-test-cards}
 
-バナーCampaignを開始する前に、[テストバナーを送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=banners)して統合を確認できます。テストバナーは別のインメモリキャッシュに保存され、アプリの再起動後は保持されません。追加のセットアップは不要ですが、テストを表示できるようにテストデバイスがフォアグラウンドのプッシュ通知を受信できる必要があります。
+バナーキャンペーンを開始する前に、[テストバナーを送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=banners)して統合を確認できます。テストバナーは別のインメモリキャッシュに保存され、アプリの再起動後は保持されません。追加のセットアップは不要ですが、テストを表示できるようにテストデバイスがフォアグラウンドのプッシュ通知を受信できる必要があります。
 
 {% alert note %}
 テストバナーは他のバナーと同じですが、次のアプリセッションで削除される点が異なります。
@@ -859,7 +859,7 @@ bannerView.onDismiss = { dismissedBanner in
 
 ## カスタムプロパティ {#custom-properties}
 
-バナーCampaignのカスタムプロパティを使って、SDKを通じてキーと値のデータを取得し、アプリの動作や外観を変更できます。たとえば、以下のようなことが可能です。
+バナーキャンペーンのカスタムプロパティを使って、SDKを通じてキーと値のデータを取得し、アプリの動作や外観を変更できます。たとえば、以下のようなことが可能です。
 
 - サードパーティの分析ツールや統合サービス向けにメタデータを送信する。
 - `timestamp`やJSONオブジェクトなどのメタデータを使って条件分岐ロジックをトリガーする。
@@ -867,7 +867,7 @@ bannerView.onDismiss = { dismissedBanner in
 
 ### 前提条件
 
-バナーCampaignに[カスタムプロパティを追加]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-properties)する必要があります。さらに、カスタムプロパティにアクセスするために必要な最小SDKバージョンは以下の通りです。
+バナーキャンペーンに[カスタムプロパティを追加]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-properties)する必要があります。さらに、カスタムプロパティにアクセスするために必要な最小SDKバージョンは以下の通りです。
 
 {% sdk_min_versions swift:13.1.0 android:38.0.0 web:6.1.0 reactnative:17.0.0 flutter:15.1.0 %}
 

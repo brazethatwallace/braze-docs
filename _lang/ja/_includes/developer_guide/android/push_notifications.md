@@ -641,7 +641,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
 #### ディープリンクの追加 {#adding-deep-links}
 
-Brazeダッシュボードではプッシュ通知のCampaignsやCanvasesで、通知がクリックされたときに開くディープリンクまたはWeb URLを設定できます。
+Brazeダッシュボードではプッシュ通知のキャンペーンやキャンバスで、通知がクリックされたときに開くディープリンクまたはWeb URLを設定できます。
 
 ![Brazeダッシュボードの「クリック時の動作」設定で、ドロップダウンから「アプリケーションへのディープリンク」を選択している状態。]({% image_buster /assets/img_archive/deep_link_click_action.png %} "Deep Link Click Action")
 
@@ -706,7 +706,7 @@ Braze Android SDKは[Android通知チャネル](https://developer.android.com/pr
 
 #### 表示のテスト {#testing-display}
 
-この時点で、Brazeから送信された通知を表示できるはずです。これをテストするには、Brazeダッシュボードの**Campaigns**ページにアクセスし、**プッシュ通知**キャンペーンを作成します。**Android Push**を選択し、メッセージをデザインします。次に、作成画面で目のアイコンをクリックしてテスト送信者を取得します。現在のユーザーのユーザーIDまたはメールアドレスを入力し、**Send Test**をクリックします。デバイスにプッシュが表示されます。
+この時点で、Brazeから送信された通知を表示できるはずです。これをテストするには、Brazeダッシュボードの**キャンペーン**ページにアクセスし、**プッシュ通知**キャンペーンを作成します。**Android Push**を選択し、メッセージをデザインします。次に、作成画面で目のアイコンをクリックしてテスト送信者を取得します。現在のユーザーのユーザーIDまたはメールアドレスを入力し、**Send Test**をクリックします。デバイスにプッシュが表示されます。
 
 ![Brazeダッシュボード内のプッシュ通知キャンペーンの「テスト」タブ。]({% image_buster /assets/img_archive/android_push_test.png %} "Android Push Test")
 

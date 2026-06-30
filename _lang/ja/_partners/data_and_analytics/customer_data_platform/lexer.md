@@ -15,7 +15,7 @@ _この統合は Lexer によって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-Braze と Lexer の統合により、この2つのプラットフォーム間でデータを同期できます。Lexer のデータを使用して有益な Braze Segmentを作成するか、既存のSegmentを Lexer にインポートしてインサイトを引き出します。
+Braze と Lexer の統合により、この2つのプラットフォーム間でデータを同期できます。Lexer のデータを使用して有益な Braze セグメントを作成するか、既存のセグメントを Lexer にインポートしてインサイトを引き出します。
 
 ## 前提条件 {#prerequisites}
 
@@ -55,7 +55,7 @@ Braze を Lexer ハブに接続する方法として、Lexer マネージドバ�
 Lexer Activate により Braze プロファイルが自動的に更新され、セグメントへの顧客の出入りに応じて属性が追加または削除されます。
 
 1. Lexer の **Lexer Activations** で **ACTIVATE NEW AUDIENCE** をクリックします。
-2. このCampaignに適切な Braze のアクティベーションを選択します。
+2. このキャンペーンに適切な Braze のアクティベーションを選択します。
 3. セグメントを追加します。
 4. オーディエンス名を更新します。これは Braze での属性値となります。
 5. これが Braze で更新するカスタム属性です。更新については [Lexer サポート](support@lexer.io)に連絡してください。
@@ -68,10 +68,10 @@ Lexer Activate により Braze プロファイルが自動的に更新され、�
 
 Activate でアクティベーションが送信されたことが確認されると、Braze でレコードの更新が開始されます。Lexer から確認メールが届くまで、Braze のプロファイルは完全には更新されません。
 
-### ステップ 3：Braze Segmentを作成する {#step-3-create-your-braze-segment}
+### ステップ 3：Braze セグメントを作成する {#step-3-create-your-braze-segment}
 
 Braze では、Lexer のオーディエンス名が `lexer_audience` カスタム属性の値になっています。Braze では、属性あたりの値の数は100に制限されています。
 
-Segmentを作成するには、**Segment > + Create Segment** に移動し、フィルターとして **Custom Attribute** を選択します。次に、属性として `lexer_audience` を選択し、目的の Lexer オーディエンス名を選択します。完了したら、オーディエンスを**保存**します。
+セグメントを作成するには、**セグメント > + セグメントを作成** に移動し、フィルターとして **Custom Attribute** を選択します。次に、属性として `lexer_audience` を選択し、目的の Lexer オーディエンス名を選択します。完了したら、オーディエンスを**保存**します。
 
-この新しく作成したセグメントを、今後の Braze CampaignsやCanvasesに追加して、これらのエンドユーザーをターゲットにできます。
+この新しく作成したセグメントを、今後の Braze キャンペーンやキャンバスに追加して、これらのエンドユーザーをターゲットにできます。

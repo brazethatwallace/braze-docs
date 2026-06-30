@@ -15,7 +15,7 @@ _この統合はDOTS.ECOによって管理されています。_
 
 ## この統合について {#about-this-integration}
 
-BrazeとDOTS.ECOは、カスタマーエンゲージメントジャーニーを現実世界のインパクト報酬につなげます。BrazeのCanvasまたはCampaignステップから、コネクテッドコンテンツを使用してDOTS.ECO証明書作成リクエストをトリガーできます。DOTS.ECOは証明書メタデータ（`certificate_url`や`certificate_image_url`など）を返し、これをユーザープロファイルにカスタム属性として保存して、アプリ内メッセージ、Content Cards、プッシュ通知などのチャネルで再利用できます。
+BrazeとDOTS.ECOは、カスタマーエンゲージメントジャーニーを現実世界のインパクト報酬につなげます。Brazeのキャンバスまたはキャンペーンステップから、コネクテッドコンテンツを使用してDOTS.ECO証明書作成リクエストをトリガーできます。DOTS.ECOは証明書メタデータ（`certificate_url`や`certificate_image_url`など）を返し、これをユーザープロファイルにカスタム属性として保存して、アプリ内メッセージ、Content Cards、プッシュ通知などのチャネルで再利用できます。
 
 ## ユースケース {#use-cases}
 
@@ -41,9 +41,9 @@ BrazeとDOTS.ECOは、カスタマーエンゲージメントジャーニーを�
 
 ## DOTS.ECOの統合 {#integrating-dotseco}
 
-### ステップ1：Canvasを作成し、ユーザー更新ステップを追加する {#step-1-create-a-canvas-and-add-a-user-update-step}
+### ステップ1：キャンバスを作成し、ユーザー更新ステップを追加する {#step-1-create-a-canvas-and-add-a-user-update-step}
 
-Brazeダッシュボードで、ユーザーがキーイベント（購入、サブスクリプション、マイルストーンなど）を完了したときにトリガーする新しいCanvasを作成します。
+Brazeダッシュボードで、ユーザーがキーイベント（購入、サブスクリプション、マイルストーンなど）を完了したときにトリガーする新しいキャンバスを作成します。
 
 エントリステップの直後にユーザー更新ステップを追加します。このステップは、コネクテッドコンテンツ経由でDOTS.ECO APIを呼び出し、返された証明書データをユーザープロファイルに保存するために使用します。
 
@@ -93,12 +93,12 @@ Brazeダッシュボードで、ユーザーがキーイベント（購入、サ
 ![DOTS.ECOユーザー更新ステップ。]({% image_buster /assets/img/dots_eco/dotseco_user_update.png %})
 
 {% alert important %}
-この統合では、Canvasの**ユーザーの更新**ステップ内でコネクテッドコンテンツを使用してDOTS.ECO APIを呼び出します。トークンとペイロードを検証するために、まずAPIクライアント（例：Postman）でリクエストをテストしてください。
+この統合では、キャンバスの**ユーザーの更新**ステップ内でコネクテッドコンテンツを使用してDOTS.ECO APIを呼び出します。トークンとペイロードを検証するために、まずAPIクライアント（例：Postman）でリクエストをテストしてください。
 {% endalert %}
 
 ### ステップ3：メッセージに証明書を表示する {#step-3-display-the-certificate-in-messages}
 
-証明書の属性がユーザープロファイルに保存されると、下流のCanvasメッセージステップで参照できるようになります。
+証明書の属性がユーザープロファイルに保存されると、下流のキャンバスメッセージステップで参照できるようになります。
 
 ![DOTS.ECOフロー。]({% image_buster /assets/img/dots_eco/dots.eco_flow.png %})
 

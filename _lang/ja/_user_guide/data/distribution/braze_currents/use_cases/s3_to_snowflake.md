@@ -18,7 +18,7 @@ tool: Currents
 
 ## 仕組み {#how-it-works}
 
-抽出、読み込み、変換（ELT）プロセスは、データを[Snowflake](https://www.snowflake.com/)に移動する自動プロセスです。これにより、[Braze Looker Blocks](https://marketplace.looker.com/marketplace/directory)を使用してLookerでそのデータを可視化し、Campaigns、Canvases、Segmentsにインサイトやフィードバックを活用できます。
+抽出、読み込み、変換（ELT）プロセスは、データを[Snowflake](https://www.snowflake.com/)に移動する自動プロセスです。これにより、[Braze Looker Blocks](https://marketplace.looker.com/marketplace/directory)を使用してLookerでそのデータを可視化し、キャンペーン、キャンバス、セグメントにインサイトやフィードバックを活用できます。
 
 Currentsから S3へのエクスポートを設定し、ライブイベントデータを受信したら、次のコンポーネントを設定することによりSnowflakeでライブELTパイプラインを設定できます。
 

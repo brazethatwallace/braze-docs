@@ -8,10 +8,10 @@ description: "このリファレンス記事では、Liquid メッセージの�
 
 # メッセージの中止 {#abort-messages}
 
-> オプションとして、条件文内で `abort_message("optional reason for aborting")` Liquid メッセージタグを使用して、ユーザーへのメッセージ送信を防止できます。このリファレンス記事では、マーケティングCampaignsでこの機能を使用する方法の例をいくつか紹介します。
+> オプションとして、条件文内で `abort_message("optional reason for aborting")` Liquid メッセージタグを使用して、ユーザーへのメッセージ送信を防止できます。このリファレンス記事では、マーケティングキャンペーンでこの機能を使用する方法の例をいくつか紹介します。
 
 {% alert note %}
-Canvasでメッセージステップが中止された場合、ユーザーはCanvasから**退出せず**、次のステップに**進みます**。
+キャンバスでメッセージステップが中止された場合、ユーザーはキャンバスから**退出せず**、次のステップに**進みます**。
 {% endalert %}
 
 ## `abort_message()` を使用したテスト送信 {#test-sends-with-abort_message}

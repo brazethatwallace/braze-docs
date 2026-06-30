@@ -16,9 +16,9 @@ description: "このリファレンス記事では、ユーザーに送信する
 
 ## 仕組み {#how-it-works}
 
-この機能をオンにすると、Braze は選択したチャネル（メール、SMS/MMS、またはプッシュ）を通じてユーザーに送信された各メッセージについて、gzip 圧縮された JSON ファイルを書き込みます。Braze はこれらのファイルをデフォルトのデータエクスポート先に書き込みます。これには、[トランザクションメール API]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) を通じて送信されるトランザクションメールCampaignなど、各チャネルのすべてのCampaignタイプが含まれます。
+この機能をオンにすると、Braze は選択したチャネル（メール、SMS/MMS、またはプッシュ）を通じてユーザーに送信された各メッセージについて、gzip 圧縮された JSON ファイルを書き込みます。Braze はこれらのファイルをデフォルトのデータエクスポート先に書き込みます。これには、[トランザクションメール API]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) を通じて送信されるトランザクションメールキャンペーンなど、各チャネルのすべてのキャンペーンタイプが含まれます。
 
-このファイルには、[ファイル参照](#file-references)で定義されたフィールドが含まれており、ユーザーに送信されるテンプレート化された最終的なメッセージが反映されます。Campaignで定義されたテンプレートの値（{% raw %}`{{${first_name}}}`{% endraw %} など）には、プロファイル情報に基づいてユーザーが受け取った最終的な値が表示されます。これにより、送信したメッセージのコピーを保持して、コンプライアンス、監査、またはカスタマーサポートの要件を満たすことができます。
+このファイルには、[ファイル参照](#file-references)で定義されたフィールドが含まれており、ユーザーに送信されるテンプレート化された最終的なメッセージが反映されます。キャンペーンで定義されたテンプレートの値（{% raw %}`{{${first_name}}}`{% endraw %} など）には、プロファイル情報に基づいてユーザーが受け取った最終的な値が表示されます。これにより、送信したメッセージのコピーを保持して、コンプライアンス、監査、またはカスタマーサポートの要件を満たすことができます。
 
 複数のクラウドストレージプロバイダーの認証情報を設定した場合、メッセージのアーカイブ機能では、デフォルトのデータエクスポート先としてマークされたプロバイダーにのみエクスポートされます。明示的なデフォルトが設定されておらず、AWS S3 バケットが接続されている場合、メッセージのアーカイブはそのバケットにアップロードされます。
 
@@ -28,7 +28,7 @@ description: "このリファレンス記事では、ユーザーに送信する
 
 JSON は、次のキー構造を使用してストレージバケットに保存されます。
 
-`sent_messages/{channel, one of: email, push, sms}/{MD5 digest of downcased: email address, push token, or E.164 phone number}/{campaign or Canvas step API ID}/{dispatch ID}.json.gz`
+`sent_messages/{channel, one of: email, push, sms}/{MD5 digest of downcased: email address, push token, or E.164 phone number}/{campaign or キャンバス step API ID}/{dispatch ID}.json.gz`
 
 ファイルの例を以下に示します。
 
@@ -197,9 +197,9 @@ JSON ペイロードの形式はメッセージごとに異なり、時間の経
 
 メッセージがBrazeを離れた後に行われた変更は、クラウドストレージバケットに保存されたファイルには反映されません。これには、クリックトラッキングのためのリンクのラッピングやトラッキングピクセルの挿入など、メール配信パートナーが行う変更も含まれます。
 
-### Campaignパスの「unassociated」の値の下にあるメッセージは何ですか？ {#what-are-messages-under-the-unassociated-value-in-the-campaign-path}
+### キャンペーンパスの「unassociated」の値の下にあるメッセージは何ですか？ {#what-are-messages-under-the-unassociated-value-in-the-campaign-path}
 
-メッセージがCampaignまたはCanvas以外で送信される場合、ファイル名のCampaign ID は「unassociated」になります。これは、ダッシュボードからテストメッセージを送信した場合、Braze が SMS/MMS 自動レスポンスを送信した場合、または API 経由で送信したメッセージにCampaign ID が指定されていない場合に発生します。
+メッセージがキャンペーンまたはキャンバス以外で送信される場合、ファイル名のキャンペーン ID は「unassociated」になります。これは、ダッシュボードからテストメッセージを送信した場合、Braze が SMS/MMS 自動レスポンスを送信した場合、または API 経由で送信したメッセージにキャンペーン ID が指定されていない場合に発生します。
 
 ### この送信に関する詳細情報を見つけるにはどうすればよいですか？ {#how-do-i-find-more-information-about-this-send}
 
@@ -227,4 +227,4 @@ JSON ペイロードの形式はメッセージごとに異なり、時間の経
 
 ### メッセージのアーカイブを使って、ファイルを異なるワークスペースにグループ分けできますか？ {#can-i-use-message-archiving-to-group-files-into-different-workspaces}
 
-いいえ、できません。メッセージのアーカイブ機能は、ワークスペースに基づくファイルのグループ化をサポートしていません。代わりに、CampaignやキャンバスステップのAPI ID がどのワークスペースに属するかを特定し、その情報に基づいてグループ化できます。
+いいえ、できません。メッセージのアーカイブ機能は、ワークスペースに基づくファイルのグループ化をサポートしていません。代わりに、キャンペーンやキャンバスステップのAPI ID がどのワークスペースに属するかを特定し、その情報に基づいてグループ化できます。

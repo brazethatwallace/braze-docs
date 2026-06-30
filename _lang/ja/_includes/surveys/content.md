@@ -26,14 +26,14 @@
 早期アクセス期間中、アンケートは既存のメッセージ作成フロー内で構築します。
 
 {% if include.channel == 'in_app_message' %}
-1. CampaignまたはCanvasで[アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)を作成します。
+1. キャンペーンまたはキャンバスで[アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)を作成します。
 2. メッセージタイプとして**Survey**を選択します。
 {% elsif include.channel == 'landing_page' %}
 1. **メッセージング** > **ランディングページ**に移動します。
 2. 新しいランディングページを作成します。
 3. メッセージタイプとして**Survey**を選択します。
 {% else %}
-1. **メッセージング** > **ランディングページ**に移動するか、CampaignまたはCanvasで[アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)を作成します。
+1. **メッセージング** > **ランディングページ**に移動するか、キャンペーンまたはキャンバスで[アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)を作成します。
 2. 新しいメッセージを作成します。
 3. メッセージタイプとして**Survey**を選択します。
 {% endif %}
@@ -164,25 +164,25 @@
 
 ![アンケートフォローアップのトリガー設定とセグメンテーションフィルター。]({% image_buster /assets/img/surveys/submit-survey-segment.png %})
 
-- ユーザーがアプリ内メッセージCampaignでアンケートを完了した際に、CampaignやCanvasをトリガーできます。
+- ユーザーがアプリ内メッセージキャンペーンでアンケートを完了した際に、キャンペーンやキャンバスをトリガーできます。
 
-![アプリ内メッセージCampaignアンケートフォローアップのトリガー設定とセグメンテーションフィルター。]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
+![アプリ内メッセージキャンペーンアンケートフォローアップのトリガー設定とセグメンテーションフィルター。]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
 
 {% elsif include.channel == 'landing_page' %}
 
 ![ランディングページアンケートフォローアップのトリガー設定とセグメンテーションフィルター。]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
 
-- ユーザーがランディングページでアンケートを完了した際に、CampaignやCanvasをトリガーできます。
+- ユーザーがランディングページでアンケートを完了した際に、キャンペーンやキャンバスをトリガーできます。
 
 {% else %}
 
 ![アンケートフォローアップのトリガー設定とセグメンテーションフィルター。]({% image_buster /assets/img/surveys/submit-survey-segment.png %})
 
-- ユーザーがランディングページまたはアプリ内メッセージCampaignでアンケートを完了した際に、CampaignやCanvasをトリガーできます。
+- ユーザーがランディングページまたはアプリ内メッセージキャンペーンでアンケートを完了した際に、キャンペーンやキャンバスをトリガーできます。
 
 ![ランディングページアンケートフォローアップのトリガー設定とセグメンテーションフィルター。]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
 
-![アプリ内メッセージCampaignアンケートフォローアップのトリガー設定とセグメンテーションフィルター。]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
+![アプリ内メッセージキャンペーンアンケートフォローアップのトリガー設定とセグメンテーションフィルター。]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
 
 {% endif %}
 

@@ -29,13 +29,13 @@ Brazeのデータを使用して、AIエージェントが何を話すか、ど�
 
 ## 統合：BrazeからRegalにデータを送信する {#integration-sending-data-from-braze-to-regal}
 
-BrazeのCanvasまたはCampaignのWebhookを使用して、顧客プロファイルとイベントデータをBrazeからRegalに送信します。
+BrazeのキャンバスまたはキャンペーンのWebhookを使用して、顧客プロファイルとイベントデータをBrazeからRegalに送信します。
 
 ### ステップ1：Regalで新しい連絡先を作成する {#step-1-create-new-contacts-in-regal}
 
-Regalでの通話やテキストに利用できるようにすべき新しいBrazeプロファイルが作成されるたびに、WebhookをRegalに送信するCanvasまたはCampaignを作成します。
+Regalでの通話やテキストに利用できるようにすべき新しいBrazeプロファイルが作成されるたびに、WebhookをRegalに送信するキャンバスまたはキャンペーンを作成します。
 
-1. 「Create New Contact for Regal」というタイトルのCanvasまたはCampaignを作成し、エントリタイプとして**アクションベース**を選択します。
+1. 「Create New Contact for Regal」というタイトルのキャンバスまたはキャンペーンを作成し、エントリタイプとして**アクションベース**を選択します。
 
 2. トリガーロジックを**カスタムイベント**に設定し、電話番号を持つプロファイルが作成されたときに発生するイベントを選択します。Regalでは、電話番号フィールドが設定されていることを確認するフィルターを追加することも推奨しています。
 
@@ -109,7 +109,7 @@ Regalには、認証用のHTTPヘッダーとHTTPメソッドも必要です。�
 }
 ```
 
-上記のペイロード例は、記載された電話番号に現在の音声およびSMSの同意ステータスが含まれていることを前提としています。該当しない場合は、連絡先作成時に`voiceOptIn`と`smsOptIn`を省略し、オプトインが収集された際に該当する電話番号の同意を更新する別のCanvasまたはCampaignを設定できます。
+上記のペイロード例は、記載された電話番号に現在の音声およびSMSの同意ステータスが含まれていることを前提としています。該当しない場合は、連絡先作成時に`voiceOptIn`と`smsOptIn`を省略し、オプトインが収集された際に該当する電話番号の同意を更新する別のキャンバスまたはキャンペーンを設定できます。
 
 ### ステップ2：オプトイン情報を更新する {#step-2-update-opt-in-information}
 
@@ -117,9 +117,9 @@ Regalには、認証用のHTTPヘッダーとHTTPメソッドも必要です。�
 
 Regalでは、連絡先レベルではなく電話番号ごとにオプトインとオプトアウトを管理できるよう、`traits.phones`スキーマの使用を推奨しています。
 
-以下のCanvasセットアップを使用して、最新のオプトイン情報をRegalに送信します。
+以下のキャンバスセットアップを使用して、最新のオプトイン情報をRegalに送信します。
 
-1. 「Send Opt In or Out to Regal」というタイトルの新しいCanvasまたはCampaignを作成します。
+1. 「Send Opt In or Out to Regal」というタイトルの新しいキャンバスまたはキャンペーンを作成します。
 
 2. 次のトリガーオプションのいずれかを選択し、ユーザーのオプトインステータスを表すフィールドを選択します：
     - **ユーザープロファイルフィールドの更新**
@@ -173,7 +173,7 @@ Regalには、認証用のHTTPヘッダーとHTTPメソッドも必要です。�
 
 ### ステップ3：カスタムイベントを送信する {#step-3-send-custom-events}
 
-Regalに送信するキーイベントごとに、CanvasまたはCampaignを設定します。
+Regalに送信するキーイベントごとに、キャンバスまたはキャンペーンを設定します。
 
 これらのイベントは、アウトリーチのトリガー（例：リードがサインアップを完了した際の確認テキスト）以上の役割を果たします。Regal AIエージェントがカスタマージャーニー全体を通じてどのように話し、意思決定し、会話をルーティングするかを支えるリアルタイムのコンテキストを提供します。Brazeからイベントデータと属性を送信することで、AIエージェントが各ユーザーの行動、好み、ライフサイクルステージに基づいて会話を適応させることが可能になります。
 
@@ -185,10 +185,10 @@ Regalに送信するキーイベントごとに、CanvasまたはCampaignを設�
   - 例：`contact.brazeAge`が65歳を超える場合はMedicare補償を優先し、それ以外の場合はACAプランと現在の保険ステータスに焦点を当てます。
 - **インテリジェントなルーティングとエスカレーションを実現**：価値やインテントに基づいて会話をルーティングします。
   - 例：`contact.brazeLeadTier`が「High Value」の場合、資格確認後にシニアエージェントに転送し、それ以外の場合はAIエージェントで続行します。
-- **メッセージングとオファーを調整**：Campaignのコンテキストに基づいてエージェントが提示する内容をカスタマイズします。
+- **メッセージングとオファーを調整**：キャンペーンのコンテキストに基づいてエージェントが提示する内容をカスタマイズします。
   - 例：`contact.brazeCampaignName`が「Spring Mortgage Promo」の場合、会話中にプロモーションオファーを強調します。
 
-「Send Product Interest Event to Regal」というタイトルの新しいCanvasまたはCampaignを作成します。
+「Send Product Interest Event to Regal」というタイトルの新しいキャンバスまたはキャンペーンを作成します。
 
 ```json
 {
@@ -257,12 +257,12 @@ Regalに送信するキーイベントごとに、CanvasまたはCampaignを設�
 Regalでは、キーイベント発生時にRegalが最新の連絡先属性を保持できるよう、イベントペイロードに主要なユーザープロファイル属性も送信することを推奨しています。
 
 {% alert note %}
-Regalに送信するイベントやこれらのCanvasおよびCampaignの設定方法についてご質問がある場合は、[support@regal.io](mailto:support@regal.io)までメールでお問い合わせください。
+Regalに送信するイベントやこれらのキャンバスおよびキャンペーンの設定方法についてご質問がある場合は、[support@regal.io](mailto:support@regal.io)までメールでお問い合わせください。
 {% endalert %}
 
 ## 統合：RegalからBrazeにデータを送信する {#integration-sending-data-from-regal-to-braze}
 
-Regal Reporting WebhookとBrazeデータ変換を使用して、Regalのレポートイベント（`SMS.sent`や`call.completed`など）をBrazeに送信します。これらのイベントをマッピングすると、ユーザープロファイルに表示され、セグメンテーション、Canvas、Campaignsで利用できるようになります。
+Regal Reporting WebhookとBrazeデータ変換を使用して、Regalのレポートイベント（`SMS.sent`や`call.completed`など）をBrazeに送信します。これらのイベントをマッピングすると、ユーザープロファイルに表示され、セグメンテーション、キャンバス、キャンペーンで利用できるようになります。
 
 ### ステップ1：Brazeでデータ変換を作成する {#step-1-create-a-data-transformation-in-braze}
 
@@ -658,7 +658,7 @@ Regalの`call.analysis.available`イベントを使用して、顧客がコン�
 }
 ```
 
-データ変換を使用して、`call_analysis`フィールド（`primary_objection`や`needs_human_agent`など）をBrazeのカスタムイベントまたはプロファイル属性にマッピングします。その後、Brazeでそれらの値に基づいて分岐するCanvasまたはCampaignのロジックを構築します。
+データ変換を使用して、`call_analysis`フィールド（`primary_objection`や`needs_human_agent`など）をBrazeのカスタムイベントまたはプロファイル属性にマッピングします。その後、Brazeでそれらの値に基づいて分岐するキャンバスまたはキャンペーンのロジックを構築します。
 
 {% endtab %}
 {% tab 通話トランスクリプトリンクを保存する %}

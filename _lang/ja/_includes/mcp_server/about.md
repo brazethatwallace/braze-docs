@@ -21,7 +21,7 @@
 
 ## Braze MCPサーバーについて {#about-the-braze-mcp-server}
 
-[Braze MCPサーバーの設定]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}後、エージェントやアシスタント、チャットボットなどのAIツールをBrazeに直接接続し、CanvasやCampaignの分析、カスタム属性、Segmentsなどの集計データを読み取れるようになります。Braze MCPサーバーは以下のようなユースケースに最適です。
+[Braze MCPサーバーの設定]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}後、エージェントやアシスタント、チャットボットなどのAIツールをBrazeに直接接続し、キャンバスやキャンペーンの分析、カスタム属性、セグメントなどの集計データを読み取れるようになります。Braze MCPサーバーは以下のようなユースケースに最適です。
 
 - Brazeのコンテキストを必要とするAI搭載ツールの構築。
 - マルチステップのエージェントワークフローを作成するCRMエンジニア。

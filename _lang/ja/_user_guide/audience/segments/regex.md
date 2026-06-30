@@ -11,7 +11,7 @@ tool:
 
 # [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/regular-expression-basics-for-braze){: style="float:right;width:120px;border:0;" class="noimgborder"} 正規表現 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomregular-expression-basics-for-braze-stylefloatrightwidth120pxborder0-classnoimgborder-regular-expressions}
 
-> 正規表現（一般的にregexとして知られています）は、検索パターンを定義する文字列です。正規表現を使用すると、テキストのグループ化を検証したり、検索と置換のアクションを実行したりできます。Brazeでは、正規表現を活用して、ターゲットオーディエンスのセグメンテーションやCampaignフィルタリングにおいて、より柔軟な文字列マッチングソリューションを提供しています。<br><br>このページでは、正規表現（regex）の概要、使い方、よくある質問、および正規表現をテストするためのregexデバッガーについて説明しています。
+> 正規表現（一般的にregexとして知られています）は、検索パターンを定義する文字列です。正規表現を使用すると、テキストのグループ化を検証したり、検索と置換のアクションを実行したりできます。Brazeでは、正規表現を活用して、ターゲットオーディエンスのセグメンテーションやキャンペーンフィルタリングにおいて、より柔軟な文字列マッチングソリューションを提供しています。<br><br>このページでは、正規表現（regex）の概要、使い方、よくある質問、および正規表現をテストするためのregexデバッガーについて説明しています。
 
 <!--{% multi_lang_include video.html id="3h5Xbhl-TxE" align="right" %}-->
 

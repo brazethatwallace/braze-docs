@@ -155,9 +155,9 @@ IP ウォームアップが完了し、目標の1日のボリュームに達し�
 
 ## ウォームアップ中に送信を制限する方法 {#how-to-limit-sends-during-warming}
 
-組み込みのユーザー制限機能は、IP アドレスのウォームアップに役立つ便利なツールです。Campaign作成時に目的のメッセージングSegmentを選択した後、[ターゲットユーザー]({{site.baseurl}}/user_guide/channels/email/html_editor#step-4-build-the-remainder-of-your-campaign-or-canvas)ステップで**詳細オプション**ドロップダウンを選択してユーザーを制限します。ウォームアップスケジュールが進むにつれて、この制限を徐々に引き上げて送信するメールのボリュームを増やすことができます。
+組み込みのユーザー制限機能は、IP アドレスのウォームアップに役立つ便利なツールです。キャンペーン作成時に目的のメッセージングセグメントを選択した後、[ターゲットユーザー]({{site.baseurl}}/user_guide/channels/email/html_editor#step-4-build-the-remainder-of-your-campaign-or-canvas)ステップで**詳細オプション**ドロップダウンを選択してユーザーを制限します。ウォームアップスケジュールが進むにつれて、この制限を徐々に引き上げて送信するメールのボリュームを増やすことができます。
 
-![組み込みのユーザー制限機能は、IP アドレスのウォームアップに役立つ便利なツールです。Campaign作成時に目的のメッセージングSegmentを選択した後、ターゲットユーザーステップで詳細オプションドロップダウンを選択してユーザーを制限します。ウォームアップスケジュールが進むにつれて、この制限を徐々に引き上げて送信するメールのボリュームを増やすことができます。]({% image_buster /assets/img_archive/email_ip_warming_sends_limit_new.png %})
+![組み込みのユーザー制限機能は、IP アドレスのウォームアップに役立つ便利なツールです。キャンペーン作成時に目的のメッセージングセグメントを選択した後、ターゲットユーザーステップで詳細オプションドロップダウンを選択してユーザーを制限します。ウォームアップスケジュールが進むにつれて、この制限を徐々に引き上げて送信するメールのボリュームを増やすことができます。]({% image_buster /assets/img_archive/email_ip_warming_sends_limit_new.png %})
 
 ## サブドメインセグメンテーション {#subdomain-segmentation}
 
@@ -194,12 +194,12 @@ IP ウォームアップが完了したら、送信ケイデンスを作成し�
 ### 送信者のレピュテーションを監視する {#monitor-your-sender-reputation}
 
 IP ウォームアッププロセスを実施する際は、送信者のレピュテーションを注意深く監視してください。以下の指標を特に注視することが重要です：
-- **バウンス率：** Campaignのバウンス率が 3〜5% を超える場合は、[Keep It Clean: The Importance of Email List Hygiene](https://www.braze.com/blog/email-list-hygiene/) の記事のガイドラインに従ってリストのクリーンさを評価する必要があります。さらに、エンゲージメントのない、または休止状態のメールアドレスへの送信を停止するための[サンセットポリシー]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies)の実装を検討してください。
-- **スパム報告：** Campaignのスパム報告率が 0.08% を超える場合は、送信しているコンテンツを再評価し、関心のあるオーディエンスにターゲティングされていることを確認し、メールが受信者の興味を引くように適切に表現されていることを確認してください。
+- **バウンス率：** キャンペーンのバウンス率が 3〜5% を超える場合は、[Keep It Clean: The Importance of Email List Hygiene](https://www.braze.com/blog/email-list-hygiene/) の記事のガイドラインに従ってリストのクリーンさを評価する必要があります。さらに、エンゲージメントのない、または休止状態のメールアドレスへの送信を停止するための[サンセットポリシー]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies)の実装を検討してください。
+- **スパム報告：** キャンペーンのスパム報告率が 0.08% を超える場合は、送信しているコンテンツを再評価し、関心のあるオーディエンスにターゲティングされていることを確認し、メールが受信者の興味を引くように適切に表現されていることを確認してください。
 - **開封率：** 開封率は受信トレイへの配置の有用な指標です。ユニーク開封率が 25% を超えている場合、受信トレイへの配置率が高く、送信者のレピュテーションが良好であることを示しています。
 
 {% alert tip %}
-Brazeは IP ウォームアップに[インテリジェントタイミング]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)を使用しないことを推奨しています。IP ウォームアップCampaignは最初に送信するCampaignの一部であるため、Brazeにはユーザーの最適な送信時間を計算するための十分な情報がありません。この場合、インテリジェントタイミングを使用したすべてのメッセージはフォールバック時間にデフォルト設定され、結局同じ時間に送信されます。
+Brazeは IP ウォームアップに[インテリジェントタイミング]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)を使用しないことを推奨しています。IP ウォームアップキャンペーンは最初に送信するキャンペーンの一部であるため、Brazeにはユーザーの最適な送信時間を計算するための十分な情報がありません。この場合、インテリジェントタイミングを使用したすべてのメッセージはフォールバック時間にデフォルト設定され、結局同じ時間に送信されます。
 {% endalert %}
 
 {% alert tip %}

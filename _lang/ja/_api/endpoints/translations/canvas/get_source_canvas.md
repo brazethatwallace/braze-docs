@@ -1,21 +1,21 @@
 ---
-nav_title: "GET: Canvasの翻訳タグのデフォルトソース値を表示する"
-article_title: "GET: Canvasの翻訳タグのデフォルトソース値を表示する"
+nav_title: "GET: キャンバスの翻訳タグのデフォルトソース値を表示する"
+article_title: "GET: キャンバスの翻訳タグのデフォルトソース値を表示する"
 search_tag: Endpoint
 page_order: 3
 
 layout: api_page
 page_type: reference
-description: "この記事では、Canvasの翻訳ソースエンドポイントについて詳しく説明します。"
+description: "この記事では、キャンバスの翻訳ソースエンドポイントについて詳しく説明します。"
 ---
 
 {% api %}
-# Canvasの翻訳タグのデフォルトソース値を表示する {#view-default-source-values-for-a-canvass-translation-tags}
+# キャンバスの翻訳タグのデフォルトソース値を表示する {#view-default-source-values-for-a-canvass-translation-tags}
 {% apimethod get %}
 /canvas/translations/source
 {% endapimethod %}
 
-> このエンドポイントを使用して、Canvasの翻訳タグに対するすべてのデフォルト翻訳ソースを表示します。これらは {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %} が付いた値です。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)を参照してください。
+> このエンドポイントを使用して、キャンバスの翻訳タグに対するすべてのデフォルト翻訳ソースを表示します。これらは {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %} が付いた値です。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)を参照してください。
 
 ## 前提条件 {#prerequisites}
 
@@ -29,7 +29,7 @@ description: "この記事では、Canvasの翻訳ソースエンドポイント
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |------------------------|----------|-----------|------------------------------------|
-| `workflow_id` | 必須 | 文字列 | CanvasのID。 |
+| `workflow_id` | 必須 | 文字列 | キャンバスのID。 |
 | `step_id` | 必須 | 文字列 | キャンバスステップのID。 |
 | `message_variation_id` | 必須 | 文字列 | メッセージバリエーションのID。 |
 | `locale_id` | オプション | 文字列 | ロケールのID（UUID）。 |

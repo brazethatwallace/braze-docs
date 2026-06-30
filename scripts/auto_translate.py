@@ -3173,16 +3173,198 @@ def repair_korean_query_hangul_typo(translated_path, translated_content, lang_ke
     ]
 
 
-# Latin Braze product / SDK tokens immediately followed by a Japanese
-# particle should not have an ASCII space in between — models often emit
-# ``Segment を`` / ``Canvas の`` (seen on auto-translate PR #13316) which
-# reads like sloppy typography next to native ``を``/``の``.
+# Latin SDK / feature tokens and localized JA product names immediately
+# followed by a Japanese particle should not have an ASCII space in between.
 _JA_LATIN_TOKEN_PARTICLE_RE = re.compile(
     r"(?P<tok>"
-    r"Content Cards|In-App Messages|REST API|"
-    r"Campaigns?|Segment|Canvas|SDK"
+    r"Content Cards|In-App Messages|REST API|SDK|"
+    r"キャンペーン|キャンバス|セグメント"
     r")\s+(?P<particle>[をのとはがも])"
 )
+
+_JA_EN_CAMPAIGN_CANVAS_SEGMENT_TERMS = (
+    "Campaign",
+    "Campaigns",
+    "Canvas",
+    "Canvases",
+    "Segment",
+    "Segments",
+)
+
+# Preserve English Liquid tab labels and multi-word UI strings during token repair.
+_JA_PROTECTED_ENGLISH_PHRASES = (
+    "Save Campaign",
+    "{% tab Campaigns %}",
+    "{% tab Canvas %}",
+    "{% tab Segments %}",
+)
+
+
+def _mask_ja_protected_english_phrases(chunk: str) -> tuple[str, dict[str, str]]:
+    placeholders: dict[str, str] = {}
+    for i, phrase in enumerate(_JA_PROTECTED_ENGLISH_PHRASES):
+        if phrase not in chunk:
+            continue
+        token = f"__JA_PHRASE_PROTECT_{i}__"
+        chunk = chunk.replace(phrase, token)
+        placeholders[token] = phrase
+    return chunk, placeholders
+
+
+def _unmask_ja_protected_english_phrases(
+    chunk: str, placeholders: dict[str, str]
+) -> str:
+    for token, phrase in placeholders.items():
+        chunk = chunk.replace(token, phrase)
+    return chunk
+
+
+def _ja_campaign_canvas_segment_replacement_pairs():
+    """Longest-first ``(english, japanese)`` pairs for Campaign/Canvas/Segment repair."""
+    glossary_path = GLOSSARY_DIR / "ja.json"
+    raw = (
+        json.loads(glossary_path.read_text())
+        if glossary_path.exists()
+        else {}
+    )
+    pairs = []
+    for en, ja in raw.items():
+        if not ja or en == ja:
+            continue
+        if not re.search(r"[ぁ-んァ-ン一-龥]", ja):
+            continue
+        if not re.search(r"(?i)(campaign|canvas|segment)", en):
+            continue
+        # Lowercase single tokens (``campaign``, ``canvas``, ``segment``) appear
+        # inside URL slugs and anchor IDs — only Title Case + multi-word UI.
+        if " " not in en and en[:1].islower():
+            continue
+        pairs.append((en, ja))
+    for en, ja in (
+        ("Canvases", "キャンバス"),
+        ("Campaigns", "キャンペーン"),
+        ("Segments", "セグメント"),
+        ("Canvas", "キャンバス"),
+        ("Campaign", "キャンペーン"),
+        ("Segment", "セグメント"),
+    ):
+        pairs.append((en, ja))
+    seen = set()
+    out = []
+    for en, ja in sorted(pairs, key=lambda x: len(x[0]), reverse=True):
+        if en in seen:
+            continue
+        seen.add(en)
+        out.append((en, ja))
+    return out
+
+
+def _replace_ja_product_terms_in_text_segment(segment, pairs):
+    """Apply glossary replacements outside code fences, URLs, and ``{#anchors}``."""
+
+    def _replace_plain(chunk: str) -> str:
+        chunk, protected = _mask_ja_protected_english_phrases(chunk)
+        for en, ja in pairs:
+            if re.search(r"\s", en):
+                chunk = chunk.replace(en, ja)
+            else:
+                chunk = re.sub(
+                    rf"(?<![A-Za-z/_-]){re.escape(en)}(?![A-Za-z/_-])",
+                    ja,
+                    chunk,
+                )
+        return _unmask_ja_protected_english_phrases(chunk, protected)
+
+    parts = re.split(r"(\{#[^}]+\})", segment)
+    out: list[str] = []
+    for part in parts:
+        if part.startswith("{#") and part.endswith("}"):
+            out.append(part)
+            continue
+
+        def _fix_link(m: re.Match) -> str:
+            return f"[{_replace_plain(m.group(1))}]({m.group(2)})"
+
+        part = re.sub(r"\[([^\]]*)\]\(([^)]*)\)", _fix_link, part)
+        out.append(_replace_plain(part))
+    return "".join(out)
+
+
+def repair_japanese_english_product_terms(
+    translated_path, translated_content, lang_key
+):
+    """Replace English Campaign/Canvas/Segment tokens with JA glossary forms.
+
+    JA docs historically kept Title Case product nouns in English via
+    ``PROTECTED_PRODUCT_TERMS``; partner review (2026-06) expects
+    **キャンペーン** / **キャンバス** / **セグメント** in prose and UI
+  labels where ``ja.json`` defines a translation.
+    """
+    if lang_key != "ja":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/ja/" not in rel:
+        return translated_content, []
+
+    pairs = _ja_campaign_canvas_segment_replacement_pairs()
+    fm_match = re.match(
+        r"^([ \t]*---\s*\n.*?\n---[ \t]*(?:\n|\Z))",
+        translated_content,
+        re.DOTALL,
+    )
+    if fm_match:
+        prefix = fm_match.group(1)
+        body = translated_content[fm_match.end() :]
+    else:
+        prefix = ""
+        body = translated_content
+    parts = re.split(r"(```.*?```)", body, flags=re.DOTALL)
+    for i in range(0, len(parts), 2):
+        parts[i] = _replace_ja_product_terms_in_text_segment(parts[i], pairs)
+    new = prefix + "".join(parts)
+    if new == translated_content:
+        return translated_content, []
+    return new, [
+        "ja-product-terms — replaced English Campaign/Canvas/Segment "
+        "with glossary Japanese forms"
+    ]
+
+
+def check_japanese_english_product_terms_in_prose(
+    translated_path, translated_content, lang_key
+):
+    """Warn when JA docs still use English Campaign/Canvas/Segment in prose."""
+    if lang_key != "ja":
+        return []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/ja/" not in rel:
+        return []
+    # API/event schema pages intentionally keep English field tokens.
+    if any(
+        part in rel
+        for part in (
+            "/_api/",
+            "/event_glossary/",
+            "/_includes/snowflake_users_messages/",
+        )
+    ):
+        return []
+
+    _, body = _extract_front_matter(translated_content)
+    parts = re.split(r"(```.*?```)", body, flags=re.DOTALL)
+    prose = "".join(parts[i] for i in range(0, len(parts), 2))
+    warnings = []
+    for term in _JA_EN_CAMPAIGN_CANVAS_SEGMENT_TERMS:
+        matches = re.findall(
+            rf"(?<![A-Za-z]){re.escape(term)}(?![A-Za-z])",
+            prose,
+        )
+        if matches:
+            warnings.append(
+                f"ja-product-terms — English '{term}' appears {len(matches)}x "
+                f"in prose; use glossary Japanese (キャンペーン/キャンバス/セグメント)"
+            )
+    return warnings
 
 
 def repair_japanese_latin_token_particle_spacing(
@@ -6639,6 +6821,13 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(ko_query_repairs)
 
+    translated_content, ja_product_repairs = (
+        repair_japanese_english_product_terms(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(ja_product_repairs)
+
     translated_content, ja_particle_repairs = (
         repair_japanese_latin_token_particle_spacing(
             translated_path, translated_content, lang_key
@@ -6897,6 +7086,11 @@ def qc_check_file(english_path, translated_path, lang_key):
 
     findings["warnings"].extend(
         check_liquid_tags(english_content, translated_content)
+    )
+    findings["warnings"].extend(
+        check_japanese_english_product_terms_in_prose(
+            translated_path, translated_content, lang_key
+        )
     )
     findings["warnings"].extend(
         check_glossary_compliance(english_content, translated_content, lang_key)
@@ -7351,6 +7545,33 @@ def cmd_summary(_args):
     print(body)
 
 
+def cmd_repair_ja_product_terms(args: argparse.Namespace) -> None:
+    """Batch-apply ``repair_japanese_english_product_terms`` under ``_lang/ja/``."""
+    ja_root = REPO_ROOT / "_lang" / "ja"
+    if not ja_root.is_dir():
+        print("No _lang/ja/ directory found.", file=sys.stderr)
+        sys.exit(1)
+
+    changed = 0
+    for path in sorted(ja_root.rglob("*.md")):
+        rel = path.relative_to(REPO_ROOT).as_posix()
+        original = path.read_text()
+        updated, repairs = repair_japanese_english_product_terms(
+            rel, original, "ja"
+        )
+        if not repairs:
+            continue
+        changed += 1
+        if args.dry_run:
+            print(f"would repair: {rel}")
+        else:
+            path.write_text(updated)
+            print(f"repaired: {rel}")
+
+    label = "Would repair" if args.dry_run else "Repaired"
+    print(f"{label} {changed} file(s) under _lang/ja/")
+
+
 # ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
@@ -7443,6 +7664,20 @@ def main():
         ),
     )
     st.set_defaults(func=cmd_stale_english_sources)
+
+    rj = sub.add_parser(
+        "repair-ja-product-terms",
+        help=(
+            "Replace English Campaign/Canvas/Segment tokens in _lang/ja/ "
+            "with glossary Japanese forms (one-off corpus repair)"
+        ),
+    )
+    rj.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Print files that would change without writing",
+    )
+    rj.set_defaults(func=cmd_repair_ja_product_terms)
 
     args = parser.parse_args()
     args.func(args)

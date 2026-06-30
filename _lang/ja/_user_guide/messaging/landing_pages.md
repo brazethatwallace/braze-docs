@@ -82,11 +82,11 @@ Google Tag Managerの実装の詳細については、[Googleのドキュメン�
 
 ### ランディングページ内にWebhookを作成できますか？ {#can-i-create-a-webhook-inside-a-landing-page}
 
-いいえ。ただし、**Submitted a Landing Page form**イベントをCanvasesやWebhookキャンペーンのトリガーとして使用できます。
+いいえ。ただし、**Submitted a Landing Page form**イベントをキャンバスやWebhookキャンペーンのトリガーとして使用できます。
 
-- **Canvas：** **Submitted a Landing Page form**イベントをCanvasのエントリトリガーとして使用し、Webhookステップを追加します。
-- **Campaign：** **Submitted a Landing Page form**イベントを使用して、フォーム送信に基づいてトリガーします。
+- **キャンバス：** **Submitted a Landing Page form**イベントをキャンバスのエントリトリガーとして使用し、Webhookステップを追加します。
+- **キャンペーン：** **Submitted a Landing Page form**イベントを使用して、フォーム送信に基づいてトリガーします。
 
-ページがBrazeチャネル（Webサイトや広告など）を通じて送信されていない場合、そのユーザーがすでにBrazeに存在していても、送信時に新しいユーザープロファイルが作成される可能性があります。これに対処するには、**Submitted a Landing Page form**でトリガーされるCanvasを設定し、[`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)エンドポイントを呼び出すBraze-to-Braze Webhookステップを追加して、新しいプロファイルを既存のプロファイルに統合します。
+ページがBrazeチャネル（Webサイトや広告など）を通じて送信されていない場合、そのユーザーがすでにBrazeに存在していても、送信時に新しいユーザープロファイルが作成される可能性があります。これに対処するには、**Submitted a Landing Page form**でトリガーされるキャンバスを設定し、[`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)エンドポイントを呼び出すBraze-to-Braze Webhookステップを追加して、新しいプロファイルを既存のプロファイルに統合します。
 
 `landing_page_url` Liquidタグを使用してページを共有すると、フォーム送信は自動的に既存のユーザープロファイルに紐づけられます。その後、ランディングページで送信されたユーザー属性をLiquidで参照して、後続のテンプレートに活用できます。

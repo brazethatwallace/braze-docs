@@ -10,7 +10,7 @@ channel:
 
 # メールキャプチャフォーム {#email-capture-form}
 
-> メールキャプチャメッセージを使用すると、サイトのユーザーにメールアドレスの送信を促すことができます。Brazeは送信されたメールアドレスをユーザープロファイルに追加し、すべてのメッセージングCampaignsで使用できるようにします。
+> メールキャプチャメッセージを使用すると、サイトのユーザーにメールアドレスの送信を促すことができます。Brazeは送信されたメールアドレスをユーザープロファイルに追加し、すべてのメッセージングキャンペーンで使用できるようにします。
 
 このメッセージタイプは、[従来のエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)で利用できます。
 
@@ -44,9 +44,9 @@ channel:
 
 {% enddetails %}
 
-## ステップ 1: アプリ内メッセージCampaignを作成する {#step-1-create-an-in-app-message-campaign}
+## ステップ 1: アプリ内メッセージキャンペーンを作成する {#step-1-create-an-in-app-message-campaign}
 
-このオプションに移動するには、アプリ内メッセージングCampaignを作成する必要があります。そこから、ユースケースに応じて、**Send To**を**Web Browsers**、**Mobile Apps**、または**Both Mobile Apps & Web Browsers**に設定し、**Message Type**として**Email Capture Form**を選択します。
+このオプションに移動するには、アプリ内メッセージングキャンペーンを作成する必要があります。そこから、ユースケースに応じて、**Send To**を**Web Browsers**、**Mobile Apps**、または**Both Mobile Apps & Web Browsers**に設定し、**Message Type**として**Email Capture Form**を選択します。
 
 {% alert note %}
 **Webユーザーをターゲットにしますか？**<br>Web SDKを通じてHTMLアプリ内メッセージを有効にするには、Brazeに`allowUserSuppliedJavascript`初期化オプションを指定する必要があります（例：`braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`）。これはセキュリティ上の理由によるもので、HTMLアプリ内メッセージはJavaScriptを実行できるため、サイト管理者が有効にする必要があります。
@@ -82,6 +82,6 @@ channel:
 
 メールキャプチャフォームを起動し、ユーザーからメールアドレスを収集した後、フォームに入力したユーザーをターゲットにすることができます。
 
-1. Brazeの任意のSegmentフィルターで、フィルター`Clicked/Opened Campaign`を選択します。
+1. Brazeの任意のセグメントフィルターで、フィルター`Clicked/Opened Campaign`を選択します。
 2. ドロップダウンから`clicked in-app message button 1`を選択します。
-3. メールキャプチャフォームのCampaignを選択します。
+3. メールキャプチャフォームのキャンペーンを選択します。

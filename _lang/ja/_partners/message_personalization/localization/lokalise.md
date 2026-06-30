@@ -18,7 +18,7 @@ _この統合はLokaliseによって管理されています。_
 
 Lokaliseは、Brazeとの統合オプションを2つ提供しています。
 
-- **多言語統合（推奨）**：Brazeの[多言語コンポジションAPI]({{site.baseurl}}/api/endpoints/translations/)を使用して、LokaliseとBraze間の直接的な双方向同期を提供します。この統合は、Campaigns、Canvases、メールテンプレートのローカライズされたメッセージバリアントに対応しており、プッシュ、メール、In-App Messagesの起動前および起動後のワークフローをサポートしています。
+- **多言語統合（推奨）**：Brazeの[多言語コンポジションAPI]({{site.baseurl}}/api/endpoints/translations/)を使用して、LokaliseとBraze間の直接的な双方向同期を提供します。この統合は、キャンペーン、キャンバス、メールテンプレートのローカライズされたメッセージバリアントに対応しており、プッシュ、メール、In-App Messagesの起動前および起動後のワークフローをサポートしています。
 - **コネクテッドコンテンツ統合（レガシー）**：Brazeのコネクテッドコンテンツを使用して、ユーザーの言語設定に基づいて翻訳されたコンテンツを挿入します。
 
 この記事では、両方の統合のセットアップについて説明します。
@@ -34,7 +34,7 @@ Lokaliseは、Brazeとの統合オプションを2つ提供しています。
 | Lokaliseアカウント | このパートナーシップを活用するには、Lokaliseアカウントが必要です。 |
 | Lokalise翻訳プロジェクト | **Marketing and support**タイプでLokaliseプロジェクトを作成し、**Content integration**として**Braze**を選択します。 |
 | Braze多言語設定 | Brazeワークスペースで[多言語サポート]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings/)が有効になっている必要があります。 |
-| Braze REST APIキー | Campaigns、Canvases、メールテンプレートの読み取りおよび更新権限を持つBraze REST APIキー。Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Braze REST APIキー | キャンペーン、キャンバス、メールテンプレートの読み取りおよび更新権限を持つBraze REST APIキー。Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | Brazeサーバーリージョン | お使いの[Brazeサーバーリージョン]({{site.baseurl}}/api/basics/#endpoints)（例：US-01、EU-01）。Brazeダッシュボードで確認できます。 |
 | Brazeコンテンツ内の翻訳タグ | メッセージでは、翻訳可能なコンテンツを識別するために[翻訳タグ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を使用する必要があります。翻訳可能な各ブロックを、一意のIDを持つ{% raw %}`{% translation ID %}...{% endtranslation %}`{% endraw %}タグで囲みます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
@@ -45,7 +45,7 @@ Lokaliseでの Braze多言語統合の接続、コンテンツのインポート
 
 この統合は以下をサポートしています：
 - LokaliseとBraze間の直接的な双方向同期（手動のファイル処理不要）
-- Campaigns、Canvases、メールテンプレートのローカライズされたメッセージバリアント
+- キャンペーン、キャンバス、メールテンプレートのローカライズされたメッセージバリアント
 - 起動前および起動後の翻訳ワークフロー
 
 {% alert note %}
@@ -112,7 +112,7 @@ Lokaliseプロジェクトを開いて**Apps**をクリックします。ここ�
 1. URLパスの最初の部分はすべての言語に共通です。
 2. URL末尾のJSONファイル名は、言語コードに基づいています。
 
-翻訳ファイルのURLは、Braze Campaignを設定する際に必要となるURLです。JSONファイルのコンテンツを更新するには**Refresh**をクリックします。URLは変更されないため、Brazeでコネクテッドコンテンツ呼び出しを変更する必要はありません。
+翻訳ファイルのURLは、Braze キャンペーンを設定する際に必要となるURLです。JSONファイルのコンテンツを更新するには**Refresh**をクリックします。URLは変更されないため、Brazeでコネクテッドコンテンツ呼び出しを変更する必要はありません。
 
 ##### テストURL {#test-url}
 
@@ -120,11 +120,11 @@ Lokaliseプロジェクトを開いて**Apps**をクリックします。ここ�
 
 ![]({% image_buster /assets/img/lokalise/4_testing_json_lokalise.png %})
 
-#### ステップ4：Braze Campaignで翻訳を使用する {#step-4-use-translations-in-braze-campaign}
+#### ステップ4：Braze キャンペーンで翻訳を使用する {#step-4-use-translations-in-braze-campaign}
 
 ##### コネクテッドコンテンツ呼び出しを挿入する {#insert-connected-content-call}
 
-準備ができたら、Brazeに戻り、既存のCampaignを開くか、新しいCampaignを作成します。この例では、サンプルコンテンツで新しいメールCampaignを作成します。**Edit Email Body**をクリックします。
+準備ができたら、Brazeに戻り、既存のキャンペーンを開くか、新しいキャンペーンを作成します。この例では、サンプルコンテンツで新しいメールキャンペーンを作成します。**Edit Email Body**をクリックします。
 
 翻訳を挿入するには、ドキュメントの最上部または翻訳が必要な最初の位置の直前に、HTML内にコネクテッドコンテンツリクエストを追加する必要があります。これは、以下のマークアップを挿入することで実現できます：
 
@@ -167,4 +167,4 @@ Brazeの対応する文字列には翻訳が表示されなくなります。
 
 ### Lokaliseで翻訳ファイルを更新した後、Brazeで翻訳内容に変更が反映されないのはなぜですか？ {#after-refreshing-the-translation-file-on-lokalise-why-cant-i-see-any-changes-in-the-translated-content-on-braze}
 
-Brazeでは翻訳コンテンツがキャッシュされ、その更新には数分かかることがあります。Campaignをテストしていて、翻訳の結果をすぐに確認する必要がある場合は、このリファレンス記事で説明されているように`:cache_max_age`パラメーターを使用できます。
+Brazeでは翻訳コンテンツがキャッシュされ、その更新には数分かかることがあります。キャンペーンをテストしていて、翻訳の結果をすぐに確認する必要がある場合は、このリファレンス記事で説明されているように`:cache_max_age`パラメーターを使用できます。

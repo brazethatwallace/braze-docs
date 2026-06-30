@@ -32,13 +32,13 @@ BrazeとInkitの統合により、ドキュメントを生成し、Braze webhook
 
 ### ステップ 1: Inkitテンプレートを作成する {#step-1-create-an-inkit-template}
 
-Inkitプラットフォーム上で、BrazeのCampaignで使用するテンプレートをHTML、Word、PowerPoint、Excel、またはPDFで作成します。詳細については、[Inkitのドキュメント](https://docs.inkit.com/docs/create-a-template)を参照してください。
+Inkitプラットフォーム上で、Brazeのキャンペーンで使用するテンプレートをHTML、Word、PowerPoint、Excel、またはPDFで作成します。詳細については、[Inkitのドキュメント](https://docs.inkit.com/docs/create-a-template)を参照してください。
 
 ### ステップ 2: Braze Webhookテンプレートを作成する {#step-2-create-your-braze-webhook-template}
 
-今後のCampaignやCanvasで使用するInkit Webhookテンプレートを作成するには、Brazeプラットフォームで**コンテンツ** > **Webhook**に移動します。次に、**Webhookテンプレートを作成**を選択します。
+今後のキャンペーンやキャンバスで使用するInkit Webhookテンプレートを作成するには、Brazeプラットフォームで**コンテンツ** > **Webhook**に移動します。次に、**Webhookテンプレートを作成**を選択します。
 
-単発のInkit WebhookのCampaignを作成したい場合、または既存のテンプレートを使用したい場合は、新しいCampaignを作成する際にBrazeで**Webhook**を選択します。
+単発のInkit Webhookのキャンペーンを作成したい場合、または既存のテンプレートを使用したい場合は、新しいキャンペーンを作成する際にBrazeで**Webhook**を選択します。
 
 ![テンプレートとメディアセクションのWebhookテンプレートタブで利用可能な事前デザイン済みWebhookテンプレートの選択画面。]({% image_buster /assets/img/inkit-webhook-template.png %})
 
@@ -91,5 +91,5 @@ Liquidが、以下の必須フィールドとオプションフィールドに�
 **プレビュー**パネルでリクエストをプレビューするか、**テスト**タブに移動して、ランダムなユーザー、既存のユーザーを選択するか、独自にカスタマイズしてWebhookをテストします。
 
 {% alert important %}
-ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[WebhookのCampaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済み Webhook テンプレート**リストで見つけることができます。
+ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[Webhookのキャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済み Webhook テンプレート**リストで見つけることができます。
 {% endalert %}

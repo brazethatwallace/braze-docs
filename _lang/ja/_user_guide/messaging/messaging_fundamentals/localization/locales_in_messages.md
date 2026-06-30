@@ -27,7 +27,7 @@ description: "この記事では、メッセージでロケールを使用する
 
 | 機能 | 必要なユーザー権限 |
 | --- | --- |
-| メッセージ&nbsp;タイプ | CampaignsおよびCanvasesにロケールと翻訳を追加するには、以下の権限が必要です。<br><br> <ul><li>Edit Campaigns</li><li>Edit Canvases</li></ul>{:/} |
+| メッセージ&nbsp;タイプ | キャンペーンおよびキャンバスにロケールと翻訳を追加するには、以下の権限が必要です。<br><br> <ul><li>キャンペーンを編集</li><li>Edit キャンバス</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件"}
 
 {% endtab %}
@@ -169,15 +169,15 @@ URLがLiquidで生成される場合（例: {% raw %}`{% landing_page_url %}`{% 
 {% endtab %}
 {% tab 翻訳APIを使用 %}
 
-パートナー翻訳APIを使用して、CampaignsおよびCanvasesの翻訳を管理・更新します。これは、外部システムでローカライゼーションを行っている場合や、翻訳パートナーと直接接続したい場合に便利です。
+パートナー翻訳APIを使用して、キャンペーンおよびキャンバスの翻訳を管理・更新します。これは、外部システムでローカライゼーションを行っている場合や、翻訳パートナーと直接接続したい場合に便利です。
 
-Canvasesで翻訳エンドポイントを使用するには、以下のパラメーターを含めてください。
+キャンバスで翻訳エンドポイントを使用するには、以下のパラメーターを含めてください。
   - `workflow_id`
   - `step_id`
   - `message_variation_id`
 
 {% alert note %}
-Canvasの起動後に作成されたキャンバスステップで翻訳APIを使用する場合、APIに渡す`message_variation_id`は空またはブランクになります。
+キャンバスの起動後に作成されたキャンバスステップで翻訳APIを使用する場合、APIに渡す`message_variation_id`は空またはブランクになります。
 {% endalert %}
 
 {% endtab %}
@@ -191,9 +191,9 @@ Canvasの起動後に作成されたキャンバスステップで翻訳APIを�
 
 ## 翻訳の管理 {#manage-translations}
 
-### キャンバスステップまたはCampaignsの複製と翻訳 {#duplicate-canvas-steps-or-campaigns-and-translations}
+### キャンバスステップまたはキャンペーンの複製と翻訳 {#duplicate-canvas-steps-or-campaigns-and-translations}
 
-キャンバスステップ、Campaign、またはバリアントを複製すると、翻訳も含まれます。これはワークスペース間のコピーでも同様で、コピー先のワークスペースにロケールが定義されている場合に適用されます。CanvasまたはCampaignに変更を加える際は、翻訳を確認し、必要に応じて更新してください。
+キャンバスステップ、キャンペーン、またはバリアントを複製すると、翻訳も含まれます。これはワークスペース間のコピーでも同様で、コピー先のワークスペースにロケールが定義されている場合に適用されます。キャンバスまたはキャンペーンに変更を加える際は、翻訳を確認し、必要に応じて更新してください。
 
 ### Content Blocksに翻訳を保存する {#save-translations-in-content-blocks}
 
@@ -213,7 +213,7 @@ Content Blocksは、メッセージと同じ方法で多言語をサポートし
 
 ### メールリンクトラッキング {#email-link-tracking}
 
-メールCampaignsでは、Brazeは各URLにトラッキング情報（クエリパラメーター）を追加してリンクを追跡します。この動作は[リンクエイリアス]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing)と[リンクテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template)の両方をサポートしています。
+メールキャンペーンでは、Brazeは各URLにトラッキング情報（クエリパラメーター）を追加してリンクを追跡します。この動作は[リンクエイリアス]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing)と[リンクテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template)の両方をサポートしています。
 
 URLが翻訳タグで囲まれている場合、Brazeはトラッキング情報を追加する場所を判断できない場合があります。これが正しく機能するようにするには、URLの末尾にトラッキングを追加する場所を示す特殊文字を含める必要があります。
 

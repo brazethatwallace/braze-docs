@@ -89,12 +89,12 @@ Brazeではアプリグループはワークスペースに改名されました
 
 | 権限名 | SCIM API文字列 |
 | --- | --- |
-| View Campaigns | `view_campaigns` |
-| Edit Campaigns | `edit_campaigns` |
-| Archive Campaigns | `archive_campaigns` |
-| View Canvases | `view_canvases` |
-| Edit Canvases | `edit_canvases` |
-| Archive Canvases | `archive_canvases` |
+| View キャンペーン | `view_campaigns` |
+| キャンペーンを編集 | `edit_campaigns` |
+| Archive キャンペーン | `archive_campaigns` |
+| View キャンバス | `view_canvases` |
+| Edit キャンバス | `edit_canvases` |
+| Archive キャンバス | `archive_canvases` |
 | View Frequency Capping Rules | `view_frequency_caps` |
 | Edit Frequency Capping Rules | `edit_frequency_caps` |
 | View Message Prioritization | `view_message_prioritization` |
@@ -105,9 +105,9 @@ Brazeではアプリグループはワークスペースに改名されました
 | View Feature Flags | `view_feature_flags` |
 | Edit Feature Flags | `edit_feature_flags` |
 | Archive Feature Flags | `archive_feature_flags` |
-| View Segments | `view_segments` |
-| Edit Segments | `edit_segments` |
-| Archive Segments | `archive_segments` |
+| View セグメント | `view_segments` |
+| Edit セグメント | `edit_segments` |
+| Archive セグメント | `archive_segments` |
 | View Global Control Group | `view_global_control_group` |
 | Edit Global Control Group | `edit_global_control_group` |
 | View IAM Templates | `view_iam_templates` |
@@ -141,8 +141,8 @@ Brazeではアプリグループはワークスペースに改名されました
 | View Decisioning Studio Audience | `view_decisioning_studio_audience` |
 | View Decisioning Studio Conversion Event | `view_decisioning_studio_conversion_event` |
 | View Decisioning Studio Guardrails | `view_decisioning_studio_guardrails` |
-| Launch Campaigns | `launch_campaigns` |
-| Launch Canvases | `launch_canvases` |
+| キャンペーンを起動 | `launch_campaigns` |
+| Launch キャンバス | `launch_canvases` |
 | Edit Dashboard Users | `edit_dashboard_users` |
 | Edit Media Library Assets | `edit_media_library_assets` |
 | Delete Media Library Assets | `delete_media_library_assets` |
@@ -206,12 +206,12 @@ Brazeではアプリグループはワークスペースに改名されました
 
 | 権限名 | SCIM API文字列 |
 | --- | --- |
-| View Campaigns | `view_campaigns` |
-| Edit Campaigns | `edit_campaigns` |
-| Archive Campaigns | `archive_campaigns` |
-| View Canvases | `view_canvases` |
-| Edit Canvases | `edit_canvases` |
-| Archive Canvases | `archive_canvases` |
+| View キャンペーン | `view_campaigns` |
+| キャンペーンを編集 | `edit_campaigns` |
+| Archive キャンペーン | `archive_campaigns` |
+| View キャンバス | `view_canvases` |
+| Edit キャンバス | `edit_canvases` |
+| Archive キャンバス | `archive_canvases` |
 | View Frequency Capping Rules | `view_frequency_caps` |
 | Edit Frequency Capping Rules | `edit_frequency_caps` |
 | View Message Prioritization | `view_message_prioritization` |
@@ -220,8 +220,8 @@ Brazeではアプリグループはワークスペースに改名されました
 | View Feature Flags | `view_feature_flags` |
 | Edit Feature Flags | `edit_feature_flags` |
 | Archive Feature Flags | `archive_feature_flags` |
-| View Segments | `view_segments` |
-| Edit Segments | `edit_segments` |
+| View セグメント | `view_segments` |
+| Edit セグメント | `edit_segments` |
 | Edit Global Control Group | `edit_global_control_group` |
 | View IAM Templates | `view_iam_templates` |
 | Edit IAM Templates | `edit_iam_templates` |
@@ -250,8 +250,8 @@ Brazeではアプリグループはワークスペースに改名されました
 | View Multi Language Settings | `view_multi_language_settings` |
 | Use BrazeAI Operator<sup>TM</sup> | `use_operator` |
 | View Decisioning Studio Agents | `view_decisioning_studio_agents` |
-| Launch Campaigns | `launch_campaigns` |
-| Launch Canvases | `launch_canvases` |
+| キャンペーンを起動 | `launch_campaigns` |
+| Launch キャンバス | `launch_canvases` |
 | Edit Dashboard Users | `edit_dashboard_users` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Team permission strings #team" }
 

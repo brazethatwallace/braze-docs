@@ -3,12 +3,12 @@ nav_title: メッセージングルール
 article_title: メッセージングルール
 page_order: 1
 page_type: reference
-description: "このページでは、大量送信を伴うCampaignsやCanvasesの承認ワークフローでメッセージングルールを使用する方法について説明します。"
+description: "このページでは、大量送信を伴うキャンペーンやキャンバスの承認ワークフローでメッセージングルールを使用する方法について説明します。"
 ---
 
 # メッセージングルール {#messaging-rules}
 
-> 承認ワークフローでメッセージングルールを使用して、追加の承認が必要になるまでの到達可能なユーザー数を制限できます。これにより、より大きなオーディエンスをターゲットにする前にCampaignsやCanvasesを確認できます。
+> 承認ワークフローでメッセージングルールを使用して、追加の承認が必要になるまでの到達可能なユーザー数を制限できます。これにより、より大きなオーディエンスをターゲットにする前にキャンペーンやキャンバスを確認できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -18,22 +18,22 @@ description: "このページでは、大量送信を伴うCampaignsやCanvases�
 
 メッセージングルールはワークスペースに適用され、メッセージタイプと到達可能なユーザーの最大数で構成されます。
 
-- **メッセージタイプ：** ルールが適用されるメッセージタイプを定義します：Campaign、Canvas、またはCanvasとCampaignsの両方。
+- **メッセージタイプ：** ルールが適用されるメッセージタイプを定義します：キャンペーン、キャンバス、またはキャンバスとキャンペーンの両方。
 - **到達可能なユーザーの最大数：** 追加の承認が必要となるオーディエンスサイズを決定します。
 
 ### 個別の承認者 {#separate-approvers}
 
 2つのルールで同じユーザー最大数を共有できるため、承認者ごとにルールを整理・分離できます。たとえば、次の2つのルールを作成します：
 
-- ルールA：Canvasに対して最大100,000ユーザー、法務チームの承認者
-- ルールB：Canvasに対して最大100,000ユーザー、マーケティングチームの承認者
+- ルールA：キャンバスに対して最大100,000ユーザー、法務チームの承認者
+- ルールB：キャンバスに対して最大100,000ユーザー、マーケティングチームの承認者
 
 ### 到達可能なユーザーの重複なし {#no-overlapping-reachable-users}
 
 混乱を避けるため、同じメッセージタイプと承認者に対して、ユーザー数が重複する同一のルールを設定することはできません。たとえば、次のメッセージングルールは設定**できません**：
 
-- ルールC：Canvasに対して最大10,000ユーザー
-- ルールD：Canvasに対して最大1,000,000ユーザー
+- ルールC：キャンバスに対して最大10,000ユーザー
+- ルールD：キャンバスに対して最大1,000,000ユーザー
 
 ## メッセージングルールの作成 {#creating-a-messaging-rule}
 
@@ -46,22 +46,22 @@ description: "このページでは、大量送信を伴うCampaignsやCanvases�
 1. **Settings** > **Approval Workflow** > **Messaging Rules**に移動します。
 2. **Create rule**を選択します。
 3. このルールに名前を付けます（例：「全ユーザーサブスクリプション」）。
-4. **Message type**で、**Campaign**、**Canvas**、または**Both Canvas and Campaigns**を選択して承認ルールを適用します。
+4. **Message type**で、**キャンペーン**、**キャンバス**、または**Both キャンバス and キャンペーン**を選択して承認ルールを適用します。
 5. **Maximum reachable users**に数値を入力します。詳細については、[オーディエンス統計]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users#audience-statistics)を参照してください。
 6. **Save**を選択します。
 
-![Campaignsに対する「Rule 1」というメッセージングルールの例。最大ユーザー数は100,000です。CanvasとCampaignの起動を承認できるユーザーが1人います。]({% image_buster /assets/img/target_population_approval_example.png %}){: style="max-width:90%;"}
+![キャンペーンに対する「Rule 1」というメッセージングルールの例。最大ユーザー数は100,000です。キャンバスとキャンペーンの起動を承認できるユーザーが1人います。]({% image_buster /assets/img/target_population_approval_example.png %}){: style="max-width:90%;"}
 
 ### ステップ 2: 承認付きの起動を決定する（オプション） {#step-2-determine-launching-with-approval-optional}
 
-**Allow launching with approval**を選択します。次に、**With Approval From**で、最大数に達した場合にCanvasまたはCampaignを承認する権限を持つ承認者を選択します。
+**Allow launching with approval**を選択します。次に、**With Approval From**で、最大数に達した場合にキャンバスまたはキャンペーンを承認する権限を持つ承認者を選択します。
 
 承認付きメッセージ起動に関する以下の詳細に注意してください：
 
 - 最大数に達し、承認者が選択されている場合、承認権限を持つBrazeユーザーは**Target Audience**の承認ドロップダウンから**Approved**を選択できます。
-- 最大数に達し、承認者が選択されていない場合、CanvasまたはCampaignの起動は阻止されます。
+- 最大数に達し、承認者が選択されていない場合、キャンバスまたはキャンペーンの起動は阻止されます。
 
-![Canvasワークフローの「Summary」ステップ。起動するには承認が必要であることが表示されています。]({% image_buster /assets/img/non_approver_banner.png %}){: style="max-width:90%;"}
+![キャンバスワークフローの「Summary」ステップ。起動するには承認が必要であることが表示されています。]({% image_buster /assets/img/non_approver_banner.png %}){: style="max-width:90%;"}
 
 ## よくある質問 {#frequently-asked-questions}
 
@@ -71,7 +71,7 @@ description: "このページでは、大量送信を伴うCampaignsやCanvases�
 
 ### メッセージングルールはターゲットオーディエンスステップとどのように関連しますか？ {#how-do-messaging-rules-relate-to-the-target-audience-step}
 
-メッセージングルールは、トリガーイベントなどの詳細を考慮しません。たとえば、Campaignがすべてのユーザーをターゲットにしている場合でも、そのCampaignがイベントトリガーであれば、実際にメッセージを受信するユーザー数はそれより少なくなります。
+メッセージングルールは、トリガーイベントなどの詳細を考慮しません。たとえば、キャンペーンがすべてのユーザーをターゲットにしている場合でも、そのキャンペーンがイベントトリガーであれば、実際にメッセージを受信するユーザー数はそれより少なくなります。
 
 ### メッセージングルールをオンにすると、自動的に何か変更されますか？ {#will-anything-automatically-change-when-messaging-rules-are-turned-on}
 

@@ -92,7 +92,7 @@ iOSでは、アプリがインストールされた際にプッシュトーク�
 Brazeでユーザーのプッシュサブスクリプション状態を確認するには、2つの方法があります。
 
 - **ユーザープロファイル**: Brazeダッシュボードの[ユーザー検索]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)ページから個々のユーザープロファイルにアクセスできます。ユーザーのプロファイルを見つけたら（メールアドレス、電話番号、または外部ユーザーIDで検索）、**エンゲージメント**タブを選択して、ユーザーのサブスクリプション状態を確認および手動で調整できます。
-- **REST APIエクスポート**: エクスポートの[Segmentごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)または[識別子ごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)エンドポイントを使用して、個々のユーザープロファイルをJSON形式でエクスポートできます。Brazeは、デバイスごとのプッシュ有効化情報を含むプッシュトークンオブジェクトを返します。
+- **REST APIエクスポート**: エクスポートの[セグメントごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)または[識別子ごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)エンドポイントを使用して、個々のユーザープロファイルをJSON形式でエクスポートできます。Brazeは、デバイスごとのプッシュ有効化情報を含むプッシュトークンオブジェクトを返します。
 
 ### プッシュ登録ステータスの確認 {#checking-push-registration-status}
 
@@ -121,7 +121,7 @@ Brazeでユーザーのプッシュサブスクリプション状態を確認す
 
 ユーザーが新しいアプリケーションを開き、プッシュプロンプトからプッシュアクセスを許可すると、Braze SDKからプッシュプロバイダーへの呼び出しが行われます。この呼び出しが行われると、プッシュプロバイダーはすべてが正しく設定されているかチェックを実行します。正しく設定されている場合、プッシュトークンがデバイスに渡されます。トークンが届くと、SDKはこれをBrazeに通知します。Brazeがプッシュプロバイダーからトークンを受信した後、ユーザープロファイルを更新または新規作成します。これらのユーザーは登録済みとみなされます。
 
-Campaignを起動する場合、Brazeでプッシュプロバイダーに送信するプッシュペイロードを生成するCampaignを作成します。そこからプロバイダーがプッシュペイロードをユーザーのデバイスに配信し、SDKがメッセージングの状態をBrazeに渡します。
+キャンペーンを起動する場合、Brazeでプッシュプロバイダーに送信するプッシュペイロードを生成するキャンペーンを作成します。そこからプロバイダーがプッシュペイロードをユーザーのデバイスに配信し、SDKがメッセージングの状態をBrazeに渡します。
 
 ![Braze、顧客、Apple Push Notification ServiceまたはFirebase Cloud Messagingの間の前述のプッシュプロセスをマッピングしたフローチャート。]({% image_buster /assets/img/push_process.png %})
 

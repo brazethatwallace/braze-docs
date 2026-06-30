@@ -442,7 +442,7 @@ Content Cardsを既存のフィードにシームレスにブレンドし、複�
 
 #### ダッシュボード設定 {#dashboard-configuration}
 
-このContent Cardsは、APIトリガーのキーと値のペアを持つAPIトリガーCampaignによって提供されます。これは、カードの値が外部要因に依存して、ユーザーに表示するコンテンツを決定するCampaignに最適です。なお、`class_type` はセットアップ時に把握しておく必要があります。
+このContent Cardsは、APIトリガーのキーと値のペアを持つAPIトリガーキャンペーンによって提供されます。これは、カードの値が外部要因に依存して、ユーザーに表示するコンテンツを決定するキャンペーンに最適です。なお、`class_type` はセットアップ時に把握しておく必要があります。
 
 ![補足コンテンツカードのユースケースのキーと値のペア。この例では、カードの各要素（「tile_id」、「tile_deeplink」、「tile_title」など）がLiquidを使って設定されています。]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 

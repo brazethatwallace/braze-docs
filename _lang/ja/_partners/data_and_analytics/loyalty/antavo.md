@@ -15,7 +15,7 @@ _この統合はAntavoによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-AntavoとBrazeの統合により、ロイヤルティプログラム関連データを使用してパーソナライズされたCampaignを構築し、カスタマーエクスペリエンスを向上させることができます。Antavoは2つのプラットフォーム間のロイヤルティデータ同期をサポートしています。これはAntavoからBrazeへの一方向データ同期のみです。この統合は`external_id` Brazeフィールドをサポートしており、Antavoはこのフィールドを使用してロイヤルティ会員IDを同期します。
+AntavoとBrazeの統合により、ロイヤルティプログラム関連データを使用してパーソナライズされたキャンペーンを構築し、カスタマーエクスペリエンスを向上させることができます。Antavoは2つのプラットフォーム間のロイヤルティデータ同期をサポートしています。これはAntavoからBrazeへの一方向データ同期のみです。この統合は`external_id` Brazeフィールドをサポートしており、Antavoはこのフィールドを使用してロイヤルティ会員IDを同期します。
 
 ## 前提条件 {#prerequisites}
 
@@ -90,6 +90,6 @@ Antavoで設定されたフィールドのいずれかの値が変更される�
 
 ### ロイヤルティプログラムのイベントを同期する {#synchronizing-loyalty-program-events}
 
-Antavoから同期されたイベントを使用して、アクションベースのBraze Canvasesにロイヤルティメンバーをエントリーさせます。この統合は、Brazeにカスタムイベントとして表示されるあらゆるAntavoイベント（購入イベントを含む）を同期できます。
+Antavoから同期されたイベントを使用して、アクションベースのBraze キャンバスにロイヤルティメンバーをエントリーさせます。この統合は、Brazeにカスタムイベントとして表示されるあらゆるAntavoイベント（購入イベントを含む）を同期できます。
 
 [ロイヤルティプログラム登録イベント](https://antavo.atlassian.net/wiki/spaces/AUM/pages/812056598/Braze#Use-case----Welcome-to-the-loyalty-program!)の同期および[ロイヤルティプログラム特典獲得イベント](https://antavo.atlassian.net/wiki/spaces/AUM/pages/812056598/Braze#Use-case----Welcome-to-the-loyalty-program!)の同期の設定方法については、ステップバイステップガイドを参照してください。

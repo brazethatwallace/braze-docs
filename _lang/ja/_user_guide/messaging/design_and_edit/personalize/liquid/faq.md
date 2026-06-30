@@ -18,7 +18,7 @@ Brazeは現在、ShopifyのLiquidを100%サポートしているわけではな�
 
 ### BrazeでLiquidスニペットを使用するにはどうすればよいですか？ {#how-do-i-use-liquid-snippets-in-braze}
 
-多くの場合、CampaignやCanvasesに移動し、メール本文やSegmentsなどの領域でパーソナライゼーションモーダルにLiquidを挿入することで、Liquidスニペットを組み込むことができます。
+多くの場合、キャンペーンやキャンバスに移動し、メール本文やセグメントなどの領域でパーソナライゼーションモーダルにLiquidを挿入することで、Liquidスニペットを組み込むことができます。
 
 #### 詳しくはどこで学べますか？ {#where-can-i-learn-more}
 
@@ -55,14 +55,14 @@ Brazeのコネクテッドコンテンツは、Liquidタグの一例です。パ
 {% raw %}
 ### {{campaign.${name}}}と{{campaign.${message_name}}}の違いは何ですか？ {#whats-the-difference-between-campaignname-and-campaignmessage_name}
 
-`{{campaign.${name}}}`と`{{campaign.${message_name}}}`はどちらもサポートされているLiquidパーソナライゼーションタグです。どちらのタグもCampaignの属性を参照します。`{{campaign.${name}}}`はCampaignの名前を示し、`{{campaign.${message_name}}}`はメッセージバリアントの名前です。
+`{{campaign.${name}}}`と`{{campaign.${message_name}}}`はどちらもサポートされているLiquidパーソナライゼーションタグです。どちらのタグもキャンペーンの属性を参照します。`{{campaign.${name}}}`はキャンペーンの名前を示し、`{{campaign.${message_name}}}`はメッセージバリアントの名前です。
 {% endraw %}
 
-URLやクエリ文字列での使用（名前に`%`やスペースが含まれる場合など）については、[URLでのCampaign名]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#campaign-names-in-urls)を参照してください。
+URLやクエリ文字列での使用（名前に`%`やスペースが含まれる場合など）については、[URLでのキャンペーン名]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#campaign-names-in-urls)を参照してください。
 
 ### ネストされたオブジェクトでLiquidを使用するにはどうすればよいですか？ {#how-do-i-use-liquid-with-nested-objects}
 
-Brazeには、メッセージで使用できるSegments用のLiquidコードを生成する組み込み機能があります。具体的には、オブジェクト内の複数の条件に一致するセグメントを作成できます。
+Brazeには、メッセージで使用できるセグメント用のLiquidコードを生成する組み込み機能があります。具体的には、オブジェクト内の複数の条件に一致するセグメントを作成できます。
 
 詳細については、[マルチ条件セグメンテーション]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#multi-criteria-segmentation)をご覧ください。
 
@@ -143,13 +143,13 @@ Brazeでは、配列カスタム属性のアイテムのチェック、または
 
 ### 中止ロジックとは何ですか？また、どのように使用できますか？ {#what-is-abort-logic-and-how-can-i-use-it}
 
-中止ロジックを使用すると、条件が満たされた場合にメッセージの送信を停止できます。これは、不完全なメッセージがユーザーに送信されるのを防ぐのに特に役立ちます。マーケティングCampaignでの中止ロジックの例については、[メッセージの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)で詳しくご覧ください。
+中止ロジックを使用すると、条件が満たされた場合にメッセージの送信を停止できます。これは、不完全なメッセージがユーザーに送信されるのを防ぐのに特に役立ちます。マーケティングキャンペーンでの中止ロジックの例については、[メッセージの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)で詳しくご覧ください。
 
 ### `abort_message`タグ内でLiquidを使用できますか？ {#can-i-use-liquid-inside-the-abort_message-tag}
 
 いいえ。{% raw %}`{% abort_message %}`{% endraw %}タグは引用符で囲まれた静的な文字列のみを受け付け、Liquidパーソナライゼーションは使用できません。条件付きの中止動作が必要な場合は、タグの前に他のLiquidロジックを使用してください。
 
-## Canvas、カタログ、トリガープロパティ {#canvas-catalogs-and-trigger-properties}
+## キャンバス、カタログ、トリガープロパティ {#canvas-catalogs-and-trigger-properties}
 
 ### APIトリガーのLiquidがBrazeで失敗するのはなぜですか？ {#why-is-my-api-triggered-liquid-failing-in-braze}
 
@@ -157,13 +157,13 @@ Brazeでは、配列カスタム属性のアイテムのチェック、または
 よくある原因は、余分な波括弧のペアです。例えば、`{{{api_trigger_properties.${attribute_key}}}}`は有効なBrazeパーソナライゼーション構文ではありません。開き波括弧2つと閉じ波括弧2つを正確に使用してください：`{{api_trigger_properties.${attribute_key}}}`。
 {% endraw %}
 
-### Canvasコンテキストプロパティにサイズ制限はありますか？ {#are-there-size-limits-for-canvas-context-properties}
+### キャンバスコンテキストプロパティにサイズ制限はありますか？ {#are-there-size-limits-for-canvas-context-properties}
 
-Brazeは[Canvasコンテキストプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)にハードリミットを設けていませんが、ペイロードは約1 KB（約1,000文字）以下に抑えてください。大きなオブジェクトはメモリ使用量を増加させ、大量送信時のメッセージレンダリングを遅延させる可能性があります。
+Brazeは[キャンバスコンテキストプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)にハードリミットを設けていませんが、ペイロードは約1 KB（約1,000文字）以下に抑えてください。大きなオブジェクトはメモリ使用量を増加させ、大量送信時のメッセージレンダリングを遅延させる可能性があります。
 
 ### ダッシュボードで特定のデータタイプをプレビューするとLiquidエラーが発生するのはなぜですか？ {#why-do-i-get-a-liquid-error-when-previewing-certain-data-types-in-the-dashboard}
 
-一部の[Canvasコンテキストプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)タイプは、比較や計算で使用する前にLiquidでの型変換が必要です。例えば、数値の動作が必要な場合：
+一部の[キャンバスコンテキストプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)タイプは、比較や計算で使用する前にLiquidでの型変換が必要です。例えば、数値の動作が必要な場合：
 
 {% raw %}
 ```liquid

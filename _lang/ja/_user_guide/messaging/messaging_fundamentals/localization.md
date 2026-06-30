@@ -25,57 +25,57 @@ SDKによるロケールの収集方法の技術的な詳細については、[i
 翻訳を管理するために、以下のアプローチを検討してください。
 
 {% tabs local %}
-{% tab Campaign %}
+{% tab キャンペーン %}
 ### すべてに1つのテンプレート {#one-template-for-all}
 
-このアプローチでは、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)を使用して、Braze内の単一のテンプレートにローカライゼーションを適用します。送信後、ダッシュボードには集約されたCampaign分析が表示されます。ユーザーレベルのエンゲージメントは、カスタムSegmentファネルを使用して測定できます。たとえば、**国**と**受信したCampaign**フィルターを組み合わせることで測定できます。
+このアプローチでは、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)を使用して、Braze内の単一のテンプレートにローカライゼーションを適用します。送信後、ダッシュボードには集約されたキャンペーン分析が表示されます。ユーザーレベルのエンゲージメントは、カスタムセグメントファネルを使用して測定できます。たとえば、**国**と**受信したキャンペーン**フィルターを組み合わせることで測定できます。
 
 | メリット | 考慮事項 |
 | --- | --- |
-| - 一元化されたアプローチ<br>- メール作成時間の短縮、メールを複数回作成する必要がない | - 手動でのレポート作成<br>- Campaignレポートには国別ではなく集約された指標が表示される<br>- Liquidが期待どおりに表示されることを十分にテストする必要がある<br>- 国の値の取得方法や設定した国の数によっては、各国のテストが難しい場合がある<br>- タイムゾーンをまたいだ特定の時間での送信スケジュールが難しい<br>- 国ごとに異なるコンテンツを送信したい場合に使いにくい |
+| - 一元化されたアプローチ<br>- メール作成時間の短縮、メールを複数回作成する必要がない | - 手動でのレポート作成<br>- キャンペーンレポートには国別ではなく集約された指標が表示される<br>- Liquidが期待どおりに表示されることを十分にテストする必要がある<br>- 国の値の取得方法や設定した国の数によっては、各国のテストが難しい場合がある<br>- タイムゾーンをまたいだ特定の時間での送信スケジュールが難しい<br>- 国ごとに異なるコンテンツを送信したい場合に使いにくい |
 | --- | --- | --- |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="すべてに1つのテンプレート" }
 
 ### 国ごとに1つのテンプレート {#one-template-per-country}
 
-このアプローチでは、テンプレートを異なる送信ロケールに分離します。送信後、ダッシュボードは各国ごとに送信分析をレポートし、下流のユーザーレベルの[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#access-currents)イベントも特定のCampaignに紐付けられます。
+このアプローチでは、テンプレートを異なる送信ロケールに分離します。送信後、ダッシュボードは各国ごとに送信分析をレポートし、下流のユーザーレベルの[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#access-currents)イベントも特定のキャンペーンに紐付けられます。
 
 - テンプレートは、メンテナンスとトラッキングの目的で[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#tags)を実装することで恩恵を受けます。
-- Campaignsは、同じ[Brazeテンプレート]({{site.baseurl}}/user_guide/messaging/templates)と[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)（Liquidを含む[メールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates)など）から設定を継承できます。
-- 既存のCampaignsとテンプレートは[複製]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/duplicating)して、より迅速な価値実現が可能です。
+- キャンペーンは、同じ[Brazeテンプレート]({{site.baseurl}}/user_guide/messaging/templates)と[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)（Liquidを含む[メールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates)など）から設定を継承できます。
+- 既存のキャンペーンとテンプレートは[複製]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/duplicating)して、より迅速な価値実現が可能です。
 
 | メリット | 考慮事項 |
 | --- | --- |
-| - 複数のロケーションにスケーラブル<br>- Braze内での国別収益レポート（Campaign単位など）<br>- 国ごとに大幅に異なるコンテンツがある場合の柔軟性 | - 戦略的な構造化が必要<br>- より多くの構築作業が必要（各国ごとに個別のCampaignsなど） |
+| - 複数のロケーションにスケーラブル<br>- Braze内での国別収益レポート（キャンペーン単位など）<br>- 国ごとに大幅に異なるコンテンツがある場合の柔軟性 | - 戦略的な構造化が必要<br>- より多くの構築作業が必要（各国ごとに個別のキャンペーンなど） |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="国ごとに1つのテンプレート" }
 {% endtab %}
 
-{% tab Canvas %}
+{% tab キャンバス %}
 ### すべてに1つのジャーニー {#one-journey-for-all}
 
-このアプローチでは、[Canvasの基本]({{site.baseurl}}/user_guide/messaging/canvas/canvas_basics#building-the-customer-journey)とLiquidを使用して、各ユーザーのメッセージングを定義し、ローカライゼーションを処理します。
+このアプローチでは、[キャンバスの基本]({{site.baseurl}}/user_guide/messaging/canvas/canvas_basics#building-the-customer-journey)とLiquidを使用して、各ユーザーのメッセージングを定義し、ローカライゼーションを処理します。
 
-Canvasが送信された後、ダッシュボードには集約された[Canvas分析]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)が表示されます。ユーザーレベルのエンゲージメントは、カスタム[Segmentファネル]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size)を使用して測定できます。たとえば、[**国**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#country)と[**受信したキャンバスステップ**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-canvas-step)フィルターを組み合わせることで測定できます。
+キャンバスが送信された後、ダッシュボードには集約された[キャンバス分析]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)が表示されます。ユーザーレベルのエンゲージメントは、カスタム[セグメントファネル]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size)を使用して測定できます。たとえば、[**国**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#country)と[**受信したキャンバスステップ**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-canvas-step)フィルターを組み合わせることで測定できます。
 
 | メリット | 考慮事項 |
 | --- | --- |
-| - 一元化されたアプローチ<br>- メール作成時間の短縮 - メールを複数回作成する必要がない | - 手動でのレポート作成<br>- Canvasレポートには国別ではなく集約された指標が表示される<br>- Liquidが期待どおりに表示されることを十分にテストする必要がある<br>- 国の値の取得方法や設定した国の数によっては、各国のテストが難しい場合がある<br>- タイムゾーンをまたいだ特定の時間での送信スケジュールが難しい<br>- 国ごとに異なるコンテンツを送信したい場合に使いにくい |
+| - 一元化されたアプローチ<br>- メール作成時間の短縮 - メールを複数回作成する必要がない | - 手動でのレポート作成<br>- キャンバスレポートには国別ではなく集約された指標が表示される<br>- Liquidが期待どおりに表示されることを十分にテストする必要がある<br>- 国の値の取得方法や設定した国の数によっては、各国のテストが難しい場合がある<br>- タイムゾーンをまたいだ特定の時間での送信スケジュールが難しい<br>- 国ごとに異なるコンテンツを送信したい場合に使いにくい |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="すべてに1つのジャーニー" }
 
 ### 国ごとに1つのジャーニー {#one-journey-per-country}
 
-このアプローチでは、[Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)ジャーニービルダーが、複数の[Canvasコンポーネント]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components)を使用してユーザージャーニーを作成する柔軟性を提供します。これらのコンポーネントは、コンポーネントレベルおよびジャーニー全体のレベルで[複製]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/duplicating)できます。
+このアプローチでは、[キャンバス]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)ジャーニービルダーが、複数の[キャンバスコンポーネント]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components)を使用してユーザージャーニーを作成する柔軟性を提供します。これらのコンポーネントは、コンポーネントレベルおよびジャーニー全体のレベルで[複製]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/duplicating)できます。
 
 ローカライゼーションは以下の方法で実現できます：
 
-- 国ごとに個別のCanvases。これにより、オーディエンスフィルターを使用してファネルの上部で複雑なユーザージャーニーが定義されます
-- 国ごとのカスタムユーザージャーニー。[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)を実装して、各ジャーニーで大規模にユーザーを直感的にセグメント化し、単一のCanvas内で各国ごとに個別のメッセージスレッドを作成します
+- 国ごとに個別のキャンバス。これにより、オーディエンスフィルターを使用してファネルの上部で複雑なユーザージャーニーが定義されます
+- 国ごとのカスタムユーザージャーニー。[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)を実装して、各ジャーニーで大規模にユーザーを直感的にセグメント化し、単一のキャンバス内で各国ごとに個別のメッセージスレッドを作成します
 
 送信後、ダッシュボードは顧客の現在のロケーションに基づいて、国別の動的な分析とユーザーレベルの[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#access-currents)イベントを提供します。
 
 | メリット | 考慮事項 |
 | --- | --- |
-| - Braze内での国別収益レポート（Canvas、バリアント、ステップ単位など）<br>- 国ごとに大幅に異なるコンテンツがある場合の柔軟性<br>- 将来的にジャーニーの一部として他のチャネルを追加可能 | - 戦略的な構造化が必要<br>- より多くの構築作業が必要（各国ごとに個別のメッセージステップなど）<br>- 単一のCanvas内で各国ごとにカスタムの複雑なジャーニーがある場合、Canvasが大きくなり読みにくくなる可能性がある |
+| - Braze内での国別収益レポート（キャンバス、バリアント、ステップ単位など）<br>- 国ごとに大幅に異なるコンテンツがある場合の柔軟性<br>- 将来的にジャーニーの一部として他のチャネルを追加可能 | - 戦略的な構造化が必要<br>- より多くの構築作業が必要（各国ごとに個別のメッセージステップなど）<br>- 単一のキャンバス内で各国ごとにカスタムの複雑なジャーニーがある場合、キャンバスが大きくなり読みにくくなる可能性がある |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="国ごとに1つのジャーニー" }
 {% endtab %}
 {% endtabs %}
@@ -124,7 +124,7 @@ Brazeは、単一のメッセージで異なる言語のユーザーをターゲ
 {% tab Content Blocks %}
 Brazeの[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)は再利用可能なコンテンツブロックです。ブロックが変更されると、そのブロックへのすべての参照が変更されます。たとえば、メールのヘッダーやフッターの更新はすべてのメールに反映されます。また、翻訳を格納するためにも使用できます。これらのブロックはREST APIを使用して[作成]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block#create-content-block)および[更新]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block)することもでき、ユーザーはプログラムで翻訳をアップロードできます。
 
-ダッシュボードでCampaignを構築する際、Content Blocksはタグ{% raw %}`{{content_blocks.${name_of_content_block}}}`{% endraw %}を使用して参照できます。これらのブロックには、オプション1に示すように各言語の条件ロジック内にすべての翻訳を含めることも、各言語ごとに個別のブロックを使用することもできます。
+ダッシュボードでキャンペーンを構築する際、Content Blocksはタグ{% raw %}`{{content_blocks.${name_of_content_block}}}`{% endraw %}を使用して参照できます。これらのブロックには、オプション1に示すように各言語の条件ロジック内にすべての翻訳を含めることも、各言語ごとに個別のブロックを使用することもできます。
 
 Content Blocksは翻訳管理プロセスとしても活用できます。翻訳が必要なコンテンツをContent Block内に格納し、取得、翻訳、更新します：
 1. ダッシュボードで「Needs Translation」タグ付きのContent Blockを手動で作成します。
@@ -271,10 +271,10 @@ curl --location --request POST 'https://your_api_endpoint/catalogs/translations/
 
 {% subtabs local %}
 {% subtab コネクテッドコンテンツ %}
-翻訳エージェンシーと協力してGoogleスプレッドシートに翻訳を保存し、[Brazeコネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)を使用してこのコンテンツをクエリできます。メッセージを送信すると、各ユーザーの選択した言語に基づいて、関連する翻訳がCampaign本文に取り込まれます。
+翻訳エージェンシーと協力してGoogleスプレッドシートに翻訳を保存し、[Brazeコネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)を使用してこのコンテンツをクエリできます。メッセージを送信すると、各ユーザーの選択した言語に基づいて、関連する翻訳がキャンペーン本文に取り込まれます。
 
 {% alert note %}
-Google Sheets APIには、プロジェクトあたり100秒間に500リクエストの制限があります。コネクテッドコンテンツ呼び出しはキャッシュできますが、このソリューションは高トラフィックのCampaignにはスケーラブルではありません。
+Google Sheets APIには、プロジェクトあたり100秒間に500リクエストの制限があります。コネクテッドコンテンツ呼び出しはキャッシュできますが、このソリューションは高トラフィックのキャンペーンにはスケーラブルではありません。
 {% endalert %}
 {% endsubtab %}
 
@@ -321,7 +321,7 @@ Google Sheets APIには、プロジェクトあたり100秒間に500リクエス
 
 - {% raw %}`{{${language}}}`{% endraw %}フィールドはすべてのユーザーに対して定義されている必要があります。定義されていない場合、言語が設定されていないユーザーのフォールバックハンドラーとしてLiquid条件ブロックを含める必要があります。
 - Googleスプレッドシート内のデータモデリングは、メッセージオブジェクトを持つのではなく、言語駆動の縦方向の構造に従う必要があります。
-- SheetDBは限定的な無料アカウントと複数の有料オプションを提供しており、Campaign戦略に基づいて検討する必要があります。
+- SheetDBは限定的な無料アカウントと複数の有料オプションを提供しており、キャンペーン戦略に基づいて検討する必要があります。
 - コネクテッドコンテンツ呼び出しはキャッシュできます。API呼び出しの予測頻度を測定し、検索メソッドを使用する代わりにメインのSheetDBエンドポイントを呼び出す代替アプローチを検討することをお勧めします。
 {% endsubtab %}
 {% endsubtabs %}

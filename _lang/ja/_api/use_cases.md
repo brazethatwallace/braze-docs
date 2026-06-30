@@ -76,13 +76,13 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## すべてのCanvasesを監査する {#auditing-all-canvases}
+## すべてのキャンバスを監査する {#auditing-all-canvases}
 
-Siege Valley Healthは、数千人の患者を抱える10の稼働中の病院と研究センターからなる病院システムです。同社のマーケティングチームは、過去3年間にBrazeを使用してインフルエンザ予防接種の予約を促すために患者に送信したCanvasesを比較したいと考えています。Siege Valley Healthのマーケティングチームは、Canvasesのリストと分析サマリーの両方を素早く効率的に確認する方法も求めています。
+Siege Valley Healthは、数千人の患者を抱える10の稼働中の病院と研究センターからなる病院システムです。同社のマーケティングチームは、過去3年間にBrazeを使用してインフルエンザ予防接種の予約を促すために患者に送信したキャンバスを比較したいと考えています。Siege Valley Healthのマーケティングチームは、キャンバスのリストと分析サマリーの両方を素早く効率的に確認する方法も求めています。
 
 Brazeダッシュボードでフィルタリングするのではなく、エンドポイントの組み合わせを使ってSiege Valley Healthがこの2つのタスクをどのように達成できるかを見てみましょう。
 
-Canvasesを監査する最初のタスクとして、[`/canvas/list` エンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases)を使用して、名前とタグを含むCanvasesのリストをエクスポートします。リクエストの例を以下に示します。
+キャンバスを監査する最初のタスクとして、[`/canvas/list` エンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases)を使用して、名前とタグを含むキャンバスのリストをエクスポートします。リクエストの例を以下に示します。
 
 {% details Siege Valley Healthのマーケティングチームが受け取るレスポンスは以下のとおりです。 %}
 ```json
@@ -111,7 +111,7 @@ Canvasesを監査する最初のタスクとして、[`/canvas/list` エンド�
 ```
 {% enddetails %}
 
-次に、Siege Valley HealthのCanvasesリストから最初のCanvasの分析サマリーを確認するタスクに移りましょう。そのためには、以下のリクエストパラメーターで[`/canvas/data_summary` エンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary)を使用します。
+次に、Siege Valley Healthのキャンバスリストから最初のキャンバスの分析サマリーを確認するタスクに移りましょう。そのためには、以下のリクエストパラメーターで[`/canvas/data_summary` エンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary)を使用します。
 
 * `canvas_id`: "canvas_identifier_2"
 * `ending_at`: 2023-07-10T23:59:59
@@ -124,9 +124,9 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 今後スケジュールされているCampaignsとCanvasesを確認する {#checking-upcoming-scheduled-campaigns-and-canvases}
+## 今後スケジュールされているキャンペーンとキャンバスを確認する {#checking-upcoming-scheduled-campaigns-and-canvases}
 
-衣料品や美容製品をオンラインと店舗で販売する小売ブランドFlash & Threadにとって、最も忙しい時期が間もなく訪れます。同社のマーケティングチームは、2024年3月31日午後12時までに、Brazeダッシュボードから今後のCampaignsとCanvasesを確認したいと考えています。これは[`/messages/scheduled_broadcasts` エンドポイント]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled)を使用して実現できます。
+衣料品や美容製品をオンラインと店舗で販売する小売ブランドFlash & Threadにとって、最も忙しい時期が間もなく訪れます。同社のマーケティングチームは、2024年3月31日午後12時までに、Brazeダッシュボードから今後のキャンペーンとキャンバスを確認したいと考えています。これは[`/messages/scheduled_broadcasts` エンドポイント]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled)を使用して実現できます。
 
 リクエストの例を以下に示します。
 
@@ -135,7 +135,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/messages/scheduled_
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-このエンドポイントは、今後のCampaignsとCanvasesのリストを返します。ここから、マーケティングチームはレスポンス内のCampaignsとCanvasesの`name` フィールドを参照することで、メッセージのリストを確認できます。
+このエンドポイントは、今後のキャンペーンとキャンバスのリストを返します。ここから、マーケティングチームはレスポンス内のキャンペーンとキャンバスの`name` フィールドを参照することで、メッセージのリストを確認できます。
 
 ## 古いユーザー設定センターを表示する {#viewing-an-older-preference-center}
 

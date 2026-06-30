@@ -9,23 +9,23 @@ toc_headers: h2
 
 # e コマース推奨イベントの使い方 {#how-to-use-ecommerce-recommended-events}
 
-> このページでは、Braze の e コマース Canvas テンプレートの使い方を含め、プラットフォーム全体で e コマース推奨イベントをどのように、どこで使用できるかについて説明します。
+> このページでは、Braze の e コマース キャンバス テンプレートの使い方を含め、プラットフォーム全体で e コマース推奨イベントをどのように、どこで使用できるかについて説明します。
 
 {% alert note %}
 新しい Shopify コネクターを使用している場合、e コマース推奨イベントは統合を通じて自動的に利用可能になります。
 {% endalert %}
 
-## Canvas テンプレートの使用 {#using-a-canvas-template}
+## キャンバス テンプレートの使用 {#using-a-canvas-template}
 
-Canvas テンプレートを使用するには:
-1. **Messaging** > **Canvas** に移動します。
-2. **Create Canvas** > **Use a Canvas Template** を選択します。
+キャンバス テンプレートを使用するには:
+1. **Messaging** > **キャンバス** に移動します。
+2. **Create キャンバス** > **Use a Canvas Template** を選択します。
 3. **Braze templates** タブで使用したいテンプレートを探します。テンプレート名を選択するとプレビューできます。
-4. 使用したいテンプレートの **Apply Template** を選択します。<br><br>![「Canvas templates」ページが「Braze templates」タブで開かれ、最近使用したテンプレートと選択可能な Braze テンプレートのリストが表示されています。]({% image_buster /assets/img_archive/apply_template.png %}){: style="max-width:80%;"}
+4. 使用したいテンプレートの **Apply Template** を選択します。<br><br>![「キャンバス templates」ページが「Braze templates」タブで開かれ、最近使用したテンプレートと選択可能な Braze テンプレートのリストが表示されています。]({% image_buster /assets/img_archive/apply_template.png %}){: style="max-width:80%;"}
 
-## e コマース Canvas テンプレート {#ecommerce-canvas-templates}
+## e コマース キャンバス テンプレート {#ecommerce-canvas-templates}
 
-Braze は4つの e コマース Canvas テンプレートを提供しています。
+Braze は4つの e コマース キャンバス テンプレートを提供しています。
 
 {% multi_lang_include canvas/ecommerce_templates.md %}
 
@@ -48,9 +48,9 @@ Liquidタグを使用してメッセージのパーソナライズを始める�
 
 ## セグメンテーション {#segmentation}
 
-BrazeのSegmentsを使用して、特定の属性や動作に基づいてターゲット顧客セグメントを作成し、パーソナライズされたメッセージングやCampaignsを配信できます。この強力な機能により、適切なオーディエンスに適切なメッセージを適切なタイミングで届けることで、顧客と効果的にエンゲージできます。
+Brazeのセグメントを使用して、特定の属性や動作に基づいてターゲット顧客セグメントを作成し、パーソナライズされたメッセージングやキャンペーンを配信できます。この強力な機能により、適切なオーディエンスに適切なメッセージを適切なタイミングで届けることで、顧客と効果的にエンゲージできます。
 
-セグメントの使い方の詳細については、[BrazeのSegmentsについて]({{site.baseurl}}/user_guide/audience/segments#about-braze-segments)をご覧ください。
+セグメントの使い方の詳細については、[Brazeのセグメントについて]({{site.baseurl}}/user_guide/audience/segments#about-braze-segments)をご覧ください。
 
 ### 推奨イベント {#recommended-events}
 
@@ -83,13 +83,13 @@ e コマース推奨イベントのボリュームは[カスタムイベント�
 
 #### コンバージョンダッシュボード {#conversions-dashboard}
 
-「Places Order」コンバージョンイベントを使用してCampaignまたはCanvasを起動した後、対応する[コンバージョンレポート]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#setting-up-your-report)を作成してパフォーマンスを追跡できます。
+「Places Order」コンバージョンイベントを使用してキャンペーンまたはキャンバスを起動した後、対応する[コンバージョンレポート]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#setting-up-your-report)を作成してパフォーマンスを追跡できます。
 
-![CampaignsとCanvases、および関連するコンバージョン統計を含むコンバージョン詳細テーブル。]({% image_buster /assets/img_archive/conversion_details_table.png %})
+![キャンペーンとキャンバス、および関連するコンバージョン統計を含むコンバージョン詳細テーブル。]({% image_buster /assets/img_archive/conversion_details_table.png %})
 
 #### e コマース収益ダッシュボード {#ecommerce-revenue-dashboard}
 
-ユーザーが注文する前に最後にインタラクションしたCampaignまたはCanvasに帰属する収益のインサイトを得るには、[e コマース収益ダッシュボード]({{site.baseurl}}/ecommerce_revenue_dashboard)を使用してコンバージョン時間枠を選択します。
+ユーザーが注文する前に最後にインタラクションしたキャンペーンまたはキャンバスに帰属する収益のインサイトを得るには、[e コマース収益ダッシュボード]({{site.baseurl}}/ecommerce_revenue_dashboard)を使用してコンバージョン時間枠を選択します。
 
 ### 収益レポート {#revenue-report}
 

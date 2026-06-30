@@ -5,7 +5,7 @@ page_order: 0
 page_type: reference
 alias: /cdi_segment_extensions/
 tool:
-- Segments
+- セグメント
 description: "この記事では、CDI セグメントエクステンションがクラウドデータ取り込みを使用してデータウェアハウスにクエリを実行し、Brazeでオーディエンスを定義する方法について説明します。"
 
 ---
@@ -58,7 +58,7 @@ CDI設定の一環として、CDI セグメントエクステンションで使�
 セグメントエクステンションのプレビュー方法、セグメントエクステンションの管理方法、自動メンバーシップ更新の実行方法については、[SQL セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)を参照してください。
 {% endalert %}
 
-最後に、Brazeセグメント内で[このセグメントエクステンションを使用]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-5-use-your-extension-in-a-segment)して、このオーディエンスにCampaignまたはCanvasを送信できます。
+最後に、Brazeセグメント内で[このセグメントエクステンションを使用]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-5-use-your-extension-in-a-segment)して、このオーディエンスにキャンペーンまたはキャンバスを送信できます。
 
 ## 考慮事項 {#considerations}
 

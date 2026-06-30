@@ -113,7 +113,7 @@ SessionMは、設定可能ないくつかの異なる内部レバーから顧客
 
 ### ステップ2：SessionMオファーウォレットAPIを呼び出す {#step-2-call-sessionm-offer-wallet-api}
 
-SessionMオファーのあるCampaignまたはキャンバスステップで、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)を使用して、[SessionM `get_user_offers`エンドポイント](https://domains-connecteast1.ent-sessionm.com/offers/swagger/ui/index#!/InfoV232583210323232323232323232323232This32API32allows32for32the32querying32of32information32about32offers32in32a32read45only32fashion4610323232323232323232323232May32be32initiated32by32the32dashboard32or32the32mobile32app4610323232323232323232323232/InfoV2_GetUserOffers/)にAPIコールを行います。
+SessionMオファーのあるキャンペーンまたはキャンバスステップで、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)を使用して、[SessionM `get_user_offers`エンドポイント](https://domains-connecteast1.ent-sessionm.com/offers/swagger/ui/index#!/InfoV232583210323232323232323232323232This32API32allows32for32the32querying32of32information32about32offers32in32a32read45only32fashion4610323232323232323232323232May32be32initiated32by32the32dashboard32or32the32mobile32app4610323232323232323232323232/InfoV2_GetUserOffers/)にAPIコールを行います。
 
 コネクテッドコンテンツリクエストで、ユーザーのSessionM `user_id`と`retailer_id`を指定して、顧客のウォレットにあるアクティブなオファーの完全なリストを取得します。このエンドポイントへの各リクエストには、1人のユーザーを含めることができます。コネクテッドコンテンツコールの基本認証ヘッダー用のエンコードされた文字列キーについては、SessionMチームに問い合わせてください。
 
@@ -205,7 +205,7 @@ SessionMのすべてのテンプレートにある標準フィールドには、
 - `email address`
 
 {% alert note %}
-`broadcast flag`を`true`に設定すると、BrazeのCampaignまたはCanvasがターゲットとするセグメント全体にメッセージが送信されます。
+`broadcast flag`を`true`に設定すると、Brazeのキャンペーンまたはキャンバスがターゲットとするセグメント全体にメッセージが送信されます。
 {% endalert %}
 
 特定のニーズに応じてフィールドを追加設定することもできます：
@@ -213,29 +213,29 @@ SessionMのすべてのテンプレートにある標準フィールドには、
 - **オファーデータ：** `offer_id`、`offer title`、`user offer id`、`description`、`terms and conditions`、`logo`、`pos discount id`、`expiration date`
 - **ポイント付与データ：** `point award amount`、`point account name`
 - **イベントトリガーデータ：** トリガー/送信Webhookの結果を利用するトリガーイベント内のすべてのデータ
-- **Campaign固有データ：** `campaign runtime`、`campaign_id`、`campaign name`、`campaign custom data`
+- **キャンペーン固有データ：** `campaign runtime`、`campaign_id`、`campaign name`、`campaign custom data`
 
 追加フィールドは、メッセージをパーソナライズするための`trigger_properties`としてBrazeに送信されます。
 
-### ステップ2：BrazeのCampaignまたはCanvasを作成する {#step-2-create-a-braze-campaign-or-canvas}
+### ステップ2：Brazeのキャンペーンまたはキャンバスを作成する {#step-2-create-a-braze-campaign-or-canvas}
 
-SessionMによってトリガーされるAPIトリガーのCampaignまたはCanvasをBrazeで作成します。`offer_id`や`offer title`などの追加フィールドが設定されている場合は、Liquid（例：{% raw %}`{{api_trigger_properties.${offer_id}}}`{% endraw %}）を使用して、パーソナライズされたフィールドをメッセージングに追加します。
+SessionMによってトリガーされるAPIトリガーのキャンペーンまたはキャンバスをBrazeで作成します。`offer_id`や`offer title`などの追加フィールドが設定されている場合は、Liquid（例：{% raw %}`{{api_trigger_properties.${offer_id}}}`{% endraw %}）を使用して、パーソナライズされたフィールドをメッセージングに追加します。
 
 ![APIトリガーのプロパティ。]({% image_buster /assets/img/sessionm/apiTriggerProperties.png %})
 
-**Schedule Delivery**タブで、CampaignまたはCanvas IDをメモします。これはSessionM Campaignの**Advanced Settings**に追加されます。
+**Schedule Delivery**タブで、キャンペーンまたはキャンバス IDをメモします。これはSessionM キャンペーンの**Advanced Settings**に追加されます。
 
-![APIトリガーCampaign。]({% image_buster /assets/img/sessionm/apiTriggerCampaign.png %})
+![APIトリガーキャンペーン。]({% image_buster /assets/img/sessionm/apiTriggerCampaign.png %})
 
-CampaignまたはCanvasの詳細を確定し、**Launch**を選択します。
+キャンペーンまたはキャンバスの詳細を確定し、**Launch**を選択します。
 
-### ステップ3：SessionMのプロモーションまたはメッセージングCampaignを作成する {#step-3-create-a-sessionm-promotional-or-messaging-campaign}
+### ステップ3：SessionMのプロモーションまたはメッセージングキャンペーンを作成する {#step-3-create-a-sessionm-promotional-or-messaging-campaign}
 
-次に、SessionMでCampaignを作成します。
+次に、SessionMでキャンペーンを作成します。
 
-![SessionM Campaign作成画面。]({% image_buster /assets/img/sessionm/SessionMCampaignCreation.png %})
+![SessionM キャンペーン作成画面。]({% image_buster /assets/img/sessionm/SessionMCampaignCreation.png %})
 
-SessionM Campaignの詳細設定を更新して、`braze_campaign_id`または`braze_canvas_id`を含む以下のJSONペイロードを含めます。
+SessionM キャンペーンの詳細設定を更新して、`braze_campaign_id`または`braze_canvas_id`を含む以下のJSONペイロードを含めます。
 
 {% raw %}
 ```

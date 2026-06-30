@@ -33,15 +33,15 @@ description: "このリファレンス記事では、Liquid を使用してア�
 ラッパーフレームワーク（Flutter や Cordova など）で構築されたアプリの場合、Brazeはラッパー固有のディープリンクサポートを提供していません。ネイティブの iOS および Android レイヤーでディープリンクを設定する必要があります。Cordova については、[プッシュ通知でのディープリンク]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=cordova)を参照してください。
 {% endalert %}
 
-### UTM タグとCampaignアトリビューション {#utm-tags-and-campaign-attribution}
+### UTM タグとキャンペーンアトリビューション {#utm-tags-and-campaign-attribution}
 
 #### UTM タグとは? {#what-is-a-utm-tag}
 
-[UTM（Urchin Traffic Manager）タグ](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article)を使用すると、Campaignアトリビューションの詳細をリンクに直接含めることができます。UTM タグは Google Analytics でCampaignアトリビューションデータを収集するために使用され、以下のプロパティを追跡できます。
+[UTM（Urchin Traffic Manager）タグ](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article)を使用すると、キャンペーンアトリビューションの詳細をリンクに直接含めることができます。UTM タグは Google Analytics でキャンペーンアトリビューションデータを収集するために使用され、以下のプロパティを追跡できます。
 
 - `utm_source`: トラフィックのソースの識別子（例: `my_app`）
-- `utm_medium`: Campaignの媒体（例: `newsfeed`）
-- `utm_campaign`: Campaignの識別子（例: `spring_2016_campaign`）
+- `utm_medium`: キャンペーンの媒体（例: `newsfeed`）
+- `utm_campaign`: キャンペーンの識別子（例: `spring_2016_campaign`）
 - `utm_term`: ユーザーをアプリまたはWebサイトに誘導した有料検索キーワードの識別子（例: `pizza`）
 - `utm_content`: ユーザーがクリックした特定のリンクまたはコンテンツの識別子（例: `toplink` または `android_iam_button2`）
 
@@ -49,15 +49,15 @@ UTM タグは、通常の HTTP（Web）リンクとディープリンクの両�
 
 ##### UTM タグの計算 {#utm-tag-calculations}
 
-Brazeはキャンペーンまたはキャンバスステップ内のすべてのリンクの*合計クリック数*をレポートしますが、これには UTM タグが付いていないリンクも含まれる場合があります。そのため、Google Analytics のCampaignトラッキングリンクでは、Campaignパフォーマンスやレポートビルダーに表示される*合計クリック数*と比較して、異なる（多くの場合低い）結果が表示されることがあります。
+Brazeはキャンペーンまたはキャンバスステップ内のすべてのリンクの*合計クリック数*をレポートしますが、これには UTM タグが付いていないリンクも含まれる場合があります。そのため、Google Analytics のキャンペーントラッキングリンクでは、キャンペーンパフォーマンスやレポートビルダーに表示される*合計クリック数*と比較して、異なる（多くの場合低い）結果が表示されることがあります。
 
 #### Brazeでの UTM タグの使用 {#using-utm-tags-with-braze}
 
-通常の HTTP（Web）リンクで UTM タグを使用する場合（例えば、メールキャンペーンのCampaignアトリビューションを行う場合）、組織がすでに Google Analytics を使用しているなら、[Google の URL ビルダー](https://ga-dev-tools.google/ga4/campaign-url-builder/)を使用して UTM リンクを生成できます。これらのリンクは、他のリンクと同様にBraze Campaignのコピーに簡単に埋め込むことができます。
+通常の HTTP（Web）リンクで UTM タグを使用する場合（例えば、メールキャンペーンのキャンペーンアトリビューションを行う場合）、組織がすでに Google Analytics を使用しているなら、[Google の URL ビルダー](https://ga-dev-tools.google/ga4/campaign-url-builder/)を使用して UTM リンクを生成できます。これらのリンクは、他のリンクと同様にBraze キャンペーンのコピーに簡単に埋め込むことができます。
 
 アプリへのディープリンクで UTM タグを使用するには、アプリに関連する [Google Analytics SDK](https://developers.google.com/analytics/devguides/collection/) が統合され、ディープリンクを処理するように正しく設定されている必要があります。不明な場合は開発者に確認してください。
 
-Analytics SDKが統合・設定された後、Braze Campaignのディープリンクで UTM タグを使用できます。Campaignの UTM タグを設定するには、送信先 URL またはディープリンクに必要な UTM タグを含めます。以下の例では、プッシュ通知とアプリ内メッセージで UTM タグを使用する方法を示します。
+Analytics SDKが統合・設定された後、Braze キャンペーンのディープリンクで UTM タグを使用できます。キャンペーンの UTM タグを設定するには、送信先 URL またはディープリンクに必要な UTM タグを含めます。以下の例では、プッシュ通知とアプリ内メッセージで UTM タグを使用する方法を示します。
 
 ##### UTM タグによるプッシュ開封とアプリ内メッセージクリックのアトリビューション {#attribute-push-opens-and-in-app-message-clicks-with-utm-tags}
 

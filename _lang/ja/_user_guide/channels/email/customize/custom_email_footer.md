@@ -46,9 +46,9 @@ CAN-SPAM規制に準拠するため、カスタムフッターには配信停止
 
 ![フッターなしで作成されたメールの例。]({% image_buster /assets/img_archive/no_unsub_link_warning.png %})
 
-Campaignコンポーザーでの警告は以下のとおりです。
+キャンペーンコンポーザーでの警告は以下のとおりです。
 
-![フッターなしのCampaign作成。]({% image_buster /assets/img_archive/no_footer_test.png %})
+![フッターなしのキャンペーン作成。]({% image_buster /assets/img_archive/no_footer_test.png %})
 
 ### カスタム配信停止リンクの追加 {#adding-a-custom-unsubscribe-link}
 

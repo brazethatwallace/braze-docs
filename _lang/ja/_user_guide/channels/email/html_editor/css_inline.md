@@ -32,4 +32,4 @@ CSSインライン展開は、[コネクテッドコンテンツ]({{site.baseurl
 
 ## カスタムHTMLテンプレートでのContent Blocks {#content-blocks-in-custom-html-templates}
 
-**カスタムHTML**メールテンプレートまたはCampaign内でLiquidを使用して[コンテンツブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)を取り込む場合、親テンプレートのCSSルールがコンテンツブロック内で定義されたスタイルを上書きする可能性があります。テンプレートラッパー内の競合するセレクターやグローバルルールを確認してください。
+**カスタムHTML**メールテンプレートまたはキャンペーン内でLiquidを使用して[コンテンツブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)を取り込む場合、親テンプレートのCSSルールがコンテンツブロック内で定義されたスタイルを上書きする可能性があります。テンプレートラッパー内の競合するセレクターやグローバルルールを確認してください。

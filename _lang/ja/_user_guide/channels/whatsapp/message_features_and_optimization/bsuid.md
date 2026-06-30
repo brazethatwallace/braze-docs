@@ -13,7 +13,7 @@ noindex: true
 
 # WhatsAppユーザー名とビジネススコープユーザーID {#whatsapp-usernames-and-business-scoped-user-ids}
 
-> 2026年6月、WhatsAppはユーザー名の導入を予定しています。これは、ビジネスとのメッセージングにおいてユーザーの電話番号を非表示にするオプションのプライバシー機能です。Brazeはこの変更に完全に対応する準備ができており、ほとんどのお客様にとって、CampaignsやCanvasesに変更を加える必要はありません。
+> 2026年6月、WhatsAppはユーザー名の導入を予定しています。これは、ビジネスとのメッセージングにおいてユーザーの電話番号を非表示にするオプションのプライバシー機能です。Brazeはこの変更に完全に対応する準備ができており、ほとんどのお客様にとって、キャンペーンやキャンバスに変更を加える必要はありません。
 
 {% alert important %}
 WhatsAppユーザー名とビジネススコープユーザーID（BSUID）は2026年6月にリリースされる予定であり、Brazeの更新もこのリリースに合わせて行われます。この記事に記載されているBrazeの更新は**まだリリースされていません**。
@@ -21,7 +21,7 @@ WhatsAppユーザー名とビジネススコープユーザーID（BSUID）は20
 
 WhatsAppユーザーがユーザー名を採用すると、メッセージを送信するビジネスに電話番号が自動的に共有されなくなります。代わりに、WhatsAppはビジネスにビジネススコープユーザーID（BSUID）を提供します。これは、各ビジネスポートフォリオとユーザーのペアに固有のユニークな識別子です。
 
-BrazeはBSUIDを自動的に処理します。ユーザー名を採用したユーザーは、引き続きBrazeワークスペースに表示され、メッセージを受信し、Canvasをトリガーし、イベントを生成します。一部のお客様は[変更に備える](#how-to-prepare-for-the-change)必要がある場合があります。
+BrazeはBSUIDを自動的に処理します。ユーザー名を採用したユーザーは、引き続きBrazeワークスペースに表示され、メッセージを受信し、キャンバスをトリガーし、イベントを生成します。一部のお客様は[変更に備える](#how-to-prepare-for-the-change)必要がある場合があります。
 
 ## ビジネススコープユーザーID（BSUID） {#business-scoped-user-id-bsuid}
 
@@ -50,19 +50,19 @@ WhatsAppユーザー名のリリース後、WhatsAppユーザーには2つのタ
 
 ## BrazeによるBSUIDの処理方法 {#how-braze-will-handle-bsuids}
 
-Brazeは、BSUIDをユーザープロファイル上の`whats_app_bsuid`というラベルの[ユーザーエイリアス]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle#user-aliases)として保存します。これにより、BSUIDのみのユーザーも完全なBrazeユーザープロファイルを持ち、Canvasに入場し、メッセージを受信し、イベントを生成し、APIを通じて更新できます。
+Brazeは、BSUIDをユーザープロファイル上の`whats_app_bsuid`というラベルの[ユーザーエイリアス]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle#user-aliases)として保存します。これにより、BSUIDのみのユーザーも完全なBrazeユーザープロファイルを持ち、キャンバスに入場し、メッセージを受信し、イベントを生成し、APIを通じて更新できます。
 
 ### メッセージの送信 {#send-messages}
 
-BrazeがWhatsAppメッセージを送信する際、電話番号が利用可能であればそれを使用します。ユーザーがBSUIDのみを持っている場合（ユーザー名を採用した後に初めてメッセージを送信したユーザーなど）、BrazeはBSUIDを使用して送信します。メッセージテンプレート、Campaign、またはキャンバスステップに変更を加える必要はありません。
+BrazeがWhatsAppメッセージを送信する際、電話番号が利用可能であればそれを使用します。ユーザーがBSUIDのみを持っている場合（ユーザー名を採用した後に初めてメッセージを送信したユーザーなど）、BrazeはBSUIDを使用して送信します。メッセージテンプレート、キャンペーン、またはキャンバスステップに変更を加える必要はありません。
 
-### 受信メッセージとCanvasトリガー {#inbound-messages-and-canvas-triggers}
+### 受信メッセージとキャンバストリガー {#inbound-messages-and-canvas-triggers}
 
 ユーザー名を持つユーザーがWhatsAppの受信メッセージを送信すると、Brazeは以下を行います。
 
 1. BSUIDまたは電話番号（webhookで利用可能な方）でユーザーを検索します。
 2. 一致するユーザーが見つからない場合、BSUIDをユーザーエイリアスとして保存した新しい匿名ユーザープロファイルを作成します。
-3. 受信WhatsAppメッセージで開始するように設定されたCanvasまたはCampaignをトリガーします。
+3. 受信WhatsAppメッセージで開始するように設定されたキャンバスまたはキャンペーンをトリガーします。
 
 ### ユーザープロファイル {#user-profile}
 
@@ -75,7 +75,7 @@ BrazeがWhatsAppメッセージを送信する際、電話番号が利用可能�
 サブスクリプショングループの管理は、ユーザーエイリアスで識別されるユーザーと同様に、BSUIDユーザーに対しても同じように機能します。BSUIDユーザーのサブスクリプションステータスは、以下の方法で更新できます。
 
 - `user_alias`を使用した[users/trackエンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
-- [ユーザーの更新]({{site.baseurl}}/user_update)Canvasステップ（自動的に機能します）
+- [ユーザーの更新]({{site.baseurl}}/user_update)キャンバスステップ（自動的に機能します）
 - CSVアップロード
 
 {% alert note %}
@@ -148,9 +148,9 @@ webhookに通常のBSUIDと親BSUIDの両方が含まれている場合、Braze�
 
 ## よくある質問 {#frequently-asked-questions}
 
-### WhatsAppユーザー名のリリース時に、既存のCampaignsやCanvasesは動作しなくなりますか？ {#will-my-existing-campaigns-and-canvases-break-when-whatsapp-usernames-launch}
+### WhatsAppユーザー名のリリース時に、既存のキャンペーンやキャンバスは動作しなくなりますか？ {#will-my-existing-campaigns-and-canvases-break-when-whatsapp-usernames-launch}
 
-いいえ。既存のCampaignsやCanvasesは引き続き動作します。ユーザー名を採用しないユーザーには一切影響がありません。ユーザー名を採用し、ビジネスとの既存の会話履歴があるユーザーについては、Brazeは引き続き電話番号をプライマリ識別子として使用します。
+いいえ。既存のキャンペーンやキャンバスは引き続き動作します。ユーザー名を採用しないユーザーには一切影響がありません。ユーザー名を採用し、ビジネスとの既存の会話履歴があるユーザーについては、Brazeは引き続き電話番号をプライマリ識別子として使用します。
 
 ### ユーザー名を採用したが、すでにビジネスにメッセージを送信したことがあるユーザーはどうなりますか？ {#what-happens-to-a-user-who-adopts-a-username-but-has-already-messaged-my-business}
 
@@ -158,9 +158,9 @@ WhatsApp連絡先帳が有効で、過去30日以内にそのユーザーと会�
 
 ### ユーザー名を採用したが、ビジネスとの以前の会話がないユーザーはどうなりますか？ {#what-if-a-user-adopts-a-username-and-has-no-prior-conversation-with-my-business}
 
-Brazeは受信webhookでユーザーのBSUIDを受信し、既存のユーザープロファイルにマッチング（以前にBSUIDを保存していた場合）するか、BSUIDをユーザーエイリアスとして保存した新しい匿名ユーザープロファイルを作成します。そのユーザーはCanvasに入場し、アウトバウンドメッセージを受信し、Brazeの標準的なID解決ツールを使用して他のプロファイルと識別またはマージできます。
+Brazeは受信webhookでユーザーのBSUIDを受信し、既存のユーザープロファイルにマッチング（以前にBSUIDを保存していた場合）するか、BSUIDをユーザーエイリアスとして保存した新しい匿名ユーザープロファイルを作成します。そのユーザーはキャンバスに入場し、アウトバウンドメッセージを受信し、Brazeの標準的なID解決ツールを使用して他のプロファイルと識別またはマージできます。
 
-### BSUIDユーザーをSegmentsでターゲットにできますか？ {#can-i-target-bsuid-users-in-segments}
+### BSUIDユーザーをセグメントでターゲットにできますか？ {#can-i-target-bsuid-users-in-segments}
 
 BSUIDユーザーは完全なBrazeユーザープロファイルであるため、標準的なオーディエンスフィルター（「WhatsAppメッセージを受信した」やサブスクリプショングループのメンバーシップなど）を通じてターゲットにできます。ただし、BSUID値に基づく特定のセグメンテーション（「BSUIDが存在する」や「BSUIDがXに等しい」など）はサポートされていません。
 
@@ -183,7 +183,7 @@ WhatsAppの会話料金はユーザーの国によって決定されます。電
 }
 ```
 
-これは`users/track`、`users/identify`、CSVアップロード、およびユーザーの更新Canvasステップで機能します。
+これは`users/track`、`users/identify`、CSVアップロード、およびユーザーの更新キャンバスステップで機能します。
 
 ### Currentsデータパイプラインは動作しなくなりますか？ {#will-my-currents-data-pipelines-break}
 

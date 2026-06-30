@@ -85,7 +85,7 @@ Appboy.sharedInstance()?.logPurchase("product_name", inCurrency: "USD", atPrice:
 Appboy.sharedInstance()?.logCustomEvent("completed_level")
 ```
 
-この例では、「completed_level」は、ユーザーがゲームでレベルをクリアしたときにログに記録されるカスタムイベントの名前です。このカスタムイベントはBrazeのユーザープロファイルに記録され、Campaignのトリガーやメッセージングのパーソナライズに使用できます。
+この例では、「completed_level」は、ユーザーがゲームでレベルをクリアしたときにログに記録されるカスタムイベントの名前です。このカスタムイベントはBrazeのユーザープロファイルに記録され、キャンペーンのトリガーやメッセージングのパーソナライズに使用できます。
 
 詳細については、専用の[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)の記事をご覧ください。
 

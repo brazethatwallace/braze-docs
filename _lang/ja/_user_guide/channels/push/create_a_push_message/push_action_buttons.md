@@ -19,8 +19,8 @@ channel:
 
 各インタラクティブボタンは、Webページやディープリンクにリンクしたり、アプリを開いたりすることができます。
 
-- 標準のプッシュCampaignの場合、ダッシュボードのプッシュメッセージ作成画面の**On-Click Behavior**セクションでプッシュアクションボタンを指定できます。
-- [マルチプラットフォームプッシュCampaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push)の場合、**設定**タブで各プラットフォームごとにアクションボタンを個別に設定できます。
+- 標準のプッシュキャンペーンの場合、ダッシュボードのプッシュメッセージ作成画面の**On-Click Behavior**セクションでプッシュアクションボタンを指定できます。
+- [マルチプラットフォームプッシュキャンペーン]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push)の場合、**設定**タブで各プラットフォームごとにアクションボタンを個別に設定できます。
 
 {% tabs %}
 {% tab iOS %}

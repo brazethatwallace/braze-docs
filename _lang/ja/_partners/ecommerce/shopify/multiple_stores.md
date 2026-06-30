@@ -69,7 +69,7 @@ Braze external IDは以下のオプションから選択できます。
 - セグメンテーション用のカスタムイベントプロパティ（例：「Y日間にX回」（X ≤ 50、Y ≤ 30））
 - イベント数（両プロファイルの合計）
 - 最初と最後のイベントの日付（Brazeは最も早い日付と最も新しい日付を選択します）
-- Campaignインタラクションデータ（最新の日付フィールド）
+- キャンペーンインタラクションデータ（最新の日付フィールド）
 - ワークフローのサマリー（最新の日付フィールド）
 - メッセージとエンゲージメントの履歴
 - サブスクリプショングループ
@@ -122,7 +122,7 @@ Shopifyコネクター設定の**ユーザーを管理**ステップで、Braze�
 
 複数のストアを接続すると、受信するeコマース推奨イベントにはソースイベントプロパティが含まれます。このプロパティは、イベントがどのストアフロントURLから発生したかを識別し、この情報をセグメンテーションや特定のユースケースのトリガーに使用できるようにします。
 
-![`ecommerce.order_placed`カスタムイベントを実行したユーザーをエントリさせるトリガーを持つアクションベースのCanvas。]({% image_buster /assets/img/shopify/ecommerce_order_placed.png %}){: style="max-width:80%;"}
+![`ecommerce.order_placed`カスタムイベントを実行したユーザーをエントリさせるトリガーを持つアクションベースのキャンバス。]({% image_buster /assets/img/shopify/ecommerce_order_placed.png %}){: style="max-width:80%;"}
 
 Shopify統合内でサポートされているeコマース推奨イベントは次のとおりです。
 
@@ -137,7 +137,7 @@ Shopify統合内でサポートされているeコマース推奨イベントは
 
 受信するShopifyカスタムイベントには、`shopify_storefront`というイベントプロパティが含まれます。このプロパティは、イベントがどのストアフロントURLから来たかを示し、セグメンテーションやユースケースのトリガーに活用できます。
 
-![`shopify_paid_order`カスタムイベントを実行したユーザーをエントリさせるトリガーを持つアクションベースのCanvas。]({% image_buster /assets/img/shopify/shopify_paid_order.png %}){: style="max-width:80%;"}
+![`shopify_paid_order`カスタムイベントを実行したユーザーをエントリさせるトリガーを持つアクションベースのキャンバス。]({% image_buster /assets/img/shopify/shopify_paid_order.png %}){: style="max-width:80%;"}
 
 サポートされているShopifyカスタムイベントは以下のとおりです。
 

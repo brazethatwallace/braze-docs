@@ -46,8 +46,8 @@ guide_menu_list:
 
 - **季節のプロモーション:** 季節の商品コレクションをインポートし、現在のトレンドを反映したメッセージをパーソナライズします。
 - **ローカライズされたメッセージ:** 実店舗の住所、営業時間、サービスをインポートし、ユーザーの所在地に基づいて通知をパーソナライズします。
-- **再入荷通知:** 在庫数量を含む製品情報をインポートし、[再入荷通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)とBrazeのカスタムイベントを使用して、製品が再入荷したことをユーザーに通知するCampaignまたはCanvasをトリガーします。
-- **価格低下通知:** 商品価格を含む製品情報をインポートし、[価格低下通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications)とBrazeのカスタムイベントを使用して、商品の価格が下がったことをユーザーに通知するCanvasをトリガーします。
+- **再入荷通知:** 在庫数量を含む製品情報をインポートし、[再入荷通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)とBrazeのカスタムイベントを使用して、製品が再入荷したことをユーザーに通知するキャンペーンまたはキャンバスをトリガーします。
+- **価格低下通知:** 商品価格を含む製品情報をインポートし、[価格低下通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications)とBrazeのカスタムイベントを使用して、商品の価格が下がったことをユーザーに通知するキャンバスをトリガーします。
 
 ### エンターテイメント {#entertainment}
 

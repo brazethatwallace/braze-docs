@@ -22,7 +22,7 @@ iOS 14.5以降、**IDFA**の収集と[特定のデータ共有](https://develope
 - 新しい_おおよその位置情報_パーミッションを選択したユーザーに対して、ジオフェンスは[iOSでサポートされなくなりました](https://developer.apple.com/documentation/corelocation/cllocationmanager/3600215-accuracyauthorization)。
 - 「Last Known Location」ターゲティング機能を使用するには、_おおよその位置情報_パーミッションとの互換性のため、Braze iOS SDK v3.26.1以降へのアップグレードが必要です。Xcode 12を使用している場合は、v3.27.0以降にアップグレードする必要があります。
 - iOS 14.5以降、IDFAの収集と[特定のデータ共有](https://developer.apple.com/app-store/user-privacy-and-data-use/#permission-to-track)には、新しい[AppTrackingTransparency](https://developer.apple.com/documentation/apptrackingtransparency)フレームワークの許可プロンプトが必要になります。
-- Campaignターゲティングや分析のために「Ad Tracking Enabled」フィールドを使用する場合は、Xcode 12にアップグレードし、新しいAppTrackingTransparencyフレームワークを使用してユーザーのオプトインステータスを報告する必要があります。
+- キャンペーンターゲティングや分析のために「Ad Tracking Enabled」フィールドを使用する場合は、Xcode 12にアップグレードし、新しいAppTrackingTransparencyフレームワークを使用してユーザーのオプトインステータスを報告する必要があります。
 
 ## アップグレードの概要 {#upgrade-summary}
 
@@ -58,7 +58,7 @@ table td {
 
 #### ジオフェンス {#geofences}
 
-新しい_おおよその位置情報_パーミッションを選択したユーザーに対して、ジオフェンスは[iOSでサポートされなくなりました](https://developer.apple.com/documentation/corelocation/cllocationmanager/3600215-accuracyauthorization)。Braze SDK統合にアップデートは必要ありませんが、ジオフェンスに依存するCampaignについては、[ロケーションベースのマーケティング戦略](https://www.braze.com/blog/geofencing-geo-targeting-beaconing-when-to-use/)を調整する必要があるかもしれません。
+新しい_おおよその位置情報_パーミッションを選択したユーザーに対して、ジオフェンスは[iOSでサポートされなくなりました](https://developer.apple.com/documentation/corelocation/cllocationmanager/3600215-accuracyauthorization)。Braze SDK統合にアップデートは必要ありませんが、ジオフェンスに依存するキャンペーンについては、[ロケーションベースのマーケティング戦略](https://www.braze.com/blog/geofencing-geo-targeting-beaconing-when-to-use/)を調整する必要があるかもしれません。
 
 #### ロケーションターゲティング {#location-tracking}
 
@@ -93,7 +93,7 @@ iOS 14.5からは、IDFAに対する明示的なユーザーの同意を収集�
 
 2. オプションの自動IDFAコレクションで条件付きコンパイルを行う`ABK_ENABLE_IDFA_COLLECTION`コンパイルマクロは、iOS 14では機能しなくなり、3.27.0で削除されました。
 
-3. Campaignターゲティングや分析のために「Ad Tracking Enabled」フィールドを使用する場合は、Xcode 12にアップグレードし、新しいAppTrackingTransparencyフレームワークを使用して、ユーザーのオプトインステータスを報告する必要があります。この変更の理由は、iOS 14では古い[`advertisingTrackingEnabled`](https://developer.apple.com/documentation/adsupport/asidentifiermanager/1614148-advertisingtrackingenabled)フィールドが常にNoを返すためです。
+3. キャンペーンターゲティングや分析のために「Ad Tracking Enabled」フィールドを使用する場合は、Xcode 12にアップグレードし、新しいAppTrackingTransparencyフレームワークを使用して、ユーザーのオプトインステータスを報告する必要があります。この変更の理由は、iOS 14では古い[`advertisingTrackingEnabled`](https://developer.apple.com/documentation/adsupport/asidentifiermanager/1614148-advertisingtrackingenabled)フィールドが常にNoを返すためです。
 
 4. アプリがBrazeのexternal IDとしてIDFAまたはIDFVを使用していた場合、これらの識別子からUUIDに移行することを強く推奨します。external IDの移行に関する詳細については、[external ID移行APIエンドポイント]({{site.baseurl}}/api/endpoints/user_data/external_id_migration)を参照してください。
 

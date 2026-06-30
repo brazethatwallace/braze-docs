@@ -33,7 +33,7 @@ APIレート制限は、システムの適切な使用状況に応じて変更�
 | [`/events/list`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events) | 1時間あたり1,000件のリクエスト、`/purchases/product_list`エンドポイントと共有されます。 |
 | [`/purchases/product_list`]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id) | 1時間あたり1,000件のリクエスト、`/events/list`エンドポイントと共有されます。 |
 | [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) | 1分あたり50,000件のリクエスト。 |
-| [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)<br>[`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)<br>[`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)<br>[`/campaigns/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns)<br>[`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases) | ブロードキャストコール（Segment、フィルター、接続済みオーディエンスを広く対象とする場合）では、全オーディエンス合計で毎分250リクエスト、かつ[ユニークオーディエンス]({{site.baseurl}}/api/api_limits#what-counts-as-the-same-unique-audience)ごとに毎分10リクエスト（いずれか先に達した方が上限）。<br><br>それ以外の場合、個々の受信者を対象とするリクエストは、1時間あたり250,000リクエストの[共有レート制限]({{site.baseurl}}/api/api_limits#requests-with-shared-rate-limits)に含まれます。 |
+| [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)<br>[`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)<br>[`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)<br>[`/campaigns/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns)<br>[`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases) | ブロードキャストコール（セグメント、フィルター、接続済みオーディエンスを広く対象とする場合）では、全オーディエンス合計で毎分250リクエスト、かつ[ユニークオーディエンス]({{site.baseurl}}/api/api_limits#what-counts-as-the-same-unique-audience)ごとに毎分10リクエスト（いずれか先に達した方が上限）。<br><br>それ以外の場合、個々の受信者を対象とするリクエストは、1時間あたり250,000リクエストの[共有レート制限]({{site.baseurl}}/api/api_limits#requests-with-shared-rate-limits)に含まれます。 |
 | [`/sends/id/create`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_create_send_ids) | 1日あたり100件のリクエスト。 |
 | [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) | 毎分5,000リクエスト。 |
 | [`/preference_center/v1/{preferenceCenterExternalId}/url/{userId}`]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center)<br>[`/preference_center/v1/list`]({{site.baseurl}}/api/endpoints/preference_center/get_list_preference_center)<br>[`/preference_center/v1/{preferenceCenterExternalId}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center) | 1分あたり1,000件のリクエスト。 |
@@ -117,8 +117,8 @@ APIレート制限は、システムの適切な使用状況に応じて変更�
 
 これらのエンドポイントにおいて、以下の条件がすべて一致する場合、ブロードキャストリクエストは同一のユニークオーディエンスを対象としていると見なされます：
 
-- トリガーされるCampaignまたはCanvas（APIリクエスト内の`campaign_id`または`canvas_id`（指定されている場合））
-- 対象とするオーディエンス（Segmentやフィルター、あるいはAPIキャンペーンの場合はAPIリクエスト内の`segment_id`）
+- トリガーされるキャンペーンまたはキャンバス（APIリクエスト内の`campaign_id`または`canvas_id`（指定されている場合））
+- 対象とするオーディエンス（セグメントやフィルター、あるいはAPIキャンペーンの場合はAPIリクエスト内の`segment_id`）
 - 接続されたオーディエンスフィルター（APIリクエスト内の`audience`オブジェクト（指定されている場合））
 
 これらの属性のユニークな組み合わせはそれぞれが独立したオーディエンスとしてカウントされるため、各ユニークオーディエンスに対する追加のレート制限は、それぞれの組み合わせに対して個別に適用されます。
@@ -152,7 +152,7 @@ REST APIのレート制限の増加は、APIバッチ処理機能を利用して
 [メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging)への単一のリクエストは、次のいずれかに到達できます：
 
 - それぞれに個別のメッセージパラメーターを持つ、最大50個の特定の`external_ids`
-- `segment_id`で指定される、Brazeダッシュボードで作成された任意のサイズのSegment
+- `segment_id`で指定される、Brazeダッシュボードで作成された任意のサイズのセグメント
 - リクエストの中で[接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience)オブジェクトとして定義された、任意のサイズの追加オーディエンスフィルターに一致するユーザー
 
 ### バッチリクエストの例 {#example-batch-request}

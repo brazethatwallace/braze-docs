@@ -7,7 +7,7 @@ page_order: 4
 
 # 重複ユーザーの統合 {#merge-duplicate-users}
 
-> 重複ユーザーを見つけて統合し、CampaignsやCanvasesの効果を最大化する方法を説明します。
+> 重複ユーザーを見つけて統合し、キャンペーンやキャンバスの効果を最大化する方法を説明します。
 
 ## REST API: ユーザーの識別と統合 {#rest-api-identify-and-merge-users}
 

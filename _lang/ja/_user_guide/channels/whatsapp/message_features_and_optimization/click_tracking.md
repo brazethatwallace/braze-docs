@@ -6,7 +6,7 @@ description: "このリファレンス記事では、WhatsAppメッセージで�
 page_type: reference
 alias: "/whatsapp_click_tracking/"
 tool:
-  - Campaigns
+  - キャンペーン
 channel:
   - WhatsApp
 ---
@@ -86,7 +86,7 @@ WhatsApp Business Managerで直接テンプレートを作成する場合は、[
 
 1. WhatsApp Business Managerで、カスタムドメインまたは `brz.ai` のいずれかのベースURLを作成します。
 2. テンプレートに含まれるリンクがクリックトラッキングと互換性があることを確認します。
-3. BrazeでCampaignとして設定した後は、テンプレート変数を変更しないでください。ダウンストリームの変更は反映できません。
+3. Brazeでキャンペーンとして設定した後は、テンプレート変数を変更しないでください。ダウンストリームの変更は反映できません。
 4. CTAボタンリンクの場合、**Dynamic**を選択し、ベースURL（`brz.ai` またはカスタムドメイン）を入力します。
 
 ![コールトゥアクションを作成するセクション。]({% image_buster /assets/img/whatsapp/click_tracking/create_cta.png %}){: style="max-width:70%;"}
@@ -113,7 +113,7 @@ WhatsApp Business Managerで直接テンプレートを作成する場合は、[
 {% alert important %}
 **API経由でのテンプレートメッセージ送信**：WhatsAppクリックトラッキング（`brz.ai` またはカスタムトラッキングドメインとメッセージ作成画面の**クリックトラッキングURL**フィールドを使用）は、[`/messages/send` エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)を通じてWhatsAppテンプレートメッセージを送信する場合はサポートされていません。
 
-API経由でテンプレートメッセージを送信する場合、CTA URL変数（`button_variables` を使用）を入力できますが、BrazeはAPIリクエストフローでクリックトラッキングURLやリダイレクトリンクを生成しません。クリックトラッキングを使用するには、BrazeダッシュボードからまたはBraze Campaignトリガー経由でテンプレートを送信してください。
+API経由でテンプレートメッセージを送信する場合、CTA URL変数（`button_variables` を使用）を入力できますが、BrazeはAPIリクエストフローでクリックトラッキングURLやリダイレクトリンクを生成しません。クリックトラッキングを使用するには、BrazeダッシュボードからまたはBraze キャンペーントリガー経由でテンプレートを送信してください。
 {% endalert %}
 
 {% multi_lang_include analytics/click_tracking.md section='Custom Domains' %}
@@ -144,19 +144,19 @@ BrazeはLiquidでレンダリングされたURL（APIトリガープロパティ
 
 ## テスト {#testing}
 
-CampaignまたはCanvasを起動する前に、まずメッセージをプレビューしてテストすることがベストプラクティスです。これを行うには、**テスト**タブに移動して、コンテンツテストグループまたは個々のユーザーにWhatsAppをプレビューして送信します。
+キャンペーンまたはキャンバスを起動する前に、まずメッセージをプレビューしてテストすることがベストプラクティスです。これを行うには、**テスト**タブに移動して、コンテンツテストグループまたは個々のユーザーにWhatsAppをプレビューして送信します。
 
 このプレビューは、関連するパーソナライゼーションと短縮URLで更新されます。
 
 {% alert important %}
-アクティブなCanvas内で下書きが作成された場合、短縮URLは生成されません。実際の短縮URLは、Canvasの下書きがアクティブになったときに生成されます。
+アクティブなキャンバス内で下書きが作成された場合、短縮URLは生成されません。実際の短縮URLは、キャンバスの下書きがアクティブになったときに生成されます。
 {% endalert %}
 
 ## レポート {#reporting}
 
 クリックトラッキングが有効になっている場合、またはサポートされているテンプレートで使用されている場合、WhatsAppパフォーマンステーブルには、バリアントごとのクリックイベント数と関連するクリック率を示す**Total Clicks**列が含まれます。WhatsApp指標の詳細については、[WhatsAppメッセージパフォーマンス]({{site.baseurl}}/user_guide/channels/whatsapp/reporting)を参照してください。
 
-![WhatsAppメッセージのCanvasステップ。]({% image_buster /assets/img/whatsapp/click_tracking/canvas_step.png %}){: style="max-width:30%;"}
+![WhatsAppメッセージのキャンバスステップ。]({% image_buster /assets/img/whatsapp/click_tracking/canvas_step.png %}){: style="max-width:30%;"}
 
 クリックデータは分析ダッシュボードに自動的にレポートされます。
 

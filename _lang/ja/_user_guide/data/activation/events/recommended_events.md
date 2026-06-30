@@ -9,13 +9,13 @@ description: "このリファレンス記事では、Brazeがeコマースイベ
 
 # 推奨イベント {#recommended-events}
 
-> 推奨イベントは、定義済みのJSONスキーマを持つ標準化されたカスタムイベントを送信するフレームワーク上に構築されています。推奨イベントを送信すると、Brazeは取り込み時にスキーマに対してバリデーションを行い、自動フィールド計算やカート管理など、汎用カスタムイベントでは適用されない特別な後処理を実行します。特定の業界向けイベントセットについては、CampaignsやCanvasesの専用アクションベーストリガーなど、Brazeが特別な処理をサポートする場合があります。
+> 推奨イベントは、定義済みのJSONスキーマを持つ標準化されたカスタムイベントを送信するフレームワーク上に構築されています。推奨イベントを送信すると、Brazeは取り込み時にスキーマに対してバリデーションを行い、自動フィールド計算やカート管理など、汎用カスタムイベントでは適用されない特別な後処理を実行します。特定の業界向けイベントセットについては、キャンペーンやキャンバスの専用アクションベーストリガーなど、Brazeが特別な処理をサポートする場合があります。
 
 ## eコマース推奨イベント {#ecommerce-recommended-events}
 
 [eコマース推奨イベント]({{site.baseurl}}/ecommerce_events)は、購入ジャーニーの6つのステップをカバーします: `product_viewed`、`cart_updated`、`checkout_started`、`order_placed`、`order_cancelled`、`order_refunded`。これらのイベントを正常に送信すると、Brazeはデータをバリデーションし、拡大し続けるプラットフォーム機能で利用可能にします。
 
-これらの機能には、閲覧放棄、カート放棄、チェックアウト放棄、注文確認フロー向けのCanvasテンプレート、eコマースレポート、_合計収益_、_合計注文数_、_合計返金額_の計算済みユーザープロファイルフィールドが含まれます。また、[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension)を使用したネストされた製品プロパティフィルタリングによるSegmentの構築、{% raw %}`{% shopping_cart %}`{% endraw %} Liquidタグを使用したカート放棄メッセージのパーソナライゼーション、[予測イベント]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events)、[解約予測]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn)、[アイテムのおすすめ]({{site.baseurl}}/user_guide/brazeai/item_recommendations)などのBrazeAI<sup>TM</sup>機能への活用、およびその他の機能も利用可能です。
+これらの機能には、閲覧放棄、カート放棄、チェックアウト放棄、注文確認フロー向けのキャンバステンプレート、eコマースレポート、_合計収益_、_合計注文数_、_合計返金額_の計算済みユーザープロファイルフィールドが含まれます。また、[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension)を使用したネストされた製品プロパティフィルタリングによるセグメントの構築、{% raw %}`{% shopping_cart %}`{% endraw %} Liquidタグを使用したカート放棄メッセージのパーソナライゼーション、[予測イベント]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events)、[解約予測]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn)、[アイテムのおすすめ]({{site.baseurl}}/user_guide/brazeai/item_recommendations)などのBrazeAI<sup>TM</sup>機能への活用、およびその他の機能も利用可能です。
 
 これらのイベントは定義済みスキーマに従うため、サポートされる各機能は、カスタムプロパティマッピングや機能ごとの設定なしに構造化データを読み取ることができます。
 
@@ -27,12 +27,12 @@ eコマースイベントは、事前定義された名前とプロパティス�
 
 eコマースイベントは、他のカスタムイベントが機能するすべての場所で機能します: 実行済みカスタムイベントのトリガーとフィルター、カスタムイベントレポートなど。ただし、スキーマバリデーションにより、以下の追加機能が利用可能になります:
 
-- Campaigns、Canvases、アクションパス、アプリ内メッセージトリガー、コンテンツカードの削除における「注文する」トリガーアクション
+- キャンペーン、キャンバス、アクションパス、アプリ内メッセージトリガー、コンテンツカードの削除における「注文する」トリガーアクション
 - 計算済みeコマースユーザープロファイルフィールド（**合計収益**、**合計注文数**、**合計返金額**）
 - カート放棄フロー向けのカート状態管理
 - 予測イベント、解約予測、アイテムのおすすめなどのBrazeAI<sup>TM</sup>機能向けのリッチデータ
 
-また、プラットフォームがカスタムイベントをサポートする場所であれば、eコマースイベントを名前で参照することもできます。例えば、`ecommerce.product_viewed`イベントでアクションベースのCampaignをトリガーしたり、`ecommerce.checkout_started`イベントでフィルタリングするSegmentを構築したり、Currentsを通じて`ecommerce.order_placed`イベントをエクスポートしたりできます。
+また、プラットフォームがカスタムイベントをサポートする場所であれば、eコマースイベントを名前で参照することもできます。例えば、`ecommerce.product_viewed`イベントでアクションベースのキャンペーンをトリガーしたり、`ecommerce.checkout_started`イベントでフィルタリングするセグメントを構築したり、Currentsを通じて`ecommerce.order_placed`イベントをエクスポートしたりできます。
 
 #### イベント命名 {#event-naming}
 
@@ -127,7 +127,7 @@ eコマースイベントは、他のカスタムイベントが機能するす�
 特定のカートに対して、増分カート更新（`add`または`remove`）と全体置換（`action`なしまたは`replace`）のいずれか一方を使用してください。同じ`cart_id`に対して両方のアプローチを混在させることは推奨されず、Brazeでカート状態の不整合が発生する可能性があります。
 {% endalert %}
 
-このイベントからメッセージングをトリガーするには、CanvasおよびCampaignsの**カート更新イベントの実行**トリガーを使用します。このトリガーには、カートがショッピングファネルを進行するのを停止する特別な処理が含まれています。
+このイベントからメッセージングをトリガーするには、キャンバスおよびキャンペーンの**カート更新イベントの実行**トリガーを使用します。このトリガーには、カートがショッピングファネルを進行するのを停止する特別な処理が含まれています。
 
 {% alert tip %}
 カートはユーザープロファイル上にカートマッピングオブジェクトを作成し、{% raw %}`{% shopping_cart %}`{% endraw %} Liquidタグを動作させます。カートは更新なしで30日後に期限切れになります。2つのユーザープロファイルがマージされた場合、Brazeは両方のカートを保持します。
@@ -1194,7 +1194,7 @@ eコマースイベントは[データポイント]({{site.baseurl}}/user_guide/
 
 ### イベントサイズの制限 {#event-size-limit}
 
-`/users/track`に送信されるイベントプロパティは、イベントあたり102,400バイト（100 KB）が上限です。トリガーされたCampaignおよびCanvasメッセージの場合、[`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)および[`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)に送信される`trigger_properties`のデフォルト上限は51,200バイト（50 KB）とより厳しくなっています。
+`/users/track`に送信されるイベントプロパティは、イベントあたり102,400バイト（100 KB）が上限です。トリガーされたキャンペーンおよびキャンバスメッセージの場合、[`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)および[`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)に送信される`trigger_properties`のデフォルト上限は51,200バイト（50 KB）とより厳しくなっています。
 
 ベストプラクティスとして、トリガー、パーソナライゼーション、またはイベントのアトリビューションに必要な製品情報のみを送信してください。説明、完全なバリアントリスト、在庫、代替画像などのリッチな製品詳細はBrazeカタログに保存してください。メッセージ送信時に`product_id`または`variant_id`でこれらの詳細を参照します。`metadata`オブジェクトは、メッセージングで使用する注文または製品固有のコンテキストに対して選択的に使用してください。
 
@@ -1260,7 +1260,7 @@ eコマースイベントは、収益トラッキング、{% raw %}`{% shopping_
 - 以下を含む下流の推奨イベント機能は実行されません:
   - 収益トラッキング（収益レポート、`total_revenue`などのユーザー計算フィールド）
   - ユーザープロファイル上のカートオブジェクトの更新
-  - CanvasおよびCampaignsの「カート更新イベントの実行」または「注文する」トリガー
+  - キャンバスおよびキャンペーンの「カート更新イベントの実行」または「注文する」トリガー
 
 エラーの報告方法は取り込みパスによって異なります:
 

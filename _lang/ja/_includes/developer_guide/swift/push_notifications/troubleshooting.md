@@ -19,7 +19,7 @@ Apple プッシュ通知サービス（APNs）は、Appleのプラットフォ�
 
 ### ステップ2:デバイスがAPNsに登録し、Brazeにプッシュトークンを提供します {#step-2-devices-register-for-apns-and-provide-braze-with-push-tokens}
 
-ユーザーがアプリを開くと、プッシュ通知を受け入れるように求められます。このプロンプトを受け入れると、APNsはその特定のデバイスのプッシュトークンを生成します。Swift SDKは、デフォルトの[自動フラッシュポリシー]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/fine_network_traffic_control/#automatic-request-processing)を使用して、アプリのプッシュトークンを即時かつ非同期に送信します。ユーザーにプッシュトークンが関連付けられると、ダッシュボードの**エンゲージメント**タブのユーザープロファイルに「プッシュ登録済み」と表示され、Braze Campaignsからプッシュ通知を受け取る資格が得られます。
+ユーザーがアプリを開くと、プッシュ通知を受け入れるように求められます。このプロンプトを受け入れると、APNsはその特定のデバイスのプッシュトークンを生成します。Swift SDKは、デフォルトの[自動フラッシュポリシー]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/fine_network_traffic_control/#automatic-request-processing)を使用して、アプリのプッシュトークンを即時かつ非同期に送信します。ユーザーにプッシュトークンが関連付けられると、ダッシュボードの**エンゲージメント**タブのユーザープロファイルに「プッシュ登録済み」と表示され、Braze キャンペーンからプッシュ通知を受け取る資格が得られます。
 
 {% alert note %}
 macOS 13以降、一部のデバイスでは、Xcode 14上で動作するiOS 16シミュレーターでプッシュ通知をテストできます。詳細については、[Xcode 14リリースノート](https://developer.apple.com/documentation/xcode-release-notes/xcode-14-release-notes)を参照してください。
@@ -51,7 +51,7 @@ APNsでは、トークンが登録解除されても、最初は成功ステー�
 
 ## プッシュのエラーログの使用 {#using-the-push-error-logs}
 
-[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab/)を使用すると、Campaignsや送信に関連するメッセージ（特にエラーメッセージ）を確認できます。これにはプッシュ通知エラーも含まれます。このエラーログは、Campaignsが期待どおりに機能していない理由を特定するのに非常に役立つさまざまな警告を提供します。エラーメッセージをクリックすると、特定のインシデントのトラブルシューティングに役立つ関連ドキュメントにリダイレクトされます。
+[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab/)を使用すると、キャンペーンや送信に関連するメッセージ（特にエラーメッセージ）を確認できます。これにはプッシュ通知エラーも含まれます。このエラーログは、キャンペーンが期待どおりに機能していない理由を特定するのに非常に役立つさまざまな警告を提供します。エラーメッセージをクリックすると、特定のインシデントのトラブルシューティングに役立つ関連ドキュメントにリダイレクトされます。
 
 ![エラーが発生した時間、アプリ名、チャネル、エラータイプ、およびエラーメッセージを表示するプッシュエラーログ。]({% image_buster /assets/img_archive/message_activity_log.png %})
 

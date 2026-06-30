@@ -3,7 +3,7 @@ nav_title: "通知オプション"
 article_title: Android通知オプション
 page_order: 2
 page_type: reference
-description: "このリファレンス記事では、Androidの通知オプションと、Braze Campaignsでの最適な使用方法について説明します。"
+description: "このリファレンス記事では、Androidの通知オプションと、Braze キャンペーンでの最適な使用方法について説明します。"
 
 platform: Android
 channel:

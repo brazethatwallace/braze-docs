@@ -1,23 +1,23 @@
 ---
-nav_title: "PUT: Canvas内の翻訳を更新"
-article_title: "PUT: Canvas内の翻訳を更新"
+nav_title: "PUT: キャンバス内の翻訳を更新"
+article_title: "PUT: キャンバス内の翻訳を更新"
 search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "この記事では、「Canvas内の翻訳を更新」エンドポイントの詳細について説明します。"
+description: "この記事では、「キャンバス内の翻訳を更新」エンドポイントの詳細について説明します。"
 ---
 
 {% api %}
-# Canvas内の翻訳を更新 {#update-translation-in-a-canvas}
+# キャンバス内の翻訳を更新 {#update-translation-in-a-canvas}
 {% apimethod put %}
 /canvas/translations
 {% endapimethod %}
 
-> このエンドポイントを使用して、Canvasの複数の翻訳を更新します。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)を参照してください。
+> このエンドポイントを使用して、キャンバスの複数の翻訳を更新します。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)を参照してください。
 
-Canvasを起動した後に翻訳を更新したい場合は、まず[メッセージを下書きとして保存]({{site.baseurl}}/post-launch_edits)する必要があります。
+キャンバスを起動した後に翻訳を更新したい場合は、まず[メッセージを下書きとして保存]({{site.baseurl}}/post-launch_edits)する必要があります。
 
 ## 前提条件 {#prerequisites}
 
@@ -35,7 +35,7 @@ Canvasを起動した後に翻訳を更新したい場合は、まず[メッセ�
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `workflow_id` | 必須 | 文字列 | CanvasのID。 |
+| `workflow_id` | 必須 | 文字列 | キャンバスのID。 |
 | `step_id` | 必須 | 文字列 | キャンバスステップのID。 |
 | `message_variation_id` | 必須 | 文字列 | メッセージバリエーションのID。 |
 | `locale_id` | 必須 | 文字列 | ロケールの識別子（UUID）。 |

@@ -158,14 +158,14 @@ Brazeに戻り、**接続をテスト**を選択してソースへのアクセ�
 |---|---|
 | 属性 | - ユーザー識別子（`external_id`、`braze_id`、`alias_name`と`alias_label`、メールまたは電話番号のいずれか）。<br>- `UPDATED_AT`。<br>- 同期する少なくとも1つの追加カラム（属性）。 |
 | ユーザー削除 | - ユーザー識別子（`external_id`、`braze_id`、`alias_name`と`alias_label`、メールまたは電話番号のいずれか）。<br>- `UPDATED_AT`。 |
-| Canvasトリガー | - ユーザー識別子（`external_id`、`braze_id`、`alias_name`と`alias_label`、メールまたは電話番号のいずれか）。<br>- `UPDATED_AT`。 |
+| キャンバストリガー | - ユーザー識別子（`external_id`、`braze_id`、`alias_name`と`alias_label`、メールまたは電話番号のいずれか）。<br>- `UPDATED_AT`。 |
 | カスタムイベント | - ユーザー識別子（`external_id`、`braze_id`、`alias_name`と`alias_label`、メールまたは電話番号のいずれか）。<br>- `UPDATED_AT`。<br>- イベント名を表す`NAME`。<br>- イベント時刻を表す`TIME`。利用できない場合、CDIは代わりに`UPDATED_AT`を使用します。 |
 | 購入イベント | - ユーザー識別子（`external_id`、`braze_id`、`alias_name`と`alias_label`、メールまたは電話番号のいずれか）。<br>- `UPDATED_AT`。<br>- `PRODUCT_ID`。<br>- `CURRENCY`。<br>- `PRICE`。<br>- 購入イベント時刻を表す`TIME`。利用できない場合、CDIは代わりに`UPDATED_AT`を使用します。 |
 | カタログ | - カタログアイテム識別子を表す`ID`。<br>- `UPDATED_AT`。<br>- 同期する少なくとも1つの追加カラム（カタログフィールド）。 |
 | アカウント | - アカウント識別子を表す`ID`。<br>- アカウント名を表す`NAME`。<br>- `UPDATED_AT`。<br>- 同期する少なくとも1つの追加カラム（アカウントフィールド）。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ4：クエリのプレビューと検証" }
 
-必須カラム以外の追加カラムは、それぞれ属性、Canvasコンテキストプロパティ、イベントプロパティ、カタログフィールド、アカウントフィールドとして同期されます。プレビューと検証のエラーおよびその修正方法に関する役立つヒントについては、[検証の動作](#validation-behavior)と[トラブルシューティング](#troubleshooting)を参照してください。
+必須カラム以外の追加カラムは、それぞれ属性、キャンバスコンテキストプロパティ、イベントプロパティ、カタログフィールド、アカウントフィールドとして同期されます。プレビューと検証のエラーおよびその修正方法に関する役立つヒントについては、[検証の動作](#validation-behavior)と[トラブルシューティング](#troubleshooting)を参照してください。
 
 ### ステップ5：属性マッピングの確認と同期の作成 {#step-5-review-attribute-mapping-and-create-sync}
 

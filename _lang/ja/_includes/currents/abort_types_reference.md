@@ -15,11 +15,11 @@
 | `liquid_abort_message` | [abort_message]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages) Liquidタグが呼び出されたため、送信がキャンセルされました。 |
 | `template_parse_error` | 構文またはレンダリングエラーによりメッセージテンプレートを解析できなかったため、送信がキャンセルされました。 |
 | `rate_limit` | 設定された[レート制限]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting)を超えたため、メッセージが中止されました。 |
-| `campaign_disabled` | メッセージが送信される前にCampaignが無効化されました。 |
-| `campaign_does_not_exist` | このメッセージに関連付けられたCampaignが存在しなくなりました。 |
-| `campaign_action_does_not_exist` | このメッセージに関連付けられたCampaignアクションが存在しなくなりました。 |
+| `campaign_disabled` | メッセージが送信される前にキャンペーンが無効化されました。 |
+| `campaign_does_not_exist` | このメッセージに関連付けられたキャンペーンが存在しなくなりました。 |
+| `campaign_action_does_not_exist` | このメッセージに関連付けられたキャンペーンアクションが存在しなくなりました。 |
 | `message_variation_does_not_exist` | このユーザーに割り当てられたメッセージバリエーションが存在しなくなりました。 |
-| `user_not_in_segment` | ユーザーがターゲットSegmentに含まれていないため、メッセージは送信されませんでした。 |
+| `user_not_in_segment` | ユーザーがターゲットセグメントに含まれていないため、メッセージは送信されませんでした。 |
 | `trigger_event_blacklisted` | トリガーイベントがブロックリストに登録されているため、メッセージは送信されませんでした。 |
 | `exhausted_retries` | 最大リトライ回数を超えてもメッセージを送信できませんでした。 |
 | `frequency_capped` | ワークスペースの[フリークエンシーキャップ]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting#about-frequency-capping)ルールで許可されたメッセージの最大数をユーザーがすでに受信しています。 |

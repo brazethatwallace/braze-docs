@@ -53,9 +53,9 @@ BrazeとPersonalize.AIの統合により、メッセージのパーソナライ�
 
 Personalize.AIにより、パーソナライズされたターゲティングに使用される識別子がBrazeにエクスポートされます。これらのカスタム属性は、各顧客のタイミング、コンテンツ、施策、オファーを示します。統合によっては、フィールドを顧客のプロファイルに保存する代わりに、イベントとして渡すか、[コネクテッドコンテンツAPI]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/public_apis/)に取り込むことができます。Personalize.AIでは、識別子として`external_id`の使用がサポートされています。
 
-Brazeにインポートされたデータ属性には、一貫した用語に従って、Canvasesで使用するために直感的な名前が付けられています。たとえば、Personalize.AIの属性`C402_Target_Variant`は、Brazeに`"P.AI_Model_Treatment"`としてエクスポートされます。Personalize.AIからエクスポートされる属性は、既存の属性やトラッキングを妨げないように設計されています。これらの属性は継続的に検証されるため、確実に参照できます。
+Brazeにインポートされたデータ属性には、一貫した用語に従って、キャンバスで使用するために直感的な名前が付けられています。たとえば、Personalize.AIの属性`C402_Target_Variant`は、Brazeに`"P.AI_Model_Treatment"`としてエクスポートされます。Personalize.AIからエクスポートされる属性は、既存の属性やトラッキングを妨げないように設計されています。これらの属性は継続的に検証されるため、確実に参照できます。
 
-たとえば、解約防止に焦点を当てたCanvasの例に関連する顧客属性のセットを次に示します。
+たとえば、解約防止に焦点を当てたキャンバスの例に関連する顧客属性のセットを次に示します。
 
 | Personalize.AI属性 | 値 |
 | ----------- | ------------- |

@@ -33,7 +33,7 @@ guide_featured_list:
 Currentsでは、次のことができます。
 * Brazeイベントデータをデータウェアハウスまたは[分析パートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners)の1つにストリーミングし、詳細な分析を行います。
 * ビジネスインテリジェンスツール、機械学習アルゴリズムなどを強化するために、Brazeイベントデータを継続的にストリーミングします。
-* [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium)、[Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment)、[mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents)を使用して、Brazeイベントデータをさまざまな他のシステムにルーティングします。
+* [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium)、[セグメント]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment)、[mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents)を使用して、Brazeイベントデータをさまざまな他のシステムにルーティングします。
 
 Currentsからアクセスできるイベントデータを使用してできることは他にも多数あります。[BrazeでもCurrentsを活用]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents)しています。
 

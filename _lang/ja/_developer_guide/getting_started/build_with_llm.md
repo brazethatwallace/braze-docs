@@ -76,7 +76,7 @@ VS Codeの`settings.json`または`.vscode/mcp.json`ファイルに以下を追�
 {% endtabs %}
 
 {% alert note %}
-Context7は[Braze MCPサーバー]({{site.baseurl}}/developer_guide/mcp_server)とは異なります。Context7はAIアシスタントに**Brazeドキュメント**へのアクセスを提供し、Braze MCPサーバーは**Brazeワークスペースデータ**（Campaigns、Segments、分析など）への読み取り専用アクセスを提供します。両方を併用することで、より充実したAI支援開発体験を得られます。
+Context7は[Braze MCPサーバー]({{site.baseurl}}/developer_guide/mcp_server)とは異なります。Context7はAIアシスタントに**Brazeドキュメント**へのアクセスを提供し、Braze MCPサーバーは**Brazeワークスペースデータ**（キャンペーン、セグメント、分析など）への読み取り専用アクセスを提供します。両方を併用することで、より充実したAI支援開発体験を得られます。
 {% endalert %}
 
 ## Braze SDK開発向けのプロンプト作成 {#writing-prompts-for-braze-sdk-development}
