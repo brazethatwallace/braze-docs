@@ -4,7 +4,8 @@
 {% if include.context == 'gap' %}
 If you're interested in {{ feature_label }}, submit [product feedback]({{ portal_url }}).
 {% elsif include.context == 'new_feature' %}
-{{ feature_label | capitalize }} is generally available. Share how it's working for your team through [product feedback]({{ portal_url }}).
+{% assign feature_label = include.feature | default: 'This capability' %}
+{{ feature_label }} is generally available. Share how it's working for your team through [product feedback]({{ portal_url }}).
 {% elsif include.context == 'pain_point' and include.channel == 'feature' %}
 Want {{ feature_label }}? Consider leaving [product feedback]({{ portal_url }}).
 {% elsif include.context == 'pain_point' and include.channel == 'ux' %}

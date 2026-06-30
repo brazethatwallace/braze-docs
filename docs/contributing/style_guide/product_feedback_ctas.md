@@ -19,7 +19,7 @@ Invocation:
 
 ```liquid
 {% multi_lang_include product_feedback_cta.md context="gap" feature="per-domain sending for email templates" %}
-{% multi_lang_include product_feedback_cta.md context="new_feature" feature="the updated reporting view" %}
+{% multi_lang_include product_feedback_cta.md context="new_feature" feature="Canvas Audience Sync" %}
 {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="additional Data Transformation templates and destinations" %}
 {% multi_lang_include product_feedback_cta.md context="pain_point" channel="ux" feature="navigation to workspace email settings" %}
 ```
@@ -56,7 +56,7 @@ Do not wrap the include in Important unless the surrounding content already meet
 | --- | --- | --- | --- |
 | `context` | Yes | `gap`, `new_feature`, `pain_point` | |
 | `channel` | When `context` is `pain_point` | `feature`, `ux` | Omit for `gap` and `new_feature` |
-| `feature` | Recommended | Free text | Short phrase inserted into the sentence (for example, `web push for the Shopify integration`). Omit only when generic wording is intentional. |
+| `feature` | Recommended | Free text | Short phrase inserted into the sentence (for example, `web push for the Shopify integration`). Use correct capitalization for product names (for example, `Canvas Audience Sync`). Omit only when generic wording is intentional. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parameters" }
 
 Link text is always **product feedback** for portal-bound variants. Do not use "Braze product portal", bare `portal.braze.com`, or legacy `access_braze/portal` in new copy.
@@ -83,11 +83,13 @@ Braze Data Transformation may not yet support external platforms that require sp
 
 ```liquid
 {% alert note %}
-{% multi_lang_include product_feedback_cta.md context="new_feature" feature="the updated reporting view" %}
+{% multi_lang_include product_feedback_cta.md context="new_feature" feature="Canvas Audience Sync" %}
 {% endalert %}
 ```
 
-Rendered shape: *The updated reporting view is generally available. Share how it's working for your team through [product feedback](...).*
+Rendered shape: *Canvas Audience Sync is generally available. Share how it's working for your team through [product feedback](...).*
+
+Pass `feature` with the capitalization you want in the sentence. The include does not alter casing.
 
 ## Reviewer checklist
 
