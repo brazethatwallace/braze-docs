@@ -35,7 +35,7 @@ guide_featured_list:
 
 On the **Subscription Group** page, timeseries charts report:
 
-- **Subscription Group Size:** Users subscribed to that group on a given date
+- **Subscription Group Size:** users subscribed to that group on a given date
 - **Subscription Group Unsubscribed Size:** Users unsubscribed from that group on a given date
 
 For dashboard guidance, see [Viewing subscription group sizes]({{site.baseurl}}/user_guide/channels/email/subscriptions/#viewing-subscription-group-sizes).
