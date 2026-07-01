@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Stayfilm
 
-> [Stayfilm](https://www.stayfilm.com/) is a REST API for automated, personalized video production at scale. The platform integrates data, images, text, soundtracks, voiceovers, and visual effects to generate customized video content for eCommerce, marketplaces, CRM workflows, and marketing campaigns.
+> [Stayfilm](https://www.stayfilm.com/) is a REST API for automated, personalized video production at scale. The platform integrates data, images, text, soundtracks, narration, and visual effects to generate customized video content for eCommerce, marketplaces, CRM workflows, and marketing campaigns.
 >
 > This integration sends render jobs from Braze to the Stayfilm API, receives callbacks when videos are ready, and stores video URLs and status on user profiles for use in campaigns and Canvases.
 
