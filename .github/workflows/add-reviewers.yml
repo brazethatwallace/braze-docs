@@ -33,10 +33,10 @@ jobs:
             const legalTeam = 'ats-91';
             let scanIncomplete = false;
             
-            // Rule 1: If PR has Deploy label (nightly deploy PRs), add docs-team only
+            // Rule 1: Deploy PRs — docs-team is added in a follow-up step (needs GH_TOKEN;
+            // GITHUB_TOKEN cannot resolve the closed docs-team for team_reviewers).
             if (labels.includes('deploy')) {
-              console.log('Deploy PR - adding docs-team');
-              teamsToAdd.push('docs-team');
+              console.log('Deploy PR - docs-team will be added in follow-up step');
             } else {
             // Rule 2: If PR diff contains privacy/legal/GDPR keywords, add legal team
             let diff = '';
@@ -196,3 +196,28 @@ jobs:
             } else {
               console.log('No new reviewers to add');
             }
+
+      - name: Add docs-team reviewer for deploy PRs
+        if: contains(join(github.event.pull_request.labels.*.name, ','), 'Deploy')
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          set -euo pipefail
+          PR="${{ github.event.pull_request.number }}"
+          REPO="${{ github.repository }}"
+
+          if gh pr view "$PR" --repo "$REPO" --json reviewRequests \
+            --jq '.reviewRequests[] | select(.__typename == "Team") | .slug' \
+            | grep -qx 'braze-inc/docs-team'; then
+            echo "docs-team already requested"
+            exit 0
+          fi
+
+          if gh pr edit "$PR" --repo "$REPO" --add-reviewer braze-inc/docs-team; then
+            gh pr comment "$PR" --repo "$REPO" \
+              --body $'🤖 **Automated Reviewer Assignment**: I have automatically added reviewers based on the following:\n\n- 📝 **@braze-inc/docs-team** - Deploy PR'
+          else
+            echo "Could not add docs-team via GH_TOKEN; posting manual request comment"
+            gh pr comment "$PR" --repo "$REPO" \
+              --body '🤖 **Automated Reviewer Assignment**: Could not auto-add **@braze-inc/docs-team** as a team reviewer (token permissions). Please add the team manually for this Deploy PR.'
+          fi
