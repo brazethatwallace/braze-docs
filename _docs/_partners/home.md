@@ -316,6 +316,8 @@ valid_partner_list:
   url: /docs/partners/mypostcard/
 - name: SEEN
   url: /docs/partners/seen/
+- name: Stayfilm
+  url: /docs/partners/stayfilm/
 - name: Dixa
   url: /docs/partners/dixa/
 - name: Narvar
