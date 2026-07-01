@@ -19,7 +19,7 @@ You can no longer create or duplicate Canvases using the original Canvas experie
 
 First, go to **Messaging** > **Canvas**, then select **Create Canvas**.
 
-The Canvas builder will guide you step-by-step through setting up your Canvas—everything from naming it to setting conversion events and bringing the right users into your customer journey. Select each of the following tabs to view which settings you can adjust for each builder step.
+The Canvas builder will guide you step-by-step through setting up your Canvas—everything from naming it to setting conversion events and bringing the intended users into your customer journey. Select each of the following tabs to view which settings you can adjust for each builder step.
 
 {% tabs local %}
   {% tab Basics %}
