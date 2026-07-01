@@ -51,6 +51,13 @@ class TestSpatialDirectionals:
         v = spatial_violations_for('This selection returns items below the threshold.\n')
         assert v == []
 
+    def test_flags_spatial_above_when_threshold_phrase_is_separate(self):
+        v = spatial_violations_for(
+            'values above the threshold; see the table above\n'
+        )
+        assert len(v) == 1
+        assert 'above' in v[0]['message']
+
     def test_allows_left_to_right(self):
         v = spatial_violations_for(
             'Body alignment can follow left-to-right text on each line.\n'
