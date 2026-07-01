@@ -84,9 +84,9 @@ jobs:
             --method POST \
             -f ref="${HEAD_SHA}" \
             -f environment="Vercel preview (docs bot)" \
-            -f auto_merge=false \
-            -f transient_environment=true \
-            -f production_environment=false \
+            -F auto_merge=false \
+            -F transient_environment=true \
+            -F production_environment=false \
             -f "required_contexts[]=" \
             --jq '.id')"
 
