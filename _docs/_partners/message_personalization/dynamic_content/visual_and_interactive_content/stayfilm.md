@@ -68,7 +68,7 @@ Create a test user profile to use while you build and validate the integration. 
 
 1. Go to **Audience** > **Import Users**.
 2. Select **Quick User Add**.
-3. Enter an `external_id` and any other required fields, then click **Create new user**.
+3. Enter an `external_id` and any other required fields, then select **Create new user**.
 
 {% alert important %}
 Do not use personal data—such as email, phone number, full name, government ID, address, or order details—as an `external_id`. Treat `external_id` as case-sensitive throughout this integration.
@@ -224,7 +224,7 @@ Replace *`{CLIENT_ID}`*, *`{CLIENT_SECRET_URL_ENCODED}`*, and *`{SCOPE_URL_ENCOD
 {% endraw %}
 
 {: start="8"}
-8. Click **Save Draft**.
+8. Select **Save Draft**.
 
 {% alert note %}
 If you leave the campaigns page and return, set **Status** to **All** to find campaigns that are still in **Draft**.
@@ -234,7 +234,7 @@ If you leave the campaigns page and return, set **Status** to **All** to find ca
 
 1. From the webhook composer, select the **Test** tab.
 2. Under **Preview message as user**, select **Select existing user**, then search for your test user (for example, `stayfilm-poc-001`).
-3. Click **Send test**.
+3. Select **Send test**.
 
 A successful response returns HTTP status `201` with a JSON body similar to the following:
 
@@ -315,7 +315,7 @@ Your browser does not support HTML5 video.
 {% endraw %}
 
 {: start="8"}
-8. Click **Save Draft**.
+8. Select **Save Draft**.
 9. Select the **Test** tab.
 10. Under **Preview message as user**, select **Select existing user**, then search for your test user's `external_id`.
 
