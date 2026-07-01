@@ -114,9 +114,8 @@ SPATIAL_LEFT_RIGHT_RE = re.compile(
 
 # Phrases allowed on the same line as an above/below match (comparison or typography)
 _SPATIAL_ALLOWLIST_RES: tuple = (
-    re.compile(r'below\s+the\s+input(?:\s+field)?', re.IGNORECASE),
     re.compile(
-        r'above\s+the\s+(?:entered\s+)?(?:number|threshold|value|limit)',
+        r'(?:above|below)\s+the\s+(?:entered\s+)?(?:number|threshold|value|limit|input(?:\s+field)?)',
         re.IGNORECASE,
     ),
     re.compile(r'left-to-right|right-to-left', re.IGNORECASE),
