@@ -107,8 +107,33 @@ _TRAILING_PUNCT_RE = re.compile(r'[.,;:!?]+$')
 
 # WCAG 1.3.3 — layout-referencing spatial language (not numeric comparisons)
 SPATIAL_ABOVE_BELOW_RE = re.compile(r'\b(above|below)\b', re.IGNORECASE)
+
+# Multi-word patterns only — never match bare "left" or "right" alone.
+# Bare words produce too many false positives ("right users", "right approach",
+# "float:right" in inline styles, "left" as past tense of "leave", etc.).
+# A spatial UI reference almost always has a qualifying prefix or suffix.
+_SPATIAL_NOT_RIGHT_LEFT_NOUNS = (
+    # "right" / "left" meaning "correct" or "remaining", not a UI position.
+    # Add to this list when new false-positive noun patterns are confirmed in docs.
+    r'user|users|person|people|customer|customers|audience|audiences'
+    r'|message|messages|content|data|format|type|approach|way|tool|tools'
+    r'|channel|channels|segment|segments|campaign|campaigns|template|templates'
+    r'|method|strategy|option|options|choice|choices|decision|decisions'
+    r'|time|timing|place|partner|partners|team|teams|vendor|vendors'
+)
+
 SPATIAL_LEFT_RIGHT_RE = re.compile(
-    r'\b(?:to the |on the |from the )?(?:left|right)(?:\s+of|\s+side)?\b',
+    r'\b(?:'
+    # Prefix-anchored: "to/on/from the left/right", but NOT followed by a non-positional noun
+    # (e.g. "to the right users", "on the right channel" = "correct", not a UI position).
+    r'(?:to|on|from)\s+the\s+(?:left|right)(?!\s+(?:' + _SPATIAL_NOT_RIGHT_LEFT_NOUNS + r')\b)'
+    # Suffix-anchored: "left/right [side|panel|column|corner|sidebar|toolbar|bar|menu|nav|hand|of]"
+    r'|(?:left|right)\s+(?:of\b|side\b|panel\b|column\b|corner\b|sidebar\b|toolbar\b|bar\b|menu\b|nav\b|hand\b)'
+    # Compound: "left/right-hand side"
+    r'|(?:left|right)[\s-]hand\s+side'
+    # Cardinal qualifier: "upper/lower/top/bottom left/right" (with or without hyphen)
+    r'|(?:upper|lower|top|bottom)[\s-](?:left|right)'
+    r')\b',
     re.IGNORECASE,
 )
 
@@ -357,15 +382,15 @@ def _spatial_match_allowlisted(line: str, start: int, end: int) -> bool:
 
 
 def _left_right_spatial_matches(line: str) -> list:
-    """Return left/right layout matches, excluding hyphenated direction terms."""
-    matches = []
-    for m in SPATIAL_LEFT_RIGHT_RE.finditer(line):
-        if m.start() > 0 and line[m.start() - 1] == '-':
-            continue
-        if m.end() < len(line) and line[m.end()] == '-':
-            continue
-        matches.append(m)
-    return matches
+    """Return left/right layout matches.
+
+    The regex already requires a qualifying prefix or suffix, so bare words
+    like "right users", "right approach", and CSS tokens like "float:right" or
+    "margin-left" never reach this function. Hyphen-adjacency filtering is not
+    needed here; it was previously suppressing true positives such as
+    "top-left corner" and "bottom-right of the panel".
+    """
+    return list(SPATIAL_LEFT_RIGHT_RE.finditer(line))
 
 
 def check_spatial_directionals(lines: list, skip: list, path: str) -> list:
