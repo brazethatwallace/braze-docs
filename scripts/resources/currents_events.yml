@@ -562,6 +562,11 @@ event_documentation:
     api_tags:
       - Canvas
       - Progression
+  users.canvas.costep.Send:
+    api_tags:
+      - Canvas
+      - Content Optimizer
+      - Sends
   users.campaigns.EnrollInControl:
     description: This event occurs when a user is enrolled in a control variant set on a multi-variant campaign. This event is generated as there will be no channel send event for this user.
     api_tags:
@@ -744,3 +749,9 @@ event_documentation:
     description: This represents the profile updates for a user.
     api_tags:
       - Profile
+  users.UserDeleteRequest:
+    api_tags:
+      - User Delete Request
+  users.UserOrphan:
+    api_tags:
+      - User Orphan

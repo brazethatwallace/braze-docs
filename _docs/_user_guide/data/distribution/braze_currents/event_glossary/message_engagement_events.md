@@ -200,7 +200,7 @@ This is the Kafka record schema for when a tool is executed. A tool is a functio
   "id" : "(required, string) Globally unique ID for this event",
   "invocation_source" : "(optional, string) which ruby object invoked the LLM request",
   "is_error" : "(required, boolean) whether or not this request errored out",
-  "request_id" : "(optional, string) Unique id for this overall LLM request and complete execution",
+  "request_id" : "(optional, string) Unique ID for this overall LLM request and complete execution",
   "time" : "(required, long) unix timestamp at which this event is logged",
   "tool_arguments" : "(required, string) JSON of the tool arguments",
   "tool_call_id" : "(required, string) globally unique id for this tool call",
@@ -222,13 +222,69 @@ This is the Kafka record schema for when a tool is executed. A tool is a functio
     "duration" : "(required, int) How long the tool invocation took in milliseconds",
     "invocation_source" : "(optional, string) which ruby object invoked the LLM request",
     "is_error" : "(required, boolean) whether or not this request errored out",
-    "request_id" : "(optional, string) Unique id for this overall LLM request and complete execution",
+    "request_id" : "(optional, string) Unique ID for this overall LLM request and complete execution",
     "tool_arguments" : "(required, string) JSON of the tool arguments",
     "tool_call_id" : "(required, string) globally unique id for this tool call",
     "tool_name" : "(required, string) Name of the Tool"
   },
   "time" : "(required, long) unix timestamp at which this event is logged",
   "user" : { }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+{% endapi %}
+
+{% api %}
+## User Delete Request events {#user-delete-request-events}
+
+{% apitags %}
+User Delete Request
+{% endapitags %}
+
+when a user is deleted by customer request
+
+{% tabs %}
+{% tab Cloud Storage %}
+```json
+// users.UserDeleteRequest
+
+{
+  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "id" : "(required, string) Globally unique ID for this event",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+{% endapi %}
+
+{% api %}
+## User Orphan events {#user-orphan-events}
+
+{% apitags %}
+User Orphan
+{% endapitags %}
+
+when a user is orphaned, meaning the user is merged with another user's profile
+
+{% tabs %}
+{% tab Cloud Storage %}
+```json
+// users.UserOrphan
+
+{
+  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "app_id" : "(optional, string) API ID of the app on which this event occurred",
+  "device_id" : "(optional, string) ID of the device on which the event occurred",
+  "external_user_id" : "(optional, string) [PII] External ID of the user",
+  "id" : "(required, string) Globally unique ID for this event",
+  "orphaned_by_id" : "(required, string) BSON ID of the user whose profile was merged with the orphaned user's profile",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -1672,6 +1728,173 @@ This event occurs when a user enters into the Canvas. This event tells you which
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "in_control_group" : "(required, boolean) Whether the user was enrolled in the control group"
+  },
+  "timestamp" : "(required, int) UNIX timestamp at which the event happened",
+  "type" : "track",
+  "userId" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+{% endapi %}
+
+{% api %}
+## Canvas Content Optimizer Step Send events {#canvas-content-optimizer-step-send-events}
+
+{% apitags %}
+Canvas, Content Optimizer, Sends
+{% endapitags %}
+
+The canvas sends for content optimization canvas step
+
+{% tabs %}
+{% tab Cloud Storage %}
+```json
+// users.canvas.costep.Send
+
+{
+  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+  "channel" : "(optional, string) Channel this event belongs to",
+  "combination_token" : "(required, string) Component combination assigned",
+  "content_optimizer_step_id" : "(required, string) CO step internal ID",
+  "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+  "external_user_id" : "(optional, string) [PII] External ID of the user",
+  "id" : "(required, string) Globally unique ID for this event",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+}
+```
+{% endtab %}
+
+{% tab Amplitude %}
+```json
+// Canvas Content Optimizer Step Send (users.canvas.costep.Send)
+
+{
+  "event_properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "braze_user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "channel" : "(optional, string) Channel this event belongs to",
+    "combination_token" : "(required, string) Component combination assigned",
+    "content_optimizer_step_id" : "(required, string) CO step internal ID",
+    "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to"
+  },
+  "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
+  "insert_id" : "(required, string) Globally unique ID for this event",
+  "library" : "Braze",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
+
+{% tab Custom HTTP Connector %}
+```json
+// users.canvas.costep.Send
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "channel" : "(optional, string) Channel this event belongs to",
+    "combination_token" : "(required, string) Component combination assigned",
+    "content_optimizer_step_id" : "(required, string) CO step internal ID",
+    "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
+{% tab Mixpanel %}
+```json
+// Canvas Content Optimizer Step Send (users.canvas.costep.Send)
+
+{
+  "event" : "(required, string) The event type name, as it is exported to Mixpanel",
+  "properties" : {
+    "$partner_id" : "braze",
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "channel" : "(optional, string) Channel this event belongs to",
+    "combination_token" : "(required, string) Component combination assigned",
+    "content_optimizer_step_id" : "(required, string) CO step internal ID",
+    "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "distinct_id" : "(required, string) [PII] External ID of the user",
+    "$insert_id" : "(required, string) Globally unique ID for this event",
+    "time" : "(required, int) UNIX timestamp at which the event happened",
+    "token" : "(required, string) The Mixpanel API token",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
+{% tab mParticle %}
+```json
+// Canvas Content Optimizer Step Sends (users.canvas.costep.Send)
+
+{
+  "device_info" : { },
+  "environment" : "(required, string) The mParticle environment (either 'development' or 'production')",
+  "events" : [
+    {
+      "data" : {
+        "custom_attributes" : {
+          "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+          "channel" : "(optional, string) Channel this event belongs to",
+          "combination_token" : "(required, string) Component combination assigned",
+          "content_optimizer_step_id" : "(required, string) CO step internal ID",
+          "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+          "source_request_id" : "(required, string) Globally unique ID for this event",
+          "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+        },
+        "custom_event_type" : "(required, string) The mParticle custom event type if the event_type is 'custom_event' (always 'other')",
+        "event_name" : "(required, string) The event type name, as it is exported to mParticle",
+        "source_message_id" : "(required, string) Globally unique ID for this event",
+        "timestamp_unixtime_ms" : "(required, int) UNIX timestamp at which the event happened"
+      },
+      "event_type" : "(required, string) mParticle event type (either 'uninstall' or 'custom_event')"
+    }
+  ],
+  "schema_version" : 2,
+  "user_attributes" : { },
+  "user_identities" : {
+    "customerid" : "(required, string) [PII] External ID of the user"
+  }
+}
+```
+{% endtab %}
+
+{% tab Segment %}
+```json
+// Canvas Content Optimizer Step Sent (users.canvas.costep.Send)
+
+{
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "context" : {
+    "device" : { },
+    "traits" : { }
+  },
+  "event" : "(required, string) The event type name, as it is exported to Segment",
+  "messageId" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "channel" : "(optional, string) Channel this event belongs to",
+    "combination_token" : "(required, string) Component combination assigned",
+    "content_optimizer_step_id" : "(required, string) CO step internal ID",
+    "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to"
   },
   "timestamp" : "(required, int) UNIX timestamp at which the event happened",
   "type" : "track",
@@ -12183,6 +12406,7 @@ This event is created when an RCS send is interrupted due to an error detected w
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
+  "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
   "canvas_name" : "(optional, string) Name of the Canvas",
   "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
   "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
@@ -12211,6 +12435,7 @@ This event is created when an RCS send is interrupted due to an error detected w
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12242,6 +12467,7 @@ This event is created when an RCS send is interrupted due to an error detected w
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12273,6 +12499,7 @@ This event is created when an RCS send is interrupted due to an error detected w
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12306,6 +12533,7 @@ This event is created when an RCS send is interrupted due to an error detected w
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
+          "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
           "canvas_name" : "(optional, string) Name of the Canvas",
           "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
           "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12351,6 +12579,7 @@ This event is created when an RCS send is interrupted due to an error detected w
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12394,6 +12623,7 @@ An event that is created when the user interacts with an RCS message in a way th
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
+  "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
   "canvas_name" : "(optional, string) Name of the Canvas",
   "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
   "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
@@ -12432,6 +12662,7 @@ An event that is created when the user interacts with an RCS message in a way th
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12471,6 +12702,7 @@ An event that is created when the user interacts with an RCS message in a way th
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12511,6 +12743,7 @@ An event that is created when the user interacts with an RCS message in a way th
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12555,6 +12788,7 @@ An event that is created when the user interacts with an RCS message in a way th
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
+          "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
           "canvas_name" : "(optional, string) Name of the Canvas",
           "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
           "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12611,6 +12845,7 @@ An event that is created when the user interacts with an RCS message in a way th
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12657,6 +12892,7 @@ This event is created when an RCS message is successfully delivered to a user's 
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
+  "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
   "canvas_name" : "(optional, string) Name of the Canvas",
   "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
   "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
@@ -12689,6 +12925,7 @@ This event is created when an RCS message is successfully delivered to a user's 
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12722,6 +12959,7 @@ This event is created when an RCS message is successfully delivered to a user's 
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12756,6 +12994,7 @@ This event is created when an RCS message is successfully delivered to a user's 
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12794,6 +13033,7 @@ This event is created when an RCS message is successfully delivered to a user's 
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
+          "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
           "canvas_name" : "(optional, string) Name of the Canvas",
           "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
           "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12845,6 +13085,7 @@ This event is created when an RCS message is successfully delivered to a user's 
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12891,6 +13132,7 @@ This event is created when Braze receives an RCS message that originates from th
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
+  "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
   "canvas_name" : "(optional, string) Name of the Canvas",
   "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
   "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
@@ -12923,6 +13165,7 @@ This event is created when Braze receives an RCS message that originates from th
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12958,6 +13201,7 @@ This event is created when Braze receives an RCS message that originates from th
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -12975,7 +13219,7 @@ This event is created when Braze receives an RCS message that originates from th
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user" : {
     "external_user_id" : "(optional, string) [PII] External ID of the user",
-    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+    "user_id" : "(optional, string) [PII] Braze user ID of the user who performed this event"
   }
 }
 ```
@@ -12993,6 +13237,7 @@ This event is created when Braze receives an RCS message that originates from th
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13030,6 +13275,7 @@ This event is created when Braze receives an RCS message that originates from th
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
+          "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
           "canvas_name" : "(optional, string) Name of the Canvas",
           "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
           "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13081,6 +13327,7 @@ This event is created when Braze receives an RCS message that originates from th
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13122,6 +13369,7 @@ This event is created when a user opens an RCS message on their device, indicati
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
+  "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
   "canvas_name" : "(optional, string) Name of the Canvas",
   "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
   "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
@@ -13148,6 +13396,7 @@ This event is created when a user opens an RCS message on their device, indicati
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13177,6 +13426,7 @@ This event is created when a user opens an RCS message on their device, indicati
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13206,6 +13456,7 @@ This event is created when a user opens an RCS message on their device, indicati
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13237,6 +13488,7 @@ This event is created when a user opens an RCS message on their device, indicati
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
+          "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
           "canvas_name" : "(optional, string) Name of the Canvas",
           "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
           "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13283,6 +13535,7 @@ This event is created when a user opens an RCS message on their device, indicati
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13319,6 +13572,7 @@ An event that is created when an RCS message fails to be delivered to a user's m
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
+  "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
   "canvas_name" : "(optional, string) Name of the Canvas",
   "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
   "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
@@ -13354,6 +13608,7 @@ An event that is created when an RCS message fails to be delivered to a user's m
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13390,6 +13645,7 @@ An event that is created when an RCS message fails to be delivered to a user's m
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13427,6 +13683,7 @@ An event that is created when an RCS message fails to be delivered to a user's m
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13468,6 +13725,7 @@ An event that is created when an RCS message fails to be delivered to a user's m
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
+          "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
           "canvas_name" : "(optional, string) Name of the Canvas",
           "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
           "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13522,6 +13780,7 @@ An event that is created when an RCS message fails to be delivered to a user's m
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13566,6 +13825,7 @@ This event is created when an RCS message is sent out of Braze to our last-mile 
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
+  "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
   "canvas_name" : "(optional, string) Name of the Canvas",
   "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
   "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
@@ -13600,6 +13860,7 @@ This event is created when an RCS message is sent out of Braze to our last-mile 
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13635,6 +13896,7 @@ This event is created when an RCS message is sent out of Braze to our last-mile 
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13671,6 +13933,7 @@ This event is created when an RCS message is sent out of Braze to our last-mile 
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13711,6 +13974,7 @@ This event is created when an RCS message is sent out of Braze to our last-mile 
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
+          "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
           "canvas_name" : "(optional, string) Name of the Canvas",
           "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
           "canvas_step_name" : "(optional, string) Name of the Canvas step",
@@ -13764,6 +14028,7 @@ This event is created when an RCS message is sent out of Braze to our last-mile 
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
     "canvas_name" : "(optional, string) Name of the Canvas",
     "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
