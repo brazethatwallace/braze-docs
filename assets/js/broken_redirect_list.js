@@ -18,10 +18,7 @@ validurls['/docs/ko/user_guide/personalization_and_dynamic_content/liquid/tutori
 validurls['/docs/ko/user_guide/personalization_and_dynamic_content/liquid/supported_personalization_tags'] = '/docs/ko/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags';
 validurls['/docs/pt-br/user_guide/personalization_and_dynamic_content/liquid/supported_personalization_tags'] = '/docs/pt-br/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags';
 validurls['/docs/ko/user_guide/personalization_and_dynamic_content/liquid/conditional_logic'] = '/docs/ko/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic';
-validurls['/docs/ko/user_guide/onboarding_faq'] = '/docs/ko/user_guide/onboarding_faq';
-validurls['/docs/pt-br/user_guide/onboarding_faq'] = '/docs/pt-br/user_guide/onboarding_faq';
 validurls['/docs/ja/user_guide/administer/global/user_management/permissions/granular_permissions_migration'] = '/docs/ja/user_guide/administer/global/user_management/permissions';
-validurls['/docs/ja/user_guide/onboarding_faq'] = '/docs/ja/user_guide/onboarding_faq';
 validurls['/docs/ja/user_guide/introduction'] = '/docs/ja/user_guide/home';
 validurls['/docs/ja/user_guide/getting_started/b2b_use_cases/b2b_data_models'] = '/docs/ja/user_guide/get_started/b2b_use_cases/b2b_data_models';
 validurls['/docs/ja/user_guide/channels/in_app_messages/customize/color_profiles_and_css_templates'] = '/docs/ja/user_guide/messaging/templates/in_app_message_templates/in_app_message_template';
@@ -68,8 +65,6 @@ validurls['/docs/es/user_guide/personalization_and_dynamic_content/connected_con
 validurls['/docs/es/user_guide/personalization_and_dynamic_content/connected_content/public_apis'] = '/docs/es/user_guide/messaging/design_and_edit/personalize/connected_content/public_apis';
 validurls['/docs/fr/user_guide/personalization_and_dynamic_content/connected_content/public_apis'] = '/docs/fr/user_guide/messaging/design_and_edit/personalize/connected_content/public_apis';
 validurls['/docs/es/user_guide/personalization_and_dynamic_content/connected_content/connected_content_retries'] = '/docs/es/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries';
-validurls['/docs/es/user_guide/onboarding_faq'] = '/docs/es/user_guide/onboarding_faq';
-validurls['/docs/fr/user_guide/onboarding_faq'] = '/docs/fr/user_guide/onboarding_faq';
 validurls['/docs/es/user_guide/message_building_by_channel/banners/custom_code'] = '/docs/es/user_guide/channels/banners/custom_code';
 validurls['/docs/ko/user_guide/message_building_by_channel/banners/create'] = '/docs/ko/user_guide/channels/banners/create_a_banner';
 validurls['/docs/ko/user_guide/message_building_by_channel/whatsapp'] = '/docs/ko/user_guide/channels/whatsapp';
@@ -759,7 +754,6 @@ validurls['/docs/partners/isv_partners/currents_integration'] = '/docs/user_guid
 
 validurls['/docs/whatsapp_response_messaging'] = '/docs/user_guide/channels/whatsapp/message_processing/messaging_users';
 validurls['/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign_analytics/click_tracking'] = '/docs/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking';
-validurls['/docs/user_guide/onboarding_faq'] = '/docs/user_guide/onboarding_faq';
 validurls['/docs/user_guide/message_building_by_channel/kakaotalk'] = '/docs/user_guide/channels/kakaotalk';
 validurls['/docs/user_guide/message_building_by_channel/kakaotalk/create_kakaotalk_message'] = '/docs/user_guide/channels/kakaotalk/create_kakaotalk_message';
 validurls['/docs/user_guide/message_building_by_channel/kakaotalk/kakaotalk_click_tracking'] = '/docs/user_guide/channels/kakaotalk/kakaotalk_click_tracking';
@@ -3165,13 +3159,10 @@ validurls['/docs/partners/data_and_infrastructure_agility/data_warehouses/snowfl
 validurls['/docs/partners/data_and_infrastructure_agility/data_warehouses/snowflake/data_retention'] = '/docs/partners/data_and_analytics/data_warehouses/snowflake/data_retention';
 validurls['/docs/partners/data_and_infrastructure_agility/data_warehouses/snowflake/entity_relationships'] = '/docs/partners/data_and_analytics/data_warehouses/snowflake/entity_relationships';
 validurls['/docs/user_guide/partners/data_and_analytics/data_warehouses/snowflake/entity_relationships'] = '/docs/partners/data_and_analytics/data_warehouses/snowflake/entity_relationships';
-validurls['/docs/ja/partners/data_and_analytics/customer_data_platform/mparticle/mparticle'] = '/docs/ja/partners/data_and_analytics/customer_data_platform/mparticle/mparticle';
-validurls['/docs/pt-br/partners/data_and_analytics/customer_data_platform/mparticle/mparticle'] = '/docs/pt-br/partners/data_and_analytics/customer_data_platform/mparticle/mparticle';
 validurls['/docs/ja/partners/tinyclues'] = '/docs/ja/partners/data_and_analytics/cohort_import/splio';
 validurls['/docs/ja/partners/message_orchestration/additional_channels/retargeting/facebook'] = '/docs/ja/partners/message_orchestration/retargeting/facebook';
 validurls['/docs/ja/partners/message_orchestration/attribution/appsflyer/appsflyer'] = '/docs/ja/partners/message_orchestration/deeplinking/appsflyer/appsflyer';
 validurls['/docs/ja/partners/data_and_analytics/customer_data_platform/simondata'] = '/docs/ja/partners/data_and_analytics/customer_data_platform/simonai';
-validurls['/docs/ja/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents'] = '/docs/ja/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents';
 validurls['/docs/partners/data_and_infrastructure_agility/data_warehouses/snowflake/etl_pipline_setup'] = '/docs/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup';
 validurls['/docs/partners/data_and_infrastructure_agility/data_warehouses/snowflake/faqs'] = '/docs/partners/data_and_analytics/data_warehouses/snowflake/faqs';
 validurls['/docs/partners/data_and_infrastructure_agility/data_warehouses/snowflake/sample_queries'] = '/docs/partners/data_and_analytics/data_warehouses/snowflake/sample_queries';
