@@ -12,7 +12,7 @@ search_tag: Partner
 
 > [Microsoft Foundry](https://azure.microsoft.com/en-us/products/ai-foundry) is a unified Azure platform-as-a-service offering for enterprise AI operations, model builders, and application development.
 
-{% multi_lang_include early_access_beta_alert.md feature='The Microsoft Foundry integration' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The Microsoft Foundry integration' %}
 
 ## About the integration
 
