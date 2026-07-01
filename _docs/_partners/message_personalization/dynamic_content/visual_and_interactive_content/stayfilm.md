@@ -96,7 +96,7 @@ if (!brazeExternalId) {
 
 const idJob = payload.IdJob || null;
 const producedFiles = payload.ProducedFiles || {};
-const videoUrl = producedFiles.Videos.VideoMP4.Url;
+const videoUrl = producedFiles?.Videos?.VideoMP4?.Url || null;
 const errorMessage = payload.ErrorMessage || null;
 const hasError = payload.HasError === true || Boolean(errorMessage);
 const isReady = !hasError && Boolean(videoUrl);
