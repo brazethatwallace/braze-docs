@@ -293,12 +293,37 @@ $(document).ready(function() {
 
   }
   //var nav_bottom_height = $('#nav_bottom').height();
+  var backToTopThreshold = 300;
+  var $backToTopBtn = $('.back-to-top-btn');
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function setBackToTopVisible(isVisible) {
+    if (!$backToTopBtn.length) {
+      return;
+    }
+    $backToTopBtn.toggleClass('is-visible', isVisible);
+    $backToTopBtn.attr('tabindex', isVisible ? '0' : '-1');
+    $('body').toggleClass('btt-visible', isVisible);
+  }
+
   var scrollHandler = function() {
-    var query_str = window.location.search;
     var y_cord = $(this).scrollTop();
+    setBackToTopVisible(y_cord > backToTopThreshold);
   };
   scrollHandler();
   $(window).scroll(scrollHandler);
+
+  $backToTopBtn.on('click', function() {
+    var contentStart = document.getElementById('content_start');
+    if (!contentStart) {
+      return;
+    }
+    contentStart.scrollIntoView({
+      behavior: prefersReducedMotion ? 'auto' : 'smooth',
+      block: 'start'
+    });
+    contentStart.focus({ preventScroll: true });
+  });
 
   // See if sdk tabs should be changed based on url hash
   let location_hash = window.location.hash.slice(1).replace(/[^a-zA-Z0-9_-]+/g, '');
