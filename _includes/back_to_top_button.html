@@ -1,0 +1,74 @@
+<style>
+.back-to-top-btn {
+  position: fixed !important;
+  right: 1.5rem !important;
+  bottom: 1.5rem !important;
+  left: auto !important;
+  z-index: 450;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid #dddde2;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #801ED7;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+.back-to-top-btn.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.back-to-top-btn:hover {
+  background-color: #801ED7;
+  color: #fff;
+  border-color: #801ED7;
+}
+.back-to-top-btn:focus:not(:focus-visible) {
+  outline: none;
+}
+.back-to-top-btn:focus-visible {
+  outline: 2px solid #801ED7;
+  outline-offset: 2px;
+  border-radius: 2px;
+  z-index: 500;
+}
+@media print {
+  .back-to-top-btn {
+    display: none !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top-btn {
+    transition: none;
+  }
+}
+
+/*
+ * Nudge Content Cards FAB and OneTrust banner upward when the back-to-top
+ * button is visible so they don't overlap it. Applied only via .btt-visible
+ * on <body>, toggled by documents.js.
+ *
+ * Button sits at bottom: 1.5rem (~24px); height: 44px → top edge at ~68px.
+ * FAB/OneTrust move to bottom: 90px (22px gap above button top edge).
+ * Mobile FAB is 35px tall so the same 90px bottom gives adequate clearance.
+ */
+body.btt-visible a#cc_prompt,
+body.btt-visible #onetrust-banner-sdk {
+  bottom: 90px !important;
+  transition: bottom 0.2s ease-in-out;
+}
+</style>
+{%- assign back_to_top_label = site.data.i18n[site.language].back_to_top | default: 'Back to top' -%}
+<button type="button" class="back-to-top-btn" title="{{ back_to_top_label }}" tabindex="-1">
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  <span class="sr-only">{{ back_to_top_label }}</span>
+</button>
