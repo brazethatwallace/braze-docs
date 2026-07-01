@@ -81,3 +81,99 @@ class TestSpatialDirectionals:
     def test_uses_section_name_fix_hint(self):
         v = spatial_violations_for('Use the table below.\n')
         assert 'section heading' in v[0]['fix_hint']
+
+    # ------------------------------------------------------------------
+    # False-positive guard: "right" / "left" meaning "correct" or other
+    # non-directional uses that the old bare-word regex incorrectly flagged
+    # ------------------------------------------------------------------
+
+    def test_allows_right_users(self):
+        """'right users' means 'correct users', not a spatial reference."""
+        v = spatial_violations_for('Make sure you target the right users.\n')
+        assert v == []
+
+    def test_allows_right_approach(self):
+        v = spatial_violations_for('Choose the right approach for your use case.\n')
+        assert v == []
+
+    def test_allows_right_api_key(self):
+        v = spatial_violations_for('Verify the SDK is configured with the right API key and endpoint.\n')
+        assert v == []
+
+    def test_allows_right_message_right_person(self):
+        v = spatial_violations_for(
+            'Send the right message to the right person at the right time.\n'
+        )
+        assert v == []
+
+    def test_allows_right_now(self):
+        v = spatial_violations_for('Refresh the page right now to apply changes.\n')
+        assert v == []
+
+    def test_allows_css_float_right(self):
+        """'float:right' in an inline style attribute is CSS, not a spatial instruction."""
+        v = spatial_violations_for(
+            '{: style="float:right;max-width:30%;margin-left:15px;"}\n'
+        )
+        assert v == []
+
+    def test_allows_margin_left_css(self):
+        v = spatial_violations_for(
+            '![SDK overview]({% image_buster /assets/img/sdk_overview.png %})'
+            '{: style="max-width:40%;float:right;margin-left:15px;"}\n'
+        )
+        assert v == []
+
+    def test_allows_left_as_past_tense(self):
+        """'left' as past tense of 'leave' (e.g. cart abandonment) is not directional."""
+        v = spatial_violations_for(
+            'Users who abandoned their cart and left the cart value at more than $50.\n'
+        )
+        assert v == []
+
+    def test_allows_right_to_left_text_direction(self):
+        v = spatial_violations_for(
+            'For right-to-left languages, use the RTL configuration option.\n'
+        )
+        assert v == []
+
+    # ------------------------------------------------------------------
+    # True-positive coverage: spatial UI references that must still flag
+    # ------------------------------------------------------------------
+
+    def test_flags_right_side(self):
+        v = spatial_violations_for('Select the option on the right side of the screen.\n')
+        assert len(v) == 1
+
+    def test_flags_left_panel(self):
+        v = spatial_violations_for('In the left panel, select Settings.\n')
+        assert len(v) == 1
+
+    def test_flags_left_sidebar(self):
+        v = spatial_violations_for('Click the icon in the left sidebar.\n')
+        assert len(v) == 1
+
+    def test_flags_upper_right(self):
+        v = spatial_violations_for('Click the icon in the upper right corner.\n')
+        assert len(v) == 1
+
+    def test_flags_top_left_hyphenated(self):
+        """Hyphenated 'top-left' is a UI position reference and must be flagged."""
+        v = spatial_violations_for("Click the icon at the top-left of the panel.\n")
+        assert len(v) == 1
+
+    def test_flags_top_right_of(self):
+        v = spatial_violations_for('Select the indicator at the top right of the app.\n')
+        assert len(v) == 1
+
+    def test_flags_bottom_left(self):
+        v = spatial_violations_for('The button appears at the bottom-left of the modal.\n')
+        assert len(v) == 1
+
+    def test_flags_left_of(self):
+        v = spatial_violations_for('Select the icon to the left of the title.\n')
+        assert len(v) == 1
+
+    def test_flags_right_hand_side(self):
+        v = spatial_violations_for('The settings appear on the right-hand side.\n')
+        assert len(v) == 1
