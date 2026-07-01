@@ -26,12 +26,12 @@ channel: email
 
 ## Standard investigation path
 
-1. Confirm your tracking subdomain CNAME points to your **CDN**, not your email service provider (ESP). Run `dig CNAME link_tracking_subdomain` and check the `ANSWER SECTION`.
-2. Confirm your **SSL certificate** is valid and bound to the tracking domain.
-3. Send a test email using the [click tracking troubleshooting template](#click-tracking-issues). Compare tracked vs. untracked URLs.
-4. If tracked links fail with 403, review **CDN and WAF** rules (user agents, query strings, redirect patterns).
+1. Confirm your click-tracking subdomain points to your [content delivery network (CDN)]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it)—not directly to your email service provider (SendGrid, SparkPost, or Amazon SES). Ask your IT or web team to verify your domain settings match your Braze setup. For Braze requirements, see [Acquire an SSL certificate]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate).
+2. Confirm your SSL certificate is active for the tracking domain. Ask your IT or web team to confirm the certificate is current and covers your click-tracking subdomain. For setup steps and CDN-specific guides, see [Acquire an SSL certificate]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) and [Additional resources]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
+3. Send a test email using the [click tracking troubleshooting template](#click-tracking-issues). Compare tracked versus untracked URLs.
+4. If tracked links fail with 403, review CDN and WAF rules (user agents, query strings, redirect patterns).
 5. If setup is complete but links remain HTTP, contact your Braze customer success manager to confirm Braze enabled SSL.
-6. For persistent issues, coordinate with your CDN or IT team and contact [Braze Support]({{site.baseurl}}/braze_support) with error codes and `dig` output.
+6. For persistent issues, coordinate with your CDN or IT team and contact [Braze Support]({{site.baseurl}}/braze_support) with error codes and any details from your CDN or domain provider.
 
 ## Key concepts
 
@@ -46,9 +46,9 @@ If you're suddenly experiencing low email open rates, confirm that the SSL certi
 
 ## HTTP 403 on redirect links {#http-403-on-redirect-links}
 
-**Symptom:** Tracked email links return **403 Forbidden**.
+**Symptom:** Tracked email links return "403 Forbidden".
 
-If tracked redirect links return **403 Forbidden**, the failure often occurs at your content delivery network (CDN) or web application firewall (WAF)—for example, rules on AWS WAF or Amazon CloudFront that block certain user agents, query strings, or redirect patterns. Review blocked-request logs and metrics with your CDN or cloud provider. For AWS, see [Troubleshooting issues with CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html).
+If tracked redirect links return "403 Forbidden", the failure often occurs at your content delivery network (CDN) or web application firewall (WAF)—for example, rules on AWS WAF or Amazon CloudFront that block certain user agents, query strings, or redirect patterns. Review blocked-request logs and metrics with your CDN or cloud provider. For AWS, see [Troubleshooting issues with CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html).
 
 To see whether the problem is specific to click tracking, turn off click tracking for one test link (see [Turning off click-tracking on a link-to-link basis]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)). If the destination URL loads when click tracking is off but returns 403 when tracking is on, focus on configuration for your click-tracking domain, CDN, and WAF.
 
