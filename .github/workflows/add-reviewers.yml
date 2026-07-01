@@ -206,9 +206,8 @@ jobs:
           PR="${{ github.event.pull_request.number }}"
           REPO="${{ github.repository }}"
 
-          if gh pr view "$PR" --repo "$REPO" --json reviewRequests \
-            --jq '.reviewRequests[] | select(.__typename == "Team") | .slug' \
-            | grep -qx 'braze-inc/docs-team'; then
+          if gh api "repos/${REPO}/pulls/${PR}/requested_reviewers" \
+            --jq '.teams[].slug' | grep -qx 'docs-team'; then
             echo "docs-team already requested"
             exit 0
           fi
