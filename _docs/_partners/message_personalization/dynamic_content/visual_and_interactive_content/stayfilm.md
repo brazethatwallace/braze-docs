@@ -60,13 +60,13 @@ The transformation also records custom events named `stayfilm_video_ready` or `s
 
 ## Integration
 
-The following steps walk you through a proof of concept. After you validate the flow, adapt the job payload, attributes, and messaging to your use case.
+The following steps walk through a proof of concept. After you validate the flow, adapt the job payload, attributes, and messaging to your use case.
 
 ### Step 1: Create a test user
 
 Create a test user profile to use while you build and validate the integration. For more information, see [Import users]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/).
 
-1. Go to **Audience** > **Import Users**.
+1. Go to the **Import Users** page under **Audience**.
 2. Select **Quick User Add**.
 3. Enter an `external_id` and any other required fields, then select **Create new user**.
 
@@ -177,7 +177,7 @@ Before you test the campaign, confirm Stayfilm has configured your project with 
 2. Select **Create campaign** > **Webhook**.
 3. Enter a campaign name, such as `Stayfilm Webhook Integration`.
 4. Select **Compose webhook** > **Start from scratch**.
-5. Under **Compose Webhook** > **Webhook URL**, enter the Stayfilm `POST /Job` endpoint URL provided by Stayfilm (for example, `https://{BASE_URL}/stg/v3/job`).
+5. Under **Compose Webhook** > **Webhook URL**, enter the Stayfilm `POST /Job` endpoint URL provided by Stayfilm. Replace *`{BASE_URL}`* in the following example: `https://{BASE_URL}/stg/v3/job`
 6. Set **HTTP method** to **POST**.
 7. Under **Request Body**, select **Raw Text**, then paste the job payload Stayfilm provides. You can use [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/) to make the body dynamic.
 
@@ -209,7 +209,7 @@ Add the following request headers:
 | `Authorization` | OAuth bearer token retrieved through Connected Content (see the following example) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Request headers" }
 
-Replace *`{CLIENT_ID}`*, *`{CLIENT_SECRET_URL_ENCODED}`*, and *`{SCOPE_URL_ENCODED}`* with the URL-encoded values Stayfilm provides. For OAuth requirements, see the [Stayfilm API documentation](https://apidoc.stayfilm.com).
+In the following Connected Content block, replace *`{CLIENT_ID}`*, *`{CLIENT_SECRET_URL_ENCODED}`*, and *`{SCOPE_URL_ENCODED}`* with the URL-encoded values Stayfilm provides. For OAuth requirements, see the [Stayfilm API documentation](https://apidoc.stayfilm.com).
 
 {% raw %}
 ```
