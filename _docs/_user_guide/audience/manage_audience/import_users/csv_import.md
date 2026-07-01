@@ -291,7 +291,7 @@ To upload your file, select **Attributes** or **Events**, click **Browse Files**
 
 For large files (up to 500 MB for default attributes and custom attributes, or 50 MB for custom events), the dashboard may appear temporarily unresponsive while the file uploads and Braze calculates the import. These uploads and calculations can take longer to complete than they do for smaller files. Let this step complete. For more context on file limits and timing, see [Constructing your CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import#constructing-your-csv).
 
-In most workspaces, the import name uses the uploaded file name and can’t be edited during upload. If your workspace shows an **Import name** field in the upload modal, you can rename your import before you start it.
+Before you upload your CSV file, rename it to the import name you want to see in Braze. You can’t edit the import name after upload.
 
 {% alert note %}
 The file preview shows only the first few rows of your file. To check every row before importing, use [file validation](#file-validation).
