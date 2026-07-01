@@ -70,8 +70,11 @@ jobs:
           # failure. VERCEL_ORG_ID and VERCEL_PROJECT_ID env vars scope the
           # deploy, so no --scope flag is needed.
           set +e
+          # --archive=tgz uploads a single tarball; the repo has >15000 files,
+          # which exceeds Vercel's per-deploy file-count limit otherwise.
           deploy_output="$(vercel deploy \
             --token "${VERCEL_TOKEN}" \
+            --archive=tgz \
             --yes \
             --meta "githubCommitSha=${HEAD_SHA}" \
             --meta "githubCommitRef=${HEAD_REF}" \
