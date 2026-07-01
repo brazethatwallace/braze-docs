@@ -155,7 +155,7 @@ Entry controls determine if users are allowed to re-enter a Canvas. You can also
 - **Action-Based:** Hourly, daily, or the lifetime of the Canvas
 - **API-Triggered:** Hourly, daily, or the lifetime of the Canvas
 
-For example, if you have an scheduled Canvas and select **Limit entrance volume** and set the **Maximum entries** field to 500,000 users with **Every time Canvas is scheduled** as the limit cadence, then the Canvas only sends to 500,000 users per scheduled send.
+For example, if you have a scheduled Canvas and select **Limit entrance volume** and set the **Maximum entries** field to 500,000 users with **Every time Canvas is scheduled** as the limit cadence, then the Canvas only sends to 500,000 users per scheduled send.
 
 ![The "Entry Controls" page displaying checkboxes for "Allow users to re-enter Canvas" and "Limit entrance volume".]({% image_buster /assets/img_archive/entry_controls.png %})
 
