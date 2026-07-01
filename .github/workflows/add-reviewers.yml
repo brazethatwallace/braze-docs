@@ -28,17 +28,16 @@ jobs:
             console.log('PR Body:', prBody);
             
             let reviewersToAdd = [];
-            let teamsToAdd = [];
             const labels = (pr.labels || []).map(l => l.name.toLowerCase());
             const legalTeam = 'ats-91';
             let scanIncomplete = false;
-            
-            // Rule 1: Deploy PRs — docs-team is added in a follow-up step (needs GH_TOKEN;
-            // GITHUB_TOKEN cannot resolve the closed docs-team for team_reviewers).
-            if (labels.includes('deploy')) {
+            const isDeployPR = labels.includes('deploy');
+
+            // Deploy PRs: docs-team is added in the follow-up step (needs GH_TOKEN).
+            if (isDeployPR) {
               console.log('Deploy PR - docs-team will be added in follow-up step');
             } else {
-            // Rule 2: If PR diff contains privacy/legal/GDPR keywords, add legal team
+            // If PR diff contains privacy/legal/GDPR keywords, add legal reviewer
             let diff = '';
 
             try {
@@ -143,37 +142,25 @@ jobs:
             });
             
             const existingReviewers = currentReviewers.users.map(u => u.login);
-            const existingTeams = currentReviewers.teams.map(t => t.slug);
             
             console.log('Existing reviewers:', existingReviewers);
-            console.log('Existing teams:', existingTeams);
             
-            // Filter out already-added reviewers and teams
             reviewersToAdd = reviewersToAdd.filter(r => !existingReviewers.includes(r));
-            teamsToAdd = teamsToAdd.filter(t => !existingTeams.includes(t));
             
             console.log('Reviewers to add:', reviewersToAdd);
-            console.log('Teams to add:', teamsToAdd);
             
-            // Add reviewers if any
-            if (reviewersToAdd.length > 0 || teamsToAdd.length > 0) {
+            if (reviewersToAdd.length > 0) {
               try {
                 await github.rest.pulls.requestReviewers({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
                   pull_number: prNumber,
-                  reviewers: reviewersToAdd,
-                  team_reviewers: teamsToAdd
+                  reviewers: reviewersToAdd
                 });
                 
                 console.log('Successfully added reviewers');
                 
-                // Add a comment explaining why reviewers were added
                 let commentBody = '🤖 **Automated Reviewer Assignment**: I have automatically added reviewers based on the following:\n\n';
-                
-                if (teamsToAdd.includes('docs-team')) {
-                  commentBody += `- 📝 **@braze-inc/docs-team** - Deploy PR\n`;
-                }
                 
                 if (reviewersToAdd.includes(legalTeam)) {
                   const legalReason = scanIncomplete
@@ -198,7 +185,7 @@ jobs:
             }
 
       - name: Add docs-team reviewer for deploy PRs
-        if: contains(join(github.event.pull_request.labels.*.name, ','), 'Deploy')
+        if: contains(github.event.pull_request.labels.*.name, 'Deploy')
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
