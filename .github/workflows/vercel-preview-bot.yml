@@ -65,14 +65,19 @@ jobs:
           deployment_id="$(gh api "repos/${GITHUB_REPOSITORY}/deployments" \
             --input "${RUNNER_TEMP}/deployment.json" --jq '.id' || true)"
 
+          # The runner invokes this step as `bash -e`, so disable errexit
+          # around the deploy call to capture its exit code and output even on
+          # failure. VERCEL_ORG_ID and VERCEL_PROJECT_ID env vars scope the
+          # deploy, so no --scope flag is needed.
+          set +e
           deploy_output="$(vercel deploy \
             --token "${VERCEL_TOKEN}" \
-            --scope "${VERCEL_ORG_ID}" \
             --yes \
             --meta "githubCommitSha=${HEAD_SHA}" \
             --meta "githubCommitRef=${HEAD_REF}" \
             --meta "githubPr=${PR_NUMBER}" 2>&1)"
           deploy_exit_code=$?
+          set -e
 
           echo "${deploy_output}"
 
