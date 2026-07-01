@@ -653,7 +653,7 @@ func findActivityInstance<Attributes: ActivityAttributes>(
 
 Appleが提供するライブアクティビティ機能は、JavaScriptでは変換できない言語機能（Swift Concurrency、generics、SwiftUIなど）を使用しているため、ライブアクティビティ用のReact Native固有のJavaScriptコンビニエンスAPIは存在しません。
 
-#### BrazeはCampaignやCanvasステップとしてのライブアクティビティをサポートしていますか？ {#does-braze-support-live-activities-as-a-campaign-or-canvas-step}
+#### Brazeはキャンペーンやキャンバスステップとしてのライブアクティビティをサポートしていますか？ {#does-braze-support-live-activities-as-a-campaign-or-canvas-step}
 
 いいえ、現在サポートされていません。
 

@@ -20,7 +20,7 @@ La distribution entre les variantes n'est pas toujours uniforme. À chaque envoi
 De même, si vous souhaitez répartir plusieurs variantes de manière égale en utilisant des pourcentages entiers, assurez-vous que le nombre de variantes divise 100 de manière égale. Dans le cas contraire, certaines variantes auront un pourcentage d'utilisateurs plus élevé que d'autres. Par exemple, si votre campagne comporte sept variantes, il ne peut pas y avoir de distribution égale, car sept ne divise pas 100 en un nombre entier. Dans ce cas, vous auriez deux variantes à 15 % et cinq variantes à 14 %.
 
 {% alert tip %}
-Pour répartir les utilisateurs dans un Canvas, vous pouvez ajouter une [étape de l'arbre décisionnel]({{site.baseurl}}/decision_split/) et séparer les utilisateurs en fonction de leurs [numéros de compartiment aléatoires]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/).
+Pour répartir les utilisateurs dans un Canvas, vous pouvez ajouter une [étape de l'arbre décisionnel]({{site.baseurl}}/decision_split) et séparer les utilisateurs en fonction de leurs [numéros de compartiment aléatoires]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers).
 {% endalert %}
 
 ## Distribution des messages in-app {#in-app-message-distribution}

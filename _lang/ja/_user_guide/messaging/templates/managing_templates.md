@@ -26,7 +26,7 @@ tool:
 <br><br>
 
 {% alert note %}
-[コンテンツブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)テンプレートの場合、下書きコピーが作成されます。その他のすべてのテンプレートでは、新しい複製コピーが自動的に作成されます。
+[コンテンツブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)テンプレートの場合、下書きコピーが作成されます。その他のすべてのテンプレートでは、新しい複製コピーが自動的に作成されます。
 {% endalert %}
 
 {% endtab %}
@@ -60,5 +60,5 @@ tool:
 ![保存済みのドラッグ＆ドロップメールテンプレートセクション。2つのテンプレートが選択され、ツールバーにアーカイブオプションが表示されています。]({% image_buster /assets/img/archive_multiple_template.png %}){: style="max-width:60%;"}
 
 {% alert important %}
-アーカイブは現在、[リンクテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/#link-templates)では利用できません。
+アーカイブは現在、[リンクテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing#link-templates)では利用できません。
 {% endalert %}

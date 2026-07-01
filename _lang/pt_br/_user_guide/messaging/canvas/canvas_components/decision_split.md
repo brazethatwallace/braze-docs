@@ -23,7 +23,7 @@ Para criar uma divisão de decisão no seu fluxo de trabalho, adicione uma etapa
 
 ### Defina sua divisão {#define-your-split}
 
-Como você quer dividir seus usuários? Você pode usar [Segments]({{site.baseurl}}/user_guide/audience/segments/) e filtros para traçar a linha. Basicamente, você está criando uma consulta `true` ou `false` que avaliará seus usuários e os direcionará para uma etapa ou outra. Você deve usar pelo menos um Segment ou um filtro. Não é necessário usar ambos.
+Como você quer dividir seus usuários? Você pode usar [Segments]({{site.baseurl}}/user_guide/audience/segments) e filtros para traçar a linha. Basicamente, você está criando uma consulta `true` ou `false` que avaliará seus usuários e os direcionará para uma etapa ou outra. Você deve usar pelo menos um Segment ou um filtro. Não é necessário usar ambos.
 
 ![Uma etapa de Divisão de decisão com o filtro "Push em primeiro plano ativado é verdadeiro" selecionado.]({% image_buster /assets/img/define-split-2.png %})
 
@@ -50,4 +50,4 @@ Consulte a tabela a seguir para descrições da análise de dados desta etapa:
 | _Entrou_ | O número total de vezes que a etapa foi acessada. Se o seu Canvas tiver reelegibilidade e um usuário entrar em uma etapa de divisão de decisão duas vezes, duas entradas serão registradas. |
 | _Sim_ | O número de entradas que atenderam aos critérios especificados e seguiram pela jornada "sim". |
 | _Não_ | O número de entradas que não atenderam aos critérios especificados e seguiram pela jornada "não". |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Análise de dados" }

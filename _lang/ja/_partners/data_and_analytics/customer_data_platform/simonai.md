@@ -11,7 +11,7 @@ search_tag: Partner
 
 > [Simon AI][1]のエージェンティックマーケティングプラットフォームは、マーケティングチームが真の1対1パーソナライゼーションを実現するのを支援します。コンポーザブルCDPと、Snowflake AIデータクラウド上で直接動作するAIエージェントを組み合わせ、マーケターのデータおよび実行チームとして機能します。
 
-BrazeとSimon AIの統合を使用して、高度なオーディエンスを構築し、リアルタイムかつノーコードのオーケストレーションのためにBrazeに同期できます。この統合により、Simon AIのID解決、顧客データ統合、AI駆動のセグメンテーションを活用して、よりパーソナライズされた効果的なBrazeのCampaignsを下流で実行できます。
+BrazeとSimon AIの統合を使用して、高度なオーディエンスを構築し、リアルタイムかつノーコードのオーケストレーションのためにBrazeに同期できます。この統合により、Simon AIのID解決、顧客データ統合、AI駆動のセグメンテーションを活用して、よりパーソナライズされた効果的なBrazeのキャンペーンを下流で実行できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -26,7 +26,7 @@ BrazeとSimon AIの統合を使用して、高度なオーディエンスを構�
 
 ## ユースケース {#use-cases}
 
-- Braze Canvasまたはメールをトリガーする
+- Braze キャンバスまたはメールをトリガーする
 - セグメントプロパティを渡して維持する
 - トレイトとコンタクトプロパティを同期する
 
@@ -55,8 +55,8 @@ Simon AIでBrazeアカウントを認証した後、[フロー][4]と[ジャー�
 3つのアクションが利用可能です。
 
 - **Sync Simon segment attribute**：セグメントの詳細をBrazeの新規または既存のカスタム属性と同期します。
-- **Trigger a Braze Canvas**：Simon セグメントデータを活用するBraze Canvasをトリガーします。
-- **Send a Braze campaign**：SimonからBraze Campaign全体を起動します。
+- **Trigger a Braze キャンバス**：Simon セグメントデータを活用するBraze キャンバスをトリガーします。
+- **Send a Braze campaign**：SimonからBraze キャンペーン全体を起動します。
 
 ![Simon AIで利用可能なBrazeアクションのリストを表示するドロップダウン。][9]{: style="max-width:60%"}
 

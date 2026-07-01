@@ -19,12 +19,12 @@ Si un utilisateur inconnu consulte votre site puis, à une date ultérieure, cr�
 
 ## Capture des données utilisateur via un formulaire Web {#capturing-user-data-through-a-web-form}
 
-### Étape 1 : Vérifier si l'utilisateur existe {#step-1-check-if-user-exists}
+### Étape 1 : Vérifier si l'utilisateur existe {#step-1-check-if-the-user-exists}
 
 Lorsqu'un utilisateur saisit du contenu via un formulaire Web, vérifiez si un utilisateur avec cette adresse e-mail existe déjà dans votre base de données. Cela peut être fait de deux manières :
 
 - **Vérifiez la base de données interne (recommandé) :** Si vous disposez d'un enregistrement ou d'une base de données externe contenant les informations fournies par l'utilisateur et qui existe en dehors de Braze, faites-y référence au moment de l'envoi de l'e-mail ou de la création du compte pour confirmer que les informations n'ont pas déjà été saisies.
-- **[Endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) :** Utilisez `email` comme identifiant, et un nouveau profil utilisateur sera créé si l'adresse e-mail n'existe pas encore.
+- **[Endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) :** Utilisez `email` comme identifiant, et un nouveau profil utilisateur sera créé si l'adresse e-mail n'existe pas encore.
 
 ### Étape 2 : Enregistrer ou mettre à jour l'utilisateur {#step-2-log-or-update-user}
 
@@ -32,37 +32,37 @@ Lorsqu'un utilisateur saisit du contenu via un formulaire Web, vérifiez si un u
   - Ne créez pas de nouveau profil.
   - Enregistrez un attribut personnalisé (par exemple, `newsletter_subscribed: true`) sur le profil de l'utilisateur pour indiquer que l'utilisateur a envoyé son e-mail dans le cadre d'un abonnement à la lettre d'information. S'il existe plusieurs profils utilisateurs Braze avec la même adresse e-mail, tous les profils seront exportés.<br><br>
 - **Si un utilisateur n'existe pas :**
-  - Créez un profil avec alias uniquement via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). Cet endpoint acceptera un [objet `user_alias`]({{site.baseurl}}/api/objects_filters/user_alias_object/) et créera un profil avec alias uniquement lorsque `update_existing_only` est défini sur `false`. Définissez l'adresse e-mail de l'utilisateur comme alias utilisateur pour référencer cet utilisateur à l'avenir (car l'utilisateur n'aura pas d'`external_id`).
+  - Créez un profil avec alias uniquement via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Cet endpoint acceptera un [objet `user_alias`]({{site.baseurl}}/api/objects_filters/user_alias_object) et créera un profil avec alias uniquement lorsque `update_existing_only` est défini sur `false`. Définissez l'adresse e-mail de l'utilisateur comme alias utilisateur pour référencer cet utilisateur à l'avenir (car l'utilisateur n'aura pas d'`external_id`).
 
 ![Diagramme montrant le processus de mise à jour d'un profil utilisateur avec alias uniquement. Un utilisateur envoie son adresse e-mail et un attribut personnalisé, son code postal, sur une page de destination marketing. Une flèche pointant de la collecte sur la page de destination vers un profil utilisateur avec alias uniquement affiche une requête API Braze vers l'endpoint de suivi utilisateur, avec le corps de la requête contenant le nom d'alias de l'utilisateur, le libellé d'alias, l'e-mail et le code postal. Le profil porte le libellé « utilisateur avec alias uniquement créé dans Braze » avec les attributs du corps de la requête pour montrer les données reprises dans le profil nouvellement créé.]({% image_buster /assets/img/user_profile_process3.png %}){: style="max-width:90%;"}
 
 ## Capturer les e-mails des utilisateurs à l'aide d'un formulaire de capture d'e-mails {#capturing-user-emails-through-an-email-capture-form}
 
-Utilisez un formulaire de capture d'e-mail pour inviter les utilisateurs à communiquer leur adresse e-mail, qui sera ajoutée à leur profil utilisateur. Pour plus d'informations sur la mise en place de ce formulaire, consultez le [formulaire de capture d'e-mail]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/email_capture_form/).
+Utilisez un formulaire de capture d'e-mail pour inviter les utilisateurs à communiquer leur adresse e-mail, qui sera ajoutée à leur profil utilisateur. Pour plus d'informations sur la mise en place de ce formulaire, consultez le [formulaire de capture d'e-mail]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/email_capture_form).
 
 ## Identifier les utilisateurs avec alias uniquement {#identifying-alias-only-users}
 
-Lors de l'identification des utilisateurs à la création du compte, les utilisateurs avec alias uniquement peuvent être identifiés et se voir attribuer un ID externe via l'[endpoint `/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) en fusionnant l'utilisateur avec alias uniquement avec le profil connu.
+Lors de l'identification des utilisateurs à la création du compte, les utilisateurs avec alias uniquement peuvent être identifiés et se voir attribuer un ID externe via l'[endpoint `/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) en fusionnant l'utilisateur avec alias uniquement avec le profil connu.
 
 Pour vérifier si un utilisateur est avec alias uniquement, [vérifiez si l'utilisateur existe](#step-1-check-if-user-exists) dans votre base de données.
 - Si un enregistrement externe existe, vous pouvez appeler l'endpoint `/users/identify/`.
-- Si l'[endpoint `/users/export/id`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) renvoie un `external_id`, vous pouvez appeler l'endpoint `/users/identify/`.
+- Si l'[endpoint `/users/export/id`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) renvoie un `external_id`, vous pouvez appeler l'endpoint `/users/identify/`.
 - Si l'endpoint ne renvoie rien, l'appel à `/users/identify/` ne doit pas être effectué.
 
 ## Capturer les données de l'utilisateur lorsque des informations avec alias uniquement sont déjà présentes {#capturing-user-data-when-alias-only-user-information-is-already-present}
 
-Lorsqu'un utilisateur crée un compte ou s'identifie par le biais d'une inscription par e-mail, vous pouvez fusionner les profils. Pour obtenir la liste des champs qui peuvent être fusionnés, reportez-vous à la section [Comportement de fusion des mises à jour]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge_updates-behavior).
+Lorsqu'un utilisateur crée un compte ou s'identifie par le biais d'une inscription par e-mail, vous pouvez fusionner les profils. Pour obtenir la liste des champs qui peuvent être fusionnés, reportez-vous à la section [Comportement de fusion des mises à jour]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge_updates-behavior).
 
 ### Fusion de profils utilisateurs dupliqués {#merging-duplicate-user-profiles}
 
-Au fur et à mesure que vos données utilisateurs s'étoffent, vous pouvez fusionner les profils utilisateurs en double depuis le tableau de bord de Braze. Ces profils dupliqués doivent être trouvés à l'aide de la même requête de recherche. Pour plus d'informations sur la fusion de profils utilisateurs, consultez la rubrique [Fusionner les profils]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#merge-profiles).
+Au fur et à mesure que vos données utilisateurs s'étoffent, vous pouvez fusionner les profils utilisateurs en double depuis le tableau de bord de Braze. Ces profils dupliqués doivent être trouvés à l'aide de la même requête de recherche. Pour plus d'informations sur la fusion de profils utilisateurs, consultez la rubrique [Fusionner les profils]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#merge-profiles).
 
-Vous pouvez également utiliser l'[endpoint Fusionner les utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) pour fusionner un profil utilisateur dans un autre.
+Vous pouvez également utiliser l'[endpoint Fusionner les utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) pour fusionner un profil utilisateur dans un autre.
 
 {% alert note %}
 Une fois les profils utilisateurs fusionnés, cette action ne peut pas être annulée.
 {% endalert %}
 
 ## Ressources complémentaires {#additional-resources}
-- Consultez notre article sur le [cycle de vie du profil utilisateur]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/) de Braze pour plus de détails.<br>
-- Consultez notre documentation sur la définition des ID utilisateur et l'appel de la méthode `changeUser()` pour [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=android), [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#suggested-user-id-naming-convention) et le [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web).
+- Consultez notre article sur le [cycle de vie du profil utilisateur]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) de Braze pour plus de détails.<br>
+- Consultez notre documentation sur la définition des ID utilisateur et l'appel de la méthode `changeUser()` pour [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=android), [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids#suggested-user-id-naming-convention) et le [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web).

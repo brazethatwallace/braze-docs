@@ -31,7 +31,7 @@ Brazeには、疑わしいボットクリック（非人間インタラクショ
 - 総クリック率
 - ユニーククリック率
 - クリック開封率
-- コンバージョンレート（コンバージョンイベントとして「Campaignをクリック」が選択されている場合）
+- コンバージョンレート（コンバージョンイベントとして「キャンペーンをクリック」が選択されている場合）
 - ヒートマップ
 - 一部のセグメンテーションフィルター
 
@@ -43,7 +43,7 @@ Brazeには、疑わしいボットクリック（非人間インタラクショ
 - 実験ステップ
     - 勝者パス
     - パーソナライズドパス
-- Campaign
+- キャンペーン
     - 勝者バリアント
     - パーソナライズドバリアント
 - 推定実質開封率
@@ -54,11 +54,11 @@ Brazeには、疑わしいボットクリック（非人間インタラクショ
 
 以下の[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)は、メールメッセージのボットフィルタリングの影響を受ける可能性があります。
 
-- [タグ付きCampaignまたはCanvasをクリック/開封]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-opened-campaign-or-canvas-with-tag)
+- [タグ付きキャンペーンまたはキャンバスをクリック/開封]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-opened-campaign-or-canvas-with-tag)
 - [ステップをクリック/開封]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-opened-step)
-- [Campaign内のエイリアスをクリック]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-alias-in-campaign)
+- [キャンペーン内のエイリアスをクリック]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-alias-in-campaign)
 - [キャンバスステップ内のエイリアスをクリック]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-alias-in-canvas-step)
-- [任意のCampaignまたはキャンバスステップ内のエイリアスをクリック]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-alias-in-any-campaign-or-canvas-step)
+- [任意のキャンペーンまたはキャンバスステップ内のエイリアスをクリック]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-alias-in-any-campaign-or-canvas-step)
 - [最後にメッセージにエンゲージ]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#last-engaged-with-message)
 - [インテリジェントチャネル]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#intelligent-channel)
 
@@ -85,9 +85,9 @@ Brazeは、メールクリックイベントに対してCurrentsおよびSnowfla
 
 ## よくある質問 {#frequently-asked-questions}
 
-### ボットフィルタリングはCampaignのパフォーマンスにどのような影響を与えますか？ {#how-will-bot-filtering-impact-my-campaigns-performance}
+### ボットフィルタリングはキャンペーンのパフォーマンスにどのような影響を与えますか？ {#how-will-bot-filtering-impact-my-campaigns-performance}
 
-すでに送信済みの以前のCampaignの指標には影響しません。ワークスペースでボットフィルタリングがオンになると、Brazeはすべてのクリックから疑わしいボットクリックのフィルタリングを開始します。クリック率の低下に気づく場合がありますが、そのクリック率はユーザーのメールメッセージへのエンゲージメントをより正確に表しています。
+すでに送信済みの以前のキャンペーンの指標には影響しません。ワークスペースでボットフィルタリングがオンになると、Brazeはすべてのクリックから疑わしいボットクリックのフィルタリングを開始します。クリック率の低下に気づく場合がありますが、そのクリック率はユーザーのメールメッセージへのエンゲージメントをより正確に表しています。
 
 ### ボットフィルタリングは、Brazeの配信停止リンクをクリックしたボットによる配信停止を防止しますか？ {#will-bot-filtering-prevent-bots-clicking-on-the-braze-unsubscribe-link-from-unsubscribing}
 

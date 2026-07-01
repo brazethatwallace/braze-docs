@@ -15,7 +15,7 @@ Neste artigo, vamos apresentar um caso de uso para o modelo **Feature Adoption**
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este modelo com sucesso, você precisará de um [evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) que registre quando os usuários utilizaram a funcionalidade.
+Para usar este modelo com sucesso, você precisará de um [evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events) que registre quando os usuários utilizaram a funcionalidade.
 
 ## Adaptando o modelo às suas necessidades {#tailoring-the-template-to-your-needs}
 
@@ -110,5 +110,5 @@ Em seguida, vamos até a etapa de mensagem chamada **Feedback Survey** para incl
 Após testar e revisar nosso Canvas para garantir que ele funciona como esperado, selecione **Launch Canvas** para lançar o Canvas. Agora, podemos direcionar os usuários com uma jornada personalizada para incentivá-los a adotar nossa nova funcionalidade Cruise Control.
 
 {% alert tip %}
-Confira nossa [lista de verificação pré e pós-lançamento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) para saber o que considerar antes e depois de lançar um Canvas.
+Confira nossa [lista de verificação pré e pós-lançamento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) para saber o que considerar antes e depois de lançar um Canvas.
 {% endalert %}

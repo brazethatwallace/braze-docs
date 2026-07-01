@@ -14,7 +14,7 @@ description: "이 참조 문서에서는 Braze 데이터 변환을 사용하여 
 
 | 요구 사항 | 설명 |
 | --- | --- |
-| 2단계 인증 또는 SSO | 계정에 [2단계 인증]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#two-factor-authentication)(2FA) 또는 [싱글사인온]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#single-sign-on-sso-authentication)(SSO)을 활성화해야 합니다. |
+| 2단계 인증 또는 SSO | 계정에 [2단계 인증]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication)(2FA) 또는 [싱글사인온]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication)(SSO)을 활성화해야 합니다. |
 | 올바른 권한 | 계정 관리자 또는 워크스페이스 관리자이거나 "변환 관리" 사용자 권한이 있어야 합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
@@ -46,7 +46,7 @@ Typeform의 경우 다음과 같이 표시됩니다:
 ![웹훅을 Braze 사용자 프로필에 매핑하는 데이터 변환 코드 예시.]({% image_buster /assets/img/data_transformation/data_transformation11.png %})
 
 {% alert note %}
-Braze 데이터 변환은 웹훅에 대한 특별한 확인이나 인증이 필요한 외부 플랫폼을 아직 지원하지 않을 수 있습니다. Braze 데이터 변환에 이러한 유형의 플랫폼을 사용하는 데 관심이 있다면 [제품 피드백]({{site.baseurl}}/user_guide/administer/personal/product_portal/)을 남겨 주세요.
+Braze 데이터 변환은 웹훅에 대한 특별한 확인이나 인증이 필요한 외부 플랫폼을 아직 지원하지 않을 수 있습니다. Braze 데이터 변환에 이러한 유형의 플랫폼을 사용하는 데 관심이 있다면 [제품 피드백]({{site.baseurl}}/user_guide/administer/personal/product_portal)을 남겨 주세요.
 {% endalert %}
 
 ## 4단계: 변환 코드 작성 {#step-4-write-transformation-code}
@@ -56,7 +56,7 @@ JavaScript 코드에 대한 경험이 거의 없거나 더 자세한 지침을 �
 개발자이거나 JavaScript 코드에 대한 상당한 경험이 있는 경우 **고급 - POST: Track users** 탭에서 변환 코드 작성에 대한 개략적인 지침을 확인하세요.
 
 {% alert tip %}
-AI를 사용하여 변환 코드를 생성하려면 변환 코드 편집기 위에서 **Code with Operator**를 선택하세요. 이를 사용하려면 웹훅을 변환에 전송해야 합니다. 미리 구축된 템플릿으로 시작하려면 **Insert Template**을 선택하세요. 예시 프롬프트는 [데이터 변환 코드 생성]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-data-transformation-code)을 참조하세요.
+AI를 사용하여 변환 코드를 생성하려면 변환 코드 편집기 위에서 **Code with Operator**를 선택하세요. 이를 사용하려면 웹훅을 변환에 전송해야 합니다. 미리 구축된 템플릿으로 시작하려면 **Insert Template**을 선택하세요. 예시 프롬프트는 [데이터 변환 코드 생성]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code)을 참조하세요.
 
 **Code with Operator**는 계정에 Operator가 활성화된 경우에만 사용할 수 있습니다. 표시되지 않으면 계정 매니저에게 문의하세요.
 {% endalert %}
@@ -189,7 +189,7 @@ return brazecall;
 {:start="2"}
 2. `/catalogs` 대상에 대한 변환에는 업데이트할 특정 카탈로그를 정의하는 `catalog_name`이 필요합니다. 이 필드를 하드 코딩하거나 페이로드 라인을 통해 웹훅 필드로 템플릿화할 수 있습니다. 점 표기법을 사용하여 페이로드 오브젝트 속성에 액세스합니다.<br><br>
 3. 항목 배열의 `id` 필드를 사용하여 카탈로그에서 업데이트할 항목을 정의합니다. 이러한 필드를 하드 코딩하거나 페이로드 라인을 통해 웹훅 필드로 템플릿화할 수 있습니다.<br><br> `catalog_column`은 입력 안내 값입니다. 항목 오브젝트에는 카탈로그에 존재하는 필드만 포함되어 있는지 확인하세요.<br><br>
-4. **Validate**를 선택하여 코드 출력의 미리보기를 반환하고 [여러 카탈로그 항목 업데이트 엔드포인트]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/)에 대한 허용 가능한 요청인지 확인합니다.<br><br>
+4. **Validate**를 선택하여 코드 출력의 미리보기를 반환하고 [여러 카탈로그 항목 업데이트 엔드포인트]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items)에 대한 허용 가능한 요청인지 확인합니다.<br><br>
 5. 변환을 활성화합니다. 코드를 활성화하기 전에 추가 도움이 필요하면 Braze 계정 매니저에게 문의하세요.<br><br>
 6. 소스 플랫폼에 웹훅 전송을 시작하도록 설정되어 있는지 확인하세요. 수신되는 각 웹훅에 대해 변환 코드가 실행되고 카탈로그 항목이 업데이트되기 시작합니다.
 

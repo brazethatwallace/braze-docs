@@ -65,7 +65,7 @@ Il peut y avoir un temps de préchauffage de deux à cinq minutes lorsque Braze 
 
 ### Étape 1 : Configurer les tables ou les vues {#step-1-set-up-tables-or-views}
 
-Avant de commencer, consultez [Configuration des tables pour l'Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/) pour comprendre les exigences des tables sources par rapport aux exigences de formatage de `payload`.
+Avant de commencer, consultez [Configuration des tables pour l'Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup) pour comprendre les exigences des tables sources par rapport aux exigences de formatage de `payload`.
 
 {% alert note %}
 Votre table ou vue source peut inclure des colonnes qui ne sont pas répertoriées pour votre entrepôt dans les onglets ci-dessous (par exemple, des colonnes d'audit ou de hachage). Braze ne lit que les colonnes décrites dans ces onglets ; les autres colonnes ne sont pas utilisées lors des synchronisations d'Ingestion de données cloud.

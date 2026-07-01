@@ -16,7 +16,7 @@ description: "Esta página explica cómo usar el editor de arrastrar y soltar de
 
 ### Paso 1: Elige tu plantilla {#step-1-choose-your-template}
 
-Al crear un mensaje dentro de la aplicación de arrastrar y soltar, selecciona **Email sign-up with confirmation page** como tu plantilla y luego selecciona **Build message**. Esta plantilla es compatible tanto con aplicaciones móviles como con navegadores web.
+Al crear un mensaje dentro de la aplicación de arrastrar y soltar, selecciona **Registro de correo electrónico con página de confirmación** como tu plantilla y luego selecciona **Build message**. Esta plantilla es compatible tanto con aplicaciones móviles como con navegadores web.
 
 ![El editor de mensajes dentro de la aplicación con la plantilla para un formulario de registro de correo electrónico con página de confirmación.]({% image_buster /assets/img/drag_and_drop/templates/email_capture_confirmation.png %})
 
@@ -26,7 +26,7 @@ Al crear un mensaje dentro de la aplicación de arrastrar y soltar, selecciona *
 
 ### Paso 3: Personaliza tu componente de registro de correo electrónico {#step-3-customize-your-email-sign-up-component}
 
-Para empezar a crear tu formulario de registro de correo electrónico, selecciona el elemento de captura de correo electrónico en el editor. De forma predeterminada, las direcciones de correo electrónico recopiladas tendrán el grupo de suscripción global **Suscrito**. Para incluir usuarios en grupos de suscripción específicos, consulta [Actualización de los estados de suscripción de correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions/#updating-email-subscription-states).
+Para empezar a crear tu formulario de registro de correo electrónico, selecciona el elemento de captura de correo electrónico en el editor. De forma predeterminada, las direcciones de correo electrónico recopiladas tendrán el grupo de suscripción global **Suscrito**. Para incluir usuarios en grupos de suscripción específicos, consulta [Actualización de los estados de suscripción de correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions#updating-email-subscription-states).
 
 Puedes personalizar el texto del marcador de posición y el texto de la etiqueta del elemento de captura de correo electrónico.
 
@@ -42,7 +42,7 @@ Puedes personalizar el texto del marcador de posición y el texto de la etiqueta
 
 ### Paso 5: Dale estilo a tu mensaje {#step-5-style-your-message}
 
-Personaliza la apariencia de tu formulario de registro de correo electrónico y de la página de confirmación usando los [componentes de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) de arrastrar y soltar.
+Personaliza la apariencia de tu formulario de registro de correo electrónico y de la página de confirmación usando los [componentes de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) de arrastrar y soltar.
 
 ## Análisis de los resultados {#analyzing-the-results}
 

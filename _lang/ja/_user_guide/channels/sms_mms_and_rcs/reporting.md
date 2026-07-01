@@ -2,7 +2,7 @@
 nav_title: "レポート"
 article_title: "レポート"
 page_order: 21
-description: "このリファレンス記事では、Brazeで使用されるSMS、MMS、RCSの指標と、SMS、MMS、RCSのCampaignsでそれらを確認する方法について説明します。"
+description: "このリファレンス記事では、Brazeで使用されるSMS、MMS、RCSの指標と、SMS、MMS、RCSのキャンペーンでそれらを確認する方法について説明します。"
 alias: /sms_mms_rcs_reporting/
 page_type: reference
 tool:
@@ -16,7 +16,7 @@ channel:
 
 # SMS、MMS、RCSのレポート {#reporting-for-sms-mms-and-rcs}
 
-> このリファレンス記事では、Brazeで使用されるSMS、MMS、RCSの指標と、SMS、MMS、RCSのCampaignsでそれらを確認する方法について説明します。
+> このリファレンス記事では、Brazeで使用されるSMS、MMS、RCSの指標と、SMS、MMS、RCSのキャンペーンでそれらを確認する方法について説明します。
 
 {% multi_lang_include analytics/campaign_analytics.md channel="SMS" %}
 
@@ -50,7 +50,7 @@ AND action = 'Unsubscribed'
 AND (campaign_id IS NOT NULL OR canvas_id IS NOT NULL);
 ```
 
-これにより、指定されたワークスペースとサブスクリプショングループのSMS通信をオプトアウトしたユーザーが返されます。CampaignsまたはCanvasesに関連付けられたユーザーにフィルタリングされています。
+これにより、指定されたワークスペースとサブスクリプショングループのSMS通信をオプトアウトしたユーザーが返されます。キャンペーンまたはキャンバスに関連付けられたユーザーにフィルタリングされています。
 
 ### オプトアウトのタイミング {#opt-out-timing}
 
@@ -68,7 +68,7 @@ Currentsまたはデータウェアハウスにおけるキーワードおよび
 
 | 結果 | 定義 | Brazeによる課金 |
 |--------|------------|--------|
-| 送信済み | CampaignまたはCanvasステップが起動またはトリガーされ、SMSペイロードがSMSプロバイダーに送信されました。 | 課金なし |
+| 送信済み | キャンペーンまたはキャンバスステップが起動またはトリガーされ、SMSペイロードがSMSプロバイダーに送信されました。 | 課金なし |
 | 配信失敗 | SMSペイロードをSMSプロバイダーに送信できませんでした。これは、キューのオーバーフロー、アカウントの停止、またはメディアエラー（MMSの場合）が原因で発生する可能性があります。 | 課金なし |
 | 配信済み | SMSプロバイダーが上流キャリアから（利用可能な場合は送信先デバイスからも）メッセージ配信の確認を受信しました。 | 課金あり |
 | 拒否 | SMSプロバイダーが、メッセージが配信されなかったことを示す拒否レシートを受信しました。これは、キャリアのコンテンツフィルタリングや送信先デバイスの利用可否など、いくつかの理由で発生する可能性があります。 | 課金あり |

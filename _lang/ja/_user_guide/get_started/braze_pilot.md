@@ -29,7 +29,7 @@ Braze Pilotの中核は、アプリシミュレーションのライブラリー
 
 ### Steppington
 
-Steppingtonは、ワークアウトや運動目標、そしてSteppington+プレミアムサービスを備えたフィットネスアプリです。[Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/)を表示する複数の場所を提供し、[フィーチャーフラグ]({{site.baseurl}}/developer_guide/feature_flags/)で表示可能なセクションを備え、さらに豊富なカスタムイベントロギングのライブラリーにより、この業界におけるさまざまなカスタマージャーニーを可視化できます。
+Steppingtonは、ワークアウトや運動目標、そしてSteppington+プレミアムサービスを備えたフィットネスアプリです。[Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)を表示する複数の場所を提供し、[フィーチャーフラグ]({{site.baseurl}}/developer_guide/feature_flags)で表示可能なセクションを備え、さらに豊富なカスタムイベントロギングのライブラリーにより、この業界におけるさまざまなカスタマージャーニーを可視化できます。
 
 ![Steppingtonのホームページには、マラソントレーニング、ヨガ、サイクリング、ウェイトトレーニングのアイコンがあります。]({% image_buster /assets/img/braze_pilot/steppington_app.png %}){:style="max-width:50%"}
 
@@ -66,7 +66,7 @@ PilotがBrazeダッシュボードに接続された後、アプリ内のBraze S
 - セッションデータ、デバイス情報、プッシュトークンを自動的に収集します。
 - SDK統合が必要なプッシュ通知、In-App Messages、Content Cardsのメッセージングチャネルを動作させます。
 
-Braze SDKの詳細については、[統合]({{site.baseurl}}/user_guide/get_started/integrations/)をご確認ください。
+Braze SDKの詳細については、[統合]({{site.baseurl}}/user_guide/get_started/integrations)をご確認ください。
 
 ![Brazeのカスタマーエンゲージメントスタックは、データ取り込み、分類、オーケストレーション、パーソナライゼーション、アクションのための統合、API、SDKを含み、顧客との双方向フィードバックループを実現するメッセージングチャネルを備えています。]({% image_buster /assets/img/braze_pilot/braze_sdk_diagram.png %}){:style="max-width:70%"}
 
@@ -76,7 +76,7 @@ Brazeに送信されるすべてのデータは、アプリやWebサイトの特
 
 ### 匿名 {#anonymous}
 
-この接続ステータスは、まだログインしていないアプリやWebサイトのゲストの体験を表しています。Pilotを匿名ユーザーとして初期化すると、Brazeは[匿名ユーザープロファイル]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users/)を作成し、そのプロファイルにアクティビティデータを記録します。匿名ユーザーもCampaignsのターゲットにすることはできますが、Brazeダッシュボードで直接そのユーザープロファイルを検索することはできません。
+この接続ステータスは、まだログインしていないアプリやWebサイトのゲストの体験を表しています。Pilotを匿名ユーザーとして初期化すると、Brazeは[匿名ユーザープロファイル]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users)を作成し、そのプロファイルにアクティビティデータを記録します。匿名ユーザーもキャンペーンのターゲットにすることはできますが、Brazeダッシュボードで直接そのユーザープロファイルを検索することはできません。
 
 ### 識別済み {#identified}
 
@@ -104,15 +104,15 @@ Brazeに送信されるすべてのデータは、アプリやWebサイトの特
 {% endtab %}
 {% endtabs %}
 
-## CampaignsとCanvases {#campaigns-and-canvases}
+## キャンペーンとキャンバス {#campaigns-and-canvases}
 
-CampaignsとCanvasesは、ユーザーにメッセージを送信する手段です。
+キャンペーンとキャンバスは、ユーザーにメッセージを送信する手段です。
 
-- Campaignsは、さまざまなチャネルにわたって特定のオーディエンスセグメントに送信する単一のメッセージに最適です。
-- Canvasesは、複数のチャネルにわたってパーソナライズされたカスタマージャーニーを自動化およびオーケストレーションできる高度なワークフローです。Canvas内では、分岐ロジック、遅延、決定ポイント、コンバージョンイベントを設定して、一連のインタラクションを通じて顧客を導くことができます。Canvasesは、異なるタッチポイント間で一貫性のあるシームレスなコミュニケーションを確保し、カスタマーエンゲージメントとコンバージョンの可能性を高めます。
+- キャンペーンは、さまざまなチャネルにわたって特定のオーディエンスセグメントに送信する単一のメッセージに最適です。
+- キャンバスは、複数のチャネルにわたってパーソナライズされたカスタマージャーニーを自動化およびオーケストレーションできる高度なワークフローです。キャンバス内では、分岐ロジック、遅延、決定ポイント、コンバージョンイベントを設定して、一連のインタラクションを通じて顧客を導くことができます。キャンバスは、異なるタッチポイント間で一貫性のあるシームレスなコミュニケーションを確保し、カスタマーエンゲージメントとコンバージョンの可能性を高めます。
 
 ## サポートされているメッセージングチャネル {#supported-messaging-channels}
 
-Braze Pilotは現在、[アプリ内メッセージ]({{site.baseurl}}/in-app_messages/)をサポートしています。アプリ内メッセージはアプリ内に表示され、ユーザーが積極的にエンゲージメントを行っている最中にタイムリーなメッセージを届けます。
+Braze Pilotは現在、[アプリ内メッセージ]({{site.baseurl}}/in-app_messages)をサポートしています。アプリ内メッセージはアプリ内に表示され、ユーザーが積極的にエンゲージメントを行っている最中にタイムリーなメッセージを届けます。
 
 ![MovieCanonアプリのアプリ内メッセージ「MovieCanonを楽しんでいますか？友達を紹介しよう！」と表示され、紹介メールを送るためのメールアドレス入力欄があります。]({% image_buster /assets/img/braze_pilot/moviecanon_iam.png %}){:style="max-width:40%"}

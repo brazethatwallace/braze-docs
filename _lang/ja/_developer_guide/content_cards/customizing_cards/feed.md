@@ -447,7 +447,7 @@ Content Cardsはアプリ内でフィルタリングして特定のカードの�
 
 ### ステップ1:カードにキーと値のペアを設定する {#step-1-set-key-value-pairs-on-cards}
 
-Content Cards Campaignを作成する際に、各カードに[キーと値のペアデータ]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior)を設定します。このキーと値のペアを使用してカードを分類します。キーと値のペアは、カードのデータモデルの`extras`プロパティに保存されます。
+Content Cards キャンペーンを作成する際に、各カードに[キーと値のペアデータ]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior)を設定します。このキーと値のペアを使用してカードを分類します。キーと値のペアは、カードのデータモデルの`extras`プロパティに保存されます。
 
 この例では、カードが表示されるContent Cardsフィードを指定するキー`feed_type`を使用してキーと値のペアを設定します。値は、`home_screen`や`marketing`など、カスタムフィードに応じた任意の値になります。
 

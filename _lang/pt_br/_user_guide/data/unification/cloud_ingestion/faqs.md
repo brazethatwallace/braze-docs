@@ -17,7 +17,7 @@ Esse tipo de e-mail geralmente significa que há um problema com a configuraçã
 
 ### O CDI não consegue acessar o data warehouse ou a tabela usando suas credenciais {#cdi-cant-access-the-data-warehouse-or-table-using-your-credentials}
 
-Isso pode significar que as credenciais no CDI estão incorretas ou mal configuradas no data warehouse. Para saber mais, consulte [Integrações de data warehouse]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
+Isso pode significar que as credenciais no CDI estão incorretas ou mal configuradas no data warehouse. Para saber mais, consulte [Integrações de data warehouse]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 ### A tabela não pode ser encontrada {#the-table-cannot-be-found}
 
@@ -41,7 +41,7 @@ A conexão de teste está sendo executada no seu data warehouse, portanto, aumen
 
 ### Erro ao conectar-se à instância do Snowflake: a solicitação de entrada com IP não tem permissão para acessar o Snowflake {#error-connecting-to-snowflake-instance-incoming-request-with-ip-is-not-allowed-to-access-snowflake}
 
-Tente adicionar os IPs oficiais da Braze à sua lista de permissões de IP. Para saber mais, consulte [Integrações de data warehouse]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/), ou permita os IPs relevantes:
+Tente adicionar os IPs oficiais da Braze à sua lista de permissões de IP. Para saber mais, consulte [Integrações de data warehouse]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations), ou permita os IPs relevantes:
 
 {% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
@@ -71,7 +71,7 @@ Se receber esse erro, verifique se o usuário está usando a chave pública atua
 
 A conexão de teste está sendo executada no seu data warehouse, portanto, aumentar a capacidade do data warehouse pode melhorar sua velocidade. O uso de uma instância de SQL sem servidor minimizará o tempo de aquecimento e melhorará a taxa de transferência da consulta, mas poderá resultar em custos de integração ligeiramente mais altos.
 
-### Permissão negada para a relação {table_name} {#permission-denied-for-relation-tablename}
+### Permissão negada para a relação {table_name} {#permission-denied-for-relation-table_name}
 
 Se você receber esse erro:
 
@@ -132,7 +132,7 @@ Se você receber esse erro, consulte [Databricks: Erro forbidden ao acessar dado
 
 Cada integração tem sua própria preferência de notificação. Acesse a página do CDI e selecione o nome da integração que deseja atualizar. Na seção **Preferências de notificação**, é possível atualizar a forma como você recebe alertas referentes à integração selecionada.
 
-## O que acontece se um `UPDATED_AT` futuro for sincronizado com uma integração? {#what-happens-if-a-future-updatedat-gets-synced-with-an-integration}
+## O que acontece se um `UPDATED_AT` futuro for sincronizado com uma integração? {#what-happens-if-a-future-updated_at-gets-synced-with-an-integration}
 
 O CDI usa `UPDATED_AT` para decidir quais dados são novos. Depois que um `UPDATED_AT` futuro for sincronizado, todos os dados anteriores a essa data e hora futuras não serão processados. Para corrigir isso:
 
@@ -142,7 +142,7 @@ O CDI usa `UPDATED_AT` para decidir quais dados são novos. Depois que um `UPDAT
 
 ## Por que "Rows Synced" não corresponde ao número no meu data warehouse? {#why-doesnt-rows-synced-match-the-number-in-my-warehouse}
 
-O CDI usa `UPDATED_AT` para decidir quais registros devem ser coletados durante uma sincronização. Dê uma olhada [nesta ilustração]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/#what-gets-synced) para ver como funciona. No início de uma execução de sincronização, o CDI consulta seu data warehouse para obter todos os registros com `UPDATED_AT` posterior ao valor `UPDATED_AT` processado anteriormente. Registros no timestamp exato do limite também podem ser ressincronizados se novas linhas compartilharem esse timestamp. Qualquer registro coletado no momento em que a consulta for executada será sincronizado com a Braze. Aqui estão os casos comuns em que um registro pode não ser sincronizado:
+O CDI usa `UPDATED_AT` para decidir quais registros devem ser coletados durante uma sincronização. Dê uma olhada [nesta ilustração]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion#what-gets-synced) para ver como funciona. No início de uma execução de sincronização, o CDI consulta seu data warehouse para obter todos os registros com `UPDATED_AT` posterior ao valor `UPDATED_AT` processado anteriormente. Registros no timestamp exato do limite também podem ser ressincronizados se novas linhas compartilharem esse timestamp. Qualquer registro coletado no momento em que a consulta for executada será sincronizado com a Braze. Aqui estão os casos comuns em que um registro pode não ser sincronizado:
 
 - Você está adicionando registros à tabela com um valor `UPDATED_AT` que já foi processado.
 - Você está atualizando os valores de registro depois que eles foram processados por uma sincronização, mas deixando `UPDATED_AT` inalterado.
@@ -152,11 +152,11 @@ O CDI usa `UPDATED_AT` para decidir quais registros devem ser coletados durante 
 Para evitar esses comportamentos no futuro, recomendamos usar valores `UPDATED_AT` que aumentem monotonicamente e não atualizar a tabela durante a execução da sincronização agendada.
 {% endalert %}
 
-## Preciso de valores `UPDATED_AT` majoritariamente distintos para importações grandes do CDI? {#do-i-need-mostly-distinct-updatedat-values-for-large-cdi-imports}
+## Preciso de valores `UPDATED_AT` majoritariamente distintos para importações grandes do CDI? {#do-i-need-mostly-distinct-updated_at-values-for-large-cdi-imports}
 
 Sim. Para execuções de alto volume (por exemplo, mais de aproximadamente 10 milhões de linhas), certifique-se de que seus dados de origem tenham valores `UPDATED_AT` majoritariamente distintos. Se muitas linhas compartilharem o mesmo timestamp, o CDI terá mais chances de resselecionar linhas nos timestamps de limite em execuções posteriores. Isso pode aumentar sincronizações duplicadas e o consumo de pontos de dados.
 
-Para saber mais sobre o comportamento de limite do CDI, consulte [Evitar ressincronização de linhas com timestamps duplicados]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps).
+Para saber mais sobre o comportamento de limite do CDI, consulte [Evitar ressincronização de linhas com timestamps duplicados]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
 
 ### Onde devo executar essas verificações SQL? {#where-do-i-run-these-sql-checks}
 
@@ -206,7 +206,7 @@ Se o seu data warehouse não suportar `LIMIT` (por exemplo, Fabric), use uma sin
 
 ## Por que uma sincronização do CDI com poucas linhas ainda pode levar vários minutos? {#why-can-a-cdi-sync-with-a-small-number-of-rows-still-take-several-minutes}
 
-Uma sincronização do CDI inclui um período fixo de inicialização antes que o processamento das linhas comece. Como esse tempo de inicialização é semelhante independentemente do tamanho da sincronização, uma sincronização pequena ainda pode levar vários minutos e parecer mais lenta em linhas por minuto. O tempo total de sincronização ainda depende da complexidade da consulta de origem, do formato dos dados e da capacidade disponível no seu data warehouse. Para saber mais, consulte [Integrações de data warehouse]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
+Uma sincronização do CDI inclui um período fixo de inicialização antes que o processamento das linhas comece. Como esse tempo de inicialização é semelhante independentemente do tamanho da sincronização, uma sincronização pequena ainda pode levar vários minutos e parecer mais lenta em linhas por minuto. O tempo total de sincronização ainda depende da complexidade da consulta de origem, do formato dos dados e da capacidade disponível no seu data warehouse. Para saber mais, consulte [Integrações de data warehouse]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 ## Durante uma sincronização, a ordem é preservada se vários registros tiverem o mesmo ID? {#during-a-sync-is-the-order-preserved-if-multiple-records-share-the-same-id}
 
@@ -234,4 +234,4 @@ A Braze tem as seguintes medidas em vigor para o CDI:
 Recomendamos que você e sua equipe configurem as seguintes medidas de segurança do seu lado:
 
 - Restrinja o acesso às credenciais ao mínimo necessário para o funcionamento do CDI. Isso porque precisamos ser capazes de executar select (e count) nas tabelas e visualizações específicas.
-- Restrinja os IPs que podem acessar as tabelas aos [IPs da Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views) publicados oficialmente.
+- Restrinja os IPs que podem acessar as tabelas aos [IPs da Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views) publicados oficialmente.

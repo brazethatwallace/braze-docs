@@ -69,7 +69,7 @@ Assim que a Braze receber dados da versão 2.0.0 do seu app, você poderá direc
 | Maior que 2.0.0 | 2.5.1 | O usuário e todas as futuras instalações estarão no Segment. |
 | Maior que 2.0.0 | 1.9.9 | O usuário não está no Segment. |
 | Menor ou igual a 2.0.0 | 3.0.1 | O usuário não está no Segment. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Caso de uso" }
 
 ### Nome da versão do app {#app-version-name}
 
@@ -81,8 +81,8 @@ Para Android, este nome de versão é baseado no [Package Version Name](https://
 
 ### Não usou o recurso {#have-not-used-feature}
 
-Quando você lança uma nova versão do app e introduz novos recursos, os usuários podem não perceber o novo conteúdo. Executar uma campanha de divulgação de recursos é uma ótima maneira de ensinar os usuários sobre novos recursos ou recursos que eles nunca usaram. Para isso, você deve criar um [atributo personalizado]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#custom-data) que é atribuído a usuários que nunca concluíram uma determinada ação dentro do seu app, ou usar um [evento personalizado]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#custom-data) para rastrear uma ação específica. Você pode usar esse atributo (ou evento) para segmentar os usuários para os quais deseja enviar a Campaign.
+Quando você lança uma nova versão do app e introduz novos recursos, os usuários podem não perceber o novo conteúdo. Executar uma campanha de divulgação de recursos é uma ótima maneira de ensinar os usuários sobre novos recursos ou recursos que eles nunca usaram. Para isso, você deve criar um [atributo personalizado]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#custom-data) que é atribuído a usuários que nunca concluíram uma determinada ação dentro do seu app, ou usar um [evento personalizado]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#custom-data) para rastrear uma ação específica. Você pode usar esse atributo (ou evento) para segmentar os usuários para os quais deseja enviar a Campaign.
 
 {% alert tip %}
-Quer redirecionar uma parte específica do seu público? Confira [Campanhas de redirecionamento]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/) para aprender como redirecionar Campaigns aproveitando as ações anteriores dos seus usuários.
+Quer redirecionar uma parte específica do seu público? Confira [Campanhas de redirecionamento]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns) para aprender como redirecionar Campaigns aproveitando as ações anteriores dos seus usuários.
 {% endalert %}

@@ -13,7 +13,7 @@ search_rank: 1
 
 # WhatsApp-Nachricht erstellen {#create-a-whatsapp-message}
 
-> WhatsApp-Kampagnen eignen sich hervorragend, um Ihre Kund:innen direkt zu erreichen und programmatisch mit ihnen zu kommunizieren. Sie können Liquid und andere dynamische Inhalte nutzen, um ein persönliches Erlebnis für Ihre Nutzer:innen zu schaffen und eine Umgebung zu fördern, die ein unaufdringliches Nutzererlebnis mit Ihrer Marke unterstützt und verbessert.
+> WhatsApp-Campaigns eignen sich hervorragend, um Ihre Kund:innen direkt zu erreichen und programmatisch mit ihnen zu kommunizieren. Sie können Liquid und andere dynamische Inhalte nutzen, um ein persönliches Erlebnis für Ihre Nutzer:innen zu schaffen und eine Umgebung zu fördern, die ein unaufdringliches Nutzererlebnis mit Ihrer Marke unterstützt und verbessert.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -27,10 +27,10 @@ Bevor Sie WhatsApp-Nachrichten erstellen können, müssen Sie die folgenden Punk
 ### 1. Schritt: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#step-1-choose-where-to-build-your-message}
 
 {% alert note %}
-WhatsApp erstellt unterschiedliche [Nachrichten-Templates](#template-messages) für jede Sprache. Erstellen Sie entweder eine Kampagne pro Sprache mit Segmentierung, um den Nutzer:innen das richtige Template zuzustellen, oder verwenden Sie Canvas.
+WhatsApp erstellt unterschiedliche [Nachrichten-Templates](#template-messages) für jede Sprache. Erstellen Sie entweder eine Campaign pro Sprache mit Segmentierung, um den Nutzer:innen das richtige Template zuzustellen, oder verwenden Sie Canvas.
 {% endalert %}
 
-Sind Sie unsicher, ob Ihre Nachricht über eine Kampagne oder ein Canvas gesendet werden sollte? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind.
+Sind Sie unsicher, ob Ihre Nachricht über eine Campaign oder ein Canvas gesendet werden sollte? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind.
 
 {% tabs %}
 {% tab Campaign %}
@@ -39,13 +39,13 @@ Sind Sie unsicher, ob Ihre Nachricht über eine Kampagne oder ein Canvas gesende
 
 1. Gehen Sie zur Seite **Campaigns** und klicken Sie auf <i class="fas fa-plus"></i> **Kampagne erstellen**.
 2. Wählen Sie **WhatsApp** oder, für Campaigns, die mehrere Kanäle ansprechen, **Multichannel Campaign**.
-3. Geben Sie Ihrer Kampagne einen klaren und aussagekräftigen Namen.
+3. Geben Sie Ihrer Campaign einen klaren und aussagekräftigen Namen.
 4. Fügen Sie nach Bedarf [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) und [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) hinzu.
    * Tags erleichtern das Auffinden Ihrer Campaigns und das Erstellen von Berichten. Wenn Sie beispielsweise den [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder) verwenden, können Sie nach bestimmten Tags filtern.
-5. Fügen Sie so viele Varianten hinzu und benennen Sie sie, wie Sie für Ihre Kampagne benötigen. Sie können für jede hinzugefügte Variante unterschiedliche Plattformen, Nachrichtentypen und Layouts wählen. Weitere Informationen zu diesem Thema finden Sie unter [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing).
+5. Fügen Sie so viele Varianten hinzu und benennen Sie sie, wie Sie für Ihre Campaign benötigen. Sie können für jede hinzugefügte Variante unterschiedliche Plattformen, Nachrichtentypen und Layouts wählen. Weitere Informationen zu diesem Thema finden Sie unter [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
-Wenn alle Nachrichten in Ihrer Kampagne ähnlich sind oder denselben Inhalt haben, verfassen Sie Ihre Nachricht, bevor Sie zusätzliche Varianten hinzufügen. Anschließend können Sie im Dropdown **Variante hinzufügen** die Option **Von Variante kopieren** wählen.
+Wenn alle Nachrichten in Ihrer Campaign ähnlich sind oder denselben Inhalt haben, verfassen Sie Ihre Nachricht, bevor Sie zusätzliche Varianten hinzufügen. Anschließend können Sie im Dropdown **Variante hinzufügen** die Option **Von Variante kopieren** wählen.
 {% endalert %}
 
 {% endtab %}
@@ -83,7 +83,7 @@ Deaktivierte Textfelder (grau hervorgehoben) können nicht bearbeitet werden, da
 
 #### Sprachen {#languages}
 
-Jedes Template hat eine zugewiesene Sprache, daher müssen Sie für jede Sprache eine Kampagne oder einen Canvas-Schritt erstellen, um die Nutzer:innen korrekt zuzuordnen. Wenn Sie beispielsweise ein Canvas erstellen, das Templates für Indonesisch und Englisch verwendet, müssen Sie einen Canvas-Schritt für das indonesische Template und einen Canvas-Schritt für das englische Template erstellen.
+Jedes Template hat eine zugewiesene Sprache, daher müssen Sie für jede Sprache eine Campaign oder einen Canvas-Schritt erstellen, um die Nutzer:innen korrekt zuzuordnen. Wenn Sie beispielsweise ein Canvas erstellen, das Templates für Indonesisch und Englisch verwendet, müssen Sie einen Canvas-Schritt für das indonesische Template und einen Canvas-Schritt für das englische Template erstellen.
 
 ![Liste von Templates mit Vorschauen ihrer Nachrichten, ihren zugewiesenen Sprachen und ihrem Genehmigungsstatus.]({% image_buster /assets/img/whatsapp/whatsapp_templates.png %}){: style="max-width:80%;"}
 
@@ -146,14 +146,14 @@ Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}
 
 Nach dem Senden einer Test-WhatsApp-Nachricht können Sie einen detaillierten Zustellungsbericht direkt im Nachrichten-Editor einsehen. So können Sie bestätigen, dass Ihre Nachricht die beabsichtigten Empfänger:innen erreicht hat, und Fehler vor dem Start beheben.
 
-Der Button **Testergebnisse anzeigen** wird angezeigt, wenn Testversanddaten für die aktuelle Kampagne oder den aktuellen Canvas-Schritt verfügbar sind. Wählen Sie ihn aus, um das Ergebnis-Panel zu öffnen.
+Der Button **Testergebnisse anzeigen** wird angezeigt, wenn Testversanddaten für die aktuelle Campaign oder den aktuellen Canvas-Schritt verfügbar sind. Wählen Sie ihn aus, um das Ergebnis-Panel zu öffnen.
 
 Das Ergebnis-Panel zeigt jede Phase, die Ihre Nachricht auf dem Weg zur Empfänger:in durchlaufen hat:
 - **Braze:** Ob Braze die Nachricht erfolgreich verarbeitet und versendet hat
 - **Meta:** Ob Meta die Nachricht zur Zustellung akzeptiert hat
 - **Nutzergerät:** Ob die Nachricht auf dem Gerät der Empfänger:in zugestellt wurde
 
-Jede Phase zeigt ihren aktuellen Status an. Wenn eine Phase fehlgeschlagen ist, zeigt das Panel den aufgetretenen Fehler und eine Anleitung zur Behebung an. Die Ergebnisse bleiben erhalten, wenn Sie dieselbe Kampagne oder dasselbe Canvas schließen und erneut öffnen.
+Jede Phase zeigt ihren aktuellen Status an. Wenn eine Phase fehlgeschlagen ist, zeigt das Panel den aufgetretenen Fehler und eine Anleitung zur Behebung an. Die Ergebnisse bleiben erhalten, wenn Sie dieselbe Campaign oder dasselbe Canvas schließen und erneut öffnen.
 
 ![Testergebnis-Panel mit zwei erfolgreichen Testversendungen und einer fehlgeschlagenen Testversendung.]({% image_buster /assets/img/whatsapp/whatsapp_test_results.png %}){: style="max-width:80%;"}
 
@@ -180,20 +180,20 @@ Wenn eine Phase einen Fehler anzeigt, zeigt das Panel den Fehler und empfohlene 
 
 Bei anhaltenden Problemen überprüfen Sie den Template-Status im Meta Business Manager oder stellen Sie sicher, dass Ihre:Ihr Testempfänger:in die erforderlichen Nutzerattribute in Braze hinterlegt hat.
 
-### 5. Schritt: Erstellen Sie den Rest Ihrer Kampagne oder Ihres Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
+### 5. Schritt: Erstellen Sie den Rest Ihrer Campaign oder Ihres Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 
-Erstellen Sie als Nächstes den Rest Ihrer Kampagne. In den folgenden Abschnitten finden Sie weitere Details zur optimalen Nutzung unserer Tools zum Erstellen von WhatsApp-Nachrichten.
+Erstellen Sie als Nächstes den Rest Ihrer Campaign. In den folgenden Abschnitten finden Sie weitere Details zur optimalen Nutzung unserer Tools zum Erstellen von WhatsApp-Nachrichten.
 
 #### Wählen Sie einen Zustellungszeitplan oder Trigger {#choose-a-delivery-schedule-or-trigger}
 
-WhatsApp-Nachrichten können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen finden Sie unter [Ihre Kampagne planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+WhatsApp-Nachrichten können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-Für die aktionsbasierte Zustellung können Sie auch die Dauer der Kampagne und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) festlegen.
+Für die aktionsbasierte Zustellung können Sie auch die Dauer der Campaign und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) festlegen.
 
-In diesem Schritt können Sie auch Zustellungs-Kontrollgruppen festlegen, z. B. ob Nutzer:innen [erneut berechtigt]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns) werden können, die Kampagne zu erhalten, oder ob [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)-Regeln aktiviert werden sollen.
+In diesem Schritt können Sie auch Zustellungs-Kontrollgruppen festlegen, z. B. ob Nutzer:innen [erneut berechtigt]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns) werden können, die Campaign zu erhalten, oder ob [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)-Regeln aktiviert werden sollen.
 
 #### Wählen Sie die Zielgruppe {#choose-users-to-target}
 
@@ -203,9 +203,9 @@ Als Nächstes müssen Sie die [Zielgruppe zusammenstellen]({{site.baseurl}}/user
 
 #### Wählen Sie Konversions-Events {#choose-conversion-events}
 
-Braze ermöglicht es Ihnen zu tracken, wie oft Nutzer:innen bestimmte Aktionen, sogenannte [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nach Erhalt einer Kampagne ausführen. Sie können ein Zeitfenster von bis zu 30 Tagen festlegen, in dem eine Conversion gezählt wird, wenn die Nutzer:innen die angegebene Aktion ausführen.
+Braze ermöglicht es Ihnen zu tracken, wie oft Nutzer:innen bestimmte Aktionen, sogenannte [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nach Erhalt einer Campaign ausführen. Sie können ein Zeitfenster von bis zu 30 Tagen festlegen, in dem eine Conversion gezählt wird, wenn die Nutzer:innen die angegebene Aktion ausführen.
 
-Sie können auch benutzerdefinierte Konversions-Events basierend auf Ihrem spezifischen Anwendungsfall festlegen. Seien Sie kreativ und überlegen Sie, wie Sie den Erfolg dieser Kampagne wirklich messen möchten.
+Sie können auch benutzerdefinierte Konversions-Events basierend auf Ihrem spezifischen Anwendungsfall festlegen. Seien Sie kreativ und überlegen Sie, wie Sie den Erfolg dieser Campaign wirklich messen möchten.
 
 {% endtab %}
 
@@ -220,7 +220,7 @@ Da Konversationsfenster pro eingehender Nachricht nur 24 Stunden dauern können,
 
 ### 5. Schritt: Überprüfen und bereitstellen {#step-5-review-and-deploy}
 
-Nachdem Sie den letzten Teil Ihrer Kampagne oder Ihres Canvas fertiggestellt haben, überprüfen Sie die Details, testen Sie sie und senden Sie sie ab!
+Nachdem Sie den letzten Teil Ihrer Campaign oder Ihres Canvas fertiggestellt haben, überprüfen Sie die Details, testen Sie sie und senden Sie sie ab!
 
 Sehen Sie sich als Nächstes das [WhatsApp-Reporting]({{site.baseurl}}/user_guide/channels/whatsapp/reporting) an, um zu erfahren, wie Sie auf die Ergebnisse Ihrer WhatsApp-Campaigns zugreifen können.
 

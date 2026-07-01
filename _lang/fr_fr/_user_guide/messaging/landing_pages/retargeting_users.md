@@ -11,18 +11,18 @@ page_order: 3
 
 ## Conditions préalables {#prerequisites}
 
-Avant de commencer, vous devrez créer une [page d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/).
+Avant de commencer, vous devrez créer une [page d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages).
 
 ## Reciblage des utilisateurs {#retargeting-users}
 
-Braze suit automatiquement le moment où un utilisateur soumet un formulaire de page d'accueil. Vous pouvez consulter le nombre total de soumissions pour un formulaire dans l'[analytique des pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#viewing-analytics). Cependant, pour un reciblage spécifique à l'utilisateur, vous devrez recibler les utilisateurs via le formulaire de votre page d'accueil en utilisant l'une des méthodes suivantes :
+Braze suit automatiquement le moment où un utilisateur soumet un formulaire de page d'accueil. Vous pouvez consulter le nombre total de soumissions pour un formulaire dans l'[analytique des pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#viewing-analytics). Cependant, pour un reciblage spécifique à l'utilisateur, vous devrez recibler les utilisateurs via le formulaire de votre page d'accueil en utilisant l'une des méthodes suivantes :
 
 - **Utiliser un segment :** vous pouvez créer un nouveau segment pour identifier automatiquement les utilisateurs qui ont ou n'ont pas soumis un formulaire de page d'accueil.
 - **Utiliser un déclencheur de message :** vous pouvez configurer un déclencheur de message pour envoyer automatiquement un message aux utilisateurs ou les faire entrer dans un Canvas après la soumission du formulaire.
 
 {% tabs local %}
 {% tab Utiliser un segment %}
-Lorsque vous [créez un segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), dans le groupe « Reciblage », choisissez **Submitted form on Landing Page**.
+Lorsque vous [créez un segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), dans le groupe « Reciblage », choisissez **Submitted form on Landing Page**.
 
 ![Création d'un segment avec le groupe de filtres sélectionné sur « Submitted Form on Landing Page ».]({% image_buster /assets/img/landing_pages/segmentation_selected.png %})
 
@@ -30,7 +30,7 @@ Lorsque vous [créez un segment]({{site.baseurl}}/user_guide/audience/segments/c
 {% endtab %}
 
 {% tab Utiliser un déclencheur de message %}
-Lorsque vous choisissez votre option de réception pour votre [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/) ou [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/), sélectionnez **Action Based Delivery**, puis **Submitted Landing Page form**.
+Lorsque vous choisissez votre option de réception pour votre [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns) ou [Canvas]({{site.baseurl}}/user_guide/messaging/canvas), sélectionnez **Action Based Delivery**, puis **Submitted Landing Page form**.
 
 Tous les utilisateurs qui soumettent un formulaire via cette page d'accueil recevront un message via le canal de communication choisi ou seront intégrés dans le Canvas choisi.
 

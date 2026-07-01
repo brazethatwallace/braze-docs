@@ -1,6 +1,6 @@
 ## 分析を表示する {#viewing-analytics}
 
-キャンペーンを開始したら、そのキャンペーンの詳細ページに戻って主要な指標を確認できます。**Campaigns**ページに移動し、キャンペーンを選択して詳細ページを開きます。{% if include.channel != "banner" %}{% if include.channel == "Content Card" %}Content Cards{% elsif include.channel == "banner" %}バナー{% elsif include.channel == "email" %}メール{% elsif include.channel == "in-app message" %}アプリ内メッセージ{% elsif include.channel == "KakaoTalk" %}KakaoTalkメッセージ{% elsif include.channel == "push" %}プッシュメッセージ{% elsif include.channel == "SMS" %}SMSメッセージ{% elsif include.channel == "whatsapp" %}WhatsAppメッセージ{% elsif include.channel == "webhook" %}webhook{% endif %}をCanvasで送信した場合は、[Canvas分析]({{site.baseurl}}/user_guide/engagement_tools/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)を参照してください。{% endif %}
+キャンペーンを開始したら、そのキャンペーンの詳細ページに戻って主要な指標を確認できます。**キャンペーン**ページに移動し、キャンペーンを選択して詳細ページを開きます。{% if include.channel != "banner" %}{% if include.channel == "Content Card" %}Content Cards{% elsif include.channel == "banner" %}バナー{% elsif include.channel == "email" %}メール{% elsif include.channel == "in-app message" %}アプリ内メッセージ{% elsif include.channel == "KakaoTalk" %}KakaoTalkメッセージ{% elsif include.channel == "push" %}プッシュメッセージ{% elsif include.channel == "SMS" %}SMSメッセージ{% elsif include.channel == "whatsapp" %}WhatsAppメッセージ{% elsif include.channel == "webhook" %}webhook{% endif %}をキャンバスで送信した場合は、[キャンバス分析]({{site.baseurl}}/user_guide/engagement_tools/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)を参照してください。{% endif %}
 
 {% alert tip %}
 レポートに記載されている用語や指標の定義をお探しですか？以下を参照してください。
@@ -64,7 +64,7 @@ WhatsAppチャネルには既読率が含まれます。この指標は既読通
 {% elsif include.channel == "in-app message" %}
 ![キャンペーンのパフォーマンスを判断するために使用される指標の概要を含むキャンペーン詳細パネル。]({% image_buster /assets/img/campaign_details_iam.png %})
 
-Canvasでは、作成したCanvasにアプリ内メッセージのパフォーマンスがマッピングされます。ページ上部のコントロールパネルを使用して、他のメッセージングタイプ（チャネル）をクリアし、Canvas内のアプリ内メッセージのみを表示できます。
+キャンバスでは、作成したキャンバスにアプリ内メッセージのパフォーマンスがマッピングされます。ページ上部のコントロールパネルを使用して、他のメッセージングタイプ（チャネル）をクリアし、キャンバス内のアプリ内メッセージのみを表示できます。
 
 ![In-App Messageのチェックボックスが選択されたチャネル選択オプション。]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
 
@@ -84,7 +84,7 @@ Canvasでは、作成したCanvasにアプリ内メッセージのパフォー�
 
 | フッターラベル | 使用される場合 |
 | --- | --- |
-| **推定オーディエンス** | Brazeはデフォルトでデータベース全体のカウントを実行しません。オーディエンスサイズはサンプルから推定・外挿されます。これはセグメントビルダーの**到達可能なユーザー**の範囲と同様です。特に大規模なワークスペースや、ワークスペースに対する割合が小さいSegmentでは、誤差が生じることがあります。 |
+| **推定オーディエンス** | Brazeはデフォルトでデータベース全体のカウントを実行しません。オーディエンスサイズはサンプルから推定・外挿されます。これはセグメントビルダーの**到達可能なユーザー**の範囲と同様です。特に大規模なワークスペースや、ワークスペースに対する割合が小さいセグメントでは、誤差が生じることがあります。 |
 | **現在のオーディエンス** | Brazeがワークスペースプロファイルの完全スキャンでデフォルトの統計を計算できるため、表示されるオーディエンスサイズはサンプリングされていない現在のカウントです（ただし、チャネルの到達可能性、サブスクリプションルール、その他のターゲティングオプションの影響は受けます）。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="推定オーディエンスと現在のオーディエンス" }
 
@@ -457,7 +457,7 @@ _配信数_はメールサービスプロバイダー（ESP）の再試行期間
 
 - **_送信数_と（_配信数_ + _ハードバウンス数_）の差：** 1回限りの送信後のESP再試行期間中、この差はソフトバウンスまたはまだ再試行中の延期を反映していることが多いです。再試行が完了した後、残りの差は通常、ソフトバウンスして配信されなかったメッセージを意味します。これらの送信はキャンペーンの_配信数_や_バウンス数_にはカウントされません。上記の計算式を使用して、処理中のソフトバウンスを概算してください。
 - **再試行完了後も_配信数_が低い場合：** 再試行が完了しても配信率が低い場合は、この送信のボリュームを通常のパターンと比較してください。メールボックスプロバイダーは、送信者のレピュテーションに対してボリュームが急増した場合、メールを延期、スロットル、またはソフトバウンスすることがあります。[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)に`Email was deferred due to the following reason(s): [IPs were throttled by recipient server]`のようなメッセージが表示されることがあります。大量送信のペースを調整するには[配信速度レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)を使用し、追加のトラブルシューティング手順については[スロットルされたIP]({{site.baseurl}}/user_guide/channels/email/reporting#throttled-ips)を参照してください。
-- **キャンペーン分析にソフトバウンスと延期が表示されない：** キャンペーン分析では_ハードバウンス_が強調表示されますが、_ソフトバウンス_や_延期_は個別の列として含まれません。これらのイベントはメッセージアクティビティログ、[ソフトバウンスSegmentフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced)、またはCurrentsの延期イベントで監視してください。再試行の仕組みについては、以下の[延期](#deferrals)を参照してください。
+- **キャンペーン分析にソフトバウンスと延期が表示されない：** キャンペーン分析では_ハードバウンス_が強調表示されますが、_ソフトバウンス_や_延期_は個別の列として含まれません。これらのイベントはメッセージアクティビティログ、[ソフトバウンスセグメントフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced)、またはCurrentsの延期イベントで監視してください。再試行の仕組みについては、以下の[延期](#deferrals)を参照してください。
 - **配信率が合計100%にならない場合：** _配信率%_、_バウンス率%_、_スパム率%_は_送信数_の100%にならない場合があります。ESP再試行期間後にソフトバウンスして配信されなかったメッセージは、キャンペーンの_配信数_や_バウンス数_にカウントされないため、_送信数_の一部がこれらの率で説明されないことがあります。最終的な配信パフォーマンスを判断する前に再試行が完了するのを待つか、上記の計算式を使用してまだ再試行中の送信数を推定してください。
 
 ##### 開封イベントなしのクリック {#clicks-without-an-open-event}
@@ -496,7 +496,7 @@ Brazeは、開封トラッキングピクセルが読み込まれたときにメ
 
 _延期_は_ソフトバウンス_とは異なります。この再試行期間中にメールが正常に配信されなかった場合、Brazeは送信されたキャンペーンごとに1つのソフトバウンスイベントを送信します。2025年2月25日以前は、これらの再試行は1回のキャンペーン送信に対して複数のソフトバウンスとしてカウントされていました。
 
-_延期_は現在、CurrentsまたはBraze Snowflake機能（クエリビルダー、SQLセグメント、Snowflakeデータ共有など）を使用した場合のみ利用可能です。キャンペーンやCanvas分析にこれを含めたい場合は、[製品フィードバックを送信]({{site.baseurl}}/user_guide/administrative/access_braze/portal)してください。
+_延期_は現在、CurrentsまたはBraze Snowflake機能（クエリビルダー、SQLセグメント、Snowflakeデータ共有など）を使用した場合のみ利用可能です。キャンペーンやキャンバス分析にこれを含めたい場合は、[製品フィードバックを送信]({{site.baseurl}}/user_guide/administrative/access_braze/portal)してください。
 
 ##### 推定実質開封率 {#estimated-real-open-rate}
 
@@ -667,7 +667,7 @@ _推定実質開封率_はメール送信開始から24時間後に算出され�
 {% tabs local %}
 {% tab セグメントフィルター %}
 
-プッシュが有効になっていないユーザー、つまりサブスクライブまたはオプトインしておらず、[フォアグラウンドプッシュトークン]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration#push-tokens)を持っていないユーザーを識別するSegmentを作成できます。例えば、アプリ内の配信停止数を確認するには、以下のSegmentを「OR」条件で組み合わせます：
+プッシュが有効になっていないユーザー、つまりサブスクライブまたはオプトインしておらず、[フォアグラウンドプッシュトークン]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration#push-tokens)を持っていないユーザーを識別するセグメントを作成できます。例えば、アプリ内の配信停止数を確認するには、以下のセグメントを「OR」条件で組み合わせます：
 
 - `Background or Foreground Push Enabled is false`
 - `Has Uninstalled`
@@ -708,7 +708,7 @@ _Direct Opens_は、メッセージの直接開封としてカウントされる
 
 以下の理由により、_送信数_が_ユニーク受信者数_を上回る場合があります：
 
-- **再適格性がオンになっている：** キャンペーンまたはCanvasの設定で再適格性が有効になっている場合、Segmentと配信条件を満たすユーザーは同じプッシュ通知を複数回受け取ることができます。その結果、総送信数が多くなります。
+- **再適格性がオンになっている：** キャンペーンまたはキャンバスの設定で再適格性が有効になっている場合、セグメントと配信条件を満たすユーザーは同じプッシュ通知を複数回受け取ることができます。その結果、総送信数が多くなります。
 - **ユーザーが複数のデバイスを持っている：** 再適格性が有効になっていない場合、ユーザーが複数のデバイスをプロファイルに関連付けていることで差異が説明される場合があります。例えば、ユーザーがスマートフォンとタブレットの両方を持っていて、プッシュ通知が登録されたすべてのデバイスに送信される場合です。各配信は送信としてカウントされますが、ユニーク受信者は1人のみ記録されます。
 - **ユーザーが複数のアプリに割り当てられている：** ユーザーが複数のアプリに関連付けられている場合（新しいアプリのテスト時など）、それぞれのアプリで同じプッシュ通知を受け取ることがあります。これが送信数の増加につながります。
 
@@ -897,9 +897,9 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
 
 ![キャンペーンレベルのSMS/MMS/RCSキーワード応答パネル。時間経過に伴うキーワード分布の折れ線グラフと、キーワードカテゴリセクション（オプトイン、オプトアウト、ヘルプ、その他、詳細、コーチングのチェックボックスが選択されている）が含まれます。]({% image_buster /assets/img/sms/keyword_responses.png %})
 
-ここでは、[リターゲティング]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns)の次のステップを決定し、便利に[Segmentを作成]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment)するために、各キーワードカテゴリの応答分布を確認することもできます。
+ここでは、[リターゲティング]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns)の次のステップを決定し、便利に[セグメントを作成]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment)するために、各キーワードカテゴリの応答分布を確認することもできます。
 
-![折れ線グラフの下にあるテーブル。キーワードカテゴリ、応答分布、リターゲティングの列があり、キーワードカテゴリでSegmentを作成するオプションが提供されています。]({% image_buster /assets/img/sms/keyword_segments.png %})
+![折れ線グラフの下にあるテーブル。キーワードカテゴリ、応答分布、リターゲティングの列があり、キーワードカテゴリでセグメントを作成するオプションが提供されています。]({% image_buster /assets/img/sms/keyword_segments.png %})
 
 {% endif %}
 
@@ -947,11 +947,11 @@ Brazeの分析に加えて、WhatsAppビジネスマネージャーでテンプ�
 
 ## リテンションレポート {#retention-report}
 
-リテンションレポートには、特定のキャンペーン{% if include.channel != "banner" %}またはCanvas{% endif %}において、指定した期間にユーザーが選択したリテンションイベントを実行した割合が表示されます。詳細については、[リテンションレポート]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports)を参照してください。
+リテンションレポートには、特定のキャンペーン{% if include.channel != "banner" %}またはキャンバス{% endif %}において、指定した期間にユーザーが選択したリテンションイベントを実行した割合が表示されます。詳細については、[リテンションレポート]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports)を参照してください。
 
 ## 目標到達プロセスレポート {#funnel-report}
 
-目標到達プロセスレポートは、キャンペーン{% if include.channel != "banner" %}またはCanvas{% endif %}を受け取った後の顧客のジャーニーを分析できるビジュアルレポートを提供します。キャンペーン{% if include.channel != "banner" %}またはCanvas{% endif %}でコントロールグループや複数のバリアントを使用している場合、異なるバリアントがコンバージョンファネルにどのような影響を与えたかをより細かいレベルで理解し、このデータに基づいて最適化できます。
+目標到達プロセスレポートは、キャンペーン{% if include.channel != "banner" %}またはキャンバス{% endif %}を受け取った後の顧客のジャーニーを分析できるビジュアルレポートを提供します。キャンペーン{% if include.channel != "banner" %}またはキャンバス{% endif %}でコントロールグループや複数のバリアントを使用している場合、異なるバリアントがコンバージョンファネルにどのような影響を与えたかをより細かいレベルで理解し、このデータに基づいて最適化できます。
 
 詳細については、[目標到達プロセスレポート]({{site.baseurl}}/user_guide/analytics/reporting/funnel_reports)を参照してください。
 

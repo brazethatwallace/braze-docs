@@ -5,7 +5,7 @@
 | --- | --- |
 | 이미지 및 텍스트 | 세로로 길거나 좁은 이미지는 축소되어 가로 중앙에 배치됩니다. 넓은 이미지는 왼쪽과 오른쪽 가장자리가 잘립니다. |
 | 이미지만 | 메시지는 대부분의 종횡비에 맞게 이미지 크기를 조정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="표" }
 
 {% endif %}
 
@@ -18,7 +18,7 @@
 | iOS(iOS 8 이전) | 0.256 KB |
 | iOS(iOS 8 이후) | 2 KB |
 | Android(FCM) | 4 KB |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="표" }
 
 {% endif %}
 
@@ -37,7 +37,7 @@
 | --- | --- | --- | --- |
 | 텍스트가 포함된 세로 전체 화면 | 6:5 | 고해상도 1200 x 1000 px <br>최소 해상도 600 x 500 px | 모든 면에서 잘림이 발생할 수 있지만, 이미지는 항상 뷰포트의 상위 50%를 채웁니다. |
 | 세로 전체 화면(이미지만, 버튼 유무에 관계없이) | 3:5 | 고해상도 1200 x 2000 px <br> 최소 해상도 600 x 1000 px | 세로로 긴 기기에서는 왼쪽과 오른쪽 가장자리에서 잘림이 발생할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="표" }
 
 {% endtab %}
 {% tab Landscape %}
@@ -46,7 +46,7 @@
 | --- | --- | --- | --- |
 | 텍스트가 포함된 가로 전체 화면 | 10:3 | 고해상도 2000 x 600 px <br>최소 해상도 1000 x 300 px | 모든 면에서 잘림이 발생할 수 있지만, 이미지는 항상 뷰포트의 상위 50%를 채웁니다. |
 | 가로 전체 화면(이미지만, 버튼 유무에 관계없이) | 5:3 | 고해상도 2000 x 600 px <br> 최소 해상도 1000 x 600 px | 세로로 긴 기기에서는 왼쪽과 오른쪽 가장자리에서 잘림이 발생할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="표" }
 
 {% endtab %}
 {% tab 슬라이드업 %}
@@ -54,7 +54,7 @@
 | 유형 | 종횡비 | 이미지 품질 | 참고 |
 | --- | --- | --- | --- |
 | 슬라이드업 | 1:1 | 고해상도 150 x 150 px <br> 최소 해상도 50 x 50 px | 다양한 종횡비의 이미지가 잘리지 않고 정사각형 이미지 컨테이너에 맞춰집니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="표" }
 
 {% endtab %}
 {% tab 모달 %}
@@ -63,7 +63,7 @@
 | --- | --- | --- | --- |
 | 모달(이미지만) | 1:1 | 권장 최대 해상도: 1200 x 2000 px <br> 최소 해상도: 600 x 600 px | 메시지는 대부분의 종횡비에 맞게 이미지 크기를 조정합니다. 권장 최대 해상도는 3:5 종횡비이며, 최적의 결과를 제공하지 않을 수 있습니다. 더 큰 이미지도 사용할 수 있지만, 로드 시간이 길어질 수 있습니다. <br> 이미지의 이상적인 종횡비는 1:1이며, 이 비율을 충족하지 않으면 업로드 중에 경고가 표시될 수 있습니다. 이 경고는 최상의 결과를 위한 제안이며, 더 큰 이미지의 업로드를 방해하지 않습니다. |
 | 텍스트가 있는 모달 | 29:10 | 고해상도 1450 x 500 px <br> 최소 해상도 600 x 205 px | 세로로 긴 이미지는 축소되어 가로 중앙에 배치됩니다. 넓은 이미지는 왼쪽과 오른쪽 가장자리가 잘립니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="표" }
 
 {% endtab %}
 {% endtabs %}
@@ -79,7 +79,7 @@
 | iOS 배너 알림 | 85자 | 43자 |
 | Android 잠금 화면 | 49자 | 43자 |
 | Android 알림 서랍 | 597자 | 43자 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="표" }
 
 모든 푸시 이미지의 권장 이미지 크기는 500KB입니다.
 
@@ -89,7 +89,7 @@ table td {
 }
 </style>
 
-<table aria-label="Table">
+<table aria-label="표">
   <thead>
     <tr>
       <th>이미지 유형</th>
@@ -135,7 +135,7 @@ table td {
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4  .reset-td-br-5 .reset-td-br-6 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4  .reset-td-br-5 .reset-td-br-6 aria-label="표" }
 
 {% endif %}
 
@@ -146,21 +146,21 @@ table td {
 | 텍스트만 | 25 KB |
 | 이미지가 포함된 텍스트 | 60 KB |
 | 이메일 너비 | 600 px |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="표" }
 
 | 이미지 사양 | 권장 최대 크기 |
 | --- | --- |
 | 크기 | 5 MB |
 | 너비 | 헤더: 600 px<br>본문: 480 px |
-| 파일 유형 | PNG, JPEG, GIF<br><br> WebP 이미지 지원은 이메일 클라이언트마다 다릅니다. 안정적인 렌더링을 위해, 이메일 메시지에 추가하기 전에 WebP 이미지를 PNG 또는 JPEG로 변환하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
+| 파일 유형 | PNG, JPEG, GIF<br><br> WebP 이미지 지원은 이메일 클라이언트마다 다릅니다. 안정적인 렌더링을 위해, 이메일 메시지에 추가하기 전에 WebP 이미지를 PNG 또는 JPEG로 변환하세요.<br><br>SVG 이미지는 Gmail 및 기타 주요 이메일 클라이언트와의 호환성 문제로 인해 이메일 메시지에 권장되지 않습니다. 대신 PNG, JPEG 또는 GIF를 사용하세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="표" }
 
 | 텍스트 사양 | 권장 최대 크기 |
 | --- | --- |
 | 제목란 길이 | 35자<br>6~10단어 |
 | `"From: Name"` 길이 | 25자 |
 | 프리헤더 길이 | 85자 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="표" }
 
 {% endif %}
 
@@ -171,9 +171,9 @@ table td {
 | 클래식   | 1:1 종횡비 | 60 x 60&nbsp;px        |
 | 캡션 | 4:3 종횡비 | 최소 너비 600&nbsp;px |
 | 배너    | 모든 종횡비 | 최소 너비 600&nbsp;px |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="표" }
 
-자세한 내용은 [Content Cards 크리에이티브 세부 정보]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/)를 참조하세요.
+자세한 내용은 [Content Cards 크리에이티브 세부 정보]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details)를 참조하세요.
 
 {% endif %}
 
@@ -189,7 +189,7 @@ table td {
 | 캡션(이미지 메시지만 해당) | 선택 사항; 최대 1,024자 | |
 | 권장 크기 | 1,125 × 600 px | 기기 간 일관된 렌더링과 Meta 요구 사항 준수를 위해 1,125×600 px(1.91:1) 크기의 JPEG 또는 PNG 이미지를 사용하는 것이 좋습니다. |
 | 권장 종횡비 | 1.91:1(와이드) | 정사각형(1:1) 및 와이드(16:9) 형식도 허용되지만, 사용자의 기기에 따라 이미지가 잘리거나 확대될 수 있습니다.<br><br> 캐러셀 카드의 경우, 헤더 이미지는 WhatsApp에 의해 자동으로 와이드 비율로 잘립니다. 단, 본문 텍스트가 없는 경우에는 정사각형으로 렌더링됩니다.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="표" }
 
 {% endif %}
 
@@ -206,7 +206,7 @@ table td {
 | 오디오 스트림 | 단일 오디오 스트림 또는 오디오 스트림 없음 |
 | 캡션(동영상 메시지만 해당) | 선택 사항; 최대 1,024자 |
 | 권장 종횡비 | 1.91:1(와이드) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="표" }
 
 {% multi_lang_include alerts/important_alerts.md alert='Meta MP4 video issue' %}
 

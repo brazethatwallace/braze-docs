@@ -7,7 +7,7 @@ description: "Cet article décrit comment utiliser un modèle Canvas de Braze po
 tool: Canvas
 ---
 
-# Onboarding
+# Onboarding {#onboarding}
 
 > Lancez le parcours de vos utilisateurs avec ce modèle d'onboarding. Ce modèle est conçu pour favoriser une adoption initiale solide et encourager des relations durables avec vos utilisateurs. En tirant parti d'une communication personnalisée et d'un ensemble structuré de messages, vous pouvez présenter votre marque à vos utilisateurs de façon fluide et initier le début d'une relation durable.
 
@@ -15,7 +15,7 @@ Dans cet article, nous allons vous présenter un cas d'utilisation du modèle **
 
 ## Conditions préalables {#prerequisites}
 
-Avant d'utiliser ce modèle, vous devez créer les [modèles d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/) suivants à référencer dans le Canvas :
+Avant d'utiliser ce modèle, vous devez créer les [modèles d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) suivants à référencer dans le Canvas :
 
 - Un e-mail de bienvenue pour tous les utilisateurs de votre application
 - Un e-mail contenant des conseils sur l'utilisation de votre application
@@ -98,5 +98,5 @@ En tant que détaillant de vêtements en ligne, PantsLabyrinth dispose égalemen
 Après avoir testé et vérifié que notre Canvas fonctionne comme prévu, sélectionnez **Launch Canvas** pour lancer le Canvas. Nous pouvons désormais offrir à nos nouveaux utilisateurs une expérience d'onboarding personnalisée pour encourager une relation durable !
 
 {% alert tip %}
-Consultez notre [checklist pré et post-lancement]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) pour les éléments à prendre en compte avant et après le lancement d'un Canvas.
+Consultez notre [checklist pré et post-lancement]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) pour les éléments à prendre en compte avant et après le lancement d'un Canvas.
 {% endalert %}

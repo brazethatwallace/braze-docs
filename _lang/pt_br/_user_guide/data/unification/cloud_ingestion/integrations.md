@@ -65,7 +65,7 @@ Pode haver de dois a cinco minutos de tempo de aquecimento quando a Braze se con
 
 ### Etapa 1: Configurar tabelas ou views {#step-1-set-up-tables-or-views}
 
-Antes de começar, revise [Configuração de tabelas para Ingestão de Dados na Nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/) para entender os requisitos da tabela de origem em comparação com os requisitos de formatação de `PAYLOAD`.
+Antes de começar, revise [Configuração de tabelas para Ingestão de Dados na Nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup) para entender os requisitos da tabela de origem em comparação com os requisitos de formatação de `PAYLOAD`.
 
 {% alert note %}
 Sua tabela ou view de origem pode incluir colunas que não estão listadas para o seu warehouse nas guias abaixo (por exemplo, auditoria ou hashing). A Braze lê apenas as colunas descritas nessas guias; outras colunas não são usadas durante as sincronizações de Ingestão de Dados na Nuvem.
@@ -469,7 +469,7 @@ Dependendo da configuração da sua conta Microsoft Fabric, talvez seja necessá
 {% tabs %}
 {% tab Snowflake %}
 
-No dashboard da Braze, acesse **Data Settings** > **Cloud Data Ingestion** > **Sources**, selecione **Add data source** e, em seguida, selecione **Snowflake**.
+No dashboard da Braze, acesse **Configurações de dados** > **Ingestão de dados na nuvem** > **Fontes**, selecione **Adicionar fonte de dados** e, em seguida, selecione **Snowflake**.
 
 #### Etapa 2.1: Adicionar informações de conexão do Snowflake {#step-21-add-snowflake-connection-information}
 
@@ -498,7 +498,7 @@ ALTER USER BRAZE_INGESTION_USER SET RSA_PUBLIC_KEY='MIIBIjANBgkqhkiG9w0BA...';
 {% endtab %}
 {% tab Redshift %}
 
-No dashboard da Braze, acesse **Data Settings** > **Cloud Data Ingestion** > **Sources**, selecione **Add data source** e, em seguida, selecione **Amazon Redshift**.
+No dashboard da Braze, acesse **Configurações de dados** > **Ingestão de dados na nuvem** > **Fontes**, selecione **Adicionar fonte de dados** e, em seguida, selecione **Amazon Redshift**.
 
 #### Etapa 2.1: Adicionar informações de conexão do Redshift e tabela de origem {#step-21-add-redshift-connection-information-and-source-table}
 
@@ -514,7 +514,7 @@ Em seguida, selecione **Test connection**. Se for bem-sucedido, finalize as conf
 {% endtab %}
 {% tab BigQuery %}
 
-No dashboard da Braze, acesse **Data Settings** > **Cloud Data Ingestion** > **Sources**, selecione **Add data source** e, em seguida, selecione **Google BigQuery**.
+No dashboard da Braze, acesse **Configurações de dados** > **Ingestão de dados na nuvem** > **Fontes**, selecione **Adicionar fonte de dados** e, em seguida, selecione **Google BigQuery**.
 
 #### Etapa 2.1: Adicionar informações de conexão do BigQuery e tabela de origem {#step-21-add-bigquery-connection-information-and-source-table}
 
@@ -527,7 +527,7 @@ Em seguida, selecione **Test connection**. Se for bem-sucedido, finalize as conf
 {% endtab %}
 {% tab Databricks %}
 
-No dashboard da Braze, acesse **Data Settings** > **Cloud Data Ingestion** > **Sources**, selecione **Add data source** e, em seguida, selecione **Databricks**.
+No dashboard da Braze, acesse **Configurações de dados** > **Ingestão de dados na nuvem** > **Fontes**, selecione **Adicionar fonte de dados** e, em seguida, selecione **Databricks**.
 
 #### Etapa 2.1: Adicionar informações de conexão do Databricks e tabela de origem {#step-21-add-databricks-connection-information-and-source-table}
 
@@ -544,7 +544,7 @@ Você deve testar com êxito uma origem antes que ela possa ser criada. Se você
 {% endtab %}
 {% tab Microsoft Fabric %}
 
-No dashboard da Braze, acesse Data Settings > Cloud Data Ingestion > Sources, selecione **Add data source** e, em seguida, selecione **Microsoft Fabric**.
+No dashboard da Braze, acesse **Configurações de dados** > **Ingestão de dados na nuvem** > **Fontes**, selecione **Adicionar fonte de dados** e, em seguida, selecione **Microsoft Fabric**.
 
 #### Etapa 2.1: Configurar uma sincronização de Ingestão de Dados na Nuvem {#step-21-set-up-a-cloud-data-ingestion-sync}
 
@@ -565,7 +565,7 @@ Você deve testar com êxito uma origem antes que ela possa ser criada. Se você
 {% endtabs %}
 
 ### Etapa 3: Criar uma nova sincronização no dashboard da Braze {#step-3-create-a-new-sync-in-the-braze-dashboard}
-Acesse **Data Settings** > **Cloud Data Ingestion** > **Syncs** e selecione **Create data sync**.
+Acesse **Configurações de dados** > **Ingestão de dados na nuvem** > **Sincronizações** e selecione **Criar sincronização de dados**.
 
 {% tabs %}
 {% tab Snowflake %}

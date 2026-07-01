@@ -24,6 +24,7 @@ Les journaux de l'**historique des messages** et du **diagnostic des messages** 
 | Personne ou moins d'utilisateurs que prévu ne sont entrés | [Entrées Canvas faibles ou nulles](#low-or-zero-canvas-entries) |
 | Les envois ou distributions sont inférieurs à l'audience estimée | [Envois inférieurs aux attentes](#lower-sends-than-expected) |
 | Les analyses du Canvas semblent incorrectes (groupe de contrôle, conversions, zéro envoi) | [Incohérences dans les analyses Canvas](#canvas-analytics-mismatches) |
+| Les analyses affichent bien plus d'envois que d'entrées ou plus de sorties que d'entrées | [Le filtrage par plage de dates peut afficher des chiffres inattendus](#date-range-filtering-can-show-unexpected-numbers) |
 | Le Canvas ne s'enregistre pas ou l'éditeur se fige | [Problèmes d'éditeur et d'enregistrement](#editor-and-save-issues) |
 | J'ai arrêté le Canvas mais des messages ont quand même été envoyés | [Comportement d'un Canvas arrêté](#stopped-canvas-behavior) |
 | Erreur « Too many Canvas branches » au lancement | [Erreur « Too many Canvas branches »](#too-many-canvas-branches-error) |
@@ -80,7 +81,7 @@ Si un utilisateur effectue le même déclencheur plusieurs fois en une seconde, 
 
 Lors des jours de transition vers l'heure d'été ou d'hiver, les Canvas planifiés quotidiennement peuvent s'exécuter jusqu'à une heure plus tôt ou plus tard que d'habitude. Si vos critères d'entrée reposent sur des attributs personnalisés ou des événements avec des horodatages situés dans l'heure précédant l'heure d'entrée planifiée, les utilisateurs peuvent ne pas encore être éligibles le jour du changement d'heure, car l'attribut ou l'événement n'a pas encore été enregistré.
 
-Par exemple, supposons que les utilisateurs reçoivent généralement une mise à jour d'attribut personnalisé à 15 h 00 dans le fuseau horaire de votre Canvas et que votre Canvas s'exécute quotidiennement à 15 h 30 dans ce même fuseau horaire. Lors d'un passage à l'heure d'été (avance d'une heure), le Canvas peut évaluer les utilisateurs jusqu'à une heure plus tôt que d'habitude par rapport à cette mise à jour d'attribut, c'est-à-dire avant que l'attribut n'ait été enregistré. Si la rééligibilité est désactivée, les utilisateurs qui sont entrés les jours précédents ne peuvent pas entrer à nouveau, ce qui entraîne zéro entrée pour cette journée.
+Par exemple, supposons que les utilisateurs reçoivent généralement une mise à jour d'attribut personnalisé à 15 h dans le fuseau horaire de votre Canvas et que votre Canvas s'exécute quotidiennement à 15 h 30 dans ce même fuseau horaire. Lors d'un passage à l'heure d'été (avance d'une heure), le Canvas peut évaluer les utilisateurs jusqu'à une heure plus tôt que d'habitude par rapport à cette mise à jour d'attribut, c'est-à-dire avant que l'attribut n'ait été enregistré. Si la rééligibilité est désactivée, les utilisateurs qui sont entrés les jours précédents ne peuvent pas entrer à nouveau, ce qui entraîne zéro entrée pour cette journée.
 
 Pour éviter cela, assurez-vous que les mises à jour de vos attributs personnalisés ou événements se produisent plus d'une heure avant l'heure d'entrée planifiée du Canvas.
 
@@ -99,7 +100,7 @@ Ensuite, vérifiez les points suivants selon le type de déclencheur ou d'étape
 - **Parcours d'actions ou déclencheurs d'étape de message :** Confirmez que l'utilisateur a effectué l'événement prérequis et que les [propriétés d'événement]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#event-properties) sont disponibles sur l'étape.
 - **Étapes de message in-app :** Les messages in-app sont envoyés au prochain démarrage de session après que l'utilisateur entre dans l'étape, et uniquement à partir d'événements SDK (pas de la REST API). Consultez [Quand les messages in-app dans Canvas sont-ils envoyés ?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#when-are-in-app-messages-in-canvas-sent) dans la FAQ Canvas.
 - **Groupe de contrôle du Canvas :** Vérifiez que l'utilisateur n'a pas été affecté au groupe de contrôle du Canvas à l'entrée.
-- **Éligibilité au canal et paramètres d'envoi :** Confirmez le statut d'abonnement, l'état d'activation des notifications push et les [Paramètres d'envoi]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-14-select-your-send-settings) par étape (par exemple, **Paramètres d'abonnement** définis sur les utilisateurs ayant donné leur consentement uniquement). N'ajoutez pas de filtres monocanal à l'**audience cible** sur les Canvas multicanaux.
+- **Éligibilité au canal et paramètres d'envoi :** Confirmez le statut d'abonnement, l'état d'activation des notifications push et les [paramètres d'envoi]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-14-select-your-send-settings) par étape (par exemple, **Paramètres d'abonnement** définis sur les utilisateurs ayant donné leur consentement uniquement). N'ajoutez pas de filtres monocanal à l'**audience cible** sur les Canvas multicanaux.
 - **Validations de distribution :** Si vous avez activé **Valider l'audience au moment de l'envoi du message** sur une étape de message, les utilisateurs qui ne correspondent plus aux filtres au moment de l'envoi ne reçoivent pas le message. Consultez [Validations de distribution]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations).
 - **Heures calmes, timing intelligent, plafonds de fréquence et limites de débit :** Ces paramètres peuvent reporter, supprimer ou abandonner des envois. Les utilisateurs peuvent rester dans le Canvas après un abandon dû aux heures calmes.
 - **Conditions de concurrence :** Si l'utilisateur a déclenché plusieurs actions simultanément, consultez [Conditions de concurrence]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions).
@@ -142,7 +143,7 @@ Utilisez le [tableau de bord de diagnostic des messages]({{site.baseurl}}/user_g
 
 **Symptôme :** Les analyses du Canvas semblent incorrectes (répartition du groupe de contrôle, conversions ou zéro envoi).
 
-L'affectation au groupe de contrôle et à la variante se fait à l'entrée du Canvas en fonction des pourcentages que vous avez définis dans le générateur, et non via des filtres de segment. Les utilisateurs qui ne peuvent pas recevoir un canal spécifique peuvent tout de même entrer dans une variante ; utilisez les [Paramètres d'envoi]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-14-select-your-send-settings) par étape pour limiter qui reçoit chaque type de message au lieu de restreindre l'**audience cible** avec des filtres de canal.
+L'affectation au groupe de contrôle et à la variante se fait à l'entrée du Canvas en fonction des pourcentages que vous avez définis dans le générateur, et non via des filtres de segment. Les utilisateurs qui ne peuvent pas recevoir un canal spécifique peuvent tout de même entrer dans une variante ; utilisez les [paramètres d'envoi]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-14-select-your-send-settings) par étape pour limiter qui reçoit chaque type de message au lieu de restreindre l'**audience cible** avec des filtres de canal.
 
 Distinguez le groupe de contrôle du Canvas du [groupe de contrôle global]({{site.baseurl}}/user_guide/audience/global_control_group). Pour les définitions des filtres, consultez [Quelle est la différence entre « N'est pas entré dans la variante Canvas » et « N'est pas dans le groupe de contrôle Canvas » ?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-is-the-difference-between-has-not-entered-canvas-variation-and-is-not-in-canvas-control-group) dans la FAQ Canvas.
 
@@ -165,6 +166,18 @@ Si nous examinons le segment des utilisateurs actifs, nous pouvons constater que
 Cela signifie que même si vous avez spécifié que 90 % des utilisateurs devaient entrer dans la variante, tous ces utilisateurs ne sont pas en mesure de recevoir une notification push. Les utilisateurs qui ne peuvent pas recevoir de notification push entrent tout de même dans la variante : le nombre d'envois reflète l'éligibilité au canal au niveau de l'étape, pas l'affectation à la variante à l'entrée.
 
 {% enddetails %}
+
+### Le filtrage par plage de dates peut afficher des chiffres inattendus {#date-range-filtering-can-show-unexpected-numbers}
+
+**Symptôme :** Les analyses du Canvas ou d'une étape affichent des chiffres inattendus ou improbables, comme bien plus d'envois que d'entrées, ou plus d'utilisateurs sortant d'une étape que d'utilisateurs y étant entrés.
+
+Cela peut se produire lorsque vous utilisez le filtre de calendrier par plage de dates en haut de la page d'analyse du Canvas. Si vous sélectionnez une plage de dates qui exclut certaines actions des utilisateurs, les indicateurs affichés peuvent ne montrer qu'une partie du parcours de chaque utilisateur.
+
+Par exemple :
+- Vous pouvez voir 100 entrées avec 8 000 envois si votre plage de dates commence après que la plupart des utilisateurs sont entrés mais inclut le moment où ils ont reçu des messages.
+- Vous pouvez voir plus d'utilisateurs passant à l'étape suivante que d'utilisateurs entrés dans l'étape précédente si votre plage ne capture que les sorties mais pas les entrées antérieures.
+
+Pour résoudre ce problème, ajustez la plage de dates pour inclure toutes les dates depuis le lancement du Canvas jusqu'à aujourd'hui, ou sélectionnez une plage couvrant l'intégralité de la période pertinente pour les indicateurs dont vous avez besoin.
 
 Pour les définitions des taux de conversion et les analyses au niveau des étapes, consultez [Analyses et conversions]({{site.baseurl}}/user_guide/messaging/canvas/faqs#analytics-and-conversions) dans la FAQ Canvas.
 

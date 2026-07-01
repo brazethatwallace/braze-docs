@@ -15,7 +15,7 @@ search_tag: Partner
 > mParticleの顧客データプラットフォームは、データの有効活用を支援します。熟練したマーケターは、mParticleでグローススタック全体のデータのオーケストレーションを行い、カスタマージャーニーの重要なタイミングで適切なアクションを取ることができます。
 
 BrazeとmParticleの統合により、2つのシステム間の情報の流れをシームレスにコントロールできます。
-- BrazeのCampaignとCanvasのセグメンテーションのために、mParticleのオーディエンスをBrazeに同期する。
+- Brazeのキャンペーンとキャンバスのセグメンテーションのために、mParticleのオーディエンスをBrazeに同期する。
 - 2つのプラットフォーム間でデータを共有する。これはmParticleキット統合とサーバー間統合によって実現できます。
 - [Currentsを介してBrazeユーザーインタラクションをmParticleに送信し]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents/)、グローススタック全体でアクションに活用する。
 
@@ -120,12 +120,12 @@ mParticleでオーディエンスを作成するには:
 
 #### ステップ2:Brazeでユーザーをセグメントする {#step-2-segment-users-in-braze}
 
-Brazeでこれらのユーザーのセグメントを作成するには、**Engagement**の下の**Segments**に移動し、セグメントに名前を付けます。以下は、**セグメントの送信方法**で選択したオプションに応じた2つのセグメントの例です。各オプションの詳細については、[オーディエンスの転送](#forwarding-audiences)を参照してください。
+Brazeでこれらのユーザーのセグメントを作成するには、**Engagement**の下の**セグメント**に移動し、セグメントに名前を付けます。以下は、**セグメントの送信方法**で選択したオプションに応じた2つのセグメントの例です。各オプションの詳細については、[オーディエンスの転送](#forwarding-audiences)を参照してください。
 
 - **単一配列属性:** フィルターとして`SegmentMembershipArray`を選択します。次に、「includes value」オプションを使用して、目的のオーディエンスIDを入力します。![mParticleセグメントフィルター「SegmentMembershipArray」が「includes value」とオーディエンスIDに設定されている。]({% image_buster /assets/img_archive/mparticle5.png %})<br><br>
 - **セグメントごとに1つの属性:** フィルターとしてカスタム属性を選択します。次に、「equals」オプションを使用して、適切なロジックを選択します。![mParticleセグメントフィルター「in possible parisians」が「equals」と「true」に設定されている。]({% image_buster /assets/img_archive/mparticle3.png %})
 
-保存すると、ターゲットユーザーステップでCanvasまたはCampaign作成時にこのセグメントを参照できます。
+保存すると、ターゲットユーザーステップでキャンバスまたはキャンペーン作成時にこのセグメントを参照できます。
 
 #### 接続の無効化と削除 {#deactivating-and-deleting-connections}
 

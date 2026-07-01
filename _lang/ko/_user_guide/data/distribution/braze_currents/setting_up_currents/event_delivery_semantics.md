@@ -12,10 +12,10 @@ tool: Currents
 
 > 이 페이지에서는 Currents가 데이터 웨어하우스 스토리지 파트너에게 보내는 플랫 파일 이벤트 데이터를 관리하는 방법을 간략하게 설명하고 정의합니다.
 
-데이터 스토리지용 Currents는 플랫폼에서 데이터 웨어하우스 [파트너 연결]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) 중 하나에 있는 스토리지 버킷으로 데이터를 지속적으로 스트리밍하는 것입니다. Currents는 일정한 임계값에 따라 Avro 파일을 스토리지 버킷에 기록하여 자체 비즈니스 인텔리전스(BI) 도구 세트로 이벤트 데이터를 처리하고 분석할 수 있도록 합니다.
+데이터 스토리지용 Currents는 플랫폼에서 데이터 웨어하우스 [파트너 연결]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) 중 하나에 있는 스토리지 버킷으로 데이터를 지속적으로 스트리밍하는 것입니다. Currents는 일정한 임계값에 따라 Avro 파일을 스토리지 버킷에 기록하여 자체 비즈니스 인텔리전스(BI) 도구 세트로 이벤트 데이터를 처리하고 분석할 수 있도록 합니다.
 
 {% alert important %}
-이 콘텐츠는 **데이터 웨어하우스 스토리지 파트너(Google Cloud Storage, Amazon S3, Microsoft Azure Blob Storage)로 전송하는 플랫 파일 이벤트 데이터에만 적용됩니다**. <br><br>다른 파트너에게 적용되는 콘텐츠는 [사용 가능한 파트너]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) 목록을 참조하여 해당 페이지를 확인하세요.
+이 콘텐츠는 **데이터 웨어하우스 스토리지 파트너(Google Cloud Storage, Amazon S3, Microsoft Azure Blob Storage)로 전송하는 플랫 파일 이벤트 데이터에만 적용됩니다**. <br><br>다른 파트너에게 적용되는 콘텐츠는 [사용 가능한 파트너]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) 목록을 참조하여 해당 페이지를 확인하세요.
 {% endalert %}
 
 ## 테스트 이벤트 {#test-events}
@@ -57,7 +57,7 @@ Currents는 다음 형식을 사용하여 각 이벤트 유형에 대한 파일�
 ```
 
 {% alert tip %}
-스크롤바 때문에 코드가 보이지 않나요? [여기]({{site.baseurl}}/user_guide/)에서 해결 방법을 확인하세요.
+스크롤바 때문에 코드가 보이지 않나요? [Braze 사용자 가이드 홈페이지]({{site.baseurl}}/user_guide)에서 해결 방법을 확인하세요.
 {% endalert %}
 
 예를 들어, 푸시 전송 이벤트 경로는 다음과 같을 수 있습니다:
@@ -80,7 +80,7 @@ currents-export/dataexport.prod-01.S3.integration.69cadaaed2d51b7c75b1a3e5/event
 | `<environment>` | Braze 내부 용도입니다. |
 | `<partition>` | Braze 내부 용도입니다. 정수입니다. |
 | `<offset>` | Braze 내부 용도입니다. 정수입니다. 같은 시간 내에 전송된 서로 다른 파일은 서로 다른 `<offset>` 파라미터를 갖습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Apache Avro format" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Apache Avro 형식" }
 
 {% alert tip %}
 파일 명명 규칙은 변경될 수 있습니다. Braze는 버킷에서 &lt;your-bucket-prefix&gt; 접두사를 가진 모든 키를 검색하는 것을 권장합니다.
@@ -116,4 +116,4 @@ Avro 스키마에서 필드가 제거되거나 변경되면 이를 비호환 변
 
 모든 비호환 변경은 릴리스 전에 사전 공지됩니다.
 
-버전별 변경 이력 전체를 확인하려면 [Currents 체인지로그]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/)를 참조하세요.
+버전별 변경 이력 전체를 확인하려면 [Currents 체인지로그]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs)를 참조하세요.

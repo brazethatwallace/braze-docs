@@ -17,7 +17,7 @@ Event
 
 過去に特定のメールキャンペーンを複数回開封したユーザーを選択します。
 
-これは、インプレッション数によるアプリ内メッセージのキャップにも使用できます。たとえば、3回以上のインプレッションがあるユーザーを選択し、同じCampaignのSegment除外として設定できます。
+これは、インプレッション数によるアプリ内メッセージのキャップにも使用できます。たとえば、3回以上のインプレッションがあるユーザーを選択し、同じキャンペーンのセグメント除外として設定できます。
 
 ```sql
 SELECT user_id FROM "USERS_MESSAGES_EMAIL_OPEN_SHARED"
@@ -67,7 +67,7 @@ HAVING COUNT(DISTINCT id) > 3
 Event, Time range
 {% endapitags %}
 
-過去4四半期のそれぞれで購入を行ったユーザーを選択します。このユーザーSegmentは、[オーディエンス同期]({{site.baseurl}}/partners/canvas_audience_sync)と組み合わせて、獲得向けの高価値な類似顧客を特定するために使用できます。
+過去4四半期のそれぞれで購入を行ったユーザーを選択します。このユーザーセグメントは、[オーディエンス同期]({{site.baseurl}}/partners/canvas_audience_sync)と組み合わせて、獲得向けの高価値な類似顧客を特定するために使用できます。
 
 ```sql
 ELECT DISTINCT user_id
@@ -123,7 +123,7 @@ HAVING COUNT(id) > 0;
 Message, Delivery
 {% endapitags %}
 
-SMSのCampaignまたはCanvasが送信されたが、メッセージがキャリアに到達しなかったユーザーを選択します。たとえば、キューオーバーフローによってメッセージが停止された場合などです。
+SMSのキャンペーンまたはキャンバスが送信されたが、メッセージがキャリアに到達しなかったユーザーを選択します。たとえば、キューオーバーフローによってメッセージが停止された場合などです。
 
 ```sql
 SELECT
@@ -144,7 +144,7 @@ HAVING COUNT(id) > 0;
 Message, Carrier
 {% endapitags %}
 
-これは、特定のCanvasから送信されたが配信されなかった他の種類のメッセージにも転用できます。
+これは、特定のキャンバスから送信されたが配信されなかった他の種類のメッセージにも転用できます。
 
 ```sql
 SELECT
@@ -157,7 +157,7 @@ AND TO_PHONE_NUMBER NOT IN (SELECT TO_PHONE_NUMBER FROM USERS_MESSAGES_SMS_CARRI
 GROUP BY 1
 HAVING COUNT(id) > 0;
 ```
-`CANVAS_ID` は、CanvasのURLの `/canvas/` の後にある番号です。
+`CANVAS_ID` は、キャンバスのURLの `/canvas/` の後にある番号です。
 {% endapi %}
 
 {% api %}

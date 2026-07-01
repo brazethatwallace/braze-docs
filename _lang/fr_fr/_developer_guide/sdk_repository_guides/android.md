@@ -12,8 +12,8 @@ Le SDK Android de Braze vous aide à intégrer les fonctionnalités d'envoi de m
 
 Pour commencer, consultez les ressources suivantes :
 
-- [Guide utilisateur de Braze]({{site.baseurl}}/user_guide/introduction)
-- [Guide développeur de Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android)
+- [Guide utilisateur de Braze](https://www.braze.com/docs/user_guide/introduction/)
+- [Guide développeur de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android)
 
 ## Démarrage rapide {#quickstart}
 
@@ -47,7 +47,7 @@ dependencies {
 Braze.getInstance(context).changeUser("Jane Doe");
 ```
 
-Pour plus d'informations sur les options d'intégration avancées, consultez le [Guide développeur de Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android).
+Pour plus d'informations sur les options d'intégration avancées, consultez le [Guide développeur de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android).
 
 ## Prise en charge des versions {#version-support}
 

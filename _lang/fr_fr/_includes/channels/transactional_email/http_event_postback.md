@@ -15,7 +15,7 @@ Dans votre tableau de bord de Braze :
 2. Sous **Transactional Event Status Postback**, saisissez l'URL vers laquelle Braze doit envoyer les mises à jour de statut pour vos e-mails transactionnels.
 3. Testez le postback.
 
-![]({% image_buster /assets/img/transactional_webhook_url.png %})
+![Champ d'URL du postback de statut d'événement transactionnel dans les préférences des e-mails.]({% image_buster /assets/img/transactional_webhook_url.png %})
 
 ### Corps du postback {#postback-body}
 
@@ -49,7 +49,7 @@ Dans votre tableau de bord de Braze :
 | `aborted` | Braze n'a pas réussi à envoyer le message, car l'adresse de l'utilisateur ne permet pas de recevoir des e-mails ou la logique d'interruption Liquid a été appelée dans le corps du message. Tous les événements abandonnés comprennent un champ `reason` dans l'objet de métadonnées indiquant pourquoi le message a été abandonné |
 | `delivered` | Le message a été accepté par le fournisseur de boîte de réception de l'utilisateur |
 | `bounced` | Le message a été rejeté par le fournisseur de boîte de réception de l'utilisateur. Tous les événements de rebond comprennent un champ `reason` dans l'objet de métadonnées reflétant le code d'erreur de rebond fourni par le fournisseur de boîte de réception |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Message status" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Statut du message" }
 
 ### Exemple de postback {#example-postback}
 ```json

@@ -39,6 +39,10 @@ Braze는 사용자가 Google에 등록하거나 필요한 보안 요구 사항�
 
 지원되는 이메일 클라이언트의 전체 목록은 [AMP 설명서](https://amp.dev/support/faq/email-support)를 참조하세요.
 
+#### 미등록 공급자에게 발송하기 {#send-to-unregistered-providers}
+
+Yahoo나 Mail.ru와 같은 공급자에 등록 절차를 완료하기 전에 AMP 이메일을 보내면, 해당 공급자는 이메일의 AMP 부분을 무시하고 HTML 또는 일반 텍스트 대체 버전을 표시합니다. AMP 부분 자체는 미등록 발신자에 대해 전달 가능성 문제를 일으키지 않습니다.
+
 ### Gmail 계정 활성화 {#enabling-gmail-account}
 
 Gmail 설정으로 이동하여 **General** 탭에서 **Enable dynamic email**을 선택합니다.

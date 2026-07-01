@@ -128,9 +128,9 @@ WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('month', -1, date_trunc('day',C
 
 | ID名 | 関連する名前カラム |
 | --- | --- |
-| `CANVAS_ID` | Canvas名 |
-| `CANVAS_VARIATION_API_ID` | Canvasバリアント名 |
-| `CAMPAIGN_ID` | Campaign名 |
+| `CANVAS_ID` | キャンバス名 |
+| `CANVAS_VARIATION_API_ID` | キャンバスバリアント名 |
+| `CAMPAIGN_ID` | キャンペーン名 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="カスタムSQLクエリの記述" }
 
 このクエリは、3つのIDすべてとそれに関連する名前カラムを最大100行で取得します:
@@ -141,9 +141,9 @@ FROM USERS_MESSAGES_EMAIL_SEND_SHARED
 LIMIT 100
 ```
 
-### Campaignバリアント名を自動入力する {#automatically-populate-the-campaign-variant-name}
+### キャンペーンバリアント名を自動入力する {#automatically-populate-the-campaign-variant-name}
 
-Campaignバリアント名を自動入力するには、次の例のようにクエリにカラム名`MESSAGE_VARIATION_API_ID`を含めます:
+キャンペーンバリアント名を自動入力するには、次の例のようにクエリにカラム名`MESSAGE_VARIATION_API_ID`を含めます:
 
 ```sql
 SELECT CANVAS_ID, CANVAS_VARIATION_API_ID, CAMPAIGN_ID, MESSAGE_VARIATION_API_ID
@@ -162,11 +162,11 @@ LIMIT 100
 
 ## 変数の使用 {#using-variables}
 
-変数を使用すると、SQLで事前定義された変数タイプを使用して、値を手動でコピーすることなく参照できます。たとえば、CampaignのIDをSQLエディターに手動でコピーする代わりに、{% raw %}`{{campaign.${My campaign}}}`{% endraw %}を使用して、**Variables**タブのドロップダウンからCampaignを直接選択できます。
+変数を使用すると、SQLで事前定義された変数タイプを使用して、値を手動でコピーすることなく参照できます。たとえば、キャンペーンのIDをSQLエディターに手動でコピーする代わりに、{% raw %}`{{campaign.${My campaign}}}`{% endraw %}を使用して、**Variables**タブのドロップダウンからキャンペーンを直接選択できます。
 
 変数を作成すると、クエリビルダーレポートの**Variables**タブに表示されます。SQL変数を使用する利点は次のとおりです:
 
-- Campaign変数を作成してレポート作成時にリストから選択することで、Campaign IDを貼り付ける代わりに時間を節約できます。
+- キャンペーン変数を作成してレポート作成時にリストから選択することで、キャンペーン IDを貼り付ける代わりに時間を節約できます。
 - 変数を追加して値を入れ替えることで、将来わずかに異なるユースケース（異なるカスタムイベントなど）でレポートを再利用できます。
 - 各レポートに必要な編集量を減らすことで、SQLの編集時のユーザーエラーを削減できます。SQLに慣れているチームメイトがレポートを作成し、技術的な知識が少ないチームメイトがそれを使用できます。
 
@@ -190,7 +190,7 @@ LIMIT 100
 - [カタログ](#catalogs)
 - [カタログフィールド](#catalog-fields)
 - [オプション](#options)
-- [Segments](#segments)
+- [セグメント](#segments)
 - [文字列](#string)
 - [タグ](#tags)
 
@@ -226,58 +226,58 @@ LIMIT 100
 
 すべてのメッセージング変数は、1つのグループ内で状態を関連付ける場合、同じ識別子を共有する必要があります。
 
-##### Canvas
+##### キャンバス
 
-1つのCanvasを選択する場合に使用します。Campaignと同じ名前を共有すると、**Variables**タブ内にCanvasまたはCampaignのいずれかを選択するラジオボタンが表示されます。
+1つのキャンバスを選択する場合に使用します。キャンペーンと同じ名前を共有すると、**Variables**タブ内にキャンバスまたはキャンペーンのいずれかを選択するラジオボタンが表示されます。
 
-- **置換値:** Canvas BSON ID
+- **置換値:** キャンバス BSON ID
 - **使用例:** {% raw %}`canvas_id = '{{canvas.${some name}}}'`{% endraw %}
 
-##### Canvases
+##### キャンバス
 
-複数のCanvasesを選択する場合に使用します。Campaignと同じ名前を共有すると、**Variables**タブ内にCanvasまたはCampaignのいずれかを選択するラジオボタンが表示されます。
+複数のキャンバスを選択する場合に使用します。キャンペーンと同じ名前を共有すると、**Variables**タブ内にキャンバスまたはキャンペーンのいずれかを選択するラジオボタンが表示されます。
 
-- **置換値:** Canvases BSON ID
+- **置換値:** キャンバス BSON ID
 - **使用例:** {% raw %}`canvas_id IN ({{canvases.${some name}}})`{% endraw %}
 
-##### Campaign
+##### キャンペーン
 
-1つのCampaignを選択する場合に使用します。Canvasと同じ名前を共有すると、**Variables**タブ内にCanvasまたはCampaignのいずれかを選択するラジオボタンが表示されます。
+1つのキャンペーンを選択する場合に使用します。キャンバスと同じ名前を共有すると、**Variables**タブ内にキャンバスまたはキャンペーンのいずれかを選択するラジオボタンが表示されます。
 
-- **置換値:** Campaign BSON ID
+- **置換値:** キャンペーン BSON ID
 - **使用例:** {% raw %}`campaign_id = '{{campaign.${some name}}}'`{% endraw %}
 
-##### Campaigns
+##### キャンペーン
 
-複数のCampaignsを選択する場合に使用します。Canvasと同じ名前を共有すると、**Variables**タブ内にCanvasまたはCampaignのいずれかを選択するラジオボタンが表示されます。
+複数のキャンペーンを選択する場合に使用します。キャンバスと同じ名前を共有すると、**Variables**タブ内にキャンバスまたはキャンペーンのいずれかを選択するラジオボタンが表示されます。
 
-- **置換値:** Campaigns BSON ID
+- **置換値:** キャンペーン BSON ID
 - **使用例:** {% raw %}`campaign_id IN ({{campaigns.${some name}}})`{% endraw %}
 
-##### Campaignバリアント {#campaign-variants}
+##### キャンペーンバリアント {#campaign-variants}
 
-選択したCampaignに属するCampaignバリアントを選択する場合に使用します。CampaignまたはCampaigns変数と組み合わせて使用する必要があります。
+選択したキャンペーンに属するキャンペーンバリアントを選択する場合に使用します。キャンペーンまたはキャンペーン変数と組み合わせて使用する必要があります。
 
-- **置換値:** CampaignバリアントAPI ID（カンマ区切りの文字列、`api-id1, api-id2`など）。
+- **置換値:** キャンペーンバリアントAPI ID（カンマ区切りの文字列、`api-id1, api-id2`など）。
 - **使用例:** {% raw %}`message_variation_api_id IN ({{campaign_variants.${some name}}})`{% endraw %}
 
-##### Canvasバリアント {#canvas-variants}
+##### キャンバスバリアント {#canvas-variants}
 
-選択したCanvasに属するCanvasバリアントを選択する場合に使用します。CanvasまたはCanvases変数と組み合わせて使用する必要があります。
+選択したキャンバスに属するキャンバスバリアントを選択する場合に使用します。キャンバスまたはキャンバス変数と組み合わせて使用する必要があります。
 
-- **置換値:** CanvasバリアントAPI ID（カンマ区切りの文字列、`api-id1, api-id2`など）。
+- **置換値:** キャンバスバリアントAPI ID（カンマ区切りの文字列、`api-id1, api-id2`など）。
 - **使用例:** {% raw %}`canvas_variation_api_id IN ({{canvas_variants.${some name}}})`{% endraw %}
 
 ##### キャンバスステップ {#canvas-step}
 
-選択したCanvasに属するキャンバスステップを選択する場合に使用します。Canvas変数と組み合わせて使用する必要があります。
+選択したキャンバスに属するキャンバスステップを選択する場合に使用します。キャンバス変数と組み合わせて使用する必要があります。
 
 - **置換値:** キャンバスステップAPI ID
 - **使用例:** {% raw %}`canvas_step_api_id = '{{canvas_step.${some name}}}'`{% endraw %}
 
 ##### キャンバスステップ（複数） {#canvas-steps}
 
-選択したCanvasesに属するキャンバスステップを選択する場合に使用します。CanvasまたはCanvases変数と組み合わせて使用する必要があります。
+選択したキャンバスに属するキャンバスステップを選択する場合に使用します。キャンバスまたはキャンバス変数と組み合わせて使用する必要があります。
 
 - **置換値:** キャンバスステップAPI ID
 - **使用例:** {% raw %}`canvas_step_api_id IN ({{canvas_steps.${some name}}})`{% endraw %}

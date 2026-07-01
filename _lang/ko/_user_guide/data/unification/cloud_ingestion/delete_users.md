@@ -15,9 +15,9 @@ description: "이 페이지는 클라우드 데이터 수집을 사용하여 사
 
 ## 통합 구성하기 {#configure-the-integration}
 
-표준 프로세스에 따라 연결하려는 데이터 웨어하우스에 대해 [Braze 대시보드에서 새로운 통합을 생성]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)합니다. 삭제 테이블에 액세스할 수 있는 역할을 포함해야 합니다. **Create import sync** 페이지에서 **Data Type**을 **Delete Users**로 설정하여 통합 실행 중에 사용자를 삭제하는 적절한 동작이 수행되도록 합니다.
+표준 프로세스에 따라 연결하려는 데이터 웨어하우스에 대해 [Braze 대시보드에서 새로운 통합을 생성]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)합니다. 삭제 테이블에 액세스할 수 있는 역할을 포함해야 합니다. **Create import sync** 페이지에서 **Data Type**을 **Delete Users**로 설정하여 통합 실행 중에 사용자를 삭제하는 적절한 동작이 수행되도록 합니다.
 
-![]({% image_buster /assets/img/cloud_ingestion/deletion_1.png %})
+![연결하려는 데이터 웨어하우스에 대해 Braze 대시보드에서 새로운 통합을 생성하는 표준 프로세스를 따릅니다. 삭제 테이블에 액세스할 수 있는 역할을 포함해야 합니다. Create import sync 페이지에서 Data Type을 Delete Users로 설정하여 통합 실행 중에 사용자를 삭제하는 적절한 동작이 수행되도록 합니다.]({% image_buster /assets/img/cloud_ingestion/deletion_1.png %})
 
 ## 소스 데이터 구성 {#configure-source-data}
 
@@ -78,7 +78,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_DELETES (
 | `ALIAS_NAME`| STRING | NULLABLE |
 | `ALIAS_LABEL`| STRING | NULLABLE |
 | `BRAZE_ID`| STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User identifier columns" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="사용자 식별자 열" }
 {% endtab %}
 
 {% tab Databricks %}
@@ -91,7 +91,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_DELETES (
 | `ALIAS_NAME`| STRING | NULLABLE |
 | `ALIAS_LABEL`| STRING | NULLABLE |
 | `BRAZE_ID`| STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User identifier columns" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="사용자 식별자 열" }
 {% endtab %}
 {% tab Microsoft Fabric %}
 ```sql
@@ -120,7 +120,7 @@ Braze 클라우드 데이터 수집을 사용하면 데이터 웨어하우스 �
 동기화가 실행되면 Braze는 데이터 웨어하우스 인스턴스에 직접 연결하여 지정된 테이블에서 모든 새 데이터를 검색하고, Braze 대시보드에서 해당 사용자 프로필을 삭제합니다.
 
 {% alert warning %}
-사용자 프로필 삭제는 되돌릴 수 없습니다. 삭제 동작은 사용자를 영구적으로 제거하며, 데이터에 불일치가 발생할 수 있습니다. 자세한 내용은 [사용자 프로필 삭제의 영향]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#effects-of-deleting-user-profiles)을 참조하세요.
+사용자 프로필 삭제는 되돌릴 수 없습니다. 삭제 동작은 사용자를 영구적으로 제거하며, 데이터에 불일치가 발생할 수 있습니다. 자세한 내용은 [사용자 프로필 삭제의 영향]({{site.baseurl}}/api/endpoints/user_data/post_user_delete#effects-of-deleting-user-profiles)을 참조하세요.
 {% endalert %}
 
 <br><br>

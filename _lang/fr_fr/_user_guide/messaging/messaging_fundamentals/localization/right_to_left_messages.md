@@ -48,7 +48,7 @@ Les fonctions de prévisualisation et de test sont conçues pour les messages de
 Pour les notifications push, l'alignement du titre suit généralement les paramètres de langue de l'appareil, tandis que l'alignement du corps peut suivre le premier caractère directionnel fort de chaque ligne (traitez chaque ligne après un saut de ligne séparément). Cela signifie qu'une seule notification push peut mélanger les alignements d'une ligne à l'autre — par exemple, une ligne de corps de droite à gauche suivie d'une ligne de gauche à droite. Lorsque vous avez besoin d'une mise en page prévisible, maintenez une cohérence directionnelle et utilisez des sauts de ligne entre les segments multilingues.
 
 {% alert note %}
-Le rendu dépend toujours du système d'exploitation de l'appareil et du client push. Envoyez des [messages de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) à vos propres appareils pour confirmer l'alignement avant de passer en production.
+Le rendu dépend toujours du système d'exploitation de l'appareil et du client push. Envoyez des [messages de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) à vos propres appareils pour confirmer l'alignement avant de passer en production.
 {% endalert %}
 
 ### Texte bidirectionnel {#bi-directional-text}

@@ -43,7 +43,7 @@ Pour afficher plus de détails sur les critères d'entrée, sélectionnez **See 
 
 ### Liquid
 
-Braze traite la logique Liquid pendant un test, même si vous n'envoyez pas de message test réel. Cela signifie que la [logique d'abandon de message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/#abort-messages) et les autres logiques Liquid sont prises en compte et peuvent impacter le parcours utilisateur dans le Canvas.
+Braze traite la logique Liquid pendant un test, même si vous n'envoyez pas de message test réel. Cela signifie que la [logique d'abandon de message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages) et les autres logiques Liquid sont prises en compte et peuvent impacter le parcours utilisateur dans le Canvas.
 
 Si votre prévisualisation envoie la dernière étape de votre parcours utilisateur au lieu d'abandonner, la prévisualisation utilise peut-être l'heure actuelle comme heure testée pour l'évaluation Liquid, et non l'heure réelle à laquelle l'utilisateur se trouverait dans l'étape en fonction de l'heure d'entrée dans le Canvas.
 
@@ -87,7 +87,7 @@ Les étapes du Canvas réagissent au timing lors de la prévisualisation des par
 
 De même, les filtres reconnaissent les actions qui se sont produites à la suite de l'interaction de l'utilisateur test avec d'autres étapes du Canvas. Par exemple, ce mode de prévisualisation reconnaît qu'un utilisateur a rencontré une étape de message qui a été « envoyée » plus tôt dans le Canvas, et il reconnaît que l'utilisateur test a « effectué une action » pour progresser dans un parcours d'action.
 
-Consultez [Critères de sortie]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/) pour plus de détails sur le comportement réactif.
+Consultez [Critères de sortie]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria) pour plus de détails sur le comportement réactif.
 
 ## Contenu connecté {#connected-content}
 
@@ -95,13 +95,13 @@ Le contenu connecté est exécuté s'il est inclus dans le Canvas. Cela signifie
 
 Lors de la prévisualisation des parcours utilisateur, envisagez de supprimer le contenu connecté qui modifie les profils utilisateur ou les données référencées dans d'autres Canvas ou Campaigns.
 
-## Webhooks
+## Webhooks {#webhooks}
 
 Les webhooks s'exécutent lorsque des messages test sont envoyés, mais pas pendant le test. Comme pour le contenu connecté, envisagez de supprimer les webhooks qui modifient les profils utilisateur ou les données référencées dans d'autres Canvas ou Campaigns.
 
 ## Variables de contexte et groupes initiateurs {#context-variables-and-seed-groups}
 
-Pour une étape de message avec l'e-mail comme canal de communication, les groupes initiateurs envoient des copies initiatrices des e-mails lorsqu'un utilisateur atteint cette étape dans le Canvas. Ces copies initiatrices ne sont pas envoyées dans le cadre des propres parcours Canvas des destinataires du groupe initiateur, donc Braze n'exécute pas les [étapes de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) et n'évalue pas les variables de contexte pour ces destinataires. Si le contenu de votre e-mail fait référence à des variables de contexte, les destinataires du groupe initiateur reçoivent une copie initiatrice sans ces données renseignées. Pour tester des messages qui reposent sur des données de variables de contexte, utilisez la prévisualisation **Test Canvas** avec des envois de test au lieu des groupes initiateurs.
+Pour une étape de message avec l'e-mail comme canal de communication, les groupes initiateurs envoient des copies initiatrices des e-mails lorsqu'un utilisateur atteint cette étape dans le Canvas. Ces copies initiatrices ne sont pas envoyées dans le cadre des propres parcours Canvas des destinataires du groupe initiateur, donc Braze n'exécute pas les [étapes de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) et n'évalue pas les variables de contexte pour ces destinataires. Si le contenu de votre e-mail fait référence à des variables de contexte, les destinataires du groupe initiateur reçoivent une copie initiatrice sans ces données renseignées. Pour tester des messages qui reposent sur des données de variables de contexte, utilisez la prévisualisation **Test Canvas** avec des envois de test au lieu des groupes initiateurs.
 
 ## Cas d'utilisation {#use-case}
 

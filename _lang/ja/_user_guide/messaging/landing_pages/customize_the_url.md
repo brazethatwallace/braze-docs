@@ -13,14 +13,14 @@ page_order: 1
 
 [ドメインをBrazeに接続](#connect-your-domain-to-braze)すると、そのドメインがすべてのランディングページのデフォルトドメインとして使用されます。たとえば、サブドメイン`forms.example.com`を接続した場合、ランディングページのURLは`forms.example.com/holiday-sale`のようになります。
 
-Brazeアカウントに接続できるカスタムドメインの数は、[プランティア]({{site.baseurl}}/user_guide/messaging/landing_pages/#plan-tiers)によって異なります。上限を引き上げるには、Brazeアカウントマネージャーにお問い合わせください。
+Brazeアカウントに接続できるカスタムドメインの数は、[プランティア]({{site.baseurl}}/user_guide/messaging/landing_pages#plan-tiers)によって異なります。上限を引き上げるには、Brazeアカウントマネージャーにお問い合わせください。
 
 ## ドメインをBrazeに接続する {#connect-your-domain-to-braze}
 
 ドメインをBrazeアカウントに接続するには、管理者が以下の手順に従ってください。
 
-1. **Settings** > **Landing Page Settings**に移動します。
-2. 接続するドメインを入力し、**Submit**を選択します。たとえば、`forms.example.com`と入力します。
+1. **設定** > **ランディングページの設定**に移動します。
+2. 接続するドメインを入力し、**送信**を選択します。たとえば、`forms.example.com`と入力します。
 3. **TXT**レコードと**CNAME**レコードをコピーして、ドメインプロバイダーのDNS設定に貼り付けます。
 4. Brazeダッシュボードに戻り、接続を確認します。
 
@@ -38,8 +38,8 @@ Brazeは、Cloudflareを使用して[ACME DNS-01チャレンジ](https://letsenc
 
 Braze管理者の場合、以下の手順で以前に設定したドメインを削除できます。
 
-1. **Settings** > **Landing Page Settings**に移動します。
-2. **Remove Custom Domain**を選択します。
+1. **設定** > **ランディングページの設定**に移動します。
+2. **カスタムドメインを削除**を選択します。
 3. ドメインの削除を確認します。
 4. ドメイン設定から、表示されているDNSレコードを削除します。
 

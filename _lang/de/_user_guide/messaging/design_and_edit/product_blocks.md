@@ -21,18 +21,18 @@ Das Feature für Drag-and-Drop-Produkt-Blöcke befindet sich im Early Access und
 
 | Voraussetzung | Beschreibung |
 | --- | --- |
-| Empfohlene E-Commerce-Ereignisse | [Empfohlene E-Commerce-Ereignisse]({{site.baseurl}}/ecommerce_events/) bieten standardisierte Datenschemata für wichtige Verhaltens-Ereignisse, die vor und nach einer Bestellung auftreten. Diese Ereignisse werden langfristig das bisherige Braze-Kauf-Event ersetzen und zum Standard für das Tracking von Commerce-bezogenem Verhalten werden. <br><br> Empfohlene E-Commerce-Ereignisse sind für dynamische Produkt-Blöcke erforderlich. |
-| E-Commerce-Canvas-Templates | Die empfohlenen E-Commerce-Ereignisse unterstützen vorgefertigte Templates, einschließlich E-Commerce-Canvas-Templates für wesentliche Anwendungsfälle wie abgebrochenes Browsing, Warenkorb-Abbruch und Bestellbestätigungen. <br><br>Wenn Sie einen dieser wesentlichen E-Commerce-Anwendungsfälle mit den [E-Commerce-Canvas-Templates]({{site.baseurl}}/ecommerce_use_cases/) umsetzen möchten, müssen Sie das bereitgestellte Canvas-Template verwenden oder sich daran orientieren. |
+| Empfohlene E-Commerce-Ereignisse | [Empfohlene E-Commerce-Ereignisse]({{site.baseurl}}/ecommerce_events) bieten standardisierte Datenschemata für wichtige Verhaltens-Ereignisse, die vor und nach einer Bestellung auftreten. Diese Ereignisse werden langfristig das bisherige Braze-Kauf-Event ersetzen und zum Standard für das Tracking von Commerce-bezogenem Verhalten werden. <br><br> Empfohlene E-Commerce-Ereignisse sind für dynamische Produkt-Blöcke erforderlich. |
+| E-Commerce-Canvas-Templates | Die empfohlenen E-Commerce-Ereignisse unterstützen vorgefertigte Templates, einschließlich E-Commerce-Canvas-Templates für wesentliche Anwendungsfälle wie abgebrochenes Browsing, Warenkorb-Abbruch und Bestellbestätigungen. <br><br>Wenn Sie einen dieser wesentlichen E-Commerce-Anwendungsfälle mit den [E-Commerce-Canvas-Templates]({{site.baseurl}}/ecommerce_use_cases) umsetzen möchten, müssen Sie das bereitgestellte Canvas-Template verwenden oder sich daran orientieren. |
 | Braze-Katalog | Sie müssen einen Braze-Katalog erstellen, der die folgenden Felder enthält, die Sie in Ihrer Produkt-Block-Konfiguration verwenden:{::nomarkdown}<code><ul><li>product_title</li><li>product_url</li><li>variant_image_url</li></ul></code>{:/} |
-| Katalogauswahl | Für statische Produkt-Blöcke müssen Sie eine [Katalogauswahl]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) erstellen, um festzulegen, welche Produkte in Ihrem Produkt-Block enthalten sein sollen. |
+| Katalogauswahl | Für statische Produkt-Blöcke müssen Sie eine [Katalogauswahl]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) erstellen, um festzulegen, welche Produkte in Ihrem Produkt-Block enthalten sein sollen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Typen von Drag-and-Drop-Produkt-Blöcken {#types-of-drag-and-drop-product-blocks}
 
 | Produkt-Block | Zweck | Anwendungsfälle | Verfügbarkeit |
 | --- | --- | --- | --- |
-| Dynamisch | Personalisieren Sie Ihre Nachrichten mit einer Produktpräsentation basierend auf Kundeninteraktionen, indem Sie [empfohlene E-Commerce-Ereignisse]({{site.baseurl}}/ecommerce_events/) und Kataloge innerhalb unserer [E-Commerce-Canvas-Templates]({{site.baseurl}}/ecommerce_use_cases/) verwenden. | {::nomarkdown}<ul><li>Abgebrochenes Browsing</li><li>Warenkorb-Abbruch</li><li>Abgebrochener Checkout</li><li>Bestellbestätigungen</li></ul>{:/} | Nur in Canvas verfügbar. |
-| Statisch | Personalisieren Sie Produkte mithilfe von Daten, die in einem Braze-Katalog gespeichert sind. Sie müssen eine [Katalogauswahl]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) verwenden, um festzulegen, welche Produkte enthalten sein sollen. | Ideal für die Präsentation neuer Produkteinführungen oder kategoriespezifischer Angebote. | |
+| Dynamisch | Personalisieren Sie Ihre Nachrichten mit einer Produktpräsentation basierend auf Kundeninteraktionen, indem Sie [empfohlene E-Commerce-Ereignisse]({{site.baseurl}}/ecommerce_events) und Kataloge innerhalb unserer [E-Commerce-Canvas-Templates]({{site.baseurl}}/ecommerce_use_cases) verwenden. | {::nomarkdown}<ul><li>Abgebrochenes Browsing</li><li>Warenkorb-Abbruch</li><li>Abgebrochener Checkout</li><li>Bestellbestätigungen</li></ul>{:/} | Nur in Canvas verfügbar. |
+| Statisch | Personalisieren Sie Produkte mithilfe von Daten, die in einem Braze-Katalog gespeichert sind. Sie müssen eine [Katalogauswahl]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) verwenden, um festzulegen, welche Produkte enthalten sein sollen. | Ideal für die Präsentation neuer Produkteinführungen oder kategoriespezifischer Angebote. | |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Typen von Drag-and-Drop-Produkt-Blöcken" }
 
 ## Inhaltskonfiguration von Produkt-Blöcken {#product-block-content-configuration}
@@ -84,7 +84,7 @@ Verwenden Sie Layout-Optionen, um anzupassen, wie Ihre Produkte innerhalb Ihres 
 
 ### Globale E-Mail-Stileinstellungen {#global-email-style-settings}
 
-[Globale E-Mail-Stileinstellungen]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) ermöglichen es Ihnen, einheitliche Stile auf Ihre E-Mails in Braze anzuwenden. Das bedeutet, dass Sie bestimmte Stile – wie Schriftarten, Farben und Button-Designs – definieren können, die automatisch auf alle Ihre E-Mails angewendet werden.
+[Globale E-Mail-Stileinstellungen]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings) ermöglichen es Ihnen, einheitliche Stile auf Ihre E-Mails in Braze anzuwenden. Das bedeutet, dass Sie bestimmte Stile – wie Schriftarten, Farben und Button-Designs – definieren können, die automatisch auf alle Ihre E-Mails angewendet werden.
 
 #### Wie globale E-Mail-Stileinstellungen mit Produkt-Blöcken funktionieren {#how-global-email-style-settings-work-with-product-blocks}
 
@@ -95,7 +95,7 @@ Bestehende Stile für Absätze und Buttons werden automatisch auf die Text- und 
 ### Katalog-Einrichtung {#catalog-setup}
 
 {% alert important %}
-Wenn Sie die Braze- und Shopify-Integration für die [Produktsynchronisierung]({{site.baseurl}}/shopify_catalogs/) verwenden, sind keine zusätzlichen Schritte erforderlich, um Drag-and-Drop-Produkt-Blöcke zu nutzen.<br><br> Wenn Sie keine Produktvarianteninformationen haben, müssen Sie die übergeordneten Produktinformationen sowohl in den Produkt- als auch in den Produktvariantenfeldern innerhalb der Ereignis-Payloads und Kataloge duplizieren. Das bedeutet, dass Sie dieselben Produktdetails für beide Bezeichner angeben müssen, um die Konsistenz für die korrekte Funktion des Produkt-Blocks sicherzustellen.
+Wenn Sie die Braze- und Shopify-Integration für die [Produktsynchronisierung]({{site.baseurl}}/shopify_catalogs) verwenden, sind keine zusätzlichen Schritte erforderlich, um Drag-and-Drop-Produkt-Blöcke zu nutzen.<br><br> Wenn Sie keine Produktvarianteninformationen haben, müssen Sie die übergeordneten Produktinformationen sowohl in den Produkt- als auch in den Produktvariantenfeldern innerhalb der Ereignis-Payloads und Kataloge duplizieren. Das bedeutet, dass Sie dieselben Produktdetails für beide Bezeichner angeben müssen, um die Konsistenz für die korrekte Funktion des Produkt-Blocks sicherzustellen.
 {% endalert %}
 
 Um Drag-and-Drop-Produkt-Blöcke zu verwenden, müssen Sie einen Braze-Katalog mit bestimmten Feldwerten einrichten. Diese Felder verwenden Sie in Ihrer Produkt-Block-Konfiguration. Stellen Sie sicher, dass Ihr Katalog die folgenden Felder enthält:
@@ -113,7 +113,7 @@ Starten Sie direkt mit diesem [Beispiel-Produktkatalog](/docs/assets/download_fi
 
 #### Zuordnung zu Katalogfeldern {#mapping-to-catalog-fields}
 
-Im Tab **Settings** Ihres Katalogs können Sie den Schalter **Product blocks** aktivieren, um bestimmte Felder und Informationen in Ihrem Katalog zuzuordnen. So können Sie auswählen, welche Felder als Produkttitel, Produkt-URL und Bild-URL verwendet werden sollen. Beachten Sie, dass Shopify-Katalogfelder standardmäßig zugeordnet sind und nicht geändert werden können.
+Im Tab **Einstellungen** Ihres Katalogs können Sie den Schalter **Product blocks** aktivieren, um bestimmte Felder und Informationen in Ihrem Katalog zuzuordnen. So können Sie auswählen, welche Felder als Produkttitel, Produkt-URL und Bild-URL verwendet werden sollen. Beachten Sie, dass Shopify-Katalogfelder standardmäßig zugeordnet sind und nicht geändert werden können.
 
 {% alert note %}
 Wenn Sie Shopify nicht verwenden, können Sie sich an Ihren Account Manager wenden, um die Feldzuordnung zu aktivieren. Damit können Sie jeden Katalog mit Produkt-Blöcken verbinden und seine Felder den Feldern `product_title`, `product_url` und `variant_image_url` zuordnen.
@@ -128,7 +128,7 @@ Diese Anleitung führt Sie durch die Schritte zum Erstellen, Testen und Sicherst
 #### Dynamischer Produkt-Block
 
 {% alert note %}
-Dynamische Produkt-Blöcke erfordern [empfohlene E-Commerce-Ereignisse]({{site.baseurl}}/ecommerce_events/) und können nur innerhalb von [Canvases]({{site.baseurl}}/ecommerce_use_cases/) verwendet werden. Für Braze-Shopify-Nutzer:innen sind diese Ereignisse automatisch als Teil der Integration enthalten. Für Nicht-Shopify-Nutzer:innen müssen Sie mit Ihren Entwickler:innen zusammenarbeiten, um diese Ereignisse an Braze zu übergeben und sicherzustellen, dass der primäre Produktbezeichner innerhalb der Ereignisse als Katalog-Artikel-ID hinzugefügt wird.
+Dynamische Produkt-Blöcke erfordern [empfohlene E-Commerce-Ereignisse]({{site.baseurl}}/ecommerce_events) und können nur innerhalb von [Canvases]({{site.baseurl}}/ecommerce_use_cases) verwendet werden. Für Braze-Shopify-Nutzer:innen sind diese Ereignisse automatisch als Teil der Integration enthalten. Für Nicht-Shopify-Nutzer:innen müssen Sie mit Ihren Entwickler:innen zusammenarbeiten, um diese Ereignisse an Braze zu übergeben und sicherzustellen, dass der primäre Produktbezeichner innerhalb der Ereignisse als Katalog-Artikel-ID hinzugefügt wird.
 {% endalert %}
 
 Erstellen Sie ein neues Canvas, das eines der verfügbaren Braze-Templates für Ihren spezifischen Anwendungsfall verwendet:
@@ -137,7 +137,7 @@ Erstellen Sie ein neues Canvas, das eines der verfügbaren Braze-Templates für 
 - Abgebrochener Checkout
 - Bestellbestätigungen
 
-Detaillierte Anweisungen zum Erstellen Ihrer E-Commerce-Canvases finden Sie unter [E-Commerce-Anwendungsfälle]({{site.baseurl}}/ecommerce_use_cases/).
+Detaillierte Anweisungen zum Erstellen Ihrer E-Commerce-Canvases finden Sie unter [E-Commerce-Anwendungsfälle]({{site.baseurl}}/ecommerce_use_cases).
 
 #### Statischer Produkt-Block
 

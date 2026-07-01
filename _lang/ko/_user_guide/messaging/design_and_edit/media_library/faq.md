@@ -30,6 +30,10 @@ description: "이 문서에서는 Braze의 미디어 라이브러리에 대해 �
 
 아니요, 미디어 라이브러리는 GIF 이미지 자르기를 지원하지 않습니다.
 
+### 이메일에서 SVG 이미지를 사용할 수 있나요? {#can-i-use-svg-images-in-email}
+
+SVG 이미지는 이메일 클라이언트 간 지원이 제한적이므로 이메일에 사용하는 것을 권장하지 않습니다. Gmail 및 기타 주요 이메일 제공업체에서는 SVG 이미지를 렌더링하지 않으므로, 수신자에게 이미지가 깨지거나 누락될 수 있습니다. 안정적인 이메일 렌더링을 위해 PNG, JPEG 또는 GIF 형식을 사용하세요.
+
 ### 기존 이미지를 어떻게 자르나요? {#how-do-i-crop-an-existing-image}
 
 미디어 라이브러리에서 이미지를 선택하고 **Crop & Save New Image**를 클릭하면 기존 이미지를 자를 수 있습니다.
@@ -59,8 +63,8 @@ description: "이 문서에서는 Braze의 미디어 라이브러리에 대해 �
 
 ### AI를 사용하여 이미지 생성 {#generate-an-image-using-ai}
 
-**콘텐츠** > **미디어 라이브러리**에서 **AI Image Generator**를 선택하여 이미지를 생성할 수 있습니다. **미디어 라이브러리 자산 편집** 권한이 필요합니다. 해당 옵션이 보이지 않으면 Braze 고객지원 팀에 문의하세요. 단계 및 정책 세부 정보는 [BrazeAI로 이미지 생성]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-images) 및 [BrazeAI로 이미지 생성하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai)를 참조하세요.
+**콘텐츠** > **미디어 라이브러리**에서 **AI Image Generator**를 선택하여 이미지를 생성할 수 있습니다. **미디어 라이브러리 자산 편집** 권한이 필요합니다. 해당 옵션이 보이지 않으면 Braze 고객지원 팀에 문의하세요. 단계 및 정책 세부 정보는 [BrazeAI로 이미지 생성]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images) 및 [BrazeAI로 이미지 생성하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#generate-ai)를 참조하세요.
 
 ### 미디어 라이브러리 이미지 자산에 대해 커스텀 URL을 만들 수 있나요? {#can-i-create-vanity-urls-for-media-library-image-assets}
 
-미디어 라이브러리 자산에 대한 커스텀 URL은 지원되지 않습니다. 커스텀 URL을 사용하면 CDN 전달이 중단되기 때문입니다. Campaign에서 이미 해당 URL을 참조하고 있는 경우 기존 URL에서 이미지를 교체할 수 있습니다. 자세한 내용은 [파일 교체]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#replace-a-file)를 참조하세요.
+미디어 라이브러리 자산에 대한 커스텀 URL은 지원되지 않습니다. 커스텀 URL을 사용하면 CDN 전달이 중단되기 때문입니다. Campaign에서 이미 해당 URL을 참조하고 있는 경우 기존 URL에서 이미지를 교체할 수 있습니다. 자세한 내용은 [파일 교체]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file)를 참조하세요.

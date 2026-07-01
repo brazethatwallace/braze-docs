@@ -19,7 +19,7 @@ description: "この記事は、2018年1月のリリースノートを含んで�
 - 最後に受信した特定のキャンバスステップ
 
 {% alert update %}
-2019年3月より、`Received Canvas Step` は `Received Message from Canvas Step` に、`Last Received Specific Canvas Step` は `Last Received Message from Specific Canvas Step` に名称変更されています。
+2019年3月より、`Received キャンバスステップ` は `Received Message from Canvas Step` に、`Last Received Specific キャンバスステップ` は `Last Received Message from Specific Canvas Step` に名称変更されています。
 {% endalert %}
 
 ## デバイス ID を使用してユーザーをエクスポートする

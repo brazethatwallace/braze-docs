@@ -18,16 +18,16 @@ platform: API
 API 트리거 캠페인을 설정하려면 몇 가지 단계가 필요합니다. 먼저 새로운 멀티채널 또는 단일 채널 캠페인(다변량 테스트 포함)을 생성합니다.
 
 {% alert note %}
-API 트리거 캠페인은 [API 캠페인]({{site.baseurl}}/developer_guide/rest_api/api_campaigns/#api-campaigns)과 다릅니다.
+API 트리거 캠페인은 [API 캠페인]({{site.baseurl}}/developer_guide/rest_api/api_campaigns#api-campaigns)과 다릅니다.
 {% endalert %}
 
-다음으로, 스케줄된 알림과 동일한 방식으로 문구와 알림을 구성하고 **API-Triggered Delivery**를 선택합니다. 서버에서 이러한 캠페인을 트리거하는 방법에 대한 자세한 내용은 [API 트리거 캠페인 발송]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) 문서를 확인하세요.
+다음으로, 스케줄된 알림과 동일한 방식으로 문구와 알림을 구성하고 **API-Triggered Delivery**를 선택합니다. 서버에서 이러한 캠페인을 트리거하는 방법에 대한 자세한 내용은 [API 트리거 캠페인 발송]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) 문서를 확인하세요.
 
-![]({% image_buster /assets/img_archive/api_triggered_campaign_delivery.png %})
+![스케줄된 알림과 동일한 방식으로 문구와 알림을 구성한 후 API-Triggered Delivery를 선택합니다. 서버에서 이러한 캠페인을 트리거하는 방법에 대한 자세한 내용은 API 트리거 캠페인 발송 문서를 확인하세요.]({% image_buster /assets/img_archive/api_triggered_campaign_delivery.png %})
 
 ## API 요청에 포함된 템플릿 콘텐츠 사용 {#using-the-templated-content-included-with-an-api-request}
 
-메시지를 트리거하는 것 외에도, API 요청에 `trigger_properties` 오브젝트 내에서 메시지에 템플릿화할 콘텐츠를 포함할 수 있습니다. 이 콘텐츠는 메시지 본문에서 참조할 수 있습니다. `trigger_properties` 및 메시지 문구에서 Liquid 태그당 정확히 두 개의 중괄호를 사용합니다. 예시: {% raw %}`{{api_trigger_properties.${your_property}}}`.{% endraw %} 추가 `{` 또는 `}`는 [API 트리거 개인화 실패]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze)의 일반적인 원인입니다.
+메시지를 트리거하는 것 외에도, API 요청에 `trigger_properties` 오브젝트 내에서 메시지에 템플릿화할 콘텐츠를 포함할 수 있습니다. 이 콘텐츠는 메시지 본문에서 참조할 수 있습니다. `trigger_properties` 및 메시지 문구에서 Liquid 태그당 정확히 두 개의 중괄호를 사용합니다. 예시: {% raw %}`{{api_trigger_properties.${your_property}}}`.{% endraw %} 추가 `{` 또는 `}`는 [API 트리거 개인화 실패]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq#why-is-my-api-triggered-liquid-failing-in-braze)의 일반적인 원인입니다.
 
 추가 컨텍스트는 다음 소셜 알림 예시를 참조하세요.
 
@@ -39,4 +39,4 @@ API 트리거 캠페인은 [API 캠페인]({{site.baseurl}}/developer_guide/rest
 
 예를 들어, API 트리거 캠페인을 사용하여 사용자가 최근 조회한 항목에 대한 캠페인을 보내고 있다고 가정해 보겠습니다. 이 경우 각 항목에 대해 API 트리거를 실행하면서도 조회한 항목 수에 관계없이 하루에 최대 한 개의 메시지만 보내도록 캠페인을 제한할 수 있습니다. 반면, API 트리거 캠페인이 트랜잭션 성격인 경우에는 지연 시간을 0분으로 설정하여 사용자가 트랜잭션을 수행할 때마다 캠페인을 수신하도록 해야 합니다.
 
-![]({% image_buster /assets/img_archive/api_triggered_reeligible.png %})
+![API 트리거 캠페인의 재자격과 관련된 스크린샷.]({% image_buster /assets/img_archive/api_triggered_reeligible.png %})

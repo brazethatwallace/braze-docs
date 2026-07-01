@@ -79,7 +79,7 @@ Canvas를 다른 워크스페이스로 복사하려면:
 | 설명 | 지역 |
 | 유형 | 태그 |
 | 동작(중첩) | Segments 및 필터 |
-| 전환 동작(중첩) | [승인]({{site.baseurl}}/user_guide/messaging/governance/approvals/) |
+| 전환 동작(중첩) | [승인]({{site.baseurl}}/user_guide/messaging/governance/approvals) |
 | 방해 금지 시간 구성 | 트리거 스케줄 |
 | 최대 게재빈도 설정 구성 | Campaign 요약 |
 | 수신자 구독 상태 |  |
@@ -95,7 +95,7 @@ Canvas를 다른 워크스페이스로 복사하려면:
 | 설명 | 지역 |
 | 유형 | 태그 |
 | 동작(중첩) | Segments 및 필터 |
-| 전환 동작(중첩) | [승인]({{site.baseurl}}/user_guide/messaging/governance/approvals/) |
+| 전환 동작(중첩) | [승인]({{site.baseurl}}/user_guide/messaging/governance/approvals) |
 | 방해 금지 시간 구성 | 트리거 스케줄 |
 | 최대 게재빈도 설정 구성 | Canvas 요약 |
 | 수신자 구독 상태 |  |
@@ -103,7 +103,7 @@ Canvas를 다른 워크스페이스로 복사하려면:
 | 트랜잭션 여부 |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="세부 정보" }
 
-캔버스 단계의 필터 기준(예: [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) 단계)은 대상 워크스페이스로 복사되지 않습니다. 복사 후 해당 필터를 다시 구성하세요.
+캔버스 단계의 필터 기준(예: [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) 단계)은 대상 워크스페이스로 복사되지 않습니다. 복사 후 해당 필터를 다시 구성하세요.
 
 {% endtab %}
 {% endtabs %}
@@ -335,7 +335,7 @@ Canvas를 다른 워크스페이스로 복사하려면:
 
 ## Liquid가 포함된 메시지 복사 {#copying-messages-that-contain-liquid}
 
-메시지 본문 내의 Liquid 참조는 대상 워크스페이스로 복사되지만, 참조가 예상대로 작동하지 않을 수 있습니다. 즉, 워크스페이스 A의 Canvas를 워크스페이스 B로 복사하면 워크스페이스 B에서 Liquid 참조를 포함한 워크스페이스 A의 세부 정보를 참조할 수 없습니다. 예를 들어, 트리거 동작, 오디언스 필터, [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) 필터 기준과 같은 필드는 복사되지 않습니다.
+메시지 본문 내의 Liquid 참조는 대상 워크스페이스로 복사되지만, 참조가 예상대로 작동하지 않을 수 있습니다. 즉, 워크스페이스 A의 Canvas를 워크스페이스 B로 복사하면 워크스페이스 B에서 Liquid 참조를 포함한 워크스페이스 A의 세부 정보를 참조할 수 없습니다. 예를 들어, 트리거 동작, 오디언스 필터, [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) 필터 기준과 같은 필드는 복사되지 않습니다.
 
 워크스페이스 간에 Campaign, Canvases, 랜딩 페이지를 복사할 때 종속성이 있는 다음 Liquid 참조를 추적하세요:
 
@@ -350,7 +350,7 @@ Canvas를 다른 워크스페이스로 복사하려면:
 
 ## 피처 플래그가 포함된 메시지 복사 {#copying-messages-with-feature-flags}
 
-피처 플래그 Campaign과 피처 플래그 단계가 포함된 Canvas를 워크스페이스 간에 복사하려면, 대상 워크스페이스에 원본 Campaign에서 참조하는 피처 플래그 또는 원본 Canvas에서 참조하는 피처 플래그 단계와 일치하는 ID로 구성된 [피처 플래그 실험]({{site.baseurl}}/developer_guide/feature_flags/experiments/)이 있어야 합니다.
+피처 플래그 Campaign과 피처 플래그 단계가 포함된 Canvas를 워크스페이스 간에 복사하려면, 대상 워크스페이스에 원본 Campaign에서 참조하는 피처 플래그 또는 원본 Canvas에서 참조하는 피처 플래그 단계와 일치하는 ID로 구성된 [피처 플래그 실험]({{site.baseurl}}/developer_guide/feature_flags/experiments)이 있어야 합니다.
 
 대상 워크스페이스에 존재하지 않는 피처 플래그 ID가 포함된 피처 플래그 단계가 있는 Campaign 또는 Canvas를 복사하면, 피처 플래그 단계는 복사되지만 그 내용은 복사되지 않습니다.
 

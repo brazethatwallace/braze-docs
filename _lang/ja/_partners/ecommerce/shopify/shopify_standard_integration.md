@@ -66,7 +66,7 @@ Shopifyオンラインストアでは、標準設定を選択すると、Braze W
 
 **Track Shopify data**ステップで、統合の一部として初期履歴データの読み込みを含めるチェックボックスを選択します。
 
-インポートされる内容、収益レポートの動作、セットアップのスクリーンショット、およびアクティブなCampaignsやCanvasesで既にBrazeを使用している場合のガイダンスについては、[履歴バックフィル]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#historical-backfill)を参照してください。
+インポートされる内容、収益レポートの動作、セットアップのスクリーンショット、およびアクティブなキャンペーンやキャンバスで既にBrazeを使用している場合のガイダンスについては、[履歴バックフィル]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#historical-backfill)を参照してください。
 
 ### （詳細）カスタムデータトラッキング設定 {#advanced-custom-data-tracking-setup}
 

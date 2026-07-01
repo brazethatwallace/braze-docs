@@ -26,9 +26,9 @@ Metaweather es una API meteorológica gratuita que utiliza un "Where-on-Earth ID
 
 Solo se puede acceder a la variable almacenada dentro del campo que contiene la solicitud `connected_content`. Por ejemplo, si quieres usar la variable `localweather` tanto en el campo del mensaje como en el del título, debes hacer la solicitud `connected_content` en ambos campos.
 
-Las solicitudes GET generalmente se almacenan en caché de forma predeterminada, con algunas excepciones (como URLs que incluyen atributos de usuario de alta cardinalidad, `:no_cache` o cuerpos de respuesta mayores de 1 MB). Cuando solicitudes GET idénticas aparecen en más de un campo, Braze reutiliza la respuesta almacenada en caché en lugar de llamar al punto de conexión de nuevo. Para más detalles sobre el comportamiento de la caché, consulta [Almacenamiento en caché de respuestas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/).
+Las solicitudes GET generalmente se almacenan en caché de forma predeterminada, con algunas excepciones (como URLs que incluyen atributos de usuario de alta cardinalidad, `:no_cache` o cuerpos de respuesta mayores de 1 MB). Cuando solicitudes GET idénticas aparecen en más de un campo, Braze reutiliza la respuesta almacenada en caché en lugar de llamar al punto de conexión de nuevo. Para más detalles sobre el comportamiento de la caché, consulta [Almacenamiento en caché de respuestas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses).
 
-Las llamadas de Contenido conectado realizadas a través de HTTP POST no se almacenan en caché de forma predeterminada. Para almacenar en caché las respuestas POST, añade `:cache_max_age` a la etiqueta. Consulta [Configuración predeterminada de caché]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/#default-cache-settings).
+Las llamadas de Contenido conectado realizadas a través de HTTP POST no se almacenan en caché de forma predeterminada. Para almacenar en caché las respuestas POST, añade `:cache_max_age` a la etiqueta. Consulta [Configuración predeterminada de caché]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses#default-cache-settings).
 
 ## Análisis de JSON {#json-parsing}
 

@@ -12,6 +12,8 @@ description: >
 
 Remove image files under `assets/img/` that no documentation article, contributing guide, or site layout references anymore. This reduces repository size and can improve docs site build and deploy times.
 
+**Related:** [`image-curator`](../image-curator/SKILL.md) removes **referenced but redundant** images from English docs (Save buttons, home pages, full dashboards) using delete-image-only by default; optional prose edits require the alt merge gate. Run image-curator before or between image-pruner batches when cleaning screenshot debt.
+
 **Canonical scanner:** [`scripts/image-pruner/find_unreferenced_images.py`](../../../scripts/image-pruner/find_unreferenced_images.py)
 
 **Scope:** References in `_docs/`, root `_includes/`, `_lang/`, `docs/` (contributing), plus site chrome (`_layouts/`, `_plugins/`, `assets/css/`, `assets/js/`, root config) keep an image from deletion.

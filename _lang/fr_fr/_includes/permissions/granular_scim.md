@@ -28,7 +28,7 @@ Un objet autorisations valide est un objet JSON avec les paires clé-valeur suiv
 | `companyPermissions` | Facultatif | Tableau | Tableau de [chaînes de caractères d'autorisations au niveau de la société]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_company), dans lequel la présence de la chaîne de caractères indique que l'utilisateur dispose de l'autorisation correspondante. |
 | `roles` | Facultatif | Tableau | Tableau d'[objets de rôle]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_role-object). |
 | `appGroup` | Requis | Tableau | Tableau d'[objets d'autorisations de l'espace de travail]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Permissions object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objet autorisations" }
 
 ### Objet d'autorisations de l'espace de travail {#workspace-permissions-object}
 
@@ -41,7 +41,7 @@ Un objet d'autorisations de groupe d'applications valide est un objet JSON avec 
 | `appGroupPermissionSets` | Facultatif | Tableau | Tableau contenant un seul [objet ensemble d'autorisations de l'espace de travail]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object). |
 | `appGroupPermissions` | Requis | Tableau | Tableau de chaînes de caractères d'autorisations au niveau de l'espace de travail, issu du tableau des [chaînes de caractères des autorisations de l'espace de travail]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings), dans lequel la présence de la chaîne de caractères indique que l'utilisateur dispose de l'autorisation correspondante pour l'espace de travail spécifié. |
 | `team` | Facultatif | Tableau | Tableau d'[objets d'autorisations d'équipe]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team-permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objet d'autorisations de l'espace de travail" }
 
 ### Objet ensemble d'autorisations de l'espace de travail {#workspace-permissions-set-object}
 
@@ -51,7 +51,7 @@ Un objet ensemble d'autorisations de l'espace de travail valide est un objet JSO
 | --- | --- | --- | --- |
 | `appGroupPermissionSetName` | Facultatif | Chaîne de caractères | Nom de l'ensemble d'autorisations de l'espace de travail attribué à l'utilisateur pour cet espace de travail. |
 | `appGroupPermissionSetID` | Requis si `appGroupPermissionSetName` est absent | Chaîne de caractères | ID de l'espace de travail, servant de méthode alternative pour spécifier l'ensemble d'autorisations de l'espace de travail attribué à l'utilisateur pour cet espace de travail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions set object #workspace-permissions-set-object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objet ensemble d'autorisations de l'espace de travail #workspace-permissions-set-object" }
 
 ### Objet d'autorisations d'équipe {#team-permissions-object}
 
@@ -62,7 +62,7 @@ Un objet d'autorisations d'équipe valide est un objet JSON avec les paires clé
 | `teamName` | Facultatif | Chaîne de caractères | Nom de l'équipe, qui permet de spécifier à quelle équipe s'appliquent les autorisations de cet objet. |
 | `teamId` | Requis si `teamName` est absent | Chaîne de caractères | ID de l'équipe, servant de méthode alternative pour spécifier l'équipe. |
 | `teamPermissions` | Requis | Tableau | Tableau de chaînes de caractères d'autorisations au niveau de l'équipe, issu du tableau des [chaînes de caractères d'autorisations d'équipe]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team), dans lequel la présence de la chaîne de caractères indique que l'utilisateur dispose de l'autorisation correspondante pour l'équipe spécifiée. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Team permissions object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objet d'autorisations d'équipe" }
 
 ## Objet de rôle {#role-object}
 
@@ -72,7 +72,7 @@ Un objet de rôle valide est un objet JSON avec les paires clé-valeur suivantes
 | --- | --- | --- | --- |
 | `roleName` | Facultatif | Chaîne de caractères | Nom du rôle attribué à l'utilisateur. |
 | `roleId` | Requis si `roleName` est absent | Chaîne de caractères | ID du rôle, servant de méthode alternative pour spécifier le rôle. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Role object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objet de rôle" }
 
 ## Annexe {#appendix}
 
@@ -83,7 +83,7 @@ Un objet de rôle valide est un objet JSON avec les paires clé-valeur suivantes
 | Administrateur | `admin` |
 | Gérer les paramètres de l'entreprise | `manage_company_settings` |
 | Créer et supprimer des espaces de travail | `add_remove_app_groups` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Company permission strings #company" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Chaînes de caractères d'autorisations de la société #company" }
 
 ### Chaînes de caractères des autorisations de l'espace de travail {#workspace-strings}
 
@@ -200,7 +200,7 @@ Un objet de rôle valide est un objet JSON avec les paires clé-valeur suivantes
 | Supprimer les catalogues | `delete_catalogs` |
 | Afficher les paramètres WhatsApp | `view_whatsapp_settings` |
 | Modifier les partenaires technologiques | `edit_technology_partners` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Workspace permission strings #workspace-strings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Chaînes de caractères des autorisations de l'espace de travail #workspace-strings" }
 
 ### Chaînes de caractères d'autorisations d'équipe {#team}
 
@@ -253,7 +253,7 @@ Un objet de rôle valide est un objet JSON avec les paires clé-valeur suivantes
 | Lancer des campagnes | `launch_campaigns` |
 | Lancer des Canvas | `launch_canvases` |
 | Modifier les utilisateurs du tableau de bord | `edit_dashboard_users` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Team permission strings #team" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Chaînes de caractères d'autorisations d'équipe #team" }
 
 ### Chaînes de caractères de département {#department-strings}
 
@@ -266,4 +266,4 @@ Un objet de rôle valide est un objet JSON avec les paires clé-valeur suivantes
 | Finance | `finance` |
 | Marketing / éditorial | `marketing` |
 | Gestion des produits | `pm` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Department strings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Chaînes de caractères de département" }

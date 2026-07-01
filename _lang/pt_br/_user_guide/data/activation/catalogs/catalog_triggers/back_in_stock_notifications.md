@@ -21,7 +21,7 @@ As propriedades do evento são enviadas junto com o usuário, para que você pos
 
 Siga estas etapas para configurar notificações de reposição de estoque em um catálogo específico.
 
-1. Acesse seu catálogo e selecione a guia **Settings**.
+1. Acesse seu catálogo e selecione a guia **Configurações**.
 2. Selecione a opção **Back in stock**.
 3. Se as configurações globais de reposição de estoque não tiverem sido definidas, será solicitado que você configure os eventos e propriedades personalizados que serão usados para disparar notificações de reposição de estoque:
     <br> ![Gaveta de configurações do catálogo.]({% image_buster /assets/img/catalog_settings_drawer.png %}){: style="max-width:70%;"}
@@ -54,7 +54,7 @@ Os gatilhos de reposição de estoque e queda de preço usam o mesmo evento para
 {% endalert %}
 
 {: start="4"}
-4. Selecione **Save** e continue para a página de **Settings** do catálogo.
+4. Selecione **Save** e continue para a página de **Configurações** do catálogo.
 5. Defina sua regra de notificação. Existem duas opções:
     - **Notify all subscribed users** notifica todos os clientes que estão aguardando quando o item estiver novamente em estoque.
     - **Set notification limits** notifica um número específico de clientes por período de notificação configurado. A Braze notificará o número especificado de clientes em incrementos até que não haja mais clientes para notificar ou até que o item fique fora de estoque. Sua taxa de notificação não pode exceder 10.000 usuários por minuto.
@@ -74,7 +74,7 @@ Após configurar o recurso de reposição de estoque em um catálogo, siga estas
 1. Configure um Canvas baseado em ação.
 2. Selecione **Back in stock** como o gatilho.
 3. Selecione o nome do catálogo com as notificações de reposição de estoque.
-4. Continue [configurando]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) seu Canvas como de costume.
+4. Continue [configurando]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) seu Canvas como de costume.
 
 Agora, seus clientes podem ser notificados quando um item estiver novamente em estoque.
 

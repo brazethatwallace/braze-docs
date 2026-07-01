@@ -11,7 +11,7 @@ search_tag: Partner
 
 > [Zeotap](https://zeotap.com/) は、アイデンティティ解決、インサイト、データ強化を提供して、モバイルオーディエンスを発見、理解できるようにする次世代の顧客データプラットフォームです。
 
-BrazeとZeotapの統合により、Zeotapの顧客SegmentsをBrazeのユーザープロファイルに同期することで、Campaignsの規模とリーチを拡大できます。[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)を使用すると、データをZeotapに接続し、グローススタック全体で実用的なデータにすることもできます。
+BrazeとZeotapの統合により、Zeotapの顧客セグメントをBrazeのユーザープロファイルに同期することで、キャンペーンの規模とリーチを拡大できます。[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)を使用すると、データをZeotapに接続し、グローススタック全体で実用的なデータにすることもできます。
 
 ## 前提条件 {#prerequisites}
 

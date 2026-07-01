@@ -47,7 +47,7 @@ description: "このページでは、大量送信を伴うキャンペーンや
 2. **Create rule**を選択します。
 3. このルールに名前を付けます（例：「全ユーザーサブスクリプション」）。
 4. **Message type**で、**キャンペーン**、**キャンバス**、または**Both キャンバス and キャンペーン**を選択して承認ルールを適用します。
-5. **Maximum reachable users**に数値を入力します。詳細については、[オーディエンス統計]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/#audience-statistics)を参照してください。
+5. **Maximum reachable users**に数値を入力します。詳細については、[オーディエンス統計]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users#audience-statistics)を参照してください。
 6. **Save**を選択します。
 
 ![キャンペーンに対する「Rule 1」というメッセージングルールの例。最大ユーザー数は100,000です。キャンバスとキャンペーンの起動を承認できるユーザーが1人います。]({% image_buster /assets/img/target_population_approval_example.png %}){: style="max-width:90%;"}

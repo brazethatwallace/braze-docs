@@ -17,7 +17,7 @@ Telefonnummern werden im Nutzerprofil in lokalen Formaten angezeigt, entsprechen
 
 ## Telefonnummern importieren {#importing-phone-numbers}
 
-Sie können Telefonnummern importieren, indem Sie [eine CSV-Datei hochladen]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv) oder [über die API]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint) Nutzer:innen erstellen.
+Sie können Telefonnummern importieren, indem Sie [eine CSV-Datei hochladen]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv) oder [über die API]({{site.baseurl}}/api/endpoints/user_data#user-track-endpoint) Nutzer:innen erstellen.
 
 ### Formatierung {#formatting}
 
@@ -29,7 +29,7 @@ Alle US-Nummern müssen gültige, 10-stellige Telefonnummern mit einer gültigen
 
 Alle internationalen Nummern sollten mit einem `+` beginnen, gefolgt von der Landesvorwahl und dann der Telefonnummer (z. B. `+442071838750`).
 
-![]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
+![Screenshot zur Formatierung.]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
 
 Um jedoch die Genauigkeit sicherzustellen, wenn Sie in mehrere Regionen mit unterschiedlichen Landes- oder Ortsvorwahlen senden, wird empfohlen, das `E.164`-Format auch für US-basierte Telefonnummern zu verwenden.
 
@@ -44,7 +44,7 @@ Die Unterschiede zwischen der lokalen Nummernformatierung und der universellen `
 
 ### Nutzer:innen zu einer WhatsApp-Abo-Gruppe hinzufügen {#adding-users-to-whatsapp-a-subscription-group}
 
-Damit Kund:innen eine WhatsApp-Nachricht erhalten können, müssen sie eine gültige Telefonnummer haben und in eine Abo-Gruppe eingewilligt haben. Weitere Informationen finden Sie unter [WhatsApp-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/).
+Damit Kund:innen eine WhatsApp-Nachricht erhalten können, müssen sie eine gültige Telefonnummer haben und in eine Abo-Gruppe eingewilligt haben. Weitere Informationen finden Sie unter [WhatsApp-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups).
 
 
 ### Mehrere Nutzer:innen mit derselben Telefonnummer {#multiple-users-with-the-same-phone-number}

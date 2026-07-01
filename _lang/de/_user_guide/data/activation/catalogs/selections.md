@@ -10,7 +10,7 @@ description: "In diesem Referenzartikel erfahren Sie, wie Sie Auswahlen mit Ihre
 
 > Auswahlen sind Gruppen von Daten, die dazu verwendet werden können, eine Nachricht für jede:n Nutzer:in in Ihrer Campaign zu personalisieren. Wenn Sie eine Auswahl verwenden, richten Sie im Wesentlichen angepasste Filter ein, die auf bestimmten Spalten in Ihrem Katalog basieren. Dies kann Filter für Marke, Größe, Standort, Hinzufügedatum und mehr umfassen. Damit haben Sie die Kontrolle darüber, was Sie den Nutzer:innen zeigen, indem Sie Kriterien festlegen, die die Artikel zuerst erfüllen müssen.<br><br>Auf dieser Seite erfahren Sie, wie Sie Auswahlen mit Ihren Katalogen erstellen und verwenden.
 
-Nachdem Sie einen [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs/) erstellt haben, können Sie Ihre Katalogdaten weiter referenzieren, indem Sie Auswahlen in Ihre Braze Campaigns oder Empfehlungen einbauen.
+Nachdem Sie einen [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs) erstellt haben, können Sie Ihre Katalogdaten weiter referenzieren, indem Sie Auswahlen in Ihre Braze Campaigns oder Empfehlungen einbauen.
 
 ![Der Abschnitt „Auswahlen“ in einem Beispielkatalog.]({% image_buster /assets/img_archive/catalog_selections1.png %})
 
@@ -18,11 +18,11 @@ Nachdem Sie einen [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs
 
 - Sie können bis zu 30 Auswahlen pro Katalog erstellen.
 - Sie können bis zu 10 Filter pro Auswahl hinzufügen.
-- Auswahlen eignen sich hervorragend zur Verfeinerung von Empfehlungen aus Braze-Katalogdaten. Wenn Sie nach Inspiration suchen, sehen Sie sich die Anwendungsbeispiele unter [Über Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/recommendations/) an.
+- Auswahlen eignen sich hervorragend zur Verfeinerung von Empfehlungen aus Braze-Katalogdaten. Wenn Sie nach Inspiration suchen, sehen Sie sich die Anwendungsbeispiele unter [Über Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/recommendations) an.
 
 ## Geolocation-Filter {#geolocation-filters}
 
-Wenn Ihr Katalog einen [Geolocation-Feldtyp]({{site.baseurl}}/user_guide/data/activation/catalogs/create/#supported-data-types) enthält, können Sie geolocation-basierte Filter in Ihren Auswahlen verwenden, um Katalogartikel basierend auf ihrer Nähe zu einem geografischen Punkt anzuzeigen.
+Wenn Ihr Katalog einen [Geolocation-Feldtyp]({{site.baseurl}}/user_guide/data/activation/catalogs/create#supported-data-types) enthält, können Sie geolocation-basierte Filter in Ihren Auswahlen verwenden, um Katalogartikel basierend auf ihrer Nähe zu einem geografischen Punkt anzuzeigen.
 
 Zwei Geolocation-Operatoren stehen zur Verfügung:
 

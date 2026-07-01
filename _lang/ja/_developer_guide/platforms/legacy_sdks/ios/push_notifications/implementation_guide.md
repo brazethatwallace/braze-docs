@@ -151,7 +151,7 @@ func didReceive(_ notification: UNNotification) {
 
 #### ダッシュボードの設定
 
-ダッシュボードで情報キャプチャ対応プッシュを設定するには、カスタムカテゴリを登録および設定し、必要なキーと値のペアを指定する必要があります。例にあるように、プッシュに画像を含めることもできます。これを行うには、[リッチプッシュ通知]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications)を統合し、Campaignの通知スタイルをリッチプッシュ通知に設定し、リッチプッシュ画像を含める必要があります。
+ダッシュボードで情報キャプチャ対応プッシュを設定するには、カスタムカテゴリを登録および設定し、必要なキーと値のペアを指定する必要があります。例にあるように、プッシュに画像を含めることもできます。これを行うには、[リッチプッシュ通知]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications)を統合し、キャンペーンの通知スタイルをリッチプッシュ通知に設定し、リッチプッシュ画像を含める必要があります。
 
 ![キーと値のペアが3セットあるプッシュメッセージ。1.「Braze_id」は Braze ID を取得するための Liquid 呼び出しとして設定。2.「cert_title」は「Braze Marketer Certification」として設定。3.「Cert_description」は「Certified Braze marketers drive...」として設定。]({% image_buster /assets/img/push_implementation_guide/push9.png %})
 

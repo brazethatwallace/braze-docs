@@ -18,20 +18,20 @@ platform: API
 Configurar una campaña desencadenada por API requiere algunos pasos. Primero, crea una nueva campaña multicanal o de un solo canal (con pruebas multivariante).
 
 {% alert note %}
-Una campaña desencadenada por API es diferente de una [campaña de API]({{site.baseurl}}/developer_guide/rest_api/api_campaigns/#api-campaigns).
+Una campaña desencadenada por API es diferente de una [campaña de API]({{site.baseurl}}/developer_guide/rest_api/api_campaigns#api-campaigns).
 {% endalert %}
 
-A continuación, configura tu texto y notificaciones de la misma manera que lo harías normalmente para notificaciones planificadas y selecciona **API-Triggered Delivery**. Para más información sobre cómo desencadenar estas campañas desde tu servidor, consulta este artículo sobre [envío de campañas desencadenadas por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/).
+A continuación, configura tu texto y notificaciones de la misma manera que lo harías normalmente para notificaciones planificadas y selecciona **API-Triggered Delivery**. Para más información sobre cómo desencadenar estas campañas desde tu servidor, consulta este artículo sobre [envío de campañas desencadenadas por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).
 
-![]({% image_buster /assets/img_archive/api_triggered_campaign_delivery.png %})
+![Configura tu texto y notificaciones de la misma manera que lo harías normalmente para notificaciones planificadas y selecciona API-Triggered Delivery. Para más información sobre cómo desencadenar estas campañas desde tu servidor, consulta el artículo sobre envío de campañas desencadenadas por API.]({% image_buster /assets/img_archive/api_triggered_campaign_delivery.png %})
 
 ## Uso del contenido con plantilla incluido en una solicitud de API {#using-the-templated-content-included-with-an-api-request}
 
-Además de desencadenar el mensaje, también puedes incluir contenido con la solicitud de API para incorporarlo como plantilla en el mensaje dentro del objeto `trigger_properties`. Este contenido puede referenciarse en el cuerpo del mensaje. Usa exactamente dos llaves por cada etiqueta de Liquid en `trigger_properties` y en el texto del mensaje. Un ejemplo es: {% raw %}`{{api_trigger_properties.${your_property}}}`.{% endraw %} Una `{` o `}` adicional es una causa común de [fallos de personalización desencadenada por API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze).
+Además de desencadenar el mensaje, también puedes incluir contenido con la solicitud de API para incorporarlo como plantilla en el mensaje dentro del objeto `trigger_properties`. Este contenido puede referenciarse en el cuerpo del mensaje. Usa exactamente dos llaves por cada etiqueta de Liquid en `trigger_properties` y en el texto del mensaje. Un ejemplo es: {% raw %}`{{api_trigger_properties.${your_property}}}`.{% endraw %} Una `{` o `}` adicional es una causa común de [fallos de personalización desencadenada por API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq#why-is-my-api-triggered-liquid-failing-in-braze).
 
 Consulta el siguiente ejemplo de notificación social para contexto adicional.
 
-![La propiedad de desencadenamiento mencionada anteriormente incluida en el mensaje para autocompletar el nombre del usuario seguido del texto: "liked your photo! Click here to see what they've been up to.".]({% image_buster /assets/img_archive/api_triggered_photo_social_example_1.png %}){: style="max-width:70%;"}
+![La propiedad de desencadenamiento mencionada anteriormente incluida en el mensaje para autocompletar el nombre del usuario seguido del texto: "liked your photo! Click here to see what they've been up to."]({% image_buster /assets/img_archive/api_triggered_photo_social_example_1.png %}){: style="max-width:70%;"}
 
 ## Reelegibilidad con campañas desencadenadas por API {#re-eligibility-with-api-triggered-campaigns}
 
@@ -39,4 +39,4 @@ El número de veces que un usuario recibe una campaña desencadenada por API pue
 
 Por ejemplo, supongamos que estás usando una campaña desencadenada por API para enviar al usuario una campaña sobre un artículo que vio recientemente. En este caso, puedes limitar la campaña para enviar un máximo de un mensaje al día, independientemente de cuántos artículos haya visto, mientras se activa el desencadenador de API para cada artículo. Por otro lado, si tu campaña desencadenada por API es transaccional, querrás asegurarte de que el usuario reciba la campaña cada vez que realice la transacción, estableciendo el retraso en cero minutos.
 
-![]({% image_buster /assets/img_archive/api_triggered_reeligible.png %})
+![Captura de pantalla relacionada con la reelegibilidad en campañas desencadenadas por API.]({% image_buster /assets/img_archive/api_triggered_reeligible.png %})

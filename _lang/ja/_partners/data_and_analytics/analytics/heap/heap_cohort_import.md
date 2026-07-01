@@ -43,15 +43,15 @@ Brazeで**パートナー連携** > **テクノロジーパートナー**に移�
 
 ### ステップ2: Braze でインポートされたユーザーをセグメント化する {#step-2-segment-imported-users-in-braze}
 
-Brazeで**Segments**に移動し、Heapコホートセグメントに名前を付け、フィルターとして**Heap Cohorts**を選択します。ここから、含めたいHeapコホートを選択できます。Heapコホートセグメントを作成したら、CampaignまたはCanvasを作成するときにオーディエンスフィルターとして選択できます。
+Brazeで**セグメント**に移動し、Heapコホートセグメントに名前を付け、フィルターとして**Heap Cohorts**を選択します。ここから、含めたいHeapコホートを選択できます。Heapコホートセグメントを作成したら、キャンペーンまたはキャンバスを作成するときにオーディエンスフィルターとして選択できます。
 
 ![Brazeのセグメントビルダーで、ユーザー属性フィルター「Heap cohort」が「次を含む」と「Heap Test Cohort」に設定されている。]({% image_buster /assets/img/heap/heap1.png %}){: style="max-width:90%;"}
 
 ### この統合を使う {#using-this-integration}
 
-Heapのセグメントを使用するには、Braze CampaignまたはCanvasを作成し、ターゲットオーディエンスとしてそのセグメントを選択します。
+Heapのセグメントを使用するには、Braze キャンペーンまたはキャンバスを作成し、ターゲットオーディエンスとしてそのセグメントを選択します。
 
-![Braze Campaignビルダーのターゲティングステップで、「セグメントを基準にユーザーをターゲットに設定」フィルターが「Heap cohort」に設定されている。]({% image_buster /assets/img/heap/heap3.png %}){: style="max-width:90%;"}
+![Braze キャンペーンビルダーのターゲティングステップで、「セグメントを基準にユーザーをターゲットに設定」フィルターが「Heap cohort」に設定されている。]({% image_buster /assets/img/heap/heap3.png %}){: style="max-width:90%;"}
 
 {% alert important %}
 Braze内に既に存在するユーザーのみがコホートに追加または削除されます。コホートインポートではBrazeに新しいユーザーは作成されません。

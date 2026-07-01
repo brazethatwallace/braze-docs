@@ -303,3 +303,7 @@ Yes, machine opens are filtered out by Intelligent Timing, so they do not influe
 #### How can I make sure Intelligent Timing works as well as possible?
 
 Intelligent Timing uses each user’s individual history of message engagement at whatever times they received messages. Before using Intelligent Timing, make sure that you have sent users messages at different times of the day. That way, you can “sample” when might be the best time for each user. Inadequately sampling different times of day may result in Intelligent Timing picking a suboptimal time of send for a user.
+
+#### How do I enable Intelligent Timing on a Canvas step?
+
+In Canvas, add or open a [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/), go to **Delivery Settings**, and select **Using Intelligent Timing**. Per Canvas setup guidance in this article, include a [Delay step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/) of at least two calendar days between Canvas entry and that message so Intelligent Timing has suitable engagement history to evaluate.

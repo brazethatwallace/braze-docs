@@ -24,6 +24,7 @@ Os registros do **Histórico de mensagens** e do **Diagnóstico de mensagens** f
 | Ninguém ou menos usuários entraram do que o esperado | [Entradas baixas ou zero no Canvas](#low-or-zero-canvas-entries) |
 | Envios ou entregas são menores que o público estimado | [Envios menores que o esperado](#lower-sends-than-expected) |
 | A análise de dados do Canvas parece incorreta (grupo de controle, conversões, zero envios) | [Divergências na análise de dados do Canvas](#canvas-analytics-mismatches) |
+| A análise de dados mostra muito mais envios que entradas ou mais saídas que entradas | [A filtragem por intervalo de datas pode mostrar números inesperados](#date-range-filtering-can-show-unexpected-numbers) |
 | O Canvas não salva ou o editor trava | [Problemas com o editor e salvamento](#editor-and-save-issues) |
 | Parei o Canvas, mas as mensagens ainda foram enviadas | [Comportamento do Canvas parado](#stopped-canvas-behavior) |
 | Erro "Too many Canvas branches" ao lançar | [Erro "Too many Canvas branches"](#too-many-canvas-branches-error) |
@@ -124,7 +125,7 @@ Comece com o [checklist de lançamento do Canvas Flow]({{site.baseurl}}/user_gui
 - As [configurações de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) (reelegibilidade, máximo de entradas e limites de entrada) permitem os usuários que você espera que entrem.
 - O público-alvo e os filtros de Segment ainda correspondem aos usuários esperados após o lançamento.
 - As porcentagens do grupo de controle global e do Canvas mostram qual parcela de usuários entra em cada jornada versus recebe mensagens.
-- Os limites de taxa do espaço de trabalho ou filas de entrada devem adicionar atrasos entre o momento em que os usuários se qualificam e o momento em que entram ou avançam para uma etapa.
+- Os limites de taxa do espaço de trabalho ou filas de entrada podem adicionar atrasos entre o momento em que os usuários se qualificam e o momento em que entram ou avançam para uma etapa.
 
 Para um único usuário, siga o [caminho de investigação padrão](#standard-investigation-path). Para entradas zero relacionadas ao horário de verão, consulte a seção recolhível em [O usuário não entrou no Canvas](#user-didnt-enter-the-canvas).
 
@@ -165,6 +166,18 @@ Ao analisar o Segment de usuários ativos, você verá que, embora ele contenha 
 Isso significa que, embora você tenha especificado que 90% dos usuários entrariam na variante, nem todos esses usuários podem receber uma notificação por push. Usuários que não podem receber push ainda entram na variante independentemente — a contagem de envios reflete a elegibilidade do canal na etapa, não a atribuição de variante na entrada.
 
 {% enddetails %}
+
+### A filtragem por intervalo de datas pode mostrar números inesperados {#date-range-filtering-can-show-unexpected-numbers}
+
+**Sintoma:** a análise de dados do Canvas ou de uma etapa mostra números inesperados ou improváveis, como muito mais envios que entradas, ou mais usuários saindo de uma etapa do que entraram.
+
+Isso pode acontecer quando você usa o filtro de calendário de intervalo de datas no topo da página de análise de dados do Canvas. Se você selecionar um intervalo de datas que exclui algumas ações dos usuários, as métricas exibidas podem mostrar apenas parte da jornada de cada usuário.
+
+Por exemplo:
+- Você pode ver 100 entradas com 8.000 envios se o seu intervalo de datas começar após a maioria dos usuários ter entrado, mas incluir o momento em que receberam as mensagens.
+- Você pode ver mais usuários avançando para a próxima etapa do que entraram na etapa anterior se o seu intervalo capturar apenas as saídas, mas não as entradas anteriores.
+
+Para resolver isso, ajuste o intervalo de datas para incluir todas as datas desde o lançamento do Canvas até o presente, ou selecione um intervalo que cubra todo o período relevante para as métricas que você precisa.
 
 Para definições de taxa de conversão e análise de dados no nível da etapa, consulte [Análise de dados e conversões]({{site.baseurl}}/user_guide/messaging/canvas/faqs#analytics-and-conversions) nas perguntas frequentes do Canvas.
 

@@ -2,14 +2,10 @@
 
 > Braze MCPサーバーについて学びましょう。これはClaudeやCursorのようなAIツールが非PIIのBrazeデータにアクセスして質問に答え、傾向を分析し、インサイトを提供できるようにする安全な接続です。
 
-{% multi_lang_include mcp_server/beta_alert.md %}
-
 {% alert important %}
-## ローカルホスト型Braze MCPサーバーのSunsetting (配信停止) {#sunsetting-the-locally-hosted-braze-mcp-server}
+今夏、BrazeはリモートのBrazeホスト型MCPサーバーを早期アクセスとして提供開始します。これは、ローカルホスト型のベータサーバー（[PyPI](https://pypi.org/project/braze-mcp-server/)上の`braze-mcp-server`およびClaude Desktopの拡張機能ディレクトリ）に代わるものです。<br><br>
 
-今夏、BrazeはリモートのBrazeホスト型MCPサーバーを早期アクセスとして提供開始します。これは、ローカルホスト型のベータサーバー（[PyPI](https://pypi.org/project/braze-mcp-server/)上の`braze-mcp-server`およびClaude Desktopの拡張機能ディレクトリ）に代わるものです。
-
-**これがあなたにとって意味すること：**
+**これがあなたにとって意味すること：**<br><br>
 
 - ローカルホスト型サーバーは引き続き動作しますが、サポートは終了しています。ベータ版への新しいエンドポイントの追加や問題の修正は行いません。
 - リモートサーバーが早期アクセスで利用可能になった際には、切り替えが必要です。リモートサーバーはローカルインストール不要で、静的APIキーの代わりにOAuthを使用し、Claude、Copilot、Gemini CLI、Codex、CursorなどのMCPクライアントで動作します。
@@ -25,7 +21,7 @@
 
 ## Braze MCPサーバーについて {#about-the-braze-mcp-server}
 
-[Braze MCPサーバーの設定]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}後、エージェントやアシスタント、チャットボットなどのAIツールをBrazeに直接接続し、CanvasやCampaignの分析、カスタム属性、Segmentsなどの集計データを読み取れるようになります。Braze MCPサーバーは以下のようなユースケースに最適です。
+[Braze MCPサーバーの設定]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}後、エージェントやアシスタント、チャットボットなどのAIツールをBrazeに直接接続し、キャンバスやキャンペーンの分析、カスタム属性、セグメントなどの集計データを読み取れるようになります。Braze MCPサーバーは以下のようなユースケースに最適です。
 
 - Brazeのコンテキストを必要とするAI搭載ツールの構築。
 - マルチステップのエージェントワークフローを作成するCRMエンジニア。

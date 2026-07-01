@@ -104,6 +104,8 @@ Pour une référence consolidée des types de données à travers les attributs 
 
 Les [propriétés d'achat]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-properties) peuvent être utilisées pour déclencher des messages et pour la personnalisation à l'aide de Liquid, ce qui vous permet également de segmenter en fonction de ces propriétés.
 
+{% include data_activation/segmentable_purchase_properties_keys_note.md %}
+
 #### Conventions de nommage
 
 Il est important de noter que cette fonctionnalité est activée **par produit**, et non par achat. Par exemple, si vous avez un volume élevé de produits distincts, mais que chacun d'entre eux possède les mêmes propriétés, la segmentation peut s'avérer superflue.

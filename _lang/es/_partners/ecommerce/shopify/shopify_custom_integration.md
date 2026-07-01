@@ -57,7 +57,7 @@ npm install --save @braze/web-sdk@5.4.0
 ```
 
 {% alert important %}
-La versión del SDK web de Braze debe ser 5.4.0.
+La versión del SDK web de Braze debe ser 5.4.0 o posterior.
 {% endalert %}
 
 A continuación, [incluye esta configuración]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) como clave de nivel superior en tu archivo `vite.config.js`:
@@ -685,7 +685,7 @@ Debes crear un punto de conexión público al que Braze pueda llamar para recupe
 
 Braze envía los siguientes parámetros a tu punto de conexión:
 
-| Parámetro | Obligatorio | Tipo de datos | Descripción |
+| Parámetro            | Obligatorio | Tipo de datos | Descripción                                                      |
 |----------------------|----------|-----------|------------------------------------------------------------------|
 | shopify_customer_id  | Sí      | Cadena    | El ID de cliente de Shopify.                                         |
 | shopify_storefront   | Sí      | Cadena    | El nombre del escaparate para la solicitud. Ej.: `<storefront_name>.myshopify.com` |

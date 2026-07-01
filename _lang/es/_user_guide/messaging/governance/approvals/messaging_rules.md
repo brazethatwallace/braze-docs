@@ -43,25 +43,25 @@ Para evitar confusiones, no puedes establecer reglas idénticas con un número s
 Puedes crear hasta cinco reglas de mensajería.
 {% endalert %}
 
-1. Ve a **Settings** > **Approval Workflow** > **Messaging Rules**.
-2. Selecciona **Create rule**.
+1. Ve a **Configuración** > **Flujo de trabajo de aprobación** > **Reglas de mensajería**.
+2. Selecciona **Crear regla**.
 3. Dale un nombre a esta regla (por ejemplo, "Todas las suscripciones de usuarios").
-4. Para **Message type**, selecciona **Campaign**, **Canvas** o **Both Canvas and Campaigns** para aplicar la regla de aprobación.
-5. Introduce un número para **Maximum reachable users**. Para más información, consulta [Estadísticas de audiencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/#audience-statistics).
-6. Selecciona **Save**.
+4. Para **Tipo de mensaje**, selecciona **Campaign**, **Canvas** o **Both Canvas and Campaigns** para aplicar la regla de aprobación.
+5. Introduce un número para **Máximo de usuarios alcanzables**. Para más información, consulta [Estadísticas de audiencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users#audience-statistics).
+6. Selecciona **Guardar**.
 
-![Un ejemplo de regla de mensajería "Rule 1" para Campaigns con 100,000 usuarios como máximo. Hay un usuario que puede aprobar el Canvas y la Campaign para su lanzamiento.]({% image_buster /assets/img/target_population_approval_example.png %}){: style="max-width:90%;"}
+![Un ejemplo de regla de mensajería "Rule 1" para Campaigns con 100,000 usuarios como máximo. Hay un usuario que puede aprobar el Canvas y la campaña para su lanzamiento.]({% image_buster /assets/img/target_population_approval_example.png %}){: style="max-width:90%;"}
 
 ### Paso 2: Determinar el lanzamiento con aprobación (opcional) {#step-2-determine-launching-with-approval-optional}
 
-Selecciona **Allow launching with approval**. A continuación, para **With Approval From**, selecciona los aprobadores que tienen permiso para aprobar el Canvas o la Campaign si se alcanza el máximo.
+Selecciona **Permitir lanzamiento con aprobación**. A continuación, para **Con aprobación de**, selecciona los aprobadores que tienen permiso para aprobar el Canvas o la campaña si se alcanza el máximo.
 
 Ten en cuenta los siguientes detalles sobre el lanzamiento de mensajes con aprobación:
 
-- Si se alcanza el máximo y se selecciona un aprobador, el usuario de Braze con el permiso de aprobación puede seleccionar **Approved** en el menú desplegable de aprobación de **Target Audience**.
-- Si se alcanza el máximo y no se selecciona un aprobador, se impide el lanzamiento del Canvas o la Campaign.
+- Si se alcanza el máximo y se selecciona un aprobador, el usuario de Braze con el permiso de aprobación puede seleccionar **Aprobado** en el menú desplegable de aprobación de **Público objetivo**.
+- Si se alcanza el máximo y no se selecciona un aprobador, se impide el lanzamiento del Canvas o la campaña.
 
-![El paso "Summary" del flujo de trabajo de Canvas que muestra que necesitas una aprobación para lanzar.]({% image_buster /assets/img/non_approver_banner.png %}){: style="max-width:90%;"}
+![El paso "Resumen" del flujo de trabajo de Canvas que muestra que necesitas una aprobación para lanzar.]({% image_buster /assets/img/non_approver_banner.png %}){: style="max-width:90%;"}
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
@@ -71,7 +71,7 @@ No. Cualquier usuario, independientemente de sus permisos actuales, puede ser se
 
 ### ¿Cómo se relacionan las reglas de mensajería con el paso de público objetivo? {#how-do-messaging-rules-relate-to-the-target-audience-step}
 
-Las reglas de mensajería no tienen en cuenta detalles como los eventos desencadenantes. Por ejemplo, una Campaign podría dirigirse a todos tus usuarios. Sin embargo, la Campaign se desencadena por evento, por lo que los usuarios reales que la reciben son menos.
+Las reglas de mensajería no tienen en cuenta detalles como los eventos desencadenantes. Por ejemplo, una campaña podría dirigirse a todos tus usuarios. Sin embargo, la campaña se desencadena por evento, por lo que los usuarios reales que la reciben son menos.
 
 ### ¿Cambiará algo automáticamente cuando se activen las reglas de mensajería? {#will-anything-automatically-change-when-messaging-rules-are-turned-on}
 

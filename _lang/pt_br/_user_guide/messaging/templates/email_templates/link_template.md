@@ -42,7 +42,7 @@ Existem dois tipos de modelos de links que você pode criar:
 - [Modelo de link que insere antes de um URL](#prepend-link-template)
 - [Modelo de link que insere depois de um URL](#append-link-template)
 
-Ao usar modelos de links e [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/), o Liquid deve ser adicionado apenas dentro da tag body para garantir uma renderização consistente.
+Ao usar modelos de links e [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), o Liquid deve ser adicionado apenas dentro da tag body para garantir uma renderização consistente.
 
 ### Prefixar: criar um modelo de link que insere antes de um URL {#prepend-link-template}
 
@@ -73,7 +73,7 @@ Depois de configurar seus modelos de links, você pode aplicá-los no seu e-mail
 Para aplicar um modelo de link no editor de HTML ou no editor de arrastar e soltar, siga estas etapas:
 
 {% alert important %}
-Para acessar a guia **Link Management** no editor de HTML atualizado ou no editor de arrastar e soltar, você precisa ter o link aliasing ativado. Para ativar o link aliasing, entre em contato com o gerente da sua conta. Para saber mais, consulte [Link aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/).
+Para acessar a guia **Link Management** no editor de HTML atualizado ou no editor de arrastar e soltar, você precisa ter o link aliasing ativado. Para ativar o link aliasing, entre em contato com o gerente da sua conta. Para saber mais, consulte [Link aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing).
 {% endalert %}
 
 - **Editor de HTML atualizado:** Na guia **Content**, selecione **Link Management**, selecione **Add a Link Template**, escolha seu modelo de link e selecione **Add**.
@@ -89,7 +89,7 @@ Ao adicionar modelos de links na guia **Link Management**, role para a direita p
 
 ## Gerenciando modelos de links {#managing-link-templates}
 
-Você também pode [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) modelos de links. Saiba mais sobre como criar e gerenciar modelos e conteúdo criativo em [Modelos e mídia]({{site.baseurl}}/user_guide/messaging/templates/).
+Você também pode [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) modelos de links. Saiba mais sobre como criar e gerenciar modelos e conteúdo criativo em [Modelos e mídia]({{site.baseurl}}/user_guide/messaging/templates).
 
 {% alert important %}
 O arquivamento de modelos não está disponível atualmente para modelos de links.
@@ -97,4 +97,4 @@ O arquivamento de modelos não está disponível atualmente para modelos de link
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
-Para respostas às perguntas frequentes sobre modelos de links, confira nossa página de [Perguntas frequentes sobre modelos]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq/).
+Para respostas às perguntas frequentes sobre modelos de links, confira nossa página de [Perguntas frequentes sobre modelos]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq).

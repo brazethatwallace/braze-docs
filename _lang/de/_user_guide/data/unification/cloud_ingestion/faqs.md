@@ -17,7 +17,7 @@ Diese Art von E-Mail bedeutet normalerweise, dass es ein Problem mit Ihrer CDI-E
 
 ### CDI kann mit Ihren Zugangsdaten nicht auf das Data Warehouse oder die Tabelle zugreifen {#cdi-cant-access-the-data-warehouse-or-table-using-your-credentials}
 
-Dies könnte bedeuten, dass die Zugangsdaten in CDI falsch sind oder im Data Warehouse falsch konfiguriert wurden. Weitere Informationen finden Sie unter [Data-Warehouse-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
+Dies könnte bedeuten, dass die Zugangsdaten in CDI falsch sind oder im Data Warehouse falsch konfiguriert wurden. Weitere Informationen finden Sie unter [Data-Warehouse-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 ### Die Tabelle kann nicht gefunden werden {#the-table-cannot-be-found}
 
@@ -41,7 +41,7 @@ Test Connection läuft auf Ihrem Data Warehouse, sodass eine Erhöhung der Data-
 
 ### Fehler bei der Verbindung zur Snowflake-Instanz: Eingehende Anfrage mit IP ist für den Zugriff auf Snowflake nicht zulässig {#error-connecting-to-snowflake-instance-incoming-request-with-ip-is-not-allowed-to-access-snowflake}
 
-Versuchen Sie, die offiziellen Braze-IPs zu Ihrer IP-Zulassungsliste hinzuzufügen. Weitere Informationen finden Sie unter [Data-Warehouse-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/), oder erlauben Sie die entsprechenden IPs:
+Versuchen Sie, die offiziellen Braze-IPs zu Ihrer IP-Zulassungsliste hinzuzufügen. Weitere Informationen finden Sie unter [Data-Warehouse-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations), oder erlauben Sie die entsprechenden IPs:
 
 {% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
@@ -71,7 +71,7 @@ Wenn Sie diese Fehlermeldung erhalten, vergewissern Sie sich, dass die Nutzer:in
 
 Test Connection läuft auf Ihrem Data Warehouse, sodass eine Erhöhung der Data-Warehouse-Kapazität die Geschwindigkeit verbessern kann. Die Verwendung einer serverlosen SQL-Instanz minimiert die Aufwärmzeit und verbessert den Abfragedurchsatz, kann aber zu etwas höheren Integrationskosten führen.
 
-### Zugriff auf die Relation verweigert {table_name} {#permission-denied-for-relation-tablename}
+### Zugriff auf die Relation verweigert {table_name} {#permission-denied-for-relation-table_name}
 
 Wenn Sie diesen Fehler erhalten:
 
@@ -132,7 +132,7 @@ Wenn Sie diesen Fehler erhalten, lesen Sie [Databricks: Forbidden-Fehler beim Zu
 
 Jede Integration hat ihre eigene Benachrichtigungspräferenz. Gehen Sie auf die CDI-Seite und wählen Sie den Namen der Integration aus, die Sie aktualisieren möchten. Im Abschnitt **Notification preferences** können Sie festlegen, wie Sie Benachrichtigungen über die ausgewählte Integration erhalten.
 
-## Was passiert, wenn ein zukünftiger `UPDATED_AT`-Wert mit einer Integration synchronisiert wird? {#what-happens-if-a-future-updatedat-gets-synced-with-an-integration}
+## Was passiert, wenn ein zukünftiger `UPDATED_AT`-Wert mit einer Integration synchronisiert wird? {#what-happens-if-a-future-updated_at-gets-synced-with-an-integration}
 
 CDI verwendet `UPDATED_AT`, um zu entscheiden, welche Daten neu sind. Nachdem ein zukünftiger `UPDATED_AT`-Wert synchronisiert wurde, werden Daten, die vor diesem zukünftigen Datum und Zeitpunkt liegen, nicht mehr verarbeitet. Um dies zu beheben:
 
@@ -142,7 +142,7 @@ CDI verwendet `UPDATED_AT`, um zu entscheiden, welche Daten neu sind. Nachdem ei
 
 ## Warum stimmt „Rows Synced“ nicht mit der Anzahl in meinem Warehouse überein? {#why-doesnt-rows-synced-match-the-number-in-my-warehouse}
 
-CDI verwendet `UPDATED_AT`, um zu entscheiden, welche Datensätze bei einer Synchronisierung übernommen werden sollen. Sehen Sie sich [diese Illustration]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/#what-gets-synced) an, um zu verstehen, wie es funktioniert. Zu Beginn eines Synchronisierungslaufs fragt CDI Ihr Warehouse ab, um alle Datensätze zu erhalten, deren `UPDATED_AT`-Zeitstempel später als der zuvor verarbeitete `UPDATED_AT`-Wert ist. Datensätze an der exakten Grenz-Zeitstempel-Marke können ebenfalls erneut synchronisiert werden, wenn neue Zeilen denselben Zeitstempel haben. Jeder Datensatz, der zum Zeitpunkt der Abfrageausführung erfasst wird, wird mit Braze synchronisiert. Hier sind häufige Fälle, in denen ein Datensatz möglicherweise nicht synchronisiert wird:
+CDI verwendet `UPDATED_AT`, um zu entscheiden, welche Datensätze bei einer Synchronisierung übernommen werden sollen. Sehen Sie sich [diese Illustration]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion#what-gets-synced) an, um zu verstehen, wie es funktioniert. Zu Beginn eines Synchronisierungslaufs fragt CDI Ihr Warehouse ab, um alle Datensätze zu erhalten, deren `UPDATED_AT`-Zeitstempel später als der zuvor verarbeitete `UPDATED_AT`-Wert ist. Datensätze an der exakten Grenz-Zeitstempel-Marke können ebenfalls erneut synchronisiert werden, wenn neue Zeilen denselben Zeitstempel haben. Jeder Datensatz, der zum Zeitpunkt der Abfrageausführung erfasst wird, wird mit Braze synchronisiert. Hier sind häufige Fälle, in denen ein Datensatz möglicherweise nicht synchronisiert wird:
 
 - Sie fügen der Tabelle Datensätze mit einem `UPDATED_AT`-Wert hinzu, der bereits verarbeitet wurde.
 - Sie aktualisieren Datensatzwerte, nachdem sie durch eine Synchronisierung verarbeitet wurden, lassen aber `UPDATED_AT` unverändert.
@@ -152,11 +152,11 @@ CDI verwendet `UPDATED_AT`, um zu entscheiden, welche Datensätze bei einer Sync
 Um dieses Verhalten in Zukunft zu vermeiden, empfehlen wir, monoton ansteigende `UPDATED_AT`-Werte zu verwenden und die Tabelle während Ihres geplanten Synchronisierungslaufs nicht zu aktualisieren.
 {% endalert %}
 
-## Benötige ich überwiegend eindeutige `UPDATED_AT`-Werte für große CDI-Importe? {#do-i-need-mostly-distinct-updatedat-values-for-large-cdi-imports}
+## Benötige ich überwiegend eindeutige `UPDATED_AT`-Werte für große CDI-Importe? {#do-i-need-mostly-distinct-updated_at-values-for-large-cdi-imports}
 
 Ja. Bei Läufen mit hohem Volumen (z. B. mehr als ca. 10 Millionen Zeilen) sollten Sie sicherstellen, dass Ihre Quelldaten überwiegend eindeutige `UPDATED_AT`-Werte aufweisen. Wenn zu viele Zeilen denselben Zeitstempel haben, ist es wahrscheinlicher, dass CDI Zeilen an Grenz-Zeitstempeln in späteren Läufen erneut auswählt. Dies kann zu doppelten Synchronisierungen und einem erhöhten Datenpunktverbrauch führen.
 
-Weitere Informationen zum CDI-Grenzverhalten finden Sie unter [Erneutes Synchronisieren von Zeilen mit doppelten Zeitstempeln vermeiden]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps).
+Weitere Informationen zum CDI-Grenzverhalten finden Sie unter [Erneutes Synchronisieren von Zeilen mit doppelten Zeitstempeln vermeiden]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
 
 ### Wo führe ich diese SQL-Prüfungen aus? {#where-do-i-run-these-sql-checks}
 
@@ -206,7 +206,7 @@ Wenn Ihr Warehouse `LIMIT` nicht unterstützt (z. B. Fabric), verwenden Sie eine
 
 ## Warum kann eine CDI-Synchronisierung mit einer kleinen Zeilenanzahl trotzdem mehrere Minuten dauern? {#why-can-a-cdi-sync-with-a-small-number-of-rows-still-take-several-minutes}
 
-Eine CDI-Synchronisierung umfasst eine feste Anlaufphase, bevor die Zeilenverarbeitung beginnt. Da diese Anlaufzeit bei allen Synchronisierungsgrößen ähnlich ist, kann eine kleine Synchronisierung trotzdem mehrere Minuten dauern und in Zeilen pro Minute langsamer erscheinen. Die gesamte Synchronisierungszeit hängt weiterhin von der Komplexität Ihrer Quellabfrage, der Datenstruktur und der verfügbaren Kapazität in Ihrem Data Warehouse ab. Weitere Informationen finden Sie unter [Data-Warehouse-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
+Eine CDI-Synchronisierung umfasst eine feste Anlaufphase, bevor die Zeilenverarbeitung beginnt. Da diese Anlaufzeit bei allen Synchronisierungsgrößen ähnlich ist, kann eine kleine Synchronisierung trotzdem mehrere Minuten dauern und in Zeilen pro Minute langsamer erscheinen. Die gesamte Synchronisierungszeit hängt weiterhin von der Komplexität Ihrer Quellabfrage, der Datenstruktur und der verfügbaren Kapazität in Ihrem Data Warehouse ab. Weitere Informationen finden Sie unter [Data-Warehouse-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 ## Wird bei einer Synchronisierung die Reihenfolge beibehalten, wenn mehrere Datensätze dieselbe ID haben? {#during-a-sync-is-the-order-preserved-if-multiple-records-share-the-same-id}
 
@@ -234,4 +234,4 @@ Braze hat die folgenden Maßnahmen für CDI implementiert:
 Wir empfehlen Ihnen und Ihrem Team, die folgenden Sicherheitsmaßnahmen auf Ihrer Seite einzurichten:
 
 - Beschränken Sie den Zugriff auf Zugangsdaten auf das für den Betrieb von CDI erforderliche Minimum. Das liegt daran, dass wir in der Lage sein müssen, select (und count) auf den spezifischen Tabellen und Views auszuführen.
-- Beschränken Sie die IPs, die auf die Tabellen zugreifen können, auf offiziell veröffentlichte [Braze-IPs]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+- Beschränken Sie die IPs, die auf die Tabellen zugreifen können, auf offiziell veröffentlichte [Braze-IPs]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).

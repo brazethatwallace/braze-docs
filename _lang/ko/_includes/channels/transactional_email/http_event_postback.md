@@ -15,7 +15,7 @@ Braze 대시보드에서:
 2. **트랜잭션 이벤트 상태 포스트백** 아래에서, Braze가 트랜잭션 이메일에 대한 상태 업데이트를 보낼 URL을 입력합니다.
 3. 포스트백을 테스트합니다.
 
-![]({% image_buster /assets/img/transactional_webhook_url.png %})
+![이메일 환경설정의 트랜잭션 이벤트 상태 포스트백 URL 필드]({% image_buster /assets/img/transactional_webhook_url.png %})
 
 ### 포스트백 본문 {#postback-body}
 
@@ -42,14 +42,14 @@ Braze 대시보드에서:
 
 #### 메시지 상태 {#message-status}
 
-| 상태 | 설명 |
+|  상태 | 설명 |
 | ------------ | ----------- |
 | `sent` | Braze 이메일 발송 파트너에게 메시지가 성공적으로 전달되었습니다 |
 | `processed` | 이메일 발송 파트너가 사용자의 받은편지함 제공업체로 보낼 메시지를 성공적으로 수신하고 준비했습니다 |
 | `aborted` | 사용자에게 이메일 가능한 주소가 없거나 메시지 본문에서 Liquid 중단 로직이 호출되어 Braze가 메시지를 성공적으로 발송할 수 없었습니다. 중단된 모든 이벤트에는 메시지가 중단된 이유를 나타내는 메타데이터 오브젝트 내의 `reason` 필드가 포함됩니다 |
 | `delivered` | 사용자의 이메일 받은편지함 제공업체에서 메시지를 수락했습니다 |
 | `bounced` | 사용자의 이메일 받은편지함 제공업체에서 메시지를 거부했습니다. 모든 반송 이벤트에는 받은편지함 제공업체가 제공한 반송 오류 코드를 반영하는 메타데이터 오브젝트 내의 `reason` 필드가 포함됩니다 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Message status" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="메시지 상태" }
 
 ### 포스트백 예시 {#example-postback}
 ```json

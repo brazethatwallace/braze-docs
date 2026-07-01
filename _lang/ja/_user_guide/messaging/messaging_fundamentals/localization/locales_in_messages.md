@@ -27,7 +27,7 @@ description: "この記事では、メッセージでロケールを使用する
 
 | 機能 | 必要なユーザー権限 |
 | --- | --- |
-| メッセージ&nbsp;タイプ | キャンペーンおよびキャンバスにロケールと翻訳を追加するには、以下の権限が必要です。<br><br> <ul><li>Edit キャンペーン</li><li>Edit キャンバス</li></ul>{:/} |
+| メッセージ&nbsp;タイプ | キャンペーンおよびキャンバスにロケールと翻訳を追加するには、以下の権限が必要です。<br><br> <ul><li>キャンペーンを編集</li><li>Edit キャンバス</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件"}
 
 {% endtab %}
@@ -45,7 +45,7 @@ description: "この記事では、メッセージでロケールを使用する
 
 ### ステップ1:ロケールを設定する {#step-1-set-up-locales}
 
-メッセージに翻訳を追加する前に、まず[サポートするロケールを作成]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings/)する必要があります。ロケールは、メッセージングで利用可能な言語（およびオプションで地域）のバリアントを定義します。
+メッセージに翻訳を追加する前に、まず[サポートするロケールを作成]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings)する必要があります。ロケールは、メッセージングで利用可能な言語（およびオプションで地域）のバリアントを定義します。
 
 ### ステップ2:翻訳するコンテンツをマークする {#step-2-mark-content-for-translation}
 
@@ -197,7 +197,7 @@ URLがLiquidで生成される場合（例: {% raw %}`{% landing_page_url %}`{% 
 
 ### Content Blocksに翻訳を保存する {#save-translations-in-content-blocks}
 
-Content Blocksは、メッセージと同じ方法で多言語をサポートします。Content Blocksを作成または編集する際に、コンテンツに翻訳タグを付け、ロケールを追加し、CSVまたは[翻訳API]({{site.baseurl}}/api/endpoints/translations/)を使用して翻訳をアップロードできます。
+Content Blocksは、メッセージと同じ方法で多言語をサポートします。Content Blocksを作成または編集する際に、コンテンツに翻訳タグを付け、ロケールを追加し、CSVまたは[翻訳API]({{site.baseurl}}/api/endpoints/translations)を使用して翻訳をアップロードできます。
 
 保存された翻訳はContent Blockに関連付けられたままです。ブロックがメッセージに追加されると、その翻訳が自動的に含まれます。
 
@@ -213,7 +213,7 @@ Content Blocksは、メッセージと同じ方法で多言語をサポートし
 
 ### メールリンクトラッキング {#email-link-tracking}
 
-メールキャンペーンでは、Brazeは各URLにトラッキング情報（クエリパラメーター）を追加してリンクを追跡します。この動作は[リンクエイリアス]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/)と[リンクテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/)の両方をサポートしています。
+メールキャンペーンでは、Brazeは各URLにトラッキング情報（クエリパラメーター）を追加してリンクを追跡します。この動作は[リンクエイリアス]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing)と[リンクテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template)の両方をサポートしています。
 
 URLが翻訳タグで囲まれている場合、Brazeはトラッキング情報を追加する場所を判断できない場合があります。これが正しく機能するようにするには、URLの末尾にトラッキングを追加する場所を示す特殊文字を含める必要があります。
 
@@ -231,7 +231,7 @@ URLは2つの特殊文字を使用してこの動作を制御します。
 
 ### 言語設定とアクセシビリティ {#language-settings-and-accessibility}
 
-まず[アクセシビリティ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/)の[アクセシビリティ言語]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language)を参照して、WCAGのコンテキスト、チャネルとエディターの動作（ランディングページを含む）、およびメッセージレベルの**アクセシビリティ**設定をご確認ください。
+まず[アクセシビリティ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility)の[アクセシビリティ言語]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language)を参照して、WCAGのコンテキスト、チャネルとエディターの動作（ランディングページを含む）、およびメッセージレベルの**アクセシビリティ**設定をご確認ください。
 
 **多言語メッセージ**を使用する場合、ローカライズされた送信が適切な言語を宣言するように、アクセシビリティ言語を各ロケールに合わせてください。
 
@@ -241,17 +241,17 @@ URLは2つの特殊文字を使用してこの動作を制御します。
 
 ##### メッセージレベル {#message-level}
 
-メッセージレベルでは、メッセージ設定の**アクセシビリティ**セクションでアクセシビリティ言語を設定します。言語の選択、Liquidの使用、チャネルごとの制限については、[アクセシビリティ言語]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language)を参照してください。
+メッセージレベルでは、メッセージ設定の**アクセシビリティ**セクションでアクセシビリティ言語を設定します。言語の選択、Liquidの使用、チャネルごとの制限については、[アクセシビリティ言語]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language)を参照してください。
 
 ##### ロケールレベル {#locale-level}
 
 多言語メッセージの場合、**ローカライゼーション設定**で各ロケールにアクセシビリティ言語を設定します。**アクセシビリティ**セクションで {% raw %}`{{accessibility_language}}`{% endraw %} を使用すると、ドキュメントまたはカードの言語がそれらのロケール値にマッピングされます。
 
-新しいメッセージでそのトークンがデフォルトで表示されるかどうかは、チャネルとエディターによって異なります。たとえば、アプリ内メッセージやバナーは、ランディングページやドラッグ＆ドロップメールとは動作が異なります。詳細については、[アクセシビリティ言語]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language)を参照してください。
+新しいメッセージでそのトークンがデフォルトで表示されるかどうかは、チャネルとエディターによって異なります。たとえば、アプリ内メッセージやバナーは、ランディングページやドラッグ＆ドロップメールとは動作が異なります。詳細については、[アクセシビリティ言語]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language)を参照してください。
 
 ## よくある質問 {#frequently-asked-questions}
 
-#### 翻訳タグの制限は何ですか？ {#what-are-the-limits-for-translation-tags}
+### 翻訳タグの制限は何ですか？ {#what-are-the-limits-for-translation-tags}
 
 翻訳タグを使用する場合、以下の制限が適用されます。
 
@@ -279,7 +279,7 @@ URLは2つの特殊文字を使用してこの動作を制御します。
 
 #### ロケールの1つで翻訳済みコピーを変更できますか？
 
-はい。CSVを使用している場合は、まずファイルで編集を行い、再度アップロードして翻訳済みコピーを変更します。[翻訳API]({{site.baseurl}}/api/endpoints/translations/)を使用している場合は、更新エンドポイントを使用して変更を行います。
+はい。CSVを使用している場合は、まずファイルで編集を行い、再度アップロードして翻訳済みコピーを変更します。[翻訳API]({{site.baseurl}}/api/endpoints/translations)を使用している場合は、更新エンドポイントを使用して変更を行います。
 
 #### Brazeはどのような検証や追加チェックを行いますか？ {#what-validations-or-extra-checks-does-braze-do}
 

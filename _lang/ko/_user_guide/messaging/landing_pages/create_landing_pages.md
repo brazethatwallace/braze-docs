@@ -11,7 +11,7 @@ page_order: 0
 
 ## 필수 조건 {#prerequisites}
 
-랜딩 페이지 빌더에 접근하려면 [특정 권한]({{site.baseurl}}/user_guide/messaging/landing_pages/#prerequisites)이 필요합니다. 접근 권한이 없는 경우 Braze 관리자에게 도움을 요청하세요.
+랜딩 페이지 빌더에 접근하려면 [특정 권한]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites)이 필요합니다. 접근 권한이 없는 경우 Braze 관리자에게 도움을 요청하세요.
 
 ## 랜딩 페이지 만들기 {#creating-a-landing-page}
 
@@ -38,7 +38,7 @@ page_order: 0
 | 사이트 제목 | 브라우저 탭에 표시되는 제목입니다. | 최대 60자를 사용하세요. |
 | 메타 설명 | 검색 결과에 표시되는 텍스트 스니펫입니다. | 140~160자 사이로 사용하세요. |
 | 파비콘 | 브라우저 탭에서 사이트 제목 옆에 나타나는 아이콘입니다. | 종횡비 1:1을 사용하고, 지원되는 파일 형식은 PNG, JPEG 또는 ICO입니다. |
-| 페이지 URL | 랜딩 페이지의 URL 경로입니다. 이 값은 메시지에 삽입하여 사용자가 양식을 제출할 때 자동으로 식별할 수 있는 [랜딩 페이지 Liquid 태그]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/)를 사용할 때도 참조됩니다. | 이 값은 워크스페이스 전체에서 고유해야 합니다. |
+| 페이지 URL | 랜딩 페이지의 URL 경로입니다. 이 값은 메시지에 삽입하여 사용자가 양식을 제출할 때 자동으로 식별할 수 있는 [랜딩 페이지 Liquid 태그]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users)를 사용할 때도 참조됩니다. | 이 값은 워크스페이스 전체에서 고유해야 합니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="사이트 세부 정보" }
 
 ### 3단계: 페이지 커스터마이즈 {#step-3-customize-the-page}
@@ -47,9 +47,9 @@ page_order: 0
 
 ![드래그 앤 드롭 편집기에서 생성 중인 랜딩 페이지 예시.]({% image_buster /assets/img/landing_pages/template.png %})
 
-편집기는 랜딩 페이지 구성을 위해 기본 블록과 양식 블록이라는 두 가지 유형의 구성요소를 사용합니다. 모든 블록은 행 안에 배치해야 합니다. 각 블록과 속성에 대한 전용 참조는 [편집기 블록(랜딩 페이지)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages)을 확인하세요.
+편집기는 랜딩 페이지 구성을 위해 기본 블록과 양식 블록이라는 두 가지 유형의 구성요소를 사용합니다. 모든 블록은 행 안에 배치해야 합니다. 각 블록과 속성에 대한 전용 참조는 [편집기 블록(랜딩 페이지)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages)을 확인하세요.
 
-!['행'과 '양식 블록'이 포함된 'Build' 섹션.]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
+!['행'과 '양식 블록'이 포함된 '빌드' 섹션.]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
 
 {% tabs %}
 {% tab 기본 블록 %}
@@ -90,7 +90,7 @@ page_order: 0
 {: .reset-td-br-1 .reset-td-br-2 aria-label="스팬 텍스트" }
 
 {% alert important %}
-양식이 포함된 랜딩 페이지를 만든 후에는 메시지에 [랜딩 페이지 Liquid 태그]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/)를 삽입해야 합니다. 이 태그를 사용하면 Braze가 사용자가 양식을 제출할 때 기존 사용자 프로필을 자동으로 식별하고 업데이트할 수 있습니다.
+양식이 포함된 랜딩 페이지를 만든 후에는 메시지에 [랜딩 페이지 Liquid 태그]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users)를 삽입해야 합니다. 이 태그를 사용하면 Braze가 사용자가 양식을 제출할 때 기존 사용자 프로필을 자동으로 식별하고 업데이트할 수 있습니다.
 {% endalert %}
 
 {% endtab %}
@@ -98,27 +98,27 @@ page_order: 0
 
 #### 페이지 컨테이너 스타일 {#page-container-styles}
 
-**Page container** 탭에서 랜딩 페이지의 모든 관련 구성요소 블록에 적용할 스타일을 설정할 수 있습니다. 이 스타일은 특정 블록으로 재정의하지 않는 한 페이지 전체에 사용됩니다.
+**페이지 컨테이너** 탭에서 랜딩 페이지의 모든 관련 구성요소 블록에 적용할 스타일을 설정할 수 있습니다. 이 스타일은 특정 블록으로 재정의하지 않는 한 페이지 전체에 사용됩니다.
 
 블록 수준에서 스타일을 커스터마이즈하기 전에 페이지 컨테이너 수준의 스타일을 먼저 설정하는 것을 권장합니다. 전체 페이지에 배경 이미지를 추가할 수도 있습니다.
 
-![배경 이미지, 색상, 테두리 세부 정보 및 콘텐츠 스타일링을 커스터마이즈할 수 있는 옵션이 있는 'Page container' 섹션.]({% image_buster /assets/img/landing_pages/page_container.png %}){: style="max-width:40%;"}
+![배경 이미지, 색상, 테두리 세부 정보 및 콘텐츠 스타일링을 커스터마이즈할 수 있는 옵션이 있는 '페이지 컨테이너' 섹션.]({% image_buster /assets/img/landing_pages/page_container.png %}){: style="max-width:40%;"}
 
 #### 사용자 기기에 대한 반응형 설정 {#responsive-to-user-devices}
 
-작은 화면에서 열을 수직으로 쌓아 사용자 기기 크기에 맞게 랜딩 페이지를 반응형으로 만들 수 있습니다. 이를 활성화하려면 반응형으로 만들려는 행에 열을 추가한 다음 **Customize columns** 섹션에서 **Vertically stack on smaller screens**를 토글합니다.
+작은 화면에서 열을 수직으로 쌓아 사용자 기기 크기에 맞게 랜딩 페이지를 반응형으로 만들 수 있습니다. 이를 활성화하려면 반응형으로 만들려는 행에 열을 추가한 다음 **열 커스터마이즈** 섹션에서 **작은 화면에서 수직으로 쌓기**를 토글합니다.
 
 활성화하면 역순 쌓기를 통해 작은 화면에서 다중 열 콘텐츠의 수직 순서를 제어할 수도 있습니다. 이를 통해 커스텀 코드 없이도 모바일에서 페이지가 더 보기 좋고 자연스럽게 표시됩니다.
 
-!['Customize columns' 섹션의 'Vertically stack on smaller screens' 토글.]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
+!['열 커스터마이즈' 섹션의 '작은 화면에서 수직으로 쌓기' 토글.]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
 
 #### 선택 사항 및 필수 필드 {#optional-and-required-fields}
 
 양식 필드를 필수 또는 선택 사항으로 설정할 수 있습니다. 필수 필드는 양식을 제출하기 전에 반드시 작성해야 합니다. 선택 사항 필드는 사용자가 비워두거나 선택하지 않을 수 있습니다.
 
-예를 들어, 양식 제출 전에 동의 수집을 강제하려면 **Required field input**을 켜서 적절한 면책 조항 텍스트와 함께 체크박스를 필수로 설정할 수 있습니다.
+예를 들어, 양식 제출 전에 동의 수집을 강제하려면 **필수 필드 입력**을 켜서 적절한 면책 조항 텍스트와 함께 체크박스를 필수로 설정할 수 있습니다.
 
-!['Required input field' 토글이 선택된 체크박스 양식 필드.]({% image_buster /assets/img/landing_pages/lp-optional-required.png %}){: style="max-width:50%;"}
+!['필수 입력 필드' 토글이 선택된 체크박스 양식 필드.]({% image_buster /assets/img/landing_pages/lp-optional-required.png %}){: style="max-width:50%;"}
 
 ### 4단계: 확인 페이지 만들기(선택 사항) {#step-4-create-a-confirmation-page-optional}
 

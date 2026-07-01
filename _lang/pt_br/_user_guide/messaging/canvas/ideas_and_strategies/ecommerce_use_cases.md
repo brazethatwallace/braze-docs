@@ -31,7 +31,7 @@ A Braze oferece quatro modelos de Canvas para eCommerce.
 
 ## Personalização de mensagens {#message-personalization}
 
-O [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) é uma linguagem de modelagem poderosa usada pela Braze que permite criar conteúdo dinâmico e personalizado para seus clientes. Ao usar Liquid tags, você pode personalizar mensagens com base em dados do cliente, informações de produtos e outras variáveis, aprimorando a experiência de compra e impulsionando o engajamento.
+O [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) é uma linguagem de modelagem poderosa usada pela Braze que permite criar conteúdo dinâmico e personalizado para seus clientes. Ao usar Liquid tags, você pode personalizar mensagens com base em dados do cliente, informações de produtos e outras variáveis, aprimorando a experiência de compra e impulsionando o engajamento.
 
 ### Principais recursos do Liquid {#key-features-of-liquid}
 
@@ -43,25 +43,25 @@ O [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liq
 
 Para começar a personalizar suas mensagens usando Liquid tags, consulte os seguintes recursos:
 
-- Referência de [dados do Shopify]({{site.baseurl}}/shopify_features/#shopify-data) com Liquid tags pré-definidas
-- [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)
+- Referência de [dados do Shopify]({{site.baseurl}}/shopify_features#shopify-data) com Liquid tags pré-definidas
+- [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)
 
 ## Segmentação {#segmentation}
 
-Use os Segments da Braze para criar segmentos de clientes direcionados com base em atributos e comportamentos específicos, e entregue mensagens e Campaigns personalizadas. Com esse recurso poderoso, você pode engajar seus clientes de forma eficaz, alcançando o público certo com a mensagem certa no momento certo.
+Use os segmentos da Braze para criar segmentos de clientes direcionados com base em atributos e comportamentos específicos, e entregue mensagens e Campaigns personalizadas. Com esse recurso poderoso, você pode engajar seus clientes de forma eficaz, alcançando o público certo com a mensagem certa no momento certo.
 
-Para saber mais sobre como começar com segmentos, confira [Sobre os Segments da Braze]({{site.baseurl}}/user_guide/audience/segments/#about-braze-segments).
+Para saber mais sobre como começar com segmentos, confira [Sobre os segmentos da Braze]({{site.baseurl}}/user_guide/audience/segments#about-braze-segments).
 
 ### Eventos recomendados {#recommended-events}
 
-Os eventos de eCommerce são baseados em [eventos recomendados]({{site.baseurl}}/recommended_events/).
-Como os eventos recomendados são eventos personalizados mais específicos, você pode pesquisar os nomes dos eventos recomendados de eCommerce selecionando qualquer [filtro de evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/#segmentation-filters).
+Os eventos de eCommerce são baseados em [eventos recomendados]({{site.baseurl}}/recommended_events).
+Como os eventos recomendados são eventos personalizados mais específicos, você pode pesquisar os nomes dos eventos recomendados de eCommerce selecionando qualquer [filtro de evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events#segmentation-filters).
 
 ### Filtros de eCommerce {#ecommerce-filters}
 
 Segmente seus usuários com filtros de eCommerce, como **Ecommerce Source** e **Total Revenue**, acessando a seção **eCommerce** dentro do segmentador.
 
-Para ver uma lista de filtros de eCommerce e suas definições, consulte [Filtros de segmento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) e selecione a categoria de pesquisa "eCommerce".
+Para ver uma lista de filtros de eCommerce e suas definições, consulte [Filtros de segmento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) e selecione a categoria de pesquisa "eCommerce".
 
 ![Menu suspenso de filtros de segmento com filtros "eCommerce".]({% image_buster /assets/img_archive/ecommerce_filters.png %}){: style="max-width:50%"}
 
@@ -69,13 +69,13 @@ Para ver uma lista de filtros de eCommerce e suas definições, consulte [Filtro
 
 ## Propriedades de eventos aninhados {#nested-event-properties}
 
-Para segmentar por propriedades de eventos aninhados, você pode usar as [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/#why-use-segment-extensions). Por exemplo, você pode usar extensões de segmento para encontrar quem comprou o produto "SKU-123" nos últimos 90 dias.
+Para segmentar por propriedades de eventos aninhados, você pode usar as [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension#why-use-segment-extensions). Por exemplo, você pode usar extensões de segmento para encontrar quem comprou o produto "SKU-123" nos últimos 90 dias.
 
 ## Análise de dados {#analytics}
 
 ### Relatório de eventos personalizados {#custom-events-report}
 
-Você pode acompanhar o volume de eventos recomendados de eCommerce no [Relatório de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/#analytics). Filtre por **Perform Custom Event** e especifique o [nome do evento recomendado de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/#types-of-ecommerce-recommended-events) para visualizar seu desempenho ao longo do tempo.
+Você pode acompanhar o volume de eventos recomendados de eCommerce no [Relatório de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics). Filtre por **Perform Custom Event** e especifique o [nome do evento recomendado de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events) para visualizar seu desempenho ao longo do tempo.
 
 ![Gráfico de eventos personalizados exibindo resultados para seis eventos selecionados.]({% image_buster /assets/img/ecommerce/custom_events_chart.png %})
 
@@ -83,14 +83,14 @@ Você pode acompanhar o volume de eventos recomendados de eCommerce no [Relatór
 
 #### Dashboard de conversões {#conversions-dashboard}
 
-Depois de lançar uma Campaign ou Canvas usando o evento de conversão "Places Order", você pode criar um [relatório de conversão]({{site.baseurl}}/user_guide/analytics/dashboards/conversions/#setting-up-your-report) correspondente para acompanhar o desempenho.
+Depois de lançar uma Campaign ou Canvas usando o evento de conversão "Places Order", você pode criar um [relatório de conversão]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#setting-up-your-report) correspondente para acompanhar o desempenho.
 
 ![Tabela de detalhes de conversões com Campaigns e Canvas, e as estatísticas de conversão associadas.]({% image_buster /assets/img_archive/conversion_details_table.png %})
 
 #### Dashboard de receita de eCommerce {#ecommerce-revenue-dashboard}
 
-Para obter insights sobre a receita atribuída à última Campaign ou Canvas com que um usuário interagiu antes de fazer um pedido, use o [dashboard de receita de eCommerce]({{site.baseurl}}/ecommerce_revenue_dashboard/) e selecione uma janela de conversão.
+Para obter insights sobre a receita atribuída à última Campaign ou Canvas com que um usuário interagiu antes de fazer um pedido, use o [dashboard de receita de eCommerce]({{site.baseurl}}/ecommerce_revenue_dashboard) e selecione uma janela de conversão.
 
 ### Relatório de receitas {#revenue-report}
 
-Para analisar dados desses novos eventos, acesse o [Criador de dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/) e visualize o [dashboard **eCommerce Revenue - Last Touch Attribution**]({{site.baseurl}}/ecommerce_revenue_dashboard/).
+Para analisar dados desses novos eventos, acesse o [Criador de dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder) e visualize o [dashboard **eCommerce Revenue - Last Touch Attribution**]({{site.baseurl}}/ecommerce_revenue_dashboard).

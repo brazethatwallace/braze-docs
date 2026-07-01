@@ -25,6 +25,7 @@ Si vous avez sélectionné **Aucune optimisation** lors de la configuration de v
 Pour plus de détails, consultez l'article [Analyse de campagne]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) correspondant à votre canal de communication.
 
 ### Sélection de variante BrazeAI<sup>TM</sup> (push uniquement) {#brazeai-variant-selection-push-only}
+
 Si vous utilisez la sélection de variante BrazeAI<sup>TM</sup>, selon qu'il s'agit d'un envoi unique ou d'une campagne récurrente, une fois la fenêtre d'expérimentation (ou la première période pour les campagnes récurrentes) écoulée, vous verrez le gain éventuel sur la page d'accueil de la campagne. Vous trouverez également des détails supplémentaires similaires à ceux de la variante gagnante ci-dessous si vous lancez une campagne à envoi unique.
 
 Pour plus de détails sur la façon dont nous rapportons le gain de la sélection de variante BrazeAI<sup>TM</sup>, consultez [Sélection de variante]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).

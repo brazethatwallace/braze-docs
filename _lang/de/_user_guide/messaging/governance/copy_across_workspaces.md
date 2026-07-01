@@ -79,7 +79,7 @@ Landing-Pages werden als Entwürfe kopiert. Überprüfen Sie vor der Veröffentl
 | Beschreibung | Gebiete |
 | Typ | Tags |
 | Aktionen (verschachtelt) | Segmente und Filter |
-| Conversion-Verhalten (verschachtelt) | [Genehmigungen]({{site.baseurl}}/user_guide/messaging/governance/approvals/) |
+| Conversion-Verhalten (verschachtelt) | [Genehmigungen]({{site.baseurl}}/user_guide/messaging/governance/approvals) |
 | Ruhezeit-Konfigurationen | Trigger-Zeitplan |
 | Frequency-Capping-Konfigurationen | Campaign-Zusammenfassungen |
 | Abo-Status der Empfänger:innen |  |
@@ -95,7 +95,7 @@ Landing-Pages werden als Entwürfe kopiert. Überprüfen Sie vor der Veröffentl
 | Beschreibung | Gebiete |
 | Typ | Tags |
 | Aktionen (verschachtelt) | Segmente und Filter |
-| Conversion-Verhalten (verschachtelt) | [Genehmigungen]({{site.baseurl}}/user_guide/messaging/governance/approvals/) |
+| Conversion-Verhalten (verschachtelt) | [Genehmigungen]({{site.baseurl}}/user_guide/messaging/governance/approvals) |
 | Ruhezeit-Konfigurationen | Trigger-Zeitplan |
 | Frequency-Capping-Konfigurationen | Canvas-Zusammenfassungen |
 | Abo-Status der Empfänger:innen |  |
@@ -103,7 +103,7 @@ Landing-Pages werden als Entwürfe kopiert. Überprüfen Sie vor der Veröffentl
 | Ist transaktional |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Details" }
 
-Filterkriterien aus Canvas-Schritten (zum Beispiel [Decision-Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)-Schritte) werden nicht in den Ziel-Workspace kopiert. Konfigurieren Sie diese Filter nach dem Kopieren neu.
+Filterkriterien aus Canvas-Schritten (zum Beispiel [Decision-Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)-Schritte) werden nicht in den Ziel-Workspace kopiert. Konfigurieren Sie diese Filter nach dem Kopieren neu.
 
 {% endtab %}
 {% endtabs %}
@@ -335,7 +335,7 @@ Filterkriterien aus Canvas-Schritten (zum Beispiel [Decision-Split]({{site.baseu
 
 ## Nachrichten mit Liquid-Referenzen kopieren {#copying-messages-that-contain-liquid}
 
-Liquid-Referenzen innerhalb von Nachrichtentexten werden in den Ziel-Workspace kopiert, funktionieren dort aber möglicherweise nicht wie erwartet. Das bedeutet: Wenn ein Canvas aus Workspace A in Workspace B kopiert wird, kann Workspace B nicht auf die Details von Workspace A zugreifen, einschließlich Liquid-Referenzen. Beispielsweise werden Felder wie Trigger-Aktionen, Zielgruppen-Filter und [Decision-Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)-Filterkriterien nicht kopiert.
+Liquid-Referenzen innerhalb von Nachrichtentexten werden in den Ziel-Workspace kopiert, funktionieren dort aber möglicherweise nicht wie erwartet. Das bedeutet: Wenn ein Canvas aus Workspace A in Workspace B kopiert wird, kann Workspace B nicht auf die Details von Workspace A zugreifen, einschließlich Liquid-Referenzen. Beispielsweise werden Felder wie Trigger-Aktionen, Zielgruppen-Filter und [Decision-Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)-Filterkriterien nicht kopiert.
 
 Behalten Sie die folgenden Liquid-Referenzen mit Abhängigkeiten im Blick, wenn Sie Campaigns, Canvases und Landing-Pages zwischen Workspaces kopieren:
 
@@ -350,7 +350,7 @@ Behalten Sie die folgenden Liquid-Referenzen mit Abhängigkeiten im Blick, wenn 
 
 ## Nachrichten mit Feature-Flags kopieren {#copying-messages-with-feature-flags}
 
-Um eine Feature-Flag-Campaign und ein Canvas mit einem Feature-Flag-Schritt zwischen Workspaces zu kopieren, stellen Sie sicher, dass im Ziel-Workspace ein [Feature-Flag-Experiment]({{site.baseurl}}/developer_guide/feature_flags/experiments/) mit einer ID konfiguriert ist, die entweder dem Feature-Flag in der ursprünglichen Campaign oder dem Feature-Flag-Schritt im ursprünglichen Canvas entspricht.
+Um eine Feature-Flag-Campaign und ein Canvas mit einem Feature-Flag-Schritt zwischen Workspaces zu kopieren, stellen Sie sicher, dass im Ziel-Workspace ein [Feature-Flag-Experiment]({{site.baseurl}}/developer_guide/feature_flags/experiments) mit einer ID konfiguriert ist, die entweder dem Feature-Flag in der ursprünglichen Campaign oder dem Feature-Flag-Schritt im ursprünglichen Canvas entspricht.
 
 Wenn Sie eine Campaign oder ein Canvas mit einem Feature-Flag-Schritt kopieren, dessen Feature-Flag-ID im Ziel-Workspace nicht existiert, wird der Feature-Flag-Schritt kopiert, aber sein Inhalt nicht.
 

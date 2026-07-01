@@ -348,7 +348,7 @@ Android 12を実行しているデバイスでは、カスタムプッシュ通�
 
 Androidプッシュメッセージを作成する場合、この機能は**通知タイプ**ドロップダウンで使用できます。
 
-![プッシュCampaignエディターで、標準のプッシュプレビューの上部に位置する「通知タイプ」ドロップダウンの場所を示している。]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
+![プッシュキャンペーンエディターで、標準のプッシュプレビューの上部に位置する「通知タイプ」ドロップダウンの場所を示している。]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
 
 ## 設定 {#settings}
 

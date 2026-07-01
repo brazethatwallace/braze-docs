@@ -13,7 +13,7 @@ page_type: reference
 
 Après avoir ajouté une source connectée à votre espace de travail Braze, vous pouvez créer un segment CDI dans les Extensions de segments. Les Extensions de segments CDI vous permettent d'écrire du code SQL qui interroge directement votre entrepôt de données (en utilisant les données rendues disponibles via votre source connectée CDI) et de créer et gérer un groupe d'utilisateurs pouvant être ciblés dans Braze.
 
-Pour plus d'informations sur la création d'un segment avec cette source, consultez les [Extensions de segments CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/).
+Pour plus d'informations sur la création d'un segment avec cette source, consultez les [Extensions de segments CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments).
 
 {% alert warning %}
 Étant donné que les sources connectées s'exécutent directement sur votre entrepôt de données, vous supporterez tous les coûts liés à l'exécution de ces requêtes dans votre entrepôt de données. Les sources connectées n'enregistrent pas de points de données et les Extensions de segments CDI ne consomment pas de crédits de segments SQL.
@@ -277,13 +277,13 @@ En fonction de la configuration de votre compte Microsoft Fabric, vous devrez pe
 {% tab Snowflake %}
 #### Étape 3.1 : Ajouter les informations de connexion Snowflake et la table source {#step-31-add-snowflake-connection-information-and-source-table}
 
-Créez une source connectée dans le tableau de bord de Braze. Accédez à **Data Settings** > **Cloud Data Ingestion** > **Connected Sources**, puis sélectionnez **Create new data sync** > **Snowflake Import**.
+Créez une source connectée dans le tableau de bord de Braze. Accédez à **Paramètres des données** > **Ingestion de données cloud** > **Sources connectées**, puis sélectionnez **Create new data sync** > **Snowflake Import**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![Page des sources connectées avec les options pour créer une nouvelle synchronisation de données.]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Saisissez les informations relatives à votre entrepôt de données Snowflake et à votre schéma source, puis passez à l'étape suivante.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_1.png %})
+![Champs de connexion Snowflake pour l'entrepôt et le schéma source.]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_1.png %})
 
 #### Étape 3.2 : Configurer les détails de la synchronisation {#step-32-configure-sync-details}
 
@@ -295,25 +295,25 @@ Configurez une durée d'exécution maximale pour cette source. Braze interrompra
 Si les requêtes expirent systématiquement alors que vous avez défini une durée d'exécution maximale de 60 minutes, essayez d'optimiser le temps d'exécution de vos requêtes ou de dédier un entrepôt plus important à l'utilisateur Braze.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_2.png %})
+![Configuration du nom de synchronisation et de la durée d'exécution maximale pour Snowflake.]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_2.png %})
 
 #### Étape 3.3 : Noter la clé publique {#step-33-note-the-public-key}
 
 Dans l'étape **Test connection**, notez la clé publique RSA. Vous en aurez besoin pour finaliser l'intégration dans Snowflake.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_3.png %})
+![Étape de test de connexion Snowflake affichant la clé publique RSA.]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_3.png %})
 
 {% endtab %}
 {% tab Redshift %}
 #### Étape 3.1 : Ajouter les informations de connexion Redshift et la table source {#step-31-add-redshift-connection-information-and-source-table}
 
-Créez une source connectée dans le tableau de bord de Braze. Accédez à **Data Settings** > **Cloud Data Ingestion** > **Connected Sources**, puis sélectionnez **Create data connection** > **Amazon Redshift Import**.
+Créez une source connectée dans le tableau de bord de Braze. Accédez à **Paramètres des données** > **Ingestion de données cloud** > **Sources connectées**, puis sélectionnez **Create data connection** > **Amazon Redshift Import**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![Page des sources connectées avec les options pour créer une nouvelle synchronisation de données.]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Saisissez les informations relatives à votre entrepôt de données Redshift et à votre schéma source, puis passez à l'étape suivante.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_1.png %})
+![Champs de connexion Redshift pour l'entrepôt et le schéma source.]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_1.png %})
 
 #### Étape 3.2 : Configurer les détails de la synchronisation
 
@@ -325,25 +325,25 @@ Configurez une durée d'exécution maximale pour cette source. Braze interrompra
 Si les requêtes expirent systématiquement alors que vous avez défini une durée d'exécution maximale de 60 minutes, essayez d'optimiser le temps d'exécution de vos requêtes ou de dédier un entrepôt plus important à l'utilisateur Braze.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_2.png %})
+![Configuration du nom de synchronisation et de la durée d'exécution maximale pour Redshift.]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_2.png %})
 
 #### Étape 3.3 : Noter la clé publique (facultatif) {#step-33-note-the-public-key-optional}
 
 Si vous avez sélectionné l'option **Connect with SSH Tunnel**, notez la clé publique RSA dans l'étape **Test connection**. Vous en aurez besoin pour finaliser l'intégration dans Redshift.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_3.png %})
+![Étape de test de connexion Redshift affichant la clé publique RSA.]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_3.png %})
 
 {% endtab %}
 {% tab BigQuery %}
 #### Étape 3.1 : Ajouter les informations de connexion BigQuery et la table source {#step-31-add-bigquery-connection-information-and-source-table}
 
-Créez une source connectée dans le tableau de bord de Braze. Accédez à **Data Settings** > **Cloud Data Ingestion** > **Connected Sources**, puis sélectionnez **Create new data sync** > **Google BigQuery Import**.
+Créez une source connectée dans le tableau de bord de Braze. Accédez à **Paramètres des données** > **Ingestion de données cloud** > **Sources connectées**, puis sélectionnez **Create new data sync** > **Google BigQuery Import**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![Page des sources connectées avec les options pour créer une nouvelle synchronisation de données.]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Saisissez les informations relatives à votre projet BigQuery et à votre jeu de données, puis passez à l'étape suivante.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_1.png %})
+![Capture d'écran relative à l'étape 3.1 : ajouter les informations de connexion BigQuery et la table source.]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_1.png %})
 
 #### Étape 3.2 : Configurer les détails de la synchronisation
 
@@ -355,25 +355,25 @@ Configurez une durée d'exécution maximale pour cette source. Braze interrompra
 Si les requêtes expirent systématiquement alors que vous avez défini une durée d'exécution maximale de 60 minutes, essayez d'optimiser le temps d'exécution de vos requêtes ou de dédier un entrepôt plus important à l'utilisateur Braze.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_2.png %})
+![Capture d'écran relative à l'étape 3.2 : configurer les détails de la synchronisation.]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_2.png %})
 
 #### Étape 3.3 : Tester la connexion {#step-33-test-the-connection}
 
 Sélectionnez **Test Connection** pour vérifier que la liste des tables visibles par l'utilisateur correspond à vos attentes, puis sélectionnez **Done**. Votre source connectée est désormais créée et prête à être utilisée dans les Extensions de segments CDI.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
+![Étape de test de connexion affichant les tables disponibles pour la source connectée.]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% tab Databricks %}
 #### Étape 3.1 : Ajouter les informations de connexion Databricks et la table source {#step-31-add-databricks-connection-information-and-source-table}
 
-Créez une source connectée dans le tableau de bord de Braze. Accédez à **Data Settings** > **Cloud Data Ingestion** > **Connected Sources**, puis sélectionnez **Create new data sync** > **Databricks Import**.
+Créez une source connectée dans le tableau de bord de Braze. Accédez à **Paramètres des données** > **Ingestion de données cloud** > **Sources connectées**, puis sélectionnez **Create new data sync** > **Databricks Import**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![Page des sources connectées avec les options pour créer une nouvelle synchronisation de données.]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Saisissez les informations relatives à vos identifiants Databricks et, en option, au catalogue et au schéma source, puis passez à l'étape suivante.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_databricks_1.png %})
+![Champs de connexion Databricks pour les identifiants et le schéma source.]({% image_buster /assets/img/cloud_ingestion/connected_source_databricks_1.png %})
 
 #### Étape 3.2 : Configurer les détails de la synchronisation
 
@@ -385,25 +385,25 @@ Configurez une durée d'exécution maximale pour cette source. Braze interrompra
 Si les requêtes expirent systématiquement alors que vous avez défini une durée d'exécution maximale de 60 minutes, essayez d'optimiser le temps d'exécution de vos requêtes ou de dédier un entrepôt plus important à l'utilisateur Braze.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_db_2.png %})
+![Configuration du nom de synchronisation et de la durée d'exécution maximale pour Databricks.]({% image_buster /assets/img/cloud_ingestion/connected_source_db_2.png %})
 
 #### Étape 3.3 : Tester la connexion
 
 Sélectionnez **Test Connection** pour vérifier que la liste des tables visibles par l'utilisateur correspond à vos attentes, puis sélectionnez **Done**. Votre source connectée est désormais créée et prête à être utilisée dans les Extensions de segments CDI.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
+![Étape de test de connexion affichant les tables disponibles pour la source connectée.]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% tab Microsoft Fabric %}
 #### Étape 3.1 : Ajouter les informations de connexion Microsoft Fabric et la table source {#step-31-add-microsoft-fabric-connection-information-and-source-table}
 
-Créez une source connectée dans le tableau de bord de Braze. Accédez à **Data Settings** > **Cloud Data Ingestion** > **Connected Sources**, puis sélectionnez **Create new data sync** > **Microsoft Fabric Import**.
+Créez une source connectée dans le tableau de bord de Braze. Accédez à **Paramètres des données** > **Ingestion de données cloud** > **Sources connectées**, puis sélectionnez **Create new data sync** > **Microsoft Fabric Import**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![Page des sources connectées avec les options pour créer une nouvelle synchronisation de données.]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Saisissez les informations relatives à vos identifiants Microsoft Fabric, ainsi que l'entrepôt source et le schéma, puis passez à l'étape suivante.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_1.png %})
+![Champs de connexion Microsoft Fabric pour les identifiants et le schéma source.]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_1.png %})
 
 #### Étape 3.2 : Configurer les détails de la synchronisation
 
@@ -415,13 +415,13 @@ Configurez une durée d'exécution maximale pour cette source. Braze interrompra
 Si les requêtes expirent systématiquement alors que vous avez défini une durée d'exécution maximale de 60 minutes, essayez d'optimiser le temps d'exécution de vos requêtes ou d'augmenter les capacités de Fabric.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_2.png %})
+![Configuration du nom de synchronisation et de la durée d'exécution maximale pour Microsoft Fabric.]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_2.png %})
 
 #### Étape 3.3 : Tester la connexion
 
 Sélectionnez **Test Connection** pour vérifier que la liste des tables visibles par l'utilisateur correspond à vos attentes, puis sélectionnez **Done**. Votre source connectée est désormais créée et prête à être utilisée dans les Extensions de segments CDI.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
+![Étape de test de connexion affichant les tables disponibles pour la source connectée.]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -432,7 +432,7 @@ Sélectionnez **Test Connection** pour vérifier que la liste des tables visible
 {% tab Snowflake %}
 Ajoutez la clé publique que vous avez notée lors de la dernière étape à votre utilisateur dans Snowflake. Cela permettra à Braze de se connecter à Snowflake. Pour plus de détails, consultez la [documentation Snowflake](https://docs.snowflake.com/en/user-guide/key-pair-auth.html).
 
-Si vous souhaitez effectuer une rotation des clés à un moment donné, vous pouvez créer une nouvelle clé publique en accédant à **Data Access Management** dans **Cloud Data Ingestion** et en sélectionnant **Generate New Key** pour le compte concerné.
+Si vous souhaitez effectuer une rotation des clés à un moment donné, vous pouvez créer une nouvelle clé publique en accédant à **Data Access Management** dans **Ingestion de données cloud** et en sélectionnant **Generate New Key** pour le compte concerné.
 
 ![Gestion de l'accès aux données pour les identifiants d'accès aux données Snowflake, avec un bouton permettant de générer une nouvelle clé.]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_4.png %})
 
@@ -495,7 +495,7 @@ Vous pouvez configurer plusieurs sources avec Braze, mais chaque source doit êt
 
 ## Utilisation de la source connectée {#using-the-connected-source}
 
-Une fois la source créée, vous pouvez l'utiliser pour créer une ou plusieurs Extensions de segments CDI. Pour plus d'informations sur la création d'un segment avec cette source, consultez la [documentation des Extensions de segments CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/).
+Une fois la source créée, vous pouvez l'utiliser pour créer une ou plusieurs Extensions de segments CDI. Pour plus d'informations sur la création d'un segment avec cette source, consultez la [documentation des Extensions de segments CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments).
 
 {% alert note %}
 Si les requêtes expirent systématiquement alors que vous avez défini une durée d'exécution maximale de 60 minutes, envisagez d'optimiser le temps d'exécution de vos requêtes ou de dédier davantage de ressources de calcul (un entrepôt plus important, par exemple) à l'utilisateur Braze.

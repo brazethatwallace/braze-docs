@@ -26,12 +26,12 @@ Interagissez avec les utilisateurs en temps réel pour les encourager à finalis
 
 Tenez compte des éléments suivants lors de l'utilisation de ce modèle :
 
-- La planification d'entrée est déclenchée par API. Utilisez l'[endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) pour faire entrer les utilisateurs lorsqu'ils abandonnent un panier, ou passez à une planification basée sur une action avec un déclencheur tel que **Effectuer un événement personnalisé** ou **Effectuer un événement de mise à jour du panier** si cela correspond à votre configuration.
+- La planification d'entrée est déclenchée par API. Utilisez l'[endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) pour faire entrer les utilisateurs lorsqu'ils abandonnent un panier, ou passez à une planification basée sur une action avec un déclencheur tel que **Effectuer un événement personnalisé** ou **Effectuer un événement de mise à jour du panier** si cela correspond à votre configuration.
 - La conversion par défaut suit **Effectuer un achat quelconque (Legacy)**. Adaptez les événements de conversion et les étapes Parcours d'actions **A effectué un achat ?** à des produits spécifiques si nécessaire.
 - Les utilisateurs sortent du Canvas lorsqu'ils effectuent un achat dans les étapes Parcours d'actions **A effectué un achat ?**. Ce modèle suppose que vous disposez d'un parcours post-achat distinct.
 - Le Canvas inclut un e-mail pour le **rappel détaillé**, une étape de délai, une répartition par canal intelligent pour l'e-mail et le SMS, des messages par canal avec des Content Cards (e-mail, SMS et message in-app), ainsi qu'une étape Audience Sync. Configurez le **reciblage publicitaire** avec vos partenaires et audiences.
 
-Pour un guide pas à pas, consultez [Panier abandonné]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/abandoned_cart/).
+Pour un guide pas à pas, consultez [Intention abandonnée]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/abandoned_cart).
 
 {% endtab %}
 {% tab Back In Stock %}

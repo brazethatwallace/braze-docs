@@ -12,7 +12,7 @@ alias: /landing_pages/data_tracking/
 
 ## Tracking-Methoden {#tracking-methods}
 
-### Web SDK
+### Web SDK {#web-sdk}
 
 Das Braze Web SDK wird initialisiert, wenn ein:e Nutzer:in ein Formular auf einer Landing-Page absendet. Vor dem Absenden des Formulars werden keine personenbezogenen Daten erfasst, und das SDK trackt Nutzer:innen nicht aktiv. Nach Abschluss der Initialisierung speichert das SDK keine Daten im Browser (wie Cookies, lokalen Speicher oder andere).
 
@@ -38,5 +38,5 @@ Braze führt Nutzer:innen nicht automatisch anhand von Attributen wie E-Mail ode
 
 Um doppelte Nutzerprofile zusammenzuführen, können Sie:
 
-- Den [`/users/merge`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) triggern, wenn ein Landing-Page-Formular abgesendet wird, um das neue Profil mit einem bestehenden Profil zusammenzuführen.
-- [Massenzusammenführung]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/#bulk-merging) planen, um doppelte Profile regelmäßig anhand übereinstimmender Bezeichner zusammenzuführen.
+- Den [`/users/merge`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) triggern, wenn ein Landing-Page-Formular abgesendet wird, um das neue Profil mit einem bestehenden Profil zusammenzuführen.
+- [Massenzusammenführung]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#bulk-merging) planen, um doppelte Profile regelmäßig anhand übereinstimmender Bezeichner zusammenzuführen.

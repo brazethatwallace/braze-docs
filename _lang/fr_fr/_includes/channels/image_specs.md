@@ -5,7 +5,7 @@
 | --- | --- |
 | Image et texte | Les images hautes ou étroites sont réduites et centrées horizontalement. Les images larges seront rognées sur les bords gauche et droit. |
 | Image uniquement | Le message sera redimensionné pour s'adapter à la plupart des rapports hauteur/largeur. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tableau" }
 
 {% endif %}
 
@@ -18,7 +18,7 @@ Nous recommandons les tailles de payloads suivantes :
 | iOS (avant iOS 8) | 0,256 Ko |
 | iOS (après iOS 8) | 2 Ko |
 | Android (FCM) | 4 Ko |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tableau" }
 
 {% endif %}
 
@@ -37,7 +37,7 @@ Tous les messages in-app ont une taille d'image recommandée de 500 Ko, une tail
 | --- | --- | --- | --- |
 | Portrait plein écran avec texte | 6:5 | Haute résolution 1200 x 1000 px <br>Résolution minimale 600 x 500 px | L'image peut être rognée de tous les côtés, mais elle occupera toujours la moitié supérieure de la fenêtre. |
 | Portrait plein écran (image seule, avec ou sans boutons) | 3:5 | Haute résolution 1200 x 2000 px <br> Résolution minimale 600 x 1000 px | Sur les appareils plus grands, l'image peut être rognée sur les bords gauche et droit. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tableau" }
 
 {% endtab %}
 {% tab Paysage %}
@@ -46,7 +46,7 @@ Tous les messages in-app ont une taille d'image recommandée de 500 Ko, une tail
 | --- | --- | --- | --- |
 | Paysage plein écran avec texte | 10:3 | Haute résolution 2000 x 600 px <br>Résolution minimale 1000 x 300 px | L'image peut être rognée de tous les côtés, mais elle occupera toujours la moitié supérieure de la fenêtre. |
 | Paysage plein écran (image seule, avec ou sans boutons) | 5:3 | Haute résolution 2000 x 600 px <br> Résolution minimale 1000 x 600 px | Sur les appareils plus grands, l'image peut être rognée sur les bords gauche et droit. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tableau" }
 
 {% endtab %}
 {% tab Contextuel %}
@@ -54,7 +54,7 @@ Tous les messages in-app ont une taille d'image recommandée de 500 Ko, une tail
 | Type | Rapport hauteur/largeur | Qualité de l'image | Remarques |
 | --- | --- | --- | --- |
 | Contextuel | 1:1 | Haute résolution 150 x 150 px <br> Résolution minimale 50 x 50 px | Les images de différents rapports hauteur/largeur seront insérées dans un conteneur d'images carré, sans rognage. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tableau" }
 
 {% endtab %}
 {% tab Fenêtre modale %}
@@ -63,7 +63,7 @@ Tous les messages in-app ont une taille d'image recommandée de 500 Ko, une tail
 | --- | --- | --- | --- |
 | Fenêtre modale (image seule) | 1:1 | Résolution maximale recommandée : 1200 x 2000 px <br> Résolution minimale : 600 x 600 px | Le message sera redimensionné pour s'adapter à la plupart des rapports hauteur/largeur. La résolution maximale recommandée présente un rapport de 3:5, ce qui peut ne pas fournir des résultats optimaux. Les images de plus grande taille sont utilisables, mais elles peuvent entraîner des temps de chargement plus longs. <br> Le rapport hauteur/largeur idéal pour les images est 1:1. Si ce rapport n'est pas respecté, un avertissement peut apparaître lors du téléchargement. Cet avertissement est une recommandation visant à obtenir les meilleurs résultats possibles et n'empêche pas le téléchargement d'images plus volumineuses. |
 | Fenêtre modale avec texte | 29:10 | Haute résolution 1450 x 500 px <br> Résolution minimale 600 x 205 px | Les images hautes seront réduites et centrées horizontalement. Les images larges seront rognées sur les bords gauche et droit. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tableau" }
 
 {% endtab %}
 {% endtabs %}
@@ -79,7 +79,7 @@ Tous les messages in-app ont une taille d'image recommandée de 500 Ko, une tail
 | Alerte en bannière iOS | 85 caractères | 43 caractères |
 | Écran de verrouillage Android | 49 caractères | 43 caractères |
 | Tiroir de notification Android | 597 caractères | 43 caractères |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tableau" }
 
 La taille recommandée pour toutes les images push est de 500 Ko.
 
@@ -89,7 +89,7 @@ table td {
 }
 </style>
 
-<table aria-label="Table">
+<table aria-label="Tableau">
   <thead>
     <tr>
       <th>Type d'image</th>
@@ -135,7 +135,7 @@ table td {
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4  .reset-td-br-5 .reset-td-br-6 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4  .reset-td-br-5 .reset-td-br-6 aria-label="Tableau" }
 
 {% endif %}
 
@@ -146,21 +146,21 @@ table td {
 | Texte uniquement | 25 Ko |
 | Texte avec images | 60 Ko |
 | Largeur de l'e-mail | 600 px |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tableau" }
 
 | Spécifications des images | Propriétés maximales recommandées |
 | --- | --- |
 | Taille | 5 Mo |
 | Largeur | En-tête : 600 px<br>Corps : 480 px |
-| Types de fichier | PNG, JPEG, GIF<br><br> La prise en charge des images WebP varie selon les clients de messagerie. Pour garantir un rendu fiable, convertissez les images WebP au format PNG ou JPEG avant de les ajouter à vos e-mails. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
+| Types de fichier | PNG, JPEG, GIF<br><br> La prise en charge des images WebP varie selon les clients de messagerie. Pour garantir un rendu fiable, convertissez les images WebP au format PNG ou JPEG avant de les ajouter à vos e-mails.<br><br>Les images SVG ne sont pas recommandées pour les e-mails en raison de problèmes de compatibilité avec Gmail et d'autres clients de messagerie majeurs. Utilisez plutôt les formats PNG, JPEG ou GIF. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tableau" }
 
 | Spécifications du texte | Propriétés maximales recommandées |
 | --- | --- |
 | Longueur de la ligne d'objet | 35 caractères<br>6 à 10 mots |
 | Longueur du `"From: Name"` | 25 caractères |
 | Longueur du pré-en-tête | 85 caractères |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tableau" }
 
 {% endif %}
 
@@ -171,9 +171,9 @@ table td {
 | Classique   | Format 1:1 | 60 x 60&nbsp;px        |
 | Avec légende | Format 4:3 | Largeur minimale de 600&nbsp;px |
 | Bannière    | N'importe quel rapport hauteur/largeur | Largeur minimale de 600&nbsp;px |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tableau" }
 
-Pour plus d'informations, reportez-vous aux [détails créatifs des Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/).
+Pour plus d'informations, reportez-vous aux [détails créatifs des Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details).
 
 {% endif %}
 
@@ -188,8 +188,8 @@ Ces spécifications s'appliquent aux en-têtes de modèles, aux messages média 
 | Mode couleur | 8 bits, RVB ou RVBA | |
 | Légende (messages image uniquement) | Facultatif ; 1 024 caractères maximum | |
 | Dimensions recommandées | 1 125 × 600 px | Nous recommandons d'utiliser des images JPEG ou PNG de 1 125 × 600 px (1.91:1) pour un rendu homogène sur tous les appareils et en conformité avec les exigences de Meta. |
-| Rapport hauteur/largeur recommandé | 1.91:1 (large) | Les formats carré (1:1) et large (16:9) sont acceptés, mais les images peuvent être rognées ou agrandies selon l'appareil de l'utilisateur.<br><br> Pour les cartes de carrousel, les images d'en-tête sont automatiquement rognées au format large par WhatsApp, sauf en l'absence de corps de texte, auquel cas elles s'affichent au format carré.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
+| Rapport hauteur/largeur recommandé | 1.91:1 (large) | Les formats carré (1:1) et large (16:9) sont acceptés, mais les images peuvent être rognées ou agrandies selon l'appareil de l'utilisateur.<br><br> Pour les cartes de carrousel, les images d'en-tête sont automatiquement rognées au format large par WhatsApp, sauf en l'absence de corps de texte, auquel cas elles s'affichent au format carré. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tableau" }
 
 {% endif %}
 
@@ -206,7 +206,7 @@ Les spécifications suivantes s'appliquent aux en-têtes de modèles, aux messag
 | Flux audio | Un seul flux audio ou aucun flux audio |
 | Légende (messages vidéo uniquement) | Facultatif ; 1 024 caractères maximum |
 | Rapport hauteur/largeur recommandé | 1.91:1 (large) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tableau" }
 
 {% multi_lang_include alerts/important_alerts.md alert='Meta MP4 video issue' %}
 

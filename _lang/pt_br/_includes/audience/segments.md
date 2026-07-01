@@ -1,6 +1,6 @@
 {% if include.section == "Differing audience size" %}
 
-O tamanho do público-alvo exibido em uma Campaign ou Canvas pode ser diferente do [tamanho do público alcançável para um segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size/#segment-membership-calculation), mesmo que você esteja adicionando diretamente esse segmento à sua Campaign ou Canvas sem filtros adicionais.
+O tamanho do público-alvo exibido em uma Campaign ou Canvas pode ser diferente do [tamanho do público alcançável para um segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size#segment-membership-calculation), mesmo que você esteja adicionando diretamente esse segmento à sua Campaign ou Canvas sem filtros adicionais.
 Isso pode ocorrer por vários motivos:
 
 - Quando um Grupo de controle global se aplica a uma Campaign ou Canvas, os usuários desse Grupo de controle global são excluídos da contagem de usuários contatáveis.
@@ -58,7 +58,7 @@ As atualizações programadas são automaticamente desativadas quando uma extens
 
 - Não é usada em nenhuma Campaign ou Canvas ativo
 - Não é usada em nenhum segmento que esteja em uma Campaign ou Canvas ativo
-- Não é usada em nenhum segmento que tenha o [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking) ativado
+- Não é usada em nenhum segmento que tenha o [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking) ativado
 - Não foi modificada há mais de sete dias
 - Não foi adicionada a uma Campaign ou Canvas (incluindo rascunhos) ou segmento há mais de sete dias
 

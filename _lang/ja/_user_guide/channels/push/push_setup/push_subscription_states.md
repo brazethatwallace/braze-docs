@@ -21,7 +21,7 @@ channel:
 
 1. **[ユーザープロファイル](#user-profiles-and-push-changelog)**（**Engagement**タブ）
 2. **[セグメンテーション](#segmentation-and-push-filters)**（セグメントビルダー）
-3. **[CampaignおよびCanvasの分析](#campaign-and-canvas-analytics)**（各メッセージの分析ページ）
+3. **[キャンペーンおよびキャンバスの分析](#campaign-and-canvas-analytics)**（各メッセージの分析ページ）
 
 ### ユーザープロファイルとプッシュ変更ログ {#user-profiles-and-push-changelog}
 
@@ -37,9 +37,9 @@ iOSおよびAndroidでは、デバイスがフォアグラウンドプッシュ�
 
 セグメントビルダーでは、**`Foreground Push Enabled`**、**`Foreground Push Enabled for App`**、**`Background or Foreground Push Enabled`**、およびプッシュサブスクリプションフィルターなどのフィルターを使用して、設定やデバイスレベルの認可によってユーザーをターゲティングまたは監査できます。iOSでは、特定のユーザーに対するこれらのフィルターの読み取り方は、OSプロンプトを完了したかどうか、設定を変更したかどうか、または[仮承認](#provisional-push)を使用しているかどうかによって異なります。[iOSユーザーアクションとプッシュステータス](#ios-user-actions-push-status)および[その他のプラットフォーム固有のシナリオ](#foreground-push-enabled)を参照してください。
 
-### CampaignおよびCanvasの分析 {#campaign-and-canvas-analytics}
+### キャンペーンおよびキャンバスの分析 {#campaign-and-canvas-analytics}
 
-プッシュ**Campaign**または**Canvas**の分析ページでは、*送信数*、*バウンス数*、*開封数*などの指標がその送信の配信とエンゲージメントを反映します。これらの数値を個々のプロファイルと照合するには、**Campaign Details**または**Canvas Details**から**User Data**（CSV）を使用して受信者をエクスポートします。手順と権限については、[Campaignデータのエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_campaign_results_data)および[Canvasデータのエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data)を参照してください。分析とエクスポートの間でカウントが一致しない場合は、エクスポートのトラブルシューティングの[CampaignおよびCanvasの分析]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting#campaign-and-canvas-analytics)を参照してください。
+プッシュ**キャンペーン**または**キャンバス**の分析ページでは、*送信数*、*バウンス数*、*開封数*などの指標がその送信の配信とエンゲージメントを反映します。これらの数値を個々のプロファイルと照合するには、**キャンペーンの詳細**または**キャンバスの詳細**から**User Data**（CSV）を使用して受信者をエクスポートします。手順と権限については、[キャンペーンデータのエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_campaign_results_data)および[キャンバスデータのエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data)を参照してください。分析とエクスポートの間でカウントが一致しない場合は、エクスポートのトラブルシューティングの[キャンペーンおよびキャンバスの分析]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting#campaign-and-canvas-analytics)を参照してください。
 
 ## iOSユーザーアクションとプッシュステータス {#ios-user-actions-push-status}
 
@@ -154,7 +154,7 @@ iOSやAndroidではアプリがいつでも権限プロンプトを表示でき�
 ダッシュボードでは、プッシュ登録とプッシュ変更ログに関する情報を以下の場所で確認できます。
 
 - **セグメンテーション** – ユーザーのサブスクリプション状態、有効状態、フォアグラウンドおよびバックグラウンドの有効状態でフィルタリングします。
-- **Campaign分析** – 単一のCampaignまたはCanvasのプッシュ統計とフィードバックを表示します。
+- **キャンペーン分析** – 単一のキャンペーンまたはキャンバスのプッシュ統計とフィードバックを表示します。
 - **ユーザープロファイル（Engagementタブ）** – 特定のユーザーの**Contact Settings**とプッシュ変更ログを表示します。
 
 プッシュ有効状態を確認する際、**Push Registered for**は、Brazeがそのユーザーにフォアグラウンドプッシュを送信できるプラットフォームを示します。iOSおよびAndroidでは、ユーザーがフォアグラウンドプッシュ有効からバックグラウンドプッシュ有効（`remote_notification_enabled`）に移行した場合、プッシュ変更ログに「Push token was updated from foreground push enabled to foreground push disabled.」と記録されます。
@@ -167,7 +167,7 @@ iOSやAndroidではアプリがいつでも権限プロンプトを表示でき�
 - **iOSバックグラウンド有効：** ユーザーにプッシュプロンプトが表示され、拒否したか、許可した後にデバイス設定でプッシュ通知をオフにしました（ユーザーがセッションを持った後に反映されます）。
 - **iOSフォアグラウンド有効：** ユーザーにプッシュプロンプトが表示され、フォアグラウンドプッシュを受信する資格があります。
 
-Campaign分析は、上記の詳細に沿ったプッシュ統計をインラインで反映します。CampaignまたはCanvasに入ったユーザープロファイルをダウンロードして、ユーザープロファイルをクロスリファレンスすることもできます。
+キャンペーン分析は、上記の詳細に沿ったプッシュ統計をインラインで反映します。キャンペーンまたはキャンバスに入ったユーザープロファイルをダウンロードして、ユーザープロファイルをクロスリファレンスすることもできます。
 
 ## その他のプラットフォーム固有のシナリオ {#other-platform-specific-scenarios}
 

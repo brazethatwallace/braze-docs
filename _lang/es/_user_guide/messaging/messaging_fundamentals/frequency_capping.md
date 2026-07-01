@@ -139,7 +139,7 @@ Algunas notas a tener en cuenta al configurar límites de velocidad y qué compo
 - Los siguientes mensajes no serán limitados ni contarán para el límite de velocidad:
     - Envíos de prueba
     - Grupos semilla
-    - Content Cards configuradas para crearse "en la primera impresión" (esto será controlado por la tasa de impresiones de la aplicación. Consulta [Creación de tarjetas]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences) para más información sobre las diferencias entre las opciones de creación de tarjetas).
+    - Content Cards configuradas para crearse "en la primera impresión" (esto será controlado por la tasa de impresiones de la aplicación. Consulta [Creación de tarjetas]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences) para más información sobre las diferencias entre las opciones de creación de tarjetas.)
 - Los límites de velocidad de entrega no son compatibles con lo siguiente:
     - Respuestas automáticas de SMS
     - Mensajes respaldados por SLA (como [correo electrónico transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email))
@@ -164,7 +164,7 @@ En lugar de intentar compensar el retraso y enviar los 6000 mensajes restantes e
 | 7      | 10 000     | 10 000                    |
 | 8      | 5000      | 10 000                    |
 | 9      | 0          | 6000                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Rate limiting and Connected Content retries" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Límite de velocidad y reintentos de contenido conectado" }
 
 Las solicitudes de contenido conectado no tienen un límite de velocidad independiente y seguirán el límite de velocidad del webhook. Esto significa que si hay una llamada de contenido conectado a un punto de conexión único por webhook, esperarías 5000 webhooks y también 5000 llamadas de contenido conectado por minuto. Ten en cuenta que el almacenamiento en caché puede afectar esto y reducir el número de llamadas de contenido conectado. Además, los reintentos pueden aumentar las llamadas de contenido conectado, por lo que recomendamos verificar que el punto de conexión de contenido conectado pueda manejar cierta fluctuación aquí.
 
@@ -176,6 +176,30 @@ En la práctica, la tasa de envío sostenida (mensajes completados por minuto) p
 ## Acerca de la limitación de frecuencia {#about-frequency-capping}
 
 A medida que tu base de usuarios continúa creciendo y tu mensajería se escala para incluir campañas de ciclo de vida, activadas, transaccionales y de conversión, es importante evitar que tus notificaciones parezcan correo no deseado o disruptivas. Al proporcionar un mayor control sobre la experiencia de tus usuarios, la limitación de frecuencia te permite crear las campañas que desees sin abrumar a tu audiencia.
+
+### Usar el límite de velocidad y la limitación de frecuencia juntos {#use-rate-limiting-and-frequency-capping-together}
+
+Cuando habilitas tanto el límite de velocidad como la limitación de frecuencia en una campaña, Braze los aplica en el siguiente orden:
+
+1. **El límite de velocidad** se aplica primero para seleccionar el grupo inicial de usuarios que pueden recibir mensajes.
+2. **La limitación de frecuencia** se aplica después para filtrar usuarios de ese grupo.
+3. **Los mensajes se envían** a los usuarios restantes.
+
+{% alert important %}
+Si muchos usuarios en tu grupo con límite de velocidad tienen limitación de frecuencia, es posible que envíes menos mensajes que el valor de tu límite de velocidad. Braze no rellena con usuarios adicionales del límite de velocidad una vez que la limitación de frecuencia elimina usuarios del grupo de envío.
+{% endalert %}
+
+#### Ejemplo
+
+Con un límite de velocidad de 500 usuarios y la limitación de frecuencia habilitada, si 200 de esos 500 usuarios con límite de velocidad tienen limitación de frecuencia, solo se enviarán 300 mensajes, no 500.
+
+#### Recomendaciones {#recommendations}
+
+Si necesitas llegar a un número específico de usuarios al usar ambas características juntas, considera los siguientes enfoques:
+
+- **Aumenta tu límite de velocidad:** para tener en cuenta a los usuarios que tienen limitación de frecuencia. Por ejemplo, si quieres llegar a 500 usuarios pero esperas que algunos tengan limitación de frecuencia, establece tu límite de velocidad más alto (como 1000 usuarios).
+- **Usa solo el límite de velocidad:** si tu objetivo es controlar el volumen de mensajes enviados por campaña.
+- **Contacta a tu administrador del éxito del cliente:** para obtener ayuda en el diseño de una estrategia de mensajería sólida que equilibre tanto las necesidades del negocio como las consideraciones técnicas.
 
 ### Resumen de la característica {#freq-cap-feat-over}
 

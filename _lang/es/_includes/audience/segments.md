@@ -1,6 +1,6 @@
 {% if include.section == "Differing audience size" %}
 
-El tamaño de la población objetivo que se muestra en una Campaign o Canvas puede diferir del [tamaño de la audiencia alcanzable para un segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size/#segment-membership-calculation), incluso si estás añadiendo directamente ese segmento a tu Campaign o Canvas sin filtros adicionales.
+El tamaño de la población objetivo que se muestra en una Campaign o Canvas puede diferir del [tamaño de la audiencia alcanzable para un segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size#segment-membership-calculation), incluso si estás añadiendo directamente ese segmento a tu Campaign o Canvas sin filtros adicionales.
 Esto puede ocurrir por varias razones:
 
 - Cuando un Grupo de control global se aplica a una Campaign o Canvas, los usuarios de ese Grupo de control global quedan excluidos del recuento de usuarios alcanzables.
@@ -58,7 +58,7 @@ Las actualizaciones programadas se desactivan automáticamente cuando una extens
 
 - No se utiliza en ninguna Campaign o Canvas activos
 - No se utiliza en ningún segmento que esté en una Campaign o Canvas activos
-- No se utiliza en ningún segmento que tenga activado el [seguimiento de análisis]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking)
+- No se utiliza en ningún segmento que tenga activado el [seguimiento de análisis]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking)
 - No se ha modificado en más de siete días
 - No se ha añadido a una Campaign o Canvas (incluidos borradores), ni a un segmento en más de siete días
 

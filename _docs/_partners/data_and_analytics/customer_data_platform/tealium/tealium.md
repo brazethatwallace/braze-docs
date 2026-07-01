@@ -143,10 +143,10 @@ If you wish to use this data and these features, consider our [side-by-side]({{s
 
 Tealium requires that you first set up a valid data source for your connector to draw from.
 1. From the sidebar in Tealium under **Server-Side**, navigate to **Sources > Data Sources > + Add Data Source**.
-2. Locate your desired platform within the available categories, and name your source, this is a required field.<br>![]({% image_buster /assets/img/tealium/data_source.png %}){: style="max-width:80%;margin-left:15px;margin-bottom:15px;"}
-3. From the **Event Specifications** options, choose the [event specifications](https://docs.tealium.com/server-side/event-specifications/about/) you would like to include. Event specifications help you identify the event names and required attributes to track in your installation. These specifications will be applied to incoming events.<br>![]({% image_buster /assets/img/tealium/event_specs.png %}){: style="max-width:80%;margin-left:15px;margin-bottom:15px;"}<br>Take some time to think about what data is most valuable to you and which specifications seem most appropriate for your use case. [Custom event specifications](https://docs.tealium.com/iq-tag-management/events/about/) are also available. <br>
+2. Locate your desired platform within the available categories, and name your source, this is a required field.<br>![Tealium Add Data Source dialog with platform selection and source name field.]({% image_buster /assets/img/tealium/data_source.png %}){: style="max-width:80%;margin-left:15px;margin-bottom:15px;"}
+3. From the **Event Specifications** options, choose the [event specifications](https://docs.tealium.com/server-side/event-specifications/about/) you would like to include. Event specifications help you identify the event names and required attributes to track in your installation. These specifications will be applied to incoming events.<br>![Tealium Event Specifications options for a data source.]({% image_buster /assets/img/tealium/event_specs.png %}){: style="max-width:80%;margin-left:15px;margin-bottom:15px;"}<br>Take some time to think about what data is most valuable to you and which specifications seem most appropriate for your use case. [Custom event specifications](https://docs.tealium.com/iq-tag-management/events/about/) are also available. <br>
 4. The next dialogue advances to the **Get Code** step. The base code and event tracking code provided here serve as your installation guide. Download the provided PDF if you wish to share these instructions with your team. Select **Save & Continue** when finished.<br>
-5. You will now be able to view your saved source as well as add or remove event specs. <br>![]({% image_buster /assets/img/tealium/braze_connection.png %}){: style="max-width:80%;margin-left:15px;margin-bottom:15px;"}<br>From the detailed data source view you can perform the following actions:
+5. You will now be able to view your saved source as well as add or remove event specs. <br>![Saved Tealium data source with event specifications and connection details.]({% image_buster /assets/img/tealium/braze_connection.png %}){: style="max-width:80%;margin-left:15px;margin-bottom:15px;"}<br>From the detailed data source view you can perform the following actions:
 - View and copy the data source key
 - View installation instructions
 - Return to the **Get Code** page
@@ -175,7 +175,7 @@ Then, select the data source you just built, and under **Event Feed**, select **
 
 Next, select **Add Connector** at the bottom of the page. Name your connector and provide your Braze API endpoint and Braze REST API key here.
 
-![]({% image_buster /assets/img/tealium/create_configuration.png %}){: style="max-width:70%;"}
+![Braze connector configuration with API endpoint and REST API key fields.]({% image_buster /assets/img/tealium/create_configuration.png %}){: style="max-width:70%;"}
 
 If you have created a connector before, you may optionally use an existing one from the available connector list and modify it to fit your needs with the pencil icon or delete it with the trash icon. 
 
@@ -186,7 +186,7 @@ Next, name your connector action and select an action type that will send data a
 {% alert important %}
 Not all fields offered are required.
 
-![]({% image_buster /assets/img/tealium/minimize.gif %}){: style="max-width:90%"}
+![Tealium connector action with optional fields collapsed.]({% image_buster /assets/img/tealium/minimize.gif %}){: style="max-width:90%"}
 {% endalert %}
 
 {% tabs local %}
@@ -207,7 +207,7 @@ This action allows you to track user, event, and purchase attributes all in one 
 | Purchase template variable | Provide product template variables as data input. Refer to Tealium's [Template Variables Guide](https://docs.tealium.com/server-side/connectors/webhook-connectors/template-variables/) to learn more. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Action" }
 
-![]({% image_buster /assets/img/tealium/track_user_example.png %})
+![Tealium Track User connector action mapping user attributes, events, and purchases.]({% image_buster /assets/img/tealium/track_user_example.png %})
 
 {% endtab %}
 {% tab Delete User - Non-Batch %}
@@ -219,7 +219,7 @@ This action allows you to delete users from the Braze dashboard.
 | User ID | Use this field to map the Tealium User ID field to it's Braze equivalent. <br><br>- Map one or more user ID attributes. When multiple IDs are specified, the first non-blank value is picked based on the following priority order: External ID, Braze ID, Alias Name, and Alias Label.<br>- When specifying a user alias, Alias Name and Alias Label should both be set.<br><br>For more information, see the Braze [`/users/delete` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Action" }
 
-![]({% image_buster /assets/img/tealium/track_user_delete.png %})
+![Tealium Delete User connector action with user ID mapping.]({% image_buster /assets/img/tealium/track_user_delete.png %})
 
 If you would like to modify your chosen options, select **Back** to edit or **Finish** to complete.
 
@@ -228,7 +228,7 @@ If you would like to modify your chosen options, select **Back** to edit or **Fi
 
 Select **Continue**.
 
-Your connector now displays in the list of connectors on your Tealium home page. <br>![]({% image_buster /assets/img/tealium/summary_list.png %}){: style="max-width:80%;"}
+Your connector now displays in the list of connectors on your Tealium home page. <br>![Tealium home page listing configured connectors including Braze.]({% image_buster /assets/img/tealium/summary_list.png %}){: style="max-width:80%;"}
 
 Make sure to select **Save / Publish** for your connector when finished. The actions you configured will now fire when the trigger connections are met. 
 
@@ -254,20 +254,20 @@ Refer to Tealium's [Trace documentation](https://docs.tealium.com/server-side/co
 
 There are three primary ways that you might accidentally log unnecessary data points when integrating Braze through Tealium:
 
-#### Sending duplicate data - only send Braze deltas of attributes
+### Sending duplicate data - only send Braze deltas of attributes
 
 Tealium does not send Braze deltas of user attributes. For example, if you have an EventStream action that tracks a user's first name, email, and cell phone number, Tealium will send all three attributes to Braze anytime the action is triggered. Tealium won't be looking for what changed or was updated and send only that information.
 
 **Solution**: <br>You can check your backend to assess whether an attribute has changed or not, and if so, call Tealium's relevant methods to update the user profile. **This is what users who integrate Braze directly usually do.** <br>**OR**<br> If you don't store your own version of a user profile in your backend and can't tell if attributes change or not, you can use AudienceStream and 
 [create enrichments](https://docs.tealium.com/server-side/attributes/manage-enrichments/add-enrichment/) to only send user attributes when values have changed. See Tealium's documentation on [enrichment rules](https://docs.tealium.com/server-side-connectors/braze-connector/).
 
-#### Sending irrelevant data or needlessly overwriting data
+### Sending irrelevant data or needlessly overwriting data
 
 If you have multiple EventStreams that target the same event feed, **all actions enabled for that connector** will automatically fire anytime a single action is triggered. This could also result in data being overwritten in Braze and logging unnecessary data points.
 
 **Solution**: <br>Set up a separate event specification or feed to track each action. <br>**OR**<br> Disable actions(or connectors) that you do not want to fire by using the toggles in the Tealium dashboard.
 
-#### Initializing Braze too early
+### Initializing Braze too early
 
 If you are integrating with Tealium using the Braze Web SDK tag, you may see a dramatic increase in your MAU. **If Braze is initialized on page load, Braze will create an anonymous profile every time a web user navigates to the website for the first time.** This includes bot traffic, which can inflate your Active Users count. Some may want to only track user behavior when users have completed some action, such as "Signed In" or "Watched Video", to lower their MAU count.
 

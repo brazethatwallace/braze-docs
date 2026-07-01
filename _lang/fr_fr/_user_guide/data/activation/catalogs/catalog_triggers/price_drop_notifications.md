@@ -90,7 +90,7 @@ Après avoir configuré les notifications de baisse de prix dans un catalogue, s
 1. Mettez en place un Canvas basé sur une action.
 2. Sélectionnez **Perform Price Drop Event** comme déclencheur.
 3. Sélectionnez le nom du catalogue contenant les notifications de baisse de prix.
-4. Continuez à [configurer]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) votre Canvas comme vous le feriez habituellement.
+4. Continuez à [configurer]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) votre Canvas comme vous le feriez habituellement.
 
 Vos clients seront désormais avertis lorsque le prix d'un article baisse.
 

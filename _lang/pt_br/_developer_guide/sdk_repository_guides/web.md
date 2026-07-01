@@ -771,7 +771,7 @@ Para integração com AMP, você precisará:
 4. **Criar service worker**: Adicione o arquivo de service worker da Braze
 5. **Configurar o elemento amp-web-push**: Adicione o elemento `amp-web-push` com sua chave de API e URL base como parâmetros de consulta
 
-Para instruções detalhadas de integração com AMP, consulte o [Guia do desenvolvedor da Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web#amp).
+Para instruções detalhadas de integração com AMP, consulte o [Guia do desenvolvedor da Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web#amp).
 
 ### Electron
 
@@ -792,7 +792,7 @@ O Electron não oferece suporte oficial a notificações por push para a web (ve
 
 #### Tealium iQ
 
-O Tealium iQ oferece uma integração básica e pronta com a Braze. Para configurar a integração, pesquise por Braze na interface de gerenciamento de tags do Tealium e forneça a chave de API do Web SDK do seu dashboard. Para mais detalhes ou suporte aprofundado de configuração do Tealium, confira nossa [documentação de integração]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium#about-tealium) ou entre em contato com seu gerente de conta do Tealium.
+O Tealium iQ oferece uma integração básica e pronta com a Braze. Para configurar a integração, pesquise por Braze na interface de gerenciamento de tags do Tealium e forneça a chave de API do Web SDK do seu dashboard. Para mais detalhes ou suporte aprofundado de configuração do Tealium, confira nossa [documentação de integração](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium) ou entre em contato com seu gerente de conta do Tealium.
 
 #### Outros gerenciadores de tags {#other-tag-managers}
 
@@ -825,7 +825,7 @@ A Braze usa [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 4.7.0 par
 
 ## Recursos adicionais {#additional-resources}
 
-- [Guia do desenvolvedor da Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)
+- [Guia do desenvolvedor da Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web)
 - [Documentação do SDK](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html)
 - [Exemplos de builds](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/)
 

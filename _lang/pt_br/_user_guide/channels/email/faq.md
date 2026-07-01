@@ -250,9 +250,11 @@ O Outlook frequentemente usa renderização no estilo Microsoft Word, que pode a
 <!--<![endif]-->
 ```
 
-### Posso usar imagens SVG ou WEBP nas minhas mensagens de e-mail? {#can-i-use-svg-or-webp-images-in-my-email-messages}
+### Posso usar imagens SVG ou WebP nas minhas mensagens de e-mail? {#can-i-use-svg-or-webp-images-in-my-email-messages}
 
-Imagens SVG não são renderizadas no Gmail web ou Gmail iOS. WEBP não é consistentemente suportado entre os clientes. Em vez disso, use formatos amplamente suportados como PNG ou JPEG para que as imagens sejam renderizadas de forma confiável.
+Imagens SVG não são recomendadas para e-mail devido ao suporte limitado entre os clientes de e-mail. O Gmail e vários outros provedores de e-mail importantes não renderizam imagens SVG, o que pode resultar em imagens quebradas ou ausentes para os destinatários. WebP não é consistentemente suportado entre os clientes.
+
+Em vez disso, use formatos amplamente suportados como PNG ou JPEG para que as imagens sejam renderizadas de forma confiável.
 
 ### Variáveis Liquid atribuídas em uma parte do criador de mensagens podem ser usadas em outra? {#can-liquid-variables-assigned-in-one-part-of-the-message-composer-be-used-in-another}
 

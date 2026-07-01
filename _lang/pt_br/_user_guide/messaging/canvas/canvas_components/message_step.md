@@ -17,7 +17,7 @@ tool: Canvas
 
 ## Criar uma mensagem {#create-a-message}
 
-Para criar um componente de Mensagem, primeiro adicione uma etapa ao seu Canvas. Arraste e solte o componente da barra lateral ou selecione o botão de mais <i class="fas fa-plus-circle"></i> na parte inferior de uma etapa e selecione **Message**.
+Para criar um componente de Mensagem, primeiro adicione uma etapa ao seu Canvas. Arraste e solte o componente da barra lateral ou selecione o botão de mais <i class="fas fa-plus-circle"></i> na parte inferior de uma etapa e selecione **Mensagem**.
 
 ### Etapa 1: Selecione seu canal de envio de mensagens {#step-1-select-your-messaging-channel}
 
@@ -40,7 +40,7 @@ Em seguida, você pode editar as configurações de Intelligent Delivery, substi
 
 #### Intelligent Timing {#intelligent-timing}
 
-Você pode ativar o [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/) com uma opção de fallback quando o perfil de um usuário não tiver dados suficientes para calcular um horário ideal. Recomendamos ativar o Intelligent Timing e o [limite de taxa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-frequency-capping/) como uma verificação adicional para quaisquer atrasos entre a entrada dos usuários na etapa de Mensagem e o envio real da mensagem.
+Você pode ativar o [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) com uma opção de fallback quando o perfil de um usuário não tiver dados suficientes para calcular um horário ideal. Recomendamos ativar o Intelligent Timing e o [limite de taxa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-frequency-capping) como uma verificação adicional para quaisquer atrasos entre a entrada dos usuários na etapa de Mensagem e o envio real da mensagem.
 
 Selecione **Using Intelligent Timing** na guia **Delivery Settings**. Aqui, você pode selecionar o horário mais popular ou um horário de fallback específico. Se o horário de silêncio estiver ativado, a etapa de Mensagem também permite substituir essa configuração.
 
@@ -54,10 +54,10 @@ As validações de entrega avaliam os critérios do perfil do usuário no moment
 
 Se o seu espaço de trabalho tiver vários apps e uma etapa de Mensagem precisar direcionar um app específico, use uma das seguintes abordagens:
 
-- Ao compor a mensagem, [especifique suas plataformas de entrega]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/#step-2-specify-delivery-platforms), como **Mobile Apps** ou **Web Browsers**.
+- Ao compor a mensagem, [especifique suas plataformas de entrega]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#step-2-specify-delivery-platforms), como **Mobile Apps** ou **Web Browsers**.
 - Use Liquid para verificar o dispositivo ou app direcionado no momento do envio:
-  - {% raw %}`{{targeted_device.${platform}}}`{% endraw %} avalia a plataforma da sessão atual do usuário. Para saber mais, consulte [Informações do dispositivo direcionado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-device-information).
-  - {% raw %}`{{app.${api_id}}}`{% endraw %} avalia qual app está solicitando a mensagem. Combine essa tag com `abort_message()` para evitar envios para o app errado. Para saber mais, consulte [Informações do app direcionado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-app-information).
+  - {% raw %}`{{targeted_device.${platform}}}`{% endraw %} avalia a plataforma da sessão atual do usuário. Para saber mais, consulte [Informações do dispositivo direcionado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-device-information).
+  - {% raw %}`{{app.${api_id}}}`{% endraw %} avalia qual app está solicitando a mensagem. Combine essa tag com `abort_message()` para evitar envios para o app errado. Para saber mais, consulte [Informações do app direcionado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-app-information).
 
 ![As validações de entrega estão ativadas para validar o público no momento do envio da mensagem. O comportamento de avanço das validações de entrega está configurado para avançar o usuário para a próxima etapa do Canvas se as validações de entrega não forem atendidas.]({% image_buster /assets/img/canvas_components/message_step5.png %}){: style="max-width:90%;"}
 
@@ -69,7 +69,7 @@ Todos os usuários que entram na etapa de Mensagem avançam para a próxima etap
 - Uma mensagem tem limite de frequência e não é enviada
 - Uma mensagem é cancelada
 - Um usuário não é alcançável pelo canal, então a mensagem não é enviada
-- Um usuário não atende aos critérios em **Delivery validations**
+- Um usuário não atende aos critérios em **Validações de entrega**
 
 {% raw %}
 Se um Canvas baseado em ação for disparado por uma mensagem SMS recebida, você pode referenciar as propriedades do SMS na primeira etapa (etapa de Mensagem) ou em uma etapa de Mensagem aninhada em uma etapa de Jornadas de ação. Por exemplo, na etapa de Mensagem, você pode usar `{{sms.${inbound_message_body}}}` ou `{{sms.${inbound_media_urls}}}`.
@@ -79,7 +79,7 @@ Se um Canvas baseado em ação for disparado por uma mensagem SMS recebida, voc�
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
-As propriedades de entrada são configuradas na etapa **Entry Schedule** ao criar um Canvas e indicam o gatilho que faz um usuário entrar em um Canvas. Essas propriedades também podem acessar as propriedades das cargas úteis de entrada em Canvas disparados por API. Observe que o objeto `context` tem um limite máximo de tamanho de 50 KB.
+As propriedades de entrada são configuradas na etapa **Cronograma de entrada** ao criar um Canvas e indicam o gatilho que faz um usuário entrar em um Canvas. Essas propriedades também podem acessar as propriedades das cargas úteis de entrada em Canvas disparados por API. Observe que o objeto `context` tem um limite máximo de tamanho de 50 KB.
 
 As propriedades de entrada podem ser usadas em Liquid em qualquer etapa de Mensagem. Use o seguinte Liquid ao referenciar essas propriedades de entrada: {% raw %}``{context.${property_name}}``{% endraw %}. Os eventos devem ser eventos personalizados ou eventos de compra para serem usados dessa forma.
 
@@ -93,13 +93,13 @@ Use o seguinte Liquid ao referenciar essas propriedades de entrada: {% raw %}``c
 Por exemplo, considere a seguinte requisição: `"context" : {"product_name" : "shoes", "product_price" : 79.99}`. Você pode adicionar a palavra "shoes" a uma mensagem com o Liquid `{{context.${product_name}}}`.
 {% endraw %}
 
-Você também pode aproveitar as [propriedades de entrada persistentes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties/) em qualquer etapa de Mensagem para guiar seus usuários por etapas personalizadas ao longo do fluxo de trabalho do seu Canvas.
+Você também pode aproveitar as [propriedades de entrada persistentes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties) em qualquer etapa de Mensagem para guiar seus usuários por etapas personalizadas ao longo do fluxo de trabalho do seu Canvas.
 
 ### Propriedades de evento {#event-properties}
 
 As propriedades de evento referem-se às propriedades que você define para eventos personalizados e eventos de compra. Essas propriedades de evento podem ser usadas em Campaigns com entrega baseada em ação, bem como em Canvas.
 
-No Canvas, as propriedades de eventos personalizados e de compra podem ser usadas em Liquid em qualquer etapa de Mensagem que siga uma etapa de [Jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/). Por exemplo, ao referenciar `event_properties`, use este trecho de Liquid: {% raw %}``{{event_properties.${property_name}}}``{% endraw %}
+No Canvas, as propriedades de eventos personalizados e de compra podem ser usadas em Liquid em qualquer etapa de Mensagem que siga uma etapa de [Jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths). Por exemplo, ao referenciar `event_properties`, use este trecho de Liquid: {% raw %}``{{event_properties.${property_name}}}``{% endraw %}
 
 {% alert important %}
 `event_properties` não pode ser usado independentemente das etapas de Jornadas de ação.
@@ -133,4 +133,4 @@ Consulte a tabela a seguir para as definições das métricas do componente de M
 | _Destinatários únicos_ | O número de usuários que receberam mensagens desta etapa. |
 | _Evento de conversão primária_ | O número de vezes que um evento definido ocorreu após interagir com ou visualizar uma mensagem recebida de uma Campaign da Braze. Você define esse evento ao criar a Campaign. |
 | _Receita_ | A receita total em dólares dos destinatários da Campaign dentro da janela de conversão primária definida. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Análise de dados" }

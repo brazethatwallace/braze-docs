@@ -8,14 +8,14 @@ page_order: 6
 
 tool: Canvas
 page_type: landing
-description: "Esta landing page reúne ideias e estratégias para Canvas, incluindo práticas recomendadas, um checklist de pré e pós-lançamento e orientações sobre como lançar com Canvas."
+description: "Esta landing page reúne ideias e estratégias para Canvas, incluindo melhores práticas, um checklist de pré e pós-lançamento e orientações sobre como lançar com Canvas."
 
 guide_featured_title: "Artigos da seção"
 guide_featured_list:
   - name: Esboços de Canvas
     link: /docs/user_guide/messaging/canvas/ideas_and_strategies/canvas_outlines
     image: /assets/img/braze_icons/git-branch-01.svg
-  - name: Práticas recomendadas
+  - name: Melhores práticas
     link: /docs/user_guide/messaging/canvas/ideas_and_strategies/best_practices
     image: /assets/img/braze_icons/book-closed.svg
   - name: Checklist de pré e pós-lançamento
@@ -30,7 +30,7 @@ guide_menu_list:
   - name: Localização
     link: /docs/user_guide/messaging/messaging_fundamentals/localization
     image: /assets/img/braze_icons/globe-02.svg
-  - name: Usar Modelos de Canvas da Braze
+  - name: Usar modelos de Canvas da Braze
     link: /docs/user_guide/messaging/templates/canvas_templates/braze_templates
     image: /assets/img/braze_icons/target-04.svg
   - name: Enviar Canvas de teste
@@ -43,7 +43,7 @@ guide_menu_list:
     link: /docs/user_guide/messaging/canvas/ideas_and_strategies/booking_use_case
     image: /assets/img/braze_icons/channel-email.svg
   - name: Casos de uso de eCommerce
-    link: /docs/ecommerce_use_cases/
+    link: /docs/ecommerce_use_cases
     image: /assets/img/braze_icons/users-01.svg
 
 ---

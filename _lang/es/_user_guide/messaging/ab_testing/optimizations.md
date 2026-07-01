@@ -10,8 +10,8 @@ description: "Aprende a utilizar la variante ganadora o la variante personalizad
 
 > Aprende a utilizar la optimización de variantes al crear pruebas multivariantes y pruebas A/B.
 
-## Push {#push}
 
+## Push {#push}
 Al [crear una prueba A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) para push, hay una opción de optimización: [Selección de variante con BrazeAI<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection). Es una característica que permite que tus pruebas A/B de envío único o recurrentes ejecuten automáticamente un experimento y optimicen para obtener los mejores resultados de interacción.
 
 ## Correo electrónico, webhook, SMS y WhatsApp {#email-webhook-sms-and-whatsapp}

@@ -51,7 +51,7 @@ CDIを使用して外部ソース（DatabricksやSnowflakeなど）からデー�
 - **文字列として保存された数値：** 同期前にソースクエリで数値列をintegerまたはfloatタイプにキャストしてください。
 - **同期間で一貫性のないタイプ：** 同期間で列のタイプが変更されると、Brazeが新しいデータを拒否する場合があります。ソーススキーマが一貫していることを確認してください。
 
-Brazeダッシュボードでカスタム属性のデータタイプを強制または変更する方法については、[カスタムデータの管理]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#forcing-data-type-comparisons)を参照してください。
+Brazeダッシュボードでカスタム属性のデータタイプを強制または変更する方法については、[カスタムデータの管理]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#forcing-data-type-comparisons)を参照してください。
 
 ユーザーデータは、external ID、ユーザーエイリアス、Braze ID、メール、または電話番号で更新できます。ユーザーはexternal ID、ユーザーエイリアス、またはBraze IDで削除できます。
 
@@ -695,7 +695,7 @@ Brazeは`UPDATED_AT`タイムスタンプを使用して、正常に同期され
 
 ### データのフォーマット {#data-formatting}
 
-クラウドデータ取り込みのテーブル設定要件とペイロードのフォーマット要件は、[クラウドデータ取り込みのテーブル設定]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/)に記載されています。
+クラウドデータ取り込みのテーブル設定要件とペイロードのフォーマット要件は、[クラウドデータ取り込みのテーブル設定]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup)に記載されています。
 
 このページを使用して、以下を区別してください。
 

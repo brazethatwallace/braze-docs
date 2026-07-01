@@ -11,7 +11,7 @@ page_order: 0
 
 ## 前提条件 {#prerequisites}
 
-ランディングページビルダーにアクセスするには、[特定の権限]({{site.baseurl}}/user_guide/messaging/landing_pages/#prerequisites)が必要です。アクセスできない場合は、Braze管理者にお問い合わせください。
+ランディングページビルダーにアクセスするには、[特定の権限]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites)が必要です。アクセスできない場合は、Braze管理者にお問い合わせください。
 
 ## ランディングページの作成 {#creating-a-landing-page}
 
@@ -38,7 +38,7 @@ page_order: 0
 | サイトタイトル | ブラウザタブに表示されるタイトル。 | 60文字以内で使用してください。 |
 | メタディスクリプション | 検索結果に表示されるテキストスニペット。 | 140〜160文字で使用してください。|
 | ファビコン | ブラウザタブでサイトタイトルの横に表示されるアイコン。 | アスペクト比1:1を使用し、サポートされているファイルタイプはPNG、JPEG、またはICOです。 |
-| ページURL | ランディングページへのURLパスです。この値は、メッセージに埋め込むことができる[ランディングページLiquidタグ]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/)を使用する際にも参照され、フォーム送信時にユーザーを自動的に識別します。| この値はワークスペース全体で一意である必要があります。 |
+| ページURL | ランディングページへのURLパスです。この値は、メッセージに埋め込むことができる[ランディングページLiquidタグ]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users)を使用する際にも参照され、フォーム送信時にユーザーを自動的に識別します。| この値はワークスペース全体で一意である必要があります。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="サイトの詳細" }
 
 ### ステップ 3:ページをカスタマイズする {#step-3-customize-the-page}
@@ -47,7 +47,7 @@ page_order: 0
 
 ![ドラッグ＆ドロップエディターで作成中のランディングページの例。]({% image_buster /assets/img/landing_pages/template.png %})
 
-エディターでは、ランディングページの構成に2種類のコンポーネントを使用します。基本ブロックとフォームブロックです。すべてのブロックは行内に配置する必要があります。各ブロックとプロパティの詳細なリファレンスについては、[エディターブロック（ランディングページ）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages)を参照してください。
+エディターでは、ランディングページの構成に2種類のコンポーネントを使用します。基本ブロックとフォームブロックです。すべてのブロックは行内に配置する必要があります。各ブロックとプロパティの詳細なリファレンスについては、[エディターブロック（ランディングページ）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages)を参照してください。
 
 ![「行」と「フォームブロック」を含む「ビルド」セクション。]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
 
@@ -90,7 +90,7 @@ page_order: 0
 {: .reset-td-br-1 .reset-td-br-2 aria-label="スパンテキスト" }
 
 {% alert important %}
-フォーム付きのランディングページを作成した後、メッセージにその[ランディングページLiquidタグ]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/)を埋め込んでください。このタグにより、Brazeはフォーム送信時に既存のユーザープロファイルを自動的に識別して更新できます。
+フォーム付きのランディングページを作成した後、メッセージにその[ランディングページLiquidタグ]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users)を埋め込んでください。このタグにより、Brazeはフォーム送信時に既存のユーザープロファイルを自動的に識別して更新できます。
 {% endalert %}
 
 {% endtab %}
@@ -156,7 +156,7 @@ iOSやSafariの積極的なポップアップブロッカーや広告ブロッ�
 
 ## テンプレートの使用 {#using-templates}
 
-ランディングページテンプレートを使用して、次のCampaigns用のテンプレートを作成できます。これらのテンプレートは、ランディングページエディターと**ランディングページテンプレート**ページ（**コンテンツ** > **ランディングページ**）の両方からアクセスおよび管理できます。ランディングページテンプレートには名前が必須で、説明はオプションです。
+ランディングページテンプレートを使用して、次のキャンペーン用のテンプレートを作成できます。これらのテンプレートは、ランディングページエディターと**ランディングページテンプレート**ページ（**コンテンツ** > **ランディングページ**）の両方からアクセスおよび管理できます。ランディングページテンプレートには名前が必須で、説明はオプションです。
 
 ## テンプレートの管理 {#managing-templates}
 

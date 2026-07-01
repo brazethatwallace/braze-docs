@@ -15,13 +15,13 @@ Dieser Artikel führt Sie durch einen Anwendungsfall für das Template **Lapsed 
 
 ## Voraussetzungen {#prerequisites}
 
-Um das Template für inaktive Nutzer:innen erfolgreich zu verwenden, müssen Sie [Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/) mit den Partnern und Zielgruppen konfigurieren, die Sie nutzen.
+Um das Template für inaktive Nutzer:innen erfolgreich zu verwenden, müssen Sie [Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync) mit den Partnern und Zielgruppen konfigurieren, die Sie nutzen.
 
 ## Das Template an Ihre Bedürfnisse anpassen {#tailoring-the-template-to-your-needs}
 
 Nehmen wir an, Sie arbeiten für MovieCanon, einen Streaming-Dienst mit exklusiven Inhalten für Filme und Serien. Sie können das Template für inaktive Nutzer:innen verwenden, um Vorteile und Premium-Inhalte für Nutzer:innen zu bewerben, die Ihre App seit 30 Tagen nicht besucht haben.
 
-Bevor Sie das Canvas erstellen, richten Sie die Integration [Braze Audience Sync to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/) ein, damit Sie Nutzerdaten aus Braze zu Google Audiences hinzufügen können, um Werbung basierend auf Verhaltens-Triggern, Segmentierung und mehr zu schalten.
+Bevor Sie das Canvas erstellen, richten Sie die Integration [Braze Audience Sync to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) ein, damit Sie Nutzerdaten aus Braze zu Google Audiences hinzufügen können, um Werbung basierend auf Verhaltens-Triggern, Segmentierung und mehr zu schalten.
 
 Um auf das Template für inaktive Nutzer:innen zuzugreifen, wählen Sie beim Erstellen eines neuen Canvas **Use a Canvas template** > **Braze templates**. Wählen Sie dann neben **Lapsing User** die Option **Apply Template**. Jetzt können Sie das Template durchgehen und an Ihre Bedürfnisse anpassen.
 
@@ -58,7 +58,7 @@ Behalten Sie die Standardeinstellungen für die Entry-Zielgruppe bei, die auf Nu
 Behalten Sie die meisten Standard-Abo-Einstellungen bei:
 
 - Nur an Nutzer:innen senden, die Nachrichten oder Benachrichtigungen abonniert haben oder dafür angemeldet sind.
-- Ihre [Frequency-Capping-Regeln]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) anwenden, damit Sie Ihre Zielgruppe nicht mit zu vielen Nachrichten überfordern. In diesem Fall setzen Sie Ihr Frequency-Capping so, dass die Anzahl der Campaigns oder Canvas-Schritte mit dem Tag „Lapsing/Retention“, die Nutzer:innen erhalten können, auf zwei pro Woche begrenzt wird.
+- Ihre [Frequency-Capping-Regeln]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping) anwenden, damit Sie Ihre Zielgruppe nicht mit zu vielen Nachrichten überfordern. In diesem Fall setzen Sie Ihr Frequency-Capping so, dass die Anzahl der Campaigns oder Canvas-Schritte mit dem Tag „Lapsing/Retention“, die Nutzer:innen erhalten können, auf zwei pro Woche begrenzt wird.
 - Keine Nachrichten während der Ruhezeiten in der Ortszeit der Nutzer:innen senden (0:00 bis 8:00 Uhr).
 
 Die einzige Einstellung, die Sie ändern, betrifft das Verhalten, wenn eine Nachricht während der Ruhezeiten ausgelöst wird. Anstatt die Nachricht abzubrechen, wählen Sie **Send at next available time**, damit Ihre Nutzer:innen keine Aktionen verpassen.
@@ -76,7 +76,7 @@ Jetzt erstellen Sie Ihr Canvas, indem Sie die vordefinierten Schritte anpassen:
 3. Behalten Sie die Standardeinstellung für den Decision-Split-Schritt namens „Sessions?“ bei, der die Gruppe „>1 Session“ als Nutzer:innen definiert, die Ihre App am letzten Kalendertag mehr als einmal genutzt haben.
 4. Passen Sie den Nachrichtenschritt für Nutzer:innen an, die in die Gruppe „>1 Session“ fallen. In diesem Anwendungsfall bedanken Sie sich bei den Nutzer:innen für ihren Besuch in Ihrer App und heben die Vorteile hervor, die sie freigeschaltet haben.
 5. Stellen Sie sicher, dass Ihr Google Audience Sync im Schritt „Ad Audience Update“ eingerichtet ist, damit Sie die Nutzerdaten von Nutzer:innen aktualisieren und synchronisieren, die nach Erhalt der ersten E-Mail mehrere Sitzungen hatten.
-6. Behalten Sie die Standardeinstellung für die [Experiment-Pfad]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/#experiment-paths)-Komponente namens „A/B Test“ bei. Diese sendet zufällig eine von zwei Aktionen (die Sie im nächsten Schritt anpassen) an Nutzer:innen, die weniger als zwei Sitzungen hatten.
+6. Behalten Sie die Standardeinstellung für die [Experiment-Pfad]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#experiment-paths)-Komponente namens „A/B Test“ bei. Diese sendet zufällig eine von zwei Aktionen (die Sie im nächsten Schritt anpassen) an Nutzer:innen, die weniger als zwei Sitzungen hatten.
 7. Passen Sie die beiden Aktionen an, die im Rahmen des Experiment-Pfads an Nutzer:innen gesendet werden. In diesem Anwendungsfall machen Sie eine zu einer 20%-Aktion für ein Drei-Monats-Abo und die andere zu einer 10%-Aktion für ein Ein-Monats-Abo.
 
 ![Canvas-Schritte mit verzweigten Pfaden basierend darauf, wie viele Sitzungen Nutzer:innen hatten.]({% image_buster /assets/img/canvas_templates/lapsing_user_8.png %}){: style="max-width:70%;"}
@@ -86,5 +86,5 @@ Jetzt erstellen Sie Ihr Canvas, indem Sie die vordefinierten Schritte anpassen:
 Nachdem Sie Ihr Canvas getestet und überprüft haben, um sicherzustellen, dass es wie erwartet funktioniert, starten Sie es, indem Sie **Launch Canvas** auswählen. Nutzer:innen, die Ihre App seit über 30 Tagen nicht besucht haben und Ihre Messaging-Kanäle abonniert haben, erhalten jetzt E-Mails, die sie zur Rückkehr ermutigen!
 
 {% alert tip %}
-Schauen Sie sich unsere [Checkliste vor und nach dem Start]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) an, um zu erfahren, was Sie vor und nach dem Start eines Canvas beachten sollten.
+Schauen Sie sich unsere [Checkliste vor und nach dem Start]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) an, um zu erfahren, was Sie vor und nach dem Start eines Canvas beachten sollten.
 {% endalert %}

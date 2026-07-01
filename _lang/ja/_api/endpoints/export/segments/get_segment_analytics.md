@@ -14,7 +14,7 @@ description: "この記事では、セグメント分析のエクスポートBra
 /segments/data_series
 {% endapimethod %}
 
-> このエンドポイントを使用して、Segmentの推定サイズの日次データを時系列で取得します。<br><br>Segmentの正確なサイズが必要な場合は、[`/users/export/segment` エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)でユーザーをエクスポートし、エクスポートされたプロファイル数をカウントしてください。
+> このエンドポイントを使用して、セグメントの推定サイズの日次データを時系列で取得します。<br><br>セグメントの正確なサイズが必要な場合は、[`/users/export/segment` エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)でユーザーをエクスポートし、エクスポートされたプロファイル数をカウントしてください。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#62d9d142-cdec-4aea-a287-c13efea7415e {% endapiref %}
 
@@ -30,7 +30,7 @@ description: "この記事では、セグメント分析のエクスポートBra
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | -------- | --------- | ----------- |
-| `segment_id` | 必須 | 文字列 | [セグメント API 識別子]({{site.baseurl}}/api/identifier_types)を参照してください。<br><br>特定のSegmentの`segment_id`は、Brazeアカウントの[API キー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers)ページで確認できます。また、[セグメント一覧エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/segments/get_segment)を使用することもできます。 |
+| `segment_id` | 必須 | 文字列 | [セグメント API 識別子]({{site.baseurl}}/api/identifier_types)を参照してください。<br><br>特定のセグメントの`segment_id`は、Brazeアカウントの[API キー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers)ページで確認できます。また、[セグメント一覧エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/segments/get_segment)を使用することもできます。 |
 | `length` | 必須 | 整数 | 返されるシリーズに含める`ending_at`までの最大日数。1以上100以下（両端を含む）でなければなりません。 |
 | `ending_at` | オプション | 日時 <br>（[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列） | データシリーズが終了する日付。デフォルトはリクエスト時刻です。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }

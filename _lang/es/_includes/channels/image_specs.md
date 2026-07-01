@@ -5,7 +5,7 @@
 | --- | --- |
 | Imagen y texto | Las imágenes altas o estrechas se reducirán y se centrarán horizontalmente. Las imágenes anchas se recortarán por los bordes izquierdo y derecho. |
 | Solo imagen | El mensaje cambiará de tamaño para adaptarse a imágenes de la mayoría de las relaciones de aspecto. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tabla" }
 
 {% endif %}
 
@@ -18,7 +18,7 @@ Recomendamos los siguientes tamaños de carga útil:
 | iOS (pre-iOS 8) | 0,256 KB |
 | iOS (post-iOS 8) | 2 KB |
 | Android (FCM) | 4 KB |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tabla" }
 
 {% endif %}
 
@@ -37,7 +37,7 @@ Todos los mensajes dentro de la aplicación tienen un tamaño de imagen recomend
 | --- | --- | --- | --- |
 | Retrato a pantalla completa con texto | 6:5 | Alta resolución 1200 x 1000 px <br>Resolución mínima 600 x 500 px | Se puede recortar por todos los lados, pero la imagen siempre ocupará el 50% superior de la ventana. |
 | Retrato a pantalla completa (solo imagen, con o sin botones) | 3:5 | Alta resolución 1200 x 2000 px <br> Resolución mínima 600 x 1000 px | El recorte puede producirse en los bordes izquierdo y derecho en los dispositivos más altos. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tabla" }
 
 {% endtab %}
 {% tab Landscape %}
@@ -46,7 +46,7 @@ Todos los mensajes dentro de la aplicación tienen un tamaño de imagen recomend
 | --- | --- | --- | --- |
 | Pantalla completa apaisada con texto | 10:3 | Alta resolución 2000 x 600 px <br>Resolución mínima 1000 x 300 px | Se puede recortar por todos los lados, pero la imagen siempre ocupará el 50% superior de la ventana. |
 | Pantalla completa apaisada (solo imagen, con o sin botones) | 5:3 | Alta resolución 2000 x 600 px <br> Resolución mínima 1000 x 600 px | El recorte puede producirse en los bordes izquierdo y derecho en los dispositivos más altos. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tabla" }
 
 {% endtab %}
 {% tab Slideup %}
@@ -54,7 +54,7 @@ Todos los mensajes dentro de la aplicación tienen un tamaño de imagen recomend
 | Tipo | Relación de aspecto | Calidad de imagen | Notas |
 | --- | --- | --- | --- |
 | Deslizamiento hacia arriba | 1:1 | Alta resolución 150 x 150 px <br> Resolución mínima 50 x 50 px | Las imágenes de distintas relaciones de aspecto cabrán en un contenedor de imágenes cuadrado, sin recortar. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tabla" }
 
 {% endtab %}
 {% tab Modal %}
@@ -63,7 +63,7 @@ Todos los mensajes dentro de la aplicación tienen un tamaño de imagen recomend
 | --- | --- | --- | --- |
 | Modal (solo imagen) | 1:1 | Resolución máxima recomendada: 1200 x 2000 px <br> Resolución mínima: 600 x 600 px | El mensaje cambiará de tamaño para adaptarse a imágenes de la mayoría de las relaciones de aspecto. La resolución máxima recomendada tiene una relación de aspecto de 3:5, lo que puede no proporcionar resultados óptimos. Aunque las imágenes más grandes son utilizables, pueden provocar tiempos de carga más largos. <br> La relación de aspecto ideal para las imágenes es 1:1, y si no se cumple esta relación, puede aparecer una advertencia durante la carga. Esta advertencia es una sugerencia para obtener mejores resultados y no impide la carga de imágenes más grandes. |
 | Modal con texto | 29:10 | Alta resolución 1450 x 500 px <br> Resolución mínima 600 x 205 px | Las imágenes altas se reducirán y se centrarán horizontalmente. Las imágenes anchas se recortarán por los bordes izquierdo y derecho. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tabla" }
 
 {% endtab %}
 {% endtabs %}
@@ -79,7 +79,7 @@ Todos los mensajes dentro de la aplicación tienen un tamaño de imagen recomend
 | Alerta de banner en iOS | 85 caracteres | 43 caracteres |
 | Pantalla de bloqueo de Android | 49 caracteres | 43 caracteres |
 | Cajón de notificaciones de Android | 597 caracteres | 43 caracteres |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tabla" }
 
 El tamaño recomendado para todas las imágenes push es de 500 KB.
 
@@ -89,7 +89,7 @@ table td {
 }
 </style>
 
-<table aria-label="Table">
+<table aria-label="Tabla">
   <thead>
     <tr>
       <th>Tipo de imagen</th>
@@ -135,7 +135,7 @@ table td {
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4  .reset-td-br-5 .reset-td-br-6 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4  .reset-td-br-5 .reset-td-br-6 aria-label="Tabla" }
 
 {% endif %}
 
@@ -146,21 +146,21 @@ table td {
 | Solo texto | 25 KB |
 | Texto con imágenes | 60 KB |
 | Anchura del correo electrónico | 600 px |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tabla" }
 
 | Especificaciones de imagen | Propiedades máximas recomendadas |
 | --- | --- |
 | Tamaño | 5 MB |
 | Ancho | Encabezado: 600 px<br>Cuerpo: 480 px |
-| Tipos de archivo | PNG, JPEG, GIF<br><br> La compatibilidad con imágenes WebP varía según el cliente de correo electrónico. Para garantizar una visualización fiable, convierte las imágenes WebP a PNG o JPEG antes de añadirlas a los mensajes de correo electrónico. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
+| Tipos de archivo | PNG, JPEG, GIF<br><br> La compatibilidad con imágenes WebP varía según el cliente de correo electrónico. Para garantizar una visualización fiable, convierte las imágenes WebP a PNG o JPEG antes de añadirlas a los mensajes de correo electrónico.<br><br>Las imágenes SVG no se recomiendan para mensajes de correo electrónico debido a problemas de compatibilidad con Gmail y otros clientes de correo electrónico importantes. Usa PNG, JPEG o GIF en su lugar. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tabla" }
 
 | Especificaciones del texto | Propiedades máximas recomendadas |
 | --- | --- |
 | Longitud de la línea del asunto | 35 caracteres<br>De 6 a 10 palabras |
 | Longitud de `"From: Name"` | 25 caracteres |
 | Longitud del preencabezado | 85 caracteres |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tabla" }
 
 {% endif %}
 
@@ -171,9 +171,9 @@ table td {
 | Clásica   | Relación de aspecto 1:1 | 60 x 60&nbsp;px        |
 | Con subtítulo | Relación de aspecto 4:3 | 600&nbsp;px de anchura mínima |
 | Banner    | Cualquier relación de aspecto | 600&nbsp;px de anchura mínima |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tabla" }
 
-Para más información, consulta [Detalles creativos de Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/).
+Para más información, consulta [Detalles creativos de Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details).
 
 {% endif %}
 
@@ -189,7 +189,7 @@ Estas especificaciones se aplican a los encabezados de plantilla, los mensajes m
 | Pie de imagen (solo mensajes de imagen) | Opcional; 1024 caracteres como máximo | |
 | Dimensiones recomendadas | 1125 × 600 px | Recomendamos usar imágenes JPEG o PNG de 1125×600 px (1,91:1) para una visualización uniforme en todos los dispositivos y cumplir con los requisitos de Meta. |
 | Relación de aspecto recomendada | 1,91:1 (panorámica) | Se aceptan los formatos cuadrado (1:1) y panorámico (16:9), pero las imágenes pueden recortarse o ampliarse según el dispositivo del usuario.<br><br> Para las tarjetas de carrusel, WhatsApp recorta automáticamente las imágenes del encabezado a una relación panorámica, a menos que no haya texto del cuerpo, en cuyo caso se muestra como cuadrada.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tabla" }
 
 {% endif %}
 
@@ -206,7 +206,7 @@ Las siguientes especificaciones se aplican a los encabezados de plantilla, los m
 | Pistas de audio | Una sola pista de audio o sin pista de audio |
 | Pie de video (solo mensajes de video) | Opcional; 1024 caracteres como máximo |
 | Relación de aspecto recomendada | 1,91:1 (panorámica) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tabla" }
 
 {% multi_lang_include alerts/important_alerts.md alert='Meta MP4 video issue' %}
 

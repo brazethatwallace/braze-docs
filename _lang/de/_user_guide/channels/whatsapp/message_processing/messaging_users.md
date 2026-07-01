@@ -40,7 +40,7 @@ Stellen Sie sicher, dass Ihr Trigger-Wort dem entspricht, was Sie von Nutzer:inn
 ## Nicht erkannte Antworten {#unrecognized-responses}
 
 Wir empfehlen, eine Option für nicht erkannte Antworten in interaktiven Canvases einzubauen. Dies hilft Nutzer:innen zu verstehen, welche Eingabeaufforderungen verfügbar sind, und setzt Erwartungen für den Kanal. Erwartungsmanagement kann besonders hilfreich sein, wenn Sie WhatsApp-Kanäle mit Live-Agent-Chat haben.
-- Erstellen Sie im Aktions-Schritt nach den Aktionsgruppen für die benutzerdefinierten Filterphrasen eine zusätzliche Aktionsgruppe für „WhatsApp-Nachricht senden“, aber **aktivieren Sie nicht die Option „Where the message body“**. Dies fängt alle nicht erkannten Nutzerantworten ab, ähnlich einer „else“-Klausel.
+- Erstellen Sie im Aktions-Schritt nach den Aktionsgruppen für die angepassten Filterphrasen eine zusätzliche Aktionsgruppe für „WhatsApp-Nachricht senden“, aber **aktivieren Sie nicht die Option „Where the message body“**. Dies fängt alle nicht erkannten Nutzerantworten ab, ähnlich einer „else“-Klausel.
 - Wir empfehlen, mit einer WhatsApp-Nachricht zu antworten, die die Nutzer:innen darüber informiert, dass dieser Kanal nicht betreut wird, und sie bei Bedarf an einen Support-Kanal weiterzuleiten.
 
 ## Schnellantworten {#quick-replies}
@@ -57,7 +57,7 @@ Schnellantworten erscheinen als anklickbare Button-Optionen innerhalb der Konver
 
 Erstellen Sie zunächst Ihre Schnellantwort-CTAs im [WhatsApp-Nachrichtentemplate-Manager](https://business.facebook.com/wa/manage/message-templates/) innerhalb eines Nachrichtentemplates.
 
-![Die WhatsApp-Nachrichtentemplate-Manager-Oberfläche, die zeigt, wie ein CTA-Button erstellt wird, mit Angabe des Button-Typs (benutzerdefiniert) und des Button-Texts.]({% image_buster /assets/img/whatsapp/whatsapp12.png %}){: style="max-width:80%;"}
+![Die WhatsApp-Nachrichtentemplate-Manager-Oberfläche, die zeigt, wie ein CTA-Button erstellt wird, mit Angabe des Button-Typs (angepasst) und des Button-Texts.]({% image_buster /assets/img/whatsapp/whatsapp12.png %}){: style="max-width:80%;"}
 
 Sobald Ihr Template eingereicht und von WhatsApp genehmigt wurde, können Sie es verwenden, um einen Canvas in Braze zu erstellen.
 

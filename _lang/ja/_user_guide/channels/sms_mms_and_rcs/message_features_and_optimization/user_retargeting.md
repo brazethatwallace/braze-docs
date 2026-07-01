@@ -6,7 +6,7 @@ page_type: reference
 page_order: 4
 alias: /sms_mms_rcs_user_retargeting/
 tool:
-  - Campaigns
+  - キャンペーン
 channel:
   - SMS
   - MMS
@@ -16,7 +16,7 @@ channel:
 
 # ユーザーリターゲティング {#user-retargeting}
 
-> Brazeは、ユーザーのサブスクリプション状態の変更や受信キーワードに基づく自動応答の送信に加えて、ユーザープロファイルにインタラクションを記録し、メッセージのフィルタリングやトリガーに活用できるようにします。<br><br>これらのフィルターとトリガーにより、SMS、MMS、RCSのCampaignsを送信されたユーザーや応答したユーザーに基づいてアクションをフィルタリングしたり、短縮URLをクリックしたユーザーにさらにエンゲージしたりすることができます。
+> Brazeは、ユーザーのサブスクリプション状態の変更や受信キーワードに基づく自動応答の送信に加えて、ユーザープロファイルにインタラクションを記録し、メッセージのフィルタリングやトリガーに活用できるようにします。<br><br>これらのフィルターとトリガーにより、SMS、MMS、RCSのキャンペーンを送信されたユーザーや応答したユーザーに基づいてアクションをフィルタリングしたり、短縮URLをクリックしたユーザーにさらにエンゲージしたりすることができます。
 
 {% alert tip %}
 カスタムキーワードの詳細や、これらのリターゲティングオプションを活用するための双方向メッセージングの設定方法については、[カスタムキーワード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling)の記事をご覧ください。
@@ -25,15 +25,15 @@ channel:
 ## リターゲティングオプション {#retargeting-options}
 
 {% alert note %}
-ユーザーリターゲティングでオーディエンスを構築する際、ユーザーの設定に基づいて特定のユーザーを含めたり除外したりすることや、CUPに基づく「販売または共有の禁止」権利などのプライバシー法に準拠することが必要になる場合があります。マーケターは、Canvasやキャンペーンのエントリ条件内で、ユーザーの適格性に関する関連フィルターを実装する必要があります。
+ユーザーリターゲティングでオーディエンスを構築する際、ユーザーの設定に基づいて特定のユーザーを含めたり除外したりすることや、CUPに基づく「販売または共有の禁止」権利などのプライバシー法に準拠することが必要になる場合があります。マーケターは、キャンバスやキャンペーンのエントリ条件内で、ユーザーの適格性に関する関連フィルターを実装する必要があります。
 {% endalert %}
 
 ### SMS、MMS、RCSでユーザーをフィルタリングする {#filter-users-by-sms-mms-and-rcs}
 
-ユーザーは、最後にSMS、MMS、RCSを受信した日時や、特定のCampaignからSMS、MMS、RCSを受信したかどうかでフィルタリングできます。フィルターは、キャンペーンビルダーの**ターゲットオーディエンス**ステップで設定できます。
+ユーザーは、最後にSMS、MMS、RCSを受信した日時や、特定のキャンペーンからSMS、MMS、RCSを受信したかどうかでフィルタリングできます。フィルターは、キャンペーンビルダーの**ターゲットオーディエンス**ステップで設定できます。
 
 {% alert note %}
-メッセージが受信、開封、またはクリックされると、Brazeはインタラクションを記録したプロファイルと同じ電話番号を共有するすべてのプロファイルのデータを更新します。メッセージを受信、開封、またはクリックした人と電話番号を共有しているユーザーは、元々Campaignに含まれていなかったり、直接メッセージを送信されていなかったりしても、このフィルターに一致する場合があります。
+メッセージが受信、開封、またはクリックされると、Brazeはインタラクションを記録したプロファイルと同じ電話番号を共有するすべてのプロファイルのデータを更新します。メッセージを受信、開封、またはクリックした人と電話番号を共有しているユーザーは、元々キャンペーンに含まれていなかったり、直接メッセージを送信されていなかったりしても、このフィルターに一致する場合があります。
 {% endalert %}
 
 #### 最後にSMS/MMS/RCSを受信した日時でフィルタリング {#filter-by-last-received-smsmmsrcs}
@@ -42,34 +42,34 @@ channel:
 
 #### SMS/MMS/RCSキャンペーンからの受信メッセージでフィルタリング {#filter-by-received-messages-from-smsmmsrcs-campaign}
 
-特定のCampaignからメッセージを受信したユーザーをフィルタリングします。このフィルターでは、Campaignからメッセージを受信していないユーザーを除外するオプションもあります。
+特定のキャンペーンからメッセージを受信したユーザーをフィルタリングします。このフィルターでは、キャンペーンからメッセージを受信していないユーザーを除外するオプションもあります。
 
-![セグメンテーションフィルター「キャンペーンからメッセージを受信」で「SMSリターゲティング」Campaign。]({% image_buster /assets/img/sms/filter1.png %})
+![セグメンテーションフィルター「キャンペーンからメッセージを受信」で「SMSリターゲティング」キャンペーン。]({% image_buster /assets/img/sms/filter1.png %})
 
 ### ユーザーがSMS、MMS、RCSを受信した際にメッセージをトリガーする {#trigger-messages}
 
-ユーザーが特定のCampaignからSMS、MMS、RCSメッセージを受信した際にメッセージをトリガーするには、アクションベースのキャンペーンのトリガーアクションとして**キャンペーンとのインタラクション**を選択します。次に、**SMSを受信**と使用したいSMS、MMS、RCSのCampaignを選択します。
+ユーザーが特定のキャンペーンからSMS、MMS、RCSメッセージを受信した際にメッセージをトリガーするには、アクションベースのキャンペーンのトリガーアクションとして**キャンペーンとのインタラクション**を選択します。次に、**SMSを受信**と使用したいSMS、MMS、RCSのキャンペーンを選択します。
 
-![ユーザーが特定のCampaignからSMS、MMS、RCSメッセージを受信した際にメッセージをトリガーするには、アクションベースのキャンペーンのトリガーアクションとして「キャンペーンとのインタラクション」を選択します。次に、「SMSを受信」と使用したいSMS、MMS、RCSのCampaignを選択します。]({% image_buster /assets/img/sms/trigger.png %})
+![ユーザーが特定のキャンペーンからSMS、MMS、RCSメッセージを受信した際にメッセージをトリガーするには、アクションベースのキャンペーンのトリガーアクションとして「キャンペーンとのインタラクション」を選択します。次に、「SMSを受信」と使用したいSMS、MMS、RCSのキャンペーンを選択します。]({% image_buster /assets/img/sms/trigger.png %})
 
 ### 高度なトラッキングリンクでフィルタリング {#filter-by-advanced-tracking-links}
 
-[高度なトラッキングリンク]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening)を含むCampaignsをクリックしたユーザーをリターゲティングします。
-高度なトラッキングが有効になっているCampaignsのみが、以下のドロップダウンに表示されます。
+[高度なトラッキングリンク]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening)を含むキャンペーンをクリックしたユーザーをリターゲティングします。
+高度なトラッキングが有効になっているキャンペーンのみが、以下のドロップダウンに表示されます。
 
 #### 特定のSMS、MMS、RCSキャンペーンをクリックしたユーザーをリターゲティング {#retarget-users-who-have-clicked-a-specific-sms-mms-or-rcs-campaign}
 
-1. **クリック/開封したキャンペーン**フィルターを使用してSegmentを作成します。
+1. **クリック/開封したキャンペーン**フィルターを使用してセグメントを作成します。
 2. **短縮SMSリンクをクリック**を選択します。
-3. 目的のCampaignを選択します。
+3. 目的のキャンペーンを選択します。
 
 ![特定のSMS、MMS、RCSキャンペーンをクリックしたユーザーのリターゲティングに関するスクリーンショット。]({% image_buster /assets/img/sms/retargeting5.png %})
 
 #### 特定のキャンバスステップをクリックしたユーザーをリターゲティング {#retarget-users-who-have-clicked-a-specific-canvas-step}
 
-1. **クリック/開封したステップ**フィルターを使用してSegmentを作成します。
+1. **クリック/開封したステップ**フィルターを使用してセグメントを作成します。
 2. **短縮SMSリンクをクリック**を選択します。
-3. 目的のCanvasとキャンバスステップを選択します。
+3. 目的のキャンバスとキャンバスステップを選択します。
 
 ![特定のキャンバスステップをクリックしたユーザーのリターゲティングに関するスクリーンショット。]({% image_buster /assets/img/keyword_example1.jpg %})
 
@@ -83,17 +83,17 @@ channel:
 
 ![セグメンテーションフィルター「最後にSMSを送信」でサブスクリプショングループ「マーケティングSMS」、キーワード「オプトイン」が2020年8月11日以降。]({% image_buster /assets/img/sms/retargeting1.png %})
 
-### CampaignまたはCanvasアトリビューションでフィルタリング {#filter-by-campaign-or-canvas-attribution}
+### キャンペーンまたはキャンバスアトリビューションでフィルタリング {#filter-by-campaign-or-canvas-attribution}
 
-特定のSMS、MMS、RCSのCampaignまたはCanvasコンポーネント、キーワードカテゴリ、またはタグに応答したユーザーをフィルタリングします。
+特定のSMS、MMS、RCSのキャンペーンまたはキャンバスコンポーネント、キーワードカテゴリ、またはタグに応答したユーザーをフィルタリングします。
 
-#### 特定のCampaignにキーワードカテゴリで応答したユーザーをフィルタリング {#filter-by-replied-to-a-specific-campaign-with-keyword-category}
+#### 特定のキャンペーンにキーワードカテゴリで応答したユーザーをフィルタリング {#filter-by-replied-to-a-specific-campaign-with-keyword-category}
 
-![フィルター「SMSに応答」でCampaign「SMS-283」「プロモーション」を使用したキャンペーン。フィルターの下に「このフィルターは、アクティブなキャンペーンで使用されていない場合、「プロモーション」から最後のメッセージが送信されてから25か月後に期限切れになります。」と記載されています。]({% image_buster /assets/img/sms/clicked_opened_campaign.png %})
+![フィルター「SMSに応答」でキャンペーン「SMS-283」「プロモーション」を使用したキャンペーン。フィルターの下に「このフィルターは、アクティブなキャンペーンで使用されていない場合、「プロモーション」から最後のメッセージが送信されてから25か月後に期限切れになります。」と記載されています。]({% image_buster /assets/img/sms/clicked_opened_campaign.png %})
 
-#### 特定のタグを持つCampaignまたはCanvasに応答したユーザーをフィルタリング {#filter-by-replied-to-a-campaign-or-canvas-with-a-specific-tag}
+#### 特定のタグを持つキャンペーンまたはキャンバスに応答したユーザーをフィルタリング {#filter-by-replied-to-a-campaign-or-canvas-with-a-specific-tag}
 
-![フィルター「SMSに応答」でCampaignまたはCanvasのタグ「Curbside Messaging Service C」を使用したキャンペーン。]({% image_buster /assets/img/sms/clicked_opened_campaign_canvas_tag.png %})
+![フィルター「SMSに応答」でキャンペーンまたはキャンバスのタグ「Curbside Messaging Service C」を使用したキャンペーン。]({% image_buster /assets/img/sms/clicked_opened_campaign_canvas_tag.png %})
 
 #### 特定のステップに応答したユーザーをフィルタリング {#filter-by-replied-to-a-specific-step}
 
@@ -106,7 +106,7 @@ channel:
 受信メッセージが定義されたトリガーイベントに一致するかどうかを評価する際、先頭と末尾のスペースは評価開始前に削除されます。
 
 {% alert tip %}
-受信SMSまたはMMSメッセージによってアクションベースのCanvasがトリガーされた場合、次のアクションパスまでの任意のキャンバスステップで[サポートされているSMS Liquidプロパティ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)を参照できます。
+受信SMSまたはMMSメッセージによってアクションベースのキャンバスがトリガーされた場合、次のアクションパスまでの任意のキャンバスステップで[サポートされているSMS Liquidプロパティ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)を参照できます。
 {% endalert %}
 
 #### 受信キーワードカテゴリによるトリガー {#trigger-by-inbound-keyword-category}
@@ -121,7 +121,7 @@ channel:
 
 #### テンプレートキーワード {#template-keywords}
 
-受信SMSまたはMMSでCampaignまたはCanvasコンポーネントをトリガーする際、ユーザーが送信したテキストやメディア添付ファイルをLiquidを使用してCampaignまたはCanvasの本文にオプションでテンプレート化できます。これにより、ユーザーの応答にアクセスし、返信に含めたり、条件付きロジックを適用したり、Liquidで可能なその他の処理を行ったりすることができます。
+受信SMSまたはMMSでキャンペーンまたはキャンバスコンポーネントをトリガーする際、ユーザーが送信したテキストやメディア添付ファイルをLiquidを使用してキャンペーンまたはキャンバスの本文にオプションでテンプレート化できます。これにより、ユーザーの応答にアクセスし、返信に含めたり、条件付きロジックを適用したり、Liquidで可能なその他の処理を行ったりすることができます。
 
 {% raw %}
 

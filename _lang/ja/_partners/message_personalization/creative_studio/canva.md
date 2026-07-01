@@ -88,6 +88,6 @@ Canvaファイルが**メール**デザインタイプの場合、このフロ�
 ![CanvaのメールデザインをBrazeに公開した後の成功メッセージとCheck it outボタン。]({% image_buster /assets/img/canva_integration/canva-email-publish-success.png %})
 
 {: start="6"}
-6. Brazeで、CampaignまたはCanvasでテンプレートを使用する前に、**From**アドレス、プリヘッダー、配信停止リンクなどの必要なメール設定を完了します。
+6. Brazeで、キャンペーンまたはキャンバスでテンプレートを使用する前に、**From**アドレス、プリヘッダー、配信停止リンクなどの必要なメール設定を完了します。
 
 ![Canvaから開いたBrazeのメールテンプレート。送信情報とプレビューが表示されています。]({% image_buster /assets/img/canva_integration/braze-email-template-from-canva.png %})

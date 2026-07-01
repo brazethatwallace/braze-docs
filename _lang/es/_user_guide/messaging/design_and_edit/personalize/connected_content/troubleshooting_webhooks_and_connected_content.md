@@ -11,7 +11,7 @@ description: "Este artículo explica cómo solucionar problemas de códigos de e
 
 ## Errores 4XX {#4xx-errors}
 
-Los errores `4XX` indican que hay un problema con la solicitud enviada al punto de conexión. Estos errores suelen deberse a solicitudes erróneas, incluyendo parámetros mal formados, encabezados de autenticación faltantes o URL incorrectas. Ten en cuenta que estos errores también se aplican al [Generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder/).
+Los errores `4XX` indican que hay un problema con la solicitud enviada al punto de conexión. Estos errores suelen deberse a solicitudes erróneas, incluyendo parámetros mal formados, encabezados de autenticación faltantes o URL incorrectas. Ten en cuenta que estos errores también se aplican al [Generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
 Consulta la siguiente tabla para obtener detalles sobre los códigos de error y los pasos para resolverlos:
 
@@ -149,18 +149,18 @@ Cuando las solicitudes se detienen, Braze simula respuestas con un código de er
 
 Los siguientes códigos de error contribuyen al recuento de fallos del detector de host no saludable: `408`, `429`, `502`, `503`, `504`, `529`.
 
-Para webhooks, Braze reintenta automáticamente las solicitudes HTTP que fueron detenidas por el detector de host no saludable. Este reintento automático utiliza retirada exponencial y solo reintenta unas pocas veces antes de fallar. Para más información sobre errores de webhook, consulta [Errores, lógica de reintentos y tiempos de espera]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#errors-retry-logic-and-timeouts).
+Para webhooks, Braze reintenta automáticamente las solicitudes HTTP que fueron detenidas por el detector de host no saludable. Este reintento automático utiliza retirada exponencial y solo reintenta unas pocas veces antes de fallar. Para más información sobre errores de webhook, consulta [Errores, lógica de reintentos y tiempos de espera]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#errors-retry-logic-and-timeouts).
 
-Para contenido conectado, si las solicitudes al host de destino son detenidas por el detector de host no saludable, Braze continúa renderizando mensajes y siguiendo tu lógica Liquid como si hubiera recibido un código de respuesta de error. Si quieres asegurarte de que estas solicitudes de contenido conectado se reintenten cuando son detenidas por el detector de host no saludable, usa la opción `:retry`. Para más información sobre la opción `:retry`, consulta [Reintentos de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/).
+Para contenido conectado, si las solicitudes al host de destino son detenidas por el detector de host no saludable, Braze continúa renderizando mensajes y siguiendo tu lógica Liquid como si hubiera recibido un código de respuesta de error. Si quieres asegurarte de que estas solicitudes de contenido conectado se reintenten cuando son detenidas por el detector de host no saludable, usa la opción `:retry`. Para más información sobre la opción `:retry`, consulta [Reintentos de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries).
 
-Si crees que la detección de host no saludable puede estar causando problemas, ponte en contacto con [soporte de Braze]({{site.baseurl}}/support_contact/).
+Si crees que la detección de host no saludable puede estar causando problemas, ponte en contacto con [soporte de Braze]({{site.baseurl}}/support_contact).
 
 ### El contenido conectado no devuelve cuerpo de respuesta {#connected-content-returns-no-response-body}
 
 Si una llamada de contenido conectado se renderiza en blanco en la vista previa o el envío de tu mensaje, comprueba lo siguiente:
 
 - **Espacios de no separación en la URL:** Braze elimina los espacios de no separación (`&nbsp;` o Unicode `U+00A0`) de las URL de contenido conectado antes de realizar la solicitud. Si tu URL fue copiada de un documento o campo del dashboard que insertó espacios de no separación entre caracteres, la solicitud puede fallar o no devolver un cuerpo utilizable. Vuelve a escribir la URL en texto plano o elimina los espacios ocultos, y luego previsualiza de nuevo.
-- **Errores HTTP y cuerpos vacíos:** Para códigos de estado superiores a 300 o hosts bloqueados, el contenido conectado puede renderizar una cadena vacía. Consulta [Realizar una llamada a la API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) y revisa los fallos en el **Registro de actividad de mensajes**.
+- **Errores HTTP y cuerpos vacíos:** Para códigos de estado superiores a 300 o hosts bloqueados, el contenido conectado puede renderizar una cadena vacía. Consulta [Realizar una llamada a la API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) y revisa los fallos en el **Registro de actividad de mensajes**.
 
 ## Correos electrónicos automatizados y entradas del registro de actividad de mensajes {#automated-emails-and-message-activity-log-entries}
 
@@ -176,7 +176,7 @@ Si experimentas más de 100 000 errores de punto de conexión de webhook o conte
 - Enlaces al Registro de actividad de mensajes y documentación relacionada
 
 {% alert note %}
-Puedes configurar el umbral de errores por espacio de trabajo. Para ajustar este umbral, ponte en contacto con [soporte de Braze]({{site.baseurl}}/support_contact/).
+Puedes configurar el umbral de errores por espacio de trabajo. Para ajustar este umbral, ponte en contacto con [soporte de Braze]({{site.baseurl}}/support_contact).
 {% endalert %}
 
 Los errores de punto de conexión son:
@@ -193,7 +193,7 @@ Para suscribirte a recibir estos correos electrónicos, haz lo siguiente:
 
 ### Entradas del registro de actividad de mensajes {#message-activity-log-entries}
 
-Si ocurre un fallo, hay al menos una entrada en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) relacionada con él. Si la solicitud se reintenta y finalmente tiene éxito, esos detalles están disponibles en Currents y en el uso compartido de datos de Snowflake. Ten en cuenta que incluso si una solicitud finalmente tiene éxito después de un reintento, los errores aún pueden activar el correo electrónico automatizado.
+Si ocurre un fallo, hay al menos una entrada en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) relacionada con él. Si la solicitud se reintenta y finalmente tiene éxito, esos detalles están disponibles en Currents y en el uso compartido de datos de Snowflake. Ten en cuenta que incluso si una solicitud finalmente tiene éxito después de un reintento, los errores aún pueden desencadenar el correo electrónico automatizado.
 
 ### Información adicional sobre fallos en Braze Currents {#additional-failure-insights-in-braze-currents}
 
@@ -203,4 +203,4 @@ Para aumentar la transparencia en problemas relacionados con webhooks, Braze tra
 Las solicitudes de contenido conectado no están incluidas en estos eventos de fallo de webhook.
 {% endalert %}
 
-Para más información, consulta el [Glosario de eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/).
+Para más información, consulta el [Glosario de eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).

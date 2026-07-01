@@ -1,17 +1,17 @@
 링크 단축 및 클릭 추적을 사용하면 SMS 또는 RCS 메시지에 포함된 URL을 자동으로 단축하고 클릭률 분석을 수집할 수 있어, 사용자가 Campaign에 어떻게 참여하고 있는지 이해하는 데 도움이 되는 추가 참여 측정기준을 제공합니다.
 
-링크 단축 및 클릭 추적은 Campaigns와 Canvases 모두에서 [메시지 배리언트 수준]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#step-1-create-your-campaign)에서 활성화할 수 있습니다.
+링크 단축 및 클릭 추적은 Campaigns와 Canvases 모두에서 [메시지 배리언트 수준]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign)에서 활성화할 수 있습니다.
 
 URL의 길이는 활성화된 추적 유형에 따라 결정됩니다:
 - **기본 추적**은 Campaign 수준의 클릭 추적을 활성화합니다. 정적 URL의 길이는 20자이며, 개인화된 URL의 길이는 25자입니다.
-- **고급 추적**은 Campaign 수준 및 사용자 수준의 클릭 추적을 활성화하고, 클릭에 의존하는 세분화 및 리타겟팅 기능을 사용할 수 있게 합니다. 클릭은 Currents를 통해 전송되는 [SMS 클릭 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)도 생성합니다. 고급 추적이 적용된 정적 URL의 길이는 27-28자이며, URL을 클릭한 사용자의 Segment를 생성할 수 있습니다. 개인화된 URL의 길이는 32-33자입니다.
+- **고급 추적**은 Campaign 수준 및 사용자 수준의 클릭 추적을 활성화하고, 클릭에 의존하는 세분화 및 리타겟팅 기능을 사용할 수 있게 합니다. 클릭은 Currents를 통해 전송되는 [SMS 클릭 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)도 생성합니다. 고급 추적이 적용된 정적 URL의 길이는 27-28자이며, URL을 클릭한 사용자의 Segment를 생성할 수 있습니다. 개인화된 URL의 길이는 32-33자입니다.
 
 링크는 공유 단축 도메인(`brz.ai`) 또는 커스텀 링크 단축 도메인을 사용하여 단축됩니다. URL 예시는 다음과 같습니다: `https://brz.ai/8jshX`(기본, 정적) 또는 `https://brz.ai/p/8jshX/2dj8d`(고급, 개인화). 자세한 내용은 [테스트](#testing)를 참조하세요.
 
 `http://` 또는 `https://`로 시작하는 모든 정적 URL이 단축됩니다. 정적 단축 URL은 생성된 날짜로부터 1년간 유효합니다. Liquid 개인화가 포함된 단축 URL은 2개월간 유효합니다.
 
 {% alert note %}
-BrazeAI<sup>TM</sup> [인텔리전트 채널 필터]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/)를 사용할 계획이고 SMS 및 RCS 채널을 선택 가능하게 하려면, 고급 추적이 포함된 링크 단축을 활성화하세요.
+Braze 단축 링크는 항상 `https://` 프로토콜을 포함하며, 다른 프로토콜을 사용하도록 구성할 수 없습니다.
 {% endalert %}
 
 ## 링크 단축 사용하기 {#using-link-shortening}
@@ -24,6 +24,10 @@ Braze는 `http://` 또는 `https://`로 시작하는 URL만 인식합니다. URL
 
 !["메시지" 상자에 긴 URL이 있고 미리보기에 생성된 단축 링크가 있는 메시지 작성기.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening3.png %})
 
+{% alert note %}
+BrazeAI<sup>TM</sup> [인텔리전트 채널 필터]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel)를 사용할 계획이고 SMS 및 RCS 채널을 선택 가능하게 하려면, 고급 추적이 포함된 링크 단축을 활성화하세요.
+{% endalert %}
+
 ### UTM 매개변수 추가 {#adding-utm-parameters}
 
 {% multi_lang_include analytics/click_tracking.md section='UTM parameters' %}
@@ -34,7 +38,7 @@ Braze 작성기 내에서 직접 URL을 동적으로 구성할 수 있어, URL�
 
 ### 지원되는 Liquid 개인화 태그로 URL 생성 {#create-a-url-with-supported-liquid-personalization-tags}
 
-URL은 [지원되는 Liquid 개인화 태그]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)를 사용하여 동적으로 생성할 수 있습니다.
+URL은 [지원되는 Liquid 개인화 태그]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)를 사용하여 동적으로 생성할 수 있습니다.
 
 {% raw %}
 ```liquid
@@ -61,21 +65,21 @@ Liquid로 렌더링된 URL은 API 트리거 등록정보에 포함된 URL도 포
 
 ### `/messages/send` 엔드포인트에서 URL 단축 {#shorten-urls-in-messagessend-endpoint}
 
-링크 단축은 [`/messages/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)를 통한 API 전용 메시지에도 활성화됩니다. 기본 또는 고급 추적도 활성화하려면 `link_shortening_enabled` 또는 `user_click_tracking_enabled` 요청 매개변수를 사용하세요.
+링크 단축은 [`/messages/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)를 통한 API 전용 메시지에도 활성화됩니다. 기본 또는 고급 추적도 활성화하려면 `link_shortening_enabled` 또는 `user_click_tracking_enabled` 요청 매개변수를 사용하세요.
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
 | `link_shortening_enabled` | 선택 사항 | 부울 | `link_shortening_enabled`를 `true`로 설정하면 링크 단축 및 Campaign 수준의 클릭 추적이 활성화됩니다. 추적을 사용하려면 `campaign_id`와 `message_variation_id`가 있어야 합니다.|
 | `user_click_tracking_enabled` | 선택 사항 | 부울 | `user_click_tracking_enabled`를 `true`로 설정하면 링크 단축, Campaign 수준 및 사용자 수준의 클릭 추적이 활성화됩니다. 추적된 데이터를 사용하여 URL을 클릭한 사용자의 Segment를 생성할 수 있습니다.<br><br> 이 매개변수를 사용하려면 `link_shortening_enabled`가 `true`여야 하며, `campaign_id`와 `message_variation_id`가 있어야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Shorten URLs in /messages/send endpoint" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="/messages/send 엔드포인트에서 URL 단축" }
 
-전체 요청 매개변수 목록은 [요청 매개변수]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters)를 참조하세요.
+전체 요청 매개변수 목록은 [요청 매개변수]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters)를 참조하세요.
 
 ## 테스트 {#testing}
 
-Campaign이나 Canvas를 시작하기 전에 먼저 메시지를 미리보기하고 테스트하는 것이 좋습니다. 이를 위해 **테스트** 탭으로 이동하여 [콘텐츠 테스트 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) 또는 개별 사용자에게 SMS 또는 RCS 메시지를 미리보기하고 보내세요.
+Campaign이나 Canvas를 시작하기 전에 먼저 메시지를 미리보기하고 테스트하는 것이 좋습니다. 이를 위해 **테스트** 탭으로 이동하여 [콘텐츠 테스트 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) 또는 개별 사용자에게 SMS 또는 RCS 메시지를 미리보기하고 보내세요.
 
-이 미리보기는 관련 개인화 및 단축된 URL로 업데이트됩니다. 문자 수와 [청구 가능 세그먼트]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/)도 렌더링된 개인화 및 단축된 URL을 반영하여 업데이트됩니다.
+이 미리보기는 관련 개인화 및 단축된 URL로 업데이트됩니다. 문자 수와 [청구 가능 세그먼트]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator)도 렌더링된 개인화 및 단축된 URL을 반영하여 업데이트됩니다.
 
 메시지에 발송되는 단축 URL의 표현을 받으려면 테스트 메시지를 보내기 전에 Campaign이나 Canvas를 저장하세요. 테스트 발송 전에 Campaign이나 Canvas가 저장되지 않으면, 테스트 발송에 입력 안내 URL이 포함됩니다.
 
@@ -93,7 +97,7 @@ Liquid 개인화 및 단축 URL은 사용자가 선택된 후 **테스트** 탭�
 
 ## 클릭 추적 {#click-tracking}
 
-링크 단축이 활성화되면, **SMS/MMS/RCS 성과** 테이블에 배리언트별 클릭 이벤트 수와 관련 클릭률을 보여주는 **총 클릭 수** 열이 포함됩니다. 측정기준에 대한 자세한 내용은 [메시지 성과]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting/)를 참조하세요.
+링크 단축이 활성화되면, **SMS/MMS/RCS 성과** 테이블에 배리언트별 클릭 이벤트 수와 관련 클릭률을 보여주는 **총 클릭 수** 열이 포함됩니다. 측정기준에 대한 자세한 내용은 [메시지 성과]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting)를 참조하세요.
 
 ![SMS 및 MMS 성과 측정기준 테이블.]({% image_buster /assets/img/link_shortening/shortening4.png %})
 
@@ -101,7 +105,7 @@ Liquid 개인화 및 단축 URL은 사용자가 선택된 후 **테스트** 탭�
 
 ## 사용자 리타겟팅 {#retargeting-users}
 
-리타겟팅에 대한 안내는 [리타겟팅]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/#filter-by-advanced-tracking-links)을 참조하세요.
+리타겟팅에 대한 안내는 [리타겟팅]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting#filter-by-advanced-tracking-links)을 참조하세요.
 
 {% multi_lang_include analytics/click_tracking.md section='Custom Domains' %}
 
@@ -109,7 +113,7 @@ Liquid 개인화 및 단축 URL은 사용자가 선택된 후 **테스트** 탭�
 
 ### URL을 클릭한 개별 사용자를 알 수 있나요? {#do-i-know-which-individual-users-are-clicking-on-a-url}
 
-네. **고급 추적**이 활성화되면, [SMS 리타겟팅 필터]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) 또는 Currents에서 전송하는 SMS 클릭 이벤트(`users.messages.sms.ShortLinkClick`)를 활용하여 URL을 클릭한 사용자를 리타겟할 수 있습니다.
+네. **고급 추적**이 활성화되면, [SMS 리타겟팅 필터]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) 또는 Currents에서 전송하는 SMS 클릭 이벤트(`users.messages.sms.ShortLinkClick`)를 활용하여 URL을 클릭한 사용자를 리타겟할 수 있습니다.
 
 ### 링크 단축은 딥링크 또는 유니버설 링크와 함께 작동하나요? {#does-link-shortening-work-with-deep-links-or-universal-links}
 
@@ -121,7 +125,7 @@ Liquid 개인화 및 단축 URL은 사용자가 선택된 후 **테스트** 탭�
 
 ### `send_ids`가 SMS 클릭 이벤트와 연결되나요? {#are-send_ids-associated-with-sms-click-events}
 
-아니요. 하지만 고급 추적이 활성화된 경우, [쿼리 빌더]({{site.baseurl}}/query_builder/)를 사용하여 다음 쿼리로 Currents 데이터를 조회함으로써 일반적으로 `send_ids`를 클릭 이벤트에 연결할 수 있습니다:
+아니요. 하지만 고급 추적이 활성화된 경우, [쿼리 빌더]({{site.baseurl}}/query_builder)를 사용하여 다음 쿼리로 Currents 데이터를 조회함으로써 일반적으로 `send_ids`를 클릭 이벤트에 연결할 수 있습니다:
 
 ```sql
 SELECT c.*, s.send_id

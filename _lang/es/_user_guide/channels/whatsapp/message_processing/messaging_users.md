@@ -158,7 +158,7 @@ Los siguientes eventos desbloquean los mensajes de respuesta:
 
 ### Filtrar por un atributo de tiempo personalizado {#filtering-by-a-custom-time-attribute}
 
-Si la audiencia de tu Campaign o Canvas de WhatsApp basado en acciones depende de un atributo de tiempo personalizado que cae dentro de una ventana relativa (por ejemplo, entre ahora y las próximas 24 horas), combina dos filtros como se describe en [Tiempo]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes#time).
+Si la audiencia de tu campaña o Canvas de WhatsApp basado en acciones depende de un atributo de tiempo personalizado que cae dentro de una ventana relativa (por ejemplo, entre ahora y las próximas 24 horas), combina dos filtros como se describe en [Tiempo]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes#time).
 
 ### Almacenamiento de medios entrantes y expiración de URL {#inbound-media-storage-and-url-expiration}
 

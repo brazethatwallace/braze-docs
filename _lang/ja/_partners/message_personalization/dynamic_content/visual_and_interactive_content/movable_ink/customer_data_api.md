@@ -30,12 +30,12 @@ Movable Inkは、Customer Data APIを介してBrazeから行動イベントを�
 
 ## 統合 {#integration}
 
-### ステップ1: BrazeでWebhook Campaignを作成する {#step-1-create-a-webhook-campaign-in-braze}
+### ステップ1: BrazeでWebhook キャンペーンを作成する {#step-1-create-a-webhook-campaign-in-braze}
 
-#### ステップ1a: 新しいCampaignを作成する {#step-1a-create-a-new-campaign}
+#### ステップ1a: 新しいキャンペーンを作成する {#step-1a-create-a-new-campaign}
 
-1. Brazeで、[Webhook Campaignを作成します]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)。
-2. Campaignに名前と任意の説明を付けます。
+1. Brazeで、[Webhook キャンペーンを作成します]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)。
+2. キャンペーンに名前と任意の説明を付けます。
 3. テンプレートとして**Blank Template**を選択します。
 
 #### ステップ1b: Customer Data API認証情報を追加する {#step-1b-add-your-customer-data-api-credentials}
@@ -79,11 +79,11 @@ Webhookをテストするには、以下の手順を実行します。
 
 ![200 OKレスポンスを示すBrazeのWebhookレスポンスメッセージ]({% image_buster /assets/img/movable_ink/cd_api_webhook_response.png %}){: style="max-width:75%" }
 
-### ステップ2: Campaign設定を確定する {#step-2-finalize-your-campaign-setup}
+### ステップ2: キャンペーン設定を確定する {#step-2-finalize-your-campaign-setup}
 
-#### ステップ2a: Campaignをスケジュールする {#step-2a-schedule-your-campaign}
+#### ステップ2a: キャンペーンをスケジュールする {#step-2a-schedule-your-campaign}
 
-Webhookの作成とテストが完了したら、[Campaignをスケジュールします]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)。
+Webhookの作成とテストが完了したら、[キャンペーンをスケジュールします]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)。
 
 Brazeでは、スケジュール配信、アクションベースの配信、およびAPIトリガー配信がサポートされています。[アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)は、通常ほとんどの行動イベントのユースケースに最適です。ユースケースに最適な方法についてのご質問は、BrazeおよびMovable Inkのカスタマーサクセスマネージャーにお問い合わせください。
 
@@ -91,7 +91,7 @@ Brazeでは、スケジュール配信、アクションベースの配信、お
 
 1. トリガーアクションを指定します。これは、Movable InkへのWebhookをトリガーするイベントです。
 2. **スケジュールの遅延**が**Immediately**に設定されていることを確認します。イベント発生直後にイベントデータが遅延なくMovable Inkに送信される必要があります。
-3. 開始時間を指定してCampaign期間を設定します。終了時刻は適用されない可能性がありますが、ユースケースに必要な場合は設定できます。
+3. 開始時間を指定してキャンペーン期間を設定します。終了時刻は適用されない可能性がありますが、ユースケースに必要な場合は設定できます。
 
 {% alert note %}
 データがMovable Inkにリアルタイムでストリーミングされるようにするには、**Send campaign to users in their local time zone**を選択しないでください。
@@ -99,21 +99,21 @@ Brazeでは、スケジュール配信、アクションベースの配信、お
 
 #### ステップ2b: オーディエンスを指定する {#step-2b-specify-your-audience}
 
-次に、このCampaignでターゲットにするユーザーを決定します。詳細については、「[ユーザーをターゲットにする]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)」を参照してください。
+次に、このキャンペーンでターゲットにするユーザーを決定します。詳細については、「[ユーザーをターゲットにする]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)」を参照してください。
 
-**コントロールグループ**のチェックボックスをオフにして、CampaignでABテストを使用しないようにしてください。コントロールグループが含まれている場合、一定の割合のユーザーのデータがMovable Inkに送信されません。オーディエンス全体を、コントロールグループではなくバリアントに移動する必要があります。
+**コントロールグループ**のチェックボックスをオフにして、キャンペーンでABテストを使用しないようにしてください。コントロールグループが含まれている場合、一定の割合のユーザーのデータがMovable Inkに送信されません。オーディエンス全体を、コントロールグループではなくバリアントに移動する必要があります。
 
-![バリアント分布の100%がバリアント1に割り当てられ、コントロールグループがないBraze CampaignのABテストパネル]({% image_buster /assets/img/movable_ink/cd_api_webhook_ab.png %})
+![バリアント分布の100%がバリアント1に割り当てられ、コントロールグループがないBraze キャンペーンのABテストパネル]({% image_buster /assets/img/movable_ink/cd_api_webhook_ab.png %})
 
 #### ステップ2c: コンバージョンイベントを選択する（オプション） {#step-2c-choose-conversion-events-optional}
 
-必要であれば、Braze内でこのCampaignにコンバージョンイベントを割り当てることができます。
+必要であれば、Braze内でこのキャンペーンにコンバージョンイベントを割り当てることができます。
 
-ただし、Webhookがデータのストリーミングのみを目的としている場合、このレベルでのアトリビューションは、Brazeの行動データを使用してコンテンツをパーソナライズした後にCampaignレベルでアトリビューションを確認するよりも有用性が低い可能性があります。
+ただし、Webhookがデータのストリーミングのみを目的としている場合、このレベルでのアトリビューションは、Brazeの行動データを使用してコンテンツをパーソナライズした後にキャンペーンレベルでアトリビューションを確認するよりも有用性が低い可能性があります。
 
-### ステップ3: Campaignを起動する {#step-3-launch-the-campaign}
+### ステップ3: キャンペーンを起動する {#step-3-launch-the-campaign}
 
-Webhookの設定を確認し、Campaignを起動します。
+Webhookの設定を確認し、キャンペーンを起動します。
 
 ## 考慮事項 {#considerations}
 
@@ -143,7 +143,7 @@ Brazeでは、匿名のユーザープロファイルでイベントを記録で
 
 #### 既知のユーザーのBrazeイベントのみを転送する {#only-forwarding-braze-events-for-known-users}
 
-Webhook Campaignで`External User ID`フィルターを使用して、フィルター`External User ID` `is not blank`に一致する`external_id`を持つユーザーのみをターゲットにします。
+Webhook キャンペーンで`External User ID`フィルターを使用して、フィルター`External User ID` `is not blank`に一致する`external_id`を持つユーザーのみをターゲットにします。
 
 #### 匿名ユーザーと既知ユーザーのBrazeイベントを転送する {#forwarding-braze-events-for-anonymous-and-known-users}
 

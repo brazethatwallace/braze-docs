@@ -1,5 +1,5 @@
 {% alert important %}
-Braze는 사용자 접근 권한을 보다 유연하게 관리할 수 있는 [세분화된 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions) 기능을 도입하고 있습니다. 마이그레이션 프로세스에 대해 알아보려면 [세분화된 권한으로 마이그레이션하기]({{site.baseurl}}/granular_permissions_migration/)를 참조하고, [세분화된 SCIM API]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api/) 탭에서 세분화된 SCIM API 오브젝트 및 부록을 확인하세요.
+Braze는 사용자 접근 권한을 보다 유연하게 관리할 수 있는 [세분화된 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions) 기능을 도입하고 있습니다. 마이그레이션 프로세스에 대해 알아보려면 [세분화된 권한으로 마이그레이션하기]({{site.baseurl}}/granular_permissions_migration)를 참조하고, [세분화된 SCIM API]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api/) 탭에서 세분화된 SCIM API 오브젝트 및 부록을 확인하세요.
 {% endalert %}
 
 ## 권한 오브젝트 {#permissions-object}

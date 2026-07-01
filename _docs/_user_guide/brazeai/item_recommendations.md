@@ -391,3 +391,29 @@ Yes, but only after their next scheduled update. Existing recommendations don’
 ### How can I make all recommendations that last multiple days expire at once?
 
 If you want to expire all multiday recommendations on a specific date (so all such active recommendations receive new predictions at once), contact Braze Support or your customer success manager for assistance. Braze AI experts perform this manually to ensure maximum model performance.
+
+### What happens if I update the property name for an active AI item recommendation?
+
+When you update the property name (item ID path) and select **Save & Build**, Braze initiates a background retraining job that scans the last six months of interaction data using the new mapping.
+
+While the model is retraining, users continue to see recommendations from the previous version. The recommendations do not change until the new model successfully finishes training. This means:
+
+- Users see personalized items from the old model (or the global fallback if they have no specific recommendations).
+- There is no downtime or gap in recommendations during the retraining process.
+- The transition from the old model to the new model is seamless once training completes successfully.
+
+Events with the old item ID path are effectively ignored for the new model. Only events that use the new property name mapping are included in the retraining.
+
+### What happens if the retraining job fails after changing the property name?
+
+{% alert important %}
+If the retraining job fails, the entire item recommendation enters a disabled (non-active) state. Because Braze does not currently fall back to the most recently successfully trained model in the event of a training failure, any Liquid referencing this recommendation will fail, and associated messages will not be sent.
+{% endalert %}
+
+To reduce this risk, consider the following approach:
+
+1. Create a new item recommendation with the desired property name configuration.
+2. Verify that the training completes successfully.
+3. Update your messaging to reference the new recommendation instead of modifying an active recommendation directly.
+
+This approach allows you to test the new configuration without risking disruption to messages that reference your existing recommendation.

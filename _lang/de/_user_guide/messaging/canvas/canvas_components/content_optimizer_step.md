@@ -10,7 +10,7 @@ page_type: reference
 
 # Content Optimizer – Agentenschritt {#content-optimizer-agent-step}
 
-> Der Content Optimizer-Agentenschritt ermöglicht es Ihnen, mehrere Versionen von Inhaltskomponenten innerhalb eines einzelnen Schritts zu konfigurieren und zu testen. Er hilft Ihnen, mit Inhaltsvarianten zu experimentieren und optimiert im Laufe der Zeit automatisch in Richtung der leistungsstärksten Kombinationen. Eine Einführung finden Sie unter [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer/).
+> Der Content Optimizer-Agentenschritt ermöglicht es Ihnen, mehrere Versionen von Inhaltskomponenten innerhalb eines einzelnen Schritts zu konfigurieren und zu testen. Er hilft Ihnen, mit Inhaltsvarianten zu experimentieren und optimiert im Laufe der Zeit automatisch in Richtung der leistungsstärksten Kombinationen. Eine Einführung finden Sie unter [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer).
 
 {% alert important %}
 Content Optimizer befindet sich derzeit in der Beta-Phase. Wenn Sie Hilfe beim Einstieg benötigen, wenden Sie sich an Ihren Customer-Success-Manager.
@@ -35,7 +35,7 @@ Während der Beta-Phase sind die unterstützten Kanäle E-Mail, Push-Benachricht
 {% tabs local %}
 {% tab E-Mail %}
 
-Wählen Sie im Tab **Messaging Channels** die Option **Email** und erstellen Sie Ihre Basis-E-Mail-Nachricht. Weitere Hilfe finden Sie in unserem dedizierten Abschnitt [E-Mail]({{site.baseurl}}/user_guide/channels/email/).
+Wählen Sie im Tab **Messaging Channels** die Option **Email** und erstellen Sie Ihre Basis-E-Mail-Nachricht. Weitere Hilfe finden Sie in unserem dedizierten Abschnitt [E-Mail]({{site.baseurl}}/user_guide/channels/email).
 
 Der Content Optimizer-Agent verwendet die Sendeeinstellungen (wie die E-Mail-Domain und die Antwortadresse), die in dieser Variante angegeben sind, um alle Nachrichten zu senden. Sie können entweder mit einem neuen Design beginnen oder ein vorhandenes Template für diese Nachricht auswählen. Überlegen Sie in diesem Schritt, welche Komponenten der Nachricht Sie optimieren möchten. Diese definieren Sie in [Schritt 4](#step-4).
 
@@ -49,7 +49,7 @@ Unterstützte Komponenten zur Optimierung umfassen:
 {% endtab %}
 {% tab Push-Benachrichtigungen %}
 
-Wählen Sie im Tab **Messaging Channels** die Option **Push notifications** und erstellen Sie Ihre Basis-Push-Benachrichtigung. Weitere Hilfe finden Sie in unserem dedizierten Abschnitt [Push]({{site.baseurl}}/user_guide/channels/push/).
+Wählen Sie im Tab **Messaging Channels** die Option **Push notifications** und erstellen Sie Ihre Basis-Push-Benachrichtigung. Weitere Hilfe finden Sie in unserem dedizierten Abschnitt [Push]({{site.baseurl}}/user_guide/channels/push).
 
 Der Content Optimizer-Agent verwendet die in dieser Variante ausgewählten Push-Plattformen, um alle Nachrichten zu senden. Sie können entweder mit einem neuen Design beginnen oder ein vorhandenes Template für diese Nachricht auswählen. Überlegen Sie in diesem Schritt, welche Komponenten der Nachricht Sie optimieren möchten. Diese definieren Sie in [Schritt 4](#step-4).
 
@@ -61,7 +61,7 @@ Unterstützte Komponenten zur Optimierung umfassen:
 {% endtab %}
 {% tab SMS/MMS/RCS %}
 
-Wählen Sie im Tab **Messaging Channels** die Option **SMS/MMS/RCS** und erstellen Sie Ihre Basisnachricht. Weitere Hilfe finden Sie in unserem dedizierten Abschnitt [SMS/MMS/RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/).
+Wählen Sie im Tab **Messaging Channels** die Option **SMS/MMS/RCS** und erstellen Sie Ihre Basisnachricht. Weitere Hilfe finden Sie in unserem dedizierten Abschnitt [SMS/MMS/RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs).
 
 Der Content Optimizer-Agent verwendet die in dieser Variante angegebenen **Content**- und **Message**-Details, um alle Nachrichten zu senden. Sie können entweder mit einem neuen Design beginnen oder ein vorhandenes Template für diese Nachricht auswählen. Überlegen Sie in diesem Schritt, welche Komponenten der Nachricht Sie optimieren möchten. Diese definieren Sie in [Schritt 4](#step-4).
 
@@ -76,7 +76,7 @@ Unterstützte Komponenten zur Optimierung umfassen:
 
 ### 3. Schritt: Zustellungseinstellungen festlegen {#step-3-specify-delivery-settings}
 
-Im Tab **Delivery Settings** können Sie angeben, ob der Schritt intelligentes Timing oder Zustellungsvalidierungen verwenden soll. Weitere Details finden Sie unter [Zustellungseinstellungen bearbeiten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#step-2-edit-delivery-settings) im Nachrichtenschritt.
+Im Tab **Delivery Settings** können Sie angeben, ob der Schritt intelligentes Timing oder Zustellungsvalidierungen verwenden soll. Weitere Details finden Sie unter [Zustellungseinstellungen bearbeiten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#step-2-edit-delivery-settings) im Nachrichtenschritt.
 
 ### 4. Schritt: Inhaltskomponenten und Varianten hinzufügen {#step-4}
 
@@ -229,7 +229,7 @@ Für SMS/MMS/RCS-Schritte können die Abo-Gruppe und der Nachrichtentyp nach dem
 - Testen Sie für optimale Ergebnisse mindestens 10 Kombinationen insgesamt.
 - Wenn Sie für Klicks optimieren, schließen Sie Betreffzeilen in Ihre Tests ein, da stärkere Betreffzeilen zu mehr Öffnungen beitragen und mehr Möglichkeiten für Klicks schaffen können.
 - Wenn Sie für Öffnungen optimieren, konzentrieren Sie Ihre Tests auf die Betreffzeile.
-- Wenn Sie Content Optimizer zum ersten Mal verwenden, ziehen Sie in Betracht, einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/)-Schritt zu verwenden, sodass nur ein Teil Ihrer Zielgruppe den Branch betritt, der den Content Optimizer-Schritt enthält. Sie könnten beispielsweise die Hälfte Ihrer Nutzer:innen über einen Pfad mit dem Content Optimizer-Schritt senden und die andere Hälfte über einen Kontrollpfad, der den Nachrichtenschritt mit Ihrem aktuellen Standardinhalt sendet. Sammeln Sie dann 2–3 Wochen lang Daten und vergleichen Sie alle Leistungskennzahlen (KPIs) oder Gegenmetriken, bevor Sie den Traffic zu den Pfaden mit Content Optimizer-Schritten erhöhen.
+- Wenn Sie Content Optimizer zum ersten Mal verwenden, ziehen Sie in Betracht, einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Schritt zu verwenden, sodass nur ein Teil Ihrer Zielgruppe den Branch betritt, der den Content Optimizer-Schritt enthält. Sie könnten beispielsweise die Hälfte Ihrer Nutzer:innen über einen Pfad mit dem Content Optimizer-Schritt senden und die andere Hälfte über einen Kontrollpfad, der den Nachrichtenschritt mit Ihrem aktuellen Standardinhalt sendet. Sammeln Sie dann 2–3 Wochen lang Daten und vergleichen Sie alle Leistungskennzahlen (KPIs) oder Gegenmetriken, bevor Sie den Traffic zu den Pfaden mit Content Optimizer-Schritten erhöhen.
   - Für einen effektiven Eins-zu-eins-Vergleich empfehlen wir, dass Ihr Content Optimizer-Schritt Ihren Standardinhalt als eine der Varianten für jede Komponente enthält.
 - Bevor Sie einen laufenden Schritt aktualisieren, warten Sie, bis sich die Performance-Rankings über alle Komponentenvarianten stabilisiert haben – das bedeutet, dass dieselben Varianten drei bis vier Tage in Folge konsistent gewinnen und verlieren. Dies dauert in der Regel etwa sieben Tage, und eine höhere Anzahl von Optimierungsevents erzeugt ein stärkeres, genaueres Signal.
 - Vermeiden Sie zu frühe Aktualisierungen. Jedes Mal, wenn Sie Änderungen veröffentlichen, setzt der Optimizer zurück. Wenn Sie aktualisieren, bevor der Schritt Zeit hatte zu erkennen, was funktioniert, verhindern Sie, dass er seine Erkenntnisse nutzen kann – und der Schritt bekommt nie die Gelegenheit, bedeutenden Traffic in Richtung der leistungsstärksten Kombinationen zu verschieben.
@@ -243,7 +243,7 @@ Für SMS/MMS/RCS-Schritte können die Abo-Gruppe und der Nachrichtentyp nach dem
 
 ## Analytics {#analytics}
 
-Um die Performance zu überprüfen, öffnen Sie das Analytics-Panel auf Schrittebene, um Metriken nach Inhaltsvariante und der Gesamt-Kombinationsperformance zu sehen. Der Content Optimizer-Schritt verwendet die [gleichen Analytics wie der Nachrichtenschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#analytics).
+Um die Performance zu überprüfen, öffnen Sie das Analytics-Panel auf Schrittebene, um Metriken nach Inhaltsvariante und der Gesamt-Kombinationsperformance zu sehen. Der Content Optimizer-Schritt verwendet die [gleichen Analytics wie der Nachrichtenschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#analytics).
 
 Wenn Sie den Schritt nach dem Start aktualisiert haben, markiert das Sendezuweisungs-Chart, wann jede Inhaltsbearbeitung stattgefunden hat. Daten von deaktivierten Varianten werden beibehalten und bleiben im Analytics-Panel einsehbar, sodass Sie die Performance über die gesamte Lebensdauer des Schritts vergleichen können.
 
@@ -257,13 +257,13 @@ Die eindeutigen Öffnungen und Klicks werden innerhalb von sieben Tagen nach dem
 
 | Metrik | Beschreibung |
 | --- | --- |
-| Sends | Die Anzahl der Sends, die dieser Variante für diese Komponente in diesem Schritt zugeordnet werden, unter Verwendung der gleichen Sendezählung auf Schrittebene wie [*Sends*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#sends) in der Tabelle [Performance nach Kombination](#performance-by-combination). |
-| Öffnungen | Wenn diese Spalte für Ihren Kanal angezeigt wird, die Anzahl der **eindeutigen** Öffnungen für diese Variante innerhalb von sieben Tagen nach dem Senden. Siehe [*Eindeutige Öffnungen*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-opens). |
+| Sends | Die Anzahl der Sends, die dieser Variante für diese Komponente in diesem Schritt zugeordnet werden, unter Verwendung der gleichen Sendezählung auf Schrittebene wie [*Sends*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#sends) in der Tabelle [Performance nach Kombination](#performance-by-combination). |
+| Öffnungen | Wenn diese Spalte für Ihren Kanal angezeigt wird, die Anzahl der **eindeutigen** Öffnungen für diese Variante innerhalb von sieben Tagen nach dem Senden. Siehe [*Eindeutige Öffnungen*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-opens). |
 | Öffnungsrate | Wenn diese Spalte angezeigt wird, der Prozentsatz der Sends für diese Variante, die mindestens eine qualifizierende eindeutige Öffnung innerhalb von sieben Tagen verzeichnet haben. |
-| Klicks | Die Anzahl der **eindeutigen** Klicks für diese Variante innerhalb von sieben Tagen nach dem Senden. Siehe [*Gesamtklicks*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#total-clicks), [*Eindeutige Klicks*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-clicks) und [Schritt 5: Optimierungsevent auswählen](#step-5-select-optimization-event). |
+| Klicks | Die Anzahl der **eindeutigen** Klicks für diese Variante innerhalb von sieben Tagen nach dem Senden. Siehe [*Gesamtklicks*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#total-clicks), [*Eindeutige Klicks*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-clicks) und [Schritt 5: Optimierungsevent auswählen](#step-5-select-optimization-event). |
 | Klickrate | Der Prozentsatz der Sends für diese Variante, die mindestens einen qualifizierenden eindeutigen Klick innerhalb von sieben Tagen verzeichnet haben, unter Verwendung des gleichen Schritt-Fensters wie die Tabelle [Performance nach Kombination](#performance-by-combination). Weitere Informationen finden Sie unter [Warum sich Schritt-Analytics von allgemeinen Analytics unterscheiden](#why-step-analytics-differ-from-general-analytics). |
-| Lesungen | Wenn diese Spalte angezeigt wird (z. B. für RCS bei Optimierung für Lesungen), wird gezählt, wenn eine Verbraucher:in die Nachricht mit aktivierten Lesebestätigungen liest. Siehe [*Lesungen*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#reads). |
-| Leserate | Der Prozentsatz der Sends für diese Variante, die bei Nutzer:innen mit aktivierten Lesebestätigungen zu einer Lesung geführt haben. Siehe [*Leserate*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#read-rate). |
+| Lesungen | Wenn diese Spalte angezeigt wird (z. B. für RCS bei Optimierung für Lesungen), wird gezählt, wenn eine Verbraucher:in die Nachricht mit aktivierten Lesebestätigungen liest. Siehe [*Lesungen*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#reads). |
+| Leserate | Der Prozentsatz der Sends für diese Variante, die bei Nutzer:innen mit aktivierten Lesebestätigungen zu einer Lesung geführt haben. Siehe [*Leserate*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#read-rate). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Performance nach Komponente – Metriken" }
 
 ![Content Optimizer – Performance nach Komponente – Analytics mit separaten Tabellen pro Komponente, die Sends, Klicks und Klickrate für jede Variante auflisten.]({% image_buster /assets/img/content_optimizer/analytics_performance_by_component.png %})
@@ -276,13 +276,13 @@ Die eindeutigen Öffnungen und Klicks werden innerhalb von sieben Tagen nach dem
 
 | Metrik | Beschreibung |
 | --- | --- |
-| Sends | Die Gesamtzahl der Nachrichten, die aus diesem Schritt mit dieser Kombination gesendet wurden. Die Zählung folgt der gleichen allgemeinen Bedeutung wie [*Sends*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#sends), bezogen auf jede Kombination. |
-| Öffnungen | Die Anzahl der eindeutigen Öffnungen für diese Kombination innerhalb von sieben Tagen nach dem Senden. Wie eindeutige Öffnungen für E-Mail definiert werden, erfahren Sie unter [*Eindeutige Öffnungen*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-opens). |
+| Sends | Die Gesamtzahl der Nachrichten, die aus diesem Schritt mit dieser Kombination gesendet wurden. Die Zählung folgt der gleichen allgemeinen Bedeutung wie [*Sends*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#sends), bezogen auf jede Kombination. |
+| Öffnungen | Die Anzahl der eindeutigen Öffnungen für diese Kombination innerhalb von sieben Tagen nach dem Senden. Wie eindeutige Öffnungen für E-Mail definiert werden, erfahren Sie unter [*Eindeutige Öffnungen*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-opens). |
 | Öffnungsrate | Der Prozentsatz der Sends für diese Kombination, die mindestens eine qualifizierende eindeutige Öffnung innerhalb von sieben Tagen verzeichnet haben. |
-| Klicks | Die Anzahl der eindeutigen Klicks für diese Kombination innerhalb von sieben Tagen nach dem Senden. Wie Braze Klicks nach Kanal definiert, erfahren Sie unter [*Gesamtklicks*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#total-clicks) und [*Eindeutige Klicks*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-clicks). |
+| Klicks | Die Anzahl der eindeutigen Klicks für diese Kombination innerhalb von sieben Tagen nach dem Senden. Wie Braze Klicks nach Kanal definiert, erfahren Sie unter [*Gesamtklicks*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#total-clicks) und [*Eindeutige Klicks*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-clicks). |
 | Klickrate | Der Prozentsatz der Sends für diese Kombination, die mindestens einen qualifizierenden eindeutigen Klick innerhalb von sieben Tagen verzeichnet haben. Da Content Optimizer die deduplizierten Sieben-Tage-Zählungen des Schritts verwendet, stimmt diese Rate möglicherweise nicht mit den Klickraten in allgemeinen Campaign-Analytics überein. Weitere Informationen finden Sie unter [Warum sich Schritt-Analytics von allgemeinen Analytics unterscheiden](#why-step-analytics-differ-from-general-analytics). |
-| [Lesungen]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#reads) | Wenn diese Spalte angezeigt wird (z. B. für RCS bei Optimierung für Lesungen), wird gezählt, wenn eine Verbraucher:in die Nachricht mit aktivierten Lesebestätigungen liest. |
-| [Leserate]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#read-rate) | Wenn diese Spalte angezeigt wird, der Prozentsatz der Sends für diese Kombination, die bei Nutzer:innen mit aktivierten Lesebestätigungen zu einer Lesung geführt haben. |
+| [Lesungen]({{site.baseurl}}/user_guide/analytics/metrics_glossary#reads) | Wenn diese Spalte angezeigt wird (z. B. für RCS bei Optimierung für Lesungen), wird gezählt, wenn eine Verbraucher:in die Nachricht mit aktivierten Lesebestätigungen liest. |
+| [Leserate]({{site.baseurl}}/user_guide/analytics/metrics_glossary#read-rate) | Wenn diese Spalte angezeigt wird, der Prozentsatz der Sends für diese Kombination, die bei Nutzer:innen mit aktivierten Lesebestätigungen zu einer Lesung geführt haben. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Performance nach Kombination – Metriken" }
 
 ![Content Optimizer – Performance nach Kombination – Analytics-Tabelle mit Sends, Klicks und Klickrate für jede Inhaltskombination.]({% image_buster /assets/img/content_optimizer/analytics_performance_by_combination.png %})

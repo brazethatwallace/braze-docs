@@ -6,10 +6,10 @@ page_type: reference
 description: "Dieser Referenzartikel erläutert, wie und warum Sie Retargeting von Kampagnen basierend auf Nachrichten, die Ihre Nutzer:innen erhalten, in Betracht ziehen sollten."
 tool:
   - Campaigns
-  
+
 ---
 
-# Retargeting von Kampagnen
+# Retargeting von Kampagnen {#retarget-campaigns}
 
 > Durch das Retargeting von Kampagnen basierend auf früheren Aktionen der Nutzer:innen – zum Beispiel ob sie eine E-Mail geöffnet haben oder nicht – können Sie Ihre Nutzer:innen neu klassifizieren und den Weg für einen effektiven, datengestützten Marketing-Ansatz ebnen.
 
@@ -17,13 +17,13 @@ Braze bietet Support für das Retargeting von Nutzer:innen basierend auf Nachric
 
 Jeder dieser Retargeting-Filter bietet Ihnen nach dem Hinzufügen mehrere Optionen. Weitere Informationen zum Targeting von Nutzer:innen finden Sie in unserem [Braze-Lernkurs](https://learning.braze.com/campaign-setup-delivery-targeting-conversions) zur Kampagneneinrichtung!
 
-![Abschnitt „Segment Details" mit dem Dropdown-Menü für die verfügbaren Filter.]({% image_buster /assets/img_archive/retarget.png %}){: style="max-width:80%;"}
+![Abschnitt „Segment Details“ mit dem Dropdown-Menü für die verfügbaren Filter.]({% image_buster /assets/img_archive/retarget.png %}){: style="max-width:80%;"}
 
-## Retargeting-Filter
+## Retargeting-Filter {#retargeting-filters}
 
 Sie können die Retargeting-Filter in diesem Abschnitt für Ihre Nutzer:innen innerhalb Ihrer Kampagnen und Canvases verwenden.
 
-### Kampagne angeklickt/geöffnet
+### Kampagne angeklickt/geöffnet {#clickedopened-campaign}
 
 Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die Folgendes getan oder nicht getan haben:
 
@@ -33,11 +33,11 @@ Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die Folgendes getan oder
 - Eine E-Mail geöffnet
 - Eine In-App-Nachricht angesehen
 
-![]({% image_buster /assets/img_archive/clickedopened.png %})
+![Filter „Kampagne angeklickt/geöffnet“ mit Optionen für Kanalinteraktionen.]({% image_buster /assets/img_archive/clickedopened.png %})
 
 Dies kann weiter spezifiziert werden, indem Sie auswählen, welche Kampagne Sie retargeten möchten.
 
-### Kampagne oder Canvas mit Tag angeklickt oder geöffnet
+### Kampagne oder Canvas mit Tag angeklickt oder geöffnet {#clicked-or-opened-campaign-or-canvas-with-tag}
 
 Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die mit Kampagnen oder Canvases mit einem bestimmten Tag interagiert haben oder nicht:
 
@@ -47,65 +47,65 @@ Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die mit Kampagnen oder C
 - Eine E-Mail geöffnet
 - Eine In-App-Nachricht angesehen
 
-![]({% image_buster /assets/img_archive/retarget_tag_filter.png %})
+![Filter „Kampagne oder Canvas mit Tag angeklickt oder geöffnet“.]({% image_buster /assets/img_archive/retarget_tag_filter.png %})
 
-### Aus Kampagne konvertiert
+### Aus Kampagne konvertiert {#converted-from-campaign}
 
 Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die in Ihrer Zielkampagne konvertiert haben oder nicht (basierend auf der primären Konversion).
 
 Bei wiederkehrenden Kampagnen bezieht sich dieser Filter darauf, ob Nutzer:innen bei der letzten Nachricht der Kampagne konvertiert haben.
 
-![]({% image_buster /assets/img_archive/converted_from_campaign.png %})
+![Filter „Aus Kampagne konvertiert“ mit Kampagnenauswahl.]({% image_buster /assets/img_archive/converted_from_campaign.png %})
 
-### Aus Canvas konvertiert
+### Aus Canvas konvertiert {#converted-from-canvas}
 
 Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die in Ihrem Ziel-Canvas konvertiert haben oder nicht (basierend auf der primären Konversion).
 
 Bei wiederkehrenden Canvases bezieht sich dieser Filter darauf, ob Nutzer:innen jemals konvertiert haben, wenn sie den Canvas durchlaufen haben.
 
-![]({% image_buster /assets/img_archive/converted_from_canvas.png %})
+![Filter „Aus Canvas konvertiert“ mit Canvas-Auswahl.]({% image_buster /assets/img_archive/converted_from_canvas.png %})
 
-### In Kampagnen-Kontrollgruppe
+### In Kampagnen-Kontrollgruppe {#in-campaign-control-group}
 
 Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die in der Kontrollgruppe Ihrer Zielkampagne sind oder nicht.
 
-![]({% image_buster /assets/img_archive/campaign_control_group.png %})
+![Filter „In Kampagnen-Kontrollgruppe“ mit Kampagnenauswahl.]({% image_buster /assets/img_archive/campaign_control_group.png %})
 
-### In Canvas-Kontrollgruppe
+### In Canvas-Kontrollgruppe {#in-canvas-control-group}
 
 Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die in der Kontrollgruppe Ihres Ziel-Canvas sind oder nicht. Der Canvas kann im Dropdown ausgewählt werden.
 
-![]({% image_buster /assets/img_archive/canvas_control_group.png %})
+![Filter „In Canvas-Kontrollgruppe“ mit Canvas-Auswahl.]({% image_buster /assets/img_archive/canvas_control_group.png %})
 
-### Letzte Nachricht von bestimmter Kampagne erhalten
+### Letzte Nachricht von bestimmter Kampagne erhalten {#last-received-message-from-specific-campaign}
 
 Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die zuletzt eine bestimmte Kampagne vor oder nach einem bestimmten Datum oder einer bestimmten Anzahl von Tagen erhalten haben. Dieser Filter berücksichtigt nicht, wann Nutzer:innen andere Kampagnen erhalten haben.
 
 {% multi_lang_include audience/segments.md section='same channel identifier' %}
 
-![]({% image_buster /assets/img_archive/last_received_specific_campaign.png %})
+![Filter „Letzte Nachricht von bestimmter Kampagne erhalten“ mit Datumsoptionen.]({% image_buster /assets/img_archive/last_received_specific_campaign.png %})
 
-### Letzte Nachricht von Kampagne oder Canvas mit Tag erhalten
+### Letzte Nachricht von Kampagne oder Canvas mit Tag erhalten {#last-received-message-from-campaign-or-canvas-with-tag}
 
 Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die zuletzt eine Kampagne oder einen Canvas mit einem bestimmten Tag vor oder nach einem bestimmten Datum oder einer bestimmten Anzahl von Tagen erhalten haben. Dieser Filter berücksichtigt nicht, wann Nutzer:innen andere Kampagnen oder Canvases erhalten haben.
 
-![]({% image_buster /assets/img_archive/last_received_campaign_with_tag.png %})
+![Filter „Letzte Nachricht von Kampagne oder Canvas mit Tag erhalten“.]({% image_buster /assets/img_archive/last_received_campaign_with_tag.png %})
 
-### Nachricht von Kampagne erhalten
+### Nachricht von Kampagne erhalten {#received-message-from-campaign}
 
 Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die Ihre Zielkampagne erhalten haben oder nicht.
 
 {% multi_lang_include audience/segments.md section='same channel identifier' %}
 
-![]({% image_buster /assets/img_archive/receivedcamp.png %})
+![Filter „Nachricht von Kampagne erhalten“ mit Kampagnenauswahl.]({% image_buster /assets/img_archive/receivedcamp.png %})
 
-### Nachricht von Kampagne oder Canvas mit Tag erhalten
+### Nachricht von Kampagne oder Canvas mit Tag erhalten {#received-message-from-campaign-or-canvas-with-tag}
 
 Verwenden Sie diesen Filter, um Nutzer:innen zu finden, die eine Kampagne oder einen Canvas mit Ihrem Ziel-Tag erhalten haben oder nicht.
 
-![]({% image_buster /assets/img_archive/received_campaign_with_tag.png %})
+![Filter „Nachricht von Kampagne oder Canvas mit Tag erhalten“.]({% image_buster /assets/img_archive/received_campaign_with_tag.png %})
 
-## Vorteile des Retargetings von Kampagnen
+## Vorteile des Retargetings von Kampagnen {#advantages-with-retargeting-campaigns}
 
 Retargeting ist besonders effektiv, wenn das ursprüngliche Segment auch eine bestimmte Aktion enthielt, die Nutzer:innen ausführen sollen. Nehmen wir zum Beispiel an, Sie haben eine Card, die sich an Nutzer:innen richtet, die noch nie einen Kauf getätigt haben. Die Card bewirbt eine Aktion für einen vergünstigten In-App-Kauf. Das ursprüngliche Segment sieht folgendermaßen aus:
 

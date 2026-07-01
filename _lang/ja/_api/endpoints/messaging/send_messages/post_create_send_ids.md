@@ -14,7 +14,7 @@ description: "この記事では、送信 ID を作成する Braze エンドポ�
 /sends/id/create
 {% endapimethod %}
 
-> このエンドポイントを使用して、送信ごとにCampaignを作成することなく、プログラムでメッセージを送信し、メッセージのパフォーマンスを追跡するために使用できる送信 ID を作成します。
+> このエンドポイントを使用して、送信ごとにキャンペーンを作成することなく、プログラムでメッセージを送信し、メッセージのパフォーマンスを追跡するために使用できる送信 ID を作成します。
 
 送信識別子を使用してメッセージを追跡・送信することは、プログラムでコンテンツを生成・送信する場合に便利です。
 
@@ -46,7 +46,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | 必須 | 文字列 | [Campaign識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
+| `campaign_id` | 必須 | 文字列 | [キャンペーン識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
 | `send_id` | オプション | 文字列 | [送信識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 

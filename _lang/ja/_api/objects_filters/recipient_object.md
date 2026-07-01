@@ -13,7 +13,7 @@ description: "この参照記事では、Braze 受信者オブジェクトのさ
 
 このオブジェクトには、`external_user_id`、`user_alias`、`braze_id`、または `email` のいずれかを含める必要があります。**リクエストでは1つだけ指定してください。**
 
-受信者オブジェクトを使用すると、[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)、[トリガープロパティオブジェクト]({{site.baseurl}}/api/objects_filters/trigger_properties_object)、[Canvasエントリプロパティオブジェクト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)、および[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)を組み合わせることができます。
+受信者オブジェクトを使用すると、[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)、[トリガープロパティオブジェクト]({{site.baseurl}}/api/objects_filters/trigger_properties_object)、[キャンバスエントリプロパティオブジェクト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)、および[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)を組み合わせることができます。
 
 ## オブジェクト本体 {#object-body}
 

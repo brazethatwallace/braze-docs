@@ -49,7 +49,7 @@ Quando você adiciona pares de chave-valor no criador de mensagens, os valores s
 
 O serviço de Notificações por Push da Apple (APNs) suporta a definição de preferências de alerta e o envio de dados personalizados usando pares de chave-valor. O APNs utiliza a biblioteca reservada da Apple `aps`, que inclui chaves e valores predeterminados que governam as propriedades de alerta.
 
-##### Biblioteca APS {#aps-library}
+#### Biblioteca APS {#aps-library}
 
 | Chave  | Tipo de valor  | Descrição do valor |
 |-------------------|-----------------------------|----------------------------------|
@@ -78,7 +78,7 @@ O criador de mensagens da Braze lida automaticamente com a criação das seguint
 
 Esses valores podem ser inseridos na guia **Settings** ao criar uma mensagem push. Selecione **Alert Options** e selecione uma chave de dicionário de alerta para que a chave seja automaticamente preenchida em uma nova entrada de chave-valor.
 
-![]({% image_buster /assets/img_archive/keyvalue_automatickeys.png %})
+![Esses valores podem ser inseridos na guia Settings ao criar uma mensagem push. Selecione Alert Options e selecione uma chave de dicionário de alerta para que a chave seja automaticamente preenchida em uma nova entrada de chave-valor.]({% image_buster /assets/img_archive/keyvalue_automatickeys.png %})
 {% raw %}
 Quando a Braze envia uma notificação por push para o APNs, a carga útil será formatada como JSON.
 
@@ -113,9 +113,9 @@ Quando a Braze envia uma notificação por push para o APNs, a carga útil será
 
 Além dos valores de carga útil da biblioteca `aps`, você pode enviar pares de chave-valor personalizados para o dispositivo de um usuário. Os valores nesses pares são restritos a tipos primitivos: dicionário (objeto), array, string, número e booleano.
 
-![]({% image_buster /assets/img_archive/keyvalue_enterpairs.png %})
+![Captura de tela relacionada a pares de chave-valor personalizados.]({% image_buster /assets/img_archive/keyvalue_enterpairs.png %})
 
-Os casos de uso para pares de chave-valor personalizados incluem, entre outros, manutenção de métricas internas e definição do contexto para a interface do usuário. A Braze permite que você envie pares de chave-valor adicionais junto com uma notificação por push para serem usados pelo seu aplicativo por meio da [chave extras]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/customization/advanced_settings/#extracting-data-from-push-key-value-pairs). Se você preferir usar outra chave, confirme que seu app pode lidar com essa chave personalizada.
+Os casos de uso para pares de chave-valor personalizados incluem, entre outros, manutenção de métricas internas e definição do contexto para a interface do usuário. A Braze permite que você envie pares de chave-valor adicionais junto com uma notificação por push para serem usados pelo seu aplicativo por meio da [chave extras]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/customization/advanced_settings#extracting-data-from-push-key-value-pairs). Se você preferir usar outra chave, confirme que seu app pode lidar com essa chave personalizada.
 
 {% alert warning %}
 Você deve evitar manipular uma chave ou dicionário de nível superior chamado ab no seu aplicativo.
@@ -135,7 +135,7 @@ A Braze permite que você envie pares de chave-valor de string definidos pelo us
 
 A Braze permite que você envie cargas úteis de dados adicionais em notificações por push usando pares de chave-valor.
 
-##### Carga útil de dados {#data-payload}
+#### Carga útil de dados {#data-payload}
 
 Semelhante ao push para iOS, você pode enviar pares de chave-valor personalizados para o dispositivo de um usuário.
 
@@ -145,21 +145,21 @@ Alguns casos de uso para pares de chave-valor personalizados incluem manutençã
 O backend do seu app deve ser capaz de processar pares de chave-valor personalizados para que a carga útil de dados funcione corretamente.
 {% endalert %}
 
-###### Campaigns disparadas por API
+##### Campaigns disparadas por API
 
 A Braze permite que você envie pares de chave-valor de string definidos pelo usuário, conhecidos como `extras`. Para acessar seus extras em Campaigns disparadas por API e Campaigns agendadas disparadas por API, no dashboard defina uma chave como "example_key" e um valor como {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. Isso resultará em uma saída do console de desenvolvedor de `"extras": { "test": { "foo": 1, "bar": 1 }`.
 
 ##### Opções de mensagens FCM {#fcm-messaging-options}
 
-As notificações por push para Android podem ser ainda mais personalizadas com opções de mensagens FCM. Essas incluem [prioridade de notificação]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings/#notification-priority), [som]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings/#sounds), postergação, tempo de vida e capacidade de agrupamento. Esses valores podem ser especificados na guia **Settings** ao criar uma mensagem push. Consulte [Configurações avançadas de notificações por push]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=android#android_settings) para mais instruções sobre como definir essas opções no criador de mensagens da Braze.
+As notificações por push para Android podem ser ainda mais personalizadas com opções de mensagens FCM. Essas incluem [prioridade de notificação]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings#notification-priority), [som]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings#sounds), postergação, tempo de vida e capacidade de agrupamento. Esses valores podem ser especificados na guia **Settings** ao criar uma mensagem push. Consulte [Configurações avançadas de notificações por push]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_settings) para mais instruções sobre como definir essas opções no criador de mensagens da Braze.
 
-![]({% image_buster /assets/img_archive/keyvalue_androidkeys.png %})
+![Captura de tela relacionada às opções de mensagens FCM.]({% image_buster /assets/img_archive/keyvalue_androidkeys.png %})
 
 ### Notificações por push silenciosas {#silent-push-notifications}
 
-Uma notificação por push silenciosa é uma notificação por push que não contém mensagem de alerta ou som, usada para atualizar a interface ou o conteúdo do seu app em segundo plano. Essas notificações utilizam pares de chave-valor para disparar essas ações do app em segundo plano. As notificações por push silenciosas também alimentam nosso [rastreamento de desinstalação]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/).
+Uma notificação por push silenciosa é uma notificação por push que não contém mensagem de alerta ou som, usada para atualizar a interface ou o conteúdo do seu app em segundo plano. Essas notificações utilizam pares de chave-valor para disparar essas ações do app em segundo plano. As notificações por push silenciosas também alimentam nosso [rastreamento de desinstalação]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking).
 
-Os profissionais de marketing devem testar se as notificações por push silenciosas disparam o comportamento esperado antes de enviá-las aos usuários do app. Depois de redigir sua notificação por push silenciosa para [iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift) ou [Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android), certifique-se de direcionar apenas um usuário teste filtrando por [ID de usuário externo]({{site.baseurl}}/developer_guide/rest_api/messaging/#external-user-id) ou [endereço de e-mail]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/).
+Os profissionais de marketing devem testar se as notificações por push silenciosas disparam o comportamento esperado antes de enviá-las aos usuários do app. Depois de redigir sua notificação por push silenciosa para [iOS]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift) ou [Android]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=android), certifique-se de direcionar apenas um usuário teste filtrando por [ID de usuário externo]({{site.baseurl}}/developer_guide/rest_api/messaging#external-user-id) ou [endereço de e-mail]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 
 Ao lançar a Campaign, você deve verificar se não recebeu nenhuma notificação por push visível no seu dispositivo de teste.
 
@@ -168,22 +168,22 @@ O controle de notificações silenciosas do iOS pode causar os seguintes sintoma
 
 - Métricas de rastreamento de desinstalação menores do que o esperado para usuários iOS
 - Entrega inconsistente ou atrasada de notificações por push silenciosas
-- [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/) que não são exibidas
+- [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories) que não são exibidas
 - Push Stories que chegam sem as imagens, vídeos ou páginas esperados
 
-Essa é uma limitação da plataforma Apple, não um problema da Braze. O iOS pode atrasar ou descartar notificações em segundo plano para alguns recursos da Braze, incluindo rastreamento de desinstalação e Push Stories. Para detalhes sobre o que o iOS limita e quando, consulte [Limitações do iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift#ios-limitations).
+Essa é uma limitação da plataforma Apple, não um problema da Braze. O iOS pode atrasar ou descartar notificações em segundo plano para alguns recursos da Braze, incluindo rastreamento de desinstalação e Push Stories. Para detalhes sobre o que o iOS limita e quando, consulte [Limitações do iOS]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift#ios-limitations).
 {% endalert %}
 
 ## Mensagens no app {#in-app-messages}
 
-Você pode adicionar um par de chave-valor a uma mensagem no app no [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) selecionando a guia **Settings**, selecionando **Add New Pair** e especificando seus pares de chave-valor.
+Você pode adicionar um par de chave-valor a uma mensagem no app no [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) selecionando a guia **Settings**, selecionando **Add New Pair** e especificando seus pares de chave-valor.
 
 {% alert note %}
 Pares de chave-valor não podem ser definidos por meio do editor de arrastar e soltar para mensagens no app.
 {% endalert %}
-![]({% image_buster /assets/img_archive/keyvalue_iam.png %})
+![Captura de tela relacionada a mensagens no app.]({% image_buster /assets/img_archive/keyvalue_iam.png %})
 
-#### Campaigns disparadas por API
+### Campaigns disparadas por API
 
 A Braze permite que você envie pares de chave-valor de string definidos pelo usuário, conhecidos como `extras`. Para acessar seus extras em Campaigns disparadas por API e Campaigns agendadas disparadas por API, no dashboard defina uma chave como "example_key" e um valor como {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. Isso resultará em uma saída do console de desenvolvedor de `"extras": { "test": { "foo": 1, "bar": 1 }`.
 

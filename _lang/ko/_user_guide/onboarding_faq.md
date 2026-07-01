@@ -24,13 +24,13 @@ Users
 
 처음에 SDK를 통해 고객 프로필이 인식되면 Braze는 Braze에서 설정한 고유 사용자 식별자인 `braze_id`가 연결된 익명 고객 프로필을 생성합니다.
 
-익명 사용자를 더 효과적으로 추적하기 위해 익명 사용자에게 식별자를 태그할 수 있는 [사용자 별칭]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#user-aliases)을 구현할 수 있습니다. 그런 다음 이러한 사용자는 별칭을 사용하여 내보내거나 API에서 참조할 수 있습니다.
+익명 사용자를 더 효과적으로 추적하기 위해 익명 사용자에게 식별자를 태그할 수 있는 [사용자 별칭]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases)을 구현할 수 있습니다. 그런 다음 이러한 사용자는 별칭을 사용하여 내보내거나 API에서 참조할 수 있습니다.
 
 별칭이 있는 익명 고객 프로필이 나중에 `external_id`로 인식되면 정상적으로 식별된 고객 프로필로 취급되지만 기존 별칭은 그대로 유지되며 해당 별칭으로 계속 참조할 수 있습니다.
 
-식별된 사용자와 병합하려는 별칭 사용자의 경우 유지하려는 실제 프로필과 관련된 모든 필드를 병합할 수 있습니다. [식별자별 고객 프로필 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)를 사용하여 별칭 프로필에서 데이터를 삭제하기 전에 해당 데이터를 내보내야 합니다. 그런 다음 [사용자 추적 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)를 사용하여 이러한 이벤트를 보관한 프로필에 게시할 수 있습니다. 이렇게 하면 이전에 한 프로필에 기록되었지만 다른 프로필에는 기록되지 않았던 속성 등 유지하려는 모든 데이터가 보존됩니다.
+식별된 사용자와 병합하려는 별칭 사용자의 경우 유지하려는 실제 프로필과 관련된 모든 필드를 병합할 수 있습니다. [식별자별 고객 프로필 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)를 사용하여 별칭 프로필에서 데이터를 삭제하기 전에 해당 데이터를 내보내야 합니다. 그런 다음 [사용자 추적 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하여 이러한 이벤트를 보관한 프로필에 게시할 수 있습니다. 이렇게 하면 이전에 한 프로필에 기록되었지만 다른 프로필에는 기록되지 않았던 속성 등 유지하려는 모든 데이터가 보존됩니다.
 
-Braze에서 신규 및 기존 사용자 데이터를 수집하는 다양한 방법에 대한 전체 분석은 [데이터 수집 모범 사례]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices/)를 확인하세요.
+Braze에서 신규 및 기존 사용자 데이터를 수집하는 다양한 방법에 대한 전체 분석은 [데이터 수집 모범 사례]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices)를 확인하세요.
 
 {% endapi %}
 {% api %}
@@ -47,17 +47,17 @@ Users
 
 **오디언스** > **사용자 가져오기**에서 CSV 파일을 통해 고객 프로필을 업로드하고 업데이트할 수 있습니다. 고객 데이터를 가져올 때 각 고객의 고유 식별자(`external_id`)를 지정해야 합니다.
 
-CSV 가져오기를 시작하기 전에 엔지니어링 팀으로부터 Braze에서 사용자를 식별하는 방법을 이해하는 것이 중요합니다. 일반적으로 내부에서 사용하는 데이터베이스 ID입니다. 이는 모바일과 웹에서 Braze SDK가 사용자를 식별하는 방식과 일치해야 하며, 각 고객은 여러 기기에서 Braze 내에서 단일 고객 프로필을 갖게 됩니다. Braze [고객 프로필 수명주기]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)에 대해 자세히 알아보세요.
+CSV 가져오기를 시작하기 전에 엔지니어링 팀으로부터 Braze에서 사용자를 식별하는 방법을 이해하는 것이 중요합니다. 일반적으로 내부에서 사용하는 데이터베이스 ID입니다. 이는 모바일과 웹에서 Braze SDK가 사용자를 식별하는 방식과 일치해야 하며, 각 고객은 여러 기기에서 Braze 내에서 단일 고객 프로필을 갖게 됩니다. Braze [고객 프로필 수명주기]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)에 대해 자세히 알아보세요.
 
 가져오기에 `external_id`를 입력하면 Braze는 동일한 `external_id`를 가진 기존 사용자를 업데이트하거나, 해당 사용자를 찾을 수 없는 경우 해당 `external_id`가 설정된 새로 식별된 사용자를 생성합니다.
 
-자세한 내용을 확인하고 CSV 가져오기 템플릿을 다운로드하려면 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv)를 참조하세요.
+자세한 내용을 확인하고 CSV 가져오기 템플릿을 다운로드하려면 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv)를 참조하세요.
 
 #### API
 
-API를 통해 사용자를 업로드하려면 [사용자 추적 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)를 사용하여 사용자를 Braze로 가져올 수 있습니다.
+API를 통해 사용자를 업로드하려면 [사용자 추적 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하여 사용자를 Braze로 가져올 수 있습니다.
 
-사용자가 이미 Braze에 존재하는지 확실하지 않은 경우, [식별자별 고객 프로필 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)를 구현하여 확인할 수 있습니다. 사용자가 이미 Braze에 존재하는 것으로 확인된 경우, `/users/track` 엔드포인트를 사용하여 추가하려는 새 데이터를 Braze에 이미 존재하는 고객 프로필에 게시할 수 있습니다.
+사용자가 이미 Braze에 존재하는지 확실하지 않은 경우, [식별자별 고객 프로필 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)를 구현하여 확인할 수 있습니다. 사용자가 이미 Braze에 존재하는 것으로 확인된 경우, `/users/track` 엔드포인트를 사용하여 추가하려는 새 데이터를 Braze에 이미 존재하는 고객 프로필에 게시할 수 있습니다.
 
 {% alert note %}
 `/users/track` 엔드포인트를 사용할 때는 다음 사항을 염두에 두세요:
@@ -129,7 +129,7 @@ CSV 파일을 가져오려면 사용자 섹션 아래의 **사용자 가져오�
 
 **이 CSV에서 사용자 가져오기를 선택하고 이 특정 사용자 배치를 그룹으로 리타겟팅할 수 있도록 설정한** 다음 **이 CSV에서 가져온 사용자로부터 Segment 자동 생성**을 선택합니다. **가져오기 시작**을 클릭하면 Braze가 파일을 업로드하고 열 헤더와 각 열의 데이터 유형을 확인한 후 Segment를 생성합니다.
 
-CSV 템플릿을 다운로드하려면 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv)를 참조하세요.
+CSV 템플릿을 다운로드하려면 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv)를 참조하세요.
 
 {% endapi %}
 {% api %}
@@ -140,7 +140,7 @@ CSV 템플릿을 다운로드하려면 [사용자 가져오기]({{site.baseurl}}
 Segments
 {% endapitags %}
 
-Braze SDK는 특정 기능 및 속성을 기반으로 사용자를 세분화하고 타겟팅할 수 있는 강력한 필터를 제공합니다. [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) 용어집을 사용하여 필터 카테고리(커스텀 데이터, 사용자 활동, 리타겟팅, 마케팅 활동, 사용자 속성, 설치 경로, 소셜 활동, 테스트, 기타)별로 이러한 필터를 검색하거나 범위를 좁힐 수 있습니다.
+Braze SDK는 특정 기능 및 속성을 기반으로 사용자를 세분화하고 타겟팅할 수 있는 강력한 필터를 제공합니다. [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) 용어집을 사용하여 필터 카테고리(커스텀 데이터, 사용자 활동, 리타겟팅, 마케팅 활동, 사용자 속성, 설치 경로, 소셜 활동, 테스트, 기타)별로 이러한 필터를 검색하거나 범위를 좁힐 수 있습니다.
 
 {% endapi %}
 {% api %}
@@ -159,7 +159,7 @@ Segment를 생성한 후에는 `Most Recent Location` 필터를 추가하여 사
 - 다각형 영역의 경우 Segment에 포함할 영역을 보다 구체적으로 지정할 수 있습니다.
 
 {% alert tip %}
-Braze 파트너의 도움을 받아 위치 타겟팅을 활용하고 싶으신가요? 사용 가능한 Braze [상황별 위치 파트너]({{site.baseurl}}/partners/message_personalization/)를 확인하세요.
+Braze 파트너의 도움을 받아 위치 타겟팅을 활용하고 싶으신가요? 사용 가능한 Braze [상황별 위치 파트너]({{site.baseurl}}/partners/message_personalization)를 확인하세요.
 {% endalert %}
 
 {% endapi %}
@@ -171,7 +171,7 @@ Braze 파트너의 도움을 받아 위치 타겟팅을 활용하고 싶으신�
 Segments
 {% endapitags %}
 
-[세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 사용할 수 있습니다! 세그먼트 확장을 사용하면 일반 Segment를 사용할 때보다 더 정확한 사용자 목록을 타겟팅할 수 있습니다.
+[세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension)을 사용할 수 있습니다! 세그먼트 확장을 사용하면 일반 Segment를 사용할 때보다 더 정확한 사용자 목록을 타겟팅할 수 있습니다.
 
 워크스페이스당 최대 10개의 세그먼트 확장을 만들 수 있습니다. 이러한 확장 목록이 생성된 후에는 Segment에 필터로 포함하거나 제외할 수 있습니다. 세그먼트 확장을 만들 때 목록이 24시간마다 한 번씩 재생성되도록 지정할 수도 있습니다.
 
@@ -184,7 +184,7 @@ Segments
 
 타겟팅 정확도를 높이려면 **등록정보 필터 추가**를 선택하고 구매 또는 커스텀 이벤트의 특정 등록정보를 기반으로 세분화할 수 있습니다. Braze는 문자열, 숫자, 부울, 시간 객체를 기반으로 이벤트 속성정보 세분화를 지원합니다.
 
-[중첩 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/)를 기반으로 한 세분화도 지원합니다.
+[중첩 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)를 기반으로 한 세분화도 지원합니다.
 
 세그먼트 확장은 이벤트 속성정보의 장기 저장에 의존하며 30일의 커스텀 이벤트 속성 저장 제한이 없습니다. 즉, 지난 1년 동안 추적된 이벤트 속성정보를 다시 살펴볼 수 있으며, 확장이 먼저 설정될 때까지 추적이 기다리지 않습니다.
 
@@ -218,7 +218,7 @@ Segments
 Campaigns
 {% endapitags %}
 
-설정 단계, 지원되는 채널 및 작성기 전환 방법은 **Campaign 생성**의 [멀티채널 캠페인]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns)을 참조하세요.
+설정 단계, 지원되는 채널 및 작성기 전환 방법은 **Campaign 생성**의 [멀티채널 캠페인]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns)을 참조하세요.
 
 {% endapi %}
 {% api %}
@@ -229,7 +229,7 @@ Campaigns
 Campaigns
 {% endapitags %}
 
-다변량 캠페인을 만들고 여러 배리언트가 있는 Canvases를 실행하는 것은 시작하기에 좋은 방법입니다! 예를 들어, [다변량 캠페인]({{site.baseurl}}/user_guide/messaging/ab_testing/)을 실행하여 문구나 제목란이 다른 하나의 메시지를 테스트할 수 있습니다. 여러 배리언트가 있는 Canvases는 전체 워크플로를 테스트하는 데 유용합니다.
+다변량 캠페인을 만들고 여러 배리언트가 있는 Canvases를 실행하는 것은 시작하기에 좋은 방법입니다! 예를 들어, [다변량 캠페인]({{site.baseurl}}/user_guide/messaging/ab_testing)을 실행하여 문구나 제목란이 다른 하나의 메시지를 테스트할 수 있습니다. 여러 배리언트가 있는 Canvases는 전체 워크플로를 테스트하는 데 유용합니다.
 
 {% endapi %}
 {% api %}
@@ -268,7 +268,7 @@ Campaigns
 
 Braze는 기기에서 사용자의 시간대를 자동으로 확인합니다. 이는 시간대의 정확성과 사용자의 전체 범위를 지원하도록 설계되었습니다. 사용자 API를 통해 생성된 사용자 또는 시간대가 없는 사용자는 SDK에서 앱에서 인식할 때까지 회사의 시간대가 기본 시간대로 사용됩니다.
 
-[회사 설정]({{site.baseurl}}/user_guide/administer/global/admin_settings/)에서 회사의 시간대를 확인할 수 있습니다.
+[회사 설정]({{site.baseurl}}/user_guide/administer/global/admin_settings)에서 회사의 시간대를 확인할 수 있습니다.
 
 {% endapi %}
 {% api %}
@@ -382,7 +382,7 @@ Braze는 다음 두 가지 시점에서 사용자의 참가 자격을 평가합�
 
 사용자는 두 평가 시점 모두에서 오디언스 및 필터 조건에 부합해야 합니다. 사용자가 첫 번째 확인에서 자격이 없는 경우, Braze는 두 번째 확인을 실행하지 않습니다. Segment에 출시 전 최소 체류 시간은 필요하지 않으며, 각 확인 시점의 자격 여부만 중요합니다.
 
-이 평가 동작은 [대시보드에서 캠페인을 얼마나 미리 스케줄하는지]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign)와는 별개입니다. 전체 설명, 예시 및 스케줄 가이드는 Campaigns FAQ의 [Braze는 현지 시간대 전달을 위해 언제 사용자를 평가하나요?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery) 및 [현지 시간대 캠페인을 스케줄하려면 어떻게 해야 하나요?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign)를 참조하세요.
+이 평가 동작은 [대시보드에서 캠페인을 얼마나 미리 스케줄하는지]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign)와는 별개입니다. 전체 설명, 예시 및 스케줄 가이드는 Campaigns FAQ의 [Braze는 현지 시간대 전달을 위해 언제 사용자를 평가하나요?]({{site.baseurl}}/user_guide/messaging/campaigns/faq#when-does-braze-evaluate-users-for-local-time-zone-delivery) 및 [현지 시간대 캠페인을 스케줄하려면 어떻게 해야 하나요?]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign)를 참조하세요.
 
 {% endapi %}
 {% api %}
@@ -393,7 +393,7 @@ Braze는 다음 두 가지 시점에서 사용자의 참가 자격을 평가합�
 Campaigns
 {% endapitags %}
 
-캠페인에 참여하는 사용자 수는 오디언스 및 트리거가 평가되는 방식에 따라 예상되는 수와 다를 수 있습니다. Braze에서는 트리거 전에 오디언스를 평가합니다([속성 변경 트리거]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)를 사용하지 않는 한). 이렇게 하면 트리거 동작이 평가되기 전에 사용자가 처음에 선택한 오디언스에 포함되지 않은 경우 캠페인에서 이탈하게 됩니다.
+캠페인에 참여하는 사용자 수는 오디언스 및 트리거가 평가되는 방식에 따라 예상되는 수와 다를 수 있습니다. Braze에서는 트리거 전에 오디언스를 평가합니다([속성 변경 트리거]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)를 사용하지 않는 한). 이렇게 하면 트리거 동작이 평가되기 전에 사용자가 처음에 선택한 오디언스에 포함되지 않은 경우 캠페인에서 이탈하게 됩니다.
 
 {% endapi %}
 {% api %}
@@ -408,7 +408,7 @@ Canvases
 
 각 단계마다 작업을 대기열에 추가하여 거의 동시에 실행하고 그 중 하나가 "승리"합니다. 실제로는 어느 정도 균등하게 정렬될 수 있지만, 적어도 먼저 생성된 단계에 약간의 편향이 있을 수 있습니다.
 
-또한 이러한 분배가 정확히 어떻게 이루어질지에 대해서는 어떠한 보장도 할 수 없습니다. 균등한 분할을 보장하려면 [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) 필터를 추가하세요.
+또한 이러한 분배가 정확히 어떻게 이루어질지에 대해서는 어떠한 보장도 할 수 없습니다. 균등한 분할을 보장하려면 [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) 필터를 추가하세요.
 
 {% endapi %}
 {% api %}
@@ -440,7 +440,7 @@ Canvases
 
 예외 이벤트는 사용자가 연결된 캔버스 구성요소를 수신하기 위해 대기하는 동안에만 트리거됩니다. 사용자가 미리 동작을 수행하면 예외 이벤트가 트리거되지 않습니다.
 
-특정 이벤트를 미리 수행한 사용자를 제외하려면 대신 [필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)를 사용하세요.
+특정 이벤트를 미리 수행한 사용자를 제외하려면 대신 [필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)를 사용하세요.
 
 {% endapi %}
 {% api %}
@@ -453,7 +453,7 @@ Canvases
 
 다단계 Canvas의 일부 단계를 편집하는 경우 이미 오디언스에 속해 있지만 단계를 받지 않은 사용자는 업데이트된 버전의 메시지를 받게 됩니다. 아직 해당 단계에 대한 평가가 이루어지지 않은 경우에만 이런 일이 발생한다는 점에 유의하세요.
 
-출시 후 편집할 수 있는 항목과 편집할 수 없는 항목에 대한 자세한 내용은 [출시 후 Canvas 변경]({{site.baseurl}}/post-launch_edits/)을 확인하세요.
+출시 후 편집할 수 있는 항목과 편집할 수 없는 항목에 대한 자세한 내용은 [출시 후 Canvas 변경]({{site.baseurl}}/post-launch_edits)을 확인하세요.
 
 {% endapi %}
 {% api %}
@@ -517,7 +517,7 @@ Canvases
 Canvases
 {% endapitags %}
 
-Canvas에 입장하는 사용자 수는 오디언스 및 트리거가 평가되는 방식에 따라 예상되는 수와 다를 수 있습니다. Braze에서는 트리거 전에 오디언스를 평가합니다([속성 변경]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value) 트리거를 사용하지 않는 한). 이렇게 하면 트리거 동작이 평가되기 전에 선택한 오디언스에 속하지 않는 사용자가 Canvas에서 이탈하게 됩니다.
+Canvas에 입장하는 사용자 수는 오디언스 및 트리거가 평가되는 방식에 따라 예상되는 수와 다를 수 있습니다. Braze에서는 트리거 전에 오디언스를 평가합니다([속성 변경]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value) 트리거를 사용하지 않는 한). 이렇게 하면 트리거 동작이 평가되기 전에 선택한 오디언스에 속하지 않는 사용자가 Canvas에서 이탈하게 됩니다.
 
 {% endapi %}
 {% api %}
@@ -530,7 +530,7 @@ Canvas에 입장하는 사용자 수는 오디언스 및 트리거가 평가되�
 Analytics
 {% endapitags %}
 
-Braze는 채널에 따라 다양한 측정기준을 측정하여 캠페인의 성공 여부를 판단하고 향후 캠페인에 대한 정보를 제공합니다. [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)에서 전체 목록을 확인할 수 있습니다.
+Braze는 채널에 따라 다양한 측정기준을 측정하여 캠페인의 성공 여부를 판단하고 향후 캠페인에 대한 정보를 제공합니다. [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)에서 전체 목록을 확인할 수 있습니다.
 
 {% endapi %}
 {% api %}
@@ -543,7 +543,7 @@ Analytics
 
 **매출** 페이지에서는 특정 기간, 특정 제품 또는 앱의 총 매출 또는 구매에 대한 데이터를 볼 수 있습니다. 이러한 매출 수치는 특정 전환 기간 내에 캠페인 수신자가 구매한 금액에서 생성됩니다.
 
-즉, Braze는 매출 관리 도구가 아닌 마케팅 도구라는 점에 유의해야 합니다. [구매 객체]({{site.baseurl}}/api/objects_filters/purchase_object/)는 환불 및 취소를 지원하지 않으므로 다른 도구와 데이터를 비교할 때 불일치가 발생할 수 있습니다.
+즉, Braze는 매출 관리 도구가 아닌 마케팅 도구라는 점에 유의해야 합니다. [구매 객체]({{site.baseurl}}/api/objects_filters/purchase_object)는 환불 및 취소를 지원하지 않으므로 다른 도구와 데이터를 비교할 때 불일치가 발생할 수 있습니다.
 
 {% endapi %}
 {% api %}
@@ -556,7 +556,7 @@ Analytics
 
 Currents 도구는 메시징 참여도와 고객 행동 데이터를 지속적으로 여러 데이터 파트너 중 한 곳으로 스트리밍하여 Braze가 생성하는 고유하고 가치 있는 데이터를 사용하여 다른 최고의 파트너에서 비즈니스 인텔리전스 및 분석 작업을 강화할 수 있도록 지원합니다.
 
-이 데이터에는 메시징 참여 측정기준을 넘어 커스텀 속성 및 이벤트 성과와 같은 보다 복잡한 수치도 포함될 수 있습니다. 자세한 내용은 [Currents 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)을 참조하세요.
+이 데이터에는 메시징 참여 측정기준을 넘어 커스텀 속성 및 이벤트 성과와 같은 보다 복잡한 수치도 포함될 수 있습니다. 자세한 내용은 [Currents 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)을 참조하세요.
 
 {% endapi %}
 {% api %}
@@ -571,13 +571,13 @@ Analytics
 
 1. 대시보드 계정에서 **데이터** 아래의 **참여 보고서**로 이동합니다.
 2. **+ 새 보고서 생성**을 클릭합니다.
-3. 보고서에 컴파일하려는 [Campaign 및 Canvas 메시지]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#manually-select-campaigns-or-canvases)를 개별적으로 또는 [태그별]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases)로 추가합니다.
-4. 보고서에 [통계를 추가합니다]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#add-statistics-to-your-report).
+3. 보고서에 컴파일하려는 [Campaign 및 Canvas 메시지]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#manually-select-campaigns-or-canvases)를 개별적으로 또는 [태그별]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#automatically-select-campaigns-or-canvases)로 추가합니다.
+4. 보고서에 [통계를 추가합니다]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#add-statistics-to-your-report).
 5. 보고서의 압축 및 구분 기호를 선택합니다.
 6. 이 보고서를 받아야 하는 회사 사용자들의 이메일 주소를 입력합니다.
-7. 보고서에서 데이터를 실행할 [기간]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#time-frame)을 선택합니다.
-8. 데이터 분석을 보고 싶은 [간격(일별, 주별 등)]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#data-display)을 선택합니다.
-9. 보고서를 [즉시]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#send-immediately) 또는 [나중에 지정된 시간에]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#send-at-designated-time) 전송하도록 스케줄합니다.
+7. 보고서에서 데이터를 실행할 [기간]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#time-frame)을 선택합니다.
+8. 데이터 분석을 보고 싶은 [간격(일별, 주별 등)]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#data-display)을 선택합니다.
+9. 보고서를 [즉시]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#send-immediately) 또는 [나중에 지정된 시간에]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#send-at-designated-time) 전송하도록 스케줄합니다.
 10. 보고서를 실행한 다음 이메일이 도착하면 열어보세요!
 
 {% endapi %}
@@ -593,6 +593,6 @@ Analytics
 
 보고서 빌더를 사용하면 여러 Campaigns 또는 Canvases의 결과를 단일 보기에서 비교할 수 있으므로 어떤 참여 전략이 주요 측정기준에 가장 큰 영향을 미쳤는지 쉽게 확인할 수 있습니다. Campaigns와 Canvases 모두 데이터를 내보내고 보고서를 저장하여 나중에 볼 수 있습니다.
 
-Braze에서 보고서 및 분석 사용에 대한 자세한 내용은 [보고서 개요]({{site.baseurl}}/user_guide/analytics/reports/)를 참조하세요.
+Braze에서 보고서 및 분석 사용에 대한 자세한 내용은 [보고서 개요]({{site.baseurl}}/user_guide/analytics/reports)를 참조하세요.
 
 {% endapi %}

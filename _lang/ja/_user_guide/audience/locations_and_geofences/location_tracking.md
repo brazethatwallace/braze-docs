@@ -38,9 +38,9 @@ Brazeは、最初のSDKセッション開始時のIPアドレスを使用して�
 
 ## 位置情報ターゲティング {#location-targeting}
 
-位置情報の追跡データとSegmentsを使用して、位置情報ベースのCampaignと戦略を設定できます。たとえば、特定の地域に住んでいるユーザー向けにプロモーションCampaignを実行したり、より厳しい規制がある地域のユーザーを除外したりすることができます。
+位置情報の追跡データとセグメントを使用して、位置情報ベースのキャンペーンと戦略を設定できます。たとえば、特定の地域に住んでいるユーザー向けにプロモーションキャンペーンを実行したり、より厳しい規制がある地域のユーザーを除外したりすることができます。
 
-位置情報Segmentの作成の詳細については、[位置情報ターゲティング]({{site.baseurl}}/user_guide/audience/segments/location_targeting)を参照してください。
+位置情報セグメントの作成の詳細については、[位置情報ターゲティング]({{site.baseurl}}/user_guide/audience/segments/location_targeting)を参照してください。
 
 ## デフォルトの位置属性をハード設定する {#hard-setting-the-default-location-attribute}
 
@@ -110,7 +110,7 @@ BrazeはデフォルトでSDKを通じてユーザーの最新の位置情報を
 
 ユーザーの位置データがBrazeに送信されているかどうかを確認するには、**Location Available** フィルターを使用します。このフィルターを使用すると、「最新の位置」を持つユーザーの割合を確認できます。
 
-![「Location Available」フィルターを使用した「Test Location」Segment。]({% image_buster /assets/img_archive/trouble7.png %})
+![「Location Available」フィルターを使用した「Test Location」セグメント。]({% image_buster /assets/img_archive/trouble7.png %})
 
 #### データ転送 {#data-transfer}
 

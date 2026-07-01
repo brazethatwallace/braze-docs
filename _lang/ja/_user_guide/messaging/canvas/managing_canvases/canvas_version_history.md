@@ -15,12 +15,12 @@ tool: Canvas
 キャンバスのバージョン履歴を参照することは、キャンバスの変遷の記録を維持するうえで特に役立ちます。たとえば、大規模な変更を行った場合、以前のキャンバスバージョンを参照して、ワークフローがどのように進化してきたかをより深く理解できます。
 
 {% alert tip %}
-ワークスペース内のキャンバスの完全なリストを取得するには（たとえば監査のため）、[キャンバス一覧エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/)を使用し、結果をページネーションしてください。
+ワークスペース内のキャンバスの完全なリストを取得するには（たとえば監査のため）、[キャンバス一覧エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases)を使用し、結果をページネーションしてください。
 {% endalert %}
 
 ## バージョンの管理 {#managing-versions}
 
-![]({% image_buster /assets/img_archive/canvas_version_history.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![バージョン管理に関するスクリーンショット。]({% image_buster /assets/img_archive/canvas_version_history.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
 新しいバージョンを作成するには、**キャンバスを更新**をクリックします。これにより、キャンバスの以前の設定を上書きせずに変更を加えることができます。新しいキャンバスバージョンが作成されると、すでにキャンバスに入っているユーザーは新しいバージョンのワークフローに沿って進みます。キャンバスに入るユーザーも新しいバージョンに入ります。
 

@@ -135,9 +135,9 @@ Webhookを使用して、カスタマージャーニーの特定のイベント�
 
 ### BrazeでQuiklyのWebhookを作成する {#create-a-quikly-webhook-in-braze}
 
-将来のCampaignsやCanvasesのためにQuiklyのWebhookテンプレートを作成するには、Brazeプラットフォームの**Content** > **Webhook**に移動します。次に、**Create webhook template**を選択します。
+将来のキャンペーンやキャンバスのためにQuiklyのWebhookテンプレートを作成するには、Brazeプラットフォームの**Content** > **Webhook**に移動します。次に、**Create webhook template**を選択します。
 
-QuiklyのWebhook Campaignを一度だけ作成するか、既存のテンプレートを使用する場合は、新しいCampaignを作成する際にBrazeで**Webhook**を選択してください。
+QuiklyのWebhook キャンペーンを一度だけ作成するか、既存のテンプレートを使用する場合は、新しいキャンペーンを作成する際にBrazeで**Webhook**を選択してください。
 
 **Blank Template**を選択し、Webhook URLとリクエストボディに次の内容を入力します。
 - **Webhook URL**: https://api.quikly.com/webhook/braze
@@ -168,7 +168,7 @@ Quiklyでは認証に`HTTP Header`が必要です。
 **プレビュー**パネルでリクエストをプレビューするか、`Test`タブに移動して、ランダムなユーザー、既存のユーザーを選択するか、Webhookをテストするために独自のユーザーをカスタマイズできます。
 
 {% alert important %}
-ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[Webhook Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済み Webhook テンプレート**リストで見つけることができます。
+ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[Webhook キャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済み Webhook テンプレート**リストで見つけることができます。
 {% endalert %}
 
 {% endtab %}

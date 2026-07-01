@@ -122,7 +122,7 @@ description: "このリファレンス記事では、マーケティングコン
 
 - **短く明確な文を書く：** 短い文はすべての人にとって理解しやすく、特にスクリーンリーダーを使用している方や複雑な情報の処理が困難な方にとって重要です。米国の中学1年生レベルの読みやすさで書くようにしましょう。[Hemingway App](https://hemingwayapp.com/)などのリソースを使用して、テキストの読みやすさレベルを確認できます。
 - **読みやすいフォントサイズと間隔を選ぶ：** 小さすぎるテキストは読みにくくなります。特にモバイルでは顕著です。本文テキストには少なくとも14pxを使用してください。見出しはユーザーが違いを明確に認識できるように大きくしましょう。行間（約1.5の行の高さ）と段落間の余分なスペースは、特に視覚的または認知的なニーズを持つ方にとって読みやすさを向上させます。
-- **均等割り付けテキストを避ける：** 均等割り付けテキストは単語間に不均一なスペースを作り、ディスレクシアや認知障がいのある方にとって読みにくくなります。2行以上に折り返すコンテンツは、左から右に読む言語では左揃え、[右から左に読む言語]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/)では右揃えにすることを検討してください。
+- **均等割り付けテキストを避ける：** 均等割り付けテキストは単語間に不均一なスペースを作り、ディスレクシアや認知障がいのある方にとって読みにくくなります。2行以上に折り返すコンテンツは、左から右に読む言語では左揃え、[右から左に読む言語]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)では右揃えにすることを検討してください。
 - **太字、斜体、大文字テキストは控えめに使用する：** テキストを過度に強調すると、特にディスレクシアや視覚障がいのある方にとって読みにくくなります。シンプルに保ちましょう。
 
 #### 明確さと使いやすさ {#clarity-and-usability}
@@ -131,7 +131,7 @@ description: "このリファレンス記事では、マーケティングコン
 
 - **リンクとボタンに明確なラベルを付ける：** [リンク](#links)と[ボタン](#buttons)のテキストが次に何が起こるかを明確に説明するようにしてください。スクリーンリーダーを使用している方やキーボードでナビゲートしている方が、何を期待できるかを知るのに役立ちます。
 - **記号や絵文字は控えめに使用する：** 特殊文字や絵文字はコンテンツを楽しくしますが、スクリーンリーダーで読み上げられると混乱を招く可能性があります。控えめに使用し、明確で説明的なテキストの代わりにならないようにしてください。
-- **切り捨てをテストする：** テキストが切り捨てられていないことを確認するために、常にデバイスに[テストメッセージを送信]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages/)してコピーをテストしてください。メッセージが途中で切れている場合、コンテンツがオーディエンスに届かなくなるため、あなたとオーディエンスの両方にとって不利益です。
+- **切り捨てをテストする：** テキストが切り捨てられていないことを確認するために、常にデバイスに[テストメッセージを送信]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages)してコピーをテストしてください。メッセージが途中で切れている場合、コンテンツがオーディエンスに届かなくなるため、あなたとオーディエンスの両方にとって不利益です。
 
 ### アクセシビリティ言語 {#accessibility-language}
 
@@ -143,11 +143,11 @@ description: "このリファレンス記事では、マーケティングコン
 
 #### アクセシビリティ言語を設定する {#configure-accessibility-language}
 
-エディターにこの機能が含まれている場合、メッセージ設定の**アクセシビリティ**セクションに移動してください。ドロップダウンから言語を選択するか、Liquidを使用してください（例えば、[多言語メッセージ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)がオンになっていて**ローカライゼーション設定**が設定されている場合は{% raw %}`{{accessibility_language}}`{% endraw %}）。
+エディターにこの機能が含まれている場合、メッセージ設定の**アクセシビリティ**セクションに移動してください。ドロップダウンから言語を選択するか、Liquidを使用してください（例えば、[多言語メッセージ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)がオンになっていて**ローカライゼーション設定**が設定されている場合は{% raw %}`{{accessibility_language}}`{% endraw %}）。
 
 #### 多言語メッセージ {#multi-language-messages}
 
-**ローカライゼーション設定**で、各ロケールにアクセシビリティ言語を設定すると、Liquidがローカライズされた送信に対して{% raw %}`{{accessibility_language}}`{% endraw %}を自動的に入力できます。その値が新しいメッセージに対してすでに選択されているかどうかは、チャネルによって異なります。CSVおよび翻訳ワークフローについては、[言語設定とアクセシビリティ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/#language-settings-and-accessibility)から始めてください。
+**ローカライゼーション設定**で、各ロケールにアクセシビリティ言語を設定すると、Liquidがローカライズされた送信に対して{% raw %}`{{accessibility_language}}`{% endraw %}を自動的に入力できます。その値が新しいメッセージに対してすでに選択されているかどうかは、チャネルによって異なります。CSVおよび翻訳ワークフローについては、[言語設定とアクセシビリティ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#language-settings-and-accessibility)から始めてください。
 
 #### チャネルとエディターのサポート {#channel-and-editor-support}
 
@@ -161,7 +161,7 @@ description: "このリファレンス記事では、マーケティングコン
 | バナー | アプリ内メッセージと同じ動作です。 |
 | ランディングページ | ライブページで言語を設定できます。1つの言語を選択するか、アカウントでランディングページにLiquidが許可されている場合はLiquidを使用してください。デフォルトもアプリ内メッセージやバナーとは異なります。公開されたページを確認してください。 |
 | Content Cards | Cardsは明示的なアクセシビリティ言語の代わりに、アプリ用の**Language**フィールドを使用します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Channel and editor support" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="チャネルとエディターのサポート" }
 
 HTMLを自分で記述する場合でも、メッセージの一部に言語タグを追加できます（例えば、別の言語の1つのフレーズ）。詳しいパターンについては、[カスタムHTML](#custom-html)をご覧ください。
 
@@ -240,7 +240,7 @@ BrazeがHTMLにルートレベルの言語タグを追加する場合、HTML [`l
 | 悪い例 | より良い例 | 最良の例 |
 | --- | --- | --- |
 | ここをクリック | ここをクリックして今日の天気を見る | 今日の天気 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Write descriptive link text" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="説明的なリンクテキストを書く" }
 
 すべてのコンテンツと同様に、余分な言葉をできるだけ少なくして簡潔にしましょう。
 
@@ -543,7 +543,7 @@ Brazeのドラッグ＆ドロップエディターはデフォルトでセマン
 - BrazeがエクスポートでHTMLメタデータを追加できるドキュメントレベルの言語については、[アクセシビリティ言語](#accessibility-language)を参照してください。動作はチャネルによって異なります。コンテンツを自分でマークアップする場合は、HTML内に[`lang`属性](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang)を設定して、コンテンツの言語を識別してください。スクリーンリーダーは、各言語の発音と特性に基づいて異なるサウンドライブラリを使用します。これが指定されていない場合、スクリーンリーダーはコンテンツがユーザーがスクリーンリーダーの設定時に選択したデフォルト言語で書かれていると仮定します。メッセージが実際にはデフォルト言語でない場合、スクリーンリーダーがメッセージを正しく発音できない可能性があります。
 
 {% raw %}
-`````````html
+```html
 <html lang="en-us">
 ```
 {% endraw %}
@@ -575,7 +575,7 @@ ARIAはWebコンテンツをよりアクセシブルにするために設計さ�
 `aria-label`は、表示テキストのない要素にアクセシブルな名前を追加します。テキストのないアイコン（ゴミ箱や閉じるための「X」など）を使用している場合、スクリーンリーダーを使用している方はラベルがなければその機能を知ることができません。`aria-label`はそのアイコンに声を与えます。
 
 {% raw %}
-`````````html
+```html
 <button aria-label="Close message">
   <svg ...></svg>
 </button>
@@ -587,7 +587,7 @@ ARIAはWebコンテンツをよりアクセシブルにするために設計さ�
 `aria-labelledby`は、すでに表示ラベルを持つ要素に要素を接続します。バナーやリージョンにタイトル付きで読み上げてほしい場合、`aria-labelledby`を使用して支援技術に「あそこの見出しを使ってこの部分に名前を付けて」と伝えることができます。
 
 {% raw %}
-`````````html
+```html
 <h2 id="banner-title">Important Update</h2>
 <div role="region" aria-labelledby="banner-title">...</div>
 ```
@@ -600,7 +600,7 @@ ARIAはWebコンテンツをよりアクセシブルにするために設計さ�
 これにより、スクリーンリーダーのユーザーにとって体験がよりクリーンになります。そうでなければ、冗長または混乱を招くコンテンツを聞くことになるかもしれません。まだ展開されていないオフスクリーンのアコーディオンコンテンツを非表示にする場合にも便利です。
 
 {% raw %}
-`````````html
+```html
 <span aria-hidden="true">✔️</span>
 ```
 {% endraw %}
@@ -612,7 +612,7 @@ ARIAはWebコンテンツをよりアクセシブルにするために設計さ�
 `role="presentation"`は、デザインテーブルなどのレイアウト専用の要素を無視するように支援技術に伝えます。例えば、メールでは要素を整列させるためだけにテーブルを使用することがよくあります。このロールがないと、スクリーンリーダーはレイアウトがデータテーブルであると仮定し、行番号と列番号を読み上げ始める可能性があります。
 
 {% raw %}
-`````````html
+```html
 <table role="presentation">...</table>
 ```
 {% endraw %}
@@ -624,7 +624,7 @@ ARIAはWebコンテンツをよりアクセシブルにするために設計さ�
 `aria-live="polite"`は、ユーザーの操作なしにコンテンツが変更されたときに更新をアナウンスします。メッセージ内で成功、エラー、その他の通知などのダイナミックな更新を表示する場合に使用してください。
 
 {% raw %}
-`````````html
+```html
 <div aria-live="polite">Your preferences have been saved.</div>
 ```
 {% endraw %}
@@ -633,8 +633,8 @@ ARIAはWebコンテンツをよりアクセシブルにするために設計さ�
 
 アクセシビリティの問題を早期に特定して修正するために、Brazeは以下の領域で自動アクセシビリティテストを提供しています：
 
-- メール用の[Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision/#accessibility-testing)
-- HTMLエディターを使用して作成されたメッセージ用の[アクセシビリティスキャナー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message#accessibility-scanner)（例：HTMLのアプリ内メッセージ、HTML Content Blocks、[カスタムメールフッター]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/)、[メールオプトインページ]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-opt-in-page)、[メール配信停止ページ]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-unsubscribe-page)）
+- メール用の[Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#accessibility-testing)
+- HTMLエディターを使用して作成されたメッセージ用の[アクセシビリティスキャナー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner)（例：HTMLのアプリ内メッセージ、HTML Content Blocks、[カスタムメールフッター]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer)、[メールオプトインページ]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-opt-in-page)、[メール配信停止ページ]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-unsubscribe-page)）
 
 これらのテストは、Webコンテンツアクセシビリティガイドライン（[WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)）標準（アクセシブルなコンテンツのための国際的に認められた技術標準のセット）に基づいてメッセージをチェックします。自動的に検出できる問題はフラグが立てられ、優先順位付けに役立つように重大度別に分類されます。
 

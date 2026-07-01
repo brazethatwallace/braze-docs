@@ -12,9 +12,9 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 
 | Valor de `abort_type` | Descripción |
 | --- | --- |
-| `liquid_abort_message` | Se llamó a la etiqueta de Liquid [abort_message]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages/), por lo que se canceló el envío. |
+| `liquid_abort_message` | Se llamó a la etiqueta de Liquid [abort_message]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages), por lo que se canceló el envío. |
 | `template_parse_error` | La plantilla del mensaje no se pudo analizar debido a un error de sintaxis o de renderizado, por lo que se canceló el envío. |
-| `rate_limit` | El mensaje se canceló porque superó el [límite de velocidad]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/) configurado. |
+| `rate_limit` | El mensaje se canceló porque superó el [límite de velocidad]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting) configurado. |
 | `campaign_disabled` | La Campaign se desactivó antes de que se pudiera enviar el mensaje. |
 | `campaign_does_not_exist` | La Campaign asociada a este mensaje ya no existe. |
 | `campaign_action_does_not_exist` | La acción de Campaign asociada a este mensaje ya no existe. |
@@ -22,7 +22,7 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | `user_not_in_segment` | El usuario no está en el Segment objetivo, por lo que no se envió el mensaje. |
 | `trigger_event_blacklisted` | El evento desencadenante está en la lista de bloqueo, por lo que no se envió el mensaje. |
 | `exhausted_retries` | No se pudo enviar el mensaje después del número máximo de intentos de reintento. |
-| `frequency_capped` | El usuario ya recibió el número máximo de mensajes permitidos por las reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#about-frequency-capping) de tu espacio de trabajo. |
+| `frequency_capped` | El usuario ya recibió el número máximo de mensajes permitidos por las reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting#about-frequency-capping) de tu espacio de trabajo. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="General" }
 
 {% unless ch == "newsfeedcard" or ch == "rcs" %}
@@ -34,7 +34,7 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | Valor de `abort_type` | Descripción |
 | --- | --- |
 | `exhausted_cc_retries` | El contenido conectado falló después del número máximo de reintentos, por lo que se canceló el mensaje. |
-| `connected_content_not_supported` | El [Contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) no es compatible en este contexto, por lo que se canceló el mensaje. |
+| `connected_content_not_supported` | El [Contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) no es compatible en este contexto, por lo que se canceló el mensaje. |
 | `promo_codes_not_supported` | Los códigos promocionales no son compatibles en este contexto, por lo que se canceló el mensaje. |
 | `catalog_items_rerender_not_supported` | La re-renderización de elementos del Catálogo no es compatible en este contexto, por lo que se canceló el mensaje. |
 | `blacklisted_media_url` | La URL del medio está en la lista de bloqueo y no se puede usar en mensajes. |
@@ -44,17 +44,17 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | `invalid_http_status` | Una solicitud HTTP devolvió un código de estado no exitoso. |
 | `http_timeout` | Una solicitud HTTP agotó el tiempo de espera antes de recibir una respuesta. |
 | `missing_hostname` | La URL de la solicitud no tiene un nombre de host. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Contenido y renderizado" }
 
 {% else %}
 
 | Valor de `abort_type` | Descripción |
 | --- | --- |
 | `exhausted_cc_retries` | El contenido conectado falló después del número máximo de reintentos, por lo que se canceló el mensaje. |
-| `connected_content_not_supported` | El [Contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) no es compatible en este contexto, por lo que se canceló el mensaje. |
+| `connected_content_not_supported` | El [Contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) no es compatible en este contexto, por lo que se canceló el mensaje. |
 | `promo_codes_not_supported` | Los códigos promocionales no son compatibles en este contexto, por lo que se canceló el mensaje. |
 | `catalog_items_rerender_not_supported` | La re-renderización de elementos del Catálogo no es compatible en este contexto, por lo que se canceló el mensaje. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Contenido y renderizado" }
 
 {% endif %}
 
@@ -64,13 +64,13 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | Valor de `abort_type` | Descripción |
 | --- | --- |
 | `exhausted_cc_retries` | El contenido conectado falló después del número máximo de reintentos, por lo que se canceló el mensaje. |
-| `connected_content_not_supported` | El [Contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) no es compatible en este contexto, por lo que se canceló el mensaje. |
+| `connected_content_not_supported` | El [Contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) no es compatible en este contexto, por lo que se canceló el mensaje. |
 | `promo_codes_not_supported` | Los códigos promocionales no son compatibles en este contexto, por lo que se canceló el mensaje. |
 | `catalog_items_rerender_not_supported` | La re-renderización de elementos del Catálogo no es compatible en este contexto, por lo que se canceló el mensaje. |
 | `blacklisted_media_url` | La URL del medio está en la lista de bloqueo y no se puede usar en mensajes. |
 | `blocked_media_url` | La URL del medio fue bloqueada por políticas de seguridad. |
 | `invalid_media_url` | La URL del medio no es válida o no se pudo resolver. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering media URLs" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URL de medios de contenido y renderizado" }
 
 {% endunless %}
 {% endif %}
@@ -81,14 +81,14 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | Valor de `abort_type` | Descripción |
 | --- | --- |
 | `exhausted_cc_retries` | El contenido conectado falló después del número máximo de reintentos, por lo que se canceló el mensaje. |
-| `connected_content_not_supported` | El [Contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) no es compatible en este contexto, por lo que se canceló el mensaje. |
+| `connected_content_not_supported` | El [Contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) no es compatible en este contexto, por lo que se canceló el mensaje. |
 | `promo_codes_not_supported` | Los códigos promocionales no son compatibles en este contexto, por lo que se canceló el mensaje. |
 | `catalog_items_rerender_not_supported` | La re-renderización de elementos del Catálogo no es compatible en este contexto, por lo que se canceló el mensaje. |
 | `ssl_error` | Ocurrió un error SSL al realizar una solicitud. |
 | `invalid_http_status` | Una solicitud HTTP devolvió un código de estado no exitoso. |
 | `http_timeout` | Una solicitud HTTP agotó el tiempo de espera antes de recibir una respuesta. |
 | `missing_hostname` | La URL de la solicitud no tiene un nombre de host. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering HTTP and SSL" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTTP y SSL de contenido y renderizado" }
 
 {% endunless %}
 {% endif %}
@@ -104,7 +104,7 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | `exhausted_link_shortening_retries` | El acortamiento de enlaces falló después del número máximo de reintentos. |
 | `missing_email` | El usuario no tiene una dirección de correo electrónico en su perfil. |
 | `invalid_domain` | La dirección de correo electrónico tiene un dominio no válido. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Email" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Correo electrónico" }
 
 {% endif %}
 
@@ -131,7 +131,7 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | `sms_no_sending_numbers` | No hay números de teléfono de envío disponibles para este grupo de suscripción. |
 | `sms_fatal_provider_error` | Ocurrió un error fatal con el proveedor de SMS, lo que impidió la entrega del mensaje. |
 | `sms_gateway_domain_not_allowed` | El dominio de la pasarela SMS no está en la lista de permitidos. |
-| `blocked_recipient_country` | El número de teléfono del destinatario está en un país bloqueado por tus [permisos geográficos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/). |
+| `blocked_recipient_country` | El número de teléfono del destinatario está en un país bloqueado por tus [permisos geográficos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions). |
 | `mms_not_supported` | MMS no es compatible para este destinatario o número de envío. |
 | `no_current_messaging_service` | No hay un servicio de mensajería activo configurado para este grupo de suscripción. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SMS/MMS" }
@@ -196,7 +196,7 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | --- | --- |
 | `no_longer_in_availability_window` | El mensaje no se pudo enviar dentro de la ventana de disponibilidad configurada, por lo que se canceló. |
 | `maximum_impressions_reached` | El mensaje dentro de la aplicación ya alcanzó su número máximo de impresiones. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="In-app messages" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Mensajes dentro de la aplicación" }
 
 {% endif %}
 

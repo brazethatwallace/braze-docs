@@ -6,7 +6,7 @@ page_type: landing
 channel:
   - LINE
 search_rank: 3
-description: "このランディングページはLINEチャネルのホームです。LINEの設定、LINEサブスクリプショングループ、LINE Campaigns、LINEレポートなどに関する記事をご覧いただけます。"
+description: "このランディングページはLINEチャネルのホームです。LINEの設定、LINEサブスクリプショングループ、LINE キャンペーン、LINEレポートなどに関する記事をご覧いただけます。"
 alias: /line/
 ---
 

@@ -87,7 +87,7 @@ Braze에서 이메일 주소를 업데이트할 때 `email`이 포함되는 모�
 
 ### 사용자 속성 오브젝트 {#user-attributes-object}
 
-`/users/track` 엔드포인트에서 식별자 필드 수준 암호화를 사용하는 경우 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)에 대한 다음 필드 세부 정보에 유의하세요:
+`/users/track` 엔드포인트에서 식별자 필드 수준 암호화를 사용하는 경우 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)에 대한 다음 필드 세부 정보에 유의하세요:
 
 - `email` 필드는 이메일의 해시값이어야 합니다.
 - `email_encrypted` 필드는 이메일의 암호화된 값이어야 합니다.

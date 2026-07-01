@@ -27,7 +27,7 @@ tool: Canvas
 
 대상으로 보내기 단계는 사용자가 이 단계에 도달하는 즉시 대상 Canvas에 진입시킵니다. 이 단계는 대상 Canvas로의 일회성 진입 지점 역할을 합니다. 대상 Canvas의 진입 및 오디언스 기준을 충족하는 사용자는 해당 Canvas 여정을 시작합니다. 해당 시점에 기준을 충족하지 못하는 사용자는 대상 Canvas에 진입하지 않고 소스 Canvas에서 계속 진행합니다.
 
-대상 Canvas가 스케줄된 진입 스케줄을 사용하는 경우, 대상으로 보내기 단계는 해당 진입 스케줄을 우회합니다. 또한 대상 Canvas의 **진입 제어**에서 **Canvas가 스케줄될 때마다**로 설정된 [**진입 볼륨 제한**]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls)도 우회합니다. 이 단계에서 전송된 사용자는 다음 스케줄된 평가 기간을 기다리지 않으며, 대상으로 보내기 단계에 도달할 때 대상 Canvas의 진입 및 오디언스 기준을 충족하면 즉시 평가되어 진입합니다.
+대상 Canvas가 스케줄된 진입 스케줄을 사용하는 경우, 대상으로 보내기 단계는 해당 진입 스케줄을 우회합니다. 또한 대상 Canvas의 **진입 제어**에서 **Canvas가 스케줄될 때마다**로 설정된 [**진입 볼륨 제한**]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls)도 우회합니다. 이 단계에서 전송된 사용자는 다음 스케줄된 평가 기간을 기다리지 않으며, 대상으로 보내기 단계에 도달할 때 대상 Canvas의 진입 및 오디언스 기준을 충족하면 즉시 평가되어 진입합니다.
 
 대상 Canvas가 동작 기반 진입을 사용하는 경우, 대상으로 보내기 단계는 사용자가 해당 Canvas에 진입하기 위해 구성된 진입 동작을 수행해야 하는 요구 사항을 우회합니다.
 
@@ -47,7 +47,7 @@ tool: Canvas
 
 **Preview destination**을 선택하여 사용자를 보내는 대상 Canvas를 확인할 수 있습니다.
 
-이 캔버스 단계를 설정한 후 [사용자 경로 미리보기]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths/)를 통해 사용자가 현재 Canvas의 다음 단계로 진행하는지, 그리고 대상 Canvas로도 진행하는지 확인할 수 있습니다.
+이 캔버스 단계를 설정한 후 [사용자 경로 미리보기]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths)를 통해 사용자가 현재 Canvas의 다음 단계로 진행하는지, 그리고 대상 Canvas로도 진행하는지 확인할 수 있습니다.
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
@@ -57,7 +57,7 @@ tool: Canvas
 
 ### 컨텍스트 변수가 유지되나요? {#are-context-variables-preserved}
 
-네. 소스 Canvas의 [컨텍스트]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/)는 항상 대상 Canvas로 전달됩니다.
+네. 소스 Canvas의 [컨텍스트]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)는 항상 대상 Canvas로 전달됩니다.
 
 ### API나 사용자 업데이트 우회 방법 대신 대상으로 보내기 단계를 사용하여 Canvases를 연결할 수 있나요? {#can-i-use-the-send-to-destination-step-to-connect-canvases-instead-of-using-api-or-user-update-workarounds}
 

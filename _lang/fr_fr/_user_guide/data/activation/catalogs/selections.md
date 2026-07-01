@@ -10,7 +10,7 @@ description: "Cet article de référence explique comment créer et utiliser des
 
 > Les sélections sont des groupes de données que vous pouvez utiliser pour personnaliser un message pour chaque utilisateur de votre Campaign. Lorsque vous utilisez une sélection, vous configurez essentiellement des filtres personnalisés basés sur des colonnes spécifiques de votre catalogue. Il peut s'agir de filtres pour la marque, la taille, l'emplacement, la date d'ajout, etc. Cela vous donne le contrôle sur ce que vous montrez aux utilisateurs en vous permettant de définir des critères auxquels les éléments doivent répondre au préalable.<br><br>Cette page explique comment créer et utiliser des sélections avec vos catalogues.
 
-Après avoir créé un [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/), vous pouvez référencer davantage les données de votre catalogue en incorporant des sélections dans vos Campaigns ou recommandations Braze.
+Après avoir créé un [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs), vous pouvez référencer davantage les données de votre catalogue en incorporant des sélections dans vos Campaigns ou recommandations Braze.
 
 ![La section Sélections dans un exemple de catalogue.]({% image_buster /assets/img_archive/catalog_selections1.png %})
 
@@ -18,11 +18,11 @@ Après avoir créé un [catalogue]({{site.baseurl}}/user_guide/data/activation/c
 
 - Vous pouvez créer jusqu'à 30 sélections par catalogue.
 - Vous pouvez ajouter jusqu'à 10 filtres par sélection.
-- Les sélections sont idéales pour affiner les recommandations à partir des données de catalogue Braze. Si vous cherchez de l'inspiration, consultez [À propos des recommandations d'articles]({{site.baseurl}}/user_guide/brazeai/recommendations/) pour des exemples de cas d'utilisation.
+- Les sélections sont idéales pour affiner les recommandations à partir des données de catalogue Braze. Si vous cherchez de l'inspiration, consultez [À propos des recommandations d'articles]({{site.baseurl}}/user_guide/brazeai/recommendations) pour des exemples de cas d'utilisation.
 
 ## Filtres de géolocalisation {#geolocation-filters}
 
-Si votre catalogue contient un [type de champ Géolocalisation]({{site.baseurl}}/user_guide/data/activation/catalogs/create/#supported-data-types), vous pouvez utiliser des filtres basés sur la géolocalisation dans vos sélections pour faire apparaître des éléments du catalogue en fonction de leur proximité avec un point géographique.
+Si votre catalogue contient un [type de champ Géolocalisation]({{site.baseurl}}/user_guide/data/activation/catalogs/create#supported-data-types), vous pouvez utiliser des filtres basés sur la géolocalisation dans vos sélections pour faire apparaître des éléments du catalogue en fonction de leur proximité avec un point géographique.
 
 Deux opérateurs de géolocalisation sont disponibles :
 

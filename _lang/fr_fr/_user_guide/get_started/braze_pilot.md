@@ -29,7 +29,7 @@ Le cœur de Braze Pilot réside dans sa bibliothèque de simulations d'applicati
 
 ### Steppington
 
-Steppington est une application de fitness proposant des entraînements, des objectifs d'exercice et un service premium Steppington+. Elle offre plusieurs emplacements pour présenter les [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/), une section pouvant être dévoilée à l'aide d'[indicateurs de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags/), ainsi qu'une bibliothèque complète de journalisation d'événements personnalisés qui permettent d'illustrer de nombreux parcours clients pour ce secteur.
+Steppington est une application de fitness proposant des entraînements, des objectifs d'exercice et un service premium Steppington+. Elle offre plusieurs emplacements pour présenter les [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards), une section pouvant être dévoilée à l'aide d'[indicateurs de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags), ainsi qu'une bibliothèque complète de journalisation d'événements personnalisés qui permettent d'illustrer de nombreux parcours clients pour ce secteur.
 
 ![La page d'accueil de Steppington avec des icônes pour l'entraînement au marathon, le yoga, le cyclisme et la musculation.]({% image_buster /assets/img/braze_pilot/steppington_app.png %}){:style="max-width:50%"}
 
@@ -66,7 +66,7 @@ Une fois Pilot connecté à votre tableau de bord de Braze, le SDK Braze fonctio
 - Collecter automatiquement les données de session, les informations sur les appareils et les jetons de notification push.
 - Alimenter les notifications push, les messages in-app et les canaux de communication Content Cards qui nécessitent une intégration SDK pour fonctionner.
 
-Pour en savoir plus sur le SDK Braze, consultez la section [Intégration]({{site.baseurl}}/user_guide/get_started/integrations/).
+Pour en savoir plus sur le SDK Braze, consultez la section [Intégration]({{site.baseurl}}/user_guide/get_started/integrations).
 
 ![La suite d'engagement client de Braze, qui comprend des intégrations, des API et des SDK pour l'ingestion de données, la classification, l'orchestration, la personnalisation et l'action avec des canaux de communication pour une boucle de rétroaction interactive avec vos clients.]({% image_buster /assets/img/braze_pilot/braze_sdk_diagram.png %}){:style="max-width:70%"}
 
@@ -76,7 +76,7 @@ Chaque donnée envoyée à Braze est stockée dans un profil utilisateur dédié
 
 ### Anonyme {#anonymous}
 
-Cet état de connexion représente l'expérience d'un visiteur de votre application ou site web qui ne s'est pas encore connecté. Si vous initialisez Pilot en tant qu'utilisateur anonyme, Braze crée un [profil utilisateur anonyme]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users/) pour vous et enregistre les données relatives à votre activité dans ce profil. Les utilisateurs anonymes peuvent toujours être ciblés par des campagnes, mais vous ne pourrez pas consulter leur profil utilisateur directement dans votre tableau de bord de Braze.
+Cet état de connexion représente l'expérience d'un visiteur de votre application ou site web qui ne s'est pas encore connecté. Si vous initialisez Pilot en tant qu'utilisateur anonyme, Braze crée un [profil utilisateur anonyme]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users) pour vous et enregistre les données relatives à votre activité dans ce profil. Les utilisateurs anonymes peuvent toujours être ciblés par des campagnes, mais vous ne pourrez pas consulter leur profil utilisateur directement dans votre tableau de bord de Braze.
 
 ### Identifié {#identified}
 
@@ -87,17 +87,17 @@ Cet état de connexion signifie que Braze reconnaît votre profil utilisateur gr
 Pour vérifier votre type de connexion, regardez l'indicateur de statut en haut à droite de l'application Pilot.
 
 {% tabs local %}
-{% tab Anonymous user  %}
+{% tab Utilisateur anonyme  %}
 
 **Anonyme** indique que vous enregistrez des données en tant qu'utilisateur anonyme. La zone de statut affiche le libellé **Anonyme** (par exemple, une icône de masque ou de navigation privée).
 
 {% endtab %}
-{% tab Identified user %}
+{% tab Utilisateur identifié %}
 
 Si vous enregistrez des données en tant qu'utilisateur identifié, la zone de statut affiche **Utilisateur identifié** ainsi que votre ID externe.
 
 {% endtab %}
-{% tab Not connected %}
+{% tab Non connecté %}
 
 **Non connecté** indique que vous n'avez pas encore initialisé la connexion du SDK Braze avec Pilot. La zone de statut indique que Pilot n'est pas encore connecté à votre espace de travail Braze.
 
@@ -113,6 +113,6 @@ Les campagnes et les Canvas vous permettent d'envoyer des messages à vos utilis
 
 ## Canaux de communication pris en charge {#supported-messaging-channels}
 
-Braze Pilot prend actuellement en charge les [messages in-app]({{site.baseurl}}/in-app_messages/), qui apparaissent dans votre application et permettent d'envoyer des messages au moment opportun pendant que l'utilisateur est activement engagé.
+Braze Pilot prend actuellement en charge les [messages in-app]({{site.baseurl}}/in-app_messages), qui apparaissent dans votre application et permettent d'envoyer des messages au moment opportun pendant que l'utilisateur est activement engagé.
 
 ![Un message in-app dans l'application MovieCanon « Vous appréciez MovieCanon ? Recommandez-le à vos amis ! » avec la possibilité de saisir votre adresse e-mail pour envoyer une recommandation.]({% image_buster /assets/img/braze_pilot/moviecanon_iam.png %}){:style="max-width:40%"}

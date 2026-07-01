@@ -13,15 +13,15 @@ description: "이 페이지에서는 카탈로그 데이터를 동기화하는 �
 
 ## 1단계: 새 카탈로그 생성 {#step-1-create-a-new-catalog}
 
-[카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/)에 대한 새로운 클라우드 데이터 수집(CDI) 통합을 생성하기 전에 새 카탈로그를 생성하거나 통합에 사용할 기존 카탈로그를 식별해야 합니다. 새 카탈로그를 생성하는 방법에는 몇 가지가 있으며, 이 중 어느 것이든 CDI 통합에 사용할 수 있습니다:
-- [CSV]({{site.baseurl}}/user_guide/data/activation/catalogs/create/#method-1-upload-csv) 업로드
-- [Braze 대시보드]({{site.baseurl}}/user_guide/data/activation/catalogs/create/#method-2-create-in-browser)에서 또는 CDI 설정 중에 카탈로그를 생성합니다.
-- [카탈로그 생성 엔드포인트]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/post_create_catalog/)를 사용하여 카탈로그 생성
+[카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs)에 대한 새로운 클라우드 데이터 수집(CDI) 통합을 생성하기 전에 새 카탈로그를 생성하거나 통합에 사용할 기존 카탈로그를 식별해야 합니다. 새 카탈로그를 생성하는 방법에는 몇 가지가 있으며, 이 중 어느 것이든 CDI 통합에 사용할 수 있습니다:
+- [CSV]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-1-upload-csv) 업로드
+- [Braze 대시보드]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-2-create-in-browser)에서 또는 CDI 설정 중에 카탈로그를 생성합니다.
+- [카탈로그 생성 엔드포인트]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/post_create_catalog)를 사용하여 카탈로그 생성
 
 카탈로그 스키마에 대한 모든 변경 사항(예: 새 필드 추가 또는 필드 유형 변경)은 업데이트된 데이터가 CDI를 통해 동기화되기 전에 카탈로그 대시보드를 통해 수행해야 합니다. 데이터 웨어하우스 데이터와 Braze의 스키마 간의 충돌을 방지하기 위해 동기화가 일시 중지되었거나 실행이 예약되어 있지 않을 때 이러한 업데이트를 수행하는 것이 좋습니다.
 
 ## 2단계: 클라우드 데이터 수집과 카탈로그 데이터 통합 {#step-2-integrate-cloud-data-ingestion-with-catalog-data}
-카탈로그 동기화 설정은 [사용자 데이터 CDI 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#product-setup) 프로세스와 매우 유사합니다.
+카탈로그 동기화 설정은 [사용자 데이터 CDI 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#product-setup) 프로세스와 매우 유사합니다.
 
 {% tabs %}
 {% tab Snowflake %}
@@ -54,8 +54,8 @@ description: "이 페이지에서는 카탈로그 데이터를 동기화하는 �
     CREATE USER BRAZE_INGESTION_USER;
     GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
     ```
-3. Snowflake 계정에 네트워크 정책이 있는 경우, CDI 서비스가 연결할 수 있도록 Braze IP를 허용 목록에 추가하세요. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)을 참조하세요.
-4. Braze 대시보드에서 **Technology Partners** > **Snowflake**로 이동하여 새 동기화를 생성합니다.
+3. Snowflake 계정에 네트워크 정책이 있는 경우, CDI 서비스가 연결할 수 있도록 Braze IP를 허용 목록에 추가하세요. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)을 참조하세요.
+4. Braze 대시보드에서 **기술 파트너** > **Snowflake**로 이동하여 새 동기화를 생성합니다.
 5. 연결 세부 정보(또는 기존 자격 증명 재사용)와 소스 테이블을 입력합니다.
 6. 설정 흐름의 2단계로 진행하여 "Catalogs" 동기화 유형을 선택하고 통합 이름과 스케줄을 입력합니다. 통합 이름은 이전에 생성한 카탈로그 이름과 **정확히 일치**해야 합니다.
 7. 동기화 빈도를 선택하고 다음 단계로 진행합니다.
@@ -87,7 +87,7 @@ description: "이 페이지에서는 카탈로그 데이터를 동기화하는 �
     GRANT SELECT ON TABLE CATALOGS_SYNC TO braze_user;
     ```
     {% endraw %}
-3. 방화벽 또는 기타 네트워크 정책이 있는 경우, Braze에 Redshift 인스턴스에 대한 네트워크 액세스 권한을 부여해야 합니다. Braze 대시보드 리전에 해당하는 아래 IP에서의 액세스를 허용하세요. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)을 참조하세요.
+3. 방화벽 또는 기타 네트워크 정책이 있는 경우, Braze에 Redshift 인스턴스에 대한 네트워크 액세스 권한을 부여해야 합니다. Braze 대시보드 리전에 해당하는 아래 IP에서의 액세스를 허용하세요. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)을 참조하세요.
 
 {% endtab %}
 {% tab BigQuery %}
@@ -116,7 +116,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | PAYLOAD | JSON | 필수 |
 | ID | STRING | 필수 |
 | DELETED | BOOLEAN | 선택 사항 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2단계: 클라우드 데이터 수집과 카탈로그 데이터 통합" }
 
 {:start="2"}
 
@@ -128,7 +128,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 - BigQuery Job User: Braze가 작업을 실행할 수 있는 액세스 권한을 제공합니다.<br><br>서비스 계정을 생성하고 권한을 부여한 후 JSON 키를 생성합니다. 자세한 내용은 [키 생성 및 삭제](https://cloud.google.com/iam/docs/keys-create-delete)를 참조하세요. 이 키는 나중에 Braze 대시보드에 업로드하게 됩니다.
 
 {:start="3"}
-3. 네트워크 정책이 있는 경우 Braze에 BigQuery 인스턴스에 대한 네트워크 액세스 권한을 부여해야 합니다. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)을 참조하세요.
+3. 네트워크 정책이 있는 경우 Braze에 BigQuery 인스턴스에 대한 네트워크 액세스 권한을 부여해야 합니다. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)을 참조하세요.
 
 {% endtab %}
 {% tab Databricks %}
@@ -155,7 +155,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | PAYLOAD | STRING, STRUCT, or MAP | 필수 |
 | ID | STRING | 필수 |
 | DELETED | BOOLEAN | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2단계: 클라우드 데이터 수집과 카탈로그 데이터 통합" }
 
 {:start="2"}
 
@@ -169,7 +169,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 - f. Braze 대시보드에서 자격 증명 생성 단계에서 입력해야 할 때까지 토큰을 안전한 곳에 보관하세요.
 
 {:start="3"}
-3. 네트워크 정책이 설정되어 있는 경우, Databricks 인스턴스에 대한 Braze 네트워크 액세스 권한을 부여해야 합니다. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views) 페이지를 참조하세요.
+3. 네트워크 정책이 설정되어 있는 경우, Databricks 인스턴스에 대한 Braze 네트워크 액세스 권한을 부여해야 합니다. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views) 페이지를 참조하세요.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -189,10 +189,10 @@ GO
 
 {:start="2"}
 
-2. 서비스 주체를 설정하고 적절한 권한을 부여합니다. 기존 동기화의 자격 증명이 이미 있는 경우 재사용할 수 있으며&#8212;카탈로그 소스 테이블에 대한 액세스 권한을 확장하기만 하면 됩니다. 새 서비스 주체 및 자격 증명을 생성하는 방법에 대해 자세히 알아보려면 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views) 페이지를 참조하세요.
+2. 서비스 주체를 설정하고 적절한 권한을 부여합니다. 기존 동기화의 자격 증명이 이미 있는 경우 재사용할 수 있으며&#8212;카탈로그 소스 테이블에 대한 액세스 권한을 확장하기만 하면 됩니다. 새 서비스 주체 및 자격 증명을 생성하는 방법에 대해 자세히 알아보려면 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views) 페이지를 참조하세요.
 
 {:start="3"}
-3. 네트워크 정책이 설정되어 있는 경우 Braze에 Microsoft Fabric 인스턴스에 대한 네트워크 액세스 권한을 부여해야 합니다. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)을 참조하세요.
+3. 네트워크 정책이 설정되어 있는 경우 Braze에 Microsoft Fabric 인스턴스에 대한 네트워크 액세스 권한을 부여해야 합니다. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)을 참조하세요.
 
 {% endtab %}
 {% tab S3 %}
@@ -204,7 +204,7 @@ JSON 또는 CSV 형식을 사용하여 S3에 소스 파일을 생성합니다. �
 | `PAYLOAD` | 예 | Braze의 카탈로그 항목에 동기화할 필드의 JSON 문자열입니다. |
 | `DELETED` | 선택 사항 | `true`로 설정하면 해당 카탈로그 항목이 카탈로그에서 제거됩니다. |
 | `UPDATED_AT` | *지원되지 않음* | 파일 스토리지는 `UPDATED_AT` 열을 지원하지 않습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2단계: 클라우드 데이터 수집과 카탈로그 데이터 통합" }
 
 {% alert note %}
 파일 이름은 AWS 규칙을 따라야 하며 고유해야 합니다. 고유성을 보장하기 위해 타임스탬프를 추가하세요.
@@ -212,11 +212,11 @@ JSON 또는 CSV 형식을 사용하여 S3에 소스 파일을 생성합니다. �
 
 전체 S3 설정에는 S3 버킷, Amazon SQS 대기줄, AWS IAM 역할 및 정책이 필요합니다. Braze는 동기화가 생성된 후 업로드된 파일만 처리하므로, 수집하려는 기존 파일은 다시 업로드해야 합니다.
 
-전체 S3 설정 흐름은 [파일 스토리지 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/)을 참조하세요. 특히 다음을 확인하세요:
+전체 S3 설정 흐름은 [파일 스토리지 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations)을 참조하세요. 특히 다음을 확인하세요:
 
-- [AWS에서 클라우드 데이터 수집 설정]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/#setting-up-cloud-data-ingestion-in-aws)
-- [Braze에서 클라우드 데이터 수집 설정]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/#setting-up-cloud-data-ingestion-in-braze)
-- [문제 해결]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/#troubleshooting)
+- [AWS에서 클라우드 데이터 수집 설정]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#setting-up-cloud-data-ingestion-in-aws)
+- [Braze에서 클라우드 데이터 수집 설정]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#setting-up-cloud-data-ingestion-in-braze)
+- [문제 해결]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#troubleshooting)
 
 일반적인 AWS 측 알림 및 권한 문제에 대해서는 [대상에 이벤트 알림 메시지를 게시할 수 있는 권한 부여](https://docs.aws.amazon.com/AmazonS3/latest/userguide/grant-destinations-permissions-to-s3.html)를 참조하세요.
 
@@ -251,7 +251,7 @@ ID,PAYLOAD
 {% endsubtab %}
 {% endsubtabs %}
 
-추가 파일 예제는 [파일 스토리지 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/)을 참조하세요.
+추가 파일 예제는 [파일 스토리지 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations)을 참조하세요.
 
 {% endtab %}
 {% endtabs %}
@@ -259,7 +259,7 @@ ID,PAYLOAD
 ## 통합 작동 방식 {#how-the-integration-works}
 
 {% alert note %}
-이 섹션의 동기화 뷰는 데이터 웨어하우스 통합에만 적용됩니다. S3 파일 스토리지의 경우, Braze는 버킷에 업로드된 새 파일을 처리합니다. 자세한 내용은 [파일 스토리지 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/)을 참조하세요.
+이 섹션의 동기화 뷰는 데이터 웨어하우스 통합에만 적용됩니다. S3 파일 스토리지의 경우, Braze는 버킷에 업로드된 새 파일을 처리합니다. 자세한 내용은 [파일 스토리지 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations)을 참조하세요.
 {% endalert %}
 
 동기화가 실행될 때마다 Braze는 `UPDATED_AT`이 마지막으로 동기화된 값보다 이후인 모든 행을 가져옵니다. 경계 타임스탬프가 정확히 동일한 행은 새 행이 동일한 타임스탬프를 공유하는 경우 다시 동기화될 수 있습니다. 데이터 웨어하우스에서 카탈로그 데이터를 기반으로 뷰를 생성하여 동기화가 실행될 때마다 완전히 새로고침되는 소스 테이블을 설정하는 것이 좋습니다. 뷰를 사용하면 매번 쿼리를 다시 작성할 필요가 없습니다.

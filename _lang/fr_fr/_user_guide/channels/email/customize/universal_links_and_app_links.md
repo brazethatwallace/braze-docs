@@ -25,6 +25,10 @@ Lorsqu'un lien universel ou un App Link est ouvert, le système d'exploitation v
 
 En d'autres termes, les liens universels permettent à un site web d'associer ses pages web à des écrans spécifiques de l'application, de sorte que lorsqu'un utilisateur clique sur un lien vers une page web correspondant à un écran de l'application, celle-ci peut être ouverte directement (si l'application est actuellement installée).
 
+{% alert important %}
+Firebase Dynamic Links est obsolète. Braze ne dispose pas d'une intégration directe avec Firebase, et la création de liens profonds est gérée en dehors de la plateforme Braze. Migrez vers des solutions natives de la plateforme (liens universels Apple et Android App Links, comme décrit dans cet article) ou vers des fournisseurs de services de création de liens profonds alternatifs. Pour des conseils de migration, consultez la [FAQ de migration Firebase](https://firebase.google.com/support/dynamic-links-faq).
+{% endalert %}
+
 Ce tableau présente les principales différences entre les liens universels et les liens profonds traditionnels :
 
 |                        | Liens universels et App Links                                  | Liens profonds                   |
@@ -37,7 +41,7 @@ Ce tableau présente les principales différences entre les liens universels et 
 
 ## Cas d'utilisation {#use-cases}
 
-Les liens universels et les App Links sont le plus souvent utilisés pour les campagnes par e-mail, car les e-mails peuvent être ouverts et cliqués depuis des appareils de bureau et mobiles.
+Les liens universels et les App Links sont le plus souvent utilisés pour les Campaigns par e-mail, car les e-mails peuvent être ouverts et cliqués depuis des appareils de bureau et mobiles.
 
 Certains canaux ne fonctionnent pas bien avec ces liens. Par exemple, les notifications push, les messages in-app et les Content Cards doivent utiliser des liens profonds basés sur un schéma (`mydomain://`).
 

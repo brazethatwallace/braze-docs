@@ -43,22 +43,22 @@ Selecciona **Crear plantilla** y comienza a configurar los detalles de tu Canvas
 
 ### Paso 3: Personaliza tu plantilla {#step-3-customize-your-template}
 
-A continuación, personaliza tu plantilla [configurando tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-2-build-your-canvas). Puedes decidir cuándo los usuarios deben entrar al Canvas, determinar qué usuarios pueden entrar a este Canvas, ajustar tus ajustes de envío y construir el recorrido del usuario para la plantilla.
+A continuación, personaliza tu plantilla [configurando tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas). Puedes decidir cuándo los usuarios deben entrar al Canvas, determinar qué usuarios pueden entrar a este Canvas, ajustar tus ajustes de envío y construir el recorrido del usuario para la plantilla.
 
 ### Paso 4: Guarda tu plantilla {#step-4-save-your-template}
 
-Cuando hayas terminado de personalizar tu plantilla, selecciona el botón **Guardar plantilla**. En la página **Plantilla de Canvas**, puedes ver los detalles de tu plantilla de Canvas seleccionando <i class="fas fa-list" aria-label="Detalles de la plantilla"></i> **Detalles de la plantilla**.
+Cuando hayas terminado de personalizar tu plantilla, selecciona el botón **Guardar plantilla**. En la página **Plantilla de Canvas**, puedes ver los detalles de tu plantilla de Canvas seleccionando <i class="fas fa-list"></i> **Detalles de la plantilla**.
 
 ## Uso de plantillas de Canvas {#using-canvas-templates}
 
 Hay dos formas de usar tu plantilla al crear un Canvas:
 
 - **Desde Mensajería**: Ve a **Mensajería** > **Canvas**. Selecciona el botón **Crear Canvas** y **Usar una plantilla de Canvas**.
-- **Desde Contenido**: Ve a **Contenido** > **Canvas** y encuentra la plantilla deseada en **Plantillas de Canvas**. Luego, selecciona el menú <i class="fas fa-ellipsis-vertical" aria-label="Más opciones"></i> seguido de **Aplicar plantilla**. Esto te llevará a un nuevo Canvas con la plantilla aplicada en el compositor de Canvas.
+- **Desde Contenido**: Ve a **Contenido** > **Canvas** y encuentra la plantilla deseada en **Plantillas de Canvas**. Luego, selecciona el menú <i class="fas fa-ellipsis-vertical"></i> seguido de **Aplicar plantilla**. Esto te llevará a un nuevo Canvas con la plantilla aplicada en el compositor de Canvas.
 
 ### Plantillas de Braze disponibles {#available-braze-templates}
 
-Para ver una lista de las plantillas de Canvas disponibles, consulta [Plantillas de Canvas de Braze]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/). Para obtener detalles sobre el uso de plantillas de Canvas de comercio electrónico, consulta [Cómo usar eventos recomendados de comercio electrónico]({{site.baseurl}}/ecommerce_use_cases/).
+Para ver una lista de las plantillas de Canvas disponibles, consulta [Plantillas de Canvas de Braze]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates). Para obtener detalles sobre el uso de plantillas de Canvas de comercio electrónico, consulta [Cómo usar eventos recomendados de comercio electrónico]({{site.baseurl}}/ecommerce_use_cases).
 
 ## Gestión de plantillas de Canvas {#managing-canvas-templates}
 
@@ -68,7 +68,7 @@ A nivel de espacio de trabajo, puedes actualizar los permisos de usuario para pe
 
 ### Permisos para equipos y espacios de trabajo {#permissions-for-teams-and-workspaces}
 
-Para permitir que solo ciertos usuarios accedan y usen plantillas de Canvas específicas, [añade un equipo]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) a las plantillas y luego asigna permisos a nivel de equipo de "Acceder a Campaigns, Canvas, Content Cards, Content Blocks, conmutadores de características, Segments, Biblioteca de medios y centro de preferencias".
+Para permitir que solo ciertos usuarios accedan y usen plantillas de Canvas específicas, [añade un equipo]({{site.baseurl}}/user_guide/administer/global/user_management/teams) a las plantillas y luego asigna permisos a nivel de equipo de "Acceder a Campaigns, Canvas, Content Cards, Content Blocks, conmutadores de características, Segments, Biblioteca de medios y centro de preferencias".
 
 Si asignas alguno de los siguientes permisos a nivel de equipo, pero no a nivel de espacio de trabajo, solo podrás hacer lo siguiente asignado a tu equipo:
 

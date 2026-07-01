@@ -8,9 +8,9 @@ tool:
   - Canvas
 ---
 
-# Prévia das jornadas do usuário nos Canvas {#preview-user-paths-in-canvas}
+# Prévia das jornadas do usuário no Canvas {#preview-user-paths-in-canvas}
 
-> Experimente a jornada dos Canvas que você criou para seus usuários. Isso inclui visualizar o tempo e as mensagens que seus usuários recebem. Essas execuções de teste funcionam como garantia de qualidade de que suas mensagens são enviadas para o público certo, tudo isso antes de enviar seu Canvas.
+> Experimente a jornada do Canvas que você criou para seus usuários. Isso inclui visualizar o tempo e as mensagens que seus usuários recebem. Essas execuções de teste funcionam como garantia de qualidade de que suas mensagens são enviadas para o público certo, tudo isso antes de enviar seu Canvas.
 
 ## Criação de uma execução de teste {#creating-a-test-run}
 
@@ -43,7 +43,7 @@ Para ver mais detalhes sobre os critérios de entrada, selecione **See more**. E
 
 ### Liquid
 
-A Braze processa a lógica Liquid durante uma execução de teste, mesmo que você não esteja enviando uma mensagem de teste real. Isso significa que a [lógica de cancelamento de mensagem]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/#abort-messages) e outras lógicas Liquid são refletidas e podem impactar a jornada do usuário no Canvas.
+A Braze processa a lógica Liquid durante uma execução de teste, mesmo que você não esteja enviando uma mensagem de teste real. Isso significa que a [lógica de cancelamento de mensagem]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages) e outras lógicas Liquid são refletidas e podem impactar a jornada do usuário no Canvas.
 
 Se a sua prévia enviar a última etapa da jornada do usuário em vez de cancelar, a prévia pode estar usando o horário atual como o horário testado para a avaliação Liquid, e não o horário real em que o usuário estaria na etapa com base no horário de entrada no Canvas.
 
@@ -87,7 +87,7 @@ As etapas do Canvas respondem ao tempo ao fazer a prévia das jornadas do usuár
 
 Da mesma forma, os filtros reconhecem ações que ocorreram como resultado da interação do usuário teste com outras etapas no Canvas. Por exemplo, esse modo de prévia reconhece que um usuário encontrou uma etapa de mensagem que foi "enviada" anteriormente no Canvas e reconhece que o usuário teste "realizou uma ação" para avançar por uma jornada de ação.
 
-Consulte [Critérios de saída]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/) para mais detalhes sobre o comportamento responsivo.
+Consulte [Critérios de saída]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria) para mais detalhes sobre o comportamento responsivo.
 
 ## Conteúdo conectado {#connected-content}
 
@@ -95,13 +95,13 @@ O Conteúdo conectado é executado se estiver incluído no Canvas. Isso signific
 
 Ao fazer a prévia das jornadas do usuário, considere remover o Conteúdo conectado que altera perfis de usuário ou dados referenciados em outros Canvas ou Campaigns.
 
-## Webhooks
+## Webhooks {#webhooks}
 
 Os webhooks são executados quando mensagens de teste são enviadas, mas não durante a execução de teste. Assim como o Conteúdo conectado, considere remover webhooks que alteram perfis de usuário ou dados referenciados em outros Canvas ou Campaigns.
 
 ## Variáveis de contexto e grupos de teste {#context-variables-and-seed-groups}
 
-Para uma etapa de mensagem com e-mail como canal de envio de mensagens, os grupos de teste enviam cópias seed dos e-mails quando um usuário alcança essa etapa no Canvas. Essas cópias seed não são enviadas como parte das jornadas do Canvas dos próprios destinatários do grupo de teste, então a Braze não executa [etapas de Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) nem avalia variáveis de contexto para esses destinatários. Se o conteúdo do seu e-mail referencia variáveis de contexto, os destinatários do grupo de teste recebem uma cópia seed sem esses dados preenchidos. Para testar mensagens que dependem de dados de variáveis de contexto, use a prévia **Test Canvas** com envios de teste em vez de grupos de teste.
+Para uma etapa de mensagem com e-mail como canal de envio de mensagens, os grupos de teste enviam cópias seed dos e-mails quando um usuário alcança essa etapa no Canvas. Essas cópias seed não são enviadas como parte das jornadas do Canvas dos próprios destinatários do grupo de teste, então a Braze não executa [etapas de Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) nem avalia variáveis de contexto para esses destinatários. Se o conteúdo do seu e-mail referencia variáveis de contexto, os destinatários do grupo de teste recebem uma cópia seed sem esses dados preenchidos. Para testar mensagens que dependem de dados de variáveis de contexto, use a prévia **Test Canvas** com envios de teste em vez de grupos de teste.
 
 ## Caso de uso {#use-case}
 

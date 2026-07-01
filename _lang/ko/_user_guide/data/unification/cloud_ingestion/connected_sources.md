@@ -9,14 +9,14 @@ page_type: reference
 
 # 연결된 소스 {#connected-sources}
 
-> 연결된 소스는 Braze의 클라우드 데이터 수집(CDI) 기능으로 데이터를 직접 동기화하는 방식의 제로 복사 대안입니다. 연결된 소스는 데이터 웨어하우스에 직접 쿼리하여 기본 데이터를 Braze에 복사하지 않고도 새 **Segments**를 생성합니다.
+> 연결된 소스는 Braze의 클라우드 데이터 수집(CDI) 기능으로 데이터를 직접 동기화하는 방식의 제로 복사 대안입니다. 연결된 소스는 데이터 웨어하우스에 직접 쿼리하여 기본 데이터를 Braze에 복사하지 않고도 새로운 세그먼트를 생성합니다.
 
-Braze 워크스페이스에 연결된 소스를 추가한 후 **Segment** 확장 내에서 CDI **Segment**를 생성할 수 있습니다. CDI **Segment** Extensions을 사용하면 데이터 웨어하우스를 직접 쿼리하는 SQL을 작성할 수 있으며(CDI 연결 소스를 통해 제공되는 데이터를 사용), Braze 내에서 타겟팅할 수 있는 사용자 그룹을 생성하고 유지할 수 있습니다.
+Braze 워크스페이스에 연결된 소스를 추가한 후 세그먼트 확장 내에서 CDI 세그먼트를 생성할 수 있습니다. CDI 세그먼트 확장을 사용하면 데이터 웨어하우스를 직접 쿼리하는 SQL을 작성할 수 있으며(CDI 연결 소스를 통해 제공되는 데이터를 사용), Braze 내에서 타겟팅할 수 있는 사용자 그룹을 생성하고 유지할 수 있습니다.
 
-이 소스를 사용하여 **Segment**를 생성하는 방법에 대한 자세한 내용은 [CDI **Segment** Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/)을 참조하세요.
+이 소스를 사용하여 세그먼트를 생성하는 방법에 대한 자세한 내용은 [CDI 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments)을 참조하세요.
 
 {% alert warning %}
-연결된 소스는 데이터 웨어하우스에서 직접 실행되므로 데이터 웨어하우스에서 이러한 쿼리를 실행하는 데 관련된 모든 비용이 발생합니다. 연결된 소스는 데이터 포인트를 기록하지 않으며, CDI **Segment** Extensions은 SQL **Segment** 크레딧을 소모하지 않습니다.
+연결된 소스는 데이터 웨어하우스에서 직접 실행되므로 데이터 웨어하우스에서 이러한 쿼리를 실행하는 데 관련된 모든 비용이 발생합니다. 연결된 소스는 데이터 포인트를 기록하지 않으며, CDI 세그먼트 확장은 SQL 세그먼트 크레딧을 소모하지 않습니다.
 {% endalert %}
 
 ## 연결된 소스 통합 {#integrating-connected-sources}
@@ -43,14 +43,14 @@ Braze 워크스페이스에 연결된 소스를 추가한 후 **Segment** 확장
 **데이터 웨어하우스에서**
 
 {: start="8"}
-8. [Snowflake 사용자 인증](https://docs.snowflake.com/en/user-guide/key-pair-auth.html)을 위해 Braze 대시보드의 공개 키를 추가합니다. 완료되면 연결된 소스를 사용하여 하나 이상의 CDI **Segment** Extensions을 생성할 수 있습니다.
+8. [Snowflake 사용자 인증](https://docs.snowflake.com/en/user-guide/key-pair-auth.html)을 위해 Braze 대시보드의 공개 키를 추가합니다. 완료되면 연결된 소스를 사용하여 하나 이상의 CDI 세그먼트 확장을 생성할 수 있습니다.
 {% endtab %}
 
 {% tab Redshift %}
 1. Redshift 환경에서 소스 데이터 및 필요한 리소스를 설정합니다.
 2. Braze 대시보드에서 새 연결 소스를 생성합니다.
 4. 통합을 테스트합니다.
-5. 연결된 소스를 사용하여 하나 이상의 CDI **Segment** Extensions을 생성합니다.
+5. 연결된 소스를 사용하여 하나 이상의 CDI 세그먼트 확장을 생성합니다.
 {% endtab %}
 
 {% tab BigQuery %}
@@ -58,7 +58,7 @@ Braze 워크스페이스에 연결된 소스를 추가한 후 **Segment** 확장
 2. 서비스 계정을 생성하고 동기화하려는 데이터가 포함된 BigQuery 프로젝트 및 데이터 세트에 대한 접근 권한을 허용합니다.
 3. Braze 대시보드에서 새 연결 소스를 생성합니다.
 4. 통합을 테스트합니다.
-5. 연결된 소스를 사용하여 하나 이상의 CDI **Segment** Extensions을 생성합니다.
+5. 연결된 소스를 사용하여 하나 이상의 CDI 세그먼트 확장을 생성합니다.
 {% endtab %}
 
 {% tab Databricks %}
@@ -66,10 +66,10 @@ Braze 워크스페이스에 연결된 소스를 추가한 후 **Segment** 확장
 2. 서비스 계정을 생성하고 동기화하려는 데이터가 포함된 Databricks 프로젝트 및 데이터 세트에 대한 접근 권한을 허용합니다.
 3. Braze 대시보드에서 새 연결 소스를 생성합니다.
 4. 통합을 테스트합니다.
-5. 연결된 소스를 사용하여 하나 이상의 CDI **Segment** Extensions을 생성합니다.
+5. 연결된 소스를 사용하여 하나 이상의 CDI 세그먼트 확장을 생성합니다.
 
 {% alert important %}
-Braze가 Classic 및 Pro SQL 인스턴스에 연결할 때 2~5분의 워밍업 시간이 필요할 수 있으며, 이로 인해 연결 설정 및 테스트, CDI **Segment** Extensions 생성 및 새로고침 중에 지연이 발생할 수 있습니다. 서버리스 SQL 인스턴스를 사용하면 워밍업 시간을 최소화하고 쿼리 처리량을 향상시킬 수 있지만, 통합 비용이 약간 증가할 수 있습니다.
+Braze가 Classic 및 Pro SQL 인스턴스에 연결할 때 2~5분의 워밍업 시간이 필요할 수 있으며, 이로 인해 연결 설정 및 테스트, CDI 세그먼트 확장 생성 및 새로고침 중에 지연이 발생할 수 있습니다. 서버리스 SQL 인스턴스를 사용하면 워밍업 시간을 최소화하고 쿼리 처리량을 향상시킬 수 있지만, 통합 비용이 약간 증가할 수 있습니다.
 {% endalert %}
 
 {% endtab %}
@@ -79,7 +79,7 @@ Braze가 Classic 및 Pro SQL 인스턴스에 연결할 때 2~5분의 워밍업 �
 2. Fabric 워크스페이스에서 소스 데이터를 설정하고 서비스 주체에 권한을 부여합니다.
 3. Braze 대시보드에서 새 연결 소스를 생성합니다.
 4. 통합을 테스트합니다.
-5. 연결된 소스를 사용하여 하나 이상의 CDI **Segment** Extensions을 생성합니다.
+5. 연결된 소스를 사용하여 하나 이상의 CDI 세그먼트 확장을 생성합니다.
 {% endtab %}
 
 {% endtabs %}
@@ -92,11 +92,11 @@ Braze가 Classic 및 Pro SQL 인스턴스에 연결할 때 2~5분의 워밍업 �
 {% tab Snowflake %}
 #### 2.1단계: 역할 생성 및 권한 부여 {#step-21-create-a-role-and-grant-permissions}
 
-연결된 소스에서 사용할 역할을 생성합니다. 이 역할은 CDI **Segment** Extensions에서 사용할 수 있는 테이블 목록을 생성하고, 새 **Segments**를 생성하기 위해 소스 테이블을 쿼리하는 데 사용됩니다. 연결된 소스가 생성된 후 Braze는 소스 스키마에서 사용자가 사용할 수 있는 모든 테이블의 이름과 설명을 검색합니다.
+연결된 소스에서 사용할 역할을 생성합니다. 이 역할은 CDI 세그먼트 확장에서 사용할 수 있는 테이블 목록을 생성하고, 새로운 세그먼트를 생성하기 위해 소스 테이블을 쿼리하는 데 사용됩니다. 연결된 소스가 생성된 후 Braze는 소스 스키마에서 사용자가 사용할 수 있는 모든 테이블의 이름과 설명을 검색합니다.
 
-스키마의 모든 테이블에 대한 접근 권한을 부여하거나 특정 테이블에만 권한을 부여할 수 있습니다. Braze 역할이 접근할 수 있는 테이블은 CDI **Segment** Extensions에서 쿼리할 수 있습니다.
+스키마의 모든 테이블에 대한 접근 권한을 부여하거나 특정 테이블에만 권한을 부여할 수 있습니다. Braze 역할이 접근할 수 있는 테이블은 CDI 세그먼트 확장에서 쿼리할 수 있습니다.
 
-Braze가 CDI **Segment** Extensions 쿼리 결과로 테이블을 생성한 후 Braze에서 **Segment**를 업데이트할 수 있도록 `create table` 권한이 필요합니다. Braze는 **Segment**당 임시 테이블을 생성하며, 이 테이블은 Braze가 **Segment**를 업데이트하는 동안에만 유지됩니다.
+Braze가 CDI 세그먼트 확장 쿼리 결과로 테이블을 생성한 후 Braze에서 세그먼트를 업데이트할 수 있도록 `create table` 권한이 필요합니다. Braze는 세그먼트당 임시 테이블을 생성하며, 이 테이블은 Braze가 세그먼트를 업데이트하는 동안에만 유지됩니다.
 
 ```sql
 CREATE ROLE BRAZE_INGESTION_ROLE;
@@ -156,11 +156,11 @@ GRANT CREATE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION to braze_user;
 GRANT SELECT ON TABLE USERS_ATTRIBUTES_SYNC TO braze_user;
 ```
 
-연결된 소스에서 사용할 사용자를 생성합니다. 이 사용자는 CDI **Segment** Extensions에서 사용할 수 있는 테이블 목록을 생성하고, 새 **Segments**를 생성하기 위해 소스 테이블을 쿼리하는 데 사용됩니다. 연결된 소스가 생성된 후 Braze는 소스 스키마에서 사용자가 사용할 수 있는 모든 테이블의 이름과 설명을 검색합니다. 여러 CDI 통합을 생성하는 경우 스키마에 대한 권한을 부여하거나 그룹을 사용하여 권한을 관리할 수 있습니다.
+연결된 소스에서 사용할 사용자를 생성합니다. 이 사용자는 CDI 세그먼트 확장에서 사용할 수 있는 테이블 목록을 생성하고, 새로운 세그먼트를 생성하기 위해 소스 테이블을 쿼리하는 데 사용됩니다. 연결된 소스가 생성된 후 Braze는 소스 스키마에서 사용자가 사용할 수 있는 모든 테이블의 이름과 설명을 검색합니다. 여러 CDI 통합을 생성하는 경우 스키마에 대한 권한을 부여하거나 그룹을 사용하여 권한을 관리할 수 있습니다.
 
-스키마의 모든 테이블에 대한 접근 권한을 부여하거나 특정 테이블에만 권한을 부여할 수 있습니다. Braze 역할이 접근할 수 있는 테이블은 CDI **Segment** Extensions에서 쿼리할 수 있습니다. 새 테이블이 생성될 때 사용자에게 접근 권한을 부여하거나 사용자에 대한 기본 권한을 설정하세요.
+스키마의 모든 테이블에 대한 접근 권한을 부여하거나 특정 테이블에만 권한을 부여할 수 있습니다. Braze 역할이 접근할 수 있는 테이블은 CDI 세그먼트 확장에서 쿼리할 수 있습니다. 새 테이블이 생성될 때 사용자에게 접근 권한을 부여하거나 사용자에 대한 기본 권한을 설정하세요.
 
-Braze가 CDI **Segment** Extensions 쿼리 결과로 테이블을 생성한 후 Braze에서 **Segment**를 업데이트할 수 있도록 `create table` 권한이 필요합니다. Braze는 **Segment**당 임시 테이블을 생성하며, 이 테이블은 Braze가 **Segment**를 업데이트하는 동안에만 유지됩니다.
+Braze가 CDI 세그먼트 확장 쿼리 결과로 테이블을 생성한 후 Braze에서 세그먼트를 업데이트할 수 있도록 `create table` 권한이 필요합니다. Braze는 세그먼트당 임시 테이블을 생성하며, 이 테이블은 Braze가 세그먼트를 업데이트하는 동안에만 유지됩니다.
 
 
 #### 2.2단계: Braze IP에 대한 접근 허용 {#step-22-allow-access-to-braze-ips}
@@ -184,13 +184,13 @@ GCP에서 Braze가 테이블에서 데이터를 연결하고 읽을 수 있도�
 - **BigQuery User:** Braze에 쿼리 실행, 데이터 세트 메타데이터 읽기, 테이블 나열 접근 권한을 제공합니다.
 - **BigQuery Data Viewer:** Braze에 데이터 세트와 그 콘텐츠를 볼 수 있는 접근 권한을 제공합니다.
 - **BigQuery Job User:** Braze에 작업을 실행할 수 있는 접근 권한을 제공합니다.
-- **bigquery.tables.create** Braze에 **Segment** 새로고침 중 임시 테이블을 생성할 수 있는 접근 권한을 제공합니다.
+- **bigquery.tables.create** Braze에 세그먼트 새로고침 중 임시 테이블을 생성할 수 있는 접근 권한을 제공합니다.
 
-연결된 소스에서 사용할 서비스 계정을 생성합니다. 이 사용자는 CDI **Segment** Extensions에서 사용할 수 있는 테이블 목록을 생성하고, 새 **Segments**를 생성하기 위해 소스 테이블을 쿼리하는 데 사용됩니다. 연결된 소스가 생성된 후 Braze는 소스 스키마에서 사용자가 사용할 수 있는 모든 테이블의 이름과 설명을 검색합니다.
+연결된 소스에서 사용할 서비스 계정을 생성합니다. 이 사용자는 CDI 세그먼트 확장에서 사용할 수 있는 테이블 목록을 생성하고, 새로운 세그먼트를 생성하기 위해 소스 테이블을 쿼리하는 데 사용됩니다. 연결된 소스가 생성된 후 Braze는 소스 스키마에서 사용자가 사용할 수 있는 모든 테이블의 이름과 설명을 검색합니다.
 
-데이터 세트의 모든 테이블에 대한 접근 권한을 부여하거나 특정 테이블에만 권한을 부여할 수 있습니다. Braze 역할이 접근할 수 있는 테이블은 CDI **Segment** Extensions에서 쿼리할 수 있습니다.
+데이터 세트의 모든 테이블에 대한 접근 권한을 부여하거나 특정 테이블에만 권한을 부여할 수 있습니다. Braze 역할이 접근할 수 있는 테이블은 CDI 세그먼트 확장에서 쿼리할 수 있습니다.
 
-Braze가 CDI **Segment** Extensions 쿼리 결과로 테이블을 생성한 후 Braze에서 **Segment**를 업데이트할 수 있도록 `create table` 권한이 필요합니다. Braze는 **Segment**당 임시 테이블을 생성하며, 이 테이블은 Braze가 **Segment**를 업데이트하는 동안에만 유지됩니다.
+Braze가 CDI 세그먼트 확장 쿼리 결과로 테이블을 생성한 후 Braze에서 세그먼트를 업데이트할 수 있도록 `create table` 권한이 필요합니다. Braze는 세그먼트당 임시 테이블을 생성하며, 이 테이블은 Braze가 세그먼트를 업데이트하는 동안에만 유지됩니다.
 
 서비스 계정을 생성하고 권한을 부여한 후 JSON 키를 생성합니다. 자세한 내용은 [Google Cloud: 서비스 계정 키 생성 및 삭제](https://cloud.google.com/iam/docs/keys-create-delete)를 참조하세요. 이 키는 나중에 Braze 대시보드에 업로드하게 됩니다.
 
@@ -214,11 +214,11 @@ Braze가 Databricks에 접근하려면 개인 접근 토큰을 생성해야 합�
 5. **Generate**를 선택합니다.
 6. 표시된 토큰을 복사한 다음 **Done**을 선택합니다.
 
-이 토큰은 CDI **Segment** Extensions에서 사용할 수 있는 테이블 목록을 생성하고, 새 **Segments**를 생성하기 위해 소스 테이블을 쿼리하는 데 사용됩니다. 연결된 소스가 생성된 후 Braze는 소스 스키마에서 사용자가 사용할 수 있는 모든 테이블의 이름과 설명을 검색합니다.
+이 토큰은 CDI 세그먼트 확장에서 사용할 수 있는 테이블 목록을 생성하고, 새로운 세그먼트를 생성하기 위해 소스 테이블을 쿼리하는 데 사용됩니다. 연결된 소스가 생성된 후 Braze는 소스 스키마에서 사용자가 사용할 수 있는 모든 테이블의 이름과 설명을 검색합니다.
 
-스키마의 모든 테이블에 대한 접근 권한을 부여하거나 특정 테이블에만 권한을 부여할 수 있습니다. Braze 역할이 접근할 수 있는 테이블은 CDI **Segment** Extensions에서 쿼리할 수 있습니다.
+스키마의 모든 테이블에 대한 접근 권한을 부여하거나 특정 테이블에만 권한을 부여할 수 있습니다. Braze 역할이 접근할 수 있는 테이블은 CDI 세그먼트 확장에서 쿼리할 수 있습니다.
 
-Braze가 CDI **Segment** Extensions 쿼리 결과로 테이블을 생성한 후 Braze에서 **Segment**를 업데이트할 수 있도록 `create table` 권한이 필요합니다. Braze는 **Segment**당 임시 테이블을 생성하며, 이 테이블은 Braze가 **Segment**를 업데이트하는 동안에만 유지됩니다.
+Braze가 CDI 세그먼트 확장 쿼리 결과로 테이블을 생성한 후 Braze에서 세그먼트를 업데이트할 수 있도록 `create table` 권한이 필요합니다. Braze는 세그먼트당 임시 테이블을 생성하며, 이 테이블은 Braze가 세그먼트를 업데이트하는 동안에만 유지됩니다.
 
 자격 증명 생성 단계에서 Braze 대시보드에 입력할 때까지 토큰을 안전한 장소에 보관하세요.
 
@@ -279,29 +279,29 @@ Microsoft Fabric 계정의 구성에 따라 방화벽에서 다음 IP 주소를 
 
 Braze 대시보드에서 연결된 소스를 생성합니다. **데이터 설정** > **클라우드 데이터 수집** > **연결된 소스**로 이동한 다음 **새 데이터 동기화 만들기** > **Snowflake Import**를 선택합니다.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![새 데이터 동기화를 생성하는 옵션이 있는 연결된 소스 페이지]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Snowflake 데이터 웨어하우스 및 소스 스키마에 대한 정보를 입력한 후 다음 단계로 진행합니다.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_1.png %})
+![웨어하우스 및 소스 스키마에 대한 Snowflake 연결 필드]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_1.png %})
 
 #### 3.2단계: 동기화 세부 정보 구성 {#step-32-configure-sync-details}
 
-연결된 소스의 이름을 선택합니다. 이 이름은 새로운 CDI **Segment** Extensions을 생성할 때 사용 가능한 소스 목록에 표시됩니다.
+연결된 소스의 이름을 선택합니다. 이 이름은 새로운 CDI 세그먼트 확장을 생성할 때 사용 가능한 소스 목록에 표시됩니다.
 
-이 소스에 대한 최대 실행 시간을 구성합니다. Braze는 **Segment**를 생성하거나 새로고침할 때 최대 실행 시간을 초과하는 모든 쿼리를 자동으로 중단합니다. 허용되는 최대 실행 시간은 60분이며, 더 짧은 실행 시간은 Snowflake 계정에서 발생하는 비용을 줄여줍니다.
+이 소스에 대한 최대 실행 시간을 구성합니다. Braze는 세그먼트를 생성하거나 새로고침할 때 최대 실행 시간을 초과하는 모든 쿼리를 자동으로 중단합니다. 허용되는 최대 실행 시간은 60분이며, 더 짧은 실행 시간은 Snowflake 계정에서 발생하는 비용을 줄여줍니다.
 
 {% alert note %}
 쿼리가 지속적으로 시간 초과되고 최대 실행 시간을 60분으로 설정한 경우, 쿼리 실행 시간을 최적화하거나 Braze 사용자에게 더 큰 웨어하우스를 할당하는 것을 고려하세요.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_2.png %})
+![Snowflake 동기화 이름 및 최대 실행 시간 구성]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_2.png %})
 
 #### 3.3단계: 공개 키 확인 {#step-33-note-the-public-key}
 
 **연결 테스트** 단계에서 RSA 공개 키를 기록해 두세요. Snowflake에서 통합을 완료하는 데 필요합니다.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_3.png %})
+![RSA 공개 키를 보여주는 Snowflake 연결 테스트 단계]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_3.png %})
 
 {% endtab %}
 {% tab Redshift %}
@@ -309,29 +309,29 @@ Snowflake 데이터 웨어하우스 및 소스 스키마에 대한 정보를 입
 
 Braze 대시보드에서 연결된 소스를 생성합니다. **데이터 설정** > **클라우드 데이터 수집** > **연결된 소스**로 이동한 다음 **데이터 연결 만들기** > **Amazon Redshift Import**를 선택합니다.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![새 데이터 동기화를 생성하는 옵션이 있는 연결된 소스 페이지]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Redshift 데이터 웨어하우스 및 소스 스키마에 대한 정보를 입력한 후 다음 단계로 진행합니다.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_1.png %})
+![웨어하우스 및 소스 스키마에 대한 Redshift 연결 필드]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_1.png %})
 
 #### 3.2단계: 동기화 세부 정보 구성
 
-연결된 소스의 이름을 선택합니다. 이 이름은 새로운 CDI **Segment** Extensions을 생성할 때 사용 가능한 소스 목록에 표시됩니다.
+연결된 소스의 이름을 선택합니다. 이 이름은 새로운 CDI 세그먼트 확장을 생성할 때 사용 가능한 소스 목록에 표시됩니다.
 
-이 소스에 대한 최대 실행 시간을 구성합니다. Braze는 **Segment**를 생성하거나 새로고침할 때 최대 실행 시간을 초과하는 모든 쿼리를 자동으로 중단합니다. 허용되는 최대 실행 시간은 60분이며, 더 짧은 실행 시간은 Redshift 계정에서 발생하는 비용을 줄여줍니다.
+이 소스에 대한 최대 실행 시간을 구성합니다. Braze는 세그먼트를 생성하거나 새로고침할 때 최대 실행 시간을 초과하는 모든 쿼리를 자동으로 중단합니다. 허용되는 최대 실행 시간은 60분이며, 더 짧은 실행 시간은 Redshift 계정에서 발생하는 비용을 줄여줍니다.
 
 {% alert note %}
 쿼리가 지속적으로 시간 초과되고 최대 실행 시간을 60분으로 설정한 경우, 쿼리 실행 시간을 최적화하거나 Braze 사용자에게 더 큰 웨어하우스를 할당하는 것을 고려하세요.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_2.png %})
+![Redshift 동기화 이름 및 최대 실행 시간 구성]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_2.png %})
 
 #### 3.3단계: 공개 키 확인(선택 사항) {#step-33-note-the-public-key-optional}
 
 자격 증명에 **Connect with SSH Tunnel**이 선택되어 있는 경우, **연결 테스트** 단계에서 RSA 공개 키를 기록해 두세요. Redshift에서 통합을 완료하는 데 필요합니다.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_3.png %})
+![RSA 공개 키를 보여주는 Redshift 연결 테스트 단계]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_3.png %})
 
 {% endtab %}
 {% tab BigQuery %}
@@ -339,29 +339,29 @@ Redshift 데이터 웨어하우스 및 소스 스키마에 대한 정보를 입�
 
 Braze 대시보드에서 연결된 소스를 생성합니다. **데이터 설정** > **클라우드 데이터 수집** > **연결된 소스**로 이동한 다음 **새 데이터 동기화 만들기** > **Google BigQuery Import**를 선택합니다.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![새 데이터 동기화를 생성하는 옵션이 있는 연결된 소스 페이지]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 BigQuery 프로젝트 및 데이터 세트에 대한 정보를 입력한 후 다음 단계로 진행합니다.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_1.png %})
+![BigQuery 연결 정보 및 소스 테이블 추가와 관련된 스크린샷]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_1.png %})
 
 #### 3.2단계: 동기화 세부 정보 구성
 
-연결된 소스의 이름을 선택합니다. 이 이름은 새로운 CDI **Segment** Extensions을 생성할 때 사용 가능한 소스 목록에 표시됩니다.
+연결된 소스의 이름을 선택합니다. 이 이름은 새로운 CDI 세그먼트 확장을 생성할 때 사용 가능한 소스 목록에 표시됩니다.
 
-이 소스에 대한 최대 실행 시간을 구성합니다. Braze는 **Segment**를 생성하거나 새로고침할 때 최대 실행 시간을 초과하는 모든 쿼리를 자동으로 중단합니다. 허용되는 최대 실행 시간은 60분이며, 더 짧은 실행 시간은 BigQuery 계정에서 발생하는 비용을 줄여줍니다.
+이 소스에 대한 최대 실행 시간을 구성합니다. Braze는 세그먼트를 생성하거나 새로고침할 때 최대 실행 시간을 초과하는 모든 쿼리를 자동으로 중단합니다. 허용되는 최대 실행 시간은 60분이며, 더 짧은 실행 시간은 BigQuery 계정에서 발생하는 비용을 줄여줍니다.
 
 {% alert note %}
 쿼리가 지속적으로 시간 초과되고 최대 실행 시간을 60분으로 설정한 경우, 쿼리 실행 시간을 최적화하거나 Braze 사용자에게 더 큰 웨어하우스를 할당하는 것을 고려하세요.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_2.png %})
+![동기화 세부 정보 구성과 관련된 스크린샷]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_2.png %})
 
 #### 3.3단계: 연결 테스트 {#step-33-test-the-connection}
 
-**Test Connection**을 선택하여 사용자에게 표시되는 테이블 목록이 예상한 것과 일치하는지 확인한 다음 **Done**을 선택합니다. 연결된 소스가 생성되었으며 CDI **Segment** Extensions에서 사용할 준비가 되었습니다.
+**Test Connection**을 선택하여 사용자에게 표시되는 테이블 목록이 예상한 것과 일치하는지 확인한 다음 **Done**을 선택합니다. 연결된 소스가 생성되었으며 CDI 세그먼트 확장에서 사용할 준비가 되었습니다.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
+![연결된 소스에서 사용할 수 있는 테이블을 보여주는 연결 테스트 단계]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% tab Databricks %}
@@ -369,29 +369,29 @@ BigQuery 프로젝트 및 데이터 세트에 대한 정보를 입력한 후 다
 
 Braze 대시보드에서 연결된 소스를 생성합니다. **데이터 설정** > **클라우드 데이터 수집** > **연결된 소스**로 이동한 다음 **새 데이터 동기화 만들기** > **Databricks Import**를 선택합니다.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![새 데이터 동기화를 생성하는 옵션이 있는 연결된 소스 페이지]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Databricks 자격 증명과 선택적으로 카탈로그 및 소스 스키마에 대한 정보를 입력한 후 다음 단계로 진행합니다.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_databricks_1.png %})
+![자격 증명 및 소스 스키마에 대한 Databricks 연결 필드]({% image_buster /assets/img/cloud_ingestion/connected_source_databricks_1.png %})
 
 #### 3.2단계: 동기화 세부 정보 구성
 
-연결된 소스의 이름을 선택합니다. 이 이름은 새로운 CDI **Segment** Extensions을 생성할 때 사용 가능한 소스 목록에 표시됩니다.
+연결된 소스의 이름을 선택합니다. 이 이름은 새로운 CDI 세그먼트 확장을 생성할 때 사용 가능한 소스 목록에 표시됩니다.
 
-이 소스에 대한 최대 실행 시간을 구성합니다. Braze는 **Segment**를 생성하거나 새로고침할 때 최대 실행 시간을 초과하는 모든 쿼리를 자동으로 중단합니다. 허용되는 최대 실행 시간은 60분이며, 더 짧은 실행 시간은 Databricks 계정에서 발생하는 비용을 줄여줍니다.
+이 소스에 대한 최대 실행 시간을 구성합니다. Braze는 세그먼트를 생성하거나 새로고침할 때 최대 실행 시간을 초과하는 모든 쿼리를 자동으로 중단합니다. 허용되는 최대 실행 시간은 60분이며, 더 짧은 실행 시간은 Databricks 계정에서 발생하는 비용을 줄여줍니다.
 
 {% alert note %}
 쿼리가 지속적으로 시간 초과되고 최대 실행 시간을 60분으로 설정한 경우, 쿼리 실행 시간을 최적화하거나 Braze 사용자에게 더 큰 웨어하우스를 할당하는 것을 고려하세요.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_db_2.png %})
+![Databricks 동기화 이름 및 최대 실행 시간 구성]({% image_buster /assets/img/cloud_ingestion/connected_source_db_2.png %})
 
 #### 3.3단계: 연결 테스트
 
-**Test Connection**을 선택하여 사용자에게 표시되는 테이블 목록이 예상한 것과 일치하는지 확인한 다음 **Done**을 선택합니다. 연결된 소스가 생성되었으며 CDI **Segment** Extensions에서 사용할 준비가 되었습니다.
+**Test Connection**을 선택하여 사용자에게 표시되는 테이블 목록이 예상한 것과 일치하는지 확인한 다음 **Done**을 선택합니다. 연결된 소스가 생성되었으며 CDI 세그먼트 확장에서 사용할 준비가 되었습니다.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
+![연결된 소스에서 사용할 수 있는 테이블을 보여주는 연결 테스트 단계]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -399,29 +399,29 @@ Databricks 자격 증명과 선택적으로 카탈로그 및 소스 스키마에
 
 Braze 대시보드에서 연결된 소스를 생성합니다. **데이터 설정** > **클라우드 데이터 수집** > **연결된 소스**로 이동한 다음 **새 데이터 동기화 만들기** > **Microsoft Fabric Import**를 선택합니다.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![새 데이터 동기화를 생성하는 옵션이 있는 연결된 소스 페이지]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Microsoft Fabric 자격 증명, 소스 웨어하우스 및 스키마에 대한 정보를 입력한 후 다음 단계로 진행합니다.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_1.png %})
+![자격 증명 및 소스 스키마에 대한 Microsoft Fabric 연결 필드]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_1.png %})
 
 #### 3.2단계: 동기화 세부 정보 구성
 
-연결된 소스의 이름을 선택합니다. 이 이름은 새로운 CDI **Segment** Extensions을 생성할 때 사용 가능한 소스 목록에 표시됩니다.
+연결된 소스의 이름을 선택합니다. 이 이름은 새로운 CDI 세그먼트 확장을 생성할 때 사용 가능한 소스 목록에 표시됩니다.
 
-이 소스에 대한 최대 실행 시간을 구성합니다. Braze는 **Segment**를 생성하거나 새로고침할 때 최대 실행 시간을 초과하는 모든 쿼리를 자동으로 중단합니다. 허용되는 최대 실행 시간은 60분이며, 더 짧은 실행 시간은 Microsoft Fabric 계정에서 발생하는 비용을 줄여줍니다.
+이 소스에 대한 최대 실행 시간을 구성합니다. Braze는 세그먼트를 생성하거나 새로고침할 때 최대 실행 시간을 초과하는 모든 쿼리를 자동으로 중단합니다. 허용되는 최대 실행 시간은 60분이며, 더 짧은 실행 시간은 Microsoft Fabric 계정에서 발생하는 비용을 줄여줍니다.
 
 {% alert note %}
 쿼리가 지속적으로 시간 초과되고 최대 실행 시간을 60분으로 설정한 경우, 쿼리 실행 시간을 최적화하거나 Fabric 용량을 확장하는 것을 고려하세요.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_2.png %})
+![Microsoft Fabric 동기화 이름 및 최대 실행 시간 구성]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_2.png %})
 
 #### 3.3단계: 연결 테스트
 
-**Test Connection**을 선택하여 사용자에게 표시되는 테이블 목록이 예상한 것과 일치하는지 확인한 다음 **Done**을 선택합니다. 연결된 소스가 생성되었으며 CDI **Segment** Extensions에서 사용할 준비가 되었습니다.
+**Test Connection**을 선택하여 사용자에게 표시되는 테이블 목록이 예상한 것과 일치하는지 확인한 다음 **Done**을 선택합니다. 연결된 소스가 생성되었으며 CDI 세그먼트 확장에서 사용할 준비가 되었습니다.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
+![연결된 소스에서 사용할 수 있는 테이블을 보여주는 연결 테스트 단계]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -440,13 +440,13 @@ Microsoft Fabric 자격 증명, 소스 웨어하우스 및 스키마에 대한 �
 ALTER USER BRAZE_INGESTION_USER SET rsa_public_key='{INSERT_YOUR_KEY}';
 ```
 
-Snowflake에서 사용자에게 키를 추가한 후 Braze에서 **Test Connection**을 선택한 다음 **Done**을 선택합니다. 연결된 소스가 생성되었으며 CDI **Segment** Extensions에서 사용할 준비가 되었습니다.
+Snowflake에서 사용자에게 키를 추가한 후 Braze에서 **Test Connection**을 선택한 다음 **Done**을 선택합니다. 연결된 소스가 생성되었으며 CDI 세그먼트 확장에서 사용할 준비가 되었습니다.
 {% endtab %}
 
 {% tab Redshift %}
 SSH 터널로 연결하는 경우, 마지막 단계에서 기록한 공개 키를 SSH 터널 사용자에게 추가합니다.
 
-사용자에게 키를 추가한 후 Braze에서 **Test Connection**을 선택한 다음 **Done**을 선택합니다. 연결된 소스가 생성되었으며 CDI **Segment** Extensions에서 사용할 준비가 되었습니다.
+사용자에게 키를 추가한 후 Braze에서 **Test Connection**을 선택한 다음 **Done**을 선택합니다. 연결된 소스가 생성되었으며 CDI 세그먼트 확장에서 사용할 준비가 되었습니다.
 
 {% endtab %}
 {% tab BigQuery %}
@@ -495,7 +495,7 @@ Braze와 여러 소스를 설정할 수 있지만, 각 소스는 서로 다른 �
 
 ## 연결된 소스 사용 {#using-the-connected-source}
 
-소스가 생성된 후 이를 사용하여 하나 이상의 CDI **Segment** Extensions을 생성할 수 있습니다. 이 소스를 사용하여 **Segment**를 생성하는 방법에 대한 자세한 내용은 [CDI **Segment** Extensions 설명서]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/)를 참조하세요.
+소스가 생성된 후 이를 사용하여 하나 이상의 CDI 세그먼트 확장을 생성할 수 있습니다. 이 소스를 사용하여 세그먼트를 생성하는 방법에 대한 자세한 내용은 [CDI 세그먼트 확장 설명서]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments)를 참조하세요.
 
 {% alert note %}
 쿼리가 지속적으로 시간 초과되고 최대 실행 시간을 60분으로 설정한 경우, 쿼리 실행 시간을 최적화하거나 Braze 사용자에게 더 많은 컴퓨팅 리소스(예: 더 큰 웨어하우스)를 할당하는 것을 고려하세요.

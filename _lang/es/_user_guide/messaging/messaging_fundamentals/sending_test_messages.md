@@ -23,7 +23,7 @@ Antes de probar tu campaña de mensajería, es importante identificar a tus usua
 
 ### Opcional: Crea un grupo de prueba de contenido {#optional-create-a-content-test-group}
 
-Una forma conveniente de organizar a tus usuarios de prueba es crear un [grupo de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/), que incluye un grupo de usuarios que recibirán mensajes de prueba de las campañas. Puedes añadir este grupo de prueba al campo **Add Content Test Groups** en **Test Recipients** en tu campaña, y lanzar tus pruebas sin crear ni añadir usuarios de prueba individuales.
+Una forma conveniente de organizar a tus usuarios de prueba es crear un [grupo de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups), que incluye un grupo de usuarios que recibirán mensajes de prueba de las campañas. Puedes añadir este grupo de prueba al campo **Add Content Test Groups** en **Test Recipients** en tu campaña, y lanzar tus pruebas sin crear ni añadir usuarios de prueba individuales.
 
 ## Paso 2: Envía mensajes de prueba específicos del canal {#step-2-send-channel-specific-test-messages}
 
@@ -33,7 +33,7 @@ Para conocer los pasos para enviar mensajes de prueba, consulta la siguiente sec
 {% tab Banners %}
 
 {% alert important %}
-Antes de poder probar mensajes de Banner en Braze, necesitarás crear una campaña de Banner en Braze. Además, verifica que la ubicación que deseas probar ya esté [colocada en tu aplicación o sitio web]({{site.baseurl}}/developer_guide/banners/placements/).
+Antes de poder probar mensajes de Banner en Braze, necesitarás crear una campaña de Banner en Braze. Además, verifica que la ubicación que deseas probar ya esté [colocada en tu aplicación o sitio web]({{site.baseurl}}/developer_guide/banners/placements).
 {% endalert %}
 
 Después de crear tu mensaje de Banner, puedes previsualizar tu Banner o enviar un mensaje de prueba.
@@ -62,7 +62,7 @@ Ten en cuenta que tu vista previa puede no ser idéntica a la representación fi
 {% tab Content Card %}
 
 {% alert important %}
-Para enviar una prueba a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) o usuarios individuales, las notificaciones push deben estar habilitadas en tus dispositivos de prueba con tokens de push válidos registrados para el usuario de prueba antes de enviar. Para los usuarios de iOS, debes tocar la notificación push enviada por Braze para ver la Content Card de prueba. Este comportamiento solo se aplica a las Content Cards de prueba.
+Para enviar una prueba a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) o usuarios individuales, las notificaciones push deben estar habilitadas en tus dispositivos de prueba con tokens de push válidos registrados para el usuario de prueba antes de enviar. Para los usuarios de iOS, debes tocar la notificación push enviada por Braze para ver la Content Card de prueba. Este comportamiento solo se aplica a las Content Cards de prueba.
 {% endalert %}
 
 Las Content Cards de prueba se entregan a través de una notificación push. La tarjeta se empaqueta en la carga útil del push, y el SDK la extrae y almacena en caché localmente cuando se recibe el push.
@@ -91,7 +91,7 @@ En la pestaña **Preview** de tu compositor, la vista de tu mensaje puede no ser
 
 - ¿Tu usuario de prueba ha optado por recibir notificaciones push con un token de push válido?
 - ¿Las imágenes y los medios se muestran y funcionan como se espera?
-- ¿Liquid funciona como se espera? ¿Has contemplado un [valor de atributo predeterminado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#accounting-for-null-attribute-values) en caso de que Liquid no devuelva información?
+- ¿Liquid funciona como se espera? ¿Has contemplado un [valor de atributo predeterminado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) en caso de que Liquid no devuelva información?
 - ¿Tu texto es claro, conciso y correcto?
 - ¿Tus enlaces dirigen al usuario a donde deben ir?
 - ¿Tu usuario de prueba ha optado por recibir notificaciones push con un token de push válido?
@@ -107,7 +107,7 @@ Si una imagen de Content Card no se renderiza o aparece rota:
 
 ### Depuración {#debug}
 
-Después de enviar tus Content Cards, puedes desglosar o depurar cualquier problema desde el [Registro de eventos de usuario]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) en la consola para desarrolladores.
+Después de enviar tus Content Cards, puedes desglosar o depurar cualquier problema desde el [Registro de eventos de usuario]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) en la consola para desarrolladores.
 
 Un caso de uso común es intentar depurar por qué un usuario no puede ver una Content Card en particular. Para hacerlo, puedes buscar en los **Event User Logs** las Content Cards entregadas al SDK al inicio de la sesión, pero antes de una impresión, y rastrearlas hasta una campaña específica:
 
@@ -162,7 +162,7 @@ Si tu campaña de correo electrónico incluye una imagen grande y no se muestra 
 {% tab Mensaje dentro de la aplicación %}
 
 {% alert warning %}
-Para enviar una prueba a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) o usuarios individuales, las notificaciones push deben estar habilitadas en tus dispositivos de prueba antes de enviar. Por ejemplo, debes tener las notificaciones push habilitadas en tu dispositivo iOS para poder tocar la notificación antes de que se muestre el mensaje de prueba. {% endalert %}
+Para enviar una prueba a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) o usuarios individuales, las notificaciones push deben estar habilitadas en tus dispositivos de prueba antes de enviar. Por ejemplo, debes tener las notificaciones push habilitadas en tu dispositivo iOS para poder tocar la notificación antes de que se muestre el mensaje de prueba. {% endalert %}
 
 Si tienes las notificaciones push configuradas en tu aplicación y en tu dispositivo de prueba, puedes enviar mensajes de prueba dentro de la aplicación para ver cómo se ven en tiempo real.
 
@@ -197,7 +197,7 @@ En **Preview**, la vista de tu mensaje puede no ser idéntica a su representaci�
 ### Lista de verificación de prueba
 
 - ¿Las imágenes y los medios se muestran y funcionan como se espera?
-- ¿Liquid funciona como se espera? ¿Has contemplado un [valor de atributo predeterminado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#accounting-for-null-attribute-values) en caso de que Liquid no devuelva información?
+- ¿Liquid funciona como se espera? ¿Has contemplado un [valor de atributo predeterminado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) en caso de que Liquid no devuelva información?
 - ¿Tu texto es claro, conciso y correcto?
 - ¿Tus botones dirigen al usuario a donde deben ir?
 
@@ -243,7 +243,7 @@ El escáner se ejecuta automáticamente en mensajes HTML personalizados y evalú
 
 ![Prueba de push]({% image_buster /assets/img_archive/testpush.png %})
 
-Si ves un error que indica que ninguno de los usuarios seleccionados tiene tokens de push coincidentes, el usuario de prueba no tiene un token de push válido para la plataforma seleccionada. El usuario debe haber iniciado una sesión en la aplicación y habilitado las notificaciones push para ese dispositivo. Para más información, consulta [Habilitación de push y estados de suscripción push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/).
+Si ves un error que indica que ninguno de los usuarios seleccionados tiene tokens de push coincidentes, el usuario de prueba no tiene un token de push válido para la plataforma seleccionada. El usuario debe haber iniciado una sesión en la aplicación y habilitado las notificaciones push para ese dispositivo. Para más información, consulta [Habilitación de push y estados de suscripción push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
 
 #### Push web {#web-push}
 
@@ -256,7 +256,7 @@ Si ves un error que indica que ninguno de los usuarios seleccionados tiene token
 
 Si ya has aceptado mensajes push desde el dashboard de Braze, el mensaje aparecerá en la esquina de tu pantalla. De lo contrario, selecciona **Allow** cuando se te solicite, y el mensaje se mostrará.
 
-Si ves un error que indica que ninguno de los usuarios seleccionados tiene tokens de push coincidentes para notificación push web, verifica que el usuario de prueba tenga un token de push válido registrado para la plataforma seleccionada. Para recibir un token de push, el usuario debe estar configurado para recibir notificaciones push para la aplicación en su dispositivo. Para más detalles, consulta [Habilitación de push y estados de suscripción push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/).
+Si ves un error que indica que ninguno de los usuarios seleccionados tiene tokens de push coincidentes para notificación push web, verifica que el usuario de prueba tenga un token de push válido registrado para la plataforma seleccionada. Para recibir un token de push, el usuario debe estar configurado para recibir notificaciones push para la aplicación en su dispositivo. Para más detalles, consulta [Habilitación de push y estados de suscripción push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
 
 {% endtab %}
 {% tab SMS/MMS y RCS %}
@@ -293,7 +293,7 @@ Si estás probando campañas que utilizan datos de usuario o propiedades de even
 
 ### Probar campañas personalizadas con atributos de usuario {#testing-campaigns-personalized-with-user-attributes}
 
-Si estás usando [personalización]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/overview/) en tu mensaje, necesitarás seguir pasos adicionales para previsualizar correctamente tu campaña y verificar que los datos de usuario estén rellenando correctamente el contenido.
+Si estás usando [personalización]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/overview) en tu mensaje, necesitarás seguir pasos adicionales para previsualizar correctamente tu campaña y verificar que los datos de usuario estén rellenando correctamente el contenido.
 
 Al enviar un mensaje de prueba, asegúrate de elegir la opción de **Select Existing User** o previsualizar como un **Custom User**.
 
@@ -319,7 +319,7 @@ Puedes editar campos individuales de un usuario aleatorio o existente para ayuda
 
 ### Probar campañas personalizadas con propiedades de eventos personalizados {#testing-campaigns-personalized-with-custom-event-properties}
 
-Probar campañas personalizadas con [propiedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/) difiere ligeramente de probar otros tipos de campañas descritas.
+Probar campañas personalizadas con [propiedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) difiere ligeramente de probar otros tipos de campañas descritas.
 
 {% tabs local %}
 {% tab Activar manualmente %}
@@ -333,7 +333,7 @@ Puedes activar la campaña tú mismo como una forma robusta de probar campañas 
 ![Redactar mensaje de prueba con propiedades]({% image_buster /assets/img_archive/testeventproperties-compose.png %})
 
 {: start="2"}
-2. Usa la [entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) para entregar la campaña cuando ocurra el evento.
+2. Usa la [entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) para entregar la campaña cuando ocurra el evento.
 
 {% alert note %}
 Si estás probando una campaña push de iOS, debes establecer el retraso en un minuto para darte tiempo de salir de la aplicación, ya que iOS no entrega notificaciones push para la aplicación actualmente abierta. Otros tipos de campañas pueden configurarse para entregarse inmediatamente.
@@ -397,6 +397,6 @@ Si tu campaña de mensaje dentro de la aplicación no se activa con una campaña
 
 Para envíos de prueba en Android e iOS, los mensajes dentro de la aplicación que usan el comportamiento de clic **Request push permission** pueden no mostrarse en algunos dispositivos. Como solución alternativa:
 - **Android:** Los dispositivos deben estar en Android 13 y nuestra versión del SDK de Android 21.0.0. Otra razón puede ser que el dispositivo en el que se muestra el mensaje dentro de la aplicación ya tiene un aviso a nivel del sistema. Es posible que hayas seleccionado **Do not ask again**, por lo que puede que necesites reinstalar la aplicación para restablecer los permisos de notificación antes de probar de nuevo.
-- **iOS:** Recomendamos que tu equipo de desarrolladores revise la implementación de las notificaciones push para tu aplicación y elimine manualmente cualquier código que solicite permisos push. Para más información, consulta [Mensajes dentro de la aplicación de preparación para push]({{site.baseurl}}/user_guide/channels/push/best_practices/).
+- **iOS:** Recomendamos que tu equipo de desarrolladores revise la implementación de las notificaciones push para tu aplicación y elimine manualmente cualquier código que solicite permisos push. Para más información, consulta [Mensajes dentro de la aplicación de preparación para push]({{site.baseurl}}/user_guide/channels/push/best_practices).
 
 Para que una campaña de mensaje dentro de la aplicación basada en acciones se entregue, debes registrar eventos personalizados a través del SDK de Braze, no de las REST API, para que los usuarios puedan recibir mensajes dentro de la aplicación elegibles directamente en su dispositivo. Los usuarios reciben el mensaje dentro de la aplicación si realizan el evento durante la sesión.

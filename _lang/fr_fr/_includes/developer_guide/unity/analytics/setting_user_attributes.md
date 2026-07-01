@@ -34,7 +34,7 @@ BrazeBinding.SetUserLastName("last name");
 {% endtab %}
 {% tab Email %}
 ```csharp
-BrazeBinding.SetUserEmail("email@email.com");
+BrazeBinding.SetUserEmail("user@example.com");
 ```
 {% endtab %}
 {% tab Gender %}
@@ -84,7 +84,7 @@ BrazeBinding.SetUserFirstName(null);
 
 ## Attributs utilisateur personnalisés {#custom-user-attributes}
 
-Outre les attributs par défaut, Braze vous permet de définir des attributs personnalisés à l'aide de différents types de données. Pour plus d'informations sur les options de segmentation de chaque attribut, consultez [Collecte de données utilisateur]({{site.baseurl}}/developer_guide/analytics/).
+Outre les attributs par défaut, Braze vous permet de définir des attributs personnalisés à l'aide de différents types de données. Pour plus d'informations sur les options de segmentation de chaque attribut, consultez [Collecte de données utilisateur]({{site.baseurl}}/developer_guide/analytics).
 
 ### Définition des attributs personnalisés {#setting-custom-attributes}
 
@@ -167,7 +167,7 @@ AppboyBinding.UnsetCustomUserAttribute("custom attribute key");
 
 ### Utiliser la REST API {#using-the-rest-api}
 
-Vous pouvez également utiliser la REST API pour définir ou supprimer les attributs des utilisateurs. Pour plus d'informations, reportez-vous aux [endpoints de données utilisateur]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
+Vous pouvez également utiliser la REST API pour définir ou supprimer les attributs des utilisateurs. Pour plus d'informations, reportez-vous aux [endpoints de données utilisateur]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
 ## Configurer les abonnements des utilisateurs {#setting-user-subscriptions}
 
@@ -191,13 +191,13 @@ Les deux fonctions prennent comme argument `Appboy.Models.AppboyNotificationSubs
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Configurer les abonnements des utilisateurs" }
 
 {% alert note %}
-Windows ne requiert aucun abonnement explicite pour envoyer des notifications push aux utilisateurs. Lorsqu'un utilisateur est enregistré pour les notifications push, il est défini sur `SUBSCRIBED` plutôt que `OPTED_IN` par défaut. Pour en savoir plus, consultez notre documentation sur [l'implémentation des abonnements et des inscriptions explicites]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions).
+Windows ne requiert aucun abonnement explicite pour envoyer des notifications push aux utilisateurs. Lorsqu'un utilisateur est enregistré pour les notifications push, il est défini sur `SUBSCRIBED` plutôt que `OPTED_IN` par défaut. Pour en savoir plus, consultez notre documentation sur [l'implémentation des abonnements et des inscriptions explicites]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#managing-user-subscriptions).
 {% endalert %}
 
 | Type d'abonnement | Description |
 |------------------------------------------|-------------|
-| `EmailNotificationSubscriptionType` | Les utilisateurs sont automatiquement définis sur `SUBSCRIBED` à la réception d'une adresse e-mail valide. Nous vous recommandons toutefois de mettre en place un processus d'inscription explicite et de définir cette valeur sur `OPTED_IN` dès réception du consentement explicite de votre utilisateur. Pour plus de détails, consultez notre documentation [Modification des abonnements utilisateur]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions). |
-| `PushNotificationSubscriptionType` | Les utilisateurs sont automatiquement définis sur `SUBSCRIBED` après une inscription valide aux notifications push. Nous vous recommandons toutefois de mettre en place un processus d'inscription explicite et de définir cette valeur sur `OPTED_IN` dès réception du consentement explicite de votre utilisateur. Pour plus de détails, consultez notre documentation [Modification des abonnements utilisateur]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions). |
+| `EmailNotificationSubscriptionType` | Les utilisateurs sont automatiquement définis sur `SUBSCRIBED` à la réception d'une adresse e-mail valide. Nous vous recommandons toutefois de mettre en place un processus d'inscription explicite et de définir cette valeur sur `OPTED_IN` dès réception du consentement explicite de votre utilisateur. Pour plus de détails, consultez notre documentation [Modification des abonnements utilisateur]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions). |
+| `PushNotificationSubscriptionType` | Les utilisateurs sont automatiquement définis sur `SUBSCRIBED` après une inscription valide aux notifications push. Nous vous recommandons toutefois de mettre en place un processus d'inscription explicite et de définir cette valeur sur `OPTED_IN` dès réception du consentement explicite de votre utilisateur. Pour plus de détails, consultez notre documentation [Modification des abonnements utilisateur]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Configurer les abonnements des utilisateurs" }
 
 {% alert note %}

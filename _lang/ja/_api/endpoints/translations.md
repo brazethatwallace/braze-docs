@@ -9,29 +9,29 @@ description: "このランディングページには、Brazeの翻訳エンド�
 page_type: landing
 
 guide_top_header: "翻訳エンドポイント"
-guide_top_text: "Brazeの翻訳エンドポイントを使って、Campaign、Canvas、Content Blocksの翻訳を管理・更新できます。"
+guide_top_text: "Brazeの翻訳エンドポイントを使って、キャンペーン、キャンバス、Content Blocksの翻訳を管理・更新できます。"
 
-guide_featured_title: "Campaignエンドポイント"
+guide_featured_title: "キャンペーンエンドポイント"
 guide_featured_list:
-  - name: "GET: Campaignの翻訳を表示する"
+  - name: "GET: キャンペーンの翻訳を表示する"
     link: /docs/api/endpoints/translations/campaigns/get_translation_campaign
     image: /assets/img/braze_icons/message-plus-square.svg
-  - name: "PUT: Campaign内の翻訳を更新する"
+  - name: "PUT: キャンペーン内の翻訳を更新する"
     link: /docs/api/endpoints/translations/campaigns/put_update_translation_campaign
     image: /assets/img/braze_icons/target-04.svg
-  - name: "GET: Campaignのデフォルトソース翻訳を表示する"
+  - name: "GET: キャンペーンのデフォルトソース翻訳を表示する"
     link: /docs/api/endpoints/translations/campaigns/get_source_campaign
     image: /assets/img/braze_icons/message-plus-square.svg
 
-guide_menu_title: "Canvasエンドポイント"
+guide_menu_title: "キャンバスエンドポイント"
 guide_menu_list:
-  - name: "GET: Canvasの翻訳を表示する"
+  - name: "GET: キャンバスの翻訳を表示する"
     link: /docs/api/endpoints/translations/canvas/get_translation_canvas
     image: /assets/img/braze_icons/message-plus-square.svg
-  - name: "PUT: Canvas内の翻訳を更新する"
+  - name: "PUT: キャンバス内の翻訳を更新する"
     link: /docs/api/endpoints/translations/canvas/put_update_translation_canvas
     image: /assets/img/braze_icons/target-04.svg
-  - name: "GET: Canvasのデフォルトソース翻訳を表示する"
+  - name: "GET: キャンバスのデフォルトソース翻訳を表示する"
     link: /docs/api/endpoints/translations/canvas/get_source_canvas
     image: /assets/img/braze_icons/message-plus-square.svg
 
@@ -73,7 +73,7 @@ guide_menu_list3:
 
 ### 翻訳のテスト方法 {#how-to-test-your-translations}
 
-APIとBrazeダッシュボードを使用して、Campaign、Canvas（個々のステップを含む）、Content Blocks、メールテンプレート全体で翻訳サポートを検証する方法は2つあります。
+APIとBrazeダッシュボードを使用して、キャンペーン、キャンバス（個々のステップを含む）、Content Blocks、メールテンプレート全体で翻訳サポートを検証する方法は2つあります。
 
 - 構成中（起動前）
 - 起動後（起動後の下書きを使用）

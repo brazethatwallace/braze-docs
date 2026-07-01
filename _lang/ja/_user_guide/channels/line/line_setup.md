@@ -338,7 +338,7 @@ LINE ID を既存のBrazeユーザープロファイルと結合するには、2
 
 この方法では、ユーザーが LINE アカウントをアプリのユーザーアカウントにリンクできます。Brazeで {% raw %}`{{line_id}}`{% endraw %} などのLiquidを使用して、ユーザーの LINE ID をWebサイトやアプリに渡すパーソナライズされた URL を作成し、既知のユーザーに関連付けることができます。
 
-1. サブスクリプション状態の変更に基づくアクションベースのCanvasを作成し、ユーザーが LINE チャネルを購読した際にトリガーされるようにします。<br>![ユーザーが LINE チャネルを購読した際にトリガーされるCanvas。]({% image_buster /assets/img/line/account_link_1.png %})
+1. サブスクリプション状態の変更に基づくアクションベースのキャンバスを作成し、ユーザーが LINE チャネルを購読した際にトリガーされるようにします。<br>![ユーザーが LINE チャネルを購読した際にトリガーされるキャンバス。]({% image_buster /assets/img/line/account_link_1.png %})
 2. ユーザーにWebサイトやアプリへのログインを促すメッセージを作成し、ユーザーの LINE ID をクエリパラメーターとして（Liquidを通じて）渡します。例：
 
 ```
@@ -347,7 +347,7 @@ Thanks for following Flash n' Thread on LINE! For personalized offers and 20% of
 
 {: start="3"}
 3. クーポンコードを配信するフォローアップメッセージを作成します。
-4. （オプション）LINE ユーザーが識別された際にトリガーされるアクションベースのCampaignまたはCanvasを作成し、ユーザーにクーポンコードを送信します。<br>![LINE ユーザーが識別された際にトリガーされるアクションベースのCampaign。]({% image_buster /assets/img/line/account_link_2.png %})
+4. （オプション）LINE ユーザーが識別された際にトリガーされるアクションベースのキャンペーンまたはキャンバスを作成し、ユーザーにクーポンコードを送信します。<br>![LINE ユーザーが識別された際にトリガーされるアクションベースのキャンペーン。]({% image_buster /assets/img/line/account_link_2.png %})
 
 #### 仕組み {#how-it-works}
 
@@ -391,12 +391,12 @@ if (user && isLoggedIn && lineUserId) {
 
 ## Brazeでの LINE テストユーザーの作成 {#creating-line-test-users-in-braze}
 
-[ユーザー照合](#user-id-reconciliation)をセットアップする前に、「Who am I」CanvasまたはCampaignを作成して LINE チャネルをテストできます。
+[ユーザー照合](#user-id-reconciliation)をセットアップする前に、「Who am I」キャンバスまたはキャンペーンを作成して LINE チャネルをテストできます。
 
-1. 特定のトリガーワードでユーザーのBrazeユーザー ID を返すCanvasをセットアップします。<br><br>トリガーの例<br><br>![特定のサブスクリプショングループにインバウンド LINE を送信したユーザーにCampaignを送信するトリガー。]({% image_buster /assets/img/line/trigger.png %}){: style="max-width:80%;"}<br><br>メッセージの例<br><br>![Brazeユーザー ID を表示する LINE メッセージ。]({% image_buster /assets/img/line/message.png %}){: style="max-width:40%;"}<br><br>
+1. 特定のトリガーワードでユーザーのBrazeユーザー ID を返すキャンバスをセットアップします。<br><br>トリガーの例<br><br>![特定のサブスクリプショングループにインバウンド LINE を送信したユーザーにキャンペーンを送信するトリガー。]({% image_buster /assets/img/line/trigger.png %}){: style="max-width:80%;"}<br><br>メッセージの例<br><br>![Brazeユーザー ID を表示する LINE メッセージ。]({% image_buster /assets/img/line/message.png %}){: style="max-width:40%;"}<br><br>
 
 2. Brazeで、Braze ID を使用して特定のユーザーを検索し、必要に応じて変更できます。
 
 {% alert important %}
-Canvasにグローバルコントロールやコントロールグループが送信を妨げていないことを確認してください。
+キャンバスにグローバルコントロールやコントロールグループが送信を妨げていないことを確認してください。
 {% endalert %}

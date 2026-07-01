@@ -9,11 +9,12 @@ tool:
   - Reports
 
 ---
-# Exporter les données du Canvas
+
+# Exporter les données du Canvas {#export-canvas-data}
 
 > Les données utilisateur peuvent être exportées vers un fichier CSV. Cette page explique comment exporter des données pour l'ensemble de votre Canvas ou pour un composant spécifique du Canvas.
 
-## Exporter les données d'un Canvas
+## Exporter les données d'un Canvas {#exporting-data-for-a-canvas}
 
 Pour exporter les données d'un Canvas, procédez comme suit :
 
@@ -25,12 +26,12 @@ Pour exporter les données d'un Canvas, procédez comme suit :
 
 Vous pouvez également exporter les données utilisateur de tous les participants d'un Canvas sous forme de fichier CSV.
 
-## Exporter les données d'un composant (flux de travail d'origine uniquement)
+## Exporter les données d'un composant (flux de travail d'origine uniquement) {#exporting-data-for-a-component-original-workflow-only}
 
 Les résultats de Canvas peuvent être exportés composant par composant pour le flux de travail Canvas d'origine. Pour ce faire, sélectionnez le composant souhaité, puis sélectionnez la liste déroulante **Données utilisateur** sur la page **Détails de l'étape du Canvas**.
 
 ![Liste déroulante « Données utilisateur » sur la page « Détails du Canvas ».]({% image_buster /assets/img/canvas_csv_export.png %})
 
 {% alert tip %}
-Pour obtenir de l'aide sur les exportations CSV et API, consultez notre article de [résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Pour obtenir de l'aide sur les exportations CSV et API, consultez notre article de [résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}

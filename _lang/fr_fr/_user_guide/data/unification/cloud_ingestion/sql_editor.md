@@ -11,7 +11,7 @@ toc_headers: h2
 
 > Cette page explique comment utiliser l'éditeur SQL de l'ingestion de données cloud (CDI) de Braze pour créer et valider des synchronisations avec des requêtes SQL.
 
-L'éditeur SQL de l'ingestion de données cloud vous permet de créer des synchronisations en écrivant des requêtes SQL directement sur votre entrepôt de données. Cela supprime la nécessité de créer ou de maintenir une table CDI dédiée, ce qui était auparavant requis dans l'[étape 1.1 des intégrations d'entrepôt de données]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+L'éditeur SQL de l'ingestion de données cloud vous permet de créer des synchronisations en écrivant des requêtes SQL directement sur votre entrepôt de données. Cela supprime la nécessité de créer ou de maintenir une table CDI dédiée, ce qui était auparavant requis dans l'[étape 1.1 des intégrations d'entrepôt de données]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 Utilisez l'éditeur SQL lorsque vous souhaitez :
 
@@ -40,7 +40,7 @@ Braze exécute uniquement des requêtes en lecture seule sur vos données et ne 
 Suivez ces étapes pour créer d'abord une source, puis une synchronisation avec l'éditeur SQL. Si vous avez déjà configuré une source pour CDI, vous pouvez passer à l'étape 3.
 
 {% alert note %}
-Notez que ces étapes utilisent une source Snowflake comme exemple. Le processus de configuration pour les autres sources d'entrepôt de données est similaire et peut être consulté dans l'[étape 2 : Créer une nouvelle source dans le tableau de bord de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-2-create-a-new-source-in-the-braze-dashboard) de la documentation [Configuration des intégrations d'entrepôt de données]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#setting-up-data-warehouse-integrations).
+Notez que ces étapes utilisent une source Snowflake comme exemple. Le processus de configuration pour les autres sources d'entrepôt de données est similaire et peut être consulté dans l'[étape 2 : Créer une nouvelle source dans le tableau de bord de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard) de la documentation [Configuration des intégrations d'entrepôt de données]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#setting-up-data-warehouse-integrations).
 {% endalert %}
 
 ### Étape 1 : Configurer votre rôle, vos autorisations, votre entrepôt et votre utilisateur Snowflake {#step-1-set-up-your-snowflake-role-permissions-warehouse-and-user}
@@ -253,7 +253,7 @@ Si votre requête renvoie zéro ligne :
 
 ## Prise en charge de `PAYLOAD` (hérité) {#payload-support-legacy}
 
-L'éditeur SQL prend en charge les [tables CDI héritées]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views) où une colonne `PAYLOAD` est présente.
+L'éditeur SQL prend en charge les [tables CDI héritées]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-1-set-up-tables-or-views) où une colonne `PAYLOAD` est présente.
 
 Si votre requête inclut :
 

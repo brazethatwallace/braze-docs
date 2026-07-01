@@ -77,15 +77,15 @@ Debes crear instancias de aplicación distintas para cada versión de tu aplicac
 
 #### Equipos {#teams}
 
-Los [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) pueden configurarse en función de la ubicación de la base de clientes, el idioma y los atributos personalizados, de modo que los miembros del equipo y los que no lo son tengan diferente acceso a las funciones de mensajería y a los datos de los clientes.
+Los [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams) pueden configurarse en función de la ubicación de la base de clientes, el idioma y los atributos personalizados, de modo que los miembros del equipo y los que no lo son tengan diferente acceso a las funciones de mensajería y a los datos de los clientes.
 
 #### Permisos de usuario de la empresa {#company-user-permissions}
 
-Los espacios de trabajo tienen definiciones independientes de acceso y permisos de usuario. Los [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) te permiten crear controles granulares sobre a qué tiene acceso un usuario individual del dashboard o un equipo dentro de un mismo espacio de trabajo.
+Los espacios de trabajo tienen definiciones independientes de acceso y permisos de usuario. Los [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) te permiten crear controles granulares sobre a qué tiene acceso un usuario individual del dashboard o un equipo dentro de un mismo espacio de trabajo.
 
 #### Conectores de Currents {#currents-connectors}
 
-La herramienta [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) es una transmisión de datos en tiempo real de tus eventos de interacción que es la exportación más sólida y granular de la plataforma Braze. Los conectores de Currents se incluyen con determinados paquetes de Braze, y es posible que hayas recibido uno inicialmente, asumiendo un único espacio de trabajo.
+La herramienta [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) es una transmisión de datos en tiempo real de tus eventos de interacción que es la exportación más sólida y granular de la plataforma Braze. Los conectores de Currents se incluyen con determinados paquetes de Braze, y es posible que hayas recibido uno inicialmente, asumiendo un único espacio de trabajo.
 
 A la hora de decidir entre crear espacios de trabajo separados o combinados, es importante pensar en el número de conectores de Currents que tienes, ya que los conectores de Currents no se comparten entre espacios de trabajo.
 
@@ -93,7 +93,7 @@ Por ejemplo, si tienes espacios de trabajo separados para los entornos de desarr
 
 #### Perfiles de usuario {#user-profiles}
 
-Todos los datos persistentes asociados a un usuario se almacenan en su [perfil de usuario]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/). Sin embargo, los perfiles de usuario también son un gran recurso para la solución de problemas y las pruebas, ya que puedes acceder fácilmente a información sobre el historial de interacción de un usuario, su pertenencia a un segmento, su dispositivo y su sistema operativo.
+Todos los datos persistentes asociados a un usuario se almacenan en su [perfil de usuario]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles). Sin embargo, los perfiles de usuario también son un gran recurso para la solución de problemas y las pruebas, ya que puedes acceder fácilmente a información sobre el historial de interacción de un usuario, su pertenencia a un segmento, su dispositivo y su sistema operativo.
 
 #### Segments, Campaigns y Canvas {#segments-campaigns-and-canvases}
 
@@ -189,7 +189,7 @@ En la tabla siguiente se describen las ventajas e inconvenientes de estos dos en
         <td>La limitación de frecuencia puede definirse por separado para cada instancia de aplicación (en función del espacio de trabajo).</td>
         <td>N/A</td>
         <td>N/A</td>
-        <td>La limitación de frecuencia se aplica a todas las campañas, no a cada aplicación, lo que hace más difícil evitar el exceso de mensajes a los clientes.</td>
+        <td>La limitación de frecuencia se aplica a todas las Campaigns, no a cada aplicación, lo que hace más difícil evitar el exceso de mensajes a los clientes.</td>
     </tr>
     <tr>
         <th scope="row">Estado de suscripción de los perfiles de usuario</th>
@@ -209,7 +209,7 @@ En la tabla siguiente se describen las ventajas e inconvenientes de estos dos en
         <th scope="row">Duplicación de contenidos</th>
         <td>N/A</td>
         <td>Algunos contenidos, como Segments y campañas de tarjeta de contenido, no se pueden copiar entre espacios de trabajo.</td>
-        <td>Puedes <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>copiar Campaigns, Canvas y páginas de inicio entre espacios de trabajo</a>. Los contenidos compatibles incluyen Campaigns y Canvas para canales elegibles, así como páginas de inicio, plantillas de correo electrónico, conmutadores de características y Content Blocks.<br><br>Puedes duplicar Segments, Campaigns, Canvas y páginas de inicio para reutilizar el contenido de una instancia de aplicación a otra.</td>
+        <td>Puedes <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces'>copiar Campaigns, Canvas y páginas de inicio entre espacios de trabajo</a>. Los contenidos compatibles incluyen Campaigns y Canvas para canales elegibles, así como páginas de inicio, plantillas de correo electrónico, conmutadores de características y Content Blocks.<br><br>Puedes duplicar Segments, Campaigns, Canvas y páginas de inicio para reutilizar el contenido de una instancia de aplicación a otra.</td>
         <td>N/A</td>
     </tr>
     <tr>
@@ -245,4 +245,4 @@ Deberías tener más de un usuario de Braze con permisos de administrador para u
 
 ## Próximos pasos {#next-steps}
 
-Una vez que hayas determinado tu plan de espacio de trabajo, es hora de crear tu espacio de trabajo y añadir instancias de aplicaciones. Para conocer los pasos a seguir, consulta [Crear y administrar espacios de trabajo]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/).
+Una vez que hayas determinado tu plan de espacio de trabajo, es hora de crear tu espacio de trabajo y añadir instancias de aplicaciones. Para conocer los pasos a seguir, consulta [Crear y administrar espacios de trabajo]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces).

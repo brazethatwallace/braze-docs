@@ -50,9 +50,9 @@ Aktionscodes sind in In-App-Nachrichten-Campaigns als Early-Access-Feature verf�
 
 Sie suchen nach den nächsten Schritten? Starten Sie hier:
 
-- [Eine Aktionscode-Liste erstellen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/)
-- [Aktionscodes verwenden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#using-promotion-codes)
-- [Aktionscode-Nutzung anzeigen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#viewing-promotion-code-usage)
+- [Eine Aktionscode-Liste erstellen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create)
+- [Aktionscodes verwenden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes)
+- [Aktionscode-Nutzung anzeigen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#viewing-promotion-code-usage)
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
@@ -87,7 +87,7 @@ Wenn Sie falsche Codes hochgeladen haben, haben Sie zwei Möglichkeiten, das Pro
 - **Die gesamte Liste als veraltet markieren:** Verwenden Sie die aktuelle Liste nicht mehr in Campaigns, Canvases oder Templates. Laden Sie dann die korrekten Codes in eine neue Liste hoch und stellen Sie alle Ihre Nachrichten auf die neue Liste um.
 - **Die falschen Codes aufbrauchen:** Erstellen Sie eine Campaign, die Codes aus der fehlerhaften Liste an eine:n Platzhalter-Nutzer:in sendet, bis alle falschen Codes verbraucht sind. Laden Sie danach die korrekten Codes in dieselbe Liste hoch, wobei Sie die fehlerhaften ausschließen.
 
-Allgemeine Hinweise zum Aktualisieren einer Liste finden Sie unter [Eine Aktionscode-Liste aktualisieren]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/#updating-a-promotion-code-list).
+Allgemeine Hinweise zum Aktualisieren einer Liste finden Sie unter [Eine Aktionscode-Liste aktualisieren]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create#updating-a-promotion-code-list).
 
 ### Verfolgt Braze, welche Nutzer:innen welche Aktionscodes erhalten oder eingelöst haben? {#does-braze-track-which-users-received-or-redeemed-which-promotion-codes}
 
@@ -95,9 +95,9 @@ Wenn eine Nachricht einen Aktionscode verwendet, markiert Braze diesen Code als 
 
 Wenn Sie Codes mit Nutzer:innen verknüpfen oder die Einlösung selbst nachverfolgen möchten, können Sie:
 
-- Aktionscodes über einen Nutzeraktualisierung-Schritt in Nutzerprofilen speichern. Weitere Informationen finden Sie unter [Aktionscodes in Nutzerprofilen speichern]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#save-to-profile).
-- Aktionscode-Werte über den `message_extras`-Liquid-Tag an Currents senden. Weitere Informationen finden Sie unter [Aktionscode-Informationen an Currents senden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/#sending-promotion-code-information-to-currents).
+- Aktionscodes über einen Nutzeraktualisierung-Schritt in Nutzerprofilen speichern. Weitere Informationen finden Sie unter [Aktionscodes in Nutzerprofilen speichern]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#save-to-profile).
+- Aktionscode-Werte über den `message_extras`-Liquid-Tag an Currents senden. Weitere Informationen finden Sie unter [Aktionscode-Informationen an Currents senden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras#sending-promotion-code-information-to-currents).
 
 ### Kann ich einen Aktionscode im Nutzerprofil für zukünftige Nachrichten speichern? {#can-i-save-a-promotion-code-to-a-users-profile-for-future-messages}
 
-Ja. Sie können Aktionscodes über einen Nutzeraktualisierung-Schritt im Nutzerprofil speichern. Weitere Informationen finden Sie unter [Aktionscodes in Nutzerprofilen speichern]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#save-to-profile).
+Ja. Sie können Aktionscodes über einen Nutzeraktualisierung-Schritt im Nutzerprofil speichern. Weitere Informationen finden Sie unter [Aktionscodes in Nutzerprofilen speichern]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#save-to-profile).

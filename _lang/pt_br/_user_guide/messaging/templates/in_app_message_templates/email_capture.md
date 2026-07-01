@@ -26,15 +26,15 @@ Ao criar uma mensagem no app de arrastar e soltar, selecione **Email sign-up** c
 
 ### Etapa 3: Personalize o componente de inscrição por e-mail {#step-3-customize-your-email-sign-up-component}
 
-Para começar a criar seu formulário de inscrição por e-mail, selecione o elemento de captura de e-mail no editor. Por padrão, os endereços de e-mail coletados terão o grupo de inscrições global **Subscribed**. Para fazer opt-in de usuários em grupos de inscrições específicos, consulte [Atualizando estados de inscrição de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions/#updating-email-subscription-states).
+Para começar a criar seu formulário de inscrição por e-mail, selecione o elemento de captura de e-mail no editor. Por padrão, os endereços de e-mail coletados terão o grupo de inscrições global **Subscribed**. Para fazer opt-in de usuários em grupos de inscrições específicos, consulte [Atualizando estados de inscrição de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions#updating-email-subscription-states).
 
-Você pode personalizar o texto de espaço reservado e o texto do rótulo do elemento de captura de e-mail.
+Você pode personalizar o texto de placeholder e o texto do rótulo do elemento de captura de e-mail.
 
 ![O editor de mensagens no app com um menu lateral para personalizar o elemento de captura de e-mail.]({% image_buster /assets/img/drag_and_drop/templates/email_capture_field1.png %})
 
 #### Validação de e-mail {#email-validation}
 
-Se o usuário inserir um endereço de e-mail que inclua caracteres especiais não aceitos, ele verá um indicador de erro genérico e não conseguirá enviar o formulário. Essa mensagem de erro não é personalizável. Você pode visualizar o comportamento de erro na guia **Preview & Test** e no seu dispositivo de teste. Saiba mais sobre como a Braze formata endereços de e-mail em [Validação de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation/).
+Se o usuário inserir um endereço de e-mail que inclua caracteres especiais não aceitos, ele verá um indicador de erro genérico e não conseguirá enviar o formulário. Essa mensagem de erro não é personalizável. Você pode visualizar o comportamento de erro na guia **Preview & Test** e no seu dispositivo de teste. Saiba mais sobre como a Braze formata endereços de e-mail em [Validação de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation).
 
 ### Etapa 4: Adicione um texto de aviso legal (opcional) {#step-4-add-disclaimer-language-optional}
 
@@ -42,7 +42,7 @@ Se o usuário inserir um endereço de e-mail que inclua caracteres especiais nã
 
 ### Etapa 5: Estilize sua mensagem {#step-5-style-your-message}
 
-Personalize a aparência do seu formulário de inscrição usando os [componentes de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) de arrastar e soltar.
+Personalize a aparência do seu formulário de inscrição usando os [componentes de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) de arrastar e soltar.
 
 ## Analisando os resultados {#analyzing-the-results}
 

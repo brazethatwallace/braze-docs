@@ -26,9 +26,9 @@ Metaweather est une API météo gratuite qui utilise un identifiant « Where-on-
 
 La variable stockée n'est accessible que dans le champ qui contient la requête `connected_content`. Par exemple, si vous souhaitez utiliser la variable `localweather` à la fois dans le champ du message et dans le champ du titre, vous devez effectuer la requête `connected_content` dans les deux champs.
 
-Les requêtes GET sont généralement mises en cache par défaut, avec quelques exceptions (comme les URL contenant des attributs utilisateur à haute cardinalité, `:no_cache`, ou les corps de réponse supérieurs à 1 Mo). Lorsque des requêtes GET identiques apparaissent dans plusieurs champs, Braze réutilise la réponse mise en cache au lieu d'appeler à nouveau l'endpoint. Pour plus de détails sur le comportement de mise en cache, consultez [Mise en cache des réponses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/).
+Les requêtes GET sont généralement mises en cache par défaut, avec quelques exceptions (comme les URL contenant des attributs utilisateur à haute cardinalité, `:no_cache`, ou les corps de réponse supérieurs à 1 Mo). Lorsque des requêtes GET identiques apparaissent dans plusieurs champs, Braze réutilise la réponse mise en cache au lieu d'appeler à nouveau l'endpoint. Pour plus de détails sur le comportement de mise en cache, consultez [Mise en cache des réponses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses).
 
-Les appels de Contenu connecté effectués via HTTP POST ne sont pas mis en cache par défaut. Pour mettre en cache les réponses POST, ajoutez `:cache_max_age` à la balise. Consultez [Paramètres de cache par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/#default-cache-settings).
+Les appels de Contenu connecté effectués via HTTP POST ne sont pas mis en cache par défaut. Pour mettre en cache les réponses POST, ajoutez `:cache_max_age` à la balise. Consultez [Paramètres de cache par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses#default-cache-settings).
 
 ## Analyse du JSON {#json-parsing}
 

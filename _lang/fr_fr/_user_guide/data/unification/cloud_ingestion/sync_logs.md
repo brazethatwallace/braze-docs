@@ -27,7 +27,7 @@ La page principale du **Sync Log** fournit un aperçu de haut niveau de toutes v
 Les journaux de synchronisation fournissent également les détails suivants pour chaque synchronisation :
 
 * **Nom de la synchronisation :** le nom de la configuration de synchronisation.
-* **ID d'exécution :** un identifiant unique pour une exécution spécifique de la synchronisation. Sélectionnez cet ID pour afficher plus de détails. Il peut également être utilisé dans les [endpoints de l'API CDI]({{site.baseurl}}/api/endpoints/cdi/) ou pour référencer une exécution de synchronisation auprès de l'assistance Braze.
+* **ID d'exécution :** un identifiant unique pour une exécution spécifique de la synchronisation. Sélectionnez cet ID pour afficher plus de détails. Il peut également être utilisé dans les [endpoints de l'API CDI]({{site.baseurl}}/api/endpoints/cdi) ou pour référencer une exécution de synchronisation auprès de l'assistance Braze.
 * **État :** le statut de l'exécution (réussi, succès partiel, erreur, en cours).
 * **Nouvelles lignes lues depuis la source :** le nombre de nouvelles lignes extraites de votre entrepôt de données pour cette exécution.
 * **Résultats :** une ventilation du nombre de lignes ayant réussi ou échoué au cours de l'exécution.

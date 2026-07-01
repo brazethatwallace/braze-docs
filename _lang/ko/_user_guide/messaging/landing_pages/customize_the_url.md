@@ -13,14 +13,14 @@ page_order: 1
 
 [도메인을 Braze에 연결](#connect-your-domain-to-braze)하면 해당 도메인이 모든 랜딩 페이지의 기본 도메인으로 사용됩니다. 예를 들어, 하위 도메인 `forms.example.com`을 연결하면 랜딩 페이지 URL이 `forms.example.com/holiday-sale`이 됩니다.
 
-Braze 계정에 연결할 수 있는 커스텀 도메인 수는 [플랜 등급]({{site.baseurl}}/user_guide/messaging/landing_pages/#plan-tiers)에 따라 다릅니다. 한도를 늘리려면 Braze 계정 매니저에게 문의하세요.
+Braze 계정에 연결할 수 있는 커스텀 도메인 수는 [플랜 등급]({{site.baseurl}}/user_guide/messaging/landing_pages#plan-tiers)에 따라 다릅니다. 한도를 늘리려면 Braze 계정 매니저에게 문의하세요.
 
 ## 도메인을 Braze에 연결하기 {#connect-your-domain-to-braze}
 
 도메인을 Braze 계정에 연결하려면 관리자가 아래 단계를 따르세요.
 
-1. **Settings** > **Landing Page Settings**으로 이동합니다.
-2. 연결하려는 도메인을 입력하고 **Submit**을 선택합니다. 예: `forms.example.com`.
+1. **설정** > **랜딩 페이지 설정**으로 이동합니다.
+2. 연결하려는 도메인을 입력하고 **제출**을 선택합니다. 예: `forms.example.com`.
 3. **TXT** 및 **CNAME** 레코드를 복사하여 도메인 공급자의 DNS 설정에 붙여넣습니다.
 4. Braze 대시보드로 돌아가 연결을 확인합니다.
 
@@ -38,8 +38,8 @@ Braze는 Cloudflare를 사용하여 [ACME DNS-01 챌린지](https://letsencrypt.
 
 Braze 관리자인 경우 다음 단계를 완료하여 이전에 구성한 도메인을 제거할 수 있습니다.
 
-1. **Settings** > **Landing Page Settings**으로 이동합니다.
-2. **Remove Custom Domain**을 선택합니다.
+1. **설정** > **랜딩 페이지 설정**으로 이동합니다.
+2. **커스텀 도메인 제거**를 선택합니다.
 3. 도메인 제거를 확인합니다.
 4. 도메인 설정에서 나열된 DNS 레코드를 제거합니다.
 

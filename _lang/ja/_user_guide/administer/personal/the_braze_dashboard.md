@@ -11,7 +11,7 @@ description: "Brazeダッシュボードは、カスタマーエンゲージメ�
 
 > Brazeダッシュボードは、カスタマーエンゲージメントの構築、管理、分析を行うための中心的なワークスペースです。[dashboard.braze.com](https://dashboard.braze.com/) または [dashboard.braze.eu](https://dashboard.braze.eu/) からアクセスできます。
 
-Brazeダッシュボードを使用して、Campaignの計画、メッセージの起動と管理、オーディエンスインサイトの探索、セグメンテーションの調整、リアルタイムのパフォーマンスおよびエンゲージメント指標の確認を、単一のインターフェイスから行うことができます。
+Brazeダッシュボードを使用して、キャンペーンの計画、メッセージの起動と管理、オーディエンスインサイトの探索、セグメンテーションの調整、リアルタイムのパフォーマンスおよびエンゲージメント指標の確認を、単一のインターフェイスから行うことができます。
 
 ## ダッシュボードの概要 {#dashboard-overview}
 
@@ -50,13 +50,13 @@ Brazeのナビゲーションは、デバイスを問わず機能やコンテン
 
 サイドナビゲーションの上部にあるワークスペース切り替えを使用すると、Brazeインスタンス内の異なるワークスペース間を移動できます。アクティブなワークスペースがハイライト表示されます。
 
-[ワークスペース]({{site.baseurl}}/user_guide/get_started/workspaces)は、ブランド、地域、製品ライン、チームごとにコンテンツを整理するのに役立ちます。各ワークスペースには独自のデータ、Campaign、設定が含まれます。ワークスペースによってアクセス権が異なる場合があります。たとえば、あるワークスペースでは編集アクセス権があり、別のワークスペースでは閲覧のみのアクセス権がある場合があります。
+[ワークスペース]({{site.baseurl}}/user_guide/get_started/workspaces)は、ブランド、地域、製品ライン、チームごとにコンテンツを整理するのに役立ちます。各ワークスペースには独自のデータ、キャンペーン、設定が含まれます。ワークスペースによってアクセス権が異なる場合があります。たとえば、あるワークスペースでは編集アクセス権があり、別のワークスペースでは閲覧のみのアクセス権がある場合があります。
 
 ワークスペースを切り替えるには、サイドナビゲーションの上部にあるワークスペースドロップダウンを選択し、アクセスしたいワークスペースを選択します。また、よく使うワークスペースにすばやくアクセスするために、[お気に入りのワークスペースを追加](#favorite-workspaces)することもできます。
 
 #### サイドナビゲーションを最小化する {#minimize-the-side-navigation}
 
-Canvasのデザインなどのタスク中に視覚的な煩雑さを減らすために、サイドナビゲーションパネルを最小化できます。**Minimize menu**を押して折りたたみます。最小化した状態でも、アイコンにカーソルを合わせるとメニュー項目名のツールチップが表示されます。これにより、ワークスペースをすっきり保ちながら、ツール間をすばやく移動できます。
+キャンバスのデザインなどのタスク中に視覚的な煩雑さを減らすために、サイドナビゲーションパネルを最小化できます。**Minimize menu**を押して折りたたみます。最小化した状態でも、アイコンにカーソルを合わせるとメニュー項目名のツールチップが表示されます。これにより、ワークスペースをすっきり保ちながら、ツール間をすばやく移動できます。
 
 ![メニューの最小化と最大化のアイコン]({% image_buster /assets/img/minimize_expand_menu.png %}){: style="max-width:60%;border:none"}
 
@@ -72,16 +72,16 @@ Canvasのデザインなどのタスク中に視覚的な煩雑さを減らす�
 
 ![検索語が入力されていない状態のグローバル検索。最近開いたページが表示されています。]({% image_buster /assets/img/navigation/search_recently_opened.png %})
 
-最近開いたコンテンツが検索バーの下に表示されます。これには、最近操作したCampaign、Canvas、テンプレート、ページが含まれ、作業に簡単に戻ることができます。
+最近開いたコンテンツが検索バーの下に表示されます。これには、最近操作したキャンペーン、キャンバス、テンプレート、ページが含まれ、作業に簡単に戻ることができます。
 
 ### 何を検索できますか？ {#what-can-you-search-for}
 
 以下の項目やアクションを検索できます。
 
-- Campaign名
-- Canvas名
+- キャンペーン名
+- キャンバス名
 - Content Blocks
-- Segment名
+- セグメント名
 - メールテンプレート名
 - Braze内のページ（同義語を含む）
 
@@ -91,7 +91,7 @@ Canvasのデザインなどのタスク中に視覚的な煩雑さを減らす�
 
 ### コンテンツタイプとステータスタグ {#content-type-and-status-tags}
 
-各結果には、コンテンツタイプ（Campaign、Canvas、Segmentなど）とステータス（アクティブ、アーカイブ、停止）を示すタグが付けられます。
+各結果には、コンテンツタイプ（キャンペーン、キャンバス、セグメントなど）とステータス（アクティブ、アーカイブ、停止）を示すタグが付けられます。
 
 ### アクティブおよび下書きコンテンツでフィルタリングする {#filter-for-active-and-draft-content}
 
@@ -138,9 +138,9 @@ BrazeAI Operator™は、ダッシュボードに組み込まれたAI搭載の�
 
 ### 前回の続きから再開する {#pick-up-where-you-left-off}
 
-**Home**ページでは、最近編集または作成したCampaign、Canvas、Segmentがダッシュボードに表示されます。これにより、検索せずに進行中の作業に簡単に戻ることができます。各項目には、コンテンツタイプとステータス（下書き、アクティブ、停止など）を示すタグが含まれます。
+**Home**ページでは、最近編集または作成したキャンペーン、キャンバス、セグメントがダッシュボードに表示されます。これにより、検索せずに進行中の作業に簡単に戻ることができます。各項目には、コンテンツタイプとステータス（下書き、アクティブ、停止など）を示すタグが含まれます。
 
-![「前回の続きから再開する」セクションに表示されたCanvasの下書き、アクティブなSegment、Campaignの下書き。]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
+![「前回の続きから再開する」セクションに表示されたキャンバスの下書き、アクティブなセグメント、キャンペーンの下書き。]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
 
 詳細については、[ホームダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/home#pick-up-where-you-left-off)を参照してください。
 
@@ -182,8 +182,8 @@ Brazeダッシュボードは、色のコントラストに関するWCAG AA基�
 
 ### 主要なタスクと次のステップ {#key-tasks-and-next-steps}
 
-- **Campaignを構築する**: [Campaignを作成する]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign)
-- **ジャーニーを作成する**: [Canvasを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)
-- **オーディエンスを定義する**: [Segmentを作成する]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)
+- **キャンペーンを構築する**: [キャンペーンを作成する]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign)
+- **ジャーニーを作成する**: [キャンバスを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)
+- **オーディエンスを定義する**: [セグメントを作成する]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)
 - **パフォーマンスを確認する**: [分析の概要]({{site.baseurl}}/user_guide/analytics/dashboards/home)
 - **設定を構成する**: [アプリ設定]({{site.baseurl}}/user_guide/administer/global/workspace_settings)

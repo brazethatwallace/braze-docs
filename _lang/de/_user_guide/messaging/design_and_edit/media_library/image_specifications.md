@@ -14,7 +14,7 @@ tool:
 
 > Generell laden kleinere, qualitativ hochwertige Bilder schneller. Wir empfehlen daher, die kleinstmögliche Datei zu verwenden, die das gewünschte Ergebnis liefert. Um die Bildnutzung in bestimmten Kanälen zu optimieren, lesen Sie die Details in diesem Artikel.
 
-Sie sollten Ihre Nachrichten immer auf verschiedenen Geräten [in der Vorschau anzeigen und testen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/), um sicherzustellen, dass die wichtigsten Bereiche Ihres Bildes und Ihrer Nachricht wie erwartet dargestellt werden.
+Sie sollten Ihre Nachrichten immer auf verschiedenen Geräten [in der Vorschau anzeigen und testen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages), um sicherzustellen, dass die wichtigsten Bereiche Ihres Bildes und Ihrer Nachricht wie erwartet dargestellt werden.
 
 ## Bildverhalten {#image-behavior}
 
@@ -22,7 +22,7 @@ Sie sollten Ihre Nachrichten immer auf verschiedenen Geräten [in der Vorschau a
 
 ## Video {#video}
 
-Videos, die in die Medienbibliothek hochgeladen werden, können nur in WhatsApp-Nachrichten verwendet werden. Weitere Informationen finden Sie unter [WhatsApp-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#outbound-messages).
+Videos, die in die Medienbibliothek hochgeladen werden, können nur in WhatsApp-Nachrichten verwendet werden. Weitere Informationen finden Sie unter [WhatsApp-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#outbound-messages).
 
 ## GIFs {#gifs}
 
@@ -46,7 +46,7 @@ GIFs werden in iOS-Push-Benachrichtigungen, In-App-Nachrichten, E-Mails, Content
 
 {% alert tip %} Erstellen Sie Assets mit Zuversicht! Unsere Bildvorlagen und Safe-Zone-Overlays für In-App-Nachrichten sind so konzipiert, dass sie auf Geräten aller Größen optimal funktionieren. [Design-Vorlagen-ZIP herunterladen]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}). {% endalert %}
 
-Weitere Informationen finden Sie unter [Kreative Details für In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/).
+Weitere Informationen finden Sie unter [Kreative Details für In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/customize).
 
 #### Font Awesome
 
@@ -71,7 +71,7 @@ Für optimale Ergebnisse beachten Sie die folgenden Richtlinien zur Nachrichtenl
 | Android-Benachrichtigungsleiste | 597 Zeichen | N/A |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Empfohlene Nachrichtenlängen" }
 
-Weitere Informationen zu iOS-Zeichenanzahlen finden Sie unter [iOS-Richtlinien zur Zeichenanzahl]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count).
+Weitere Informationen zu iOS-Zeichenanzahlen finden Sie unter [iOS-Richtlinien zur Zeichenanzahl]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications#character-count).
 
 #### Web-Push {#web-push}
 
@@ -140,4 +140,4 @@ Benachrichtigungen mit großen Bildern werden am besten mit einem Bild von minde
 {% endtab %}
 {% endtabs %}
 
-Weitere Ressourcen finden Sie unter [Bild- und Textspezifikationen für Push-Benachrichtigungen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/).
+Weitere Ressourcen finden Sie unter [Bild- und Textspezifikationen für Push-Benachrichtigungen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats).

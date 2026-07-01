@@ -39,6 +39,10 @@ Brazeは、ユーザーがGoogleに登録したり、必要なセキュリティ
 
 サポートされているメールクライアントの完全なリストについては、[AMPドキュメント](https://amp.dev/support/faq/email-support)を参照してください。
 
+#### 未登録プロバイダーへの送信 {#send-to-unregistered-providers}
+
+YahooやMail.ruなどのプロバイダーに登録プロセスを完了する前にAMPメールを送信した場合、それらのプロバイダーはメールのAMP部分を無視し、代わりにHTMLまたはプレーンテキストのフォールバックバージョンを表示します。AMP部分自体は、未登録の送信者に対して配信性の問題を引き起こしません。
+
 ### Gmailアカウントの有効化 {#enabling-gmail-account}
 
 Gmailの設定に移動し、**全般**タブの**ダイナミックメールを有効にする**を選択します。
@@ -204,7 +208,7 @@ Liquidと同様に、AMPはより高度なユースケース向けのスクリ�
     }
 </style>
 
-<table aria-label="Metrics and analytics">
+<table aria-label="指標と分析">
   <caption>指標と分析</caption>
     <thead>
         <tr>

@@ -6,7 +6,7 @@ hidden: true
 
 # ドラッグ＆ドロップエディターのContent Blocksをプレビュー {#preview-drag-and-drop-editor-content-blocks}
 
-[ドラッグ＆ドロップメールCampaigns用のContent Blocks]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_content_blocks/)を作成した後、ドラッグ＆ドロップエディターでこれらのContent Blocksのライブラリーを表示できます。
+[ドラッグ＆ドロップメールキャンペーン用のContent Blocks]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_content_blocks/)を作成した後、ドラッグ＆ドロップエディターでこれらのContent Blocksのライブラリーを表示できます。
 
 {% alert important %}
 ドラッグ＆ドロップContent Blocksのこのプレビュー機能は、現在早期アクセス段階です。早期アクセスへの参加に興味がある場合は、Brazeアカウントマネージャーにお問い合わせください。

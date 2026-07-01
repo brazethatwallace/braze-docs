@@ -28,17 +28,17 @@ guide_featured_list:
     image: /assets/img/braze_icons/annotation-question.svg
 ---
 
-## Funktionen von Currents
+## Funktionen von Currents {#currents-capabilities}
 
 Mit Currents können Sie:
-* Braze-Event-Daten an ein Data Warehouse oder einen unserer [Analytics-Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) zur detaillierten Analyse streamen.
+* Braze-Event-Daten an ein Data Warehouse oder einen unserer [Analytics-Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) zur detaillierten Analyse streamen.
 * Braze-Event-Daten kontinuierlich streamen, um Business-Intelligence-Tools, Algorithmen für maschinelles Lernen und vieles mehr zu betreiben.
-* Braze-Event-Daten über [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium/), [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment/) oder [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents/) an eine Vielzahl anderer Systeme weiterleiten.
+* Braze-Event-Daten über [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium), [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment) oder [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents) an eine Vielzahl anderer Systeme weiterleiten.
 
-Es gibt noch viel mehr, was Sie mit Event-Daten über Currents tun können. [Braze nutzt Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/) ebenfalls!
+Es gibt noch viel mehr, was Sie mit Event-Daten über Currents tun können. [Braze nutzt Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents) ebenfalls!
 
-## Zugriff auf Currents
+## Zugriff auf Currents {#how-to-access-currents}
 
-Ein Currents-Konnektor ist bereits in vielen unserer Pro- und Enterprise-Pakete enthalten. Wenn Sie daran interessiert sind, Currents zu nutzen, wenden Sie sich an Ihren Account Manager. Ihr Account Manager und unsere Datenspezialist:innen können Sie bei der [Einrichtung und Integration von Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/) unterstützen.
+Ein Currents-Konnektor ist bereits in vielen unserer Pro- und Enterprise-Pakete enthalten. Wenn Sie daran interessiert sind, Currents zu nutzen, wenden Sie sich an Ihren Account Manager. Ihr Account Manager und unsere Datenspezialist:innen können Sie bei der [Einrichtung und Integration von Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents) unterstützen.
 
 <br><br>

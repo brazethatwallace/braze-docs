@@ -13,14 +13,14 @@ page_order: 1
 
 Cuando [conectas tu dominio a Braze](#connect-your-domain-to-braze), se utilizará como el dominio predeterminado para todas las páginas de inicio. Por ejemplo, si conectas el subdominio `forms.example.com`, las URL de tus páginas de inicio serían `forms.example.com/holiday-sale`.
 
-El número de dominios personalizados que puedes conectar a tu cuenta de Braze depende de tu [nivel de plan]({{site.baseurl}}/user_guide/messaging/landing_pages/#plan-tiers). Para aumentar tu límite, ponte en contacto con tu director de cuentas de Braze.
+El número de dominios personalizados que puedes conectar a tu cuenta de Braze depende de tu [nivel de plan]({{site.baseurl}}/user_guide/messaging/landing_pages#plan-tiers). Para aumentar tu límite, ponte en contacto con tu director de cuentas de Braze.
 
 ## Conectar tu dominio a Braze {#connect-your-domain-to-braze}
 
 Para conectar un dominio a tu cuenta de Braze, pide a un administrador que siga los pasos a continuación.
 
-1. Ve a **Settings** > **Landing Page Settings**.
-2. Introduce el dominio que deseas conectar y selecciona **Submit**. Por ejemplo, `forms.example.com`.
+1. Ve a **Configuración** > **Configuración de la página de inicio**.
+2. Introduce el dominio que deseas conectar y selecciona **Enviar**. Por ejemplo, `forms.example.com`.
 3. Copia y pega los registros **TXT** y **CNAME** en la configuración de DNS de tu proveedor de dominios.
 4. Vuelve al dashboard de Braze para verificar la conexión.
 
@@ -38,8 +38,8 @@ Braze utiliza Cloudflare para aprovisionar automáticamente certificados SSL par
 
 Si eres administrador de Braze, puedes quitar un dominio previamente configurado completando los siguientes pasos:
 
-1. Ve a **Settings** > **Landing Page Settings**.
-2. Selecciona **Remove Custom Domain**.
+1. Ve a **Configuración** > **Configuración de la página de inicio**.
+2. Selecciona **Quitar dominio personalizado**.
 3. Confirma la eliminación del dominio.
 4. Quita los registros de DNS enumerados de la configuración de tu dominio.
 

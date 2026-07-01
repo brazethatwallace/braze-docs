@@ -22,9 +22,9 @@ description: "Cet article de référence explique comment utiliser les attributs
 - Les noms de clé et les valeurs de chaîne de caractères ont une limite de taille de 255 caractères.
 - Les noms de clé ne peuvent pas contenir d'espaces.
 - Les points (`.`) et les signes dollar (`$`) ne sont pas des caractères pris en charge dans un payload API si vous tentez d'envoyer un attribut personnalisé imbriqué à un profil utilisateur.
-- Tous les partenaires Braze ne prennent pas en charge les attributs personnalisés imbriqués. Reportez-vous à la [documentation du partenaire]({{site.baseurl}}/partners/home/) pour savoir si les intégrations spécifiques du partenaire prennent en charge cette fonctionnalité.
+- Tous les partenaires Braze ne prennent pas en charge les attributs personnalisés imbriqués. Reportez-vous à la [documentation du partenaire]({{site.baseurl}}/partners/home) pour savoir si les intégrations spécifiques du partenaire prennent en charge cette fonctionnalité.
 - Les attributs personnalisés imbriqués ne peuvent pas être utilisés comme filtre lors d'un appel API Connected Audience.
-- Par défaut, le filtre de Segment **Attributs personnalisés imbriqués** inclut les attributs personnalisés de type objet, les attributs de type tableau d'objets et les attributs personnalisés de type tableau. Lorsque vous sélectionnez un attribut, le sélecteur de schéma de propriété inclut les chemins de tableau (utilisant la notation `[]`) pour les champs de tableau imbriqués. Pour masquer les attributs personnalisés de type tableau de niveau supérieur dans ce filtre, contactez l'[assistance Braze]({{site.baseurl}}/braze_support/).
+- Par défaut, le filtre de Segment **Attributs personnalisés imbriqués** inclut les attributs personnalisés de type objet, les attributs de type tableau d'objets et les attributs personnalisés de type tableau. Lorsque vous sélectionnez un attribut, le sélecteur de schéma de propriété inclut les chemins de tableau (utilisant la notation `[]`) pour les champs de tableau imbriqués. Pour masquer les attributs personnalisés de type tableau de niveau supérieur dans ce filtre, contactez l'[assistance Braze]({{site.baseurl}}/braze_support).
 - Lors de la prévisualisation de messages dans le tableau de bord à l'aide de **Prévisualiser en tant qu'utilisateur personnalisé**, vous ne pouvez saisir des données fictives que sous forme de chaîne de caractères ou de tableau de chaînes de caractères — les objets imbriqués ne sont pas pris en charge. Pour prévisualiser un message qui fait référence à des attributs personnalisés imbriqués, sélectionnez un utilisateur existant qui possède déjà l'attribut imbriqué dans son profil. Pour les propriétés d'événements personnalisés imbriqués, vous devez lancer une campagne en production ciblant un utilisateur test pour vérifier le rendu.
 
 ## Exemple d'API {#api-example}
@@ -107,7 +107,7 @@ Pour supprimer un objet d'attribut personnalisé, envoyez un POST à `users/trac
 ```
 
 {% alert note %}
-Cette approche ne peut pas être utilisée pour supprimer une clé imbriquée à l'intérieur d'un [tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/).
+Cette approche ne peut pas être utilisée pour supprimer une clé imbriquée à l'intérieur d'un [tableau d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects).
 {% endalert %}
 
 {% endtab %}
@@ -297,7 +297,7 @@ Vérifiez qu'un schéma a été généré si vous ne voyez pas l'option d'insert
 
 ## Régénérer les schémas {#regenerate-schema}
 
-Une fois qu'un schéma a été généré, vous pouvez le régénérer **une fois par jour calendaire** (en fonction du fuseau horaire de votre entreprise). Cette section décrit comment régénérer votre schéma. Pour des informations plus détaillées sur les schémas, consultez [Générer un schéma à l'aide de l'explorateur d'objets imbriqués]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
+Une fois qu'un schéma a été généré, vous pouvez le régénérer **une fois par jour calendaire** (en fonction du fuseau horaire de votre entreprise). Cette section décrit comment régénérer votre schéma. Pour des informations plus détaillées sur les schémas, consultez [Générer un schéma à l'aide de l'explorateur d'objets imbriqués]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#generate-schema).
 
 Pour régénérer le schéma de votre attribut personnalisé imbriqué :
 
@@ -351,7 +351,7 @@ Un segment avec les filtres ET suivants :
 
 Cet utilisateur serait qualifié car le premier filtre correspond à l'élément « Shoes » (80 > 50) et le second filtre correspond à l'élément « Hat » (25 < 30). Même si aucun élément unique ne satisfait les deux conditions, l'utilisateur entre quand même dans le segment.
 
-Si vous avez besoin que toutes les conditions correspondent au même élément dans un tableau, utilisez la [segmentation multi-critères]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#use-multi-criteria-segmentation) sur le même chemin, ou restructurez vos données pour éviter la correspondance inter-éléments.
+Si vous avez besoin que toutes les conditions correspondent au même élément dans un tableau, utilisez la [segmentation multi-critères]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation) sur le même chemin, ou restructurez vos données pour éviter la correspondance inter-éléments.
 
 ## Points de donnée {#data-points}
 

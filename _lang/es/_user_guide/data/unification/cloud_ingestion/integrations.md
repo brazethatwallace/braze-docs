@@ -65,7 +65,7 @@ Puede haber de dos a cinco minutos de tiempo de calentamiento cuando Braze se co
 
 ### Paso 1: Configurar tablas o vistas {#step-1-set-up-tables-or-views}
 
-Antes de empezar, revisa [Configuración de tablas para la Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/) para comprender los requisitos de la tabla de origen en comparación con los requisitos de formato de `PAYLOAD`.
+Antes de empezar, revisa [Configuración de tablas para la Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup) para comprender los requisitos de la tabla de origen en comparación con los requisitos de formato de `PAYLOAD`.
 
 {% alert note %}
 Tu tabla o vista de origen puede incluir columnas que no están listadas para tu almacén en las pestañas a continuación (por ejemplo, auditoría o hash). Braze solo lee las columnas descritas en esas pestañas; las demás columnas no se utilizan durante las sincronizaciones de la Ingesta de datos de Cloud.

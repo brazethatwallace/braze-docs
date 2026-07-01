@@ -1,13 +1,13 @@
-Wenn Sie Textblöcken ohne angepassten Code ein bestimmtes Styling zuweisen möchten, markieren Sie den Text, den Sie stylen möchten, und wählen Sie dann **Umbruch mit Spanne für Stil**. 
+Um Textblöcken ohne angepassten Code ein bestimmtes Styling zuzuweisen, markieren Sie den Text, den Sie stylen möchten, und wählen Sie dann **Wrap with span for style**.
 
-![Textfeld mit verschiedenen stilisierten Textabschnitten, z.B. verschiedenen Schriftgrößen und -farben, und einem hervorgehobenen Abschnitt, der eine Symbolleiste mit der Option "Umbruch mit Spanne für Stil" anzeigt.]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
+![Textfeld mit verschiedenen stilisierten Textabschnitten, z. B. verschiedenen Schriftgrößen und -farben, und einem hervorgehobenen Abschnitt, der eine Symbolleiste mit der Option „Wrap with span for style“ anzeigt.]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
 
-Passen Sie die Eigenschaften der Spanne an, um Ihr Textstyling zu aktualisieren, einschließlich:
+Passen Sie die Span-Eigenschaften an, um Ihr Textstyling zu aktualisieren. Dazu gehören:
 
-- Schriftfamilie, Gewicht, Größe
-- Zeilenhöhe 
+- Schriftfamilie, -stärke, -größe
+- Zeilenhöhe
 - Buchstabenabstand
-- Textausrichtung und Farbe
-- Block padding
+- Textausrichtung und -farbe
+- Block-Padding
 
-![Panel für die Eigenschaften mit verschiedenen Optionen zum Update.]({% image_buster /assets/img/landing_pages/span_properties.png %}){: style="max-width:35%;"}
+![Panel für Span-Eigenschaften mit verschiedenen Optionen zum Aktualisieren.]({% image_buster /assets/img/landing_pages/span_properties.png %}){: style="max-width:35%;"}

@@ -135,12 +135,12 @@ Meta는 특정 기간 동안 사용자가 모든 비즈니스로부터 수신할
 
 한 가지 예외는, 사용자가 마케팅 메시지에 응답하면 24시간 고객 서비스 기간이 시작된다는 것입니다. 이 기간 내에 발송된 마케팅 메시지는 해당 사용자의 제한에 포함되지 않습니다.
 
-구체적인 제한은 사용자의 참여 수준에 따라 다릅니다. WhatsApp의 사용자별 마케팅 템플릿 메시지 제한에 대해 [여기](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits)에서 자세히 알아보세요.
+구체적인 제한은 사용자의 참여 수준에 따라 다릅니다. WhatsApp의 사용자별 마케팅 템플릿 메시지 제한에 대해 [WhatsApp의 사용자별 마케팅 템플릿 메시지 제한 설명서](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits)에서 자세히 알아보세요.
 
 ### 2025년 1월: WhatsApp, 4월 1일부터 미국 사용자에게 마케팅 메시지 발송 일시 중지 {#january-2025-whatsapp-pausing-marketing-message-sending-to-us-users-starting-april-1}
 *최종 업데이트: 2025년 1월*
 
-WhatsApp은 2025년 4월 1일부터 미국 사용자(미국 전화번호를 가진 사용자)에게 마케팅 메시지 발송을 일시 중지합니다. [유틸리티, 서비스, 인증](https://developers.facebook.com/docs/whatsapp/pricing/) 및 [응답 메시지]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#response-messages)는 미국에서 계속 허용됩니다.
+WhatsApp은 2025년 4월 1일부터 미국 사용자(미국 전화번호를 가진 사용자)에게 마케팅 메시지 발송을 일시 중지합니다. [유틸리티, 서비스, 인증](https://developers.facebook.com/docs/whatsapp/pricing/) 및 [응답 메시지]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages)는 미국에서 계속 허용됩니다.
 
 마케팅 메시지 발송(및 기타 모든 메시지 유형)은 다른 모든 국가 또는 지역에서 계속 허용되며 영향을 받지 않습니다.
 

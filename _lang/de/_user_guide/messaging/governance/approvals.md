@@ -42,22 +42,22 @@ Um ein Canvas zu starten, müssen Sie diese Schlüsselkomponenten genehmigen:
 
 ## Den Genehmigungs-Workflow aktivieren {#turning-on-the-approval-workflow}
 
-Standardmäßig ist die Einstellung für den Genehmigungs-Workflow für Campaigns und Canvases deaktiviert. Um dieses Feature zu aktivieren, gehen Sie zu **Settings** > **Approval Workflow** und wählen Sie den entsprechenden Schalter:
+Standardmäßig ist die Einstellung für den Genehmigungs-Workflow für Campaigns und Canvases deaktiviert. Um dieses Feature zu aktivieren, gehen Sie zu **Einstellungen** > **Genehmigungs-Workflow** und wählen Sie den entsprechenden Schalter:
 
 - **Use approval workflow for all Campaigns in [Ihrem Workspace]**
 - **Use approval workflow for all Canvases in [Ihrem Workspace]**
 
 {% alert important %}
-Die Campaign-Genehmigung wird für [API-Kampagnen]({{site.baseurl}}/api/api_campaigns/) und [Transaktions-E-Mail-Kampagnen]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/) nicht unterstützt.
+Die Campaign-Genehmigung wird für [API-Kampagnen]({{site.baseurl}}/api/api_campaigns) und [Transaktions-E-Mail-Kampagnen]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) nicht unterstützt.
 {% endalert %}
 
 ## Nutzer:innen-Berechtigungen festlegen {#setting-user-permissions}
 
-Nachdem Sie den Genehmigungs-Workflow aktiviert haben, müssen Sie Nutzer:innen-Berechtigungen festlegen, damit Ihre Unternehmensnutzer:innen Campaigns und Canvases genehmigen oder ablehnen können. Beide Berechtigungen können auch auf Workspaces oder [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) angewendet oder einem [Berechtigungsset]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#permission-sets) hinzugefügt werden.
+Nachdem Sie den Genehmigungs-Workflow aktiviert haben, müssen Sie Nutzer:innen-Berechtigungen festlegen, damit Ihre Unternehmensnutzer:innen Campaigns und Canvases genehmigen oder ablehnen können. Beide Berechtigungen können auch auf Workspaces oder [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) angewendet oder einem [Berechtigungsset]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#permission-sets) hinzugefügt werden.
 
 {% tabs %}
 {% tab campaign %}
-Sie benötigen die [Berechtigung „Approve and Deny Campaigns“]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#managing-limited-and-team-role-permissions). Diese Berechtigung steuert, wer den Genehmigungsstatus einer Campaign aktualisieren kann. Mit dieser Berechtigung können Sie Folgendes tun:
+Sie benötigen die [Berechtigung „Approve and Deny Campaigns“]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#managing-limited-and-team-role-permissions). Diese Berechtigung steuert, wer den Genehmigungsstatus einer Campaign aktualisieren kann. Mit dieser Berechtigung können Sie Folgendes tun:
 
 - Die Campaign selbst genehmigen
 - Die Campaign genehmigen und starten
@@ -69,7 +69,7 @@ Nachdem die Genehmigungsstatus im Schritt **Summary** festgelegt wurden, setzen 
 {% endtab %}
 
 {% tab canvas %}
-Sie benötigen die [Berechtigung „Approve and Deny Canvases“]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#managing-limited-and-team-role-permissions). Diese Berechtigung steuert, wer den Genehmigungsstatus eines Canvas aktualisieren kann. Mit dieser Berechtigung können Sie Folgendes tun:
+Sie benötigen die [Berechtigung „Approve and Deny Canvases“]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#managing-limited-and-team-role-permissions). Diese Berechtigung steuert, wer den Genehmigungsstatus eines Canvas aktualisieren kann. Mit dieser Berechtigung können Sie Folgendes tun:
 
 - Das Canvas selbst genehmigen
 - Das Canvas genehmigen und starten

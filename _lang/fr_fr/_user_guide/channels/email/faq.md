@@ -250,9 +250,11 @@ Outlook utilise souvent un rendu de type Microsoft Word, ce qui peut ajouter une
 <!--<![endif]-->
 ```
 
-### Puis-je utiliser des images SVG ou WEBP dans mes messages e-mail ? {#can-i-use-svg-or-webp-images-in-my-email-messages}
+### Puis-je utiliser des images SVG ou WebP dans mes messages e-mail ? {#can-i-use-svg-or-webp-images-in-my-email-messages}
 
-Les images SVG ne s'affichent pas dans Gmail web ou Gmail iOS. Le format WEBP n'est pas pris en charge de manière cohérente par tous les clients. Utilisez plutôt des formats largement pris en charge tels que PNG ou JPEG pour que les images s'affichent de manière fiable.
+Les images SVG ne sont pas recommandées pour les e-mails en raison de la prise en charge limitée par les clients de messagerie. Gmail et plusieurs autres grands fournisseurs de messagerie n'affichent pas les images SVG, ce qui peut entraîner des images cassées ou manquantes pour les destinataires. Le format WebP n'est pas pris en charge de manière cohérente par tous les clients.
+
+Utilisez plutôt des formats largement pris en charge tels que PNG ou JPEG pour que les images s'affichent de manière fiable.
 
 ### Les variables Liquid assignées dans une partie du compositeur de messages peuvent-elles être utilisées dans une autre ? {#can-liquid-variables-assigned-in-one-part-of-the-message-composer-be-used-in-another}
 
@@ -260,7 +262,7 @@ Non. Chaque partie de l'e-mail (objet, corps, en-têtes, boutons, etc.) est gén
 
 ### Mon modèle d'e-mail est introuvable. Où est-il ? {#my-email-template-is-missing-where-is-it}
 
-Tout d'abord, confirmez que vous disposez des [autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) nécessaires pour consulter les modèles. Pour afficher les modèles d'e-mail enregistrés, accédez à **Content** > **Email**. Vous pouvez filtrer les modèles par statut et par type (HTML ou glisser-déposer).
+Tout d'abord, confirmez que vous disposez des [autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) nécessaires pour consulter les modèles. Pour afficher les modèles d'e-mail enregistrés, accédez à **Contenu** > **E-mail**. Vous pouvez filtrer les modèles par statut et par type (HTML ou glisser-déposer).
 
 ### Dois-je enregistrer des domaines pour les e-mails relais ou masqués ? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 

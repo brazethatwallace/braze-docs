@@ -16,7 +16,7 @@ description: "この記事では、「キャンペーンの詳細のエクスポ
 
 > このエンドポイントを使用して、`campaign_id` で識別できる、指定されたキャンペーンの関連情報を取得します。
 
-Canvasデータを取得する場合は、[Canvasの詳細のエクスポート]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details)エンドポイントを参照してください。
+キャンバスデータを取得する場合は、[キャンバスの詳細のエクスポート]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details)エンドポイントを参照してください。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aad2a811-7237-43b1-9d64-32042eabecd9 {% endapiref %}
 
@@ -32,7 +32,7 @@ Canvasデータを取得する場合は、[Canvasの詳細のエクスポート]
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | 必須 | 文字列 | [キャンペーン API 識別子]({{site.baseurl}}/api/identifier_types)を参照してください。<br><br> APIキャンペーンの `campaign_id` は、[API キー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers)ページ、またはダッシュボードの**Campaign Details**ページで確認できます。または、[キャンペーンリストのエクスポートエンドポイント](#campaign-list-endpoint)を使用することもできます。 |
+| `campaign_id` | 必須 | 文字列 | [キャンペーン API 識別子]({{site.baseurl}}/api/identifier_types)を参照してください。<br><br> APIキャンペーンの `campaign_id` は、[API キー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers)ページ、またはダッシュボードの**キャンペーンの詳細**ページで確認できます。または、[キャンペーンリストのエクスポートエンドポイント](#campaign-list-endpoint)を使用することもできます。 |
 | `post_launch_draft_version` | オプション | ブール値 | 起動後の下書きがあるメッセージの場合、これを `true` に設定すると、利用可能な下書きの変更が表示されます。デフォルトは `false` です。 |
 | `include_has_translatable_content` | オプション | ブール値 | `true` に設定すると、APIレスポンスに各メッセージの `has_translatable_content` フィールドが含まれます。デフォルトは `false` です。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }

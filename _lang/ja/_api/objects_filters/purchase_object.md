@@ -104,6 +104,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 [購入プロパティ]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-properties)は、Liquidを使用したメッセージのトリガーやパーソナライゼーションに使用でき、これらのプロパティに基づいてセグメント化することもできます。
 
+{% include data_activation/segmentable_purchase_properties_keys_note.md %}
+
 #### 命名規則
 
 この機能は購入ごとではなく、**製品ごとに**有効であることに注意してください。たとえば、個別の製品が大量にあっても、それぞれのプロパティが同じである場合、セグメンテーションは不要になる可能性があります。
@@ -166,6 +168,6 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ### 購入オブジェクト、イベントオブジェクト、およびWebhook {#purchase-objects-event-objects-and-webhooks}
 
-提供された例を使用すると、誰かが色、モノグラム、チェックアウト時間、サイズ、ブランドのプロパティを持つバックパックを購入したことがわかります。次に、[購入イベントプロパティ]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-properties)を使用してこれらのプロパティでSegmentを作成したり、Liquidを使用してチャネル経由でカスタムメッセージを送信したりできます。たとえば、「こんにちは **Ann F.** さん、**赤のミディアムバックパック**を **$40.00** でご購入いただきありがとうございます！**Backpack Locker** でのお買い物ありがとうございました！」
+提供された例を使用すると、誰かが色、モノグラム、チェックアウト時間、サイズ、ブランドのプロパティを持つバックパックを購入したことがわかります。次に、[購入イベントプロパティ]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-properties)を使用してこれらのプロパティでセグメントを作成したり、Liquidを使用してチャネル経由でカスタムメッセージを送信したりできます。たとえば、「こんにちは **Ann F.** さん、**赤のミディアムバックパック**を **$40.00** でご購入いただきありがとうございます！**Backpack Locker** でのお買い物ありがとうございました！」
 
 プロパティを保存、保管、追跡してセグメント化に使用する場合は、それらをカスタム属性として設定する必要があります。これは[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension)を使用して行うことができ、カスタムイベントやそのユーザープロファイルの生涯にわたって保存される購入行動に基づいてユーザーをターゲットにすることができます。

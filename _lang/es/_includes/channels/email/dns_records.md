@@ -9,4 +9,4 @@ La siguiente tabla contiene recursos para crear y administrar registros de DNS c
 | Squarespace | [Añadir configuración de DNS personalizada](https://support.squarespace.com/hc/en-us/articles/360002101888-Adding-custom-DNS-records-to-your-Squarespace-managed-domain) |
 | Amazon Route 53 | [Creación de registros mediante la consola de Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-creating.html) |
 | Google Cloud DNS | [Inicio rápido: configurar registros de DNS para un nombre de dominio con Cloud DNS](https://docs.cloud.google.com/dns/docs/set-up-dns-records-domain-name) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tabla" }

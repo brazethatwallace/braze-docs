@@ -24,13 +24,13 @@ Para usar as Jornadas do experimento, seu Canvas deve incluir eventos de convers
 
 As Jornadas do experimento são mais adequadas para testar entrega, cadência, texto da mensagem e combinações de canais.
 
-- **Entrega:** Compare os resultados entre mensagens enviadas com diferentes [postergações]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/), com base em ações do usuário ([Jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/)) e usando [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/#canvas).<br><br>
+- **Entrega:** Compare os resultados entre mensagens enviadas com diferentes [postergações]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step), com base em ações do usuário ([Jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)) e usando [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#canvas).<br><br>
 - **Cadência:** Teste múltiplos fluxos de envio de mensagens durante um período específico. Por exemplo, você pode testar duas cadências de integração diferentes:
     - Cadência 1: Enviar 2 mensagens nas primeiras 2 semanas do usuário
     - Cadência 2: Enviar 3 mensagens nas primeiras 2 semanas do usuário
 
     Ao direcionar usuários inativos, você pode testar a eficácia de enviar duas mensagens de recuperação em uma semana em comparação com enviar apenas uma.
-- **Texto da mensagem:** Semelhante a um [teste A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/) padrão, você pode testar diferentes textos de mensagem para ver qual redação resulta em uma taxa de conversão mais alta.<br><br>
+- **Texto da mensagem:** Semelhante a um [teste A/B]({{site.baseurl}}/user_guide/messaging/ab_testing) padrão, você pode testar diferentes textos de mensagem para ver qual redação resulta em uma taxa de conversão mais alta.<br><br>
 - **Combinações de canais:** Teste a eficácia de diferentes combinações de canais de mensagem. Por exemplo, você pode comparar o impacto de usar apenas um e-mail versus um e-mail combinado com um push.
 
 ## Criando uma jornada experimental {#creating-an-experiment-path}
@@ -53,7 +53,7 @@ Se a reelegibilidade do Canvas estiver ativada, os usuários que entrarem no Can
 
 ### Etapa 2: Ative a Jornada vencedora ou as Jornadas personalizadas (opcional) {#step-2}
 
-Você pode otimizar seu experimento ativando a [Jornada vencedora]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path/) ou as [Jornadas personalizadas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths/). Ambas as opções funcionam testando inicialmente suas jornadas com uma parte do seu público. Após o término do experimento, os usuários restantes e subsequentes são enviados pela jornada com melhor desempenho geral (Jornada vencedora) ou pela jornada com melhor desempenho para cada usuário (Jornadas personalizadas).
+Você pode otimizar seu experimento ativando a [Jornada vencedora]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path) ou as [Jornadas personalizadas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths). Ambas as opções funcionam testando inicialmente suas jornadas com uma parte do seu público. Após o término do experimento, os usuários restantes e subsequentes são enviados pela jornada com melhor desempenho geral (Jornada vencedora) ou pela jornada com melhor desempenho para cada usuário (Jornadas personalizadas).
 
 ### Etapa 3: Crie as jornadas {#step-3-create-paths}
 
@@ -64,14 +64,14 @@ Por fim, você deve construir suas jornadas subsequentes. Selecione **Done** e r
 Tenha em mente que as jornadas e suas etapas subsequentes não podem ser removidas de um Canvas após serem criadas. No entanto, após o lançamento, você pode modificar a distribuição do público entre as jornadas como preferir. Por exemplo, se um dia após o lançamento de um Canvas você concluir que uma jornada é superior às demais com base na análise de dados, pode definir essa jornada como 100% e as outras como 0%. Ou, dependendo das suas necessidades, pode continuar enviando usuários por múltiplas jornadas.
 
 {% alert important %}
-Para evitar contaminação do experimento, se o seu Canvas tiver um experimento ativo ou em andamento de Jornada vencedora ou Jornadas personalizadas e você atualizar o Canvas ativo, independentemente de atualizar a própria etapa da Jornada do experimento, o experimento em andamento será encerrado e a etapa do experimento não determinará uma jornada vencedora ou jornadas personalizadas. Para reiniciar o experimento, você pode desconectar a Jornada do experimento existente e lançar uma nova, ou duplicar o Canvas e lançar um novo Canvas. Caso contrário, os usuários fluirão pela jornada experimental como se nenhum método de otimização tivesse sido selecionado. Você também não pode ativar Jornadas personalizadas ou Jornada vencedora para um Canvas já ativo com uma etapa de Jornada do experimento.<br><br>Para saber mais, consulte [Editando Canvas após o lançamento]({{site.baseurl}}/post-launch_edits/).
+Para evitar contaminação do experimento, se o seu Canvas tiver um experimento ativo ou em andamento de Jornada vencedora ou Jornadas personalizadas e você atualizar o Canvas ativo, independentemente de atualizar a própria etapa da Jornada do experimento, o experimento em andamento será encerrado e a etapa do experimento não determinará uma jornada vencedora ou jornadas personalizadas. Para reiniciar o experimento, você pode desconectar a Jornada do experimento existente e lançar uma nova, ou duplicar o Canvas e lançar um novo Canvas. Caso contrário, os usuários fluirão pela jornada experimental como se nenhum método de otimização tivesse sido selecionado. Você também não pode ativar Jornadas personalizadas ou Jornada vencedora para um Canvas já ativo com uma etapa de Jornada do experimento.<br><br>Para saber mais, consulte [Editando Canvas após o lançamento]({{site.baseurl}}/post-launch_edits).
 {% endalert %}
 
 ## Acompanhando o desempenho {#tracking-performance}
 
-Na página **Canvas Analytics**, selecione a Jornada do experimento para abrir uma [tabela detalhada]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#performance-breakdown-by-variant) idêntica à guia **Analyze Variants** para comparar estatísticas detalhadas de desempenho e conversão entre as jornadas. Você também pode exportar a tabela via CSV e comparar as variações percentuais para métricas de interesse em relação à jornada ou ao controle que você selecionar.
+Na página **Canvas Analytics**, selecione a Jornada do experimento para abrir uma [tabela detalhada]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#performance-breakdown-by-variant) idêntica à guia **Analyze Variants** para comparar estatísticas detalhadas de desempenho e conversão entre as jornadas. Você também pode exportar a tabela via CSV e comparar as variações percentuais para métricas de interesse em relação à jornada ou ao controle que você selecionar.
 
-Cada etapa em cada jornada exibe estatísticas na visualização de [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/), assim como qualquer etapa do Canvas. No entanto, tenha em mente que a análise de dados de etapas individuais e a análise de dados da Jornada do experimento medem conversões de forma diferente:
+Cada etapa em cada jornada exibe estatísticas na visualização de [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics), assim como qualquer etapa do Canvas. No entanto, tenha em mente que a análise de dados de etapas individuais e a análise de dados da Jornada do experimento medem conversões de forma diferente:
 
 - **Análise de dados da Jornada do experimento** rastreia conversões a partir do momento em que o usuário entra na etapa da Jornada do experimento. Essa é a visualização recomendada para comparar o desempenho entre jornadas, pois todas as jornadas compartilham o mesmo ponto de partida.
 - **Análise de dados de etapas individuais** (como análise de dados da etapa de Mensagem) rastreia conversões a partir do momento em que o usuário recebe aquela etapa específica (por exemplo, quando a mensagem é enviada).
@@ -82,20 +82,20 @@ Como essas janelas de conversão têm pontos de partida diferentes, elas podem m
 
 Aproveite a Jornada vencedora para acompanhar o desempenho ao longo de um período e, em seguida, enviar automaticamente os usuários subsequentes pela jornada com melhor desempenho. Para saber mais sobre a análise de dados quando a **Jornada vencedora** ou as **Jornadas personalizadas** estão ativadas para seu experimento, consulte:
 
-- [Jornada vencedora]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path/#analytics)
-- [Jornadas personalizadas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths/#analytics)
+- [Jornada vencedora]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path#analytics)
+- [Jornadas personalizadas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths#analytics)
 
 A métrica vencedora e a análise de dados exibida nas Jornadas do experimento podem diferir:
 
 - O evento de conversão que você configura para a **Jornada vencedora** ou as **Jornadas personalizadas** determina como a Braze compara as jornadas e seleciona uma vencedora durante a janela do experimento.
-- A análise de dados da Jornada do experimento ainda segue o mesmo framework de [eventos de conversão]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events/) do Canvas como o restante do Canvas, incluindo seu [evento de conversão primária]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events/#primary-conversion-event). Como resultado, as métricas destacadas no dashboard podem não corresponder à métrica vencedora.
-- Para push, *aberturas diretas* e *total de aberturas* diferem. Para saber mais, consulte [Aberturas por influência]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/).
+- A análise de dados da Jornada do experimento ainda segue o mesmo framework de [eventos de conversão]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events) do Canvas como o restante do Canvas, incluindo seu [evento de conversão primária]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events#primary-conversion-event). Como resultado, as métricas destacadas no dashboard podem não corresponder à métrica vencedora.
+- Para push, *aberturas diretas* e *total de aberturas* diferem. Para saber mais, consulte [Aberturas por influência]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens).
 
 ### Configurações adicionais {#additional-settings}
 
 As Jornadas do experimento registram os usuários que entram em cada etapa e convertem enquanto estão na jornada atribuída. Isso rastreia todos os eventos de conversão especificados na configuração do Canvas. Na guia **Additional Settings**, insira quantos dias (entre 1 e 30) você deseja que este experimento rastreie conversões. A janela de tempo que você especificar aqui determina por quanto tempo os eventos de conversão (escolhidos na configuração do Canvas) são rastreados para o experimento. As janelas de conversão por evento especificadas na configuração do Canvas não se aplicam ao rastreamento desta etapa e são substituídas por esta janela de conversão.
 
-A janela de conversão começa quando o usuário entra na etapa da Jornada do experimento, não quando uma mensagem subsequente é enviada. Se uma jornada incluir postergações — como uma etapa de postergação ou [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/) — essas postergações consomem parte da janela de conversão.
+A janela de conversão começa quando o usuário entra na etapa da Jornada do experimento, não quando uma mensagem subsequente é enviada. Se uma jornada incluir postergações — como uma etapa de postergação ou [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) — essas postergações consomem parte da janela de conversão.
 
 {% alert important %}
 Se você estiver usando Intelligent Timing em uma etapa de Mensagem dentro de uma jornada experimental, o tempo entre a entrada no experimento e o envio real da mensagem reduz a janela de conversão efetiva para essa jornada. Por exemplo, se seu experimento tem uma janela de conversão de 5 dias e o Intelligent Timing atrasa a mensagem em 2 dias, os usuários nessa jornada têm apenas 3 dias após receber a mensagem para converter dentro da janela do experimento — mesmo que a análise de dados da própria etapa de Mensagem rastreie conversões a partir do momento do envio da mensagem.<br><br>Para uma análise de dados do experimento mais limpa, coloque quaisquer postergações (como etapas de postergação) **antes** da etapa da Jornada do experimento, em vez de dentro de uma jornada experimental. Dessa forma, todas as jornadas começam do mesmo ponto e as postergações não consomem nenhuma parte da janela de conversão.

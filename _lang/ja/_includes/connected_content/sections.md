@@ -1,6 +1,6 @@
 {% if include.section == "default behavior" %}
 
-コネクテッドコンテンツはデフォルトで、作成する GET HTTP リクエストの `Content-Type` ヘッダーを、`Accept: */*` を持つ `application/json` に設定します。別のコンテンツタイプが必要な場合は、タグに`:content_type your/content-type`を追加して明示的に指定してください。Brazeは、指定したタイプにContent-TypeおよびAcceptヘッダーの両方を設定します。
+コネクテッドコンテンツはデフォルトで、GET HTTPリクエストの`Content-Type`ヘッダーを`Accept: */*`付きの`application/json`に設定します。別のコンテンツタイプが必要な場合は、タグに`:content_type your/content-type`を追加して明示的に指定してください。Brazeは、指定したタイプにContent-TypeヘッダーとAcceptヘッダーの両方を設定します。
 
 {% raw %}
 ```js
@@ -14,15 +14,15 @@
 
 デフォルトでは、コネクテッドコンテンツは指定されたURLにHTTP GETリクエストを送信します。代わりにPOSTリクエストを行うには、`:method post`を指定します。
 
-指定された`:body`の後に`key1=value1&key2=value2&...`形式のクエリ文字列またはキャプチャされた値への参照を指定することで、オプションでPOSTボディを提供できます。Content-Typeのデフォルトは`application/x-www-form-urlencoded`です。`:content_type application/json`を指定し、`key1=value1&key2=value2`のようなフォームURLエンコードされた本文を提供すると、Brazeは送信前に自動的に本文をJSONエンコードします。
+オプションで`:body`の後に`key1=value1&key2=value2&...`形式のクエリ文字列またはキャプチャされた値への参照を指定することで、POSTボディを提供できます。Content-Typeのデフォルトは`application/x-www-form-urlencoded`です。`:content_type application/json`を指定し、`key1=value1&key2=value2`のようなフォームURLエンコードされたボディを提供すると、Brazeは送信前に自動的にボディをJSONエンコードします。
 
-また、接続されたコンテンツは、デフォルトではPOST 呼び出しをキャッシュしません。`:cache_max_age` をコネクテッドコンテンツの POST 呼び出しに追加することで、この動作を更新できます。
+また、コネクテッドコンテンツはデフォルトではPOST呼び出しをキャッシュしません。コネクテッドコンテンツのPOST呼び出しに`:cache_max_age`を追加することで、この動作を更新できます。
 
 {% tabs %}
 {% tab Default content-type %}
 
 {% raw %}
-`````````js
+```js
 {% connected_content https://example.com/api/endpoint :method post :body key1=value1&key2=value2 %}
 ```
 {% endraw %}
@@ -31,7 +31,7 @@
 {% tab Application/JSON Content-Type %}
 
 {% raw %}
-`````````js
+```js
 {% connected_content https://example.com/api/endpoint :method post :body key1=value1&key2=value2 :content_type application/json %}
 ```
 {% endraw %}

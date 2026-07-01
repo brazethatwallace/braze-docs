@@ -12,8 +12,8 @@ Le SDK Braze Cordova vous aide à intégrer les fonctionnalités d'envoi de mess
 
 Pour commencer, consultez les ressources suivantes :
 
-- [Guide de l'utilisateur Braze]({{site.baseurl}}/user_guide/introduction)
-- [Guide du développeur Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=cordova)
+- [Guide de l'utilisateur Braze](https://www.braze.com/docs/user_guide/introduction/)
+- [Guide du développeur Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=cordova)
 
 ## Versions minimales requises {#minimum-version-requirements}
 

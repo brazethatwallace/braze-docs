@@ -22,9 +22,9 @@ description: "이 참조 문서에서는 중첩 커스텀 속성을 커스텀 �
 - 키 이름과 문자열 값의 크기 제한은 255자입니다.
 - 키 이름에는 공백을 포함할 수 없습니다.
 - 마침표(`.`)와 달러 기호(`$`)는 중첩 커스텀 속성을 고객 프로필에 보내려는 경우 API 페이로드에서 지원되지 않는 문자입니다.
-- 모든 Braze 파트너가 중첩 커스텀 속성을 지원하는 것은 아닙니다. 특정 파트너 통합에서 이 기능을 지원하는지 확인하려면 [파트너 설명서]({{site.baseurl}}/partners/home/)를 참조하세요.
+- 모든 Braze 파트너가 중첩 커스텀 속성을 지원하는 것은 아닙니다. 특정 파트너 통합에서 이 기능을 지원하는지 확인하려면 [파트너 설명서]({{site.baseurl}}/partners/home)를 참조하세요.
 - 연결된 오디언스 API를 호출할 때 중첩 커스텀 속성을 필터로 사용할 수 없습니다.
-- 기본적으로 **중첩 커스텀 속성** Segment 필터에는 오브젝트 유형 커스텀 속성, 오브젝트 배열 속성, 배열 유형 커스텀 속성이 포함됩니다. 속성을 선택하면 등록정보 스키마 선택기에 중첩 배열 필드에 대한 배열 경로(`[]` 표기법 사용)가 포함됩니다. 해당 필터에서 최상위 배열 커스텀 속성을 숨기려면 [Braze 고객지원]({{site.baseurl}}/braze_support/)에 문의하세요.
+- 기본적으로 **중첩 커스텀 속성** Segment 필터에는 오브젝트 유형 커스텀 속성, 오브젝트 배열 속성, 배열 유형 커스텀 속성이 포함됩니다. 속성을 선택하면 등록정보 스키마 선택기에 중첩 배열 필드에 대한 배열 경로(`[]` 표기법 사용)가 포함됩니다. 해당 필터에서 최상위 배열 커스텀 속성을 숨기려면 [Braze 고객지원]({{site.baseurl}}/braze_support)에 문의하세요.
 - 대시보드에서 **커스텀 사용자로 미리보기**를 사용하여 메시지를 미리 볼 때, 모의 데이터는 문자열 또는 문자열 배열로만 입력할 수 있으며 중첩 오브젝트는 지원되지 않습니다. 중첩 커스텀 속성을 참조하는 메시지를 미리 보려면 프로필에 이미 중첩 속성이 있는 기존 사용자를 선택하세요. 중첩 커스텀 이벤트 등록정보의 경우, 렌더링을 확인하려면 테스트 사용자를 타겟으로 하는 라이브 Campaign을 시작해야 합니다.
 
 ## API 예제 {#api-example}
@@ -107,7 +107,7 @@ description: "이 참조 문서에서는 중첩 커스텀 속성을 커스텀 �
 ```
 
 {% alert note %}
-이 방법은 [오브젝트 배열]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/) 내부의 중첩 키를 삭제하는 데는 사용할 수 없습니다.
+이 방법은 [오브젝트 배열]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects) 내부의 중첩 키를 삭제하는 데는 사용할 수 없습니다.
 {% endalert %}
 
 {% endtab %}
@@ -297,7 +297,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 
 ## 스키마 재생성 {#regenerate-schema}
 
-스키마가 생성된 후에는 **캘린더 일 기준 하루에 한 번**(회사의 시간대 기준) 재생성할 수 있습니다. 이 섹션에서는 스키마를 재생성하는 방법을 설명합니다. 스키마에 대한 자세한 내용은 [중첩 오브젝트 탐색기를 사용하여 스키마 생성]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema)을 참조하세요.
+스키마가 생성된 후에는 **캘린더 일 기준 하루에 한 번**(회사의 시간대 기준) 재생성할 수 있습니다. 이 섹션에서는 스키마를 재생성하는 방법을 설명합니다. 스키마에 대한 자세한 내용은 [중첩 오브젝트 탐색기를 사용하여 스키마 생성]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#generate-schema)을 참조하세요.
 
 중첩 커스텀 속성의 스키마를 재생성하려면:
 
@@ -351,7 +351,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 
 이 사용자는 첫 번째 필터가 "Shoes" 항목(80 > 50)과 일치하고 두 번째 필터가 "Hat" 항목(25 < 30)과 일치하므로 해당됩니다. 단일 항목이 두 조건을 모두 충족하지 않더라도 사용자는 여전히 Segment에 포함됩니다.
 
-배열 내 동일한 항목에서 모든 조건이 일치해야 하는 경우, 동일한 경로에서 [다중 기준 세분화]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#use-multi-criteria-segmentation)를 사용하거나 교차 항목 매칭을 방지하도록 데이터를 재구성하세요.
+배열 내 동일한 항목에서 모든 조건이 일치해야 하는 경우, 동일한 경로에서 [다중 기준 세분화]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation)를 사용하거나 교차 항목 매칭을 방지하도록 데이터를 재구성하세요.
 
 ## 데이터 포인트 {#data-points}
 

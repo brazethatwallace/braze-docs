@@ -2,7 +2,7 @@
 nav_title: FAQ
 article_title: FAQ
 page_order: 30
-description: "この記事では、WhatsApp Campaignの設定時に最もよく寄せられる質問について説明します。"
+description: "この記事では、WhatsApp キャンペーンの設定時に最もよく寄せられる質問について説明します。"
 page_type: FAQ
 channel:
   - WhatsApp
@@ -108,13 +108,13 @@ WhatsAppチャネルのサブスクリプション管理は、他のBrazeチャ�
 **WhatsApp Manager > Overview Dashboard > Insights**タブで現在のメッセージング制限を確認できます。
 
 #### メッセージング制限に達した状態でメッセージを送信しようとするとどうなりますか？ {#what-happens-if-i-attempt-to-send-messages-when-i-have-already-reached-my-messaging-limit}
-現在の制限を超えるユニークユーザーにCampaignまたはCanvasを送信しようとすると、メッセージの送信に失敗します。Brazeは、メッセージング制限が引き上げられた場合に備えて、最大1日間メッセージの再送信を試み続けます。
+現在の制限を超えるユニークユーザーにキャンペーンまたはキャンバスを送信しようとすると、メッセージの送信に失敗します。Brazeは、メッセージング制限が引き上げられた場合に備えて、最大1日間メッセージの再送信を試み続けます。
 
 #### メッセージング制限は下がることがありますか？ {#can-my-messaging-limit-decrease}
 はい、電話番号の品質評価が低くなりすぎると、WhatsAppがメッセージング制限を引き下げるリスクがあります。Brazeは、電話番号のステータスやメッセージング制限レベルの更新など、WhatsAppからの品質関連の更新を購読して通知を受け取ることをお勧めします。WhatsApp Managerダッシュボードで直接通知を購読できます。
 
 #### Metaのスループット制限とは何ですか？ {#what-is-the-meta-throughput-limit}
-Metaには、WABAのメッセージング制限とは別のスループット制限があります。クラウドAPIがサポートするデフォルトの制限は、1秒あたり80メッセージです。Campaignがこの制限を超える可能性がある場合は、制限の引き上げを[リクエスト](https://developers.facebook.com/docs/whatsapp/cloud-api/overview/#throughput)できます。Metaは、Campaign送信の少なくとも3日前にこのリクエストを提出することを推奨しています。
+Metaには、WABAのメッセージング制限とは別のスループット制限があります。クラウドAPIがサポートするデフォルトの制限は、1秒あたり80メッセージです。キャンペーンがこの制限を超える可能性がある場合は、制限の引き上げを[リクエスト](https://developers.facebook.com/docs/whatsapp/cloud-api/overview/#throughput)できます。Metaは、キャンペーン送信の少なくとも3日前にこのリクエストを提出することを推奨しています。
 
 ### WhatsAppテンプレート {#whatsapp-templates}
 
@@ -166,7 +166,7 @@ Braze内または直接統合を通じたチャットボットや有人チャッ
 #### カスタマーサポートメッセージングとBraze経由のマーケティングメッセージングの間の「ギャップを埋める」にはどうすればよいですか？ {#how-can-i-bridge-the-gap-between-my-customer-support-messaging-and-my-marketing-messaging-via-braze}
 WhatsAppのLiquidプロパティを使用して、受信WhatsAppメッセージのコンテンツ（メッセージ本文やメディアURLを含む）をBrazeから他のプラットフォーム（カスタマーサポートツールを含む）に転送できます。詳細については、[サポートされているパーソナライゼーションタグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)を参照してください。
 
-Brazeに情報を送信するには、たとえばユーザーがアクティブなサポート会話中であることを示すために、カスタム属性（ブール値の「既存のサポートチャットあり = true/false」など）をログに記録し、マーケティングCampaignのセグメンテーション基準として使用できます。また、2つのチャットスレッド間でディープリンクを設定して、マーケティングスレッドからサポートスレッドへ、またはその逆にユーザーを誘導することもできます。
+Brazeに情報を送信するには、たとえばユーザーがアクティブなサポート会話中であることを示すために、カスタム属性（ブール値の「既存のサポートチャットあり = true/false」など）をログに記録し、マーケティングキャンペーンのセグメンテーション基準として使用できます。また、2つのチャットスレッド間でディープリンクを設定して、マーケティングスレッドからサポートスレッドへ、またはその逆にユーザーを誘導することもできます。
 
 #### Brazeはユーザーの応答を保存しますか？ {#does-braze-store-user-responses}
 メッセージは処理に必要な時間のみ保存されます。ユーザーメッセージにアクセスするには、Currentsを使用してください。
@@ -187,7 +187,7 @@ WhatsAppテンプレートには、画像、コールトゥアクション（URL
 OBA（公式ビジネスアカウント）は、表示名の横に緑色のチェックマークが付き、任意で取得できます。ビジネス認証の完了後に公式ビジネスアカウントを申請できます。ビジネス認証と公式ビジネスアカウントは異なるWhatsAppの概念であることに注意してください。
 
 #### Brazeダッシュボードではどのような指標が利用できますか？ {#what-metrics-are-available-in-the-braze-dashboard}
-Brazeダッシュボードでは、ユニーク受信者数、送信数、配信数、既読数、失敗数を確認できます。Brazeが既読を追跡するには、エンドユーザーの既読確認が「オン」になっている必要があります。他のチャネルと同様に、Campaignのパフォーマンスを監視するためにコンバージョンイベントを設定することもできます。
+Brazeダッシュボードでは、ユニーク受信者数、送信数、配信数、既読数、失敗数を確認できます。Brazeが既読を追跡するには、エンドユーザーの既読確認が「オン」になっている必要があります。他のチャネルと同様に、キャンペーンのパフォーマンスを監視するためにコンバージョンイベントを設定することもできます。
 
 #### WhatsApp会話とは何ですか？ {#what-is-a-whatsapp-conversation}
 WhatsAppは双方向メッセージングに焦点を当てたチャネルであるため、（個々のメッセージ数ではなく）会話を基準としています。会話とは、ビジネスとエンドユーザー間の24時間のスレッドです。

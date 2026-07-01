@@ -30,6 +30,10 @@ Non, la bibliothèque multimédia ne prend pas en charge les fichiers vidéo. No
 
 Non, la bibliothèque multimédia ne prend pas en charge le recadrage des images GIF.
 
+### Puis-je utiliser des images SVG dans les e-mails ? {#can-i-use-svg-images-in-email}
+
+Les images SVG ne sont pas recommandées pour les e-mails en raison d'une prise en charge limitée par les clients de messagerie. Gmail et plusieurs autres fournisseurs de messagerie majeurs n'affichent pas les images SVG, ce qui peut entraîner des images cassées ou manquantes pour les destinataires. Pour un rendu fiable des e-mails, utilisez plutôt les formats PNG, JPEG ou GIF.
+
 ### Comment recadrer une image existante ? {#how-do-i-crop-an-existing-image}
 
 Vous pouvez recadrer une image existante en la sélectionnant dans la bibliothèque multimédia, puis en cliquant sur **Crop & Save New Image**.
@@ -59,8 +63,8 @@ Cela s'explique par le fait que la plupart des éditeurs imposent des restrictio
 
 ### Générer une image à l'aide de l'intelligence artificielle {#generate-an-image-using-ai}
 
-Vous pouvez générer des images depuis **Contenu** > **Bibliothèque multimédia** en sélectionnant **AI Image Generator**. Vous devez disposer de la permission **Edit Media Library Assets**. Si vous ne voyez pas cette option, contactez votre équipe Braze. Pour les étapes et les détails de la politique, consultez [Générer des images avec BrazeAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-images) et [Génération d'images avec BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai).
+Vous pouvez générer des images depuis **Contenu** > **Bibliothèque multimédia** en sélectionnant **AI Image Generator**. Vous devez disposer de la permission **Edit Media Library Assets**. Si vous ne voyez pas cette option, contactez votre équipe Braze. Pour les étapes et les détails de la politique, consultez [Générer des images avec BrazeAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images) et [Génération d'images avec BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#generate-ai).
 
 ### Puis-je créer des URL personnalisées pour les ressources d'images de la bibliothèque multimédia ? {#can-i-create-vanity-urls-for-media-library-image-assets}
 
-Les URL personnalisées pour les ressources de la bibliothèque multimédia ne sont pas prises en charge, car des URL personnalisées interrompraient la distribution via le réseau de diffusion de contenu. Vous pouvez remplacer une image à son URL existante lorsque des campagnes font déjà référence à cette URL. Pour en savoir plus, consultez [Remplacer un fichier]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#replace-a-file).
+Les URL personnalisées pour les ressources de la bibliothèque multimédia ne sont pas prises en charge, car des URL personnalisées interrompraient la distribution via le réseau de diffusion de contenu. Vous pouvez remplacer une image à son URL existante lorsque des campagnes font déjà référence à cette URL. Pour en savoir plus, consultez [Remplacer un fichier]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).

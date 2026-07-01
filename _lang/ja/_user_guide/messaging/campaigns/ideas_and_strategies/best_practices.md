@@ -1,44 +1,44 @@
 ---
 nav_title: ベストプラクティス
-article_title: Campaignのベストプラクティス
+article_title: キャンペーンのベストプラクティス
 page_order: 0
-description: "この記事では、Campaignの作成とカスタマイズに関するベストプラクティスを紹介します。"
-tool: Campaign
+description: "この記事では、キャンペーンの作成とカスタマイズに関するベストプラクティスを紹介します。"
+tool: Campaigns
 
 ---
 
-# Campaignのベストプラクティス {#campaign-best-practices}
+# キャンペーンのベストプラクティス {#campaign-best-practices}
 
-> この記事では、Campaignの作成とカスタマイズに関するベストプラクティスを紹介します。
+> この記事では、キャンペーンの作成とカスタマイズに関するベストプラクティスを紹介します。
 
 ## Brazeの4つのT {#four-ts-of-braze}
 
 Brazeでは、Brazeプラットフォームで活用する予定の顧客データのみを送信することを推奨しています。「Brazeの4つのT」という考え方を参考に、以下の目的で使用するデータのみを送信するようにしましょう。
 
-- **ターゲット（Target）**：[オーディエンスセグメント]({{site.baseurl}}/user_guide/audience/segments/)を構築してオーディエンスをターゲティングします。
-- **トリガー（Trigger）**：[アクションベース]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/#action-based-delivery)または[APIトリガー]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)配信でメッセージをトリガーします。
-- **テンプレート（Template）**：[Liquid条件ロジック]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)でメッセージをテンプレート化し、パーソナライズします。
-- **トラッキング（Track）**：[コンバージョントラッキング]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)でCampaignの効果を追跡します。
+- **ターゲット（Target）**：[オーディエンスセグメント]({{site.baseurl}}/user_guide/audience/segments)を構築してオーディエンスをターゲティングします。
+- **トリガー（Trigger）**：[アクションベース]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#action-based-delivery)または[APIトリガー]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)配信でメッセージをトリガーします。
+- **テンプレート（Template）**：[Liquid条件ロジック]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)でメッセージをテンプレート化し、パーソナライズします。
+- **トラッキング（Track）**：[コンバージョントラッキング]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)でキャンペーンの効果を追跡します。
 
 これにより、Brazeに送信するデータを最適化し、ユーザーへのメッセージング能力を効率化できます。また、チームにとって長期的に有用でないデータポイントのトラッキングを防ぐことができます。
 
 ## ユーザーターゲティング {#user-targeting}
 
-Campaignを構築していく中で、オーディエンスの離脱に気づくことがあるかもしれません。この重要なタイミングで、セグメンテーションを活用した専用Campaignにより[離脱ユーザー]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users/)をターゲティングできます。
+キャンペーンを構築していく中で、オーディエンスの離脱に気づくことがあるかもしれません。この重要なタイミングで、セグメンテーションを活用した専用キャンペーンにより[離脱ユーザー]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users)をターゲティングできます。
 
 ### オーディエンスの特定 {#identify-your-audience}
 
-セグメントとフィルターを活用して、オーディエンスを定義しましょう。Campaignやメッセージが誰をターゲットにしているかを検討してください。この重要な情報をもとに、[マルチチャネルCampaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns)を作成し、オーディエンスの通知設定に合わせてさまざまなチャネルでメッセージを構築する柔軟性を得ることができます。
+セグメントとフィルターを活用して、オーディエンスを定義しましょう。キャンペーンやメッセージが誰をターゲットにしているかを検討してください。この重要な情報をもとに、[マルチチャネルキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns)を作成し、オーディエンスの通知設定に合わせてさまざまなチャネルでメッセージを構築する柔軟性を得ることができます。
 
-また、[アクティブユーザー]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns/)を理解し、継続的に利用してくれるユーザーへの感謝を示すことも重要です。
+また、[アクティブユーザー]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns)を理解し、継続的に利用してくれるユーザーへの感謝を示すことも重要です。
 
-## マルチチャネルCampaign {#multichannel-campaigns}
+## マルチチャネルキャンペーン {#multichannel-campaigns}
 
 ### 機能の認知 {#feature-awareness}
 
-ユーザーに新機能やアプリの新バージョンを知ってもらうことが目標の場合は、アプリ内チャネルに重点を置いたマルチチャネル戦略を使用しましょう。[アプリ内メッセージ]({{site.baseurl}}/in-app_messages/)や[Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/)は、ユーザーがすぐにアップデートしたくない場合でも、一般的に邪魔になりにくいチャネルです。
+ユーザーに新機能やアプリの新バージョンを知ってもらうことが目標の場合は、アプリ内チャネルに重点を置いたマルチチャネル戦略を使用しましょう。[アプリ内メッセージ]({{site.baseurl}}/in-app_messages)や[Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)は、ユーザーがすぐにアップデートしたくない場合でも、一般的に邪魔になりにくいチャネルです。
 
-適切なアプリストアへの[ディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/)を必ず含めてください。
+適切なアプリストアへの[ディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls)を必ず含めてください。
 
 アプリのアップデートや使い方の変更をユーザーに促すのは難しいことがあります。新バージョンや新機能のメリットをすべて伝え、アプリ体験がどのように向上するかを知らせましょう。
 
@@ -46,7 +46,7 @@ Campaignを構築していく中で、オーディエンスの離脱に気づく
 
 タイミングが重要です！ユーザーにアプリのアップデートを促すことが目標の場合は、アプリ内でポジティブな体験をした後にお願いするようにしましょう。オーディエンスのエンゲージメントを維持するために、押し付けがましく見える繰り返しのメッセージは避けてください。
 
-時間が経つと、ユーザーは特定の機能を忘れたり、新機能に気づかなかったりすることがあります。新機能が追加された際は、[アプリ内メッセージ]({{site.baseurl}}/in-app_messages/)でユーザーに知らせましょう。アプリ内の主要機能にユーザーがエンゲージしていない場合は、アプリを使用中で、その新機能が役立つタイミングでリマインドするのが効果的です。[データオプトイン]({{site.baseurl}}/user_guide/channels/content_cards/)に関する記事では、リクエストがユーザーのワークフローの期待に沿うようにする方法について詳しく説明しています。
+時間が経つと、ユーザーは特定の機能を忘れたり、新機能に気づかなかったりすることがあります。新機能が追加された際は、[アプリ内メッセージ]({{site.baseurl}}/in-app_messages)でユーザーに知らせましょう。アプリ内の主要機能にユーザーがエンゲージしていない場合は、アプリを使用中で、その新機能が役立つタイミングでリマインドするのが効果的です。[データオプトイン]({{site.baseurl}}/user_guide/channels/content_cards)に関する記事では、リクエストがユーザーのワークフローの期待に沿うようにする方法について詳しく説明しています。
 
 ## 高評価の獲得 {#high-ratings}
 
@@ -66,19 +66,19 @@ Campaignを構築していく中で、オーディエンスの離脱に気づく
 
 ![アプリのパワーユーザーをターゲットにしたセグメントの例。]({% image_buster /assets/img_archive/ratings_power_users.png %})
 
-アプリストアへのアクセスにはユーザーの時間がかかります。追加の手間をかけてもらえる可能性を最大化するために、アプリでポジティブな体験をした直後に評価やレビューをリクエストしましょう。例えば、ゲームのレベルをクリアした後や、割引コードを使って購入した後にお願いするのが効果的です。[データオプトイン]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-states)に関する記事では、リクエストがユーザーのワークフローの期待に沿うようにする方法について詳しく説明しています。
+アプリストアへのアクセスにはユーザーの時間がかかります。追加の手間をかけてもらえる可能性を最大化するために、アプリでポジティブな体験をした直後に評価やレビューをリクエストしましょう。例えば、ゲームのレベルをクリアした後や、割引コードを使って購入した後にお願いするのが効果的です。[データオプトイン]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states)に関する記事では、リクエストがユーザーのワークフローの期待に沿うようにする方法について詳しく説明しています。
 
-## Campaignのスケジューリング {#scheduling-your-campaigns}
+## キャンペーンのスケジューリング {#scheduling-your-campaigns}
 
-Campaignのスケジュールやオーディエンスを編集する際は、以下のベストプラクティスに注意してください。
+キャンペーンのスケジュールやオーディエンスを編集する際は、以下のベストプラクティスに注意してください。
 
-- **ワンタイムスケジュールCampaign：**スケジュールされた送信時刻まで編集できます。
-- **定期スケジュールCampaign：**スケジュールされた送信時刻まで編集できます。
-- **ローカル送信時刻Campaign：**スケジュールされた送信時刻の24時間前以降は編集しないでください。
-- **最適送信時刻Campaign：**Campaignの送信が予定されている日の深夜0時の24時間前以降は編集しないでください。
+- **ワンタイムスケジュールキャンペーン：**スケジュールされた送信時刻まで編集できます。
+- **定期スケジュールキャンペーン：**スケジュールされた送信時刻まで編集できます。
+- **ローカル送信時刻キャンペーン：**スケジュールされた送信時刻の24時間前以降は編集しないでください。
+- **最適送信時刻キャンペーン：**キャンペーンの送信が予定されている日の深夜0時の24時間前以降は編集しないでください。
 
-Canvasのスケジューリングに関する注意点（下書き、停止、送信時刻前後の評価）については、[Canvasのベストプラクティス]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/best_practices/#scheduling-your-canvases)を参照してください。
+キャンバスのスケジューリングに関する注意点（下書き、停止、送信時刻前後の評価）については、[キャンバスのベストプラクティス]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/best_practices#scheduling-your-canvases)を参照してください。
 
 {% alert note %}
-配信中のCampaignを編集して配信方法を**ローカル送信時刻**に変更すると、新しいメッセージのバッチがキューに追加されます。これにより、メッセージが2回キューに入るため、ユーザーがメッセージを2回受信することになります。これを防ぐには、まず元のCampaignを停止してから、スケジュールを更新した複製Campaignを起動してください。
+配信中のキャンペーンを編集して配信方法を**ローカル送信時刻**に変更すると、新しいメッセージのバッチがキューに追加されます。これにより、メッセージが2回キューに入るため、ユーザーがメッセージを2回受信することになります。これを防ぐには、まず元のキャンペーンを停止してから、スケジュールを更新した複製キャンペーンを起動してください。
 {% endalert %}

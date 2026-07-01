@@ -25,6 +25,10 @@ Quando um link universal ou App Link é aberto, o sistema operacional verifica s
 
 Em termos simples, os links universais permitem que um site associe suas páginas web a telas específicas do app. Assim, quando um usuário clica em um link para uma página web que corresponde a uma tela do app, o app pode ser aberto diretamente (se estiver instalado).
 
+{% alert important %}
+O Firebase Dynamic Links foi descontinuado. A Braze não possui uma integração direta com o Firebase, e o deep linking é gerenciado fora da plataforma Braze. Migre para soluções nativas de plataforma (links universais da Apple e Android App Links, conforme descrito neste artigo) ou para provedores alternativos de serviço de deep linking. Para orientações sobre migração, consulte as [Perguntas frequentes sobre migração do Firebase](https://firebase.google.com/support/dynamic-links-faq).
+{% endalert %}
+
 Esta tabela descreve as principais diferenças entre links universais e deep links tradicionais:
 
 |                        | Links universais e App Links                                   | Deep Links                   |

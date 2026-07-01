@@ -10,13 +10,13 @@ description: "この記事では、セグメントのリストのフィルタリ
 
 # セグメントの管理 {#manage-segments}
 
-> Segmentsセクションでは、既存のセグメントの包括的なリストを表示したり、新しいセグメントを作成したり、既存のセグメントを編集したりできます。さまざまなフィルターや列を選択してセグメントのリストを絞り込み、最も関連性の高い情報のみを表示できます。
+> セグメントセクションでは、既存のセグメントの包括的なリストを表示したり、新しいセグメントを作成したり、既存のセグメントを編集したりできます。さまざまなフィルターや列を選択してセグメントのリストを絞り込み、最も関連性の高い情報のみを表示できます。
 
-![アクティブなセグメントのリストを表示するSegmentsセクション。]({% image_buster /assets/img/segment/segments_page.png %})
+![アクティブなセグメントのリストを表示するセグメントセクション。]({% image_buster /assets/img/segment/segments_page.png %})
 
 ## ビューのカスタマイズ {#customizing-your-view}
 
-フィルターを使用し、表示する列を変更して、セグメントリストのビューをカスタマイズできます。**Segments**セクションを離れて戻ると、リストはデフォルトのビューに戻り、以前に選択したフィルターはすべてクリアされます。
+フィルターを使用し、表示する列を変更して、セグメントリストのビューをカスタマイズできます。**セグメント**セクションを離れて戻ると、リストはデフォルトのビューに戻り、以前に選択したフィルターはすべてクリアされます。
 
 ### ステータスフィルター {#status-filter}
 
@@ -30,7 +30,7 @@ description: "この記事では、セグメントのリストのフィルタリ
 - **Estimated Size:** セグメント内のユーザー数のおおよその範囲
 - **Tags:** セグメントに関連付けられたタグ
 - **Teams:** セグメントに関連付けられたチーム
-- **Advanced Tracking Segments Only:** [分析トラッキング]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking)が有効になっているセグメントのみを表示します。
+- **Advanced Tracking セグメント Only:** [分析トラッキング]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking)が有効になっているセグメントのみを表示します。
 
 ### 列 {#columns}
 
@@ -41,8 +41,8 @@ description: "この記事では、セグメントのリストのフィルタリ
 - **Tags:** セグメントに関連付けられたタグ
 - **Teams:** セグメントに関連付けられたチーム
 - **Estimated size:** セグメント内の推定ユーザー数
-- **Canvases:** セグメントを使用しているCanvasesの数
-- **Campaigns:** セグメントを使用しているCampaignsの数
+- **キャンバス:** セグメントを使用しているキャンバスの数
+- **キャンペーン:** セグメントを使用しているキャンペーンの数
 
 ### スター付きのみ表示 {#show-starred-only}
 
@@ -50,10 +50,10 @@ description: "この記事では、セグメントのリストのフィルタリ
 
 ## セグメントのメッセージング使用状況の表示 {#messaging-use}
 
-セグメントの**Messaging Use**セクションに移動すると、他のセグメント、Campaigns、Canvases内など、そのセグメントがどこで使用されているかの概要を確認できます。
+セグメントの**Messaging Use**セクションに移動すると、他のセグメント、キャンペーン、キャンバス内など、そのセグメントがどこで使用されているかの概要を確認できます。
 
 {% alert note %}
-セグメントが相互に参照するループを防ぐため、**Segment Membership**フィルターを使用するセグメントは、他のセグメントから参照できません。詳細については、[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)を参照してください。
+セグメントが相互に参照するループを防ぐため、**セグメント Membership**フィルターを使用するセグメントは、他のセグメントから参照できません。詳細については、[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)を参照してください。
 {% endalert %}
 
 ## 特定のセグメントの管理 {#managing-specific-segments}
@@ -63,13 +63,13 @@ description: "この記事では、セグメントのリストのフィルタリ
 特定のセグメントを管理するには、そのセグメントにカーソルを合わせ、行の末尾にあるメニューアイコンを選択して、以下のオプションを表示します。
 - **Edit:** セグメント内のフィルターを編集します。
 - **Duplicate:** セグメントのコピーを作成します。
-- **Archive:** セグメントをアーカイブします。これにより、そのセグメントを使用しているCampaignsやCanvasesもアーカイブされることに注意してください。
+- **Archive:** セグメントをアーカイブします。これにより、そのセグメントを使用しているキャンペーンやキャンバスもアーカイブされることに注意してください。
 - **Add to starred:** セグメントにスターを付けます。これにより、セグメントセクションの「Show Starred Only」ボックスをチェックして、すばやくアクセスできるようになります。
 
 複数のセグメント名の横にあるチェックボックスをオンにすることで、一括アーカイブや一括タグ付けなどの一括アクションを実行することもできます。
 
 {% alert tip %}
-ワークスペース内の既存のセグメントの機械可読なエクスポートが必要な場合（現在のテーブルビューだけでなく）、[セグメントリストエクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/segments/get_segment)を使用し、結果をページネーションで取得してください。アーカイブされたセグメントを監査するには、ステータスフィルターを使用して**Segments**ダッシュボードで個別に確認してください。
+ワークスペース内の既存のセグメントの機械可読なエクスポートが必要な場合（現在のテーブルビューだけでなく）、[セグメントリストエクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/segments/get_segment)を使用し、結果をページネーションで取得してください。アーカイブされたセグメントを監査するには、ステータスフィルターを使用して**セグメント**ダッシュボードで個別に確認してください。
 {% endalert %}
 
 ![複数のセグメントが選択され、「Tag As」ドロップダウンフィールドで「CRM」が選択されている状態。]({% image_buster /assets/img/segment/segments_bulk_action.png %}){: style="max-width:45%;"}
@@ -86,8 +86,8 @@ description: "この記事では、セグメントのリストのフィルタリ
 
 ![検索フィールドに「all users」と入力した検索結果に「All Users (Test)」、「All Users」、「All Users 15」が表示されている。]({% image_buster /assets/img/segment/segments_search.png %})
 
-### Canvases内のSegments {#segments-in-canvases}
+### キャンバス内のセグメント {#segments-in-canvases}
 
-他のセグメント、Campaigns、またはCanvases内のものを含むすべてのセグメント参照を検索するには、セグメントの[メッセージング使用状況](#messaging-use)セクションに移動します。**Canvas**ページの**Target segment**フィルターは、Canvasオーディエンスセグメントのみを検索します。
+他のセグメント、キャンペーン、またはキャンバス内のものを含むすべてのセグメント参照を検索するには、セグメントの[メッセージング使用状況](#messaging-use)セクションに移動します。**キャンバス**ページの**Target segment**フィルターは、キャンバスオーディエンスセグメントのみを検索します。
 
-![Canvasページのターゲットセグメントフィルター。]({% image_buster /assets/img/segment/target_segment.png %}){: style="max-width:45%;"}
+![キャンバスページのターゲットセグメントフィルター。]({% image_buster /assets/img/segment/target_segment.png %}){: style="max-width:45%;"}

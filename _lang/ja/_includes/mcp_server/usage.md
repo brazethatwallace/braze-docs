@@ -36,11 +36,11 @@ ClaudeやCursorのような自然言語ツールを通じてBraze MCPサーバ�
 
 カテゴリ別の例をいくつか紹介します。
 
-- **Campaignの分析と管理**
+- **キャンペーンの分析と管理**
   - `get_campaign_dataseries`
   - `get_campaign_details`
   - `get_campaign_list`
-- **Canvasの分析と管理**
+- **キャンバスの分析と管理**
   - `get_canvas_data_series`
   - `get_canvas_data_summary`
   - `get_canvas_list`
@@ -67,8 +67,8 @@ Braze MCPサーバーを使って利用可能な関数を確認します。
 
 その結果に基づくと、以下のようなカテゴリに整理された38個のBraze API関数があります。
 
-- Campaignの分析と管理
-- Canvasの分析と管理
+- キャンペーンの分析と管理
+- キャンバスの分析と管理
 - テンプレート
 - コンテンツブロック
 
@@ -84,7 +84,7 @@ Braze MCPサーバーを使って利用可能な関数を確認します。
 
 `list_functions`関数の詳細については、[利用可能なAPI関数]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#general-functions){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#general-functions){% endif %}を参照してください。
 
-### Canvas IDの詳細を取得する {#get-details-about-a-canvas-id}
+### キャンバス IDの詳細を取得する {#get-details-about-a-canvas-id}
 
 {% tabs %}
 {% tab Claude %}
@@ -96,7 +96,7 @@ Braze MCPサーバーを使って利用可能な関数を確認します。
 
 `get_canvas_details`を使って`YOUR-TEST-CANVAS-ID-123`の詳細を取得しました。
 
-- **Canvas名:** `YOUR-TEST-CANVAS-NAME`
+- **キャンバス名:** `YOUR-TEST-CANVAS-NAME`
 - **ID:** `YOUR-TEST-CANVAS-ID-123`
 - **ステータス:** 下書き（無効）
 - **作成日時:** 2026年1月15日 10:30 AM UTC
@@ -118,10 +118,10 @@ Braze MCPサーバーを使って利用可能な関数を確認します。
 
 **応答の例**
 
-`get_canvas_details`を使ってこのCanvasを取得しました。
+`get_canvas_details`を使ってこのキャンバスを取得しました。
 
-- **Canvas ID:** `YOUR-TEST-CANVAS-ID-123`
-- **Canvas名:** `YOUR-TEST-CANVAS-NAME`
+- **キャンバス ID:** `YOUR-TEST-CANVAS-ID-123`
+- **キャンバス名:** `YOUR-TEST-CANVAS-NAME`
 - **ステータス:** 下書き
 - **チャネル:** メール
 - **メッセージID:** `YOUR-TEST-MESSAGE-ID-123`
@@ -137,19 +137,19 @@ Braze MCPサーバーを使って利用可能な関数を確認します。
 
 `get_canvas_details`関数の詳細については、[利用可能なAPI関数]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#canvases){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#canvases){% endif %}を参照してください。
 
-### 最近のCanvasesを表示する {#show-me-my-recent-canvases}
+### 最近のキャンバスを表示する {#show-me-my-recent-canvases}
 
 {% tabs %}
 {% tab Claude %}
 **プロンプトの例**
 
-`Show me my recent Canvases`
+`Show me my recent キャンバス`
 
 **応答の例**
 
-`list_functions`で利用可能なツールを確認し、`get_canvas_list`を使って最近編集されたCanvasesを取得しました。
+`list_functions`で利用可能なツールを確認し、`get_canvas_list`を使って最近編集されたキャンバスを取得しました。
 
-最近のCanvases：
+最近のキャンバス：
 
 1. **YOUR-TEST-CANVAS-ALPHA**
    - ID: `YOUR-TEST-ID-123`
@@ -165,24 +165,24 @@ Braze MCPサーバーを使って利用可能な関数を確認します。
 {% tab Cursor %}
 **プロンプトの例**
 
-`Show me my recent Canvases`
+`Show me my recent キャンバス`
 
 **応答の例**
 
-Braze MCPサーバーから最近のCanvas一覧を取得します。
+Braze MCPサーバーから最近のキャンバス一覧を取得します。
 
 - `list_functions`を呼び出しました
 - `get_canvas_list`を呼び出しました
 
-最近のCanvases（最終編集日時順）：
+最近のキャンバス（最終編集日時順）：
 
-- **Canvas名:** `YOUR-TEST-CANVAS-ALPHA`
+- **キャンバス名:** `YOUR-TEST-CANVAS-ALPHA`
   - **最終編集日時:** 2026年1月16日 02:45 PM UTC
-  - **Canvas ID:** `YOUR-TEST-ID-123`
+  - **キャンバス ID:** `YOUR-TEST-ID-123`
   - **タグ:** `lifecycle`, `email`
-- **Canvas名:** `YOUR-TEST-CANVAS-BETA`
+- **キャンバス名:** `YOUR-TEST-CANVAS-BETA`
   - **最終編集日時:** 2026年1月15日 11:10 AM UTC
-  - **Canvas ID:** `YOUR-TEST-ID-456`
+  - **キャンバス ID:** `YOUR-TEST-ID-456`
   - **タグ:** `promo`
 {% endtab %}
 {% endtabs %}
@@ -207,7 +207,7 @@ Braze MCPサーバーから最近のCanvas一覧を取得します。
 - **プリヘッダー:** `YOUR-TEST-PREHEADER`
 - **作成日時:** 2026年1月16日 03:10 PM UTC
 
-CampaignsやCanvasesを作成・更新する際に`YOUR-TEST-TEMPLATE-ID-123`を参照できます。
+キャンペーンやキャンバスを作成・更新する際に`YOUR-TEST-TEMPLATE-ID-123`を参照できます。
 {% endtab %}
 
 {% tab Cursor %}

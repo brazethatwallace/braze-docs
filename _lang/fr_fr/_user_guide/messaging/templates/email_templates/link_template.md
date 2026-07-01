@@ -32,7 +32,7 @@ Imaginons que vous meniez une campagne promotionnelle par e-mail pour le lanceme
 Vous pouvez créer un nombre illimité de modèles de liens pour répondre à vos différents besoins. Pour créer un modèle de lien, procédez comme suit :
 
 1. Accédez à **Contenu** > **Lien d'e-mail**.
-2. Sélectionnez **Create email link template**.
+2. Sélectionnez **Créer un modèle de lien d'e-mail**.
 3. Donnez un nom à votre modèle de lien.
 4. (Facultatif) Ajoutez une description, une équipe ou une étiquette pour ajouter des détails sur le modèle de lien.
 5. (Facultatif) Activez le basculement pour ajouter automatiquement le modèle de lien aux liens dans les campagnes par e-mail et les Canvas. Cela s'applique lors de l'ajout d'un nouveau lien à tout e-mail nouveau ou existant.
@@ -42,14 +42,14 @@ Il existe deux types de modèles de liens que vous pouvez créer :
 - [Modèle de lien qui s'insère avant une URL](#prepend-link-template)
 - [Modèle de lien qui s'insère après une URL](#append-link-template)
 
-Lorsque vous utilisez des modèles de liens et [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/), Liquid ne doit être ajouté que dans la balise body pour garantir un rendu cohérent.
+Lorsque vous utilisez des modèles de liens et [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), Liquid ne doit être ajouté que dans la balise body pour garantir un rendu cohérent.
 
 ### Préfixe : créer un modèle de lien qui s'insère avant une URL {#prepend-link-template}
 
 Pour ajouter une chaîne de caractères ou une URL avant les liens de votre e-mail, procédez comme suit :
 
 1. Créez un nouveau modèle de lien.
-2. Définissez la **Template Position** sur **Before URL**.
+2. Définissez la **Position du modèle** sur **Avant l'URL**.
 3. Saisissez une chaîne de caractères qui sera toujours préfixée à votre URL.
 
 L'**aperçu du modèle** vous fournit un exemple de la façon dont le modèle de lien sera inséré avant une URL.
@@ -61,7 +61,7 @@ L'**aperçu du modèle** vous fournit un exemple de la façon dont le modèle de
 Si vous souhaitez ajouter des paramètres de requête après une URL dans votre e-mail :
 
 1. Créez un nouveau modèle de lien.
-2. Définissez la **Template Position** sur **After URL**.
+2. Définissez la **Position du modèle** sur **Après l'URL**.
 3. Saisissez les paramètres de requête (`value=example`) à la fin de chaque URL. Vous pouvez ajouter plusieurs paramètres à la fin d'une URL.
 
 ![Champs Position du modèle, Paramètres de requête et Aperçu du modèle pour le processus d'insertion du modèle de lien après une URL.]({% image_buster /assets/img_archive/link_template_postappend.png %}){: style="max-width:90%;"}
@@ -73,23 +73,23 @@ Une fois vos modèles de liens configurés, vous pouvez les appliquer dans vos e
 Pour appliquer un modèle de lien dans l'éditeur HTML ou l'éditeur par glisser-déposer, suivez ces étapes :
 
 {% alert important %}
-Pour accéder à l'onglet **Link Management** dans l'éditeur HTML mis à jour ou l'éditeur par glisser-déposer, l'aliasage de lien doit être activé. Pour activer l'aliasage de lien, contactez votre gestionnaire de compte. Pour en savoir plus, consultez [Aliasage de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/).
+Pour accéder à l'onglet **Gestion des liens** dans l'éditeur HTML mis à jour ou l'éditeur par glisser-déposer, l'aliasage de lien doit être activé. Pour activer l'aliasage de lien, contactez votre gestionnaire de compte. Pour en savoir plus, consultez [Aliasage de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing).
 {% endalert %}
 
-- **Éditeur HTML mis à jour :** Dans l'onglet **Content**, sélectionnez **Link Management**, puis **Add a Link Template**, choisissez votre modèle de lien, puis sélectionnez **Add**.
-- **Éditeur par glisser-déposer :** Dans l'onglet **Content**, sélectionnez **Link Management**, puis **Add a Link Template**, choisissez votre modèle de lien, puis sélectionnez **Add**.
+- **Éditeur HTML mis à jour :** Dans l'onglet **Contenu**, sélectionnez **Gestion des liens**, puis **Ajouter un modèle de lien**, choisissez votre modèle de lien, puis sélectionnez **Ajouter**.
+- **Éditeur par glisser-déposer :** Dans l'onglet **Contenu**, sélectionnez **Gestion des liens**, puis **Ajouter un modèle de lien**, choisissez votre modèle de lien, puis sélectionnez **Ajouter**.
 
-![Onglet Link Management dans l'éditeur par glisser-déposer avec un exemple de liste de modèles de liens.]({% image_buster /assets/img_archive/link_template_messagecomposer2.png %})
+![Onglet Gestion des liens dans l'éditeur par glisser-déposer avec un exemple de liste de modèles de liens.]({% image_buster /assets/img_archive/link_template_messagecomposer2.png %})
 
 {% alert note %}
 Les modèles de liens ne s'appliquent pas au texte brut. Cela signifie que Currents peut afficher des clics qui n'incluent pas les paramètres des modèles de liens, car ces clics peuvent provenir de la version texte brut de l'e-mail.
 {% endalert %}
 
-Lorsque vous ajoutez des modèles de liens dans l'onglet **Link Management**, faites défiler vers la droite pour voir les modèles que vous avez ajoutés. Si des liens existants dans un e-mail ont déjà un modèle de lien ajouté, les liens nouvellement ajoutés auront également le modèle de lien ajouté par défaut.
+Lorsque vous ajoutez des modèles de liens dans l'onglet **Gestion des liens**, faites défiler vers la droite pour voir les modèles que vous avez ajoutés. Si des liens existants dans un e-mail ont déjà un modèle de lien ajouté, les liens nouvellement ajoutés auront également le modèle de lien ajouté par défaut.
 
 ## Gérer les modèles de liens {#managing-link-templates}
 
-Vous pouvez également [dupliquer]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) des modèles de liens. Pour en savoir plus sur la création et la gestion des modèles et du contenu créatif, consultez [Modèles et médias]({{site.baseurl}}/user_guide/messaging/templates/).
+Vous pouvez également [dupliquer]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) des modèles de liens. Pour en savoir plus sur la création et la gestion des modèles et du contenu créatif, consultez [Modèles et médias]({{site.baseurl}}/user_guide/messaging/templates).
 
 {% alert important %}
 L'archivage des modèles n'est actuellement pas disponible pour les modèles de liens.
@@ -97,4 +97,4 @@ L'archivage des modèles n'est actuellement pas disponible pour les modèles de 
 
 ## Questions fréquemment posées {#frequently-asked-questions}
 
-Pour obtenir des réponses aux questions fréquemment posées sur les modèles de liens, consultez notre page [FAQ sur les modèles]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq/).
+Pour obtenir des réponses aux questions fréquemment posées sur les modèles de liens, consultez notre page [FAQ sur les modèles]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq).

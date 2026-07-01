@@ -15,13 +15,13 @@ lazy_partner_tabs: true
 
 {% details Alcance del esquema y recursos relacionados %}
 
-Los esquemas de almacenamiento se aplican a los datos de eventos de archivos planos que enviamos a los socios de almacenamiento de almacén de datos (Google Cloud Storage, Amazon S3 y Microsoft Azure Blob Storage). Para los esquemas que se aplican a los demás socios, consulta nuestra lista de [socios disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) y comprueba sus respectivas páginas.
+Los esquemas de almacenamiento se aplican a los datos de eventos de archivos planos que enviamos a los socios de almacenamiento de almacén de datos (Google Cloud Storage, Amazon S3 y Microsoft Azure Blob Storage). Para los esquemas que se aplican a los demás socios, consulta nuestra lista de [socios disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) y comprueba sus respectivas páginas.
 
 {% alert tip %}
-Estos eventos también están disponibles como tablas SQL en el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/), las [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) y el [uso compartido de datos de Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/). Para los esquemas de tablas SQL y los detalles de las columnas, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/).
+Estos eventos también están disponibles como tablas SQL en el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder), las [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) y el [uso compartido de datos de Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para los esquemas de tablas SQL y los detalles de las columnas, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Ponte en contacto con tu director de cuentas o abre un [ticket de soporte]({{site.baseurl}}/braze_support/) si necesitas acceder a derechos de eventos adicionales. Si no encuentras lo que necesitas en este artículo, consulta nuestra [biblioteca de eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) o nuestros [ejemplos de datos de muestra de Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Ponte en contacto con tu director de cuentas o abre un [ticket de soporte]({{site.baseurl}}/braze_support) si necesitas acceder a derechos de eventos adicionales. Si no encuentras lo que necesitas en este artículo, consulta nuestra [biblioteca de eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) o nuestros [ejemplos de datos de muestra de Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% enddetails %}
 
@@ -66,7 +66,7 @@ Algunos eventos devuelven un valor `platform` que especifica la plataforma del d
 {% details Consideraciones para los eventos de interacción con mensajes %}
 
 - Currents descarta los eventos con cargas útiles superiores a 900&nbsp;KB.
-- Los objetos relacionados con el flujo de Canvas tienen ID que puedes utilizar para agruparlos y traducirlos a nombres legibles por humanos mediante el [punto de conexión Exportar detalles del Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/).
+- Los objetos relacionados con el flujo de Canvas tienen ID que puedes utilizar para agruparlos y traducirlos a nombres legibles por humanos mediante el [punto de conexión Exportar detalles del Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details).
 - Algunos campos pueden no mostrar su estado más reciente inmediatamente después de actualizar una Campaign o Canvas:
   - `campaign_name`
   - `canvas_name`
@@ -125,7 +125,7 @@ Este es el esquema de registro de Kafka para cuando se ejecuta un agente de la C
   "prompt_tokens" : "(required, int) how many prompt tokens this request used",
   "provider_request_id" : "(optional, string) any request ID given to us by the model provider for the api call",
   "reasoning_tokens" : "(required, int) how many reasoning tokens this request used",
-  "request_id" : "(required, string) unique id for this overall LLM request and complete execution",
+  "request_id" : "(required, string) Unique id for this overall LLM request and complete execution",
   "time" : "(required, long) unix timestamp at which this event is logged",
   "total_tokens" : "(required, int) how many total tokens this request used",
   "user_id" : "(optional, string) [PII] Braze user ID of the user who performed this event"
@@ -165,7 +165,7 @@ Este es el esquema de registro de Kafka para cuando se ejecuta un agente de la C
     "prompt_tokens" : "(required, int) how many prompt tokens this request used",
     "provider_request_id" : "(optional, string) any request ID given to us by the model provider for the api call",
     "reasoning_tokens" : "(required, int) how many reasoning tokens this request used",
-    "request_id" : "(required, string) unique id for this overall LLM request and complete execution",
+    "request_id" : "(required, string) Unique id for this overall LLM request and complete execution",
     "total_tokens" : "(required, int) how many total tokens this request used"
   },
   "time" : "(required, long) unix timestamp at which this event is logged",
@@ -201,7 +201,7 @@ Este es el esquema de registro de Kafka para cuando se ejecuta una herramienta. 
   "id" : "(required, string) Globally unique ID for this event",
   "invocation_source" : "(optional, string) which ruby object invoked the LLM request",
   "is_error" : "(required, boolean) whether or not this request errored out",
-  "request_id" : "(optional, string) unique id for this overall LLM request and complete execution",
+  "request_id" : "(optional, string) Unique id for this overall LLM request and complete execution",
   "time" : "(required, long) unix timestamp at which this event is logged",
   "tool_arguments" : "(required, string) JSON of the tool arguments",
   "tool_call_id" : "(required, string) globally unique id for this tool call",
@@ -223,7 +223,7 @@ Este es el esquema de registro de Kafka para cuando se ejecuta una herramienta. 
     "duration" : "(required, int) How long the tool invocation took in milliseconds",
     "invocation_source" : "(optional, string) which ruby object invoked the LLM request",
     "is_error" : "(required, boolean) whether or not this request errored out",
-    "request_id" : "(optional, string) unique id for this overall LLM request and complete execution",
+    "request_id" : "(optional, string) Unique id for this overall LLM request and complete execution",
     "tool_arguments" : "(required, string) JSON of the tool arguments",
     "tool_call_id" : "(required, string) globally unique id for this tool call",
     "tool_name" : "(required, string) Name of the Tool"
@@ -624,7 +624,7 @@ Este evento se produce cuando Braze recibe una solicitud para actualizar el esta
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad {#property-details}
+### Detalles de la propiedad {#property-details}
 
 - `state_change_source` devolverá una cadena con el nombre completo de la fuente. Por ejemplo, la importación del CSV de origen devolverá la cadena `CSV Import`. A continuación se enumeran las fuentes disponibles:
 
@@ -911,7 +911,7 @@ Los grupos de suscripción solo están disponibles para los canales de correo el
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 {% multi_lang_include currents/property_details_dispatch_state_source.md %}
 
 
@@ -2913,9 +2913,9 @@ Este evento se produce cuando un mensaje de banner programado originalmente se c
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
-- El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
+- El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` será `frequency_capped` si el mensaje se canceló debido a una regla de limitación de frecuencia global.
 - `abort_log` incluye información sobre la regla específica que desencadenó la cancelación. Un ejemplo es: `Frequency cap rule: 5 Banner messages every 1 week`
 
@@ -4019,10 +4019,10 @@ Este evento se produce si un mensaje de Content Cards fue cancelado debido a can
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como enviar, rebotar y abrir).
-- El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
+- El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` será `frequency_capped` si el mensaje se canceló debido a una regla de limitación de frecuencia global.
 - `abort_log` incluye información sobre la regla específica que desencadenó la cancelación. Un ejemplo es: `Frequency cap rule: 5 Content Card messages every 1 week`
 
@@ -4293,10 +4293,10 @@ Este evento se produce cuando un usuario hace clic en una Content Card.
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
-- Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para la ingesta de datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), ponte en contacto con tu administrador del éxito del cliente para habilitar el envío de `ad_id`.
+- Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
+- Si utilizas Kafka para la ingesta de datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador del éxito del cliente para habilitar el envío de `ad_id`.
 
 {% endapi %}
 
@@ -4307,7 +4307,7 @@ Este evento se produce cuando un usuario hace clic en una Content Card.
 Content Cards, Dismissal
 {% endapitags %}
 
-Este evento ocurre cuando un usuario descarta una Content Card.
+Este evento se produce cuando un usuario descarta una Content Card.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -4564,10 +4564,10 @@ Este evento ocurre cuando un usuario descarta una Content Card.
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
-- Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para la ingesta de datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), ponte en contacto con tu administrador del éxito del cliente para habilitar el envío de `ad_id`.
+- Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
+- Si utilizas Kafka para la ingesta de datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador del éxito del cliente para habilitar el envío de `ad_id`.
 
 {% endapi %}
 
@@ -4835,10 +4835,10 @@ Este evento se produce cuando un usuario visualiza una Content Card.
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
-- Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para la ingesta de datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), ponte en contacto con tu administrador del éxito del cliente para habilitar el envío de `ad_id`.
+- Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
+- Si utilizas Kafka para la ingesta de datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador del éxito del cliente para habilitar el envío de `ad_id`.
 
 {% endapi %}
 
@@ -5068,9 +5068,9 @@ Este evento se produce cuando se envía una Content Card a un usuario.
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
-- `message_extras` te permite anotar tus eventos de envío con datos dinámicos de contenido conectado, atributos personalizados (como el idioma o el país) y propiedades de entrada de Canvas. Consulta [Extras del mensaje]({{site.baseurl}}/message_extras_tag/) para obtener más información.
+- `message_extras` te permite anotar tus eventos de envío con datos dinámicos de contenido conectado, atributos personalizados (como el idioma o el país) y propiedades de entrada de Canvas. Consulta [Extras del mensaje]({{site.baseurl}}/message_extras_tag) para obtener más información.
 
 {% endapi %}
 
@@ -5314,10 +5314,10 @@ Este evento se produce si un mensaje de correo electrónico fue cancelado debido
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
-- El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
+- El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` será `frequency_capped` si el mensaje se canceló debido a una regla de limitación de frecuencia global.
 - `abort_log` incluye información sobre la regla específica que desencadenó la cancelación. Un ejemplo es: `Frequency cap rule: 5 email messages every 1 week`
 
@@ -5575,10 +5575,10 @@ Este evento se produce cuando un proveedor de servicios de Internet devuelve un 
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
-  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
+  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
 
 {% endapi %}
 
@@ -5902,6 +5902,7 @@ Este evento se produce cuando un usuario hace clic en un correo electrónico. Se
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "click_id" : "(optional, string) Unique ID for the link which was clicked, as created by Braze",
+  "click_id_type" : "(optional, string) The click identifier type; indicates the source query parameter name for click_id",
   "email" : "(optional, string) [PII] Email address of the user",
   "email_sha256" : "(optional, string) SHA-256 hash of the normalized email address; only present for email events",
   "event_id" : "(required, string) Globally unique ID for this event",
@@ -5913,10 +5914,10 @@ Este evento se produce cuando un usuario hace clic en un correo electrónico. Se
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
-  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
+  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
 
 {% endapi %}
 
@@ -6173,7 +6174,7 @@ Este evento se produce cuando un proveedor de servicios de Internet no entrega i
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
   - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados.
@@ -6181,6 +6182,7 @@ Este evento se produce cuando un proveedor de servicios de Internet no entrega i
 {% endapi %}
 
 {% api %}
+
 ## Eventos de entrega de correo electrónico {#email-delivery-events}
 
 {% apitags %}
@@ -6420,7 +6422,7 @@ Este evento se produce cuando un correo electrónico enviado llega correctamente
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
   - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados.
@@ -6428,7 +6430,6 @@ Este evento se produce cuando un correo electrónico enviado llega correctamente
 {% endapi %}
 
 {% api %}
-
 ## Eventos de marcar correo electrónico como spam {#email-mark-as-spam-events}
 
 {% apitags %}
@@ -6672,9 +6673,9 @@ Este evento se produce cuando el usuario final pulsa el botón "spam" en el corr
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
-- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
+- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
   - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados.
 
 {% endapi %}
@@ -6989,14 +6990,15 @@ Es un comportamiento conocido que los campos de evento de apertura de correo ele
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
-- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
+- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
   - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados.
 
 {% endapi %}
 
 {% api %}
+
 ## Eventos de reintento de correo electrónico {#email-retry-events}
 
 {% apitags %}
@@ -7077,7 +7079,7 @@ Este evento se produce cuando un mensaje pierde prioridad o sufre limitación de
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Conector HTTP personalizado %}
 ```json
 // users.messages.email.Retry
 
@@ -7243,7 +7245,6 @@ Este evento se produce cuando un mensaje pierde prioridad o sufre limitación de
 {% endapi %}
 
 {% api %}
-
 ## Eventos de envío de correo electrónico {#email-send-events}
 
 {% apitags %}
@@ -7270,6 +7271,7 @@ Este evento se produce cuando una solicitud de envío de correo electrónico se 
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "email_address" : "(required, string) [PII] Email address of the user",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
+  "from_domain" : "(optional, string) Sending domain for the email",
   "id" : "(required, string) Globally unique ID for this event",
   "ip_pool" : "(optional, string) IP pool from which the email send was made",
   "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
@@ -7498,11 +7500,11 @@ Este evento se produce cuando una solicitud de envío de correo electrónico se 
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
-  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos en Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
-- `message_extras` te permite anotar tus eventos de envío con datos dinámicos de contenido conectado, atributos personalizados (como idioma, país) y propiedades de entrada en Canvas. Consulta [Extras de los mensajes]({{site.baseurl}}/message_extras_tag/) para obtener más información.
+  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos en Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
+- `message_extras` te permite anotar tus eventos de envío con datos dinámicos de contenido conectado, atributos personalizados (como idioma, país) y propiedades de entrada en Canvas. Consulta [Extras de los mensajes]({{site.baseurl}}/message_extras_tag) para obtener más información.
 
 {% endapi %}
 
@@ -7752,14 +7754,15 @@ Este evento se produce cuando un proveedor de servicios de Internet devuelve un 
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
-  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos en Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
+  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos en Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
 
 {% endapi %}
 
 {% api %}
+
 ## Eventos de cancelación de suscripción de correo electrónico {#email-unsubscribe-events}
 
 {% apitags %}
@@ -7769,7 +7772,7 @@ Email, Subscription
 Este evento se produce cuando el usuario final ha hecho clic en "cancelar suscripción" en el correo electrónico.
 
 {% alert important %}
-El evento `Unsubscribe` se considera un evento de clic especializado que se activa cuando el usuario hace clic en el enlace para cancelar la suscripción en el correo electrónico (ya sea un enlace normal para cancelar la suscripción dentro del cuerpo o el pie de página del correo electrónico, o utilizando el [encabezado list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe)), no cuando el usuario cambia su estado a cancelado. Si el cambio de estado de la suscripción se envía a través de la API o con un enlace de cancelación de suscripción personalizado (que no sea de Braze), no se desencadena un evento de cancelación de suscripción de correo electrónico en Currents.
+El evento `Unsubscribe` se considera un evento de clic especializado que se activa cuando el usuario hace clic en el enlace para cancelar la suscripción en el correo electrónico (ya sea un enlace normal para cancelar la suscripción dentro del cuerpo o el pie de página del correo electrónico, o utilizando el [encabezado list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe)), no cuando el usuario cambia su estado a cancelado. Si el cambio de estado de la suscripción se envía a través de la API o con un enlace de cancelación de suscripción personalizado (que no sea de Braze), no se desencadena un evento de cancelación de suscripción de correo electrónico en Currents.
 {% endalert %}
 
 {% tabs %}
@@ -7989,15 +7992,14 @@ El evento `Unsubscribe` se considera un evento de clic especializado que se acti
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
-  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos en Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
+  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos en Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
 
 {% endapi %}
 
 {% api %}
-
 ## Eventos de impresión de experimento con conmutador de características {#feature-flag-experiment-impression-events}
 
 {% apitags %}
@@ -8010,7 +8012,7 @@ Las impresiones del conmutador de características solo se registran una vez por
 
 
 {% tabs %}
-{% tab Cloud Storage %}
+{% tab Almacenamiento en la nube %}
 ```json
 // users.messages.featureflag.Impression
 
@@ -8084,7 +8086,7 @@ Las impresiones del conmutador de características solo se registran una vez por
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Conector HTTP personalizado %}
 ```json
 // users.messages.featureflag.Impression
 
@@ -8257,7 +8259,7 @@ In-App Messages, Abort
 Este evento se produce cuando se cancela un mensaje dentro de la aplicación programado originalmente.
 
 {% tabs %}
-{% tab Cloud Storage %}
+{% tab Almacenamiento en la nube %}
 ```json
 // users.messages.inappmessage.Abort
 
@@ -8295,7 +8297,7 @@ Este evento se produce cuando se cancela un mensaje dentro de la aplicación pro
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
-  "version" : "(required, string) Which version of in-app message, legacy or triggered"
+  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
 }
 ```
 {% endtab %}
@@ -8341,7 +8343,7 @@ Este evento se produce cuando se cancela un mensaje dentro de la aplicación pro
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Conector HTTP personalizado %}
 ```json
 // users.messages.inappmessage.Abort
 
@@ -8527,15 +8529,16 @@ Este evento se produce cuando se cancela un mensaje dentro de la aplicación pro
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
-- El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
+- El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` será `frequency_capped` si el mensaje se canceló debido a una regla de limitación de frecuencia global.
 - `abort_log` incluye información sobre la regla específica que desencadenó la cancelación. Un ejemplo es: `Frequency cap rule: 5 in-app messages every 1 week`
 
 {% endapi %}
 
 {% api %}
+
 ## Eventos de clic en mensajes dentro de la aplicación {#in-app-message-click-events}
 
 {% apitags %}
@@ -8580,7 +8583,8 @@ Para los mensajes dentro de la aplicación, `dispatch_id` devuelve `null`.
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
 }
 ```
 {% endtab %}
@@ -8809,15 +8813,14 @@ Para los mensajes dentro de la aplicación, `dispatch_id` devuelve `null`.
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
-- Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para la ingesta de datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), ponte en contacto con tu administrador del éxito del cliente para habilitar el envío de `ad_id`.
+- Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
+- Si utilizas Kafka para la ingesta de datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador del éxito del cliente para habilitar el envío de `ad_id`.
 
 {% endapi %}
 
 {% api %}
-
 ## Eventos de impresiones de mensajes dentro de la aplicación {#in-app-message-impression-events}
 
 {% apitags %}
@@ -8863,7 +8866,8 @@ Para los mensajes dentro de la aplicación, `dispatch_id` devuelve `null`.
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
 }
 ```
 {% endtab %}
@@ -9097,10 +9101,10 @@ Para los mensajes dentro de la aplicación, `dispatch_id` devuelve `null`.
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
-- Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para la ingesta de datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), ponte en contacto con tu administrador del éxito del cliente para habilitar el envío de `ad_id`.
+- Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
+- Si utilizas Kafka para la ingesta de datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador del éxito del cliente para habilitar el envío de `ad_id`.
 
 {% endapi %}
 
@@ -9338,16 +9342,17 @@ Este evento se produce cuando un mensaje programado de LINE no se puede entregar
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
-- El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
+- El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` será `frequency_capped` si el mensaje se canceló debido a una regla de limitación de frecuencia global.
 - `abort_log` incluye información sobre la regla específica que desencadenó la cancelación. Un ejemplo es: `Frequency cap rule: 5 LINE messages every 1 week`
 
 {% endapi %}
 
 {% api %}
+
 ## Eventos de clic en LINE {#line-click-events}
 
 {% apitags %}
@@ -9592,14 +9597,13 @@ Este evento se produce cuando un usuario hace clic en un enlace de un mensaje de
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
 
 {% api %}
-
 ## Eventos de recepción entrante de LINE {#line-inbound-receive-events}
 
 {% apitags %}
@@ -9833,7 +9837,7 @@ Este evento se produce cuando se recibe un mensaje de LINE de un usuario.
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
@@ -10076,6 +10080,7 @@ Este evento se produce cuando un mensaje pierde prioridad o sufre limitación de
 {% endapi %}
 
 {% api %}
+
 ## Eventos de envío de LINE {#line-send-events}
 
 {% apitags %}
@@ -10303,7 +10308,7 @@ Este evento se produce cuando se envía un mensaje de LINE a LINE.
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
@@ -10486,14 +10491,13 @@ Este evento se produce cuando Braze recibe una respuesta de un proveedor externo
 {% endapi %}
 
 {% api %}
-
 ## Eventos de envío de Live Activity {#live-activity-send-events}
 
 {% apitags %}
 Live Activity, Sends
 {% endapitags %}
 
-Este evento se produce cuando el sistema Braze realiza una solicitud a su proveedor en relación con la Live Activity.
+Este evento se produce cuando el sistema de Braze realiza una solicitud a su proveedor en relación con la Live Activity.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -10895,16 +10899,17 @@ Este evento se produce si se canceló un mensaje de notificación push debido a 
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
-- El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
+- El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` será `frequency_capped` si el mensaje se canceló debido a una regla de limitación de frecuencia global.
 - `abort_log` incluye información sobre la regla específica que desencadenó la cancelación. Un ejemplo es: `Frequency cap rule: 5 push messages every 1 week`
 
 {% endapi %}
 
 {% api %}
+
 ## Eventos de rebote de notificaciones push {#push-notification-bounce-events}
 
 {% apitags %}
@@ -11158,9 +11163,9 @@ Este evento se produce cuando se recibe un error del servicio de notificaciones 
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
-- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), ponte en contacto con tu administrador del éxito del cliente o director de cuentas para habilitar la característica flipper para el envío de `ad_id`.
+- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador del éxito del cliente o director de cuentas para habilitar la característica flipper para el envío de `ad_id`.
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
@@ -11368,23 +11373,22 @@ Este evento no es compatible con nuestro [SDK Swift](https://github.com/braze-in
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
-- Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), ponte en contacto con tu administrador del éxito del cliente para habilitar el envío de `ad_id`.
+- Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
+- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) , ponte en contacto con tu administrador del éxito del cliente para habilitar el envío de `ad_id`.
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
 
 {% api %}
-
 ## Eventos de apertura de notificaciones push {#push-notification-open-events}
 
 {% apitags %}
 Push, Opens
 {% endapitags %}
 
-Este evento se produce cuando un usuario hace clic directamente en la notificación push para abrir la aplicación. Actualmente, los eventos de apertura push se refieren específicamente a "Direct Opens" y no a "aperturas totales". Esto no incluye las estadísticas mostradas a nivel de Campaign de "Influenced Opens", ya que no se atribuyen a nivel de usuario.
+Este evento se produce cuando un usuario hace clic directamente en la notificación push para abrir la aplicación. Actualmente, los eventos de apertura push se refieren específicamente a "Direct Opens" y no a "aperturas totales". Esto no incluye las estadísticas mostradas a nivel de campaña de "Influenced Opens", ya que no se atribuyen a nivel de usuario.
 
 {% alert note %}
 En casos excepcionales, puede aparecer una apertura push antes del evento de envío push correspondiente en los datos de Currents debido a lo siguiente:
@@ -11470,7 +11474,7 @@ En casos excepcionales, puede aparecer una apertura push antes del evento de env
 ```
 {% endtab %}
 
-{% tab Conector HTTP personalizado %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.messages.pushnotification.Open
 
@@ -11647,15 +11651,16 @@ En casos excepcionales, puede aparecer una apertura push antes del evento de env
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
-- Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), ponte en contacto con tu administrador del éxito del cliente para habilitar el envío de `ad_id`.
-- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
+- Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
+- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador del éxito del cliente para habilitar el envío de `ad_id`.
+- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
 
 {% api %}
+
 ## Eventos de reintento de notificaciones push {#push-notification-retry-events}
 
 {% apitags %}
@@ -12165,17 +12170,16 @@ Este evento se produce cuando Braze procesa un mensaje push para un usuario, com
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
-- Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), ponte en contacto con tu administrador del éxito del cliente para habilitar el envío de `ad_id`.
-- `message_extras` te permite anotar tus eventos de envío con datos dinámicos de contenido conectado, atributos personalizados (como idioma, país) y propiedades de entrada en Canvas. Consulta [Extras de los mensajes]({{site.baseurl}}/message_extras_tag/) para obtener más información.
+- Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
+- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador del éxito del cliente para habilitar el envío de `ad_id`.
+- `message_extras` te permite anotar tus eventos de envío con datos dinámicos de contenido conectado, atributos personalizados (como idioma, país) y propiedades de entrada en Canvas. Consulta [Extras de los mensajes]({{site.baseurl}}/message_extras_tag) para obtener más información.
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
 
 {% api %}
-
 ## Eventos de cancelación de RCS {#rcs-abort-events}
 
 {% apitags %}
@@ -12241,7 +12245,7 @@ Este evento se crea cuando se interrumpe un envío RCS debido a un error detecta
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Conector HTTP personalizado %}
 ```json
 // users.messages.rcs.Abort
 
@@ -12380,15 +12384,16 @@ Este evento se crea cuando se interrumpe un envío RCS debido a un error detecta
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
-- El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
+- El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` será `frequency_capped` si el mensaje se canceló debido a una regla de limitación de frecuencia global.
 - `abort_log` incluye información sobre la regla específica que desencadenó la cancelación. Un ejemplo es: `Frequency cap rule: 5 RCS messages every 1 week`
 
 {% endapi %}
 
 {% api %}
+
 ## Eventos de clic de RCS {#rcs-click-events}
 
 {% apitags %}
@@ -12878,15 +12883,14 @@ Este evento se crea cuando un mensaje RCS se entrega correctamente al dispositiv
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
 
 {% api %}
-
-## Eventos RCS entrantes recibidos {#rcs-inbound-received-events}
+## Eventos de recepción entrante de RCS {#rcs-inbound-received-events}
 
 {% apitags %}
 RCS, Inbound Received
@@ -13118,6 +13122,7 @@ Este evento se crea cuando Braze recibe un mensaje RCS procedente del usuario.
 {% endapi %}
 
 {% api %}
+
 ## Eventos de lectura de RCS {#rcs-read-events}
 
 {% apitags %}
@@ -13562,7 +13567,6 @@ Evento que se crea cuando un mensaje RCS no se puede entregar al dispositivo mó
 {% endapi %}
 
 {% api %}
-
 ## Eventos de envío de RCS {#rcs-send-events}
 
 {% apitags %}
@@ -13801,7 +13805,7 @@ Este evento se crea cuando se envía un mensaje RCS desde Braze a nuestros socio
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
@@ -14018,15 +14022,16 @@ Este evento se produce si un mensaje SMS se canceló debido a cancelaciones de L
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
-- El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
+- El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` será `frequency_capped` si el mensaje se canceló debido a una regla de limitación de frecuencia global.
 - `abort_log` incluye información sobre la regla específica que desencadenó la cancelación. Un ejemplo es: `Frequency cap rule: 5 SMS messages every 1 week`
 
 {% endapi %}
 
 {% api %}
+
 ## Eventos de envío de SMS por operador {#sms-carrier-send-events}
 
 {% apitags %}
@@ -14263,14 +14268,13 @@ Este evento se produce cuando se envía un SMS al operador.
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
-- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
+- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
 
 {% api %}
-
 ## Eventos de entrega de SMS {#sms-delivery-events}
 
 {% apitags %}
@@ -14509,7 +14513,7 @@ Este evento se produce cuando se ha entregado correctamente un SMS al teléfono 
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
@@ -14522,7 +14526,7 @@ Este evento se produce cuando se ha entregado correctamente un SMS al teléfono 
 SMS, Delivery, Failure
 {% endapitags %}
 
-Este evento se produce cuando un SMS experimenta un fallo de entrega. Utiliza este evento y los códigos de error proporcionados para solucionar problemas con la entrega de SMS.
+Este evento se produce cuando un SMS experimenta un fallo en la entrega. Utiliza este evento y los códigos de error proporcionados para solucionar problemas con la entrega de SMS.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -14760,13 +14764,14 @@ Este evento se produce cuando un SMS experimenta un fallo de entrega. Utiliza es
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
 
 {% api %}
+
 ## Eventos de SMS entrantes recibidos {#sms-inbound-received-events}
 
 {% apitags %}
@@ -15003,7 +15008,6 @@ Si Braze detecta que este mensaje entrante es una respuesta a una campaña o com
 {% endapi %}
 
 {% api %}
-
 ## Eventos de rechazo de SMS {#sms-rejection-events}
 
 {% apitags %}
@@ -15258,9 +15262,9 @@ Braze emite `users.messages.sms.Rejection` a Currents, Uso compartido de datos d
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
-- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
+- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
 
@@ -15478,6 +15482,7 @@ Este evento se produce cuando un mensaje pierde prioridad o sufre limitación de
 {% endapi %}
 
 {% api %}
+
 ## Eventos de envío de SMS {#sms-send-events}
 
 {% apitags %}
@@ -15735,15 +15740,14 @@ Este evento se produce cuando un usuario envía un SMS.
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
-- `message_extras` te permite anotar tus eventos de envío con datos dinámicos de contenido conectado, atributos personalizados (como idioma, país) y propiedades de entrada en Canvas. Consulta [Extras de mensajes]({{site.baseurl}}/message_extras_tag/) para obtener más información.
+- `message_extras` te permite anotar tus eventos de envío con datos dinámicos de contenido conectado, atributos personalizados (como idioma, país) y propiedades de entrada en Canvas. Consulta [Extras de mensajes]({{site.baseurl}}/message_extras_tag) para obtener más información.
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
 
 {% api %}
-
 ## Eventos de clic en enlaces cortos de SMS {#sms-short-link-click-events}
 
 {% apitags %}
@@ -16229,16 +16233,17 @@ Este evento se produce si un mensaje webhook se canceló debido a cancelaciones 
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
-- El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
+- El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` será `frequency_capped` si el mensaje se canceló debido a una regla de limitación de frecuencia global.
 - `abort_log` incluye información sobre la regla específica que desencadenó la cancelación. Un ejemplo es: `Frequency cap rule: 5 webhook messages every 1 week`
 
 {% endapi %}
 
 {% api %}
+
 ## Eventos de fallo de webhook {#webhook-failure-events}
 
 {% apitags %}
@@ -16503,14 +16508,13 @@ Este evento se produce si se entregó un mensaje webhook, pero falló con una re
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
 
 {% api %}
-
 ## Eventos de reintento de webhook {#webhook-retry-events}
 
 {% apitags %}
@@ -16962,14 +16966,15 @@ Este evento se produce cuando un webhook fue procesado y enviado al tercero espe
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
-- `message_extras` te permite anotar tus eventos de envío con datos dinámicos de contenido conectado, atributos personalizados (como el idioma o el país) y propiedades de entrada de Canvas. Consulta [Extras de los mensajes]({{site.baseurl}}/message_extras_tag/) para obtener más información.
-- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
+- `message_extras` te permite anotar tus eventos de envío con datos dinámicos de contenido conectado, atributos personalizados (como el idioma o el país) y propiedades de entrada de Canvas. Consulta [Extras de los mensajes]({{site.baseurl}}/message_extras_tag) para obtener más información.
+- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
 
 {% api %}
+
 ## Eventos de cancelación de WhatsApp {#whatsapp-abort-events}
 
 {% apitags %}
@@ -17210,17 +17215,16 @@ Este evento se produce si un mensaje de WhatsApp se canceló debido a cancelacio
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
-- El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
+- El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` será `frequency_capped` si el mensaje se canceló debido a una regla de limitación de frecuencia global.
 - `abort_log` incluye información sobre la regla específica que desencadenó la cancelación. Un ejemplo es: `Frequency cap rule: 5 WhatsApp messages every 1 week`
 
 {% endapi %}
 
 {% api %}
-
 ## Eventos de clic en enlaces con seguimiento de WhatsApp {#whatsapp-tracked-link-click-events}
 
 {% apitags %}
@@ -17710,13 +17714,14 @@ Este evento se produce cuando un mensaje de WhatsApp enviado llega correctamente
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
 
 {% api %}
+
 ## Eventos de fallo de WhatsApp {#whatsapp-failure-events}
 
 {% apitags %}
@@ -17987,14 +17992,13 @@ Este evento se produce cuando WhatsApp no puede entregar el mensaje al usuario. 
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
 
 {% api %}
-
 ## Eventos de recepción entrante de WhatsApp {#whatsapp-inbound-received-events}
 
 {% apitags %}
@@ -18285,6 +18289,7 @@ Este evento se produce cuando uno de tus usuarios envía un mensaje de WhatsApp 
 {% endapi %}
 
 {% api %}
+
 ## Eventos de lectura de WhatsApp {#whatsapp-read-events}
 
 {% apitags %}
@@ -18543,7 +18548,7 @@ Este evento se produce cuando el usuario lee un mensaje de WhatsApp.
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
@@ -18794,7 +18799,6 @@ Este evento se produce cuando un mensaje pierde prioridad o sufre limitación de
 {% endapi %}
 
 {% api %}
-
 ## Eventos de envío de WhatsApp {#whatsapp-send-events}
 
 {% apitags %}
@@ -19058,7 +19062,7 @@ Este evento se produce cuando una solicitud de envío se ha comunicado correctam
 {% endtab %}
 {% endtabs %}
 
-#### Detalles de la propiedad
+### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 

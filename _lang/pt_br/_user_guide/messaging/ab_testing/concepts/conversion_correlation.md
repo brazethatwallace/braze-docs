@@ -1,6 +1,6 @@
 ---
 nav_title: Correlação de conversão
-article_title: Correlação da conversão
+article_title: Correlação de conversão
 alias: /conversion_correlation/
 page_order: 3
 
@@ -13,15 +13,15 @@ tool:
 
 # Correlação de conversão {#conversion-correlation}
 
-> A análise de correlação de conversão na página **Análise de dados da campanha** oferece insight sobre quais atributos e comportamentos do usuário ajudam ou prejudicam os resultados definidos para as campanhas.
+> A análise de correlação de conversão na página **Campaign Analytics** oferece insight sobre quais atributos e comportamentos do usuário ajudam ou prejudicam os resultados definidos para as campanhas.
 
 ## Visão geral {#overview}
 
-Para cada campanha, a Braze verifica uma lista de atributos e comportamentos do usuário e calcula se os usuários estão associados de forma estatisticamente significativa a aumentos ou reduções em cada um dos [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) que você escolheu para a campanha. Também calculamos a probabilidade maior ou menor de conversão dos usuários com determinado atributo ou comportamento e, se for significativo, exibimos isso no lado correspondente da tabela. Os usuários com cada atributo ou comportamento de interesse são comparados com as taxas de todo o público da campanha como um todo. Os comportamentos e atributos que não têm correlação significativa com a conversão não são mostrados na tabela.
+Para cada campanha, a Braze verifica uma lista de atributos e comportamentos do usuário e calcula se os usuários estão associados de forma estatisticamente significativa a aumentos ou reduções em cada um dos [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) que você escolheu para a campanha. Também calculamos a probabilidade maior ou menor de conversão dos usuários com determinado atributo ou comportamento e, se for significativo, exibimos isso no lado correspondente da tabela. Os usuários com cada atributo ou comportamento de interesse são comparados com as taxas de todo o público da campanha como um todo. Os comportamentos e atributos que não têm correlação significativa com a conversão não são mostrados na tabela.
 
 Para executar uma análise de correlação de conversão, selecione o evento de conversão de interesse no menu suspenso.
 
-![Painel Conversion Correlation (Correlação de conversão) que mostra um exemplo com "Select a conversion event" (Selecionar um evento de conversão) definido como "Primary Conversion Event - A" (Evento de conversão primária - A) com a configuração do evento como "Made Purchase within 12 hours (Any product)" (Realizou compra em 12 horas (Qualquer produto)).]({% image_buster /assets/img/convcorr.png %})
+![Painel de correlação de conversão que mostra um exemplo com "Selecionar um evento de conversão" definido como "Evento de conversão primária - A" com a configuração do evento como "Realizou compra em 12 horas (Qualquer produto)".]({% image_buster /assets/img/convcorr.png %})
 
 ## O que é verificado? {#what-is-checked}
 

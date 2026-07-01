@@ -65,9 +65,9 @@ Wir würden uns freuen, wenn auch Entwickler:innen dieses Feature nutzen würden
 
 ### Kann ich Braze Datentransformation auch dann verwenden, wenn meine externe Plattform als Bezeichner nur eine E-Mail-Adresse oder Telefonnummer angibt? {#can-i-still-use-braze-data-transformation-if-my-external-platform-only-gives-an-email-address-or-phone-number-as-an-identifier}
 
-Ja. Sie können Ihre Transformationen zum Update des Endpunkts `/users/track` mit der [E-Mail-Adresse oder Telefonnummer als Bezeichner]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#example-request-for-updating-a-user-profile-by-email-address) verwenden.
+Ja. Sie können Ihre Transformationen zum Update des Endpunkts `/users/track` mit der [E-Mail-Adresse oder Telefonnummer als Bezeichner]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-email-address) verwenden.
 
-Dies funktioniert, indem Sie `email` oder `phone` als Bezeichner-Eigenschaft im Transformationscode anstelle von `external_id` oder `braze_id` verwenden. Der [Beispiel-Transformationscode]({{site.baseurl}}/user_guide/data/unification/data_transformation/use_cases/#example-transformation-code) verwendet diese Funktionalität.
+Dies funktioniert, indem Sie `email` oder `phone` als Bezeichner-Eigenschaft im Transformationscode anstelle von `external_id` oder `braze_id` verwenden. Der [Beispiel-Transformationscode]({{site.baseurl}}/user_guide/data/unification/data_transformation/use_cases#example-transformation-code) verwendet diese Funktionalität.
 
 {% alert note %}
 Nutzer:innen von Braze Datentransformation im Early Access, die vor April 2023 begonnen haben, kennen vielleicht die Funktion `get_user_by_email`, die bei diesem Anwendungsfall hilfreich war. Diese Funktion ist inzwischen veraltet.

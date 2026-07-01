@@ -11,7 +11,7 @@ description: "Cet article explique comment résoudre les codes d'erreur liés au
 
 ## Erreurs 4XX {#4xx-errors}
 
-Les erreurs `4XX` indiquent un problème avec la requête envoyée à l'endpoint. Ces erreurs sont généralement causées par des requêtes erronées, notamment des paramètres mal formés, des en-têtes d'authentification manquants ou des URL incorrectes. Notez que ces erreurs s'appliquent également au [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder/).
+Les erreurs `4XX` indiquent un problème avec la requête envoyée à l'endpoint. Ces erreurs sont généralement causées par des requêtes erronées, notamment des paramètres mal formés, des en-têtes d'authentification manquants ou des URL incorrectes. Notez que ces erreurs s'appliquent également au [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
 Consultez le tableau suivant pour les détails des codes d'erreur et les étapes de résolution :
 
@@ -149,18 +149,18 @@ Lorsque les requêtes sont interrompues, Braze simule des réponses avec un code
 
 Les codes d'erreur suivants contribuent au compteur d'échecs du détecteur d'hôte non sain : `408`, `429`, `502`, `503`, `504`, `529`.
 
-Pour les webhooks, Braze réessaie automatiquement les requêtes HTTP qui ont été interrompues par le détecteur d'hôte non sain. Cette nouvelle tentative automatique utilise des délais exponentiels et ne réessaie que quelques fois avant d'échouer. Pour plus d'informations sur les erreurs de webhook, consultez [Erreurs, logique de nouvelle tentative et délais d'expiration]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#errors-retry-logic-and-timeouts).
+Pour les webhooks, Braze réessaie automatiquement les requêtes HTTP qui ont été interrompues par le détecteur d'hôte non sain. Cette nouvelle tentative automatique utilise des délais exponentiels et ne réessaie que quelques fois avant d'échouer. Pour plus d'informations sur les erreurs de webhook, consultez [Erreurs, logique de nouvelle tentative et délais d'expiration]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#errors-retry-logic-and-timeouts).
 
-Pour le contenu connecté, si les requêtes vers l'hôte cible sont interrompues par le détecteur d'hôte non sain, Braze continue de rendre les messages et de suivre votre logique Liquid comme s'il avait reçu un code de réponse d'erreur. Si vous souhaitez vous assurer que ces requêtes de contenu connecté sont réessayées lorsqu'elles sont interrompues par le détecteur d'hôte non sain, utilisez l'option `:retry`. Pour plus d'informations sur l'option `:retry`, consultez [Nouvelles tentatives de contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/).
+Pour le contenu connecté, si les requêtes vers l'hôte cible sont interrompues par le détecteur d'hôte non sain, Braze continue de rendre les messages et de suivre votre logique Liquid comme s'il avait reçu un code de réponse d'erreur. Si vous souhaitez vous assurer que ces requêtes de contenu connecté sont réessayées lorsqu'elles sont interrompues par le détecteur d'hôte non sain, utilisez l'option `:retry`. Pour plus d'informations sur l'option `:retry`, consultez [Nouvelles tentatives de contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries).
 
-Si vous pensez que la détection d'hôte non sain cause des problèmes, contactez l'[assistance Braze]({{site.baseurl}}/support_contact/).
+Si vous pensez que la détection d'hôte non sain cause des problèmes, contactez l'[assistance Braze]({{site.baseurl}}/support_contact).
 
 ### Le contenu connecté ne renvoie aucun corps de réponse {#connected-content-returns-no-response-body}
 
 Si un appel de contenu connecté s'affiche vide dans la prévisualisation ou l'envoi de votre message, vérifiez les points suivants :
 
 - **Espaces insécables dans l'URL :** Braze supprime les espaces insécables (`&nbsp;` ou Unicode `U+00A0`) des URL de contenu connecté avant d'effectuer la requête. Si votre URL a été copiée depuis un document ou un champ du tableau de bord qui a inséré des espaces insécables entre les caractères, la requête peut échouer ou ne renvoyer aucun corps exploitable. Retapez l'URL en texte brut ou supprimez les espaces masqués, puis prévisualisez à nouveau.
-- **Erreurs HTTP et corps vides :** pour les codes de statut supérieurs à 300 ou les hôtes bloqués, le contenu connecté peut renvoyer une chaîne vide. Consultez [Effectuer un appel API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) et examinez les échecs dans le **Journal d'activité des messages**.
+- **Erreurs HTTP et corps vides :** pour les codes de statut supérieurs à 300 ou les hôtes bloqués, le contenu connecté peut renvoyer une chaîne vide. Consultez [Effectuer un appel API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) et examinez les échecs dans le **Journal d'activité des messages**.
 
 ## E-mails automatisés et entrées du journal d'activité des messages {#automated-emails-and-message-activity-log-entries}
 
@@ -176,7 +176,7 @@ Si vous rencontrez plus de 100 000 erreurs d'endpoint webhook ou de contenu conn
 - Liens vers le journal d'activité des messages et la documentation associée
 
 {% alert note %}
-Vous pouvez configurer le seuil d'erreur par espace de travail. Pour ajuster ce seuil, contactez l'[assistance Braze]({{site.baseurl}}/support_contact/).
+Vous pouvez configurer le seuil d'erreur par espace de travail. Pour ajuster ce seuil, contactez l'[assistance Braze]({{site.baseurl}}/support_contact).
 {% endalert %}
 
 Les erreurs d'endpoint sont :
@@ -193,7 +193,7 @@ Pour vous inscrire afin de recevoir ces e-mails, procédez comme suit :
 
 ### Entrées du journal d'activité des messages {#message-activity-log-entries}
 
-En cas d'échec, il y a au moins une entrée dans le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) qui y est liée. Si la requête est réessayée et finit par réussir, ces détails sont disponibles dans Currents et le partage de données Snowflake. Notez que même si une requête finit par réussir après une nouvelle tentative, les erreurs peuvent toujours déclencher l'e-mail automatisé.
+En cas d'échec, il y a au moins une entrée dans le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) qui y est liée. Si la requête est réessayée et finit par réussir, ces détails sont disponibles dans Currents et le partage de données Snowflake. Notez que même si une requête finit par réussir après une nouvelle tentative, les erreurs peuvent toujours déclencher l'e-mail automatisé.
 
 ### Informations supplémentaires sur les échecs dans Braze Currents {#additional-failure-insights-in-braze-currents}
 
@@ -203,4 +203,4 @@ Pour accroître la transparence sur les problèmes liés aux webhooks, Braze dif
 Les requêtes de contenu connecté ne sont pas incluses dans ces événements d'échec de webhook.
 {% endalert %}
 
-Pour plus d'informations, consultez le [Glossaire des événements d'engagement liés aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/).
+Pour plus d'informations, consultez le [Glossaire des événements d'engagement liés aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).

@@ -90,7 +90,7 @@ description: "이 참조 문서에서는 Braze 카탈로그에서 가격 하락 
 1. 액션 기반 Canvas를 설정합니다.
 2. 트리거로 **Perform Price Drop Event**를 선택합니다.
 3. 가격 하락 알림이 설정된 카탈로그 이름을 선택합니다.
-4. 평소와 같이 Canvas를 [설정]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)합니다.
+4. 평소와 같이 Canvas를 [설정]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)합니다.
 
 이제 고객은 상품의 가격이 하락할 때 알림을 받게 됩니다.
 
