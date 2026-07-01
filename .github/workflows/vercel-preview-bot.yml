@@ -24,13 +24,8 @@ jobs:
       HEAD_REF: ${{ github.event.pull_request.head.ref }}
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID_DE: ${{ secrets.VERCEL_PROJECT_ID_DE }}
-      VERCEL_PROJECT_ID_EN: ${{ secrets.VERCEL_PROJECT_ID_EN }}
-      VERCEL_PROJECT_ID_ES: ${{ secrets.VERCEL_PROJECT_ID_ES }}
-      VERCEL_PROJECT_ID_FR: ${{ secrets.VERCEL_PROJECT_ID_FR }}
-      VERCEL_PROJECT_ID_JA: ${{ secrets.VERCEL_PROJECT_ID_JA }}
-      VERCEL_PROJECT_ID_KO: ${{ secrets.VERCEL_PROJECT_ID_KO }}
-      VERCEL_PROJECT_ID_PT_BR: ${{ secrets.VERCEL_PROJECT_ID_PT_BR }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      STATUS_CONTEXT: "Vercel – braze-docs-en"
     steps:
       - name: Check out pull request head
         uses: actions/checkout@v4
@@ -45,171 +40,117 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
-      - name: Deploy previews and publish Vercel statuses
+      - name: Deploy EN preview and publish Vercel status
         id: deploy
         run: |
-          set -euo pipefail
+          set -uo pipefail
 
-          if [[ -z "${VERCEL_TOKEN:-}" || -z "${VERCEL_ORG_ID:-}" ]]; then
-            echo "Missing VERCEL_TOKEN or VERCEL_ORG_ID."
+          if [[ -z "${VERCEL_TOKEN:-}" || -z "${VERCEL_ORG_ID:-}" || -z "${VERCEL_PROJECT_ID:-}" ]]; then
+            echo "Missing VERCEL_TOKEN, VERCEL_ORG_ID, or VERCEL_PROJECT_ID."
+            gh api "repos/${GITHUB_REPOSITORY}/statuses/${HEAD_SHA}" \
+              --method POST \
+              -f state="error" \
+              -f context="${STATUS_CONTEXT}" \
+              -f description="Missing Vercel credentials in repo secrets." >/dev/null || true
+            echo "deploy_state=error" >> "$GITHUB_OUTPUT"
             exit 1
           fi
 
-          locales=("de" "en" "es" "fr" "ja" "ko" "pt-br")
-          contexts=(
-            "Vercel – braze-docs-de"
-            "Vercel – braze-docs-en"
-            "Vercel – braze-docs-es"
-            "Vercel – braze-docs-fr"
-            "Vercel – braze-docs-ja"
-            "Vercel – braze-docs-ko"
-            "Vercel – braze-docs-pt-br"
-          )
-          project_ids=(
-            "${VERCEL_PROJECT_ID_DE:-}"
-            "${VERCEL_PROJECT_ID_EN:-}"
-            "${VERCEL_PROJECT_ID_ES:-}"
-            "${VERCEL_PROJECT_ID_FR:-}"
-            "${VERCEL_PROJECT_ID_JA:-}"
-            "${VERCEL_PROJECT_ID_KO:-}"
-            "${VERCEL_PROJECT_ID_PT_BR:-}"
-          )
-
-          declare -a summary_rows=()
-          any_failure=0
-          preview_en_url=""
-          deployment_id=""
-
+          # Create a GitHub Deployment so the PR keeps the "View deployment" UX.
+          # required_contexts must be an explicit empty array, otherwise GitHub
+          # rejects creation with "409 Conflict: Commit status checks failed"
+          # whenever the commit still has pending/failing checks.
+          printf '{"ref":"%s","environment":"Preview – braze-docs-en (docs bot)","auto_merge":false,"transient_environment":true,"production_environment":false,"required_contexts":[]}' \
+            "${HEAD_SHA}" > "${RUNNER_TEMP}/deployment.json"
           deployment_id="$(gh api "repos/${GITHUB_REPOSITORY}/deployments" \
-            --method POST \
-            -f ref="${HEAD_SHA}" \
-            -f environment="Vercel preview (docs bot)" \
-            -F auto_merge=false \
-            -F transient_environment=true \
-            -F production_environment=false \
-            -f "required_contexts[]=" \
-            --jq '.id')"
+            --input "${RUNNER_TEMP}/deployment.json" --jq '.id' || true)"
 
-          for i in "${!locales[@]}"; do
-            locale="${locales[$i]}"
-            context="${contexts[$i]}"
-            project_id="${project_ids[$i]}"
-            secret_name="VERCEL_PROJECT_ID_$(echo "${locale}" | tr '-' '_' | tr '[:lower:]' '[:upper:]')"
+          deploy_output="$(vercel deploy \
+            --token "${VERCEL_TOKEN}" \
+            --scope "${VERCEL_ORG_ID}" \
+            --yes \
+            --meta "githubCommitSha=${HEAD_SHA}" \
+            --meta "githubCommitRef=${HEAD_REF}" \
+            --meta "githubPr=${PR_NUMBER}" 2>&1)"
+          deploy_exit_code=$?
 
-            if [[ -z "${project_id}" ]]; then
-              gh api "repos/${GITHUB_REPOSITORY}/statuses/${HEAD_SHA}" \
-                --method POST \
-                -f state="error" \
-                -f context="${context}" \
-                -f description="Missing ${secret_name} secret."
-              summary_rows+=("| ${locale} | error | Missing ${secret_name} secret |")
-              any_failure=1
-              continue
-            fi
+          echo "${deploy_output}"
 
-            set +e
-            deploy_output="$(vercel deploy \
-              --token "${VERCEL_TOKEN}" \
-              --scope "${VERCEL_ORG_ID}" \
-              --project "${project_id}" \
-              --yes \
-              --meta "githubCommitSha=${HEAD_SHA}" \
-              --meta "githubCommitRef=${HEAD_REF}" \
-              --meta "githubPr=${PR_NUMBER}" 2>&1)"
-            deploy_exit_code=$?
-            set -e
+          preview_url="$(printf '%s' "${deploy_output}" | python3 -c 'import re,sys; m=re.findall(r"https://[^\s]+\.vercel\.app", sys.stdin.read()); print(m[-1] if m else "")')"
 
-            preview_url="$(python3 -c 'import re,sys; t=sys.stdin.read(); m=re.findall(r"https://[^\\s]+\\.vercel\\.app", t); print(m[-1] if m else "")' <<< "${deploy_output}")"
-            if [[ -n "${preview_url}" && "${preview_url}" != http* ]]; then
-              preview_url="https://${preview_url}"
-            fi
-
-            if [[ "${locale}" == "en" && -n "${preview_url}" ]]; then
-              preview_en_url="${preview_url}"
-            fi
-
-            if [[ "${deploy_exit_code}" -eq 0 && -n "${preview_url}" ]]; then
-              gh api "repos/${GITHUB_REPOSITORY}/statuses/${HEAD_SHA}" \
-                --method POST \
-                -f state="success" \
-                -f context="${context}" \
-                -f target_url="${preview_url}" \
-                -f description="Preview deployed successfully."
-              summary_rows+=("| ${locale} | success | ${preview_url} |")
-            else
-              any_failure=1
-              fallback_url="https://vercel.com"
-              if [[ -n "${preview_url}" ]]; then
-                fallback_url="${preview_url}"
-              fi
-              gh api "repos/${GITHUB_REPOSITORY}/statuses/${HEAD_SHA}" \
-                --method POST \
-                -f state="failure" \
-                -f context="${context}" \
-                -f target_url="${fallback_url}" \
-                -f description="Preview deployment failed."
-              summary_rows+=("| ${locale} | failure | Deployment failed (see workflow logs) |")
-            fi
-          done
-
-          if [[ "${any_failure}" -eq 0 ]]; then
-            gh api "repos/${GITHUB_REPOSITORY}/deployments/${deployment_id}/statuses" \
+          if [[ "${deploy_exit_code}" -eq 0 && -n "${preview_url}" ]]; then
+            gh api "repos/${GITHUB_REPOSITORY}/statuses/${HEAD_SHA}" \
               --method POST \
               -f state="success" \
-              -f environment_url="${preview_en_url}" \
-              -f log_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
-              -f description="Vercel previews are available."
+              -f context="${STATUS_CONTEXT}" \
+              -f target_url="${preview_url}" \
+              -f description="Preview deployed successfully." >/dev/null
             echo "deploy_state=success" >> "$GITHUB_OUTPUT"
+            echo "preview_en_url=${preview_url}" >> "$GITHUB_OUTPUT"
+
+            if [[ -n "${deployment_id}" && "${deployment_id}" != "null" ]]; then
+              gh api "repos/${GITHUB_REPOSITORY}/deployments/${deployment_id}/statuses" \
+                --method POST \
+                -f state="success" \
+                -f environment_url="${preview_url}" \
+                -f log_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
+                -f description="Vercel EN preview is available." >/dev/null || true
+            fi
+
+            {
+              echo "### Vercel preview status (docs bot)"
+              echo
+              echo "EN preview: ${preview_url}"
+            } >> "$GITHUB_STEP_SUMMARY"
           else
-            gh api "repos/${GITHUB_REPOSITORY}/deployments/${deployment_id}/statuses" \
+            fallback_url="${preview_url:-${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}}"
+            gh api "repos/${GITHUB_REPOSITORY}/statuses/${HEAD_SHA}" \
               --method POST \
               -f state="failure" \
-              -f log_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
-              -f description="One or more Vercel previews failed."
+              -f context="${STATUS_CONTEXT}" \
+              -f target_url="${fallback_url}" \
+              -f description="Preview deployment failed." >/dev/null
             echo "deploy_state=failure" >> "$GITHUB_OUTPUT"
-          fi
 
-          {
-            echo "### Vercel preview status (docs bot)"
-            echo
-            echo "| Locale | State | URL / Notes |"
-            echo "| --- | --- | --- |"
-            printf '%s\n' "${summary_rows[@]}"
-          } >> "$GITHUB_STEP_SUMMARY"
+            if [[ -n "${deployment_id}" && "${deployment_id}" != "null" ]]; then
+              gh api "repos/${GITHUB_REPOSITORY}/deployments/${deployment_id}/statuses" \
+                --method POST \
+                -f state="failure" \
+                -f log_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
+                -f description="Vercel EN preview failed." >/dev/null || true
+            fi
 
-          {
-            echo "preview_en_url=${preview_en_url}"
-            echo "deployment_id=${deployment_id}"
-          } >> "$GITHUB_OUTPUT"
+            {
+              echo "### Vercel preview status (docs bot)"
+              echo
+              echo "EN preview deploy failed — see workflow logs."
+            } >> "$GITHUB_STEP_SUMMARY"
 
-          if [[ "${any_failure}" -ne 0 ]]; then
             exit 1
           fi
 
       - name: Comment preview URL on pull request
         if: always()
         run: |
-          set -euo pipefail
+          set -uo pipefail
 
           marker="<!-- vercel-preview-docs-bot -->"
+          run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
           if [[ "${{ steps.deploy.outputs.deploy_state }}" == "success" && -n "${{ steps.deploy.outputs.preview_en_url }}" ]]; then
-            body="${marker}
-            ✅ Docs bot Vercel previews deployed successfully.
-
-            Primary preview (EN): ${{ steps.deploy.outputs.preview_en_url }}
-
-            See the workflow summary for locale-by-locale preview URLs."
+            body="$(printf '%s\n\n%s\n\n%s' \
+              "${marker} ✅ Docs bot Vercel preview deployed successfully." \
+              "EN preview: ${{ steps.deploy.outputs.preview_en_url }}" \
+              "Trust this check for preview status. Other locale Vercel checks are handled by the native Vercel integration.")"
           else
-            body="${marker}
-            ❌ Docs bot Vercel preview deploy failed.
-
-            Open this workflow run for details:
-            ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+            body="$(printf '%s\n\n%s' \
+              "${marker} ❌ Docs bot Vercel preview deploy failed." \
+              "Open this workflow run for details: ${run_url}")"
           fi
 
-          existing_comment_id="$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" \
+          existing_comment_id="$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" --paginate \
             --jq ".[] | select(.body | contains(\"${marker}\")) | .id" \
-            | python3 -c 'import sys; ids=[line.strip() for line in sys.stdin if line.strip()]; print(ids[-1] if ids else "")')"
+            | python3 -c 'import sys; ids=[l.strip() for l in sys.stdin if l.strip()]; print(ids[-1] if ids else "")')"
 
           if [[ -n "${existing_comment_id}" ]]; then
             gh api "repos/${GITHUB_REPOSITORY}/issues/comments/${existing_comment_id}" \
