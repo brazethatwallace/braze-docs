@@ -352,3 +352,9 @@ Sie müssen über einen Empfänger verfügen, der Push-Payloads verarbeiten und 
 {% alert note %}
 Bei einigen Anbietern von Push-Benachrichtigungen muss Braze die Schlüssel-Wert-Paare vereinfachen, damit sie korrekt interpretiert werden können. Um Schlüssel-Wert-Paare für eine bestimmte Android-App zu vereinfachen, wenden Sie sich bitte an Ihren Customer-Success-Manager.
 {% endalert %}
+
+## Häufig gestellte Fragen {#frequently-asked-questions}
+
+### Wie finde ich Nutzer:innen, die als Spam behandelt oder vom Messaging ausgeschlossen werden? {#how-do-i-find-users-treated-as-spam-or-blocked-from-messaging}
+
+Braze stellt im Dashboard keine dedizierte Spam-Liste bereit. Braze blockiert einzelne Nutzer:innen mit mehr als fünf Millionen Sitzungen („Dummy-Nutzer:innen“) und nimmt deren SDK-Ereignisse nicht mehr auf. Wenn ein Bezeichner blockiert ist, gibt [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) möglicherweise den Fehler `"provided external_id is blacklisted and disallowed"` zurück. Dieser Wortlaut stammt wörtlich aus der API-Antwort. Um betroffene Profile zu finden, erstellen Sie ein [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) mit dem Filter **Session Count** auf **mehr als 5.000.000**, exportieren Sie das Segment als CSV und gleichen Sie die Profilfelder unter **Engagement** > **Nutzer:innen suchen** oder mit dem [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)-Endpunkt ab.

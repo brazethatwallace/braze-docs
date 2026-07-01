@@ -22,6 +22,10 @@ Si votre payload POST a été acceptée par nos serveurs, les messages réussis 
 
 Notez que le succès signifie uniquement que le payload de l'API RESTful a été correctement formé et transmis à notre service de notification push, à notre service d'envoi d'e-mails ou à d'autres services d'envoi de messages. Cela ne signifie pas que les messages ont été effectivement remis, car d'autres facteurs peuvent empêcher la remise du message (par exemple, un appareil peut être hors ligne, le jeton de notification push peut être rejeté par les serveurs Apple ou vous avez peut-être fourni un ID utilisateur inconnu).
 
+### Pourquoi ma requête renvoie-t-elle un succès alors qu'aucun message n'a été remis ? {#why-does-my-request-return-success-when-no-message-was-delivered}
+
+Une réponse `message: success` ou `2XX` signifie que Braze a accepté et mis en file d'attente la requête pour les endpoints concernés — et non que chaque destinataire a reçu un message. Pour l'envoi de messages, la remise dépend encore de l'éligibilité au canal, des jetons, des erreurs du fournisseur et de la validation du contenu. Consultez le tableau des [erreurs fatales]({{site.baseurl}}/api/errors#fatal-errors) pour les erreurs HTTP qui bloquent les envois, ainsi que les analyses de votre campagne ou Canvas pour les indicateurs de remise en aval.
+
 Pour les endpoints tels que [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify), qui n'envoient pas de messages, un message de réussite signifie uniquement que Braze a bien reçu la demande de traitement. Si aucune correspondance n'est trouvée pour l'alias après traitement, la requête est interrompue.
 
 Si votre message est accepté mais contient des erreurs non fatales, vous recevrez la réponse suivante :

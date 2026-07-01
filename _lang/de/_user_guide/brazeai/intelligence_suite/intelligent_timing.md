@@ -149,7 +149,7 @@ Das Chart zeigt in Blau die Nutzer:innen, für die relevante Ereignisse zur Bere
 
 Fügen Sie in Ihrem Canvas einen [Nachrichten-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) hinzu, gehen Sie dann zu **Delivery Settings** und wählen Sie **Using Intelligent Timing**.
 
-Nachrichten werden an Nutzer:innen gesendet, die den Schritt an diesem Tag betreten haben, zu ihrer optimalen Ortszeit. Wenn ihre optimale Zeit an diesem Tag jedoch bereits verstrichen ist, wird die Nachricht stattdessen am folgenden Tag zu dieser Zeit zugestellt. Nachrichten-Schritte, die auf mehrere Kanäle abzielen, können Nachrichten zu verschiedenen Zeiten für verschiedene Kanäle senden oder versuchen zu senden. Wenn die erste Nachricht in einem Nachrichten-Schritt versucht zu senden, werden alle Nutzer:innen automatisch vorangebracht.
+Nachrichten werden an Nutzer:innen gesendet, die den Schritt an diesem Tag betreten haben, zu ihrer optimalen Ortszeit. Wenn ihre optimale Zeit an diesem Tag jedoch bereits verstrichen ist, wird die Nachricht stattdessen am folgenden Tag zur optimalen Zeit zugestellt. Nachrichten-Schritte, die auf mehrere Kanäle abzielen, können Nachrichten zu verschiedenen Zeiten für verschiedene Kanäle senden oder versuchen zu senden. Wenn die erste Nachricht in einem Nachrichten-Schritt versucht zu senden, werden alle Nutzer:innen automatisch vorangebracht.
 
 ### 2. Schritt: Fallback-Zeit wählen {#step-2-choose-a-fallback-time}
 
@@ -303,3 +303,7 @@ Ja, maschinelle Öffnungen werden von intelligentem Timing herausgefiltert, soda
 #### Wie kann ich sicherstellen, dass intelligentes Timing so gut wie möglich funktioniert? {#how-can-i-make-sure-intelligent-timing-works-as-well-as-possible}
 
 Intelligentes Timing verwendet den individuellen Verlauf des Nachrichtenengagements jeder Nutzerin und jedes Nutzers, unabhängig davon, zu welchen Zeiten die Nachrichten empfangen wurden. Bevor Sie intelligentes Timing verwenden, stellen Sie sicher, dass Sie den Nutzer:innen Nachrichten zu verschiedenen Tageszeiten geschickt haben. Auf diese Weise können Sie „ausprobieren“, wann der beste Zeitpunkt für die einzelnen Nutzer:innen ist. Eine unzureichende Abdeckung verschiedener Tageszeiten kann dazu führen, dass intelligentes Timing eine suboptimale Sendezeit für eine:n Nutzer:in auswählt.
+
+#### Wie aktiviere ich intelligentes Timing in einem Canvas-Schritt? {#how-do-i-enable-intelligent-timing-on-a-canvas-step}
+
+Fügen Sie in Canvas einen [Nachrichten-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) hinzu oder öffnen Sie einen vorhandenen, gehen Sie zu **Delivery Settings** und wählen Sie **Using Intelligent Timing**. Gemäß der Canvas-Einrichtungsanleitung in diesem Artikel fügen Sie einen [Verzögerungsschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) von mindestens zwei Kalendertagen zwischen dem Canvas-Eintritt und diesem Nachrichten-Schritt ein, damit intelligentes Timing über ausreichend Engagement-Verlauf zur Auswertung verfügt.

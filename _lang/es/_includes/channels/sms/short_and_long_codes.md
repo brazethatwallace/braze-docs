@@ -146,6 +146,14 @@ Los números gratuitos tienen códigos de área de tres dígitos distintos (por 
 {% endtab %}
 {% endtabs %}
 
+## Uso conjunto de códigos abreviados y códigos largos {#using-short-codes-and-long-codes-together}
+
+Si tu grupo de suscripción incluye tanto códigos abreviados como códigos largos, los códigos abreviados suelen tener prioridad para los mensajes salientes. Sin embargo, algunos proveedores ofrecen la funcionalidad de remitente fijo (sticky sender), que puede hacer que un código largo siga utilizándose para ciertos usuarios incluso después de que se haya añadido un código abreviado al grupo de remitentes.
+
+El remitente fijo mantiene la continuidad de los mensajes al enrutar todos los mensajes a un usuario específico desde el mismo número de teléfono. Si un usuario recibió un mensaje de un código largo antes de que se añadiera un código abreviado a tu grupo de suscripción, tu proveedor puede seguir utilizando ese código largo para futuros mensajes a ese usuario, aunque normalmente se daría prioridad al código abreviado.
+
+Este comportamiento lo controlan los proveedores y no se puede cambiar en Braze.
+
 ## Configuración {#setup}
 
 Los requisitos de configuración y los plazos varían según el tipo de remitente y el país en el que se aprovisione el remitente.

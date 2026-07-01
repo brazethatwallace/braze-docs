@@ -90,7 +90,7 @@ valid_partner_list:
   url: /docs/partners/looker/
 - name: Kubit
   url: /docs/partners/kubit/
-- name: Segments
+- name: Segment
   url: /docs/partners/segment/
 - name: mParticle
   url: /docs/partners/mparticle_overview/
@@ -422,6 +422,8 @@ valid_partner_list:
   url: /docs/partners/anthropic/
 - name: Databricks Mosaic
   url: /docs/partners/databricks_mosaic/
+- name: Microsoft Foundry
+  url: /docs/partners/microsoft_foundry/
 - name: Algolia
   url: /docs/partners/algolia/
 - name: Canva

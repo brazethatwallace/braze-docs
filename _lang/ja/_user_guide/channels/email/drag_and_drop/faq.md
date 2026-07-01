@@ -4,10 +4,10 @@ article_title: ドラッグ＆ドロップエディターFAQ
 alias: "/dnd/faq/"
 channel: email
 page_order: 5
-description: "この記事では、ドラッグ＆ドロップエディターに関するさまざまなFAQを取り上げます。"
+description: "ドラッグ＆ドロップメールエディターに関するよくある質問です。"
 tool:
-  - キャンペーン
-  - キャンバス
+  - Campaigns
+  - Canvas
 
 ---
 
@@ -19,32 +19,38 @@ tool:
 
 はい。ドラッグ＆ドロップエディターの**プレビューとテスト**セクションに移動し、**ダークモード**をオンにしてください。さまざまなユーザープラットフォームでメールをプレビューおよびテストすることもお勧めします。また、行の背景画像には可能な限り透過画像を使用してください。
 
-### ダークモードとライトモードの両方に対応したメールはどのようにデザインすればよいですか？ {#how-should-i-design-emails-for-dark-mode-and-light-mode}
+## ダークモードとライトモードの両方に対応したメールはどのようにデザインすればよいですか？ {#how-should-i-design-emails-for-dark-mode-and-light-mode}
 
 メールをライトとダークの別々のレイアウトで送信する必要はありません。メールクライアントやデバイスが独自のダークテーマを適用できるためです。ただし、外側のコンテナや主要なセクションに明示的な色が設定されていない場合、色が反転したり背景が非表示になったりすることがあります。これを防ぐために、ダークモードとライトモードの両方でメッセージが明確に読めるよう、ソリッドな背景色を設定することをお勧めします。
 
-### Webビューのパディングを変更せずに、モバイルのメールパディングだけを変更するにはどうすればよいですか？ {#how-can-i-change-the-email-padding-on-mobile-without-updating-the-padding-in-the-web-view}
+一部のメールクライアントは、ダークモードで背景画像を置き換えたり、低コントラストのテキストを反転させたりするため、本文のコピーが表示されなかったり、クライアント間で異なるレンダリングになったりすることがあります（例：iOSのGmailとAndroidのGmail）。明るい背景のために背景画像だけに頼るのではなく、外側のコンテナや主要なセクションに`background-color`を設定してください。
+
+## ドラッグ＆ドロップメールのプレビューでカスタムフォントが表示されないのはなぜですか？ {#why-doesnt-my-custom-font-appear-in-drag-and-drop-email-preview}
+
+カスタムフォントは、メッセージ内の**テキスト**ブロックがそのフォントを参照している場合にエディタープレビューで読み込まれます。**ドラッグ＆ドロップメールエディター**の設定でカスタムフォントを構成した後もプレビューでフォールバックフォントが表示される場合は、そのフォントを使用する**テキスト**ブロックを追加して、エディターがプレビュー用にフォントを読み込むようにしてください。フォントファイルでクロスオリジンリソース共有（CORS）が有効になっていることを確認してください。送信前に**プレビューとテスト**およびターゲットのメールクライアントを再確認してください。設定手順については、[カスタムフォント]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings#custom-font)を参照してください。
+
+## Webビューのパディングを変更せずに、モバイルのメールパディングだけを変更するにはどうすればよいですか？ {#how-can-i-change-the-email-padding-on-mobile-without-updating-the-padding-in-the-web-view}
 
 モバイルとWebビューのパディングを個別に編集することはできないため、編集内容は両方のビューに反映されます。ただし、HTMLエディターでCSSロジックを追加して、画面サイズに基づいてパディングを設定することは可能です。これはドラッグ＆ドロップエディターではサポートされていないため、HTMLファイルをエクスポートしてHTMLエディターを使用してください。
 
-### デスクトップとモバイルの両方でボタンの行を水平に保つにはどうすればよいですか？ {#how-can-i-optimize-a-row-of-buttons-to-remain-horizontal-on-desktop-and-mobile}
+## デスクトップとモバイルの両方でボタンの行を水平に保つにはどうすればよいですか？ {#how-can-i-optimize-a-row-of-buttons-to-remain-horizontal-on-desktop-and-mobile}
 
 ドラッグ＆ドロップエディターを使用してメールを作成する際、コールトゥアクションボタンの水平行を作成すると、モバイルではボタンが垂直方向に変更される場合があります。
 
 デバイスサイズ間で同じフォーマットを維持するには、モバイル向けに最適化されたパディングを持つCTAボタンを含む別の行を作成し、デスクトップデバイスではその行を非表示に設定することをお勧めします。2つの別々の行を用意することで、デスクトップとモバイルデバイスで最適なテキストレンダリングのために必要なパディングを設定できます。
 
-### ドラッグ＆ドロップエディターで行の高さを調整できますか？ {#can-i-adjust-the-row-height-in-the-drag-and-drop-editor}
+## ドラッグ＆ドロップエディターで行の高さを調整できますか？ {#can-i-adjust-the-row-height-in-the-drag-and-drop-editor}
 
 行の高さはコンテンツに合わせて自動調整されます。代替方法として、以下をお勧めします。
 1. ディバイダーブロックを追加します。
 2. トグルをクリックして透明度をオンにします。
 3. 高さを調整します。
 
-### エディターでレイヤーを構築できますか？背景画像を追加し、その上に画像を重ね、さらにテキストレイヤーを追加できますか？ {#is-it-possible-to-build-layers-in-the-editor-can-i-add-a-background-image-layer-on-an-image-and-add-a-text-layer-over-that}
+## エディターでレイヤーを構築できますか？背景画像を追加し、その上に画像を重ね、さらにテキストレイヤーを追加できますか？ {#is-it-possible-to-build-layers-in-the-editor-can-i-add-a-background-image-layer-on-an-image-and-add-a-text-layer-over-that}
 
 ドラッグ＆ドロップエディターは現在2つのレイヤーをサポートしています。行の背景画像を設定し、背景色をカスタマイズできます。
 
-### キャンペーンまたはキャンバス内で作成したドラッグ＆ドロップメールをテンプレートとして保存できますか？ {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+## キャンペーンまたはキャンバス内で作成したドラッグ＆ドロップメールをテンプレートとして保存できますか？ {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
 いいえ。キャンペーンまたはキャンバスからドラッグ＆ドロップメールを、**テンプレート** > **メールテンプレート**のドラッグ＆ドロップ**メールテンプレート**として保存することはできません。**テンプレート** > **メールテンプレート**でレイアウトを再作成するか、次回は保存済みのテンプレートから開始してください。手順については、[メールテンプレートの作成]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)を参照してください。
 
@@ -52,17 +58,17 @@ tool:
 
 テンプレートの保存場所の詳細については、[テンプレートとメディア]({{site.baseurl}}/user_guide/messaging/templates)を参照してください。
 
-### ドラッグ＆ドロップエディターでボタンの塗りつぶし色を変更できないのはなぜですか？ {#why-cant-i-change-a-buttons-fill-color-in-the-drag-and-drop-editor}
+## ドラッグ＆ドロップエディターでボタンの塗りつぶし色を変更できないのはなぜですか？ {#why-cant-i-change-a-buttons-fill-color-in-the-drag-and-drop-editor}
 
 ページレベルのスタイルがメッセージレベルのスタイルを上書きすることがあります。ボタンやブロックの**塗りつぶし**を更新しても反映されない場合は、以下をお試しください。
 1. [メールのグローバルスタイル設定]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings)を開き、競合しているページスタイルで**デフォルトにリセット**を選択して、メッセージレベルの色が適用されるようにします。
 2. ブロックで色を再度設定します。
 
-### ドラッグ＆ドロップエディターにメールの添付ファイルを追加できますか？ {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
+## ドラッグ＆ドロップエディターにメールの添付ファイルを追加できますか？ {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
 
 はい。メールメッセージに添付ファイルを追加するには、**送信設定** > **詳細設定**に移動してください。
 
-### ドラッグ＆ドロップメールの生のHTMLをダウンロードするにはどうすればよいですか？ {#how-do-i-download-the-raw-html-for-a-drag-and-drop-email}
+## ドラッグ＆ドロップメールの生のHTMLをダウンロードするにはどうすればよいですか？ {#how-do-i-download-the-raw-html-for-a-drag-and-drop-email}
 
 1. キャンペーンまたはキャンバスを開き、メールメッセージを編集します。
 2. **メール本文を編集**を選択して、ドラッグ＆ドロップエディターを開きます。
@@ -70,7 +76,7 @@ tool:
 
 そのHTMLを[HTMLブロック]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#content)やHTMLエディターに貼り付けて、低レベルの編集を行うことができます。例えば、[特定のリンクのクリックトラッキングをオフにする]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)場合などです。
 
-### ドラッグ＆ドロップのレイアウトが崩れるのはなぜですか？ {#why-is-my-drag-and-drop-layout-breaking}
+## ドラッグ＆ドロップのレイアウトが崩れるのはなぜですか？ {#why-is-my-drag-and-drop-layout-breaking}
 
 レイアウトの問題は、エディターが生成するマークアップと競合する**カスタムHTMLまたはCSS**が原因であることが多いです。以下のステップをお試しください。
 
@@ -79,10 +85,16 @@ tool:
 3. **行のプロパティ**で、列のパディングと幅を確認します。
 4. カスタムHTMLを追加する場合は、テーブルベースのレイアウト、フルイド画像、メールの幅に収まる合計テーブル幅を使用してください。固定ピクセルの画像やテーブル以外の構造は、Outlookやその他のクライアントで崩れることがよくあります。
 
-### コンテンツブロックがメールプレビューでレンダリングされないのはなぜですか？ {#why-doesnt-my-content-block-render-in-email-preview}
+## Content Blocksがメールプレビューでレンダリングされないのはなぜですか？ {#why-doesnt-my-content-block-render-in-email-preview}
 
-コンテンツブロックがメールプレビューでレンダリングされない場合は、閉じられていないアンカータグがないか確認してください。コネクテッドコンテンツのURLについては、`replace`フィルターを使用して、二重エンコードされたアンパサンド（`&amp;amp;`）を単一のエンコードされたアンパサンド（`&amp;`）に変換してください。コンテンツブロックのネストは2レベルまでに制限してください。
+Content Blocksがメールプレビューでレンダリングされない場合は、閉じられていないアンカータグがないか確認してください。コネクテッドコンテンツのURLについては、`replace`フィルターを使用して、二重エンコードされたアンパサンド（`&amp;amp;`）を単一のエンコードされたアンパサンド（`&amp;`）に変換してください。Content Blocksのネストは2レベルまでに制限してください。
 
-### ドラッグ＆ドロップエディターが配置設定を無視するのはなぜですか？ {#why-is-the-drag-and-drop-editor-ignoring-alignment-settings}
+## ドラッグ＆ドロップのContent Blocksがカスタムコードブロック内でモバイルスタイルを失うのはなぜですか？ {#why-does-a-drag-and-drop-content-block-lose-mobile-styling-inside-a-custom-code-block}
+
+ドラッグ＆ドロップの**Content Blocks**を**カスタムコード**（HTML）ブロック内に配置すると、Content Blocksのモバイル固有のスタイルや配置が送信されたメッセージに適用されない場合があります。Content Blocksとテンプレートの両方がドラッグ＆ドロップエディターを使用している場合は、カスタムコード内にネストするのではなく、Content Blocksを独自の行として追加してください。
+
+複数のContent Blocksを重ねる場合は、1つの行に複数のブロックを配置するのではなく、各ブロックに別々の行を使用してください。
+
+## ドラッグ＆ドロップエディターが配置設定を無視するのはなぜですか？ {#why-is-the-drag-and-drop-editor-ignoring-alignment-settings}
 
 ドラッグ＆ドロップエディターが配置設定を無視する場合は、カスタムCSSまたはHTMLブロックを削除し、カスタムフォントを削除し、CSSの競合がないか確認し、行ブロックの重複を避けてください。問題が解決しない場合は、Brazeサポートにお問い合わせください。

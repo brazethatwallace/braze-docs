@@ -13,15 +13,15 @@ description: "Découvrez comment mettre en place des notifications de retour en 
 
 Vous pouvez définir un événement personnalisé à utiliser comme événement d'abonnement, par exemple un événement `product_clicked`. Cet événement doit contenir une propriété correspondant à l'ID de l'article (ID des articles du catalogue). Nous vous recommandons d'inclure un nom de catalogue, mais ce n'est pas obligatoire. Vous devrez également fournir le nom d'un champ de quantité en stock, qui doit être de type de données numérique.
 
-Notez que le stock d'un article du catalogue doit être à zéro pour qu'un utilisateur puisse s'y abonner avec succès. Lorsqu'un article a une quantité en stock supérieure à zéro, Braze recherche tous les utilisateurs abonnés à cet article et envoie un événement personnalisé que vous pouvez utiliser pour déclencher une campagne ou un Canvas.
+Notez que le stock d'un article du catalogue doit être à zéro pour qu'un utilisateur puisse s'y abonner avec succès. Lorsqu'un article a une quantité en stock supérieure à zéro, Braze recherche tous les utilisateurs abonnés à cet article et envoie un événement personnalisé que vous pouvez utiliser pour déclencher une Campaign ou un Canvas.
 
-Les propriétés d'événement sont envoyées avec les données de l'utilisateur, ce qui vous permet d'intégrer les détails de l'article dans la campagne ou le Canvas qui envoie le message.
+Les propriétés d'événement sont envoyées avec les données de l'utilisateur, ce qui vous permet d'intégrer les détails de l'article dans la Campaign ou le Canvas qui envoie le message.
 
 ## Mise en place des notifications de retour en stock {#setting-up-back-in-stock-notifications}
 
 Suivez ces étapes pour configurer les notifications de retour en stock dans un catalogue spécifique.
 
-1. Accédez à votre catalogue et sélectionnez l'onglet **Settings**.
+1. Accédez à votre catalogue et sélectionnez l'onglet **Paramètres**.
 2. Activez le basculeur **Back in stock**.
 3. Si les paramètres globaux de retour en stock n'ont pas été configurés, vous serez invité à définir les événements personnalisés et les propriétés qui seront utilisés pour déclencher les notifications de retour en stock :
     <br> ![Tiroir des paramètres du catalogue.]({% image_buster /assets/img/catalog_settings_drawer.png %}){: style="max-width:70%;"}
@@ -54,10 +54,10 @@ Les déclencheurs de retour en stock et de baisse de prix utilisent le même év
 {% endalert %}
 
 {: start="4"}
-4. Sélectionnez **Save** et continuez vers la page **Settings** du catalogue.
+4. Sélectionnez **Save** et continuez vers la page **Paramètres** du catalogue.
 5. Définissez votre règle de notification. Deux options sont disponibles :
     - **Notify all subscribed users** : avertit tous les clients en attente lorsque l'article est de nouveau en stock.
-    - **Set notification limits** : notifie un nombre spécifié de clients selon la période de notification configurée. Braze informera le nombre spécifié de clients par incréments jusqu'à ce qu'il n'y ait plus de clients à notifier ou que l'article soit de nouveau en rupture de stock. Votre taux de notification ne peut pas dépasser 10 000 utilisateurs par minute.
+    - **Set notification limits** : notifie un nombre spécifié de clients toutes les 10 minutes. Braze informera le nombre spécifié de clients par incréments jusqu'à ce qu'il n'y ait plus de clients à notifier ou que l'article soit de nouveau en rupture de stock. Votre taux de notification ne peut pas dépasser 10 000 utilisateurs par minute.
 6. Définissez le champ **Inventory field in catalog**. Ce champ du catalogue sera utilisé pour déterminer si l'article est en rupture de stock. Le champ doit être de type numérique.
 7. Sélectionnez **Save settings**.
 

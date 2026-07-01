@@ -169,6 +169,10 @@ Das Feld `alias_name` unterscheidet zwischen Groß- und Kleinschreibung. Eine An
 Weitere Informationen zu `alias_name` und `alias_label` finden Sie in unserer Dokumentation zu [Nutzer-Aliase]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).
 {% endalert %}
 
+### Warum gibt meine Identifizierungsanfrage Erfolg zurück, aber das Profil wurde nicht zusammengeführt? {#why-does-my-identify-request-return-success-but-the-profile-did-not-merge}
+
+`201 Created` mit `message: success` bedeutet, dass wir die Anfrage akzeptiert haben. Es garantiert nicht, dass jeder Alias oder jede E-Mail im Payload einem bestehenden Profil zugeordnet wurde – Abweichungen in der Groß-/Kleinschreibung bei `alias_name`, doppelte Profile oder unsere Priorisierungsregeln können dazu führen, dass keine sichtbare Zusammenführung stattfindet, obwohl der Aufruf erfolgreich war. Überprüfen Sie, ob die Groß-/Kleinschreibung von `alias_name` exakt mit unseren gespeicherten Werten übereinstimmt, prüfen Sie auf doppelte Profile mit [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) und lesen Sie die Hinweise zu [`prioritization`](#identifying-users-by-email), wenn Sie `emails_to_identify` verwenden.
+
 ## Antwort {#response}
 
 ```json

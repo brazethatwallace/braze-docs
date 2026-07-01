@@ -22,6 +22,10 @@ Si nuestros servidores han aceptado tu carga útil POST, los mensajes correctos 
 
 Ten en cuenta que el éxito solo significa que la carga útil de la API RESTful se formó correctamente y se transmitió a nuestros servicios de notificación push, correo electrónico u otros servicios de mensajería. Esto no significa que los mensajes se hayan entregado realmente, ya que hay factores adicionales que podrían impedir la entrega del mensaje (por ejemplo, un dispositivo podría estar desconectado, el token de notificaciones push podría ser rechazado por los servidores de Apple o podrías haber proporcionado un ID de usuario desconocido).
 
+### ¿Por qué mi solicitud devuelve éxito cuando no se entregó ningún mensaje? {#why-does-my-request-return-success-when-no-message-was-delivered}
+
+Una respuesta `message: success` o `2XX` significa que Braze aceptó y puso en cola la solicitud para los puntos de conexión involucrados, no que cada destinatario haya recibido un mensaje. Para la mensajería, la entrega aún depende de la elegibilidad del canal, los tokens, los errores del proveedor y la validación del contenido. Consulta la tabla de [errores fatales]({{site.baseurl}}/api/errors#fatal-errors) para los errores HTTP que bloquean los envíos, y los análisis de tu campaña o Canvas para las métricas de entrega posteriores.
+
 Para puntos de conexión como [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify), que no envían mensajes, un mensaje de éxito solo significa que Braze ha recibido la solicitud para su procesamiento. Si no hay ninguna coincidencia para el alias después del procesamiento, la solicitud se detiene.
 
 Si tu mensaje se envía correctamente pero contiene errores no fatales, recibirás la siguiente respuesta:

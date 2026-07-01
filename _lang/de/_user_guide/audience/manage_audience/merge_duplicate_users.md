@@ -67,16 +67,22 @@ Um Ihre Ergebnisse vor dem Zusammenführen Ihrer Duplikate in der Vorschau anzuz
 
 Braze generiert Ihre Vorschau und sendet sie als CSV-Datei an Ihre E-Mail-Adresse.
 
+Die CSV-Datei enthält eine Spalte **Created from**, die zeigt, wie jedes Profil ursprünglich erstellt wurde (z. B. über das [SDK]({{site.baseurl}}/developer_guide/sdk_integration), die [REST API]({{site.baseurl}}/api/basics) oder einen [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)). Dies hilft Ihnen, die Quelle des Profils zu verstehen, bevor Sie Duplikate zusammenführen.
+
+Vergleichen Sie beim Überprüfen doppelter Zeilen **Created from** mit Bezeichnern wie `external_id`, E-Mail-Adresse und Telefonnummer. Nutzen Sie diesen Kontext, um zu entscheiden, welches Profil als primäres Profil beibehalten werden soll, bevor Sie **Merge all duplicates** auswählen.
+
+Das Feld **Created from** ist besonders nützlich, wenn doppelte Profile ähnliche Werte enthalten, aber aus unterschiedlichen Erfassungspfaden stammen. Es gibt Ihrem Team mehr Kontext für Zusammenführungsentscheidungen und hilft, versehentliche Zusammenführungen von Profilen zu vermeiden, die Sie bis zur weiteren Überprüfung lieber getrennt halten möchten.
+
 
 Im folgenden Beispiel verwendet Braze die externe ID der Nutzer:innen, um doppelte Profile zu kennzeichnen und zu identifizieren, welches beibehalten werden soll. Wenn diese Profile in einer Massen-Zusammenführung verarbeitet werden, verwendet Braze das Profil mit einer externen ID als neues primäres Profil der Nutzer:innen.
 
 {% tabs local %}
 {% tab example csv file %}
-| Email Address    | External ID | Phone Number   | Braze ID              | Identifier for rule | Profile to keep | Profile to merge |
-| ---------------- | ----------- | -------------- | --------------------- | ------------------- | --------------- | ---------------- |
-| alex@company.com | A8i3mkd99   | (555) 123-4567 | 65fcaa547f470494d1370 | email               | TRUE            | FALSE            |
-| alex@company.com |             | (555) 987-6543 | 65fcaa547f47d004d1348 | email               | FALSE           | TRUE             |
-| alex@company.com |             | (555) 321-0987 | 65fcaa547f47d0049135c | email               | FALSE           | TRUE             |
+| Email Address    | External ID | Phone Number   | Braze ID              | Identifier for rule | Created from | Profile to keep | Profile to merge |
+| ---------------- | ----------- | -------------- | --------------------- | ------------------- | ------------ | --------------- | ---------------- |
+| jane.doe@example.com   | 123-external-id | 555 123-4567 | example-id-12345 | email               | sdk          | TRUE            | FALSE            |
+| john.doe@example.com   |                 | 555 123-4567 | example-id-12346 | email               | rest         | FALSE           | TRUE             |
+| jordan.doe@example.com |                 | 555 123-4567 | example-id-12347 | email               | csv          | FALSE           | TRUE             |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2. Schritt: Ergebnisse in der Vorschau anzeigen (optional)" }
 {% endtab %}
 {% endtabs %}
