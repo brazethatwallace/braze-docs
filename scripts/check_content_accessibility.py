@@ -348,7 +348,7 @@ def check_inline_iframes(lines: list, skip: list, path: str) -> list:
 
 
 def _spatial_match_allowlisted(line: str, start: int, end: int) -> bool:
-    """Return True when an above/below match sits inside an allowed phrase."""
+    """Return True when a spatial match sits inside an allowed phrase."""
     for pat in _SPATIAL_ALLOWLIST_RES:
         for m in pat.finditer(line):
             if m.start() <= start and m.end() >= end:
@@ -382,7 +382,8 @@ def check_spatial_directionals(lines: list, skip: list, path: str) -> list:
                 flagged_terms.append(m.group(0).lower())
 
         for m in _left_right_spatial_matches(line):
-            flagged_terms.append(m.group(0).lower())
+            if not _spatial_match_allowlisted(line, m.start(), m.end()):
+                flagged_terms.append(m.group(0).lower())
 
         if not flagged_terms:
             continue
