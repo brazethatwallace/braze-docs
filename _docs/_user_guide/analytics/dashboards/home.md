@@ -111,9 +111,7 @@ MAU calculations follow specific rules to ensure accurate and consistent billing
 - **API deletions**: Deleting a user via API does not update MAU immediately; the count self-corrects in the next monthly cycle.
 
 {% alert note %}
-Anonymous users also count toward your MAU. For mobile devices, anonymous users are device-dependent. For web users, anonymous users are browser cache-dependent.
-
-MAU counts in Braze can differ from tools such as Amplitude when each product uses a different definition of an active user. Compare configuration in Amplitude (and your Braze MAU rules above) before investigating a discrepancy as a data pipeline issue.
+Anonymous users also count toward your MAU. For mobile devices, anonymous users are device-dependent. For web users, anonymous users are browser cache-dependent. <br><br> MAU counts in Braze can differ from tools such as Amplitude when each product uses a different definition of an active user. Compare configuration in Amplitude (and your Braze MAU rules above) before investigating a discrepancy as a data pipeline issue.
 {% endalert %}
 
 #### MAU calculation example
@@ -130,6 +128,10 @@ The following example demonstrates how MAU calculations work through different u
 
 MAU snapshots are calculated once per day and never change retroactively. In this example, the MAU count for the day after step 3 permanently remains 2, even though User 2 later becomes orphaned. However, the MAU count for subsequent days reflects only the non-orphaned user. Within any 30-day window, this flow ultimately consumes 1 MAU since only one distinct, non-orphaned user remains.
 
+##### MAU count considerations
+
+MAU counts in Braze depend on where you view them. Total MAU is calculated at the user level, regardless of apps and platforms, so each user is counted only once. However, when you view MAU counts by app, the sum of MAU across all apps may exceed your total MAU; a user who uses multiple apps in your workspace is counted in each app's individual MAU metric.
+
 ### Daily active users
 
 *Daily Active Users* (DAU) displays the number of unique users who record at least one session in your app or site on a given day. DAU can be a useful statistic for examining the day-to-day variability of usage of your app or site and tailoring your messaging campaigns to be as effective as possible. For example, your app's usage may see an appreciable spike on weekends—this would inform you that you could reach more users with in-app messages on these days as opposed to weekdays.
@@ -139,9 +141,7 @@ MAU snapshots are calculated once per day and never change retroactively. In thi
 *New Users* tells you how many users who have previously never recorded a session have started using your app or site. This number is a total of new users over the given time period. This statistic can be very valuable for tracking the effectiveness of your advertising efforts.
 
 {% alert note %}
-When you initially integrate Braze, all users will look like new users because Braze has never recorded a session for them before.
-
-Unlike MAU, the *New Users* count can decrease retroactively when Braze merges an anonymous profile into an identified profile and orphans the anonymous profile. Braze removes the orphaned profile from app usage totals, which can lower *New Users* for dates you already viewed. For profile linking behavior, see [User profile lifecycle]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
+When you initially integrate Braze, all users will look like new users because Braze has never recorded a session for them before. <br><br> Unlike MAU, the *New Users* count can decrease retroactively when Braze merges an anonymous profile into an identified profile and orphans the anonymous profile. Braze removes the orphaned profile from app usage totals, which can lower *New Users* for dates you already viewed. For profile linking behavior, see [User profile lifecycle]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 {% endalert %}
 
 {% alert important %}
