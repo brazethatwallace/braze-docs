@@ -1,14 +1,12 @@
 ---
 nav_title: Live updates for Android
 article_title: Live Updates for the Android Braze SDK
-page_order: 0.1
-description: "Learn how to set up Live Updates for the Android Braze SDK."
-platform: 
-  - Android
-  - FireOS
-hidden: true
+layout: redirect
+redirect_to: /docs/developer_guide/live_notifications/
+noindex: true
 ---
 
+<!--
 # Live Updates for Android
 
 > Learn how to use Android Live Updates in the Braze SDK, also known as [Progress Centric Notifications](https://developer.android.com/about/versions/16/features/progress-centric-notifications). These notifications are similar to [Live Activities for the Swift Braze SDK]({{site.baseurl}}/developer_guide/live_notifications/live_activities), allowing you to display interactive lock-screen notifications. Android 16 introduces progress-centric notifications to help users seamlessly track user-initiated, start-to-end journeys.
@@ -161,3 +159,4 @@ While curl commands are helpful for testing, we recommend handling this call in 
 ### Step 5: Update the activity
 
 To update the existing Live Update with new data, modify the relevant key-value pairs assigned to `messages.extra`, then use the same `notification_id` and call the `/messages/send` endpoint again.
+-->
