@@ -33,7 +33,7 @@ jobs:
             let scanIncomplete = false;
             const isDeployPR = labels.includes('deploy');
 
-            // Deploy PRs: docs-team is added in the follow-up step (needs GH_TOKEN).
+            // Deploy PRs: docs-team is added in the follow-up step (needs GH_TOKEN REST API).
             if (isDeployPR) {
               console.log('Deploy PR - docs-team will be added in follow-up step');
             } else {
@@ -199,7 +199,10 @@ jobs:
             exit 0
           fi
 
-          if gh pr edit "$PR" --repo "$REPO" --add-reviewer braze-inc/docs-team; then
+          # REST API accepts team slugs with repo-scoped PATs. gh pr edit uses GraphQL
+          # and requires read:org to resolve braze-inc/docs-team (GH_TOKEN has repo only).
+          if gh api --method POST "repos/${REPO}/pulls/${PR}/requested_reviewers" \
+            -f 'team_reviewers[]=docs-team'; then
             gh pr comment "$PR" --repo "$REPO" \
               --body $'🤖 **Automated Reviewer Assignment**: I have automatically added reviewers based on the following:\n\n- 📝 **@braze-inc/docs-team** - Deploy PR'
           else
