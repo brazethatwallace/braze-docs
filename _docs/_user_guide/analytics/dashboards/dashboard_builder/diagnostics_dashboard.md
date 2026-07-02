@@ -76,7 +76,7 @@ This time series chart shows an hourly breakdown of why a message was aborted or
 
 ### Message outcomes granular log
 
-Below the time series chart, the dashboard shows a granular table of individual message outcomes for your selected filters and time range. Use this table to review specific records, including the timestamp, user ID, Canvas step, outcome, details and channel.
+The dashboard shows a granular table of individual message outcomes for your selected filters and time range. Use this table to review specific records, including the timestamp, user ID, Canvas step, outcome, details and channel.
 
 You can filter the table to focus on specific records:
 

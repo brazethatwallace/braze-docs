@@ -27,7 +27,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 
 {% details Explanation of message engagement event structure and platform values %}
 
-### Event structure
+## Event structure
 
 This event breakdown shows what type of information is generally included in a message engagement event. With a solid understanding of its components, your developers and business intelligence strategy team can use the incoming Currents event data to make data-driven reports and charts, and take advantage of other valuable data metrics.
 
@@ -681,7 +681,7 @@ This event occurs when Braze receives a request to update the global subscriptio
 
 ### Property details
 
-- `state_change_source` will return a string of the full source name. For example, the source CSV import will return the string `CSV Import`. Available sources are listed below:
+- `state_change_source` returns a string of the full source name. For example, the source CSV import returns the string `CSV Import`. Available sources are listed in the following table:
 
 | Source | Description |
 | --- | --- |
