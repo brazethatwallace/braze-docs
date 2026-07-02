@@ -45,6 +45,12 @@ glossary_audit_report.*
 lhci-reports/
 lhci-urls.txt
 
+# Phrase TMS API token (local reference; never commit)
+.phrase-tms.env
+
+# Generated Phrase glossary sync report
+phrase_sync_report.md
+
 # AI planning artifacts (local only, never committed)
 docs/brainstorms/
 docs/plans/
