@@ -33,3 +33,19 @@ O CSS inlining é executado **antes** de o [Conteúdo conectado]({{site.baseurl}
 ## Content Blocks em modelos HTML personalizados {#content-blocks-in-custom-html-templates}
 
 Quando você insere um [bloco de conteúdo]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) com Liquid dentro de um modelo de e-mail ou Campaign em **HTML personalizado**, as regras CSS do modelo pai podem sobrescrever os estilos definidos dentro do bloco de conteúdo. Verifique se há seletores conflitantes ou regras globais no wrapper do modelo.
+
+## Limitações de CSS do Gmail {#gmail-css-limitations}
+
+O Gmail possui limitações específicas de CSS que podem fazer com que os e-mails sejam exibidos na visualização de desktop em vez da visualização mobile no app do Gmail. Isso pode ocorrer pelos seguintes motivos:
+
+- **Excesso de CSS:** se o seu e-mail contiver CSS em excesso, o Gmail pode remover todo o bloco de estilos.
+- **CSS incompatível:** qualquer CSS incompatível com o Gmail (incluindo CSS válido que o Gmail não suporta) pode fazer com que o bloco de estilos seja removido.
+- **Contas não Gmail no app do Gmail:** CSS no `<head>` não é suportado.
+
+### Media queries no Gmail {#media-queries-in-gmail}
+
+As media queries de CSS geralmente funcionam nos apps do Gmail, mas existem limitações. Se você estiver enfrentando problemas com media queries que não funcionam corretamente no Gmail:
+
+- Consulte a [referência de CSS suportado pelo Gmail](https://developers.google.com/gmail/design/reference/supported_css) para garantir que seu CSS é compatível.
+- Confira as [diretrizes de design CSS do Gmail](https://developers.google.com/gmail/design/css) para práticas recomendadas.
+- Considere padrões de design responsivo com prioridade para dispositivo móvel que não dependam exclusivamente de media queries para renderização mobile.

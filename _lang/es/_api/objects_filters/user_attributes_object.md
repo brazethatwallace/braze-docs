@@ -159,8 +159,8 @@ Para una referencia orientada al cliente de los atributos estándar organizada p
 | dob | (fecha de nacimiento) Cadena en formato "AAAA-MM-DD", por ejemplo, 1980-12-21. |
 | email | (cadena) |
 | email_subscribe | (cadena) Los valores disponibles son "opted_in" (registrado explícitamente para recibir mensajes de correo electrónico), "unsubscribed" (excluido explícitamente de los mensajes de correo electrónico) y "subscribed" (ni incluido ni excluido).  |
-| email_open_tracking_disabled |(booleano) `true` o `false` aceptados. Establécelo en `true` para desactivar que el píxel de seguimiento de apertura se añada a todos los futuros correos electrónicos enviados a este usuario. Disponible solo para SparkPost y SendGrid.|
-| email_click_tracking_disabled |(booleano) `true` o `false` aceptados. Establécelo en `true` para desactivar el seguimiento de clics para todos los enlaces dentro de un futuro correo electrónico enviado a este usuario. Disponible solo para SparkPost y SendGrid.|
+| email_open_tracking_disabled | (booleano) `true` o `false` aceptados. Establécelo en `true` para desactivar que el píxel de seguimiento de apertura se añada a todos los futuros correos electrónicos enviados a este usuario. Disponible solo para SparkPost y SendGrid.|
+| email_click_tracking_disabled | (booleano) `true` o `false` aceptados. Establécelo en `true` para desactivar el seguimiento de clics para todos los enlaces dentro de un futuro correo electrónico enviado a este usuario. Disponible solo para SparkPost y SendGrid.|
 | external_id | (cadena) Un identificador único para un perfil de usuario. Después de asignar un `external_id`, Braze identifica el perfil de usuario en todos los dispositivos del usuario. La primera vez que se asigna un external_id a un perfil de usuario desconocido, Braze realiza la migración de todos los datos del perfil de usuario existentes al nuevo perfil de usuario. |
 | facebook | hash que contiene cualquiera de `id` (cadena), `likes` (matriz de cadenas), `num_friends` (entero). |
 | first_name | (cadena) |
@@ -172,7 +172,7 @@ Para una referencia orientada al cliente de los atributos estándar organizada p
 | phone | (cadena) Recomendamos proporcionar los números de teléfono en el formato [E.164](https://en.wikipedia.org/wiki/E.164). Para más detalles, consulta [Números de teléfono de usuario]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#recommended-format).|
 | push_subscribe | (cadena) Los valores disponibles son "opted_in" (registrado explícitamente para recibir mensajes push), "unsubscribed" (excluido explícitamente de los mensajes push) y "subscribed" (ni incluido ni excluido).  |
 | push_tokens | Matriz de objetos con `app_id` y cadena `token`. Opcionalmente, puedes proporcionar un `device_id` para el dispositivo al que está asociado este token, por ejemplo, `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`. Si no se proporciona un `device_id`, se genera uno aleatoriamente. |
-| subscription_groups| Matriz de objetos con una cadena `subscription_group_id` y `subscription_state`, por ejemplo, `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`. Los valores disponibles para `subscription_state` son "subscribed" y "unsubscribed".|
+| subscription_groups | Matriz de objetos con una cadena `subscription_group_id` y `subscription_state`, por ejemplo, `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`. Los valores disponibles para `subscription_state` son "subscribed" y "unsubscribed".|
 | time_zone | (cadena) Nombre de la zona horaria de la [base de datos de zonas horarias de la IANA](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (por ejemplo, "America/New_York" o "Eastern Time (US & Canada)"). Solo se establecen valores de zona horaria válidos. |
 | twitter | Hash que contiene cualquiera de `id` (entero), `screen_name` (cadena, identificador de X (antes Twitter)), `followers_count` (entero), `friends_count` (entero), `statuses_count` (entero). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Campos de perfil de usuario de Braze" }
@@ -352,3 +352,9 @@ Debes tener un receptor para gestionar y mostrar cargas útiles push. Para notif
 {% alert note %}
 Para algunos proveedores de notificaciones push, Braze necesita aplanar los pares clave-valor para que puedan interpretarse correctamente. Para aplanar los pares clave-valor de una aplicación Android específica, ponte en contacto con tu administrador del éxito del cliente.
 {% endalert %}
+
+## Preguntas frecuentes {#frequently-asked-questions}
+
+### ¿Cómo encuentro usuarios tratados como spam o bloqueados para la mensajería? {#how-do-i-find-users-treated-as-spam-or-blocked-from-messaging}
+
+Braze no proporciona una lista de spam dedicada en el dashboard. Braze bloquea a los usuarios individuales con más de cinco millones de sesiones ("usuarios ficticios") y deja de ingerir sus eventos del SDK. Si un identificador está bloqueado, [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) puede devolver el error `"provided external_id is blacklisted and disallowed"`. Este texto se toma literalmente de la respuesta de la API. Para encontrar los perfiles afectados, crea un [segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) con el filtro **Recuento de sesiones** establecido en **más de 5 000 000**, exporta el segmento como CSV y comprueba los campos del perfil en **Interacción** > **Buscar usuarios** o con el punto de conexión [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier).

@@ -222,6 +222,7 @@ To download a list of your users and their permissions, go to **Settings** > **U
 | User Data | Export User Data | Download users from the dashboard |
 | Duplicate Users | View User Merge Records | View a list of user merge records |
 | Users | View User Profiles (PII Redacted) | View user profiles in a PII compliant manner |
+| Users | View User Event Properties | View event properties in the **Event History** tab on user profiles |
 | Duplicate Users | Merge Duplicate Users | Combine duplicate users into one user. Duplicates are removed after merging |
 | Delete Users | View User Deletion Records | View a list of user deletion records |
 | Delete Users | Delete Users | Permanently delete users from the dashboard individually or in bulk |

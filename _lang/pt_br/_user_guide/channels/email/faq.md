@@ -62,7 +62,7 @@ Se você definir ou atualizar o endereço de e-mail do usuário A para outro end
 
 ### As atualizações nas configurações de e-mail de saída serão aplicadas retroativamente? {#will-updates-to-my-outbound-email-settings-apply-retroactively}
 
-Não. As atualizações feitas nas configurações de e-mail de saída não afetam retroativamente os envios existentes. Por exemplo, alterar o nome de exibição padrão nas configurações de e-mail não substituirá automaticamente o nome de exibição padrão existente em suas Campaigns ou Canvas ativos.
+Não. As atualizações feitas nas configurações de e-mail de saída não afetam retroativamente os envios existentes. Por exemplo, alterar o nome de exibição padrão nas configurações de e-mail não substituirá automaticamente o nome de exibição padrão existente nas suas Campaigns ou Canvas ativos.
 
 ### O que é uma "boa" taxa de entrega de e-mail? {#what-is-a-good-email-delivery-rate}
 
@@ -285,3 +285,19 @@ As causas típicas incluem:
 - Peça que auditem os registros MX e registros DNS relacionados, incluindo registros PTR para seus servidores de e-mail, junto ao provedor DNS.
 
 Outros destinatários geralmente não são afetados. Para saber como soft bounces aparecem nos relatórios, consulte [Soft Bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce).
+
+### Por que recebo um alerta de spam ao enviar um e-mail da Braze para mim mesmo? {#why-do-i-get-a-spam-alert-when-sending-an-email-from-braze-to-myself}
+
+Se você envia um e-mail de teste da Braze para o seu próprio endereço de e-mail e vê um aviso de spam ou alerta de phishing — como "o domínio de envio é semelhante ao domínio da sua empresa, mas não o reconhecemos" — isso é um recurso comum de segurança anti-phishing, não um erro na configuração da Braze.
+
+Esse alerta normalmente aparece quando o domínio de envio do e-mail corresponde ao domínio do destinatário (por exemplo, ambos são `@suaempresa.com`). Os sistemas de segurança de e-mail sinalizam isso porque golpistas frequentemente falsificam domínios que se parecem com o domínio da empresa do destinatário.
+
+Para verificar se seu e-mail está configurado corretamente:
+
+1. Visualize a mensagem original (cabeçalhos brutos do e-mail) no seu cliente de e-mail.
+2. Verifique se as autenticações SPF, DKIM e DMARC passaram.
+3. Se todas as três passaram, o envio de e-mail da Braze está configurado corretamente.
+
+Para evitar que esse alerta apareça:
+
+Peça à sua equipe de TI para adicionar seu domínio de envio da Braze e os endereços IP à lista de permissões nos serviços de segurança de e-mail ou gateway de e-mail da sua empresa. Isso informa ao seu sistema de segurança que deve confiar nos e-mails vindos da sua infraestrutura de envio da Braze.

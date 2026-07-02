@@ -140,12 +140,12 @@ Klick-Tracking gilt nur für Links, die mit `http://` oder `https://` beginnen. 
 ## List-Unsubscribe-Header {#list-unsubscribe}
 
 {% alert note %}
-Seit dem 15. Februar 2024 ist der List-Unsubscribe-Header (mit One-Click-Abmeldung) für neue Unternehmen standardmäßig aktiviert.
+Seit dem 15. Juni 2026 fügt Braze den Mailto-Header nicht mehr in E-Mails ein, wenn der One-Click-List-Unsubscribe-Header so konfiguriert ist, dass er auf eine bestimmte Abo-Gruppe beschränkt ist. Nutzer:innen, die sich über den List-Unsubscribe-Header abmelden, werden nur von dieser bestimmten Abo-Gruppe abgemeldet, nicht global.
 {% endalert %}
 
 Die Verwendung eines List-Unsubscribe-Headers ermöglicht es Ihren Empfänger:innen, sich einfach von Marketing-E-Mails abzumelden, indem ein **Unsubscribe**-Button in der Postfach-Oberfläche angezeigt wird, und nicht im Nachrichtentext.
 
-Testsendungen enthalten in der Regel **keine** List-Unsubscribe-Header. Ob der Live-Header angezeigt wird, liegt beim Postfach-Anbieter und ist reputationsbasiert – eine stärkere Absender-Reputation verbessert in der Regel die Sichtbarkeit.
+Testsendungen enthalten in der Regel keine List-Unsubscribe-Header. Ob der Live-Header angezeigt wird, liegt beim Postfach-Anbieter und ist reputationsbasiert – eine stärkere Absender-Reputation verbessert in der Regel die Sichtbarkeit.
 
 ![E-Mail-Client-Postfach-Oberfläche mit einer Abmeldeoption neben der Nachricht, wobei List-Unsubscribe außerhalb des Nachrichtentexts erscheint.]({% image_buster /assets/img_archive/list_unsub_img1.png %}){: style="float:right;max-width:60%;margin-left:15px;"}
 

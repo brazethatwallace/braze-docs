@@ -169,6 +169,10 @@ Le champ `alias_name` est sensible à la casse. Une requête qui renvoie un code
 Pour plus d'informations sur `alias_name` et `alias_label`, consultez notre documentation sur les [alias utilisateur]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).
 {% endalert %}
 
+### Pourquoi ma requête d'identification renvoie-t-elle un succès sans que le profil ne soit fusionné ? {#why-does-my-identify-request-return-success-but-the-profile-did-not-merge}
+
+`201 Created` avec `message: success` signifie que nous avons accepté la requête. Cela ne garantit pas que chaque alias ou e-mail du payload a correspondu à un profil existant — des différences de casse sur `alias_name`, des profils en double ou nos règles de priorisation peuvent aboutir à l'absence de fusion visible même si l'appel a réussi. Vérifiez que la casse de `alias_name` correspond exactement à nos valeurs stockées, recherchez les profils en double avec [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge), et consultez [`prioritization`](#identifying-users-by-email) lorsque vous utilisez `emails_to_identify`.
+
 ## Réponse {#response}
 
 ```json

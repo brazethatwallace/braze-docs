@@ -80,7 +80,7 @@ También puedes usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_e
 {% endtab %}
 {% tab Dirección de CCO %}
 
-Esta sección te permite administrar las direcciones de CCO que puedes agregar a los mensajes de correo electrónico salientes enviados desde Braze. Agregar una dirección de CCO a un mensaje de correo electrónico envía una copia idéntica del mensaje que tu usuario recibe a tu buzón de CCO. Esta es una herramienta útil para conservar copias de los mensajes que enviaste a tus usuarios para requisitos de cumplimiento o problemas de soporte al cliente. Los correos electrónicos de CCO no se incluyen en los informes y análisis de correo electrónico.
+Esta sección te permite administrar las direcciones de CCO que puedes agregar a los mensajes de correo electrónico salientes enviados desde Braze. Agregar una dirección de CCO a un mensaje de correo electrónico envía una copia idéntica del mensaje que tu usuario recibe a tu buzón de CCO. Esta es una herramienta útil para conservar copias de los mensajes que enviaste a tus usuarios para requisitos de cumplimiento o problemas de soporte al cliente. Los correos electrónicos de CCO no se incluyen en los informes ni en los análisis de correo electrónico.
 
 Las direcciones de CCO están disponibles para Amazon SES, SendGrid y SparkPost. Como alternativa a las direcciones de CCO, recomendamos usar el [archivado de mensajes]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving) para guardar una copia de los mensajes enviados a los usuarios con fines de archivo o cumplimiento.
 
@@ -140,12 +140,12 @@ El seguimiento de clics solo se aplica a enlaces que comienzan con `http://` o `
 ## Encabezado list-unsubscribe {#list-unsubscribe}
 
 {% alert note %}
-Desde el 15 de febrero de 2024, las nuevas empresas tienen el encabezado list-unsubscribe (con cancelación de suscripción con un clic) habilitado de forma predeterminada.
+Desde el 15 de junio de 2026, cuando el encabezado de cancelación de suscripción con un clic de list-unsubscribe está configurado para aplicarse a un grupo de suscripción específico, Braze ya no incluye el encabezado mailto en los correos electrónicos. Los usuarios que cancelan la suscripción a través del encabezado list-unsubscribe solo se dan de baja de ese grupo de suscripción específico, no de forma global.
 {% endalert %}
 
 Usar un encabezado list-unsubscribe permite a tus destinatarios cancelar fácilmente la suscripción de correos electrónicos de marketing mostrando un botón **Unsubscribe** dentro de la interfaz del buzón de correo, y no en el cuerpo del mensaje.
 
-Los envíos de prueba normalmente **no** incluyen encabezados list-unsubscribe. Si el encabezado en vivo aparece depende del proveedor de buzón de correo y se basa en la reputación: una reputación del remitente más fuerte generalmente mejora la visibilidad.
+Los envíos de prueba normalmente no incluyen encabezados list-unsubscribe. Si el encabezado en vivo aparece depende del proveedor de buzón de correo y se basa en la reputación: una reputación del remitente más fuerte generalmente mejora la visibilidad.
 
 ![Interfaz del buzón de correo del cliente de correo electrónico con una opción de cancelar suscripción junto al mensaje, donde list-unsubscribe aparece fuera del cuerpo del mensaje.]({% image_buster /assets/img_archive/list_unsub_img1.png %}){: style="float:right;max-width:60%;margin-left:15px;"}
 

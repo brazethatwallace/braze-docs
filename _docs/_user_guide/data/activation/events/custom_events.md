@@ -116,7 +116,7 @@ Common use cases include:
 - Investigating a support issue for a specific user without setting up a data export.
 
 {% alert note %}
-Viewing the **Event History** tab requires both the **Search Users** and **View PII** user permissions because event properties can contain personal data. For more information, refer to [Company user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
+Viewing the **Event History** tab requires the **Search Users**, **View PII**, and **View User Event Properties** user permissions because event properties can contain personal data. For more information, refer to [Company user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 {% endalert %}
 
 ## Segmentation filters

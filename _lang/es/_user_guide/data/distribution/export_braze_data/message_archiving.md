@@ -71,6 +71,12 @@ Para seleccionar canales:
 Si no ves **Archivado de mensajes** en **Configuración**, confirma que tu empresa ha adquirido y activado el archivado de mensajes.
 {% endalert %}
 
+## Lista de IP permitidas {#ip-allowlisting}
+
+Cuando el archivado de mensajes carga archivos en tu contenedor de almacenamiento en la nube, Braze realiza solicitudes de red desde nuestros servidores a tu punto de conexión de AWS S3, Azure Blob Storage o Google Cloud Storage. Con la lista de IP permitidas, puedes verificar que estas solicitudes provienen de Braze, añadiendo una capa de seguridad.
+
+Braze envía las cargas del archivado de mensajes desde las mismas direcciones IP utilizadas para contenido conectado y Currents. Para consultar la lista completa de IP por instancia, consulta [Lista de IP permitidas de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting).
+
 ## Referencias de archivos {#file-references}
 
 A continuación se incluyen referencias a la carga útil JSON entregada a tu contenedor de almacenamiento en la nube cada vez que se envía un mensaje. Consulta nuestro repositorio de ejemplos de código para ver [archivos de ejemplo de archivado de mensajes](https://github.com/braze-inc/braze-examples/tree/main/message-archiving).
@@ -199,7 +205,7 @@ Las modificaciones realizadas después de que el mensaje salga de Braze no se re
 
 ### ¿Qué mensajes aparecen bajo el valor "no asociado" en la ruta de la campaña? {#what-are-messages-under-the-unassociated-value-in-the-campaign-path}
 
-Cuando un mensaje se envía fuera de una campaña o Canvas, el ID de la campaña en el nombre del archivo será "no asociado". Esto ocurrirá cuando envíes mensajes de prueba desde el dashboard, cuando Braze envíe respuestas automáticas por SMS/MMS o cuando los mensajes enviados a través de la API no especifiquen un ID de campaña.
+Cuando un mensaje se envía fuera de una Campaign o Canvas, el ID de la campaña en el nombre del archivo será "no asociado". Esto ocurrirá cuando envíes mensajes de prueba desde el dashboard, cuando Braze envíe respuestas automáticas por SMS/MMS o cuando los mensajes enviados a través de la API no especifiquen un ID de campaña.
 
 ### ¿Cómo puedo encontrar más información sobre este envío? {#how-do-i-find-more-information-about-this-send}
 
@@ -227,4 +233,4 @@ Los datos se escriben en una sección `sent_messages` del contenedor. Consulta [
 
 ### ¿Puedo utilizar el archivado de mensajes para agrupar archivos en diferentes espacios de trabajo? {#can-i-use-message-archiving-to-group-files-into-different-workspaces}
 
-No. El archivado de mensajes no admite la agrupación de archivos por espacios de trabajo. En su lugar, puedes determinar a qué espacio de trabajo pertenece el ID de API de la campaña o del paso en Canvas y, a continuación, agruparlos en función de esa información.
+No. El archivado de mensajes no admite la agrupación de archivos por espacios de trabajo. En su lugar, puedes determinar a qué espacio de trabajo pertenece el ID de API de la Campaign o del paso en Canvas y, a continuación, agruparlos en función de esa información.

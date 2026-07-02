@@ -140,12 +140,12 @@ O rastreamento de cliques se aplica apenas a links que começam com `http://` ou
 ## Cabeçalho list-unsubscribe {#list-unsubscribe}
 
 {% alert note %}
-Desde 15 de fevereiro de 2024, novas empresas têm o cabeçalho list-unsubscribe (com cancelamento de inscrição com um clique) ativado por padrão.
+Desde 15 de junho de 2026, quando o cabeçalho de cancelamento de inscrição com um clique está configurado para um grupo de inscrições específico, a Braze não inclui mais o cabeçalho mailto nos e-mails. Usuários que cancelam a inscrição pelo cabeçalho list-unsubscribe são cancelados apenas daquele grupo de inscrições específico, não globalmente.
 {% endalert %}
 
 Usar um cabeçalho list-unsubscribe permite que seus destinatários cancelem facilmente a inscrição de e-mails de marketing exibindo um botão **Unsubscribe** na interface da caixa de e-mail, e não no corpo da mensagem.
 
-Envios de teste normalmente **não** incluem cabeçalhos list-unsubscribe. A exibição do cabeçalho em produção depende do provedor de caixa de e-mail e é baseada na reputação — uma reputação do remetente mais forte geralmente melhora a visibilidade.
+Envios de teste normalmente não incluem cabeçalhos list-unsubscribe. A exibição do cabeçalho em produção depende do provedor de caixa de e-mail e é baseada na reputação — uma reputação do remetente mais forte geralmente melhora a visibilidade.
 
 ![Interface da caixa de e-mail com a opção Unsubscribe ao lado da mensagem, onde o list-unsubscribe aparece fora do corpo da mensagem.]({% image_buster /assets/img_archive/list_unsub_img1.png %}){: style="float:right;max-width:60%;margin-left:15px;"}
 
@@ -302,7 +302,7 @@ A Braze permite que você defina uma **Página de cancelamento de inscrição pe
 
 ![Editor de HTML e pré-visualização da página de cancelamento de inscrição personalizada exibida após o usuário cancelar a inscrição de e-mail.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
-Saiba mais sobre as práticas recomendadas para gerenciamento de listas de e-mail em [Gerenciando inscrições de e-mail]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses).
+Para saber mais sobre as práticas recomendadas para gerenciamento de listas de e-mail, consulte [Gerenciando inscrições de e-mail]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses).
 
 {% endtab %}
 {% tab Página de opt-in personalizada %}
@@ -311,7 +311,7 @@ Você pode criar uma página personalizada de opt-in usando seu próprio HTML. I
 
 ![Editor de HTML e pré-visualização da página de opt-in personalizada para confirmação de inscrição de e-mail com a marca.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
-Saiba mais sobre as práticas recomendadas para gerenciamento de listas de e-mail em [Gerenciando inscrições de e-mail]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses).
+Para saber mais sobre as práticas recomendadas para gerenciamento de listas de e-mail, consulte [Gerenciando inscrições de e-mail]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses).
 
 {% endtab %}
 {% endtabs %}

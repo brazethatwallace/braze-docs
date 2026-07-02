@@ -71,6 +71,12 @@ So wählen Sie Kanäle aus:
 Wenn Sie die **Nachrichtenarchivierung** in den **Einstellungen** nicht sehen, vergewissern Sie sich, dass Ihr Unternehmen die Nachrichtenarchivierung erworben und aktiviert hat.
 {% endalert %}
 
+## IP-Allowlisting {#ip-allowlisting}
+
+Wenn die Nachrichtenarchivierung Dateien in Ihren Cloud-Speicher-Bucket hochlädt, sendet Braze Netzwerkanfragen von unseren Servern an Ihren AWS S3-, Azure Blob Storage- oder Google Cloud Storage-Endpunkt. Mit IP-Allowlisting können Sie überprüfen, ob diese Anfragen von Braze stammen, und so eine zusätzliche Sicherheitsebene hinzufügen.
+
+Braze sendet Uploads für die Nachrichtenarchivierung von denselben IP-Adressen, die auch für Connected-Content und Currents verwendet werden. Die vollständige Liste der IPs nach Instanz finden Sie unter [IP-Allowlisting für Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting).
+
 ## Dateireferenzen {#file-references}
 
 Im Folgenden finden Sie Referenzen zur JSON-Payload, die bei jeder gesendeten Nachricht an Ihren Cloud-Speicher-Bucket übermittelt wird. In unserem Code-Beispiel-Repository finden Sie [Beispieldateien für Nachrichtenarchive](https://github.com/braze-inc/braze-examples/tree/main/message-archiving).

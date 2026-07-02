@@ -215,4 +215,8 @@ A Braze tem um objeto de envio de mensagens chamado `attributes` que permite adi
 Está procurando a versão do Canvas desse endpoint? Confira [Envio de mensagens do Canvas usando entrega disparada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#create-send-endpoint).
 {% endalert %}
 
+### Por que o Liquid não renderiza quando eu o coloco diretamente no corpo JSON? {#why-doesnt-liquid-render-when-i-put-it-directly-in-my-json-body}
+
+Quando o corpo da sua solicitação é um JSON válido, a Braze avalia qualquer Liquid na carga útil no servidor. Se você incorporar Liquid como strings brutas, coloque aspas e escape essas strings para que o corpo permaneça um JSON válido — por exemplo, escape aspas duplas dentro de strings. Se o corpo falhar na análise JSON, a Braze retorna um `400` antes de avaliar qualquer Liquid. Quando possível, passe valores dinâmicos por meio de [`trigger_properties`]({{site.baseurl}}/api/objects_filters/trigger_properties_object) em vez de incorporar Liquid diretamente na carga útil.
+
 {% endapi %}

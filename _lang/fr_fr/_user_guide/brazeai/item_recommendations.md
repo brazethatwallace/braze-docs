@@ -202,9 +202,9 @@ Encouragez les utilisateurs à explorer les articles qu'ils ont récemment aimé
 {% tab Interactions récentes %}
 Mettez en avant les articles avec lesquels les utilisateurs ont récemment interagi, qu'il s'agisse de vues, de clics ou d'achats. Cette approche permet de garder vos recommandations à jour et alignées sur les derniers centres d'intérêt de l'utilisateur. Par exemple :
 
-- **Éducation :** Une plateforme d'éducation en ligne pourrait encourager les utilisateurs qui ont récemment regardé une vidéo éducative mais ne se sont pas inscrits à un cours à consulter des cours similaires ou des sujets d'intérêt, afin de maintenir leur engagement et de les motiver à commencer l'apprentissage.
-- **Remise en forme :** Une application de fitness peut suggérer des entraînements ou des défis similaires à ceux que l'utilisateur a récemment effectués ou avec lesquels il a interagi, ce qui lui permet de varier son programme d'exercices et de rester motivé.
-- **Bricolage et rénovation :** Après l'achat d'un outil électrique par un client, un détaillant de bricolage peut lui recommander des accessoires associés ou des équipements de sécurité en fonction de son achat récent, améliorant ainsi l'expérience et la sécurité de l'utilisateur.
+- **Éducation :** une plateforme d'éducation en ligne pourrait encourager les utilisateurs qui ont récemment regardé une vidéo éducative mais ne se sont pas inscrits à un cours à consulter des cours similaires ou des sujets d'intérêt, afin de maintenir leur engagement et de les motiver à commencer l'apprentissage.
+- **Remise en forme :** une application de fitness peut suggérer des entraînements ou des défis similaires à ceux que l'utilisateur a récemment effectués ou avec lesquels il a interagi, ce qui lui permet de varier son programme d'exercices et de rester motivé.
+- **Bricolage et rénovation :** après l'achat d'un outil électrique par un client, un détaillant de bricolage peut lui recommander des accessoires associés ou des équipements de sécurité en fonction de son achat récent, améliorant ainsi l'expérience et la sécurité de l'utilisateur.
 
 {% details Conditions requises %}
 - Recommandations d'articles par intelligence artificielle
@@ -359,10 +359,10 @@ Les recommandations basées sur des règles reposent sur une logique fixe que vo
 
 En fonction des données d'interaction suivies, les cas d'utilisation de ce modèle pourraient inclure :
 
-- **Rappels de réapprovisionnement :** Envoi de rappels de réapprovisionnement pour les articles dont le cycle d'utilisation est prévisible, comme les vitamines mensuelles ou les courses hebdomadaires, en fonction de la dernière date d'achat.
-- **Premiers acheteurs :** Recommandez des kits de démarrage ou des offres de lancement aux premiers acheteurs afin de les encourager à effectuer un deuxième achat.
-- **Programmes de fidélité :** Mettez en avant les produits qui maximiseraient les points de fidélité ou les récompenses d'un client en fonction de son solde de points actuel.
-- **Contenu éducatif :** Suggérez de nouveaux cours ou contenus basés sur les thèmes des documents déjà consultés ou achetés.
+- **Rappels de réapprovisionnement :** envoi de rappels de réapprovisionnement pour les articles dont le cycle d'utilisation est prévisible, comme les vitamines mensuelles ou les courses hebdomadaires, en fonction de la dernière date d'achat.
+- **Premiers acheteurs :** recommandez des kits de démarrage ou des offres de lancement aux premiers acheteurs afin de les encourager à effectuer un deuxième achat.
+- **Programmes de fidélité :** mettez en avant les produits qui maximiseraient les points de fidélité ou les récompenses d'un client en fonction de son solde de points actuel.
+- **Contenu éducatif :** suggérez de nouveaux cours ou contenus basés sur les thèmes des documents déjà consultés ou achetés.
 
 {% multi_lang_include brazeai/recommendations/ai.md section="Plan-specific features" %}
 
@@ -391,3 +391,29 @@ Oui, mais uniquement après leur prochaine mise à jour planifiée. Les recomman
 ### Comment faire expirer en même temps toutes les recommandations qui durent plusieurs jours ? {#how-can-i-make-all-recommendations-that-last-multiple-days-expire-at-once}
 
 Si vous souhaitez faire expirer toutes les recommandations sur plusieurs jours à une date précise (afin que toutes les recommandations actives reçoivent de nouvelles prédictions en même temps), contactez l'assistance Braze ou votre gestionnaire de la satisfaction client. Les experts en intelligence artificielle de Braze effectuent cette opération manuellement afin de garantir des performances optimales du modèle.
+
+### Que se passe-t-il si je modifie le nom de la propriété pour une recommandation d'article par intelligence artificielle active ? {#what-happens-if-i-update-the-property-name-for-an-active-ai-item-recommendation}
+
+Lorsque vous modifiez le nom de la propriété (chemin de l'ID d'article) et sélectionnez **Enregistrer et créer**, Braze lance une tâche de réentraînement en arrière-plan qui analyse les six derniers mois de données d'interaction en utilisant le nouveau mappage.
+
+Pendant le réentraînement du modèle, les utilisateurs continuent de voir les recommandations de la version précédente. Les recommandations ne changent pas tant que le nouveau modèle n'a pas terminé son entraînement avec succès. Cela signifie :
+
+- Les utilisateurs voient des articles personnalisés issus de l'ancien modèle (ou la solution de repli globale s'ils n'ont pas de recommandations spécifiques).
+- Il n'y a aucun temps d'arrêt ni interruption des recommandations pendant le processus de réentraînement.
+- La transition de l'ancien modèle vers le nouveau est transparente une fois l'entraînement terminé avec succès.
+
+Les événements associés à l'ancien chemin d'ID d'article sont effectivement ignorés pour le nouveau modèle. Seuls les événements utilisant le nouveau mappage de nom de propriété sont inclus dans le réentraînement.
+
+### Que se passe-t-il si la tâche de réentraînement échoue après la modification du nom de la propriété ? {#what-happens-if-the-retraining-job-fails-after-changing-the-property-name}
+
+{% alert important %}
+Si la tâche de réentraînement échoue, la recommandation d'article passe entièrement à un état désactivé (non actif). Étant donné que Braze ne revient pas actuellement au dernier modèle entraîné avec succès en cas d'échec de l'entraînement, tout code Liquid faisant référence à cette recommandation échouera et les messages associés ne seront pas envoyés.
+{% endalert %}
+
+Pour réduire ce risque, envisagez l'approche suivante :
+
+1. Créez une nouvelle recommandation d'article avec la configuration de nom de propriété souhaitée.
+2. Vérifiez que l'entraînement se termine avec succès.
+3. Mettez à jour vos messages pour faire référence à la nouvelle recommandation au lieu de modifier directement une recommandation active.
+
+Cette approche vous permet de tester la nouvelle configuration sans risquer de perturber les messages qui font référence à votre recommandation existante.
