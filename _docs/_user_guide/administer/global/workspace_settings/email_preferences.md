@@ -6,6 +6,7 @@ page_order: 2
 description: "This reference article covers email preferences in the Braze dashboard, including sending configurations, open tracking pixels, subscription page and footers, and more."
 tool: Dashboard
 channel: email
+alias: /email_preferences/
 toc_headers: h2
 
 ---
@@ -302,7 +303,7 @@ Braze lets you set a **Custom Unsubscribe Page** with your own HTML. This page a
 
 ![Custom unsubscribe page HTML editor and preview for the page shown after a user unsubscribes from email.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
-For email list management best practices, see [Managing email subscriptions]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses).
+{% multi_lang_include email/external_font_domains.md page_type='unsubscribe' %}
 
 {% endtab %}
 {% tab Custom Opt-In Page %}
@@ -311,7 +312,7 @@ You can create a custom opt-in page using your own HTML. Including this in your 
 
 ![Custom opt-in page HTML editor and preview for branded email subscription confirmation.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
-For email list management best practices, see [Managing email subscriptions]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses).
+{% multi_lang_include email/external_font_domains.md page_type='opt-in' %}
 
 {% endtab %}
 {% endtabs %}
