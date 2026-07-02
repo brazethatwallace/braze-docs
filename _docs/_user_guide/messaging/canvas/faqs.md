@@ -121,10 +121,11 @@ For example, if a user receives a Canvas step on Monday and again on Friday and 
 
 ### Why is my Canvas experiencing lower send rates?
 
-If you find that your daily scheduled Canvas has lower send rates, check for the following:
+If you find that your daily scheduled Canvas sends to fewer users over time, check for the following:
 
-- **Check if re-eligibility is turned on:** Without re-eligibility, Braze enters each user into the canvas only once. On daily scheduled Canvases, only users who match the audience and have not yet entered the Canvas are eligible for each entry.
-- **Check if the audience has fixed membership:** Audiences built from a fixed user list (such as a [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) used as a segment filter) do not gain new members automatically. Lower entry rates over time can also occur when a [delivery speed rate limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) is applied and most eligible users have already entered the Canvas.
+- **Check if re-eligibility is turned on:** Without re-eligibility, Braze enters each user into the Canvas only once. On daily scheduled Canvases, only users who match the audience and have not yet entered the Canvas are eligible for each entry. As more users enter, each later entry has fewer eligible users, so entry volume declines.
+- **Check if the audience has fixed membership:** Audiences built from a fixed user list (such as a [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) used as a segment filter) do not gain new members automatically. Without new entrants, entry volume cannot rebound as users enter the Canvas.
+- **Check if a delivery speed rate limit is applied:** A [delivery speed rate limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) controls how many messages Braze sends per minute during each scheduled entry. It does not by itself make each daily entry smaller than the previous one—declining entries across successive daily runs usually come from re-eligibility and audience membership (above). However, a low rate limit relative to the eligible audience can spread a single entry across a long window and leave some users unsent or deferred when the next daily entry starts. See [Why are sends lower than the estimated audience size?](#why-are-sends-lower-than-the-estimated-audience-size) for rate-limit effects on a single send.
 
 ## Analytics and conversions
 

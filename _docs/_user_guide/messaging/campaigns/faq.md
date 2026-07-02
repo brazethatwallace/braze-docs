@@ -278,10 +278,11 @@ For questions about calendar days, silent push, webhooks, Canvas behavior, and r
 
 ### Why is my campaign experiencing lower send rates?
 
-If you find that your daily scheduled campaigns have lower sends, check for the following:
+If you find that your daily scheduled campaigns send to fewer users over time, check for the following:
 
-- **Check if re-eligibility is turned on:** Without re-eligibility, Braze messages each user only once. On daily scheduled campaigns, only users who match the audience and have not yet received the message are eligible for each send.
-- **Check if the audience has fixed membership:** Audiences built from a fixed user list (such as a [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) used as a segment filter) do not gain new members automatically. Lower sends over time can also occur when a [delivery speed rate limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) is applied and most eligible users have already received the message.
+- **Check if re-eligibility is turned on:** Without re-eligibility, Braze messages each user only once. On daily scheduled campaigns, only users who match the audience and have not yet received the message are eligible for each send. As more users receive the message, each later send has fewer eligible users, so send volume declines.
+- **Check if the audience has fixed membership:** Audiences built from a fixed user list (such as a [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) used as a segment filter) do not gain new members automatically. Without new entrants, send volume cannot rebound as users are messaged.
+- **Check if a delivery speed rate limit is applied:** A [delivery speed rate limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) controls how many messages Braze sends per minute during each scheduled occurrence. It does not by itself make each daily send smaller than the previous one—declining sends across successive daily runs usually come from re-eligibility and audience membership (above). However, a low rate limit relative to the eligible audience can spread a single occurrence across a long window and leave some users unsent or deferred when the next daily run starts. See [Why are sends lower than the estimated audience size?](#why-are-sends-lower-than-the-estimated-audience-size) for rate-limit effects on a single send.
 
 ### Why can unique recipients exceed sends for email and SMS?
 
