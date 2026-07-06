@@ -111,7 +111,7 @@ MAU calculations follow specific rules to ensure accurate and consistent billing
 - **API deletions**: Deleting a user via API does not update MAU immediately; the count self-corrects in the next monthly cycle.
 
 {% alert note %}
-Anonymous users also count toward your MAU. For mobile devices, anonymous users are device-dependent. For web users, anonymous users are browser cache-dependent. <br><br> MAU counts in Braze can differ from tools such as Amplitude when each product uses a different definition of an active user. Compare configuration in Amplitude (and your Braze MAU rules above) before investigating a discrepancy as a data pipeline issue.
+Anonymous users also count toward your MAU. For mobile devices, anonymous users are device-dependent. For web users, anonymous users are browser cache-dependent. <br><br> MAU counts in Braze can differ from tools such as Amplitude when each product uses a different definition of an active user. Compare configuration in Amplitude (and your [MAU calculation rules](#mau-calculation-rules)) before investigating a discrepancy as a data pipeline issue.
 {% endalert %}
 
 #### MAU calculation example
