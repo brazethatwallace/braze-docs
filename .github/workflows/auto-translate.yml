@@ -268,7 +268,10 @@ jobs:
         id: verify
         run: python scripts/auto_translate.py verify --max-attempts 3
 
+      # Upload after translate/QC even when verify fails so translation_results.json
+      # (including build_results.error tails) is available for debugging.
       - name: Upload locale artifact
+        if: ${{ always() && steps.translate.outcome == 'success' }}
         uses: actions/upload-artifact@v7
         with:
           name: translate-${{ matrix.lang }}

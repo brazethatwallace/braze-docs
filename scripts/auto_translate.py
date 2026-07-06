@@ -7209,10 +7209,43 @@ def jekyll_build(lang_config_key):
     return result.returncode == 0, result.stderr + "\n" + result.stdout
 
 
+VERIFY_BUILD_LOG_TAIL = 3000
+
+
+def _jekyll_output_tail(output, max_chars=None):
+    """Return the trailing slice of Jekyll stdout/stderr for logs and results."""
+    if max_chars is None:
+        max_chars = VERIFY_BUILD_LOG_TAIL
+    if not output:
+        return ""
+    return output[-max_chars:]
+
+
+def _print_build_failure_output(lang_name, output, attempt, max_attempts):
+    """Emit Jekyll output to CI logs when a locale build fails."""
+    tail = _jekyll_output_tail(output)
+    print(f"  --- Jekyll build output ({lang_name}, attempt {attempt}/{max_attempts}) ---")
+    if tail:
+        print(tail)
+    else:
+        print("  (no build output captured)")
+    print("  --- end Jekyll build output ---")
+
+
 def extract_error_files(error_output, lang_dir):
-    """Pull file paths from Jekyll error output that belong to a language dir."""
-    pattern = rf"_lang/{re.escape(lang_dir)}/\S+\.md"
-    return list(set(re.findall(pattern, error_output)))
+    """Pull locale markdown paths from Jekyll error output."""
+    paths = set()
+    patterns = (
+        rf"_lang/{re.escape(lang_dir)}/\S+\.md",
+        rf"(?<![\w/]){re.escape(lang_dir)}/\S+\.md",
+    )
+    for pattern in patterns:
+        for match in re.findall(pattern, error_output):
+            if match.startswith("_lang/"):
+                paths.add(match)
+            else:
+                paths.add(f"_lang/{match}")
+    return list(paths)
 
 
 def cmd_verify(args):
@@ -7243,11 +7276,14 @@ def cmd_verify(args):
                 break
 
             print(f"  {lang_info['name']} build failed")
+            _print_build_failure_output(
+                lang_info["name"], output, attempt, args.max_attempts,
+            )
 
             if attempt == args.max_attempts:
                 build_results["failed"].append({
                     "lang": lang_key,
-                    "error": output[-3000:],
+                    "error": _jekyll_output_tail(output),
                 })
                 print(f"  {lang_info['name']} still failing after {args.max_attempts} attempts")
                 break
@@ -7257,7 +7293,7 @@ def cmd_verify(args):
                 print("  Could not identify failing file(s) from build output")
                 build_results["failed"].append({
                     "lang": lang_key,
-                    "error": output[-3000:],
+                    "error": _jekyll_output_tail(output),
                 })
                 break
 
@@ -7268,7 +7304,10 @@ def cmd_verify(args):
                 print(f"  Fixing {efile}...")
                 try:
                     content = epath.read_text()
-                    fixed = fix_file(client, prompt, content, output[-3000:], lang_info["name"])
+                    fixed = fix_file(
+                        client, prompt, content, _jekyll_output_tail(output),
+                        lang_info["name"],
+                    )
                     epath.write_text(fixed)
                 except Exception as exc:
                     print(f"  Fix attempt failed: {exc}")
