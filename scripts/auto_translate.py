@@ -308,8 +308,14 @@ def _liquid_block_stack_at(content, position):
 def _liquid_safe_split_offsets(content):
     """Byte offsets where a chunk boundary will not split an open Liquid block."""
     offsets = [0]
+    stack = []
     for match in _LIQUID_TAG_RE.finditer(content):
-        if not _liquid_block_stack_at(content, match.end()):
+        kind, name = _liquid_tag_token(match.group(1))
+        if kind == "open":
+            stack.append(name)
+        elif kind == "close" and stack and stack[-1] == name:
+            stack.pop()
+        if not stack:
             offsets.append(match.end())
     if offsets[-1] != len(content):
         offsets.append(len(content))
