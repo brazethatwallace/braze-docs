@@ -263,40 +263,125 @@ def strip_code_fences(text):
     return match.group(1) if match else stripped
 
 
-def split_into_chunks(content, max_chunk_kb=None):
-    """Split a large Markdown file into translatable chunks at H2 boundaries.
+_LIQUID_TAG_RE = re.compile(r"\{%[-\s]*(.*?)[-\s]*%\}", re.DOTALL)
+_LIQUID_BLOCK_PAIRS = {
+    "api": "endapi",
+    "details": "enddetails",
+    "tabs": "endtabs",
+    "tab": "endtab",
+    "alert": "endalert",
+    "apitags": "endapitags",
+    "capture": "endcapture",
+    "if": "endif",
+    "unless": "endunless",
+    "for": "endfor",
+}
+_LIQUID_CLOSE_TO_OPEN = {close: open_ for open_, close in _LIQUID_BLOCK_PAIRS.items()}
+_LIQUID_PAIRED_TAGS_FOR_QC = tuple(_LIQUID_BLOCK_PAIRS.items())
 
-    Returns a list of strings.  The first element is everything before the
-    first ``## `` heading (front matter + intro).  Subsequent elements group
-    consecutive H2 sections so that each chunk stays under *max_chunk_kb*.
-    If the file has no H2 headings, falls back to a line-count split.
+
+def _liquid_tag_token(inner):
+    """Return ('open', name), ('close', name), or (None, None) for a Liquid tag body."""
+    parts = inner.strip().split()
+    if not parts:
+        return None, None
+    name = parts[0]
+    if name in _LIQUID_CLOSE_TO_OPEN:
+        return "close", _LIQUID_CLOSE_TO_OPEN[name]
+    if name in _LIQUID_BLOCK_PAIRS:
+        return "open", name
+    return None, None
+
+
+def _liquid_block_stack_at(content, position):
+    """Return open Liquid block tag names at *position* in *content*."""
+    stack = []
+    for match in _LIQUID_TAG_RE.finditer(content[:position]):
+        kind, name = _liquid_tag_token(match.group(1))
+        if kind == "open":
+            stack.append(name)
+        elif kind == "close" and stack and stack[-1] == name:
+            stack.pop()
+    return stack
+
+
+def _liquid_safe_split_offsets(content):
+    """Byte offsets where a chunk boundary will not split an open Liquid block."""
+    offsets = [0]
+    stack = []
+    for match in _LIQUID_TAG_RE.finditer(content):
+        kind, name = _liquid_tag_token(match.group(1))
+        if kind == "open":
+            stack.append(name)
+        elif kind == "close" and stack and stack[-1] == name:
+            stack.pop()
+        if not stack:
+            offsets.append(match.end())
+    if offsets[-1] != len(content):
+        offsets.append(len(content))
+    return sorted(set(offsets))
+
+
+def _count_liquid_tag(content, tag_name):
+    return len(re.findall(rf"\{{%[-\s]*{re.escape(tag_name)}\b", content))
+
+
+def validate_liquid_paired_tags(content, label="translation"):
+    """Raise ValueError when paired Liquid block tags are unbalanced."""
+    problems = []
+    for open_tag, close_tag in _LIQUID_PAIRED_TAGS_FOR_QC:
+        open_count = _count_liquid_tag(content, open_tag)
+        close_count = _count_liquid_tag(content, close_tag)
+        if open_count != close_count:
+            problems.append(f"{open_tag}={open_count} {close_tag}={close_count}")
+    if problems:
+        raise ValueError(
+            f"Liquid paired-tag imbalance in {label}: " + ", ".join(problems)
+        )
+
+
+def split_into_chunks(content, max_chunk_kb=None):
+    """Split a large Markdown file into translatable chunks.
+
+    Boundaries are chosen only where no Liquid block tag remains open, so
+    ``{% details %}`` / ``{% api %}`` regions are never cut in half.  When
+    possible, groups consecutive safe segments up to *max_chunk_kb* each.
     """
     if max_chunk_kb is None:
         max_chunk_kb = CHUNK_TARGET_KB
     max_bytes = max_chunk_kb * 1024
 
-    parts = re.split(r'(?=\n## )', content)
-
-    if len(parts) <= 1:
-        lines = content.split('\n')
+    safe_offsets = _liquid_safe_split_offsets(content)
+    if len(safe_offsets) <= 2:
+        lines = content.split("\n")
         target_lines = max(200, len(lines) // ((len(content) // max_bytes) + 1))
         chunks = []
         for i in range(0, len(lines), target_lines):
-            chunks.append('\n'.join(lines[i:i + target_lines]))
+            chunk = "\n".join(lines[i:i + target_lines])
+            start = sum(len(l) + 1 for l in lines[:i])
+            if _liquid_block_stack_at(content, start + len(chunk)):
+                raise ValueError(
+                    "Line-based chunk split would break an open Liquid block"
+                )
+            chunks.append(chunk)
         return chunks
 
-    preamble = parts[0]
-    sections = parts[1:]
+    segments = [
+        content[safe_offsets[i]:safe_offsets[i + 1]]
+        for i in range(len(safe_offsets) - 1)
+    ]
 
-    chunks = [preamble]
+    chunks = []
     current_chunk = ""
-
-    for section in sections:
-        if current_chunk and len((current_chunk + section).encode()) > max_bytes:
+    for segment in segments:
+        if (
+            current_chunk
+            and len((current_chunk + segment).encode()) > max_bytes
+        ):
             chunks.append(current_chunk)
-            current_chunk = section
+            current_chunk = segment
         else:
-            current_chunk += section
+            current_chunk += segment
 
     if current_chunk:
         chunks.append(current_chunk)
@@ -1346,6 +1431,10 @@ def translate_one_chunked(client, prompt, fpath, relative, english_content,
             translated_chunks.append(translated)
 
         full_translation = "\n\n".join(c.strip() for c in translated_chunks)
+        validate_liquid_paired_tags(
+            full_translation,
+            label=str(target.relative_to(REPO_ROOT)),
+        )
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(full_translation)
         return {
@@ -5238,6 +5327,28 @@ def repair_glossary_identifiers(english_content, translated_content, lang_key):
     return translated_content, repairs
 
 
+def check_liquid_paired_block_tags(english_content, translated_content):
+    """Warn when paired Liquid block open/close counts drift from English."""
+    warnings = []
+    for open_tag, close_tag in _LIQUID_PAIRED_TAGS_FOR_QC:
+        en_open = _count_liquid_tag(english_content, open_tag)
+        tr_open = _count_liquid_tag(translated_content, open_tag)
+        en_close = _count_liquid_tag(english_content, close_tag)
+        tr_close = _count_liquid_tag(translated_content, close_tag)
+        if tr_open != tr_close:
+            warnings.append(
+                f"liquid_paired — {open_tag}/{close_tag} unbalanced in translation "
+                f"({open_tag}={tr_open}, {close_tag}={tr_close})"
+            )
+        elif tr_open != en_open or tr_close != en_close:
+            warnings.append(
+                f"liquid_paired — {open_tag}/{close_tag} count drift "
+                f"(English {open_tag}={en_open}/{close_tag}={en_close}, "
+                f"translation {open_tag}={tr_open}/{close_tag}={tr_close})"
+            )
+    return warnings
+
+
 def check_liquid_tags(english_content, translated_content):
     """Check that Liquid tags are preserved between source and translation."""
     warnings = []
@@ -7086,6 +7197,9 @@ def qc_check_file(english_path, translated_path, lang_key):
 
     findings["warnings"].extend(
         check_liquid_tags(english_content, translated_content)
+    )
+    findings["warnings"].extend(
+        check_liquid_paired_block_tags(english_content, translated_content)
     )
     findings["warnings"].extend(
         check_japanese_english_product_terms_in_prose(
