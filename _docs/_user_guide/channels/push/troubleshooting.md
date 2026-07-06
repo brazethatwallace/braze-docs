@@ -30,12 +30,12 @@ channel: push
 
 Use this workflow when a user or test device didn't receive a push. Start at step 1.
 
-1. Confirm the user is **push subscribed or opted in** and has a valid push token on the **Engagement** tab of their profile.
-2. Confirm the user is in the campaign or Canvas **target audience** at send time (segments update in real time).
-3. Check **global frequency caps**, **rate limits**, and **control group** assignment for the campaign or Canvas.
-4. Confirm you're using the correct **push type** for the device (for example, Android vs. iOS vs. Kindle).
-5. For internal testing, confirm the tester is logged into the **correct app** on the device.
-6. If delivery still fails, review [Common push error messages]({{site.baseurl}}/user_guide/channels/push/push_error_codes) or contact [Braze Support]({{site.baseurl}}/braze_support) with the campaign or Canvas ID, user ID, and timestamp (with timezone).
+1. Confirm the user is push subscribed or opted in and has a valid push token in the **Engagement** tab of their profile.
+2. Confirm the user is in the campaign or Canvas target audience at send time (segments update in real time).
+3. Check global frequency caps, rate limits, and control group assignment for the campaign or Canvas.
+4. Confirm you're using the correct push type for the device (for example, Android, iOS, or Kindle).
+5. For internal testing, confirm the tester is logged into the correct app on the device.
+6. If delivery still fails, review [Common push error messages]({{site.baseurl}}/user_guide/channels/push/push_error_codes) or contact [Braze Support]({{site.baseurl}}/braze_support) with the campaign or Canvas ID, user ID, and timestamp with timezone.
 
 ## Missing push notifications {#missing-push-notifications}
 
@@ -54,9 +54,7 @@ Experiencing delivery challenges with push notifications? There are a number of 
 
 ### Push subscription status
 
-Pushes can only be sent to subscribed or opted-in users. Check your user profile in the [Engagement]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab) tab in the **User Profile** section to confirm if you are actively registered for push for the workspace that you are testing. If you are registered for multiple apps, you will find them listed in the **Push Registered For** field:
-
-![Push Registered For]({% image_buster /assets/img_archive/trouble1.png %})
+Pushes can only be sent to subscribed or opted-in users. Check your user profile in the [Engagement]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab) tab in the **User Profile** section to confirm if you are actively registered for push for the workspace that you are testing. If you are registered for multiple apps, you will find them listed in the **Push Registered For** field.
 
 You can also export the user profiles using Braze export endpoints:
 - [Users by identifier]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)
@@ -68,19 +66,13 @@ Either endpoint will return a push token object that includes push enablement in
 
 Make sure you fall into the segment that you are targeting (if this is a live campaign and not a test). In the **User Profile**, you will see a list of segments that the user currently falls into. Remember this is an ever-changing variable as segmentation is updated in real time.
 
-![List of Segments]({% image_buster /assets/img_archive/trouble2.png %})
-
 You can also confirm that the user is part of the segment by using **User Lookup** when creating a segment. **User Lookup** accepts only `external_id` or `braze_id`—not email addresses or phone numbers. To search by email, phone, push token, or user alias, use [**Search Users**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
-
-![User Lookup section with a search field.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
 #### Push notification caps
 
 Check the global frequency caps. It's possible you did not receive the push notification because your workspace has global frequency capping in place and you've already hit your push notification cap for the specified time frame.
 
-You can do this by checking [global frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#freq-cap-feat-over) in the dashboard. If the campaign is set to abide by frequency capping rules, there will be a number of users impacted by these settings
-
-![Campaign Details]({% image_buster /assets/img_archive/trouble3.png %})
+On the campaign **Analytics** page, check for a frequency capping banner showing approximately how many users didn't receive the campaign in the last 30 days. To investigate individual sends, use the [Messaging Diagnostics dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) and filter by **Frequency capped**. To review or change rules, see [global frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#freq-cap-feat-over).
 
 #### Rate limits
 
@@ -120,7 +112,7 @@ To find the proper Firebase Server Key and replace it:
 
 1. Go to the Firebase console for your app.
 2. Under **Project Overview**, select **Project Settings**.
-3. In the **Cloud Messaging** tab, check that the Sender ID below the API keys matches the one in Braze (in **Settings** > **App Settings** > **Cloud Messaging API Key**).
+3. In the **Cloud Messaging** tab, check that the Sender ID listed with the API keys matches the one in Braze (in **Settings** > **App Settings** > **Cloud Messaging API Key**).
 
 {% alert warning %}
 Do not change your Sender ID in your Braze dashboard. Doing so will cause existing push registrations to be invalidated. If the Sender ID does not match, you must find your Firebase project with the matching Sender ID.
@@ -184,8 +176,6 @@ If you're experiencing issues with links in push notifications unexpectedly open
 ### Verify on-click behavior
 
 In your campaign or Canvas step, double-check that **Open web URL inside mobile app** is not selected. If it is, clear the selection and relaunch. 
-
-!["On-click behavior" field of configuring a push set to "Open web URL" with "Open web URL inside mobile app" unchecked.]({% image_buster /assets/img/push_on_click.png %})
 
 The default interaction for the on-click behavior "Open web URL" differs by SDK version. For SDK versions iOS 2.29.0 and Android 2.0.0 and higher, this option is selected by default and web URLs will open in a web view within the app. Prior to these versions, this option is cleared by default and web URLs open in the device's default web browser.
 
@@ -325,5 +315,3 @@ Your push permissions are now reset. Open a new tab to your site and try it out.
 **Symptom:** You see a specific push error code (for example, `DEVICE_UNREGISTERED`, `Unregistered`, or `NotRegistered`).
 
 For detailed information about common push error messages, refer to [Common push error messages]({{site.baseurl}}/user_guide/channels/push/push_error_codes).
-
-Still need help? Open a [support ticket]({{site.baseurl}}/braze_support).
