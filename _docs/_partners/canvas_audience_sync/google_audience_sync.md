@@ -218,6 +218,19 @@ It can take anywhere between 6 to 12 hours for an audience to be synced into Goo
 
 For privacy purposes, the user list size will show zero until the list has at least 1,000 members. After that, the size will be rounded to the two most significant digits.
 
+### Why is my matched audience size in Google lower than the number of users synced from Braze?
+
+Although Braze may sync a certain number of users to Google, the actual matched audience size you see in Google Ads may be significantly lower. This is because Google needs to match the user data you provide (such as email addresses or phone numbers) against actual Google accounts on their platform.
+
+Even if your Braze user profiles contain valid matching fields, users only appear in your Google Custom Audience if they have a Google account with matching information.
+
+To improve your match rate:
+- Confirm you're [formatting your data correctly](https://support.google.com/google-ads/answer/7659867).
+- Provide multiple identifiers when possible (for example, both email and phone number).
+- Note that it can take 48 to 72 hours for Google to process and match users, though in some cases it could take several days.
+
+The final matched audience size depends entirely on Google's matching process. Braze doesn't have visibility into Google's matching once the data has passed to their platform.
+
 ### I've synced an audience into Google, but my ads are not serving.
 
 Check that your audiences contain at least 5,000 users so that ads can start serving.
