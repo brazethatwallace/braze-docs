@@ -18,10 +18,10 @@ channel: push
 | User didn't receive a push notification | [Missing push notifications](#missing-push-notifications) |
 | Push notifications arrive late | [Delayed push notifications](#delayed-push-notifications) |
 | Push sends slower than expected | [Push notifications are sending slower than expected](#push-notifications-are-sending-slower-than-expected) |
-| `MismatchSenderID` error (Android) | [Error: MismatchSenderID](#error-mismatchsenderid) |
-| Tapping a push doesn't open the app | [Clicking a push notification doesn't open the app](#clicking-a-push-notification-doesnt-open-the-app) |
+| `MismatchSenderID` error (Android) | [Error: MismatchSenderID](#error-mismatch-sender-id) |
+| Tapping a push doesn't open the app | [Clicking a push notification doesn't open the app](#clicking-a-push-notification-does-not-open-the-app) |
 | Push links open in the app instead of the browser | [Push clicks unexpectedly open in app](#push-clicks-unexpectedly-open-in-app) |
-| Web push permissions or delivery issues | [Web push notifications aren't behaving as expected](#web-push-notifications-arent-behaving-as-expected) |
+| Web push permissions or delivery issues | [Web push notifications aren't behaving as expected](#web-push-notifications-are-not-behaving-as-expected) |
 | Need to migrate from `.p12` to `.p8` (iOS) | [Migrate to a .p8 authentication key](#migrate-to-a-p8-authentication-key) |
 | Specific push error code in logs | [Push error messages](#push-error-messages) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Push symptom" }
@@ -102,7 +102,7 @@ When testing push sends with internal users, make sure that the user who you wan
 If you're sending push messages with images on Android, FCM can sometimes discard the image and only display the text in the push message. This issue is usually caused by server connectivity issues.
 {% endalert %}
 
-## Error: MismatchSenderID {#error-mismatchsenderid}
+## Error: MismatchSenderID {#error-mismatch-sender-id}
 
 **Symptom:** Android push fails with a `MismatchSenderID` error.
 
@@ -147,7 +147,7 @@ Make sure your push notification setup follows these best practices:
 - If possible, try to schedule your campaigns ahead of time rather than immediately.
 - If you're targeting a larger number of users with push notifications in a Canvas, you can anticipate that subsequent message steps in the Canvas will require different processing times than a campaign that sends to users immediately. In this case, campaigns would typically finish sending before a Canvas, as the first "step" of a Canvas is to check whether users qualify for the specific user journey.
 
-## Clicking a push notification doesn't open the app {#clicking-a-push-notification-doesnt-open-the-app}
+## Clicking a push notification doesn't open the app {#clicking-a-push-notification-does-not-open-the-app}
 
 **Symptom:** Tapping a push notification doesn't open the app or navigate as configured.
 
@@ -218,7 +218,7 @@ In **Settings** > **App Settings** > **Push Notification Settings**, confirm tha
 
 Apps on [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) or later can use [Dynamic APNs gateway management]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift#dynamic-apns-gateway-management), which routes tokens to the correct APNs environment automatically.
 
-## Web push notifications aren't behaving as expected {#web-push-notifications-arent-behaving-as-expected}
+## Web push notifications aren't behaving as expected {#web-push-notifications-are-not-behaving-as-expected}
 
 **Symptom:** Browser push notifications don't display, or site permissions appear stuck.
 
