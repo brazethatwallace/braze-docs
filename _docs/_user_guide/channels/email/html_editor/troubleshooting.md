@@ -12,6 +12,8 @@ channel: email
 
 ## Start here: Match your symptom
 
+Match your symptom in the table to navigate to the relevant section.
+
 | Symptom | Go to |
 | --- | --- |
 | Test email HTML looks wrong | [HTML renders incorrectly in test emails](#html-renders-incorrectly-in-test-emails) |
@@ -21,6 +23,8 @@ channel: email
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTML email symptom" }
 
 ## Standard investigation path
+
+Use this workflow when HTML email rendering or editor behavior doesn't match what you expect. Start at step 1.
 
 1. Validate your HTML markup in the editor or an external validator.
 2. Send a [test email]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) and note which email clients or browsers show the issue.
@@ -53,5 +57,3 @@ Emails render differently depending on browsers and email clients, so take note 
 ### CSS inlining {#css-inlining}
 
 There are times when the previews in Inbox Vision still don't match what is sent with Braze. This may be caused by the difference in CSS inlining performed by Braze and by other tools. If you suspect that this is the case, turn off CSS inlining.
-
-Still need help? Open a [support ticket]({{site.baseurl}}/braze_support).
