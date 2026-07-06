@@ -18,7 +18,7 @@ description: "In diesem Artikel finden Sie Einzelheiten über den Braze-Endpunkt
 
 Mit der API-getriggerten Zustellung können Sie den Inhalt von Nachrichten innerhalb des Braze-Dashboards unterbringen und gleichzeitig über Ihre API festlegen, wann und an wen eine Nachricht gesendet wird.
 
-Wenn Sie ein Segment ansprechen möchten, wird eine Aufzeichnung Ihrer Anfrage in der [Entwicklungskonsole](https://dashboard.braze.com/app_settings/developer_console/activitylog/) gespeichert. Um Nachrichten mit diesem Endpunkt zu versenden, müssen Sie bei der Erstellung einer [API-getriggerten Campaign]({{site.baseurl}}/api/identifier_types) eine [Campaign-ID]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) erstellt haben.
+Wenn Sie ein Segment ansprechen möchten, wird eine Aufzeichnung Ihrer Anfrage in der [Entwicklungskonsole](https://dashboard.braze.com/app_settings/developer_console/activitylog/) gespeichert. Um Nachrichten mit diesem Endpunkt zu versenden, müssen Sie eine [Campaign-ID]({{site.baseurl}}/api/identifier_types) besitzen, die beim Erstellen einer [API-getriggerten Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) erzeugt wurde.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aef185ae-f591-452a-93a9-61d4bc023b05 {% endapiref %}
 
@@ -214,5 +214,9 @@ Braze verfügt über ein Messaging-Objekt namens `attributes`, mit dem Sie Attri
 {% alert tip %}
 Sie suchen die Canvas-Version dieses Endpunkts? Informieren Sie sich über das [Versenden von Canvas-Nachrichten mit API-getriggerter Zustellung]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#create-send-endpoint).
 {% endalert %}
+
+### Warum wird Liquid nicht gerendert, wenn ich es direkt in meinen JSON-Body einfüge? {#why-doesnt-liquid-render-when-i-put-it-directly-in-my-json-body}
+
+Wenn Ihr Anfragetext gültiges JSON ist, wertet Braze jegliches Liquid im Payload serverseitig aus. Wenn Sie Liquid als Roh-Strings einbetten, setzen Sie diese Strings in Anführungszeichen und escapen Sie sie, damit der Body gültiges JSON bleibt – escapen Sie beispielsweise doppelte Anführungszeichen innerhalb von Strings. Wenn der Body das JSON-Parsing nicht besteht, gibt Braze einen `400`-Fehler zurück, bevor Liquid ausgewertet wird. Übergeben Sie dynamische Werte nach Möglichkeit über [`trigger_properties`]({{site.baseurl}}/api/objects_filters/trigger_properties_object), anstatt Liquid direkt in den Payload einzubetten.
 
 {% endapi %}

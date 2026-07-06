@@ -33,3 +33,19 @@ La inserción de CSS se ejecuta **antes** de que se evalúe el [Contenido conect
 ## Content Blocks en plantillas HTML personalizadas {#content-blocks-in-custom-html-templates}
 
 Cuando incorporas un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) con Liquid dentro de una plantilla de correo electrónico o Campaign con **HTML personalizado**, las reglas CSS de la plantilla principal pueden anular los estilos definidos dentro del bloque de contenido. Comprueba si hay selectores en conflicto o reglas globales en el envoltorio de la plantilla.
+
+## Limitaciones de CSS en Gmail {#gmail-css-limitations}
+
+Gmail tiene limitaciones específicas de CSS que pueden hacer que los correos electrónicos se muestren en vista de escritorio en lugar de vista móvil en la aplicación de Gmail. Esto puede ocurrir por las siguientes razones:
+
+- **Demasiado CSS:** si tu correo electrónico contiene CSS excesivo, Gmail puede eliminar todo el bloque de estilos.
+- **CSS incompatible:** cualquier CSS que sea incompatible con Gmail (incluido CSS válido que Gmail no admite) puede provocar que se elimine el bloque de estilos.
+- **Cuentas que no son de Gmail en la aplicación de Gmail:** el CSS en el `<head>` no es compatible.
+
+### Consultas de medios en Gmail {#media-queries-in-gmail}
+
+Las consultas de medios CSS generalmente funcionan en las aplicaciones de Gmail, pero existen limitaciones. Si tienes problemas con consultas de medios que no funcionan correctamente en Gmail:
+
+- Revisa la [referencia de CSS compatible con Gmail](https://developers.google.com/gmail/design/reference/supported_css) para asegurarte de que tu CSS es compatible.
+- Consulta las [directrices de diseño CSS de Gmail](https://developers.google.com/gmail/design/css) para conocer las buenas prácticas.
+- Considera patrones de diseño receptivo principalmente móvil que no dependan únicamente de las consultas de medios para la representación en dispositivos móviles.

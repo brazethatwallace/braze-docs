@@ -323,9 +323,9 @@ Eine E-Commerce-Plattform für Technik könnte zum Beispiel Technikbegeisterte �
 {% details Einrichtung %}
 1. Erstellen Sie eine Auswahl auf der Grundlage Ihres Katalogs. Vergewissern Sie sich, dass Ihr Katalog ein Zeitfeld enthält (ein Feld, dessen **Datentyp** auf **Zeit** eingestellt ist), das dem Datum entspricht, an dem der Artikel hinzugefügt wurde.
 2. (Optional) Fügen Sie ggf. Filter hinzu.
-3. Stellen Sie sicher, dass **Randomize Sort Order** ausgeschaltet ist.
-4. Wählen Sie unter **Sort Field** Ihr Feld für das Hinzufügedatum aus.
-5. Setzen Sie die **Sort Order** auf absteigend.
+3. Stellen Sie sicher, dass **Zufällige Sortierreihenfolge** ausgeschaltet ist.
+4. Wählen Sie unter **Sortierfeld** Ihr Feld für das Hinzufügedatum aus.
+5. Setzen Sie die **Sortierreihenfolge** auf absteigend.
 6. [Verwenden Sie die Auswahl im Messaging]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#using-selections-in-messaging).
 {% enddetails %}
 {% endtab %}
@@ -337,13 +337,13 @@ Eine Online-Buchhandlung könnte zum Beispiel eine „Überrasch mich“-Funktio
 
 {% details Voraussetzungen %}
 - Katalog der relevanten Artikel
-- Auswahl mit aktivierter Option **Randomize Sort Order**
+- Auswahl mit aktivierter Option **Zufällige Sortierreihenfolge**
 {% enddetails %}
 
 {% details Einrichtung %}
 1. [Erstellen Sie eine Auswahl]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#creating-a-selection) auf der Grundlage Ihres Katalogs.
 2. (Optional) Fügen Sie ggf. Filter hinzu.
-3. Aktivieren Sie **Randomize Sort Order**.
+3. Aktivieren Sie **Zufällige Sortierreihenfolge**.
 4. [Verwenden Sie die Auswahl im Messaging]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#using-selections-in-messaging).
 {% enddetails %}
 {% endtab %}
@@ -391,3 +391,29 @@ Ja, aber erst nach ihrem nächsten geplanten Update. Bestehende Empfehlungen sch
 ### Wie kann ich alle Empfehlungen, die mehrere Tage gültig sind, gleichzeitig ablaufen lassen? {#how-can-i-make-all-recommendations-that-last-multiple-days-expire-at-once}
 
 Wenn Sie alle mehrtägigen Empfehlungen zu einem bestimmten Datum ablaufen lassen möchten (sodass alle aktiven Empfehlungen gleichzeitig neue Prognosen erhalten), wenden Sie sich bitte an den Braze-Support oder Ihren Customer-Success-Manager. Die BrazeAI-Expert:innen führen diesen Vorgang manuell durch, um eine optimale Performance des Modells zu gewährleisten.
+
+### Was passiert, wenn ich den Eigenschaftsnamen für eine aktive KI-Artikelempfehlung ändere? {#what-happens-if-i-update-the-property-name-for-an-active-ai-item-recommendation}
+
+Wenn Sie den Eigenschaftsnamen (Artikel-ID-Pfad) aktualisieren und **Speichern und erstellen** auswählen, startet Braze einen Hintergrund-Trainingsjob, der die Interaktionsdaten der letzten sechs Monate mit der neuen Zuordnung durchsucht.
+
+Während das Modell neu trainiert wird, sehen Nutzer:innen weiterhin Empfehlungen aus der vorherigen Version. Die Empfehlungen ändern sich erst, wenn das neue Modell das Training erfolgreich abgeschlossen hat. Das bedeutet:
+
+- Nutzer:innen sehen personalisierte Artikel aus dem alten Modell (oder den globalen Fallback, wenn sie keine spezifischen Empfehlungen haben).
+- Es gibt keine Ausfallzeit oder Lücke bei den Empfehlungen während des Trainingsprozesses.
+- Der Übergang vom alten zum neuen Modell erfolgt nahtlos, sobald das Training erfolgreich abgeschlossen ist.
+
+Events mit dem alten Artikel-ID-Pfad werden für das neue Modell effektiv ignoriert. Nur Events, die die neue Eigenschaftsnamenzuordnung verwenden, werden in das erneute Training einbezogen.
+
+### Was passiert, wenn der Trainingsjob nach der Änderung des Eigenschaftsnamens fehlschlägt? {#what-happens-if-the-retraining-job-fails-after-changing-the-property-name}
+
+{% alert important %}
+Wenn der Trainingsjob fehlschlägt, wechselt die gesamte Artikelempfehlung in einen deaktivierten (nicht aktiven) Zustand. Da Braze derzeit bei einem Trainingsfehler nicht auf das zuletzt erfolgreich trainierte Modell zurückfällt, schlägt jeder Liquid-Code, der auf diese Empfehlung verweist, fehl, und die zugehörigen Nachrichten werden nicht gesendet.
+{% endalert %}
+
+Um dieses Risiko zu minimieren, sollten Sie folgenden Ansatz in Betracht ziehen:
+
+1. Erstellen Sie eine neue Artikelempfehlung mit der gewünschten Eigenschaftsnamenkonfiguration.
+2. Überprüfen Sie, ob das Training erfolgreich abgeschlossen wird.
+3. Aktualisieren Sie Ihr Messaging so, dass es auf die neue Empfehlung verweist, anstatt eine aktive Empfehlung direkt zu ändern.
+
+Dieser Ansatz ermöglicht es Ihnen, die neue Konfiguration zu testen, ohne Nachrichten zu gefährden, die auf Ihre bestehende Empfehlung verweisen.

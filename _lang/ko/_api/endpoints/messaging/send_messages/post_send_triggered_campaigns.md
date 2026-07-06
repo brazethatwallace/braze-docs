@@ -18,7 +18,7 @@ description: "이 문서에서는 API 트리거 전송을 사용하여 캠페인
 
 API 트리거 전송을 사용하면 메시지 콘텐츠를 Braze 대시보드 내에 보관하면서 API를 사용하여 메시지 전송 시기와 수신자를 지정할 수 있습니다.
 
-Segment를 타겟팅하는 경우, 요청 기록이 [개발자 콘솔](https://dashboard.braze.com/app_settings/developer_console/activitylog/)에 저장됩니다. 이 엔드포인트로 메시지를 보내려면 [API 트리거 Campaign]({{site.baseurl}}/api/identifier_types)을 구축할 때 생성한 [Campaign ID]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)가 있어야 합니다.
+Segment를 타겟팅하는 경우, 요청 기록이 [개발자 콘솔](https://dashboard.braze.com/app_settings/developer_console/activitylog/)에 저장됩니다. 이 엔드포인트로 메시지를 보내려면 [API 트리거 Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)을 구축할 때 생성한 [Campaign ID]({{site.baseurl}}/api/identifier_types)가 있어야 합니다.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aef185ae-f591-452a-93a9-61d4bc023b05 {% endapiref %}
 
@@ -214,5 +214,9 @@ Braze에는 `attributes`라는 메시징 오브젝트가 있어, API 트리거 C
 {% alert tip %}
 이 엔드포인트의 Canvas 버전을 찾고 계신가요? [API 트리거 전송을 사용하여 Canvas 메시지 보내기]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#create-send-endpoint)를 확인하세요.
 {% endalert %}
+
+### JSON 본문에 Liquid를 직접 넣으면 왜 렌더링되지 않나요? {#why-doesnt-liquid-render-when-i-put-it-directly-in-my-json-body}
+
+요청 본문이 유효한 JSON이면, Braze는 서버에서 페이로드 내의 모든 Liquid를 평가합니다. Liquid를 원시 문자열로 포함하는 경우, 본문이 유효한 JSON으로 유지되도록 해당 문자열을 따옴표로 감싸고 이스케이프 처리하세요. 예를 들어, 문자열 내의 큰따옴표를 이스케이프 처리합니다. 본문이 JSON 파싱에 실패하면, Braze는 Liquid를 평가하기 전에 `400`을 반환합니다. 지원되는 경우, 페이로드에 Liquid를 직접 포함하는 대신 [`trigger_properties`]({{site.baseurl}}/api/objects_filters/trigger_properties_object)를 통해 동적 값을 전달하세요.
 
 {% endapi %}

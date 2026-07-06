@@ -79,7 +79,7 @@ The report may take up to a few minutes to run, depending on the date range and 
 Your selection for **Rows** affects the metrics you can select.
 
 {% alert tip %}
-If you want to report on Canvas variants or steps, select **Canvases** for rows and either leave the field empty or select **Date** as the drilldown. This creates a **Canvas View** dropdown to view metrics for the Canvas only, or group metrics by variant, step, or message. 
+If you want to report on Canvas variants or steps, select **Canvases** for rows and either leave the field empty or select **Date** as the drilldown. This creates a **Canvas View** dropdown to view metrics for the Canvas only, or group metrics by variant, step, or message.<br><br> When you group by step, the preview table while configuring your report shows a maximum of 50 rows. Run the report or export it as a CSV to view all rows.
 
 ![The opened "Canvas View" dropdown.]({% image_buster /assets/img/report_builder_2/canvas_view_dropdown.png %}){: style="width:40%;"}
 {% endalert %}
@@ -105,7 +105,7 @@ In the same report, _Unique Recipients_ can be higher than _Unique Impressions_ 
 
 ## Viewing a report
 
-After running your report, you can view your results in table format on the report page. 
+After running your report, you can view your results in table format on the report page.
 
 ![A table of the report data for each campaign's metrics.]({% image_buster /assets/img/report_builder_2/report_table.png %}){: style="width:90%;"}
 

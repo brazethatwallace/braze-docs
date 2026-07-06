@@ -21,6 +21,20 @@ class TestRetryableApiErrors:
         assert not at._is_retryable_api_error("YAML front matter parse error")
 
 
+class TestExtractErrorFiles:
+    def test_matches_lang_prefixed_path(self):
+        output = "Liquid error in _lang/fr_fr/_user_guide/foo/bar.md: unclosed tag"
+        assert at.extract_error_files(output, "fr_fr") == [
+            "_lang/fr_fr/_user_guide/foo/bar.md",
+        ]
+
+    def test_matches_collections_dir_without_lang_prefix(self):
+        output = "Error reading file fr_fr/_includes/analytics/campaign_analytics.md"
+        assert at.extract_error_files(output, "fr_fr") == [
+            "_lang/fr_fr/_includes/analytics/campaign_analytics.md",
+        ]
+
+
 class TestChunkedTranslationRouting:
     def test_pricing_path_chunks_below_max_file_kb(self):
         path = "_docs/_unlisted_docs/pricing/message_credits_gamma_0dhr.md"

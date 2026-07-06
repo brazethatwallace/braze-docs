@@ -71,6 +71,12 @@ Pour sélectionner des canaux :
 Si vous ne voyez pas **Archivage des messages** dans **Paramètres**, confirmez que votre entreprise a acheté et activé l'archivage des messages.
 {% endalert %}
 
+## Liste d'autorisation d'adresses IP {#ip-allowlisting}
+
+Lorsque l'archivage des messages télécharge des fichiers vers votre compartiment de stockage cloud, Braze effectue des requêtes réseau depuis nos serveurs vers votre endpoint AWS S3, Azure Blob Storage ou Google Cloud Storage. Grâce à la liste d'autorisation d'adresses IP, vous pouvez vérifier que ces requêtes proviennent bien de Braze, ajoutant ainsi une couche de sécurité.
+
+Braze envoie les téléchargements d'archivage des messages depuis les mêmes adresses IP que celles utilisées pour le contenu connecté et Currents. Pour la liste complète des adresses IP par instance, consultez la [liste d'autorisation d'adresses IP pour le contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting).
+
 ## Références de fichier {#file-references}
 
 Voici les références de la payload JSON transmise à votre compartiment de stockage cloud à chaque envoi de message. Consultez notre dépôt d'exemples de code pour [des fichiers d'exemple d'archive de messages](https://github.com/braze-inc/braze-examples/tree/main/message-archiving).

@@ -146,6 +146,14 @@ Gebührenfreie Nummern verfügen über eindeutige dreistellige Vorwahlen (z. B. 
 {% endtab %}
 {% endtabs %}
 
+## Gemeinsame Verwendung von Shortcodes und Langcodes {#using-short-codes-and-long-codes-together}
+
+Wenn Ihre Abo-Gruppe sowohl Shortcodes als auch Langcodes umfasst, werden Shortcodes in der Regel für ausgehende Nachrichten priorisiert. Einige Anbieter bieten jedoch eine Sticky-Sender-Funktionalität an, die dazu führen kann, dass ein Langcode für bestimmte Nutzer:innen weiterhin verwendet wird, auch nachdem ein Shortcode zum Absenderpool hinzugefügt wurde.
+
+Sticky Sender sorgt für Nachrichtenkontinuität, indem alle Nachrichten an bestimmte Nutzer:innen von derselben Telefonnummer gesendet werden. Wenn Nutzer:innen eine Nachricht von einem Langcode erhalten haben, bevor ein Shortcode zu Ihrer Abo-Gruppe hinzugefügt wurde, kann Ihr Anbieter diesen Langcode für zukünftige Nachrichten an diese Nutzer:innen weiterhin verwenden, obwohl der Shortcode normalerweise priorisiert würde.
+
+Dieses Verhalten wird von den Anbietern gesteuert und kann in Braze nicht geändert werden.
+
 ## Einrichtung {#setup}
 
 Die Einrichtungsanforderungen und Zeitpläne variieren je nach Absendertyp und dem Land, in dem der Absender bereitgestellt wird.

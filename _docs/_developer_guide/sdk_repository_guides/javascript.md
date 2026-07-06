@@ -6,6 +6,8 @@ description: "Braze JavaScript SDK README reference mirrored from GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# JavaScript SDK repository guide
+
 ## About the Braze JavaScript SDK
 
 The Braze JavaScript SDK helps you integrate Braze messaging, analytics, and user engagement capabilities into your application.

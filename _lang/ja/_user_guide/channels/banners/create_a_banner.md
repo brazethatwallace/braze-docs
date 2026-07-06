@@ -28,7 +28,7 @@ channel:
 {% tabs %}
 {% tab キャンペーン %}
 
-1. **Messaging** > **キャンペーン** に移動し、**キャンペーンを作成** を選択します。
+1. **メッセージング** > **キャンペーン** に移動し、**キャンペーンを作成** を選択します。
 2. **Banner** を選択します。
 3. キャンペーンにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)を追加します。タグを使用すると、キャンペーンを見つけやすくなり、レポートを作成しやすくなります。たとえば、レポートビルダーを使用する際に、関連するタグでフィルタリングできます。

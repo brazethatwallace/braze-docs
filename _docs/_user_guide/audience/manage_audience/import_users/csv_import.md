@@ -235,7 +235,7 @@ When importing custom events using CSV, you must format your file according to t
 
 ##### Understanding custom event formatting
 
-It is important to correctly format your custom events CSV using dot notation so each property is mapped to the right event. If the format is incorrect, properties may be dropped or the import may fail, especially when multiple event types are included in one file.
+It is important to correctly format your custom events CSV using dot notation so each property is mapped to the correct event. If the format is incorrect, properties may be dropped or the import may fail, especially when multiple event types are included in one file.
 
 ##### Use dot notation for event properties
 
@@ -291,7 +291,7 @@ To upload your file, select **Attributes** or **Events**, click **Browse Files**
 
 For large files (up to 500 MB for default attributes and custom attributes, or 50 MB for custom events), the dashboard may appear temporarily unresponsive while the file uploads and Braze calculates the import. These uploads and calculations can take longer to complete than they do for smaller files. Let this step complete. For more context on file limits and timing, see [Constructing your CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import#constructing-your-csv).
 
-In the **Import name** field, you can rename your import. By default, the file name is used.
+Before you upload your CSV file, rename it to the import name you want to see in Braze. You can't edit the import name after upload.
 
 {% alert note %}
 The file preview shows only the first few rows of your file. To check every row before importing, use [file validation](#file-validation).
@@ -421,7 +421,7 @@ Setting `language` or `country` on a user through CSV import or API prevents Bra
 
 If you used [file validation](#file-validation), start with the error report, as it includes the specific issue for each flagged row and a description of how to fix it. For rows that failed during import rather than validation, download the error report by hovering over the row and selecting the <i class="fas fa-download" title="Download"></i> button on the **Import Users** page.
 
-For troubleshooting CSV import, review these common issues below.
+For troubleshooting CSV import, review these common issues in the following sections.
 
 ### Use email as `external_id`
 

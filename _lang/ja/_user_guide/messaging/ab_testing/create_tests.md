@@ -17,7 +17,7 @@ local_redirect: #optimizations
 
 ## ステップ 1:キャンペーンを作成する {#step-1-create-your-campaign}
 
-1. **Messaging** > **キャンペーン**に移動します。
+1. **メッセージング** > **キャンペーン**に移動します。
 2. **キャンペーンを作成**を選択し、多変量テストとABテストが可能なセクションからキャンペーンのチャネルを選択します。各メッセージングチャネルの詳細なドキュメントについては、[キャンペーンの作成]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign)を参照してください。
 
 ## ステップ 2:バリアントを作成する {#step-2-compose-your-variants}

@@ -69,7 +69,7 @@ You can view up to 100 usage reports at a time by selecting the checkboxes next 
 
 ## Logging custom events
 
-Custom events require additional setup. Refer to the list below for documentation about each platform, where you'll find information about the methods used to log custom events and how to add properties and quantities to your custom events.
+Custom events require additional setup. Refer to the following platform documentation for the methods used to log custom events and how to add properties and quantities to your custom events.
 
 {% details Expand for documentation by platform %}
 
@@ -116,7 +116,7 @@ Common use cases include:
 - Investigating a support issue for a specific user without setting up a data export.
 
 {% alert note %}
-Viewing the **Event History** tab requires both the **Search Users** and **View PII** user permissions because event properties can contain personal data. For more information, refer to [Company user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
+Viewing the **Event History** tab requires the **Search Users**, **View PII**, and **View User Event Properties** user permissions because event properties can contain personal data. For more information, refer to [Company user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 {% endalert %}
 
 ## Segmentation filters

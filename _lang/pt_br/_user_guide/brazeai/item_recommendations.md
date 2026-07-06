@@ -391,3 +391,29 @@ Sim, mas apenas após a próxima atualização programada. As recomendações ex
 ### Como posso fazer com que todas as recomendações que duram vários dias expirem de uma vez? {#how-can-i-make-all-recommendations-that-last-multiple-days-expire-at-once}
 
 Se você quiser expirar todas as recomendações de vários dias em uma data específica (para que todas essas recomendações ativas recebam novas previsões de uma vez), entre em contato com o suporte da Braze ou seu gerente de sucesso do cliente para obter assistência. Os especialistas em IA da Braze realizam isso manualmente para garantir o máximo desempenho do modelo.
+
+### O que acontece se eu atualizar o nome da propriedade de uma recomendação de item de IA ativa? {#what-happens-if-i-update-the-property-name-for-an-active-ai-item-recommendation}
+
+Quando você atualiza o nome da propriedade (caminho do ID do item) e seleciona **Salvar e criar**, a Braze inicia um trabalho de retreinamento em segundo plano que analisa os últimos seis meses de dados de interação usando o novo mapeamento.
+
+Enquanto o modelo está sendo retreinado, os usuários continuam vendo recomendações da versão anterior. As recomendações não mudam até que o novo modelo conclua o treinamento com sucesso. Isso significa:
+
+- Os usuários veem itens personalizados do modelo antigo (ou o fallback global se não tiverem recomendações específicas).
+- Não há tempo de inatividade ou lacuna nas recomendações durante o processo de retreinamento.
+- A transição do modelo antigo para o novo é transparente assim que o treinamento é concluído com sucesso.
+
+Os eventos com o caminho de ID de item antigo são efetivamente ignorados para o novo modelo. Apenas os eventos que usam o novo mapeamento de nome de propriedade são incluídos no retreinamento.
+
+### O que acontece se o trabalho de retreinamento falhar após a alteração do nome da propriedade? {#what-happens-if-the-retraining-job-fails-after-changing-the-property-name}
+
+{% alert important %}
+Se o trabalho de retreinamento falhar, toda a recomendação de item entrará em um estado desativado (não ativo). Como a Braze atualmente não faz fallback para o modelo treinado com sucesso mais recentemente em caso de falha no treinamento, qualquer Liquid que faça referência a essa recomendação falhará, e as mensagens associadas não serão enviadas.
+{% endalert %}
+
+Para reduzir esse risco, considere a seguinte abordagem:
+
+1. Crie uma nova recomendação de item com a configuração de nome de propriedade desejada.
+2. Verifique se o treinamento foi concluído com sucesso.
+3. Atualize seu envio de mensagens para fazer referência à nova recomendação em vez de modificar diretamente uma recomendação ativa.
+
+Essa abordagem permite que você teste a nova configuração sem arriscar interrupções nas mensagens que fazem referência à sua recomendação existente.
