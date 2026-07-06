@@ -2,18 +2,22 @@
 """
 Audit braze-docs glossaries against source-of-truth localization files.
 
-Compares scripts/glossaries/*.json against:
+``scripts/glossaries/*.json`` are synced from Phrase TMS term bases
+(``scripts/sync_glossaries_from_phrase.py``). This script compares those
+glossaries against in-product locale files to surface drift:
+
   - Platform dashboard locale files (dashboard/config/locales/*.{lang}.braze.json)
   - Android SDK strings (android-sdk-ui/src/main/res/values*/strings.xml)
   - Swift SDK strings (Sources/BrazeUI/Resources/Localization/*.lproj/*.strings)
   - GrapesJS locale files (src/i18n/locale/{lang}.js)
 
-With --fix, automatically updates glossary files, propagates new/updated
-terms into matching ``_lang/`` locale docs, and writes a PR-ready summary.
+With ``--fix``, updates glossary files from product repos and propagates
+changes into ``_lang/`` docs. **Deprecated for routine use** — prefer
+updating Phrase term bases and re-running the Phrase sync instead.
 
 Usage:
     python audit_glossaries.py [--platform-repo ../platform] [--output report.json]
-    python audit_glossaries.py --fix [--output report.json]
+    python audit_glossaries.py --fix [--output report.json]   # legacy; avoid in CI
     python audit_glossaries.py --fix --no-propagate-locales
 """
 
@@ -877,19 +881,26 @@ def run_audit(args):
     print(f"  Mismatches:  {total_mismatches}")
     print(f"  Missing:     {total_missing}")
 
+    gh_output = os.environ.get("GITHUB_OUTPUT")
+    if gh_output:
+        with open(gh_output, "a", encoding="utf-8") as handle:
+            handle.write(f"total_mismatches={total_mismatches}\n")
+            handle.write(f"total_missing={total_missing}\n")
+
     if fix_results:
         total_changes = fix_results["fixes_applied"] + fix_results["terms_added"]
         locale_files = locale_results["files_changed"] if locale_results else 0
-        gh_output = os.environ.get("GITHUB_OUTPUT")
         if gh_output:
-            with open(gh_output, "a") as f:
-                f.write(f"fixes_applied={fix_results['fixes_applied']}\n")
-                f.write(f"terms_added={fix_results['terms_added']}\n")
-                f.write(f"total_changes={total_changes}\n")
-                f.write(f"locale_files_changed={locale_files}\n")
+            with open(gh_output, "a", encoding="utf-8") as handle:
+                handle.write(f"fixes_applied={fix_results['fixes_applied']}\n")
+                handle.write(f"terms_added={fix_results['terms_added']}\n")
+                handle.write(f"total_changes={total_changes}\n")
+                handle.write(f"locale_files_changed={locale_files}\n")
         return 0
 
-    return 1 if total_mismatches > 0 or total_missing > 0 else 0
+    # Report-only runs treat mismatches as findings, not a failed process (CI
+    # must reach the create-pull-request step when drift exists).
+    return 0
 
 
 def main():

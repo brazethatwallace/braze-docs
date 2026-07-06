@@ -30,7 +30,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 
 {% details Explanation of message engagement event structure and platform values %}
 
-### Event structure
+## Event structure
 
 This event breakdown shows what type of information is generally included in a message engagement event. With a solid understanding of its components, your developers and business intelligence strategy team can use the incoming Currents event data to make data-driven reports and charts, and take advantage of other valuable data metrics.
 

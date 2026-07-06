@@ -50,6 +50,10 @@ Twice-yearly GitHub Actions (June 1 and December 1) scans `develop` for unrefere
 
 Twice-yearly GitHub Actions (June 1 and December 1, 14:00 ET) scans English docs for redundant image references via [`.github/workflows/image-curator-maintenance.yml`](.github/workflows/image-curator-maintenance.yml). Each run removes up to 15 high-confidence references (delete-image-only, dereferenced binary delete) and opens a **draft** `[IC]` pull request labeled `image pruning`. Manual vision review and medium-confidence batches use the [image-curator](.github/skills/image-curator/SKILL.md) skill (`/image-curator` from chat).
 
+## Translation glossaries (Phrase)
+
+`scripts/glossaries/*.json` are synced from Phrase TMS term bases (`scripts/sync_glossaries_from_phrase.py`). See [`scripts/glossaries/README.md`](scripts/glossaries/README.md). CI: [`.github/workflows/sync-glossaries-from-phrase.yml`](.github/workflows/sync-glossaries-from-phrase.yml) (requires `PHRASE_TMS_TOKEN` secret). Weekly drift vs platform/SDK repos: [`.github/workflows/audit-glossaries.yml`](.github/workflows/audit-glossaries.yml) (report only).
+
 ## Cursor rules (always on)
 
 - [`.cursor/rules/privacy-and-security.mdc`](.cursor/rules/privacy-and-security.mdc)

@@ -415,6 +415,14 @@ def ensure_standard_intro(content: str, guide: RepoGuide) -> str:
     return f"{build_standard_intro(guide)}\n{trimmed}"
 
 
+def ensure_page_h1(content: str, guide: RepoGuide) -> str:
+    trimmed = content.lstrip()
+    expected_h1 = f"# {guide.article_title}"
+    if trimmed.startswith(f"{expected_h1}\n") or trimmed == expected_h1:
+        return trimmed
+    return f"{expected_h1}\n\n{trimmed}"
+
+
 def convert_github_alerts_to_liquid(content: str) -> str:
     lines = content.splitlines()
     converted: List[str] = []
@@ -681,6 +689,7 @@ def apply_post_processing(content: str, guide: RepoGuide) -> str:
     normalized = remove_markdown_table_of_contents(normalized)
     normalized = strip_readme_preamble_before_sections(normalized)
     normalized = ensure_standard_intro(normalized, guide)
+    normalized = ensure_page_h1(normalized, guide)
     normalized = add_accessible_names_to_tables(normalized)
     normalized = collapse_excess_blank_lines(normalized)
     return normalized.rstrip() + "\n"
