@@ -352,3 +352,9 @@ Você deve ter um receptor para manipular e exibir cargas úteis push. Para noti
 {% alert note %}
 Para alguns provedores de notificações por push, a Braze precisa achatar os pares chave-valor para que possam ser interpretados corretamente. Para achatar pares chave-valor para um app Android específico, entre em contato com seu gerente de sucesso do cliente.
 {% endalert %}
+
+## Perguntas frequentes {#frequently-asked-questions}
+
+### Como encontrar usuários tratados como spam ou bloqueados para envio de mensagens? {#how-do-i-find-users-treated-as-spam-or-blocked-from-messaging}
+
+A Braze não fornece uma lista de spam dedicada no dashboard. A Braze bloqueia usuários individuais com mais de cinco milhões de sessões ("usuários fictícios") e não ingere mais seus eventos de SDK. Se um identificador estiver bloqueado, [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) pode retornar o erro `"provided external_id is blacklisted and disallowed"`. Essa mensagem é reproduzida literalmente da resposta da API. Para encontrar perfis afetados, crie um [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) com o filtro **Contagem de sessões** definido como **mais de 5.000.000**, exporte o Segment como CSV e verifique os campos do perfil em **Engajamento** > **Pesquisar usuários** ou com o endpoint [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier).

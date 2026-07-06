@@ -53,7 +53,7 @@ Les profils utilisateur en double ne peuvent pas être récupérés après la fu
 
 Lorsque vous fusionnez des utilisateurs en double en masse, Braze recherche les profils ayant des identifiants correspondants (tels qu'une adresse e-mail) et conserve un seul profil. Braze donne d'abord la priorité aux profils possédant un `external_id`, puis applique vos paramètres de **résolution des égalités** : **Resolve ties using** et **Prioritization**. S'il n'existe aucun profil avec un `external_id`, Braze utilise **Resolve ties using** et **Prioritization** sur les profils sans `external_id`. Braze ne fusionne les utilisateurs que lorsque ces paramètres identifient un profil à conserver. Par exemple, si **Resolve ties using** est défini sur **Updated date** et que les deux profils ont le même horodatage de dernière mise à jour, Braze ne peut pas résoudre l'égalité, et ces utilisateurs ne sont donc pas fusionnés.
 
-### Étape 1 : Accéder à Gérer l'audience {#step-1-go-to-manage-audience}
+### Étape 1 : Accéder à Manage Audience {#step-1-go-to-manage-audience}
 
 Dans le tableau de bord de Braze, sélectionnez **Audience** > **Manage Audience**.
 
@@ -67,16 +67,22 @@ Pour prévisualiser vos résultats avant de fusionner vos doublons, sélectionne
 
 Braze génère votre prévisualisation et l'envoie à votre adresse e-mail sous forme de fichier CSV.
 
+Le fichier CSV inclut une colonne **Created from** qui indique comment chaque profil a été créé initialement (par exemple via le [SDK]({{site.baseurl}}/developer_guide/sdk_integration), la [REST API]({{site.baseurl}}/api/basics) ou l'[importation CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)). Cela vous aide à comprendre l'origine du profil avant de fusionner les doublons.
+
+Lorsque vous examinez les lignes en double, comparez **Created from** avec les identifiants tels que `external_id`, l'adresse e-mail et le numéro de téléphone. Utilisez ce contexte pour décider quel profil doit être conservé comme profil principal avant de sélectionner **Merge all duplicates**.
+
+Le champ **Created from** est particulièrement utile lorsque des profils en double contiennent des valeurs similaires mais proviennent de chemins d'ingestion différents. Il fournit à votre équipe davantage de contexte pour les décisions de fusion et contribue à réduire les fusions accidentelles de profils que vous préféreriez garder séparés en attendant un examen plus approfondi.
+
 
 Dans l'exemple suivant, Braze utilise l'ID externe de l'utilisateur pour signaler les profils en double et identifier celui à conserver. Si ces profils sont fusionnés en masse, Braze utilisera le profil possédant un ID externe comme nouveau profil principal de l'utilisateur.
 
 {% tabs local %}
 {% tab example csv file %}
-| Adresse e-mail   | ID externe  | Numéro de téléphone | ID Braze              | Identifiant pour la règle | Profil à conserver | Profil à fusionner |
-| ---------------- | ----------- | ------------------- | --------------------- | ------------------------- | ------------------ | ------------------ |
-| alex@company.com | A8i3mkd99   | (555) 123-4567      | 65fcaa547f470494d1370 | email                     | TRUE               | FALSE              |
-| alex@company.com |             | (555) 987-6543      | 65fcaa547f47d004d1348 | email                     | FALSE              | TRUE               |
-| alex@company.com |             | (555) 321-0987      | 65fcaa547f47d0049135c | email                     | FALSE              | TRUE               |
+| Adresse e-mail | ID externe | Numéro de téléphone | ID Braze | Identifiant pour la règle | Créé depuis | Profil à conserver | Profil à fusionner |
+| ---------------- | ----------- | -------------- | --------------------- | ------------------- | ------------ | --------------- | ---------------- |
+| jane.doe@example.com | 123-external-id | 555 123-4567 | example-id-12345 | email | sdk | TRUE | FALSE |
+| john.doe@example.com | | 555 123-4567 | example-id-12346 | email | rest | FALSE | TRUE |
+| jordan.doe@example.com | | 555 123-4567 | example-id-12347 | email | csv | FALSE | TRUE |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 2 : Prévisualiser les résultats (facultatif)" }
 {% endtab %}
 {% endtabs %}

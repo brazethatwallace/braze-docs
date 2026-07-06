@@ -391,3 +391,29 @@ Sí, pero solo después de la próxima actualización programada. Las recomendac
 ### ¿Cómo puedo hacer que todas las recomendaciones que duran varios días caduquen a la vez? {#how-can-i-make-all-recommendations-that-last-multiple-days-expire-at-once}
 
 Si deseas que todas las recomendaciones de varios días caduquen en una fecha específica (para que todas las recomendaciones activas reciban nuevas predicciones a la vez), ponte en contacto con el soporte de Braze o con tu administrador del éxito del cliente para obtener ayuda. Los expertos de BrazeAI realizan esta tarea manualmente para garantizar el máximo rendimiento del modelo.
+
+### ¿Qué ocurre si actualizo el nombre de la propiedad de una recomendación de elementos de IA activa? {#what-happens-if-i-update-the-property-name-for-an-active-ai-item-recommendation}
+
+Cuando actualizas el nombre de la propiedad (ruta del ID del elemento) y seleccionas **Guardar y construir**, Braze inicia un trabajo de reentrenamiento en segundo plano que analiza los últimos seis meses de datos de interacción utilizando el nuevo mapeado.
+
+Mientras el modelo se reentrena, los usuarios siguen viendo las recomendaciones de la versión anterior. Las recomendaciones no cambian hasta que el nuevo modelo finaliza el entrenamiento con éxito. Esto significa:
+
+- Los usuarios ven elementos personalizados del modelo anterior (o la alternativa global si no tienen recomendaciones específicas).
+- No hay tiempo de inactividad ni vacíos en las recomendaciones durante el proceso de reentrenamiento.
+- La transición del modelo anterior al nuevo es fluida una vez que el entrenamiento se completa con éxito.
+
+Los eventos con la ruta de ID de elemento anterior se ignoran para el nuevo modelo. Solo se incluyen en el reentrenamiento los eventos que utilizan el nuevo mapeado de nombre de propiedad.
+
+### ¿Qué ocurre si el trabajo de reentrenamiento falla después de cambiar el nombre de la propiedad? {#what-happens-if-the-retraining-job-fails-after-changing-the-property-name}
+
+{% alert important %}
+Si el trabajo de reentrenamiento falla, toda la recomendación de elementos entra en un estado deshabilitado (no activo). Dado que Braze actualmente no recurre al último modelo entrenado con éxito en caso de fallo del entrenamiento, cualquier Liquid que haga referencia a esta recomendación fallará y los mensajes asociados no se enviarán.
+{% endalert %}
+
+Para reducir este riesgo, considera el siguiente enfoque:
+
+1. Crea una nueva recomendación de elementos con la configuración de nombre de propiedad deseada.
+2. Verifica que el entrenamiento se complete con éxito.
+3. Actualiza tu mensajería para hacer referencia a la nueva recomendación en lugar de modificar directamente una recomendación activa.
+
+Este enfoque te permite probar la nueva configuración sin arriesgar la interrupción de los mensajes que hacen referencia a tu recomendación existente.

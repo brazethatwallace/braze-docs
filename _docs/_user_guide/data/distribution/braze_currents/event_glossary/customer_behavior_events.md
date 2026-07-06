@@ -26,7 +26,7 @@ Contact your Braze representative or open a [support ticket]({{site.baseurl}}/br
 
 {% details Explanation of customer behavior and user event structure and platform values %}
 
-### Event structure
+## Event structure
 
 This customer behavior and user events breakdown shows what type of information is generally included in a customer behavior or user event. With a solid understanding of its components, your developers and business intelligence strategy team can use the incoming Currents event data to make data-driven reports and charts, and take advantage of other valuable data metrics.
 

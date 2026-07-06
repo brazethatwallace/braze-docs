@@ -106,7 +106,7 @@ SurvicateとBrazeの統合はリアルタイムのデータ同期を提供する
 ![+ Create new surveyをクリックし、作成方法を選択する]({% image_buster /assets/img/survicate/survicate_8.gif %})
 
 {: start="2"}
-2. Brazeアカウントに移動し、**Messaging** > **キャンペーン** > **Create キャンペーン** > **In-App Message**の順に選択して、Brazeアプリ内メッセージアンケートを起動します：
+2. Brazeアカウントに移動し、**メッセージング** > **キャンペーン** > **Create キャンペーン** > **In-App Message**の順に選択して、Brazeアプリ内メッセージアンケートを起動します：
 ![Brazeアプリ内メッセージアンケートを起動する]({% image_buster /assets/img/survicate/survicate_9.gif %})
 
 ### 従来のエディターでBrazeアプリ内メッセージアンケートを起動する {#launch-your-braze-in-app-messenger-survey-via-the-traditional-editor}

@@ -169,6 +169,10 @@ O campo `alias_name` diferencia maiúsculas de minúsculas. Uma solicitação qu
 Para saber mais sobre `alias_name` e `alias_label`, consulte nossa documentação sobre [aliases de usuário]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).
 {% endalert %}
 
+### Por que minha solicitação de identificação retorna sucesso, mas o perfil não foi mesclado? {#why-does-my-identify-request-return-success-but-the-profile-did-not-merge}
+
+`201 Created` com `message: success` significa que aceitamos a solicitação. Isso não garante que cada alias ou e-mail na carga útil correspondeu a um perfil existente — diferenças de maiúsculas e minúsculas em `alias_name`, perfis duplicados ou nossas regras de priorização podem resultar em nenhuma mesclagem visível, mesmo que a chamada tenha sido bem-sucedida. Verifique se a capitalização de `alias_name` corresponde exatamente aos valores armazenados, confira se há perfis duplicados com [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) e revise a [`prioritization`](#identifying-users-by-email) ao usar `emails_to_identify`.
+
 ## Resposta {#response}
 
 ```json

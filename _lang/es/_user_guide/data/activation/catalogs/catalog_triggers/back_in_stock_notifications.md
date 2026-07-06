@@ -13,9 +13,9 @@ description: "Aprende a configurar notificaciones de reposición de existencias 
 
 Puedes configurar un evento personalizado para utilizarlo como evento de suscripción, como por ejemplo un evento `product_clicked`. Este evento debe contener una propiedad del ID del artículo (ID de artículos del catálogo). Te sugerimos que incluyas un nombre de catálogo, pero no es obligatorio. También deberás proporcionar el nombre de un campo de cantidad de inventario, que debe ser de tipo de datos numérico.
 
-Ten en cuenta que el stock de un artículo del catálogo debe ser cero para que un usuario pueda suscribirse a él correctamente. Cuando un artículo tiene una cantidad en inventario superior a cero, Braze buscará todos los usuarios suscritos a ese artículo y enviará un evento personalizado que podrás utilizar para desencadenar una Campaign o Canvas.
+Ten en cuenta que el stock de un artículo del catálogo debe ser cero para que un usuario pueda suscribirse a él correctamente. Cuando un artículo tiene una cantidad en inventario superior a cero, Braze buscará todos los usuarios suscritos a ese artículo y enviará un evento personalizado que podrás utilizar para desencadenar una campaña o Canvas.
 
-Las propiedades del evento se envían junto con tu usuario, por lo que puedes incluir los detalles del artículo en la plantilla de la Campaign o Canvas que lo envía.
+Las propiedades del evento se envían junto con tu usuario, por lo que puedes incluir los detalles del artículo en la plantilla de la campaña o Canvas que lo envía.
 
 ## Configurar las notificaciones de reposición de existencias {#setting-up-back-in-stock-notifications}
 
@@ -57,7 +57,7 @@ Los desencadenantes de reposición de existencias y bajada de precios utilizan e
 4. Selecciona **Guardar** y continúa en la página **Configuración** del catálogo.
 5. Establece tu regla de notificación. Hay dos opciones:
     - **Notificar a todos los usuarios suscritos** notifica a todos los clientes que están esperando cuando el artículo vuelve a estar disponible.
-    - **Establecer límites de notificación** notifica a un número determinado de clientes según el periodo de notificación que hayas configurado. Braze notificará al número especificado de clientes en incrementos hasta que no haya más clientes a los que notificar o hasta que el artículo se agote. La tasa de notificación no puede superar los 10.000 usuarios por minuto.
+    - **Establecer límites de notificación** notifica a un número determinado de clientes cada 10 minutos. Braze notificará al número especificado de clientes en incrementos hasta que no haya más clientes a los que notificar o hasta que el artículo se agote. La tasa de notificación no puede superar los 10.000 usuarios por minuto.
 6. Establece el **Campo de inventario en el catálogo**. Este campo del catálogo se utilizará para determinar si el artículo está agotado. El campo debe ser de tipo numérico.
 7. Selecciona **Guardar configuración**.
 

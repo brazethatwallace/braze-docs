@@ -86,6 +86,23 @@ These fire for `_docs/**/*.md`, `_includes/**/*.md`, and `_includes/**/*.html` c
 
 ---
 
+### 1.3.3 Sensory Characteristics — Spatial Directionals
+
+**Plain English:** Instructions must not rely on where content appears on the page ("see the table below", "use the operators above"). Screen reader users and mobile readers may not experience the same visual layout, so name the section, tab, or anchor instead.
+
+**What to check:**
+- Words such as `above`, `below`, `to the left`, `on the right`, `left of`, and `right of` when they point readers to other content by position
+- Allow numeric comparisons: `below the input field`, `above the threshold`
+- Allow text-direction terms: `left-to-right`, `right-to-left`, `bi-directional`
+
+**Check mechanism:** `scripts/check_content_accessibility.py` (pattern match with allowlist).
+
+**Auto-fixable:** `Ask (medium confidence)` — replacement wording depends on document structure; author names the target section or anchor.
+
+**Historical context:** Added during filter-operators documentation work (2026) to prevent layout-only cross-references in `_docs/`.
+
+---
+
 ### 4.1.2 Name, Role, Value — Inline Iframes (Content)
 
 **Plain English:** Embedded `<iframe>` elements must have a `title` attribute so screen readers can announce what the frame contains before the user enters it. This applies to iframes embedded directly in markdown files (inline HTML).

@@ -153,7 +153,7 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 | alias_label | (string) |
 | braze_id | （文字列、省略可能）SDKによってユーザープロファイルが認識されると、関連付けられた`braze_id`を使用して匿名のユーザープロファイルが作成されます。`braze_id`はBrazeによって自動的に割り当てられ、編集できません。また、デバイスによって異なります。 |
 | country | （文字列）国コードは[ISO-3166-1 alpha-2規格](http://en.wikipedia.org/wiki/ISO_3166-1)でBrazeに渡す必要があります。APIは、異なるフォーマットで受け取った国をマッピングするために最善の努力をします。たとえば、「Australia」は「AU」にマッピングされる場合があります。ただし、入力が指定された[ISO-3166-1 alpha-2規格](http://en.wikipedia.org/wiki/ISO_3166-1)と一致しない場合、国の値は`NULL`に設定されます。<br><br>CSVインポートまたはAPIによってユーザーに`country`を設定すると、BrazeはSDKを介してこの情報を自動的にキャプチャできなくなります。 |
-| current_location | (object) {"longitude": -73.991443, "latitude": 40.753824} の形式 |
+| current_location | (object) {"longitude": -73.991443, "latitude": 40.753824}の形式 |
 | date_of_first_session | （ユーザーが初めてアプリを使用した日付）ISO 8601形式または次のいずれかの形式の文字列：<br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` |
 | date_of_last_session | （ユーザーが最後にアプリを使用した日付）ISO 8601形式または次のいずれかの形式の文字列：<br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY`  |
 | dob | （生年月日）「YYYY-MM-DD」の形式の文字列。例：1980-12-21。 |
@@ -352,3 +352,9 @@ Braze SDKの統合が完了する前にAndroidプッシュ通知をユーザー�
 {% alert note %}
 一部のプッシュ通知プロバイダーでは、Brazeがキーと値のペアを適切に解釈できるようにフラット化する必要があります。特定のAndroidアプリのキーと値のペアをフラット化するには、カスタマーサクセスマネージャーにお問い合わせください。
 {% endalert %}
+
+## よくある質問 {#frequently-asked-questions}
+
+### スパムとして扱われたユーザーやメッセージングからブロックされたユーザーを見つけるにはどうすればよいですか？ {#how-do-i-find-users-treated-as-spam-or-blocked-from-messaging}
+
+Brazeはダッシュボードに専用のスパムリストを提供していません。Brazeは、500万回を超えるセッションを持つ個々のユーザー（「ダミーユーザー」）をブロックし、そのSDKイベントの取り込みを停止します。識別子がブロックされている場合、[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)は`"provided external_id is blacklisted and disallowed"`というエラーを返すことがあります。この文言はAPIレスポンスからそのまま引用されています。影響を受けるプロファイルを見つけるには、**セッション数**フィルターを**5,000,000より多い**に設定した[セグメント]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)を作成し、セグメントをCSVとしてエクスポートして、**エンゲージメント** > **ユーザーを検索**または[`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)エンドポイントでプロファイルフィールドを照合してください。

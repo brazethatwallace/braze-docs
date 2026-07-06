@@ -1,0 +1,38 @@
+{
+  "de": {
+    "uid": "uz2e25K6ecrCdB1B0TWy1l",
+    "name": "German (Germany) Glossary",
+    "source_lang": "en_us",
+    "target_lang": "de_de"
+  },
+  "es": {
+    "uid": "SOPzPtpkRrbv359XimJcz2",
+    "name": "Spanish Universal Glossary",
+    "source_lang": "en_us",
+    "target_lang": "es"
+  },
+  "fr": {
+    "uid": "0H9EnZm78djh1k7CVDMrnd",
+    "name": "French (France) Glossary",
+    "source_lang": "en_us",
+    "target_lang": "fr_fr"
+  },
+  "ja": {
+    "uid": "M1EztFSIgAkY6iff5NG0u2",
+    "name": "Japanese Glossary",
+    "source_lang": "en_us",
+    "target_lang": "ja"
+  },
+  "ko": {
+    "uid": "5fR8UPEMNPV21WgMIeHKI7",
+    "name": "Korean Glossary",
+    "source_lang": "en_us",
+    "target_lang": "ko"
+  },
+  "pt-br": {
+    "uid": "coOSgg2h7mH32hCqWPzzd1",
+    "name": "Portuguese (Brazil) Glossary",
+    "source_lang": "en_us",
+    "target_lang": "pt_br"
+  }
+}

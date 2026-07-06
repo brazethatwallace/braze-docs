@@ -140,12 +140,12 @@ Le suivi des clics s'applique uniquement aux liens commençant par `http://` ou 
 ## En-tête list-unsubscribe {#list-unsubscribe}
 
 {% alert note %}
-Depuis le 15 février 2024, les nouvelles entreprises ont l'en-tête list-unsubscribe (avec désabonnement en un clic) activé par défaut.
+Depuis le 15 juin 2026, lorsque l'en-tête de désabonnement en un clic est configuré pour s'appliquer à un groupe d'abonnement spécifique, Braze n'inclut plus l'en-tête mailto dans les e-mails. Les utilisateurs qui se désabonnent via l'en-tête list-unsubscribe sont désabonnés uniquement de ce groupe d'abonnement spécifique, et non globalement.
 {% endalert %}
 
 L'utilisation d'un en-tête list-unsubscribe permet à vos destinataires de se désabonner facilement des e-mails marketing en affichant un bouton **Se désabonner** dans l'interface de la boîte de réception, et non dans le corps du message.
 
-Les envois de test n'incluent généralement **pas** les en-têtes list-unsubscribe. L'affichage de l'en-tête en production dépend du fournisseur de messagerie et est basé sur la réputation — une meilleure réputation d'expéditeur améliore généralement la visibilité.
+Les envois de test n'incluent généralement pas les en-têtes list-unsubscribe. L'affichage de l'en-tête en production dépend du fournisseur de messagerie et est basé sur la réputation — une meilleure réputation d'expéditeur améliore généralement la visibilité.
 
 ![Interface de la boîte de réception d'un client de messagerie avec une option Se désabonner à côté du message, où le list-unsubscribe apparaît en dehors du corps du message.]({% image_buster /assets/img_archive/list_unsub_img1.png %}){: style="float:right;max-width:60%;margin-left:15px;"}
 

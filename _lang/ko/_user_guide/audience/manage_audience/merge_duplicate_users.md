@@ -7,7 +7,7 @@ page_order: 4
 
 # 중복 사용자 병합 {#merge-duplicate-users}
 
-> Campaign(캠페인)과 Canvases의 효과를 극대화할 수 있도록 중복 사용자를 찾고 병합하는 방법을 알아보세요.
+> Campaign과 Canvases의 효과를 극대화할 수 있도록 중복 사용자를 찾고 병합하는 방법을 알아보세요.
 
 ## REST API: 사용자 식별 및 병합 {#rest-api-identify-and-merge-users}
 
@@ -67,16 +67,22 @@ Braze 대시보드에서 **오디언스** > **오디언스 관리**를 선택합
 
 Braze가 미리보기를 생성하여 이메일 주소로 CSV 파일로 전송합니다.
 
+CSV에는 각 프로필이 처음 생성된 방식(예: [SDK]({{site.baseurl}}/developer_guide/sdk_integration), [REST API]({{site.baseurl}}/api/basics), [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import))을 보여주는 **Created from** 열이 포함되어 있습니다. 이를 통해 중복 항목을 병합하기 전에 프로필의 소스를 파악할 수 있습니다.
+
+중복 행을 검토할 때 **Created from**을 `external_id`, 이메일 주소, 전화번호와 같은 식별자와 비교하세요. 이 컨텍스트를 활용하여 **Merge all duplicates**를 선택하기 전에 어떤 프로필을 기본 프로필로 유지할지 결정하세요.
+
+**Created from** 필드는 중복 프로필이 유사한 값을 포함하지만 서로 다른 수집 경로에서 생성된 경우 특히 유용합니다. 이 필드는 팀에 병합 결정에 대한 추가 컨텍스트를 제공하고, 추가 검토가 필요할 때까지 별도로 유지하고 싶은 프로필의 실수로 인한 병합을 줄이는 데 도움이 됩니다.
+
 
 다음 예시에서 Braze는 사용자의 외부 ID를 사용하여 중복 프로필을 표시하고 유지할 프로필을 식별합니다. 이러한 프로필이 일괄 병합되면 Braze는 외부 ID가 있는 프로필을 사용자의 새 기본 프로필로 사용합니다.
 
 {% tabs local %}
-{% tab example csv file %}
-| Email Address    | External ID | Phone Number   | Braze ID              | Identifier for rule | Profile to keep | Profile to merge |
-| ---------------- | ----------- | -------------- | --------------------- | ------------------- | --------------- | ---------------- |
-| alex@company.com | A8i3mkd99   | (555) 123-4567 | 65fcaa547f470494d1370 | email               | TRUE            | FALSE            |
-| alex@company.com |             | (555) 987-6543 | 65fcaa547f47d004d1348 | email               | FALSE           | TRUE             |
-| alex@company.com |             | (555) 321-0987 | 65fcaa547f47d0049135c | email               | FALSE           | TRUE             |
+{% tab 예시 CSV 파일 %}
+| Email Address    | External ID | Phone Number   | Braze ID              | Identifier for rule | Created from | Profile to keep | Profile to merge |
+| ---------------- | ----------- | -------------- | --------------------- | ------------------- | ------------ | --------------- | ---------------- |
+| jane.doe@example.com   | 123-external-id | 555 123-4567 | example-id-12345 | email               | sdk          | TRUE            | FALSE            |
+| john.doe@example.com   |                 | 555 123-4567 | example-id-12346 | email               | rest         | FALSE           | TRUE             |
+| jordan.doe@example.com |                 | 555 123-4567 | example-id-12347 | email               | csv          | FALSE           | TRUE             |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2단계: 결과 미리보기(선택 사항)" }
 {% endtab %}
 {% endtabs %}

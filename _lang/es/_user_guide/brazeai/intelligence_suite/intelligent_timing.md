@@ -40,8 +40,8 @@ Esta sección describe cómo configurar Intelligent Timing para tus campañas y 
 ### Paso 1: Añadir Intelligent Timing {#step-1-add-intelligent-timing}
 
 1. Crea una campaña y redacta tu mensaje.
-2. Selecciona **Scheduled Delivery** como tipo de entrega.
-3. En **Time-Based Scheduling Options**, selecciona **Intelligent Timing**.
+2. Selecciona **Entrega programada** como tipo de entrega.
+3. En **Opciones de planificación por tiempo**, selecciona **Intelligent Timing**.
 4. Establece la frecuencia de entrada. Para envíos únicos, selecciona **Once** y elige una fecha de envío. Para envíos recurrentes, selecciona **Daily**, **Weekly** o **Monthly** y configura las opciones de recurrencia. Consulta las [consideraciones](#considerations) para obtener más información.
 5. Opcionalmente, configura las [horas tranquilas](#quiet-hours).
 6. Especifica una [hora alternativa](#campaign-fallback). Este es el momento en el que se envía el mensaje si el perfil de usuario no tiene ningún evento relevante para calcular el momento óptimo.
@@ -53,10 +53,10 @@ Esta sección describe cómo configurar Intelligent Timing para tus campañas y 
 Utiliza las horas tranquilas para evitar que se envíen mensajes durante determinadas horas. Esto resulta útil cuando deseas evitar enviar mensajes durante las primeras horas de la mañana o durante la noche, al tiempo que permites que Intelligent Timing determine la mejor franja horaria para la entrega.
 
 {% alert note %}
-La opción «Horas tranquilas» ha sustituido a la configuración **Only send within specific hours**. En lugar de elegir cuándo se pueden enviar los mensajes, ahora eliges cuándo no se deben enviar. Por ejemplo, para enviar mensajes entre las 4 p. m. y las 6 p. m., configura las horas tranquilas desde las 6 p. m. hasta las 4 p. m. del día siguiente.
+La opción «Horas tranquilas» ha sustituido a la configuración **Solo enviar en horas específicas**. En lugar de elegir cuándo se pueden enviar los mensajes, ahora eliges cuándo no se deben enviar. Por ejemplo, para enviar mensajes entre las 4 p. m. y las 6 p. m., configura las horas tranquilas desde las 6 p. m. hasta las 4 p. m. del día siguiente.
 {% endalert %}
 
-1. Selecciona **Enable Quiet Hours**.
+1. Selecciona **Habilitar horas tranquilas**.
 2. Selecciona la hora de inicio y finalización en la que **no** se enviarán mensajes.
 
 ![La opción de horas tranquilas activada con hora de inicio y finalización configurada para bloquear la entrega de mensajes durante la noche]({% image_buster /assets/img/intelligent_timing/quiet_hours.png %})
@@ -71,8 +71,8 @@ Para obtener más información, consulta [Horas tranquilas]({{site.baseurl}}/use
 
 Para ver una estimación de cuántos usuarios recibirán el mensaje en cada hora del día, utiliza el gráfico de vista previa (solo campañas).
 
-1. Añade segmentos o filtros en el paso Audiencias objetivo.
-2. En la sección **Preview Delivery Times for** (que aparece tanto en los pasos Audiencias objetivo como en Programar entrega), selecciona tu canal.
+1. Añade segmentos o filtros en el paso **Público objetivo**.
+2. En la sección **Preview Delivery Times for** (que aparece tanto en los pasos **Público objetivo** como en **Programar entrega**), selecciona tu canal.
 3. Haz clic en **Refresh Data**.
 
 ![Gráfico de vista previa de entregas para push de Android que muestra que la hora de mayor interacción es entre las 12 y las 14 h, y que la hora más popular para usar la aplicación es a las 14 h.]({% image_buster /assets/img/intel-timing-preview.png %})
@@ -115,7 +115,7 @@ Las horas tranquilas actúan como una ventana de no envío. Intelligent Timing s
 
 Para configurar las horas tranquilas:
 
-1. Al configurar Intelligent Timing, selecciona **Enable Quiet Hours**.
+1. Al configurar Intelligent Timing, selecciona **Habilitar horas tranquilas**.
 2. Introduce la hora de inicio y fin de la ventana de horas tranquilas.
 
 ### Paso 4: Elige una hora alternativa {#campaign-fallback}
@@ -130,8 +130,8 @@ Elige una hora alternativa que se utilizará si el perfil de usuario no tiene ni
 
 Para ver una estimación del número de usuarios que recibirán el mensaje en cada hora del día, utiliza el gráfico de vista previa:
 
-1. Añade segmentos o filtros en el paso **Target Audiences**.
-2. En la sección **Preview Delivery Times for** (que aparece tanto en los pasos **Target Audiences** como en **Schedule Delivery**), selecciona tu canal.
+1. Añade segmentos o filtros en el paso **Público objetivo**.
+2. En la sección **Preview Delivery Times for** (que aparece tanto en los pasos **Público objetivo** como en **Programar entrega**), selecciona tu canal.
 3. Selecciona **Refresh Data**.
 
 La vista previa del gráfico muestra cada hora del día en tu hora local. Las etiquetas no están configuradas en una zona horaria global única.
@@ -147,7 +147,7 @@ El gráfico muestra en azul a los usuarios que tuvieron eventos relevantes para 
 
 ### Paso 1: Añadir Intelligent Timing
 
-En tu Canvas, añade un [paso de mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step), luego ve a **Delivery Settings** y selecciona **Using Intelligent Timing**.
+En tu Canvas, añade un [paso de mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step), luego ve a **Configuración de entrega** y selecciona **Usar Intelligent Timing**.
 
 Los mensajes se enviarán a los usuarios que hayan entrado en el paso ese día a su hora local óptima. Sin embargo, si su momento óptimo ya ha pasado ese día, se entregará a la hora óptima durante el día siguiente. Los pasos de mensaje que se dirigen a varios canales pueden enviar o intentar enviar mensajes en momentos diferentes para canales diferentes. Cuando se intenta enviar el primer mensaje en un paso de mensaje, se avanza automáticamente a todos los usuarios.
 
@@ -303,3 +303,7 @@ Sí, las aperturas de máquina son filtradas por Intelligent Timing, por lo que 
 #### ¿Cómo puedo asegurarme de que Intelligent Timing funciona lo mejor posible? {#how-can-i-make-sure-intelligent-timing-works-as-well-as-possible}
 
 Intelligent Timing utiliza el historial individual de interacción con mensajes de cada usuario en cualquier momento en que haya recibido mensajes. Antes de utilizar Intelligent Timing, asegúrate de que has enviado mensajes a los usuarios a distintas horas del día. De ese modo, puedes «muestrear» cuándo puede ser el mejor momento para cada usuario. Un muestreo inadecuado de las distintas horas del día puede hacer que Intelligent Timing elija una hora de envío que no sea la óptima para un usuario.
+
+#### ¿Cómo habilito Intelligent Timing en un paso de Canvas? {#how-do-i-enable-intelligent-timing-on-a-canvas-step}
+
+En Canvas, añade o abre un [paso de mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step), ve a **Configuración de entrega** y selecciona **Usar Intelligent Timing**. Según las indicaciones de configuración de Canvas en este artículo, incluye un [paso de retraso]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) de al menos dos días naturales entre la entrada al Canvas y ese mensaje para que Intelligent Timing tenga un historial de interacción adecuado que evaluar.
