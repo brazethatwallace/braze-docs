@@ -16,11 +16,13 @@ channel:
 
 ## Start here: Match your symptom
 
+Find the behavior you're seeing in the table, then follow that section's steps. If you're not sure which section applies, use the [standard investigation path](#standard-investigation-path).
+
 | Symptom | Go to |
 | --- | --- |
-| Custom scheme link opens app but wrong screen | [Custom scheme deep link doesn't open the correct view](#custom-scheme-deep-link-doesnt-open-the-correct-view) |
+| Custom scheme link opens app but wrong screen | [Custom scheme deep link doesn't open the correct view](#custom-scheme-deep-link-does-not-open-the-correct-view) |
 | Universal link opens Safari instead of app | [Universal link opens in Safari instead of the app](#universal-link-opens-in-safari-instead-of-the-app) |
-| Email link doesn't open the app | [Deep link from email doesn't open the app](#deep-link-from-email-doesnt-open-the-app) |
+| Email link doesn't open the app | [Deep link from email doesn't open the app](#deep-link-from-email-does-not-open-the-app) |
 | Works from push but not IAM (or vice versa) | [Deep link works from push but not from in-app messages](#deep-link-works-from-push-but-not-from-in-app-messages-or-vice-versa) |
 | "Open Web URL Inside App" shows blank WebView | ["Open Web URL Inside App" shows a blank or broken page](#open-web-url-inside-app-shows-a-blank-or-broken-page) |
 | Using Branch as linking provider | [Troubleshooting Branch with Braze](#branch) |
@@ -29,14 +31,16 @@ channel:
 
 ## Standard investigation path
 
-1. Test the link **outside Braze** first (Terminal `xcrun simctl openurl` for custom schemes, or Notes app on a physical device for universal links).
+Use this workflow for every deep linking incident. Start at step 1.
+
+1. Test the link outside Braze. For custom schemes, run `xcrun simctl openurl booted "<URL>"` in Terminal (for example, `xcrun simctl openurl booted "myapp://products/123"`). For universal links, paste the URL into the Notes app on a physical device and tap it.
 2. [Enable verbose logging]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) and reproduce the issue. Look for `Opening '<URL>':` entries with `channel`, `useWebView`, and `isUniversalLink`.
-3. For universal links, validate your **AASA file** and **Associated Domains** entitlement.
-4. For email links, confirm the **click-tracking domain** hosts a valid AASA file.
+3. For universal links, validate your AASA file and Associated Domains entitlement.
+4. For email links, confirm the click-tracking domain hosts a valid AASA file.
 5. If you implement `BrazeDelegate.braze(_:shouldOpenURL:)`, verify it handles links consistently across channels.
 6. If the issue persists, contact [Braze Support]({{site.baseurl}}/braze_support) with verbose logs and the link URL.
 
-## Custom scheme deep link doesn't open the correct view {#custom-scheme-deep-link-doesnt-open-the-correct-view}
+## Custom scheme deep link doesn't open the correct view {#custom-scheme-deep-link-does-not-open-the-correct-view}
 
 **Symptom:** A custom scheme deep link (for example, `myapp://products/123`) opens your app but doesn't navigate to the intended screen.
 
@@ -57,7 +61,7 @@ If a universal link (for example, `https://myapp.com/products/123`) opens in Saf
 
 ### Verify the Associated Domains entitlement
 
-In Xcode, go to your app target > **Signing & Capabilities** and check that `applinks:yourdomain.com` is listed under **Associated Domains**.
+In Xcode, go to your app target > **Signing & Capabilities** and check that `applinks:yourdomain.com` is listed in **Associated Domains**.
 
 ### Validate the AASA file
 
@@ -114,17 +118,17 @@ Universal link forwarding requires access to the application entitlements. When 
 
 If you long-press a universal link and select **Open**, iOS may "break" the universal link association for that domain. This is a known iOS behavior. To reset it, long-press the link again and select **Open in [App Name]**.
 
-## Deep link from email doesn't open the app {#deep-link-from-email-doesnt-open-the-app}
+## Deep link from email doesn't open the app {#deep-link-from-email-does-not-open-the-app}
 
-**Symptom:** A link in an email doesn't open your app via universal link.
+**Symptom:** A link in an email doesn't open your app through the universal link.
 
-Email links go through your ESP's click-tracking system, which wraps links in a tracking domain (for example, `https://click.yourdomain.com/...`). For universal links to work from email, you must configure the AASA file on your click-tracking domain — not just your primary domain.
+Email links go through your ESP's click-tracking system, which wraps links in a tracking domain (for example, `https://click.yourdomain.com/...`). For universal links to work from email, you must configure the AASA file on your click-tracking domain—not just your primary domain.
 
 ### Verify click-tracking domain AASA
 
 1. Identify your click-tracking domain from your ESP settings (SendGrid, SparkPost, or Amazon SES).
 2. Host the AASA file at `https://your-click-tracking-domain/.well-known/apple-app-site-association`.
-3. Ensure the AASA file on the click-tracking domain includes the same `appID` and valid path patterns.
+3. Confirm the AASA file on the click-tracking domain includes the same `appID` and valid path patterns.
 
 For ESP-specific setup instructions, see [Universal links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).
 
