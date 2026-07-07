@@ -358,7 +358,7 @@ Wenn die Validierung abgeschlossen ist, wird eines der folgenden Ergebnisse ange
 | **Validierung abgelaufen mit Problemen** | Die Validierung hat das Zeitlimit überschritten und Fehler in einigen der geprüften Zeilen gefunden. | Laden Sie den Teilbericht herunter, um die gefundenen Probleme zu prüfen, und wählen Sie dann **Import anyway** oder **Cancel**. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validierungsergebnisse" }
 
-![Die Zusammenfassungsseite mit dem Abschnitt „Probleme gefunden„, der die Anzahl der Zeilen mit Fehlern und Warnungen anzeigt, sowie Optionen zum Zurückgehen, Herunterladen des Fehlerberichts oder Starten des Imports.]({% image_buster /assets/img/csv_import/summary_page_validation_results.png %})
+![Die Zusammenfassungsseite mit dem Abschnitt „Probleme gefunden“, der die Anzahl der Zeilen mit Fehlern und Warnungen anzeigt, sowie Optionen zum Zurückgehen, Herunterladen des Fehlerberichts oder Starten des Imports.]({% image_buster /assets/img/csv_import/summary_page_validation_results.png %})
 
 #### Den Fehlerbericht verstehen {#understanding-the-error-report}
 
