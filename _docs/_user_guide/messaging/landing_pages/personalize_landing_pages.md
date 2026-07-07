@@ -67,6 +67,10 @@ Pre-filling only works for [identified users](#use-liquid-for-identified-and-ano
 - **Input fields:** Display their placeholder text.
 - **Checkboxes, radio buttons, and similar controls:** Remain unselected until the user interacts with them.
 
+{% alert warning %}
+If a user forwards a landing page link (from an email, SMS, or other message) to another person, the recipient sees the pre-filled data intended for the original user. This is the same security consideration that applies to unsubscribe links and preference center links. Consider the sensitivity of the data you're pre-filling and your audience's sharing behavior when using this feature.
+{% endalert %}
+
 ## Fetching external data with custom code
 
 You can use a **Custom Code** block to fetch data from external endpoints and display it in your landing page. This approach makes the request on the client side (in the user's browser), so the page loads quickly without server-side rendering delays.
