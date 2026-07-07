@@ -43,13 +43,13 @@ Confirm that you are in the segment you are targeting (if this is a live campaig
 
 ![List of Segments]({% image_buster /assets/img_archive/trouble2.png %})
 
-You can also confirm that the user is part of the segment by using **User Lookup** when creating a segment. **User Lookup** accepts only `external_id` or `braze_id`—not email addresses or phone numbers. To search by email, phone, push token, or user alias, use [**Search Users**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
+You can also confirm that the user is part of the segment by using **User Lookup** when creating a segment. **User Lookup** accepts only `external_id` or `braze_id`—not email addresses or phone numbers. To search by email, phone, push token, or user alias, see [**Search Users**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
 
 ![User Lookup section with a search field.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
 ### Push notification caps
 
-If your workspace uses global frequency capping, you might have already reached your cap for the period and not receive the push. In the dashboard, review [global frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#freq-cap-feat-over) and your limits. If the campaign follows frequency capping rules, the campaign details show how many users were affected.
+If your workspace uses global frequency capping, you might have already reached your cap for the period and not receive the push. In the dashboard, see [global frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#freq-cap-feat-over) and your limits. If the campaign follows frequency capping rules, the campaign details show how many users were affected.
 
 ![Campaign Details]({% image_buster /assets/img_archive/trouble3.png %})
 
@@ -162,7 +162,7 @@ If this is not the issue, there may be a problem with your push implementation.
 
 If links in your push notifications are opening in the app unexpectedly, it might be due to issues with your push notification integration or customization settings. Follow these steps to troubleshoot:
 
-1. **Review the push delegate implementation:** Ensure that the Braze push delegate is implemented correctly. For detailed instructions, refer to the integration guide for push notifications for your [platform]({{site.baseurl}}/developer_guide/home/).
+1. **Review the push delegate implementation:** Ensure that the Braze push delegate is implemented correctly. For detailed instructions, see the integration guide for push notifications for your [platform]({{site.baseurl}}/developer_guide/home/).
 2. **Inspect custom link handling:** Check if the app includes custom handling for all `https://` links. Custom configurations might override default behaviors. Collaborate with your development team to review and adjust these settings if necessary.
 3. **Verify iOS push registration:** For iOS, revisit step 1 of the push integration guide on [registering push notifications with APNs]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-1-register-for-push-notifications-with-apns). Ensure your delegate object is assigned synchronously before the app finishes launching. This step should be completed in the `application:didFinishLaunchingWithOptions:` method.
 4. **Test your integration:** After making adjustments, test the push notification behavior on both iOS and Android devices to confirm the issue is resolved.
