@@ -23,10 +23,10 @@ Find the behavior you're seeing in the table, then follow that section's steps. 
 | Custom scheme link opens app but wrong screen | [Custom scheme deep link doesn't open the correct view](#custom-scheme-deep-link-does-not-open-the-correct-view) |
 | Universal link opens Safari instead of app | [Universal link opens in Safari instead of the app](#universal-link-opens-in-safari-instead-of-the-app) |
 | Email link doesn't open the app | [Deep link from email doesn't open the app](#deep-link-from-email-does-not-open-the-app) |
-| Works from push but not IAM (or vice versa) | [Deep link works from push but not from in-app messages](#deep-link-works-from-push-but-not-from-in-app-messages-or-vice-versa) |
+| Works from push but not in-app message (or the other way around) | [Deep link works from push but not from in-app message](#deep-link-works-from-push-but-not-from-in-app-message) |
 | "Open Web URL Inside App" shows blank WebView | ["Open Web URL Inside App" shows a blank or broken page](#open-web-url-inside-app-shows-a-blank-or-broken-page) |
-| Using Branch as linking provider | [Troubleshooting Branch with Braze](#branch) |
-| Need general debugging steps | [General debugging tips](#general-debugging-tips) |
+| Branch link doesn't open the app or route correctly | [Troubleshooting Branch with Braze](#branch) |
+| Deep link fails with no clear cause | [General debugging tips](#general-debugging-tips) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Deep linking symptom" }
 
 ## Standard investigation path
@@ -142,7 +142,7 @@ To test:
 2. Long-press the link and inspect the URL — this is the click-tracking URL.
 3. Verify this domain has a valid AASA file.
 
-## Deep link works from push but not from in-app messages (or vice versa) {#deep-link-works-from-push-but-not-from-in-app-messages-or-vice-versa}
+## Deep link works from push but not from in-app message (or the other way around) {#deep-link-works-from-push-but-not-from-in-app-message}
 
 **Symptom:** The same deep link works from one Braze channel but not another.
 
