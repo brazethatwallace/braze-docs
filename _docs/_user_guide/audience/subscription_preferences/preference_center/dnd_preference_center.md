@@ -94,7 +94,7 @@ If you're using the Custom Code block in your preference center, inline frames m
 
 ## Step 5: Customize your confirmation page
 
-Don’t forget to customize the confirmation page! You can edit this page by selecting **Confirmation Page** at the top of the drag-and-drop editor window. This page will be displayed to users after updating their preferences using the preference center. The same styling capabilities above apply to this page as well.
+Don’t forget to customize the confirmation page! You can edit this page by selecting **Confirmation Page** at the top of the drag-and-drop editor window. This page will be displayed to users after updating their preferences using the preference center. The same styling capabilities from **Set common styles** and **Drag-and-drop preference center components** apply to this page as well.
 
 ![An example of a confirmation page to communicate the user's preferences have been updated.]({% image_buster /assets/img/preference_center/preference_center9.png %}){: style="max-width:65%;"}
 
