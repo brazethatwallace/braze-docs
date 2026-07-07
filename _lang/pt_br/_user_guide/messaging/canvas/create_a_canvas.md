@@ -155,9 +155,9 @@ Os controles de entrada determinam se os usuários podem reentrar em um Canvas. 
 - **Baseado em ação:** Por hora, diariamente ou tempo de vida do Canvas
 - **Disparado por API:** Por hora, diariamente ou tempo de vida do Canvas
 
-Por exemplo, se você tem um Canvas baseado em ação e seleciona **Limitar volume de entrada** e define o campo **Máximo de entradas** como 5.000 usuários com **Diariamente** como cadência limite, então o Canvas envia para apenas 5.000 usuários por dia.
+Por exemplo, se você tem um Canvas agendado e seleciona **Limitar volume de entrada** e define o campo **Máximo de entradas** como 500.000 usuários com **Toda vez que o Canvas for agendado** como cadência limite, então o Canvas envia para apenas 500.000 usuários por envio agendado.
 
-![A página "Controles de entrada" exibindo caixas de seleção para "Permitir que usuários reentrem no Canvas" e "Limitar volume de entrada". A última permite definir o máximo de entradas e escolher uma cadência que depende do tipo de cronograma de entrada (por exemplo, tempo de vida do Canvas ou toda vez que o Canvas for agendado para entrada agendada, e por hora, diariamente ou tempo de vida do Canvas para entrada baseada em ação e disparada por API).]({% image_buster /assets/img_archive/entry_controls.png %})
+![A página "Controles de entrada" exibindo caixas de seleção para "Permitir que usuários reentrem no Canvas" e "Limitar volume de entrada".]({% image_buster /assets/img_archive/entry_controls.png %})
 
 {% alert tip %}
 A Braze não recomenda selecionar **Toda vez que o Canvas for agendado** para aquecimento de IP, pois isso pode levar a volumes de envio aumentados.

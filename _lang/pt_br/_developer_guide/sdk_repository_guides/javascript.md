@@ -6,6 +6,8 @@ description: "Referência do README do Braze JavaScript SDK espelhada do GitHub.
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guia do repositório do JavaScript SDK {#javascript-sdk-repository-guide}
+
 ## Sobre o Braze JavaScript SDK {#about-the-braze-javascript-sdk}
 
 O Braze JavaScript SDK ajuda você a integrar recursos de envio de mensagens, análise de dados e engajamento de usuários da Braze ao seu aplicativo.
@@ -98,7 +100,7 @@ await logPurchase('sku-1', 9.99, 'USD', 1);
 
 O objeto de configuração do initialize requer `storageManager`. `networkManager` e `pushManager` são opcionais.
 
-**1. StorageManager** - Interface de armazenamento assíncrono chave-valor
+**1. StorageManager** — Interface de armazenamento assíncrono chave-valor
 ``` typescript
 interface StorageManager {
   store(key: string, value: string, isId?: boolean): Promise<void>;
@@ -110,7 +112,7 @@ interface StorageManager {
 - O parâmetro `isId` indica **armazenamento persistente de ID**: quando `true`, o SDK está armazenando um identificador persistente (ID do dispositivo, ID do usuário) ou a flag de descadastramento. As implementações devem persistir esses dados entre reinicializações do app para que o SDK possa reconhecer o mesmo dispositivo/usuário. Quando `false`, o valor é dado de sessão/cache (eventos, atributos, etc.) e pode ficar apenas em memória. Para ambientes web, considere usar cookies para chaves armazenadas com `isId: true` para garantir persistência entre sessões.
 - Deve lidar com operações assíncronas para todas as operações de armazenamento
 
-**2. NetworkManager** (opcional) - Interface de requisição HTTP POST
+**2. NetworkManager** (opcional) — Interface de requisição HTTP POST
 ``` typescript
 interface NetworkManager {
   postRequest(
@@ -122,9 +124,9 @@ interface NetworkManager {
 ```
 - A implementação padrão usa a API `fetch` (requer `fetch` e `URL` globais)
 - Pode ser substituída se `fetch` não for a API preferida
-- Nota: O SDK já possui lógica de retry e limite de taxa integrada
+- Nota: O SDK já possui lógica de retry e limite de frequência integrada
 
-**3. PushManager** (opcional) - Interface de notificação por push
+**3. PushManager** (opcional) — Interface de notificação por push
 ``` typescript
 interface PushManager {
   isPushBlocked(): boolean | undefined;

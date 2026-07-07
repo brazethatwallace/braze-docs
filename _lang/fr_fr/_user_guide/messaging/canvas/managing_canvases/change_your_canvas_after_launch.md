@@ -37,11 +37,11 @@ Si vous souhaitez modifier ou ajouter des étapes supplémentaires à votre parc
 - Si vos paramètres d'entrée du Canvas permettent aux utilisateurs de réintégrer les étapes, les utilisateurs qui ont déjà dépassé les étapes nouvellement créées sont éligibles à la réintégration.
 - Les utilisateurs qui se trouvent actuellement dans un Canvas lancé, mais qui n'ont pas encore atteint les points du parcours utilisateur où de nouvelles étapes ont été ajoutées, sont éligibles pour recevoir ces étapes nouvellement ajoutées.
 
-Si vous supprimez une étape [Délai]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) ou [Parcours d'actions]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths), vous pouvez éventuellement rediriger les utilisateurs qui attendent actuellement dans l'étape vers une autre étape du Canvas. Pour les délais, les utilisateurs restent dans l'étape jusqu'à la fin de la période de délai. Pour les Parcours d'actions, les utilisateurs restent dans l'étape jusqu'à la fin de la fenêtre d'évaluation.
+Si vous supprimez une étape [Délai]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) ou [Parcours d'action]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths), vous pouvez éventuellement rediriger les utilisateurs qui attendent actuellement dans l'étape vers une autre étape du Canvas. Pour les délais, les utilisateurs restent dans l'étape jusqu'à la fin de la période de délai. Pour les parcours d'action, les utilisateurs restent dans l'étape jusqu'à la fin de la fenêtre d'évaluation.
 
 Notez que lorsque vous lancez un Canvas initialement, Braze met en file d'attente les utilisateurs pour l'étape de message à laquelle ils se trouvent, et non tous les messages suivants dans le Canvas. Si vous apportez une modification au Canvas après le lancement, certains utilisateurs peuvent déjà être en file d'attente et ne pas prendre en compte les changements. Si vous arrêtez le Canvas, le dupliquez, puis le modifiez et lancez cette nouvelle version, le Canvas réévalue tous les utilisateurs, et pas seulement ceux qui n'ont pas encore été mis en file d'attente.
 
-Consultez la section [Bonnes pratiques](#best-practices) pour des cas d'utilisation spécifiques de modification. De manière générale, il est recommandé d'éviter de modifier les Canvas en production, car cela peut entraîner des comportements inattendus.
+Consultez la section [Bonnes pratiques](#best-practices) pour des cas d'usage spécifiques de modification. De manière générale, il est recommandé d'éviter de modifier les Canvas en production, car cela peut entraîner des comportements inattendus.
 
 {% details Développer pour les détails de l'éditeur Canvas d'origine %}
 
@@ -67,7 +67,7 @@ L'arrêt d'un Canvas ne fait pas sortir les utilisateurs qui attendent de recevo
 Vous pouvez modifier les paramètres et détails suivants après le lancement d'un Canvas :
 
 * Nom et description du Canvas
-* Équipes et étiquettes
+* Équipes et tags
 * Type d'entrée, planification et contrôles
 * État d'abonnement
 * Limite de débit
@@ -78,8 +78,8 @@ Vous pouvez modifier les paramètres et détails suivants après le lancement d'
 Après le lancement d'un Canvas :
 
 - Les événements de conversion ne peuvent pas être modifiés.
-- Les étapes suivantes ne peuvent pas être ajoutées ou supprimées, et ne peuvent pas être réordonnées pour ajuster le classement : [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths), [Parcours d'actions]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) et [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step).
-  - **Solution 1 :** Créez un nouveau parcours d'audience, parcours d'actions ou chemin d'expérience et reconfigurez les parcours vers cette nouvelle étape.
+- Les étapes suivantes ne peuvent pas être ajoutées ou supprimées, et ne peuvent pas être réordonnées pour ajuster le classement : [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths), [Parcours d'action]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) et [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step).
+  - **Solution 1 :** Créez un nouveau parcours d'audience, parcours d'action ou chemin d'expérience et reconfigurez les parcours vers cette nouvelle étape.
   - **Solution 2 :** Dupliquez le Canvas pour effectuer vos modifications.
 
 ### Étapes individuelles {#individual-steps}
@@ -93,7 +93,18 @@ Pour les étapes individuelles du Canvas, vous pouvez modifier les détails suiv
 * Événements d'exception
 * Délais (uniquement pour les étapes de délai)
 
-Cependant, le type de planification de l'étape et les pourcentages de contrôle ne sont pas modifiables après le lancement. Pour les étapes de Parcours d'actions et de Parcours d'audience, les classements et les fenêtres d'évaluation ne sont pas modifiables après le lancement.
+Cependant, le type de planification de l'étape et les pourcentages de contrôle ne sont pas modifiables après le lancement. Pour les étapes de parcours d'action et de parcours d'audience, les classements et les fenêtres d'évaluation ne sont pas modifiables après le lancement.
+
+#### Étape Envoyer vers la destination {#send-to-destination-step}
+
+Lors de la modification de l'étape [Envoyer vers la destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) sur un Canvas en production, les comportements suivants s'appliquent :
+
+- **Changement du Canvas de destination :** La modification de l'étape Envoyer vers la destination pour pointer vers un Canvas de destination différent suit les mêmes règles générales de modification post-lancement. Les changements n'affectent que les utilisateurs qui n'ont pas encore atteint l'étape Envoyer vers la destination.
+  - Les utilisateurs qui sont déjà passés par l'étape restent dans le Canvas de destination d'origine — ils ne sont pas redirigés.
+  - Les utilisateurs actuellement en file d'attente dans des étapes antérieures (par exemple, en attente dans une étape de délai avant l'étape Envoyer vers la destination) sont évalués par rapport aux critères d'entrée et d'audience du nouveau Canvas de destination lorsqu'ils atteignent l'étape. Les utilisateurs éligibles sont envoyés vers le nouveau Canvas de destination.
+- **Canvas de destination arrêté :** Si le Canvas de destination est arrêté alors que votre Canvas source est toujours actif, les utilisateurs qui atteignent l'étape Envoyer vers la destination ne sont pas envoyés vers le Canvas de destination. Cela entraîne une perte d'utilisateurs lors du transfert, et non une pause pendant l'arrêt de la destination.
+  - Les utilisateurs qui ne peuvent pas entrer dans le Canvas de destination arrêté continuent dans le Canvas source s'il y a d'autres étapes après l'étape Envoyer vers la destination. Pour en savoir plus sur le comportement d'avancement, consultez [Envoyer vers la destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination#how-does-advancement-behavior-work-for-send-to-destination-steps).
+  - Vous ne pouvez pas lancer un Canvas source avec une étape Envoyer vers la destination qui pointe vers une destination arrêtée. Ce comportement s'applique lorsqu'un Canvas de destination est arrêté après que le Canvas source est déjà en production.
 
 ### Pourcentages des variantes du Canvas {#canvas-variant-percentages}
 
@@ -154,7 +165,7 @@ Si votre Canvas comporte une expérience de chemin gagnant ou de chemin personna
 La modification de Canvas comportant des délais temporels peut être un peu délicate. Gardez à l'esprit les détails suivants lorsque vous apportez des modifications à vos Canvas :
 
 - Si vous mettez à jour le délai dans une étape de délai, seuls les nouveaux utilisateurs entrant dans le Canvas et les utilisateurs qui n'ont pas encore été mis en file d'attente pour cette étape reçoivent le message avec le délai mis à jour.
-- Si vous supprimez une étape comportant un délai temporel (comme une étape de délai ou de Parcours d'actions) et décidez de rediriger ces utilisateurs vers une autre étape du Canvas, les utilisateurs ne sont redirigés qu'après la fin du délai de l'étape. Par exemple, imaginons que vous supprimez une étape de délai avec un délai d'un jour et que vous redirigez ces utilisateurs vers une étape de message. Dans ce cas, les utilisateurs ne sont redirigés qu'après la fin du délai d'un jour.
+- Si vous supprimez une étape comportant un délai temporel (comme une étape de délai ou de parcours d'action) et décidez de rediriger ces utilisateurs vers une autre étape du Canvas, les utilisateurs ne sont redirigés qu'après la fin du délai de l'étape. Par exemple, imaginons que vous supprimez une étape de délai avec un délai d'un jour et que vous redirigez ces utilisateurs vers une étape de message. Dans ce cas, les utilisateurs ne sont redirigés qu'après la fin du délai d'un jour.
 - Si votre Canvas comporte une ou plusieurs étapes de chemins d'expérience, la suppression d'étapes pourrait invalider les résultats de cette étape.
 
 ### Arrêt des Canvas {#stopping-canvases}

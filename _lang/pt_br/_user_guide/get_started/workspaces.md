@@ -222,6 +222,10 @@ A tabela a seguir descreve os benefícios e as desvantagens dessas duas abordage
     </tbody>
 </table>
 
+{% alert note %}
+Para saber como o MAU difere ao visualizar todos os apps em comparação com um único app, consulte [Usuários ativos mensais]({{site.baseurl}}/user_guide/analytics/dashboards/home#monthly-active-users).
+{% endalert %}
+
 ## Práticas recomendadas {#best-practices}
 
 ### Configure um espaço de trabalho para testes {#set-up-a-testing-workspace}

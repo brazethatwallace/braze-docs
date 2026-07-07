@@ -10,7 +10,7 @@ channel: email
 
 # Autenticação de e-mail {#email-authentication}
 
-> A autenticação de e-mail é um conjunto de técnicas que equipam seus e-mails com informações verificáveis sobre sua origem.<br><br>A autenticação adequada é crucial para que os provedores de acesso à internet (ISPs) reconheçam você como remetente de e-mails desejáveis e entreguem seus e-mails imediatamente. Sem autenticação, presume-se que seu alcance seja fraudulento.
+> A autenticação de e-mail é um conjunto de técnicas que equipam seus e-mails com informações verificáveis sobre sua origem.<br><br>A autenticação adequada é crucial para que os provedores de serviços de internet (ISPs) reconheçam você como remetente de e-mails desejáveis e entreguem seus e-mails imediatamente. Sem autenticação, presume-se que seu alcance seja fraudulento.
 
 {% alert note %}
 Nenhuma coordenação especial com a Braze é necessária para o **BIMI** (Brand Indicators for Message Identification). Os registros DNS e certificados necessários são gerenciados do seu lado.
@@ -26,7 +26,7 @@ A Braze configura seu registro SPF quando configuramos seus IPs e domínios. Al�
 
 ### Domain Keys Identified Mail (DKIM) {#dkim}
 
-Esse método confirma que seu domínio de envio de e-mail da Braze está autorizado a enviar e-mails em seu nome. Esse método foi projetado para validar a autenticidade do remetente e garantir que a integridade da mensagem seja preservada. Ele também usa assinaturas digitais criptográficas individuais para que os provedores de acesso à internet possam ter certeza de que o e-mail entregue é o mesmo que você enviou.
+Esse método confirma que seu domínio de envio de e-mail da Braze está autorizado a enviar e-mails em seu nome. Esse método foi projetado para validar a autenticidade do remetente e garantir que a integridade da mensagem seja preservada. Ele também usa assinaturas digitais criptográficas individuais para que os ISPs possam ter certeza de que o e-mail entregue é o mesmo que você enviou.
 
 A Braze assina o e-mail com sua chave privada secreta. Os ISPs verificam a assinatura usando sua chave pública, que está armazenada no seu registro DNS personalizado. Nenhuma assinatura é exatamente igual, e somente sua chave pública pode verificar com sucesso a assinatura da sua chave privada.
 
@@ -49,8 +49,8 @@ Defina uma política DMARC no domínio raiz para que ela se aplique a todos os s
 | Política | Impacto |
 | --- | --- |
 | None | Instrui o provedor de caixa de e-mail a não tomar nenhuma ação contra mensagens que falharam. |
-| Quarantine | Instrui o provedor de caixa de e-mail a enviar mensagens que falharam para a pasta de spam. |
-| Reject | Instrui o provedor de caixa de e-mail que mensagens que falharam irão para a pasta de spam e devem ser bloqueadas. |
+| Quarantine | Instrui o provedor de caixa de e-mail a enviar mensagens que falharam para a pasta de SPAM. |
+| Reject | Instrui o provedor de caixa de e-mail que mensagens que falharam irão para a pasta de SPAM e devem ser bloqueadas. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Como funciona" }
 
 #### Como verificar a autenticação DMARC do seu domínio {#how-to-check-your-domains-dmarc-authentication}
@@ -61,13 +61,35 @@ Existem duas opções para verificar a autenticação DMARC do seu domínio:
     - **MXToolbox**: Se você configurou seu DMARC no domínio raiz, insira-o no MXToolbox. Se você configurou o DMARC no subdomínio, insira o subdomínio no MXToolbox. Esteja ciente de que o MXToolbox não faz buscas "para cima ou para baixo" ao realizar consultas. Isso significa que, se você configurou o DMARC no domínio raiz e inserir o subdomínio, o MXToolbox mostrará uma falha, pois não sabe que o DMARC foi configurado no domínio raiz.
 - **Opção 2:** Abra um e-mail do seu domínio ou subdomínio na sua caixa de entrada e encontre a mensagem original para verificar se o DMARC está passando na autenticação desse e-mail.
 
-Por exemplo, se você usa o Gmail, siga estas etapas:
+As etapas variam de acordo com o cliente de e-mail:
 
-1. Clique em **Mais** <i class="fa-solid fa-ellipsis"></i> em uma mensagem de e-mail.
+{% tabs %}
+{% tab Gmail %}
+
+1. Selecione **Mais** <i class="fa-solid fa-ellipsis" aria-label="Mais opções"></i> em uma mensagem de e-mail.
 2. Selecione **Mostrar original**.
 3. Verifique se você tem o status "PASS" para **DMARC**.
 
 ![Um e-mail que tem "PASS" como valor de DMARC.]({% image_buster /assets/img_archive/dmarc_example.png %})
+
+{% endtab %}
+{% tab Outlook %}
+
+1. Abra o e-mail.
+2. Selecione a seta ao lado de **Responder**.
+3. Selecione **Exibir origem da mensagem**.
+4. Verifique se você tem o status "PASS" para **DMARC**.
+
+{% endtab %}
+{% tab Apple Mail %}
+
+1. Abra o e-mail.
+2. Selecione **Visualizar** na barra de menus.
+3. Selecione **Mensagem** > **Código-fonte bruto**.
+4. Verifique se você tem o status "PASS" para **DMARC**.
+
+{% endtab %}
+{% endtabs %}
 
 #### Solucionar falhas de DMARC {#troubleshoot-dmarc-failures}
 
@@ -75,7 +97,7 @@ Se o DMARC mostrar **FAIL** para mensagens enviadas pela Braze:
 
 1. Abra os cabeçalhos brutos ou os resultados de autenticação de uma mensagem recente e verifique se **SPF** e **DKIM** passaram ou falharam individualmente.
 2. **Alinhamento:** O DMARC é aprovado quando *o SPF* *ou* o DKIM está alinhado com o domínio **From**. Alinhamento significa que o domínio **From** corresponde ao domínio que passou no SPF (geralmente o domínio **Return-Path** / envelope) *ou* ao domínio na assinatura **d=** do DKIM.
-3. Se o SPF passar, mas o DMARC falhar, o domínio Return-Path pode não estar alinhado com o seu domínio **From** — confirme se seus [domínios de envio e rastreamento com marca branca]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains) correspondem aos domínios para os quais você publica SPF e DKIM.
+3. Se o SPF passar, mas o DMARC falhar, o domínio Return-Path pode não estar alinhado com o seu domínio **From** — confirme se seus [domínios de envio e rastreamento com marca]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains) correspondem aos domínios para os quais você publica SPF e DKIM.
 4. Se o DKIM falhar, verifique se os registros DNS de DKIM fornecidos pela Braze estão presentes e inalterados.
 
 Verificadores de terceiros (por exemplo, [MXToolbox](https://mxtoolbox.com/dmarc.aspx)) ajudam a confirmar os registros publicados; sempre valide também com uma mensagem real enviada pela Braze.

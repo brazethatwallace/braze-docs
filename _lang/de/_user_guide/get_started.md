@@ -12,7 +12,7 @@ description: "Machen Sie sich mit den wichtigsten Konzepten vertraut, die Sie be
 > Willkommen bei Braze! Diese Artikelsammlung hilft Ihnen beim Einstieg in unsere Plattform und macht Sie mit den wichtigsten Begriffen, Features und Funktionalitäten von Braze vertraut. Auf dieser Seite werden die grundlegenden Konzepte vorgestellt, die Sie bei der Arbeit mit Braze kennen müssen.
 
 {% alert tip %}
-Wir empfehlen Ihnen, neben diesen Artikeln auch unseren kostenlosen Kurs [Braze Foundations for Everyone](https://learning.braze.com/page/braze-foundations-for-everyone) zu absolvieren. Für diesen Kurs ist keine spezielle Anmeldung oder ein Konto erforderlich. Wenn Sie Entwickler:in sind und einen technischen Überblick über Braze suchen, schauen Sie sich auch [Erste Schritte für Entwickler:innen]({{site.baseurl}}/developer_guide/getting_started/platform_overview) an.
+Wir empfehlen Ihnen, neben diesen Artikeln auch unseren kostenlosen [Practitioner Learning Path](https://learning.braze.com/page/practitioner) zu absolvieren. Dafür ist keine spezielle Anmeldung oder ein Konto erforderlich. Wenn Sie Entwickler:in sind und einen technischen Überblick über Braze suchen, schauen Sie sich auch [Erste Schritte für Entwickler:innen]({{site.baseurl}}/developer_guide/getting_started/platform_overview) an.
 {% endalert %}
 
 In den Abschnitten zu den ersten Schritten konzentrieren wir uns auf die gängigen Implementierungen von Braze. Braze ist jedoch unglaublich flexibel und kann so angepasst werden, dass es Ihrem Unternehmen auf vielfältige Weise Mehrwert bietet. Aus Gründen der Übersichtlichkeit und Kürze haben wir einen beschreibenden Überblick über die Standardeinrichtung gegeben, anstatt starre Anweisungen zu liefern. Wir wissen, dass jedes Unternehmen seine eigenen Bedürfnisse hat, und Braze ist so konzipiert, dass es eine Vielzahl von Anpassungsmöglichkeiten bietet, die auf Ihre speziellen Anforderungen zugeschnitten werden können.
@@ -47,7 +47,7 @@ Campaigns und Canvases sind die Werkzeuge, mit denen Sie Nachrichten an Ihre Nut
 
 Campaigns eignen sich am besten für einzelne Nachrichten, die über verschiedene Kanäle an ein bestimmtes Zielgruppen-Segment gesendet werden. Sie können jeden unserer unterstützten Messaging-Kanäle in Ihrer Campaign nutzen (E-Mail, Push, In-App-Nachrichten, SMS und mehr).
 
-Canvases sind fortschrittliche Campaign-Workflows, mit denen Sie personalisierte Customer Journeys über mehrere Kanäle hinweg automatisieren und orchestrieren können. Innerhalb eines Canvas können Sie Verzweigungslogiken, Verzögerungen, Entscheidungspunkte und Konversions-Events einrichten, um Kund:innen durch eine Reihe von Interaktionen zu führen. Canvases sorgen für eine konsistente und nahtlose Kommunikation über verschiedene Touchpoints hinweg und erhöhen so die Chancen auf Engagement und Conversion.
+Canvases sind fortschrittliche Campaign-Workflows, mit denen Sie personalisierte Customer Journeys über mehrere Kanäle hinweg automatisieren und orchestrieren können. Innerhalb eines Canvas können Sie Verzweigungslogiken, Verzögerungen, Entscheidungspunkte und Konversions-Events einrichten, um Kund:innen durch eine Reihe von Interaktionen zu führen. Canvases sorgen für eine konsistente und nahtlose Kommunikation über verschiedene Touchpoints hinweg und erhöhen so die Chancen auf Engagement und Konversion.
 
 Mehr dazu finden Sie hier: [Erste Schritte: Campaigns und Canvases]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases).
 

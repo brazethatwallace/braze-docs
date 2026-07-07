@@ -10,7 +10,7 @@ description: "Este artículo explica cómo ver e interpretar los resultados de u
 
 > Este artículo explica cómo ver los resultados de una prueba multivariante o A/B. Si aún no has configurado tu prueba, consulta [Crear pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) para ver los pasos.
 
-Después de que tu campaña se haya lanzado, puedes comprobar el rendimiento de cada variante seleccionando tu campaña en la sección **Campaigns** del dashboard.
+Después de que tu campaña se haya lanzado, puedes comprobar el rendimiento de cada variante seleccionando tu campaña en la sección **Campaigns** del panel.
 
 ## Análisis por opción de optimización {#analytics-by-optimization-option}
 
@@ -26,7 +26,7 @@ Para más detalles, consulta el artículo [Análisis de campañas]({{site.baseur
 
 ### Selección de variante con BrazeAI<sup>TM</sup> (solo push) {#brazeai-variant-selection-push-only}
 
-Si usas la selección de variante con BrazeAI<sup>TM</sup>, dependiendo de si se trata de un envío único o una campaña recurrente, una vez que la ventana del experimento (o el primer período para recurrentes) haya pasado, verás el incremento, si lo hay, en la página de inicio de la campaña. También verás más detalles similares a los de la variante ganadora a continuación si ejecutas una campaña de envío único.
+Si usas la selección de variante con BrazeAI<sup>TM</sup>, dependiendo de si se trata de un envío único o una campaña recurrente, una vez que la ventana del experimento (o el primer período para recurrentes) haya pasado, verás el incremento, si lo hay, en la página de inicio de la campaña. También verás más detalles similares a los de la variante ganadora si ejecutas una campaña de envío único.
 
 Para más detalles sobre cómo reportamos el incremento en la selección de variante con BrazeAI<sup>TM</sup>, consulta [Selección de variante]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 
@@ -118,7 +118,7 @@ La pestaña **Variante personalizada** muestra los resultados del segundo envío
 Las tres tarjetas en esta página muestran tu incremento proyectado, los resultados generales y los resultados proyectados si hubieras enviado solo la variante ganadora en su lugar. Incluso si no hay incremento, lo cual puede suceder a veces, el resultado es el mismo que enviar solo la variante ganadora (una prueba A/B tradicional).
 
 - **Incremento proyectado:** La mejora en tu métrica de optimización seleccionada para este envío debido al uso de variantes personalizadas en lugar de una prueba A/B estándar (si los usuarios restantes solo hubieran recibido la variante ganadora).
-- **Resultados generales:** Los resultados del segundo envío basados en tu métrica de optimización elegida (*Aperturas únicas*, *Clics únicos* o *Evento de conversión primaria*).
+- **Resultados generales:** Los resultados del segundo envío basados en tu métrica de optimización elegida (*Unique Opens*, *clics únicos* o *evento de conversión primaria*).
 - **Resultados proyectados:** Los resultados proyectados del segundo envío basados en tu métrica de optimización elegida si hubieras enviado solo la variante ganadora en su lugar.
 
 ![Pestaña de variante personalizada para una campaña optimizada para aperturas únicas. Las tarjetas muestran el incremento proyectado, las aperturas únicas generales (con variante personalizada) y las aperturas únicas proyectadas (con variante ganadora).]({% image_buster /assets/img_archive/ab_analytics_pv_1.png %})
@@ -140,7 +140,7 @@ La confianza es la medida estadística de cuán seguros estamos de que una difer
 
 Una parte importante de tus resultados es la confianza de los mismos. Por ejemplo, ¿qué pasa si el grupo de control tuvo una tasa de conversión del 20 % y la variante A tuvo una tasa de conversión del 25 %? Esto parece indicar que enviar la variante A es más efectivo que no enviar ningún mensaje. Tener una confianza del 95 % significa que la diferencia entre las dos tasas de conversión probablemente se debe a una diferencia real en las respuestas de los usuarios y que solo hay un 5 % de probabilidad de que la diferencia haya ocurrido por azar.
 
-Braze compara la tasa de conversión de cada variante con la tasa de conversión del grupo de control mediante un procedimiento estadístico llamado [prueba&nbsp;Z](https://en.wikipedia.org/wiki/Z-test). Un resultado con un 95 % o más de confianza, como en el ejemplo anterior, indica que la diferencia es estadísticamente significativa. Esto aplica en cualquier lugar donde veas una métrica de confianza en el dashboard de Braze que describa la diferencia entre dos mensajes o poblaciones de usuarios.
+Braze compara la tasa de conversión de cada variante con la tasa de conversión del grupo de control mediante un procedimiento estadístico llamado [prueba&nbsp;Z](https://en.wikipedia.org/wiki/Z-test). Un resultado con un 95 % o más de confianza, como en el ejemplo anterior, indica que la diferencia es estadísticamente significativa. Esto aplica en cualquier lugar donde veas una métrica de confianza en el panel de Braze que describa la diferencia entre dos mensajes o poblaciones de usuarios.
 
 En general, se necesita una confianza de al menos el 95 % para demostrar que tus resultados reflejan las preferencias reales de los usuarios y no se deben al azar. En pruebas científicas rigurosas, el 95 % de confianza (o lo que comúnmente se denomina que el valor "p" sea menor que 0,05) es el punto de referencia común utilizado para determinar la significancia estadística. Si continuamente no logras alcanzar el 95 % de confianza, intenta aumentar el tamaño de tu muestra o reducir el número de variantes.
 
@@ -168,6 +168,8 @@ Por ejemplo, supongamos que una campaña tiene una audiencia objetivo de 200 usu
 Los 100 usuarios en la variante reciben la carga útil del mensaje dentro de la aplicación, y 50 de ellos realizan la acción desencadenante y ven el mensaje dentro de la aplicación. Los 100 usuarios en el grupo de control solo se rastrean si realizan la acción desencadenante de la campaña, y 75 de ellos realizan la acción desencadenante y registran una impresión pero no ven el mensaje dentro de la aplicación.
 
 A pesar de la división inicial 50/50, las impresiones únicas registradas no están equilibradas. El grupo de la variante tiene 50 impresiones, mientras que el grupo de control tiene 75 impresiones.
+
+Además, los mensajes de variante que requieren un tiempo de renderizado más largo, como aquellos con imágenes grandes o contenido conectado con plantillas, pueden registrar menos impresiones que el grupo de control cuando los usuarios desencadenan el mensaje pero se van antes de que se complete el renderizado.
 
 ### Retrasos en mensajes dentro de la aplicación {#in-app-message-delays}
 
@@ -207,4 +209,4 @@ Usa la información que recopilas de pruebas anteriores para guiar las futuras. 
 
 ### Comparar el impacto a largo plazo de diferentes variantes {#compare-the-long-term-impact-of-different-variants}
 
-Si estás realizando pruebas A/B de mensajes de reactivación de la interacción, no olvides comparar el impacto a largo plazo de diferentes variantes usando [Informes de retención]({{site.baseurl}}/user_guide/analytics/reports/retention_reports). Puedes usar los informes de retención para analizar cómo cada variante impactó cualquier comportamiento de usuario de tu elección días, semanas o un mes después de la recepción del mensaje, y ver si hay incremento.
+Si estás realizando pruebas A/B de mensajes de reactivación, no olvides comparar el impacto a largo plazo de diferentes variantes usando [Informes de retención]({{site.baseurl}}/user_guide/analytics/reports/retention_reports). Puedes usar los informes de retención para analizar cómo cada variante impactó cualquier comportamiento de usuario de tu elección días, semanas o un mes después de la recepción del mensaje, y ver si hay incremento.

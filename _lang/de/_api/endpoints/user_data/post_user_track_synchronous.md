@@ -26,7 +26,7 @@ Bei einem asynchronen Aufruf gibt die API den Statuscode `201` zurück, der anze
 
 Bei einem synchronen Aufruf gibt die API den Statuscode `201` zurück, der anzeigt, dass Ihre Anfrage erfolgreich empfangen, verstanden, akzeptiert und abgeschlossen wurde. Die Antwort auf den Aufruf zeigt ausgewählte Felder des Nutzerprofils als Ergebnis der Operation an.
 
-Dieser Endpunkt hat ein niedrigeres Rate-Limit als der Endpunkt `/users/track` (siehe [Rate-Limit](#rate-limit) unten). Jede `/users/track/sync`-Anfrage kann nur ein Event-Objekt, ein Attribut-Objekt **oder** ein Kauf-Objekt enthalten. Dieser Endpunkt sollte für Nutzerprofil-Updates reserviert sein, bei denen ein synchroner Aufruf erforderlich ist. Für eine stabile Implementierung empfehlen wir, `/users/track/sync` und `/users/track` gemeinsam zu verwenden.
+Dieser Endpunkt hat ein niedrigeres Rate-Limit als der Endpunkt `/users/track` (siehe [Rate-Limit](#rate-limit)). Jede `/users/track/sync`-Anfrage kann nur ein Event-Objekt, ein Attribut-Objekt **oder** ein Kauf-Objekt enthalten. Dieser Endpunkt sollte für Nutzerprofil-Updates reserviert sein, bei denen ein synchroner Aufruf erforderlich ist. Für eine stabile Implementierung empfehlen wir, `/users/track/sync` und `/users/track` gemeinsam zu verwenden.
 
 Wenn Sie beispielsweise innerhalb eines kurzen Zeitraums aufeinanderfolgende Anfragen für dieselbe Nutzer:in senden, sind Race-Conditions mit dem asynchronen Endpunkt `/users/track` möglich. Mit dem Endpunkt `/users/track/sync` können Sie diese Anfragen jedoch nacheinander senden, jeweils nach Erhalt einer `2XX`-Antwort.
 
@@ -285,10 +285,12 @@ Ja, solange die Anfragen für verschiedene Nutzer:innen bestimmt sind oder jede 
 
 Wenn Sie mehrere Anfragen für eine:n Nutzer:in für dasselbe Attribut, Event oder denselben Kauf senden, empfiehlt Braze, zwischen den einzelnen Anfragen auf eine erfolgreiche Antwort zu warten, um Race-Conditions zu vermeiden.
 
+Wenn Sie trotzdem einen inkonsistenten Profilstatus feststellen, wenn Sie `/users/track` für dieselbe Nutzer:in in schneller Folge aufrufen, wechseln Sie diese Updates zu `/users/track/sync` und senden Sie jeweils eine Anfrage, wobei Sie auf jede `2XX`-Antwort warten, bevor Sie die nächste senden. Diese Reihenfolge ist der unterstützte Weg, um Read-after-Write-Race-Conditions bei engen Schleifen oder parallelen Workern zu vermeiden.
+
 ### Warum stimmt der Antwortwert nicht mit dem in meiner ursprünglichen Anfrage überein? {#why-doesnt-the-response-value-match-the-one-in-my-original-request}
 
 Obwohl Ihre Anfrage abgeschlossen wurde, ist es möglich, dass der Wert Ihres angepassten Attributs nicht aktualisiert wurde. Dies kann passieren, wenn Ihr Update des angepassten Attributs die maximale Zeichenanzahl überschreitet, Array-Grenzen überschreitet oder wenn die Nutzer:in nicht in Braze existiert und Sie `_update_existing_only = true` gesetzt haben.
 
-In diesen Fällen sollten Sie die Antwort als Hinweis darauf betrachten, dass Ihre Anfrage zwar abgeschlossen, das gewünschte Update jedoch nicht durchgeführt wurde. Prüfen Sie die oben genannten Gründe, um die Ursache zu ermitteln.
+In diesen Fällen sollten Sie die Antwort als Hinweis darauf betrachten, dass Ihre Anfrage zwar abgeschlossen, das gewünschte Update jedoch nicht durchgeführt wurde. Prüfen Sie die unter [Warum stimmt der Antwortwert nicht mit dem in meiner ursprünglichen Anfrage überein?](#why-doesnt-the-response-value-match-the-one-in-my-original-request) aufgeführten Gründe, um die Ursache zu ermitteln.
 
 {% endapi %}

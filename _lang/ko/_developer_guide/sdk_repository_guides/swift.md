@@ -6,6 +6,8 @@ description: "GitHub에서 미러링된 Braze Swift SDK README 참조입니다."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Swift SDK 리포지토리 가이드 {#swift-sdk-repository-guide}
+
 ## Braze Swift SDK 소개 {#about-the-braze-swift-sdk}
 
 Braze Swift SDK는 Braze 메시징, 분석 및 사용자 참여 기능을 애플리케이션에 통합하는 데 도움을 줍니다.
@@ -107,9 +109,9 @@ Xcode|26.0+ (17A324)
 | 병합 가능 XCFrameworks (얼리 액세스) | [braze-inc/braze-swift-sdk-prebuilt-mergeable] |                   ✗ |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="대체 리포지토리" }
 
-## 연락처 {#contact}
+## 문의 {#contact}
 
-질문이 있으시면 Braze 기술 고객지원에 문의하여 도움을 받으세요.
+질문이 있으시면 Braze 기술 지원팀에 문의하여 도움을 받으세요.
 
 [braze-inc/braze-swift-sdk]: https://github.com/braze-inc/braze-swift-sdk
 [braze-inc/braze-swift-sdk-prebuilt-static]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-static

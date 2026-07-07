@@ -26,7 +26,7 @@ Wenden Sie sich an Ihre Braze-Vertretung oder öffnen Sie ein [Support-Ticket]({
 
 {% details Erläuterung der Struktur von Kundenverhaltens- und Nutzer-Events sowie Plattformwerte %}
 
-### Event-Struktur {#event-structure}
+## Event-Struktur {#event-structure}
 
 Diese Aufschlüsselung des Kundenverhaltens und der Nutzer-Events zeigt, welche Art von Informationen im Allgemeinen in einem Kundenverhaltens- oder Nutzer-Event enthalten sind. Mit einem soliden Verständnis der Komponenten können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategie-Team die eingehenden Currents-Event-Daten nutzen, um datengestützte Berichte und Charts zu erstellen und andere wertvolle Metriken auszuwerten.
 

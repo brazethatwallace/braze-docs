@@ -6,6 +6,8 @@ description: "Referência do README do Cordova SDK da Braze espelhada do GitHub.
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guia do repositório do Cordova SDK {#cordova-sdk-repository-guide}
+
 ## Sobre o Cordova SDK da Braze {#about-the-braze-cordova-sdk}
 
 O Cordova SDK da Braze ajuda você a integrar recursos de envio de mensagens, análise de dados e engajamento de usuários da Braze ao seu aplicativo.
@@ -23,13 +25,13 @@ Para começar, consulte os seguintes recursos:
 | 2.31.0+      | >= 12.0.0       | >= 5.0.0    |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Requisitos mínimos de versão" }
 
-Este SDK também herda os requisitos dos SDKs nativos da Braze subjacentes. Certifique-se de seguir também as listas abaixo:
+Este SDK também herda os requisitos dos SDKs nativos da Braze subjacentes. Certifique-se de seguir também as listas de requisitos vinculadas abaixo:
 * [Requisitos do SDK Android](https://github.com/braze-inc/braze-android-sdk?tab=readme-ov-file#version-information)
 * [Requisitos do Swift SDK](https://github.com/braze-inc/braze-swift-sdk?tab=readme-ov-file#version-information)
 
 ## Instalando o SDK {#installing-the-sdk}
 {% alert warning %}
-Adicione o Cordova SDK da Braze apenas usando os métodos abaixo. Não tente instalar usando outros métodos, pois isso pode levar a uma falha de segurança.
+Adicione o Cordova SDK da Braze apenas usando os comandos `cordova plugin add` em **Instalando o SDK**. Não tente instalar usando outros métodos, pois isso pode levar a uma falha de segurança.
 {% endalert %}
 ``` text
 # To use the base SDK functionality, install using the `master` branch.

@@ -226,7 +226,7 @@ Por exemplo, o evento personalizado `trip_booked` pode ter as propriedades `dest
 | `phone` | String | Um número de telefone conforme indicado pelos seus usuários, no formato `E.164` (por exemplo, `+442071838750`). Consulte [Números de telefone dos usuários]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers) para orientações de formatação. | Não, e só pode ser usado na ausência de outros identificadores. Consulte a nota a seguir. |
 | `name` | String | Um evento personalizado dos seus usuários. | Sim |
 | `time` | String | O horário do evento. Pode ser passado em um dos seguintes formatos ISO-8601: "AAAA-MM-DD" "AAAA-MM-DDTHH:MM:SS+00:00" "AAAA-MM-DDTHH:MM:SSZ" "AAAA-MM-DDTHH:MM:SS" (por exemplo, 2019-11-20T18:38:57) | Sim |
-| `<event name>.properties.<property name>` | Múltiplas | Uma propriedade de evento associada a um evento personalizado. Um exemplo é `trip_booked.properties.destination` | Não |
+| `<event name>.properties.<property name>` | Múltiplos | Uma propriedade de evento associada a um evento personalizado. Um exemplo é `trip_booked.properties.destination` | Não |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Campos de eventos personalizados" }
 
 #### Requisitos de formato para eventos personalizados {#format-requirements-for-custom-events}
@@ -287,19 +287,19 @@ Neste exemplo:
 
 ### Etapa 4: Fazer upload do seu arquivo {#step-4-upload-your-file}
 
-Para fazer upload do seu arquivo, selecione **Attributes** ou **Events**, clique em **Browse Files** e faça upload do seu CSV. A Braze exibe uma pré-visualização das primeiras linhas e um resumo dos campos detectados.
+Para fazer upload do seu arquivo, selecione **Attributes** ou **Events**, clique em **Browse Files** e faça upload do seu CSV. A Braze exibe uma prévia das primeiras linhas e um resumo dos campos detectados.
 
 Para arquivos grandes (até 500 MB para atributos padrão e atributos personalizados, ou 50 MB para eventos personalizados), o dashboard pode parecer temporariamente sem resposta enquanto o arquivo é carregado e a Braze calcula a importação. Esses uploads e cálculos podem levar mais tempo para serem concluídos do que para arquivos menores. Aguarde a conclusão desta etapa. Para mais contexto sobre limites de arquivo e tempo, consulte [Construindo seu CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import#constructing-your-csv).
 
-No campo **Import name**, você pode renomear sua importação. Por padrão, o nome do arquivo é usado.
+Antes de fazer upload do seu arquivo CSV, renomeie-o com o nome de importação que você deseja ver na Braze. Não é possível editar o nome da importação após o upload.
 
 {% alert note %}
-A pré-visualização do arquivo mostra apenas as primeiras linhas do seu arquivo. Para verificar todas as linhas antes de importar, use a [validação de arquivo](#file-validation).
+A prévia do arquivo mostra apenas as primeiras linhas do seu arquivo. Para verificar todas as linhas antes de importar, use a [validação de arquivo](#file-validation).
 {% endalert %}
 
 ### Etapa 5: Mapear seus campos (para atributos) {#csv-data-mapping}
 
-Após a pré-visualização, você pode mapear os cabeçalhos do seu CSV para atributos da Braze. A Braze mapeia automaticamente os campos do seu arquivo CSV para atributos com nomes idênticos e cria novos atributos quando necessário. Você também terá a flexibilidade de ajustar manualmente as sugestões ou selecionar atributos diferentes para qualquer coluna.
+Após a prévia, você pode mapear os cabeçalhos do seu CSV para atributos da Braze. A Braze mapeia automaticamente os campos do seu arquivo CSV para atributos com nomes idênticos e cria novos atributos quando necessário. Você também terá a flexibilidade de ajustar manualmente as sugestões ou selecionar atributos diferentes para qualquer coluna.
 
 ![A página de mapeamento de colunas.]({% image_buster /assets/img/csv_import/column_mapping_mapped.png %})
 
@@ -421,7 +421,7 @@ Definir `language` ou `country` em um usuário por meio de importação por CSV 
 
 Se você usou a [validação de arquivo](#file-validation), comece pelo relatório de erros, pois ele inclui o problema específico de cada linha sinalizada e uma descrição de como corrigi-lo. Para linhas que falharam durante a importação e não na validação, baixe o relatório de erros passando o cursor sobre a linha e selecionando o botão <i class="fas fa-download" title="Download"></i> na página **Import Users**.
 
-Para solucionar problemas de importação por CSV, revise os problemas comuns a seguir.
+Para solucionar problemas de importação por CSV, revise os problemas comuns nas seções a seguir.
 
 ### Usar e-mail como `external_id` {#use-email-as-external_id}
 
@@ -496,7 +496,7 @@ Se um dado de usuário padrão (como `email` ou `first_name`) for importado como
 
 #### Alterar o tipo de dado de um atributo personalizado {#change-a-custom-attributes-data-type}
 
-Se você precisar alterar o tipo de dado de um atributo personalizado existente (por exemplo, de string para booleano), atualize o tipo de dado na página [**Atributos personalizados**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) no dashboard antes de importar seu CSV. Se o tipo de dado no seu CSV não corresponder ao tipo de dado atualmente definido para o atributo, a importação falhará com um erro.
+Se você precisar alterar o tipo de dado de um atributo personalizado existente (por exemplo, de string para booleano), atualize o tipo de dado na página [**Custom Attributes**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) no dashboard antes de importar seu CSV. Se o tipo de dado no seu CSV não corresponder ao tipo de dado atualmente definido para o atributo, a importação falhará com um erro.
 
 #### Múltiplos tipos de dados {#multiple-data-types}
 
@@ -506,7 +506,7 @@ Além disso, iniciar um atributo numérico com zero causará problemas, pois nú
 
 #### Tipos de atributos padrão {#default-attribute-types}
 
-Alguns atributos padrão podem aceitar apenas determinados valores como válidos para atualizações de usuário. Para orientações, consulte [Construindo seu CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users).
+Alguns atributos padrão aceitam apenas determinados valores como válidos para atualizações de usuário. Para orientações, consulte [Construindo seu CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users).
 
 Espaços à direita e diferenças na capitalização podem fazer com que um valor seja interpretado como inválido. Por exemplo, no arquivo CSV a seguir, apenas o usuário na primeira linha (`brazetest1`) terá seus status de e-mail e push atualizados com sucesso, pois os valores aceitos são `unsubscribed`, `subscribed` e `opted_in`.
 

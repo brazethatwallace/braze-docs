@@ -95,10 +95,10 @@ In jedem Canvas, in dem Sie Endnutzer:innen aus dem EWR, Großbritannien und der
 
 ## Integration
 
-### 1. Schritt: Google-Konto verbinden {#step-1-connect-google-account}
+### Schritt 1: Google-Konto verbinden {#step-1-connect-google-account}
 
 {% alert important %}
-Sie müssen die [Berechtigung „Admin“]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) haben, um Google Ads mit Ihrem Braze-Konto zu verbinden.
+Sie müssen die [Berechtigung „Admin“]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin) haben, um Google Ads mit Ihrem Braze-Konto zu verbinden.
 {% endalert %}
 
 Um loszulegen, gehen Sie zu **Partnerintegrationen** > **Technologie-Partner** > **Google Ads** und wählen Sie **Google Ads verbinden**. Sie werden in einem Modal aufgefordert, die mit Ihrem Google Ads-Konto verknüpfte E-Mail auszuwählen und dann Braze Zugriff auf Ihr Google Ads-Konto zu gewähren.
@@ -117,13 +117,13 @@ Wenn Sie iOS IDFA oder Google Advertising IDs in Ihre Zielgruppen-Synchronisieru
 
 Wenn Sie mehrere Apps in einem Workspace haben, können Sie bei der Einrichtung jede Ihrer App IDs eingeben, da die mobilen Anzeigen-IDs für Ihre Nutzer:innen in allen Apps gleich sind. Das liegt daran, dass sowohl der Android GAID als auch der iOS IDFA universelle Bezeichner für Anzeigen auf dem Gerät sind und nicht App-spezifisch. Um mobile Werbe-IDs für Nutzer:innen einer bestimmten App zu synchronisieren, können Sie Segmentfilter („Zuletzt verwendete bestimmte App“ oder „Neueste App-Version“) verwenden, um diese Nutzer:innen gezielt anzusprechen.
 
-### 2. Schritt: Google Audience-Schritt in Canvas hinzufügen {#step-2-add-a-google-audience-step-in-canvas}
+### Schritt 2: Google Audience-Schritt in Canvas hinzufügen {#step-2-add-a-google-audience-step-in-canvas}
 
 Fügen Sie eine Komponente in Ihrem Canvas hinzu und wählen Sie dann **Audience Sync**.
 
 ![Das Menü zum Auswählen einer Canvas-Komponente im Editor.]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![Der Audience Sync-Schritt wurde zur User Journey hinzugefügt.]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
 
-### 3. Schritt: Sync-Einrichtung {#step-3-sync-setup}
+### Schritt 3: Sync-Einrichtung {#step-3-sync-setup}
 
 1. Wählen Sie **Custom Audience**, um den Komponenteneditor zu öffnen.
 2. Wählen Sie **Google** als Audience Sync-Partner aus.
@@ -177,7 +177,7 @@ Braze bietet auch die Möglichkeit, Nutzer:innen aus bestehenden Google-Kundenli
 {% endtab %}
 {% endtabs %}
 
-### 4. Schritt: Canvas starten {#step-4-launch-canvas}
+### Schritt 4: Canvas starten {#step-4-launch-canvas}
 
 Vervollständigen Sie den Rest Ihrer User Journey in Canvas und starten Sie dann! Wenn Sie sich für die Erstellung einer neuen Zielgruppe entschieden haben, erstellt Braze die Zielgruppe innerhalb von Google und fügt dann Nutzer:innen hinzu, wenn sie diesen Schritt in Ihrem Canvas erreichen. Wenn Sie ausgewählt haben, Nutzer:innen einer bestehenden Zielgruppe hinzuzufügen oder zu entfernen, wird Braze Nutzer:innen entweder hinzufügen oder entfernen, wenn sie diesen Schritt in ihrer User Journey erreichen.
 
@@ -217,6 +217,19 @@ Es kann zwischen 6 und 12 Stunden dauern, bis eine Zielgruppe mit Google synchro
 ### Ich habe eine Zielgruppe synchronisiert. Warum ist die Größe der Zielgruppe in Google gleich null? {#ive-synced-an-audience-so-why-is-the-audience-size-in-google-zero}
 
 Aus Datenschutzgründen wird die Größe der Nutzerliste auf null gesetzt, bis die Liste mindestens 1.000 Mitglieder hat. Danach wird die Größe auf die zwei höchstwertigen Stellen gerundet.
+
+### Warum ist meine abgeglichene Zielgruppengröße in Google kleiner als die Anzahl der von Braze synchronisierten Nutzer:innen? {#why-is-my-matched-audience-size-in-google-lower-than-the-number-of-users-synced-from-braze}
+
+Obwohl Braze eine bestimmte Anzahl von Nutzer:innen an Google synchronisieren kann, kann die tatsächliche abgeglichene Zielgruppengröße, die Sie in Google Ads sehen, deutlich kleiner sein. Das liegt daran, dass Google die von Ihnen bereitgestellten Nutzerdaten (wie E-Mail-Adressen oder Telefonnummern) mit tatsächlichen Google-Konten auf ihrer Plattform abgleichen muss.
+
+Selbst wenn Ihre Braze-Nutzerprofile gültige Abgleichsfelder enthalten, erscheinen Nutzer:innen nur dann in Ihrer angepassten Google-Zielgruppe, wenn sie ein Google-Konto mit übereinstimmenden Informationen haben.
+
+Um Ihre Abgleichsrate zu verbessern:
+- Stellen Sie sicher, dass Sie [Ihre Daten korrekt formatieren](https://support.google.com/google-ads/answer/7659867).
+- Geben Sie nach Möglichkeit mehrere Bezeichner an (z. B. sowohl E-Mail als auch Telefonnummer).
+- Beachten Sie, dass es 48 bis 72 Stunden dauern kann, bis Google Nutzer:innen verarbeitet und abgleicht, in einigen Fällen kann es jedoch mehrere Tage dauern.
+
+Die endgültige abgeglichene Zielgruppengröße hängt vollständig vom Abgleichsprozess von Google ab. Braze hat keinen Einblick in den Abgleich von Google, sobald die Daten an deren Plattform übergeben wurden.
 
 ### Ich habe eine Zielgruppe mit Google synchronisiert, aber meine Anzeigen werden nicht geschaltet. {#ive-synced-an-audience-into-google-but-my-ads-are-not-serving}
 

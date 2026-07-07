@@ -26,7 +26,7 @@ Para mais detalhes, consulte o artigo [Análise de dados de Campanha]({{site.bas
 
 ### Seleção de variante com BrazeAI<sup>TM</sup> (somente push) {#brazeai-variant-selection-push-only}
 
-Se você estiver usando a seleção de variante com BrazeAI<sup>TM</sup>, dependendo de ser um envio único ou uma campanha recorrente, após o término da janela do experimento (ou do primeiro período para campanhas recorrentes), você verá o aumento, se houver, na página inicial da campanha. Você também verá mais detalhes semelhantes à variante vencedora abaixo, caso execute uma campanha de envio único.
+Se você estiver usando a seleção de variante com BrazeAI<sup>TM</sup>, dependendo de ser um envio único ou uma campanha recorrente, após o término da janela do experimento (ou do primeiro período para campanhas recorrentes), você verá o aumento, se houver, na página inicial da campanha. Você também verá mais detalhes semelhantes à variante vencedora, caso execute uma campanha de envio único.
 
 Para mais detalhes sobre como reportamos o aumento na seleção de variante com BrazeAI<sup>TM</sup>, consulte [Seleção de variante]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 
@@ -43,17 +43,17 @@ O **A/B Test Result** é dividido em duas guias: **Initial Test** e **Winning Va
 
 A guia **Initial Test** mostra as métricas de cada variante do teste A/B inicial enviado a uma parte do seu segmento-alvo. Você pode ver um resumo do desempenho de todas as variantes e se houve ou não uma vencedora durante o teste.
 
-Se uma variante superou todas as outras com mais de 95% de [intervalo de confiança]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#understanding-confidence), a Braze marca essa variante com o rótulo "Winner".
+Se uma variante superou todas as outras com mais de 95% de [confiança]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#understanding-confidence), a Braze marca essa variante com o rótulo "Winner".
 
-Se nenhuma variante superou todas as outras com 95% de intervalo de confiança e você optou por enviar a variante com melhor desempenho mesmo assim, a variante com melhor desempenho ainda será enviada e indicada com o rótulo "Winner".
+Se nenhuma variante superou todas as outras com 95% de confiança e você optou por enviar a variante com melhor desempenho mesmo assim, a variante com melhor desempenho ainda será enviada e indicada com o rótulo "Winner".
 
-![Resultados de um teste inicial enviado para determinar a variante vencedora, onde nenhuma variante teve desempenho melhor que as outras com intervalo de confiança suficiente para atingir o limite de 95% de significância estatística.]({% image_buster /assets/img_archive/ab_analytics_wv_insufficient_confidence.png %})
+![Resultados de um teste inicial enviado para determinar a variante vencedora, onde nenhuma variante teve desempenho melhor que as outras com confiança suficiente para atingir o limite de 95% de significância estatística.]({% image_buster /assets/img_archive/ab_analytics_wv_insufficient_confidence.png %})
 
 #### Como a variante vencedora é selecionada {#how-the-winning-variant-is-selected}
 
 A Braze testa todas as variantes entre si usando [testes qui-quadrado de Pearson](https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test). Isso mede se uma variante supera estatisticamente todas as outras em um nível de significância de p < 0,05, ou o que chamamos de 95% de significância. Se sim, a variante vencedora é indicada com o rótulo "Winner".
 
-Esse é um teste separado do intervalo de confiança, que descreve apenas o desempenho de uma variante em comparação com o controle com um valor numérico entre 0 e 100%.
+Esse é um teste separado da pontuação de confiança, que descreve apenas o desempenho de uma variante em comparação com o controle com um valor numérico entre 0 e 100%.
 
 Uma variante pode ter desempenho melhor que o grupo de controle, mas o teste qui-quadrado verifica se uma variante é melhor que todas as demais. [Testes de acompanhamento](#recommended-follow-ups) podem fornecer mais detalhes.
 
@@ -130,27 +130,27 @@ A tabela nesta página mostra as métricas de cada variante do envio da variante
 {% endtab %}
 {% endtabs %}
 
-## Entendendo o intervalo de confiança {#understanding-confidence}
+## Entendendo a confiança {#understanding-confidence}
 
-O intervalo de confiança é a medida estatística de quão certos estamos de que uma diferença nos dados, como taxas de conversão, é real e não apenas resultado do acaso.
+A confiança é a medida estatística de quão certos estamos de que uma diferença nos dados, como taxas de conversão, é real e não apenas resultado do acaso.
 
 {% alert note %}
-Não está vendo o intervalo de confiança nos seus resultados? O intervalo de confiança só aparece se você tiver um grupo de controle.
+Não está vendo a confiança nos seus resultados? A confiança só aparece se você tiver um grupo de controle.
 {% endalert %}
 
-Uma parte importante dos seus resultados é o intervalo de confiança. Por exemplo, e se o grupo de controle tivesse uma taxa de conversão de 20% e a Variante A tivesse uma taxa de conversão de 25%? Isso parece indicar que enviar a Variante A é mais eficaz do que não enviar nenhuma mensagem. Ter um intervalo de confiança de 95% significa que a diferença entre as duas taxas de conversão provavelmente se deve a uma diferença real nas respostas dos usuários e que há apenas 5% de probabilidade de que a diferença tenha ocorrido por acaso.
+Uma parte importante dos seus resultados é a confiança. Por exemplo, e se o grupo de controle tivesse uma taxa de conversão de 20% e a Variante A tivesse uma taxa de conversão de 25%? Isso parece indicar que enviar a Variante A é mais eficaz do que não enviar nenhuma mensagem. Ter uma confiança de 95% significa que a diferença entre as duas taxas de conversão provavelmente se deve a uma diferença real nas respostas dos usuários e que há apenas 5% de probabilidade de que a diferença tenha ocorrido por acaso.
 
-A Braze compara a taxa de conversão de cada variante com a taxa de conversão do controle usando um procedimento estatístico chamado [Teste&nbsp;Z](https://en.wikipedia.org/wiki/Z-test). Um resultado de 95% ou mais de intervalo de confiança, como no exemplo anterior, indica que a diferença é estatisticamente significativa. Isso vale para qualquer lugar no dashboard da Braze onde você veja uma métrica de intervalo de confiança que descreva a diferença entre duas mensagens ou populações de usuários.
+A Braze compara a taxa de conversão de cada variante com a taxa de conversão do controle usando um procedimento estatístico chamado [Teste&nbsp;Z](https://en.wikipedia.org/wiki/Z-test). Um resultado de 95% ou mais de confiança, como no exemplo anterior, indica que a diferença é estatisticamente significativa. Isso vale para qualquer lugar no dashboard da Braze onde você veja uma métrica de confiança que descreva a diferença entre duas mensagens ou populações de usuários.
 
-Em geral, um intervalo de confiança de pelo menos 95% é necessário para demonstrar que seus resultados refletem as preferências reais dos usuários e não são resultado do acaso. Em testes científicos rigorosos, 95% de intervalo de confiança (ou, como é comumente referido, o valor "p" sendo menor que 0,05) é o padrão usado para determinar significância estatística. Se você não conseguir atingir 95% de intervalo de confiança repetidamente, tente aumentar o tamanho da amostra ou diminuir o número de variantes.
+Em geral, uma confiança de pelo menos 95% é necessária para demonstrar que seus resultados refletem as preferências reais dos usuários e não são resultado do acaso. Em testes científicos rigorosos, 95% de confiança (ou, como é comumente referido, o valor "p" sendo menor que 0,05) é o padrão usado para determinar significância estatística. Se você não conseguir atingir 95% de confiança repetidamente, tente aumentar o tamanho da amostra ou diminuir o número de variantes.
 
-O intervalo de confiança reflete a probabilidade de que uma diferença observada entre as taxas de conversão da variante e do controle seja real, e não resultado do acaso. Ele depende do tamanho da amostra e da magnitude da diferença entre as taxas de conversão. Se as taxas gerais de conversão são altas ou baixas normalmente é menos importante do que a diferença observada e o tamanho da amostra para determinar a força da medida de intervalo de confiança. É possível que uma variante tenha uma taxa de conversão muito diferente de outra e ainda assim não tenha um intervalo de confiança de 95% ou mais. Também é possível que dois conjuntos de variantes tenham taxas de conversão ou aumento semelhantes, mas intervalos de confiança diferentes.
+A confiança reflete a probabilidade de que uma diferença observada entre as taxas de conversão da variante e do controle seja real, e não resultado do acaso. Ela depende do tamanho da amostra e da magnitude da diferença entre as taxas de conversão. Se as taxas gerais de conversão são altas ou baixas normalmente é menos importante do que a diferença observada e o tamanho da amostra para determinar a força da medida de confiança. É possível que uma variante tenha uma taxa de conversão muito diferente de outra e ainda assim não tenha uma confiança de 95% ou mais. Também é possível que dois conjuntos de variantes tenham taxas de conversão ou aumento semelhantes, mas confiança diferente.
 
-À medida que mais dados chegam, o intervalo de confiança pode diminuir se as taxas de conversão da variante e do controle se aproximarem — a diferença que você está medindo está ficando menor, o que pode superar o efeito de uma amostra maior.
+À medida que mais dados chegam, a confiança pode diminuir se as taxas de conversão da variante e do controle se aproximarem — a diferença que você está medindo está ficando menor, o que pode superar o efeito de uma amostra maior.
 
 ### Resultados estatisticamente insignificantes {#statistically-insignificant-results}
 
-Um teste que não atinge 95% de intervalo de confiança ainda pode conter insights importantes. Veja algumas coisas que você pode aprender com um teste com resultados estatisticamente insignificantes:
+Um teste que não atinge 95% de confiança ainda pode conter insights importantes. Veja algumas coisas que você pode aprender com um teste com resultados estatisticamente insignificantes:
 
 - É possível que todas as suas variantes tenham tido aproximadamente o mesmo efeito. Saber disso economiza o tempo que você teria gasto fazendo essas alterações. Às vezes, você pode descobrir que táticas de marketing convencionais, como repetir sua chamada para ação, não necessariamente funcionam para o seu público.
 - Embora seus resultados possam ter sido resultado do acaso, eles podem orientar a hipótese do seu próximo teste. Se múltiplas variantes parecem ter resultados aproximadamente iguais, execute algumas delas novamente junto com novas variantes para ver se você consegue encontrar uma alternativa mais eficaz. Se uma variante tiver desempenho melhor, mas não de forma significativa, você pode realizar outro teste em que a diferença dessa variante seja mais acentuada.
@@ -168,6 +168,8 @@ Por exemplo, digamos que uma campanha tenha um público-alvo de 200 usuários no
 Os 100 usuários na variante recebem a carga útil da mensagem no app, e 50 deles realizam a ação-gatilho e veem a mensagem no app. Os 100 usuários no grupo de controle só são rastreados se realizarem a ação-gatilho da campanha, e 75 deles realizam a ação-gatilho e registram uma impressão, mas não veem a mensagem no app.
 
 Apesar da divisão inicial de 50/50, as impressões únicas registradas não são equilibradas. O grupo da variante tem 50 impressões, enquanto o grupo de controle tem 75 impressões.
+
+Além disso, mensagens de variante que exigem mais tempo de renderização, como aquelas com imagens grandes ou Connected Content com templates, podem registrar menos impressões do que o grupo de controle quando os usuários disparam a mensagem, mas saem antes que a renderização seja concluída.
 
 ### Postergações de mensagens no app {#in-app-message-delays}
 
@@ -187,7 +189,7 @@ Cada teste esclarece os comportamentos dos seus usuários, como eles respondem a
 
 ### Melhorar a forma como você estrutura testes futuros {#improve-the-way-you-structure-future-tests}
 
-O tamanho da sua amostra era muito pequeno? As diferenças entre suas variantes eram muito sutis? Cada teste oferece uma oportunidade de aprender como melhorar testes futuros. Se seu intervalo de confiança é baixo, o tamanho da amostra é muito pequeno e deve ser aumentado para testes futuros. Se você não encontrar uma diferença clara entre o desempenho das suas variantes, é possível que as diferenças fossem muito sutis para ter um efeito perceptível nas respostas dos usuários.
+O tamanho da sua amostra era muito pequeno? As diferenças entre suas variantes eram muito sutis? Cada teste oferece uma oportunidade de aprender como melhorar testes futuros. Se sua confiança é baixa, o tamanho da amostra é muito pequeno e deve ser aumentado para testes futuros. Se você não encontrar uma diferença clara entre o desempenho das suas variantes, é possível que as diferenças fossem muito sutis para ter um efeito perceptível nas respostas dos usuários.
 
 ### Executar um teste de acompanhamento com um tamanho de amostra maior {#run-a-follow-up-test-with-a-larger-sample-size}
 

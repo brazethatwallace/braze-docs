@@ -155,9 +155,9 @@ Los controles de entrada determinan si se permite a los usuarios volver a entrar
 - **Basada en acciones:** Por hora, diariamente o la duración del Canvas
 - **Desencadenada por API:** Por hora, diariamente o la duración del Canvas
 
-Por ejemplo, si tienes un Canvas basado en acciones y seleccionas **Limitar volumen de entrada** y configuras el campo **Entradas máximas** a 5000 usuarios con **Diariamente** como cadencia límite, entonces el Canvas solo envía a 5000 usuarios por día.
+Por ejemplo, si tienes un Canvas planificado y seleccionas **Limitar volumen de entrada** y configuras el campo **Entradas máximas** a 500 000 usuarios con **Cada vez que el Canvas está programado** como cadencia límite, entonces el Canvas solo envía a 500 000 usuarios por envío programado.
 
-![La página "Controles de entrada" que muestra casillas de verificación para "Permitir a los usuarios volver a entrar en el Canvas" y "Limitar volumen de entrada". Esta última te permite establecer las entradas máximas y elegir una cadencia que depende del tipo de horario de entrada (por ejemplo, duración del Canvas o cada vez que el Canvas está programado para entrada planificada, y por hora, diariamente o duración del Canvas para entrada basada en acciones y desencadenada por API).]({% image_buster /assets/img_archive/entry_controls.png %})
+![La página "Controles de entrada" que muestra casillas de verificación para "Permitir a los usuarios volver a entrar en el Canvas" y "Limitar volumen de entrada".]({% image_buster /assets/img_archive/entry_controls.png %})
 
 {% alert tip %}
 Braze no recomienda seleccionar **Cada vez que el Canvas está programado** para el calentamiento de IP, ya que esto puede llevar a volúmenes de envío incrementados.
@@ -187,7 +187,7 @@ Para ver estadísticas adicionales, como los ingresos promedio de por vida de lo
 
 ### Paso 1.4: Selecciona tus ajustes de envío {#step-14-select-your-send-settings}
 
-Selecciona **Send Settings** para editar tu configuración de suscripción, activar la limitación de velocidad y activar las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours). Al activar la [limitación de velocidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-canvas-components) o la [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping), puedes aliviar la presión de marketing sobre tus usuarios y asegurarte de no enviarles demasiados mensajes.
+Selecciona **Ajustes de envío** para editar tu configuración de suscripción, activar la limitación de velocidad y activar las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours). Al activar la [limitación de velocidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-canvas-components) o la [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping), puedes aliviar la presión de marketing sobre tus usuarios y asegurarte de no enviarles demasiados mensajes.
 
 Para Canvas dirigidos a canales de correo electrónico y push, es posible que quieras limitar tu Canvas para que solo los usuarios que hayan optado explícitamente por recibir mensajes los reciban (excluyendo a los usuarios suscritos o que cancelaron su suscripción). Por ejemplo, supongamos que tienes tres usuarios con diferentes estados de adhesión voluntaria:
 
@@ -203,7 +203,7 @@ Estos ajustes de suscripción se aplican por paso, lo que significa que no tiene
 Con esta configuración, no incluyas ningún filtro en el paso **Público objetivo** que limite la audiencia a un solo canal (por ejemplo, `Foreground Push Enabled = True` o `Email Subscription = Opted-In`).
 {% endalert %}
 
-Si lo deseas, especifica las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) (el tiempo durante el cual tus mensajes no se enviarán) para tu Canvas. Marca **Enable Quiet Hours** en tus **Send Settings**. Luego, selecciona tus horas tranquilas en la zona horaria local de tu usuario y qué acción seguirá si el mensaje se desencadena dentro de esas horas tranquilas.
+Si lo deseas, especifica las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) (el tiempo durante el cual tus mensajes no se enviarán) para tu Canvas. Marca **Habilitar horas tranquilas** en tus **Ajustes de envío**. Luego, selecciona tus horas tranquilas en la zona horaria local de tu usuario y qué acción seguirá si el mensaje se desencadena dentro de esas horas tranquilas.
 
 Cuando se selecciona **Enviar en el siguiente horario disponible**, las horas tranquilas suprimen el mensaje y lo envían en el siguiente horario disponible fuera de las horas tranquilas. Por ejemplo, supongamos que las horas tranquilas están configuradas para evitar que se envíen mensajes entre las 11:30 am y las 2:30 pm en la zona horaria local del usuario, y un usuario entra en un paso de mensaje a las 11:35 am. Como esta hora está dentro de las horas tranquilas, el mensaje no se envía todavía, y el usuario recibe el paso de mensaje a las 2:30 pm, que es después de las horas tranquilas.
 
@@ -219,7 +219,7 @@ Cuando se selecciona **Enviar en el siguiente horario disponible**, las horas tr
 
 ![El botón "Añadir variante" seleccionado para mostrar un menú contextual con la opción de "Añadir variante".]({% image_buster /assets/img_archive/canvas_add_variant.gif %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
-Selecciona **Add Variant** y luego añade una nueva variante a tu Canvas. Las variantes representan un recorrido que tus usuarios seguirán y pueden contener múltiples pasos y ramificaciones.
+Selecciona **Añadir variante** y luego añade una nueva variante a tu Canvas. Las variantes representan un recorrido que tus usuarios seguirán y pueden contener múltiples pasos y ramificaciones.
 
 Puedes añadir variantes adicionales seleccionando el botón <i class="fas fa-plus-circle"></i> de suma. Cuando añadas nuevas variantes, podrás ajustar cómo se distribuirán tus usuarios entre ellas para que puedas comparar y analizar la eficacia de diferentes estrategias de interacción.
 
