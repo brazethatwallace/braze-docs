@@ -61,13 +61,35 @@ There are two options to check your domain's DMARC authentication:
     - **MXToolbox**: If you set your DMARC as the root domain, enter that into MXToolbox. If you set the DMARC at the subdomain, enter the sub-domain into MXToolbox. Be aware that MXToolbox doesn't "look up or down" when performing lookups. This means if you set the DMARC at the root domain and enter the subdomain, MXToolbox will show a failure as it doesn't know the DMARC has been set at the root domain.
 - **Option 2:** Open an email from your domain or subdomain in your mailbox, and find the original message to check whether DMARC is passing authentication on this email.
 
-For example, if you’re using Gmail, follow these steps:
+The steps vary by email client:
 
-1. Click the **More** <i class="fa-solid fa-ellipsis"></i> in an email message.
+{% tabs %}
+{% tab Gmail %}
+
+1. Select **More** <i class="fa-solid fa-ellipsis"></i> in an email message.
 2. Select **Show original**.
 3. Check if you have a "PASS" status for **DMARC**.
 
 ![An email that has "PASS" as the DMARC value.]({% image_buster /assets/img_archive/dmarc_example.png %})
+
+{% endtab %}
+{% tab Outlook %}
+
+1. Open the email.
+2. Select the arrow next to **Reply**.
+3. Select **Show message source**.
+4. Check if you have a "PASS" status for **DMARC**.
+
+{% endtab %}
+{% tab Apple Mail %}
+
+1. Open the email.
+2. Select **View** on the menu bar.
+3. Select **Message** > **Raw Source**.
+4. Check if you have a "PASS" status for **DMARC**.
+
+{% endtab %}
+{% endtabs %}
 
 #### Troubleshoot DMARC failures
 
@@ -75,7 +97,7 @@ If DMARC shows **FAIL** for messages sent through Braze:
 
 1. Open a recent message's raw headers or authentication results and note whether **SPF** and **DKIM** each pass or fail.
 2. **Alignment:** DMARC passes when *either* SPF *or* DKIM aligns with the **From** domain. Alignment means the **From** domain matches the domain that passed SPF (often the **Return-Path** / envelope domain) *or* the domain in the DKIM **d=** signature.
-3. If SPF passes but DMARC fails, the Return-Path domain may not align with your **From** domain—confirm your [whitelabeled sending and tracking domains]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains) match the domains you publish SPF and DKIM for.
+3. If SPF passes but DMARC fails, the Return-Path domain may not align with your **From** domain—confirm your [branded sending and tracking domains]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains) match the domains you publish SPF and DKIM for.
 4. If DKIM fails, verify the Braze-provided DKIM DNS records are present and unchanged.
 
 Third-party checkers (for example, [MXToolbox](https://mxtoolbox.com/dmarc.aspx)) help confirm published records; always validate with a live message from Braze as well.

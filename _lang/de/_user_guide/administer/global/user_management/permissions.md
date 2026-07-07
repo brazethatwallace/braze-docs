@@ -72,7 +72,7 @@ Eingeschränkte Nutzer:innen haben bestimmte Berechtigungen, die es ihnen ermög
 | --- | --- |
 | Workspace-Admin | Workspace-Admins haben Berechtigungen, die speziell für die Verwaltung von Workspaces gelten, haben aber nicht dieselbe Autorität wie Unternehmensadmins. Eingeschränkte Nutzer:innen können Berechtigungen erben, die denen von Workspace-Admins ähneln, wenn die erforderlichen Berechtigungen aktiviert sind. |
 | Admin (Unternehmensadmin) | Unternehmensadmins haben umfassendere Berechtigungen, einschließlich der Möglichkeit, Dashboard-Nutzer:innen zu löschen. Sie können jedoch nicht ihre eigenen Konten löschen und müssen dafür einen anderen Unternehmensadmin kontaktieren. |
-| Nur-Lese-Zugriff | Um auf Teile des Dashboards zuzugreifen, wie z. B. die Campaigns-Seite, müssen Nutzer:innen die entsprechenden Anzeigeberechtigungen zugewiesen bekommen. |
+| Schreibgeschützter Zugriff | Um auf Teile des Dashboards zuzugreifen, wie z. B. die Campaigns-Seite, müssen Nutzer:innen die entsprechenden Anzeigeberechtigungen zugewiesen bekommen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Vergleich eingeschränkter Nutzer:innen" }
 
 ### Fehler bei eingeschränktem Zugriff {#limited-access-error}
@@ -208,8 +208,8 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 
 | Produktbereich | Berechtigung | Definition |
 | --- | --- | --- |
-| Globale Kontrollgruppe | View Global Control Group | Einrichtungsseite der Globalen Kontrollgruppe anzeigen |
-| Globale Kontrollgruppe | Edit Global Control Group | Änderungen an der Globalen Kontrollgruppe erstellen und speichern. Nutzer:innen mit der Berechtigung „Globale Kontrollgruppe bearbeiten“ müssen auch die Berechtigungen „Campaigns bearbeiten“ und „Canvases bearbeiten“ erhalten. Nutzer:innen mit der Berechtigung „Globale Kontrollgruppe bearbeiten“ erhalten auch die Berechtigung „Globale Kontrollgruppe anzeigen“. |
+| Globale Kontrollgruppe | View Global Control Group | Einrichtungsseite der globalen Kontrollgruppe anzeigen |
+| Globale Kontrollgruppe | Edit Global Control Group | Änderungen an der globalen Kontrollgruppe erstellen und speichern. Nutzer:innen mit der Berechtigung „Globale Kontrollgruppe bearbeiten“ müssen auch die Berechtigungen „Campaigns bearbeiten“ und „Canvases bearbeiten“ erhalten. Nutzer:innen mit der Berechtigung „Globale Kontrollgruppe bearbeiten“ erhalten auch die Berechtigung „Globale Kontrollgruppe anzeigen“. |
 | Standorte | Archive Locations | Standorte archivieren |
 | Standorte | View Locations | Standorte anzeigen |
 | Standorte | Edit Locations | Standorte erstellen und bearbeiten |
@@ -222,6 +222,7 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Nutzerdaten | Export User Data | Nutzer:innen aus dem Dashboard herunterladen |
 | Doppelte Nutzer:innen | View User Merge Records | Eine Liste der Nutzer:innen-Zusammenführungsprotokolle anzeigen |
 | Nutzer:innen | View User Profiles (PII Redacted) | Nutzer:innen-Profile in einer PII-konformen Weise anzeigen |
+| Nutzer:innen | View User Event Properties | Event-Eigenschaften im Tab **Event-Verlauf** in Nutzer:innen-Profilen anzeigen |
 | Doppelte Nutzer:innen | Merge Duplicate Users | Doppelte Nutzer:innen zu einem zusammenführen. Duplikate werden nach der Zusammenführung entfernt |
 | Nutzer:innen löschen | View User Deletion Records | Eine Liste der Nutzer:innen-Löschprotokolle anzeigen |
 | Nutzer:innen löschen | Delete Users | Nutzer:innen dauerhaft einzeln oder in großen Mengen aus dem Dashboard löschen |

@@ -47,8 +47,8 @@ If all of the messages in your campaign are going to be similar or have the same
 2. After setting up your Canvas, add a Message step in the Canvas builder. Name your step something clear and meaningful.
 3. Select **Banner** as your messaging channel.
 4. Select a placement for the Banner.
-5. Set the priority for the Banner. [Banner priority]({{site.baseurl}}/user_guide/channels/banners#priority) determines the order in which Banners are displayed if they share the same placement.
-6. Set an expiration for the Banner. This can be after a duration of time after the step is available or at a specific date and time.
+5. Set the priority. The [Banner priority]({{site.baseurl}}/user_guide/channels/banners#priority) determines the order in which Banners are displayed if they share the same placement.
+6. Set an expiration for the Banner. This can be after a duration of time after the step is available or at a specific date and time. The maximum expiration duration is 31 days after the step becomes available to the user.
 
 {% endtab %}
 {% endtabs %}

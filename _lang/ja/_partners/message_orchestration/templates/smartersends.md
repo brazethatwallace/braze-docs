@@ -24,7 +24,7 @@ BrazeとSmarterSendsのパートナーシップにより、Brazeの機能と、�
 | SmarterSendsアカウント | このパートナーシップを活用するには、[SmarterSendsアカウント](https://smartersends.com)が必要です。 |
 | Braze REST APIキー | 以下の権限を持つBraze REST APIキー: {::nomarkdown}<ul><li><code>users.track</code></li><li><code>users.export.ids</code></li><li><code>messages.schedule.create</code></li><li><code>messages.schedule.update</code></li> <li><code>messages.schedule.delete</code></li><li><code>sends.id.create</code></li><li><code>segments.list</code></li><li><code>segments.data_series</code></li><li><code>segments.details</code></li><li><code>sends.data_series</code></li></ul>{:/} これはBrazeダッシュボードの**設定** > **APIキー**から作成できます。セキュリティを強化するために、SmarterSendsのIPアドレス（インスタンスで確認可能）を許可リストに追加してください。 |
 | Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、インスタンスのBraze URLに依存します。 |
-| Braze APIキャンペーンID | [Braze APIキャンペーンID]({{site.baseurl}}/api/api_campaigns/)は、SmarterSendsを介して送信されるすべてのキャンペーンの一意の識別子です。これはBrazeダッシュボードの**Messaging** > **キャンペーン**で作成できます。 |
+| Braze APIキャンペーンID | [Braze APIキャンペーンID]({{site.baseurl}}/api/api_campaigns/)は、SmarterSendsを介して送信されるすべてのキャンペーンの一意の識別子です。これはBrazeダッシュボードの**メッセージング** > **キャンペーン**で作成できます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユースケース {#use-cases}

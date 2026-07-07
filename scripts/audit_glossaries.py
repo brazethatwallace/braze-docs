@@ -263,13 +263,16 @@ def find_mismatches(
             original_key = source_en_lower[gloss_en_lower]
             source_trans = source_pairs[original_key]
             if not _translations_match(gloss_trans, source_trans):
-                mismatches.append({
+                mismatch = {
                     "term": gloss_en,
                     "match_type": "exact",
                     "glossary_value": gloss_trans,
                     "source_value": source_trans,
                     "source": source_name,
-                })
+                }
+                if _source_likely_untranslated(gloss_trans, gloss_en, source_trans):
+                    mismatch["source_likely_untranslated"] = True
+                mismatches.append(mismatch)
             continue
 
         if not include_substring_mismatches:
@@ -366,13 +369,39 @@ COMMON_WORDS = frozenset({
 })
 
 
+def _strip_yaml_front_matter(text):
+    """Return markdown body text without the leading YAML front matter block."""
+    if not text.startswith("---"):
+        return text
+    end = text.find("\n---", 3)
+    if end == -1:
+        return text
+    return text[end + 4 :]
+
+
+def _count_bold_ui_label(term, body):
+    """Count ``**term**`` occurrences (dashboard UI label style in docs)."""
+    if not term:
+        return 0
+    pattern = re.compile(rf"\*\*{re.escape(term)}\*\*", re.IGNORECASE)
+    return len(pattern.findall(body))
+
+
+def _source_likely_untranslated(glossary_value, term, source_value):
+    """True when a product-repo locale string looks like untranslated English."""
+    if source_value.strip().lower() == term.strip().lower():
+        return True
+    return should_skip_ascii_downgrade(glossary_value, source_value)
+
+
 def find_missing_terms(source_pairs, glossary, docs_path, min_occurrences=5):
     """Find source terms that appear in docs but aren't in the glossary.
 
     Filters aggressively to surface only genuinely useful terminology:
     - 6+ characters or multi-word (contains a space)
     - Not a common English word
-    - Appears at least min_occurrences times in docs
+    - Appears as a bold UI label (**Term**) at least min_occurrences times in
+      English docs body (front matter and non-UI prose are excluded)
     """
     glossary_lower = {k.lower() for k in glossary}
     candidates = {}
@@ -396,12 +425,11 @@ def find_missing_terms(source_pairs, glossary, docs_path, min_occurrences=5):
     if not candidates:
         return []
 
-    docs_content = _load_docs_content(docs_path)
-    docs_lower = docs_content.lower()
+    docs_body = _load_docs_body_content(docs_path)
 
     missing = []
     for en_val, trans_val in candidates.items():
-        count = docs_lower.count(en_val.lower())
+        count = _count_bold_ui_label(en_val, docs_body)
         if count >= min_occurrences:
             missing.append({
                 "term": en_val,
@@ -425,6 +453,23 @@ def _load_docs_content(docs_path):
     for md in Path(docs_path).rglob("*.md"):
         try:
             parts.append(md.read_text(errors="replace"))
+        except OSError:
+            pass
+    content = "\n".join(parts)
+    _docs_cache[key] = content
+    return content
+
+
+def _load_docs_body_content(docs_path):
+    """Load English docs with YAML front matter stripped (cached)."""
+    key = f"{docs_path}:body"
+    if key in _docs_cache:
+        return _docs_cache[key]
+
+    parts = []
+    for md in Path(docs_path).rglob("*.md"):
+        try:
+            parts.append(_strip_yaml_front_matter(md.read_text(errors="replace")))
         except OSError:
             pass
     content = "\n".join(parts)
@@ -605,6 +650,12 @@ def generate_markdown_report(report, fix_results=None, locale_results=None):
         lines.append(f"**Source strings scanned:** {stats['total_source_strings']}")
         lines.append(f"**Mismatches found:** {stats['total_mismatches']}")
         lines.append(f"**Missing high-value terms:** {stats['total_missing']}")
+        lines.append("")
+        lines.append(
+            "*Missing terms are counted only when the English term appears as a "
+            "bold UI label (`**Term**`) in `_docs/` body text (YAML front matter "
+            "and generic prose are excluded).*"
+        )
     lines.append("")
 
     for lang_key, lang_data in sorted(report["languages"].items()):
@@ -621,20 +672,40 @@ def generate_markdown_report(report, fix_results=None, locale_results=None):
         if exact:
             header = "Fixed — exact mismatches" if fixed_mode else "Exact mismatches"
             lines.append(f"**{header}**\n")
-            lines.append("| Term | Old value | New value (source) | Source repo |")
-            lines.append("|------|-----------|-------------------|-------------|")
+            untranslated = [m for m in exact if m.get("source_likely_untranslated")]
+            if untranslated and not fixed_mode:
+                lines.append(
+                    "Rows marked *untranslated source* mean the product locale file "
+                    "still has English (or would de-localize the glossary if applied). "
+                    "Fix upstream in the source repo or keep the Phrase glossary value.\n"
+                )
+            lines.append(
+                "| Term | Old value | New value (source) | Source repo | Note |"
+            )
+            lines.append(
+                "|------|-----------|-------------------|-------------|------|"
+            )
             for m in exact:
+                note = (
+                    "untranslated source"
+                    if m.get("source_likely_untranslated")
+                    else ""
+                )
                 lines.append(
                     f"| {m['term']} | {m['glossary_value']} "
-                    f"| {m['source_value']} | {m['source']} |"
+                    f"| {m['source_value']} | {m['source']} | {note} |"
                 )
             lines.append("")
 
         if missing:
-            header = "Added — new terms" if fixed_mode else "Missing terms (appear in docs but not in glossary)"
+            header = (
+                "Added — new terms"
+                if fixed_mode
+                else "Missing terms (bold UI labels in docs but not in glossary)"
+            )
             lines.append(f"**{header}**\n")
-            lines.append("| Term | Translation | Docs occurrences |")
-            lines.append("|------|-------------|-----------------|")
+            lines.append("| Term | Translation | Bold UI occurrences |")
+            lines.append("|------|-------------|---------------------|")
             for m in missing[:50]:
                 lines.append(
                     f"| {m['term']} | {m['source_translation']} "

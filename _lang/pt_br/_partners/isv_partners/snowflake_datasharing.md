@@ -9,11 +9,11 @@ hidden: true
 
 Os compartilhamentos são provisionados por cliente após o cliente adquirir um direito de compartilhamento de dados do Snowflake. Quando um cliente solicita um compartilhamento de dados, a Braze adiciona um compartilhamento ao espaço de trabalho do cliente, e o cliente pode usar a interface de autoatendimento para adicionar os dados relevantes da conta Snowflake do parceiro.
 
-![]({% image_buster /assets/img/snowflake.png %})
+![Provisionamento de compartilhamento de dados do Snowflake no dashboard da Braze]({% image_buster /assets/img/snowflake.png %})
 
 Depois que o compartilhamento é provisionado, todos os dados ficam imediatamente acessíveis a partir da instância do Snowflake como um compartilhamento de dados de entrada.
 
-![]({% image_buster /assets/img/snowflake2.png %})
+![Compartilhamento de dados de entrada do Snowflake na instância do Snowflake do cliente]({% image_buster /assets/img/snowflake2.png %})
 
 Na sua instância do Snowflake, você verá um compartilhamento por região. Cada tabela tem uma coluna, `app_group_id`, que funciona como uma chave de locatário para a Braze. À medida que novos clientes são adicionados a um compartilhamento dentro da mesma região, eles aparecerão como diferentes `app_group_ids` nas tabelas existentes.
 

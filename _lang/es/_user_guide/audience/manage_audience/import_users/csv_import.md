@@ -28,7 +28,7 @@ Para abrir la importación CSV, ve a **Audiences** > **Import Users**. Aquí enc
 
 Para empezar, selecciona **Attributes** o **Events** y luego descarga la plantilla correspondiente para ayudarte a construir tu archivo CSV para la carga.
 
-![La página "Import Users" en el dashboard de Braze.]({% image_buster /assets/img/csv_import/import_users_page.png %})
+![La página "Import Users" en el panel de Braze.]({% image_buster /assets/img/csv_import/import_users_page.png %})
 
 ### Paso 2: Elige un identificador {#choose-an-identifier}
 
@@ -65,7 +65,7 @@ Si estás cargando o actualizando perfiles de usuario que solo tienen alias, deb
 Cuando proporcionas tanto un `user_alias_name` como un `user_alias_label` en tu importación, Braze actualiza cualquier usuario existente con el mismo `user_alias_name` y `user_alias_label`. Si no se encuentra un usuario, Braze crea un nuevo usuario identificado con ese `user_alias_name` establecido.
 
 {% alert important %}
-No puedes usar una importación CSV para actualizar un usuario existente con un `user_alias_name` si ya tiene un `external_id`. En su lugar, esto crea un nuevo perfil de usuario con el `user_alias_name` asociado. Para asociar un usuario que solo tiene alias con un `external_id`, utiliza el [punto de conexión Identificar usuarios]({{site.baseurl}}/api/endpoints/user_data/post_user_identify).
+No puedes usar una importación CSV para actualizar un usuario existente con un `user_alias_name` si ya tiene un `external_id`. En su lugar, esto crea un nuevo perfil de usuario con el `user_alias_name` asociado. Para asociar un usuario que solo tiene alias con un `external_id`, utiliza el [endpoint Identificar usuarios]({{site.baseurl}}/api/endpoints/user_data/post_user_identify).
 {% endalert %}
 
 Descargar: [Plantilla de importación de atributos CSV: Alias de usuario]({{site.baseurl}}/assets/download_file/braze-user-import-alias-template-csv.xlsx?c0ce6c0aa1e901395161d87c5ba17747)
@@ -82,7 +82,7 @@ No puedes usar una importación CSV para crear un nuevo usuario utilizando `braz
 {% endalert %}
 
 {% alert tip %}
-El valor de `braze_id` puede aparecer etiquetado como `Appboy ID` en las exportaciones CSV del dashboard de Braze. Este ID será el mismo que el `braze_id` de un usuario, por lo que puedes renombrar esta columna a `braze_id` cuando vuelvas a importar el CSV.
+El valor de `braze_id` puede aparecer etiquetado como `Appboy ID` en las exportaciones CSV del panel de Braze. Este ID será el mismo que el `braze_id` de un usuario, por lo que puedes renombrar esta columna a `braze_id` cuando vuelvas a importar el CSV.
 {% endalert %}
 {% endtab %}
 
@@ -97,9 +97,9 @@ Puedes omitir un ID externo o alias de usuario y utilizar una dirección de corr
 Si incluyes tanto direcciones de correo electrónico como números de teléfono en tu archivo CSV, la dirección de correo electrónico tiene prioridad sobre el número de teléfono al buscar perfiles.
 {% endalert %}
 
-Si un perfil existente tiene esa dirección de correo electrónico o número de teléfono, ese perfil se actualiza y Braze no crea un nuevo perfil. Si hay múltiples perfiles con la misma dirección de correo electrónico, Braze utilizará la misma lógica que el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), donde se actualizará el perfil actualizado más recientemente.
+Si un perfil existente tiene esa dirección de correo electrónico o número de teléfono, ese perfil se actualiza y Braze no crea un nuevo perfil. Si hay múltiples perfiles con la misma dirección de correo electrónico, Braze utilizará la misma lógica que el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), donde se actualizará el perfil actualizado más recientemente.
 
-Si no existe un perfil con esa dirección de correo electrónico o número de teléfono, Braze crea un nuevo perfil con ese identificador. Puedes utilizar el [punto de conexión `/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) para identificar este perfil más adelante. Para eliminar un perfil de usuario, también puedes utilizar el [punto de conexión `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete).
+Si no existe un perfil con esa dirección de correo electrónico o número de teléfono, Braze crea un nuevo perfil con ese identificador. Puedes utilizar el [endpoint `/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) para identificar este perfil más adelante. Para eliminar un perfil de usuario, también puedes utilizar el [endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete).
 {% endtab %}
 {% endtabs %}
 
@@ -139,7 +139,7 @@ Los siguientes tipos de datos pueden utilizarse como atributos personalizados pa
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Atributos personalizados" }
 
 {% alert important %}
-Los arrays, tokens de notificaciones push y tipos de datos de eventos personalizados no son compatibles con la importación de usuarios, ya que las comas en tu archivo CSV se interpretarán como separadores de columna y causarán errores al analizar tu archivo.<br><br>Para cargar este tipo de valores, utiliza el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) o la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) en su lugar.
+Los arrays, tokens de notificaciones push y tipos de datos de eventos personalizados no son compatibles con la importación de usuarios, ya que las comas en tu archivo CSV se interpretarán como separadores de columna y causarán errores al analizar tu archivo.<br><br>Para cargar este tipo de valores, utiliza el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) o la [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) en su lugar.
 {% endalert %}
 
 #### Atributos predeterminados {#default-attributes}
@@ -149,7 +149,7 @@ Al importar atributos predeterminados, los encabezados de columna que utilices d
 {% endalert %}
 
 {% alert tip %}
-Para la lista completa de atributos estándar que Braze reconoce (a través de SDK, API, CSV e Ingesta de datos de Cloud), consulta [Atributos estándar]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes). La siguiente tabla cubre solo el subconjunto que puede establecerse a través de la importación CSV.
+Para la lista completa de atributos estándar que Braze reconoce (a través de SDK, API, CSV e ingesta de datos en la nube), consulta [Atributos estándar]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes). La siguiente tabla cubre solo el subconjunto que puede establecerse a través de la importación CSV.
 {% endalert %}
 
 Los siguientes atributos predeterminados están disponibles para la importación de usuarios.
@@ -174,7 +174,7 @@ Los siguientes atributos predeterminados están disponibles para la importación
 | `push_subscribe` | Cadena | Los valores disponibles son `opted_in` (registrado explícitamente para recibir mensajes push), `unsubscribed` (optó explícitamente por no recibir mensajes push) y `subscribed` (ni optó por recibir ni por no recibir). | No |
 | `time_zone` | Cadena | La zona horaria debe pasarse a Braze en el mismo formato que la base de datos de zonas horarias de IANA (por ejemplo, `America/New_York` o `Eastern Time (US & Canada)`). | No |
 | `date_of_first_session`  `date_of_last_session` | Cadena | Puede pasarse en uno de los siguientes formatos ISO 8601: "AAAA-MM-DD" "AAAA-MM-DDTHH:MM:SS+00:00" "AAAA-MM-DDTHH:MM:SSZ" "AAAA-MM-DDTHH:MM:SS" (por ejemplo, 2019-11-20T18:38:57) | No |
-| `subscription_group_id` | Cadena | El `id` de tu grupo de suscripción. Este identificador se puede encontrar en la página del grupo de suscripción de tu dashboard. | No |
+| `subscription_group_id` | Cadena | El `id` de tu grupo de suscripción. Este identificador se puede encontrar en la página del grupo de suscripción de tu panel. | No |
 | `subscription_state` | Cadena | El estado de suscripción para el grupo de suscripción especificado por `subscription_group_id`. Los valores permitidos son `unsubscribed` (no está en el grupo de suscripción) o `subscribed` (está en el grupo de suscripción). | No, pero se recomienda encarecidamente si se utiliza `subscription_group_id` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Atributos predeterminados" }
 
@@ -289,9 +289,9 @@ En este ejemplo:
 
 Para cargar tu archivo, selecciona **Attributes** o **Events**, haz clic en **Browse Files** y carga tu CSV. Braze muestra una vista previa de las primeras filas y un resumen de los campos detectados.
 
-Para archivos grandes (hasta 500 MB para atributos predeterminados y atributos personalizados, o 50 MB para eventos personalizados), el dashboard puede parecer temporalmente sin respuesta mientras el archivo se carga y Braze calcula la importación. Estas cargas y cálculos pueden tardar más en completarse que para archivos más pequeños. Deja que este paso se complete. Para más contexto sobre los límites de archivo y los tiempos, consulta [Construir tu CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import#constructing-your-csv).
+Para archivos grandes (hasta 500 MB para atributos predeterminados y atributos personalizados, o 50 MB para eventos personalizados), el panel puede parecer temporalmente sin respuesta mientras el archivo se carga y Braze calcula la importación. Estas cargas y cálculos pueden tardar más en completarse que para archivos más pequeños. Deja que este paso se complete. Para más contexto sobre los límites de archivo y los tiempos, consulta [Construir tu CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import#constructing-your-csv).
 
-En el campo **Import name**, puedes renombrar tu importación. De forma predeterminada, se utiliza el nombre del archivo.
+Antes de cargar tu archivo CSV, renómbralo con el nombre de importación que deseas ver en Braze. No puedes editar el nombre de importación después de la carga.
 
 {% alert note %}
 La vista previa del archivo solo muestra las primeras filas de tu archivo. Para verificar cada fila antes de importar, utiliza la [validación de archivo](#file-validation).
@@ -377,7 +377,7 @@ Después de revisar el informe, puedes corregir los problemas en tu archivo orig
 ### Paso 8: Inicia tu importación CSV {#step-8-start-your-csv-import}
 
 Cuando estés listo, selecciona **Start Import**. Puedes seguir el progreso actual en la página **Import Users**, que se actualiza automáticamente cada 5 segundos.
-El procesamiento puede tardar desde unos minutos hasta varias horas dependiendo del tamaño de tu CSV. Durante este tiempo, el dashboard puede parecer sin respuesta o responder lentamente, pero la importación sigue ejecutándose.
+El procesamiento puede tardar desde unos minutos hasta varias horas dependiendo del tamaño de tu CSV. Durante este tiempo, el panel puede parecer sin respuesta o responder lentamente, pero la importación sigue ejecutándose.
 
 {% alert note %}
 Puedes importar más de un CSV al mismo tiempo. Las importaciones CSV se ejecutan de forma concurrente, por lo que no se garantiza que el orden de las actualizaciones sea secuencial. Si necesitas que las importaciones CSV se ejecuten una tras otra, espera a que una importación CSV haya finalizado antes de cargar una segunda.
@@ -394,7 +394,7 @@ Después de iniciar tu importación, puedes verificar su estado en la página **
 | **En progreso** | La importación se está ejecutando actualmente. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de importación" }
 
-![La página Import Users mostrando un estado de éxito parcial con el menú contextual abierto, mostrando las opciones Descargar informe de errores y Descargar CSV cargado.]({% image_buster /assets/img/csv_import/partial_success_menu.png %})
+![La página Import Users mostrando un estado de éxito parcial con el menú contextual abierto, mostrando las opciones Download error report y Download uploaded CSV.]({% image_buster /assets/img/csv_import/partial_success_menu.png %})
 
 El informe de errores posterior a la importación incluye filas que fallaron por razones que la validación no cubre, como cuando un usuario no existe en Braze.
 
@@ -421,7 +421,7 @@ Establecer `language` o `country` en un usuario a través de la importación CSV
 
 Si utilizaste la [validación de archivo](#file-validation), comienza con el informe de errores, ya que incluye el problema específico de cada fila marcada y una descripción de cómo solucionarlo. Para las filas que fallaron durante la importación en lugar de la validación, descarga el informe de errores pasando el cursor sobre la fila y seleccionando el botón <i class="fas fa-download" title="Descargar"></i> en la página **Import Users**.
 
-Para la solución de problemas de importación CSV, revisa estos problemas comunes a continuación.
+Para la solución de problemas de importación CSV, revisa estos problemas comunes en las siguientes secciones.
 
 ### Usar correo electrónico como `external_id` {#use-email-as-external_id}
 
@@ -496,7 +496,7 @@ Si un dato de usuario predeterminado (como `email` o `first_name`) se importa co
 
 #### Cambiar el tipo de datos de un atributo personalizado {#change-a-custom-attributes-data-type}
 
-Si necesitas cambiar el tipo de datos de un atributo personalizado existente (por ejemplo, de cadena a booleano), actualiza el tipo de datos en la página [**Custom Attributes**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) del dashboard antes de importar tu CSV. Si el tipo de datos en tu CSV no coincide con el tipo de datos actualmente definido del atributo, la importación falla con un error.
+Si necesitas cambiar el tipo de datos de un atributo personalizado existente (por ejemplo, de cadena a booleano), actualiza el tipo de datos en la página [**Custom Attributes**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) del panel antes de importar tu CSV. Si el tipo de datos en tu CSV no coincide con el tipo de datos actualmente definido del atributo, la importación falla con un error.
 
 #### Múltiples tipos de datos {#multiple-data-types}
 
@@ -522,7 +522,7 @@ Hay varias razones por las que el botón **Select CSV File** puede no funcionar:
 
 | Problema | Resolución |
 |---|---|
-| Bloqueador de ventanas emergentes | Esto puede impedir que la página se muestre. Confirma que tu navegador permite ventanas emergentes en el sitio web del dashboard de Braze. |
+| Bloqueador de ventanas emergentes | Esto puede impedir que la página se muestre. Confirma que tu navegador permite ventanas emergentes en el sitio web del panel de Braze. |
 | Navegador desactualizado | Asegúrate de que tu navegador esté actualizado; si no lo está, actualízalo a la última versión. |
 | Procesos en segundo plano | Cierra todas las instancias del navegador y luego reinicia tu computadora. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="\"Select CSV File\" no funciona" }

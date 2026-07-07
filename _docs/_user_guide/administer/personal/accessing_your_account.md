@@ -164,7 +164,7 @@ This reset process also applies to users who have been locked out of their accou
 
 ### Locked out of account
 
-If you're locked out of your Braze account, you can get back in by following the steps below.
+If you're locked out of your Braze account, you can get back in by following these steps.
 
 You can tell what kind of lock out you're experiencing by the error message you receive:
 

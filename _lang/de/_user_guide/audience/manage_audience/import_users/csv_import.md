@@ -291,7 +291,7 @@ Um Ihre Datei hochzuladen, wählen Sie **Attributes** oder **Events**, klicken S
 
 Bei großen Dateien (bis zu 500 MB für Standardattribute und angepasste Attribute oder 50 MB für angepasste Events) kann das Dashboard vorübergehend nicht reagieren, während die Datei hochgeladen wird und Braze den Import berechnet. Diese Uploads und Berechnungen können länger dauern als bei kleineren Dateien. Lassen Sie diesen Schritt abschließen. Weitere Informationen zu Dateigrößenlimits und Zeitangaben finden Sie unter [CSV-Datei erstellen]({{site.baseurl}}/user_guide/data/user_data_collection/user_import#constructing-your-csv).
 
-Im Feld **Import name** können Sie Ihren Import umbenennen. Standardmäßig wird der Dateiname verwendet.
+Benennen Sie Ihre CSV-Datei vor dem Upload in den Importnamen um, den Sie in Braze sehen möchten. Der Importname kann nach dem Upload nicht mehr geändert werden.
 
 {% alert note %}
 Die Dateivorschau zeigt nur die ersten Zeilen Ihrer Datei. Um jede Zeile vor dem Import zu prüfen, verwenden Sie die [Dateivalidierung](#file-validation).
@@ -368,7 +368,7 @@ Der Fehlerbericht ist eine CSV-Datei, die jede markierte Zeile zusammen mit ihre
 |---|---|
 | **Fehler** | Die Zeile wird beim Import vollständig übersprungen. |
 | **Warnung** | Die Zeile wird importiert, aber einige Werte werden verworfen. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Den Fehlerbericht verstehen" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label=“Den Fehlerbericht verstehen" }
 
 Nach der Überprüfung des Berichts können Sie die Probleme in Ihrer Originaldatei korrigieren und erneut hochladen oder mit dem Import fortfahren und die Teilergebnisse akzeptieren.
 

@@ -26,7 +26,7 @@ Contactez votre conseiller Braze ou ouvrez un [ticket d'assistance]({{site.baseu
 
 {% details Explication de la structure des comportements des clients et des événements utilisateur, et des valeurs de plateforme %}
 
-### Structure d'événement {#event-structure}
+## Structure d'événement {#event-structure}
 
 Cette ventilation des comportements des clients et des événements utilisateur montre le type d'informations généralement incluses dans un comportement client ou un événement utilisateur. Avec une bonne compréhension de ses composants, vos développeurs et votre équipe d'aide à la décision peuvent utiliser les données d'événements Currents entrants pour créer des rapports et des graphiques axés sur les données, et tirer parti des précieux indicateurs fournis.
 
@@ -1621,9 +1621,9 @@ Lorsqu'un rebond de notification push déclenche la suppression d'un jeton, Braz
 
 Les paires add et remove se répartissent en deux catégories :
 
-**Actualisation de la chaîne de caractères du jeton (même utilisateur) :** Le système d'exploitation procède à la rotation de la chaîne de caractères du jeton sur le même appareil (par exemple, rotation des jetons APNs ou FCM). Les événements « add » (nouveau jeton) et « remove » (ancien jeton) ont les mêmes `user_id` et `device_id`, des `push_token` différents et des `time_ms` identiques.
+**Actualisation de la chaîne de caractères du jeton (même utilisateur) :** le système d'exploitation procède à la rotation de la chaîne de caractères du jeton sur le même appareil (par exemple, rotation des jetons APNs ou FCM). Les événements « add » (nouveau jeton) et « remove » (ancien jeton) ont les mêmes `user_id` et `device_id`, des `push_token` différents et des `time_ms` identiques.
 
-**Transfert de jeton entre utilisateurs :** Un jeton passe d'un utilisateur à un autre. Les événements « add » (nouvel utilisateur) et « remove » (ancien utilisateur) ont des `user_id` différents, le même `device_id`, le même `push_token` et des `time_ms` différents (généralement moins de 100 millisecondes d'écart). Cela est déclenché par l'un des cas suivants :
+**Transfert de jeton entre utilisateurs :** un jeton passe d'un utilisateur à un autre. Les événements « add » (nouvel utilisateur) et « remove » (ancien utilisateur) ont des `user_id` différents, le même `device_id`, le même `push_token` et des `time_ms` différents (généralement moins de 100 millisecondes d'écart). Cela est déclenché par l'un des cas suivants :
 
 - Le SDK appelle `changeUser` d'un profil anonyme vers un profil identifié. L'événement « remove » aura un `external_user_id` vide.
 - Le SDK appelle `changeUser` d'un profil identifié à un autre. Les deux événements auront un `external_user_id` non vide.

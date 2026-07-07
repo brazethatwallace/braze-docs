@@ -6,6 +6,7 @@ page_order: 2
 description: "Dieser Referenzartikel behandelt E-Mail-Präferenzen im Braze-Dashboard, einschließlich Sendekonfigurationen, Open-Tracking-Pixel, Abo-Seiten und -Fußzeilen und mehr."
 tool: Dashboard
 channel: email
+alias: /email_preferences/
 toc_headers: h2
 
 ---
@@ -157,7 +158,7 @@ Beim [Verwalten Ihrer Abos in Gmail](https://support.google.com/mail/answer/1562
 
 ### Entfernt das Deaktivieren des List-Unsubscribe-Headers den Gmail-Abmelde-Button? {#does-turning-off-the-list-unsubscribe-header-remove-the-gmail-unsubscribe-button}
 
-Nein. Das Deaktivieren der Braze-List-Unsubscribe-Header-Einstellung entfernt den `List-Unsubscribe`-Header aus den von Braze gesendeten Nachrichten, steuert jedoch nicht, ob Gmail eine **Unsubscribe**-Option in der Postfach-Oberfläche anzeigt. Wie oben erwähnt, kann Gmail weiterhin eine Abmeldeoption aus Links im Nachrichtentext anzeigen oder andere Anbieterlogik verwenden. Ob der Header in der Rohnachricht erscheint, ist unabhängig davon, ob Gmail den Empfänger:innen eine Abmeldeoption anzeigt. Weitere Informationen finden Sie in den [FAQ zu Gmails E-Mail-Absenderrichtlinien](https://support.google.com/a/answer/14229414).
+Nein. Das Deaktivieren der Braze-List-Unsubscribe-Header-Einstellung entfernt den `List-Unsubscribe`-Header aus den von Braze gesendeten Nachrichten, steuert jedoch nicht, ob Gmail eine **Unsubscribe**-Option in der Postfach-Oberfläche anzeigt. Wie im vorherigen Abschnitt erwähnt, kann Gmail weiterhin eine Abmeldeoption aus Links im Nachrichtentext anzeigen oder andere Anbieterlogik verwenden. Ob der Header in der Rohnachricht erscheint, ist unabhängig davon, ob Gmail den Empfänger:innen eine Abmeldeoption anzeigt. Weitere Informationen finden Sie in den [FAQ zu Gmails E-Mail-Absenderrichtlinien](https://support.google.com/a/answer/14229414).
 
 ### Unterstützung durch Postfach-Anbieter {#mailbox-provider-support}
 
@@ -185,7 +186,7 @@ Wenn der Header in der Rohversion der E-Mail vorhanden ist, aber nicht angezeigt
 
 ![Auswahl von „Nutzer:innen, die abonniert oder angemeldet sind“ für den Versand.]({% image_buster /assets/img/email_settings/email_unsub_header_workspaces.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 
-Wenn das Feature für den E-Mail-Abmelde-Header aktiviert ist, gilt diese Einstellung für den gesamten Workspace, nicht auf Unternehmensebene. Sie wird zu Campaigns und Canvases hinzugefügt, die so konfiguriert sind, dass sie an Nutzer:innen gesendet werden, die abonniert oder angemeldet sind, oder an angemeldete Nutzer:innen im Schritt **Zielgruppe** der Campaign- und Canvas-Builder.
+Wenn das Feature für den E-Mail-Abmelde-Header aktiviert ist, gilt diese Einstellung für den gesamten Workspace, nicht auf Unternehmensebene. Sie wird zu Campaigns und Canvases hinzugefügt, die so konfiguriert sind, dass sie an Nutzer:innen gesendet werden, die abonniert oder angemeldet sind, oder an angemeldete Nutzer:innen im Schritt **Target Audience** der Campaign- und Canvas-Builder.
 
 Bei Verwendung des „Workspace-Standards“ fügt Braze den One-Click-Abmelde-Header nicht für Campaigns hinzu, die als transaktional gelten und so konfiguriert sind, dass sie „an alle Nutzer:innen, einschließlich abgemeldeter Nutzer:innen“ gesendet werden. Um dies zu überschreiben und den One-Click-Abmelde-Header beim Senden an abgemeldete Nutzer:innen hinzuzufügen, können Sie **Unsubscribe globally from all emails** in den One-Click-List-Unsubscribe-Einstellungen auf Nachrichtenebene auswählen.
 
@@ -208,7 +209,7 @@ Braze unterstützt die folgenden Versionen des List-Unsubscribe-Headers:
 | Mailto | Gibt eine E-Mail-Adresse als Ziel für die Abmeldeanfrage an, die von der Empfängerin oder dem Empfänger an die Marke gesendet wird. <br><br> _Zur Verarbeitung von Mailto-List-Unsubscribe-Anfragen müssen solche Abmeldeanfragen die in Braze gespeicherte E-Mail-Adresse der Endnutzerin oder des Endnutzers enthalten, die bzw. der sich abmeldet. Diese kann durch die „Absenderadresse“ der E-Mail, von der aus sich die Endnutzerin oder der Endnutzer abmeldet, den codierten Betreff oder den codierten Text der empfangenen E-Mail bereitgestellt werden. In sehr seltenen Fällen halten sich einige Postfach-Anbieter nicht an das [RFC 2368](https://datatracker.ietf.org/doc/html/rfc2368)-Protokoll, was dazu führt, dass die E-Mail-Adresse nicht korrekt übergeben wird. Dies kann dazu führen, dass eine Abmeldeanfrage in Braze nicht verarbeitet werden kann._ |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Standard-List-Unsubscribe-Header" }
 
-Wenn Braze eine List-Unsubscribe-Anfrage von einer Nutzerin oder einem Nutzer über eine der oben genannten Methoden erhält, wird der globale E-Mail-Abo-Status dieser Person auf „Abgemeldet“ gesetzt. Wenn keine Übereinstimmung vorliegt, verarbeitet Braze diese Anfrage nicht.
+Wenn Braze eine List-Unsubscribe-Anfrage von einer Nutzerin oder einem Nutzer über eine der [Standard-List-Unsubscribe-Header](#default-list-unsubscribe-header)-Methoden erhält, wird der globale E-Mail-Abo-Status dieser Person auf „Abgemeldet“ gesetzt. Wenn keine Übereinstimmung vorliegt, verarbeitet Braze diese Anfrage nicht.
 
 ### One-Click-Abmeldung {#one-click-unsubscribe}
 
@@ -302,7 +303,7 @@ Braze ermöglicht es Ihnen, eine **Angepasste Abmeldeseite** mit Ihrem eigenen H
 
 ![HTML-Editor und Vorschau für die angepasste Abmeldeseite, die nach der Abmeldung von E-Mails angezeigt wird.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
-Erfahren Sie mehr über Best Practices für die E-Mail-Listenverwaltung unter [E-Mail-Abos verwalten]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses).
+{% multi_lang_include email/external_font_domains.md page_type='unsubscribe' %}
 
 {% endtab %}
 {% tab Angepasste Opt-in-Seite %}
@@ -311,7 +312,7 @@ Sie können eine angepasste Opt-in-Seite mit Ihrem eigenen HTML erstellen. Die E
 
 ![HTML-Editor und Vorschau für die angepasste Opt-in-Seite zur gebrandeten E-Mail-Abo-Bestätigung.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
-Erfahren Sie mehr über Best Practices für die E-Mail-Listenverwaltung unter [E-Mail-Abos verwalten]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses).
+{% multi_lang_include email/external_font_domains.md page_type='opt-in' %}
 
 {% endtab %}
 {% endtabs %}

@@ -83,6 +83,18 @@ Canvas를 중지해도 메시지 수신을 대기 중인 사용자가 사용자 
 
 인앱 메시지는 Braze에서 "푸시"되는 것이 아니라 SDK에 의해 "풀"됩니다. 적격 사용자를 위한 인앱 메시지는 세션 시작 시 자동으로 전달되며 트리거 이벤트가 발생할 때까지 "대기"합니다. 적격 사용자가 세션을 시작할 때 메시지를 수신하므로 Braze는 이를 전송 이벤트로 보고하지 않습니다. 사용자가 트리거 이벤트를 수행하면 메시지가 표시되고 Braze는 노출 횟수를 기록하며 고객 프로필에서 캔버스 단계(또는 Campaign)를 수신됨으로 표시합니다. 따라서 인앱 메시지의 _전송_ 합계는 0이 됩니다.
 
+### 긴 지연 또는 브랜치 후에 사용자가 인앱 메시지를 받지 못한 이유는 무엇인가요? {#why-didnt-users-receive-my-in-app-message-after-a-long-delay-or-branch}
+
+업스트림 [지연]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) 단계와 오디언스 확인이 완료된 후, 사용자는 메시지 단계에 도달해야만 인앱 메시지를 받을 수 있습니다. 메시지가 캘린더 날짜에 만료되거나 **단계가 사용 가능해진 후 짧은 기간** 내에 만료되는 경우, 느린 브랜치의 사용자는 만료 후에 도착하여 메시지를 볼 수 없습니다. 만료 시간을 가장 긴 현실적인 경로 지연에 맞추세요. 자세한 내용과 예시는 [인앱 메시지 만료]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas#in-app-message-expiration)를 참조하세요.
+
+### "Canvas 진입 속성정보는 인앱 메시지에서 사용할 수 없습니다"라는 메시지가 표시되는 이유는 무엇인가요? {#why-do-i-see-canvas-entry-properties-may-not-be-used-in-in-app-messages}
+
+이 메시지는 개인화가 인앱 메시지에서 Canvas 내에서 확인할 수 없는 필드를 참조할 때 나타납니다. [컨텍스트 및 이벤트 속성정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) 및 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)에 설명된 대로 `context` 오브젝트를 사용하세요. 레거시 Liquid 네임스페이스 `canvas_entry_properties`는 `context`와 다른 제약 조건이 있습니다. 여러 단계에 걸쳐 값을 유지해야 하는 경우, Braze 팀과 함께 [기존 Canvas 에디터의 영구 속성정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties)를 검토하세요. 저장된 값은 기기가 인앱 페이로드를 다운로드하기 전에 사용자가 Canvas를 나가면 지워집니다.
+
+### Canvas에서 드래그 앤 드롭 인앱 메시지의 버튼 클릭은 어디에서 확인할 수 있나요? {#where-can-i-find-button-clicks-for-drag-and-drop-in-app-messages-in-canvas}
+
+드래그 앤 드롭 인앱 메시지의 버튼 수준 측정기준은 상위 Canvas 요약이 아닌 **Canvas 세부 정보**의 **메시지** 단계 분석 카드에 표시됩니다. Canvas를 열고 메시지 단계를 선택한 후 인앱 참여를 확인하세요. 리포팅 개념에 대해서는 [Canvas 분석으로 측정 및 테스트]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)를 참조하세요.
+
 ### 동일한 Canvas 메시지 단계 또는 다변량 전송에서 각 배리언트에 대해 다른 전송 시간을 스케줄할 수 있나요? {#can-i-schedule-different-send-times-for-each-variant-in-the-same-canvas-message-step-or-multivariate-send}
 
 아니요. 동일한 다변량 구성 또는 메시지 단계의 배리언트는 하나의 전달 스케줄을 공유합니다. 동일한 스케줄 전송에서 하나의 배리언트를 오후 6시에, 다른 배리언트를 오후 7시에 전송하도록 할당할 수 없습니다.
@@ -112,6 +124,10 @@ Canvas 고유의 요인도 적용됩니다:
 - **방해금지 시간 및 지연:** 메시지가 보류되거나 재스케줄되어 보고 있는 리포팅 기간에서 전송이 이동할 수 있습니다.
 - **최대 진입 또는 오디언스 제한:** 기본 Segment가 더 크더라도 진입 또는 전송 제한이 추가 사용자를 차단합니다.
 - **리포팅 기간:** 분석 범위에 추정치와 비교하는 모든 전송이 포함되지 않을 수 있습니다.
+
+### 예상 오디언스와 Canvas 사용자 수가 일치하지 않는 이유는 무엇인가요? {#why-dont-estimated-audience-and-canvas-user-counts-match}
+
+**예상 오디언스**는 추정이 실행될 때 Segment 및 진입 필터와 일치하는 사용자를 반영합니다. 그 이후에 지연 또는 액션 기반 진입, 재적격, API 트리거 또는 브랜치 라우팅으로 인해 스냅샷과 비교하여 여정에 접촉하는 프로필 수가 증가할 수 있습니다. 전송 시점 필터가 실패하면 사용자가 이탈하여 실제 진입 또는 전송 수가 줄어들 수도 있습니다. 타이밍, 제한 및 평가 설정을 [전송 수가 예상 오디언스 크기보다 낮은 이유는 무엇인가요?](#why-are-sends-lower-than-the-estimated-audience-size)와 함께 비교하세요.
 
 ### _고유 수신자_가 타겟팅한 사용자 수보다 높은 이유는 무엇인가요? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
@@ -176,9 +192,25 @@ Canvas 필터를 사용하여 [Segment를 생성]({{site.baseurl}}/user_guide/au
 
 아니요. 하지만 [Canvas를 아카이브]({{site.baseurl}}/user_guide/messaging/governance/archiving)할 수 있습니다.
 
+### 아카이브된 Canvas 또는 Campaign을 다시 시작하려면 어떻게 하나요? {#how-do-i-resume-an-archived-canvas-or-campaign}
+
+아카이브된 메시지는 편집 가능한 상태로 되돌리기 전까지 전송되지 않습니다. Campaign 또는 Canvas를 [아카이브 해제]({{site.baseurl}}/user_guide/messaging/governance/archiving#unarchiving-campaigns-and-canvases)하고, 진입 스케줄 또는 전송 시간을 미래 기간으로 설정한 다음(또는 깨끗한 사본이 필요한 경우 여정을 복제한 다음), 필요에 따라 **재개** 또는 시작하세요. [Campaign 및 Canvases 아카이브]({{site.baseurl}}/user_guide/messaging/governance/archiving)를 참조하세요.
+
+### 오류가 표시되지 않는데 Canvas가 저장되지 않는 이유는 무엇인가요? {#why-doesnt-my-canvas-save-when-no-error-appears}
+
+오디언스 또는 단계 수준 필터에서 비어 있는 **커스텀 속성** 필터가 상세한 유효성 검사 메시지 없이 저장을 차단할 수 있습니다. 각 필터 카드를 열고 불완전한 커스텀 속성 규칙을 제거하거나 속성 이름과 값을 모두 입력한 다음 **저장**을 다시 선택하세요.
+
+### Canvas 또는 Campaign에서 태그가 사라진 이유는 무엇인가요? {#why-did-a-tag-disappear-from-my-canvas-or-campaign}
+
+워크스페이스에서 [태그]({{site.baseurl}}/user_guide/messaging/governance/tags)가 삭제되면, Braze는 해당 태그를 참조하는 모든 Campaign 및 Canvas에서 제거합니다. 이 정리 작업이 Canvas 변경 로그에 항상 별도의 항목으로 생성되지는 않습니다.
+
 ### 각 Canvas 구성요소의 분석을 어떻게 볼 수 있나요? {#how-can-i-view-analytics-for-each-of-my-canvas-components}
 
 Canvas 구성요소의 분석을 보려면 Canvas로 이동하여 **Canvas 세부 정보** 페이지를 아래로 스크롤하세요. 여기에서 각 구성요소의 분석을 볼 수 있습니다. 자세한 내용은 [Canvas 분석]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)을 확인하세요.
+
+### Canvas 단계의 참여가 고객 프로필에 언제 표시되나요? {#when-is-engagement-from-a-canvas-step-visible-on-a-user-profile}
+
+`Received Message from Canvas Step`과 같은 필터는 Braze가 해당 단계에 대한 전송, 수신 또는 참여 이벤트를 기록한 후에 업데이트됩니다. 인앱 메시지는 전송 스타일 측정기준과 별도로 노출 횟수를 기록할 수 있습니다. [노출 횟수가 기록되었는데 Canvas에서 전송 수가 0으로 표시되는 이유는 무엇인가요?](#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged)를 참조하세요. 동일한 이벤트가 **Canvas 세부 정보**의 단계 측정기준에도 표시됩니다.
 
 ### 고유 사용자 수를 볼 때 Canvas 분석과 세그먼터 중 어느 것이 더 정확한가요? {#when-looking-at-the-number-of-unique-users-is-canvas-analytics-or-the-segmenter-more-accurate}
 
@@ -290,7 +322,7 @@ Canvas를 편집하는 동안 "요청 시간 초과" 오류가 발생하여 [Bra
 
 병합 및 고아 프로필에 대한 자세한 내용은 [중복 사용자 병합]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users)을 참조하세요.
 
-### 활성 Canvas 또는 Campaign을 중지하면 이미 이메일 서비스 공급자에게 전송된 메시지가 여전히 전달되나요? {#if-i-stop-an-active-canvas-or-campaign-do-messages-already-sent-to-the-esp-still-deliver}
+### 활성 Canvas 또는 Campaign을 중지하면 이미 ESP에 전송된 메시지가 여전히 전달되나요? {#if-i-stop-an-active-canvas-or-campaign-do-messages-already-sent-to-the-esp-still-deliver}
 
 네. Braze가 이메일 서비스 공급자(ESP)에 요청을 전송한 후에는 해당 전송을 회수할 수 없습니다. Canvas 또는 Campaign을 중지하면 새로운 전송 요청은 방지되지만, 이미 ESP에 전달된 메시지는 여전히 전달될 수 있으며 ESP가 처리하는 동안 전송 수가 증가할 수 있습니다.
 
@@ -325,3 +357,15 @@ Braze는 웹훅 단계에 대한 내장 비가시 추적 픽셀을 포함하지 
 ### "Canvas 메시지 24시간 이상 지연" 이메일은 누가 수신하나요? {#who-receives-the-canvas-messages-delayed-24-hours-email}
 
 Braze는 Canvas 메시지가 사용량 제한으로 인해 24시간 이상 지연될 때 이 알림을 전송합니다. 이메일은 영향을 받는 Canvas에 이전에 변경을 가한 대시보드 사용자(Canvas 변경 로그 기준)에게 전송됩니다. Braze가 해당 수신자를 확인할 수 없는 경우, 이메일은 워크스페이스의 **회사 관리자**에게 전송됩니다.
+
+### 예외 이벤트 후 사용자가 메시지 수신을 중단하는 시점은 언제인가요? {#when-does-a-user-stop-receiving-messages-after-an-exception-event}
+
+Braze는 예외 이벤트가 발생하는 즉시 종료를 기록하지만, 타이머가 완료될 때까지 사용자가 단계 내에 남아 있을 수 있습니다. 이는 지연 단계에서 가장 눈에 띕니다. 스케줄된 단계와 이벤트 트리거 단계 간에도 동작이 다릅니다. 타임라인, 예시 및 분석 세부 사항에 대해서는 [종료 기준]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria)을 참조하세요.
+
+### 링크 별칭 상호작용을 선택할 때 행동 경로 단계에 오류가 표시되는 이유는 무엇인가요? {#why-does-my-action-paths-step-show-an-error-when-i-select-a-link-alias-interaction}
+
+이메일 상호작용 트리거(예: **이메일에서 별칭 클릭** 또는 **Campaign 또는 Canvas 단계에서 별칭 클릭**)를 사용하는 행동 그룹은 해당 링크가 포함된 메시지를 이미 전송한 메시지 단계가 필요합니다. 행동 경로 단계가 클릭을 평가하기 전에 이메일이 전송되도록 단계를 추가하거나 순서를 변경하세요. 또는 사용자가 이 Canvas에서 이미 수신한 메시지와 일치하는 상호작용을 선택하세요. 상호작용 트리거의 전체 목록은 [실행 기반 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)을 참조하세요.
+
+### 과거 커스텀 이벤트 타임스탬프가 액션 기반 Canvases 및 Campaigns에 어떤 영향을 미치나요? {#how-do-historical-custom-event-timestamps-affect-action-based-canvases-and-campaigns}
+
+Braze는 적격 이벤트가 수집되고 사용자가 오디언스 규칙을 충족할 때 액션 기반 여정을 평가합니다. Canvas 또는 Campaign이 활성화된 기간 외에 이벤트가 프로필에 도착하거나, 사용자가 오디언스와 일치하기 전에 이벤트가 도착하면 진입 또는 다운스트림 전송이 예상대로 발생하지 않을 수 있습니다. 고객 프로필 활동 로그와 [커스텀 이벤트 문제 해결]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#troubleshooting-custom-events)의 문제 해결 단계를 사용하여 이벤트 타임스탬프를 라이브 시작 시간 및 Segment 멤버십과 비교하세요. 동작이 여전히 예상과 일치하지 않으면 [Braze 고객지원]({{site.baseurl}}/braze_support)에 문의하세요.

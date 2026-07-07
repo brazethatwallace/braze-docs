@@ -158,7 +158,7 @@ When [managing your subscriptions in Gmail](https://support.google.com/mail/answ
 
 ### Does turning off the list-unsubscribe header remove the Gmail Unsubscribe button?
 
-No. Turning off the Braze list-unsubscribe header setting removes the `List-Unsubscribe` header from messages Braze sends, but it doesn't control whether Gmail shows an **Unsubscribe** option in the mailbox UI. As noted above, Gmail may still surface an unsubscribe option from links in the message body or use other provider logic. Whether the header appears in the raw message is separate from whether Gmail displays an unsubscribe option to recipients. For more information, see [Gmail's Email Sender Guidelines FAQ](https://support.google.com/a/answer/14229414).
+No. Turning off the Braze list-unsubscribe header setting removes the `List-Unsubscribe` header from messages Braze sends, but it doesn't control whether Gmail shows an **Unsubscribe** option in the mailbox UI. As noted in the previous section, Gmail may still surface an unsubscribe option from links in the message body or use other provider logic. Whether the header appears in the raw message is separate from whether Gmail displays an unsubscribe option to recipients. For more information, see [Gmail's Email Sender Guidelines FAQ](https://support.google.com/a/answer/14229414).
 
 ### Mailbox provider support
 
@@ -209,7 +209,7 @@ Braze supports the following versions of the list-unsubscribe header:
 | Mailto | Specifies an email address as the destination for the unsubscribe request message to be sent from the recipient to the brand. <br><br> _To process mailto list-unsubscribe requests, such unsubscribe requests need to include the email address as stored in Braze for the End User who is unsubscribing. This may be provided by the "from-address" of the email from where the End User is unsubscribing, the encoded subject, or the encoded body from the email received by the End User that they are unsubscribing from. In very limited cases, some inbox providers don't adhere to the [RFC 2368](https://datatracker.ietf.org/doc/html/rfc2368) protocol, resulting in the email address not being properly passed. This can lead to an unsubscribe request not being able to be processed in Braze._ |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Default list-unsubscribe header" }
 
-When Braze receives a list-unsubscribe request from a user via any of the above methods, this user’s global email subscription state is set to unsubscribed. If there isn’t a match, Braze does not process this request.
+When Braze receives a list-unsubscribe request from a user via any of the [default list-unsubscribe header](#default-list-unsubscribe-header) methods, this user’s global email subscription state is set to unsubscribed. If there isn’t a match, Braze does not process this request.
 
 ### One-click unsubscribe
 

@@ -6,6 +6,8 @@ description: "GitHubからミラーリングされたBraze Flutter SDK READMEリ
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Flutter SDKリポジトリガイド {#flutter-sdk-repository-guide}
+
 ## Braze Flutter SDKについて {#about-the-braze-flutter-sdk}
 
 Braze Flutter SDKは、Brazeのメッセージング、分析、ユーザーエンゲージメント機能をアプリケーションに統合するのに役立ちます。
@@ -16,6 +18,8 @@ Braze Flutter SDKは、Brazeのメッセージング、分析、ユーザーエ�
 - [Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=flutter)
 
 ## クイックスタート {#quickstart}
+
+以下のスニペットは、Braze Flutter SDKをアプリに追加するために必要な最小限の設定を示しています。
 
 ``` bash
 flutter pub add braze_plugin
@@ -83,6 +87,8 @@ _braze.changeUser("Jane Doe");
 
 ## バージョンサポート {#version-support}
 
+以下の表は、Braze Flutter SDKで使用されるツールのサポートされる最小バージョンを示しています。
+
 | ツール                                                        | サポートされる最小バージョン |
 | :----------------------------------------------------------- | :------------------------ |
 | Dart                                                         | 2.17.0+                   |
@@ -91,7 +97,7 @@ _braze.changeUser("Jane Doe");
 | iOSデプロイメントターゲット                                     | 12.0+                     |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="バージョンサポート" }
 
-このSDKは、基盤となるBrazeネイティブSDKの要件も継承します。[braze-inc/braze-android-sdk](https://github.com/braze-inc/braze-android-sdk)および[braze-inc/braze-swift-sdk](https://github.com/braze-inc/braze-swift-sdk)で定義されているバージョンサポート情報にも準拠してください。
+このSDKは、基盤となるBrazeネイティブSDKの要件も継承します。詳細については、[braze-inc/braze-android-sdk](https://github.com/braze-inc/braze-android-sdk)および[braze-inc/braze-swift-sdk](https://github.com/braze-inc/braze-swift-sdk)を参照してください。
 
 ## サンプルアプリ {#sample-app}
 
@@ -99,7 +105,7 @@ _braze.changeUser("Jane Doe");
 
 ## お問い合わせ {#contact}
 
-ご質問がある場合は、[support@braze.com](mailto:support@braze.com)までお問い合わせください。
+ご質問がある場合は、Brazeテクニカルサポートまでお問い合わせください。
 <!-- END GENERATED README CONTENT -->
 
 リポジトリの詳細とサンプルプロジェクトについては、[https://github.com/braze-inc/braze-flutter-sdk](https://github.com/braze-inc/braze-flutter-sdk)を参照してください。

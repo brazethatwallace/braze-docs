@@ -6,6 +6,8 @@ description: "Braze .NET MAUI (Xamarin) SDK README-Referenz, gespiegelt von GitH
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# .NET MAUI (Xamarin) SDK Repository-Leitfaden {#net-maui-xamarin-sdk-repository-guide}
+
 ## Über das Braze .NET MAUI (Xamarin) SDK {#about-the-braze-net-maui-xamarin-sdk}
 
 Das Braze .NET MAUI (Xamarin) SDK hilft Ihnen, Braze-Messaging, Analytics und Nutzer:innen-Engagement-Funktionen in Ihre Anwendung zu integrieren.

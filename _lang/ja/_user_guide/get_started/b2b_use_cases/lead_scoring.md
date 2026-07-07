@@ -23,7 +23,7 @@ Brazeでリードスコアリングワークフローを作成するには、次
 
 ### ステップ 1: キャンバスを作成する {#step-1-create-a-canvas}
 
-1. **Messaging** > **キャンバス**に移動し、**Create キャンバス**を選択してから、キャンバスの基本情報を入力します。
+1. **メッセージング** > **キャンバス**に移動し、**Create キャンバス**を選択してから、キャンバスの基本情報を入力します。
 
 2. キャンバスに「Lead Scoring キャンバス」などの関連する名前を付け、探しやすくするために「Lead Management」などのタグを付けます。<br><br>![「Lead Scoring キャンバス」という名前と「Lead Management」というタグでキャンバスを作成するステップ1。]({% image_buster /assets/img/b2b/step_1_simple.png %}){: style="max-width:80%;"}
 
