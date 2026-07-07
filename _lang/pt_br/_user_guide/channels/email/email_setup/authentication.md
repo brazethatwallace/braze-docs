@@ -66,7 +66,7 @@ As etapas variam de acordo com o cliente de e-mail:
 {% tabs %}
 {% tab Gmail %}
 
-1. Selecione **Mais** <i class="fa-solid fa-ellipsis" aria-label="Mais opções"></i> em uma mensagem de e-mail.
+1. Selecione **Mais** <i class="fa-solid fa-ellipsis"></i> em uma mensagem de e-mail.
 2. Selecione **Mostrar original**.
 3. Verifique se você tem o status "PASS" para **DMARC**.
 

@@ -15,7 +15,7 @@ channel:
 
 ## Pré-requisitos {#prerequisites}
 
-Antes de lançar seu Banner, sua equipe de desenvolvimento precisa [configurar os posicionamentos no seu app ou site]({{site.baseurl}}/developer_guide/banners/placements). Você ainda pode rascunhar sua campanha de Banner enquanto isso, mas não poderá lançá-la até que os posicionamentos estejam configurados.
+Antes de lançar seu Banner, sua equipe de desenvolvimento precisa [configurar os posicionamentos no seu app ou website]({{site.baseurl}}/developer_guide/banners/placements). Você ainda pode rascunhar sua campanha de Banner enquanto isso, mas não poderá lançá-la até que os posicionamentos estejam configurados.
 
 ## Criar uma mensagem de Banner {#create-a-banner-message}
 
@@ -47,8 +47,8 @@ Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conte
 2. Após configurar seu Canvas, adicione uma etapa de Mensagem no construtor de Canvas. Dê à sua etapa um nome claro e significativo.
 3. Selecione **Banner** como seu canal de envio de mensagens.
 4. Selecione um posicionamento para o Banner.
-5. Defina a prioridade do Banner. A [prioridade do Banner]({{site.baseurl}}/user_guide/channels/banners#priority) determina a ordem em que os Banners são exibidos quando compartilham o mesmo posicionamento.
-6. Defina uma expiração para o Banner. Pode ser após um período de tempo depois que a etapa estiver disponível ou em uma data e hora específicas.
+5. Defina a prioridade. A [prioridade do Banner]({{site.baseurl}}/user_guide/channels/banners#priority) determina a ordem em que os Banners são exibidos quando compartilham o mesmo posicionamento.
+6. Defina uma expiração para o Banner. Pode ser após um período de tempo depois que a etapa estiver disponível ou em uma data e hora específicas. A duração máxima de expiração é de 31 dias após a etapa ficar disponível para o usuário.
 
 {% endtab %}
 {% endtabs %}
@@ -148,7 +148,7 @@ A contagem regressiva começa a partir do momento em que o usuário dispensa o B
 
 #### Escolher seu público {#choose-your-audience}
 
-1. Em **Target Audiences**, escolha Segments ou filtros para refinar seu público. Você recebe automaticamente uma pré-visualização da população aproximada do Segment. A associação exata ao Segment é calculada antes do envio da mensagem.
+1. Em **Target Audiences**, escolha Segments ou filtros para refinar seu público. Você recebe automaticamente uma prévia da população aproximada do Segment. A associação exata ao Segment é calculada antes do envio da mensagem.
 
 {% multi_lang_include audience/target_audiences.md %}
 
@@ -163,7 +163,7 @@ A Braze permite que você acompanhe [eventos de conversão]({{site.baseurl}}/use
 
 {% tab Canvas %}
 
-Se ainda não fez isso, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar [testes multivariantes]({{site.baseurl}}/user_guide/messaging/ab_testing) e [Seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), e mais, consulte a etapa [Construir seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) da nossa documentação de Canvas.
+Se ainda não fez isso, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar [testes multivariantes]({{site.baseurl}}/user_guide/messaging/ab_testing) e [seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), e mais, consulte a etapa [Construir seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) da nossa documentação de Canvas.
 
 Para controlar a reelegibilidade em etapas de Banner no Canvas, use as configurações de reentrada do Canvas. Para saber mais, consulte [Reelegibilidade para Campaigns e Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
 

@@ -47,7 +47,7 @@ Campaigns y Canvas son la forma de enviar mensajes a tus usuarios.
 
 Las Campaigns son ideales para mensajes únicos enviados a un segmento de audiencia específico a través de varios canales. Puedes aprovechar cualquiera de nuestros canales de mensajería compatibles en tu Campaign (correo electrónico, push, In-App Messages, SMS y más).
 
-Los Canvas son flujos de trabajo avanzados de Campaigns que te permiten automatizar y orquestar recorridos personalizados del cliente a través de múltiples canales. Dentro de un Canvas, puedes configurar lógica de ramificación, retrasos, puntos de decisión y eventos de conversión para guiar a los clientes a través de una serie de interacciones. Los Canvas ayudan a garantizar una comunicación coherente y fluida en los distintos puntos de intervención, lo que aumenta las posibilidades de interacción y conversión de los clientes.
+Los Canvas son flujos de trabajo avanzados de Campaigns que te permiten automatizar y orquestar recorridos personalizados del cliente a través de múltiples canales. Dentro de un Canvas, puedes configurar lógica de ramificación, retrasos, puntos de decisión y eventos de conversión para guiar a los clientes a través de una serie de interacciones. Los Canvas ayudan a garantizar una comunicación coherente y fluida en los distintos puntos de intervención, lo que aumenta las posibilidades de participación y conversión de los clientes.
 
 Para más información, consulta: [Cómo empezar: Campaigns y Canvas]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases).
 
@@ -72,7 +72,7 @@ Braze está diseñado para ponerse en marcha rápida y fácilmente. Nuestro tiem
 
 Este es el marco de Braze para estimar la duración de tu integración basándose en cuatro componentes en los que puedes trabajar en paralelo. El intervalo típico es de 30 a 180 días, y la mayoría de las cuentas completan su integración en un plazo de 45 a 60 días.
 
-- **Nivel de complejidad de la migración de Campaigns:** El tiempo que se tarda en migrar las Campaigns depende de cuántas tengas, de lo personalizadas que estén y de tus recursos. Si tienes menos de diez Campaigns que migrar, tardarás menos de 60 días. Pero si tienes más de 100 Campaigns, será más complicado. No es lo mismo que una sola persona migre 100 Campaigns a que lo hagan 10 personas.
+- **Nivel de complejidad de la migración de campañas:** El tiempo que se tarda en migrar las campañas depende de cuántas tengas, de lo personalizadas que estén y de tus recursos. Si tienes menos de diez campañas que migrar, tardarás menos de 60 días. Pero si tienes más de 100 campañas, será más complicado. No es lo mismo que una sola persona migre 100 campañas a que lo hagan 10 personas.
 
 {% alert tip %}
 ¿Necesitas ayuda con tu migración? Nuestros [socios certificados de Braze](https://www.braze.com/partners/solutions-partners) pueden ayudarte.

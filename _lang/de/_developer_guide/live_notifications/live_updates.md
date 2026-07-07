@@ -17,7 +17,7 @@ Sie können die [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-
 
 ## Ein Live Update anzeigen {#displaying-a-live-update}
 
-In diesem Abschnitt arbeiten Sie mit Superb Owl zusammen, dem Moderator einer neuen Spielshow, in der Teams zur Rettung von Wildtieren gegeneinander antreten, um zu sehen, wer die meisten Eulen retten kann. Sie möchten Live Updates in ihrer Android-App nutzen, um den Status eines laufenden Spiels anzuzeigen und dynamische Updates der Benachrichtigung in Echtzeit vorzunehmen.
+In diesem Abschnitt arbeiten Sie mit Superb Owl zusammen, dem Moderator einer neuen Spielshow, in der Teams zur Rettung von Wildtieren gegeneinander antreten, um zu sehen, wer die meisten Eulen retten kann. Sie möchten Live Updates in ihrer Android-App nutzen, um den Status eines laufenden Spiels anzuzeigen und dynamische Aktualisierungen der Benachrichtigung in Echtzeit vorzunehmen.
 
 ![Ein Beispiel für ein Live Update von Android]({% image_buster /assets/img/android/android-live-update.png %}){: style="max-width:40%;"}
 

@@ -108,7 +108,7 @@ La pestaña **Historial de eventos** muestra los eventos personalizados y las co
 | Categoría del historial de eventos | Contiene |
 | --- | --- |
 | Lista de eventos | Eventos personalizados y compras de los últimos 30 días (hasta los 100 más recientes), ordenados del más nuevo al más antiguo. |
-| Tipo de evento | Si la fila es un **Evento personalizado** o una **Compra**. |
+| Tipo de evento | Si la fila es un **evento personalizado** o una **compra**. |
 | Marca de tiempo | Cuándo se registró el evento. |
 | Nombre del evento | El nombre del evento personalizado o la compra. |
 | Propiedades del evento | Las propiedades completas del evento, mostradas como JSON. |

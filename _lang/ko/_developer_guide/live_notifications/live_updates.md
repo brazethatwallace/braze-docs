@@ -9,7 +9,7 @@ noindex: true
 <!--
 # Android용 라이브 업데이트 {#live-updates-for-android}
 
-> Braze SDK에서 Android 라이브 업데이트를 사용하는 방법을 알아보세요. [진행률 중심 알림](https://developer.android.com/about/versions/16/features/progress-centric-notifications)이라고도 합니다. 이러한 알림은 인터랙티브 잠금 화면 알림을 표시할 수 있는 [Swift Braze SDK의 라이브 활동]({{site.baseurl}}/developer_guide/live_notifications/live_activities)과 유사합니다. Android 16은 사용자가 시작한 시작부터 끝까지의 여정을 Seamlessly 추적할 수 있도록 진행률 중심 알림을 도입했습니다.
+> Braze SDK에서 Android 라이브 업데이트를 사용하는 방법을 알아보세요. [진행률 중심 알림](https://developer.android.com/about/versions/16/features/progress-centric-notifications)이라고도 합니다. 이러한 알림은 인터랙티브 잠금 화면 알림을 표시할 수 있는 [Swift Braze SDK의 라이브 활동]({{site.baseurl}}/developer_guide/live_notifications/live_activities)과 유사합니다. Android 16은 사용자가 시작한 처음부터 끝까지의 여정을 원활하게 추적할 수 있도록 진행률 중심 알림을 도입했습니다.
 
 ## 작동 방식 {#how-it-works}
 
@@ -145,7 +145,7 @@ curl 명령은 테스트에 유용하지만, 이미 [iOS 라이브 활동]({{sit
 
 #### 요청 매개변수 {#request-parameters}
 
-| 키 | 설명 |
+| 키                          | 설명 |
 |------------------------------|------------|
 | `REST_API_KEY`               | `messages.send` 권한이 있는 Braze REST API 키입니다. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | `BRAZE_REST_ENDPOINT`         | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/api/basics#endpoints)에 따라 달라집니다. |

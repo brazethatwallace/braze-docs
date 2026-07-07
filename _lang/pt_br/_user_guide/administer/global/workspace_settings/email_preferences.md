@@ -186,7 +186,7 @@ Se o cabeçalho estiver na versão bruta do e-mail mas não for exibido, o prove
 
 ![Selecionando "users who are subscribed or opted in" para quais usuários enviar.]({% image_buster /assets/img/email_settings/email_unsub_header_workspaces.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 
-Quando o recurso de cabeçalho de cancelamento de inscrição de e-mail está ativado, essa configuração se aplica a todo o espaço de trabalho, não ao nível da empresa. Ela é adicionada a Campaigns e Canvas que estão configurados para enviar a usuários inscritos ou com opt-in, ou apenas usuários com opt-in, na etapa **Público-alvo** dos construtores de Campaign e Canvas.
+Quando o recurso de cabeçalho de cancelamento de inscrição de e-mail está ativado, essa configuração se aplica a todo o espaço de trabalho, não ao nível da empresa. Ela é adicionada a Campaigns e Canvas que estão configurados para enviar a usuários inscritos ou com opt-in, ou apenas usuários com opt-in, na etapa **Target Audience** dos construtores de Campaign e Canvas.
 
 Ao usar o "padrão do espaço de trabalho", a Braze não adiciona o cabeçalho de cancelamento de inscrição com um clique para Campaigns consideradas transacionais, que são configuradas para "enviar a todos os usuários, incluindo usuários cancelados". Para substituir isso e adicionar o cabeçalho de cancelamento de inscrição com um clique ao enviar para usuários cancelados, você pode selecionar **Unsubscribe globally from all emails** nas configurações de list-unsubscribe com um clique no nível da mensagem.
 

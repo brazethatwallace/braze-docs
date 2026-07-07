@@ -6,6 +6,7 @@ page_type: reference
 description: "このリファレンス記事では、ホームダッシュボードについて説明し、このページで利用できる統計の定義を紹介します。"
 tool:
   - Reports
+
 ---
 
 # ホームダッシュボード {#home-dashboard}

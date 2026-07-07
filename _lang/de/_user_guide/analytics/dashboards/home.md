@@ -69,7 +69,7 @@ Sie können Statistiken für folgende Bereiche darstellen:
 - Sitzungen pro Stunde
 - Sitzungen pro MAU
 - SMS
-- Stickiness
+- Kundenbindung
 - Deinstallationen
   - (Optional) Aufschlüsselung nach Segment
 - Nutzer:innen
@@ -148,7 +148,7 @@ Wenn Sie Braze erstmals integrieren, werden alle Nutzer:innen als neue Nutzer:in
 Nutzer:innen, die mit mehr als einer App verknüpft sind, werden für jede App separat gezählt. Das bedeutet, dass ein:e einzelne:r Nutzer:in mehrfach zur Zahl der *neuen Nutzer:innen* beitragen kann, wenn Sitzungen in verschiedenen Apps Ihres Workspace gestartet werden.
 {% endalert %}
 
-### Stickiness {#stickiness}
+### Kundenbindung (Stickiness) {#stickiness}
 
 Der *Stickiness*-Wert ist das Verhältnis von DAU zu MAU eines bestimmten Zeitraums. Im Wesentlichen misst Stickiness den Prozentsatz Ihrer MAU, die täglich zurückkehren.
 

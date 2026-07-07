@@ -33,7 +33,7 @@ Les utilisateurs sont vos clients, c'est-à-dire les personnes qui reçoivent le
 
 ![Capture d'écran liée aux utilisateurs et aux segments.]({% image_buster /assets/img/getting_started/user_profile.png %})
 
-Les segments divisent votre base de clients en groupes plus petits que vous pouvez ensuite cibler avec des messages spécifiques. Vous pouvez utiliser différentes variables pour créer des segments, allant de caractéristiques telles que le genre, la localisation et l'âge à des comportements tels que les schémas d'interaction avec les campagnes précédentes ou la position dans le parcours client.
+Les segments divisent votre base de clients en groupes plus petits que vous pouvez ensuite cibler avec des messages spécifiques. Vous pouvez utiliser différentes variables pour créer des segments, allant de caractéristiques telles que le genre, la localisation et l'âge à des comportements tels que les schémas d'interaction avec les Campaigns précédentes ou la position dans le parcours client.
 
 Les segments sont dynamiques : les utilisateurs peuvent entrer et sortir des segments en temps réel en fonction de leur comportement et de leur relation avec votre marque. Vos clients reçoivent ainsi les messages les plus pertinents à tout moment. Vous pouvez créer autant de segments que nécessaire pour vos objectifs de ciblage et d'envoi de messages.
 

@@ -35,7 +35,7 @@ Das Braze React Native SDK verbindet Ihre iOS- und Android-Apps mit Braze: Nutze
 
 Informationen zu den Zugangsdaten im Dashboard finden Sie in der [Integrationsübersicht](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native).
 
-## Installation
+## Installation {#installation}
 
 ``` bash
 npm install @braze/react-native-sdk
@@ -260,7 +260,7 @@ Braze.registerPushToken(token);
 - **`getInitialPushPayload`**: Verwenden Sie dies, wenn die App über eine Benachrichtigung geöffnet wird, um Race-Conditions mit RN `Linking` zu vermeiden; erfordert native Hooks (`BrazeReactUtils` auf iOS, `BrazeReactUtils.populateInitialPushPayloadFromIntent` auf Android), wie in den TypeScript-Dokumentkommentaren und der Beispiel-App beschrieben.
 - **`Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, ...)`** ist gemäß den öffentlichen Typisierungen **nur für Android** verfügbar.
 
-### Feature-Flags {#feature-flags}
+### Feature-Flags
 
 ``` typescript
 const flag = await Braze.getFeatureFlag("new_checkout");
