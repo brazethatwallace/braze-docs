@@ -59,11 +59,20 @@ Se seu provedor de e-mail não suporta aliases com `+`, você ainda pode criar a
 
 ### Usar desenvolvedores multi-empresa {#use-multi-company-developers}
 
-O recurso de desenvolvedores multi-empresa permite compartilhar uma única conta de usuário entre múltiplas empresas. Os usuários podem alternar entre diferentes dashboards de empresas pelo menu de perfil do usuário.
+O recurso de desenvolvedores multi-empresa permite compartilhar uma única conta de usuário entre múltiplas empresas. Os usuários do dashboard podem alternar entre diferentes dashboards de empresas pelo menu de perfil do usuário.
 
 Se você usa SSO e deseja configurar desenvolvedores multi-empresa, é necessário ativar um ID de Entidade SAML personalizado configurando uma integração SAML SSO personalizada. Siga as etapas em [Login iniciado pelo prestador de serviço (SP)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), mas aplique estas alterações:
 - Altere o **Entity ID** para `braze_dashboard_<companyID>` para cada integração de dashboard.
 - Entre em contato com seu gerente de sucesso do cliente ou gerente de conta para ativar o feature flipper `saml_sso_custom_entity_id` para cada dashboard.
+
+#### Autenticação de dois fatores (2FA) {#two-factor-authentication-2fa}
+
+O funcionamento da 2FA para desenvolvedores multi-empresa depende do seu método de 2FA:
+
+- **E-mail e SMS:** Suas configurações de 2FA são copiadas para todas as contas de desenvolvedor vinculadas. Após configurar a 2FA por e-mail ou SMS em uma conta, o mesmo método se aplica em todos os dashboards da sua empresa.
+- **Senha de uso único baseada em tempo (TOTP):** As configurações de TOTP não são sincronizadas entre contas. Se você usa um app autenticador, deve configurar um código separado para cada dashboard no qual faz login diretamente.
+
+Quando você alterna entre contas dentro do dashboard, só precisa completar a 2FA uma vez — na primeira vez que faz login em qualquer conta vinculada durante aquela sessão.
 
 ### Considerações para login único (SSO) {#considerations-for-single-sign-on-sso}
 
@@ -137,7 +146,7 @@ Se um usuário está enfrentando problemas com a autenticação de dois fatores 
 Um administrador deve redefinir a 2FA para o usuário afetado fazendo o seguinte:
 
 1. Acesse **Gerenciar usuários**.
-2. Selecione **Edit User** para o usuário com problemas de 2FA.
+2. Selecione **Editar usuário** para o usuário com problemas de 2FA.
 3. Escolha a opção para redefinir a 2FA.
 4. Confirme a redefinição da 2FA quando solicitado.
 5. Se a redefinição não resolver o problema imediatamente, limpe seus cookies e cache.
@@ -147,7 +156,7 @@ A Braze não pode redefinir a 2FA em nome dos usuários por motivos de seguranç
 #### Considerações {#considerations}
 
 - Se a 2FA é obrigatória no nível da empresa: Após a redefinição, a Braze solicita que o usuário configure sua 2FA novamente no próximo login.
-- Se a 2FA não é obrigatória no nível da empresa: O usuário faz login no dashboard sem precisar configurar a 2FA novamente. Se quiser ativar a 2FA, pode fazê-lo nas Configurações da conta.
+- Se a 2FA não é obrigatória no nível da empresa: O usuário faz login no dashboard sem precisar configurar a 2FA novamente. Se quiser ativar a 2FA, pode fazê-lo nas configurações da conta.
 
 {% alert note %}
 Este processo de redefinição também se aplica a usuários que foram bloqueados de sua conta por solicitar muitos tokens na última hora.

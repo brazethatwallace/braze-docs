@@ -33,9 +33,11 @@ Pour les messages in-app, cette page définit les impressions uniques en utilisa
 | Taux de conversion | L'indicateur d'impressions uniques quotidiennes (*Impressions uniques*) est utilisé pour calculer le taux de conversion. <br><br> Taux de conversion = (Conversions primaires) / (Impressions uniques) <br><br> Pour les messages in-app, les *Impressions uniques* ne peuvent être comptabilisées qu'une seule fois par jour calendaire dans le fuseau horaire de votre espace de travail. Le nombre de fois qu'un utilisateur effectue une action souhaitée (une « conversion ») peut augmenter au cours de ce même jour calendaire. Par conséquent, si un utilisateur effectue une conversion plusieurs fois dans la même journée, le *Taux de conversion* peut augmenter en conséquence, mais les *Impressions uniques* ne sont comptabilisées qu'une seule fois pour ce jour calendaire. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Indicateurs des messages in-app" }
 
-{% alert note %}
-Dans les tests A/B, les *Impressions uniques* du groupe de contrôle peuvent dépasser les *Impressions uniques* de la variante, et les *Impressions totales* du groupe de contrôle peuvent dépasser les *Impressions totales* de la variante, lorsque les messages de la variante nécessitent un temps de rendu (par exemple, des images volumineuses ou du Contenu connecté avec modèle). Les utilisateurs qui déclenchent le message mais quittent avant que la variante ait fini de s'afficher peuvent ne pas enregistrer d'impressions de variante, tandis que le groupe de contrôle enregistre des impressions sans afficher de message.
+{% alert tip %}
+Les *Impressions totales* peuvent dépasser les *Impressions uniques* lorsqu'un utilisateur consulte le message plusieurs fois au cours du même jour calendaire (voir les définitions des indicateurs dans le tableau précédent). Pour identifier les utilisateurs présentant un nombre d'impressions anormalement élevé, créez un segment avec le filtre **Nombre d'appareils** défini sur **supérieur à** `1` et le filtre **A reçu un message de la campagne** pour la campagne concernée.
 {% endalert %}
+
+Pour les déséquilibres d'impressions entre le groupe de contrôle et la variante dans les tests A/B, consultez [Écarts entre le groupe de contrôle et la variante]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#discrepancies-between-the-control-group-and-variant).
 
 ## Comment les conversions s'incrémentent-elles avec la rééligibilité ? {#how-do-conversions-increment-with-re-eligibility}
 

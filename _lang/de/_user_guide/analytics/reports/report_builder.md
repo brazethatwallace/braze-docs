@@ -79,7 +79,7 @@ Die Ausführung des Berichts kann je nach Datumsbereich und Anzahl der in der Ko
 Ihre Auswahl bei **Zeilen** beeinflusst die Metriken, die Sie auswählen können.
 
 {% alert tip %}
-Wenn Sie über Canvas-Varianten oder -Schritte berichten möchten, wählen Sie **Canvases** für die Zeilen und lassen Sie das Feld entweder leer oder wählen Sie **Datum** als Drilldown. Dadurch wird ein Dropdown **Canvas-Ansicht** erstellt, mit dem Sie Metriken nur für den Canvas anzeigen oder Metriken nach Variante, Schritt oder Nachricht gruppieren können.
+Wenn Sie über Canvas-Varianten oder -Schritte berichten möchten, wählen Sie **Canvases** für die Zeilen und lassen Sie das Feld entweder leer oder wählen Sie **Datum** als Drilldown. Dadurch wird ein Dropdown **Canvas-Ansicht** erstellt, mit dem Sie Metriken nur für den Canvas anzeigen oder Metriken nach Variante, Schritt oder Nachricht gruppieren können.<br><br> Wenn Sie nach Schritt gruppieren, zeigt die Vorschautabelle während der Konfiguration Ihres Berichts maximal 50 Zeilen an. Führen Sie den Bericht aus oder exportieren Sie ihn als CSV, um alle Zeilen anzuzeigen.
 
 ![Das geöffnete Dropdown „Canvas-Ansicht“.]({% image_buster /assets/img/report_builder_2/canvas_view_dropdown.png %}){: style="width:40%;"}
 {% endalert %}

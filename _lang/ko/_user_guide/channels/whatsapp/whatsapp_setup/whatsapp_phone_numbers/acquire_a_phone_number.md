@@ -26,6 +26,10 @@ Braze에서 번호를 프로비저닝하지 않으므로 직접 전화번호를 
 - WhatsApp Business Platform에서 이전에 사용되지 않은 번호
 - 개인 WhatsApp 계정에 연결되지 않은 번호
 
+{% alert note %}
+Braze는 비즈니스에서 소유하고 지속적으로 완전한 접근 권한을 가진 번호를 사용할 것을 강력히 권장합니다. WhatsApp 임베디드 가입 과정에서 이 번호로 전송된 메시지에 접근하여 인증해야 합니다. 나중에 번호를 다시 인증해야 할 수 있으므로 해당 번호에 대한 접근 권한을 유지해야 합니다.
+{% endalert %}
+
 ## Twilio 전화번호 획득 {#acquiring-a-twilio-phone-number}
 
 ### 1단계: Twilio 콘솔 또는 API에서 전화번호 구매 {#step-1-buy-a-phone-number-from-the-twilio-console-or-api}
@@ -68,4 +72,4 @@ Twilio 콘솔에서 전화번호를 WhatsApp에 연결하지 마세요. 연결�
 
 6. Infobip에서 전화번호가 준비되면 Braze 대시보드 > **기술 파트너** > **WhatsApp**으로 이동하여 **Begin integration** 또는 **Add WhatsApp Business Account** 중 표시되는 옵션을 선택하여 [임베디드 가입 워크플로]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup)를 시작합니다.<br><br> **Add a phone number for WhatsApp** 단계에서 전화번호 인증 방법으로 **Text message**를 선택합니다.<br><br>![문자 메시지 또는 전화 통화를 통해 전화번호를 인증하는 옵션이 있는 섹션.]({% image_buster /assets/img/whatsapp/infoblip_verify.png %})<br><br>
 
-7. Infobip 고객 포털의 [analyze logs](https://www.infobip.com/docs/analyze/analyze-logs)에서 인증 코드를 확인합니다. 표시되기까지 몇 분이 걸릴 수 있습니다. 인증 코드를 입력하고 설정을 완료합니다.
+7. Infobip 고객 포털의 [분석 로그](https://www.infobip.com/docs/analyze/analyze-logs)에서 인증 코드를 확인합니다. 표시되기까지 몇 분이 걸릴 수 있습니다. 인증 코드를 입력하고 설정을 완료합니다.

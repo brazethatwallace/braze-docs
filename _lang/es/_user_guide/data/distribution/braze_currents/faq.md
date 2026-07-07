@@ -15,13 +15,13 @@ tool: Currents
 
 Para obtener métricas de Campaign o Canvas en un rango de fechas definido, utiliza uno de los siguientes enfoques:
 
-- Envía una [solicitud de producto](https://portal.braze.com/) para exportaciones alineadas por fecha cuando necesites informes de estilo dashboard fuera de las ventanas estándar de la API.
-- Llama a los puntos finales de [análisis de Campaign]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) o [análisis de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) con los parámetros `ending_at` y `length` (o usa [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) y [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics)) para datos de series temporales.
+- Envía una [solicitud de producto](https://portal.braze.com/) para exportaciones alineadas por fecha cuando necesites informes de estilo panel fuera de las ventanas estándar de la API.
+- Llama a los endpoints de [análisis de Campaign]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) o [análisis de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) con los parámetros `ending_at` y `length` (o usa [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) y [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics)) para datos de series temporales.
 - Transmite eventos a tu almacén de datos con [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) cuando necesites datos continuos y consultables de interacción con mensajes en Amazon S3, Azure Blob Storage u otro destino compatible.
 
 ## ¿Cómo edito una integración de Currents en vivo? {#how-do-i-edit-a-live-currents-integration}
 
-Para modificar un conector de Currents en vivo, abre la integración y haz clic en **Editar** en la parte inferior izquierda de la página. Sin **Editar**, la interfaz de la integración permanece en modo de solo lectura y no puedes modificar la configuración del conector solo desde los iconos.
+Para modificar un conector de Currents en vivo, abre la integración y selecciona **Editar**. Sin **Editar**, la interfaz de la integración permanece en modo de solo lectura y no puedes modificar la configuración del conector solo desde los iconos.
 
 ## ¿Cómo gestiona Braze los archivos Avro de Azure Blob Storage después de la carga? {#how-does-braze-handle-azure-blob-storage-avro-files-after-upload}
 
@@ -62,17 +62,17 @@ Si un dispositivo no está conectado a internet, puede haber un retraso en la cr
 
 Para obtener una lista completa de los eventos que registra Currents, consulta los glosarios de [Eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) y [Eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events). Puedes filtrar estos glosarios por tipo de evento (como envíos, entregas o aperturas).
 
-## ¿Por qué los recuentos de eventos de Currents no coinciden con las métricas de mi dashboard o de los informes de participación? {#why-do-my-currents-event-counts-not-match-my-dashboard-or-engagement-report-metrics}
+## ¿Por qué los recuentos de eventos de Currents no coinciden con las métricas de mi panel o de los informes de participación? {#why-do-my-currents-event-counts-not-match-my-dashboard-or-engagement-report-metrics}
 
-Currents y el dashboard de Braze calculan ciertas métricas de forma diferente, por lo que no se esperan coincidencias exactas entre los eventos de Currents y las métricas del dashboard.
+Currents y el panel de Braze calculan ciertas métricas de forma diferente, por lo que no se esperan coincidencias exactas entre los eventos de Currents y las métricas del panel.
 
-**Clics únicos:** para el correo electrónico, el dashboard rastrea los clics únicos durante un período de siete días y los mide por `dispatch_id`. Currents registra cada evento de clic sin procesar. Para alinear los recuentos de clics únicos basados en Currents con las métricas del dashboard, filtra los eventos donde `is_unique` sea `true`.
+**Clics únicos:** para el correo electrónico, el panel rastrea los clics únicos durante un período de siete días y los mide por `dispatch_id`. Currents registra cada evento de clic sin procesar. Para alinear los recuentos de clics únicos basados en Currents con las métricas del panel, filtra los eventos donde `is_unique` sea `true`.
 
-**Cancelaciones de suscripción:** la métrica *Unsub* del dashboard refleja los clics en el enlace estándar de cancelación de suscripción de Braze. Las páginas personalizadas de cancelación de suscripción no incrementan esta métrica a menos que actualices al usuario a través de la API. El evento `users.messages.email.Unsubscribe` de Currents es un evento de clic especializado que se activa cuando un usuario hace clic en un enlace de cancelación de suscripción en el cuerpo o pie del correo electrónico, o a través del encabezado list-unsubscribe. No representa todos los cambios de estado de suscripción de correo electrónico.
+**Cancelaciones de suscripción:** la métrica *Unsub* del panel refleja los clics en el enlace estándar de cancelación de suscripción de Braze. Las páginas personalizadas de cancelación de suscripción no incrementan esta métrica a menos que actualices al usuario a través de la API. El evento `users.messages.email.Unsubscribe` de Currents es un evento de clic especializado que se activa cuando un usuario hace clic en un enlace de cancelación de suscripción en el cuerpo o pie del correo electrónico, o a través del encabezado list-unsubscribe. No representa todos los cambios de estado de suscripción de correo electrónico.
 
-**Marcas de tiempo y zonas horarias:** todas las marcas de tiempo de Currents están en UTC. Las métricas del dashboard siguen la zona horaria de tu empresa. Agregar datos de Currents por día calendario sin convertir a la zona horaria de tu empresa puede hacer que los recuentos caigan en contenedores de fechas diferentes a los que aparecen en el dashboard.
+**Marcas de tiempo y zonas horarias:** todas las marcas de tiempo de Currents están en UTC. Las métricas del panel siguen la zona horaria de tu empresa. Agregar datos de Currents por día calendario sin convertir a la zona horaria de tu empresa puede hacer que los recuentos caigan en contenedores de fechas diferentes a los que aparecen en el panel.
 
-**Eventos duplicados:** Currents proporciona entrega al menos una vez, lo que significa que ocasionalmente pueden escribirse eventos duplicados. Deduplica por el campo único `id` de cada evento antes de comparar los totales con las métricas del dashboard.
+**Eventos duplicados:** Currents proporciona entrega al menos una vez, lo que significa que ocasionalmente pueden escribirse eventos duplicados. Deduplica por el campo único `id` de cada evento antes de comparar los totales con las métricas del panel.
 
 ## ¿Por qué el `external_user_id` (esquema de Braze: `external_id`) en mi evento de apertura o clic de correo electrónico en Currents difiere del perfil de usuario en el panel de Braze? {#why-does-the-external_user_id-braze-schema-external_id-in-my-currents-email-open-or-click-event-differ-from-the-user-profile-in-the-braze-dashboard}
 
@@ -95,7 +95,7 @@ Braze no rellena eventos retroactivamente en Currents. Sin embargo, los eventos 
 
 ## ¿Qué identificadores de usuario se incluyen en los eventos de Currents? {#what-user-identifiers-are-included-in-currents-events}
 
-Los eventos de interacción con mensajes (envíos, aperturas, clics, etc.) incluyen el ID de usuario de Braze (`user_id`) y, cuando está presente en el perfil, el identificador externo (`external_user_id` en las cargas útiles de eventos, etiquetado como `external_id` en la tabla de mapeo del esquema de Braze). Algunos eventos de interacción con mensajes de correo electrónico también incluyen `email_address`. Los atributos personalizados no se incluyen; consulta más abajo.
+Los eventos de interacción con mensajes (envíos, aperturas, clics, etc.) incluyen el ID de usuario de Braze (`user_id`) y, cuando está presente en el perfil, el identificador externo (`external_user_id` en las cargas útiles de eventos, etiquetado como `external_id` en la tabla de mapeo del esquema de Braze). Algunos eventos de interacción con mensajes de correo electrónico también incluyen `email_address`. Los atributos personalizados no se incluyen.
 
 Si estás enrutando datos de Currents a un almacén de datos o CRM y necesitas unirlos con datos de perfil, realiza esa unión en tu sistema de destino utilizando `user_id` o `external_user_id`.
 
@@ -105,11 +105,11 @@ No. Currents no incluye atributos personalizados en los eventos de envío. Curre
 
 ## ¿Currents incluye etiquetas de Campaign o Canvas, o pares clave-valor? {#does-currents-include-campaign-or-canvas-tags-or-key-value-pairs}
 
-No. Currents no incluye etiquetas de Campaign o Canvas ni pares clave-valor a nivel de mensaje. Para obtener datos de etiquetas, usa la [REST API de exportación]({{site.baseurl}}/api/endpoints/export). Como alternativa, puedes usar un canal webhook en una Campaign para enviar datos de etiquetas o pares clave-valor a tu propio punto de conexión, utilizando [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) para incluir los valores mediante plantillas.
+No. Currents no incluye etiquetas de Campaign o Canvas ni pares clave-valor a nivel de mensaje. Para obtener datos de etiquetas, usa la [REST API de exportación]({{site.baseurl}}/api/endpoints/export). Como alternativa, puedes usar un canal webhook en una Campaign para enviar datos de etiquetas o pares clave-valor a tu propio endpoint, utilizando [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) para incluir los valores mediante plantillas.
 
 ## ¿Cómo notifica Braze a los clientes sobre cambios en Currents? {#how-does-braze-notify-customers-of-changes-to-currents}
 
-Cuando se producen cambios en Currents (como nuevos campos de eventos o tipos de eventos), Braze envía un correo electrónico a todos los clientes con integraciones de Currents activas que hayan utilizado el dashboard en los últimos 30 días. También puedes consultar el [registro de cambios de Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs) para ver los últimos cambios.
+En las raras circunstancias en que se producen cambios incompatibles, Braze envía un correo electrónico anticipado al contacto de cualquier integración activa y a todos los administradores con integraciones de Currents activas que hayan utilizado el panel en los últimos 30 días. Para cambios no incompatibles, como nuevos eventos o nuevos campos en un evento existente, Braze no envía una notificación. Puedes consultar el [registro de cambios de Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs) para ver los últimos cambios.
 
 ## ¿Cuánto almacenamiento necesito para los datos de Currents? {#how-much-storage-do-i-need-for-currents-data}
 

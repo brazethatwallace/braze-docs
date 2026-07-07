@@ -174,27 +174,27 @@ Brazeが認識する標準属性の完全なリスト（SDK、API、CSV、クラ
 | `push_subscribe` | 文字列 | 利用可能な値は`opted_in`（プッシュメッセージの受信を明示的に登録）、`unsubscribed`（プッシュメッセージの受信を明示的にオプトアウト）、`subscribed`（オプトインもオプトアウトもしていない）です。 | いいえ |
 | `time_zone` | 文字列 | タイムゾーンはIANAタイムゾーンデータベースと同じ形式でBrazeに渡す必要があります（例：`America/New_York`または`Eastern Time (US & Canada)`）。 | いいえ |
 | `date_of_first_session`  `date_of_last_session` | 文字列 | 以下のISO 8601形式のいずれかで渡すことができます：「YYYY-MM-DD」「YYYY-MM-DDTHH:MM:SS+00:00」「YYYY-MM-DDTHH:MM:SSZ」「YYYY-MM-DDTHH:MM:SS」（例：2019-11-20T18:38:57） | いいえ |
-| `subscription_group_id` | 文字列 | サブスクリプショングループの`id`。この識別子はダッシュボードのサブスクリプショングループページで確認できます。 | いいえ |
-| `subscription_state` | 文字列 | `subscription_group_id`で指定されたサブスクリプショングループのサブスクリプション状態。許可される値は`unsubscribed`（サブスクリプショングループに含まれない）または`subscribed`（サブスクリプショングループに含まれる）です。 | いいえ。ただし、`subscription_group_id`を使用する場合は強く推奨されます |
+| `subscription_group_id` | 文字列 | 購読グループの`id`。この識別子はダッシュボードの購読グループページで確認できます。 | いいえ |
+| `subscription_state` | 文字列 | `subscription_group_id`で指定された購読グループの購読状態。許可される値は`unsubscribed`（購読グループに含まれない）または`subscribed`（購読グループに含まれる）です。 | いいえ。ただし、`subscription_group_id`を使用する場合は強く推奨されます |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="デフォルト属性" }
 
-#### サブスクリプショングループのステータスを更新する（オプション） {#updating-subscription-group-status-optional}
+#### 購読グループのステータスを更新する（オプション） {#updating-subscription-group-status-optional}
 
-さらに、ユーザーインポートを通じてメールまたはSMSのサブスクリプショングループにユーザーを追加できます。これはSMSの場合に特に便利です。SMSチャネルでメッセージを送信するには、ユーザーがSMSサブスクリプショングループに登録されている必要があるためです。詳細については、[SMSサブスクリプショングループ]({{site.baseurl}}/sms_rcs_subscription_groups#subscription-group-mms-enablement)を参照してください。
+さらに、ユーザーインポートを通じてメールまたはSMSの購読グループにユーザーを追加できます。これはSMSの場合に特に便利です。SMSチャネルでメッセージを送信するには、ユーザーがSMS購読グループに登録されている必要があるためです。詳細については、[SMS購読グループ]({{site.baseurl}}/sms_rcs_subscription_groups#subscription-group-mms-enablement)を参照してください。
 
-サブスクリプショングループのステータスを更新する場合、CSVに以下の2つの列が必要です。
+購読グループのステータスを更新する場合、CSVに以下の2つの列が必要です。
 
-- `subscription_group_id`：[サブスクリプショングループ]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups)の`id`。
-- `subscription_state`：利用可能な値は`unsubscribed`（サブスクリプショングループに含まれない）または`subscribed`（サブスクリプショングループに含まれる）です。
+- `subscription_group_id`：[購読グループ]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups)の`id`。
+- `subscription_state`：利用可能な値は`unsubscribed`（購読グループに含まれない）または`subscribed`（購読グループに含まれる）です。
 
 | external_id | first_name | subscription_group_id | subscription_state |
 | :---- | :---- | :---- | :---- |
 | A8i3mkd99 | Colby | 6ff593d7-cf69-448b-aca9-abf7d7b8c273 | subscribed |
 | k2LNhj8Ks | Tom | aea02307-a91e-4bc0-abad-1c0bee817dfa | subscribed |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="サブスクリプショングループのステータスを更新する（オプション）" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="購読グループのステータスを更新する（オプション）" }
 
 {% alert note %}
-ユーザーインポートでは、1行につき1つの`subscription_group_id`のみ設定できます。異なる行には異なる`subscription_group_id`の値を設定できます。ただし、同じユーザーを複数のサブスクリプショングループに登録する必要がある場合は、複数回のインポートが必要です。
+ユーザーインポートでは、1行につき1つの`subscription_group_id`のみ設定できます。異なる行には異なる`subscription_group_id`の値を設定できます。ただし、同じユーザーを複数の購読グループに登録する必要がある場合は、複数回のインポートが必要です。
 {% endalert %}
 {% endtab %}
 
@@ -291,7 +291,7 @@ CSVの各行は、1人のユーザーの1つのカスタムイベントを表し
 
 大きなファイル（デフォルト属性とカスタム属性は最大500 MB、カスタムイベントは最大50 MB）の場合、ファイルのアップロードとBrazeによるインポートの計算中にダッシュボードが一時的に応答しなくなることがあります。これらのアップロードと計算は、小さなファイルよりも完了に時間がかかる場合があります。このステップが完了するまでお待ちください。ファイルの制限とタイミングの詳細については、[CSVの構築]({{site.baseurl}}/user_guide/data/user_data_collection/user_import#constructing-your-csv)を参照してください。
 
-**Import name**フィールドで、インポートの名前を変更できます。デフォルトではファイル名が使用されます。
+CSVファイルをアップロードする前に、Brazeで表示したいインポート名にファイル名を変更してください。アップロード後にインポート名を編集することはできません。
 
 {% alert note %}
 ファイルプレビューにはファイルの最初の数行のみが表示されます。インポート前にすべての行を確認するには、[ファイル検証](#file-validation)を使用してください。
@@ -410,7 +410,7 @@ CSVファイルからインポートされた各顧客データは、ユーザ�
 |---|---|
 | External ID | `external_id`のみを含むCSVをアップロードしても、データポイントは記録されません。これにより、データ制限に影響を与えることなく、既存のBrazeユーザーをセグメント化できます。ただし、`email`や`phone`などのフィールドを含めると、既存のユーザーデータが上書きされ、データポイントが記録**されます**。<br><br>`external_id`、`braze_id`、または`user_alias_name`のみを含むセグメンテーション目的のCSVインポートでは、データポイントは記録されません。 |
 | 空白の値 | CSVの空白の値は、既存のユーザープロファイルデータを上書きしません。インポート時にすべてのユーザー属性やカスタムイベントを含める必要はありません。 |
-| サブスクリプション状態 | `email_subscribe`、`push_subscribe`、`subscription_group_id`、または`subscription_state`の更新は、データポイント使用量にカウント**されません**。 |
+| 購読状態 | `email_subscribe`、`push_subscribe`、`subscription_group_id`、または`subscription_state`の更新は、データポイント使用量にカウント**されません**。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="データポイントに関する考慮事項" }
 
 {% alert important %}
@@ -421,7 +421,7 @@ CSVインポートまたはAPIを通じてユーザーに`language`または`cou
 
 [ファイル検証](#file-validation)を使用した場合は、エラーレポートから始めてください。フラグが付けられた各行の具体的な問題と修正方法の説明が含まれています。検証ではなくインポート中に失敗した行については、**Import Users**ページで行にカーソルを合わせ、<i class="fas fa-download" title="ダウンロード"></i>ボタンを選択してエラーレポートをダウンロードしてください。
 
-CSVインポートのトラブルシューティングについては、以下の一般的な問題を確認してください。
+CSVインポートのトラブルシューティングについては、以下のセクションで一般的な問題を確認してください。
 
 ### メールを`external_id`として使用する {#use-email-as-external_id}
 

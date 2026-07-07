@@ -32,6 +32,7 @@ jobs:
             const legalTeam = 'ats-91';
             let scanIncomplete = false;
             const isDeployPR = labels.includes('deploy');
+            core.setOutput('isDeployPR', isDeployPR ? 'true' : 'false');
 
             // Deploy PRs: docs-team is added in the follow-up step (needs GH_TOKEN REST API).
             if (isDeployPR) {
@@ -185,7 +186,7 @@ jobs:
             }
 
       - name: Add docs-team reviewer for deploy PRs
-        if: contains(github.event.pull_request.labels.*.name, 'Deploy')
+        if: steps.check.outputs.isDeployPR == 'true'
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |

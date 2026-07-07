@@ -22,7 +22,7 @@ LimbikをBrazeで使用するには、以下が必要です。
 | Limbik `account_id` | Limbikのアカウントチームに問い合わせるか、Limbikの`/rest/api/organizations`エンドポイントにGETリクエストを送信してください。 |
 | Limbikアクセストークン（`access_token`） | Limbikの`login`エンドポイントにPOSTリクエストを送信し、返された`access_token`の値を`Authorization`ヘッダーのBearerトークンとして使用してください。 |
 | Braze REST APIキー | 「Messages」権限を持つBraze REST APIキー。Brazeダッシュボードの**設定** > **APIキー**で作成してください。 |
-| Braze `campaign_id` | **Messaging** > **キャンペーン**に移動し、キャンペーンを選択します。使用したいキャンペーンがまだ存在しない場合は、作成して保存してください。キャンペーンページの下部にキャンペーン API識別子があります。 |
+| Braze `campaign_id` | **メッセージング** > **キャンペーン**に移動し、キャンペーンを選択します。使用したいキャンペーンがまだ存在しない場合は、作成して保存してください。キャンペーンページの下部にキャンペーン API識別子があります。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 予測エンドポイントを使用する前に、まずアクセス可能な組織（`account_id`）を特定する必要があります。ほとんどの顧客は1つの組織のみですが、一部のアカウントでは複数の組織が利用可能な場合があります。

@@ -6,9 +6,11 @@ description: "GitHub에서 미러링된 Braze Web SDK README 참조입니다."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Web SDK 리포지토리 가이드 {#web-sdk-repository-guide}
+
 ## Braze Web SDK 소개 {#about-the-braze-web-sdk}
 
-Braze Web SDK를 사용하면 Braze의 고객 참여 플랫폼을 웹 애플리케이션에 직접 통합할 수 있습니다. TypeScript로 구축되고 최신 웹 개발을 위해 설계된 이 SDK는 사용자 관리, 메시징, 분석 및 기능 플래그를 위한 포괄적인 도구를 제공합니다.
+Braze Web SDK를 사용하면 Braze의 고객 인게이지먼트 플랫폼을 웹 애플리케이션에 직접 통합할 수 있습니다. TypeScript로 구축되고 최신 웹 개발을 위해 설계된 이 SDK는 사용자 관리, 메시징, 분석 및 기능 플래그를 위한 포괄적인 도구를 제공합니다.
 
 ### 주요 기능 {#what-you-can-do}
 

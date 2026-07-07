@@ -12,7 +12,7 @@ channel:
 
 > Para usar el canal de mensajería de WhatsApp, necesitarás un número de teléfono que cumpla con los requisitos de WhatsApp para su [Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers) o [On-Premises API](https://developers.facebook.com/docs/whatsapp/on-premises/phone-numbers).
 
-Debes adquirir tu número de teléfono por tu cuenta, ya que Braze no lo proporcionará por ti. Puedes comprar un teléfono físico con una tarjeta SIM a través de tu proveedor de telefonía empresarial o usar uno de nuestros socios: Twilio o Infobip. **Debes tener tu propia cuenta de Twilio o Infobip, ya que esto no se puede hacer a través de Braze.**
+Debes adquirir tu número de teléfono por tu cuenta, ya que Braze no lo proporcionará por ti. Puedes comprar un teléfono físico con una tarjeta SIM a través de tu proveedor de telefonía empresarial o usar uno de nuestros partners: Twilio o Infobip. **Debes tener tu propia cuenta de Twilio o Infobip, ya que esto no se puede hacer a través de Braze.**
 
 ## Requisitos de la API de WhatsApp {#whatsapp-api-requirements}
 
@@ -25,6 +25,10 @@ Tu número de teléfono debe cumplir con estos requisitos de la API de WhatsApp:
 - No ser un código abreviado
 - No haber sido utilizado previamente con la plataforma WhatsApp Business
 - No estar conectado a una cuenta personal de WhatsApp
+
+{% alert note %}
+Braze recomienda encarecidamente usar un número que tu empresa posea y al que tenga acceso completo y continuo. Durante el proceso de registro integrado de WhatsApp, necesitas acceso a los mensajes enviados a este número para verificarlo. Es posible que debas verificar el número nuevamente más adelante, por lo que debes conservar el acceso al mismo.
+{% endalert %}
 
 ## Adquirir un número de teléfono de Twilio {#acquiring-a-twilio-phone-number}
 
@@ -52,7 +56,7 @@ No vincules tu número de teléfono a WhatsApp en la consola de Twilio. Si lo ha
 
 1. Una vez configurado Twilio, ve a tu panel de Braze > **Socios tecnológicos** > **WhatsApp** y selecciona **Begin integration** o **Add WhatsApp Business Account**, según lo que aparezca, para iniciar el [flujo de registro integrado]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup).<br><br>En el paso **Add a phone number for WhatsApp**, selecciona **Phone call** para elegir cómo deseas verificar tu número de teléfono. <br><br>![Sección con las opciones para verificar tu número de teléfono mediante mensaje de texto o llamada telefónica.]({% image_buster /assets/img/whatsapp/verify.png %}){: style="max-width:50%;"}<br><br>
 
-2. Espera unos minutos a que el código de verificación llegue a tu buzón de entrada de correo electrónico, luego introduce el código de verificación y completa tu configuración.
+2. Espera unos minutos a que el código de verificación llegue a tu buzón de entrada de correo electrónico, luego introduce el código de verificación y completa la configuración.
 
 ## Adquirir un número de teléfono de Infobip {#acquiring-an-infobip-phone-number}
 
@@ -62,7 +66,7 @@ No vincules tu número de teléfono a WhatsApp en la consola de Twilio. Si lo ha
 
 3. Dependiendo del país seleccionado, es posible que debas completar un proceso de registro adicional (como seleccionar una opción 10DLC o de número gratuito para números de teléfono de EE. UU.). Asegúrate de seleccionar la opción disponible.<br><br>![Una página que solicita seleccionar el tipo de número: 10DLC o número gratuito.]({% image_buster /assets/img/whatsapp/infoblip_10dlc.png %}){: style="max-width:70%;"}<br><br>
 
-4. Selecciona la oferta disponible, luego continúa con el resto de los pasos y espera a que se procese tu solicitud. Puedes verificar el estado yendo a **Numbers** > **My Request**. <br><br>![Una oferta con información que incluye tarifas y cobertura.]({% image_buster /assets/img/whatsapp/infoblip_offer.png %}){: style="max-width:70%;"}<br><br>
+4. Selecciona la oferta disponible, luego continúa con el resto de los pasos y espera a que se procese tu solicitud. Puedes consultar el estado yendo a **Numbers** > **My Request**. <br><br>![Una oferta con información que incluye tarifas y cobertura.]({% image_buster /assets/img/whatsapp/infoblip_offer.png %}){: style="max-width:70%;"}<br><br>
 
 5. Dependiendo del país seleccionado, espera a que el equipo de Infobip se ponga en contacto contigo para los detalles de registro (como para 10DLC en EE. UU.).<br><br>
 

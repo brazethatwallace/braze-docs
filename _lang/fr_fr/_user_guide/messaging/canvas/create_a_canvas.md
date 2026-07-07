@@ -155,9 +155,9 @@ Les contrôles d'entrée déterminent si les utilisateurs sont autorisés à ré
 - **Par événement :** Toutes les heures, quotidiennement ou sur la durée de vie du Canvas
 - **Déclenché par API :** Toutes les heures, quotidiennement ou sur la durée de vie du Canvas
 
-Par exemple, si vous avez un Canvas par événement et que vous sélectionnez **Limiter le volume d'entrée** en définissant le champ **Entrées maximales** à 5 000 utilisateurs avec **Quotidien** comme cadence limite, alors le Canvas n'envoie qu'à 5 000 utilisateurs par jour.
+Par exemple, si vous avez un Canvas planifié et que vous sélectionnez **Limiter le volume d'entrée** en définissant le champ **Entrées maximales** à 500 000 utilisateurs avec **À chaque exécution planifiée du Canvas** comme cadence limite, alors le Canvas n'envoie qu'à 500 000 utilisateurs par envoi planifié.
 
-![La page « Contrôles d'entrée » affichant des cases à cocher pour « Autoriser les utilisateurs à ré-entrer dans le Canvas » et « Limiter le volume d'entrée ». Cette dernière vous permet de définir les entrées maximales et de choisir une cadence qui dépend du type de planification d'entrée (par exemple, durée de vie du Canvas ou à chaque exécution planifiée du Canvas pour une entrée planifiée, et toutes les heures, quotidiennement ou durée de vie du Canvas pour une entrée par événement et déclenchée par API).]({% image_buster /assets/img_archive/entry_controls.png %})
+![La page « Contrôles d'entrée » affichant des cases à cocher pour « Autoriser les utilisateurs à ré-entrer dans le Canvas » et « Limiter le volume d'entrée ».]({% image_buster /assets/img_archive/entry_controls.png %})
 
 {% alert tip %}
 Braze ne recommande pas de sélectionner **À chaque exécution planifiée du Canvas** pour le réchauffement d'adresses IP, car cela pourrait entraîner une augmentation des volumes d'envoi.

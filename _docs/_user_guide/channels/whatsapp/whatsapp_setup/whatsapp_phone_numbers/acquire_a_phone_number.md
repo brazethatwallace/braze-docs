@@ -26,6 +26,10 @@ Your phone number must meet these WhatsApp API requirements:
 - Not previously used with the WhatsApp Business Platform
 - Not connected to a personal WhatsApp account
 
+{% alert note %}
+Braze strongly recommends using a number your business owns and has full, ongoing access to. During the WhatsApp embedded signup process, you need access to messages sent to this number to verify it. You may need to verify the number again later, so you must retain access to it.
+{% endalert %}
+
 ## Acquiring a Twilio phone number
 
 ### Step 1: Buy a phone number from the Twilio console or API

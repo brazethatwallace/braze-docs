@@ -9,16 +9,16 @@ hidden: true
 
 共有は、顧客がSnowflakeデータ共有エンタイトルメントを購入した後、顧客ごとにプロビジョニングされます。顧客がデータ共有をリクエストすると、Brazeは顧客のワークスペースに共有を追加し、顧客はセルフサービスUIを使用して関連するパートナーのSnowflakeアカウントデータを追加できます。
 
-![]({% image_buster /assets/img/snowflake.png %})
+![BrazeダッシュボードでのSnowflakeデータ共有プロビジョニング]({% image_buster /assets/img/snowflake.png %})
 
 共有がプロビジョニングされると、すべてのデータは受信データ共有としてSnowflakeインスタンス内からすぐにアクセスできるようになります。
 
-![]({% image_buster /assets/img/snowflake2.png %})
+![顧客のSnowflakeインスタンスでの受信データ共有]({% image_buster /assets/img/snowflake2.png %})
 
-Snowflakeインスタンス内では、リージョンごとに1つの共有が表示されます。各テーブルには `app_group_id` という列があり、これは実質的にBrazeのテナントキーです。新しい顧客が同じリージョン内の共有に追加されると、既存のテーブル内で異なる `app_group_ids` として表示されます。
+Snowflakeインスタンス内では、リージョンごとに1つの共有が表示されます。各テーブルには`app_group_id`という列があり、これは実質的にBrazeのテナントキーです。新しい顧客が同じリージョン内の共有に追加されると、既存のテーブル内で異なる`app_group_ids`として表示されます。
 
 {% alert important %}
-Brazeは現在、すべてのユーザーレベルのデータをSnowflake AWS US East-1およびEU-Central（フランクフルト）リージョンでホストしています。Brazeはクロスリージョンでの共有が可能ですが、`US-EAST-1` および/または `EU-CENTRAL-1` と共有するのが顧客にとって最もコスト効率が高くなります。
+Brazeは現在、すべてのユーザーレベルのデータをSnowflake AWS US East-1およびEU-Central（フランクフルト）リージョンでホストしています。Brazeはクロスリージョンでの共有が可能ですが、`US-EAST-1`および/または`EU-CENTRAL-1`と共有するのが顧客にとって最もコスト効率が高くなります。
 {% endalert %}
 
 {% alert tip %}
@@ -27,7 +27,7 @@ Brazeは現在、すべてのユーザーレベルのデータをSnowflake AWS U
 
 ## 重複イベントの処理 {#handling-duplicate-events}
 
-重複は想定されますが、すべてのイベントにはID列というユニークな識別子があります。重複は `select distinct(id)` を実行することで除去できます。
+重複は想定されますが、すべてのイベントにはID列という一意の識別子があります。重複は`select distinct(id)`を実行することで除去できます。
 
 ## 破壊的な変更と非破壊的な変更 {#breaking-versus-non-breaking-changes}
 
@@ -38,7 +38,7 @@ Brazeは現在、すべてのユーザーレベルのデータをSnowflake AWS U
 - 既存のテーブルやビューに列を追加する
 
 {% alert important %}
-新しい列の追加は非破壊的な変更と見なされるため、Brazeでは `SELECT *` クエリを使用する代わりに、各クエリで関心のある列を明示的に列挙することを強くお勧めします。または、列に明示的に名前を付けるビューを作成してから、テーブルではなくそれらのビューを直接クエリすることもできます。
+新しい列の追加は非破壊的な変更と見なされるため、Brazeでは`SELECT *`クエリを使用する代わりに、各クエリで関心のある列を明示的に列挙することを強くお勧めします。または、列に明示的に名前を付けるビューを作成してから、テーブルではなくそれらのビューを直接クエリすることもできます。
 {% endalert %}
 
 ### 破壊的な変更 {#breaking-changes}
@@ -54,7 +54,7 @@ SNAPSHOTSテーブルとCHANGELOGSテーブルは、キャンペーンとキャ�
 
 ### CHANGELOGS_CAMPAIGN_SHARED
 
-以下の場合、`CHANGELOGS_CAMPAIGN_SHARED` に行が追加されます。
+以下の場合、`CHANGELOGS_CAMPAIGN_SHARED`に行が追加されます。
 - キャンペーンが起動された場合、または
 - 以下のスナップショット可能なフィールドのいずれかが変更された場合：
   - 名前
@@ -67,11 +67,11 @@ SNAPSHOTSテーブルとCHANGELOGSテーブルは、キャンペーンとキャ�
 
 ### SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED
 
-`SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED` は `CHANGELOGS_CAMPAIGN_SHARED` から派生したものです。このテーブルは、`CHANGELOGS_CAMPAIGN_SHARED` からアクション列を抽出し、個々のメッセージバリエーションレコードにフラット化します。`CHANGELOGS_CAMPAIGN_SHARED` が更新されると、それに応じて更新されます。
+`SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED`は`CHANGELOGS_CAMPAIGN_SHARED`から派生したものです。このテーブルは、`CHANGELOGS_CAMPAIGN_SHARED`からアクション列を抽出し、個々のメッセージバリエーションレコードにフラット化します。`CHANGELOGS_CAMPAIGN_SHARED`が更新されると、それに応じて更新されます。
 
 ### CHANGELOGS_CANVAS_SHARED
 
-以下の場合、`CHANGELOGS_CANVAS_SHARED` に行が追加されます。
+以下の場合、`CHANGELOGS_CANVAS_SHARED`に行が追加されます。
 - キャンバスが起動された場合、または
 - 以下のスナップショット可能なフィールドのいずれかが変更された場合：
   - 名前
@@ -84,11 +84,11 @@ SNAPSHOTSテーブルとCHANGELOGSテーブルは、キャンペーンとキャ�
 
 ### SNAPSHOTS_CANVAS_VARIATION_SHARED
 
-`SNAPSHOTS_CANVAS_VARIATION_SHARED` は `CHANGELOGS_CANVAS_SHARED` から派生したものです。このテーブルは、`SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED` と同じ抽出パターンを使用し、`CHANGELOGS_CANVAS_SHARED` が更新されると、それに応じて更新されます。
+`SNAPSHOTS_CANVAS_VARIATION_SHARED`は`CHANGELOGS_CANVAS_SHARED`から派生したものです。このテーブルは、`SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED`と同じ抽出パターンを使用し、`CHANGELOGS_CANVAS_SHARED`が更新されると、それに応じて更新されます。
 
 ### SNAPSHOTS_CANVAS_STEP_SHARED
 
-以下の場合、`SNAPSHOTS_CANVAS_STEP_SHARED` に行が追加されます。
+以下の場合、`SNAPSHOTS_CANVAS_STEP_SHARED`に行が追加されます。
 - キャンバスが起動された場合、または
 - アクティブなキャンバスが更新された場合（起動後の下書きが適用された場合）、または
 - 以下のスナップショット可能なフィールドのいずれかが変更された場合：
@@ -101,7 +101,7 @@ SNAPSHOTSテーブルとCHANGELOGSテーブルは、キャンペーンとキャ�
 
 ### SNAPSHOTS_CANVAS_FLOW_STEP_SHARED
 
-以下の場合、`SNAPSHOTS_CANVAS_FLOW_STEP_SHARED` に行が追加されます。
+以下の場合、`SNAPSHOTS_CANVAS_FLOW_STEP_SHARED`に行が追加されます。
 - キャンバスが起動された場合、または
 - アクティブなキャンバスが更新された場合（起動後の下書きが適用された場合）、または
 - 以下のスナップショット可能なフィールドのいずれかが変更された場合：

@@ -6,6 +6,8 @@ description: "GitHub에서 미러링된 Braze Unity SDK README 참조입니다."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Unity SDK 리포지토리 가이드 {#unity-sdk-repository-guide}
+
 ## Braze Unity SDK 소개 {#about-the-braze-unity-sdk}
 
 Braze Unity SDK는 Braze 메시징, 분석 및 사용자 참여 기능을 애플리케이션에 통합하는 데 도움을 줍니다.
