@@ -100,7 +100,7 @@ Don’t forget to customize the confirmation page! You can edit this page by sel
 
 ## Step 6: Preview and launch your preference center
 
-You can preview your preference center by selecting the **Preview** tab within the editor. However, testing functionality is disabled. After editing your preference center, you can close the editor by selecting the **Done** button.
+You can preview your preference center by selecting the **Preview** tab within the editor. However, testing functionality is disabled. Additionally, test sends of campaigns or Canvas steps that include the preference center Liquid tag do not generate a valid link. To test the full functionality of your preference center, send a live campaign or Canvas. After editing your preference center, you can close the editor by selecting **Done**.
 
 You will see a preview of both the preference center and the confirmation page. Select **Save as Draft** to return to this preference center later, or if you are satisfied, select **Launch Preference Center**.
 
