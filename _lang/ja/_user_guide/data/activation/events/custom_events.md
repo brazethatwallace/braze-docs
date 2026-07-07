@@ -3,11 +3,11 @@ nav_title: カスタムイベント
 article_title: カスタムイベント
 page_order: 1
 page_type: reference
-description: "この記事では、カスタムイベントとプロパティ、セグメンテーション、使用法、Canvasエントリプロパティ、関連する分析の表示場所などについて説明します。"
+description: "この記事では、カスタムイベントとプロパティ、セグメンテーション、使用法、キャンバスエントリプロパティ、関連する分析の表示場所などについて説明します。"
 search_rank: 2
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}カスタムイベント {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
+# [![Braze Learning コース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}カスタムイベント {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
 > この記事では、カスタムイベントとプロパティ、ユーザープロファイルのイベント履歴、関連するセグメンテーションフィルター、キャンバスエントリプロパティ、関連する分析などについて説明します。Brazeのイベント全般については、[イベント]({{site.baseurl}}/user_guide/data/activation/events)を参照してください。
 
@@ -69,7 +69,7 @@ search_rank: 2
 
 ## カスタムイベントの記録 {#logging-custom-events}
 
-カスタムイベントには追加のセットアップが必要です。以下のリストを参照して、各プラットフォームのドキュメントを確認してください。カスタムイベントの記録に使用するメソッドや、プロパティと数量の追加方法についての情報が記載されています。
+カスタムイベントには追加のセットアップが必要です。以下のプラットフォーム別ドキュメントを参照して、カスタムイベントの記録に使用するメソッドや、プロパティと数量の追加方法をご確認ください。
 
 {% details プラットフォーム別のドキュメントを展開 %}
 
@@ -116,7 +116,7 @@ search_rank: 2
 - データエクスポートを設定せずに、特定のユーザーのサポート問題を調査する。
 
 {% alert note %}
-**イベント履歴**タブの表示には、イベントプロパティに個人データが含まれる可能性があるため、**ユーザーを検索**と**PIIの表示**の両方のユーザー権限が必要です。詳しくは、[会社のユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)を参照してください。
+**イベント履歴**タブの表示には、イベントプロパティに個人データが含まれる可能性があるため、**ユーザーを検索**、**PIIの表示**、および**ユーザーイベントプロパティの表示**のユーザー権限が必要です。詳しくは、[会社のユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)を参照してください。
 {% endalert %}
 
 ## セグメンテーションフィルター {#segmentation-filters}

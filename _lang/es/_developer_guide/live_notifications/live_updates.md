@@ -1,14 +1,12 @@
 ---
 nav_title: Actualizaciones en vivo para Android
 article_title: Actualizaciones en vivo para el SDK de Braze para Android
-page_order: 0.1
-description: "Aprende a configurar las actualizaciones en vivo para el SDK de Braze para Android."
-platform:
-  - Android
-  - FireOS
-hidden: true
+layout: redirect
+redirect_to: /docs/developer_guide/live_notifications/
+noindex: true
 ---
 
+<!--
 # Actualizaciones en vivo para Android {#live-updates-for-android}
 
 > Aprende a utilizar las actualizaciones en vivo de Android en el SDK de Braze, también conocidas como [notificaciones centradas en el progreso](https://developer.android.com/about/versions/16/features/progress-centric-notifications). Estas notificaciones son similares a las [actividades en vivo del SDK Swift de Braze]({{site.baseurl}}/developer_guide/live_notifications/live_activities), lo que te permite mostrar notificaciones interactivas en la pantalla de bloqueo. Android 16 introduce notificaciones centradas en el progreso para ayudar a los usuarios a realizar fácilmente un seguimiento de los recorridos iniciados por el usuario, de principio a fin.
@@ -110,7 +108,7 @@ class MyApplication : Application() {
 
 ### Paso 4: Enviar la actividad {#step-4-send-the-activity}
 
-Puedes utilizar el punto de conexión de la REST API [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) para enviar una notificación push al dispositivo Android de un usuario.
+Puedes utilizar el endpoint de la REST API [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) para enviar una notificación push al dispositivo Android de un usuario.
 
 #### Ejemplo de comando curl {#example-curl-command}
 
@@ -150,14 +148,15 @@ Aunque los comandos curl son útiles para realizar pruebas, recomendamos gestion
 | Clave | Descripción |
 |------------------------------|------------|
 | `REST_API_KEY` | Una clave de API REST de Braze con permisos `messages.send`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
-| `BRAZE_REST_ENDPOINT` | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/api/basics#endpoints). |
+| `BRAZE_REST_ENDPOINT` | La URL de tu endpoint REST. Tu endpoint dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/api/basics#endpoints). |
 | `USER_ID` | El ID del usuario al que estás enviando la notificación. |
 | `messages.android_push.title` | El título del mensaje. De forma predeterminada, no se utiliza para las notificaciones en vivo de la fábrica de notificaciones personalizada, pero puede utilizarse como alternativa. |
 | `messages.android_push.alert` | El cuerpo del mensaje. De forma predeterminada, no se utiliza para las notificaciones en vivo de la fábrica de notificaciones personalizada, pero puede utilizarse como alternativa. |
-| `messages.extra` | Pares clave-valor que utiliza la fábrica de notificaciones personalizada para las notificaciones en vivo. Puedes asignar cualquier cadena a este valor&#8212;sin embargo, en el ejemplo anterior, `live_updates` se utiliza para determinar si se trata de una notificación push predeterminada o en vivo. |
+| `messages.extra` | Pares clave-valor que utiliza la fábrica de notificaciones personalizada para las notificaciones en vivo. Puedes asignar cualquier cadena a este valor&#8212;sin embargo, en el [ejemplo de comando curl](#example-curl-command), `live_updates` se utiliza para determinar si se trata de una notificación push predeterminada o en vivo. |
 | `ASSIGNED_NOTIFICATION_ID` | El ID de notificación que deseas asignar a la notificación en vivo del usuario elegido. El ID debe ser único para este juego y debe utilizarse para [actualizar su notificación existente](#android_step-4-update-data-with-the-braze-rest-api) posteriormente. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Parámetros de la solicitud" }
 
 ### Paso 5: Actualizar la actividad {#step-5-update-the-activity}
 
-Para actualizar la actualización en vivo existente con nuevos datos, modifica los pares clave-valor relevantes asignados a `messages.extra`, luego utiliza el mismo `notification_id` y vuelve a llamar al punto de conexión `/messages/send`.
+Para actualizar la actualización en vivo existente con nuevos datos, modifica los pares clave-valor relevantes asignados a `messages.extra`, luego utiliza el mismo `notification_id` y vuelve a llamar al endpoint `/messages/send`.
+-->

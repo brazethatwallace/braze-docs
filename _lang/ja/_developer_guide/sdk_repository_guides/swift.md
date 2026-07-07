@@ -6,6 +6,8 @@ description: "GitHubからミラーリングされたBraze Swift SDK READMEリ�
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Swift SDKリポジトリガイド {#swift-sdk-repository-guide}
+
 ## Braze Swift SDKについて {#about-the-braze-swift-sdk}
 
 Braze Swift SDKは、Brazeのメッセージング、分析、ユーザーエンゲージメント機能をアプリに統合するのに役立ちます。

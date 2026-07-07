@@ -6,6 +6,8 @@ description: "GitHubからミラーリングされたBraze React Native SDK READ
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# React Native SDKリポジトリガイド
+
 ## Braze React Native SDKについて {#about-the-braze-react-native-sdk}
 
 Braze React Native SDKは、iOSおよびAndroidアプリをBrazeに接続します。ユーザープロファイル、メッセージング画面、分析、フィーチャーフラグに対応しています。ネイティブの[Braze Swift SDK](https://github.com/braze-inc/braze-swift-sdk)と[Braze Android SDK](https://github.com/braze-inc/braze-android-sdk)をJavaScript APIでラップしています。
@@ -14,11 +16,11 @@ Braze React Native SDKは、iOSおよびAndroidアプリをBrazeに接続しま�
 
 ### できること {#what-you-can-do}
 
-- **ユーザー管理**：ユーザーの識別、プロファイルフィールドの設定、カスタム属性、エイリアス、サブスクリプショングループの管理
+- **ユーザー管理**：ユーザーの識別、プロファイルフィールドの設定、カスタム属性、エイリアス、購読グループの管理
 - **アプリ内メッセージ**：デフォルトのBraze UIまたはサブスクリプションとログAPIによるカスタムハンドリング
 - **Content Cards**：デフォルトのフィードUI、またはカードを取得して独自のUIを構築
 - **バナー**：`BrazeBannerView`を含むプレースメントベースのHTMLバナー
-- **プッシュ通知**：権限プロンプト、トークン登録、ペイロードリスナー（以下のプラットフォーム別の注意事項を参照）
+- **プッシュ通知**：権限プロンプト、トークン登録、ペイロードリスナー（[プッシュ通知](#push-notifications)を参照）
 - **フィーチャーフラグ**：リフレッシュ、プロパティの読み取り、インプレッションの記録
 - **分析**：カスタムイベント、購入、即時フラッシュ
 - **SDKコントロール**：SDKの有効化/無効化、ローカルデータの消去、SDK認証署名
@@ -47,7 +49,7 @@ npm install @braze/react-native-sdk
 
 このセクションでは、Braze React Native SDKを初期化するために必要な最小限のセットアップを説明します。
 
-1. npmパッケージをインストールします（上記参照）。
+1. [インストール](#installation)でnpmパッケージをインストールします。
 2. AndroidとiOSの**ネイティブセットアップ**を完了します（設定、権限、必要に応じてプッシュ）。
 3. JavaScriptからSDKを初期化して使用を開始します：
 
@@ -174,7 +176,7 @@ React Nativeでは、**設定はネイティブ**で行います。Androidは`re
 | **セッション** | `sessionTimeout` | 新しいセッションが開始されるまでの非アクティブ時間（Brazeセッションドキュメントを参照）。 |
 | **プライバシー/データ** | `api.trackingPropertyAllowList`、`devicePropertyAllowList`、`api.sdkAuthentication` | [プライバシーマニフェスト](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/)とSDK認証の製品設定に合わせてください。 |
 | **ネットワーク** | `api.requestPolicy`、`api.flushInterval` | リクエストリトライポリシーとフラッシュ間隔。 |
-| **プッシュサブスクリプション** | `optInWhenPushAuthorized` | `true`の場合、ユーザーが通知を許可した後にサブスクリプションがオプトイン状態に移行できます。 |
+| **プッシュ購読** | `optInWhenPushAuthorized` | `true`の場合、ユーザーが通知を許可した後に購読がオプトイン状態に移行できます。 |
 | **IAMとユーザー変更** | `preventInAppMessageDisplayForDifferentUser` | ユーザーIDが変更された場合のIAMの不一致を軽減します。 |
 | **その他** | `forwardUniversalLinks`、`ephemeralEvents`、`useUUIDAsDeviceId`、… | 完全な動作についてはSwiftドキュメントを参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="iOS (Braze.Configuration)" }
@@ -221,7 +223,7 @@ Braze.subscribeToInAppMessage(false, (event) => {
 ### Content Cards
 
 ``` typescript
-const cards = await Braze.getContentCards();
+const cards = await Braze.getCachedContentCards();
 Braze.requestContentCardsRefresh();
 Braze.launchContentCards(); // default Braze UI
 
@@ -240,7 +242,7 @@ Braze.requestBannersRefresh(["homepage_banner"]);
 const banner = await Braze.getBanner("homepage_banner");
 
 // Or use the native Banner view:
-// <Braze.BrazeBannerView placementID="homepage_banner" />
+// <Braze.BrazeBannerView placementId="homepage_banner" />
 ```
 
 ### プッシュ通知 {#push-notifications}
@@ -412,7 +414,7 @@ npx react-native run-android
 - **iOS** — `BrazeReactInitializer.configure`に渡す`configure`クロージャで、`config.logger.level = .debug`（または`.info`）を設定します。本番環境ではログがユーザーに表示されないように、レベルを下げるか無効にしてください。
 - **Android** — `braze.xml`の`com_braze_logger_initial_log_level`リソースを使用するか、`BrazeConfig.Builder`で同等の設定を行います（[BrazeConfigurationProvider](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/logger-initial-log-level.html)を参照）。リリース前に冗長でないレベルを使用するか、オーバーライドを削除してください。
 
-より詳細なトラブルシューティング（ネットワーク、セッション、またはCampaignの動作）については、[Braze React Native開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native)とネイティブSDKドキュメント（[Swift](https://github.com/braze-inc/braze-swift-sdk) · [Android](https://github.com/braze-inc/braze-android-sdk)）を参照してください。
+より詳細なトラブルシューティング（ネットワーク、セッション、またはキャンペーンの動作）については、[Braze React Native開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native)とネイティブSDKドキュメント（[Swift](https://github.com/braze-inc/braze-swift-sdk) · [Android](https://github.com/braze-inc/braze-android-sdk)）を参照してください。
 
 ---
 

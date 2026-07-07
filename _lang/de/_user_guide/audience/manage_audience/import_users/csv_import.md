@@ -291,7 +291,7 @@ Um Ihre Datei hochzuladen, wählen Sie **Attributes** oder **Events**, klicken S
 
 Bei großen Dateien (bis zu 500 MB für Standardattribute und angepasste Attribute oder 50 MB für angepasste Events) kann das Dashboard vorübergehend nicht reagieren, während die Datei hochgeladen wird und Braze den Import berechnet. Diese Uploads und Berechnungen können länger dauern als bei kleineren Dateien. Lassen Sie diesen Schritt abschließen. Weitere Informationen zu Dateigrößenlimits und Zeitangaben finden Sie unter [CSV-Datei erstellen]({{site.baseurl}}/user_guide/data/user_data_collection/user_import#constructing-your-csv).
 
-Im Feld **Import name** können Sie Ihren Import umbenennen. Standardmäßig wird der Dateiname verwendet.
+Benennen Sie Ihre CSV-Datei vor dem Upload in den Importnamen um, den Sie in Braze sehen möchten. Der Importname kann nach dem Upload nicht mehr geändert werden.
 
 {% alert note %}
 Die Dateivorschau zeigt nur die ersten Zeilen Ihrer Datei. Um jede Zeile vor dem Import zu prüfen, verwenden Sie die [Dateivalidierung](#file-validation).
@@ -358,7 +358,7 @@ Wenn die Validierung abgeschlossen ist, wird eines der folgenden Ergebnisse ange
 | **Validierung abgelaufen mit Problemen** | Die Validierung hat das Zeitlimit überschritten und Fehler in einigen der geprüften Zeilen gefunden. | Laden Sie den Teilbericht herunter, um die gefundenen Probleme zu prüfen, und wählen Sie dann **Import anyway** oder **Cancel**. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validierungsergebnisse" }
 
-![Die Zusammenfassungsseite mit dem Abschnitt „Probleme gefunden“, der die Anzahl der Zeilen mit Fehlern und Warnungen anzeigt, sowie Optionen zum Zurückgehen, Herunterladen des Fehlerberichts oder Starten des Imports.]({% image_buster /assets/img/csv_import/summary_page_validation_results.png %})
+![Die Zusammenfassungsseite mit dem Abschnitt „Probleme gefunden„, der die Anzahl der Zeilen mit Fehlern und Warnungen anzeigt, sowie Optionen zum Zurückgehen, Herunterladen des Fehlerberichts oder Starten des Imports.]({% image_buster /assets/img/csv_import/summary_page_validation_results.png %})
 
 #### Den Fehlerbericht verstehen {#understanding-the-error-report}
 
@@ -368,7 +368,7 @@ Der Fehlerbericht ist eine CSV-Datei, die jede markierte Zeile zusammen mit ihre
 |---|---|
 | **Fehler** | Die Zeile wird beim Import vollständig übersprungen. |
 | **Warnung** | Die Zeile wird importiert, aber einige Werte werden verworfen. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Den Fehlerbericht verstehen" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label=“Den Fehlerbericht verstehen" }
 
 Nach der Überprüfung des Berichts können Sie die Probleme in Ihrer Originaldatei korrigieren und erneut hochladen oder mit dem Import fortfahren und die Teilergebnisse akzeptieren.
 

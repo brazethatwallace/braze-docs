@@ -24,7 +24,7 @@ Braze Audience Sync to Google 통합은 Google Ads를 지원하며, Google Ads M
 Google Ads는 더 이상 타겟팅 및 보고를 위한 유사 오디언스("유사 잠재고객"이라고도 함)를 생성하지 않습니다. 자세한 내용은 [Google Ads 설명서](https://support.google.com/google-ads/answer/12463119?)를 참조하세요.
 
 **커스텀 오디언스 동기화의 일반적인 사용 사례:**
-- 여러 채널을 통해 고가치 사용자를 타겟팅하여 구매 또는 참여를 유도합니다.
+- 여러 채널을 통해 고가치 사용자를 타겟팅하여 구매 또는 인게이지먼트를 유도합니다.
 - 다른 마케팅 채널에 덜 반응하는 사용자를 리타겟팅합니다.
 - 이미 브랜드의 충성 소비자인 사용자가 광고를 받지 않도록 억제 오디언스를 생성합니다.
 
@@ -40,9 +40,9 @@ Canvas에서 Google Audience 단계를 설정하기 전에 다음 항목이 생�
 | ----------- | ------ | ----------- |
 | Google Ads 계정 | [Google](https://support.google.com/google-ads/answer/6366720?hl=en) | 브랜드의 활성 Google Ads 계정.<br><br>여러 관리 계정에 걸쳐 오디언스를 공유하려면 [관리자 계정](https://support.google.com/google-ads/answer/6139186)에 오디언스를 업로드할 수 있습니다. |
 | Google Ads 약관 및 Google Ads 정책 | [Google](https://support.google.com/adspolicy/answer/54818?hl=en) | Braze Audience Sync 사용 시 [Google 광고 약관](https://payments.google.com/u/0/paymentsinfofinder?hostOrigin=aHR0cHM6Ly9wYXltZW50cy5nb29nbGUuY29tOjQ0Mw..&sri=-40) 및 [Google 광고 정책](https://support.google.com/adspolicy/answer/6008942?sjid=15557182366992806023-NC)(해당되는 경우 [EU 사용자 동의 정책](https://www.google.com/about/company/user-consent-policy/) 포함)을 수락하고 준수해야 합니다.<br><br>EEA, 영국 및 스위스 최종 사용자를 위한 Google Ads 서비스를 사용하기 위해 적절한 동의를 수집하고 있는지 확인하려면 법무팀에 Google의 새로운 EU 사용자 동의 정책에 대해 문의하세요. |
-| Google Customer Match | [Google](https://support.google.com/google-ads/answer/6299717) | Customer Match는 모든 광고주가 사용할 수 있는 것은 아닙니다.<br><br>**Customer Match를 사용하려면 계정에 다음이 필요합니다:**<br>• 양호한 정책 준수 이력<br>• 양호한 결제 이력<br>• Google Ads에서 최소 90일 이력<br>• 총 누적 지출 USD 50,000 이상. USD 이외의 통화로 관리되는 계정의 경우 해당 통화의 월평균 환율을 사용하여 지출 금액이 USD로 변환됩니다.<br><br>계정이 이러한 기준을 충족하지 않으면 현재 Customer Match를 사용할 수 없습니다.<br><br>계정의 Customer Match 사용 가능 여부에 대한 자세한 안내는 Google Ads 담당자에게 문의하세요. |
-| Google 동의 신호 | [Google](https://support.google.com/google-ads/answer/14310715) | Google의 Customer Match 서비스를 사용하여 EEA 최종 사용자에게 광고를 제공하려면 Google의 EU 사용자 동의 정책의 일부로 다음 커스텀 속성(부울)을 Braze에 전달해야 합니다. 자세한 내용은 [EEA, 영국 및 스위스 최종 사용자에 대한 동의 수집](#collecting-consent-for-eea-uk-and-switzerland-end-users)에서 확인할 수 있습니다: <br> - `$google_ad_user_data` <br> - `$google_ad_personalization` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
+| Google Customer Match | [Google](https://support.google.com/google-ads/answer/6299717) |  Customer Match는 모든 광고주가 사용할 수 있는 것은 아닙니다.<br><br>**Customer Match를 사용하려면 계정에 다음이 필요합니다:**<br>• 양호한 정책 준수 이력<br>• 양호한 결제 이력<br>• Google Ads에서 최소 90일 이력<br>• 총 누적 지출 USD 50,000 이상. USD 이외의 통화로 관리되는 계정의 경우 해당 통화의 월평균 환율을 사용하여 지출 금액이 USD로 변환됩니다.<br><br>계정이 이러한 기준을 충족하지 않으면 현재 Customer Match를 사용할 수 없습니다.<br><br>계정의 Customer Match 사용 가능 여부에 대한 자세한 안내는 Google Ads 담당자에게 문의하세요. |
+| Google 동의 신호 | [Google](https://support.google.com/google-ads/answer/14310715) |  Google의 Customer Match 서비스를 사용하여 EEA 최종 사용자에게 광고를 제공하려면 Google의 EU 사용자 동의 정책의 일부로 다음 커스텀 속성(부울)을 Braze에 전달해야 합니다. 자세한 내용은 [EEA, 영국 및 스위스 최종 사용자에 대한 동의 수집](#collecting-consent-for-eea-uk-and-switzerland-end-users)에서 확인할 수 있습니다: <br> - `$google_ad_user_data` <br> - `$google_ad_personalization` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="필수 조건" }
 
 ### 필수 SDK 버전 {#required-sdk-versions}
 
@@ -98,7 +98,7 @@ EEA, 영국 및 스위스 최종 사용자를 대상으로 Google Audience Sync�
 ### 1단계: Google 계정 연결 {#step-1-connect-google-account}
 
 {% alert important %}
-Google Ads를 Braze 계정에 연결하려면 ["Admin" 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin)이 필요합니다.
+Google Ads를 Braze 계정에 연결하려면 ["Admin" 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin)이 필요합니다.
 {% endalert %}
 
 시작하려면 **파트너 통합** > **기술 파트너** > **Google Ads**로 이동하여 **Connect Google Ads**를 선택합니다. Google Ads 계정과 연결된 이메일을 선택하라는 모달이 표시되며, 그런 다음 Braze에 Google Ads 계정에 대한 액세스 권한을 부여합니다.
@@ -202,7 +202,7 @@ Canvas 내에서 나머지 사용자 여정을 완료한 다음 시작하세요!
 | *오류 발생 사용자* | &#126;13시간의 재시도 후 오류로 인해 Google에 동기화되지 않은 사용자 수입니다. Google Ads API 서비스 중단과 같은 특정 오류의 경우 Canvas는 최대 &#126;13시간 동안 동기화를 재시도합니다. 해당 시점에서도 동기화가 불가능한 경우 *동기화되지 않은 사용자*가 채워집니다. |
 | *대기 중인 사용자* | 현재 Braze에서 Google에 동기화하기 위해 처리 중인 사용자 수입니다. |
 | *Canvas 종료함* | Canvas를 종료한 사용자 수입니다. 이는 Canvas의 마지막 단계가 Google 단계인 경우 발생합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="분석 이해" }
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
@@ -218,7 +218,20 @@ Google Customer Match는 이러한 오디언스의 형식과 포함되는 고객
 
 개인정보 보호를 위해 목록에 최소 1,000명의 구성원이 있을 때까지 사용자 목록 크기는 0으로 표시됩니다. 그 이후에는 크기가 가장 유효한 두 자릿수로 반올림됩니다.
 
-### Google에 오디언스를 동기화했는데 광고가 게재되지 않습니다. {#ive-synced-an-audience-into-google-but-my-ads-are-not-serving}
+### Braze에서 동기화한 사용자 수보다 Google에서 일치된 오디언스 크기가 작은 이유는 무엇인가요? {#why-is-my-matched-audience-size-in-google-lower-than-the-number-of-users-synced-from-braze}
+
+Braze가 특정 수의 사용자를 Google에 동기화하더라도 Google Ads에서 확인되는 실제 일치된 오디언스 크기는 상당히 작을 수 있습니다. 이는 Google이 제공된 사용자 데이터(예: 이메일 주소 또는 전화번호)를 플랫폼의 실제 Google 계정과 일치시켜야 하기 때문입니다.
+
+Braze 고객 프로필에 유효한 일치 필드가 포함되어 있더라도, 사용자는 일치하는 정보가 있는 Google 계정을 보유한 경우에만 Google 커스텀 오디언스에 표시됩니다.
+
+일치율을 개선하려면:
+- [데이터 형식이 올바른지](https://support.google.com/google-ads/answer/7659867) 확인하세요.
+- 가능한 경우 여러 식별자를 제공하세요(예: 이메일과 전화번호 모두).
+- Google이 사용자를 처리하고 일치시키는 데 48~72시간이 소요될 수 있으며, 경우에 따라 며칠이 걸릴 수도 있습니다.
+
+최종 일치된 오디언스 크기는 전적으로 Google의 일치 프로세스에 따라 결정됩니다. 데이터가 Google 플랫폼으로 전달된 후에는 Braze에서 Google의 일치 과정을 확인할 수 없습니다.
+
+### 오디언스를 Google에 동기화했는데 광고가 게재되지 않습니다. {#ive-synced-an-audience-into-google-but-my-ads-are-not-serving}
 
 광고 게재를 시작하려면 오디언스에 최소 5,000명의 사용자가 포함되어 있는지 확인하세요.
 

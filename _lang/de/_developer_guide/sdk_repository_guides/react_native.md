@@ -6,6 +6,8 @@ description: "Braze React Native SDK README-Referenz, gespiegelt von GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# React Native SDK Repository-Leitfaden
+
 ## Über das Braze React Native SDK {#about-the-braze-react-native-sdk}
 
 Das Braze React Native SDK verbindet Ihre iOS- und Android-Apps mit Braze: Nutzerprofile, Messaging-Oberflächen, Analytics und Feature-Flags. Es umschließt das native [Braze Swift SDK](https://github.com/braze-inc/braze-swift-sdk) und das [Braze Android SDK](https://github.com/braze-inc/braze-android-sdk) hinter einer JavaScript-API.
@@ -18,7 +20,7 @@ Das Braze React Native SDK verbindet Ihre iOS- und Android-Apps mit Braze: Nutze
 - **In-App-Nachrichten**: Standard-Braze-UI oder benutzerdefinierte Verarbeitung über Abonnements und Logging-APIs
 - **Content Cards**: Standard-Feed-UI oder Karten abrufen und eine eigene UI erstellen
 - **Banner**: Platzierungsbasierte HTML-Banner, einschließlich `BrazeBannerView`
-- **Push-Benachrichtigungen**: Berechtigungsabfragen, Token-Registrierung, Payload-Listener (siehe Plattformhinweise unten)
+- **Push-Benachrichtigungen**: Berechtigungsabfragen, Token-Registrierung, Payload-Listener (siehe [Push-Benachrichtigungen](#push-notifications))
 - **Feature-Flags**: Aktualisieren, Eigenschaften lesen, Impressionen protokollieren
 - **Analytics**: Angepasste Events, Käufe, sofortiger Flush
 - **SDK-Steuerung**: SDK aktivieren/deaktivieren, lokale Daten löschen, SDK-Authentifizierungssignaturen
@@ -47,7 +49,7 @@ npm install @braze/react-native-sdk
 
 Dieser Abschnitt zeigt die minimale Einrichtung, die erforderlich ist, um das Braze React Native SDK zu initialisieren.
 
-1. Installieren Sie das npm-Paket (siehe oben).
+1. Installieren Sie das npm-Paket unter [Installation](#installation).
 2. Schließen Sie die **native Einrichtung** für Android und iOS ab (Konfiguration, Berechtigungen, Push falls erforderlich).
 3. Initialisieren Sie das SDK aus JavaScript und beginnen Sie mit der Nutzung:
 
@@ -221,7 +223,7 @@ Braze.subscribeToInAppMessage(false, (event) => {
 ### Content Cards
 
 ``` typescript
-const cards = await Braze.getContentCards();
+const cards = await Braze.getCachedContentCards();
 Braze.requestContentCardsRefresh();
 Braze.launchContentCards(); // default Braze UI
 
@@ -240,7 +242,7 @@ Braze.requestBannersRefresh(["homepage_banner"]);
 const banner = await Braze.getBanner("homepage_banner");
 
 // Or use the native Banner view:
-// <Braze.BrazeBannerView placementID="homepage_banner" />
+// <Braze.BrazeBannerView placementId="homepage_banner" />
 ```
 
 ### Push-Benachrichtigungen {#push-notifications}
@@ -258,7 +260,7 @@ Braze.registerPushToken(token);
 - **`getInitialPushPayload`**: Verwenden Sie dies, wenn die App über eine Benachrichtigung geöffnet wird, um Race-Conditions mit RN `Linking` zu vermeiden; erfordert native Hooks (`BrazeReactUtils` auf iOS, `BrazeReactUtils.populateInitialPushPayloadFromIntent` auf Android), wie in den TypeScript-Dokumentkommentaren und der Beispiel-App beschrieben.
 - **`Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, ...)`** ist gemäß den öffentlichen Typisierungen **nur für Android** verfügbar.
 
-### Feature-Flags
+### Feature-Flags {#feature-flags}
 
 ``` typescript
 const flag = await Braze.getFeatureFlag("new_checkout");
@@ -348,7 +350,7 @@ useEffect(() => {
 - **Expo**: Verwenden Sie das [Braze Expo Plugin](https://github.com/braze-inc/braze-expo-plugin), um manuelle native Verdrahtung nach Möglichkeit zu vermeiden.
 - **New Architecture / Turbo Modules**: Wird in neueren Plugin-Versionen unterstützt; folgen Sie dem Entwicklerleitfaden und den Beispiel-`AppDelegate`-/Gradle-Einstellungen, wenn Sie migrieren.
 - **Datenschutz (iOS)**: Methoden wie `updateTrackingPropertyAllowList` unterstützen die Konfiguration im Zusammenhang mit dem Privacy Manifest; siehe [Swift Privacy Manifest](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/).
-## - **Jest**: Mocken Sie `react-native`-native Module oder das Braze Turbo Module (siehe `__tests__/jest.setup.js` in diesem Repository für Muster). {#jest-mock-react-native-native-modules-or-the-braze-turbo-module-see-__tests__jestsetupjs-in-this-repo-for-patterns}
+- **Jest**: Mocken Sie `react-native`-native Module oder das Braze Turbo Module (siehe `__tests__/jest.setup.js` in diesem Repository für Muster).
 
 ## Versionsunterstützung {#version-support}
 

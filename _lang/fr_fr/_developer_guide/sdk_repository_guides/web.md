@@ -6,9 +6,11 @@ description: "Référence du README du SDK Web de Braze, miroir depuis GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guide du dépôt du SDK Web {#web-sdk-repository-guide}
+
 ## À propos du SDK Web de Braze {#about-the-braze-web-sdk}
 
-Le SDK Web de Braze vous permet d'intégrer la plateforme d'engagement client de Braze directement dans vos applications Web. Conçu avec TypeScript et pensé pour le développement Web moderne, ce SDK fournit des outils complets pour la gestion des utilisateurs, l'envoi de messages, l'analytique et les indicateurs de fonctionnalité.
+Le SDK Web de Braze vous permet d'intégrer la plateforme d'engagement client de Braze directement dans vos applications Web. Conçu avec TypeScript et pensé pour le développement Web moderne, ce SDK fournit des outils complets pour la gestion des utilisateurs, l'envoi de messages, l'analytique et les feature flags.
 
 ### Ce que vous pouvez faire {#what-you-can-do}
 
@@ -17,11 +19,11 @@ Le SDK Web de Braze vous permet d'intégrer la plateforme d'engagement client de
 - **Content Cards** : affichez des flux de contenu personnalisés et des cartes promotionnelles qui se mettent à jour en temps réel
 - **Bannières** : affichez des messages sous forme de bannières dans des emplacements spécifiques de votre site
 - **Notifications push** : envoyez des notifications push Web pour engager les utilisateurs même lorsqu'ils ne sont pas sur votre site
-- **Indicateurs de fonctionnalité** : contrôlez le déploiement des fonctionnalités et les tests A/B grâce à la gestion des indicateurs de fonctionnalité côté serveur
+- **Feature flags** : contrôlez le déploiement des fonctionnalités et les tests A/B grâce à la gestion des feature flags côté serveur
 - **Analytique** : suivez les événements personnalisés, les interactions utilisateur et les indicateurs de conversion
 - **Gestion des sessions** : surveillez les sessions utilisateur et les schémas d'engagement
 
-Que vous développiez une application monopage, un site e-commerce ou une plateforme de contenu, le SDK Web de Braze fournit les outils nécessaires pour créer des expériences utilisateur personnalisées et engageantes qui favorisent la croissance et la rétention.
+Que vous développiez une application monopage, un site e-commerce ou une plateforme de contenu, le SDK Web de Braze fournit les outils nécessaires pour créer des expériences utilisateur personnalisées et engageantes qui favorisent la croissance et la fidélisation.
 
 ## Conditions préalables {#prerequisites}
 
@@ -449,9 +451,9 @@ unregisterPush(
 );
 ```
 
-### Indicateurs de fonctionnalité {#feature-flags}
+### Feature flags {#feature-flags}
 
-#### Obtenir un indicateur de fonctionnalité {#get-feature-flag}
+#### Obtenir un feature flag {#get-feature-flag}
 
 ``` typescript
 import { getFeatureFlag } from "@braze/web-sdk";
@@ -467,7 +469,7 @@ if (featureFlag) {
 }
 ```
 
-#### S'abonner aux mises à jour des indicateurs de fonctionnalité {#subscribe-to-feature-flag-updates}
+#### S'abonner aux mises à jour des feature flags {#subscribe-to-feature-flag-updates}
 
 ``` typescript
 import { subscribeToFeatureFlagsUpdates } from "@braze/web-sdk";
@@ -479,7 +481,7 @@ subscribeToFeatureFlagsUpdates((featureFlags) => {
 });
 ```
 
-#### Enregistrer les impressions des indicateurs de fonctionnalité {#log-feature-flag-impressions}
+#### Enregistrer les impressions des feature flags {#log-feature-flag-impressions}
 
 ``` typescript
 import { logFeatureFlagImpression } from "@braze/web-sdk";
@@ -490,7 +492,7 @@ if (featureFlag) {
 }
 ```
 
-#### Demander l'actualisation des indicateurs de fonctionnalité {#request-feature-flags-refresh}
+#### Demander l'actualisation des feature flags {#request-feature-flags-refresh}
 
 ``` typescript
 import { refreshFeatureFlags } from "@braze/web-sdk";

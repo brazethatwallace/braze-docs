@@ -6,6 +6,8 @@ description: "GitHub에서 미러링된 Braze React Native SDK README 참조입�
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# React Native SDK 리포지토리 가이드 {#react-native-sdk-repository-guide}
+
 ## Braze React Native SDK 소개 {#about-the-braze-react-native-sdk}
 
 Braze React Native SDK는 iOS 및 Android 앱을 Braze에 연결합니다: 고객 프로필, 메시징 표면, 분석, 피처 플래그를 지원합니다. 네이티브 [Braze Swift SDK](https://github.com/braze-inc/braze-swift-sdk) 및 [Braze Android SDK](https://github.com/braze-inc/braze-android-sdk)를 JavaScript API로 래핑합니다.
@@ -18,7 +20,7 @@ Braze React Native SDK는 iOS 및 Android 앱을 Braze에 연결합니다: 고�
 - **인앱 메시지**: 기본 Braze UI 또는 구독 및 로깅 API를 통한 커스텀 처리
 - **Content Cards**: 기본 피드 UI 또는 카드를 가져와 자체 UI 구축
 - **배너**: `BrazeBannerView`를 포함한 배치 기반 HTML 배너
-- **푸시 알림**: 권한 프롬프트, 토큰 등록, 페이로드 리스너(아래 플랫폼 참고 사항 참조)
+- **푸시 알림**: 권한 프롬프트, 토큰 등록, 페이로드 리스너([푸시 알림](#push-notifications) 참조)
 - **피처 플래그**: 새로고침, 속성 읽기, 노출 기록
 - **분석**: 커스텀 이벤트, 구매, 즉시 플러시
 - **SDK 제어**: SDK 활성화/비활성화, 로컬 데이터 삭제, SDK 인증 서명
@@ -47,7 +49,7 @@ npm install @braze/react-native-sdk
 
 이 섹션에서는 Braze React Native SDK를 초기화하는 데 필요한 최소 설정을 보여줍니다.
 
-1. npm 패키지를 설치합니다(위 참조).
+1. [설치](#installation)에서 npm 패키지를 설치합니다.
 2. Android 및 iOS에 대한 **네이티브 설정**을 완료합니다(구성, 권한, 필요 시 푸시).
 3. JavaScript에서 SDK를 초기화하고 사용을 시작합니다:
 
@@ -221,7 +223,7 @@ Braze.subscribeToInAppMessage(false, (event) => {
 ### Content Cards
 
 ``` typescript
-const cards = await Braze.getContentCards();
+const cards = await Braze.getCachedContentCards();
 Braze.requestContentCardsRefresh();
 Braze.launchContentCards(); // default Braze UI
 
@@ -240,7 +242,7 @@ Braze.requestBannersRefresh(["homepage_banner"]);
 const banner = await Braze.getBanner("homepage_banner");
 
 // Or use the native Banner view:
-// <Braze.BrazeBannerView placementID="homepage_banner" />
+// <Braze.BrazeBannerView placementId="homepage_banner" />
 ```
 
 ### 푸시 알림 {#push-notifications}
@@ -281,7 +283,7 @@ Braze.requestImmediateDataFlush();
 
 ### 데이터 관리 및 SDK 상태 {#data-management-and-sdk-state}
 
-**`changeUser`**는 Braze에 **새로운** 활동을 어떤 사용자 ID에 귀속시킬지만 알려줍니다. 기기에 캐시된 SDK 데이터를 지우지 **않습니다**. 별도의 "로그아웃" API는 없습니다: 기존 로그아웃(이전 사용자의 캐시된 프로필, 메시지, 토큰이 이 설치에서 사라지도록 로컬 Braze 상태를 지우는 것)이 필요한 경우 일반적으로 **`wipeData()`**를 사용합니다. 이는 전체 로컬 초기화입니다.
+**`changeUser`**는 Braze에 **새로운** 활동을 어떤 사용자 ID에 귀속시킬지만 알려줍니다. 기기에 캐시된 SDK 데이터를 지우지 **않습니다**. 별도의 "로그아웃" API는 없습니다: 기존 로그아웃(이전 사용자의 캐시된 프로필, 메시지, 토큰이 이 설치에서 사라지도록 로컬 Braze 상태를 지우는 것)이 필요한 경우 일반적으로 **`wipeData()`**를 사용합니다. 이는 전체 로컬 리셋입니다.
 
 ``` typescript
 Braze.wipeData();
@@ -289,7 +291,7 @@ Braze.disableSDK();
 Braze.enableSDK();
 ```
 
-**`wipeData()`** — 이 설치에 대한 Braze의 **로컬** 데이터(캐시된 사용자/세션/카드 상태, 푸시 토큰 연결 등)를 지웁니다. 이전 사용자의 Braze 상태를 기기에 남기지 않아야 하는 **로그아웃 스타일** 동작, **"이 기기에서 내 데이터 삭제"**, 재설치 없이 **QA** 초기화, 또는 엄격한 **개인정보** 흐름에 사용합니다. **`changeUser`**만으로는 해당 정리를 수행하지 않으며, **새로운** 이벤트를 수신할 사용자 ID만 설정합니다. **iOS**에서는 동작이 Android와 다를 수 있습니다(예: SDK 비활성화 상태와의 상호작용). 프로덕션에서 사용하는 경우 Braze의 네이티브 문서를 참조하세요.
+**`wipeData()`** — 이 설치에 대한 Braze의 **로컬** 데이터(캐시된 사용자/세션/카드 상태, 푸시 토큰 연결 등)를 지웁니다. 이전 사용자의 Braze 상태를 기기에 남기지 않아야 하는 **로그아웃 스타일** 동작, **"이 기기에서 내 데이터 삭제"**, 재설치 없이 **QA** 리셋, 또는 엄격한 **개인정보** 흐름에 사용합니다. **`changeUser`**만으로는 해당 정리를 수행하지 않으며, **새로운** 이벤트를 수신할 사용자 ID만 설정합니다. **iOS**에서는 동작이 Android와 다를 수 있습니다(예: SDK 비활성화 상태와의 상호작용). 프로덕션에서 사용하는 경우 Braze의 네이티브 문서를 참조하세요.
 
 **`disableSDK()`** — SDK 작동을 중지합니다(구성된 대로 수집/전달 없음). **사용자 옵트아웃** 토글, **제한 모드**(규정 준수, 어린이 설정), 또는 종속성을 제거하지 않고 **디버깅**에 사용합니다.
 

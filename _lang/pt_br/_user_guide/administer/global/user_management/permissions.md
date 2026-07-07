@@ -91,7 +91,7 @@ Tenha em mente os seguintes comportamentos ao atribuir acesso ao dashboard:
 - **Usuários limitados:** Usuários limitados com a permissão "Edit Dashboard Users" podem gerenciar outros usuários limitados, mas não podem criar ou gerenciar contas de administrador da empresa.
 - **Escopo de gerenciamento de usuários do dashboard:** Na página de detalhes do usuário, as permissões aparecem apenas para os espaços de trabalho que o editor pode acessar. Um usuário limitado que pode editar usuários em um espaço de trabalho pode não ver as caixas de seleção de permissões de outro espaço de trabalho.
 - **Exportar dados de usuários:** A exportação de dados de usuários requer acesso no nível do espaço de trabalho, além da permissão de exportação.
-- **Permissões compostas:** Algumas áreas exigem múltiplas permissões. Por exemplo, configurar [Parceiros de tecnologia]({{site.baseurl}}/partners) normalmente requer tanto o acesso ao parceiro quanto uma permissão básica de leitura para os recursos relacionados do espaço de trabalho.
+- **Permissões compostas:** Algumas áreas exigem múltiplas permissões. Por exemplo, configurar [parceiros de tecnologia]({{site.baseurl}}/partners) normalmente requer tanto o acesso ao parceiro quanto uma permissão básica de leitura para os recursos relacionados do espaço de trabalho.
 - **Importar e atualizar dados de usuários:** Essa permissão inclui a capacidade de editar perfis de usuários do app por meio de fluxos de importação, não apenas registros de usuários do dashboard.
 
 ## Editar as permissões de um usuário {#edit-a-users-permissions}
@@ -222,6 +222,7 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Dados de usuários | Export User Data | Baixar usuários do dashboard |
 | Usuários duplicados | View User Merge Records | Visualizar uma lista de registros de mesclagem de usuários |
 | Usuários | View User Profiles (PII Redacted) | Visualizar perfis de usuário de maneira compatível com IPI |
+| Usuários | View User Event Properties | Visualizar propriedades de eventos na guia **Histórico de eventos** nos perfis de usuário |
 | Usuários duplicados | Merge Duplicate Users | Combinar usuários duplicados em um único usuário. Os duplicados são removidos após a mesclagem |
 | Exclusão de usuários | View User Deletion Records | Visualizar uma lista de registros de exclusão de usuários |
 | Exclusão de usuários | Delete Users | Excluir permanentemente usuários do dashboard individualmente ou em massa |
@@ -376,5 +377,5 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Grupos de inscrições | Edit Subscriptions | Criar e atualizar grupos de inscrições |
 | Transformações | Edit Data Transformation | Criar e atualizar transformações de dados |
 | Transformações | View Data Transformation | Visualizar transformações de dados |
-| Tíquetes de suporte | Create Support Ticket | Criar e atualizar tíquetes de suporte |
+| Tickets de suporte | Create Support Ticket | Criar e atualizar tickets de suporte |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Outras permissões" }

@@ -6,6 +6,8 @@ description: "Référence du README du SDK Braze Swift, miroir depuis GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guide du dépôt Swift SDK {#swift-sdk-repository-guide}
+
 ## À propos du SDK Braze Swift {#about-the-braze-swift-sdk}
 
 Le SDK Braze Swift vous aide à intégrer les fonctionnalités d'envoi de messages, d'analyse et d'engagement utilisateur de Braze dans votre application.

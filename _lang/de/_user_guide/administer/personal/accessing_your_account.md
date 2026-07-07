@@ -59,11 +59,20 @@ Wenn Ihr E-Mail-Anbieter kein `+`-Aliasing unterstützt, können Sie dennoch sep
 
 ### Multi-Company-Entwickler:innen verwenden {#use-multi-company-developers}
 
-Das Feature Multi-Company-Entwickler:innen ermöglicht die gemeinsame Nutzung eines einzelnen Nutzerkontos über mehrere Unternehmen hinweg. Nutzer:innen können über ihr Nutzerprofilmenü zwischen verschiedenen Unternehmens-Dashboards wechseln.
+Das Feature Multi-Company-Entwickler:innen ermöglicht die gemeinsame Nutzung eines einzelnen Nutzerkontos über mehrere Unternehmen hinweg. Dashboard-Nutzer:innen können über ihr Nutzerprofilmenü zwischen verschiedenen Unternehmens-Dashboards umschalten.
 
 Wenn Sie SSO verwenden und Multi-Company-Entwickler:innen einrichten möchten, müssen Sie eine benutzerdefinierte SAML-Entity-ID aktivieren, indem Sie eine benutzerdefinierte SAML-SSO-Integration einrichten. Folgen Sie den Schritten unter [Service-Provider-initiierte Anmeldung (SP)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), wenden Sie jedoch diese Änderungen an:
 - Ändern Sie die **Entity-ID** für jede Dashboard-Integration in `braze_dashboard_<companyID>`.
 - Kontaktieren Sie Ihren Customer-Success-Manager oder Account Manager, um den Feature-Flipper `saml_sso_custom_entity_id` für jedes Dashboard zu aktivieren.
+
+#### Zwei-Faktor-Authentifizierung (2FA) {#two-factor-authentication-2fa}
+
+Wie 2FA für Multi-Company-Entwickler:innen funktioniert, hängt von Ihrer 2FA-Methode ab:
+
+- **E-Mail und SMS:** Ihre 2FA-Einstellungen werden auf alle verknüpften Entwicklerkonten kopiert. Nachdem Sie E-Mail- oder SMS-2FA auf einem Konto eingerichtet haben, gilt dieselbe Methode für alle Ihre Unternehmens-Dashboards.
+- **Zeitbasiertes Einmalpasswort (TOTP):** TOTP-Einstellungen werden nicht kontenübergreifend synchronisiert. Wenn Sie eine Authenticator-App verwenden, müssen Sie für jedes Dashboard, bei dem Sie sich direkt anmelden, einen separaten Code einrichten.
+
+Wenn Sie innerhalb des Dashboards zwischen Konten wechseln, müssen Sie die 2FA nur einmal abschließen – beim ersten Mal, wenn Sie sich während dieser Sitzung bei einem verknüpften Konto anmelden.
 
 ### Hinweise zu Single Sign-on (SSO) {#considerations-for-single-sign-on-sso}
 

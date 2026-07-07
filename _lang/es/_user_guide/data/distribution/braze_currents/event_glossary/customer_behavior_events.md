@@ -26,7 +26,7 @@ Ponte en contacto con tu representante de Braze o abre un [ticket de soporte]({{
 
 {% details Explicación de la estructura de eventos de comportamiento del cliente y del usuario, y valores de plataforma %}
 
-### Estructura del evento {#event-structure}
+## Estructura del evento {#event-structure}
 
 Este desglose del comportamiento del cliente y de los eventos del usuario muestra qué tipo de información se incluye generalmente en un evento de comportamiento del cliente o del usuario. Con una sólida comprensión de sus componentes, tus desarrolladores y el equipo de estrategia de inteligencia empresarial pueden utilizar los datos de eventos de Currents entrantes para elaborar informes y gráficos basados en datos, y aprovechar otras valiosas métricas de datos.
 
@@ -70,11 +70,11 @@ Algunos eventos devuelven un valor `platform` que especifica la plataforma del d
 Random Bucket Number
 {% endapitags %}
 
-Este evento de usuario se produce cada vez que se crea un nuevo usuario dentro de su espacio de trabajo. Durante este evento, a cada nuevo usuario se le asigna un número de contenedor aleatorio que luego puedes utilizar para crear segmentos distribuidos uniformemente de usuarios aleatorios. Utiliza esta función para agrupar una serie de valores de números de contenedor aleatorios y comparar el rendimiento de tus Campaigns y variantes de campaña.
+Este evento de usuario se produce cada vez que se crea un nuevo usuario dentro de su espacio de trabajo. Durante este evento, a cada nuevo usuario se le asigna un número de contenedor aleatorio que luego puedes utilizar para crear segmentos distribuidos uniformemente de usuarios aleatorios. Utiliza esta función para agrupar una serie de valores de números de contenedor aleatorios y comparar el rendimiento de tus campañas y variantes de campaña.
 
 {% alert important %}
 Este evento de Currents solo está disponible para los clientes que hayan adquirido un «conector para todos los eventos» y solo está disponible para conectores de eventos de almacenamiento (como Amazon S3, Microsoft Azure y Google Cloud Storage).
-<br><br>Para habilitar este evento y programar el relleno de los números de contenedor aleatorios de los usuarios existentes en tu espacio de trabajo, ponte en contacto con tu administrador del éxito del cliente.
+<br><br>Para habilitar este evento y programar el relleno de los números de contenedor aleatorios de los usuarios existentes en tu espacio de trabajo, ponte en contacto con tu administrador de éxito de cliente.
 {% endalert %}
 
 {% tabs %}
@@ -250,7 +250,7 @@ Este evento se produce cuando se desencadena un evento personalizado específico
 
 - En el caso de los eventos personalizados, la carga útil también se completará con cualquier [propiedad del evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#custom-event-properties) asociada al evento.
 - Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, debes recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información aquí: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador del éxito del cliente o director de cuentas para habilitar el feature flipper para el envío de `ad_id`.
+- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador de éxito de cliente o director de cuentas para habilitar el feature flipper para el envío de `ad_id`.
 
 {% endapi %}
 
@@ -537,7 +537,7 @@ Este evento se desencadena cuando un usuario visita una ubicación determinada. 
 ### Detalles de la propiedad
 
 - Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, debes recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información aquí: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador del éxito del cliente o director de cuentas para habilitar el feature flipper para el envío de `ad_id`.
+- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador de éxito de cliente o director de cuentas para habilitar el feature flipper para el envío de `ad_id`.
 
 {% endapi %}
 
@@ -708,7 +708,7 @@ Las compras son eventos personalizados especiales y vienen con una cadena codifi
 
 - En el caso de los eventos de compra, la carga útil también se completará con cualquier [propiedad del evento de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#purchase-properties) asociada al evento.
 - Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, debes recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información aquí: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador del éxito del cliente o director de cuentas para habilitar el feature flipper para el envío de `ad_id`.
+- Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador de éxito de cliente o director de cuentas para habilitar el feature flipper para el envío de `ad_id`.
 
 {% endapi %}
 
@@ -1589,7 +1589,7 @@ Este evento se produce cuando se inserta, actualiza o elimina un token de notifi
 
 ##### Añadir {#add}
 
-Se ingesta un evento "add" cuando se registra un nuevo token. Esto ocurre cuando un usuario abre la aplicación en un nuevo dispositivo por primera vez, o cuando se establece un token a través del punto de conexión [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) con `push_tokens` para un usuario que no tenía uno anteriormente.
+Se ingesta un evento "add" cuando se registra un nuevo token. Esto ocurre cuando un usuario abre la aplicación en un nuevo dispositivo por primera vez, o cuando se establece un token a través del endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) con `push_tokens` para un usuario que no tenía uno anteriormente.
 
 {% alert note %}
 Para iOS Swift SDK 13.3.0 y versiones posteriores, y Android SDK 40.0.0 y versiones posteriores, el estado del permiso push y el token de notificaciones push se envían juntos. Para los nuevos registros de estos SDK, `push_token_foreground_push_disabled` se rellena en el evento "add" (normalmente `false` cuando las notificaciones están habilitadas).<br><br>
@@ -1602,7 +1602,7 @@ Los registros de tokens más antiguos pueden seguir teniendo este campo como `nu
 Se ingesta un evento "update" cuando cambia una propiedad de un token existente sin que cambie la cadena del token en sí. El token tiene la misma cadena, el mismo usuario y la misma aplicación, pero uno o varios de los siguientes campos han cambiado: `foreground_push_disabled`, puerta de enlace APNs, claves de notificaciones push web, `provisionally_opted_in` o `device_id`. Estas actualizaciones provienen de eventos de sincronización del estado del token (por ejemplo, cuando el SDK informa de un nuevo estado de permiso), no de los resultados de envío push.
 
 {% alert note %}
-En la mayoría de los casos, la reinstalación de la aplicación o la restauración de una copia de seguridad da como resultado un nuevo evento "add" con un nuevo `push_token` y un nuevo `device_id` (porque el SDK genera un nuevo `device_id` y el sistema operativo proporciona una nueva cadena de token de notificaciones push). Esto crea dos entradas separadas para el token y el dispositivo en el perfil de usuario, y la entrada más antigua se elimina posteriormente mediante Uninstall Tracking o el envío de una Campaign.<br><br>
+En la mayoría de los casos, la reinstalación de la aplicación o la restauración de una copia de seguridad da como resultado un nuevo evento "add" con un nuevo `push_token` y un nuevo `device_id` (porque el SDK genera un nuevo `device_id` y el sistema operativo proporciona una nueva cadena de token de notificaciones push). Esto crea dos entradas separadas para el token y el dispositivo en el perfil de usuario, y la entrada más antigua se elimina posteriormente mediante Uninstall Tracking o el envío de una campaña.<br><br>
 
 Sería muy raro que solo cambiara el `device_id` sin que cambiara el `push_token` (esto requeriría que el sistema operativo devolviera la misma cadena de token después de la reinstalación).
 {% endalert %}
@@ -1627,10 +1627,10 @@ Los pares de añadir y eliminar se dividen en dos categorías:
 
 - El SDK llama a `changeUser` desde un perfil anónimo a un perfil identificado. El evento "remove" tendrá un `external_user_id` vacío.
 - El SDK llama a `changeUser` de un perfil identificado a otro. Ambos eventos tendrán un `external_user_id` no vacío.
-- El punto de conexión [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) o la limpieza de usuarios duplicados traslada los tokens del usuario huérfano al usuario superviviente.
+- El endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) o la limpieza de usuarios duplicados traslada los tokens del usuario huérfano al usuario superviviente.
 
 {% alert note %}
-Si se identifica un perfil anónimo a través del punto de conexión [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify), el `user_id` no cambia y no se emite ningún evento de cambio de estado del token.
+Si se identifica un perfil anónimo a través del endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify), el `user_id` no cambia y no se emite ningún evento de cambio de estado del token.
 {% endalert %}
 
 #### Consultar el último estado activo del token {#querying-for-the-latest-active-token-state}

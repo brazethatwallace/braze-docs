@@ -40,7 +40,7 @@ Cada bloco de conteúdo de arrastar e soltar é limitado a uma linha. No entanto
 
 | Atributo do bloco de conteúdo | Especificações |
 |---|---|
-| Nome | Campo obrigatório com no máximo 100 caracteres. Não pode ser renomeado após o bloco de conteúdo ter sido salvo. Além disso, você não pode dar a um novo bloco de conteúdo o mesmo nome de um bloco anterior, mesmo que o anterior tenha sido arquivado. |
+| Nome | Campo obrigatório com no máximo 100 caracteres. Os nomes dos blocos de conteúdo podem conter apenas letras (A-Z), números (0-9), hifens (`-`) e underscores (`_`). Espaços e outros caracteres especiais não são permitidos e são convertidos automaticamente (por exemplo, espaços são substituídos por underscores). Os nomes não podem ser alterados após o bloco de conteúdo ser salvo, e você não pode reutilizar o nome de um bloco de conteúdo anterior, mesmo que arquivado. |
 | Descrição | (opcional) No máximo 250 caracteres. Descreva o bloco de conteúdo para que outros usuários da Braze saibam para que serve e onde é usado. |
 | Tamanho do conteúdo | No máximo 50 KB. |
 | Posicionamento | Os blocos de conteúdo não podem ser usados em um rodapé de e-mail, mas você pode [criar um bloco de conteúdo que inclua um rodapé](#email-footers) para uso em seus e-mails. |
@@ -103,9 +103,9 @@ Os blocos de conteúdo inseridos via Liquid **estão vinculados** ao bloco de co
 
 ## Pré-visualizar blocos de conteúdo {#preview-content-blocks}
 
-Após adicionar um bloco de conteúdo em uma Campaign ou Canvas ativo, você pode pré-visualizá-lo na Biblioteca de blocos de conteúdo passando o cursor sobre o bloco de conteúdo e selecionando o ícone <i class="fa fa-eye preview-icon"></i> **Pré-visualização**.
+Após adicionar um bloco de conteúdo em uma Campaign ou Canvas ativo, você pode pré-visualizá-lo na Biblioteca de blocos de conteúdo passando o cursor sobre o bloco de conteúdo e selecionando o ícone <i class="fa fa-eye preview-icon"></i> **Prévia**.
 
-Essa pré-visualização inclui informações sobre o bloco de conteúdo, como quem o criou, tags, data de criação, data da última edição, descrição, tipo de editor, contagem de inclusões com detalhes (uma lista clicável de mensagens ou blocos de conteúdo que usam o bloco de conteúdo) e uma pré-visualização real do bloco de conteúdo.
+Essa prévia inclui informações sobre o bloco de conteúdo, como quem o criou, tags, data de criação, data da última edição, descrição, tipo de editor, contagem de inclusões com detalhes (uma lista clicável de mensagens ou blocos de conteúdo que usam o bloco de conteúdo) e uma prévia real do bloco de conteúdo.
 
 ## Aninhar blocos de conteúdo {#nest-content-blocks}
 
